@@ -1,0 +1,45 @@
+version: "2.0"
+
+services:
+  ace777:
+    image: docker.io/YOUR_DOCKERHUB_USER/ace777:latest
+    env:
+      - RUN_DURATION=04:00:00
+      - LAUNCH_SCRIPT=./launch_test_master_base_v8_6_fortress.sh
+      - MOMENTUM_THRESHOLD=0.94
+      - WALL_DROP_THRESHOLD=0.033
+      - BUY_USDT_BETA=250
+      - BUY_USDT_ALPHA=250
+      - GLOBAL_STOP_USDT=-32.00
+      - FLUID_EXIT_SENSITIVITY=1.0
+      - DYNAMIC_HOLD=TRUE
+      # Inject these securely before deployment:
+      # - BINANCE_API_KEY=...
+      # - BINANCE_API_SECRET=...
+    expose:
+      - port: 3000
+        to:
+          - service: ace777
+
+profiles:
+  compute:
+    ace777:
+      resources:
+        cpu:
+          units: 1
+        memory:
+          size: 1Gi
+        storage:
+          - size: 5Gi
+  placement:
+    dcloud:
+      pricing:
+        ace777:
+          denom: uakt
+          amount: 1000
+
+deployment:
+  ace777:
+    dcloud:
+      profile: ace777
+      count: 1

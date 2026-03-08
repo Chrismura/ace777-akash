@@ -1,0 +1,80 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+cd /Users/christophe/ace777-test-day1
+
+# Session: Resonance Mecanique (Modele V8.2 Tension)
+# Base: setup 27000s ALPHA direct + levier lisse vers x13
+
+export TEST_TAG_OVERRIDE="MASTER_BASE_V8_2_TENSION_7H30"
+export RUN_SEC_OVERRIDE=27000
+
+# Setup valide de base (user)
+export MOMENTUM_THRESHOLD="${MOMENTUM_THRESHOLD:-0.85}"
+export ALPHA_REVENGE_MULT="${ALPHA_REVENGE_MULT:-1.618}"
+export GLOBAL_STOP_USDT="${GLOBAL_STOP_USDT:--16.00}"
+export STOP_LOSS_BPS="${STOP_LOSS_BPS:-16}"
+
+# V8 - Module Percussion classique (conserve)
+export V8_RESONANCE_MODE=TRUE
+export VOLATILITY_IMPULSE_THRESHOLD="${MOMENTUM_THRESHOLD}"
+export VOLATILITY_IMPULSE_DT_MS=128
+
+# V8.0 - Architecture Tension
+export V8_TENSION_MODE=TRUE
+export IMPULSE_RESONANCE_WALL_DROP_PCT=16
+export IMPULSE_RESONANCE_DT_MS=128
+export IMPULSE_RESONANCE_DEPTH_LIMIT=20
+export VACUUM_TENSION_THRESHOLD=0.85
+export MOMENTUM_SLEEP_SEC=0.128
+
+# V8 - Module Aspiration (Masse d'Or 1.618 a angle >= 37.8)
+export V8_ASPIRATION_MASS_MULT=1.618
+export V8_ASPIRATION_ANGLE_DEG=37.8
+
+# V8 - Module de Vide (Squelette 16)
+export V8_VOID_LOCK_ENABLED=TRUE
+export V8_VOID_STEP_SEC=16
+export DUO_GLOBAL_STOP_HALT_RUN=TRUE
+
+# V8 - Sortie par inversion de choc
+export V8_SHOCK_EXIT_ENABLED=TRUE
+export V8_SHOCK_SPEED_EPS_BPS_S=0.0001
+export FLUID_EXIT_ENABLED=TRUE
+export FLUID_EXIT_BRAKE_BPS_S=0.02
+export FLUID_EXIT_INVERT_BPS_S=-0.02
+
+# Le filtre principal devient le VIDE (0.85), radar coupe pour eviter double filtre
+export RADAR_GATE=FALSE
+export TREND_FILTER=FALSE
+
+# Mapping des seuils pour le lanceur principal
+export BETA_MOMENTUM_THRESHOLD="${MOMENTUM_THRESHOLD}"
+export BETA_STOP_LOSS_BPS="${STOP_LOSS_BPS}"
+export ALPHA_STOP_LOSS_BPS="${STOP_LOSS_BPS}"
+export BETA_FORCE_ENTRY_SIDE=AUTO
+export BETA_POSITION_SIDE=BOTH
+export BETA_LEVERAGE_TARGET=5
+export BETA_LEVERAGE_RAMP_ENABLED=TRUE
+export BETA_LEVERAGE_RAMP_START=3
+export BETA_LEVERAGE_RAMP_END=5
+export BETA_LEVERAGE_RAMP_CYCLES=24
+export BETA_SENTINEL_MODE=TRUE
+export BETA_SENTINEL_CHECK_MS=256
+export BETA_SENTINEL_NEG_PNL_EXIT=TRUE
+export BETA_SENTINEL_TRUE_VACUUM_MIN_PNL=0.0
+
+# ALPHA strike x13: frappe seulement apres TRUE_VACUUM
+export ALPHA_DUO_MODE=TRUE
+export ALPHA_FORCE_ENTRY_SIDE=AUTO
+export ALPHA_RADAR_GATE=FALSE
+export ALPHA_TREND_FILTER=FALSE
+export ALPHA_MOMENTUM_THRESHOLD=0.01
+export ALPHA_LEVERAGE_TARGET=13
+export ALPHA_LEVERAGE_RAMP_ENABLED=TRUE
+export ALPHA_LEVERAGE_RAMP_START=5
+export ALPHA_LEVERAGE_RAMP_END=13
+export ALPHA_LEVERAGE_RAMP_CYCLES=2
+export DUO_HUNTER_REQUIRE_TRUE_VACUUM=TRUE
+
+exec ./launch_test_duo_harmonic_5_8_13_6h.sh
