@@ -1,7 +1,12 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-cd /Users/christophe/ace777-test-day1
+# Prefer container workspace on Akash, fallback to script directory locally.
+if [ -d /app ]; then
+  cd /app
+else
+  cd "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+fi
 
 # V8.5 IMPACT
 # - BETA sentinelle x3 valide l'aspiration

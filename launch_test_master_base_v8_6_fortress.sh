@@ -1,7 +1,12 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-cd /Users/christophe/ace777-test-day1
+# Prefer container workspace on Akash, fallback to script directory locally.
+if [ -d /app ]; then
+  cd /app
+else
+  cd "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+fi
 
 # === V8.6 FORTRESS ===
 # Correctif 4061 + Masse 1.618->2.5 + Reset PnL
