@@ -9,6 +9,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     openssl \
     ruby \
     procps \
+    vim-common \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
