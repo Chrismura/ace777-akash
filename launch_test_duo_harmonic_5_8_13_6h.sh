@@ -83,7 +83,7 @@ preflight_binance_auth() {
 
   ts="$(( $(date +%s) * 1000 ))"
   query="timestamp=$ts&recvWindow=60000"
-  sig="$(printf '%s' "$query" | openssl dgst -sha256 -hmac "$BINANCE_API_SECRET" -binary | xxd -p -c 256)"
+  sig="$(printf '%s' "$query" | openssl dgst -sha256 -hmac "$BINANCE_API_SECRET" -binary | od -A n -t x1 | tr -d ' \n')"
   acct_resp="$(curl -sS --max-time 15 -H "X-MBX-APIKEY: $BINANCE_API_KEY" "$BINANCE_BASE_URL/fapi/v2/account?$query&signature=$sig" || true)"
 
   if [[ "$acct_resp" == *'"code":-2014'* || "$acct_resp" == *'"code":-2015'* || "$acct_resp" == *'"code":-1022'* ]]; then

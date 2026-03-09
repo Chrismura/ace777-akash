@@ -255,7 +255,7 @@ hunter_stase_last_sec=0
 
 sign() {
   local q="$1"
-  printf '%s' "$q" | openssl dgst -sha256 -hmac "$BINANCE_API_SECRET" -binary | xxd -p -c 256
+  printf '%s' "$q" | openssl dgst -sha256 -hmac "$BINANCE_API_SECRET" -binary | od -A n -t x1 | tr -d ' \n'
 }
 
 json_get() {
