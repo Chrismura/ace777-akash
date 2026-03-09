@@ -4,12 +4,13 @@ services:
   ace777:
     image: ghcr.io/chrismura/ace777-akash:latest
     env:
+      - BINANCE_BASE_URL_OVERRIDE=https://testnet.binancefuture.com
       - RUN_DURATION=04:00:00
       - LAUNCH_SCRIPT=./launch_test_master_base_v8_6_fortress.sh
-      - MOMENTUM_THRESHOLD=0.94
-      - WALL_DROP_THRESHOLD=0.033
-      - BUY_USDT_BETA=250
-      - BUY_USDT_ALPHA=250
+      - MOMENTUM_THRESHOLD=0.95
+      - WALL_DROP_THRESHOLD=0.060
+      - BUY_USDT_BETA=150
+      - BUY_USDT_ALPHA=750
       - GLOBAL_STOP_USDT=-32.00
       - FLUID_EXIT_SENSITIVITY=1.0
       - DYNAMIC_HOLD=TRUE
@@ -19,7 +20,7 @@ services:
     expose:
       - port: 3000
         to:
-          - service: ace777
+          - global: true
 
 profiles:
   compute:
@@ -36,7 +37,7 @@ profiles:
       pricing:
         ace777:
           denom: uakt
-          amount: 1000
+          amount: 5000
 
 deployment:
   ace777:

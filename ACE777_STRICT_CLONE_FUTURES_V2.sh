@@ -6,7 +6,11 @@ set -euo pipefail
 # - wider trailing giveback (less nervous)
 # - keeps strict clone core and Futures pipes
 
-cd /Users/christophe/ace777-test-day1
+if [ -d /app ]; then
+  cd /app
+else
+  cd "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+fi
 
 export TRAIL_GIVEBACK_BPS="${TRAIL_GIVEBACK_BPS:-3}"
 export SOFT_TRAIL_GIVEBACK_BPS="${SOFT_TRAIL_GIVEBACK_BPS:-3}"
