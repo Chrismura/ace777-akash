@@ -13,8 +13,8 @@ fi
 # - ALPHA strike x13 sur TRUE_VACUUM
 # - sortie par velocity decay / inversion
 
-export TEST_TAG_OVERRIDE="MASTER_BASE_V8_5_IMPACT_7H30"
-export RUN_SEC_OVERRIDE=27000
+export TEST_TAG_OVERRIDE="MASTER_BASE_V8_5_IMPACT_4H"
+export RUN_SEC_OVERRIDE="${RUN_SEC_OVERRIDE:-14400}"
 
 # Base risque
 export MOMENTUM_THRESHOLD="${MOMENTUM_THRESHOLD:-0.85}"
