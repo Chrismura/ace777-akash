@@ -144,6 +144,9 @@ ALPHA_LEVERAGE_RAMP_CYCLES="${ALPHA_LEVERAGE_RAMP_CYCLES:-180}"
 killall caffeinate ruby 2>/dev/null || true
 rm -f STOP STOP_ALPHA STOP_BETA runs/duo_state.json runs/duo_session.json
 
+RUNNER="bash"
+command -v caffeinate >/dev/null 2>&1 && RUNNER="caffeinate -is bash"
+
 echo "=== ${TEST_TAG} ==="
 echo "Start UTC: $(date -u +%Y-%m-%dT%H:%M:%SZ)"
 echo "End UTC:   ${END_UTC}"
@@ -154,7 +157,7 @@ echo "BETA x5 | ALPHA x13 | Masse 1.618->3.236 (alarm) | Trigger=-3bps/-0.80 | G
 (ruby -e "sleep ${RUN_SEC}; File.write('STOP_BETA','')" &) >/dev/null 2>&1
 
 # BETA = Scout
-caffeinate -is bash -c '
+$RUNNER -c '
 export DUO_MODE=TRUE
 export DUO_ROLE=SCOUT
 export DUO_STATE_FILE="runs/duo_state.json"
@@ -184,7 +187,7 @@ bash ./ACE777_STRICT_CLONE_FUTURES_V2.sh
 sleep 2
 
 # ALPHA = Hunter
-caffeinate -is bash -c '
+$RUNNER -c '
 export DUO_MODE='"$ALPHA_DUO_MODE"'
 export DUO_ROLE=HUNTER
 export DUO_STATE_FILE="runs/duo_state.json"
