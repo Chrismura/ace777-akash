@@ -109,7 +109,7 @@ fi
 TEST_TAG="${TEST_TAG_OVERRIDE:-TEST_DUO_HARMONIC_5813_12H30}"
 RUN_SEC="${RUN_SEC_OVERRIDE:-45000}"
 START_EPOCH="$(date +%s)"
-END_UTC="$(date -u -r $((START_EPOCH + RUN_SEC)) +%Y-%m-%dT%H:%M:%SZ)"
+END_UTC="$(ruby -e 'puts Time.at(ARGV[0].to_i).utc.strftime("%Y-%m-%dT%H:%M:%SZ")' -- $((START_EPOCH + RUN_SEC)))"
 
 # Core tunables
 GLOBAL_STOP_USDT="${GLOBAL_STOP_USDT:--16.00}"
@@ -245,10 +245,10 @@ report_pnl_three_parts() {
     return 0
   fi
 
-  start_iso="$(date -u -r "$START_EPOCH" +%Y-%m-%dT%H:%M:%SZ)"
-  end_iso="$(date -u -r $((START_EPOCH + RUN_SEC)) +%Y-%m-%dT%H:%M:%SZ)"
-  p1_end="$(date -u -r $((START_EPOCH + RUN_SEC / 3)) +%Y-%m-%dT%H:%M:%SZ)"
-  p2_end="$(date -u -r $((START_EPOCH + (2 * RUN_SEC) / 3)) +%Y-%m-%dT%H:%M:%SZ)"
+  start_iso="$(ruby -e 'puts Time.at(ARGV[0].to_i).utc.strftime("%Y-%m-%dT%H:%M:%SZ")' -- "$START_EPOCH")"
+  end_iso="$(ruby -e 'puts Time.at(ARGV[0].to_i).utc.strftime("%Y-%m-%dT%H:%M:%SZ")' -- $((START_EPOCH + RUN_SEC)))"
+  p1_end="$(ruby -e 'puts Time.at(ARGV[0].to_i).utc.strftime("%Y-%m-%dT%H:%M:%SZ")' -- $((START_EPOCH + RUN_SEC / 3)))"
+  p2_end="$(ruby -e 'puts Time.at(ARGV[0].to_i).utc.strftime("%Y-%m-%dT%H:%M:%SZ")' -- $((START_EPOCH + (2 * RUN_SEC) / 3)))"
 
   echo "=== RAPPORT PNL 3 PARTIES ==="
   echo "Fenetre: $start_iso -> $end_iso"
