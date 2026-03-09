@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-cd /Users/christophe/ace777-test-day1
+cd /app
 
 # VORTEX CIRCULAIRE v6.3 (Fibonacci 5-8-13) - 30 min
 # Mapping from user config:

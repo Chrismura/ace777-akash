@@ -6,7 +6,7 @@ set -euo pipefail
 # Chaque ligne live est horodatee via:
 #   VALIDATION_ACE777_BASE/scripts/ACE777_STRICT_CLONE_FUTURES_V2.sh
 
-ROOT="/Users/christophe/ace777-test-day1"
+ROOT="/app"
 cd "$ROOT"
 
 : "${BINANCE_API_KEY:?missing BINANCE_API_KEY}"

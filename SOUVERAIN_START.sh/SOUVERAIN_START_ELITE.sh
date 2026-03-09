@@ -7,7 +7,7 @@ set -euo pipefail
 # - hedge explicite LONG/SHORT via FORCE_ENTRY_SIDE + POSITION_SIDE
 # - parametres explicites (levier/masse/seuils)
 
-cd /Users/christophe/ace777-test-day1
+cd /app
 
 RUN_DIR="runs/ACE777_SYNCHRO_REEL_7H"
 mkdir -p "$RUN_DIR"

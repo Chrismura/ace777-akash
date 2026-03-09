@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-cd /Users/christophe/ace777-test-day1
+cd /app
 
 # MODELE 14 - VERSION ORIGINALE (30 minutes)
 # Signature historique: ALPHA hunter revenge 1.5x, leverage x10

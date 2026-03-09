@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-cd /Users/christophe/ace777-test-day1
+cd /app
 
 # Test 6h - Duo Scout/Hunter V5 (anti V-reversal, scelle)
 # - Scout (BETA): x7

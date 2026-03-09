@@ -6,7 +6,7 @@ set -euo pipefail
 # Binôme parallèle hedge-ready (LONG/SHORT) avec rigueur PID-safe
 # ============================================================
 
-cd /Users/christophe/ace777-test-day1
+cd /app
 
 # 1) Préparation souveraine
 RUN_DIR="runs/ACE777_SYNCHRO_REEL_7H"

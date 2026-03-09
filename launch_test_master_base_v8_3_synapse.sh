@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-cd /Users/christophe/ace777-test-day1
+cd /app
 
 # V8.3 SYNAPSE
 # - BETA entre en x3 pour valider l'aspiration

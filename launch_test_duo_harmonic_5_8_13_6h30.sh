@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-cd /Users/christophe/ace777-test-day1
+cd /app
 
 # Test 6h30 - Duo Harmonic 5-8-13 + V6.3 phase-shift/sentinel
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-cd /Users/christophe/ace777-test-day1
+cd /app
 
 # Test 1h - Chasseur Souverain V1
 # - Scout (BETA): x5

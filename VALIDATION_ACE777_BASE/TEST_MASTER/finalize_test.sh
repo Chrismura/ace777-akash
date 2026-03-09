@@ -19,7 +19,7 @@ if [ ! -f "$SRC_CSV" ]; then
   exit 1
 fi
 
-ROOT="/Users/christophe/ace777-test-day1/VALIDATION_ACE777_BASE/TEST_MASTER"
+ROOT="/app/VALIDATION_ACE777_BASE/TEST_MASTER"
 INBOX="$ROOT/inbox_runs"
 REPORTS="$ROOT/reports"
 mkdir -p "$INBOX" "$REPORTS"

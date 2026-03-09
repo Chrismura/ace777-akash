@@ -34,6 +34,6 @@
 - **Correctif :** Vérifier les prérequis avant de continuer.
 
 ## 8. Chemins hardcodés /Users/christophe/ dans les scripts
-- **Erreur :** ACE777_STRICT_CLONE_FUTURES_V2.sh (et d'autres) avaient `cd /Users/christophe/ace777-test-day1`. En conteneur Akash, ce chemin n'existe pas.
+- **Erreur :** ACE777_STRICT_CLONE_FUTURES_V2.sh (et d'autres) avaient `cd /app`. En conteneur Akash, ce chemin n'existe pas.
 - **Conséquence :** Le déploiement échoue au lancement.
 - **Correctif :** Utiliser `if [ -d /app ]; then cd /app; else cd "$(dirname ...)"; fi` comme les autres scripts.

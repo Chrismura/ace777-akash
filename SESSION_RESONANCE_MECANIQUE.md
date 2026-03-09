@@ -50,7 +50,7 @@ Dernier PnL memorise (run complet):
 Relance propre:
 
 ```bash
-cd /Users/christophe/ace777-test-day1
+cd /app
 rm -f STOP STOP_ALPHA STOP_BETA runs/duo_state.json runs/duo_session.json
 ./launch_test_resonance_mecanique_v8.sh
 # ou (recommande V8.5):
@@ -60,6 +60,6 @@ rm -f STOP STOP_ALPHA STOP_BETA runs/duo_state.json runs/duo_session.json
 Arret propre:
 
 ```bash
-cd /Users/christophe/ace777-test-day1
+cd /app
 touch STOP_ALPHA STOP_BETA
 ```

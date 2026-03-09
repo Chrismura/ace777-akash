@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-cd /Users/christophe/ace777-test-day1
+cd /app
 
 # MODELE 14 (trade ref ~14.8 USDT) + dernieres mises a jour V6.3
 # - Signature historique: ALPHA hunter revenge 1.5x, leverage x10

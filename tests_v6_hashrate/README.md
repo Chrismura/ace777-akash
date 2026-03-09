@@ -18,7 +18,7 @@ Ce dossier contient la bascule de test V6 "Slalom Accelere" + module Hashrate BT
 ## Lancement
 
 ```bash
-cd /Users/christophe/ace777-test-day1
+cd /app
 ./tests_v6_hashrate/launch_test_duo_v6_hashrate_6h.sh
 ```
 

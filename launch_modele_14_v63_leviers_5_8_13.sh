@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-cd /Users/christophe/ace777-test-day1
+cd /app
 
 # Enchaine 3 runs de test sur la meme base V6.3
 # Levier scout fixe a x5, levier hunter successif: x5 -> x8 -> x13

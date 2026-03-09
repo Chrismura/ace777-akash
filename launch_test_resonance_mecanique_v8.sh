@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-cd /Users/christophe/ace777-test-day1
+cd /app
 
 # Session: Resonance Mecanique (Modele V8.2 Tension)
 # Base: setup 27000s ALPHA direct + levier lisse vers x13

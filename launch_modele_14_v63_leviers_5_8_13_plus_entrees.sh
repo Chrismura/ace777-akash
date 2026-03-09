@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-cd /Users/christophe/ace777-test-day1
+cd /app
 
 # Profil test "plus d'entrees" (modere) sans modifier la base.
 # - Levier scout: x5

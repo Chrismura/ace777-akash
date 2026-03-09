@@ -6,8 +6,8 @@ set -euo pipefail
 # - wider trailing giveback (less nervous)
 # - keeps strict clone core and Futures pipes
 
-cd /Users/christophe/ace777-test-day1
-BASE_DIR="/Users/christophe/ace777-test-day1/VALIDATION_ACE777_BASE/scripts"
+cd /app
+BASE_DIR="/app/VALIDATION_ACE777_BASE/scripts"
 
 export TRAIL_GIVEBACK_BPS="${TRAIL_GIVEBACK_BPS:-3}"
 export SOFT_TRAIL_GIVEBACK_BPS="${SOFT_TRAIL_GIVEBACK_BPS:-3}"

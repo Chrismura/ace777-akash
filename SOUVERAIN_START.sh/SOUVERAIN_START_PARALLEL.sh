@@ -3,7 +3,7 @@ set -euo pipefail
 
 # --- PROTOCOLE PARALLELE ACE777 SOUVERAIN (PID-safe + hedge-ready) ---
 
-cd /Users/christophe/ace777-test-day1
+cd /app
 
 RUN_DIR="runs/ACE777_SYNCHRO_REEL_7H"
 mkdir -p "$RUN_DIR"

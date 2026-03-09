@@ -3,9 +3,9 @@ set -euo pipefail
 
 # MASTER reference run (HEDGE 9H)
 # Uses BASE wrapper (UTC timestamped output):
-#   /Users/christophe/ace777-test-day1/VALIDATION_ACE777_BASE/scripts/ACE777_STRICT_CLONE_FUTURES_V2.sh
+#   /app/VALIDATION_ACE777_BASE/scripts/ACE777_STRICT_CLONE_FUTURES_V2.sh
 
-cd /Users/christophe/ace777-test-day1
+cd /app
 
 mkdir -p runs/ACE777_SYNCHRO_REEL_7H/
 killall ruby 2>/dev/null || true

@@ -12,7 +12,7 @@
 Depuis la racine du projet:
 
 ```bash
-cd /Users/christophe/ace777-test-day1
+cd /app
 docker build -t docker.io/YOUR_DOCKERHUB_USER/ace777:latest .
 docker push docker.io/YOUR_DOCKERHUB_USER/ace777:latest
 ```

@@ -6,7 +6,7 @@ set -euo pipefail
 # - Objectif: gains en range (marche lateral)
 # - Notional reduit: BUY_USDT=250
 
-cd /Users/christophe/ace777-test-day1
+cd /app
 rm -f STOP
 
 (ruby -e 'sleep 14400; File.write("STOP","")' &)

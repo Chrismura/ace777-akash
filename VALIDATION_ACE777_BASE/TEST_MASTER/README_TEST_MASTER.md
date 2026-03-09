@@ -26,7 +26,7 @@ Commande unique (fin de run)
 Exemple:
 
   bash ./VALIDATION_ACE777_BASE/TEST_MASTER/finalize_test.sh \
-    /Users/christophe/ace777-test-day1/runs/ACE777_SYNCHRO_REEL_7H/ACE777_ESCALIER_4H.csv
+    /app/runs/ACE777_SYNCHRO_REEL_7H/ACE777_ESCALIER_4H.csv
 
 Cette commande:
 - copie le CSV dans inbox_runs/ (snapshot timestamped),
