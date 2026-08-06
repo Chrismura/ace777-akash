@@ -280,6 +280,24 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
   transition:opacity .15s}
 .pill:hover .pill-ana{opacity:1}
 .pill-ana:hover{background:var(--amber);color:#0a100c}
+.pill-wiki{position:absolute;top:3px;right:20px;z-index:2;background:#0f1713;border:1px solid rgba(94,231,255,.4);
+  color:var(--cyan);font-size:.55rem;padding:1px 5px;border-radius:3px;cursor:pointer;opacity:0;
+  transition:opacity .15s}
+.pill:hover .pill-wiki{opacity:1}
+.pill-wiki:hover{background:var(--cyan);color:#0a100c}
+.ana-btn.wiki-btn{right:80px;border-color:rgba(94,231,255,.4);color:var(--cyan)}
+.ana-btn.wiki-btn:hover{background:var(--cyan);color:#0a100c;box-shadow:0 0 10px rgba(94,231,255,.5)}
+.radar-actions{display:flex;flex-wrap:wrap;gap:4px;align-items:center;margin-top:10px}
+.radar-actions .ra-lab{font-size:.55rem;letter-spacing:.12em;color:var(--muted);margin-right:3px}
+.radar-actions button{font-family:inherit;font-size:.58rem;letter-spacing:.05em;padding:3px 7px;border-radius:4px;cursor:pointer;
+  background:#121a10;border:1px solid rgba(240,160,32,.45);color:var(--amber2);line-height:1;transition:all .15s}
+.radar-actions .pill-ana{position:static;opacity:1;margin:0}
+.radar-actions .wiki-btn{border-color:rgba(94,231,255,.4);color:var(--cyan)}
+.radar-actions button:hover{background:var(--amber);color:#0a100c;box-shadow:0 0 8px rgba(240,160,32,.5)}
+.radar-actions .wiki-btn:hover{background:var(--cyan)}
+.peda-panel .peda-x{position:absolute;top:5px;right:7px;background:none;border:0;color:var(--muted);cursor:pointer;font-size:.75rem;line-height:1}
+.peda-panel .peda-x:hover{color:var(--amber)}
+.peda-panel.pinned{border-color:var(--cyan);box-shadow:0 0 22px rgba(94,231,255,.22)}
 .pill{position:relative}
 
 .ana-box .ana-head{color:var(--amber2);letter-spacing:.1em;font-size:.6rem;margin-bottom:4px;font-family:Orbitron,sans-serif}
@@ -575,7 +593,7 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
     <div class="mkt">
       <div class="mkt-card">
         <div class="ttl" data-peda="fearGreed">FEAR &amp; GREED <em>ACE</em></div>
-        <button type="button" class="ana-btn" data-indice="fearGreed" title="Cortana analyse cet indice (master analyste)">🐈 ANALYSE</button>
+        <button type="button" class="ana-btn" data-indice="fearGreed" title="Cortana analyse cet indice (master analyste)">🐈 ANALYSE</button><button type="button" class="ana-btn wiki-btn" data-wiki="fearGreed" title="Version ecrite (wiki) - ce que represente cet indice">📖 WIKI</button>
         <div class="fg-wrap">
           <div class="fg-gauge"><canvas id="fg-canvas" width="236" height="128"></canvas></div>
           <div>
@@ -586,7 +604,7 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
       </div>
       <div class="mkt-card">
         <div class="ttl" data-peda="marketCapUsd">MARKET CAP <em>GLOBAL</em></div>
-        <button type="button" class="ana-btn" data-indice="marketCapUsd" title="Cortana analyse cet indice (master analyste)">🐈 ANALYSE</button>
+        <button type="button" class="ana-btn" data-indice="marketCapUsd" title="Cortana analyse cet indice (master analyste)">🐈 ANALYSE</button><button type="button" class="ana-btn wiki-btn" data-wiki="marketCapUsd" title="Version ecrite (wiki) - ce que represente cet indice">📖 WIKI</button>
         <div class="mc-big" id="mc-big">—</div>
         <div class="mc-sub" id="mc-sub">crypto totale</div>
         <div class="mc-bits">
@@ -596,7 +614,7 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
       </div>
       <div class="mkt-card">
         <div class="ttl" data-peda="altSeason">ALTCOIN SEASON <em>PROXY</em></div>
-        <button type="button" class="ana-btn" data-indice="altSeason" title="Cortana analyse cet indice (master analyste)">🐈 ANALYSE</button>
+        <button type="button" class="ana-btn" data-indice="altSeason" title="Cortana analyse cet indice (master analyste)">🐈 ANALYSE</button><button type="button" class="ana-btn wiki-btn" data-wiki="altSeason" title="Version ecrite (wiki) - ce que represente cet indice">📖 WIKI</button>
         <div class="alt-title" id="alt-title">—</div>
         <div class="alt-track"><i class="alt-thumb" id="alt-thumb" style="left:50%"></i></div>
         <div class="alt-ends"><span id="alt-btc">BITCOIN</span><span id="alt-mid">↔</span><span id="alt-alt">ALTS</span></div>
@@ -609,6 +627,7 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
     </div>
 
     <div class="peda-panel" id="peda-panel">
+      <button type="button" class="peda-x" id="peda-x" title="Fermer / desepingler">✕</button>
       <div class="pt" id="peda-title"></div>
       <div class="pd" id="peda-desc"></div>
       <div class="ps" id="peda-src"></div>
@@ -660,6 +679,15 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
           <div><span class="lab">CLIMAT</span><b id="r-clim">—</b></div>
           <div><span class="lab">SCORE</span><b id="r-score">—</b></div>
           <div><span class="lab">ALERT</span><b id="r-alert">—</b></div>
+        </div>
+        <div class="radar-actions">
+          <span class="ra-lab">CORTANA :</span>
+          <button type="button" class="pill-ana" data-indice="radar" title="Analyse vocale du radar - ce qu il represente">🐈 RADAR</button>
+          <button type="button" class="wiki-btn" data-wiki="radar" title="Version ecrite (wiki)">📖</button>
+          <button type="button" class="pill-ana" data-indice="bassine" title="Analyse vocale de la bassine - explication">🐈 BASSINE</button>
+          <button type="button" class="wiki-btn" data-wiki="bassine" title="Version ecrite (wiki)">📖</button>
+          <button type="button" class="pill-ana" data-indice="verre" title="Analyse vocale du verre d eau - explication">🐈 VERRE</button>
+          <button type="button" class="wiki-btn" data-wiki="verre" title="Version ecrite (wiki)">📖</button>
         </div>
       </div>
     </div>
@@ -1160,7 +1188,7 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
       ];
       grid.innerHTML=cells.map(([n,v,key])=>{
         const nd=String(v??'').includes('n/d');
-        return `<div class="pill" data-peda="${key||''}"${nd?' style="opacity:.65" title="Source free flaky — pas un bug cockpit"':''}><button type="button" class="pill-ana" data-indice="${key||''}" title="Cortana analyse cet indice">🐈</button><div class="n">${n}</div><div class="v">${v??'—'}</div></div>`;
+        return `<div class="pill" data-peda="${key||''}"${nd?' style="opacity:.65" title="Source free flaky — pas un bug cockpit"':''}><button type="button" class="pill-ana" data-indice="${key||''}" title="Cortana analyse cet indice">🐈</button><button type="button" class="pill-wiki" data-wiki="${key||''}" title="Version ecrite (wiki)">📖</button><div class="n">${n}</div><div class="v">${v??'—'}</div></div>`;
       }).join('');
     }
     const dg=document.getElementById('delta-grid');
@@ -1173,7 +1201,7 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
         const unwired = it.wired===false || it.value==null;
         const val = unwired ? 'n/d' : (it.value??'—');
         const pk = DELTA_PEDA[k]||'';
-        return `<div class="pill" data-peda="${pk}"${unwired?' style="opacity:.55" title="non branché / free n/d"':''}><button type="button" class="pill-ana" data-indice="${pk}" title="Cortana analyse cet indice">🐈</button><div class="n">${k} ${it.label||''}</div><div class="v">${val} <span style="font-size:.55rem;color:var(--muted)">${unwired?'n/d':(it.level||'')}</span></div></div>`;
+        return `<div class="pill" data-peda="${pk}"${unwired?' style="opacity:.55" title="non branché / free n/d"':''}><button type="button" class="pill-ana" data-indice="${pk}" title="Cortana analyse cet indice">🐈</button><button type="button" class="pill-wiki" data-wiki="${pk}" title="Version ecrite (wiki)">📖</button><div class="n">${k} ${it.label||''}</div><div class="v">${val} <span style="font-size:.55rem;color:var(--muted)">${unwired?'n/d':(it.level||'')}</span></div></div>`;
       }).join('');
       dg.innerHTML=(Object.keys(deltas).slice(0,6).map(k=>{
         const v=deltas[k];
@@ -1667,17 +1695,36 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
     bassine: {t:'BASSINE / MUR', d:'Niveau du « bain » : le score thermo global (0 à 100). Haut = climat calme, bas = climat stressé. C’est le premier coup d’œil à donner : combien d’eau il y a avant de plonger.', s:'Calcul local : funding + L/S + variation prix'},
     verre: {t:'VERRE D’EAU', d:'Chaleur du portefeuille : volume d’activité récente (fills, PnL session, alertes rouges). Un verre plein = beaucoup de mouvement et de stress ; vide = calme plat.', s:'Lecture seule des logs ACE'},
   };
-  function showPeda(key, ev){
-    const g = GLOSSARY[key]; if(!g) return;
-    const panel = document.getElementById('peda-panel'); if(!panel) return;
+  let pedaPinned = '';
+  function fillPeda(key){
+    const g = GLOSSARY[key]; if(!g) return false;
+    const panel = document.getElementById('peda-panel'); if(!panel) return false;
     document.getElementById('peda-title').textContent = g.t;
     document.getElementById('peda-desc').textContent = g.d;
     document.getElementById('peda-src').textContent = g.s;
-    panel.classList.add('show');
+    return true;
+  }
+  function showPeda(key, ev){
+    if(pedaPinned) return;
+    fillPeda(key);
+    const panel = document.getElementById('peda-panel');
+    if(panel) panel.classList.add('show');
   }
   function hidePeda(){
+    if(pedaPinned) return;
     const panel = document.getElementById('peda-panel');
     if(panel) panel.classList.remove('show');
+  }
+  function pinPeda(key){
+    if(!fillPeda(key)) return;
+    pedaPinned = key;
+    const panel = document.getElementById('peda-panel');
+    if(panel) panel.classList.add('show','pinned');
+  }
+  function closePeda(){
+    pedaPinned = '';
+    const panel = document.getElementById('peda-panel');
+    if(panel) panel.classList.remove('show','pinned');
   }
   document.addEventListener('mouseover', e=>{
     const el = e.target.closest('[data-peda]');
@@ -1687,6 +1734,15 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
     const el = e.target.closest('[data-peda]');
     if(el) hidePeda();
   });
+  // Version ecrite (wiki) : petit bouton 📖 qui epingle le panneau d'explication
+  document.addEventListener('click', e=>{
+    const w = e.target.closest('.wiki-btn') || e.target.closest('.pill-wiki');
+    if(!w || !w.dataset.wiki) return;
+    if(pedaPinned === w.dataset.wiki) closePeda();
+    else pinPeda(w.dataset.wiki);
+  });
+  const pedaX = document.getElementById('peda-x');
+  if(pedaX) pedaX.addEventListener('click', closePeda);
 
   // Bouton Cortana sur chaque pill (délégation) : les .pill-ana portent data-indice
   document.addEventListener('click', e=>{
@@ -2001,6 +2057,7 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
   document.getElementById('btn-voix')?.addEventListener('click', ()=>bridge('/speak','Voix + brief…'));
   document.getElementById('btn-parler')?.addEventListener('click', ()=>bridge('/speak','Cortana parle…'));
   document.querySelectorAll('.ana-btn').forEach(btn=>{
+    if(btn.classList.contains('wiki-btn')) return; // bouton wiki : pin panneau, pas d'analyse
     btn.addEventListener('click', ()=>analyserIndice(btn));
   });
   document.getElementById('btn-refresh')?.addEventListener('click', ()=>forceRefresh());

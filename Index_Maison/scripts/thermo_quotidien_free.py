@@ -883,6 +883,14 @@ def main() -> int:
         "whaleN": whale_n,
         "takerRatio": taker_ratio,
         "topTraderLS": top_trader_ls,
+        "fearGreed": fng.get("value"),
+        "marketCapUsd": total_mc,
+        "altSeasonScore": alt_s.get("score"),
+        "liq24Usd": liq.get("usd"),
+        "etfBtcM": etf.get("btc"),
+        "gexPutCall": gex.get("putCallRatio"),
+        "volumeCachedTaker": vcz.get("takerBuyRatio"),
+        "volumeCachedPerpSpot": vcz.get("perpSpotRatio"),
     }
     with hist_path.open("a", encoding="utf-8") as f:
         f.write(json.dumps(hist_row, ensure_ascii=False) + "\n")

@@ -69,13 +69,42 @@ LEXIQUE = {
     "score": ("Score composite", "/100"),
     "climate": ("Climat", "label"),
     "mark": ("Prix mark BTC", "USD"),
+    "radar": ("Radar climat (global)", "climat"),
+    "bassine": ("Bassine / mur (score thermo)", "/100"),
+    "verre": ("Verre d'eau (chaleur activite)", "%"),
 }
 
 # Indices toujours fournis comme contexte de mise en relation
 CONTEXT_KEYS = ["mark", "chg24", "chg1h", "chg4h", "funding", "fundingAvg30",
                 "oi", "longShort", "takerRatio", "topTraderLS", "fearGreed",
                 "marketCapUsd", "btcDominance", "altSeason", "altSeasonScore",
-                "panierDownPct", "whaleUsd", "whaleN", "volQuote", "score", "climate"]
+                "panierDownPct", "whaleUsd", "whaleN", "volQuote", "score", "climate",
+                "liq24Usd", "liqLongUsd", "liqShortUsd", "etfBtcM", "gexPutCall",
+                "volumeCachedTaker", "volumeCachedPerpSpot"]
+
+# Indices formes du cockpit : pas de cle live directe, valeur derivee
+VIRTUAL = {
+    "radar":   ("score", "Radar climat (global)", "climat global"),
+    "bassine": ("score", "Bassine / mur (score thermo)", "/100"),
+    "verre":   ("heat", "Verre d'eau (chaleur activite)", "%"),
+}
+
+
+def virtual_value(indice, live):
+    """Valeur derivee pour les indices formes (bassine=score, verre=chaleur proxy)."""
+    if indice == "verre":
+        try:
+            chg = abs(float(live.get("chg24") or 0))
+            fund = abs(float(live.get("funding") or 0))
+        except Exception:
+            chg = fund = 0.0
+        heat = min(100.0, round(chg * 8 + min(40.0, fund / 0.0003 * 30) + 20, 1))
+        return heat, "chaleur locale (move 24h + stress funding) — proxy"
+    if indice in ("radar", "bassine"):
+        sc = live.get("score")
+        clim = live.get("climate") or "climat inconnu"
+        return sc, "climat " + str(clim)
+    return None, None
 
 
 def load_system_prompt():
@@ -164,17 +193,23 @@ def build_facts(indice):
     live = load_live()
     history = load_history()
 
-    name, unit = LEXIQUE.get(indice, (indice, ""))
+    # Indices formes (radar/bassine/verre) : valeur derivee du live
+    if indice in VIRTUAL:
+        base_key, name, unit = VIRTUAL[indice]
+        vval, vnote = virtual_value(indice, live)
+    else:
+        base_key, vval, vnote = indice, live.get(indice), None
+        name, unit = LEXIQUE.get(indice, (indice, ""))
     facts = {
         "indice_demande": {
             "id": indice,
             "nom": name,
             "unite": unit,
-            "valeur_actuelle": fmt_val(live.get(indice)),
+            "valeur_actuelle": ("n/d" if vval is None else fmt_val(vval)) + ("  (" + vnote + ")" if vnote else ""),
         },
         "tendances": {
-            "tendance_24h_pct": trend_pct(history, indice, 24),
-            "tendance_semaine_pct": trend_pct(history, indice, 24 * 7),
+            "tendance_24h_pct": trend_pct(history, base_key, 24),
+            "tendance_semaine_pct": trend_pct(history, base_key, 24 * 7),
         },
         "autres_indices": {},
         "historique_recent": [],
@@ -187,10 +222,10 @@ def build_facts(indice):
 
     # historique récent de l'indice (derniers 12 points horaires)
     for row in history[-12:]:
-        if indice in row:
+        if base_key in row:
             facts["historique_recent"].append({
                 "ts": row.get("ts", "?"),
-                "valeur": fmt_val(row.get(indice)),
+                "valeur": fmt_val(row.get(base_key)),
             })
 
     # série de prix (closes mark) : derniers 12 points pour lecture ondulatoire
@@ -202,11 +237,13 @@ def build_facts(indice):
             })
 
     # valeurs brutes (non formatées) pour la comparaison ultérieure
-    raw = {k: live.get(k) for k in CONTEXT_KEYS + [indice] if k in live}
+    raw = {k: live.get(k) for k in CONTEXT_KEYS + ([indice] if indice in live else []) if k in live}
+    if vval is not None:
+        raw[base_key] = vval
     raw["ts"] = live.get("ts")
     raw["tendances"] = {
-        "tendance_24h_pct": trend_pct(history, indice, 24),
-        "tendance_semaine_pct": trend_pct(history, indice, 24 * 7),
+        "tendance_24h_pct": trend_pct(history, base_key, 24),
+        "tendance_semaine_pct": trend_pct(history, base_key, 24 * 7),
     }
     return facts, raw
 
