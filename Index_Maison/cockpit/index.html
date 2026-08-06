@@ -273,7 +273,21 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
   padding:8px 10px;display:none;font-size:.66rem;line-height:1.45;color:var(--acid2);
   box-shadow:inset 0 0 16px rgba(124,255,107,.05);white-space:pre-wrap;max-height:220px;overflow-y:auto}
 .ana-box.show{display:block}
-.peda-panel{position:fixed;top:14px;right:14px;z-index:99;max-width:300px;background:rgba(7,12,10,.94);
+  .just-card{margin:10px 0;background:#0a1410;border:1px solid var(--line);border-radius:6px;padding:10px 14px}
+  .just-head{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:6px}
+  .just-head h2{font-family:Orbitron,sans-serif;font-size:.72rem;letter-spacing:.12em;color:var(--acid2,#7cff6b);margin:0}
+  .just-score{font-family:Orbitron,sans-serif;font-size:1.3rem;color:var(--acid,#39ff14)}
+  .just-score.warn{color:var(--amber2,#f0a020)}
+  .just-score.hot{color:var(--red,#ff3b3b)}
+  .just-meta{font-size:.58rem;color:var(--muted);letter-spacing:.08em}
+  .just-bar{display:flex;gap:3px;height:8px;margin:4px 0 8px;overflow:hidden;border-radius:3px}
+  .just-bar i{flex:1;background:#12241c}
+  .just-bar i.hit{background:var(--ok,#39ff14)}
+  .just-list{display:flex;flex-wrap:wrap;gap:4px;font-size:.56rem}
+  .just-list span{background:#0d1512;border:1px solid var(--line);border-radius:3px;padding:2px 6px;color:var(--muted)}
+  .just-list b{color:var(--acid2,#7cff6b)}
+  .just-list .miss b{color:var(--red,#ff3b3b)}
+  .peda-panel{position:fixed;top:14px;right:14px;z-index:99;max-width:300px;background:rgba(7,12,10,.94);
   border:1px solid rgba(124,255,107,.4);border-radius:8px;padding:10px 12px;display:none;
   box-shadow:0 0 22px rgba(124,255,107,.18);backdrop-filter:blur(4px)}
 .peda-panel.show{display:block}
@@ -655,6 +669,17 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
       <div class="pt" id="peda-title"></div>
       <div class="pd" id="peda-desc"></div>
       <div class="ps" id="peda-src"></div>
+    </div>
+
+    <!-- JUSTESSE ANALYSTE (boucle d'apprentissage) -->
+    <div class="just-card" id="justesse" data-peda="score_justesse" title="Score de justesse de l'analyste · boucle d'apprentissage">
+      <div class="just-head">
+        <h2>JUSTESSE ANALYSTE</h2>
+        <span class="just-score" id="just-pct">—</span>
+      </div>
+      <div class="just-bar" id="just-bar"></div>
+      <div class="just-meta" id="just-meta">chargement…</div>
+      <div class="just-list" id="just-list"></div>
     </div>
 
     <!-- ALPHA ENGINE -->
@@ -1802,6 +1827,7 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
     gexPutCall: {t:'GEX PROXY (OPTIONS)', d:'Ratio puts/calls sur l’open interest des options BTC (Deribit). Beaucoup de puts = marché qui se couvre à la baisse (peur). Beaucoup de calls = paris haussiers. Les « murs » (murC/murP) sont les strikes où l’OI est énorme : le prix a tendance à s’y arrêter.', s:'Proxy : Deribit public (OI ≤ 60 jours) — pas SpotGamma payant'},
     volumeCachedTaker: {t:'VOLUMES CACHÉS', d:'Pression d’achat réelle : ratio des ordres « taker » (qui prennent la liquidité, donc agressifs) acheteurs vs vendeurs sur 24h. >0.5 = acheteurs agressifs, <0.5 = vendeurs. Le ratio perp/spot mesure combien de fois le volume dérivé (levier) dépasse le volume comptant : un chiffre très haut = l’action se joue au levier, fragile.', s:'Source : OKX Rubik (gratuit)'},
     funding: {t:'FUNDING (TAUX DE FINANCEMENT)', d:'Frais périodiques (toutes les 8h) que les positions longues ou courtes se paient entre elles pour rester ouvertes. Positif = les longs paient les shorts (marché optimiste) ; très positif = foule à l’achat, risque de cascade baissière. Négatif = l’inverse.', s:'Source : Binance FAPI public (gratuit)'},
+    score_justesse: {t:'JUSTESSE ANALYSTE', d:'Score de justesse de Cortana : sur ses avis LONG/SHORT émis, combien le marché a confirmé après coup (horizon 24h/semaine). C’est la boucle d’apprentissage — le score monte si ses analyses sont justes, baisse sinon. <40% = à recalibrer.', s:'Journal analyses/ + score_justesse.py'},
     whales: {t:'WHALES', d:'Nombre de gros ordres d’un coup (≥500k$ sur les ~500 derniers trades). Les baleines déplacent le marché : une rafale de gros prints = un acteur institutionnel ou un fonds en action.', s:'Proxy : agrégats Binance (pas Whale Alert payant)'},
     radar: {t:'RADAR FROID', d:'Radar visuel du climat : chaque point = une position ou un signal détecté. Le balayage tourne en continu ; la distance au centre = « intensité ». Plus c’est dense et proche du centre, plus le marché est actif.', s:'Visualisation locale — pas une donnée externe'},
     bassine: {t:'BASSINE / MUR', d:'Niveau du « bain » : le score thermo global (0 à 100). Haut = climat calme, bas = climat stressé. C’est le premier coup d’œil à donner : combien d’eau il y a avant de plonger.', s:'Calcul local : funding + L/S + variation prix'},
@@ -1953,6 +1979,43 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
     }).join('');
   }
 
+  async function pollJustesse(){
+    try{
+      const r=await fetch(BRIDGE+'/justesse',{cache:'no-store'});
+      const j=await r.json();
+      if(!j || j.ok===false) throw new Error(j && j.error);
+      const box=document.getElementById('just-pct');
+      const bar=document.getElementById('just-bar');
+      const meta=document.getElementById('just-meta');
+      const list=document.getElementById('just-list');
+      if(box){
+        const pct=j.pct;
+        box.textContent = pct!=null? (Math.round(pct)+'%') : '—';
+        box.className = 'just-score' + (pct==null?'':(pct<40?' hot':(pct<60?' warn':'')));
+      }
+      if(bar && pct!=null){
+        bar.innerHTML='';
+        const hit=document.createElement('i'); hit.className='hit'; hit.style.flex=pct;
+        const miss=document.createElement('i'); miss.style.flex=Math.max(0,100-pct);
+        bar.appendChild(hit); bar.appendChild(miss);
+      }
+      if(meta) meta.textContent = (j.total_hit!=null? (j.total_hit+'/'+j.total_scored+' justes') : '') + ' · ' + (j.n||0) + ' analyses';
+      if(list){
+        list.innerHTML='';
+        const pis=j.par_indice||{};
+        Object.entries(pis).forEach(([k,v])=>{
+          const sp=document.createElement('span');
+          sp.className = (v.hit>0 && v.hit===v.n)?'ok':'miss';
+          sp.innerHTML = k+' <b>'+(v.hit||0)+'/'+v.n+'</b>';
+          list.appendChild(sp);
+        });
+      }
+    }catch(e){
+      const box=document.getElementById('just-meta');
+      if(box) box.textContent='justesse : '+(e && e.message ? e.message.slice(0,60) : 'n/d');
+    }
+  }
+
   async function pollLinks(){
     try{
       const r=await fetch(BRIDGE+'/status',{cache:'no-store'});
@@ -1983,6 +2046,7 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
       if(ja && ja.alerts) renderAlerts(ja.alerts);
     }catch(e){}
     await pollLinks();
+    pollJustesse();
   }
 
   let holdBubbleUntil=0;

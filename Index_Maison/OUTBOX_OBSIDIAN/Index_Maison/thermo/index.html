@@ -210,6 +210,10 @@
   .light-row.warn .state { color: var(--warn); }
   .light-row.hot .state { color: var(--hot); }
   .light-row .num { font-family: Orbitron, sans-serif; font-size: 14px; color: var(--text); min-width: 7ch; text-align: right; }
+  .fund-pct{display:block;font-size:.58rem;font-family:Orbitron,sans-serif;letter-spacing:.04em;text-align:right}
+  .fund-pct.ok{color:var(--ok,#39ff14)}
+  .fund-pct.warn{color:var(--warn,#f5c518)}
+  .fund-pct.hot{color:var(--hot,#ff3b3b)}
   .arrow {
     font-family: Orbitron, sans-serif;
     font-size: 16px;
@@ -320,8 +324,42 @@
   .chart-card .c-name{font-size:.6rem;letter-spacing:.12em;color:var(--muted);margin-bottom:4px}
   .chart-card .c-val{font-family:Orbitron,sans-serif;font-size:.85rem;color:var(--acid);margin-bottom:6px}
   .chart-card canvas{display:block;width:100%;height:44px}
+  .liqmap-card{background:#0a1410;border:1px solid var(--line);border-radius:4px;padding:8px 10px;margin-bottom:8px}
+  .liqmap-card .c-name{font-size:.6rem;letter-spacing:.12em;color:var(--muted);margin-bottom:4px;display:flex;align-items:center;gap:8px}
+  .liqmap-card .proxy-tag{font-size:.5rem;letter-spacing:.14em;color:#f5c518;border:1px solid #f5c51855;border-radius:2px;padding:1px 4px}
+  .liqmap-card canvas{display:block;width:100%;height:150px;border-radius:3px;background:#050b08}
+  .liqmap-foot{display:flex;justify-content:space-between;gap:8px;margin-top:5px;font-size:.58rem;font-family:Orbitron,sans-serif;letter-spacing:.05em}
+  .liqmap-foot .lL{color:#39ff14}.liqmap-foot .lS{color:#ff3b3b}.liqmap-foot .lM{color:var(--muted)}
   .charts-sec{margin-top:18px}
-</style>
+
+  /* PÉDAGOGIE : survol, épinglage, glossaire */
+  .light-row{cursor:pointer}
+  .card{cursor:pointer}
+  .chart-card{cursor:pointer}
+  .peda-panel{position:fixed;left:14px;bottom:14px;z-index:90;width:min(380px,92vw);background:#0a100c;border:1px solid var(--line);border-left:3px solid var(--warn);border-radius:6px;padding:12px 14px;display:none;box-shadow:0 10px 40px rgba(0,0,0,.55)}
+  .peda-panel.show{display:block}
+  .peda-panel.pinned{border-color:var(--cyan,#5ee7ff);border-left:3px solid var(--cyan,#5ee7ff)}
+  .peda-x{position:absolute;top:6px;right:10px;cursor:pointer;color:var(--muted);font-size:.8rem;padding:2px 6px;border-radius:3px}
+  .peda-x:hover{color:#fff;background:rgba(255,59,59,.3)}
+  .peda-title{font-family:Orbitron,sans-serif;font-size:.7rem;letter-spacing:.12em;color:var(--warn);margin-bottom:6px;padding-right:20px}
+  .peda-panel.pinned .peda-title{color:var(--cyan,#5ee7ff)}
+  .peda-desc{font-size:.74rem;line-height:1.55;color:#c9d6cc}
+  .peda-src{margin-top:8px;font-size:.56rem;letter-spacing:.1em;color:var(--muted)}
+  .gbtn{margin-left:8px;background:#121a10;border:1px solid rgba(124,255,107,.5);color:#7cff6b;font-family:Orbitron,sans-serif;font-size:.62rem;letter-spacing:.1em;padding:5px 9px;border-radius:4px;cursor:pointer;transition:all .15s}
+  .gbtn:hover{background:#7cff6b;color:#0a100c;box-shadow:0 0 10px rgba(124,255,107,.5)}
+  .guide-modal{position:fixed;inset:0;z-index:200;background:rgba(3,5,4,.9);display:none;align-items:center;justify-content:center;backdrop-filter:blur(3px)}
+  .guide-modal.show{display:flex}
+  .guide-card{width:min(92vw,840px);max-height:86vh;overflow-y:auto;background:#0a100c;border:1px solid rgba(124,255,107,.35);border-radius:8px;padding:16px 20px}
+  .guide-h{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);padding-bottom:10px;margin-bottom:12px}
+  .guide-h h2{font-family:Orbitron,sans-serif;font-size:.78rem;letter-spacing:.12em;color:#7cff6b;margin:0}
+  .guide-x{cursor:pointer;color:var(--muted);font-size:1rem;padding:2px 8px;border-radius:4px}
+  .guide-x:hover{color:#fff;background:rgba(255,59,59,.3)}
+  .guide-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px}
+  .guide-item{background:#0d1512;border:1px solid var(--line);border-radius:5px;padding:9px 12px}
+  .gi-t{font-family:Orbitron,sans-serif;font-size:.62rem;letter-spacing:.1em;color:var(--warn);margin-bottom:4px}
+  .gi-d{font-size:.68rem;line-height:1.5;color:#c9d6cc}
+  .gi-s{margin-top:6px;font-size:.54rem;letter-spacing:.08em;color:var(--muted)}
+  </style>
 </head>
 <body class="crt">
   <div class="shell">
@@ -359,13 +397,14 @@
       <label class="on" data-sec="B"><input type="checkbox" checked data-sec="B" /> B JOUR</label>
       <label class="on" data-sec="C"><input type="checkbox" checked data-sec="C" /> C EXT</label>
       <button type="button" id="btnRefresh">RAFRAÎCHIR</button>
+      <button type="button" id="btnGuide" class="gbtn">📖 GUIDE</button>
       <span class="meta" id="snapMeta">—</span>
     </div>
 
     <div class="hero">
       <section class="panel">
         <h2>RADAR CLIMAT</h2>
-        <div class="radar-box">
+        <div class="radar-box" data-peda="score" title="Survole : explication · clic : épingler">
           <svg class="radar-svg" id="radarSvg" viewBox="0 0 400 400" role="img" aria-label="Radar climat">
             <defs>
               <radialGradient id="glow" cx="50%" cy="50%" r="50%">
@@ -410,12 +449,12 @@
         <h2>FEUX — en un coup d'œil</h2>
         <div class="lights" id="lights"></div>
         <div class="gauges-mini">
-          <div class="tank" title="Bassine soft">
+          <div class="tank" data-peda="bassine" title="Bassine soft · survole pour comprendre">
             <div class="tank-fill" id="tank" style="height:40%"></div>
           </div>
           <div>
             <div class="hp-lab"><span>VERRE D'EAU (soft)</span><span id="hpPct">—</span></div>
-            <div class="hp-track"><div class="hp-fill" id="hp" style="width:50%"></div></div>
+            <div class="hp-track" data-peda="verre" title="Verre d eau · survole pour comprendre"><div class="hp-fill" id="hp" style="width:50%"></div></div>
             <div class="legend-box" id="legendHelp">
               <b>Comment lire :</b>
               <span class="okc"> VERT</span> = calme ·
@@ -429,7 +468,17 @@
     </div>
 
     <section class="sec charts-sec">
-      <div class="sec-h"><h2>COURBES — HISTORIQUE</h2><span>history.jsonl · valeurs recentes · 7 jours</span></div>
+      <div class="sec-h"><h2>COURBES — HISTORIQUE</h2><span>history.jsonl · valeurs recentes ·
+        <select id="chartRange" style="background:#0a1410;color:var(--acid);border:1px solid var(--line);border-radius:3px;padding:2px 6px;font-family:inherit;font-size:.75rem">
+          <option value="24">24H</option>
+          <option value="168" selected>7 JOURS</option>
+          <option value="720">30 JOURS</option>
+        </select></span></div>
+      <div class="liqmap-card" data-peda="liqMap" title="Survole : explication · clic : épingler">
+        <div class="c-name">LIQUIDATION HEATMAP <span class="proxy-tag">PROXY ESTIMÉ</span></div>
+        <canvas id="liqmap"></canvas>
+        <div class="liqmap-foot"><span class="lL" id="liqLongLbl">LONGS —</span><span class="lM" id="liqMarkLbl">—</span><span class="lS" id="liqShortLbl">SHORTS —</span></div>
+      </div>
       <div class="charts" id="charts"></div>
     </section>
 
@@ -453,6 +502,18 @@
     </footer>
   </div>
 
+<div class="peda-panel" id="peda-panel">
+  <span class="peda-x" id="peda-x" title="Fermer">✕</span>
+  <div class="peda-title" id="peda-title"></div>
+  <div class="peda-desc" id="peda-desc"></div>
+  <div class="peda-src" id="peda-src"></div>
+</div>
+<div class="guide-modal" id="guide-modal">
+  <div class="guide-card">
+    <div class="guide-h"><h2>📖 GLOSSAIRE — VERSION ÉCRITE</h2><span class="guide-x" id="guide-x">✕</span></div>
+    <div class="guide-list" id="guide-list"></div>
+  </div>
+</div>
 <script src="live.js"></script>
 <script>
 (() => {
@@ -561,11 +622,87 @@
     if (n == null) return "—";
     return Number(n).toExponential(2);
   }
+  // Taux annualisé : funding par période (8h) × 3 × 365 = %/an
+  function fundPct(n) {
+    if (n == null) return null;
+    return Number(n) * 3 * 365 * 100;
+  }
+  function fundCls(n) {
+    const a = Math.abs(fundPct(n) || 0);
+    if (a < 10) return "ok";      // < 10%/an : sain
+    if (a < 30) return "warn";    // 10-30%/an : surveiller
+    return "hot";                 // > 30%/an : surchauffe
+  }
   function fmtCompact(n) {
     if (n == null) return "—";
     if (n >= 1e9) return (n/1e9).toFixed(2) + "B";
     if (n >= 1e6) return (n/1e6).toFixed(2) + "M";
     return fmt(n, 1);
+  }
+
+  // ——— LIQUIDATION HEATMAP (proxy estime) ———
+  // Risque de liquidation par niveau de prix : au-dessus du mark = positions short
+  // qui sautent si le prix monte ; en dessous = positions long si le prix baisse.
+  // Intensite proportionnelle aux montants reels liquidés (split L/S, OKX public).
+  function paintLiqMap(d) {
+    const cv = $("#liqmap");
+    if (!cv || !d || !d.mark) return;
+    const ctx = cv.getContext("2d");
+    const W = cv.width = cv.parentElement ? (cv.parentElement.clientWidth || 520) : 520;
+    const H = cv.height = 150;
+    const mark = d.mark;
+    const liqT = d.liq24Usd || 0;
+    const liqL = d.liqLongUsd || 0;   // longs liquidés (si baisse)
+    const liqS = d.liqShortUsd || 0;  // shorts liquidés (si hausse)
+    const shareL = liqT ? liqL / liqT : 0.5;
+    const shareS = liqT ? liqS / liqT : 0.5;
+    const volPct = Math.max(Math.abs(d.chg24 || 0), Math.abs(d.chg4h || 0), Math.abs(d.chg1h || 0), 0.3);
+    const sig = mark * (volPct / 100) * 1.6;       // 1 sigma en dollars
+    const yOf = px => H - (px - (mark - 3 * sig)) / (6 * sig) * H;
+    const xOf = (w, i) => (w / 7) * (i + 0.5);      // 7 niveaux discrets
+    // 7 barres verticales = 7 fenêtres de prix (-3σ .. +3σ)
+    // Couleur : vert (aucun risque) → jaune → rouge (risque fort).
+    // Le risque vient de la proximité du prix (amplitude gaussienne) × le
+    // poids réel du côté concerné (LONGS liquidés en dessous, SHORTS au-dessus).
+    for (let i = 0; i < 7; i++) {
+      const pc = mark + (i - 3) * sig;               // prix centre de la fenêtre
+      const dist = Math.abs(pc - mark) / sig;
+      const amp = Math.exp(-dist * dist / 2);
+      const below = pc < mark;
+      const intens = Math.min(1, amp * (below ? shareL : shareS));
+      const base = 0.08 + (i / 6) * 0.25;            // léger fond directionnel
+      const t = Math.min(1, base + intens * 2.0);    // 0=vert 1=rouge
+      const col = t < 0.5
+        ? `rgb(${Math.round(57 + (245 - 57) * t * 2)},${Math.round(255 - (255 - 197) * t * 2)},${Math.round(20 + (24 - 20) * t)})`
+        : `rgb(${Math.round(245 + (255 - 245) * (t - 0.5) * 2)},${Math.round(197 - (197 - 59) * (t - 0.5) * 2)},${Math.round(24)})`;
+      ctx.fillStyle = col;
+      ctx.fillRect(xOf(W, i), yOf(pc - sig / 2), W / 7, Math.max(1, yOf(pc - sig / 2) - yOf(pc + sig / 2)));
+    }
+    // ligne du prix actuel
+    ctx.strokeStyle = "#ffffff";
+    ctx.lineWidth = 1.5;
+    ctx.setLineDash([4, 3]);
+    ctx.beginPath(); ctx.moveTo(0, yOf(mark)); ctx.lineTo(W, yOf(mark)); ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.fillStyle = "#ffffff";
+    ctx.font = "10px Orbitron, monospace";
+    ctx.fillText("MARK " + Number(mark).toLocaleString("fr-CH"), 6, yOf(mark) - 4);
+    // murs GEX si présents et dans le range
+    if (d.gexPutWall) {
+      const yy = yOf(d.gexPutWall);
+      if (yy > 0 && yy < H) { ctx.strokeStyle = "#f5c51888"; ctx.lineWidth = 1; ctx.setLineDash([2, 4]);
+        ctx.beginPath(); ctx.moveTo(0, yy); ctx.lineTo(W, yy); ctx.stroke(); ctx.setLineDash([]);
+        ctx.fillStyle = "#f5c518"; ctx.fillText("PUT WALL " + Number(d.gexPutWall).toLocaleString("fr-CH"), 6, yy - 3); }
+    }
+    if (d.gexCallWall) {
+      const yy = yOf(d.gexCallWall);
+      if (yy > 0 && yy < H) { ctx.strokeStyle = "#39ff1488"; ctx.lineWidth = 1; ctx.setLineDash([2, 4]);
+        ctx.beginPath(); ctx.moveTo(0, yy); ctx.lineTo(W, yy); ctx.stroke(); ctx.setLineDash([]);
+        ctx.fillStyle = "#39ff14"; ctx.fillText("CALL WALL " + Number(d.gexCallWall).toLocaleString("fr-CH"), 6, yy - 3); }
+    }
+    $("#liqLongLbl").textContent = "LONGS à risque (si ↓) " + fmtCompact(liqL);
+    $("#liqShortLbl").textContent = "SHORTS à risque (si ↑) " + fmtCompact(liqS);
+    $("#liqMarkLbl").textContent = "vol 24h " + volPct.toFixed(2) + "% · " + fmtCompact(liqT) + " liquidés";
   }
 
   function arrowOf(data, key) {
@@ -579,9 +716,9 @@
   function paintLights(data) {
     const sens = state.sens;
     const rows = [
-      { id: "funding", dkey: "funding", label: "Funding (coût levier)", hint: "C14 · maintenant", val: fmtFund(data.funding), lv: level("funding", data.funding, sens) },
-      { id: "fund30", dkey: "fundingAvg30", label: "Funding moyenne ~30j", hint: "Cortana", val: fmtFund(data.fundingAvg30), lv: level("funding", data.fundingAvg30, sens) },
-      { id: "fundPrev", dkey: "fundingAvgPrevMonth", label: "Funding mois dernier", hint: "Cortana", val: fmtFund(data.fundingAvgPrevMonth), lv: level("funding", data.fundingAvgPrevMonth, sens) },
+      { id: "funding", dkey: "funding", label: "Funding (coût levier)", hint: "C14 · maintenant", val: fmtFund(data.funding), lv: level("funding", data.funding, sens), pct: fundPct(data.funding), pcl: fundCls(data.funding) },
+      { id: "fund30", dkey: "fundingAvg30", label: "Funding moyenne ~30j", hint: "Cortana", val: fmtFund(data.fundingAvg30), lv: level("funding", data.fundingAvg30, sens), pct: fundPct(data.fundingAvg30), pcl: fundCls(data.fundingAvg30) },
+      { id: "fundPrev", dkey: "fundingAvgPrevMonth", label: "Funding mois dernier", hint: "Cortana", val: fmtFund(data.fundingAvgPrevMonth), lv: level("funding", data.fundingAvgPrevMonth, sens), pct: fundPct(data.fundingAvgPrevMonth), pcl: fundCls(data.fundingAvgPrevMonth) },
       { id: "ls", dkey: "longShort", label: "Long / Short", hint: "crowding", val: data.longShort != null ? fmt(data.longShort, 3) : "—", lv: level("ls", data.longShort, sens) },
       { id: "chg", dkey: "chg24", label: "BTC sur 24 heures", hint: "B7", val: fmtPct(data.chg24), lv: level("chg", data.chg24, sens) },
       { id: "oi", dkey: "oi", label: "Open interest", hint: "C13 · info", val: fmtCompact(data.oi), lv: "ok" },
@@ -593,12 +730,12 @@
     $("#lights").innerHTML = rows.map(r => {
       const a = arrowOf(data, r.dkey);
       return `
-      <div class="light-row ${r.lv}">
+      <div class="light-row ${r.lv}" data-peda="${r.dkey}" title="Survole : explication · clic : épingler">
         <div class="dot"></div>
         <div class="name">${r.label}<small>${r.hint} · <span class="trend-word ${a.dir}">${a.word}</span></small></div>
         <div class="arrow ${a.dir}" title="${a.word}">${a.sym}</div>
         <div class="state">${LABEL[r.lv] || r.lv.toUpperCase()}</div>
-        <div class="num">${r.val}</div>
+        <div class="num">${r.val}${r.pct!=null?`<span class="fund-pct ${r.pcl}">${r.pct>=0?'+':''}${r.pct.toFixed(1)}%/an</span>`:''}</div>
       </div>`;
     }).join("");
     return rows;
@@ -732,7 +869,7 @@
     const pill = { g:"GARDÉ", p:"PISTE", w:"WATCH" }[ind.st];
     const pc = { g:"g", p:"p", w:"w" }[ind.st];
     const src = (liveInd && liveInd.note) ? `<div class="hint">${liveInd.note}</div>` : "";
-    return `<article class="card${!muted ? " live-on" : ""}">
+    return `<article class="card${!muted ? " live-on" : ""}" data-peda="${ind.key || ind.id}" title="Survole : explication · clic : épingler">
       <div class="top">
         <span class="id">${ind.id}</span>
         <span class="arrow-mini ${a.dir}" title="${a.word}">${a.sym}</span>
@@ -763,6 +900,7 @@
     paintVerdict(data, rows);
     paintRadar(data, rows);
     paintGrids(data);
+    paintLiqMap(data);
     $("#snapMeta").textContent = (data.ts || "—") + " · " + (data.symbol || "BTC");
     const live = $("#live");
     live.classList.remove("off","stale");
@@ -851,15 +989,23 @@
       return rows;
     } catch (_) { return []; }
   }
+  let lastHistoryRows = [];
   function paintCharts(rows) {
+    if (rows && rows.length) lastHistoryRows = rows;
     const grid = $("#charts"); if (!grid) return;
     grid.innerHTML = "";
+    const rangeSel = $("#chartRange");
+    const rangeH = parseInt(rangeSel ? rangeSel.value : "168", 10) || 0;
+    const lastTs = lastHistoryRows.length ? (lastHistoryRows[lastHistoryRows.length - 1].tsUnix || 0) : 0;
     CHART_KEYS.forEach(c => {
-      const data = rows.map(r => ({ ts: r.tsUnix, v: r[c.key] })).filter(p => p.v != null);
+      const data = lastHistoryRows
+        .map(r => ({ ts: r.tsUnix, v: r[c.key] }))
+        .filter(p => p.v != null && (!rangeH || !lastTs || p.ts >= lastTs - rangeH * 3600));
       if (!data.length) return;
       const last = data[data.length - 1].v;
       const card = document.createElement("div");
       card.className = "chart-card";
+      card.dataset.peda = c.key;
       const cv = document.createElement("canvas");
       cv.dataset.key = c.key;
       card.innerHTML = `<div class="c-name">${c.name}</div><div class="c-val">${c.fmt ? c.fmt(last) : last}</div>`;
@@ -868,6 +1014,8 @@
       setTimeout(() => drawChart(cv, data), 0);
     });
   }
+  const chartRangeSel = $("#chartRange");
+  if (chartRangeSel) chartRangeSel.addEventListener("change", () => paintCharts(null));
 
   // options wiring
   document.querySelectorAll('#opts label[data-opt="mode"]').forEach(lab => {
@@ -901,6 +1049,291 @@
   }
   tickClock();
   setInterval(tickClock, 1000);
+
+  const GLOSSARY = {
+  "score": {
+    "t": "SCORE CLIMAT /100",
+    "d": "La température générale du marché, sur 100. 90+ = très calme, 60-90 = calme, 40-60 = à surveiller, <40 = chaud. Un thermomètre, jamais un ordre d'achat ou de vente.",
+    "s": "Synthèse maison : funding + L/S + move 24h"
+  },
+  "funding": {
+    "t": "FUNDING",
+    "d": "Le coût du levier sur les contrats perpétuels. Positif = les longs paient les shorts (foule long), négatif = l'inverse. Un funding très positif = marché surchauffé, risque de cascade si ça casse. Le %/an = taux annualisé (×3 par jour ×365) : <10% sain, 10-30% à surveiller, >30% surchauffe.",
+    "s": "Binance perp · carte C14"
+  },
+  "fundingAvg30": {
+    "t": "FUNDING MOYENNE ~30 J",
+    "d": "La moyenne du funding sur un mois. Lisse le bruit quotidien : si elle reste haut longtemps, le marché vit au levier depuis des semaines.",
+    "s": "Cortana · calculé"
+  },
+  "fundingAvgPrevMonth": {
+    "t": "FUNDING MOIS DERNIER",
+    "d": "Le funding moyen du mois précédent. À comparer avec la moyenne récente pour voir si la foule augmente ou baisse son levier.",
+    "s": "Cortana · calculé"
+  },
+  "longShort": {
+    "t": "LONG / SHORT",
+    "d": "Le rapport entre positions longues et courtes. Proche de 1 = équilibré. Très haut = foule longue (risque de douche froide), très bas = foule courte (risque de squeeze).",
+    "s": "Crowding · Binance"
+  },
+  "chg24": {
+    "t": "BTC 24H",
+    "d": "La variation du prix du Bitcoin sur 24 heures. Petit = marché calme, gros = mouvement, donc stress.",
+    "s": "Spot thermo · carte B7"
+  },
+  "oi": {
+    "t": "OPEN INTEREST",
+    "d": "Le total des paris ouverts sur les dérivés. OI qui monte = de l'argent neuf entre au levier (fragile), OI qui baisse = débouclage, le levier se vide.",
+    "s": "Binance · carte C13"
+  },
+  "whaleUsd": {
+    "t": "WHALES PROXY",
+    "d": "Les grosses transactions (≥ 500k$) détectées sur le carnet. Un pic = un gros acteur s'active : souvent avant un mouvement.",
+    "s": "aggTrades · carte C15"
+  },
+  "takerRatio": {
+    "t": "DARK/OTC PROXY (TAKER)",
+    "d": "La part des ordres agressifs (taker) : >1 = les acheteurs frappent, <1 = les vendeurs. Un proxy de ce que font les institutionnels hors carnet.",
+    "s": "Crowding · carte C23"
+  },
+  "mark": {
+    "t": "PRIX BTC (MARK)",
+    "d": "Le prix de référence des dérivés, lissé pour éviter la manipulation. C'est lui qui déclenche les liquidations.",
+    "s": "Spot thermo"
+  },
+  "fearGreed": {
+    "t": "FEAR & GREED",
+    "d": "L'indice de peur/avidité du marché : 0-25 = peur extrême (souvent des creux d'achat), 75-100 = avidité (souvent des sommets).",
+    "s": "Alternative.me"
+  },
+  "liq24Usd": {
+    "t": "LIQUIDATIONS 24H",
+    "d": "Le montant des positions forcées (liquidées) en 24h. Une bouffée = un excès de levier saute : souvent un point d'inflexion.",
+    "s": "OKX public"
+  },
+  "liqMap": {
+    "t": "LIQUIDATION HEATMAP (PROXY)",
+    "d": "Carte du risque de liquidation par niveau de prix. En dessous du prix = les positions LONG sautent si le prix baisse ; au-dessus = les SHORT sautent si le prix monte. L'intensité suit les vrais montants liquidés (split L/S). Les murs GEX (put/call wall) marquent les zones où les options protègent. Lecture : bandes rouges = danger, le prix y est attiré.",
+    "s": "Proxy OKX public · estimé"
+  },
+  "etfBtcM": {
+    "t": "ETF BTC (M$)",
+    "d": "Les flux nets des ETF Bitcoin en millions de $. Entrées = la demande institutionnelle (haussière), sorties = retraits (baissier).",
+    "s": "bitbo.io"
+  },
+  "gexPutCall": {
+    "t": "GEX P/C",
+    "d": "Le ratio put/call des options. <1 = on mise à la hausse, >1 = on se protège à la baisse. Un indicateur de positionnement des options.",
+    "s": "Deribit public"
+  },
+  "volumeCachedTaker": {
+    "t": "TAKER BUY",
+    "d": "La proportion d'ordres acheteurs agressifs sur le volume total. >0.5 = pression acheteuse, <0.5 = pression vendeuse.",
+    "s": "Cache volume"
+  },
+  "A1": {
+    "t": "PRIX VS MOYENNE LENTE",
+    "d": "Compare le prix à sa moyenne longue : au-dessus = tendance haussière de fond, en dessous = baissière.",
+    "s": "A · fond"
+  },
+  "A2": {
+    "t": "STRUCTURE (PLUS HAUTS/BAS)",
+    "d": "La série des plus hauts et plus bas : des sommets qui montent = structure haussière, des creux qui descendent = baissière.",
+    "s": "A · fond"
+  },
+  "A3": {
+    "t": "DOMINANCE BTC / BETA ALTS",
+    "d": "Quand BTC domine, l'argent se réfugie dans la plus sûre ; quand les alts surperforment (altseason), c'est l'appétit pour le risque.",
+    "s": "A · fond"
+  },
+  "A4": {
+    "t": "VOLATILITÉ DE FOND",
+    "d": "L'amplitude des mouvements de fond. Une volatilité qui se comprime précède souvent une grosse expansion.",
+    "s": "A · fond"
+  },
+  "A5": {
+    "t": "DRAWDOWN DEPUIS SOMMET",
+    "d": "La distance au dernier sommet. Proche de 0 = plein potentiel ; profond = marché déjà corrigé (zone possible d'achat ou piège).",
+    "s": "A · fond"
+  },
+  "A6": {
+    "t": "RANGE OU TENDANCE ?",
+    "d": "Distingue un marché qui avance (tendance, on suit) d'un marché qui oscille (range, on fait attention aux bords).",
+    "s": "A · fond"
+  },
+  "B7": {
+    "t": "BTC SUR 24H",
+    "d": "La variation du BTC sur la journée : le thermomètre du jour.",
+    "s": "B · jour · chg24"
+  },
+  "B8": {
+    "t": "SIGNATURE LEVIER",
+    "d": "Prix qui baisse + volume qui monte = la signature d'un débouclage forcé (cascade de liquidations).",
+    "s": "B · jour"
+  },
+  "B9": {
+    "t": "LARGEUR PANIER ALTS",
+    "d": "Combien d'altcoins montent en même temps. Beaucoup = marché sain, peu = rotation défensive.",
+    "s": "B · jour"
+  },
+  "B10": {
+    "t": "VOLUME DU JOUR",
+    "d": "Le volume échangé aujourd'hui. Qui s'effondre = marché qui s'endort, qui explose = un événement se prépare.",
+    "s": "B · jour"
+  },
+  "B11": {
+    "t": "CHALEUR PORTEFEUILLE",
+    "d": "À quel point le portefeuille est proche du rouge : le stress interne. Surtout utile à ACE pour calibrer sa taille.",
+    "s": "B · jour"
+  },
+  "B12": {
+    "t": "FREINS RED / PULLBACK",
+    "d": "Les niveaux où le prix a déjà rebondi ou calé : des freins qui ralentissent les mouvements.",
+    "s": "B · jour"
+  },
+  "C13": {
+    "t": "OPEN INTEREST",
+    "d": "Les paris ouverts sur les dérivés. Qui monte avec le prix = nouveau levier (fragile), qui baisse = débouclage.",
+    "s": "C · levier"
+  },
+  "C14": {
+    "t": "FUNDING (COÛT DU LEVIER)",
+    "d": "Le prix à payer pour tenir un levier. Haut et positif = foule long surchauffée, risque de cascade.",
+    "s": "C · levier"
+  },
+  "C15": {
+    "t": "WHALES PROXY",
+    "d": "Les gros prints (≥ 500k$) sur le carnet : l'activité des baleines.",
+    "s": "C · proxies"
+  },
+  "C16": {
+    "t": "MULTI-COUCHES → 1 SCORE",
+    "d": "L'idée maîtresse : fusionner toutes les couches d'indicateurs en UN score lisible (le score climat).",
+    "s": "C · synthèse"
+  },
+  "C17": {
+    "t": "SCORE DE RÉGIME",
+    "d": "Dans quel état est le marché (calme, stressé, panique) : le régime détermine la prudence.",
+    "s": "C · synthèse"
+  },
+  "C18": {
+    "t": "TENSION / MUR (VIDE BOOK)",
+    "d": "Les gros murs d'ordres dans le carnet. Un mur peut retenir le prix ou le faire rebondir.",
+    "s": "C · vide book"
+  },
+  "C19": {
+    "t": "IMPULSE / FROID",
+    "d": "L'élan du prix : une impulsion chaude = mouvement en cours, un marché froid = il dort avant de se réveiller.",
+    "s": "C · proxies"
+  },
+  "C20": {
+    "t": "BASSINE / ZONE TREMPE",
+    "d": "La zone de trempage : là où le marché descend se reposer avant de repartir. Remplie = calme, vide = stress.",
+    "s": "C · soft ops"
+  },
+  "C21": {
+    "t": "TAUX DE SKIP",
+    "d": "Combien de fois ACE décide de ne pas jouer : un bon trader sait ne pas trader quand c'est illisible.",
+    "s": "C · sagesse"
+  },
+  "C22": {
+    "t": "VERRE D'EAU (DD SESSION)",
+    "d": "La marge de sécurité de la session : la réserve de prudence avant d'agir.",
+    "s": "C · soft ops"
+  },
+  "C23": {
+    "t": "DARK / OTC PROXY",
+    "d": "Le flux hors carnet (blocs) estimé via le taker : ce que font les institutionnels sans le montrer.",
+    "s": "C · proxies"
+  },
+  "C24": {
+    "t": "STRESS LEVIER (FUNDING+OI)",
+    "d": "Funding + open interest combinés : quand les deux montent, le marché est surchargé de levier.",
+    "s": "C · levier"
+  },
+  "C25": {
+    "t": "WALLS (IDÉE OPTIONS)",
+    "d": "Les niveaux de prix où sont concentrées les options : des aimants ou des murs pour le prix.",
+    "s": "C · options"
+  },
+  "bassine": {
+    "t": "BASSINE / ZONE TREMPE (SOFT)",
+    "d": "La jauge de trempage du marché : plus elle est pleine, plus le marché est calme et serein. Vide = zone de prudence.",
+    "s": "Soft · C20"
+  },
+  "verre": {
+    "t": "VERRE D'EAU (SOFT)",
+    "d": "La marge de sécurité de la session : le niveau de confort avant d'agir. Haut = serein, bas = on ne touche à rien.",
+    "s": "Soft · C22"
+  },
+  "volQuote": {
+    "t": "VOLUME DU JOUR",
+    "d": "Le volume échangé aujourd'hui. Qui s'effondre = marché qui s'endort, qui explose = un événement se prépare.",
+    "s": "B · jour · B10"
+  }
+};
+
+  // ——— PÉDAGOGIE : survol = explication, clic = épingler, GUIDE = glossaire ———
+  let pedaPinned = '';
+  function pedaGet(key){ return (key && (GLOSSARY[key] || GLOSSARY[key.toLowerCase()])) || null; }
+  function fillPeda(g, pinned){
+    const panel = document.getElementById('peda-panel');
+    if (!panel || !g) return;
+    document.getElementById('peda-title').textContent = g.t;
+    document.getElementById('peda-desc').textContent = g.d;
+    document.getElementById('peda-src').textContent = g.s || '';
+    panel.classList.add('show');
+    panel.classList.toggle('pinned', !!pinned);
+  }
+  function showPeda(key){
+    if (pedaPinned) return; // un panneau est épinglé : on ne bouge pas
+    fillPeda(pedaGet(key), false);
+  }
+  function pinPeda(key){
+    const g = pedaGet(key); if (!g) return;
+    if (pedaPinned === key) { closePeda(); return; } // re-clic = dépingler
+    pedaPinned = key;
+    fillPeda(g, true);
+  }
+  function closePeda(){
+    pedaPinned = '';
+    const panel = document.getElementById('peda-panel');
+    if (panel) panel.classList.remove('show','pinned');
+  }
+  function openGuide(){
+    const list = document.getElementById('guide-list');
+    if (list){
+      list.innerHTML = Object.entries(GLOSSARY).map(([k,g]) =>
+        '<div class="guide-item"><div class="gi-t">' + g.t + '</div><div class="gi-d">' + g.d + '</div>' + (g.s ? '<div class="gi-s">' + g.s + '</div>' : '') + '</div>'
+      ).join('');
+    }
+    const m = document.getElementById('guide-modal');
+    if (m) m.classList.add('show');
+  }
+  function closeGuide(){
+    const m = document.getElementById('guide-modal');
+    if (m) m.classList.remove('show');
+  }
+  document.addEventListener('mouseover', e => {
+    const el = e.target.closest('[data-peda]');
+    if (el) showPeda(el.dataset.peda);
+  });
+  document.addEventListener('mouseout', e => {
+    const el = e.target.closest('[data-peda]');
+    if (el && !pedaPinned){ const p = document.getElementById('peda-panel'); if (p) p.classList.remove('show'); }
+  });
+  document.addEventListener('click', e => {
+    if (e.target.closest('#peda-x')) { closePeda(); return; }
+    if (e.target.closest('#guide-modal') || e.target.closest('#peda-panel')) return;
+    const pin = e.target.closest('[data-peda]');
+    if (pin) { pinPeda(pin.dataset.peda); return; }
+  });
+  const _btnGuide = document.getElementById('btnGuide');
+  if (_btnGuide) _btnGuide.addEventListener('click', openGuide);
+  const _guideX = document.getElementById('guide-x');
+  if (_guideX) _guideX.addEventListener('click', closeGuide);
+  const _pedaX = document.getElementById('peda-x');
+  if (_pedaX) _pedaX.addEventListener('click', closePeda);
 
   if (window.__THERMO__) apply(window.__THERMO__);
   refresh();

@@ -519,6 +519,37 @@ def do_alerts() -> dict:
     return {"ok": True, "alerts": list(reversed(items[-80:])), "n": len(items)}
 
 
+JUSTESSE_TTL = 1800  # 30 min : ne relance pas 27 analyses LLM à chaque appel
+
+def do_justesse() -> dict:
+    """Score de justesse de l'analyste (boucle d'apprentissage) — JSON pour le cockpit.
+    Cache : régénère au plus toutes les 30 min (27 analyses LLM sinon)."""
+    import time as _time
+    tmp = SCRIPTS / "justesse_cockpit.json"
+    if tmp.exists():
+        age = _time.time() - tmp.stat().st_mtime
+        if age < JUSTESSE_TTL:
+            try:
+                data = json.loads(tmp.read_text(encoding="utf-8"))
+                data["ok"] = True
+                data["cached"] = True
+                return data
+            except Exception:
+                pass  # cache corrompu → régénère
+    try:
+        run_py(SCRIPTS / "score_justesse.py", "--json", str(tmp), timeout=60)
+    except Exception as e:
+        return {"ok": False, "error": str(e)}
+    if not tmp.exists():
+        return {"ok": False, "error": "justesse vide (aucune analyse notée pour l'instant)"}
+    try:
+        data = json.loads(tmp.read_text(encoding="utf-8"))
+        data["ok"] = True
+        return data
+    except Exception as e:
+        return {"ok": False, "error": str(e)}
+
+
 def _touch_stop(path: Path, note: str) -> None:
     try:
         path.write_text(note + "\n", encoding="utf-8")
@@ -635,6 +666,9 @@ class Handler(BaseHTTPRequestHandler):
             return
         if path == "/preflight":
             self._json(200, do_preflight())
+            return
+        if path == "/justesse":
+            self._json(200, do_justesse())
             return
         self._json(404, {"ok": False, "error": "not found"})
 

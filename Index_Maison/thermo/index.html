@@ -210,6 +210,10 @@
   .light-row.warn .state { color: var(--warn); }
   .light-row.hot .state { color: var(--hot); }
   .light-row .num { font-family: Orbitron, sans-serif; font-size: 14px; color: var(--text); min-width: 7ch; text-align: right; }
+  .fund-pct{display:block;font-size:.58rem;font-family:Orbitron,sans-serif;letter-spacing:.04em;text-align:right}
+  .fund-pct.ok{color:var(--ok,#39ff14)}
+  .fund-pct.warn{color:var(--warn,#f5c518)}
+  .fund-pct.hot{color:var(--hot,#ff3b3b)}
   .arrow {
     font-family: Orbitron, sans-serif;
     font-size: 16px;
@@ -320,6 +324,12 @@
   .chart-card .c-name{font-size:.6rem;letter-spacing:.12em;color:var(--muted);margin-bottom:4px}
   .chart-card .c-val{font-family:Orbitron,sans-serif;font-size:.85rem;color:var(--acid);margin-bottom:6px}
   .chart-card canvas{display:block;width:100%;height:44px}
+  .liqmap-card{background:#0a1410;border:1px solid var(--line);border-radius:4px;padding:8px 10px;margin-bottom:8px}
+  .liqmap-card .c-name{font-size:.6rem;letter-spacing:.12em;color:var(--muted);margin-bottom:4px;display:flex;align-items:center;gap:8px}
+  .liqmap-card .proxy-tag{font-size:.5rem;letter-spacing:.14em;color:#f5c518;border:1px solid #f5c51855;border-radius:2px;padding:1px 4px}
+  .liqmap-card canvas{display:block;width:100%;height:150px;border-radius:3px;background:#050b08}
+  .liqmap-foot{display:flex;justify-content:space-between;gap:8px;margin-top:5px;font-size:.58rem;font-family:Orbitron,sans-serif;letter-spacing:.05em}
+  .liqmap-foot .lL{color:#39ff14}.liqmap-foot .lS{color:#ff3b3b}.liqmap-foot .lM{color:var(--muted)}
   .charts-sec{margin-top:18px}
 
   /* PÉDAGOGIE : survol, épinglage, glossaire */
@@ -464,6 +474,11 @@
           <option value="168" selected>7 JOURS</option>
           <option value="720">30 JOURS</option>
         </select></span></div>
+      <div class="liqmap-card" data-peda="liqMap" title="Survole : explication · clic : épingler">
+        <div class="c-name">LIQUIDATION HEATMAP <span class="proxy-tag">PROXY ESTIMÉ</span></div>
+        <canvas id="liqmap"></canvas>
+        <div class="liqmap-foot"><span class="lL" id="liqLongLbl">LONGS —</span><span class="lM" id="liqMarkLbl">—</span><span class="lS" id="liqShortLbl">SHORTS —</span></div>
+      </div>
       <div class="charts" id="charts"></div>
     </section>
 
@@ -607,11 +622,87 @@
     if (n == null) return "—";
     return Number(n).toExponential(2);
   }
+  // Taux annualisé : funding par période (8h) × 3 × 365 = %/an
+  function fundPct(n) {
+    if (n == null) return null;
+    return Number(n) * 3 * 365 * 100;
+  }
+  function fundCls(n) {
+    const a = Math.abs(fundPct(n) || 0);
+    if (a < 10) return "ok";      // < 10%/an : sain
+    if (a < 30) return "warn";    // 10-30%/an : surveiller
+    return "hot";                 // > 30%/an : surchauffe
+  }
   function fmtCompact(n) {
     if (n == null) return "—";
     if (n >= 1e9) return (n/1e9).toFixed(2) + "B";
     if (n >= 1e6) return (n/1e6).toFixed(2) + "M";
     return fmt(n, 1);
+  }
+
+  // ——— LIQUIDATION HEATMAP (proxy estime) ———
+  // Risque de liquidation par niveau de prix : au-dessus du mark = positions short
+  // qui sautent si le prix monte ; en dessous = positions long si le prix baisse.
+  // Intensite proportionnelle aux montants reels liquidés (split L/S, OKX public).
+  function paintLiqMap(d) {
+    const cv = $("#liqmap");
+    if (!cv || !d || !d.mark) return;
+    const ctx = cv.getContext("2d");
+    const W = cv.width = cv.parentElement ? (cv.parentElement.clientWidth || 520) : 520;
+    const H = cv.height = 150;
+    const mark = d.mark;
+    const liqT = d.liq24Usd || 0;
+    const liqL = d.liqLongUsd || 0;   // longs liquidés (si baisse)
+    const liqS = d.liqShortUsd || 0;  // shorts liquidés (si hausse)
+    const shareL = liqT ? liqL / liqT : 0.5;
+    const shareS = liqT ? liqS / liqT : 0.5;
+    const volPct = Math.max(Math.abs(d.chg24 || 0), Math.abs(d.chg4h || 0), Math.abs(d.chg1h || 0), 0.3);
+    const sig = mark * (volPct / 100) * 1.6;       // 1 sigma en dollars
+    const yOf = px => H - (px - (mark - 3 * sig)) / (6 * sig) * H;
+    const xOf = (w, i) => (w / 7) * (i + 0.5);      // 7 niveaux discrets
+    // 7 barres verticales = 7 fenêtres de prix (-3σ .. +3σ)
+    // Couleur : vert (aucun risque) → jaune → rouge (risque fort).
+    // Le risque vient de la proximité du prix (amplitude gaussienne) × le
+    // poids réel du côté concerné (LONGS liquidés en dessous, SHORTS au-dessus).
+    for (let i = 0; i < 7; i++) {
+      const pc = mark + (i - 3) * sig;               // prix centre de la fenêtre
+      const dist = Math.abs(pc - mark) / sig;
+      const amp = Math.exp(-dist * dist / 2);
+      const below = pc < mark;
+      const intens = Math.min(1, amp * (below ? shareL : shareS));
+      const base = 0.08 + (i / 6) * 0.25;            // léger fond directionnel
+      const t = Math.min(1, base + intens * 2.0);    // 0=vert 1=rouge
+      const col = t < 0.5
+        ? `rgb(${Math.round(57 + (245 - 57) * t * 2)},${Math.round(255 - (255 - 197) * t * 2)},${Math.round(20 + (24 - 20) * t)})`
+        : `rgb(${Math.round(245 + (255 - 245) * (t - 0.5) * 2)},${Math.round(197 - (197 - 59) * (t - 0.5) * 2)},${Math.round(24)})`;
+      ctx.fillStyle = col;
+      ctx.fillRect(xOf(W, i), yOf(pc - sig / 2), W / 7, Math.max(1, yOf(pc - sig / 2) - yOf(pc + sig / 2)));
+    }
+    // ligne du prix actuel
+    ctx.strokeStyle = "#ffffff";
+    ctx.lineWidth = 1.5;
+    ctx.setLineDash([4, 3]);
+    ctx.beginPath(); ctx.moveTo(0, yOf(mark)); ctx.lineTo(W, yOf(mark)); ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.fillStyle = "#ffffff";
+    ctx.font = "10px Orbitron, monospace";
+    ctx.fillText("MARK " + Number(mark).toLocaleString("fr-CH"), 6, yOf(mark) - 4);
+    // murs GEX si présents et dans le range
+    if (d.gexPutWall) {
+      const yy = yOf(d.gexPutWall);
+      if (yy > 0 && yy < H) { ctx.strokeStyle = "#f5c51888"; ctx.lineWidth = 1; ctx.setLineDash([2, 4]);
+        ctx.beginPath(); ctx.moveTo(0, yy); ctx.lineTo(W, yy); ctx.stroke(); ctx.setLineDash([]);
+        ctx.fillStyle = "#f5c518"; ctx.fillText("PUT WALL " + Number(d.gexPutWall).toLocaleString("fr-CH"), 6, yy - 3); }
+    }
+    if (d.gexCallWall) {
+      const yy = yOf(d.gexCallWall);
+      if (yy > 0 && yy < H) { ctx.strokeStyle = "#39ff1488"; ctx.lineWidth = 1; ctx.setLineDash([2, 4]);
+        ctx.beginPath(); ctx.moveTo(0, yy); ctx.lineTo(W, yy); ctx.stroke(); ctx.setLineDash([]);
+        ctx.fillStyle = "#39ff14"; ctx.fillText("CALL WALL " + Number(d.gexCallWall).toLocaleString("fr-CH"), 6, yy - 3); }
+    }
+    $("#liqLongLbl").textContent = "LONGS à risque (si ↓) " + fmtCompact(liqL);
+    $("#liqShortLbl").textContent = "SHORTS à risque (si ↑) " + fmtCompact(liqS);
+    $("#liqMarkLbl").textContent = "vol 24h " + volPct.toFixed(2) + "% · " + fmtCompact(liqT) + " liquidés";
   }
 
   function arrowOf(data, key) {
@@ -625,9 +716,9 @@
   function paintLights(data) {
     const sens = state.sens;
     const rows = [
-      { id: "funding", dkey: "funding", label: "Funding (coût levier)", hint: "C14 · maintenant", val: fmtFund(data.funding), lv: level("funding", data.funding, sens) },
-      { id: "fund30", dkey: "fundingAvg30", label: "Funding moyenne ~30j", hint: "Cortana", val: fmtFund(data.fundingAvg30), lv: level("funding", data.fundingAvg30, sens) },
-      { id: "fundPrev", dkey: "fundingAvgPrevMonth", label: "Funding mois dernier", hint: "Cortana", val: fmtFund(data.fundingAvgPrevMonth), lv: level("funding", data.fundingAvgPrevMonth, sens) },
+      { id: "funding", dkey: "funding", label: "Funding (coût levier)", hint: "C14 · maintenant", val: fmtFund(data.funding), lv: level("funding", data.funding, sens), pct: fundPct(data.funding), pcl: fundCls(data.funding) },
+      { id: "fund30", dkey: "fundingAvg30", label: "Funding moyenne ~30j", hint: "Cortana", val: fmtFund(data.fundingAvg30), lv: level("funding", data.fundingAvg30, sens), pct: fundPct(data.fundingAvg30), pcl: fundCls(data.fundingAvg30) },
+      { id: "fundPrev", dkey: "fundingAvgPrevMonth", label: "Funding mois dernier", hint: "Cortana", val: fmtFund(data.fundingAvgPrevMonth), lv: level("funding", data.fundingAvgPrevMonth, sens), pct: fundPct(data.fundingAvgPrevMonth), pcl: fundCls(data.fundingAvgPrevMonth) },
       { id: "ls", dkey: "longShort", label: "Long / Short", hint: "crowding", val: data.longShort != null ? fmt(data.longShort, 3) : "—", lv: level("ls", data.longShort, sens) },
       { id: "chg", dkey: "chg24", label: "BTC sur 24 heures", hint: "B7", val: fmtPct(data.chg24), lv: level("chg", data.chg24, sens) },
       { id: "oi", dkey: "oi", label: "Open interest", hint: "C13 · info", val: fmtCompact(data.oi), lv: "ok" },
@@ -644,7 +735,7 @@
         <div class="name">${r.label}<small>${r.hint} · <span class="trend-word ${a.dir}">${a.word}</span></small></div>
         <div class="arrow ${a.dir}" title="${a.word}">${a.sym}</div>
         <div class="state">${LABEL[r.lv] || r.lv.toUpperCase()}</div>
-        <div class="num">${r.val}</div>
+        <div class="num">${r.val}${r.pct!=null?`<span class="fund-pct ${r.pcl}">${r.pct>=0?'+':''}${r.pct.toFixed(1)}%/an</span>`:''}</div>
       </div>`;
     }).join("");
     return rows;
@@ -809,6 +900,7 @@
     paintVerdict(data, rows);
     paintRadar(data, rows);
     paintGrids(data);
+    paintLiqMap(data);
     $("#snapMeta").textContent = (data.ts || "—") + " · " + (data.symbol || "BTC");
     const live = $("#live");
     live.classList.remove("off","stale");
@@ -966,7 +1058,7 @@
   },
   "funding": {
     "t": "FUNDING",
-    "d": "Le coût du levier sur les contrats perpétuels. Positif = les longs paient les shorts (foule long), négatif = l'inverse. Un funding très positif = marché surchauffé, risque de cascade si ça casse.",
+    "d": "Le coût du levier sur les contrats perpétuels. Positif = les longs paient les shorts (foule long), négatif = l'inverse. Un funding très positif = marché surchauffé, risque de cascade si ça casse. Le %/an = taux annualisé (×3 par jour ×365) : <10% sain, 10-30% à surveiller, >30% surchauffe.",
     "s": "Binance perp · carte C14"
   },
   "fundingAvg30": {
@@ -1018,6 +1110,11 @@
     "t": "LIQUIDATIONS 24H",
     "d": "Le montant des positions forcées (liquidées) en 24h. Une bouffée = un excès de levier saute : souvent un point d'inflexion.",
     "s": "OKX public"
+  },
+  "liqMap": {
+    "t": "LIQUIDATION HEATMAP (PROXY)",
+    "d": "Carte du risque de liquidation par niveau de prix. En dessous du prix = les positions LONG sautent si le prix baisse ; au-dessus = les SHORT sautent si le prix monte. L'intensité suit les vrais montants liquidés (split L/S). Les murs GEX (put/call wall) marquent les zones où les options protègent. Lecture : bandes rouges = danger, le prix y est attiré.",
+    "s": "Proxy OKX public · estimé"
   },
   "etfBtcM": {
     "t": "ETF BTC (M$)",

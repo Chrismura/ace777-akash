@@ -28,6 +28,7 @@ sont signalées comme « sans verdict ».
 import argparse
 import json
 import os
+import json
 import re
 import sys
 from datetime import datetime, timezone
@@ -171,6 +172,7 @@ def main():
     ap = argparse.ArgumentParser(description="Score de justesse de l'analyste")
     ap.add_argument("--jour", default=None, help="YYYY-MM-DD (défaut: tous)")
     ap.add_argument("--detail", action="store_true", help="détail ligne par ligne")
+    ap.add_argument("--json", metavar="PATH", help="écrit le score dans PATH (JSON pour le cockpit)")
     a = ap.parse_args()
 
     history = load_history()
@@ -179,6 +181,14 @@ def main():
         print("Aucune analyse dans le journal. (lancer d'abord cortana_analyse.py)")
         return 0
 
+    # --- Résumé structuré (pour le cockpit) ---
+    resumen = {
+        "n": len(analyses),
+        "total_hit": 0, "total_scored": 0, "pct": None,
+        "par_indice": {},
+        "derniere": None,
+        "ts": datetime.now(timezone.utc).isoformat(),
+    }
     print(f"=== SCORE DE JUSTESSE — {len(analyses)} analyse(s) ===\n")
     total_hit = total_scored = 0
     par_indice = {}
@@ -198,16 +208,34 @@ def main():
                 total_hit += 1
                 par_indice[an.get("indice")][0] += 1
             par_indice[an.get("indice")][1] += 1
+        # remplissage du résumé cockpit
+        resumen["n"] = len(analyses)
+        if resumen["derniere"] is None:
+            resumen["derniere"] = {
+                "ts": an.get("ts"), "indice": an.get("indice"),
+                "avis": v.get("avis"), "horizon": v.get("horizon"),
+                "confiance": v.get("confiance"), "statut": v.get("statut"),
+                "detail": v.get("detail"),
+            }
 
     print()
     if total_scored:
         pct = total_hit / total_scored * 100
+        resumen["total_hit"] = total_hit
+        resumen["total_scored"] = total_scored
+        resumen["pct"] = round(pct, 1)
+        resumen["par_indice"] = {k: {"hit": h, "n": n} for k, (h, n) in sorted(par_indice.items())}
         print(f"  GLOBAL : {total_hit}/{total_scored} = {pct:.0f} % de justesse")
         for indice, (h, n) in sorted(par_indice.items()):
             print(f"    {indice:14} : {h}/{n}")
     else:
         print("  Aucun verdict noté pour l'instant — il faut attendre que les horizons (24h/semaine) s'écoulent.")
     print("\n  NB: NEUTRE = abstention (comptée mais pas notée) · en_attente = horizon pas encore écoulé.")
+
+    if a.json:
+        with open(a.json, "w", encoding="utf-8") as f:
+            json.dump(resumen, f, ensure_ascii=False, indent=2)
+        print(f"\n[score_justesse] JSON écrit : {a.json}")
     return 0
 
 
