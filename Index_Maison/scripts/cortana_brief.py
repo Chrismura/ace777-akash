@@ -73,7 +73,7 @@ def main():
 
     text = a.text if a.text else rule_brief()
     content, provider = call_hub(text, force_gemini=(a.model == "gemini"))
-    print("[provider: %s]" % provider)
+    print("[provider: %s]" % provider, file=sys.stderr)
     print(content)
     return 0
 
