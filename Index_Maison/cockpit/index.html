@@ -268,6 +268,20 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
   padding:8px 10px;display:none;font-size:.66rem;line-height:1.45;color:var(--acid2);
   box-shadow:inset 0 0 16px rgba(124,255,107,.05);white-space:pre-wrap;max-height:220px;overflow-y:auto}
 .ana-box.show{display:block}
+.peda-panel{position:fixed;top:14px;right:14px;z-index:99;max-width:300px;background:rgba(7,12,10,.94);
+  border:1px solid rgba(124,255,107,.4);border-radius:8px;padding:10px 12px;display:none;
+  box-shadow:0 0 22px rgba(124,255,107,.18);backdrop-filter:blur(4px)}
+.peda-panel.show{display:block}
+.peda-panel .pt{color:var(--amber2);font-family:Orbitron,sans-serif;font-size:.72rem;letter-spacing:.12em;margin-bottom:4px}
+.peda-panel .pd{color:#cfe6d2;font-size:.7rem;line-height:1.5}
+.peda-panel .ps{margin-top:6px;color:var(--muted);font-size:.6rem;line-height:1.4}
+.pill-ana{position:absolute;top:3px;right:3px;z-index:2;background:#0f1713;border:1px solid rgba(240,160,32,.4);
+  color:var(--amber2);font-size:.55rem;padding:1px 5px;border-radius:3px;cursor:pointer;opacity:0;
+  transition:opacity .15s}
+.pill:hover .pill-ana{opacity:1}
+.pill-ana:hover{background:var(--amber);color:#0a100c}
+.pill{position:relative}
+
 .ana-box .ana-head{color:var(--amber2);letter-spacing:.1em;font-size:.6rem;margin-bottom:4px;font-family:Orbitron,sans-serif}
 .ana-box .ana-err{color:var(--red)}
 .fg-wrap{display:flex;align-items:center;gap:12px}
@@ -560,7 +574,7 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
     <!-- MARKET · sauce ACE (esprit CMC) -->
     <div class="mkt">
       <div class="mkt-card">
-        <div class="ttl">FEAR &amp; GREED <em>ACE</em></div>
+        <div class="ttl" data-peda="fearGreed">FEAR &amp; GREED <em>ACE</em></div>
         <button type="button" class="ana-btn" data-indice="fearGreed" title="Cortana analyse cet indice (master analyste)">🐈 ANALYSE</button>
         <div class="fg-wrap">
           <div class="fg-gauge"><canvas id="fg-canvas" width="236" height="128"></canvas></div>
@@ -571,7 +585,7 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
         </div>
       </div>
       <div class="mkt-card">
-        <div class="ttl">MARKET CAP <em>GLOBAL</em></div>
+        <div class="ttl" data-peda="marketCapUsd">MARKET CAP <em>GLOBAL</em></div>
         <button type="button" class="ana-btn" data-indice="marketCapUsd" title="Cortana analyse cet indice (master analyste)">🐈 ANALYSE</button>
         <div class="mc-big" id="mc-big">—</div>
         <div class="mc-sub" id="mc-sub">crypto totale</div>
@@ -581,7 +595,7 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
         </div>
       </div>
       <div class="mkt-card">
-        <div class="ttl">ALTCOIN SEASON <em>PROXY</em></div>
+        <div class="ttl" data-peda="altSeason">ALTCOIN SEASON <em>PROXY</em></div>
         <button type="button" class="ana-btn" data-indice="altSeason" title="Cortana analyse cet indice (master analyste)">🐈 ANALYSE</button>
         <div class="alt-title" id="alt-title">—</div>
         <div class="alt-track"><i class="alt-thumb" id="alt-thumb" style="left:50%"></i></div>
@@ -592,6 +606,12 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
     <div class="ana-box" id="ana-box">
       <div class="ana-head">🐈 CORTANA · MASTER ANALYSTE</div>
       <div id="ana-body"></div>
+    </div>
+
+    <div class="peda-panel" id="peda-panel">
+      <div class="pt" id="peda-title"></div>
+      <div class="pd" id="peda-desc"></div>
+      <div class="ps" id="peda-src"></div>
     </div>
 
     <!-- ALPHA ENGINE -->
@@ -619,10 +639,10 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
 
     <!-- RADAR + BASSINE (peau maquette CRT) -->
     <div class="card radar-wrap">
-      <h2>RADAR FROID · BASSINE</h2>
+      <h2 data-peda="radar">RADAR FROID · BASSINE</h2>
       <div class="radar-box">
         <div class="radar-row">
-          <div class="bassine" title="Bassine / mur — score thermo">
+          <div class="bassine" data-peda="bassine" title="Bassine / mur — score thermo">
             <div class="lab">BASSINE</div>
             <div class="bassine-tube"><i id="bassine-fill" style="height:70%"></i></div>
             <div class="val" id="bassine-val">—</div>
@@ -631,7 +651,7 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
             <div class="radar-canvas-wrap"><canvas id="radar" width="480" height="480"></canvas></div>
           </div>
         </div>
-        <div class="verre">
+        <div class="verre" data-peda="verre">
           <div class="lab"><span>VERRE D'EAU</span><span id="verre-pct">50%</span></div>
           <div class="verre-bar"><i id="verre-fill" style="width:50%"></i></div>
         </div>
@@ -1125,33 +1145,35 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
     const grid=document.getElementById('thermo-grid');
     if(grid){
       const cells=[
-        ['CLIMAT', clim],
-        ['SCORE', score],
-        ['FUNDING', T.funding!=null?T.funding:th.funding],
-        ['WHALES', T.whaleN!=null?T.whaleN:th.whaleN],
-        ['FEAR&GREED', fng!=null? `${fng} ${fngL}`:'—'],
-        ['MC CRYPTO', mc!=null? (mc/1e12).toFixed(2)+' T$':'—'],
-        ['ALT SEASON', alt||'—'],
-        ['LIQ 24H', liq!=null? (liq/1e9).toFixed(2)+' B$':'n/d free'],
-        ['ETF BTC', etf.btc!=null? etf.btc+' M$':'n/d free'],
-        ['ETF ETH', etf.eth!=null? etf.eth+' M$':'n/d free'],
-        ['ETF XRP', etf.xrp!=null? etf.xrp+' M$':'n/d free'],
-        ['RUN', M.run||'—'],
+        ['CLIMAT', clim, 'radar'],
+        ['SCORE', score, 'bassine'],
+        ['FUNDING', T.funding!=null?T.funding:th.funding, 'funding'],
+        ['WHALES', T.whaleN!=null?T.whaleN:th.whaleN, 'whales'],
+        ['FEAR&GREED', fng!=null? `${fng} ${fngL}`:'—', 'fearGreed'],
+        ['MC CRYPTO', mc!=null? (mc/1e12).toFixed(2)+' T$':'—', 'marketCapUsd'],
+        ['ALT SEASON', alt||'—', 'altSeason'],
+        ['LIQ 24H', liq!=null? (liq/1e9).toFixed(2)+' B$':'n/d free', 'liq24Usd'],
+        ['ETF BTC', etf.btc!=null? etf.btc+' M$':'n/d free', 'etfBtcM'],
+        ['ETF ETH', etf.eth!=null? etf.eth+' M$':'n/d free', 'etfEthM'],
+        ['ETF XRP', etf.xrp!=null? etf.xrp+' M$':'n/d free', 'etfXrpM'],
+        ['RUN', M.run||'—', ''],
       ];
-      grid.innerHTML=cells.map(([n,v])=>{
+      grid.innerHTML=cells.map(([n,v,key])=>{
         const nd=String(v??'').includes('n/d');
-        return `<div class="pill"${nd?' style="opacity:.65" title="Source free flaky — pas un bug cockpit"':''}><div class="n">${n}</div><div class="v">${v??'—'}</div></div>`;
+        return `<div class="pill" data-peda="${key||''}"${nd?' style="opacity:.65" title="Source free flaky — pas un bug cockpit"':''}><button type="button" class="pill-ana" data-indice="${key||''}" title="Cortana analyse cet indice">🐈</button><div class="n">${n}</div><div class="v">${v??'—'}</div></div>`;
       }).join('');
     }
     const dg=document.getElementById('delta-grid');
     const deltas=(T.deltas||th.deltas||{});
     if(dg){
       const inds=th.indicators||T.indicators||{};
+      const DELTA_PEDA={D26:'fearGreed',D27:'marketCapUsd',D28:'altSeason',D29:'liq24Usd',D30:'etfBtcM',D31:'etfEthM',D32:'etfXrpM',D33:'gexPutCall',D34:'volumeCachedTaker'};
       const extra=Object.keys(inds).map(k=>{
         const it=inds[k]||{};
         const unwired = it.wired===false || it.value==null;
         const val = unwired ? 'n/d' : (it.value??'—');
-        return `<div class="pill"${unwired?' style="opacity:.55" title="non branché / free n/d"':''}><div class="n">${k} ${it.label||''}</div><div class="v">${val} <span style="font-size:.55rem;color:var(--muted)">${unwired?'n/d':(it.level||'')}</span></div></div>`;
+        const pk = DELTA_PEDA[k]||'';
+        return `<div class="pill" data-peda="${pk}"${unwired?' style="opacity:.55" title="non branché / free n/d"':''}><button type="button" class="pill-ana" data-indice="${pk}" title="Cortana analyse cet indice">🐈</button><div class="n">${k} ${it.label||''}</div><div class="v">${val} <span style="font-size:.55rem;color:var(--muted)">${unwired?'n/d':(it.level||'')}</span></div></div>`;
       }).join('');
       dg.innerHTML=(Object.keys(deltas).slice(0,6).map(k=>{
         const v=deltas[k];
@@ -1629,6 +1651,48 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
     requestAnimationFrame(drawOrb);
   }
   drawOrb();
+
+  // ===== PEDAGOGIE : glossaire vulgarise =====
+  const GLOSSARY = {
+    fearGreed: {t:'FEAR & GREED', d:'Thermomètre des émotions du marché : 0 = peur extrême (on vend la peur, souvent creux), 100 = euphorie extrême (souvent sommet). Il synthétise la volatilité, le volume, les réseaux sociaux et les sondages.', s:'Source : alternative.me (gratuit)'},
+    marketCapUsd: {t:'MARKET CAP TOTAL', d:'Valeur totale de toutes les cryptos (prix × quantité en circulation). Comme la « taille » du marché : une grosse capitalisation = plus de liquidité, moins de manipulation.', s:'Source : CoinGecko /global (gratuit)'},
+    altSeason: {t:'SAISON ALTCOINS', d:'Indique si les altcoins (ETH, SOL, XRP…) sur-performent Bitcoin. Quand la dominance BTC baisse fortement, les investisseurs délaissent BTC pour les alts : c’est la « saison des altcoins ».', s:'Proxy : dominance BTC (pas l’indice exact Blockchain Center)'},
+    liq24Usd: {t:'LIQUIDATIONS 24H', d:'Montant total de positions fermées de force en 24h (levier sauté). Beaucoup de liquidations = panique ou cascade : le marché a « purgé » l’excès de levier. Long = positions acheteuses liquidées, Short = positions vendeuses liquidées.', s:'Source : OKX public (BTC+ETH+SOL) — proxy sans clé'},
+    etfBtcM: {t:'ETF BTC FLUX', d:'Flux net d’argent qui entre ou sort des ETF Bitcoin américains (IBIT, FBTC, GBTC…). Entrées = des institutions achètent du BTC « officiellement » (hausse), sorties = ils vendent (pression vendeuse).', s:'Source : bitbo.io public (BTC seul ; ETH/XRP pas couverts en free)'},
+    gexPutCall: {t:'GEX PROXY (OPTIONS)', d:'Ratio puts/calls sur l’open interest des options BTC (Deribit). Beaucoup de puts = marché qui se couvre à la baisse (peur). Beaucoup de calls = paris haussiers. Les « murs » (murC/murP) sont les strikes où l’OI est énorme : le prix a tendance à s’y arrêter.', s:'Proxy : Deribit public (OI ≤ 60 jours) — pas SpotGamma payant'},
+    volumeCachedTaker: {t:'VOLUMES CACHÉS', d:'Pression d’achat réelle : ratio des ordres « taker » (qui prennent la liquidité, donc agressifs) acheteurs vs vendeurs sur 24h. >0.5 = acheteurs agressifs, <0.5 = vendeurs. Le ratio perp/spot mesure combien de fois le volume dérivé (levier) dépasse le volume comptant : un chiffre très haut = l’action se joue au levier, fragile.', s:'Source : OKX Rubik (gratuit)'},
+    funding: {t:'FUNDING (TAUX DE FINANCEMENT)', d:'Frais périodiques (toutes les 8h) que les positions longues ou courtes se paient entre elles pour rester ouvertes. Positif = les longs paient les shorts (marché optimiste) ; très positif = foule à l’achat, risque de cascade baissière. Négatif = l’inverse.', s:'Source : Binance FAPI public (gratuit)'},
+    whales: {t:'WHALES', d:'Nombre de gros ordres d’un coup (≥500k$ sur les ~500 derniers trades). Les baleines déplacent le marché : une rafale de gros prints = un acteur institutionnel ou un fonds en action.', s:'Proxy : agrégats Binance (pas Whale Alert payant)'},
+    radar: {t:'RADAR FROID', d:'Radar visuel du climat : chaque point = une position ou un signal détecté. Le balayage tourne en continu ; la distance au centre = « intensité ». Plus c’est dense et proche du centre, plus le marché est actif.', s:'Visualisation locale — pas une donnée externe'},
+    bassine: {t:'BASSINE / MUR', d:'Niveau du « bain » : le score thermo global (0 à 100). Haut = climat calme, bas = climat stressé. C’est le premier coup d’œil à donner : combien d’eau il y a avant de plonger.', s:'Calcul local : funding + L/S + variation prix'},
+    verre: {t:'VERRE D’EAU', d:'Chaleur du portefeuille : volume d’activité récente (fills, PnL session, alertes rouges). Un verre plein = beaucoup de mouvement et de stress ; vide = calme plat.', s:'Lecture seule des logs ACE'},
+  };
+  function showPeda(key, ev){
+    const g = GLOSSARY[key]; if(!g) return;
+    const panel = document.getElementById('peda-panel'); if(!panel) return;
+    document.getElementById('peda-title').textContent = g.t;
+    document.getElementById('peda-desc').textContent = g.d;
+    document.getElementById('peda-src').textContent = g.s;
+    panel.classList.add('show');
+  }
+  function hidePeda(){
+    const panel = document.getElementById('peda-panel');
+    if(panel) panel.classList.remove('show');
+  }
+  document.addEventListener('mouseover', e=>{
+    const el = e.target.closest('[data-peda]');
+    if(el) showPeda(el.dataset.peda, e);
+  });
+  document.addEventListener('mouseout', e=>{
+    const el = e.target.closest('[data-peda]');
+    if(el) hidePeda();
+  });
+
+  // Bouton Cortana sur chaque pill (délégation) : les .pill-ana portent data-indice
+  document.addEventListener('click', e=>{
+    const b = e.target.closest('.pill-ana');
+    if(b && b.dataset.indice) analyserIndice(b);
+  });
 
   async function analyserIndice(btn){
     const indice = btn.dataset.indice;

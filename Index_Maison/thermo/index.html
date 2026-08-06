@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ACE777 THERMO — clin d'œil</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --ink: #070a0c;
+    --line: #1e3a2f;
+    --acid: #39ff14;
+    --acid-dim: #1a7a0c;
+    --amber: #f5c518;
+    --amber-hot: #ff9f1a;
+    --danger: #ff3b3b;
+    --muted: #6a8a72;
+    --text: #d8ffe0;
+    --ok: #39ff14;
+    --warn: #f5c518;
+    --hot: #ff3b3b;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    min-height: 100%;
+    background: var(--ink);
+    color: var(--text);
+    font-family: "Share Tech Mono", ui-monospace, monospace;
+  }
+  body {
+    background:
+      radial-gradient(ellipse 70% 45% at 50% 0%, #122018 0%, transparent 55%),
+      radial-gradient(ellipse 40% 35% at 90% 80%, #1a1008 0%, transparent 50%),
+      var(--ink);
+  }
+  .crt::before {
+    content: "";
+    pointer-events: none;
+    position: fixed; inset: 0; z-index: 50;
+    background: repeating-linear-gradient(
+      0deg, rgba(0,0,0,0.12) 0 1px, transparent 2px 4px
+    );
+    opacity: 0.25;
+  }
+  .shell {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 14px 16px 28px;
+    position: relative;
+    z-index: 1;
+  }
+
+  header {
+    display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between;
+    gap: 10px; border-bottom: 1px solid var(--line); padding-bottom: 10px; margin-bottom: 12px;
+  }
+  .brand {
+    font-family: Orbitron, sans-serif; font-weight: 800;
+    font-size: clamp(24px, 4vw, 40px); letter-spacing: 0.04em;
+    color: var(--amber); text-shadow: 0 0 18px rgba(245,197,24,0.4); line-height: 1;
+  }
+  .sub { color: var(--muted); font-size: 12px; margin-top: 6px; }
+  .live {
+    display: flex; align-items: center; gap: 8px;
+    font-family: Orbitron, sans-serif; font-size: 12px; letter-spacing: 0.14em; color: var(--acid);
+  }
+  .live .lamp {
+    width: 10px; height: 10px; border-radius: 50%; background: var(--acid);
+    box-shadow: 0 0 10px var(--acid); animation: pulse 1.6s ease-in-out infinite;
+  }
+  .live.stale { color: var(--amber-hot); }
+  .live.stale .lamp { background: var(--amber-hot); box-shadow: 0 0 10px var(--amber-hot); }
+  .live.off { color: var(--muted); }
+  .live.off .lamp { background: #444; box-shadow: none; animation: none; }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.5} }
+  .clock { font-size: 12px; color: var(--muted); }
+
+  /* VERDICT — clin d'œil */
+  .verdict {
+    border: 2px solid var(--line);
+    padding: 16px 18px;
+    margin-bottom: 14px;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 16px;
+    align-items: center;
+    background: linear-gradient(180deg, rgba(20,32,28,0.95), rgba(8,12,14,0.98));
+    transition: border-color .4s, box-shadow .4s;
+  }
+  .verdict.ok {
+    border-color: var(--ok);
+    box-shadow: 0 0 28px rgba(57,255,20,0.18), inset 0 0 40px rgba(57,255,20,0.04);
+  }
+  .verdict.warn {
+    border-color: var(--warn);
+    box-shadow: 0 0 28px rgba(245,197,24,0.2), inset 0 0 40px rgba(245,197,24,0.05);
+  }
+  .verdict.hot {
+    border-color: var(--hot);
+    box-shadow: 0 0 28px rgba(255,59,59,0.22), inset 0 0 40px rgba(255,59,59,0.06);
+  }
+  .v-light {
+    width: 56px; height: 56px; border-radius: 50%;
+    border: 3px solid currentColor;
+    box-shadow: 0 0 22px currentColor;
+  }
+  .verdict.ok .v-light { color: var(--ok); background: radial-gradient(circle, #39ff14 0%, #0a3a0c 70%); }
+  .verdict.warn .v-light { color: var(--warn); background: radial-gradient(circle, #f5c518 0%, #3a2a08 70%); }
+  .verdict.hot .v-light { color: var(--hot); background: radial-gradient(circle, #ff3b3b 0%, #3a0a0a 70%); animation: pulse 1s ease-in-out infinite; }
+  .v-title {
+    font-family: Orbitron, sans-serif; font-weight: 800;
+    font-size: clamp(22px, 3.5vw, 34px); letter-spacing: 0.06em; line-height: 1.05;
+  }
+  .verdict.ok .v-title { color: var(--ok); text-shadow: 0 0 16px rgba(57,255,20,0.4); }
+  .verdict.warn .v-title { color: var(--warn); text-shadow: 0 0 16px rgba(245,197,24,0.4); }
+  .verdict.hot .v-title { color: var(--hot); text-shadow: 0 0 16px rgba(255,59,59,0.45); }
+  .v-phrase { color: var(--muted); font-size: 13px; margin-top: 6px; max-width: 48ch; line-height: 1.35; }
+  .v-score {
+    text-align: center;
+    font-family: Orbitron, sans-serif;
+  }
+  .v-score .n {
+    font-size: 42px; font-weight: 800; line-height: 1;
+  }
+  .verdict.ok .v-score .n { color: var(--ok); }
+  .verdict.warn .v-score .n { color: var(--warn); }
+  .verdict.hot .v-score .n { color: var(--hot); }
+  .v-score .l { font-size: 10px; letter-spacing: 0.16em; color: var(--muted); margin-top: 4px; }
+
+  /* Options */
+  .opts {
+    display: flex; flex-wrap: wrap; gap: 8px; align-items: center;
+    margin-bottom: 14px;
+    padding: 10px;
+    border: 1px solid var(--line);
+    background: rgba(0,0,0,0.25);
+  }
+  .opts label {
+    display: flex; align-items: center; gap: 6px;
+    font-size: 11px; letter-spacing: 0.08em; color: var(--muted);
+    border: 1px solid var(--line); padding: 6px 10px; cursor: pointer;
+  }
+  .opts label:hover { color: var(--text); border-color: var(--acid-dim); }
+  .opts label.on { color: var(--amber); border-color: var(--amber); }
+  .opts select, .opts button {
+    font-family: Orbitron, sans-serif; font-size: 11px; letter-spacing: 0.1em;
+    padding: 7px 10px; border: 1px solid var(--amber); background: transparent; color: var(--amber);
+  }
+  .opts button { cursor: pointer; }
+  .opts button:hover { box-shadow: inset 0 0 12px rgba(245,197,24,0.15); }
+  .opts .meta { font-size: 11px; color: var(--muted); margin-left: auto; }
+
+  /* Hero: radar + feux */
+  .hero {
+    display: grid;
+    grid-template-columns: 1.15fr 0.95fr;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  .panel {
+    border: 1px solid var(--line);
+    background: linear-gradient(180deg, rgba(20,32,28,0.9), rgba(8,12,14,0.95));
+    padding: 12px;
+  }
+  .panel h2 {
+    font-family: Orbitron, sans-serif; font-size: 11px;
+    letter-spacing: 0.2em; color: var(--amber); margin-bottom: 10px;
+  }
+
+  .radar-box { display: grid; place-items: center; position: relative; min-height: 320px; }
+  .radar-svg { width: min(340px, 100%); height: auto; }
+  .radar-center {
+    position: absolute; text-align: center; pointer-events: none;
+    top: 50%; left: 50%; transform: translate(-50%, -52%);
+  }
+  .radar-center .big {
+    font-family: Orbitron, sans-serif; font-weight: 800; font-size: 36px; line-height: 1;
+  }
+  .radar-center .lab {
+    font-size: 10px; letter-spacing: 0.18em; color: var(--muted); margin-top: 4px;
+  }
+  .blip-legend {
+    display: flex; flex-wrap: wrap; gap: 8px 14px; justify-content: center;
+    margin-top: 8px; font-size: 11px; color: var(--muted);
+  }
+  .blip-legend i {
+    display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 4px;
+  }
+
+  .lights { display: flex; flex-direction: column; gap: 8px; }
+  .light-row {
+    display: grid; grid-template-columns: 18px 1fr auto auto auto; gap: 8px; align-items: center;
+    border: 1px solid var(--line); padding: 10px 12px; background: rgba(0,0,0,0.22);
+  }
+  .light-row .dot {
+    width: 14px; height: 14px; border-radius: 50%;
+    box-shadow: 0 0 10px currentColor;
+  }
+  .light-row.ok .dot { color: var(--ok); background: var(--ok); }
+  .light-row.warn .dot { color: var(--warn); background: var(--warn); }
+  .light-row.hot .dot { color: var(--hot); background: var(--hot); }
+  .light-row .name { font-size: 13px; }
+  .light-row .name small { display: block; color: var(--muted); font-size: 10px; margin-top: 2px; }
+  .light-row .state {
+    font-family: Orbitron, sans-serif; font-size: 12px; letter-spacing: 0.12em;
+  }
+  .light-row.ok .state { color: var(--ok); }
+  .light-row.warn .state { color: var(--warn); }
+  .light-row.hot .state { color: var(--hot); }
+  .light-row .num { font-family: Orbitron, sans-serif; font-size: 14px; color: var(--text); min-width: 7ch; text-align: right; }
+  .arrow {
+    font-family: Orbitron, sans-serif;
+    font-size: 16px;
+    font-weight: 800;
+    min-width: 1.4ch;
+    text-align: center;
+  }
+  .arrow.up { color: var(--ok); text-shadow: 0 0 8px rgba(57,255,20,0.5); }
+  .arrow.down { color: var(--hot); text-shadow: 0 0 8px rgba(255,59,59,0.45); }
+  .arrow.flat { color: var(--muted); }
+  .trend-word { font-size: 10px; letter-spacing: 0.08em; }
+  .trend-word.up { color: var(--ok); }
+  .trend-word.down { color: var(--hot); }
+  .trend-word.flat { color: var(--muted); }
+  .v-trend {
+    font-family: Orbitron, sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    margin-top: 6px;
+  }
+
+  .gauges-mini {
+    display: grid; grid-template-columns: 70px 1fr; gap: 10px; margin-top: 10px; align-items: center;
+  }
+  .tank {
+    border: 1px solid var(--acid-dim); height: 110px; position: relative; background: #050807;
+  }
+  .tank-fill {
+    position: absolute; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(180deg, var(--acid), #0d4a12);
+    transition: height .7s ease;
+  }
+  .hp-track { height: 14px; border: 1px solid var(--line); background: #050807; }
+  .hp-fill {
+    height: 100%; background: linear-gradient(90deg, var(--acid), var(--amber), var(--hot));
+    transition: width .6s;
+  }
+  .hp-lab { display: flex; justify-content: space-between; font-size: 10px; color: var(--muted); margin-bottom: 3px; }
+
+  .legend-box {
+    margin-top: 10px; padding: 8px 10px; border: 1px dashed var(--line);
+    font-size: 11px; color: var(--muted); line-height: 1.45;
+  }
+  .legend-box b { color: var(--text); }
+  .legend-box .okc { color: var(--ok); }
+  .legend-box .warnc { color: var(--warn); }
+  .legend-box .hotc { color: var(--hot); }
+
+  .sec { margin-bottom: 14px; }
+  .sec.hidden { display: none; }
+  .sec-h {
+    display: flex; justify-content: space-between; align-items: baseline;
+    border-bottom: 1px solid var(--line); padding-bottom: 6px; margin-bottom: 8px;
+  }
+  .sec-h h2 { font-family: Orbitron, sans-serif; font-size: 12px; letter-spacing: 0.18em; color: var(--amber); }
+  .sec-h span { font-size: 11px; color: var(--muted); }
+
+  .grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 8px;
+  }
+  .card {
+    border: 1px solid var(--line); padding: 10px; min-height: 88px;
+    background: linear-gradient(180deg, rgba(20,32,28,0.85), rgba(8,12,14,0.95));
+    display: flex; flex-direction: column; gap: 5px;
+  }
+  .card.live-on { border-color: rgba(57,255,20,0.3); }
+  .card .top { display: flex; justify-content: space-between; align-items: center; gap: 6px; }
+  .card .id { font-family: Orbitron, sans-serif; font-size: 11px; color: var(--acid); letter-spacing: 0.1em; }
+  .card .arrow-mini {
+    font-family: Orbitron, sans-serif; font-size: 15px; font-weight: 800; margin-left: auto; margin-right: 6px;
+  }
+  .card .arrow-mini.up { color: var(--ok); text-shadow: 0 0 8px rgba(57,255,20,0.45); }
+  .card .arrow-mini.down { color: var(--hot); text-shadow: 0 0 8px rgba(255,59,59,0.4); }
+  .card .arrow-mini.flat { color: var(--muted); }
+  .pill { font-size: 9px; letter-spacing: 0.08em; padding: 2px 5px; border: 1px solid; }
+  .pill.g { color: var(--acid); border-color: var(--acid-dim); }
+  .pill.p { color: var(--warn); border-color: #7a6208; }
+  .pill.w { color: #3ec7ff; border-color: #1a4a5a; }
+  .card .name { font-size: 12px; line-height: 1.25; }
+  .card .val { margin-top: auto; font-family: Orbitron, sans-serif; font-size: 14px; color: var(--amber); }
+  .card .val.muted { color: var(--muted); font-size: 11px; font-family: "Share Tech Mono", monospace; }
+  .card .glance {
+    font-family: Orbitron, sans-serif; font-size: 11px; letter-spacing: 0.1em;
+  }
+  .card .glance.ok { color: var(--ok); }
+  .card .glance.warn { color: var(--warn); }
+  .card .glance.hot { color: var(--hot); }
+  .card .glance.na { color: var(--muted); }
+
+  footer {
+    margin-top: 8px; border-top: 1px solid var(--line); padding-top: 10px;
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px;
+    font-size: 11px; color: var(--muted);
+  }
+  footer a { color: var(--acid); text-decoration: none; }
+
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; }
+    .verdict { grid-template-columns: auto 1fr; }
+    .v-score { grid-column: 1 / -1; text-align: left; }
+  }
+  body.embed .shell { max-width: none; padding: 10px 12px 16px; }
+  body.embed header .brand { font-size: clamp(18px, 3vw, 28px); }
+  body.embed footer a.cockpit-link { display: none; }
+</style>
+</head>
+<body class="crt">
+  <div class="shell">
+    <header>
+      <div>
+        <div class="brand">ACE777 THERMO</div>
+        <div class="sub">SIMPLE / COMPLET · A·B·C gardés · VERT = OK · JAUNE = attention · ROUGE = chaud · pas un ordre</div>
+      </div>
+      <div class="live off" id="live"><span class="lamp"></span><span id="liveTxt">WAIT</span></div>
+      <div class="clock" id="clock">--:--:--</div>
+    </header>
+
+    <section class="verdict warn" id="verdict" aria-live="polite">
+      <div class="v-light" aria-hidden="true"></div>
+      <div>
+        <div class="v-title" id="vTitle">CHARGEMENT…</div>
+        <div class="v-phrase" id="vPhrase">On lit le marché free (Binance) — sans toucher ACE.</div>
+      </div>
+      <div class="v-score">
+        <div class="n" id="vScore">—</div>
+        <div class="l">SCORE CLIMAT /100</div>
+      </div>
+    </section>
+
+    <div class="opts" id="opts">
+      <label class="on" data-opt="mode" data-val="simple"><input type="radio" name="mode" value="simple" checked /> SIMPLE</label>
+      <label data-opt="mode" data-val="complet"><input type="radio" name="mode" value="complet" /> COMPLET</label>
+      <span style="color:var(--muted);font-size:11px;letter-spacing:.1em">SENSIBILITÉ</span>
+      <select id="sens">
+        <option value="soft">DOUCE</option>
+        <option value="normal" selected>NORMALE</option>
+        <option value="strict">STRICTE</option>
+      </select>
+      <label class="on" data-sec="A"><input type="checkbox" checked data-sec="A" /> A FOND</label>
+      <label class="on" data-sec="B"><input type="checkbox" checked data-sec="B" /> B JOUR</label>
+      <label class="on" data-sec="C"><input type="checkbox" checked data-sec="C" /> C EXT</label>
+      <button type="button" id="btnRefresh">RAFRAÎCHIR</button>
+      <span class="meta" id="snapMeta">—</span>
+    </div>
+
+    <div class="hero">
+      <section class="panel">
+        <h2>RADAR CLIMAT</h2>
+        <div class="radar-box">
+          <svg class="radar-svg" id="radarSvg" viewBox="0 0 400 400" role="img" aria-label="Radar climat">
+            <defs>
+              <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#39ff14" stop-opacity="0.18"/>
+                <stop offset="70%" stop-color="#39ff14" stop-opacity="0"/>
+              </radialGradient>
+            </defs>
+            <circle cx="200" cy="200" r="170" fill="url(#glow)" stroke="#1a7a0c" stroke-width="2"/>
+            <circle cx="200" cy="200" r="130" fill="none" stroke="#1e3a2f" stroke-width="1.5"/>
+            <circle cx="200" cy="200" r="90" fill="none" stroke="#1e3a2f" stroke-width="1.5"/>
+            <circle cx="200" cy="200" r="50" fill="none" stroke="#1e3a2f" stroke-width="1"/>
+            <!-- seuil 0.85 -->
+            <circle cx="200" cy="200" r="145" fill="none" stroke="#ff9f1a" stroke-width="1.5" stroke-dasharray="4 6" opacity="0.85"/>
+            <line x1="200" y1="30" x2="200" y2="370" stroke="rgba(57,255,20,0.2)" stroke-width="1"/>
+            <line x1="30" y1="200" x2="370" y2="200" stroke="rgba(57,255,20,0.2)" stroke-width="1"/>
+            <line x1="70" y1="70" x2="330" y2="330" stroke="rgba(57,255,20,0.12)" stroke-width="1"/>
+            <line x1="330" y1="70" x2="70" y2="330" stroke="rgba(57,255,20,0.12)" stroke-width="1"/>
+            <!-- labels -->
+            <text x="200" y="22" text-anchor="middle" fill="#f5c518" font-size="11" font-family="Share Tech Mono">FUNDING</text>
+            <text x="378" y="204" text-anchor="middle" fill="#f5c518" font-size="11" font-family="Share Tech Mono">L/S</text>
+            <text x="200" y="392" text-anchor="middle" fill="#f5c518" font-size="11" font-family="Share Tech Mono">BTC 24H</text>
+            <text x="22" y="204" text-anchor="middle" fill="#f5c518" font-size="11" font-family="Share Tech Mono">OI</text>
+            <g id="sweepG">
+              <path id="sweep" d="M200 200 L200 35 A165 165 0 0 1 320 80 Z" fill="rgba(57,255,20,0.18)"/>
+            </g>
+            <g id="blips"></g>
+          </svg>
+          <div class="radar-center">
+            <div class="big" id="radarScore">—</div>
+            <div class="lab">CLIMAT</div>
+          </div>
+        </div>
+        <div class="blip-legend">
+          <span><i style="background:#39ff14"></i>OK</span>
+          <span><i style="background:#f5c518"></i>Attention</span>
+          <span><i style="background:#ff3b3b"></i>Chaud</span>
+          <span>anneau ambre = seuil 0.85</span>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>FEUX — en un coup d'œil</h2>
+        <div class="lights" id="lights"></div>
+        <div class="gauges-mini">
+          <div class="tank" title="Bassine soft">
+            <div class="tank-fill" id="tank" style="height:40%"></div>
+          </div>
+          <div>
+            <div class="hp-lab"><span>VERRE D'EAU (soft)</span><span id="hpPct">—</span></div>
+            <div class="hp-track"><div class="hp-fill" id="hp" style="width:50%"></div></div>
+            <div class="legend-box" id="legendHelp">
+              <b>Comment lire :</b>
+              <span class="okc"> VERT</span> = calme ·
+              <span class="warnc"> JAUNE</span> = surveiller ·
+              <span class="hotc"> ROUGE</span> = stress (crowding / funding / move).
+              Ce n'est <b>pas</b> un ordre d'acheter ou vendre.
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <section class="sec" id="secA" data-sec="A">
+      <div class="sec-h"><h2>A — FOND</h2><span>météo semaine</span></div>
+      <div class="grid" id="gridA"></div>
+    </section>
+    <section class="sec" id="secB" data-sec="B">
+      <div class="sec-h"><h2>B — JOUR / BOOK</h2><span>météo du jour</span></div>
+      <div class="grid" id="gridB"></div>
+    </section>
+    <section class="sec" id="secC" data-sec="C">
+      <div class="sec-h"><h2>C — EXTENSIONS</h2><span>levier · vide · proxies</span></div>
+      <div class="grid" id="gridC"></div>
+    </section>
+
+    <footer>
+      <span id="trio" style="color:var(--ok)">3/3 prêts</span>
+      <span><a class="cockpit-link" href="../cockpit/index.html">COCKPIT</a> · <a href="../architecture/index.html">ARCHI</a></span>
+      <span id="footOk">SYS</span>
+    </footer>
+  </div>
+
+<script src="live.js"></script>
+<script>
+(() => {
+  if (new URLSearchParams(location.search).get("embed") === "1") {
+    document.body.classList.add("embed");
+  }
+  const INDICATORS = [
+    { id:"A1", name:"Prix vs moyenne lente", st:"g", group:"A" },
+    { id:"A2", name:"Structure (plus hauts / bas)", st:"g", group:"A" },
+    { id:"A3", name:"Dominance BTC / beta alts", st:"g", group:"A" },
+    { id:"A4", name:"Volatilité de fond", st:"g", group:"A" },
+    { id:"A5", name:"Drawdown depuis sommet", st:"g", group:"A" },
+    { id:"A6", name:"Range ou tendance ?", st:"g", group:"A" },
+    { id:"B7", name:"BTC sur 24h", st:"g", group:"B", key:"chg24" },
+    { id:"B8", name:"Signature levier (prix↓ vol↑)", st:"g", group:"B" },
+    { id:"B9", name:"Largeur du panier alts", st:"g", group:"B" },
+    { id:"B10", name:"Volume du jour", st:"g", group:"B", key:"volQuote" },
+    { id:"B11", name:"Chaleur du portefeuille", st:"g", group:"B" },
+    { id:"B12", name:"Freins RED / pullback", st:"g", group:"B" },
+    { id:"C13", name:"Open interest (paris ouverts)", st:"g", group:"C", key:"oi" },
+    { id:"C14", name:"Funding (coût du levier)", st:"g", group:"C", key:"funding" },
+    { id:"C15", name:"Whales proxy (≥500k$ prints)", st:"g", group:"C" },
+    { id:"C16", name:"Multi-couches → 1 score", st:"g", group:"C" },
+    { id:"C17", name:"Score de régime", st:"p", group:"C" },
+    { id:"C18", name:"Tension / mur (vide book)", st:"g", group:"C" },
+    { id:"C19", name:"Impulse / froid", st:"g", group:"C" },
+    { id:"C20", name:"Bassine / zone trempe", st:"w", group:"C" },
+    { id:"C21", name:"Taux de SKIP (sagesse)", st:"p", group:"C" },
+    { id:"C22", name:"Verre d'eau (DD session)", st:"g", group:"C" },
+    { id:"C23", name:"Dark / OTC proxy (OI+taker)", st:"g", group:"C" },
+    { id:"C24", name:"Stress levier (funding+OI)", st:"g", group:"C" },
+    { id:"C25", name:"Walls (idée options)", st:"w", group:"C" },
+  ];
+
+  const $ = (s) => document.querySelector(s);
+  const state = { mode: "simple", sens: "normal", show: { A:true, B:true, C:true } };
+
+  const TH = {
+    soft:   { fund:[0.00015, 0.0004], ls:[0.65,1.7], chg:[3, 6] },
+    normal: { fund:[0.0001, 0.0003],  ls:[0.75,1.5], chg:[2, 4] },
+    strict: { fund:[0.00007,0.0002],  ls:[0.85,1.35],chg:[1.2,2.5] },
+  };
+
+  function level(kind, v, sens) {
+    if (v == null || Number.isNaN(v)) return "na";
+    const t = TH[sens];
+    if (kind === "funding") {
+      const a = Math.abs(v);
+      if (a < t.fund[0]) return "ok";
+      if (a < t.fund[1]) return "warn";
+      return "hot";
+    }
+    if (kind === "ls") {
+      if (v >= t.ls[0] && v <= t.ls[1]) return "ok";
+      if (v >= t.ls[0]-0.15 && v <= t.ls[1]+0.25) return "warn";
+      return "hot";
+    }
+    if (kind === "chg") {
+      const a = Math.abs(v);
+      if (a < t.chg[0]) return "ok";
+      if (a < t.chg[1]) return "warn";
+      return "hot";
+    }
+    return "na";
+  }
+
+  const WORDS = {
+    ok: { title: "CALME — NIVEAU OK", phrase: "Rien d'extrême sur funding / crowding / move 24h. Tu peux respirer — ce n'est pas un feu vert pour trader." },
+    warn: { title: "ATTENTION — SURVEILLER", phrase: "Un ou plusieurs feux jaunissent. Pas panique : juste ouvrir l'œil (crowding, funding, ou journée agitée)." },
+    hot: { title: "CHAUD — STRESS", phrase: "Le thermomètre tire vers le rouge. Stress levier / crowding / move fort. Lecture seule — pas un ordre." },
+  };
+  const LABEL = { ok: "OK", warn: "ATTENTION", hot: "CHAUD", na: "—" };
+  const rank = { ok: 0, warn: 1, hot: 2, na: -1 };
+
+  function worst(levels) {
+    return levels.reduce((a, b) => (rank[b] > rank[a] ? b : a), "ok");
+  }
+
+  function score100(levels, data, sens) {
+    // 100 = très calme, 0 = très chaud
+    let s = 100;
+    const t = TH[sens];
+    if (data.funding != null) {
+      const a = Math.abs(data.funding);
+      s -= Math.min(40, (a / t.fund[1]) * 28);
+    }
+    if (data.longShort != null) {
+      const mid = 1;
+      s -= Math.min(30, Math.abs(data.longShort - mid) * 22);
+    }
+    if (data.chg24 != null) {
+      s -= Math.min(30, (Math.abs(data.chg24) / t.chg[1]) * 22);
+    }
+    return Math.max(0, Math.min(100, Math.round(s)));
+  }
+
+  function fmt(n, d=2) {
+    if (n == null) return "—";
+    return Number(n).toLocaleString("fr-CH", { maximumFractionDigits: d });
+  }
+  function fmtPct(n) {
+    if (n == null) return "—";
+    return (n >= 0 ? "+" : "") + Number(n).toFixed(2) + "%";
+  }
+  function fmtFund(n) {
+    if (n == null) return "—";
+    return Number(n).toExponential(2);
+  }
+  function fmtCompact(n) {
+    if (n == null) return "—";
+    if (n >= 1e9) return (n/1e9).toFixed(2) + "B";
+    if (n >= 1e6) return (n/1e6).toFixed(2) + "M";
+    return fmt(n, 1);
+  }
+
+  function arrowOf(data, key) {
+    const d = (data.deltas || {})[key] || {};
+    const dir = d.dir || "flat";
+    const sym = dir === "up" ? "↑" : (dir === "down" ? "↓" : "·");
+    const word = dir === "up" ? "augmente" : (dir === "down" ? "diminue" : "stable");
+    return { dir, sym, word, delta: d.delta };
+  }
+
+  function paintLights(data) {
+    const sens = state.sens;
+    const rows = [
+      { id: "funding", dkey: "funding", label: "Funding (coût levier)", hint: "C14 · maintenant", val: fmtFund(data.funding), lv: level("funding", data.funding, sens) },
+      { id: "fund30", dkey: "fundingAvg30", label: "Funding moyenne ~30j", hint: "Cortana", val: fmtFund(data.fundingAvg30), lv: level("funding", data.fundingAvg30, sens) },
+      { id: "fundPrev", dkey: "fundingAvgPrevMonth", label: "Funding mois dernier", hint: "Cortana", val: fmtFund(data.fundingAvgPrevMonth), lv: level("funding", data.fundingAvgPrevMonth, sens) },
+      { id: "ls", dkey: "longShort", label: "Long / Short", hint: "crowding", val: data.longShort != null ? fmt(data.longShort, 3) : "—", lv: level("ls", data.longShort, sens) },
+      { id: "chg", dkey: "chg24", label: "BTC sur 24 heures", hint: "B7", val: fmtPct(data.chg24), lv: level("chg", data.chg24, sens) },
+      { id: "oi", dkey: "oi", label: "Open interest", hint: "C13 · info", val: fmtCompact(data.oi), lv: "ok" },
+      { id: "whale", dkey: "whaleUsd", label: "Whales proxy (≥500k$)", hint: "C15 · aggTrades", val: (data.whaleN != null ? (data.whaleN + " · " + fmtCompact(data.whaleUsd)) : "—"), lv: (data.whaleN >= 3 ? "warn" : "ok") },
+      { id: "dark", dkey: "takerRatio", label: "Dark/OTC proxy (taker)", hint: "C23 · pas dark US", val: data.takerRatio != null ? fmt(data.takerRatio, 3) : "—", lv: (data.takerRatio != null && (data.takerRatio >= 1.4 || data.takerRatio <= 0.7) ? "warn" : "ok") },
+      { id: "mark", dkey: "mark", label: "Prix BTC (mark)", hint: "spot thermo", val: fmt(data.mark, 1), lv: "ok" },
+      { id: "score", dkey: "score", label: "Score climat", hint: "/100", val: data.score != null ? String(data.score) : "—", lv: data.climate || "ok" },
+    ];
+    $("#lights").innerHTML = rows.map(r => {
+      const a = arrowOf(data, r.dkey);
+      return `
+      <div class="light-row ${r.lv}">
+        <div class="dot"></div>
+        <div class="name">${r.label}<small>${r.hint} · <span class="trend-word ${a.dir}">${a.word}</span></small></div>
+        <div class="arrow ${a.dir}" title="${a.word}">${a.sym}</div>
+        <div class="state">${LABEL[r.lv] || r.lv.toUpperCase()}</div>
+        <div class="num">${r.val}</div>
+      </div>`;
+    }).join("");
+    return rows;
+  }
+
+  function paintVerdict(data, rows) {
+    const worstIds = new Set(["funding", "ls", "chg"]);
+    const lv = worst(rows.filter(r => worstIds.has(r.id)).map(r => r.lv));
+    const sc = score100(rows.map(r => r.lv), data, state.sens);
+    const box = $("#verdict");
+    box.className = "verdict " + lv;
+    $("#vTitle").textContent = WORDS[lv].title;
+    $("#vPhrase").textContent = WORDS[lv].phrase;
+    $("#vScore").textContent = sc;
+    const aSc = arrowOf(data, "score");
+    let trendEl = document.getElementById("vTrend");
+    if (!trendEl) {
+      trendEl = document.createElement("div");
+      trendEl.id = "vTrend";
+      trendEl.className = "v-trend";
+      $("#vScore").parentElement.appendChild(trendEl);
+    }
+    trendEl.className = "v-trend " + aSc.dir;
+    trendEl.innerHTML = `<span class="arrow ${aSc.dir}">${aSc.sym}</span> score ${aSc.word}`;
+    $("#radarScore").textContent = sc;
+    $("#radarScore").style.color = lv === "ok" ? "var(--ok)" : lv === "warn" ? "var(--warn)" : "var(--hot)";
+    return { lv, sc };
+  }
+
+  function polar(angleDeg, r) {
+    const a = (angleDeg - 90) * Math.PI / 180;
+    return [200 + r * Math.cos(a), 200 + r * Math.sin(a)];
+  }
+
+  function paintRadar(data, rows) {
+    const g = $("#blips");
+    g.innerHTML = "";
+    // Map each metric to an axis angle
+    const axes = [
+      { ang: 0,   key: "funding", rFrom: "funding" },
+      { ang: 90,  key: "ls", rFrom: "ls" },
+      { ang: 180, key: "chg", rFrom: "chg" },
+      { ang: 270, key: "oi", rFrom: "oi" },
+    ];
+    const sens = state.sens;
+    const t = TH[sens];
+    axes.forEach((ax) => {
+      let dist = 0.35; // 0..1 toward edge
+      let lv = "ok";
+      if (ax.key === "funding" && data.funding != null) {
+        dist = Math.min(1, Math.abs(data.funding) / t.fund[1]);
+        lv = level("funding", data.funding, sens);
+      } else if (ax.key === "ls" && data.longShort != null) {
+        dist = Math.min(1, Math.abs(data.longShort - 1) / 0.8);
+        lv = level("ls", data.longShort, sens);
+      } else if (ax.key === "chg" && data.chg24 != null) {
+        dist = Math.min(1, Math.abs(data.chg24) / t.chg[1]);
+        lv = level("chg", data.chg24, sens);
+      } else if (ax.key === "oi") {
+        dist = 0.45;
+        lv = "ok";
+      }
+      const radius = 50 + dist * 120;
+      const [x, y] = polar(ax.ang, radius);
+      const col = lv === "ok" ? "#39ff14" : lv === "warn" ? "#f5c518" : "#ff3b3b";
+      const c = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+      c.setAttribute("cx", x); c.setAttribute("cy", y); c.setAttribute("r", 7);
+      c.setAttribute("fill", col); c.setAttribute("stroke", "#070a0c"); c.setAttribute("stroke-width", "2");
+      c.style.filter = `drop-shadow(0 0 6px ${col})`;
+      g.appendChild(c);
+      // trail line from center
+      const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
+      line.setAttribute("x1", 200); line.setAttribute("y1", 200);
+      line.setAttribute("x2", x); line.setAttribute("y2", y);
+      line.setAttribute("stroke", col); line.setAttribute("stroke-width", "1.2");
+      line.setAttribute("opacity", "0.35");
+      g.appendChild(line);
+    });
+
+    // soft gauges
+    const fundAbs = Math.abs(data.funding || 0);
+    const tank = Math.min(88, Math.max(18, 30 + fundAbs * 90000 + (data.longShort || 1) * 6));
+    $("#tank").style.height = tank.toFixed(0) + "%";
+    const hp = Math.min(88, Math.max(18, score100([], data, sens) * 0.85));
+    $("#hp").style.width = hp.toFixed(0) + "%";
+    $("#hpPct").textContent = hp.toFixed(0) + "%";
+  }
+
+  // sweep rotation
+  let sweepAng = 0;
+  function tickSweep() {
+    sweepAng = (sweepAng + 1.2) % 360;
+    const sw = $("#sweepG");
+    if (sw) sw.setAttribute("transform", `rotate(${sweepAng} 200 200)`);
+    requestAnimationFrame(tickSweep);
+  }
+  requestAnimationFrame(tickSweep);
+
+  function cardHtml(ind, data) {
+    let val = "pas encore branché";
+    let muted = true;
+    let glance = "na";
+    let glanceTxt = "—";
+    const liveInd = data && data.indicators && data.indicators[ind.id];
+    if (liveInd && liveInd.wired) {
+      muted = false;
+      val = liveInd.value;
+      if (typeof val === "number" && ind.id === "B10") val = fmtCompact(val);
+      else if (typeof val === "number" && (ind.id === "C13" || ind.id === "C23")) val = fmtCompact(val);
+      else if (typeof val === "number" && (ind.id === "C14" || ind.id === "C24")) val = fmtFund(val);
+      else if (typeof val === "number" && ind.id === "A3") val = val + "%";
+      else if (typeof val === "number" && ind.id === "A5") val = val + "%";
+      else if (typeof val === "number" && ind.id === "B9") val = val + "%";
+      glance = liveInd.level || "ok";
+      glanceTxt = LABEL[glance] || "—";
+    } else if (liveInd && !liveInd.wired) {
+      val = liveInd.note || "soft / ACE";
+      glance = "na";
+      glanceTxt = "SOFT";
+    } else if (ind.key && data && data[ind.key] != null) {
+      muted = false;
+      const v = data[ind.key];
+      if (ind.key === "chg24") { val = fmtPct(v); glance = level("chg", v, state.sens); }
+      else if (ind.key === "funding") { val = fmtFund(v); glance = level("funding", v, state.sens); }
+      else if (ind.key === "oi" || ind.key === "volQuote") { val = fmtCompact(v); glance = "ok"; }
+      else val = fmt(v);
+      glanceTxt = LABEL[glance] || "—";
+    }
+    const map = (data && data.deltaMap) || {};
+    const a = arrowOf(data, map[ind.id] || "");
+    const pill = { g:"GARDÉ", p:"PISTE", w:"WATCH" }[ind.st];
+    const pc = { g:"g", p:"p", w:"w" }[ind.st];
+    const src = (liveInd && liveInd.note) ? `<div class="hint">${liveInd.note}</div>` : "";
+    return `<article class="card${!muted ? " live-on" : ""}">
+      <div class="top">
+        <span class="id">${ind.id}</span>
+        <span class="arrow-mini ${a.dir}" title="${a.word}">${a.sym}</span>
+        <span class="pill ${pc}">${pill}</span>
+      </div>
+      <div class="name">${ind.name}</div>
+      <div class="glance ${glance}">${glanceTxt} · <span class="trend-word ${a.dir}">${a.word}</span></div>
+      <div class="val${muted ? " muted" : ""}">${val}</div>
+      ${src}
+    </article>`;
+  }
+
+  function paintGrids(data) {
+    ["A","B","C"].forEach(g => {
+      let list = INDICATORS.filter(i => i.group === g);
+      if (state.mode === "simple") {
+        // simple: only live / soft priority cards
+        list = list.filter(i => i.key || ["C18","C19","C20","C22"].includes(i.id));
+      }
+      $(`#grid${g}`).innerHTML = list.map(i => cardHtml(i, data)).join("");
+      $(`#sec${g}`).classList.toggle("hidden", !state.show[g]);
+    });
+  }
+
+  function apply(data) {
+    if (!data) return;
+    const rows = paintLights(data);
+    paintVerdict(data, rows);
+    paintRadar(data, rows);
+    paintGrids(data);
+    $("#snapMeta").textContent = (data.ts || "—") + " · " + (data.symbol || "BTC");
+    const live = $("#live");
+    live.classList.remove("off","stale");
+    const age = data.tsUnix ? (Date.now()/1000 - data.tsUnix)/60 : 999;
+    $("#liveTxt").textContent = age < 45 ? "LIVE FREE" : "STALE";
+    if (age >= 45) live.classList.add("stale");
+    $("#footOk").textContent = "FREE OK";
+    const trio = document.getElementById("trio");
+    if (trio && data.trioStatus) {
+      trio.textContent = data.trioStatus.msg || "3/3 prêts";
+    }
+  }
+
+  async function load() {
+    try {
+      const r = await fetch("live.json?t=" + Date.now(), { cache: "no-store" });
+      if (r.ok) return await r.json();
+    } catch(_) {}
+    return window.__THERMO__ || null;
+  }
+
+  async function refresh() {
+    $("#liveTxt").textContent = "LOAD";
+    const d = await load();
+    if (d) apply(d);
+    else {
+      $("#live").classList.add("off");
+      $("#liveTxt").textContent = "NO DATA";
+      $("#vTitle").textContent = "PAS DE DONNÉES";
+      $("#vPhrase").textContent = "Dans le Terminal : python3 Index_Maison/scripts/thermo_quotidien_free.py — puis RAFRAÎCHIR.";
+      paintGrids(null);
+    }
+  }
+
+  // options wiring
+  document.querySelectorAll('#opts label[data-opt="mode"]').forEach(lab => {
+    lab.addEventListener("click", () => {
+      document.querySelectorAll('#opts label[data-opt="mode"]').forEach(l => l.classList.remove("on"));
+      lab.classList.add("on");
+      state.mode = lab.dataset.val;
+      lab.querySelector("input").checked = true;
+      refresh();
+    });
+  });
+  document.querySelectorAll("#opts label[data-sec]").forEach(lab => {
+    lab.addEventListener("click", (e) => {
+      const cb = lab.querySelector("input");
+      // let checkbox toggle naturally on click; sync after
+      setTimeout(() => {
+        state.show[lab.dataset.sec] = cb.checked;
+        lab.classList.toggle("on", cb.checked);
+        ["A","B","C"].forEach(g => $(`#sec${g}`).classList.toggle("hidden", !state.show[g]));
+      }, 0);
+    });
+  });
+  $("#sens").addEventListener("change", () => {
+    state.sens = $("#sens").value;
+    refresh();
+  });
+  $("#btnRefresh").addEventListener("click", refresh);
+
+  function tickClock() {
+    $("#clock").textContent = new Date().toLocaleTimeString("fr-CH", { hour12: false }) + " CET";
+  }
+  tickClock();
+  setInterval(tickClock, 1000);
+
+  if (window.__THERMO__) apply(window.__THERMO__);
+  refresh();
+  setInterval(refresh, 120000);
+})();
+</script>
+</body>
+</html>
