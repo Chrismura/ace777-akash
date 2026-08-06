@@ -429,7 +429,12 @@
     </div>
 
     <section class="sec charts-sec">
-      <div class="sec-h"><h2>COURBES — HISTORIQUE</h2><span>history.jsonl · valeurs recentes · 7 jours</span></div>
+      <div class="sec-h"><h2>COURBES — HISTORIQUE</h2><span>history.jsonl · valeurs recentes ·
+        <select id="chartRange" style="background:#0a1410;color:var(--acid);border:1px solid var(--line);border-radius:3px;padding:2px 6px;font-family:inherit;font-size:.75rem">
+          <option value="24">24H</option>
+          <option value="168" selected>7 JOURS</option>
+          <option value="720">30 JOURS</option>
+        </select></span></div>
       <div class="charts" id="charts"></div>
     </section>
 
@@ -851,11 +856,18 @@
       return rows;
     } catch (_) { return []; }
   }
+  let lastHistoryRows = [];
   function paintCharts(rows) {
+    if (rows && rows.length) lastHistoryRows = rows;
     const grid = $("#charts"); if (!grid) return;
     grid.innerHTML = "";
+    const rangeSel = $("#chartRange");
+    const rangeH = parseInt(rangeSel ? rangeSel.value : "168", 10) || 0;
+    const lastTs = lastHistoryRows.length ? (lastHistoryRows[lastHistoryRows.length - 1].tsUnix || 0) : 0;
     CHART_KEYS.forEach(c => {
-      const data = rows.map(r => ({ ts: r.tsUnix, v: r[c.key] })).filter(p => p.v != null);
+      const data = lastHistoryRows
+        .map(r => ({ ts: r.tsUnix, v: r[c.key] }))
+        .filter(p => p.v != null && (!rangeH || !lastTs || p.ts >= lastTs - rangeH * 3600));
       if (!data.length) return;
       const last = data[data.length - 1].v;
       const card = document.createElement("div");
@@ -868,6 +880,8 @@
       setTimeout(() => drawChart(cv, data), 0);
     });
   }
+  const chartRangeSel = $("#chartRange");
+  if (chartRangeSel) chartRangeSel.addEventListener("change", () => paintCharts(null));
 
   // options wiring
   document.querySelectorAll('#opts label[data-opt="mode"]').forEach(lab => {

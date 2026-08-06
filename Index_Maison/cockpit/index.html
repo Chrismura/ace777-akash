@@ -164,6 +164,11 @@ body::after{
 #stage-graph{grid-template-columns:1fr}
 #stage-graph .graph-card{min-height:min(72vh,720px);padding:8px 10px}
 #stage-graph .graph-wrap{position:relative;width:100%;height:min(68vh,660px)}
+#stage-graph{position:relative}
+.node-info{position:absolute;top:46px;left:12px;max-width:290px;background:rgba(7,12,10,.94);border:1px solid rgba(124,255,107,.4);border-radius:8px;padding:8px 10px;display:none;z-index:20;box-shadow:0 0 18px rgba(124,255,107,.15)}
+.node-info.show{display:block}
+.node-info .ni-t{color:var(--amber2);font-family:Orbitron,sans-serif;font-size:.65rem;letter-spacing:.1em;margin-bottom:3px}
+.node-info .ni-d{color:#cfe6d2;font-size:.65rem;line-height:1.45}
 #stage-graph canvas#synapses{width:100%;height:100%;display:block;border:1px solid rgba(110,200,255,.28);border-radius:4px;
   background:
     radial-gradient(ellipse 70% 55% at 50% 40%, #1a1040 0%, #060a12 55%, #03050c 100%)}
@@ -276,15 +281,17 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
 .peda-panel .pd{color:#cfe6d2;font-size:.7rem;line-height:1.5}
 .peda-panel .ps{margin-top:6px;color:var(--muted);font-size:.6rem;line-height:1.4}
 .pill-ana{position:absolute;top:3px;right:3px;z-index:2;background:#0f1713;border:1px solid rgba(240,160,32,.4);
-  color:var(--amber2);font-size:.55rem;padding:1px 5px;border-radius:3px;cursor:pointer;opacity:0;
+  color:var(--amber2);font-size:.55rem;padding:1px 5px;border-radius:3px;cursor:pointer;opacity:.55;
   transition:opacity .15s}
 .pill:hover .pill-ana{opacity:1}
 .pill-ana:hover{background:var(--amber);color:#0a100c}
-.pill-wiki{position:absolute;top:3px;right:20px;z-index:2;background:#0f1713;border:1px solid rgba(94,231,255,.4);
-  color:var(--cyan);font-size:.55rem;padding:1px 5px;border-radius:3px;cursor:pointer;opacity:0;
-  transition:opacity .15s}
-.pill:hover .pill-wiki{opacity:1}
+.pill-wiki{position:absolute;top:3px;right:20px;z-index:2;background:#0f1713;border:1px solid rgba(94,231,255,.5);
+  color:var(--cyan);font-size:.55rem;padding:1px 5px;border-radius:3px;cursor:pointer;opacity:1;
+  transition:all .15s}
+.pill:hover .pill-wiki{box-shadow:0 0 8px rgba(94,231,255,.45)}
 .pill-wiki:hover{background:var(--cyan);color:#0a100c}
+.pill .n{padding-right:44px}
+.peda-hint{position:fixed;left:12px;bottom:8px;z-index:60;font-size:.55rem;color:var(--muted);letter-spacing:.08em;pointer-events:none}
 .ana-btn.wiki-btn{right:80px;border-color:rgba(94,231,255,.4);color:var(--cyan)}
 .ana-btn.wiki-btn:hover{background:var(--cyan);color:#0a100c;box-shadow:0 0 10px rgba(94,231,255,.5)}
 .radar-actions{display:flex;flex-wrap:wrap;gap:4px;align-items:center;margin-top:10px}
@@ -777,7 +784,7 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
         <h2>SYNAPSES · CONNEXIONS</h2>
         <span class="badge a" id="graph-pulse-lab">LIVE</span>
       </div>
-      <div class="graph-wrap"><canvas id="synapses" width="1100" height="660"></canvas></div>
+      <div class="graph-wrap"><canvas id="synapses" width="1100" height="660"></canvas><div class="node-info" id="node-info"></div></div>
       <div class="graph-legend">
         <span class="on"><i style="background:var(--acid)"></i>ON / active</span>
         <span class="slow"><i style="background:var(--amber)"></i>SLOW / STALE</span>
@@ -821,6 +828,7 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
   </section>
   </div>
 
+  <div class="peda-hint">💡 survole un indice = explication · clique 📖 = l épingler · 🐈 = analyse vocale</div>
   <footer class="foot">
     <span>MISSION ACTIVE · CRT ARCADE · OBJECTIF : GARDER LA LIGNE</span>
     <span id="foot-ts">—</span>
@@ -1392,6 +1400,99 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
     if(bk) lastSynFp.b=bk;
     if(hk) lastSynFp.h=hk;
   }
+  // Layout partage : utilise par le dessin ET par la souris (survol / clic)
+  function synGraphNodes(){
+    const aceLv=nodeLevel(linkState.ace&&linkState.ace.state);
+    const netLv=nodeLevel(linkState.net&&linkState.net.state);
+    const pontLv=linkState.pont?2:0;
+    const aFills=(M.alpha&&M.alpha.fills)||0;
+    const bFills=(M.beta&&M.beta.fills)||0;
+    const hBags=(M.hulk&&M.hulk.bags)||0;
+    const speaking = Date.now() < speakingUntil && box && !box.classList.contains('muted');
+    const nodes={
+      cockpit:{x:0.50,y:0.48,label:'COCKPIT', col:'#f0a020', lv:2},
+      pont:{x:0.50,y:0.22,label:'PONT', col:'#7de7ff', lv:pontLv},
+      ace:{x:0.22,y:0.42,label:'ACE', col:'#7CFF6B', lv:aceLv},
+      live:{x:0.22,y:0.22,label:'LIVE', col:'#b8ff9a', lv:aceLv},
+      alpha:{x:0.10,y:0.62,label:'α', col:'#f0a020', lv:aFills>0||aceLv? Math.max(1,aceLv):0},
+      beta:{x:0.28,y:0.72,label:'β', col:'#5ee7ff', lv:bFills>0||aceLv? Math.max(1,aceLv):0},
+      hulk:{x:0.78,y:0.68,label:'HULK', col:'#c4ff4d', lv:hBags>0?2:(aceLv?1:0)},
+      net:{x:0.72,y:0.28,label:'NET', col:'#9dff7a', lv:netLv},
+      binance:{x:0.88,y:0.18,label:'BINANCE', col:'#f5c518', lv:netLv},
+      cortana:{x:0.62,y:0.58,label:'CORTANA', col: speaking?'#7CFF6B':'#5ee7ff', lv: speaking?2:(linkState.muted?0:1)},
+      thermo:{x:0.58,y:0.78,label:'THERMO', col:'#39ff14', lv:(M.thermo&&M.thermo.score!=null)?2:1},
+    };
+    const edges=[
+      ['cockpit','pont', pontLv],
+      ['pont','ace', Math.min(pontLv, aceLv||1)],
+      ['ace','live', aceLv],
+      ['ace','alpha', aceLv],
+      ['ace','beta', aceLv],
+      ['alpha','beta', (aFills||bFills)?2:aceLv],
+      ['cockpit','hulk', hBags?2:1],
+      ['pont','net', Math.min(pontLv||1, netLv||1)],
+      ['net','binance', netLv],
+      ['cockpit','cortana', speaking?2:1],
+      ['cortana','thermo', 1],
+      ['cockpit','thermo', (M.thermo&&M.thermo.score!=null)?2:1],
+      ['pont','cockpit', pontLv],
+    ];
+    return {nodes, edges, aceLv, netLv, pontLv, aFills, bFills, hBags, speaking};
+  }
+
+  // ——— interactivite : survol = highlight des connexions, clic = infos ———
+  let synHover=null, synSel=null;
+  function synPick(e){
+    if(!synCanvas) return null;
+    const r=synCanvas.getBoundingClientRect();
+    if(!r.width||!r.height) return null;
+    const W=synCanvas.width, H=synCanvas.height;
+    const x=(e.clientX-r.left)/r.width*W;
+    const y=(e.clientY-r.top)/r.height*H;
+    const nodes=synGraphNodes().nodes;
+    let best=null, bd=Math.max(W,H)*0.10;
+    for(const id in nodes){
+      const n=nodes[id];
+      const d=Math.hypot(n.x*W-x, n.y*H-y);
+      if(d<bd){ bd=d; best=id; }
+    }
+    return best;
+  }
+  function nodeInfoLines(id){
+    const L=synGraphNodes();
+    const n=L.nodes[id]; if(!n) return ['?',''];
+    switch(id){
+      case 'cockpit': return ['COCKPIT','Interface de pilotage — lecture seule · onglets OPS / THERMO / BOARD / GRAPH'];
+      case 'pont': return ['PONT :17777', linkState.pont?'ON — pont connecté (feed ~10s)':'OFF — pont éteint (lance cortana_cockpit_bridge.py)'];
+      case 'ace': return ['ACE ENGINE', ((linkState.ace&&linkState.ace.state)||'OFF')+' · '+(linkState.ace&&linkState.ace.label||'—')];
+      case 'live': return ['LIVE · DONNÉES MARCHÉ', 'funding '+(T.funding!=null?T.funding.toExponential(2):'—')+' · score '+(T.score!=null?T.score:'—')+' · climat '+(T.climate||'—')];
+      case 'alpha': return ['ALPHA · HUNTER', 'fills '+((M.alpha&&M.alpha.fills)||0)+' · pnl '+((M.alpha&&M.alpha.pnl)!=null?M.alpha.pnl.toFixed(2)+' $':'—')];
+      case 'beta': return ['BETA · BOOST', 'fills '+((M.beta&&M.beta.fills)||0)+' · pnl '+((M.beta&&M.beta.pnl)!=null?M.beta.pnl.toFixed(2)+' $':'—')];
+      case 'hulk': return ['HULK · PORTEFEUILLE', ((M.hulk&&M.hulk.bags)||0)+' bags · notional '+((M.hulk&&M.hulk.notional)!=null?M.hulk.notional+' $':'—')+' · pnl '+((M.hulk&&M.hulk.pnl)!=null?M.hulk.pnl.toFixed(2)+' $':'—')];
+      case 'net': return ['RÉSEAU / INTERNET', (linkState.net&&linkState.net.state||'?')+' · '+(linkState.net&&linkState.net.label||'—')];
+      case 'binance': return ['FOURNISSEUR · BINANCE', 'source prix + flux — état '+(linkState.net&&linkState.net.state||'?')];
+      case 'cortana': return ['CORTANA · ANALYSTE', box&&box.classList.contains('muted')?'mute — silencieuse':'voix active · analyse via hub Prise IA (Gemini/Qwen)'];
+      case 'thermo': return ['THERMO', 'score '+(M.thermo&&M.thermo.score!=null?M.thermo.score:'—')+' · climat '+(M.thermo&&M.thermo.climate||'—')];
+    }
+    return [n.label||id, 'niveau '+(n.lv===2?'ON':n.lv===1?'SLOW':'OFF')];
+  }
+  function showNodeInfo(id){
+    const el=document.getElementById('node-info'); if(!el) return;
+    const t=nodeInfoLines(id);
+    el.innerHTML = '<div class="ni-t">'+t[0]+'</div><div class="ni-d">'+t[1]+'</div>';
+    el.classList.add('show');
+  }
+  function hideNodeInfo(){ const el=document.getElementById('node-info'); if(el) el.classList.remove('show'); }
+  if(synCanvas){
+    synCanvas.addEventListener('mousemove', e=>{ synHover=synPick(e); });
+    synCanvas.addEventListener('mouseleave', ()=>{ synHover=null; });
+    synCanvas.addEventListener('click', e=>{
+      const pick=synPick(e);
+      synSel=pick;
+      if(pick) showNodeInfo(pick); else hideNodeInfo();
+    });
+  }
+
   function drawSynapses(){
     if(!synCtx||!synCanvas) return;
     const stage=document.getElementById('stage-graph');
@@ -1418,60 +1519,30 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
     }
     synCtx.globalAlpha=1;
 
-    const aceLv=nodeLevel(linkState.ace&&linkState.ace.state);
-    const netLv=nodeLevel(linkState.net&&linkState.net.state);
-    const pontLv=linkState.pont?2:0;
-    const aFills=(M.alpha&&M.alpha.fills)||0;
-    const bFills=(M.beta&&M.beta.fills)||0;
-    const hBags=(M.hulk&&M.hulk.bags)||0;
-    const speaking = Date.now() < speakingUntil && box && !box.classList.contains('muted');
-
-    // layout (relative)
-    const nodes={
-      cockpit:{x:0.50,y:0.48,label:'COCKPIT', col:'#f0a020', lv:2},
-      pont:{x:0.50,y:0.22,label:'PONT', col:'#7de7ff', lv:pontLv},
-      ace:{x:0.22,y:0.42,label:'ACE', col:'#7CFF6B', lv:aceLv},
-      live:{x:0.22,y:0.22,label:'LIVE', col:'#b8ff9a', lv:aceLv},
-      alpha:{x:0.10,y:0.62,label:'α', col:'#f0a020', lv:aFills>0||aceLv? Math.max(1,aceLv):0},
-      beta:{x:0.28,y:0.72,label:'β', col:'#5ee7ff', lv:bFills>0||aceLv? Math.max(1,aceLv):0},
-      hulk:{x:0.78,y:0.68,label:'HULK', col:'#c4ff4d', lv:hBags>0?2:(aceLv?1:0)},
-      net:{x:0.72,y:0.28,label:'NET', col:'#9dff7a', lv:netLv},
-      binance:{x:0.88,y:0.18,label:'BINANCE', col:'#f5c518', lv:netLv},
-      cortana:{x:0.62,y:0.58,label:'CORTANA', col: speaking?'#7CFF6B':'#5ee7ff', lv: speaking?2:(linkState.muted?0:1)},
-      thermo:{x:0.58,y:0.78,label:'THERMO', col:'#39ff14', lv:(M.thermo&&M.thermo.score!=null)?2:1},
-    };
-
-    const edges=[
-      ['cockpit','pont', pontLv],
-      ['pont','ace', Math.min(pontLv, aceLv||1)],
-      ['ace','live', aceLv],
-      ['ace','alpha', aceLv],
-      ['ace','beta', aceLv],
-      ['alpha','beta', (aFills||bFills)?2:aceLv],
-      ['cockpit','hulk', hBags?2:1],
-      ['pont','net', Math.min(pontLv||1, netLv||1)],
-      ['net','binance', netLv],
-      ['cockpit','cortana', speaking?2:1],
-      ['cortana','thermo', 1],
-      ['cockpit','thermo', (M.thermo&&M.thermo.score!=null)?2:1],
-      ['pont','cockpit', pontLv],
-    ];
+    const L=synGraphNodes();
+    const nodes=L.nodes, aceLv=L.aceLv, netLv=L.netLv, pontLv=L.pontLv;
+    const aFills=L.aFills, bFills=L.bFills, hBags=L.hBags, speaking=L.speaking;
+    const edges=L.edges;
 
     function xy(id){
       const n=nodes[id];
       return {x:n.x*W, y:n.y*H};
     }
 
-    // dendrites
+    // dendrites (survol/selection = connexions du noeud en evidence, les autres s effacent)
+    const synFocus = synHover || synSel;
     edges.forEach(([a,b,lv])=>{
       const A=xy(a), B=xy(b);
       const mx=(A.x+B.x)/2 + Math.sin(synapseT*1.2+A.x*0.01)*18;
       const my=(A.y+B.y)/2 + Math.cos(synapseT*0.9+B.y*0.01)*14;
-      const active=lv>=2, slow=lv===1;
+      const linked = synFocus && (a===synFocus||b===synFocus);
+      const dim = synFocus && !linked;
+      const effLv = linked ? 2 : (dim ? 0 : lv);
+      const active=effLv>=2, slow=effLv===1;
       synCtx.beginPath();
       synCtx.moveTo(A.x,A.y);
       synCtx.quadraticCurveTo(mx,my,B.x,B.y);
-      synCtx.strokeStyle = active? 'rgba(124,255,107,.55)' : slow? 'rgba(240,160,32,.35)' : 'rgba(80,60,40,.22)';
+      synCtx.strokeStyle = active? (linked?'rgba(157,255,157,.85)':'rgba(124,255,107,.55)') : slow? 'rgba(240,160,32,.35)' : 'rgba(80,60,40,.15)';
       synCtx.lineWidth = active? 2.4 : slow? 1.4 : 0.8;
       synCtx.stroke();
       // traveling spark if active
@@ -1481,9 +1552,9 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
         const sx=it*it*A.x + 2*it*t*mx + t*t*B.x;
         const sy=it*it*A.y + 2*it*t*my + t*t*B.y;
         synCtx.beginPath();
-        synCtx.fillStyle=active?'#7CFF6B':'#f0a020';
-        synCtx.globalAlpha=0.85;
-        synCtx.arc(sx,sy, active?3.2:2.2, 0, Math.PI*2);
+        synCtx.fillStyle=linked?'#eaffea':(active?'#7CFF6B':'#f0a020');
+        synCtx.globalAlpha=0.9;
+        synCtx.arc(sx,sy, linked?4.2:(active?3.2:2.2), 0, Math.PI*2);
         synCtx.fill();
         synCtx.globalAlpha=1;
       }
@@ -1527,6 +1598,15 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
       synCtx.font='bold 10px Orbitron';
       synCtx.textAlign='center'; synCtx.textBaseline='middle';
       synCtx.fillText(n.label, x, y+1);
+      if(id===synSel){
+        synCtx.strokeStyle='#eaf6ff'; synCtx.globalAlpha=0.95; synCtx.lineWidth=1.6;
+        synCtx.beginPath(); synCtx.arc(x,y,r+10+2*Math.sin(synapseT*4),0,Math.PI*2); synCtx.stroke();
+        synCtx.globalAlpha=1;
+      } else if(id===synHover){
+        synCtx.strokeStyle=n.col; synCtx.globalAlpha=0.85; synCtx.lineWidth=1.5;
+        synCtx.beginPath(); synCtx.arc(x,y,r+8,0,Math.PI*2); synCtx.stroke();
+        synCtx.globalAlpha=1;
+      }
     });
 
     const meta=document.getElementById('graph-meta');
