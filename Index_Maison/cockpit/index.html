@@ -828,7 +828,7 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
   </section>
   </div>
 
-  <div class="peda-hint">💡 survole un indice = explication · clique 📖 = l épingler · 🐈 = analyse vocale</div>
+  <div class="peda-hint">💡 survole un indice = explication · clique 📖 = l'épingler · 🐈 = analyse vocale</div>
   <footer class="foot">
     <span>MISSION ACTIVE · CRT ARCADE · OBJECTIF : GARDER LA LIGNE</span>
     <span id="foot-ts">—</span>
@@ -1196,7 +1196,8 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
       ];
       grid.innerHTML=cells.map(([n,v,key])=>{
         const nd=String(v??'').includes('n/d');
-        return `<div class="pill" data-peda="${key||''}"${nd?' style="opacity:.65" title="Source free flaky — pas un bug cockpit"':''}><button type="button" class="pill-ana" data-indice="${key||''}" title="Cortana analyse cet indice">🐈</button><button type="button" class="pill-wiki" data-wiki="${key||''}" title="Version ecrite (wiki)">📖</button><div class="n">${n}</div><div class="v">${v??'—'}</div></div>`;
+        const anaHtml = key ? `<button type="button" class="pill-ana" data-indice="${key}" title="Cortana analyse cet indice">🐈</button><button type="button" class="pill-wiki" data-wiki="${key}" title="Version ecrite (wiki)">📖</button>` : '';
+        return `<div class="pill" data-peda="${key||''}"${nd?' style="opacity:.65" title="Source free flaky — pas un bug cockpit"':''}>${anaHtml}<div class="n">${n}</div><div class="v">${v??'—'}</div></div>`;
       }).join('');
     }
     const dg=document.getElementById('delta-grid');
@@ -1209,7 +1210,9 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
         const unwired = it.wired===false || it.value==null;
         const val = unwired ? 'n/d' : (it.value??'—');
         const pk = DELTA_PEDA[k]||'';
-        return `<div class="pill" data-peda="${pk}"${unwired?' style="opacity:.55" title="non branché / free n/d"':''}><button type="button" class="pill-ana" data-indice="${pk}" title="Cortana analyse cet indice">🐈</button><button type="button" class="pill-wiki" data-wiki="${pk}" title="Version ecrite (wiki)">📖</button><div class="n">${k} ${it.label||''}</div><div class="v">${val} <span style="font-size:.55rem;color:var(--muted)">${unwired?'n/d':(it.level||'')}</span></div></div>`;
+        const dpk = pk || '';
+        const anaHtml = dpk ? `<button type="button" class="pill-ana" data-indice="${dpk}" title="Cortana analyse cet indice">🐈</button><button type="button" class="pill-wiki" data-wiki="${dpk}" title="Version ecrite (wiki)">📖</button>` : '';
+        return `<div class="pill" data-peda="${dpk}"${unwired?' style="opacity:.55" title="non branché / free n/d"':''}>${anaHtml}<div class="n">${k} ${it.label||''}</div><div class="v">${val} <span style="font-size:.55rem;color:var(--muted)">${unwired?'n/d':(it.level||'')}</span></div></div>`;
       }).join('');
       dg.innerHTML=(Object.keys(deltas).slice(0,6).map(k=>{
         const v=deltas[k];
@@ -1465,7 +1468,7 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
       case 'cockpit': return ['COCKPIT','Interface de pilotage — lecture seule · onglets OPS / THERMO / BOARD / GRAPH'];
       case 'pont': return ['PONT :17777', linkState.pont?'ON — pont connecté (feed ~10s)':'OFF — pont éteint (lance cortana_cockpit_bridge.py)'];
       case 'ace': return ['ACE ENGINE', ((linkState.ace&&linkState.ace.state)||'OFF')+' · '+(linkState.ace&&linkState.ace.label||'—')];
-      case 'live': return ['LIVE · DONNÉES MARCHÉ', 'funding '+(T.funding!=null?T.funding.toExponential(2):'—')+' · score '+(T.score!=null?T.score:'—')+' · climat '+(T.climate||'—')];
+      case 'live': return ['LIVE · DONNÉES MARCHÉ', 'funding '+(T.funding!=null?Number(T.funding).toExponential(2):'—')+' · score '+(T.score!=null?T.score:'—')+' · climat '+(T.climate||'—')];
       case 'alpha': return ['ALPHA · HUNTER', 'fills '+((M.alpha&&M.alpha.fills)||0)+' · pnl '+((M.alpha&&M.alpha.pnl)!=null?M.alpha.pnl.toFixed(2)+' $':'—')];
       case 'beta': return ['BETA · BOOST', 'fills '+((M.beta&&M.beta.fills)||0)+' · pnl '+((M.beta&&M.beta.pnl)!=null?M.beta.pnl.toFixed(2)+' $':'—')];
       case 'hulk': return ['HULK · PORTEFEUILLE', ((M.hulk&&M.hulk.bags)||0)+' bags · notional '+((M.hulk&&M.hulk.notional)!=null?M.hulk.notional+' $':'—')+' · pnl '+((M.hulk&&M.hulk.pnl)!=null?M.hulk.pnl.toFixed(2)+' $':'—')];
