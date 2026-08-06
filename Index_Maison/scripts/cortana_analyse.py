@@ -80,7 +80,7 @@ def load_system_prompt():
             start = s.find("## SYSTEM PROMPT")
             end = s.find("---", start + 20)
             if start != -1 and end != -1:
-                body = s[start + len("## SYSTEM PROMPT"):end].strip()
+                body = s[s.find("\n\n", start) + 2:end].strip()
                 # enlever la ligne de titre du bloc
                 return body
             return s
@@ -188,7 +188,14 @@ def build_facts(indice):
                 "mark": row.get("mark"),
             })
 
-    return facts
+    # valeurs brutes (non formatées) pour la comparaison ultérieure
+    raw = {k: live.get(k) for k in CONTEXT_KEYS + [indice] if k in live}
+    raw["ts"] = live.get("ts")
+    raw["tendances"] = {
+        "tendance_24h_pct": trend_pct(history, indice, 24),
+        "tendance_semaine_pct": trend_pct(history, indice, 24 * 7),
+    }
+    return facts, raw
 
 
 def call_hub(facts, indice):
@@ -217,7 +224,7 @@ def call_hub(facts, indice):
     return content, data.get("provider", "?")
 
 
-def journalise(indice, facts, content, provider):
+def journalise(indice, facts, facts_bruts, content, provider):
     """Enregistre l'analyse (exigence Christophe : comparer avec le marché)."""
     os.makedirs(ANALYSES_DIR, exist_ok=True)
     day = datetime.now(timezone.utc).strftime("%Y-%m-%d")
@@ -226,7 +233,8 @@ def journalise(indice, facts, content, provider):
         "ts": datetime.now(timezone.utc).isoformat(),
         "indice": indice,
         "provider": provider,
-        "faits": facts,
+        "faits": facts,           # valeurs formatées (lisibles)
+        "faits_bruts": facts_bruts,  # valeurs brutes (pour comparer avec le marché réel)
         "analyse": content,
     }
     with open(path, "a") as f:
@@ -279,18 +287,18 @@ def main():
             print(f"  {k}")
         return 2
 
-    facts = build_facts(indice)
+    facts, facts_bruts = build_facts(indice)
     print(f"[analyse] {LEXIQUE[indice][0]} — envoi au hub (cortana.analyse)...", file=sys.stderr)
 
     try:
         content, provider = call_hub(facts, indice)
     except Exception as e:
-        print(f"✘ hub injoignable : {e}", file=sys.stderr)
+        print(f"✘ hub injoignable ou réponse inattendue : {e}", file=sys.stderr)
         print("Repli : voici les faits bruts (pas d'analyse IA disponible) :")
         print(json.dumps(facts, ensure_ascii=False, indent=1))
         return 1
 
-    journal = journalise(indice, facts, content, provider)
+    journal = journalise(indice, facts, facts_bruts, content, provider)
     print(f"[provider: {provider}]", file=sys.stderr)
     print(f"[journal: {journal}]", file=sys.stderr)
 
