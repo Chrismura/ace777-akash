@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ACE777 — Architecture TECH</title>
+<meta name="description" content="Technical architecture spec for external AI review: ACE777 / Hulk / Cortana / Index / Obsidian swarm." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --ink: #070a0c; --panel: #0d1418; --line: #1e3a2f;
+    --acid: #39ff14; --amber: #f5c518; --danger: #ff3b3b;
+    --muted: #6a8a72; --text: #d8ffe0; --cold: #3ec7ff; --hot: #ff6b2d;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { min-height: 100%; background: var(--ink); color: var(--text);
+    font-family: "Share Tech Mono", ui-monospace, monospace; font-size: 13px; }
+  body {
+    background:
+      radial-gradient(ellipse 70% 40% at 50% 0%, #122018 0%, transparent 55%),
+      var(--ink);
+  }
+  .shell { max-width: 1100px; margin: 0 auto; padding: 16px 18px 40px; }
+  header { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px;
+    border-bottom: 1px solid var(--line); padding-bottom: 12px; margin-bottom: 16px; }
+  .brand { font-family: Orbitron, sans-serif; font-weight: 800;
+    font-size: clamp(22px, 3.5vw, 34px); color: var(--amber);
+    text-shadow: 0 0 14px rgba(245,197,24,.35); }
+  .nav a { color: var(--acid); text-decoration: none; margin-left: 14px; font-size: 12px; }
+  .nav a.active { color: var(--amber); border-bottom: 1px solid var(--amber); }
+  h2 { font-family: Orbitron, sans-serif; font-size: 13px; letter-spacing: .14em;
+    color: var(--amber); margin: 22px 0 10px; }
+  h3 { font-size: 12px; color: var(--cold); margin: 14px 0 6px; letter-spacing: .06em; }
+  p, li { color: var(--muted); line-height: 1.45; }
+  .brief { border: 1px solid rgba(245,197,24,.35); background: rgba(245,197,24,.05);
+    padding: 12px 14px; margin-bottom: 8px; }
+  .brief strong { color: var(--amber); }
+  table { width: 100%; border-collapse: collapse; margin: 8px 0 4px; font-size: 12px; }
+  th, td { border: 1px solid var(--line); padding: 7px 8px; text-align: left; vertical-align: top; }
+  th { color: var(--acid); background: #0a1210; font-weight: 500; }
+  td code, code { color: var(--amber); font-size: 11px; }
+  .tag { display: inline-block; font-size: 10px; letter-spacing: .08em;
+    padding: 2px 6px; border: 1px solid; margin: 1px 2px 1px 0; }
+  .hot { color: var(--hot); border-color: var(--hot); }
+  .cold { color: var(--cold); border-color: var(--cold); }
+  .ok { color: var(--acid); border-color: var(--acid); }
+  .warn { color: var(--amber); border-color: var(--amber); }
+  .bad { color: var(--danger); border-color: var(--danger); }
+  .box { border: 1px solid var(--line); background: var(--panel); padding: 12px 14px; margin: 8px 0; }
+  .grid2 { display: grid; gap: 10px; }
+  @media (min-width: 800px) { .grid2 { grid-template-columns: 1fr 1fr; } }
+  pre.flow {
+    background: #0a1014; border: 1px solid var(--line); padding: 12px;
+    overflow-x: auto; color: #9fd8a8; font-size: 11px; line-height: 1.35;
+  }
+  .rubric li { margin: 4px 0 4px 16px; }
+  footer { margin-top: 28px; border-top: 1px solid var(--line); padding-top: 10px;
+    font-size: 11px; color: var(--muted); display: flex; flex-wrap: wrap; gap: 10px 20px;
+    justify-content: space-between; }
+  footer a { color: var(--acid); text-decoration: none; }
+</style>
+</head>
+<body>
+<div class="shell">
+  <header>
+    <div>
+      <div class="brand">ACE777 · TECH SPEC</div>
+      <p style="margin-top:6px;color:var(--muted);font-size:12px;">Pour revue IA externe — pas la carte humaine</p>
+    </div>
+    <nav class="nav">
+      <a href="index.html">VUE</a>
+      <a class="active" href="tech.html">TECH</a>
+    </nav>
+  </header>
+
+  <div class="brief">
+    <strong>System ID:</strong> ACE777 swarm (Christophe) · <strong>Host:</strong> MacBook Air M1 8 Go · <strong>Date spec:</strong> 2026-07-31<br />
+    <strong>Claim:</strong> multi-agent trading + voice + research · <strong>Reality:</strong> mature <em>intra-ACE</em> swarm ; <em>inter-leg</em> swarm = Markdown bus (embryonic)<br />
+    <strong>No single main.py.</strong> Human GO is the only trading trigger.<br />
+    <strong>Δ 31 juil.:</strong> Cockpit ops window (pywebview) · session_debut/fin · portfolio HUD · Hulk paper seed 20$/2 · speak-simple rule · Obsidian sync ≠ cockpit UI
+  </div>
+
+  <h2>0 · CONSTRAINTS (NON-NEGOTIABLE)</h2>
+  <table>
+    <tr><th>ID</th><th>Constraint</th><th>Implication for reviewers</th></tr>
+    <tr><td>C1</td><td>Champion genesis md5 <code>37fca367…</code> intangible</td><td>Do not propose patching genesis; molettes / wrappers only</td></tr>
+    <tr><td>C2</td><td>0 LLM in hot trading path</td><td>Reject designs that put Ollama/Claude inside ACE fill loop</td></tr>
+    <tr><td>C3</td><td>1 GO = 1 flight · trading never implicit</td><td>Obsidian/Index must not auto-fire orders</td></tr>
+    <tr><td>C4</td><td>Fills CSV = ground truth</td><td>Score systems against CSV, not narrative</td></tr>
+    <tr><td>C5</td><td>8 Go RAM · no paid APIs by default</td><td>Penalize heavy multiplexers / RAG + 9 agents during ACE</td></tr>
+    <tr><td>C6</td><td>Anti-overdose · 1 place / info</td><td>Prefer routing into canons over new file piles</td></tr>
+    <tr><td>C7</td><td><strong>Combined drawdown ACE+Hulk</strong> — default <code>MAX_GLOBAL_DD_PCT=8</code></td><td><code>config_risk_warm.env</code> · [[RISK_C7]] · Guardian not flying yet</td></tr>
+    <tr><td>C8</td><td><strong>Backup / DR</strong> of <code>runs/</code> + Hulk state (spec)</td><td><code>/tmp/ace777_ram_exchange</code> is volatile — reconstruct from CSV</td></tr>
+  </table>
+
+  <h2>1 · COMPONENTS</h2>
+  <table>
+    <tr>
+      <th>Component</th><th>Path / entry</th><th>Stack</th><th>Lane</th><th>Maturity</th><th>Outputs / contracts</th>
+    </tr>
+    <tr>
+      <td><strong>ACE777</strong></td>
+      <td><code>~/ace777-test-day1/</code><br />
+        entry: <code>./GO_USINE_NUAGE.sh [DUR] [TAG]</code><br />
+        engine: genesis bash (snapshot+patch runtime)</td>
+      <td>Bash + Ruby timers + HMAC Binance Futures<br />no CCXT / no pandas core</td>
+      <td><span class="tag hot">HOT</span></td>
+      <td><span class="tag ok">lab-prod</span> testnet</td>
+      <td><code>runs/*.csv</code> fills · LIVE · STATE · WHY_ARRET<br />intra-swarm BETA scout ↔ ALPHA hunter (JSON RAM)</td>
+    </tr>
+    <tr>
+      <td><strong>Hulk</strong></td>
+      <td><code>…/hulk-mexc/</code><br />
+        <code>python3 scripts/paper_diprip.py</code><br />
+        <code>digest_watch.py --live</code></td>
+      <td>Python 3.9 stdlib urllib<br />MEXC public spot</td>
+      <td><span class="tag hot">HOT</span> paper · gates <span class="tag cold">WARM</span></td>
+      <td><span class="tag warn">early paper</span></td>
+      <td><code>.veille_status.json</code> · paper fills · soft RED gate<br />optional <code>Swarm_Bus/03_HULK_SCORE.md</code></td>
+    </tr>
+    <tr>
+      <td><strong>Risk Guardian</strong></td>
+      <td>spec · prototype <code>risk_guardian.py</code> (with Kimi)<br />
+        <em>not yet in default flight path</em></td>
+      <td>Python cold/warm watcher</td>
+      <td><span class="tag warn">WARM / GUARD</span></td>
+      <td><span class="tag warn">prototype</span></td>
+      <td><strong>kill switch only</strong> · no order · no genesis touch<br />
+        triggers: combined DD ACE+Hulk · 3 errors/10min · Mac sleep/orphan</td>
+    </tr>
+    <tr>
+      <td><strong>Cortana</strong></td>
+      <td><code>~/crypto-voice-assistant-core/</code> + Index<br />
+        <code>cortana_thermo.py resume|horaire</code> (hourly)</td>
+      <td>Rust app · Python thermo feed · macOS <code>say</code></td>
+      <td><span class="tag cold">VOICE</span> · feed <span class="tag warn">WARM</span></td>
+      <td><span class="tag warn">app OK · not orchestrator</span></td>
+      <td>Reads Attention / thermo · hourly résumé + sentiment · must NOT become silent GO</td>
+    </tr>
+    <tr>
+      <td><strong>Punk</strong></td>
+      <td><code>…/veille-punk/</code> + Index COMPTES</td>
+      <td>Scripts / manual X filter</td>
+      <td><span class="tag cold">COLD</span></td>
+      <td><span class="tag warn">semi-auto</span></td>
+      <td><code>A_Mon_Attention/</code> · BRIEF · COMPTES</td>
+    </tr>
+    <tr>
+      <td><strong>Cursor</strong></td>
+      <td>IDE chats ACTIF / PASSIF</td>
+      <td>Human+agent ops</td>
+      <td><span class="tag cold">COLD</span></td>
+      <td><span class="tag ok">active</span></td>
+      <td>Évals <code>#N</code> · Tableau · MEMOIRE_COLLAB · code</td>
+    </tr>
+    <tr>
+      <td><strong>Index_Maison</strong></td>
+      <td><code>…/Index_Maison/</code><br />canons: TABLEAU, OSSATURE, AUTO, CONSOLE, PREFS</td>
+      <td>Markdown + local HTML UIs</td>
+      <td><span class="tag cold">BOARD</span></td>
+      <td><span class="tag ok">living</span></td>
+      <td>Single source of decisions before Obsidian sync</td>
+    </tr>
+    <tr>
+      <td><strong>Cockpit</strong></td>
+      <td><code>…/Index_Maison/cockpit/</code><br />
+        <code>open_cockpit_app.sh</code> (pywebview / Brave --app)<br />
+        bridge <code>:17777</code> · HTTP <code>:17800</code></td>
+      <td>HTML+JS · Python bridge · LaunchAgents</td>
+      <td><span class="tag warn">WARM</span> ops UI</td>
+      <td><span class="tag warn">zone test</span></td>
+      <td>Read-only + kill-switch STOP · portfolio bubbles TOTAL/α/β/Hulk · universe 15 · <span class="tag bad">no entry orders</span><br />
+        Obsidian sync is <em>not</em> shown here (separate path)</td>
+    </tr>
+    <tr>
+      <td><strong>Obsidian vault</strong></td>
+      <td><code>~/Documents/Obsidian_ACE777/</code><br />bridge: <code>OUTBOX_OBSIDIAN/_sync_now.sh</code></td>
+      <td>Markdown · TCC-sensitive copy</td>
+      <td><span class="tag cold">COFFRE</span></td>
+      <td><span class="tag ok">human memory</span></td>
+      <td>Console / Attention / Cahier · <span class="tag bad">no hot auto</span> · Cursor cannot write Documents (TCC)</td>
+    </tr>
+  </table>
+
+  <h2>1b · CHANGELOG (honest — avoid stale review)</h2>
+  <table>
+    <tr><th>When</th><th>What landed</th><th>Reviewer note</th></tr>
+    <tr>
+      <td>2026-07-31</td>
+      <td>
+        <code>session_debut.sh</code> / <code>session_fin.sh</code> · cockpit native app ·
+        portfolio HUD (TOTAL+ALPHA+BETA+HULK) · Hulk <code>SEED_MAX_PAIRS=2</code> / <code>SEED_USDT=20</code> ·
+        universe still 15 pairs · speak-simple Cursor rule · bridge watchdog anti-double-bind ·
+        thermo last-good if free API flaky
+      </td>
+      <td>Do not score as if cockpit were absent or seed=15×$1.33</td>
+    </tr>
+    <tr>
+      <td>2026-07-30</td>
+      <td>tech.html first cut · Kimi review KEEP-WITH-FIXES · C7/C8 · veille atomic write</td>
+      <td>Baseline still valid for constraints C1–C8</td>
+    </tr>
+  </table>
+
+  <h2>2 · INTERFACES (ALLOWED EDGES)</h2>
+  <div class="grid2">
+    <div class="box">
+      <h3>ALLOWED</h3>
+      <ul>
+        <li>Human GO → ACE / Hulk launch</li>
+        <li>ACE/Hulk → CSV / LIVE files → post-mortem Index</li>
+        <li>Validation chat → Éval + Tableau + Attention + MEMOIRE → OUTBOX → Obsidian</li>
+        <li>Punk filter → Attention (propose, not trade)</li>
+        <li>Cortana / speak_attention → read Attention bus</li>
+        <li>Hulk veille JSON → soft skip RED (deterministic)</li>
+      </ul>
+    </div>
+    <div class="box">
+      <h3>FORBIDDEN</h3>
+      <ul>
+        <li>Obsidian / LLM → place order</li>
+        <li>Mutate genesis champion on disk</li>
+        <li>LLM inside ACE radar/fill loop</li>
+        <li>Paid market APIs as default dependency</li>
+        <li>9 cold agents during ACE flight (RAM)</li>
+        <li>Second truth on Desktop vs Index</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>3 · DATA FLOW (ASCII)</h2>
+<pre class="flow">
+[Christophe GO]
+      │
+      ├──► ACE777 (testnet futures) ──► runs/*fills*.csv ──► score / WHY_ARRET
+      │         └── intra: BETA(scout) ↔ ALPHA(hunter) JSON RAM
+      │
+      └──► Hulk (MEXC paper) ──► paper ledger + .veille_status.json
+                └── digest_watch (det.) soft RED gate
+
+[Tweet/idea] → Cursor validation → Evaluations/#N → 01_TABLEAU_VIVANT
+                                          ↓
+                              A_Mon_Attention + MEMOIRE_COLLAB
+                                          ↓
+                              OUTBOX_OBSIDIAN/_sync_now.sh
+                                          ↓
+                              Obsidian_ACE777 (coffre)
+                                          ⇣ (lessons only, cold)
+                              next Cursor session / Cortana voice
+</pre>
+
+  <h2>4 · SWARM STATUS</h2>
+  <table>
+    <tr><th>Layer</th><th>Status</th><th>Mechanism</th></tr>
+    <tr><td>Intra-ACE duo</td><td><span class="tag ok">REAL</span></td><td>BETA↔ALPHA coordination files / RAM JSON</td></tr>
+    <tr><td>Inter-leg swarm</td><td><span class="tag warn">EMBRYO</span></td><td>Markdown handoffs · Swarm_Bus templates · OUTBOX</td></tr>
+    <tr><td>Orchestrator</td><td><span class="tag bad">ABSENT</span></td><td>Human + Cursor; Cortana not chef</td></tr>
+  </table>
+
+  <h2>5 · EVALUATION RUBRIC (FOR EXTERNAL AI)</h2>
+  <div class="box">
+    <p style="color:var(--text);margin-bottom:8px;">When reviewing this architecture, score and comment on:</p>
+    <ol class="rubric">
+      <li><strong>Boundary integrity</strong> — Are HOT/COLD/VOICE/COFFRE edges respected? Any LLM-in-hot risk?</li>
+      <li><strong>Single source of truth</strong> — Fills CSV vs narrative; Index vs Desktop dumps?</li>
+      <li><strong>Human-in-loop</strong> — Is GO still the only trading trigger after proposed changes?</li>
+      <li><strong>Resource fit</strong> — Viable on 8 Go with ACE flying?</li>
+      <li><strong>Handoff quality</strong> — Are Markdown contracts enough for inter-leg swarm, or missing schemas/fields?</li>
+      <li><strong>Maturity honesty</strong> — Does the proposal confuse claimed swarm with embryonic bus?</li>
+      <li><strong>Migration safety</strong> — Champion intangible? Wrappers only?</li>
+    </ol>
+    <p style="margin-top:10px;">Deliverable format expected from reviewer IA:</p>
+    <pre class="flow">VERDICT: KEEP | KEEP-WITH-FIXES | REWORK
+FORCES: …
+FAIBLESSES: …
+RISQUES: …
+PROPOSITIONS (ranked, GO-sized): …
+ANTI-PATTERNS REJECTED: …</pre>
+  </div>
+
+  <h2>6 · CANON FILES (READ THESE)</h2>
+  <table>
+    <tr><th>File</th><th>Why</th></tr>
+    <tr><td><code>Index_Maison/ARCHITECTURE_AGORA.md</code></td><td>Human overview + mermaid</td></tr>
+    <tr><td><code>Index_Maison/architecture/ARCHITECTURE_TECH.md</code></td><td>This tech spec (text twin)</td></tr>
+    <tr><td><code>Index_Maison/OSSATURE_INDEX.md</code></td><td>1 place / info routing law</td></tr>
+    <tr><td><code>AUDIT_TROIS_JAMBES_SWARM_20260726.md</code></td><td>Full audit snapshot</td></tr>
+    <tr><td><code>Index_Maison/01_TABLEAU_VIVANT.md</code></td><td>Living decision board</td></tr>
+    <tr><td><code>Index_Maison/AUTO_PROCESSUS.md</code></td><td>What is automated vs manual</td></tr>
+    <tr><td><code>Index_Maison/BUDGET_API.md</code></td><td>API $ tracker (C5 / Kimi #5)</td></tr>
+    <tr><td><code>Index_Maison/Evaluations/15_kimi_archi_risk_warm.md</code></td><td>External review Kimi (Risk/WARM/DR)</td></tr>
+  </table>
+
+  <h2>7 · RISK &amp; GUARDIANS <span class="tag warn">KIMI REVIEW</span></h2>
+  <table>
+    <tr><th>Guardian</th><th>Lane</th><th>Trigger</th><th>Action</th></tr>
+    <tr><td>ACE internal</td><td><span class="tag hot">HOT</span></td><td>timer, max loss, STOP files</td><td>Self stop</td></tr>
+    <tr><td>Hulk stops</td><td><span class="tag hot">HOT</span></td><td>~−6% / trade (paper rules)</td><td>Self stop</td></tr>
+    <tr><td><strong>Risk Guardian</strong></td><td><span class="tag warn">WARM</span></td><td>drawdown global · 3 errors/10min · Mac orphan</td><td><strong>Kill ACE + alert human</strong> · no order · no genesis</td></tr>
+    <tr><td>Human</td><td><span class="tag cold">BOARD</span></td><td>Any</td><td>GO / STOP · circuit breaker</td></tr>
+  </table>
+  <p style="margin-top:8px;">Lane <strong>WARM</strong> = live but outside fill loop (Hulk gates, <code>.veille_status</code>, scoreur, Cortana horaire, Risk Guardian). Reads HOT · does not write fills.</p>
+
+  <h2>8 · BACKUP &amp; DR <span class="tag warn">SPEC</span></h2>
+  <table>
+    <tr><th>Asset</th><th>Freq</th><th>Target</th></tr>
+    <tr><td><code>runs/*.csv</code> + Hulk state</td><td>Daily (spec)</td><td>Git selective + disque externe</td></tr>
+    <tr><td><code>/tmp/ace777_ram_exchange/</code></td><td>Never — volatile</td><td>Reconstruct from CSV</td></tr>
+    <tr><td>Obsidian vault</td><td>Realtime / user</td><td>iCloud / Time Machine · OUTBOX bridge</td></tr>
+  </table>
+
+  <h2>9 · EXTERNAL REVIEW — KIMI (2026-07-30)</h2>
+  <div class="box">
+    <p style="color:var(--text);margin-bottom:8px;"><strong>VERDICT reviewer:</strong> architecture solide · C1–C6 + data flow « hedge-fund early-stage » · <em>KEEP-WITH-FIXES</em></p>
+    <table>
+      <tr><th>#</th><th>Gap</th><th>Where</th><th>Prio</th><th>Status Index</th></tr>
+      <tr><td>1</td><td>Risk Guardian</td><td>between HOT &amp; BOARD</td><td><span class="tag bad">Haute</span></td><td>spec’d §7 · code prototype · <span class="tag warn">pas en vol</span></td></tr>
+      <tr><td>2</td><td>Circuit breaker DD combiné</td><td>C7</td><td><span class="tag ok">Défaut 8%</span></td><td><code>MAX_GLOBAL_DD_PCT=8</code> · [[RISK_C7]]</td></tr>
+      <tr><td>P1</td><td>Atomic <code>.veille_status.json</code></td><td>Hulk gates</td><td><span class="tag ok">CLOSED</span></td><td><code>_safe_write</code> (.tmp+replace) · all writers checked</td></tr>
+      <tr><td>P3</td><td>Cortana URGENT voice</td><td>VOICE/WARM</td><td><span class="tag ok">ON</span></td><td><code>.urgent_alert.json</code> + poll 60s · <code>cortana_thermo.py alert|poll</code></td></tr>
+      <tr><td>3</td><td>Lane WARM</td><td>HOT↔COLD</td><td><span class="tag warn">Moyenne</span></td><td>labeled §1/§7</td></tr>
+      <tr><td>4</td><td>Backup / DR</td><td>C8</td><td><span class="tag warn">Moyenne</span></td><td>spec §8</td></tr>
+      <tr><td>5</td><td>Budget API monitor</td><td>C5 / BUDGET_API.md</td><td><span class="tag ok">Basse</span></td><td>stub created</td></tr>
+    </table>
+  </div>
+
+  <footer>
+    <span>Twin: ARCHITECTURE_TECH.md · Visual: index.html · Review: Evaluations/15</span>
+    <span><a href="index.html">← Vue humaine</a></span>
+  </footer>
+</div>
+</body>
+</html>

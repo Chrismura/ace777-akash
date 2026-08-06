@@ -1,0 +1,325 @@
+# Index des commandes Terminal
+
+**Où :** `~/ace777-test-day1/Index_Maison/INDEX_COMMANDES.md`  
+**Miroir Obsidian :** après sync → même nom dans le coffre `Obsidian_ACE777`  
+**Sync :**
+```bash
+bash ~/ace777-test-day1/Index_Maison/OUTBOX_OBSIDIAN/_sync_now.sh
+```
+Copie les notes (dont cet index) du dossier OUTBOX vers ton coffre Obsidian.
+
+---
+
+## Règle d’or
+Ne lance **jamais** ACE ni Hulk sans avoir dit **GO** et sans Mac froid.  
+**Test avant réel :** [[PROTOCOLE_VALIDATION_TEST_AVANT_REEL]] · bugs → [[JOURNAL_ERREURS_TEST]].
+
+## 0 — Porte test (avant run lecture / GO)
+```bash
+cd ~/ace777-test-day1 && ./scripts/verif_sterilite.sh --pre-run
+bash ~/ace777-test-day1/Index_Maison/scripts/cockpit_hygiene_check.sh
+```
+Porte 0 (stérile) + Porte 1 (indicateurs cockpit). Anomalie → une ligne dans `JOURNAL_ERREURS_TEST.md`.
+
+---
+
+## 1 — Coupure / remise en route
+
+```bash
+bash ~/ace777-test-day1/Index_Maison/OUTBOX_OBSIDIAN/_sync_now.sh
+```
+Remet à jour Obsidian avec les notes préparées (console, journal, attention, cet index).
+
+```bash
+pgrep -lf 'GO_USINE|paper_diprip|ollama serve' || echo "OK rien qui tourne"
+```
+Vérifie qu’aucun bot (ACE / Hulk / Ollama) ne tourne en cachette. Si tu vois « OK rien qui tourne », c’est bon.
+
+---
+
+## 2 — État du Mac
+
+```bash
+bash ~/ace777-test-day1/Index_Maison/scripts/pulse_sous_loeil.sh
+```
+**Sous l’œil** — checklist vert/jaune/rouge (ACE/Hulk/Ollama/RAM/heartbeat). Écrit `Index_Maison/SOUS_L_OEIL.md`. Lecture seule. Registre : `AUTO_PROCESSUS.md`.
+
+```bash
+bash ~/ace777-test-day1/Index_Maison/scripts/etat_mac.sh
+```
+Affiche l’heure, la charge CPU, la RAM libre, les gros processus, le disque, et si des bots tournent. Lecture seule — ne change rien.
+
+```bash
+bash ~/ace777-test-day1/scripts/hygiene_mac_ram.sh --check
+```
+Regarde seulement les processus WebKit orphelins qui mangent la RAM (ne les tue pas).
+
+```bash
+bash ~/ace777-test-day1/scripts/hygiene_mac_ram.sh
+```
+Nettoie les WebKit orphelins lourds/vieux. Ne touche pas Cursor ni ACE.
+
+---
+
+## 3 — Grosse hygiène
+
+```bash
+bash ~/ace777-test-day1/Index_Maison/scripts/grosse_hygiene.sh
+```
+Ménage complet à froid : état Mac → RAM → ménage ACE après arrêt → journal/console → **cockpit indicateurs** → sync Obsidian. **Ne lance pas** le trading.
+
+```bash
+bash ~/ace777-test-day1/Index_Maison/scripts/cockpit_hygiene_check.sh
+```
+Hygiène **cockpit** (zone test) : refresh thermo free + mission feed + check pont `:17777` + indicateurs clés (funding/OI/F&G/score).
+
+```bash
+bash ~/ace777-test-day1/Index_Maison/scripts/checkup_garage.sh
+```
+Checkup fantômes PID + stérilité + RAM → écrit `Index_Maison/CHECKUP_DERNIER.md`. Réf. protocole stérilité / rapports fantômes.
+
+```bash
+cd ~/ace777-test-day1 && ./scripts/hygiene_apres_arret.sh --kill-orphans
+```
+Hygiène ACE seule : rapport d’arrêt + tue les orphelins (timers, caffeinate, etc.).
+
+```bash
+cd ~/ace777-test-day1 && ./scripts/verif_sterilite.sh
+```
+Vérifie que la machine est « propre » avant un éventuel run ACE (à faire avant GO, pas à la place du GO).
+
+---
+
+## 4 — Runs ACE (date & plus-value)
+
+```bash
+python3 ~/ace777-test-day1/Index_Maison/scripts/liste_runs.py
+```
+Liste les runs ACE **par date** (du plus récent au plus vieux) avec Alpha / Beta / combo $.
+
+```bash
+python3 ~/ace777-test-day1/Index_Maison/scripts/liste_runs.py --pnl
+```
+Liste les runs ACE **par plus-value** (du meilleur combo $ au pire).
+
+```bash
+python3 ~/ace777-test-day1/Index_Maison/scripts/liste_runs.py --pnl --top 5 --cmd
+```
+Top 5 meilleurs runs + **affiche** la commande de lancement à coller. N’exécute rien.
+
+```bash
+python3 ~/ace777-test-day1/Index_Maison/scripts/liste_runs.py --tag NUAGE_TEST_8H_CMP
+```
+Filtre un run précis par son nom (TAG).
+
+---
+
+## 5 — Console & journal
+
+```bash
+python3 ~/ace777-test-day1/Index_Maison/scripts/journal_auto.py
+```
+Met à jour la console générale + le journal du jour (dans Index_Maison).
+
+```bash
+python3 ~/ace777-test-day1/Index_Maison/scripts/journal_auto.py --sync
+```
+Pareil + essaie de copier vers Obsidian (si le Mac autorise Documents).
+
+```bash
+bash ~/ace777-test-day1/Index_Maison/scripts/journal_du_soir.sh
+```
+Script « journal du soir » (même idée, version bash). Cron déjà à **20:53**.
+
+---
+
+## 5a0 — Mémoire collab (AUTO — tous)
+
+```bash
+# 1 ligne après chaque intervention (Cursor le fait aussi via règle)
+python3 ~/ace777-test-day1/Index_Maison/scripts/memoire_log.py Humain "★" "où" "quoi en une ligne"
+
+# Changement molette / setup (+ pourquoi)
+python3 ~/ace777-test-day1/Index_Maison/scripts/molette_log.py \
+  --molette NUAGE_STORM_HUNTER --avant 0 --apres 1 \
+  --pourquoi "…" --qui Humain
+```
+
+Réf : [[MEMOIRE_COLLAB]] · [[JOURNAL_MOLETTES_SETUP]] · [[COUTUMES_AGORA]]
+
+## 5a — Début / fin de session
+
+**Matin (ou après nuit en vol) :**
+```bash
+bash ~/ace777-test-day1/Index_Maison/scripts/session_debut.sh --open
+bash ~/ace777-test-day1/Index_Maison/scripts/session_debut.sh --vol --open   # force VOL
+```
+
+**Avant dodo — prototype qui reste :**
+```bash
+bash ~/ace777-test-day1/Index_Maison/scripts/session_fin.sh                  # ne tue PAS ACE
+bash ~/ace777-test-day1/Index_Maison/OUTBOX_OBSIDIAN/_sync_now.sh
+```
+
+Stop explicite seulement : `session_fin.sh --stop-ace`.  
+Canon : [[PROTOCOLE_SESSION_DEBUT_FIN]] · backlog finition : [[CHOSES_A_FINIR_REVOIR]].
+
+## 5b — Cockpit ACE777 (ZONE TEST · app native)
+
+**Statut :** stack validée 31 juil. — LaunchAgents + pywebview 1er · Brave `--app` filet.  
+Canon : `COCKPIT_LOOK_FIGE.md` · `JOURNAL_COCKPIT.md` · `COCKPIT_LANCEMENT.md`.  
+Onglets : OPS · THERMO · BOARD · **GRAPH** (synapses) · VOL
+
+
+```bash
+# Quotidien (daemons + fenêtre native)
+bash ~/ace777-test-day1/Index_Maison/scripts/cockpit_up.sh
+
+# Fenêtre seule (si PONT/HTTP déjà ON)
+bash ~/ace777-test-day1/Index_Maison/scripts/open_cockpit_app.sh
+
+# Daemons seulement / réparation
+bash ~/ace777-test-day1/Index_Maison/scripts/install_cockpit_daemons.sh
+bash ~/ace777-test-day1/Index_Maison/scripts/cockpit_up.sh --daemons
+```
+Recharger page = **⌘R** (F5 = dictation micro). Pas Safari.
+
+```bash
+bash ~/ace777-test-day1/Index_Maison/scripts/cockpit_hygiene_check.sh
+```
+
+## 5b2 — Thermo Index (board A/B/C live free)
+
+```bash
+python3 ~/ace777-test-day1/Index_Maison/scripts/thermo_quotidien_free.py
+open ~/ace777-test-day1/Index_Maison/thermo/index.html
+```
+Thermomètre Index complet (A1–A6 · B7–B12 · C13–C25) + ticker Binance **sans clé**.  
+Rafraîchir = relancer le script puis bouton RAFRAÎCHIR (ou recharger la page). Lecture seule — pas de GO.
+
+
+## 5b3 — Cortana × Thermo (questions + voix)
+
+```bash
+python3 ~/ace777-test-day1/Index_Maison/scripts/thermo_quotidien_free.py
+python3 ~/ace777-test-day1/Index_Maison/scripts/cortana_thermo.py ask funding
+python3 ~/ace777-test-day1/Index_Maison/scripts/cortana_thermo.py ask mois
+python3 ~/ace777-test-day1/Index_Maison/scripts/cortana_thermo.py ask mois-dernier
+python3 ~/ace777-test-day1/Index_Maison/scripts/cortana_thermo.py ask climat
+python3 ~/ace777-test-day1/Index_Maison/scripts/cortana_thermo.py surveille
+python3 ~/ace777-test-day1/Index_Maison/scripts/cortana_thermo.py resume          # indices + avis sentiment
+python3 ~/ace777-test-day1/Index_Maison/scripts/cortana_thermo.py resume --say   # + voix
+python3 ~/ace777-test-day1/Index_Maison/scripts/cortana_thermo.py speak --say
+
+# Résumé horaire auto (launchd) — une fois :
+# cp …/com.ace777.cortana.horaire.plist ~/Library/LaunchAgents/
+# launchctl load ~/Library/LaunchAgents/com.ace777.cortana.horaire.plist
+# Test : ~/ace777-test-day1/Index_Maison/scripts/cortana_horaire.sh
+# Mute voix : CORTANA_HORAIRE_SAY=0 …/cortana_horaire.sh
+
+# P3 URGENT (immédiat, pas attendre l'heure)
+python3 ~/ace777-test-day1/Index_Maison/scripts/cortana_thermo.py alert "Test alerte"
+# poll launchd 10s : com.ace777.cortana.urgent
+# C7 défaut 8% : source Index_Maison/config_risk_warm.env · [[RISK_C7]]
+
+# AGENT ON AIR (pastille dashboard)
+python3 ~/ace777-test-day1/Index_Maison/scripts/agent_status.py heartbeat
+python3 ~/ace777-test-day1/Index_Maison/scripts/agent_status.py set KIMI ON_AIR
+open ~/ace777-test-day1/Index_Maison/architecture/index.html
+```
+Nourrit `ATTENTION_VOCALE` + volet sniff du **cockpit** (`cortana_feed.js`). Lecture seule.
+
+## 5c — Architecture (carte visuelle + TECH)
+
+```bash
+open ~/ace777-test-day1/Index_Maison/architecture/index.html
+open ~/ace777-test-day1/Index_Maison/architecture/tech.html
+```
+- **VUE** = carte humaine (HOT / COLD / voix / coffre)  
+- **TECH** = spec pour revue IA (contraintes, entrypoints, rubrique)  
+Canon : `ARCHITECTURE_AGORA.md` · `architecture/ARCHITECTURE_TECH.md` · `OSSATURE_INDEX.md`.  
+**Pas** un bot — lecture visuelle. Données réelles = GO build data plus tard.
+
+---
+
+## 5c — Research Desk (backtest labo)
+
+```bash
+cd ~/ace777-test-day1/labo/Backtesting-Engine && npm install && npm run dev
+```
+Backtest local (Binance public). **Mac froid** — pas pendant ACE. Canon : [[HISTO_RESEARCH_DESK]].
+
+---
+
+## 6 — Veille Punk (info, pas trading)
+
+```bash
+cd ~/ace777-test-day1/veille-punk && source obsidian.env
+```
+Se place dans Punk et pointe vers le bon coffre Obsidian.
+
+```bash
+cd ~/ace777-test-day1/veille-punk && ./bin/suivi "@Compte colle le texte du post"
+```
+Filtre un post vs le tableau Index → note « À mon attention » + résumé vocal si pertinent.
+
+```bash
+cd ~/ace777-test-day1/veille-punk && ./bin/suivi --offline "@Compte colle le texte du post"
+```
+Même chose **sans** Ollama (secours si Mac chaud / RAM faible).
+
+```bash
+cd ~/ace777-test-day1/veille-punk && ./bin/speak_attention
+```
+Lit à voix haute le dernier résumé d’attention (proxy Cortana).
+
+```bash
+cd ~/ace777-test-day1/veille-punk && ./bin/check "colle url ou texte"
+```
+Bullshit check classique (vrai / semi / bullshit) — veille froide.
+
+---
+
+## 7 — Trading (DANGER — GO obligatoire)
+
+```bash
+cd ~/ace777-test-day1 && caffeinate -dims ./GO_USINE_NUAGE.sh 08:00:00 MON_TAG
+```
+Lance ACE testnet pour une durée + un TAG. **Uniquement** si tu as dit GO et que le Mac est froid. Remplace `MON_TAG` (ex. `NUAGE_TEST_8H_CMP`).
+
+```bash
+cd ~/ace777-test-day1 && ./stop_ace777.sh
+```
+Arrête ACE proprement.
+
+```bash
+cd ~/ace777-test-day1 && ./stop_ace777_hard.sh
+```
+Arrêt ACE forcé (si le soft ne suffit pas).
+
+Hulk paper : pas de commande « magique » ici — dis **GO Hulk** à Cursor (7 positions encore gelées).
+
+---
+
+## 8 — Où lire dans Obsidian
+
+Ouvre le vault **Obsidian_ACE777** → note **AGORA** → **CONSOLE_GENERALE**.  
+Cette fiche : **INDEX_COMMANDES**.  
+Après coupure : **REPRISE_APRES_COUPURE**.
+
+---
+
+## Rappel 10 secondes
+
+| Besoin | Quoi coller |
+|--------|-------------|
+| Mac OK ? | `etat_mac.sh` |
+| Ménage | `grosse_hygiene.sh` |
+| Qui a gagné $ ? | `liste_runs.py --pnl --cmd` |
+| Sync notes | `_sync_now.sh` |
+| **Cockpit UI** | `open …/cockpit/index.html` |
+| **Test→réel** | notes `PROTOCOLE_VALIDATION_TEST_AVANT_REEL` + `JOURNAL_ERREURS_TEST` |
+| **Architecture carte** | note Obsidian `DASHBOARD_ARCHITECTURE` · ou `open …/architecture/index.html` |
+| Lire un post | `suivi "…"` |
+| Voix | `speak_attention` |
+| Trader | seulement avec GO |
