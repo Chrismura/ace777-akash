@@ -18,6 +18,7 @@ import json
 import os
 import subprocess
 import sys
+import tempfile
 import urllib.request
 
 SCRIPTS = os.path.expanduser("~/ace777-test-day1/Index_Maison/scripts")
@@ -29,6 +30,28 @@ SYSTEM = (
     "prêtes à être lues à voix haute. Garde les chiffres clés mais évite les listes "
     "techniques. Pas de préambule, pas de markdown, pas d'emoji."
 )
+
+
+def speak_text(text, voice="fr-FR-VivienneMultilingualNeural", rate="-10%"):
+    """Voix Vivienne via python3 -m edge_tts (meme mecanisme que cortana_voice)."""
+    with tempfile.NamedTemporaryFile(suffix=".mp3", delete=False) as f:
+        path = f.name
+    cmd = [
+        "python3", "-m", "edge_tts",
+        "--voice", voice,
+        f"--rate={rate}",
+        "--text", text,
+        "--write-media", path,
+    ]
+    proc = subprocess.run(cmd, capture_output=True, text=True, timeout=90, check=False)
+    if proc.returncode != 0 or not os.path.exists(path) or os.path.getsize(path) < 100:
+        print("  ✘ generation voix echouee", file=sys.stderr)
+        if os.path.exists(path):
+            os.unlink(path)
+        return 1
+    subprocess.run(["afplay", path], check=False, timeout=180)
+    os.unlink(path)
+    return 0
 
 
 def rule_brief():
@@ -69,11 +92,15 @@ def main():
     ap.add_argument("--model", choices=["auto", "gemini"], default="auto",
                     help="auto = routage du hub (Qwen local) ; gemini = force Gemini")
     ap.add_argument("--text", default=None, help="texte arbitraire à enrichir")
+    ap.add_argument("--speak", action="store_true", help="lire le resultat a voix haute (Vivienne)")
     a = ap.parse_args()
 
     text = a.text if a.text else rule_brief()
     content, provider = call_hub(text, force_gemini=(a.model == "gemini"))
     print("[provider: %s]" % provider, file=sys.stderr)
+    if a.speak:
+        print("  ▶ lecture vocale (Vivienne)...", file=sys.stderr)
+        return speak_text(content)
     print(content)
     return 0
 
