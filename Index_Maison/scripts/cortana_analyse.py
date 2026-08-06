@@ -70,7 +70,10 @@ CONTEXT_KEYS = ["mark", "chg24", "chg1h", "chg4h", "funding", "fundingAvg30",
 
 def load_system_prompt():
     """Lit le prompt master analyste depuis le vault (canon)."""
+    # NB : l'espace ace777-test-day1 est accessible par launchd (TCC) ;
+    # le vault (Documents) ne l'est PAS depuis le bridge -> copie miroir ici.
     candidates = [
+        os.path.join(SCRIPTS, "prompts", "PROMPT_MASTER_ANALYSTE.md"),
         os.path.expanduser("~/Documents/Obsidian_ACE777/PROMPT_MASTER_ANALYSTE.md"),
     ]
     for p in candidates:

@@ -111,6 +111,52 @@ def do_speak() -> str:
     return run_py(SCRIPTS / "cortana_thermo.py", "resume", "--say", timeout=180)
 
 
+def do_analyse(indice: str) -> dict:
+    """Master analyste : analyse LIVE d'un indice via cortana_analyse.py.
+    Renvoie le texte (stdout) et le provider (stderr) — synchrone pour que
+    le cockpit puisse afficher l'analyse."""
+    cmd = [sys.executable, str(SCRIPTS / "cortana_analyse.py"), indice]
+    try:
+        p = subprocess.run(cmd, capture_output=True, text=True, cwd=str(ROOT), timeout=300)
+    except subprocess.TimeoutExpired:
+        return {"ok": False, "error": "analyse en timeout (>300s)"}
+    except Exception as e:
+        return {"ok": False, "error": f"erreur lancement: {e}"}
+    texte = (p.stdout or "").strip()
+    provider = ""
+    for line in (p.stderr or "").splitlines():
+        if line.startswith("[provider"):
+            provider = line.strip()
+    if p.returncode != 0 or not texte:
+        err = (p.stderr or "analyse échouée").strip().splitlines()
+        return {"ok": False, "error": (err[-1] if err else "analyse échouée")[:300], "provider": provider}
+    if p.returncode == 0 and texte:
+        # spec C4 : voix Vivienne en arriere-plan (n'attend pas la fin de lecture)
+        threading.Thread(target=_speak_texte, args=(texte,), daemon=True).start()
+    return {"ok": True, "texte": texte, "provider": provider}
+
+
+def _speak_texte(texte: str) -> None:
+    """Lit un texte a voix haute (Vivienne) — thread arriere-plan."""
+    import tempfile as _tf
+    try:
+        with _tf.NamedTemporaryFile(suffix=".mp3", delete=False) as f:
+            path = f.name
+        cmd = [
+            sys.executable, "-m", "edge_tts",
+            "--voice", os.environ.get("EDGE_TTS_VOICE", "fr-FR-VivienneMultilingualNeural"),
+            f"--rate={os.environ.get('EDGE_TTS_RATE', '-18%')}",
+            "--text", texte, "--write-media", path,
+        ]
+        p = subprocess.run(cmd, capture_output=True, text=True, timeout=120)
+        if p.returncode == 0 and os.path.getsize(path) > 100:
+            subprocess.run(["afplay", path], timeout=240)
+        if os.path.exists(path):
+            os.unlink(path)
+    except Exception as e:
+        print(f"[analyse-voix] ERR {e}", flush=True)
+
+
 def _http_cockpit() -> dict:
     import urllib.request
     import time
@@ -630,6 +676,16 @@ class Handler(BaseHTTPRequestHandler):
         if path == "/speak":
             bg(do_speak, "speak")
             self._json(200, {"ok": True, "action": "speak", "msg": "brief en cours…", "muted": False})
+            return
+        if path == "/analyse":
+            body = self._read_json()
+            indice = str(body.get("indice") or "")
+            if not indice:
+                self._json(400, {"ok": False, "error": "indice manquant"})
+                return
+            data = do_analyse(indice)
+            code = 200 if data.get("ok") else 502
+            self._json(code, data)
             return
         if path == "/refresh":
             data = do_mission()
