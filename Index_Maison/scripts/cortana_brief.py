@@ -32,7 +32,7 @@ SYSTEM = (
 )
 
 
-def speak_text(text, voice="fr-FR-VivienneMultilingualNeural", rate="-10%"):
+def speak_text(text, voice="fr-FR-VivienneMultilingualNeural", rate="-15%"):
     """Voix Vivienne via python3 -m edge_tts (meme mecanisme que cortana_voice)."""
     with tempfile.NamedTemporaryFile(suffix=".mp3", delete=False) as f:
         path = f.name
