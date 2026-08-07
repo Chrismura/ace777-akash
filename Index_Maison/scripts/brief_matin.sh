@@ -27,6 +27,9 @@ mkdir -p "$HOME/prise-ia/reports"
     echo "(pas encore)"
   fi
   echo
+  echo "## 🤖 Arbitrage des analystes (C7)"
+  python3 "$HOME/ace777-test-day1/Index_Maison/scripts/arbitrage_analystes.py" 2>/dev/null || echo "(arbitrage indisponible)"
+  echo
   echo "## Mémoire récente (coffre)"
   grep -E '^\| 2026' "$HOME/Documents/Obsidian_ACE777/MEMOIRE_COLLAB.md" 2>/dev/null | head -3 || echo "(coffre illisible en launchd — lire dans Obsidian)"
 } > "$OUT"
