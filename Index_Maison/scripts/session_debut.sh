@@ -124,7 +124,7 @@ reveil_matin() {
     curl -s --max-time 2 "http://127.0.0.1:11435/health" >/dev/null 2>&1 && \
     curl -s --max-time 2 "http://127.0.0.1:11434/api/tags" >/dev/null 2>&1 && h_status="OK"
     if [ -f "$buffy_script" ]; then
-        python3 "$buffy_script" >/dev/null 2>&1 || true
+        "$PY" "$buffy_script" >/dev/null 2>&1 || true
     fi
     echo "--- RÉSUMÉ RÉVEIL MATIN ---"
     echo "VAULT : [$v_status] Obsidian_ACE777"
