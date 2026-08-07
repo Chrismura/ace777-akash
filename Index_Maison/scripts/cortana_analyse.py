@@ -248,7 +248,7 @@ def build_facts(indice):
     return facts, raw
 
 
-def call_hub(facts, indice):
+def call_hub(facts, indice, correction=None):
     system = load_system_prompt()
     payload = {
         "task": "cortana.analyse",  # routage : Gemini prioritaire, repli Qwen
@@ -259,6 +259,7 @@ def call_hub(facts, indice):
                 f"Données :\n{json.dumps(facts, ensure_ascii=False, indent=1)}\n\n"
                 "Donne ton analyse selon ta structure (FAITS, LECTURE PHYSIQUE, "
                 "INTERPRÉTATION, MISE EN RELATION, PATTERN, OPINION)."
+                + (correction or "")
             )},
         ],
         "temperature": 0.4,
@@ -274,7 +275,7 @@ def call_hub(facts, indice):
     return content, data.get("provider", "?")
 
 
-def journalise(indice, facts, facts_bruts, content, provider):
+def journalise(indice, facts, facts_bruts, content, provider, avis_ok=True):
     """Enregistre l'analyse (exigence Christophe : comparer avec le marché)."""
     os.makedirs(ANALYSES_DIR, exist_ok=True)
     day = datetime.now(timezone.utc).strftime("%Y-%m-%d")
@@ -286,6 +287,7 @@ def journalise(indice, facts, facts_bruts, content, provider):
         "faits": facts,           # valeurs formatées (lisibles)
         "faits_bruts": facts_bruts,  # valeurs brutes (pour comparer avec le marché réel)
         "analyse": content,
+        "avis_ok": avis_ok,
     }
     with open(path, "a") as f:
         f.write(json.dumps(entry, ensure_ascii=False) + "\n")
@@ -342,13 +344,31 @@ def main():
 
     try:
         content, provider = call_hub(facts, indice)
+        import re as _re
+        def _has_avis(t):
+            return _re.search(r"AVIS STRICT\s*:\s*(LONG|SHORT|NEUTRE)", t, _re.IGNORECASE) is not None
+        if not _has_avis(content):
+            print("[avis] AVIS STRICT absent - retry avec correction...", file=sys.stderr)
+            correction = ("\n\nTa réponse précédente n'a PAS la section 7 obligatoire. "
+                          "Rends l'analyse À NOUVEAU, terminée par EXACTEMENT :\n"
+                          "AVIS STRICT : LONG|SHORT|NEUTRE\n"
+                          "HORIZON : 24h|1 semaine\n"
+                          "CONFIANCE : haute|moyenne|faible")
+            try:
+                content2, provider2 = call_hub(facts, indice, correction)
+                if _has_avis(content2):
+                    content, provider = content2, provider2
+                else:
+                    content = content2
+            except Exception as e2:
+                print(f"✘ retry échoué : {e2}", file=sys.stderr)
     except Exception as e:
         print(f"✘ hub injoignable ou réponse inattendue : {e}", file=sys.stderr)
         print("Repli : voici les faits bruts (pas d'analyse IA disponible) :")
         print(json.dumps(facts, ensure_ascii=False, indent=1))
         return 1
 
-    journal = journalise(indice, facts, facts_bruts, content, provider)
+    journal = journalise(indice, facts, facts_bruts, content, provider, avis_ok=_has_avis(content))
     print(f"[provider: {provider}]", file=sys.stderr)
     print(f"[journal: {journal}]", file=sys.stderr)
 
