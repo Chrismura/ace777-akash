@@ -66,6 +66,11 @@ CALORIE_EFFICIENCY_EXIT="${CALORIE_EFFICIENCY_EXIT:-TRUE}"
 STALL_THRESHOLD_BPS_PER_SEC="${STALL_THRESHOLD_BPS_PER_SEC:-0.1}"
 FATIGUE_CONFIRMATIONS="${FATIGUE_CONFIRMATIONS:-20}"
 
+# LLM gate (optionnel: interroge Ollama avant ordre)
+LLM_GATE_ENABLED="${LLM_GATE_ENABLED:-FALSE}"
+LLM_MODEL="${LLM_MODEL:-qwen2.5-coder:1.5b}"
+LLM_OLLAMA_URL="${LLM_OLLAMA_URL:-http://127.0.0.1:11434}"
+
 if [[ "$BASE_URL" != *"testnet.binancefuture.com"* ]]; then
   echo "Abort: BASE_URL must be Futures Testnet."
   exit 1
@@ -320,6 +325,36 @@ for i in $(seq 1 "$CYCLES"); do
     continue
   fi
 
+  # LLM gate: interroge Ollama avant ordre (fail-closed)
+  if [ "$LLM_GATE_ENABLED" = "TRUE" ]; then
+    llm_prompt="Side=$side px=$p2 bps=$mom_bps. Reply TRADE or SKIP only."
+    llm_gate_block="FALSE"
+    llm_gate_reason="unknown"
+    llm_gate_status="FAIL"
+    llm_curl_ok=0
+    llm_raw="$(curl -sS --connect-timeout "${LLM_GATE_CONNECT_TIMEOUT:-2}" --max-time "${LLM_GATE_MAX_TIME:-3}" \
+      -X POST "${LLM_OLLAMA_URL}/api/generate" \
+      -d "{\"model\":\"${LLM_MODEL}\",\"prompt\":\"${llm_prompt}\",\"stream\":false}" 2>/dev/null)" || llm_curl_ok=$?
+    llm_out="$(printf '%s' "$llm_raw" | ruby -rjson -e 'j=JSON.parse(STDIN.read) rescue {}; print(j["response"].to_s.downcase)' 2>/dev/null || echo "")"
+    if [ "$llm_curl_ok" -ne 0 ] || [ -z "$llm_raw" ]; then
+      llm_gate_block="TRUE"; llm_gate_reason="ollama_unreachable"; llm_gate_status="FAIL"
+    elif [ -z "$llm_out" ]; then
+      llm_gate_block="TRUE"; llm_gate_reason="ollama_empty"; llm_gate_status="FAIL"
+    elif echo "$llm_out" | grep -qiE "skip|non|no|stop|pas"; then
+      llm_gate_block="TRUE"; llm_gate_reason="ollama_skip"; llm_gate_status="SKIP"
+    elif echo "$llm_out" | grep -qiE "trade|oui|yes|go|ok"; then
+      llm_gate_block="FALSE"; llm_gate_reason="ollama_trade"; llm_gate_status="OK"
+    elif [ "${LLM_GATE_FAIL_CLOSED:-TRUE}" = "TRUE" ]; then
+      llm_gate_block="TRUE"; llm_gate_reason="ollama_ambiguous"; llm_gate_status="FAIL"
+    fi
+    if [ "$llm_gate_block" = "TRUE" ]; then
+      echo "$(date -u +%FT%TZ),$i,SKIP,SKIPPED,,,,,0,llm_gate,reason=${llm_gate_reason} status=${llm_gate_status}" >> "$LOG_FILE"
+      echo "Cycle $i SKIP | llm_gate ${llm_gate_reason} (${llm_gate_status})"
+      sleep "$SLEEP_SEC"
+      continue
+    fi
+  fi
+
   ts="$(now_ms)"
   q_entry="symbol=$SYMBOL&side=$side&type=MARKET&quantity=$qty${position_side_param}&timestamp=$ts&recvWindow=$RECV_WINDOW"
   entry_resp="$(private_post "/fapi/v1/order" "$q_entry" || true)"
@@ -427,7 +462,6 @@ for i in $(seq 1 "$CYCLES"); do
     fi
   fi
   bps="$(num_mul "$(bps_change "$entry_price" "$exit_price")" "$signed_dir")"
-  pct="$(num_div "$bps" "100")"
   pnl_usdt="$(num_mul "$(num_sub "$exit_price" "$entry_price")" "$(num_mul "$qty" "$signed_dir")")"
   anomaly_pnl_eff="$ANOMALY_PNL_USDT"
   if num_gt "$LEVERAGE" "1"; then
@@ -438,8 +472,8 @@ for i in $(seq 1 "$CYCLES"); do
     echo "Cycle $i SOFT anomaly mode ON | pnl_abs=$(abs_num "$pnl_usdt") > $anomaly_pnl_eff"
   fi
   hold_done=$(( $(now_sec) - start_s ))
-  echo "$(date -u +%FT%TZ),$i,$side,FILLED,$entry_price,$exit_price,$qty,$bps,$pnl_usdt,$reason,radar=$radar_direction conf=$radar_conf size_note=$dynamic_size_note soft=$cycle_soft_mode pct=$pct" >> "$LOG_FILE"
-  echo "Cycle $i/$CYCLES ORDER | side=$side qty=$qty reason=$reason hold=${hold_done}s bps=$bps pct=${pct}% pnl=$pnl_usdt conf=$radar_conf size=$dynamic_size_note"
+  echo "$(date -u +%FT%TZ),$i,$side,FILLED,$entry_price,$exit_price,$qty,$bps,$pnl_usdt,$reason,radar=$radar_direction conf=$radar_conf size_note=$dynamic_size_note soft=$cycle_soft_mode" >> "$LOG_FILE"
+  echo "Cycle $i/$CYCLES ORDER | side=$side qty=$qty reason=$reason hold=${hold_done}s bps=$bps pnl=$pnl_usdt conf=$radar_conf size=$dynamic_size_note"
   ok_count=$((ok_count + 1))
   sleep "$SLEEP_SEC"
 done

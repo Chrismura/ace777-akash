@@ -1,6 +1,6 @@
 # Console générale — clin d’œil
 
-Auto-refresh : 2026-08-05 18:53 UTC · jour local **2026-08-05**
+Auto-refresh : 2026-08-07 18:53 UTC · jour local **2026-08-07**
 
 ## Feu tricolore
 
@@ -25,4 +25,4 @@ Auto-refresh : 2026-08-05 18:53 UTC · jour local **2026-08-05**
 - Pairs ouvertes (state) : RIZEUSDT, RWAINCUSDT, REDUSDT, ZBCNUSDT, TELUSDT, PYTHUSDT, QAITUSDT
 
 ## Liens
-[[PLAN_DE_VOL]] · [[AUTO_PROCESSUS]] · [[AGORA]] · [[Cahier/Journal_2026-08-05]] · [[OSSATURE]]
+[[PLAN_DE_VOL]] · [[AUTO_PROCESSUS]] · [[AGORA]] · [[Cahier/Journal_2026-08-07]] · [[OSSATURE]]

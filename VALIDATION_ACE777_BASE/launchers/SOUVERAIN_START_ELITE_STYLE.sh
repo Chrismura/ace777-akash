@@ -6,7 +6,7 @@ set -euo pipefail
 # Binôme parallèle hedge-ready (LONG/SHORT) avec rigueur PID-safe
 # ============================================================
 
-cd /app
+cd /Users/christophe/ace777-test-day1
 
 # 1) Préparation souveraine
 RUN_DIR="runs/ACE777_SYNCHRO_REEL_7H"
@@ -15,7 +15,6 @@ rm -f STOP_ALPHA STOP_BETA "$RUN_DIR"/alpha.pid "$RUN_DIR"/beta.pid
 
 # Paramétrage global (modifiable au lancement)
 DURATION_SEC="${DURATION_SEC:-32400}"   # 9h
-AUTO_STOP_ENABLED="${AUTO_STOP_ENABLED:-FALSE}"
 LEVERAGE="${LEVERAGE:-5}"
 BUY_USDT="${BUY_USDT:-250}"
 ENABLE_ORDERS="${ENABLE_ORDERS:-TRUE}"
@@ -33,10 +32,8 @@ cleanup() {
 trap cleanup SIGINT SIGTERM
 
 # 2) UNITÉ ALPHA — Sniper LONG (précision)
-if [ "$AUTO_STOP_ENABLED" = "TRUE" ]; then
-  ruby -e "sleep ${DURATION_SEC}; File.write('STOP_ALPHA','')" &
-  PID_TIMER_ALPHA=$!
-fi
+ruby -e "sleep ${DURATION_SEC}; File.write('STOP_ALPHA','')" &
+PID_TIMER_ALPHA=$!
 
 caffeinate -is bash -c "
   LOG_FILE='${RUN_DIR}/ALPHA_SNIPER.csv' \
@@ -60,10 +57,8 @@ echo "$PID_ALPHA" > "${RUN_DIR}/alpha.pid"
 echo "🎯 ALPHA [PID:${PID_ALPHA}] -> LONG (viseur 0.60 / SL 5)"
 
 # 3) UNITÉ BÊTA — Lourd SHORT (couverture)
-if [ "$AUTO_STOP_ENABLED" = "TRUE" ]; then
-  ruby -e "sleep ${DURATION_SEC}; File.write('STOP_BETA','')" &
-  PID_TIMER_BETA=$!
-fi
+ruby -e "sleep ${DURATION_SEC}; File.write('STOP_BETA','')" &
+PID_TIMER_BETA=$!
 
 caffeinate -is bash -c "
   LOG_FILE='${RUN_DIR}/BETA_LOURD.csv' \

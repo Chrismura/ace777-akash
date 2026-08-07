@@ -1,35 +1,9 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# Charge systematique des cles testnet depuis fichier local.
-# Cela evite de retaper/exporter les cles a chaque terminal.
-KEYS_FILE="${BINANCE_TESTNET_ENV_FILE:-$HOME/.binance_testnet.env}"
-SHELL_KEY_BEFORE="${BINANCE_API_KEY:-}"
-SHELL_SECRET_BEFORE="${BINANCE_API_SECRET:-}"
-if [[ -f "$KEYS_FILE" ]]; then
-  # shellcheck disable=SC1090
-  source "$KEYS_FILE"
-  if [[ -n "$SHELL_KEY_BEFORE$SHELL_SECRET_BEFORE" ]] && \
-     ([[ "${BINANCE_API_KEY:-}" != "$SHELL_KEY_BEFORE" ]] || [[ "${BINANCE_API_SECRET:-}" != "$SHELL_SECRET_BEFORE" ]]); then
-    echo "ALERTE_CLES: variables shell modifiees/reesetees, cles rechargees depuis $KEYS_FILE."
-  else
-    echo "INFO_CLES: cles chargees depuis $KEYS_FILE."
-  fi
-fi
-
-: "${BINANCE_API_KEY:?missing BINANCE_API_KEY (utilise $KEYS_FILE)}"
-: "${BINANCE_API_SECRET:?missing BINANCE_API_SECRET (utilise $KEYS_FILE)}"
-if [[ "$BINANCE_API_KEY" =~ [[:space:]] || "$BINANCE_API_SECRET" =~ [[:space:]] ]]; then
-  echo "Abort: cles invalides (espaces/retours ligne detectes)."
-  exit 1
-fi
-if (( ${#BINANCE_API_KEY} < 40 || ${#BINANCE_API_SECRET} < 40 || ${#BINANCE_API_KEY} > 90 || ${#BINANCE_API_SECRET} > 90 )); then
-  echo "Abort: format de cles suspect (KEY_LEN=${#BINANCE_API_KEY} SECRET_LEN=${#BINANCE_API_SECRET})."
-  echo "Attendu: longueur typique proche de 64/64 sur Binance testnet."
-  exit 1
-fi
+: "${BINANCE_API_KEY:?missing BINANCE_API_KEY}"
+: "${BINANCE_API_SECRET:?missing BINANCE_API_SECRET}"
 : "${BINANCE_BASE_URL:=https://testnet.binance.vision}"
-: "${BINANCE_BASE_URL_FALLBACK:=https://api1.binance.com}"
 
 load_kv_file() {
   local f="$1"
@@ -90,7 +64,7 @@ RETRY_DELAY_SEC="${RETRY_DELAY_SEC:-2}"
 STOP_FILE="${STOP_FILE:-STOP}"
 LOG_FILE="${LOG_FILE:-mini_run_smart_log.csv}"
 WATCHDOG_ENABLED="${WATCHDOG_ENABLED:-TRUE}"
-WATCHDOG_MAX_SKIP_STREAK="${WATCHDOG_MAX_SKIP_STREAK:-50}"
+WATCHDOG_MAX_SKIP_STREAK="${WATCHDOG_MAX_SKIP_STREAK:-25}"
 WATCHDOG_MAX_CYCLE_SEC="${WATCHDOG_MAX_CYCLE_SEC:-900}"
 CRASH_WATCHDOG_ENABLED="${CRASH_WATCHDOG_ENABLED:-FALSE}"
 CRASH_ALERT_BPS="${CRASH_ALERT_BPS:-18}"
@@ -105,20 +79,6 @@ RADAR_MIN_CONF="${RADAR_MIN_CONF:-0.55}"
 RADAR_MIN_MOM_BPS="${RADAR_MIN_MOM_BPS:-0.5}"
 RADAR_DIR_BPS="${RADAR_DIR_BPS:-0.2}"
 RADAR_MAX_SPREAD_BPS="${RADAR_MAX_SPREAD_BPS:-$MAX_SLIPPAGE_BPS}"
-
-# RESONANCE.1437 + HOLOGRAPHIC MEMORY gate (live entry condition).
-RESONANCE_GATE_ENABLED="${RESONANCE_GATE_ENABLED:-TRUE}"
-V_ACE_HZ="${V_ACE_HZ:-7.2}"
-RANGE_USD="${RANGE_USD:-200}"
-SPIKE_USD="${SPIKE_USD:-1500}"
-TICK_BASE_USD="${TICK_BASE_USD:-5}"
-TICK_SPIKE_USD="${TICK_SPIKE_USD:-60}"
-RESONANCE_PHASE_LOCK_MIN="${RESONANCE_PHASE_LOCK_MIN:-0.45}"
-RESONANCE_STRICT_LOCK_MIN="${RESONANCE_STRICT_LOCK_MIN:-0.60}"
-RESONANCE_FAST_BPS="${RESONANCE_FAST_BPS:-25}"
-RESONANCE_PANIC_BPS="${RESONANCE_PANIC_BPS:-60}"
-HOLO_MACRO_BIAS="${HOLO_MACRO_BIAS:-NEUTRAL}"  # BULL | BEAR | NEUTRAL
-HOLO_STRICT="${HOLO_STRICT:-TRUE}"
 
 # Structure/Tactic/Reaction layer (light hierarchy)
 EMA_STRUCTURE="${EMA_STRUCTURE:-153}"
@@ -185,20 +145,6 @@ SOFT_MAX_HOLD_SEC="${SOFT_MAX_HOLD_SEC:-90}"
 SOFT_STOP_LOSS_BPS="${SOFT_STOP_LOSS_BPS:-7}"
 SOFT_TRAIL_GIVEBACK_BPS="${SOFT_TRAIL_GIVEBACK_BPS:-2}"
 
-# LIVE reset policy (operator can override only by explicitly setting FALSE).
-LIVE_ONLY="${LIVE_ONLY:-FALSE}"
-FORCE_SYMBOL_BTCUSDT="${FORCE_SYMBOL_BTCUSDT:-TRUE}"
-FORCE_DISABLE_SYNTHETIC="${FORCE_DISABLE_SYNTHETIC:-TRUE}"
-
-# Network/proxy hardening for recurring HTTP 403 issues.
-PROXY_BYPASS_BINANCE="${PROXY_BYPASS_BINANCE:-TRUE}"
-HTTP_PROXY_OVERRIDE="${HTTP_PROXY_OVERRIDE:-}"
-HTTPS_PROXY_OVERRIDE="${HTTPS_PROXY_OVERRIDE:-}"
-NO_PROXY_EXTRA="${NO_PROXY_EXTRA:-}"
-
-CURL_LAST_HTTP_CODE="000"
-CURL_LAST_ERROR=""
-
 if [ ! -f "$LOG_FILE" ]; then
   echo "ts,cycle,side,status,orderId,executedQty,cumQuote,pnl,exitReason,holdSec,refPrice,msg" > "$LOG_FILE"
 fi
@@ -209,118 +155,6 @@ now_ms() {
 
 now_sec() {
   ruby -e 'puts Time.now.to_i'
-}
-
-bool_is_true() {
-  local v="${1:-}"
-  case "$v" in
-    TRUE|true|1|yes|YES|on|ON) return 0 ;;
-    *) return 1 ;;
-  esac
-}
-
-init_live_reset_policy() {
-  if bool_is_true "$LIVE_ONLY"; then
-    BINANCE_BASE_URL="https://api.binance.com"
-  else
-    BINANCE_BASE_URL="https://testnet.binance.vision"
-  fi
-  if bool_is_true "$FORCE_SYMBOL_BTCUSDT"; then
-    SYMBOL="BTCUSDT"
-  fi
-  if bool_is_true "$FORCE_DISABLE_SYNTHETIC"; then
-    INDEX_MODE="FALSE"
-  fi
-}
-
-validate_credentials_inputs() {
-  case "${BINANCE_API_KEY:-}" in
-    ""|"TA_CLE_TESTNET"|"TA_CLE_LIVE"|"YOUR_API_KEY"|"YOUR_TESTNET_KEY"|TA_*|YOUR_*)
-      echo "Abort: BINANCE_API_KEY invalide (placeholder)."
-      return 1
-      ;;
-  esac
-  case "${BINANCE_API_SECRET:-}" in
-    ""|"TON_SECRET_TESTNET"|"TON_SECRET_LIVE"|"YOUR_API_SECRET"|"YOUR_TESTNET_SECRET"|TON_*|YOUR_*)
-      echo "Abort: BINANCE_API_SECRET invalide (placeholder)."
-      return 1
-      ;;
-  esac
-  return 0
-}
-
-build_no_proxy_list() {
-  local base_host
-  base_host="$(ruby -ruri -e 'u=URI(ARGV[0]) rescue nil; print(u&.host.to_s)' -- "$BINANCE_BASE_URL")"
-  if [ -n "$NO_PROXY_EXTRA" ]; then
-    printf '%s' "localhost,127.0.0.1,::1,api.binance.com,api1.binance.com,testnet.binance.vision,$base_host,$NO_PROXY_EXTRA"
-  else
-    printf '%s' "localhost,127.0.0.1,::1,api.binance.com,api1.binance.com,testnet.binance.vision,$base_host"
-  fi
-}
-
-curl_exec() {
-  local method="$1"
-  local url="$2"
-  shift 2
-  local body_file err_file http_code body err_text
-  body_file="$(mktemp)"
-  err_file="$(mktemp)"
-  if [ -n "$HTTP_PROXY_OVERRIDE" ]; then
-    export HTTP_PROXY="$HTTP_PROXY_OVERRIDE"
-  fi
-  if [ -n "$HTTPS_PROXY_OVERRIDE" ]; then
-    export HTTPS_PROXY="$HTTPS_PROXY_OVERRIDE"
-  fi
-  if bool_is_true "$PROXY_BYPASS_BINANCE"; then
-    export NO_PROXY="$(build_no_proxy_list)"
-    export no_proxy="$NO_PROXY"
-  fi
-  http_code="$(curl -sS --connect-timeout 10 --max-time 25 \
-    -X "$method" "$@" \
-    -o "$body_file" -w "%{http_code}" "$url" 2>"$err_file" || true)"
-  body="$(<"$body_file")"
-  err_text="$(<"$err_file")"
-  rm -f "$body_file" "$err_file"
-  CURL_LAST_HTTP_CODE="${http_code:-000}"
-  CURL_LAST_ERROR="$err_text"
-  printf '%s' "$body"
-  if [ -n "$body" ] || [ "${CURL_LAST_HTTP_CODE}" != "000" ]; then
-    return 0
-  fi
-  return 1
-}
-
-http_403_json() {
-  local target="$1"
-  local err_escaped
-  err_escaped="$(printf '%s' "$CURL_LAST_ERROR" | ruby -rjson -e 'print(JSON.generate(STDIN.read)[1..-2])')"
-  printf '{"code":403,"msg":"HTTP 403 from %s (proxy/network). no_proxy=%s curl_err=%s"}' "$target" "${NO_PROXY:-unset}" "$err_escaped"
-}
-
-preflight_live_connectivity() {
-  local ping_resp time_resp acct_resp acct_code
-  ping_resp="$(curl_exec "GET" "$BINANCE_BASE_URL/api/v3/ping" || true)"
-  if [ "${CURL_LAST_HTTP_CODE}" = "403" ]; then
-    echo "Preflight failed: HTTP 403 on /ping (base=$BINANCE_BASE_URL)."
-    return 1
-  fi
-  time_resp="$(curl_exec "GET" "$BINANCE_BASE_URL/api/v3/time" || true)"
-  if [ "${CURL_LAST_HTTP_CODE}" = "403" ]; then
-    echo "Preflight failed: HTTP 403 on /time (base=$BINANCE_BASE_URL)."
-    return 1
-  fi
-  acct_resp="$(private_get_retry "omitZeroBalances=true" || true)"
-  acct_code="$(json_get "$acct_resp" "code")"
-  if [ "$acct_code" = "403" ]; then
-    echo "Preflight failed: HTTP 403 on signed /account."
-    return 1
-  fi
-  if [ -n "$acct_code" ]; then
-    echo "Preflight failed: API credentials invalides sur /account (code=$acct_code msg=$(json_get "$acct_resp" "msg"))."
-    return 1
-  fi
-  return 0
 }
 
 sign() {
@@ -516,23 +350,13 @@ compute_order_mass() {
 private_post_retry() {
   local path="$1"
   local q="$2"
-  local sig out attempt req_url
+  local sig out attempt
 
   sig="$(sign "$q")"
-  req_url="$BINANCE_BASE_URL$path?$q&signature=$sig"
   for attempt in $(seq 1 "$RETRY_MAX"); do
-    out="$(curl_exec "POST" "$req_url" \
+    out="$(curl -sS --connect-timeout 10 --max-time 25 -X POST \
       -H "X-MBX-APIKEY: $BINANCE_API_KEY" \
-      || true)"
-    if [ "${CURL_LAST_HTTP_CODE}" = "403" ]; then
-      if [ "$BINANCE_BASE_URL" != "$BINANCE_BASE_URL_FALLBACK" ]; then
-        BINANCE_BASE_URL="$BINANCE_BASE_URL_FALLBACK"
-        req_url="$BINANCE_BASE_URL$path?$q&signature=$sig"
-        continue
-      fi
-      http_403_json "$path"
-      return 0
-    fi
+      "$BINANCE_BASE_URL$path?$q&signature=$sig" || true)"
     if [ -n "$out" ]; then
       printf '%s' "$out"
       return 0
@@ -544,25 +368,15 @@ private_post_retry() {
 
 private_get_retry() {
   local path_q="$1"
-  local sig out attempt req_url
+  local sig out attempt
   local ts q
   ts="$(now_ms)"
   q="$path_q&timestamp=$ts&recvWindow=$RECV_WINDOW"
   sig="$(sign "$q")"
-  req_url="$BINANCE_BASE_URL/api/v3/account?$q&signature=$sig"
   for attempt in $(seq 1 "$RETRY_MAX"); do
-    out="$(curl_exec "GET" "$req_url" \
+    out="$(curl -sS --connect-timeout 10 --max-time 25 \
       -H "X-MBX-APIKEY: $BINANCE_API_KEY" \
-      || true)"
-    if [ "${CURL_LAST_HTTP_CODE}" = "403" ]; then
-      if [ "$BINANCE_BASE_URL" != "$BINANCE_BASE_URL_FALLBACK" ]; then
-        BINANCE_BASE_URL="$BINANCE_BASE_URL_FALLBACK"
-        req_url="$BINANCE_BASE_URL/api/v3/account?$q&signature=$sig"
-        continue
-      fi
-      http_403_json "/api/v3/account"
-      return 0
-    fi
+      "$BINANCE_BASE_URL/api/v3/account?$q&signature=$sig" || true)"
     if [ -n "$out" ]; then
       printf '%s' "$out"
       return 0
@@ -575,23 +389,13 @@ private_get_retry() {
 private_delete_retry() {
   local path="$1"
   local q="$2"
-  local sig out attempt req_url
+  local sig out attempt
 
   sig="$(sign "$q")"
-  req_url="$BINANCE_BASE_URL$path?$q&signature=$sig"
   for attempt in $(seq 1 "$RETRY_MAX"); do
-    out="$(curl_exec "DELETE" "$req_url" \
+    out="$(curl -sS --connect-timeout 10 --max-time 25 -X DELETE \
       -H "X-MBX-APIKEY: $BINANCE_API_KEY" \
-      || true)"
-    if [ "${CURL_LAST_HTTP_CODE}" = "403" ]; then
-      if [ "$BINANCE_BASE_URL" != "$BINANCE_BASE_URL_FALLBACK" ]; then
-        BINANCE_BASE_URL="$BINANCE_BASE_URL_FALLBACK"
-        req_url="$BINANCE_BASE_URL$path?$q&signature=$sig"
-        continue
-      fi
-      http_403_json "$path"
-      return 0
-    fi
+      "$BINANCE_BASE_URL$path?$q&signature=$sig" || true)"
     if [ -n "$out" ]; then
       printf '%s' "$out"
       return 0
@@ -603,19 +407,9 @@ private_delete_retry() {
 
 public_get_retry() {
   local path_q="$1"
-  local out attempt req_url
-  req_url="$BINANCE_BASE_URL$path_q"
+  local out attempt
   for attempt in $(seq 1 "$RETRY_MAX"); do
-    out="$(curl_exec "GET" "$req_url" || true)"
-    if [ "${CURL_LAST_HTTP_CODE}" = "403" ]; then
-      if [ "$BINANCE_BASE_URL" != "$BINANCE_BASE_URL_FALLBACK" ]; then
-        BINANCE_BASE_URL="$BINANCE_BASE_URL_FALLBACK"
-        req_url="$BINANCE_BASE_URL$path_q"
-        continue
-      fi
-      http_403_json "$path_q"
-      return 0
-    fi
+    out="$(curl -sS --connect-timeout 8 --max-time 15 "$BINANCE_BASE_URL$path_q" || true)"
     if [ -n "$out" ]; then
       printf '%s' "$out"
       return 0
@@ -671,46 +465,6 @@ trend_bps_from_klines() {
       printf("%.8f", ((cl-op)/op)*10000.0)
     end
   ' <<< "$json"
-}
-
-resonance_buf_push() {
-  local buf="$1"
-  local v="$2"
-  ruby -e '
-    vals=STDIN.read.split.map{|x| (Float(x) rescue nil)}.compact
-    x=(Float(ARGV[0]) rescue nil)
-    vals << x if x
-    vals=vals.last(60)
-    puts vals.map{|n| format("%.8f", n)}.join("\n")
-  ' -- "$v" <<< "$buf"
-}
-
-resonance_buf_avg() {
-  local buf="$1"
-  ruby -e '
-    vals=STDIN.read.split.map{|x| (Float(x) rescue nil)}.compact
-    if vals.empty?
-      print "0"
-    else
-      printf("%.8f", vals.sum / vals.length)
-    end
-  ' <<< "$buf"
-}
-
-resonance_mode_from_entropy() {
-  local e="$1"
-  ruby -e '
-    x=(Float(ARGV[0]) rescue 0.0)
-    if x <= 0.15
-      print "NORMAL"
-    elsif x <= 0.20
-      print "TURBO"
-    elsif x <= 0.25
-      print "VENTURI"
-    else
-      print "SAFE"
-    end
-  ' -- "$e"
 }
 
 account_asset_free() {
@@ -796,13 +550,6 @@ fa_smooth="0.0"
 soft_cooldown_remaining=0
 run_start_sec="$(now_sec)"
 prev_order_mass="$BUY_USDT"
-resonance_dabs_buf=""
-resonance_price_ref_60=""
-resonance_ref_ts="$(now_sec)"
-resonance_last_mode="NA"
-resonance_last_lock="0"
-resonance_last_gate="init"
-resonance_last_side="FLAT"
 
 # thresholds for current cycle exits
 profit_mult="$(num_add "1.0" "$(num_div "$MIN_PROFIT_BPS" "10000")")"
@@ -822,14 +569,6 @@ if [ -n "${STRUCTURE_LOOKBACK_MIN:-}" ] && [ "${STRUCTURE_LOOKBACK_MIN}" != "3" 
 fi
 lot_step_qty="0.00001000"
 lot_min_qty="0.00001000"
-init_live_reset_policy
-if ! validate_credentials_inputs; then
-  exit 1
-fi
-if ! preflight_live_connectivity; then
-  echo "Abort: preflight echec (reseau/proxy/credentials)."
-  exit 1
-fi
 if exinfo_resp="$(public_get_retry "/api/v3/exchangeInfo?symbol=$SYMBOL")"; then
   parsed_step="$(lot_filter_value "$exinfo_resp" "stepSize")"
   parsed_min="$(lot_filter_value "$exinfo_resp" "minQty")"
@@ -839,11 +578,6 @@ if exinfo_resp="$(public_get_retry "/api/v3/exchangeInfo?symbol=$SYMBOL")"; then
   if [ -n "$parsed_min" ]; then
     lot_min_qty="$parsed_min"
   fi
-fi
-init_px_resp="$(public_get_retry "/api/v3/ticker/price?symbol=$SYMBOL" || true)"
-resonance_price_ref_60="$(as_num "$(json_get "$init_px_resp" "price")")"
-if ! num_gt "$resonance_price_ref_60" "0"; then
-  resonance_price_ref_60="0"
 fi
 
 for i in $(seq 1 "$CYCLES"); do
@@ -960,113 +694,6 @@ for i in $(seq 1 "$CYCLES"); do
         structure_direction="long"
       elif num_le "$structure_trend_bps" "-1"; then
         structure_direction="short"
-      fi
-    fi
-
-    # RESONANCE + HOLOGRAPHIC MEMORY gate: mandatory live entry condition.
-    resonance_allow="true"
-    resonance_reason="resonance_off"
-    resonance_mode="NA"
-    resonance_side="FLAT"
-    resonance_holo_gate="PASS"
-    resonance_phase_lock="0"
-    resonance_mkt_hz="0"
-    if [ "$RESONANCE_GATE_ENABLED" = "TRUE" ]; then
-      if [ "$INDEX_MODE" = "TRUE" ]; then
-        rpx_resp="$(public_get_retry "/api/v3/ticker/price?symbol=$SYMBOL" || true)"
-        resonance_px_now="$(as_num "$(json_get "$rpx_resp" "price")")"
-      else
-        resonance_px_now="$p2"
-      fi
-      if ! num_gt "$resonance_px_now" "0"; then
-        resonance_px_now="$p1"
-      fi
-      if ! num_gt "$resonance_price_ref_60" "0"; then
-        resonance_price_ref_60="$resonance_px_now"
-      fi
-      resonance_delta_abs="$(abs_num "$(num_sub "$resonance_px_now" "$p1")")"
-      resonance_dabs_buf="$(resonance_buf_push "$resonance_dabs_buf" "$resonance_delta_abs")"
-      resonance_atr="$(resonance_buf_avg "$resonance_dabs_buf")"
-      resonance_tickvel="$(num_div "$resonance_atr" "$MOMENTUM_SLEEP_SEC")"
-      resonance_atr_norm="$(ruby -e 'a=(Float(ARGV[0]) rescue 0.0); r=(Float(ARGV[1]) rescue 200.0); s=(Float(ARGV[2]) rescue 1500.0); x=(a-r)/(s-r); x=0.0 if x<0.0; x=1.0 if x>1.0; printf("%.8f", x)' -- "$resonance_atr" "$RANGE_USD" "$SPIKE_USD")"
-      resonance_tv_norm="$(ruby -e 't=(Float(ARGV[0]) rescue 0.0); b=(Float(ARGV[1]) rescue 5.0); s=(Float(ARGV[2]) rescue 60.0); x=(t-b)/(s-b); x=0.0 if x<0.0; x=1.0 if x>1.0; printf("%.8f", x)' -- "$resonance_tickvel" "$TICK_BASE_USD" "$TICK_SPIKE_USD")"
-      resonance_vm="$(num_mul "$resonance_atr_norm" "$resonance_tv_norm")"
-      # Live mkt_hz must breathe every cycle (5s): use vm + real tick/spread components.
-      resonance_mkt_hz="$(ruby -e 'vm=(Float(ARGV[0]) rescue 0.0); b=(Float(ARGV[1]) rescue 0.0); s=(Float(ARGV[2]) rescue 0.0); hz=0.1 + (vm*4.0) + (b*0.25) + (s*0.40); hz=0.1 if hz<0.1; hz=20.0 if hz>20.0; printf("%.8f", hz)' -- "$resonance_vm" "$tick_bps_abs" "$spread_bps")"
-      resonance_phase_lock="$(ruby -e 'mhz=(Float(ARGV[0]) rescue 0.1); ahz=(Float(ARGV[1]) rescue 7.2); d=(mhz-ahz).abs; s=1.0-(d/20.0); s=0.0 if s<0.0; s=1.0 if s>1.0; printf("%.8f", s)' -- "$resonance_mkt_hz" "$V_ACE_HZ")"
-      resonance_entropy="$(ruby -e 'b=(Float(ARGV[0]) rescue 0.0); e=0.08 + ((b/80.0)*0.22); e=0.08 if e<0.08; e=0.30 if e>0.30; printf("%.8f", e)' -- "$tick_bps_abs")"
-      resonance_mode="$(resonance_mode_from_entropy "$resonance_entropy")"
-      if num_ge "$tick_bps_abs" "$RESONANCE_PANIC_BPS"; then
-        resonance_mode="SAFE"
-      elif num_ge "$tick_bps_abs" "$RESONANCE_FAST_BPS" && [ "$resonance_mode" = "NORMAL" ]; then
-        resonance_mode="VENTURI"
-      fi
-      mom60_bps="$(bps_change "$resonance_price_ref_60" "$resonance_px_now")"
-      resonance_side="FLAT"
-      if num_gt "$mom60_bps" "0"; then
-        resonance_side="LONG"
-      elif num_lt "$mom60_bps" "0"; then
-        resonance_side="SHORT"
-      fi
-      now_ref="$(now_sec)"
-      if [ $((now_ref - resonance_ref_ts)) -ge 60 ]; then
-        resonance_ref_ts="$now_ref"
-        resonance_price_ref_60="$resonance_px_now"
-      fi
-      resonance_holo_gate="PASS"
-      if [ "$HOLO_STRICT" = "TRUE" ]; then
-        if [ "$HOLO_MACRO_BIAS" = "BEAR" ] && [ "$resonance_side" = "LONG" ]; then
-          resonance_holo_gate="BLOCK_LONG_HOLO"
-        elif [ "$HOLO_MACRO_BIAS" = "BULL" ] && [ "$resonance_side" = "SHORT" ]; then
-          resonance_holo_gate="BLOCK_SHORT_HOLO"
-        fi
-      fi
-      resonance_phase_lock_min_eff="$RESONANCE_PHASE_LOCK_MIN"
-      if [ "$HOLO_STRICT" = "TRUE" ]; then
-        resonance_phase_lock_min_eff="$RESONANCE_STRICT_LOCK_MIN"
-      fi
-      resonance_structure_ok="false"
-      if [ "$TREND_FILTER" = "TRUE" ] && [ "$structure_direction" != "neutral" ]; then
-        if [ "$structure_direction" = "long" ] && [ "$resonance_side" = "LONG" ]; then
-          resonance_structure_ok="true"
-        elif [ "$structure_direction" = "short" ] && [ "$resonance_side" = "SHORT" ]; then
-          resonance_structure_ok="true"
-        fi
-      fi
-      resonance_allow="true"
-      resonance_reason="ok"
-      if [ "$resonance_mode" = "SAFE" ]; then
-        resonance_mode_lc="$(printf '%s' "$resonance_mode" | tr '[:upper:]' '[:lower:]')"
-        resonance_allow="false"
-        resonance_reason="mode_${resonance_mode_lc}"
-      elif [ "$resonance_mode" = "NORMAL" ] && [ "$resonance_structure_ok" != "true" ] && num_lt "$resonance_phase_lock" "$resonance_phase_lock_min_eff"; then
-        resonance_allow="false"
-        resonance_reason="mode_normal_no_structure"
-      elif [ "$resonance_side" = "FLAT" ]; then
-        resonance_allow="false"
-        resonance_reason="flat_side"
-      elif num_lt "$resonance_phase_lock" "$resonance_phase_lock_min_eff"; then
-        resonance_allow="false"
-        resonance_reason="phase_lock_low"
-      elif [ "$resonance_holo_gate" != "PASS" ]; then
-        resonance_holo_gate_lc="$(printf '%s' "$resonance_holo_gate" | tr '[:upper:]' '[:lower:]')"
-        resonance_allow="false"
-        resonance_reason="${resonance_holo_gate_lc}"
-      fi
-      resonance_last_mode="$resonance_mode"
-      resonance_last_lock="$resonance_phase_lock"
-      resonance_last_gate="$resonance_reason"
-      resonance_last_side="$resonance_side"
-      if [ "$resonance_allow" != "true" ]; then
-        echo "$(date -u +%FT%TZ),$i,SKIP,SKIPPED,,,,,,,$ask_px,resonance_block reason=$resonance_reason mode=$resonance_mode side=$resonance_side lock=$resonance_phase_lock lock_min=$resonance_phase_lock_min_eff mkt_hz=$resonance_mkt_hz struct_ok=$resonance_structure_ok" >> "$LOG_FILE"
-        echo "Cycle $i SKIP | resonance blocked: reason=$resonance_reason mode=$resonance_mode side=$resonance_side lock=$resonance_phase_lock lock_min=$resonance_phase_lock_min_eff mkt_hz=$resonance_mkt_hz"
-        watchdog_on_skip
-        if [ "$watchdog_tripped" -eq 1 ]; then
-          echo "Watchdog triggered: skip streak reached $WATCHDOG_MAX_SKIP_STREAK cycles. Stopping safely."
-          break
-        fi
-        sleep "$SLEEP_SEC"
-        continue
       fi
     fi
 
@@ -1211,7 +838,7 @@ for i in $(seq 1 "$CYCLES"); do
   stop_price_long="$(num_mul "$entry_avg" "$loss_mult_cycle")"
   target_price_long="$(num_mul "$entry_avg" "$profit_mult")"
 
-  echo "$(date -u +%FT%TZ),$i,ENTRY,FILLED,$entry_id,$entry_qty,$entry_quote,,,,,ok side=$entry_side mode=$entry_mode_used mass=$cycle_buy_usdt soft=$cycle_soft_mode radar_dir=$radar_direction radar_conf=$radar_conf radar_reason=$radar_reason resonance_mode=${resonance_last_mode:-na} resonance_side=${resonance_last_side:-na} resonance_lock=${resonance_last_lock:-0} resonance_gate=${resonance_last_gate:-na} structure_dir=${structure_direction:-na} trend_bps=${structure_trend_bps:-0}" >> "$LOG_FILE"
+  echo "$(date -u +%FT%TZ),$i,ENTRY,FILLED,$entry_id,$entry_qty,$entry_quote,,,,,ok side=$entry_side mode=$entry_mode_used mass=$cycle_buy_usdt soft=$cycle_soft_mode radar_dir=$radar_direction radar_conf=$radar_conf radar_reason=$radar_reason structure_dir=${structure_direction:-na} trend_bps=${structure_trend_bps:-0}" >> "$LOG_FILE"
 
   start_sec="$(now_sec)"
   exit_reason="timeout"
@@ -1471,9 +1098,6 @@ fi
 if [ "$INDEX_MODE" = "TRUE" ]; then
   echo "Index mode: ON (symbols=${INDEX_SYMBOLS})"
 fi
-if [ "$RESONANCE_GATE_ENABLED" = "TRUE" ]; then
-  echo "Resonance gate: ON (V_ACE_HZ=${V_ACE_HZ}, phase_lock_min=${RESONANCE_PHASE_LOCK_MIN}, strict_lock_min=${RESONANCE_STRICT_LOCK_MIN}, fast=${RESONANCE_FAST_BPS}bps, panic=${RESONANCE_PANIC_BPS}bps, holo_bias=${HOLO_MACRO_BIAS}, holo_strict=${HOLO_STRICT})"
-fi
 if [ "$WATCHDOG_ENABLED" = "TRUE" ]; then
   echo "Watchdog: ON (max_skip_streak=${WATCHDOG_MAX_SKIP_STREAK}, max_cycle_sec=${WATCHDOG_MAX_CYCLE_SEC})"
 fi
@@ -1482,22 +1106,3 @@ if [ "$CRASH_WATCHDOG_ENABLED" = "TRUE" ]; then
 fi
 echo "Log: $LOG_FILE"
 echo "Kill switch file: $STOP_FILE"
-echo
-echo "PnL reel par cycle:"
-ruby -rcsv -e '
-  file=ARGV[0]
-  rows=CSV.read(file, headers:true) rescue []
-  cumul=0.0
-  printed=false
-  rows.each do |r|
-    next unless r["side"]=="EXIT" && r["status"]=="FILLED"
-    cycle=(r["cycle"] || "").to_s
-    pnl=(Float(r["pnl"]) rescue 0.0)
-    reason=(r["exitReason"] || "")
-    hold=(r["holdSec"] || "")
-    cumul += pnl
-    puts "  cycle=#{cycle} pnl=#{format("%.8f", pnl)} cumul=#{format("%.8f", cumul)} reason=#{reason} hold=#{hold}s"
-    printed=true
-  end
-  puts "  (aucun cycle rempli)" unless printed
-' -- "$LOG_FILE"

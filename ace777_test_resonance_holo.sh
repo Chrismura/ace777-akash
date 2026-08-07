@@ -10,16 +10,41 @@ set -u
 
 # ------------------ Config ------------------
 DURATION="${DURATION:-7200}"                # 2h default
+
+# Parse --duration HH:MM:SS or --duration SECONDS
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    --duration=*)
+      v="${1#*=}"
+      if [[ "$v" =~ ^[0-9]+:[0-9]+:[0-9]+$ ]]; then
+        IFS=: read -r h m s <<< "$v"
+        DURATION=$((h*3600 + m*60 + s))
+      else
+        DURATION="$v"
+      fi
+      shift
+      ;;
+    --duration)
+      shift
+      [[ $# -gt 0 ]] || { echo "Usage: --duration HH:MM:SS or SECONDS"; exit 1; }
+      v="$1"
+      if [[ "$v" =~ ^[0-9]+:[0-9]+:[0-9]+$ ]]; then
+        IFS=: read -r h m s <<< "$v"
+        DURATION=$((h*3600 + m*60 + s))
+      else
+        DURATION="$v"
+      fi
+      shift
+      ;;
+    *)
+      shift
+      ;;
+  esac
+done
 INTERVAL="${INTERVAL:-10}"                  # tick logging
 OUT_DIR="${OUT_DIR:-${HOME}/ace777_test_outputs_res_holo}"
 CSV="${OUT_DIR}/samples.csv"
 REPORT="${OUT_DIR}/report.txt"
-SYMBOL="${SYMBOL:-BTCUSDT}"
-REST_BASE_URL="${REST_BASE_URL:-https://testnet.binance.vision}"
-WS_BASE_URL="${WS_BASE_URL:-wss://stream.testnet.binance.vision}"
-WS_TIMEOUT_SEC="${WS_TIMEOUT_SEC:-8}"
-ORDER_NOTIONAL_USDT="${ORDER_NOTIONAL_USDT:-100}"
-PROXY_BYPASS_BINANCE="${PROXY_BYPASS_BINANCE:-1}"
 
 MACRO_BIAS="${MACRO_BIAS:-NEUTRAL}"         # BULL | BEAR | NEUTRAL
 HOLO_STRICT="${HOLO_STRICT:-1}"             # 1 => blocage direction opposee
@@ -34,14 +59,10 @@ TICK_BASE_USD="${TICK_BASE_USD:-5}"         # baseline tick abs move / 10s
 TICK_SPIKE_USD="${TICK_SPIKE_USD:-60}"      # spike tick abs move / 10s
 
 mkdir -p "$OUT_DIR"
-if [[ "$PROXY_BYPASS_BINANCE" == "1" ]]; then
-  NO_PROXY="localhost,127.0.0.1,::1,testnet.binance.vision,stream.testnet.binance.vision,api.binance.com,api1.binance.com"
-  export NO_PROXY no_proxy
-  unset HTTP_PROXY HTTPS_PROXY http_proxy https_proxy ALL_PROXY all_proxy
-fi
 echo "timestamp,elapsed_s,phase,btc_price,entropy,atr_10m,tickvel_10m,vm,mkt_hz,v_ace_hz,phase_lock,macro_bias,mode,lev,quorum_target,t_base_s,k_factor,side,tick_bps,fast_path,recalibrated,p95_ms,p99_ms,quorum_obs,slippage_pct,impact_pct,one_to_one_ok,holo_gate,trade,pnl_step,cum_pnl" > "$CSV"
 
 # ------------------ Helpers ------------------
+randf() { awk -v min="$1" -v max="$2" 'BEGIN{srand(); print min+rand()*(max-min)}'; }
 
 clip01() { awk -v x="$1" 'BEGIN{if(x<0)x=0; if(x>1)x=1; print x}'; }
 
@@ -74,106 +95,11 @@ lev_from_mode() {
   esac
 }
 
-json_get() {
-  local json="$1"
-  local key="$2"
-  ruby -rjson -e 'j=JSON.parse(STDIN.read) rescue {}; v=j[ARGV[0]]; print(v.nil? ? "" : v)' "$key" <<< "$json"
-}
-
-ws_trade_once() {
-  local ws_url="$1"
-  ruby - "$ws_url" "$WS_TIMEOUT_SEC" <<'RUBY'
-require "socket"
-require "openssl"
-require "securerandom"
-require "base64"
-require "uri"
-require "timeout"
-
-def read_exact(io, n)
-  out = +""
-  while out.bytesize < n
-    out << io.readpartial(n - out.bytesize)
-  end
-  out
-end
-
-url = ARGV[0]
-timeout_sec = (ARGV[1] || "8").to_i
-u = URI(url)
-path = u.path.to_s.empty? ? "/" : u.path
-path = "#{path}?#{u.query}" if u.query
-
-Timeout.timeout(timeout_sec) do
-  tcp = TCPSocket.new(u.host, u.port || 443)
-  ssl = OpenSSL::SSL::SSLSocket.new(tcp, OpenSSL::SSL::SSLContext.new)
-  ssl.hostname = u.host if ssl.respond_to?(:hostname=)
-  ssl.sync_close = true
-  ssl.connect
-
-  key = Base64.strict_encode64(SecureRandom.random_bytes(16))
-  req = +"GET #{path} HTTP/1.1\r\n"
-  req << "Host: #{u.host}\r\n"
-  req << "Upgrade: websocket\r\n"
-  req << "Connection: Upgrade\r\n"
-  req << "Sec-WebSocket-Key: #{key}\r\n"
-  req << "Sec-WebSocket-Version: 13\r\n\r\n"
-  ssl.write(req)
-
-  header = +""
-  until header.include?("\r\n\r\n")
-    header << ssl.readpartial(1024)
-    raise "handshake too large" if header.bytesize > 16384
-  end
-  first = header.lines.first.to_s
-  raise "handshake failed: #{first}" unless first.include?("101")
-
-  loop do
-    b = read_exact(ssl, 2).bytes
-    opcode = b[0] & 0x0f
-    masked = (b[1] & 0x80) != 0
-    len = b[1] & 0x7f
-    len = read_exact(ssl, 2).unpack1("n") if len == 126
-    len = read_exact(ssl, 8).unpack1("Q>") if len == 127
-    mask = masked ? read_exact(ssl, 4).bytes : nil
-    payload = read_exact(ssl, len).bytes
-    if masked && mask
-      payload = payload.each_with_index.map { |x, i| x ^ mask[i % 4] }
-    end
-    data = payload.pack("C*")
-    if opcode == 1
-      puts data
-      break
-    elsif opcode == 8
-      break
-    elsif opcode == 9
-      # pong
-      out = [0x8A]
-      if data.bytesize < 126
-        out << data.bytesize
-        ssl.write(out.pack("C*") + data)
-      else
-        ssl.write([0x8A, 126].pack("CC") + [data.bytesize].pack("n") + data)
-      end
-    end
-  end
-rescue => e
-  warn "ws_error=#{e.message}"
-  exit 1
-end
-RUBY
-}
-
 # ------------------ Runtime state ------------------
 start=$(date +%s)
 end=$((start + DURATION))
 
-init_ticker="$(curl -sS "${REST_BASE_URL}/api/v3/ticker/price?symbol=${SYMBOL}" || true)"
-btc_price="$(json_get "$init_ticker" "price")"
-if [[ -z "$btc_price" ]]; then
-  echo "Init error: impossible de lire le prix initial ${SYMBOL} sur ${REST_BASE_URL}" >&2
-  exit 1
-fi
+btc_price="100000.00"
 last_minute_idx="-1"
 price_ref_60="$btc_price"
 cum_pnl="0.00"
@@ -196,61 +122,58 @@ f_vm="0.00"
 f_atr="0.00"
 f_tickvel="0.00"
 
-echo "Start ACE777 RESONANCE+HOLO test (real WS feed: ${SYMBOL})..."
+echo "Start ACE777 RESONANCE+HOLO test..."
 
 while (( $(date +%s) < end )); do
   now=$(date +%s)
   elapsed=$((now - start))
   phase=$(phase_of "$elapsed")
 
-  # Real market profile from Binance Testnet WS + REST bookTicker.
-  ws_json="$(ws_trade_once "${WS_BASE_URL}/ws/${SYMBOL:l}@trade" || true)"
-  px_ws="$(json_get "$ws_json" "p")"
-  if [[ -z "$px_ws" ]]; then
-    px_ws="$(json_get "$ws_json" "c")"
-  fi
-  if [[ -z "$px_ws" ]]; then
-    # If a tick is missed, keep run alive but mark degraded quality.
-    px_ws="$btc_price"
-    ws_ok=0
-  else
-    ws_ok=1
-  fi
+  # synthetic market profile
+  case "$phase" in
+    warmup)
+      entropy=$(randf 0.08 0.14)
+      p95=$(randf 260 340)
+      p99=$(randf 600 900)
+      quorum_obs=7
+      slippage=$(randf 0.05 0.11)
+      impact=$(randf 0.30 0.70)
+      px_delta=$(randf -20 20)
+      ;;
+    normal)
+      entropy=$(randf 0.10 0.17)
+      p95=$(randf 280 360)
+      p99=$(randf 650 950)
+      quorum_obs=7
+      slippage=$(randf 0.06 0.13)
+      impact=$(randf 0.35 0.85)
+      px_delta=$(randf -70 70)
+      ;;
+    volatility)
+      entropy=$(randf 0.16 0.23)
+      p95=$(randf 300 430)
+      p99=$(randf 750 1200)
+      quorum_obs=6
+      slippage=$(randf 0.08 0.16)
+      impact=$(randf 0.50 1.10)
+      px_delta=$(randf -220 220)
+      ;;
+    incident)
+      entropy=$(randf 0.22 0.29)
+      p95=$(randf 350 520)
+      p99=$(randf 900 1600)
+      quorum_obs=5
+      slippage=$(randf 0.10 0.25)
+      impact=$(randf 0.70 1.40)
+      px_delta=$(randf -320 320)
+      ;;
+  esac
+
+  # price walk
   prev_price="$btc_price"
-  btc_price="$px_ws"
+  btc_price=$(awk -v p="$btc_price" -v d="$px_delta" 'BEGIN{printf "%.2f", p+d}')
   dabs=$(awk -v a="$btc_price" -v b="$prev_price" 'BEGIN{d=a-b; if(d<0)d=-d; print d}')
   tick_bps=$(awk -v a="$btc_price" -v b="$prev_price" 'BEGIN{if(b==0){print 0}else{d=(a-b); if(d<0)d=-d; print (d/b)*10000}}')
-  tick_bps_signed=$(awk -v a="$btc_price" -v b="$prev_price" 'BEGIN{if(b==0){print 0}else{d=(a-b); print (d/b)*10000}}')
-
-  # Latency placeholders from polling cadence and ws health.
-  if (( ws_ok == 1 )); then
-    p95=$(awk -v i="$INTERVAL" 'BEGIN{print 120 + (i*8)}')
-    p99=$(awk -v i="$INTERVAL" 'BEGIN{print 250 + (i*15)}')
-  else
-    p95="900"
-    p99="1500"
-  fi
-
-  # Orderbook-based slippage/impact proxies.
-  book_json="$(curl -sS "${REST_BASE_URL}/api/v3/ticker/bookTicker?symbol=${SYMBOL}" || true)"
-  bid_price="$(json_get "$book_json" "bidPrice")"
-  ask_price="$(json_get "$book_json" "askPrice")"
-  bid_qty="$(json_get "$book_json" "bidQty")"
-  ask_qty="$(json_get "$book_json" "askQty")"
-  if [[ -z "$bid_price" || -z "$ask_price" || -z "$bid_qty" || -z "$ask_qty" ]]; then
-    slippage="9.9999"
-    impact="9.9999"
-    quorum_obs=5
-  else
-    slippage=$(awk -v a="$ask_price" -v b="$bid_price" 'BEGIN{if(a==0){print 9.9999}else{print ((a-b)/a)*100.0}}')
-    impact=$(awk -v n="$ORDER_NOTIONAL_USDT" -v a="$ask_price" -v aq="$ask_qty" -v bq="$bid_qty" 'BEGIN{
-      if(a<=0 || aq<=0 || bq<=0){print 9.9999; exit}
-      q=n/a
-      top=aq+bq
-      print (q/top)*100.0
-    }')
-    quorum_obs=7
-  fi
 
   # update 10m rolling abs-delta buffer
   dabs_buf+=("$dabs")
@@ -258,17 +181,12 @@ while (( $(date +%s) < end )); do
     dabs_buf=("${dabs_buf[@]:1}")
   fi
 
-  # Entropy proxy from real tick amplitude.
-  entropy=$(awk -v b="$tick_bps" 'BEGIN{
-    e=0.08 + ((b/80.0) * 0.22)
-    if(e<0.08)e=0.08
-    if(e>0.30)e=0.30
-    print e
-  }')
-
-  # 1:1 invariant placeholder (kept explicit for report compatibility).
+  # 1:1 simulated invariant
   one="OK"
-  if (( ws_ok == 0 )); then one="KO"; fi
+  if [[ "$phase" == "incident" ]]; then
+    r=$((RANDOM % 30))
+    if (( r == 0 )); then one="KO"; fi
+  fi
 
   # ---------- Lagrange-60 recalibration ----------
   minute_idx=$((elapsed / 60))
@@ -393,13 +311,14 @@ while (( $(date +%s) < end )); do
   if [[ "$f_mode" == "TURBO" || "$f_mode" == "VENTURI" ]]; then
     if [[ "$f_side" != "FLAT" && "$ok_slip" == "1" && "$ok_imp" == "1" && "$ok_quorum" == "1" && "$ok_phase" == "1" && "$ok_holo" == "1" && "$one" == "OK" ]]; then
       trade="PAPER_TRADE"
-      # Side-aware paper PnL from real signed move between two WS ticks.
-      pnl_step=$(awk -v b="$tick_bps_signed" -v n="$ORDER_NOTIONAL_USDT" -v side="$f_side" -v ph="$f_phase_lock" 'BEGIN{
-        dir=(side=="LONG") ? 1 : -1
-        gross=(b/10000.0)*n*dir
-        quality=(ph-0.5)*0.4
-        print sprintf("%.2f", gross + quality)
-      }')
+      # side-aware pnl simulation
+      if [[ "$f_mode" == "TURBO" ]]; then
+        pnl_step=$(awk 'BEGIN{srand(); print sprintf("%.2f", (rand()*6)-2)}')     # -2..+4
+      else
+        pnl_step=$(awk 'BEGIN{srand(); print sprintf("%.2f", (rand()*3)-1.5)}')   # -1.5..+1.5
+      fi
+      # phase-lock bonus/penalty
+      pnl_step=$(awk -v p="$pnl_step" -v ph="$f_phase_lock" 'BEGIN{adj=(ph-0.5)*1.2; print sprintf("%.2f", p+adj)}')
     else
       trade="BLOCKED_RISK"
     fi

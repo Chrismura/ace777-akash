@@ -81,4 +81,5 @@ export FLUID_EXIT_INVERT_BPS_S="$fluid_invert"
 echo "=== V8.6 FORTRESS === MOM=${MOMENTUM_THRESHOLD} WALL_DROP=${WALL_DROP_THRESHOLD} GLOBAL_STOP=${GLOBAL_STOP_USDT}"
 
 # Base 8.5 (la base fait deja le reset duo_session/duo_state au demarrage)
-exec ./launch_test_master_base_v8_5_impact.sh
+_v85="${LAUNCH_V85_SCRIPT:-./launch_test_master_base_v8_5_impact.sh}"
+exec "$_v85"
