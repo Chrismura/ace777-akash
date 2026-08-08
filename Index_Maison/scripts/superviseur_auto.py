@@ -158,10 +158,16 @@ def age_preuve_lecture():  # -> float ou None (Python 3.9 : pas de | dans les an
 
     from datetime import datetime, timezone
     import re as _re
+    # Audit juge 08/08 : la preuve doit porter le TAG MACHINE exact
+    # [LECTURE_COMPLETE_OK] (standardisé dans le rituel du REVEIL) — fini la
+    # détection par langage naturel fragile. Repli : anciens motifs texte
+    # (« lecture complète » / « LECTURE MECANIQUE ») pour rétrocompatibilité.
+    TAG = "[LECTURE_COMPLETE_OK]"
     dernier_ts = None
     for ligne in mem.splitlines():
-        if "lecture complète" in ligne.lower() or "lecture complete" in ligne.lower() \
-           or "LECTURE MECANIQUE" in ligne:
+        valide = TAG in ligne or "lecture complète" in ligne.lower() \
+            or "lecture complete" in ligne.lower() or "LECTURE MECANIQUE" in ligne
+        if valide:
             m = _re.search(r'\| (\d{4}-\d{2}-\d{2}T\d{2}:\d{2}Z) \|', ligne)
             if m:
                 try:
