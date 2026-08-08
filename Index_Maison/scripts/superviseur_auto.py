@@ -43,6 +43,12 @@ GIT_PUSH_SCRIPT = SCRIPTS / "git_push_auto.sh"
 SYNC_NOW_SCRIPT = OUTBOX / "_sync_now.sh"
 SESSION_DEBUT_SCRIPT = SCRIPTS / "session_debut.sh"
 
+# Rappel de lecture complète (règle 1septies, 08/08) : la preuve de lecture du
+# coffre (entrée MEMOIRE_COLLAB « lecture complète » / « LECTURE MECANIQUE »)
+# doit avoir moins de 24 h. Sinon le superviseur (Qwen local) écrit un rappel.
+RAPPEL_LECTURE_PATH = ATTENTION_DIR / "RAPPEL_LECTURE_COMPLETE.md"
+MAX_AGE_PREUVE_H = 24
+
 HUB_URL = "http://127.0.0.1:11435/v1/chat/completions"
 HUB_HEALTH_URL = "http://127.0.0.1:11435/health"
 OLLAMA_TAGS_URL = "http://localhost:11434/api/tags"
@@ -132,6 +138,44 @@ def lire_fichier(chemin: Path, max_chars: int) -> str:
         return ""
 
 
+def age_preuve_lecture():  # -> float ou None (Python 3.9 : pas de | dans les annotations)
+    """Retourne l'âge (heures) de la dernière entrée « lecture complète » dans
+    MEMOIRE_COLLAB (OUTBOX en priorité, vault en repli). None = aucune preuve.
+
+    Règle 1septies (08/08) : la preuve de lecture du coffre doit être < 24 h.
+    Format des entrées : | 2026-08-08T18:04Z | ... (append-only, récent EN BAS)."""
+    # Source = la copie la PLUS RÉCENTE entre vault et miroir OUTBOX (le miroir
+    # peut être périmé — constat 08/08 : miroir du 07/08 qui écrasait la preuve).
+    mem = lire_fichier(VAULT / "MEMOIRE_COLLAB.md", 2_000_000)
+    outbox_mem = OUTBOX / "MEMOIRE_COLLAB.md"
+    try:
+        if outbox_mem.exists() and outbox_mem.stat().st_mtime > (VAULT / "MEMOIRE_COLLAB.md").stat().st_mtime:
+            mem = lire_fichier(outbox_mem, 2_000_000)
+    except OSError:
+        pass
+    if not mem:
+        return None
+
+    from datetime import datetime, timezone
+    import re as _re
+    dernier_ts = None
+    for ligne in mem.splitlines():
+        if "lecture complète" in ligne.lower() or "lecture complete" in ligne.lower() \
+           or "LECTURE MECANIQUE" in ligne:
+            m = _re.search(r'\| (\d{4}-\d{2}-\d{2}T\d{2}:\d{2}Z) \|', ligne)
+            if m:
+                try:
+                    ts = datetime.strptime(m.group(1), "%Y-%m-%dT%H:%MZ").replace(tzinfo=timezone.utc)
+                    if dernier_ts is None or ts > dernier_ts:
+                        dernier_ts = ts
+                except ValueError:
+                    continue
+    if dernier_ts is None:
+        return None
+    age_h = (datetime.now(timezone.utc) - dernier_ts).total_seconds() / 3600.0
+    return age_h
+
+
 # ============================================================================
 # ÉTAPE 1 : LIRE
 # ============================================================================
@@ -166,6 +210,7 @@ def etape_etat() -> dict:
         "jobs_invalides": [],
         "git_systeme_propre": True,
         "git_vault_propre": True,
+        "preuve_lecture_age_h": age_preuve_lecture(),  # None = jamais faite (règle 1septies)
     }
 
     try:
@@ -295,6 +340,36 @@ def escalade_attention(detail: str, pourquoi: str, dry_run: bool):
     ecriture_atomique(ATTENTION_VOCALE_PATH, ancien + bloc)
 
 
+def rappel_lecture(dry_run: bool, tracker: dict) -> str:
+    """Règle 1septies : si la preuve de lecture complète du coffre est absente ou
+    plus vieille que 24 h, écrit un rappel dans A_Mon_Attention (le pont le copie
+    vers le vault). Dédup : 1 rappel max par jour (clé date).
+
+    C'est le rappel de Qwen (le superviseur tourne en Qwen local) — Ada le voit
+    au réveil, c'est plus léger que de m'en remettre à ma mémoire."""
+    age_h = tracker.get("preuve_lecture_age_h")
+    if age_h is None or age_h > MAX_AGE_PREUVE_H:
+        jour = datetime.now().strftime("%Y-%m-%d")
+        if tracker.get("dernier_rappel_lecture") == jour:
+            return f"rappel lecture déjà écrit aujourd'hui ({jour})"
+        tracker["dernier_rappel_lecture"] = jour
+        if dry_run:
+            return "RAPPEL LECTURE (dry-run) : preuve absente/périmée → écrirait un rappel"
+        bloc = (
+            "\n\n## 📖 RAPPEL — LECTURE COMPLÈTE DU COFFRE (règle 1septies)\n"
+            f"- ts: {datetime.now().strftime('%Y%m%dT%H%MZ')}\n"
+            "- message: la preuve de lecture complète du coffre est absente ou "
+            f"vielle de {('jamais' if age_h is None else f'{age_h:.0f} h')} (> {MAX_AGE_PREUVE_H} h).\n"
+            "- action: lire INVENTAIRE_COMPLET.md en entier + graver la preuve "
+            "« lecture complète » dans MEMOIRE_COLLAB (vault_inventory.py + buffy_reveil.py).\n"
+        )
+        ATTENTION_DIR.mkdir(parents=True, exist_ok=True)
+        ancien = lire_fichier(RAPPEL_LECTURE_PATH, 100000)
+        ecriture_atomique(RAPPEL_LECTURE_PATH, ancien + bloc)
+        return f"rappel lecture écrit (âge preuve : {age_h if age_h is not None else 'aucune'})"
+    return f"preuve lecture OK ({age_h:.1f} h < {MAX_AGE_PREUVE_H} h)"
+
+
 def etape_agir(decision: dict, etat: dict, tracker: dict, dry_run: bool) -> str:
     """4/6 AGIR — exécute l'action décidée (fix mécanique ou escalade ask)."""
     action = decision.get("action", "none")
@@ -403,8 +478,14 @@ def main():
         contexte = etape_lire()
         etat = etape_etat()
         tracker = charger_tracker()
+        # Garde mécanique (règle 1septies) : le rappel de lecture passe dans l'état
+        # pour que Qwen le voie, et se déclenche indépendamment de la décision du hub.
+        tracker["preuve_lecture_age_h"] = etat.get("preuve_lecture_age_h")
+        resultat_rappel = rappel_lecture(dry_run, tracker)
         decision = etape_decision(contexte, etat)
         resultat = etape_agir(decision, etat, tracker, dry_run)
+        if resultat_rappel and "preuve lecture OK" not in resultat_rappel:
+            resultat = f"{resultat} | {resultat_rappel}"
         etape_journaliser(etat, decision, resultat, dry_run)
         sauvegarder_tracker(tracker, dry_run)
         etape_pousser(dry_run, resultat)
