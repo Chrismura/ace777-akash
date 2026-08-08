@@ -2,9 +2,14 @@
 """qwen_elabore.py — Qwen solo : élabore des idées d'amélioration depuis le coffre.
 
 Lecture: vault (CHANTIERS + MEMOIRE_COLLAB récente + journal des erreurs)
--> hub (tâche qwen.elabore, Qwen local gratuit) -> fiches déposées dans AUTO_EVOL/IDEES.md
+-> hub (tâche qwen.elabore, Qwen local gratuit) -> fiches déposées dans OUTBOX/AUTO_EVOL/IDEES.md
 
 Règle d'or : Qwen PROPOSE, elle ne décide jamais. Ada relit + trie, Christophe GO.
+
+Fix 08/08 (TCC) : les jobs launchd ne peuvent PAS écrire dans ~/Documents (PermissionError).
+-> écriture redirigée vers OUTBOX_OBSIDIAN/AUTO_EVOL/IDEES.md (hors ~/Documents, autorisé).
+-> le pont _sync_now.sh (run via terminal, TCC OK) copie ensuite vers le vault.
+-> lecture : OUTBOX en priorité (copies récentes), vault en repli.
 
 Usage:
     python3 qwen_elabore.py                     # élaboration générale (sujets par défaut)
@@ -15,12 +20,12 @@ import argparse
 import datetime
 import json
 import os
-import re
 import sys
 import urllib.request
 
 VAULT = os.path.expanduser("~/Documents/Obsidian_ACE777")
-IDEES = os.path.join(VAULT, "AUTO_EVOL", "IDEES.md")
+OUTBOX = os.path.expanduser("~/ace777-test-day1/Index_Maison/OUTBOX_OBSIDIAN")
+IDEES = os.path.join(OUTBOX, "AUTO_EVOL", "IDEES.md")
 HUB = "http://127.0.0.1:11435/v1/chat/completions"
 TASK = "qwen.elabore"
 MAX_READ = 4000  # chars par fichier lu
@@ -34,12 +39,20 @@ def read_head(path: str, limit: int = MAX_READ) -> str:
         return ""
 
 
+def read_best(rel: str, limit: int = MAX_READ) -> str:
+    """Lit le fichier relatif : OUTBOX (miroir, TCC OK) puis vault (repli)."""
+    txt = read_head(os.path.join(OUTBOX, rel), limit)
+    if txt:
+        return txt
+    return read_head(os.path.join(VAULT, rel), limit)
+
+
 def build_contexte(sujet: str) -> str:
-    ch = read_head(os.path.join(VAULT, "CHANTIERS.md"))
-    mem = read_head(os.path.join(VAULT, "MEMOIRE_COLLAB.md"), 6000)
-    err = read_head(os.path.join(VAULT, "journal_erreurs.md"))
+    ch = read_best("CHANTIERS.md")
+    mem = read_best("MEMOIRE_COLLAB.md", 6000)
+    err = read_best("journal_erreurs.md")
     if not err:
-        err = read_head(os.path.join(VAULT, "JOURNAL_ERREURS_TEST.md"))
+        err = read_best("JOURNAL_ERREURS_TEST.md")
     return f"""COFFRE (extraits) :
 --- CHANTIERS.md ---
 {ch[:2000]}
@@ -94,6 +107,7 @@ def depose(contenu: str, sujet: str, provider: str) -> None:
         f"## 🌙 Qwen solo — {now} (sujet : {sujet}) · provider {provider}\n\n"
         f"{contenu.strip()}\n"
     )
+    os.makedirs(os.path.dirname(IDEES), exist_ok=True)
     with open(IDEES, "a") as f:
         f.write(bloc)
     print(f"depose OK -> {IDEES} (bloc {date})")
