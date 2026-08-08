@@ -13,3 +13,9 @@
 
 ## Règle
 Cortana / `speak_attention` peut lire le résumé, puis repasser IDLE.
+
+
+## ⚠️ SUPERVISEUR — besoin de Christophe
+- ts: 20260808T0831Z
+- demande: État incohérent des répertoires de fichiers. Le système est en état de panique.
+- pourquoi: Les répertoires de fichiers TOP_DEMAIN et REVEIL_BUFFY sont indiqués comme inaccessibles, ce qui peut signifier un problème de permission ou une erreur de configuration. Il n'y a pas d'action mécanique simple pour résoudre cette situation sans plus d'informations.
