@@ -3,3 +3,4 @@
 | 2026-08-08T09:32Z | SUPERVISEUR | hub=OK ollama=OK jobs_manquants=[] git_sys=D git_vault=P action=ask résultat=escalade humaine : État incohérent des répertoires de fichiers. Git système propre, mais vault inaccessible. |
 | 2026-08-08T10:32Z | SUPERVISEUR | hub=OK ollama=OK jobs_manquants=[] git_sys=D git_vault=P action=ask résultat=escalade humaine : État incohérent des répertoires de fichiers. Impossible de déterminer la prochaine action sans plus d'informations. |
 | 2026-08-08T11:32Z | SUPERVISEUR | hub=OK ollama=OK jobs_manquants=[] git_sys=D git_vault=P action=ask résultat=escalade humaine : État incohérent des répertoires git_systeme_propre et git_vault_propre_inaccessible |
+| 2026-08-08T12:32Z | SUPERVISEUR | hub=OK ollama=OK jobs_manquants=[] git_sys=D git_vault=P action=ask résultat=escalade humaine : État incohérent des répertoires de fichiers. Hub et Ollama fonctionnels, mais git système non propre et inaccessible. |
