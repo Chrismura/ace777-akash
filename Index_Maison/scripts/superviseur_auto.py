@@ -138,46 +138,52 @@ def lire_fichier(chemin: Path, max_chars: int) -> str:
         return ""
 
 
-def age_preuve_lecture():  # -> float ou None (Python 3.9 : pas de | dans les annotations)
-    """Retourne l'âge (heures) de la dernière entrée « lecture complète » dans
-    MEMOIRE_COLLAB (OUTBOX en priorité, vault en repli). None = aucune preuve.
+def _dernier_ts_preuve(mem: str):
+    """Extrait le timestamp le plus récent d'une preuve de lecture dans un texte.
 
-    Règle 1septies (08/08) : la preuve de lecture du coffre doit être < 24 h.
-    Format des entrées : | 2026-08-08T18:04Z | ... (append-only, récent EN BAS)."""
-    # Source = la copie la PLUS RÉCENTE entre vault et miroir OUTBOX (le miroir
-    # peut être périmé — constat 08/08 : miroir du 07/08 qui écrasait la preuve).
-    mem = lire_fichier(VAULT / "MEMOIRE_COLLAB.md", 2_000_000)
-    outbox_mem = OUTBOX / "MEMOIRE_COLLAB.md"
-    try:
-        if outbox_mem.exists() and outbox_mem.stat().st_mtime > (VAULT / "MEMOIRE_COLLAB.md").stat().st_mtime:
-            mem = lire_fichier(outbox_mem, 2_000_000)
-    except OSError:
-        pass
-    if not mem:
-        return None
-
+    Tag machine exigé par l'audit juge : [LECTURE_COMPLETE_OK]. Repli
+    rétrocompatible : « lecture complète » / « LECTURE MECANIQUE »."""
     from datetime import datetime, timezone
     import re as _re
-    # Audit juge 08/08 : la preuve doit porter le TAG MACHINE exact
-    # [LECTURE_COMPLETE_OK] (standardisé dans le rituel du REVEIL) — fini la
-    # détection par langage naturel fragile. Repli : anciens motifs texte
-    # (« lecture complète » / « LECTURE MECANIQUE ») pour rétrocompatibilité.
+    if not mem:
+        return None
     TAG = "[LECTURE_COMPLETE_OK]"
     dernier_ts = None
     for ligne in mem.splitlines():
         valide = TAG in ligne or "lecture complète" in ligne.lower() \
             or "lecture complete" in ligne.lower() or "LECTURE MECANIQUE" in ligne
-        if valide:
-            m = _re.search(r'\| (\d{4}-\d{2}-\d{2}T\d{2}:\d{2}Z) \|', ligne)
-            if m:
-                try:
-                    ts = datetime.strptime(m.group(1), "%Y-%m-%dT%H:%MZ").replace(tzinfo=timezone.utc)
-                    if dernier_ts is None or ts > dernier_ts:
-                        dernier_ts = ts
-                except ValueError:
-                    continue
-    if dernier_ts is None:
+        if not valide:
+            continue
+        m = _re.search(r'\| (\d{4}-\d{2}-\d{2}T\d{2}:\d{2}Z) \|', ligne)
+        if not m:
+            continue
+        try:
+            ts = datetime.strptime(m.group(1), "%Y-%m-%dT%H:%MZ").replace(tzinfo=timezone.utc)
+            if dernier_ts is None or ts > dernier_ts:
+                dernier_ts = ts
+        except ValueError:
+            continue
+    return dernier_ts
+
+
+def age_preuve_lecture():  # -> float ou None (Python 3.9 : pas de | dans les annotations)
+    """Retourne l'âge (heures) de la dernière entrée « lecture complète » dans
+    MEMOIRE_COLLAB. None = aucune preuve.
+
+    Règle 1septies (08/08) : la preuve de lecture du coffre doit être < 24 h.
+    Format des entrées : | 2026-08-08T18:04Z | ... (append-only, récent EN BAS).
+
+    CORRECTION 08/08 19:05Z (constat : « Obsidian ne bouge pas ») : l'ancienne
+    logique choisissait UNE seule source par mtime — le miroir OUTBOX (12 Ko,
+    07/08) était souvent plus récent en mtime que le vault (67 Ko) et écrasait la
+    preuve → rappel fantôme écrit à tort. Désormais on lit LES DEUX sources et on
+    prend la preuve la PLUS RÉCENTE trouvée dans l'une ou l'autre."""
+    from datetime import datetime, timezone
+    ts_vault = _dernier_ts_preuve(lire_fichier(VAULT / "MEMOIRE_COLLAB.md", 2_000_000))
+    ts_outbox = _dernier_ts_preuve(lire_fichier(OUTBOX / "MEMOIRE_COLLAB.md", 2_000_000))
+    if ts_vault is None and ts_outbox is None:
         return None
+    dernier_ts = ts_outbox if (ts_outbox is not None and (ts_vault is None or ts_outbox > ts_vault)) else ts_vault
     age_h = (datetime.now(timezone.utc) - dernier_ts).total_seconds() / 3600.0
     return age_h
 
