@@ -1,11 +1,11 @@
 # Attention vocale — Cortana
 
 ## Dernier résumé
-> Info Changement de tendance. Structure hausse, signe une heure +.. Provenance cortana_watch_trend.
+> Info Changement de tendance. Structure hausse, signe une heure -.. Provenance cortana_watch_trend.
 
 ## Meta
 - statut: READY
-- ts: 20260808T1436Z
+- ts: 20260808T1539Z
 - pertinence: SOFT
 - sentiment: INFO
 - compte: thermo-free
@@ -16,6 +16,6 @@ Cortana / `speak_attention` peut lire le résumé, puis repasser IDLE.
 
 
 ## ⚠️ SUPERVISEUR — besoin de Christophe
-- ts: 20260808T1733Z
-- demande: État incohérent des répertoires de fichiers TOP_DEMAIN et REVEIL_BUFFY
-- pourquoi: Les états indiquent que les répertoires TOP_DEMAIN et REVEIL_BUFFY sont propres mais inaccessible, ce qui peut être un problème de permission ou d'accès.
+- ts: 20260808T1833Z
+- demande: État incohérent des répertoires de fichiers. Le système est indiqué comme propres mais inaccessible.
+- pourquoi: Il y a une contradiction entre les états 'git_systeme_propre' et 'git_vault_propre_inaccessible'. Ceci peut indiquer un problème non résolu concernant le système ou la sauvegarde.
