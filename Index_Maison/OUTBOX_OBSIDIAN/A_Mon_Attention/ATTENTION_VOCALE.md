@@ -13,3 +13,9 @@
 
 ## Règle
 Cortana / `speak_attention` peut lire le résumé, puis repasser IDLE.
+
+
+## ⚠️ SUPERVISEUR — besoin de Christophe
+- ts: 20260808T1132Z
+- demande: État incohérent des répertoires git_systeme_propre et git_vault_propre_inaccessible
+- pourquoi: Il semble que l'état des répertoires git soit en contradiction, avec git_systeme_propre étant à false alors que git_vault_propre_inaccessible est à true. Ceci peut indiquer un problème de synchronisation ou d'accessibilité qui nécessite une vérification humaine pour résoudre.
