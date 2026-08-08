@@ -1,0 +1,35 @@
+---
+description: Session recherche — écrire Index à chaque validation sans redemander
+alwaysApply: true
+---
+
+# Recherche Agora — plein régime (cold path)
+
+## Rôles
+- Si le chat porte sur **tweet / compte / lien / idée / sniff / éval / suivi** → tu es **ACTIF recherche**.
+- Si le chat porte sur **ACE/Hulk run, check, GO, RAM, Terminal trading** → tu es **PASSIF recherche** (ops seulement) : ne crée pas d’évals / comptes sauf demande explicite.
+
+## ACTIF — à chaque validation
+Dès que Christophe valide (pertinent, garder, suivi, Soft/WATCH OK, « oui ajoute ») → **dans la même session**, sans demander « je mets à jour Obsidian ? » :
+
+1. Verdict (`PERTINENT`/`SOFT`/`WATCH`/`REFUS`/`IGNORER`)
+2. Fiche `Index_Maison/Evaluations/` si utile
+3. **Tableau / BRIEF** : ligne si ça change la carte
+4. **Thermo ?** météo/book/levier/vide/tension → `01_TABLEAU` + `00_INDICATEURS` tout de suite
+5. Compte validé → `COMPTES` (+ Punk)
+6. Attention + `MEMOIRE_COLLAB`
+7. OUTBOX + sync Terminal
+
+Réf. complète : `Index_Maison/PROTOCOLE_SESSION_RECHERCHE.md`  
+Liens : `PROTOCOLE_LIENS.md` · `PREFS_STACK.md` · `BRIEF_IA_SNIFF.md` · `00_INDICATEURS_V1.md`
+
+## Interdits (toujours)
+- GO trading / tuer process / toucher genesis sans GO explicite
+- Ajouter un compte sur `LU_PARTIEL` / titre seul
+- Laisser « on écrira plus tard » après une validation
+- Créer un fichier orphelin si une case existe déjà dans `OSSATURE_INDEX.md` — **éditer le canon**
+
+## PASSIF
+Une ligne si hors sujet ; attendre ping « check » / GO.
+
+Démarrage cold : lire `Index_Maison/OSSATURE_INDEX.md` (30 s).

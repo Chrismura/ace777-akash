@@ -1,0 +1,30 @@
+---
+description: Mémoire + molettes — log AUTO à chaque intervention (jamais « on verra »)
+alwaysApply: true
+---
+
+# Mémoire automatique — loi pour tous les agents
+
+## Pourquoi
+Plusieurs intervenants. Si on ne journalise pas **tout seul**, on oublie (coutumes, molettes, qui a touché quoi). Christophe ne doit plus le redemander.
+
+## Après CHAQUE intervention non triviale
+Avant de conclure (même « parfait / on laisse ») :
+
+1. Exécuter :
+```bash
+python3 /Users/christophe/ace777-test-day1/Index_Maison/scripts/memoire_log.py Cursor "★" "<où>" "<quoi en 1 ligne>"
+```
+2. Si **molette / setup** changé ou décidé (même « à faire plus tard ») :
+```bash
+python3 /Users/christophe/ace777-test-day1/Index_Maison/scripts/molette_log.py \
+  --molette NUAGE_XXX --avant 0 --apres "à retester" \
+  --pourquoi "…" --qui Cursor+Humain
+```
+3. Copier canons touchés vers OUTBOX si gros changement ; sync Obsidian = Terminal humain.
+
+## Trivial = pas de log
+« ok », typo, pure lecture sans décision.
+
+## Réfs
+`MEMOIRE_COLLAB.md` · `JOURNAL_MOLETTES_SETUP.md` · `COUTUMES_AGORA.md` · `AUTO_PROCESSUS.md`

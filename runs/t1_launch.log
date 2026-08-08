@@ -1,0 +1,286 @@
+=== VORTEX V2 COLLAB TESTNET 4H ===
+Profil: vide_froid_vortex_v2_collab | VORTEX_V2_RADAR_PILOT=TRUE
+IMPORTANT: lancer ./scripts/start_supervisor_v9_v2.sh dans un 2e terminal
+Comparaison: canonique = launch_vide_froid_4h_binance.sh (Vortex OFF)
+=== V8.6 FORTRESS === MOM=0.96 WALL_DROP=0.065 GLOBAL_STOP=-45.00
+=== V8.5 IMPACT === MOM=0.96 WALL_DROP=6.500000% MASS=1.618 RADAR=0.85
+=== LLM GATE === enabled=TRUE fail_closed=TRUE timeout=3s model=qwen2.5-coder:1.5b
+=== DUO === require_sl=FALSE event_ttl=60s
+=== RADAR === BETA conf=0.30 | ALPHA conf=0.25
+=== VORTEX === TRUE v2_radar=TRUE
+INFO_CLES: testnet depuis /Users/christophe/.binance_testnet.env
+PREFLIGHT_OK: config vide_froid_vortex_v2_collab v2026-07-08-gemini-cursor-v2 BETA=200 ALPHA=800
+PREFLIGHT_OK: fichiers moteur présents
+PREFLIGHT_OK: clés Binance testnet chargées
+PREFLIGHT_OK: Binance ping (testnet)
+PREFLIGHT_OK: Ollama + modèle qwen2.5-coder:1.5b
+PREFLIGHT_WARN: VORTEX_V2=ON mais supervisor v2 absent — lancer ./scripts/start_supervisor_v9_v2.sh
+PREFLIGHT_OK: ruby 2.6.10
+
+=== PREFLIGHT OK === 1 avertissement(s)
+Pour arrêter: kill -9 -28589  (ou ./stop_ace777.sh)
+=== MASTER_VORTEX_V2_COLLAB_4H ===
+Start UTC: 2026-07-09T18:15:10Z
+End UTC:   2026-07-09T22:15:10Z
+BETA x5 | ALPHA x13 | Masse 1.618->3.236 (alarm) | Trigger=-3bps/-0.80 | GlobalStop=-45.00 HALT | Lagrange+PhaseShift=ON
+Duo en marche. Logs: runs/MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv | runs/MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv
+STATE_OK: /Users/christophe/ace777-test-day1/runs/STATE.md (RUNNING running)
+[ALPHA_X13_BURST13] [1;36m--- ACE777 STRICT CLONE FUTURES TESTNET ---[0m
+[ALPHA_X13_BURST13] [1;36mLeverage ramp ON:[0m [1;36mstart=5 end=13 cycles=180[0m
+[BETA_X5] [1;36m--- ACE777 STRICT CLONE FUTURES TESTNET ---[0m
+[BETA_X5] [1;32mV8 Resonance ON:[0m [1;36mimpulse_thr=0.96 dt_ms=64 aspiration=1.618@37.8deg void_lock=TRUE shock_exit=TRUE[0m
+[BETA_X5] [1;32mV8 Tension ON:[0m [1;36mwall_drop=6.5% dt_ms=64 filter=0.85 depth=20[0m
+[BETA_X5] [1;36mSymbol=BTCUSDT[0m [1;32mLeverage=3[0m [1;36mBuyUSDT=200 Orders=TRUE[0m
+[ALPHA_X13_BURST13] [1;32mV8 Resonance ON:[0m [1;36mimpulse_thr=0.96 dt_ms=64 aspiration=1.618@37.8deg void_lock=TRUE shock_exit=TRUE[0m
+[ALPHA_X13_BURST13] [1;32mV8 Tension ON:[0m [1;36mwall_drop=6.5% dt_ms=64 filter=0.85 depth=20[0m
+[ALPHA_X13_BURST13] [1;36mSymbol=BTCUSDT[0m [1;32mLeverage=5[0m [1;36mBuyUSDT=800 Orders=TRUE[0m
+[BETA_X5] [1;36m18:15:20[0m [1;33mx3[0m [1;36m#1[0m SKIP tension=[1;36m0.00000000[0m [0m| momentum_too_small [1;31mconf=0.2844[0m
+[ALPHA_X13_BURST13] [1;36m18:15:20[0m [1;33mx5[0m [1;36m#1[0m SKIP tension=[1;36m0.00000000[0m [0m| momentum_too_small [1;31mconf=0.2844[0m
+[BETA_X5] [1;36m18:15:28[0m [1;33mx3[0m [1;36m#2[0m SKIP tension=[1;36m0.00002006[0m [0m| momentum_too_small [1;31mconf=0.0[0m
+[ALPHA_X13_BURST13] [1;36m18:15:28[0m [1;33mx5[0m [1;36m#2[0m SKIP tension=[1;36m0.00002006[0m [0m| momentum_too_small [1;31mconf=0.0[0m
+[BETA_X5] [1;36m18:15:37[0m [1;33mx3[0m [1;36m#3[0m SKIP tension=[1;36m0.00000898[0m [0m| momentum_too_small [1;31mconf=0.0[0m
+[ALPHA_X13_BURST13] [1;36m18:15:37[0m [1;33mx5[0m [1;36m#3[0m SKIP tension=[1;36m0.00000000[0m [0m| momentum_too_small [1;31mconf=0.3288[0m
+[ALPHA_X13_BURST13] [1;36m18:15:44[0m [1;33mx5[0m [1;36m#4[0m SKIP tension=[1;36m0.24804590[0m [0m| wall_not_collapsed
+[BETA_X5] [1;36m18:15:44[0m [1;33mx3[0m [1;36m#4[0m SKIP tension=[1;36m0.24804590[0m [0m| wall_not_collapsed
+[BETA_X5] [1;36m18:15:52[0m [1;33mx3[0m [1;36m#5[0m SKIP tension=[1;36m0.00002144[0m [0m| momentum_too_small [1;31mconf=0.0[0m
+[ALPHA_X13_BURST13] [1;36m18:15:52[0m [1;33mx5[0m [1;36m#5[0m SKIP tension=[1;36m0.00000000[0m [0m| momentum_too_small [1;31mconf=0.3355[0m
+[BETA_X5] [1;36m18:16:00[0m [1;33mx3[0m [1;36m#6[0m SKIP tension=[1;36m0.00001256[0m [0m| momentum_too_small [1;31mconf=0.0[0m
+[ALPHA_X13_BURST13] [1;36m18:16:00[0m [1;33mx5[0m [1;36m#6[0m SKIP tension=[1;36m0.00001614[0m [0m| momentum_too_small [1;31mconf=0.0[0m
+[BETA_X5] [1;36m18:16:07[0m [1;33mx3[0m [1;36m#7[0m SKIP tension=[1;36m0.00001444[0m [0m| momentum_too_small [1;31mconf=0.0[0m
+[ALPHA_X13_BURST13] [1;36m18:16:08[0m [1;33mx5[0m [1;36m#7[0m SKIP tension=[1;36m0.34358456[0m [0m| wall_not_collapsed
+[BETA_X5] [1;36m18:16:15[0m [1;33mx3[0m [1;36m#8[0m SKIP tension=[1;36m0.00000615[0m [0m| momentum_too_small [1;31mconf=0.0[0m
+[ALPHA_X13_BURST13] [1;36m18:16:15[0m [1;33mx5[0m [1;36m#8[0m SKIP tension=[1;36m0.18039184[0m [0m| direction_unclear [1;31mconf=0.2848[0m
+[BETA_X5] [1;36m18:16:22[0m [1;33mx3[0m [1;36m#9[0m SKIP tension=[1;36m0.11842113[0m [0m| direction_unclear [1;31mconf=0.187[0m
+[ALPHA_X13_BURST13] [1;36m18:16:25[0m [1;33mx5[0m [1;36m#9[0m SKIP tension=[1;31m2.43211042[0m [0m| duo no_state
+[BETA_X5] [1;36m18:16:29[0m [1;33mx3[0m [1;36m#10[0m SKIP tension=[1;36m0.29661797[0m [0m| wall_not_collapsed
+[ALPHA_X13_BURST13] [1;36m18:16:34[0m [1;33mx5[0m [1;36m#10[0m SKIP tension=[1;36m0.00000000[0m [0m| momentum_too_small [1;31mconf=0.3072[0m
+[BETA_X5] [1;36m18:16:37[0m [1;33mx3[0m [1;36m#11[0m SKIP tension=[1;36m0.51379155[0m [0m| wall_not_collapsed
+[ALPHA_X13_BURST13] [1;36m18:16:42[0m [1;33mx5[0m [1;36m#11[0m SKIP tension=[1;31m3.68264225[0m [0m| duo no_state
+[BETA_X5] [1;36m18:16:45[0m [1;33mx3[0m [1;36m#12[0m SKIP tension=[1;36m0.00379222[0m [0m| momentum_too_small [1;31mconf=0.0059[0m
+[ALPHA_X13_BURST13] [1;36m18:16:50[0m [1;33mx5[0m [1;36m#12[0m SKIP tension=[1;36m0.00000000[0m [0m| momentum_too_small [1;31mconf=0.3263[0m
+[BETA_X5] [1;36m18:16:52[0m [1;33mx3[0m [1;36m#13[0m SKIP tension=[1;36m0.00000000[0m [0m| momentum_too_small [1;31mconf=0.3447[0m
+[ALPHA_X13_BURST13] [1;36m18:16:58[0m [1;33mx5[0m [1;36m#13[0m SKIP tension=[1;36m0.00365647[0m [0m| momentum_too_small [1;31mconf=0.0061[0m
+[BETA_X5] [1;36m18:17:01[0m [1;33mx3[0m [1;36m#14[0m SKIP tension=[1;36m0.00000764[0m [0m| momentum_too_small [1;31mconf=0.0[0m
+[ALPHA_X13_BURST13] [1;36m18:17:05[0m [1;33mx5[0m [1;36m#14[0m SKIP tension=[1;36m0.00555729[0m [0m| direction_unclear [1;31mconf=0.0086[0m
+[BETA_X5] [1;36m18:17:08[0m [1;33mx3[0m [1;36m#15[0m SKIP tension=[1;36m0.00001529[0m [0m| momentum_too_small [1;31mconf=0.0[0m
+[ALPHA_X13_BURST13] [1;36m18:17:13[0m [1;33mx5[0m [1;36m#15[0m SKIP tension=[1;36m0.00001353[0m [0m| momentum_too_small [1;31mconf=0.0[0m
+[BETA_X5] [1;36m18:17:16[0m [1;33mx3[0m [1;36m#16[0m SKIP tension=[1;36m0.00003248[0m [0m| momentum_too_small [1;31mconf=0.0[0m
+=== VORTEX V2 COLLAB TESTNET 4H ===
+Profil: vide_froid_vortex_v2_collab | VORTEX_V2_RADAR_PILOT=TRUE
+IMPORTANT: lancer ./scripts/start_supervisor_v9_v2.sh dans un 2e terminal
+Comparaison: canonique = launch_vide_froid_4h_binance.sh (Vortex OFF)
+=== V8.6 FORTRESS === MOM=0.96 WALL_DROP=0.065 GLOBAL_STOP=-45.00
+=== V8.5 IMPACT === MOM=0.96 WALL_DROP=6.500000% MASS=1.618 RADAR=0.85
+=== LLM GATE === enabled=TRUE fail_closed=TRUE timeout=3s model=qwen2.5-coder:1.5b
+=== DUO === require_sl=FALSE event_ttl=60s
+=== RADAR === BETA conf=0.30 | ALPHA conf=0.25
+=== VORTEX === TRUE v2_radar=TRUE
+INFO_CLES: testnet depuis /Users/christophe/.binance_testnet.env
+PREFLIGHT_OK: config vide_froid_vortex_v2_collab v2026-07-08-gemini-cursor-v2 BETA=200 ALPHA=800
+PREFLIGHT_OK: fichiers moteur présents
+PREFLIGHT_OK: clés Binance testnet chargées
+PREFLIGHT_OK: Binance ping (testnet)
+PREFLIGHT_OK: Ollama + modèle qwen2.5-coder:1.5b
+PREFLIGHT_WARN: VORTEX_V2=ON mais supervisor v2 absent — lancer ./scripts/start_supervisor_v9_v2.sh
+PREFLIGHT_OK: ruby 2.6.10
+
+=== PREFLIGHT OK === 1 avertissement(s)
+Pour arrêter: kill -9 -40593  (ou ./stop_ace777.sh)
+=== MASTER_VORTEX_V2_COLLAB_4H ===
+Start UTC: 2026-07-09T18:17:21Z
+End UTC:   2026-07-09T22:17:21Z
+BETA x5 | ALPHA x13 | Masse 1.618->3.236 (alarm) | Trigger=-3bps/-0.80 | GlobalStop=-45.00 HALT | Lagrange+PhaseShift=ON
+Duo en marche. Logs: runs/MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv | runs/MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv
+STATE_OK: /Users/christophe/ace777-test-day1/runs/STATE.md (RUNNING running)
+[ALPHA_X13_BURST13] [1;36m--- ACE777 STRICT CLONE FUTURES TESTNET ---[0m
+[BETA_X5] [1;36m--- ACE777 STRICT CLONE FUTURES TESTNET ---[0m
+[ALPHA_X13_BURST13] [1;36mLeverage ramp ON:[0m [1;36mstart=5 end=13 cycles=180[0m
+[BETA_X5] [1;32mV8 Resonance ON:[0m [1;36mimpulse_thr=0.96 dt_ms=64 aspiration=1.618@37.8deg void_lock=TRUE shock_exit=TRUE[0m
+[BETA_X5] [1;32mV8 Tension ON:[0m [1;36mwall_drop=6.5% dt_ms=64 filter=0.85 depth=20[0m
+[BETA_X5] [1;36mSymbol=BTCUSDT[0m [1;32mLeverage=3[0m [1;36mBuyUSDT=200 Orders=TRUE[0m
+[ALPHA_X13_BURST13] [1;32mV8 Resonance ON:[0m [1;36mimpulse_thr=0.96 dt_ms=64 aspiration=1.618@37.8deg void_lock=TRUE shock_exit=TRUE[0m
+[ALPHA_X13_BURST13] [1;32mV8 Tension ON:[0m [1;36mwall_drop=6.5% dt_ms=64 filter=0.85 depth=20[0m
+[ALPHA_X13_BURST13] [1;36mSymbol=BTCUSDT[0m [1;32mLeverage=5[0m [1;36mBuyUSDT=800 Orders=TRUE[0m
+[BETA_X5] [1;36m18:17:30[0m [1;33mx3[0m [1;36m#1[0m SKIP tension=[1;36m0.00042651[0m [0m| momentum_too_small [1;31mconf=0.0006[0m
+[ALPHA_X13_BURST13] [1;36m18:17:32[0m [1;33mx5[0m [1;36m#1[0m SKIP tension=[1;36m0.00000000[0m [0m| momentum_too_small [1;31mconf=0.2998[0m
+[BETA_X5] [1;36m18:17:38[0m [1;33mx3[0m [1;36m#2[0m SKIP tension=[1;36m0.00052411[0m [0m| momentum_too_small [1;31mconf=0.0008[0m
+[ALPHA_X13_BURST13] [1;36m18:17:39[0m [1;33mx5[0m [1;36m#2[0m SKIP tension=[1;36m0.00000000[0m [0m| momentum_too_small [1;31mconf=0.3049[0m
+[BETA_X5] [1;36m18:17:45[0m [1;33mx3[0m [1;36m#3[0m SKIP tension=[1;36m0.00000384[0m [0m| momentum_too_small [1;31mconf=0.0[0m
+[ALPHA_X13_BURST13] [1;36m18:17:48[0m [1;33mx5[0m [1;36m#3[0m SKIP tension=[1;32m1.85020820[0m [0m| duo no_state
+[BETA_X5] [1;36m18:17:53[0m [1;33mx3[0m [1;36m#4[0m SKIP tension=[1;36m0.00001054[0m [0m| momentum_too_small [1;31mconf=0.0[0m
+[ALPHA_X13_BURST13] [1;36m18:17:55[0m [1;33mx5[0m [1;36m#4[0m SKIP tension=[1;36m0.57901456[0m [0m| wall_not_collapsed
+[BETA_X5] [1;36m18:18:01[0m [1;33mx3[0m [1;36m#5[0m SKIP tension=[1;36m0.00000000[0m [0m| momentum_too_small [1;31mconf=0.3049[0m
+[ALPHA_X13_BURST13] [1;36m18:18:03[0m [1;33mx5[0m [1;36m#5[0m SKIP tension=[1;31m2.89489414[0m [0m| tactic long vs short
+[BETA_X5] [1;36m18:18:08[0m [1;33mx3[0m [1;36m#6[0m SKIP tension=[1;36m0.30541225[0m [0m| wall_not_collapsed
+[ALPHA_X13_BURST13] [1;36m18:18:11[0m [1;33mx5[0m [1;36m#6[0m SKIP tension=[1;31m3.56592806[0m [0m| duo no_state
+[BETA_X5] [1;36m18:18:16[0m [1;33mx3[0m [1;36m#7[0m SKIP tension=[1;36m0.00000769[0m [0m| momentum_too_small [1;31mconf=0.0[0m
+[ALPHA_X13_BURST13] [1;36m18:18:19[0m [1;33mx5[0m [1;36m#7[0m SKIP tension=[1;36m0.00014252[0m [0m| momentum_too_small [1;31mconf=0.0002[0m
+[BETA_X5] [1;36m18:18:24[0m [1;33mx3[0m [1;36m#8[0m SKIP tension=[1;36m0.00000000[0m [0m| momentum_too_small [1;31mconf=0.3049[0m
+[ALPHA_X13_BURST13] [1;36m18:18:26[0m [1;33mx5[0m [1;36m#8[0m SKIP tension=[1;36m0.70760786[0m [0m| wall_not_collapsed
+[BETA_X5] [1;36m18:18:32[0m [1;33mx3[0m [1;36m#9[0m SKIP tension=[1;36m0.00000385[0m [0m| momentum_too_small [1;31mconf=0.0[0m
+[ALPHA_X13_BURST13] [1;36m18:18:35[0m [1;33mx5[0m [1;36m#9[0m SKIP tension=[1;36m0.00000000[0m [0m| momentum_too_small [1;31mconf=0.3394[0m
+[BETA_X5] [1;36m18:18:40[0m [1;33mx3[0m [1;36m#10[0m SKIP tension=[1;36m0.00000500[0m [0m| momentum_too_small [1;31mconf=0.0[0m
+[ALPHA_X13_BURST13] [1;36m18:18:43[0m [1;33mx5[0m [1;36m#10[0m SKIP tension=[1;36m0.00000000[0m [0m| momentum_too_small [1;31mconf=0.3482[0m
+[BETA_X5] [1;36m18:18:48[0m [1;33mx3[0m [1;36m#11[0m SKIP tension=[1;36m0.19004567[0m [0m| direction_unclear [1;31mconf=0.313[0m
+[ALPHA_X13_BURST13] [1;36m18:18:52[0m [1;33mx5[0m [1;36m#11[0m SKIP tension=[1;36m0.00000764[0m [0m| momentum_too_small [1;31mconf=0.0[0m
+[BETA_X5] [1;36m18:18:55[0m [1;33mx3[0m [1;36m#12[0m SKIP tension=[1;36m0.00001344[0m [0m| momentum_too_small [1;31mconf=0.0[0m
+[ALPHA_X13_BURST13] [1;36m18:19:00[0m [1;33mx5[0m [1;36m#12[0m SKIP tension=[1;36m0.00001343[0m [0m| momentum_too_small [1;31mconf=0.0[0m
+[BETA_X5] [1;36m18:19:03[0m [1;33mx3[0m [1;36m#13[0m SKIP tension=[1;32m1.33816356[0m [0m| tactic short vs long
+[ALPHA_X13_BURST13] [1;36m18:19:09[0m [1;33mx5[0m [1;36m#13[0m SKIP tension=[1;31m3.18550325[0m [0m| tactic short vs long
+[BETA_X5] [1;36m18:19:11[0m [1;33mx3[0m [1;36m#14[0m SKIP tension=[1;36m0.00000000[0m [0m| momentum_too_small [1;31mconf=0.3389[0m
+[ALPHA_X13_BURST13] [1;36m18:19:17[0m [1;33mx5[0m [1;36m#14[0m SKIP tension=[1;36m0.00001193[0m [0m| momentum_too_small [1;31mconf=0.0[0m
+[BETA_X5] [1;36m18:19:19[0m [1;33mx3[0m [1;36m#15[0m SKIP tension=[1;36m0.21655528[0m [0m| wall_not_collapsed
+[ALPHA_X13_BURST13] [1;36m18:19:25[0m [1;33mx5[0m [1;36m#15[0m SKIP tension=[1;36m0.00000000[0m [0m| momentum_too_small [1;31mconf=0.3141[0m
+[BETA_X5] [1;36m18:19:27[0m [1;33mx3[0m [1;36m#16[0m SKIP tension=[1;36m0.00312144[0m [0m| momentum_too_small [1;31mconf=0.0052[0m
+[ALPHA_X13_BURST13] [1;36m18:19:33[0m [1;33mx5[0m [1;36m#16[0m SKIP tension=[1;36m0.00000000[0m [0m| momentum_too_small [1;31mconf=0.3141[0m
+[BETA_X5] [1;36m18:19:36[0m [1;33mx3[0m [1;36m#17[0m SKIP tension=[1;36m0.00000000[0m [0m| momentum_too_small [1;31mconf=0.3141[0m
+[ALPHA_X13_BURST13] [1;36m18:19:45[0m [1;33mx5[0m [1;36m#17[0m SKIP tension=[1;36m0.55848140[0m [0m| wall_not_collapsed
+[BETA_X5] [1;36m18:19:47[0m [1;33mx3[0m [1;36m#18[0m SKIP tension=[1;36m0.00000000[0m [0m| momentum_too_small [1;31mconf=0.3441[0m
+[ALPHA_X13_BURST13] [1;36m18:19:53[0m [1;33mx5[0m [1;36m#18[0m SKIP tension=[1;36m0.18902565[0m [0m| direction_unclear [1;31mconf=0.3045[0m
+[BETA_X5] [1;36m18:19:54[0m [1;33mx3[0m [1;36m#19[0m SKIP tension=[1;36m0.00004251[0m [0m| momentum_too_small [1;31mconf=0.0001[0m
+[ALPHA_X13_BURST13] [1;36m18:20:00[0m [1;33mx5[0m [1;36m#19[0m SKIP tension=[1;36m0.00000000[0m [0m| momentum_too_small [1;31mconf=0.3044[0m
+[BETA_X5] [1;36m18:20:02[0m [1;33mx3[0m [1;36m#20[0m SKIP tension=[1;36m0.00000796[0m [0m| momentum_too_small [1;31mconf=0.0[0m
+[ALPHA_X13_BURST13] [1;36m18:20:08[0m [1;33mx5[0m [1;36m#20[0m SKIP tension=[1;36m0.00000000[0m [0m| momentum_too_small [1;31mconf=0.2789[0m
+[ALPHA_X13_BURST13] [1;36m18:20:16[0m [1;33mx5[0m [1;36m#21[0m SKIP tension=[1;36m0.00056185[0m [0m| momentum_too_small [1;31mconf=0.0007[0m
+[BETA_X5] [1;36mCycle 21[0m [1;32mSOFT anomaly[0m [1;33m| pnl_abs=0.19158000 > 0.02500000[0m
+[BETA_X5] [1;36mentry=18:20:13[0m [1;33mx3[0m [1;36m#21[0m [1;32mSELL[0m tension=[1;32m1.15545596[0m hold=[1;36m5[0ms sec=[1;36m5[0m [0m| exit=63340.40000000 [1;33mconf=0.7958[0m [1;36mexit_time=18:20:18[0m [1;32mpnl=0.19158000 bps=3.25121131 pct=0.03251211% total=0.19158[0m
+[ALPHA_X13_BURST13] [1;36m18:20:25[0m [1;33mx5[0m [1;36m#22[0m SKIP tension=[1;31m2.23591792[0m [0m| duo no_trigger
+[BETA_X5] [1;36m18:20:27[0m [1;33mx3[0m [1;36m#22[0m SKIP tension=[1;36m0.00349000[0m [0m| momentum_too_small [1;31mconf=0.0051[0m
+[ALPHA_X13_BURST13] [1;36m18:20:33[0m [1;33mx5[0m [1;36m#23[0m SKIP tension=[1;36m0.00000622[0m [0m| momentum_too_small [1;31mconf=0.0[0m
+[BETA_X5] [1;36m18:20:36[0m [1;33mx3[0m [1;36m#23[0m SKIP tension=[1;36m0.23172265[0m [0m| wall_not_collapsed
+[ALPHA_X13_BURST13] [1;36m18:20:40[0m [1;33mx5[0m [1;36m#24[0m SKIP tension=[1;36m0.00016413[0m [0m| spread_too_wide [1;31mconf=0.0001[0m
+[BETA_X5] [1;36m18:20:44[0m [1;33mx3[0m [1;36m#24[0m SKIP tension=[1;36m0.00006489[0m [0m| momentum_too_small [1;31mconf=0.0001[0m
+[ALPHA_X13_BURST13] [1;36m18:20:49[0m [1;33mx5[0m [1;36m#25[0m SKIP tension=[1;31m2.23788815[0m [0m| duo no_trigger
+[BETA_X5] [1;36m18:20:51[0m [1;33mx3[0m [1;36m#25[0m SKIP tension=[1;36m0.14592921[0m [0m| direction_unclear [1;31mconf=0.2403[0m
+[ALPHA_X13_BURST13] [1;36m18:20:57[0m [1;33mx5[0m [1;36m#26[0m SKIP tension=[1;31m6.88380338[0m [0m| duo no_trigger
+[BETA_X5] [1;36m18:20:59[0m [1;33mx3[0m [1;36m#26[0m SKIP tension=[1;36m0.00000645[0m [0m| momentum_too_small [1;31mconf=0.0[0m
+[ALPHA_X13_BURST13] [1;36m18:21:05[0m [1;33mx5[0m [1;36m#27[0m SKIP tension=[1;31m4.71562672[0m [0m| duo no_trigger
+[ALPHA_X13_BURST13] [1;36m18:21:13[0m [1;33mx5[0m [1;36m#28[0m SKIP tension=[1;36m0.00001745[0m [0m| momentum_too_small [1;31mconf=0.0[0m
+[BETA_X5] shockwave beta->alpha until_cycle=37
+[BETA_X5] [1;33mSWARM shockwave[0m [0m| beta -> neighbor (shock_inversion_stop)[0m
+[BETA_X5] [1;36mCycle 27[0m [1;32mSOFT anomaly[0m [1;33m| pnl_abs=0.07144000 > 0.02500000[0m
+[BETA_X5] [1;36mentry=18:21:10[0m [1;33mx3[0m [1;36m#27[0m [1;31mSELL[0m tension=[1;32m1.79456865[0m hold=[1;36m5[0ms sec=[1;36m5[0m [0m| exit=63303.80000000 [1;32mconf=0.845[0m [1;36mexit_time=18:21:15[0m [1;31mpnl=-0.07144000 bps=-2.40169636 pct=-0.02401696% total=0.12014[0m
+[ALPHA_X13_BURST13] [1;36m18:21:21[0m [1;33mx5[0m [1;36m#29[0m SKIP tension=[1;36m0.00000000[0m [0m| momentum_too_small [1;31mconf=0.3313[0m
+[BETA_X5] [1;36m18:21:25[0m [1;33mx3[0m [1;36m#28[0m SKIP tension=[1;36m0.00000000[0m [0m| momentum_too_small [1;31mconf=0.3407[0m
+[ALPHA_X13_BURST13] [1;36m18:21:28[0m [1;33mx5[0m [1;36m#30[0m SKIP tension=[1;36m0.00001282[0m [0m| momentum_too_small [1;31mconf=0.0[0m
+[BETA_X5] [1;36m18:21:33[0m [1;33mx3[0m [1;36m#29[0m SKIP tension=[1;36m0.66039639[0m [0m| wall_not_collapsed
+[ALPHA_X13_BURST13] [1;36m18:21:36[0m [1;33mx5[0m [1;36m#31[0m SKIP tension=[1;36m0.00000000[0m [0m| momentum_too_small [1;31mconf=0.3403[0m
+[BETA_X5] [1;36m18:21:40[0m [1;33mx3[0m [1;36m#30[0m SKIP tension=[1;36m0.68931976[0m [0m| wall_not_collapsed
+[ALPHA_X13_BURST13] [1;36m18:21:44[0m [1;33mx5[0m [1;36m#32[0m SKIP tension=[1;36m0.00022478[0m [0m| momentum_too_small [1;31mconf=0.0004[0m
+[BETA_X5] [1;36m18:21:48[0m [1;33mx3[0m [1;36m#31[0m SKIP tension=[1;36m0.00001028[0m [0m| momentum_too_small [1;31mconf=0.0[0m
+[ALPHA_X13_BURST13] [1;36m18:21:52[0m [1;33mx5[0m [1;36m#33[0m SKIP tension=[1;36m0.04265217[0m [0m| direction_unclear [1;31mconf=0.0106[0m
+[BETA_X5] [1;36m18:21:56[0m [1;33mx3[0m [1;36m#32[0m SKIP tension=[1;36m0.00000000[0m [0m| momentum_too_small [1;31mconf=0.3065[0m
+[ALPHA_X13_BURST13] [1;36m18:21:59[0m [1;33mx5[0m [1;36m#34[0m SKIP tension=[1;36m0.00035831[0m [0m| momentum_too_small [1;31mconf=0.0004[0m
+[BETA_X5] [1;36m18:22:04[0m [1;33mx3[0m [1;36m#33[0m SKIP tension=[1;36m0.00003645[0m [0m| momentum_too_small [1;31mconf=0.0001[0m
+[ALPHA_X13_BURST13] [1;36m18:22:07[0m [1;33mx5[0m [1;36m#35[0m SKIP tension=[1;36m0.00000000[0m [0m| momentum_too_small [1;31mconf=0.2622[0m
+[ALPHA_X13_BURST13] [1;36m18:22:16[0m [1;33mx5[0m [1;36m#36[0m SKIP tension=[1;36m0.00000000[0m [0m| momentum_too_small [1;31mconf=0.2574[0m
+[ALPHA_X13_BURST13] [1;36m18:22:25[0m [1;33mx5[0m [1;36m#37[0m SKIP tension=[1;36m0.00000000[0m [0m| momentum_too_small [1;31mconf=0.2546[0m
+[BETA_X5] [1;36mentry=18:22:16[0m [1;33mx3[0m [1;36m#34[0m [1;33mSELL[0m tension=[1;32m1.20968024[0m hold=[1;36m7[0ms sec=[1;36m7[0m [0m| exit=63287.30000000 [1;32mconf=0.8746[0m [1;36mexit_time=18:22:24[0m [1;33mpnl=-0.00000000 bps=-0.00000000 pct=-0.00000000% total=0.12014[0m
+[ALPHA_X13_BURST13] shockwave alpha->beta until_cycle=48
+[ALPHA_X13_BURST13] [1;33mSWARM shockwave[0m [0m| alpha -> neighbor (fluid_exit_inversion)[0m
+[ALPHA_X13_BURST13] [1;36mCycle 38[0m [1;32mSOFT anomaly[0m [1;33m| pnl_abs=0.36598000 > 0.02500000[0m
+[ALPHA_X13_BURST13] [1;36mentry=18:22:36[0m [1;33mx5[0m [1;36m#38[0m [1;31mBUY[0m tension=[1;31m2.31021176[0m hold=[1;36m6[0ms sec=[1;36m6[0m [0m| exit=63287.30000000 [1;32mconf=0.8637[0m [1;36mexit_time=18:22:42[0m [1;31mpnl=-0.36598000 bps=-0.91637161 pct=-0.00916372% total=-0.24584000000000003[0m
+[BETA_X5] [1;36mentry=18:22:37[0m [1;33mx3[0m [1;36m#35[0m [1;32mSELL[0m tension=[1;31m2.31021549[0m hold=[1;36m7[0ms sec=[1;36m7[0m [0m| exit=63287.30000000 [1;32mconf=0.8637[0m [1;36mexit_time=18:22:45[0m [1;32mpnl=0.02204000 bps=0.45820680 pct=0.00458207% total=-0.22380000000000003[0m
+[ALPHA_X13_BURST13] [1;36m18:22:51[0m [1;33mx5[0m [1;36m#39[0m SKIP tension=[1;36m0.00000000[0m [0m| momentum_too_small [1;31mconf=0.2723[0m
+[ALPHA_X13_BURST13] [1;36m18:22:59[0m [1;33mx5[0m [1;36m#40[0m SKIP tension=[1;36m0.00000000[0m [0m| momentum_too_small [1;31mconf=0.2868[0m
+[BETA_X5] [1;36mCycle 36[0m [1;32mSOFT anomaly[0m [1;33m| pnl_abs=0.06862000 > 0.02500000[0m
+[BETA_X5] [1;36mentry=18:22:58[0m [1;33mx3[0m [1;36m#36[0m [1;32mSELL[0m tension=[1;31m2.61230762[0m hold=[1;36m5[0ms sec=[1;36m5[0m [0m| exit=63290.20000000 [1;33mconf=0.5558[0m [1;36mexit_time=18:23:03[0m [1;32mpnl=0.06862000 bps=2.30630221 pct=0.02306302% total=-0.15518000000000004[0m
+[ALPHA_X13_BURST13] [1;36m18:23:07[0m [1;33mx5[0m [1;36m#41[0m SKIP tension=[1;36m0.00001664[0m [0m| momentum_too_small [1;31mconf=0.0[0m
+[BETA_X5] [1;36m18:23:13[0m [1;33mx3[0m [1;36m#37[0m SKIP tension=[1;36m0.00000873[0m [0m| momentum_too_small [1;31mconf=0.0[0m
+[ALPHA_X13_BURST13] [1;36m18:23:15[0m [1;33mx5[0m [1;36m#42[0m SKIP tension=[1;36m0.00000000[0m [0m| momentum_too_small [1;31mconf=0.2626[0m
+[BETA_X5] [1;36m18:23:20[0m [1;33mx3[0m [1;36m#38[0m SKIP tension=[1;36m0.00000000[0m [0m| momentum_too_small [1;31mconf=0.2698[0m
+[ALPHA_X13_BURST13] [1;36m18:23:23[0m [1;33mx5[0m [1;36m#43[0m SKIP tension=[1;33m0.85586947[0m [0m| wall_not_collapsed
+[BETA_X5] [1;36m18:23:28[0m [1;33mx3[0m [1;36m#39[0m SKIP tension=[1;36m0.00000000[0m [0m| momentum_too_small [1;31mconf=0.2691[0m
+[ALPHA_X13_BURST13] [1;36m18:23:31[0m [1;33mx5[0m [1;36m#44[0m SKIP tension=[1;36m0.00001342[0m [0m| momentum_too_small [1;31mconf=0.0[0m
+[BETA_X5] [1;36m18:23:35[0m [1;33mx3[0m [1;36m#40[0m SKIP tension=[1;36m0.00000000[0m [0m| momentum_too_small [1;31mconf=0.18[0m
+[ALPHA_X13_BURST13] [1;36m18:23:38[0m [1;33mx5[0m [1;36m#45[0m SKIP tension=[1;36m0.00068060[0m [0m| momentum_too_small [1;31mconf=0.0008[0m
+[BETA_X5] [1;36m18:23:42[0m [1;33mx3[0m [1;36m#41[0m SKIP tension=[1;36m0.59180191[0m [0m| wall_not_collapsed
+[ALPHA_X13_BURST13] [1;36m18:23:46[0m [1;33mx5[0m [1;36m#46[0m SKIP tension=[1;36m0.17674592[0m [0m| direction_unclear [1;31mconf=0.2463[0m
+[BETA_X5] [1;36m18:23:50[0m [1;33mx3[0m [1;36m#42[0m SKIP tension=[1;36m0.41619058[0m [0m| wall_not_collapsed
+[ALPHA_X13_BURST13] [1;36m18:23:54[0m [1;33mx5[0m [1;36m#47[0m SKIP tension=[1;36m0.00001083[0m [0m| momentum_too_small [1;31mconf=0.0[0m
+[BETA_X5] [1;36m18:23:58[0m [1;33mx3[0m [1;36m#43[0m SKIP tension=[1;36m0.00000000[0m [0m| momentum_too_small [1;31mconf=0.2353[0m
+[ALPHA_X13_BURST13] [1;36m18:24:02[0m [1;33mx5[0m [1;36m#48[0m SKIP tension=[1;36m0.00002115[0m [0m| momentum_too_small [1;31mconf=0.0[0m
+[ALPHA_X13_BURST13] [1;36m18:24:10[0m [1;33mx5[0m [1;36m#49[0m SKIP tension=[1;36m0.00001083[0m [0m| momentum_too_small [1;31mconf=0.0[0m
+[BETA_X5] [1;36mentry=18:24:09[0m [1;33mx3[0m [1;36m#44[0m [1;33mSELL[0m tension=[1;32m1.71162859[0m hold=[1;36m6[0ms sec=[1;36m6[0m [0m| exit=63298.90000000 [1;33mconf=0.6723[0m [1;36mexit_time=18:24:15[0m [1;33mpnl=-0.00000000 bps=-0.00000000 pct=-0.00000000% total=-0.15518000000000004[0m
+[ALPHA_X13_BURST13] [1;36m18:24:18[0m [1;33mx5[0m [1;36m#50[0m SKIP tension=[1;33m0.94683583[0m [0m| wall_not_collapsed
+[BETA_X5] [1;36m18:24:24[0m [1;33mx3[0m [1;36m#45[0m SKIP tension=[1;36m0.00000000[0m [0m| momentum_too_small [1;31mconf=0.2353[0m
+[ALPHA_X13_BURST13] [1;36m18:24:26[0m [1;33mx5[0m [1;36m#51[0m SKIP tension=[1;36m0.00097795[0m [0m| momentum_too_small [1;31mconf=0.0014[0m
+[BETA_X5] [1;36m18:24:32[0m [1;33mx3[0m [1;36m#46[0m SKIP tension=[1;36m0.00002270[0m [0m| momentum_too_small [1;31mconf=0.0[0m
+[ALPHA_X13_BURST13] [1;36m18:24:33[0m [1;33mx5[0m [1;36m#52[0m SKIP tension=[1;33m0.85637070[0m [0m| wall_not_collapsed
+[BETA_X5] [1;36m18:24:40[0m [1;33mx3[0m [1;36m#47[0m SKIP tension=[1;36m0.00004994[0m [0m| momentum_too_small [1;31mconf=0.0001[0m
+[ALPHA_X13_BURST13] [1;36m18:24:41[0m [1;33mx5[0m [1;36m#53[0m SKIP tension=[1;36m0.72724311[0m [0m| wall_not_collapsed
+[BETA_X5] [1;36m18:24:47[0m [1;33mx3[0m [1;36m#48[0m SKIP tension=[1;36m0.00684696[0m [0m| momentum_too_small [1;31mconf=0.0113[0m
+[ALPHA_X13_BURST13] [1;36m18:24:49[0m [1;33mx5[0m [1;36m#54[0m SKIP tension=[1;36m0.00003187[0m [0m| momentum_too_small [1;31mconf=0.0[0m
+[BETA_X5] [1;36m18:24:55[0m [1;33mx3[0m [1;36m#49[0m SKIP tension=[1;36m0.00001626[0m [0m| momentum_too_small [1;31mconf=0.0[0m
+[ALPHA_X13_BURST13] [1;36m18:24:56[0m [1;33mx5[0m [1;36m#55[0m SKIP tension=[1;36m0.76980425[0m [0m| wall_not_collapsed
+[ALPHA_X13_BURST13] [1;36m18:25:04[0m [1;33mx5[0m [1;36m#56[0m SKIP tension=[1;36m0.33900148[0m [0m| wall_not_collapsed
+[ALPHA_X13_BURST13] [1;36m18:25:12[0m [1;33mx5[0m [1;36m#57[0m SKIP tension=[1;33m0.85638304[0m [0m| wall_not_collapsed
+[BETA_X5] shockwave beta->alpha until_cycle=60
+[BETA_X5] [1;33mSWARM shockwave[0m [0m| beta -> neighbor (fluid_exit_inversion)[0m
+[BETA_X5] [1;36mCycle 50[0m [1;32mSOFT anomaly[0m [1;33m| pnl_abs=0.16074000 > 0.02500000[0m
+[BETA_X5] [1;36mentry=18:25:07[0m [1;33mx3[0m [1;36m#50[0m [1;31mSELL[0m tension=[1;31m5.04930844[0m hold=[1;36m6[0ms sec=[1;36m6[0m [0m| exit=63315.50000000 [1;33mconf=0.6298[0m [1;36mexit_time=18:25:13[0m [1;31mpnl=-0.16074000 bps=-5.40444017 pct=-0.05404440% total=-0.31592000000000003[0m
+[ALPHA_X13_BURST13] [1;36m18:25:20[0m [1;33mx5[0m [1;36m#58[0m SKIP tension=[1;32m1.50351506[0m [0m| spread_too_wide [1;33mconf=0.5[0m
+[BETA_X5] [1;36m18:25:22[0m [1;33mx3[0m [1;36m#51[0m SKIP tension=[1;36m0.00000000[0m [0m| momentum_too_small [1;31mconf=0.2609[0m
+[ALPHA_X13_BURST13] [1;36m18:25:28[0m [1;33mx5[0m [1;36m#59[0m SKIP tension=[1;36m0.00001752[0m [0m| spread_too_wide [1;31mconf=0.0[0m
+[BETA_X5] [1;36m18:25:31[0m [1;33mx3[0m [1;36m#52[0m SKIP tension=[1;33m0.96705365[0m [0m| wall_not_collapsed
+[ALPHA_X13_BURST13] [1;36m18:25:36[0m [1;33mx5[0m [1;36m#60[0m SKIP tension=[1;36m0.00000000[0m [0m| spread_too_wide [1;31mconf=0.0[0m
+[BETA_X5] [1;36m18:25:38[0m [1;33mx3[0m [1;36m#53[0m SKIP tension=[1;36m0.79076987[0m [0m| wall_not_collapsed
+[BETA_X5] [1;36m18:25:46[0m [1;33mx3[0m [1;36m#54[0m SKIP tension=[1;36m0.00006162[0m [0m| momentum_too_small [1;31mconf=0.0001[0m
+[BETA_X5] [1;36m18:25:54[0m [1;33mx3[0m [1;36m#55[0m SKIP tension=[1;36m0.00002317[0m [0m| momentum_too_small [1;31mconf=0.0[0m
+[ALPHA_X13_BURST13] [1;36mentry=18:25:47[0m [1;33mx5[0m [1;36m#61[0m [1;33mBUY[0m tension=[1;32m1.03736682[0m hold=[1;36m8[0ms sec=[1;36m8[0m [0m| exit=63315.50000000 [1;33mconf=0.6752[0m [1;36mexit_time=18:25:55[0m [1;33mpnl=0.00000000 bps=0.00000000 pct=0.00000000% total=-0.31592000000000003[0m
+[ALPHA_X13_BURST13] [1;36m18:26:06[0m [1;33mx5[0m [1;36m#62[0m SKIP tension=[1;36m0.00000000[0m [0m| momentum_too_small [1;31mconf=0.2377[0m
+[BETA_X5] [1;36mCycle 56[0m [1;32mSOFT anomaly[0m [1;33m| pnl_abs=0.04559000 > 0.02500000[0m
+[BETA_X5] [1;36mentry=18:26:05[0m [1;33mx3[0m [1;36m#56[0m [1;32mSELL[0m tension=[1;31m3.41559540[0m hold=[1;36m5[0ms sec=[1;36m5[0m [0m| exit=63283.00000000 [1;32mconf=0.8223[0m [1;36mexit_time=18:26:10[0m [1;32mpnl=0.04559000 bps=1.53256221 pct=0.01532562% total=-0.27033000000000007[0m
+[ALPHA_X13_BURST13] [1;36m18:26:14[0m [1;33mx5[0m [1;36m#63[0m SKIP tension=[1;36m0.00000000[0m [0m| momentum_too_small [1;31mconf=0.2377[0m
+[BETA_X5] [1;36m18:26:20[0m [1;33mx3[0m [1;36m#57[0m SKIP tension=[1;36m0.00000501[0m [0m| spread_too_wide [1;31mconf=0.0[0m
+[ALPHA_X13_BURST13] [1;36m18:26:22[0m [1;33mx5[0m [1;36m#64[0m SKIP tension=[1;36m0.00000000[0m [0m| spread_too_wide [1;31mconf=0.0[0m
+[ALPHA_X13_BURST13] [1;36m18:26:31[0m [1;33mx5[0m [1;36m#65[0m SKIP tension=[1;36m0.00046431[0m [0m| momentum_too_small [1;31mconf=0.0008[0m
+[BETA_X5] [1;36mCycle 58[0m [1;32mSOFT anomaly[0m [1;33m| pnl_abs=0.07238000 > 0.02500000[0m
+[BETA_X5] [1;36mentry=18:26:32[0m [1;33mx3[0m [1;36m#58[0m [1;32mSELL[0m tension=[1;32m1.69596613[0m hold=[1;36m5[0ms sec=[1;36m5[0m [0m| exit=63240.80000000 [1;32mconf=0.9911[0m [1;36mexit_time=18:26:37[0m [1;32mpnl=0.07238000 bps=2.43454397 pct=0.02434544% total=-0.19795000000000004[0m
+[BETA_X5] [1;36m18:26:46[0m [1;33mx3[0m [1;36m#59[0m SKIP tension=[1;36m0.00009650[0m [0m| momentum_too_small [1;31mconf=0.0002[0m
+[ALPHA_X13_BURST13] [1;36mCycle 66[0m [1;32mSOFT anomaly[0m [1;33m| pnl_abs=0.02844000 > 0.02500000[0m
+[ALPHA_X13_BURST13] [1;36mentry=18:26:42[0m [1;33mx5[0m [1;36m#66[0m [1;32mBUY[0m tension=[1;31m3.37981051[0m hold=[1;36m6[0ms sec=[1;36m6[0m [0m| exit=63241.70000000 [1;32mconf=0.9911[0m [1;36mexit_time=18:26:48[0m [1;32mpnl=0.02844000 bps=0.14231319 pct=0.00142313% total=-0.16951000000000002[0m
+[BETA_X5] [1;36m18:26:54[0m [1;33mx3[0m [1;36m#60[0m SKIP tension=[1;36m0.00007453[0m [0m| momentum_too_small [1;31mconf=0.0001[0m
+[ALPHA_X13_BURST13] [1;36m18:26:57[0m [1;33mx5[0m [1;36m#67[0m SKIP tension=[1;36m0.03127148[0m [0m| direction_unclear [1;31mconf=0.0517[0m
+[BETA_X5] [1;36m18:27:02[0m [1;33mx3[0m [1;36m#61[0m SKIP tension=[1;36m0.00002380[0m [0m| momentum_too_small [1;31mconf=0.0[0m
+[ALPHA_X13_BURST13] [1;36mentry=18:27:09[0m [1;33mx5[0m [1;36m#68[0m [1;32mBUY[0m tension=[1;32m1.59617830[0m hold=[1;36m5[0ms sec=[1;36m5[0m [0m| exit=63241.50000000 [1;32mconf=0.9891[0m [1;36mexit_time=18:27:15[0m [1;32mpnl=0.02212000 bps=0.11068804 pct=0.00110688% total=-0.14739000000000005[0m
+[BETA_X5] shockwave beta->alpha until_cycle=72
+[BETA_X5] [1;33mSWARM shockwave[0m [0m| beta -> neighbor (shock_inversion_stop)[0m
+[BETA_X5] [1;36mentry=18:27:14[0m [1;33mx3[0m [1;36m#62[0m [1;31mSELL[0m tension=[1;31m9.85621131[0m hold=[1;36m6[0ms sec=[1;36m6[0m [0m| exit=63241.40000000 [1;32mconf=0.998[0m [1;36mexit_time=18:27:20[0m [1;31mpnl=-0.00376000 bps=-0.12650101 pct=-0.00126501% total=-0.15115000000000006[0m
+[ALPHA_X13_BURST13] [1;36m18:27:24[0m [1;33mx5[0m [1;36m#69[0m SKIP tension=[1;36m0.00000000[0m [0m| momentum_too_small [1;31mconf=0.3424[0m
+[BETA_X5] [1;36m18:27:29[0m [1;33mx3[0m [1;36m#63[0m SKIP tension=[1;36m0.00004176[0m [0m| momentum_too_small [1;31mconf=0.0001[0m
+[ALPHA_X13_BURST13] [1;36m18:27:32[0m [1;33mx5[0m [1;36m#70[0m SKIP tension=[1;36m0.00000000[0m [0m| momentum_too_small [1;31mconf=0.3424[0m
+[BETA_X5] [1;36m18:27:37[0m [1;33mx3[0m [1;36m#64[0m SKIP tension=[1;36m0.00000852[0m [0m| momentum_too_small [1;31mconf=0.0[0m
+[ALPHA_X13_BURST13] [1;36m18:27:40[0m [1;33mx5[0m [1;36m#71[0m SKIP tension=[1;36m0.00000000[0m [0m| momentum_too_small [1;31mconf=0.3424[0m
+[ALPHA_X13_BURST13] [1;36m18:27:47[0m [1;33mx5[0m [1;36m#72[0m SKIP tension=[1;36m0.00006147[0m [0m| momentum_too_small [1;31mconf=0.0001[0m
+[BETA_X5] shockwave beta->alpha until_cycle=75
+[BETA_X5] [1;33mSWARM shockwave[0m [0m| beta -> neighbor (shock_inversion_stop)[0m
+[ALPHA_X13_BURST13] [1;36m18:27:55[0m [1;33mx5[0m [1;36m#73[0m SKIP tension=[1;36m0.00006892[0m [0m| momentum_too_small [1;31mconf=0.0001[0m
+[BETA_X5] [1;36mentry=18:27:48[0m [1;33mx3[0m [1;36m#65[0m [1;31mSELL[0m tension=[1;32m1.34471114[0m hold=[1;36m6[0ms sec=[1;36m6[0m [0m| exit=63241.70000000 [1;32mconf=0.9891[0m [1;36mexit_time=18:27:54[0m [1;31mpnl=-0.00517000 bps=-0.17393889 pct=-0.00173939% total=-0.15632000000000007[0m
+[ALPHA_X13_BURST13] [1;36m18:28:03[0m [1;33mx5[0m [1;36m#74[0m SKIP tension=[1;36m0.00013226[0m [0m| momentum_too_small [1;31mconf=0.0002[0m
+[BETA_X5] [1;36m18:28:04[0m [1;33mx3[0m [1;36m#66[0m SKIP tension=[1;36m0.00013226[0m [0m| momentum_too_small [1;31mconf=0.0002[0m
+[ALPHA_X13_BURST13] [1;36m18:28:11[0m [1;33mx5[0m [1;36m#75[0m SKIP tension=[1;36m0.00000000[0m [0m| momentum_too_small [1;31mconf=0.2705[0m
+[BETA_X5] [1;36m18:28:11[0m [1;33mx3[0m [1;36m#67[0m SKIP tension=[1;36m0.00001677[0m [0m| momentum_too_small [1;31mconf=0.0[0m
+[BETA_X5] [1;36m18:28:19[0m [1;33mx3[0m [1;36m#68[0m SKIP tension=[1;36m0.00000221[0m [0m| momentum_too_small [1;31mconf=0.0[0m
+[ALPHA_X13_BURST13] [1;36m18:28:19[0m [1;33mx5[0m [1;36m#76[0m SKIP tension=[1;36m0.00000221[0m [0m| momentum_too_small [1;31mconf=0.0[0m
+[ALPHA_X13_BURST13] [1;36mentry=18:28:31[0m [1;33mx5[0m [1;36m#77[0m [1;33mBUY[0m tension=[1;32m1.21180331[0m hold=[1;36m6[0ms sec=[1;36m6[0m [0m| exit=63315.50000000 [1;32mconf=0.9398[0m [1;36mexit_time=18:28:37[0m [1;33mpnl=0.00000000 bps=0.00000000 pct=0.00000000% total=-0.15632000000000007[0m
+[ALPHA_X13_BURST13] [1;36m18:28:46[0m [1;33mx5[0m [1;36m#78[0m SKIP tension=[1;36m0.43442558[0m [0m| wall_not_collapsed
+[ALPHA_X13_BURST13] [1;36m18:28:54[0m [1;33mx5[0m [1;36m#79[0m SKIP tension=[1;36m0.00000664[0m [0m| momentum_too_small [1;31mconf=0.0[0m
+[ALPHA_X13_BURST13] [1;36m18:29:02[0m [1;33mx5[0m [1;36m#80[0m SKIP tension=[1;36m0.00017885[0m [0m| momentum_too_small [1;31mconf=0.0003[0m
+[ALPHA_X13_BURST13] [1;36m18:29:10[0m [1;33mx5[0m [1;36m#81[0m SKIP tension=[1;36m0.00001160[0m [0m| momentum_too_small [1;31mconf=0.0[0m
+[ALPHA_X13_BURST13] [1;36m18:29:18[0m [1;33mx5[0m [1;36m#82[0m SKIP tension=[1;36m0.00004640[0m [0m| momentum_too_small [1;31mconf=0.0[0m
+[ALPHA_X13_BURST13] [1;36m18:29:25[0m [1;33mx5[0m [1;36m#83[0m SKIP tension=[1;36m0.00009541[0m [0m| momentum_too_small [1;31mconf=0.0001[0m
+[ALPHA_X13_BURST13] [1;36m18:29:33[0m [1;33mx5[0m [1;36m#84[0m SKIP tension=[1;36m0.00003900[0m [0m| momentum_too_small [1;31mconf=0.0[0m
+[ALPHA_X13_BURST13] [1;36m18:29:41[0m [1;33mx5[0m [1;36m#85[0m SKIP tension=[1;36m0.00006101[0m [0m| momentum_too_small [1;31mconf=0.0001[0m
+[ALPHA_X13_BURST13] [1;36m18:29:49[0m [1;33mx5[0m [1;36m#86[0m SKIP tension=[1;36m0.00207145[0m [0m| momentum_too_small [1;31mconf=0.0019[0m
+[ALPHA_X13_BURST13] [1;36m18:29:59[0m [1;33mx5[0m [1;36m#87[0m SKIP tension=[1;36m0.00004066[0m [0m| momentum_too_small [1;31mconf=0.0[0m
+[ALPHA_X13_BURST13] [1;36m18:30:07[0m [1;33mx5[0m [1;36m#88[0m SKIP tension=[1;36m0.00002179[0m [0m| momentum_too_small [1;31mconf=0.0[0m
+[ALPHA_X13_BURST13] [1;36m18:30:16[0m [1;33mx5[0m [1;36m#89[0m SKIP tension=[1;36m0.00436017[0m [0m| momentum_too_small [1;31mconf=0.0037[0m
+[ALPHA_X13_BURST13] [1;36m18:30:24[0m [1;33mx5[0m [1;36m#90[0m SKIP tension=[1;36m0.00003572[0m [0m| momentum_too_small [1;31mconf=0.0[0m
+[ALPHA_X13_BURST13] [1;36m18:30:32[0m [1;33mx5[0m [1;36m#91[0m SKIP tension=[1;36m0.00674153[0m [0m| momentum_too_small [1;31mconf=0.008[0m
+[ALPHA_X13_BURST13] [1;36m18:30:40[0m [1;33mx5[0m [1;36m#92[0m SKIP tension=[1;36m0.00002742[0m [0m| momentum_too_small [1;31mconf=0.0[0m
+[ALPHA_X13_BURST13] [1;36m18:30:48[0m [1;33mx5[0m [1;36m#93[0m SKIP tension=[1;36m0.00001662[0m [0m| momentum_too_small [1;31mconf=0.0[0m
+[ALPHA_X13_BURST13] [1;36m18:30:57[0m [1;33mx5[0m [1;36m#94[0m SKIP tension=[1;36m0.00253419[0m [0m| momentum_too_small [1;31mconf=0.003[0m
+[ALPHA_X13_BURST13] [1;36m18:31:05[0m [1;33mx5[0m [1;36m#95[0m SKIP tension=[1;36m0.00065093[0m [0m| momentum_too_small [1;31mconf=0.0008[0m
+WATCHDOG: master.pid absent — watchdog stop
+WATCHDOG: master.pid absent — watchdog stop

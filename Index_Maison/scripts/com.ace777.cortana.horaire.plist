@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  Cortana résumé horaire (indices + sentiment).
+  Install (une fois) :
+    mkdir -p ~/Library/LaunchAgents
+    cp ~/ace777-test-day1/Index_Maison/scripts/com.ace777.cortana.horaire.plist ~/Library/LaunchAgents/
+    launchctl unload ~/Library/LaunchAgents/com.ace777.cortana.horaire.plist 2>/dev/null || true
+    launchctl load ~/Library/LaunchAgents/com.ace777.cortana.horaire.plist
+
+  Stop :
+    launchctl unload ~/Library/LaunchAgents/com.ace777.cortana.horaire.plist
+
+  Test immédiat :
+    ~/ace777-test-day1/Index_Maison/scripts/cortana_horaire.sh
+-->
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.ace777.cortana.horaire</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/bin/bash</string>
+    <string>/Users/christophe/ace777-test-day1/Index_Maison/scripts/cortana_horaire.sh</string>
+  </array>
+  <key>StartInterval</key>
+  <integer>3600</integer>
+  <key>RunAtLoad</key>
+  <true/>
+  <key>StandardOutPath</key>
+  <string>/Users/christophe/ace777-test-day1/Index_Maison/thermo/cortana_horaire_launchd.out</string>
+  <key>StandardErrorPath</key>
+  <string>/Users/christophe/ace777-test-day1/Index_Maison/thermo/cortana_horaire_launchd.err</string>
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>CORTANA_HORAIRE_SAY</key>
+    <string>1</string>
+  </dict>
+</dict>
+</plist>

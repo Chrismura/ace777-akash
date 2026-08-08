@@ -1,0 +1,40 @@
+=== HULK PAPER v1.5 — mise→2×→bag | cooldown stop | skip RED veille ===
+pairs=XRPUSDT,HBARUSDT,QAITUSDT,RIZEUSDT,ZBCNUSDT,WUSDT,REDUSDT,CCUSDT,PYTHUSDT,BIOUSDT,KITEUSDT,TELUSDT,CHIPUSDT,RWAINCUSDT,EDELUSDT
+MISE_BASE=20.0$  SEED=ON 20.0$  STAKE_OUT=2×→sell 50%  BAG crash−20%→90%  lent−8% DCA  COMPOUND=ON POLL=20s
+GATES: STOP_COOLDOWN=2h  VEILLE_SKIP_RED=ON  window=30m  cache=/Users/christophe/ace777-test-day1/hulk-mexc/runs/.hulk_stop_cache.json  status=/Users/christophe/ace777-test-day1/hulk-mexc/runs/.veille_status.json
+csv=/Users/christophe/ace777-test-day1/hulk-mexc/runs/PAPER_V1_20260729_080524.csv
+stop: Ctrl+C ou touch /Users/christophe/ace777-test-day1/hulk-mexc/STOP_PAPER
+ACE NUAGE genesis non touché.
+Légende — logique mise → 2× → bag :
+  ■ BUY             = tu mises 100% (ex. 20$)
+  ■ STAKE_OUT       = ticket à 40$ → vend 50% (récupère la mise)
+  ■ BAG             = l'autre moitié = plus-value (maison)
+  ■ BAG DCA / CRASH = lent → DCA ; crash → vend 90%
+  ■ STOP trade      = coupe la mise si stop avant 2×
+  ■ CASH redeploy   = cash récupéré → rachat 100% si dip
+  ■ heartbeat       = cycle vivant
+  ■ radar           = régime + pos/bag/cash + vol
+
+Seuil 2× (simple) : mise 20$ → quand la position vaut 40$, tu vends la moitié.
+
+[2026-07-29T08:05:24Z] score régimes…
+  XRPUSDT      WATCH        cad=  2.8% r15=  11.4% dd15=  6.5% m6=  2.2% dip=4.0 rip=2.0
+               vol24=19.1M$ vx=1.48x [OK/liq] next_mise=20.00$
+               pos=FLAT
+               bag=—
+  HBARUSDT     WATCH        cad=  3.3% r15=  13.9% dd15=  7.7% m6=  1.5% dip=4.0 rip=2.0
+               vol24=199k$ vx=0.44x [DEAD/SMALL] next_mise=20.00$
+               pos=FLAT
+               bag=—
+  QAITUSDT     IMPULSE_WAIT cad=  7.7% r15= 100.4% dd15= 42.4% m6=  2.2% dip=4.0 rip=2.7
+               vol24=15k$ vx=0.71x [DEAD/SMALL] next_mise=20.00$
+               pos=FLAT
+               bag=—
+  RIZEUSDT     IMPULSE_WAIT cad= 10.0% r15=  71.6% dd15= 40.0% m6=  3.5% dip=5.02 rip=3.51
+               vol24=40k$ vx=0.82x [DRY/SMALL] next_mise=20.00$
+               pos=FLAT
+               bag=—
+  ZBCNUSDT     COOLING      cad=  5.7% r15=  29.9% dd15= 22.7% m6=  2.4% dip=4.0 rip=2.0
+               vol24=219k$ vx=0.95x [DRY/SMALL] next_mise=20.00$
+               pos=FLAT
+               bag=—

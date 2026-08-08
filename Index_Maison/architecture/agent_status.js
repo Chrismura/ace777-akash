@@ -1,0 +1,1 @@
+window.__AGENT_STATUS__ = {"updated": "2026-07-30T17:26Z", "on_air": "CURSOR", "agents": {"ACE": {"status": "RUNNING", "ts": "2026-07-30T17:26Z"}, "HULK": {"status": "RUNNING", "ts": "2026-07-30T17:26Z"}, "CURSOR": {"status": "ON_AIR", "ts": "2026-07-30T17:26Z"}, "KIMI": {"status": "ON_AIR", "ts": "2026-07-30T16:51Z"}}};

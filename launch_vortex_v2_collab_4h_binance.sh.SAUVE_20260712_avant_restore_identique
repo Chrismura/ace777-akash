@@ -1,0 +1,81 @@
+#!/bin/bash
+# === VORTEX V2 COLLAB — testnet 4H (Gemini architecture + Cursor impl) ===
+# Terminal 1 : ./launch_vortex_v2_collab_4h_binance.sh
+# Superviseur Vortex v2 : auto-démarré par le master (plus de T2 manuel)
+
+cd "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+_args=("$@")
+set --
+# shellcheck source=scripts/load_config.sh
+source ./scripts/load_config.sh vortex_v2_collab
+set -- "${_args[@]}"
+
+export RUN_DURATION="${RUN_DURATION:-04:00:00}"
+while [ "$#" -gt 0 ]; do
+  case "$1" in
+    --duration)
+      shift
+      export RUN_DURATION="${1:-04:00:00}"
+      ;;
+    *)
+      echo "Usage: $0 [--duration HH:MM:SS]"
+      exit 1
+      ;;
+  esac
+  shift || true
+done
+
+export CAFFEINATE_RUN="${CAFFEINATE_RUN:-TRUE}"
+export TEST_TAG_OVERRIDE="${TEST_TAG_OVERRIDE:-MASTER_VORTEX_V2_COLLAB_4H}"
+
+total_sec="$(ruby -e '
+  s=ARGV[0].to_s.strip
+  if s =~ /\A(\d+):([0-5]\d):([0-5]\d)\z/
+    puts $1.to_i*3600 + $2.to_i*60 + $3.to_i
+  else
+    puts 14400
+  end
+' -- "$RUN_DURATION")"
+
+echo "=== VORTEX V2 COLLAB TESTNET 4H ==="
+echo "Profil: ${ACE777_CONFIG_NAME} | VORTEX_V2_RADAR_PILOT=TRUE"
+echo "Superviseur: auto-attache au démarrage master"
+echo "Comparaison: canonique = launch_vide_froid_4h_binance.sh (Vortex OFF)"
+echo "Durée cible: ${RUN_DURATION} (${total_sec}s) | Auto-relance si arrêt prématuré sans STOP explicite"
+
+if [ "${CAFFEINATE_RUN}" = "TRUE" ] && command -v caffeinate >/dev/null 2>&1; then
+  caffeinate -is -w $$ >/dev/null 2>&1 &
+fi
+
+start_epoch="$(date -u +%s)"
+attempt=0
+while true; do
+  attempt=$((attempt + 1))
+  now_epoch="$(date -u +%s)"
+  elapsed=$((now_epoch - start_epoch))
+  remaining=$((total_sec - elapsed))
+  if [ "$remaining" -le 0 ]; then
+    echo "=== Durée cible atteinte (${elapsed}s écoulées) — fin. ==="
+    break
+  fi
+  remaining_hms="$(ruby -e 's=ARGV[0].to_i; printf("%02d:%02d:%02d", s/3600, (s%3600)/60, s%60)' -- "$remaining")"
+  echo "=== Session #${attempt} — reste ${remaining_hms} sur ${RUN_DURATION} ==="
+  ./launch_test_master_base_v8_6_fortress.sh --duration "$remaining_hms"
+  rc=$?
+
+  if [ -f STOP ]; then
+    echo "=== STOP détecté (arrêt manuel ou GLOBAL_STOP) — pas de relance. ==="
+    break
+  fi
+
+  now_epoch="$(date -u +%s)"
+  elapsed=$((now_epoch - start_epoch))
+  if [ "$elapsed" -ge "$total_sec" ]; then
+    echo "=== Durée cible atteinte (${elapsed}s écoulées) — fin. ==="
+    break
+  fi
+
+  echo "=== Session #${attempt} terminée tôt (rc=${rc}, ${elapsed}s/${total_sec}s écoulées) — relance automatique dans 5s. ==="
+  sleep 5
+done

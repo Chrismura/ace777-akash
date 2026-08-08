@@ -1,0 +1,95 @@
+---
+description: ACE777 — hygiène stérile avant tout run + protocole lancement (jamais lancer seul)
+alwaysApply: true
+---
+
+# ACE777 — Hygiène + protocole run
+
+## Règle d'or N°0 — HYGIÈNE AVANT TOUT DÉMARRAGE (loi)
+
+**Priorité absolue, sans négociation.** Avant analyse de relance, preflight, « GO », ou commande de run :
+
+1. **Purger** les parasites (process + `/tmp` + pid + RAM duo ACE777)
+2. **Hygiène Mac RAM** — `./scripts/hygiene_mac_ram.sh` (tue les `WebKit.WebContent` **orphelins ppid=1** ; jamais Cursor)
+3. **Vérifier** `./scripts/verif_sterilite.sh --pre-run` → `STERILE=OK` (exit 0)
+4. **Seulement ensuite** préparer / donner la commande
+
+**Jamais** dire « prêt à lancer » si `STERILE≠OK`.  
+**Jamais** lancer le trading à la place de Christophe — commande dans **son** terminal après OK.
+
+### Parasites typiques (se multiplient vite)
+
+| Type | Exemple |
+|------|---------|
+| Master / wrappers | `ace777_launch_v85_nuage_*.sh` |
+| Stream genesis | `ace777_stream_genesis_*.sh` |
+| Timer | `ruby -e sleep … STOP_ALPHA` |
+| Watchdog | `watchdog_ace777.sh` |
+| Caffeinate | `caffeinate … fortress` |
+| Tails | `tail -F runs/.NUAGE_*.raw.log` |
+| Pidfiles morts | `runs/*.pid`, `*wrapper*.pid`, `*genesis*.pid` |
+| RAM duo | `/tmp/ace777_ram_exchange/*`, `/tmp/alpha_heartbeat.txt` |
+| STOP fantômes / absents | `STOP`, `STOP_ALPHA`, `STOP_BETA` |
+| LIVE empilé | même `*_LIVE_COLOR.log` sur plusieurs boots |
+| Mac RAM | `WebKit.WebContent` orphelins (ppid=1), souvent Safari/Brave morts — **pas** Cursor |
+
+`stop_ace777_hard.sh` **seul ne suffit pas** toujours pour NUAGE — toujours le filet `pkill` ci-dessous.
+
+### Chaîne HYGIÈNE (obligatoire)
+
+```bash
+cd /Users/christophe/ace777-test-day1
+./stop_ace777_hard.sh 2>/dev/null || true
+pkill -9 -f 'ace777_launch_v85_nuage' 2>/dev/null || true
+pkill -9 -f 'launch_vide_froid_4h_binance_NUAGE' 2>/dev/null || true
+pkill -9 -f 'watchdog_ace777' 2>/dev/null || true
+pkill -9 -f 'caffeinate.*fortress' 2>/dev/null || true
+pkill -9 -f 'ace777_stream_genesis' 2>/dev/null || true
+pkill -9 -f 'tail -n 0 -F runs/\.NUAGE' 2>/dev/null || true
+pkill -9 -f 'tail -F runs/\.NUAGE' 2>/dev/null || true
+pkill -9 -f 'ruby -e sleep' 2>/dev/null || true
+# pidfiles (éviter glob zsh vide)
+find runs -maxdepth 1 -name '*.pid' -delete 2>/dev/null || true
+rm -f /tmp/alpha_heartbeat.txt
+rm -f /tmp/ace777_launch_v85_nuage_*.sh /tmp/ace777_stream_genesis_*.sh
+rm -f /tmp/go_usine_nuage_boot.log
+rm -rf /tmp/ace777_ram_exchange && mkdir -p /tmp/ace777_ram_exchange
+rm -f runs/.NUAGE*.raw.log 2>/dev/null || true
+touch STOP STOP_ALPHA STOP_BETA
+./scripts/hygiene_mac_ram.sh            # orphelins WebKit ppid=1 ; --check = lecture seule
+./scripts/verif_sterilite.sh --pre-run   # DOIT → STERILE=OK
+```
+
+**PASS :** `STERILE=OK` + 0 process ACE777/NUAGE + RAM duo vide + Mac sans orphelin WebKit lourd + champion `37fca367…`.
+
+**Mac RAM — règles :**
+- Cible : `WebKit.WebContent` **ppid=1** et **stale** (etime ≥ 30 min **ou** RSS ≥ ~100 Mo).
+- Les onglets frais Safari/Brave ne sont pas touchés.
+- **Interdit** : tuer Cursor / Renderer / Helper.
+- Si `approx_free_MB` reste sous ~200 après purge → signaler ; ne bloque pas `STERILE=OK` ACE777, mais le dire avant run.
+
+Réf longue : `plaintes/PROTOCOLE_STERILITE_BINAIRE_20260714.md`.
+
+---
+
+## Loi lancement
+
+1. **Jamais lancer** de trading sans **GO** explicite de Christophe.
+2. **Jamais** de run test autonome « pour vérifier ».
+3. Après hygiène OK : donner la commande — **Christophe** lance dans son terminal.
+4. Fin de run / stop : `./stop_ace777_hard.sh` + régénérer STATE/PnL (`./scripts/update_state_md.sh`) si fin timer sans rapport.
+5. Zone gelée sans GO moteur : `genesis_manifest.txt` (md5 `37fca367…`), masses/leviers.
+
+## Commande usine actuelle (après HYGIÈNE + GO)
+
+```bash
+cd /Users/christophe/ace777-test-day1 && ./GO_USINE_NUAGE.sh
+```
+
+Boot attendu : `INDEX SYNC: OFF` + `attente timer … — pas de fin précoce wrapper`.
+
+Variante durée : `./GO_USINE_NUAGE.sh 08:00:00` (pas 720h sans mandat explicite).
+
+## Post-stop
+
+`stop_ace777_hard.sh` → cleanup résidus. Agent doit l’exécuter sur demande stop / fin session — pas un `pkill` partiel seul.

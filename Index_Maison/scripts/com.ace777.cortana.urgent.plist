@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  Cortana URGENT poll (P3) — toutes les 10s.
+  Chaîne : cortana_watch.py (détecte) → cortana_thermo.py poll (parle).
+  Install:
+    cp …/com.ace777.cortana.urgent.plist ~/Library/LaunchAgents/
+    launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.ace777.cortana.urgent.plist
+  Test:
+    python3 …/cortana_watch.py --seed
+    python3 …/cortana_thermo.py alert "Test alerte Cortana"
+-->
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.ace777.cortana.urgent</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/bin/bash</string>
+    <string>/Users/christophe/ace777-test-day1/Index_Maison/scripts/cortana_urgent_poll.sh</string>
+  </array>
+  <key>StartInterval</key>
+  <integer>10</integer>
+  <key>RunAtLoad</key>
+  <true/>
+  <key>StandardOutPath</key>
+  <string>/Users/christophe/ace777-test-day1/Index_Maison/thermo/cortana_urgent_launchd.out</string>
+  <key>StandardErrorPath</key>
+  <string>/Users/christophe/ace777-test-day1/Index_Maison/thermo/cortana_urgent_launchd.err</string>
+</dict>
+</plist>

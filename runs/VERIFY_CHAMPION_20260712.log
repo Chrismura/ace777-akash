@@ -1,0 +1,49 @@
+=== CONFIG === name=vide_froid_vortex_v2_collab v=2026-07-10-v2.2.2-no-partner-halt BETA=200 ALPHA=800
+=== VORTEX V2 COLLAB TESTNET 4H ===
+Profil: vide_froid_vortex_v2_collab | VORTEX_V2_RADAR_PILOT=TRUE
+Superviseur: auto-attache au démarrage master
+Comparaison: canonique = launch_vide_froid_4h_binance.sh (Vortex OFF)
+Durée cible: 04:00:00 (14400s) | Auto-relance si arrêt prématuré sans STOP explicite
+=== Session #1 — reste 04:00:00 sur 04:00:00 ===
+=== V8.6 FORTRESS === MOM=0.96 WALL_DROP=0.065 GLOBAL_STOP=-45.00
+=== V8.5 IMPACT === MOM=0.96 WALL_DROP=6.500000% MASS=1.618 RADAR=0.85
+=== LLM GATE === enabled=TRUE fail_closed=TRUE timeout=3s model=qwen2.5-coder:1.5b
+=== DUO === require_sl=FALSE event_ttl=60s
+=== RADAR === BETA conf=0.30 | ALPHA conf=0.25
+=== VORTEX === TRUE v2_radar=TRUE
+=== V8.5 OVERRIDE === ./launch_test_master_base_v8_5_impact_GEMINI_TEST.sh
+INFO_CLES: testnet depuis /Users/christophe/.binance_testnet.env
+=== SUPERVISEUR VORTEX V2 === interval=18s log=runs/MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv
+Supervisor Vortex v2 pid=64636 → runs/vortex_control.json
+PREFLIGHT_OK: config vide_froid_vortex_v2_collab v2026-07-10-v2.2.2-no-partner-halt BETA=200 ALPHA=800
+PREFLIGHT_OK: fichiers moteur présents
+PREFLIGHT_OK: clés Binance testnet chargées
+PREFLIGHT_OK: Binance ping (testnet)
+PREFLIGHT_OK: Ollama + modèle qwen2.5-coder:1.5b
+PREFLIGHT_OK: supervisor Vortex v2 running (pid 64636)
+PREFLIGHT_OK: ruby 2.6.10
+
+=== PREFLIGHT OK === 0 avertissement(s)
+Pour arrêter: kill -9 -64584  (ou ./stop_ace777.sh)
+=== GEMINI_TEST launcher actif (original non modifié) ===
+=== MASTER_VORTEX_V2_COLLAB_4H ===
+Start UTC: 2026-07-12T12:22:36Z
+End UTC:   2026-07-12T16:22:36Z
+BETA x5 | ALPHA x13 | Masse 1.618->3.236 (alarm) | Trigger=-3bps/-0.80 | GlobalStop=-45.00 HALT | Lagrange+PhaseShift=ON
+[BETA_X5] [1;36m--- ACE777 STRICT CLONE FUTURES TESTNET ---[0m
+[BETA_X5] [1;32mV8 Resonance ON:[0m [1;36mimpulse_thr=0.96 dt_ms=64 aspiration=1.618@37.8deg void_lock=TRUE shock_exit=TRUE[0m
+[BETA_X5] [1;32mV8 Tension ON:[0m [1;36mwall_drop=6.5% dt_ms=64 filter=0.85 depth=20[0m
+[BETA_X5] [1;36mSymbol=BTCUSDT[0m [1;32mLeverage=3[0m [1;36mBuyUSDT=200 Orders=TRUE[0m
+Duo en marche. Logs: runs/MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv | runs/MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv
+[ALPHA_X13_BURST13] GEMINI_TEST ramp=gemini (x13 fixe dès cycle 1)
+STATE_OK: /Users/christophe/ace777-test-day1/runs/STATE.md (RUNNING running)
+[ALPHA_X13_BURST13] [1;36m--- ACE777 STRICT CLONE FUTURES TESTNET ---[0m
+[ALPHA_X13_BURST13] [1;36mLeverage ramp ON:[0m [1;36mstart=13 end=13 cycles=180[0m
+[ALPHA_X13_BURST13] [1;32mV8 Resonance ON:[0m [1;36mimpulse_thr=0.96 dt_ms=64 aspiration=1.618@37.8deg void_lock=TRUE shock_exit=TRUE[0m
+[ALPHA_X13_BURST13] [1;32mV8 Tension ON:[0m [1;36mwall_drop=6.5% dt_ms=64 filter=0.85 depth=20[0m
+[ALPHA_X13_BURST13] [1;36mSymbol=BTCUSDT[0m [1;32mLeverage=13[0m [1;36mBuyUSDT=800 Orders=TRUE[0m
+[ALPHA_X13_BURST13] [1;36m12:22:56[0m [1;32mx13[0m [1;36m#1[0m SKIP tension=[1;36m0.35923383[0m [0m| wall_not_collapsed
+[BETA_X5] [1;36mentry=12:22:53@64013.50000000[0m [1;33mx3[0m [1;36m#1[0m [1;32mSELL[0m tension=[1;32m1.37123081[0m hold=[1;36m7[0ms sec=[1;36m7[0m [0m| exit=64013.40000000 [1;32mconf=0.8438[0m [1;36mexit_time=12:23:00[0m [1;32mpnl=0.00151000 bps=0.01562170 pct=0.00015622% total=0.00151[0m
+[BETA_X5] [1;36m12:23:12[0m [1;33mx3[0m [1;36m#2[0m SKIP tension=[1;36m0.00000000[0m [0m| momentum_too_small [1;31mconf=0.342[0m
+./launch_vortex_v2_collab_4h_binance.sh: line 82: 64584 Killed: 9               ./launch_test_master_base_v8_6_fortress.sh --duration "$remaining_hms"
+=== STOP détecté (arrêt manuel ou GLOBAL_STOP) — pas de relance. ===

@@ -1,0 +1,21 @@
+=== Tue Jul 28 21:43:49 UTC 2026 fix4 minimal vault ===
+bak argv.json
+bak Preferences
+OK argv.json removed
+OK Preferences reset
+OK all caches cleared
+OK old .obsidian quarantined
+OK fresh .obsidian minimal
+OK LIGHT vault at /Users/christophe/Documents/Obsidian_ACE777_LIGHT
+       9
+ 40K	/Users/christophe/Documents/Obsidian_ACE777_LIGHT
+OK obsidian.json -> LIGHT open, main closed
+{"vaults": {"ace777light": {"path": "/Users/christophe/Documents/Obsidian_ACE777_LIGHT", "ts": 1785275033383, "open": true}, "d0e81da3ab6046e0": {"path": "/Users/christophe/Documents/Obsidian_ACE777", "ts": 1785275032383, "open": false}}}
+latest crash: /Users/christophe/Library/Logs/DiagnosticReports/Obsidian Helper (Renderer)-2026-07-28-234311.ips
+  "exception" : {"codes":"0x0000000000000001, 0x000000011da7ffb4","rawCodes":[1,4792516532],"type":"EXC_BREAKPOINT","signal":"SIGTRAP"},
+  "termination" : {"flags":0,"code":5,"namespace":"SIGNAL","indicator":"Trace\/BPT trap: 5","byProc":"exc handler","byPid":34339},
+DONE_FIX4
+
+>>> Ouvre Obsidian : il doit charger Obsidian_ACE777_LIGHT (petit).
+>>> Si STABLE : le problème était le gros vault.
+>>> Si SAUTE encore : Obsidian app / GPU Mac — on réinstalle ou on ouvre en safe mode.

@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Filtre Suivi Info (comptes → tableau vivant → attention + mémoire + option voix)
+set -euo pipefail
+ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+# Coffre unique Obsidian
+[[ -f "$ROOT/obsidian.env" ]] && source "$ROOT/obsidian.env"
+exec /usr/bin/python3 "$ROOT/suivi_check.py" "$@"

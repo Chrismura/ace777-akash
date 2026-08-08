@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+# Lit ATTENTION_VOCALE et parle (proxy Cortana / say)
+set -euo pipefail
+ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+[[ -f "$ROOT/obsidian.env" ]] && source "$ROOT/obsidian.env"
+WS="/Users/christophe/ace777-test-day1/Index_Maison/A_Mon_Attention/ATTENTION_VOCALE.md"
+COF="${OBSIDIAN_DIR:-/Users/christophe/Documents/Obsidian_ACE777}/Swarm_Bus/10_ATTENTION_VOCALE.md"
+FILE="$WS"
+# Préférer coffre si lisible et plus récent / READY
+if [[ -f "$COF" ]] && grep -q 'statut: READY' "$COF" 2>/dev/null; then
+  FILE="$COF"
+elif [[ -f "$COF" ]] && [[ ! -f "$WS" ]]; then
+  FILE="$COF"
+fi
+[[ -f "$FILE" ]] || { echo "Pas de fichier vocale"; exit 1; }
+RESUME=$(awk '/^## Dernier résumé/{getline; while(getline && !/^## /){print}; exit}' "$FILE" | sed 's/^> //' | tr '\n' ' ')
+[[ -n "${RESUME// /}" ]] || RESUME=$(grep -A1 'Dernier résumé' "$FILE" | tail -1 | sed 's/^> //')
+STATUT=$(grep -E '^- statut:' "$FILE" | head -1 | sed 's/.*: *//')
+echo "🎙️ [$STATUT] $RESUME (source: $FILE)"
+say -v Thomas "Veille Index. $RESUME" || say "Veille Index. $RESUME"
+# Repasse IDLE côté workspace après lecture
+if [[ -f "$WS" ]]; then
+  /usr/bin/python3 - "$WS" <<'PY'
+import re, sys
+from pathlib import Path
+p = Path(sys.argv[1])
+t = p.read_text(encoding="utf-8")
+t2 = re.sub(r"(?m)^- statut:.*$", "- statut: IDLE", t, count=1)
+if t2 != t:
+    p.write_text(t2, encoding="utf-8")
+PY
+fi

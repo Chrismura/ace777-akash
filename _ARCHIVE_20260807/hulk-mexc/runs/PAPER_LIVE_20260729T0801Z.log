@@ -1,0 +1,81 @@
+=== HULK PAPER v1.5 — mise→2×→bag | cooldown stop | skip RED veille ===
+pairs=XRPUSDT,HBARUSDT,QAITUSDT,RIZEUSDT,ZBCNUSDT,WUSDT,REDUSDT,CCUSDT,PYTHUSDT,BIOUSDT,KITEUSDT,TELUSDT,CHIPUSDT,RWAINCUSDT,EDELUSDT
+MISE_BASE=20.0$  SEED=ON 20.0$  STAKE_OUT=2×→sell 50%  BAG crash−20%→90%  lent−8% DCA  COMPOUND=ON POLL=20s
+GATES: STOP_COOLDOWN=2h  VEILLE_SKIP_RED=ON  window=30m  cache=/Users/christophe/ace777-test-day1/hulk-mexc/runs/.hulk_stop_cache.json  status=/Users/christophe/ace777-test-day1/hulk-mexc/runs/.veille_status.json
+csv=/Users/christophe/ace777-test-day1/hulk-mexc/runs/PAPER_V1_20260729_080134.csv
+stop: Ctrl+C ou touch /Users/christophe/ace777-test-day1/hulk-mexc/STOP_PAPER
+ACE NUAGE genesis non touché.
+Légende — logique mise → 2× → bag :
+  ■ BUY             = tu mises 100% (ex. 20$)
+  ■ STAKE_OUT       = ticket à 40$ → vend 50% (récupère la mise)
+  ■ BAG             = l'autre moitié = plus-value (maison)
+  ■ BAG DCA / CRASH = lent → DCA ; crash → vend 90%
+  ■ STOP trade      = coupe la mise si stop avant 2×
+  ■ CASH redeploy   = cash récupéré → rachat 100% si dip
+  ■ heartbeat       = cycle vivant
+  ■ radar           = régime + pos/bag/cash + vol
+
+Seuil 2× (simple) : mise 20$ → quand la position vaut 40$, tu vends la moitié.
+
+[2026-07-29T08:01:34Z] score régimes…
+  XRPUSDT      WATCH        cad=  2.8% r15=  11.4% dd15=  6.4% m6=  2.2% dip=4.0 rip=2.0
+               vol24=19.1M$ vx=1.46x [OK/liq] next_mise=20.00$
+               pos=FLAT
+               bag=—
+  HBARUSDT     WATCH        cad=  3.3% r15=  13.9% dd15=  7.6% m6=  1.5% dip=4.0 rip=2.0
+               vol24=198k$ vx=0.42x [DEAD/SMALL] next_mise=20.00$
+               pos=FLAT
+               bag=—
+  QAITUSDT     IMPULSE_WAIT cad=  7.7% r15= 100.4% dd15= 42.4% m6=  2.2% dip=4.0 rip=2.7
+               vol24=15k$ vx=0.67x [DEAD/SMALL] next_mise=20.00$
+               pos=FLAT
+               bag=—
+  RIZEUSDT     IMPULSE_WAIT cad= 10.0% r15=  71.6% dd15= 39.9% m6=  3.5% dip=5.02 rip=3.51
+               vol24=40k$ vx=0.80x [DEAD/SMALL] next_mise=20.00$
+               pos=FLAT
+               bag=—
+  ZBCNUSDT     COOLING      cad=  5.7% r15=  29.9% dd15= 22.7% m6=  2.4% dip=4.0 rip=2.0
+               vol24=219k$ vx=0.94x [DRY/SMALL] next_mise=20.00$
+               pos=FLAT
+               bag=—
+  WUSDT        WATCH        cad=  4.5% r15=  16.9% dd15= 13.4% m6=  3.7% dip=4.0 rip=2.0
+               vol24=192k$ vx=1.20x [DRY/SMALL] next_mise=20.00$
+               pos=FLAT
+               bag=—
+  REDUSDT      COOLING      cad=  4.0% r15=  28.2% dd15= 21.2% m6=  2.3% dip=4.0 rip=2.0
+               vol24=59k$ vx=0.83x [DRY/SMALL] next_mise=20.00$
+               pos=FLAT
+               bag=—
+  CCUSDT       COOLING      cad=  4.3% r15=  30.1% dd15= 19.0% m6=  4.0% dip=4.0 rip=2.0
+               vol24=124k$ vx=0.63x [DEAD/SMALL] next_mise=20.00$
+               pos=FLAT
+               bag=—
+  PYTHUSDT     COOLING      cad=  5.6% r15=  30.8% dd15= 20.8% m6=  3.7% dip=4.0 rip=2.0
+               vol24=335k$ vx=1.01x [DRY/SMALL] next_mise=20.00$
+               pos=FLAT
+               bag=—
+  BIOUSDT      COOLING      cad=  3.8% r15=  27.3% dd15= 20.1% m6=  2.3% dip=4.0 rip=2.0
+               vol24=61k$ vx=0.94x [DRY/SMALL] next_mise=20.00$
+               pos=FLAT
+               bag=—
+  KITEUSDT     COOLING      cad=  6.3% r15=  41.4% dd15= 28.3% m6=  6.1% dip=4.0 rip=2.21
+               vol24=60k$ vx=0.81x [DRY/SMALL] next_mise=20.00$
+               pos=FLAT
+               bag=—
+  TELUSDT      COOLING      cad=  6.5% r15=  34.0% dd15= 20.8% m6=  1.3% dip=4.0 rip=2.26
+               vol24=94k$ vx=0.93x [DRY/SMALL] next_mise=20.00$
+               pos=FLAT
+               bag=—
+  CHIPUSDT     IMPULSE_WAIT cad=  5.7% r15=  31.3% dd15= 16.8% m6=  9.3% dip=4.0 rip=2.0
+               vol24=89k$ vx=1.08x [DRY/SMALL] next_mise=20.00$
+               pos=FLAT
+               bag=—
+  RWAINCUSDT   IMPULSE_WAIT cad= 25.4% r15= 162.9% dd15= 33.9% m6=  2.6% dip=12.71 rip=8.9
+               vol24=21k$ vx=0.46x [DEAD/SMALL] next_mise=20.00$
+               pos=FLAT
+               bag=—
+  EDELUSDT     COOLING      cad=  8.3% r15= 101.4% dd15= 48.8% m6=  3.0% dip=4.13 rip=2.89
+               vol24=34k$ vx=0.67x [DEAD/SMALL] next_mise=20.00$
+               pos=FLAT
+               bag=—
+SEED inventaire 20.00$ → 2 paire(s) (10.00$ chacune) — réalisme vente baissière

@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ACE777 — Architecture</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+<script src="agent_status.js"></script>
+<style>
+  :root {
+    --ink: #070a0c;
+    --panel: #0d1418;
+    --line: #1e3a2f;
+    --acid: #39ff14;
+    --amber: #f5c518;
+    --amber-hot: #ff9f1a;
+    --danger: #ff3b3b;
+    --muted: #6a8a72;
+    --text: #d8ffe0;
+    --cold: #3ec7ff;
+    --hot: #ff6b2d;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    min-height: 100%;
+    background: var(--ink);
+    color: var(--text);
+    font-family: "Share Tech Mono", ui-monospace, monospace;
+  }
+  body {
+    background:
+      radial-gradient(ellipse 70% 50% at 50% 0%, #122018 0%, transparent 55%),
+      radial-gradient(ellipse 40% 35% at 15% 80%, #1a1008 0%, transparent 50%),
+      radial-gradient(ellipse 40% 35% at 85% 75%, #081820 0%, transparent 50%),
+      var(--ink);
+  }
+  .crt::before {
+    content: "";
+    pointer-events: none;
+    position: fixed; inset: 0; z-index: 50;
+    background: repeating-linear-gradient(
+      0deg,
+      rgba(0,0,0,0.12) 0px,
+      rgba(0,0,0,0.12) 1px,
+      transparent 2px,
+      transparent 4px
+    );
+    opacity: 0.28;
+  }
+
+  .shell {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 18px 20px 28px;
+    position: relative;
+    z-index: 1;
+  }
+
+  header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: end;
+    justify-content: space-between;
+    gap: 12px;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 12px;
+    margin-bottom: 18px;
+  }
+  .brand {
+    font-family: Orbitron, sans-serif;
+    font-weight: 800;
+    font-size: clamp(26px, 4.2vw, 42px);
+    letter-spacing: 0.04em;
+    color: var(--amber);
+    text-shadow: 0 0 18px rgba(245, 197, 24, 0.4);
+    line-height: 1;
+  }
+  .tagline {
+    color: var(--muted);
+    font-size: 13px;
+    margin-top: 6px;
+    max-width: 42ch;
+  }
+  .badge {
+    font-family: Orbitron, sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    color: var(--acid);
+    border: 1px solid var(--acid-dim, #1a7a0c);
+    border-color: #1a7a0c;
+    padding: 8px 12px;
+    align-self: center;
+  }
+
+  /* AGENT ON AIR */
+  .onair {
+    display: flex; align-items: center; gap: 10px;
+    border: 1px solid var(--line); background: rgba(13,20,24,.9);
+    padding: 8px 12px; min-width: 200px;
+  }
+  .onair .sprite {
+    width: 36px; height: 36px; border-radius: 4px;
+    display: grid; place-items: center; font-size: 20px;
+    border: 1px solid var(--amber);
+    box-shadow: 0 0 12px rgba(245,197,24,.35);
+    animation: onairPulse 1.4s ease-in-out infinite;
+  }
+  .onair.cursor .sprite { border-color: var(--amber); background: rgba(245,197,24,.12); }
+  .onair.kimi .sprite { border-color: var(--cold); background: rgba(62,199,255,.12);
+    box-shadow: 0 0 12px rgba(62,199,255,.35); animation-name: onairPulseCold; }
+  .onair.ace .sprite { border-color: var(--acid); background: rgba(57,255,20,.1);
+    box-shadow: 0 0 12px rgba(57,255,20,.3); }
+  .onair.other .sprite { border-color: var(--muted); animation: none; opacity: .7; }
+  .onair .meta { font-size: 11px; line-height: 1.35; }
+  .onair .meta b { display: block; font-family: Orbitron, sans-serif; letter-spacing: .1em;
+    color: var(--amber); font-size: 12px; }
+  .onair.kimi .meta b { color: var(--cold); }
+  .onair.ace .meta b { color: var(--acid); }
+  .onair .legs { color: var(--muted); font-size: 10px; margin-top: 2px; }
+  @keyframes onairPulse {
+    0%,100% { transform: scale(1); filter: brightness(1); }
+    50% { transform: scale(1.06); filter: brightness(1.25); }
+  }
+  @keyframes onairPulseCold {
+    0%,100% { transform: scale(1); }
+    50% { transform: scale(1.06); }
+  }
+
+  .one-liner {
+    text-align: center;
+    color: var(--muted);
+    font-size: 13px;
+    margin-bottom: 22px;
+    line-height: 1.45;
+  }
+  .one-liner strong { color: var(--amber); font-weight: 500; }
+
+  /* Board */
+  .board {
+    display: grid;
+    gap: 14px;
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 900px) {
+    .board {
+      grid-template-rows: auto auto auto auto;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-areas:
+        "go go go"
+        "hot hot voix"
+        "cold cold cold"
+        "coffre coffre coffre";
+    }
+    .zone-go { grid-area: go; }
+    .zone-hot { grid-area: hot; }
+    .zone-voix { grid-area: voix; }
+    .zone-cold { grid-area: cold; }
+    .zone-coffre { grid-area: coffre; }
+  }
+
+  .zone {
+    border: 1px solid var(--line);
+    background: rgba(13, 20, 24, 0.85);
+    padding: 14px 16px 16px;
+    position: relative;
+  }
+  .zone::before {
+    content: attr(data-label);
+    position: absolute;
+    top: -9px;
+    left: 14px;
+    background: var(--ink);
+    padding: 0 8px;
+    font-family: Orbitron, sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+  }
+  .zone-go::before { color: var(--amber); }
+  .zone-hot::before { color: var(--hot); }
+  .zone-voix::before { color: var(--acid); }
+  .zone-cold::before { color: var(--cold); }
+  .zone-coffre::before { color: var(--muted); }
+
+  .zone-go {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 88px;
+    border-color: rgba(245, 197, 24, 0.35);
+    background:
+      radial-gradient(ellipse 60% 80% at 50% 50%, rgba(245, 197, 24, 0.08), transparent 70%),
+      rgba(13, 20, 24, 0.85);
+  }
+
+  .node {
+    border: 1px solid var(--line);
+    background: #0a1014;
+    padding: 12px 14px;
+    min-width: 0;
+  }
+  .node h3 {
+    font-family: Orbitron, sans-serif;
+    font-size: 14px;
+    letter-spacing: 0.06em;
+    margin-bottom: 4px;
+  }
+  .node p {
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.35;
+  }
+  .node .role {
+    display: inline-block;
+    margin-top: 8px;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--acid);
+  }
+
+  .node-go {
+    text-align: center;
+    border-color: rgba(245, 197, 24, 0.55);
+    padding: 16px 28px;
+    box-shadow: 0 0 28px rgba(245, 197, 24, 0.12);
+    animation: glow 2.8s ease-in-out infinite;
+  }
+  .node-go h3 {
+    color: var(--amber);
+    font-size: clamp(18px, 2.5vw, 24px);
+  }
+  .node-go p { color: #a89040; }
+
+  .row {
+    display: grid;
+    gap: 10px;
+  }
+  .zone-hot .row { grid-template-columns: 1fr 1fr; }
+  .zone-voix .row { grid-template-columns: 1fr; }
+  .zone-cold .row {
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 700px) {
+    .zone-cold .row { grid-template-columns: 1fr 1fr 1fr; }
+  }
+  .zone-coffre .row {
+    grid-template-columns: 1fr;
+    align-items: stretch;
+  }
+  @media (min-width: 700px) {
+    .zone-coffre .row {
+      grid-template-columns: 1fr auto 1fr auto 1fr;
+      align-items: center;
+    }
+  }
+
+  .node-hot { border-color: rgba(255, 107, 45, 0.45); }
+  .node-hot h3 { color: var(--hot); }
+  .node-hot .role { color: var(--hot); }
+
+  .node-cold { border-color: rgba(62, 199, 255, 0.4); }
+  .node-cold h3 { color: var(--cold); }
+  .node-cold .role { color: var(--cold); }
+
+  .node-voix { border-color: rgba(57, 255, 20, 0.35); }
+  .node-voix h3 { color: var(--acid); }
+
+  .node-coffre { border-color: rgba(106, 138, 114, 0.5); }
+  .node-coffre h3 { color: var(--text); }
+
+  .arrow {
+    display: none;
+    color: var(--muted);
+    font-size: 22px;
+    text-align: center;
+    letter-spacing: 0;
+  }
+  @media (min-width: 700px) {
+    .arrow { display: block; }
+  }
+  .arrow.pulse {
+    color: var(--amber);
+    animation: dash 1.8s ease-in-out infinite;
+  }
+
+  .flow-hint {
+    margin-top: 10px;
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.04em;
+  }
+  .flow-hint span { color: var(--amber); }
+
+  .rules {
+    margin-top: 22px;
+    display: grid;
+    gap: 10px;
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 700px) {
+    .rules { grid-template-columns: 1fr 1fr 1fr; }
+  }
+  .rule {
+    border-left: 3px solid var(--amber);
+    padding: 8px 12px;
+    background: rgba(13, 20, 24, 0.6);
+    font-size: 12px;
+    line-height: 1.4;
+    color: var(--muted);
+  }
+  .rule b { color: var(--text); font-weight: 500; }
+
+  footer {
+    margin-top: 24px;
+    border-top: 1px solid var(--line);
+    padding-top: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 24px;
+    justify-content: space-between;
+    font-size: 11px;
+    color: var(--muted);
+  }
+  footer a {
+    color: var(--acid);
+    text-decoration: none;
+  }
+  footer a:hover { text-decoration: underline; }
+
+  @keyframes glow {
+    0%, 100% { box-shadow: 0 0 18px rgba(245, 197, 24, 0.1); }
+    50% { box-shadow: 0 0 32px rgba(245, 197, 24, 0.22); }
+  }
+  @keyframes dash {
+    0%, 100% { opacity: 0.45; }
+    50% { opacity: 1; }
+  }
+</style>
+</head>
+<body class="crt">
+  <div class="shell">
+    <header>
+      <div>
+        <div class="brand">ACE777 ARCHITECTURE</div>
+        <p class="tagline">Une carte. Pas un mur de notes. Hot / cold / coffre.</p>
+      </div>
+      <div style="display:flex;gap:14px;align-items:center;flex-wrap:wrap;">
+        <div class="onair cursor" id="onair" title="AGENT ON AIR">
+          <div class="sprite" id="onair-sprite">🐈‍⬛</div>
+          <div class="meta">
+            <b id="onair-name">CURSOR</b>
+            <span id="onair-status">ON AIR</span>
+            <div class="legs" id="onair-legs">ACE · Hulk —</div>
+          </div>
+        </div>
+        <nav style="display:flex;gap:14px;align-items:center;font-size:12px;">
+          <span style="color:var(--amber);border-bottom:1px solid var(--amber);font-family:Orbitron,sans-serif;letter-spacing:.12em;">VUE</span>
+          <a href="tech.html" style="color:var(--acid);text-decoration:none;font-family:Orbitron,sans-serif;letter-spacing:.12em;">TECH</a>
+        </nav>
+      </div>
+    </header>
+
+    <p class="one-liner">
+      <strong>Toi</strong> decides (GO) ·
+      <strong>ACE + Hulk</strong> tradent ·
+      <strong>Punk + Cursor</strong> cherchent ·
+      <strong>Obsidian</strong> mémorise ·
+      <strong>Cortana</strong> lit à voix haute
+    </p>
+
+    <div class="board">
+      <section class="zone zone-go" data-label="HUMAIN">
+        <div class="node node-go">
+          <h3>CHRISTOPHE</h3>
+          <p>GO risque · validation · flair</p>
+          <span class="role">seul déclencheur trading</span>
+        </div>
+      </section>
+
+      <section class="zone zone-hot" data-label="HOT — TRADING">
+        <div class="row">
+          <div class="node node-hot">
+            <h3>ACE777</h3>
+            <p>Binance testnet futures<br />champion figé · BETA ↔ ALPHA</p>
+            <span class="role">jamais sans GO</span>
+          </div>
+          <div class="node node-hot">
+            <h3>HULK</h3>
+            <p>MEXC paper spot<br />dip/rip · seed · veille gates</p>
+            <span class="role">jamais sans GO</span>
+          </div>
+        </div>
+        <p class="flow-hint"><span>⚠</span> 0 LLM dans le hot path · fills CSV = vérité</p>
+      </section>
+
+      <section class="zone zone-voix" data-label="VOIX">
+        <div class="row">
+          <div class="node node-voix">
+            <h3>CORTANA</h3>
+            <p>Voix / Attention<br />pas encore chef d’orchestre</p>
+            <span class="role">lit le bus</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="zone zone-cold" data-label="COLD — RECHERCHE / HYGIÈNE">
+        <div class="row">
+          <div class="node node-cold">
+            <h3>PUNK</h3>
+            <p>Veille X · sniff · BRIEF<br />filtre comptes</p>
+            <span class="role">cold only</span>
+          </div>
+          <div class="node node-cold">
+            <h3>CURSOR ACTIF</h3>
+            <p>Évals · Index · code<br />validation session</p>
+            <span class="role">écrit le board</span>
+          </div>
+          <div class="node node-cold">
+            <h3>CURSOR PASSIF</h3>
+            <p>Ops vol · checks<br />pas de nouvelle thèse</p>
+            <span class="role">garde le Mac</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="zone zone-coffre" data-label="COFFRE — MÉMOIRE PARTAGÉE">
+        <div class="row">
+          <div class="node node-coffre">
+            <h3>INDEX_MAISON</h3>
+            <p>Tableau · évals · COMPTES<br />AUTO · ossature</p>
+            <span class="role">vérité workspace</span>
+          </div>
+          <div class="arrow pulse">→</div>
+          <div class="node node-coffre">
+            <h3>OUTBOX</h3>
+            <p>Sync Terminal<br />_sync_now.sh</p>
+            <span class="role">pont TCC</span>
+          </div>
+          <div class="arrow pulse">→</div>
+          <div class="node node-coffre">
+            <h3>OBSIDIAN</h3>
+            <p>Console · Attention<br />mémoire humaine</p>
+            <span class="role">coffre · pas hot auto</span>
+          </div>
+        </div>
+        <p class="flow-hint"><span>flux</span> validation → éval + tableau + Attention → OUTBOX → Obsidian · leçons froides seulement</p>
+      </section>
+    </div>
+
+    <div class="rules">
+      <div class="rule"><b>1 place / info</b><br />Ossature Index — pas de dump Bureau</div>
+      <div class="rule"><b>1 GO = 1 vol</b><br />Trading jamais implicite</div>
+      <div class="rule"><b>Fluidité &gt; features</b><br />Anti-overdose · 1 chantier à la fois</div>
+    </div>
+
+    <footer>
+      <span>Canon : ARCHITECTURE_AGORA.md · OSSATURE_INDEX.md · AGENT ON AIR</span>
+      <span>
+        <a href="../cockpit/index.html">← Cockpit</a>
+        ·
+        <a href="tech.html">Vue TECH (revue IA)</a>
+      </span>
+    </footer>
+  </div>
+<script>
+(function(){
+  const S = window.__AGENT_STATUS__ || {};
+  const agents = S.agents || {};
+  const on = (S.on_air || "CURSOR").toUpperCase();
+  const box = document.getElementById("onair");
+  const sprite = document.getElementById("onair-sprite");
+  const name = document.getElementById("onair-name");
+  const st = document.getElementById("onair-status");
+  const legs = document.getElementById("onair-legs");
+  const skin = {
+    CURSOR: { cls: "cursor", icon: "🐈‍⬛", label: "CURSOR" },
+    KIMI:   { cls: "kimi",   icon: "🌙", label: "KIMI" },
+    ACE:    { cls: "ace",    icon: "⚡", label: "ACE" },
+    HULK:   { cls: "ace",    icon: "💪", label: "HULK" },
+    CORTANA:{ cls: "kimi",   icon: "🎙️", label: "CORTANA" },
+    OTHER:  { cls: "other",  icon: "◇", label: "OTHER" },
+  };
+  const sk = skin[on] || skin.OTHER;
+  box.className = "onair " + sk.cls;
+  sprite.textContent = sk.icon;
+  name.textContent = sk.label;
+  const me = agents[on] || {};
+  st.textContent = (me.status || "ON AIR") + (me.ts ? " · " + String(me.ts).slice(11, 16) + "Z" : "");
+  const ace = (agents.ACE && agents.ACE.status) || "?";
+  const hulk = (agents.HULK && agents.HULK.status) || "?";
+  legs.textContent = "ACE " + ace + " · Hulk " + hulk;
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!-- Pulse sous l'œil — toutes les 15 min. Lecture seule, jamais de trading. -->
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.ace777.pulse-sous-loeil</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/bin/bash</string>
+    <string>/Users/christophe/ace777-test-day1/Index_Maison/scripts/pulse_sous_loeil.sh</string>
+  </array>
+  <key>StartInterval</key>
+  <integer>900</integer>
+  <key>RunAtLoad</key>
+  <true/>
+  <key>StandardOutPath</key>
+  <string>/Users/christophe/ace777-test-day1/Index_Maison/scripts/logs/launchd_pulse.out</string>
+  <key>StandardErrorPath</key>
+  <string>/Users/christophe/ace777-test-day1/Index_Maison/scripts/logs/launchd_pulse.err</string>
+</dict>
+</plist>

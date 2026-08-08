@@ -1,0 +1,96 @@
+{
+  "ts": "2026-07-28T04:27:54Z",
+  "tag": "${tag}",
+  "session_start": "1970-01-01T00:00:00Z",
+  "meta": {},
+  "counts": {
+    "E-WATCHDOG": 7,
+    "E-PROC": 44
+  },
+  "buckets": {
+    "E-WATCHDOG": [
+      "2026-07-22T14:28:00Z WATCHDOG_SEMANTIC: ALPHA stale 61s (seuil=60s) \u2014 relance #6/5",
+      "2026-07-22T14:28:01Z WATCHDOG_SEMANTIC: max_relaunch=5 atteint \u2192 STOP session",
+      "2026-07-19T17:17:58Z WATCHDOG_DUO: ALPHA mort \u2014 relance #1/8",
+      "2026-07-19T17:46:05Z WATCHDOG_DUO: ALPHA mort \u2014 relance #2/8",
+      "2026-07-19T19:01:32Z WATCHDOG_DUO: BETA mort \u2014 relance #1/8",
+      "2026-07-19T19:08:51Z WATCHDOG_DUO: ALPHA mort \u2014 relance #3/8",
+      "2026-07-19T19:23:11Z WATCHDOG_DUO: ALPHA mort \u2014 relance #4/8"
+    ],
+    "E-PROC": [
+      "2026-07-20T22:50:23Z PROCESS_EXIT unit=ALPHA_X13_BURST13 wrapper=912 genesis=918 how=exit why=nonzero_rc_1 rc=1",
+      "2026-07-21T02:22:14Z PROCESS_EXIT unit=BETA_X5 wrapper=747 genesis=750 how=exit0 why=clean_end_or_self_exit_0 rc=0",
+      "2026-07-21T02:22:17Z PROCESS_EXIT unit=ALPHA_X13_BURST13 wrapper=78600 genesis=78606 how=exit0 why=clean_end_or_self_exit_0 rc=0",
+      "2026-07-21T08:03:23Z PROCESS_EXIT unit=ALPHA_X13_BURST13 wrapper=40068 genesis=40073 how=exit why=nonzero_rc_1 rc=1",
+      "2026-07-21T08:37:41Z PROCESS_EXIT unit=ALPHA_X13_BURST13 wrapper=87139 genesis=87144 how=exit why=nonzero_rc_1 rc=1",
+      "2026-07-21T09:32:45Z PROCESS_EXIT unit=BETA_X5 wrapper=39929 genesis=39937 how=exit why=nonzero_rc_1 rc=1",
+      "2026-07-21T10:01:19Z PROCESS_EXIT unit=ALPHA_X13_BURST13 wrapper=97619 genesis=97626 how=exit why=nonzero_rc_1 rc=1",
+      "2026-07-21T10:34:54Z PROCESS_EXIT unit=ALPHA_X13_BURST13 wrapper=46012 genesis=46018 how=exit0 why=clean_end_or_self_exit_0 rc=0",
+      "2026-07-21T13:56:47Z PROCESS_EXIT unit=ALPHA_X13_BURST13 wrapper=60187 genesis=60194 how=signal why=killed_by_signal_15 rc=143",
+      "2026-07-21T14:40:09Z PROCESS_EXIT unit=BETA_X5 wrapper=60039 genesis=60046 how=signal why=killed_by_signal_15 rc=143",
+      "2026-07-21T14:40:13Z PROCESS_EXIT unit=ALPHA_X13_BURST13 wrapper=82578 genesis=82585 how=signal why=killed_by_signal_15 rc=143",
+      "2026-07-21T18:50:25Z PROCESS_EXIT unit=BETA_X5 wrapper=81331 genesis=81336 how=signal why=killed_by_signal_15 rc=143",
+      "2026-07-21T18:50:27Z PROCESS_EXIT unit=ALPHA_X13_BURST13 wrapper=81469 genesis=81475 how=signal why=killed_by_signal_15 rc=143",
+      "2026-07-21T23:04:13Z PROCESS_EXIT unit=ALPHA_X13_BURST13 wrapper=81700 genesis=81706 how=exit0 why=clean_end_or_self_exit_0 rc=0",
+      "2026-07-21T23:04:13Z PROCESS_EXIT unit=BETA_X5 wrapper=81579 genesis=81586 how=signal why=killed_by_signal_15 rc=143",
+      "2026-07-22T10:41:51Z PROCESS_EXIT unit=BETA_X5 wrapper=28703 genesis=28711 how=exit0 why=clean_end_or_self_exit_0 rc=0",
+      "2026-07-22T10:41:53Z PROCESS_EXIT unit=ALPHA_X13_BURST13 wrapper=28824 genesis=28831 how=exit0 why=clean_end_or_self_exit_0 rc=0",
+      "2026-07-22T14:21:56Z PROCESS_EXIT unit=ALPHA_X13_BURST13 wrapper=50494 genesis=50503 how=signal why=killed_by_signal_15 rc=143",
+      "2026-07-22T14:22:49Z PROCESS_EXIT unit=ALPHA_X13_BURST13 wrapper=90837 genesis=90843 how=exit0 why=clean_end_or_self_exit_0 rc=0",
+      "2026-07-22T14:22:55Z PROCESS_EXIT unit=BETA_X5 wrapper=50372 genesis=50378 how=exit0 why=clean_end_or_self_exit_0 rc=0",
+      "2026-07-22T14:23:37Z PROCESS_EXIT unit=ALPHA_X13_BURST13 wrapper=91826 genesis=91830 how=exit0 why=clean_end_or_self_exit_0 rc=0",
+      "2026-07-22T14:25:10Z PROCESS_EXIT unit=ALPHA_X13_BURST13 wrapper=92033 genesis=92039 how=exit0 why=clean_end_or_self_exit_0 rc=0",
+      "2026-07-22T14:26:43Z PROCESS_EXIT unit=ALPHA_X13_BURST13 wrapper=92246 genesis=92253 how=exit0 why=clean_end_or_self_exit_0 rc=0",
+      "2026-07-22T14:28:23Z PROCESS_EXIT unit=ALPHA_X13_BURST13 wrapper=92500 genesis=92506 how=exit0 why=clean_end_or_self_exit_0 rc=0",
+      "2026-07-22T18:48:07Z PROCESS_EXIT unit=BETA_X5 wrapper=94005 genesis=94011 how=signal why=killed_by_signal_15 rc=143"
+    ],
+    "E-STALE": [],
+    "E-DUO": [],
+    "E-SPREAD": [],
+    "I-HUNTER": []
+  },
+  "last_die": [
+    "2026-07-24T00:31:24Z PROCESS_EXIT unit=BETA_X5 wrapper=58381 genesis=58387 how=signal why=killed_by_signal_15 rc=143",
+    "2026-07-24T00:31:25Z PROCESS_EXIT unit=ALPHA_X13_BURST13 wrapper=58519 genesis=58526 how=exit0 why=clean_end_or_self_exit_0 rc=0",
+    "2026-07-24T12:20:15Z PROCESS_EXIT unit=BETA_X5 wrapper=71835 genesis=71842 how=signal why=killed_by_signal_15 rc=143",
+    "2026-07-24T12:20:19Z PROCESS_EXIT unit=ALPHA_X13_BURST13 wrapper=71972 genesis=71976 how=signal why=killed_by_signal_15 rc=143",
+    "2026-07-27T10:10:32Z PROCESS_EXIT unit=BETA_X5 wrapper=74231 genesis=74237 how=signal why=killed_by_signal_15 rc=143",
+    "2026-07-27T10:10:35Z PROCESS_EXIT unit=ALPHA_X13_BURST13 wrapper=74368 genesis=74376 how=exit0 why=clean_end_or_self_exit_0 rc=0",
+    "2026-07-27T19:36:57Z PROCESS_EXIT unit=ALPHA_X13_BURST13 wrapper=28566 genesis=28574 how=exit0 why=clean_end_or_self_exit_0 rc=0",
+    "2026-07-27T19:36:59Z PROCESS_EXIT unit=BETA_X5 wrapper=28432 genesis=28437 how=signal why=killed_by_signal_15 rc=143"
+  ],
+  "last_watch": [
+    "2026-07-22T14:28:00Z WATCHDOG_SEMANTIC: ALPHA stale 61s (seuil=60s) \u2014 relance #6/5",
+    "2026-07-22T14:28:01Z WATCHDOG_SEMANTIC: max_relaunch=5 atteint \u2192 STOP session",
+    "2026-07-19T17:17:58Z WATCHDOG_DUO: ALPHA mort \u2014 relance #1/8",
+    "2026-07-19T17:46:05Z WATCHDOG_DUO: ALPHA mort \u2014 relance #2/8",
+    "2026-07-19T19:01:32Z WATCHDOG_DUO: BETA mort \u2014 relance #1/8",
+    "2026-07-19T19:08:51Z WATCHDOG_DUO: ALPHA mort \u2014 relance #3/8",
+    "2026-07-19T19:23:11Z WATCHDOG_DUO: ALPHA mort \u2014 relance #4/8"
+  ],
+  "alpha": {
+    "fills": 0,
+    "pnl": 0.0,
+    "exits": {}
+  },
+  "beta": {
+    "fills": 0,
+    "pnl": 0.0,
+    "exits": {}
+  },
+  "verdict": [
+    "**WHY_ARRET=timer_nominal | STOP_REASON.txt=2026-07-28T04:27:51Z reason=timer_nominal duration_sec=28800 | ran_min=29753017.0**",
+    "Signaux watchdog (s\u00e9mantique ou duo PID) \u2014 voir section WATCHDOG.",
+    "Morts process journalis\u00e9es (PROCESS_DIE/EXIT) \u2014 lire `last_cmd` / `how=signal`."
+  ],
+  "why": {
+    "why_line": "WHY_ARRET=timer_nominal | STOP_REASON.txt=2026-07-28T04:27:51Z reason=timer_nominal duration_sec=28800 | ran_min=29753017.0",
+    "cause": "timer_nominal",
+    "timing": "unknown",
+    "stop_reason_file": "2026-07-28T04:27:51Z reason=timer_nominal duration_sec=28800",
+    "ran_min": 29753016.983333334,
+    "early_min": null,
+    "end_ts": "2026-07-27T19:36:59Z"
+  },
+  "net_retries": 0
+}

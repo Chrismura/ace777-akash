@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# Lance le bullshit check veille (Ollama local)
+set -euo pipefail
+ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+export VEILLE_ROOT="$ROOT"
+# Coffre unique Obsidian
+[[ -f "$ROOT/obsidian.env" ]] && source "$ROOT/obsidian.env"
+exec /usr/bin/python3 "$ROOT/veille_check.py" "$@"

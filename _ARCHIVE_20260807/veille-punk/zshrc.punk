@@ -1,0 +1,54 @@
+# Veille Punk — rétro / neon (NE PAS sourcer dans ACE/Hulk)
+export VEILLE_PUNK=1
+export VEILLE_ROOT="${VEILLE_ROOT:-/Users/christophe/ace777-test-day1/veille-punk}"
+
+export ACE_DIR="/Users/christophe/ace777-test-day1"
+export HULK_DIR="$ACE_DIR/hulk-mexc"
+# Coffre unique — source de vérité
+if [[ -f "${VEILLE_ROOT}/obsidian.env" ]]; then
+  source "${VEILLE_ROOT}/obsidian.env"
+else
+  export OBSIDIAN_DIR="/Users/christophe/Documents/Obsidian_ACE777"
+fi
+
+
+# PATH → commandes check / veille
+export PATH="$VEILLE_ROOT/bin:$PATH"
+
+cd "$VEILLE_ROOT" 2>/dev/null || true
+autoload -Uz colors && colors
+
+PROMPT='%F{magenta}┌─%f%F{cyan}◆VEILLE%f%F{magenta}─%f%F{green}%~%f
+%F{magenta}└─%f%F{cyan}⚡%f '
+RPROMPT='%F{8}%D{%H:%M}%f'
+
+alias vp='cd "$VEILLE_ROOT"'
+alias inbox='cd "$VEILLE_ROOT/inbox"'
+alias out='cd "$VEILLE_ROOT/out"'
+alias obsidian='cd "$OBSIDIAN_DIR/Cahier" 2>/dev/null || echo "Obsidian inaccessible"'
+alias bus='cd "$OBSIDIAN_DIR/Swarm_Bus" 2>/dev/null || echo "Bus inaccessible"'
+alias hulk-runs='cd "$HULK_DIR/runs"'
+alias ace-runs='cd "$ACE_DIR/runs"'
+alias fcc='command -v fcc-claude >/dev/null && fcc-claude || echo "Pas besoin de FCC — utilise: check \"url\""'
+
+# Aide rapide
+veille-help() {
+  print -P "%F{cyan}◆VEILLE%f — IA locale (Ollama), 0€ Cursor"
+  print -P "  %F{green}check%F{8} \"https://x.com/...\"%f"
+  print -P "  %F{green}check%F{8} \"colle le texte du tweet\"%f"
+  print -P "  %F{green}veille%F{8} ...%f  (pareil)"
+  print -P "  rapports → %F{magenta}out/CHECK_LATEST.md%f"
+}
+
+precmd_veille_warn() {
+  case "$PWD" in
+    */ace777-test-day1) print -P "%F{red}⚠ racine ACE — veille only, pas de GO_USINE%f" ;;
+  esac
+}
+precmd_functions+=(precmd_veille_warn)
+
+if [[ -z "$VEILLE_BANNER_SHOWN" ]]; then
+  export VEILLE_BANNER_SHOWN=1
+  [[ -f "$VEILLE_ROOT/banner.sh" ]] && source "$VEILLE_ROOT/banner.sh"
+  print -P "%F{green}→ tape:%f %F{cyan}check \"url-ou-texte\"%f  %F{8}| aide:%f %F{cyan}veille-help%f"
+fi

@@ -1,0 +1,19 @@
+# Règles de base — Scripts et Setups
+
+1. **Affichage complet** : Toujours afficher le contenu complet en entier. Pas de raccourcis.
+
+2. **Constantes de temps (ORDRE)** : `requests.get()` → timeout=0.2 (max 0.3), verify=False. Interdiction de modifier.
+
+3. **Organisation Master Base** :
+   - `master_base/models/` = modeles qui fonctionnent.
+   - Chaque modele doit garder la description cycle, la date/heure (`Start UTC`, `End UTC`) et le PnL.
+   - Conserver l'original pour faire des variations.
+
+4. **Promotion Plus-Value** :
+   - Si un setup sort en plus-value positive, l'enregistrer dans `master_plus_value/`.
+   - Si valide sur cycles confirmes, le promouvoir ensuite dans `master_base/models/` avec date/heure/PNL.
+
+5. **Organisation Qwen/Ollama** :
+   - `master_qwen_base/models/` = modeles Qwen valides.
+   - `master_qwen_plus_value/` = setups Qwen positifs en attente/promotion.
+   - Garder pour chaque setup Qwen: description cycle, date/heure, tag, PnL.

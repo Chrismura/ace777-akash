@@ -1,0 +1,79 @@
+[BETA_X5] [1;36m--- ACE777 STRICT CLONE FUTURES TESTNET ---[0m
+[BETA_X5] [1;32mV8 Resonance ON:[0m [1;36mimpulse_thr=0.96 dt_ms=64 aspiration=1.618@37.8deg void_lock=TRUE shock_exit=TRUE[0m
+[BETA_X5] [1;32mV8 Tension ON:[0m [1;36mwall_drop=6.5% dt_ms=64 filter=0.85 depth=20[0m
+[BETA_X5] [1;36mSymbol=BTCUSDT[0m [1;32mLeverage=5[0m [1;36mBuyUSDT=200 Orders=TRUE[0m
+[ALPHA_X13_BURST13] [1;36m--- ACE777 STRICT CLONE FUTURES TESTNET ---[0m
+[ALPHA_X13_BURST13] [1;36mLeverage ramp ON:[0m [1;36mstart=13 end=13 cycles=180[0m
+[ALPHA_X13_BURST13] [1;32mV8 Resonance ON:[0m [1;36mimpulse_thr=0.96 dt_ms=64 aspiration=1.618@37.8deg void_lock=TRUE shock_exit=TRUE[0m
+[ALPHA_X13_BURST13] [1;32mV8 Tension ON:[0m [1;36mwall_drop=6.5% dt_ms=64 filter=0.85 depth=20[0m
+[ALPHA_X13_BURST13] [1;36mSymbol=BTCUSDT[0m [1;32mLeverage=13[0m [1;36mBuyUSDT=800 Orders=TRUE[0m
+[BETA_X5] mode=OFF radar_adj=0 mom= conf=0
+[ALPHA_X13_BURST13] mode=OFF radar_adj=0 mom= conf=0
+[ALPHA_X13_BURST13] [1;36m20:06:47[0m [1;32mx13[0m [1;36m#1[0m SKIP tension=[1;36m0.00000330[0m [0m| momentum_too_small [1;31mconf=0.0[0m
+[ALPHA_X13_BURST13] mode=OFF radar_adj=0 mom= conf=0
+[ALPHA_X13_BURST13] /tmp/ace777_launch_v85_nuage_2104.sh: line 218:  2548 Done                    { cat  <<'NUAGE_PREAMBLE'
+[ALPHA_X13_BURST13] NUAGE_TENSION_MAX_AGE_MS="${NUAGE_TENSION_MAX_AGE_MS:-800}"
+[ALPHA_X13_BURST13] ALPHA_HEARTBEAT_FILE="${ALPHA_HEARTBEAT_FILE:-/tmp/alpha_heartbeat.txt}"
+[BETA_X5] /tmp/ace777_launch_v85_nuage_2104.sh: line 218:  2421 Done                    { cat  <<'NUAGE_PREAMBLE'
+[ALPHA_X13_BURST13] duo_hunter_phase_barrier() { :; }
+[BETA_X5] NUAGE_TENSION_MAX_AGE_MS="${NUAGE_TENSION_MAX_AGE_MS:-800}"
+[BETA_X5] ALPHA_HEARTBEAT_FILE="${ALPHA_HEARTBEAT_FILE:-/tmp/alpha_heartbeat.txt}"
+[ALPHA_X13_BURST13] alpha_touch_heartbeat() {
+[ALPHA_X13_BURST13]   duo_is_hunter || return 0
+[BETA_X5] duo_hunter_phase_barrier() { :; }
+[BETA_X5] alpha_touch_heartbeat() {
+[BETA_X5]   duo_is_hunter || return 0
+[ALPHA_X13_BURST13]   date -u +%Y-%m-%dT%H:%M:%SZ > "${ALPHA_HEARTBEAT_FILE}" 2>/dev/null || true
+[ALPHA_X13_BURST13] }
+[BETA_X5]   date -u +%Y-%m-%dT%H:%M:%SZ > "${ALPHA_HEARTBEAT_FILE}" 2>/dev/null || true
+[ALPHA_X13_BURST13] nuage_cloud_tension_gate() {
+[BETA_X5] }
+[ALPHA_X13_BURST13]   local cycle="$1"
+[ALPHA_X13_BURST13]   local max_age="${NUAGE_TENSION_MAX_AGE_MS:-800}"
+[ALPHA_X13_BURST13]   local age_ms path
+[BETA_X5] nuage_cloud_tension_gate() {
+[ALPHA_X13_BURST13]   duo_is_hunter || return 0
+[ALPHA_X13_BURST13]   path="${DUO_STATE_FILE:-runs/duo_state.json}"
+[BETA_X5]   local cycle="$1"
+[ALPHA_X13_BURST13]   age_ms="$(ruby -rjson -e '
+[ALPHA_X13_BURST13]     path = ARGV[0]
+[ALPHA_X13_BURST13]     begin
+[BETA_X5]   local max_age="${NUAGE_TENSION_MAX_AGE_MS:-800}"
+[ALPHA_X13_BURST13]       j = JSON.parse(File.read(path))
+[BETA_X5]   local age_ms path
+[BETA_X5]   duo_is_hunter || return 0
+[ALPHA_X13_BURST13]       ts = (j["ts_ms"].to_i rescue 0)
+[BETA_X5]   path="${DUO_STATE_FILE:-runs/duo_state.json}"
+[BETA_X5]   age_ms="$(ruby -rjson -e '
+[BETA_X5]     path = ARGV[0]
+[ALPHA_X13_BURST13]       age = ((Time.now.to_f * 1000).to_i - ts)
+[BETA_X5]     begin
+[ALPHA_X13_BURST13]       age = 0 if age < 0
+[ALPHA_X13_BURST13]       print(age)
+[ALPHA_X13_BURST13]     rescue
+[BETA_X5]       j = JSON.parse(File.read(path))
+[ALPHA_X13_BURST13]       print(999999)
+[ALPHA_X13_BURST13]     end
+[BETA_X5]       ts = (j["ts_ms"].to_i rescue 0)
+[ALPHA_X13_BURST13]   ' -- "$path" 2>/dev/null || echo 999999)"
+[BETA_X5]       age = ((Time.now.to_f * 1000).to_i - ts)
+[ALPHA_X13_BURST13]   if [ "$age_ms" -gt "$max_age" ]; then
+[BETA_X5]       age = 0 if age < 0
+[BETA_X5]       print(age)
+[BETA_X5]     rescue
+[BETA_X5]       print(999999)
+[BETA_X5]     end
+[BETA_X5]   ' -- "$path" 2>/dev/null || echo 999999)"
+[BETA_X5]   if [ "$age_ms" -gt "$max_age" ]; then
+[BETA_X5]     echo "$(date -u +%FT%TZ),${cycle},SKIP,SKIPPED,,,,,0,tension_stale,reason=nuage_age_ms=${age_ms} thresh=${max_age}" >> "$LOG_FILE"
+[ALPHA_X13_BURST13]     echo "$(date -u +%FT%TZ),${cycle},SKIP,SKIPPED,,,,,0,tension_stale,reason=nuage_age_ms=${age_ms} thresh=${max_age}" >> "$LOG_FILE"
+[BETA_X5]     sk_lev="$C_C"; num_ge "$current_leverage" "13" && sk_lev="$C_G"; num_le "$current_leverage" "5" && sk_lev="$C_Y"
+[BETA_X5]     echo "${C_C}$(date -u +%H:%M:%S)${C_N} ${sk_lev}x$current_leverage${C_N} ${C_C}#${cycle}${C_N} SKIP ${C_Y}| tension_stale age=${age_ms}ms>${max_age}ms (NUAGE)${C_N}"
+[BETA_X5]     alpha_touch_heartbeat
+[BETA_X5]     return 1
+[BETA_X5]   fi
+[BETA_X5]   return 0
+[BETA_X5] }
+[BETA_X5] NUAGE_PREAMBLE
+[BETA_X5]  tail -n +85 "$genesis" | awk '
+[BETA_X5]       /^duo_hunter_phase_barrier\(\) \{/ {

@@ -1,0 +1,91 @@
+{
+  "ts": "2026-07-30T00:13:39Z",
+  "tag": "VALIDATION_VOIE_A_PACK_B",
+  "session_start": "2026-07-29T20:13:34Z",
+  "meta": {
+    "start_utc": "2026-07-29T20:13:34Z",
+    "planned_end_utc": "2026-07-30T00:13:34Z",
+    "tag": "VALIDATION_VOIE_A_PACK_B",
+    "config": "VALIDATION_VOIE_A",
+    "version": "pack_B"
+  },
+  "counts": {
+    "E-SPREAD": 7,
+    "E-DUO": 10,
+    "E-PROC": 4
+  },
+  "buckets": {
+    "E-WATCHDOG": [],
+    "E-PROC": [
+      "[ALPHA_X13_BURST13] 2026-07-30T00:13:35Z PROCESS_EXIT unit=ALPHA_X13_BURST13 how=pipe_run_unit why=rc_0 rc=0",
+      "[BETA_X5] 2026-07-30T00:13:39Z PROCESS_EXIT unit=BETA_X5 how=pipe_run_unit why=rc_0 rc=0",
+      "2026-07-30T00:13:35Z PROCESS_EXIT unit=ALPHA_X13_BURST13 how=pipe_run_unit why=rc_0 rc=0",
+      "2026-07-30T00:13:39Z PROCESS_EXIT unit=BETA_X5 how=pipe_run_unit why=rc_0 rc=0"
+    ],
+    "E-STALE": [],
+    "E-DUO": [
+      "[ALPHA_X13_BURST13] 22:30:40 x5 #311 SKIP tension=2.74071935 | duo no_trigger",
+      "[ALPHA_X13_BURST13] 22:42:05 x5 #337 SKIP tension=2.34817279 | duo no_trigger",
+      "[ALPHA_X13_BURST13] 22:45:11 x5 #344 SKIP tension=1.85473908 | duo no_trigger",
+      "[ALPHA_X13_BURST13] 23:00:51 x5 #380 SKIP tension=1.30969116 | duo no_trigger",
+      "[ALPHA_X13_BURST13] 23:19:22 x5 #422 SKIP tension=2.12029342 | duo no_trigger",
+      "[ALPHA_X13_BURST13] 23:26:06 x5 #437 SKIP tension=1.69903750 | duo no_trigger",
+      "[ALPHA_X13_BURST13] 23:38:16 x5 #465 SKIP tension=2.03757062 | duo no_trigger",
+      "[ALPHA_X13_BURST13] 23:44:55 x5 #480 SKIP tension=1.18685551 | duo no_trigger",
+      "[ALPHA_X13_BURST13] 23:46:00 x5 #482 SKIP tension=1.25181164 | duo no_trigger",
+      "[ALPHA_X13_BURST13] 23:51:02 x5 #494 SKIP tension=3.66258832 | duo no_trigger"
+    ],
+    "E-SPREAD": [
+      "[ALPHA_X13_BURST13] 22:08:00 x5 #258 SKIP tension=0.00000000 | spread_too_wide conf=0.0",
+      "[BETA_X5] 22:08:31 x5 #742 SKIP tension=1.01319254 | spread_too_wide conf=0.5",
+      "[BETA_X5] 22:47:31 x5 #1008 SKIP tension=0.03095340 | spread_too_wide conf=0.0258",
+      "[ALPHA_X13_BURST13] 23:19:47 x5 #423 SKIP tension=0.00000887 | spread_too_wide conf=0.0",
+      "[BETA_X5] 23:20:06 x5 #1199 SKIP tension=0.00003965 | spread_too_wide conf=0.0",
+      "[BETA_X5] 23:33:59 x5 #1287 SKIP tension=0.00006712 | spread_too_wide conf=0.0001",
+      "[BETA_X5] 23:34:15 x5 #1289 SKIP tension=0.00018805 | spread_too_wide conf=0.0002"
+    ],
+    "I-HUNTER": []
+  },
+  "last_die": [
+    "[ALPHA_X13_BURST13] 2026-07-30T00:13:35Z PROCESS_EXIT unit=ALPHA_X13_BURST13 how=pipe_run_unit why=rc_0 rc=0",
+    "[BETA_X5] 2026-07-30T00:13:39Z PROCESS_EXIT unit=BETA_X5 how=pipe_run_unit why=rc_0 rc=0",
+    "2026-07-30T00:13:35Z PROCESS_EXIT unit=ALPHA_X13_BURST13 how=pipe_run_unit why=rc_0 rc=0",
+    "2026-07-30T00:13:39Z PROCESS_EXIT unit=BETA_X5 how=pipe_run_unit why=rc_0 rc=0"
+  ],
+  "last_watch": [],
+  "alpha": {
+    "fills": 13,
+    "pnl": -19.193830000000002,
+    "exits": {
+      "shock_inversion_stop": 9,
+      "stop_loss": 2,
+      "fluid_exit_inversion": 1,
+      "fluid_exit_brake": 1
+    }
+  },
+  "beta": {
+    "fills": 110,
+    "pnl": 0.012150000000000244,
+    "exits": {
+      "shock_inversion_stop": 88,
+      "fluid_exit_inversion": 18,
+      "fluid_exit_brake": 3,
+      "kill_switch": 1
+    }
+  },
+  "verdict": [
+    "**WHY_ARRET=unknown | ran_min=240.1 | vs_planned_min=-0.1 | timing=near_timer**",
+    "Morts process journalis\u00e9es (PROCESS_DIE/EXIT) \u2014 lire `last_cmd` / `how=signal`.",
+    "Issues duo (10) \u2014 scout/hunter d\u00e9synchro."
+  ],
+  "why": {
+    "why_line": "WHY_ARRET=unknown | ran_min=240.1 | vs_planned_min=-0.1 | timing=near_timer",
+    "cause": "unknown",
+    "timing": "near_timer",
+    "stop_reason_file": null,
+    "ran_min": 240.08333333333334,
+    "early_min": -0.08333333333333333,
+    "end_ts": "2026-07-30T00:13:39Z"
+  },
+  "net_retries": 0
+}

@@ -1,0 +1,36 @@
+=== SETUP IDENTIQUE 204206 — 2026-07-13T14:04:11Z ===
+Restauration genesis 37fca367...
+Restauration GEMINI_TEST champion (BETA x3)...
+=== VERIF SETUP CHAMPION 204206 (sans run) ===
+Référence: +29,41 USDT | genesis 37fca367 | BETA x3 | ALPHA x13 fixe | barrière OUI | PHI NON
+
+OK: 0 process ACE777
+OK: genesis md5 37fca36712d49aa8b97890c5cad5f2e6
+OK: vortex md5 6ce82f6bb0819faff94b954c43f3f336
+OK: GEMINI md5 35bd09c9ec2611a1a9cbcbe81727bf72 (BETA x3)
+OK: genesis: barrière duo OUI, PHI NON (37fca367 / 204206)
+OK: GEMINI BETA LEVERAGE=3 (identique boot 20:27)
+OK: ALPHA rampe start=13 end=13
+OK: bash -n genesis
+OK: bash -n vortex
+OK: bash -n GEMINI
+OK: pas de STOP
+OK: ALPHA_RAMP_MODE absent ou != model (ramp=gemini)
+
+=== VERIF OK — setup identique 204206 prêt ===
+
+cd /Users/christophe/ace777-test-day1
+unset ALPHA_RAMP_MODE
+export LAUNCH_V85_SCRIPT=./launch_test_master_base_v8_5_impact_GEMINI_TEST.sh
+./launch_vortex_v2_collab_4h_binance.sh
+
+Ou: ./29$/REDEMARRER.sh lancer
+
+Boot attendu (15 sec):
+  GEMINI_TEST ramp=gemini (x13 fixe dès cycle 1)
+  Leverage ramp ON: start=13 end=13
+  BETA Symbol=BTCUSDT Leverage=3
+  ALPHA Symbol=BTCUSDT Leverage=13
+
+VERIF OK — prêt. Pour lancer:
+  ./29$/REDEMARRER.sh lancer

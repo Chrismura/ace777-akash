@@ -1,0 +1,107 @@
+=== 2026-07-28T22:42Z journal_soir ===
+wrote /Users/christophe/ace777-test-day1/Index_Maison/CONSOLE_GENERALE.md
+wrote /Users/christophe/ace777-test-day1/Index_Maison/Journal_2026-07-29.md
+Traceback (most recent call last):
+  File "/Users/christophe/ace777-test-day1/Index_Maison/scripts/journal_auto.py", line 321, in <module>
+    raise SystemExit(main())
+  File "/Users/christophe/ace777-test-day1/Index_Maison/scripts/journal_auto.py", line 296, in main
+    sync_vault(day)
+  File "/Users/christophe/ace777-test-day1/Index_Maison/scripts/journal_auto.py", line 263, in sync_vault
+    copy2(src, dst)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/shutil.py", line 435, in copy2
+    copyfile(src, dst, follow_symlinks=follow_symlinks)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/shutil.py", line 264, in copyfile
+    with open(src, 'rb') as fsrc, open(dst, 'wb') as fdst:
+PermissionError: [Errno 1] Operation not permitted: '/Users/christophe/Documents/Obsidian_ACE777/CONSOLE_GENERALE.md'
+=== 2026-07-28T22:42Z journal_soir ===
+2026-07-29 00:42:47.770 osascript[37707:85908019] Error received in message reply handler: Connection invalid
+2026-07-29 00:42:47.770 osascript[37707:85908024] Connection Invalid error for service com.apple.hiservices-xpcservice.
+2026-07-29 00:42:47.770 osascript[37707:85908019] Error received in message reply handler: Connection invalid
+2026-07-29 00:42:47.771 osascript[37707:85908019] Error received in message reply handler: Connection invalid
+2026-07-29 00:42:47.772 osascript[37707:85908019] Error received in message reply handler: Connection invalid
+2026-07-29 00:42:47.772 osascript[37707:85908019] Error received in message reply handler: Connection invalid
+31:40: syntax error: A “script” can’t go after this identifier. (-2740)
+wrote /Users/christophe/ace777-test-day1/Index_Maison/CONSOLE_GENERALE.md
+wrote /Users/christophe/ace777-test-day1/Index_Maison/Journal_2026-07-29.md
+sync-block CONSOLE_GENERALE.md: [Errno 1] Operation not permitted: '/Users/christophe/Documents/Obsidian_ACE777/CONSOLE_GENERALE.md'
+sync-block Index_Maison/CONSOLE_GENERALE.md: [Errno 1] Operation not permitted: '/Users/christophe/Documents/Obsidian_ACE777/Index_Maison/CONSOLE_GENERALE.md'
+sync-block Cahier/Journal_2026-07-29.md: [Errno 1] Operation not permitted: '/Users/christophe/Documents/Obsidian_ACE777/Cahier/Journal_2026-07-29.md'
+sync-block Index_Maison/Journal_2026-07-29.md: [Errno 1] Operation not permitted: '/Users/christophe/Documents/Obsidian_ACE777/Index_Maison/Journal_2026-07-29.md'
+sync-block PLAN_DE_VOL.md: [Errno 1] Operation not permitted: '/Users/christophe/Documents/Obsidian_ACE777/PLAN_DE_VOL.md'
+sync-block AUTO_PROCESSUS.md: [Errno 1] Operation not permitted: '/Users/christophe/Documents/Obsidian_ACE777/AUTO_PROCESSUS.md'
+spawned Terminal sync fallback
+Traceback (most recent call last):
+  File "/Users/christophe/ace777-test-day1/Index_Maison/scripts/journal_auto.py", line 356, in <module>
+    raise SystemExit(main())
+  File "/Users/christophe/ace777-test-day1/Index_Maison/scripts/journal_auto.py", line 333, in main
+    append_memoire(
+  File "/Users/christophe/ace777-test-day1/Index_Maison/scripts/journal_auto.py", line 239, in append_memoire
+    t = mem.read_text(encoding="utf-8")
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/pathlib.py", line 1256, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/pathlib.py", line 1242, in open
+    return io.open(self, mode, buffering, encoding, errors, newline,
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/pathlib.py", line 1110, in _opener
+    return self._accessor.open(self, flags, mode)
+PermissionError: [Errno 1] Operation not permitted: '/Users/christophe/Documents/Obsidian_ACE777/Swarm_Bus/09_MEMOIRE_COLLAB.md'
+=== 2026-07-28T22:42Z journal_soir ===
+tab 1 of window id 3609
+wrote /Users/christophe/ace777-test-day1/Index_Maison/CONSOLE_GENERALE.md
+wrote /Users/christophe/ace777-test-day1/Index_Maison/Journal_2026-07-29.md
+sync-block CONSOLE_GENERALE.md: [Errno 1] Operation not permitted: '/Users/christophe/Documents/Obsidian_ACE777/CONSOLE_GENERALE.md'
+sync-block Index_Maison/CONSOLE_GENERALE.md: [Errno 1] Operation not permitted: '/Users/christophe/Documents/Obsidian_ACE777/Index_Maison/CONSOLE_GENERALE.md'
+sync-block Cahier/Journal_2026-07-29.md: [Errno 1] Operation not permitted: '/Users/christophe/Documents/Obsidian_ACE777/Cahier/Journal_2026-07-29.md'
+sync-block Index_Maison/Journal_2026-07-29.md: [Errno 1] Operation not permitted: '/Users/christophe/Documents/Obsidian_ACE777/Index_Maison/Journal_2026-07-29.md'
+sync-block PLAN_DE_VOL.md: [Errno 1] Operation not permitted: '/Users/christophe/Documents/Obsidian_ACE777/PLAN_DE_VOL.md'
+sync-block AUTO_PROCESSUS.md: [Errno 1] Operation not permitted: '/Users/christophe/Documents/Obsidian_ACE777/AUTO_PROCESSUS.md'
+spawned Terminal sync fallback
+memoire skip 09_MEMOIRE_COLLAB.md: [Errno 1] Operation not permitted: '/Users/christophe/Documents/Obsidian_ACE777/Swarm_Bus/09_MEMOIRE_COLLAB.md'
+memoire skip MEMOIRE_COLLAB.md: [Errno 1] Operation not permitted: '/Users/christophe/Documents/Obsidian_ACE777/Index_Maison/MEMOIRE_COLLAB.md'
+Traceback (most recent call last):
+  File "/Users/christophe/ace777-test-day1/Index_Maison/scripts/journal_auto.py", line 356, in <module>
+    raise SystemExit(main())
+  File "/Users/christophe/ace777-test-day1/Index_Maison/scripts/journal_auto.py", line 349, in main
+    copy2(auto, VAULT / "AUTO_PROCESSUS.md")
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/shutil.py", line 435, in copy2
+    copyfile(src, dst, follow_symlinks=follow_symlinks)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/shutil.py", line 264, in copyfile
+    with open(src, 'rb') as fsrc, open(dst, 'wb') as fdst:
+PermissionError: [Errno 1] Operation not permitted: '/Users/christophe/Documents/Obsidian_ACE777/AUTO_PROCESSUS.md'
+=== 2026-07-28T22:43Z journal_soir ===
+2026-07-29 00:43:08.558 osascript[37872:85908636] Error received in message reply handler: Connection invalid
+2026-07-29 00:43:08.558 osascript[37872:85908638] Connection Invalid error for service com.apple.hiservices-xpcservice.
+2026-07-29 00:43:08.559 osascript[37872:85908636] Error received in message reply handler: Connection invalid
+2026-07-29 00:43:08.560 osascript[37872:85908636] Error received in message reply handler: Connection invalid
+2026-07-29 00:43:08.560 osascript[37872:85908636] Error received in message reply handler: Connection invalid
+2026-07-29 00:43:08.560 osascript[37872:85908636] Error received in message reply handler: Connection invalid
+31:40: syntax error: A “script” can’t go after this identifier. (-2740)
+wrote /Users/christophe/ace777-test-day1/Index_Maison/CONSOLE_GENERALE.md
+wrote /Users/christophe/ace777-test-day1/Index_Maison/Journal_2026-07-29.md
+sync-block CONSOLE_GENERALE.md: [Errno 1] Operation not permitted: '/Users/christophe/Documents/Obsidian_ACE777/CONSOLE_GENERALE.md'
+sync-block Index_Maison/CONSOLE_GENERALE.md: [Errno 1] Operation not permitted: '/Users/christophe/Documents/Obsidian_ACE777/Index_Maison/CONSOLE_GENERALE.md'
+sync-block Cahier/Journal_2026-07-29.md: [Errno 1] Operation not permitted: '/Users/christophe/Documents/Obsidian_ACE777/Cahier/Journal_2026-07-29.md'
+sync-block Index_Maison/Journal_2026-07-29.md: [Errno 1] Operation not permitted: '/Users/christophe/Documents/Obsidian_ACE777/Index_Maison/Journal_2026-07-29.md'
+sync-block PLAN_DE_VOL.md: [Errno 1] Operation not permitted: '/Users/christophe/Documents/Obsidian_ACE777/PLAN_DE_VOL.md'
+sync-block AUTO_PROCESSUS.md: [Errno 1] Operation not permitted: '/Users/christophe/Documents/Obsidian_ACE777/AUTO_PROCESSUS.md'
+spawned Terminal sync fallback
+memoire skip 09_MEMOIRE_COLLAB.md: [Errno 1] Operation not permitted: '/Users/christophe/Documents/Obsidian_ACE777/Swarm_Bus/09_MEMOIRE_COLLAB.md'
+memoire skip MEMOIRE_COLLAB.md: [Errno 1] Operation not permitted: '/Users/christophe/Documents/Obsidian_ACE777/Index_Maison/MEMOIRE_COLLAB.md'
+AUTO vault copy skip: [Errno 1] Operation not permitted: '/Users/christophe/Documents/Obsidian_ACE777/AUTO_PROCESSUS.md'
+synced -> /Users/christophe/Documents/Obsidian_ACE777
+OK
+=== 2026-07-29T18:53Z journal_soir ===
+wrote /Users/christophe/ace777-test-day1/Index_Maison/CONSOLE_GENERALE.md
+wrote /Users/christophe/ace777-test-day1/Index_Maison/Journal_2026-07-29.md
+sync-block CONSOLE_GENERALE.md: [Errno 1] Operation not permitted: '/Users/christophe/Documents/Obsidian_ACE777/CONSOLE_GENERALE.md'
+sync-block Index_Maison/CONSOLE_GENERALE.md: [Errno 1] Operation not permitted: '/Users/christophe/Documents/Obsidian_ACE777/Index_Maison/CONSOLE_GENERALE.md'
+sync-block Cahier/Journal_2026-07-29.md: [Errno 1] Operation not permitted: '/Users/christophe/Documents/Obsidian_ACE777/Cahier/Journal_2026-07-29.md'
+sync-block Index_Maison/Journal_2026-07-29.md: [Errno 1] Operation not permitted: '/Users/christophe/Documents/Obsidian_ACE777/Index_Maison/Journal_2026-07-29.md'
+sync-block PLAN_DE_VOL.md: [Errno 1] Operation not permitted: '/Users/christophe/Documents/Obsidian_ACE777/PLAN_DE_VOL.md'
+sync-block AUTO_PROCESSUS.md: [Errno 1] Operation not permitted: '/Users/christophe/Documents/Obsidian_ACE777/AUTO_PROCESSUS.md'
+fallback Terminal failed: Command '['osascript', '-e', 'tell application "Terminal" to do script "bash /Users/christophe/ace777-test-day1/Index_Maison/OUTBOX_OBSIDIAN/_sync_now.sh"']' timed out after 14.999903083 seconds — notes dans /Users/christophe/ace777-test-day1/Index_Maison/OUTBOX_OBSIDIAN
+memoire skip 09_MEMOIRE_COLLAB.md: [Errno 1] Operation not permitted: '/Users/christophe/Documents/Obsidian_ACE777/Swarm_Bus/09_MEMOIRE_COLLAB.md'
+memoire skip MEMOIRE_COLLAB.md: [Errno 1] Operation not permitted: '/Users/christophe/Documents/Obsidian_ACE777/Index_Maison/MEMOIRE_COLLAB.md'
+AUTO vault copy skip: [Errno 1] Operation not permitted: '/Users/christophe/Documents/Obsidian_ACE777/AUTO_PROCESSUS.md'
+synced -> /Users/christophe/Documents/Obsidian_ACE777
+THERMO_OK /Users/christophe/ace777-test-day1/Index_Maison/THERMO_DERNIER.md
+OK
