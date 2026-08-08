@@ -19,3 +19,9 @@ Cortana / `speak_attention` peut lire le résumé, puis repasser IDLE.
 - ts: 20260808T1432Z
 - demande: État incohérent des répertoires de fichiers. Le système est indiqué comme propres mais inaccessible.
 - pourquoi: Il y a un désaccord entre l'état indiqué (propre) et son accès (inaccessible). Il pourrait s'agir d'un problème de permission ou d'une configuration incohérente.
+
+
+## ⚠️ SUPERVISEUR — besoin de Christophe
+- ts: 20260808T1533Z
+- demande: État incohérent des répertoires de fichiers : 'TOP_DEMAIN' et 'REVEIL_BUFFY'. Les informations fournies ne permettent pas de déterminer si ces répertoires sont correctement configurés ou accessibles.
+- pourquoi: Il y a un manque d'informations pour évaluer la situation des répertoires TOP_DEMAIN et REVEIL_BUFFY. Il est possible qu'ils soient corrompus, inaccessibles ou manquants.
