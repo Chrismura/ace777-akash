@@ -13,3 +13,9 @@
 
 ## Règle
 Cortana / `speak_attention` peut lire le résumé, puis repasser IDLE.
+
+
+## ⚠️ SUPERVISEUR — besoin de Christophe
+- ts: 20260808T2034Z
+- demande: État incohérent des répertoires de fichiers. La vérification du système semble correcte, mais les répertoires ne sont pas valides.
+- pourquoi: Les répertoires TOP_DEMAIN et REVEIL_BUFFY n'ont pas été validés ou ne correspondent pas aux attentes attendues.
