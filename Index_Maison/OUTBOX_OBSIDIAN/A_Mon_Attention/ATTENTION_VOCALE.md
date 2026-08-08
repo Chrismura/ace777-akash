@@ -13,3 +13,9 @@
 
 ## Règle
 Cortana / `speak_attention` peut lire le résumé, puis repasser IDLE.
+
+
+## ⚠️ SUPERVISEUR — besoin de Christophe
+- ts: 20260808T1733Z
+- demande: État incohérent des répertoires de fichiers TOP_DEMAIN et REVEIL_BUFFY
+- pourquoi: Les états indiquent que les répertoires TOP_DEMAIN et REVEIL_BUFFY sont propres mais inaccessible, ce qui peut être un problème de permission ou d'accès.
