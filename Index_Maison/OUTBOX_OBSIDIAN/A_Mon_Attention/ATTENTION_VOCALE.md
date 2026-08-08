@@ -13,3 +13,9 @@
 
 ## Règle
 Cortana / `speak_attention` peut lire le résumé, puis repasser IDLE.
+
+
+## ⚠️ SUPERVISEUR — besoin de Christophe
+- ts: 20260808T1432Z
+- demande: État incohérent des répertoires de fichiers. Le système est indiqué comme propres mais inaccessible.
+- pourquoi: Il y a un désaccord entre l'état indiqué (propre) et son accès (inaccessible). Il pourrait s'agir d'un problème de permission ou d'une configuration incohérente.
