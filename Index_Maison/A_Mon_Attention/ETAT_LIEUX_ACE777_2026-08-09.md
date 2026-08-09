@@ -90,4 +90,32 @@ relire la prose. C'est la sortie de la boucle infernale (voir conversation 09/08
 
 ---
 
-*Généré le 09/08/2026 · source : collecte mécanique directe · à soumettre à Grok pour architecture cible*
+---
+
+## 5. MISE À JOUR 10/08 00:20 — CORRECTIONS + ÉTAT RÉEL (nouvelle collecte mécanique)
+
+### ⚠️ Correction 1 : Mirofish est un MEMBRE DE L'ÉQUIPE, PAS un bot de trading
+- **Vraie nature** (fiche `FICHE-MIROFISH.md`) : simulation sociale multi-agents (recherche-grade),
+  monde numérique + foule d'agents IA + rapport de prédiction. **Jamais d'exécution** (doctrine).
+- Installé 08/08 · testé avec Christophe le 09/08 matin.
+- État : **TOURNE** (backend `com.ace777.mirofish` port 5001 + front `com.ace777.mirofish-front` port 3000).
+- ⚠️ **Budget** : consomme des tokens via le hub → NVIDIA NIM (deepseek-v4-flash).
+  Christophe pensait l'avoir arrêté pour ne pas claquer le budget — **à trancher : le laisser ou l'arrêter**
+  (`launchctl stop com.ace777.mirofish` + `com.ace777.mirofish-front`).
+
+### 🔍 Correction 2 : PAS de bot fantôme — mission.json est le feed du cockpit
+- Écrit par `cockpit_mission_feed.py` (ligne 450) — **feed légitime**, pas un job fantôme.
+- Le run `NUAGE_TEST_8H_CMP3` affiché = **dernier run connu (historique)**, pas un run actif.
+- Preuve : 2 lectures à 6 s d'intervalle le 10/08 00:18 → **md5 identique, timestamp identique** (00:18:11).
+
+### ✅ État réel vérifié le 10/08 00:18
+| Élément | État |
+|---|---|
+| Bots alpha/beta/hulk | ✅ **ARRÊTÉS** (autopilote `PULSE=NOK mode=FROID ace=0 hulk=0`) |
+| hub (11435) | ✅ vivant (PID 47505) — 9 providers |
+| cockpit-http + cockpit-pont | ✅ vivants (PIDs 652, 672) |
+| mirofish + front | ✅ vivants (PIDs 664, 653) — à trancher (budget) |
+| RAM | 73 % libre (8 Go) — aucun risque OOM |
+| Plus gros conso RAM | freebuff/Buffy 2,5 Go (session en cours) |
+
+*Généré le 09/08/2026 · MIS À JOUR le 10/08 00:20 · source : collecte mécanique directe*
