@@ -315,7 +315,7 @@ def etape_decision(contexte: dict, etat: dict) -> dict:
     )
 
     payload = {
-        "task": "qwen.elabore",
+        "task": "supervise.decision",
         "messages": [
             {"role": "system", "content": prompt_system},
             {"role": "user", "content": prompt_user},
