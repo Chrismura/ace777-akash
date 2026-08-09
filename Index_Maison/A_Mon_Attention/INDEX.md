@@ -1,3 +1,4 @@
+- [ ] [[DECROCHAGE_SUPERVISEUR_2026-08-09]] — GROK AUX COMMANDES · Qwen eleve/secours · vote famille unanime
 # Index — À mon attention
 
 File des posts filtrés (Suivi Punk) + notes manuelles à te proposer.
