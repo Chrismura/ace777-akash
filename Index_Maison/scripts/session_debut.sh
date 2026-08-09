@@ -20,6 +20,20 @@ for a in "$@"; do
   esac
 done
 
+# --- BOOT UNIQUE (ADDITIF, NON BLOQUANT) — A1b, integre 09/08 ---
+# Appelle le boot unique boot.sh. Ne bloque JAMAIS la session : absent ou en echec -> WARN.
+if [[ -x "$ROOT/scripts/boot.sh" ]]; then
+  echo "7) BOOT UNIQUE — $ROOT/scripts/boot.sh"
+  if bash "$ROOT/scripts/boot.sh"; then
+    echo "BOOT=OK (voir $WS/BOOT_STATUS.md)"
+  else
+    echo "BOOT=WARN — echec non bloquant, session continue"
+  fi
+else
+  echo "BOOT=SKIP — boot.sh absent"
+fi
+# Fin BOOT UNIQUE
+
 ace_alive=0
 if pgrep -f 'ace777_launch|launch_vide_froid|GO_USINE_NUAGE|ALPHA_X13|BETA_X5' >/dev/null 2>&1; then
   ace_alive=1

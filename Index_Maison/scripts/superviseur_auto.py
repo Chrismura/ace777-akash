@@ -199,7 +199,10 @@ def etape_lire() -> dict:
     outbox_top = OUTBOX / "TOP_DEMAIN.md"
     outbox_reveil = OUTBOX / "REVEIL_BUFFY.md"
     outbox_mem = OUTBOX / "MEMOIRE_COLLAB.md"
+    # ADDITIF (A2b, 09/08) : ETAT_CONSOLIDE = memoire compacte du jour (archive = MEMOIRE_COLLAB)
+    etat_file = SYSTEME / "Index_Maison" / "ETAT_CONSOLIDE.md"
     contexte = {
+        "etat_consolide": lire_fichier(etat_file, 1500),
         "top_demain": lire_fichier(outbox_top if outbox_top.exists() else VAULT / "AUTO_EVOL" / "TOP_DEMAIN.md", 1500),
         "reveil_buffy": lire_fichier(outbox_reveil if outbox_reveil.exists() else VAULT / "REVEIL_BUFFY.md", 800),
         "memoire_collab": lire_fichier(outbox_mem if outbox_mem.exists() else VAULT / "MEMOIRE_COLLAB.md", 800),
@@ -306,6 +309,7 @@ def etape_decision(contexte: dict, etat: dict) -> dict:
         "État actuel du système :\n"
         f"{json.dumps(etat, indent=2, ensure_ascii=False)}\n\n"
         "Contexte fichiers (résumé) :\n"
+        f"- ETAT_CONSOLIDE: {contexte.get('etat_consolide', '')[:500]}\n"
         f"- TOP_DEMAIN: {contexte.get('top_demain', '')[:300]}\n"
         f"- REVEIL_BUFFY: {contexte.get('reveil_buffy', '')[:300]}\n"
     )
