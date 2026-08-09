@@ -1,3 +1,4 @@
+- [ ] [[ETAT_LIEUX_ACE777_2026-08-09]] — **ETAT DES LIEUX complet (3 couches)** · base pour architecture + state.json
 - [ ] [[DECROCHAGE_SUPERVISEUR_2026-08-09]] — GROK AUX COMMANDES · Qwen eleve/secours · vote famille unanime
 # Index — À mon attention
 
