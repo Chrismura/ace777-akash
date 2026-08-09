@@ -7,6 +7,11 @@
 # Les WebContent frais (onglets Safari/Brave actifs) sont laissés.
 set -euo pipefail
 
+# Repli si ripgrep absent (constat 09/08 : rg non installe sur ce Mac)
+if ! command -v rg >/dev/null 2>&1; then
+  rg() { grep -E "$@"; }
+fi
+
 CHECK_ONLY=0
 [[ "${1:-}" == "--check" ]] && CHECK_ONLY=1
 

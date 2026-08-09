@@ -260,9 +260,13 @@ def etape_etat() -> dict:
             if res.returncode == 0:
                 etat[cle] = not bool(res.stdout.strip())
             else:
-                etat[cle + "_inaccessible"] = True
+                # Le vault (~/Documents) est hors accès launchd/TCC (SPEC_SYNC) :
+                # état illisible = INFORMATION, pas une anomalie.
+                etat[cle] = None
+                etat[cle.replace("propre", "") + "lisible"] = False
         except Exception:
-            etat[cle + "_inaccessible"] = True
+            etat[cle] = None
+            etat[cle.replace("propre", "") + "lisible"] = False
 
     return etat
 
@@ -290,7 +294,13 @@ def etape_decision(contexte: dict, etat: dict) -> dict:
         "- fix : action mécanique simple (relancer un job mort, pousser git, sync). "
         "- ask : décision humaine nécessaire, ambiguïté, ou blocage persistant. "
         "RÈGLE ABSOLUE : ne JAMAIS toucher au trading (ACE/Hulk). "
-        "Si un job est mort, propose 'fix' avec le nom exact du job dans detail."
+        "Si un job est mort, propose 'fix' avec le nom exact du job dans detail.\n"
+        "Un dépôt git 'sale' (fichiers modifiés ou non commités) est un état NORMAL "
+        "de travail en cours — ce n'est JAMAIS une raison de 'ask'. Un état vault "
+        "illisible/null (limitation TCC launchd sur ~/Documents) est connu et bénin. "
+        "'ask' UNIQUEMENT pour : job mort répété, hub ou ollama injoignables, "
+        "problème de sécurité, ou une décision humaine réelle (argent, trade, GO). "
+        "Dans le doute : 'none'.\n"
     )
     prompt_user = (
         "État actuel du système :\n"
@@ -382,6 +392,25 @@ def rappel_lecture(dry_run: bool, tracker: dict) -> str:
     return f"preuve lecture OK ({age_h:.1f} h < {MAX_AGE_PREUVE_H} h)"
 
 
+def _besoin_humain_reel(etat: dict, detail: str) -> bool:
+    """Garde mécanique déterministe (loi 5 : vérifier en code, pas dans le prompt).
+    Correctif audit tiers 09/08 : logique INVERSÉE — on rétrograde UNIQUEMENT les
+    motifs connus BÉNINS (git sale = WIP normal, vault illisible = TCC launchd,
+    job fantôme « génère_auto », incohérence de répertoires, lecture 1septies).
+    TOUT LE RESTE passe (défaut-refus sur le bénin, jamais de perte silencieuse
+    d'une vraie demande : disque plein, quota, clé, backup, rapport...)."""
+    if etat.get("jobs_invalides"):
+        return True
+    if not etat.get("hub_ok"):
+        return True
+    d = detail.lower()
+    motifs_benins = ("git", "propre", "inaccessible", "incohérent", "incoherent",
+                     "répertoire", "repertoire", "génère_auto", "genere_auto",
+                     "lecture complète", "lecture complete", "état de git",
+                     "dirty", "wip", "travail en cours")
+    return not any(m in d for m in motifs_benins)
+
+
 def etape_agir(decision: dict, etat: dict, tracker: dict, dry_run: bool) -> str:
     """4/6 AGIR — exécute l'action décidée (fix mécanique ou escalade ask)."""
     action = decision.get("action", "none")
@@ -391,6 +420,20 @@ def etape_agir(decision: dict, etat: dict, tracker: dict, dry_run: bool) -> str:
 
     if action == "none":
         return "rien à faire"
+
+    if action == "ask" and not _besoin_humain_reel(etat, detail):
+        # Trace des escalades ignorées (audit : ne rien avaler sans laisser de trace)
+        ignorees = tracker.setdefault("escalades_ignorees", [])
+        ignorees.append({"ts": datetime.now().strftime("%Y-%m-%dT%H:%MZ"),
+                         "detail": detail[:200], "pourquoi": pourquoi[:200]})
+        tracker["escalades_ignorees"] = ignorees[-20:]
+        # Seuil : même demande non pertinente 3x/jour → on escalade quand même
+        if sum(1 for e in tracker["escalades_ignorees"]
+               if e.get("detail") == detail[:200]) >= 3:
+            escalade_attention(f"(seuil 3x répété) {detail}", pourquoi, dry_run)
+            return f"escalade (seuil 3x répété) : {detail[:120]}"
+        log_message("Escalade ignorée (motif bénin) : " + detail[:120])
+        return f"none (escalade ignorée, motif bénin) : {detail[:120]}"
 
     if action == "ask":
         # Dédup : ne ré-écrire que si la demande change (évite un bloc par heure)
@@ -445,11 +488,13 @@ def etape_agir(decision: dict, etat: dict, tracker: dict, dry_run: bool) -> str:
 
 
 def etape_journaliser(etat: dict, decision: dict, resultat: str, dry_run: bool):
+    def etat_git(v):
+        return 'P' if v is True else ('?' if v is None else 'D')
     ligne = (f"| {datetime.now().strftime('%Y-%m-%dT%H:%MZ')} | SUPERVISEUR | "
              f"hub={'OK' if etat.get('hub_ok') else 'DOWN'} ollama={'OK' if etat.get('ollama_ok') else 'DOWN'} "
              f"jobs_manquants={etat.get('jobs_invalides', [])} "
-             f"git_sys={'P' if etat.get('git_systeme_propre') else 'D'} "
-             f"git_vault={'P' if etat.get('git_vault_propre') else 'D'} "
+             f"git_sys={etat_git(etat.get('git_systeme_propre'))} "
+             f"git_vault={etat_git(etat.get('git_vault_propre'))} "
              f"action={decision.get('action')} résultat={resultat} |")
     append_log_borne(ligne, dry_run)
 

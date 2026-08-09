@@ -14,3 +14,6 @@
 | 2026-08-08T20:34Z | SUPERVISEUR | hub=OK ollama=OK jobs_manquants=[] git_sys=D git_vault=P action=ask résultat=escalade humaine : État incohérent des répertoires de fichiers. La vérification du système semble correcte, mais les répertoires ne sont pas valides. | rappel lecture écrit (âge preuve : aucune) |
 | 2026-08-08T21:34Z | SUPERVISEUR | hub=OK ollama=OK jobs_manquants=[] git_sys=D git_vault=P action=ask résultat=escalade humaine : État incohérent de git_systeme_propre et git_vault_propre_inaccessible | rappel lecture déjà écrit aujourd'hui (2026-08-08) |
 | 2026-08-09T08:07Z | SUPERVISEUR | hub=OK ollama=OK jobs_manquants=[] git_sys=D git_vault=P action=ask résultat=escalade humaine : État incohérent des répertoires de fichiers. Il semble que git_vault_propre est à true mais git_vault_propre_inaccessible est également à true. | rappel lecture écrit (âge preuve : aucune) |
+| 2026-08-09T08:09Z | SUPERVISEUR | hub=OK ollama=OK jobs_manquants=[] git_sys=D git_vault=D action=none résultat=rien à faire |
+| 2026-08-09T08:13Z | SUPERVISEUR | hub=OK ollama=OK jobs_manquants=[] git_sys=D git_vault=D action=none résultat=rien à faire |
+| 2026-08-09T09:08Z | SUPERVISEUR | hub=OK ollama=OK jobs_manquants=[] git_sys=D git_vault=? action=none résultat=rien à faire | rappel lecture déjà écrit aujourd'hui (2026-08-09) |
