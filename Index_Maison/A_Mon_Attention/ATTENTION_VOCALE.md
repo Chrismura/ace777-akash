@@ -1,11 +1,11 @@
 # Attention vocale — Cortana
 
 ## Dernier résumé
-> Info Nouveau à ton attention. Nouvelle note : INTEGRATIONS HEBDO. Peut servir au prototype — à lire dans Attention.. Provenance cortana_watch_attention.
+> Info Nouveau à ton attention. Nouvelle note : VERIF FAMILLE 2026-08-09. Peut servir au prototype — à lire dans Attention.. Provenance cortana_watch_attention.
 
 ## Meta
 - statut: IDLE
-- ts: 20260809T1104Z
+- ts: 20260809T1144Z
 - pertinence: SOFT
 - sentiment: INFO
 - compte: thermo-free
