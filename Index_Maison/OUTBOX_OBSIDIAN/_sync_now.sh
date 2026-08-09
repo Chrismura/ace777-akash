@@ -14,4 +14,6 @@ mkdir -p "$VAULT/A_Mon_Attention" && cp -f "$OB/A_Mon_Attention/"*.md "$VAULT/A_
 mkdir -p "$VAULT/Index_Maison/A_Mon_Attention" && cp -f "$OB/A_Mon_Attention/"*.md "$VAULT/Index_Maison/A_Mon_Attention/" && echo OK Index_Maison/A_Mon_Attention/
 # MEMOIRE_COLLAB : le vault est la source de verite (67 Ko), le miroir OUTBOX
 # (12 Ko) ne doit JAMAIS l'ecraser — aucune copie OUTBOX->vault ici.
+# --- 09/08 : AUTO_EVOL/IDEES.md (Qwen-elabore ecrit ICI) ne remontait JAMAIS ---
+mkdir -p "$VAULT/AUTO_EVOL" && cp -f "$OB/AUTO_EVOL/IDEES.md" "$VAULT/AUTO_EVOL/IDEES.md" && echo OK AUTO_EVOL/IDEES.md
 echo SYNC_VIA_TERMINAL_DONE
