@@ -1,0 +1,26 @@
+# FICHIERS CRITIQUES — protégés par le gardien (condition C1, 09/08)
+# Toute modification doit passer par gardien.py (pré-enregistrement WORM + double signature)
+# Configs hub
+/Users/christophe/prise-ia/providers.json
+/Users/christophe/prise-ia/routing.json
+/Users/christophe/prise-ia/.env
+/Users/christophe/prise-ia/hub_prise_ia.py
+# Scripts maison (launchd)
+/Users/christophe/ace777-test-day1/Index_Maison/scripts/gatekeeper.py
+/Users/christophe/ace777-test-day1/Index_Maison/scripts/heartbeat.py
+/Users/christophe/ace777-test-day1/Index_Maison/scripts/no_solo_code.py
+/Users/christophe/ace777-test-day1/Index_Maison/scripts/superviseur_auto.py
+/Users/christophe/ace777-test-day1/Index_Maison/scripts/verifier_setup.py
+/Users/christophe/ace777-test-day1/Index_Maison/scripts/gardien.py
+/Users/christophe/ace777-test-day1/Index_Maison/scripts/integrite.py
+/Users/christophe/ace777-test-day1/Index_Maison/scripts/preuve.py
+/Users/christophe/ace777-test-day1/Index_Maison/scripts/verif_conditions.py
+# Fichiers de controle du harnais (audit tiers 09/08 : PROBATOIRE et liste etaient modifiables)
+/Users/christophe/ace777-test-day1/Index_Maison/PROBATOIRE.json
+/Users/christophe/ace777-test-day1/Index_Maison/FICHIERS_CRITIQUES.txt
+# Plists launchd
+/Users/christophe/Library/LaunchAgents/com.ace777.prise-ia.plist
+/Users/christophe/Library/LaunchAgents/com.ace777.superviseur.plist
+/Users/christophe/Library/LaunchAgents/com.ace777.heartbeat.plist
+/Users/christophe/Library/LaunchAgents/com.ace777.qwen-elabore.plist
+/Users/christophe/Library/LaunchAgents/com.ace777.qwen-btc.plist

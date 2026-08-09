@@ -1,0 +1,86 @@
+# 📱 SIGNETS — canal tablette
+
+> Généré 2026-08-09 08:11 CEST · coffre Signets_X · plus récents d'abord
+
+- 2026-08-08 @valormental - Epicteto curó la ansiedad 2.000 años antes de que (2085996508046909750).md
+- 2026-08-08 @tom_doerr - One Knowledge provides structured human-verified (2086086374361383216).md
+- 2026-08-08 @tom_doerr - CodeWiki generates structured documentation and (2085970839241912668).md
+- 2026-08-08 @tom_doerr - CheckCle is a self-hosted, open-source monitoring (2086019104691949955).md
+- 2026-08-08 @tom_doerr - Analyses Instagram posts, YouTube videos, and web (2086032045495472536).md
+- 2026-08-08 @thisguyknowsai - I don't care what kind of hardware you have, you (2086008564729168135).md
+- 2026-08-08 @sulekhat95 - Your coding agent doesn’t have amnesia. You just (2085990473114816622).md
+- 2026-08-08 @seeconvm - KEPANO'S TAGLINE FOR OBSIDIAN WAS FILE OVER APP. (2086106625094434875).md
+- 2026-08-08 @pulmencr - X Article 95482368 (2085958330539741382).md
+- 2026-08-08 @pengsonal - 10 platforms giving away free AI credits right (2085948710912131511).md
+- 2026-08-08 @nahid_pro09 - Full STT + TTS API for $200 — No card required😳 (2086059957439561823).md
+- 2026-08-08 @milesdeutscher - One of the most game-changing things I've done (2085982089409859975).md
+- 2026-08-08 @kirillk_web3 - someone just ran Kimi K3 — all 2.78 trillion (2086051043050479660).md
+- 2026-08-08 @goyalshaliniuk - 7 Ways to Reduce LLM Hallucinations LLMs can (2085976497266037020).md
+- 2026-08-08 @gippp69 - I JUST FOUND A FKING INTERESTING 90+ STAR REPO (2086044318117073045).md
+- 2026-08-08 @de1lymoon - Google just dropped a lecture on how AI engineers (2086074959734911365).md
+- 2026-08-08 @bi_9527zx - 🔥 Cloudflare 开源黑科技来了！ 给你的 AI Agent 一台真正的电脑 👾 (2085924528233099512).md
+- 2026-08-08 @akshay_pachaar - Claude Code commits leak secrets 2x more than (2086003844459475307).md
+- 2026-08-08 @_avichawla - 8 LLM precision formats, clearly explained (2086009838753226847).md
+- 2026-08-08 @WuBlockchain - Michael Saylor AI-Designed Financing Tools Helped (2086029654557704495).md
+- 2026-08-08 @TrendSpider - I know who I'm not betting against... (2086116473962127389).md
+- 2026-08-08 @Spectre__AI - AI Technical Analysis for Stocks & Crypto. (2086102099612381401).md
+- 2026-08-08 @Shruti_0810 - SOMEONE JUST MADE CLAUDE CODE FREE. 🤯 This (2086086445132026317).md
+- 2026-08-08 @RoundtableSpace - THIS FRAMEWORK GIVES AI AGENTS A MORE RESILIENT (2086093825278099632).md
+- 2026-08-08 @PrakashS720 - Everyone wants to learn Machine Learning Almost (2085998421362749649).md
+- 2026-08-08 @NainsiDwiv50980 - All Paid Courses (Free for First 5000 People) 🎯 (2086019986028453915).md
+- 2026-08-08 @N01ennn - This paper is fcking eye-opening Deployed AI (2086096659872665676).md
+- 2026-08-08 @Lummox_eth - A SOLO QUANT RAN A 5-YEAR BACKTEST IN 12 SECONDS, (2086054954884870596).md
+- 2026-08-08 @Jeffar_AI - 🚨 BREAKING Gemini Notebook can now help you (2085929003056267597).md
+- 2026-08-08 @Jeffar_AI - Prompt 1 — Critical Thinking Expert Act as my (2085929008588582971).md
+- 2026-08-08 @JafarNajafov - Microsoft open sourced an inference framework (2086008720270688300).md
+- 2026-08-08 @DivyanshT91162 - 🚨 THE CHINESE HAVE DONE IT AGAIN! It's the best (2085986423124148679).md
+- 2026-08-08 @DivyanshT91162 - Repo (2085986472285372459).md
+- 2026-08-08 @DaniMayakovski - En Utah (EEUU), se aprobó la creación de un (2085973948240462142).md
+- 2026-08-08 @CyberRobooo - Fourier’s new addition to the GR series GRW A (2086111383188566196).md
+- 2026-08-08 @BankXRP - Anthony Scaramucci I don't think crypto has a (2086062004687761565).md
+- 2026-08-08 @Asteri_eth - 547 PEOPLE HAVE STARRED A REPO THAT SEPARATES (2086051579329655234).md
+- 2026-08-08 @Argona0x - sorry, they just did WHAT someone gave a machine (2086068819513004397).md
+- 2026-08-08 @AINerdzz - Want to grow your Twitter following and build (2085990817186119908).md
+- 2026-08-08 @0xQiYan - DeepSeek V4 Flash 无限免费调用，用到 2026 年底。 不用信用卡。 不用订阅。 (2085908860213051541).md
+- 2026-08-07 @zefirium - The price of frontier AI just hit zero. Three (2085827488794419255).md
+- 2026-08-07 @vicky_grok - 15 Ways to Get More from Claude (That Also Make (2085554026813460529).md
+- 2026-08-07 @vegastarr - The Power Of 3, 6 & 9… ✨ “If You Only Knew The (2085805173717234092).md
+- 2026-08-07 @tomgreenwald - Introducing Magnitude your actually local agent (2085789053828616695).md
+- 2026-08-07 @tom_doerr - OmniParse converts documents, multimedia, and web (2085689114599330015).md
+- 2026-08-07 @tom_doerr - LLMRouter uses over 16 router models to (2085518054587334921).md
+- 2026-08-07 @tom_doerr - Ix maps software architectures to generate system (2085837082958721119).md
+- 2026-08-07 @tom_doerr - Installs 24 portable skills for Claude Code, (2085583160323039378).md
+- 2026-08-07 @tom_doerr - Generates comprehensive, professional (2085545157127000345).md
+- 2026-08-07 @tom_doerr - Combines multi-protocol terminal access, network (2085661311044636946).md
+- 2026-08-07 @tom_doerr - Cerno enables deep research with autonomous (2085677822127792423).md
+- 2026-08-07 @tom_doerr - Brain.md creates a persistent memory layer for (2085592143247159620).md
+- 2026-08-07 @tom_doerr - Argus is a Python-based toolkit for information (2085732211127447568).md
+- 2026-08-07 @themrgreenn - Every math teacher in history told you the same (2085827652892426281).md
+- 2026-08-07 @tempo - If your agents are hitting roadblocks on (2085534003533406515).md
+- 2026-08-07 @starmexxx - microsoft, google, meta and nvidia switched 8,400 (2085646545420943751).md
+- 2026-08-07 @slash1sol - Seedance 2.5 is live on @higgsfield, unlimited (2085869142205186313).md
+- 2026-08-07 @slash1sol - I picked a model once in Hermes - three different (2085769783778361425).md
+- 2026-08-07 @slash1sol - DEEPSEEK V4 FLASH IS FREE ON TWO ROUTES RIGHT NOW (2085800071098962139).md
+- 2026-08-07 @slash1sol - 41,200 PEOPLE HAVE STARRED A REPO THAT MAKES (2085715223218954493).md
+- 2026-08-07 @simplifyinAI - You don't need a GPU to run text-to-speech (2085681720112918765).md
+- 2026-08-07 @silvina_jk - 🚨Una antigua parábola taoísta cambió mi forma de (2085756177766310308).md
+- 2026-08-07 @silvina_jk - La próxima vez que alguien choque contra tu día (2085756195445293543).md
+- 2026-08-07 @ridark_eth - This 24-year-old solo founder generated $98,489 (2085651957406933168).md
+- 2026-08-07 @ridark_eth - AGENCIES CHARGE $5,000MO FOR A FULL SALES TEAM. (2085768488392458561).md
+- 2026-08-07 @ridark_eth - A DEVELOPER BUILT A MEMORY SYSTEM AND FOUND (2085823048716800306).md
+- 2026-08-07 @rasbt - Just saw that the LLMs-from-scratch repository (2085737107486642385).md
+- 2026-08-07 @quantscience_ - This paper reveals a simple strategy that has (2085758895654367287).md
+- 2026-08-07 @polydao - CLAUDE + OBSIDIAN = THE ONLY AI FORMAT THAT WILL (2085635555119743306).md
+- 2026-08-07 @nykdotdev - X Article 72850433 (2085719246844342391).md
+- 2026-08-07 @nykdotdev - Unified agents still fail without ownership. (2085586766086730075).md
+- 2026-08-07 @notEgoyard - DOWNLOAD ALONE IS 594GB AND THE GPU BILL START AT (2085729311328268341).md
+- 2026-08-07 @murat_chris - Le meilleur prompt IA pour humaniser vos (2085647307580588110).md
+- 2026-08-07 @mikakilpelaine1 - You missed blogging in 2010 You missed crypto in (2085713298801164776).md
+- 2026-08-07 @midudev - ¡Esto es importante! OpenAI lanza Agent Plugins (2085713813966364820).md
+- 2026-08-07 @midudev - Este proyecto te permite tener AWS local y (2085744771226628470).md
+- 2026-08-07 @marfinxx - Stanford researchers published the definitive (2085700309960028389).md
+- 2026-08-07 @libapi_ - Hermes Studio 最新多 Agent 群聊，正在打破设备与网络的边界。 （正在测试） (2085679298263060510).md
+- 2026-08-07 @leopardracer - an Anthropic engineer just explained what (2085747820745707966).md
+- 2026-08-07 @kv1nsiii - YOUR AI STOPS RE-READING THE SAME PDF EVERY (2085732793791782969).md
+
+## 📄 Derniers signets (contenu intégral ci-dessous)
