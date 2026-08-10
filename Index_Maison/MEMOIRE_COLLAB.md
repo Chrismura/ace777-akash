@@ -6,6 +6,7 @@ Pour que Cursor · Punk · Cortana · Christophe sachent **ce qui a bougé**, sa
 | Colonne | Sens |
 |---------|------|
 | ts | UTC |
+| 2026-08-10T12:12Z | Ada | ★ | LECTURE COMPLETE [LECTURE_COMPLETE_OK] 1129 fichiers |
 | Qui | Cursor / Punk / Cortana / Humain |
 | Action | `+` ajout · `~` modif · `✕` retrait · `★` décision |
 | Où | chemin vault ou workspace |
