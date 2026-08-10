@@ -43,12 +43,15 @@ Quand tu soumets une mission au hub (script de délégation, audit, consultation
 
 1. **Dans le script** : `urllib.request.urlopen(req, timeout=None)`
 2. **Dans le basher** : `timeout_seconds: -1` (pas de clamp à 600 s)
-3. **Si l'appel est très long (> 10 min)** : utiliser le pattern `setsid` :
+3. **Si l'appel est très long (> 10 min)** : utiliser le lanceur macOS natif :
    ```bash
-   setsid nohup python3 script.py > /tmp/scipt.log 2>&1 &
+   python3 lancer_detache.py python3 soumettre_hub_illimite.py <task> <mission.txt> <sortie.md>
    ```
-   → `setsid` détache du process group → le processus **survit** à la fin du basher.
-   → Poller le fichier de sortie.
+   → `start_new_session=True` (équivalent macOS de setsid, qui N'EXISTE PAS sur Mac) :
+     le processus est détaché dans sa propre session → il **survit** à la mort du shell.
+   → Le script écrit la réponse dans <sortie.md> au fur et à mesure → on poll le fichier.
+   → `soumettre_hub_illimite.py` : timeout=None + retry 3x (30 s d'écart) + trace de démarrage.
+   → Testé en réel le 10/08 : réponse reçue complète via nvidia, processus détaché vivant.
 
 ## 📜 Fichiers de la règle
 
@@ -59,12 +62,3 @@ Quand tu soumets une mission au hub (script de délégation, audit, consultation
 
 > **LoI du brut** : on ne coupe pas une IA qui réfléchit. Timeout=None.
 ---
-
-## 📜 Référence contractuelle
-
-La règle des audits regroupés est gravée dans le **CONTRAT_AUTOGESTION** article **1sexies** :
-> « On ne soumet pas chaque changement un par un — on accumule les modifications
-> et on soumet un seul audit diff par chantier. Maximum 1 audit famille par jour. »
-
-→ Le contrat vit dans le vault Obsidian (`CONTRAT_AUTOGESTION.md`)
-  et sa copie dans `Index_Maison/CONTRAT_AUTOGESTION.md`.
