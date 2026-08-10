@@ -375,6 +375,8 @@ cd ~/Documents/Obsidian_ACE777 && git add -A && git commit -m "fin de session" &
 
 | Besoin | Quoi coller |
 |--------|-------------|
+| **🚀 Démarrage matin** | `bash …/Index_Maison/scripts/session_debut.sh --open` |
+| **🛑 Arrêt complet** | `cd ~/ace777-test-day1 && ./stop_ace777.sh` |
 | Mac OK ? | `etat_mac.sh` |
 | Ménage | `grosse_hygiene.sh` |
 | Qui a gagné $ ? | `liste_runs.py --pnl --cmd` |
