@@ -34,3 +34,18 @@
 5. ✅ Checkpoint git `e5fe1b3` v0-avant-statejson + auto-sync 3h
 
 *Créé : 2026-08-10 08:39:53 CEST · Point de référence AVANT setup 3 étages*
+
+
+---
+
+## 🧱 LES 3 COUCHES MÉTIER (vue hier soir 09/08) — TOUTES SAUVEGARDÉES
+
+| Couche | Ce qu'elle contient | Où ça vit | Dans le backup ? |
+|---|---|---|---|
+| **1. Système** | 27-29 services launchd, hub 9 providers, 17 tâches routées, protections (WORM, gardien, gatekeeper, heartbeat) | `~/ace777-test-day1` + `~/prise-ia` | ✅ `systeme/` (270M, 8035 f) + `hub/` (792K, 54 f) |
+| **2. Trading** | mission.json, live.json, alpha/beta/hulk, thermo (score 88), analyses | `~/ace777-test-day1/Index_Maison/cockpit/` + `thermo/` | ✅ dans `systeme/` — mission.json ✅ (version 08:39, live réécrit ensuite = normal) · live.json ✅ identique · analyses 5/5 ✅ |
+| **3. Vocal (Cortana)** | voix Vivienne, cortana.horaire + urgent, cortana_feed.json, 10 alertes | `~/ace777-test-day1/Index_Maison/thermo/cortana_feed.json` | ✅ dans `systeme/` — cortana_feed.json ✅ IDENTIQUE |
+
+**Mémoire mécanique par couche (découverte 09/08) :** Trading = mission.json ✅ · Vocal = cortana_feed.json ✅ · Système = ~~prose~~ → **state.json à créer** ⬜ (le chantier des 3 étages)
+
+*Complété 10/08 08:50 — vérification couverture 3 couches par le backup*
