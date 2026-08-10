@@ -1,5 +1,5 @@
 {
-  "ts": "2026-08-10T09:27Z",
+  "ts": "2026-08-10T10:27Z",
   "alert": "amber",
   "run": "NUAGE_TEST_8H_CMP3",
   "sessionSince": "2026-08-02T00:00Z",
@@ -2188,49 +2188,49 @@
   },
   "thermo": {
     "climate": "ok",
-    "score": 86,
-    "funding": 8.8e-05,
-    "whaleN": 0,
+    "score": 87,
+    "funding": 9.3e-05,
+    "whaleN": 1,
     "deltas": {
       "mark": {
         "dir": "down",
-        "delta": -45.44,
+        "delta": -196.84,
         "label": "↓"
       },
       "funding": {
         "dir": "up",
-        "delta": 1.3e-05,
+        "delta": 5e-06,
         "label": "↑"
       },
       "fundingAvg30": {
-        "dir": "up",
-        "delta": 7.7e-07,
-        "label": "↑"
+        "dir": "flat",
+        "delta": 0.0,
+        "label": "="
       },
       "fundingAvgPrevMonth": {
-        "dir": "up",
-        "delta": 1.4e-07,
-        "label": "↑"
+        "dir": "flat",
+        "delta": 0.0,
+        "label": "="
       },
       "longShort": {
         "dir": "down",
-        "delta": -0.025,
+        "delta": -0.008,
         "label": "↓"
       },
       "chg24": {
         "dir": "down",
-        "delta": -0.15,
+        "delta": -0.17,
         "label": "↓"
       },
       "oi": {
-        "dir": "up",
-        "delta": 510.564,
-        "label": "↑"
+        "dir": "down",
+        "delta": -128.713,
+        "label": "↓"
       },
       "score": {
-        "dir": "flat",
-        "delta": 0.0,
-        "label": "="
+        "dir": "up",
+        "delta": 1.0,
+        "label": "↑"
       },
       "btcDominance": {
         "dir": "flat",
@@ -2238,40 +2238,40 @@
         "label": "—"
       },
       "panierDownPct": {
-        "dir": "up",
-        "delta": 20.0,
-        "label": "↑"
+        "dir": "flat",
+        "delta": 0.0,
+        "label": "="
       },
       "whaleUsd": {
-        "dir": "down",
-        "delta": -1493163.0,
-        "label": "↓"
+        "dir": "up",
+        "delta": 1150943.0,
+        "label": "↑"
       },
       "whaleN": {
-        "dir": "down",
-        "delta": -2.0,
-        "label": "↓"
+        "dir": "up",
+        "delta": 1.0,
+        "label": "↑"
       },
       "takerRatio": {
-        "dir": "down",
-        "delta": -0.385,
-        "label": "↓"
+        "dir": "up",
+        "delta": 0.227,
+        "label": "↑"
       }
     },
     "fearGreed": 30,
     "fearGreedLabel": "Fear",
-    "marketCapUsd": null,
-    "altSeason": null,
-    "altSeasonScore": null,
-    "liq24Usd": 14464964.0,
+    "marketCapUsd": 2303776520902.0,
+    "altSeason": "Bitcoin season",
+    "altSeasonScore": 49,
+    "liq24Usd": 14808291.0,
     "etf": {
-      "btc": 69.44,
+      "btc": 69.23,
       "eth": null,
       "xrp": null,
       "source": "bitbo-public (moy 7j)",
       "unit": "M$"
     },
-    "btcDominance": null,
+    "btcDominance": 56.7,
     "indicators": {
       "D26": {
         "value": "30 · Fear",
@@ -2282,20 +2282,20 @@
         "wired": true
       },
       "D27": {
-        "value": null,
-        "level": "na",
+        "value": "2.30 T$",
+        "level": "ok",
         "label": "Market cap crypto",
         "unit": "",
         "note": "CoinGecko global",
-        "wired": false
+        "wired": true
       },
       "D28": {
-        "value": null,
-        "level": "ok",
+        "value": "Bitcoin season (~49)",
+        "level": "warn",
         "label": "Alt season (proxy BTC.D)",
         "unit": "",
         "note": "proxy dominance — pas index Blockchain Center exact",
-        "wired": false
+        "wired": true
       },
       "D29": {
         "value": "0.01 B$",
@@ -2306,7 +2306,7 @@
         "wired": true
       },
       "D30": {
-        "value": "BTC 69.44 M$",
+        "value": "BTC 69.23 M$",
         "level": "ok",
         "label": "ETF BTC net inflow",
         "unit": "",
