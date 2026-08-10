@@ -1,0 +1,101 @@
+{
+ "tasks": {
+  "ada.sanity": {
+   "provider": "gemini",
+   "fallback": "nvidia",
+   "cloud_quota": 5,
+   "note": "tuyauterie de demarrage (ada.command etape 2) — PAUSE qwen (10/08, GO famille), bascule gemini"
+  },
+  "cortana.brief": {
+   "provider": "gemini",
+   "fallback": "nvidia",
+   "cloud_quota": 20,
+   "note": "briefs vocaux — GEMINI par defaut (choix 06/08) : voix naturelle + chiffres en toutes lettres. Quota 20/j."
+  },
+  "audit.protocol": {
+   "provider": "gemini",
+   "fallback": "nvidia",
+   "cloud_quota": 5,
+   "note": "audit de protocole — qualite maximale"
+  },
+  "signets.synthese": {
+   "provider": "gemini",
+   "fallback": "nvidia",
+   "cloud_quota": 10,
+   "note": "synthese des bookmarks X — PAUSE qwen (10/08, GO famille), bascule gemini"
+  },
+  "chat.local": {
+   "provider": "gemini",
+   "fallback": "nvidia",
+   "cloud_quota": 30,
+   "note": "usage interactif libre — PAUSE qwen (10/08, GO famille), bascule gemini"
+  },
+  "cortana.analyse": {
+   "provider": "gemini",
+   "fallback": "nvidia",
+   "cloud_quota": 20,
+   "note": "master analyste — physique des marches (ondes, fractales). GEMINI par defaut (choix Christophe 06/08), quota 20/j."
+  },
+  "coffre.ask": {
+   "provider": "gemini",
+   "fallback": "nvidia",
+   "cloud_quota": 15,
+   "note": "coffre interactif RAG Obsidian - qualite + reponse sourcee (07/08)"
+  },
+  "qwen.elabore": {
+   "provider": "nvidia",
+   "fallback": "gemini",
+   "cloud_quota": 3,
+   "note": "elaboration Qwen solo nocturne - local gratuit d'abord (07/08) — service en PAUSE (10/08, GO famille), provider bascule nvidia"
+  },
+  "qwen.btc": {
+   "provider": "nvidia",
+   "fallback": "gemini",
+   "cloud_quota": 3,
+   "note": "analyse BTC Qwen - apprentissage (journalise analyses/ pour score_justesse) (07/08) — service en PAUSE (10/08, GO famille), provider bascule nvidia"
+  },
+  "signets.lot2": {
+   "provider": "openrouter-free",
+   "fallback": "gemini",
+   "cloud_quota": 5,
+   "note": "tri signets lot 2 - analyse de veille (08/08)"
+  },
+  "analyse.profonde": {
+   "provider": "nvidia",
+   "fallback": "openrouter-ultra",
+   "cloud_quota": 10,
+   "note": "analyses complexes - DeepSeek V4 Flash via NVIDIA NIM (08/08)"
+  },
+  "signets.juge": {
+   "provider": "openrouter-juge",
+   "fallback": "nvidia",
+   "cloud_quota": 25,
+   "note": "Juge independant du tri des signets - valide les votes des 4 familles sans les voir (08/08)"
+  },
+  "mission": {
+   "provider": "nvidia",
+   "fallback": "puter-grok",
+   "note": "nvidia (deepseek-v4-flash) -> fallback GROK (Puter gratuit, A/B EGAL 09/08) — diversite de famille"
+  },
+  "ultra.analyse": {
+   "provider": "openrouter-ultra",
+   "fallback": "nvidia"
+  },
+  "inferx.analyse": {
+   "provider": "inferx",
+   "fallback": "nvidia"
+  },
+  "code.ia": {
+   "provider": "inferx-coder",
+   "fallback": "nvidia"
+  },
+  "supervise.decision": {
+   "provider": "puter-grok",
+   "fallback": "gemini",
+   "cloud_quota": 20,
+   "note": "DECISIONS DU SUPERVISEUR - decrochage de qwen-local (09/08, GO Christophe) - grok-4.3 gratuit via puter, fallback gemini"
+  }
+ },
+ "cloud_daily_budget": 480,
+ "note": "cloud_daily_budget DYNAMIQUE calcule par budget_hub.py le 08/08 (480 = 3200 x 0.15). Se recalcule a chaque ajout de provider (voir budget_hub.py)"
+}
