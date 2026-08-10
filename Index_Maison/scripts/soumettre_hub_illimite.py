@@ -33,6 +33,7 @@ EXEMPLE LANCEMENT DÉTACHÉ (macOS, pas de setsid) :
     # la commande retourne IMMEDIATEMENT. On poll <fichier_sortie.md> ensuite.
 """
 import json
+import os
 import sys
 import time
 import urllib.request
@@ -50,8 +51,25 @@ def main():
     task, mission_path, out_path = sys.argv[1], sys.argv[2], sys.argv[3]
     max_tokens = int(sys.argv[4]) if len(sys.argv) > 4 else 4000
 
-    with open(mission_path, encoding="utf-8") as f:
-        mission = f.read()
+    # Garde explicite (correction codeur v2, faille 2) : mission doit exister,
+    # être lisible et non vide — jamais de traceback brutal.
+    if not os.path.exists(mission_path):
+        print("ERREUR: Fichier mission introuvable: %s" % mission_path, file=sys.stderr)
+        sys.exit(1)
+    try:
+        taille = os.path.getsize(mission_path)
+        if taille == 0:
+            print("ERREUR: Fichier mission vide: %s" % mission_path, file=sys.stderr)
+            sys.exit(1)
+    except OSError as e:
+        print("ERREUR: Impossible de lire le fichier mission: %s" % e, file=sys.stderr)
+        sys.exit(1)
+    try:
+        with open(mission_path, encoding="utf-8") as f:
+            mission = f.read()
+    except (IOError, UnicodeDecodeError) as e:
+        print("ERREUR: Lecture impossible du fichier mission: %s" % e, file=sys.stderr)
+        sys.exit(1)
 
     payload = {
         "task": task,

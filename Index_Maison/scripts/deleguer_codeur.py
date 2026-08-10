@@ -35,6 +35,27 @@ SOUMETTRE = os.path.join(ROOT, "soumettre_hub_illimite.py")
 LANCER = os.path.join(ROOT, "lancer_detache.py")
 
 
+def verifier_spec(spec_path: str) -> bool:
+    """Vérifie que la spec source existe et a un contenu réel (> 20 octets).
+
+    La vérification se fait sur le fichier source, pas sur la mission générée,
+    car l'en-tête ACE777 est toujours écrit avant la spec.
+    (correction codeur v2, faille 1)
+    """
+    if not os.path.exists(spec_path):
+        print(f"ERREUR: Spec introuvable: {spec_path}", file=sys.stderr)
+        return False
+    try:
+        taille = os.path.getsize(spec_path)
+        if taille < 20:  # Moins de 20 octets = spec vide ou quasi vide
+            print(f"ERREUR: Spec trop courte ({taille} octets) - contenu réel requis", file=sys.stderr)
+            return False
+        return True
+    except OSError as e:
+        print(f"ERREUR: Impossible de lire la spec: {e}", file=sys.stderr)
+        return False
+
+
 def main():
     if len(sys.argv) < 3:
         print("Usage: deleguer_codeur.py <spec.md> <sortie.md> [max_tokens]")
@@ -43,8 +64,7 @@ def main():
     out_path = os.path.abspath(sys.argv[2])
     max_tokens = sys.argv[3] if len(sys.argv) > 3 else "8000"
 
-    if not os.path.exists(spec_path):
-        print(f"[ECHEC] spec introuvable: {spec_path}", file=sys.stderr)
+    if not verifier_spec(spec_path):
         sys.exit(1)
 
     # En-tête de la spec : rappel du rôle (le codeur code, pas Ada)
