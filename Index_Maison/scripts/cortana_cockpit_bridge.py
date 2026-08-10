@@ -161,6 +161,42 @@ def do_analyse(indice: str) -> dict:
     return {"ok": True, "texte": texte, "provider": provider}
 
 
+def do_chat(message: str) -> dict:
+    """Chat cockpit -> hub (task=mission = deepseek-v4-flash = Buffy, rotation hub).
+    Renvoie le texte (écrit, affiché dans le cockpit) et lance la lecture vocale
+    Vivienne en arrière-plan (thread, comme do_analyse)."""
+    import urllib.request
+
+    msg = (message or "").strip()
+    if not msg:
+        return {"ok": False, "error": "message vide"}
+    if len(msg) > 2000:
+        return {"ok": False, "error": "message trop long (max 2000 caractères)"}
+    payload = {
+        "task": "mission",  # deepseek-v4-flash via NVIDIA + rotation hub (fallback)
+        "messages": [{"role": "user", "content": msg}],
+        "temperature": 0.4,
+        "max_tokens": 700,
+    }
+    try:
+        req = urllib.request.Request(
+            "http://127.0.0.1:11435/v1/chat/completions",
+            data=json.dumps(payload).encode("utf-8"),
+            headers={"Content-Type": "application/json"},
+        )
+        with urllib.request.urlopen(req, timeout=180) as resp:
+            data = json.load(resp)
+        content = data["choices"][0]["message"]["content"].strip()
+        provider = data.get("provider", "?")
+    except Exception as e:
+        return {"ok": False, "error": f"hub injoignable: {str(e)[:160]}"}
+    if not content:
+        return {"ok": False, "error": "réponse vide du hub"}
+    # voix Vivienne en arrière-plan (n'attend pas la fin de lecture)
+    threading.Thread(target=_speak_texte, args=(content,), daemon=True).start()
+    return {"ok": True, "texte": content, "provider": provider}
+
+
 def _speak_texte(texte: str) -> None:
     """Lit un texte a voix haute (Vivienne) — thread arriere-plan."""
     import tempfile as _tf
@@ -743,6 +779,13 @@ class Handler(BaseHTTPRequestHandler):
                 self._json(400, {"ok": False, "error": "indice manquant"})
                 return
             data = do_analyse(indice)
+            code = 200 if data.get("ok") else 502
+            self._json(code, data)
+            return
+        if path == "/chat":
+            body = self._read_json()
+            message = str(body.get("message") or "")
+            data = do_chat(message)
             code = 200 if data.get("ok") else 502
             self._json(code, data)
             return
