@@ -28,6 +28,10 @@ HULK = ROOT / "hulk-mexc"
 PANIC_LOG = ROOT / "Index_Maison" / "cockpit" / "panic.log"
 PORT = 17777
 
+# E3 (SPEC V2.1, reserve famille P4) : verif version coeur Rust — NON FATALE.
+EXPECTED_RUST_VERSION = "2.1.0"
+RUST_CORE_DIR = Path("/Users/christophe/crypto-voice-assistant-core")
+
 
 def _ace_link() -> dict:
     """LIVE frais = ACE en marche · STALE = log froid · OFF = pas de LIVE."""
@@ -46,6 +50,27 @@ def _ace_link() -> dict:
     else:
         state, label = "OFF", "OFF"
     return {"state": state, "label": label, "ageSec": age, "run": run, "live": live.name}
+
+
+def _check_rust_version() -> None:
+    """E3 (SPEC V2.1, reserve P4) : verifie la version du coeur Rust
+    (hors perimetre setup, backup uniquement). Warning si version != attendue,
+    error si VERSION manquant. NON FATAL : ne plante jamais le script."""
+    version_file = RUST_CORE_DIR / "VERSION"
+    try:
+        if not version_file.exists():
+            print(f"[ERROR] Fichier VERSION manquant : {version_file}",
+                  file=sys.stderr)
+            return
+        with open(version_file, "r", encoding="utf-8") as f:
+            rust_version = f.read().strip()
+        if rust_version != EXPECTED_RUST_VERSION:
+            print(f"[WARNING] Version Rust inattendue : {rust_version} "
+                  f"(attendu : {EXPECTED_RUST_VERSION})", file=sys.stderr)
+        else:
+            print(f"[INFO] Version Rust OK : {rust_version}")
+    except Exception as e:
+        print(f"[ERROR] Erreur verification Rust : {e}", file=sys.stderr)
 
 
 def _net_link() -> dict:
