@@ -149,11 +149,12 @@ Réf : [[MEMOIRE_COLLAB]] · [[JOURNAL_MOLETTES_SETUP]] · [[COUTUMES_AGORA]]
 
 ## 5a — Début / fin de session
 
-**Matin (ou après nuit en vol) :**
+**Matin (ou après nuit en vol) — LA commande de démarrage :**
 ```bash
 bash ~/ace777-test-day1/Index_Maison/scripts/session_debut.sh --open
 bash ~/ace777-test-day1/Index_Maison/scripts/session_debut.sh --vol --open   # force VOL
 ```
+> `session_debut.sh` = checklist complète (état Mac/RAM → boot unique → cockpit/thermo/pont → plan de vol). Ne lance JAMAIS le trading. (validée 10/08 : RAM=OK après pause qwen)
 
 **Avant dodo — prototype qui reste :**
 ```bash
@@ -290,7 +291,22 @@ Lance ACE testnet pour une durée + un TAG. **Uniquement** si tu as dit GO et qu
 ```bash
 cd ~/ace777-test-day1 && ./stop_ace777.sh
 ```
-Arrête ACE proprement.
+**Arrêt COMPLET (10/08, fusion 3 étages)** : arrête les 4 services 3 étages (watchdog EN PREMIER → superviseur-core → cockpit-pont → cockpit-http, via `launchctl bootout`) + tous les anciens processus (vortex, genesis, master...).
+
+**Vérifier que tout est éteint :**
+```bash
+launchctl list | grep -E 'superviseur-core|watchdog|cockpit-pont|cockpit-http'   # → rien
+pgrep -f 'superviseur_core\.sh'                                                  # → rien
+```
+
+**Redémarrer SANS reboot (après un arrêt) :**
+```bash
+launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.ace777.superviseur-core.plist
+launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.ace777.watchdog.plist
+launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.ace777.cockpit-pont.plist
+launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.ace777.cockpit-http.plist
+```
+> Après REBOOT : les services reviennent tout seuls au login. Doc détaillée : `ERREURS_AI/COMMANDES_ARRET_ACE777.md`.
 
 ```bash
 cd ~/ace777-test-day1 && ./stop_ace777_hard.sh
@@ -359,6 +375,8 @@ cd ~/Documents/Obsidian_ACE777 && git add -A && git commit -m "fin de session" &
 
 | Besoin | Quoi coller |
 |--------|-------------|
+| **🚀 Démarrage matin** | `bash …/Index_Maison/scripts/session_debut.sh --open` |
+| **🛑 Arrêt complet** | `cd ~/ace777-test-day1 && ./stop_ace777.sh` |
 | Mac OK ? | `etat_mac.sh` |
 | Ménage | `grosse_hygiene.sh` |
 | Qui a gagné $ ? | `liste_runs.py --pnl --cmd` |
@@ -370,3 +388,10 @@ cd ~/Documents/Obsidian_ACE777 && git add -A && git commit -m "fin de session" &
 | Voix | `speak_attention` |
 | Trader | seulement avec GO |
 | Session Buffy | §9 — check hub + ollama + git |
+
+## 🔗 Connexions
+
+- [[14_AUDIT_TROIS_JAMBES_SWARM]] — 14_AUDIT_TROIS_JAMBES_SWARM
+- [[AUTO_PROCESSUS]] — AUTO_PROCESSUS
+- [[REVEIL_BUFFY]] — REVEIL_BUFFY
+- [[CONTRAT_AUTOGESTION]] — CONTRAT_AUTOGESTION

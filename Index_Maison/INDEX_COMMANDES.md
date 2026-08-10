@@ -388,3 +388,10 @@ cd ~/Documents/Obsidian_ACE777 && git add -A && git commit -m "fin de session" &
 | Voix | `speak_attention` |
 | Trader | seulement avec GO |
 | Session Buffy | §9 — check hub + ollama + git |
+
+## 🔗 Connexions
+
+- [[14_AUDIT_TROIS_JAMBES_SWARM]] — 14_AUDIT_TROIS_JAMBES_SWARM
+- [[AUTO_PROCESSUS]] — AUTO_PROCESSUS
+- [[REVEIL_BUFFY]] — REVEIL_BUFFY
+- [[CONTRAT_AUTOGESTION]] — CONTRAT_AUTOGESTION

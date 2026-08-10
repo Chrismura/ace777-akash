@@ -149,11 +149,12 @@ Réf : [[MEMOIRE_COLLAB]] · [[JOURNAL_MOLETTES_SETUP]] · [[COUTUMES_AGORA]]
 
 ## 5a — Début / fin de session
 
-**Matin (ou après nuit en vol) :**
+**Matin (ou après nuit en vol) — LA commande de démarrage :**
 ```bash
 bash ~/ace777-test-day1/Index_Maison/scripts/session_debut.sh --open
 bash ~/ace777-test-day1/Index_Maison/scripts/session_debut.sh --vol --open   # force VOL
 ```
+> `session_debut.sh` = checklist complète (état Mac/RAM → boot unique → cockpit/thermo/pont → plan de vol). Ne lance JAMAIS le trading. (validée 10/08 : RAM=OK après pause qwen)
 
 **Avant dodo — prototype qui reste :**
 ```bash
@@ -290,7 +291,22 @@ Lance ACE testnet pour une durée + un TAG. **Uniquement** si tu as dit GO et qu
 ```bash
 cd ~/ace777-test-day1 && ./stop_ace777.sh
 ```
-Arrête ACE proprement.
+**Arrêt COMPLET (10/08, fusion 3 étages)** : arrête les 4 services 3 étages (watchdog EN PREMIER → superviseur-core → cockpit-pont → cockpit-http, via `launchctl bootout`) + tous les anciens processus (vortex, genesis, master...).
+
+**Vérifier que tout est éteint :**
+```bash
+launchctl list | grep -E 'superviseur-core|watchdog|cockpit-pont|cockpit-http'   # → rien
+pgrep -f 'superviseur_core\.sh'                                                  # → rien
+```
+
+**Redémarrer SANS reboot (après un arrêt) :**
+```bash
+launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.ace777.superviseur-core.plist
+launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.ace777.watchdog.plist
+launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.ace777.cockpit-pont.plist
+launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.ace777.cockpit-http.plist
+```
+> Après REBOOT : les services reviennent tout seuls au login. Doc détaillée : `ERREURS_AI/COMMANDES_ARRET_ACE777.md`.
 
 ```bash
 cd ~/ace777-test-day1 && ./stop_ace777_hard.sh
@@ -309,10 +325,58 @@ Après coupure : **REPRISE_APRES_COUPURE**.
 
 ---
 
+## 9 — Session Buffy (chef d'orchestre · Prise IA · veille)
+
+**But :** tout relancer en 30 s pour qu'on se retrouve (Buffy lit le journal + la mémoire + sa spec [[BUFFY]]).
+
+**1) Check que tout tourne :**
+```bash
+launchctl list | grep prise-ia
+curl -s http://127.0.0.1:11435/health
+ollama list | head -5
+cd ~/Documents/Obsidian_ACE777 && git pull --rebase && git status --short | head -3
+```
+
+**2) Si le hub Prise IA est mort (relance auto via launchd, sinon) :**
+```bash
+launchctl unload ~/Library/LaunchAgents/com.ace777.prise-ia.plist 2>/dev/null
+launchctl load   ~/Library/LaunchAgents/com.ace777.prise-ia.plist
+sleep 2 && curl -s http://127.0.0.1:11435/health
+```
+
+**3) Test rapide de la tuyauterie (Qwen locale via le hub) :**
+```bash
+curl -s http://127.0.0.1:11435/v1/chat/completions -H 'Content-Type: application/json' -d '{"messages":[{"role":"user","content":"dis bonjour en 3 mots"}],"max_tokens":30}' | head -c 300
+```
+
+**4) Signets X — pipeline (bookmarks → notes Obsidian) :**
+```bash
+ls -lat ~/Downloads/ | grep -i twitter | head -3   # un nouvel export JSON ?
+python3 ~/process_x_bookmarks_master.py            # conversion → Signets_X/
+```
+> À faire (Buffy + Christophe) : trouver un moyen RAPIDE de télécharger les bookmarks X.
+
+**5) MA commande de lancement (Ada) — tout en un :**
+```bash
+ada
+```
+> L'alias `ada` lance `scripts/ada.command` : elle vérifie/relance le hub → teste Qwen → git pull → régénère mon fichier de réveil → affiche ma prochaine action → **lance Freebuff en mode `--continue`**. Ensuite tu écris « on reprend » et je suis là. 🎼
+> Sans l'alias : `bash ~/Documents/Obsidian_ACE777/scripts/ada.command` (ou double-clic sur le fichier dans le Finder).
+
+**6) Fin de session (génère mon fichier de réveil + sauvegarde) :**
+```bash
+python3 ~/Documents/Obsidian_ACE777/scripts/buffy_reveil.py
+cd ~/Documents/Obsidian_ACE777 && git add -A && git commit -m "fin de session" && git push
+```
+
+---
+
 ## Rappel 10 secondes
 
 | Besoin | Quoi coller |
 |--------|-------------|
+| **🚀 Démarrage matin** | `bash …/Index_Maison/scripts/session_debut.sh --open` |
+| **🛑 Arrêt complet** | `cd ~/ace777-test-day1 && ./stop_ace777.sh` |
 | Mac OK ? | `etat_mac.sh` |
 | Ménage | `grosse_hygiene.sh` |
 | Qui a gagné $ ? | `liste_runs.py --pnl --cmd` |
@@ -323,3 +387,11 @@ Après coupure : **REPRISE_APRES_COUPURE**.
 | Lire un post | `suivi "…"` |
 | Voix | `speak_attention` |
 | Trader | seulement avec GO |
+| Session Buffy | §9 — check hub + ollama + git |
+
+## 🔗 Connexions
+
+- [[14_AUDIT_TROIS_JAMBES_SWARM]] — 14_AUDIT_TROIS_JAMBES_SWARM
+- [[AUTO_PROCESSUS]] — AUTO_PROCESSUS
+- [[REVEIL_BUFFY]] — REVEIL_BUFFY
+- [[CONTRAT_AUTOGESTION]] — CONTRAT_AUTOGESTION
