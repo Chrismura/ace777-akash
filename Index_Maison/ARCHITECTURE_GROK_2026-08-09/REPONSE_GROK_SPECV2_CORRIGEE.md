@@ -81,3 +81,11 @@ Si un provider dépasse 2 s, le cockpit l’ignore et continue sans bloquer le c
 - state.json contient l’inventaire, le compteur journalier et les métriques de référence.
 
 VERDICT SPEC V2 : OK.
+
+---
+
+## ✍️ DOUBLE SIGNATURE — validation finale (10/08)
+- **Grok** : spec V2 corrigée produite (11/11 points famille intégrés, VERDICT SPEC V2 : OK)
+- **Ada** : vérification mécanique — C1 à C11 tous présents dans la spec ✅
+- **Christophe** : GO validé le 10/08 (étape 2 famille, non négociable)
+- **Prochaine action** : Étape 0 (inventaire) puis Étape 1 (backup plists) — aucune suppression avant.
