@@ -1,13 +1,13 @@
 # Attention vocale — Cortana
 
 ## Dernier résumé
-> Info Nouveau à ton attention. Nouvelle note : VERIF SETUP 2026-08-10. Peut servir au prototype — à lire dans Attention.. Provenance cortana_watch_attention.
+> Alerte Baleine. Gros print détecté, environ 1964694 dollars, 4 transaction proxy. Source Binance.. Provenance cortana_watch_whale.
 
 ## Meta
 - statut: IDLE
-- ts: 20260810T1306Z
-- pertinence: SOFT
-- sentiment: INFO
+- ts: 20260810T1349Z
+- pertinence: PERTINENT
+- sentiment: URGENT
 - compte: thermo-free
 - lien Index: S22b C14 · résumé horaire
 
