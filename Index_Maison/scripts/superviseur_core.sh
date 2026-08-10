@@ -596,31 +596,57 @@ PY
 
 # ============================================================
 # ORCHESTRATION (bash 3.2 macOS : pas de tableaux associatifs)
+# BOUCLE INTERNE (spec V2 [C2] + corrections famille 10/08) :
+# le processus reste VIVANT (KeepAlive:true) — jamais une seule execution.
 # ============================================================
-R_HEARTBEAT="SKIP"; R_PULSE="SKIP"; R_VIGIE="SKIP"; R_QUOTAS="SKIP"; R_ROTATION="SKIP"
 
-# heartbeats : 1 h = 3600 s ; vigie/quotas : 30 min = 1800 s ; rotation : 6 h = 21600 s
-# Réserve audit GEMINI-F1-2 : chaque check encapsulé avec fallback NOK (jamais de
-# variable vide qui fausserait le contrat de sortie CORE=OK|WARN|NOK).
-if check_due "heartbeat" 3600; then R_HEARTBEAT=$(check_heartbeat || echo "NOK"); fi
-if check_due "pulse" 900; then R_PULSE=$(check_pulse || echo "NOK"); fi
-if check_due "vigie" 1800; then R_VIGIE=$(check_vigie || echo "NOK"); fi
-if check_due "quotas" 1800; then R_QUOTAS=$(check_quotas || echo "NOK"); fi
-if check_due "rotation" 21600; then R_ROTATION=$(check_rotation || echo "NOK"); fi
+# C2 (famille/DEEPSEEK) : arrêt propre sur signal
+# (sinon un `launchctl kickstart -k` tuerait la boucle sans contrat de sortie)
+trap 'echo "CORE=STOP"; exit 0' INT TERM
 
-# Contrat de sortie
-NOK_COUNT=0
-ALL="$R_HEARTBEAT $R_PULSE $R_VIGIE $R_QUOTAS $R_ROTATION"
-for r in $ALL; do
-    [ "$r" = "NOK" ] && NOK_COUNT=$((NOK_COUNT+1))
+while true; do
+    R_HEARTBEAT="SKIP"; R_PULSE="SKIP"; R_VIGIE="SKIP"; R_QUOTAS="SKIP"; R_ROTATION="SKIP"
+
+    # Correction famille BLOQUANTE (4/4 : GEMINI/DEEPSEEK/JUGE/ULTRA) :
+    # gestion de FORCE par cycle — un `--force` relance un cycle complet immediat
+    # (timestamps remis a 0) puis la boucle continue normalement.
+    if [ "$FORCE" = "1" ]; then
+        : > "$STATE_DIR/heartbeat.last"
+        : > "$STATE_DIR/pulse.last"
+        : > "$STATE_DIR/vigie.last"
+        : > "$STATE_DIR/quotas.last"
+        : > "$STATE_DIR/rotation.last"
+        FORCE=0
+        core_log "BOUCLE: cycle force (--force) — timestamps reinitialises"
+    fi
+
+    # heartbeats : 1 h = 3600 s ; vigie/quotas : 30 min = 1800 s ; rotation : 6 h = 21600 s
+    # Réserve audit GEMINI-F1-2 : chaque check encapsulé avec fallback NOK (jamais de
+    # variable vide qui fausserait le contrat de sortie CORE=OK|WARN|NOK).
+    if check_due "heartbeat" 3600; then R_HEARTBEAT=$(check_heartbeat || echo "NOK"); fi
+    if check_due "pulse" 900; then R_PULSE=$(check_pulse || echo "NOK"); fi
+    if check_due "vigie" 1800; then R_VIGIE=$(check_vigie || echo "NOK"); fi
+    if check_due "quotas" 1800; then R_QUOTAS=$(check_quotas || echo "NOK"); fi
+    if check_due "rotation" 21600; then R_ROTATION=$(check_rotation || echo "NOK"); fi
+
+    # Contrat de sortie (identique a l'existant, ecrit a CHAQUE cycle)
+    NOK_COUNT=0
+    ALL="$R_HEARTBEAT $R_PULSE $R_VIGIE $R_QUOTAS $R_ROTATION"
+    for r in $ALL; do
+        [ "$r" = "NOK" ] && NOK_COUNT=$((NOK_COUNT+1))
+    done
+
+    if [ "$NOK_COUNT" -gt 0 ]; then
+        CORE="NOK"
+    elif [[ "$ALL" == *WARN* ]]; then
+        CORE="WARN"
+    else
+        CORE="OK"
+    fi
+
+    echo "CORE=$CORE checks=heartbeat:$R_HEARTBEAT,pulse:$R_PULSE,vigie:$R_VIGIE,quotas:$R_QUOTAS,rotation:$R_ROTATION"
+
+    # Pause entre cycles (60 s) — le processus reste vivant. Protégée :
+    # un signal pendant le sleep ne casse pas la boucle (correction DEEPSEEK).
+    sleep 60 || true
 done
-
-if [ "$NOK_COUNT" -gt 0 ]; then
-    CORE="NOK"
-elif [[ "$ALL" == *WARN* ]]; then
-    CORE="WARN"
-else
-    CORE="OK"
-fi
-
-echo "CORE=$CORE checks=heartbeat:$R_HEARTBEAT,pulse:$R_PULSE,vigie:$R_VIGIE,quotas:$R_QUOTAS,rotation:$R_ROTATION"
