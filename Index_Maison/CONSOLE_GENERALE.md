@@ -1,6 +1,6 @@
 # Console générale — clin d’œil
 
-Auto-refresh : 2026-08-09 18:53 UTC · jour local **2026-08-09**
+Auto-refresh : 2026-08-10 18:53 UTC · jour local **2026-08-10**
 
 ## Feu tricolore
 
@@ -25,4 +25,4 @@ Auto-refresh : 2026-08-09 18:53 UTC · jour local **2026-08-09**
 - Pairs ouvertes (state) : —
 
 ## Liens
-[[PLAN_DE_VOL]] · [[AUTO_PROCESSUS]] · [[AGORA]] · [[Cahier/Journal_2026-08-09]] · [[OSSATURE]]
+[[PLAN_DE_VOL]] · [[AUTO_PROCESSUS]] · [[AGORA]] · [[Cahier/Journal_2026-08-10]] · [[OSSATURE]]
