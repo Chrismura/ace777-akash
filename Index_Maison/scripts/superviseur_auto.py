@@ -59,7 +59,7 @@ OLLAMA_TAGS_URL = "http://localhost:11434/api/tags"
 # pulse, vigie, quotas, rotation).
 JOBS_ATTENDUS = [
     "com.ace777.cockpit-http", "com.ace777.cortana.horaire",
-    "com.ace777.prise-ia", "com.ace777.analyse-usage", "com.ace777.analyste-cadence",
+    "com.ace777.prise-ia", "com.ace777.analyste-cadence",
     "com.ace777.cockpit-pont", "com.ace777.journal-soir", "com.ace777.gitpush",
     "com.ace777.cortana.urgent", "com.ace777.brief-matin",
     "com.ace777.superviseur-core",
