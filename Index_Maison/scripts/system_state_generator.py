@@ -155,10 +155,9 @@ def generate_state():
     for name, path in HORS_ZONE.items():
         try:
             present = os.path.isdir(path)
-            size_ko = int(os.path.getsize(path) / 1024) if present else 0
-            hors_zone[name] = {"present": present, "size_ko": size_ko}
+            hors_zone[name] = {"present": present}
         except Exception:
-            hors_zone[name] = {"present": False, "size_ko": 0}
+            hors_zone[name] = {"present": False}
 
     state = {
         "timestamp": now_iso(),
