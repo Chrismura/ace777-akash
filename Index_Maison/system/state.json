@@ -1,47 +1,49 @@
 {
-  "timestamp": "2026-08-10T08:18:02Z",
+  "timestamp": "2026-08-10T08:22:48Z",
   "generation_source": "system_state_generator.py v2.1",
   "status": "STALE",
-  "feed_hash": "fc5c99740b262533ed1afcafcc6839b61d00088842c30a39023fe6e51f228f51",
+  "feed_hash": "c113b8a73d69bd0c79712114e07703fe5fa450370d44d79ff167bc0facca7cd6",
   "feeds": {
     "mission": {
       "present": true,
-      "age_seconds": 8,
+      "age_seconds": 10,
       "fresh_limit_s": 120
     },
     "cortana_feed": {
       "present": true,
-      "age_seconds": 2877,
+      "age_seconds": 3163,
       "fresh_limit_s": 120
     },
     "live": {
       "present": true,
-      "age_seconds": 2883,
+      "age_seconds": 3169,
       "fresh_limit_s": 15
     },
     "routing": {
       "present": true,
-      "age_seconds": 45878,
+      "age_seconds": 46164,
       "fresh_limit_s": 120
     }
   },
   "services": {
-    "total": 27,
-    "running": 3,
+    "total": 29,
+    "running": 5,
     "planned": 24,
     "running_list": [
       "com.ace777.cockpit-http",
       "com.ace777.cockpit-pont",
-      "com.ace777.prise-ia"
+      "com.ace777.cortana.urgent",
+      "com.ace777.prise-ia",
+      "com.ace777.state-generator"
     ],
     "planned_list": [
       "com.ace777.analyse-usage",
       "com.ace777.analyste-cadence",
       "com.ace777.autopilote",
+      "com.ace777.backup-check",
       "com.ace777.brief-matin",
       "com.ace777.catalogue",
       "com.ace777.cortana.horaire",
-      "com.ace777.cortana.urgent",
       "com.ace777.eval-offres",
       "com.ace777.gitpush",
       "com.ace777.gitpush-vault",
@@ -82,5 +84,23 @@
     "obsidian_backups": {
       "present": true
     }
+  },
+  "backup_light": {
+    "presence": {
+      "mirofis": true,
+      "crypto-voice-assistant-core": true,
+      "ACE777_ARCHIVES_BRUTES_DONNEES": true,
+      "Assistant_Vocal_HORS_VAULT": true,
+      "Obsidian_BACKUPS_HORS_VAULT": true
+    },
+    "sizes_ko": {
+      "mirofis": 1068252,
+      "crypto-voice-assistant-core": 4041128,
+      "ACE777_ARCHIVES_BRUTES_DONNEES": 96136,
+      "Assistant_Vocal_HORS_VAULT": 697372,
+      "Obsidian_BACKUPS_HORS_VAULT": 14936872
+    },
+    "presence_at": "2026-08-10T08:22:48Z",
+    "sizes_at": "2026-08-10T08:21:14Z"
   }
 }

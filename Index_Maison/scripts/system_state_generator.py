@@ -159,6 +159,17 @@ def generate_state():
         except Exception:
             hors_zone[name] = {"present": False}
 
+    # Backup check (E2) : lit les 2 bruts produits par backup_light_check.sh
+    # (presence chaque run + tailles du -sk espacees 6 h) — jamais bloquant.
+    backup_presence = load_json_safe(os.path.join(SYSTEM_DIR, "backup_presence.json"))
+    backup_sizes = load_json_safe(os.path.join(SYSTEM_DIR, "backup_sizes.json"))
+    backup_light = {
+        "presence": (backup_presence or {}).get("present", {}),
+        "sizes_ko": (backup_sizes or {}).get("sizes_ko", {}),
+        "presence_at": (backup_presence or {}).get("generated_at"),
+        "sizes_at": (backup_sizes or {}).get("generated_at"),
+    }
+
     state = {
         "timestamp": now_iso(),
         "generation_source": "system_state_generator.py v2.1",
@@ -182,6 +193,7 @@ def generate_state():
         "hub": hub,
         "ram_raw": ram or None,
         "hors_zone": hors_zone,
+        "backup_light": backup_light,
     }
     return state
 
