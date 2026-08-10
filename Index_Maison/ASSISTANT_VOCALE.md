@@ -87,3 +87,25 @@ bash ~/ace777-test-day1/Index_Maison/OUTBOX_OBSIDIAN/_sync_now.sh
 Puis dans le vault : cherche **Assistant vocal** ou **DASHBOARD_ARCHITECTURE**.
 
 [[INDEX_COMMANDES]] · [[ATTENTION_VOCALE]]
+
+---
+
+## 🔌 BRANCHEMENT HUB — 10/08/2026 (décision Christophe)
+
+Logique : « de base toi, ensuite rotation du hub, plus tard hors ligne qwen ollama. »
+
+| Avant | Après |
+|---|---|
+| VOICE_USE_HUB=0 (OFF — pour ne pas brûler les crédits) | **VOICE_USE_HUB=1** (ON) |
+| Cerveau direct : qwen2.5:3b local + Gemini | **HUB_TASK=mission** = deepseek-v4-flash via NVIDIA (Buffy) + **rotation hub** (fallback GROK si indisponible) |
+
+Chaîne de repli du bot (déjà dans brain.rs) :
+1. **Hub (mission)** — de base = moi, rotation automatique si panne
+2. Gemini (mode en ligne)
+3. Ollama qwen (hors ligne) — **à activer plus tard** en version offline
+
+Modif : `launch_cortana.sh` (export VOICE_USE_HUB=1, HUB_TASK=mission)
+Backup : `launch_cortana.sh.bak_avant_hub_20260810`
+Test : binaire démarre (whisper small + GPU), hub reçoit mission → nvidia ✅
+
+Lancement : `~/crypto-voice-assistant-core/launch_cortana.sh open` (fenêtre Terminal)
