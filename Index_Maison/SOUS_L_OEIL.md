@@ -2,17 +2,17 @@
 
 > Mis à jour auto · **ne lance rien** · lit seulement.
 
-**⚠️ Machine : **anomalie** — regarde les ❌** · `PULSE=NOK` · mode **FROID**
+**🟡 Machine : **OK avec alertes**** · `PULSE=WARN` · mode **FROID**
 
 | | Check | Détail |
 |---|--------|--------|
 | ✅ | Mode | FROID (auto) |
-| ✅ | Horodatage | 2026-08-10T10:11 local · 2026-08-10T08:11Z UTC |
+| ✅ | Horodatage | 2026-08-10T10:26 local · 2026-08-10T08:26Z UTC |
 | ✅ | Champion | md5 `37fca367…` |
 | ✅ | ACE | OFF (attendu froid) |
 | ✅ | Hulk | OFF (attendu froid) |
 | ⚠️ | Ollama | ON — OK si veille |
-| ❌ | RAM | ~144 Mo CRITIQUE |
+| ⚠️ | RAM | ~200 Mo (tight) |
 
 ## Que faire
 
@@ -23,4 +23,4 @@
 Voir [[AUTO_PROCESSUS]] — ce pulse = couche **veille machine**, pas trading.
 
 ---
-_généré 2026-08-10T08:11Z · script `pulse_sous_loeil.sh`_
+_généré 2026-08-10T08:26Z · script `pulse_sous_loeil.sh`_
