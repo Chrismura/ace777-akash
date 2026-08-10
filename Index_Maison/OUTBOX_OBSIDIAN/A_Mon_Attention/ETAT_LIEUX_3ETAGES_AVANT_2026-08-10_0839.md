@@ -49,3 +49,57 @@
 **Mémoire mécanique par couche (découverte 09/08) :** Trading = mission.json ✅ · Vocal = cortana_feed.json ✅ · Système = ~~prose~~ → **state.json à créer** ⬜ (le chantier des 3 étages)
 
 *Complété 10/08 08:50 — vérification couverture 3 couches par le backup*
+
+---
+
+## 🛡️ AUDIT DE COMPLÉTUDE — 10/08 09:35 (tout est-il sauvegardé ?)
+
+> Objectif Christophe : « sauvegarde tout ce qu'il y a dans les 3 étages ».
+> Méthode : chaque élément de l'état des lieux d'hier soir a été recoupé avec le backup réel (plists, scripts, fichiers).
+
+### ✅ 29/29 services launchd — plists couverts
+| Source | Résultat |
+|---|---|
+| 27 plists actifs dans `~/Library/LaunchAgents/` | ✅ tous dans `backup/launchd/LaunchAgents_complet/` (32 éléments, DESACTIVES inclus) |
+| 2 plists mirofish + front (désactivés 10/08) | ✅ préservés dans `DESACTIVES_2026-08-10/` du backup |
+
+### ✅ Protections mécaniques
+`gardien.py` · `gatekeeper.py` · `heartbeat.py` · `verifier_setup.py` · `superviseur_auto.py` → **tous dans le backup** ✅
+
+### ✅ Hub (9 providers)
+`hub_prise_ia.py` · `.env` (clés) · `providers.json` · `routing.json` · `usage.jsonl` → **tous dans `backup/hub/`** ✅
+
+### ✅ Trading + Vocal
+`mission.json` · `live.json` · `cortana_feed.json` · `cortana_horaire.sh` · `cortana_urgent_poll.sh` · `cortana_watch.py` · `cortana_thermo.py` → **tous dans `backup/systeme/`** ✅
+
+### 🔍 DÉCOUVERTE DE L'AUDIT — dossiers HORS des 3 zones, absents de l'état des lieux
+L'état des lieux d'hier soir ne les listait pas — pourtant ils font partie du système :
+
+| Dossier hors zone | Contenu | Taille | Dans le backup |
+|---|---|---|---|
+| `~/mirofis/` | **Code source Mirofish** (backend Python 35 110 f, frontend) — surveillé par autopilote | 1,0 Go | ✅ `hors_zones/mirofis/` (39 960/39 960 f) |
+| `~/crypto-voice-assistant-core/` | **Cœur du vocal Cortana** (Rust, launch_cortana.sh, config) — référencé par vigie.sh | 4,4 Go | ✅ `hors_zones/crypto-voice-assistant-core/` (20 470/20 470 f) |
+| `~/ACE777_ARCHIVES_BRUTES_DONNEES/` | Données historiques (Projet 1 + 4) | 94 Mo | ✅ |
+| `~/Assistant_Vocal_HORS_VAULT/` | Données vocales hors vault | 681 Mo | ✅ |
+| `~/Index_Maison/` (racine) | Ancien dossier maison | 892 Ko | ✅ |
+| `~/bin/` | Commandes memoire/molette | 16 Ko | ✅ |
+| `~/veille-punk/` | Scripts veille | 24 Ko | ✅ |
+| `~/ace777-test-backups/` + outputs | Tests | 500 Ko | ✅ |
+
+### 📊 Backup 3 étages FINAL : **6,4 Go**
+```
+backup/3etages_avant_20260810_083916/
+├── systeme/   (270 Mo — maison : scripts, configs, trading, vocal, cockpit)
+├── hub/       (792 Ko — hub + clés API)
+├── vault/     (35 Mo — Obsidian, repo git complet)
+├── launchd/   (132 Ko — les 32 plists, LA définition des services)   ← ajouté
+└── hors_zones/ (4,4 Go — mirofis, vocal core, archives)              ← ajouté
+```
+
+### ℹ️ Non recopié (et pourquoi)
+| Élément | Raison |
+|---|---|
+| `~/Obsidian_BACKUPS_HORS_VAULT/` (14 Go) | Ce sont DÉJÀ des sauvegardes du vault (doublons, archives) — pas des données vivantes. Les recopier doublerait 14 Go inutilement. |
+
+### ✅ VERDICT
+**L'état des lieux d'hier soir était incomplet (8 dossiers hors zone manquants) — mais le backup est maintenant COMPLET : tout ce qui fait tourner les 3 étages est sauvegardé et vérifié par comptage + checksums.**
