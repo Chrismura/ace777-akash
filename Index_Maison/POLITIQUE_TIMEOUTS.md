@@ -58,3 +58,13 @@ Quand tu soumets une mission au hub (script de délégation, audit, consultation
 - Preuve git : commit `89f1db1` + cette entrée
 
 > **LoI du brut** : on ne coupe pas une IA qui réfléchit. Timeout=None.
+---
+
+## 📜 Référence contractuelle
+
+La règle des audits regroupés est gravée dans le **CONTRAT_AUTOGESTION** article **1sexies** :
+> « On ne soumet pas chaque changement un par un — on accumule les modifications
+> et on soumet un seul audit diff par chantier. Maximum 1 audit famille par jour. »
+
+→ Le contrat vit dans le vault Obsidian (`CONTRAT_AUTOGESTION.md`)
+  et sa copie dans `Index_Maison/CONTRAT_AUTOGESTION.md`.
