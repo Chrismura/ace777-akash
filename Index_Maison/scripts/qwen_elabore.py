@@ -95,7 +95,7 @@ def ask_hub(sujet: str) -> dict:
     req = urllib.request.Request(
         HUB, data=json.dumps(payload).encode(),
         headers={"Content-Type": "application/json"}, method="POST")
-    with urllib.request.urlopen(req, timeout=600) as resp:
+    with urllib.request.urlopen(req, timeout=None) as resp:
         return json.loads(resp.read().decode())
 
 

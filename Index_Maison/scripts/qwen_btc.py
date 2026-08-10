@@ -258,7 +258,7 @@ def call_hub(facts, correction=None):
     req = urllib.request.Request(
         HUB, data=json.dumps(payload).encode("utf-8"),
         headers={"Content-Type": "application/json"})
-    with urllib.request.urlopen(req, timeout=600) as resp:
+    with urllib.request.urlopen(req, timeout=None) as resp:
         data = json.load(resp)
     return data["choices"][0]["message"]["content"], data.get("provider", "?")
 

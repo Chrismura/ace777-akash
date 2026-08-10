@@ -120,7 +120,7 @@ def hub_juge(txt_c, txt_r, model_c, model_r):
     }).encode()
     req = urllib.request.Request(HUB, data=payload, headers={'Content-Type': 'application/json'})
     try:
-        with urllib.request.urlopen(req, timeout=120) as resp:
+        with urllib.request.urlopen(req, timeout=None) as resp:
             d = json.loads(resp.read().decode('utf-8'))
         out = d['choices'][0]['message']['content'].strip()
     except Exception as e:
