@@ -1,0 +1,100 @@
+# SPEC — Compléter la FERMETURE ACE777 pour les services 3 étages
+
+**Auteur spec** : Ada (orchestratrice)
+**Destinataire** : LE CODEUR DU HUB (task code.ia — tu codes, Ada intègre/teste)
+**Date** : 10/08/2026
+**Loi du brut** : code complet, prêt à copier, commentaires en français, bash macOS.
+
+---
+
+## 1. PROBLÈME (constaté en réel, vérifié)
+
+La fusion « 3 étages » a ajouté **4 services launchd continus**, tous avec
+`KeepAlive=true` (donc un `kill` seul est INUTILE : launchd les relance
+immédiatement). Le script d'arrêt actuel `stop_ace777.sh` ne les connaît pas :
+
+| Service | Rôle | Piège |
+|---|---|---|
+| `com.ace777.watchdog` | relance `superviseur-core` s'il tombe | ⚠️ à arrêter **EN PREMIER**, sinon il relance tout |
+| `com.ace777.superviseur-core` | gardien (boucle continue) | KeepAlive=true → `bootout` obligatoire |
+| `com.ace777.cockpit-pont` | pont vocal/chat (port 17777) | KeepAlive=true → `bootout` obligatoire |
+| `com.ace777.cockpit-http` | tableau de bord (port 17800) | KeepAlive=true → `bootout` obligatoire |
+
+**Conséquence aujourd'hui** : faire `STOP` ne coupe PAS le système — le watchdog
+relance le gardien ~2 min après. La fermeture est un trou.
+
+---
+
+## 2. MODIFICATIONS DEMANDÉES (2 fichiers)
+
+### FICHIER A — `~/ace777-test-day1/stop_ace777.sh`
+
+**AJOUTER** une nouvelle section « ARRET SERVICES 3 ETAGES » **au tout début du
+script** (avant les kills des anciens processus), avec le contenu suivant :
+
+1. **Ordre d'arrêt CRITIQUE** (ne pas changer) :
+   1. `com.ace777.watchdog` (sinon il relance superviseur-core)
+   2. `com.ace777.superviseur-core`
+   3. `com.ace777.cockpit-pont`
+   4. `com.ace777.cockpit-http`
+
+2. **Commande** pour chaque service :
+   ```bash
+   launchctl bootout gui/$(id -u)/com.ace777.<label> 2>/dev/null
+   ```
+   - `bootout` est le SEUL moyen fiable d'arrêter un service `KeepAlive=true`
+     (il désenregistre le service de launchd).
+   - NE PAS utiliser `launchctl unload` (déprécié) ni `launchctl remove`.
+   - NE PAS tuer les PIDs directement (`pkill`) : launchd les relancerait.
+
+3. **Robustesse NON FATALE** pour chaque service :
+   - Si le service est déjà arrêté/absent → message `[3ETAGES] <label> absent (déjà arrêté)` et on continue.
+   - Si le bootout échoue → message `[3ETAGES] <label> WARN bootout échoué` et on continue.
+   - Après le bootout de `superviseur-core` : vérifier avec
+     `pgrep -f 'superviseur_core\.sh$'` ; si un processus traîne encore,
+     `kill -9` de ce PID (filet de sécurité, non fatal).
+   - Le script doit TOUJOURS se terminer proprement (exit 0 même si tout était déjà arrêté).
+
+4. **Journalisation** : chaque étape avec `echo` (comme le style existant du script).
+
+5. **NE PAS toucher** au reste du script (les kills des anciens processus —
+   vortex, genesis, master, radar... — restent tels quels, y compris le
+   `pkill watchdog_ace777` qui vise l'ANCIEN watchdog Ruby, pas le nouveau).
+   On AJOUTE, on ne remplace pas.
+
+### FICHIER B — `~/ace777-test-day1/ERREURS_AI/COMMANDES_ARRET_ACE777.md`
+
+Mettre à jour la doc officielle d'arrêt :
+
+1. **One-liner copier-coller** : ajouter les 4 `launchctl bootout` (dans le bon
+   ordre : watchdog → superviseur-core → cockpit-pont → cockpit-http) au
+   one-liner existant.
+
+2. **Section « Vérifier que tout est éteint »** (nouvelle) :
+   ```bash
+   launchctl list | grep -E 'superviseur-core|watchdog|cockpit-pont|cockpit-http'
+   pgrep -f 'superviseur_core\.sh$'
+   ```
+   → si rien ne s'affiche, tout est bien éteint.
+
+3. **Section « Redémarrer SANS reboot »** (nouvelle) — ordre de relance :
+   ```bash
+   launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.ace777.superviseur-core.plist
+   launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.ace777.watchdog.plist
+   launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.ace777.cockpit-pont.plist
+   launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.ace777.cockpit-http.plist
+   ```
+   (Note : après un REBOOT complet, ces services se rechargent automatiquement
+   au login — rien à faire. La relance manuelle ne sert que pour un stop/start
+   dans la même session.)
+
+---
+
+## 3. CONTRAT DE SORTIE
+
+- Le code COMPLET des 2 fichiers modifiés (fichier A en entier, fichier B en
+  entier), prêt à copier-coller.
+- Une explication brève de ce que tu as changé (3-5 lignes max).
+- Zéro code inutile, zéro refactorisation d'ailleurs, zéro changement de
+  comportement des autres parties.
+- Bash macOS uniquement, `set -uo pipefail` conservé, commentaires en français.

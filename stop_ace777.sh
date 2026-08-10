@@ -3,6 +3,84 @@
 
 cd /Users/christophe/ace777-test-day1
 
+# === ARRET SERVICES 3 ETAGES (codeur hub, 10/08) =============
+# Ordre CRITIQUE : watchdog EN PREMIER (sinon il relance tout).
+# KeepAlive=true -> seul launchctl bootout arrete vraiment.
+echo "=== [3ETAGES] Arret des services launchd (KeepAlive=true) ==="
+
+# 1. watchdog — doit etre arrete en premier (garde-fou R5, famille 10/08)
+if launchctl bootout gui/$(id -u)/com.ace777.watchdog 2>/dev/null; then
+    echo "[3ETAGES] com.ace777.watchdog arrete"
+else
+    if ! launchctl list | grep -q "com.ace777.watchdog"; then
+        echo "[3ETAGES] com.ace777.watchdog absent (deja arrete)"
+    else
+        # Garde-fou : le bootout a echoue et le service est encore enregistre
+        echo "[3ETAGES] bootout echoue — tentative de kill -9..."
+        pkill -9 -f 'watchdog_superviseur' 2>/dev/null
+        sleep 1
+        if pgrep -f 'watchdog_superviseur' > /dev/null; then
+            echo ""
+            echo "!!! ALERTE : LE WATCHDOG EST ENCORE ACTIF — arret interrompu, verifier manuellement !!!"
+            echo ""
+            exit 1
+        else
+            echo "[3ETAGES] com.ace777.watchdog arrete EN FORCE (bootout echoue, kill -9)"
+        fi
+    fi
+fi
+
+# 2. superviseur-core — gardien principal
+if launchctl bootout gui/$(id -u)/com.ace777.superviseur-core 2>/dev/null; then
+    echo "[3ETAGES] com.ace777.superviseur-core arrete"
+else
+    if launchctl list | grep -q "com.ace777.superviseur-core"; then
+        echo "[3ETAGES] com.ace777.superviseur-core WARN bootout echoue"
+    else
+        echo "[3ETAGES] com.ace777.superviseur-core absent (deja arrete)"
+    fi
+fi
+
+# Filet de securite superviseur-core (recherche elargie R4, famille 10/08)
+if pgrep -f 'superviseur_core\.sh' > /dev/null; then
+    echo "[3ETAGES] Processus superviseur_core.sh residuel detecte — kill -9"
+    pkill -9 -f 'superviseur_core\.sh' 2>/dev/null
+    sleep 1
+    if pgrep -f 'superviseur_core\.sh' > /dev/null; then
+        echo ""
+        echo "!!! ALERTE : superviseur_core.sh encore actif apres kill -9 !!!"
+        echo ""
+        exit 1
+    fi
+else
+    echo "[3ETAGES] Aucun processus superviseur_core.sh residuel"
+fi
+
+# 3. cockpit-pont — pont vocal/chat
+if launchctl bootout gui/$(id -u)/com.ace777.cockpit-pont 2>/dev/null; then
+    echo "[3ETAGES] com.ace777.cockpit-pont arrete"
+else
+    if launchctl list | grep -q "com.ace777.cockpit-pont"; then
+        echo "[3ETAGES] com.ace777.cockpit-pont WARN bootout echoue"
+    else
+        echo "[3ETAGES] com.ace777.cockpit-pont absent (deja arrete)"
+    fi
+fi
+
+# 4. cockpit-http — tableau de bord
+if launchctl bootout gui/$(id -u)/com.ace777.cockpit-http 2>/dev/null; then
+    echo "[3ETAGES] com.ace777.cockpit-http arrete"
+else
+    if launchctl list | grep -q "com.ace777.cockpit-http"; then
+        echo "[3ETAGES] com.ace777.cockpit-http WARN bootout echoue"
+    else
+        echo "[3ETAGES] com.ace777.cockpit-http absent (deja arrete)"
+    fi
+fi
+
+echo "=== [3ETAGES] Services 3 etages arretes ==="
+# Fin section 3 etages
+
 touch STOP STOP_ALPHA STOP_BETA 2>/dev/null
 
 # 1. Groupe process (priorité)
