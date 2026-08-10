@@ -14,7 +14,10 @@ id_ed25519
 # Phase 0 (09/08 - exigences famille Juge+DeepSeek) : jamais de backups/logs/WORM dans git
 ~/Backups/
 Backups/
-*backup*
+*.bak
+*.bak-*
+!Index_Maison/scripts/backup_light_check.sh
+!Index_Maison/system/backup_*.json
 WORM_JOURNAL.log
 INTEGRITE_BASE.json
 *.log
