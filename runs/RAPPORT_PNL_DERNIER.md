@@ -3,7 +3,7 @@
 **Session:** `NUAGE_TEST_8H_CMP3`
 **Période:** 2026-08-02T18:18:24Z → 2026-08-02T19:54:01Z (1h35m)
 **Setup:** `vide_froid_binance` v`V2.2.1_NO_SUICIDE` | BETA `200` USDT | ALPHA `800` USDT | LLM gate `TRUE` fail_closed=`TRUE`
-**Généré:** 2026-08-04T14:58:46Z UTC
+**Généré:** 2026-08-10T21:21:48Z UTC
 **Filtre session:** `ts >= 2026-08-02T18:18:13Z` (lignes CSV antérieures exclues)
 
 ---

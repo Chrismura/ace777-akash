@@ -1,7 +1,7 @@
 # ACE777 — STATE
 
 > Généré automatiquement — ne pas éditer à la main
-> Phase: `stopped` | Statut: `STOPPED` | MAJ: `2026-08-04T14:58:45Z`
+> Phase: `stopped` | Statut: `STOPPED` | MAJ: `2026-08-10T21:21:48Z`
 
 ## Config active
 
@@ -52,8 +52,8 @@
 
 ## Dernière leçon ERREURS_AI
 
-- Fichier: `FAUTE_MASSE_ET_INSUBORDINATION_20260227.md`
-- Titre: # FAUTES TRÈS GRAVES — Masse et Insubordination (2026-02-27)
+- Fichier: `COMMANDES_ARRET_ACE777.md`
+- Titre: # Commande d'arrêt ACE777
 
 ---
 _Généré par `scripts/update_state_md.sh`_
