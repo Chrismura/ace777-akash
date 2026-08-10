@@ -31,3 +31,29 @@
 ## État final
 - Services ace777 : **22** (était 23) · Hub : OK 9 providers · Cerveau : nominal
 - Prochaine étape : verif-setup (débloqué par tag) à sa prochaine exécution 12:00
+
+---
+
+## ✅ DÉCISION FINALE (Christophe, 10/08 après-midi)
+
+« Bien sûr qu il ne faut rien jeter d utile — à la limite faut jeter juste mettre en
+DEHORS. Intègre tout ce dont on a besoin. »
+
+→ Règle actée : **RIEN NE SE DÉTRUIT. Ce qui est utile reste intégré. Ce qu'on
+retire est MIS DE CÔTÉ (sauvegardé), jamais effacé.**
+
+### État final vérifié (10/08 14:55)
+| Composant | État |
+|---|---|
+| Services actifs | **22** (colonne vertébrale complète : hub, cockpit ×2, superviseurs ×2, cortana ×2, chaîne sécurité, rituels, gitpush ×2, state-generator, backup-check) |
+| Hub (moteur) | OK 9 providers |
+| Cerveau (superviseur) | actif · superviseur-core en cours (PID 41054) |
+| Cockpit (tableau de bord) | actif (http 684, pont 701) |
+| analyse-usage | **mis de côté** : 2 copies sur disque (DESACTIVES) + 2 versionnées (vault git) — inactif mais JAMAIS détruit |
+| verif-setup | prêt (gatekeeper débloqué par tag) |
+
+### Bilan de la fusion
+- 1 seul service retiré (analyse-usage, le seul inutile) → **mis de côté, pas jeté**
+- 22 services utiles → **tous intégrés et actifs**
+- 0 casse · 0 perte · tout réversible (rollback documenté + backups versionnés)
+- Audit famille : GO 4/4 (GEMINI, JUGE, DEEPSEEK +4 réserves traitées, ULTRA +R1 traitée)
