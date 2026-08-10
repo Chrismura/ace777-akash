@@ -62,3 +62,19 @@ Quand tu soumets une mission au hub (script de délégation, audit, consultation
 
 > **LoI du brut** : on ne coupe pas une IA qui réfléchit. Timeout=None.
 ---
+---
+
+## 🧑‍💻 LE CODEUR DU HUB — règles spécifiques (10/08, vécu)
+
+- Le codeur (task `code.ia` : inferx-coder, fallback nvidia) génère des scripts
+  de CENTAINES de lignes qui prennent souvent **> 10 min** et **> 4500 tokens**.
+- **timeout base 600 s** (providers.json, corrigé 10/08 : inferx-coder/nvidia
+  passés de 120/300 à 600) + **plafond patience 1800 s** (hub, corrigé 10/08 :
+  `min(base*3, 600)` → `min(base*3, 1800)`) : un gros script a le temps d'arriver complet.
+- **max_tokens 8000 minimum** pour les missions codeur — jamais 4500 (ça tronque,
+  vécu le 10/08 : réponse coupée, j'ai dû finir le code à la place du codeur).
+- Toujours via `soumettre_hub_illimite.py <task> <mission.txt> <sortie.md> 8000`
+  (timeout=None) lancé avec `lancer_detache.py` (survit à la mort du shell)
+  puis poll du fichier de sortie. Testé en réel le 10/08 : réponse complète en 60 s.
+- Une réponse TRONQUÉE coûte 2× plus cher (relance + correction manuelle) :
+  il vaut mieux attendre 30 min un script complet que 5 min un script coupé.
