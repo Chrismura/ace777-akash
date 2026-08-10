@@ -95,8 +95,12 @@ def main():
              "code.ia", mission_path, out_path, max_tokens],
             capture_output=True, text=True, timeout=60)  # 60s au lieu de 30s
     except subprocess.TimeoutExpired:
-        print("[ECHEC] timeout lancement détaché (60s)", file=sys.stderr)
-        sys.exit(1)
+        # Correction famille (DEEPSEEK R1) : le lanceur a expire, mais le
+        # processus detache a pu etre lance par Popen et tourne deja.
+        # Ce n'est PAS un echec -> message clair + exit 0.
+        print(f"[ATTENTION] lanceur expiré (60s) mais le processus détaché est "
+              f"peut-être vivant — poller {out_path}", file=sys.stderr)
+        sys.exit(0)
     print(r.stdout.strip() or r.stderr.strip())
     print(f"[OK] codeur lancé détaché → poll {out_path}")
 

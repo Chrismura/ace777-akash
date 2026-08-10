@@ -116,9 +116,24 @@ def main():
                 with open(out_path, "a", encoding="utf-8") as f:
                     f.write("\n\n## ERREUR HTTP %d NON RETRYABLE\n\n%s\n" % (e.code, e.reason))
                 return 1
-        except Exception as e:
+        except urllib.error.URLError as e:
+            # Correction famille (DEEPSEEK R3 + ULTRA 1) : erreur RESEAU pure
+            # (connexion refusee, DNS, timeout) -> retryable
             last_err = e
             print("[essai %d/%d] erreur réseau: %s — nouvel essai dans %ds"
+                  % (attempt, RETRIES, e, RETRY_DELAY), file=sys.stderr)
+            time.sleep(RETRY_DELAY)
+        except (json.JSONDecodeError, KeyError) as e:
+            # Correction famille : erreur APPLICATIVE (reponse 200 invalide)
+            # -> PAS de retry, on ecrit l'erreur et on sort immediatement
+            print("[ECHEC] réponse hub invalide: %s" % e, file=sys.stderr)
+            with open(out_path, "a", encoding="utf-8") as f:
+                f.write("\n\n## ERREUR RÉPONSE INVALIDE\n\n%s\n" % e)
+            return 1
+        except Exception as e:
+            # Garde finale conservatrice : retry
+            last_err = e
+            print("[essai %d/%d] erreur inattendue: %s — nouvel essai dans %ds"
                   % (attempt, RETRIES, e, RETRY_DELAY), file=sys.stderr)
             time.sleep(RETRY_DELAY)
 

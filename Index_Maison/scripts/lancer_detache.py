@@ -20,6 +20,7 @@ import os
 import subprocess
 import sys
 import tempfile
+import time
 
 if len(sys.argv) < 2:
     print("Usage: lancer_detache.py <commande...>")
@@ -28,7 +29,11 @@ if len(sys.argv) < 2:
 cmd = sys.argv[1:]
 try:
     # start_new_session=True : nouvelle session, détaché du process group du parent
-    log_path = os.path.join(tempfile.gettempdir(), "ace777_detache_%d.log" % os.getpid())
+    # Correction famille (ULTRA 3) : timestamp dans le nom pour eviter toute
+    # collision entre deux lancements rapides partageant le meme PID parent.
+    ts = time.strftime("%Y%m%d_%H%M%S")
+    log_path = os.path.join(tempfile.gettempdir(),
+                            "ace777_detache_%d_%s.log" % (os.getpid(), ts))
     with open(log_path, "w") as log_f:
         p = subprocess.Popen(
             cmd,
