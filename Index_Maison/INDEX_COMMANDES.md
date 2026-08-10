@@ -288,14 +288,11 @@ cd ~/ace777-test-day1 && caffeinate -dims ./GO_USINE_NUAGE.sh 08:00:00 MON_TAG
 Lance ACE testnet pour une durée + un TAG. **Uniquement** si tu as dit GO et que le Mac est froid. Remplace `MON_TAG` (ex. `NUAGE_TEST_8H_CMP`).
 
 ```bash
-cd ~/ace777-test-day1 && ./stop_ace777.sh
-```
-Arrête ACE proprement — arrêt complet détaillé : **voir §10**.
-
-```bash
 cd ~/ace777-test-day1 && ./stop_ace777_hard.sh
 ```
 Arrêt ACE forcé (si le soft ne suffit pas).
+
+Arrêt complet du système (ACE + 3 étages + vérif + redémarrage) : **voir §10**.
 
 Hulk paper : pas de commande « magique » ici — dis **GO Hulk** à Cursor (7 positions encore gelées).
 
