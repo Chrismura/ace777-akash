@@ -243,6 +243,26 @@ def _http_cockpit() -> dict:
         return {"ok": False, "ms": None, "err": str(e)[:80]}
 
 
+def _hub_link() -> dict:
+    """Hub Prise IA :11435 - health + nombre de providers actifs (pill COSMOS)."""
+    import time
+    import urllib.request
+
+    url = "http://127.0.0.1:11435/health"
+    t0 = time.time()
+    try:
+        req = urllib.request.Request(url, headers={"User-Agent": "ace777-preflight/1"})
+        with urllib.request.urlopen(req, timeout=1.5) as r:
+            data = json.loads(r.read().decode())
+        ms = int((time.time() - t0) * 1000)
+        ok = data.get("status") == "ok"
+        prov = data.get("providers")
+        detail = f"OK {prov} providers {ms}ms" if ok else f"status={data.get('status')} {ms}ms"
+        return {"ok": ok, "ms": ms, "providers": prov, "detail": detail}
+    except Exception as e:
+        return {"ok": False, "ms": None, "detail": f"DOWN {str(e)[:50]}"}
+
+
 def _genesis_ok() -> dict:
     import hashlib
 
@@ -409,6 +429,7 @@ def do_preflight() -> dict:
     ace = _ace_link()
     net = _net_link()
     http = _http_cockpit()
+    hub = _hub_link()
     thermo = _thermo_core()
     feed = _feed_core()
     gen = _genesis_ok()
@@ -428,6 +449,14 @@ def do_preflight() -> dict:
             f":17800 {'OK' if http.get('ok') else http.get('err') or 'DOWN'} {http.get('ms') or ''}ms".strip(),
             "bash ~/ace777-test-day1/Index_Maison/scripts/cockpit_up.sh --daemons",
             warn=False,
+        ),
+        _item(
+            "hub", "HUB",
+            bool(hub.get("ok")),
+            hub.get("detail") or "—",
+            "COSMOS complet dans l'onglet GRAPH · providers, budget cloud, file d'attente",
+            warn=not bool(hub.get("ok")),
+            level=("ok" if hub.get("ok") else "warn"),
         ),
         _item(
             "thermo", "THERMO", bool(thermo.get("ok")),
