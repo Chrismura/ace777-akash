@@ -173,6 +173,30 @@ def do_chat(message: str) -> dict:
         return {"ok": False, "error": "message vide"}
     if len(msg) > 2000:
         return {"ok": False, "error": "message trop long (max 2000 caractères)"}
+
+    # Commande vocale VISION : DÉTECTION STRICTE en début de message pour ne
+    # JAMAIS avaler une conversation normale (« j'ai une vision... », « regarde ce
+    # que tu as fait »). On exige que le message COMMENCE par le mot-clé.
+    m_low = msg.lower().lstrip()
+    triggers = ("cortana regarde", "cortana regarde-moi", "regarde l'écran",
+                "regarde ce qui est", "regarde-moi l'écran", "active la vision",
+                "regarde", "regardez", "tes yeux", "vision", "capture l'écran")
+    declenche = False
+    for t in triggers:
+        if m_low == t or m_low.startswith(t + " ") or m_low.startswith(t + " ") or m_low.startswith(t):
+            declenche = True
+            break
+    if declenche:
+        parler = any(k in m_low for k in ("a voix", "parle", "vocale", "a voix haute"))
+        q = msg
+        for k in ("cortana", "regarde", "regardez", "regarde-moi", "tes yeux",
+                  "active la vision", "vision", "capture l'écran", "a voix",
+                  "parle", "vocale", "a voix haute", "s'il te plaît",
+                  "stp", "sil te plait", "l'écran", "ce qui est", "moi"):
+            q = q.replace(k, " ").replace("  ", " ").strip()
+        d = do_yeux(q, parler)
+        d["mode"] = "yeux"
+        return d
     payload = {
         "task": "mission",  # deepseek-v4-flash via NVIDIA + rotation hub (fallback)
         "messages": [
@@ -246,12 +270,32 @@ def do_yeux(question: str = "", parler: bool = False) -> dict:
 
     def _lancer():
         try:
+            # vide l'analyse précédente : le polling ne renverra jamais un résultat
+            # obsolète de la capture d'avant.
+            try:
+                if os.path.exists(out_path):
+                    os.remove(out_path)
+            except Exception:
+                pass
             subprocess.run(cmd, capture_output=True, text=True, timeout=180)
         except Exception as e:
             print(f"[yeux] ERR {e}", flush=True)
 
     threading.Thread(target=_lancer, daemon=True).start()
     return {"ok": True, "msg": "👁 Capture + analyse en cours…", "out": out_path}
+
+
+def do_yeux_result() -> dict:
+    """Lit le fichier d'analyse des yeux (écrit par cortana_yeux.py --out)."""
+    p = "/tmp/cortana_yeux_analyse.txt"
+    if not os.path.exists(p):
+        return {"ok": True, "texte": None}
+    try:
+        with open(p, encoding="utf-8", errors="replace") as f:
+            t = f.read().strip()
+        return {"ok": True, "texte": t or None}
+    except Exception:
+        return {"ok": True, "texte": None}
 
 
 def _http_cockpit() -> dict:
@@ -1043,6 +1087,9 @@ class Handler(BaseHTTPRequestHandler):
         if path == "/strategie":
             self._json(200, do_strategie())
             return
+        if path == "/yeux/result":
+            self._json(200, do_yeux_result())
+            return
         self._json(404, {"ok": False, "error": "not found"})
 
     def _read_json(self) -> dict:
@@ -1098,6 +1145,14 @@ class Handler(BaseHTTPRequestHandler):
             body = self._read_json()
             message = str(body.get("message") or "")
             data = do_chat(message)
+            code = 200 if data.get("ok") else 502
+            self._json(code, data)
+            return
+        if path == "/yeux":
+            body = self._read_json()
+            question = str(body.get("question") or "")
+            parler = bool(body.get("parler"))
+            data = do_yeux(question, parler)
             code = 200 if data.get("ok") else 502
             self._json(code, data)
             return

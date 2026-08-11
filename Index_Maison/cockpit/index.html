@@ -87,6 +87,10 @@ body::after{
 }
 .cortana-mid .chat-row button:hover{background:var(--amber);color:#0b1420}
 .cortana-mid .chat-row button:disabled{opacity:.4;cursor:wait}
+.cortana-mid .btns button#btn-yeux{border-color:var(--cyan);color:var(--cyan)}
+.cortana-mid .btns button#btn-yeux:hover{background:var(--cyan);color:#0b1420}
+.yeux-result{margin-top:6px;padding:6px 8px;background:#0a100c;border:1px solid rgba(124,255,107,.3);
+  border-radius:4px;font-size:.68rem;color:#cfe6d2;line-height:1.5;max-height:120px;overflow-y:auto}
 .cortana-side{width:140px;flex-shrink:0;border-left:1px solid var(--line);padding-left:8px;overflow:auto;max-height:72px}
 .cortana-side .lab{font-size:.5rem;color:var(--muted);letter-spacing:.08em;margin-bottom:2px}
 .cortana-side .item{font-size:.52rem;color:#c9d4de;padding:2px 0;border-bottom:1px solid rgba(30,42,54,.7);line-height:1.25}
@@ -964,7 +968,9 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
           <button type="button" id="btn-mute" class="mute" title="Silence">MUET</button>
           <button type="button" id="btn-voix" class="on" title="Voix + brief">VOIX</button>
           <button type="button" id="btn-parler" title="Brief">PARLER</button>
+          <button type="button" id="btn-yeux" title="Cortana regarde l'écran (vision à la demande)">👁 REGARDER</button>
         </div>
+        <div id="yeux-result" class="yeux-result" style="display:none"></div>
         <div class="chat-row">
           <input type="text" id="chat-input" placeholder="Pose ta question à Cortana… (Entrée)" autocomplete="off" spellcheck="false" />
           <button type="button" id="btn-chat" title="Envoyer — réponse écrite + vocale (hub deepseek)">CHAT</button>
@@ -2771,6 +2777,54 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
   document.getElementById('btn-voix')?.addEventListener('click', ()=>bridge('/speak','Voix + brief…'));
   document.getElementById('btn-parler')?.addEventListener('click', ()=>bridge('/speak','Cortana parle…'));
 
+  // --- YEUX DE CORTANA : vision à la demande (bouton 👁) ---
+  document.getElementById('btn-yeux')?.addEventListener('click', () => {
+    const btn = document.getElementById('btn-yeux');
+    const res = document.getElementById('yeux-result');
+    const bubble = document.getElementById('cortana-bubble');
+    if (!res) return;
+    res.style.display = 'block';
+    res.textContent = '👁 Capture + analyse en cours…';
+    if (btn) btn.disabled = true;
+    fetchJson(BRIDGE + '/yeux', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({question: '', parler: true})
+    }, 8000)
+    .then(r => {
+      if (bubble) bubble.textContent = 'Je regarde l\'écran…';
+      // on relit l'analyse qui arrive dans le fichier de sortie
+      let tentatives = 0;
+      const attendre = setInterval(() => {
+        tentatives++;
+        fetchJson(BRIDGE + '/yeux/result', {}, 3000)
+          .then(dr => {
+            if (dr && dr.texte) {
+              clearInterval(attendre);
+              res.textContent = dr.texte;
+              if (bubble) bubble.textContent = '👁 ' + dr.texte.slice(0, 140);
+              if (btn) btn.disabled = false;
+            } else if (tentatives > 40) {
+              clearInterval(attendre);
+              res.textContent = 'Analyse indisponible (délai dépassé).';
+              if (btn) btn.disabled = false;
+            }
+          })
+          .catch(() => {
+            if (tentatives > 40) {
+              clearInterval(attendre);
+              res.textContent = 'Erreur de lecture du résultat.';
+              if (btn) btn.disabled = false;
+            }
+          });
+      }, 3000);
+    })
+    .catch(() => {
+      res.textContent = 'Erreur : vision indisponible.';
+      if (btn) btn.disabled = false;
+    });
+  });
+
   // CHAT — question écrite -> hub mission (deepseek) -> réponse écrite + vocale
   async function sendChat(){
     const inp=document.getElementById('chat-input');
@@ -2823,6 +2877,12 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
 // clic -> fiche détaillée, survol vivant. Palette du cockpit.
 (function() {
     'use strict';
+
+    // Pont Cortana :17777 — déclaré ICI aussi car `const` est local à son
+    // bloc <script> (le bloc 4 en a sa propre copie). Sans lui, les fetch
+    // des cartes STRATÉGIE / OFFRES / 👁 plantent en ReferenceError
+    // silencieuse (avalée par try/catch) → onglet vide, « Chargement… ».
+    const BRIDGE='http://127.0.0.1:17777';
 
     // ---------- CONFIG ----------
     const CFG = {
@@ -3387,7 +3447,7 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
       timeoutMs = timeoutMs || 5000;
       const ctrl = new AbortController();
       const timer = setTimeout(() => ctrl.abort(), timeoutMs);
-      return fetch(url, Object.assign({}, options, {signal: ctrl.signal}))
+      return fetch(url, Object.assign({}, {cache: 'no-store'}, options, {signal: ctrl.signal}))
         .then(r => r.json())
         .finally(() => clearTimeout(timer));
     }
@@ -3436,7 +3496,8 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
                    '<div>' + corps.replace(/\n/g, '<br>') + '</div>';
           }).join('<div class="sep"></div>');
         })
-        .catch(() => {
+        .catch((e) => {
+          console.error('[cockpit] chargerStrategie:', e);
           body.innerHTML = '<div class="disc-empty">Analyste injoignable — stratégies indisponibles.</div>';
         });
     }
@@ -3633,9 +3694,20 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
 
     // Chargement AUTOMATIQUE au démarrage (plus seulement au clic) :
     // les cartes STRATÉGIES et OFFRES sont remplies dès l'ouverture.
-    const _bootStrategie = () => {
-      try { chargerStrategie(); } catch (e) {}
-      try { chargerOffres(); } catch (e) {}
+    // ROBUSTESSE : 3 tentatives espacées de 2,5 s — si le pont est lent ou
+    // occupé au boot, le chargement se relance seul. Jamais d'onglet vide.
+    const _bootStrategie = (essai) => {
+      const n = essai || 0;
+      try { chargerStrategie(); } catch (e) { console.error('[cockpit] boot strategie:', e); }
+      try { chargerOffres(); } catch (e) { console.error('[cockpit] boot offres:', e); }
+      // Re-tente uniquement si le chargement n'a pas abouti (placeholder encore là)
+      if (n < 2) {
+        const corps = document.getElementById('strat-analyste-body');
+        const lst = document.getElementById('offres-list');
+        const enAttente = (corps && corps.textContent.indexOf('Chargement') !== -1) ||
+                          (lst && lst.children.length === 0);
+        if (enAttente) setTimeout(() => _bootStrategie(n + 1), 2500);
+      }
     };
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', _bootStrategie);
