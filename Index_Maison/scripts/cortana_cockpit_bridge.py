@@ -10,6 +10,7 @@ CORS ouvert pour file:// cockpit.
 """
 from __future__ import annotations
 
+import glob
 import json
 import os
 import subprocess
@@ -223,6 +224,34 @@ def _speak_texte(texte: str) -> None:
             os.unlink(path)
     except Exception as e:
         print(f"[analyse-voix] ERR {e}", flush=True)
+
+
+def do_yeux(question: str = "", parler: bool = False) -> dict:
+    """Les YEUX de Cortana : capture d'ecran -> hub Gemini vision -> analyse FR.
+    Lance cortana_yeux.py en arriere-plan (capture + analyse + option lecture
+    vocale), renvoie immediatement une confirmation (l'analyse arrive ensuite).
+    """
+    script = os.path.expanduser(
+        "~/ace777-test-day1/Index_Maison/scripts/cortana_yeux.py"
+    )
+    if not os.path.exists(script):
+        return {"ok": False, "error": "cortana_yeux.py introuvable"}
+    cmd = ["python3", script]
+    if parler:
+        cmd.append("--speak")
+    if question and question.strip():
+        cmd += ["--question", question.strip()[:500]]
+    out_path = "/tmp/cortana_yeux_analyse.txt"
+    cmd += ["--out", out_path]
+
+    def _lancer():
+        try:
+            subprocess.run(cmd, capture_output=True, text=True, timeout=180)
+        except Exception as e:
+            print(f"[yeux] ERR {e}", flush=True)
+
+    threading.Thread(target=_lancer, daemon=True).start()
+    return {"ok": True, "msg": "👁 Capture + analyse en cours…", "out": out_path}
 
 
 def _http_cockpit() -> dict:
@@ -577,8 +606,36 @@ def do_preflight() -> dict:
 
 
 # === AJOUT STRATÉGIE (onglet F2, GO 11/08) ===
+def do_strategie() -> dict:
+    """Lit STRATEGIE.md (analyste) + derniere_analyse.md → dashboard STRATÉGIE.
+    Renvoie le texte brut des sections (court terme / tendance) et la date."""
+    base = os.path.expanduser("~/ace777-test-day1/Index_Maison/strategie")
+    strategie_path = os.path.join(base, "STRATEGIE.md")
+    analyse_path = os.path.join(base, "derniere_analyse.md")
+
+    out = {"ok": True, "strategie": None, "analyse": None, "date": None}
+    try:
+        if os.path.exists(strategie_path):
+            with open(strategie_path, encoding="utf-8", errors="replace") as f:
+                out["strategie"] = f.read()
+            # date depuis la première ligne "# STRATEGIE — <ts>"
+            m = __import__("re").match(r"# STRATEGIE[^—]*—\s*([^\n]+)", out["strategie"])
+            if m:
+                out["date"] = m.group(1).strip()
+    except Exception:
+        pass
+    try:
+        if os.path.exists(analyse_path):
+            with open(analyse_path, encoding="utf-8", errors="replace") as f:
+                out["analyse"] = f.read()
+    except Exception:
+        pass
+    return out
+
+
 def _last_decollage() -> dict:
-    """Retourne le dernier DÉCOLLAGE lancé (CHOIX_OFFRES.json) ou None."""
+    """Retourne le dernier DÉCOLLAGE (CHOIX_OFFRES.json) + trace d'évaluation.
+    Détecte les erreurs 429/403 dans le log d'évaluation → écrit un cooldown 1h."""
     p = os.path.expanduser(
         "~/ace777-test-day1/Index_Maison/strategie/CHOIX_OFFRES.json"
     )
@@ -587,20 +644,90 @@ def _last_decollage() -> dict:
     try:
         with open(p, encoding="utf-8") as f:
             d = json.load(f)
-        return {"ts": d.get("ts", ""), "choix": d.get("choix", [])}
     except Exception:
         return None
 
+    trace = None
+    strategie_dir = os.path.expanduser("~/ace777-test-day1/Index_Maison/strategie")
+    log_path = os.path.join(strategie_dir, f"EVAL_OFFRES_{d.get('date', '')}.log")
+    cooldown_path = os.path.join(strategie_dir, "COOLDOWN_429.json")
+    if os.path.exists(log_path):
+        try:
+            lignes = open(log_path, encoding="utf-8", errors="replace").read().splitlines()
+            # dernières lignes récentes de l'évaluation en cours
+            trace = lignes[-8:] if lignes else []
+            # Détection STRICTE des erreurs de quota : uniquement des patterns
+            # HTTP explicites (429/403/rate limit/insufficient). Jamais le mot
+            # "quota" seul (présent dans la sortie normale d'eval_offres).
+            quota_hit = any(
+                (" 429 " in l or "429 " in l or l.strip().startswith("429")
+                 or " 403 " in l or l.strip().startswith("403")
+                 or "rate limit" in l.lower()
+                 or "insufficient" in l.lower()
+                 or "status 429" in l.lower() or "status 403" in l.lower())
+                for l in lignes[-30:]
+            )
+            if quota_hit and not os.path.exists(cooldown_path):
+                with open(cooldown_path, "w", encoding="utf-8") as f:
+                    json.dump({"ts": datetime.now(timezone.utc).isoformat(),
+                               "raison": "429/403 detecte"}, f)
+        except Exception:
+            trace = None
+    return {"ts": d.get("ts", ""), "choix": d.get("choix", []), "trace": trace}
+
+
+def _dernier_rapport_veille(date_du_jour: str) -> tuple:
+    """Retourne (path, date) du dernier rapport VEILLE_HUB valide (cache J-1).
+    Ne prend JAMAIS le rapport du jour (déjà traité), et ignore les fichiers
+    vides/tronqués (< 60 octets ou sans section '### ')."""
+    maison = os.path.expanduser("~/ace777-test-day1/Index_Maison")
+    try:
+        candidats = sorted(
+            glob.glob(os.path.join(maison, "VEILLE_HUB_*.md")), reverse=True
+        )
+    except Exception:
+        return None, None
+    for p in candidats:
+        base = os.path.basename(p)
+        d = base.replace("VEILLE_HUB_", "").replace(".md", "")[:10]
+        if d >= date_du_jour:
+            continue
+        try:
+            taille = os.path.getsize(p)
+            if taille < 60:
+                continue
+            with open(p, "r", encoding="utf-8", errors="replace") as f:
+                tete = f.read(4000)
+            if "### " not in tete or "Nouvelles offres" not in tete:
+                continue
+        except Exception:
+            continue
+        return p, d
+    return None, None
+
 
 def do_offres() -> dict:
-    """Lit VEILLE_HUB_<date>.md → dashboard STRATÉGIE (sections + offres)."""
+    """Lit VEILLE_HUB_<date>.md → dashboard STRATÉGIE (sections + offres).
+    Si le rapport du jour est absent OU corrompu → fallback sur le dernier
+    rapport valide (mode cache J-1), signalé par le champ "cache"."""
     date = datetime.now(timezone.utc).strftime("%Y-%m-%d")
     veille_path = os.path.expanduser(
         f"~/ace777-test-day1/Index_Maison/VEILLE_HUB_{date}.md"
     )
+    cache = False
+    cache_date = None
     if not os.path.exists(veille_path):
+        veille_path, cache_date = _dernier_rapport_veille(date)
+        if veille_path:
+            cache = True
+    elif os.path.getsize(veille_path) < 60:
+        # rapport du jour corrompu (trop court) → cache J-1
+        veille_path, cache_date = _dernier_rapport_veille(date)
+        cache = True if veille_path else False
+    if not veille_path:
         return {"ok": True, "date": date, "total": 0,
-                "sections": [], "offres": [], "decollage": _last_decollage()}
+                "sections": [], "offres": [], "decollage": _last_decollage(),
+                "cache": False}
 
     # Sections dont les offres sont évaluables automatiquement (A/B) par
     # eval_offres.py — les autres sont de la DÉCOUVERTE (pas encore testables).
@@ -645,6 +772,8 @@ def do_offres() -> dict:
         "sections": [{"name": n, **s} for n, s in sections.items()],
         "offres": offres,
         "decollage": _last_decollage(),
+        "cache": cache,
+        "cache_date": cache_date,
     }
 
 
@@ -660,6 +789,27 @@ def do_decoller(selection: list) -> dict:
     )
     os.makedirs(strategie_dir, exist_ok=True)
     choix_path = os.path.join(strategie_dir, "CHOIX_OFFRES.json")
+
+    # A9 : si un cooldown 429/403 est actif depuis < 1h, on refuse de relancer.
+    # IMPORTANT : le check se fait AVANT toute écriture — jamais de faux
+    # « DÉCOLLAGE lancé » dans l'UI si le lancement est refusé.
+    cooldown_path = os.path.join(strategie_dir, "COOLDOWN_429.json")
+    if os.path.exists(cooldown_path):
+        try:
+            with open(cooldown_path, encoding="utf-8") as f:
+                cd = json.load(f)
+            debut = cd.get("ts", "")
+            if debut:
+                try:
+                    diff = (datetime.now(timezone.utc) - datetime.fromisoformat(debut)).total_seconds()
+                except Exception:
+                    diff = 99999
+                if diff < 3600:
+                    return {"ok": False, "error": (
+                        "Quota épuisé (429/403) détecté il y a "
+                        + str(int(diff // 60)) + " min — cooldown 1h. Réessayez plus tard.")}
+        except Exception:
+            pass
 
     data = {
         "ts": datetime.now(timezone.utc).isoformat(),
@@ -678,14 +828,17 @@ def do_decoller(selection: list) -> dict:
     script_path = os.path.expanduser(
         "~/ace777-test-day1/Index_Maison/scripts/eval_offres.py"
     )
+    log_path = os.path.join(strategie_dir, f"EVAL_OFFRES_{date}.log")
 
     def _launch():
         try:
-            subprocess.Popen(
-                ["python3", script_path, "--choix", choix_path],
-                stdout=subprocess.DEVNULL,
-                stderr=subprocess.DEVNULL,
-            )
+            with open(log_path, "a", encoding="utf-8") as logf:
+                logf.write("\n=== DÉCOLLAGE %s ===\n" % datetime.now(timezone.utc).isoformat())
+                subprocess.Popen(
+                    ["python3", script_path, "--choix", choix_path],
+                    stdout=logf,
+                    stderr=logf,
+                )
         except Exception:
             pass
 
@@ -887,6 +1040,9 @@ class Handler(BaseHTTPRequestHandler):
         if path == "/offres":
             self._json(200, do_offres())
             return
+        if path == "/strategie":
+            self._json(200, do_strategie())
+            return
         self._json(404, {"ok": False, "error": "not found"})
 
     def _read_json(self) -> dict:
@@ -969,6 +1125,53 @@ class Handler(BaseHTTPRequestHandler):
         sys.stderr.write("[bridge] " + (fmt % args) + "\n")
 
 
+def _maintenance_demarrage() -> None:
+    """A6 : purge .tmp orphelins (> 10 min) et rotation des logs > 10 Mo.
+    Exécutée à chaque démarrage du bridge — jamais bloquant."""
+    try:
+        import time as _t
+        seuil = _t.time() - 600
+        for base in ["~/ace777-test-day1/Index_Maison/strategie",
+                     "~/ace777-test-day1/Index_Maison"]:
+            d = os.path.expanduser(base)
+            if not os.path.isdir(d):
+                continue
+            for nom in os.listdir(d):
+                if not nom.endswith(".tmp"):
+                    continue
+                p = os.path.join(d, nom)
+                try:
+                    if os.path.getmtime(p) < seuil:
+                        os.remove(p)
+                except Exception:
+                    pass
+    except Exception:
+        pass
+    try:
+        # rotation du log du bridge s'il dépasse 10 Mo
+        for log in ["/tmp/cortana_cockpit_bridge.log",
+                    "/tmp/brief_offres.err.log", "/tmp/brief_offres.out.log"]:
+            if os.path.exists(log) and os.path.getsize(log) > 10 * 1024 * 1024:
+                os.replace(log, log + ".old")
+    except Exception:
+        pass
+    try:
+        # purge d'un cooldown 429 expiré (> 1 h)
+        cd = os.path.expanduser(
+            "~/ace777-test-day1/Index_Maison/strategie/COOLDOWN_429.json")
+        if os.path.exists(cd):
+            try:
+                with open(cd, encoding="utf-8") as f:
+                    debut = json.load(f).get("ts", "")
+                if debut and (datetime.now(timezone.utc)
+                              - datetime.fromisoformat(debut)).total_seconds() > 3600:
+                    os.remove(cd)
+            except Exception:
+                os.remove(cd)
+    except Exception:
+        pass
+
+
 def main() -> int:
     import socket
 
@@ -980,6 +1183,7 @@ def main() -> int:
             self.socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
             super().server_bind()
 
+    _maintenance_demarrage()
     httpd = ReuseThreadingHTTPServer(("127.0.0.1", PORT), Handler)
     print(f"CORTANA_BRIDGE http://127.0.0.1:{PORT}  (status|mission|alerts|preflight|refresh|panic|mute|speak)", flush=True)
     try:

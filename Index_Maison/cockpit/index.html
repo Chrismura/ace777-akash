@@ -200,6 +200,17 @@ body::after{
 .strat-banner.strat-idle{border-color:var(--line)}
 .strat-banner.strat-idle .sb-icon{color:var(--muted);animation:pulse 1.4s infinite}
 
+/* ---- STRATÉGIE : carte analyste (STRATEGIE.md) ---- */
+.strat-analyste{grid-column:1 / -1}
+.strat-analyste-body{font-size:.74rem;line-height:1.7;color:#cfc9b4;max-height:min(40vh,420px);
+  overflow-y:auto;padding-right:6px;white-space:pre-wrap;word-break:break-word}
+.strat-analyste-body::-webkit-scrollbar{width:6px}
+.strat-analyste-body::-webkit-scrollbar-thumb{background:#2a2418;border-radius:3px}
+.strat-analyste-body .sa-sec{font-family:Orbitron,sans-serif;font-size:.62rem;letter-spacing:.14em;
+  color:var(--amber2);margin:10px 0 4px;text-transform:uppercase}
+.strat-analyste-body .sa-sec:first-child{margin-top:0}
+.strat-analyste-body b{color:var(--acid2)}
+
 /* ---- STRATÉGIE : cartes fournisseurs ---- */
 .strat-providers{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px}
 .sp-card{position:relative;background:linear-gradient(180deg,#0e150f,#070b08);
@@ -642,7 +653,7 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
 <style>
 /* ===== COSMOS HUB STYLES ===== */
 /* ===== COSMOS v3 — graphe interactif pleine largeur, dashboard en bandeau ===== */
-#stage-graph{display:flex;flex-direction:column;gap:14px;padding:14px}
+#stage-graph.on{display:flex;flex-direction:column;gap:14px;padding:14px}
 #stage-graph .cosmos-container{margin:0;flex-direction:column;gap:12px}
 #stage-graph .graph-card{margin:0;width:100%}
 #synapses{width:100%;height:auto;min-height:420px}
@@ -1310,6 +1321,15 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
     </div>
   </section>
   <section id="stage-strategie" class="stage">
+    <!-- STRATÉGIES DE L'ANALYSTE (STRATEGIE.md) -->
+    <div class="card strat-analyste">
+      <h2>STRATÉGIES DE L'ANALYSTE</h2>
+      <div id="strat-analyste-date" class="strat-date"></div>
+      <div id="strat-analyste-body" class="strat-analyste-body">
+        <div class="disc-empty">Chargement des stratégies…</div>
+      </div>
+    </div>
+
     <!-- BANNIÈRE D'ÉTAT GLOBALE : tout est à jour ? du nouveau ? -->
     <div id="strat-banner" class="strat-banner strat-idle">
       <div class="sb-icon">◯</div>
@@ -1418,8 +1438,11 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
         const fr=document.getElementById('board-iframe');
         if(fr) fr.src='../thermo/index.html?embed=1&t='+Date.now();
       }
-      if(btn.dataset.tab==='strategie' && window.chargerOffres){
-        setTimeout(window.chargerOffres, 50);
+      if(btn.dataset.tab==='strategie'){
+        setTimeout(() => {
+          try { if(window.chargerStrategie) window.chargerStrategie(); } catch(e){}
+          try { if(window.chargerOffres) window.chargerOffres(); } catch(e){}
+        }, 50);
       }
     });
   });
@@ -3358,7 +3381,17 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
         renderCosmos();
     };
 
-    // ---------- STRATÉGIE : DASHBOARD MISE À JOUR (V2, GO 11/08) ----------
+    // ---------- STRATÉGIE : DASHBOARD MISE À JOUR (V3 — GARDE-FOUS FAMILLE) ----------
+    // A2 : fetch avec timeout strict (5 s) — jamais de chargement infini.
+    function fetchJson(url, options, timeoutMs) {
+      timeoutMs = timeoutMs || 5000;
+      const ctrl = new AbortController();
+      const timer = setTimeout(() => ctrl.abort(), timeoutMs);
+      return fetch(url, Object.assign({}, options, {signal: ctrl.signal}))
+        .then(r => r.json())
+        .finally(() => clearTimeout(timer));
+    }
+
     function nomCourt(section) {
       return section
         .replace(/\(:free\)/g, '')
@@ -3377,20 +3410,54 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
       b.querySelector('.sb-sub').textContent = sub;
     }
 
+    // --- STRATÉGIES DE L'ANALYSTE : lit STRATEGIE.md via le bridge ---
+    function chargerStrategie() {
+      const body = document.getElementById('strat-analyste-body');
+      if (!body) return;
+      fetchJson(BRIDGE + '/strategie', {}, 5000)
+        .then(data => {
+          const dateEl = document.getElementById('strat-analyste-date');
+          if (dateEl && data.date) {
+            const d = data.date.replace('T', ' ').slice(0, 16);
+            dateEl.textContent = 'MISE À JOUR : ' + d;
+          }
+          const txt = data.strategie || '';
+          if (!txt) {
+            body.innerHTML = '<div class="disc-empty">Aucune stratégie disponible pour l\'instant.</div>';
+            return;
+          }
+          // Découpe en sections (## …) pour un rendu lisible
+          const sections = txt.split(/\n(?=##\s)/g);
+          body.innerHTML = sections.map(sec => {
+            const lignes = sec.trim().split('\n');
+            const titre = lignes[0].replace(/^##\s*/, '');
+            const corps = lignes.slice(1).join('\n').trim();
+            return '<div class="sa-sec">' + titre.replace(/\s*—.*$/, '') + '</div>' +
+                   '<div>' + corps.replace(/\n/g, '<br>') + '</div>';
+          }).join('<div class="sep"></div>');
+        })
+        .catch(() => {
+          body.innerHTML = '<div class="disc-empty">Analyste injoignable — stratégies indisponibles.</div>';
+        });
+    }
+
     function chargerOffres() {
       const container = document.getElementById('offres-list');
       const dateEl = document.getElementById('offres-date');
-      const status = document.getElementById('offres-status');
       if (!container) return;
-      fetch(BRIDGE + '/offres')
-        .then(r => r.json())
+      // A2 : timeout 5 s — si le bridge ne répond pas, on passe en mode dégradé
+      fetchJson(BRIDGE + '/offres', {}, 5000)
         .then(data => {
-          container.innerHTML = '';
-          if (dateEl) {
-            dateEl.textContent = data.date
-              ? ('VEILLE DU ' + data.date.split('-').reverse().join('/'))
-              : '';
-          }
+          // A1 : chaque bloc de rendu est isolé — une erreur n'empêche jamais
+          // les autres blocs, et surtout jamais une page blanche.
+          try {
+            container.innerHTML = '';
+            if (dateEl) {
+              dateEl.textContent = data.date
+                ? ('VEILLE DU ' + data.date.split('-').reverse().join('/'))
+                : '';
+            }
+          } catch (e) { /* non fatal */ }
 
           const sections = data.sections || [];
           const offres = data.offres || [];
@@ -3398,103 +3465,128 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
           const decouvertes = sections.filter(s => !s.testable);
           const total = data.total || 0;
           const erreurs = sections.filter(s => s.err).length;
+          const enCache = !!data.cache && !!data.cache_date;
 
           // --- bannière d'état globale ---
-          if (erreurs > 0) {
-            setBanner('err', '⚠', 'VEILLE PARTIELLE — ' + erreurs + ' source(s) en erreur',
-              'Le reste du scan est valide. Les sources en erreur réessaieront demain à 07:00.');
-          } else if (total > 0) {
-            setBanner('new', '▲', total + ' NOUVELLE' + (total > 1 ? 'S' : '') + ' OFFRE' + (total > 1 ? 'S' : '') + ' AUJOURD\'HUI',
-              'Cochez celles qui vous intéressent (max 5) puis DÉCOLLER pour l\'évaluation A/B en observation.');
-          } else if (sections.length === 0) {
-            setBanner('idle', '◌', 'VEILLE PAS ENCORE PASSÉE AUJOURD\'HUI',
-              'La recherche automatique tourne à 07:00. Revenez après — ou vérifiez que le hub tourne.');
-          } else {
-            setBanner('ok', '●', 'TOUT EST À JOUR — AUCUNE NOUVEAUTÉ',
-              'Aucune nouvelle offre chez vos fournisseurs. Rien à faire : le système est synchronisé.');
-          }
+          try {
+            const suffixe = enCache ? ' — MODE CACHE ' + data.cache_date.slice(5).replace('-', '/') : '';
+            if (erreurs > 0) {
+              setBanner('err', '⚠', 'VEILLE PARTIELLE — ' + erreurs + ' source(s) en erreur' + suffixe,
+                'Le reste du scan est valide. Les sources en erreur réessaieront demain à 07:00.');
+            } else if (total > 0) {
+              setBanner('new', '▲', total + ' NOUVELLE' + (total > 1 ? 'S' : '') + ' OFFRE' + (total > 1 ? 'S' : '') + ' AUJOURD\'HUI' + suffixe,
+                'Cochez celles qui vous intéressent (max 5) puis DÉCOLLER pour l\'évaluation A/B en observation.');
+            } else if (sections.length === 0) {
+              setBanner('idle', '◌', enCache ? 'MODE CACHE — VEILLE DU JOUR INDISPONIBLE' : 'VEILLE PAS ENCORE PASSÉE AUJOURD\'HUI',
+                enCache
+                  ? 'Le rapport du jour est absent ou corrompu. Affichage du dernier rapport valide (' + data.cache_date + '). La veille du jour tourne à 07:00.'
+                  : 'La recherche automatique tourne à 07:00. Revenez après — ou vérifiez que le hub tourne.');
+            } else {
+              setBanner('ok', '●', 'TOUT EST À JOUR — AUCUNE NOUVEAUTÉ' + suffixe,
+                'Aucune nouvelle offre chez vos fournisseurs. Rien à faire : le système est synchronisé.');
+            }
+          } catch (e) { /* non fatal */ }
 
           // --- cartes fournisseurs (check de mise à jour) ---
-          const prov = document.getElementById('strat-providers');
-          if (prov) {
-            prov.innerHTML = '';
-            if (testables.length === 0) {
-              prov.innerHTML = '<div class="strat-hint">Aucun fournisseur scanné aujourd\'hui.</div>';
-            } else {
-              testables.forEach(s => {
-                const dot = s.err ? 'err' : (s.count > 0 ? 'new' : 'on');
-                const state = s.err ? 'erreur de scan'
-                  : (s.count > 0 ? (s.count + ' nouveau' + (s.count > 1 ? 'x' : ''))
-                  : 'à jour');
-                const div = document.createElement('div');
-                div.className = 'sp-card';
-                div.innerHTML =
-                  '<span class="sp-dot ' + dot + '"></span>' +
-                  '<div class="sp-name">' + nomCourt(s.name) + '</div>' +
-                  '<div class="sp-count ' + (s.err ? '' : (s.count > 0 ? 'new' : 'on')) + '">' +
-                    (s.err ? '—' : s.count) + '</div>' +
-                  '<div class="sp-state">' + state + '</div>';
-                prov.appendChild(div);
-              });
+          try {
+            const prov = document.getElementById('strat-providers');
+            if (prov) {
+              prov.innerHTML = '';
+              if (testables.length === 0) {
+                prov.innerHTML = '<div class="strat-hint">Aucun fournisseur scanné aujourd\'hui.</div>';
+              } else {
+                testables.forEach(s => {
+                  const dot = s.err ? 'err' : (s.count > 0 ? 'new' : 'on');
+                  const state = s.err ? 'erreur de scan'
+                    : (s.count > 0 ? (s.count + ' nouveau' + (s.count > 1 ? 'x' : ''))
+                    : 'à jour');
+                  const div = document.createElement('div');
+                  div.className = 'sp-card';
+                  div.innerHTML =
+                    '<span class="sp-dot ' + dot + '"></span>' +
+                    '<div class="sp-name">' + nomCourt(s.name) + '</div>' +
+                    '<div class="sp-count ' + (s.err ? '' : (s.count > 0 ? 'new' : 'on')) + '">' +
+                      (s.err ? '—' : s.count) + '</div>' +
+                    '<div class="sp-state">' + state + '</div>';
+                  prov.appendChild(div);
+                });
+              }
             }
-          }
+          } catch (e) { /* non fatal */ }
 
           // --- liste des offres (groupée par section) ---
-          if (offres.length === 0) {
-            container.innerHTML = '<div class="disc-empty">Aucune nouvelle offre à cocher.</div>';
-            document.getElementById('btn-decoller').disabled = true;
-          } else {
-            let lastSection = null;
-            offres.forEach(offre => {
-              if (offre.section !== lastSection) {
-                lastSection = offre.section;
-                const tag = document.createElement('div');
-                tag.className = 'offre-section-tag';
-                tag.textContent = nomCourt(offre.section);
-                container.appendChild(tag);
-              }
-              const label = document.createElement('label');
-              label.className = 'offre-ligne';
-              const testable = offre.testable !== false;
-              const box = testable
-                ? '<input type="checkbox" class="offre-coche" value="' + offre.item.replace(/"/g, '&quot;') + '">'
-                : '<input type="checkbox" class="offre-coche" disabled title="Découverte, pas encore évaluable automatiquement">';
-              label.innerHTML = box +
-                '<span class="offre-item' + (testable ? '' : ' offre-item-mute') + '">' + offre.item + '</span>' +
-                (testable ? '' : '<span class="offre-note">découverte</span>');
-              container.appendChild(label);
-            });
-          }
-          majBtnDecoller();
-
-          // --- exploration (nouveaux endroits) ---
-          const disc = document.getElementById('strat-discovery');
-          if (disc) {
-            disc.innerHTML = '';
-            if (decouvertes.length === 0) {
-              disc.innerHTML = '<div class="disc-empty">Aucun nouveau lieu détecté cette nuit.</div>';
+          try {
+            if (offres.length === 0) {
+              container.innerHTML = '<div class="disc-empty">Aucune nouvelle offre à cocher.</div>';
+              document.getElementById('btn-decoller').disabled = true;
             } else {
-              decouvertes.forEach(s => {
-                const d = document.createElement('div');
-                d.className = 'disc-item';
-                d.innerHTML = '<span class="d-n">' + nomCourt(s.name) + '</span>' +
-                  '<span class="d-c">' + (s.err ? 'ERR' : (s.count > 0 ? s.count + ' découvert' : 'rien')) + '</span>';
-                disc.appendChild(d);
+              let lastSection = null;
+              offres.forEach(offre => {
+                if (offre.section !== lastSection) {
+                  lastSection = offre.section;
+                  const tag = document.createElement('div');
+                  tag.className = 'offre-section-tag';
+                  tag.textContent = nomCourt(offre.section);
+                  container.appendChild(tag);
+                }
+                const label = document.createElement('label');
+                label.className = 'offre-ligne';
+                const testable = offre.testable !== false;
+                const box = testable
+                  ? '<input type="checkbox" class="offre-coche" value="' + offre.item.replace(/"/g, '&quot;') + '">'
+                  : '<input type="checkbox" class="offre-coche" disabled title="Découverte, pas encore évaluable automatiquement">';
+                label.innerHTML = box +
+                  '<span class="offre-item' + (testable ? '' : ' offre-item-mute') + '">' + offre.item + '</span>' +
+                  (testable ? '' : '<span class="offre-note">découverte</span>');
+                container.appendChild(label);
               });
             }
-          }
+            majBtnDecoller();
+          } catch (e) { /* non fatal */ }
 
-          // --- dernier décollage ---
-          const deco = document.getElementById('strat-decologue');
-          if (deco && data.decollage && data.decollage.ts) {
-            const ts = (data.decollage.ts || '').replace('T', ' ').slice(0, 16);
-            deco.textContent = 'Dernier DÉCOLLAGE : ' + ts + ' — ' +
-              (data.decollage.choix || []).length + ' choix lancés en évaluation';
-          }
+          // --- exploration (nouveaux endroits) ---
+          try {
+            const disc = document.getElementById('strat-discovery');
+            if (disc) {
+              disc.innerHTML = '';
+              if (decouvertes.length === 0) {
+                disc.innerHTML = '<div class="disc-empty">Aucun nouveau lieu détecté cette nuit.</div>';
+              } else {
+                decouvertes.forEach(s => {
+                  const d = document.createElement('div');
+                  d.className = 'disc-item';
+                  d.innerHTML = '<span class="d-n">' + nomCourt(s.name) + '</span>' +
+                    '<span class="d-c">' + (s.err ? 'ERR' : (s.count > 0 ? s.count + ' découvert' : 'rien')) + '</span>';
+                  disc.appendChild(d);
+                });
+              }
+            }
+          } catch (e) { /* non fatal */ }
+
+          // --- dernier décollage + trace d'évaluation ---
+          try {
+            const deco = document.getElementById('strat-decologue');
+            if (deco && data.decollage && data.decollage.ts) {
+              const ts = (data.decollage.ts || '').replace('T', ' ').slice(0, 16);
+              deco.textContent = 'Dernier DÉCOLLAGE : ' + ts + ' — ' +
+                (data.decollage.choix || []).length + ' choix lancés en évaluation';
+              if (data.decollage.trace && data.decollage.trace.length) {
+                deco.title = data.decollage.trace.join('\n');
+              }
+            }
+          } catch (e) { /* non fatal */ }
         })
         .catch(() => {
-          setBanner('err', '✕', 'BRIDGE INJOIGNABLE', 'Impossible de joindre le pont :17777.');
-          container.innerHTML = '<div style="color:#c0392b">Bridge injoignable :17777</div>';
+          // A2 : bridge injoignable ou timeout → mode dégradé explicite
+          try {
+            setBanner('err', '✕', 'BRIDGE HORS LIGNE', 'Le pont :17777 ne répond pas (ou timeout 5 s). Le reste du cockpit continue de fonctionner.');
+            const prov = document.getElementById('strat-providers');
+            if (prov) prov.innerHTML = '';
+            container.innerHTML = '<div style="color:#c0392b;padding:8px">Bridge injoignable :17777 — données indisponibles. Réessai automatique à l\'ouverture de l\'onglet.</div>';
+            const deco = document.getElementById('strat-decologue');
+            if (deco) deco.textContent = '';
+            document.getElementById('btn-decoller').disabled = true;
+          } catch (e) { /* non fatal */ }
         });
     }
 
@@ -3509,12 +3601,11 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
       const checked = Array.from(document.querySelectorAll('.offre-coche:checked'))
         .map(el => el.value).slice(0, 5);
       if (checked.length === 0) return;
-      fetch(BRIDGE + '/decoller', {
+      fetchJson(BRIDGE + '/decoller', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({selection: checked})
-      })
-      .then(r => r.json())
+      }, 5000)
       .then(res => {
         const status = document.getElementById('offres-status');
         if (res.error) {
@@ -3528,11 +3619,29 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
           status.textContent = '';
           chargerOffres();
         }, 30000);
+      })
+      .catch(() => {
+        const status = document.getElementById('offres-status');
+        status.style.color = '#ff4d4d';
+        status.textContent = 'Bridge injoignable — évaluation non lancée. Réessayez.';
       });
     });
 
     document.getElementById('offres-list')?.addEventListener('change', majBtnDecoller);
     window.chargerOffres = chargerOffres;
+    window.chargerStrategie = chargerStrategie;
+
+    // Chargement AUTOMATIQUE au démarrage (plus seulement au clic) :
+    // les cartes STRATÉGIES et OFFRES sont remplies dès l'ouverture.
+    const _bootStrategie = () => {
+      try { chargerStrategie(); } catch (e) {}
+      try { chargerOffres(); } catch (e) {}
+    };
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', _bootStrategie);
+    } else {
+        setTimeout(_bootStrategie, 150);
+    }
 
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', init);
