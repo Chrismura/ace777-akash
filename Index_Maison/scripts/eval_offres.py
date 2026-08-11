@@ -211,8 +211,25 @@ def main():
         print('[SKIP] integration deja faite aujourd hui')
         sys.exit(0)
 
+    # PATCH STRATÉGIE (F2, GO 11/08) : filtre --choix <json> -> ne tester
+    # que les offres cochées dans le cockpit (jamais bloquant si absent).
+    choix_path = None
+    if '--choix' in sys.argv:
+        try:
+            choix_path = sys.argv[sys.argv.index('--choix') + 1]
+        except IndexError:
+            choix_path = None
+
     active = active_providers(cfg)
     cands = candidates_from_veille()
+    if choix_path and os.path.exists(choix_path):
+        try:
+            with open(choix_path, encoding='utf-8') as f:
+                choix_list = set(json.load(f).get('choix', []))
+            cands = [c for c in cands if c.get('model') in choix_list]
+            print('[STRATEGIE] filtre --choix: %d candidat(s) retenu(s)' % len(cands))
+        except Exception:
+            pass  # non fatal -> comportement normal
     if not cands:
         print('[INFO] aucune candidate testable (pas de modele :free accessible)')
         sys.exit(0)

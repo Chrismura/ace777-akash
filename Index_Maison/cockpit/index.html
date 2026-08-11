@@ -176,6 +176,16 @@ body::after{
 #stage-board .board-frame{padding:0;overflow:hidden;min-height:72vh}
 #stage-board iframe{display:block;width:100%;height:min(86vh,1100px);border:0;background:#070a0c}
 #stage-vol{grid-template-columns:1fr minmax(240px,320px)}
+#stage-strategie{grid-template-columns:1fr}
+.offre-ligne{display:flex;align-items:center;gap:8px;padding:4px 8px;background:var(--panel);border:1px solid var(--line)}
+.offre-ligne:hover{border-color:#f0a020}
+.offre-coche{accent-color:#f0a020;width:14px;height:14px;cursor:pointer}
+.offre-item{flex:1;font-family:monospace}
+.offre-item-mute{opacity:.55}
+.offre-note{color:#888;font-size:.78em;font-style:italic}
+.offre-section{color:#888;font-size:.85em}
+#btn-decoller:disabled{opacity:.4;cursor:not-allowed}
+#btn-decoller:not(:disabled):hover{background:#ffc040}
 #stage-graph{grid-template-columns:1fr}
 #stage-graph .graph-card{min-height:min(72vh,720px);padding:8px 10px}
 #stage-graph .graph-wrap{position:relative;width:100%;height:min(68vh,660px)}
@@ -889,6 +899,7 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
     <button class="tab" data-tab="board">BOARD</button>
     <button class="tab" data-tab="graph">GRAPH</button>
     <button class="tab" data-tab="vol">VOL</button>
+    <button class="tab" data-tab="strategie">STRATÉGIE</button>
     <button type="button" class="gbtn" id="btn-guide" title="Guide pedagogique — tout le glossaire">📖 GUIDE</button>
     <button type="button" class="btn-refresh-tab" id="btn-refresh" title="Rafraîchir feed (tous volets)"
       onclick="window.__cockpitRefresh&&window.__cockpitRefresh();return false;">
@@ -1211,6 +1222,20 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
       </ul>
     </div>
   </section>
+  <section id="stage-strategie" class="stage">
+    <div class="card">
+      <h2>OFFRES DU JOUR — VEILLE</h2>
+      <div id="offres-date" style="color:#f0a020;margin-bottom:12px"></div>
+      <div id="offres-list" style="display:flex;flex-direction:column;gap:6px"></div>
+      <button id="btn-decoller" disabled style="margin-top:16px;background:#f0a020;color:#0a100c;border:none;padding:8px 20px;font-weight:600;cursor:pointer">DÉCOLLER ▶</button>
+      <div id="offres-status" style="margin-top:10px;min-height:20px;font-size:.9em"></div>
+      <div class="sep"></div>
+      <div class="kv" style="font-size:.72rem;color:#c9d4de;line-height:1.6">
+        <p>Cochez les offres qui vous intéressent (max 5) puis DÉCOLLER : le système
+        lance l'évaluation A/B de VOS choix uniquement, en observation — jamais actif direct.</p>
+      </div>
+    </div>
+  </section>
   </div>
 
   <div class="peda-hint">💡 survole un indice = explication · clique 📖 = l'épingler · 🐈 = analyse vocale</div>
@@ -1273,6 +1298,9 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
       if(btn.dataset.tab==='board'){
         const fr=document.getElementById('board-iframe');
         if(fr) fr.src='../thermo/index.html?embed=1&t='+Date.now();
+      }
+      if(btn.dataset.tab==='strategie' && window.chargerOffres){
+        setTimeout(window.chargerOffres, 50);
       }
     });
   });
@@ -3210,6 +3238,68 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
         buildNodes();
         renderCosmos();
     };
+
+    // ---------- STRATÉGIE : OFFRE DU JOUR (F2, GO 11/08) ----------
+    function chargerOffres() {
+      const container = document.getElementById('offres-list');
+      const dateEl = document.getElementById('offres-date');
+      const status = document.getElementById('offres-status');
+      if (!container) return;
+      fetch(BRIDGE + '/offres')
+        .then(r => r.json())
+        .then(data => {
+          container.innerHTML = '';
+          dateEl.textContent = data.date ? ('VEILLE DU ' + data.date) : '';
+          if (!data.offres || data.offres.length === 0) {
+            container.innerHTML = '<div style="color:#888">Aucune nouvelle offre ce matin.</div>';
+            document.getElementById('btn-decoller').disabled = true;
+            return;
+          }
+          data.offres.forEach(offre => {
+            const label = document.createElement('label');
+            label.className = 'offre-ligne';
+            const testable = offre.testable !== false;
+            const note = testable ? '' : ' <span class="offre-note">(découverte — pas encore évaluable)</span>';
+            const box = testable
+              ? '<input type="checkbox" class="offre-coche" value="' + offre.item.replace(/"/g, '&quot;') + '">'
+              : '<input type="checkbox" class="offre-coche" disabled title="Découverte, pas encore évaluable automatiquement">';
+            label.innerHTML = box +
+              '<span class="offre-item' + (testable ? '' : ' offre-item-mute') + '">' + offre.item + '</span>' +
+              '<span class="offre-section">[' + offre.section + ']</span>' + note;
+            container.appendChild(label);
+          });
+          majBtnDecoller();
+        })
+        .catch(() => {
+          container.innerHTML = '<div style="color:#c0392b">Bridge injoignable :17777</div>';
+        });
+    }
+
+    function majBtnDecoller() {
+      const n = document.querySelectorAll('.offre-coche:checked').length;
+      document.getElementById('btn-decoller').disabled = n === 0;
+    }
+
+    document.getElementById('btn-decoller')?.addEventListener('click', () => {
+      const checked = Array.from(document.querySelectorAll('.offre-coche:checked'))
+        .map(el => el.value).slice(0, 5);
+      if (checked.length === 0) return;
+      fetch(BRIDGE + '/decoller', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({selection: checked})
+      })
+      .then(r => r.json())
+      .then(res => {
+        const status = document.getElementById('offres-status');
+        status.style.color = '#5ee7ff';
+        status.textContent = res.msg || (res.error || 'Lancement en cours…');
+        setTimeout(() => { status.textContent = ''; chargerOffres(); }, 30000);
+      });
+    });
+
+    document.getElementById('offres-list')?.addEventListener('change', majBtnDecoller);
+    window.chargerOffres = chargerOffres;
 
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', init);

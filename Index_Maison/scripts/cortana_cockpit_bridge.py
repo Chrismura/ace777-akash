@@ -576,6 +576,91 @@ def do_preflight() -> dict:
     }
 
 
+# === AJOUT STRATÉGIE (onglet F2, GO 11/08) ===
+def do_offres() -> dict:
+    """Lit VEILLE_HUB_<date>.md et retourne les offres valides (max 25)."""
+    date = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    veille_path = os.path.expanduser(
+        f"~/ace777-test-day1/Index_Maison/VEILLE_HUB_{date}.md"
+    )
+    if not os.path.exists(veille_path):
+        return {"ok": True, "date": date, "offres": []}
+
+    # Sections dont les offres sont évaluables automatiquement (A/B) par
+    # eval_offres.py — les autres sont de la DÉCOUVERTE (pas encore testables).
+    TESTABLE = ("openrouter", "nvidia", "inferx", "puter")
+
+    offres = []
+    current_section = None
+    try:
+        with open(veille_path, "r", encoding="utf-8") as f:
+            for line in f:
+                line = line.strip()
+                if line.startswith("### "):
+                    current_section = line[4:].strip()
+                elif line.startswith("- ") and current_section:
+                    item = line[2:].strip()
+                    if (
+                        item
+                        and "aucune nouvelle" not in item.lower()
+                        and not item.startswith("ERR:")
+                        and "INTEGRATION" not in current_section.upper()
+                    ):
+                        testable = any(k in current_section.lower() for k in TESTABLE)
+                        offres.append({"section": current_section, "item": item,
+                                       "testable": testable})
+                        if len(offres) >= 25:
+                            break
+    except Exception:
+        pass  # non fatal
+    return {"ok": True, "date": date, "offres": offres}
+
+
+def do_decoller(selection: list) -> dict:
+    """Écrit CHOIX_OFFRES.json (atomique) et lance eval_offres.py en background."""
+    if not selection:
+        return {"ok": False, "error": "aucune offre cochée"}
+
+    selection = selection[:5]  # protection quotas gratuits
+    date = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    strategie_dir = os.path.expanduser(
+        "~/ace777-test-day1/Index_Maison/strategie"
+    )
+    os.makedirs(strategie_dir, exist_ok=True)
+    choix_path = os.path.join(strategie_dir, "CHOIX_OFFRES.json")
+
+    data = {
+        "ts": datetime.now(timezone.utc).isoformat(),
+        "date": date,
+        "choix": selection,
+    }
+
+    tmp_path = choix_path + ".tmp"
+    try:
+        with open(tmp_path, "w", encoding="utf-8") as f:
+            json.dump(data, f, indent=2)
+        os.replace(tmp_path, choix_path)
+    except Exception as e:
+        return {"ok": False, "error": str(e)}
+
+    script_path = os.path.expanduser(
+        "~/ace777-test-day1/Index_Maison/scripts/eval_offres.py"
+    )
+
+    def _launch():
+        try:
+            subprocess.Popen(
+                ["python3", script_path, "--choix", choix_path],
+                stdout=subprocess.DEVNULL,
+                stderr=subprocess.DEVNULL,
+            )
+        except Exception:
+            pass
+
+    threading.Thread(target=_launch, daemon=True).start()
+    return {"ok": True, "msg": f"Évaluation lancée sur {len(selection)} offre(s)"}
+
+
 def do_status() -> dict:
     mute = Path("/tmp/ace777_swarm_pids/.cortana_mute").exists()
     return {
@@ -767,6 +852,9 @@ class Handler(BaseHTTPRequestHandler):
         if path == "/justesse":
             self._json(200, do_justesse())
             return
+        if path == "/offres":
+            self._json(200, do_offres())
+            return
         self._json(404, {"ok": False, "error": "not found"})
 
     def _read_json(self) -> dict:
@@ -828,6 +916,11 @@ class Handler(BaseHTTPRequestHandler):
         if path == "/refresh":
             data = do_mission()
             self._json(200, data)
+            return
+        if path == "/decoller":
+            body = self._read_json()
+            sel = body.get("selection") or []
+            self._json(200, do_decoller(sel))
             return
         if path == "/panic":
             body = self._read_json()
