@@ -89,7 +89,7 @@ def probe(prov):
                 'max_tokens': 5, 'temperature': 0,
             }).encode()
             req = urllib.request.Request(base + '/chat/completions', data=payload, headers=headers)
-            with urllib.request.urlopen(req, timeout=30) as r:
+            with urllib.request.urlopen(req, timeout=None) as r:
                 d = json.loads(r.read().decode('utf-8'))
             if (d.get('choices') or [{}])[0].get('message', {}).get('content', '').strip():
                 ok += 1
