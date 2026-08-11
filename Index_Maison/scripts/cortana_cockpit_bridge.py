@@ -19,6 +19,7 @@ import threading
 from datetime import datetime, timezone
 
 import barge_in  # micro : coupe la parole si on parle (natif, ffmpeg)
+import oral_fr  # nombres -> toutes lettres (voix propre, pas de « neuf neuf »)
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from urllib.parse import urlparse
@@ -168,10 +169,38 @@ def do_analyse(indice: str) -> dict:
     return {"ok": True, "texte": texte, "provider": provider}
 
 
+def _appel_hub(task: str, prompt_role: str, sujet: str, result_list: list, idx: int) -> None:
+    """Appel hub pour un membre de la famille (thread). timeout=None (règle maison)."""
+    import urllib.request
+    payload = {
+        "task": task,
+        "messages": [
+            {"role": "system", "content": prompt_role},
+            {"role": "user", "content": sujet},
+        ],
+        "temperature": 0.3,
+        "max_tokens": 500,
+    }
+    try:
+        data = json.dumps(payload).encode("utf-8")
+        req = urllib.request.Request(
+            "http://127.0.0.1:11435/v1/chat/completions",
+            data=data,
+            headers={"Content-Type": "application/json"},
+            method="POST",
+        )
+        with urllib.request.urlopen(req, timeout=None) as resp:
+            res = json.loads(resp.read().decode("utf-8"))
+            result_list[idx] = res.get("choices", [{}])[0].get("message", {}).get("content", "")
+    except Exception:
+        result_list[idx] = None
+
+
 def do_chat(message: str) -> dict:
     """Chat cockpit -> hub (task=mission = deepseek-v4-flash = Buffy, rotation hub).
     Renvoie le texte (écrit, affiché dans le cockpit) et lance la lecture vocale
-    Vivienne en arrière-plan (thread, comme do_analyse)."""
+    Vivienne en arrière-plan (thread, comme do_analyse).
+    Commande spéciale : « demande l'avis de la famille sur X » -> trio Gemini+DeepSeek+Juge."""
     import urllib.request
 
     msg = (message or "").strip()
@@ -179,6 +208,67 @@ def do_chat(message: str) -> dict:
         return {"ok": False, "error": "message vide"}
     if len(msg) > 2000:
         return {"ok": False, "error": "message trop long (max 2000 caractères)"}
+
+    # === CONSULTATION FAMILLE (avant vision) : trio Gemini + DeepSeek + Juge ===
+    m_low = msg.lower().lstrip()
+    trig_famille = (
+        "demande l'avis de la famille", "avis de la famille", "consulte la famille",
+        "interroge la famille", "la famille sur", "demande au juge", "avis du juge",
+        "consulte le juge", "le juge sur",
+    )
+    declenche_famille = False
+    for t in trig_famille:
+        if m_low == t or m_low.startswith(t + " ") or m_low.startswith(t):
+            declenche_famille = True
+            break
+    if declenche_famille:
+        sujet = msg
+        for t in trig_famille:
+            sujet = sujet.replace(t, " ", 1)
+        sujet = sujet.strip()
+        for k in ("à propos", "a propos", "sur", "de", "stp", "s'il te plaît",
+                  "sil te plait", "à voix", "a voix", "parle", "vocale"):
+            sujet = sujet.replace(k, " ").replace("  ", " ").strip()
+        sujet = sujet.strip(" ,;:.")
+        if not sujet:
+            sujet = "(avis général — sujet non précisé)"
+        roles = [
+            ("audit.protocol",
+             "Tu es Gemini, analyste senior de la maison ACE777. Donne un avis CONCIS "
+             "(2-3 phrases max) : les risques, les angles morts, ce qu'on pourrait rater. "
+             "Important : notre système tourne sur macOS (pas Windows). Réponds en français."),
+            ("mission",
+             "Tu es DeepSeek, expert technique de la maison ACE777. Donne un avis CONCIS "
+             "(2-3 phrases max) : la cohérence du setup, ce qui peut casser, la faisabilité. "
+             "Important : notre système tourne sur macOS (pas Windows). Réponds en français."),
+            ("signets.juge",
+             "Tu es le JUGE de la maison ACE777. Après avoir pesé les arguments, TRANCHE la "
+             "décision de façon claire et concise (2-3 phrases max) : OUI / NON / SOUS CONDITION. "
+             "Important : notre système tourne sur macOS (pas Windows). Réponds en français."),
+        ]
+        results = [None] * 3
+        threads = []
+        for i, (task, role) in enumerate(roles):
+            t = threading.Thread(target=_appel_hub, args=(task, role, sujet, results, i), daemon=True)
+            threads.append(t)
+            t.start()
+        for t in threads:
+            t.join(timeout=240)
+        date_str = datetime.now().strftime("%d/%m/%Y %H:%M")
+        noms = ["GEMINI (analyste)", "DEEPSEEK (technique)", "LE JUGE tranche"]
+        parties = []
+        for i, nom in enumerate(noms):
+            if results[i]:
+                parties.append(f"• {nom} : {results[i].strip()}")
+            else:
+                parties.append(f"• {nom} : (injoignable)")
+        texte_final = (f"🟡 CONSULTATION FAMILLE — {sujet}\n\n"
+                       + "\n\n".join(parties)
+                       + f"\n\n— Famille consultée, {date_str}")
+        texte_final = texte_final.replace("**", "")
+        if any(k in m_low for k in ("à voix", "a voix", "parle", "vocale")):
+            threading.Thread(target=_speak_texte, args=(texte_final,), daemon=True).start()
+        return {"ok": True, "texte": texte_final, "mode": "famille"}
 
     # Commande vocale VISION : DÉTECTION STRICTE en début de message pour ne
     # JAMAIS avaler une conversation normale (« j'ai une vision... », « regarde ce
@@ -245,6 +335,7 @@ def _speak_texte(texte: str) -> None:
             path = f.name
         if barge_in.activ():
             barge_in.preparer()  # calibration ambiant EN SILENCE, pendant la generation
+        texte = oral_fr.oraliser(texte)  # 99,99 -> « quatre-vingt-dix-neuf virgule quatre-vingt-dix-neuf »
         cmd = [
             sys.executable, "-m", "edge_tts",
             "--voice", os.environ.get("EDGE_TTS_VOICE", "fr-FR-VivienneMultilingualNeural"),
@@ -797,6 +888,77 @@ def _dernier_rapport_veille(date_du_jour: str) -> tuple:
     return None, None
 
 
+def _fiche_offre(section: str, item: str) -> dict:
+    """Fiche vulgarisée d'une offre (mots-clés, premier match gagne).
+    Aide Christophe (non expert) à comprendre : type, forces, faiblesses, usage."""
+    s = (section or "").lower()
+    i = (item or "").lower()
+    if "coder" in i or "code" in i or "deepseek-coder" in i:
+        return {"type": "Modèle de codage",
+                "forts": ["Écrit et corrige du code", "Bon pour nos scripts Python"],
+                "faibles": ["Pas fait pour la conversation générale"],
+                "usage": "Pour faire coder les scripts de la maison (via le hub)"}
+    if "nvidia" in s or "nim" in s:
+        return {"type": "Fournisseur NVIDIA NIM",
+                "forts": ["Modèles d'entreprise hébergés", "Stable, bonne disponibilité"],
+                "faibles": ["Selon les quotas gratuits du jour"],
+                "usage": "Source fiable pour l'analyse et le jugement (ex. le Juge)"}
+    if "openrouter" in s:
+        return {"type": "Passerelle d'API multi-modèles",
+                "forts": ["Accès à beaucoup de modèles avec une seule clé"],
+                "faibles": ["Certains modèles gratuits saturés ou supprimés sans prévenir"],
+                "usage": "Découvrir de nouveaux modèles sans créer 10 comptes"}
+    if "gemini" in i:
+        return {"type": "Modèle Google (analyste)",
+                "forts": ["Très bon pour analyser, résumer, donner un avis structuré"],
+                "faibles": ["Quota gratuit limité par jour"],
+                "usage": "L'analyste de la famille : avis large et risques"}
+    if "grok" in i:
+        return {"type": "Modèle xAI Grok",
+                "forts": ["Réponses directes, peu de blabla", "Bon en code et en analyse"],
+                "faibles": ["Gratuité par quotas (voir usage du hub)"],
+                "usage": "Actuellement notre codeur principal (task code.ia)"}
+    if "deepseek" in i:
+        return {"type": "Modèle DeepSeek",
+                "forts": ["Costaud en logique et technique"],
+                "faibles": ["Pas toujours très verbeux"],
+                "usage": "L'expert technique de la famille : cohérence et faisabilité"}
+    if "qwen" in i:
+        return {"type": "Modèle Qwen (Alibaba)",
+                "forts": ["Bon rapport qualité/coût, bon en code"],
+                "faibles": ["Moins connu, documentation inégale"],
+                "usage": "Alternative au codeur si Grok est saturé"}
+    if "mistral" in i:
+        return {"type": "Modèle Mistral (français)",
+                "forts": ["Français natif, bonne compréhension du contexte"],
+                "faibles": ["Taille de contexte parfois limitée"],
+                "usage": "Bon pour du français naturel"}
+    if "juge" in i or "judge" in i:
+        return {"type": "Modèle Juge (arbitre)",
+                "forts": ["Tranche les débats, verdict clair"],
+                "faibles": ["Avis court, pas de détail"],
+                "usage": "L'arbitre de la famille : décision finale"}
+    if "flash" in i or "lite" in i:
+        return {"type": "Modèle rapide et léger",
+                "forts": ["Réponse très rapide, peu cher"],
+                "faibles": ["Moins profond que les gros modèles"],
+                "usage": "Pour le chat rapide et les petits traitements"}
+    if "groq" in s:
+        return {"type": "Fournisseur ultra-rapide",
+                "forts": ["Réponses en une fraction de seconde"],
+                "faibles": ["Modèles limités au catalogue Groq"],
+                "usage": "Quand la vitesse compte (chat, tri)"}
+    if "claude" in i:
+        return {"type": "Modèle Anthropic",
+                "forts": ["Très bon en compréhension fine et code"],
+                "faibles": ["Gratuité rare / quota limité"],
+                "usage": "Un très bon généraliste si dispo"}
+    return {"type": "Offre IA à découvrir",
+            "forts": ["À évaluer — disponible gratuitement aujourd'hui"],
+            "faibles": ["Pas encore classée par nos règles"],
+            "usage": "Coche-la pour la tester en conditions réelles"}
+
+
 def do_offres() -> dict:
     """Lit VEILLE_HUB_<date>.md → dashboard STRATÉGIE (sections + offres).
     Si le rapport du jour est absent OU corrompu → fallback sur le dernier
@@ -856,6 +1018,19 @@ def do_offres() -> dict:
                             })
     except Exception:
         pass  # non fatal
+
+    # === CHANTIER A : fiches explicatives (aide au choix pour Christophe) ===
+    for offre in offres:
+        if "fiche" not in offre:
+            offre["fiche"] = _fiche_offre(offre.get("section", ""), offre.get("item", ""))
+    for n, s in sections.items():
+        if not s.get("testable") and "fiche" not in s:
+            s["fiche"] = {
+                "type": "Nouveau lieu / source détecté par la veille",
+                "forts": ["Peut cacher une offre ou un modèle intéressant"],
+                "faibles": ["Inconnu — à vérifier avant de s'y fier"],
+                "usage": "À explorer une fois par jour (7h) pour ne rien rater",
+            }
 
     total = sum(s["count"] for s in sections.values())
     return {
@@ -1137,6 +1312,9 @@ class Handler(BaseHTTPRequestHandler):
         if path == "/yeux/result":
             self._json(200, do_yeux_result())
             return
+        if path == "/ecoute":
+            self._json(200, {"ok": True, "ecoute": barge_in.activ()})
+            return
         self._json(404, {"ok": False, "error": "not found"})
 
     def _read_json(self) -> dict:
@@ -1181,6 +1359,13 @@ class Handler(BaseHTTPRequestHandler):
         if path == "/stop":
             msg = stop_voice()
             self._json(200, {"ok": True, "action": "stop", "msg": msg, "muted": False})
+            return
+        if path == "/ecoute":
+            if barge_in.activ():
+                etat = barge_in.ecoute_couper()
+            else:
+                etat = barge_in.ecoute_activer()
+            self._json(200, {"ok": True, "action": "ecoute", "ecoute": etat})
             return
         if path == "/analyse":
             body = self._read_json()

@@ -264,6 +264,21 @@ body::after{
 .offre-item-mute{opacity:.5}
 .offre-note{color:#7a7a7a;font-size:.68rem;font-style:italic}
 .offre-section{color:#6b6350;font-size:.66rem;letter-spacing:.05em;white-space:nowrap}
+/* === Fiches explicatives au clic (aide non-expert) === */
+.offre-fiche{display:none;margin:2px 0 8px 28px;padding:8px 10px;background:#0d1410;
+  border:1px solid rgba(124,255,107,.3);border-left:3px solid var(--amber);
+  border-radius:4px;font-size:.68rem;line-height:1.55;color:#cfe6d2}
+.offre-fiche.show{display:block}
+.offre-fiche .of-t{font-family:Orbitron,sans-serif;font-size:.6rem;letter-spacing:.12em;
+  color:var(--amber2);margin-bottom:4px;text-transform:uppercase}
+.offre-fiche .of-l{color:var(--muted);font-size:.6rem;letter-spacing:.08em;margin-top:4px;
+  font-family:Orbitron,sans-serif}
+.offre-fiche .of-f{color:var(--acid)}
+.offre-fiche .of-x{color:var(--red)}
+.disc-fiche{display:none;margin:2px 0 8px;padding:6px 9px;background:#0d1410;
+  border:1px solid rgba(240,160,32,.35);border-radius:4px;font-size:.64rem;
+  line-height:1.5;color:#c9c2ae}
+.disc-fiche.show{display:block}
 
 /* ---- STRATÉGIE : action DÉCOLLER ---- */
 .strat-action{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:14px}
@@ -969,6 +984,7 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
           <button type="button" id="btn-voix" class="on" title="Voix + brief">VOIX</button>
           <button type="button" id="btn-parler" title="Brief">PARLER</button>
           <button type="button" id="btn-yeux" title="Cortana regarde l'écran (vision à la demande)">👁 REGARDER</button>
+          <button type="button" id="btn-ecoute" class="on" title="Couper / réactiver l'écoute du micro (barge-in)">🎤 ÉCOUTE</button>
         </div>
         <div id="yeux-result" class="yeux-result" style="display:none"></div>
         <div class="chat-row">
@@ -2801,6 +2817,20 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
   document.getElementById('btn-voix')?.addEventListener('click', ()=>demanderVoix());
   document.getElementById('btn-parler')?.addEventListener('click', ()=>demanderVoix());
 
+  // --- ÉCOUTE : couper / réactiver le micro (barge-in) via le bridge ---
+  const btnEcoute = document.getElementById('btn-ecoute');
+  function majEcoute(etat){
+    if(!btnEcoute) return;
+    if(etat){ btnEcoute.classList.add('on'); btnEcoute.textContent = '🎤 ÉCOUTE'; }
+    else    { btnEcoute.classList.remove('on'); btnEcoute.textContent = '🎤 COUPÉ'; }
+  }
+  try{ fetch(BRIDGE+'/ecoute', {cache:'no-store'})
+    .then(r=>r.json()).then(d=>majEcoute(d.ecoute)).catch(()=>{}); }catch(e){}
+  btnEcoute?.addEventListener('click', ()=>{
+    try{ fetch(BRIDGE+'/ecoute', {method:'POST', cache:'no-store'})
+      .then(r=>r.json()).then(d=>majEcoute(d.ecoute)).catch(()=>{}); }catch(e){}
+  });
+
   // --- YEUX DE CORTANA : vision à la demande (bouton 👁) ---
   document.getElementById('btn-yeux')?.addEventListener('click', () => {
     const btn = document.getElementById('btn-yeux');
@@ -3624,6 +3654,23 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
                   '<span class="offre-item' + (testable ? '' : ' offre-item-mute') + '">' + offre.item + '</span>' +
                   (testable ? '' : '<span class="offre-note">découverte</span>');
                 container.appendChild(label);
+                // --- fiche explicative au clic (aide au choix) ---
+                const ficheEl = document.createElement('div');
+                ficheEl.className = 'offre-fiche';
+                if (offre.fiche) {
+                  const f = offre.fiche;
+                  ficheEl.innerHTML = '<div class="of-t">' + (f.type || 'Offre') + '</div>' +
+                    '<div class="of-l">Points forts</div><div class="of-f">' + (f.forts || []).join(' · ') + '</div>' +
+                    '<div class="of-l">Points faibles</div><div class="of-x">' + (f.faibles || f.failles || []).join(' · ') + '</div>' +
+                    '<div class="of-l">Pour quoi l\'utiliser</div><div>' + (f.usage || '') + '</div>';
+                }
+                container.appendChild(ficheEl);
+                label.style.cursor = 'pointer';
+                label.addEventListener('click', function(e){
+                  if (e.target.classList.contains('offre-coche')) return;
+                  document.querySelectorAll('.offre-fiche.show').forEach(el => { if (el !== ficheEl) el.classList.remove('show'); });
+                  ficheEl.classList.toggle('show');
+                });
               });
             }
             majBtnDecoller();
@@ -3643,6 +3690,23 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
                   d.innerHTML = '<span class="d-n">' + nomCourt(s.name) + '</span>' +
                     '<span class="d-c">' + (s.err ? 'ERR' : (s.count > 0 ? s.count + ' découvert' : 'rien')) + '</span>';
                   disc.appendChild(d);
+                  // --- fiche découverte au clic ---
+                  const discFiche = document.createElement('div');
+                  discFiche.className = 'disc-fiche';
+                  if (s.fiche) {
+                    const f = s.fiche;
+                    discFiche.innerHTML = '<div class="of-t">' + (f.type || 'Découverte') + '</div>' +
+                      '<div class="of-l">Points forts</div><div class="of-f">' + (f.forts || []).join(' · ') + '</div>' +
+                      '<div class="of-l">Points faibles</div><div class="of-x">' + (f.faibles || []).join(' · ') + '</div>' +
+                      '<div class="of-l">Usage</div><div>' + (f.usage || '') + '</div>';
+                  }
+                  disc.appendChild(discFiche);
+                  d.style.cursor = 'pointer';
+                  d.addEventListener('click', function(e){
+                    if (e.target.tagName === 'INPUT') return;
+                    document.querySelectorAll('.disc-fiche.show').forEach(el => { if (el !== discFiche) el.classList.remove('show'); });
+                    discFiche.classList.toggle('show');
+                  });
                 });
               }
             }

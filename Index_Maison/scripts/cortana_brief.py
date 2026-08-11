@@ -26,6 +26,7 @@ import sys
 import threading
 
 import barge_in  # micro : coupe la parole si on parle (natif, ffmpeg)
+import oral_fr  # nombres -> toutes lettres (voix propre, pas de « neuf neuf »)
 import tempfile
 import urllib.request
 
@@ -76,6 +77,7 @@ def speak_text(text, voice=None, rate=None):
     """Voix Vivienne via python3 -m edge_tts (meme mecanisme que cortana_voice)."""
     if not text or not text.strip():
         return 1
+    text = oral_fr.oraliser(text)  # 99,99 -> « quatre-vingt-dix-neuf virgule quatre-vingt-dix-neuf »
     with tempfile.NamedTemporaryFile(suffix=".mp3", delete=False) as f:
         path = f.name
     if barge_in.activ():
