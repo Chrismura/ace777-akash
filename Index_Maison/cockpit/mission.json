@@ -1,5 +1,5 @@
 {
-  "ts": "2026-08-11T05:07Z",
+  "ts": "2026-08-11T06:07Z",
   "alert": "amber",
   "run": "NUAGE_TEST_8H_CMP3",
   "sessionSince": "2026-08-02T00:00Z",
@@ -2188,14 +2188,14 @@
   },
   "thermo": {
     "climate": "ok",
-    "score": 85,
-    "funding": 6.4e-05,
+    "score": 76,
+    "funding": 1.5e-05,
     "whaleN": 0,
     "deltas": {
       "mark": {
-        "dir": "flat",
-        "delta": 0.0,
-        "label": "="
+        "dir": "up",
+        "delta": 0.1,
+        "label": "↑"
       },
       "funding": {
         "dir": "flat",
@@ -2204,43 +2204,43 @@
       },
       "fundingAvg30": {
         "dir": "flat",
-        "delta": null,
-        "label": "—"
+        "delta": 0.0,
+        "label": "="
       },
       "fundingAvgPrevMonth": {
         "dir": "flat",
-        "delta": null,
-        "label": "—"
+        "delta": 0.0,
+        "label": "="
       },
       "longShort": {
         "dir": "flat",
-        "delta": null,
-        "label": "—"
+        "delta": 0.0,
+        "label": "="
       },
       "chg24": {
-        "dir": "flat",
-        "delta": 0.0,
-        "label": "="
+        "dir": "up",
+        "delta": 0.01,
+        "label": "↑"
       },
       "oi": {
+        "dir": "up",
+        "delta": 2.017,
+        "label": "↑"
+      },
+      "score": {
         "dir": "flat",
         "delta": 0.0,
         "label": "="
-      },
-      "score": {
-        "dir": "up",
-        "delta": 13.0,
-        "label": "↑"
       },
       "btcDominance": {
         "dir": "flat",
-        "delta": null,
-        "label": "—"
+        "delta": 0.0,
+        "label": "="
       },
       "panierDownPct": {
         "dir": "flat",
-        "delta": null,
-        "label": "—"
+        "delta": 0.0,
+        "label": "="
       },
       "whaleUsd": {
         "dir": "flat",
@@ -2254,27 +2254,27 @@
       },
       "takerRatio": {
         "dir": "flat",
-        "delta": null,
-        "label": "—"
+        "delta": 0.0,
+        "label": "="
       }
     },
-    "fearGreed": 30,
+    "fearGreed": 29,
     "fearGreedLabel": "Fear",
-    "marketCapUsd": null,
-    "altSeason": null,
-    "altSeasonScore": null,
-    "liq24Usd": null,
+    "marketCapUsd": 2271527583732.0,
+    "altSeason": "Bitcoin season",
+    "altSeasonScore": 50,
+    "liq24Usd": 24812920.0,
     "etf": {
-      "btc": null,
+      "btc": 120.38,
       "eth": null,
       "xrp": null,
-      "source": null,
-      "unit": "BTC"
+      "source": "bitbo-public (moy 7j)",
+      "unit": "M$"
     },
-    "btcDominance": null,
+    "btcDominance": 56.49,
     "indicators": {
       "D26": {
-        "value": "30 · Fear",
+        "value": "29 · Fear",
         "level": "ok",
         "label": "Fear & Greed",
         "unit": "",
@@ -2282,43 +2282,43 @@
         "wired": true
       },
       "D27": {
-        "value": null,
-        "level": "na",
+        "value": "2.27 T$",
+        "level": "ok",
         "label": "Market cap crypto",
         "unit": "",
         "note": "CoinGecko global",
-        "wired": false
+        "wired": true
       },
       "D28": {
-        "value": null,
-        "level": "ok",
+        "value": "Bitcoin season (~50)",
+        "level": "warn",
         "label": "Alt season (proxy BTC.D)",
         "unit": "",
         "note": "proxy dominance — pas index Blockchain Center exact",
-        "wired": false
+        "wired": true
       },
       "D29": {
-        "value": null,
-        "level": "na",
+        "value": "0.02 B$",
+        "level": "warn",
         "label": "Liquidations 24h",
         "unit": "",
-        "note": "na",
-        "wired": false
+        "note": "okx-public",
+        "wired": true
       },
       "D30": {
-        "value": null,
+        "value": "BTC 120.38 M$",
         "level": "ok",
         "label": "ETF BTC net inflow",
         "unit": "",
-        "note": "—",
-        "wired": false
+        "note": "bitbo-public (moy 7j)",
+        "wired": true
       },
       "D31": {
         "value": null,
         "level": "ok",
         "label": "ETF ETH net inflow",
         "unit": "",
-        "note": "—",
+        "note": "bitbo-public (moy 7j)",
         "wired": false
       },
       "D32": {

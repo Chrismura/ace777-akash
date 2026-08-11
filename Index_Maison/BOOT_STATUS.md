@@ -1,21 +1,21 @@
-# BOOT STATUS — 2026-08-10T21:38Z
+# BOOT STATUS — 2026-08-11T05:09Z
 
 ## Git
-  repo systeme : 32 fichiers modifies (WIP normal si >0)
+  repo systeme : 37 fichiers modifies (WIP normal si >0)
 
 ## Hub
   hub /health : OK
 
 ## Providers (reponse reelle, parallele, non bloquant)
 
-  [WARN] nvidia (non repondu - bypass)
+  [OK] nvidia
   [OK] gemini
   [OK] qwen-local
-  [OK] juge
+  [WARN] juge (non repondu - bypass)
   [WARN] ultra (non repondu - bypass)
-  [OK] inferx
+  [WARN] inferx (non repondu - bypass)
   [WARN] inferx-coder (non repondu - bypass)
-  [OK] oss20
+  [WARN] oss20 (non repondu - bypass)
 
 ## Etat consolide
   ETAT_CONSOLIDE.md : present
@@ -23,4 +23,4 @@
 ## Verdict
   TOUT OK
 
-_genere 2026-08-10T21:38Z · boot.sh (additif, ne touche ni services ni moteur)_
+_genere 2026-08-11T05:09Z · boot.sh (additif, ne touche ni services ni moteur)_
