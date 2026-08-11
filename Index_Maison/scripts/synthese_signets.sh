@@ -1,12 +1,15 @@
 #!/usr/bin/env bash
 # ============================================================
-# SYNTHESE SIGNETS X - v4 FINALE (plus de patch a coller)
+# SYNTHESE SIGNETS X - v5 (bascule hub 11/08)
 # - lots de 5 : la Reine respire
 # - PAS de fusion par l'IA : le script assemble le brief
 #   lui-meme (comptages calcules par grep, tous les lots ecrits)
 # - verification structurelle : chaque numero 1..N present
 # - liens t.co resolus -> README GitHub lus + resumes en francais
 # - reprise automatique si ca casse (relance, il continue)
+# v5 : IA locale en PAUSE (offline uniquement) -> synthese via HUB
+#      (tache signets.synthese : gemini -> fallback nvidia, quota 10/j)
+#      backup local : synthese_signets.sh.bak-local-20260811
 # Respecte : 0 API payante · Mac froid · 1 place/info
 # ============================================================
 
@@ -15,8 +18,9 @@ VAULT="$HOME/Documents/Obsidian_ACE777"
 SIGNETS_DIR="$VAULT/Signets_X"
 OUT_FILE="$VAULT/Evaluations/BRIEF_SIGNETS_X.md"
 LOTS_DIR="$HOME/.signets_lots_v4"
-MODEL="qwen2.5:3b"
-OLLAMA_URL="http://localhost:11434"
+HUB_URL="http://127.0.0.1:11435"
+HUB_API="$HUB_URL/v1/chat/completions"
+TASK="signets.synthese"
 BATCH=5
 GITHUB=1
 MAX_GITHUB=8
@@ -36,12 +40,8 @@ pgrep -lf 'GO_USINE|paper_diprip' >/dev/null 2>&1 && {
   echo "[X] ACE ou Hulk tourne : Mac pas froid. Relance apres le vol."
   exit 1
 }
-curl -s --max-time 5 "$OLLAMA_URL/api/tags" >/dev/null 2>&1 || {
-  echo "[X] Ollama ne repond pas. Lance Ollama, puis relance."
-  exit 1
-}
-curl -s --max-time 5 "$OLLAMA_URL/api/tags" | grep -q "\"$MODEL\"" || {
-  echo "[!] Modele '$MODEL' absent. Verifie 'ollama list' et change MODEL en haut."
+curl -s --max-time 5 "$HUB_URL/health" >/dev/null 2>&1 || {
+  echo "[X] Hub :11435 ne repond pas (offline ?). Lance le hub, puis relance."
   exit 1
 }
 
@@ -49,18 +49,18 @@ FILES=()
 for f in "$SIGNETS_DIR"/Bookmark_*.md; do [ -f "$f" ] && FILES+=("$f"); done
 TOTAL=${#FILES[@]}
 [ "$TOTAL" -eq 0 ] && { echo "[X] Aucun Bookmark_*.md dans $SIGNETS_DIR"; exit 1; }
-echo "[OK] $TOTAL signets - modele : $MODEL - lots de $BATCH"
+echo "[OK] $TOTAL signets - via hub ($TASK: gemini/nvidia) - lots de $BATCH"
 
 ask_reine() {
   local prompt="$1"
   local payload resp text
-  payload=$(python3 -c 'import json,sys; print(json.dumps({"model":sys.argv[1],"messages":[{"role":"user","content":sys.argv[2]}],"stream":False}))' "$MODEL" "$prompt")
+  payload=$(python3 -c 'import json,sys; print(json.dumps({"task":sys.argv[1],"messages":[{"role":"user","content":sys.argv[2]}],"temperature":0.2,"max_tokens":2000}))' "$TASK" "$prompt")
   for attempt in 1 2 3; do
-    resp=$(curl -s --max-time 600 "$OLLAMA_URL/api/chat" -d "$payload")
+    resp=$(curl -s --max-time 300 "$HUB_API" -H 'Content-Type: application/json' -d "$payload")
     if [ -n "$resp" ]; then
       text=$(printf '%s' "$resp" | python3 -c 'import json,sys
 try:
-    d=json.load(sys.stdin); print(d.get("message",{}).get("content",""))
+    d=json.load(sys.stdin); print(d.get("choices",[{}])[0].get("message",{}).get("content",""))
 except Exception:
     print("")')
       if [ -n "$text" ]; then printf '%s' "$text"; return 0; fi
@@ -141,7 +141,7 @@ $(cat "${FILES[$idx]}")
     continue
   fi
   [ "$INCOMPLETE" != "absent" ] && { echo "   Lot $LOT : incomplet (manque :$INCOMPLETE) - refait"; rm -f "$LOTS_DIR/lot_$LOT.md"; }
-  echo "   Lot $LOT : $M signets -> la Reine..."
+  echo "   Lot $LOT : $M signets -> la Reine (hub)..."
     if text=$(ask_reine "LOT de $M signets X numerotes 1 a $M. Pour CHAQUE signet, ecris UNE seule ligne, au format :
 NUM. @auteur - idee centrale (1 ligne, en francais) - VERDICT
 VERDICT = GARDÉ (utile maintenant pour le prototype) / PISTE (a explorer) / WATCH (a surveiller) / BRUIT (inutile ou hors sujet).
@@ -151,7 +151,7 @@ Rien d'autre : pas d'introduction, pas de conclusion, pas de texte entre les lig
 $content"); then
       printf '%s\n' "$text" > "$LOTS_DIR/lot_$LOT.md"
     else
-      echo "   [X] La Reine n'a pas repondu (lot $LOT). Ferme Brave/cockpit pour la RAM, puis relance : les lots faits seront repris."
+      echo "   [X] La Reine n'a pas repondu (lot $LOT, quota cloud ?). Verifie le hub puis relance : les lots faits seront repris."
       exit 1
     fi
   MISSING=""
@@ -187,7 +187,7 @@ echo "== Phase 5 : ameliorations pour le prototype =="
 AMELIO=""
 GARDES=$(cat "$LOTS_DIR"/lot_*.md 2>/dev/null | grep -E "GARD[ÉE]|PISTE" | head -40)
 if [ -n "$GARDES" ]; then
-  if text3=$(ask_reine "Voici des signets jugees utiles (GARDÉ/PISTE) pour un prototype de trading crypto multi-agents (ACE777 testnet, Hulk paper, Cortana voix, Qwen local, 8 Go RAM, 0 API payante). Propose 8 ameliorations concretes, chacune en UNE ligne, format :
+  if text3=$(ask_reine "Voici des signets jugees utiles (GARDÉ/PISTE) pour un prototype de trading crypto multi-agents (ACE777 testnet, Hulk paper, Cortana voix, hub, 8 Go RAM, 0 API payante). Propose 8 ameliorations concretes, chacune en UNE ligne, format :
 - idee (source : @auteur)
 Reponds uniquement par ces 8 lignes.
 
@@ -206,7 +206,7 @@ if [ -z "$SUSPECT" ]; then STATUS="COMPLET (couverture $OK/$OK lots)"; else STAT
 {
   echo "---"
   echo "date: $TS"
-  echo "agent: $MODEL (local, gratuit, Ollama)"
+  echo "agent: hub ($TASK : gemini/nvidia, cloud, 0 API payante)"
   echo "type: veille_sectorielle_globale"
   echo "source: Signets_X ($TOTAL signets · $LOTS_FAITS lots de $BATCH)"
   echo "verification: comptages et couverture calcules par le script (pas par l'IA)"
@@ -256,11 +256,11 @@ echo ""
 
 MEMOIRE_LOG="$HOME/ace777-test-day1/Index_Maison/scripts/memoire_log.py"
 if [ -f "$MEMOIRE_LOG" ]; then
-  python3 "$MEMOIRE_LOG" "$QUI" "★" "Evaluations/BRIEF_SIGNETS_X" "v4 : $TOTAL signets ($LOTS_FAITS lots, couverture $OK/$LOTS_FAITS, GitHub lu) -> brief ecrit"
+  python3 "$MEMOIRE_LOG" "$QUI" "★" "Evaluations/BRIEF_SIGNETS_X" "v5 (hub) : $TOTAL signets ($LOTS_FAITS lots, couverture $OK/$LOTS_FAITS, GitHub lu) -> brief ecrit"
   echo "[OK] memoire collab loggee"
 else
   echo "memoire_log.py introuvable - colle cette ligne toi-meme :"
-  echo "python3 ~/ace777-test-day1/Index_Maison/scripts/memoire_log.py \"$QUI\" \"★\" \"Evaluations/BRIEF_SIGNETS_X\" \"v4 : $TOTAL signets -> brief ecrit\""
+  echo "python3 ~/ace777-test-day1/Index_Maison/scripts/memoire_log.py \"$QUI\" \"★\" \"Evaluations/BRIEF_SIGNETS_X\" \"v5 : $TOTAL signets -> brief ecrit\""
 fi
 
 mkdir -p "$HOME/ace777-test-day1/Index_Maison/scripts" 2>/dev/null
@@ -268,6 +268,6 @@ cp "$0" "$HOME/ace777-test-day1/Index_Maison/scripts/synthese_signets.sh" 2>/dev
 
 echo ""
 echo "Ligne pour le TABLEAU_VIVANT :"
-echo "| GARDÉ | Brief narratif auto | $TOTAL signets synthetises (v4, couverture $OK/$LOTS_FAITS, GitHub lu) | Evaluations/BRIEF_SIGNETS_X.md |"
+echo "| GARDÉ | Brief narratif auto | $TOTAL signets synthetises (v5 via hub, couverture $OK/$LOTS_FAITS, GitHub lu) | Evaluations/BRIEF_SIGNETS_X.md |"
 echo ""
 echo "Fait. Va lire $OUT_FILE dans Obsidian."
