@@ -174,7 +174,14 @@ def do_chat(message: str) -> dict:
         return {"ok": False, "error": "message trop long (max 2000 caractères)"}
     payload = {
         "task": "mission",  # deepseek-v4-flash via NVIDIA + rotation hub (fallback)
-        "messages": [{"role": "user", "content": msg}],
+        "messages": [
+            {"role": "system", "content": (
+                "Tu es Cortana, l'assistante de la maison ACE777. "
+                "Réponds TOUJOURS en français, quel que soit le contexte. "
+                "Sois concise, précise, sans markdown ni emoji."
+            )},
+            {"role": "user", "content": msg},
+        ],
         "temperature": 0.4,
         "max_tokens": 700,
     }
