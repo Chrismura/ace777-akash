@@ -176,16 +176,103 @@ body::after{
 #stage-board .board-frame{padding:0;overflow:hidden;min-height:72vh}
 #stage-board iframe{display:block;width:100%;height:min(86vh,1100px);border:0;background:#070a0c}
 #stage-vol{grid-template-columns:1fr minmax(240px,320px)}
-#stage-strategie{grid-template-columns:1fr}
-.offre-ligne{display:flex;align-items:center;gap:8px;padding:4px 8px;background:var(--panel);border:1px solid var(--line)}
-.offre-ligne:hover{border-color:#f0a020}
-.offre-coche{accent-color:#f0a020;width:14px;height:14px;cursor:pointer}
-.offre-item{flex:1;font-family:monospace}
-.offre-item-mute{opacity:.55}
-.offre-note{color:#888;font-size:.78em;font-style:italic}
-.offre-section{color:#888;font-size:.85em}
-#btn-decoller:disabled{opacity:.4;cursor:not-allowed}
-#btn-decoller:not(:disabled):hover{background:#ffc040}
+#stage-strategie{grid-template-columns:1fr;gap:12px}
+
+/* ---- STRATÉGIE : bannière d'état ---- */
+.strat-banner{display:flex;align-items:center;gap:14px;padding:14px 18px;border-radius:8px;
+  border:1px solid var(--line);background:linear-gradient(180deg,#0e150f,#080c08);
+  box-shadow:inset 0 0 30px rgba(0,0,0,.4),0 0 14px rgba(0,0,0,.35);
+  transition:border-color .25s,box-shadow .25s}
+.strat-banner .sb-icon{font-size:1.7rem;line-height:1;filter:drop-shadow(0 0 8px currentColor)}
+.strat-banner .sb-txt{flex:1}
+.strat-banner .sb-title{font-family:Orbitron,sans-serif;font-size:.95rem;letter-spacing:.14em;color:var(--amber2)}
+.strat-banner .sb-sub{font-size:.72rem;color:var(--muted);margin-top:3px;line-height:1.5}
+.strat-banner.strat-ok{border-color:rgba(124,255,107,.45)}
+.strat-banner.strat-ok .sb-icon{color:var(--acid)}
+.strat-banner.strat-ok .sb-title{color:var(--acid2)}
+.strat-banner.strat-ok{box-shadow:inset 0 0 30px rgba(124,255,107,.05),0 0 18px rgba(124,255,107,.12)}
+.strat-banner.strat-new{border-color:rgba(240,160,32,.55)}
+.strat-banner.strat-new .sb-icon{color:var(--amber)}
+.strat-banner.strat-new{box-shadow:inset 0 0 30px rgba(240,160,32,.06),0 0 18px rgba(240,160,32,.14)}
+.strat-banner.strat-err{border-color:rgba(255,77,77,.5)}
+.strat-banner.strat-err .sb-icon{color:var(--red)}
+.strat-banner.strat-err .sb-title{color:#ffb3b3}
+.strat-banner.strat-idle{border-color:var(--line)}
+.strat-banner.strat-idle .sb-icon{color:var(--muted);animation:pulse 1.4s infinite}
+
+/* ---- STRATÉGIE : cartes fournisseurs ---- */
+.strat-providers{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px}
+.sp-card{position:relative;background:linear-gradient(180deg,#0e150f,#070b08);
+  border:1px solid var(--line);border-radius:6px;padding:10px 12px;overflow:hidden;
+  transition:transform .15s,border-color .2s,box-shadow .2s}
+.sp-card:hover{transform:translateY(-2px);border-color:var(--amber);box-shadow:0 0 16px rgba(240,160,32,.15)}
+.sp-card .sp-dot{position:absolute;top:9px;right:9px;width:8px;height:8px;border-radius:50%}
+.sp-card .sp-dot.on{background:var(--acid);box-shadow:0 0 8px var(--acid)}
+.sp-card .sp-dot.new{background:var(--amber);box-shadow:0 0 8px var(--amber)}
+.sp-card .sp-dot.err{background:var(--red);box-shadow:0 0 8px var(--red)}
+.sp-card .sp-dot.off{background:#4a4a4a}
+.sp-card .sp-name{font-family:Orbitron,sans-serif;font-size:.6rem;letter-spacing:.12em;color:var(--muted);
+  padding-right:14px;text-transform:uppercase}
+.sp-card .sp-count{font-family:Orbitron,sans-serif;font-size:1.25rem;margin-top:6px;color:#e8dcc0}
+.sp-card .sp-state{font-size:.62rem;color:var(--muted);margin-top:2px}
+.sp-card .sp-count.new{color:var(--amber)}
+.sp-card .sp-count.on{color:var(--acid)}
+
+/* ---- STRATÉGIE : corps ---- */
+.strat-body{display:grid;grid-template-columns:1fr minmax(260px,320px);gap:12px;align-items:start}
+@media(max-width:1050px){.strat-body{grid-template-columns:1fr}}
+.strat-main{grid-column:1}
+.strat-disc{grid-column:2}
+@media(max-width:1050px){.strat-main,.strat-disc{grid-column:1}}
+.strat-date{font-size:.68rem;color:var(--muted);letter-spacing:.1em;margin-bottom:8px}
+
+.offres-list{display:flex;flex-direction:column;gap:6px;max-height:min(52vh,520px);overflow-y:auto;padding-right:4px}
+.offres-list::-webkit-scrollbar{width:6px}
+.offres-list::-webkit-scrollbar-thumb{background:#2a2418;border-radius:3px}
+.offre-section-tag{font-family:Orbitron,sans-serif;font-size:.56rem;letter-spacing:.14em;color:var(--amber);
+  margin:8px 0 3px;text-transform:uppercase;display:flex;align-items:center;gap:8px}
+.offre-section-tag::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--line),transparent)}
+.offre-section-tag:first-child{margin-top:0}
+.offre-ligne{display:flex;align-items:center;gap:10px;padding:7px 10px;background:var(--panel);
+  border:1px solid var(--line);border-radius:5px;transition:border-color .15s,background .15s,transform .15s}
+.offre-ligne:hover{border-color:rgba(240,160,32,.6);background:#0c130e;transform:translateX(2px)}
+.offre-coche{appearance:none;-webkit-appearance:none;width:15px;height:15px;flex:0 0 auto;
+  border:1px solid var(--amber);border-radius:3px;background:#0a100c;cursor:pointer;
+  display:grid;place-content:center;transition:background .15s,box-shadow .15s}
+.offre-coche::before{content:"";width:9px;height:9px;clip-path:polygon(14% 44%,0 65%,50% 100%,100% 16%,80% 0%,43% 62%);
+  background:var(--amber);transform:scale(0);transition:transform .12s}
+.offre-coche:checked{background:rgba(240,160,32,.25);box-shadow:0 0 8px rgba(240,160,32,.4)}
+.offre-coche:checked::before{transform:scale(1)}
+.offre-coche:disabled{border-color:#3a3a3a;background:#0a0c0a;cursor:not-allowed}
+.offre-coche:disabled::before{background:#3a3a3a}
+.offre-item{flex:1;font-family:inherit;font-size:.78rem;color:#e8dcc0;word-break:break-all}
+.offre-item-mute{opacity:.5}
+.offre-note{color:#7a7a7a;font-size:.68rem;font-style:italic}
+.offre-section{color:#6b6350;font-size:.66rem;letter-spacing:.05em;white-space:nowrap}
+
+/* ---- STRATÉGIE : action DÉCOLLER ---- */
+.strat-action{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:14px}
+.strat-compteur{font-family:Orbitron,sans-serif;font-size:.78rem;letter-spacing:.14em;color:var(--muted)}
+.strat-compteur b{color:var(--amber2);font-size:.95rem}
+#btn-decoller{font-family:Orbitron,sans-serif;font-size:.7rem;letter-spacing:.16em;color:#0a100c;
+  background:linear-gradient(180deg,#ffc857,#f0a020);border:none;border-radius:4px;
+  padding:10px 26px;cursor:pointer;font-weight:800;box-shadow:0 0 14px rgba(240,160,32,.25);
+  transition:transform .15s,box-shadow .2s,filter .2s}
+#btn-decoller:hover:not(:disabled){transform:translateY(-1px);box-shadow:0 0 22px rgba(240,160,32,.45)}
+#btn-decoller:disabled{opacity:.35;cursor:not-allowed;box-shadow:none}
+.offres-status{font-size:.75rem;color:var(--cyan);margin-top:10px;min-height:18px}
+.strat-decologue{font-size:.68rem;color:var(--muted);margin-top:6px}
+.strat-hint{font-size:.68rem;color:var(--muted);line-height:1.6}
+
+/* ---- STRATÉGIE : exploration ---- */
+.strat-discovery{display:flex;flex-direction:column;gap:6px}
+.disc-item{display:flex;align-items:center;justify-content:space-between;gap:8px;
+  padding:6px 9px;background:#0a100c;border:1px solid #1c1c14;border-radius:4px;
+  font-size:.7rem;color:#c9c2ae}
+.disc-item .d-n{flex:1;color:#b8b09a;letter-spacing:.03em}
+.disc-item .d-c{font-family:Orbitron,sans-serif;font-size:.7rem;color:var(--muted)}
+.disc-empty{font-size:.7rem;color:#5a5a5a;font-style:italic}
+
 #stage-graph{grid-template-columns:1fr}
 #stage-graph .graph-card{min-height:min(72vh,720px);padding:8px 10px}
 #stage-graph .graph-wrap{position:relative;width:100%;height:min(68vh,660px)}
@@ -1223,16 +1310,48 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
     </div>
   </section>
   <section id="stage-strategie" class="stage">
-    <div class="card">
-      <h2>OFFRES DU JOUR — VEILLE</h2>
-      <div id="offres-date" style="color:#f0a020;margin-bottom:12px"></div>
-      <div id="offres-list" style="display:flex;flex-direction:column;gap:6px"></div>
-      <button id="btn-decoller" disabled style="margin-top:16px;background:#f0a020;color:#0a100c;border:none;padding:8px 20px;font-weight:600;cursor:pointer">DÉCOLLER ▶</button>
-      <div id="offres-status" style="margin-top:10px;min-height:20px;font-size:.9em"></div>
-      <div class="sep"></div>
-      <div class="kv" style="font-size:.72rem;color:#c9d4de;line-height:1.6">
-        <p>Cochez les offres qui vous intéressent (max 5) puis DÉCOLLER : le système
-        lance l'évaluation A/B de VOS choix uniquement, en observation — jamais actif direct.</p>
+    <!-- BANNIÈRE D'ÉTAT GLOBALE : tout est à jour ? du nouveau ? -->
+    <div id="strat-banner" class="strat-banner strat-idle">
+      <div class="sb-icon">◯</div>
+      <div class="sb-txt">
+        <div class="sb-title">CHARGEMENT…</div>
+        <div class="sb-sub">Interrogation de la veille en cours</div>
+      </div>
+    </div>
+
+    <!-- CARTES DE MISE À JOUR PAR FOURNISSEUR (connus) -->
+    <div id="strat-providers" class="strat-providers"></div>
+
+    <div class="strat-body">
+      <!-- LISTE DES OFFRES À COCHER -->
+      <div class="card strat-main">
+        <h2>NOUVELLES OFFRES — COCHEZ VOS CHOIX</h2>
+        <div id="offres-date" class="strat-date"></div>
+        <div id="offres-list" class="offres-list"></div>
+        <div class="strat-action">
+          <span id="offres-compteur" class="strat-compteur">0/5</span>
+          <button id="btn-decoller" disabled>DÉCOLLER ▶</button>
+        </div>
+        <div id="offres-status" class="offres-status"></div>
+        <div id="strat-decologue" class="strat-decologue"></div>
+        <div class="sep"></div>
+        <div class="strat-hint">
+          Cochez jusqu'à 5 offres puis DÉCOLLER : le hub évalue VOS choix en A/B,
+          en observation — jamais actif direct. Le rapport d'évaluation arrive
+          quelques minutes plus tard dans <b>CATALOGUE_PROVIDERS.md</b>.
+        </div>
+      </div>
+
+      <!-- EXPLORATION : nouveaux endroits détectés (non évaluables auto) -->
+      <div class="card strat-disc">
+        <h2>EXPLORATION — NOUVEAUX ENDROITS</h2>
+        <div id="strat-discovery" class="strat-discovery"></div>
+        <div class="sep"></div>
+        <div class="strat-hint">
+          Ce que la flotte a repéré hors de vos fournisseurs habituels.
+          Ces modèles ne sont pas encore testables automatiquement — ils
+          enrichissent la veille de demain.
+        </div>
       </div>
     </div>
   </section>
@@ -3239,7 +3358,25 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
         renderCosmos();
     };
 
-    // ---------- STRATÉGIE : OFFRE DU JOUR (F2, GO 11/08) ----------
+    // ---------- STRATÉGIE : DASHBOARD MISE À JOUR (V2, GO 11/08) ----------
+    function nomCourt(section) {
+      return section
+        .replace(/\(:free\)/g, '')
+        .replace(/\(gratuit, token\)/g, '')
+        .replace(/\(43 pools\)/g, '')
+        .replace(/\s+/g, ' ')
+        .trim() || section;
+    }
+
+    function setBanner(etat, icone, titre, sub) {
+      const b = document.getElementById('strat-banner');
+      if (!b) return;
+      b.className = 'strat-banner strat-' + etat;
+      b.querySelector('.sb-icon').textContent = icone;
+      b.querySelector('.sb-title').textContent = titre;
+      b.querySelector('.sb-sub').textContent = sub;
+    }
+
     function chargerOffres() {
       const container = document.getElementById('offres-list');
       const dateEl = document.getElementById('offres-date');
@@ -3249,28 +3386,114 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
         .then(r => r.json())
         .then(data => {
           container.innerHTML = '';
-          dateEl.textContent = data.date ? ('VEILLE DU ' + data.date) : '';
-          if (!data.offres || data.offres.length === 0) {
-            container.innerHTML = '<div style="color:#888">Aucune nouvelle offre ce matin.</div>';
-            document.getElementById('btn-decoller').disabled = true;
-            return;
+          if (dateEl) {
+            dateEl.textContent = data.date
+              ? ('VEILLE DU ' + data.date.split('-').reverse().join('/'))
+              : '';
           }
-          data.offres.forEach(offre => {
-            const label = document.createElement('label');
-            label.className = 'offre-ligne';
-            const testable = offre.testable !== false;
-            const note = testable ? '' : ' <span class="offre-note">(découverte — pas encore évaluable)</span>';
-            const box = testable
-              ? '<input type="checkbox" class="offre-coche" value="' + offre.item.replace(/"/g, '&quot;') + '">'
-              : '<input type="checkbox" class="offre-coche" disabled title="Découverte, pas encore évaluable automatiquement">';
-            label.innerHTML = box +
-              '<span class="offre-item' + (testable ? '' : ' offre-item-mute') + '">' + offre.item + '</span>' +
-              '<span class="offre-section">[' + offre.section + ']</span>' + note;
-            container.appendChild(label);
-          });
+
+          const sections = data.sections || [];
+          const offres = data.offres || [];
+          const testables = sections.filter(s => s.testable);
+          const decouvertes = sections.filter(s => !s.testable);
+          const total = data.total || 0;
+          const erreurs = sections.filter(s => s.err).length;
+
+          // --- bannière d'état globale ---
+          if (erreurs > 0) {
+            setBanner('err', '⚠', 'VEILLE PARTIELLE — ' + erreurs + ' source(s) en erreur',
+              'Le reste du scan est valide. Les sources en erreur réessaieront demain à 07:00.');
+          } else if (total > 0) {
+            setBanner('new', '▲', total + ' NOUVELLE' + (total > 1 ? 'S' : '') + ' OFFRE' + (total > 1 ? 'S' : '') + ' AUJOURD\'HUI',
+              'Cochez celles qui vous intéressent (max 5) puis DÉCOLLER pour l\'évaluation A/B en observation.');
+          } else if (sections.length === 0) {
+            setBanner('idle', '◌', 'VEILLE PAS ENCORE PASSÉE AUJOURD\'HUI',
+              'La recherche automatique tourne à 07:00. Revenez après — ou vérifiez que le hub tourne.');
+          } else {
+            setBanner('ok', '●', 'TOUT EST À JOUR — AUCUNE NOUVEAUTÉ',
+              'Aucune nouvelle offre chez vos fournisseurs. Rien à faire : le système est synchronisé.');
+          }
+
+          // --- cartes fournisseurs (check de mise à jour) ---
+          const prov = document.getElementById('strat-providers');
+          if (prov) {
+            prov.innerHTML = '';
+            if (testables.length === 0) {
+              prov.innerHTML = '<div class="strat-hint">Aucun fournisseur scanné aujourd\'hui.</div>';
+            } else {
+              testables.forEach(s => {
+                const dot = s.err ? 'err' : (s.count > 0 ? 'new' : 'on');
+                const state = s.err ? 'erreur de scan'
+                  : (s.count > 0 ? (s.count + ' nouveau' + (s.count > 1 ? 'x' : ''))
+                  : 'à jour');
+                const div = document.createElement('div');
+                div.className = 'sp-card';
+                div.innerHTML =
+                  '<span class="sp-dot ' + dot + '"></span>' +
+                  '<div class="sp-name">' + nomCourt(s.name) + '</div>' +
+                  '<div class="sp-count ' + (s.err ? '' : (s.count > 0 ? 'new' : 'on')) + '">' +
+                    (s.err ? '—' : s.count) + '</div>' +
+                  '<div class="sp-state">' + state + '</div>';
+                prov.appendChild(div);
+              });
+            }
+          }
+
+          // --- liste des offres (groupée par section) ---
+          if (offres.length === 0) {
+            container.innerHTML = '<div class="disc-empty">Aucune nouvelle offre à cocher.</div>';
+            document.getElementById('btn-decoller').disabled = true;
+          } else {
+            let lastSection = null;
+            offres.forEach(offre => {
+              if (offre.section !== lastSection) {
+                lastSection = offre.section;
+                const tag = document.createElement('div');
+                tag.className = 'offre-section-tag';
+                tag.textContent = nomCourt(offre.section);
+                container.appendChild(tag);
+              }
+              const label = document.createElement('label');
+              label.className = 'offre-ligne';
+              const testable = offre.testable !== false;
+              const box = testable
+                ? '<input type="checkbox" class="offre-coche" value="' + offre.item.replace(/"/g, '&quot;') + '">'
+                : '<input type="checkbox" class="offre-coche" disabled title="Découverte, pas encore évaluable automatiquement">';
+              label.innerHTML = box +
+                '<span class="offre-item' + (testable ? '' : ' offre-item-mute') + '">' + offre.item + '</span>' +
+                (testable ? '' : '<span class="offre-note">découverte</span>');
+              container.appendChild(label);
+            });
+          }
           majBtnDecoller();
+
+          // --- exploration (nouveaux endroits) ---
+          const disc = document.getElementById('strat-discovery');
+          if (disc) {
+            disc.innerHTML = '';
+            if (decouvertes.length === 0) {
+              disc.innerHTML = '<div class="disc-empty">Aucun nouveau lieu détecté cette nuit.</div>';
+            } else {
+              decouvertes.forEach(s => {
+                const d = document.createElement('div');
+                d.className = 'disc-item';
+                d.innerHTML = '<span class="d-n">' + nomCourt(s.name) + '</span>' +
+                  '<span class="d-c">' + (s.err ? 'ERR' : (s.count > 0 ? s.count + ' découvert' : 'rien')) + '</span>';
+                disc.appendChild(d);
+              });
+            }
+          }
+
+          // --- dernier décollage ---
+          const deco = document.getElementById('strat-decologue');
+          if (deco && data.decollage && data.decollage.ts) {
+            const ts = (data.decollage.ts || '').replace('T', ' ').slice(0, 16);
+            deco.textContent = 'Dernier DÉCOLLAGE : ' + ts + ' — ' +
+              (data.decollage.choix || []).length + ' choix lancés en évaluation';
+          }
         })
         .catch(() => {
+          setBanner('err', '✕', 'BRIDGE INJOIGNABLE', 'Impossible de joindre le pont :17777.');
           container.innerHTML = '<div style="color:#c0392b">Bridge injoignable :17777</div>';
         });
     }
@@ -3278,6 +3501,8 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
     function majBtnDecoller() {
       const n = document.querySelectorAll('.offre-coche:checked').length;
       document.getElementById('btn-decoller').disabled = n === 0;
+      const c = document.getElementById('offres-compteur');
+      if (c) c.innerHTML = '<b>' + n + '</b>/5';
     }
 
     document.getElementById('btn-decoller')?.addEventListener('click', () => {
@@ -3292,9 +3517,17 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
       .then(r => r.json())
       .then(res => {
         const status = document.getElementById('offres-status');
-        status.style.color = '#5ee7ff';
-        status.textContent = res.msg || (res.error || 'Lancement en cours…');
-        setTimeout(() => { status.textContent = ''; chargerOffres(); }, 30000);
+        if (res.error) {
+          status.style.color = '#ff4d4d';
+          status.textContent = res.error;
+        } else {
+          status.style.color = '#5ee7ff';
+          status.textContent = res.msg || 'Lancement en cours…';
+        }
+        setTimeout(() => {
+          status.textContent = '';
+          chargerOffres();
+        }, 30000);
       });
     });
 

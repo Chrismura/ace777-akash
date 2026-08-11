@@ -577,19 +577,36 @@ def do_preflight() -> dict:
 
 
 # === AJOUT STRATÉGIE (onglet F2, GO 11/08) ===
+def _last_decollage() -> dict:
+    """Retourne le dernier DÉCOLLAGE lancé (CHOIX_OFFRES.json) ou None."""
+    p = os.path.expanduser(
+        "~/ace777-test-day1/Index_Maison/strategie/CHOIX_OFFRES.json"
+    )
+    if not os.path.exists(p):
+        return None
+    try:
+        with open(p, encoding="utf-8") as f:
+            d = json.load(f)
+        return {"ts": d.get("ts", ""), "choix": d.get("choix", [])}
+    except Exception:
+        return None
+
+
 def do_offres() -> dict:
-    """Lit VEILLE_HUB_<date>.md et retourne les offres valides (max 25)."""
+    """Lit VEILLE_HUB_<date>.md → dashboard STRATÉGIE (sections + offres)."""
     date = datetime.now(timezone.utc).strftime("%Y-%m-%d")
     veille_path = os.path.expanduser(
         f"~/ace777-test-day1/Index_Maison/VEILLE_HUB_{date}.md"
     )
     if not os.path.exists(veille_path):
-        return {"ok": True, "date": date, "offres": []}
+        return {"ok": True, "date": date, "total": 0,
+                "sections": [], "offres": [], "decollage": _last_decollage()}
 
     # Sections dont les offres sont évaluables automatiquement (A/B) par
     # eval_offres.py — les autres sont de la DÉCOUVERTE (pas encore testables).
     TESTABLE = ("openrouter", "nvidia", "inferx", "puter")
 
+    sections = {}  # nom -> {count, err, testable}
     offres = []
     current_section = None
     try:
@@ -598,22 +615,37 @@ def do_offres() -> dict:
                 line = line.strip()
                 if line.startswith("### "):
                     current_section = line[4:].strip()
+                    if current_section and current_section not in sections:
+                        sections[current_section] = {
+                            "count": 0, "err": False,
+                            "testable": any(
+                                k in current_section.lower() for k in TESTABLE
+                            ),
+                        }
                 elif line.startswith("- ") and current_section:
                     item = line[2:].strip()
-                    if (
-                        item
-                        and "aucune nouvelle" not in item.lower()
-                        and not item.startswith("ERR:")
-                        and "INTEGRATION" not in current_section.upper()
-                    ):
-                        testable = any(k in current_section.lower() for k in TESTABLE)
-                        offres.append({"section": current_section, "item": item,
-                                       "testable": testable})
-                        if len(offres) >= 25:
-                            break
+                    if "INTEGRATION" in current_section.upper():
+                        continue
+                    if item.startswith("ERR:"):
+                        sections[current_section]["err"] = True
+                        continue
+                    if item and "aucune nouvelle" not in item.lower():
+                        sections[current_section]["count"] += 1
+                        if len(offres) < 25:
+                            offres.append({
+                                "section": current_section, "item": item,
+                                "testable": sections[current_section]["testable"],
+                            })
     except Exception:
         pass  # non fatal
-    return {"ok": True, "date": date, "offres": offres}
+
+    total = sum(s["count"] for s in sections.values())
+    return {
+        "ok": True, "date": date, "total": total,
+        "sections": [{"name": n, **s} for n, s in sections.items()],
+        "offres": offres,
+        "decollage": _last_decollage(),
+    }
 
 
 def do_decoller(selection: list) -> dict:
