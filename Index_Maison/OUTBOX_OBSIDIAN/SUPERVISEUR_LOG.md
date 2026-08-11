@@ -65,3 +65,4 @@
 | 2026-08-11T19:10Z | SUPERVISEUR | hub=OK ollama=DOWN jobs_manquants=[] git_sys=D git_vault=? action=ask résultat=escalade déjà notifiée (inchangée) : ollama injoignable | rappel lecture déjà écrit aujourd'hui (2026-08-11) |
 | 2026-08-11T20:10Z | SUPERVISEUR | hub=OK ollama=DOWN jobs_manquants=[] git_sys=D git_vault=? action=ask résultat=escalade humaine : Ollama injoignable | rappel lecture déjà écrit aujourd'hui (2026-08-11) |
 | 2026-08-11T21:10Z | SUPERVISEUR | hub=OK ollama=DOWN jobs_manquants=[] git_sys=D git_vault=? action=ask résultat=escalade humaine : ollama injoignable | rappel lecture déjà écrit aujourd'hui (2026-08-11) |
+| 2026-08-11T22:11Z | SUPERVISEUR | hub=OK ollama=DOWN jobs_manquants=[] git_sys=D git_vault=? action=ask résultat=escalade déjà notifiée (inchangée) : ollama injoignable | rappel lecture déjà écrit aujourd'hui (2026-08-11) |
