@@ -23,6 +23,9 @@ import json
 import os
 import subprocess
 import sys
+import threading
+
+import barge_in  # micro : coupe la parole si on parle (natif, ffmpeg)
 import tempfile
 import urllib.request
 
@@ -33,10 +36,28 @@ HUB = "http://127.0.0.1:11435/v1/chat/completions"
 SYSTEM = (
     "Tu es Cortana, l'assistante vocale de la maison ACE777. "
     "Réponds TOUJOURS en français, quel que soit le contexte. "
-    "À partir des données réelles fournies (marché + cockpit + système), "
-    "rédige un brief vocal de 3-4 phrases naturelles, vivantes et concises, "
-    "prêt à être lu à voix haute. Garde les chiffres clés mais évite les listes "
-    "techniques. Pas de préambule, pas de markdown, pas d'emoji."
+    "CE QU'EST LA MAISON : ACE777 est un système de trading crypto qui orchestre "
+    "des moteurs automatiques — ALPHA (moteur haute fréquence, très sélectif), "
+    "BETA (moteur secondaire) et HULK (gestionnaire de portefeuille à positions "
+    "longues). Un RADAR de sécurité (vigie) peut BLOQUER les moteurs "
+    "(radar_block) : c'est une PROTECTION, pas une panne. "
+    "RÈGLES DE LECTURE OBLIGATOIRES : "
+    "1) Tiens compte de TOUTES les positions et de leur ÉTAT : active, à l'arrêt "
+    "ou bloquée par le radar. Ne dis JAMAIS « rien ne se passe » ou « tout est "
+    "calme » sans expliquer POURQUOI (ex. : moteur bloqué par le radar, "
+    "portefeuille Hulk sans position ouverte). "
+    "2) Si un moteur est bloqué ou à l'arrêt, signale-le EXPLICITEMENT avec la "
+    "cause (skips radar_block, zéro position Hulk, etc.). "
+    "3) Rédige ensuite un brief vocal de 3-4 phrases naturelles, vivantes et "
+    "concises, prêt à être lu à voix haute. Garde les chiffres clés (PnL, "
+    "positions, état des moteurs) mais évite les listes techniques. "
+    "CHIFFRES À L'ORAL : quand un nombre a des décimales UTILES, lis-les "
+    "CORRECTEMENT (ex. -8,5387 → « moins huit virgule cinq quatre » ; 0,7463 → "
+    "« zéro virgule sept cinq »). Ne compresse en « quasi nul » que les valeurs "
+    "vraiment infimes (funding < 0,0001). Ne lis JAMAIS une longue suite de "
+    "zéros (ex. 0,000087 → « quasi nul »). 3486 → « trois mille quatre cent "
+    "quatre-vingt-six ». "
+    "Pas de préambule, pas de markdown, pas d'emoji."
 )
 
 
@@ -49,12 +70,16 @@ def load_json(path, default):
         return default
 
 
-def speak_text(text, voice="fr-FR-VivienneMultilingualNeural", rate="-15%"):
+def speak_text(text, voice=None, rate=None):
+    voice = voice or os.environ.get("EDGE_TTS_VOICE", "fr-FR-VivienneMultilingualNeural")
+    rate = rate or os.environ.get("EDGE_TTS_RATE", "-25%")  # style Cortana : plus calme
     """Voix Vivienne via python3 -m edge_tts (meme mecanisme que cortana_voice)."""
     if not text or not text.strip():
         return 1
     with tempfile.NamedTemporaryFile(suffix=".mp3", delete=False) as f:
         path = f.name
+    if barge_in.activ():
+        barge_in.preparer()  # calibration ambiant EN SILENCE, pendant la generation
     cmd = [
         "python3", "-m", "edge_tts",
         "--voice", voice,
@@ -68,9 +93,47 @@ def speak_text(text, voice="fr-FR-VivienneMultilingualNeural", rate="-15%"):
         if os.path.exists(path):
             os.unlink(path)
         return 1
-    subprocess.run(["afplay", path], check=False, timeout=180)
-    os.unlink(path)
+    # BARGE-IN : touche (clavier) OU micro (barge_in.py) coupent la parole
+    player = subprocess.Popen(["afplay", path])
+    if barge_in.activ():
+        threading.Thread(target=barge_in.surveiller, args=(player,), daemon=True).start()
+    _couper_si_touche(player)
+    try:
+        player.wait(timeout=180)
+    except subprocess.TimeoutExpired:
+        player.kill()
+    try:
+        os.unlink(path)
+    except Exception:
+        pass
     return 0
+
+
+def _couper_si_touche(player):
+    """Surveille le clavier : tout appui = coupe la voix (barge-in terminal)."""
+    import select
+    import termios
+    import tty
+    fd = sys.stdin.fileno()
+    try:
+        old = termios.tcgetattr(fd)
+    except Exception:
+        return
+    try:
+        tty.setcbreak(fd)
+        while player.poll() is None:
+            r, _, _ = select.select([sys.stdin], [], [], 0.15)
+            if r:
+                sys.stdin.read(1)
+                player.terminate()
+                break
+    except Exception:
+        pass
+    finally:
+        try:
+            termios.tcsetattr(fd, termios.TCSADRAIN, old)
+        except Exception:
+            pass
 
 
 def rule_brief():
@@ -82,8 +145,32 @@ def rule_brief():
     return (r.stdout or "").strip() or "(brief horaire indisponible)"
 
 
+def _vocal_funding(v):
+    """Tout petit nombre -> 'quasi nul' ; sinon valeur arrondie lisible à l'oral."""
+    try:
+        f = float(v)
+    except (TypeError, ValueError):
+        return v
+    if abs(f) < 1e-4:
+        return "quasi nul"
+    return round(f, 4)
+
+
+def etat_moteur(moteur):
+    """État explicite d'un moteur : actif / très prudent / bloqué par le radar."""
+    skips = (moteur or {}).get("skips") or 0
+    fills = (moteur or {}).get("fills") or 0
+    if fills == 0 and skips > 200:
+        return "BLOQUE par le radar (radar_block) — %d skips, 0 fill" % skips
+    if skips > 500:
+        return "tres prudent — %d skips pour %d fills" % (skips, fills)
+    return "actif"
+
+
 def collect_data():
-    """Rassemble les données RÉELLES marché + cockpit + système (JSON compact)."""
+    """Rassemble les données RÉELLES marché + cockpit + système (JSON compact).
+    Inclut TOUTES les positions et leur ÉTAT (actif, à l'arrêt, bloqué radar)
+    pour que Cortana ne rate jamais un moteur à l'arrêt ou une position ouverte."""
     mission = load_json(os.path.join(MAISON, "cockpit", "mission.json"), {})
     live = load_json(os.path.join(MAISON, "thermo", "live.json"), {})
     state = load_json(os.path.join(MAISON, "system", "state.json"), {})
@@ -95,12 +182,17 @@ def collect_data():
             "chg1h": live.get("chg1h"),
             "chg4h": live.get("chg4h"),
             "funding": live.get("funding"),
+            "funding_vocal": _vocal_funding(live.get("funding")),
             "fundingAvg30": live.get("fundingAvg30"),
             "openInterest": live.get("oi"),
             "longShort": live.get("longShort"),
             "volQuote": live.get("volQuote"),
         }
     if mission:
+        alpha = mission.get("alpha") or {}
+        beta = mission.get("beta") or {}
+        hulk = mission.get("hulk") or {}
+        hulk_pos = hulk.get("positions") or []
         data["cockpit"] = {
             "run": mission.get("run"),
             "sessionSince": mission.get("sessionSince"),
@@ -108,9 +200,32 @@ def collect_data():
             "alert": mission.get("alert"),
             "portfolio": mission.get("portfolio"),
             "thermo": mission.get("thermo"),
-            "alpha_pnl": (mission.get("alpha") or {}).get("pnl"),
-            "beta_pnl": (mission.get("beta") or {}).get("pnl"),
-            "hulk_pnl": (mission.get("hulk") or {}).get("pnl"),
+            # --- ALPHA : positions + état complet (pas seulement le PnL) ---
+            "alpha": {
+                "pnl": alpha.get("pnl"),
+                "fills": alpha.get("fills"),
+                "skips": alpha.get("skips"),
+                "etat": etat_moteur(alpha),
+            },
+            # --- BETA ---
+            "beta": {
+                "pnl": beta.get("pnl"),
+                "fills": beta.get("fills"),
+                "skips": beta.get("skips"),
+                "etat": etat_moteur(beta),
+            },
+            # --- HULK : portefeuille (positions longues, même à l'arrêt) ---
+            "hulk": {
+                "pnl": hulk.get("pnl"),
+                "trades": hulk.get("trades"),
+                "nb_positions": len(hulk_pos),
+                "positions": hulk_pos[:5],
+                "bags": hulk.get("bags"),
+                "notional": hulk.get("notional"),
+                "base": hulk.get("base"),
+                "etat": ("AUCUNE position (a l'arret)" if not hulk_pos
+                          else "%d position(s) ouverte(s)" % len(hulk_pos)),
+            },
         }
     if state:
         data["systeme"] = {
@@ -160,7 +275,7 @@ def main():
         if donnees:
             prompt_user = (
                 "Voici les données réelles actuelles de la maison, au format JSON :\n"
-                + json.dumps(donnees, ensure_ascii=False)[:6000]
+                + json.dumps(donnees, ensure_ascii=False)[:9000]
             )
         else:
             prompt_user = rule_brief()

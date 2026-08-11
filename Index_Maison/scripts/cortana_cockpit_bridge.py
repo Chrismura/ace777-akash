@@ -17,6 +17,8 @@ import subprocess
 import sys
 import threading
 from datetime import datetime, timezone
+
+import barge_in  # micro : coupe la parole si on parle (natif, ffmpeg)
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from urllib.parse import urlparse
@@ -28,6 +30,10 @@ RUNS = ROOT / "runs"
 HULK = ROOT / "hulk-mexc"
 PANIC_LOG = ROOT / "Index_Maison" / "cockpit" / "panic.log"
 PORT = 17777
+
+# --- Voix INTERRUPTIBLE (barge-in) : le process afplay en cours, s'il existe ---
+_VOICE_PROC = None
+_VOICE_LOCK = threading.Lock()
 
 # E3 (SPEC V2.1, reserve famille P4) : verif version coeur Rust — NON FATALE.
 EXPECTED_RUST_VERSION = "2.1.0"
@@ -230,24 +236,65 @@ def do_chat(message: str) -> dict:
 
 
 def _speak_texte(texte: str) -> None:
-    """Lit un texte a voix haute (Vivienne) — thread arriere-plan."""
+    """Lit un texte a voix haute (Vivienne) — thread arriere-plan.
+    afplay tourne EN ARRIERE-PLAN : /stop (barge-in) peut couper la parole."""
+    global _VOICE_PROC
     import tempfile as _tf
     try:
         with _tf.NamedTemporaryFile(suffix=".mp3", delete=False) as f:
             path = f.name
+        if barge_in.activ():
+            barge_in.preparer()  # calibration ambiant EN SILENCE, pendant la generation
         cmd = [
             sys.executable, "-m", "edge_tts",
             "--voice", os.environ.get("EDGE_TTS_VOICE", "fr-FR-VivienneMultilingualNeural"),
-            f"--rate={os.environ.get('EDGE_TTS_RATE', '-18%')}",
+            f"--rate={os.environ.get('EDGE_TTS_RATE', '-25%')}",
             "--text", texte, "--write-media", path,
         ]
         p = subprocess.run(cmd, capture_output=True, text=True, timeout=120)
         if p.returncode == 0 and os.path.getsize(path) > 100:
-            subprocess.run(["afplay", path], timeout=240)
+            proc = subprocess.Popen(["afplay", path])
+            with _VOICE_LOCK:
+                _VOICE_PROC = proc
+            if barge_in.activ():
+                threading.Thread(target=barge_in.surveiller, args=(proc,), daemon=True).start()
+            try:
+                proc.wait(timeout=240)
+            except subprocess.TimeoutExpired:
+                proc.kill()
+            finally:
+                with _VOICE_LOCK:
+                    if _VOICE_PROC is proc:
+                        _VOICE_PROC = None
         if os.path.exists(path):
-            os.unlink(path)
+            try:
+                os.unlink(path)
+            except Exception:
+                pass
     except Exception as e:
         print(f"[analyse-voix] ERR {e}", flush=True)
+
+
+def stop_voice() -> str:
+    """COUPE LA PAROLE (barge-in) : tue le afplay en cours, s'il y en a un."""
+    global _VOICE_PROC
+    with _VOICE_LOCK:
+        proc = _VOICE_PROC
+        _VOICE_PROC = None
+    if proc and proc.poll() is None:
+        proc.terminate()
+        try:
+            proc.wait(timeout=3)
+        except Exception:
+            proc.kill()
+        return "Voix coupée."
+    # La voix peut venir d'un SOUS-PROCESSUS (cortana_brief.py --speak) :
+    # on la coupe quand même via pkill (filet global).
+    p = subprocess.run(["pgrep", "-f", "afplay"], capture_output=True, text=True)
+    if p.returncode == 0:
+        subprocess.run(["pkill", "-f", "afplay"], capture_output=True, check=False)
+        return "Voix coupée (sous-processus)."
+    return "Aucune voix active."
 
 
 def do_yeux(question: str = "", parler: bool = False) -> dict:
@@ -1130,6 +1177,10 @@ class Handler(BaseHTTPRequestHandler):
         if path == "/speak":
             bg(do_speak, "speak")
             self._json(200, {"ok": True, "action": "speak", "msg": "brief en cours…", "muted": False})
+            return
+        if path == "/stop":
+            msg = stop_voice()
+            self._json(200, {"ok": True, "action": "stop", "msg": msg, "muted": False})
             return
         if path == "/analyse":
             body = self._read_json()
