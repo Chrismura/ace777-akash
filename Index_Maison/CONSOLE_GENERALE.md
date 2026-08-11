@@ -1,6 +1,6 @@
 # Console générale — clin d’œil
 
-Auto-refresh : 2026-08-10 18:53 UTC · jour local **2026-08-10**
+Auto-refresh : 2026-08-11 18:53 UTC · jour local **2026-08-11**
 
 ## Feu tricolore
 
@@ -10,7 +10,7 @@ Auto-refresh : 2026-08-10 18:53 UTC · jour local **2026-08-10**
 | **Hulk paper** | 🔴 STOP | pnl_total ≈ **—** · pos **—** |
 | **Hulk digest** | 🔴 STOP | mtime — |
 | **Punk** | 🔴 STOP | — · idle |
-| **Ollama** | 🟢 RUN | |
+| **Ollama** | 🔴 STOP | |
 | **Obsidian** | 🟢 | vault `Obsidian_ACE777` |
 
 ## ACE — comparaison fills (pnl ≠ 0)
@@ -25,4 +25,4 @@ Auto-refresh : 2026-08-10 18:53 UTC · jour local **2026-08-10**
 - Pairs ouvertes (state) : —
 
 ## Liens
-[[PLAN_DE_VOL]] · [[AUTO_PROCESSUS]] · [[AGORA]] · [[Cahier/Journal_2026-08-10]] · [[OSSATURE]]
+[[PLAN_DE_VOL]] · [[AUTO_PROCESSUS]] · [[AGORA]] · [[Cahier/Journal_2026-08-11]] · [[OSSATURE]]
