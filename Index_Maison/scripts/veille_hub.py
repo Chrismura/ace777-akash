@@ -13,7 +13,7 @@ launchd SEPARE, decalees dans le temps pour ne jamais saturer la RAM :
   11:00  observatoire.py          (sondes 48h + rollback auto >5% + validation hebdo)
 Kill switch : si Index_Maison/STOP_HUB existe -> tout s'arrete SAUF le hub lui-meme.
 """
-import json, os, urllib.request, datetime
+import json, os, re, urllib.request, datetime
 
 HOME = os.path.expanduser('~')
 PRISE = os.path.join(HOME, 'prise-ia')
@@ -151,6 +151,141 @@ if pkey:
                     'deepseek/deepseek-v4-flash', 'gpt-4o']
     findings['puter (gratuit, token)'] = [m for m in puter_models if m not in integrated]
 findings['omniroute-free-tiers (43 pools)'] = scan_omniroute()
+
+
+# === NOUVELLES SOURCES (brique E, GO 11/08) — best effort, timeout 20s max ===
+def scan_github_list(url_raw):
+    """Télécharge un README raw GitHub et extrait lignes pertinentes (providers/modèles)."""
+    try:
+        req = urllib.request.Request(url_raw, headers={'User-Agent': 'veille_hub/1.0'})
+        with urllib.request.urlopen(req, timeout=20) as resp:
+            content = resp.read().decode('utf-8', errors='ignore')
+        results = []
+        for line in content.splitlines():
+            line = line.strip()
+            if not line:
+                continue
+            # Nettoie les tags HTML (README riches) pour un rapport lisible
+            clean = re.sub(r'<[^>]+>', '', line).strip()
+            # Filtre le bruit résiduel (badges, liens décoratifs)
+            if clean.startswith(('[![', '![', '**Why', 'Configuring a specific')):
+                continue
+            if re.search(r'https?://', clean) and re.search(r'(provider|model|api|llm|free)', clean, re.IGNORECASE):
+                results.append(clean)
+            elif re.search(r'(provider|model)\s*=', clean, re.IGNORECASE):
+                results.append(clean)
+        return results[:40]
+    except Exception as e:
+        return [f'ERR: github {str(e)[:60]}']
+
+
+def _scan_github_lists():
+    """Boucle sur les listes awesome-free-llm et agrège les résultats."""
+    urls = [
+        ("awesome-freellm-apis", "https://raw.githubusercontent.com/open-free-llm-api/awesome-freellm-apis/main/README.md"),
+        ("Free-LLM", "https://raw.githubusercontent.com/nejib1/Free-LLM/main/README.md"),
+        ("awesome-free-models", "https://raw.githubusercontent.com/12britz/awesome-free-models/main/README.md"),
+        ("mnfst-free-llm", "https://raw.githubusercontent.com/mnfst/awesome-free-llm-apis/main/README.md"),
+        ("free-for-dev", "https://raw.githubusercontent.com/ripienaar/free-for-dev/master/README.md"),
+    ]
+    all_results = []
+    for prefix, url in urls:
+        res = scan_github_list(url)
+        for item in res:
+            all_results.append(f"{prefix}: {item}")
+    return all_results
+
+
+def scan_huggingface():
+    """Récupère les modèles récents sur Hugging Face et filtre les LLM."""
+    try:
+        url = "https://huggingface.co/api/models?sort=lastModified&limit=20"
+        req = urllib.request.Request(url, headers={'User-Agent': 'veille_hub/1.0'})
+        with urllib.request.urlopen(req, timeout=20) as resp:
+            data = json.loads(resp.read().decode('utf-8', errors='ignore'))
+        keywords = ['qwen', 'deepseek', 'llama', 'gemma', 'mistral', 'glm', 'nemotron', 'phi', 'olmo', 'granite', 'gpt-oss']
+        results = []
+        for item in data:
+            model_id = item.get('modelId', '')
+            if any(kw in model_id.lower() for kw in keywords):
+                results.append(model_id)
+        return results
+    except Exception as e:
+        return [f'ERR: huggingface {str(e)[:50]}']
+
+
+def scan_hf_trending():
+    """Modèles qui MONTENT sur HF (trendingScore) — repère les futurs mainstream."""
+    try:
+        url = "https://huggingface.co/api/models?limit=20&sort=trendingScore"
+        req = urllib.request.Request(url, headers={'User-Agent': 'veille_hub/1.0'})
+        with urllib.request.urlopen(req, timeout=20) as resp:
+            data = json.loads(resp.read().decode('utf-8', errors='ignore'))
+        return [item.get('modelId', '') for item in data if item.get('modelId')][:20]
+    except Exception as e:
+        return [f'ERR: hf-trending {str(e)[:50]}']
+
+
+def scan_github_search():
+    """Repos GitHub récemment mis à jour liés aux API LLM gratuites —
+    découvre les LIEUX de veille inconnus (remplace reddit, bloqué sans clé)."""
+    try:
+        url = ("https://api.github.com/search/repositories"
+               "?q=free+llm+api+in:name,description&sort=updated&per_page=10")
+        req = urllib.request.Request(url, headers={'User-Agent': 'veille_hub/1.0',
+                                                   'Accept': 'application/vnd.github+json'})
+        with urllib.request.urlopen(req, timeout=20) as resp:
+            data = json.loads(resp.read().decode('utf-8', errors='ignore'))
+        results = []
+        for it in data.get('items', [])[:10]:
+            full = it.get('full_name', '')
+            desc = (it.get('description') or '').strip()[:70]
+            if full:
+                results.append(f"{full} | {desc}" if desc else full)
+        return results
+    except Exception as e:
+        return [f'ERR: github-search {str(e)[:50]}']
+
+
+def scan_rss(url):
+    """Parse un flux RSS/Atom avec regex sur les titres."""
+    try:
+        req = urllib.request.Request(url, headers={'User-Agent': 'veille_hub/1.0'})
+        with urllib.request.urlopen(req, timeout=20) as resp:
+            content = resp.read().decode('utf-8', errors='ignore')
+        titles = re.findall(r'<title>(.*?)</title>', content, re.DOTALL | re.IGNORECASE)
+        keywords = ['model', 'api', 'free', 'llm', 'provider', 'release', 'launch', 'open source']
+        results = []
+        for t in titles[1:]:  # on saute souvent le titre du flux lui-même
+            t = t.strip()
+            if any(kw in t.lower() for kw in keywords):
+                results.append(t)
+        return results[:10]
+    except Exception as e:
+        return [f'ERR: rss {str(e)[:50]}']
+
+
+def _scan_rss_all():
+    """Agrège les 3 flux RSS définis."""
+    feeds = [
+        "https://simonwillison.net/atom/everything/",
+        "https://www.latent.space/feed",
+        "https://feeds.feedburner.com/thedailybatch"
+    ]
+    all_results = []
+    for feed in feeds:
+        res = scan_rss(feed)
+        prefix = feed.split('/')[2][:25]
+        for item in res:
+            all_results.append(f"{prefix}: {item}")
+    return all_results
+
+
+findings['github awesome lists'] = _scan_github_lists()
+findings['huggingface récents'] = scan_huggingface()
+findings['huggingface trending (montée)'] = scan_hf_trending()
+findings['github search (nouveaux lieux)'] = scan_github_search()
+findings['rss (simonwillison/latent/batch)'] = _scan_rss_all()
 
 # 4) rapport
 L = ['# VEILLE HUB — ' + today, '',
