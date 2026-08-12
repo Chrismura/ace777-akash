@@ -22,6 +22,7 @@ Pour que Cursor · Punk · Cortana · Christophe sachent **ce qui a bougé**, sa
 
 | ts | Qui | Action | Où | Quoi |
 |----|-----|--------|-----|------|
+| 2026-08-12T2057Z | Buffy | ★ | cycles_terminal | jumeau terminal du cockpit : flux cycles ALPHA/BETA avec les memes couleurs (ALPHA ambre, BETA cyan), lecture live + replay + json audit, PnL sur ligne complete, teste sur log reel (32083 lignes, ALPHA +161.45 BETA +8.00) |
 | 2026-08-12T1853Z | journal_soir | ★ | journal | snapshot soir auto |
 | 2026-08-12T1853Z | journal_auto | ★ | CONSOLE+Journal_2026-08-12 | Snapshot auto hygiène soir |
 | 2026-08-12T1845Z | Buffy | ★ | archi: Buffy superviseur | ajout zone ORCHESTRATION (vue humaine) + composant BUFFY superviseur/chief scientist + correction Orchestrator ABSENT -> SESSION (tech.html + ARCHITECTURE_TECH.md) |
