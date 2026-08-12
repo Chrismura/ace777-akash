@@ -76,10 +76,10 @@
   </header>
 
   <div class="brief">
-    <strong>System ID:</strong> ACE777 swarm (Christophe) · <strong>Host:</strong> MacBook Air M1 8 Go · <strong>Date spec:</strong> 2026-07-31<br />
-    <strong>Claim:</strong> multi-agent trading + voice + research · <strong>Reality:</strong> mature <em>intra-ACE</em> swarm ; <em>inter-leg</em> swarm = Markdown bus (embryonic)<br />
+    <strong>System ID:</strong> ACE777 swarm (Christophe) · <strong>Host:</strong> MacBook Air M1 8 Go · <strong>Date spec:</strong> 2026-08-12<br />
+    <strong>Claim:</strong> multi-agent trading + voice + research · <strong>Reality:</strong> mature <em>intra-ACE</em> swarm + <em>hub cloud</em> réel (0 IA locale) ; <em>inter-leg</em> swarm = Markdown bus (embryonic)<br />
     <strong>No single main.py.</strong> Human GO is the only trading trigger.<br />
-    <strong>Δ 31 juil.:</strong> Cockpit ops window (pywebview) · session_debut/fin · portfolio HUD · Hulk paper seed 20$/2 · speak-simple rule · Obsidian sync ≠ cockpit UI
+    <strong>Δ 12 août:</strong> Hub cloud = seule passerelle LLM (pont gate :11439, preuve <code>llm_wind</code>) · vigie temps réel · analyste · ADA gardienne (voilure + alarme) · journal d'intention · fiches offres IA · signets lecture IA · Cortana V2 (oral_fr, barge_in, yeux, consultation famille) · onglet stratégie cockpit
   </div>
 
   <h2>0 · CONSTRAINTS (NON-NEGOTIABLE)</h2>
@@ -93,6 +93,8 @@
     <tr><td>C6</td><td>Anti-overdose · 1 place / info</td><td>Prefer routing into canons over new file piles</td></tr>
     <tr><td>C7</td><td><strong>Combined drawdown ACE+Hulk</strong> — default <code>MAX_GLOBAL_DD_PCT=8</code></td><td><code>config_risk_warm.env</code> · [[RISK_C7]] · Guardian not flying yet</td></tr>
     <tr><td>C8</td><td><strong>Backup / DR</strong> of <code>runs/</code> + Hulk state (spec)</td><td><code>/tmp/ace777_ram_exchange</code> is volatile — reconstruct from CSV</td></tr>
+    <tr><td>C9</td><td><strong>0 IA locale nulle part</strong> (depuis 11/08)</td><td>Hub cloud = seule passerelle LLM · pont <code>:11439</code> pour le gate · fail-closed → règles, jamais qwen-local</td></tr>
+    <tr><td>C10</td><td><strong>Budget cloud quotidien</strong> (plafond réglable)</td><td><code>hub_prise_ia.py</code> compteur/jour · dépassement → bascule gemini (cloud), jamais local</td></tr>
   </table>
 
   <h2>1 · COMPONENTS</h2>
@@ -170,9 +172,97 @@
         bridge <code>:17777</code> · HTTP <code>:17800</code></td>
       <td>HTML+JS · Python bridge · LaunchAgents</td>
       <td><span class="tag warn">WARM</span> ops UI</td>
-      <td><span class="tag warn">zone test</span></td>
-      <td>Read-only + kill-switch STOP · portfolio bubbles TOTAL/α/β/Hulk · universe 15 · <span class="tag bad">no entry orders</span><br />
-        Obsidian sync is <em>not</em> shown here (separate path)</td>
+      <td><span class="tag ok">v2 — zone test</span></td>
+      <td>Read-only + STOP · onglets : graph · stratégie · thermo (ADA+voilure) · offres (fiches IA) · signets · hub · <code>:17800/architecture/</code><br />
+        <span class="tag bad">no entry orders</span> · Obsidian sync not shown here</td>
+    </tr>
+    <tr>
+      <td><strong>HUB CLOUD (prise-ia)</strong></td>
+      <td><code>~/prise-ia/hub_prise_ia.py</code><br /><code>:11435</code> · routing.json · providers.json</td>
+      <td>Python stdlib HTTP · threads</td>
+      <td><span class="tag warn">WARM</span>/<span class="tag cold">COLD</span></td>
+      <td><span class="tag ok">prod quotidien</span></td>
+      <td>Tâches : <code>supervise.decision</code> · <code>analyste.strategie</code> · <code>code.ia</code> · <code>cortana.yeux</code> · <code>signets.*</code> · <code>veille.youtube</code> · <code>audit.protocol</code><br />contexte vivant injecté (6000 car) · compteur budget/jour</td>
+    </tr>
+    <tr>
+      <td><strong>PONT GATE (llm_gate_hub_bridge)</strong></td>
+      <td><code>Index_Maison/scripts/llm_gate_hub_bridge.py</code><br /><code>:11439</code> · LaunchAgent <code>com.ace777.llm-gate-hub</code></td>
+      <td>Python stdlib · cache 90s (<code>LLM_GATE_PONT_CACHE_SEC</code>)</td>
+      <td><span class="tag warn">WARM</span></td>
+      <td><span class="tag ok">prod — preuve <code>llm_wind</code> 12/08</span></td>
+      <td>Gate trades → hub (grok→gemini) · 503 fail-closed → règles, jamais local · redémarrage auto</td>
+    </tr>
+    <tr>
+      <td><strong>VIGIE temps réel</strong></td>
+      <td><code>Index_Maison/scripts/vigie_live.py</code></td>
+      <td>WebSocket Binance brut RFC 6455 (BTC/ETH) + RSS news</td>
+      <td><span class="tag warn">WARM</span></td>
+      <td><span class="tag warn">brique 1</span></td>
+      <td>Seuils 0,5 %/60s · 2 %/5min · volume ×3 · <code>journal_radar.log</code> → ADA</td>
+    </tr>
+    <tr>
+      <td><strong>ANALYSTE</strong></td>
+      <td><code>Index_Maison/scripts/analyste.py</code> · <code>analyste_cadence.sh</code></td>
+      <td>Hub <code>analyste.strategie</code> (gemini)</td>
+      <td><span class="tag warn">WARM</span></td>
+      <td><span class="tag warn">brique 2</span></td>
+      <td><code>strategie/derniere_analyse.md</code> · <code>MEMOIRE_ANALYSTE.md</code> · <code>REGISTRE_PREDICTIONS.md</code></td>
+    </tr>
+    <tr>
+      <td><strong>ADA gardienne + saison</strong></td>
+      <td><code>Index_Maison/scripts/ada_gardienne.py</code> · <code>ada_saison.py</code></td>
+      <td>Python · voilure continue 0–100 (lissée) · zones VERT/JAUNE/ROUGE/PRENDS_LA_PERTE</td>
+      <td><span class="tag warn">WARM</span></td>
+      <td><span class="tag warn">brique 3 · live cockpit thermo</span></td>
+      <td><code>strategie/ada_gardienne_live.json</code> · alarme sonore + voix progressive (veilleuse→sirène) · reflète, ne trade pas</td>
+    </tr>
+    <tr>
+      <td><strong>JOURNAL d'intention</strong></td>
+      <td><code>Index_Maison/scripts/journal_intention.py</code></td>
+      <td>Python · écrit le <em>pourquoi</em> des bots</td>
+      <td><span class="tag warn">WARM</span></td>
+      <td><span class="tag warn">brique 4</span></td>
+      <td><code>strategie/journal_intention_live.json</code> + <code>.jsonl</code> · affiché cockpit</td>
+    </tr>
+    <tr>
+      <td><strong>FICHES OFFRES IA</strong></td>
+      <td><code>Index_Maison/scripts/fiches_offres.py</code></td>
+      <td>Hub <code>analyste.strategie</code> · cache atomique · quota 8/jour</td>
+      <td><span class="tag cold">COLD</span>/<span class="tag warn">WARM</span></td>
+      <td><span class="tag ok">prod</span></td>
+      <td><code>strategie/FICHES_OFFRES.json</code> · cockpit onglet offres</td>
+    </tr>
+    <tr>
+      <td><strong>SIGNETS X (lecture IA)</strong></td>
+      <td><code>Index_Maison/scripts/signets_lecture.py</code></td>
+      <td>Hub <code>analyste.strategie</code> · quota 15/jour</td>
+      <td><span class="tag cold">COLD</span></td>
+      <td><span class="tag ok">prod</span></td>
+      <td><code>strategie/SIGNETS_RESUMES.json</code> · push X → cockpit</td>
+    </tr>
+    <tr>
+      <td><strong>Cortana V2</strong></td>
+      <td><code>Index_Maison/scripts/cortana_brief.py</code> · <code>cortana_cockpit_bridge.py</code> (<code>:17777</code>) · <code>cortana_thermo.py</code></td>
+      <td>Python · edge-tts voix Vivienne · oral_fr · barge_in · yeux</td>
+      <td><span class="tag cold">VOICE</span> · feed <span class="tag warn">WARM</span></td>
+      <td><span class="tag ok">V2 prod</span></td>
+      <td>Brief matin (offres+signets) · consultation famille/juge (<code>/chat</code>) · <code>/ecoute</code> toggle · <code>.urgent_alert.json</code></td>
+    </tr>
+    <tr>
+      <td><strong>Cortana yeux</strong></td>
+      <td><code>Index_Maison/scripts/cortana_yeux.py</code></td>
+      <td>screencapture + sips + hub <code>cortana.yeux</code> (gemini vision)</td>
+      <td><span class="tag cold">VOICE</span> à la demande</td>
+      <td><span class="tag warn">prototype</span></td>
+      <td><code>--speak</code> / <code>--image</code> · <strong>jamais en continu, sur demande seulement</strong></td>
+    </tr>
+    <tr>
+      <td><strong>Veille YouTube</strong></td>
+      <td><code>Index_Maison/scripts/veille_yt.py</code></td>
+      <td>yt-dlp sous-titres + hub <code>veille.youtube</code></td>
+      <td><span class="tag cold">COLD</span></td>
+      <td><span class="tag warn">brique</span></td>
+      <td>analyse vidéos à la demande · résumé + avis</td>
     </tr>
     <tr>
       <td><strong>Obsidian vault</strong></td>
@@ -187,6 +277,16 @@
   <h2>1b · CHANGELOG (honest — avoid stale review)</h2>
   <table>
     <tr><th>When</th><th>What landed</th><th>Reviewer note</th></tr>
+    <tr>
+      <td>2026-08-12</td>
+      <td>
+        <strong>Hub cloud = seule passerelle LLM</strong> (pont :11439 pour gate trades, preuve <code>llm_wind</code>, run 4h comparaison hub vs Ollama) ·
+        vigie temps réel · analyste · ADA gardienne (voilure + alarme progressive) · journal d'intention · fiches offres IA (quota 8/j) ·
+        signets lecture IA (quota 15/j) · Cortana V2 (oral_fr, barge_in, yeux, consultation famille) · onglet stratégie cockpit ·
+        <code>POINT_REPRISE_DERNIER.md</code> (départ de session light)
+      </td>
+      <td>Do <strong>not</strong> review as 31-juil. only — C9/C10 + lane WARM élargie</td>
+    </tr>
     <tr>
       <td>2026-07-31</td>
       <td>
@@ -213,7 +313,8 @@
         <li>ACE/Hulk → CSV / LIVE files → post-mortem Index</li>
         <li>Validation chat → Éval + Tableau + Attention + MEMOIRE → OUTBOX → Obsidian</li>
         <li>Punk filter → Attention (propose, not trade)</li>
-        <li>Cortana / speak_attention → read Attention bus</li>
+        <li>Cortana / speak_attention → read Attention bus + consult famille/juge (lecture seule)</li>
+        <li>Hub cloud pour gate/analyste/signets/yeux (pas le fill loop) · ADA lit le radar et alerte (ne trade pas)</li>
         <li>Hulk veille JSON → soft skip RED (deterministic)</li>
       </ul>
     </div>
@@ -223,7 +324,9 @@
         <li>Obsidian / LLM → place order</li>
         <li>Mutate genesis champion on disk</li>
         <li>LLM inside ACE radar/fill loop</li>
-        <li>Paid market APIs as default dependency</li>
+        <li>Paid market APIs as default dependency (plafond budget C10)</li>
+        <li><strong>IA locale nulle part</strong> (C9)</li>
+        <li>Yeux / capture d'écran en continu (sur demande seulement)</li>
         <li>9 cold agents during ACE flight (RAM)</li>
         <li>Second truth on Desktop vs Index</li>
       </ul>
@@ -240,6 +343,19 @@
       └──► Hulk (MEXC paper) ──► paper ledger + .veille_status.json
                 └── digest_watch (det.) soft RED gate
 
+[RADAR] vigie_live (WebSocket Binance + RSS) → journal_radar.log
+     → ADA gardienne → voilure + alarme (son/voix progressive) → cockpit thermo
+     → journal d'intention (le POURQUOI des bots)
+
+[HUB cloud :11435] ← toutes demandes LLM (gate via pont :11439, cache 90s)
+     ├─ supervise.decision → gate trades (mode, cohésion) — preuve llm_wind
+     ├─ analyste.strategie → analyses + fiches offres + résumés signets
+     ├─ code.ia → codeur (SPE/CODE produits par le hub)
+     ├─ cortana.yeux → vision (sur demande)
+     └─ contexte vivant ARCHITECTURE_VIVANTE.md injecté à chaque appel
+
+[ops UI] → Cockpit ← bridge :17777 ← mission.json / live.json / ada / journal
+
 [Tweet/idea] → Cursor validation → Evaluations/#N → 01_TABLEAU_VIVANT
                                           ↓
                               A_Mon_Attention + MEMOIRE_COLLAB
@@ -255,8 +371,10 @@
   <table>
     <tr><th>Layer</th><th>Status</th><th>Mechanism</th></tr>
     <tr><td>Intra-ACE duo</td><td><span class="tag ok">REAL</span></td><td>BETA↔ALPHA coordination files / RAM JSON</td></tr>
+    <tr><td>Hub cloud</td><td><span class="tag ok">REAL</span></td><td>toutes demandes LLM · routing.json · providers.json · contexte vivant</td></tr>
+    <tr><td>Radar→ADA→Cockpit</td><td><span class="tag ok">REAL</span></td><td>événementiel — le changement déclenche, pas l'inverse</td></tr>
     <tr><td>Inter-leg swarm</td><td><span class="tag warn">EMBRYO</span></td><td>Markdown handoffs · Swarm_Bus templates · OUTBOX</td></tr>
-    <tr><td>Orchestrator</td><td><span class="tag bad">ABSENT</span></td><td>Human + Cursor; Cortana not chef</td></tr>
+    <tr><td>Orchestrator</td><td><span class="tag bad">ABSENT</span></td><td>Human + Cursor; Cortana not chef · Cockpit ≠ GO</td></tr>
   </table>
 
   <h2>5 · EVALUATION RUBRIC (FOR EXTERNAL AI)</h2>
@@ -298,6 +416,9 @@ ANTI-PATTERNS REJECTED: …</pre>
     <tr><th>Guardian</th><th>Lane</th><th>Trigger</th><th>Action</th></tr>
     <tr><td>ACE internal</td><td><span class="tag hot">HOT</span></td><td>timer, max loss, STOP files</td><td>Self stop</td></tr>
     <tr><td>Hulk stops</td><td><span class="tag hot">HOT</span></td><td>~−6% / trade (paper rules)</td><td>Self stop</td></tr>
+    <tr><td>ADA gardienne</td><td><span class="tag warn">WARM</span></td><td>voilure ROUGE / PRENDS_LA_PERTE</td><td>Alarme sonore + voix progressive · reflète, ne trade pas</td></tr>
+    <tr><td>Pont gate</td><td><span class="tag warn">WARM</span></td><td>hub down</td><td>503 fail-closed → règles (jamais local) · redémarrage auto</td></tr>
+    <tr><td>Budget hub</td><td><span class="tag warn">WARM</span></td><td>plafond cloud/jour</td><td>Bascule gemini (cloud) · jamais local</td></tr>
     <tr><td><strong>Risk Guardian</strong></td><td><span class="tag warn">WARM</span></td><td>drawdown global · 3 errors/10min · Mac orphan</td><td><strong>Kill ACE + alert human</strong> · no order · no genesis</td></tr>
     <tr><td>Human</td><td><span class="tag cold">BOARD</span></td><td>Any</td><td>GO / STOP · circuit breaker</td></tr>
   </table>
@@ -314,6 +435,7 @@ ANTI-PATTERNS REJECTED: …</pre>
   <h2>9 · EXTERNAL REVIEW — KIMI (2026-07-30)</h2>
   <div class="box">
     <p style="color:var(--text);margin-bottom:8px;"><strong>VERDICT reviewer:</strong> architecture solide · C1–C6 + data flow « hedge-fund early-stage » · <em>KEEP-WITH-FIXES</em></p>
+    <p style="color:var(--muted);font-size:11px;"><em>Re-review après Δ 12 août recommandée</em> : hub cloud, pont gate, ADA, journal d'intention, fiches offres, Cortana V2 → voir §10.</p>
     <table>
       <tr><th>#</th><th>Gap</th><th>Where</th><th>Prio</th><th>Status Index</th></tr>
       <tr><td>1</td><td>Risk Guardian</td><td>between HOT &amp; BOARD</td><td><span class="tag bad">Haute</span></td><td>spec’d §7 · code prototype · <span class="tag warn">pas en vol</span></td></tr>
@@ -324,6 +446,27 @@ ANTI-PATTERNS REJECTED: …</pre>
       <tr><td>4</td><td>Backup / DR</td><td>C8</td><td><span class="tag warn">Moyenne</span></td><td>spec §8</td></tr>
       <tr><td>5</td><td>Budget API monitor</td><td>C5 / BUDGET_API.md</td><td><span class="tag ok">Basse</span></td><td>stub created</td></tr>
     </table>
+  </div>
+
+  <h2>10 · NOTE STRICTE &amp; SINCÈRE (pour la famille — 12/08)</h2>
+  <div class="box">
+    <p style="color:var(--text);margin-bottom:8px;"><strong>Destinataire : famille (gemini / deepseek / juge) avant toute évaluation.</strong> Lire aussi <code>POINT_REPRISE_DERNIER.md</code> + <code>SYNTHESE_24H_CHANTIER_HUB_2026-08-12.md</code>.</p>
+    <p style="color:var(--acid);margin:8px 0 4px;">✓ Ce qui est vrai et solide</p>
+    <ul style="margin-left:16px;">
+      <li>Hub cloud = <strong>seule passerelle LLM</strong> (C9 respectée, zéro local) — preuve en vol : <code>llm_wind</code> écouté en continu sur le gate (12/08)</li>
+      <li>Contexte vivant injecté à chaque appel → changer d'IA ne casse rien</li>
+      <li>Chaîne événementielle RADAR → ADA → Cockpit réelle (le changement déclenche, pas le polling)</li>
+    </ul>
+    <p style="color:var(--danger);margin:8px 0 4px;">⚠ Ce qui est encore fragile — ne pas surévaluer</p>
+    <ul style="margin-left:16px;">
+      <li>Le <strong>run 4h de comparaison (12/08 soir)</strong> décidera si le hub améliore vs Ollama (réf −12,26 USDT le 11/08) — <strong>un seul run ne prouve rien</strong>, il faudra répéter</li>
+      <li>ADA est un <strong>reflet</strong> (lit + alerte, ne trade pas) — pas un Risk Guardian en vol</li>
+      <li>Risk Guardian <strong>toujours pas en vol</strong> (kill switch = GO futur)</li>
+      <li><code>journal_intention</code> + fiches offres : jeunes, formats à stabiliser</li>
+      <li>Budget cloud peut être dépassé (compteurs 522/480) — bascule gemini tient, mais cadence à surveiller</li>
+      <li>JSON vivants <code>strategie/*.json</code> bougent en continu → impression de « toujours pareil » si les feeds cockpit ne sont pas rafraîchis</li>
+    </ul>
+    <p style="margin-top:8px;"><strong>Demande :</strong> évaluer la Δ 12 août avec les yeux neufs, signaler toute contradiction entre cette spec et les fichiers, proposer les 3 corrections GO-sized les plus urgentes.</p>
   </div>
 
   <footer>
