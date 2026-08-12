@@ -106,8 +106,9 @@ def ollama_cohesion(mode, context, budget_sec, ollama_url, model, max_predict, d
   }
   started = Time.now
   http = Net::HTTP.new(uri.host, uri.port)
-  http.open_timeout = 1
-  http.read_timeout = 2.0
+  # ADDITIF pont-hub (12/08) : délais configurables par ENV, défauts = valeurs historiques
+  http.open_timeout = (ENV["VORTEX_LLM_OPEN_TIMEOUT"] || "1").to_f
+  http.read_timeout = (ENV["VORTEX_LLM_READ_TIMEOUT"] || "2.0").to_f
   res = http.post(uri.path, body.to_json, "Content-Type" => "application/json")
   elapsed = Time.now - started
   return [nil, elapsed, "http_fail"] unless res.is_a?(Net::HTTPSuccess)
@@ -140,8 +141,9 @@ def ollama_radar(mode, prof, context, budget_sec, ollama_url, model, max_predict
     options: ollama_fast_options(max_predict, num_thread)
   }
   http = Net::HTTP.new(uri.host, uri.port)
-  http.open_timeout = 1
-  http.read_timeout = 2.0
+  # ADDITIF pont-hub (12/08) : délais configurables par ENV, défauts = valeurs historiques
+  http.open_timeout = (ENV["VORTEX_LLM_OPEN_TIMEOUT"] || "1").to_f
+  http.read_timeout = (ENV["VORTEX_LLM_READ_TIMEOUT"] || "2.0").to_f
   res = http.post(uri.path, body.to_json, "Content-Type" => "application/json")
   elapsed = Time.now - started
   return [nil, elapsed, "http_fail"] unless res.is_a?(Net::HTTPSuccess)
