@@ -16,6 +16,7 @@ import json
 import os
 import subprocess
 import sys
+import tempfile
 import threading
 from datetime import datetime, timezone
 
@@ -23,7 +24,7 @@ import barge_in  # micro : coupe la parole si on parle (natif, ffmpeg)
 import oral_fr  # nombres -> toutes lettres (voix propre, pas de « neuf neuf »)
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
-from urllib.parse import urlparse
+from urllib.parse import urlparse, quote
 
 ROOT = Path("/Users/christophe/ace777-test-day1")
 SCRIPTS = ROOT / "Index_Maison" / "scripts"
@@ -1016,14 +1017,26 @@ def do_offres() -> dict:
         if cle in fiches_cache:
             offre["fiche"] = fiches_cache[cle]
         else:
-            offre["fiche"] = {
+            # Vue brute : coup d'œil immédiat même sans analyse IA
+            fiche_attente = {
                 "type": "⏳ Analyse en attente (max 8/jour)",
                 "forts": ["Fiche générée par l'IA au prochain passage"],
                 "faibles": ["Pas encore analysée"],
                 "usage": "Recharge l'onglet dans quelques minutes",
                 "avis_pour": "",
                 "avis_attention": "",
+                "brut": item,
+                "section": section,
             }
+            if "openrouter" in section.lower():
+                fiche_attente["lien"] = (
+                    "https://openrouter.ai/models?q=" + quote(item)
+                )
+            elif "nvidia" in section.lower():
+                fiche_attente["lien"] = (
+                    "https://build.nvidia.com/explore"
+                )
+            offre["fiche"] = fiche_attente
             offres_en_attente = True
     for n, s in sections.items():
         if not s.get("testable") and "fiche" not in s:
@@ -1045,6 +1058,121 @@ def do_offres() -> dict:
         "cache": cache,
         "cache_date": cache_date,
     }
+
+
+def do_signets() -> dict:
+    """Signets X résumés par le lecteur IA (cache SIGNETS_RESUMES.json).
+    Renvoie : résumés (triés date desc), quota du jour, nombre en attente,
+    et lance le lecteur en détaché si des signets restent à analyser."""
+    import pathlib
+    from urllib.parse import quote as _quote
+
+    cache_path = pathlib.Path(os.path.expanduser(
+        "~/ace777-test-day1/Index_Maison/strategie/SIGNETS_RESUMES.json"))
+    cache = {"version": 1, "jours": {}, "signets": {}}
+    if cache_path.exists():
+        try:
+            with open(cache_path, "r", encoding="utf-8") as f:
+                cache = json.load(f)
+        except Exception:
+            pass
+
+    signets = []
+    for _cle, _s in cache.get("signets", {}).items():
+        _s = dict(_s)
+        _s["_cle"] = _cle
+        signets.append(_s)
+    signets.sort(key=lambda s: (s.get("date", ""), s.get("generated", "")), reverse=True)
+
+    # Compte les signets .md non résumés (attente) — scan léger
+    signets_dir = pathlib.Path(os.path.expanduser(
+        "~/Documents/Obsidian_ACE777/Signets_X"))
+    en_attente = 0
+    connus = set(cache.get("signets", {}).keys())
+    try:
+        for md in signets_dir.rglob("*.md"):
+            try:
+                txt = md.read_text(encoding="utf-8", errors="ignore")
+            except Exception:
+                continue
+            m = None
+            for ligne in txt.splitlines():
+                if ligne.strip().startswith("url:"):
+                    m = ligne.split(":", 1)[1].strip().strip('"')
+                    break
+            if m:
+                cle = hashlib.sha256(m.encode("utf-8")).hexdigest()[:12]
+                if cle not in connus:
+                    en_attente += 1
+    except Exception as _e:
+        print(f"[signets] scan en_attente : {_e}")
+
+    # Si des signets attendent et quota pas épuisé → lance le lecteur en détaché
+    aujourdhui = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    utilises = cache.get("jours", {}).get(aujourdhui, 0)
+    if en_attente > 0 and utilises < 15:
+        _lancer_lecteur_signets_detache()
+
+    return {
+        "ok": True,
+        "total": len(signets),
+        "en_attente": en_attente,
+        "quota_jour": utilises,
+        "quota_max": 15,
+        "signets": signets[:50],  # les 50 plus récents
+    }
+
+
+def _lancer_lecteur_signets_detache():
+    """Lance signets_lecture.py en détaché (sa propre session)."""
+    import subprocess
+    script = os.path.expanduser(
+        "~/ace777-test-day1/Index_Maison/scripts/signets_lecture.py")
+    if not os.path.exists(script):
+        return
+    try:
+        with open(os.devnull, "w") as nul:
+            subprocess.Popen(
+                [sys.executable, "-u", script],
+                stdout=nul, stderr=subprocess.STDOUT,
+                start_new_session=True,
+            )
+    except Exception as e:
+        print(f"[signets] échec lancement lecteur : {e}")
+
+
+def do_signets_valider(body: dict) -> dict:
+    """POST /signets/valider : marque un signet à garder / poubelle / lu."""
+    import pathlib
+    cle = str(body.get("cle") or "")
+    avis = str(body.get("avis") or "").strip().lower()
+    if avis not in ("garder", "poubelle", "lu", ""):
+        return {"ok": False, "error": "avis invalide"}
+    cache_path = pathlib.Path(os.path.expanduser(
+        "~/ace777-test-day1/Index_Maison/strategie/SIGNETS_RESUMES.json"))
+    if not cache_path.exists():
+        return {"ok": False, "error": "cache introuvable"}
+    try:
+        with open(cache_path, "r", encoding="utf-8") as f:
+            cache = json.load(f)
+    except Exception:
+        return {"ok": False, "error": "cache illisible"}
+    if cle not in cache.get("signets", {}):
+        return {"ok": False, "error": "signet inconnu"}
+    cache["signets"][cle]["avis"] = avis
+    # écriture atomique
+    fd, tmp = tempfile.mkstemp(dir=os.path.dirname(cache_path), suffix=".tmp")
+    try:
+        with os.fdopen(fd, "w", encoding="utf-8") as f:
+            json.dump(cache, f, ensure_ascii=False, indent=2)
+        os.replace(tmp, cache_path)
+    except Exception as e:
+        try:
+            os.unlink(tmp)
+        except Exception:
+            pass
+        return {"ok": False, "error": str(e)}
+    return {"ok": True, "avis": avis, "cle": cle}
 
 
 def do_decoller(selection: list) -> dict:
@@ -1310,6 +1438,9 @@ class Handler(BaseHTTPRequestHandler):
         if path == "/offres":
             self._json(200, do_offres())
             return
+        if path == "/signets":
+            self._json(200, do_signets())
+            return
         if path == "/strategie":
             self._json(200, do_strategie())
             return
@@ -1404,6 +1535,10 @@ class Handler(BaseHTTPRequestHandler):
             body = self._read_json()
             sel = body.get("selection") or []
             self._json(200, do_decoller(sel))
+            return
+        if path == "/signets/valider":
+            body = self._read_json()
+            self._json(200, do_signets_valider(body))
             return
         if path == "/panic":
             body = self._read_json()

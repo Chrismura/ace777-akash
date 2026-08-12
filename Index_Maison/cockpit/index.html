@@ -292,6 +292,10 @@ body::after{
 .offre-fiche .of-f{color:var(--acid)}
 .offre-fiche .of-x{color:var(--red)}
 .offre-fiche .of-avis{margin-top:7px;border-top:1px solid rgba(255,255,255,.06);padding-top:4px}
+.offre-fiche .of-lnk{color:var(--cyan);text-decoration:none;border-bottom:1px dotted rgba(94,231,255,.5)}
+.offre-fiche .of-lnk:hover{color:var(--acid2);border-bottom-color:var(--acid2)}
+.sg-btn{font-family:inherit;font-size:.5rem;letter-spacing:.08em;padding:2px 6px;border:1px solid var(--line);background:#0a100c;cursor:pointer;border-radius:3px;transition:all .15s}
+.sg-btn:hover{border-color:var(--amber);color:var(--amber2) !important;transform:translateY(-1px)}
 .disc-fiche{display:none;margin:2px 0 8px;padding:6px 9px;background:#0d1410;
   border:1px solid rgba(240,160,32,.35);border-radius:4px;font-size:.64rem;
   line-height:1.5;color:#c9c2ae}
@@ -1419,6 +1423,19 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
           enrichissent la veille de demain.
         </div>
       </div>
+
+      <!-- SIGNETS X : résumés IA + validation à garder / poubelle -->
+      <div class="card strat-disc">
+        <h2>SIGNETS X — LECTURE IA</h2>
+        <div id="signets-date" class="strat-date"></div>
+        <div id="signets-list" class="offres-list"></div>
+        <div id="signets-status" class="offres-status"></div>
+        <div class="strat-hint">
+          Chaque bookmark est résumé par l'IA (quota 15/jour). Clique pour lire,
+          puis valide : <b style="color:var(--acid)">à garder</b> ou
+          <b style="color:var(--red)">poubelle</b>. Le graphe des thèmes viendra ensuite.
+        </div>
+      </div>
     </div>
   </section>
   </div>
@@ -1488,6 +1505,7 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
         setTimeout(() => {
           try { if(window.chargerStrategie) window.chargerStrategie(); } catch(e){}
           try { if(window.chargerOffres) window.chargerOffres(); } catch(e){}
+          try { if(window.chargerSignets) window.chargerSignets(); } catch(e){}
         }, 50);
       }
     });
@@ -3786,12 +3804,25 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
                 if (offre.fiche) {
                   const f = offre.fiche;
                   // esc() : texte scrapé + IA injecté via innerHTML -> échappement XSS obligatoire
-                  ficheEl.innerHTML = '<div class="of-t">' + esc(f.type || 'Offre') + '</div>' +
-                    '<div class="of-l">Points forts</div><div class="of-f">' + (f.forts || []).map(esc).join(' · ') + '</div>' +
-                    '<div class="of-l">Points faibles</div><div class="of-x">' + (f.faibles || f.failles || []).map(esc).join(' · ') + '</div>' +
-                    '<div class="of-l">Pour quoi l\'utiliser</div><div>' + esc(f.usage || '') + '</div>' +
-                    (f.avis_pour ? '<div class="of-l of-avis">🎯 Pourquoi l\'essayer</div><div class="of-f">' + esc(f.avis_pour) + '</div>' : '') +
-                    (f.avis_attention ? '<div class="of-l of-avis">⚠️ Attention</div><div class="of-x">' + esc(f.avis_attention) + '</div>' : '');
+                  if (f.avis_pour) {
+                    // --- vraie fiche IA ---
+                    ficheEl.innerHTML = '<div class="of-t">' + esc(f.type || 'Offre') + '</div>' +
+                      '<div class="of-l">Points forts</div><div class="of-f">' + (f.forts || []).map(esc).join(' · ') + '</div>' +
+                      '<div class="of-l">Points faibles</div><div class="of-x">' + (f.faibles || f.failles || []).map(esc).join(' · ') + '</div>' +
+                      '<div class="of-l">Pour quoi l\'utiliser</div><div>' + esc(f.usage || '') + '</div>' +
+                      '<div class="of-l of-avis">🎯 Pourquoi l\'essayer</div><div class="of-f">' + esc(f.avis_pour) + '</div>' +
+                      (f.avis_attention ? '<div class="of-l of-avis">⚠️ Attention</div><div class="of-x">' + esc(f.avis_attention) + '</div>' : '');
+                  } else {
+                    // --- vue brute : coup d'œil même sans analyse IA ---
+                    let brutHtml = '<div class="of-t">🔎 Vue brute</div>' +
+                      '<div class="of-l">Nom</div><div>' + esc(f.brut || offre.item || '') + '</div>' +
+                      '<div class="of-l">Source</div><div>' + esc(f.section || offre.section || '') + '</div>';
+                    if (f.lien) {
+                      brutHtml += '<div class="of-l of-avis"><a href="' + esc(f.lien) + '" target="_blank" rel="noopener" class="of-lnk">Voir l\'offre sur le site ↗</a></div>';
+                    }
+                    brutHtml += '<div class="of-l of-avis">⏳ Analyse IA en attente</div><div class="of-x">Réservée au quota de 8/jour — elle arrive au prochain passage.</div>';
+                    ficheEl.innerHTML = brutHtml;
+                  }
                 }
                 container.appendChild(ficheEl);
                 label.style.cursor = 'pointer';
@@ -3868,6 +3899,69 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
         });
     }
 
+    // --- SIGNETS X : résumés IA + validation à garder / poubelle ---
+    function chargerSignets() {
+      const container = document.getElementById('signets-list');
+      const dateEl = document.getElementById('signets-date');
+      const statusEl = document.getElementById('signets-status');
+      if (!container) return;
+      fetchJson(BRIDGE + '/signets', {}, 8000)
+        .then(data => {
+          try {
+            container.innerHTML = '';
+            const signets = data.signets || [];
+            if (dateEl) {
+              dateEl.textContent = (data.total > 0)
+                ? (data.total + ' lus · ' + (data.en_attente || 0) + ' en attente · quota ' + (data.quota_jour || 0) + '/' + (data.quota_max || 15))
+                : 'Aucun signet résumé pour l\'instant';
+            }
+            if (signets.length === 0) {
+              container.innerHTML = '<div class="disc-empty">Le lecteur travaille… les résumés apparaîtront ici (15/jour).</div>';
+            } else {
+              signets.forEach(s => {
+                const div = document.createElement('div');
+                div.className = 'offre-ligne';
+                const avis = s.avis || '';
+                const badge = avis === 'garder' ? '<span style="color:var(--acid)">✅ gardé</span>'
+                  : avis === 'poubelle' ? '<span style="color:var(--red)">🗑 poubelle</span>'
+                  : '';
+                div.innerHTML =
+                  '<div style="flex:1;min-width:0">' +
+                    '<div class="offre-item">' + esc(s.author || '') + ' · <span style="color:var(--muted)">' + esc(s.date || '') + '</span></div>' +
+                    '<div class="offre-note" style="margin-top:3px;line-height:1.5">' + esc(s.resume || '') + '</div>' +
+                    (badge ? '<div style="margin-top:4px">' + badge + '</div>' : '') +
+                  '</div>' +
+                  '<div style="display:flex;flex-direction:column;gap:4px;flex-shrink:0">' +
+                    (s.url ? '<a href="' + esc(s.url) + '" target="_blank" rel="noopener" style="font-size:.58rem;color:var(--cyan);text-decoration:none">X ↗</a>' : '') +
+                    '<button class="sg-btn" data-cle="" data-avis="garder" style="color:var(--acid)">GARDER</button>' +
+                    '<button class="sg-btn" data-cle="" data-avis="poubelle" style="color:var(--red)">POUBELLE</button>' +
+                  '</div>';
+                const btns = div.querySelectorAll('.sg-btn');
+                btns.forEach(btn => {
+                  btn.addEventListener('click', () => {
+                    const avisV = btn.dataset.avis;
+                    fetchJson(BRIDGE + '/signets/valider', {
+                      method: 'POST',
+                      headers: {'Content-Type': 'application/json'},
+                      body: JSON.stringify({cle: s._cle, avis: avisV})
+                    }, 5000)
+                    .then(r => {
+                      if (r.ok) chargerSignets();
+                    }).catch(() => {});
+                  });
+                });
+                container.appendChild(div);
+              });
+            }
+          } catch (e) { /* non fatal */ }
+        })
+        .catch(() => {
+          try {
+            if (statusEl) statusEl.textContent = 'Bridge injoignable — signets indisponibles.';
+          } catch (e) { /* non fatal */ }
+        });
+    }
+
     function majBtnDecoller() {
       const n = document.querySelectorAll('.offre-coche:checked').length;
       document.getElementById('btn-decoller').disabled = n === 0;
@@ -3908,6 +4002,7 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
     document.getElementById('offres-list')?.addEventListener('change', majBtnDecoller);
     window.chargerOffres = chargerOffres;
     window.chargerStrategie = chargerStrategie;
+    window.chargerSignets = chargerSignets;
 
     // Chargement AUTOMATIQUE au démarrage (plus seulement au clic) :
     // les cartes STRATÉGIES et OFFRES sont remplies dès l'ouverture.
@@ -3917,6 +4012,7 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
       const n = essai || 0;
       try { chargerStrategie(); } catch (e) { console.error('[cockpit] boot strategie:', e); }
       try { chargerOffres(); } catch (e) { console.error('[cockpit] boot offres:', e); }
+      try { chargerSignets(); } catch (e) { console.error('[cockpit] boot signets:', e); }
       // Re-tente uniquement si le chargement n'a pas abouti (placeholder encore là)
       if (n < 2) {
         const corps = document.getElementById('strat-analyste-body');
