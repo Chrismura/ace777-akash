@@ -1,5 +1,8 @@
 # Index des commandes Terminal
 
+> 🚀 **COMMENCE ICI — POINT DE REPRISE** : `Index_Maison/POINT_REPRISE_DERNIER.md`
+> (30 s de lecture : ce qui tourne, ce qui reste, les commandes clés)
+
 **Où :** `~/ace777-test-day1/Index_Maison/INDEX_COMMANDES.md`  
 **Miroir Obsidian :** après sync → même nom dans le coffre `Obsidian_ACE777`  
 **Sync :**
