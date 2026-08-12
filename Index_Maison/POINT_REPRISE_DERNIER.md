@@ -30,6 +30,10 @@ Preuve : `llm_wind` dans `runs/supervisor_v9_v2.log` (zéro EMRG).
    → watchdog sémantique endormi, à diagnostiquer
 3. **💰 Budget cloud** : dépassé (523/480) → le fallback gemini tient (cloud, pas local)
    → décider : relever le budget ou rester
+4. **🐟 MiroFish (membre oublié)** : en PAUSE budgétaire depuis le 10/08 (tournait à vide) —
+   **clé ZEP maintenant posée** → techniquement prêt. Réactivation = **décision collective**
+   (famille + Christophe) + `launchctl load` plists. Usage : **à la demande seulement**
+   (simulation de foule sur un scénario), jamais en continu → voir `README_MIROFISH.md`
 
 ## 4. Les commandes clés (depuis INDEX_COMMANDES)
 

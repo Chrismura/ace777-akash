@@ -46,6 +46,7 @@ open ~/ace777-test-day1/Index_Maison/architecture/tech.html
 | **Cortana V2** | `Index_Maison/scripts/cortana_brief.py` · `cortana_cockpit_bridge.py` (`:17777`) · `cortana_thermo.py` | Python · edge-tts (voix Vivienne) · oral_fr (nombres en mots) · barge_in (micro coupe la voix) · yeux (vision à la demande) | VOICE | V2 prod | Brief matin (offres + signets) · consultation famille/juge (`/chat`) · `/ecoute` toggle · `.urgent_alert.json` |
 | **Cortana yeux** | `Index_Maison/scripts/cortana_yeux.py` | screencapture + sips + hub `cortana.yeux` (gemini vision) | VOICE (à la demande) | prototype | `--speak` / `--image` · jamais en continu, que sur demande |
 | **Veille YouTube** | `Index_Maison/scripts/veille_yt.py` | yt-dlp sous-titres + hub `veille.youtube` | COLD | brique | analyse vidéos à la demande, résumé + avis |
+| **MiroFish** | `~/mirofis/` · backend `:5001` · front `:3000` · plists `DESACTIVES_2026-08-10/` | Flask Python 3.12 · Vue/Vite · hub NVIDIA NIM (clé ZEP posée ✅) | COLD recherche | **PAUSE budgétaire 10/08** (tournait à vide) | Simulation sociale multi-agents (foule, biais) · **jamais d'exécution** · rapport → `MIROFISH_DONNEES_2026-08-10/` · réactivation = décision collective + `launchctl load` |
 | **Cockpit** | `Index_Maison/cockpit/` · `open_cockpit_app.sh` · `:17777` / `:17800` | HTML+JS · bridge · LaunchAgents | WARM ops | zone test → v2 | Read-only + STOP · onglets : graph, stratégie (résumé + offres + exploration), thermo (ADA + voilure), offres (fiches IA), signets, hub · architecture servie `:17800/architecture/` |
 | **Obsidian** | `Documents/Obsidian_ACE777/` via `_sync_now.sh` | Markdown · TCC | COFFRE | human memory | **no hot auto** · Cursor cannot write Documents |
 
@@ -65,7 +66,7 @@ open ~/ace777-test-day1/Index_Maison/architecture/tech.html
 
 **Allowed:** Human GO → ACE/Hulk · fills → post-mortem · validation → éval/tableau/Attention/MEMOIRE → OUTBOX → Obsidian · Punk → Attention · Cortana read bus + consult famille/juge (lecture seule) · Hub cloud pour gate/analyste/signets/yeux (pas le fill loop) · Hulk deterministic RED skip · Cockpit read + panic STOP · ADA lit le radar et alerte (ne trade pas).
 
-**Forbidden:** Obsidian/LLM → order · mutate genesis · LLM in ACE radar/fill · paid APIs as default (plafond budget) · **IA locale nulle part** (C9) · 9 cold agents during ACE · Desktop as second truth · Cockpit entry orders · yeux en continu (que sur demande).
+**Forbidden:** Obsidian/LLM → order · mutate genesis · LLM in ACE radar/fill · paid APIs as default (plafond budget) · **IA locale nulle part** (C9) · 9 cold agents during ACE · Desktop as second truth · Cockpit entry orders · yeux en continu (que sur demande) · **MiroFish en continu** (simulation à la demande seulement, budget).
 
 ---
 
@@ -102,6 +103,7 @@ open ~/ace777-test-day1/Index_Maison/architecture/tech.html
 | Intra-ACE duo | **REAL** | BETA↔ALPHA |
 | Hub cloud | **REAL** | prisé tous services LLM · routing.json · providers.json · contexte vivant |
 | Radar→ADA→Cockpit | **REAL** | événementiel (changement déclenche, pas l'inverse) |
+| MiroFish (simulation foule) | **PAUSE** | à la demande · décision collective requise · clé ZEP OK |
 | Inter-leg | **EMBRYO** | Markdown handoffs / OUTBOX / Swarm_Bus |
 | Orchestrator | **ABSENT** | Human + Cursor ; Cortana ≠ chef · Cockpit ≠ GO |
 
