@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-12T19:28:21.428725+00:00",
+  "generated_at": "2026-08-12T20:06:36.497228+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 549
+      "calls_24h": 573
     },
     {
       "id": "openrouter-free",
@@ -35,7 +35,7 @@
       "model": "deepseek-ai/deepseek-v4-flash-0731",
       "enabled": true,
       "timeout": 300,
-      "calls_24h": 129
+      "calls_24h": 139
     },
     {
       "id": "mistral",
@@ -107,7 +107,7 @@
       "model": "x-ai/grok-4.3",
       "enabled": true,
       "timeout": 300,
-      "calls_24h": 62
+      "calls_24h": 66
     },
     {
       "id": "qwen-local",
@@ -130,110 +130,110 @@
   ],
   "budget": {
     "daily": 480,
-    "consumed": 675,
+    "consumed": 719,
     "remaining": 0
   },
   "queue": [
     {
-      "ts": "2026-08-12T19:27:40.498765+00:00",
-      "task": "signets.juge",
-      "provider": "nvidia",
-      "model": "deepseek-ai/deepseek-v4-flash-0731",
+      "ts": "2026-08-12T20:05:20.086514+00:00",
+      "task": "supervise.decision",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
       "kind": "cloud"
     },
     {
-      "ts": "2026-08-12T19:27:36.609971+00:00",
-      "task": "signets.juge",
-      "provider": "nvidia",
-      "model": "deepseek-ai/deepseek-v4-flash-0731",
+      "ts": "2026-08-12T20:03:43.667513+00:00",
+      "task": "supervise.decision",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
       "kind": "cloud"
     },
     {
-      "ts": "2026-08-12T19:27:23.219830+00:00",
+      "ts": "2026-08-12T20:02:07.401319+00:00",
+      "task": "supervise.decision",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud"
+    },
+    {
+      "ts": "2026-08-12T20:00:43.708601+00:00",
+      "task": "analyste.strategie",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud"
+    },
+    {
+      "ts": "2026-08-12T20:00:31.369009+00:00",
+      "task": "supervise.decision",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud"
+    },
+    {
+      "ts": "2026-08-12T19:58:55.455835+00:00",
+      "task": "supervise.decision",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud"
+    },
+    {
+      "ts": "2026-08-12T19:58:53.014571+00:00",
       "task": "audit.protocol",
       "provider": "nvidia",
       "model": "deepseek-ai/deepseek-v4-flash-0731",
       "kind": "cloud"
     },
     {
-      "ts": "2026-08-12T19:26:47.851516+00:00",
+      "ts": "2026-08-12T19:57:18.999922+00:00",
       "task": "supervise.decision",
       "provider": "gemini",
       "model": "gemini-flash-lite-latest",
       "kind": "cloud"
     },
     {
-      "ts": "2026-08-12T19:26:34.157747+00:00",
+      "ts": "2026-08-12T19:56:54.146116+00:00",
       "task": "audit.protocol",
       "provider": "nvidia",
       "model": "deepseek-ai/deepseek-v4-flash-0731",
       "kind": "cloud"
     },
     {
-      "ts": "2026-08-12T19:26:16.012579+00:00",
+      "ts": "2026-08-12T19:56:49.805960+00:00",
+      "task": "signets.juge",
+      "provider": "nvidia",
+      "model": "deepseek-ai/deepseek-v4-flash-0731",
+      "kind": "cloud"
+    },
+    {
+      "ts": "2026-08-12T19:56:36.437326+00:00",
       "task": "mission",
       "provider": "puter-grok",
       "model": "x-ai/grok-4.3",
       "kind": "cloud"
     },
     {
-      "ts": "2026-08-12T19:26:09.325704+00:00",
+      "ts": "2026-08-12T19:56:10.976076+00:00",
       "task": "analyste.strategie",
       "provider": "gemini",
       "model": "gemini-flash-lite-latest",
       "kind": "cloud"
     },
     {
-      "ts": "2026-08-12T19:25:20.752790+00:00",
+      "ts": "2026-08-12T19:56:07.436055+00:00",
+      "task": "signets.juge",
+      "provider": "nvidia",
+      "model": "deepseek-ai/deepseek-v4-flash-0731",
+      "kind": "cloud"
+    },
+    {
+      "ts": "2026-08-12T19:55:51.704048+00:00",
       "task": "mission",
       "provider": "puter-grok",
       "model": "x-ai/grok-4.3",
       "kind": "cloud"
     },
     {
-      "ts": "2026-08-12T19:25:15.528168+00:00",
-      "task": "analyste.strategie",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud"
-    },
-    {
-      "ts": "2026-08-12T19:25:12.431208+00:00",
-      "task": "supervise.decision",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud"
-    },
-    {
-      "ts": "2026-08-12T19:24:16.588252+00:00",
-      "task": "mission",
-      "provider": "puter-grok",
-      "model": "x-ai/grok-4.3",
-      "kind": "cloud"
-    },
-    {
-      "ts": "2026-08-12T19:24:08.582133+00:00",
-      "task": "analyste.strategie",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud"
-    },
-    {
-      "ts": "2026-08-12T19:23:35.919436+00:00",
-      "task": "supervise.decision",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud"
-    },
-    {
-      "ts": "2026-08-12T19:22:00.253108+00:00",
-      "task": "supervise.decision",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud"
-    },
-    {
-      "ts": "2026-08-12T19:20:23.925930+00:00",
+      "ts": "2026-08-12T19:55:42.791819+00:00",
       "task": "supervise.decision",
       "provider": "gemini",
       "model": "gemini-flash-lite-latest",
@@ -242,64 +242,64 @@
   ],
   "events": [
     {
-      "ts": "2026-08-12T19:27:40.497951+00:00",
-      "kind": "message",
-      "title": "« NVIDIA build.nvidia.com (100+ modeles) » a repondu",
-      "detail": ""
-    },
-    {
-      "ts": "2026-08-12T19:27:36.609252+00:00",
-      "kind": "message",
-      "title": "« NVIDIA build.nvidia.com (100+ modeles) » a repondu",
-      "detail": ""
-    },
-    {
-      "ts": "2026-08-12T19:27:23.219221+00:00",
-      "kind": "message",
-      "title": "« NVIDIA build.nvidia.com (100+ modeles) » a repondu",
-      "detail": ""
-    },
-    {
-      "ts": "2026-08-12T19:26:47.851095+00:00",
+      "ts": "2026-08-12T20:05:20.085965+00:00",
       "kind": "message",
       "title": "« Google Gemini » a repondu",
       "detail": ""
     },
     {
-      "ts": "2026-08-12T19:26:47.094736+00:00",
+      "ts": "2026-08-12T20:05:18.924762+00:00",
       "kind": "quota",
       "title": "Budget cloud journalier atteint, repli sur le local",
       "detail": "supervise.decision"
     },
     {
-      "ts": "2026-08-12T19:26:34.157341+00:00",
+      "ts": "2026-08-12T20:03:43.665998+00:00",
       "kind": "message",
-      "title": "« NVIDIA build.nvidia.com (100+ modeles) » a repondu",
+      "title": "« Google Gemini » a repondu",
       "detail": ""
     },
     {
-      "ts": "2026-08-12T19:26:16.009435+00:00",
+      "ts": "2026-08-12T20:03:42.870513+00:00",
+      "kind": "quota",
+      "title": "Budget cloud journalier atteint, repli sur le local",
+      "detail": "supervise.decision"
+    },
+    {
+      "ts": "2026-08-12T20:02:07.400990+00:00",
       "kind": "message",
-      "title": "« Puter Grok (gratuit) » a repondu",
+      "title": "« Google Gemini » a repondu",
       "detail": ""
     },
     {
-      "ts": "2026-08-12T19:26:12.126414+00:00",
+      "ts": "2026-08-12T20:02:06.315439+00:00",
       "kind": "quota",
       "title": "Budget cloud journalier atteint, repli sur le local",
-      "detail": "signets.juge"
+      "detail": "supervise.decision"
     },
     {
-      "ts": "2026-08-12T19:26:12.093756+00:00",
-      "kind": "quota",
-      "title": "Budget cloud journalier atteint, repli sur le local",
-      "detail": "audit.protocol"
+      "ts": "2026-08-12T20:00:43.708171+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
     },
     {
-      "ts": "2026-08-12T19:26:09.387342+00:00",
+      "ts": "2026-08-12T20:00:40.343769+00:00",
       "kind": "quota",
       "title": "Budget cloud journalier atteint, repli sur le local",
-      "detail": "mission"
+      "detail": "analyste.strategie"
+    },
+    {
+      "ts": "2026-08-12T20:00:31.368584+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
+    {
+      "ts": "2026-08-12T20:00:30.644279+00:00",
+      "kind": "quota",
+      "title": "Budget cloud journalier atteint, repli sur le local",
+      "detail": "supervise.decision"
     }
   ],
   "tasks_quotas": {
