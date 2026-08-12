@@ -1,5 +1,5 @@
 {
-  "ts": "2026-08-12T00:11Z",
+  "ts": "2026-08-12T01:12Z",
   "alert": "amber",
   "run": "NUAGE_TEST_8H_CMP3",
   "sessionSince": "2026-08-02T00:00Z",
@@ -2193,9 +2193,9 @@
     "whaleN": 0,
     "deltas": {
       "mark": {
-        "dir": "down",
-        "delta": -79.3,
-        "label": "↓"
+        "dir": "up",
+        "delta": 174.1,
+        "label": "↑"
       },
       "funding": {
         "dir": "flat",
@@ -2203,28 +2203,28 @@
         "label": "="
       },
       "fundingAvg30": {
-        "dir": "up",
-        "delta": 9.4e-07,
-        "label": "↑"
+        "dir": "flat",
+        "delta": 0.0,
+        "label": "="
       },
       "fundingAvgPrevMonth": {
-        "dir": "up",
-        "delta": 2.4e-07,
-        "label": "↑"
+        "dir": "flat",
+        "delta": 0.0,
+        "label": "="
       },
       "longShort": {
-        "dir": "down",
-        "delta": -0.005,
-        "label": "↓"
+        "dir": "up",
+        "delta": 0.035,
+        "label": "↑"
       },
       "chg24": {
-        "dir": "down",
-        "delta": -0.01,
-        "label": "↓"
+        "dir": "up",
+        "delta": 0.16,
+        "label": "↑"
       },
       "oi": {
         "dir": "up",
-        "delta": 115.856,
+        "delta": 112.318,
         "label": "↑"
       },
       "score": {
@@ -2233,9 +2233,9 @@
         "label": "="
       },
       "btcDominance": {
-        "dir": "down",
-        "delta": -0.04,
-        "label": "↓"
+        "dir": "up",
+        "delta": 0.05,
+        "label": "↑"
       },
       "panierDownPct": {
         "dir": "flat",
@@ -2253,25 +2253,25 @@
         "label": "="
       },
       "takerRatio": {
-        "dir": "down",
-        "delta": -0.004,
-        "label": "↓"
+        "dir": "up",
+        "delta": 0.775,
+        "label": "↑"
       }
     },
     "fearGreed": 27,
     "fearGreedLabel": "Fear",
-    "marketCapUsd": 2268506048282.0,
+    "marketCapUsd": 2270430315410.0,
     "altSeason": "Bitcoin season",
     "altSeasonScore": 51,
-    "liq24Usd": 21211835.0,
+    "liq24Usd": 21168337.0,
     "etf": {
-      "btc": -204.42,
+      "btc": 37.36,
       "eth": null,
       "xrp": null,
       "source": "bitbo-public (moy 7j)",
       "unit": "M$"
     },
-    "btcDominance": 56.23,
+    "btcDominance": 56.28,
     "indicators": {
       "D26": {
         "value": "27 · Fear",
@@ -2306,8 +2306,8 @@
         "wired": true
       },
       "D30": {
-        "value": "BTC -204.42 M$",
-        "level": "warn",
+        "value": "BTC 37.36 M$",
+        "level": "ok",
         "label": "ETF BTC net inflow",
         "unit": "",
         "note": "bitbo-public (moy 7j)",
@@ -2332,7 +2332,7 @@
     }
   },
   "intention": {
-    "ts": "2026-08-12T00:11:50.697327+00:00",
+    "ts": "2026-08-12T01:11:59.925898+00:00",
     "since": "2026-08-02T00:00:00Z",
     "bots": {
       "alpha": {
@@ -2987,7 +2987,7 @@
     ]
   },
   "saison": {
-    "ts": "2026-08-12T00:11:54.993992+00:00",
+    "ts": "2026-08-12T01:12:04.171149+00:00",
     "saison": "CALME",
     "emoji": "🧊",
     "direction": "long",
@@ -3018,12 +3018,12 @@
       "vortex": {
         "direction": "short",
         "force": 1,
-        "brut": -0.54
+        "brut": -0.38
       },
       "essaim": {
         "direction": "long",
         "force": 2,
-        "brut": 1.804
+        "brut": 1.839
       },
       "baleines": {
         "direction": "neutre",
@@ -3034,11 +3034,51 @@
     "story": [
       "SAISON : CALME 🧊 — hiver, ADA dort.",
       "Alignement : 2 haussiers / 1 baissiers.",
-      "Le vent se lève (-0.54 % sur 24h) — pas encore un vortex."
+      "Le vent se lève (-0.38 % sur 24h) — pas encore un vortex."
     ],
     "sources": [
       "live.json"
     ],
     "degraded": false
+  },
+  "gardienne": {
+    "ts": "2026-08-12T01:12:04Z",
+    "voilure_pct": 88,
+    "zone": "VERT",
+    "zone_emoji": "🟢",
+    "pressions": {
+      "bleed": 0.019,
+      "storm": 0.46,
+      "reversal": 0.102
+    },
+    "sirene": false,
+    "declencheurs": [],
+    "seuil_x": 75.0,
+    "ancres": {
+      "perte_moy": 50.0,
+      "gains_peak": 50.0,
+      "seuil_x": 75.0
+    },
+    "alerte": false,
+    "raison": "",
+    "pnl_alpha": -9.29,
+    "sources": [
+      "live.json"
+    ],
+    "story": [
+      "La voilure tient à 88 % — le bassin est calme, ACE garde sa toile déployée.",
+      "Rien ne presse : le Sniper reste en embuscade, l'Éclaireur sonde."
+    ]
+  },
+  "coup_doeil": {
+    "ts": "2026-08-12T01:12:04Z",
+    "saison": "CALME",
+    "saison_emoji": "🌿",
+    "voilure": "88 %",
+    "zone": "VERT",
+    "zone_emoji": "🟢",
+    "verdict_famille": "• GEMINI (analyste) : Aucune action impulsive : le PnL est négatif mais les 3305 skips prouvent que la discipline tient bon face au mur du c",
+    "intention": "Alpha : 4 tirs (2 revenge), pnl -9.29 $ · Beta : 33 sondes",
+    "ligne": "CALME 🌿 · voilure 88 % · VERT 🟢 — La voilure tient à 88 % — le bassin est calme, ACE garde sa toile déployée."
   }
 }

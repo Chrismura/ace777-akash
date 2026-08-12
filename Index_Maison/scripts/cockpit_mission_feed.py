@@ -383,10 +383,15 @@ def load_ada_block(name: str) -> dict:
 def main() -> int:
     OUT.mkdir(parents=True, exist_ok=True)
 
-    # ADA saison détectée AVANT le payload pour être à jour dans le même cycle
+    # ADA saison + gardienne détectées AVANT le payload pour être à jour dans le même cycle
     try:
         import ada_saison
         ada_saison.scan()
+    except Exception:
+        pass
+    try:
+        import ada_gardienne
+        ada_gardienne.scan()
     except Exception:
         pass
 
@@ -469,6 +474,9 @@ def main() -> int:
     # === BRIGUES ADA — lecture seule, jamais bloquantes ===
     payload["intention"] = load_ada_block("journal_intention_live.json")
     payload["saison"] = load_ada_block("ada_saison_live.json")
+    _g = load_ada_block("ada_gardienne_live.json") or {}
+    payload["gardienne"] = _g.get("gardienne") or {}
+    payload["coup_doeil"] = _g.get("coup_doeil") or {}
 
     (OUT / "mission.json").write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     (OUT / "mission.js").write_text("window.__MISSION__ = " + json.dumps(payload, ensure_ascii=False) + ";\n", encoding="utf-8")
