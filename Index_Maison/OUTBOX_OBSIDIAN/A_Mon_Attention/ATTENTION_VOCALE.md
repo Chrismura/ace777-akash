@@ -19,3 +19,9 @@ Cortana / `speak_attention` peut lire le résumé, puis repasser IDLE.
 - ts: 20260812T1203Z
 - demande: ollama_ok false + jobs_invalides: com.ace777.cockpit-pont, com.ace777.superviseur-core
 - pourquoi: ollama injoignable et jobs morts (possible lien ACE/Hulk interdit)
+
+
+## ⚠️ SUPERVISEUR — besoin de Christophe
+- ts: 20260812T1226Z
+- demande: ollama injoignable
+- pourquoi: ollama_ok: false détecté (injoignable)

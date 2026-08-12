@@ -4,9 +4,17 @@
 cd /Users/christophe/ace777-test-day1
 
 # === ARRET SERVICES 3 ETAGES (codeur hub, 10/08) =============
-# Ordre CRITIQUE : watchdog EN PREMIER (sinon il relance tout).
+# Ordre CRITIQUE : superviseur + watchdog EN PREMIER (sinon ils relancent tout).
 # KeepAlive=true -> seul launchctl bootout arrete vraiment.
 echo "=== [3ETAGES] Arret des services launchd (KeepAlive=true) ==="
+
+# 0. superviseur + vigie-live — les respawneurs de la maison (relancent les process
+#    PENDANT le stop si on ne les bootout pas). FIX PANIC 12/08.
+#    NOTE : com.ace777.prise-ia (hub IA) n'est PAS arrêté — il doit survivre (cerveau).
+launchctl bootout gui/$(id -u)/com.ace777.superviseur 2>/dev/null
+launchctl bootout gui/$(id -u)/com.ace777.superviseur-process 2>/dev/null
+launchctl bootout gui/$(id -u)/com.ace777.vigie-live 2>/dev/null
+pkill -9 -f 'superviseur\.sh' 2>/dev/null
 
 # 1. watchdog — doit etre arrete en premier (garde-fou R5, famille 10/08)
 if launchctl bootout gui/$(id -u)/com.ace777.watchdog 2>/dev/null; then
@@ -118,7 +126,12 @@ if [ -f runs/supervisor_v9_v2.pid ]; then
 fi
 
 # 4. Tout ce qui reste
-for pid in $(ps -e -o pid= -o args= 2>/dev/null | grep -E "ace777-test-day1|genesis_manifest|launch_test_master" | grep -v grep | awk '{print $1}'); do
+# FIX PANIC 12/08 : on exclut CE script lui-même ($$) et les scripts d'arrêt,
+# sinon le pkill se tue lui-même en plein milieu et le radar / cockpit-http
+# (qui viennent après dans la liste) survivent au PANIC.
+SELF=$$
+for pid in $(ps -e -o pid= -o args= 2>/dev/null | grep -E "ace777-test-day1|genesis_manifest|launch_test_master" | grep -v grep | grep -vE "stop_ace777" | awk '{print $1}'); do
+  [ "$pid" = "$SELF" ] && continue
   kill -9 "$pid" 2>/dev/null
 done
 

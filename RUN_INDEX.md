@@ -9578,3 +9578,141 @@ Ce fichier sert de table des runs ACE777 pour retrouver vite les tests.
 - Rapport: `RAPPORT_PNL_AUTO_20260810_212148.md`
 - Verdict: `NEGATIF`
 
+
+---
+
+## 2026-08-12 — NUAGE_TEST_8H_CMP3 (auto)
+
+- Profil: `vide_froid_binance` v`V2.2.1_NO_SUICIDE`
+- Tag: `NUAGE_TEST_8H_CMP3`
+- Période: `2026-08-02T18:18:24Z` → `2026-08-02T19:54:01Z`
+- Logs:
+  - `NUAGE_TEST_8H_CMP3_BETA_X5.csv`
+  - `NUAGE_TEST_8H_CMP3_ALPHA_X13_BURST13.csv`
+- Paramètres clé:
+  - `BUY_USDT_BETA=200`
+  - `BUY_USDT_ALPHA=800`
+  - `LLM_GATE_ENABLED=TRUE`
+  - `LLM_GATE_FAIL_CLOSED=TRUE`
+- Résultat:
+  - BETA: `-0.0047 USDT` (1 trades)
+  - ALPHA: `+0.0000 USDT` (0 trades)
+  - Total: `-0.0047 USDT`
+- Rapport: `RAPPORT_PNL_AUTO_20260812_102342.md`
+- Verdict: `NEGATIF`
+
+
+---
+
+## 2026-08-12 — NUAGE_TEST_8H_CMP3 (auto)
+
+- Profil: `vide_froid_binance` v`V2.2.1_NO_SUICIDE`
+- Tag: `NUAGE_TEST_8H_CMP3`
+- Période: `2026-08-02T18:18:24Z` → `2026-08-02T19:54:01Z`
+- Logs:
+  - `NUAGE_TEST_8H_CMP3_BETA_X5.csv`
+  - `NUAGE_TEST_8H_CMP3_ALPHA_X13_BURST13.csv`
+- Paramètres clé:
+  - `BUY_USDT_BETA=200`
+  - `BUY_USDT_ALPHA=800`
+  - `LLM_GATE_ENABLED=TRUE`
+  - `LLM_GATE_FAIL_CLOSED=TRUE`
+- Résultat:
+  - BETA: `-0.0047 USDT` (1 trades)
+  - ALPHA: `+0.0000 USDT` (0 trades)
+  - Total: `-0.0047 USDT`
+- Rapport: `RAPPORT_PNL_AUTO_20260812_102343.md`
+- Verdict: `NEGATIF`
+
+
+---
+
+## 2026-08-12 — NUAGE_TEST_8H_CMP3 (auto)
+
+- Profil: `vide_froid_binance` v`V2.2.1_NO_SUICIDE`
+- Tag: `NUAGE_TEST_8H_CMP3`
+- Période: `2026-08-02T18:18:24Z` → `2026-08-02T19:54:01Z`
+- Logs:
+  - `NUAGE_TEST_8H_CMP3_BETA_X5.csv`
+  - `NUAGE_TEST_8H_CMP3_ALPHA_X13_BURST13.csv`
+- Paramètres clé:
+  - `BUY_USDT_BETA=200`
+  - `BUY_USDT_ALPHA=800`
+  - `LLM_GATE_ENABLED=TRUE`
+  - `LLM_GATE_FAIL_CLOSED=TRUE`
+- Résultat:
+  - BETA: `-0.0047 USDT` (1 trades)
+  - ALPHA: `+0.0000 USDT` (0 trades)
+  - Total: `-0.0047 USDT`
+- Rapport: `RAPPORT_PNL_AUTO_20260812_102413.md`
+- Verdict: `NEGATIF`
+
+
+---
+
+## 2026-08-12 — NUAGE_TEST_8H_CMP3 (auto)
+
+- Profil: `vide_froid_binance` v`V2.2.1_NO_SUICIDE`
+- Tag: `NUAGE_TEST_8H_CMP3`
+- Période: `2026-08-02T18:18:24Z` → `2026-08-02T19:54:01Z`
+- Logs:
+  - `NUAGE_TEST_8H_CMP3_BETA_X5.csv`
+  - `NUAGE_TEST_8H_CMP3_ALPHA_X13_BURST13.csv`
+- Paramètres clé:
+  - `BUY_USDT_BETA=200`
+  - `BUY_USDT_ALPHA=800`
+  - `LLM_GATE_ENABLED=TRUE`
+  - `LLM_GATE_FAIL_CLOSED=TRUE`
+- Résultat:
+  - BETA: `-0.0047 USDT` (1 trades)
+  - ALPHA: `+0.0000 USDT` (0 trades)
+  - Total: `-0.0047 USDT`
+- Rapport: `RAPPORT_PNL_AUTO_20260812_102413.md`
+- Verdict: `NEGATIF`
+
+
+---
+
+## 2026-08-12 — NUAGE_TEST_8H_CMP3 (auto)
+
+- Profil: `vide_froid_binance` v`V2.2.1_NO_SUICIDE`
+- Tag: `NUAGE_TEST_8H_CMP3`
+- Période: `2026-08-02T18:18:24Z` → `2026-08-02T19:54:01Z`
+- Logs:
+  - `NUAGE_TEST_8H_CMP3_BETA_X5.csv`
+  - `NUAGE_TEST_8H_CMP3_ALPHA_X13_BURST13.csv`
+- Paramètres clé:
+  - `BUY_USDT_BETA=200`
+  - `BUY_USDT_ALPHA=800`
+  - `LLM_GATE_ENABLED=TRUE`
+  - `LLM_GATE_FAIL_CLOSED=TRUE`
+- Résultat:
+  - BETA: `-0.0047 USDT` (1 trades)
+  - ALPHA: `+0.0000 USDT` (0 trades)
+  - Total: `-0.0047 USDT`
+- Rapport: `RAPPORT_PNL_AUTO_20260812_102454.md`
+- Verdict: `NEGATIF`
+
+
+---
+
+## 2026-08-12 — NUAGE_TEST_8H_CMP3 (auto)
+
+- Profil: `vide_froid_binance` v`V2.2.1_NO_SUICIDE`
+- Tag: `NUAGE_TEST_8H_CMP3`
+- Période: `2026-08-02T18:18:24Z` → `2026-08-02T19:54:01Z`
+- Logs:
+  - `NUAGE_TEST_8H_CMP3_BETA_X5.csv`
+  - `NUAGE_TEST_8H_CMP3_ALPHA_X13_BURST13.csv`
+- Paramètres clé:
+  - `BUY_USDT_BETA=200`
+  - `BUY_USDT_ALPHA=800`
+  - `LLM_GATE_ENABLED=TRUE`
+  - `LLM_GATE_FAIL_CLOSED=TRUE`
+- Résultat:
+  - BETA: `-0.0047 USDT` (1 trades)
+  - ALPHA: `+0.0000 USDT` (0 trades)
+  - Total: `-0.0047 USDT`
+- Rapport: `RAPPORT_PNL_AUTO_20260812_102454.md`
+- Verdict: `NEGATIF`
+
