@@ -287,6 +287,31 @@ cd ~/ace777-test-day1 && caffeinate -dims ./GO_USINE_NUAGE.sh 08:00:00 MON_TAG
 ```
 Lance ACE testnet pour une durée + un TAG. **Uniquement** si tu as dit GO et que le Mac est froid. Remplace `MON_TAG` (ex. `NUAGE_TEST_8H_CMP`).
 
+**GATE HUB (depuis 12/08 — la bascule officielle) :**
+
+```bash
+cd ~/ace777-test-day1 && caffeinate -dims ./GO_VORTEX_V2.sh 04:00:00
+```
+Lance ACE testnet **avec le juge hub** (grok → gemini) — c'est LE lanceur à utiliser maintenant, pas GO_USINE (qui a le gate OFF). Profil `vortex_v2_collab.env`. Vérifier après boot : `tail -5 runs/supervisor_v9_v2.log` doit afficher `LLM llm_wind` (pas `EMRG`).
+
+```bash
+cd ~/ace777-test-day1 && ./ENCHAINER_RUN_4H_HUB.sh
+```
+Enchaîneur auto : attend la fin du run en cours puis lance GO_VORTEX_V2 4h. Déjà exécuté le 12/08 (preuve 30 min → run 4h de comparaison).
+
+```bash
+curl -s http://127.0.0.1:11439/api/tags
+```
+Check du pont hub (il émule Ollama pour le moteur). Le service `com.ace777.llm-gate-hub` (launchd, KeepAlive) l'auto-relance s'il meurt.
+
+```bash
+# Régler la cadence du juge hub (cache du pont)
+export LLM_GATE_PONT_CACHE_SEC=90   # 90s = défaut | 30s = plus réactif | 300s = plus économe
+# Budget du juge (délai max avant repli règles)
+export VORTEX_LLM_BUDGET_SEC=20
+```
+Variables dans `config_active.env` — effet au prochain run (figées au lancement).
+
 ```bash
 cd ~/ace777-test-day1 && ./stop_ace777_hard.sh
 ```
