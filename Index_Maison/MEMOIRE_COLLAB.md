@@ -22,6 +22,9 @@ Pour que Cursor · Punk · Cortana · Christophe sachent **ce qui a bougé**, sa
 
 | ts | Qui | Action | Où | Quoi |
 |----|-----|--------|-----|------|
+| 2026-08-12T1734Z | Buffy | ★ | gravure 24h | synthese 24h + journal du 12 + sync Obsidian + push GitHub 77cad5d (10k fichiers) |
+| 2026-08-12T1734Z | Buffy | ★ | Index_COMMANDES | ajout GO_VORTEX_V2 (gate hub), ENCHAINER_RUN_4H_HUB, LLM_GATE_PONT_CACHE_SEC |
+| 2026-08-12T1734Z | Buffy | ★ | chantier hub | pont llm_gate_hub_bridge : gate trades -> hub (grok/gemini), cache 90s, fail-closed, preuve llm_wind, run 4h comparaison lance |
 | 2026-08-12T1728Z | journal_auto | ★ | CONSOLE+Journal_2026-08-12 | Snapshot auto hygiène soir |
 | 2026-08-12T1218Z | Cursor | ★ | ERREURS_AI | E-20260812-1 ban Cursor lignes · rapport vie privee classe |
 | 2026-08-11T1853Z | journal_soir | ★ | journal | snapshot soir auto |

@@ -24,6 +24,32 @@ Sans ça → l’autre IA (et nous) jugent faux.
 
 ## Journal (récent en haut)
 
+### 2026-08-12 — `LLM_OLLAMA_URL` http://127.0.0.1:11434 → http://127.0.0.1:11439
+
+| | |
+|--|--|
+| **Qui** | Buffy |
+| **Molette** | `LLM_OLLAMA_URL` |
+| **Avant → Après** | http://127.0.0.1:11434 → **http://127.0.0.1:11439** |
+| **Pourquoi** | bascule gate trades de l IA locale vers le pont hub (directive plus d IA locale) |
+| **Preuve** | pas encore |
+| **ts** | 2026-08-12T17:34Z |
+
+
+
+### 2026-08-12 — `VORTEX_LLM_BUDGET_SEC` 1.2 → 20
+
+| | |
+|--|--|
+| **Qui** | Buffy |
+| **Molette** | `VORTEX_LLM_BUDGET_SEC` |
+| **Avant → Après** | 1.2 → **20** |
+| **Pourquoi** | profil vortex_v2_collab ecrasait le budget -> juge classe llm_slow au lieu de llm_wind (revue famille) |
+| **Preuve** | pas encore |
+| **ts** | 2026-08-12T17:34Z |
+
+
+
 ### 2026-07-31 — `NUAGE_STORM_HUNTER` 0 → OFF défaut · E-07 retest
 
 | | |
