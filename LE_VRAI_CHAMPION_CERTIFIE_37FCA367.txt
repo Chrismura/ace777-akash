@@ -1000,12 +1000,14 @@ duo_hunter_signal() {
     begin
       j=JSON.parse(File.read(path))
     rescue
-      puts "allow=false mode=none forced=AUTO mult=1.0 reason=no_state boost=1.0 scout_bps=0 scout_hold=0"
+      role="UNKNOWN" # FIX-SCOUT-3 (cas d_erreur de lecture JSON)
+      puts "allow=false mode=none forced=AUTO mult=1.0 reason=no_state boost=1.0 scout_bps=0 scout_hold=0 role=#{role}"
       exit 0
     end
     age=((Time.now.to_f*1000).to_i - (j["ts_ms"].to_i rescue 0))
     if age > ttl*1000
-      puts "allow=false mode=none forced=AUTO mult=1.0 reason=stale_state boost=1.0 scout_bps=0 scout_hold=0"
+      role=j["role"].to_s # FIX-SCOUT-3 (cas stale_state)
+      puts "allow=false mode=none forced=AUTO mult=1.0 reason=stale_state boost=1.0 scout_bps=0 scout_hold=0 role=#{role}"
       exit 0
     end
     side=j["side"].to_s
@@ -1018,10 +1020,11 @@ duo_hunter_signal() {
     pnl=(Float(j["pnl_usdt"]) rescue 0.0)
     reason=j["reason"].to_s
     hold_sec=(Integer(j["hold_sec"]) rescue 0)
+    role=j["role"].to_s # FIX-SCOUT-1 : lire le role
     suffer = (status == "OPEN") && (bps <= suffer_bps || pnl <= suffer_usdt)
     closed_loss = (status == "CLOSED") && pnl < 0.0
     revenge_reasons = %w[stop_loss shock_inversion_stop shock_exit_10bps fluid_exit_inversion fluid_exit_brake beta_sentinel_cut]
-    revenge = closed_loss && (!require_sl || revenge_reasons.include?(reason))
+    revenge = (role == "SCOUT") && closed_loss && (!require_sl || revenge_reasons.include?(reason)) # FIX-SCOUT-2 : conditionner le revenge au role SCOUT
     fast_death = closed_loss && hold_sec > 0 && hold_sec <= fast_death_sec
     speed_bps_s = hold_sec > 0 ? (bps.abs / hold_sec.to_f) : 0.0
     out_mode="none"
@@ -1031,7 +1034,7 @@ duo_hunter_signal() {
     out_boost=1.0
     vacuum_strike = (status == "OPEN" && reason == "true_vacuum")
     if require_true_vacuum && !vacuum_strike
-      puts "allow=false mode=none forced=AUTO mult=1.0 reason=no_true_vacuum boost=1.0 scout_bps=#{bps} scout_hold=#{hold_sec}"
+      puts "allow=false mode=none forced=AUTO mult=1.0 reason=no_true_vacuum boost=1.0 scout_bps=#{bps} scout_hold=#{hold_sec} role=#{role}" # FIX-SCOUT-3
       exit 0
     end
     if vacuum_strike
@@ -1039,7 +1042,7 @@ duo_hunter_signal() {
       out_mode="vacuum_strike"
       out_mult="1.0"
       out_reason=reason
-      puts "allow=#{out_allow} mode=#{out_mode} forced=#{forced} mult=#{out_mult} reason=#{out_reason} boost=#{out_boost} scout_bps=#{bps} scout_hold=#{hold_sec}"
+      puts "allow=#{out_allow} mode=#{out_mode} forced=#{forced} mult=#{out_mult} reason=#{out_reason} boost=#{out_boost} scout_bps=#{bps} scout_hold=#{hold_sec} role=#{role}" # FIX-SCOUT-3
       exit 0
     end
     if revenge
@@ -1078,10 +1081,9 @@ duo_hunter_signal() {
       out_mult="1.0"
       out_reason=reason
     end
-    puts "allow=#{out_allow} mode=#{out_mode} forced=#{forced} mult=#{out_mult} reason=#{out_reason} boost=#{out_boost} scout_bps=#{bps} scout_hold=#{hold_sec}"
+    puts "allow=#{out_allow} mode=#{out_mode} forced=#{forced} mult=#{out_mult} reason=#{out_reason} boost=#{out_boost} scout_bps=#{bps} scout_hold=#{hold_sec} role=#{role}" # FIX-SCOUT-3
   ' -- "$DUO_STATE_FILE" "$DUO_EVENT_TTL_SEC" "$DUO_SCOUT_SUFFER_BPS" "$DUO_SCOUT_SUFFER_USDT" "$DUO_HUNTER_REQUIRE_STOP_LOSS" "$DUO_HUNTER_REVENGE_MULT" "$DUO_FORCE_OPPOSITE" "$DUO_V6_SENSITIVITY_BOOST" "$DUO_V6_FAST_DEATH_SEC" "$DUO_V6_BOOST_MULT" "$DUO_V6_BOOST_TTL_SEC" "$DUO_V6_BURST_X13" "$DUO_V6_BURST_MULT" "$DUO_V6_BURST_MIN_LOSS_BPS" "$DUO_V6_BURST_MIN_SPEED_BPS_PER_SEC" "$DUO_V6_BURST_COOLDOWN_SEC" "$DUO_V6_BURST_FILE" "$DUO_HUNTER_REQUIRE_TRUE_VACUUM"
 }
-
 duo_hunter_apply_sig() {
   duo_allow="false"
   duo_forced="AUTO"

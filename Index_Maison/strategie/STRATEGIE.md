@@ -1,20 +1,23 @@
-# STRATEGIE — 2026-08-12T23:02:16.710120Z
+# STRATEGIE — 2026-08-12T23:21:35.713861Z
 
-## COURT TERME — 2026-08-12T23:02:16.710120Z
+## COURT TERME — 2026-08-12T23:21:35.713861Z
 
-[UNDERSTAND] La maison ACE777 évolue sous alerte ambre avec un PnL combiné quasi-neutre (-0,29 $), stabilisé par l'éclairage de Beta et les positions de Hulk malgré la pression sur Alpha.
+[UNDERSTAND] La maison ACE777 évolue sous alerte ambre avec un PnL combiné légèrement négatif (-1,88 $), stabilisé par l'éclairage de Beta et les positions de Hulk malgré la pression persistante sur Alpha.
+
 [ANALYZE]
-- Tendance : Bitcoin season confirmée (score 51) dans un climat de peur (Fear & Greed à 27), avec une domination du BTC à 56,29 % et un capital global à 2,26 T$.
-- Momentum : Beta sécurise 5 sondes longues victorieuses (+0,06 $) pour guider Alpha, qui essuie 4 fills pour -0,35 $ (dont 3 en mode revenge). Hulk maintient son panier de 5 positions, emmené par EDEL (+8,17 %) et RIZE (+5,75 %).
-- Risque : Légère érosion du PnL combiné sous la ligne de flottaison (-0,29 $) couplée à un sursaut de volume sur le BTCUSDT (volume x3).
-- Contexte : Alerte ambre maintenue, flux ETF BTC positifs (+37,19 M$) et stabilité générale des grands indicateurs macroéconomiques.
+- Tendance : Bitcoin season confirmée (score 51) dans un climat de peur (Fear & Greed à 27), avec une domination du BTC à 56,26 % et un capital global à 2,26 T$.
+- Momentum : Beta sécurise 9 sondes victorieuses (+0,06 $) pour guider Alpha, qui essuie 7 fills pour -1,94 $ (dont 5 en mode revenge). Hulk maintient son panier de 5 positions, emmené par EDEL (+7,82 %) et RIZE (+4,66 %).
+- Risque : Érosion du PnL combiné sous la ligne de flottaison (-1,88 $) couplée à un sursaut de volume sur le BTCUSDT (volume x3).
+- Contexte : Alerte ambre maintenue, flux ETF BTC positifs (+37,17 M$) et stabilité générale des grands indicateurs macroéconomiques.
+
 [STRATEGIZE]
 1. Maintenir l'étroite synergie entre les sondages haussiers de Beta et la sélectivité d'Alpha pour sécuriser les prises d'initiatives.
 2. Superviser la tenue du panier de Hulk en consolidant l'exposition sur les leaders en plus-value (EDEL, RIZE).
 3. Conserver une discipline opérationnelle stricte face aux sursauts de volume sur les carnets d'ordres.
+
 [EXECUTE]
 - Verdict : Maintien de l'alerte ambre et de la rigueur tactique pour consolider le PnL combiné tout en capitalisant sur l'éclairage de Beta.
-- Confiance : 84%
+- Confiance : 82%
 - Hypothèses clés : 
   1. Alpha affine ses tirs grâce à la précision des reconnaissances de Beta.
   2. Le panier de Hulk amortit la volatilité grâce à ses actifs performants.
