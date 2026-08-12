@@ -369,8 +369,27 @@ def find_ace_pair():
     return None, None, None
 
 
+def load_ada_block(name: str) -> dict:
+    """Lit un bloc ADA (intention, saison...) s'il existe — jamais bloquant."""
+    p = ROOT / "Index_Maison" / "strategie" / name
+    if p.exists():
+        try:
+            return json.loads(p.read_text(encoding="utf-8"))
+        except Exception:
+            return {}
+    return {}
+
+
 def main() -> int:
     OUT.mkdir(parents=True, exist_ok=True)
+
+    # ADA saison détectée AVANT le payload pour être à jour dans le même cycle
+    try:
+        import ada_saison
+        ada_saison.scan()
+    except Exception:
+        pass
+
     a_path, b_path, live_path = find_ace_pair()
     since = session_start_from_live(live_path)
     alpha = load_ace_side(a_path, since=since)
@@ -447,12 +466,23 @@ def main() -> int:
         },
     }
 
+    # === BRIGUES ADA — lecture seule, jamais bloquantes ===
+    payload["intention"] = load_ada_block("journal_intention_live.json")
+    payload["saison"] = load_ada_block("ada_saison_live.json")
+
     (OUT / "mission.json").write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     (OUT / "mission.js").write_text("window.__MISSION__ = " + json.dumps(payload, ensure_ascii=False) + ";\n", encoding="utf-8")
     ob = ROOT / "Index_Maison" / "OUTBOX_OBSIDIAN" / "cockpit"
     ob.mkdir(parents=True, exist_ok=True)
     for name in ("mission.json", "mission.js"):
         (ob / name).write_text((OUT / name).read_text(encoding="utf-8"), encoding="utf-8")
+
+    # Rafraîchit les briques ADA avec la session fraîche (jamais bloquant)
+    try:
+        import journal_intention
+        journal_intention.scan()
+    except Exception:
+        pass
 
     print(f"MISSION_OK combo={combo} cycle={cyc} alert={alert} since={payload.get('sessionSince')}")
     print(

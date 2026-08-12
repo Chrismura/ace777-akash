@@ -1,5 +1,5 @@
 {
-  "ts": "2026-08-11T23:11Z",
+  "ts": "2026-08-12T00:11Z",
   "alert": "amber",
   "run": "NUAGE_TEST_8H_CMP3",
   "sessionSince": "2026-08-02T00:00Z",
@@ -2193,9 +2193,9 @@
     "whaleN": 0,
     "deltas": {
       "mark": {
-        "dir": "up",
-        "delta": 0.7,
-        "label": "↑"
+        "dir": "down",
+        "delta": -79.3,
+        "label": "↓"
       },
       "funding": {
         "dir": "flat",
@@ -2203,18 +2203,18 @@
         "label": "="
       },
       "fundingAvg30": {
-        "dir": "flat",
-        "delta": 0.0,
-        "label": "="
+        "dir": "up",
+        "delta": 9.4e-07,
+        "label": "↑"
       },
       "fundingAvgPrevMonth": {
-        "dir": "flat",
-        "delta": 0.0,
-        "label": "="
+        "dir": "up",
+        "delta": 2.4e-07,
+        "label": "↑"
       },
       "longShort": {
         "dir": "down",
-        "delta": -0.003,
+        "delta": -0.005,
         "label": "↓"
       },
       "chg24": {
@@ -2224,7 +2224,7 @@
       },
       "oi": {
         "dir": "up",
-        "delta": 67.627,
+        "delta": 115.856,
         "label": "↑"
       },
       "score": {
@@ -2233,48 +2233,48 @@
         "label": "="
       },
       "btcDominance": {
+        "dir": "down",
+        "delta": -0.04,
+        "label": "↓"
+      },
+      "panierDownPct": {
         "dir": "flat",
         "delta": 0.0,
         "label": "="
       },
-      "panierDownPct": {
-        "dir": "down",
-        "delta": -20.0,
-        "label": "↓"
-      },
       "whaleUsd": {
-        "dir": "down",
-        "delta": -1186104.0,
-        "label": "↓"
+        "dir": "flat",
+        "delta": 0.0,
+        "label": "="
       },
       "whaleN": {
-        "dir": "down",
-        "delta": -2.0,
-        "label": "↓"
+        "dir": "flat",
+        "delta": 0.0,
+        "label": "="
       },
       "takerRatio": {
         "dir": "down",
-        "delta": -0.316,
+        "delta": -0.004,
         "label": "↓"
       }
     },
-    "fearGreed": 29,
+    "fearGreed": 27,
     "fearGreedLabel": "Fear",
-    "marketCapUsd": 2268541944126.0,
+    "marketCapUsd": 2268506048282.0,
     "altSeason": "Bitcoin season",
     "altSeasonScore": 51,
-    "liq24Usd": 21397313.0,
+    "liq24Usd": 21211835.0,
     "etf": {
-      "btc": 119.67,
+      "btc": -204.42,
       "eth": null,
       "xrp": null,
       "source": "bitbo-public (moy 7j)",
       "unit": "M$"
     },
-    "btcDominance": 56.27,
+    "btcDominance": 56.23,
     "indicators": {
       "D26": {
-        "value": "29 · Fear",
+        "value": "27 · Fear",
         "level": "ok",
         "label": "Fear & Greed",
         "unit": "",
@@ -2306,8 +2306,8 @@
         "wired": true
       },
       "D30": {
-        "value": "BTC 119.67 M$",
-        "level": "ok",
+        "value": "BTC -204.42 M$",
+        "level": "warn",
         "label": "ETF BTC net inflow",
         "unit": "",
         "note": "bitbo-public (moy 7j)",
@@ -2330,5 +2330,715 @@
         "wired": false
       }
     }
+  },
+  "intention": {
+    "ts": "2026-08-12T00:11:50.697327+00:00",
+    "since": "2026-08-02T00:00:00Z",
+    "bots": {
+      "alpha": {
+        "role": "sniper",
+        "surnom": "Le Sniper",
+        "fills": 4,
+        "skips": 3305,
+        "pnl": -9.28501,
+        "best": 0.0,
+        "conf_moy": 0.9665,
+        "events": [
+          {
+            "ts": "2026-08-02T19:48:08Z",
+            "bot": "alpha",
+            "cycle": 527,
+            "action": "skip",
+            "intention": "pas d'opportunite — discipline (radar bloque)",
+            "direction": null,
+            "conf": 0.0,
+            "exit": "radar_block",
+            "meta": {
+              "size_note": null,
+              "tension": 2.902e-05
+            },
+            "file": "NUAGE_TEST_8H_CMP3_ALPHA_X13_BURST13.csv"
+          },
+          {
+            "ts": "2026-08-02T19:48:18Z",
+            "bot": "alpha",
+            "cycle": 528,
+            "action": "skip",
+            "intention": "pas d'opportunite — discipline (radar bloque)",
+            "direction": null,
+            "conf": 0.3493,
+            "exit": "radar_block",
+            "meta": {
+              "size_note": null,
+              "tension": 0.0
+            },
+            "file": "NUAGE_TEST_8H_CMP3_ALPHA_X13_BURST13.csv"
+          },
+          {
+            "ts": "2026-08-02T19:48:27Z",
+            "bot": "alpha",
+            "cycle": 529,
+            "action": "skip",
+            "intention": "pas d'opportunite — discipline (radar bloque)",
+            "direction": null,
+            "conf": 0.3493,
+            "exit": "radar_block",
+            "meta": {
+              "size_note": null,
+              "tension": 0.0
+            },
+            "file": "NUAGE_TEST_8H_CMP3_ALPHA_X13_BURST13.csv"
+          },
+          {
+            "ts": "2026-08-02T19:48:37Z",
+            "bot": "alpha",
+            "cycle": 530,
+            "action": "skip",
+            "intention": "pas d'opportunite — discipline (radar bloque)",
+            "direction": null,
+            "conf": 0.0569,
+            "exit": "radar_block",
+            "meta": {
+              "size_note": null,
+              "tension": 0.03422735
+            },
+            "file": "NUAGE_TEST_8H_CMP3_ALPHA_X13_BURST13.csv"
+          },
+          {
+            "ts": "2026-08-02T19:48:48Z",
+            "bot": "alpha",
+            "cycle": 531,
+            "action": "skip",
+            "intention": "pas d'opportunite — discipline (radar bloque)",
+            "direction": null,
+            "conf": 0.0,
+            "exit": "radar_block",
+            "meta": {
+              "size_note": null,
+              "tension": 4.39e-06
+            },
+            "file": "NUAGE_TEST_8H_CMP3_ALPHA_X13_BURST13.csv"
+          },
+          {
+            "ts": "2026-08-02T19:48:59Z",
+            "bot": "alpha",
+            "cycle": 532,
+            "action": "skip",
+            "intention": "pas d'opportunite — discipline (radar bloque)",
+            "direction": null,
+            "conf": 0.0001,
+            "exit": "radar_block",
+            "meta": {
+              "size_note": null,
+              "tension": 3.324e-05
+            },
+            "file": "NUAGE_TEST_8H_CMP3_ALPHA_X13_BURST13.csv"
+          },
+          {
+            "ts": "2026-08-02T19:49:09Z",
+            "bot": "alpha",
+            "cycle": 533,
+            "action": "skip",
+            "intention": "pas d'opportunite — discipline (radar bloque)",
+            "direction": null,
+            "conf": 0.0001,
+            "exit": "radar_block",
+            "meta": {
+              "size_note": null,
+              "tension": 5.818e-05
+            },
+            "file": "NUAGE_TEST_8H_CMP3_ALPHA_X13_BURST13.csv"
+          },
+          {
+            "ts": "2026-08-02T19:49:25Z",
+            "bot": "alpha",
+            "cycle": 534,
+            "action": "skip",
+            "intention": "pas d'opportunite — discipline (radar bloque)",
+            "direction": null,
+            "conf": 0.3493,
+            "exit": "radar_block",
+            "meta": {
+              "size_note": null,
+              "tension": 0.0
+            },
+            "file": "NUAGE_TEST_8H_CMP3_ALPHA_X13_BURST13.csv"
+          },
+          {
+            "ts": "2026-08-02T19:49:41Z",
+            "bot": "alpha",
+            "cycle": 535,
+            "action": "skip",
+            "intention": "pas d'opportunite — discipline (radar bloque)",
+            "direction": null,
+            "conf": 0.3493,
+            "exit": "radar_block",
+            "meta": {
+              "size_note": null,
+              "tension": 0.0
+            },
+            "file": "NUAGE_TEST_8H_CMP3_ALPHA_X13_BURST13.csv"
+          },
+          {
+            "ts": "2026-08-02T19:50:00Z",
+            "bot": "alpha",
+            "cycle": 536,
+            "action": "skip",
+            "intention": "pas d'opportunite — discipline (radar bloque)",
+            "direction": null,
+            "conf": 0.3493,
+            "exit": "radar_block",
+            "meta": {
+              "size_note": null,
+              "tension": 0.0
+            },
+            "file": "NUAGE_TEST_8H_CMP3_ALPHA_X13_BURST13.csv"
+          },
+          {
+            "ts": "2026-08-02T19:50:16Z",
+            "bot": "alpha",
+            "cycle": 537,
+            "action": "skip",
+            "intention": "pas d'opportunite — discipline (radar bloque)",
+            "direction": null,
+            "conf": 0.0001,
+            "exit": "radar_block",
+            "meta": {
+              "size_note": null,
+              "tension": 8.602e-05
+            },
+            "file": "NUAGE_TEST_8H_CMP3_ALPHA_X13_BURST13.csv"
+          },
+          {
+            "ts": "2026-08-02T19:50:32Z",
+            "bot": "alpha",
+            "cycle": 538,
+            "action": "skip",
+            "intention": "pas d'opportunite — discipline (radar bloque)",
+            "direction": null,
+            "conf": 0.0,
+            "exit": "radar_block",
+            "meta": {
+              "size_note": null,
+              "tension": 1.675e-05
+            },
+            "file": "NUAGE_TEST_8H_CMP3_ALPHA_X13_BURST13.csv"
+          },
+          {
+            "ts": "2026-08-02T19:50:51Z",
+            "bot": "alpha",
+            "cycle": 539,
+            "action": "skip",
+            "intention": "pas d'opportunite — discipline (radar bloque)",
+            "direction": null,
+            "conf": 0.0055,
+            "exit": "radar_block",
+            "meta": {
+              "size_note": null,
+              "tension": 0.00329032
+            },
+            "file": "NUAGE_TEST_8H_CMP3_ALPHA_X13_BURST13.csv"
+          },
+          {
+            "ts": "2026-08-02T19:51:33Z",
+            "bot": "alpha",
+            "cycle": 540,
+            "action": "skip",
+            "intention": "pas d'opportunite — discipline (radar bloque)",
+            "direction": null,
+            "conf": 0.0192,
+            "exit": "radar_block",
+            "meta": {
+              "size_note": null,
+              "tension": 0.01153596
+            },
+            "file": "NUAGE_TEST_8H_CMP3_ALPHA_X13_BURST13.csv"
+          },
+          {
+            "ts": "2026-08-02T19:51:43Z",
+            "bot": "alpha",
+            "cycle": 541,
+            "action": "skip",
+            "intention": "pas d'opportunite — discipline (radar bloque)",
+            "direction": null,
+            "conf": 0.3493,
+            "exit": "radar_block",
+            "meta": {
+              "size_note": null,
+              "tension": 0.0
+            },
+            "file": "NUAGE_TEST_8H_CMP3_ALPHA_X13_BURST13.csv"
+          },
+          {
+            "ts": "2026-08-02T19:51:53Z",
+            "bot": "alpha",
+            "cycle": 542,
+            "action": "skip",
+            "intention": "pas d'opportunite — discipline (radar bloque)",
+            "direction": null,
+            "conf": 0.0007,
+            "exit": "radar_block",
+            "meta": {
+              "size_note": null,
+              "tension": 0.00043463
+            },
+            "file": "NUAGE_TEST_8H_CMP3_ALPHA_X13_BURST13.csv"
+          },
+          {
+            "ts": "2026-08-02T19:52:16Z",
+            "bot": "alpha",
+            "cycle": 543,
+            "action": "skip",
+            "intention": "pas d'opportunite — discipline (radar bloque)",
+            "direction": null,
+            "conf": 0.3493,
+            "exit": "radar_block",
+            "meta": {
+              "size_note": null,
+              "tension": 0.0
+            },
+            "file": "NUAGE_TEST_8H_CMP3_ALPHA_X13_BURST13.csv"
+          },
+          {
+            "ts": "2026-08-02T19:52:52Z",
+            "bot": "alpha",
+            "cycle": 544,
+            "action": "skip",
+            "intention": "pas d'opportunite — discipline (radar bloque)",
+            "direction": null,
+            "conf": 0.3493,
+            "exit": "radar_block",
+            "meta": {
+              "size_note": null,
+              "tension": 0.0
+            },
+            "file": "NUAGE_TEST_8H_CMP3_ALPHA_X13_BURST13.csv"
+          },
+          {
+            "ts": "2026-08-02T19:53:10Z",
+            "bot": "alpha",
+            "cycle": 545,
+            "action": "skip",
+            "intention": "pas d'opportunite — discipline (radar bloque)",
+            "direction": null,
+            "conf": 0.0035,
+            "exit": "radar_block",
+            "meta": {
+              "size_note": null,
+              "tension": 0.00211272
+            },
+            "file": "NUAGE_TEST_8H_CMP3_ALPHA_X13_BURST13.csv"
+          },
+          {
+            "ts": "2026-08-02T19:54:01Z",
+            "bot": "alpha",
+            "cycle": 546,
+            "action": "skip",
+            "intention": "pas d'opportunite — discipline (radar bloque)",
+            "direction": null,
+            "conf": 0.0008,
+            "exit": "radar_block",
+            "meta": {
+              "size_note": null,
+              "tension": 0.00049652
+            },
+            "file": "NUAGE_TEST_8H_CMP3_ALPHA_X13_BURST13.csv"
+          }
+        ],
+        "counts": {
+          "wait": 181,
+          "fire": 4,
+          "probe": 0,
+          "skip": 3305
+        },
+        "direction": {
+          "long": 2,
+          "short": 2
+        },
+        "revenge": 2
+      },
+      "beta": {
+        "role": "eclaireur",
+        "surnom": "L'Eclaireur",
+        "fills": 33,
+        "skips": 3374,
+        "pnl": 0.7462899999999997,
+        "best": 0.39721,
+        "conf_moy": 0.9342666666666667,
+        "events": [
+          {
+            "ts": "2026-08-02T19:48:17Z",
+            "bot": "beta",
+            "cycle": 566,
+            "action": "skip",
+            "intention": "pas d'opportunite — discipline (radar bloque)",
+            "direction": null,
+            "conf": 0.3493,
+            "exit": "radar_block",
+            "meta": {
+              "size_note": null,
+              "tension": 0.0
+            },
+            "file": "NUAGE_TEST_8H_CMP3_BETA_X5.csv"
+          },
+          {
+            "ts": "2026-08-02T19:48:26Z",
+            "bot": "beta",
+            "cycle": 567,
+            "action": "skip",
+            "intention": "pas d'opportunite — discipline (radar bloque)",
+            "direction": null,
+            "conf": 0.0007,
+            "exit": "radar_block",
+            "meta": {
+              "size_note": null,
+              "tension": 0.00043371
+            },
+            "file": "NUAGE_TEST_8H_CMP3_BETA_X5.csv"
+          },
+          {
+            "ts": "2026-08-02T19:48:35Z",
+            "bot": "beta",
+            "cycle": 568,
+            "action": "skip",
+            "intention": "pas d'opportunite — discipline (radar bloque)",
+            "direction": null,
+            "conf": 0.3493,
+            "exit": "radar_block",
+            "meta": {
+              "size_note": null,
+              "tension": 0.0
+            },
+            "file": "NUAGE_TEST_8H_CMP3_BETA_X5.csv"
+          },
+          {
+            "ts": "2026-08-02T19:48:45Z",
+            "bot": "beta",
+            "cycle": 569,
+            "action": "skip",
+            "intention": "pas d'opportunite — discipline (radar bloque)",
+            "direction": null,
+            "conf": 0.0,
+            "exit": "radar_block",
+            "meta": {
+              "size_note": null,
+              "tension": 1.662e-05
+            },
+            "file": "NUAGE_TEST_8H_CMP3_BETA_X5.csv"
+          },
+          {
+            "ts": "2026-08-02T19:48:56Z",
+            "bot": "beta",
+            "cycle": 570,
+            "action": "skip",
+            "intention": "pas d'opportunite — discipline (radar bloque)",
+            "direction": null,
+            "conf": 0.3493,
+            "exit": "radar_block",
+            "meta": {
+              "size_note": null,
+              "tension": 0.0
+            },
+            "file": "NUAGE_TEST_8H_CMP3_BETA_X5.csv"
+          },
+          {
+            "ts": "2026-08-02T19:49:05Z",
+            "bot": "beta",
+            "cycle": 571,
+            "action": "skip",
+            "intention": "pas d'opportunite — discipline (radar bloque)",
+            "direction": null,
+            "conf": 0.3493,
+            "exit": "radar_block",
+            "meta": {
+              "size_note": null,
+              "tension": 0.0
+            },
+            "file": "NUAGE_TEST_8H_CMP3_BETA_X5.csv"
+          },
+          {
+            "ts": "2026-08-02T19:49:16Z",
+            "bot": "beta",
+            "cycle": 572,
+            "action": "skip",
+            "intention": "pas d'opportunite — discipline (radar bloque)",
+            "direction": null,
+            "conf": 0.3493,
+            "exit": "radar_block",
+            "meta": {
+              "size_note": null,
+              "tension": 0.0
+            },
+            "file": "NUAGE_TEST_8H_CMP3_BETA_X5.csv"
+          },
+          {
+            "ts": "2026-08-02T19:49:32Z",
+            "bot": "beta",
+            "cycle": 573,
+            "action": "skip",
+            "intention": "pas d'opportunite — discipline (radar bloque)",
+            "direction": null,
+            "conf": 0.3493,
+            "exit": "radar_block",
+            "meta": {
+              "size_note": null,
+              "tension": 0.0
+            },
+            "file": "NUAGE_TEST_8H_CMP3_BETA_X5.csv"
+          },
+          {
+            "ts": "2026-08-02T19:49:48Z",
+            "bot": "beta",
+            "cycle": 574,
+            "action": "skip",
+            "intention": "pas d'opportunite — discipline (radar bloque)",
+            "direction": null,
+            "conf": 0.3493,
+            "exit": "radar_block",
+            "meta": {
+              "size_note": null,
+              "tension": 0.0
+            },
+            "file": "NUAGE_TEST_8H_CMP3_BETA_X5.csv"
+          },
+          {
+            "ts": "2026-08-02T19:50:04Z",
+            "bot": "beta",
+            "cycle": 575,
+            "action": "skip",
+            "intention": "pas d'opportunite — discipline (radar bloque)",
+            "direction": null,
+            "conf": 0.0008,
+            "exit": "radar_block",
+            "meta": {
+              "size_note": null,
+              "tension": 0.00049615
+            },
+            "file": "NUAGE_TEST_8H_CMP3_BETA_X5.csv"
+          },
+          {
+            "ts": "2026-08-02T19:50:19Z",
+            "bot": "beta",
+            "cycle": 576,
+            "action": "skip",
+            "intention": "pas d'opportunite — discipline (radar bloque)",
+            "direction": null,
+            "conf": 0.3493,
+            "exit": "radar_block",
+            "meta": {
+              "size_note": null,
+              "tension": 0.0
+            },
+            "file": "NUAGE_TEST_8H_CMP3_BETA_X5.csv"
+          },
+          {
+            "ts": "2026-08-02T19:50:34Z",
+            "bot": "beta",
+            "cycle": 577,
+            "action": "skip",
+            "intention": "pas d'opportunite — discipline (radar bloque)",
+            "direction": null,
+            "conf": 0.0,
+            "exit": "radar_block",
+            "meta": {
+              "size_note": null,
+              "tension": 1.675e-05
+            },
+            "file": "NUAGE_TEST_8H_CMP3_BETA_X5.csv"
+          },
+          {
+            "ts": "2026-08-02T19:50:53Z",
+            "bot": "beta",
+            "cycle": 578,
+            "action": "skip",
+            "intention": "pas d'opportunite — discipline (radar bloque)",
+            "direction": null,
+            "conf": 0.0055,
+            "exit": "radar_block",
+            "meta": {
+              "size_note": null,
+              "tension": 0.00329032
+            },
+            "file": "NUAGE_TEST_8H_CMP3_BETA_X5.csv"
+          },
+          {
+            "ts": "2026-08-02T19:51:33Z",
+            "bot": "beta",
+            "cycle": 579,
+            "action": "skip",
+            "intention": "pas d'opportunite — discipline (radar bloque)",
+            "direction": null,
+            "conf": 0.0179,
+            "exit": "radar_block",
+            "meta": {
+              "size_note": null,
+              "tension": 0.01074988
+            },
+            "file": "NUAGE_TEST_8H_CMP3_BETA_X5.csv"
+          },
+          {
+            "ts": "2026-08-02T19:51:42Z",
+            "bot": "beta",
+            "cycle": 580,
+            "action": "skip",
+            "intention": "pas d'opportunite — discipline (radar bloque)",
+            "direction": null,
+            "conf": 0.3493,
+            "exit": "radar_block",
+            "meta": {
+              "size_note": null,
+              "tension": 0.0
+            },
+            "file": "NUAGE_TEST_8H_CMP3_BETA_X5.csv"
+          },
+          {
+            "ts": "2026-08-02T19:51:52Z",
+            "bot": "beta",
+            "cycle": 581,
+            "action": "skip",
+            "intention": "pas d'opportunite — discipline (radar bloque)",
+            "direction": null,
+            "conf": 0.0,
+            "exit": "radar_block",
+            "meta": {
+              "size_note": null,
+              "tension": 1.675e-05
+            },
+            "file": "NUAGE_TEST_8H_CMP3_BETA_X5.csv"
+          },
+          {
+            "ts": "2026-08-02T19:52:07Z",
+            "bot": "beta",
+            "cycle": 582,
+            "action": "skip",
+            "intention": "pas d'opportunite — discipline (radar bloque)",
+            "direction": null,
+            "conf": 0.0,
+            "exit": "radar_block",
+            "meta": {
+              "size_note": null,
+              "tension": 2.512e-05
+            },
+            "file": "NUAGE_TEST_8H_CMP3_BETA_X5.csv"
+          },
+          {
+            "ts": "2026-08-02T19:52:48Z",
+            "bot": "beta",
+            "cycle": 583,
+            "action": "skip",
+            "intention": "pas d'opportunite — discipline (radar bloque)",
+            "direction": null,
+            "conf": 0.0435,
+            "exit": "radar_block",
+            "meta": {
+              "size_note": null,
+              "tension": 0.02616231
+            },
+            "file": "NUAGE_TEST_8H_CMP3_BETA_X5.csv"
+          },
+          {
+            "ts": "2026-08-02T19:53:07Z",
+            "bot": "beta",
+            "cycle": 584,
+            "action": "skip",
+            "intention": "pas d'opportunite — discipline (radar bloque)",
+            "direction": null,
+            "conf": 0.3493,
+            "exit": "radar_block",
+            "meta": {
+              "size_note": null,
+              "tension": 0.0
+            },
+            "file": "NUAGE_TEST_8H_CMP3_BETA_X5.csv"
+          },
+          {
+            "ts": "2026-08-02T19:53:40Z",
+            "bot": "beta",
+            "cycle": 585,
+            "action": "skip",
+            "intention": "pas d'opportunite — discipline (radar bloque)",
+            "direction": null,
+            "conf": 0.0092,
+            "exit": "radar_block",
+            "meta": {
+              "size_note": null,
+              "tension": 0.00551842
+            },
+            "file": "NUAGE_TEST_8H_CMP3_BETA_X5.csv"
+          }
+        ],
+        "counts": {
+          "wait": 181,
+          "fire": 0,
+          "probe": 33,
+          "skip": 3374
+        },
+        "direction": {
+          "long": 22,
+          "short": 11
+        },
+        "revenge": 0
+      }
+    },
+    "story": [
+      "BETA a sonde le marche (33 sondes, 22 long / 11 court, conf moyenne 0.93) — il renseigne Alpha.",
+      "ALPHA attend son moment : 3305 skips (discipline), le mur du carnet ne s'effondre pas.",
+      "ALPHA a frappe 4 fois en embuscade (13x) (dont 2 en mode revenge 1.5x) : -9.29 $ — session difficile, tous les tirs dans le rouge."
+    ]
+  },
+  "saison": {
+    "ts": "2026-08-12T00:11:54.993992+00:00",
+    "saison": "CALME",
+    "emoji": "🧊",
+    "direction": "long",
+    "bascule": false,
+    "bascule_raison": "",
+    "alignement": {
+      "nb_long": 2,
+      "nb_short": 1,
+      "score": 0.33,
+      "direction": "long"
+    },
+    "indices": {
+      "temperature": {
+        "direction": "neutre",
+        "force": 0,
+        "brut": "ok"
+      },
+      "pouls": {
+        "direction": "neutre",
+        "force": 0,
+        "brut": 0.0001
+      },
+      "bassin": {
+        "direction": "long",
+        "force": 1,
+        "brut": "up"
+      },
+      "vortex": {
+        "direction": "short",
+        "force": 1,
+        "brut": -0.54
+      },
+      "essaim": {
+        "direction": "long",
+        "force": 2,
+        "brut": 1.804
+      },
+      "baleines": {
+        "direction": "neutre",
+        "force": 0,
+        "brut": 0
+      }
+    },
+    "story": [
+      "SAISON : CALME 🧊 — hiver, ADA dort.",
+      "Alignement : 2 haussiers / 1 baissiers.",
+      "Le vent se lève (-0.54 % sur 24h) — pas encore un vortex."
+    ],
+    "sources": [
+      "live.json"
+    ],
+    "degraded": false
   }
 }
