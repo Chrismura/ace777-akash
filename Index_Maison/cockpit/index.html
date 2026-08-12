@@ -186,6 +186,12 @@ body::after{
 .ada-decl{font-size:.62rem;color:var(--red);letter-spacing:.08em;margin-top:6px}
 .ada-meta{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:8px;font-size:.66rem;color:var(--muted);letter-spacing:.04em}
 .ada-meta b{color:#c9d4de;font-weight:600}
+.ada-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px}
+.ada-snd-btn{background:transparent;border:1px solid var(--line);border-radius:99px;padding:2px 9px;font-size:.78rem;cursor:pointer;color:var(--amber2);line-height:1.2}
+.ada-snd-btn:hover{border-color:var(--amber2);box-shadow:0 0 8px rgba(240,160,32,.35)}
+.ada-snd-btn.off{opacity:.45}
+.ada-snd-btn.pulse{animation:adaSndPulse 1.6s ease-in-out infinite}
+@keyframes adaSndPulse{0%,100%{box-shadow:0 0 0 rgba(240,160,32,0)}50%{box-shadow:0 0 10px rgba(240,160,32,.55)}}
 #stage-board{grid-template-columns:1fr}
 #stage-board .board-frame{padding:0;overflow:hidden;min-height:72vh}
 #stage-board iframe{display:block;width:100%;height:min(86vh,1100px);border:0;background:#070a0c}
@@ -285,6 +291,7 @@ body::after{
   font-family:Orbitron,sans-serif}
 .offre-fiche .of-f{color:var(--acid)}
 .offre-fiche .of-x{color:var(--red)}
+.offre-fiche .of-avis{margin-top:7px;border-top:1px solid rgba(255,255,255,.06);padding-top:4px}
 .disc-fiche{display:none;margin:2px 0 8px;padding:6px 9px;background:#0d1410;
   border:1px solid rgba(240,160,32,.35);border-radius:4px;font-size:.64rem;
   line-height:1.5;color:#c9c2ae}
@@ -1249,7 +1256,9 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
   <section id="stage-thermo" class="stage">
     <!-- ADA COUP D'ŒIL — bannière (emplacement provisoire, recadrage cockpit à venir) -->
     <div class="card ada-card" id="ada-card">
-      <h2>ADA 👁 COUP D'ŒIL</h2>
+      <h2 class="ada-head">ADA 👁 COUP D'ŒIL
+        <button type="button" id="ada-sound-btn" class="ada-snd-btn" title="Son ADA — veilleuse douce, puis montée progressive jusqu'à la sirène">🔊</button>
+      </h2>
       <div id="ada-coup-doeil">ADA en observation…</div>
     </div>
     <div class="card">
@@ -1860,6 +1869,76 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
     ].filter(Boolean);
   }
 
+  // ===== ADA SOUNDS — veilleuse douce → montée progressive → sirène (Web Audio, zéro fichier) =====
+  let ADA_AUDIO = null;
+  let ADA_SND = {
+    on: (function(){ try { return localStorage.getItem('adaSound') !== 'off'; } catch(e){ return true; } })(),
+    ever: (function(){ try { return localStorage.getItem('adaSoundEver') === '1'; } catch(e){ return false; } })(),
+    zone: 'VERT', sirene: false, last: 0
+  };
+  function adaSoundInit(){
+    if (ADA_AUDIO){ if (ADA_AUDIO.state === 'suspended') ADA_AUDIO.resume(); return; }
+    try {
+      const C = window.AudioContext || window.webkitAudioContext;
+      if (!C) return;
+      ADA_AUDIO = new C();
+      if (ADA_AUDIO.resume) ADA_AUDIO.resume();
+    } catch(e){ ADA_AUDIO = null; }
+  }
+  function adaSoundUpdate(zone, sirene){
+    ADA_SND.zone = zone || 'VERT';
+    ADA_SND.sirene = !!sirene;
+  }
+  function adaSoundBlip(){
+    if (!ADA_AUDIO || !ADA_SND.on) return;
+    const t = ADA_AUDIO.currentTime;
+    const z = ADA_SND.zone;
+    // Cadence + fréquence + volume : ESCALADE PROGRESSIVE (veilleuse d'abord, jamais de saut)
+    let interval = 4000, freq = 220, vol = 0.025, type = 'sine'; // VERT = veilleuse, très doux
+    if (ADA_SND.sirene){ interval = 420; freq = 700; vol = 0.09; type = 'triangle'; }        // SIRÈNE : hululement doux (pas de crise cardiaque)
+    else if (z === 'PRENDS_LA_PERTE'){ interval = 650; freq = 440; vol = 0.085; }
+    else if (z === 'ROUGE'){ interval = 950; freq = 392; vol = 0.07; }
+    else if (z === 'JAUNE'){ interval = 2400; freq = 330; vol = 0.05; }
+    if (t - ADA_SND.last < interval / 1000) return;
+    ADA_SND.last = t;
+    try {
+      const o = ADA_AUDIO.createOscillator();
+      const g = ADA_AUDIO.createGain();
+      o.type = type;
+      o.frequency.setValueAtTime(ADA_SND.sirene ? 660 : freq, t);
+      if (ADA_SND.sirene) o.frequency.linearRampToValueAtTime(990, t + 0.3);
+      g.gain.setValueAtTime(0, t);
+      g.gain.linearRampToValueAtTime(vol, t + 0.04);
+      g.gain.exponentialRampToValueAtTime(0.0001, t + 0.6);
+      o.connect(g); g.connect(ADA_AUDIO.destination);
+      o.start(t); o.stop(t + 0.7);
+    } catch(e){}
+  }
+  function adaSoundToggle(){
+    // PREMIER clic : on ACTIVE toujours le son (jamais couper au premier clic — piège du bouton)
+    if (!ADA_SND.ever){
+      ADA_SND.ever = true;
+      ADA_SND.on = true;
+      try { localStorage.setItem('adaSoundEver', '1'); localStorage.setItem('adaSound', 'on'); } catch(e){}
+    } else {
+      ADA_SND.on = !ADA_SND.on;
+      try { localStorage.setItem('adaSound', ADA_SND.on ? 'on' : 'off'); } catch(e){}
+    }
+    adaSoundInit();
+    const btn = document.getElementById('ada-sound-btn');
+    if (btn){ btn.textContent = ADA_SND.on ? '🔊' : '🔇'; btn.classList.toggle('off', !ADA_SND.on); btn.classList.remove('pulse'); }
+    // Bip de confirmation — on ne touche PAS à la zone courante (sinon alarme muette 10 s)
+    if (ADA_SND.on && ADA_AUDIO){ ADA_SND.last = 0; adaSoundBlip(); }
+  }
+  const _adaBtn = document.getElementById('ada-sound-btn');
+  if (_adaBtn){ _adaBtn.addEventListener('click', adaSoundToggle); _adaBtn.classList.add('pulse'); }
+  setInterval(adaSoundBlip, 200);
+  document.addEventListener('pointerdown', function once(){
+    adaSoundInit();
+    const btn = document.getElementById('ada-sound-btn');
+    if (btn){ btn.textContent = ADA_SND.on ? '🔊' : '🔇'; btn.classList.toggle('off', !ADA_SND.on); btn.classList.remove('pulse'); }
+  }, { once: true });
+
   function renderADA(){
     const g = M.gardienne || {};
     const cd = M.coup_doeil || {};
@@ -1869,6 +1948,7 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
     const col = (zone==='ROUGE'||zone==='PRENDS_LA_PERTE') ? 'var(--red)'
                : zone==='JAUNE' ? 'var(--amber2)' : 'var(--acid)';
     const sirene = !!g.sirene;
+    adaSoundUpdate(zone, sirene);
     const voilure = (g.voilure_pct!=null) ? Number(g.voilure_pct) : null;
     const ligne = cd.ligne || "ADA en observation — pas encore de coup d'oeil.";
     const decl = (g.declencheurs && g.declencheurs.length) ? g.declencheurs.join(' · ') : '';
@@ -3546,6 +3626,12 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
         .finally(() => clearTimeout(timer));
     }
 
+    function esc(s) {
+      // Échappement HTML (XSS) : toute donnée scrapée ou générée par IA passant par innerHTML
+      return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+    }
+
     function nomCourt(section) {
       return section
         .replace(/\(:free\)/g, '')
@@ -3691,7 +3777,7 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
                   ? '<input type="checkbox" class="offre-coche" value="' + offre.item.replace(/"/g, '&quot;') + '">'
                   : '<input type="checkbox" class="offre-coche" disabled title="Découverte, pas encore évaluable automatiquement">';
                 label.innerHTML = box +
-                  '<span class="offre-item' + (testable ? '' : ' offre-item-mute') + '">' + offre.item + '</span>' +
+                  '<span class="offre-item' + (testable ? '' : ' offre-item-mute') + '">' + esc(offre.item) + '</span>' +
                   (testable ? '' : '<span class="offre-note">découverte</span>');
                 container.appendChild(label);
                 // --- fiche explicative au clic (aide au choix) ---
@@ -3699,10 +3785,13 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
                 ficheEl.className = 'offre-fiche';
                 if (offre.fiche) {
                   const f = offre.fiche;
-                  ficheEl.innerHTML = '<div class="of-t">' + (f.type || 'Offre') + '</div>' +
-                    '<div class="of-l">Points forts</div><div class="of-f">' + (f.forts || []).join(' · ') + '</div>' +
-                    '<div class="of-l">Points faibles</div><div class="of-x">' + (f.faibles || f.failles || []).join(' · ') + '</div>' +
-                    '<div class="of-l">Pour quoi l\'utiliser</div><div>' + (f.usage || '') + '</div>';
+                  // esc() : texte scrapé + IA injecté via innerHTML -> échappement XSS obligatoire
+                  ficheEl.innerHTML = '<div class="of-t">' + esc(f.type || 'Offre') + '</div>' +
+                    '<div class="of-l">Points forts</div><div class="of-f">' + (f.forts || []).map(esc).join(' · ') + '</div>' +
+                    '<div class="of-l">Points faibles</div><div class="of-x">' + (f.faibles || f.failles || []).map(esc).join(' · ') + '</div>' +
+                    '<div class="of-l">Pour quoi l\'utiliser</div><div>' + esc(f.usage || '') + '</div>' +
+                    (f.avis_pour ? '<div class="of-l of-avis">🎯 Pourquoi l\'essayer</div><div class="of-f">' + esc(f.avis_pour) + '</div>' : '') +
+                    (f.avis_attention ? '<div class="of-l of-avis">⚠️ Attention</div><div class="of-x">' + esc(f.avis_attention) + '</div>' : '');
                 }
                 container.appendChild(ficheEl);
                 label.style.cursor = 'pointer';

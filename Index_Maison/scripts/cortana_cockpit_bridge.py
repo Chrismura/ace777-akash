@@ -11,6 +11,7 @@ CORS ouvert pour file:// cockpit.
 from __future__ import annotations
 
 import glob
+import hashlib
 import json
 import os
 import subprocess
@@ -888,75 +889,61 @@ def _dernier_rapport_veille(date_du_jour: str) -> tuple:
     return None, None
 
 
-def _fiche_offre(section: str, item: str) -> dict:
-    """Fiche vulgarisée d'une offre (mots-clés, premier match gagne).
-    Aide Christophe (non expert) à comprendre : type, forces, faiblesses, usage."""
-    s = (section or "").lower()
-    i = (item or "").lower()
-    if "coder" in i or "code" in i or "deepseek-coder" in i:
-        return {"type": "Modèle de codage",
-                "forts": ["Écrit et corrige du code", "Bon pour nos scripts Python"],
-                "faibles": ["Pas fait pour la conversation générale"],
-                "usage": "Pour faire coder les scripts de la maison (via le hub)"}
-    if "nvidia" in s or "nim" in s:
-        return {"type": "Fournisseur NVIDIA NIM",
-                "forts": ["Modèles d'entreprise hébergés", "Stable, bonne disponibilité"],
-                "faibles": ["Selon les quotas gratuits du jour"],
-                "usage": "Source fiable pour l'analyse et le jugement (ex. le Juge)"}
-    if "openrouter" in s:
-        return {"type": "Passerelle d'API multi-modèles",
-                "forts": ["Accès à beaucoup de modèles avec une seule clé"],
-                "faibles": ["Certains modèles gratuits saturés ou supprimés sans prévenir"],
-                "usage": "Découvrir de nouveaux modèles sans créer 10 comptes"}
-    if "gemini" in i:
-        return {"type": "Modèle Google (analyste)",
-                "forts": ["Très bon pour analyser, résumer, donner un avis structuré"],
-                "faibles": ["Quota gratuit limité par jour"],
-                "usage": "L'analyste de la famille : avis large et risques"}
-    if "grok" in i:
-        return {"type": "Modèle xAI Grok",
-                "forts": ["Réponses directes, peu de blabla", "Bon en code et en analyse"],
-                "faibles": ["Gratuité par quotas (voir usage du hub)"],
-                "usage": "Actuellement notre codeur principal (task code.ia)"}
-    if "deepseek" in i:
-        return {"type": "Modèle DeepSeek",
-                "forts": ["Costaud en logique et technique"],
-                "faibles": ["Pas toujours très verbeux"],
-                "usage": "L'expert technique de la famille : cohérence et faisabilité"}
-    if "qwen" in i:
-        return {"type": "Modèle Qwen (Alibaba)",
-                "forts": ["Bon rapport qualité/coût, bon en code"],
-                "faibles": ["Moins connu, documentation inégale"],
-                "usage": "Alternative au codeur si Grok est saturé"}
-    if "mistral" in i:
-        return {"type": "Modèle Mistral (français)",
-                "forts": ["Français natif, bonne compréhension du contexte"],
-                "faibles": ["Taille de contexte parfois limitée"],
-                "usage": "Bon pour du français naturel"}
-    if "juge" in i or "judge" in i:
-        return {"type": "Modèle Juge (arbitre)",
-                "forts": ["Tranche les débats, verdict clair"],
-                "faibles": ["Avis court, pas de détail"],
-                "usage": "L'arbitre de la famille : décision finale"}
-    if "flash" in i or "lite" in i:
-        return {"type": "Modèle rapide et léger",
-                "forts": ["Réponse très rapide, peu cher"],
-                "faibles": ["Moins profond que les gros modèles"],
-                "usage": "Pour le chat rapide et les petits traitements"}
-    if "groq" in s:
-        return {"type": "Fournisseur ultra-rapide",
-                "forts": ["Réponses en une fraction de seconde"],
-                "faibles": ["Modèles limités au catalogue Groq"],
-                "usage": "Quand la vitesse compte (chat, tri)"}
-    if "claude" in i:
-        return {"type": "Modèle Anthropic",
-                "forts": ["Très bon en compréhension fine et code"],
-                "faibles": ["Gratuité rare / quota limité"],
-                "usage": "Un très bon généraliste si dispo"}
-    return {"type": "Offre IA à découvrir",
-            "forts": ["À évaluer — disponible gratuitement aujourd'hui"],
-            "faibles": ["Pas encore classée par nos règles"],
-            "usage": "Coche-la pour la tester en conditions réelles"}
+FICHES_CACHE_PATH = Path.home() / "ace777-test-day1/Index_Maison/strategie/FICHES_OFFRES.json"
+FICHES_GEN_SCRIPT = Path.home() / "ace777-test-day1/Index_Maison/scripts/fiches_offres.py"
+
+
+def _sha12(section: str, item: str) -> str:
+    """Clé stable d'une offre (section|item -> sha1 12 hex)."""
+    return hashlib.sha1(f"{section}|{item}".encode("utf-8")).hexdigest()[:12]
+
+
+def _charger_cache_fiches() -> dict:
+    """Charge FICHES_OFFRES.json -> dict des fiches (jamais d'exception)."""
+    if not FICHES_CACHE_PATH.exists():
+        return {}
+    try:
+        with open(FICHES_CACHE_PATH, "r", encoding="utf-8") as f:
+            data = json.load(f)
+            return data.get("fiches", {}) if isinstance(data, dict) else {}
+    except Exception:
+        return {}
+
+
+def _quota_fiches_epuise() -> bool:
+    """True si les 8 fiches du jour (UTC) sont déjà générées — évite de
+    lancer le générateur pour rien à chaque poll du cockpit."""
+    try:
+        if not FICHES_CACHE_PATH.exists():
+            return False
+        with open(FICHES_CACHE_PATH, "r", encoding="utf-8") as f:
+            data = json.load(f)
+        jour = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+        return (data.get("jours") or {}).get(jour, 0) >= 8
+    except Exception:
+        return False
+
+
+def _lancer_generateur_fiches_detache():
+    """Lance fiches_offres.py en arrière-plan (jamais bloquant, anti-relance)."""
+    if not FICHES_GEN_SCRIPT.exists():
+        return
+    if _quota_fiches_epuise():
+        return  # quota du jour atteint — ne pas relancer pour rien
+    try:
+        res = subprocess.run(["pgrep", "-f", "fiches_offres.py"],
+                             capture_output=True, text=True, timeout=5)
+        if res.stdout.strip():
+            return  # déjà en cours
+    except Exception:
+        pass
+    try:
+        with open("/tmp/fiches_offres.log", "a") as out, \
+             open("/tmp/fiches_offres.err.log", "a") as err:
+            subprocess.Popen([sys.executable, str(FICHES_GEN_SCRIPT)],
+                             stdout=out, stderr=err, start_new_session=True)
+    except Exception as e:
+        print(f"[WARN] Impossible de lancer fiches_offres.py : {e}")
 
 
 def do_offres() -> dict:
@@ -1019,10 +1006,25 @@ def do_offres() -> dict:
     except Exception:
         pass  # non fatal
 
-    # === CHANTIER A : fiches explicatives (aide au choix pour Christophe) ===
+    # === CHANTIER A v2 : fiches UNIQUES générées par l'IA du hub (cache, non bloquant) ===
+    fiches_cache = _charger_cache_fiches()
+    offres_en_attente = False
     for offre in offres:
-        if "fiche" not in offre:
-            offre["fiche"] = _fiche_offre(offre.get("section", ""), offre.get("item", ""))
+        section = offre.get("section", "")
+        item = offre.get("item", "")
+        cle = _sha12(section, item)
+        if cle in fiches_cache:
+            offre["fiche"] = fiches_cache[cle]
+        else:
+            offre["fiche"] = {
+                "type": "⏳ Analyse en attente (max 8/jour)",
+                "forts": ["Fiche générée par l'IA au prochain passage"],
+                "faibles": ["Pas encore analysée"],
+                "usage": "Recharge l'onglet dans quelques minutes",
+                "avis_pour": "",
+                "avis_attention": "",
+            }
+            offres_en_attente = True
     for n, s in sections.items():
         if not s.get("testable") and "fiche" not in s:
             s["fiche"] = {
@@ -1031,6 +1033,8 @@ def do_offres() -> dict:
                 "faibles": ["Inconnu — à vérifier avant de s'y fier"],
                 "usage": "À explorer une fois par jour (7h) pour ne rien rater",
             }
+    if offres_en_attente:
+        _lancer_generateur_fiches_detache()
 
     total = sum(s["count"] for s in sections.values())
     return {
