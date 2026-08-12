@@ -260,10 +260,10 @@ def generer_rapport_markdown(r1, r2, r3, r4, r5):
     if (md5_actuel == md5_champion and md5_actuel.startswith('37fca367')
             and barriere_presente and nb_timeouts > 0
             and isinstance(pnl_min, dict) and pnl_min_val != 'N/A' and pnl_min_val < 0):
-        verdict_scelle = "OUI (md5 actif == md5 champion 37fca367, vérifié cryptographiquement)"
+        verdict_scelle = "PARTIEL — md5 actif == 37fca367 (version AVEC barrière), mais le champion 204206 du 10/07 tournait SANS barrière (≈9fe9f105, d'après le coffre)"
         verdict_bonnet = "OUI (le diff prouve l'absence de duo_hunter_phase_barrier dans 9fe9f105)"
         verdict_chrono = "OUI, cohérente avec les données (timeouts > 0, trade négatif trouvé, dormance 14/07)"
-        verdict_global = "CHRONOLOGIE COHÉRENTE & PROUVÉE"
+        verdict_global = "CHRONOLOGIE COHÉRENTE & PROUVÉE — mais moteur scellé = version avec barrière (à valider avec l'utilisateur)"
     else:
         verdict_scelle = "NON VÉRIFIABLE (données incomplètes ou contradictoires)"
         verdict_bonnet = "NON VÉRIFIABLE (diff absent ou invalide)"
@@ -342,7 +342,7 @@ Contenu de `REFERENCE.txt` (Aperçu) :
 {r3.get('bonnet_dossier_ref', {}).get('contenu', 'Vide')}
 ```
 
-> **Note d'interprétation (importante) :** le `REFERENCE.txt` du dossier `bonnet_forme_champion/` prétend que le champion a tourné « genesis sans barrière ». Or le manifeste DE CE DOSSIER a le md5 `9fe9f105` (sans barrière), alors que le champion scellé actif a le md5 `37fca367` (AVEC barrière). Ce dossier est le paquet que l'agent Cursor a fourni le 12/07 en affirmant que c'était « identique » au champion — documenté comme un mensonge dans `/plaintes/RAPPORT_AUDIT_TECHNIQUE_SABOTAGE_CURSOR_20260716.md` (substitution du champion `37fca367` par `67a12f85` puis `9fe9f105`). La conclusion à retenir : le champion authentique est `37fca367` (avec barrière), et c'est bien lui qui est scellé actif aujourd'hui.
+> **Note d'interprétation (CORRIGÉE — le coffre tranche) :** le `REFERENCE.txt` du dossier `bonnet_forme_champion/` (créé le 12/07 ~12:52 pour documenter la session `204206`) dit « genesis **sans barrière**, sans PHI » — et l'analyse archivée dans `29$/historique/conversation/RESUME_CONVERSATION.md` le confirme noir sur blanc : `9fe9f105` (bonnet / 204206) = **plus proche du run +29.41$**, SANS correction barrière ; `37fca367` (SAUVE_avant_champion_restore) = `9fe9f105` **+ barrière duo ajoutée APRÈS** le 10/07 (fichier du 11/07). Donc : **le champion authentique du 10/07 tournait SANS barrière (≈`9fe9f105`)**, et `37fca367` est la version modifiée AVEC barrière — celle qui a produit les 712 BARRIER_TIMEOUT du 13/07. Le manifeste actuellement scellé actif est `37fca367` (avec barrière) : c'est un point à vérifier avec l'utilisateur (souhaitait-il sceller la version modifiée, ou le moteur exact du champion ?).
 
 ---
 
@@ -384,7 +384,7 @@ Analyse du fichier `NUAGE_PROD_4H_20260714_1829Z_LIVE_COLOR.log` :
 
 ## 6. VERDICT FINAL ET CONCLUSION DE L'AUDIT
 
-1. **Le moteur actif scellé est-il bien le champion `37fca367` ?**  
+1. **Le moteur actif scellé est-il le moteur exact du champion `204206` (+29.41$) ?**  
    *{verdict_scelle}.*
    
 2. **Le bonnet `9fe9f105` était-il différent (sans barrière) ?**  
@@ -392,10 +392,11 @@ Analyse du fichier `NUAGE_PROD_4H_20260714_1829Z_LIVE_COLOR.log` :
    
 3. **La chronologie des faits est-elle validée par les données ?**  
    *{verdict_chrono} :*
-   - **10/07 :** Référence nominale (`+29.41 USDT`, session 204206, rapport `RAPPORT_PNL_AUTO_20260710_204206.md`).
+   - **10/07 :** Référence nominale (`+29.41 USDT`, session 204206, rapport `RAPPORT_PNL_AUTO_20260710_204206.md`) — moteur **SANS barrière** (≈`9fe9f105`), ramp `start=13 end=13` (x13 fixe).
    - **12/07 :** Mise en place du paquet `bonnet_forme_champion/` (manifeste md5 `9fe9f105`, sans barrière).
-   - **13/07 :** **{nb_timeouts} BARRIER_TIMEOUT** dans `MASTER_BASE_V8_5_IMPACT_4H00_LIVE_COLOR.log`, désalignement de **{r4.get('desalignement_max', 0)} cycles**, et trade fatal ALPHA (`hunter_revenge_1.5x`, PnL minimal observé : `{pnl_min_val} USDT`).
+   - **13/07 :** **{nb_timeouts} BARRIER_TIMEOUT** dans `MASTER_BASE_V8_5_IMPACT_4H00_LIVE_COLOR.log` (moteur AVEC barrière `37fca367`), désalignement de **{r4.get('desalignement_max', 0)} cycles**, et trade fatal ALPHA (`hunter_revenge_1.5x`, PnL minimal observé : `{pnl_min_val} USDT`).
    - **14/07 :** Dormance confirmée (`mode=OFF radar_adj=0` répété {mode_off_14} fois dans `NUAGE_PROD_4H_20260714_1829Z_LIVE_COLOR.log`).
+   - **12/08 (aujourd'hui) :** le run actuel démarre en **ramp `start=5 end=13`** (pas x13 fixe comme le champion) — comportement différent, cohérent avec la sensation de l'utilisateur (plus de sortie directe x13, moins de revenge).
 
 **Verdict global : {verdict_global}**
 
