@@ -1,23 +1,22 @@
-# DIAGNOSTIC ALPHA — NUAGE_TEST_8H_CMP3
+# DIAGNOSTIC ALPHA — MASTER_VORTEX_V2_COLLAB_4H
 
-> Généré: `2026-08-12T10:24:54Z` | Verdict: **CRITIQUE — ALPHA n'a exécuté aucun trade**
+> Généré: `2026-08-12T16:59:12Z` | Verdict: **CRITIQUE — ALPHA n'a exécuté aucun trade**
 
 ## Résumé
 
 | Métrique | ALPHA | BETA (référence) |
 |----------|-------|------------------|
-| FILLED | 0 | 1 |
-| PnL net | 0.0000 USDT | -0.0047 USDT |
-| SKIP total | 546 | 584 |
+| FILLED | 0 | 11 |
+| PnL net | 0.0000 USDT | -0.0869 USDT |
+| SKIP total | 21 | 91 |
 | duo_wait | 0 (0.0% des SKIP ALPHA) | 0 |
 
 ## Entonnoir des gates — ALPHA
 
 Ordre dans `genesis_manifest.txt` : radar → tension/vacuum → tactic → stase → **duo** → qty → llm_gate → execute
 
-- `radar_block` — **539**
-- `vacuum_filter` — **4**
-- `impulse_resonance_wait` — **3**
+- `gap_guard_pause` — **20**
+- `radar_block` — **1**
 
 ## duo_wait — sous-raisons (cause #2 après radar)
 
@@ -39,9 +38,11 @@ _Aucun duo_wait._
 Revenge autorisé au-delà de `stop_loss` (shock / fluid / sentinel).
 Sorties BETA observées :
 
-- `fluid_exit_inversion` — 1 trades
+- `shock_inversion_stop` — 5 trades
+- `fluid_exit_inversion` — 4 trades
+- `fluid_exit_brake` — 2 trades
 
-- Sorties `shock_inversion_stop` : **0**
+- Sorties `shock_inversion_stop` : **5**
 - Sorties `stop_loss` : **0**
 
 
@@ -50,9 +51,9 @@ Sorties BETA observées :
 Quand le SCOUT ne rafraîchit pas `duo_state.json` dans les 60s, le HUNTER skip avec `stale_state`.
 Observé : **0** fois (0.0% des duo_wait).
 
-### 3. radar_block en amont (539 SKIP)
+### 3. radar_block en amont (1 SKIP)
 
-Même si le duo était parfait, 98.7% des cycles ALPHA meurent au radar avant d'atteindre le HUNTER.
+Même si le duo était parfait, 4.8% des cycles ALPHA meurent au radar avant d'atteindre le HUNTER.
 
 ## Paramètres duo actifs (config)
 
@@ -75,8 +76,8 @@ Même si le duo était parfait, 98.7% des cycles ALPHA meurent au radar avant d'
 
 ## Fichiers analysés
 
-- `NUAGE_TEST_8H_CMP3_ALPHA_X13_BURST13.csv`
-- `NUAGE_TEST_8H_CMP3_BETA_X5.csv`
+- `MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv`
+- `MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv`
 - `runs/duo_state.json` (état live au moment du diag)
 
 ---

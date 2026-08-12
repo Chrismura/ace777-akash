@@ -1,10 +1,10 @@
-# RAPPORT PNL AUTO — NUAGE_TEST_8H_CMP3
+# RAPPORT PNL AUTO — MASTER_VORTEX_V2_COLLAB_4H
 
-**Session:** `NUAGE_TEST_8H_CMP3`
-**Période:** 2026-08-02T18:18:24Z → 2026-08-02T19:54:01Z (1h35m)
-**Setup:** `vide_froid_binance` v`V2.2.1_NO_SUICIDE` | BETA `200` USDT | ALPHA `800` USDT | LLM gate `TRUE` fail_closed=`TRUE`
-**Généré:** 2026-08-12T10:24:54Z UTC
-**Filtre session:** `ts >= 2026-08-02T18:18:13Z` (lignes CSV antérieures exclues)
+**Session:** `MASTER_VORTEX_V2_COLLAB_4H`
+**Période:** — → — (—)
+**Setup:** `vide_froid_vortex_v2_collab` v`2026-07-10-v2.2.2-no-partner-halt` | BETA `200` USDT | ALPHA `800` USDT | LLM gate `TRUE` fail_closed=`TRUE`
+**Généré:** 2026-08-12T16:59:42Z UTC
+**Filtre session:** `ts >= 2026-08-12T16:59:39Z` (lignes CSV antérieures exclues)
 
 ---
 
@@ -12,10 +12,10 @@
 
 | Métrique | Valeur |
 |----------|--------|
-| **PNL BETA** | **-0.0047 USDT** |
+| **PNL BETA** | **+0.0000 USDT** |
 | **PNL ALPHA** | **+0.0000 USDT** |
-| **PNL SESSION TOTAL** | **-0.0047 USDT** |
-| Statut | `NEGATIF` |
+| **PNL SESSION TOTAL** | **+0.0000 USDT** |
+| Statut | `NEUTRE` |
 
 ---
 
@@ -23,32 +23,27 @@
 
 | Métrique | Valeur |
 |----------|--------|
-| Trades FILLED | 1 |
+| Trades FILLED | 0 |
 | Gagnants | 0 |
-| Perdants | 1 |
+| Perdants | 0 |
 | Flat (0) | 0 |
-| Win rate | **0.0%** |
+| Win rate | **—** |
 | Gains totaux | +0.0000 USDT |
-| Pertes totales | -0.0047 USDT |
-| **PNL net** | **-0.0047 USDT** |
-| BPS moyen | -0.05 |
+| Pertes totales | +0.0000 USDT |
+| **PNL net** | **+0.0000 USDT** |
+| BPS moyen | — |
 
-**Meilleur trade:** -0.0047 USDT
-**Pire trade:** -0.0047 USDT
-
-**Direction:** SELL (1)
+**Direction:** —
 
 **Raisons de sortie (exitReason):**
 | Raison | Nb |
 |--------|-----|
-| fluid_exit_inversion | 1 |
+| _aucun trade_ | 0 |
 
-**Cycles SKIP:** 584
+**Cycles SKIP:** 0
 | Raison | Nb |
 |--------|-----|
-| radar_block | 575 |
-| vacuum_filter | 6 |
-| impulse_resonance_wait | 3 |
+| _aucun_ | 0 |
 
 ---
 
@@ -61,12 +56,9 @@
 
 *ALPHA n'a pas exécuté de trade — vérifier duo_wait, radar, stase, llm_gate dans les SKIP.*
 
-**Cycles SKIP:** 546
+**Cycles SKIP:** 0
 | Raison | Nb |
 |--------|-----|
-| radar_block | 539 |
-| vacuum_filter | 4 |
-| impulse_resonance_wait | 3 |
 
 ---
 
@@ -74,22 +66,15 @@
 
 | Indicateur | BETA | ALPHA | TOTAL |
 |------------|------|-------|-------|
-| Trades | 1 | 0 | 1 |
-| PnL | -0.0047 | +0.0000 | **-0.0047** |
-| Win rate | 0.0% | — | 0.0% |
+| Trades | 0 | 0 | 0 |
+| PnL | +0.0000 | +0.0000 | **+0.0000** |
+| Win rate | — | — | — |
 
 ## IRM — régimes de tension (proxy, lecture seule)
 
 > Pas un modèle ARCH Engle. Classification sur `tension=` des cycles BETA. N'influence pas le moteur. Seuils: COMPRESSÉ `< 0.05` · CLUSTER `≥ 1.0` · sinon TRANSITOIRE.
 
-| Régime | Cycles | % temps | Fills | PnL fills (USDT) |
-|--------|--------|---------|-------|------------------|
-| COMPRESSÉ (attente à froid) | 563 | 96.2% | 0 | +0.0000 |
-| TRANSITOIRE (bruit retail) | 15 | 2.6% | 0 | +0.0000 |
-| CLUSTER (tension haute — proxy) | 7 | 1.2% | 1 | -0.0047 |
-
-- Fenêtre: `2026-08-02T18:18:24Z` → `2026-08-02T19:53:40Z` (585 cycles) · μ(tension)=0.0392 · σ=0.4077 · courant(proxy)=**COMPRESSÉ (attente à froid)**
-- Source: `NUAGE_TEST_8H_CMP3_BETA_X5.csv`
+*Aucun cycle dans la fenêtre session — IRM indisponible.*
 
 ## Engle — couches évolutives (hors moteur)
 
@@ -108,5 +93,5 @@
 
 ---
 
-*Rapport auto — CSV: `NUAGE_TEST_8H_CMP3_BETA_X5.csv` | `NUAGE_TEST_8H_CMP3_ALPHA_X13_BURST13.csv`*
+*Rapport auto — CSV: `MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv` | `MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv`*
 *STATE: `runs/STATE.md`*

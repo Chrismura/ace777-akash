@@ -1,59 +1,61 @@
 # ACE777 — STATE
 
 > Généré automatiquement — ne pas éditer à la main
-> Phase: `stopped` | Statut: `STOPPED` | MAJ: `2026-08-12T10:24:53Z`
+> Phase: `running` | Statut: `RUNNING` | MAJ: `2026-08-12T16:59:42Z`
 
 ## Config active
 
 | Paramètre | Valeur |
 |-----------|--------|
-| Profil | `vide_froid_binance` v`2026-07-08-setup-ready` |
+| Profil | `vide_froid_vortex_v2_collab` v`2026-07-10-v2.2.2-no-partner-halt` |
 | Masse BETA / ALPHA | `200` / `800` USDT |
 | LLM gate | enabled=`TRUE` fail_closed=`TRUE` |
 | Modèle LLM | `qwen2.5-coder:1.5b` |
-| Tag session | `NUAGE_TEST_8H_CMP3` |
+| Tag session | `MASTER_VORTEX_V2_COLLAB_4H` |
 
 ## PnL session
 
 | Unité | FILLED | Win | Loss | Win% | Net USDT | SKIP |
 |-------|--------|-----|------|------|----------|------|
-| BETA | 1 | 0 | 1 | 0.0% | -0.0047 | 584 |
-| ALPHA | 0 | 0 | 0 | 0.00% | 0.0000 | 546 |
-| **TOTAL** | **1** | — | — | — | **-0.0047** | **1130** |
+| BETA | 0 | 0 | 0 | 0.00% | 0.0000 | 0 |
+| ALPHA | 0 | 0 | 0 | 0.00% | 0.0000 | 0 |
+| **TOTAL** | **0** | — | — | — | **0.0000** | **0** |
+
+## Duo session (`duo_session.json`)
+
+- SCOUT PnL: `` USDT
+- HUNTER PnL: `` USDT
+- Total session: `` USDT
 
 ## Top SKIP — BETA
 
-1. `radar_block` — 575
-2. `vacuum_filter` — 6
-3. `impulse_resonance_wait` — 3
+_Aucun SKIP ou CSV absent._
 
 ## Top SKIP — ALPHA
 
-1. `radar_block` — 539
-2. `vacuum_filter` — 4
-3. `impulse_resonance_wait` — 3
+_Aucun SKIP ou CSV absent._
 
 ## Vortex (`vortex_control.json`)
 
 - Mode: `TREND`
-- Message: `v2_emergency_rule_trend`
-- TS: `2026-07-19T13:52:52Z`
+- Message: `v2_swarm_wind_trend`
+- TS: `2026-08-12T16:59:39Z`
 
 ## Processus
 
-- master.pid: `stopped`
-- beta.pid: `stopped`
-- alpha.pid: `stopped`
+- master.pid: `RUNNING`
+- beta.pid: `RUNNING`
+- alpha.pid: `RUNNING`
 
 ## Fichiers
 
-- BETA CSV: `NUAGE_TEST_8H_CMP3_BETA_X5.csv` (ok)
-- ALPHA CSV: `NUAGE_TEST_8H_CMP3_ALPHA_X13_BURST13.csv` (ok)
+- BETA CSV: `MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv` (ok)
+- ALPHA CSV: `MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv` (ok)
 
 ## Dernière leçon ERREURS_AI
 
-- Fichier: `COMMANDES_ARRET_ACE777.md`
-- Titre: # Commande d'arrêt ACE777
+- Fichier: `RAPPORT_INCIDENT_VIE_PRIVEE_CURSOR_BAN_20260812.md`
+- Titre: # RAPPORT D'INCIDENT — VIE PRIVÉE · QUOTA · BAN CURSOR
 
 ---
 _Généré par `scripts/update_state_md.sh`_
