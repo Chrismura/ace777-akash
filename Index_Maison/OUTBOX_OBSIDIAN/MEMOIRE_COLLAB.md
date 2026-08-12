@@ -22,6 +22,7 @@ Pour que Cursor · Punk · Cortana · Christophe sachent **ce qui a bougé**, sa
 
 | ts | Qui | Action | Où | Quoi |
 |----|-----|--------|-----|------|
+| 2026-08-12T2115Z | Buffy | ★ | audit dormance alpha | codeur a produit audit_dormance_alpha.py (compare 9-10/07 vs 14/07) : asymetrie confirmee (fills ALPHA 5.5% -> 1.7%, PnL +29.52 -> -13.25, BETA stable ~11%) ; bug filtre fenetre B corrige (fichier cumulatif polluait PnL +51.24) ; piste mode=OFF radar_adj=0 (81x le 14/07, absent le 9-10/07) a verifier ; config non verifiable (T1_console non parse) ; cadence ALPHA ralentit 1.6->1.3, BETA accelere 1.9->2.6 |
 | 2026-08-12T2057Z | Buffy | ★ | cycles_terminal | jumeau terminal du cockpit : flux cycles ALPHA/BETA avec les memes couleurs (ALPHA ambre, BETA cyan), lecture live + replay + json audit, PnL sur ligne complete, teste sur log reel (32083 lignes, ALPHA +161.45 BETA +8.00) |
 | 2026-08-12T1853Z | journal_soir | ★ | journal | snapshot soir auto |
 | 2026-08-12T1845Z | Buffy | ★ | archi: Buffy superviseur | ajout zone ORCHESTRATION (vue humaine) + composant BUFFY superviseur/chief scientist + correction Orchestrator ABSENT -> SESSION (tech.html + ARCHITECTURE_TECH.md) |
