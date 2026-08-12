@@ -912,26 +912,6 @@ gap_guard_check() {
   return 0
 }
 
-# Barrière de phase dynamique HUNTER : attend BETA (SCOUT) si en avance de cycle
-duo_hunter_phase_barrier() {
-  local alpha_cycle="$1"
-  local beta_cycle barrier_wait
-  duo_is_hunter || return 0
-  duo_enabled || return 0
-  barrier_wait=0
-  while :; do
-    swarm_neighbor_load "$alpha_cycle"
-    beta_cycle="$(to_int "${swarm_neighbor_cycle:-0}")"
-    [ "$alpha_cycle" -le "$beta_cycle" ] && break
-    if [ "$barrier_wait" -ge 200 ]; then
-      echo "[BARRIER_TIMEOUT] BETA en retard, ouverture forcée de la barrière au cycle ${alpha_cycle}"
-      break
-    fi
-    sleep 0.01
-    barrier_wait=$((barrier_wait + 1))
-  done
-}
-
 # Pause sécurité si le partenaire duo ne pulse plus (essaim ts_ms > seuil)
 duo_partner_guard_check() {
   local cycle="$1"
@@ -1507,7 +1487,6 @@ dopamine_state="neutral"
 for i in $(seq 1 "$CYCLES"); do
   dynamic_size_note="na"
   phase_shift_step_override=""
-  duo_hunter_phase_barrier "$i"
   if duo_global_stop_hit; then
     echo "${C_R}STOP global session detected. Stopping at cycle $i.${C_N}"
     break

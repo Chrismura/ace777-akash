@@ -1,8 +1,8 @@
 # 👁️ SOUS L'ŒIL — Pulse machine
 
-**Date** : 2026-08-12T23:27:04+0200
+**Date** : 2026-08-13T00:28:25+0200
 **Mode** : VOL
-**Verdict** : OK
+**Verdict** : WARN
 
 ## Processus
 - ACE (GO_USINE_NUAGE) : ❌ inactif
@@ -11,10 +11,10 @@
 
 ## Ressources
 - RAM libre : 0 Mo (OK)
-- Champion (genesis_manifest) : OK
+- Champion (genesis_manifest) : FAIL
 
 ## Fraîcheur
-- Heartbeat : 3007s
+- Heartbeat : 3067s
 - LIVE : —
 
 ---

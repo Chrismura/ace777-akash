@@ -1,14 +1,14 @@
-# AVIS FAMILLE SESSION — 2026-08-12T23:26:16.868719
+# AVIS FAMILLE SESSION — 2026-08-12T23:55:10.221416
 OCCASION : alerte en cours
 
 🟡 CONSULTATION FAMILLE
 
-• GEMINI (analyste) : AVIS GEMINI — ACE777
+• GEMINI (analyste) : Avis : laisser courir. PnL positif (+2.52 $) avec une discipline exemplaire (57 skips ALPHA), aucune dérive à corriger. Le seul point de vigilance : le mur du carnet qui ne s'effondre pas et le volume x3 sur ETH — surveille un éventuel breakout, mais ne touche à rien tant que la conf BETA reste >0.90.
 
-Laisser courir. Discipline exemplaire (57 skips), PnL positif, saison calme : aucun signal de stress. Le seul angle mort : l'alerte "war" est un faux positif (procès Kalshi, pas géopolitique) — ne pas surréagir. Surveille juste le mur du carnet : si BETA voit la liquidité s'effondrer, ALPHA peut frapper plus gros.
+• DEEPSEEK (technique) : Le setup est cohérent : BETA fournit un signal de qualité (conf 0.91 sur 77 sondes) et Alpha respecte une discipline stricte (57 skips pour 1 trade). Sur macOS, le point fragile reste la latence des websockets et la gestion des ordres en temps réel si les libs ne sont pas compilées nativement. Laisser courir pour l’instant, le spike volume -0,03 % ne justifie ni réduction d’exposition ni ajustement.
 
-• DEEPSEEK (technique) : Le setup est cohérent : Alpha montre une excellente discipline (57 skips pour 1 trade) et BETA alimente avec des sondes à 0.91 de confiance. Ce qui peut casser : le filtre news est défaillant (« mot-cle: war » déclenché sur un procès Kalshi/FlightAware), ce qui risque de polluer les alertes et de fausser les décisions d’embuscade. Sur macOS, aucune action d’exposition n’est requise pour l’instant, mais corrige le parsing des news avant la prochaine session.
+• LE JUGE tranche : OUI — laisser courir, mais surveiller le mur du carnet.
 
-• LE JUGE tranche : NON — la session est saine et disciplinée : ALPHA respecte son plan (57 skips, 1 tir gagnant), BETA alimente bien, et le PnL est positif. L'alerte "war" est un faux positif (titre sur Kalshi, pas un conflit). Laisse courir, aucun ajustement nécessaire.
+La discipline d’ALPHA (57 skips) et le PnL positif (+2.52 $) valident le setup actuel. Aucun ajustement nécessaire tant que le mur ne s’effondre pas ; si le volume x3 persiste sur ETHUSDT, ALPHA peut frapper en embuscade.
 
-— Famille consultée, 12/08/2026 23:26
+— Famille consultée, 13/08/2026 00:00
