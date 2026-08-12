@@ -1065,7 +1065,6 @@ def do_signets() -> dict:
     Renvoie : résumés (triés date desc), quota du jour, nombre en attente,
     et lance le lecteur en détaché si des signets restent à analyser."""
     import pathlib
-    from urllib.parse import quote as _quote
 
     cache_path = pathlib.Path(os.path.expanduser(
         "~/ace777-test-day1/Index_Maison/strategie/SIGNETS_RESUMES.json"))
@@ -1089,23 +1088,38 @@ def do_signets() -> dict:
         "~/Documents/Obsidian_ACE777/Signets_X"))
     en_attente = 0
     connus = set(cache.get("signets", {}).keys())
+    n_fichiers = 0
+    acces_refuse = False
     try:
-        for md in signets_dir.rglob("*.md"):
-            try:
-                txt = md.read_text(encoding="utf-8", errors="ignore")
-            except Exception:
-                continue
-            m = None
-            for ligne in txt.splitlines():
-                if ligne.strip().startswith("url:"):
-                    m = ligne.split(":", 1)[1].strip().strip('"')
-                    break
-            if m:
-                cle = hashlib.sha256(m.encode("utf-8")).hexdigest()[:12]
-                if cle not in connus:
-                    en_attente += 1
+        # TCC : si le dossier existe mais est refusé par macOS, on le signale
+        # (rglob renvoie silencieusement 0 sous TCC — on détecte via iterdir)
+        try:
+            premier = next(signets_dir.iterdir(), None)
+            if premier is None:
+                acces_refuse = False
+        except PermissionError:
+            acces_refuse = True
+        except Exception:
+            acces_refuse = True
+        if not acces_refuse:
+            for md in signets_dir.rglob("*.md"):
+                n_fichiers += 1
+                try:
+                    txt = md.read_text(encoding="utf-8", errors="ignore")
+                except Exception:
+                    continue
+                m = None
+                for ligne in txt.splitlines():
+                    if ligne.strip().startswith("url:"):
+                        m = ligne.split(":", 1)[1].strip().strip('"')
+                        break
+                if m:
+                    cle = hashlib.sha256(m.encode("utf-8")).hexdigest()[:12]
+                    if cle not in connus:
+                        en_attente += 1
+            print(f"[signets] scan: {n_fichiers} fichiers, {en_attente} en attente", flush=True)
     except Exception as _e:
-        print(f"[signets] scan en_attente : {_e}")
+        print(f"[signets] scan en_attente : {_e}", flush=True)
 
     # Si des signets attendent et quota pas épuisé → lance le lecteur en détaché
     aujourdhui = datetime.now(timezone.utc).strftime("%Y-%m-%d")
@@ -1117,8 +1131,9 @@ def do_signets() -> dict:
         "ok": True,
         "total": len(signets),
         "en_attente": en_attente,
+        "acces_refuse": acces_refuse,
         "quota_jour": utilises,
-        "quota_max": 15,
+        "quota_max": 50,
         "signets": signets[:50],  # les 50 plus récents
     }
 

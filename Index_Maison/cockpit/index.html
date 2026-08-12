@@ -3911,9 +3911,14 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
             container.innerHTML = '';
             const signets = data.signets || [];
             if (dateEl) {
-              dateEl.textContent = (data.total > 0)
-                ? (data.total + ' lus · ' + (data.en_attente || 0) + ' en attente · quota ' + (data.quota_jour || 0) + '/' + (data.quota_max || 15))
-                : 'Aucun signet résumé pour l\'instant';
+              if (data.acces_refuse) {
+                dateEl.textContent = '⚠ macOS bloque la lecture du dossier Documents — accorde l\'accès complet au disque à Python (2 min, une fois)';
+                dateEl.style.color = 'var(--amber2)';
+              } else if (data.total > 0) {
+                dateEl.textContent = (data.total + ' lus · ' + (data.en_attente || 0) + ' en attente · quota ' + (data.quota_jour || 0) + '/' + (data.quota_max || 50));
+              } else {
+                dateEl.textContent = 'Aucun signet résumé pour l\'instant';
+              }
             }
             if (signets.length === 0) {
               container.innerHTML = '<div class="disc-empty">Le lecteur travaille… les résumés apparaîtront ici (15/jour).</div>';
