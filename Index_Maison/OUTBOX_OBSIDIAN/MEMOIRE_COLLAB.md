@@ -22,6 +22,7 @@ Pour que Cursor · Punk · Cortana · Christophe sachent **ce qui a bougé**, sa
 
 | ts | Qui | Action | Où | Quoi |
 |----|-----|--------|-----|------|
+| 2026-08-12T1811Z | Buffy | ★ | archi-tech 12/08 | mise a jour architecture TECH + vue humaine : hub cloud seule passerelle LLM (C9/C10), pont gate :11439, vigie, analyste, ADA, journal intention, fiches offres, signets, Cortana V2, note stricte sincere famille |
 | 2026-08-12T1734Z | Buffy | ★ | gravure 24h | synthese 24h + journal du 12 + sync Obsidian + push GitHub 77cad5d (10k fichiers) |
 | 2026-08-12T1734Z | Buffy | ★ | Index_COMMANDES | ajout GO_VORTEX_V2 (gate hub), ENCHAINER_RUN_4H_HUB, LLM_GATE_PONT_CACHE_SEC |
 | 2026-08-12T1734Z | Buffy | ★ | chantier hub | pont llm_gate_hub_bridge : gate trades -> hub (grok/gemini), cache 90s, fail-closed, preuve llm_wind, run 4h comparaison lance |

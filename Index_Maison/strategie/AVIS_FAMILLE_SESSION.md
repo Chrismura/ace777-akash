@@ -1,12 +1,12 @@
-# AVIS FAMILLE SESSION — 2026-08-12T19:22:12.833313
+# AVIS FAMILLE SESSION — 2026-08-12T20:17:49.264378
 OCCASION : alerte en cours
 
 🟡 CONSULTATION FAMILLE
 
 • GEMINI (analyste) : (injoignable)
 
-• DEEPSEEK (technique) : Le setup est cohérent : discipline Alpha (57 skips) + confirmation BETA (5/5 long, conf 0.88) avec une embuscade ciblée. Le levier 13x + mode revenge reste le point fragile sur une alerte volume x3 et micro-repli. Laissez courir pour l’instant, mais réduisez l’exposition dès que le prix repasse sous 1886 avec volume soutenu.
+• DEEPSEEK (technique) : Le setup est cohérent : BETA livre des probes fiables (conf 0.90) et ALPHA respecte sa discipline (57 skips) avant une embuscade ciblée. Ce qui peut casser : le levier 13x + revenge 1.5x sur une alerte volume x3, avec risque de slippage ou de latence API sur macOS. Faisabilité correcte si les dépendances restent cross-platform et les chemins/logs sont adaptés à macOS.
 
-• LE JUGE tranche : OUI — laisser courir, mais surveiller le mur du carnet. La discipline d’ALPHA (57 skips) et la confiance de BETA (0.88) valident le setup actuel. Aucun ajustement nécessaire tant que le mur ne s’effondre pas.
+• LE JUGE tranche : NON — laisser courir. Discipline exemplaire (57 skips), PnL positif, aucune dégradation de setup. Le mur du carnet tient, BETA continue de renseigner ALPHA : pas d'ajustement nécessaire.
 
-— Famille consultée, 12/08/2026 19:26
+— Famille consultée, 12/08/2026 20:21
