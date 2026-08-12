@@ -21,6 +21,7 @@ Pour que Cursor · Punk · Cortana · Christophe sachent **ce qui a bougé**, sa
 
 | ts | Qui | Action | Où | Quoi |
 |----|-----|--------|-----|------|
+| 2026-08-12T1218Z | Cursor | ★ | ERREURS_AI | E-20260812-1 ban Cursor lignes · rapport vie privee classe |
 | 2026-08-11T1853Z | journal_soir | ★ | journal | snapshot soir auto |
 | 2026-08-11T0510Z | session_debut | ★ | session | début mode=froid |
 | 2026-08-10T2138Z | session_debut | ★ | session | début mode=froid |

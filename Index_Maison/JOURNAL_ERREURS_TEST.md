@@ -20,6 +20,7 @@
 
 | id | sev | statut | où | quoi | repro | suite |
 |----|-----|--------|-----|------|-------|-------|
+| E-20260812-1 | P1 | **CLASSE** | Cursor / vie privée | Ban Cursor des lignes ops — clés API : scan Mac au lieu dossiers canon · quota flou · contexte chat sur question simple | Demander clés CMC/MEXC · voir dashboard tokens | [[ERREURS_AI/RAPPORT_INCIDENT_VIE_PRIVEE_CURSOR_BAN_20260812]] · ops = Terminal humain |
 | E-20260730-1 | P2 | SURVEILLÉ | cockpit OPS | PnL α parfois « bizarre » à l’œil vs intuition LIVE (CSV FILLED ≈ -4.35 OK) | Comparer `a-pnl` vs somme `pnl` CSV FILLED | Ne pas juger edge dessus · raffiner feed plus tard |
 | E-20260730-2 | P2 | OUVERT | pont Cortana | Bridge `:17777` souvent OFF après coupure / sleep | `curl 127.0.0.1:17777/status` | Lancer `cortana_cockpit_bridge.py` avant lecture |
 | E-20260730-3 | P3 | WONTFIX* | thermo free | LIQ 24h / ETF souvent n/d | BOARD pills LIQ/ETF | Free API flaky · pas bloquant (*tant que free) |
