@@ -1,0 +1,365 @@
+{
+  "project_id": "proj_b7f6e9938e9f",
+  "name": "simu-btc-fed-1",
+  "status": "graph_completed",
+  "created_at": "2026-08-08T14:33:35.127018",
+  "updated_at": "2026-08-08T14:36:23.461118",
+  "files": [
+    {
+      "filename": "seed_btc.md",
+      "size": 1676
+    }
+  ],
+  "total_text_length": 1654,
+  "ontology": {
+    "entity_types": [
+      {
+        "name": "RetailTrader",
+        "description": "Individual retail investors trading cryptocurrency with personal savings",
+        "attributes": [
+          {
+            "name": "full_name",
+            "type": "text",
+            "description": "The real name of the retail trader"
+          },
+          {
+            "name": "trading_position",
+            "type": "text",
+            "description": "Current market position such as long or short"
+          }
+        ],
+        "examples": [
+          "Lucas Moreau"
+        ]
+      },
+      {
+        "name": "MacroAnalyst",
+        "description": "Financial analysts specializing in macroeconomic trends and asset allocation",
+        "attributes": [
+          {
+            "name": "full_name",
+            "type": "text",
+            "description": "The name of the macro analyst"
+          },
+          {
+            "name": "employer_name",
+            "type": "text",
+            "description": "The financial institution or fund employing the analyst"
+          }
+        ],
+        "examples": [
+          "Sophie Lambert"
+        ]
+      },
+      {
+        "name": "HedgeFundManager",
+        "description": "Managers of speculative funds focusing on crypto or traditional assets",
+        "attributes": [
+          {
+            "name": "full_name",
+            "type": "text",
+            "description": "The name of the fund manager"
+          },
+          {
+            "name": "strategy_focus",
+            "type": "text",
+            "description": "The primary investment strategy or asset class"
+          }
+        ],
+        "examples": [
+          "Marc Dubois"
+        ]
+      },
+      {
+        "name": "CryptoMiner",
+        "description": "Entrepreneurs or entities engaged in cryptocurrency mining operations",
+        "attributes": [
+          {
+            "name": "full_name",
+            "type": "text",
+            "description": "The name of the miner or entrepreneur"
+          },
+          {
+            "name": "holding_status",
+            "type": "text",
+            "description": "Details about Bitcoin holdings and operational costs"
+          }
+        ],
+        "examples": [
+          "Amina Diallo"
+        ]
+      },
+      {
+        "name": "CentralBank",
+        "description": "Monetary authorities responsible for interest rates and monetary policy",
+        "attributes": [
+          {
+            "name": "institution_name",
+            "type": "text",
+            "description": "The official name of the central bank"
+          },
+          {
+            "name": "policy_stance",
+            "type": "text",
+            "description": "Current monetary policy direction such as rate cut or hike"
+          }
+        ],
+        "examples": [
+          "Federal Reserve"
+        ]
+      },
+      {
+        "name": "FinancialInstitution",
+        "description": "Institutional investment funds, banks, and asset management firms",
+        "attributes": [
+          {
+            "name": "org_name",
+            "type": "text",
+            "description": "The name of the financial institution"
+          },
+          {
+            "name": "fund_type",
+            "type": "text",
+            "description": "The type of fund or financial service provided"
+          }
+        ],
+        "examples": [
+          "Institutional Fund"
+        ]
+      },
+      {
+        "name": "CryptoExchange",
+        "description": "Trading platforms where users buy, sell, and trade cryptocurrencies",
+        "attributes": [
+          {
+            "name": "platform_name",
+            "type": "text",
+            "description": "The name of the cryptocurrency exchange platform"
+          },
+          {
+            "name": "market_status",
+            "type": "text",
+            "description": "Current trading volume and market volatility status"
+          }
+        ],
+        "examples": [
+          "Binance",
+          "Coinbase"
+        ]
+      },
+      {
+        "name": "MediaOutlet",
+        "description": "Financial news agencies and media platforms reporting on market events",
+        "attributes": [
+          {
+            "name": "media_name",
+            "type": "text",
+            "description": "The name of the media organization"
+          },
+          {
+            "name": "coverage_focus",
+            "type": "text",
+            "description": "Main topics covered such as macroeconomics or crypto"
+          }
+        ],
+        "examples": [
+          "Bloomberg",
+          "Reuters"
+        ]
+      },
+      {
+        "name": "Person",
+        "description": "Fallback entity type for any individual human not covered by specific roles",
+        "attributes": [
+          {
+            "name": "full_name",
+            "type": "text",
+            "description": "The name of the person"
+          },
+          {
+            "name": "user_role",
+            "type": "text",
+            "description": "The social or market role of the individual"
+          }
+        ],
+        "examples": [
+          "Market Observer",
+          "Casual Citizen"
+        ]
+      },
+      {
+        "name": "Organization",
+        "description": "Fallback entity type for any organization not covered by specific types",
+        "attributes": [
+          {
+            "name": "org_name",
+            "type": "text",
+            "description": "The name of the organization"
+          },
+          {
+            "name": "org_category",
+            "type": "text",
+            "description": "The general category or purpose of the organization"
+          }
+        ],
+        "examples": [
+          "Mining Enterprise",
+          "Advisory Group"
+        ]
+      }
+    ],
+    "edge_types": [
+      {
+        "name": "WORKS_FOR",
+        "description": "Indicates employment or professional affiliation with an organization",
+        "source_targets": [
+          {
+            "source": "MacroAnalyst",
+            "target": "FinancialInstitution"
+          },
+          {
+            "source": "HedgeFundManager",
+            "target": "FinancialInstitution"
+          },
+          {
+            "source": "Person",
+            "target": "Organization"
+          }
+        ],
+        "attributes": [
+          {
+            "name": "details",
+            "type": "text",
+            "description": "Additional details about this ontology type."
+          }
+        ]
+      },
+      {
+        "name": "AFFECTS_MARKET",
+        "description": "Indicates policy decisions or actions impacting asset prices and market sentiment",
+        "source_targets": [
+          {
+            "source": "CentralBank",
+            "target": "CryptoExchange"
+          },
+          {
+            "source": "CentralBank",
+            "target": "FinancialInstitution"
+          }
+        ],
+        "attributes": [
+          {
+            "name": "details",
+            "type": "text",
+            "description": "Additional details about this ontology type."
+          }
+        ]
+      },
+      {
+        "name": "TRADES_ON",
+        "description": "Indicates that a market participant executes trades on a specific platform",
+        "source_targets": [
+          {
+            "source": "RetailTrader",
+            "target": "CryptoExchange"
+          },
+          {
+            "source": "HedgeFundManager",
+            "target": "CryptoExchange"
+          },
+          {
+            "source": "CryptoMiner",
+            "target": "CryptoExchange"
+          }
+        ],
+        "attributes": [
+          {
+            "name": "details",
+            "type": "text",
+            "description": "Additional details about this ontology type."
+          }
+        ]
+      },
+      {
+        "name": "COMMENTS_ON",
+        "description": "Expresses views or analysis regarding market events, policies, or other entities",
+        "source_targets": [
+          {
+            "source": "MacroAnalyst",
+            "target": "CentralBank"
+          },
+          {
+            "source": "MediaOutlet",
+            "target": "CentralBank"
+          },
+          {
+            "source": "RetailTrader",
+            "target": "CryptoExchange"
+          }
+        ],
+        "attributes": [
+          {
+            "name": "details",
+            "type": "text",
+            "description": "Additional details about this ontology type."
+          }
+        ]
+      },
+      {
+        "name": "COMPETES_WITH",
+        "description": "Represents market competition or opposing trading positions between entities",
+        "source_targets": [
+          {
+            "source": "RetailTrader",
+            "target": "HedgeFundManager"
+          },
+          {
+            "source": "HedgeFundManager",
+            "target": "CryptoMiner"
+          }
+        ],
+        "attributes": [
+          {
+            "name": "details",
+            "type": "text",
+            "description": "Additional details about this ontology type."
+          }
+        ]
+      },
+      {
+        "name": "RESPONDS_TO",
+        "description": "Adjusts strategy, portfolio, or positions in reaction to another entity's action",
+        "source_targets": [
+          {
+            "source": "HedgeFundManager",
+            "target": "CentralBank"
+          },
+          {
+            "source": "CryptoMiner",
+            "target": "CentralBank"
+          },
+          {
+            "source": "RetailTrader",
+            "target": "CentralBank"
+          }
+        ],
+        "attributes": [
+          {
+            "name": "details",
+            "type": "text",
+            "description": "Additional details about this ontology type."
+          }
+        ]
+      }
+    ]
+  },
+  "analysis_summary": "文本描述了美联储降息75个基点后对比特币市场的影响，以及四个具体交易者和分析师（Lucas、Sophie、Marc、Amina）在政策发布后的不同立场与策略调整。本体设计涵盖了具体的市场参与者类型、中央银行及金融机构，并设置了Person和Organization作为兜底类型，准确支持多轮舆论与市场模拟的交互需求。",
+  "graph_id": "mirofish_01b9db0cea2c42cc",
+  "graph_build_task_id": "af27c449-299e-4981-a255-1a66ad9aa928",
+  "zep_batch_id": "49214c99-4291-4669-a9d7-d19fc87b21a1",
+  "zep_batch_operation_id": "dc5783d3ffcef8e3e04c9cf21888d51b39b758192ba673dd4f92e69ea8db96fd",
+  "simulation_requirement": "Simule la reaction du marche Bitcoin apres l annonce de la Fed. 4 agents (Lucas, Sophie, Marc, Amina) avec leurs positions et interets. 3 tours maximum, montrer les ajustements de strategies, les ordres et le changement de sentiment.",
+  "chunk_size": 500,
+  "chunk_overlap": 50,
+  "error": null
+}

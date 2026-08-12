@@ -1,0 +1,422 @@
+{
+  "project_id": "proj_f7834707df9f",
+  "name": "test-chaine-ada",
+  "status": "graph_completed",
+  "created_at": "2026-08-08T14:21:55.648735",
+  "updated_at": "2026-08-08T14:25:34.764521",
+  "files": [
+    {
+      "filename": "mirofish_seed_test.md",
+      "size": 465
+    }
+  ],
+  "total_text_length": 496,
+  "ontology": {
+    "entity_types": [
+      {
+        "name": "Executive",
+        "description": "High-level corporate leaders such as CEO, CTO, CMO, who make strategic decisions.",
+        "attributes": [
+          {
+            "name": "full_name",
+            "type": "text",
+            "description": "Full name of the executive"
+          },
+          {
+            "name": "title",
+            "type": "text",
+            "description": "Job title, e.g., CEO, CTO, CMO"
+          },
+          {
+            "name": "stance",
+            "type": "text",
+            "description": "Preferred launch date or general stance"
+          }
+        ],
+        "examples": [
+          "Marie",
+          "Paul",
+          "Zoe"
+        ]
+      },
+      {
+        "name": "Company",
+        "description": "A business entity, especially a startup or corporation that makes product decisions.",
+        "attributes": [
+          {
+            "name": "org_name",
+            "type": "text",
+            "description": "Name of the company"
+          },
+          {
+            "name": "industry",
+            "type": "text",
+            "description": "Sector or industry of the company"
+          }
+        ],
+        "examples": [
+          "NovaTech"
+        ]
+      },
+      {
+        "name": "Competitor",
+        "description": "A rival company that competes in the same market, influencing launch timing decisions.",
+        "attributes": [
+          {
+            "name": "org_name",
+            "type": "text",
+            "description": "Name of the competitor"
+          },
+          {
+            "name": "threat_level",
+            "type": "text",
+            "description": "Perceived competitive threat level"
+          }
+        ],
+        "examples": [
+          "Delta"
+        ]
+      },
+      {
+        "name": "ProductTeam",
+        "description": "A team within a company responsible for product development and testing, often involved in launch...",
+        "attributes": [
+          {
+            "name": "team_name",
+            "type": "text",
+            "description": "Name of the team"
+          },
+          {
+            "name": "focus",
+            "type": "text",
+            "description": "Primary focus, e.g., engineering, marketing"
+          }
+        ],
+        "examples": [
+          "Engineering Team",
+          "Marketing Team"
+        ]
+      },
+      {
+        "name": "MarketingDepartment",
+        "description": "The department that manages marketing budgets and campaigns, influencing launch timing based on b...",
+        "attributes": [
+          {
+            "name": "dept_name",
+            "type": "text",
+            "description": "Name of the department"
+          },
+          {
+            "name": "budget_cycle",
+            "type": "text",
+            "description": "Budget availability cycle"
+          }
+        ],
+        "examples": [
+          "Marketing Department"
+        ]
+      },
+      {
+        "name": "EngineeringDepartment",
+        "description": "The department responsible for product testing and quality assurance, concerned about bugs and re...",
+        "attributes": [
+          {
+            "name": "dept_name",
+            "type": "text",
+            "description": "Name of the department"
+          },
+          {
+            "name": "testing_status",
+            "type": "text",
+            "description": "Current testing progress or readiness"
+          }
+        ],
+        "examples": [
+          "Engineering Department"
+        ]
+      },
+      {
+        "name": "Investor",
+        "description": "An individual or entity that funds the company and may have opinions on product launch timing.",
+        "attributes": [
+          {
+            "name": "full_name",
+            "type": "text",
+            "description": "Name of the investor"
+          },
+          {
+            "name": "stake",
+            "type": "text",
+            "description": "Ownership percentage or stake"
+          }
+        ],
+        "examples": [
+          "Investor A",
+          "Venture Capital Fund"
+        ]
+      },
+      {
+        "name": "BoardMember",
+        "description": "A member of the company's board of directors who participates in major strategic decisions.",
+        "attributes": [
+          {
+            "name": "full_name",
+            "type": "text",
+            "description": "Name of the board member"
+          },
+          {
+            "name": "role",
+            "type": "text",
+            "description": "Role on the board, e.g., chair, independent director"
+          }
+        ],
+        "examples": [
+          "Board Member X"
+        ]
+      },
+      {
+        "name": "Person",
+        "description": "Any individual not fitting more specific roles, e.g., a general employee or external observer.",
+        "attributes": [
+          {
+            "name": "full_name",
+            "type": "text",
+            "description": "Full name of the person"
+          },
+          {
+            "name": "role",
+            "type": "text",
+            "description": "General role or description"
+          }
+        ],
+        "examples": [
+          "Employee",
+          "Consultant"
+        ]
+      },
+      {
+        "name": "Organization",
+        "description": "Any organization not fitting more specific types, e.g., a partner firm or industry association.",
+        "attributes": [
+          {
+            "name": "org_name",
+            "type": "text",
+            "description": "Name of the organization"
+          },
+          {
+            "name": "type",
+            "type": "text",
+            "description": "Type of organization"
+          }
+        ],
+        "examples": [
+          "Partner Firm",
+          "Industry Association"
+        ]
+      }
+    ],
+    "edge_types": [
+      {
+        "name": "WORKS_FOR",
+        "description": "Indicates that a person is employed by a company or organization.",
+        "source_targets": [
+          {
+            "source": "Executive",
+            "target": "Company"
+          },
+          {
+            "source": "Person",
+            "target": "Company"
+          },
+          {
+            "source": "Executive",
+            "target": "Organization"
+          },
+          {
+            "source": "Person",
+            "target": "Organization"
+          }
+        ],
+        "attributes": [
+          {
+            "name": "details",
+            "type": "text",
+            "description": "Additional details about this ontology type."
+          }
+        ]
+      },
+      {
+        "name": "LEADS",
+        "description": "Indicates that an executive leads a department or team.",
+        "source_targets": [
+          {
+            "source": "Executive",
+            "target": "EngineeringDepartment"
+          },
+          {
+            "source": "Executive",
+            "target": "MarketingDepartment"
+          },
+          {
+            "source": "Executive",
+            "target": "ProductTeam"
+          }
+        ],
+        "attributes": [
+          {
+            "name": "details",
+            "type": "text",
+            "description": "Additional details about this ontology type."
+          }
+        ]
+      },
+      {
+        "name": "COMPETES_WITH",
+        "description": "Indicates that a company competes with another company.",
+        "source_targets": [
+          {
+            "source": "Company",
+            "target": "Competitor"
+          }
+        ],
+        "attributes": [
+          {
+            "name": "details",
+            "type": "text",
+            "description": "Additional details about this ontology type."
+          }
+        ]
+      },
+      {
+        "name": "REPORTS_TO",
+        "description": "Indicates that a person reports to another person, e.g., an executive reporting to the CEO or board.",
+        "source_targets": [
+          {
+            "source": "Executive",
+            "target": "Executive"
+          },
+          {
+            "source": "Executive",
+            "target": "BoardMember"
+          }
+        ],
+        "attributes": [
+          {
+            "name": "details",
+            "type": "text",
+            "description": "Additional details about this ontology type."
+          }
+        ]
+      },
+      {
+        "name": "SUPPORTS",
+        "description": "Indicates that a person or department supports a particular decision or stance.",
+        "source_targets": [
+          {
+            "source": "Executive",
+            "target": "Executive"
+          },
+          {
+            "source": "Executive",
+            "target": "MarketingDepartment"
+          },
+          {
+            "source": "Executive",
+            "target": "EngineeringDepartment"
+          },
+          {
+            "source": "Person",
+            "target": "Executive"
+          }
+        ],
+        "attributes": [
+          {
+            "name": "details",
+            "type": "text",
+            "description": "Additional details about this ontology type."
+          }
+        ]
+      },
+      {
+        "name": "OPPOSES",
+        "description": "Indicates that a person or department opposes a particular decision or stance.",
+        "source_targets": [
+          {
+            "source": "Executive",
+            "target": "Executive"
+          },
+          {
+            "source": "Executive",
+            "target": "EngineeringDepartment"
+          },
+          {
+            "source": "Executive",
+            "target": "MarketingDepartment"
+          }
+        ],
+        "attributes": [
+          {
+            "name": "details",
+            "type": "text",
+            "description": "Additional details about this ontology type."
+          }
+        ]
+      },
+      {
+        "name": "AFFILIATED_WITH",
+        "description": "Indicates that a person or team is affiliated with a department or organization.",
+        "source_targets": [
+          {
+            "source": "ProductTeam",
+            "target": "EngineeringDepartment"
+          },
+          {
+            "source": "ProductTeam",
+            "target": "MarketingDepartment"
+          },
+          {
+            "source": "Person",
+            "target": "Organization"
+          }
+        ],
+        "attributes": [
+          {
+            "name": "details",
+            "type": "text",
+            "description": "Additional details about this ontology type."
+          }
+        ]
+      },
+      {
+        "name": "INVESTS_IN",
+        "description": "Indicates that an investor or board member invests in or holds stake in a company.",
+        "source_targets": [
+          {
+            "source": "Investor",
+            "target": "Company"
+          },
+          {
+            "source": "BoardMember",
+            "target": "Company"
+          }
+        ],
+        "attributes": [
+          {
+            "name": "details",
+            "type": "text",
+            "description": "Additional details about this ontology type."
+          }
+        ]
+      }
+    ]
+  },
+  "analysis_summary": "该文本描述了一个关于产品发布日期的决策场景，涉及NovaTech公司的CEO Marie、CTO Paul和CMO Zoe，以及竞争对手Delta。核心是三位高管的不同立场和决策过程。实体类型设计涵盖了高管、公司、竞争对手、部门、团队、投资者和董事会成员等具体角色，并提供了Person和Organization作为兜底类型。关系类型反映了雇佣、领导、竞争、汇报、支持、反对、隶属和投资等社会舆论模拟中的关键互动。",
+  "graph_id": "mirofish_b99185334acf44bb",
+  "graph_build_task_id": "3e354ed2-7fe4-4cd6-bd82-7b20317870e0",
+  "zep_batch_id": "8a623885-b5a9-40e9-bcb2-5f98060715f0",
+  "zep_batch_operation_id": "afb660648ad326382636748fb6fd3c442e19dcc7210c5365fac60ef798811d88",
+  "simulation_requirement": "Simuler la decision de l equipe NovaTech sur la date de lancement du produit, 3 agents, 2 tours maximum.",
+  "chunk_size": 500,
+  "chunk_overlap": 50,
+  "error": null
+}

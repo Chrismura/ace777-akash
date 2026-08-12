@@ -1,0 +1,375 @@
+{
+  "project_id": "proj_69e98a4c070c",
+  "name": "simu-btc-reel-1",
+  "status": "graph_completed",
+  "created_at": "2026-08-08T15:48:30.739413",
+  "updated_at": "2026-08-08T15:53:06.517547",
+  "files": [
+    {
+      "filename": "seed_reel.md",
+      "size": 1464
+    }
+  ],
+  "total_text_length": 1465,
+  "ontology": {
+    "entity_types": [
+      {
+        "name": "RetailTrader",
+        "description": "Individual retail traders participating in cryptocurrency markets",
+        "attributes": [
+          {
+            "name": "full_name",
+            "type": "text",
+            "description": "Name of the retail trader"
+          },
+          {
+            "name": "position_status",
+            "type": "text",
+            "description": "Current trading position such as long or short"
+          }
+        ],
+        "examples": [
+          "Marc"
+        ]
+      },
+      {
+        "name": "InvestmentFund",
+        "description": "Institutional investment funds allocating capital via crypto ETFs",
+        "attributes": [
+          {
+            "name": "fund_name",
+            "type": "text",
+            "description": "Name of the investment fund"
+          },
+          {
+            "name": "investment_strategy",
+            "type": "text",
+            "description": "Long-term or short-term strategy stance"
+          }
+        ],
+        "examples": [
+          "Nova Capital"
+        ]
+      },
+      {
+        "name": "MiningCompany",
+        "description": "Enterprise engaged in cryptocurrency mining and production selling",
+        "attributes": [
+          {
+            "name": "company_name",
+            "type": "text",
+            "description": "Name of the mining entity"
+          },
+          {
+            "name": "hedging_status",
+            "type": "text",
+            "description": "Current risk hedging mechanism used"
+          }
+        ],
+        "examples": [
+          "HashRidge"
+        ]
+      },
+      {
+        "name": "HedgeFund",
+        "description": "Quantitative or speculative hedge fund trading on market imbalances",
+        "attributes": [
+          {
+            "name": "fund_name",
+            "type": "text",
+            "description": "Name of the hedge fund"
+          },
+          {
+            "name": "target_price_level",
+            "type": "text",
+            "description": "Key price threshold being monitored"
+          }
+        ],
+        "examples": [
+          "AlphaQuant"
+        ]
+      },
+      {
+        "name": "CryptoExchange",
+        "description": "Trading platform where cryptocurrency spot and derivatives are exchanged",
+        "attributes": [
+          {
+            "name": "exchange_name",
+            "type": "text",
+            "description": "Name of the trading platform"
+          },
+          {
+            "name": "market_type",
+            "type": "text",
+            "description": "Type of market services offered"
+          }
+        ],
+        "examples": [
+          "Binance",
+          "Coinbase"
+        ]
+      },
+      {
+        "name": "FinancialRegulator",
+        "description": "Government or regulatory body overseeing financial and crypto markets",
+        "attributes": [
+          {
+            "name": "agency_name",
+            "type": "text",
+            "description": "Name of the regulatory authority"
+          },
+          {
+            "name": "jurisdiction",
+            "type": "text",
+            "description": "Geographical jurisdiction"
+          }
+        ],
+        "examples": [
+          "SEC",
+          "ESMA"
+        ]
+      },
+      {
+        "name": "MediaOutlet",
+        "description": "Financial news providers and crypto media reporting on market sentiment",
+        "attributes": [
+          {
+            "name": "outlet_name",
+            "type": "text",
+            "description": "Name of the media organization"
+          },
+          {
+            "name": "focus_topic",
+            "type": "text",
+            "description": "Primary reporting focus"
+          }
+        ],
+        "examples": [
+          "CoinDesk",
+          "Bloomberg Crypto"
+        ]
+      },
+      {
+        "name": "MarketAnalyst",
+        "description": "Professional financial analyst or researcher providing market commentary",
+        "attributes": [
+          {
+            "name": "full_name",
+            "type": "text",
+            "description": "Name of the analyst"
+          },
+          {
+            "name": "expertise_area",
+            "type": "text",
+            "description": "Area of market expertise"
+          }
+        ],
+        "examples": [
+          "On-chain Analyst Expert"
+        ]
+      },
+      {
+        "name": "Person",
+        "description": "Fallback entity type for any individual human not covered by specific roles",
+        "attributes": [
+          {
+            "name": "full_name",
+            "type": "text",
+            "description": "Full name of the person"
+          },
+          {
+            "name": "role_description",
+            "type": "text",
+            "description": "Description of the individual's background"
+          }
+        ],
+        "examples": [
+          "Generic Market Participant",
+          "Commentator"
+        ]
+      },
+      {
+        "name": "Organization",
+        "description": "Fallback entity type for any organization or institution not covered by specific types",
+        "attributes": [
+          {
+            "name": "org_name",
+            "type": "text",
+            "description": "Name of the organization"
+          },
+          {
+            "name": "org_type",
+            "type": "text",
+            "description": "Nature of the organization"
+          }
+        ],
+        "examples": [
+          "Crypto Association",
+          "Anonymous Group"
+        ]
+      }
+    ],
+    "edge_types": [
+      {
+        "name": "TRADES_ON",
+        "description": "Represents a trader or fund executing trades on a specific exchange",
+        "source_targets": [
+          {
+            "source": "RetailTrader",
+            "target": "CryptoExchange"
+          },
+          {
+            "source": "HedgeFund",
+            "target": "CryptoExchange"
+          }
+        ],
+        "attributes": [
+          {
+            "name": "details",
+            "type": "text",
+            "description": "Additional details about this ontology type."
+          }
+        ]
+      },
+      {
+        "name": "INVESTS_IN",
+        "description": "Represents an institution or fund investing in crypto assets or ETFs",
+        "source_targets": [
+          {
+            "source": "InvestmentFund",
+            "target": "Organization"
+          },
+          {
+            "source": "HedgeFund",
+            "target": "Organization"
+          }
+        ],
+        "attributes": [
+          {
+            "name": "details",
+            "type": "text",
+            "description": "Additional details about this ontology type."
+          }
+        ]
+      },
+      {
+        "name": "COMMENTS_ON",
+        "description": "Represents market participants discussing price levels, sentiment, or other agents",
+        "source_targets": [
+          {
+            "source": "RetailTrader",
+            "target": "MarketAnalyst"
+          },
+          {
+            "source": "MarketAnalyst",
+            "target": "InvestmentFund"
+          },
+          {
+            "source": "Person",
+            "target": "RetailTrader"
+          }
+        ],
+        "attributes": [
+          {
+            "name": "details",
+            "type": "text",
+            "description": "Additional details about this ontology type."
+          }
+        ]
+      },
+      {
+        "name": "REPORTS_ON",
+        "description": "Represents media outlets reporting on market data, ETFs, and liquidations",
+        "source_targets": [
+          {
+            "source": "MediaOutlet",
+            "target": "InvestmentFund"
+          },
+          {
+            "source": "MediaOutlet",
+            "target": "CryptoExchange"
+          }
+        ],
+        "attributes": [
+          {
+            "name": "details",
+            "type": "text",
+            "description": "Additional details about this ontology type."
+          }
+        ]
+      },
+      {
+        "name": "COMPETES_WITH",
+        "description": "Represents competitive market dynamics between trading entities",
+        "source_targets": [
+          {
+            "source": "HedgeFund",
+            "target": "InvestmentFund"
+          },
+          {
+            "source": "RetailTrader",
+            "target": "HedgeFund"
+          }
+        ],
+        "attributes": [
+          {
+            "name": "details",
+            "type": "text",
+            "description": "Additional details about this ontology type."
+          }
+        ]
+      },
+      {
+        "name": "REGULATES",
+        "description": "Represents regulatory oversight over market entities and exchanges",
+        "source_targets": [
+          {
+            "source": "FinancialRegulator",
+            "target": "CryptoExchange"
+          },
+          {
+            "source": "FinancialRegulator",
+            "target": "InvestmentFund"
+          }
+        ],
+        "attributes": [
+          {
+            "name": "details",
+            "type": "text",
+            "description": "Additional details about this ontology type."
+          }
+        ]
+      },
+      {
+        "name": "AFFILIATED_WITH",
+        "description": "Represents general association between individuals and organizations",
+        "source_targets": [
+          {
+            "source": "Person",
+            "target": "Organization"
+          },
+          {
+            "source": "MarketAnalyst",
+            "target": "MediaOutlet"
+          }
+        ],
+        "attributes": [
+          {
+            "name": "details",
+            "type": "text",
+            "description": "Additional details about this ontology type."
+          }
+        ]
+      }
+    ]
+  },
+  "analysis_summary": "文本分析了BTC市场在恐惧情绪（指数30）、高open interest、正funding rate以及ETF资金流入背景下的多空博弈。涉及的具体主体包括散户Marc、机构Nova Capital、矿企HashRidge和对冲基金AlphaQuant，实体类型设计充分覆盖了这些市场参与者及其潜在社交互动关系。",
+  "graph_id": "mirofish_908dba27b40e40ed",
+  "graph_build_task_id": "0b53eb2a-3609-45f6-bec3-bb607b87772d",
+  "zep_batch_id": "97745bf5-6501-4c35-a438-bd6f2819edf7",
+  "zep_batch_operation_id": "709f16572d226a9a82fad7f222fd73827fec277cb4cf452f04a4cf345035424b",
+  "simulation_requirement": "Simule l evolution du prix du BTC sur 3 tours dans ces conditions reelles de marche (peur 30, longs dominants, funding positif, ETF entrants). 4 agents (retail, institution, mineur, hedge fund) avec leurs positions et interets, pour voir si le prix casse les murs a 60 000 ou 70 000 USDT. Montre comment les liquidations et le funding rate influencent leurs decisions.",
+  "chunk_size": 500,
+  "chunk_overlap": 50,
+  "error": null
+}

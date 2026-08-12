@@ -1,0 +1,307 @@
+{
+  "simulation_id": "sim_90e46609293d",
+  "project_id": "proj_b7f6e9938e9f",
+  "graph_id": "mirofish_01b9db0cea2c42cc",
+  "simulation_requirement": "Simule la reaction du marche Bitcoin apres l annonce de la Fed. 4 agents (Lucas, Sophie, Marc, Amina) avec leurs positions et interets. 3 tours maximum, montrer les ajustements de strategies, les ordres et le changement de sentiment.",
+  "time_config": {
+    "total_simulation_hours": 48,
+    "minutes_per_round": 30,
+    "agents_per_hour_min": 3,
+    "agents_per_hour_max": 7,
+    "peak_hours": [
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20
+    ],
+    "peak_activity_multiplier": 1.5,
+    "off_peak_hours": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "off_peak_activity_multiplier": 0.05,
+    "morning_hours": [
+      7,
+      8,
+      9
+    ],
+    "morning_activity_multiplier": 0.4,
+    "work_hours": [
+      10,
+      11,
+      12,
+      13,
+      21,
+      22,
+      23
+    ],
+    "work_activity_multiplier": 0.7
+  },
+  "agent_configs": [
+    {
+      "agent_id": 0,
+      "entity_uuid": "870de4d9-8219-4533-aca0-5f55bcbcf133",
+      "entity_name": "La Réserve fédérale américaine",
+      "entity_type": "CentralBank",
+      "activity_level": 0.2,
+      "posts_per_hour": 0.5,
+      "comments_per_hour": 0.2,
+      "active_hours": [
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "response_delay_min": 60,
+      "response_delay_max": 240,
+      "sentiment_bias": 0.3,
+      "stance": "supportive",
+      "influence_weight": 2.8
+    },
+    {
+      "agent_id": 1,
+      "entity_uuid": "7bf82980-38e4-47ba-b2d2-bef1908e748c",
+      "entity_name": "Amina Diallo",
+      "entity_type": "CryptoMiner",
+      "activity_level": 0.7,
+      "posts_per_hour": 2.5,
+      "comments_per_hour": 1.8,
+      "active_hours": [
+        20,
+        21,
+        22,
+        23,
+        0,
+        1,
+        2
+      ],
+      "response_delay_min": 1,
+      "response_delay_max": 15,
+      "sentiment_bias": 0.2,
+      "stance": "supportive",
+      "influence_weight": 1.0
+    },
+    {
+      "agent_id": 2,
+      "entity_uuid": "75e1dd1e-ecd4-4f55-88e7-fc6a295202fb",
+      "entity_name": "Fed",
+      "entity_type": "CentralBank",
+      "activity_level": 0.2,
+      "posts_per_hour": 0.5,
+      "comments_per_hour": 0.2,
+      "active_hours": [
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "response_delay_min": 60,
+      "response_delay_max": 240,
+      "sentiment_bias": 0.3,
+      "stance": "supportive",
+      "influence_weight": 2.8
+    },
+    {
+      "agent_id": 3,
+      "entity_uuid": "751c7fe0-083d-46d6-ae5e-b5f7bef8cba3",
+      "entity_name": "traders",
+      "entity_type": "RetailTrader",
+      "activity_level": 0.8,
+      "posts_per_hour": 3.0,
+      "comments_per_hour": 2.5,
+      "active_hours": [
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        0,
+        1
+      ],
+      "response_delay_min": 5,
+      "response_delay_max": 30,
+      "sentiment_bias": 0.1,
+      "stance": "observer",
+      "influence_weight": 1.5
+    },
+    {
+      "agent_id": 4,
+      "entity_uuid": "72bd855e-d30c-4641-83d5-473c7221fc1f",
+      "entity_name": "Marc Dubois",
+      "entity_type": "Person",
+      "activity_level": 0.7,
+      "posts_per_hour": 2.5,
+      "comments_per_hour": 1.8,
+      "active_hours": [
+        20,
+        21,
+        22,
+        23,
+        0,
+        1,
+        2
+      ],
+      "response_delay_min": 1,
+      "response_delay_max": 15,
+      "sentiment_bias": 0.2,
+      "stance": "supportive",
+      "influence_weight": 1.0
+    },
+    {
+      "agent_id": 5,
+      "entity_uuid": "686859ff-4057-4969-bbae-61b42fc100f7",
+      "entity_name": "Lucas Moreau",
+      "entity_type": "Person",
+      "activity_level": 0.8,
+      "posts_per_hour": 3.0,
+      "comments_per_hour": 2.5,
+      "active_hours": [
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        0,
+        1
+      ],
+      "response_delay_min": 1,
+      "response_delay_max": 15,
+      "sentiment_bias": 0.4,
+      "stance": "supportive",
+      "influence_weight": 1.0
+    },
+    {
+      "agent_id": 6,
+      "entity_uuid": "46d09f50-7cb8-409e-a3da-e806bd96f839",
+      "entity_name": "fonds institutionnel",
+      "entity_type": "Organization",
+      "activity_level": 0.3,
+      "posts_per_hour": 0.8,
+      "comments_per_hour": 0.5,
+      "active_hours": [
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "response_delay_min": 60,
+      "response_delay_max": 180,
+      "sentiment_bias": 0.0,
+      "stance": "neutral",
+      "influence_weight": 2.5
+    },
+    {
+      "agent_id": 7,
+      "entity_uuid": "2c276224-ccf3-43c9-b41c-0e938c809875",
+      "entity_name": "Sophie Lambert",
+      "entity_type": "Person",
+      "activity_level": 0.6,
+      "posts_per_hour": 2.0,
+      "comments_per_hour": 1.5,
+      "active_hours": [
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "response_delay_min": 5,
+      "response_delay_max": 30,
+      "sentiment_bias": -0.2,
+      "stance": "neutral",
+      "influence_weight": 1.8
+    }
+  ],
+  "event_config": {
+    "initial_posts": [
+      {
+        "content": "美联储宣布降息75个基点，超出市场预期，此举旨在支撑放缓的经济。比特币市场此前平静，现预计将出现剧烈波动，投资者正评估降息对风险资产的影响。",
+        "poster_type": "CentralBank",
+        "poster_agent_id": 0
+      },
+      {
+        "content": "重大消息！美联储降息75个基点，远超预期。比特币价格可能迎来上涨，我的多头仓位已准备好，但止损也设得很紧，一旦突破关键阻力位，我计划快速获利了结。",
+        "poster_type": "Person",
+        "poster_agent_id": 4
+      },
+      {
+        "content": "基于美联储的鸽派转向，我们建议立即增加加密货币配置。低利率环境将提升比特币的吸引力，相对于国债，其风险回报比更优。这是调整投资组合的良机。",
+        "poster_type": "Organization",
+        "poster_agent_id": 6
+      },
+      {
+        "content": "降息力度超预期，我的空头头寸面临风险。正在评估对冲策略，可能回购比特币以覆盖损失，同时重新平衡投资组合以应对市场波动。",
+        "poster_type": "Person",
+        "poster_agent_id": 5
+      },
+      {
+        "content": "美联储降息75个基点，比特币市场将迎来波动。作为矿工，我考虑出售部分比特币以支付电费，同时利用潜在的价格上涨获取利润。密切关注市场动向。",
+        "poster_type": "CryptoMiner",
+        "poster_agent_id": 1
+      }
+    ],
+    "scheduled_events": [],
+    "hot_topics": [
+      "Fed利率决议",
+      "比特币波动",
+      "风险资产吸引力",
+      "降息75基点",
+      "加密市场策略调整"
+    ],
+    "narrative_direction": "舆论将围绕美联储超预期降息对比特币市场的即时影响展开，从最初的谨慎观望转向快速反应。看多情绪可能升温，但部分参与者（如持有空头头寸的Marc）将面临压力，引发策略调整和风险管理讨论。整体叙事将强调市场波动性增加、资金流向风险资产，以及不同参与者（散户、机构、矿工）的应对措施。"
+  },
+  "twitter_config": {
+    "platform": "twitter",
+    "recency_weight": 0.4,
+    "popularity_weight": 0.3,
+    "relevance_weight": 0.3,
+    "viral_threshold": 10,
+    "echo_chamber_strength": 0.5
+  },
+  "reddit_config": {
+    "platform": "reddit",
+    "recency_weight": 0.3,
+    "popularity_weight": 0.4,
+    "relevance_weight": 0.3,
+    "viral_threshold": 15,
+    "echo_chamber_strength": 0.6
+  },
+  "llm_model": "nvidia",
+  "llm_base_url": "http://127.0.0.1:11435/v1",
+  "generated_at": "2026-08-08T14:40:52.073607",
+  "generation_reasoning": "时间配置: 该模拟涉及美联储利率决议对加密货币市场的影响，参与者包括美国机构、欧洲交易员和非洲矿工。事件突发性强，市场反应迅速，因此总时长为48小时，每轮30分钟以捕捉快速变化。高峰时段设定在14-20点，覆盖美国市场开盘和欧洲下午交易重叠期，此时交易活跃。低谷时段为0-6点，对应美国深夜和亚洲凌晨，活动减少。早间和工作时段合理分布，确保各时区关键参与者有活动机会。 | 事件配置: 初始帖子覆盖了关键实体类型：中央银行的官方声明、零售交易者的即时反应、机构投资者的策略建议、对冲基金的风险管理以及矿工的运营考虑。这些帖子反映了不同市场参与者的立场和兴趣，为后续多轮互动和策略调整奠定基础。 | Agent配置: 成功生成 8 个 | 初始帖子分配: 5 个帖子已分配发布者"
+}
