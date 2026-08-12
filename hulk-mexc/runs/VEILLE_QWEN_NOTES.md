@@ -1268,3 +1268,8 @@ Pas d’ordre — confrontation plus tard.
 - RIZEUSDT: WATCH_PULLBACK — tension haute + reflux
 - CHIPUSDT: WATCH_PULLBACK — tension haute + reflux
 (compléter: confirmé ? risque ?)
+
+### 2026-08-12T19:16:40Z — ALERT auto
+- RIZEUSDT: WATCH_PULLBACK — tension haute + reflux
+- CHIPUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)

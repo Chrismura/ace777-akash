@@ -1,12 +1,24 @@
-# AVIS FAMILLE SESSION — 2026-08-12T20:17:49.264378
+# AVIS FAMILLE SESSION — 2026-08-12T21:25:15.541385
 OCCASION : alerte en cours
 
 🟡 CONSULTATION FAMILLE
 
-• GEMINI (analyste) : (injoignable)
+• GEMINI (analyste) : AVIS GEMINI — ACE777
 
-• DEEPSEEK (technique) : Le setup est cohérent : BETA livre des probes fiables (conf 0.90) et ALPHA respecte sa discipline (57 skips) avant une embuscade ciblée. Ce qui peut casser : le levier 13x + revenge 1.5x sur une alerte volume x3, avec risque de slippage ou de latence API sur macOS. Faisabilité correcte si les dépendances restent cross-platform et les chemins/logs sont adaptés à macOS.
+La session est saine : BETA sonde avec une confiance élevée (0.92), ALPHA reste discipliné (57 skips) et engrange du PnL. Aucune action requise, laisser courir.
 
-• LE JUGE tranche : NON — laisser courir. Discipline exemplaire (57 skips), PnL positif, aucune dégradation de setup. Le mur du carnet tient, BETA continue de renseigner ALPHA : pas d'ajustement nécessaire.
+Angle mort à surveiller : le volume x3 sur BTCUSDT avec une variation de -0.03% est un signal de distribution potentielle. Si le mur du carnet s'effondre soudainement, ALPHA devra basculer en mode défensif (réduire le multiplicateur de 13x à 8x).
 
-— Famille consultée, 12/08/2026 20:21
+Point macOS : vérifier que le serveur cockpit (⛔) ne bloque pas les logs de session — c'est le seul maillon faible de l'infrastructure actuelle.
+
+• DEEPSEEK (technique) : Le setup est cohérent : BETA livre une information de qualité (conf 0.92) et Alpha respecte une vraie discipline (57 skips).  
+
+Ce qui peut casser sur macOS : latence ou déconnexion websocket pendant un spike volume comme l’alerte actuelle, surtout si l’exécution 13x n’est pas protégée par un circuit-breaker.  
+
+Aucune action immédiate requise, on laisse courir mais on resserre le timeout des sondes BETA pour les 30 prochaines minutes.
+
+• LE JUGE tranche : NON — laisser courir.
+
+BETA renseigne bien (conf 0.92), ALPHA est discipliné (57 skips) et rentabilise ses frappes (+1.27 $). L'alerte BTC est mineure (-0.03 %, volume x3) et ne justifie aucun ajustement. Le setup est sain, ne touche à rien.
+
+— Famille consultée, 12/08/2026 21:27

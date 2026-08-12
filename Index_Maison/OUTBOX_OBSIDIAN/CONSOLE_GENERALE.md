@@ -1,16 +1,16 @@
 # Console générale — clin d’œil
 
-Auto-refresh : 2026-08-11 18:53 UTC · jour local **2026-08-11**
+Auto-refresh : 2026-08-12 18:53 UTC · jour local **2026-08-12**
 
 ## Feu tricolore
 
 | Jambe | État | Détail |
 |-------|------|--------|
-| **ACE** | 🔴 STOP | Dernier tag `NUAGE_TEST_8H_CMP2` · combo ≈ **-45.11 $** |
-| **Hulk paper** | 🔴 STOP | pnl_total ≈ **—** · pos **—** |
-| **Hulk digest** | 🔴 STOP | mtime — |
+| **ACE** | 🟢 RUN | Dernier tag `NUAGE_TEST_8H_CMP2` · combo ≈ **-45.11 $** |
+| **Hulk paper** | 🟢 RUN | pnl_total ≈ **-2.4530** · pos **7** |
+| **Hulk digest** | 🟢 RUN | mtime 2026-08-12T18:53Z |
 | **Punk** | 🔴 STOP | — · idle |
-| **Ollama** | 🔴 STOP | |
+| **Ollama** | 🟢 RUN | |
 | **Obsidian** | 🟢 | vault `Obsidian_ACE777` |
 
 ## ACE — comparaison fills (pnl ≠ 0)
@@ -21,8 +21,8 @@ Auto-refresh : 2026-08-11 18:53 UTC · jour local **2026-08-11**
 | `NUAGE_TEST_8H_CMP` | +32.02 (n=45) | +8.40 (n=236) | **+40.42** |
 
 ## Hulk
-- Events : —
-- Pairs ouvertes (state) : —
+- Events : {'SKIP': 507, 'BUY': 9, 'SELL': 2}
+- Pairs ouvertes (state) : RIZEUSDT, RWAINCUSDT, REDUSDT, ZBCNUSDT, TELUSDT, PYTHUSDT, QAITUSDT
 
 ## Liens
-[[PLAN_DE_VOL]] · [[AUTO_PROCESSUS]] · [[AGORA]] · [[Cahier/Journal_2026-08-11]] · [[OSSATURE]]
+[[PLAN_DE_VOL]] · [[AUTO_PROCESSUS]] · [[AGORA]] · [[Cahier/Journal_2026-08-12]] · [[OSSATURE]]

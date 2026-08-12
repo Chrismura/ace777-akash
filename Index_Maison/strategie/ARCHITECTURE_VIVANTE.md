@@ -1,4 +1,4 @@
-# ARCHITECTURE VIVANTE — ACE777 (2026-08-12 18:26 UTC)
+# ARCHITECTURE VIVANTE — ACE777 (2026-08-12 19:26 UTC)
 
 > Document GÉNÉRÉ AUTOMATIQUEMENT à l'instant. La famille valide
 > en s'appuyant sur CE contexte, pas sur des documents figés.
@@ -22,10 +22,10 @@
 
 ## État de la mission (bots + PnL)
 
-- mission.json : 2026-08-12 18:25Z · run `MASTER_VORTEX_V2_COLLAB_4H` · alerte `nominal`
-- PnL combiné : **2.07 $** 📈 (combo 2.0749)
+- mission.json : 2026-08-12 19:26Z · run `MASTER_VORTEX_V2_COLLAB_4H` · alerte `nominal`
+- PnL combiné : **2.22 $** 📈 (combo 2.2158)
 - ALPHA (sniper (embuscade, ×13, revenge si claque)) : **+1.27 $** · 1 fills · 63 skips
-- BETA (éclaireur (chatouille le marché, alimente Alpha)) : **+0.81 $** · 28 fills · 308 skips
+- BETA (éclaireur (chatouille le marché, alimente Alpha)) : **+0.95 $** · 46 fills · 492 skips
 - HULK (gestionnaire de portefeuille (bag, escalier, courreur)) : **+0.00 $** · 0 fills
 - Saison : ACCUMULATION 💧 · 
 
@@ -46,11 +46,11 @@
 ## Mémoire chaude (journal + résumés)
 
 - Radar (dernières alertes) :
-  · 2026-08-12T18:26:00.652565Z ETHUSDT 1886.6 0.0000 32.3 declenche=non
-  · 2026-08-12T18:26:01.122416Z BTCUSDT 63416.83 0.0000 6.1 declenche=non
-  · 2026-08-12T18:26:01.124746Z ETHUSDT 1886.6 0.0000 32.7 declenche=non
-  · 2026-08-12T18:26:01.125021Z ETHUSDT 1886.6 0.0000 33.5 declenche=non
-- Intention en cours : BETA a sonde le marche (28 sondes, 17 long / 11 court, conf  | ALPHA attend son moment : 57 skips (discipline), le mur du c | ALPHA a frappe 1 fois en embuscade (13x) (dont 1 en mode rev
+  · 2026-08-12T19:26:09.845378Z BTCUSDT 63314.1 0.0002 4.3 declenche=non
+  · 2026-08-12T19:26:10.170210Z ETHUSDT 1882.5 0.0001 131.2 declenche=non
+  · 2026-08-12T19:26:10.287430Z BTCUSDT 63314.11 0.0002 4.3 declenche=non
+  · 2026-08-12T19:26:10.295470Z ETHUSDT 1882.5 0.0001 131.2 declenche=non
+- Intention en cours : BETA a sonde le marche (46 sondes, 30 long / 16 court, conf  | ALPHA attend son moment : 57 skips (discipline), le mur du c | ALPHA a frappe 1 fois en embuscade (13x) (dont 1 en mode rev
 - 50 signets X résumés (quota aujourd'hui : 50/50)
 - 16 fiches IA d'offres en cache (quota 8/jour)
 
