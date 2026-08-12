@@ -1124,7 +1124,7 @@ def do_signets() -> dict:
     # Si des signets attendent et quota pas épuisé → lance le lecteur en détaché
     aujourdhui = datetime.now(timezone.utc).strftime("%Y-%m-%d")
     utilises = cache.get("jours", {}).get(aujourdhui, 0)
-    if en_attente > 0 and utilises < 15:
+    if en_attente > 0 and utilises < 50 and not acces_refuse:
         _lancer_lecteur_signets_detache()
 
     return {
