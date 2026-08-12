@@ -13,3 +13,9 @@
 
 ## Règle
 Cortana / `speak_attention` peut lire le résumé, puis repasser IDLE.
+
+
+## ⚠️ SUPERVISEUR — besoin de Christophe
+- ts: 20260812T0713Z
+- demande: ollama injoignable
+- pourquoi: ollama_ok=false indique ollama injoignable, raison explicite pour ask selon les règles.

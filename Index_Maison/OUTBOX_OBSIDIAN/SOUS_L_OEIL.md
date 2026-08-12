@@ -1,21 +1,26 @@
-# 👁️ SOUS L'ŒIL — Pulse machine
+# Sous l'œil — pulse machine
 
-**Date** : 2026-08-12T06:59:26+0200
-**Mode** : FROID
-**Verdict** : OK
+> Mis à jour auto · **ne lance rien** · lit seulement.
 
-## Processus
-- ACE (GO_USINE_NUAGE) : ❌ inactif
-- HULK (paper_diprip) : ❌ inactif
-- OLLAMA (serve) : ❌ inactif
+**⚠️ Machine : **anomalie** — regarde les ❌** · `PULSE=NOK` · mode **FROID**
 
-## Ressources
-- RAM libre : 0 Mo (OK)
-- Champion (genesis_manifest) : OK
+| | Check | Détail |
+|---|--------|--------|
+| ✅ | Mode | FROID (auto) |
+| ✅ | Horodatage | 2026-08-12T07:07 local · 2026-08-12T05:07Z UTC |
+| ✅ | Champion | md5 `37fca367…` |
+| ✅ | ACE | OFF (attendu froid) |
+| ✅ | Hulk | OFF (attendu froid) |
+| ✅ | Ollama | OFF (économie RAM) |
+| ❌ | RAM | ~145 Mo CRITIQUE |
 
-## Fraîcheur
-- Heartbeat : 2069s
-- LIVE : —
+## Que faire
+
+- Mode froid : avant un GO → `bash Index_Maison/scripts/checkup_garage.sh`
+- Hygiène RAM : `bash scripts/hygiene_mac_ram.sh`
+
+## Registre automations
+Voir [[AUTO_PROCESSUS]] — ce pulse = couche **veille machine**, pas trading.
 
 ---
-*Généré par superviseur_core.sh — lecture seule, jamais de GO*
+_généré 2026-08-12T05:07Z · script `pulse_sous_loeil.sh`_
