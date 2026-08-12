@@ -1,14 +1,14 @@
-# AVIS FAMILLE SESSION — 2026-08-12T23:55:10.221416
+# AVIS FAMILLE SESSION — 2026-08-13T00:54:56.101583
 OCCASION : alerte en cours
 
 🟡 CONSULTATION FAMILLE
 
-• GEMINI (analyste) : Avis : laisser courir. PnL positif (+2.52 $) avec une discipline exemplaire (57 skips ALPHA), aucune dérive à corriger. Le seul point de vigilance : le mur du carnet qui ne s'effondre pas et le volume x3 sur ETH — surveille un éventuel breakout, mais ne touche à rien tant que la conf BETA reste >0.90.
+• GEMINI (analyste) : Avis : laisser courir. Le PnL est quasi nul, la discipline d'ALPHA (27 skips) est saine, et BETA confirme une direction long avec une confiance élevée (0.97). Le volume x3 sur ETHUSDT est un signal de volatilité, pas de danger immédiat.
 
-• DEEPSEEK (technique) : Le setup est cohérent : BETA fournit un signal de qualité (conf 0.91 sur 77 sondes) et Alpha respecte une discipline stricte (57 skips pour 1 trade). Sur macOS, le point fragile reste la latence des websockets et la gestion des ordres en temps réel si les libs ne sont pas compilées nativement. Laisser courir pour l’instant, le spike volume -0,03 % ne justifie ni réduction d’exposition ni ajustement.
+Angle mort : la saison CALME et le PnL à 0.06 $ masquent un risque de sur-trading si la confiance de BETA reste élevée sur un marché sans tendance. Surveille la divergence entre les sondes long et les tirs rouges d'ALPHA — si ça persiste, réduis la taille des positions de 20%.
 
-• LE JUGE tranche : OUI — laisser courir, mais surveiller le mur du carnet.
+• DEEPSEEK (technique) : Le setup est cohérent : BETA en mode sonde haute confiance (0.97) alimente bien ALPHA en embuscade, avec discipline sur les skips. Risque principal : le revenge 1.5x + levier 13x sur une session où tous les tirs sont dans le rouge, surtout avec un marché ETH très plat et un simple spike volume. Sur macOS, c’est tout à fait faisable en Python pur, mais je réduirais l’exposition ou forcerais plus de skips jusqu’à voir un vrai momentum directionnel.
 
-La discipline d’ALPHA (57 skips) et le PnL positif (+2.52 $) valident le setup actuel. Aucun ajustement nécessaire tant que le mur ne s’effondre pas ; si le volume x3 persiste sur ETHUSDT, ALPHA peut frapper en embuscade.
+• LE JUGE tranche : NON — session calme et disciplinée, PnL neutre, aucune action requise. Laisse courir : BETA continue de sonder, ALPHA garde sa discipline (27 skips), et le marché est en saison CALME.
 
-— Famille consultée, 13/08/2026 00:00
+— Famille consultée, 13/08/2026 01:00

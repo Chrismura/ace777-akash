@@ -1,6 +1,6 @@
 # 👁️ SOUS L'ŒIL — Pulse machine
 
-**Date** : 2026-08-13T00:28:25+0200
+**Date** : 2026-08-13T01:00:05+0200
 **Mode** : VOL
 **Verdict** : WARN
 
@@ -14,7 +14,7 @@
 - Champion (genesis_manifest) : FAIL
 
 ## Fraîcheur
-- Heartbeat : 3067s
+- Heartbeat : 1322s
 - LIVE : —
 
 ---

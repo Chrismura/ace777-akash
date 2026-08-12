@@ -261,3 +261,8 @@
 - 2026-08-12T21:56:18.729135Z | alerte | Maintien de l'alerte nominale et de la rigueur tactique dans un marché porteur mais sous surveillance macroéconomique. | conf=88%
 - 2026-08-12T22:01:52.152412Z | alerte | Maintien de l'alerte nominale et de la rigueur tactique dans un marché porteur et discipliné. | conf=88%
 - 2026-08-12T22:26:22.506038Z | alerte | Maintien de l'alerte nominale et de la rigueur tactique dans un marché porteur et discipliné. | conf=88%
+- 2026-08-12T22:33:29.173153Z | alerte | Maintien de l'alerte nominale et de la rigueur tactique dans un marché calme et discipliné. | conf=88%
+- 2026-08-12T22:54:56.074343Z | alerte | Maintien de l'alerte nominale et de la rigueur tactique dans un marché calme et discipliné. | conf=88%
+- 2026-08-12T22:56:25.161216Z | alerte | Maintien de l'alerte nominale et de la discipline opérationnelle dans un marché porteur et structuré. | conf=88%
+- 2026-08-12T23:01:10.491638Z | alerte | Maintien de l'alerte ambre et de la rigueur tactique pour redresser le PnL combiné tout en capitalisant sur l'éclairage de Beta. | conf=82%
+- 2026-08-12T23:02:16.710120Z | alerte | Maintien de l'alerte ambre et de la rigueur tactique pour consolider le PnL combiné tout en capitalisant sur l'éclairage de Beta. | conf=84%
