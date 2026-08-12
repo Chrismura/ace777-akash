@@ -149,12 +149,14 @@
       grid-template-columns: 1fr 1fr 1fr;
       grid-template-areas:
         "go go go"
+        "orch orch orch"
         "hot hot voix"
         "hub hub hub"
         "cold cold cold"
         "coffre coffre coffre";
     }
     .zone-go { grid-area: go; }
+    .zone-orch { grid-area: orch; }
     .zone-hot { grid-area: hot; }
     .zone-voix { grid-area: voix; }
     .zone-hub { grid-area: hub; }
@@ -180,6 +182,7 @@
     letter-spacing: 0.2em;
   }
   .zone-go::before { color: var(--amber); }
+  .zone-orch::before { color: var(--amber); }
   .zone-hot::before { color: var(--hot); }
   .zone-voix::before { color: var(--acid); }
   .zone-hub::before { color: var(--cold); }
@@ -242,6 +245,12 @@
   }
   .zone-hot .row { grid-template-columns: 1fr 1fr; }
   .zone-voix .row { grid-template-columns: 1fr; }
+  .zone-orch .row {
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 700px) {
+    .zone-orch .row { grid-template-columns: 1fr 1fr 1fr; }
+  }
   .zone-hub .row {
     grid-template-columns: 1fr;
   }
@@ -279,6 +288,11 @@
   .node-hub { border-color: rgba(62, 199, 255, 0.45); }
   .node-hub h3 { color: var(--cold); }
   .node-hub .role { color: var(--cold); }
+
+  .node-orch { border-color: rgba(245, 197, 24, 0.55); }
+  .node-orch h3 { color: var(--amber); }
+  .node-orch .role { color: var(--amber); }
+  .node-orch .warn { color: var(--muted); }
 
   .node-coffre { border-color: rgba(106, 138, 114, 0.5); }
   .node-coffre h3 { color: var(--text); }
@@ -390,6 +404,28 @@
           <p>GO risque · validation · flair</p>
           <span class="role">seul déclencheur trading</span>
         </div>
+      </section>
+
+      <section class="zone zone-orch" data-label="ORCHESTRATION — SUPERVISION">
+        <div class="row">
+          <div class="node node-orch">
+            <h3>BUFFY 🦇</h3>
+            <p>Superviseur · chef d'orchestre<br />pilote la flotille (codeur · famille · juge)<br />specs · run tests · cohérence</p>
+            <span class="role">chief scientist — session</span>
+            <span class="role warn">renaît à chaque ouverture · mémoires dans le coffre</span>
+          </div>
+          <div class="node node-orch">
+            <h3>CODEUR (hub)</h3>
+            <p>Écrit le code sur spec (task <code>code.ia</code>)<br />produit SPE + CODE · corrigé par le superviseur</p>
+            <span class="role">code, ne décide pas</span>
+          </div>
+          <div class="node node-orch">
+            <h3>FAMILLE + JUGE</h3>
+            <p>Gemini · DeepSeek · Juge<br />validation, audits, avis contradictoires<br />loi 1quinquies : décisions collectives</p>
+            <span class="role">maker ≠ checker</span>
+          </div>
+        </div>
+        <p class="flow-hint"><span>flux</span> toi (GO) → Buffy (orchestre) → codeur (code) → famille/juge (valident) → cockpit</p>
       </section>
 
       <section class="zone zone-hot" data-label="HOT — TRADING">

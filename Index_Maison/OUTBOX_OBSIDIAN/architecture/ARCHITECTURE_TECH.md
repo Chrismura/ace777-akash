@@ -37,6 +37,7 @@ open ~/ace777-test-day1/Index_Maison/architecture/tech.html
 | **Hulk** | `hulk-mexc/scripts/paper_diprip.py` · `digest_watch.py --live` | Python 3.9 stdlib · MEXC public | HOT paper | early paper | seed **20$ / 2 pairs** · universe **15** · soft RED · veille JSON |
 | **HUB CLOUD (prise-ia)** | `~/prise-ia/hub_prise_ia.py` · `:11435` | Python stdlib HTTP · routing.json · providers.json | WARM/COLD | prod quotidien | Tâches : `supervise.decision`, `analyste.strategie`, `code.ia`, `cortana.yeux`, `signets.*`, `veille.youtube`, `audit.protocol`… · contexte vivant injecté (6000 car) · compteur budget/jour |
 | **PONT GATE (llm_gate_hub_bridge)** | `Index_Maison/scripts/llm_gate_hub_bridge.py` · `:11439` · LaunchAgent `com.ace777.llm-gate-hub` | Python stdlib · cache 90s (réglable `LLM_GATE_PONT_CACHE_SEC`) | WARM | prod (preuve `llm_wind` 12/08) | Gate trades → hub (grok→gemini) · fail-closed 503 → règles, jamais local · redémarrage auto |
+| **BUFFY (superviseur)** | session chat (Freebuff) · `MEMOIRE_COLLAB.md` · `POINT_REPRISE_DERNIER.md` | IA superviseur / chef d'orchestre | ORCHESTRATION | toutes sessions | Pilote la flotille (codeur · famille · juge) · specs · run tests · valide avant action · **session — renaît à chaque ouverture, mémoires dans le coffre** · jamais dans le hot path |
 | **Vigie temps réel** | `Index_Maison/scripts/vigie_live.py` | WebSocket Binance brut RFC 6455 (BTC/ETH) + RSS news · journal radar | WARM | brique 1 | Seuils : 0,5 %/60s · 2 %/5min · volume ×3 · journal_radar.log → ADA |
 | **Analyste** | `Index_Maison/scripts/analyste.py` · `analyste_cadence.sh` | Hub `analyste.strategie` (gemini) · journal des analyses | WARM | brique 2 | `strategie/derniere_analyse.md` · `MEMOIRE_ANALYSTE.md` · `REGISTRE_PREDICTIONS.md` |
 | **ADA gardienne + saison** | `Index_Maison/scripts/ada_gardienne.py` · `ada_saison.py` | Python · voilure continue 0–100 (lissée, jamais de saut IF) · zones VERT/JAUNE/ROUGE/PRENDS_LA_PERTE | WARM | brique 3 (live cockpit thermo) | `strategie/ada_gardienne_live.json` · alarme sonore + voix progressive (veilleuse→sirène) |
@@ -105,7 +106,7 @@ open ~/ace777-test-day1/Index_Maison/architecture/tech.html
 | Radar→ADA→Cockpit | **REAL** | événementiel (changement déclenche, pas l'inverse) |
 | MiroFish (simulation foule) | **PAUSE** | à la demande · décision collective requise · clé ZEP OK |
 | Inter-leg | **EMBRYO** | Markdown handoffs / OUTBOX / Swarm_Bus |
-| Orchestrator | **ABSENT** | Human + Cursor ; Cortana ≠ chef · Cockpit ≠ GO |
+| Orchestrator | **SESSION** | **BUFFY** (superviseur/chief scientist, pilote codeur+famille+juge) · Human GO · Cortana ≠ chef · Cockpit ≠ GO |
 
 ---
 
