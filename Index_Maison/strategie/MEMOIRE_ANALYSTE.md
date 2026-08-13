@@ -267,3 +267,12 @@
 - 2026-08-12T23:01:10.491638Z | alerte | Maintien de l'alerte ambre et de la rigueur tactique pour redresser le PnL combiné tout en capitalisant sur l'éclairage de Beta. | conf=82%
 - 2026-08-12T23:02:16.710120Z | alerte | Maintien de l'alerte ambre et de la rigueur tactique pour consolider le PnL combiné tout en capitalisant sur l'éclairage de Beta. | conf=84%
 - 2026-08-12T23:21:35.713861Z | alerte | Maintien de l'alerte ambre et de la rigueur tactique pour consolider le PnL combiné tout en capitalisant sur l'éclairage de Beta. | conf=82%
+- 2026-08-12T23:29:48.111610Z | alerte | Maintien de l'alerte ambre et de la rigueur tactique pour consolider le PnL combiné tout en capitalisant sur l'éclairage de Beta. | conf=82%
+- 2026-08-12T23:30:13.704639Z | alerte | Maintien de l'alerte ambre et de la rigueur tactique pour consolider le PnL combiné tout en capitalisant sur l'éclairage de Beta, avec une vigilance accrue sur les sursauts de volume. | conf=82%
+- 2026-08-12T23:32:30.043420Z | alerte | ? | conf=?
+- 2026-08-12T23:41:52.089824Z | alerte | ? | conf=?
+- 2026-08-12T23:43:49.681740Z | alerte | ? | conf=?
+- 2026-08-12T23:56:30.781768Z | alerte | ? | conf=?
+- 2026-08-12T23:58:07.503961Z | alerte | ? | conf=?
+- 2026-08-12T23:58:37.513756Z | alerte | Maintien de l'alerte nominale avec un PnL combiné positif (+2,10 $), consolidé par les frappes disciplinées d'Alpha et les reconnaissances stables de Beta. | conf=86 %
+- 2026-08-13T00:09:15.889849Z | alerte | Poursuite de l'alerte nominale avec un PnL combiné positif à +4,48 $, validé par l'efficacité tactique d'Alpha et la stabilité des positions de Hulk. | conf=88%

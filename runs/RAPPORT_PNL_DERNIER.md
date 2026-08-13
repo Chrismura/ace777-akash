@@ -3,8 +3,8 @@
 **Session:** `MASTER_VORTEX_V2_COLLAB_4H`
 **Période:** — → — (—)
 **Setup:** `vide_froid_vortex_v2_collab` v`2026-07-10-v2.2.2-no-partner-halt` | BETA `200` USDT | ALPHA `800` USDT | LLM gate `TRUE` fail_closed=`TRUE`
-**Généré:** 2026-08-12T23:27:40Z UTC
-**Filtre session:** `ts >= 2026-08-12T23:27:36Z` (lignes CSV antérieures exclues)
+**Généré:** 2026-08-13T00:18:02Z UTC
+**Filtre session:** `ts >= 2026-08-13T00:17:59Z` (lignes CSV antérieures exclues)
 
 ---
 

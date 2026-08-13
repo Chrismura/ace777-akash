@@ -1,14 +1,16 @@
-# AVIS FAMILLE SESSION — 2026-08-13T01:21:35.727540
+# AVIS FAMILLE SESSION — 2026-08-13T02:09:15.900622
 OCCASION : alerte en cours
 
 🟡 CONSULTATION FAMILLE
 
-• GEMINI (analyste) : (injoignable)
+• GEMINI (analyste) : AVIS GEMINI — ACE777
 
-• DEEPSEEK (technique) : Le setup est cohérent : Beta livre des signaux haute confiance (0,95) et Alpha respecte une vraie discipline (59 skips). Ce qui peut casser rapidement, c’est le revenge trading (5/7 trades) qui transforme une petite perte en spirale sur un marché à faible amplitude comme ici. Sur macOS, rien ne bloque l’exécution, mais je réduirais l’exposition ou désactiverais le mode 1.5x revenge pour les prochaines sessions.
+Session saine : ALPHA discipliné (+4.57 $, 18 skips), BETA alimente correctement. Aucune action requise, laisser courir. Surveille juste le volume x3 sur ETHUSDT : si ça s'emballe, réduis la taille des embuscades d'ALPHA.
 
-• LE JUGE tranche : NON — laisser courir.
+• DEEPSEEK (technique) : Session cohérente : BETA sonde proprement (conf 0.64, 2 long), ALPHA exécute avec discipline (2 tirs, 18 skips, +4.57 $). Rien ne casse — le setup est sain, pas de sur-trading ni de dérive.
 
-BETA renseigne bien, ALPHA reste discipliné (59 skips), et la perte de -1.94 $ est dans la tolérance d'une session d'accumulation. Aucun signal de rupture du mur du carnet ni d'urgence ; on maintient le setup tel quel.
+Faisabilité : laisse courir, ne touche à rien. L'alerte volume x3 sur ETH est anecdotique (+0.01 %), pas de signal de retournement. Réduire l'exposition serait prématuré vu le PnL positif et la discipline affichée.
 
-— Famille consultée, 13/08/2026 01:25
+• LE JUGE tranche : NON — la session est saine : ALPHA discipliné (18 skips, +4.57 $), BETA renseigne correctement, aucune alerte critique. Laisse courir, ne touche à rien.
+
+— Famille consultée, 13/08/2026 02:15
