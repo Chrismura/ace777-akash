@@ -1,19 +1,18 @@
-# AVIS FAMILLE SESSION — 2026-08-13T13:36:05.802292
+# AVIS FAMILLE SESSION — 2026-08-13T14:05:38.868285
 OCCASION : alerte en cours
 
 🟡 CONSULTATION FAMILLE
 
-• GEMINI (analyste) : Aucune action corrective requise : la discipline d'Alpha (493 skips) et l'efficacité du mode revenge (16 tirs) absorbent parfaitement la volatilité locale sur macOS. On laisse courir la mission `MASTER_VORTEX_V2` en l'état, en surveillant simplement si le volume x3 sur ETHUSDT persiste.
+• GEMINI (analyste) : Avis Gemini — ACE777
 
-• DEEPSEEK (technique) : Avis concis :  
-Setup cohérent : BETA sonde efficacement (conf 0.89) et ALPHA reste discipliné (493 skips) avec un PnL positif (+11,95 $) — laisser courir.  
-Point de vigilance : 16 revenge 1.5x sur 21 tirs = 76 % de trades à risque accru ; si la conf BETA chute sous 0.85, réduire l’exposition.  
-Faisabilité macOS : Aucun blocage technique, mais surveiller la latence des alertes (volume x3 sur ETHUSDT, variation -0,02 % — signal faible, pas d’action immédiate).  
+Risque principal : le carry trade JPY (taux japonais) peut déclencher un choc de liquidité brutal sur le crypto ; BETA est long (105/47) et Alpha en revenge 1.5x — exposition directionnelle non couverte. Angle mort : la saison CALME masque une corrélation cachée avec le yen ; on ne suit pas USDJPY. Recommandation : réduire la taille des tirs Alpha (×13 → ×8) et forcer BETA à équilibrer ses sondes (50/50) jusqu'à dissipation de l'alerte news. Laisser courir le PnL actuel, mais serrer le stop global à +8 $.
 
-Recommandation : Ne pas ajuster le setup, mais fixer un stop-loss global à -5 $ pour protéger le PnL.
+• DEEPSEEK (technique) : Le setup reste cohérent : discipline Alpha solide (493 skips) et signaux BETA haute confiance (0.89) avec biais long.  
 
-• LE JUGE tranche : OUI 
+L’alerte news « Japan Rate Hikes / Yen carry trade » peut casser le momentum et générer des gaps violents sur BTC, surtout si le mur du carnet cède soudainement.  
 
-La session affiche un PnL positif de +12.66 $ avec une excellente discipline d'Alpha (493 skips) et une saison calme 🧊. Vu la variation sur ETHUSDT (volume ×3), il faut laisser courir la stratégie actuelle sans ajuster le setup.
+Action recommandée : réduire l’exposition de moitié ou passer en mode observation jusqu’à stabilisation ; pas de modification de code macOS nécessaire pour l’instant.
 
-— Famille consultée, 13/08/2026 13:36
+• LE JUGE tranche : NON. Le setup actuel d’ALPHA reste performant et discipliné, tandis que BETA continue de fournir des sondes fiables. La news sur les hausses de taux japonais mérite une veille, mais ne justifie pas encore d’ajustement d’exposition immédiat. Laisser courir, tout en surveillant de près l’évolution du BTC/ETH.
+
+— Famille consultée, 13/08/2026 14:06

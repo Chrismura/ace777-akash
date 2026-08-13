@@ -1,29 +1,27 @@
 # DIAGNOSTIC ALPHA — MASTER_VORTEX_V2_COLLAB_4H
 
-> Généré: `2026-08-13T08:41:37Z` | Verdict: **ALERTE — ALPHA quasi dormante**
+> Généré: `2026-08-13T12:22:11Z` | Verdict: **CRITIQUE — ALPHA n'a exécuté aucun trade**
 
 ## Résumé
 
 | Métrique | ALPHA | BETA (référence) |
 |----------|-------|------------------|
-| FILLED | 2 | 34 |
-| PnL net | 1.6361 USDT | -0.0528 USDT |
-| SKIP total | 67 | 619 |
-| duo_wait | 5 (7.5% des SKIP ALPHA) | 0 |
+| FILLED | 0 | 90 |
+| PnL net | 0.0000 USDT | 0.5060 USDT |
+| SKIP total | 185 | 1493 |
+| duo_wait | 4 (2.2% des SKIP ALPHA) | 0 |
 
 ## Entonnoir des gates — ALPHA
 
 Ordre dans `genesis_manifest.txt` : radar → tension/vacuum → tactic → stase → **duo** → qty → llm_gate → execute
 
-- `radar_block` — **53**
-- `impulse_resonance_wait` — **7**
-- `duo_wait` — **5**
-- `tactic_mismatch` — **2**
+- `radar_block` — **181**
+- `duo_wait` — **4**
 
 ## duo_wait — sous-raisons (cause #2 après radar)
 
-- `no_trigger` — **4** (80.0% des duo_wait)
-- `no_state` — **1** (20.0% des duo_wait)
+- `no_trigger` — **3** (75.0% des duo_wait)
+- `no_state` — **1** (25.0% des duo_wait)
 
 ### Lecture technique
 
@@ -41,11 +39,12 @@ Ordre dans `genesis_manifest.txt` : radar → tension/vacuum → tactic → stas
 Revenge autorisé au-delà de `stop_loss` (shock / fluid / sentinel).
 Sorties BETA observées :
 
-- `shock_inversion_stop` — 29 trades
-- `fluid_exit_inversion` — 4 trades
-- `fluid_exit_brake` — 1 trades
+- `shock_inversion_stop` — 77 trades
+- `fluid_exit_inversion` — 10 trades
+- `fluid_exit_brake` — 2 trades
+- `shock_exit_10bps` — 1 trades
 
-- Sorties `shock_inversion_stop` : **29**
+- Sorties `shock_inversion_stop` : **78**
 - Sorties `stop_loss` : **0**
 
 
@@ -54,9 +53,9 @@ Sorties BETA observées :
 Quand le SCOUT ne rafraîchit pas `duo_state.json` dans les 60s, le HUNTER skip avec `stale_state`.
 Observé : **0** fois (0.0% des duo_wait).
 
-### 3. radar_block en amont (53 SKIP)
+### 3. radar_block en amont (181 SKIP)
 
-Même si le duo était parfait, 79.1% des cycles ALPHA meurent au radar avant d'atteindre le HUNTER.
+Même si le duo était parfait, 97.8% des cycles ALPHA meurent au radar avant d'atteindre le HUNTER.
 
 ## Paramètres duo actifs (config)
 

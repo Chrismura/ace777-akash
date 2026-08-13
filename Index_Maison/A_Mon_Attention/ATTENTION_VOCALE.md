@@ -4,7 +4,7 @@
 > Alerte Baleine. Gros print détecté, environ 2077537 dollars, 5 transaction proxy. Source Binance.. Provenance cortana_watch_whale.
 
 ## Meta
-- statut: READY
+- statut: IDLE
 - ts: 20260813T1145Z
 - pertinence: PERTINENT
 - sentiment: URGENT

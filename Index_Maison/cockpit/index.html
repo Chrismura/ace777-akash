@@ -1819,6 +1819,7 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
 
     renderMarketStrip();
 
+    const avisMap=(T.avis||th.avis||{});
     const grid=document.getElementById('thermo-grid');
     if(grid){
       const cells=[
@@ -1835,7 +1836,6 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
         ['ETF XRP', etf.xrp!=null? etf.xrp+' M$':'n/d free', 'etfXrpM'],
         ['RUN', M.run||'—', ''],
       ];
-      const avisMap=(T.avis||th.avis||{});
       grid.innerHTML=cells.map(([n,v,key])=>{
         const nd=String(v??'').includes('n/d');
         const anaHtml = key ? `<button type="button" class="pill-ana" data-indice="${key}" title="Cortana analyse cet indice">🐈</button><button type="button" class="pill-wiki" data-wiki="${key}" title="Version ecrite (wiki)">📖</button>` : '';
@@ -2040,6 +2040,7 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
   const tctx=trail.getContext('2d');
 
   function drawRadar(){
+    try{
     const W=canvas.width, H=canvas.height, cx=W/2, cy=H/2, R=Math.min(W,H)*0.42;
     // fade trail
     tctx.fillStyle='rgba(7,9,12,.12)';
@@ -2070,13 +2071,18 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
     ctx.strokeStyle='rgba(126,140,155,.22)';
     ctx.beginPath(); ctx.moveTo(cx-R,cy); ctx.lineTo(cx+R,cy); ctx.moveTo(cx,cy-R); ctx.lineTo(cx,cy+R); ctx.stroke();
 
-    // sweep
-    const grad=ctx.createConicGradient(angle, cx, cy);
+    // sweep — compat WebKit : pas de createConicGradient (Chrome-only)
+    // On dessine le faisceau dans un repère rotatif avec un dégradé radial.
+    ctx.save();
+    ctx.translate(cx, cy);
+    ctx.rotate(angle);
+    const grad=ctx.createRadialGradient(0,0,R*0.30, 0,0,R);
     grad.addColorStop(0,'rgba(124,255,107,.32)');
-    grad.addColorStop(0.14,'rgba(124,255,107,0)');
+    grad.addColorStop(0.30,'rgba(124,255,107,.10)');
     grad.addColorStop(1,'rgba(124,255,107,0)');
     ctx.fillStyle=grad;
-    ctx.beginPath(); ctx.moveTo(cx,cy); ctx.arc(cx,cy,R,angle,angle+0.85); ctx.closePath(); ctx.fill();
+    ctx.beginPath(); ctx.moveTo(0,0); ctx.arc(0,0,R,0,0.85); ctx.closePath(); ctx.fill();
+    ctx.restore();
     // beam edge
     ctx.strokeStyle='rgba(184,255,154,.55)';
     ctx.beginPath(); ctx.moveTo(cx,cy);
@@ -2116,6 +2122,7 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
     angle += 0.016 + Math.min(0.018, (M.swarmCycle||0)%10 * 0.001);
     const pulse=document.getElementById('swarm-pulse');
     if(pulse) pulse.style.width = (((Math.sin(angle*2)+1)/2)*100)+'%';
+    }catch(e){ console.warn('radar frame:', e); }
     requestAnimationFrame(drawRadar);
   }
 
@@ -2899,9 +2906,10 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
   paintAll();
   tickClock();
   setInterval(tickClock,1000);
-  drawRadar();
-  drawSynapses();
-  rebuildLines();
+  // Garde-fous : chaque canvas survit isolément (une erreur ne tue plus les autres)
+  try{ drawRadar(); }catch(e){ console.warn('radar:', e); }
+  try{ drawSynapses(); }catch(e){ console.warn('synapses:', e); }
+  try{ rebuildLines(); }catch(e){ console.warn('lines:', e); }
   pollPreflight();
   setInterval(pollPreflight, 20000);
   // Chime doux — après 1er geste user seulement (évite popup micro / audio au F5)
