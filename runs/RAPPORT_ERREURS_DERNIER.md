@@ -2,12 +2,12 @@
 
 ## WHY_ARRET (ligne obligatoire)
 
-`WHY_ARRET=unknown | ran_min=14.6 | vs_planned_min=+429.8 | timing=early_stop`
+`WHY_ARRET=unknown | ran_min=24.9 | vs_planned_min=+404.7 | timing=early_stop`
 
-- Généré : `2026-08-13T00:17:53Z`
-- Fenêtre depuis : `2026-08-13T00:03:14Z`
-- Fin process : `2026-08-13T00:17:50Z`
-- Meta start/end : `2026-08-13T00:03:14Z` → `2026-08-13T07:27:35Z`
+- Généré : `2026-08-13T00:42:54Z`
+- Fenêtre depuis : `2026-08-13T00:17:59Z`
+- Fin process : `2026-08-13T00:42:52Z`
+- Meta start/end : `2026-08-13T00:17:59Z` → `2026-08-13T07:27:35Z`
 - Watchdog meta : stale=?s max_relaunch=?
 - NET_RETRY (fenêtre) : 0
 
@@ -17,7 +17,7 @@ Alpage · groupe électrogène · 2 lignes (téléphone + surf) · WiFi. Le bot 
 
 ## Verdict court
 
-- **WHY_ARRET=unknown | ran_min=14.6 | vs_planned_min=+429.8 | timing=early_stop**
+- **WHY_ARRET=unknown | ran_min=24.9 | vs_planned_min=+404.7 | timing=early_stop**
 - Morts process journalisées (PROCESS_DIE/EXIT) — lire `last_cmd` / `how=signal`.
 - Issues duo (976) — scout/hunter désynchro.
 
@@ -34,16 +34,16 @@ Alpage · groupe électrogène · 2 lignes (téléphone + surf) · WiFi. Le bot 
 
 ## PnL fills (fenêtre)
 
-- ALPHA : fills=5 pnl=+4.7418 exits={'shock_inversion_stop': 3, 'fluid_exit_brake': 2}
-- BETA : fills=5 pnl=-0.0948 exits={'shock_inversion_stop': 3, 'fluid_exit_inversion': 2}
-- **TOTAL** : +4.6470
+- ALPHA : fills=7 pnl=+3.0258 exits={'shock_inversion_stop': 6, 'fluid_exit_brake': 1}
+- BETA : fills=5 pnl=-0.4116 exits={'shock_inversion_stop': 5}
+- **TOTAL** : +2.6142
 
 ## Derniers PROCESS_DIE / EXIT
 
-- `[ALPHA_X13_BURST13] 2026-08-13T00:15:01Z PROCESS_EXIT unit=ALPHA_X13_BURST13 how=pipe_run_unit why=rc_1 rc=1`
-- `[BETA_X5] 2026-08-13T00:17:50Z PROCESS_EXIT unit=BETA_X5 how=pipe_run_unit why=rc_1 rc=1`
-- `2026-08-13T00:15:01Z PROCESS_EXIT unit=ALPHA_X13_BURST13 how=pipe_run_unit why=rc_1 rc=1`
-- `2026-08-13T00:17:50Z PROCESS_EXIT unit=BETA_X5 how=pipe_run_unit why=rc_1 rc=1`
+- `[BETA_X5] 2026-08-13T00:40:49Z PROCESS_EXIT unit=BETA_X5 how=pipe_run_unit why=rc_1 rc=1`
+- `[ALPHA_X13_BURST13] 2026-08-13T00:42:52Z PROCESS_EXIT unit=ALPHA_X13_BURST13 how=pipe_run_unit why=rc_1 rc=1`
+- `2026-08-13T00:40:49Z PROCESS_EXIT unit=BETA_X5 how=pipe_run_unit why=rc_1 rc=1`
+- `2026-08-13T00:42:52Z PROCESS_EXIT unit=ALPHA_X13_BURST13 how=pipe_run_unit why=rc_1 rc=1`
 
 ## Derniers WATCHDOG
 
