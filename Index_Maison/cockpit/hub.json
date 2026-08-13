@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-13T14:48:09.642164+00:00",
+  "generated_at": "2026-08-13T15:30:16.257259+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 588
+      "calls_24h": 591
     },
     {
       "id": "openrouter-free",
@@ -35,7 +35,7 @@
       "model": "deepseek-ai/deepseek-v4-flash-0731",
       "enabled": true,
       "timeout": 300,
-      "calls_24h": 507
+      "calls_24h": 513
     },
     {
       "id": "mistral",
@@ -107,7 +107,7 @@
       "model": "x-ai/grok-4.3",
       "enabled": true,
       "timeout": 300,
-      "calls_24h": 746
+      "calls_24h": 773
     },
     {
       "id": "qwen-local",
@@ -130,191 +130,191 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 1441,
+    "consumed": 1493,
     "remaining": 0
   },
   "queue": [
     {
-      "ts": "2026-08-13T14:46:58.136385+00:00",
-      "task": "supervise.decision",
-      "provider": "puter-grok",
-      "model": "x-ai/grok-4.3",
-      "kind": "cloud",
-      "duration_s": 10.72
-    },
-    {
-      "ts": "2026-08-13T14:45:37.134319+00:00",
-      "task": "supervise.decision",
-      "provider": "puter-grok",
-      "model": "x-ai/grok-4.3",
-      "kind": "cloud",
-      "duration_s": 2.18
-    },
-    {
-      "ts": "2026-08-13T14:45:34.844599+00:00",
+      "ts": "2026-08-13T15:30:10.353844+00:00",
       "task": "inferx.analyse",
       "provider": "nvidia",
       "model": "deepseek-ai/deepseek-v4-flash-0731",
       "kind": "cloud",
-      "duration_s": 39.44
+      "duration_s": 214.32
     },
     {
-      "ts": "2026-08-13T14:45:15.789107+00:00",
+      "ts": "2026-08-13T15:29:15.306898+00:00",
       "task": "supervise.decision",
       "provider": "puter-grok",
       "model": "x-ai/grok-4.3",
       "kind": "cloud",
-      "duration_s": 14.91
+      "duration_s": 37.72
     },
     {
-      "ts": "2026-08-13T14:44:55.306506+00:00",
-      "task": "ultra.analyse",
+      "ts": "2026-08-13T15:29:14.244540+00:00",
+      "task": "analyste.strategie",
       "provider": "gemini",
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
-      "duration_s": 0.72
+      "duration_s": 3.05
     },
     {
-      "ts": "2026-08-13T14:44:54.492616+00:00",
-      "task": "signets.juge",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 0.96
-    },
-    {
-      "ts": "2026-08-13T14:44:53.428980+00:00",
+      "ts": "2026-08-13T15:27:07.037461+00:00",
       "task": "mission",
       "provider": "nvidia",
       "model": "deepseek-ai/deepseek-v4-flash-0731",
       "kind": "cloud",
-      "duration_s": 30.11
+      "duration_s": 598.3
     },
     {
-      "ts": "2026-08-13T14:44:23.211295+00:00",
-      "task": "audit.protocol",
+      "ts": "2026-08-13T15:27:05.978788+00:00",
+      "task": "supervise.decision",
+      "provider": "puter-grok",
+      "model": "x-ai/grok-4.3",
+      "kind": "cloud",
+      "duration_s": 12.78
+    },
+    {
+      "ts": "2026-08-13T15:25:21.639885+00:00",
+      "task": "supervise.decision",
+      "provider": "puter-grok",
+      "model": "x-ai/grok-4.3",
+      "kind": "cloud",
+      "duration_s": 14.45
+    },
+    {
+      "ts": "2026-08-13T15:23:42.808331+00:00",
+      "task": "analyste.strategie",
       "provider": "gemini",
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
-      "duration_s": 0.78
+      "duration_s": 3.35
     },
     {
-      "ts": "2026-08-13T14:43:29.220583+00:00",
+      "ts": "2026-08-13T15:23:35.627693+00:00",
       "task": "supervise.decision",
       "provider": "puter-grok",
       "model": "x-ai/grok-4.3",
       "kind": "cloud",
-      "duration_s": 11.59
+      "duration_s": 16.63
     },
     {
-      "ts": "2026-08-13T14:42:16.898009+00:00",
-      "task": "code.ia",
-      "provider": "puter-grok",
-      "model": "x-ai/grok-4.3",
+      "ts": "2026-08-13T15:21:48.038597+00:00",
+      "task": "analyste.strategie",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
       "kind": "cloud",
-      "duration_s": 24.01
+      "duration_s": 3.07
     },
     {
-      "ts": "2026-08-13T14:41:45.942469+00:00",
+      "ts": "2026-08-13T15:21:47.430668+00:00",
       "task": "supervise.decision",
       "provider": "puter-grok",
       "model": "x-ai/grok-4.3",
       "kind": "cloud",
-      "duration_s": 12.85
+      "duration_s": 10.42
     },
     {
-      "ts": "2026-08-13T14:41:25.229457+00:00",
+      "ts": "2026-08-13T15:21:46.417073+00:00",
       "task": "ultra.analyse",
       "provider": "gemini",
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
-      "duration_s": 5.81
+      "duration_s": 6.18
     },
     {
-      "ts": "2026-08-13T14:41:19.323438+00:00",
+      "ts": "2026-08-13T15:21:40.210701+00:00",
       "task": "signets.juge",
       "provider": "gemini",
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
-      "duration_s": 2.6
+      "duration_s": 3.87
     },
     {
-      "ts": "2026-08-13T14:41:16.139000+00:00",
+      "ts": "2026-08-13T15:21:35.898680+00:00",
       "task": "mission",
       "provider": "nvidia",
       "model": "deepseek-ai/deepseek-v4-flash-0731",
       "kind": "cloud",
-      "duration_s": 157.42
+      "duration_s": 207.5
     },
     {
-      "ts": "2026-08-13T14:40:01.510743+00:00",
+      "ts": "2026-08-13T15:20:05.358889+00:00",
       "task": "supervise.decision",
       "provider": "puter-grok",
       "model": "x-ai/grok-4.3",
       "kind": "cloud",
-      "duration_s": 11.67
+      "duration_s": 9.27
+    },
+    {
+      "ts": "2026-08-13T15:18:24.558968+00:00",
+      "task": "supervise.decision",
+      "provider": "puter-grok",
+      "model": "x-ai/grok-4.3",
+      "kind": "cloud",
+      "duration_s": 10.01
     }
   ],
   "events": [
     {
-      "ts": "2026-08-13T14:48:04.085920+00:00",
+      "ts": "2026-08-13T15:30:10.380998+00:00",
       "kind": "reserve-storm",
       "title": "Tempête active + budget calme atteint -> réserve storm pour supervise.decision",
       "detail": "supervise.decision"
     },
     {
-      "ts": "2026-08-13T14:46:58.135197+00:00",
-      "kind": "message",
-      "title": "« Puter Grok (gratuit) » a repondu",
-      "detail": ""
-    },
-    {
-      "ts": "2026-08-13T14:46:47.414264+00:00",
-      "kind": "reserve-storm",
-      "title": "Tempête active + budget calme atteint -> réserve storm pour supervise.decision",
-      "detail": "supervise.decision"
-    },
-    {
-      "ts": "2026-08-13T14:45:37.134006+00:00",
-      "kind": "message",
-      "title": "« Puter Grok (gratuit) » a repondu",
-      "detail": ""
-    },
-    {
-      "ts": "2026-08-13T14:45:34.951165+00:00",
-      "kind": "reserve-storm",
-      "title": "Tempête active + budget calme atteint -> réserve storm pour supervise.decision",
-      "detail": "supervise.decision"
-    },
-    {
-      "ts": "2026-08-13T14:45:34.843811+00:00",
+      "ts": "2026-08-13T15:30:10.353516+00:00",
       "kind": "message",
       "title": "« NVIDIA build.nvidia.com (100+ modeles) » a repondu",
       "detail": ""
     },
     {
-      "ts": "2026-08-13T14:45:15.788508+00:00",
+      "ts": "2026-08-13T15:29:15.306587+00:00",
       "kind": "message",
       "title": "« Puter Grok (gratuit) » a repondu",
       "detail": ""
     },
     {
-      "ts": "2026-08-13T14:45:00.877399+00:00",
+      "ts": "2026-08-13T15:29:14.244024+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
+    {
+      "ts": "2026-08-13T15:29:11.196546+00:00",
+      "kind": "quota",
+      "title": "Budget calme atteint -> bascule famille (gratuits)",
+      "detail": "analyste.strategie"
+    },
+    {
+      "ts": "2026-08-13T15:28:37.590897+00:00",
       "kind": "reserve-storm",
       "title": "Tempête active + budget calme atteint -> réserve storm pour supervise.decision",
       "detail": "supervise.decision"
     },
     {
-      "ts": "2026-08-13T14:44:55.400245+00:00",
-      "kind": "quota",
-      "title": "Budget calme atteint -> bascule famille (gratuits)",
-      "detail": "inferx.analyse"
+      "ts": "2026-08-13T15:27:07.036835+00:00",
+      "kind": "message",
+      "title": "« NVIDIA build.nvidia.com (100+ modeles) » a repondu",
+      "detail": ""
     },
     {
-      "ts": "2026-08-13T14:44:55.306114+00:00",
+      "ts": "2026-08-13T15:27:05.978249+00:00",
       "kind": "message",
-      "title": "« Google Gemini » a repondu",
+      "title": "« Puter Grok (gratuit) » a repondu",
       "detail": ""
+    },
+    {
+      "ts": "2026-08-13T15:26:53.201144+00:00",
+      "kind": "reserve-storm",
+      "title": "Tempête active + budget calme atteint -> réserve storm pour supervise.decision",
+      "detail": "supervise.decision"
+    },
+    {
+      "ts": "2026-08-13T15:26:46.588947+00:00",
+      "kind": "timeout",
+      "title": "Patience NVIDIA build.nvidia.com (100+ modeles) (lenteur)",
+      "detail": "The read operation timed out"
     }
   ],
   "tasks_quotas": {
