@@ -22,6 +22,7 @@ Pour que Cursor · Punk · Cortana · Christophe sachent **ce qui a bougé**, sa
 
 | ts | Qui | Action | Où | Quoi |
 |----|-----|--------|-----|------|
+| 2026-08-13T1853Z | journal_soir | ★ | journal | snapshot soir auto |
 | 2026-08-13T1648Z | session_debut | ★ | session | début mode=froid |
 | 2026-08-12T2354Z | session_debut | ★ | session | début mode=vol |
 | 2026-08-12T2329Z | Buffy | ★ | RUN 8H PATCHE (13/08) | moteur champion 9fe9f105 + FIX-SCOUT revenge (role==SCOUT seulement, 3 modifs chirurgicales validees 5 cas) ; run 8h lance 23:28 UTC via lancer_detache + GEMINI_TEST x13 fixe ; backups: genesis_manifest.txt.BAK_CHAMPION_9fe9f105_20260812 ; watcher -> runs/BILAN_PATCHE_8H_20260813.md ; le 1er livrable codeur refuse (ts/ts_ms + DUO_SUFFER + modes supprimes), v2 chirurgical accepte |

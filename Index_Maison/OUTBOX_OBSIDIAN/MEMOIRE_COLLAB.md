@@ -22,6 +22,7 @@ Pour que Cursor · Punk · Cortana · Christophe sachent **ce qui a bougé**, sa
 
 | ts | Qui | Action | Où | Quoi |
 |----|-----|--------|-----|------|
+| 2026-08-13T1853Z | journal_soir | ★ | journal | snapshot soir auto |
 | 2026-08-13T1648Z | session_debut | ★ | session | début mode=froid |
 | 2026-08-13T1045Z | Buffy | ★ | REPRISE POST-COUPURE (13/08) | coupure batterie -> position orpheline BTCUSDT SHORT -0.0184 (lev 13) bloquait la marge -> Margin insufficient (-2019) -> Abort leverage error -> ALPHA exit 1 en boucle, duo cassé ; fix : arrêt propre + fermeture position orpheline (API reduceOnly hedge) + nettoyage fichiers run + RE-SCELLEMENT champion 98c80b5c (=9fe9f105 sans barrière + FIX-SCOUT, vérifié diff) dans verif_pre_run_3x/verif_setup_champion + vérif md5 champion intégrée au preflight (C1 mécanique) + garde-fou compte à plat (positionRisk != 0 -> refus de lancer, C8) ; run 8h relancé 08:44Z (fin ~16:44Z) sain, 0 erreur marge ; validation : mon action du 12/08 23:29Z était juste (genesis = champion restauré + fix) |
 | 2026-08-12T2354Z | session_debut | ★ | session | début mode=vol |

@@ -22,6 +22,8 @@ Pour que Cursor · Punk · Cortana · Christophe sachent **ce qui a bougé**, sa
 
 | ts | Qui | Action | Où | Quoi |
 |----|-----|--------|-----|------|
+| 2026-08-13T1853Z | journal_soir | ★ | journal | snapshot soir auto |
+| 2026-08-13T1853Z | journal_auto | ★ | CONSOLE+Journal_2026-08-13 | Snapshot auto hygiène soir |
 | 2026-08-13T1648Z | session_debut | ★ | session | début mode=froid |
 | 2026-08-13T1045Z | Buffy | ★ | REPRISE POST-COUPURE (13/08) | coupure batterie -> position orpheline BTCUSDT SHORT -0.0184 (lev 13) bloquait la marge -> Margin insufficient (-2019) -> Abort leverage error -> ALPHA exit 1 en boucle, duo cassé ; fix : arrêt propre + fermeture position orpheline (API reduceOnly hedge) + nettoyage fichiers run + RE-SCELLEMENT champion 98c80b5c (=9fe9f105 sans barrière + FIX-SCOUT, vérifié diff) dans verif_pre_run_3x/verif_setup_champion + vérif md5 champion intégrée au preflight (C1 mécanique) + garde-fou compte à plat (positionRisk != 0 -> refus de lancer, C8) ; run 8h relancé 08:44Z (fin ~16:44Z) sain, 0 erreur marge ; validation : mon action du 12/08 23:29Z était juste (genesis = champion restauré + fix) |
 | 2026-08-12T2354Z | session_debut | ★ | session | début mode=vol |
@@ -173,3 +175,11 @@ Pour que Cursor · Punk · Cortana · Christophe sachent **ce qui a bougé**, sa
 ~ 2026-07-30T16:45Z — P1 CLOSED atomic veille · P2 MAX_GLOBAL_DD_PCT=8 · P3 Cortana URGENT (code+plist prêts). load launchd = toi.
 
 ~ 2026-08-13T20:05Z — COCKPIT RELOOK v2 (famille 6 GO): heure LOCALE partout (fini UTC/Z, 4 traces trades+alertes+SESSION converties), graph synapse sans bulles (soma+leader line+anti-chevauchement), cosmos 2 anneaux si >8 providers + labels triés par angle, tableaux de droite en grille 2 colonnes, LIVE = polling hub.json 10s (prouvé: budget 1602→1623 sans reload) + degragade si 3 echecs + visibilitychange. Backup index.html.bak-cockpit-relook-20260813-195218. Specs: SPEC_cockpit_relook_v2.md + v2_corrections.md. AUDIT_COCKPIT_RELOOK_2026-08-13/.
+
+~ 2026-08-13T21:10Z — COCKPIT STABILITÉ v1 (audit famille 6 : GO unanime)
+  · Graph cosmos : buildNodes initialise les providers sur leur orbite + pollHubLive met à jour en douce (plus de saut / tassés au centre)
+  · Size_note traduits en FR (cartes ALPHA/BETA) : strong_conf_full+entry_25_75_full → pleine confiance · entrée 25/75
+  · Feed cosmos hub.json : 120s → 30s (launchd com.ace777.hub-cockpit-feed) → cockpit synchronisé en live
+  · Diffing v2 famille : re-rendu seulement si generated_at a changé
+  · Testé Chromium + WebKit (pywebview) : positions stables 136px, 0 erreur JS
+  · Fichier : Index_Maison/cockpit/index.html | backup : index.html.bak-cockpit-stabilite-*

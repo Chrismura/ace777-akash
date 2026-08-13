@@ -315,3 +315,10 @@
 - 2026-08-13T18:23:30.103304Z | alerte | Poursuite de la vigilance nominale avec un PnL combiné solide à +0,64 $, validé par la rentabilité des tirs d'Alpha et la fiabilité des reconnaissances de Beta. | conf=88%
 - 2026-08-13T18:32:12.789834Z | alerte | Poursuite de la vigilance nominale avec un PnL combiné positif à +1,13 $, validé par l'efficacité tactique d'Alpha et les reconnaissances de Beta. | conf=88%
 - 2026-08-13T18:36:00.311771Z | alerte | Poursuite de la vigilance nominale avec un PnL combiné positif à +1,40 $, validé par l'exécution chirurgicale d'Alpha et les reconnaissances de Beta. | conf=88%
+- 2026-08-13T18:52:34.992763Z | alerte | Poursuite de la vigilance nominale avec un PnL combiné positif à +1,40 $, validé par la discipline d'Alpha et les reconnaissances de Beta. | conf=88%
+- 2026-08-13T18:52:47.767641Z | alerte | Poursuite de la vigilance nominale avec un PnL combiné positif à +1,40 $, validé par la discipline d'Alpha et les reconnaissances de Beta. | conf=88%
+- 2026-08-13T19:06:02.345255Z | alerte | Poursuite de la vigilance nominale avec un PnL combiné positif à +1,40 $, validé par la discipline d'Alpha et l'éclairage continu de Beta. | conf=88%
+- 2026-08-13T19:06:42.848688Z | alerte | Poursuite de la vigilance nominale avec un PnL combiné positif à +1,40 $, validé par la discipline d'Alpha et l'éclairage continu de Beta. | conf=88%
+- 2026-08-13T19:07:51.042276Z | alerte | Poursuite de la vigilance nominale avec un PnL combiné positif à +1,47 $, validé par la discipline d'Alpha et l'éclairage continu de Beta. | conf=88%
+- 2026-08-13T19:36:05.503681Z | alerte | Poursuite de la vigilance nominale avec un PnL combiné positif à +1,34 $, validé par la discipline d'Alpha et l'éclairage continu de Beta. | conf=88%
+- 2026-08-13T19:44:30.247658Z | alerte | Poursuite de la vigilance nominale avec un PnL combiné positif à +1,26 $, validé par la discipline d'Alpha et l'éclairage continu de Beta. | conf=88%

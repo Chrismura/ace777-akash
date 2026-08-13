@@ -1237,16 +1237,6 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
       <div class="stream" id="b-stream"><div class="fx-layer" id="b-fx"></div><div class="stream-inner" id="b-list"></div></div>
     </div>
 
-  // Badge d'avis IA (cohérence bulle/voix — le dernier AVIS STRICT de Cortana)
-  function avBadgeHtml(indice, av){
-    const a=(av.avis||'?').toUpperCase();
-    const col = a==='LONG' ? 'var(--acid)' : a==='SHORT' ? 'var(--red)' : 'var(--amber2)';
-    const c=av.confiance||'—';
-    const age = av.ts ? Math.round((Date.now()-new Date(av.ts).getTime())/3600000) : null;
-    const ageTxt = age==null ? '' : (age<1 ? ' <1h' : ' '+age+'h');
-    const prov = av.provider ? ' · ' + String(av.provider).split('(')[0].trim() : '';
-    return `<span class="av-badge" style="color:${col};border-color:${col};" title="Dernier avis Cortana (${indice}${ageTxt}${prov}) — même conclusion que la voix 🐈">${a}${ageTxt}</span>`;
-  }
     <!-- HULK -->
     <div class="card hulk">
       <div class="engine-head">
@@ -1606,6 +1596,32 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
     el('pf-cycle', `<span style="color:var(--cyan)">${M.swarmCycle||'—'}</span>`);
   }
 
+  // Badge d'avis IA (cohérence bulle/voix — le dernier AVIS STRICT de Cortana)
+  function avBadgeHtml(indice, av){
+    const a=(av.avis||'?').toUpperCase();
+    const col = a==='LONG' ? 'var(--acid)' : a==='SHORT' ? 'var(--red)' : 'var(--amber2)';
+    const c=av.confiance||'—';
+    const age = av.ts ? Math.round((Date.now()-new Date(av.ts).getTime())/3600000) : null;
+    const ageTxt = age==null ? '' : (age<1 ? ' <1h' : ' '+age+'h');
+    const prov = av.provider ? ' · ' + String(av.provider).split('(')[0].trim() : '';
+    return `<span class="av-badge" style="color:${col};border-color:${col};" title="Dernier avis Cortana (${indice}${ageTxt}${prov}) — même conclusion que la voix 🐈">${a}${ageTxt}</span>`;
+  }
+
+  // === CORRECTION C2 : Traduction lisible des size_note (bloc 1 = renderEngine) ===
+  function traduireSizeNote(note){
+    if(!note) return '—';
+    const trad={
+      'strong_conf_full':'pleine confiance',
+      'entry_25_75_full':'entrée 25/75',
+      'hunter_revenge_1.5x':'revenge 1.5x',
+      'aspiration_1.618x':'aspiration 1.618x',
+      'fluid_exit':'sortie fluide',
+      'shock_inversion_stop':'choc inversé',
+      'radar_block':'radar bloqué'
+    };
+    return note.split('+').map(p=>trad[p.trim()]||p.trim()).join(' · ');
+  }
+
   function renderEngine(prefix, side, thrustKey){
     const s=M[side]||{};
     const lf=s.lastFill||{};
@@ -1629,7 +1645,7 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
     set(prefix+'-fills', s.fills||0);
     set(prefix+'-skips', s.skips||0);
     set(prefix+'-dir', dirLabel(lf.radar_dir || (lf.side==='BUY'?'long':lf.side==='SELL'?'short':null)));
-    set(prefix+'-size', lf.size_note || '—');
+    set(prefix+'-size', traduireSizeNote(lf.size_note));
     if(prefix==='a') set('a-lev', lf.lev_hint!=null ? lf.lev_hint+'×' : '—');
     if(prefix==='b') set('b-side', lf.side||'—');
     set(prefix+'-qty', lf.qty!=null? lf.qty : '—');
@@ -1644,7 +1660,7 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
         const sideU=(r.side||'').toUpperCase();
         const kind = sideU==='BUY'?'buy':(sideU==='SELL'?'sell':(sideU==='SKIP'||r.status==='SKIPPED'?'skip':'buy'));
         const p = r.pnl!=null? fmt(r.pnl,3):'';
-        const meta = [r.size_note||'', r.lev_hint!=null? r.lev_hint+'x':'', r.qty!=null? 'q'+r.qty:''].filter(Boolean).join(' ');
+        const meta = [traduireSizeNote(r.size_note), r.lev_hint!=null? r.lev_hint+'x':'', r.qty!=null? 'q'+r.qty:''].filter(Boolean).join(' ');
         let tradeTime = '—';
         if (r.ts) {
           const d = new Date(r.ts);
@@ -2585,6 +2601,8 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
     altSeason: {t:'SAISON ALTCOINS', d:'Indique si les altcoins (ETH, SOL, XRP…) sur-performent Bitcoin. Quand la dominance BTC baisse fortement, les investisseurs délaissent BTC pour les alts : c’est la « saison des altcoins ».', s:'Proxy : dominance BTC (pas l’indice exact Blockchain Center)'},
     liq24Usd: {t:'LIQUIDATIONS 24H', d:'Montant total de positions fermées de force en 24h (levier sauté). Beaucoup de liquidations = panique ou cascade : le marché a « purgé » l’excès de levier. Long = positions acheteuses liquidées, Short = positions vendeuses liquidées.', s:'Source : OKX public (BTC+ETH+SOL) — proxy sans clé'},
     etfBtcM: {t:'ETF BTC FLUX', d:'Flux net d’argent qui entre ou sort des ETF Bitcoin américains (IBIT, FBTC, GBTC…). Entrées = des institutions achètent du BTC « officiellement » (hausse), sorties = ils vendent (pression vendeuse).', s:'Source : bitbo.io public (BTC seul ; ETH/XRP pas couverts en free)'},
+    etfEthM: {t:'ETF ETH FLUX', d:'Flux net d’argent qui entre ou sort des ETF Ethereum américains. Entrées = des institutions achètent de l’ETH « officiellement » (hausse), sorties = ils vendent (pression vendeuse).', s:'Source : bitbo.io public — ETH non couvert en free, honnêtement affiché n/d'},
+    etfXrpM: {t:'ETF XRP FLUX', d:'Flux net d’argent qui entre ou sort des ETF XRP américains. Même logique que BTC/ETH : entrées = institutionnels acheteurs, sorties = pression vendeuse.', s:'Source : bitbo.io public — XRP non couvert en free, honnêtement affiché n/d'},
     gexPutCall: {t:'GEX PROXY (OPTIONS)', d:'Ratio puts/calls sur l’open interest des options BTC (Deribit). Beaucoup de puts = marché qui se couvre à la baisse (peur). Beaucoup de calls = paris haussiers. Les « murs » (murC/murP) sont les strikes où l’OI est énorme : le prix a tendance à s’y arrêter.', s:'Proxy : Deribit public (OI ≤ 60 jours) — pas SpotGamma payant'},
     volumeCachedTaker: {t:'VOLUMES CACHÉS', d:'Pression d’achat réelle : ratio des ordres « taker » (qui prennent la liquidité, donc agressifs) acheteurs vs vendeurs sur 24h. >0.5 = acheteurs agressifs, <0.5 = vendeurs. Le ratio perp/spot mesure combien de fois le volume dérivé (levier) dépasse le volume comptant : un chiffre très haut = l’action se joue au levier, fragile.', s:'Source : OKX Rubik (gratuit)'},
     funding: {t:'FUNDING (TAUX DE FINANCEMENT)', d:'Frais périodiques (toutes les 8h) que les positions longues ou courtes se paient entre elles pour rester ouvertes. Positif = les longs paient les shorts (marché optimiste) ; très positif = foule à l’achat, risque de cascade baissière. Négatif = l’inverse.', s:'Source : Binance FAPI public (gratuit)'},
@@ -2596,8 +2614,16 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
   };
   let pedaPinned = '';
   function fillPeda(key){
-    const g = GLOSSARY[key]; if(!g) return false;
+    const g = GLOSSARY[key];
     const panel = document.getElementById('peda-panel'); if(!panel) return false;
+    // Fallback famille 6/6 : jamais de bouton « mort » si une clé manque au GLOSSARY
+    if(!g){
+      console.warn('[peda] clé absente du GLOSSARY :', key);
+      document.getElementById('peda-title').textContent = 'INFO ACE777';
+      document.getElementById('peda-desc').textContent = 'Définition en cours de synchronisation pour : ' + key;
+      document.getElementById('peda-src').textContent = 'Référence : ' + key;
+      return true;
+    }
     document.getElementById('peda-title').textContent = g.t;
     document.getElementById('peda-desc').textContent = g.d;
     document.getElementById('peda-src').textContent = g.s;
@@ -3296,11 +3322,13 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
             const color = !p.enabled ? palette.red : ((p.calls_24h || 0) === 0 ? palette.idle : palette.acid);
             const radius = Math.max(13, Math.min(22, CFG.nodeBase + (p.calls_24h || 0) * 0.25));
 
+            const tx = Math.cos(angle) * (ring === 1 ? R1 : R2);
+            const ty = Math.sin(angle) * (ring === 1 ? R1 : R2);
             nodes.push({
-                id: p.id, type: 'provider', x: 0, y: 0, vx: 0, vy: 0,
+                id: p.id, type: 'provider', x: tx, y: ty, vx: 0, vy: 0,
                 radius: radius, color: color,
                 label: CFG.labels[p.id] || p.id,
-                target: { x: Math.cos(angle) * (ring === 1 ? R1 : R2), y: Math.sin(angle) * (ring === 1 ? R1 : R2) },
+                target: { x: tx, y: ty },
                 data: p
             });
         });
@@ -3804,6 +3832,8 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
     // graphe ET les cartes (budget, file, quotas, santé) restent frais en
     // continu, sans recharger la page.
     let hubPollFail = 0;
+    // V2 famille (5/6) : diffing — ne re-rendre que si le feed a changé
+    let lastHubGen = (window.__HUB__ && window.__HUB__.generated_at) || null;
 
     function pollHubLive() {
         fetch('hub.json', { cache: 'no-store' })
@@ -3818,8 +3848,28 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
                     health.classList.remove('degraded');
                     health.textContent = health.textContent.replace(' (dégradé)', '');
                 }
+                // Diffing : feed inchangé → pas de re-rendu inutile (économie CPU WebKit/Chromium)
+                if (lastHubGen && data.generated_at && data.generated_at === lastHubGen) return;
+                lastHubGen = (data.generated_at) || lastHubGen;
                 window.__HUB__ = data;
-                buildNodes();
+
+                // CORRECTION C1 : mise à jour douce (couleurs/tailles) sans rebuild
+                const providersData = (data.providers || []);
+                if (nodes.length === providersData.length + 1) { // hub + providers
+                    providersData.forEach((p) => {
+                        const node = nodes.find(n => n.id === p.id);
+                        if (node) {
+                            const color = !p.enabled ? palette.red : ((p.calls_24h || 0) === 0 ? palette.idle : palette.acid);
+                            const radius = Math.max(13, Math.min(22, CFG.nodeBase + (p.calls_24h || 0) * 0.25));
+                            node.color = color;
+                            node.radius = radius;
+                            node.data = p;
+                        }
+                    });
+                } else {
+                    // Nombre de providers changé → reconstruction propre
+                    buildNodes();
+                }
                 renderCosmos();
             })
             .catch(() => {
