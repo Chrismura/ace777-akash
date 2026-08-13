@@ -171,3 +171,5 @@ Pour que Cursor · Punk · Cortana · Christophe sachent **ce qui a bougé**, sa
 ~ 2026-07-30T16:35Z — Cortana résumé horaire (launchd 1h) + avis sentiment. Dashboard tech.html ouvert. Kimi #15 Risk/WARM/DR intégrés (C7/C8). Risk Guardian pas en vol.
 
 ~ 2026-07-30T16:45Z — P1 CLOSED atomic veille · P2 MAX_GLOBAL_DD_PCT=8 · P3 Cortana URGENT (code+plist prêts). load launchd = toi.
+
+~ 2026-08-13T20:05Z — COCKPIT RELOOK v2 (famille 6 GO): heure LOCALE partout (fini UTC/Z, 4 traces trades+alertes+SESSION converties), graph synapse sans bulles (soma+leader line+anti-chevauchement), cosmos 2 anneaux si >8 providers + labels triés par angle, tableaux de droite en grille 2 colonnes, LIVE = polling hub.json 10s (prouvé: budget 1602→1623 sans reload) + degragade si 3 echecs + visibilitychange. Backup index.html.bak-cockpit-relook-20260813-195218. Specs: SPEC_cockpit_relook_v2.md + v2_corrections.md. AUDIT_COCKPIT_RELOOK_2026-08-13/.

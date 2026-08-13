@@ -1,4 +1,4 @@
-# ARCHITECTURE VIVANTE — ACE777 (2026-08-13 17:43 UTC)
+# ARCHITECTURE VIVANTE — ACE777 (2026-08-13 18:23 UTC)
 
 > Document GÉNÉRÉ AUTOMATIQUEMENT à l'instant. La famille valide
 > en s'appuyant sur CE contexte, pas sur des documents figés.
@@ -22,10 +22,10 @@
 
 ## État de la mission (bots + PnL)
 
-- mission.json : 2026-08-13 17:43Z · run `MASTER_VORTEX_V2_COLLAB_4H` · alerte `amber`
-- PnL combiné : **-6.64 $** 📉 (combo -6.6391)
-- ALPHA (sniper (embuscade, ×13, revenge si claque)) : **-6.56 $** · 5 fills · 38 skips
-- BETA (éclaireur (chatouille le marché, alimente Alpha)) : **-0.08 $** · 8 fills · 37 skips
+- mission.json : 2026-08-13 18:23Z · run `MASTER_VORTEX_V2_COLLAB_4H` · alerte `nominal`
+- PnL combiné : **0.64 $** 📈 (combo 0.6392)
+- ALPHA (sniper (embuscade, ×13, revenge si claque)) : **+0.69 $** · 4 fills · 62 skips
+- BETA (éclaireur (chatouille le marché, alimente Alpha)) : **-0.06 $** · 8 fills · 57 skips
 - HULK (gestionnaire de portefeuille (bag, escalier, courreur)) : **+0.00 $** · 0 fills
 - Saison : CALME 🧊 · 
 
@@ -46,11 +46,11 @@
 ## Mémoire chaude (journal + résumés)
 
 - Radar (dernières alertes) :
-  · 2026-08-13T17:43:11.147832Z BTCUSDT 63214.53 0.0000 13.0 declenche=non
-  · 2026-08-13T17:43:11.147981Z BTCUSDT 63214.52 0.0000 13.0 declenche=non
-  · 2026-08-13T17:43:11.148107Z BTCUSDT 63214.31 0.0000 13.0 declenche=non
-  · 2026-08-13T17:43:11.148222Z BTCUSDT 63214.3 0.0000 13.1 declenche=non
-- Intention en cours : BETA a sonde le marche (8 sondes, 4 long / 4 court, conf moy | ALPHA a frappe 5 fois en embuscade (13x) (dont 2 en mode rev
+  · 2026-08-13T18:23:25.613769Z BTCUSDT 63222.4 0.0001 0.8 declenche=non
+  · 2026-08-13T18:23:25.613878Z BTCUSDT 63222.16 0.0001 0.8 declenche=non
+  · 2026-08-13T18:23:25.677927Z ETHUSDT 1879.73 0.0002 115.1 declenche=oui
+  · 2026-08-13T18:23:25.710641Z BTCUSDT 63222.15 0.0001 1.0 declenche=non
+- Intention en cours : BETA a sonde le marche (8 sondes, 6 long / 2 court, conf moy | ALPHA attend son moment : 55 skips (discipline), le mur du c | ALPHA a frappe 4 fois en embuscade (13x) (dont 3 en mode rev
 - 100 signets X résumés (quota aujourd'hui : 50/50)
 - 24 fiches IA d'offres en cache (quota 8/jour)
 

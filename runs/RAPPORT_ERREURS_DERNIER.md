@@ -2,12 +2,12 @@
 
 ## WHY_ARRET (ligne obligatoire)
 
-`WHY_ARRET=unknown | ran_min=12.1 | vs_planned_min=+170.4 | timing=early_stop`
+`WHY_ARRET=unknown | ran_min=25.7 | vs_planned_min=+144.6 | timing=early_stop`
 
-- Généré : `2026-08-13T17:46:40Z`
-- Fenêtre depuis : `2026-08-13T17:34:30Z`
-- Fin process : `2026-08-13T17:46:38Z`
-- Meta start/end : `2026-08-13T17:34:30Z` → `2026-08-13T20:37:04Z`
+- Généré : `2026-08-13T18:12:31Z`
+- Fenêtre depuis : `2026-08-13T17:46:49Z`
+- Fin process : `2026-08-13T18:12:29Z`
+- Meta start/end : `2026-08-13T17:46:49Z` → `2026-08-13T20:37:05Z`
 - Watchdog meta : stale=?s max_relaunch=?
 - NET_RETRY (fenêtre) : 0
 
@@ -17,9 +17,9 @@ Alpage · groupe électrogène · 2 lignes (téléphone + surf) · WiFi. Le bot 
 
 ## Verdict court
 
-- **WHY_ARRET=unknown | ran_min=12.1 | vs_planned_min=+170.4 | timing=early_stop**
+- **WHY_ARRET=unknown | ran_min=25.7 | vs_planned_min=+144.6 | timing=early_stop**
 - Morts process journalisées (PROCESS_DIE/EXIT) — lire `last_cmd` / `how=signal`.
-- Issues duo (222) — scout/hunter désynchro.
+- Issues duo (216) — scout/hunter désynchro.
 
 ## Compteurs
 
@@ -28,22 +28,22 @@ Alpage · groupe électrogène · 2 lignes (téléphone + surf) · WiFi. Le bot 
 | E-WATCHDOG | 0 | heartbeat / max relaunch |
 | E-PROC | 4 | mort process / signal |
 | E-STALE | 0 | tension/NUAGE age (signal latence) |
-| E-DUO | 222 | no_trigger / stale duo |
-| E-SPREAD | 691 | spread trop large |
+| E-DUO | 216 | no_trigger / stale duo |
+| E-SPREAD | 654 | spread trop large |
 | I-HUNTER | 0 | STORM_HUNTER arm (info) |
 
 ## PnL fills (fenêtre)
 
-- ALPHA : fills=5 pnl=-6.5615 exits={'shock_inversion_stop': 3, 'fluid_exit_inversion': 2}
-- BETA : fills=10 pnl=-0.1961 exits={'shock_inversion_stop': 6, 'fluid_exit_brake': 2, 'fluid_exit_inversion': 2}
-- **TOTAL** : -6.7576
+- ALPHA : fills=4 pnl=-12.5039 exits={'shock_inversion_stop': 3, 'fluid_exit_inversion': 1}
+- BETA : fills=14 pnl=+0.4746 exits={'shock_inversion_stop': 12, 'fluid_exit_brake': 2}
+- **TOTAL** : -12.0293
 
 ## Derniers PROCESS_DIE / EXIT
 
-- `[ALPHA_X13_BURST13] 2026-08-13T17:42:43Z PROCESS_EXIT unit=ALPHA_X13_BURST13 how=pipe_run_unit why=rc_1 rc=1`
-- `[BETA_X5] 2026-08-13T17:46:38Z PROCESS_EXIT unit=BETA_X5 how=pipe_run_unit why=rc_1 rc=1`
-- `2026-08-13T17:42:43Z PROCESS_EXIT unit=ALPHA_X13_BURST13 how=pipe_run_unit why=rc_1 rc=1`
-- `2026-08-13T17:46:38Z PROCESS_EXIT unit=BETA_X5 how=pipe_run_unit why=rc_1 rc=1`
+- `[ALPHA_X13_BURST13] 2026-08-13T18:08:38Z PROCESS_EXIT unit=ALPHA_X13_BURST13 how=pipe_run_unit why=rc_1 rc=1`
+- `[BETA_X5] 2026-08-13T18:12:29Z PROCESS_EXIT unit=BETA_X5 how=pipe_run_unit why=rc_1 rc=1`
+- `2026-08-13T18:08:38Z PROCESS_EXIT unit=ALPHA_X13_BURST13 how=pipe_run_unit why=rc_1 rc=1`
+- `2026-08-13T18:12:29Z PROCESS_EXIT unit=BETA_X5 how=pipe_run_unit why=rc_1 rc=1`
 
 ## Derniers WATCHDOG
 

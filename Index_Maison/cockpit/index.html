@@ -767,11 +767,18 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
 
 .cosmos-right {
     flex: 0 0 35%;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    align-content: start;
     position: relative;
     z-index: 1;
+}
+
+@media (max-width: 1100px) {
+    .cosmos-right {
+        grid-template-columns: 1fr;
+    }
 }
 
 .cosmos-canvas {
@@ -876,6 +883,11 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
     background: rgba(124, 255, 107, 0.2);
     color: #7CFF6B;
     border: 1px solid #7CFF6B;
+}
+
+#cosmos-health.degraded {
+    color: #d69e2e;
+    font-style: italic;
 }
 
 .cosmos-status.nok {
@@ -1313,6 +1325,10 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
             <div id="cosmos-budget"></div>
         </div>
         <div class="cosmos-card">
+            <h3>🖥️ État du Hub</h3>
+            <div id="cosmos-health"></div>
+        </div>
+        <div class="cosmos-card">
             <h3>⚡ File d'attente Live</h3>
             <div id="cosmos-queue" class="cosmos-queue"></div>
         </div>
@@ -1320,11 +1336,7 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
             <h3>📊 Quotas par Tâche</h3>
             <div id="cosmos-tasks"></div>
         </div>
-        <div class="cosmos-card">
-            <h3>🖥️ État du Hub</h3>
-            <div id="cosmos-health"></div>
-        </div>
-        <details class="cosmos-card">
+        <details class="cosmos-card" style="grid-column: 1 / -1;">
             <summary style="cursor:pointer; color:#7de7ff; font-family:'Orbitron',sans-serif; font-size:12px;">
                 📡 Événements Récents
             </summary>
@@ -1604,8 +1616,13 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
     if(meta){
       const life=s.pnlLifetime!=null? Number(s.pnlLifetime).toFixed(2):null;
       const since=s.sessionSince||M.sessionSince;
+      let sessionTime = '—';
+      if (since) {
+        const d = new Date(since);
+        if (!isNaN(d)) sessionTime = d.toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit'});
+      }
       meta.textContent = since
-        ? ('SESSION depuis '+String(since).slice(11,16)+'Z'+(life!=null?(' · life '+life+'$'):''))
+        ? ('SESSION depuis '+sessionTime+(life!=null?(' · life '+life+'$'):''))
         : ('SESSION'+(life!=null?(' · life '+life+'$'):''));
     }
     const g=document.getElementById(prefix+'-thrust'); if(g) g.style.width=Math.max(8,Math.min(100,thrust))+'%';
@@ -1628,7 +1645,12 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
         const kind = sideU==='BUY'?'buy':(sideU==='SELL'?'sell':(sideU==='SKIP'||r.status==='SKIPPED'?'skip':'buy'));
         const p = r.pnl!=null? fmt(r.pnl,3):'';
         const meta = [r.size_note||'', r.lev_hint!=null? r.lev_hint+'x':'', r.qty!=null? 'q'+r.qty:''].filter(Boolean).join(' ');
-        return `<div class="trade ${kind}"><span>${(r.ts||'').slice(11,19)}</span><span>${sideU.slice(0,4)}</span><span>${meta||r.reason||''}</span><span class="${cls(r.pnl)}">${p}</span></div>`;
+        let tradeTime = '—';
+        if (r.ts) {
+          const d = new Date(r.ts);
+          if (!isNaN(d)) tradeTime = d.toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit'});
+        }
+        return `<div class="trade ${kind}"><span>${tradeTime}</span><span>${sideU.slice(0,4)}</span><span>${meta||r.reason||''}</span><span class="${cls(r.pnl)}">${p}</span></div>`;
       }).join('');
     }
   }
@@ -1705,7 +1727,12 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
         const isOpen = kind==='buy';
         const meta=[r.crypto||r.pair||'', r.price!=null?'@'+fmtP(r.price,5):''].filter(Boolean).join(' ');
         const pnlShow = isOpen ? 'ouv.' : fmt(r.pnl,2);
-        return `<div class="trade ${kind}"><span>${(r.ts||'').slice(11,19)}</span><span>${ev.slice(0,4)}</span><span>${meta}</span><span class="${isOpen?'neu':cls(r.pnl)}">${pnlShow}</span></div>`;
+        let hulkTime = '—';
+        if (r.ts) {
+          const d = new Date(r.ts);
+          if (!isNaN(d)) hulkTime = d.toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit'});
+        }
+        return `<div class="trade ${kind}"><span>${hulkTime}</span><span>${ev.slice(0,4)}</span><span>${meta}</span><span class="${isOpen?'neu':cls(r.pnl)}">${pnlShow}</span></div>`;
       }).join('') || '<span style="color:var(--muted)">pas encore de BUY/SELL</span>';
     }
   }
@@ -2328,36 +2355,73 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
       synCtx.shadowBlur=0;
     });
 
-    // soma nodes
-    Object.keys(nodes).forEach(id=>{
-      const n=nodes[id];
-      const x=n.x*W, y=n.y*H;
-      const r = id==='cockpit'?22: (id==='ace'||id==='pont'?16:13);
-      const glow = n.lv>=2 ? 0.55+0.25*Math.sin(synapseT*3+x) : n.lv===1? 0.25 : 0.08;
+    // soma nodes — version relook (labels externes + leader line, plus de bulles)
+    Object.keys(nodes).forEach(id => {
+      const n = nodes[id];
+      const x = n.x * W, y = n.y * H;
+      const r = id === 'cockpit' ? 6 : (id === 'ace' || id === 'pont' ? 5 : 4);
+
+      // Halo lumineux
+      const glow = n.lv >= 2 ? 0.55 + 0.25 * Math.sin(synapseT * 3 + x) : n.lv === 1 ? 0.25 : 0.08;
       synCtx.beginPath();
-      synCtx.fillStyle=`rgba(0,0,0,.55)`;
-      synCtx.arc(x,y,r+6,0,Math.PI*2); synCtx.fill();
+      synCtx.fillStyle = `rgba(0,0,0,.55)`;
+      synCtx.arc(x, y, r + 8, 0, Math.PI * 2);
+      synCtx.fill();
+
       synCtx.beginPath();
-      synCtx.strokeStyle=n.col;
-      synCtx.globalAlpha=0.25+glow;
-      synCtx.lineWidth=2;
-      synCtx.arc(x,y,r+4+glow*6,0,Math.PI*2); synCtx.stroke();
-      synCtx.globalAlpha=1;
+      synCtx.strokeStyle = n.col;
+      synCtx.globalAlpha = 0.25 + glow;
+      synCtx.lineWidth = 2;
+      synCtx.arc(x, y, r + 4 + glow * 5, 0, Math.PI * 2);
+      synCtx.stroke();
+      synCtx.globalAlpha = 1;
+
+      // Petit soma (disque)
       synCtx.beginPath();
-      synCtx.fillStyle=n.lv===0?'#2a2218':n.col;
-      synCtx.arc(x,y,r,0,Math.PI*2); synCtx.fill();
-      synCtx.fillStyle=n.lv===0?'#8a7a55':'#050804';
-      synCtx.font='bold 10px Orbitron';
-      synCtx.textAlign='center'; synCtx.textBaseline='middle';
-      synCtx.fillText(n.label, x, y+1);
-      if(id===synSel){
-        synCtx.strokeStyle='#eaf6ff'; synCtx.globalAlpha=0.95; synCtx.lineWidth=1.6;
-        synCtx.beginPath(); synCtx.arc(x,y,r+10+2*Math.sin(synapseT*4),0,Math.PI*2); synCtx.stroke();
-        synCtx.globalAlpha=1;
-      } else if(id===synHover){
-        synCtx.strokeStyle=n.col; synCtx.globalAlpha=0.85; synCtx.lineWidth=1.5;
-        synCtx.beginPath(); synCtx.arc(x,y,r+8,0,Math.PI*2); synCtx.stroke();
-        synCtx.globalAlpha=1;
+      synCtx.fillStyle = n.lv === 0 ? '#2a2218' : n.col;
+      synCtx.arc(x, y, r, 0, Math.PI * 2);
+      synCtx.fill();
+
+      // === Label externe + leader line ===
+      const label = n.label || id;
+      const labelX = x < W * 0.5 ? x + 18 : x - 18;
+      const labelY = y < H * 0.5 ? y + 14 : y - 14;
+
+      // Leader line
+      synCtx.strokeStyle = (id === synHover || id === synSel) ? n.col : '#5a5240';
+      synCtx.lineWidth = 1;
+      synCtx.beginPath();
+      synCtx.moveTo(x + (x < W * 0.5 ? r + 1 : -r - 1), y);
+      synCtx.lineTo(labelX + (x < W * 0.5 ? -4 : 4), labelY);
+      synCtx.stroke();
+
+      // Label
+      synCtx.fillStyle = (id === synHover || id === synSel) ? '#f0e6d2' : '#e8dcc0';
+      synCtx.font = (id === synHover || id === synSel) ? 'bold 12px Share Tech Mono' : '11px Share Tech Mono';
+      synCtx.textAlign = x < W * 0.5 ? 'left' : 'right';
+      synCtx.textBaseline = 'middle';
+      synCtx.shadowColor = 'rgba(0,0,0,0.85)';
+      synCtx.shadowBlur = 3;
+      synCtx.fillText(label, labelX, labelY);
+      synCtx.shadowBlur = 0;
+
+      // Sélection / Hover
+      if (id === synSel) {
+        synCtx.strokeStyle = '#eaf6ff';
+        synCtx.globalAlpha = 0.95;
+        synCtx.lineWidth = 1.6;
+        synCtx.beginPath();
+        synCtx.arc(x, y, r + 10 + 2 * Math.sin(synapseT * 4), 0, Math.PI * 2);
+        synCtx.stroke();
+        synCtx.globalAlpha = 1;
+      } else if (id === synHover) {
+        synCtx.strokeStyle = n.col;
+        synCtx.globalAlpha = 0.85;
+        synCtx.lineWidth = 1.5;
+        synCtx.beginPath();
+        synCtx.arc(x, y, r + 8, 0, Math.PI * 2);
+        synCtx.stroke();
+        synCtx.globalAlpha = 1;
       }
     });
 
@@ -2393,7 +2457,9 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
   }, 900);
 
   function tickClock(){
-    document.getElementById('clock').textContent = new Date().toISOString().slice(11,19)+'Z';
+    const d = new Date();
+    document.getElementById('clock').textContent = d.toLocaleTimeString('fr-FR');
+    document.getElementById('clock').title = 'heure locale';
   }
 
   const bubble=document.getElementById('cortana-bubble');
@@ -2670,7 +2736,13 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
     host.innerHTML=items.slice(0,12).map(a=>{
       const lvl=String(a.level||'SOFT').toUpperCase();
       const clsA=lvl==='URGENT'?'u':'s';
-      return `<div class="item ${clsA}">${(a.ts||a.logged_ts||'').slice(11,16)} ${a.title||'?'}</div>`;
+      let alertTime = '—';
+      const tsVal = a.ts || a.logged_ts;
+      if (tsVal) {
+        const d = new Date(tsVal);
+        if (!isNaN(d)) alertTime = d.toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit'});
+      }
+      return `<div class="item ${clsA}">${alertTime} ${a.title||'?'}</div>`;
     }).join('');
   }
 
@@ -2683,8 +2755,8 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
       const bar=document.getElementById('just-bar');
       const meta=document.getElementById('just-meta');
       const list=document.getElementById('just-list');
+      const pct=j.pct;
       if(box){
-        const pct=j.pct;
         box.textContent = pct!=null? (Math.round(pct)+'%') : '—';
         box.className = 'just-score' + (pct==null?'':(pct<40?' hot':(pct<60?' warn':'')));
       }
@@ -2769,7 +2841,10 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
       if(j && j.ok!==false && (j.alpha||j.comboPnl!=null)){
         M=j; T=j.thermo||T;
         paintAll();
-        saySticky('Feed à jour · α '+(M.alpha&&M.alpha.pnl!=null?Number(M.alpha.pnl).toFixed(2):'—')+'$ · session '+(M.sessionSince?String(M.sessionSince).slice(11,16)+'Z':'—'), 12000);
+        const sessionTime = M.sessionSince
+          ? new Date(M.sessionSince).toLocaleTimeString('fr-FR', {hour:'2-digit', minute:'2-digit'})
+          : '—';
+        saySticky('Feed à jour · α '+(M.alpha&&M.alpha.pnl!=null?Number(M.alpha.pnl).toFixed(2):'—')+'$ · session '+sessionTime, 12000);
       }else{
         saySticky('Refresh KO — '+(j&&j.error?j.error:'réponse vide'), 12000);
       }
@@ -2779,7 +2854,7 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
         if(ja && ja.alerts) renderAlerts(ja.alerts);
       }catch(e){}
       await pollLinks();
-      if(meta) meta.textContent='refresh '+new Date().toISOString().slice(11,19)+'Z';
+      if(meta) meta.textContent = 'MAJ ' + new Date().toLocaleTimeString('fr-FR') + ' (locale)';
     }catch(e){
       paintLinksOffline();
       saySticky('Pont OFF — dans Terminal: bash Index_Maison/scripts/ensure_pont.sh', 15000);
@@ -3193,7 +3268,7 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
     // ---------- DONNÉES ----------
     function buildNodes() {
         const data = (window.__HUB__ && window.__HUB__.providers) || [];
-        const R = Math.min(W, H) * 0.36;
+        const R = Math.min(W, H) * 0.42;
 
         nodes = [];
         links = [];
@@ -3206,17 +3281,26 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
             target: { x: 0, y: 0 }, data: null
         });
 
-        // Providers sur un cercle
-        const step = data.length ? (Math.PI * 2) / data.length : 0;
+        // Providers — orbite aérée + 2 anneaux si > 8 (évite les superpositions)
+        const useTwoRings = data.length > 8;
+        const R1 = R;
+        const R2 = R * 0.72;
+
         data.forEach((p, i) => {
-            const angle = i * step - Math.PI / 2;
+            const ring = useTwoRings && i >= Math.ceil(data.length / 2) ? 2 : 1;
+            const countOnRing = ring === 1 ? Math.ceil(data.length / 2) : Math.floor(data.length / 2);
+            const idxOnRing = ring === 1 ? i : i - Math.ceil(data.length / 2);
+            const step = (Math.PI * 2) / countOnRing;
+            const angle = idxOnRing * step - Math.PI / 2 + (ring === 2 ? 0.3 : 0);
+
             const color = !p.enabled ? palette.red : ((p.calls_24h || 0) === 0 ? palette.idle : palette.acid);
             const radius = Math.max(13, Math.min(22, CFG.nodeBase + (p.calls_24h || 0) * 0.25));
+
             nodes.push({
                 id: p.id, type: 'provider', x: 0, y: 0, vx: 0, vy: 0,
                 radius: radius, color: color,
                 label: CFG.labels[p.id] || p.id,
-                target: { x: Math.cos(angle) * R, y: Math.sin(angle) * R },
+                target: { x: Math.cos(angle) * (ring === 1 ? R1 : R2), y: Math.sin(angle) * (ring === 1 ? R1 : R2) },
                 data: p
             });
         });
@@ -3559,18 +3643,20 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
             ctx.fillStyle = 'rgba(255,255,255,0.85)';
             ctx.fill();
 
-            // label — taille constante à l'écran (divisée par zoom)
-            const fs = (n.type === 'hub' ? 17 : 13) / zoom;
-            ctx.font = 'bold ' + fs + 'px Orbitron, sans-serif';
-            ctx.textAlign = 'center';
-            ctx.textBaseline = 'top';
-            ctx.shadowColor = 'rgba(0,0,0,0.95)';
-            ctx.shadowBlur = 5 / zoom;
-            ctx.shadowOffsetY = 1.5 / zoom;
-            ctx.fillStyle = n.type === 'hub' ? palette.hub : '#ffffff';
-            ctx.fillText(n.label, n.x, n.y + r + 6 / zoom);
-            ctx.shadowBlur = 0;
-            ctx.shadowOffsetY = 0;
+            // label du hub central uniquement (providers = leader line externe, plus lisible)
+            if (n.type === 'hub') {
+                const fs = 17 / zoom;
+                ctx.font = 'bold ' + fs + 'px Orbitron, sans-serif';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'top';
+                ctx.shadowColor = 'rgba(0,0,0,0.95)';
+                ctx.shadowBlur = 5 / zoom;
+                ctx.shadowOffsetY = 1.5 / zoom;
+                ctx.fillStyle = palette.hub;
+                ctx.fillText(n.label, n.x, n.y + r + 6 / zoom);
+                ctx.shadowBlur = 0;
+                ctx.shadowOffsetY = 0;
+            }
 
             // anneaux orbitaux du hub (rotation lente)
             if (n.type === 'hub') {
@@ -3591,6 +3677,59 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
                 ctx.restore();
             }
         }
+
+        // Labels providers — leader line + anti-chevauchement (version robuste famille v2)
+        // Tri par angle polaire sur une COPIE (ne pas modifier l'ordre du tableau `nodes`
+        // utilisé par les liens / la physique).
+        const providersTries = nodes
+            .filter(n => n.type === 'provider')
+            .slice()
+            .sort((a, b) => Math.atan2(a.y, a.x) - Math.atan2(b.y, b.x));
+        const placedLabels = [];
+        providersTries.forEach((n, i) => {
+            const angle = Math.atan2(n.y, n.x);
+            const outside = n.radius + 18;
+            let lx = n.x + Math.cos(angle) * outside;
+            let ly = n.y + Math.sin(angle) * outside;
+
+            // Alternance stable haut/bas selon l'index après tri
+            if (i % 2 === 0) ly -= 8; else ly += 8;
+
+            // Filet de sécurité anti-chevauchement (garde 20)
+            let guard = 0;
+            while (guard < 20) {
+                let overlap = false;
+                for (const p of placedLabels) {
+                    if (Math.abs(p.ly - ly) < 12 && Math.abs(p.lx - lx) < 60) {
+                        overlap = true;
+                        break;
+                    }
+                }
+                if (!overlap) break;
+                ly += (i % 2 === 0 ? -14 : 14);
+                guard++;
+            }
+            placedLabels.push({ lx, ly });
+
+            // Leader line
+            ctx.strokeStyle = (hoverNode === n || selected === n) ? (n.color || '#4a5568') : '#4a5568';
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.moveTo(n.x + Math.cos(angle) * n.radius, n.y + Math.sin(angle) * n.radius);
+            ctx.lineTo(lx, ly);
+            ctx.stroke();
+
+            // Texte
+            const right = Math.cos(angle) >= 0;
+            ctx.fillStyle = (hoverNode === n || selected === n) ? '#ffffff' : '#e8dcc0';
+            ctx.font = '11px Share Tech Mono, monospace';
+            ctx.textAlign = right ? 'left' : 'right';
+            ctx.textBaseline = 'middle';
+            ctx.shadowColor = 'rgba(0,0,0,0.9)';
+            ctx.shadowBlur = 4;
+            ctx.fillText(n.label || n.id, lx + (right ? 4 : -4), ly + 3);
+            ctx.shadowBlur = 0;
+        });
     }
 
     function drawVignette() {
@@ -3618,7 +3757,9 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
         const queueEl = document.getElementById('cosmos-queue');
         if (queueEl && window.__HUB__.queue) {
             queueEl.innerHTML = window.__HUB__.queue.slice(0, 8).map(call => {
-                const t = call.ts ? new Date(call.ts).toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' }) : '--:--';
+                const t = call.ts
+                  ? new Date(call.ts).toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit', second: '2-digit' })
+                  : '--:--';
                 return '<div class="cosmos-queue-item"><span class="time">' + t + '</span><span>' + call.task + '</span><span class="provider">→ ' + call.provider + '</span></div>';
             }).join('') || '<div class="cosmos-queue-item">Aucun appel récent</div>';
         }
@@ -3629,7 +3770,8 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
             healthEl.innerHTML =
                 '<div><span class="cosmos-status ' + (h.status === 'ok' ? 'ok' : 'nok') + '">' + String(h.status).toUpperCase() + '</span>' +
                 '<span class="cd-k" style="margin-left:8px;">' + (h.providers || 'N/A') + ' providers</span></div>' +
-                '<div class="cd-k" style="margin-top:4px;">Feed ' + new Date(window.__HUB__.generated_at).toLocaleTimeString('fr-FR') + '</div>';
+                '<div class="cd-k" style="margin-top:4px;">Feed ' + new Date(window.__HUB__.generated_at).toLocaleTimeString('fr-FR', {hour:'2-digit',minute:'2-digit',second:'2-digit'}) + ' (locale)' +
+                ' · ' + (function(){ try { return Math.max(0, Math.round((Date.now() - new Date(window.__HUB__.generated_at).getTime()) / 1000)); } catch(e) { return '?'; } })() + 's</div>';
         }
 
         const tasksEl = document.getElementById('cosmos-tasks');
@@ -3655,6 +3797,50 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
         buildNodes();
         renderCosmos();
     };
+
+    // ---------- LIVE : polling hub.json (10 s) ----------
+    // Le feed hub.json est régénéré par launchd (com.ace777.hub-cockpit-feed,
+    // ~120 s) et servi avec no-store : on le relit régulièrement pour que le
+    // graphe ET les cartes (budget, file, quotas, santé) restent frais en
+    // continu, sans recharger la page.
+    let hubPollFail = 0;
+
+    function pollHubLive() {
+        fetch('hub.json', { cache: 'no-store' })
+            .then(r => {
+                if (!r.ok) throw new Error('HTTP ' + r.status);
+                return r.json();
+            })
+            .then(data => {
+                hubPollFail = 0;
+                const health = document.getElementById('cosmos-health');
+                if (health) {
+                    health.classList.remove('degraded');
+                    health.textContent = health.textContent.replace(' (dégradé)', '');
+                }
+                window.__HUB__ = data;
+                buildNodes();
+                renderCosmos();
+            })
+            .catch(() => {
+                hubPollFail++;
+                if (hubPollFail >= 3) {
+                    const health = document.getElementById('cosmos-health');
+                    if (health && !health.classList.contains('degraded')) {
+                        health.classList.add('degraded');
+                        if (!health.textContent.includes('dégradé')) {
+                            health.textContent += ' (dégradé)';
+                        }
+                    }
+                }
+                // on ne touche pas à window.__HUB__ en cas d'échec (dernières données conservées)
+            });
+    }
+    pollHubLive();
+    setInterval(pollHubLive, 10000);
+    document.addEventListener('visibilitychange', () => {
+        if (!document.hidden) pollHubLive();
+    });
 
     // ---------- STRATÉGIE : DASHBOARD MISE À JOUR (V3 — GARDE-FOUS FAMILLE) ----------
     // A2 : fetch avec timeout strict (5 s) — jamais de chargement infini.
