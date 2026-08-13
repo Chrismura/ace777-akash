@@ -4,7 +4,7 @@
 set -uo pipefail
 cd "$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
-CHAMPION_MD5="37fca36712d49aa8b97890c5cad5f2e6"
+CHAMPION_MD5="98c80b5cf71db06697533aa48c5fd335"
 FAIL=0
 
 echo "=== VERIF PRE-RUN 3× — début ==="

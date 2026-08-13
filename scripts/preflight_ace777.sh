@@ -29,6 +29,17 @@ for f in genesis_manifest.txt radar_gate.rb launch_test_master_base_v8_5_impact.
 done
 ok "fichiers moteur présents"
 
+# --- Champion : INTÉGRITÉ CRYPTOGRAPHIQUE (C1 mécanique) ---
+# Champion scellé 12/08 = 9fe9f105 (sans barrière) + FIX-SCOUT = md5 98c80b5c...
+# Toute modif du genesis (même bien intentionnée) DOIT passer par un re-scelle + re-scellage doc.
+_champion_attendu="98c80b5cf71db06697533aa48c5fd335"
+_champion_actuel="$(md5 -q genesis_manifest.txt 2>/dev/null || md5sum genesis_manifest.txt 2>/dev/null | awk '{print $1}')"
+if [ "$_champion_actuel" != "$_champion_attendu" ]; then
+  fail "genesis md5=$_champion_actuel attendu=$_champion_attendu — CHAMPION MODIFIÉ, ne pas lancer"
+else
+  ok "champion intègre (md5 $_champion_attendu)"
+fi
+
 # --- Binance clés ---
 _binance_mode="${BINANCE_MODE:-testnet}"
 if [ "$_binance_mode" = "live" ]; then

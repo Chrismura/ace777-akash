@@ -6,24 +6,24 @@
 set -uo pipefail
 cd "$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
-GENESIS_MD5="37fca36712d49aa8b97890c5cad5f2e6"
+GENESIS_MD5="98c80b5cf71db06697533aa48c5fd335"
 VORTEX_MD5="6ce82f6bb0819faff94b954c43f3f336"
-GEMINI_MD5="35bd09c9ec2611a1a9cbcbe81727bf72"
+GEMINI_MD5="b36b4998cac8eb5d6690613cdc24b582"
 
 errors=0
 ok()   { echo "OK: $1"; }
 fail() { echo "FAIL: $1"; errors=$((errors + 1)); }
 
 echo "=== VERIF SETUP CHAMPION 204206 (sans run) ==="
-echo "Référence: +29,41 USDT | genesis 37fca367 | BETA x3 | ALPHA x13 fixe | barrière OUI | PHI NON"
+echo "Référence: +29,41 USDT | genesis 98c80b5c (9fe9f105 sans barrière + FIX-SCOUT) | BETA x3 | ALPHA x13 fixe | barrière NON | PHI NON"
 echo ""
 
-# Processus
-if pgrep -fl "ace777-test-day1|launch_vortex|GEMINI_TEST|bash -s|watchdog_ace777" 2>/dev/null | grep -v watchdogd >/dev/null; then
-  fail "process actif — ./stop_ace777_hard.sh d'abord"
-  pgrep -fl "ace777|launch_vortex|GEMINI|bash -s|watchdog_ace777" 2>/dev/null | grep -v watchdogd || true
+# Processus (vise les RUN, pas les services WARM launchd : pont gate, Cortana, vigie…)
+if pgrep -fl "launch_vortex_v2_collab|GEMINI_TEST|watchdog_ace777|launch_test_master_base_v8_5_impact_GEMINI_TEST" 2>/dev/null | grep -v watchdogd >/dev/null; then
+  fail "process de RUN actifs — ./stop_ace777_hard.sh d'abord"
+  pgrep -fl "launch_vortex_v2_collab|GEMINI_TEST|watchdog_ace777|launch_test_master_base_v8_5_impact_GEMINI_TEST" 2>/dev/null | grep -v watchdogd || true
 else
-  ok "0 process ACE777"
+  ok "0 process de RUN ACE777 (services WARM non comptés)"
 fi
 
 # md5 moteur + lanceurs
@@ -36,10 +36,13 @@ m="$(md5 -q launch_test_master_base_v8_5_impact_GEMINI_TEST.sh 2>/dev/null || tr
 [ "$m" = "$GEMINI_MD5" ] && ok "GEMINI md5 $m (BETA x3)" || fail "GEMINI md5=$m attendu $GEMINI_MD5"
 
 # Sémantique genesis
-if grep -q "duo_hunter_phase_barrier" genesis_manifest.txt && ! grep -q "calculate_quantum_flux" genesis_manifest.txt; then
-  ok "genesis: barrière duo OUI, PHI NON (37fca367 / 204206)"
+# Champion authentique du 10/07 = SANS barrière duo (9fe9f105), restauré 12/08 + FIX-SCOUT
+if ! grep -q "duo_hunter_phase_barrier" genesis_manifest.txt \
+   && ! grep -q "calculate_quantum_flux" genesis_manifest.txt \
+   && grep -q "FIX-SCOUT" genesis_manifest.txt; then
+  ok "genesis: barrière duo NON, PHI NON, FIX-SCOUT OUI (9fe9f105 restauré + patch)"
 else
-  fail "genesis sémantique — attendu barrière OUI et PHI NON (37fca367)"
+  fail "genesis sémantique — attendu sans barrière, sans PHI, avec FIX-SCOUT (98c80b5c)"
 fi
 
 # BETA levier boot 204206 = x3 dans GEMINI_TEST (log: Leverage=3)
