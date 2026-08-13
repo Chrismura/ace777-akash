@@ -305,3 +305,8 @@
 - 2026-08-13T16:35:49.795156Z | alerte | Poursuite de l'alerte nominale avec un PnL combiné positif de +2,61 $, validé par la précision tactique d'Alpha et les reconnaissances de Beta. | conf=88%
 - 2026-08-13T16:39:21.200899Z | alerte | Poursuite de l'alerte nominale avec un PnL combiné positif de +2,43 $, validé par l'efficacité tactique d'Alpha et les reconnaissances de Beta. | conf=88%
 - 2026-08-13T16:39:21.738025Z | alerte | Maintien de l'alerte nominale avec un PnL combiné positif de +2,43 $, validé par la discipline tactique d'Alpha et l'éclairage constant de Beta. | conf=88%
+- 2026-08-13T17:05:53.450053Z | alerte | Maintien de l'alerte nominale avec un PnL combiné positif de +3,33 $, validé par la précision d'Alpha et les reconnaissances de Beta. | conf=88%
+- 2026-08-13T17:23:24.349779Z | alerte | Maintien de l'alerte nominale avec un PnL combiné positif de +2,51 $, validé par la précision d'Alpha et les reconnaissances de Beta. | conf=88%
+- 2026-08-13T17:33:20.544410Z | alerte | Maintien de l'alerte nominale avec un PnL combiné positif de +3,25 $, validé par l'efficacité tactique d'Alpha et les reconnaissances de Beta. | conf=88%
+- 2026-08-13T17:35:56.797199Z | alerte | Maintien de l'alerte nominale avec un PnL combiné stable, validé par la discipline d'embuscade d'Alpha et l'éclairage continu de Beta. | conf=88%
+- 2026-08-13T17:43:14.687038Z | alerte | Rétrogradation en alerte ambre avec un PnL combiné à -6,64 $, exigeant de resserrer la discipline d'embuscade d'Alpha. | conf=82%
