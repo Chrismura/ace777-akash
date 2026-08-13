@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-13T21:31:33.716970+00:00",
+  "generated_at": "2026-08-13T21:51:17.658929+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 456
+      "calls_24h": 464
     },
     {
       "id": "openrouter-free",
@@ -107,7 +107,7 @@
       "model": "x-ai/grok-4.3",
       "enabled": true,
       "timeout": 300,
-      "calls_24h": 926
+      "calls_24h": 928
     },
     {
       "id": "qwen-local",
@@ -130,10 +130,90 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 1784,
+    "consumed": 1794,
     "remaining": 0
   },
   "queue": [
+    {
+      "ts": "2026-08-13T21:40:04.367000+00:00",
+      "task": "analyste.strategie",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 2.99
+    },
+    {
+      "ts": "2026-08-13T21:38:42.137358+00:00",
+      "task": "puter-grok.analyse",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 2.36
+    },
+    {
+      "ts": "2026-08-13T21:38:39.701490+00:00",
+      "task": "inferx.analyse",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 2.35
+    },
+    {
+      "ts": "2026-08-13T21:38:37.323606+00:00",
+      "task": "inferx.analyse",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 2.4
+    },
+    {
+      "ts": "2026-08-13T21:38:31.078256+00:00",
+      "task": "juge.tranche",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 2.7
+    },
+    {
+      "ts": "2026-08-13T21:38:27.904219+00:00",
+      "task": "deepseek.analyse",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 2.74
+    },
+    {
+      "ts": "2026-08-13T21:38:25.138951+00:00",
+      "task": "gemini.analyse",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 2.3
+    },
+    {
+      "ts": "2026-08-13T21:36:16.294291+00:00",
+      "task": "analyste.strategie",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 3.02
+    },
+    {
+      "ts": "2026-08-13T21:34:12.925853+00:00",
+      "task": "code.ia",
+      "provider": "puter-grok",
+      "model": "x-ai/grok-4.3",
+      "kind": "cloud",
+      "duration_s": 28.06
+    },
+    {
+      "ts": "2026-08-13T21:32:43.739559+00:00",
+      "task": "code.ia",
+      "provider": "puter-grok",
+      "model": "x-ai/grok-4.3",
+      "kind": "cloud",
+      "duration_s": 30.14
+    },
     {
       "ts": "2026-08-13T21:30:42.083164+00:00",
       "task": "code.ia",
@@ -173,148 +253,68 @@
       "model": "x-ai/grok-4.3",
       "kind": "cloud",
       "duration_s": 114.99
-    },
-    {
-      "ts": "2026-08-13T21:14:06.936637+00:00",
-      "task": "analyste.strategie",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 3.25
-    },
-    {
-      "ts": "2026-08-13T21:06:14.083704+00:00",
-      "task": "analyste.strategie",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 3.25
-    },
-    {
-      "ts": "2026-08-13T21:00:53.232916+00:00",
-      "task": "cortana.brief",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 1.37
-    },
-    {
-      "ts": "2026-08-13T20:50:32.223022+00:00",
-      "task": "supervise.decision",
-      "provider": "puter-grok",
-      "model": "x-ai/grok-4.3",
-      "kind": "cloud",
-      "duration_s": 29.78
-    },
-    {
-      "ts": "2026-08-13T20:50:22.645816+00:00",
-      "task": "analyste.strategie",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 2.88
-    },
-    {
-      "ts": "2026-08-13T20:45:43.370430+00:00",
-      "task": "analyste.strategie",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 2.88
-    },
-    {
-      "ts": "2026-08-13T20:36:23.031726+00:00",
-      "task": "supervise.decision",
-      "provider": "puter-grok",
-      "model": "x-ai/grok-4.3",
-      "kind": "cloud",
-      "duration_s": 14.23
-    },
-    {
-      "ts": "2026-08-13T20:36:10.350309+00:00",
-      "task": "analyste.strategie",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 2.77
-    },
-    {
-      "ts": "2026-08-13T20:35:04.776510+00:00",
-      "task": "analyste.strategie",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 3.39
-    },
-    {
-      "ts": "2026-08-13T20:34:37.328486+00:00",
-      "task": "supervise.decision",
-      "provider": "puter-grok",
-      "model": "x-ai/grok-4.3",
-      "kind": "cloud",
-      "duration_s": 10.86
     }
   ],
   "events": [
     {
-      "ts": "2026-08-13T21:30:42.082342+00:00",
-      "kind": "message",
-      "title": "« Puter Grok (gratuit) » a repondu",
-      "detail": ""
+      "ts": "2026-08-13T21:50:38.207012+00:00",
+      "kind": "reserve-storm",
+      "title": "Tempête active + budget calme atteint -> réserve storm pour supervise.decision",
+      "detail": "supervise.decision"
     },
     {
-      "ts": "2026-08-13T21:30:07.148321+00:00",
-      "kind": "quota",
-      "title": "Budget calme atteint -> bascule famille (gratuits)",
-      "detail": "code.ia"
-    },
-    {
-      "ts": "2026-08-13T21:28:52.823668+00:00",
-      "kind": "message",
-      "title": "« Puter Grok (gratuit) » a repondu",
-      "detail": ""
-    },
-    {
-      "ts": "2026-08-13T21:28:26.280378+00:00",
+      "ts": "2026-08-13T21:40:04.366501+00:00",
       "kind": "message",
       "title": "« Google Gemini » a repondu",
       "detail": ""
     },
     {
-      "ts": "2026-08-13T21:28:19.331108+00:00",
+      "ts": "2026-08-13T21:40:01.371829+00:00",
       "kind": "quota",
       "title": "Budget calme atteint -> bascule famille (gratuits)",
       "detail": "analyste.strategie"
     },
     {
-      "ts": "2026-08-13T21:28:16.572625+00:00",
-      "kind": "quota",
-      "title": "Budget calme atteint -> bascule famille (gratuits)",
-      "detail": "code.ia"
-    },
-    {
-      "ts": "2026-08-13T21:27:45.701232+00:00",
+      "ts": "2026-08-13T21:38:42.136945+00:00",
       "kind": "message",
       "title": "« Google Gemini » a repondu",
       "detail": ""
     },
     {
-      "ts": "2026-08-13T21:27:41.054155+00:00",
-      "kind": "quota",
-      "title": "Budget calme atteint -> bascule famille (gratuits)",
-      "detail": "analyste.strategie"
-    },
-    {
-      "ts": "2026-08-13T21:24:17.611844+00:00",
+      "ts": "2026-08-13T21:38:39.701005+00:00",
       "kind": "message",
-      "title": "« Puter Grok (gratuit) » a repondu",
-      "detail": ""
+      "title": "« Google Gemini » a repondu",
+      "detail": "bascule"
     },
     {
-      "ts": "2026-08-13T21:22:22.625936+00:00",
+      "ts": "2026-08-13T21:38:37.349417+00:00",
+      "kind": "failover",
+      "title": "Saute (blacklist) depuis NVIDIA build.nvidia.com (100+ modeles)",
+      "detail": "0 attente"
+    },
+    {
+      "ts": "2026-08-13T21:38:37.349233+00:00",
       "kind": "quota",
       "title": "Budget calme atteint -> bascule famille (gratuits)",
-      "detail": "code.ia"
+      "detail": "inferx.analyse"
+    },
+    {
+      "ts": "2026-08-13T21:38:37.323269+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": "bascule"
+    },
+    {
+      "ts": "2026-08-13T21:38:34.918902+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis NVIDIA build.nvidia.com (100+ modeles)",
+      "detail": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "ts": "2026-08-13T21:38:34.918359+00:00",
+      "kind": "blacklist",
+      "title": "Pause NVIDIA build.nvidia.com (100+ modeles) (3 echecs) 15min",
+      "detail": "backoff x1 -> re-essai auto"
     }
   ],
   "tasks_quotas": {
