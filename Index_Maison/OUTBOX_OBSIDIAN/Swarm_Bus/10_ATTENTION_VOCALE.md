@@ -1,11 +1,11 @@
 # Attention vocale — Cortana
 
 ## Dernier résumé
-> Info Nouveau à ton attention. Nouvelle note : JOURNEE DESASTRUEUSE. Peut servir au prototype — à lire dans Attention.. Provenance cortana_watch_attention.
+> Info Changement de tendance. Structure mixte, signe une heure -.. Provenance cortana_watch_trend.
 
 ## Meta
 - statut: READY
-- ts: 20260813T2301Z
+- ts: 20260813T2325Z
 - pertinence: SOFT
 - sentiment: INFO
 - compte: thermo-free

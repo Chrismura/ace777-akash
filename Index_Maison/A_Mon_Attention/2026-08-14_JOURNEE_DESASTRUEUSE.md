@@ -62,3 +62,9 @@ Tous les fichiers modifiés ont un backup dans `/tmp/*.bak-*` :
 ---
 
 *Écrit par l'assistant IA (moi) le 14/08/2026, pour accountability. Je reconnais ma responsabilité : c'est moi qui ai foutu la merde.*
+
+---
+
+## DURÉE DE LA SESSION
+
+**17h34** — de 08h00 le 13/08/2026 à 01h34 le 14/08/2026.
