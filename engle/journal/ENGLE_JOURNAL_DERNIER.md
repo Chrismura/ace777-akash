@@ -1,6 +1,6 @@
 # JOURNAL ENGLE — MASTER_VORTEX_V2_COLLAB_4H
 
-- Généré: `2026-08-13T18:12:42Z` (UTC)
+- Généré: `2026-08-13T20:37:10Z` (UTC)
 - Couche: **B1** (lecture seule) · `ENGLE_ADAPT=0`
 - Session start (filtre): `2026-08-13T18:12:39Z`
 - CSV: `MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv` · `MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv`
@@ -8,33 +8,53 @@
 
 ## Régime IRM (proxy)
 
-*Pas assez de cycles BETA pour IRM.*
+| Régime | Cycles | % | Fills | PnL fills |
+|--------|--------|---|-------|-----------|
+| COMPRESSÉ (attente à froid) | 811 | 79.0% | 0 | +0.0000 |
+| TRANSITOIRE (bruit retail) | 131 | 12.8% | 0 | +0.0000 |
+| CLUSTER (tension haute — proxy) | 84 | 8.2% | 83 | +0.5452 |
+
+- Courant (proxy): **COMPRESSÉ (attente à froid)** · μ=0.2980 · σ=1.0334 · n=1026
 
 ## Posture recommandée (conseil — pas appliquée)
 
-- Code: `WATCH`
-- Bruit retail — observer ; pas de knobs B3.
+- Code: `WAIT_COLD`
+- Marché calme — ne pas assouplir les seuils ; usine pure recommandée.
 - Application moteur: **aucune** tant que B3 n’est pas GO + `ENGLE_ADAPT` dédié.
 
 ## Activité session
 
 | Unité | Cycles | Fills | Skips | PnL fills (USDT) | Fenêtre |
 |-------|--------|-------|-------|------------------|---------|
-| BETA | 0 | 0 | 0 | +0.0000 | — |
-| ALPHA | 0 | 0 | 0 | +0.0000 | — |
-| **TOTAL** | | 0 | | **+0.0000** | |
+| BETA | 1026 | 83 | 943 | +0.5452 | `2026-08-13T18:12:49Z` → `2026-08-13T20:37:07Z` |
+| ALPHA | 81 | 5 | 76 | +0.8266 | `2026-08-13T18:12:52Z` → `2026-08-13T18:25:34Z` |
+| **TOTAL** | | 88 | | **+1.3718** | |
 
 ## SKIP BETA (top)
 
-*Aucun SKIP classé.*
+| Raison | Nb | % skips |
+|--------|-----|---------|
+| `momentum_too_small` | 772 | 81.9% |
+| `radar_block` | 87 | 9.2% |
+| `wall_not_collapsed` | 77 | 8.2% |
+| `tactic_mismatch` | 5 | 0.5% |
+| `stase_ecoute` | 2 | 0.2% |
 
 ## SKIP ALPHA (top)
 
-*Aucun SKIP classé.*
+| Raison | Nb | % skips |
+|--------|-----|---------|
+| `momentum_too_small` | 47 | 61.8% |
+| `radar_block` | 21 | 27.6% |
+| `wall_not_collapsed` | 5 | 6.6% |
+| `duo_wait` | 2 | 2.6% |
+| `tactic_mismatch` | 1 | 1.3% |
 
 ## Lecture courte (marché calme)
 
-1. Régime mixte — journaliser encore 1–2 runs 4h avant B3.
+1. **COMPRESSÉ dominant** — normal que `momentum_too_small` / `wall_not_collapsed` mènent.
+2. **Ne pas baisser les barrières** pour « forcer » des fills en calme.
+3. Garder usine + B1/B2 log ; B3 seulement après runs contrastés (cluster réel).
 4. Rollback always: coffre `29$/historique/ACE777_SAUVEGARDE_SETUP_JUILLET_20260718/`.
 
 ---
