@@ -1,13 +1,13 @@
 # Attention vocale — Cortana
 
 ## Dernier résumé
-> Résumé Cortana, mode pédagogique. Climat calme, score 74 sur cent. Avis climat : calme, score 74 — thermo plutôt clément ; bon pour observer, pas une invitation à monter le risque. Bitcoin cours 63581 dollars, une heure 0.08%, quatre heures 0.22%, vingt-quatre heures -0.22%. Avis prix : sur une heure, le bitcoin bouge peu — marché plutôt plat ; journée plutôt range. Taux de financement actuel 0.000062, moyenne trente jours 0.000055, mois précédent 0.000061. Avis : un peu plus haut que la moyenne des trente jours, En clair : funding positif soft — les longs paient encore les shorts, rien d’extrême.  Ratio long court 1.86, intérêt ouvert 1e+05, ratio acheteur 1.2. Avis positionnement : beaucoup plus de longs que de shorts — foule plutôt acheteuse, risque de squeeze baissier si ça casse ; l’intérêt ouvert donne la taille des paris ouverts — à croiser avec le prix, pas seul. Baleines : 0 grosses transactions, environ 0 dollars. Avis baleines : pas de gros print proxy pour l’instant — silence ne veut pas dire calme absolu, juste rien d’énorme sur l’échantillon. Ace en direct, 1082 passés, bénéfice session 122.35$, chaleur 1e+02. Avis stacks : chaleur Ace élevée — beaucoup d’activité ou de stress moteur ; session Ace positive — bien, sans crier victoire ; beaucoup de SKIP : le filtre refuse souvent — sagesse ou marché trop sale. Portefeuille : Ace 2.21$, Hulk 0.00$, total 2.21$. Synthèse : sentiment neutre à légèrement positif. On laisse tourner le setup ; je sniffe, je ne décide pas à ta place.
+> Alerte Deux portefeuilles. Activité sur Ace et Hulk dans la même fenêtre. Les deux stacks bougent — sniffe, pas de GO.. Provenance cortana_watch_dual.
 
 ## Meta
 - statut: IDLE
-- ts: 20260813T0118Z
-- pertinence: SOFT
-- sentiment: NEUTRE
+- ts: 20260813T0720Z
+- pertinence: PERTINENT
+- sentiment: URGENT
 - compte: thermo-free
 - lien Index: S22b C14 · résumé horaire
 

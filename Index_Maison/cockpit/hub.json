@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-13T01:38:29.314070+00:00",
+  "generated_at": "2026-08-13T07:28:11.726630+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 609
+      "calls_24h": 496
     },
     {
       "id": "openrouter-free",
@@ -35,7 +35,7 @@
       "model": "deepseek-ai/deepseek-v4-flash-0731",
       "enabled": true,
       "timeout": 300,
-      "calls_24h": 181
+      "calls_24h": 156
     },
     {
       "id": "mistral",
@@ -107,7 +107,7 @@
       "model": "x-ai/grok-4.3",
       "enabled": true,
       "timeout": 300,
-      "calls_24h": 139
+      "calls_24h": 148
     },
     {
       "id": "qwen-local",
@@ -130,110 +130,110 @@
   ],
   "budget": {
     "daily": 480,
-    "consumed": 66,
-    "remaining": 414
+    "consumed": 92,
+    "remaining": 388
   },
   "queue": [
     {
-      "ts": "2026-08-13T01:37:25.109941+00:00",
+      "ts": "2026-08-13T07:28:05.147531+00:00",
+      "task": "mission",
+      "provider": "puter-grok",
+      "model": "x-ai/grok-4.3",
+      "kind": "cloud"
+    },
+    {
+      "ts": "2026-08-13T07:27:10.501973+00:00",
       "task": "supervise.decision",
       "provider": "puter-grok",
       "model": "x-ai/grok-4.3",
       "kind": "cloud"
     },
     {
-      "ts": "2026-08-13T01:35:42.132204+00:00",
+      "ts": "2026-08-13T07:25:28.018681+00:00",
       "task": "supervise.decision",
       "provider": "puter-grok",
       "model": "x-ai/grok-4.3",
       "kind": "cloud"
     },
     {
-      "ts": "2026-08-13T01:33:58.065913+00:00",
+      "ts": "2026-08-13T07:23:44.161294+00:00",
       "task": "supervise.decision",
       "provider": "puter-grok",
       "model": "x-ai/grok-4.3",
       "kind": "cloud"
     },
     {
-      "ts": "2026-08-13T01:32:10.907129+00:00",
+      "ts": "2026-08-13T07:22:36.533198+00:00",
+      "task": "audit.protocol",
+      "provider": "nvidia",
+      "model": "deepseek-ai/deepseek-v4-flash-0731",
+      "kind": "cloud"
+    },
+    {
+      "ts": "2026-08-13T07:22:00.403042+00:00",
       "task": "supervise.decision",
       "provider": "puter-grok",
       "model": "x-ai/grok-4.3",
       "kind": "cloud"
     },
     {
-      "ts": "2026-08-13T01:30:28.429191+00:00",
+      "ts": "2026-08-13T07:20:17.772599+00:00",
       "task": "supervise.decision",
       "provider": "puter-grok",
       "model": "x-ai/grok-4.3",
       "kind": "cloud"
     },
     {
-      "ts": "2026-08-13T01:29:50.033580+00:00",
+      "ts": "2026-08-13T07:18:23.062718+00:00",
       "task": "supervise.decision",
       "provider": "puter-grok",
       "model": "x-ai/grok-4.3",
       "kind": "cloud"
     },
     {
-      "ts": "2026-08-13T01:28:45.501568+00:00",
+      "ts": "2026-08-13T07:16:41.337100+00:00",
       "task": "supervise.decision",
       "provider": "puter-grok",
       "model": "x-ai/grok-4.3",
       "kind": "cloud"
     },
     {
-      "ts": "2026-08-13T01:27:03.558860+00:00",
+      "ts": "2026-08-13T07:15:00.365404+00:00",
       "task": "supervise.decision",
       "provider": "puter-grok",
       "model": "x-ai/grok-4.3",
       "kind": "cloud"
     },
     {
-      "ts": "2026-08-13T01:25:22.881243+00:00",
+      "ts": "2026-08-13T07:13:17.778369+00:00",
       "task": "supervise.decision",
       "provider": "puter-grok",
       "model": "x-ai/grok-4.3",
       "kind": "cloud"
     },
     {
-      "ts": "2026-08-13T01:23:32.821668+00:00",
+      "ts": "2026-08-13T07:11:35.368170+00:00",
       "task": "supervise.decision",
       "provider": "puter-grok",
       "model": "x-ai/grok-4.3",
       "kind": "cloud"
     },
     {
-      "ts": "2026-08-13T01:21:42.557967+00:00",
+      "ts": "2026-08-13T07:09:49.063744+00:00",
       "task": "supervise.decision",
       "provider": "puter-grok",
       "model": "x-ai/grok-4.3",
       "kind": "cloud"
     },
     {
-      "ts": "2026-08-13T01:19:57.832459+00:00",
+      "ts": "2026-08-13T07:08:09.932666+00:00",
       "task": "supervise.decision",
       "provider": "puter-grok",
       "model": "x-ai/grok-4.3",
       "kind": "cloud"
     },
     {
-      "ts": "2026-08-13T01:18:16.899364+00:00",
-      "task": "supervise.decision",
-      "provider": "puter-grok",
-      "model": "x-ai/grok-4.3",
-      "kind": "cloud"
-    },
-    {
-      "ts": "2026-08-13T01:16:28.478801+00:00",
-      "task": "supervise.decision",
-      "provider": "puter-grok",
-      "model": "x-ai/grok-4.3",
-      "kind": "cloud"
-    },
-    {
-      "ts": "2026-08-13T01:14:46.182948+00:00",
+      "ts": "2026-08-13T07:06:27.540212+00:00",
       "task": "supervise.decision",
       "provider": "puter-grok",
       "model": "x-ai/grok-4.3",
@@ -242,64 +242,64 @@
   ],
   "events": [
     {
-      "ts": "2026-08-13T01:37:25.109337+00:00",
+      "ts": "2026-08-13T07:28:05.147206+00:00",
+      "kind": "message",
+      "title": "« Puter Grok (gratuit) » a repondu",
+      "detail": "bascule"
+    },
+    {
+      "ts": "2026-08-13T07:27:57.059875+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis NVIDIA build.nvidia.com (100+ modeles)",
+      "detail": "HTTP Error 529: status code 529"
+    },
+    {
+      "ts": "2026-08-13T07:27:10.501413+00:00",
       "kind": "message",
       "title": "« Puter Grok (gratuit) » a repondu",
       "detail": ""
     },
     {
-      "ts": "2026-08-13T01:35:42.131894+00:00",
-      "kind": "message",
-      "title": "« Puter Grok (gratuit) » a repondu",
-      "detail": ""
-    },
-    {
-      "ts": "2026-08-13T01:33:58.065086+00:00",
-      "kind": "message",
-      "title": "« Puter Grok (gratuit) » a repondu",
-      "detail": ""
-    },
-    {
-      "ts": "2026-08-13T01:32:10.906596+00:00",
-      "kind": "message",
-      "title": "« Puter Grok (gratuit) » a repondu",
-      "detail": ""
-    },
-    {
-      "ts": "2026-08-13T01:30:28.428742+00:00",
-      "kind": "message",
-      "title": "« Puter Grok (gratuit) » a repondu",
-      "detail": ""
-    },
-    {
-      "ts": "2026-08-13T01:29:50.032563+00:00",
-      "kind": "message",
-      "title": "« Puter Grok (gratuit) » a repondu",
-      "detail": ""
-    },
-    {
-      "ts": "2026-08-13T01:28:45.501128+00:00",
-      "kind": "message",
-      "title": "« Puter Grok (gratuit) » a repondu",
-      "detail": ""
-    },
-    {
-      "ts": "2026-08-13T01:27:03.558328+00:00",
-      "kind": "message",
-      "title": "« Puter Grok (gratuit) » a repondu",
-      "detail": ""
-    },
-    {
-      "ts": "2026-08-13T01:26:40.454060+00:00",
+      "ts": "2026-08-13T07:25:56.623305+00:00",
       "kind": "error",
       "title": "Toutes les IA ont echoue",
       "detail": "Google Gemini: blacklist du jour (saute) | Google Gemini: Fournisseur Google Gemini blackliste pour aujourd'hui"
     },
     {
-      "ts": "2026-08-13T01:26:40.453946+00:00",
+      "ts": "2026-08-13T07:25:56.623264+00:00",
       "kind": "failover",
       "title": "Bascule depuis Google Gemini",
       "detail": "Fournisseur Google Gemini blackliste pour aujourd'hui"
+    },
+    {
+      "ts": "2026-08-13T07:25:56.623206+00:00",
+      "kind": "failover",
+      "title": "Tous blacklistes - tentative de dernier recours sans blacklist",
+      "detail": ""
+    },
+    {
+      "ts": "2026-08-13T07:25:56.623097+00:00",
+      "kind": "failover",
+      "title": "Saute (blacklist) depuis Google Gemini",
+      "detail": "0 attente"
+    },
+    {
+      "ts": "2026-08-13T07:25:56.617537+00:00",
+      "kind": "error",
+      "title": "Toutes les IA ont echoue",
+      "detail": "Google Gemini: blacklist du jour (saute) | Google Gemini: Fournisseur Google Gemini blackliste pour aujourd'hui"
+    },
+    {
+      "ts": "2026-08-13T07:25:56.617493+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis Google Gemini",
+      "detail": "Fournisseur Google Gemini blackliste pour aujourd'hui"
+    },
+    {
+      "ts": "2026-08-13T07:25:56.617433+00:00",
+      "kind": "failover",
+      "title": "Tous blacklistes - tentative de dernier recours sans blacklist",
+      "detail": ""
     }
   ],
   "tasks_quotas": {

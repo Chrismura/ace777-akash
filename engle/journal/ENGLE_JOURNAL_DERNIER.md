@@ -1,8 +1,8 @@
 # JOURNAL ENGLE — MASTER_VORTEX_V2_COLLAB_4H
 
-- Généré: `2026-08-13T00:43:04Z` (UTC)
+- Généré: `2026-08-13T07:18:32Z` (UTC)
 - Couche: **B1** (lecture seule) · `ENGLE_ADAPT=0`
-- Session start (filtre): `2026-08-13T00:43:01Z`
+- Session start (filtre): `2026-08-13T07:18:30Z`
 - CSV: `MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv` · `MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv`
 - Base: usine V2.2.1 + champion 37fca367 — **non modifié**
 
