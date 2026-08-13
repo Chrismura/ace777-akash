@@ -298,3 +298,10 @@
 - 2026-08-13T15:23:42.810992Z | alerte | Poursuite de la vigilance nominale et de la rigueur tactique avec un PnL combiné positif de +0,18 $. | conf=88%
 - 2026-08-13T15:29:14.246779Z | alerte | Maintien de l'alerte ambre et de la rigueur tactique avec un PnL combiné légèrement négatif de -0,02 $. | conf=88%
 - 2026-08-13T15:34:49.408793Z | alerte | Maintien de l'alerte ambre et de la rigueur tactique avec un PnL combiné légèrement négatif de -0,06 $. | conf=88%
+- 2026-08-13T16:18:28.600852Z | alerte | ? | conf=?
+- 2026-08-13T16:19:47.724472Z | alerte | ? | conf=?
+- 2026-08-13T16:30:14.515265Z | alerte | ? | conf=?
+- 2026-08-13T16:30:33.361981Z | alerte | ? | conf=?
+- 2026-08-13T16:35:49.795156Z | alerte | Poursuite de l'alerte nominale avec un PnL combiné positif de +2,61 $, validé par la précision tactique d'Alpha et les reconnaissances de Beta. | conf=88%
+- 2026-08-13T16:39:21.200899Z | alerte | Poursuite de l'alerte nominale avec un PnL combiné positif de +2,43 $, validé par l'efficacité tactique d'Alpha et les reconnaissances de Beta. | conf=88%
+- 2026-08-13T16:39:21.738025Z | alerte | Maintien de l'alerte nominale avec un PnL combiné positif de +2,43 $, validé par la discipline tactique d'Alpha et l'éclairage constant de Beta. | conf=88%

@@ -203,7 +203,11 @@ try:
     with open(sys.argv[1]) as f:
         data = json.load(f)
     providers = data if isinstance(data, list) else data.get("providers", [])
-    free_count = sum(1 for p in providers if isinstance(p, dict) and p.get("free") is True)
+    # Coherence avec budget_hub/prechauffage (13/08) : on compte les gratuits
+    # ACTIFS (enabled) — qwen-local est free=True mais en pause (enabled=False)
+    free_count = sum(1 for p in providers
+                     if isinstance(p, dict) and p.get("free") is True
+                     and p.get("enabled", True) is not False)
     print(free_count)
 except Exception:
     print(0)

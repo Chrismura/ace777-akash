@@ -1,15 +1,21 @@
 # Attention vocale — Cortana
 
 ## Dernier résumé
-> Alerte Deux portefeuilles. Activité sur Ace et Hulk dans la même fenêtre. Les deux stacks bougent — sniffe, pas de GO.. Provenance cortana_watch_dual.
+> Info Changement de tendance. Structure mixte, signe une heure -.. Provenance cortana_watch_trend.
 
 ## Meta
 - statut: READY
-- ts: 20260813T1536Z
-- pertinence: PERTINENT
-- sentiment: URGENT
+- ts: 20260813T1647Z
+- pertinence: SOFT
+- sentiment: INFO
 - compte: thermo-free
 - lien Index: S22b C14 · résumé horaire
 
 ## Règle
 Cortana / `speak_attention` peut lire le résumé, puis repasser IDLE.
+
+
+## ⚠️ SUPERVISEUR — besoin de Christophe
+- ts: 20260813T1848Z
+- demande: Limite de relances atteinte pour com.ace777.superviseur-core
+- pourquoi: 3 relances/jour dépassées, intervention humaine requise.
