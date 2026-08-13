@@ -1,18 +1,14 @@
-# AVIS FAMILLE SESSION — 2026-08-13T14:05:38.868285
+# AVIS FAMILLE SESSION — 2026-08-13T15:45:42.412820
 OCCASION : alerte en cours
 
 🟡 CONSULTATION FAMILLE
 
-• GEMINI (analyste) : Avis Gemini — ACE777
+• GEMINI (analyste) : Alerte amber (-0.17$) et hub éteint sous macOS : ne rien changer au setup, laisser BETA sonder et ALPHA en embuscade. Risque d'angle mort sur l'exécution si le hub reste inactif malgré la baisse BTC sur volume x3.
 
-Risque principal : le carry trade JPY (taux japonais) peut déclencher un choc de liquidité brutal sur le crypto ; BETA est long (105/47) et Alpha en revenge 1.5x — exposition directionnelle non couverte. Angle mort : la saison CALME masque une corrélation cachée avec le yen ; on ne suit pas USDJPY. Recommandation : réduire la taille des tirs Alpha (×13 → ×8) et forcer BETA à équilibrer ses sondes (50/50) jusqu'à dissipation de l'alerte news. Laisser courir le PnL actuel, mais serrer le stop global à +8 $.
+• DEEPSEEK (technique) : Le setup est cohérent : BETA livre des signaux solides (conf 0.90) et Alpha respecte strictement sa discipline (49 skips). La micro-variation prix/volume ne déclenche rien de décisif pour l’instant, mieux laisser courir sans ajuster l’exposition. Sur macOS la boucle reste stable, aucun risque de latence ou de leak mémoire visible.
 
-• DEEPSEEK (technique) : Le setup reste cohérent : discipline Alpha solide (493 skips) et signaux BETA haute confiance (0.89) avec biais long.  
+• LE JUGE tranche : NON. 
 
-L’alerte news « Japan Rate Hikes / Yen carry trade » peut casser le momentum et générer des gaps violents sur BTC, surtout si le mur du carnet cède soudainement.  
+La session reste en mode calme 🧊 avec un PnL légèrement négatif (-0.17 $ sur BETA) et ALPHA respecte sa discipline sans tirer malgré l'alerte volume sur BTC. On laisse tourner tel quel sur macOS en maintenant l'exposition actuelle.
 
-Action recommandée : réduire l’exposition de moitié ou passer en mode observation jusqu’à stabilisation ; pas de modification de code macOS nécessaire pour l’instant.
-
-• LE JUGE tranche : NON. Le setup actuel d’ALPHA reste performant et discipliné, tandis que BETA continue de fournir des sondes fiables. La news sur les hausses de taux japonais mérite une veille, mais ne justifie pas encore d’ajustement d’exposition immédiat. Laisser courir, tout en surveillant de près l’évolution du BTC/ETH.
-
-— Famille consultée, 13/08/2026 14:06
+— Famille consultée, 13/08/2026 15:46
