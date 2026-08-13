@@ -1,7 +1,8 @@
 {
   "version": 2,
   "jours": {
-    "2026-08-12": 8
+    "2026-08-12": 8,
+    "2026-08-13": 8
   },
   "fiches": {
     "32f5f333ea5d": {
@@ -313,6 +314,158 @@
       "usage": "analyste",
       "avis_pour": "À essayer pour résumer ou analyser de très longs documents grâce à sa grande capacité de contexte.",
       "avis_attention": "Attention à la politique d'utilisation des données sur les plateformes d'API gratuites et aux quotas."
+    },
+    "c6145ed03650": {
+      "section": "nvidia",
+      "item": "aisingapore/sea-lion-7b-instruct",
+      "generated": "2026-08-13T11:07:59.349373+00:00",
+      "type": "Modèle linguistique régional orienté Asie du Sud-Est gratuit",
+      "forts": [
+        "Gratuit via l'écosystème Nvidia",
+        "Bonne structure d'instruction générale",
+        "Léger et rapide à l'exécution"
+      ],
+      "faibles": [
+        "Spécificité régionale potentiellement inadaptée à nos scripts",
+        "Contexte technique brut parfois limité",
+        "Risque de hallucination sur le trading pur"
+      ],
+      "usage": "chat",
+      "avis_pour": "À tester par curiosité pour des tâches textuelles générales ou multilingues si les modèles principaux saturent.",
+      "avis_attention": "Ne possède pas les optimisations avancées pour le code Python ou l'analyse financière fine d'ACE777."
+    },
+    "07a19b886dc5": {
+      "section": "nvidia",
+      "item": "baai/bge-m3",
+      "generated": "2026-08-13T11:08:00.682481+00:00",
+      "type": "Modèle d'embedding multilingue de pointe pour la recherche et le calcul de similarité sémantique",
+      "forts": [
+        "Excellente gestion du multilingue et de la recherche dense/sparse",
+        "Idéal pour alimenter les bases documentaires et les mémoires chaudes",
+        "Intégration native sur l'infrastructure NVIDIA"
+      ],
+      "faibles": [
+        "Ne génère pas de texte conversationnel (non adapté au chat direct)",
+        "Nécessite d'être couplé à un LLM pour restituer les réponses"
+      ],
+      "usage": "lecteur signets",
+      "avis_pour": "Parfait pour structurer et retrouver instantanément les informations pertinentes dans notre veille et nos signets.",
+      "avis_attention": "Ce n'est pas un modèle génératif textuel, il sert uniquement à vectoriser et comparer du texte."
+    },
+    "756723e14fee": {
+      "section": "nvidia",
+      "item": "bigcode/starcoder2-15b",
+      "generated": "2026-08-13T11:08:02.179839+00:00",
+      "type": "Modèle de codage open-weights de taille moyenne spécialisé en programmation",
+      "forts": [
+        "Spécialisé dans la génération et la complétion de code source",
+        "Supporte de nombreux langages de programmation",
+        "Gratuit via l'infrastructure NVIDIA"
+      ],
+      "faibles": [
+        "Moins polyvalent sur le raisonnement général hors code",
+        "Taille de 15 milliards de paramètres gourmande en ressources locales",
+        "Moins adapté aux tâches de pure stratégie textuelle"
+      ],
+      "usage": "codeur",
+      "avis_pour": "C'est un excellent choix pour assister nos scripts Python et automatiser la génération de code sans coût.",
+      "avis_attention": "Restez vigilants sur sa tendance à halluciner sur des logiques complexes ou des architectures non standards."
+    },
+    "9aa27ebe390a": {
+      "section": "nvidia",
+      "item": "databricks/dbrx-instruct",
+      "generated": "2026-08-13T11:08:03.513119+00:00",
+      "type": "Modèle de langage open-weights d'entreprise pour le texte et le code",
+      "forts": [
+        "Architecture MoE (Mixture of Experts) performante",
+        "Excellentes capacités de raisonnement textuel",
+        "Bonne maîtrise de la génération de code",
+        "Gratuit via l'infrastructure NVIDIA"
+      ],
+      "faibles": [
+        "Consommation de ressources potentiellement élevée en raison de la taille",
+        "Parfois verbeux sur des tâches simples",
+        "Moins spécialisé que les très petits modèles ultra-rapides"
+      ],
+      "usage": "analyste",
+      "avis_pour": "Idéal pour structurer des analyses stratégiques complexes ou générer des scripts Python robustes.",
+      "avis_attention": "Surveille sa latence par rapport à des modèles plus légers sur les tâches rapides."
+    },
+    "8169d41190d4": {
+      "section": "nvidia",
+      "item": "deepseek-ai/deepseek-coder-6.7b-instruct",
+      "generated": "2026-08-13T11:08:04.739507+00:00",
+      "type": "Modèle de codage spécialisé 6.7B gratuit",
+      "forts": [
+        "Excellente maîtrise de Python",
+        "Idéal pour scripter rapidement",
+        "Gratuit et rapide via Nvidia API"
+      ],
+      "faibles": [
+        "Taille limitée (6.7B)",
+        "Moins généraliste que les grands modèles",
+        "Sensible au contexte trop long"
+      ],
+      "usage": "codeur",
+      "avis_pour": "Parfait pour générer et débugger des scripts Python sans consommer de budget cloud.",
+      "avis_attention": "Ne lui confiez pas d'analyse stratégique complexe, cantonnez-le au code."
+    },
+    "34f21f7b9e31": {
+      "section": "nvidia",
+      "item": "google/codegemma-1.1-7b",
+      "generated": "2026-08-13T11:08:05.898618+00:00",
+      "type": "Modèle de code gratuit et spécialisé en programmation",
+      "forts": [
+        "Excellente maîtrise de Python",
+        "Génération de scripts rapides",
+        "Bonne structure de code"
+      ],
+      "faibles": [
+        "Taille de 7B limitée sur la logique complexe",
+        "Moins performant pour l'analyse stratégique pure"
+      ],
+      "usage": "codeur",
+      "avis_pour": "Idéal pour générer et structurer rapidement vos scripts Python sans consommer de budget.",
+      "avis_attention": "À ne pas utiliser pour les arbitrages complexes ou la stratégie globale, préférez un modèle plus lourd."
+    },
+    "2fed21f9eb30": {
+      "section": "nvidia",
+      "item": "google/codegemma-7b",
+      "generated": "2026-08-13T11:08:07.673182+00:00",
+      "type": "Modèle de codage et d'assistance technique open-weights de Google",
+      "forts": [
+        "Excellent pour la génération et la complétion de scripts Python",
+        "Compréhension solide de la syntaxe et des structures de code",
+        "Gratuit et accessible via l'infrastructure Nvidia",
+        "Léger et rapide à l'exécution"
+      ],
+      "faibles": [
+        "Moins généraliste que les grands modèles de conversation",
+        "Fenêtre de contexte parfois limitée pour les très gros projets",
+        "Risque d'hallucination sur des bibliothèques très récentes"
+      ],
+      "usage": "codeur",
+      "avis_pour": "Idéal pour booster la productivité sur la création et le debug de petits scripts Python au sein de la famille.",
+      "avis_attention": "Ne pas lui confier de tâches d'analyse stratégique globale ou de jugement complexe hors de son domaine de prédilection."
+    },
+    "535b81cd9903": {
+      "section": "nvidia",
+      "item": "google/deplot",
+      "generated": "2026-08-13T11:08:15.514937+00:00",
+      "type": "Modèle vision spécialisé extraction de données depuis graphiques/graphes",
+      "forts": [
+        "Convertit graphiques en tableaux structurés",
+        "Gratuit via NVIDIA",
+        "Utile pour analyse visuelle de données"
+      ],
+      "faibles": [
+        "Pas de raisonnement textuel général",
+        "Spécialisé graphiques uniquement",
+        "Pas de capacité code/analyse narrative"
+      ],
+      "usage": "analyste (extraction données visuelles)",
+      "avis_pour": "Seul modèle gratuit connu pour transformer graphiques en données exploitables automatiquement",
+      "avis_attention": "Inutilisable hors tâche de détection/extraction de courbes — ne pas tenter comme LLM généraliste"
     }
   }
 }

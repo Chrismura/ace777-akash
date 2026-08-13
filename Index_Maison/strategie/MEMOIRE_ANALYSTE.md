@@ -276,3 +276,10 @@
 - 2026-08-12T23:58:07.503961Z | alerte | ? | conf=?
 - 2026-08-12T23:58:37.513756Z | alerte | Maintien de l'alerte nominale avec un PnL combiné positif (+2,10 $), consolidé par les frappes disciplinées d'Alpha et les reconnaissances stables de Beta. | conf=86 %
 - 2026-08-13T00:09:15.889849Z | alerte | Poursuite de l'alerte nominale avec un PnL combiné positif à +4,48 $, validé par l'efficacité tactique d'Alpha et la stabilité des positions de Hulk. | conf=88%
+- 2026-08-13T11:04:23.490637Z | alerte | Poursuite de l'alerte nominale avec un PnL combiné solide à +12,44 $, validé par la performance d'Alpha et la stabilité opérationnelle de Beta. | conf=88%
+- 2026-08-13T11:04:35.752489Z | alerte | Poursuite de l'alerte nominale avec un PnL combiné solide à +12,44 $, validé par la performance d'Alpha et la stabilité opérationnelle de Beta. | conf=88%
+- 2026-08-13T11:20:33.053245Z | alerte | Poursuite de l'alerte nominale avec un PnL combiné solide à +12,46 $, validé par l'efficacité tactique d'Alpha et la stabilité opérationnelle de Beta. | conf=88%
+- 2026-08-13T11:21:39.779759Z | alerte | Poursuite de l'alerte nominale avec un PnL combiné solide à +12,46 $, validé par l'efficacité tactique d'Alpha et la stabilité opérationnelle de Beta. | conf=88%
+- 2026-08-13T11:28:27.357257Z | alerte | Poursuite de l'alerte nominale avec un PnL combiné solide à +12,47 $, validé par l'efficacité tactique d'Alpha et la stabilité opérationnelle de Beta. | conf=88%
+- 2026-08-13T11:34:26.366944Z | alerte | Poursuite de l'alerte nominale avec un PnL combiné solide à +12,66 $, validé par l'efficacité tactique d'Alpha et la stabilité opérationnelle de Beta. | conf=88%
+- 2026-08-13T11:36:05.787286Z | alerte | Poursuite de l'alerte nominale avec un PnL combiné solide à +12,66 $, validé par l'efficacité tactique d'Alpha et la stabilité opérationnelle de Beta. | conf=88%
