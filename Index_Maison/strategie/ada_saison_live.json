@@ -1,15 +1,15 @@
 {
-  "ts": "2026-08-13T07:31:42.196060+00:00",
+  "ts": "2026-08-13T08:32:27.857340+00:00",
   "saison": "CALME",
   "emoji": "🧊",
-  "direction": "neutre",
+  "direction": "long",
   "bascule": false,
   "bascule_raison": "",
   "alignement": {
-    "nb_long": 0,
-    "nb_short": 0,
-    "score": 0.0,
-    "direction": "neutre"
+    "nb_long": 2,
+    "nb_short": 1,
+    "score": 0.33,
+    "direction": "long"
   },
   "indices": {
     "temperature": {
@@ -20,36 +20,35 @@
     "pouls": {
       "direction": "neutre",
       "force": 0,
-      "brut": 6.2e-05
+      "brut": 8.1e-05
     },
     "bassin": {
-      "direction": "neutre",
-      "force": 0,
-      "brut": "flat"
+      "direction": "short",
+      "force": 1,
+      "brut": "down"
     },
     "vortex": {
-      "direction": "neutre",
+      "direction": "long",
       "force": 0,
-      "brut": 0.0
+      "brut": 0.24
     },
     "essaim": {
-      "direction": "neutre",
-      "force": 0,
-      "brut": 1.0
+      "direction": "long",
+      "force": 2,
+      "brut": 1.723
     },
     "baleines": {
       "direction": "neutre",
       "force": 0,
-      "brut": 0
+      "brut": 1
     }
   },
   "story": [
     "SAISON : CALME 🧊 — hiver, ADA dort.",
-    "Alignement : 0 haussiers / 0 baissiers.",
-    "⚠️ Sources dégradées — saison à confirmer avec des données fraîches."
+    "Alignement : 2 haussiers / 1 baissiers."
   ],
   "sources": [
-    "mission.json (live.json absent/vieux)"
+    "live.json"
   ],
-  "degraded": true
+  "degraded": false
 }

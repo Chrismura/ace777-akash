@@ -1,11 +1,11 @@
 # Attention vocale — Cortana
 
 ## Dernier résumé
-> Alerte Deux portefeuilles. Activité sur Ace et Hulk dans la même fenêtre. Les deux stacks bougent — sniffe, pas de GO.. Provenance cortana_watch_dual.
+> Alerte Baleine. Gros print détecté, environ 869590 dollars, 1 transaction proxy. Source Binance.. Provenance cortana_watch_whale.
 
 ## Meta
 - statut: READY
-- ts: 20260813T0720Z
+- ts: 20260813T0733Z
 - pertinence: PERTINENT
 - sentiment: URGENT
 - compte: thermo-free
