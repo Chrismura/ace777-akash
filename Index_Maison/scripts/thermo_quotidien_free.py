@@ -18,7 +18,9 @@ WS = ROOT / "Index_Maison"
 OUT = WS / "OUTBOX_OBSIDIAN"
 THERMO = WS / "thermo"
 SYM = "BTCUSDT"
-ALTS = ["ETHUSDT", "SOLUSDT", "BNBUSDT", "XRPUSDT", "DOGEUSDT"]
+# Panier alts dynamique : top N par volume échangé (24h), hors BTC.
+# Un panier fixe biaise (ex. 5 paires arbitraires toutes en baisse ≠ marché large).
+ALTS = []  # rempli dynamiquement : top 20 perps USDT par quoteVolume 24h
 FAPI = "https://fapi.binance.com"
 SPOT = "https://api.binance.com"
 CG = "https://api.coingecko.com/api/v3"
@@ -499,15 +501,24 @@ def main() -> int:
     chg1h = pct(closes_h[-1], closes_h[-2]) if len(closes_h) >= 2 else None
     chg4h = pct(closes_h[-1], closes_h[-5]) if len(closes_h) >= 5 else None
 
-    # panier alts
+    # panier alts : DYNAMIQUE (top 20 perps USDT par volume 24h, hors BTC)
+    # Un seul appel /ticker/24hr retourne toutes les paires -> échantillon représentatif.
     alt_down = 0
     alt_n = 0
-    for a in ALTS:
-        t = get_json(FAPI, "/fapi/v1/ticker/24hr", f"symbol={a}")
-        if isinstance(t, dict) and "priceChangePercent" in t:
-            alt_n += 1
-            if fnum(t.get("priceChangePercent"), 2) is not None and fnum(t.get("priceChangePercent"), 2) < 0:
-                alt_down += 1
+    try:
+        tks = get_json(FAPI, "/fapi/v1/ticker/24hr")
+        if isinstance(tks, list):
+            perps = [t for t in tks if t.get("symbol", "").endswith("USDT") and t.get("symbol") != "BTCUSDT"
+                     and t.get("quoteVolume") is not None and t.get("priceChangePercent") is not None]
+            perps.sort(key=lambda t: float(t["quoteVolume"]), reverse=True)
+            for t in perps[:20]:
+                chg = fnum(t.get("priceChangePercent"), 2)
+                if chg is not None:
+                    alt_n += 1
+                    if chg < 0:
+                        alt_down += 1
+    except Exception:
+        pass
     panier = round(100.0 * alt_down / alt_n, 1) if alt_n else None
 
     # volume vs moyenne 20j (quote approx via kline volume * close)
@@ -862,6 +873,16 @@ def main() -> int:
         "whaleUsd": delta(whale_usd, "whaleUsd") if prev and prev.get("whaleUsd") is not None else {"dir": "flat", "delta": None, "label": "—"},
         "whaleN": delta(whale_n, "whaleN") if prev and prev.get("whaleN") is not None else {"dir": "flat", "delta": None, "label": "—"},
         "takerRatio": delta(taker_ratio, "takerRatio") if prev and prev.get("takerRatio") is not None else {"dir": "flat", "delta": None, "label": "—"},
+        "topTraderLS": delta(top_trader_ls, "topTraderLS") if prev and prev.get("topTraderLS") is not None else {"dir": "flat", "delta": None, "label": "—"},
+        "fearGreed": delta(fng.get("value"), "fearGreed") if prev and prev.get("fearGreed") is not None else {"dir": "flat", "delta": None, "label": "—"},
+        "marketCapUsd": delta(total_mc, "marketCapUsd") if prev and prev.get("marketCapUsd") is not None else {"dir": "flat", "delta": None, "label": "—"},
+        "liq24Usd": delta(liq.get("usd"), "liq24Usd") if prev and prev.get("liq24Usd") is not None else {"dir": "flat", "delta": None, "label": "—"},
+        "liqLongUsd": delta(liq.get("longUsd"), "liqLongUsd") if prev and prev.get("liqLongUsd") is not None else {"dir": "flat", "delta": None, "label": "—"},
+        "liqShortUsd": delta(liq.get("shortUsd"), "liqShortUsd") if prev and prev.get("liqShortUsd") is not None else {"dir": "flat", "delta": None, "label": "—"},
+        "etfBtcM": delta(etf.get("btc"), "etfBtcM") if prev and prev.get("etfBtcM") is not None else {"dir": "flat", "delta": None, "label": "—"},
+        "altSeasonScore": delta(alt_s.get("score"), "altSeasonScore") if prev and prev.get("altSeasonScore") is not None else {"dir": "flat", "delta": None, "label": "—"},
+        "gexPutCall": delta(gex.get("putCallRatio"), "gexPutCall") if prev and prev.get("gexPutCall") is not None else {"dir": "flat", "delta": None, "label": "—"},
+        "volumeCachedTaker": delta(vcz.get("takerBuyRatio"), "volumeCachedTaker") if prev and prev.get("volumeCachedTaker") is not None else {"dir": "flat", "delta": None, "label": "—"},
     }
 
     # history append
