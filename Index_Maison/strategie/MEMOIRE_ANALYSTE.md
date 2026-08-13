@@ -331,3 +331,7 @@
 - 2026-08-13T20:36:10.351197Z | alerte | Poursuite de la vigilance nominale avec un PnL combiné positif à +1,37 $, validé par la discipline tactique d'Alpha et les reconnaissances de Beta. | conf=88%
 - 2026-08-13T20:45:43.371699Z | alerte | Poursuite de la vigilance nominale avec un PnL combiné positif à +1,37 $, validé par la discipline tactique d'Alpha et les reconnaissances de Beta. | conf=88%
 - 2026-08-13T20:50:22.647408Z | alerte | Poursuite de la vigilance nominale avec un PnL combiné positif à +1,37 $, validé par la discipline tactique d'Alpha et les reconnaissances de Beta. | conf=88%
+- 2026-08-13T21:06:14.084887Z | alerte | Poursuite de la vigilance nominale avec un PnL combiné positif à +1,37 $, validé par la discipline tactique d'Alpha et les reconnaissances de Beta face aux signaux macroéconomiques de la Fed. | conf=88%
+- 2026-08-13T21:14:06.937736Z | alerte | Poursuite de la vigilance nominale avec un PnL combiné positif à +1,37 $, validé par la discipline tactique d'Alpha et les reconnaissances de Beta face aux sursauts de volume. | conf=88%
+- 2026-08-13T21:27:45.706213Z | alerte | Poursuite de la vigilance nominale avec un PnL combiné positif à +1,37 $, validé par la rigueur tactique d'Alpha et les reconnaissances de Beta face aux sursauts de volume. | conf=88%
+- 2026-08-13T21:28:26.282005Z | alerte | Poursuite de la vigilance nominale avec un PnL combiné positif à +1,37 $, validé par la rigueur tactique d'Alpha et les reconnaissances de Beta face aux sursauts de volume. | conf=88%

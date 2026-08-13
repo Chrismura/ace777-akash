@@ -96,6 +96,9 @@ def speak_text(text, voice=None, rate=None):
             os.unlink(path)
         return 1
     # BARGE-IN : touche (clavier) OU micro (barge_in.py) coupent la parole
+    # UNE SEULE PISTE (règle maison, cf. cortana_voice._silence_players) :
+    # on coupe toute voix déjà en cours pour ne jamais en avoir deux à la fois.
+    subprocess.run(["killall", "afplay"], check=False, capture_output=True)
     player = subprocess.Popen(["afplay", path])
     if barge_in.activ():
         threading.Thread(target=barge_in.surveiller, args=(player,), daemon=True).start()

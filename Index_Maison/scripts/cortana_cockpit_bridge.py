@@ -346,6 +346,8 @@ def _speak_texte(texte: str) -> None:
         ]
         p = subprocess.run(cmd, capture_output=True, text=True, timeout=120)
         if p.returncode == 0 and os.path.getsize(path) > 100:
+            # UNE SEULE PISTE (règle maison) : coupe la voix en cours avant de jouer.
+            subprocess.run(["killall", "afplay"], check=False, capture_output=True)
             proc = subprocess.Popen(["afplay", path])
             with _VOICE_LOCK:
                 _VOICE_PROC = proc
