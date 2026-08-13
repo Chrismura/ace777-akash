@@ -1,7 +1,7 @@
 # Choses à finir / revoir
 
 **Rôle :** backlog honnête — pas la piste du jour.  
-**MAJ :** 2026-07-31T14:26Z
+**MAJ :** 2026-08-13T23:05Z
 
 ## Phase finition (cosmétique — **gelé** jusqu’à GO finition)
 
@@ -29,6 +29,13 @@ Réf : [[CERVEAU_GALACTIQUE]] · [[COCKPIT_LOOK_FIGE]]
 | E-05 | Kill-switch rouge A/B — **preuve** testnet/paper | Gardes OK (refus B sans CRASH) · reste 1×A + 1×B sur run test | 🟡 |
 | E-06 | Sync Obsidian TCC | `_sync_now.sh` dans Terminal humain | 🟡 récurrent |
 | E-07 | **STORM_HUNTER** — retest option | Défaut OFF · journal [[JOURNAL_MOLETTES_SETUP]] · GO + A/B plus tard (cycle 14:14 Alpha skip spread) | 🟡 à ne pas oublier |
+| E-08 | **ALPHA rc=1 — cause racine** (14/08) | Mort silencieuse ~13 min après départ, juste après un fill · `set -euo pipefail` + stderr avalé · trap FATAL_RC1 posé (genesis_manifest) → **relancer un run pour attraper la ligne** · audit famille 6/6 dans A_Mon_Attention | 🔴 priorité |
+| E-09 | **Auto-relance Alpha + « jamais chasseur solitaire »** | Famille 6/6 : relancer l'unité morte (max 3, pause) ou stopper le binôme proprement · sinon BETA tourne seul 2h (E-DUO) | 🟡 chantier |
+| E-10 | **Cortana dit la vérité** | Elle lit live/mission figés → annonce « Alpha et Beta actifs » (faux) · doit lire `/status` (ace.state) | 🔴 |
+| E-11 | **Mute partiel** | 5 chemins voix locaux ignorent `.cortana_mute` (VOIX, 🐈, brief 8h10, analyste, yeux) — à aligner sur cortana_voice | 🟡 |
+| E-12 | **Deux briefs (doublon chaîne)** | brief complet/opinion + brief court « perroquet » · identifier les générateurs et n'en garder qu'un (brief 4/j) | 🟡 |
+| E-13 | **Fenêtre info IA graph** | S'ouvre sur le bouton rafraîchissement (signalé 14/08) — non vérifié | 🟡 |
+| E-14 | Budget cloud / baromètre conso / brief 4j / schéma architecture | Chantiers notés (tableau) — pas traités | 🟡 |
 
 ---
 

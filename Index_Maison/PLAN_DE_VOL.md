@@ -1,16 +1,16 @@
 # Plan de vol
 
 **Quoi / dans quel ordre / sans chercher partout.**  
-**MAJ :** 2026-07-31 ~11:05 (après GO cadence)
+**MAJ :** 2026-08-13 ~23:05Z (fin session 13/08 — journée difficile, voir A_Mon_Attention)
 
 ## Maintenant — ordre du jour (essentiel)
 
-1. **Début session** (`session_debut`) — ancrer la cadence (raté ce matin)  
-2. Cockpit fiable (pont / feed / lecture) — pas de cosmétique  
-3. Respect portes validation test mode pro  
-4. Avant dodo : **fin session** sans tuer le vol (`session_fin`)  
-5. ⏸ Cosmétique cerveau/Obsidian → [[CHOSES_A_FINIR_REVOIR]] (finition)
-6. 🟡 **STORM_HUNTER** retest (pas aujourd’hui) → [[JOURNAL_MOLETTES_SETUP]] E-07
+1. **Relancer un run test** → attraper la ligne `FATAL_RC1` (trap posé) → corriger la **cause racine Alpha rc=1** (E-08)  
+2. **Auto-relance Alpha** + « jamais chasseur solitaire » (famille 6/6, E-09)  
+3. **Cortana dit la vérité** : lire `/status` au lieu des fichiers figés (E-10) + aligner les 5 chemins voix sur le mute (E-11)  
+4. Cockpit : badge RUN STATUS + graph synapse vérité **déjà en place** (14/08) — vérifier fenêtre info IA (E-13)  
+5. **Deux briefs** : n'en garder qu'un (E-12)  
+6. ⏸ Cosmétique / baromètre conso / budget cloud / schéma → [[CHOSES_A_FINIR_REVOIR]]
 
 ## 31 juil. — piste
 

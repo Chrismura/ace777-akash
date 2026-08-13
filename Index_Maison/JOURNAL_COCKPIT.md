@@ -40,6 +40,10 @@ open ~/ace777-test-day1/Index_Maison/cockpit/index.html
 
 | ts | Qui | sev | Quoi | Suite |
 |----|-----|-----|------|-------|
+| 2026-08-13T2250Z | Buffy | P1 | **Badge RUN STATUS** en haut OPS (🟢 EN COURS / 🟡 SIGNAL FAIBLE / 🔴 À L'ARRÊT, poll 5s via `/status`) — l'`agent_status.js` était FIGÉ depuis le 30/07 (affichait RUNNING en permanence) | Le cockpit dit enfin la vérité sur l'état du moteur · refresh page |
+| 2026-08-13T2250Z | Buffy | P1 | **Graph synapse : liveness réelle** — α/β/HULK et arêtes gatés par `ace.state` (engineOn) · plus de bots « actifs » verts quand le run est mort | Données figées du run ne pilotent plus l'affichage |
+| 2026-08-13T2240Z | Buffy | P2 | MUTE Cortana actif (`.cortana_mute`) — la voix horaire ne parle plus · ⚠ 5 chemins locaux ignorent encore le mute | Aligner les 5 chemins (E-11 CHOSES_A_FINIR_REVOIR) |
+| 2026-08-13T2230Z | Buffy | P1 | **Double voix corrigée** — règle « une seule piste » (killall say+afplay) étendue à 6 chemins voix | Rafale testée → 1 seul afplay |
 | 2026-07-31T0927Z | Cursor | — | **PREFLIGHT OPS** pastilles vert/rouge + PROTO+ · `/preflight` | Allumage fusée · clic = où aller |
 | 2026-07-31T0915Z | Cursor | P1 | Thermo écrasait funding/OI/F&G à `None` si API flop → HYGIENE=NOK | `thermo_quotidien_free` garde dernier bon + `degraded` · session_debut refresh thermo |
 | 2026-07-31T0915Z | Cursor | — | Panic garde-fous OK (B sans CRASH refusé · mode X refusé) | Preuve A/B réelle = GO quand run test stoppable |
