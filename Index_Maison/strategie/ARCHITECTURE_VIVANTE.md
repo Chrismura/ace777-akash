@@ -1,4 +1,4 @@
-# ARCHITECTURE VIVANTE — ACE777 (2026-08-13 15:29 UTC)
+# ARCHITECTURE VIVANTE — ACE777 (2026-08-13 15:34 UTC)
 
 > Document GÉNÉRÉ AUTOMATIQUEMENT à l'instant. La famille valide
 > en s'appuyant sur CE contexte, pas sur des documents figés.
@@ -9,7 +9,7 @@
 - ✅ radar
 - ⛔ lecteur signets
 - ⛔ générateur fiches
-- ✅ feed mission
+- ⛔ feed mission
 - ⛔ serveur cockpit
 
 ## Routage des tâches de décision
@@ -22,10 +22,10 @@
 
 ## État de la mission (bots + PnL)
 
-- mission.json : 2026-08-13 15:29Z · run `MASTER_VORTEX_V2_COLLAB_4H` · alerte `amber`
-- PnL combiné : **-0.02 $** 📉 (combo -0.0228)
+- mission.json : 2026-08-13 15:34Z · run `MASTER_VORTEX_V2_COLLAB_4H` · alerte `amber`
+- PnL combiné : **-0.06 $** 📉 (combo -0.0608)
 - ALPHA (sniper (embuscade, ×13, revenge si claque)) : **+0.00 $** · 0 fills · 61 skips
-- BETA (éclaireur (chatouille le marché, alimente Alpha)) : **-0.02 $** · 122 fills · 1002 skips
+- BETA (éclaireur (chatouille le marché, alimente Alpha)) : **-0.06 $** · 124 fills · 1039 skips
 - HULK (gestionnaire de portefeuille (bag, escalier, courreur)) : **+0.00 $** · 0 fills
 - Saison : CALME 🧊 · 
 
@@ -46,11 +46,11 @@
 ## Mémoire chaude (journal + résumés)
 
 - Radar (dernières alertes) :
-  · 2026-08-13T15:29:10.889487Z ETHUSDT 1882.88 0.0016 372.4 declenche=oui
-  · 2026-08-13T15:29:10.889732Z ETHUSDT 1882.88 0.0016 372.4 declenche=oui
-  · 2026-08-13T15:29:10.900400Z ETHUSDT 1882.88 0.0016 372.4 declenche=oui
-  · 2026-08-13T15:29:10.900656Z ETHUSDT 1882.88 0.0016 372.7 declenche=oui
-- Intention en cours : BETA a sonde le marche (122 sondes, 82 long / 40 court, conf | ALPHA attend son signal — aucun tir sur la session en cours.
+  · 2026-08-13T15:34:12.084062Z BTCUSDT 63660.5 0.0003 1.3 declenche=non
+  · 2026-08-13T15:34:12.084283Z BTCUSDT 63660.42 0.0003 1.3 declenche=non
+  · 2026-08-13T15:34:12.084611Z BTCUSDT 63660.01 0.0003 1.3 declenche=non
+  · 2026-08-13T15:34:12.504498Z ETHUSDT 1887.8 0.0004 98.0 declenche=non
+- Intention en cours : BETA a sonde le marche (124 sondes, 83 long / 41 court, conf | ALPHA attend son signal — aucun tir sur la session en cours.
 - 100 signets X résumés (quota aujourd'hui : 50/50)
 - 24 fiches IA d'offres en cache (quota 8/jour)
 

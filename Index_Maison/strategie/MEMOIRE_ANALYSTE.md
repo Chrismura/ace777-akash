@@ -297,3 +297,4 @@
 - 2026-08-13T15:21:48.039636Z | alerte | Poursuite de la vigilance nominale et de la rigueur tactique avec un PnL combiné positif de +0,18 $. | conf=88%
 - 2026-08-13T15:23:42.810992Z | alerte | Poursuite de la vigilance nominale et de la rigueur tactique avec un PnL combiné positif de +0,18 $. | conf=88%
 - 2026-08-13T15:29:14.246779Z | alerte | Maintien de l'alerte ambre et de la rigueur tactique avec un PnL combiné légèrement négatif de -0,02 $. | conf=88%
+- 2026-08-13T15:34:49.408793Z | alerte | Maintien de l'alerte ambre et de la rigueur tactique avec un PnL combiné légèrement négatif de -0,06 $. | conf=88%
