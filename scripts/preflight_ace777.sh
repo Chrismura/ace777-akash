@@ -85,6 +85,37 @@ else
   ok "Binance ping (${_binance_mode})"
 fi
 
+# --- Positions orphelines (C8 / coupure batterie) ---
+# Après une coupure ou un kill -9, une position peut rester ouverte sur le compte.
+# Elle bloque la marge -> les entrées échouent (code -2019) -> les unités meurent en
+# boucle (Abort leverage error). On refuse de lancer tant que le compte n'est pas à plat.
+_ts_ms="$(ruby -e 'puts (Time.now.to_f * 1000).to_i')"
+_q_sig="timestamp=${_ts_ms}&recvWindow=5000"
+_sig="$(printf '%s' "$_q_sig" | openssl dgst -sha256 -hmac "$BINANCE_API_SECRET" -binary | od -A n -t x1 | tr -d ' \n')"
+_pos_base="https://testnet.binancefuture.com"
+[ "$_binance_mode" = "live" ] && _pos_base="https://fapi.binance.com"
+_pos_resp="$(curl -sS --connect-timeout 2 --max-time 5 -H "X-MBX-APIKEY: $BINANCE_API_KEY" \
+  "${_pos_base}/fapi/v2/positionRisk?$_q_sig&signature=$_sig" 2>/dev/null || true)"
+_pos_open="$(printf '%s' "$_pos_resp" | ruby -rjson -e '
+  begin
+    j = JSON.parse(STDIN.read)
+    open = j.select { |p| (p["positionAmt"].to_f).abs > 1e-9 }
+    open.each { |p| puts "#{p["symbol"]} #{p["positionAmt"]} @ #{p["entryPrice"]} (unPnl #{p["unRealizedProfit"]})" }
+    puts "COUNT=#{open.size}"
+  rescue
+    puts "COUNT=ERR"
+  end
+')"
+_pos_count="$(printf '%s' "$_pos_open" | grep -c '^COUNT=' >/dev/null; printf '%s' "$_pos_open" | sed -n 's/^COUNT=//p')"
+if [ "$_pos_count" = "ERR" ] || [ -z "$_pos_count" ]; then
+  fail "impossible de lire les positions ($_pos_resp) — vérifier le compte avant de lancer"
+elif [ "$_pos_count" -gt 0 ] 2>/dev/null; then
+  fail "$_pos_count position(s) orpheline(s) ouverte(s) sur le compte — fermer avant de lancer :"
+  printf '%s\n' "$_pos_open" | grep -v '^COUNT=' | sed 's/^/  PREFLIGHT_WARN: /' || true
+else
+  ok "compte à plat (0 position ouverte)"
+fi
+
 # --- Ollama (si LLM gate actif) ---
 if [ "${LLM_GATE_ENABLED:-FALSE}" = "TRUE" ]; then
   ollama_url="${LLM_OLLAMA_URL:-http://127.0.0.1:11434}"
