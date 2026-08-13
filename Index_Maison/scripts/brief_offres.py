@@ -16,6 +16,7 @@ import sys
 import datetime
 import subprocess
 import re
+import time
 from pathlib import Path
 
 # === CONSTANTES MAISON ===
@@ -156,6 +157,9 @@ def parler_texte(texte: str) -> bool:
             if os.path.exists(path):
                 os.unlink(path)
             return False
+        subprocess.run(["killall", "say"], check=False, capture_output=True)  # une seule piste (règle maison)
+        subprocess.run(["killall", "afplay"], check=False, capture_output=True)
+        time.sleep(0.05)
         subprocess.run(["afplay", path], check=False, timeout=180)
         os.unlink(path)
         return True

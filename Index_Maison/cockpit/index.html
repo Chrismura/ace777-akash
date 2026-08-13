@@ -165,6 +165,23 @@ body::after{
 .pf-go.on{display:block}
 .pf-go b{color:var(--amber2)}
 .pf-go code{color:var(--acid);font-size:.58rem}
+/* RUN STATUS — moteur en marche ou à l'arrêt (live, poll 5s via /status) */
+.run-status{
+  display:flex;align-items:center;gap:8px;margin:6px 0 10px;padding:8px 12px;
+  border:1px solid rgba(120,120,140,.25);border-radius:8px;
+  background:rgba(0,0,0,.4);font-family:Orbitron,sans-serif;font-size:.72rem;
+  letter-spacing:.06em;color:var(--muted);line-height:1.4;
+}
+.run-status .dot{width:10px;height:10px;border-radius:50%;flex:none}
+.run-status.on{border-color:rgba(124,255,107,.5);color:var(--acid)}
+.run-status.on .dot{background:var(--acid);box-shadow:0 0 10px var(--acid);animation:pulse-green 1.6s infinite}
+.run-status.stale{border-color:rgba(240,160,32,.5);color:var(--amber2)}
+.run-status.stale .dot{background:var(--amber2);box-shadow:0 0 8px var(--amber2)}
+.run-status.off{border-color:rgba(255,77,77,.6);color:var(--red)}
+.run-status.off .dot{background:var(--red);box-shadow:0 0 12px var(--red);animation:pulse-red 1s infinite}
+.run-status b{font-weight:700}
+@keyframes pulse-green{0%,100%{opacity:1}50%{opacity:.35}}
+@keyframes pulse-red{0%,100%{opacity:1}50%{opacity:.25}}
 .pf-extra{margin-top:8px;border-top:1px solid rgba(90,80,40,.35);padding-top:6px}
 .pf-extra summary{
   cursor:pointer;font-size:.58rem;letter-spacing:.1em;color:var(--muted);
@@ -1064,6 +1081,11 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
   <!-- OPS -->
   <div class="stage-host">
   <section id="stage-ops" class="stage on">
+    <!-- RUN STATUS LIVE : moteur en marche ou à l'arrêt (alimenté par /status, poll 5s) -->
+    <div id="run-status" class="run-status" data-state="unknown">
+      <span class="dot"></span><span id="run-status-txt">État moteur…</span>
+    </div>
+
     <!-- Bulles portefeuille : TOTAL + singuliers — toujours en premier -->
     <div class="port" id="port-bubbles">
       <div class="cell total">
@@ -2203,15 +2225,18 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
     const aFills=(M.alpha&&M.alpha.fills)||0;
     const bFills=(M.beta&&M.beta.fills)||0;
     const hBags=(M.hulk&&M.hulk.bags)||0;
+    // Vérité (14/08) : l'activité fills/bags n'est affichée QUE si le moteur tourne VRAIMENT.
+    // Sinon le graphique montrait des bots « actifs » alors qu'ils étaient morts (données figées).
+    const engineOn = aceLv >= 2;
     const speaking = Date.now() < speakingUntil && box && !box.classList.contains('muted');
     const nodes={
       cockpit:{x:0.50,y:0.48,label:'COCKPIT', col:'#f0a020', lv:2},
       pont:{x:0.50,y:0.22,label:'PONT', col:'#7de7ff', lv:pontLv},
       ace:{x:0.22,y:0.42,label:'ACE', col:'#7CFF6B', lv:aceLv},
       live:{x:0.22,y:0.22,label:'LIVE', col:'#b8ff9a', lv:aceLv},
-      alpha:{x:0.10,y:0.62,label:'α', col:'#f0a020', lv:aFills>0||aceLv? Math.max(1,aceLv):0},
-      beta:{x:0.28,y:0.72,label:'β', col:'#5ee7ff', lv:bFills>0||aceLv? Math.max(1,aceLv):0},
-      hulk:{x:0.78,y:0.68,label:'HULK', col:'#c4ff4d', lv:hBags>0?2:(aceLv?1:0)},
+      alpha:{x:0.10,y:0.62,label:'α', col:'#f0a020', lv: engineOn ? (aFills>0?2:1) : 0},
+      beta:{x:0.28,y:0.72,label:'β', col:'#5ee7ff', lv: engineOn ? (bFills>0?2:1) : 0},
+      hulk:{x:0.78,y:0.68,label:'HULK', col:'#c4ff4d', lv: engineOn ? (hBags>0?2:1) : 0},
       net:{x:0.72,y:0.28,label:'NET', col:'#9dff7a', lv:netLv},
       binance:{x:0.88,y:0.18,label:'BINANCE', col:'#f5c518', lv:netLv},
       cortana:{x:0.62,y:0.58,label:'CORTANA', col: speaking?'#7CFF6B':'#5ee7ff', lv: speaking?2:(linkState.muted?0:1)},
@@ -2223,8 +2248,8 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
       ['ace','live', aceLv],
       ['ace','alpha', aceLv],
       ['ace','beta', aceLv],
-      ['alpha','beta', (aFills||bFills)?2:aceLv],
-      ['cockpit','hulk', hBags?2:1],
+      ['alpha','beta', engineOn && (aFills||bFills) ? 2 : (engineOn ? 1 : 0)],
+      ['cockpit','hulk', engineOn && hBags>0 ? 2 : (engineOn ? 1 : 0)],
       ['pont','net', Math.min(pontLv||1, netLv||1)],
       ['net','binance', netLv],
       ['cockpit','cortana', speaking?2:1],
@@ -2512,6 +2537,7 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
     setLinkPill('pill-ace','ace-lab', ace.state||'OFF', ace.label||'OFF');
     setLinkPill('pill-net','net-lab', net.state||'DOWN', net.label||'…');
     setLinkPill('pill-pont','pont-lab', pontOn?'ON':'OFF', pontOn?'ON':'OFF');
+    paintRunStatus(ace);
     const meta=document.getElementById('link-meta');
     if(meta){
       const bits=[];
@@ -2521,11 +2547,42 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
       meta.textContent = bits.join(' · ') || (pontOn?'pont OK':'PONT OFF = pas de feed live');
     }
   }
+  // RUN STATUS — badge EN COURS / SIGNAL FAIBLE / À L'ARRÊT (live, poll 5s)
+  function paintRunStatus(ace){
+    const el=document.getElementById('run-status');
+    const txt=document.getElementById('run-status-txt');
+    if(!el||!txt) return;
+    const st=(ace&&ace.state)||'OFF';
+    const age=ace&&ace.ageSec!=null?ace.ageSec:null;
+    const run=ace&&ace.run?ace.run:'—';
+    const cyc=(M&&M.swarmCycle)?(' · cycle '+M.swarmCycle):'';
+    let cls,label;
+    if(st==='ON'){
+      cls='on';
+      label='🟢 MOTEUR EN COURS · <b>'+run+'</b>'+cyc+' · LIVE '+age+'s';
+    }else if(st==='STALE'){
+      cls='stale';
+      label='🟡 SIGNAL FAIBLE · <b>'+run+'</b> · dernier signal il y a '+age+'s';
+    }else{
+      cls='off';
+      const m=(age!=null)?Math.max(1,Math.round(age/60))+' min':'?';
+      label='🔴 MOTEUR À L\'ARRÊT · <b>'+run+'</b> · dernier signal il y a '+m+(cyc||'');
+    }
+    el.className='run-status '+cls;
+    el.setAttribute('data-state',cls);
+    txt.innerHTML=label;
+  }
   function paintLinksOffline(){
     linkState = {ace:{state:'OFF'}, net:{state: navigator.onLine?'SLOW':'DOWN'}, pont:false, muted:false, ts:Date.now()};
     setLinkPill('pill-pont','pont-lab','OFF','OFF');
     setLinkPill('pill-ace','ace-lab','OFF','?');
     setLinkPill('pill-net','net-lab', navigator.onLine?'SLOW':'DOWN', navigator.onLine?'?':'DOWN');
+    const rs=document.getElementById('run-status');
+    if(rs){
+      rs.className='run-status off';
+      const rt=document.getElementById('run-status-txt');
+      if(rt) rt.innerHTML='🔴 PONT INJOIGNABLE — état moteur inconnu';
+    }
     const meta=document.getElementById('link-meta');
     if(meta) meta.textContent='PONT OFF — lance cortana_cockpit_bridge.py';
   }

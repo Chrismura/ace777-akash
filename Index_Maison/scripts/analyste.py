@@ -24,6 +24,7 @@ import sys
 import json
 import argparse
 import subprocess
+import time
 from datetime import datetime
 
 # --- Configuration ---------------------------------------------------------
@@ -267,6 +268,9 @@ def speak(text):
                         "fr-FR-VivienneMultilingualNeural", "--rate=-15%",
                         "--text", text, "--write-media", "/tmp/voix.mp3"],
                        check=True, timeout=60)
+        subprocess.run(["killall", "say"], check=False, capture_output=True)  # une seule piste (règle maison)
+        subprocess.run(["killall", "afplay"], check=False, capture_output=True)
+        time.sleep(0.05)
         subprocess.run(["afplay", "/tmp/voix.mp3"], check=True, timeout=120)
     except Exception as e:
         print(f"Erreur voix: {e}", file=sys.stderr)

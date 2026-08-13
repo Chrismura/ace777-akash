@@ -26,6 +26,7 @@ import re
 import subprocess
 import sys
 import tempfile
+import time
 import urllib.request
 from datetime import datetime, timezone
 
@@ -428,6 +429,9 @@ def speak_text(text, voice="fr-FR-VivienneMultilingualNeural", rate="-15%"):
         if os.path.exists(path):
             os.unlink(path)
         return 1
+    subprocess.run(["killall", "say"], check=False, capture_output=True)  # une seule piste (règle maison)
+    subprocess.run(["killall", "afplay"], check=False, capture_output=True)
+    time.sleep(0.05)
     subprocess.run(["afplay", path], check=False, timeout=240)
     os.unlink(path)
     return 0

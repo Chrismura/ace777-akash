@@ -85,6 +85,10 @@ exec ./launch_test_master_base_v8_5_impact.sh
 #!/usr/bin/env bash
 set -euo pipefail
 
+# DIAGNOSTIC (14/08) : rendre LOUD la mort silencieuse rc=1 (set -e sans message).
+# Au prochain echec, on saura la ligne + la commande exacte.
+trap 'echo "FATAL_RC1 ts=$(date -u +%FT%TZ) ligne=$LINENO cmd=[${BASH_COMMAND}]"; echo "FATAL_RC1 ts=$(date -u +%FT%TZ) ligne=$LINENO cmd=[${BASH_COMMAND}]" >> /tmp/ace777_fatal_rc1.log 2>/dev/null || true' ERR
+
 # ACE777 STRICT CLONE FUTURES
 # Clone decisionnel strict (radar + structure + tactic + soft-anomaly),
 # transposé sur tuyaux Futures Testnet.

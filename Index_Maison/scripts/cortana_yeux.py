@@ -32,6 +32,7 @@ import shutil
 import subprocess
 import sys
 import threading
+import time
 import urllib.request
 
 import barge_in  # micro : coupe la parole si on parle (natif, ffmpeg)
@@ -71,6 +72,9 @@ def speak_text(text, voice=VOICE, rate=RATE):
             ["python3", "-m", "edge_tts", "--voice", voice, f"--rate={rate}",
              "--text", text, "--write-media", TMP_MP3],
             check=True, capture_output=True, timeout=120)
+        subprocess.run(["killall", "say"], check=False, capture_output=True)  # une seule piste (règle maison)
+        subprocess.run(["killall", "afplay"], check=False, capture_output=True)
+        time.sleep(0.05)
         player = subprocess.Popen(["afplay", TMP_MP3])
         if barge_in.activ():
             threading.Thread(target=barge_in.surveiller, args=(player,), daemon=True).start()
