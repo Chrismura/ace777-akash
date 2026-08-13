@@ -19,6 +19,7 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import re
 import subprocess
 import sys
 from datetime import datetime, timezone
@@ -536,6 +537,52 @@ Cortana / `speak_attention` peut lire le résumé, puis repasser IDLE.
     (WS / "OUTBOX_OBSIDIAN" / "A_Mon_Attention" / "ATTENTION_VOCALE.md").write_text(body, encoding="utf-8")
 
 
+def derniers_avis_ia() -> dict:
+    """Dernier AVIS STRICT de Cortana par indice (journal thermo/analyses/).
+    Pour que la bulle du cockpit affiche la MÊME conclusion que la voix 🐈.
+    Retourne {indice: {avis, horizon, confiance, ts, provider}}."""
+    analyses_dir = THERMO / "analyses"
+    if not analyses_dir.is_dir():
+        return {}
+    avis_par_indice: dict = {}
+    for fn in sorted(analyses_dir.glob("*.jsonl")):
+        try:
+            lines = fn.read_text(encoding="utf-8").splitlines()
+        except Exception:
+            continue
+        for line in lines:
+            line = line.strip()
+            if not line:
+                continue
+            try:
+                e = json.loads(line)
+            except Exception:
+                continue
+            indice = e.get("indice")
+            txt = e.get("analyse") or ""
+            avis_m = None
+            horizon_m = None
+            conf_m = None
+            for l in txt.splitlines():
+                s = l.strip()
+                if s.lower().startswith("avis strict"):
+                    avis_m = re.search(r"AVIS\s*STRICT\s*:\s*(\w+)", s)
+                elif s.lower().startswith("horizon"):
+                    horizon_m = re.search(r"HORIZON\s*:\s*([^\n]+)", s)
+                elif s.lower().startswith("confiance"):
+                    conf_m = re.search(r"CONFIANCE\s*:\s*(\w+)", s)
+            if not indice or not avis_m:
+                continue
+            avis_par_indice[indice] = {
+                "avis": avis_m.group(1).upper(),
+                "horizon": horizon_m.group(1).strip().lower() if horizon_m else None,
+                "confiance": conf_m.group(1).lower() if conf_m else None,
+                "ts": e.get("ts"),
+                "provider": e.get("provider"),
+            }
+    return avis_par_indice
+
+
 def refresh_feed(data: dict, extra: str | None = None, sentiment: str | None = None):
     feed = {
         "ts": data.get("ts"),
@@ -547,6 +594,7 @@ def refresh_feed(data: dict, extra: str | None = None, sentiment: str | None = N
         "fundingAvg30": data.get("fundingAvg30"),
         "fundingAvgPrevMonth": data.get("fundingAvgPrevMonth"),
         "deltas": data.get("deltas") or {},
+        "avis": derniers_avis_ia(),
         "sentiment": sentiment,
         "askHints": [
             "Funding maintenant ?",

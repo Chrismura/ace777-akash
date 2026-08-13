@@ -257,6 +257,9 @@ def websocket_thread():
                     break
                 try:
                     msg = json.loads(data)
+                    # Défense : un message peut parser en int/str (ping, event, …)
+                    if not isinstance(msg, dict):
+                        continue
                     d = msg.get("data")
                     # Défense : messages non conformes (ping, event, …) ignorés
                     if not isinstance(d, dict):

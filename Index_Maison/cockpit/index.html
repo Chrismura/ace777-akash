@@ -456,8 +456,8 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
 .peda-panel.show{display:block}
 .peda-panel .pt{color:var(--amber2);font-family:Orbitron,sans-serif;font-size:.72rem;letter-spacing:.12em;margin-bottom:4px}
 .peda-panel .pd{color:#cfe6d2;font-size:.7rem;line-height:1.5}
-.peda-panel .ps{margin-top:6px;color:var(--muted);font-size:.6rem;line-height:1.4}
-.pill-ana{position:absolute;top:3px;right:3px;z-index:2;background:#0f1713;border:1px solid rgba(240,160,32,.4);
+.peda-panel .ps{margin-top:6px;color:var(--muted);font-size:.6rem;line-height:1.4}  .av-badge{display:inline-block;margin-left:5px;font-size:.58rem;font-weight:700;letter-spacing:.06em;border:1px solid;border-radius:3px;padding:0 4px;background:rgba(7,12,10,.85);vertical-align:middle}
+  .pill-ana{position:absolute;top:3px;right:3px;z-index:2;background:#0f1713;border:1px solid rgba(240,160,32,.4);
   color:var(--amber2);font-size:.55rem;padding:1px 5px;border-radius:3px;cursor:pointer;opacity:.55;
   transition:opacity .15s}
 .pill:hover .pill-ana{opacity:1}
@@ -1225,6 +1225,16 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
       <div class="stream" id="b-stream"><div class="fx-layer" id="b-fx"></div><div class="stream-inner" id="b-list"></div></div>
     </div>
 
+  // Badge d'avis IA (cohérence bulle/voix — le dernier AVIS STRICT de Cortana)
+  function avBadgeHtml(indice, av){
+    const a=(av.avis||'?').toUpperCase();
+    const col = a==='LONG' ? 'var(--acid)' : a==='SHORT' ? 'var(--red)' : 'var(--amber2)';
+    const c=av.confiance||'—';
+    const age = av.ts ? Math.round((Date.now()-new Date(av.ts).getTime())/3600000) : null;
+    const ageTxt = age==null ? '' : (age<1 ? ' <1h' : ' '+age+'h');
+    const prov = av.provider ? ' · ' + String(av.provider).split('(')[0].trim() : '';
+    return `<span class="av-badge" style="color:${col};border-color:${col};" title="Dernier avis Cortana (${indice}${ageTxt}${prov}) — même conclusion que la voix 🐈">${a}${ageTxt}</span>`;
+  }
     <!-- HULK -->
     <div class="card hulk">
       <div class="engine-head">
@@ -1825,10 +1835,13 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
         ['ETF XRP', etf.xrp!=null? etf.xrp+' M$':'n/d free', 'etfXrpM'],
         ['RUN', M.run||'—', ''],
       ];
+      const avisMap=(T.avis||th.avis||{});
       grid.innerHTML=cells.map(([n,v,key])=>{
         const nd=String(v??'').includes('n/d');
         const anaHtml = key ? `<button type="button" class="pill-ana" data-indice="${key}" title="Cortana analyse cet indice">🐈</button><button type="button" class="pill-wiki" data-wiki="${key}" title="Version ecrite (wiki)">📖</button>` : '';
-        return `<div class="pill" data-peda="${key||''}"${nd?' style="opacity:.65" title="Source free flaky — pas un bug cockpit"':''}>${anaHtml}<div class="n">${n}</div><div class="v">${v??'—'}</div></div>`;
+        const av=avisMap[key];
+        const avBadge = av && av.avis ? avBadgeHtml(key, av) : '';
+        return `<div class="pill" data-peda="${key||''}"${nd?' style="opacity:.65" title="Source free flaky — pas un bug cockpit"':''}>${anaHtml}<div class="n">${n}</div><div class="v">${v??'—'}${avBadge}</div></div>`;
       }).join('');
     }
     const dg=document.getElementById('delta-grid');
@@ -1843,7 +1856,9 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
         const pk = DELTA_PEDA[k]||'';
         const dpk = pk || '';
         const anaHtml = dpk ? `<button type="button" class="pill-ana" data-indice="${dpk}" title="Cortana analyse cet indice">🐈</button><button type="button" class="pill-wiki" data-wiki="${dpk}" title="Version ecrite (wiki)">📖</button>` : '';
-        return `<div class="pill" data-peda="${dpk}"${unwired?' style="opacity:.55" title="non branché / free n/d"':''}>${anaHtml}<div class="n">${k} ${it.label||''}</div><div class="v">${val} <span style="font-size:.55rem;color:var(--muted)">${unwired?'n/d':(it.level||'')}</span></div></div>`;
+        const av=avisMap[dpk];
+        const avBadge = av && av.avis ? avBadgeHtml(dpk, av) : '';
+        return `<div class="pill" data-peda="${dpk}"${unwired?' style="opacity:.55" title="non branché / free n/d"':''}>${anaHtml}<div class="n">${k} ${it.label||''}</div><div class="v">${val}${avBadge} <span style="font-size:.55rem;color:var(--muted)">${unwired?'n/d':(it.level||'')}</span></div></div>`;
       }).join('');
       dg.innerHTML=(Object.keys(deltas).slice(0,6).map(k=>{
         const v=deltas[k];
@@ -2603,7 +2618,7 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
         headers:{'Content-Type':'application/json'},
         body: JSON.stringify({indice}), cache:'no-store', signal:ctrl.signal});
       const j = await r.json();
-      if(j.ok && j.texte){ body.textContent = j.texte; body.style.color=''; }
+      if(j.ok && j.texte){ body.textContent = j.texte + (j.provider? '\n\n— ' + j.provider : ''); body.style.color=''; }
       else { body.textContent = '✘ '+(j.error||'analyse échouée'); body.style.color='var(--red)'; }
     }catch(e){
       body.textContent = (e.name==='AbortError') ? '✘ analyse trop longue — réessaie' : '✘ pont éteint — lance cortana_cockpit_bridge.py';

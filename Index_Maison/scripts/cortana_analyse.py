@@ -22,6 +22,7 @@ Ce script ne passe JAMAIS d'ordre — lecture et opinion uniquement.
 import argparse
 import json
 import os
+import re
 import subprocess
 import sys
 import tempfile
@@ -34,6 +35,8 @@ LIVE_JSON = os.path.join(THERMO_DIR, "live.json")
 HISTORY = os.path.join(THERMO_DIR, "history.jsonl")
 ANALYSES_DIR = os.path.join(THERMO_DIR, "analyses")
 HUB = "http://127.0.0.1:11435/v1/chat/completions"
+MISSION_JSON = os.path.expanduser("~/ace777-test-day1/Index_Maison/cockpit/mission.json")
+JUSTESSE = os.path.join(SCRIPTS, "justesse_cockpit.json")
 
 # Lexique : id live.json -> (nom lisible, unité)
 LEXIQUE = {
@@ -108,28 +111,142 @@ def virtual_value(indice, live):
 
 
 def load_system_prompt():
-    """Lit le prompt master analyste depuis le vault (canon)."""
-    # NB : l'espace ace777-test-day1 est accessible par launchd (TCC) ;
-    # le vault (Documents) ne l'est PAS depuis le bridge -> copie miroir ici.
+    """Lit le prompt master analyste depuis le vault (canon).
+    Y ajoute dynamiquement : (1) la conscience du système ACE777 (qui tourne,
+    rôle chirurgical), (2) le score de justesse de l'analyste + ses derniers
+    résultats (boucle d'apprentissage : elle voit ses erreurs et se recalibre).
+    """
     candidates = [
         os.path.join(SCRIPTS, "prompts", "PROMPT_MASTER_ANALYSTE.md"),
         os.path.expanduser("~/Documents/Obsidian_ACE777/PROMPT_MASTER_ANALYSTE.md"),
     ]
+    prompt = None
     for p in candidates:
         if os.path.exists(p):
             s = open(p).read()
-            # extraire la section SYSTEM PROMPT
             start = s.find("## SYSTEM PROMPT")
             end = s.find("---", start + 20)
             if start != -1 and end != -1:
                 body = s[s.find("\n\n", start) + 2:end].strip()
-                # enlever la ligne de titre du bloc
-                return body
-            return s
-    # fallback : prompt minimal
-    return ("Tu es Cortana, master analyste crypto du cockpit ACE777. "
-            "Analyse l'indice reçu : faits, interpretation, mise en relation, "
-            "pattern, opinion. 8-12 phrases, chiffres exacts, vulgarise.")
+                prompt = body
+            else:
+                prompt = s
+            break
+    if prompt is None:
+        prompt = ("Tu es Cortana, master analyste crypto du cockpit ACE777. "
+                  "Analyse l'indice reçu : faits, interpretation, mise en relation, "
+                  "pattern, opinion. 8-12 phrases, chiffres exacts, vulgarise.")
+    return prompt + "\n\n" + contexte_systeme()
+
+
+def contexte_systeme() -> str:
+    """Contexte vivant injecté : qui tourne dans ACE777 + boucle d'apprentissage."""
+    lignes = ["### Contexte ACE777 (vivant, injecté à chaque analyse)"]
+
+    # 1) Le système qui tourne (mission.json — lecture seule)
+    try:
+        m = json.load(open(MISSION_JSON))
+        run = m.get("run") or "?"
+        combo = m.get("comboPnl")
+        a = m.get("alpha") or {}
+        b = m.get("beta") or {}
+        lignes.append(
+            "- Système : run %s · duo ALPHA(sniper long x13)/BETA(éclaireur short x3) "
+            "· combo %s $ · ALPHA %s fills (%s $) · BETA %s sondes (%s $)"
+            % (run, "n/d" if combo is None else round(combo, 2),
+               a.get("fills"), round(float(a.get("pnl") or 0), 2),
+               b.get("fills"), round(float(b.get("pnl") or 0), 2))
+        )
+    except Exception:
+        pass
+
+    # 2) Ta place : analyste, jamais exécutante (rappel chirurgical)
+    lignes.append(
+        "- Ton rôle est CHIRURGICAL : tu es l'analyste, jamais dans la boucle d'ordre. "
+        "Tes avis LONG/SHORT/NEUTRE informent l'humain (Christophe) et le superviseur, "
+        "aucun d'eux ne déclenche un ordre. Le moteur ALPHA/BETA est 100% mécanique."
+    )
+
+    # 3) Boucle d'apprentissage : ton score de justesse + derniers résultats
+    try:
+        sc = json.load(open(JUSTESSE))
+        pct = sc.get("pct")
+        if pct is not None:
+            lignes.append(
+                "- Ton score de justesse global : %s%% (%s/%s avis notés). "
+                "Regarde-le comme ta note : si tu es sous 60 pour cent, sois PLUS prudente "
+                "(préfère NEUTRE et des confiances basses). Si tu es au-dessus de 65 pour cent, "
+                "tu peux être plus affirmée."
+                % (pct, sc.get("total_hit"), sc.get("total_scored"))
+            )
+        par = sc.get("par_indice") or {}
+        if par:
+            lignes.append("- Ton bilan par indice (hit/n) : " + "; ".join(
+                "%s %s/%s" % (k, v.get("hit"), v.get("n")) for k, v in sorted(par.items())))
+    except Exception as _e:
+        lignes.append("[contexte:justesse indisponible — %s]" % _e)
+
+    # 4) Derniers résultats réels (HIT/MISS) — tu dois EN TIRER les leçons
+    try:
+        hist = load_history()
+        analyses = []
+        if os.path.isdir(ANALYSES_DIR):
+            for fn in sorted(os.listdir(ANALYSES_DIR))[-3:]:
+                try:
+                    for line in open(os.path.join(ANALYSES_DIR, fn)):
+                        line = line.strip()
+                        if line:
+                            analyses.append(json.loads(line))
+                except Exception:
+                    continue
+        if analyses:
+            recent = []
+            for an in analyses[-6:]:
+                avis_info = re.search(r"AVIS\s*STRICT\s*:\s*(\w+)", an.get("analyse") or "")
+                if not avis_info:
+                    continue
+                t0 = None
+                raw = an.get("faits_bruts") or {}
+                if raw.get("ts"):
+                    try:
+                        t0 = datetime.fromisoformat(str(raw["ts"]).replace("Z", "+00:00")).timestamp()
+                    except Exception:
+                        pass
+                p0 = None
+                if t0:
+                    for row in hist:
+                        if row.get("tsUnix") and row.get("mark") and row.get("tsUnix") <= t0:
+                            p0 = row["mark"]
+                verdict = "en attente"
+                if p0:
+                    try:
+                        p1 = None
+                        for row in hist:
+                            if row.get("tsUnix") and row.get("mark") and row.get("tsUnix") >= t0 + 24 * 3600:
+                                p1 = row["mark"]
+                                break
+                        if p1:
+                            move = (p1 - p0) / p0 * 100
+                            avis = avis_info.group(1).upper()
+                            if (avis == "LONG" and move > 0.05) or (avis == "SHORT" and move < -0.05):
+                                verdict = "HIT"
+                            elif (avis == "LONG" and move < -0.05) or (avis == "SHORT" and move > 0.05):
+                                verdict = "MISS"
+                            else:
+                                verdict = "FLAT"
+                    except Exception:
+                        pass
+                recent.append("%s sur %s -> %s" % (an.get("indice"), avis_info.group(1).upper(), verdict))
+            if recent:
+                lignes.append("- Tes derniers avis et ce que le marché a fait (24h) : " + " · ".join(recent[-5:]))
+                lignes.append(
+                    "- LEÇON : si tu répètes des MISS sur un indice, change de lecture sur CET indice "
+                    "(ex. funding : funding positif ne veut pas toujours dire LONG)."
+                )
+    except Exception:
+        pass
+
+    return "\n".join(lignes)
 
 
 def load_live():
