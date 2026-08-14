@@ -609,9 +609,12 @@ swarm_neighbor_load() {
     if [ "$cycle_i" -gt "$shock_until_i" ]; then
       post_delta=$((cycle_i - shock_until_i))
       post_grace_i="$(to_int "$SWARM_HUNTER_POST_SHOCKWAVE_SOLO_CYCLES")"
-      [ "$post_delta" -le "$post_grace_i" ] && swarm_shockwave_post_solo=1
+      if [ "$post_delta" -le "$post_grace_i" ]; then
+        swarm_shockwave_post_solo=1
+      fi
     fi
   fi
+  return 0
 }
 
 swarm_apply_coupling() {

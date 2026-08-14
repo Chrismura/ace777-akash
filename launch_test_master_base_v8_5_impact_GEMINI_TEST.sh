@@ -172,7 +172,7 @@ _TRACE_FILE="${ACE777_TRACE_FILE:-/tmp/ace777_cmd_trace.log}"
 : > "$_TRACE_FILE"
 exec 9>>"$_TRACE_FILE"
 trap 'printf "%s\n" "$BASH_COMMAND" >&9' DEBUG
-trap 'rc=$?; trap - DEBUG; _last="$(tail -n 3 "$_TRACE_FILE" 2>/dev/null | head -n 1)"; printf "[EXIT_DUMP] %s rc=%s last=[%s] unit=%s\n" "$(date -u +%FT%TZ)" "$rc" "${_last:-N/A}" "${ACE777_UNIT:-?}" >> "$_DUMP_FILE" 2>/dev/null || true' EXIT
+trap 'rc=$?; trap - DEBUG; _last="$(tail -n 1 "$_TRACE_FILE" 2>/dev/null)"; printf "[EXIT_DUMP] %s rc=%s last=[%s] unit=%s\n" "$(date -u +%FT%TZ)" "$rc" "${_last:-N/A}" "${ACE777_UNIT:-?}" >> "$_DUMP_FILE" 2>/dev/null || true' EXIT
 ACE777_INST
 )
   set +e
