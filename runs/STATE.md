@@ -1,7 +1,7 @@
 # ACE777 — STATE
 
 > Généré automatiquement — ne pas éditer à la main
-> Phase: `running` | Statut: `RUNNING` | MAJ: `2026-08-14T19:54:25Z`
+> Phase: `ended` | Statut: `ENDED` | MAJ: `2026-08-14T20:24:33Z`
 
 ## Config active
 
@@ -17,35 +17,53 @@
 
 | Unité | FILLED | Win | Loss | Win% | Net USDT | SKIP |
 |-------|--------|-----|------|------|----------|------|
-| BETA | 0 | 0 | 0 | 0.00% | 0.0000 | 0 |
-| ALPHA | 0 | 0 | 0 | 0.00% | 0.0000 | 0 |
-| **TOTAL** | **0** | — | — | — | **0.0000** | **0** |
+| BETA | 22 | 8 | 8 | 36.4% | 0.2811 | 147 |
+| ALPHA | 11 | 7 | 1 | 63.6% | 7.5524 | 166 |
+| **TOTAL** | **33** | — | — | — | **7.8336** | **313** |
 
 ## Duo session (`duo_session.json`)
 
-- SCOUT PnL: `` USDT
-- HUNTER PnL: `` USDT
-- Total session: `` USDT
+- SCOUT PnL: `0.28113000000000005` USDT
+- HUNTER PnL: `7.552429999999999` USDT
+- Total session: `7.833559999999999` USDT
+
+## Duo live (`duo_state.json`)
+
+| Champ | Valeur |
+|-------|--------|
+| role | `SCOUT` |
+| status | `CLOSED` |
+| side | `SELL` |
+| bps | `-0.0` |
+| pnl_usdt | `-0.0` |
+| reason | `shock_inversion_stop` |
+| cycle | `167` |
+| hold_sec | `7` |
 
 ## Top SKIP — BETA
 
-_Aucun SKIP ou CSV absent._
+1. `radar_block` — 122
+2. `impulse_resonance_wait` — 22
+3. `tactic_mismatch` — 3
 
 ## Top SKIP — ALPHA
 
-_Aucun SKIP ou CSV absent._
+1. `radar_block` — 136
+2. `impulse_resonance_wait` — 16
+3. `duo_wait` — 11
+4. `tactic_mismatch` — 3
 
 ## Vortex (`vortex_control.json`)
 
 - Mode: `CHOP`
 - Message: `v2_swarm_wind_chop`
-- TS: `2026-08-14T19:54:19Z`
+- TS: `2026-08-14T20:24:22Z`
 
 ## Processus
 
-- master.pid: `RUNNING`
-- beta.pid: `RUNNING`
-- alpha.pid: `RUNNING`
+- master.pid: `stopped`
+- beta.pid: `stopped`
+- alpha.pid: `stopped`
 
 ## Fichiers
 
