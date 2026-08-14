@@ -1,13 +1,13 @@
 # Attention vocale — Cortana
 
 ## Dernier résumé
-> Info Changement de tendance. Structure mixte, signe une heure -.. Provenance cortana_watch_trend.
+> Alerte Deux portefeuilles. Activité sur Ace et Hulk dans la même fenêtre. Les deux stacks bougent — sniffe, pas de GO.. Provenance cortana_watch_dual.
 
 ## Meta
 - statut: IDLE
-- ts: 20260814T1853Z
-- pertinence: SOFT
-- sentiment: INFO
+- ts: 20260814T1943Z
+- pertinence: PERTINENT
+- sentiment: URGENT
 - compte: thermo-free
 - lien Index: S22b C14 · résumé horaire
 
