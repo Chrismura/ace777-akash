@@ -1,0 +1,57 @@
+{
+  "_meta": {
+    "description": "Base de surveillance des gros portefeuilles BTC (proxy onchain gratuit).",
+    "created": "2026-08-14T21:50:00Z",
+    "seuil_gros_bloc_btc": 1000,
+    "seuil_fragmentation_btc": 500,
+    "seuil_fragmentation_blocs": 3,
+    "regle_or": "aucune adresse sans double verification mempool.space (source + statut)",
+    "sources": {
+      "mempool.space": "https://mempool.space/api/address/<addr>",
+      "arkham_web": "clusters publics (a copier manuellement, source=arkham_web)",
+      "bitinfocharts": "https://www.bitinfocharts.com/bitcoin/wallet/<label>"
+    }
+  },
+  "portefeuilles": [
+    {
+      "address": "34xp4vRoCGJym3xR7yCVPFHoCNxv4Twseo",
+      "label": "Binance Hot Wallet",
+      "entity": "Binance",
+      "type": "exchange_hot",
+      "source": "mempool.space_verif",
+      "verification_status": "double",
+      "last_checked": "2026-08-14T21:47:00Z",
+      "notes": "5575 tx, ~1.19M BTC cumules en entree — hot wallet principal documente"
+    },
+    {
+      "address": "1NDyJtNTjmwk5xPNhjgAMu4HDHigtobu1s",
+      "label": "Binance Cold Storage",
+      "entity": "Binance",
+      "type": "exchange_cold",
+      "source": "mempool.space_verif",
+      "verification_status": "double",
+      "last_checked": "2026-08-14T21:47:00Z",
+      "notes": "1.19M tx, ~15.6M BTC cumules en entree — cold storage principal documente"
+    },
+    {
+      "address": "bc1qgdjqv0av3q56jvd82tkdjpy7gdp9ut8tlqmgrpmv24sq90ecnvqqjwvw97",
+      "label": "Bitfinex Cold Wallet",
+      "entity": "Bitfinex",
+      "type": "exchange_cold",
+      "source": "spark.money + mempool.space_verif",
+      "verification_status": "double",
+      "last_checked": "2026-08-14T21:49:00Z",
+      "notes": "338 tx, ~5.3M BTC cumules en entree — cold wallet etiquete par spark.money"
+    },
+    {
+      "address": "1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa",
+      "label": "Genesis (Satoshi)",
+      "entity": "Satoshi",
+      "type": "genesis",
+      "source": "mempool.space_verif",
+      "verification_status": "double",
+      "last_checked": "2026-08-14T21:45:00Z",
+      "notes": "65297 tx — adresse du bloc genesis, mouvement = signal fort"
+    }
+  ]
+}
