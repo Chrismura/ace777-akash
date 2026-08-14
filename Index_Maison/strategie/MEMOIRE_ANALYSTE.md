@@ -362,3 +362,6 @@
 - 2026-08-14T00:37:12.227454Z | alerte | Poursuite de la vigilance nominale avec un PnL combiné positif à +1,37 $, soutenu par la discipline d'embuscade d'Alpha, l'éclairage tactique de Beta et la gestion prudente des positions de Hulk malgré la résurgence des craintes sur le carry trade japonais. | conf=88%
 - 2026-08-14T00:37:55.359179Z | alerte | Poursuite de la vigilance nominale avec un PnL combiné positif à +1,37 $, soutenu par la discipline d'embuscade d'Alpha, l'éclairage de Beta et la gestion prudente de Hulk. | conf=88%
 - 2026-08-14T00:44:29.989597Z | alerte | Poursuite de la vigilance nominale avec un PnL combiné positif à +1,37 $, validé par l'exécution disciplinée de l'essaim et la gestion prudente de Hulk. | conf=88%
+- 2026-08-14T01:07:17.559394Z | alerte | Poursuite de la vigilance nominale avec un PnL combiné positif à +1,37 $, validé par la discipline opérationnelle de l'essaim et la gestion mesurée de Hulk. | conf=88%
+- 2026-08-14T01:37:21.056667Z | alerte | Poursuite de la vigilance nominale avec un PnL combiné positif à +1,37 $, validé par la discipline opérationnelle de l'essaim et la gestion mesurée de Hulk. | conf=88%
+- 2026-08-14T01:45:29.102734Z | alerte | Poursuite de la vigilance nominale avec un PnL combiné positif à +1,37 $, validé par la discipline opérationnelle de l'essaim et la gestion mesurée de Hulk. | conf=88%
