@@ -254,10 +254,25 @@ def ecrire_sorties(saison: str, align_dict: Dict[str, Any],
     with open(ETAT_PATH, "w", encoding="utf-8") as f:
         json.dump({"saison": saison, "ts": ts}, f, ensure_ascii=False, indent=2)
 
-    # archive (append jamais d'écrasement)
-    safe_ts = ts.replace(":", "").replace("-", "").replace(".", "")
-    with open(os.path.join(HISTO_DIR, "SAISON_%s.json" % safe_ts), "w", encoding="utf-8") as f:
-        json.dump(out, f, ensure_ascii=False, indent=2)
+    # archive (JSONL append — un seul fichier, rotation à ~5000 lignes)
+    # Avant : un fichier SAISON_<ts>.json par scan (~toutes les 10s avec la page
+    # cockpit ouverte) → 28k fichiers. Désormais : append compact, rotation bornée.
+    hist = os.path.join(HISTO_DIR, "historique_saisons.jsonl")
+    try:
+        os.makedirs(HISTO_DIR, exist_ok=True)
+        with open(hist, "a", encoding="utf-8") as f:
+            f.write(json.dumps(out, ensure_ascii=False) + "\n")
+        # rotation : au-delà de ~2 Mo (≈5000 lignes), on archive le courant en .old
+        if os.path.exists(hist) and os.path.getsize(hist) > 2_000_000:
+            old = hist + ".old"
+            try:
+                if os.path.exists(old):
+                    os.remove(old)
+                os.replace(hist, old)
+            except Exception:
+                pass
+    except Exception:
+        pass
 
     return out["story"]
 

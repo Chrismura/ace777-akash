@@ -500,6 +500,9 @@ def build_resume(data: dict, mission: dict | None = None) -> tuple[str, str, str
         f"chaleur {fmt_num(ace.get('heat'), 1)}. "
         f"{avis_ace_heat(data, mission)}",
     ]
+    etat = etat_moteurs()
+    if etat:
+        lines.append(etat)
     if pf:
         lines.append(
             f"Portefeuille : Ace {money(pf.get('ace'))}, "
@@ -509,6 +512,26 @@ def build_resume(data: dict, mission: dict | None = None) -> tuple[str, str, str
     lines.append(avis)
     text = " ".join(lines)
     return text, label, avis
+
+
+def etat_moteurs() -> str:
+    """Vérité moteurs (E-10) : interroge le pont /status (ace.state), PAS les fichiers figés.
+    Retourne une phrase honnête, ou "" si le pont ne répond pas (on ne devine pas)."""
+    try:
+        import urllib.request
+        with urllib.request.urlopen("http://127.0.0.1:17777/status", timeout=2) as r:
+            st = json.loads(r.read().decode("utf-8"))
+        ace = st.get("ace") or {}
+        state = str(ace.get("state") or "OFF").upper()
+        run = ace.get("run") or ""
+        if state == "ON":
+            return "Les moteurs tournent."
+        phrase = "Les moteurs sont à l'arrêt."
+        if run:
+            phrase += f" Dernier run : {run}."
+        return phrase
+    except Exception:
+        return ""
 
 
 def write_vocale(resume: str, pertinence: str = "SOFT", sentiment: str | None = None):

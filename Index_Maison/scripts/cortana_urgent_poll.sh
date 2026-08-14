@@ -15,7 +15,16 @@ set +a
 LOG="$ROOT/Index_Maison/thermo/cortana_urgent_poll.log"
 {
   echo "---- $(date -u +%Y-%m-%dT%H:%MZ) ----"
-  /usr/bin/python3 "$ROOT/Index_Maison/scripts/cockpit_mission_feed.py" || true
+  # Feed mission : seulement si périmé (>30s) — fini la régénération à chaque poll (10s)
+  MISSION_JSON="$ROOT/Index_Maison/cockpit/mission.json"
+  if [ -f "$MISSION_JSON" ]; then
+    MISSION_AGE=$(( $(date +%s) - $(stat -f %m "$MISSION_JSON") ))
+  else
+    MISSION_AGE=9999
+  fi
+  if [ "$MISSION_AGE" -gt 30 ]; then
+    /usr/bin/python3 "$ROOT/Index_Maison/scripts/cockpit_mission_feed.py" || true
+  fi
   /usr/bin/python3 "$ROOT/Index_Maison/scripts/cortana_watch.py" || true
   /usr/bin/python3 "$ROOT/Index_Maison/scripts/cortana_thermo.py" poll || true
 } >>"$LOG" 2>&1

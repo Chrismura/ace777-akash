@@ -140,6 +140,10 @@ def parler_texte(texte: str) -> bool:
     python3 -m edge_tts -> mp3 temp -> afplay)."""
     if not texte or not texte.strip():
         return False
+    # MUTE (E-11) : même règle que cortana_voice — silence si le fichier existe
+    if os.path.exists("/tmp/ace777_swarm_pids/.cortana_mute"):
+        print("  [voix:MUETTE] mute actif — saut", file=sys.stderr)
+        return False
     try:
         import tempfile
         with tempfile.NamedTemporaryFile(suffix=".mp3", delete=False) as f:

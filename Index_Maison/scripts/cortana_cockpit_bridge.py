@@ -1274,9 +1274,22 @@ def do_status() -> dict:
     }
 
 
+MISSION_TTL_SEC = 30  # régénère le feed au plus toutes les 30s (anti-spam CPU/disque)
+
+
 def do_mission() -> dict:
-    """Régénère le feed puis renvoie mission.json (anti-cache)."""
+    """Renvoie mission.json ; régénère le feed seulement s'il est périmé (>30s).
+    Avant : le feed était relancé (sous-processus) à CHAQUE appel /mission, soit ~toutes
+    les 10s avec la page cockpit ouverte → 28k fichiers SAISON + 1,1s CPU/cycle."""
+    import time
     try:
+        if MISSION_JSON.exists():
+            age = max(0, int(time.time() - MISSION_JSON.stat().st_mtime))
+            if age < MISSION_TTL_SEC:
+                data = json.loads(MISSION_JSON.read_text(encoding="utf-8"))
+                data["ok"] = True
+                data["ageSec"] = age
+                return data
         run_py(SCRIPTS / "cockpit_mission_feed.py", timeout=60)
     except Exception as e:
         return {"ok": False, "error": str(e)}
@@ -1285,6 +1298,7 @@ def do_mission() -> dict:
     try:
         data = json.loads(MISSION_JSON.read_text(encoding="utf-8"))
         data["ok"] = True
+        data["ageSec"] = max(0, int(time.time() - MISSION_JSON.stat().st_mtime))
         return data
     except Exception as e:
         return {"ok": False, "error": str(e)}

@@ -65,6 +65,10 @@ QUESTION_DEFAUT = (
 
 def speak_text(text, voice=VOICE, rate=RATE):
     """Lecture vocale Vivienne via python3 -m edge_tts (meme mecanisme que cortana_brief)."""
+    # MUTE (E-11) : même règle que cortana_voice — silence si le fichier existe
+    if os.path.exists("/tmp/ace777_swarm_pids/.cortana_mute"):
+        print("  [voix:MUETTE] mute actif — saut", file=sys.stderr)
+        return False
     try:
         if barge_in.activ():
             barge_in.preparer()  # calibration ambiant EN SILENCE, pendant la generation

@@ -72,6 +72,10 @@ def load_json(path, default):
 
 
 def speak_text(text, voice=None, rate=None):
+    # MUTE (E-11) : même règle que cortana_voice — silence si le fichier existe
+    if os.path.exists("/tmp/ace777_swarm_pids/.cortana_mute"):
+        print("  [voix:MUETTE] mute actif — saut", file=sys.stderr)
+        return 1
     voice = voice or os.environ.get("EDGE_TTS_VOICE", "fr-FR-VivienneMultilingualNeural")
     rate = rate or os.environ.get("EDGE_TTS_RATE", "-25%")  # style Cortana : plus calme
     """Voix Vivienne via python3 -m edge_tts (meme mecanisme que cortana_voice)."""

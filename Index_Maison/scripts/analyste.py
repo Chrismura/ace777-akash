@@ -263,6 +263,12 @@ def write_file(path, content):
 
 # --- Voix (Vivienne) -------------------------------------------------------
 def speak(text):
+    # MUTE (E-11) : même règle que cortana_voice — silence si le fichier existe
+    # (le bypass urgent reste possible via CORTANA_MUTE_ALLOW_URGENT, comme cortana_voice)
+    if os.path.exists("/tmp/ace777_swarm_pids/.cortana_mute"):
+        if os.getenv("CORTANA_MUTE_ALLOW_URGENT", "1") != "1":
+            print("  [voix:MUETTE] mute actif — saut", file=sys.stderr)
+            return
     try:
         subprocess.run(["python3", "-m", "edge_tts", "--voice",
                         "fr-FR-VivienneMultilingualNeural", "--rate=-15%",

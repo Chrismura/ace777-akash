@@ -414,6 +414,10 @@ def journalise(indice, facts, facts_bruts, content, provider, avis_ok=True):
 
 def speak_text(text, voice="fr-FR-VivienneMultilingualNeural", rate="-15%"):
     """Voix Vivienne via python3 -m edge_tts (même mécanisme que cortana_voice)."""
+    # MUTE (E-11) : même règle que cortana_voice — silence si le fichier existe
+    if os.path.exists("/tmp/ace777_swarm_pids/.cortana_mute"):
+        print("  [voix:MUETTE] mute actif — saut", file=sys.stderr)
+        return 1
     with tempfile.NamedTemporaryFile(suffix=".mp3", delete=False) as f:
         path = f.name
     cmd = [
