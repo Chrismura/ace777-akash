@@ -158,9 +158,26 @@ run_unit() {
   local unit="$1"
   local live_log="${RUN_DIR}/${tag}_LIVE_COLOR.log"
   local rc=0
+  # INSTRUMENTATION CAPTURE (14/08, consensus famille 6/6 + codeur) :
+  # prefixe injecte avant le genesis dans le pipe bash -s (genesis INTACT).
+  # trap EXIT -> dump rc + derniere commande reelle au moment de la mort.
+  # trap DEBUG -> capture $_last_cmd via BASH_COMMAND (bash 3.2 macOS).
+  export ACE777_UNIT="$unit"
+  export ACE777_RUN_DIR="${RUN_DIR:-runs}"
+  export ACE777_TRACE_FILE="${RUN_DIR:-runs}/CMD_TRACE_${unit}.log"
+  _inst_prefix=$(cat <<'ACE777_INST'
+export _last_cmd="INIT"
+_DUMP_FILE="${ACE777_RUN_DIR:-runs}/EXIT_DUMP.log"
+_TRACE_FILE="${ACE777_TRACE_FILE:-/tmp/ace777_cmd_trace.log}"
+: > "$_TRACE_FILE"
+exec 9>>"$_TRACE_FILE"
+trap 'printf "%s\n" "$BASH_COMMAND" >&9' DEBUG
+trap 'rc=$?; trap - DEBUG; _last="$(tail -n 3 "$_TRACE_FILE" 2>/dev/null | head -n 1)"; printf "[EXIT_DUMP] %s rc=%s last=[%s] unit=%s\n" "$(date -u +%FT%TZ)" "$rc" "${_last:-N/A}" "${ACE777_UNIT:-?}" >> "$_DUMP_FILE" 2>/dev/null || true' EXIT
+ACE777_INST
+)
   set +e
   set +o pipefail
-  tail -n +85 ./genesis_manifest.txt | bash -s 2>&1 | while IFS= read -r line || [ -n "$line" ]; do
+  { printf '%s\n' "$_inst_prefix"; tail -n +85 ./genesis_manifest.txt; } | bash -s 2>&1 | while IFS= read -r line || [ -n "$line" ]; do
     formatted="[${unit}] ${line}"
     printf '%s\n' "$formatted"
     printf '%s\n' "$formatted" >> "$live_log" 2>/dev/null || true
