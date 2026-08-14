@@ -22,6 +22,8 @@ Pour que Cursor · Punk · Cortana · Christophe sachent **ce qui a bougé**, sa
 
 | ts | Qui | Action | Où | Quoi |
 |----|-----|--------|-----|------|
+| 2026-08-14T1853Z | journal_soir | ★ | journal | snapshot soir auto |
+| 2026-08-14T1853Z | journal_auto | ★ | CONSOLE+Journal_2026-08-14 | Snapshot auto hygiène soir |
 | 2026-08-14T0625Z | Buffy | ~ | cockpit/hub/voix | COCKPIT NICKEL (GO Christophe 14/08) — audit approfondi du travail DeepSeek : pont TTL 30s (/mission ne relance plus le feed à chaque poll, était ~10s = 28 542 fichiers SAISON) · ada_saison archive JSONL au lieu d'1 fichier/scan (purge faite, tar /tmp/backups-cockpit-nickel-20260814-081440) · cortana_urgent_poll TTL 30s (était feed à chaque poll 10s) · conflit pont résolu : orphelin open_cockpit_app tué, launchd KeepAlive reprend (était 7611 échecs Address-in-use) · mute aligné 5 chemins voix (brief/analyse/offres/analyste/yeux) · cortana_thermo annonce la vérité moteurs via /status (E-10) · graph z-index bouton ↻ (E-13) · hub : /events+/usage tail atomique + only_model typé (résidus DeepSeek) · tout testé, backups datés |
 | 2026-08-13T2306Z | session_fin | ★ | Index | Fin session auto · journal + OUTBOX |
 | 2026-08-13T2305Z | Buffy | ✕ | A_Mon_Attention | Accountability : JOURNEE_DESASTRUEUSE + RELEVE + TOPO + AUDIT (projet + vault + git) — c'est moi qui ai foutu la merde |

@@ -1,12 +1,12 @@
 # Console générale — clin d’œil
 
-Auto-refresh : 2026-08-13 23:06 UTC · jour local **2026-08-14**
+Auto-refresh : 2026-08-14 18:53 UTC · jour local **2026-08-14**
 
 ## Feu tricolore
 
 | Jambe | État | Détail |
 |-------|------|--------|
-| **ACE** | 🔴 STOP | Dernier tag `NUAGE_TEST_8H_CMP2` · combo ≈ **-45.11 $** |
+| **ACE** | 🟢 RUN | Dernier tag `NUAGE_TEST_8H_CMP2` · combo ≈ **-45.11 $** |
 | **Hulk paper** | 🟢 RUN | pnl_total ≈ **-2.4530** · pos **7** |
 | **Hulk digest** | 🔴 STOP | mtime 2026-08-13T01:37Z |
 | **Punk** | 🔴 STOP | — · idle |

@@ -22,6 +22,7 @@ Pour que Cursor · Punk · Cortana · Christophe sachent **ce qui a bougé**, sa
 
 | ts | Qui | Action | Où | Quoi |
 |----|-----|--------|-----|------|
+| 2026-08-14T1853Z | journal_soir | ★ | journal | snapshot soir auto |
 | 2026-08-13T2306Z | session_fin | ★ | Index | Fin session auto · journal + OUTBOX |
 | 2026-08-13T2305Z | Buffy | ✕ | A_Mon_Attention | Accountability : JOURNEE_DESASTRUEUSE + RELEVE + TOPO + AUDIT (projet + vault + git) — c'est moi qui ai foutu la merde |
 | 2026-08-13T2305Z | Buffy | ★ | git | Pushes OK : ace777-akash + obsidian-vault (fermeture session) |
