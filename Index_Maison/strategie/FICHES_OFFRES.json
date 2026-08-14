@@ -2,7 +2,8 @@
   "version": 2,
   "jours": {
     "2026-08-12": 8,
-    "2026-08-13": 8
+    "2026-08-13": 8,
+    "2026-08-14": 8
   },
   "fiches": {
     "32f5f333ea5d": {
@@ -466,6 +467,154 @@
       "usage": "analyste (extraction données visuelles)",
       "avis_pour": "Seul modèle gratuit connu pour transformer graphiques en données exploitables automatiquement",
       "avis_attention": "Inutilisable hors tâche de détection/extraction de courbes — ne pas tenter comme LLM généraliste"
+    },
+    "05e3b9c40f43": {
+      "section": "openrouter (:free)",
+      "item": "dots-studio/dots-3-note-preview:free",
+      "generated": "2026-08-14T05:29:04.315921+00:00",
+      "type": "Modèle textuel gratuit via OpenRouter",
+      "forts": [
+        "Gratuit via l'API OpenRouter",
+        "Format léger et rapide",
+        "Intégration transparente dans le hub"
+      ],
+      "faibles": [
+        "Modèle en version preview/expérimentale",
+        "Capacités de raisonnement complexes non garanties",
+        "Disponibilité liée aux quotas OpenRouter"
+      ],
+      "usage": "chat",
+      "avis_pour": "Une option intéressante à tester pour du dialogue léger ou de la génération simple sans impacter le budget cloud.",
+      "avis_attention": "Restez prudent pour les tâches critiques comme le code ou le jugement stratégique en raison de son statut expérimental."
+    },
+    "196ee2f98b9b": {
+      "section": "nvidia",
+      "item": "google/diffusiongemma-26b-a4b-it",
+      "generated": "2026-08-14T05:29:06.027196+00:00",
+      "type": "Modèle génératif gratuit de type diffusion",
+      "forts": [
+        "Gratuit sur l'infrastructure nvidia",
+        "Basé sur une architecture innovante (diffusion)",
+        "Format chat (it) adapté aux requêtes complexes"
+      ],
+      "faibles": [
+        "Spécialisation exact non garantie pour le code brut",
+        "Disponibilité dépendant des quotas de repli nvidia"
+      ],
+      "usage": "signets.lot2",
+      "avis_pour": "À tester en repli pour diversifier les sources d'analyse et d'idées légères.",
+      "avis_attention": "Attention aux performances en code pur, préférer un modèle spécialisé pour les scripts critiques."
+    },
+    "350ec30b4b30": {
+      "section": "nvidia",
+      "item": "google/gemma-2b",
+      "generated": "2026-08-14T05:29:07.665045+00:00",
+      "type": "Modèle linguistique ultra-léger et rapide de Google hébergé par Nvidia",
+      "forts": [
+        "Vitesse d'exécution élevée",
+        "Idéal pour tests rapides et scripts légers",
+        "Gratuit sur l'infrastructure Nvidia"
+      ],
+      "faibles": [
+        "Capacité de raisonnement limitée par sa petite taille (2B)",
+        "Moins adapté aux analyses complexes ou au code avancé"
+      ],
+      "usage": "chat",
+      "avis_pour": "Parfait pour un débutant qui souhaite expérimenter l'IA sans consommer de ressources lourdes.",
+      "avis_attention": "Attention à sa faible capacité pour les tâches complexes ou la relecture de code critique."
+    },
+    "7118c01d2a75": {
+      "section": "nvidia",
+      "item": "google/gemma-3-12b-it",
+      "generated": "2026-08-14T05:29:09.003439+00:00",
+      "type": "Modèle conversationnel et d'analyse open-weights léger et performant",
+      "forts": [
+        "Excellente compréhension contextuelle",
+        "Idéal pour le traitement de texte et le résumé",
+        "Gratuit et rapide"
+      ],
+      "faibles": [
+        "Peut manquer de profondeur sur la stratégie complexe",
+        "Sensible aux limites de contexte étendu"
+      ],
+      "usage": "analyste.strategie",
+      "avis_pour": "À essayer pour booster vos analyses textuelles et vos résumés sans surcoût.",
+      "avis_attention": "Gardez une vérification humaine pour les décisions critiques et le code complexe."
+    },
+    "93b3921382a5": {
+      "section": "nvidia",
+      "item": "google/gemma-3-4b-it",
+      "generated": "2026-08-14T05:29:10.428599+00:00",
+      "type": "Petit modèle de langage multimodal optimisé pour l'instruction",
+      "forts": [
+        "Format compact et rapide",
+        "Capacités multimodales natives",
+        "Intégration facile dans les scripts Python",
+        "Gratuit via l'écosystème NVIDIA"
+      ],
+      "faibles": [
+        "Taille de 4B limitée pour les tâches complexes",
+        "Risque d'hallucination sur des raisonnements longs",
+        "Moins performant que les grands modèles de type Gemma 27B"
+      ],
+      "usage": "chat",
+      "avis_pour": "Idéal pour tester rapidement des requêtes légères ou du prototypage sans consommer de budget cloud.",
+      "avis_attention": "Ne pas confier de tâches de jugement critique ou d'analyse stratégique complexe à un modèle de 4 milliards de paramètres."
+    },
+    "ea5e8bc0e05e": {
+      "section": "inferx",
+      "item": "Agents-A1",
+      "generated": "2026-08-14T05:29:11.762873+00:00",
+      "type": "Modèle d'agent spécialisé gratuit",
+      "forts": [
+        "Spécialisé pour les tâches d'agents et le raisonnement structuré",
+        "Intégration directe via l'écosystème open source"
+      ],
+      "faibles": [
+        "Documentation et retours en production encore limités",
+        "Moins polyvalent sur le code pur que les ténors du marché"
+      ],
+      "usage": "analyste",
+      "avis_pour": "À tester pour diversifier les sources de décision sur des tâches d'analyse et de stratégie.",
+      "avis_attention": "Gardez une validation stricte car les performances sur des scripts Python complexes nécessitent un contrôle."
+    },
+    "f2f2acc6b84e": {
+      "section": "inferx",
+      "item": "Devstral-2-123B-Instruct-2512-int4-AutoRound",
+      "generated": "2026-08-14T05:29:13.240034+00:00",
+      "type": "Modèle géant de codage et d'instruction open source optimisé pour la programmation",
+      "forts": [
+        "123B paramètres offrant de solides capacités de raisonnement logique",
+        "Quantification int4 (AutoRound) garantissant une vitesse d'exécution fluide",
+        "Idéal pour la génération et la revue de scripts Python complexes"
+      ],
+      "faibles": [
+        "Modèle lourd pouvant présenter une latence variable selon le fournisseur",
+        "Consommation de tokens importante due à sa grande taille",
+        "Nécessite une vérification rigoureuse du code généré"
+      ],
+      "usage": "codeur",
+      "avis_pour": "Une excellente alternative gratuite pour propulser nos assistants de code et d'architecture.",
+      "avis_attention": "Attention à la surcharge des quotas gratuits sur un modèle de cette envergure."
+    },
+    "719371f8a603": {
+      "section": "inferx",
+      "item": "Ornith-1.0-35B-FP8",
+      "generated": "2026-08-14T05:29:14.833146+00:00",
+      "type": "Modèle de langage lourd quantizé FP8 (35B)",
+      "forts": [
+        "Format FP8 optimisé pour un bon compromis vitesse/précision",
+        "Capacité de raisonnement adaptée à la logique et au code",
+        "Gratuit via l'infrastructure inferx"
+      ],
+      "faibles": [
+        "Poids de 35B exigeant en ressources d'inférence",
+        "Fiabilité instable hors des benchmarks standards",
+        "Disponibilité variable sur les endpoints gratuits"
+      ],
+      "usage": "analyste.strategie ou signets.juge",
+      "avis_pour": "À tester pour sa taille critique (35B) offrant des analyses fines sans surcoût cloud.",
+      "avis_attention": "Attention aux temps de latence dus à la taille du modèle et aux quotas stricts d'inferx."
     }
   }
 }
