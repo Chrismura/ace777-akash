@@ -1,6 +1,6 @@
 # JOURNAL ENGLE — MASTER_VORTEX_V2_COLLAB_4H
 
-- Généré: `2026-08-14T07:41:02Z` (UTC)
+- Généré: `2026-08-14T07:56:34Z` (UTC)
 - Couche: **B1** (lecture seule) · `ENGLE_ADAPT=0`
 - Session start (filtre): `2026-08-14T07:40:59Z`
 - CSV: `MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv` · `MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv`
@@ -8,29 +8,44 @@
 
 ## Régime IRM (proxy)
 
-*Pas assez de cycles BETA pour IRM.*
+| Régime | Cycles | % | Fills | PnL fills |
+|--------|--------|---|-------|-----------|
+| COMPRESSÉ (attente à froid) | 39 | 50.6% | 0 | +0.0000 |
+| TRANSITOIRE (bruit retail) | 28 | 36.4% | 0 | +0.0000 |
+| CLUSTER (tension haute — proxy) | 10 | 13.0% | 10 | +0.1240 |
+
+- Courant (proxy): **COMPRESSÉ (attente à froid)** · μ=0.3280 · σ=0.5299 · n=77
 
 ## Posture recommandée (conseil — pas appliquée)
 
-- Code: `WATCH`
-- Bruit retail — observer ; pas de knobs B3.
+- Code: `WAIT_COLD`
+- Marché calme — ne pas assouplir les seuils ; usine pure recommandée.
 - Application moteur: **aucune** tant que B3 n’est pas GO + `ENGLE_ADAPT` dédié.
 
 ## Activité session
 
 | Unité | Cycles | Fills | Skips | PnL fills (USDT) | Fenêtre |
 |-------|--------|-------|-------|------------------|---------|
-| BETA | 0 | 0 | 0 | +0.0000 | — |
-| ALPHA | 0 | 0 | 0 | +0.0000 | — |
-| **TOTAL** | | 0 | | **+0.0000** | |
+| BETA | 77 | 10 | 67 | +0.1240 | `2026-08-14T07:41:10Z` → `2026-08-14T07:56:26Z` |
+| ALPHA | 43 | 2 | 41 | +2.9474 | `2026-08-14T07:41:12Z` → `2026-08-14T07:49:00Z` |
+| **TOTAL** | | 12 | | **+3.0714** | |
 
 ## SKIP BETA (top)
 
-*Aucun SKIP classé.*
+| Raison | Nb | % skips |
+|--------|-----|---------|
+| `momentum_too_small` | 37 | 55.2% |
+| `wall_not_collapsed` | 16 | 23.9% |
+| `radar_block` | 12 | 17.9% |
+| `tactic_mismatch` | 2 | 3.0% |
 
 ## SKIP ALPHA (top)
 
-*Aucun SKIP classé.*
+| Raison | Nb | % skips |
+|--------|-----|---------|
+| `momentum_too_small` | 25 | 61.0% |
+| `wall_not_collapsed` | 10 | 24.4% |
+| `radar_block` | 6 | 14.6% |
 
 ## Lecture courte (marché calme)
 

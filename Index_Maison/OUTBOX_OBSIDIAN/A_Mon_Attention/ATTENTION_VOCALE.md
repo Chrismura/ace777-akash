@@ -19,3 +19,9 @@ Cortana / `speak_attention` peut lire le résumé, puis repasser IDLE.
 - ts: 20260814T0955Z
 - demande: Limite de relances atteinte pour com.ace777.superviseur-core
 - pourquoi: 3 relances/jour dépassées, intervention humaine requise.
+
+
+## ⚠️ SUPERVISEUR — besoin de Christophe
+- ts: 20260814T1004Z
+- demande: Limite de relances atteinte pour com.ace777.superviseur-core
+- pourquoi: 3 relances/jour dépassées, intervention humaine requise.

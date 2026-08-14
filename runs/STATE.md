@@ -1,13 +1,13 @@
 # ACE777 — STATE
 
 > Généré automatiquement — ne pas éditer à la main
-> Phase: `running` | Statut: `RUNNING` | MAJ: `2026-08-14T07:41:01Z`
+> Phase: `stopped` | Statut: `STOPPED` | MAJ: `2026-08-14T07:56:34Z`
 
 ## Config active
 
 | Paramètre | Valeur |
 |-----------|--------|
-| Profil | `vide_froid_vortex_v2_collab` v`2026-07-10-v2.2.2-no-partner-halt` |
+| Profil | `vide_froid_binance` v`2026-07-08-setup-ready` |
 | Masse BETA / ALPHA | `200` / `800` USDT |
 | LLM gate | enabled=`TRUE` fail_closed=`TRUE` |
 | Modèle LLM | `qwen2.5-coder:1.5b` |
@@ -17,35 +17,51 @@
 
 | Unité | FILLED | Win | Loss | Win% | Net USDT | SKIP |
 |-------|--------|-----|------|------|----------|------|
-| BETA | 0 | 0 | 0 | 0.00% | 0.0000 | 0 |
-| ALPHA | 0 | 0 | 0 | 0.00% | 0.0000 | 0 |
-| **TOTAL** | **0** | — | — | — | **0.0000** | **0** |
+| BETA | 10 | 5 | 5 | 50.0% | 0.1240 | 67 |
+| ALPHA | 2 | 2 | 0 | 100.0% | 2.9474 | 41 |
+| **TOTAL** | **12** | — | — | — | **3.0714** | **108** |
 
 ## Duo session (`duo_session.json`)
 
-- SCOUT PnL: `` USDT
-- HUNTER PnL: `` USDT
-- Total session: `` USDT
+- SCOUT PnL: `0.124` USDT
+- HUNTER PnL: `2.94741` USDT
+- Total session: `3.07141` USDT
+
+## Duo live (`duo_state.json`)
+
+| Champ | Valeur |
+|-------|--------|
+| role | `SCOUT` |
+| status | `CLOSED` |
+| side | `SELL` |
+| bps | `0.50841102` |
+| pnl_usdt | `0.02432` |
+| reason | `shock_inversion_stop` |
+| cycle | `54` |
+| hold_sec | `8` |
 
 ## Top SKIP — BETA
 
-_Aucun SKIP ou CSV absent._
+1. `radar_block` — 49
+2. `impulse_resonance_wait` — 16
+3. `tactic_mismatch` — 2
 
 ## Top SKIP — ALPHA
 
-_Aucun SKIP ou CSV absent._
+1. `radar_block` — 31
+2. `impulse_resonance_wait` — 10
 
 ## Vortex (`vortex_control.json`)
 
-- Mode: `CHOP`
-- Message: `v2_swarm_wind_chop`
-- TS: `2026-08-14T07:40:57Z`
+- Mode: `TREND`
+- Message: `v2_chop_0.5_trend`
+- TS: `2026-08-14T07:56:30Z`
 
 ## Processus
 
-- master.pid: `RUNNING`
-- beta.pid: `RUNNING`
-- alpha.pid: `RUNNING`
+- master.pid: `stopped`
+- beta.pid: `stopped`
+- alpha.pid: `stopped`
 
 ## Fichiers
 
