@@ -403,3 +403,8 @@
 - 2026-08-14T06:00:20.641184Z | alerte | Poursuite de la vigilance nominale avec un PnL combiné positif à +1,37 $, validé par la discipline chirurgicale de l'essaim et la gestion mesurée de Hulk. | conf=88%
 - 2026-08-14T06:00:20.641835Z | alerte | Poursuite de la vigilance nominale avec un PnL combiné positif à +1,37 $, validé par la rigueur de l'essaim et la gestion mesurée de Hulk. | conf=88%
 - 2026-08-14T06:07:56.161632Z | alerte | Poursuite de la vigilance nominale avec un PnL combiné positif à +1,37 $, validé par la rigueur de l'essaim et la gestion mesurée de Hulk. | conf=88%
+- 2026-08-14T06:38:23.423661Z | alerte | ? | conf=?
+- 2026-08-14T06:38:26.019394Z | alerte | ? | conf=?
+- 2026-08-14T06:43:33.813033Z | alerte | ? | conf=?
+- 2026-08-14T06:43:57.287517Z | alerte | ? | conf=?
+- 2026-08-14T06:53:39.100349Z | alerte | ? | conf=?

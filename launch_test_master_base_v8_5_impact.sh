@@ -121,6 +121,27 @@ chmod +x ./scripts/watchdog_ace777.sh 2>/dev/null || true
 ./scripts/watchdog_ace777.sh &
 PID_WATCHDOG=$!
 
+# CRASH DUMP (14/08, SPEC validée famille — codeur puter-grok) : au premier rc!=0,
+# capture les 20 dernières lignes du log + FATAL_RC1 + dernier fill CSV (vérité C4),
+# sans re-run. Zéro impact sur le comportement nominal (rc=0 → pas de dump).
+_crash_dump() {
+  local unit="$1" live_log="$2" rc="$3" ts dump_file csv
+  [ "$rc" -eq 0 ] && return 0
+  ts=$(date -u +%Y%m%d_%H%M%S 2>/dev/null || echo "now")
+  dump_file="${RUN_DIR:-runs}/CRASH_DUMP_${unit}_${ts}.log"
+  mkdir -p "${RUN_DIR:-runs}" 2>/dev/null || true
+  tail -n 20 "$live_log" 2>/dev/null >> "$dump_file" || true
+  if [ -f /tmp/ace777_fatal_rc1.log ]; then
+    echo "=== FATAL_RC1 ===" >> "$dump_file" || true
+    cat /tmp/ace777_fatal_rc1.log >> "$dump_file" 2>/dev/null || true
+  fi
+  csv=$(ls -t "${RUN_DIR:-runs}"/${tag}_*ALPHA*.csv 2>/dev/null | head -1)
+  if [ -n "$csv" ] && [ -f "$csv" ]; then
+    echo "=== DERNIER FILL CSV ($csv) ===" >> "$dump_file" || true
+    tail -n 2 "$csv" >> "$dump_file" 2>/dev/null || true
+  fi
+}
+
 run_unit() {
   local unit="$1"
   local live_log="${RUN_DIR}/${tag}_LIVE_COLOR.log"
@@ -132,6 +153,7 @@ run_unit() {
   done
   local rc=$?
   set -e
+  _crash_dump "$unit" "$live_log" "$rc" || true
   local exit_line
   exit_line="$(date -u +%Y-%m-%dT%H:%M:%SZ) PROCESS_EXIT unit=${unit} how=pipe_run_unit why=rc_${rc} rc=${rc}"
   mkdir -p "${RUN_DIR:-runs}"
