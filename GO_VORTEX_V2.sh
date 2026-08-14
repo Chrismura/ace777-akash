@@ -16,8 +16,8 @@ ROOT="$(cd "$(dirname "$0")" && pwd)"
 cd "$ROOT"
 
 DURATION="${1:-04:00:00}"
-# 14/08 : re-scellé af307996 = 98c80b5c + trap ERR (famille 6/6 Q2=a)
-EXPECT_MD5_PREFIX="af307996"
+# 14/08 : re-scellé d6977337 = 98c80b5c + trap ERR + safe_call (famille 6/6, SPEC v3)
+EXPECT_MD5_PREFIX="d6977337"
 
 fail() { echo "FAIL: $*" >&2; exit 1; }
 

@@ -31,10 +31,10 @@ ok "fichiers moteur présents"
 
 # --- Champion : INTÉGRITÉ CRYPTOGRAPHIQUE (C1 mécanique) ---
 # Champion scellé 12/08 = 9fe9f105 (sans barrière) + FIX-SCOUT = md5 98c80b5c...
-# + trap ERR diagnostic (14/08, exigé famille pour cause racine rc=1) = af307996...
+# + trap ERR diagnostic (14/08) + safe_call anti-mort (14/08 SPEC v3 famille 6/6) = d6977337...
 # Re-scellé 14/08 par la famille (6/6 GO AVEC RÉSERVES, Q2=a) — diff vérifié :
 # seul ajout = le trap, zéro altération métier.
-_champion_attendu="af307996654305cf233904e7824f129f"
+_champion_attendu="d6977337a13e14c7867df6a832467d36"
 _champion_actuel="$(md5 -q genesis_manifest.txt 2>/dev/null || md5sum genesis_manifest.txt 2>/dev/null | awk '{print $1}')"
 if [ "$_champion_actuel" != "$_champion_attendu" ]; then
   fail "genesis md5=$_champion_actuel attendu=$_champion_attendu — CHAMPION MODIFIÉ, ne pas lancer"

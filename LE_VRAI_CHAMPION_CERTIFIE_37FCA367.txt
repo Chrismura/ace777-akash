@@ -716,6 +716,18 @@ curl_with_retry() {
 
 public_get() { curl_with_retry "$BASE_URL$1"; }
 
+# ANTI-MORT SILENCIEUSE (14/08, SPEC v3 validee famille 6/6 + codeur) :
+# neutralise l'echec d'un helper ruby dans une substitution sous set -e.
+# Log + repli vide. Bash 3.2. Rien en nominal (helper OK -> aucune trace).
+safe_call() {
+  local rc=0
+  "$@" 2>>/tmp/ace777_stderr_debug.log || rc=$?
+  if [ "$rc" -ne 0 ]; then
+    echo "[WARN safe_call rc=$rc] $*" >> /tmp/ace777_fatal_rc1.log 2>/dev/null || true
+  fi
+  return 0
+}
+
 private_post() {
   local path="$1" q="$2" sig
   sig="$(sign "$q")"
@@ -1597,7 +1609,7 @@ for i in $(seq 1 "$CYCLES"); do
   fi
 
   p1_resp="$(public_get "/fapi/v1/ticker/price?symbol=$SYMBOL" || true)"
-  p1="$(as_num "$(json_get "$p1_resp" "price")")"
+  p1="$(safe_call as_num "$(safe_call json_get "$p1_resp" "price")")"
   depth_1="$(public_get "/fapi/v1/depth?symbol=$SYMBOL&limit=$IMPULSE_RESONANCE_DEPTH_LIMIT" || true)"
   vortex_mode="OFF"
   cycle_hunter_scout_win_boost=0
@@ -1611,7 +1623,7 @@ for i in $(seq 1 "$CYCLES"); do
   fi
   sleep "$cycle_mom_sleep_sec"
   p2_resp="$(public_get "/fapi/v1/ticker/price?symbol=$SYMBOL" || true)"
-  p2="$(as_num "$(json_get "$p2_resp" "price")")"
+  p2="$(safe_call as_num "$(safe_call json_get "$p2_resp" "price")")"
   depth_2="$(public_get "/fapi/v1/depth?symbol=$SYMBOL&limit=$IMPULSE_RESONANCE_DEPTH_LIMIT" || true)"
   mom_bps="$(bps_change "$p1" "$p2")"
   tick_bps_abs="$(abs_num "$mom_bps")"
@@ -1731,8 +1743,8 @@ for i in $(seq 1 "$CYCLES"); do
   fi
 
   book_resp="$(public_get "/fapi/v1/ticker/bookTicker?symbol=$SYMBOL" || true)"
-  bid_px="$(as_num "$(json_get "$book_resp" "bidPrice")")"
-  ask_px="$(as_num "$(json_get "$book_resp" "askPrice")")"
+  bid_px="$(safe_call as_num "$(safe_call json_get "$book_resp" "bidPrice")")"
+  ask_px="$(safe_call as_num "$(safe_call json_get "$book_resp" "askPrice")")"
   spread_bps="0"
   if num_gt "$ask_px" "0"; then
     spread_bps="$(num_mul "$(num_div "$(num_sub "$ask_px" "$bid_px")" "$ask_px")" "10000")"
@@ -2054,11 +2066,11 @@ for i in $(seq 1 "$CYCLES"); do
       sleep "$SLEEP_SEC"
       continue
     fi
-    entry_price="$(as_num "$(json_get "$entry_resp" "avgPrice")")"
+    entry_price="$(safe_call as_num "$(safe_call json_get "$entry_resp" "avgPrice")")"
     num_gt "$entry_price" "0" || entry_price="$p2"
     sleep "$(ruby -e 'ms=(Integer(ARGV[0]) rescue 500); printf("%.3f", ms/1000.0)' -- "$ENTRY_25_75_CONFIRM_MS")"
     tick_confirm="$(public_get "/fapi/v1/ticker/price?symbol=$SYMBOL" || true)"
-    px_confirm="$(as_num "$(json_get "$tick_confirm" "price")")"
+    px_confirm="$(safe_call as_num "$(safe_call json_get "$tick_confirm" "price")")"
     bps_post="$(num_mul "$(bps_change "$entry_price" "$px_confirm")" "$signed_dir")"
     if num_ge "$bps_post" "$ENTRY_25_75_FLUX_MIN_BPS"; then
       qty_75="$(floor_step_qty "$(num_sub "$qty" "$qty_25")" "$lot_step")"
@@ -2068,7 +2080,7 @@ for i in $(seq 1 "$CYCLES"); do
         entry_resp2="$(private_post "/fapi/v1/order" "$q_entry2" || true)"
         entry_code2="$(json_get "$entry_resp2" "code")"
         if [ -z "$entry_code2" ]; then
-          entry_price_2="$(as_num "$(json_get "$entry_resp2" "avgPrice")")"
+          entry_price_2="$(safe_call as_num "$(safe_call json_get "$entry_resp2" "avgPrice")")"
           num_gt "$entry_price_2" "0" || entry_price_2="$entry_price"
           entry_price="$(ruby -e 'p1,q1,p2,q2=ARGV.map{|x|Float(x) rescue 0}; t=q1+q2; t=1 if t<=0; printf("%.8f", (p1*q1+p2*q2)/t)' -- "$entry_price" "$qty_25" "$entry_price_2" "$qty_75")"
           entry_qty_use="$(num_add "$qty_25" "$qty_75")"
@@ -2106,7 +2118,7 @@ for i in $(seq 1 "$CYCLES"); do
       sleep "$SLEEP_SEC"
       continue
     fi
-    entry_price="$(as_num "$(json_get "$entry_resp" "avgPrice")")"
+    entry_price="$(safe_call as_num "$(safe_call json_get "$entry_resp" "avgPrice")")"
     num_gt "$entry_price" "0" || entry_price="$p2"
   fi
   entry_ts_iso="$(date -u +%FT%TZ)"
@@ -2139,7 +2151,7 @@ for i in $(seq 1 "$CYCLES"); do
     hold_sec=$((now_s_i - start_s_i))
 
     tick_resp="$(public_get "/fapi/v1/ticker/price?symbol=$SYMBOL" || true)"
-    px="$(as_num "$(json_get "$tick_resp" "price")")"
+    px="$(safe_call as_num "$(safe_call json_get "$tick_resp" "price")")"
     current_bps="$(num_mul "$(bps_change "$entry_price" "$px")" "$signed_dir")"
     current_pnl_live="$(num_mul "$(num_sub "$px" "$entry_price")" "$(num_mul "$qty" "$signed_dir")")"
     if num_ge "$current_bps" "$peak_bps"; then peak_bps="$current_bps"; fi
@@ -2428,7 +2440,7 @@ for i in $(seq 1 "$CYCLES"); do
       sleep "$SLEEP_SEC"
       continue
     fi
-    exit_price="$(as_num "$(json_get "$exit_resp" "avgPrice")")"
+    exit_price="$(safe_call as_num "$(safe_call json_get "$exit_resp" "avgPrice")")"
   else
     exit_price="${px:-$p2}"
   fi
