@@ -1,16 +1,16 @@
-# STRATEGIE — 2026-08-14T03:54:19.494862Z
+# STRATEGIE — 2026-08-14T04:49:56.848509Z
 
-## COURT TERME — 2026-08-14T03:54:19.494862Z
+## COURT TERME — 2026-08-14T04:49:56.848509Z
 
-[UNDERSTAND] La maison ACE777 maintient sa vigilance nominale avec un PnL combiné positif de +1,37 $, soutenue par la discipline d'embuscade d'Alpha, la reconnaissance ciblée de Beta et la gestion prudente de Hulk malgré la tension sur RIZEUSDT.
+[UNDERSTAND] La maison ACE777 maintient sa vigilance nominale avec un PnL combiné positif à +1,37 $, soutenue par la discipline chirurgicale d'Alpha, les reconnaissances ciblées de Beta et la gestion prudente des positions de Hulk.
 [ANALYZE]
-- Tendance : Bitcoin season (score 51) dans un climat de peur marqué (Fear & Greed à 29) et une capitalisation globale de 2,27 T$.
-- Momentum : Alpha applique rigoureusement sa patience (75 skips pour +0,83 $ sur 5 fills) tandis que Beta guide l'essaim (83 sondes, 54 long / 29 court).
-- Risque : Persistance de flux ETF BTC négatifs (-82,52 M$) et position RIZEUSDT sous son seuil de sécurité (-2,16%).
-- Contexte : Portefeuille combiné stable à +1,37 $, avec 6 positions ouvertes chez Hulk contenues malgré l'activité des carnets.
+- Tendance : Bitcoin season (score 51) dans un climat de peur marqué (Fear & Greed à 29) et une capitalisation globale de 2,26 T$.
+- Momentum : Alpha maintient une stricte patience tactique (75 skips pour +0,83 $ sur 5 fills) tandis que Beta guide efficacement l'essaim (83 sondes, 54 long / 29 court).
+- Risque : Flux ETF BTC négatifs (-82,4 M$) et légère pression sur certaines positions de Hulk (comme HBARUSDT à -1,73% et ZBCNUSDT à -1,60%).
+- Contexte : Portefeuille combiné stable à +1,37 $, avec 7 positions ouvertes chez Hulk contenues malgré la volatilité des carnets.
 [STRATEGIZE]
-1. Maintenir la sélectivité tactique d'Alpha en exploitant les signaux de Beta.
-2. Préserver l'exposition globale de Hulk tout en surveillant la position RIZEUSDT.
+1. Maintenir la sélectivité tactique d'Alpha en capitalisant sur les flux de reconnaissance de Beta.
+2. Préserver l'exposition globale de Hulk tout en surveillant de près l'évolution des positions sous pression.
 3. Conserver la posture nominale tant que les indicateurs de l'essaim et le PnL combiné demeurent positifs.
 [EXECUTE]
 - Verdict : Poursuite de la vigilance nominale avec un PnL combiné positif à +1,37 $, validé par la discipline opérationnelle de l'essaim et la gestion mesurée de Hulk.

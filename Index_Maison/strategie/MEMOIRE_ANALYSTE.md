@@ -384,3 +384,11 @@
 - 2026-08-14T03:41:00.992928Z | alerte | Poursuite de la vigilance nominale avec un PnL combiné positif à +1,37 $, validé par la discipline opérationnelle de l'essaim et la gestion mesurée de Hulk. | conf=88%
 - 2026-08-14T03:48:21.581846Z | alerte | Poursuite de la vigilance nominale avec un PnL combiné positif à +1,37 $, validé par la discipline opérationnelle de l'essaim et la gestion mesurée de Hulk. | conf=88%
 - 2026-08-14T03:54:19.494862Z | alerte | Poursuite de la vigilance nominale avec un PnL combiné positif à +1,37 $, validé par la discipline opérationnelle de l'essaim et la gestion mesurée de Hulk. | conf=88%
+- 2026-08-14T04:07:41.878113Z | alerte | Poursuite de la vigilance nominale avec un PnL combiné positif à +1,37 $, validé par la discipline opérationnelle de l'essaim et la gestion mesurée de Hulk. | conf=88%
+- 2026-08-14T04:16:16.232169Z | alerte | Poursuite de la vigilance nominale avec un PnL combiné positif à +1,37 $, validé par la discipline opérationnelle de l'essaim et la gestion mesurée de Hulk. | conf=88%
+- 2026-08-14T04:16:45.324511Z | alerte | Poursuite de la vigilance nominale avec un PnL combiné positif à +1,37 $, validé par la discipline opérationnelle de l'essaim et la gestion mesurée de Hulk. | conf=88%
+- 2026-08-14T04:26:34.530904Z | alerte | Poursuite de la vigilance nominale avec un PnL combiné positif à +1,37 $, validé par la discipline opérationnelle de l'essaim et la gestion mesurée de Hulk. | conf=88%
+- 2026-08-14T04:27:24.554286Z | alerte | Poursuite de la vigilance nominale avec un PnL combiné positif à +1,37 $, validé par la discipline opérationnelle de l'essaim et la gestion mesurée de Hulk. | conf=88%
+- 2026-08-14T04:37:46.483230Z | alerte | Poursuite de la vigilance nominale avec un PnL combiné positif à +1,37 $, validé par la discipline opérationnelle de l'essaim et la gestion mesurée de Hulk. | conf=88%
+- 2026-08-14T04:41:17.118197Z | alerte | Poursuite de la vigilance nominale avec un PnL combiné positif à +1,37 $, validé par la discipline opérationnelle de l'essaim et la gestion mesurée de Hulk. | conf=88%
+- 2026-08-14T04:49:56.848509Z | alerte | Poursuite de la vigilance nominale avec un PnL combiné positif à +1,37 $, validé par la discipline opérationnelle de l'essaim et la gestion mesurée de Hulk. | conf=88%
