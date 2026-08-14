@@ -365,3 +365,12 @@
 - 2026-08-14T01:07:17.559394Z | alerte | Poursuite de la vigilance nominale avec un PnL combiné positif à +1,37 $, validé par la discipline opérationnelle de l'essaim et la gestion mesurée de Hulk. | conf=88%
 - 2026-08-14T01:37:21.056667Z | alerte | Poursuite de la vigilance nominale avec un PnL combiné positif à +1,37 $, validé par la discipline opérationnelle de l'essaim et la gestion mesurée de Hulk. | conf=88%
 - 2026-08-14T01:45:29.102734Z | alerte | Poursuite de la vigilance nominale avec un PnL combiné positif à +1,37 $, validé par la discipline opérationnelle de l'essaim et la gestion mesurée de Hulk. | conf=88%
+- 2026-08-14T01:58:29.911576Z | alerte | Poursuite de la vigilance nominale avec un PnL combiné positif à +1,37 $, validé par la discipline opérationnelle de l'essaim et la gestion mesurée de Hulk. | conf=88%
+- 2026-08-14T02:01:03.763202Z | alerte | Poursuite de la vigilance nominale avec un PnL combiné positif à +1,37 $, validé par la discipline opérationnelle de l'essaim et la gestion mesurée de Hulk. | conf=88%
+- 2026-08-14T02:07:25.251673Z | alerte | Poursuite de la vigilance nominale avec un PnL combiné positif à +1,37 $, validé par la discipline opérationnelle de l'essaim et la gestion mesurée de Hulk. | conf=88%
+- 2026-08-14T02:11:54.271840Z | alerte | Poursuite de la vigilance nominale avec un PnL combiné positif à +1,37 $, validé par la discipline opérationnelle de l'essaim et la gestion mesurée de Hulk. | conf=88%
+- 2026-08-14T02:11:59.269669Z | alerte | Poursuite de la vigilance nominale avec un PnL combiné positif à +1,37 $, validé par la discipline opérationnelle de l'essaim et la gestion mesurée de Hulk. | conf=88%
+- 2026-08-14T02:25:06.509310Z | alerte | Poursuite de la vigilance nominale avec un PnL combiné positif à +1,37 $, validé par la discipline de l'essaim et la gestion de Hulk. | conf=88%
+- 2026-08-14T02:37:29.678250Z | alerte | Poursuite de la vigilance nominale avec un PnL combiné positif à +1,37 $, validé par la discipline de l'essaim et la gestion de Hulk face aux signaux de la Fed. | conf=88%
+- 2026-08-14T02:40:20.261046Z | alerte | Poursuite de la vigilance nominale avec un PnL combiné positif à +1,37 $, validé par la discipline tactique de l'essaim et la gestion prudente des positions de Hulk. | conf=88%
+- 2026-08-14T02:40:20.261586Z | alerte | Poursuite de la vigilance nominale avec un PnL combiné positif à +1,37 $, validé par la rigueur de l'essaim et la gestion des positions de Hulk. | conf=88%
