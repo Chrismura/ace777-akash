@@ -1,8 +1,8 @@
 # JOURNAL ENGLE — MASTER_VORTEX_V2_COLLAB_4H
 
-- Généré: `2026-08-14T09:31:21Z` (UTC)
+- Généré: `2026-08-14T10:52:22Z` (UTC)
 - Couche: **B1** (lecture seule) · `ENGLE_ADAPT=0`
-- Session start (filtre): `2026-08-14T09:29:30Z`
+- Session start (filtre): `2026-08-14T10:32:38Z`
 - CSV: `MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv` · `MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv`
 - Base: usine V2.2.1 + champion 37fca367 — **non modifié**
 
@@ -10,11 +10,11 @@
 
 | Régime | Cycles | % | Fills | PnL fills |
 |--------|--------|---|-------|-----------|
-| COMPRESSÉ (attente à froid) | 5 | 50.0% | 0 | +0.0000 |
-| TRANSITOIRE (bruit retail) | 4 | 40.0% | 0 | +0.0000 |
-| CLUSTER (tension haute — proxy) | 1 | 10.0% | 1 | +0.0376 |
+| COMPRESSÉ (attente à froid) | 97 | 72.9% | 0 | +0.0000 |
+| TRANSITOIRE (bruit retail) | 21 | 15.8% | 0 | +0.0000 |
+| CLUSTER (tension haute — proxy) | 15 | 11.3% | 15 | +0.5630 |
 
-- Courant (proxy): **COMPRESSÉ (attente à froid)** · μ=0.5993 · σ=1.3984 · n=10
+- Courant (proxy): **COMPRESSÉ (attente à froid)** · μ=0.5434 · σ=1.6915 · n=133
 
 ## Posture recommandée (conseil — pas appliquée)
 
@@ -26,30 +26,34 @@
 
 | Unité | Cycles | Fills | Skips | PnL fills (USDT) | Fenêtre |
 |-------|--------|-------|-------|------------------|---------|
-| BETA | 10 | 1 | 9 | +0.0376 | `2026-08-14T09:29:45Z` → `2026-08-14T09:31:18Z` |
-| ALPHA | 11 | 0 | 11 | +0.0000 | `2026-08-14T09:29:42Z` → `2026-08-14T09:31:15Z` |
-| **TOTAL** | | 1 | | **+0.0376** | |
+| BETA | 133 | 15 | 118 | +0.5630 | `2026-08-14T10:32:47Z` → `2026-08-14T10:52:16Z` |
+| ALPHA | 147 | 0 | 147 | +0.0000 | `2026-08-14T10:32:50Z` → `2026-08-14T10:52:20Z` |
+| **TOTAL** | | 15 | | **+0.5630** | |
 
 ## SKIP BETA (top)
 
 | Raison | Nb | % skips |
 |--------|-----|---------|
-| `momentum_too_small` | 5 | 55.6% |
-| `wall_not_collapsed` | 3 | 33.3% |
-| `radar_block` | 1 | 11.1% |
+| `momentum_too_small` | 92 | 78.0% |
+| `radar_block` | 15 | 12.7% |
+| `wall_not_collapsed` | 10 | 8.5% |
+| `stase_ecoute` | 1 | 0.8% |
 
 ## SKIP ALPHA (top)
 
 | Raison | Nb | % skips |
 |--------|-----|---------|
-| `momentum_too_small` | 7 | 63.6% |
-| `duo_wait` | 2 | 18.2% |
-| `wall_not_collapsed` | 1 | 9.1% |
-| `tactic_mismatch` | 1 | 9.1% |
+| `momentum_too_small` | 97 | 66.0% |
+| `wall_not_collapsed` | 19 | 12.9% |
+| `duo_wait` | 16 | 10.9% |
+| `radar_block` | 14 | 9.5% |
+| `tactic_mismatch` | 1 | 0.7% |
 
 ## Lecture courte (marché calme)
 
-1. Régime mixte — journaliser encore 1–2 runs 4h avant B3.
+1. **COMPRESSÉ dominant** — normal que `momentum_too_small` / `wall_not_collapsed` mènent.
+2. **Ne pas baisser les barrières** pour « forcer » des fills en calme.
+3. Garder usine + B1/B2 log ; B3 seulement après runs contrastés (cluster réel).
 4. Rollback always: coffre `29$/historique/ACE777_SAUVEGARDE_SETUP_JUILLET_20260718/`.
 
 ---
