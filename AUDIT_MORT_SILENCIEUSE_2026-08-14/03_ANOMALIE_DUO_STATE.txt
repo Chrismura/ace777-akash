@@ -1,0 +1,13 @@
+=== ANOMALIE duo_state.json observee le 14/08 ===
+
+- A 09:24:22Z (pendant la session #2), runs/duo_state.json contenait :
+  {"role":"INIT","status":"RESET","ts_ms":0}
+- Ce format n'est ecrit par AUCUN code de genesis (seul duo_publish_state
+  ecrit role=SCOUT/HUNTER + status=OPEN/CLOSED).
+- C'est le format exact de la fonction reset_duo_harmony() du patch v2 (test
+  G2 de la grille superviseur).
+- Heure mort ALPHA #2 = 09:25:05Z = 43 s apres cette ecriture.
+- RESPONSABILITE SUPERVISEUR (assumee) : le test G2 a probablement ecrase
+  l'etat duo du run en cours. Mais la session #1 (morts 08:49:29 / 08:52:26)
+  est morte du MEME pattern sans AUCUNE interference -> la cause intrinsèque
+  existe independamment.
