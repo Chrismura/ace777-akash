@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-14T21:33:34.589506+00:00",
+  "generated_at": "2026-08-14T22:07:58.544046+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 186
+      "calls_24h": 174
     },
     {
       "id": "openrouter-free",
@@ -107,7 +107,7 @@
       "model": "x-ai/grok-4.3",
       "enabled": true,
       "timeout": 300,
-      "calls_24h": 393
+      "calls_24h": 405
     },
     {
       "id": "qwen-local",
@@ -130,10 +130,122 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 608,
-    "remaining": 16
+    "consumed": 622,
+    "remaining": 2
   },
   "queue": [
+    {
+      "ts": "2026-08-14T22:07:28.732025+00:00",
+      "task": "supervise.decision",
+      "provider": "puter-grok",
+      "model": "x-ai/grok-4.3",
+      "kind": "cloud",
+      "duration_s": 15.68
+    },
+    {
+      "ts": "2026-08-14T22:05:41.520851+00:00",
+      "task": "supervise.decision",
+      "provider": "puter-grok",
+      "model": "x-ai/grok-4.3",
+      "kind": "cloud",
+      "duration_s": 10.41
+    },
+    {
+      "ts": "2026-08-14T22:03:59.282369+00:00",
+      "task": "supervise.decision",
+      "provider": "puter-grok",
+      "model": "x-ai/grok-4.3",
+      "kind": "cloud",
+      "duration_s": 11.92
+    },
+    {
+      "ts": "2026-08-14T22:02:15.515901+00:00",
+      "task": "supervise.decision",
+      "provider": "puter-grok",
+      "model": "x-ai/grok-4.3",
+      "kind": "cloud",
+      "duration_s": 9.93
+    },
+    {
+      "ts": "2026-08-14T22:00:33.751738+00:00",
+      "task": "supervise.decision",
+      "provider": "puter-grok",
+      "model": "x-ai/grok-4.3",
+      "kind": "cloud",
+      "duration_s": 12.54
+    },
+    {
+      "ts": "2026-08-14T21:58:49.441971+00:00",
+      "task": "supervise.decision",
+      "provider": "puter-grok",
+      "model": "x-ai/grok-4.3",
+      "kind": "cloud",
+      "duration_s": 19.29
+    },
+    {
+      "ts": "2026-08-14T21:56:58.203745+00:00",
+      "task": "supervise.decision",
+      "provider": "puter-grok",
+      "model": "x-ai/grok-4.3",
+      "kind": "cloud",
+      "duration_s": 7.75
+    },
+    {
+      "ts": "2026-08-14T21:55:18.602725+00:00",
+      "task": "supervise.decision",
+      "provider": "puter-grok",
+      "model": "x-ai/grok-4.3",
+      "kind": "cloud",
+      "duration_s": 13.77
+    },
+    {
+      "ts": "2026-08-14T21:53:32.921677+00:00",
+      "task": "supervise.decision",
+      "provider": "puter-grok",
+      "model": "x-ai/grok-4.3",
+      "kind": "cloud",
+      "duration_s": 13.27
+    },
+    {
+      "ts": "2026-08-14T21:51:47.869694+00:00",
+      "task": "supervise.decision",
+      "provider": "puter-grok",
+      "model": "x-ai/grok-4.3",
+      "kind": "cloud",
+      "duration_s": 7.62
+    },
+    {
+      "ts": "2026-08-14T21:50:08.304216+00:00",
+      "task": "supervise.decision",
+      "provider": "puter-grok",
+      "model": "x-ai/grok-4.3",
+      "kind": "cloud",
+      "duration_s": 10.29
+    },
+    {
+      "ts": "2026-08-14T21:48:26.112633+00:00",
+      "task": "supervise.decision",
+      "provider": "puter-grok",
+      "model": "x-ai/grok-4.3",
+      "kind": "cloud",
+      "duration_s": 24.77
+    },
+    {
+      "ts": "2026-08-14T21:46:29.417533+00:00",
+      "task": "supervise.decision",
+      "provider": "puter-grok",
+      "model": "x-ai/grok-4.3",
+      "kind": "cloud",
+      "duration_s": 8.35
+    },
+    {
+      "ts": "2026-08-14T21:44:49.290850+00:00",
+      "task": "supervise.decision",
+      "provider": "puter-grok",
+      "model": "x-ai/grok-4.3",
+      "kind": "cloud",
+      "duration_s": 10.79
+    },
     {
       "ts": "2026-08-14T21:08:11.888809+00:00",
       "task": "supervise.decision",
@@ -141,179 +253,67 @@
       "model": "x-ai/grok-4.3",
       "kind": "cloud",
       "duration_s": 16.91
-    },
-    {
-      "ts": "2026-08-14T20:27:04.180322+00:00",
-      "task": "gemini",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 8.25
-    },
-    {
-      "ts": "2026-08-14T20:26:53.896976+00:00",
-      "task": "mission",
-      "provider": "puter-grok",
-      "model": "x-ai/grok-4.3",
-      "kind": "cloud",
-      "duration_s": 22.85
-    },
-    {
-      "ts": "2026-08-14T20:23:26.980499+00:00",
-      "task": "supervise.decision",
-      "provider": "puter-grok",
-      "model": "x-ai/grok-4.3",
-      "kind": "cloud",
-      "duration_s": 24.33
-    },
-    {
-      "ts": "2026-08-14T20:22:55.252721+00:00",
-      "task": "gemini",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 8.8
-    },
-    {
-      "ts": "2026-08-14T20:21:30.046933+00:00",
-      "task": "supervise.decision",
-      "provider": "puter-grok",
-      "model": "x-ai/grok-4.3",
-      "kind": "cloud",
-      "duration_s": 9.63
-    },
-    {
-      "ts": "2026-08-14T20:19:48.256859+00:00",
-      "task": "supervise.decision",
-      "provider": "puter-grok",
-      "model": "x-ai/grok-4.3",
-      "kind": "cloud",
-      "duration_s": 11.04
-    },
-    {
-      "ts": "2026-08-14T20:18:04.941392+00:00",
-      "task": "supervise.decision",
-      "provider": "puter-grok",
-      "model": "x-ai/grok-4.3",
-      "kind": "cloud",
-      "duration_s": 22.61
-    },
-    {
-      "ts": "2026-08-14T20:16:10.145370+00:00",
-      "task": "supervise.decision",
-      "provider": "puter-grok",
-      "model": "x-ai/grok-4.3",
-      "kind": "cloud",
-      "duration_s": 11.24
-    },
-    {
-      "ts": "2026-08-14T20:14:26.894806+00:00",
-      "task": "supervise.decision",
-      "provider": "puter-grok",
-      "model": "x-ai/grok-4.3",
-      "kind": "cloud",
-      "duration_s": 10.8
-    },
-    {
-      "ts": "2026-08-14T20:12:43.985759+00:00",
-      "task": "supervise.decision",
-      "provider": "puter-grok",
-      "model": "x-ai/grok-4.3",
-      "kind": "cloud",
-      "duration_s": 10.21
-    },
-    {
-      "ts": "2026-08-14T20:11:01.495883+00:00",
-      "task": "supervise.decision",
-      "provider": "puter-grok",
-      "model": "x-ai/grok-4.3",
-      "kind": "cloud",
-      "duration_s": 13.56
-    },
-    {
-      "ts": "2026-08-14T20:09:15.875351+00:00",
-      "task": "supervise.decision",
-      "provider": "puter-grok",
-      "model": "x-ai/grok-4.3",
-      "kind": "cloud",
-      "duration_s": 16.49
-    },
-    {
-      "ts": "2026-08-14T20:07:48.268529+00:00",
-      "task": "supervise.decision",
-      "provider": "puter-grok",
-      "model": "x-ai/grok-4.3",
-      "kind": "cloud",
-      "duration_s": 10.73
-    },
-    {
-      "ts": "2026-08-14T20:07:27.088314+00:00",
-      "task": "supervise.decision",
-      "provider": "puter-grok",
-      "model": "x-ai/grok-4.3",
-      "kind": "cloud",
-      "duration_s": 10.42
     }
   ],
   "events": [
     {
-      "ts": "2026-08-14T21:08:11.887016+00:00",
+      "ts": "2026-08-14T22:07:28.731758+00:00",
       "kind": "message",
       "title": "« Puter Grok (gratuit) » a repondu",
       "detail": ""
     },
     {
-      "ts": "2026-08-14T20:35:42.115375+00:00",
-      "kind": "http",
-      "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
-      "detail": ""
-    },
-    {
-      "ts": "2026-08-14T20:35:42.115188+00:00",
-      "kind": "error",
-      "title": "Toutes les IA ont echoue",
-      "detail": "NVIDIA build.nvidia.com (100+ modeles): HTTP Error 504: Gateway Timeout | budget: Budget temps requete depasse"
-    },
-    {
-      "ts": "2026-08-14T20:35:42.114836+00:00",
-      "kind": "error",
-      "title": "Budget temps requete depasse",
-      "detail": ""
-    },
-    {
-      "ts": "2026-08-14T20:35:42.108290+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis NVIDIA build.nvidia.com (100+ modeles)",
-      "detail": "HTTP Error 504: Gateway Timeout"
-    },
-    {
-      "ts": "2026-08-14T20:30:05.499948+00:00",
-      "kind": "timeout",
-      "title": "Patience NVIDIA build.nvidia.com (100+ modeles) (lenteur)",
-      "detail": "The read operation timed out"
-    },
-    {
-      "ts": "2026-08-14T20:27:04.179146+00:00",
-      "kind": "message",
-      "title": "« Google Gemini » a repondu",
-      "detail": ""
-    },
-    {
-      "ts": "2026-08-14T20:26:53.895094+00:00",
+      "ts": "2026-08-14T22:05:41.520115+00:00",
       "kind": "message",
       "title": "« Puter Grok (gratuit) » a repondu",
       "detail": ""
     },
     {
-      "ts": "2026-08-14T20:26:09.787771+00:00",
-      "kind": "http",
-      "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
+      "ts": "2026-08-14T22:03:59.281991+00:00",
+      "kind": "message",
+      "title": "« Puter Grok (gratuit) » a repondu",
       "detail": ""
     },
     {
-      "ts": "2026-08-14T20:26:07.754970+00:00",
-      "kind": "http",
-      "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
+      "ts": "2026-08-14T22:02:15.514682+00:00",
+      "kind": "message",
+      "title": "« Puter Grok (gratuit) » a repondu",
+      "detail": ""
+    },
+    {
+      "ts": "2026-08-14T22:00:33.751404+00:00",
+      "kind": "message",
+      "title": "« Puter Grok (gratuit) » a repondu",
+      "detail": ""
+    },
+    {
+      "ts": "2026-08-14T21:58:49.441680+00:00",
+      "kind": "message",
+      "title": "« Puter Grok (gratuit) » a repondu",
+      "detail": ""
+    },
+    {
+      "ts": "2026-08-14T21:56:58.202378+00:00",
+      "kind": "message",
+      "title": "« Puter Grok (gratuit) » a repondu",
+      "detail": ""
+    },
+    {
+      "ts": "2026-08-14T21:55:18.601387+00:00",
+      "kind": "message",
+      "title": "« Puter Grok (gratuit) » a repondu",
+      "detail": ""
+    },
+    {
+      "ts": "2026-08-14T21:53:32.921269+00:00",
+      "kind": "message",
+      "title": "« Puter Grok (gratuit) » a repondu",
+      "detail": ""
+    },
+    {
+      "ts": "2026-08-14T21:51:47.869352+00:00",
+      "kind": "message",
+      "title": "« Puter Grok (gratuit) » a repondu",
       "detail": ""
     }
   ],

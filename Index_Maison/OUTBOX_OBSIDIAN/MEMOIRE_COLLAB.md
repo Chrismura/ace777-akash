@@ -195,3 +195,27 @@ Pour que Cursor · Punk · Cortana · Christophe sachent **ce qui a bougé**, sa
   · Diffing v2 famille : re-rendu seulement si generated_at a changé
   · Testé Chromium + WebKit (pywebview) : positions stables 136px, 0 erreur JS
   · Fichier : Index_Maison/cockpit/index.html | backup : index.html.bak-cockpit-stabilite-*
+
+---
+
+## ~ 2026-08-14 — LE JOUR DU FIX (mort rc=1 silencieuse) — fil complet
+
+~ 2026-08-14T09:00Z — Session coupée (crédit Freebuff épuisé) → reprise sur Buffy. Moteur récupéré après sabotage Cursor soupçonné. Protocole : rien sans famille/juge, Buffy supervise.
+
+~ 2026-08-14T10:30Z — **ENQUÊTE MORT RC=1** : bots mouraient en 8-17 min sans log ni stderr. Cause racine trouvée : `[ ... ] && swarm_shockwave_post_solo=1` en fin de `swarm_neighbor_load()` → quand shockwave armée + grâce dépassée → retour 1 → `set -e` tue sans `set -E` → trap ERR muet → zéro trace. PAS un sabotage : le SI est dans le vrai champion scellé (37fca367, md5 vérifié). Bug latent : champion gagnait → jamais de shockwave → jamais déclenché.
+
+~ 2026-08-14T11:00Z — Correctif validé 3/3 GO (gemini, nvidia, puter-grok) : `if` explicite + `return 0`, logique métier préservée, prouvé en machine. Genesis rescellé md5 `8d9ee8d6`.
+
+~ 2026-08-14T15:57Z — **Run 4h #1 post-fix** : 3h06 sans une seule mort (vs 6 morts avant), 358 shockwaves traversées, rc=0 propre, **+28.66 $ testnet**.
+
+~ 2026-08-14T16:24Z — **Run V2 (4h)** lancé détaché (double-fork Python) : zéro mort, 194 trades, **+18.58 $**. Fenêtre critique des morts (8-17 min) largement dépassée. Totaux : **7h06 sans mort, +47.24 $ cumulé testnet**.
+
+~ 2026-08-14T20:24Z — Fin run V2 rc=0 propre. CSV scellés (sha256+md5, chmod 444, `runs/SCELLE/`) + `verifier_test.sh` (INTACT/MODIFIE) — preuve d'intégrité. Sauvegardé Obsidian + GitHub (commit 4b5af0e5).
+
+~ 2026-08-14T21:00Z — Prototype graphique trades validé par Christophe (hors cockpit, `/tmp/btc_trades_*.html`). Consultation codeur 3 voix (Gemini + Puter Grok x2) : consensus = attendre validation humaine, intégrer proprement après. Rotation hub vérifiée : `task=code.ia` → puter-grok (gratuit) ; mes 502 venaient de `model=inferx-coder` (quota OpenRouter 50/jour épuisé).
+
+~ 2026-08-14T21:30Z — **Base gros portefeuilles** : `Index_Maison/data/whales.json` — 3 adresses vérifiées double sur mempool.space (Binance hot 34xp4vRo…, Binance cold 1NDyJtNT…, Bitfinex cold bc1qgdjqv…). Règle d'or respectée : mon adresse Bitfinex inventée était INVALIDE — la flotille avait raison.
+
+~ 2026-08-14T21:45Z — **Module surveillance baleines** actif (surveiller_whales.py, scan 5 min, double seuil : gros bloc ≥ 1000 BTC + fragmentation ≥ 500 BTC/3 blocs → attrape les malins). Panneaux cockpit ONCHAIN + TRADES prêts mais **désactivés** — intégration cockpit se fera ENSEMBLE (revert commit 103f65d8).
+
+~ 2026-08-14T21:50Z — **Run test 8h de nuit** lancé détaché (GO_VORTEX_V2, fin ~05:45Z) + veille nuit (graphique 5 min + scellement auto fin de run). Rapport de réveil : `Obsidian_ACE777/REVEIL_2026-08-15.md`. GitHub : commits 4b5af0e5 (fix+preuves) + b177c4db (whales+panneaux) + 103f65d8 (revert cockpit).
