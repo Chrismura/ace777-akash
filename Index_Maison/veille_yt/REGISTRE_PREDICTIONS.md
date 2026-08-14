@@ -1,11 +1,16 @@
 ---
-date: 2026-08-11T0947Z
+date: 2026-08-14T0715Z
 type: registre_predictions
 ---
 
 # 📓 Registre des prédictions — la vérification du banc d'essai
 
 Chaque prédiction est notée avec sa date limite. Le script `verifier_predictions.py` re-vérifie les échues (statut VRAIE/FAUSSE/NON VÉRIFIABLE).
+
+### 2026-08-14T0715Z — Crypto Crew University : ALT WARNING: 1ST TIME IN 6 YEARS
+Lien : https://www.youtube.com/watch?v=meRlW9iUKYA
+
+- ⏳ EN ATTENTE | [2025-12-31] Ethereum teste la zone du canal inférieur entre 2 200 $ et 1 400 $ (source : youtuber)
 
 ### 2026-08-11T0947Z — Crypto Crew University : 3-Min Recap: Bitcoin Just Gave Its Biggest Warning 🚨👀 #shorts
 Lien : https://www.youtube.com/watch?v=y7llDlD0GRw

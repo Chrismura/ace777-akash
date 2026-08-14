@@ -6,9 +6,11 @@
 set -uo pipefail
 cd "$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
-GENESIS_MD5="98c80b5cf71db06697533aa48c5fd335"
+# 14/08 : champion re-scellé af307996 = 98c80b5c + trap ERR (famille 6/6 Q2=a)
+GENESIS_MD5="af307996654305cf233904e7824f129f"
 VORTEX_MD5="6ce82f6bb0819faff94b954c43f3f336"
-GEMINI_MD5="b36b4998cac8eb5d6690613cdc24b582"
+# 14/08 : GEMINI_TEST + crash dump greffé (famille 6/6 Q1=c) = 12031ef7…
+GEMINI_MD5="12031ef71ddfe85d44cbf532b388e143"
 
 errors=0
 ok()   { echo "OK: $1"; }

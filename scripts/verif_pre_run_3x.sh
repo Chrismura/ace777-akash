@@ -4,7 +4,9 @@
 set -uo pipefail
 cd "$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
-CHAMPION_MD5="98c80b5cf71db06697533aa48c5fd335"
+# Champion scellé : 98c80b5c (9fe9f105 sans barrière + FIX-SCOUT) + trap ERR
+# diagnostic (14/08, famille 6/6 Q2=a) = af307996… Re-scellé 14/08.
+CHAMPION_MD5="af307996654305cf233904e7824f129f"
 FAIL=0
 
 echo "=== VERIF PRE-RUN 3× — début ==="

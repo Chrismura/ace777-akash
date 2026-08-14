@@ -408,3 +408,9 @@
 - 2026-08-14T06:43:33.813033Z | alerte | ? | conf=?
 - 2026-08-14T06:43:57.287517Z | alerte | ? | conf=?
 - 2026-08-14T06:53:39.100349Z | alerte | ? | conf=?
+- 2026-08-14T06:58:14.335507Z | alerte | ? | conf=?
+- 2026-08-14T07:08:00.268078Z | alerte | Poursuite de la vigilance nominale avec un PnL combiné positif à +1,37 $, validé par la discipline tactique de l'essaim et la gestion mesurée de Hulk. | conf=88%
+- 2026-08-14T07:17:21.100856Z | alerte | Poursuite de la vigilance nominale avec un PnL combiné positif à +1,37 $, validé par la discipline tactique de l'essaim et la gestion mesurée de Hulk. | conf=88%
+- 2026-08-14T07:29:43.355012Z | alerte | Poursuite de la vigilance nominale avec un PnL combiné positif à +1,37 $, validé par l'exécution disciplinée de l'essaim et la gestion mesurée de Hulk. | conf=88%
+- 2026-08-14T07:32:39.505999Z | alerte | Poursuite de la vigilance nominale avec un PnL combiné positif à +1,37 $, validé par l'exécution disciplinée de l'essaim et la gestion mesurée de Hulk. | conf=88%
+- 2026-08-14T07:38:10.018438Z | alerte | Poursuite de la vigilance nominale avec un PnL combiné positif à +1,37 $, validé par l'exécution disciplinée de l'essaim et la gestion mesurée de Hulk. | conf=88%
