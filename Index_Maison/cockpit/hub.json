@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-14T21:07:45.226172+00:00",
+  "generated_at": "2026-08-14T21:33:34.589506+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 189
+      "calls_24h": 186
     },
     {
       "id": "openrouter-free",
@@ -107,7 +107,7 @@
       "model": "x-ai/grok-4.3",
       "enabled": true,
       "timeout": 300,
-      "calls_24h": 396
+      "calls_24h": 393
     },
     {
       "id": "qwen-local",
@@ -130,10 +130,18 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 607,
-    "remaining": 17
+    "consumed": 608,
+    "remaining": 16
   },
   "queue": [
+    {
+      "ts": "2026-08-14T21:08:11.888809+00:00",
+      "task": "supervise.decision",
+      "provider": "puter-grok",
+      "model": "x-ai/grok-4.3",
+      "kind": "cloud",
+      "duration_s": 16.91
+    },
     {
       "ts": "2026-08-14T20:27:04.180322+00:00",
       "task": "gemini",
@@ -245,17 +253,15 @@
       "model": "x-ai/grok-4.3",
       "kind": "cloud",
       "duration_s": 10.42
-    },
-    {
-      "ts": "2026-08-14T20:05:43.934794+00:00",
-      "task": "supervise.decision",
-      "provider": "puter-grok",
-      "model": "x-ai/grok-4.3",
-      "kind": "cloud",
-      "duration_s": 9.27
     }
   ],
   "events": [
+    {
+      "ts": "2026-08-14T21:08:11.887016+00:00",
+      "kind": "message",
+      "title": "« Puter Grok (gratuit) » a repondu",
+      "detail": ""
+    },
     {
       "ts": "2026-08-14T20:35:42.115375+00:00",
       "kind": "http",
@@ -306,12 +312,6 @@
     },
     {
       "ts": "2026-08-14T20:26:07.754970+00:00",
-      "kind": "http",
-      "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
-      "detail": ""
-    },
-    {
-      "ts": "2026-08-14T20:26:05.724214+00:00",
       "kind": "http",
       "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
       "detail": ""
