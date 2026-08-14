@@ -1,4 +1,4 @@
-# ARCHITECTURE VIVANTE — ACE777 (2026-08-14 08:30 UTC)
+# ARCHITECTURE VIVANTE — ACE777 (2026-08-14 09:28 UTC)
 
 > Document GÉNÉRÉ AUTOMATIQUEMENT à l'instant. La famille valide
 > en s'appuyant sur CE contexte, pas sur des documents figés.
@@ -22,11 +22,11 @@
 
 ## État de la mission (bots + PnL)
 
-- mission.json : 2026-08-14 08:29Z · run `MASTER_VORTEX_V2_COLLAB_4H` · alerte `nominal`
-- PnL combiné : **3.07 $** 📈 (combo 3.0714)
-- ALPHA (sniper (embuscade, ×13, revenge si claque)) : **+2.95 $** · 2 fills · 36 skips
-- BETA (éclaireur (chatouille le marché, alimente Alpha)) : **+0.12 $** · 10 fills · 63 skips
-- HULK (gestionnaire de portefeuille (bag, escalier, courreur)) : **+0.00 $** · 0 fills
+- mission.json : 2026-08-14 09:28Z · run `MASTER_VORTEX_V2_COLLAB_4H` · alerte `amber`
+- PnL combiné : **0.46 $** 📈 (combo 0.4631)
+- ALPHA (sniper (embuscade, ×13, revenge si claque)) : **+0.46 $** · 3 fills · 192 skips
+- BETA (éclaireur (chatouille le marché, alimente Alpha)) : **+0.00 $** · 22 fills · 182 skips
+- HULK (gestionnaire de portefeuille (bag, escalier, courreur)) : **-1.22 $** · 0 fills
 - Saison : CHAUFFE 🌡️ · 
 
 ## Veille du jour
@@ -38,6 +38,8 @@
   · budget cloud : 624 max
   · par provider : gemini=36, puter-grok=5
 - [Nouvelles offres détectées (non intégrées)]
+- [ROLLBACK AUTO 2026-08-14]
+  · deepseek-deepseek-v4-flash (deepseek/deepseek-v4-flash) retire : 100% erreurs > 5% (observ
   · dots-studio/dots-3-note-preview:free
   · liquid/lfm-2.5-2.6b:free
   · nvidia/nemotron-3.5-lightning:free
@@ -50,7 +52,7 @@
   · 2026-08-14T07:56:33.219680Z BTCUSDT 62991.27 0.0001 2.6 declenche=non
   · 2026-08-14T07:56:33.321047Z ETHUSDT 1875.28 0.0002 211.9 declenche=oui
   · 2026-08-14T07:56:33.499111Z BTCUSDT 62991.27 0.0001 2.6 declenche=non
-- Intention en cours : BETA a sonde le marche (10 sondes, 3 long / 7 court, conf mo | ALPHA a frappe 2 fois en embuscade (13x) (dont 1 en mode rev
+- Intention en cours : BETA a sonde le marche (22 sondes, 22 long / 0 court, conf m | ALPHA attend son moment : 153 skips (discipline), le mur du  | ALPHA a frappe 3 fois en embuscade (13x) : +0.46 $, meilleur
 - 150 signets X résumés (quota aujourd'hui : 50/50)
 - 32 fiches IA d'offres en cache (quota 8/jour)
 
