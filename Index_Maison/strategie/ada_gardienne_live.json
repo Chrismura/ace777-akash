@@ -1,54 +1,58 @@
 {
-  "ts": "2026-08-14T12:05:13Z",
+  "ts": "2026-08-14T12:33:25Z",
   "gardienne": {
-    "ts": "2026-08-14T12:05:13Z",
-    "voilure_pct": 89,
+    "ts": "2026-08-14T12:33:25Z",
+    "voilure_pct": 78,
     "zone": "VERT",
     "zone_emoji": "🟢",
     "pressions": {
       "bleed": 0.0,
-      "storm": 0.46,
+      "storm": 0.7,
       "reversal": 0.102
     },
-    "sirene": false,
-    "declencheurs": [],
+    "sirene": true,
+    "declencheurs": [
+      "le vortex tourne fort"
+    ],
     "seuil_x": 8.06,
     "ancres": {
-      "perte_moy": 3.37,
+      "perte_moy": 5.03,
       "gains_peak": 10.08,
       "seuil_x": 8.06
     },
-    "alerte": false,
-    "raison": "",
-    "pnl_alpha": -0.04,
+    "alerte": true,
+    "raison": "le vortex tourne fort ; zone VERT",
+    "pnl_alpha": 0.0,
     "sources": [
       "live.json"
     ],
     "story": [
-      "La voilure tient à 89 % — le bassin est calme, ACE garde sa toile déployée.",
+      "🚨 FEUX DE L'ORAGE : le vortex tourne fort — ADA hurle maintenant, pas après.",
+      "La voilure tient à 78 % — le bassin est calme, ACE garde sa toile déployée.",
       "Rien ne presse : le Sniper reste en embuscade, l'Éclaireur sonde."
     ]
   },
   "coup_doeil": {
-    "ts": "2026-08-14T12:05:13Z",
-    "saison": "CALME",
-    "saison_emoji": "🌿",
-    "voilure": "89 %",
+    "ts": "2026-08-14T12:33:25Z",
+    "saison": "CHAUFFE",
+    "saison_emoji": "🌡️",
+    "voilure": "78 %",
     "zone": "VERT",
     "zone_emoji": "🟢",
     "verdict_famille": "• GEMINI (analyste) : Aucune action corrective n'est requise : la discipline d'Alpha (0 tir malgré le volume x3) valide la synchronisation m",
-    "intention": "Alpha : 1 tir (1 revenge), pnl -0.04 $ · Beta : 5 sondes",
-    "ligne": "CALME 🌿 · voilure 89 % · VERT 🟢 — La voilure tient à 89 % — le bassin est calme, ACE garde sa toile déployée."
+    "intention": "Alpha : 1 tir (1 revenge), pnl +0.00 $ · Beta : 13 sondes",
+    "ligne": "CHAUFFE 🌡️ · voilure 78 % · VERT 🟢 — 🚨 FEUX DE L'ORAGE : le vortex tourne fort — ADA hurle maintenant, pas après."
   },
   "etat": {
-    "pnl": -0.04016,
-    "ts": "2026-08-14T12:05:13Z"
+    "pnl": 0.0,
+    "ts": "2026-08-14T12:33:25Z"
   },
   "zone": "VERT",
-  "voilure": 89.2,
-  "alerte": false,
+  "voilure": 78.3,
+  "alerte": true,
   "story": [
-    "La voilure tient à 89 % — le bassin est calme, ACE garde sa toile déployée.",
+    "🚨 FEUX DE L'ORAGE : le vortex tourne fort — ADA hurle maintenant, pas après.",
+    "La voilure tient à 78 % — le bassin est calme, ACE garde sa toile déployée.",
     "Rien ne presse : le Sniper reste en embuscade, l'Éclaireur sonde."
   ]
 }

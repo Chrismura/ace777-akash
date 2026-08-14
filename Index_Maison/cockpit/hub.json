@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-14T12:05:28.939081+00:00",
+  "generated_at": "2026-08-14T12:33:20.246389+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 406
+      "calls_24h": 393
     },
     {
       "id": "openrouter-free",
@@ -35,7 +35,7 @@
       "model": "deepseek-ai/deepseek-v4-flash-0731",
       "enabled": true,
       "timeout": 300,
-      "calls_24h": 340
+      "calls_24h": 54
     },
     {
       "id": "mistral",
@@ -62,7 +62,7 @@
       "model": "nvidia/nemotron-3-super-120b-a12b:free",
       "enabled": true,
       "timeout": 120,
-      "calls_24h": 9
+      "calls_24h": 0
     },
     {
       "id": "grok",
@@ -80,7 +80,7 @@
       "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
       "enabled": true,
       "timeout": 120,
-      "calls_24h": 42
+      "calls_24h": 41
     },
     {
       "id": "inferx",
@@ -107,7 +107,7 @@
       "model": "x-ai/grok-4.3",
       "enabled": true,
       "timeout": 300,
-      "calls_24h": 738
+      "calls_24h": 560
     },
     {
       "id": "qwen-local",
@@ -130,188 +130,188 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 311,
-    "remaining": 313
+    "consumed": 329,
+    "remaining": 295
   },
   "queue": [
     {
-      "ts": "2026-08-14T12:03:59.443618+00:00",
+      "ts": "2026-08-14T12:32:48.870918+00:00",
       "task": "supervise.decision",
       "provider": "puter-grok",
       "model": "x-ai/grok-4.3",
       "kind": "cloud",
-      "duration_s": 14.12
+      "duration_s": 15.4
     },
     {
-      "ts": "2026-08-14T12:02:13.785841+00:00",
+      "ts": "2026-08-14T12:32:35.854700+00:00",
       "task": "supervise.decision",
       "provider": "puter-grok",
       "model": "x-ai/grok-4.3",
       "kind": "cloud",
-      "duration_s": 11.6
+      "duration_s": 65.71
     },
     {
-      "ts": "2026-08-14T12:00:30.662451+00:00",
+      "ts": "2026-08-14T12:29:58.582641+00:00",
       "task": "supervise.decision",
       "provider": "puter-grok",
       "model": "x-ai/grok-4.3",
       "kind": "cloud",
-      "duration_s": 11.32
+      "duration_s": 12.66
     },
     {
-      "ts": "2026-08-14T11:58:47.610312+00:00",
+      "ts": "2026-08-14T12:28:14.415052+00:00",
       "task": "supervise.decision",
       "provider": "puter-grok",
       "model": "x-ai/grok-4.3",
       "kind": "cloud",
-      "duration_s": 10.61
+      "duration_s": 10.52
     },
     {
-      "ts": "2026-08-14T11:57:03.557250+00:00",
+      "ts": "2026-08-14T12:26:32.293095+00:00",
       "task": "supervise.decision",
       "provider": "puter-grok",
       "model": "x-ai/grok-4.3",
       "kind": "cloud",
-      "duration_s": 8.22
+      "duration_s": 13.81
     },
     {
-      "ts": "2026-08-14T11:42:15.046255+00:00",
-      "task": "code.ia",
+      "ts": "2026-08-14T12:24:46.877384+00:00",
+      "task": "supervise.decision",
       "provider": "puter-grok",
       "model": "x-ai/grok-4.3",
       "kind": "cloud",
-      "duration_s": 33.53
+      "duration_s": 9.85
     },
     {
-      "ts": "2026-08-14T11:36:16.032650+00:00",
-      "task": "code.ia",
+      "ts": "2026-08-14T12:23:05.336817+00:00",
+      "task": "supervise.decision",
       "provider": "puter-grok",
       "model": "x-ai/grok-4.3",
       "kind": "cloud",
-      "duration_s": 23.8
+      "duration_s": 7.77
     },
     {
-      "ts": "2026-08-14T11:35:52.152220+00:00",
-      "task": "code.ia",
+      "ts": "2026-08-14T12:21:25.918247+00:00",
+      "task": "supervise.decision",
       "provider": "puter-grok",
       "model": "x-ai/grok-4.3",
       "kind": "cloud",
-      "duration_s": 29.08
+      "duration_s": 6.86
     },
     {
-      "ts": "2026-08-14T11:35:22.988553+00:00",
-      "task": "code.ia",
+      "ts": "2026-08-14T12:19:47.420858+00:00",
+      "task": "supervise.decision",
       "provider": "puter-grok",
       "model": "x-ai/grok-4.3",
       "kind": "cloud",
-      "duration_s": 23.62
+      "duration_s": 10.89
     },
     {
-      "ts": "2026-08-14T11:34:59.333227+00:00",
-      "task": "code.ia",
+      "ts": "2026-08-14T12:18:04.833805+00:00",
+      "task": "supervise.decision",
       "provider": "puter-grok",
       "model": "x-ai/grok-4.3",
       "kind": "cloud",
-      "duration_s": 25.51
+      "duration_s": 11.71
     },
     {
-      "ts": "2026-08-14T11:19:23.384216+00:00",
-      "task": "famille",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
+      "ts": "2026-08-14T12:16:15.414590+00:00",
+      "task": "supervise.decision",
+      "provider": "puter-grok",
+      "model": "x-ai/grok-4.3",
       "kind": "cloud",
-      "duration_s": 5.41
+      "duration_s": 16.53
     },
     {
-      "ts": "2026-08-14T11:19:16.933734+00:00",
-      "task": "famille",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
+      "ts": "2026-08-14T12:14:27.276754+00:00",
+      "task": "supervise.decision",
+      "provider": "puter-grok",
+      "model": "x-ai/grok-4.3",
       "kind": "cloud",
-      "duration_s": 5.21
+      "duration_s": 9.3
     },
     {
-      "ts": "2026-08-14T11:19:10.687278+00:00",
-      "task": "famille",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
+      "ts": "2026-08-14T12:12:46.302732+00:00",
+      "task": "supervise.decision",
+      "provider": "puter-grok",
+      "model": "x-ai/grok-4.3",
       "kind": "cloud",
-      "duration_s": 5.31
+      "duration_s": 16.34
     },
     {
-      "ts": "2026-08-14T11:19:04.336223+00:00",
-      "task": "famille",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
+      "ts": "2026-08-14T12:10:58.355015+00:00",
+      "task": "supervise.decision",
+      "provider": "puter-grok",
+      "model": "x-ai/grok-4.3",
       "kind": "cloud",
-      "duration_s": 4.76
+      "duration_s": 11.1
     },
     {
-      "ts": "2026-08-14T11:18:58.541927+00:00",
-      "task": "famille",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
+      "ts": "2026-08-14T12:09:15.749057+00:00",
+      "task": "supervise.decision",
+      "provider": "puter-grok",
+      "model": "x-ai/grok-4.3",
       "kind": "cloud",
-      "duration_s": 5.56
+      "duration_s": 8.79
     }
   ],
   "events": [
     {
-      "ts": "2026-08-14T12:03:59.443224+00:00",
+      "ts": "2026-08-14T12:32:48.870374+00:00",
       "kind": "message",
       "title": "« Puter Grok (gratuit) » a repondu",
       "detail": ""
     },
     {
-      "ts": "2026-08-14T12:02:13.784372+00:00",
+      "ts": "2026-08-14T12:32:35.853608+00:00",
       "kind": "message",
       "title": "« Puter Grok (gratuit) » a repondu",
       "detail": ""
     },
     {
-      "ts": "2026-08-14T12:00:30.661980+00:00",
+      "ts": "2026-08-14T12:29:58.582183+00:00",
       "kind": "message",
       "title": "« Puter Grok (gratuit) » a repondu",
       "detail": ""
     },
     {
-      "ts": "2026-08-14T11:58:47.609481+00:00",
+      "ts": "2026-08-14T12:28:14.414728+00:00",
       "kind": "message",
       "title": "« Puter Grok (gratuit) » a repondu",
       "detail": ""
     },
     {
-      "ts": "2026-08-14T11:57:03.556266+00:00",
+      "ts": "2026-08-14T12:26:32.292554+00:00",
       "kind": "message",
       "title": "« Puter Grok (gratuit) » a repondu",
       "detail": ""
     },
     {
-      "ts": "2026-08-14T11:42:15.045549+00:00",
+      "ts": "2026-08-14T12:24:46.876991+00:00",
       "kind": "message",
       "title": "« Puter Grok (gratuit) » a repondu",
       "detail": ""
     },
     {
-      "ts": "2026-08-14T11:36:16.031745+00:00",
+      "ts": "2026-08-14T12:23:05.335729+00:00",
       "kind": "message",
       "title": "« Puter Grok (gratuit) » a repondu",
       "detail": ""
     },
     {
-      "ts": "2026-08-14T11:35:52.149890+00:00",
+      "ts": "2026-08-14T12:21:25.917126+00:00",
       "kind": "message",
       "title": "« Puter Grok (gratuit) » a repondu",
       "detail": ""
     },
     {
-      "ts": "2026-08-14T11:35:22.987880+00:00",
+      "ts": "2026-08-14T12:19:47.420360+00:00",
       "kind": "message",
       "title": "« Puter Grok (gratuit) » a repondu",
       "detail": ""
     },
     {
-      "ts": "2026-08-14T11:34:59.332251+00:00",
+      "ts": "2026-08-14T12:18:04.833294+00:00",
       "kind": "message",
       "title": "« Puter Grok (gratuit) » a repondu",
       "detail": ""
