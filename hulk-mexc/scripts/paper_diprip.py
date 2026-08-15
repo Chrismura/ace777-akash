@@ -27,6 +27,7 @@ from typing import Optional
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from ace_sense_mexc import book_sense, entry_gate, tension_score  # noqa: E402
 from veille_gates import entry_gate_check, record_stop, veille_stale  # noqa: E402
+from cortana_contract import process_pilot  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
 CFG = ROOT / "config" / "defaults.env"
@@ -396,6 +397,24 @@ class PaperBot:
         self.veille_window_min = int(float(cfg.get("VEILLE_STATUS_MAX_AGE_MIN", "30")))
         self.veille_refresh_sec = float(cfg.get("VEILLE_STATUS_REFRESH_SEC", "60"))
         self.veille_stale_h = float(cfg.get("VEILLE_STALE_HOURS", "6"))
+        # === 2 classes de paires (famille 15/08) ===
+        self.bag_pairs = {
+            p.strip().upper() for p in (cfg.get("BAG_PAIRS") or "").split(",") if p.strip()
+        }
+        self.bag_max_positions = max(1, int(float(cfg.get("BAG_MAX_POSITIONS", "5"))))
+        self.bag_position_mult = float(cfg.get("BAG_POSITION_MULT", "0.5"))
+        self.bag_no_tech_stop = cfg.get("BAG_NO_TECH_STOP", "1").strip() not in ("0", "false", "False")
+        # Bag de départ (test boucle bag dès le 1er jour) — 15/08 Christophe
+        self.seed_bags_on = cfg.get("SEED_BAGS_ON", "1").strip() not in ("0", "false", "False")
+        self.seed_bags_usdt = float(cfg.get("SEED_BAGS_USDT", "10"))
+        self.seed_bags_dd = float(cfg.get("SEED_BAGS_ENTRY_DD_PCT", "8"))
+        self.seed_bags_pairs = {
+            p.strip().upper() for p in (cfg.get("SEED_BAGS_PAIRS") or "CCUSDT").split(",") if p.strip()
+        }
+        self.cortana_mode = (cfg.get("CORTANA_MODE", "ADVISORY") or "ADVISORY").strip().upper()
+        self.cortana_pilot = ROOT / (cfg.get("CORTANA_PILOT_FILE") or "strategie/cortana_pilot.json")
+        self.cortana_pending: list = []
+        self.cortana_applied: dict = {}
         self.sense_on = cfg.get("SENSE_ON", "1").strip() not in ("0", "false", "False")
         self.vol_spike_min_small = float(cfg.get("VOL_SPIKE_MIN_SMALL", "1.5"))
         # Seed inventaire au boot (réalisme vente / marché baissier)
@@ -471,6 +490,10 @@ class PaperBot:
     def tier(self, pair: str) -> str:
         return (self.inv.get(pair) or {}).get("tier", "A")
 
+    def is_bag(self, pair: str) -> bool:
+        """Classe B (small caps bag) : règles d'exception."""
+        return pair in self.bag_pairs
+
     def sense_ok(self, pair: str, sc: dict, regime: str) -> tuple[bool, str]:
         if not self.sense_on:
             return True, "sense_off"
@@ -486,7 +509,7 @@ class PaperBot:
         sc["tension"] = tens
         sc["sense"] = sense
         tier = self.tier(pair)
-        allow_wide = tier == "B" or "IMPULSE" in regime
+        allow_wide = tier == "B" or "IMPULSE" in regime or self.is_bag(pair)
         # deep cooling : tension mini assouplie
         cfg = dict(self.cfg)
         if regime == "COOLING" and sc.get("dd15_pct", 0) >= sc.get("cool_entry_pct", 8):
@@ -721,7 +744,18 @@ class PaperBot:
         if not ok:
             say("warn", f"[{utc_now()}] BUY skip {pair} sense={why}")
             return
+        if self.is_bag(pair):
+            bag_open = sum(1 for p in self.pos if self.is_bag(p))
+            if bag_open >= self.bag_max_positions:
+                say("warn", f"[{utc_now()}] BAG MAX {pair} ({bag_open}/{self.bag_max_positions})")
+                self.log(
+                    pair, "SKIP", regime, price, price, 0.0, 0.0,
+                    sc.get("cadence_pct"), f"BAG_MAX:{bag_open}",
+                )
+                return
         trade_n = float(notion) if notion is not None else self.current_notional()
+        if self.is_bag(pair):
+            trade_n = trade_n * self.bag_position_mult
         if trade_n < 1.0:
             return
         trade_qty = trade_n / price
@@ -971,9 +1005,10 @@ class PaperBot:
             self.stake_out_half(pair, price)
             return
 
-        if chg <= -float(p.get("stop") or 6):
-            proceeds = self.sell_trade(pair, price, f"stop-{p['stop']}%_avant_2x")
-            self.add_pair_cash(pair, proceeds)
+        if not (self.is_bag(pair) and self.bag_no_tech_stop):
+            if chg <= -float(p.get("stop") or 6):
+                proceeds = self.sell_trade(pair, price, f"stop-{p['stop']}%_avant_2x")
+                self.add_pair_cash(pair, proceeds)
 
     def maybe_redeploy_cash(self, pair: str, price: float, sc: dict) -> bool:
         """Cash paire + dip → remets 100% du cash."""
@@ -1009,6 +1044,8 @@ class PaperBot:
         return pair in self.pos
 
     def vol_ok_for_entry(self, sc: dict, regime: str) -> tuple[bool, str]:
+        if sc.get("pair") and self.is_bag(str(sc.get("pair"))):
+            return True, "vol_ok_bag"  # Classe B : pas de filtre volume (accumulation sur périodes sèches)
         if not sc.get("is_small_cap"):
             return True, "vol_ok_liq"
         vx = float(sc.get("vol_spike") or 0)
@@ -1161,6 +1198,63 @@ class PaperBot:
             )
         self.save_state()
 
+    def seed_bags(self) -> None:
+        """Bag de départ (paper) : ~SEED_BAGS_USDT en bags maison dès le boot.
+
+        Entrée seedée ~SEED_BAGS_ENTRY_DD_PCT% au-dessus du prix → bandeau DCA actif
+        immédiatement (BAG_SELL + DCA armé dès le 1er tick = test de la boucle bag jour 1).
+        flag seed:true (réalisme paper, ne pollue pas l'analyse du PnL).
+        """
+        if not self.seed_bags_on or self.seed_bags_usdt < 1.0:
+            return
+        targets = [p for p in self.pairs if p in self.seed_bags_pairs and p not in self.bags]
+        if not targets:
+            return
+        prices = {}
+        for pair in targets:
+            try:
+                px = last_price(pair)
+            except Exception:
+                px = None
+            if px and px > 0:
+                prices[pair] = px
+        if not prices:
+            say("warn", f"[{utc_now()}] SEED_BAGS skip — aucune paire avec prix")
+            return
+        per = self.seed_bags_usdt / len(prices)
+        for pair, px in prices.items():
+            entry = px * (1.0 + self.seed_bags_dd / 100.0)  # entrée seedée au-dessus → dd immédiat
+            qty = per / entry
+            self.bags[pair] = {
+                "entry": entry,
+                "qty": qty,
+                "stake": per,
+                "ts": utc_now(),
+                "high": px,
+                "seed": True,
+            }
+            say(
+                "bag",
+                f"[{utc_now()}] SEED_BAG {pair}  {per:.2f}$  entry={entry:.6f} "
+                f"(dd={self.seed_bags_dd:.0f}% actif) → boucle bag testable dès maintenant",
+            )
+
+    def refresh_cortana_pilot(self):
+        """Contrat Cortana : lire/valider/logguer (ADVISORY = pas appliqué < 60%)."""
+        try:
+            pending, applied, warns = process_pilot(self.cortana_pilot, default_mode=self.cortana_mode)
+        except Exception as e:
+            say("warn", f"[{utc_now()}] cortana_pilot ERR: {e}")
+            return
+        self.cortana_pending = pending
+        self.cortana_applied = applied
+        for w in warns:
+            say("warn", f"[{utc_now()}] cortana: {w}")
+        if applied:
+            say("heart", f"[{utc_now()}] cortana PILOT AUTO → {applied}")
+        elif pending:
+            say("heart", f"[{utc_now()}] cortana PILOT ADVISORY → {len(pending)} proposition(s)")
+
     def run(self) -> int:
         say(
             "hdr",
@@ -1188,7 +1282,9 @@ class PaperBot:
         print("ACE NUAGE genesis non touché.")
         legend()
         self.refresh_scores()
+        self.refresh_cortana_pilot()
         self.seed_inventory()
+        self.seed_bags()
         n = 0
         while self.alive:
             if STOP_FILE.exists():
@@ -1196,6 +1292,7 @@ class PaperBot:
                 break
             if n > 0 and n % self.score_every == 0:
                 self.refresh_scores()
+                self.refresh_cortana_pilot()
             for pair in self.pairs:
                 try:
                     self.tick_pair(pair)
@@ -1214,12 +1311,14 @@ class PaperBot:
                 )
                 _stale, _sreason = veille_stale(RUNS, max_age_hours=self.veille_stale_h)
                 standby = f" | STANDBY({_sreason})" if _stale else ""
+                _bag_open = sum(1 for p in self.pos if self.is_bag(p))
                 say(
                     "heart",
                     f"[{utc_now()}] heartbeat open={open_n} bags={bags_n} "
                     f"dca={len(self.bag_dca)} cash_pairs={cash_n}({cash_sum:.1f}$) "
                     f"mise={notion:.2f}$ trades={self.trades} "
-                    f"pnl={self.pnl_total:+.4f}$ | {regimes}{standby}",
+                    f"pnl={self.pnl_total:+.4f}$ | {regimes}{standby} "
+                    f"cortana={len(self.cortana_pending)} bag={_bag_open}/{self.bag_max_positions}",
                 )
                 self.save_state()
             time.sleep(self.poll)
