@@ -450,12 +450,32 @@ def to_md(d: dict) -> str:
     return "\n".join(lines)
 
 
+def detect_latest_tag() -> str | None:
+    """Déduit le tag du run le plus récent via runs/*_run_meta.json (mtime).
+    Fix 15/08 : évite de retomber sur un tag par défaut (NUAGE_PROD_4H) qui
+    n'est pas le run réellement testé (faux diagnostic E-STALE/E-PROC)."""
+    try:
+        metas = sorted(
+            RUNS.glob("*_run_meta.json"),
+            key=lambda p: p.stat().st_mtime,
+            reverse=True,
+        )
+        suffix = "_run_meta.json"
+        for p in metas:
+            tag = p.name[: -len(suffix)]
+            if tag:
+                return tag
+    except OSError:
+        pass
+    return None
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--tag", default=None)
     ap.add_argument("--since", default=None, help="ISO UTC start filtre")
     args = ap.parse_args()
-    tag = args.tag or __import__("os").environ.get("STATE_TAG") or "NUAGE_PROD_4H"
+    tag = args.tag or __import__("os").environ.get("STATE_TAG") or detect_latest_tag() or "NUAGE_PROD_4H"
 
     RUNS.mkdir(parents=True, exist_ok=True)
     ENGLE_J.mkdir(parents=True, exist_ok=True)

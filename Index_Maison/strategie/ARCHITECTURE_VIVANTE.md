@@ -1,4 +1,4 @@
-# ARCHITECTURE VIVANTE — ACE777 (2026-08-15 12:00 UTC)
+# ARCHITECTURE VIVANTE — ACE777 (2026-08-15 14:27 UTC)
 
 > Document GÉNÉRÉ AUTOMATIQUEMENT à l'instant. La famille valide
 > en s'appuyant sur CE contexte, pas sur des documents figés.
@@ -7,7 +7,7 @@
 - ⛔ hub
 - ✅ pont cockpit
 - ⛔ radar
-- ⛔ lecteur signets
+- ✅ lecteur signets
 - ⛔ générateur fiches
 - ⛔ feed mission
 - ⛔ serveur cockpit
@@ -22,10 +22,10 @@
 
 ## État de la mission (bots + PnL)
 
-- mission.json : 2026-08-15 12:00Z · run `MASTER_VORTEX_V2_COLLAB_4H` · alerte `amber`
-- PnL combiné : **1.23 $** 📈 (combo 1.2347)
-- ALPHA (sniper (embuscade, ×13, revenge si claque)) : **+1.00 $** · 29 fills · 473 skips
-- BETA (éclaireur (chatouille le marché, alimente Alpha)) : **+0.24 $** · 41 fills · 463 skips
+- mission.json : 2026-08-15 14:27Z · run `MASTER_VORTEX_V2_COLLAB_4H` · alerte `amber`
+- PnL combiné : **0.26 $** 📈 (combo 0.2579)
+- ALPHA (sniper (embuscade, ×13, revenge si claque)) : **+0.17 $** · 5 fills · 146 skips
+- BETA (éclaireur (chatouille le marché, alimente Alpha)) : **+0.09 $** · 20 fills · 118 skips
 - HULK (gestionnaire de portefeuille (bag, escalier, courreur)) : **-4.54 $** · 0 fills
 - Saison : CALME 🧊 · 
 
@@ -50,8 +50,8 @@
   · 2026-08-14T07:56:33.219680Z BTCUSDT 62991.27 0.0001 2.6 declenche=non
   · 2026-08-14T07:56:33.321047Z ETHUSDT 1875.28 0.0002 211.9 declenche=oui
   · 2026-08-14T07:56:33.499111Z BTCUSDT 62991.27 0.0001 2.6 declenche=non
-- Intention en cours : BETA a sonde le marche (41 sondes, 34 long / 7 court, conf m | ALPHA attend son moment : 395 skips (discipline), le mur du  | ALPHA a frappe 29 fois en embuscade (13x) (dont 25 en mode r
-- 150 signets X résumés (quota aujourd'hui : 0/50)
+- Intention en cours : BETA a sonde le marche (20 sondes, 16 long / 4 court, conf m | ALPHA attend son moment : 107 skips (discipline), le mur du  | ALPHA a frappe 5 fois en embuscade (13x) (dont 3 en mode rev
+- 195 signets X résumés (quota aujourd'hui : 45/50)
 - 32 fiches IA d'offres en cache (quota 8/jour)
 
 ---

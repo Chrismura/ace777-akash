@@ -1,10 +1,10 @@
 # RAPPORT PNL AUTO — MASTER_VORTEX_V2_COLLAB_4H
 
 **Session:** `MASTER_VORTEX_V2_COLLAB_4H`
-**Période:** 2026-08-15T13:36:15Z → 2026-08-15T13:39:10Z (0h02m)
+**Période:** — → — (—)
 **Setup:** `vide_froid_vortex_v2_collab` v`2026-07-10-v2.2.2-no-partner-halt` | BETA `200` USDT | ALPHA `800` USDT | LLM gate `TRUE` fail_closed=`TRUE`
-**Généré:** 2026-08-15T13:39:12Z UTC
-**Filtre session:** `ts >= 2026-08-15T13:36:03Z` (lignes CSV antérieures exclues)
+**Généré:** 2026-08-15T14:05:50Z UTC
+**Filtre session:** `ts >= 2026-08-15T14:05:47Z` (lignes CSV antérieures exclues)
 
 ---
 
@@ -40,11 +40,10 @@
 |--------|-----|
 | _aucun trade_ | 0 |
 
-**Cycles SKIP:** 24
+**Cycles SKIP:** 0
 | Raison | Nb |
 |--------|-----|
-| radar_block | 22 |
-| impulse_resonance_wait | 2 |
+| _aucun_ | 0 |
 
 ---
 
@@ -57,11 +56,9 @@
 
 *ALPHA n'a pas exécuté de trade — vérifier duo_wait, radar, stase, llm_gate dans les SKIP.*
 
-**Cycles SKIP:** 23
+**Cycles SKIP:** 0
 | Raison | Nb |
 |--------|-----|
-| radar_block | 22 |
-| impulse_resonance_wait | 1 |
 
 ---
 
@@ -77,14 +74,7 @@
 
 > Pas un modèle ARCH Engle. Classification sur `tension=` des cycles BETA. N'influence pas le moteur. Seuils: COMPRESSÉ `< 0.05` · CLUSTER `≥ 1.0` · sinon TRANSITOIRE.
 
-| Régime | Cycles | % temps | Fills | PnL fills (USDT) |
-|--------|--------|---------|-------|------------------|
-| COMPRESSÉ (attente à froid) | 21 | 87.5% | 0 | +0.0000 |
-| TRANSITOIRE (bruit retail) | 3 | 12.5% | 0 | +0.0000 |
-| CLUSTER (tension haute — proxy) | 0 | 0.0% | 0 | +0.0000 |
-
-- Fenêtre: `2026-08-15T13:36:15Z` → `2026-08-15T13:39:09Z` (24 cycles) · μ(tension)=0.0522 · σ=0.1969 · courant(proxy)=**COMPRESSÉ (attente à froid)**
-- Source: `MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv`
+*Aucun cycle dans la fenêtre session — IRM indisponible.*
 
 ## Engle — couches évolutives (hors moteur)
 

@@ -1,7 +1,7 @@
 # ACE777 — STATE
 
 > Généré automatiquement — ne pas éditer à la main
-> Phase: `ended` | Statut: `ENDED` | MAJ: `2026-08-15T13:39:12Z`
+> Phase: `running` | Statut: `RUNNING` | MAJ: `2026-08-15T14:05:50Z`
 
 ## Config active
 
@@ -17,9 +17,9 @@
 
 | Unité | FILLED | Win | Loss | Win% | Net USDT | SKIP |
 |-------|--------|-----|------|------|----------|------|
-| BETA | 0 | 0 | 0 | 0.00% | 0.0000 | 24 |
-| ALPHA | 0 | 0 | 0 | 0.00% | 0.0000 | 23 |
-| **TOTAL** | **0** | — | — | — | **0.0000** | **47** |
+| BETA | 0 | 0 | 0 | 0.00% | 0.0000 | 0 |
+| ALPHA | 0 | 0 | 0 | 0.00% | 0.0000 | 0 |
+| **TOTAL** | **0** | — | — | — | **0.0000** | **0** |
 
 ## Duo session (`duo_session.json`)
 
@@ -29,25 +29,23 @@
 
 ## Top SKIP — BETA
 
-1. `radar_block` — 22
-2. `impulse_resonance_wait` — 2
+_Aucun SKIP ou CSV absent._
 
 ## Top SKIP — ALPHA
 
-1. `radar_block` — 22
-2. `impulse_resonance_wait` — 1
+_Aucun SKIP ou CSV absent._
 
 ## Vortex (`vortex_control.json`)
 
-- Mode: `CHOP`
-- Message: `v2_swarm_wind_chop`
-- TS: `2026-08-15T13:39:08Z`
+- Mode: `TREND`
+- Message: `v2_swarm_wind_trend`
+- TS: `2026-08-15T14:05:46Z`
 
 ## Processus
 
-- master.pid: `stopped`
-- beta.pid: `stopped`
-- alpha.pid: `stopped`
+- master.pid: `RUNNING`
+- beta.pid: `RUNNING`
+- alpha.pid: `RUNNING`
 
 ## Fichiers
 
