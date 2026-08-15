@@ -1,0 +1,59 @@
+{
+  "brief": "CONTEXTE (fait verifie par superviseur, 14/08/2026, run 4h testnet en cours) :\n\nPROBLEME : le moteur ACE777 (bash genesis, set -euo pipefail) meurt en rc=1 SILENCIEUX\nen plein cycle : zero FATAL_RC1, zero stderr, trap ERR jamais declenche. 4 morts\ncapturees aujourd'hui (12:06, 12:07, 12:14, 12:17 UTC) + 4 ce matin.\n\nCAUSE RACINE PROUVEE (3 preuves) :\n1) PREUVE MACHINE : la fonction swarm_neighbor_load() se termine par un SI dont la\n   derniere commande peut retourner 1 :\n     [ \"$post_delta\" -le \"$post_grace_i\" ] && swarm_shockwave_post_solo=1\n   Quand la grace post-shockwave (20 cycles) est depassee, cette commande retourne 1\n   -> la FONCTION retourne 1. Reproduit en harnais : cycle dans la grace = survit,\n   cycle au-dela = meurt rc=1 SANS trap ERR (le genesis n'a pas set -E / errtrace,\n   donc un echec DANS une fonction ne declenche pas le trap ERR du shell parent).\n2) PREUVE CINETIQUE : crash dump 12:14 -> perte -8.60 -> \"shockwave alpha->beta\n   until_cycle=49\" -> ALPHA meurt ~1 min apres, BETA meurt quand son cycle depasse\n   until+grace(20). Timing cohérent.\n3) PREUVE CONTRASTE : le run actuel tourne depuis 20+ min avec 0 shockwave -> 0 mort\n   (les morts arrivent a 8-17 min quand des shockwaves sont broadcastées).\n\nCHAINE DE LA MORT :\n- perte/stop_loss -> swarm_broadcast_shockwave (ligne 2477) arme shockwave_until_cycle\n- le voisin lit la telemetrie -> swarm_shockwave_until_cycle > 0\n- quand cycle > until + grace -> le SI final retourne 1 -> swarm_neighbor_load retourne 1\n- swarm_apply_coupling l'appelle SANS || (ligne 621) -> set -e tue rc=1\n- pas de set -E -> trap ERR muet -> mort silencieuse\n\nIMPORTANT : ce SI existe dans le VRAI champion scelle 37fca367 (md5 verifie) -> ce\nn'est PAS un ajout exterieur, c'est un BUG LATENT : le champion gagnait -> pas de\npertes -> pas de shockwaves -> jamais declenche. Le testnet lent d'aujourd'hui\nprovoque des pertes -> le bug se reveille.\n\nCORRECTIF PROPOSE (le plus propre) : ajouter \"return 0\" explicite a la fin de\nswarm_neighbor_load() (la fonction fait du bookkeeping, elle ne doit JAMAIS etre\nune source d'erreur). Alternative : \"swarm_neighbor_load \"$cycle\" || true\" a la\nligne 621. Option complementaire : set -E pour rendre les futures erreurs LOUD.\n\nQUESTION : validez-vous le correctif \"return 0\" en fin de swarm_neighbor_load ?\nDonnez : GO / GO AVEC RESERVES / NON + justification technique courte + meilleure\nlogique si vous en voyez une (contrainte : NE PAS casser le moteur rentable +126$).",
+  "results": [
+    {
+      "model": "gemini",
+      "provider": "Google Gemini",
+      "dur": 2.4,
+      "content": "**GO AVEC RÉSERVES**\n\n### Justification technique courte\nLe correctif `return 0` en fin de `swarm_neighbor_load()` est le plus chirurgical et le plus sûr pour respecter la contrainte absolue (**ne pas casser le moteur rentable**). Il neutralise le piège du `set -e` sur la dernière évaluation booléenne d'une fonction de *bookkeeping* dont la valeur de retour n'a sémantiquement aucune portée logique sur la poursuite du cycle.\n\n### Réserve(s) et Recommandation de déploiement\n1. **La réserve (Défense en profondeur) :** Un simple `return 0` masque les erreurs réelles si la fonction venait à échouer pour une autre raison interne (ex: corruption de variable, division par zéro, etc.). Cependant, dans ce contexte bash sans typage strict, c'est le compromis acceptable pour stopper l'hémorragie immédiate.\n2. **Le \"Meilleur des deux mondes\" (Option recommandée) :** \n   Pour blinder définitivement le moteur sans altérer sa cinétique rentable, appliquez **double protection** :\n   * Ajoutez le `return 0` à la fin de `swarm_neighbor_load()`.\n   * En même temps, sécurisez l'appel à la ligne 621 avec un `|| true` (ou un traitement d'erreur explicite) : \n     ```bash\n     swarm_neighbor_load \"$cycle\" || true\n   * *Optionnel (à étudier hors run critique)* : Activer `set -E` (errtrace) dans l'en-tête du genesis pour qu'à l'avenir, aucune erreur dans une fonction ne soit plus jamais silencieuse."
+    },
+    {
+      "model": "deepseek",
+      "provider": "ERR",
+      "dur": 0,
+      "content": "ERROR: HTTP Error 502: Bad Gateway"
+    },
+    {
+      "model": "juge",
+      "provider": "ERR",
+      "dur": 0,
+      "content": "ERROR: HTTP Error 502: Bad Gateway"
+    },
+    {
+      "model": "ultra",
+      "provider": "ERR",
+      "dur": 0,
+      "content": "ERROR: HTTP Error 502: Bad Gateway"
+    },
+    {
+      "model": "inferx",
+      "provider": "ERR",
+      "dur": 0,
+      "content": "ERROR: HTTP Error 502: Bad Gateway"
+    },
+    {
+      "model": "grok",
+      "provider": "ERR",
+      "dur": 0,
+      "content": "ERROR: HTTP Error 502: Bad Gateway"
+    },
+    {
+      "model": "nvidia",
+      "provider": "NVIDIA build.nvidia.com (100+ modeles)",
+      "dur": 70.2,
+      "content": "**GO AVEC RESERVES**\n\n**Justification technique :**  \nLe correctif `return 0` est valide et minimal, mais il masque le symptôme sans traiter la cause structurelle. La vraie faille est le pattern `[ condition ] && action` en fin de fonction, qui transforme un état métier (grace dépassée) en code retour d'erreur. \n\n**Meilleure logique (recommandée) :**  \n```bash\n# Dans swarm_neighbor_load(), remplacer le SI final par :\nif [ \"$post_delta\" -le \"$post_grace_i\" ]; then\n    swarm_shockwave_post_solo=1\nfi\nreturn 0  # Toujours succès pour le bookkeeping\n```\n\n**Pourquoi c'est mieux :**  \n- Le `if` explicite rend l'intention claire (pas de dépendance au code retour de `[ ]`)  \n- Le `return 0` devient redondant mais reste une ceinture de sécurité  \n- Préserve la logique métier (la variable `swarm_shockwave_post_solo` est bien positionnée)  \n- Ne change AUCUN comportement quand la grace est respectée (le champion scellé reste intact)\n\n**Réserves :**  \n1. **Ajouter `set -E`** en complément (ligne ~5 du genesis) pour que les futures erreurs dans les fonctions déclenchent le trap ERR → rend les bugs LOUD  \n2. **Auditer les autres fonctions** se terminant par `[ condition ] && action` (grep `&&.*=1$` sur le code) — probablement 2-3 autres cas latents  \n3. **Tester en harnais** : cycle dans grace + cycle au-delà + shockwave active → vérifier que le moteur survit et que `swarm_shockwave_post_solo` est bien positionné\n\n**Impact rentabilité :**  \nAucun — le correctif ne touche que la fin de fonction, pas la logique de trading. Le champion scellé 37fca367 reste fonctionnel, on corrige juste un bug latent qui ne se déclenche qu'en conditions de pertes."
+    },
+    {
+      "model": "oss20",
+      "provider": "ERR",
+      "dur": 0,
+      "content": "ERROR: HTTP Error 502: Bad Gateway"
+    },
+    {
+      "model": "puter-grok",
+      "provider": "Puter Grok (gratuit)",
+      "dur": 14.1,
+      "content": "**GO**\n\n### Justification technique courte\n\nLe diagnostic est correct. Le pattern :\n\n```bash\n[ \"$post_delta\" -le \"$post_grace_i\" ] && swarm_shockwave_post_solo=1\n```\n\nretourne le code de sortie du test (`1`) quand la condition est fausse. Comme cette ligne est la dernière de `swarm_neighbor_load()`, la fonction retourne 1. Avec `set -e` et sans `set -E`, cet échec n’est ni piégé ni visible, ce qui explique la mort silencieuse.\n\nAjouter `return 0` en fin de fonction est la correction la plus propre et la plus sûre dans ce contexte :\n\n- La fonction fait du *bookkeeping* / chargement d’état, pas une opération dont le code de retour a une sémantique métier.\n- Elle ne doit donc **jamais** pouvoir faire planter le shell appelant via `set -e`.\n\n### Recommandation d’implémentation (légèrement meilleure)\n\nPlutôt que d’ajouter seulement `return 0` à la fin, je recommande de neutraliser explicitement le risque sur cette ligne :\n\n```bash\nif [ \"$post_delta\" -le \"$post_grace_i\" ]; then\n    swarm_shockwave_post_solo=1\nfi\n\nreturn 0\n```\n\nOu, version plus compacte mais tout aussi sûre :\n\n```bash\n[ \"$post_delta\" -le \"$post_grace_i\" ] && swarm_shockwave_post_solo=1 || true\nreturn 0\n```\n\n### Points complémentaires (optionnels mais recommandés)\n\n1. **Ajouter `set -E`** (errtrace) en plus du `return 0` est une bonne idée de défense en profondeur. Ça rendra les futures erreurs à l’intérieur de fonctions visibles via le trap ERR.\n2. Sur la ligne 621 (`swarm_apply_coupling`), je mettrais quand même un `|| true` ou un `|| return 0` explicite sur l’appel de `swarm_neighbor_load`. C’est une ceinture + bretelles qui protège si jamais la fonction est modifiée plus tard.\n\nLe correctif `return 0` ne change pas la logique rentable du moteur. Il supprime simplement un effet de bord involontaire de `set -e`."
+    }
+  ]
+}

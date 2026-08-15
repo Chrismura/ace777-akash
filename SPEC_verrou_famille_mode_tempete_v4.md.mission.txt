@@ -1,0 +1,132 @@
+SYSTEME ACE777 - loi 1quinquies : TU ES LE CODEUR DU HUB (expert).
+Ada (orchestratrice) SPECIFIE, TU CODES. Produis du code Python 3.9
+stdlib / bash macOS, non fatal, commentaires en francais, pret a copier.
+Une seule mission, rien d'autre. Contrat de sortie : le code complet.
+
+=== SPEC (par Ada) ===
+# SPEC v4 — VERROU FAMILLE + MODE TEMPÊTE (3 CORRECTIONS CHIRURGICALES)
+
+## Statut
+
+v3 validée : JUGE = **GO**, GEMINI/DEEPSEEK/ULTRA = **GO AVEC RÉSERVES**. Le bug du
+13/08 est corrigé (verrou flock tenu par le thread jusqu'à la fin réelle + état TTL
+au début). Le trio réel est intégré (zéro placeholder). Syntaxe Python vérifiée OK.
+
+Il reste **3 corrections convergentes** exigées par la famille. Le codeur doit les
+appliquer à la v3 et livrer la v4 complète du module `famille_session.py` (mêmes
+fonctions, mêmes sections, avec les 3 points corrigés). Rien d'autre ne change.
+
+## RÈGLES ABSOLUES (inchangées)
+
+1. Python 3.9 stdlib, pas de dépendance externe.
+2. `typing.Optional` (jamais `str | None`).
+3. Non fatal, UTF-8, ne pas toucher au moteur ACE ni aux formats produits.
+4. Fichiers : `Index_Maison/scripts/` + `Index_Maison/strategie/`.
+
+---
+
+## CORRECTION 1 — Fermer le descripteur du verrou (fuite FD)
+
+Dans `_thread_trio`, le bloc `finally` relâche le flock mais ne ferme JAMAIS le
+descripteur. Sur un démon 24/7 (machine de tempête), les FD s'accumulent →
+« Too many open files ». Ajouter `os.close(lock_fd)` APRÈS le `LOCK_UN` :
+
+```python
+    finally:
+        try:
+            fcntl.flock(lock_fd, fcntl.LOCK_UN)
+        except Exception:
+            pass
+        try:
+            os.close(lock_fd)          # <-- AJOUT (correction 1)
+        except Exception:
+            pass
+        try:
+            if os.path.exists(FICHIER_ETAT):
+                os.remove(FICHIER_ETAT)
+        except Exception:
+            pass
+```
+
+## CORRECTION 2 — Brancher le mode tempête (principe machine de tempête)
+
+`mode_tempete_actif()` existe mais n'est JAMAIS appelé. Le TTL 5 min bloque donc
+même en tempête — contraire au principe fondateur. Deux changements :
+
+- **2a. `consulter_famille(force=False)`** : le test TTL doit être **bypassé** en
+  tempête ou sur demande explicite :
+  ```python
+  def consulter_famille(force: bool = False) -> None:
+      if not force and not mode_tempete_actif() and _verifier_etat_ttl():
+          return
+      # ... suite inchangée
+  ```
+- **2b. `_duree_anti_spam()`** : retourne **60 s en tempête** (au lieu de 5 min),
+  pour que `_verifier_etat_ttl()` (qui utilise `_duree_anti_spam()`) laisse
+  repasser la consultation 60 s après le début de la tempête :
+  ```python
+  def _duree_anti_spam() -> float:
+      if mode_tempete_actif():
+          return 60.0          # tempête : anti-spam court, réactivité immédiate
+      return ANTI_SPAM_MIN * 60  # calme : 5 min
+  ```
+- **2c. `mode_tempete_actif()`** : robustifier — lire le vrai déclencheur (zone ADA
+  ROUGE/PRENDS_LA_PERTE dans `STRATEGIE_DIR/ada_gardienne_live.json`), puis
+  l'alarme (`FICHIER_ALARME`), puis `etat_tempete.json` si présent. Toujours
+  try/except, jamais d'exception :
+  ```python
+  def mode_tempete_actif() -> bool:
+      try:
+          # 1) Zone ADA ROUGE / PRENDS_LA_PERTE (machine de tempête)
+          g = lire_json(str(STRATEGIE_DIR / "ada_gardienne_live.json"), {})
+          zone = str(g.get("zone", "")).upper()
+          if zone in ("ROUGE", "PRENDS_LA_PERTE"):
+              return True
+          # 2) Alarme récente (la gardienne a tiré)
+          try:
+              if os.path.exists(FICHIER_ALARME):
+                  if (time.time() - os.path.getmtime(FICHIER_ALARME)) < 3600:
+                      a = lire_json(FICHIER_ALARME, {})
+                      if a and isinstance(a, dict) and a.get("type"):
+                          return True
+          except Exception:
+              pass
+          # 3) Fichier d'état tempête explicite (si présent)
+          etat = lire_json(str(STRATEGIE_DIR / "etat_tempete.json"), {})
+          return bool(etat.get("actif", False))
+      except Exception:
+          return False
+  ```
+
+## CORRECTION 3 — TTL créé immédiatement après le flock réussi
+
+Dans `consulter_famille()`, créer l'état TTL **juste après** le `flock` réussi (avant
+toute autre opération), pour qu'aucune fenêtre ne laisse passer un doublon :
+
+```python
+    try:
+        lock_fd = os.open(FICHIER_LOCK, os.O_RDWR | os.O_CREAT, 0o644)
+        try:
+            fcntl.flock(lock_fd, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        except BlockingIOError:
+            os.close(lock_fd)
+            return
+
+        _creer_etat_ttl()          # immédiatement après le flock réussi (correction 3)
+
+        t = threading.Thread(target=_thread_trio, args=(lock_fd,), daemon=True)
+        t.start()
+        t.join(timeout=90)
+    except Exception:
+        pass
+```
+
+## CONTRAT DE SORTIE v4
+
+Le module `famille_session.py` v4 COMPLET (v3 + les 3 corrections), prêt à copier
+dans `Index_Maison/scripts/famille_session.py`. Zéro placeholder, syntaxe valide
+Python 3.9. Commentaires en français. Non fatal.
+
+## FICHIER CONCERNÉ
+
+- `Index_Maison/scripts/famille_session.py` (v4 complète)

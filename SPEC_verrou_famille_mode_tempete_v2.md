@@ -1,0 +1,113 @@
+# SPEC v2 — VERROU FAMILLE + MODE TEMPÊTE + BUDGET DYNAMIQUE (corrections famille)
+
+## Statut
+
+v1 codée par le codeur du hub, auditée par la famille complète (GEMINI audit.protocol,
+DEEPSEEK mission, JUGE signets.juge, ULTRA ultra.analyse) le 13/08. Verdicts :
+GEMINI GO AVEC RÉSERVES · JUGE GO AVEC RÉSERVES · ULTRA GO AVEC RÉSERVES ·
+**DEEPSEEK NON (bloquant)**. Les 4 membres convergent sur les mêmes réserves ci-dessous.
+Cette spec v2 intègre TOUTES les réserves. Le codeur doit produire le code v2 complet.
+
+## Rappel du contexte (v1, inchangé)
+
+Bug du 13/08 : boucle famille incontrôlée (launchd cortana.urgent 10 s →
+cockpit_mission_feed → ada_gardienne.scan() → consulter_famille() → trio hub) :
+~900 appels/h de 11:58Z à 12:55Z, budget 480 explosé à 1310. Cause racine :
+l'anti-spam 5 min écrit à la FIN dans un thread détaché → chaque appel 10 s relançait
+pendant que le trio tournait.
+
+Principe fondateur (Christophe) : ACE777 est une machine de tempête. Les garde-fous
+protègent le calme, ne ralentissent JAMAIS la tempête. Budget = valeur quotidienne
+recalculée au moment du check selon la rotation de modèles du jour. Providers GRATUITS
+jamais coupés.
+
+## RÈGLES ABSOLUES
+
+1. **Python 3.9 stdlib**, AUCUNE dépendance externe.
+2. **INTERDIT** `str | None` (Python 3.9) → `typing.Optional`.
+3. **NE PAS TOUCHER AU MOTEUR ACE** (.rb/.sh/CSV, genesis) ni changer les formats
+   produits (mission.json, AVIS_FAMILLE_SESSION.md, STRATEGIE.md).
+4. **Non fatal** : aucune exception ne doit casser la chaîne.
+5. **UTF-8 partout.**
+6. Fichiers : `Index_Maison/scripts/` (modules) et `Index_Maison/strategie/` (sorties).
+7. **Code COMPLET et INTÉGRABLE** : pas de placeholder `pass`, pas de « ... ».
+   Le trio hub réel doit être intégré (copié depuis le `famille_session.py` existant).
+
+---
+
+## RÉSERVE 1 (BLOQUANTE, DEEPSEEK+GEMINI+JUGE+ULTRA) — Le verrou doit TENIR pendant toute la consultation
+
+Le verrou fichier ne doit PAS être relâché après 0,1 s. Le trio tourne 30-60 s ; un
+appel 10 s plus tard ne doit JAMAIS repasser. Deux mécanismes complémentaires exigés :
+
+- **1a. Fichier d'état « en cours » avec TTL** : `strategie/famille_en_cours.json`
+  contenant `{"ts": debut, "fin_prevue": debut + 240}`. `deja_consulte()` retourne
+  True tant que `time.time() < fin_prevue`. Ce fichier est écrit AU DÉBUT (avant les
+  threads) et n'est pas effacé par le thread. L'anti-spam calme/tempête s'applique
+  PAR-DESSUS (5 min calme / 60 s tempête à partir du début).
+- **1b. Verrou `fcntl.flock` tenu par le THREAD lui-même** : le fd du lock est passé
+  au thread trio, qui le relâche dans son propre `finally` à la fin réelle des 3
+  appels cloud. La fonction `consulter_famille()` ne relâche PAS le lock dans son
+  propre `finally` (elle attend juste le `thread.join(timeout=...)`).
+- **1c. Conséquence** : si deux processus appellent en même temps, le second
+  retourne False immédiatement (lock occupé OU état en cours), zéro nouveau thread.
+
+## RÉSERVE 2 (BLOQUANTE) — Intégrer le trio hub RÉEL, pas un placeholder
+
+- **2a.** Remplacer le `pass` par le code réel des 3 appels hub (audit.protocol +
+  mission + signets.juge), copié tel quel depuis le `famille_session.py` actuel de
+  `Index_Maison/scripts/` (les fonctions `_appel_hub`, `ROLES`, `NOMS`, `TASKS`,
+  `build_sujet`, `est_une_occasion` existent déjà — réutiliser, ne pas réécrire).
+- **2b.** Le thread trio écrit le fichier de sortie `AVIS_FAMILLE_SESSION.md` comme
+  aujourd'hui, puis relâche le lock (1b).
+- **2c.** Comportement de sortie inchangé (même format d'avis).
+
+## RÉSERVE 3 (JUGE+ULTRA) — Chemin absolu STRATEGIE_DIR
+
+- **3a.** Plus aucun chemin relatif : dériver la racine projet depuis `__file__` :
+  ```python
+  PROJET = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+  STRATEGIE_DIR = os.path.join(PROJET, "Index_Maison", "strategie")
+  ```
+- **3b.** Idem pour `alarme.json` : lire dans `STRATEGIE_DIR/alarme.json` (pas de
+  chemin relatif au cwd). Aucun `_lire_json("alarme.json")` sans chemin complet.
+
+## RÉSERVE 4 (tous) — Vrais tests hermétiques sur le code réel
+
+- **4a.** Le fichier de test doit IMPORTER les vraies fonctions de
+  `famille_session.py` (et non recopier des versions mockées), en patchant
+  `STRATEGIE_DIR` vers un `/tmp` de test (variable d'env `ACE777_TEST_STRATEGIE` ou
+  assignation directe du module).
+- **4b.** Tests exigés (réels, avec assertions, exit code ≠ 0 si échec) :
+  - T1 : deux `consulter_famille()` simultanés → un seul lance le trio.
+  - T2 : appel pendant que l'état « en cours » est frais → False, zéro doublon.
+  - T3 : trio en échec → l'état anti-spam est écrit quand même (pas de relance).
+  - T4 : mode tempête (zone ROUGE simulée) → anti-spam 60 s.
+  - T5 : mode calme → anti-spam 5 min.
+  - T6 : budget calme atteint + tempête + réserve → la tâche passe.
+  - T7 : budget calme atteint + calme → coupure inchangée.
+
+## RÉSERVE 5 (ULTRA) — Intégration quotidienne du budget
+
+- **5a.** `budget_hub.py` doit exposer `calculer_budget_journalier()` qui produit
+  `{"total", "calme", "reserve_storm", "gratuits": [...], "payants": [...]}`.
+- **5b.** Le hub (`hub_prise_ia.py`) doit appeler ce calcul **au démarrage journalier**
+  (au moment du check/rotation) et stocker le résultat (ex. `strategie/../budget_jour.json`
+  ou dans le hub). La logique de coupure utilise `calme` et, en tempête, laisse passer
+  les tâches prioritaires via `reserve_storm`.
+- **5c.** `payant_utilise` doit être incrémenté à chaque appel PAYANT ; les appels
+  GRATUITS ne consomment jamais le budget.
+- **5d.** Journalisation `reserve-storm` et `budget-recalcule` dans `hub_events.jsonl`.
+
+## CONTRAT DE SORTIE v2
+
+Code COMPLET des 3 modifications (famille_session.py entier, budget_hub.py entier,
+tests hermétiques réels), prêt à copier-coller, sans placeholder. Chaque fichier dans
+sa section. Commentaires en français. Non fatal.
+
+## FICHIERS CONCERNÉS
+
+- `Index_Maison/scripts/famille_session.py` (réserve 1, 2, 3)
+- `~/prise-ia/budget_hub.py` (réserve 5)
+- `~/prise-ia/hub_prise_ia.py` (intégration 5b — minimal, juste le point d'appel)
+- `Index_Maison/scripts/test_famille_verrou.py` (réserve 4, tests réels)

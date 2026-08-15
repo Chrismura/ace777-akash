@@ -1,0 +1,6 @@
+
+~ 2026-08-13T21:15Z — FIX BADGE AVIS IA (cockpit): la fonction avBadgeHtml etait sortie du bloc <script> (bug PREEXISTANT, avant relook) → tout son code s affichait en texte brut « badge d avis ia » dans l onglet OPS. Deplacee dans le bloc script 1 (ligne 1600) → rendu verifie Chromium + WebKit pywebview : plus de texte brut, 25 cartes OK, 0 erreur JS. Backup: index.html.bak-badge-*
+
+~ 2026-08-13T21:48Z — FIX WIKI+VOIX (cockpit): 1) bug GLOSSARY reel — etfEthM/etfXrpM absents du GLOSSARY → le 📖 des bulles ETF ETH/XRP affichait l ancien contenu; 2 entrées ajoutees (flux codeur+superviseur) → les 24 boutons 📖 ouvrent le bon panneau (teste Chromium). 2) Voix VERIFIEE OK de bout en bout (clic VOIX → pont → brief Gemini → TTS edge → afplay joue le mp3). 3) L historique du user (« boutons morts ») = vieille version en cache avec avBadgeHtml hors script qui cassait tout le bloc JS — corrige par le fix badge du 21:15. Backup: index.html.bak-glossary-*
+
+~ 2026-08-13T21:52Z — FIX v2 (famille 6/6): fallback fillPeda() — si une cle data-wiki est absente du GLOSSARY, le panneau affiche « INFO ACE777 / Definition en cours » + console.warn au lieu de garder l ancien contenu (jamais de bouton mort). Teste en reel (cle inconnue -> fallback OK).

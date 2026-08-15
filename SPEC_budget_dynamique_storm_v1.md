@@ -1,0 +1,216 @@
+# SPEC — BUDGET JOURNALIER DYNAMIQUE + RÉSERVE STORM + GRATUITS JAMAIS COUPÉS
+
+## Contexte (décisions Christophe, 13/08)
+
+- « Les 480 c'était hier, ce n'est pas une valeur fixe. Nous sommes en gratuit,
+  utilisation intelligente, on ne gaspille pas pour rien. Chaque jour peut être
+  différent vu qu'il y a rotation et choix chaque jour des meilleurs modèles. Le
+  calcul devrait être fait CHAQUE JOUR au moment du check, une fois que le hub a
+  décidé qui prendre et qui changer. »
+- « ACE777 est une machine de tempête : il doit fonctionner de sa forme dans les
+  tempêtes. » La tempête ne doit jamais être coupée par le budget.
+- Bug du 13/08 : boucle famille (ADA scan 10 s → consulter_famille) a explosé la
+  consommation (1310 vs budget 480 figé) → toutes les tâches cloud coupées, dont
+  cortana.analyse.
+
+## Objectif
+
+`budget_hub.py` doit produire un budget journalier DYNAMIQUE, recalculé chaque jour
+au moment du check (après que le hub a figé sa rotation de modèles), avec :
+1. **Table CAPACITES complète** (les nouveaux providers manquent) ;
+2. **Providers GRATUITS jamais coupés** (la bascule même famille doit toujours
+   pouvoir les utiliser, même budget dépassé) ;
+3. **Réserve storm** (20 %) pour les tâches prioritaires en tempête ;
+4. **Journalisation** (`reserve-storm`, `budget-recalcule`) ;
+5. **Message corrigé** (pas de « repli sur le local » — il n'y a pas de local, C9).
+
+## RÈGLES ABSOLUES
+
+1. Python 3.9 stdlib, pas de dépendance externe.
+2. `typing.Optional`, jamais `str | None`.
+3. Non fatal : aucune exception ne doit casser le hub.
+4. **NE PAS casser le comportement existant du hub** tant que le budget du jour
+   n'est pas atteint (cas nominal inchangé).
+5. Ne pas toucher aux tâches/routages de `routing.json` (sauf `cloud_daily_budget`
+   et `note`).
+6. UTF-8.
+
+---
+
+## MODIF A — `~/prise-ia/budget_hub.py`
+
+Conserver la structure actuelle (providers_actifs, calcul, --apply) mais :
+
+- **A1. Compléter `CAPACITES`** : ajouter les providers manquants avec des capacités
+  réalistes (gratuits = haut volume) :
+  ```python
+  CAPACITES = {
+      'qwen-local': 0,
+      'gemini': 1500,
+      'openrouter-free': 700,
+      'openrouter-ultra': 500,
+      'openrouter-juge': 300,
+      'nvidia': 1000,
+      'inferx-coder': 400,
+      'puter-grok': 800,
+      'groq': 1000,
+      'mistral': 0,
+      'cloudflare-workers-ai': 0,
+  }
+  ```
+- **A2. Distinguer gratuit / payant** : ajouter un dict `GRATUITS` (ids des
+  providers qui ne coûtent rien) :
+  ```python
+  GRATUITS = {'qwen-local', 'openrouter-free', 'openrouter-ultra', 'openrouter-juge',
+              'nvidia', 'inferx-coder', 'puter-grok', 'gemini'}
+  PAYANTS = set()  # à compléter si un provider payant est ajouté un jour
+  ```
+- **A3. `calculer_budget_journalier()`** : fonction pure qui calcule :
+  - `capacite_totale` = somme CAPACITES des providers ACTIFS ;
+  - `total` = max(MIN_BUDGET, min(MAX_BUDGET, int(capacite_totale * FACTEUR_SECURITE))) ;
+  - `reserve_storm` = int(total * 0.20) ;
+  - `calme` = total - reserve_storm ;
+  - retourne `{"total", "calme", "reserve_storm", "gratuits", "payants", "actifs", "ts"}`.
+  - `MAX_BUDGET` reste un plafond de prudence (sécurité), réglable.
+- **A4. `--apply`** : écrit dans `routing.json` :
+  - `cloud_daily_budget` = `calme` (le budget courant) ;
+  - `cloud_daily_reserve` = `reserve_storm` (nouvelle clé) ;
+  - `note` = date du recalcul + liste des providers actifs.
+  - Backup avant écriture (comme aujourd'hui).
+- **A5. `main()`** : affiche le détail (total / calme / réserve / gratuits), et avec
+  `--apply` applique. Le `--apply` est l'action du « moment du check quotidien » :
+  le hub (ou un launchd) l'appelle chaque jour APRÈS que la rotation est figée.
+
+## MODIF B — `~/prise-ia/hub_prise_ia.py` (intégration minimale)
+
+- **B1. Charger `cloud_daily_reserve`** depuis routing.json (défaut 0).
+- **B2. Les providers GRATUITS ne se coupent jamais** : dans la logique de budget,
+  quand `usage["cloud"] >= cloud_budget`, ne pas écarter les providers dont l'id est
+  dans `GRATUITS` : ils restent éligibles dans `target_ids` (bascule même famille).
+  Seuls les providers PAYANTS sont écartés quand le budget est atteint.
+- **B3. Réserve storm en tempête** : si `mode_tempete_actif()` (détecté dans
+  famille_session ou via un marqueur `strategie/etat_tempete.json`) est vrai ET que
+  le budget calme est atteint, les tâches prioritaires (`signets.juge`,
+  `audit.protocol`, `mission`, `cortana.analyse`, `supervise.decision`) peuvent
+  consommer la réserve (`cloud_daily_reserve`) au lieu d'être coupées.
+- **B4. Journalisation** :
+  - quand la réserve est consommée : `log_event("reserve-storm", task)` ;
+  - au recalcul : `log_event("budget-recalcule", {total, calme, reserve})`.
+- **B5. Message corrigé** : remplacer « Budget cloud journalier atteint, repli sur
+  le local » par « Budget calme atteint → bascule famille (gratuits) » quand un
+  gratuit est disponible ; garder la coupure seulement si plus aucun gratuit.
+- **B6. Ne pas casser le nominal** : tant que le budget n'est pas atteint,
+  comportement identique à aujourd'hui.
+
+## MODIF C — Tests hermétiques (`~/prise-ia/test_budget_storm.py`)
+
+Tests réels avec assertions (exit code ≠ 0 si échec), tout en /tmp :
+- T1 : CAPACITES complétée → les 8 providers actifs sont reconnus (aucun 0 non
+  voulu pour puter-grok/inferx-coder/openrouter-ultra/juge).
+- T2 : calcul → total = min(MAX, max(MIN, capacité × facteur)) ; réserve = 20 % ;
+  calme = total − réserve.
+- T3 : gratuits jamais coupés → avec budget atteint, un provider gratuit reste
+  éligible ; un payant est écarté.
+- T4 : réserve storm → tempête + budget calme atteint + réserve dispo → la tâche
+  prioritaire passe ; sinon coupure inchangée.
+- T5 : `--apply` écrit `cloud_daily_budget` = calme et `cloud_daily_reserve` =
+  réserve dans routing.json (dans un /tmp simulé, pas le vrai fichier).
+
+## CONTRAT DE SORTIE
+
+Le code complet : `budget_hub.py` entier + le bloc d'intégration minimal pour
+`hub_prise_ia.py` (B1-B6) + `test_budget_storm.py` entier. Prêt à copier.
+Zéro placeholder, syntaxe valide Python 3.9, commentaires en français, non fatal.
+
+## FICHIERS CONCERNÉS
+
+- `~/prise-ia/budget_hub.py` (Modif A)
+- `~/prise-ia/hub_prise_ia.py` (Modif B, minimale)
+- `~/prise-ia/test_budget_storm.py` (Modif C)
+
+---
+
+## ANNEXE — CODE ACTUEL DE `budget_hub.py` (base à modifier)
+
+```python
+#!/usr/bin/env python3
+"""budget_hub.py — budget cloud DYNAMIQUE qui suit l'évolution du hub."""
+import json
+import os
+import shutil
+import sys
+
+P = os.path.expanduser('~/prise-ia')
+FACTEUR_SECURITE = 0.15
+MIN_BUDGET = 40
+MAX_BUDGET = 800
+
+CAPACITES = {
+    'qwen-local': 0,
+    'gemini': 1500,
+    'openrouter-free': 700,
+    'nvidia': 1000,
+    'groq': 1000,
+    'mistral': 0,
+    'cloudflare-workers-ai': 0,
+}
+
+def providers_actifs():
+    prov_path = os.path.join(P, 'providers.json')
+    if not os.path.exists(prov_path):
+        return []
+    prov = json.load(open(prov_path))
+    actifs = []
+    for p in prov.get('providers', []):
+        pid = p.get('id', '?')
+        if p.get('enabled') or p.get('kind') == 'local':
+            actifs.append(pid)
+    return actifs
+
+def main():
+    actifs = providers_actifs()
+    r_path = os.path.join(P, 'routing.json')
+    routing = json.load(open(r_path)) if os.path.exists(r_path) else {}
+    referenced = set()
+    for v in routing.get('tasks', {}).values():
+        referenced.add(v.get('provider'))
+        referenced.add(v.get('fallback'))
+    for pid in referenced:
+        if pid not in actifs:
+            actifs.append(pid)
+    capacite_totale = sum(CAPACITES.get(pid, 0) for pid in actifs)
+    budget_calcule = max(MIN_BUDGET, min(MAX_BUDGET, int(capacite_totale * FACTEUR_SECURITE)))
+    print('=== BUDGET CLOUD DYNAMIQUE ===')
+    print('Providers actifs (%d) : %s' % (len(actifs), ', '.join(actifs)))
+    print('Capacite theorique cloud/jour : %d req' % capacite_totale)
+    print('Facteur securite : %d%%' % int(FACTEUR_SECURITE * 100))
+    print('Budget calcule : %d req/jour' % budget_calcule)
+    ancien = routing.get('cloud_daily_budget', '?')
+    print('Budget actuel dans routing.json : %s' % ancien)
+    if '--apply' in sys.argv:
+        shutil.copy(r_path, r_path + '.bak-budget')
+        routing['cloud_daily_budget'] = budget_calcule
+        routing['note'] = ('cloud_daily_budget DYNAMIQUE calcule par budget_hub.py '
+                           '(%d = %d x %s). Se recalcule a chaque ajout de provider.' % (budget_calcule, capacite_totale, FACTEUR_SECURITE))
+        json.dump(routing, open(r_path, 'w'), indent=1, ensure_ascii=False)
+        print('-> APPLIQUE : cloud_daily_budget = %d (backup: routing.json.bak-budget)' % budget_calcule)
+    else:
+        print('(ajouter --apply pour ecrire dans routing.json)')
+
+if __name__ == '__main__':
+    main()
+```
+
+## ANNEXE — Point d'intégration actuel dans `hub_prise_ia.py`
+
+```python
+    cloud_budget = routing.get("cloud_daily_budget")
+    # ...
+    if cloud_budget and usage.get("cloud", 0) >= cloud_budget:
+        pref = None
+        if target_ids:
+            pref = next((p for p in providers if p.get("id") == target_ids[0] or p.get("model") == target_ids[0]), None)
+        if pref and pref.get("kind") == "cloud":
+            target_ids = target_ids[1:]
+            log_event("quota", "Budget cloud journalier atteint, repli sur le local", task)
+```

@@ -284,6 +284,33 @@ def contexte_systeme() -> str:
     except Exception:
         pass
 
+    # 6) LEÇONS AGORA (boucle E4 — lecons_auto.py, famille 15/08) :
+    #    axiomes issus de tes HIT/MISS, namespace cortana uniquement, TTL actif,
+    #    max 3, synthèse pré-mâchée (jamais de chiffres bruts).
+    try:
+        agora_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "strategie", "CONNAISSANCE_PROJETS.json")
+        if os.path.exists(agora_path):
+            agora = json.load(open(agora_path, encoding="utf-8"))
+            lecons = agora.get("lecons_agora", []) or []
+            if isinstance(lecons, list):
+                maintenant = datetime.now(timezone.utc)
+                actives = []
+                for l in lecons[:20]:
+                    exp = l.get("ttl_expire")
+                    if exp:
+                        try:
+                            if datetime.fromisoformat(str(exp).replace("Z", "+00:00")) < maintenant:
+                                continue
+                        except Exception:
+                            pass
+                    if l.get("namespace") == "cortana" and l.get("axiome"):
+                        actives.append(l["axiome"])
+                if actives:
+                    lignes.append("### Leçons apprises (tes HIT/MISS — à appliquer)")
+                    lignes.extend("- " + a for a in actives[:3])
+    except Exception:
+        pass
+
     return "\n".join(lignes)
 
 

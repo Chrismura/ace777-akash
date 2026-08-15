@@ -1,0 +1,117 @@
+{
+  "version": "v1",
+  "ts": "2026-08-15T12:33:01Z",
+  "ace": {
+    "run": "MASTER_VORTEX_V2_COLLAB_4H",
+    "combo_pnl": 0.047,
+    "alpha": {
+      "pnl_session": -0.3393,
+      "fills": 41,
+      "skips": 665,
+      "pnl_lifetime": 164.2208,
+      "fills_lifetime": 849,
+      "recent": {
+        "win": 12,
+        "loss": 15,
+        "flat": 11,
+        "revenge": 29,
+        "hold_sum": 230.0,
+        "hold_n": 38,
+        "pnl_by_reason": {
+          "shock_inversion_stop": 0.6397,
+          "fluid_exit_inversion": -0.9821,
+          "fluid_exit_brake": 0.0076
+        },
+        "avg_hold_sec": 6.1
+      }
+    },
+    "beta": {
+      "pnl_session": 0.3863,
+      "fills": 60,
+      "skips": 651,
+      "pnl_lifetime": 16.5474,
+      "fills_lifetime": 2950,
+      "recent": {
+        "win": 15,
+        "loss": 20,
+        "flat": 13,
+        "revenge": 0,
+        "hold_sum": 290.0,
+        "hold_n": 48,
+        "pnl_by_reason": {
+          "shock_inversion_stop": 0.2446,
+          "fluid_exit_inversion": 0.1565,
+          "fluid_exit_brake": 0.0213
+        },
+        "avg_hold_sec": 6.0
+      }
+    }
+  },
+  "hulk": {
+    "pnl_total": -4.5375,
+    "trades": 3,
+    "notional": 18.87,
+    "base": 20.0,
+    "positions": [
+      {
+        "pair": "BIOUSDT"
+      },
+      {
+        "pair": "EDELUSDT"
+      },
+      {
+        "pair": "ZBCNUSDT"
+      },
+      {
+        "pair": "HBARUSDT"
+      },
+      {
+        "pair": "XRPUSDT"
+      },
+      {
+        "pair": "TELUSDT"
+      },
+      {
+        "pair": "CHIPUSDT"
+      },
+      {
+        "pair": "REDUSDT"
+      },
+      {
+        "pair": "RWAINCUSDT"
+      },
+      {
+        "pair": "CCUSDT"
+      },
+      {
+        "pair": "RIZEUSDT"
+      }
+    ],
+    "positions_n": 11,
+    "bags_n": 0,
+    "bag_dca_n": 0,
+    "veille": {
+      "RED": 1,
+      "AMBER": 0,
+      "GREEN": 1
+    }
+  },
+  "marche": {
+    "mark": 62990.5,
+    "chg24": 0.24,
+    "funding": 6.3e-05,
+    "fear_greed": 34,
+    "climate": "warn",
+    "score": 69,
+    "saison": "CALME",
+    "voilure": 80.0,
+    "zone": "VERT"
+  },
+  "sources": [
+    "mission.json",
+    "runs/*.csv (tail)",
+    "hulk state+veille",
+    "thermo/live.json",
+    "ada_gardienne_live.json"
+  ]
+}

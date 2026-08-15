@@ -1,0 +1,123 @@
+{
+  "tasks": {
+    "ada.sanity": {
+      "provider": "gemini",
+      "fallback": "nvidia",
+      "cloud_quota": 5,
+      "note": "tuyauterie de demarrage (ada.command etape 2) — PAUSE qwen (10/08, GO famille), bascule gemini"
+    },
+    "cortana.brief": {
+      "provider": "gemini",
+      "fallback": "nvidia",
+      "secondary": "openrouter-ultra",
+      "note": "BRIEF (13/08): gemini principal, nvidia, nemotron-ultra en filet"
+    },
+    "audit.protocol": {
+      "provider": "gemini",
+      "fallback": "nvidia",
+      "cloud_quota": 5,
+      "note": "audit de protocole — qualite maximale"
+    },
+    "signets.synthese": {
+      "provider": "gemini",
+      "fallback": "openrouter-free",
+      "secondary": "nvidia",
+      "note": "SYNTHESE (13/08): gemini principal, gpt-oss-20b free generaliste, nvidia filet"
+    },
+    "chat.local": {
+      "provider": "gemini",
+      "fallback": "nvidia",
+      "cloud_quota": 30,
+      "note": "usage interactif libre — PAUSE qwen (10/08, GO famille), bascule gemini"
+    },
+    "cortana.analyse": {
+      "provider": "gemini",
+      "fallback": "openrouter-ultra",
+      "secondary": "nvidia",
+      "note": "MASTER ANALYSTE (13/08): gemini principal, nemotron-ultra 550b 2e avis, nvidia filet"
+    },
+    "coffre.ask": {
+      "provider": "gemini",
+      "fallback": "nvidia",
+      "secondary": "openrouter-free",
+      "note": "COFFRE (13/08): gemini principal, nvidia, gpt-oss free en filet"
+    },
+    "qwen.elabore": {
+      "provider": "nvidia",
+      "fallback": "gemini",
+      "cloud_quota": 3,
+      "note": "elaboration Qwen solo nocturne - local gratuit d'abord (07/08) — service en PAUSE (10/08, GO famille), provider bascule nvidia"
+    },
+    "qwen.btc": {
+      "provider": "nvidia",
+      "fallback": "gemini",
+      "cloud_quota": 3,
+      "note": "analyse BTC Qwen - apprentissage (journalise analyses/ pour score_justesse) (07/08) — service en PAUSE (10/08, GO famille), provider bascule nvidia"
+    },
+    "signets.lot2": {
+      "provider": "gemini",
+      "fallback": "nvidia",
+      "cloud_quota": 5,
+      "note": "tri signets lot 2 - analyse de veille (08/08) | FIX 11/08: provider mort désactivé, route gemini -> nvidia"
+    },
+    "analyse.profonde": {
+      "provider": "nvidia",
+      "fallback": "openrouter-ultra",
+      "secondary": "gemini",
+      "note": "ANALYSE PROFONDE (13/08): nvidia principal, nemotron-ultra 550b 2e avis, gemini filet"
+    },
+    "signets.juge": {
+      "provider": "gemini",
+      "fallback": "openrouter-juge",
+      "secondary": "nvidia",
+      "note": "JUGE (13/08): gemini principal, nemotron-super-120b juge independant (maker!=checker), nvidia filet"
+    },
+    "mission": {
+      "provider": "nvidia",
+      "fallback": "puter-grok",
+      "secondary": "gemini",
+      "note": "MISSION (13/08): nvidia principal, grok puter (diversite), gemini filet"
+    },
+    "ultra.analyse": {
+      "provider": "gemini",
+      "fallback": "nvidia",
+      "note": "| FIX 11/08: provider mort désactivé, route gemini -> nvidia"
+    },
+    "inferx.analyse": {
+      "provider": "nvidia",
+      "fallback": "gemini",
+      "note": "| FIX 11/08: provider mort désactivé, route nvidia -> gemini"
+    },
+    "code.ia": {
+      "provider": "puter-grok",
+      "fallback": "inferx-coder",
+      "secondary": "gemini",
+      "note": "CODEUR (13/08): GROK 4.3 principal, INFERX Qwen3-Coder-Next 2e codeur specialiste, gemini filet"
+    },
+    "supervise.decision": {
+      "provider": "puter-grok",
+      "fallback": "gemini",
+      "cloud_quota": 20,
+      "note": "DECISIONS DU SUPERVISEUR - decrochage de qwen-local (09/08, GO Christophe) - grok-4.3 gratuit via puter, fallback gemini"
+    },
+    "cortana.yeux": {
+      "provider": "gemini",
+      "cloud_quota": 30,
+      "note": "Yeux de Cortana (11/08) : vision A LA DEMANDE. Gemini seul (seul provider vision). image_url base64 via hub. Quota 30/j."
+    },
+    "veille.youtube": {
+      "provider": "gemini",
+      "cloud_quota": 30,
+      "note": "Veille YouTube (11/08) : transcription video -> dossier de preuve. Gemini (seul provider vision/long contexte fiable)."
+    },
+    "analyste.strategie": {
+      "provider": "gemini",
+      "fallback": "openrouter-ultra",
+      "secondary": "nvidia",
+      "note": "ANALYSTE (13/08): gemini principal, nemotron-ultra 550b free 2e expert, nvidia filet"
+    }
+  },
+  "cloud_daily_budget": 1500,
+  "note": "cloud_daily_budget DYNAMIQUE calcule par budget_hub.py le 08/08 (480 = 3200 x 0.15). Se recalcule a chaque ajout de provider (voir budget_hub.py)",
+  "note_budget_deblocage": "Releve temporaire 480->1500 le 13/08 (consommation reelle 1310, boucle famille). Chantier verrou + budget dynamique quotidien en cours. Voir routing.json.bak-verrou-20260813."
+}

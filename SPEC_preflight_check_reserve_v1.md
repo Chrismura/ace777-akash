@@ -1,0 +1,109 @@
+# SPEC — AJOUTER LE CHECK RÉSERVE STORM AU PREFLIGHT ACE777
+
+## Contexte
+
+Le `scripts/preflight_ace777.sh` est le check avant chaque run (appelé par tous les
+masters). Il vérifie déjà : champion (md5 C1), Binance, positions orphelines (C8),
+Ollama, vortex, Ruby.
+
+Il manque le check de la **réserve storm** : le préchauffage de la réserve
+(`prechauffage_reserve.py`) existe et tourne à la main, mais le preflight doit
+**vérifier au décollage** que la réserve tempête est en place et fonctionnelle,
+pour ne jamais lancer un run avec une réserve vide ou cassée.
+
+Principe (Christophe, 13/08) : « un garde-fou pour qu'on soit sûr un peu à l'avance
+que la réserve tempête soit effectivement fonctionnelle — qu'on ne bascule pas
+dessus en tempête et qu'il n'y ait personne. »
+
+## RÈGLES ABSOLUES
+
+1. Bash macOS (script shell existant), ne pas casser les checks existants.
+2. Non fatal : un warning ne bloque PAS le run ; un check KO (réserve absente)
+   = warning clair (le moteur peut tourner sans la réserve, mais on doit le savoir).
+3. Ne pas toucher au reste du preflight (champion, Binance, orphelines… restent
+   identiques, leur ordre aussi).
+4. Sortie formatée comme les checks existants : `PREFLIGHT_OK:` / `PREFLIGHT_WARN:`.
+
+## CE QU'IL FAUT AJOUTER (bloc, avant la section Ruby)
+
+Un bloc `# --- Réserve storm (préchauffage 13/08) ---` qui vérifie :
+
+### R1 — Budget et réserve présents dans routing.json
+- Lire `~/prise-ia/routing.json` :
+  - `cloud_daily_budget` existe ET > 0 → `ok "budget calme=<valeur>"`
+  - `cloud_daily_reserve` existe ET > 0 → `ok "réserve storm=<valeur>"`
+  - sinon → `warn "réserve storm absente — lancer : cd ~/prise-ia && python3 budget_hub.py --apply"`
+
+### R2 — Gratuits dynamiques détectés dans providers.json
+- Lire `~/prise-ia/providers.json` : au moins 1 provider avec `"free": true`
+  → `ok "gratuits dynamiques détectés (N)"`
+  - sinon → `warn "aucun provider gratuit détecté — la bascule tempête serait sans filet"`
+
+### R3 — Rapport de préchauffage récent
+- Lire `~/prise-ia/prechauffage_reserve.json` :
+  - `verdict` = "OK" ET fichier daté de moins de 24 h
+    → `ok "préchauffage réserve OK (<date>)"`
+  - sinon → `warn "préchauffage réserve pas OK/récent — lancer : cd ~/prise-ia && python3 prechauffage_reserve.py"`
+
+### R4 — Préchauffage exécutable
+- `~/prise-ia/prechauffage_reserve.py` existe et est exécutable
+  → `ok "préchauffage prêt"`
+  - sinon → `warn "prechauffage_reserve.py absent"`
+
+## POINTS DE STYLE (conformes au script existant)
+
+- Utiliser les mêmes helpers `ok()` / `warn()` / `fail()` du script.
+- Utiliser `/usr/bin/python3` ou `python3` pour parser les JSON (le preflight
+  utilise déjà ruby pour vortex — on peut utiliser ruby -rjson ou python3,
+  au choix le plus simple et fiable sur macOS).
+- Le bloc est placé AVANT `# --- Ruby ---` (la dernière section), pour ne pas
+  décaler les autres checks.
+- Si `~/prise-ia/routing.json` ou `providers.json` n'existent pas → warn clair,
+  pas de crash du script.
+
+## CONTRAT DE SORTIE
+
+Le bloc shell complet à insérer dans `scripts/preflight_ace777.sh`, prêt à
+copier-coller (avec l'indication exacte de l'endroit : avant `# --- Ruby ---`).
+Commentaires en français. Ne PAS réécrire le script entier : juste le bloc ajouté
++ la position.
+
+## FICHIER CONCERNÉ
+
+- `scripts/preflight_ace777.sh` (ajout d'un bloc, rien d'autre ne change)
+
+
+---
+
+## ANNEXE — PREFLIGHT ACTUEL (base, extrait autour du point d'insertion)
+
+```bash
+      warn "VORTEX_CONTROL_ENABLED=TRUE mais supervisor_v9 non détecté — lancer ./scripts/start_supervisor_v9.sh"
+    fi
+  fi
+  if [ -f runs/vortex_control.json ]; then
+    msg="$(ruby -rjson -e 'j=JSON.parse(File.read(ARGV[0])) rescue {}; puts j["message"]' runs/vortex_control.json 2>/dev/null || echo "?")"
+    if [ "$msg" = "invalid_v9_json" ]; then
+      warn "vortex_control.json en fallback invalid_v9_json — relancer supervisor"
+    fi
+  fi
+else
+  ok "VORTEX_CONTROL=OFF (vide froid canonique)"
+fi
+
+# --- Ruby ---
+if ! command -v ruby >/dev/null 2>&1; then
+  fail "ruby absent"
+else
+  ok "ruby $(ruby -e 'print RUBY_VERSION')"
+fi
+
+echo ""
+if [ "$errors" -gt 0 ]; then
+  echo "=== PREFLIGHT ÉCHEC === ${errors} erreur(s), ${warnings} avertissement(s)"
+  exit 1
+fi
+echo "=== PREFLIGHT OK === ${warnings} avertissement(s)"
+exit 0
+
+```

@@ -1,0 +1,35 @@
+{
+  "ts": "2026-08-15T22:17:40.058309+00:00",
+  "mode": "observation",
+  "tip": "mempool.space + scan local",
+  "zscores": 0.0,
+  "cartes": {
+    "carte1_zscore": {
+      "declenche": false,
+      "score": 0.0,
+      "detail": "pas assez de données"
+    },
+    "carte2_cpfp": {
+      "declenche": false,
+      "score": 0.0,
+      "detail": "pré-filtre : frais 1 sat/vB ≤ 20× médiane 7j (1) — pas de creusage"
+    },
+    "carte3_poussiere": {
+      "declenche": false,
+      "score": 0.0,
+      "detail": "poussière <2.0 sat/vB : 0 vues ce run, 0 cumulées 48h (seuil 1000) — max 0.0000 BTC"
+    }
+  },
+  "declenche_global": false,
+  "alerte_potentielle": {
+    "emise": false,
+    "raison": "MODE = observation (silencieux) — validation 7 jours requise"
+  },
+  "confirmation": 0,
+  "calibration": {
+    "mediane_frais": 1.0,
+    "moyenne_7j": 0.0,
+    "sigma": 0.0,
+    "max_dust": 0.0
+  }
+}

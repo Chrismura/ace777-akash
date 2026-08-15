@@ -1,0 +1,147 @@
+# SPEC — VERROU FAMILLE + MODE TEMPÊTE + RÉSERVE BUDGET
+
+## Contexte (validé par Christophe, 13/08)
+
+**Principe fondateur acté** : « ACE777 est une machine de tempête — il doit fonctionner
+de sa forme dans les tempêtes, c'est pour ça qu'il est créé. » Les garde-fous protègent
+le calme, ils ne doivent JAMAIS ralentir la réaction à une tempête.
+
+**Bug constaté le 13/08 (cause racine de la coupure cloud)** : boucle famille incontrôlée
+de 11:58Z à 12:55Z (~900 appels/h, budget 480 explosé à 1235).
+
+Chaîne du bug, vérifiée dans le code :
+```
+launchd com.ace777.cortana.urgent (toutes les 10 s)
+  └→ cortana_urgent_poll.sh
+      └→ cockpit_mission_feed.py
+          └→ ada_gardienne.scan()            ← ligne 393-394
+              └→ si alerte active → consulter_famille()
+                  └→ famille_session.consulter() → trio hub (3 appels cloud)
+```
+
+**Le bug précis** : l'anti-spam de 5 min (`strategie/famille_derniere.json`) est écrit
+par `famille_session.marquer_consulte()` **à la FIN** de la consultation, dans un
+**thread détaché**. Pendant que le trio tourne (30-60 s), le fichier reste vieux →
+l'appel suivant (10 s plus tard) ne voit pas de verrou → relance → boucle. Et quand le
+budget saute, le trio échoue → `marquer_consulte` n'est jamais appelé (écrit seulement
+en cas de succès) → la boucle s'auto-alimente.
+
+**Le remède demandé** : verrou POSÉ AU DÉBUT + deux modes (CALME / TEMPÊTE) + réserve
+budget pour la tempête.
+
+## RÈGLES ABSOLUES
+
+1. **Python 3.9** (python système), **stdlib uniquement**. AUCUNE dépendance externe.
+2. **INTERDIT** `str | None` dans les annotations à l'exécution (Python 3.9 plante) →
+   `typing.Optional` ou pas d'annotation.
+3. **NE PAS TOUCHER AU MOTEUR ACE** (.rb/.sh/CSV sources, genesis) et ne pas changer
+   les fichiers produits (mission.json, STRATEGIE.md, AVIS_FAMILLE_SESSION.md
+   conservent exactement le même format).
+4. **Ne jamais crasher** : tout défaut → on continue sans casser la chaîne.
+   Une exception dans une partie ne doit jamais empêcher le feed de tourner.
+5. **UTF-8 partout**.
+6. Fichiers produits : uniquement `Index_Maison/scripts/` (modules) et
+   `Index_Maison/strategie/` (sorties).
+7. **Le déclenchement famille reste limité aux vraies occasions** (la spec existante
+   de `famille_session.py` reste : alerte récente / session dans le rouge / rafale
+   revenge) — on ne crée PAS de nouvelles occasions, on verrouille celles qui existent.
+
+---
+
+## MODIFICATION 1 — Verrou anti-doublon POSÉ AU DÉBUT (`famille_session.py`)
+
+Objectif : plus JAMAIS deux consultations parallèles, et pas de relance en rafale
+quand le trio est encore en cours.
+
+- **1a. Verrou fichier (`flock` ou fichier lock atomique)** : poser un lock
+  `strategie/famille_lock` AVANT de lancer les threads du trio, le relâcher à la fin
+  (dans un `finally`). Si le lock est déjà pris → `return` immédiat (consultation déjà
+  en cours), même si l'occasion existe.
+- **1b. Anti-spam écrit AU DÉBUT** : `marquer_consulte(raison)` doit être appelé
+  **avant** de lancer les threads (et non après l'écriture du fichier OUT). L'écriture
+  du fichier de sortie reste comme aujourd'hui.
+- **1c. Anti-spam même en cas d'échec** : si le trio échoue (membre injoignable,
+  hub en erreur), le délai de 5 min doit quand même s'appliquer — pas de relance en
+  rafale sur échec. (Le marquage du début couvre déjà ce cas.)
+- **1d. Robustesse** : si `marquer_consulte` échoue (permission, disque), le verrou
+  fichier 1a reste le filet de sécurité anti-doublon.
+
+## MODIFICATION 2 — Mode TEMPÊTE (`famille_session.py` + optionnel `ada_gardienne.py`)
+
+Objectif : en tempête, la consultation famille est **immédiate et prioritaire**, jamais
+bloquée par le cap calme — mais toujours protégée contre les doublons.
+
+- **2a. Détection tempête** (fonction `est_tempete()` dans `famille_session.py`) :
+  vrai si au moins un des déclencheurs suivants est actif :
+  - zone ADA **ROUGE** ou **PRENDS_LA_PERTE** (lire `strategie/ada_gardienne_live.json`
+    → clé `zone`)
+  - `alarme.json` récente avec type (comme aujourd'hui) — la gardienne a tiré
+  - vortex saison force ≥ 2 (lire `strategie/ada_saison_live.json` → `vortex.force`)
+  - session dans le rouge (pnl alpha < 0 avec fills > 0 — déjà dans
+    `est_une_occasion`)
+- **2b. En tempête** : anti-spam court (60 s au lieu de 5 min), **cap horaire calme
+  désactivé**, verrou anti-doublon TOUJOURS actif (règle absolue).
+- **2c. En calme** : anti-spam 5 min + cap horaire (max 12 consultations/heure, soit
+  1 toutes les 5 min — constante réglable) + consultation seulement si l'état a changé
+  (comportement actuel de `deja_consulte`).
+
+## MODIFICATION 3 — Budget journalier DYNAMIQUE + réserve tempête (`~/prise-ia/budget_hub.py` + `hub_prise_ia.py`)
+
+**Principe (décision Christophe, 13/08)** : « les 480 c'était hier, ce n'est pas une
+valeur fixe. Nous sommes en gratuit, utilisation intelligente, on ne gaspille pas pour
+rien. Chaque jour peut être différent vu qu'il y a rotation et choix chaque jour des
+meilleurs modèles. Le calcul devrait être fait CHAQUE JOUR au moment du check, une fois
+que le hub a décidé qui prendre et qui changer. »
+
+- **3a. Budget recalculé chaque jour** : le calcul doit se faire **au moment du check
+  quotidien**, APRÈS que le hub a figé sa rotation (providers choisis / remplacés).
+  Le budget du jour = somme des capacités des providers ACTIFS ET CHOISIS du jour ×
+  facteur de sécurité, avec un plafond. Pas de chiffre figé dans le temps.
+- **3b. Mettre à jour la table `CAPACITES` de `budget_hub.py`** : les nouveaux
+  providers manquent → ajouter `puter-grok`, `inferx-coder`, `openrouter-ultra`,
+  `openrouter-juge`, `openrouter-free` (capacités vérifiées, la plupart GRATUITS).
+- **3c. Les providers GRATUITS ne se coupent jamais** : la bascule "même famille"
+  (pref → fallback → secondary) doit toujours pouvoir utiliser les gratuits, même
+  budget dépassé. Le budget ne s'applique qu'aux providers qui coûtent de l'argent.
+  Le compteur cloud doit distinguer `gratuit` vs `payant` (kind=`free` vs `paid`).
+- **3d. Réserve storm** : constante `RESERVE_STORM` (réglable, défaut 20 % du budget
+  journalier). En mode normal on ne dépense que le budget calme. En tempête (zone
+  ROUGE/PRENDS_LA_PERTE, alarme, vortex ≥2), les tâches prioritaires (`signets.juge`,
+  `audit.protocol`, `mission`, `cortana.analyse`, `supervise.decision`) consomment la
+  réserve au lieu d'être coupées.
+- **3e. Jamais de local** (contrainte C9) : la réserve et les gratuits ne changent PAS
+  la règle "jamais qwen-local".
+- **3f. Message corrigé** : « Budget cloud journalier atteint, repli sur le local »
+  est trompeur (il n'y a pas de local) → remplacer par « Bascule vers le suivant de la
+  famille » quand un gratuit est disponible.
+- **3g. Journalisation** : événement clair dans `hub_events.jsonl`
+  (kind=`reserve-storm` / `budget-recalcule`) pour l'audit.
+- **3h. Jauge budget** : il existait une jauge de budget dans le cockpit avant
+  (stoppée récemment). À réactiver pour afficher le budget du jour, la consommation et
+  la réserve restante (uniquement affichage cockpit, pas de changement de logique).
+- **3i. Attention** : ne pas casser le comportement existant tant que le budget du
+  jour n'est pas atteint (aucun changement de comportement dans le cas nominal).
+
+## TESTS À FOURNIR (hermétiques, tout en /tmp)
+
+Le codeur doit fournir un bloc de tests exécutable (`python3 fichier.py --test`) :
+- T1 : deux consultations simultanées → une seule passe (verrou 1a).
+- T2 : consultation en cours + nouvel appel → return immédiat sans doublon.
+- T3 : échec du trio → anti-spam 5 min appliqué quand même (1c).
+- T4 : mode tempête (zone ROUGE) → anti-spam 60 s, cap horaire désactivé.
+- T5 : mode calme → cap horaire 12/h respecté.
+- T6 : budget calme atteint + tempête + réserve dispo → la tâche passe (3b).
+- T7 : budget calme atteint + calme → coupure inchangée.
+- Aucun test ne doit toucher les vrais fichiers (tout dans /tmp).
+
+## CONTRAT DE SORTIE
+
+Le code complet des 3 modifications + les tests, prêt à copier. Chaque modification
+dans son propre fichier/section, commentaires en français, non fatal.
+
+## FICHIERS CONCERNÉS
+
+- `Index_Maison/scripts/famille_session.py` (modifs 1 et 2)
+- `Index_Maison/scripts/ada_gardienne.py` (lecture zone pour tempête — si nécessaire)
+- `~/prise-ia/budget_hub.py` (modif 3)
+- Tests hermétiques
