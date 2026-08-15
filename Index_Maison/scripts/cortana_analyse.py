@@ -69,6 +69,7 @@ LEXIQUE = {
     "panierDownPct": ("Panier en baisse", "%"),
     "whaleUsd": ("Flux baleines", "USD"),
     "whaleN": ("Baleines (≥50M$)", "compte"),
+    "onchain": ("Flux onchain baleines (scan réel mempool — PAS le proxy aggTrades)", "synthèse"),
     "volQuote": ("Volume 24h", "USD"),
     "score": ("Score composite", "/100"),
     "climate": ("Climat", "label"),
@@ -312,7 +313,14 @@ def build_facts(indice):
     history = load_history()
 
     # Indices formes (radar/bassine/verre) : valeur derivee du live
-    if indice in VIRTUAL:
+    if indice == "onchain":
+        # Synthèse textuelle pré-mâchée par le pont (jamais les chiffres bruts)
+        oc = live.get("onchain", {})
+        base_key = "onchain"
+        name, unit = LEXIQUE.get(indice, (indice, ""))
+        vval = oc.get("synthèse") or oc.get("synthese") or "Données onchain non disponibles"
+        vnote = "source " + str(oc.get("whaleSource", "inconnue")) + " · direction " + str(oc.get("whaleDir", "neutral"))
+    elif indice in VIRTUAL:
         base_key, name, unit = VIRTUAL[indice]
         vval, vnote = virtual_value(indice, live)
     else:

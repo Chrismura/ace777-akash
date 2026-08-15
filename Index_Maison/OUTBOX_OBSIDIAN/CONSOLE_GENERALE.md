@@ -1,6 +1,6 @@
 # Console générale — clin d’œil
 
-Auto-refresh : 2026-08-14 18:53 UTC · jour local **2026-08-14**
+Auto-refresh : 2026-08-15 18:53 UTC · jour local **2026-08-15**
 
 ## Feu tricolore
 
@@ -8,7 +8,7 @@ Auto-refresh : 2026-08-14 18:53 UTC · jour local **2026-08-14**
 |-------|------|--------|
 | **ACE** | 🟢 RUN | Dernier tag `NUAGE_TEST_8H_CMP2` · combo ≈ **-45.11 $** |
 | **Hulk paper** | 🟢 RUN | pnl_total ≈ **-2.4530** · pos **7** |
-| **Hulk digest** | 🔴 STOP | mtime 2026-08-13T01:37Z |
+| **Hulk digest** | 🔴 STOP | mtime 2026-08-15T15:28Z |
 | **Punk** | 🔴 STOP | — · idle |
 | **Ollama** | 🟢 RUN | |
 | **Obsidian** | 🟢 | vault `Obsidian_ACE777` |
@@ -25,4 +25,4 @@ Auto-refresh : 2026-08-14 18:53 UTC · jour local **2026-08-14**
 - Pairs ouvertes (state) : RIZEUSDT, RWAINCUSDT, REDUSDT, ZBCNUSDT, TELUSDT, PYTHUSDT, QAITUSDT
 
 ## Liens
-[[PLAN_DE_VOL]] · [[AUTO_PROCESSUS]] · [[AGORA]] · [[Cahier/Journal_2026-08-14]] · [[OSSATURE]]
+[[PLAN_DE_VOL]] · [[AUTO_PROCESSUS]] · [[AGORA]] · [[Cahier/Journal_2026-08-15]] · [[OSSATURE]]

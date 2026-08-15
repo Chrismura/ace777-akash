@@ -423,9 +423,23 @@ def signaux_instantanes(data: Dict, pnl_cur: float,
 # VOILURE (mélange pondéré + lissage continu)
 # ============================================================
 
-def calculer_voilure(p: Dict[str, float]) -> float:
+def calculer_voilure(p: Dict[str, float], thermo: Optional[Dict] = None) -> float:
     melange = W_BLEED * p["bleed"] + W_STORM * p["storm"] + W_REVERSAL * p["reversal"]
-    return round(clamp(1.0 - lissage_monotone(melange), 0.0, 1.0) * 100.0, 1)
+    voilure = round(clamp(1.0 - lissage_monotone(melange), 0.0, 1.0) * 100.0, 1)
+    # Modulateur ONCHAIN (famille : ±10% max, jamais de blocage, seuil relatif auto-appris)
+    if thermo:
+        oc = thermo.get("onchain") or {}
+        cumul_24h = float(oc.get("whaleCumul24hBtc", 0.0) or 0.0)
+        moy7j = float(oc.get("whaleMoy7jBtc", 0.0) or 0.0)
+        direction = str(oc.get("whaleDir", "neutral"))
+        if moy7j > 0 and cumul_24h > 2.0 * moy7j and direction == "outflow":
+            facteur = 0.93  # sortie massive d'exchange → pression vendeuse → voilure réduite
+        elif direction == "inflow" and cumul_24h > moy7j:
+            facteur = 1.05  # accumulation → voilure légèrement élargie
+        else:
+            facteur = 1.0
+        voilure = round(clamp(voilure * facteur, 0.0, 100.0), 1)
+    return voilure
 
 
 def determiner_zone(voilure_pct: float) -> Tuple[str, str]:
@@ -604,7 +618,7 @@ def scan() -> Dict[str, Any]:
         pnl_prev = etat_prev.get("pnl")
 
         p = pressions(data, perte_session, seuil_x, pnl_prev, pnl_cur)
-        voilure = calculer_voilure(p)
+        voilure = calculer_voilure(p, data.get("thermo"))
         zone_name, emoji = determiner_zone(voilure)
 
         if perte_session >= seuil_x:
