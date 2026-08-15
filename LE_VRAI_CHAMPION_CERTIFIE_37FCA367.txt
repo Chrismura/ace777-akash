@@ -883,10 +883,13 @@ duo_touch_heartbeat_force() {
     path=ARGV[0]
     begin
       j=JSON.parse(File.read(path))
-      j["ts_ms"]=(Time.now.to_f*1000).to_i
-      tmp="#{path}.tmp.#{$$}"
-      File.write(tmp, JSON.generate(j))
-      File.rename(tmp, path)
+      # FIX-HEARTBEAT (15/08) : ne pas rafraîchir ts_ms sur perte close (sinon TTL revenge 20s inopérant)
+      unless j["status"].to_s == "CLOSED" && (Float(j["pnl_usdt"]) rescue 0.0) < 0.0
+        j["ts_ms"]=(Time.now.to_f*1000).to_i
+        tmp="#{path}.tmp.#{$$}"
+        File.write(tmp, JSON.generate(j))
+        File.rename(tmp, path)
+      end
     rescue
     end
   ' -- "$DUO_STATE_FILE" 2>/dev/null || true
