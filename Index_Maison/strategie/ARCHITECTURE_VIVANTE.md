@@ -1,10 +1,10 @@
-# ARCHITECTURE VIVANTE — ACE777 (2026-08-15 05:00 UTC)
+# ARCHITECTURE VIVANTE — ACE777 (2026-08-15 06:17 UTC)
 
 > Document GÉNÉRÉ AUTOMATIQUEMENT à l'instant. La famille valide
 > en s'appuyant sur CE contexte, pas sur des documents figés.
 
 ## Qui tourne en ce moment
-- ✅ hub
+- ⛔ hub
 - ✅ pont cockpit
 - ⛔ radar
 - ⛔ lecteur signets
@@ -22,7 +22,7 @@
 
 ## État de la mission (bots + PnL)
 
-- mission.json : 2026-08-15 05:00Z · run `MASTER_VORTEX_V2_COLLAB_4H` · alerte `amber`
+- mission.json : 2026-08-15 06:17Z · run `MASTER_VORTEX_V2_COLLAB_4H` · alerte `amber`
 - PnL combiné : **0.00 $** ➖ (combo 0)
 - ALPHA (sniper (embuscade, ×13, revenge si claque)) : **+0.00 $** · 0 fills · 0 skips
 - BETA (éclaireur (chatouille le marché, alimente Alpha)) : **+0.00 $** · 0 fills · 0 skips
@@ -31,7 +31,17 @@
 
 ## Veille du jour
 
-- VEILLE du jour : pas encore passée
+- [Santé]
+  · hub : OK (9 providers)
+- [Énergie du jour]
+  · appels : 191 (cloud 191)
+  · budget cloud : 624 max
+  · par provider : gemini=119, puter-grok=72
+- [Nouvelles offres détectées (non intégrées)]
+  · liquid/lfm-2.5-2.6b:free
+  · nvidia/nemotron-3.5-lightning:free
+  · poolside/laguna-s-2.1:free
+  … 105 offres/pépites détectées ce matin
 
 ## Mémoire chaude (journal + résumés)
 
