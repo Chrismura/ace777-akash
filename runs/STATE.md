@@ -1,13 +1,13 @@
 # ACE777 — STATE
 
 > Généré automatiquement — ne pas éditer à la main
-> Phase: `running` | Statut: `RUNNING` | MAJ: `2026-08-15T10:45:32Z`
+> Phase: `stopped` | Statut: `STOPPED` | MAJ: `2026-08-15T12:47:50Z`
 
 ## Config active
 
 | Paramètre | Valeur |
 |-----------|--------|
-| Profil | `vide_froid_vortex_v2_collab` v`2026-07-10-v2.2.2-no-partner-halt` |
+| Profil | `vide_froid_binance` v`2026-07-08-setup-ready` |
 | Masse BETA / ALPHA | `200` / `800` USDT |
 | LLM gate | enabled=`TRUE` fail_closed=`TRUE` |
 | Modèle LLM | `qwen2.5-coder:1.5b` |
@@ -17,35 +17,55 @@
 
 | Unité | FILLED | Win | Loss | Win% | Net USDT | SKIP |
 |-------|--------|-----|------|------|----------|------|
-| BETA | 0 | 0 | 0 | 0.00% | 0.0000 | 0 |
-| ALPHA | 0 | 0 | 0 | 0.00% | 0.0000 | 0 |
-| **TOTAL** | **0** | — | — | — | **0.0000** | **0** |
+| BETA | 66 | 26 | 23 | 39.4% | 0.5182 | 746 |
+| ALPHA | 41 | 12 | 16 | 29.3% | -0.3393 | 768 |
+| **TOTAL** | **107** | — | — | — | **0.1789** | **1514** |
 
 ## Duo session (`duo_session.json`)
 
-- SCOUT PnL: `` USDT
-- HUNTER PnL: `` USDT
-- Total session: `` USDT
+- SCOUT PnL: `0.51819` USDT
+- HUNTER PnL: `-0.33931` USDT
+- Total session: `0.17888000000000004` USDT
+
+## Duo live (`duo_state.json`)
+
+| Champ | Valeur |
+|-------|--------|
+| role | `SCOUT` |
+| status | `CLOSED` |
+| side | `SELL` |
+| bps | `0.01589032` |
+| pnl_usdt | `0.00078` |
+| reason | `shock_inversion_stop` |
+| cycle | `792` |
+| hold_sec | `6` |
 
 ## Top SKIP — BETA
 
-_Aucun SKIP ou CSV absent._
+1. `radar_block` — 637
+2. `impulse_resonance_wait` — 106
+3. `tactic_mismatch` — 2
+4. `stase_ecoute` — 1
 
 ## Top SKIP — ALPHA
 
-_Aucun SKIP ou CSV absent._
+1. `radar_block` — 614
+2. `impulse_resonance_wait` — 107
+3. `duo_wait` — 43
+4. `stase_ecoute` — 2
+5. `tactic_mismatch` — 2
 
 ## Vortex (`vortex_control.json`)
 
 - Mode: `TREND`
 - Message: `v2_swarm_wind_trend`
-- TS: `2026-08-15T10:45:29Z`
+- TS: `2026-08-15T12:47:48Z`
 
 ## Processus
 
-- master.pid: `RUNNING`
-- beta.pid: `RUNNING`
-- alpha.pid: `RUNNING`
+- master.pid: `stopped`
+- beta.pid: `stopped`
+- alpha.pid: `stopped`
 
 ## Fichiers
 
