@@ -17,7 +17,7 @@ cd "$ROOT"
 
 DURATION="${1:-04:00:00}"
 # 14/08 : re-scellé d6977337 = 98c80b5c + trap ERR + safe_call (famille 6/6, SPEC v3)
-EXPECT_MD5_PREFIX="8d9ee8d6"
+EXPECT_MD5_PREFIX="fe2a7bcc"
 
 fail() { echo "FAIL: $*" >&2; exit 1; }
 

@@ -1520,7 +1520,7 @@ for i in $(seq 1 "$CYCLES"); do
   if ! gap_guard_check "$i"; then
     rem=$((gap_guard_pause_until - $(to_int "$(now_sec)")))
     [ "$rem" -lt 0 ] && rem=0
-    echo "$(date -u +%FT%TZ),$i,SKIP,SKIPPED,,,,,0,gap_guard_pause,reason=battery_wake pause_sec=${rem}" >> "$LOG_FILE"
+    echo "$(date -u +%FT%TZ),$i,SKIP,SKIPPED,,,,,0,gap_guard_pause,,reason=battery_wake pause_sec=${rem}" >> "$LOG_FILE"
     sk_lev="$C_C"; num_ge "$current_leverage" "13" && sk_lev="$C_G"; num_le "$current_leverage" "5" && sk_lev="$C_Y"
     echo "${C_C}$(date -u +%H:%M:%S)${C_N} ${sk_lev}x$current_leverage${C_N} ${C_C}#$i${C_N} SKIP ${C_Y}| gap_guard pause ${rem}s${C_N}"
     sleep "$SLEEP_SEC"
@@ -1534,7 +1534,7 @@ for i in $(seq 1 "$CYCLES"); do
     fi
     rem=$((duo_partner_pause_until - $(to_int "$(now_sec)")))
     [ "$rem" -lt 0 ] && rem=0
-    echo "$(date -u +%FT%TZ),$i,SKIP,SKIPPED,,,,,0,duo_partner_pause,reason=partner_stale pause_sec=${rem} neighbor_age=${swarm_neighbor_age_sec:-?}" >> "$LOG_FILE"
+    echo "$(date -u +%FT%TZ),$i,SKIP,SKIPPED,,,,,0,duo_partner_pause,,reason=partner_stale pause_sec=${rem} neighbor_age=${swarm_neighbor_age_sec:-?}" >> "$LOG_FILE"
     sk_lev="$C_C"; num_ge "$current_leverage" "13" && sk_lev="$C_G"; num_le "$current_leverage" "5" && sk_lev="$C_Y"
     echo "${C_C}$(date -u +%H:%M:%S)${C_N} ${sk_lev}x$current_leverage${C_N} ${C_C}#$i${C_N} SKIP ${C_Y}| duo_partner_guard pause ${rem}s${C_N}"
     swarm_telemetry_heartbeat "$i" "partner_pause"
@@ -1703,7 +1703,7 @@ for i in $(seq 1 "$CYCLES"); do
     esac
   done
   if [ "$hr_allow" != "true" ]; then
-    echo "$(date -u +%FT%TZ),$i,SKIP,SKIPPED,,,,,0,hashrate_block,reason=$hr_reason delta_pct=$hr_delta" >> "$LOG_FILE"
+    echo "$(date -u +%FT%TZ),$i,SKIP,SKIPPED,,,,,0,hashrate_block,,reason=$hr_reason delta_pct=$hr_delta" >> "$LOG_FILE"
     sk_lev="$C_C"; num_ge "$current_leverage" "13" && sk_lev="$C_G"; num_le "$current_leverage" "5" && sk_lev="$C_Y"
     echo "${C_C}$(date -u +%H:%M:%S)${C_N} ${sk_lev}x$current_leverage${C_N} ${C_C}#$i${C_N} SKIP ${C_N}| hashrate $hr_reason"
     sleep "$SLEEP_SEC"
@@ -1798,7 +1798,7 @@ for i in $(seq 1 "$CYCLES"); do
     if swarm_try_direction_align "$momentum_signal" "$spread_bps"; then
       radar_reason="swarm_direction_align"
     else
-    echo "$(date -u +%FT%TZ),$i,SKIP,SKIPPED,,,,,0,radar_block,reason=$radar_reason conf=$radar_conf mom_sig=$momentum_signal raw_mom_bps=$mom_bps spread_bps=$spread_bps tension=$tension_score bid_drop=$wall_drop_bid_pct ask_drop=$wall_drop_ask_pct swarm=$swarm_velocity_boost_active" >> "$LOG_FILE"
+    echo "$(date -u +%FT%TZ),$i,SKIP,SKIPPED,,,,,0,radar_block,,reason=$radar_reason conf=$radar_conf mom_sig=$momentum_signal raw_mom_bps=$mom_bps spread_bps=$spread_bps tension=$tension_score bid_drop=$wall_drop_bid_pct ask_drop=$wall_drop_ask_pct swarm=$swarm_velocity_boost_active" >> "$LOG_FILE"
     sk_lev="$C_C"; num_ge "$current_leverage" "13" && sk_lev="$C_G"; num_le "$current_leverage" "5" && sk_lev="$C_Y"
     sk_ten="$C_C"; num_ge "$tension_score" "2.0" && sk_ten="$C_R"; num_ge "$tension_score" "1.0" && num_lt "$tension_score" "2.0" && sk_ten="$C_G"; num_ge "$tension_score" "0.85" && num_lt "$tension_score" "1.0" && sk_ten="$C_Y"
     col_conf="$C_R"; num_ge "$radar_conf" "0.8" && col_conf="$C_G"; num_ge "$radar_conf" "0.5" && num_lt "$radar_conf" "0.8" && col_conf="$C_Y"
@@ -1810,7 +1810,7 @@ for i in $(seq 1 "$CYCLES"); do
   last_swarm_conf="$radar_conf"
   if [ "$V8_TENSION_MODE" = "TRUE" ]; then
     if [ "$percussion_valid" != "true" ]; then
-      echo "$(date -u +%FT%TZ),$i,SKIP,SKIPPED,,,,,0,impulse_resonance_wait,reason=wall_not_collapsed tension=$tension_score bid_drop=$wall_drop_bid_pct ask_drop=$wall_drop_ask_pct" >> "$LOG_FILE"
+      echo "$(date -u +%FT%TZ),$i,SKIP,SKIPPED,,,,,0,impulse_resonance_wait,,reason=wall_not_collapsed tension=$tension_score bid_drop=$wall_drop_bid_pct ask_drop=$wall_drop_ask_pct" >> "$LOG_FILE"
       sk_lev="$C_C"; num_ge "$current_leverage" "13" && sk_lev="$C_G"; num_le "$current_leverage" "5" && sk_lev="$C_Y"
       sk_ten="$C_C"; num_ge "$tension_score" "2.0" && sk_ten="$C_R"; num_ge "$tension_score" "1.0" && num_lt "$tension_score" "2.0" && sk_ten="$C_G"; num_ge "$tension_score" "0.85" && num_lt "$tension_score" "1.0" && sk_ten="$C_Y"
       echo "${C_C}$(date -u +%H:%M:%S)${C_N} ${sk_lev}x$current_leverage${C_N} ${C_C}#$i${C_N} SKIP tension=${sk_ten}$tension_score${C_N} ${C_N}| wall_not_collapsed"
@@ -1818,7 +1818,7 @@ for i in $(seq 1 "$CYCLES"); do
       continue
     fi
     if ! num_ge "$tension_score" "$cycle_vacuum_threshold"; then
-      echo "$(date -u +%FT%TZ),$i,SKIP,SKIPPED,,,,,0,vacuum_filter,reason=cold_absolute tension=$tension_score threshold=$cycle_vacuum_threshold vortex_mode=$vortex_mode" >> "$LOG_FILE"
+      echo "$(date -u +%FT%TZ),$i,SKIP,SKIPPED,,,,,0,vacuum_filter,,reason=cold_absolute tension=$tension_score threshold=$cycle_vacuum_threshold vortex_mode=$vortex_mode" >> "$LOG_FILE"
       sk_lev="$C_C"; num_ge "$current_leverage" "13" && sk_lev="$C_G"; num_le "$current_leverage" "5" && sk_lev="$C_Y"
       sk_ten="$C_C"; num_ge "$tension_score" "2.0" && sk_ten="$C_R"; num_ge "$tension_score" "1.0" && num_lt "$tension_score" "2.0" && sk_ten="$C_G"; num_ge "$tension_score" "0.85" && num_lt "$tension_score" "1.0" && sk_ten="$C_Y"
       echo "${C_C}$(date -u +%H:%M:%S)${C_N} ${sk_lev}x$current_leverage${C_N} ${C_C}#$i${C_N} SKIP tension=${sk_ten}$tension_score${C_N} ${C_N}| cold < $cycle_vacuum_threshold (vortex=$vortex_mode)"
@@ -1832,7 +1832,7 @@ for i in $(seq 1 "$CYCLES"); do
   fi
   if [ "$ENTRY_SIGNAL" = "CROSSOVER" ] && [ "$TREND_FILTER" = "TRUE" ] && [ "$structure_direction" != "neutral" ]; then
     if [ "$mom_direction" != "neutral" ] && [ "$mom_direction" != "$structure_direction" ]; then
-      echo "$(date -u +%FT%TZ),$i,SKIP,SKIPPED,,,,,0,tactic_mismatch,mom=$mom_direction structure=$structure_direction" >> "$LOG_FILE"
+      echo "$(date -u +%FT%TZ),$i,SKIP,SKIPPED,,,,,0,tactic_mismatch,,mom=$mom_direction structure=$structure_direction" >> "$LOG_FILE"
       sk_lev="$C_C"; num_ge "$current_leverage" "13" && sk_lev="$C_G"; num_le "$current_leverage" "5" && sk_lev="$C_Y"
       sk_ten="$C_C"; num_ge "${tension_score:-0}" "2.0" && sk_ten="$C_R"; num_ge "${tension_score:-0}" "1.0" && num_lt "${tension_score:-0}" "2.0" && sk_ten="$C_G"; num_ge "${tension_score:-0}" "0.85" && num_lt "${tension_score:-0}" "1.0" && sk_ten="$C_Y"
       echo "${C_C}$(date -u +%H:%M:%S)${C_N} ${sk_lev}x$current_leverage${C_N} ${C_C}#$i${C_N} SKIP tension=${sk_ten}${tension_score:-0}${C_N} ${C_N}| tactic $mom_direction vs $structure_direction"
@@ -1848,7 +1848,7 @@ for i in $(seq 1 "$CYCLES"); do
     num_lt "$spread_bps" "$STASE_DYNAMIQUE_MAX_SPREAD_BPS" && spread_cold=1
     num_lt "$impulse_abs_bps_s" "$STASE_DYNAMIQUE_MAX_VOLATILITY" && volat_cold=1
     if [ "$spread_cold" -eq 0 ] || [ "$volat_cold" -eq 0 ]; then
-      echo "$(date -u +%FT%TZ),$i,SKIP,SKIPPED,,,,,0,stase_ecoute,reason=spread_or_volat_not_cold spread_bps=$spread_bps volat=$impulse_abs_bps_s" >> "$LOG_FILE"
+      echo "$(date -u +%FT%TZ),$i,SKIP,SKIPPED,,,,,0,stase_ecoute,,reason=spread_or_volat_not_cold spread_bps=$spread_bps volat=$impulse_abs_bps_s" >> "$LOG_FILE"
       sk_lev="$C_C"; num_ge "$current_leverage" "13" && sk_lev="$C_G"; num_le "$current_leverage" "5" && sk_lev="$C_Y"
       echo "${C_C}$(date -u +%H:%M:%S)${C_N} ${sk_lev}x$current_leverage${C_N} ${C_C}#$i${C_N} SKIP ${C_N}| Mode Écoute: spread=$spread_bps volat=$impulse_abs_bps_s (attente froid)"
       sleep "$SLEEP_SEC"
@@ -1866,7 +1866,7 @@ for i in $(seq 1 "$CYCLES"); do
   fi
 
   if [ "$ENABLE_ORDERS" != "TRUE" ]; then
-    echo "$(date -u +%FT%TZ),$i,OBSERVE,NA,$p1,$p2,0,$mom_bps,0,observe_only,mom_sig=$momentum_signal impulse_bps_s=$impulse_bps_s angle=$rupture_angle_deg" >> "$LOG_FILE"
+    echo "$(date -u +%FT%TZ),$i,OBSERVE,NA,$p1,$p2,0,$mom_bps,0,observe_only,,mom_sig=$momentum_signal impulse_bps_s=$impulse_bps_s angle=$rupture_angle_deg" >> "$LOG_FILE"
     echo "${C_C}Cycle $i/$CYCLES${C_N} ${C_C}OBSERVE${C_N} ${C_C}| mom_sig=$momentum_signal radar=$radar_direction${C_N}"
     sleep "$SLEEP_SEC"
     continue
@@ -1928,7 +1928,7 @@ for i in $(seq 1 "$CYCLES"); do
       fi
     fi
     if [ "$duo_allow" != "true" ]; then
-      echo "$(date -u +%FT%TZ),$i,SKIP,SKIPPED,,,,,0,duo_wait,reason=$duo_reason mode=$duo_mode_note" >> "$LOG_FILE"
+      echo "$(date -u +%FT%TZ),$i,SKIP,SKIPPED,,,,,0,duo_wait,,reason=$duo_reason mode=$duo_mode_note" >> "$LOG_FILE"
       sk_lev="$C_C"; num_ge "$current_leverage" "13" && sk_lev="$C_G"; num_le "$current_leverage" "5" && sk_lev="$C_Y"
       sk_ten="$C_C"; num_ge "$tension_score" "2.0" && sk_ten="$C_R"; num_ge "$tension_score" "1.0" && num_lt "$tension_score" "2.0" && sk_ten="$C_G"; num_ge "$tension_score" "0.85" && num_lt "$tension_score" "1.0" && sk_ten="$C_Y"
       echo "${C_C}$(date -u +%H:%M:%S)${C_N} ${sk_lev}x$current_leverage${C_N} ${C_C}#$i${C_N} SKIP tension=${sk_ten}$tension_score${C_N} ${C_N}| duo $duo_reason"
@@ -1978,7 +1978,7 @@ for i in $(seq 1 "$CYCLES"); do
   raw_qty="$(num_div "$(num_mul "$cycle_buy_usdt" "$current_leverage")" "$p2")"
   qty="$(floor_step_qty "$raw_qty" "$lot_step")"
   if ! num_ge "$qty" "$lot_min"; then
-    echo "$(date -u +%FT%TZ),$i,SKIP,$side,$p2,,$qty,0,0,qty_too_small,min=$lot_min" >> "$LOG_FILE"
+    echo "$(date -u +%FT%TZ),$i,SKIP,$side,$p2,,$qty,0,0,qty_too_small,,min=$lot_min" >> "$LOG_FILE"
     sk_lev="$C_C"; num_ge "$current_leverage" "13" && sk_lev="$C_G"; num_le "$current_leverage" "5" && sk_lev="$C_Y"
     echo "${C_C}$(date -u +%H:%M:%S)${C_N} ${sk_lev}x$current_leverage${C_N} ${C_C}#$i${C_N} SKIP ${C_N}| qty < $lot_min"
     sleep "$SLEEP_SEC"
@@ -2036,7 +2036,7 @@ for i in $(seq 1 "$CYCLES"); do
       llm_gate_block="FALSE"
     fi
     if [ "$llm_gate_block" = "TRUE" ]; then
-      echo "$(date -u +%FT%TZ),$i,SKIP,SKIPPED,,,,,0,llm_gate,reason=${llm_gate_reason} status=${llm_gate_status} tension=$tension_score" >> "$LOG_FILE"
+      echo "$(date -u +%FT%TZ),$i,SKIP,SKIPPED,,,,,0,llm_gate,,reason=${llm_gate_reason} status=${llm_gate_status} tension=$tension_score" >> "$LOG_FILE"
       sk_lev="$C_C"; num_ge "$current_leverage" "13" && sk_lev="$C_G"; num_le "$current_leverage" "5" && sk_lev="$C_Y"
       sk_ten="$C_C"; num_ge "$tension_score" "2.0" && sk_ten="$C_R"; num_ge "$tension_score" "1.0" && num_lt "$tension_score" "2.0" && sk_ten="$C_G"; num_ge "$tension_score" "0.85" && num_lt "$tension_score" "1.0" && sk_ten="$C_Y"
       echo "${C_C}$(date -u +%H:%M:%S)${C_N} ${sk_lev}x$current_leverage${C_N} ${C_C}#$i${C_N} SKIP tension=${sk_ten}$tension_score${C_N} ${C_N}| llm_gate ${llm_gate_reason} (${llm_gate_status})"
@@ -2064,7 +2064,7 @@ for i in $(seq 1 "$CYCLES"); do
     fi
     if [ -n "$entry_code" ]; then
       msg="$(json_get "$entry_resp" "msg")"
-      echo "$(date -u +%FT%TZ),$i,ENTRY_ERROR,$side,$p2,,$qty_25,0,0,entry_error,code=$entry_code msg=$msg" >> "$LOG_FILE"
+      echo "$(date -u +%FT%TZ),$i,ENTRY_ERROR,$side,$p2,,$qty_25,0,0,entry_error,,code=$entry_code msg=$msg" >> "$LOG_FILE"
       echo "${C_C}Cycle $i${C_N} ${C_R}ENTRY 25% error${C_N} ${C_R}| code=$entry_code msg=$msg${C_N}"
       sleep "$SLEEP_SEC"
       continue
@@ -2116,7 +2116,7 @@ for i in $(seq 1 "$CYCLES"); do
     fi
     if [ -n "$entry_code" ]; then
       msg="$(json_get "$entry_resp" "msg")"
-      echo "$(date -u +%FT%TZ),$i,ENTRY_ERROR,$side,$p2,,$qty,0,0,entry_error,code=$entry_code msg=$msg" >> "$LOG_FILE"
+      echo "$(date -u +%FT%TZ),$i,ENTRY_ERROR,$side,$p2,,$qty,0,0,entry_error,,code=$entry_code msg=$msg" >> "$LOG_FILE"
       echo "${C_C}Cycle $i${C_N} ${C_R}ENTRY error${C_N} ${C_R}| code=$entry_code msg=$msg${C_N}"
       sleep "$SLEEP_SEC"
       continue
@@ -2438,7 +2438,7 @@ for i in $(seq 1 "$CYCLES"); do
     exit_code="$(json_get "$exit_resp" "code")"
     if [ -n "$exit_code" ]; then
       msg="$(json_get "$exit_resp" "msg")"
-      echo "$(date -u +%FT%TZ),$i,EXIT_ERROR,$side,$entry_price,,$qty,$current_bps,0,$reason,code=$exit_code msg=$msg" >> "$LOG_FILE"
+      echo "$(date -u +%FT%TZ),$i,EXIT_ERROR,$side,$entry_price,,$qty,$current_bps,0,$reason,,code=$exit_code msg=$msg" >> "$LOG_FILE"
       echo "${C_C}Cycle $i${C_N} ${C_R}EXIT error${C_N} ${C_R}| code=$exit_code msg=$msg${C_N}"
       sleep "$SLEEP_SEC"
       continue
@@ -2504,7 +2504,7 @@ for i in $(seq 1 "$CYCLES"); do
     soft_cooldown_remaining="$SOFT_COOLDOWN_CYCLES"
     echo "${C_C}Cycle $i${C_N} ${C_G}SOFT anomaly${C_N} ${C_Y}| pnl_abs=$(abs_num "$pnl_usdt") > $anomaly_pnl_eff${C_N}"
   fi
-  echo "$(date -u +%FT%TZ),$i,$side,FILLED,$entry_price,$exit_price,$qty,$bps,$pnl_usdt,$reason,radar=$radar_direction conf=$radar_conf size_note=$dynamic_size_note soft=$cycle_soft_mode pct=$pct tension=$tension_score bid_drop=$wall_drop_bid_pct ask_drop=$wall_drop_ask_pct" >> "$LOG_FILE"
+  echo "$(date -u +%FT%TZ),$i,$side,FILLED,$entry_price,$exit_price,$qty,$bps,$pnl_usdt,$reason,$hold_done,radar=$radar_direction conf=$radar_conf size_note=$dynamic_size_note soft=$cycle_soft_mode pct=$pct tension=$tension_score bid_drop=$wall_drop_bid_pct ask_drop=$wall_drop_ask_pct" >> "$LOG_FILE"
   col_pnl="$C_G"; num_gt "$pnl_usdt" "0" || { col_pnl="$C_R"; num_lt "$pnl_usdt" "0" || col_pnl="$C_Y"; }
   col_lev="$C_C"; num_ge "$current_leverage" "13" && col_lev="$C_G"; num_le "$current_leverage" "5" && col_lev="$C_Y"
   col_ten="$C_C"; num_ge "$tension_score" "2.0" && col_ten="$C_R"; num_ge "$tension_score" "1.0" && num_lt "$tension_score" "2.0" && col_ten="$C_G"; num_ge "$tension_score" "0.85" && num_lt "$tension_score" "1.0" && col_ten="$C_Y"
