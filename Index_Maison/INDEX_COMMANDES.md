@@ -297,6 +297,13 @@ cd ~/ace777-test-day1 && caffeinate -dims ./GO_VORTEX_V2.sh 04:00:00
 ```
 Lance ACE testnet **avec le juge hub** (grok → gemini) — c'est LE lanceur à utiliser maintenant, pas GO_USINE (qui a le gate OFF). Profil `vortex_v2_collab.env`. Vérifier après boot : `tail -5 runs/supervisor_v9_v2.log` doit afficher `LLM llm_wind` (pas `EMRG`).
 
+**RUN CONTINU (depuis 15/08 — arrêt libre quand on veut) :**
+
+```bash
+cd ~/ace777-test-day1 && ./GO_VORTEX_V2.sh 96:00:00
+```
+Run testnet **sans durée à respecter** : le lanceur boucle en sessions tant qu'il reste du temps (96h = on ne l'attend jamais). **Arrêt quand on veut** : `touch STOP` (fin propre à la prochaine session) ou `./stop_ace777.sh` (arrêt immédiat complet). Genesis vérifié avant lancement (md5 `8d9ee8d6`). C'est le mode utilisé pour les runs supervisés en continu.
+
 ```bash
 cd ~/ace777-test-day1 && ./ENCHAINER_RUN_4H_HUB.sh
 ```
