@@ -17,6 +17,7 @@ import json
 import os
 import sys
 import time
+import urllib.error
 import urllib.parse
 import urllib.request
 from datetime import datetime, timezone
@@ -54,16 +55,61 @@ def load_env(path: Path) -> dict:
     return d
 
 
-def http_json(url: str, timeout: float = 40.0, retries: int = 3) -> Any:
+# ─── Robustesse réseau (WiFi/alpage) : timeout strict + back-off + circuit-breaker ───
+_CB: dict[str, dict[str, float]] = {}
+
+
+def _host_of(url: str) -> str:
+    return urllib.parse.urlparse(url).netloc
+
+
+def _circuit_open(host: str, failures: int, cooldown_sec: float) -> bool:
+    st = _CB.get(host)
+    if not st:
+        return False
+    if st["fails"] >= failures:
+        if time.time() - st["opened_at"] < cooldown_sec:
+            return True
+        _CB.pop(host, None)  # cooldown écoulé → on réessaie
+    return False
+
+
+def _record_failure(host: str) -> None:
+    st = _CB.setdefault(host, {"fails": 0, "opened_at": 0.0})
+    st["fails"] += 1
+    st["opened_at"] = time.time()
+
+
+def _record_success(host: str) -> None:
+    _CB.pop(host, None)
+
+
+def http_json(
+    url: str,
+    timeout: float = 12.0,
+    retries: int = 3,
+    *,
+    failures: int = 3,
+    cooldown_sec: float = 60.0,
+) -> Any:
+    host = _host_of(url)
     last: Optional[Exception] = None
     for i in range(retries):
+        if _circuit_open(host, failures, cooldown_sec):
+            raise TimeoutError(
+                f"circuit-open {host} (réseau dégradé, pause {int(cooldown_sec)}s)"
+            )
         try:
             req = urllib.request.Request(url, headers={"User-Agent": "hulk-digest/0.1"})
             with urllib.request.urlopen(req, timeout=timeout) as r:
+                _record_success(host)
                 return json.loads(r.read().decode())
         except Exception as e:
             last = e
-            time.sleep(1.0 * (i + 1))
+            # 4xx/5xx = le serveur répond → PAS une panne réseau (ne compte pas pour le circuit)
+            if not isinstance(e, urllib.error.HTTPError):
+                _record_failure(host)
+            time.sleep(min(2.0 ** i, 8.0))  # back-off exponentiel 1→2→4s (plafonné 8s)
     raise last  # type: ignore[misc]
 
 
@@ -211,12 +257,22 @@ def priority_score(row: dict) -> float:
     return round(score, 2)
 
 
-def build_digest(cfg: dict, *, with_llama: bool = True) -> dict:
+def build_digest(
+    cfg: dict, *, with_llama: bool = True, deadline_sec: float = 90.0
+) -> dict:
     pairs = pairs_from_cfg(cfg)
     mexc_meta = load_env(MEXC_ENV)
     has_keys = bool(mexc_meta.get("MEXC_API_KEY") and mexc_meta.get("MEXC_API_SECRET"))
     rows = []
+    degraded = False
+    t0 = time.time()
     for pair in pairs:
+        if time.time() - t0 > deadline_sec:
+            degraded = True
+            rows.append(
+                {"pair": pair, "error": "scan_deadline", "priority": -1, "hint": "ERR"}
+            )
+            continue
         try:
             t24 = ticker_24h(pair)
             kl = kline_move(pair)
@@ -263,6 +319,7 @@ def build_digest(cfg: dict, *, with_llama: bool = True) -> dict:
     rows.sort(key=lambda r: -float(r.get("priority") or -1))
     return {
         "ts": utc_now(),
+        "degraded": degraded,
         "mexc_keys_loaded": has_keys,
         "source_truth": "MEXC spot",
         "upstream": ["DefiLlama best-effort"],
@@ -396,6 +453,13 @@ def to_markdown(dig: dict) -> str:
     lines = [
         f"# Hulk DIGEST — {dig['ts']}",
         "",
+    ]
+    if dig.get("degraded"):
+        lines += [
+            "> ⚠️ **SCAN DÉGRADÉ (réseau)** — données partielles, veille hors délai.",
+            "",
+        ]
+    lines += [
         f"- **Piste :** VEILLE (séparée du paper Hulk)",
         f"- Source trading : **{dig['source_truth']}**",
         f"- Amont : {', '.join(dig['upstream'])} (= API DeFi, **pas** Llama LLM)",
@@ -453,7 +517,13 @@ def run_once(cfg: dict, *, prev_sig: str = "", cycle: int = 0, loop: bool = Fals
         f"[{utc_now()}] digest MEXC… piste VEILLE "
         f"(llama={'ON' if with_llama else 'skip'})"
     )
-    dig = build_digest(cfg, with_llama=with_llama)
+    deadline = float(cfg.get("SCAN_DEADLINE_SEC", "90") or 90)
+    dig = build_digest(cfg, with_llama=with_llama, deadline_sec=deadline)
+    if dig.get("degraded"):
+        print(
+            f"[{utc_now()}] ⚠ scan dégradé (deadline {deadline:.0f}s atteinte) — réseau lent, "
+            f"données partielles"
+        )
     ts = datetime.now(timezone.utc).strftime("%Y%m%d_%H%M%S")
     # JSON/MD complets : latest toujours ; snapshot fichier seulement si alerte ou 1er
     latest = RUNS / "DIGEST_LATEST.md"
