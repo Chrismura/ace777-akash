@@ -248,6 +248,42 @@ def contexte_systeme() -> str:
     except Exception:
         pass
 
+    # 5) Couche connaissance AUTO (option B — pilote contrôlé, garde-fous famille 15/08) :
+    #    - injection SYNTHÉTIQUE pré-mâchée uniquement (jamais de chiffres bruts),
+    #    - plafond 3 fiches par analyse (anti-infobésité à 44% de justesse),
+    #    - filtre par sujet strict (mots-clés du nom/thèse), fallback rotation 1 fiche,
+    #    - mode « observation » : on injecte, on mesure, si confusion → retour manuel.
+    try:
+        import injecter_connaissance as inj
+        connaiss = inj.load_connaissance()
+        projets = connaiss.get("projets", {}) or {}
+        if projets:
+            # Détection du sujet depuis l'indice demandé (le plus souvent un projet ou le marché)
+            sujet = ""
+            try:
+                indice_courant = os.environ.get("INDICE_COURANT", "")
+                if indice_courant:
+                    sujet = indice_courant
+            except Exception:
+                pass
+            selection = inj.selectionner_projets(projets, sujet=sujet)[:3]
+            fiches = []
+            for p in selection:
+                p_data = projets.get(p, {})
+                these = str(p_data.get("these", ""))[:200]
+                statut = p_data.get("statut_verification", {}) or {}
+                verdict = statut.get("verdict", "?") if isinstance(statut, dict) else "?"
+                if these:
+                    fiches.append(
+                        "- Connaissance projet %s (%s) : %s [vérification : %s]"
+                        % (p, p_data.get("nom", ""), these, verdict)
+                    )
+            if fiches:
+                lignes.append("### Connaissance ACE777 (injectée — synthèse pré-mâchée)")
+                lignes.extend(fiches[:3])
+    except Exception:
+        pass
+
     return "\n".join(lignes)
 
 

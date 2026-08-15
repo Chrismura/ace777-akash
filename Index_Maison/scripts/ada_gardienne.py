@@ -439,6 +439,12 @@ def calculer_voilure(p: Dict[str, float], thermo: Optional[Dict] = None) -> floa
         else:
             facteur = 1.0
         voilure = round(clamp(voilure * facteur, 0.0, 100.0), 1)
+        # Modulateur CPFP v2 (confirmation ≥2, mode actif — géré par le pont) :
+        # EXÉCUTION CPFP confirmée → prudence (expulsion imminente) ; sinon neutre.
+        cpfp_signal = oc.get("cpfpSignal")
+        if cpfp_signal and "EXÉCUTION CPFP" in str(cpfp_signal):
+            facteur_cpfp = 0.93  # prudence face à une expulsion massive imminente
+            voilure = round(clamp(voilure * facteur_cpfp, 0.0, 100.0), 1)
     return voilure
 
 
