@@ -344,6 +344,29 @@ def veille_blocks(
     return True, reason
 
 
+def veille_stale(
+    runs: Path,
+    *,
+    max_age_hours: float = 6.0,
+) -> tuple[bool, str]:
+    """Kill-switch global : la veille n'a pas produit de digest frais depuis max_age_hours.
+
+    Signal = mtime de DIGEST_LATEST.md (réécrit à CHAQUE cycle du digest_watch.py).
+    Fail-open : fichier absent/corrompu → (False, "") = on ne bloque pas (le skip RED
+    existant protège déjà ; ne bloque pas un test paper sans veille).
+    """
+    latest = runs / "DIGEST_LATEST.md"
+    if not latest.exists():
+        return False, ""
+    try:
+        age_h = (datetime.now(timezone.utc).timestamp() - latest.stat().st_mtime) / 3600.0
+    except Exception:
+        return False, ""
+    if age_h > float(max_age_hours):
+        return True, f"veille_stale_{age_h:.1f}h>{max_age_hours:.0f}h"
+    return False, ""
+
+
 def entry_gate_check(
     runs: Path,
     pair: str,

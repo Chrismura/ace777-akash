@@ -26,7 +26,7 @@ from typing import Optional
 # capteurs F1-like (module local Hulk — pas ACE genesis)
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from ace_sense_mexc import book_sense, entry_gate, tension_score  # noqa: E402
-from veille_gates import entry_gate_check, record_stop  # noqa: E402
+from veille_gates import entry_gate_check, record_stop, veille_stale  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
 CFG = ROOT / "config" / "defaults.env"
@@ -395,6 +395,7 @@ class PaperBot:
         )
         self.veille_window_min = int(float(cfg.get("VEILLE_STATUS_MAX_AGE_MIN", "30")))
         self.veille_refresh_sec = float(cfg.get("VEILLE_STATUS_REFRESH_SEC", "60"))
+        self.veille_stale_h = float(cfg.get("VEILLE_STALE_HOURS", "6"))
         self.sense_on = cfg.get("SENSE_ON", "1").strip() not in ("0", "false", "False")
         self.vol_spike_min_small = float(cfg.get("VOL_SPIKE_MIN_SMALL", "1.5"))
         # Seed inventaire au boot (réalisme vente / marché baissier)
@@ -684,6 +685,15 @@ class PaperBot:
         if pair in self.pos or pair in self.bags:
             return
         regime = sc.get("regime", "")
+        # Kill-switch global : veille muette → pas de nouvel achat (l'existant est géré)
+        stale, sreason = veille_stale(RUNS, max_age_hours=self.veille_stale_h)
+        if stale:
+            say("warn", f"[{utc_now()}] STANDBY | {pair} | {sreason} (pas de nouvel achat)")
+            self.log(
+                pair, "SKIP", regime, price, price, 0.0, 0.0,
+                sc.get("cadence_pct"), f"STANDBY:{sreason}",
+            )
+            return
         # v1.5 : cooldown post-stop + skip RED veille (soft, fail-open)
         allowed, code, detail = entry_gate_check(
             RUNS,
@@ -1202,12 +1212,14 @@ class PaperBot:
                     f"{p[0]}:{self.scores.get(p,{}).get('regime','?')[:3]}"
                     for p in self.pairs[:5]
                 )
+                _stale, _sreason = veille_stale(RUNS, max_age_hours=self.veille_stale_h)
+                standby = f" | STANDBY({_sreason})" if _stale else ""
                 say(
                     "heart",
                     f"[{utc_now()}] heartbeat open={open_n} bags={bags_n} "
                     f"dca={len(self.bag_dca)} cash_pairs={cash_n}({cash_sum:.1f}$) "
                     f"mise={notion:.2f}$ trades={self.trades} "
-                    f"pnl={self.pnl_total:+.4f}$ | {regimes}",
+                    f"pnl={self.pnl_total:+.4f}$ | {regimes}{standby}",
                 )
                 self.save_state()
             time.sleep(self.poll)
