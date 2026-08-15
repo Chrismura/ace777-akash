@@ -1,8 +1,8 @@
 # CATALOGUE DES PROVIDERS — ACE777
 
-*Genere le 2026-08-14 par catalog_providers.py (gagnant A/B codeurs 09/08). Rafraichi a chaque veille du matin.*
+*Genere le 2026-08-15 par catalog_providers.py (gagnant A/B codeurs 09/08). Rafraichi a chaque veille du matin.*
 
-**Actifs : 8 · En observation : 1 · En attente : 6 · De cote (payant) : 0**
+**Actifs : 11 · En observation : 0 · En attente : 6 · De cote (payant) : 0**
 
 ## ACTIFS
 
@@ -16,12 +16,13 @@
 | - | `Qwen3-Coder-Next-FP8` | inferx-coder | REACTIVE 13/08 - Qwen3-Coder-Next, specialiste CODE (2e codeur). Offre gratuite a surveill |
 | CODE / missions / supervise.decision | `x-ai/grok-4.3` | puter-grok | PUTER 2026-08-09 - en observation (A/B + GO hebdo avant activation) | ACTIVE 09/08 (GO Chr |
 | - | `cohere/north-mini-code:free` | obs-1786688184 | auto queue_offres |
+| - | `nvidia/nemotron-3-nano-30b-a3b:free` | obs-1786774646 | auto queue_offres |
+| - | `nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free` | obs-1786774656 | auto queue_offres |
+| - | `nvidia/nemotron-3.5-lightning:free` | obs-1786774667 | auto queue_offres |
 
 ## EN OBSERVATION (48h avant activation, jamais route)
 
-| Role | Modele | Statut | Note |
-|------|--------|--------|------|
-| - | `deepseek/deepseek-v4-flash` | deepseek-deepseek-v4-flash | INTEGRE AUTO 2026-08-11 EN OBSERVATION (preuve A/B + juge: MIEUX - meilleure structure et  |
+*aucun*
 
 ## EN ATTENTE (cle manquante ou desactive)
 
