@@ -1,12 +1,12 @@
-# ANALYSE — 2026-08-16T11:59:25.863054Z (alerte)
+# ANALYSE — 2026-08-16T12:14:59.607220Z (alerte)
 
-[UNDERSTAND] La maison ACE777 maintient son alerte ambre face à un PnL combiné stable (+0,25 $), combinant l'embuscade disciplinée d'Alpha, les sondages de Beta et la gestion prudente de Hulk dans un climat marqué par les incertitudes de la Fed.
+[UNDERSTAND] La maison ACE777 maintient son alerte ambre face à un PnL combiné stable (+0,23 $), adossé à la discipline d'embuscade d'Alpha, aux sondages haussiers de Beta et à la gestion prudente des positions de Hulk.
 
 [ANALYZE]
 - Tendance : Stabilisation macroéconomique en saison Bitcoin (score 51) sous un climat de peur (Fear & Greed à 34) et un Market Cap global de 2,25 T$.
-- Momentum : Session sous haute surveillance où Beta confirme la structure haussière de ses sondages (6 sondes long / 0 short, +0,25 $), Alpha maintient une discipline de fer (363 skips, 0 tir) face aux sursauts de volume x3, et Hulk gère ses 4 positions ouvertes (CC, HBAR, XRP, CHIP) avec un PnL de -0,80 $.
-- Risque : Volatilité accrue sur les carnets, flux ETF BTC négatifs (-37,82 M$) et persistance des bruits macroéconomiques relayés par la récente actualité CNBC sur la Fed.
-- Contexte : Maintien de l'alerte ambre par prudence tactique face à l'attentisme d'Alpha et l'ajustement nécessaire des positions ouvertes de Hulk.
+- Momentum : Session sous haute surveillance où Beta confirme la structure haussière de ses sondages (7 sondes long / 0 short, +0,23 $), Alpha maintient une discipline de fer (440 skips, 0 tir) face aux sursauts de volume x3 sur les carnets, et Hulk pilote ses 4 positions ouvertes avec un PnL de -0,80 $.
+- Risque : Volatilité accrue sur les carnets, flux ETF BTC négatifs (-37,82 M$) et bruits de marché persistants autour de la politique de la Fed.
+- Contexte : Maintien de l'alerte ambre par prudence tactique face à l'attentisme d'Alpha et à la nécessité d'encadrer les positions ouvertes de Hulk.
 
 [STRATEGIZE]
 1. **Préserver la discipline d'embuscade d'Alpha** : Laisser le sniper patienter sans tir prématuré tant que le mur du carnet ne cède pas, malgré les signaux de volume x3.
