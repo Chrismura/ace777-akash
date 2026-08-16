@@ -1,7 +1,7 @@
 # ACE777 — STATE
 
 > Généré automatiquement — ne pas éditer à la main
-> Phase: `running` | Statut: `RUNNING` | MAJ: `2026-08-16T15:32:32Z`
+> Phase: `running` | Statut: `RUNNING` | MAJ: `2026-08-16T17:41:25Z`
 
 ## Config active
 
@@ -21,12 +21,6 @@
 | ALPHA | 0 | 0 | 0 | 0.00% | 0.0000 | 0 |
 | **TOTAL** | **0** | — | — | — | **0.0000** | **0** |
 
-## Duo session (`duo_session.json`)
-
-- SCOUT PnL: `` USDT
-- HUNTER PnL: `` USDT
-- Total session: `` USDT
-
 ## Top SKIP — BETA
 
 _Aucun SKIP ou CSV absent._
@@ -39,7 +33,7 @@ _Aucun SKIP ou CSV absent._
 
 - Mode: `TREND`
 - Message: `v2_swarm_wind_trend`
-- TS: `2026-08-16T15:32:28Z`
+- TS: `2026-08-16T17:41:16Z`
 
 ## Processus
 
