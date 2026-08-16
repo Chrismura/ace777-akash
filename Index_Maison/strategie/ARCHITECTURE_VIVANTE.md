@@ -1,4 +1,4 @@
-# ARCHITECTURE VIVANTE — ACE777 (2026-08-16 18:04 UTC)
+# ARCHITECTURE VIVANTE — ACE777 (2026-08-16 18:11 UTC)
 
 > Document GÉNÉRÉ AUTOMATIQUEMENT à l'instant. La famille valide
 > en s'appuyant sur CE contexte, pas sur des documents figés.
@@ -22,10 +22,10 @@
 
 ## État de la mission (bots + PnL)
 
-- mission.json : 2026-08-16 18:04Z · run `MASTER_VORTEX_V2_COLLAB_4H` · alerte `amber`
+- mission.json : 2026-08-16 18:11Z · run `MASTER_VORTEX_V2_COLLAB_4H` · alerte `amber`
 - PnL combiné : **-0.15 $** 📉 (combo -0.1481)
-- ALPHA (sniper (embuscade, ×13, revenge si claque)) : **+0.00 $** · 1 fills · 46 skips
-- BETA (éclaireur (chatouille le marché, alimente Alpha)) : **-0.15 $** · 3 fills · 66 skips
+- ALPHA (sniper (embuscade, ×13, revenge si claque)) : **+0.00 $** · 1 fills · 65 skips
+- BETA (éclaireur (chatouille le marché, alimente Alpha)) : **-0.15 $** · 3 fills · 86 skips
 - HULK (gestionnaire de portefeuille (bag, escalier, courreur)) : **+0.28 $** · 0 fills
 - Saison : CALME 🧊 · 
 
@@ -46,11 +46,11 @@
 ## Mémoire chaude (journal + résumés)
 
 - Radar (dernières alertes) :
-  · 2026-08-16T18:04:33.750772Z ETHUSDT 1884.81 0.0001 9.6 declenche=non
-  · 2026-08-16T18:04:33.761726Z ETHUSDT 1884.82 0.0001 9.6 declenche=non
-  · 2026-08-16T18:04:33.762031Z ETHUSDT 1884.83 0.0001 9.6 declenche=non
-  · 2026-08-16T18:04:33.762163Z ETHUSDT 1884.85 0.0001 9.7 declenche=non
-- Intention en cours : BETA a sonde le marche (3 sondes, 2 long / 1 court, conf moy | ALPHA attend son signal — aucun tir sur la session en cours.
+  · 2026-08-16T18:11:26.645291Z ETHUSDT 1885.77 0.0001 31.1 declenche=non
+  · 2026-08-16T18:11:26.645555Z ETHUSDT 1885.8 0.0001 31.1 declenche=non
+  · 2026-08-16T18:11:27.365973Z BTCUSDT 63159.99 0.0000 0.1 declenche=non
+  · 2026-08-16T18:11:29.491525Z ETHUSDT 1885.81 0.0001 31.2 declenche=non
+- Intention en cours : BETA a sonde le marche (3 sondes, 2 long / 1 court, conf moy | ALPHA attend son moment : 53 skips (discipline), le mur du c | ALPHA attend son signal — aucun tir sur la session en cours.
 - 250 signets X résumés (quota aujourd'hui : 50/50)
 - 32 fiches IA d'offres en cache (quota 8/jour)
 
