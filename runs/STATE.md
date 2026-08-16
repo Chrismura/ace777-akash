@@ -1,13 +1,13 @@
 # ACE777 — STATE
 
 > Généré automatiquement — ne pas éditer à la main
-> Phase: `running` | Statut: `RUNNING` | MAJ: `2026-08-15T21:52:50Z`
+> Phase: `stopped` | Statut: `STOPPED` | MAJ: `2026-08-16T06:03:22Z`
 
 ## Config active
 
 | Paramètre | Valeur |
 |-----------|--------|
-| Profil | `vide_froid_vortex_v2_collab` v`2026-07-10-v2.2.2-no-partner-halt` |
+| Profil | `vide_froid_binance` v`2026-07-08-setup-ready` |
 | Masse BETA / ALPHA | `200` / `800` USDT |
 | LLM gate | enabled=`TRUE` fail_closed=`TRUE` |
 | Modèle LLM | `qwen2.5-coder:1.5b` |
@@ -17,35 +17,54 @@
 
 | Unité | FILLED | Win | Loss | Win% | Net USDT | SKIP |
 |-------|--------|-----|------|------|----------|------|
-| BETA | 0 | 0 | 0 | 0.00% | 0.0000 | 0 |
-| ALPHA | 0 | 0 | 0 | 0.00% | 0.0000 | 0 |
-| **TOTAL** | **0** | — | — | — | **0.0000** | **0** |
+| BETA | 160 | 46 | 45 | 28.8% | 0.3553 | 2066 |
+| ALPHA | 12 | 3 | 4 | 25.0% | -0.0755 | 2201 |
+| **TOTAL** | **172** | — | — | — | **0.2798** | **4267** |
 
 ## Duo session (`duo_session.json`)
 
-- SCOUT PnL: `` USDT
-- HUNTER PnL: `` USDT
-- Total session: `` USDT
+- SCOUT PnL: `0.35527000000000003` USDT
+- HUNTER PnL: `-0.07545999999999999` USDT
+- Total session: `0.27981000000000006` USDT
+
+## Duo live (`duo_state.json`)
+
+| Champ | Valeur |
+|-------|--------|
+| role | `SCOUT` |
+| status | `CLOSED` |
+| side | `SELL` |
+| bps | `-0.0` |
+| pnl_usdt | `-0.0` |
+| reason | `shock_inversion_stop` |
+| cycle | `2222` |
+| hold_sec | `19` |
 
 ## Top SKIP — BETA
 
-_Aucun SKIP ou CSV absent._
+1. `radar_block` — 1738
+2. `impulse_resonance_wait` — 237
+3. `gap_guard_pause` — 87
+4. `tactic_mismatch` — 4
 
 ## Top SKIP — ALPHA
 
-_Aucun SKIP ou CSV absent._
+1. `radar_block` — 1791
+2. `impulse_resonance_wait` — 271
+3. `duo_wait` — 137
+4. `tactic_mismatch` — 2
 
 ## Vortex (`vortex_control.json`)
 
 - Mode: `TREND`
-- Message: `v2_swarm_wind_trend`
-- TS: `2026-08-15T21:52:45Z`
+- Message: `v2_chop_0.63_trend`
+- TS: `2026-08-16T06:03:20Z`
 
 ## Processus
 
-- master.pid: `RUNNING`
-- beta.pid: `RUNNING`
-- alpha.pid: `RUNNING`
+- master.pid: `stopped`
+- beta.pid: `stopped`
+- alpha.pid: `stopped`
 
 ## Fichiers
 
