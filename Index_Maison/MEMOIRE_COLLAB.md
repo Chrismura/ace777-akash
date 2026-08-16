@@ -52,6 +52,8 @@ Intégration cockpit (2 lignes dans index.html) · passage au réel · cumul des
 
 | ts | Qui | Action | Où | Quoi |
 |----|-----|--------|-----|------|
+| 2026-08-16T1853Z | journal_soir | ★ | journal | snapshot soir auto |
+| 2026-08-16T1853Z | journal_auto | ★ | CONSOLE+Journal_2026-08-16 | Snapshot auto hygiène soir |
 | 2026-08-15T1853Z | journal_soir | ★ | journal | snapshot soir auto |
 | 2026-08-15T1853Z | journal_auto | ★ | CONSOLE+Journal_2026-08-15 | Snapshot auto hygiène soir |
 | 2026-08-14T21:50Z | Buffy | ★ | run+veille | Run test 8h de nuit détaché (GO_VORTEX_V2, fin ~05:45Z) + veille nuit (graphique 5 min + scellement auto). Rapport de réveil `REVEIL_2026-08-15.md`. GitHub : 4b5af0e5 + b177c4db + 103f65d8 |

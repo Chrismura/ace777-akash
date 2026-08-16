@@ -13,7 +13,7 @@
 | `ETAT_SYSTEME.md` (racine, copies OUTBOX+Obsidian) | **carte organique globale** : cœur ACE + HULK + veilleuses + rythmes + connexions |
 | `SCHEMA_ACE.md` (racine) | ACE en détail : duo BETA/ALPHA, champion, réfs md5, fixes du jour |
 | `hulk-mexc/SCHEMA_HULK.md` | HULK en détail : tier/classe, flux, config, commandes |
-| **`architecture/` (4 tableaux HTML)** — `carte.html` CARTE · `index.html` VUE · `tech.html` TECH · `apprentissage.html` CYCLE | **boussole visuelle d'arrivée** : la flottille + les connexions colorées · `open ~/ace777-test-day1/Index_Maison/architecture/carte.html` |
+| **`architecture/` (5 tableaux HTML)** — `carte.html` CARTE · `index.html` VUE · `tech.html` TECH · `apprentissage.html` CYCLE · **`hub.html` HUB** | **boussole visuelle d'arrivée** : la flottille + les connexions colorées + le hub en détail · `open ~/ace777-test-day1/Index_Maison/architecture/carte.html` |
 
 ---
 
@@ -38,6 +38,29 @@
 - Boutons cockpit ajoutés : ⛔ ALARME + ✓ DÉCLARER MODIFS (bridge).
 - Alarmes veilleuse acquittées (re-scellage déclaré au registre).
 
+**HUB (prise-ia) — réparé le 16/08 soir (7 jours de bidouilles → point final) :**
+- Cause racine des pannes : le hub ne routait que 3 providers par tâche → « à sec » malgré ~15 gratuits.
+- **4 règles appliquées + validées codeur+famille (GO)** : R1 filet universel (testé : chaîne 100% morte → répond via Gemini) · R2 429 = bascule immédiate + pause 60s · R3 budget par provider (le lent ne mange plus tout) · R4 anti-tempête par tâche (3 échecs/10min → pause 5min, fini le raz-de-marée analyste).
+- + 2 correctifs famille : filet restreint aux GRATUITS si budget cloud atteint · log `[FILET UNIVERSEL]` distinct.
+- Méthode : `Index_Maison/METHODE_HUB_POINT_FINAL_2026-08-16.md` · backups `hub_prise_ia.py.bak-failover-20260816`.
+
+**DISJONCTEUR UNIQUE — créé, testé, branché (16/08 soir, URGENCE famille) :**
+- Famille : « L'IA propose, le code dispose » ratifié sans réserve · −1,5% journalier / −8% global (C7).
+- `Index_Maison/scripts/disjoncteur.py` : bridage à la volée (10% du capital max/trade) + Mur de Fer (coupe flux, STOP_ALL, alerte cockpit) + réarmement MANUEL uniquement.
+- Testé 5 cas ✓ · branché launchd (`com.ace777.disjoncteur`, check/60s) · inséré dans HULK (`paper_diprip.py`, fail-closed, md5 déclaré au registre) · carte 🛡 au cockpit.
+- Spec : `SPEC_DISJONCTEUR_2026-08-16.md` · réponse codeur `REPONSE_CODEUR_DISJONCTEUR_2026-08-16.md`.
+
+**PÉPITE MEMPOOL (bloc privatisé / tx fantômes) — branchée :**
+- `Index_Maison/scripts/detecter_bloc_privatise.py` (carnet glissant 60 min anti-faux-positifs, mode observation).
+- Branchée launchd (`com.ace777.bloc-privatise`, scan/10min) · 2 bugs codeur corrigés (endpoint hash = texte brut).
+- ⚠️ Taux fantôme 100% au début = CALIBRATION (le carnet se remplit en ~60 min) — pas une alerte.
+
+**VERDICT FAMILLE (16/08 soir) — tableau de décision briques :**
+- VALIDÉ fini : hub · HULK · vigie · pont gate · Cortana. À JETER : MiroFish · qwen · signets.lot2 (déjà inactifs).
+- OBSERVER avec date butoir **23/08** : CPFP (sinon jeté) · ADA (sinon jeté).
+- Priorités semaine : ① disjoncteur (FAIT) · ② pépite mempool (FAIT) · ③ ménage plists.
+- Tableau : `TABLEAU_DECISION_BRIQUES_2026-08-16.md` · verdict : `VERDICT_FAMILLE_BRIQUES_2026-08-16.md`.
+
 ## 2. État actuel (à vérifier en début de session)
 
 ```bash
@@ -50,9 +73,13 @@ ls Index_Maison/A_Mon_Attention/ | tail -3                             # alertes
 ## 3. Ce qui reste à faire (backlog)
 
 1. **Analyser la fin du run ACE** (2 fixes) : %revenge 30-60% · `price_stasis skips` > 0 · fills flat < 20% · PnL > +1
-2. **Analyser les ~10 premiers trades HULK** : raisons `rip_*` présentes · pas de stop > −7% · PnL ≥ 0
+2. **Analyser les ~10 premiers trades HULK** : raisons `rip_*` présentes · pas de stop > −7% · PnL ≥ 0 — **⚠️ noter que le DISJONCTEUR bride désormais les mises > 15$ (10% du seed 150)**
 3. Réactiver STORM_HUNTER K2v2 (anti no_trigger, 0 arm depuis le 13/08) — en option
 4. Kelly HULK en actif si win_rate ≥ 50% sur ≥ 20 trades (ombre actuellement)
+5. **Règle de confiance pondérée** (note par IA → exposition) : étape 2 après le disjoncteur — spec à rédiger
+6. **Compression du contexte vivant** (famille : 6000 car → 2000 car max sous 48h)
+7. **Suivre la calibration mempool** : au 23/08, décision CPFP + ADA (OBSERVER sinon JETER)
+8. **Ménage plists** : couper MiroFish/qwen/signets-lot2 restants (vérifié : déjà inactifs)
 
 ## 4. Commandes clés
 

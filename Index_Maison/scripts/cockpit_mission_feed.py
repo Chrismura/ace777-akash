@@ -559,6 +559,9 @@ def main() -> int:
     _g = load_ada_block("ada_gardienne_live.json") or {}
     payload["gardienne"] = _g.get("gardienne") or {}
     payload["coup_doeil"] = _g.get("coup_doeil") or {}
+    # === DISJONCTEUR UNIQUE (16/08) — lecture seule, jamais bloquante ===
+    payload["disjoncteur"] = load_ada_block("disjoncteur_state.json") or {
+        "declenche": False, "raison": "Normal", "ts": ""}
 
     (OUT / "mission.json").write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     (OUT / "mission.js").write_text("window.__MISSION__ = " + json.dumps(payload, ensure_ascii=False) + ";\n", encoding="utf-8")
