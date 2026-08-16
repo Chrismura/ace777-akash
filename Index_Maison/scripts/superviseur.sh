@@ -60,14 +60,20 @@ restart_process() {
     fi
 
     log "RELANCE $proc : $reason"
+    # CORRECTIF 16/08 (Buffy) : tuer l'ancien process AVANT de relancer.
+    # Sinon accumulation de doublons (13 vigies en 7h). Les pkill ne matchent
+    # JAMAIS superviseur.sh lui-même (patterns = noms de scripts Python).
     case "$proc" in
         hub)
+            pkill -f "hub_prise_ia.py" 2>/dev/null; sleep 1
             nohup python3 "$SCRIPTS_DIR/../..//prise-ia/hub_prise_ia.py" > /dev/null 2>&1 &
             ;;
         vigie)
+            pkill -f "vigie_live.py" 2>/dev/null; sleep 1
             nohup python3 "$SCRIPTS_DIR/vigie_live.py" > /dev/null 2>&1 &
             ;;
         cockpit)
+            pkill -f "cockpit_http_server.py" 2>/dev/null; sleep 1
             nohup python3 "$SCRIPTS_DIR/cockpit_http_server.py" > /dev/null 2>&1 &
             ;;
     esac

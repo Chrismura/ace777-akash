@@ -66,12 +66,44 @@ symbols = {"BTCUSDT": SymbolData(), "ETHUSDT": SymbolData()}
 news_cooldown = 0.0
 last_news_titles = {source: deque(maxlen=5) for source in RSS_URLS}
 
+# --- Cooldown analyste PERSISTANT (CORRECTIF 16/08) ------------------------
+# Partagé entre instances via un fichier : évite que plusieurs vigies
+# re-déclenchent l'analyste sur la même alerte dans la même fenêtre.
+COOLDOWN_FILE = os.path.join(OUTPUT_DIR, "vigie_cooldown.json")
+
+
+def _charger_cooldowns():
+    try:
+        if os.path.exists(COOLDOWN_FILE):
+            with open(COOLDOWN_FILE, "r", encoding="utf-8") as f:
+                d = json.load(f)
+            for sym, ts in d.items():
+                if sym in symbols:
+                    symbols[sym].cooldown_until = max(symbols[sym].cooldown_until, float(ts))
+    except Exception:
+        pass
+
+
+def _sauver_cooldowns():
+    try:
+        d = {sym: data.cooldown_until for sym, data in symbols.items()}
+        tmp = COOLDOWN_FILE + ".tmp"
+        with open(tmp, "w", encoding="utf-8") as f:
+            json.dump(d, f)
+        os.replace(tmp, COOLDOWN_FILE)
+    except Exception:
+        pass
+
+
+_charger_cooldowns()
+
 
 # --- WebSocket brut (client RFC 6455, stdlib — testé le 11/08) -------------
 def ws_connect(host, path):
     ctx = ssl.create_default_context()
     s = socket.create_connection((host, 443), timeout=10)
     ws = ctx.wrap_socket(s, server_hostname=host)
+    ws.settimeout(30)  # CORRECTIF 16/08 : read timeout anti-hang (décrochage silencieux)
     key = base64.b64encode(os.urandom(16)).decode()
     req = (f"GET {path} HTTP/1.1\r\nHost: {host}\r\nUpgrade: websocket\r\n"
            f"Connection: Upgrade\r\nSec-WebSocket-Key: {key}\r\n"
@@ -147,6 +179,7 @@ def process_trade(symbol, price, quantity):
 
     if declenche and now > data.cooldown_until:
         data.cooldown_until = now + 300  # cooldown 5 min par symbole
+        _sauver_cooldowns()  # CORRECTIF 16/08 : cooldown partagé (anti-doublon multi-vigie)
         alert = {
             "ts": datetime.utcnow().isoformat() + "Z",
             "type": "prix",
