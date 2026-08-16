@@ -624,8 +624,55 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
 .card.hulk .bag .meta{font-size:.58rem;letter-spacing:.04em;margin-top:2px;color:var(--muted)}
 .card.hulk .bag .meta .dir-long{color:var(--acid)}
 .card.hulk .bag .meta .dir-short{color:var(--red)}
-.card.hulk .stream.hist{height:124px}
-.card.hulk .stream.hist .trade{font-size:.68rem;grid-template-columns:48px 40px 1fr auto;gap:5px;padding:3px 4px}
+.card.hulk .stream.hist{height:132px}
+.card.hulk .stream.hist .trade{font-size:.66rem;grid-template-columns:46px 62px 1fr auto;gap:5px;padding:3px 4px}
+.card.hulk .stream.hist .trade .t-ev{color:var(--muted);font-size:.55rem;letter-spacing:.03em}
+.card.hulk .stream.hist .trade .t-line{color:#cfe0d0}
+.card.hulk .hulk-jlegend{font-size:.55rem;color:var(--muted);letter-spacing:.06em;margin-top:3px}
+.card.hulk .hulk-wallet{margin-top:6px;display:flex;flex-direction:column;gap:3px}
+.card.hulk .hw{display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:.72rem;padding:3px 8px;background:rgba(0,0,0,.28);border:1px solid rgba(196,255,77,.16);border-radius:2px}
+.card.hulk .hw-lab{color:var(--muted);letter-spacing:.12em;font-size:.58rem;font-family:Orbitron,sans-serif}
+.card.hulk .hw-val{color:#e6eef7;font-family:Orbitron,sans-serif;font-size:.78rem}
+.card.hulk .hw-val .neu{color:#c5d0dc}
+.card.hulk .hulk-details-btn{margin-left:auto;background:#121a10;border:1px solid rgba(196,255,77,.5);color:var(--hulk);font-family:Orbitron,sans-serif;font-size:.58rem;letter-spacing:.1em;padding:3px 9px;border-radius:3px;cursor:pointer;transition:all .15s}
+.card.hulk .hulk-details-btn:hover{background:var(--hulk);color:#0a100c;box-shadow:0 0 10px rgba(196,255,77,.5)}
+.hulk-modal{position:fixed;inset:0;z-index:320;background:rgba(3,5,4,.86);display:none;align-items:center;justify-content:center;backdrop-filter:blur(3px)}
+.hulk-modal.show{display:flex}
+.hulk-modal .hulk-modal-card{width:min(94vw,720px);max-height:86vh;overflow-y:auto;background:#0a100c;border:1px solid rgba(196,255,77,.4);border-radius:8px;padding:14px 16px;box-shadow:0 0 40px rgba(196,255,77,.15)}
+.hulk-modal .hm-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.hulk-modal .hm-head h3{font-family:Orbitron,sans-serif;font-size:.8rem;letter-spacing:.14em;color:var(--hulk)}
+.hulk-modal .hm-x{background:none;border:1px solid var(--line);color:var(--muted);font-size:.8rem;cursor:pointer;border-radius:4px;padding:2px 8px}
+.hulk-modal .hm-x:hover{color:var(--hulk);border-color:var(--hulk)}
+.hulk-modal .hm-sec{font-family:Orbitron,sans-serif;font-size:.62rem;letter-spacing:.14em;color:var(--amber2);margin:12px 0 5px;text-transform:uppercase}
+.hulk-modal .hm-sec:first-of-type{margin-top:0}
+.hulk-modal .hm-note{font-size:.62rem;color:var(--muted);line-height:1.5;margin:4px 0}
+.hulk-modal .fee-big{font-family:Orbitron,sans-serif;font-size:1.4rem;color:var(--hulk)}
+.hulk-modal table{width:100%;border-collapse:collapse;font-size:.68rem}
+.hulk-modal th{color:var(--muted);font-size:.56rem;letter-spacing:.08em;text-align:right;padding:3px 6px;border-bottom:1px solid rgba(196,255,77,.2)}
+.hulk-modal th:first-child,.hulk-modal td:first-child{text-align:left}
+.hulk-modal td{color:#cfe0d0;text-align:right;padding:3px 6px;border-bottom:1px solid rgba(255,255,255,.05)}
+.hulk-global{display:grid;grid-template-columns:repeat(auto-fit,minmax(96px,1fr));gap:6px;margin-bottom:2px}
+.hulk-global .hg{background:rgba(0,0,0,.28);border:1px solid rgba(196,255,77,.16);border-radius:3px;padding:6px 8px;display:flex;flex-direction:column;gap:3px;min-height:52px;justify-content:center}
+.hulk-global .hg-lab{color:var(--muted);letter-spacing:.12em;font-size:.55rem;font-family:Orbitron,sans-serif}
+.hulk-global .hg-val{color:#e6eef7;font-family:Orbitron,sans-serif;font-size:.92rem;white-space:nowrap}
+.hulk-global .hg-ia{border-color:rgba(124,255,107,.3)}
+.hulk-global .hg-ia .hg-val{font-size:.72rem;color:#cfe6d2;white-space:normal;line-height:1.25}
+.hulk-sect{font-family:Orbitron,sans-serif;font-size:.62rem;letter-spacing:.14em;color:var(--muted);margin:12px 0 5px;display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.hulk-sect .hulk-sect-n{color:#cfe0d0;font-size:.6rem;letter-spacing:.04em;font-family:"Share Tech Mono",monospace}
+.hulk-folio-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:6px}
+.hfc{background:rgba(196,255,77,.05);border:1px solid rgba(196,255,77,.25);border-radius:3px;padding:7px 8px;font-size:.66rem;display:flex;flex-direction:column;gap:3px}
+.hfc.flat{border-style:dashed;border-color:rgba(140,160,180,.35);background:rgba(80,100,120,.06)}
+.hfc .hfc-top{display:flex;justify-content:space-between;align-items:center;gap:4px}
+.hfc .hfc-name{font-family:Orbitron,sans-serif;font-size:.78rem;color:#e6eef7}
+.hfc.flat .hfc-name{color:#c5d0dc}
+.hfc .hfc-tag{font-size:.5rem;letter-spacing:.06em;padding:1px 5px;border:1px solid;border-radius:2px}
+.hfc .hfc-tag.open{color:var(--hulk);border-color:var(--hulk)}
+.hfc .hfc-tag.bag{color:#d0ff90;border-color:rgba(196,255,77,.5)}
+.hfc .hfc-tag.flat{color:var(--muted);border-color:rgba(140,160,180,.4)}
+.hfc .hfc-row{display:flex;justify-content:space-between;gap:6px;color:#c9d4de}
+.hfc .hfc-row span:first-child{color:var(--muted);font-size:.56rem;letter-spacing:.05em}
+.hfc .hfc-reg{font-size:.54rem;color:var(--muted);letter-spacing:.05em;border-top:1px solid rgba(255,255,255,.05);padding-top:3px;margin-top:1px}
+.hfc .dir-long{color:var(--acid)}.hfc .dir-short{color:var(--red)}
 
 /* SHOOT ACE/GROK */
 .shoot-layer{position:fixed;inset:0;pointer-events:none;z-index:80;overflow:hidden}
@@ -1289,36 +1336,50 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
     <div class="card hulk">
       <div class="engine-head">
         <h2>HULK · PORTEFEUILLE 15</h2>
-        <span class="badge h">PAPER MEXC · SÉPARÉ ACE</span>
-      </div>
-      <div class="hulk-grid">
-        <div>
-          <div class="big" id="h-pnl">—</div>
-          <div class="hulk-thrust-lab">ALLOC / THRUST <span id="h-thrust-val">—</span></div>
-          <div class="gauge h"><i id="h-thrust"></i></div>
-          <div class="kv">
-            <div title="Positions ouvertes (bags en cours)">BAGS OUVERTS <span id="h-bags">0</span></div>
-            <div title="Cryptos suivies dans l'univers">UNIVERS SUIVI <span id="h-univ">0</span></div>
-            <div title="Capital total engagé (somme des mises)">NOTIONNEL <span id="h-notional">—</span></div>
-            <div title="Capital de base du portefeuille paper">BASE <span id="h-base">—</span></div>
-          </div>
-          <div class="sub" id="h-bags-note" style="opacity:.85;font-size:11px;margin-top:6px;color:var(--muted)"></div>
-        </div>
-        <div>
-          <div class="lab" style="color:var(--muted);font-size:.65rem;letter-spacing:.1em;margin-bottom:4px">HISTO TRADES <span id="h-hist-n" style="color:var(--hulk)"></span></div>
-          <div class="stream hist"><div class="stream-inner" id="h-list"></div></div>
+        <div style="display:flex;align-items:center;gap:8px">
+          <span class="badge h">PAPER MEXC · SÉPARÉ ACE</span>
+          <button type="button" class="hulk-details-btn" id="hulk-details-btn">DÉTAILS ⇕</button>
         </div>
       </div>
-      <div class="hulk-folio">
-        <div class="lab" style="color:var(--muted);font-size:.65rem;letter-spacing:.1em;margin-bottom:2px">VISION GLOBALE · 15 CRYPTO SUIVIES</div>
-        <div class="hulk-legend">
-          <span class="leg leg-open">● OPEN = position</span>
-          <span class="leg leg-bag">◆ BAG = bag long terme</span>
-          <span class="leg leg-flat">○ FLAT = suivi</span>
-          <span class="leg leg-cycle">cycle : MISE → 2× → BAG → ESCALIER / COURREUR</span>
+      <!-- LE GLOBALE -->
+      <div class="hulk-global">
+        <div class="hg" title="PnL réalisé (ventes / stops / bags)"><span class="hg-lab">PNL</span><span class="hg-val" id="h-pnl">—</span></div>
+        <div class="hg" title="Valeur du portefeuille paper = base + PnL"><span class="hg-lab">ÉQUITÉ</span><span class="hg-val" id="h-equity">—</span></div>
+        <div class="hg" title="Cash libre récupéré des ventes"><span class="hg-lab">CASH</span><span class="hg-val" id="h-cash">—</span></div>
+        <div class="hg" title="Capital engagé dans les positions ouvertes"><span class="hg-lab">ENGAGÉ</span><span class="hg-val" id="h-engaged">—</span></div>
+        <div class="hg" title="Capital de départ paper"><span class="hg-lab">BASE</span><span class="hg-val" id="h-base">—</span></div>
+        <div class="hg" title="Frais plateforme estimés (0.05% taker MEXC) — non déduits"><span class="hg-lab">FRAIS</span><span class="hg-val" id="h-fees">—</span></div>
+        <div class="hg hg-ia" title="Conseil ADA (gardienne)"><span class="hg-lab">IA · ADA</span><span class="hg-val" id="h-ia">—</span></div>
+      </div>
+
+      <!-- SUIVI PAR CRYPTO -->
+      <div class="hulk-sect">SUIVI PAR CRYPTO <span class="hulk-sect-n" id="h-bags-note"></span></div>
+      <div class="hulk-folio-grid" id="h-folio"></div>
+
+      <!-- JOURNAL DES OPÉRATIONS -->
+      <div class="hulk-sect">JOURNAL DES OPÉRATIONS <span class="hulk-sect-n" id="h-hist-n" style="color:var(--hulk)"></span></div>
+      <div class="stream hist"><div class="stream-inner" id="h-list"></div></div>
+      <div class="hulk-jlegend">achat/vente · prix · qté · % · PnL · hold = si rien fait</div>
+    </div>
+
+    <!-- HULK DÉTAILS : frais plateforme + hold % (modal) -->
+    <div class="hulk-modal" id="hulk-modal" aria-hidden="true">
+      <div class="hulk-modal-card">
+        <div class="hm-head">
+          <h3>HULK · DÉTAILS</h3>
+          <button type="button" class="hm-x" id="hulk-modal-x">✕</button>
         </div>
-        <div class="hulk-univ-strip" id="h-univ-strip"></div>
-        <div class="bags" id="h-bags-list"></div>
+        <div class="hm-sec">Frais plateforme (estimé)</div>
+        <div class="fee-big" id="hm-fees">—</div>
+        <div class="hm-note" id="hm-fees-note">—</div>
+        <div class="hm-sec">Conseils IA (ADA · Cortana · Kelly)</div>
+        <div class="hm-note" id="hm-ia">—</div>
+        <div class="hm-sec">Si tu n'avais rien fait (buy & hold) — en %</div>
+        <table>
+          <thead><tr><th>crypto</th><th>entrée</th><th>cours</th><th>hold %</th><th>uPnL $</th></tr></thead>
+          <tbody id="hm-hold"></tbody>
+        </table>
+        <div class="hm-note" id="hm-summary">—</div>
       </div>
     </div>
   </section>
@@ -1740,79 +1801,87 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
   function renderHulk(){
     const h=M.hulk||{};
     const set=(id,v)=>{const n=document.getElementById(id); if(n) n.innerHTML=v};
-    set('h-pnl', `<span class="${cls(h.pnl)}">${fmt(h.pnl)}</span> ${arrow(h.pnl>0?'up':h.pnl<0?'down':'flat')}`);
-    const g=document.getElementById('h-thrust'); if(g) g.style.width=Math.max(8,Math.min(100,(M.thrust||{}).hulk||40))+'%';
-    const tv=document.getElementById('h-thrust-val'); if(tv) tv.textContent=Math.round((M.thrust||{}).hulk||0)+'%';
-    set('h-bags', h.openTrades!=null? h.openTrades : (h.bags||0));
-    set('h-univ', h.universe!=null? h.universe : ((h.portfolio||h.positions||[]).length||0));
-    set('h-notional', h.notional!=null? h.notional:'—');
-    set('h-base', h.base!=null? h.base:'—');
-    const note=document.getElementById('h-bags-note');
-    if(note){
-      const openN=h.openTrades!=null? h.openTrades : (h.bags||0);
-      const univN=h.universe!=null? h.universe : 0;
-      const closed = h.tradesClosed!=null? h.tradesClosed : h.trades;
-      const maison = h.bagsMaison!=null? h.bagsMaison : 0;
-      note.textContent = univN
-        ? (univN+' cryptos suivies · '+openN+' ouverte(s) · '+((closed||0))+' SELL · '+maison+' bag maison')
-        : 'aucun univers paper';
+    const usd=v=>(v!=null&&v===v)?('$'+Number(v).toFixed(2)):'—';
+    set('h-pnl', `<span class="${cls(h.pnl)}">${fmt(h.pnl)}</span>`);
+    set('h-equity', usd(h.equity!=null? h.equity : (h.base!=null? Number(h.base)+(Number(h.pnl)||0) : null)));
+    set('h-cash', usd(h.cash));
+    set('h-engaged', usd(h.engaged!=null? h.engaged : h.notional));
+    set('h-base', usd(h.base));
+    set('h-fees', h.fees!=null ? ('$'+Number(h.fees).toFixed(3)) : '—');
+    // IA · ADA (gardienne) : zone + voilure
+    const gd=M.gardienne||{};
+    const ia=document.getElementById('h-ia');
+    if(ia){
+      const zone=((gd.zone_emoji||'')+' '+(gd.zone||'')).trim();
+      const voil=gd.voilure_pct!=null? ('voilure '+gd.voilure_pct+'%') : '';
+      ia.textContent = (zone+' '+voil).trim() || '—';
     }
     const rows=(h.portfolio&&h.portfolio.length)? h.portfolio : (h.positions||[]);
-    const strip=document.getElementById('h-univ-strip');
-    if(strip){
-      strip.innerHTML=rows.map(p=>{
+    const openRows=rows.filter(p=>(p.status||'').toUpperCase()==='TRADE'||(p.status||'').toUpperCase()==='BAG'||p.open===true);
+    const univN=h.universe!=null? h.universe : rows.length;
+    const note=document.getElementById('h-bags-note');
+    if(note) note.textContent = openRows.length+' ouverte(s) · '+univN+' suivies · '+(h.tradesClosed||0)+' clôture(s)';
+    // SUIVI PAR CRYPTO : tout le portefeuille (ouvertes + suivies)
+    const folio=document.getElementById('h-folio');
+    if(folio){
+      folio.innerHTML=rows.map(p=>{
         const st=(p.status||(p.open===false?'FLAT':'TRADE')).toUpperCase();
-        const on=st==='TRADE'||st==='BAG';
-        const clsChip=on?(st==='BAG'?'chip on bagm':'chip on'):'chip';
-        const tag=st==='TRADE'?'▲':(st==='BAG'?'◆':(st==='CASH'?'$':'·'));
-        return `<span class="${clsChip}" title="${p.pair||''} ${st}">${tag} ${p.crypto||p.pair}</span>`;
-      }).join('') || '<span class="chip">—</span>';
-    }
-    const bags=document.getElementById('h-bags-list');
-    if(bags){
-      bags.innerHTML=rows.map(p=>{
-        const st=(p.status||(p.open===false?'FLAT':'TRADE')).toUpperCase();
-        const isFlat=st==='FLAT'||st==='CASH';
-        const u=p.uPnl!=null?p.uPnl:p.uPnlApprox;
-        const pct=p.pnlPct;
+        const open=st==='TRADE'||st==='BAG'||p.open===true;
+        const crypto=p.crypto||p.pair||'';
+        const regime=p.regime||'—';
         const dir=(p.dir||'').toUpperCase();
         const dirTxt=(dir==='LONG'||dir==='SHORT')?dir:'';
-        const dirCls=dir==='SHORT'?'dir-short':(dir==='LONG'?'dir-long':'');
-        const regime=p.regime||(isFlat?'WATCH':'—');
-        const seedTxt=p.seed?' · ▲ SEED':'';
-        const tag=st==='TRADE'?'OPEN':(st==='BAG'?'BAG':(st==='CASH'?'CASH':'FLAT'));
-        const dCls=st==='TRADE'?'':(st==='BAG'?' bagm':' flat');
-        return `<div class="bag${isFlat?' flat':''}">
-          <div class="p">${p.crypto||p.pair} <span class="d${dCls}">${tag}</span></div>
-          <div class="meta"><span class="${dirCls}">${dirTxt||'—'}</span> · ${regime}${seedTxt}</div>
-          <div class="row"><span>${isFlat?'suivi':('q '+Number(p.qty).toPrecision(4))}</span><span>${p.stake!=null?('$'+p.stake):'—'}</span></div>
-          <div class="row"><span>${isFlat?(p.mark!=null?('@'+fmtP(p.mark,6)):'—'):('@'+fmtP(p.entry,6))}</span><span>${isFlat?'—':('→ '+fmtP(p.mark||p.high,6))}</span></div>
-          <div class="row"><span class="${cls(u)}">${isFlat?'—':fmt(u)}</span><span class="${cls(pct)}">${pct!=null?fmt(pct,1)+'%':'—'}</span></div>
+        if(open){
+          const u=p.uPnl!=null?p.uPnl:p.uPnlApprox;
+          const pct=p.pnlPct;
+          const tag=st==='BAG'?'BAG':'OPEN';
+          const tagCls=st==='BAG'?'bag':'open';
+          const seedTxt=p.seed?' · SEED':'';
+          return `<div class="hfc" title="${crypto} — tenir depuis l'entrée (rien faire)">
+            <div class="hfc-top"><span class="hfc-name">${crypto}</span><span class="hfc-tag ${tagCls}">${tag}</span></div>
+            <div class="hfc-row"><span class="${dirTxt==='SHORT'?'dir-short':(dirTxt==='LONG'?'dir-long':'')}">${dirTxt||'dir'}${seedTxt}</span><span>${regime}</span></div>
+            <div class="hfc-row"><span>entrée</span><span>${fmtP(p.entry,6)}</span></div>
+            <div class="hfc-row"><span>cours</span><span>${fmtP(p.mark||p.high,6)}</span></div>
+            <div class="hfc-row" title="si tu n'avais rien fait"><span>hold</span><span class="${cls(pct)}">${pct!=null?fmt(pct,2)+'%':'—'}</span></div>
+            <div class="hfc-row"><span>uPnL</span><span class="${cls(u)}">${u!=null?fmt(u,4):'—'}</span></div>
+          </div>`;
+        }
+        const tag=st==='CASH'?'CASH':'SUIVI';
+        return `<div class="hfc flat">
+          <div class="hfc-top"><span class="hfc-name">${crypto}</span><span class="hfc-tag flat">${tag}</span></div>
+          <div class="hfc-row"><span>cours</span><span>${fmtP(p.mark,6)}</span></div>
+          <div class="hfc-row" title="variation 24h du marché (pas ton PnL)"><span>24h</span><span class="${cls(p.pnlPct)}">${p.pnlPct!=null?fmt(p.pnlPct,1)+'%':'—'}</span></div>
+          <div class="hfc-reg">${regime}</div>
         </div>`;
-      }).join('') || '<span style="color:var(--muted)">aucun portefeuille</span>';
+      }).join('') || '<span style="color:var(--muted)">aucun univers paper</span>';
     }
+    // JOURNAL DES OPÉRATIONS : achat / vente / stop / bag, avec prix · qté · % · PnL
     const list=document.getElementById('h-list');
     const hn=document.getElementById('h-hist-n');
     if(list){
-      // vrais trades seulement (plus de SKIP / BUY à 0$ qui masquent)
-      let hist=(h.history&&h.history.length? h.history : h.last||[]).filter(r=>{
-        const ev=(r.event||'').toUpperCase();
-        return ev==='BUY' || ev.startsWith('SELL');
-      });
-      if(hn) hn.textContent = '('+hist.length+')';
+      const hist=(h.history&&h.history.length? h.history : h.last||[]);
+      if(hn) hn.textContent='('+hist.length+')';
       list.innerHTML=hist.slice(0,30).map(r=>{
         const ev=(r.event||'').toUpperCase();
-        const kind=ev.includes('BUY')?'buy':(ev.includes('SELL')?'sell':'skip');
-        const isOpen = kind==='buy';
-        const meta=[r.crypto||r.pair||'', r.price!=null?'@'+fmtP(r.price,5):''].filter(Boolean).join(' ');
-        const pnlShow = isOpen ? 'ouv.' : fmt(r.pnl,2);
-        let hulkTime = '—';
-        if (r.ts) {
-          const d = new Date(r.ts);
-          if (!isNaN(d)) hulkTime = d.toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit'});
+        const crypto=r.crypto||r.pair||'';
+        const isBuy=ev==='BUY'||ev.startsWith('BAG_BUY')||ev.startsWith('DCA');
+        const kind=isBuy?'buy':'sell';
+        const price=r.price!=null?fmtP(r.price,6):null;
+        const entry=r.entry!=null?fmtP(r.entry,6):null;
+        const qty=(r.qty!=null&&!isNaN(r.qty))?Number(r.qty).toPrecision(4):null;
+        const pct=r.pnlPct;
+        let hulkTime='—';
+        if(r.ts){const d=new Date(r.ts); if(!isNaN(d)) hulkTime=d.toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit'});}
+        const action=isBuy?'ACHETÉ':'VENDU';
+        let line;
+        if(isBuy){
+          line=`${action} @${price||'—'}${qty?(' · '+qty):''}`;
+        }else{
+          line=`${action} @${price||'—'}${entry?(' ← entrée '+entry):''}${qty?(' · '+qty):''}${pct!=null?(' · '+fmt(pct,1)+'%'):''}`;
         }
-        return `<div class="trade ${kind}" title="${(r.reason||'')+(r.dir?(' '+r.dir):'')}"><span>${hulkTime}</span><span>${ev.slice(0,4)}</span><span>${meta}</span><span class="${isOpen?'neu':cls(r.pnl)}">${pnlShow}</span></div>`;
-      }).join('') || '<span style="color:var(--muted)">pas encore de BUY/SELL</span>';
+        const pnlShow=isBuy?'ouv.':fmt(r.pnl,2);
+        return `<div class="trade ${kind}" title="${r.reason||''}${r.dir?(' · '+r.dir):''}"><span>${hulkTime}</span><span class="t-ev">${ev.replace(/_/g,' ').slice(0,9)}</span><span class="t-line">${crypto} ${line}</span><span class="${isBuy?'neu':cls(r.pnl)}">${pnlShow}</span></div>`;
+      }).join('') || '<span style="color:var(--muted)">pas encore d\'opération</span>';
     }
   }
 
@@ -2791,6 +2860,69 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
   const gm=document.getElementById('guide-modal');
   if(gm) gm.addEventListener('click', e=>{ if(e.target===gm) closeGuide(); });
   document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeGuide(); });
+
+  // ——— HULK détails : frais plateforme + hold % ———
+  function renderHulkDetails(){
+    const h=M.hulk||{};
+    const feeEl=document.getElementById('hm-fees');
+    if(feeEl) feeEl.textContent = h.fees!=null ? ('$'+Number(h.fees).toFixed(4)) : '—';
+    const rate=h.feeRate!=null?h.feeRate:0.0005;
+    const fn=document.getElementById('hm-fees-note');
+    if(fn) fn.textContent = 'Taux taker MEXC spot '+(rate*100).toFixed(2)+'% · '+(h.feeTrades||0)+' opération(s) · estimé — le moteur paper ne déduit pas encore les frais.';
+    const rows=(h.portfolio&&h.portfolio.length)? h.portfolio : (h.positions||[]);
+    const openRows=rows.filter(p=>(p.status||'').toUpperCase()==='TRADE'||(p.status||'').toUpperCase()==='BAG'||p.open===true);
+    const tbody=document.getElementById('hm-hold');
+    let uSum=0;
+    if(tbody){
+      tbody.innerHTML=openRows.map(p=>{
+        const u=p.uPnl!=null?p.uPnl:p.uPnlApprox;
+        if(u!=null&&!isNaN(u)) uSum+=Number(u);
+        const pct=p.pnlPct;
+        return '<tr>'+
+          '<td>'+(p.crypto||p.pair||'')+'</td>'+
+          '<td>'+fmtP(p.entry,6)+'</td>'+
+          '<td>'+fmtP(p.mark||p.high,6)+'</td>'+
+          '<td class="'+cls(pct)+'">'+(pct!=null?fmt(pct,2)+'%':'—')+'</td>'+
+          '<td class="'+cls(u)+'">'+(u!=null?fmt(u,4):'—')+'</td>'+
+        '</tr>';
+      }).join('') || '<tr><td colspan="5" style="color:var(--muted);text-align:left">aucune position ouverte</td></tr>';
+    }
+    const sumEl=document.getElementById('hm-summary');
+    if(sumEl){
+      const realized=h.pnl||0;
+      const closed=h.tradesClosed||0;
+      sumEl.textContent = 'Tenir sans rien faire ('+openRows.length+' position(s)) ≈ '+fmt(uSum,4)+'$ · le bot a déjà réalisé '+fmt(realized,2)+'$ ('+closed+' clôture(s)).';
+    }
+    const iaEl=document.getElementById('hm-ia');
+    if(iaEl){
+      const gd=M.gardienne||{};
+      const cdo=M.coup_doeil||{};
+      const lines=[];
+      if(gd.zone) lines.push('ADA : zone '+gd.zone+' '+(gd.zone_emoji||'')+' · voilure '+(gd.voilure_pct!=null?gd.voilure_pct+'%':'—'));
+      if(gd.story&&gd.story[0]) lines.push('ADA : '+gd.story[0]);
+      const cs=h.conseils||{};
+      if(cs.cortana){
+        const c=cs.cortana;
+        const props=(c.proposals&&c.proposals.length)? c.proposals.map(x=>x.param).join(', ') : 'aucune';
+        lines.push('Cortana : justesse '+(c.accuracy!=null?c.accuracy:'—')+' · '+c.mode+' · propose : '+props);
+      }
+      if(cs.kelly){
+        const k=cs.kelly;
+        lines.push('Kelly : win_rate '+k.win_rate+' (n='+k.n+') · mise '+k.mise+'$ — '+(k.motif||''));
+      }
+      if(cdo.verdict_famille) lines.push('Famille : '+String(cdo.verdict_famille).slice(0,160));
+      iaEl.innerHTML = lines.map(l=>'• '+l).join('<br>') || '—';
+    }
+  }
+  function openHulkDetails(){ renderHulkDetails(); const m=document.getElementById('hulk-modal'); if(m) m.classList.add('show'); }
+  function closeHulkDetails(){ const m=document.getElementById('hulk-modal'); if(m) m.classList.remove('show'); }
+  const hdb=document.getElementById('hulk-details-btn');
+  if(hdb) hdb.addEventListener('click', openHulkDetails);
+  const hmx=document.getElementById('hulk-modal-x');
+  if(hmx) hmx.addEventListener('click', closeHulkDetails);
+  const hmm=document.getElementById('hulk-modal');
+  if(hmm) hmm.addEventListener('click', e=>{ if(e.target===hmm) closeHulkDetails(); });
+  document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeHulkDetails(); });
 
   // Bouton Cortana sur chaque pill (délégation) : les .pill-ana portent data-indice
   document.addEventListener('click', e=>{

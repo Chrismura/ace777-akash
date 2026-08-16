@@ -189,6 +189,36 @@ def _crypto_from_pair(pair: str) -> str:
     return p or "?"
 
 
+def load_hulk_conseils() -> dict:
+    """Conseils IA Hulk (lecture seule) : Cortana ADVISORY + Kelly ombre.
+    ADA (gardienne) est déjà injecté à part dans le payload global."""
+    out: dict = {}
+    cp = ROOT / "hulk-mexc" / "strategie" / "cortana_pilot.json"
+    if cp.exists():
+        try:
+            d = json.loads(cp.read_text(encoding="utf-8"))
+            out["cortana"] = {
+                "accuracy": d.get("cortana_accuracy_score"),
+                "mode": d.get("enforced_mode"),
+                "proposals": d.get("proposals") or [],
+            }
+        except Exception:
+            pass
+    kp = ROOT / "hulk-mexc" / "strategie" / "kelly_ombre.json"
+    if kp.exists():
+        try:
+            d = json.loads(kp.read_text(encoding="utf-8"))
+            out["kelly"] = {
+                "win_rate": d.get("win_rate"),
+                "n": d.get("n"),
+                "mise": d.get("mise_recommandee"),
+                "motif": d.get("motif"),
+            }
+        except Exception:
+            pass
+    return out
+
+
 def load_hulk():
     state = freshest("*_state.json", HULK)
     # CSV apparié au state (même stem) — sinon freshest PAPER*
@@ -202,8 +232,9 @@ def load_hulk():
         csv_p = freshest("PAPER*.csv", HULK)
     out = {
         "file": None, "stateFile": None, "pnl": 0.0, "trades": 0,
-        "notional": None, "base": None, "positions": [], "last": [], "bags": 0,
-        "history": [],
+        "notional": None, "base": None, "cash": None, "equity": None, "engaged": None,
+        "fees": None, "feeRate": 0.0005, "feeTrades": 0,
+        "positions": [], "last": [], "bags": 0, "history": [],
     }
     if state and state.exists():
         s = json.loads(state.read_text(encoding="utf-8"))
@@ -212,6 +243,17 @@ def load_hulk():
         out["trades"] = int(s.get("trades") or 0)
         out["notional"] = fnum(s.get("notional_live"), 2)
         out["base"] = fnum(s.get("base_notional"), 2)
+        # Wallet paper : cash libre récupéré (pair_cash) + équité = base + pnl
+        pc = s.get("pair_cash") or {}
+        cash_total = 0.0
+        for v in pc.values():
+            try:
+                cash_total += float(v)
+            except Exception:
+                pass
+        out["cash"] = round(cash_total, 2) if pc else 0.0
+        if out["base"] is not None:
+            out["equity"] = round(out["base"] + (out["pnl"] or 0.0), 2)
         pos = s.get("positions") or {}
         maison = s.get("bags") or {}  # bags maison (distinct des trades ouverts)
         scores = s.get("scores") or {}
@@ -258,6 +300,13 @@ def load_hulk():
             out["positions"].append(_row_open(pair, info, "TRADE"))
         out["bags"] = len(out["positions"])
         out["positions"].sort(key=lambda p: (p.get("uPnl") is None, -(p.get("uPnl") or 0)))
+        engaged = 0.0
+        for p in out["positions"]:
+            try:
+                engaged += float(p.get("stake") or 0.0)
+            except Exception:
+                pass
+        out["engaged"] = round(engaged, 2)
 
         # PORTEFEUILLE COMPLET = toutes les cryptos suivies (vision d’ensemble)
         portfolio = []
@@ -303,32 +352,56 @@ def load_hulk():
         with csv_p.open(newline="", encoding="utf-8", errors="ignore") as f:
             for row in csv.DictReader(f):
                 ev = (row.get("event") or "").upper()
+                price = fnum(row.get("price"), 6)
+                entry = fnum(row.get("entry"), 6)
+                pnl = fnum(row.get("pnl_usdt"), 4) or 0.0
+                # sortie = vente / stop / bag (pnl réalisé) → % = (exit − entry) / entry
+                is_exit = ev.startswith(("SELL", "STOP", "BAG_SELL", "BAG_CRASH"))
+                pnl_pct = None
+                if is_exit and price is not None and entry is not None and entry != 0:
+                    pnl_pct = round((price - entry) / entry * 100.0, 2)
                 rows.append(
                     {
                         "ts": row.get("ts"),
                         "pair": row.get("pair"),
                         "crypto": _crypto_from_pair(row.get("pair") or ""),
                         "event": row.get("event"),
-                        "dir": "LONG" if ev == "BUY" else (
-                            "FLAT" if ev in ("SELL", "SELL_OK", "SELL_KO") else "?"
-                        ),
-                        "price": fnum(row.get("price"), 6),
-                        "entry": fnum(row.get("entry"), 6),
+                        "dir": "LONG" if ev == "BUY" else ("SELL" if is_exit else "?"),
+                        "price": price,
+                        "entry": entry,
                         "qty": fnum(row.get("qty"), 6),
-                        "pnl": fnum(row.get("pnl_usdt"), 4) or 0.0,
+                        "pnl": pnl,
+                        "pnlPct": pnl_pct,
                         "total": fnum(row.get("pnl_total"), 4),
                         "reason": (row.get("reason") or "")[:60],
                     }
                 )
-        # SKIP = bruit (centaines) — historique utile = BUY/SELL seulement
-        real = [r for r in rows if (r.get("event") or "").upper() in (
-            "BUY", "SELL", "SELL_OK", "SELL_KO"
-        )]
-        out["last"] = list(reversed(real[-20:]))
-        out["history"] = list(reversed(real[-40:]))
+        # Hulk CSV = événements réels uniquement (BUY + sorties) ; garder tout,
+        # sauf lignes vides. Sorties : SELL* / SELL_PARTIAL / STOP* / BAG_SELL / BAG_CRASH.
+        real = [r for r in rows if (r.get("event") or "").strip()]
+        out["last"] = list(reversed(real[-30:]))
+        out["history"] = list(reversed(real[-60:]))
         out["tradesClosed"] = sum(
-            1 for r in rows if (r.get("event") or "").upper().startswith("SELL")
+            1 for r in rows
+            if (r.get("event") or "").upper().startswith(("SELL", "STOP", "BAG_SELL", "BAG_CRASH"))
         )
+        # Frais plateforme estimés — MEXC spot : 0 % maker / 0,05 % taker.
+        # Le moteur paper ne déduit PAS encore les frais : on estime ici ce que
+        # coûterait le run en réel (taker, car ordres au marché).
+        fee_total = 0.0
+        fee_trades = 0
+        for r in rows:
+            px = r.get("price")
+            qt = r.get("qty")
+            if px is not None and qt is not None:
+                try:
+                    fee_total += float(px) * float(qt) * out["feeRate"]
+                    fee_trades += 1
+                except Exception:
+                    pass
+        out["fees"] = round(fee_total, 4)
+        out["feeTrades"] = fee_trades
+    out["conseils"] = load_hulk_conseils()
     return out
 
 
