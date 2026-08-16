@@ -448,6 +448,27 @@ cd ~/ace777-test-day1 && ./GO_VORTEX_V2.sh 02:00:00
 > **Après le run** : lire `runs/RAPPORT_PNL_AUTO_*.md` (le plus récent) + `engle/journal/ENGLE_JOURNAL_DERNIER.md`. Critères : %revenge 30–60%, `revenge_ttl_expired` présent, `stale_state` ≈ 0, **`price_stasis skips` > 0** (marché calme), **%fills BETA flat < 20%**, PnL total > +1 USDT.
 > **Doc** : `Index_Maison/CHANTIER_FIX_LAST_LOSS_TTL_2026-08-16.md` · `Index_Maison/CHANTIER_FIX_PRICE_STASIS_2026-08-16.md` · `Index_Maison/ANALYSE_RUNS_2026-08-16.md` · Rollback : voir chantiers (backups `BAK_avant_fix_last_loss_ttl_20260816` et `BAK_avant_fix_price_stasis_20260816`).
 
+## 12 — HULK : FIX TIER/RIP (garde-fous typologie, 16/08)
+
+**📌 Contexte** : Hulk paper a perdu −7.02$ en 4 stops (13→16/08) : RIZE −2.48 (tier B gapé
+−12.25%), EDEL −3.31 (tier B, acheté 3×), ZBCN −1.22. Cause : PAPER_PAIRS contournait le filtre
+tier, les tier B prenaient la pleine mise, le rip (rebond) n'était jamais vendu, re-entry sans borne.
+
+**🔧 Fix appliqué** (famille 4/4 GO-AVEC-RÉSERVE) :
+- `pick_pairs()` : tier B exclus sauf watch explicite (EDEL sortie, QAIT/RIZE en watch ×0.25)
+- `buy()` : tier B × `TIER_B_POSITION_MULT=0.25` + garde spread > 100 bps → SKIP
+- `manage_open()` : **RIP implémenté** — vente partielle 50% au 1er rebond ≥ rip_pct (flag rip_done)
+- Re-entry borné : `REENTRY_MAX=1` + `STOP_COOLDOWN_HOURS=4` (reset compteur si gain)
+
+**🚀 Relance paper (après vérif) :**
+```bash
+cd ~/ace777-test-day1/hulk-mexc && rm -f STOP_PAPER && python3 scripts/paper_diprip.py
+```
+
+> **Après ~10 trades** : vérifier dans `runs/PAPER_V1_*.csv` : raisons `rip_*` présentes,
+> plus de stop > −7%, plus de BUY doublé après stop, PnL ≥ 0.
+> **Doc** : `hulk-mexc/docs/CHANTIER_FIX_TIER_RIP_2026-08-16.md` (rollback : `git checkout -- scripts/paper_diprip.py config/defaults.env`).
+
 ---
 
 ## 🔗 Connexions

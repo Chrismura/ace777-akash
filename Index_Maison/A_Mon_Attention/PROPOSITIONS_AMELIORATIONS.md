@@ -1,4 +1,4 @@
-# 💡 PROPOSITIONS D'AMELIORATION — 2026-08-15
+# 💡 PROPOSITIONS D'AMELIORATION — 2026-08-16
 
 > Genere par propose_ameliorations.py (rituel proactif 09/08).
 > Le juge PROPOSE (maker!=checker), GEMINI CONTRE-VERIFIE (famille differente),
@@ -6,28 +6,28 @@
 
 ## Top 3 — proposé par le juge
 
-1. Blame router (L1-L4)
-   QUOI: Classifier les bugs selon l'étage (ask, contexte, harnais, boucle) avant d'investiguer.
-   PREUVE: Pépite #1 (@starmexxx, I/I/I) — "73% des bugs = 1 étage en dessous".
-   IMPACT: Évite de chercher au mauvais endroit et réduit drastiquement le temps de debug.
+1. Blame router (debug à l'étage)
+   QUOI: Isoler les bugs par strate (L1 ask / L2 contexte / L3 harnais / L4 boucle).
+   PREUVE: Pépite #1 (@starmexxx, note Ada : "Notre debug = cette carte").
+   IMPACT: Réduction drastique du temps de recherche d'anomalie dans les runs.
 
-2. Politique d'oubli & graphs temporels
-   QUOI: Marquer l'ancien contexte comme invalide sans le supprimer immédiatement.
-   PREUVE: Pépite #4 et #13 (@UnTalNixon_exe, @mem0ai, I/I/I) — convergence sur les agents qui rêvent.
-   IMPACT: Nettoie la mémoire chaude, réduit la confusion des agents et préserve la cohérence.
+2. Context graphs temporels et oubli actif
+   QUOI: Déclarer l'ancien contexte invalide sans le supprimer immédiatement.
+   PREUVE: Pépite #4 (@UnTalNixon_exe) & #13 (@mem0ai, politique d'oubli).
+   IMPACT: Évite la pollution de la mémoire chaude et fiabilise les décisions bots.
 
-3. Budget de latence avant optimisation
-   QUOI: Mesurer systématiquement le temps et les tokens consommés avant chaque refactoring lourd.
-   PREUVE: Pépite #7 (@0x_Punisher, I/I/I).
-   IMPACT: Empêche les optimisations prématurées et rationalise l'usage des providers du hub.
+3. Code search sémantique pour le coffre
+   QUOI: Indexer sémantiquement les repos pour économiser ~99% de tokens.
+   PREUVE: Pépite #30 (@Granite0x).
+   IMPACT: Baisse massive de la consommation d'énergie et accélération des audits.
 
-RECO: Implémenter le blame router (#1) en premier pour structurer immédiatement la résolution des bugs de cette session.
+RECO: Prioriser le Blame router (#1) pour structurer immédiatement le diagnostic des erreurs de session.
 
 ## Contre-vérification — Gemini (famille différente)
 
-VERDICT: OK
-OBJECTIONS: aucune
-PRIORITE: Le #1 (Blame router) en premier, car la mission tourne en alerte amber (PnL -4.54 $) et localiser immédiatement les frictions L1-L4 évitera de gaspiller le budget cloud (déjà 191 appels).
+VERDICT: A MODIFIER
+OBJECTIONS: Le Juge priorise le Blame router (#1) alors que l'alerte de mission est rouge (`red`, PnL -0.04$, HULK -7.02$) et que l'infrastructure souffre d'un hub arrêté et d'une instabilité des bots.
+PRIORITE: Le Context graphs (#2) en urgence pour stabiliser la mémoire chaude des bots et stopper l'hémorragie financière, car le debug (#1) ne sauvera pas le run actuel en état de crise.
 
 ---
 _Backlog source : TABLEAU_PEPITES_2026-08-08 (43 INTEGRER / 14 VERIFIER) + IDEES + VEILLE_HUB._
