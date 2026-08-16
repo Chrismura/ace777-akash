@@ -1,8 +1,8 @@
 # CATALOGUE DES PROVIDERS — ACE777
 
-*Genere le 2026-08-15 par catalog_providers.py (gagnant A/B codeurs 09/08). Rafraichi a chaque veille du matin.*
+*Genere le 2026-08-16 par catalog_providers.py (gagnant A/B codeurs 09/08). Rafraichi a chaque veille du matin.*
 
-**Actifs : 11 · En observation : 0 · En attente : 6 · De cote (payant) : 0**
+**Actifs : 12 · En observation : 0 · En attente : 6 · De cote (payant) : 0**
 
 ## ACTIFS
 
@@ -19,6 +19,7 @@
 | - | `nvidia/nemotron-3-nano-30b-a3b:free` | obs-1786774646 | auto queue_offres |
 | - | `nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free` | obs-1786774656 | auto queue_offres |
 | - | `nvidia/nemotron-3.5-lightning:free` | obs-1786774667 | auto queue_offres |
+| - | `nvidia/nemotron-3.5-content-safety:free` | obs-1786795252 | auto queue_offres |
 
 ## EN OBSERVATION (48h avant activation, jamais route)
 

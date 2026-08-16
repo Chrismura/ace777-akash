@@ -10,6 +10,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
 <script src="mission.js"></script>
+<!-- COSMOS HUB feed -->
+<script src="hub.js"></script>
 <script src="../thermo/live.js"></script>
 <script src="../thermo/cortana_feed.js"></script>
 <style>
@@ -72,6 +74,23 @@ body::after{
   background:#0a1014;color:var(--amber);cursor:pointer;font-family:inherit}
 .cortana-mid .btns button.mute{border-color:var(--red);color:var(--red)}
 .cortana-mid .btns button.on{border-color:var(--acid);color:var(--acid)}
+.cortana-mid .chat-row{display:flex;gap:4px;margin-top:6px}
+.cortana-mid .chat-row input{
+  flex:1;min-width:0;background:#0b1420;border:1px solid #22303f;border-radius:4px;
+  color:#c9d4de;font-size:.66rem;padding:3px 6px;outline:none;
+}
+.cortana-mid .chat-row input:focus{border-color:var(--amber)}
+.cortana-mid .chat-row button{
+  background:transparent;border:1px solid var(--amber);color:var(--amber);
+  border-radius:4px;font-family:Orbitron,sans-serif;font-size:.55rem;letter-spacing:.08em;
+  padding:3px 8px;cursor:pointer;transition:background .15s,color .15s;
+}
+.cortana-mid .chat-row button:hover{background:var(--amber);color:#0b1420}
+.cortana-mid .chat-row button:disabled{opacity:.4;cursor:wait}
+.cortana-mid .btns button#btn-yeux{border-color:var(--cyan);color:var(--cyan)}
+.cortana-mid .btns button#btn-yeux:hover{background:var(--cyan);color:#0b1420}
+.yeux-result{margin-top:6px;padding:6px 8px;background:#0a100c;border:1px solid rgba(124,255,107,.3);
+  border-radius:4px;font-size:.68rem;color:#cfe6d2;line-height:1.5;max-height:120px;overflow-y:auto}
 .cortana-side{width:140px;flex-shrink:0;border-left:1px solid var(--line);padding-left:8px;overflow:auto;max-height:72px}
 .cortana-side .lab{font-size:.5rem;color:var(--muted);letter-spacing:.08em;margin-bottom:2px}
 .cortana-side .item{font-size:.52rem;color:#c9d4de;padding:2px 0;border-bottom:1px solid rgba(30,42,54,.7);line-height:1.25}
@@ -146,6 +165,23 @@ body::after{
 .pf-go.on{display:block}
 .pf-go b{color:var(--amber2)}
 .pf-go code{color:var(--acid);font-size:.58rem}
+/* RUN STATUS — moteur en marche ou à l'arrêt (live, poll 5s via /status) */
+.run-status{
+  display:flex;align-items:center;gap:8px;margin:6px 0 10px;padding:8px 12px;
+  border:1px solid rgba(120,120,140,.25);border-radius:8px;
+  background:rgba(0,0,0,.4);font-family:Orbitron,sans-serif;font-size:.72rem;
+  letter-spacing:.06em;color:var(--muted);line-height:1.4;
+}
+.run-status .dot{width:10px;height:10px;border-radius:50%;flex:none}
+.run-status.on{border-color:rgba(124,255,107,.5);color:var(--acid)}
+.run-status.on .dot{background:var(--acid);box-shadow:0 0 10px var(--acid);animation:pulse-green 1.6s infinite}
+.run-status.stale{border-color:rgba(240,160,32,.5);color:var(--amber2)}
+.run-status.stale .dot{background:var(--amber2);box-shadow:0 0 8px var(--amber2)}
+.run-status.off{border-color:rgba(255,77,77,.6);color:var(--red)}
+.run-status.off .dot{background:var(--red);box-shadow:0 0 12px var(--red);animation:pulse-red 1s infinite}
+.run-status b{font-weight:700}
+@keyframes pulse-green{0%,100%{opacity:1}50%{opacity:.35}}
+@keyframes pulse-red{0%,100%{opacity:1}50%{opacity:.25}}
 .pf-extra{margin-top:8px;border-top:1px solid rgba(90,80,40,.35);padding-top:6px}
 .pf-extra summary{
   cursor:pointer;font-size:.58rem;letter-spacing:.1em;color:var(--muted);
@@ -157,10 +193,154 @@ body::after{
   #stage-ops{grid-template-columns:1fr}
 }
 #stage-thermo{grid-template-columns:1.1fr 1fr}
+#stage-thermo .ada-card{grid-column:1 / -1;border-color:rgba(124,255,107,.35)}
+.ada-line{font-family:Orbitron,sans-serif;font-size:clamp(.8rem,1.4vw,1.05rem);letter-spacing:.05em;line-height:1.4}
+.ada-line.sirene{animation:adaSirene 1s ease-in-out infinite}
+@keyframes adaSirene{0%,100%{opacity:1}50%{opacity:.3}}
+@media (prefers-reduced-motion: reduce){.ada-line.sirene{animation:none}}
+.ada-bar{height:6px;border-radius:99px;background:#0a0f14;border:1px solid var(--line);margin:8px 0;overflow:hidden}
+.ada-fill{height:100%;border-radius:99px;transition:width 1.2s cubic-bezier(.2,.8,.2,1)}
+.ada-decl{font-size:.62rem;color:var(--red);letter-spacing:.08em;margin-top:6px}
+.ada-meta{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:8px;font-size:.66rem;color:var(--muted);letter-spacing:.04em}
+.ada-meta b{color:#c9d4de;font-weight:600}
+.ada-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px}
+.ada-snd-btn{background:transparent;border:1px solid var(--line);border-radius:99px;padding:2px 9px;font-size:.78rem;cursor:pointer;color:var(--amber2);line-height:1.2}
+.ada-snd-btn:hover{border-color:var(--amber2);box-shadow:0 0 8px rgba(240,160,32,.35)}
+.ada-snd-btn.off{opacity:.45}
+.ada-snd-btn.pulse{animation:adaSndPulse 1.6s ease-in-out infinite}
+@keyframes adaSndPulse{0%,100%{box-shadow:0 0 0 rgba(240,160,32,0)}50%{box-shadow:0 0 10px rgba(240,160,32,.55)}}
 #stage-board{grid-template-columns:1fr}
 #stage-board .board-frame{padding:0;overflow:hidden;min-height:72vh}
 #stage-board iframe{display:block;width:100%;height:min(86vh,1100px);border:0;background:#070a0c}
 #stage-vol{grid-template-columns:1fr minmax(240px,320px)}
+#stage-strategie{grid-template-columns:1fr;gap:12px}
+
+/* ---- STRATÉGIE : bannière d'état ---- */
+.strat-banner{display:flex;align-items:center;gap:14px;padding:14px 18px;border-radius:8px;
+  border:1px solid var(--line);background:linear-gradient(180deg,#0e150f,#080c08);
+  box-shadow:inset 0 0 30px rgba(0,0,0,.4),0 0 14px rgba(0,0,0,.35);
+  transition:border-color .25s,box-shadow .25s}
+.strat-banner .sb-icon{font-size:1.7rem;line-height:1;filter:drop-shadow(0 0 8px currentColor)}
+.strat-banner .sb-txt{flex:1}
+.strat-banner .sb-title{font-family:Orbitron,sans-serif;font-size:.95rem;letter-spacing:.14em;color:var(--amber2)}
+.strat-banner .sb-sub{font-size:.72rem;color:var(--muted);margin-top:3px;line-height:1.5}
+.strat-banner.strat-ok{border-color:rgba(124,255,107,.45)}
+.strat-banner.strat-ok .sb-icon{color:var(--acid)}
+.strat-banner.strat-ok .sb-title{color:var(--acid2)}
+.strat-banner.strat-ok{box-shadow:inset 0 0 30px rgba(124,255,107,.05),0 0 18px rgba(124,255,107,.12)}
+.strat-banner.strat-new{border-color:rgba(240,160,32,.55)}
+.strat-banner.strat-new .sb-icon{color:var(--amber)}
+.strat-banner.strat-new{box-shadow:inset 0 0 30px rgba(240,160,32,.06),0 0 18px rgba(240,160,32,.14)}
+.strat-banner.strat-err{border-color:rgba(255,77,77,.5)}
+.strat-banner.strat-err .sb-icon{color:var(--red)}
+.strat-banner.strat-err .sb-title{color:#ffb3b3}
+.strat-banner.strat-idle{border-color:var(--line)}
+.strat-banner.strat-idle .sb-icon{color:var(--muted);animation:pulse 1.4s infinite}
+
+/* ---- STRATÉGIE : carte analyste (STRATEGIE.md) ---- */
+.strat-analyste{grid-column:1 / -1}
+.strat-analyste-body{font-size:.74rem;line-height:1.7;color:#cfc9b4;max-height:min(40vh,420px);
+  overflow-y:auto;padding-right:6px;white-space:pre-wrap;word-break:break-word}
+.strat-analyste-body::-webkit-scrollbar{width:6px}
+.strat-analyste-body::-webkit-scrollbar-thumb{background:#2a2418;border-radius:3px}
+.strat-analyste-body .sa-sec{font-family:Orbitron,sans-serif;font-size:.62rem;letter-spacing:.14em;
+  color:var(--amber2);margin:10px 0 4px;text-transform:uppercase}
+.strat-analyste-body .sa-sec:first-child{margin-top:0}
+.strat-analyste-body b{color:var(--acid2)}
+
+/* ---- STRATÉGIE : cartes fournisseurs ---- */
+.strat-providers{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px}
+.sp-card{position:relative;background:linear-gradient(180deg,#0e150f,#070b08);
+  border:1px solid var(--line);border-radius:6px;padding:10px 12px;overflow:hidden;
+  transition:transform .15s,border-color .2s,box-shadow .2s}
+.sp-card:hover{transform:translateY(-2px);border-color:var(--amber);box-shadow:0 0 16px rgba(240,160,32,.15)}
+.sp-card .sp-dot{position:absolute;top:9px;right:9px;width:8px;height:8px;border-radius:50%}
+.sp-card .sp-dot.on{background:var(--acid);box-shadow:0 0 8px var(--acid)}
+.sp-card .sp-dot.new{background:var(--amber);box-shadow:0 0 8px var(--amber)}
+.sp-card .sp-dot.err{background:var(--red);box-shadow:0 0 8px var(--red)}
+.sp-card .sp-dot.off{background:#4a4a4a}
+.sp-card .sp-name{font-family:Orbitron,sans-serif;font-size:.6rem;letter-spacing:.12em;color:var(--muted);
+  padding-right:14px;text-transform:uppercase}
+.sp-card .sp-count{font-family:Orbitron,sans-serif;font-size:1.25rem;margin-top:6px;color:#e8dcc0}
+.sp-card .sp-state{font-size:.62rem;color:var(--muted);margin-top:2px}
+.sp-card .sp-count.new{color:var(--amber)}
+.sp-card .sp-count.on{color:var(--acid)}
+
+/* ---- STRATÉGIE : corps ---- */
+.strat-body{display:grid;grid-template-columns:1fr minmax(260px,320px);gap:12px;align-items:start}
+@media(max-width:1050px){.strat-body{grid-template-columns:1fr}}
+.strat-main{grid-column:1}
+.strat-disc{grid-column:2}
+@media(max-width:1050px){.strat-main,.strat-disc{grid-column:1}}
+.strat-date{font-size:.68rem;color:var(--muted);letter-spacing:.1em;margin-bottom:8px}
+
+.offres-list{display:flex;flex-direction:column;gap:6px;max-height:min(52vh,520px);overflow-y:auto;padding-right:4px}
+.offres-list::-webkit-scrollbar{width:6px}
+.offres-list::-webkit-scrollbar-thumb{background:#2a2418;border-radius:3px}
+.offre-section-tag{font-family:Orbitron,sans-serif;font-size:.56rem;letter-spacing:.14em;color:var(--amber);
+  margin:8px 0 3px;text-transform:uppercase;display:flex;align-items:center;gap:8px}
+.offre-section-tag::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--line),transparent)}
+.offre-section-tag:first-child{margin-top:0}
+.offre-ligne{display:flex;align-items:center;gap:10px;padding:7px 10px;background:var(--panel);
+  border:1px solid var(--line);border-radius:5px;transition:border-color .15s,background .15s,transform .15s}
+.offre-ligne:hover{border-color:rgba(240,160,32,.6);background:#0c130e;transform:translateX(2px)}
+.offre-coche{appearance:none;-webkit-appearance:none;width:15px;height:15px;flex:0 0 auto;
+  border:1px solid var(--amber);border-radius:3px;background:#0a100c;cursor:pointer;
+  display:grid;place-content:center;transition:background .15s,box-shadow .15s}
+.offre-coche::before{content:"";width:9px;height:9px;clip-path:polygon(14% 44%,0 65%,50% 100%,100% 16%,80% 0%,43% 62%);
+  background:var(--amber);transform:scale(0);transition:transform .12s}
+.offre-coche:checked{background:rgba(240,160,32,.25);box-shadow:0 0 8px rgba(240,160,32,.4)}
+.offre-coche:checked::before{transform:scale(1)}
+.offre-coche:disabled{border-color:#3a3a3a;background:#0a0c0a;cursor:not-allowed}
+.offre-coche:disabled::before{background:#3a3a3a}
+.offre-item{flex:1;font-family:inherit;font-size:.78rem;color:#e8dcc0;word-break:break-all}
+.offre-item-mute{opacity:.5}
+.offre-note{color:#7a7a7a;font-size:.68rem;font-style:italic}
+.offre-section{color:#6b6350;font-size:.66rem;letter-spacing:.05em;white-space:nowrap}
+/* === Fiches explicatives au clic (aide non-expert) === */
+.offre-fiche{display:none;margin:2px 0 8px 28px;padding:8px 10px;background:#0d1410;
+  border:1px solid rgba(124,255,107,.3);border-left:3px solid var(--amber);
+  border-radius:4px;font-size:.68rem;line-height:1.55;color:#cfe6d2}
+.offre-fiche.show{display:block}
+.offre-fiche .of-t{font-family:Orbitron,sans-serif;font-size:.6rem;letter-spacing:.12em;
+  color:var(--amber2);margin-bottom:4px;text-transform:uppercase}
+.offre-fiche .of-l{color:var(--muted);font-size:.6rem;letter-spacing:.08em;margin-top:4px;
+  font-family:Orbitron,sans-serif}
+.offre-fiche .of-f{color:var(--acid)}
+.offre-fiche .of-x{color:var(--red)}
+.offre-fiche .of-avis{margin-top:7px;border-top:1px solid rgba(255,255,255,.06);padding-top:4px}
+.offre-fiche .of-lnk{color:var(--cyan);text-decoration:none;border-bottom:1px dotted rgba(94,231,255,.5)}
+.offre-fiche .of-lnk:hover{color:var(--acid2);border-bottom-color:var(--acid2)}
+.sg-btn{font-family:inherit;font-size:.5rem;letter-spacing:.08em;padding:2px 6px;border:1px solid var(--line);background:#0a100c;cursor:pointer;border-radius:3px;transition:all .15s}
+.sg-btn:hover{border-color:var(--amber);color:var(--amber2) !important;transform:translateY(-1px)}
+.disc-fiche{display:none;margin:2px 0 8px;padding:6px 9px;background:#0d1410;
+  border:1px solid rgba(240,160,32,.35);border-radius:4px;font-size:.64rem;
+  line-height:1.5;color:#c9c2ae}
+.disc-fiche.show{display:block}
+
+/* ---- STRATÉGIE : action DÉCOLLER ---- */
+.strat-action{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:14px}
+.strat-compteur{font-family:Orbitron,sans-serif;font-size:.78rem;letter-spacing:.14em;color:var(--muted)}
+.strat-compteur b{color:var(--amber2);font-size:.95rem}
+#btn-decoller{font-family:Orbitron,sans-serif;font-size:.7rem;letter-spacing:.16em;color:#0a100c;
+  background:linear-gradient(180deg,#ffc857,#f0a020);border:none;border-radius:4px;
+  padding:10px 26px;cursor:pointer;font-weight:800;box-shadow:0 0 14px rgba(240,160,32,.25);
+  transition:transform .15s,box-shadow .2s,filter .2s}
+#btn-decoller:hover:not(:disabled){transform:translateY(-1px);box-shadow:0 0 22px rgba(240,160,32,.45)}
+#btn-decoller:disabled{opacity:.35;cursor:not-allowed;box-shadow:none}
+.offres-status{font-size:.75rem;color:var(--cyan);margin-top:10px;min-height:18px}
+.strat-decologue{font-size:.68rem;color:var(--muted);margin-top:6px}
+.strat-hint{font-size:.68rem;color:var(--muted);line-height:1.6}
+
+/* ---- STRATÉGIE : exploration ---- */
+.strat-discovery{display:flex;flex-direction:column;gap:6px}
+.disc-item{display:flex;align-items:center;justify-content:space-between;gap:8px;
+  padding:6px 9px;background:#0a100c;border:1px solid #1c1c14;border-radius:4px;
+  font-size:.7rem;color:#c9c2ae}
+.disc-item .d-n{flex:1;color:#b8b09a;letter-spacing:.03em}
+.disc-item .d-c{font-family:Orbitron,sans-serif;font-size:.7rem;color:var(--muted)}
+.disc-empty{font-size:.7rem;color:#5a5a5a;font-style:italic}
+
 #stage-graph{grid-template-columns:1fr}
 #stage-graph .graph-card{min-height:min(72vh,720px);padding:8px 10px}
 #stage-graph .graph-wrap{position:relative;width:100%;height:min(68vh,660px)}
@@ -273,14 +453,28 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
   padding:8px 10px;display:none;font-size:.66rem;line-height:1.45;color:var(--acid2);
   box-shadow:inset 0 0 16px rgba(124,255,107,.05);white-space:pre-wrap;max-height:220px;overflow-y:auto}
 .ana-box.show{display:block}
-.peda-panel{position:fixed;top:14px;right:14px;z-index:99;max-width:300px;background:rgba(7,12,10,.94);
+  .just-card{margin:10px 0;background:#0a1410;border:1px solid var(--line);border-radius:6px;padding:10px 14px}
+  .just-head{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:6px}
+  .just-head h2{font-family:Orbitron,sans-serif;font-size:.72rem;letter-spacing:.12em;color:var(--acid2,#7cff6b);margin:0}
+  .just-score{font-family:Orbitron,sans-serif;font-size:1.3rem;color:var(--acid,#39ff14)}
+  .just-score.warn{color:var(--amber2,#f0a020)}
+  .just-score.hot{color:var(--red,#ff3b3b)}
+  .just-meta{font-size:.58rem;color:var(--muted);letter-spacing:.08em}
+  .just-bar{display:flex;gap:3px;height:8px;margin:4px 0 8px;overflow:hidden;border-radius:3px}
+  .just-bar i{flex:1;background:#12241c}
+  .just-bar i.hit{background:var(--ok,#39ff14)}
+  .just-list{display:flex;flex-wrap:wrap;gap:4px;font-size:.56rem}
+  .just-list span{background:#0d1512;border:1px solid var(--line);border-radius:3px;padding:2px 6px;color:var(--muted)}
+  .just-list b{color:var(--acid2,#7cff6b)}
+  .just-list .miss b{color:var(--red,#ff3b3b)}
+  .peda-panel{position:fixed;top:14px;right:14px;z-index:99;max-width:300px;background:rgba(7,12,10,.94);
   border:1px solid rgba(124,255,107,.4);border-radius:8px;padding:10px 12px;display:none;
   box-shadow:0 0 22px rgba(124,255,107,.18);backdrop-filter:blur(4px)}
 .peda-panel.show{display:block}
 .peda-panel .pt{color:var(--amber2);font-family:Orbitron,sans-serif;font-size:.72rem;letter-spacing:.12em;margin-bottom:4px}
 .peda-panel .pd{color:#cfe6d2;font-size:.7rem;line-height:1.5}
-.peda-panel .ps{margin-top:6px;color:var(--muted);font-size:.6rem;line-height:1.4}
-.pill-ana{position:absolute;top:3px;right:3px;z-index:2;background:#0f1713;border:1px solid rgba(240,160,32,.4);
+.peda-panel .ps{margin-top:6px;color:var(--muted);font-size:.6rem;line-height:1.4}  .av-badge{display:inline-block;margin-left:5px;font-size:.58rem;font-weight:700;letter-spacing:.06em;border:1px solid;border-radius:3px;padding:0 4px;background:rgba(7,12,10,.85);vertical-align:middle}
+  .pill-ana{position:absolute;top:3px;right:3px;z-index:2;background:#0f1713;border:1px solid rgba(240,160,32,.4);
   color:var(--amber2);font-size:.55rem;padding:1px 5px;border-radius:3px;cursor:pointer;opacity:.55;
   transition:opacity .15s}
 .pill:hover .pill-ana{opacity:1}
@@ -513,6 +707,308 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
   .radar-canvas-wrap{width:min(100%,320px)}
 }
 </style>
+<style>
+/* ===== COSMOS HUB STYLES ===== */
+/* ===== COSMOS v3 — graphe interactif pleine largeur, dashboard en bandeau ===== */
+#stage-graph.on{display:flex;flex-direction:column;gap:14px;padding:14px}
+#stage-graph .cosmos-container{margin:0;flex-direction:column;gap:12px}
+#stage-graph .graph-card{margin:0;width:100%}
+#synapses{width:100%;height:auto;min-height:420px}
+.cosmos-left{width:100%;position:relative}
+.cosmos-right{width:100%;display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px}
+.cosmos-canvas{width:100%;height:460px;display:block;border:1px solid rgba(124,255,107,0.15);border-radius:10px}
+/* --- fiche detaillee au clic --- */
+.cosmos-detail{position:absolute;top:12px;right:12px;width:260px;background:rgba(8,13,9,0.96);border:1px solid rgba(124,255,107,0.35);border-radius:10px;padding:0;z-index:20;display:none;box-shadow:0 0 30px rgba(0,0,0,0.7),0 0 18px rgba(124,255,107,0.12);font-family:'Share Tech Mono',monospace;backdrop-filter:blur(8px)}
+.cosmos-detail-head{display:flex;justify-content:space-between;align-items:center;padding:8px 12px;border-bottom:1px solid rgba(255,255,255,0.12)}
+.cd-name{font-family:'Orbitron',sans-serif;font-size:13px;font-weight:700;letter-spacing:1px}
+.cd-close{background:transparent;border:1px solid rgba(255,255,255,0.3);color:#fff;border-radius:4px;cursor:pointer;font-size:11px;padding:2px 7px}
+.cd-close:hover{background:rgba(255,77,77,0.25);border-color:var(--red)}
+.cd-body{padding:10px 12px}
+.cd-row{display:flex;justify-content:space-between;gap:10px;padding:3px 0;font-size:11px;color:var(--muted)}
+.cd-k{color:var(--muted);font-size:10px;letter-spacing:.05em;text-transform:uppercase}
+.cd-v{color:#e8e4d8;text-align:right;word-break:break-word}
+/* --- tooltip survol --- */
+.cosmos-tooltip{position:absolute;background:rgba(8,13,9,0.95);border:1px solid rgba(255,200,87,0.4);color:#fff;padding:8px 12px;border-radius:6px;font-size:12px;pointer-events:none;display:none;max-width:260px;box-shadow:0 0 16px rgba(0,0,0,0.6);font-family:'Share Tech Mono',monospace;z-index:30}
+.cosmos-tooltip strong{font-size:13px;display:block;margin-bottom:4px;font-family:'Orbitron',sans-serif;letter-spacing:.5px}
+/* --- cartes dashboard compactes --- */
+.cosmos-card{background:rgba(11,15,42,0.6);border:1px solid rgba(124,255,107,0.14);border-radius:8px;padding:10px 12px}
+.cosmos-card h3{font-family:'Orbitron',sans-serif;color:var(--amber2);font-size:11px;margin:0 0 8px 0;text-transform:uppercase;letter-spacing:1.5px}
+.cosmos-budget-bar{background:rgba(255,255,255,0.08);border-radius:4px;height:10px;overflow:hidden;margin:8px 0}
+.cosmos-budget-fill{height:100%;background:linear-gradient(90deg,#7CFF6B,#ffc857);border-radius:4px;transition:width .5s ease;box-shadow:0 0 8px rgba(124,255,107,0.5)}
+.cosmos-budget-text{font-family:'Share Tech Mono',monospace;color:#fff;font-size:11px;margin:4px 0}
+.cosmos-queue{max-height:130px;overflow-y:auto;font-family:'Share Tech Mono',monospace;font-size:10px}
+.cosmos-queue-item{padding:3px 0;border-bottom:1px solid rgba(255,255,255,0.05);color:var(--amber2)}
+.cosmos-queue-item .time{color:var(--muted);margin-right:6px}
+.cosmos-queue-item .provider{color:var(--acid)}
+.cosmos-status{font-family:'Orbitron',sans-serif;font-weight:700;font-size:12px;letter-spacing:1px}
+.cosmos-status.ok{color:var(--acid);text-shadow:0 0 8px rgba(124,255,107,.6)}
+.cosmos-status.nok{color:var(--red);text-shadow:0 0 8px rgba(255,77,77,.6)}
+.cosmos-refresh{position:absolute;top:10px;right:10px;background:rgba(8,13,9,0.7);color:var(--acid);border:1px solid rgba(124,255,107,0.3);border-radius:50%;width:28px;height:28px;cursor:pointer;font-weight:bold;z-index:30}
+.cosmos-refresh:hover{background:rgba(124,255,107,0.15);box-shadow:0 0 12px rgba(124,255,107,0.4)}
+
+.cosmos-container {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    background: linear-gradient(135deg, #05060f 0%, #0b0f2a 50%, #1a0b2e 100%);
+    border-radius: 12px;
+    border: 1px solid rgba(125, 231, 255, 0.2);
+    box-shadow: 0 0 30px rgba(179, 136, 255, 0.1);
+    margin: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.cosmos-container::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 30% 30%, rgba(125, 231, 255, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 70% 70%, rgba(179, 136, 255, 0.05) 0%, transparent 50%);
+    animation: cosmos-pulse 8s ease-in-out infinite;
+}
+
+@keyframes cosmos-pulse {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+}
+
+.cosmos-left {
+    flex: 0 0 65%;
+    position: relative;
+    min-height: 500px;
+}
+
+.cosmos-right {
+    flex: 0 0 35%;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    align-content: start;
+    position: relative;
+    z-index: 1;
+}
+
+@media (max-width: 1100px) {
+    .cosmos-right {
+        grid-template-columns: 1fr;
+    }
+}
+
+.cosmos-canvas {
+    width: 100%;
+    height: 500px;
+    border-radius: 8px;
+    background: transparent;
+}
+
+.cosmos-card {
+    background: rgba(11, 15, 42, 0.8);
+    border: 1px solid rgba(125, 231, 255, 0.2);
+    border-radius: 8px;
+    padding: 15px;
+    backdrop-filter: blur(10px);
+}
+
+.cosmos-card h3 {
+    font-family: 'Orbitron', sans-serif;
+    color: #7de7ff;
+    font-size: 14px;
+    margin: 0 0 10px 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px rgba(125, 231, 255, 0.5);
+}
+
+.cosmos-budget-bar {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    height: 20px;
+    overflow: hidden;
+    margin: 10px 0;
+}
+
+.cosmos-budget-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #7de7ff, #b388ff);
+    border-radius: 4px;
+    transition: width 0.5s ease;
+    box-shadow: 0 0 10px rgba(125, 231, 255, 0.5);
+}
+
+.cosmos-budget-text {
+    font-family: 'Share Tech Mono', monospace;
+    color: #fff;
+    font-size: 12px;
+    margin: 5px 0;
+}
+
+.cosmos-queue {
+    max-height: 200px;
+    overflow-y: auto;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 11px;
+}
+
+.cosmos-queue-item {
+    padding: 4px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    color: #7de7ff;
+}
+
+.cosmos-queue-item .time {
+    color: #b388ff;
+    margin-right: 8px;
+}
+
+.cosmos-queue-item .provider {
+    color: #ff6ad5;
+}
+
+.cosmos-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 11px;
+}
+
+.cosmos-table th {
+    color: #7de7ff;
+    text-align: left;
+    padding: 5px;
+    border-bottom: 1px solid rgba(125, 231, 255, 0.2);
+}
+
+.cosmos-table td {
+    padding: 5px;
+    color: #fff;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.cosmos-status {
+    display: inline-block;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-family: 'Share Tech Mono', monospace;
+}
+
+.cosmos-status.ok {
+    background: rgba(124, 255, 107, 0.2);
+    color: #7CFF6B;
+    border: 1px solid #7CFF6B;
+}
+
+#cosmos-health.degraded {
+    color: #d69e2e;
+    font-style: italic;
+}
+
+.cosmos-status.nok {
+    background: rgba(255, 77, 77, 0.2);
+    color: #ff4d4d;
+    border: 1px solid #ff4d4d;
+}
+
+.cosmos-events {
+    max-height: 150px;
+    overflow-y: auto;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 11px;
+}
+
+.cosmos-event {
+    padding: 3px 0;
+    color: #f0a020;
+}
+
+.cosmos-tooltip {
+    position: absolute;
+    background: rgba(11, 15, 42, 0.95);
+    border: 1px solid #7de7ff;
+    border-radius: 6px;
+    padding: 10px;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 12px;
+    color: #fff;
+    pointer-events: none;
+    z-index: 1000;
+    box-shadow: 0 0 20px rgba(125, 231, 255, 0.3);
+    display: none;
+}
+
+.cosmos-refresh {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: transparent;
+    border: 1px solid #7de7ff;
+    color: #7de7ff;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 12px;
+    transition: all 0.3s;
+}
+
+.cosmos-refresh:hover {
+    background: rgba(125, 231, 255, 0.2);
+    box-shadow: 0 0 15px rgba(125, 231, 255, 0.3);
+}
+
+
+.cosmos-unavailable {
+    color: #f0a020;
+    font-family: 'Orbitron', sans-serif;
+    text-align: center;
+    padding: 50px;
+    font-size: 16px;
+}
+
+/* Scrollbar styling */
+.cosmos-queue::-webkit-scrollbar,
+.cosmos-events::-webkit-scrollbar {
+    width: 4px;
+}
+
+.cosmos-queue::-webkit-scrollbar-track,
+.cosmos-events::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.cosmos-queue::-webkit-scrollbar-thumb,
+.cosmos-events::-webkit-scrollbar-thumb {
+    background: #7de7ff;
+    border-radius: 2px;
+}
+
+/* Étoiles scintillantes */
+.cosmos-stars {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.cosmos-star {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    animation: twinkle 2s ease-in-out infinite;
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+}
+</style>
 </head>
 <body>
 <div class="app">
@@ -537,6 +1033,15 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
           <button type="button" id="btn-mute" class="mute" title="Silence">MUET</button>
           <button type="button" id="btn-voix" class="on" title="Voix + brief">VOIX</button>
           <button type="button" id="btn-parler" title="Brief">PARLER</button>
+          <button type="button" id="btn-yeux" title="Cortana regarde l'écran (vision à la demande)">👁 REGARDER</button>
+          <button type="button" id="btn-stop-alerte" style="border-color:var(--red);color:var(--red)" title="Arrêter l'alarme vocale en boucle (STOP_ALERTE)">⛔ ALARME</button>
+          <button type="button" id="btn-declarer-modifs" title="Déclarer les modifs actuelles au registre veilleuse (backup auto)">✓ DÉCLARER MODIFS</button>
+          <button type="button" id="btn-ecoute" class="on" title="Couper / réactiver l'écoute du micro (barge-in)">🎤 ÉCOUTE</button>
+        </div>
+        <div id="yeux-result" class="yeux-result" style="display:none"></div>
+        <div class="chat-row">
+          <input type="text" id="chat-input" placeholder="Pose ta question à Cortana… (Entrée)" autocomplete="off" spellcheck="false" />
+          <button type="button" id="btn-chat" title="Envoyer — réponse écrite + vocale (hub deepseek)">CHAT</button>
         </div>
         <div style="font-size:.5rem;color:var(--muted)" id="cortana-hint">pont :17777</div>
       </div>
@@ -566,6 +1071,7 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
     <button class="tab" data-tab="board">BOARD</button>
     <button class="tab" data-tab="graph">GRAPH</button>
     <button class="tab" data-tab="vol">VOL</button>
+    <button class="tab" data-tab="strategie">STRATÉGIE</button>
     <button type="button" class="gbtn" id="btn-guide" title="Guide pedagogique — tout le glossaire">📖 GUIDE</button>
     <button type="button" class="btn-refresh-tab" id="btn-refresh" title="Rafraîchir feed (tous volets)"
       onclick="window.__cockpitRefresh&&window.__cockpitRefresh();return false;">
@@ -577,6 +1083,11 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
   <!-- OPS -->
   <div class="stage-host">
   <section id="stage-ops" class="stage on">
+    <!-- RUN STATUS LIVE : moteur en marche ou à l'arrêt (alimenté par /status, poll 5s) -->
+    <div id="run-status" class="run-status" data-state="unknown">
+      <span class="dot"></span><span id="run-status-txt">État moteur…</span>
+    </div>
+
     <!-- Bulles portefeuille : TOTAL + singuliers — toujours en premier -->
     <div class="port" id="port-bubbles">
       <div class="cell total">
@@ -655,6 +1166,17 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
       <div class="pt" id="peda-title"></div>
       <div class="pd" id="peda-desc"></div>
       <div class="ps" id="peda-src"></div>
+    </div>
+
+    <!-- JUSTESSE ANALYSTE (boucle d'apprentissage) -->
+    <div class="just-card" id="justesse" data-peda="score_justesse" title="Score de justesse de l'analyste · boucle d'apprentissage">
+      <div class="just-head">
+        <h2>JUSTESSE ANALYSTE</h2>
+        <span class="just-score" id="just-pct">—</span>
+      </div>
+      <div class="just-bar" id="just-bar"></div>
+      <div class="just-meta" id="just-meta">chargement…</div>
+      <div class="just-list" id="just-list"></div>
     </div>
 
     <!-- ALPHA ENGINE -->
@@ -772,6 +1294,13 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
 
   <!-- THERMO (petit clin d'œil marché) -->
   <section id="stage-thermo" class="stage">
+    <!-- ADA COUP D'ŒIL — bannière (emplacement provisoire, recadrage cockpit à venir) -->
+    <div class="card ada-card" id="ada-card">
+      <h2 class="ada-head">ADA 👁 COUP D'ŒIL
+        <button type="button" id="ada-sound-btn" class="ada-snd-btn" title="Son ADA — veilleuse douce, puis montée progressive jusqu'à la sirène">🔊</button>
+      </h2>
+      <div id="ada-coup-doeil">ADA en observation…</div>
+    </div>
     <div class="card">
       <h2>THERMO INDEX</h2>
       <div class="thermo-grid" id="thermo-grid"></div>
@@ -796,6 +1325,40 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
 
   <!-- GRAPH — synapses connexions dynamiques -->
   <section id="stage-graph" class="stage">
+<!-- COSMOS HUB -->
+<div id="cosmos-hub" class="cosmos-container">
+    <div class="cosmos-left">
+        <canvas id="cosmos-canvas" class="cosmos-canvas"></canvas>
+        <div id="cosmos-detail" class="cosmos-detail"></div>
+        <button class="cosmos-refresh" onclick="window.__cosmosRefresh()">↻</button>
+        <div id="cosmos-tooltip" class="cosmos-tooltip"></div>
+    </div>
+    <div class="cosmos-right">
+        <div class="cosmos-card">
+            <h3>🌌 Budget Cloud</h3>
+            <div id="cosmos-budget"></div>
+        </div>
+        <div class="cosmos-card">
+            <h3>🖥️ État du Hub</h3>
+            <div id="cosmos-health"></div>
+        </div>
+        <div class="cosmos-card">
+            <h3>⚡ File d'attente Live</h3>
+            <div id="cosmos-queue" class="cosmos-queue"></div>
+        </div>
+        <div class="cosmos-card">
+            <h3>📊 Quotas par Tâche</h3>
+            <div id="cosmos-tasks"></div>
+        </div>
+        <details class="cosmos-card" style="grid-column: 1 / -1;">
+            <summary style="cursor:pointer; color:#7de7ff; font-family:'Orbitron',sans-serif; font-size:12px;">
+                📡 Événements Récents
+            </summary>
+            <div id="cosmos-events" class="cosmos-events"></div>
+        </details>
+    </div>
+</div>
+
     <div class="card graph-card">
       <div class="engine-head">
         <h2>SYNAPSES · CONNEXIONS</h2>
@@ -841,6 +1404,74 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
         <li>Pont <code>cortana_cockpit_bridge.py</code> :17777 · feed mission ~10s · watch alertes (spam fills off)</li>
         <li>Hygiène : <code>cockpit_hygiene_check.sh</code> avant lecture run (thermo + feed + pont)</li>
       </ul>
+    </div>
+  </section>
+  <section id="stage-strategie" class="stage">
+    <!-- STRATÉGIES DE L'ANALYSTE (STRATEGIE.md) -->
+    <div class="card strat-analyste">
+      <h2>STRATÉGIES DE L'ANALYSTE</h2>
+      <div id="strat-analyste-date" class="strat-date"></div>
+      <div id="strat-analyste-body" class="strat-analyste-body">
+        <div class="disc-empty">Chargement des stratégies…</div>
+      </div>
+    </div>
+
+    <!-- BANNIÈRE D'ÉTAT GLOBALE : tout est à jour ? du nouveau ? -->
+    <div id="strat-banner" class="strat-banner strat-idle">
+      <div class="sb-icon">◯</div>
+      <div class="sb-txt">
+        <div class="sb-title">CHARGEMENT…</div>
+        <div class="sb-sub">Interrogation de la veille en cours</div>
+      </div>
+    </div>
+
+    <!-- CARTES DE MISE À JOUR PAR FOURNISSEUR (connus) -->
+    <div id="strat-providers" class="strat-providers"></div>
+
+    <div class="strat-body">
+      <!-- LISTE DES OFFRES À COCHER -->
+      <div class="card strat-main">
+        <h2>NOUVELLES OFFRES — COCHEZ VOS CHOIX</h2>
+        <div id="offres-date" class="strat-date"></div>
+        <div id="offres-list" class="offres-list"></div>
+        <div class="strat-action">
+          <span id="offres-compteur" class="strat-compteur">0/5</span>
+          <button id="btn-decoller" disabled>DÉCOLLER ▶</button>
+        </div>
+        <div id="offres-status" class="offres-status"></div>
+        <div id="strat-decologue" class="strat-decologue"></div>
+        <div class="sep"></div>
+        <div class="strat-hint">
+          Cochez jusqu'à 5 offres puis DÉCOLLER : le hub évalue VOS choix en A/B,
+          en observation — jamais actif direct. Le rapport d'évaluation arrive
+          quelques minutes plus tard dans <b>CATALOGUE_PROVIDERS.md</b>.
+        </div>
+      </div>
+
+      <!-- EXPLORATION : nouveaux endroits détectés (non évaluables auto) -->
+      <div class="card strat-disc">
+        <h2>EXPLORATION — NOUVEAUX ENDROITS</h2>
+        <div id="strat-discovery" class="strat-discovery"></div>
+        <div class="sep"></div>
+        <div class="strat-hint">
+          Ce que la flotte a repéré hors de vos fournisseurs habituels.
+          Ces modèles ne sont pas encore testables automatiquement — ils
+          enrichissent la veille de demain.
+        </div>
+      </div>
+
+      <!-- SIGNETS X : résumés IA + validation à garder / poubelle -->
+      <div class="card strat-disc">
+        <h2>SIGNETS X — LECTURE IA</h2>
+        <div id="signets-date" class="strat-date"></div>
+        <div id="signets-list" class="offres-list"></div>
+        <div id="signets-status" class="offres-status"></div>
+        <div class="strat-hint">
+          Chaque bookmark est résumé par l'IA (quota 15/jour). Clique pour lire,
+          puis valide : <b style="color:var(--acid)">à garder</b> ou
+          <b style="color:var(--red)">poubelle</b>. Le graphe des thèmes viendra ensuite.
+        </div>
+      </div>
     </div>
   </section>
   </div>
@@ -905,6 +1536,13 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
       if(btn.dataset.tab==='board'){
         const fr=document.getElementById('board-iframe');
         if(fr) fr.src='../thermo/index.html?embed=1&t='+Date.now();
+      }
+      if(btn.dataset.tab==='strategie'){
+        setTimeout(() => {
+          try { if(window.chargerStrategie) window.chargerStrategie(); } catch(e){}
+          try { if(window.chargerOffres) window.chargerOffres(); } catch(e){}
+          try { if(window.chargerSignets) window.chargerSignets(); } catch(e){}
+        }, 50);
       }
     });
   });
@@ -982,6 +1620,32 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
     el('pf-cycle', `<span style="color:var(--cyan)">${M.swarmCycle||'—'}</span>`);
   }
 
+  // Badge d'avis IA (cohérence bulle/voix — le dernier AVIS STRICT de Cortana)
+  function avBadgeHtml(indice, av){
+    const a=(av.avis||'?').toUpperCase();
+    const col = a==='LONG' ? 'var(--acid)' : a==='SHORT' ? 'var(--red)' : 'var(--amber2)';
+    const c=av.confiance||'—';
+    const age = av.ts ? Math.round((Date.now()-new Date(av.ts).getTime())/3600000) : null;
+    const ageTxt = age==null ? '' : (age<1 ? ' <1h' : ' '+age+'h');
+    const prov = av.provider ? ' · ' + String(av.provider).split('(')[0].trim() : '';
+    return `<span class="av-badge" style="color:${col};border-color:${col};" title="Dernier avis Cortana (${indice}${ageTxt}${prov}) — même conclusion que la voix 🐈">${a}${ageTxt}</span>`;
+  }
+
+  // === CORRECTION C2 : Traduction lisible des size_note (bloc 1 = renderEngine) ===
+  function traduireSizeNote(note){
+    if(!note) return '—';
+    const trad={
+      'strong_conf_full':'pleine confiance',
+      'entry_25_75_full':'entrée 25/75',
+      'hunter_revenge_1.5x':'revenge 1.5x',
+      'aspiration_1.618x':'aspiration 1.618x',
+      'fluid_exit':'sortie fluide',
+      'shock_inversion_stop':'choc inversé',
+      'radar_block':'radar bloqué'
+    };
+    return note.split('+').map(p=>trad[p.trim()]||p.trim()).join(' · ');
+  }
+
   function renderEngine(prefix, side, thrustKey){
     const s=M[side]||{};
     const lf=s.lastFill||{};
@@ -992,15 +1656,20 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
     if(meta){
       const life=s.pnlLifetime!=null? Number(s.pnlLifetime).toFixed(2):null;
       const since=s.sessionSince||M.sessionSince;
+      let sessionTime = '—';
+      if (since) {
+        const d = new Date(since);
+        if (!isNaN(d)) sessionTime = d.toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit'});
+      }
       meta.textContent = since
-        ? ('SESSION depuis '+String(since).slice(11,16)+'Z'+(life!=null?(' · life '+life+'$'):''))
+        ? ('SESSION depuis '+sessionTime+(life!=null?(' · life '+life+'$'):''))
         : ('SESSION'+(life!=null?(' · life '+life+'$'):''));
     }
     const g=document.getElementById(prefix+'-thrust'); if(g) g.style.width=Math.max(8,Math.min(100,thrust))+'%';
     set(prefix+'-fills', s.fills||0);
     set(prefix+'-skips', s.skips||0);
     set(prefix+'-dir', dirLabel(lf.radar_dir || (lf.side==='BUY'?'long':lf.side==='SELL'?'short':null)));
-    set(prefix+'-size', lf.size_note || '—');
+    set(prefix+'-size', traduireSizeNote(lf.size_note));
     if(prefix==='a') set('a-lev', lf.lev_hint!=null ? lf.lev_hint+'×' : '—');
     if(prefix==='b') set('b-side', lf.side||'—');
     set(prefix+'-qty', lf.qty!=null? lf.qty : '—');
@@ -1015,8 +1684,13 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
         const sideU=(r.side||'').toUpperCase();
         const kind = sideU==='BUY'?'buy':(sideU==='SELL'?'sell':(sideU==='SKIP'||r.status==='SKIPPED'?'skip':'buy'));
         const p = r.pnl!=null? fmt(r.pnl,3):'';
-        const meta = [r.size_note||'', r.lev_hint!=null? r.lev_hint+'x':'', r.qty!=null? 'q'+r.qty:''].filter(Boolean).join(' ');
-        return `<div class="trade ${kind}"><span>${(r.ts||'').slice(11,19)}</span><span>${sideU.slice(0,4)}</span><span>${meta||r.reason||''}</span><span class="${cls(r.pnl)}">${p}</span></div>`;
+        const meta = [traduireSizeNote(r.size_note), r.lev_hint!=null? r.lev_hint+'x':'', r.qty!=null? 'q'+r.qty:''].filter(Boolean).join(' ');
+        let tradeTime = '—';
+        if (r.ts) {
+          const d = new Date(r.ts);
+          if (!isNaN(d)) tradeTime = d.toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit'});
+        }
+        return `<div class="trade ${kind}"><span>${tradeTime}</span><span>${sideU.slice(0,4)}</span><span>${meta||r.reason||''}</span><span class="${cls(r.pnl)}">${p}</span></div>`;
       }).join('');
     }
   }
@@ -1093,7 +1767,12 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
         const isOpen = kind==='buy';
         const meta=[r.crypto||r.pair||'', r.price!=null?'@'+fmtP(r.price,5):''].filter(Boolean).join(' ');
         const pnlShow = isOpen ? 'ouv.' : fmt(r.pnl,2);
-        return `<div class="trade ${kind}"><span>${(r.ts||'').slice(11,19)}</span><span>${ev.slice(0,4)}</span><span>${meta}</span><span class="${isOpen?'neu':cls(r.pnl)}">${pnlShow}</span></div>`;
+        let hulkTime = '—';
+        if (r.ts) {
+          const d = new Date(r.ts);
+          if (!isNaN(d)) hulkTime = d.toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit'});
+        }
+        return `<div class="trade ${kind}"><span>${hulkTime}</span><span>${ev.slice(0,4)}</span><span>${meta}</span><span class="${isOpen?'neu':cls(r.pnl)}">${pnlShow}</span></div>`;
       }).join('') || '<span style="color:var(--muted)">pas encore de BUY/SELL</span>';
     }
   }
@@ -1207,6 +1886,7 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
 
     renderMarketStrip();
 
+    const avisMap=(T.avis||th.avis||{});
     const grid=document.getElementById('thermo-grid');
     if(grid){
       const cells=[
@@ -1226,7 +1906,9 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
       grid.innerHTML=cells.map(([n,v,key])=>{
         const nd=String(v??'').includes('n/d');
         const anaHtml = key ? `<button type="button" class="pill-ana" data-indice="${key}" title="Cortana analyse cet indice">🐈</button><button type="button" class="pill-wiki" data-wiki="${key}" title="Version ecrite (wiki)">📖</button>` : '';
-        return `<div class="pill" data-peda="${key||''}"${nd?' style="opacity:.65" title="Source free flaky — pas un bug cockpit"':''}>${anaHtml}<div class="n">${n}</div><div class="v">${v??'—'}</div></div>`;
+        const av=avisMap[key];
+        const avBadge = av && av.avis ? avBadgeHtml(key, av) : '';
+        return `<div class="pill" data-peda="${key||''}"${nd?' style="opacity:.65" title="Source free flaky — pas un bug cockpit"':''}>${anaHtml}<div class="n">${n}</div><div class="v">${v??'—'}${avBadge}</div></div>`;
       }).join('');
     }
     const dg=document.getElementById('delta-grid');
@@ -1241,7 +1923,9 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
         const pk = DELTA_PEDA[k]||'';
         const dpk = pk || '';
         const anaHtml = dpk ? `<button type="button" class="pill-ana" data-indice="${dpk}" title="Cortana analyse cet indice">🐈</button><button type="button" class="pill-wiki" data-wiki="${dpk}" title="Version ecrite (wiki)">📖</button>` : '';
-        return `<div class="pill" data-peda="${dpk}"${unwired?' style="opacity:.55" title="non branché / free n/d"':''}>${anaHtml}<div class="n">${k} ${it.label||''}</div><div class="v">${val} <span style="font-size:.55rem;color:var(--muted)">${unwired?'n/d':(it.level||'')}</span></div></div>`;
+        const av=avisMap[dpk];
+        const avBadge = av && av.avis ? avBadgeHtml(dpk, av) : '';
+        return `<div class="pill" data-peda="${dpk}"${unwired?' style="opacity:.55" title="non branché / free n/d"':''}>${anaHtml}<div class="n">${k} ${it.label||''}</div><div class="v">${val}${avBadge} <span style="font-size:.55rem;color:var(--muted)">${unwired?'n/d':(it.level||'')}</span></div></div>`;
       }).join('');
       dg.innerHTML=(Object.keys(deltas).slice(0,6).map(k=>{
         const v=deltas[k];
@@ -1285,6 +1969,101 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
     ].filter(Boolean);
   }
 
+  // ===== ADA SOUNDS — veilleuse douce → montée progressive → sirène (Web Audio, zéro fichier) =====
+  let ADA_AUDIO = null;
+  let ADA_SND = {
+    on: (function(){ try { return localStorage.getItem('adaSound') !== 'off'; } catch(e){ return true; } })(),
+    ever: (function(){ try { return localStorage.getItem('adaSoundEver') === '1'; } catch(e){ return false; } })(),
+    zone: 'VERT', sirene: false, last: 0
+  };
+  function adaSoundInit(){
+    if (ADA_AUDIO){ if (ADA_AUDIO.state === 'suspended') ADA_AUDIO.resume(); return; }
+    try {
+      const C = window.AudioContext || window.webkitAudioContext;
+      if (!C) return;
+      ADA_AUDIO = new C();
+      if (ADA_AUDIO.resume) ADA_AUDIO.resume();
+    } catch(e){ ADA_AUDIO = null; }
+  }
+  function adaSoundUpdate(zone, sirene){
+    ADA_SND.zone = zone || 'VERT';
+    ADA_SND.sirene = !!sirene;
+  }
+  function adaSoundBlip(){
+    if (!ADA_AUDIO || !ADA_SND.on) return;
+    const t = ADA_AUDIO.currentTime;
+    const z = ADA_SND.zone;
+    // Cadence + fréquence + volume : ESCALADE PROGRESSIVE (veilleuse d'abord, jamais de saut)
+    let interval = 4000, freq = 220, vol = 0.025, type = 'sine'; // VERT = veilleuse, très doux
+    if (ADA_SND.sirene){ interval = 420; freq = 700; vol = 0.09; type = 'triangle'; }        // SIRÈNE : hululement doux (pas de crise cardiaque)
+    else if (z === 'PRENDS_LA_PERTE'){ interval = 650; freq = 440; vol = 0.085; }
+    else if (z === 'ROUGE'){ interval = 950; freq = 392; vol = 0.07; }
+    else if (z === 'JAUNE'){ interval = 2400; freq = 330; vol = 0.05; }
+    if (t - ADA_SND.last < interval / 1000) return;
+    ADA_SND.last = t;
+    try {
+      const o = ADA_AUDIO.createOscillator();
+      const g = ADA_AUDIO.createGain();
+      o.type = type;
+      o.frequency.setValueAtTime(ADA_SND.sirene ? 660 : freq, t);
+      if (ADA_SND.sirene) o.frequency.linearRampToValueAtTime(990, t + 0.3);
+      g.gain.setValueAtTime(0, t);
+      g.gain.linearRampToValueAtTime(vol, t + 0.04);
+      g.gain.exponentialRampToValueAtTime(0.0001, t + 0.6);
+      o.connect(g); g.connect(ADA_AUDIO.destination);
+      o.start(t); o.stop(t + 0.7);
+    } catch(e){}
+  }
+  function adaSoundToggle(){
+    // PREMIER clic : on ACTIVE toujours le son (jamais couper au premier clic — piège du bouton)
+    if (!ADA_SND.ever){
+      ADA_SND.ever = true;
+      ADA_SND.on = true;
+      try { localStorage.setItem('adaSoundEver', '1'); localStorage.setItem('adaSound', 'on'); } catch(e){}
+    } else {
+      ADA_SND.on = !ADA_SND.on;
+      try { localStorage.setItem('adaSound', ADA_SND.on ? 'on' : 'off'); } catch(e){}
+    }
+    adaSoundInit();
+    const btn = document.getElementById('ada-sound-btn');
+    if (btn){ btn.textContent = ADA_SND.on ? '🔊' : '🔇'; btn.classList.toggle('off', !ADA_SND.on); btn.classList.remove('pulse'); }
+    // Bip de confirmation — on ne touche PAS à la zone courante (sinon alarme muette 10 s)
+    if (ADA_SND.on && ADA_AUDIO){ ADA_SND.last = 0; adaSoundBlip(); }
+  }
+  const _adaBtn = document.getElementById('ada-sound-btn');
+  if (_adaBtn){ _adaBtn.addEventListener('click', adaSoundToggle); _adaBtn.classList.add('pulse'); }
+  setInterval(adaSoundBlip, 200);
+  document.addEventListener('pointerdown', function once(){
+    adaSoundInit();
+    const btn = document.getElementById('ada-sound-btn');
+    if (btn){ btn.textContent = ADA_SND.on ? '🔊' : '🔇'; btn.classList.toggle('off', !ADA_SND.on); btn.classList.remove('pulse'); }
+  }, { once: true });
+
+  function renderADA(){
+    const g = M.gardienne || {};
+    const cd = M.coup_doeil || {};
+    const host = document.getElementById('ada-coup-doeil');
+    if(!host) return;
+    const zone = g.zone || cd.zone || '—';
+    const col = (zone==='ROUGE'||zone==='PRENDS_LA_PERTE') ? 'var(--red)'
+               : zone==='JAUNE' ? 'var(--amber2)' : 'var(--acid)';
+    const sirene = !!g.sirene;
+    adaSoundUpdate(zone, sirene);
+    const voilure = (g.voilure_pct!=null) ? Number(g.voilure_pct) : null;
+    const ligne = cd.ligne || "ADA en observation — pas encore de coup d'oeil.";
+    const decl = (g.declencheurs && g.declencheurs.length) ? g.declencheurs.join(' · ') : '';
+    const intention = cd.intention || '—';
+    const verdict = cd.verdict_famille || 'pas de verdict récent';
+    const card = document.getElementById('ada-card');
+    if(card) card.style.borderColor = sirene ? 'rgba(255,77,77,.7)' : 'rgba(124,255,107,.35)';
+    host.innerHTML =
+      '<div class="ada-line'+(sirene?' sirene':'')+'" style="color:'+col+'">'
+        +(sirene?'🚨 ':'')+ligne+'</div>'
+      +'<div class="ada-bar"><div class="ada-fill" style="width:'+(voilure!=null?voilure:0)+'%;background:'+col+'"></div></div>'
+      +(decl?'<div class="ada-decl">⛽ '+decl+'</div>':'')
+      +'<div class="ada-meta"><span>🎯 <b>'+intention+'</b></span><span>⚖️ '+verdict+'</span></div>';
+  }
+
   function paintAll(){
     detectShoots();
     renderPortfolio();
@@ -1292,6 +2071,7 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
     renderEngine('b','beta','beta');
     renderHulk();
     renderThermo();
+    renderADA();
     renderVol();
     rebuildLines();
     seedBlips();
@@ -1327,6 +2107,7 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
   const tctx=trail.getContext('2d');
 
   function drawRadar(){
+    try{
     const W=canvas.width, H=canvas.height, cx=W/2, cy=H/2, R=Math.min(W,H)*0.42;
     // fade trail
     tctx.fillStyle='rgba(7,9,12,.12)';
@@ -1357,13 +2138,18 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
     ctx.strokeStyle='rgba(126,140,155,.22)';
     ctx.beginPath(); ctx.moveTo(cx-R,cy); ctx.lineTo(cx+R,cy); ctx.moveTo(cx,cy-R); ctx.lineTo(cx,cy+R); ctx.stroke();
 
-    // sweep
-    const grad=ctx.createConicGradient(angle, cx, cy);
+    // sweep — compat WebKit : pas de createConicGradient (Chrome-only)
+    // On dessine le faisceau dans un repère rotatif avec un dégradé radial.
+    ctx.save();
+    ctx.translate(cx, cy);
+    ctx.rotate(angle);
+    const grad=ctx.createRadialGradient(0,0,R*0.30, 0,0,R);
     grad.addColorStop(0,'rgba(124,255,107,.32)');
-    grad.addColorStop(0.14,'rgba(124,255,107,0)');
+    grad.addColorStop(0.30,'rgba(124,255,107,.10)');
     grad.addColorStop(1,'rgba(124,255,107,0)');
     ctx.fillStyle=grad;
-    ctx.beginPath(); ctx.moveTo(cx,cy); ctx.arc(cx,cy,R,angle,angle+0.85); ctx.closePath(); ctx.fill();
+    ctx.beginPath(); ctx.moveTo(0,0); ctx.arc(0,0,R,0,0.85); ctx.closePath(); ctx.fill();
+    ctx.restore();
     // beam edge
     ctx.strokeStyle='rgba(184,255,154,.55)';
     ctx.beginPath(); ctx.moveTo(cx,cy);
@@ -1403,6 +2189,7 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
     angle += 0.016 + Math.min(0.018, (M.swarmCycle||0)%10 * 0.001);
     const pulse=document.getElementById('swarm-pulse');
     if(pulse) pulse.style.width = (((Math.sin(angle*2)+1)/2)*100)+'%';
+    }catch(e){ console.warn('radar frame:', e); }
     requestAnimationFrame(drawRadar);
   }
 
@@ -1440,15 +2227,18 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
     const aFills=(M.alpha&&M.alpha.fills)||0;
     const bFills=(M.beta&&M.beta.fills)||0;
     const hBags=(M.hulk&&M.hulk.bags)||0;
+    // Vérité (14/08) : l'activité fills/bags n'est affichée QUE si le moteur tourne VRAIMENT.
+    // Sinon le graphique montrait des bots « actifs » alors qu'ils étaient morts (données figées).
+    const engineOn = aceLv >= 2;
     const speaking = Date.now() < speakingUntil && box && !box.classList.contains('muted');
     const nodes={
       cockpit:{x:0.50,y:0.48,label:'COCKPIT', col:'#f0a020', lv:2},
       pont:{x:0.50,y:0.22,label:'PONT', col:'#7de7ff', lv:pontLv},
       ace:{x:0.22,y:0.42,label:'ACE', col:'#7CFF6B', lv:aceLv},
       live:{x:0.22,y:0.22,label:'LIVE', col:'#b8ff9a', lv:aceLv},
-      alpha:{x:0.10,y:0.62,label:'α', col:'#f0a020', lv:aFills>0||aceLv? Math.max(1,aceLv):0},
-      beta:{x:0.28,y:0.72,label:'β', col:'#5ee7ff', lv:bFills>0||aceLv? Math.max(1,aceLv):0},
-      hulk:{x:0.78,y:0.68,label:'HULK', col:'#c4ff4d', lv:hBags>0?2:(aceLv?1:0)},
+      alpha:{x:0.10,y:0.62,label:'α', col:'#f0a020', lv: engineOn ? (aFills>0?2:1) : 0},
+      beta:{x:0.28,y:0.72,label:'β', col:'#5ee7ff', lv: engineOn ? (bFills>0?2:1) : 0},
+      hulk:{x:0.78,y:0.68,label:'HULK', col:'#c4ff4d', lv: engineOn ? (hBags>0?2:1) : 0},
       net:{x:0.72,y:0.28,label:'NET', col:'#9dff7a', lv:netLv},
       binance:{x:0.88,y:0.18,label:'BINANCE', col:'#f5c518', lv:netLv},
       cortana:{x:0.62,y:0.58,label:'CORTANA', col: speaking?'#7CFF6B':'#5ee7ff', lv: speaking?2:(linkState.muted?0:1)},
@@ -1460,8 +2250,8 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
       ['ace','live', aceLv],
       ['ace','alpha', aceLv],
       ['ace','beta', aceLv],
-      ['alpha','beta', (aFills||bFills)?2:aceLv],
-      ['cockpit','hulk', hBags?2:1],
+      ['alpha','beta', engineOn && (aFills||bFills) ? 2 : (engineOn ? 1 : 0)],
+      ['cockpit','hulk', engineOn && hBags>0 ? 2 : (engineOn ? 1 : 0)],
       ['pont','net', Math.min(pontLv||1, netLv||1)],
       ['net','binance', netLv],
       ['cockpit','cortana', speaking?2:1],
@@ -1608,36 +2398,73 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
       synCtx.shadowBlur=0;
     });
 
-    // soma nodes
-    Object.keys(nodes).forEach(id=>{
-      const n=nodes[id];
-      const x=n.x*W, y=n.y*H;
-      const r = id==='cockpit'?22: (id==='ace'||id==='pont'?16:13);
-      const glow = n.lv>=2 ? 0.55+0.25*Math.sin(synapseT*3+x) : n.lv===1? 0.25 : 0.08;
+    // soma nodes — version relook (labels externes + leader line, plus de bulles)
+    Object.keys(nodes).forEach(id => {
+      const n = nodes[id];
+      const x = n.x * W, y = n.y * H;
+      const r = id === 'cockpit' ? 6 : (id === 'ace' || id === 'pont' ? 5 : 4);
+
+      // Halo lumineux
+      const glow = n.lv >= 2 ? 0.55 + 0.25 * Math.sin(synapseT * 3 + x) : n.lv === 1 ? 0.25 : 0.08;
       synCtx.beginPath();
-      synCtx.fillStyle=`rgba(0,0,0,.55)`;
-      synCtx.arc(x,y,r+6,0,Math.PI*2); synCtx.fill();
+      synCtx.fillStyle = `rgba(0,0,0,.55)`;
+      synCtx.arc(x, y, r + 8, 0, Math.PI * 2);
+      synCtx.fill();
+
       synCtx.beginPath();
-      synCtx.strokeStyle=n.col;
-      synCtx.globalAlpha=0.25+glow;
-      synCtx.lineWidth=2;
-      synCtx.arc(x,y,r+4+glow*6,0,Math.PI*2); synCtx.stroke();
-      synCtx.globalAlpha=1;
+      synCtx.strokeStyle = n.col;
+      synCtx.globalAlpha = 0.25 + glow;
+      synCtx.lineWidth = 2;
+      synCtx.arc(x, y, r + 4 + glow * 5, 0, Math.PI * 2);
+      synCtx.stroke();
+      synCtx.globalAlpha = 1;
+
+      // Petit soma (disque)
       synCtx.beginPath();
-      synCtx.fillStyle=n.lv===0?'#2a2218':n.col;
-      synCtx.arc(x,y,r,0,Math.PI*2); synCtx.fill();
-      synCtx.fillStyle=n.lv===0?'#8a7a55':'#050804';
-      synCtx.font='bold 10px Orbitron';
-      synCtx.textAlign='center'; synCtx.textBaseline='middle';
-      synCtx.fillText(n.label, x, y+1);
-      if(id===synSel){
-        synCtx.strokeStyle='#eaf6ff'; synCtx.globalAlpha=0.95; synCtx.lineWidth=1.6;
-        synCtx.beginPath(); synCtx.arc(x,y,r+10+2*Math.sin(synapseT*4),0,Math.PI*2); synCtx.stroke();
-        synCtx.globalAlpha=1;
-      } else if(id===synHover){
-        synCtx.strokeStyle=n.col; synCtx.globalAlpha=0.85; synCtx.lineWidth=1.5;
-        synCtx.beginPath(); synCtx.arc(x,y,r+8,0,Math.PI*2); synCtx.stroke();
-        synCtx.globalAlpha=1;
+      synCtx.fillStyle = n.lv === 0 ? '#2a2218' : n.col;
+      synCtx.arc(x, y, r, 0, Math.PI * 2);
+      synCtx.fill();
+
+      // === Label externe + leader line ===
+      const label = n.label || id;
+      const labelX = x < W * 0.5 ? x + 18 : x - 18;
+      const labelY = y < H * 0.5 ? y + 14 : y - 14;
+
+      // Leader line
+      synCtx.strokeStyle = (id === synHover || id === synSel) ? n.col : '#5a5240';
+      synCtx.lineWidth = 1;
+      synCtx.beginPath();
+      synCtx.moveTo(x + (x < W * 0.5 ? r + 1 : -r - 1), y);
+      synCtx.lineTo(labelX + (x < W * 0.5 ? -4 : 4), labelY);
+      synCtx.stroke();
+
+      // Label
+      synCtx.fillStyle = (id === synHover || id === synSel) ? '#f0e6d2' : '#e8dcc0';
+      synCtx.font = (id === synHover || id === synSel) ? 'bold 12px Share Tech Mono' : '11px Share Tech Mono';
+      synCtx.textAlign = x < W * 0.5 ? 'left' : 'right';
+      synCtx.textBaseline = 'middle';
+      synCtx.shadowColor = 'rgba(0,0,0,0.85)';
+      synCtx.shadowBlur = 3;
+      synCtx.fillText(label, labelX, labelY);
+      synCtx.shadowBlur = 0;
+
+      // Sélection / Hover
+      if (id === synSel) {
+        synCtx.strokeStyle = '#eaf6ff';
+        synCtx.globalAlpha = 0.95;
+        synCtx.lineWidth = 1.6;
+        synCtx.beginPath();
+        synCtx.arc(x, y, r + 10 + 2 * Math.sin(synapseT * 4), 0, Math.PI * 2);
+        synCtx.stroke();
+        synCtx.globalAlpha = 1;
+      } else if (id === synHover) {
+        synCtx.strokeStyle = n.col;
+        synCtx.globalAlpha = 0.85;
+        synCtx.lineWidth = 1.5;
+        synCtx.beginPath();
+        synCtx.arc(x, y, r + 8, 0, Math.PI * 2);
+        synCtx.stroke();
+        synCtx.globalAlpha = 1;
       }
     });
 
@@ -1673,7 +2500,9 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
   }, 900);
 
   function tickClock(){
-    document.getElementById('clock').textContent = new Date().toISOString().slice(11,19)+'Z';
+    const d = new Date();
+    document.getElementById('clock').textContent = d.toLocaleTimeString('fr-FR');
+    document.getElementById('clock').title = 'heure locale';
   }
 
   const bubble=document.getElementById('cortana-bubble');
@@ -1710,6 +2539,7 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
     setLinkPill('pill-ace','ace-lab', ace.state||'OFF', ace.label||'OFF');
     setLinkPill('pill-net','net-lab', net.state||'DOWN', net.label||'…');
     setLinkPill('pill-pont','pont-lab', pontOn?'ON':'OFF', pontOn?'ON':'OFF');
+    paintRunStatus(ace);
     const meta=document.getElementById('link-meta');
     if(meta){
       const bits=[];
@@ -1719,11 +2549,42 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
       meta.textContent = bits.join(' · ') || (pontOn?'pont OK':'PONT OFF = pas de feed live');
     }
   }
+  // RUN STATUS — badge EN COURS / SIGNAL FAIBLE / À L'ARRÊT (live, poll 5s)
+  function paintRunStatus(ace){
+    const el=document.getElementById('run-status');
+    const txt=document.getElementById('run-status-txt');
+    if(!el||!txt) return;
+    const st=(ace&&ace.state)||'OFF';
+    const age=ace&&ace.ageSec!=null?ace.ageSec:null;
+    const run=ace&&ace.run?ace.run:'—';
+    const cyc=(M&&M.swarmCycle)?(' · cycle '+M.swarmCycle):'';
+    let cls,label;
+    if(st==='ON'){
+      cls='on';
+      label='🟢 MOTEUR EN COURS · <b>'+run+'</b>'+cyc+' · LIVE '+age+'s';
+    }else if(st==='STALE'){
+      cls='stale';
+      label='🟡 SIGNAL FAIBLE · <b>'+run+'</b> · dernier signal il y a '+age+'s';
+    }else{
+      cls='off';
+      const m=(age!=null)?Math.max(1,Math.round(age/60))+' min':'?';
+      label='🔴 MOTEUR À L\'ARRÊT · <b>'+run+'</b> · dernier signal il y a '+m+(cyc||'');
+    }
+    el.className='run-status '+cls;
+    el.setAttribute('data-state',cls);
+    txt.innerHTML=label;
+  }
   function paintLinksOffline(){
     linkState = {ace:{state:'OFF'}, net:{state: navigator.onLine?'SLOW':'DOWN'}, pont:false, muted:false, ts:Date.now()};
     setLinkPill('pill-pont','pont-lab','OFF','OFF');
     setLinkPill('pill-ace','ace-lab','OFF','?');
     setLinkPill('pill-net','net-lab', navigator.onLine?'SLOW':'DOWN', navigator.onLine?'?':'DOWN');
+    const rs=document.getElementById('run-status');
+    if(rs){
+      rs.className='run-status off';
+      const rt=document.getElementById('run-status-txt');
+      if(rt) rt.innerHTML='🔴 PONT INJOIGNABLE — état moteur inconnu';
+    }
     const meta=document.getElementById('link-meta');
     if(meta) meta.textContent='PONT OFF — lance cortana_cockpit_bridge.py';
   }
@@ -1799,9 +2660,12 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
     altSeason: {t:'SAISON ALTCOINS', d:'Indique si les altcoins (ETH, SOL, XRP…) sur-performent Bitcoin. Quand la dominance BTC baisse fortement, les investisseurs délaissent BTC pour les alts : c’est la « saison des altcoins ».', s:'Proxy : dominance BTC (pas l’indice exact Blockchain Center)'},
     liq24Usd: {t:'LIQUIDATIONS 24H', d:'Montant total de positions fermées de force en 24h (levier sauté). Beaucoup de liquidations = panique ou cascade : le marché a « purgé » l’excès de levier. Long = positions acheteuses liquidées, Short = positions vendeuses liquidées.', s:'Source : OKX public (BTC+ETH+SOL) — proxy sans clé'},
     etfBtcM: {t:'ETF BTC FLUX', d:'Flux net d’argent qui entre ou sort des ETF Bitcoin américains (IBIT, FBTC, GBTC…). Entrées = des institutions achètent du BTC « officiellement » (hausse), sorties = ils vendent (pression vendeuse).', s:'Source : bitbo.io public (BTC seul ; ETH/XRP pas couverts en free)'},
+    etfEthM: {t:'ETF ETH FLUX', d:'Flux net d’argent qui entre ou sort des ETF Ethereum américains. Entrées = des institutions achètent de l’ETH « officiellement » (hausse), sorties = ils vendent (pression vendeuse).', s:'Source : bitbo.io public — ETH non couvert en free, honnêtement affiché n/d'},
+    etfXrpM: {t:'ETF XRP FLUX', d:'Flux net d’argent qui entre ou sort des ETF XRP américains. Même logique que BTC/ETH : entrées = institutionnels acheteurs, sorties = pression vendeuse.', s:'Source : bitbo.io public — XRP non couvert en free, honnêtement affiché n/d'},
     gexPutCall: {t:'GEX PROXY (OPTIONS)', d:'Ratio puts/calls sur l’open interest des options BTC (Deribit). Beaucoup de puts = marché qui se couvre à la baisse (peur). Beaucoup de calls = paris haussiers. Les « murs » (murC/murP) sont les strikes où l’OI est énorme : le prix a tendance à s’y arrêter.', s:'Proxy : Deribit public (OI ≤ 60 jours) — pas SpotGamma payant'},
     volumeCachedTaker: {t:'VOLUMES CACHÉS', d:'Pression d’achat réelle : ratio des ordres « taker » (qui prennent la liquidité, donc agressifs) acheteurs vs vendeurs sur 24h. >0.5 = acheteurs agressifs, <0.5 = vendeurs. Le ratio perp/spot mesure combien de fois le volume dérivé (levier) dépasse le volume comptant : un chiffre très haut = l’action se joue au levier, fragile.', s:'Source : OKX Rubik (gratuit)'},
     funding: {t:'FUNDING (TAUX DE FINANCEMENT)', d:'Frais périodiques (toutes les 8h) que les positions longues ou courtes se paient entre elles pour rester ouvertes. Positif = les longs paient les shorts (marché optimiste) ; très positif = foule à l’achat, risque de cascade baissière. Négatif = l’inverse.', s:'Source : Binance FAPI public (gratuit)'},
+    score_justesse: {t:'JUSTESSE ANALYSTE', d:'Score de justesse de Cortana : sur ses avis LONG/SHORT émis, combien le marché a confirmé après coup (horizon 24h/semaine). C’est la boucle d’apprentissage — le score monte si ses analyses sont justes, baisse sinon. <40% = à recalibrer.', s:'Journal analyses/ + score_justesse.py'},
     whales: {t:'WHALES', d:'Nombre de gros ordres d’un coup (≥500k$ sur les ~500 derniers trades). Les baleines déplacent le marché : une rafale de gros prints = un acteur institutionnel ou un fonds en action.', s:'Proxy : agrégats Binance (pas Whale Alert payant)'},
     radar: {t:'RADAR FROID', d:'Radar visuel du climat : chaque point = une position ou un signal détecté. Le balayage tourne en continu ; la distance au centre = « intensité ». Plus c’est dense et proche du centre, plus le marché est actif.', s:'Visualisation locale — pas une donnée externe'},
     bassine: {t:'BASSINE / MUR', d:'Niveau du « bain » : le score thermo global (0 à 100). Haut = climat calme, bas = climat stressé. C’est le premier coup d’œil à donner : combien d’eau il y a avant de plonger.', s:'Calcul local : funding + L/S + variation prix'},
@@ -1809,8 +2673,16 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
   };
   let pedaPinned = '';
   function fillPeda(key){
-    const g = GLOSSARY[key]; if(!g) return false;
+    const g = GLOSSARY[key];
     const panel = document.getElementById('peda-panel'); if(!panel) return false;
+    // Fallback famille 6/6 : jamais de bouton « mort » si une clé manque au GLOSSARY
+    if(!g){
+      console.warn('[peda] clé absente du GLOSSARY :', key);
+      document.getElementById('peda-title').textContent = 'INFO ACE777';
+      document.getElementById('peda-desc').textContent = 'Définition en cours de synchronisation pour : ' + key;
+      document.getElementById('peda-src').textContent = 'Référence : ' + key;
+      return true;
+    }
     document.getElementById('peda-title').textContent = g.t;
     document.getElementById('peda-desc').textContent = g.d;
     document.getElementById('peda-src').textContent = g.s;
@@ -1904,7 +2776,7 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
         headers:{'Content-Type':'application/json'},
         body: JSON.stringify({indice}), cache:'no-store', signal:ctrl.signal});
       const j = await r.json();
-      if(j.ok && j.texte){ body.textContent = j.texte; body.style.color=''; }
+      if(j.ok && j.texte){ body.textContent = j.texte + (j.provider? '\n\n— ' + j.provider : ''); body.style.color=''; }
       else { body.textContent = '✘ '+(j.error||'analyse échouée'); body.style.color='var(--red)'; }
     }catch(e){
       body.textContent = (e.name==='AbortError') ? '✘ analyse trop longue — réessaie' : '✘ pont éteint — lance cortana_cockpit_bridge.py';
@@ -1949,8 +2821,51 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
     host.innerHTML=items.slice(0,12).map(a=>{
       const lvl=String(a.level||'SOFT').toUpperCase();
       const clsA=lvl==='URGENT'?'u':'s';
-      return `<div class="item ${clsA}">${(a.ts||a.logged_ts||'').slice(11,16)} ${a.title||'?'}</div>`;
+      let alertTime = '—';
+      const tsVal = a.ts || a.logged_ts;
+      if (tsVal) {
+        const d = new Date(tsVal);
+        if (!isNaN(d)) alertTime = d.toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit'});
+      }
+      return `<div class="item ${clsA}">${alertTime} ${a.title||'?'}</div>`;
     }).join('');
+  }
+
+  async function pollJustesse(){
+    try{
+      const r=await fetch(BRIDGE+'/justesse',{cache:'no-store'});
+      const j=await r.json();
+      if(!j || j.ok===false) throw new Error(j && j.error);
+      const box=document.getElementById('just-pct');
+      const bar=document.getElementById('just-bar');
+      const meta=document.getElementById('just-meta');
+      const list=document.getElementById('just-list');
+      const pct=j.pct;
+      if(box){
+        box.textContent = pct!=null? (Math.round(pct)+'%') : '—';
+        box.className = 'just-score' + (pct==null?'':(pct<40?' hot':(pct<60?' warn':'')));
+      }
+      if(bar && pct!=null){
+        bar.innerHTML='';
+        const hit=document.createElement('i'); hit.className='hit'; hit.style.flex=pct;
+        const miss=document.createElement('i'); miss.style.flex=Math.max(0,100-pct);
+        bar.appendChild(hit); bar.appendChild(miss);
+      }
+      if(meta) meta.textContent = (j.total_hit!=null? (j.total_hit+'/'+j.total_scored+' justes') : '') + ' · ' + (j.n||0) + ' analyses';
+      if(list){
+        list.innerHTML='';
+        const pis=j.par_indice||{};
+        Object.entries(pis).forEach(([k,v])=>{
+          const sp=document.createElement('span');
+          sp.className = (v.hit>0 && v.hit===v.n)?'ok':'miss';
+          sp.innerHTML = k+' <b>'+(v.hit||0)+'/'+v.n+'</b>';
+          list.appendChild(sp);
+        });
+      }
+    }catch(e){
+      const box=document.getElementById('just-meta');
+      if(box) box.textContent='justesse : '+(e && e.message ? e.message.slice(0,60) : 'n/d');
+    }
   }
 
   async function pollLinks(){
@@ -1983,6 +2898,7 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
       if(ja && ja.alerts) renderAlerts(ja.alerts);
     }catch(e){}
     await pollLinks();
+    pollJustesse();
   }
 
   let holdBubbleUntil=0;
@@ -2010,7 +2926,10 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
       if(j && j.ok!==false && (j.alpha||j.comboPnl!=null)){
         M=j; T=j.thermo||T;
         paintAll();
-        saySticky('Feed à jour · α '+(M.alpha&&M.alpha.pnl!=null?Number(M.alpha.pnl).toFixed(2):'—')+'$ · session '+(M.sessionSince?String(M.sessionSince).slice(11,16)+'Z':'—'), 12000);
+        const sessionTime = M.sessionSince
+          ? new Date(M.sessionSince).toLocaleTimeString('fr-FR', {hour:'2-digit', minute:'2-digit'})
+          : '—';
+        saySticky('Feed à jour · α '+(M.alpha&&M.alpha.pnl!=null?Number(M.alpha.pnl).toFixed(2):'—')+'$ · session '+sessionTime, 12000);
       }else{
         saySticky('Refresh KO — '+(j&&j.error?j.error:'réponse vide'), 12000);
       }
@@ -2020,7 +2939,7 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
         if(ja && ja.alerts) renderAlerts(ja.alerts);
       }catch(e){}
       await pollLinks();
-      if(meta) meta.textContent='refresh '+new Date().toISOString().slice(11,19)+'Z';
+      if(meta) meta.textContent = 'MAJ ' + new Date().toLocaleTimeString('fr-FR') + ' (locale)';
     }catch(e){
       paintLinksOffline();
       saySticky('Pont OFF — dans Terminal: bash Index_Maison/scripts/ensure_pont.sh', 15000);
@@ -2147,9 +3066,10 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
   paintAll();
   tickClock();
   setInterval(tickClock,1000);
-  drawRadar();
-  drawSynapses();
-  rebuildLines();
+  // Garde-fous : chaque canvas survit isolément (une erreur ne tue plus les autres)
+  try{ drawRadar(); }catch(e){ console.warn('radar:', e); }
+  try{ drawSynapses(); }catch(e){ console.warn('synapses:', e); }
+  try{ rebuildLines(); }catch(e){ console.warn('lines:', e); }
   pollPreflight();
   setInterval(pollPreflight, 20000);
   // Chime doux — après 1er geste user seulement (évite popup micro / audio au F5)
@@ -2191,8 +3111,129 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
   if(lines[0]) bubble.textContent=lines[0];
 
   document.getElementById('btn-mute')?.addEventListener('click', ()=>bridge('/mute','Silence…'));
-  document.getElementById('btn-voix')?.addEventListener('click', ()=>bridge('/speak','Voix + brief…'));
-  document.getElementById('btn-parler')?.addEventListener('click', ()=>bridge('/speak','Cortana parle…'));
+
+  // --- ALARME VEILLEUSE : arrêt + déclaration des modifs (16/08) ---
+  document.getElementById('btn-stop-alerte')?.addEventListener('click', ()=>bridge('/stop_alerte','Arrêt de l’alarme…'));
+  document.getElementById('btn-declarer-modifs')?.addEventListener('click', async ()=>{
+    const j = await bridge('/declarer_modifs','Déclaration des modifs…');
+    if(j && j.ok) setTimeout(()=>{ const b=document.getElementById('btn-declarer-modifs'); if(b) b.textContent='✓ OK — '+j.maj.length+' déclaré(s)'; }, 300);
+  });
+
+  // --- BARGE-IN : couper la parole à Cortana ---
+  // Pendant qu'elle parle, PARLER/VOIX deviennent ■ STOP : un clic tue la voix.
+  let voixActive = false;
+  function majBoutonsVoix(){
+    const p = document.getElementById('btn-parler');
+    const v = document.getElementById('btn-voix');
+    if(p) p.textContent = voixActive ? '■ STOP' : 'PARLER';
+    if(v) v.textContent = voixActive ? '■ STOP' : 'VOIX';
+  }
+  function couperVoix(){
+    voixActive = false;
+    majBoutonsVoix();
+    setSpeaking(false);   // arrete aussi l'orbe/animation « elle parle »
+    try{ fetch(BRIDGE+'/stop', {method:'POST', cache:'no-store'}).catch(()=>{}); }catch(e){}
+  }
+  function demanderVoix(){
+    if(voixActive){ couperVoix(); return; }   // 2e clic = STOP
+    voixActive = true;
+    majBoutonsVoix();
+    bridge('/speak', 'Cortana parle…');
+    // filet : si elle a fini seule, on remet PARLER (max 2 min)
+    setTimeout(()=>{ if(voixActive){ voixActive=false; majBoutonsVoix(); } }, 120000);
+  }
+  document.getElementById('btn-voix')?.addEventListener('click', ()=>demanderVoix());
+  document.getElementById('btn-parler')?.addEventListener('click', ()=>demanderVoix());
+
+  // --- ÉCOUTE : couper / réactiver le micro (barge-in) via le bridge ---
+  const btnEcoute = document.getElementById('btn-ecoute');
+  function majEcoute(etat){
+    if(!btnEcoute) return;
+    if(etat){ btnEcoute.classList.add('on'); btnEcoute.textContent = '🎤 ÉCOUTE'; }
+    else    { btnEcoute.classList.remove('on'); btnEcoute.textContent = '🎤 COUPÉ'; }
+  }
+  try{ fetch(BRIDGE+'/ecoute', {cache:'no-store'})
+    .then(r=>r.json()).then(d=>majEcoute(d.ecoute)).catch(()=>{}); }catch(e){}
+  btnEcoute?.addEventListener('click', ()=>{
+    try{ fetch(BRIDGE+'/ecoute', {method:'POST', cache:'no-store'})
+      .then(r=>r.json()).then(d=>majEcoute(d.ecoute)).catch(()=>{}); }catch(e){}
+  });
+
+  // --- YEUX DE CORTANA : vision à la demande (bouton 👁) ---
+  document.getElementById('btn-yeux')?.addEventListener('click', () => {
+    const btn = document.getElementById('btn-yeux');
+    const res = document.getElementById('yeux-result');
+    const bubble = document.getElementById('cortana-bubble');
+    if (!res) return;
+    res.style.display = 'block';
+    res.textContent = '👁 Capture + analyse en cours…';
+    if (btn) btn.disabled = true;
+    fetchJson(BRIDGE + '/yeux', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({question: '', parler: true})
+    }, 8000)
+    .then(r => {
+      if (bubble) bubble.textContent = 'Je regarde l\'écran…';
+      // on relit l'analyse qui arrive dans le fichier de sortie
+      let tentatives = 0;
+      const attendre = setInterval(() => {
+        tentatives++;
+        fetchJson(BRIDGE + '/yeux/result', {}, 3000)
+          .then(dr => {
+            if (dr && dr.texte) {
+              clearInterval(attendre);
+              res.textContent = dr.texte;
+              if (bubble) bubble.textContent = '👁 ' + dr.texte.slice(0, 140);
+              if (btn) btn.disabled = false;
+            } else if (tentatives > 40) {
+              clearInterval(attendre);
+              res.textContent = 'Analyse indisponible (délai dépassé).';
+              if (btn) btn.disabled = false;
+            }
+          })
+          .catch(() => {
+            if (tentatives > 40) {
+              clearInterval(attendre);
+              res.textContent = 'Erreur de lecture du résultat.';
+              if (btn) btn.disabled = false;
+            }
+          });
+      }, 3000);
+    })
+    .catch(() => {
+      res.textContent = 'Erreur : vision indisponible.';
+      if (btn) btn.disabled = false;
+    });
+  });
+
+  // CHAT — question écrite -> hub mission (deepseek) -> réponse écrite + vocale
+  async function sendChat(){
+    const inp=document.getElementById('chat-input');
+    const q=(inp?inp.value:'').trim();
+    if(!q) return;
+    if(inp) inp.value='';
+    if(bubble) bubble.textContent='💬 '+q;
+    box.classList.add('busy');
+    try{
+      const r=await fetch(BRIDGE+'/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:q}),cache:'no-store'});
+      const j=await r.json();
+      if(j && j.ok && j.texte){
+        if(bubble) bubble.textContent=j.texte;
+        if(hint) hint.textContent='chat '+(j.provider||'?');
+      } else if(j && j.error){
+        if(bubble) bubble.textContent='✘ '+j.error;
+        if(hint) hint.textContent='chat ERR';
+      }
+    }catch(e){
+      if(bubble) bubble.textContent='Pont éteint — chat indisponible';
+      if(hint) hint.textContent='bridge OFF';
+    }finally{
+      setTimeout(()=>box.classList.remove('busy'),600);
+    }
+  }
+  document.getElementById('btn-chat')?.addEventListener('click', sendChat);
+  document.getElementById('chat-input')?.addEventListener('keydown', e=>{ if(e.key==='Enter') sendChat(); });
   document.querySelectorAll('.ana-btn').forEach(btn=>{
     if(btn.classList.contains('wiki-btn')) return; // bouton wiki : pin panneau, pas d'analyse
     btn.addEventListener('click', ()=>analyserIndice(btn));
@@ -2212,5 +3253,1119 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
   setInterval(pollLinks, 5000);
 })();
 </script>
+<script>
+// ===== COSMOS HUB INTERACTIF v3 =====
+// Graphe 2D sur-mesure : simulation physique, drag & drop, zoom, pan,
+// clic -> fiche détaillée, survol vivant. Palette du cockpit.
+(function() {
+    'use strict';
+
+    // Pont Cortana :17777 — déclaré ICI aussi car `const` est local à son
+    // bloc <script> (le bloc 4 en a sa propre copie). Sans lui, les fetch
+    // des cartes STRATÉGIE / OFFRES / 👁 plantent en ReferenceError
+    // silencieuse (avalée par try/catch) → onglet vide, « Chargement… ».
+    const BRIDGE='http://127.0.0.1:17777';
+
+    // ---------- CONFIG ----------
+    const CFG = {
+        starCount: 150,
+        hubRadius: 30,
+        nodeBase: 15,
+        labels: {
+            gemini: 'Gemini',
+            nvidia: 'NVIDIA',
+            mistral: 'Mistral',
+            'openrouter-free': 'OpenRouter Free',
+            'openrouter-juge': 'Juge',
+            'openrouter-ultra': 'Ultra 550B',
+            inferx: 'InferX',
+            'inferx-coder': 'InferX Coder',
+            'puter-grok': 'Grok',
+            'qwen-local': 'Qwen local',
+            groq: 'Groq',
+            'cloudflare-workers-ai': 'Cloudflare'
+        },
+        colors: {
+            active: '#7CFF6B',
+            idle: '#ffc857',
+            disabled: '#ff4d4d',
+            hub: '#ffc857'
+        }
+    };
+
+    // ---------- ÉTAT ----------
+    let canvas = null, ctx = null;
+    let W = 0, H = 0;
+    let dpr = 1;
+    let zoom = 1, panX = 0, panY = 0;
+    let nodes = [];          // {id,x,y,vx,vy,radius,color,label,type,data,target}
+    let links = [];
+    let stars = [];
+    let shooting = null;
+    let particles = [];
+    let time = 0;
+    let hoverNode = null;
+    let dragNode = null;
+    let dragMoved = false;
+    let pointerDownPos = null;
+    let panMode = false;     // glisser le fond = se deplacer
+    let selected = null;     // provider cliqué (fiche détaillée)
+
+    const palette = {
+        acid: '#7CFF6B',
+        amber: '#ffc857',
+        red: '#ff4d4d',
+        muted: '#8a7a55'
+    };
+
+    // ---------- INIT ----------
+    function init() {
+        canvas = document.getElementById('cosmos-canvas');
+        if (!canvas) return;
+        ctx = canvas.getContext('2d');
+        dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+        resize();
+        createStars();
+        bindEvents();
+
+        // Observer : redessiner quand l'onglet GRAPH devient visible
+        const gs = document.getElementById('stage-graph');
+        if (gs) {
+            const obs = new MutationObserver(() => {
+                if (gs.classList.contains('on') && gs.offsetParent !== null) {
+                    setTimeout(() => { resize(); renderCosmos(); }, 60);
+                }
+            });
+            obs.observe(gs, { attributes: true, attributeFilter: ['class'] });
+        }
+
+        renderCosmos();
+        requestAnimationFrame(loop);
+    }
+
+    function resize() {
+        if (!canvas) return;
+        const parent = canvas.parentElement;
+        W = parent.clientWidth || 900;
+        H = Math.max(420, Math.round(W * 0.42));
+        canvas.width = W * dpr;
+        canvas.height = H * dpr;
+        canvas.style.width = W + 'px';
+        canvas.style.height = H + 'px';
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        buildNodes();
+    }
+
+    // ---------- DONNÉES ----------
+    function buildNodes() {
+        const data = (window.__HUB__ && window.__HUB__.providers) || [];
+        const R = Math.min(W, H) * 0.42;
+
+        nodes = [];
+        links = [];
+        particles = [];
+
+        // Hub central
+        nodes.push({
+            id: 'hub', type: 'hub', x: 0, y: 0, vx: 0, vy: 0,
+            radius: CFG.hubRadius, color: palette.hub, label: 'HUB',
+            target: { x: 0, y: 0 }, data: null
+        });
+
+        // Providers — orbite aérée + 2 anneaux si > 8 (évite les superpositions)
+        const useTwoRings = data.length > 8;
+        const R1 = R;
+        const R2 = R * 0.72;
+
+        data.forEach((p, i) => {
+            const ring = useTwoRings && i >= Math.ceil(data.length / 2) ? 2 : 1;
+            const countOnRing = ring === 1 ? Math.ceil(data.length / 2) : Math.floor(data.length / 2);
+            const idxOnRing = ring === 1 ? i : i - Math.ceil(data.length / 2);
+            const step = (Math.PI * 2) / countOnRing;
+            const angle = idxOnRing * step - Math.PI / 2 + (ring === 2 ? 0.3 : 0);
+
+            const color = !p.enabled ? palette.red : ((p.calls_24h || 0) === 0 ? palette.idle : palette.acid);
+            const radius = Math.max(13, Math.min(22, CFG.nodeBase + (p.calls_24h || 0) * 0.25));
+
+            const tx = Math.cos(angle) * (ring === 1 ? R1 : R2);
+            const ty = Math.sin(angle) * (ring === 1 ? R1 : R2);
+            nodes.push({
+                id: p.id, type: 'provider', x: tx, y: ty, vx: 0, vy: 0,
+                radius: radius, color: color,
+                label: CFG.labels[p.id] || p.id,
+                target: { x: tx, y: ty },
+                data: p
+            });
+        });
+
+        // Liens hub -> provider
+        nodes.slice(1).forEach(n => {
+            links.push({ from: nodes[0], to: n, color: n.color });
+        });
+    }
+
+    // ---------- ÉTOILES ----------
+    function createStars() {
+        stars = [];
+        for (let i = 0; i < CFG.starCount; i++) {
+            stars.push({
+                x: Math.random(), y: Math.random(),
+                size: Math.random() * 1.8 + 0.4,
+                tw: Math.random() * Math.PI * 2,
+                speed: Math.random() * 1.5 + 0.4
+            });
+        }
+    }
+
+    // ---------- ÉVÉNEMENTS ----------
+    function bindEvents() {
+        canvas.addEventListener('pointerdown', onDown);
+        window.addEventListener('pointermove', onMove);
+        window.addEventListener('pointerup', onUp);
+        canvas.addEventListener('wheel', onWheel, { passive: false });
+        canvas.addEventListener('dblclick', onDblClick);
+        canvas.addEventListener('contextmenu', e => e.preventDefault());
+    }
+
+    function screenToWorld(sx, sy) {
+        const cx = W / 2, cy = H / 2;
+        return {
+            x: (sx - cx - panX) / zoom,
+            y: (sy - cy - panY) / zoom
+        };
+    }
+
+    function hitNode(wx, wy) {
+        let best = null, bestD = Infinity;
+        for (const n of nodes) {
+            const dx = n.x - wx, dy = n.y - wy;
+            const d = Math.sqrt(dx * dx + dy * dy);
+            if (d < n.radius + 8 / zoom && d < bestD) { best = n; bestD = d; }
+        }
+        return best;
+    }
+
+    function onDown(e) {
+        const rect = canvas.getBoundingClientRect();
+        const p = screenToWorld(e.clientX - rect.left, e.clientY - rect.top);
+        pointerDownPos = { x: e.clientX, y: e.clientY };
+        dragMoved = false;
+        const n = hitNode(p.x, p.y);
+        if (n) {
+            dragNode = n;
+            n.vx = 0; n.vy = 0;
+        } else {
+            panMode = true;   // espace vide -> pan
+        }
+    }
+
+    function onMove(e) {
+        const rect = canvas.getBoundingClientRect();
+        const sx = e.clientX - rect.left, sy = e.clientY - rect.top;
+        const p = screenToWorld(sx, sy);
+
+        if (dragNode) {
+            const dx = e.clientX - pointerDownPos.x;
+            const dy = e.clientY - pointerDownPos.y;
+            if (Math.abs(dx) + Math.abs(dy) > 4) dragMoved = true;
+            dragNode.x = p.x;
+            dragNode.y = p.y;
+            return;
+        }
+        if (panMode) {
+            panX += e.clientX - pointerDownPos.x;
+            panY += e.clientY - pointerDownPos.y;
+            pointerDownPos = { x: e.clientX, y: e.clientY };
+            return;
+        }
+        hoverNode = hitNode(p.x, p.y);
+    }
+
+    function onUp() {
+        if (dragNode && !dragMoved) {
+            // Clic simple -> fiche détaillée
+            selected = (dragNode.type === 'provider') ? dragNode : null;
+            showDetail(selected);
+        }
+        dragNode = null;
+        panMode = false;
+        pointerDownPos = null;
+    }
+
+    function onWheel(e) {
+        e.preventDefault();
+        const rect = canvas.getBoundingClientRect();
+        const sx = e.clientX - rect.left, sy = e.clientY - rect.top;
+        const before = screenToWorld(sx, sy);
+        const k = Math.exp(-e.deltaY * 0.0012);
+        zoom = Math.max(0.5, Math.min(3.2, zoom * k));
+        panX = sx - W / 2 - before.x * zoom;
+        panY = sy - H / 2 - before.y * zoom;
+    }
+
+    function onDblClick() {
+        zoom = 1; panX = 0; panY = 0;
+    }
+
+    // ---------- FICHE DÉTAILLÉE ----------
+    function showDetail(node) {
+        const el = document.getElementById('cosmos-detail');
+        if (!el) return;
+        if (!node) { el.style.display = 'none'; return; }
+        const d = node.data || {};
+        // trouver le quota de la tâche qui utilise ce provider
+        const quotas = (window.__HUB__ && window.__HUB__.tasks_quotas) || {};
+        const usedBy = Object.entries(quotas)
+            .filter(([, c]) => (c.provider || '').startsWith(d.id) || d.id.startsWith(c.provider || 'x'))
+            .map(([t, c]) => t)
+            .slice(0, 4);
+        el.innerHTML =
+            '<div class="cosmos-detail-head" style="border-color:' + node.color + '">' +
+            '<span class="cd-name">' + node.label + '</span>' +
+            '<button class="cd-close" onclick="window.__cosmosCloseDetail()">✕</button></div>' +
+            '<div class="cd-body">' +
+            '<div class="cd-row"><span class="cd-k">Modèle</span><span class="cd-v">' + (d.model || '—') + '</span></div>' +
+            '<div class="cd-row"><span class="cd-k">Type</span><span class="cd-v">' + (d.kind || '—') + '</span></div>' +
+            '<div class="cd-row"><span class="cd-k">Appels 24h</span><span class="cd-v" style="color:' + node.color + '">' + (d.calls_24h || 0) + '</span></div>' +
+            '<div class="cd-row"><span class="cd-k">État</span><span class="cd-v">' + (d.enabled ? '✅ Actif' : '❌ Désactivé') + '</span></div>' +
+            (d.timeout ? '<div class="cd-row"><span class="cd-k">Timeout</span><span class="cd-v">' + d.timeout + 's</span></div>' : '') +
+            (usedBy.length ? '<div class="cd-row"><span class="cd-k">Utilisé par</span><span class="cd-v">' + usedBy.join(', ') + '</span></div>' : '') +
+            '</div>';
+        el.style.display = 'block';
+    }
+
+    window.__cosmosCloseDetail = function() {
+        selected = null;
+        const el = document.getElementById('cosmos-detail');
+        if (el) el.style.display = 'none';
+    };
+
+    // ---------- BOUCLE ----------
+    function loop() {
+        time += 0.016;
+        stepPhysics();
+        draw();
+        requestAnimationFrame(loop);
+    }
+
+    // ---------- PHYSIQUE ----------
+    function stepPhysics() {
+        // répulsion entre providers (évite chevauchement)
+        for (let i = 1; i < nodes.length; i++) {
+            for (let j = i + 1; j < nodes.length; j++) {
+                const a = nodes[i], b = nodes[j];
+                const dx = b.x - a.x, dy = b.y - a.y;
+                const d2 = dx * dx + dy * dy;
+                const min = (a.radius + b.radius) * 1.4;
+                if (d2 < min * min && d2 > 0.01) {
+                    const d = Math.sqrt(d2);
+                    const f = (min - d) / min * 0.35;
+                    const ux = dx / d, uy = dy / d;
+                    a.vx -= ux * f; a.vy -= uy * f;
+                    b.vx += ux * f; b.vy += uy * f;
+                }
+            }
+        }
+        // attraction vers la cible orbitale + friction
+        for (const n of nodes) {
+            if (n.type === 'hub') { n.x = 0; n.y = 0; continue; }
+            n.vx += (n.target.x - n.x) * 0.008;
+            n.vy += (n.target.y - n.y) * 0.008;
+            n.vx *= 0.88;
+            n.vy *= 0.88;
+            n.x += n.vx;
+            n.y += n.vy;
+        }
+        // particules le long des liens
+        if (Math.random() < 0.25 && links.length) {
+            const l = links[Math.floor(Math.random() * links.length)];
+            particles.push({ link: l, p: 0, speed: 0.012 + Math.random() * 0.02 });
+        }
+        particles = particles.filter(pt => pt.p <= 1);
+        for (const pt of particles) pt.p += pt.speed;
+    }
+
+    // ---------- DESSIN ----------
+    function draw() {
+        ctx.clearRect(0, 0, W, H);
+        drawBackground();
+        // espace monde (hub centré) avec zoom/pan
+        ctx.save();
+        ctx.translate(W / 2 + panX, H / 2 + panY);
+        ctx.scale(zoom, zoom);
+        drawLinks();
+        drawParticles();
+        drawNodes();
+        ctx.restore();
+        drawVignette();
+    }
+
+    function hexToRgba(hex, a) {
+        const m = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex || '');
+        if (!m) return 'rgba(255,255,255,' + a + ')';
+        return 'rgba(' + parseInt(m[1], 16) + ',' + parseInt(m[2], 16) + ',' + parseInt(m[3], 16) + ',' + a + ')';
+    }
+
+    function drawBackground() {
+        // fond profond
+        const g = ctx.createRadialGradient(W / 2, H / 2, 0, W / 2, H / 2, Math.max(W, H) * 0.7);
+        g.addColorStop(0, '#0d1410');
+        g.addColorStop(0.55, '#080d09');
+        g.addColorStop(1, '#040604');
+        ctx.fillStyle = g;
+        ctx.fillRect(0, 0, W, H);
+
+        // nébuleuses flottantes
+        for (let i = 0; i < 3; i++) {
+            const nx = W * (0.25 + 0.5 * Math.sin(time * 0.05 + i * 2.1));
+            const ny = H * (0.3 + 0.4 * Math.cos(time * 0.04 + i * 1.7));
+            const ng = ctx.createRadialGradient(nx, ny, 0, nx, ny, W * 0.3);
+            ng.addColorStop(0, i === 1 ? 'rgba(124,255,107,0.055)' : 'rgba(240,160,32,0.05)');
+            ng.addColorStop(1, 'rgba(0,0,0,0)');
+            ctx.fillStyle = ng;
+            ctx.fillRect(0, 0, W, H);
+        }
+
+        // étoiles scintillantes
+        ctx.save();
+        ctx.globalCompositeOperation = 'lighter';
+        for (const s of stars) {
+            const a = 0.25 + 0.75 * Math.abs(Math.sin(time * s.speed + s.tw));
+            ctx.beginPath();
+            ctx.arc(s.x * W, s.y * H, s.size, 0, Math.PI * 2);
+            ctx.fillStyle = 'rgba(255,255,255,' + (a * 0.8) + ')';
+            ctx.fill();
+        }
+        // étoile filante occasionnelle
+        if (!shooting && Math.random() < 0.004) {
+            shooting = {
+                x: Math.random() * W, y: Math.random() * H * 0.5,
+                vx: (Math.random() * 4 + 5) * (Math.random() < 0.5 ? -1 : 1),
+                vy: Math.random() * 2 + 1.5,
+                life: 0
+            };
+        }
+        if (shooting) {
+            shooting.x += shooting.vx;
+            shooting.y += shooting.vy;
+            shooting.life += 1;
+            const tail = 14;
+            ctx.strokeStyle = 'rgba(255,255,255,0.7)';
+            ctx.lineWidth = 1.4;
+            ctx.beginPath();
+            ctx.moveTo(shooting.x, shooting.y);
+            ctx.lineTo(shooting.x - shooting.vx * tail, shooting.y - shooting.vy * tail);
+            ctx.stroke();
+            if (shooting.life > 70 || shooting.x < -50 || shooting.x > W + 50) shooting = null;
+        }
+        ctx.restore();
+    }
+
+    function drawLinks() {
+        for (const l of links) {
+            const calls = (l.to.data && l.to.data.calls_24h) || 0;
+            const lw = 1 + Math.min(calls / 40, 1) * 2.4;
+            const active = (!hoverNode || hoverNode === l.to || hoverNode === l.from);
+            const dim = active ? 1 : 0.25;
+            const g = ctx.createLinearGradient(l.from.x, l.from.y, l.to.x, l.to.y);
+            g.addColorStop(0, hexToRgba(l.color, 0.75 * dim));
+            g.addColorStop(1, hexToRgba(l.color, 0.15 * dim));
+            ctx.beginPath();
+            ctx.moveTo(l.from.x, l.from.y);
+            ctx.lineTo(l.to.x, l.to.y);
+            ctx.strokeStyle = g;
+            ctx.lineWidth = lw;
+            ctx.stroke();
+        }
+    }
+
+    function drawParticles() {
+        ctx.save();
+        ctx.globalCompositeOperation = 'lighter';
+        for (const pt of particles) {
+            const l = pt.link;
+            const x = l.from.x + (l.to.x - l.from.x) * pt.p;
+            const y = l.from.y + (l.to.y - l.from.y) * pt.p;
+            ctx.beginPath();
+            ctx.arc(x, y, 2.2, 0, Math.PI * 2);
+            ctx.fillStyle = hexToRgba(l.color, 0.9);
+            ctx.fill();
+        }
+        ctx.restore();
+    }
+
+    function drawNodes() {
+        for (const n of nodes) {
+            const isHover = (hoverNode === n);
+            const isSel = (selected === n);
+            const isDrag = (dragNode === n);
+            const r = n.radius * (isHover || isDrag ? 1.25 : isSel ? 1.15 : 1);
+
+            // halo
+            const hg = ctx.createRadialGradient(n.x, n.y, 0, n.x, n.y, r * 2.4);
+            hg.addColorStop(0, hexToRgba(n.color, isHover ? 0.5 : 0.32));
+            hg.addColorStop(1, 'rgba(0,0,0,0)');
+            ctx.beginPath();
+            ctx.arc(n.x, n.y, r * 2.4, 0, Math.PI * 2);
+            ctx.fillStyle = hg;
+            ctx.fill();
+
+            // corps dégradé
+            const bg = ctx.createRadialGradient(
+                n.x - r * 0.3, n.y - r * 0.35, r * 0.1,
+                n.x, n.y, r
+            );
+            bg.addColorStop(0, hexToRgba(n.color, 1));
+            bg.addColorStop(0.6, hexToRgba(n.color, 0.85));
+            bg.addColorStop(1, hexToRgba(n.color, 0.55));
+            ctx.beginPath();
+            ctx.arc(n.x, n.y, r, 0, Math.PI * 2);
+            ctx.fillStyle = bg;
+            ctx.fill();
+
+            // bordure
+            ctx.beginPath();
+            ctx.arc(n.x, n.y, r, 0, Math.PI * 2);
+            ctx.strokeStyle = hexToRgba(n.color, 0.9);
+            ctx.lineWidth = 1.6;
+            ctx.stroke();
+
+            // noyau blanc
+            ctx.beginPath();
+            ctx.arc(n.x, n.y, r * 0.16, 0, Math.PI * 2);
+            ctx.fillStyle = 'rgba(255,255,255,0.85)';
+            ctx.fill();
+
+            // label du hub central uniquement (providers = leader line externe, plus lisible)
+            if (n.type === 'hub') {
+                const fs = 17 / zoom;
+                ctx.font = 'bold ' + fs + 'px Orbitron, sans-serif';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'top';
+                ctx.shadowColor = 'rgba(0,0,0,0.95)';
+                ctx.shadowBlur = 5 / zoom;
+                ctx.shadowOffsetY = 1.5 / zoom;
+                ctx.fillStyle = palette.hub;
+                ctx.fillText(n.label, n.x, n.y + r + 6 / zoom);
+                ctx.shadowBlur = 0;
+                ctx.shadowOffsetY = 0;
+            }
+
+            // anneaux orbitaux du hub (rotation lente)
+            if (n.type === 'hub') {
+                ctx.save();
+                ctx.setLineDash([6, 6]);
+                ctx.lineDashOffset = -time * 12;
+                ctx.beginPath();
+                ctx.arc(n.x, n.y, r * 1.9, 0, Math.PI * 2);
+                ctx.strokeStyle = 'rgba(255,200,87,' + (0.3 + 0.25 * Math.sin(time * 2)) + ')';
+                ctx.lineWidth = 1.2;
+                ctx.stroke();
+                ctx.setLineDash([]);
+                ctx.beginPath();
+                ctx.arc(n.x, n.y, r * 1.9 + 10, 0, Math.PI * 2);
+                ctx.strokeStyle = 'rgba(255,200,87,0.12)';
+                ctx.lineWidth = 5;
+                ctx.stroke();
+                ctx.restore();
+            }
+        }
+
+        // Labels providers — leader line + anti-chevauchement (version robuste famille v2)
+        // Tri par angle polaire sur une COPIE (ne pas modifier l'ordre du tableau `nodes`
+        // utilisé par les liens / la physique).
+        const providersTries = nodes
+            .filter(n => n.type === 'provider')
+            .slice()
+            .sort((a, b) => Math.atan2(a.y, a.x) - Math.atan2(b.y, b.x));
+        const placedLabels = [];
+        providersTries.forEach((n, i) => {
+            const angle = Math.atan2(n.y, n.x);
+            const outside = n.radius + 18;
+            let lx = n.x + Math.cos(angle) * outside;
+            let ly = n.y + Math.sin(angle) * outside;
+
+            // Alternance stable haut/bas selon l'index après tri
+            if (i % 2 === 0) ly -= 8; else ly += 8;
+
+            // Filet de sécurité anti-chevauchement (garde 20)
+            let guard = 0;
+            while (guard < 20) {
+                let overlap = false;
+                for (const p of placedLabels) {
+                    if (Math.abs(p.ly - ly) < 12 && Math.abs(p.lx - lx) < 60) {
+                        overlap = true;
+                        break;
+                    }
+                }
+                if (!overlap) break;
+                ly += (i % 2 === 0 ? -14 : 14);
+                guard++;
+            }
+            placedLabels.push({ lx, ly });
+
+            // Leader line
+            ctx.strokeStyle = (hoverNode === n || selected === n) ? (n.color || '#4a5568') : '#4a5568';
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.moveTo(n.x + Math.cos(angle) * n.radius, n.y + Math.sin(angle) * n.radius);
+            ctx.lineTo(lx, ly);
+            ctx.stroke();
+
+            // Texte
+            const right = Math.cos(angle) >= 0;
+            ctx.fillStyle = (hoverNode === n || selected === n) ? '#ffffff' : '#e8dcc0';
+            ctx.font = '11px Share Tech Mono, monospace';
+            ctx.textAlign = right ? 'left' : 'right';
+            ctx.textBaseline = 'middle';
+            ctx.shadowColor = 'rgba(0,0,0,0.9)';
+            ctx.shadowBlur = 4;
+            ctx.fillText(n.label || n.id, lx + (right ? 4 : -4), ly + 3);
+            ctx.shadowBlur = 0;
+        });
+    }
+
+    function drawVignette() {
+        const vg = ctx.createRadialGradient(W / 2, H / 2, W * 0.35, W / 2, H / 2, W * 0.75);
+        vg.addColorStop(0, 'rgba(0,0,0,0)');
+        vg.addColorStop(1, 'rgba(0,0,0,0.35)');
+        ctx.fillStyle = vg;
+        ctx.fillRect(0, 0, W, H);
+    }
+
+    // ---------- TABLEAU DE BORD (bandeau sous le graphe) ----------
+    function renderCosmos() {
+        if (!window.__HUB__) return;
+
+        const budgetEl = document.getElementById('cosmos-budget');
+        if (budgetEl && window.__HUB__.budget) {
+            const b = window.__HUB__.budget;
+            const pct = Math.min((b.consumed / b.daily) * 100, 100);
+            budgetEl.innerHTML =
+                '<div class="cosmos-budget-text">Appels cloud <strong>' + b.consumed + '</strong> / ' + b.daily +
+                ' · Restant <strong style="color:' + (b.remaining > 0 ? palette.acid : palette.red) + '">' + b.remaining + '</strong></div>' +
+                '<div class="cosmos-budget-bar"><div class="cosmos-budget-fill" style="width:' + pct + '%"></div></div>';
+        }
+
+        const queueEl = document.getElementById('cosmos-queue');
+        if (queueEl && window.__HUB__.queue) {
+            queueEl.innerHTML = window.__HUB__.queue.slice(0, 8).map(call => {
+                const t = call.ts
+                  ? new Date(call.ts).toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit', second: '2-digit' })
+                  : '--:--';
+                return '<div class="cosmos-queue-item"><span class="time">' + t + '</span><span>' + call.task + '</span><span class="provider">→ ' + call.provider + '</span></div>';
+            }).join('') || '<div class="cosmos-queue-item">Aucun appel récent</div>';
+        }
+
+        const healthEl = document.getElementById('cosmos-health');
+        if (healthEl && window.__HUB__.health) {
+            const h = window.__HUB__.health;
+            healthEl.innerHTML =
+                '<div><span class="cosmos-status ' + (h.status === 'ok' ? 'ok' : 'nok') + '">' + String(h.status).toUpperCase() + '</span>' +
+                '<span class="cd-k" style="margin-left:8px;">' + (h.providers || 'N/A') + ' providers</span></div>' +
+                '<div class="cd-k" style="margin-top:4px;">Feed ' + new Date(window.__HUB__.generated_at).toLocaleTimeString('fr-FR', {hour:'2-digit',minute:'2-digit',second:'2-digit'}) + ' (locale)' +
+                ' · ' + (function(){ try { return Math.max(0, Math.round((Date.now() - new Date(window.__HUB__.generated_at).getTime()) / 1000)); } catch(e) { return '?'; } })() + 's</div>';
+        }
+
+        const tasksEl = document.getElementById('cosmos-tasks');
+        if (tasksEl && window.__HUB__.tasks_quotas) {
+            const tasks = Object.entries(window.__HUB__.tasks_quotas);
+            tasksEl.innerHTML = tasks.length
+                ? '<table class="cosmos-table"><tr><th>Tâche</th><th>Provider</th><th>Quota</th></tr>' +
+                  tasks.map(([t, c]) => '<tr><td>' + t + '</td><td>' + (c.provider || 'N/A') + '</td><td>' + (c.cloud_quota || '∞') + '</td></tr>').join('') +
+                  '</table>'
+                : '<div class="cosmos-queue-item">Aucune tâche</div>';
+        }
+
+        const eventsEl = document.getElementById('cosmos-events');
+        if (eventsEl && window.__HUB__.events) {
+            eventsEl.innerHTML = window.__HUB__.events.slice(0, 5).map(ev =>
+                '<div class="cosmos-queue-item">[' + ev.kind + '] ' + ev.title + '</div>'
+            ).join('') || '<div class="cosmos-queue-item">Aucun événement</div>';
+        }
+    }
+
+    // ---------- API PUBLIQUE ----------
+    window.__cosmosRefresh = function() {
+        buildNodes();
+        renderCosmos();
+    };
+
+    // ---------- LIVE : polling hub.json (10 s) ----------
+    // Le feed hub.json est régénéré par launchd (com.ace777.hub-cockpit-feed,
+    // ~120 s) et servi avec no-store : on le relit régulièrement pour que le
+    // graphe ET les cartes (budget, file, quotas, santé) restent frais en
+    // continu, sans recharger la page.
+    let hubPollFail = 0;
+    // V2 famille (5/6) : diffing — ne re-rendre que si le feed a changé
+    let lastHubGen = (window.__HUB__ && window.__HUB__.generated_at) || null;
+
+    function pollHubLive() {
+        fetch('hub.json', { cache: 'no-store' })
+            .then(r => {
+                if (!r.ok) throw new Error('HTTP ' + r.status);
+                return r.json();
+            })
+            .then(data => {
+                hubPollFail = 0;
+                const health = document.getElementById('cosmos-health');
+                if (health) {
+                    health.classList.remove('degraded');
+                    health.textContent = health.textContent.replace(' (dégradé)', '');
+                }
+                // Diffing : feed inchangé → pas de re-rendu inutile (économie CPU WebKit/Chromium)
+                if (lastHubGen && data.generated_at && data.generated_at === lastHubGen) return;
+                lastHubGen = (data.generated_at) || lastHubGen;
+                window.__HUB__ = data;
+
+                // CORRECTION C1 : mise à jour douce (couleurs/tailles) sans rebuild
+                const providersData = (data.providers || []);
+                if (nodes.length === providersData.length + 1) { // hub + providers
+                    providersData.forEach((p) => {
+                        const node = nodes.find(n => n.id === p.id);
+                        if (node) {
+                            const color = !p.enabled ? palette.red : ((p.calls_24h || 0) === 0 ? palette.idle : palette.acid);
+                            const radius = Math.max(13, Math.min(22, CFG.nodeBase + (p.calls_24h || 0) * 0.25));
+                            node.color = color;
+                            node.radius = radius;
+                            node.data = p;
+                        }
+                    });
+                } else {
+                    // Nombre de providers changé → reconstruction propre
+                    buildNodes();
+                }
+                renderCosmos();
+            })
+            .catch(() => {
+                hubPollFail++;
+                if (hubPollFail >= 3) {
+                    const health = document.getElementById('cosmos-health');
+                    if (health && !health.classList.contains('degraded')) {
+                        health.classList.add('degraded');
+                        if (!health.textContent.includes('dégradé')) {
+                            health.textContent += ' (dégradé)';
+                        }
+                    }
+                }
+                // on ne touche pas à window.__HUB__ en cas d'échec (dernières données conservées)
+            });
+    }
+    pollHubLive();
+    setInterval(pollHubLive, 10000);
+    document.addEventListener('visibilitychange', () => {
+        if (!document.hidden) pollHubLive();
+    });
+
+    // ---------- STRATÉGIE : DASHBOARD MISE À JOUR (V3 — GARDE-FOUS FAMILLE) ----------
+    // A2 : fetch avec timeout strict (5 s) — jamais de chargement infini.
+    function fetchJson(url, options, timeoutMs) {
+      timeoutMs = timeoutMs || 5000;
+      const ctrl = new AbortController();
+      const timer = setTimeout(() => ctrl.abort(), timeoutMs);
+      return fetch(url, Object.assign({}, {cache: 'no-store'}, options, {signal: ctrl.signal}))
+        .then(r => r.json())
+        .finally(() => clearTimeout(timer));
+    }
+
+    function esc(s) {
+      // Échappement HTML (XSS) : toute donnée scrapée ou générée par IA passant par innerHTML
+      return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+    }
+
+    function nomCourt(section) {
+      return section
+        .replace(/\(:free\)/g, '')
+        .replace(/\(gratuit, token\)/g, '')
+        .replace(/\(43 pools\)/g, '')
+        .replace(/\s+/g, ' ')
+        .trim() || section;
+    }
+
+    function setBanner(etat, icone, titre, sub) {
+      const b = document.getElementById('strat-banner');
+      if (!b) return;
+      b.className = 'strat-banner strat-' + etat;
+      b.querySelector('.sb-icon').textContent = icone;
+      b.querySelector('.sb-title').textContent = titre;
+      b.querySelector('.sb-sub').textContent = sub;
+    }
+
+    // --- STRATÉGIES DE L'ANALYSTE : lit STRATEGIE.md via le bridge ---
+    function chargerStrategie() {
+      const body = document.getElementById('strat-analyste-body');
+      if (!body) return;
+      fetchJson(BRIDGE + '/strategie', {}, 5000)
+        .then(data => {
+          const dateEl = document.getElementById('strat-analyste-date');
+          if (dateEl && data.date) {
+            const d = data.date.replace('T', ' ').slice(0, 16);
+            dateEl.textContent = 'MISE À JOUR : ' + d;
+          }
+          const txt = data.strategie || '';
+          if (!txt) {
+            body.innerHTML = '<div class="disc-empty">Aucune stratégie disponible pour l\'instant.</div>';
+            return;
+          }
+          // Découpe en sections (## …) pour un rendu lisible
+          const sections = txt.split(/\n(?=##\s)/g);
+          body.innerHTML = sections.map(sec => {
+            const lignes = sec.trim().split('\n');
+            const titre = lignes[0].replace(/^##\s*/, '');
+            const corps = lignes.slice(1).join('\n').trim();
+            return '<div class="sa-sec">' + titre.replace(/\s*—.*$/, '') + '</div>' +
+                   '<div>' + corps.replace(/\n/g, '<br>') + '</div>';
+          }).join('<div class="sep"></div>');
+        })
+        .catch((e) => {
+          console.error('[cockpit] chargerStrategie:', e);
+          body.innerHTML = '<div class="disc-empty">Analyste injoignable — stratégies indisponibles.</div>';
+        });
+    }
+
+    function chargerOffres() {
+      const container = document.getElementById('offres-list');
+      const dateEl = document.getElementById('offres-date');
+      if (!container) return;
+      // A2 : timeout 5 s — si le bridge ne répond pas, on passe en mode dégradé
+      fetchJson(BRIDGE + '/offres', {}, 5000)
+        .then(data => {
+          // A1 : chaque bloc de rendu est isolé — une erreur n'empêche jamais
+          // les autres blocs, et surtout jamais une page blanche.
+          try {
+            container.innerHTML = '';
+            if (dateEl) {
+              dateEl.textContent = data.date
+                ? ('VEILLE DU ' + data.date.split('-').reverse().join('/'))
+                : '';
+            }
+          } catch (e) { /* non fatal */ }
+
+          const sections = data.sections || [];
+          const offres = data.offres || [];
+          const testables = sections.filter(s => s.testable);
+          const decouvertes = sections.filter(s => !s.testable);
+          const total = data.total || 0;
+          const erreurs = sections.filter(s => s.err).length;
+          const enCache = !!data.cache && !!data.cache_date;
+
+          // --- bannière d'état globale ---
+          try {
+            const suffixe = enCache ? ' — MODE CACHE ' + data.cache_date.slice(5).replace('-', '/') : '';
+            if (erreurs > 0) {
+              setBanner('err', '⚠', 'VEILLE PARTIELLE — ' + erreurs + ' source(s) en erreur' + suffixe,
+                'Le reste du scan est valide. Les sources en erreur réessaieront demain à 07:00.');
+            } else if (total > 0) {
+              setBanner('new', '▲', total + ' NOUVELLE' + (total > 1 ? 'S' : '') + ' OFFRE' + (total > 1 ? 'S' : '') + ' AUJOURD\'HUI' + suffixe,
+                'Cochez celles qui vous intéressent (max 5) puis DÉCOLLER pour l\'évaluation A/B en observation.');
+            } else if (sections.length === 0) {
+              setBanner('idle', '◌', enCache ? 'MODE CACHE — VEILLE DU JOUR INDISPONIBLE' : 'VEILLE PAS ENCORE PASSÉE AUJOURD\'HUI',
+                enCache
+                  ? 'Le rapport du jour est absent ou corrompu. Affichage du dernier rapport valide (' + data.cache_date + '). La veille du jour tourne à 07:00.'
+                  : 'La recherche automatique tourne à 07:00. Revenez après — ou vérifiez que le hub tourne.');
+            } else {
+              setBanner('ok', '●', 'TOUT EST À JOUR — AUCUNE NOUVEAUTÉ' + suffixe,
+                'Aucune nouvelle offre chez vos fournisseurs. Rien à faire : le système est synchronisé.');
+            }
+          } catch (e) { /* non fatal */ }
+
+          // --- cartes fournisseurs (check de mise à jour) ---
+          try {
+            const prov = document.getElementById('strat-providers');
+            if (prov) {
+              prov.innerHTML = '';
+              if (testables.length === 0) {
+                prov.innerHTML = '<div class="strat-hint">Aucun fournisseur scanné aujourd\'hui.</div>';
+              } else {
+                testables.forEach(s => {
+                  const dot = s.err ? 'err' : (s.count > 0 ? 'new' : 'on');
+                  const state = s.err ? 'erreur de scan'
+                    : (s.count > 0 ? (s.count + ' nouveau' + (s.count > 1 ? 'x' : ''))
+                    : 'à jour');
+                  const div = document.createElement('div');
+                  div.className = 'sp-card';
+                  div.innerHTML =
+                    '<span class="sp-dot ' + dot + '"></span>' +
+                    '<div class="sp-name">' + nomCourt(s.name) + '</div>' +
+                    '<div class="sp-count ' + (s.err ? '' : (s.count > 0 ? 'new' : 'on')) + '">' +
+                      (s.err ? '—' : s.count) + '</div>' +
+                    '<div class="sp-state">' + state + '</div>';
+                  prov.appendChild(div);
+                });
+              }
+            }
+          } catch (e) { /* non fatal */ }
+
+          // --- liste des offres (groupée par section) ---
+          try {
+            if (offres.length === 0) {
+              container.innerHTML = '<div class="disc-empty">Aucune nouvelle offre à cocher.</div>';
+              document.getElementById('btn-decoller').disabled = true;
+            } else {
+              let lastSection = null;
+              offres.forEach(offre => {
+                if (offre.section !== lastSection) {
+                  lastSection = offre.section;
+                  const tag = document.createElement('div');
+                  tag.className = 'offre-section-tag';
+                  tag.textContent = nomCourt(offre.section);
+                  container.appendChild(tag);
+                }
+                const label = document.createElement('label');
+                label.className = 'offre-ligne';
+                const testable = offre.testable !== false;
+                const box = testable
+                  ? '<input type="checkbox" class="offre-coche" value="' + offre.item.replace(/"/g, '&quot;') + '">'
+                  : '<input type="checkbox" class="offre-coche" disabled title="Découverte, pas encore évaluable automatiquement">';
+                label.innerHTML = box +
+                  '<span class="offre-item' + (testable ? '' : ' offre-item-mute') + '">' + esc(offre.item) + '</span>' +
+                  (testable ? '' : '<span class="offre-note">découverte</span>');
+                container.appendChild(label);
+                // --- fiche explicative au clic (aide au choix) ---
+                const ficheEl = document.createElement('div');
+                ficheEl.className = 'offre-fiche';
+                if (offre.fiche) {
+                  const f = offre.fiche;
+                  // esc() : texte scrapé + IA injecté via innerHTML -> échappement XSS obligatoire
+                  if (f.avis_pour) {
+                    // --- vraie fiche IA ---
+                    ficheEl.innerHTML = '<div class="of-t">' + esc(f.type || 'Offre') + '</div>' +
+                      '<div class="of-l">Points forts</div><div class="of-f">' + (f.forts || []).map(esc).join(' · ') + '</div>' +
+                      '<div class="of-l">Points faibles</div><div class="of-x">' + (f.faibles || f.failles || []).map(esc).join(' · ') + '</div>' +
+                      '<div class="of-l">Pour quoi l\'utiliser</div><div>' + esc(f.usage || '') + '</div>' +
+                      '<div class="of-l of-avis">🎯 Pourquoi l\'essayer</div><div class="of-f">' + esc(f.avis_pour) + '</div>' +
+                      (f.avis_attention ? '<div class="of-l of-avis">⚠️ Attention</div><div class="of-x">' + esc(f.avis_attention) + '</div>' : '');
+                  } else {
+                    // --- vue brute : coup d'œil même sans analyse IA ---
+                    let brutHtml = '<div class="of-t">🔎 Vue brute</div>' +
+                      '<div class="of-l">Nom</div><div>' + esc(f.brut || offre.item || '') + '</div>' +
+                      '<div class="of-l">Source</div><div>' + esc(f.section || offre.section || '') + '</div>';
+                    if (f.lien) {
+                      brutHtml += '<div class="of-l of-avis"><a href="' + esc(f.lien) + '" target="_blank" rel="noopener" class="of-lnk">Voir l\'offre sur le site ↗</a></div>';
+                    }
+                    brutHtml += '<div class="of-l of-avis">⏳ Analyse IA en attente</div><div class="of-x">Réservée au quota de 8/jour — elle arrive au prochain passage.</div>';
+                    ficheEl.innerHTML = brutHtml;
+                  }
+                }
+                container.appendChild(ficheEl);
+                label.style.cursor = 'pointer';
+                label.addEventListener('click', function(e){
+                  if (e.target.classList.contains('offre-coche')) return;
+                  document.querySelectorAll('.offre-fiche.show').forEach(el => { if (el !== ficheEl) el.classList.remove('show'); });
+                  ficheEl.classList.toggle('show');
+                });
+              });
+            }
+            majBtnDecoller();
+          } catch (e) { /* non fatal */ }
+
+          // --- exploration (nouveaux endroits) ---
+          try {
+            const disc = document.getElementById('strat-discovery');
+            if (disc) {
+              disc.innerHTML = '';
+              if (decouvertes.length === 0) {
+                disc.innerHTML = '<div class="disc-empty">Aucun nouveau lieu détecté cette nuit.</div>';
+              } else {
+                decouvertes.forEach(s => {
+                  const d = document.createElement('div');
+                  d.className = 'disc-item';
+                  d.innerHTML = '<span class="d-n">' + nomCourt(s.name) + '</span>' +
+                    '<span class="d-c">' + (s.err ? 'ERR' : (s.count > 0 ? s.count + ' découvert' : 'rien')) + '</span>';
+                  disc.appendChild(d);
+                  // --- fiche découverte au clic ---
+                  const discFiche = document.createElement('div');
+                  discFiche.className = 'disc-fiche';
+                  if (s.fiche) {
+                    const f = s.fiche;
+                    discFiche.innerHTML = '<div class="of-t">' + (f.type || 'Découverte') + '</div>' +
+                      '<div class="of-l">Points forts</div><div class="of-f">' + (f.forts || []).join(' · ') + '</div>' +
+                      '<div class="of-l">Points faibles</div><div class="of-x">' + (f.faibles || []).join(' · ') + '</div>' +
+                      '<div class="of-l">Usage</div><div>' + (f.usage || '') + '</div>';
+                  }
+                  disc.appendChild(discFiche);
+                  d.style.cursor = 'pointer';
+                  d.addEventListener('click', function(e){
+                    if (e.target.tagName === 'INPUT') return;
+                    document.querySelectorAll('.disc-fiche.show').forEach(el => { if (el !== discFiche) el.classList.remove('show'); });
+                    discFiche.classList.toggle('show');
+                  });
+                });
+              }
+            }
+          } catch (e) { /* non fatal */ }
+
+          // --- dernier décollage + trace d'évaluation ---
+          try {
+            const deco = document.getElementById('strat-decologue');
+            if (deco && data.decollage && data.decollage.ts) {
+              const ts = (data.decollage.ts || '').replace('T', ' ').slice(0, 16);
+              deco.textContent = 'Dernier DÉCOLLAGE : ' + ts + ' — ' +
+                (data.decollage.choix || []).length + ' choix lancés en évaluation';
+              if (data.decollage.trace && data.decollage.trace.length) {
+                deco.title = data.decollage.trace.join('\n');
+              }
+            }
+          } catch (e) { /* non fatal */ }
+        })
+        .catch(() => {
+          // A2 : bridge injoignable ou timeout → mode dégradé explicite
+          try {
+            setBanner('err', '✕', 'BRIDGE HORS LIGNE', 'Le pont :17777 ne répond pas (ou timeout 5 s). Le reste du cockpit continue de fonctionner.');
+            const prov = document.getElementById('strat-providers');
+            if (prov) prov.innerHTML = '';
+            container.innerHTML = '<div style="color:#c0392b;padding:8px">Bridge injoignable :17777 — données indisponibles. Réessai automatique à l\'ouverture de l\'onglet.</div>';
+            const deco = document.getElementById('strat-decologue');
+            if (deco) deco.textContent = '';
+            document.getElementById('btn-decoller').disabled = true;
+          } catch (e) { /* non fatal */ }
+        });
+    }
+
+    // --- SIGNETS X : résumés IA + validation à garder / poubelle ---
+    function chargerSignets() {
+      const container = document.getElementById('signets-list');
+      const dateEl = document.getElementById('signets-date');
+      const statusEl = document.getElementById('signets-status');
+      if (!container) return;
+      fetchJson(BRIDGE + '/signets', {}, 8000)
+        .then(data => {
+          try {
+            container.innerHTML = '';
+            const signets = data.signets || [];
+            if (dateEl) {
+              if (data.acces_refuse) {
+                dateEl.textContent = '⚠ macOS bloque la lecture du dossier Documents — accorde l\'accès complet au disque à Python (2 min, une fois)';
+                dateEl.style.color = 'var(--amber2)';
+              } else if (data.total > 0) {
+                dateEl.textContent = (data.total + ' lus · ' + (data.en_attente || 0) + ' en attente · quota ' + (data.quota_jour || 0) + '/' + (data.quota_max || 50));
+              } else {
+                dateEl.textContent = 'Aucun signet résumé pour l\'instant';
+              }
+            }
+            if (signets.length === 0) {
+              container.innerHTML = '<div class="disc-empty">Le lecteur travaille… les résumés apparaîtront ici (15/jour).</div>';
+            } else {
+              signets.forEach(s => {
+                const div = document.createElement('div');
+                div.className = 'offre-ligne';
+                const avis = s.avis || '';
+                const badge = avis === 'garder' ? '<span style="color:var(--acid)">✅ gardé</span>'
+                  : avis === 'poubelle' ? '<span style="color:var(--red)">🗑 poubelle</span>'
+                  : '';
+                div.innerHTML =
+                  '<div style="flex:1;min-width:0">' +
+                    '<div class="offre-item">' + esc(s.author || '') + ' · <span style="color:var(--muted)">' + esc(s.date || '') + '</span></div>' +
+                    '<div class="offre-note" style="margin-top:3px;line-height:1.5">' + esc(s.resume || '') + '</div>' +
+                    (badge ? '<div style="margin-top:4px">' + badge + '</div>' : '') +
+                  '</div>' +
+                  '<div style="display:flex;flex-direction:column;gap:4px;flex-shrink:0">' +
+                    (s.url ? '<a href="' + esc(s.url) + '" target="_blank" rel="noopener" style="font-size:.58rem;color:var(--cyan);text-decoration:none">X ↗</a>' : '') +
+                    '<button class="sg-btn" data-cle="" data-avis="garder" style="color:var(--acid)">GARDER</button>' +
+                    '<button class="sg-btn" data-cle="" data-avis="poubelle" style="color:var(--red)">POUBELLE</button>' +
+                  '</div>';
+                const btns = div.querySelectorAll('.sg-btn');
+                btns.forEach(btn => {
+                  btn.addEventListener('click', () => {
+                    const avisV = btn.dataset.avis;
+                    fetchJson(BRIDGE + '/signets/valider', {
+                      method: 'POST',
+                      headers: {'Content-Type': 'application/json'},
+                      body: JSON.stringify({cle: s._cle, avis: avisV})
+                    }, 5000)
+                    .then(r => {
+                      if (r.ok) chargerSignets();
+                    }).catch(() => {});
+                  });
+                });
+                container.appendChild(div);
+              });
+            }
+          } catch (e) { /* non fatal */ }
+        })
+        .catch(() => {
+          try {
+            if (statusEl) statusEl.textContent = 'Bridge injoignable — signets indisponibles.';
+          } catch (e) { /* non fatal */ }
+        });
+    }
+
+    function majBtnDecoller() {
+      const n = document.querySelectorAll('.offre-coche:checked').length;
+      document.getElementById('btn-decoller').disabled = n === 0;
+      const c = document.getElementById('offres-compteur');
+      if (c) c.innerHTML = '<b>' + n + '</b>/5';
+    }
+
+    document.getElementById('btn-decoller')?.addEventListener('click', () => {
+      const checked = Array.from(document.querySelectorAll('.offre-coche:checked'))
+        .map(el => el.value).slice(0, 5);
+      if (checked.length === 0) return;
+      fetchJson(BRIDGE + '/decoller', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({selection: checked})
+      }, 5000)
+      .then(res => {
+        const status = document.getElementById('offres-status');
+        if (res.error) {
+          status.style.color = '#ff4d4d';
+          status.textContent = res.error;
+        } else {
+          status.style.color = '#5ee7ff';
+          status.textContent = res.msg || 'Lancement en cours…';
+        }
+        setTimeout(() => {
+          status.textContent = '';
+          chargerOffres();
+        }, 30000);
+      })
+      .catch(() => {
+        const status = document.getElementById('offres-status');
+        status.style.color = '#ff4d4d';
+        status.textContent = 'Bridge injoignable — évaluation non lancée. Réessayez.';
+      });
+    });
+
+    document.getElementById('offres-list')?.addEventListener('change', majBtnDecoller);
+    window.chargerOffres = chargerOffres;
+    window.chargerStrategie = chargerStrategie;
+    window.chargerSignets = chargerSignets;
+
+    // Chargement AUTOMATIQUE au démarrage (plus seulement au clic) :
+    // les cartes STRATÉGIES et OFFRES sont remplies dès l'ouverture.
+    // ROBUSTESSE : 3 tentatives espacées de 2,5 s — si le pont est lent ou
+    // occupé au boot, le chargement se relance seul. Jamais d'onglet vide.
+    const _bootStrategie = (essai) => {
+      const n = essai || 0;
+      try { chargerStrategie(); } catch (e) { console.error('[cockpit] boot strategie:', e); }
+      try { chargerOffres(); } catch (e) { console.error('[cockpit] boot offres:', e); }
+      try { chargerSignets(); } catch (e) { console.error('[cockpit] boot signets:', e); }
+      // Re-tente uniquement si le chargement n'a pas abouti (placeholder encore là)
+      if (n < 2) {
+        const corps = document.getElementById('strat-analyste-body');
+        const lst = document.getElementById('offres-list');
+        const enAttente = (corps && corps.textContent.indexOf('Chargement') !== -1) ||
+                          (lst && lst.children.length === 0);
+        if (enAttente) setTimeout(() => _bootStrategie(n + 1), 2500);
+      }
+    };
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', _bootStrategie);
+    } else {
+        setTimeout(_bootStrategie, 150);
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
+    }
+})();
+</script>
+
+
 </body>
 </html>

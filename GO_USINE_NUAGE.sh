@@ -47,7 +47,7 @@ cd "$ROOT"
 SNAP="$ROOT/29\$/historique/ACE777_SAUVEGARDE_ULTIME_V3.5/snapshots/launch_vide_froid_4h_binance_NUAGE_V2.2.1.sh"
 LAUNCHER="/tmp/launch_vide_froid_4h_binance_NUAGE.sh"
 EXPECT_CKSUM_USINE="812033996 22672"
-EXPECT_MD5_PREFIX="37fca367"
+EXPECT_MD5_PREFIX="8bce77b1"   # 16/08 re-scellé FIX-LAST-LOSS (autorisation Christophe — chantier CHANTIER_FIX_LAST_LOSS_TTL_2026-08-16.md)
 DURATION="${1:-04:00:00}"
 TAG="${2:-NUAGE_PROD_4H}"
 
@@ -1140,7 +1140,7 @@ if [ "${NUAGE_STORM_LATCH}" = "1" ] || [ "${NUAGE_STORM_LATCH}" = "TRUE" ]; then
   grep -q 'storm_latch.ts' /tmp/ace777_genesis_runtime.txt || fail "storm_latch.ts writer absent"
   # Champion disque intact
   _md5_disk="$(md5 -q "$ROOT/genesis_manifest.txt")"
-  [[ "$_md5_disk" == 37fca367* ]] || fail "champion disque altéré"
+  [[ "$_md5_disk" == 8bce77b1* ]] || fail "champion disque altéré"
   grep -q 'NUAGE_STORM_LATCH' "$ROOT/genesis_manifest.txt" && fail "STORM ne doit PAS être dans genesis disque"
 fi
 if [ "${NUAGE_STORM_SCOUT_HOLD}" = "1" ] || [ "${NUAGE_STORM_SCOUT_HOLD}" = "TRUE" ]; then
@@ -1149,7 +1149,7 @@ if [ "${NUAGE_STORM_SCOUT_HOLD}" = "1" ] || [ "${NUAGE_STORM_SCOUT_HOLD}" = "TRU
   grep -q 'storm_hold_latched' /tmp/ace777_genesis_runtime.txt || fail "STORM_HOLD K3v3 latch absent"
   grep -q 'duo_is_scout || duo_is_hunter' /tmp/ace777_genesis_runtime.txt || fail "STORM_HOLD hunter non inclus"
   _md5_disk="$(md5 -q "$ROOT/genesis_manifest.txt")"
-  [[ "$_md5_disk" == 37fca367* ]] || fail "champion disque altéré"
+  [[ "$_md5_disk" == 8bce77b1* ]] || fail "champion disque altéré"
   grep -q 'storm_hold_arm' "$ROOT/genesis_manifest.txt" && fail "STORM_HOLD ne doit PAS être dans genesis disque"
 fi
 # set -e fix toujours présent dans runtime
@@ -1163,7 +1163,7 @@ if [ "${NUAGE_STORM_HUNTER}" = "1" ] || [ "${NUAGE_STORM_HUNTER}" = "TRUE" ]; th
   grep -q 'STORM_HUNTER' /tmp/ace777_genesis_runtime.txt || fail "STORM_HUNTER log tag absent"
   grep -q 'export NUAGE_STORM_HUNTER=' "$LAUNCHER" || fail "STORM env export absent launcher"
   _md5_disk="$(md5 -q "$ROOT/genesis_manifest.txt")"
-  [[ "$_md5_disk" == 37fca367* ]] || fail "champion disque altéré"
+  [[ "$_md5_disk" == 8bce77b1* ]] || fail "champion disque altéré"
   grep -q 'duo_mode_note="storm"' "$ROOT/genesis_manifest.txt" && fail "STORM_HUNTER ne doit PAS être dans genesis disque"
 fi
 echo "launcher /tmp = USINE + wait-timer + duo + bidir + storm OK (cksum=$(cksum "$LAUNCHER" | awk '{print $1" "$2}'))"

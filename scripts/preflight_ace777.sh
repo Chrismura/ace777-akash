@@ -34,7 +34,7 @@ ok "fichiers moteur présents"
 # + trap ERR diagnostic (14/08) + safe_call anti-mort (14/08 SPEC v3 famille 6/6) = d6977337...
 # Re-scellé 14/08 par la famille (6/6 GO AVEC RÉSERVES, Q2=a) — diff vérifié :
 # seul ajout = le trap, zéro altération métier.
-_champion_attendu="3d7605922ca0ac876c69611b45527bbd"   # 16/08 FIX-LAST-LOSS (TTL revenge last_loss_ts 120s)
+_champion_attendu="8bce77b17a3c2f8f40a0b6b92ce0b4bc"   # 16/08 FIX-LAST-LOSS (TTL revenge last_loss_ts 120s)
 _champion_actuel="$(md5 -q genesis_manifest.txt 2>/dev/null || md5sum genesis_manifest.txt 2>/dev/null | awk '{print $1}')"
 if [ "$_champion_actuel" != "$_champion_attendu" ]; then
   fail "genesis md5=$_champion_actuel attendu=$_champion_attendu — CHAMPION MODIFIÉ, ne pas lancer"

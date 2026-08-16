@@ -128,8 +128,8 @@ done
   echo "## 5 — Champion"
 } >> "$REPORT"
 _actual="$(md5 -q genesis_manifest.txt 2>/dev/null || true)"
-if [[ "$_actual" == 37fca367* ]]; then
-  echo "- OK genesis md5=\`$_actual\` (préfixe 37fca367)" >> "$REPORT"
+if [[ "$_actual" == 8bce77b1* ]]; then
+  echo "- OK genesis md5=\`$_actual\` (préfixe 8bce77b1 — FIX-LAST-LOSS 16/08)" >> "$REPORT"
 else
   echo "- **FAIL** genesis md5=\`$_actual\`" >> "$REPORT"
   FAIL=1

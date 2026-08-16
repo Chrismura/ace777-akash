@@ -166,6 +166,10 @@ ENTRY_25_75_FLUX_MIN_BPS="${ENTRY_25_75_FLUX_MIN_BPS:--5}"
 STASE_DYNAMIQUE_ENABLED="${STASE_DYNAMIQUE_ENABLED:-FALSE}"
 STASE_DYNAMIQUE_MAX_SPREAD_BPS="${STASE_DYNAMIQUE_MAX_SPREAD_BPS:-5}"
 STASE_DYNAMIQUE_MAX_VOLATILITY="${STASE_DYNAMIQUE_MAX_VOLATILITY:-0.5}"
+PRICE_STASIS_GUARD="${PRICE_STASIS_GUARD:-TRUE}"        # garde-fou prix figé (chantier 16/08)
+PRICE_STASIS_MIN_MOVE_BPS="${PRICE_STASIS_MIN_MOVE_BPS:-0.5}"   # mouvement mini sur la fenêtre (verdict famille)
+PRICE_STASIS_WINDOW_SEC="${PRICE_STASIS_WINDOW_SEC:-30}"        # fenêtre d'observation
+PRICE_STASIS_TENSION_BYPASS="${PRICE_STASIS_TENSION_BYPASS:-15}" # exception wall collapse (tension > ce seuil)
 V8_SHOCK_SPEED_EPS_BPS_S="${V8_SHOCK_SPEED_EPS_BPS_S:-0.0001}"
 BETA_SENTINEL_MODE="${BETA_SENTINEL_MODE:-FALSE}"
 BETA_SENTINEL_CHECK_MS="${BETA_SENTINEL_CHECK_MS:-256}"
@@ -1515,6 +1519,9 @@ fi
 IFS=',' read -r lot_step lot_min <<< "$(symbol_filters)"
 soft_cooldown_remaining=0
 ok_count=0
+price_stasis_skips=0
+price_stasis_ref_px=""
+price_stasis_ref_ts=""
 running_total_pnl="0"
 dynamic_size_note="na"
 dopamine_state="neutral"
@@ -2059,6 +2066,27 @@ for i in $(seq 1 "$CYCLES"); do
     fi
   fi
 
+  if [ "$PRICE_STASIS_GUARD" = "TRUE" ]; then
+    if ! num_gt "$tension_score" "$PRICE_STASIS_TENSION_BYPASS"; then
+      now_ps="$(now_sec)"
+      if [ -n "$price_stasis_ref_px" ]; then
+        dt_ps=$((now_ps - price_stasis_ref_ts)); [ "$dt_ps" -le 0 ] && dt_ps=1
+        if [ "$dt_ps" -ge "$PRICE_STASIS_WINDOW_SEC" ]; then
+          move_bps="$(ruby -e 'a=(Float(ARGV[0]) rescue 0.0); b=(Float(ARGV[1]) rescue 0.0); a=1.0 if a<=0.0; printf("%.6f", ((b-a).abs/a)*10000.0)' -- "$price_stasis_ref_px" "$p2")"
+          if num_lt "$move_bps" "$PRICE_STASIS_MIN_MOVE_BPS"; then
+            price_stasis_skips=$((price_stasis_skips + 1))
+            echo "$(date -u +%FT%TZ),$i,SKIP,SKIPPED,,,,,0,price_stasis,,reason=price_frozen move_bps=$move_bps window=${dt_ps}s ref_px=$price_stasis_ref_px p2=$p2 tension=$tension_score" >> "$LOG_FILE"
+            sleep "$SLEEP_SEC"
+            continue
+          fi
+          price_stasis_ref_px="$p2"; price_stasis_ref_ts="$now_ps"
+        fi
+      else
+        price_stasis_ref_px="$p2"; price_stasis_ref_ts="$now_ps"
+      fi
+    fi
+  fi
+
   entry_qty_use="$qty"
   if [ "$ENTRY_25_75_ENABLED" = "TRUE" ]; then
     qty_25="$(floor_step_qty "$(ruby -e 'q=(Float(ARGV[0]) rescue 0); f=(Float(ARGV[1]) rescue 0.25); printf("%.8f", q*f)' -- "$qty" "$ENTRY_25_75_INITIAL_FRACTION")" "$lot_step")"
@@ -2540,6 +2568,7 @@ echo
 echo "${C_G}Done.${C_N}"
 echo "${C_C}Log: $LOG_FILE${C_N}"
 echo "${C_G}Successful order-cycles: $ok_count${C_N}"
+echo "${C_Y}price_stasis skips (prix figé): $price_stasis_skips${C_N}"
 if [ "$ok_count" -gt 0 ]; then
   last_col="$C_G"; num_gt "${pnl_usdt:-0}" "0" || { last_col="$C_R"; num_lt "${pnl_usdt:-0}" "0" || last_col="$C_Y"; }
   echo "${C_G}Dernier cycle #${i:-0}:${C_N} ${last_col}pnl=${pnl_usdt:-0} bps=${bps:-0} pct=${pct:-0}%${C_N}"

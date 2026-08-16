@@ -173,3 +173,4 @@
 | 2026-08-16T08:05Z | SUPERVISEUR | hub=OK ollama=OK jobs_manquants=['com.ace777.superviseur-core'] git_sys=D git_vault=P action=none résultat=rien à faire | rappel lecture déjà écrit aujourd'hui (2026-08-16) |
 | 2026-08-16T08:19Z | SUPERVISEUR | hub=OK ollama=OK jobs_manquants=[] git_sys=D git_vault=P action=none résultat=rien à faire | rappel lecture déjà écrit aujourd'hui (2026-08-16) |
 | 2026-08-16T09:19Z | SUPERVISEUR | hub=OK ollama=OK jobs_manquants=[] git_sys=D git_vault=D action=none résultat=rien à faire | rappel lecture déjà écrit aujourd'hui (2026-08-16) |
+| 2026-08-16T10:04Z | SUPERVISEUR | hub=OK ollama=OK jobs_manquants=['com.ace777.superviseur-core'] git_sys=D git_vault=D action=fix résultat=relance job com.ace777.superviseur-core (n°1/jour) | rappel lecture déjà écrit aujourd'hui (2026-08-16) |

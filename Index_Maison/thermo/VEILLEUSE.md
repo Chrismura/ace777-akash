@@ -1,4 +1,5 @@
-# Rapport Veilleuse — 2026-08-16T07:19:18.403047+00:00
+# Rapport Veilleuse — 2026-08-16T07:59:18.948038+00:00
 
 ## État : ⚠️ ANOMALIES DÉTECTÉES
-- **INTRUSION** : Modification non déclarée : genesis_manifest.txt (md5 diffère du registre)
+- **PANNE** : Process attendu absent : com.ace777.cockpit-http
+- **PANNE** : Process attendu absent : com.ace777.cockpit-pont

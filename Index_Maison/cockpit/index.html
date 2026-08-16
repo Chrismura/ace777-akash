@@ -1034,6 +1034,8 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
           <button type="button" id="btn-voix" class="on" title="Voix + brief">VOIX</button>
           <button type="button" id="btn-parler" title="Brief">PARLER</button>
           <button type="button" id="btn-yeux" title="Cortana regarde l'écran (vision à la demande)">👁 REGARDER</button>
+          <button type="button" id="btn-stop-alerte" style="border-color:var(--red);color:var(--red)" title="Arrêter l'alarme vocale en boucle (STOP_ALERTE)">⛔ ALARME</button>
+          <button type="button" id="btn-declarer-modifs" title="Déclarer les modifs actuelles au registre veilleuse (backup auto)">✓ DÉCLARER MODIFS</button>
           <button type="button" id="btn-ecoute" class="on" title="Couper / réactiver l'écoute du micro (barge-in)">🎤 ÉCOUTE</button>
         </div>
         <div id="yeux-result" class="yeux-result" style="display:none"></div>
@@ -3109,6 +3111,13 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
   if(lines[0]) bubble.textContent=lines[0];
 
   document.getElementById('btn-mute')?.addEventListener('click', ()=>bridge('/mute','Silence…'));
+
+  // --- ALARME VEILLEUSE : arrêt + déclaration des modifs (16/08) ---
+  document.getElementById('btn-stop-alerte')?.addEventListener('click', ()=>bridge('/stop_alerte','Arrêt de l’alarme…'));
+  document.getElementById('btn-declarer-modifs')?.addEventListener('click', async ()=>{
+    const j = await bridge('/declarer_modifs','Déclaration des modifs…');
+    if(j && j.ok) setTimeout(()=>{ const b=document.getElementById('btn-declarer-modifs'); if(b) b.textContent='✓ OK — '+j.maj.length+' déclaré(s)'; }, 300);
+  });
 
   // --- BARGE-IN : couper la parole à Cortana ---
   // Pendant qu'elle parle, PARLER/VOIX deviennent ■ STOP : un clic tue la voix.

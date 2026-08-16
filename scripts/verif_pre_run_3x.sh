@@ -6,7 +6,7 @@ cd "$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
 # Champion scellé : 98c80b5c (9fe9f105 sans barrière + FIX-SCOUT) + trap ERR
 # diagnostic (14/08, famille 6/6 Q2=a) + safe_call anti-mort (14/08 SPEC v3) = d6977337… Re-scellé 14/08.
-CHAMPION_MD5="3d7605922ca0ac876c69611b45527bbd"   # 16/08 FIX-LAST-LOSS (TTL revenge last_loss_ts 120s)
+CHAMPION_MD5="8bce77b17a3c2f8f40a0b6b92ce0b4bc"   # 16/08 FIX-LAST-LOSS (TTL revenge last_loss_ts 120s)
 FAIL=0
 
 echo "=== VERIF PRE-RUN 3× — début ==="

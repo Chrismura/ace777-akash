@@ -47,7 +47,7 @@ PY
 
 # Champion
 GEN_MD5="$(md5 -q "$ROOT/genesis_manifest.txt" 2>/dev/null || echo MISSING)"
-if [[ "$GEN_MD5" == 37fca367* ]]; then CHAMP="OK"; else CHAMP="FAIL"; fi
+if [[ "$GEN_MD5" == 8bce77b1* ]]; then CHAMP="OK"; else CHAMP="FAIL"; fi   # 16/08 re-scellé FIX-LAST-LOSS
 
 # Heartbeat / LIVE age (si vol)
 HB_AGE="—"

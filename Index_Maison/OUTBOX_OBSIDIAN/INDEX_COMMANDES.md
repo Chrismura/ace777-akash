@@ -297,6 +297,13 @@ cd ~/ace777-test-day1 && caffeinate -dims ./GO_VORTEX_V2.sh 04:00:00
 ```
 Lance ACE testnet **avec le juge hub** (grok → gemini) — c'est LE lanceur à utiliser maintenant, pas GO_USINE (qui a le gate OFF). Profil `vortex_v2_collab.env`. Vérifier après boot : `tail -5 runs/supervisor_v9_v2.log` doit afficher `LLM llm_wind` (pas `EMRG`).
 
+**RUN CONTINU (depuis 15/08 — arrêt libre quand on veut) :**
+
+```bash
+cd ~/ace777-test-day1 && ./GO_VORTEX_V2.sh 96:00:00
+```
+Run testnet **sans durée à respecter** : le lanceur boucle en sessions tant qu'il reste du temps (96h = on ne l'attend jamais). **Arrêt quand on veut** : `touch STOP` (fin propre à la prochaine session) ou `./stop_ace777.sh` (arrêt immédiat complet). Genesis vérifié avant lancement (md5 `8d9ee8d6`). C'est le mode utilisé pour les runs supervisés en continu.
+
 ```bash
 cd ~/ace777-test-day1 && ./ENCHAINER_RUN_4H_HUB.sh
 ```
@@ -395,6 +402,7 @@ cd ~/Documents/Obsidian_ACE777 && git add -A && git commit -m "fin de session" &
 | Voix | `speak_attention` |
 | Trader | seulement avec GO |
 | Session Buffy | §9 — check hub + ollama + git |
+| **Alarme veilleuse (son en boucle)** | Boutons cockpit : **⛔ ALARME** (arrêt) + **✓ DÉCLARER MODIFS** (registre) · ou CLI : `touch ~/ace777-test-day1/Index_Maison/STOP_ALERTE` |
 
 ## 10 — Démarrage / Arrêt (les 2 commandes essentielles)
 
@@ -427,16 +435,18 @@ launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.ace777.cockpit-http.
 
 ---
 
-## 11 — RUN DE TEST 16/08 : FIX-LAST-LOSS (TTL revenge 120s)
+## 11 — RUN DE TEST 16/08 : FIX-LAST-LOSS (TTL revenge 120s) + FIX-PRICE-STASIS
 
-**🚀 Commande de test (datée 16/08) :**
+**🚀 Commande de test (datée 16/08, après-midi) :**
 ```bash
 cd ~/ace777-test-day1 && ./GO_VORTEX_V2.sh 02:00:00
 ```
-> **Quoi** : run de validation du champion re-scellé `3d760592` (FIX-LAST-LOSS — le TTL revenge se base sur `last_loss_ts` au lieu de figer `ts_ms`). Le run de nuit du 15/08 (fix du 15/08) avait **0 revenge et +0.28 USDT** ; ce fix doit restaurer les revenge (cible 30–60% des fills ALPHA) et le PnL (+2 à +11 attendu).
-> **Durée** : `02:00:00` = test rapide · `./GO_VORTEX_V2.sh` (sans arg) = 4h comme d'habitude · run complet : `./GO_VORTEX_V2.sh 04:00:00`.
-> **Après le run** : lire `runs/RAPPORT_PNL_AUTO_*.md` (le plus récent) + `engle/journal/ENGLE_JOURNAL_DERNIER.md`. Critères : %revenge 30–60%, `revenge_ttl_expired` présent (nouvelle raison de skip duo), `stale_state` ≈ 0, PnL total > +1 USDT.
-> **Doc** : `Index_Maison/CHANTIER_FIX_LAST_LOSS_TTL_2026-08-16.md` · `Index_Maison/ANALYSE_RUNS_2026-08-16.md` · Rollback : voir chantier (backup `BAK_avant_fix_last_loss_ttl_20260816`).
+> **Quoi** : run de validation du champion re-scellé `8bce77b1` (2 fixes du 16/08) :
+> **① FIX-LAST-LOSS** — le TTL revenge se base sur `last_loss_ts` (120s) au lieu de figer `ts_ms` (le fix du 15/08 avait **0 revenge et +0.28 USDT** au lieu de +2 à +28).
+> **② FIX-PRICE-STASIS** — garde-fou « prix figé » : plus d'entrée si le prix n'a pas bougé d'au moins **0.5 bps / 30s** (élimine les fills à pnl 0.00000000 sur marché mort : 8/10 dans le run du matin). Verdict famille 4/4 GO-AVEC-RÉSERVE.
+> **Durée** : `02:00:00` = test rapide · `./GO_VORTEX_V2.sh` (sans arg) = 4h comme d'habitude.
+> **Après le run** : lire `runs/RAPPORT_PNL_AUTO_*.md` (le plus récent) + `engle/journal/ENGLE_JOURNAL_DERNIER.md`. Critères : %revenge 30–60%, `revenge_ttl_expired` présent, `stale_state` ≈ 0, **`price_stasis skips` > 0** (marché calme), **%fills BETA flat < 20%**, PnL total > +1 USDT.
+> **Doc** : `Index_Maison/CHANTIER_FIX_LAST_LOSS_TTL_2026-08-16.md` · `Index_Maison/CHANTIER_FIX_PRICE_STASIS_2026-08-16.md` · `Index_Maison/ANALYSE_RUNS_2026-08-16.md` · Rollback : voir chantiers (backups `BAK_avant_fix_last_loss_ttl_20260816` et `BAK_avant_fix_price_stasis_20260816`).
 
 ---
 

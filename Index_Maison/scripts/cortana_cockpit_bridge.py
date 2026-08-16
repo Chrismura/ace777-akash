@@ -18,6 +18,7 @@ import subprocess
 import sys
 import tempfile
 import threading
+import time
 from datetime import datetime, timezone
 
 import barge_in  # micro : coupe la parole si on parle (natif, ffmpeg)
@@ -485,7 +486,7 @@ def _genesis_ok() -> dict:
     if not p.exists():
         return {"ok": False, "md5": None, "detail": "genesis_manifest.txt manquant"}
     h = hashlib.md5(p.read_bytes()).hexdigest()
-    ok = h.startswith("37fca367")
+    ok = h.startswith("8bce77b1")  # 16/08 re-scellé FIX-LAST-LOSS (autorisation Christophe — CHANTIER_FIX_LAST_LOSS_TTL_2026-08-16.md)
     return {"ok": ok, "md5": h[:12], "detail": f"md5 {h[:12]}…" + (" OK" if ok else " ≠ champion 37fca367")}
 
 
@@ -1424,6 +1425,66 @@ def do_panic(mode: str, confirm: str = "") -> dict:
     return {"ok": True, "mode": m, "msg": msg, "steps": steps, "logged": str(PANIC_LOG)}
 
 
+def do_stop_alerte() -> dict:
+    """Bouton cockpit : arrête les boucles d'alerte vocale (mécanisme STOP_ALERTE officiel).
+    Pose STOP_ALERTE (global) + STOP_ALERTE_<id> pour chaque alerte journalisée, puis tue
+    les process alerte_vocale restants en filet. Les boucles nettoient elles-mêmes les stops."""
+    IM = ROOT / "Index_Maison"
+    alertes_dir = IM / "data" / "alertes"
+    ids = []
+    if alertes_dir.exists():
+        ids = [a.stem.replace("ALERTE_", "") for a in sorted(alertes_dir.glob("ALERTE_*.json"))]
+    poses = []
+    for id_ in ids:
+        p = IM / f"STOP_ALERTE_{id_}"
+        p.touch(exist_ok=True)
+        poses.append(f"STOP_ALERTE_{id_}")
+    (IM / "STOP_ALERTE").touch(exist_ok=True)
+    poses.append("STOP_ALERTE (global)")
+    subprocess.run(["pkill", "-f", "alerte_vocale.py"], stderr=subprocess.DEVNULL)
+    # Nettoyage différé : les boucles actives consomment leur STOP ; sinon on les retire
+    # pour ne pas étouffer une FUTURE alarme légitime (fichier résiduel = danger).
+    time.sleep(6)
+    for p in [IM / "STOP_ALERTE"] + [IM / f"STOP_ALERTE_{id_}" for id_ in ids]:
+        try:
+            p.unlink(missing_ok=True)
+        except Exception:
+            pass
+    return {"ok": True, "stops": poses,
+            "msg": f"Alarme arrêtée ({len(ids)} alerte(s) + global) — plus de son."}
+
+
+def do_declarer_modifs() -> dict:
+    """Bouton cockpit : déclare l'état ACTUEL des fichiers surveillés au registre veilleuse
+    (REGISTRE_SYNAPSES.json) pour ne pas re-déclencher l'alarme après une modif volontaire.
+    Backup horodaté du registre avant chaque mise à jour. Ne crée aucune entrée."""
+    import shutil
+    reg_path = ROOT / "Index_Maison" / "strategie" / "REGISTRE_SYNAPSES.json"
+    if not reg_path.exists():
+        return {"ok": False, "error": "registre introuvable"}
+    bak = reg_path.with_name(
+        f"REGISTRE_SYNAPSES.json.bak-{datetime.now(timezone.utc).strftime('%Y%m%d-%H%M%S')}")
+    shutil.copy2(reg_path, bak)
+    try:
+        reg = json.loads(reg_path.read_text(encoding="utf-8"))
+    except Exception as e:
+        return {"ok": False, "error": f"registre illisible : {e}"}
+    maj = []
+    for it in reg.get("fichier", []):
+        nom = it.get("nom", "")
+        cible = ROOT / nom
+        if it.get("verif") == "md5" and cible.exists():
+            h = hashlib.md5(cible.read_bytes()).hexdigest()
+            if it.get("md5") != h:
+                it["md5"] = h
+                it["note"] = f"déclaré manuel {datetime.now(timezone.utc).strftime('%Y-%m-%dT%H:%MZ')}"
+                maj.append(nom)
+    reg["updated"] = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%MZ")
+    reg_path.write_text(json.dumps(reg, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    return {"ok": True, "backup": bak.name, "maj": maj,
+            "msg": f"{len(maj)} fichier(s) déclaré(s) au registre (backup : {bak.name})."}
+
+
 class Handler(BaseHTTPRequestHandler):
     def _cors(self):
         self.send_header("Access-Control-Allow-Origin", "*")
@@ -1525,6 +1586,12 @@ class Handler(BaseHTTPRequestHandler):
         if path == "/stop":
             msg = stop_voice()
             self._json(200, {"ok": True, "action": "stop", "msg": msg, "muted": False})
+            return
+        if path == "/stop_alerte":
+            self._json(200, do_stop_alerte())
+            return
+        if path == "/declarer_modifs":
+            self._json(200, do_declarer_modifs())
             return
         if path == "/ecoute":
             if barge_in.activ():
