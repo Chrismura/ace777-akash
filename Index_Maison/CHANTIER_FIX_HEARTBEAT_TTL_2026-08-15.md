@@ -1,6 +1,8 @@
 # CHANTIER — Fix heartbeat → TTL revenge (15/08/2026)
 
-**Statut :** ✅ appliqué + vérifié · famille 4/4 GO-AVEC-RÉSERVE · **réversible**
+> ⚠️ **SUPERSEDÉ le 16/08** par `CHANTIER_FIX_LAST_LOSS_TTL_2026-08-16.md` : ce fix a éteint le revenge (0 revenge / +0.28 USDT au run de nuit) — remplacé par le champ `last_loss_ts` (TTL revenge 120s sans figer le heartbeat). Détail : `ANALYSE_RUNS_2026-08-16.md`.
+
+**Statut :** ✅ appliqué + vérifié · famille 4/4 GO-AVEC-RÉSERVE · **réversible** · ⚠️ SUPERSEDÉ le 16/08 (voir ci-dessus)
 
 ## Le bug
 `duo_touch_heartbeat_force()` rafraîchissait `ts_ms` à chaque cycle SCOUT → `age > 20s` (L1027)

@@ -1,3 +1,4 @@
-# Rapport Veilleuse — 2026-08-16T06:19:17.147921+00:00
+# Rapport Veilleuse — 2026-08-16T07:19:18.403047+00:00
 
-## État : ✅ STABLE — tout est en ordre
+## État : ⚠️ ANOMALIES DÉTECTÉES
+- **INTRUSION** : Modification non déclarée : genesis_manifest.txt (md5 diffère du registre)

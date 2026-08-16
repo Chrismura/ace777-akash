@@ -295,6 +295,7 @@ DUO_MODE="${DUO_MODE:-FALSE}"                    # TRUE | FALSE
 DUO_ROLE="${DUO_ROLE:-NONE}"                     # NONE | SCOUT | HUNTER
 DUO_STATE_FILE="${DUO_STATE_FILE:-runs/duo_state.json}"
 DUO_EVENT_TTL_SEC="${DUO_EVENT_TTL_SEC:-20}"
+DUO_REVENGE_TTL_SEC="${DUO_REVENGE_TTL_SEC:-120}"   # FIX-LAST-LOSS (16/08) : fenêtre revenge après perte SCOUT close (au lieu de figer ts_ms)
 DUO_SCOUT_SUFFER_BPS="${DUO_SCOUT_SUFFER_BPS:--5}"
 DUO_SCOUT_SUFFER_USDT="${DUO_SCOUT_SUFFER_USDT:--0.50}"
 DUO_HUNTER_REVENGE_MULT="${DUO_HUNTER_REVENGE_MULT:-1.5}"
@@ -851,6 +852,9 @@ duo_publish_state() {
   duo_enabled || return 0
   ruby -rjson -e '
     path=ARGV[0]
+    # FIX-LAST-LOSS (16/08) : horodater la perte close (TTL revenge) sans figer ts_ms
+    is_loss = (ARGV[2] == "CLOSED" && (Float(ARGV[5]) rescue 0.0) < 0.0)
+    now_ms = (Time.now.to_f*1000).to_i
     data={
       "role"=>ARGV[1],
       "status"=>ARGV[2],
@@ -860,7 +864,8 @@ duo_publish_state() {
       "reason"=>ARGV[6],
       "cycle"=>ARGV[7],
       "hold_sec"=>(Integer(ARGV[8]) rescue 0),
-      "ts_ms"=>(Time.now.to_f*1000).to_i
+      "ts_ms"=>now_ms,
+      "last_loss_ts"=>(is_loss ? now_ms : nil)
     }
     begin
       tmp="#{path}.tmp.#{$$}"
@@ -883,13 +888,11 @@ duo_touch_heartbeat_force() {
     path=ARGV[0]
     begin
       j=JSON.parse(File.read(path))
-      # FIX-HEARTBEAT (15/08) : ne pas rafraîchir ts_ms sur perte close (sinon TTL revenge 20s inopérant)
-      unless j["status"].to_s == "CLOSED" && (Float(j["pnl_usdt"]) rescue 0.0) < 0.0
-        j["ts_ms"]=(Time.now.to_f*1000).to_i
-        tmp="#{path}.tmp.#{$$}"
-        File.write(tmp, JSON.generate(j))
-        File.rename(tmp, path)
-      end
+      # FIX-LAST-LOSS (16/08) : refresh ts_ms TOUJOURS — le TTL revenge se base sur last_loss_ts (plus de stale_state parasite)
+      j["ts_ms"]=(Time.now.to_f*1000).to_i
+      tmp="#{path}.tmp.#{$$}"
+      File.write(tmp, JSON.generate(j))
+      File.rename(tmp, path)
     rescue
     end
   ' -- "$DUO_STATE_FILE" 2>/dev/null || true
@@ -1019,6 +1022,7 @@ duo_hunter_signal() {
     burst_cooldown=(Integer(ARGV[15]) rescue 188)
     burst_file=ARGV[16]
     require_true_vacuum=(ARGV[17] == "TRUE")
+    revenge_ttl=(Integer(ARGV[18]) rescue 120) # FIX-LAST-LOSS (16/08)
     begin
       j=JSON.parse(File.read(path))
     rescue
@@ -1026,7 +1030,9 @@ duo_hunter_signal() {
       puts "allow=false mode=none forced=AUTO mult=1.0 reason=no_state boost=1.0 scout_bps=0 scout_hold=0 role=#{role}"
       exit 0
     end
-    age=((Time.now.to_f*1000).to_i - (j["ts_ms"].to_i rescue 0))
+    now_ms=(Time.now.to_f*1000).to_i
+    age=(now_ms - (j["ts_ms"].to_i rescue 0))
+    last_loss_ts=(j["last_loss_ts"].to_i rescue 0) # FIX-LAST-LOSS (16/08)
     if age > ttl*1000
       role=j["role"].to_s # FIX-SCOUT-3 (cas stale_state)
       puts "allow=false mode=none forced=AUTO mult=1.0 reason=stale_state boost=1.0 scout_bps=0 scout_hold=0 role=#{role}"
@@ -1046,7 +1052,9 @@ duo_hunter_signal() {
     suffer = (status == "OPEN") && (bps <= suffer_bps || pnl <= suffer_usdt)
     closed_loss = (status == "CLOSED") && pnl < 0.0
     revenge_reasons = %w[stop_loss shock_inversion_stop shock_exit_10bps fluid_exit_inversion fluid_exit_brake beta_sentinel_cut]
-    revenge = (role == "SCOUT") && closed_loss && (!require_sl || revenge_reasons.include?(reason)) # FIX-SCOUT-2 : conditionner le revenge au role SCOUT
+    loss_age = last_loss_ts > 0 ? (now_ms - last_loss_ts) : age
+    revenge_base = (role == "SCOUT") && closed_loss && (!require_sl || revenge_reasons.include?(reason))
+    revenge = revenge_base && loss_age <= revenge_ttl*1000 # FIX-SCOUT-2 + FIX-LAST-LOSS (16/08) : TTL revenge sur last_loss_ts
     fast_death = closed_loss && hold_sec > 0 && hold_sec <= fast_death_sec
     speed_bps_s = hold_sec > 0 ? (bps.abs / hold_sec.to_f) : 0.0
     out_mode="none"
@@ -1103,9 +1111,12 @@ duo_hunter_signal() {
       out_mult="1.0"
       out_reason=reason
     end
+    if revenge_base && loss_age > revenge_ttl*1000
+      out_reason="revenge_ttl_expired" # FIX-LAST-LOSS (16/08) : métrique de validation
+    end
     puts "allow=#{out_allow} mode=#{out_mode} forced=#{forced} mult=#{out_mult} reason=#{out_reason} boost=#{out_boost} scout_bps=#{bps} scout_hold=#{hold_sec} role=#{role}" # FIX-SCOUT-3
-  ' -- "$DUO_STATE_FILE" "$DUO_EVENT_TTL_SEC" "$DUO_SCOUT_SUFFER_BPS" "$DUO_SCOUT_SUFFER_USDT" "$DUO_HUNTER_REQUIRE_STOP_LOSS" "$DUO_HUNTER_REVENGE_MULT" "$DUO_FORCE_OPPOSITE" "$DUO_V6_SENSITIVITY_BOOST" "$DUO_V6_FAST_DEATH_SEC" "$DUO_V6_BOOST_MULT" "$DUO_V6_BOOST_TTL_SEC" "$DUO_V6_BURST_X13" "$DUO_V6_BURST_MULT" "$DUO_V6_BURST_MIN_LOSS_BPS" "$DUO_V6_BURST_MIN_SPEED_BPS_PER_SEC" "$DUO_V6_BURST_COOLDOWN_SEC" "$DUO_V6_BURST_FILE" "$DUO_HUNTER_REQUIRE_TRUE_VACUUM"
-}
+  ' -- "$DUO_STATE_FILE" "$DUO_EVENT_TTL_SEC" "$DUO_SCOUT_SUFFER_BPS" "$DUO_SCOUT_SUFFER_USDT" "$DUO_HUNTER_REQUIRE_STOP_LOSS" "$DUO_HUNTER_REVENGE_MULT" "$DUO_FORCE_OPPOSITE" "$DUO_V6_SENSITIVITY_BOOST" "$DUO_V6_FAST_DEATH_SEC" "$DUO_V6_BOOST_MULT" "$DUO_V6_BOOST_TTL_SEC" "$DUO_V6_BURST_X13" "$DUO_V6_BURST_MULT" "$DUO_V6_BURST_MIN_LOSS_BPS" "$DUO_V6_BURST_MIN_SPEED_BPS_PER_SEC" "$DUO_V6_BURST_COOLDOWN_SEC" "$DUO_V6_BURST_FILE" "$DUO_HUNTER_REQUIRE_TRUE_VACUUM" "$DUO_REVENGE_TTL_SEC"
+  }
 duo_hunter_apply_sig() {
   duo_allow="false"
   duo_forced="AUTO"

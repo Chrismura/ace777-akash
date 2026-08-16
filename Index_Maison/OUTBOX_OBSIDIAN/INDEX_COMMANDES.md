@@ -427,6 +427,19 @@ launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.ace777.cockpit-http.
 
 ---
 
+## 11 — RUN DE TEST 16/08 : FIX-LAST-LOSS (TTL revenge 120s)
+
+**🚀 Commande de test (datée 16/08) :**
+```bash
+cd ~/ace777-test-day1 && ./GO_VORTEX_V2.sh 02:00:00
+```
+> **Quoi** : run de validation du champion re-scellé `3d760592` (FIX-LAST-LOSS — le TTL revenge se base sur `last_loss_ts` au lieu de figer `ts_ms`). Le run de nuit du 15/08 (fix du 15/08) avait **0 revenge et +0.28 USDT** ; ce fix doit restaurer les revenge (cible 30–60% des fills ALPHA) et le PnL (+2 à +11 attendu).
+> **Durée** : `02:00:00` = test rapide · `./GO_VORTEX_V2.sh` (sans arg) = 4h comme d'habitude · run complet : `./GO_VORTEX_V2.sh 04:00:00`.
+> **Après le run** : lire `runs/RAPPORT_PNL_AUTO_*.md` (le plus récent) + `engle/journal/ENGLE_JOURNAL_DERNIER.md`. Critères : %revenge 30–60%, `revenge_ttl_expired` présent (nouvelle raison de skip duo), `stale_state` ≈ 0, PnL total > +1 USDT.
+> **Doc** : `Index_Maison/CHANTIER_FIX_LAST_LOSS_TTL_2026-08-16.md` · `Index_Maison/ANALYSE_RUNS_2026-08-16.md` · Rollback : voir chantier (backup `BAK_avant_fix_last_loss_ttl_20260816`).
+
+---
+
 ## 🔗 Connexions
 
 - [[14_AUDIT_TROIS_JAMBES_SWARM]] — 14_AUDIT_TROIS_JAMBES_SWARM
