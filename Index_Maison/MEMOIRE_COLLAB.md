@@ -145,3 +145,16 @@ Intégration cockpit (2 lignes dans index.html) · passage au réel · cumul des
 - Déclaré au registre veilleuse (md5) — vérifié STABLE
 
 **Preuve immédiate de son utilité** : au premier run, il a détecté 2 fausses alertes (mauvais chemins de ma part) — corrigées. Détection d'une vraie coupure = le chantier baleines ne pourra plus rester invisible.
+
+## 17/08 — CONSULTATION SANTÉ DES INDEX (codeur + famille)
+
+**Envoyé au codeur + aux 6 IA (clause permanente gravée)** — réponses dans `Index_Maison/scripts/` :
+- `REPONSE_CODEUR_SANTE_INDEX_2026-08-17.md` : ⚠️ **le codeur (code.ia) a halluciné** — chemins inventés (data/scan_baleines.json, data/thermo.json…) incompatibles avec le vrai système. Les IDÉES étaient bonnes (alerte vocale, historique, panneau dépliable, seuil DÉGRADÉ) → appliquées par Buffy avec les chemins RÉELS.
+- `CONSULTATION_FAMILLE_SANTE_INDEX_20260817/` : **6/6 avis, VERDICT UNANIME GO-AVEC-RÉSERVES (confiance 70-78%)**. Points retenus : escalade douce (log → orange → rouge → voix, pas de sur-alerte), historique pour distinguer panne transitoire/durable, seuils par chaîne.
+
+**Appliqué à sante_index.py** (chemins réels, registre md5 mis à jour, veilleuse STABLE) :
+1. Alerte vocale sur chaîne rouge (anti-empilement, MAINTENANCE_PREVUE respectée, kill-switch)
+2. Historique append-only `data/alertes/sante_index.log` (chaque run, même OK)
+3. État DÉGRADÉ (🟠 orange) entre vert et rouge — ralentissement sans crier
+
+**Note canal** : `code.ia` renvoie 502 sur les gros payloads (fallback inferx mort) — réponse obtenue via `model: gemini` (352 s).

@@ -2058,9 +2058,11 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
     const ts=document.getElementById('sante-ts');
     const list=document.getElementById('sante-list');
     if(!S||!S.chaines||!list){ return; }
-    if(ts) ts.textContent = '· vérif '+S.updated+' · '+(S.chaines_ok||'—');
+    const deg=(S.degradees||[]);
+    if(ts) ts.textContent = '· vérif '+S.updated+' · '+(S.chaines_ok||'—')+(deg.length?' · ⚠️ dégradé':'')+' · '+(S.etat||'');
     const rows=S.chaines.map(c=>{
-      const dot = c.ok ? '🟢' : '🔴';
+      let dot = c.ok ? '🟢' : '🔴';
+      if(c.ok && deg.indexOf(c.nom)>=0) dot = '🟠';
       const detail = c.ok ? '' : '<br><span style="color:#ff6b6b">'+(S.anomalies||[]).join('<br>')+'</span>';
       return `<div style="display:flex;gap:8px;align-items:baseline"><span>${dot}</span><b>${c.nom}</b><span style="color:var(--muted)">${c.chemin}</span>${detail}</div>`;
     }).join('');

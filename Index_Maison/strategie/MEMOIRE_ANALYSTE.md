@@ -763,3 +763,10 @@
 - 2026-08-16T22:31:49.615096Z | alerte | ? | conf=?
 - 2026-08-16T22:32:49.807115Z | alerte | ? | conf=?
 - 2026-08-16T22:32:56.355354Z | alerte | ? | conf=?
+- 2026-08-16T22:39:18.237173Z | alerte | ? | conf=?
+- 2026-08-16T22:39:42.590623Z | alerte | ? | conf=?
+- 2026-08-16T22:39:44.095404Z | alerte | ? | conf=?
+- 2026-08-16T22:39:54.066734Z | alerte | ? | conf=?
+- 2026-08-16T22:57:29.492179Z | alerte | Poursuite de la vigilance nominale encadrée par la stricte discipline d'embuscade d'Alpha, les reconnaissances dynamiques de Beta (+2,22 $) et la gestion mesurée des positions seeds de Hulk. | conf=88%
+- 2026-08-16T22:59:00.699516Z | alerte | Poursuite de la vigilance nominale encadrée par la stricte discipline d'embuscade d'Alpha, les reconnaissances dynamiques de Beta (+2,22 $) et la gestion mesurée des positions seeds de Hulk. | conf=88%
+- 2026-08-16T23:01:29.713939Z | alerte | Poursuite de la vigilance nominale encadrée par la stricte discipline d'embuscade d'Alpha, les reconnaissances dynamiques de Beta (+2,22 $) et la gestion mesurée des positions seeds de Hulk. | conf=88%

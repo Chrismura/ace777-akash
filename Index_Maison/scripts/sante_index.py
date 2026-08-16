@@ -27,6 +27,10 @@ from datetime import datetime, timezone
 RACINE = Path(__file__).resolve().parent.parent.parent
 IM = RACINE / "Index_Maison"
 RAPPORT = IM / "thermo" / "sante_index.json"
+ALERTES_DIR = IM / "data" / "alertes"
+HISTORIQUE_LOG = ALERTES_DIR / "sante_index.log"
+MAINTENANCE_PATH = IM / "strategie" / "MAINTENANCE_PREVUE"
+ALERTE_VOCALE = IM / "scripts" / "alerte_vocale.py"
 
 # Âges maximum (minutes) par fichier — au-delà = chaîne figée
 SEUILS = {
@@ -40,6 +44,14 @@ SEUILS = {
     "cortana_feed.json": 60,
     "sante_index.json": 15,
 }
+# DÉGRADÉ (orange) : fichier entre seuil rouge et 2× le seuil — ralentissement,
+# pas encore une panne franche. Évite de crier trop tôt (famille : escalade douce).
+DEGRADE_MULT = 2.0
+
+KILL_SWITCHES = [
+    IM / "strategie" / "STOP",
+    RACINE / "Index_Maison" / "STOP_ALL",
+]
 
 
 def age_min(chemin: Path):
@@ -54,6 +66,75 @@ def frais(chemin: Path, max_min: int):
     """True si le fichier existe et est plus jeune que max_min."""
     a = age_min(chemin)
     return a is not None and a <= max_min
+
+
+def degrade(chemin: Path, max_min: int):
+    """True si le fichier est entre le seuil et 2× le seuil (DÉGRADÉ, orange)."""
+    a = age_min(chemin)
+    return a is not None and max_min < a <= max_min * DEGRADE_MULT
+
+
+def verifier_maintenance() -> bool:
+    """True si MAINTENANCE_PREVUE existe avec une date de fin future."""
+    if not MAINTENANCE_PATH.exists():
+        return False
+    try:
+        fin = datetime.fromisoformat(MAINTENANCE_PATH.read_text(encoding="utf-8").strip())
+        return datetime.now(timezone.utc) < fin
+    except Exception:
+        return False
+
+
+def kill_switch_actif() -> bool:
+    return any(ks.exists() for ks in KILL_SWITCHES)
+
+
+def alerte_vocale_active() -> bool:
+    """Anti-empilement : vrai si une boucle d'alerte vocale tourne déjà."""
+    try:
+        out = subprocess.check_output(["pgrep", "-f", "alerte_vocale.py"], text=True,
+                                      stderr=subprocess.DEVNULL)
+        return bool(out.strip())
+    except Exception:
+        return False
+
+
+def declencher_alerte(anomalies):
+    """Écrit ALERTE_SANTE_[ts].json + lance alerte_vocale.py détaché (anti-empilement)."""
+    ts = int(time.time())
+    try:
+        ALERTES_DIR.mkdir(parents=True, exist_ok=True)
+        ecriture_atomique(ALERTES_DIR / f"ALERTE_SANTE_{ts}.json",
+                          json.dumps({"ts": datetime.now(timezone.utc).isoformat(),
+                                      "type": "SANTE_INDEX", "anomalies": anomalies},
+                                     ensure_ascii=False, indent=2))
+    except Exception:
+        pass
+    if alerte_vocale_active():
+        return False
+    msg = "Alerte ACE777. Santé des index. " + " ; ".join(anomalies)[:300]
+    try:
+        subprocess.Popen(["python3", str(ALERTE_VOCALE), "--message", msg, "--id", str(ts)],
+                         stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
+                         start_new_session=True)
+        return True
+    except Exception:
+        return False
+
+
+def journaliser(rapport):
+    """Historique append-only des transitions (OK / DÉGRADÉ / ALERTE)."""
+    try:
+        ALERTES_DIR.mkdir(parents=True, exist_ok=True)
+        ligne = {"ts": datetime.now(timezone.utc).isoformat(),
+                 "etat": rapport["etat"],
+                 "chaines_ok": rapport["chaines_ok"],
+                 "anomalies": rapport["anomalies"],
+                 "degradees": rapport.get("degradees", [])}
+        with open(HISTORIQUE_LOG, "a", encoding="utf-8") as f:
+            f.write(json.dumps(ligne, ensure_ascii=False) + "\n")
+    except Exception:
+        pass
 
 
 def proc_vivant(attendu: str) -> bool:
@@ -85,10 +166,11 @@ def maillon(nom: str, ok: bool, detail: str) -> dict:
 
 
 def verifier_chaines():
-    """Vérifie chaque chaîne et renvoie (liste_chaines, anomalies)."""
+    """Vérifie chaque chaîne et renvoie (liste_chaines, anomalies, degradees)."""
     now = datetime.now(timezone.utc).isoformat(timespec="minutes")
     chaines = []
     anomalies = []
+    chaines_degradees = []
 
     # ============================================================
     # 1. BALEINES — scan → pont → live.json.onchain → Ada + Cortana
@@ -109,9 +191,15 @@ def verifier_chaines():
 
     # 1b. Fichiers frais
     scan_frais = frais(scan, SEUILS["whales_scan_latest.json"])
+    scan_degrade = degrade(scan, SEUILS["whales_scan_latest.json"])
     a_scan = age_min(scan)
-    maillons.append(maillon("scan file", scan_frais,
-                            f"âge {a_scan:.0f} min" if a_scan is not None else "ABSENT"))
+    if scan_degrade:
+        maillons.append(maillon("scan file", True,
+                                f"DÉGRADÉ : âge {a_scan:.0f} min (> {SEUILS['whales_scan_latest.json']} min)"))
+        chaines_degradees.append("BALEINES")
+    else:
+        maillons.append(maillon("scan file", scan_frais,
+                                f"âge {a_scan:.0f} min" if a_scan is not None else "ABSENT"))
     # whales_mouvements.jsonl est APPEND-ONLY : n'existe que s'il y a eu un événement.
     # Marché calme = fichier absent/ancien = normal (pas une panne).
     a_mouv = age_min(mouv)
@@ -281,7 +369,7 @@ def verifier_chaines():
         "ok": ok_saison, "maillons": maillons,
     })
 
-    return chaines, anomalies, now
+    return chaines, anomalies, now, chaines_degradees
 
 
 def ecriture_atomique(chemin: Path, contenu: str):
@@ -301,22 +389,37 @@ def ecriture_atomique(chemin: Path, contenu: str):
 
 
 def main():
-    chaines, anomalies, now = verifier_chaines()
+    # Kill-switch : sortie propre sans rien écrire
+    if kill_switch_actif():
+        print("[SANTE_INDEX] Kill-switch actif — sortie sans écriture.")
+        return 0
+
+    chaines, anomalies, now, chaines_degradees = verifier_chaines()
     n_ok = sum(1 for c in chaines if c["ok"])
+    etat = "ALERTE" if anomalies else ("DÉGRADÉ" if chaines_degradees else "OK")
     rapport = {
         "ts": now,
         "updated": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%MZ"),
-        "etat": "OK" if not anomalies else "ALERTE",
+        "etat": etat,
         "chaines_ok": f"{n_ok}/{len(chaines)}",
         "anomalies": anomalies,
+        "degradees": chaines_degradees,
         "chaines": chaines,
     }
     ecriture_atomique(RAPPORT, json.dumps(rapport, ensure_ascii=False, indent=2))
     # Version JS pour le cockpit (même pattern que live.js / mission.js)
     js = "window.__SANTE__ = " + json.dumps(rapport, ensure_ascii=False) + ";\n"
     ecriture_atomique(IM / "cockpit" / "sante_live.js", js)
-    print(f"[SANTE_INDEX] {rapport['updated']} — {rapport['chaines_ok']} chaînes OK"
-          + (f" — ALERTE : {', '.join(anomalies)}" if anomalies else " — tout est branché"))
+
+    # Historique append-only (chaque run, même OK — pour voir les coupures passées)
+    journaliser(rapport)
+
+    # Alerte vocale UNIQUEMENT sur chaîne rouge (pas sur DÉGRADÉ — escalade douce)
+    if anomalies and not verifier_maintenance():
+        declencher_alerte(anomalies)
+
+    print(f"[SANTE_INDEX] {rapport['updated']} — {rapport['chaines_ok']} chaînes OK · état {etat}"
+          + (f" — ALERTE : {', '.join(anomalies)}" if anomalies else ""))
     return 1 if anomalies else 0
 
 
