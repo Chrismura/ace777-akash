@@ -244,7 +244,7 @@ def main() -> int:
     print(f"COCKPIT {url}")
     print("TIP: recharger = ⌘R  |  F5 Mac = dictation (pas refresh)")
 
-    # Validé : pywebview d’abord · Brave --app en secours · jamais Safari
+    # Validé : pywebview d'abord · Brave --app en secours · jamais Safari
     if open_webview(url):
         return 0
     if open_chromium_app(url):

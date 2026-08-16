@@ -570,6 +570,7 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
 .trade.buy{border-left-color:var(--acid);background:rgba(124,255,107,.05)}
 .trade.sell{border-left-color:var(--red);background:rgba(255,77,77,.05)}
 .trade.skip{border-left-color:var(--muted);opacity:.55}
+.trade.seed{border-left-color:var(--amber);background:rgba(240,160,32,.06)}
 @keyframes slideIn{from{transform:translateX(-8px);opacity:0}to{transform:none;opacity:1}}
 .fx-layer{position:absolute;inset:0;pointer-events:none;overflow:hidden}
 .fx-blip{position:absolute;width:8px;height:8px;border-radius:50%;background:var(--amber);
@@ -636,12 +637,6 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
 .card.hulk .hw-val .neu{color:#c5d0dc}
 .card.hulk .hulk-details-btn{margin-left:auto;background:#121a10;border:1px solid rgba(196,255,77,.5);color:var(--hulk);font-family:Orbitron,sans-serif;font-size:.58rem;letter-spacing:.1em;padding:3px 9px;border-radius:3px;cursor:pointer;transition:all .15s}
 .card.hulk .hulk-details-btn:hover{background:var(--hulk);color:#0a100c;box-shadow:0 0 10px rgba(196,255,77,.5)}
-.card.hulk.term .term-out{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.68rem;color:#b8e0b0;background:#060a06;border:1px solid rgba(196,255,77,.25);border-radius:4px;padding:8px 10px;height:130px;overflow-y:auto;white-space:pre-wrap;word-break:break-word;margin:6px 0}
-.card.hulk.term .term-row{display:flex;align-items:center;gap:6px}
-.card.hulk.term .term-prompt{color:var(--hulk);font-family:ui-monospace,Menlo,monospace;font-size:.72rem}
-.card.hulk.term .term-row input{flex:1;background:#0a100c;border:1px solid rgba(196,255,77,.4);color:#d8f0c8;font-family:ui-monospace,Menlo,monospace;font-size:.68rem;padding:6px 8px;border-radius:4px;outline:none}
-.card.hulk.term .term-row button{background:#121a10;border:1px solid rgba(196,255,77,.5);color:var(--hulk);font-family:Orbitron,sans-serif;font-size:.58rem;letter-spacing:.1em;padding:6px 12px;border-radius:4px;cursor:pointer}
-.card.hulk.term .term-row button:hover{background:var(--hulk);color:#0a100c}
 .hulk-modal{position:fixed;inset:0;z-index:320;background:rgba(3,5,4,.86);display:none;align-items:center;justify-content:center;backdrop-filter:blur(3px)}
 .hulk-modal.show{display:flex}
 .hulk-modal .hulk-modal-card{width:min(94vw,720px);max-height:86vh;overflow-y:auto;background:#0a100c;border:1px solid rgba(196,255,77,.4);border-radius:8px;padding:14px 16px;box-shadow:0 0 40px rgba(196,255,77,.15)}
@@ -1113,7 +1108,7 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
           <button type="button" id="btn-yeux" title="Cortana regarde l'écran (vision à la demande)">👁 REGARDER</button>
           <button type="button" id="btn-stop-alerte" style="border-color:var(--red);color:var(--red)" title="Arrêter l'alarme vocale en boucle (STOP_ALERTE)">⛔ ALARME</button>
           <button type="button" id="btn-declarer-modifs" title="Déclarer les modifs actuelles au registre veilleuse (backup auto)">✓ DÉCLARER MODIFS</button>
-          <button type="button" id="btn-ecoute" class="on" title="Parler à Cortana (dictée vocale) — F5 = pareil">🎤 ÉCOUTE</button>
+          <button type="button" id="btn-ecoute" class="on" title="Couper / réactiver l'écoute du micro (barge-in)">🎤 ÉCOUTE</button>
         </div>
         <div id="yeux-result" class="yeux-result" style="display:none"></div>
         <div class="chat-row">
@@ -1366,20 +1361,6 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
       <div class="hulk-sect">JOURNAL DES OPÉRATIONS <span class="hulk-sect-n" id="h-hist-n" style="color:var(--hulk)"></span></div>
       <div class="stream hist"><div class="stream-inner" id="h-list"></div></div>
       <div class="hulk-jlegend">achat/vente · prix · qté · % · PnL · hold = si rien fait</div>
-    </div>
-
-    <!-- TERMINAL BUFFY : commandes locales (réservé cockpit, 127.0.0.1) -->
-    <div class="card hulk term">
-      <div class="engine-head">
-        <h2>🖥 TERMINAL BUFFY</h2>
-        <span class="badge h">LOCAL 127.0.0.1 · TIMEOUT 30s</span>
-      </div>
-      <div class="term-out" id="term-out">$ prêt — tape une commande puis Entrée.</div>
-      <div class="term-row">
-        <span class="term-prompt">$</span>
-        <input type="text" id="term-input" placeholder="ex: ls runs/ · tail -3 hulk-mexc/runs/*.csv" autocomplete="off" spellcheck="false" />
-        <button type="button" id="term-run">RUN</button>
-      </div>
     </div>
 
     <!-- HULK DÉTAILS : frais plateforme + hold % (modal) -->
@@ -1884,23 +1865,24 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
       list.innerHTML=hist.slice(0,100).map(r=>{
         const ev=(r.event||'').toUpperCase();
         const crypto=r.crypto||r.pair||'';
+        const isSeed=(r.reason||'').toUpperCase().startsWith('SEED');
         const isBuy=ev==='BUY'||ev.startsWith('BAG_BUY')||ev.startsWith('DCA');
-        const kind=isBuy?'buy':'sell';
+        const kind=isSeed?'seed':(isBuy?'buy':'sell');
         const price=r.price!=null?fmtP(r.price,6):null;
         const entry=r.entry!=null?fmtP(r.entry,6):null;
         const qty=(r.qty!=null&&!isNaN(r.qty))?Number(r.qty).toPrecision(4):null;
         const pct=r.pnlPct;
         let hulkTime='—';
         if(r.ts){const d=new Date(r.ts); if(!isNaN(d)) hulkTime=d.toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit'});}
-        const action=isBuy?'ACHETÉ':'VENDU';
+        const action=isSeed?'DÉPART':(isBuy?'ACHETÉ':'VENDU');
         let line;
         if(isBuy){
           line=`${action} @${price||'—'}${qty?(' · '+qty):''}`;
         }else{
           line=`${action} @${price||'—'}${entry?(' ← entrée '+entry):''}${qty?(' · '+qty):''}${pct!=null?(' · '+fmt(pct,1)+'%'):''}`;
         }
-        const pnlShow=isBuy?'ouv.':fmt(r.pnl,2);
-        return `<div class="trade ${kind}" title="${r.reason||''}${r.dir?(' · '+r.dir):''}"><span>${hulkTime}</span><span class="t-ev">${ev.replace(/_/g,' ').slice(0,9)}</span><span class="t-line">${crypto} ${line}</span><span class="${isBuy?'neu':cls(r.pnl)}">${pnlShow}</span></div>`;
+        const pnlShow=isSeed?'départ':(isBuy?'ouv.':fmt(r.pnl,2));
+        return `<div class="trade ${kind}" title="${r.reason||''}${r.dir?(' · '+r.dir):''}"><span>${hulkTime}</span><span class="t-ev">${isSeed?'DÉPART':ev.replace(/_/g,' ').slice(0,9)}</span><span class="t-line">${crypto} ${line}</span><span class="${(isBuy||isSeed)?'neu':cls(r.pnl)}">${pnlShow}</span></div>`;
       }).join('') || '<span style="color:var(--muted)">pas encore d\'opération</span>';
     }
   }
@@ -3341,90 +3323,19 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
   document.getElementById('btn-voix')?.addEventListener('click', ()=>demanderVoix());
   document.getElementById('btn-parler')?.addEventListener('click', ()=>demanderVoix());
 
-  // --- 🎤 DICTÉE VOCALE : parler à Cortana (voix → texte → chat) — bouton ÉCOUTE ou F5 ---
-  // Brave/Chrome : Web Speech API (webkitSpeechRecognition) → transcription → /chat.
-  // Le pont /ecoute (barge-in = couper la parole de Cortana en parlant) reste intact.
+  // --- ÉCOUTE : couper / réactiver le micro (barge-in) via le bridge ---
   const btnEcoute = document.getElementById('btn-ecoute');
-  const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
-  let reco = null, recoOn = false;
-  function majEcoute(on){
+  function majEcoute(etat){
     if(!btnEcoute) return;
-    if(on){ btnEcoute.classList.add('on'); btnEcoute.textContent = "🎤 J'ÉCOUTE…"; }
-    else  { btnEcoute.classList.remove('on'); btnEcoute.textContent = '🎤 ÉCOUTE'; }
+    if(etat){ btnEcoute.classList.add('on'); btnEcoute.textContent = '🎤 ÉCOUTE'; }
+    else    { btnEcoute.classList.remove('on'); btnEcoute.textContent = '🎤 COUPÉ'; }
   }
-  function arreterDictee(){
-    recoOn = false;
-    if(reco){ try{ reco.stop(); }catch(e){} }
-    majEcoute(false);
-  }
-  function demarrerDictee(){
-    if(!SR){
-      if(bubble) bubble.textContent = "🎤 Dictée non supportée ici — écris dans « Pose ta question à Cortana… »";
-      return;
-    }
-    if(recoOn){ arreterDictee(); return; }
-    try{
-      reco = new SR();
-      reco.lang = 'fr-FR';
-      reco.continuous = false;
-      reco.interimResults = false;
-      reco.maxAlternatives = 1;
-      recoOn = true;
-      majEcoute(true);
-      if(bubble) bubble.textContent = "🎤 Je t'écoute… parle maintenant.";
-      reco.onresult = (e)=>{
-        let t = '';
-        if(e.results && e.results[0] && e.results[0][0]) t = e.results[0][0].transcript || '';
-        t = t.trim();
-        if(t){
-          const inp = document.getElementById('chat-input');
-          if(inp) inp.value = t;
-          if(bubble) bubble.textContent = '🎤 « ' + t + ' »';
-          sendChat();
-        }
-        arreterDictee();
-      };
-      reco.onerror = (e)=>{
-        if(e.error === 'not-allowed' || e.error === 'service-not-allowed'){
-          if(bubble) bubble.textContent = '🎤 Micro refusé — autorise le micro pour Brave, ou écris dans le champ chat.';
-        } else if(e.error !== 'aborted'){
-          if(bubble) bubble.textContent = '🎤 Micro indisponible (' + (e.error || '?') + ').';
-        }
-        arreterDictee();
-      };
-      reco.onend = ()=>{ recoOn = false; majEcoute(false); };
-      reco.start();
-    }catch(err){
-      recoOn = false; majEcoute(false);
-      if(bubble) bubble.textContent = '🎤 Erreur micro : ' + err;
-    }
-  }
-  btnEcoute?.addEventListener('click', demarrerDictee);
-  // F5 = dictée (promis dans l'en-tête) — on bloque le refresh navigateur
-  document.addEventListener('keydown', e=>{
-    if(e.key === 'F5'){ e.preventDefault(); demarrerDictee(); }
+  try{ fetch(BRIDGE+'/ecoute', {cache:'no-store'})
+    .then(r=>r.json()).then(d=>majEcoute(d.ecoute)).catch(()=>{}); }catch(e){}
+  btnEcoute?.addEventListener('click', ()=>{
+    try{ fetch(BRIDGE+'/ecoute', {method:'POST', cache:'no-store'})
+      .then(r=>r.json()).then(d=>majEcoute(d.ecoute)).catch(()=>{}); }catch(e){}
   });
-
-  // --- TERMINAL BUFFY : commande locale via pont /term (127.0.0.1) ---
-  const termInput=document.getElementById('term-input');
-  const termOut=document.getElementById('term-out');
-  const termRun=document.getElementById('term-run');
-  async function runTerm(){
-    const q=(termInput?termInput.value:'').trim();
-    if(!q) return;
-    if(termOut) termOut.textContent='$ '+q+'\n… en cours';
-    try{
-      const r=await fetch(BRIDGE+'/term',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({cmd:q}),cache:'no-store'});
-      const j=await r.json();
-      const txt=(j.out||'')+(j.err?('\n'+j.err):'')||'(aucune sortie)';
-      if(termOut) termOut.textContent='$ '+q+'\n'+txt;
-    }catch(e){
-      if(termOut) termOut.textContent='$ '+q+'\n✘ pont éteint — terminal indisponible';
-    }
-    if(termInput) termInput.value='';
-  }
-  termRun?.addEventListener('click', runTerm);
-  termInput?.addEventListener('keydown', e=>{ if(e.key==='Enter') runTerm(); });
 
   // --- YEUX DE CORTANA : vision à la demande (bouton 👁) ---
   document.getElementById('btn-yeux')?.addEventListener('click', () => {

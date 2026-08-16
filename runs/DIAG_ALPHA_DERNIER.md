@@ -1,29 +1,26 @@
 # DIAGNOSTIC ALPHA — MASTER_VORTEX_V2_COLLAB_4H
 
-> Généré: `2026-08-16T10:02:41Z` | Verdict: **ALERTE — ALPHA quasi dormante**
+> Généré: `2026-08-16T15:04:11Z` | Verdict: **CRITIQUE — ALPHA n'a exécuté aucun trade**
 
 ## Résumé
 
 | Métrique | ALPHA | BETA (référence) |
 |----------|-------|------------------|
-| FILLED | 3 | 23 |
-| PnL net | -1.0421 USDT | 0.0565 USDT |
-| SKIP total | 672 | 665 |
-| duo_wait | 60 (8.9% des SKIP ALPHA) | 0 |
+| FILLED | 0 | 0 |
+| PnL net | 0.0000 USDT | 0.0000 USDT |
+| SKIP total | 2 | 5 |
+| duo_wait | 1 (50.0% des SKIP ALPHA) | 0 |
 
 ## Entonnoir des gates — ALPHA
 
 Ordre dans `genesis_manifest.txt` : radar → tension/vacuum → tactic → stase → **duo** → qty → llm_gate → execute
 
-- `radar_block` — **558**
-- `duo_wait` — **60**
-- `impulse_resonance_wait` — **47**
-- `price_stasis` — **4**
-- `tactic_mismatch` — **3**
+- `duo_wait` — **1**
+- `radar_block` — **1**
 
 ## duo_wait — sous-raisons (cause #2 après radar)
 
-- `unknown` — **60** (100.0% des duo_wait)
+- `unknown` — **1** (100.0% des duo_wait)
 
 ### Lecture technique
 
@@ -41,11 +38,8 @@ Ordre dans `genesis_manifest.txt` : radar → tension/vacuum → tactic → stas
 Revenge autorisé au-delà de `stop_loss` (shock / fluid / sentinel).
 Sorties BETA observées :
 
-- `shock_inversion_stop` — 20 trades
-- `fluid_exit_inversion` — 2 trades
-- `fluid_exit_brake` — 1 trades
 
-- Sorties `shock_inversion_stop` : **20**
+- Sorties `shock_inversion_stop` : **0**
 - Sorties `stop_loss` : **0**
 
 
@@ -54,9 +48,9 @@ Sorties BETA observées :
 Quand le SCOUT ne rafraîchit pas `duo_state.json` dans les 60s, le HUNTER skip avec `stale_state`.
 Observé : **0** fois (0.0% des duo_wait).
 
-### 3. radar_block en amont (558 SKIP)
+### 3. radar_block en amont (1 SKIP)
 
-Même si le duo était parfait, 83.0% des cycles ALPHA meurent au radar avant d'atteindre le HUNTER.
+Même si le duo était parfait, 50.0% des cycles ALPHA meurent au radar avant d'atteindre le HUNTER.
 
 ## Paramètres duo actifs (config)
 
