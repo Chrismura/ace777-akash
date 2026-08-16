@@ -14,7 +14,7 @@ alive() { pgrep -lf "$1" >/dev/null 2>&1; }
 count_p() { pgrep -lf "$1" 2>/dev/null | wc -l | tr -d ' '; }
 
 ACE_ON=0; HULK_ON=0; OLLAMA_ON=0
-alive 'GO_USINE_NUAGE|ace777_launch_v85|launch_vide_froid' && ACE_ON=1
+alive 'GO_USINE_NUAGE|ace777_launch_v85|launch_vide_froid|launch_vortex' && ACE_ON=1
 # fallback: fortress pendant vol
 [[ "$ACE_ON" -eq 0 ]] && alive 'launch_test_master_base_v8_6_fortress' && ACE_ON=1
 alive 'paper_diprip' && HULK_ON=1

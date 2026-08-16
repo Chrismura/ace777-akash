@@ -25,7 +25,7 @@ echo "=== SESSION FIN — $TS_UTC ==="
 echo
 
 ace_vol=0
-if pgrep -f 'ace777_launch|launch_vide_froid|GO_USINE_NUAGE|ALPHA_X13|BETA_X5' >/dev/null 2>&1; then
+if pgrep -f 'ace777_launch|launch_vide_froid|GO_USINE_NUAGE|launch_vortex|ALPHA_X13|BETA_X5' >/dev/null 2>&1; then
   ace_vol=1
 fi
 

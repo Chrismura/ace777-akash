@@ -44,6 +44,7 @@ PATTERNS=(
   'GO_USINE_NUAGE'
   'ace777_launch'
   'launch_vide_froid'
+  'launch_vortex'
   'watchdog_ace'
   'paper_diprip'
   'digest_watch'

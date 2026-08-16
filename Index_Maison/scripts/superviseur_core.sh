@@ -162,7 +162,7 @@ check_pulse() {
     core_log "PULSE: début"
 
     local ace_on=0 hulk_on=0 ollama_on=0
-    pgrep -lf 'GO_USINE_NUAGE|ace777_launch_v85|launch_vide_froid' >/dev/null 2>&1 && ace_on=1
+    pgrep -lf 'GO_USINE_NUAGE|ace777_launch_v85|launch_vide_froid|launch_vortex' >/dev/null 2>&1 && ace_on=1
     [ "$ace_on" -eq 0 ] && pgrep -lf 'launch_test_master_base_v8_6_fortress' >/dev/null 2>&1 && ace_on=1
     pgrep -lf 'paper_diprip' >/dev/null 2>&1 && hulk_on=1
     pgrep -lf 'ollama serve' >/dev/null 2>&1 && ollama_on=1
@@ -215,7 +215,7 @@ PY
 **Verdict** : $verdict
 
 ## Processus
-- ACE (GO_USINE_NUAGE) : $([ "$ace_on" -eq 1 ] && echo "✅ actif" || echo "❌ inactif")
+- ACE (lanceur) : $([ "$ace_on" -eq 1 ] && echo "✅ actif" || echo "❌ inactif")
 - HULK (paper_diprip) : $([ "$hulk_on" -eq 1 ] && echo "✅ actif" || echo "❌ inactif")
 - OLLAMA (serve) : $([ "$ollama_on" -eq 1 ] && echo "✅ actif" || echo "❌ inactif")
 

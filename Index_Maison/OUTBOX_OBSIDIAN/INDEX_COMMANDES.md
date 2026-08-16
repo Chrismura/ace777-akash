@@ -448,6 +448,16 @@ cd ~/ace777-test-day1 && ./GO_VORTEX_V2.sh 02:00:00
 > **Après le run** : lire `runs/RAPPORT_PNL_AUTO_*.md` (le plus récent) + `engle/journal/ENGLE_JOURNAL_DERNIER.md`. Critères : %revenge 30–60%, `revenge_ttl_expired` présent, `stale_state` ≈ 0, **`price_stasis skips` > 0** (marché calme), **%fills BETA flat < 20%**, PnL total > +1 USDT.
 > **Doc** : `Index_Maison/CHANTIER_FIX_LAST_LOSS_TTL_2026-08-16.md` · `Index_Maison/CHANTIER_FIX_PRICE_STASIS_2026-08-16.md` · `Index_Maison/ANALYSE_RUNS_2026-08-16.md` · Rollback : voir chantiers (backups `BAK_avant_fix_last_loss_ttl_20260816` et `BAK_avant_fix_price_stasis_20260816`).
 
+## 12ter — ACE : SCHÉMA DE RÉFÉRENCE
+
+> **Pour comprendre ACE777 en 2 min sans relire les docs** : `SCHEMA_ACE.md` (racine)
+> (copies : OUTBOX + Obsidian). Contient : le duo BETA/SCOUT + ALPHA/HUNTER, le champion
+> (md5 actuel `8bce77b1` + réfs à jour), les 2 fixes du 16/08 (last_loss + price_stasis),
+> la config clé, le mécanisme duo, lancer/arrêter, lire les résultats, le protocole famille.
+> **À tenir à jour à chaque chantier ACE.**
+
+---
+
 ## 12bis — HULK : SCHÉMA DE RÉFÉRENCE
 
 > **Pour comprendre HULK en 2 min sans relire les docs** : `hulk-mexc/SCHEMA_HULK.md`
