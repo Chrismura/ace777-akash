@@ -7,12 +7,15 @@
 | | Check | Détail |
 |---|--------|--------|
 | ✅ | Mode | VOL (auto) |
-| ✅ | Horodatage | 2026-08-16T12:04 local · 2026-08-16T10:04Z UTC |
+| ✅ | Horodatage | 2026-08-16T13:04 local · 2026-08-16T11:04Z UTC |
 | ✅ | Champion | md5 `8bce77b1…` |
-| ⚠️ | ACE process | attendu si GO ACE — OFF |
+| ✅ | ACE process | ON |
 | ✅ | Hulk paper | ON |
-| ✅ | Hulk state | PAPER_V1_20260816_090921_state.json · 2 pos · pnl=0.0 |
-| ❌ | RAM | ~129 Mo CRITIQUE |
+| ✅ | Ollama | ON (gate) |
+| ⚠️ | Heartbeat ALPHA | fichier absent |
+| ✅ | LIVE_COLOR | MASTER_VORTEX_V2_COLLAB_4H · frais 0s |
+| ✅ | Hulk state | PAPER_V1_20260816_090921_state.json · 3 pos · pnl=-0.8004592546358901 |
+| ❌ | RAM | ~122 Mo CRITIQUE |
 
 ## Que faire
 
@@ -24,4 +27,4 @@
 Voir [[AUTO_PROCESSUS]] — ce pulse = couche **veille machine**, pas trading.
 
 ---
-_généré 2026-08-16T10:04Z · script `pulse_sous_loeil.sh`_
+_généré 2026-08-16T11:04Z · script `pulse_sous_loeil.sh`_

@@ -1,10 +1,10 @@
 # RAPPORT PNL AUTO — MASTER_VORTEX_V2_COLLAB_4H
 
 **Session:** `MASTER_VORTEX_V2_COLLAB_4H`
-**Période:** 2026-08-16T08:02:41Z → 2026-08-16T10:02:37Z (1h59m)
+**Période:** — → — (—)
 **Setup:** `vide_froid_vortex_v2_collab` v`2026-07-10-v2.2.2-no-partner-halt` | BETA `200` USDT | ALPHA `800` USDT | LLM gate `TRUE` fail_closed=`TRUE`
-**Généré:** 2026-08-16T10:02:40Z UTC
-**Filtre session:** `ts >= 2026-08-16T08:02:31Z` (lignes CSV antérieures exclues)
+**Généré:** 2026-08-16T10:46:55Z UTC
+**Filtre session:** `ts >= 2026-08-16T10:46:52Z` (lignes CSV antérieures exclues)
 
 ---
 
@@ -12,10 +12,10 @@
 
 | Métrique | Valeur |
 |----------|--------|
-| **PNL BETA** | **+0.0565 USDT** |
-| **PNL ALPHA** | **-1.0421 USDT** |
-| **PNL SESSION TOTAL** | **-0.9856 USDT** |
-| Statut | `NEGATIF` |
+| **PNL BETA** | **+0.0000 USDT** |
+| **PNL ALPHA** | **+0.0000 USDT** |
+| **PNL SESSION TOTAL** | **+0.0000 USDT** |
+| Statut | `NEUTRE` |
 
 ---
 
@@ -23,36 +23,27 @@
 
 | Métrique | Valeur |
 |----------|--------|
-| Trades FILLED | 23 |
-| Gagnants | 11 |
-| Perdants | 7 |
-| Flat (0) | 5 |
-| Win rate | **47.8%** |
-| Gains totaux | +0.5037 USDT |
-| Pertes totales | -0.4472 USDT |
-| **PNL net** | **+0.0565 USDT** |
-| BPS moyen | 0.02 |
+| Trades FILLED | 0 |
+| Gagnants | 0 |
+| Perdants | 0 |
+| Flat (0) | 0 |
+| Win rate | **—** |
+| Gains totaux | +0.0000 USDT |
+| Pertes totales | +0.0000 USDT |
+| **PNL net** | **+0.0000 USDT** |
+| BPS moyen | — |
 
-**Meilleur trade:** +0.2072 USDT
-**Pire trade:** -0.1601 USDT
-
-**Direction:** SELL (23)
+**Direction:** —
 
 **Raisons de sortie (exitReason):**
 | Raison | Nb |
 |--------|-----|
-| shock_inversion_stop | 20 |
-| fluid_exit_inversion | 2 |
-| fluid_exit_brake | 1 |
+| _aucun trade_ | 0 |
 
-**Cycles SKIP:** 665
+**Cycles SKIP:** 0
 | Raison | Nb |
 |--------|-----|
-| radar_block | 562 |
-| impulse_resonance_wait | 51 |
-| price_stasis | 48 |
-| stase_ecoute | 2 |
-| tactic_mismatch | 2 |
+| _aucun_ | 0 |
 
 ---
 
@@ -60,35 +51,14 @@
 
 | Métrique | Valeur |
 |----------|--------|
-| Trades FILLED | 3 |
-| Gagnants | 0 |
-| Perdants | 2 |
-| Flat (0) | 1 |
-| Win rate | **0.0%** |
-| Gains totaux | +0.0000 USDT |
-| Pertes totales | -1.0421 USDT |
-| **PNL net** | **-1.0421 USDT** |
-| BPS moyen | -1.74 |
+| Trades FILLED | 0 |
+| **PNL net** | **0.0000 USDT** |
 
-**Meilleur trade:** +0.0000 USDT
-**Pire trade:** -1.0398 USDT
+*ALPHA n'a pas exécuté de trade — vérifier duo_wait, radar, stase, llm_gate dans les SKIP.*
 
-**Direction:** BUY (3)
-
-**Raisons de sortie (exitReason):**
+**Cycles SKIP:** 0
 | Raison | Nb |
 |--------|-----|
-| fluid_exit_brake | 2 |
-| shock_inversion_stop | 1 |
-
-**Cycles SKIP:** 672
-| Raison | Nb |
-|--------|-----|
-| radar_block | 558 |
-| duo_wait | 60 |
-| impulse_resonance_wait | 47 |
-| price_stasis | 4 |
-| tactic_mismatch | 3 |
 
 ---
 
@@ -96,22 +66,15 @@
 
 | Indicateur | BETA | ALPHA | TOTAL |
 |------------|------|-------|-------|
-| Trades | 23 | 3 | 26 |
-| PnL | +0.0565 | -1.0421 | **-0.9856** |
-| Win rate | 47.8% | 0.0% | 42.3% |
+| Trades | 0 | 0 | 0 |
+| PnL | +0.0000 | +0.0000 | **+0.0000** |
+| Win rate | — | — | — |
 
 ## IRM — régimes de tension (proxy, lecture seule)
 
 > Pas un modèle ARCH Engle. Classification sur `tension=` des cycles BETA. N'influence pas le moteur. Seuils: COMPRESSÉ `< 0.05` · CLUSTER `≥ 1.0` · sinon TRANSITOIRE.
 
-| Régime | Cycles | % temps | Fills | PnL fills (USDT) |
-|--------|--------|---------|-------|------------------|
-| COMPRESSÉ (attente à froid) | 548 | 79.7% | 0 | +0.0000 |
-| TRANSITOIRE (bruit retail) | 69 | 10.0% | 0 | +0.0000 |
-| CLUSTER (tension haute — proxy) | 71 | 10.3% | 23 | +0.0565 |
-
-- Fenêtre: `2026-08-16T08:02:41Z` → `2026-08-16T10:02:37Z` (688 cycles) · μ(tension)=0.4336 · σ=1.3709 · courant(proxy)=**COMPRESSÉ (attente à froid)**
-- Source: `MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv`
+*Aucun cycle dans la fenêtre session — IRM indisponible.*
 
 ## Engle — couches évolutives (hors moteur)
 

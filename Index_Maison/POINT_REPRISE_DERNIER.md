@@ -13,6 +13,7 @@
 | `ETAT_SYSTEME.md` (racine, copies OUTBOX+Obsidian) | **carte organique globale** : cœur ACE + HULK + veilleuses + rythmes + connexions |
 | `SCHEMA_ACE.md` (racine) | ACE en détail : duo BETA/ALPHA, champion, réfs md5, fixes du jour |
 | `hulk-mexc/SCHEMA_HULK.md` | HULK en détail : tier/classe, flux, config, commandes |
+| **`architecture/` (4 tableaux HTML)** — `carte.html` CARTE · `index.html` VUE · `tech.html` TECH · `apprentissage.html` CYCLE | **boussole visuelle d'arrivée** : la flottille + les connexions colorées · `open ~/ace777-test-day1/Index_Maison/architecture/carte.html` |
 
 ---
 
