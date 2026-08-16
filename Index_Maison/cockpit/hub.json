@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-16T02:51:49.037032+00:00",
+  "generated_at": "2026-08-16T03:36:37.909205+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 627
+      "calls_24h": 597
     },
     {
       "id": "openrouter-free",
@@ -293,61 +293,61 @@
   ],
   "events": [
     {
-      "ts": "2026-08-16T02:51:45.281653+00:00",
+      "ts": "2026-08-16T03:36:10.578104+00:00",
       "kind": "failover",
       "title": "Tous blacklistes - tentative de dernier recours sans blacklist",
       "detail": ""
     },
     {
-      "ts": "2026-08-16T02:51:45.281580+00:00",
+      "ts": "2026-08-16T03:36:10.577633+00:00",
       "kind": "failover",
       "title": "Saute (blacklist) depuis Google Gemini",
       "detail": "0 attente"
     },
     {
-      "ts": "2026-08-16T02:51:45.281360+00:00",
+      "ts": "2026-08-16T03:36:10.577319+00:00",
       "kind": "failover",
       "title": "Saute (blacklist) depuis Puter Grok (gratuit)",
       "detail": "0 attente"
     },
     {
-      "ts": "2026-08-16T02:51:26.681967+00:00",
+      "ts": "2026-08-16T03:35:51.723478+00:00",
       "kind": "http",
       "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
       "detail": ""
     },
     {
-      "ts": "2026-08-16T02:51:26.681494+00:00",
+      "ts": "2026-08-16T03:35:51.723092+00:00",
       "kind": "error",
       "title": "Toutes les IA ont echoue",
       "detail": "Puter Grok (gratuit): blacklist du jour (saute) | Google Gemini: blacklist du jour (saute) | Puter Grok (gratuit): HTTP Error 402: Payment Required | Google Gemini: HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-08-16T02:51:26.678018+00:00",
+      "ts": "2026-08-16T03:35:51.719067+00:00",
       "kind": "failover",
       "title": "Bascule depuis Google Gemini",
       "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-08-16T02:51:26.474410+00:00",
+      "ts": "2026-08-16T03:35:51.481166+00:00",
       "kind": "failover",
       "title": "Bascule depuis Puter Grok (gratuit)",
       "detail": "HTTP Error 402: Payment Required"
     },
     {
-      "ts": "2026-08-16T02:51:26.303076+00:00",
+      "ts": "2026-08-16T03:35:51.236595+00:00",
       "kind": "failover",
       "title": "Tous blacklistes - tentative de dernier recours sans blacklist",
       "detail": ""
     },
     {
-      "ts": "2026-08-16T02:51:26.302913+00:00",
+      "ts": "2026-08-16T03:35:51.236335+00:00",
       "kind": "failover",
       "title": "Saute (blacklist) depuis Google Gemini",
       "detail": "0 attente"
     },
     {
-      "ts": "2026-08-16T02:51:26.302497+00:00",
+      "ts": "2026-08-16T03:35:51.235690+00:00",
       "kind": "failover",
       "title": "Saute (blacklist) depuis Puter Grok (gratuit)",
       "detail": "0 attente"
