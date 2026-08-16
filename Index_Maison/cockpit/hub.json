@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-16T22:16:27.112934+00:00",
+  "generated_at": "2026-08-16T22:34:07.209959+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -35,7 +35,7 @@
       "model": "deepseek-ai/deepseek-v4-flash-0731",
       "enabled": true,
       "timeout": 300,
-      "calls_24h": 314
+      "calls_24h": 323
     },
     {
       "id": "mistral",
@@ -44,7 +44,7 @@
       "model": "codestral-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 66
+      "calls_24h": 71
     },
     {
       "id": "cloudflare-workers-ai",
@@ -184,10 +184,122 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 929,
+    "consumed": 943,
     "remaining": 0
   },
   "queue": [
+    {
+      "ts": "2026-08-16T22:32:56.354172+00:00",
+      "task": "analyste.strategie",
+      "provider": "nvidia",
+      "model": "deepseek-ai/deepseek-v4-flash-0731",
+      "kind": "cloud",
+      "duration_s": 88.14
+    },
+    {
+      "ts": "2026-08-16T22:32:49.805779+00:00",
+      "task": "analyste.strategie",
+      "provider": "nvidia",
+      "model": "deepseek-ai/deepseek-v4-flash-0731",
+      "kind": "cloud",
+      "duration_s": 43.78
+    },
+    {
+      "ts": "2026-08-16T22:32:24.998900+00:00",
+      "task": "supervise.decision",
+      "provider": "nvidia",
+      "model": "deepseek-ai/deepseek-v4-flash-0731",
+      "kind": "cloud",
+      "duration_s": 8.14
+    },
+    {
+      "ts": "2026-08-16T22:31:49.614034+00:00",
+      "task": "analyste.strategie",
+      "provider": "nvidia",
+      "model": "deepseek-ai/deepseek-v4-flash-0731",
+      "kind": "cloud",
+      "duration_s": 112.55
+    },
+    {
+      "ts": "2026-08-16T22:31:38.873462+00:00",
+      "task": "analyste.strategie",
+      "provider": "nvidia",
+      "model": "deepseek-ai/deepseek-v4-flash-0731",
+      "kind": "cloud",
+      "duration_s": 125.54
+    },
+    {
+      "ts": "2026-08-16T22:30:42.260082+00:00",
+      "task": "supervise.decision",
+      "provider": "mistral",
+      "model": "codestral-latest",
+      "kind": "cloud",
+      "duration_s": 0.53
+    },
+    {
+      "ts": "2026-08-16T22:28:57.439442+00:00",
+      "task": "supervise.decision",
+      "provider": "mistral",
+      "model": "codestral-latest",
+      "kind": "cloud",
+      "duration_s": 0.55
+    },
+    {
+      "ts": "2026-08-16T22:27:12.193224+00:00",
+      "task": "supervise.decision",
+      "provider": "mistral",
+      "model": "codestral-latest",
+      "kind": "cloud",
+      "duration_s": 0.52
+    },
+    {
+      "ts": "2026-08-16T22:25:25.921544+00:00",
+      "task": "supervise.decision",
+      "provider": "nvidia",
+      "model": "deepseek-ai/deepseek-v4-flash-0731",
+      "kind": "cloud",
+      "duration_s": 6.38
+    },
+    {
+      "ts": "2026-08-16T22:23:43.944029+00:00",
+      "task": "supervise.decision",
+      "provider": "nvidia",
+      "model": "deepseek-ai/deepseek-v4-flash-0731",
+      "kind": "cloud",
+      "duration_s": 2.4
+    },
+    {
+      "ts": "2026-08-16T22:22:06.667238+00:00",
+      "task": "supervise.decision",
+      "provider": "mistral",
+      "model": "codestral-latest",
+      "kind": "cloud",
+      "duration_s": 0.61
+    },
+    {
+      "ts": "2026-08-16T22:20:21.177988+00:00",
+      "task": "supervise.decision",
+      "provider": "mistral",
+      "model": "codestral-latest",
+      "kind": "cloud",
+      "duration_s": 0.55
+    },
+    {
+      "ts": "2026-08-16T22:18:36.200504+00:00",
+      "task": "supervise.decision",
+      "provider": "nvidia",
+      "model": "deepseek-ai/deepseek-v4-flash-0731",
+      "kind": "cloud",
+      "duration_s": 4.16
+    },
+    {
+      "ts": "2026-08-16T22:16:56.613937+00:00",
+      "task": "supervise.decision",
+      "provider": "nvidia",
+      "model": "deepseek-ai/deepseek-v4-flash-0731",
+      "kind": "cloud",
+      "duration_s": 8.82
+    },
     {
       "ts": "2026-08-16T22:15:12.601380+00:00",
       "task": "supervise.decision",
@@ -195,180 +307,68 @@
       "model": "codestral-latest",
       "kind": "cloud",
       "duration_s": 0.59
-    },
-    {
-      "ts": "2026-08-16T22:13:31.681948+00:00",
-      "task": "analyste.strategie",
-      "provider": "nvidia",
-      "model": "deepseek-ai/deepseek-v4-flash-0731",
-      "kind": "cloud",
-      "duration_s": 308.56
-    },
-    {
-      "ts": "2026-08-16T22:13:27.544395+00:00",
-      "task": "supervise.decision",
-      "provider": "nvidia",
-      "model": "deepseek-ai/deepseek-v4-flash-0731",
-      "kind": "cloud",
-      "duration_s": 4.64
-    },
-    {
-      "ts": "2026-08-16T22:11:48.405977+00:00",
-      "task": "supervise.decision",
-      "provider": "nvidia",
-      "model": "deepseek-ai/deepseek-v4-flash-0731",
-      "kind": "cloud",
-      "duration_s": 7.47
-    },
-    {
-      "ts": "2026-08-16T22:10:06.286373+00:00",
-      "task": "supervise.decision",
-      "provider": "nvidia",
-      "model": "deepseek-ai/deepseek-v4-flash-0731",
-      "kind": "cloud",
-      "duration_s": 7.48
-    },
-    {
-      "ts": "2026-08-16T22:09:53.594581+00:00",
-      "task": "analyste.strategie",
-      "provider": "nvidia",
-      "model": "deepseek-ai/deepseek-v4-flash-0731",
-      "kind": "cloud",
-      "duration_s": 94.8
-    },
-    {
-      "ts": "2026-08-16T22:09:22.244602+00:00",
-      "task": "supervise.decision",
-      "provider": "mistral",
-      "model": "codestral-latest",
-      "kind": "cloud",
-      "duration_s": 2.96
-    },
-    {
-      "ts": "2026-08-16T22:08:21.306327+00:00",
-      "task": "supervise.decision",
-      "provider": "nvidia",
-      "model": "deepseek-ai/deepseek-v4-flash-0731",
-      "kind": "cloud",
-      "duration_s": 7.32
-    },
-    {
-      "ts": "2026-08-16T22:06:38.911074+00:00",
-      "task": "supervise.decision",
-      "provider": "nvidia",
-      "model": "deepseek-ai/deepseek-v4-flash-0731",
-      "kind": "cloud",
-      "duration_s": 7.27
-    },
-    {
-      "ts": "2026-08-16T22:04:57.191218+00:00",
-      "task": "supervise.decision",
-      "provider": "mistral",
-      "model": "codestral-latest",
-      "kind": "cloud",
-      "duration_s": 3.21
-    },
-    {
-      "ts": "2026-08-16T22:03:41.232572+00:00",
-      "task": "analyste.strategie",
-      "provider": "nvidia",
-      "model": "deepseek-ai/deepseek-v4-flash-0731",
-      "kind": "cloud",
-      "duration_s": 119.36
-    },
-    {
-      "ts": "2026-08-16T22:03:25.002196+00:00",
-      "task": "analyste.strategie",
-      "provider": "nvidia",
-      "model": "deepseek-ai/deepseek-v4-flash-0731",
-      "kind": "cloud",
-      "duration_s": 131.96
-    },
-    {
-      "ts": "2026-08-16T22:03:09.422155+00:00",
-      "task": "supervise.decision",
-      "provider": "mistral",
-      "model": "codestral-latest",
-      "kind": "cloud",
-      "duration_s": 0.5
-    },
-    {
-      "ts": "2026-08-16T22:03:09.417686+00:00",
-      "task": "analyste.strategie",
-      "provider": "nvidia",
-      "model": "deepseek-ai/deepseek-v4-flash-0731",
-      "kind": "cloud",
-      "duration_s": 79.51
-    },
-    {
-      "ts": "2026-08-16T22:02:13.476326+00:00",
-      "task": "analyste.strategie",
-      "provider": "nvidia",
-      "model": "deepseek-ai/deepseek-v4-flash-0731",
-      "kind": "cloud",
-      "duration_s": 99.54
     }
   ],
   "events": [
     {
-      "ts": "2026-08-16T22:15:12.601099+00:00",
-      "kind": "message",
-      "title": "« Mistral La Plateforme (essai gratuit) » a repondu",
-      "detail": "bascule"
-    },
-    {
-      "ts": "2026-08-16T22:15:12.600791+00:00",
-      "kind": "filet-universel",
-      "title": "[FILET UNIVERSEL] « Mistral La Plateforme (essai gratuit) » a repondu hors chaine",
-      "detail": "supervise.decision"
-    },
-    {
-      "ts": "2026-08-16T22:15:12.007058+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis NVIDIA build.nvidia.com (100+ modeles)",
-      "detail": "The read operation timed out"
-    },
-    {
-      "ts": "2026-08-16T22:15:01.825381+00:00",
+      "ts": "2026-08-16T22:34:00.072555+00:00",
       "kind": "failover",
       "title": "Bascule depuis OpenRouter (modeles gratuits)",
       "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-08-16T22:15:01.443325+00:00",
+      "ts": "2026-08-16T22:33:59.715549+00:00",
       "kind": "failover",
       "title": "Bascule depuis Google Gemini",
       "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-08-16T22:15:01.443037+00:00",
+      "ts": "2026-08-16T22:33:59.715055+00:00",
       "kind": "ratelimit",
       "title": "429 Google Gemini -> pause 60s + bascule",
       "detail": ""
     },
     {
-      "ts": "2026-08-16T22:15:01.056121+00:00",
+      "ts": "2026-08-16T22:33:59.346936+00:00",
       "kind": "blacklist",
       "title": "Fin de pause Google Gemini",
       "detail": "re-essai automatique"
     },
     {
-      "ts": "2026-08-16T22:15:01.054327+00:00",
+      "ts": "2026-08-16T22:33:59.345163+00:00",
       "kind": "failover",
       "title": "Bascule depuis Puter Grok (gratuit)",
       "detail": "HTTP Error 402: Payment Required"
     },
     {
-      "ts": "2026-08-16T22:15:00.734304+00:00",
+      "ts": "2026-08-16T22:33:59.037833+00:00",
       "kind": "blacklist",
       "title": "Fin de pause Puter Grok (gratuit)",
       "detail": "re-essai automatique"
     },
     {
-      "ts": "2026-08-16T22:15:00.733855+00:00",
+      "ts": "2026-08-16T22:33:59.037296+00:00",
       "kind": "reserve-storm",
       "title": "Tempête active + budget calme atteint -> réserve storm pour supervise.decision",
       "detail": "supervise.decision"
+    },
+    {
+      "ts": "2026-08-16T22:32:56.353594+00:00",
+      "kind": "message",
+      "title": "« NVIDIA build.nvidia.com (100+ modeles) » a repondu",
+      "detail": "bascule"
+    },
+    {
+      "ts": "2026-08-16T22:32:49.804495+00:00",
+      "kind": "message",
+      "title": "« NVIDIA build.nvidia.com (100+ modeles) » a repondu",
+      "detail": "bascule"
+    },
+    {
+      "ts": "2026-08-16T22:32:24.998773+00:00",
+      "kind": "message",
+      "title": "« NVIDIA build.nvidia.com (100+ modeles) » a repondu",
+      "detail": "bascule"
     }
   ],
   "tasks_quotas": {

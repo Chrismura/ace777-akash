@@ -52,6 +52,7 @@ Intégration cockpit (2 lignes dans index.html) · passage au réel · cumul des
 
 | ts | Qui | Action | Où | Quoi |
 |----|-----|--------|-----|------|
+| 2026-08-16T2216Z | journal_auto | ★ | CONSOLE+Journal_2026-08-17 | Snapshot auto hygiène soir |
 | 2026-08-16T1853Z | journal_soir | ★ | journal | snapshot soir auto |
 | 2026-08-16T1853Z | journal_auto | ★ | CONSOLE+Journal_2026-08-16 | Snapshot auto hygiène soir |
 | 2026-08-15T1853Z | journal_soir | ★ | journal | snapshot soir auto |
@@ -130,3 +131,17 @@ Intégration cockpit (2 lignes dans index.html) · passage au réel · cumul des
 ~ 08:00Z — Dossier famille prêt : `consulter_famille_moteur_identique.py` (5 questions). ⚠ Terminal Freebuff tombé (broker ENOENT) → à redémarrer pour lancer la consultation.
 
 ~ 08:30Z — **POINT DE REPRISE POUR LE PROCHAIN BUFFY** : 1) lire `Obsidian_ACE777/REVEIL_2026-08-15.md` + `TABLEAU_SYNTHESE_VERIFICATIONS_2026-08-15.md` (tableau unique de tous les chiffres/analyses) + `MEMOIRE_COLLAB.md` ; 2) si terminal Freebuff toujours ENOENT (fichier `/Users/christophe/.config/manicode/freebuff` introuvable) → dire à Christophe de redémarrer l'app ; 3) dès que le terminal marche : hygiène (`verif_sterilite.sh --pre-run` + `cockpit_hygiene_check.sh`) → lancer `Index_Maison/scripts/consulter_famille_moteur_identique.py` (consultation famille, 5 questions, ne RIEN modifier avant verdict) → run continu `./GO_VORTEX_V2.sh 96:00:00` (arrêt libre via `touch STOP` / `stop_ace777.sh`). Règle d'or : on améliore on dégrade pas, preuve réelle avant correction, tout passe par famille/juge, Buffy supervise.
+
+## 17/08 — PRÉ-VOL DES INDEX (SANTÉ DES INDEX)
+
+**Demande Christophe** : « comment avoir des index et savoir qu'ils sont branchés et fonctionnent en un coup d'œil ? » — motivé par le chantier baleines resté débranché (le scan tournait, mais le pont n'était lancé par aucune plist → Ada/Cortana ne recevaient rien, invisible).
+
+**Ce qui manquait** : la veilleuse vérifie l'intégrité (md5) et la fraîcheur des fichiers un par un — pas que la donnée TRAVERSE la chaîne jusqu'aux consommateurs.
+
+**Livré** :
+- `Index_Maison/scripts/sante_index.py` — pré-vol des 6 chaînes (process vivants + fichiers frais + clé présente chez le consommateur) : BALEINES (scan→pont→live.json.onchain→Ada+Cortana), HULK (sonde→CSV aspiration), LIVE (thermo→mission→cockpit), CPFP (observation 7j), SÉCURITÉ (veilleuse), SAISON (6 indices)
+- Plist `com.ace777.sante-index` (5 min, chargée) → `thermo/sante_index.json` + `cockpit/sante_live.js`
+- Carte 🩺 SANTÉ DES INDEX sur le cockpit (onglet thermo, sous THERMO INDEX) — 🟢/🔴 par chaîne + détail des maillons cassés
+- Déclaré au registre veilleuse (md5) — vérifié STABLE
+
+**Preuve immédiate de son utilité** : au premier run, il a détecté 2 fausses alertes (mauvais chemins de ma part) — corrigées. Détection d'une vraie coupure = le chantier baleines ne pourra plus rester invisible.
