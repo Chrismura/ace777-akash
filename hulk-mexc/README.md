@@ -4,6 +4,40 @@
 
 **Hors scope :** ACE777 NUAGE / genesis champion (`ace777-test-day1` racine) — **jamais modifié** depuis ce dossier.
 
+---
+
+## 🧭 PHILOSOPHIE HULK — texte canonique (à lire, pas à redemander)
+
+> *Dicté par Christophe le 16/08/2026. Toute IA / tout agent qui travaille sur Hulk lit CE texte d'abord.
+> Ne pas redemander « c'est quoi la philosophie ? » — elle est ici, en une page.*
+
+**Les small caps du portefeuille ne sont PAS des paires à scalper.** Ce sont des **projets étudiés avec attention** : gros potentiel, gros investisseurs, sélectionnés un par un. On y croit. Le bag EST le but.
+
+**Il n'y a pas de cash à injecter** : on ne peut pas acheter de nouvelles positions avec de l'argent frais. La seule façon de faire grandir le portefeuille, c'est de **trader ces tokens eux-mêmes** : vendre les rebonds (rip), racheter les creux (dip), récupérer du cash à chaque vente partielle, et le **redéployer pour accumuler plus de tokens** → le bag grandit.
+
+**« Une pierre trois coups » — l'équilibre visé :**
+
+1. **J'achète les creux** (dip)
+2. **Je vends sur les gains** (rip **scale-out 2 paliers**, 25 % à chaque palier — décision Christophe 16/08 soir) :
+   - **XRP / HBAR** (liquides, gros volumes) : palier 1 à **+2 %**, palier 2 à **+6 %**
+   - **reste (small caps)** : palier 1 à **+6 %**, palier 2 à **+8 %** (laisser courir les pumps d'altsaison)
+3. **Je garde la position pour le cash** (chaque paire garde son propre cash pour se racheter elle-même)
+4. **Je ferme une partie, avec le cash j'attends le creux** (cash redéployé sur le prochain vrai dip)
+5. **Je laisse un runner** (les 50 % restants continuent ; à 2× ils deviennent bag maison)
+
+**Le vrai objectif :** faire des **plus-values** et surtout **limiter les pertes par rapport à un wallet statique** (si on n'avait rien touché). Le benchmark, c'est « Hulk vs wallet statique » — pas un indice, pas un trader.
+
+**Setup de référence (ce que représentent les chiffres) :**
+- `SEED_USDT=150 / SEED_MAX_PAIRS=15` → **10 $ par paire = les tokens DÉJÀ détenus** (crypto en portefeuille), vendables dès la première seconde (rip/stop actifs dès le seed).
+- `NOTIONAL_USDT=20` → **le cash dispo pour acheter les creux** (à part du seed).
+- Le seed **ne passe pas par le sizing** (tier B ×0.25 etc.) : c'est l'état initial du wallet, pas un achat. Les règles de sizing s'appliquent aux ACHATS, pas aux avoirs.
+
+**Priorités de Christophe (16/08) :** 1) plus-values + limiter la casse vs wallet statique — c'est le principal ; 2) prises de positions, runner, bags (déjà ajoutés).
+
+**Historique de calibrage :** le setup n'était pas correct avant le 16/08 (journée entière passée à corriger ACE). Les runs antérieurs au 16/08 soir **ne reflètent pas Hulk** — ne jamais calibrer dessus. Les vrais tests commencent le 16/08.
+
+---
+
 ## Idée marché
 
 Beaucoup de paires Hulk = **peu liquides** mais **gros spikes**.  

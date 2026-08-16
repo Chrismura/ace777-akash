@@ -426,6 +426,17 @@ class PaperBot:
         self.tier_b_spread_max = float(cfg.get("TIER_B_SPREAD_MAX_BPS", "100"))
         self.buy_spread_max = float(cfg.get("BUY_SPREAD_MAX_BPS", "100"))
         self.rip_sell_frac = float(cfg.get("RIP_SELL_FRAC", "0.50"))
+        # 16/08 soir (Christophe) : RIP scale-out 2 paliers — XRP/HBAR tôt (2%/6%), reste small caps (6%/8%)
+        self.rip_early_pairs = {
+            p.strip().upper()
+            for p in (cfg.get("RIP_EARLY_PAIRS") or "XRPUSDT,HBARUSDT").split(",")
+            if p.strip()
+        }
+        self.rip_early_p1 = float(cfg.get("RIP_EARLY_P1_PCT", "2.0"))
+        self.rip_early_p2 = float(cfg.get("RIP_EARLY_P2_PCT", "6.0"))
+        self.rip_late_p1 = float(cfg.get("RIP_LATE_P1_PCT", "6.0"))
+        self.rip_late_p2 = float(cfg.get("RIP_LATE_P2_PCT", "8.0"))
+        self.rip_scaleout_frac = float(cfg.get("RIP_SCALEOUT_FRAC", "0.25"))
         self.reentry_max = max(1, int(float(cfg.get("REENTRY_MAX", "1"))))
         self.reentry_count: dict[str, int] = {}
         # Bag de départ (test boucle bag dès le 1er jour) — 15/08 Christophe
@@ -802,6 +813,7 @@ class PaperBot:
         self.pos[pair] = {
             "entry": price,
             "qty": trade_qty,
+            "qty_init": trade_qty,
             "stake": trade_n,
             "ts": utc_now(),
             "regime": regime,
@@ -1058,21 +1070,28 @@ class PaperBot:
                 self.add_pair_cash(pair, proceeds)
                 return
 
-            # famille 16/08 : RIP — vendre le rebond (PLAN.md « Sell rip/spike ») une seule fois
-            rip_t = float(p.get("rip") or 2.0)
-            if chg >= rip_t and not p.get("rip_done"):
+            # 16/08 soir (Christophe) : RIP scale-out 2 paliers — « une pierre trois coups »
+            # XRP/HBAR (liquides) : P1=+2%, P2=+6% · reste (small caps) : P1=+6%, P2=+8%
+            # Chaque palier vend 25% de la quantité INITIALE → runner garde 50% pour le gros mouvement.
+            early = pair in self.rip_early_pairs
+            palier1 = self.rip_early_p1 if early else self.rip_late_p1
+            palier2 = self.rip_early_p2 if early else self.rip_late_p2
+            rip_step = int(p.get("rip_step") or 0)  # 0 = rien vendu, 1 = palier 1 vendu
+            rip_next = palier1 if rip_step == 0 else (palier2 if rip_step == 1 else None)
+            if rip_next is not None and chg >= rip_next:
                 rip_ok = True
                 if self.tier(pair) == "B":
                     inv_spread = float((self.inv.get(pair) or {}).get("spread_bps") or 0.0)
                     rip_ok = inv_spread <= self.tier_b_spread_max  # tier B illiquide : pas de rip si spread énorme
                 if rip_ok:
-                    p["rip_done"] = True
-                    sell_qty = qty * self.rip_sell_frac
+                    p["rip_step"] = rip_step + 1
+                    qty_init = float(p.get("qty_init") or qty)
+                    sell_qty = qty_init * self.rip_scaleout_frac  # 25% de la quantité INITIALE par palier
                     if sell_qty >= qty * 0.001:
                         proceeds = self.sell_trade(
                             pair,
                             price,
-                            f"rip_{chg:.1f}pct_sell_{self.rip_sell_frac*100:.0f}pct",
+                            f"rip_{chg:.1f}pct_palier{rip_step+1}_sell_{self.rip_scaleout_frac*100:.0f}pct",
                             qty=sell_qty,
                         )
                         self.add_pair_cash(pair, proceeds)
@@ -1234,6 +1253,7 @@ class PaperBot:
             self.pos[pair] = {
                 "entry": price,
                 "qty": trade_qty,
+                "qty_init": trade_qty,
                 "stake": trade_n,
                 "ts": utc_now(),
                 "regime": regime,
