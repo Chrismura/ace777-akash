@@ -234,7 +234,7 @@ def load_hulk():
         "file": None, "stateFile": None, "pnl": 0.0, "trades": 0,
         "notional": None, "base": None, "cash": None, "equity": None, "engaged": None,
         "fees": None, "feeRate": 0.0005, "feeTrades": 0,
-        "positions": [], "last": [], "bags": 0, "history": [],
+        "positions": [], "last": [], "bags": 0, "history": [], "skips": 0,
     }
     if state and state.exists():
         s = json.loads(state.read_text(encoding="utf-8"))
@@ -290,6 +290,7 @@ def load_hulk():
                 "uPnl": u_pnl,
                 "uPnlApprox": u_pnl,
                 "pnlPct": pnl_pct,
+                "move24": fnum(sc.get("move24_pct"), 2),
                 "opened": info.get("ts"),
                 "seed": bool(info.get("seed")),
                 "open": True,
@@ -335,6 +336,7 @@ def load_hulk():
                     "uPnl": None,
                     "uPnlApprox": None,
                     "pnlPct": fnum(sc.get("move24_pct"), 2),
+                    "move24": fnum(sc.get("move24_pct"), 2),
                     "opened": None,
                     "seed": False,
                     "open": False,
@@ -376,11 +378,18 @@ def load_hulk():
                         "reason": (row.get("reason") or "")[:60],
                     }
                 )
-        # Hulk CSV = événements réels uniquement (BUY + sorties) ; garder tout,
-        # sauf lignes vides. Sorties : SELL* / SELL_PARTIAL / STOP* / BAG_SELL / BAG_CRASH.
+        # Hulk CSV : on ne garde que les OPÉRATIONS RÉELLES (mouvement d'argent).
+        # BUY / SELL / STOP / BAG_* / DCA = opérations. Les SKIP (radar, cooldown,
+        # veille) sont des non-actions : exclues du journal pour ne pas noyer les
+        # ventes/achats sous le bruit.
         real = [r for r in rows if (r.get("event") or "").strip()]
-        out["last"] = list(reversed(real[-30:]))
-        out["history"] = list(reversed(real[-60:]))
+        trades = [
+            r for r in real
+            if (r.get("event") or "").upper().startswith(("BUY", "SELL", "STOP", "BAG", "DCA"))
+        ]
+        out["skips"] = len(real) - len(trades)
+        out["last"] = list(reversed(trades[-30:]))
+        out["history"] = list(reversed(trades[-200:]))
         out["tradesClosed"] = sum(
             1 for r in rows
             if (r.get("event") or "").upper().startswith(("SELL", "STOP", "BAG_SELL", "BAG_CRASH"))

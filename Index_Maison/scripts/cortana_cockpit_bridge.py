@@ -1485,6 +1485,34 @@ def do_declarer_modifs() -> dict:
             "msg": f"{len(maj)} fichier(s) déclaré(s) au registre (backup : {bak.name})."}
 
 
+def do_term(cmd: str) -> dict:
+    """Terminal BUFFY (cockpit) : exécute une commande shell locale (127.0.0.1).
+    Timeout 30 s · cwd = ROOT · sortie bornée · journalisée (append-only)."""
+    cmd = (cmd or "").strip()
+    if not cmd:
+        return {"ok": False, "error": "commande vide"}
+    if len(cmd) > 1000:
+        return {"ok": False, "error": "commande trop longue (max 1000 caractères)"}
+    ts = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+    try:
+        r = subprocess.run(
+            cmd, shell=True, cwd=str(ROOT), capture_output=True, text=True, timeout=30,
+        )
+        out, err, code = (r.stdout or ""), (r.stderr or ""), r.returncode
+    except subprocess.TimeoutExpired:
+        out, err, code = "", "⏱ TIMEOUT (30 s)", -1
+    except Exception as e:
+        out, err, code = "", str(e), -1
+    try:
+        log = ROOT / "Index_Maison" / "cockpit" / "buffy_terminal.log"
+        with open(log, "a", encoding="utf-8") as f:
+            f.write(f"\n=== {ts} ===\n$ {cmd}\n{out}{err}\n")
+    except Exception:
+        pass
+    return {"ok": code == 0, "cmd": cmd, "ts": ts, "code": code,
+            "out": out[-4000:], "err": err[-2000:]}
+
+
 class Handler(BaseHTTPRequestHandler):
     def _cors(self):
         self.send_header("Access-Control-Allow-Origin", "*")
@@ -1646,6 +1674,11 @@ class Handler(BaseHTTPRequestHandler):
             data = do_panic(mode, confirm)
             code = 200 if data.get("ok") else 400
             self._json(code, data)
+            return
+        if path == "/term":
+            body = self._read_json()
+            cmd = str(body.get("cmd") or "")
+            self._json(200, do_term(cmd))
             return
         self._json(404, {"ok": False, "error": "not found"})
 

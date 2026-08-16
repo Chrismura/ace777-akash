@@ -636,6 +636,12 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
 .card.hulk .hw-val .neu{color:#c5d0dc}
 .card.hulk .hulk-details-btn{margin-left:auto;background:#121a10;border:1px solid rgba(196,255,77,.5);color:var(--hulk);font-family:Orbitron,sans-serif;font-size:.58rem;letter-spacing:.1em;padding:3px 9px;border-radius:3px;cursor:pointer;transition:all .15s}
 .card.hulk .hulk-details-btn:hover{background:var(--hulk);color:#0a100c;box-shadow:0 0 10px rgba(196,255,77,.5)}
+.card.hulk.term .term-out{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.68rem;color:#b8e0b0;background:#060a06;border:1px solid rgba(196,255,77,.25);border-radius:4px;padding:8px 10px;height:130px;overflow-y:auto;white-space:pre-wrap;word-break:break-word;margin:6px 0}
+.card.hulk.term .term-row{display:flex;align-items:center;gap:6px}
+.card.hulk.term .term-prompt{color:var(--hulk);font-family:ui-monospace,Menlo,monospace;font-size:.72rem}
+.card.hulk.term .term-row input{flex:1;background:#0a100c;border:1px solid rgba(196,255,77,.4);color:#d8f0c8;font-family:ui-monospace,Menlo,monospace;font-size:.68rem;padding:6px 8px;border-radius:4px;outline:none}
+.card.hulk.term .term-row button{background:#121a10;border:1px solid rgba(196,255,77,.5);color:var(--hulk);font-family:Orbitron,sans-serif;font-size:.58rem;letter-spacing:.1em;padding:6px 12px;border-radius:4px;cursor:pointer}
+.card.hulk.term .term-row button:hover{background:var(--hulk);color:#0a100c}
 .hulk-modal{position:fixed;inset:0;z-index:320;background:rgba(3,5,4,.86);display:none;align-items:center;justify-content:center;backdrop-filter:blur(3px)}
 .hulk-modal.show{display:flex}
 .hulk-modal .hulk-modal-card{width:min(94vw,720px);max-height:86vh;overflow-y:auto;background:#0a100c;border:1px solid rgba(196,255,77,.4);border-radius:8px;padding:14px 16px;box-shadow:0 0 40px rgba(196,255,77,.15)}
@@ -1107,7 +1113,7 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
           <button type="button" id="btn-yeux" title="Cortana regarde l'écran (vision à la demande)">👁 REGARDER</button>
           <button type="button" id="btn-stop-alerte" style="border-color:var(--red);color:var(--red)" title="Arrêter l'alarme vocale en boucle (STOP_ALERTE)">⛔ ALARME</button>
           <button type="button" id="btn-declarer-modifs" title="Déclarer les modifs actuelles au registre veilleuse (backup auto)">✓ DÉCLARER MODIFS</button>
-          <button type="button" id="btn-ecoute" class="on" title="Couper / réactiver l'écoute du micro (barge-in)">🎤 ÉCOUTE</button>
+          <button type="button" id="btn-ecoute" class="on" title="Parler à Cortana (dictée vocale) — F5 = pareil">🎤 ÉCOUTE</button>
         </div>
         <div id="yeux-result" class="yeux-result" style="display:none"></div>
         <div class="chat-row">
@@ -1362,6 +1368,20 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
       <div class="hulk-jlegend">achat/vente · prix · qté · % · PnL · hold = si rien fait</div>
     </div>
 
+    <!-- TERMINAL BUFFY : commandes locales (réservé cockpit, 127.0.0.1) -->
+    <div class="card hulk term">
+      <div class="engine-head">
+        <h2>🖥 TERMINAL BUFFY</h2>
+        <span class="badge h">LOCAL 127.0.0.1 · TIMEOUT 30s</span>
+      </div>
+      <div class="term-out" id="term-out">$ prêt — tape une commande puis Entrée.</div>
+      <div class="term-row">
+        <span class="term-prompt">$</span>
+        <input type="text" id="term-input" placeholder="ex: ls runs/ · tail -3 hulk-mexc/runs/*.csv" autocomplete="off" spellcheck="false" />
+        <button type="button" id="term-run">RUN</button>
+      </div>
+    </div>
+
     <!-- HULK DÉTAILS : frais plateforme + hold % (modal) -->
     <div class="hulk-modal" id="hulk-modal" aria-hidden="true">
       <div class="hulk-modal-card">
@@ -1376,7 +1396,7 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
         <div class="hm-note" id="hm-ia">—</div>
         <div class="hm-sec">Si tu n'avais rien fait (buy & hold) — en %</div>
         <table>
-          <thead><tr><th>crypto</th><th>entrée</th><th>cours</th><th>hold %</th><th>uPnL $</th></tr></thead>
+          <thead><tr><th>crypto</th><th>départ</th><th>cours</th><th>hold %</th><th>24h %</th><th>uPnL $</th></tr></thead>
           <tbody id="hm-hold"></tbody>
         </table>
         <div class="hm-note" id="hm-summary">—</div>
@@ -1861,7 +1881,7 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
     if(list){
       const hist=(h.history&&h.history.length? h.history : h.last||[]);
       if(hn) hn.textContent='('+hist.length+')';
-      list.innerHTML=hist.slice(0,30).map(r=>{
+      list.innerHTML=hist.slice(0,100).map(r=>{
         const ev=(r.event||'').toUpperCase();
         const crypto=r.crypto||r.pair||'';
         const isBuy=ev==='BUY'||ev.startsWith('BAG_BUY')||ev.startsWith('DCA');
@@ -2870,28 +2890,33 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
     const fn=document.getElementById('hm-fees-note');
     if(fn) fn.textContent = 'Taux taker MEXC spot '+(rate*100).toFixed(2)+'% · '+(h.feeTrades||0)+' opération(s) · estimé — le moteur paper ne déduit pas encore les frais.';
     const rows=(h.portfolio&&h.portfolio.length)? h.portfolio : (h.positions||[]);
-    const openRows=rows.filter(p=>(p.status||'').toUpperCase()==='TRADE'||(p.status||'').toUpperCase()==='BAG'||p.open===true);
+    const isOpen=p=>((p.status||'').toUpperCase()==='TRADE'||(p.status||'').toUpperCase()==='BAG'||p.open===true);
+    const openRows=rows.filter(isOpen);
     const tbody=document.getElementById('hm-hold');
     let uSum=0;
     if(tbody){
-      tbody.innerHTML=openRows.map(p=>{
+      tbody.innerHTML=rows.map(p=>{
+        const open=isOpen(p);
         const u=p.uPnl!=null?p.uPnl:p.uPnlApprox;
-        if(u!=null&&!isNaN(u)) uSum+=Number(u);
-        const pct=p.pnlPct;
+        if(open&&u!=null&&!isNaN(u)) uSum+=Number(u);
+        const holdPct=open?p.pnlPct:null;   // hold = depuis l'entrée (si position ouverte)
+        const m24=p.move24;                 // % marché 24h (toutes les cryptos)
+        const depart=open?p.entry:(p.mark!=null?p.mark:p.high);  // niveau de départ = entrée (ouvert) ou cours actuel (suivi)
         return '<tr>'+
           '<td>'+(p.crypto||p.pair||'')+'</td>'+
-          '<td>'+fmtP(p.entry,6)+'</td>'+
+          '<td>'+(depart!=null?fmtP(depart,6):'—')+'</td>'+
           '<td>'+fmtP(p.mark||p.high,6)+'</td>'+
-          '<td class="'+cls(pct)+'">'+(pct!=null?fmt(pct,2)+'%':'—')+'</td>'+
+          '<td class="'+cls(holdPct)+'">'+(holdPct!=null?fmt(holdPct,2)+'%':'—')+'</td>'+
+          '<td class="'+cls(m24)+'">'+(m24!=null?fmt(m24,1)+'%':'—')+'</td>'+
           '<td class="'+cls(u)+'">'+(u!=null?fmt(u,4):'—')+'</td>'+
         '</tr>';
-      }).join('') || '<tr><td colspan="5" style="color:var(--muted);text-align:left">aucune position ouverte</td></tr>';
+      }).join('') || '<tr><td colspan="6" style="color:var(--muted);text-align:left">aucun univers paper</td></tr>';
     }
     const sumEl=document.getElementById('hm-summary');
     if(sumEl){
       const realized=h.pnl||0;
       const closed=h.tradesClosed||0;
-      sumEl.textContent = 'Tenir sans rien faire ('+openRows.length+' position(s)) ≈ '+fmt(uSum,4)+'$ · le bot a déjà réalisé '+fmt(realized,2)+'$ ('+closed+' clôture(s)).';
+      sumEl.textContent = 'Portefeuille complet ('+rows.length+' cryptos) · tenir sans rien faire ('+openRows.length+' position(s)) ≈ '+fmt(uSum,4)+'$ · le bot a déjà réalisé '+fmt(realized,2)+'$ ('+closed+' clôture(s)).';
     }
     const iaEl=document.getElementById('hm-ia');
     if(iaEl){
@@ -3316,19 +3341,90 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
   document.getElementById('btn-voix')?.addEventListener('click', ()=>demanderVoix());
   document.getElementById('btn-parler')?.addEventListener('click', ()=>demanderVoix());
 
-  // --- ÉCOUTE : couper / réactiver le micro (barge-in) via le bridge ---
+  // --- 🎤 DICTÉE VOCALE : parler à Cortana (voix → texte → chat) — bouton ÉCOUTE ou F5 ---
+  // Brave/Chrome : Web Speech API (webkitSpeechRecognition) → transcription → /chat.
+  // Le pont /ecoute (barge-in = couper la parole de Cortana en parlant) reste intact.
   const btnEcoute = document.getElementById('btn-ecoute');
-  function majEcoute(etat){
+  const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+  let reco = null, recoOn = false;
+  function majEcoute(on){
     if(!btnEcoute) return;
-    if(etat){ btnEcoute.classList.add('on'); btnEcoute.textContent = '🎤 ÉCOUTE'; }
-    else    { btnEcoute.classList.remove('on'); btnEcoute.textContent = '🎤 COUPÉ'; }
+    if(on){ btnEcoute.classList.add('on'); btnEcoute.textContent = "🎤 J'ÉCOUTE…"; }
+    else  { btnEcoute.classList.remove('on'); btnEcoute.textContent = '🎤 ÉCOUTE'; }
   }
-  try{ fetch(BRIDGE+'/ecoute', {cache:'no-store'})
-    .then(r=>r.json()).then(d=>majEcoute(d.ecoute)).catch(()=>{}); }catch(e){}
-  btnEcoute?.addEventListener('click', ()=>{
-    try{ fetch(BRIDGE+'/ecoute', {method:'POST', cache:'no-store'})
-      .then(r=>r.json()).then(d=>majEcoute(d.ecoute)).catch(()=>{}); }catch(e){}
+  function arreterDictee(){
+    recoOn = false;
+    if(reco){ try{ reco.stop(); }catch(e){} }
+    majEcoute(false);
+  }
+  function demarrerDictee(){
+    if(!SR){
+      if(bubble) bubble.textContent = "🎤 Dictée non supportée ici — écris dans « Pose ta question à Cortana… »";
+      return;
+    }
+    if(recoOn){ arreterDictee(); return; }
+    try{
+      reco = new SR();
+      reco.lang = 'fr-FR';
+      reco.continuous = false;
+      reco.interimResults = false;
+      reco.maxAlternatives = 1;
+      recoOn = true;
+      majEcoute(true);
+      if(bubble) bubble.textContent = "🎤 Je t'écoute… parle maintenant.";
+      reco.onresult = (e)=>{
+        let t = '';
+        if(e.results && e.results[0] && e.results[0][0]) t = e.results[0][0].transcript || '';
+        t = t.trim();
+        if(t){
+          const inp = document.getElementById('chat-input');
+          if(inp) inp.value = t;
+          if(bubble) bubble.textContent = '🎤 « ' + t + ' »';
+          sendChat();
+        }
+        arreterDictee();
+      };
+      reco.onerror = (e)=>{
+        if(e.error === 'not-allowed' || e.error === 'service-not-allowed'){
+          if(bubble) bubble.textContent = '🎤 Micro refusé — autorise le micro pour Brave, ou écris dans le champ chat.';
+        } else if(e.error !== 'aborted'){
+          if(bubble) bubble.textContent = '🎤 Micro indisponible (' + (e.error || '?') + ').';
+        }
+        arreterDictee();
+      };
+      reco.onend = ()=>{ recoOn = false; majEcoute(false); };
+      reco.start();
+    }catch(err){
+      recoOn = false; majEcoute(false);
+      if(bubble) bubble.textContent = '🎤 Erreur micro : ' + err;
+    }
+  }
+  btnEcoute?.addEventListener('click', demarrerDictee);
+  // F5 = dictée (promis dans l'en-tête) — on bloque le refresh navigateur
+  document.addEventListener('keydown', e=>{
+    if(e.key === 'F5'){ e.preventDefault(); demarrerDictee(); }
   });
+
+  // --- TERMINAL BUFFY : commande locale via pont /term (127.0.0.1) ---
+  const termInput=document.getElementById('term-input');
+  const termOut=document.getElementById('term-out');
+  const termRun=document.getElementById('term-run');
+  async function runTerm(){
+    const q=(termInput?termInput.value:'').trim();
+    if(!q) return;
+    if(termOut) termOut.textContent='$ '+q+'\n… en cours';
+    try{
+      const r=await fetch(BRIDGE+'/term',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({cmd:q}),cache:'no-store'});
+      const j=await r.json();
+      const txt=(j.out||'')+(j.err?('\n'+j.err):'')||'(aucune sortie)';
+      if(termOut) termOut.textContent='$ '+q+'\n'+txt;
+    }catch(e){
+      if(termOut) termOut.textContent='$ '+q+'\n✘ pont éteint — terminal indisponible';
+    }
+    if(termInput) termInput.value='';
+  }
+  termRun?.addEventListener('click', runTerm);
+  termInput?.addEventListener('keydown', e=>{ if(e.key==='Enter') runTerm(); });
 
   // --- YEUX DE CORTANA : vision à la demande (bouton 👁) ---
   document.getElementById('btn-yeux')?.addEventListener('click', () => {
