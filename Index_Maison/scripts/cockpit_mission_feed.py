@@ -545,6 +545,7 @@ def main() -> int:
             "liq24Usd": thermo.get("liq24Usd"),
             "etf": thermo.get("etf") or {},
             "btcDominance": thermo.get("btcDominance"),
+            "onchain": thermo.get("onchain") or {},  # scan baleines RÉEL (mempool) + CPFP
             "indicators": {
                 k: thermo.get("indicators", {}).get(k)
                 for k in ("D26", "D27", "D28", "D29", "D30", "D31", "D32")

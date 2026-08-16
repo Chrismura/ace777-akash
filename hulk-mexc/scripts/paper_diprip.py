@@ -459,8 +459,14 @@ class PaperBot:
         self.aspiration_delay_s = float(cfg.get("ASPIRATION_DELAY_S", "0.5"))
         self.aspiration_min_notional = float(cfg.get("ASPIRATION_MIN_NOTIONAL_USDT", "500"))
         # Probe toutes les N cycles (rate-limit MEXC ~200 req/min) + max paires actives par probe
-        self.aspiration_probe_every = max(1, int(float(cfg.get("ASPIRATION_PROBE_EVERY", "3"))))
+        self.aspiration_probe_every = max(1, int(float(cfg.get("ASPIRATION_PROBE_EVERY", "1"))))
         self.aspiration_max_pairs = max(1, int(float(cfg.get("ASPIRATION_MAX_PAIRS", "5"))))
+        # Seuil spoof (%/s) — 15% est une valeur de départ, à CALIBRER sur les données 48h
+        self.aspiration_spoof_drop = float(cfg.get("ASPIRATION_SPOOF_DROP_PCT_S", "15"))
+        # Corrélation BTC (16/08 Christophe) : BTCUSDT lu 1× par probe, stocké à côté de
+        # chaque mesure → dans 48h, séparer « vrai signal » de « bruit entraîné par BTC »
+        self.btc_price: float = 0.0
+        self.btc_prev: float = 0.0
         self.aspiration: dict[str, dict] = {}  # dernière mesure par paire (radar + calibration)
         self.aspiration_prev: dict[str, dict] = {}  # lecture précédente (détection spoof « rétractable »)
         ts = datetime.now(timezone.utc).strftime("%Y%m%d_%H%M%S")
@@ -472,7 +478,8 @@ class PaperBot:
                         "ts", "pair", "regime", "asp_side", "drop_bid_pct_per_s",
                         "drop_ask_pct_per_s", "max_drop_pct_per_s", "spread_bps",
                         "spread_delta_bps", "wall_bid_usdt", "wall_ask_usdt",
-                        "notional_ok", "spoof", "delay_s", "price",
+                        "notional_ok", "spoof", "price_delta_pct", "btc_price",
+                        "btc_delta_pct", "delay_s", "price",
                     ]
                 )
         # Seed inventaire au boot (réalisme vente / marché baissier)
@@ -599,6 +606,15 @@ class PaperBot:
         ]
         if not active:
             return
+        # BTC 1× par probe (pas par paire) — corrélation avec les signaux
+        try:
+            self.btc_prev = self.btc_price
+            self.btc_price = last_price("BTCUSDT")
+        except Exception:
+            pass
+        btc_delta_pct = 0.0
+        if self.btc_prev > 0 and self.btc_price > 0:
+            btc_delta_pct = (self.btc_price - self.btc_prev) / self.btc_prev * 100.0
         active = active[: self.aspiration_max_pairs]
         for pair in active:
             try:
@@ -628,7 +644,7 @@ class PaperBot:
                 abs(float(a.get("drop_bid_pct_per_s") or 0)),
                 abs(float(a.get("drop_ask_pct_per_s") or 0)),
             )
-            if prev and drop_now >= 15.0:
+            if prev and drop_now >= self.aspiration_spoof_drop:
                 side = a.get("aspiration_side")
                 if side == "BUY":
                     w_prev, w_now = prev.get("wall_ask_usdt", 0), float(a.get("wall_ask_usdt") or 0)
@@ -649,18 +665,26 @@ class PaperBot:
             a["price"] = price
             a["regime"] = (self.scores.get(pair) or {}).get("regime", "?")
             self.aspiration[pair] = a
-            # calibration CSV (mode observation 48h — c'est LÀ qu'on calibre le seuil)
-            with self.aspiration_csv.open("a", newline="") as f:
-                csv.writer(f).writerow(
-                    [
-                        utc_now(), pair, a["regime"], a.get("aspiration_side"),
-                        a.get("drop_bid_pct_per_s"), a.get("drop_ask_pct_per_s"),
-                        a.get("max_drop_pct_per_s"), a.get("spread_bps"),
-                        a.get("spread_delta_bps"), a.get("wall_bid_usdt"),
-                        a.get("wall_ask_usdt"), a.get("notional_drop_ok"),
-                        spoof, a.get("delay_s"), price,
-                    ]
-                )
+            # calibration CSV — try/except + flush (check-up : ne pas mourir en silence
+            # si le fichier est verrouillé, et ne pas perdre les dernières lignes au crash)
+            try:
+                with self.aspiration_csv.open("a", newline="") as f:
+                    w = csv.writer(f)
+                    w.writerow(
+                        [
+                            utc_now(), pair, a["regime"], a.get("aspiration_side"),
+                            a.get("drop_bid_pct_per_s"), a.get("drop_ask_pct_per_s"),
+                            a.get("max_drop_pct_per_s"), a.get("spread_bps"),
+                            a.get("spread_delta_bps"), a.get("wall_bid_usdt"),
+                            a.get("wall_ask_usdt"), a.get("notional_drop_ok"),
+                            spoof, a.get("price_delta_pct"),
+                            round(self.btc_price, 2), round(btc_delta_pct, 4),
+                            a.get("delay_s"), price,
+                        ]
+                    )
+                    f.flush()
+            except Exception as e:
+                say("err", f"[asp] CSV_WRITE_ERR {pair}: {e}")
             if not a.get("partial"):
                 say(
                     "score",

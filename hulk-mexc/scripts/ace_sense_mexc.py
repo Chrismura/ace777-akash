@@ -101,7 +101,7 @@ def aspiration_sense(
         wall_bid = max((p * q_ for p, q_ in bids), default=0.0)
         wall_ask = max((p * q_ for p, q_ in asks), default=0.0)
         return {
-            "ok": True, "spread_bps": spread_bps,
+            "ok": True, "spread_bps": spread_bps, "mid": mid,
             "wall_bid_usdt": wall_bid, "wall_ask_usdt": wall_ask,
         }
 
@@ -125,7 +125,8 @@ def aspiration_sense(
     def _drop(m1: float, m2: float) -> float:
         if m1 <= 0:
             return 0.0
-        return (m1 - m2) / m1 * 100.0
+        # jamais négatif (correction GEMINI/JUGE check-up) : mur qui GROSSIT ≠ fonte
+        return max(0.0, (m1 - m2) / m1 * 100.0)
 
     drop_bid = _drop(d1["wall_bid_usdt"], d2["wall_bid_usdt"])
     drop_ask = _drop(d1["wall_ask_usdt"], d2["wall_ask_usdt"])
@@ -142,6 +143,11 @@ def aspiration_sense(
 
     spread_delta_bps = d2["spread_bps"] - d1["spread_bps"]
 
+    # GROK (check-up) : mouvement du prix entre les 2 lectures → corréler aspiration
+    # et move réel dans le CSV de calibration (c'est ça qui dira si la sonde prédit bien)
+    mid1, mid2 = float(d1.get("mid") or 0.0), float(d2.get("mid") or 0.0)
+    price_delta_pct = (mid2 - mid1) / mid1 * 100.0 if mid1 > 0 else 0.0
+
     # correction JUGE : volume absolu min — un mur < min_notional = bruit, pas aspiration
     ref_wall = d1["wall_ask_usdt"] if aspiration_side == "BUY" else d1["wall_bid_usdt"]
     notional_drop_ok = ref_wall >= min_notional_usdt
@@ -155,13 +161,13 @@ def aspiration_sense(
         "drop_ask_pct": round(drop_ask, 2),
         "drop_bid_pct_per_s": round(drop_bid_per_s, 2),
         "drop_ask_pct_per_s": round(drop_ask_per_s, 2),
-        "max_drop_pct_per_s": round(max_drop_per_s, 2),
-        "aspiration_side": aspiration_side,
-        "wall_bid_usdt": round(d1["wall_bid_usdt"], 2),
-        "wall_ask_usdt": round(d1["wall_ask_usdt"], 2),
-        "notional_drop_ok": notional_drop_ok,
-        "delay_s": round(dt, 3),
-    }
+        "max_drop_pct_per_s": round(max_drop_per_s, 2),            "aspiration_side": aspiration_side,
+            "wall_bid_usdt": round(d1["wall_bid_usdt"], 2),
+            "wall_ask_usdt": round(d1["wall_ask_usdt"], 2),
+            "notional_drop_ok": notional_drop_ok,
+            "price_delta_pct": round(price_delta_pct, 4),
+            "delay_s": round(dt, 3),
+        }
 
 
 def tension_score(move6_pct: float, cadence_pct: float, dd6_pct: float = 0.0) -> float:
