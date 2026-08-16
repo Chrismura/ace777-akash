@@ -7,12 +7,12 @@
 | | Check | Détail |
 |---|--------|--------|
 | ✅ | Mode | FROID (auto) |
-| ✅ | Horodatage | 2026-08-16T07:50 local · 2026-08-16T05:50Z UTC |
+| ✅ | Horodatage | 2026-08-16T08:05 local · 2026-08-16T06:05Z UTC |
 | ❌ | Champion | md5=`95d93d508c030c5718550096e966a929` |
 | ✅ | ACE | OFF (attendu froid) |
 | ✅ | Hulk | OFF (attendu froid) |
 | ⚠️ | Ollama | ON — OK si veille |
-| ❌ | RAM | ~120 Mo CRITIQUE |
+| ⚠️ | RAM | ~205 Mo (tight) |
 
 ## Que faire
 
@@ -23,4 +23,4 @@
 Voir [[AUTO_PROCESSUS]] — ce pulse = couche **veille machine**, pas trading.
 
 ---
-_généré 2026-08-16T05:50Z · script `pulse_sous_loeil.sh`_
+_généré 2026-08-16T06:05Z · script `pulse_sous_loeil.sh`_
