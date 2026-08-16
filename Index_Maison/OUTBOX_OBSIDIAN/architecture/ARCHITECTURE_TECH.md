@@ -53,10 +53,80 @@ open ~/ace777-test-day1/Index_Maison/architecture/tech.html
 
 **No single `main.py`.**
 
+---
+
+## 1b. Utiliser les personnages IA (famille · juge · codeur · Cortana) — guide pratique
+
+> ⚠️ Règle d'or (16/08, gravée) : **tout passe par le hub `:11435` via le `task` officiel** — jamais de modèles en dur, jamais de LLM local (C9). Le hub route par personnage, injecte le contexte vivant, applique le budget et l'anti-tempête.
+
+### Les personnages et leur canal (`task`)
+
+| Personnage | Task (canal hub) | Prompt system (gravé) | Rôle |
+|---|---|---|---|
+| **GEMINI** | `gemini.analyse` | « Auditeur en chef — angles morts, structure » | L'analyste qui voit ce qui manque |
+| **DEEPSEEK** | `deepseek.analyse` | « Critique factuel — preuves, contre-exemples » | Refuse les conclusions non étayées |
+| **JUGE** | `juge.tranche` | « Tranche formellement : GO / GO AVEC RESERVES / NON » | Le verdict formel |
+| **ULTRA** | `inferx.analyse` | « Robustesse à l'échelle — prod, tempête, charge » | Ce qui casse en réel |
+| **INFERX** | `inferx.analyse` | « Logique interne — flux, garde-fous, pièges » | Le code au microscope |
+| **GROK** | `puter-grok.analyse` | « Pragmatique — ce qui casse en conditions réelles » | Le démon 24/7 |
+| **CODEUR** | `code.ia` | « Écrit et vérifie le code — factuel, refuse la fiction » | Produit le code (chaîne provider/fallback/secondary) |
+| **CORTANA** | `cortana.analyse` | « ADVISORY — propose, n'applique jamais rien » | L'analyste-maîtresse, voix |
+
+### La CLAUSE PERMANENTE (gravée 16/08, dans TOUS les prompts)
+
+> « Ne te contente PAS de corriger ou de valider : si tu proposes AUTRE CHOSE (approche différente, autre architecture, autre unité) ou une AMÉLIORATION qui a du sens, dis-le explicitement. Corriger n'est pas suffisant : proposer est attendu. »
+
+Elle est injectée dans le `system` de chaque appel par les scripts de consultation (`scripts/consulter_*.py`, `scripts/checkup_*.py`) — plus besoin de la répéter manuellement.
+
+### Le pattern d'une consultation (protocole maison)
+
+```python
+# 1. Le payload : task = personnage officiel (JAMAIS model en dur)
+payload = {
+    "task": "juge.tranche",            # ou gemini.analyse / code.ia / cortana.analyse…
+    "messages": [
+        {"role": "system", "content": SYSTEM_PERSONNAGE + "\n\n" + CLAUSE},
+        {"role": "user", "content": CONTEXTE},   # le brief : faits, code exact, questions
+    ],
+    "max_tokens": 1400,
+    "temperature": 0.3,
+}
+# 2. POST http://127.0.0.1:11435/v1/chat/completions
+# 3. Réponse → OUT = scripts/AVIS_<NOM>.md (ou CONSULTATION_*/)
+```
+
+### Le circuit famille (exemple réel : sonde aspiration, 16/08)
+
+```
+Buffy (superviseur) construit le brief (faits + code + questions)
+    → consulter_famille_*.py : 6 membres (GEMINI, DEEPSEEK, JUGE, ULTRA, INFERX, GROK)
+    → consulter_codeur : task code.ia (le codeur écrit/vérifie le code)
+    → consulter_cortana : task cortana.analyse (ADVISORY)
+    → synthèse Buffy → GO/GO-RÉSERVES/NON consolidé → décision avec Christophe
+```
+
+**Règles** :
+- Le JUGE tranche formellement, la famille trouve les angles morts, le codeur vérifie le code réel (jamais la fiction).
+- Consulter AUX BESOINS, jamais en spam (anti-double : 5 min minimum entre 2 consultations).
+- Une consultation = des AVIS dans un dossier `CONSULTATION_*/` + une synthèse écrite.
+- **maker ≠ checker** : le JUGE vérifie ce que le codeur produit.
+
+### Scripts de référence (copier le pattern)
+
+| Script | Ce qu'il fait |
+|---|---|
+| `Index_Maison/scripts/consulter_famille_*.py` | 6 personnages famille via tasks officiels |
+| `hulk-mexc/scripts/consulter_codeur_*.py` | Codeur via `task: code.ia` |
+| `hulk-mexc/scripts/consulter_cortana_*.py` | Cortana via `task: cortana.analyse` |
+| `hulk-mexc/scripts/checkup_codeur_*.py` | Check-up post-implémentation (code réel envoyé) |
+
+**No single `main.py`.**
+
 ### Changelog (anti stale review)
 
 | When | Landed | Reviewer note |
 |------|--------|---------------|
+| **2026-08-16** | **Guide personnages IA §1b** (tasks officiels hub, clause permanente, circuit famille, scripts de référence) · sonde aspiration Hulk (observation 48h, corrélation BTC) · boucle baleines complétée (plist pont-onchain) · carte ONCHAIN cockpit · chantier schéma des index · check-up codeur+famille 7/7 GO-RÉSERVES | C9/C10 appliqués · clause permanente dans tous les prompts |
 | **2026-08-12** | **Hub cloud seule passerelle LLM** (pont `11439` pour gate trades, preuve `llm_wind` 12/08, run 4h comparaison hub vs Ollama) · vigie temps réel · analyste · ADA gardienne (voilure + alarme progressive) · journal d'intention · fiches offres IA (quota 8/j) · signets lecture IA (quota 15/j) · Cortana V2 (oral_fr, barge_in, yeux, consultation famille) · onglet stratégie cockpit · point de reprise `POINT_REPRISE_DERNIER.md` | Do **not** review as 31-juil. only — C9/C10 + lane WARM élargie |
 | 2026-07-31 | `session_debut`/`session_fin` · cockpit app · portfolio HUD · Hulk seed 2×10$ · speak-simple rule · bridge anti-double-bind · thermo last-good | Do not review as 30-juil. only |
 | 2026-07-30 | tech.html + Kimi KEEP-WITH-FIXES · C7/C8 · veille atomic | Constraints still bind |

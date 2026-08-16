@@ -52,6 +52,7 @@ Intégration cockpit (2 lignes dans index.html) · passage au réel · cumul des
 
 | ts | Qui | Action | Où | Quoi |
 |----|-----|--------|-----|------|
+| 2026-08-16T2216Z | journal_auto | ★ | CONSOLE+Journal_2026-08-17 | Snapshot auto hygiène soir |
 | 2026-08-16T1853Z | journal_soir | ★ | journal | snapshot soir auto |
 | 2026-08-16T1853Z | journal_auto | ★ | CONSOLE+Journal_2026-08-16 | Snapshot auto hygiène soir |
 | 2026-08-15T1853Z | journal_soir | ★ | journal | snapshot soir auto |
@@ -100,6 +101,26 @@ Intégration cockpit (2 lignes dans index.html) · passage au réel · cumul des
 ~ 21:45Z — Module surveillance baleines actif. Panneaux cockpit prêts mais désactivés (intégration ENSEMBLE).
 
 ~ 21:50Z — Run test 8h de nuit détaché + veille nuit. Rapport `REVEIL_2026-08-15.md`. GitHub : 4b5af0e5 + b177c4db + 103f65d8.
+
+## ~ 2026-08-16 — SOIR (Hulk : aspiration + baleines + index)
+
+~ 19:08Z — Hulk relancé (run `PAPER_V1_20260816_190818`), seed 15×10$ = le portefeuille ENTIER (tokens déjà détenus, vendables) + 20$ cash. Philosophie gravée dans README + SCHEMA_HULK : small caps = projets étudiés, on fait grandir le bag en tradant les tokens eux-mêmes (« une pierre trois coups »).
+
+~ 20:09Z — RIP scale-out 2 paliers implémenté (GO Christophe) : XRP/HBAR 2%/6%, reste 6%/8%, 25% par palier de la quantité initiale → runner 50%. Restart via watchdog (PID 84550 puis relances propres).
+
+~ 20:50Z — **Sonde aspiration** (inspiration ACE V8, métaphores bassine/verre d'eau/vortex) : double lecture du carnet, mode OBSERVATION 48h, fail-open, spoof « rétractable à maintenant » (GO Christophe, pas de ban 15 min). CSV calibration `runs/ASPIRATION_CALIB_*.csv`.
+
+~ 21:50Z — Check-up codeur + famille **7/7 GO-AVEC-RÉSERVES** (flush CSV, drop max(0), seuil spoof configurable, price_delta_pct de GROK). **Clause permanente gravée** dans les 7 scripts de consultation : « propose autre chose / améliore, pas seulement corrige ».
+
+~ 22:00Z — Corrélation BTC ajoutée à la sonde (BTCUSDT lu à chaque probe, loggé à côté de chaque mesure) — filtre naturel : signal small caps débarrassé de la marée BTC. Sonde à CHAQUE cycle (3× plus de données).
+
+~ 22:10Z — **Boucle baleines complétée** : `pont_onchain.py` n'était lancé par AUCUNE plist → plist `com.ace777.pont-onchain` créée + chargée (5 min). Scan → pont → live.json.onchain → Ada saison + gardienne + Cortana. Carte **ONCHAIN** ajoutée au cockpit THERMO.
+
+~ 23:00Z — Instrument trouvé : `ada_saison.py` (6 indices → alignement → SAISON). Schéma de tous les index : `CHANTIER_SCHEMA_INDEX_2026-08-16.md` + 7ᵉ indice proposé « bassin Hulk » (sonde agrégée, format identique aux 6 d'Ada).
+
+~ 00:15Z (17/08) — Guide **§1b « Utiliser les personnages IA »** ajouté à `ARCHITECTURE_TECH.md` (tasks officiels hub, clause permanente, circuit famille, scripts de référence). Sauvegarde Obsidian + GitHub en cours.
+
+**POINT DE REPRISE 17/08 matin** : 1) regarder `runs/ASPIRATION_CALIB_*.csv` (48h d'observation aspiration, avec price_delta + btc_delta) — la sonde prédit-elle les moves ? 2) si justesse > 60% → brancher le 7ᵉ indice « bassin Hulk » dans ada_saison.py (ombre d'abord) ; 3) CPFP (detecter_cpfp.py) fin de validation 7 jours → actif → visible dans la carte ONCHAIN ; 4) famille à consulter avant toute activation. Règles : on améliore on dégrade pas, preuve réelle avant correction, tout passe par famille/juge, Buffy supervise.
 
 ## ~ 2026-08-15 — MATIN (point + analyse)
 
