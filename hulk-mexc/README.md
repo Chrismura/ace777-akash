@@ -80,6 +80,11 @@ rm -f STOP_PAPER
 python3 scripts/paper_diprip.py
 # Au boot : SEED ~20$ en tokens (config SEED_*) pour tester aussi les VENTES baissières.
 
+# Sonde aspiration (16/08) — MODE OBSERVATION 48h :
+# double lecture du carnet (inspiration ACE V8) sur les paires actives → log + radar +
+# runs/ASPIRATION_CALIB_*.csv. ZÉRO effet sur les entrées pendant l'observation.
+# (aspiration_sense dans ace_sense_mexc.py · config ASPIRATION_* dans defaults.env)
+
 # 3) Veille — AUTRE terminal (PISTE B) — LIVE direct (pas de pause 60s)
 python3 scripts/digest_watch.py --live
 # enchaîne les scans ; écrit ALERT seulement si signal nouveau

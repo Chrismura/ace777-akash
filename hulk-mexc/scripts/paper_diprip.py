@@ -25,7 +25,7 @@ from typing import Optional
 
 # capteurs F1-like (module local Hulk — pas ACE genesis)
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from ace_sense_mexc import book_sense, entry_gate, tension_score  # noqa: E402
+from ace_sense_mexc import aspiration_sense, book_sense, entry_gate, tension_score  # noqa: E402
 from veille_gates import entry_gate_check, record_stop, veille_stale  # noqa: E402
 from cortana_contract import process_pilot  # noqa: E402
 
@@ -452,6 +452,29 @@ class PaperBot:
         self.cortana_applied: dict = {}
         self.sense_on = cfg.get("SENSE_ON", "1").strip() not in ("0", "false", "False")
         self.vol_spike_min_small = float(cfg.get("VOL_SPIKE_MIN_SMALL", "1.5"))
+        # === Sonde aspiration (16/08, mode OBSERVATION 48h — zéro effet sur les entrées) ===
+        # Consensus codeur 4/4 + famille 6/6 + Cortana : double lecture du carnet (pattern V8 ACE),
+        # log + radar + calibration CSV, SANS agir sur le moteur. Fail-open sur timeout MEXC.
+        self.aspiration_on = cfg.get("ASPIRATION_ON", "1").strip() not in ("0", "false", "False")
+        self.aspiration_delay_s = float(cfg.get("ASPIRATION_DELAY_S", "0.5"))
+        self.aspiration_min_notional = float(cfg.get("ASPIRATION_MIN_NOTIONAL_USDT", "500"))
+        # Probe toutes les N cycles (rate-limit MEXC ~200 req/min) + max paires actives par probe
+        self.aspiration_probe_every = max(1, int(float(cfg.get("ASPIRATION_PROBE_EVERY", "3"))))
+        self.aspiration_max_pairs = max(1, int(float(cfg.get("ASPIRATION_MAX_PAIRS", "5"))))
+        self.aspiration: dict[str, dict] = {}  # dernière mesure par paire (radar + calibration)
+        self.aspiration_prev: dict[str, dict] = {}  # lecture précédente (détection spoof « rétractable »)
+        ts = datetime.now(timezone.utc).strftime("%Y%m%d_%H%M%S")
+        self.aspiration_csv = RUNS / f"ASPIRATION_CALIB_{ts}.csv"
+        if self.aspiration_on:
+            with self.aspiration_csv.open("w", newline="") as f:
+                csv.writer(f).writerow(
+                    [
+                        "ts", "pair", "regime", "asp_side", "drop_bid_pct_per_s",
+                        "drop_ask_pct_per_s", "max_drop_pct_per_s", "spread_bps",
+                        "spread_delta_bps", "wall_bid_usdt", "wall_ask_usdt",
+                        "notional_ok", "spoof", "delay_s", "price",
+                    ]
+                )
         # Seed inventaire au boot (réalisme vente / marché baissier)
         self.seed_on = cfg.get("SEED_ON", "0").strip() not in ("0", "false", "False")
         self.seed_usdt = float(cfg.get("SEED_USDT", "20"))
@@ -552,6 +575,100 @@ class PaperBot:
             cfg["SENSE_STRICT_TENSION"] = "0"
         ok, why = entry_gate(sense, tens, cfg, tier=tier, allow_wide_spike=allow_wide)
         return ok, why
+
+    def probe_aspiration(self, n_cycle: int):
+        """
+        Sonde aspiration — MODE OBSERVATION (décision famille/codeur/Cortana 16/08).
+
+        Double lecture du carnet (pattern V8 ACE : RADAR → FENÊTRE → MUR → ASPIRATION) sur
+        les paires ACTIVES (régime COOLING/IMPULSE) seulement, max ASPIRATION_MAX_PAIRS par
+        probe, toutes les ASPIRATION_PROBE_EVERY cycles (rate-limit MEXC).
+
+        ZÉRO effet sur le moteur : on log + on remplit self.aspiration (radar) + CSV de
+        calibration. Le spoof est « rétractable à maintenant » (décision Christophe 16/08) :
+        mur fond puis reconstruit → spoof pour CETTE lecture, réévalué à chaque échantillon
+        (debounce, pas de ban — pas de timer 15 min).
+        """
+        if not self.aspiration_on or n_cycle % self.aspiration_probe_every != 0:
+            return
+        # paires actives : COOLING / IMPULSE (prêtes à trader) — pas les WATCH/QUIET
+        active = [
+            p
+            for p in self.pairs
+            if (self.scores.get(p) or {}).get("regime") in ("COOLING", "IMPULSE")
+        ]
+        if not active:
+            return
+        active = active[: self.aspiration_max_pairs]
+        for pair in active:
+            try:
+                price = last_price(pair)
+            except Exception:
+                price = 0.0
+            try:
+                a = aspiration_sense(
+                    pair,
+                    http_json,
+                    delay_s=self.aspiration_delay_s,
+                    min_notional_usdt=self.aspiration_min_notional,
+                )
+            except Exception as e:
+                # fail-open : jamais de blocage, on garde la lecture précédente
+                a = {"ok": False, "reason": f"probe_err:{e}", "partial": True}
+            if not a.get("ok"):
+                continue
+
+            # === spoof « rétractable à maintenant » (Christophe) ===
+            # mur fond (drop ≥ 15%/s) puis reconstruit à l'identique à la lecture suivante → spoof.
+            # Pas de timer : l'état est réévalué à CHAQUE échantillon ; dès que le mur reste
+            # fondu (ou change de niveau), le signal redevient valide au tick suivant.
+            spoof = False
+            prev = self.aspiration_prev.get(pair)
+            drop_now = max(
+                abs(float(a.get("drop_bid_pct_per_s") or 0)),
+                abs(float(a.get("drop_ask_pct_per_s") or 0)),
+            )
+            if prev and drop_now >= 15.0:
+                side = a.get("aspiration_side")
+                if side == "BUY":
+                    w_prev, w_now = prev.get("wall_ask_usdt", 0), float(a.get("wall_ask_usdt") or 0)
+                elif side == "SELL":
+                    w_prev, w_now = prev.get("wall_bid_usdt", 0), float(a.get("wall_bid_usdt") or 0)
+                else:
+                    w_prev, w_now = 0.0, 0.0
+                # mur reconstruit à l'identique (±10%) alors qu'il venait de fondre → spoof
+                if w_prev > 0 and abs(w_now - w_prev) / w_prev <= 0.10:
+                    spoof = True
+            self.aspiration_prev[pair] = {
+                "wall_bid_usdt": float(a.get("wall_bid_usdt") or 0),
+                "wall_ask_usdt": float(a.get("wall_ask_usdt") or 0),
+                "ts": time.time(),
+            }
+
+            a["spoof"] = spoof
+            a["price"] = price
+            a["regime"] = (self.scores.get(pair) or {}).get("regime", "?")
+            self.aspiration[pair] = a
+            # calibration CSV (mode observation 48h — c'est LÀ qu'on calibre le seuil)
+            with self.aspiration_csv.open("a", newline="") as f:
+                csv.writer(f).writerow(
+                    [
+                        utc_now(), pair, a["regime"], a.get("aspiration_side"),
+                        a.get("drop_bid_pct_per_s"), a.get("drop_ask_pct_per_s"),
+                        a.get("max_drop_pct_per_s"), a.get("spread_bps"),
+                        a.get("spread_delta_bps"), a.get("wall_bid_usdt"),
+                        a.get("wall_ask_usdt"), a.get("notional_drop_ok"),
+                        spoof, a.get("delay_s"), price,
+                    ]
+                )
+            if not a.get("partial"):
+                say(
+                    "score",
+                    f"[asp] {pair:12} side={a.get('aspiration_side'):4} "
+                    f"drop={a.get('max_drop_pct_per_s'):6.2f}%/s "
+                    f"Δspread={a.get('spread_delta_bps'):+5.1f}bps "
+                    f"notional={a.get('notional_drop_ok')} spoof={spoof}",
+                )
 
     def arm_reentry(self, pair: str, price: float, high: float):
         if not self.reentry_on:
@@ -667,6 +784,18 @@ class PaperBot:
             + (f"  cash={cash:.2f}$" if cash > 0 else "")
         )
         lines_out = [line1, line_vol]
+        # Sonde aspiration (mode observation) : dernière lecture par paire
+        if self.aspiration_on and pair in self.aspiration:
+            a = self.aspiration[pair]
+            side = a.get("aspiration_side", "NONE")
+            drop = float(a.get("max_drop_pct_per_s") or 0)
+            dsp = float(a.get("spread_delta_bps") or 0)
+            spoof = " SPOOF" if a.get("spoof") else ""
+            nok = "" if a.get("notional_drop_ok") else " <500$"
+            lines_out.append(
+                f"               asp={side:4} drop={drop:6.2f}%/s "
+                f"Δspread={dsp:+5.1f}bps{nok}{spoof}"
+            )
         price = float(s.get("price") or 0)
 
         if pair in self.pos and price > 0:
@@ -1380,6 +1509,8 @@ class PaperBot:
             if n > 0 and n % self.score_every == 0:
                 self.refresh_scores()
                 self.refresh_cortana_pilot()
+            # Sonde aspiration (mode observation) : paires actives, toutes les N cycles
+            self.probe_aspiration(n)
             for pair in self.pairs:
                 try:
                     self.tick_pair(pair)

@@ -35,6 +35,15 @@ MEMBRES = [
     ("GROK", "puter-grok.analyse", "Tu es GROK, démon 24/7 de la famille ACE777. Tu es pragmatique : tu vois ce qui casse vraiment en conditions réelles, tu vas droit au but."),
 ]
 
+# CLAUSE PERMANENTE (gravée 16/08 par Christophe — applicable à TOUS les prompts).
+CLAUSE = (
+    "CLAUSE PERMANENTE (Christophe, 16/08) : Ne te contente PAS de corriger ou de "
+    "valider. Si tu proposes AUTRE CHOSE (approche différente, autre architecture, "
+    "autre unité) ou une AMÉLIORATION qui a du sens, dis-le explicitement. "
+    "Corriger n'est pas suffisant : proposer est attendu. Une réponse qui ne fait "
+    "que « c'est bon » ou « corrige X » est incomplète."
+)
+
 CONTEXTE = """\
 CORRECTION DE LA CHAINE CODEUR — le codeur principal hallucine, le fallback
 est mort. A toi de trancher la correction (et la recherche d'un meilleur
@@ -84,7 +93,7 @@ def ask(membre, system):
     payload = {
         "task": membre[1],
         "messages": [
-            {"role": "system", "content": system},
+            {"role": "system", "content": system + "\n\n" + CLAUSE},
             {"role": "user", "content": CONTEXTE},
         ],
         "max_tokens": 1300,
