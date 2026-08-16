@@ -1,5 +1,5 @@
 {
-  "ts": "2026-08-16T15:10:36.099640+00:00",
+  "ts": "2026-08-16T16:00:39.416378+00:00",
   "mode": "observation",
   "tip": "mempool.space + scan local",
   "zscores": 0.0,
@@ -12,7 +12,7 @@
     "carte2_cpfp": {
       "declenche": false,
       "score": 0.0,
-      "detail": "API mempool injoignable (repli propre)"
+      "detail": "pré-filtre : frais 1 sat/vB ≤ 20× médiane 7j (1) — pas de creusage"
     },
     "carte3_poussiere": {
       "declenche": false,
@@ -27,7 +27,7 @@
   },
   "confirmation": 0,
   "calibration": {
-    "mediane_frais": null,
+    "mediane_frais": 1.0,
     "moyenne_7j": 0.0,
     "sigma": 0.0,
     "max_dust": 0.0

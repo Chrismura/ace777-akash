@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-16T15:19:18.494679+00:00",
+  "generated_at": "2026-08-16T16:05:40.965097+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 338
+      "calls_24h": 368
     },
     {
       "id": "openrouter-free",
@@ -35,7 +35,7 @@
       "model": "deepseek-ai/deepseek-v4-flash-0731",
       "enabled": true,
       "timeout": 300,
-      "calls_24h": 25
+      "calls_24h": 84
     },
     {
       "id": "mistral",
@@ -166,20 +166,68 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 413,
-    "remaining": 211
+    "consumed": 502,
+    "remaining": 122
   },
   "queue": [
     {
-      "ts": "2026-08-16T15:01:58.242472+00:00",
-      "task": "supervise.decision",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
+      "ts": "2026-08-16T16:05:03.129636+00:00",
+      "task": "analyste.strategie",
+      "provider": "nvidia",
+      "model": "deepseek-ai/deepseek-v4-flash-0731",
       "kind": "cloud",
-      "duration_s": 0.81
+      "duration_s": 154.71
     },
     {
-      "ts": "2026-08-16T14:50:55.046267+00:00",
+      "ts": "2026-08-16T16:04:52.688833+00:00",
+      "task": "analyste.strategie",
+      "provider": "nvidia",
+      "model": "deepseek-ai/deepseek-v4-flash-0731",
+      "kind": "cloud",
+      "duration_s": 129.19
+    },
+    {
+      "ts": "2026-08-16T16:04:28.133803+00:00",
+      "task": "analyste.strategie",
+      "provider": "nvidia",
+      "model": "deepseek-ai/deepseek-v4-flash-0731",
+      "kind": "cloud",
+      "duration_s": 109.49
+    },
+    {
+      "ts": "2026-08-16T16:04:24.243737+00:00",
+      "task": "analyste.strategie",
+      "provider": "nvidia",
+      "model": "deepseek-ai/deepseek-v4-flash-0731",
+      "kind": "cloud",
+      "duration_s": 177.74
+    },
+    {
+      "ts": "2026-08-16T16:04:23.648407+00:00",
+      "task": "analyste.strategie",
+      "provider": "nvidia",
+      "model": "deepseek-ai/deepseek-v4-flash-0731",
+      "kind": "cloud",
+      "duration_s": 103.01
+    },
+    {
+      "ts": "2026-08-16T16:04:22.884631+00:00",
+      "task": "analyste.strategie",
+      "provider": "nvidia",
+      "model": "deepseek-ai/deepseek-v4-flash-0731",
+      "kind": "cloud",
+      "duration_s": 105.17
+    },
+    {
+      "ts": "2026-08-16T16:04:09.954477+00:00",
+      "task": "analyste.strategie",
+      "provider": "nvidia",
+      "model": "deepseek-ai/deepseek-v4-flash-0731",
+      "kind": "cloud",
+      "duration_s": 128.34
+    },
+    {
+      "ts": "2026-08-16T16:04:06.043523+00:00",
       "task": "supervise.decision",
       "provider": "gemini",
       "model": "gemini-flash-lite-latest",
@@ -187,170 +235,122 @@
       "duration_s": 0.9
     },
     {
-      "ts": "2026-08-16T14:49:20.513279+00:00",
-      "task": "supervise.decision",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 0.8
-    },
-    {
-      "ts": "2026-08-16T14:47:45.192328+00:00",
-      "task": "supervise.decision",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 0.7
-    },
-    {
-      "ts": "2026-08-16T14:46:09.304240+00:00",
-      "task": "supervise.decision",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 0.76
-    },
-    {
-      "ts": "2026-08-16T14:44:30.218431+00:00",
-      "task": "supervise.decision",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 1.06
-    },
-    {
-      "ts": "2026-08-16T14:42:53.490347+00:00",
-      "task": "supervise.decision",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 0.81
-    },
-    {
-      "ts": "2026-08-16T14:41:17.870829+00:00",
-      "task": "supervise.decision",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 0.78
-    },
-    {
-      "ts": "2026-08-16T14:39:34.135190+00:00",
-      "task": "supervise.decision",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 0.8
-    },
-    {
-      "ts": "2026-08-16T14:38:07.733229+00:00",
+      "ts": "2026-08-16T16:04:01.610194+00:00",
       "task": "analyste.strategie",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
+      "provider": "nvidia",
+      "model": "deepseek-ai/deepseek-v4-flash-0731",
       "kind": "cloud",
-      "duration_s": 3.05
+      "duration_s": 122.23
     },
     {
-      "ts": "2026-08-16T14:37:44.672973+00:00",
+      "ts": "2026-08-16T16:03:50.315743+00:00",
+      "task": "analyste.strategie",
+      "provider": "nvidia",
+      "model": "deepseek-ai/deepseek-v4-flash-0731",
+      "kind": "cloud",
+      "duration_s": 119.07
+    },
+    {
+      "ts": "2026-08-16T16:03:38.379429+00:00",
+      "task": "analyste.strategie",
+      "provider": "nvidia",
+      "model": "deepseek-ai/deepseek-v4-flash-0731",
+      "kind": "cloud",
+      "duration_s": 101.65
+    },
+    {
+      "ts": "2026-08-16T16:03:36.107341+00:00",
+      "task": "analyste.strategie",
+      "provider": "nvidia",
+      "model": "deepseek-ai/deepseek-v4-flash-0731",
+      "kind": "cloud",
+      "duration_s": 102.94
+    },
+    {
+      "ts": "2026-08-16T16:03:04.731115+00:00",
+      "task": "analyste.strategie",
+      "provider": "nvidia",
+      "model": "deepseek-ai/deepseek-v4-flash-0731",
+      "kind": "cloud",
+      "duration_s": 75.14
+    },
+    {
+      "ts": "2026-08-16T16:02:35.545434+00:00",
+      "task": "analyste.strategie",
+      "provider": "nvidia",
+      "model": "deepseek-ai/deepseek-v4-flash-0731",
+      "kind": "cloud",
+      "duration_s": 46.54
+    },
+    {
+      "ts": "2026-08-16T16:02:15.064814+00:00",
       "task": "supervise.decision",
       "provider": "gemini",
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
-      "duration_s": 0.92
-    },
-    {
-      "ts": "2026-08-16T14:35:55.151852+00:00",
-      "task": "supervise.decision",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 0.91
-    },
-    {
-      "ts": "2026-08-16T14:34:12.595859+00:00",
-      "task": "supervise.decision",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 0.76
-    },
-    {
-      "ts": "2026-08-16T14:32:26.607711+00:00",
-      "task": "supervise.decision",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 1.07
-    },
-    {
-      "ts": "2026-08-16T14:30:48.206612+00:00",
-      "task": "supervise.decision",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 0.87
+      "duration_s": 0.75
     }
   ],
   "events": [
     {
-      "ts": "2026-08-16T15:19:13.141561+00:00",
-      "kind": "http",
-      "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
+      "ts": "2026-08-16T16:05:29.820384+00:00",
+      "kind": "timeout",
+      "title": "Patience NVIDIA build.nvidia.com (100+ modeles) (lenteur)",
+      "detail": "The read operation timed out"
+    },
+    {
+      "ts": "2026-08-16T16:05:03.129247+00:00",
+      "kind": "message",
+      "title": "« NVIDIA build.nvidia.com (100+ modeles) » a repondu",
+      "detail": "bascule"
+    },
+    {
+      "ts": "2026-08-16T16:04:52.688084+00:00",
+      "kind": "message",
+      "title": "« NVIDIA build.nvidia.com (100+ modeles) » a repondu",
+      "detail": "bascule"
+    },
+    {
+      "ts": "2026-08-16T16:04:28.133223+00:00",
+      "kind": "message",
+      "title": "« NVIDIA build.nvidia.com (100+ modeles) » a repondu",
+      "detail": "bascule"
+    },
+    {
+      "ts": "2026-08-16T16:04:24.243325+00:00",
+      "kind": "message",
+      "title": "« NVIDIA build.nvidia.com (100+ modeles) » a repondu",
+      "detail": "bascule"
+    },
+    {
+      "ts": "2026-08-16T16:04:23.647982+00:00",
+      "kind": "message",
+      "title": "« NVIDIA build.nvidia.com (100+ modeles) » a repondu",
+      "detail": "bascule"
+    },
+    {
+      "ts": "2026-08-16T16:04:22.884387+00:00",
+      "kind": "message",
+      "title": "« NVIDIA build.nvidia.com (100+ modeles) » a repondu",
+      "detail": "bascule"
+    },
+    {
+      "ts": "2026-08-16T16:04:09.954181+00:00",
+      "kind": "message",
+      "title": "« NVIDIA build.nvidia.com (100+ modeles) » a repondu",
+      "detail": "bascule"
+    },
+    {
+      "ts": "2026-08-16T16:04:06.043130+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu (dernier recours)",
       "detail": ""
     },
     {
-      "ts": "2026-08-16T15:19:13.141385+00:00",
-      "kind": "error",
-      "title": "Toutes les IA ont echoue",
-      "detail": "Puter Grok (gratuit): reseau KO [Errno 8] nodename nor servname provided, or not known"
-    },
-    {
-      "ts": "2026-08-16T15:19:13.141209+00:00",
+      "ts": "2026-08-16T16:04:05.136713+00:00",
       "kind": "failover",
-      "title": "Reseau KO (bascule immediate) depuis Puter Grok (gratuit)",
-      "detail": "[Errno 8] nodename nor servname provided, or not known"
-    },
-    {
-      "ts": "2026-08-16T15:19:13.140933+00:00",
-      "kind": "network",
-      "title": "Reseau indisponible: Puter Grok (gratuit)",
-      "detail": "[Errno 8] nodename nor servname provided, or not known"
-    },
-    {
-      "ts": "2026-08-16T15:19:13.121455+00:00",
-      "kind": "network",
-      "title": "Reseau pas pret — mode degrade (timeout court)",
-      "detail": ""
-    },
-    {
-      "ts": "2026-08-16T15:19:03.638326+00:00",
-      "kind": "http",
-      "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
-      "detail": ""
-    },
-    {
-      "ts": "2026-08-16T15:19:03.638216+00:00",
-      "kind": "error",
-      "title": "Toutes les IA ont echoue",
-      "detail": "Puter Grok (gratuit): reseau KO [Errno 8] nodename nor servname provided, or not known"
-    },
-    {
-      "ts": "2026-08-16T15:19:03.638112+00:00",
-      "kind": "failover",
-      "title": "Reseau KO (bascule immediate) depuis Puter Grok (gratuit)",
-      "detail": "[Errno 8] nodename nor servname provided, or not known"
-    },
-    {
-      "ts": "2026-08-16T15:19:03.637932+00:00",
-      "kind": "network",
-      "title": "Reseau indisponible: Puter Grok (gratuit)",
-      "detail": "[Errno 8] nodename nor servname provided, or not known"
-    },
-    {
-      "ts": "2026-08-16T15:19:03.608586+00:00",
-      "kind": "network",
-      "title": "Reseau pas pret — mode degrade (timeout court)",
-      "detail": ""
+      "title": "Bascule depuis Puter Grok (gratuit)",
+      "detail": "HTTP Error 402: Payment Required"
     }
   ],
   "tasks_quotas": {

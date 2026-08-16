@@ -1321,3 +1321,11 @@ Pas d’ordre — confrontation plus tard.
 ### 2026-08-16T13:16:08Z — ALERT auto
 - QAITUSDT: WATCH_PULLBACK — tension haute + reflux
 (compléter: confirmé ? risque ?)
+
+### 2026-08-16T15:56:07Z — ALERT auto
+- QAITUSDT: IMPULSE_WAIT — spike en cours, pas chase
+(compléter: confirmé ? risque ?)
+
+### 2026-08-16T16:00:32Z — ALERT auto
+- CHIPUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)

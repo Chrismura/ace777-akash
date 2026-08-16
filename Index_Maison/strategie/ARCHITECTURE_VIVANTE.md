@@ -1,4 +1,4 @@
-# ARCHITECTURE VIVANTE — ACE777 (2026-08-16 14:38 UTC)
+# ARCHITECTURE VIVANTE — ACE777 (2026-08-16 16:01 UTC)
 
 > Document GÉNÉRÉ AUTOMATIQUEMENT à l'instant. La famille valide
 > en s'appuyant sur CE contexte, pas sur des documents figés.
@@ -22,11 +22,11 @@
 
 ## État de la mission (bots + PnL)
 
-- mission.json : 2026-08-16 14:37Z · run `MASTER_VORTEX_V2_COLLAB_4H` · alerte `nominal`
-- PnL combiné : **0.07 $** 📈 (combo 0.0723)
-- ALPHA (sniper (embuscade, ×13, revenge si claque)) : **+0.00 $** · 3 fills · 793 skips
-- BETA (éclaireur (chatouille le marché, alimente Alpha)) : **+0.07 $** · 19 fills · 987 skips
-- HULK (gestionnaire de portefeuille (bag, escalier, courreur)) : **+0.00 $** · 0 fills
+- mission.json : 2026-08-16 16:01Z · run `MASTER_VORTEX_V2_COLLAB_4H` · alerte `nominal`
+- PnL combiné : **0.00 $** 📈 (combo 0.0016)
+- ALPHA (sniper (embuscade, ×13, revenge si claque)) : **+0.00 $** · 0 fills · 63 skips
+- BETA (éclaireur (chatouille le marché, alimente Alpha)) : **+0.00 $** · 2 fills · 78 skips
+- HULK (gestionnaire de portefeuille (bag, escalier, courreur)) : **+0.17 $** · 0 fills
 - Saison : ACCUMULATION 💧 · 
 
 ## Veille du jour
@@ -46,11 +46,11 @@
 ## Mémoire chaude (journal + résumés)
 
 - Radar (dernières alertes) :
-  · 2026-08-16T14:38:02.466895Z ETHUSDT 1883.09 0.0002 123.8 declenche=oui
-  · 2026-08-16T14:38:02.467204Z ETHUSDT 1883.08 0.0002 123.8 declenche=oui
-  · 2026-08-16T14:38:02.467346Z ETHUSDT 1883.07 0.0002 123.8 declenche=oui
-  · 2026-08-16T14:38:02.467479Z ETHUSDT 1883.06 0.0002 123.8 declenche=oui
-- Intention en cours : BETA a sonde le marche (19 sondes, 18 long / 1 court, conf m | ALPHA attend son moment : 672 skips (discipline), le mur du  | ALPHA attend son signal — aucun tir sur la session en cours.
+  · 2026-08-16T16:01:24.342276Z ETHUSDT 1884.51 0.0000 26.1 declenche=non
+  · 2026-08-16T16:01:24.342424Z ETHUSDT 1884.51 0.0001 130.6 declenche=non
+  · 2026-08-16T16:01:24.342536Z ETHUSDT 1884.51 0.0001 30.0 declenche=non
+  · 2026-08-16T16:01:24.342562Z ETHUSDT 1884.51 0.0000 26.1 declenche=non
+- Intention en cours : BETA a sonde le marche (2 sondes, 2 long / 0 court, conf moy | ALPHA attend son signal — aucun tir sur la session en cours.
 - 250 signets X résumés (quota aujourd'hui : 50/50)
 - 32 fiches IA d'offres en cache (quota 8/jour)
 
