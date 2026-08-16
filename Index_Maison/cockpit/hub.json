@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-16T23:01:57.311258+00:00",
+  "generated_at": "2026-08-16T23:09:31.814615+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -35,7 +35,7 @@
       "model": "deepseek-ai/deepseek-v4-flash-0731",
       "enabled": true,
       "timeout": 300,
-      "calls_24h": 351
+      "calls_24h": 357
     },
     {
       "id": "mistral",
@@ -184,10 +184,58 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 980,
+    "consumed": 986,
     "remaining": 0
   },
   "queue": [
+    {
+      "ts": "2026-08-16T23:09:13.264473+00:00",
+      "task": "analyste.strategie",
+      "provider": "nvidia",
+      "model": "deepseek-ai/deepseek-v4-flash-0731",
+      "kind": "cloud",
+      "duration_s": 44.01
+    },
+    {
+      "ts": "2026-08-16T23:09:04.653536+00:00",
+      "task": "analyste.strategie",
+      "provider": "nvidia",
+      "model": "deepseek-ai/deepseek-v4-flash-0731",
+      "kind": "cloud",
+      "duration_s": 38.38
+    },
+    {
+      "ts": "2026-08-16T23:08:17.822276+00:00",
+      "task": "supervise.decision",
+      "provider": "nvidia",
+      "model": "deepseek-ai/deepseek-v4-flash-0731",
+      "kind": "cloud",
+      "duration_s": 5.1
+    },
+    {
+      "ts": "2026-08-16T23:06:37.346129+00:00",
+      "task": "supervise.decision",
+      "provider": "nvidia",
+      "model": "deepseek-ai/deepseek-v4-flash-0731",
+      "kind": "cloud",
+      "duration_s": 4.57
+    },
+    {
+      "ts": "2026-08-16T23:04:57.521526+00:00",
+      "task": "supervise.decision",
+      "provider": "nvidia",
+      "model": "deepseek-ai/deepseek-v4-flash-0731",
+      "kind": "cloud",
+      "duration_s": 8.98
+    },
+    {
+      "ts": "2026-08-16T23:03:12.581337+00:00",
+      "task": "supervise.decision",
+      "provider": "nvidia",
+      "model": "deepseek-ai/deepseek-v4-flash-0731",
+      "kind": "cloud",
+      "duration_s": 2.37
+    },
     {
       "ts": "2026-08-16T23:01:32.297847+00:00",
       "task": "supervise.decision",
@@ -259,116 +307,68 @@
       "model": "deepseek-ai/deepseek-v4-flash-0731",
       "kind": "cloud",
       "duration_s": 4.59
-    },
-    {
-      "ts": "2026-08-16T22:53:48.620023+00:00",
-      "task": "puter-grok.analyse",
-      "provider": "nvidia",
-      "model": "deepseek-ai/deepseek-v4-flash-0731",
-      "kind": "cloud",
-      "duration_s": 80.92
-    },
-    {
-      "ts": "2026-08-16T22:53:04.631145+00:00",
-      "task": "supervise.decision",
-      "provider": "mistral",
-      "model": "codestral-latest",
-      "kind": "cloud",
-      "duration_s": 0.45
-    },
-    {
-      "ts": "2026-08-16T22:52:27.491404+00:00",
-      "task": "inferx.analyse",
-      "provider": "mistral",
-      "model": "codestral-latest",
-      "kind": "cloud",
-      "duration_s": 2.68
-    },
-    {
-      "ts": "2026-08-16T22:52:14.418344+00:00",
-      "task": "inferx.analyse",
-      "provider": "mistral",
-      "model": "codestral-latest",
-      "kind": "cloud",
-      "duration_s": 3.27
-    },
-    {
-      "ts": "2026-08-16T22:52:00.042597+00:00",
-      "task": "juge.tranche",
-      "provider": "nvidia",
-      "model": "deepseek-ai/deepseek-v4-flash-0731",
-      "kind": "cloud",
-      "duration_s": 68.54
-    },
-    {
-      "ts": "2026-08-16T22:51:49.021008+00:00",
-      "task": "gemini",
-      "provider": "nvidia",
-      "model": "deepseek-ai/deepseek-v4-flash-0731",
-      "kind": "cloud",
-      "duration_s": 391.74
     }
   ],
   "events": [
     {
-      "ts": "2026-08-16T23:01:32.297572+00:00",
+      "ts": "2026-08-16T23:09:13.263425+00:00",
       "kind": "message",
       "title": "« NVIDIA build.nvidia.com (100+ modeles) » a repondu",
       "detail": "bascule"
     },
     {
-      "ts": "2026-08-16T23:01:32.297173+00:00",
-      "kind": "filet-universel",
-      "title": "[FILET UNIVERSEL] « NVIDIA build.nvidia.com (100+ modeles) » a repondu hors chaine",
-      "detail": "supervise.decision"
-    },
-    {
-      "ts": "2026-08-16T23:01:29.711652+00:00",
+      "ts": "2026-08-16T23:09:04.653178+00:00",
       "kind": "message",
       "title": "« NVIDIA build.nvidia.com (100+ modeles) » a repondu",
       "detail": "bascule"
     },
     {
-      "ts": "2026-08-16T23:01:23.613029+00:00",
+      "ts": "2026-08-16T23:08:29.254612+00:00",
       "kind": "failover",
-      "title": "Bascule depuis OpenRouter (modeles gratuits)",
-      "detail": "HTTP Error 429: Too Many Requests"
-    },
-    {
-      "ts": "2026-08-16T23:01:23.256378+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis Google Gemini",
-      "detail": "HTTP Error 429: Too Many Requests"
-    },
-    {
-      "ts": "2026-08-16T23:01:23.255958+00:00",
-      "kind": "ratelimit",
-      "title": "429 Google Gemini -> pause 60s + bascule",
-      "detail": ""
-    },
-    {
-      "ts": "2026-08-16T23:01:22.867308+00:00",
-      "kind": "blacklist",
-      "title": "Fin de pause Google Gemini",
-      "detail": "re-essai automatique"
-    },
-    {
-      "ts": "2026-08-16T23:01:22.867112+00:00",
-      "kind": "failover",
-      "title": "Saute (blacklist) depuis Puter Grok (gratuit)",
+      "title": "Saute (blacklist) depuis OpenRouter Nemotron 3 Ultra 550B (free) - analyse forte",
       "detail": "0 attente"
     },
     {
-      "ts": "2026-08-16T23:01:22.866193+00:00",
-      "kind": "reserve-storm",
-      "title": "Tempête active + budget calme atteint -> réserve storm pour supervise.decision",
-      "detail": "supervise.decision"
+      "ts": "2026-08-16T23:08:29.254423+00:00",
+      "kind": "failover",
+      "title": "Saute (blacklist) depuis Google Gemini",
+      "detail": "0 attente"
     },
     {
-      "ts": "2026-08-16T23:00:58.273473+00:00",
-      "kind": "message",
-      "title": "« NVIDIA build.nvidia.com (100+ modeles) » a repondu",
-      "detail": "bascule"
+      "ts": "2026-08-16T23:08:29.253711+00:00",
+      "kind": "quota",
+      "title": "Budget calme atteint -> bascule famille (gratuits)",
+      "detail": "analyste.strategie"
+    },
+    {
+      "ts": "2026-08-16T23:08:26.275970+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis OpenRouter Nemotron 3 Ultra 550B (free) - analyse forte",
+      "detail": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "ts": "2026-08-16T23:08:26.275580+00:00",
+      "kind": "ratelimit",
+      "title": "429 OpenRouter Nemotron 3 Ultra 550B (free) - analyse forte -> pause 60s + bascule",
+      "detail": ""
+    },
+    {
+      "ts": "2026-08-16T23:08:25.925374+00:00",
+      "kind": "blacklist",
+      "title": "Fin de pause OpenRouter Nemotron 3 Ultra 550B (free) - analyse forte",
+      "detail": "re-essai automatique"
+    },
+    {
+      "ts": "2026-08-16T23:08:25.925298+00:00",
+      "kind": "failover",
+      "title": "Saute (blacklist) depuis Google Gemini",
+      "detail": "0 attente"
+    },
+    {
+      "ts": "2026-08-16T23:08:25.924957+00:00",
+      "kind": "quota",
+      "title": "Budget calme atteint -> bascule famille (gratuits)",
+      "detail": "analyste.strategie"
     }
   ],
   "tasks_quotas": {
