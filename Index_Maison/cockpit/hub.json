@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-17T04:08:06.650059+00:00",
+  "generated_at": "2026-08-17T04:10:37.994435+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -44,7 +44,7 @@
       "model": "codestral-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 238
+      "calls_24h": 241
     },
     {
       "id": "cloudflare-workers-ai",
@@ -184,10 +184,34 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 213,
-    "remaining": 411
+    "consumed": 216,
+    "remaining": 408
   },
   "queue": [
+    {
+      "ts": "2026-08-17T04:09:16.977277+00:00",
+      "task": "supervise.decision",
+      "provider": "mistral",
+      "model": "codestral-latest",
+      "kind": "cloud",
+      "duration_s": 0.54
+    },
+    {
+      "ts": "2026-08-17T04:09:13.763807+00:00",
+      "task": "analyste.strategie",
+      "provider": "mistral",
+      "model": "codestral-latest",
+      "kind": "cloud",
+      "duration_s": 7.99
+    },
+    {
+      "ts": "2026-08-17T04:09:13.650184+00:00",
+      "task": "analyste.strategie",
+      "provider": "mistral",
+      "model": "codestral-latest",
+      "kind": "cloud",
+      "duration_s": 7.89
+    },
     {
       "ts": "2026-08-17T04:07:41.451154+00:00",
       "task": "supervise.decision",
@@ -283,92 +307,68 @@
       "model": "codestral-latest",
       "kind": "cloud",
       "duration_s": 0.45
-    },
-    {
-      "ts": "2026-08-17T03:53:15.895357+00:00",
-      "task": "supervise.decision",
-      "provider": "mistral",
-      "model": "codestral-latest",
-      "kind": "cloud",
-      "duration_s": 0.47
-    },
-    {
-      "ts": "2026-08-17T03:51:40.058898+00:00",
-      "task": "supervise.decision",
-      "provider": "mistral",
-      "model": "codestral-latest",
-      "kind": "cloud",
-      "duration_s": 0.42
-    },
-    {
-      "ts": "2026-08-17T03:50:04.325311+00:00",
-      "task": "supervise.decision",
-      "provider": "mistral",
-      "model": "codestral-latest",
-      "kind": "cloud",
-      "duration_s": 1.06
     }
   ],
   "events": [
     {
-      "ts": "2026-08-17T04:07:41.450883+00:00",
+      "ts": "2026-08-17T04:09:16.977100+00:00",
       "kind": "message",
       "title": "« Mistral La Plateforme (essai gratuit) » a repondu",
       "detail": "bascule"
     },
     {
-      "ts": "2026-08-17T04:07:41.450431+00:00",
+      "ts": "2026-08-17T04:09:16.976699+00:00",
       "kind": "filet-universel",
       "title": "[FILET UNIVERSEL] « Mistral La Plateforme (essai gratuit) » a repondu hors chaine",
       "detail": "supervise.decision"
     },
     {
-      "ts": "2026-08-17T04:07:41.014242+00:00",
+      "ts": "2026-08-17T04:09:16.434280+00:00",
       "kind": "failover",
-      "title": "Bascule depuis NVIDIA build.nvidia.com (100+ modeles)",
-      "detail": "HTTP Error 429: Too Many Requests"
+      "title": "Saute (blacklist) depuis NVIDIA build.nvidia.com (100+ modeles)",
+      "detail": "0 attente"
     },
     {
-      "ts": "2026-08-17T04:07:40.723039+00:00",
+      "ts": "2026-08-17T04:09:16.431746+00:00",
       "kind": "failover",
       "title": "Bascule depuis OpenRouter (modeles gratuits)",
       "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-08-17T04:07:40.390977+00:00",
+      "ts": "2026-08-17T04:09:16.257830+00:00",
       "kind": "failover",
-      "title": "Bascule depuis Google Gemini",
-      "detail": "HTTP Error 429: Too Many Requests"
+      "title": "Saute (blacklist) depuis Google Gemini",
+      "detail": "0 attente"
     },
     {
-      "ts": "2026-08-17T04:07:40.390586+00:00",
-      "kind": "ratelimit",
-      "title": "429 Google Gemini -> pause 60s + bascule",
-      "detail": ""
-    },
-    {
-      "ts": "2026-08-17T04:07:39.893835+00:00",
-      "kind": "blacklist",
-      "title": "Fin de pause Google Gemini",
-      "detail": "re-essai automatique"
-    },
-    {
-      "ts": "2026-08-17T04:07:39.893550+00:00",
+      "ts": "2026-08-17T04:09:16.257594+00:00",
       "kind": "failover",
       "title": "Saute (blacklist) depuis Puter Grok (gratuit)",
       "detail": "0 attente"
     },
     {
-      "ts": "2026-08-17T04:06:05.360216+00:00",
+      "ts": "2026-08-17T04:09:13.763576+00:00",
       "kind": "message",
       "title": "« Mistral La Plateforme (essai gratuit) » a repondu",
       "detail": "bascule"
     },
     {
-      "ts": "2026-08-17T04:06:05.359686+00:00",
+      "ts": "2026-08-17T04:09:13.763215+00:00",
       "kind": "filet-universel",
       "title": "[FILET UNIVERSEL] « Mistral La Plateforme (essai gratuit) » a repondu hors chaine",
-      "detail": "supervise.decision"
+      "detail": "analyste.strategie"
+    },
+    {
+      "ts": "2026-08-17T04:09:13.649826+00:00",
+      "kind": "message",
+      "title": "« Mistral La Plateforme (essai gratuit) » a repondu",
+      "detail": "bascule"
+    },
+    {
+      "ts": "2026-08-17T04:09:13.649188+00:00",
+      "kind": "filet-universel",
+      "title": "[FILET UNIVERSEL] « Mistral La Plateforme (essai gratuit) » a repondu hors chaine",
+      "detail": "analyste.strategie"
     }
   ],
   "tasks_quotas": {
