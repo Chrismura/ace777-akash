@@ -1043,3 +1043,14 @@
 - 2026-08-17T19:03:26.712768Z | alerte | Maintien de l'alerte ambre et de la rigueur tactique pour redresser le PnL combiné tout en capitalisant sur l'éclairage de Beta et la patience d'Alpha. | conf=85%
 - 2026-08-17T19:10:24.649531Z | alerte | Maintien de l'alerte ambre et de la rigueur opérationnelle pour redresser le PnL combiné sans forcer l'exposition. | conf=85%
 - 2026-08-17T19:10:24.827021Z | alerte | Maintien de l'alerte ambre et de la rigueur tactique pour redresser le PnL combiné tout en capitalisant sur l'éclairage de Beta et la patience d'Alpha. | conf=85%
+- 2026-08-17T19:31:02.116131Z | alerte | Maintien de l'alerte ambre et de la rigueur tactique pour redresser le PnL combiné tout en capitalisant sur l'éclairage de Beta et la patience d'Alpha. | conf=85%
+- 2026-08-17T19:31:02.526242Z | alerte | Maintien de l'alerte ambre et de la rigueur tactique pour redresser le PnL combiné tout en capitalisant sur l'éclairage de Beta et la patience d'Alpha. | conf=85%
+- 2026-08-17T19:40:25.825436Z | alerte | Maintien de l'alerte ambre et de la rigueur tactique pour redresser le PnL combiné tout en capitalisant sur l'éclairage de Beta et la patience d'Alpha. | conf=85%
+- 2026-08-17T19:40:25.955056Z | alerte | Maintien de l'alerte ambre et de la rigueur tactique pour redresser le PnL combiné tout en capitalisant sur l'éclairage de Beta et la patience d'Alpha. | conf=85%
+- 2026-08-17T19:44:42.859942Z | alerte | Maintien de l'alerte ambre et de la rigueur tactique pour redresser le PnL combiné tout en capitalisant sur l'éclairage de Beta et la patience d'Alpha. | conf=85%
+- 2026-08-17T19:44:43.273401Z | alerte | Maintien de l'alerte ambre et de la rigueur tactique pour redresser le PnL combiné tout en capitalisant sur l'éclairage de Beta et la patience d'Alpha. | conf=85%
+- 2026-08-17T19:56:13.896228Z | alerte | Maintien de l'alerte ambre et de la rigueur tactique pour redresser le PnL combiné tout en capitalisant sur l'éclairage de Beta et la patience d'Alpha. | conf=85%
+- 2026-08-17T19:56:58.721311Z | alerte | Maintien de l'alerte ambre et de la rigueur tactique pour redresser le PnL combiné tout en capitalisant sur l'éclairage de Beta et la patience d'Alpha. | conf=85%
+- 2026-08-17T19:59:47.525836Z | alerte | Maintien de l'alerte ambre et de la rigueur tactique pour redresser le PnL combiné tout en capitalisant sur l'éclairage de Beta et la patience d'Alpha. | conf=85%
+- 2026-08-17T20:10:28.685519Z | alerte | Maintien de l'alerte ambre et de la rigueur tactique pour redresser le PnL combiné tout en capitalisant sur l'éclairage de Beta et la patience d'Alpha. | conf=85%
+- 2026-08-17T20:10:28.890685Z | alerte | Maintien de l'alerte ambre et de la rigueur tactique pour redresser le PnL combiné tout en capitalisant sur l'éclairage de Beta et la patience d'Alpha. | conf=85%

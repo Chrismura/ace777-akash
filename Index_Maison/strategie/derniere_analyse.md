@@ -1,15 +1,15 @@
-# ANALYSE — 2026-08-17T19:10:24.827021Z (alerte)
+# ANALYSE — 2026-08-17T20:10:28.890685Z (alerte)
 
-[UNDERSTAND] La maison ACE777 maintient son alerte ambre sous un PnL combiné globalement négatif (-5,13 $), tandis que l'essaim coordonne l'éclairage continu de Beta, la discipline d'embuscade d'Alpha et la gestion des positions seeds de Hulk.
+[UNDERSTAND] La maison ACE777 maintient son alerte ambre face à un PnL combiné légèrement négatif (-4,51 $), porté par l'éclairage de Beta, la discipline d'embuscade d'Alpha et la gestion resserrée des positions seeds de Hulk.
 
 [ANALYZE] 
-- Tendance : Marché en phase d'accumulation (score 72) avec un sentiment de peur prononcé (Fear & Greed à 31) et des flux ETF Bitcoin toujours négatifs (-56,79 M$).
-- Momentum : Alpha poursuit ses tirs en mode embuscade (97 fills, 1019 skips, PnL -5,02 $), Beta éclaire activement le terrain (188 fills, 863 skips, PnL -0,11 $), et Hulk gère son portefeuille seed de 15 positions avec un gain de +0,90 $.
-- Risque : Positions seeds sous surveillance rapprochée (notamment CCUSDT à -4,82 % et QAITUSDT à -3,15 %) nécessitant une application stricte des stop-losses.
-- Contexte : Veille macro marquée par une alerte sur les taux de la Fed et une inflation changeant de direction (CNBC), dans un climat globalement stable.
+- Tendance : Marché en phase d'accumulation (score 74) avec un sentiment de peur prononcé (Fear & Greed à 31) et des flux ETF Bitcoin toujours négatifs (-56,72 M$).
+- Momentum : Alpha maintient sa discipline d'embuscade (102 fills, 1069 skips, PnL -5,28 $), Beta éclaire activement le terrain (202 fills, 895 skips, PnL +0,77 $), et Hulk pilote son portefeuille seed de 15 positions avec un gain de +0,90 $.
+- Risque : Positions seeds sous surveillance rapprochée (CCUSDT à -4,84 % et QAITUSDT à -3,66 %) nécessitant une application stricte des stop-losses.
+- Contexte : Sursaut de volume détecté sur ETHUSDT (variation de -0,02% à 1907.67 $) dans un climat globalement stable et réactivité face aux nouvelles macroéconomiques.
 
 [STRATEGIZE] 
-1. Maintenir la stricte discipline d'embuscade d'Alpha en s'appuyant sur les flux de reconnaissance tactique de Beta.
+1. Maintenir la stricte discipline d'embuscade d'Alpha en exploitant les flux de reconnaissance tactique de Beta.
 2. Superviser activement le portefeuille seed de Hulk pour purger rapidement les positions en dérive (CCUSDT, QAITUSDT) avant le seuil critique.
 3. Sécuriser les positions performantes de Hulk (RIZEUSDT, BIOUSDT) pour ramener progressivement le PnL combiné vers l'équilibre.
 
