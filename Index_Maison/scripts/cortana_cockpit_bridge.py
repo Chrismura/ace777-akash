@@ -486,7 +486,7 @@ def _genesis_ok() -> dict:
     if not p.exists():
         return {"ok": False, "md5": None, "detail": "genesis_manifest.txt manquant"}
     h = hashlib.md5(p.read_bytes()).hexdigest()
-    ok = h.startswith("8bce77b1")  # 16/08 re-scellé FIX-LAST-LOSS (autorisation Christophe — CHANTIER_FIX_LAST_LOSS_TTL_2026-08-16.md)
+    ok = h.startswith("fe2a7bcc")  # 17/08 SETUP A rollback complet — revenge permanent (autorisation Christophe)
     return {"ok": ok, "md5": h[:12], "detail": f"md5 {h[:12]}…" + (" OK" if ok else " ≠ champion 37fca367")}
 
 

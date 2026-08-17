@@ -4,10 +4,10 @@
 
 `WHY_ARRET=no_process_exit_logged`
 
-- Généré : `2026-08-17T06:59:02Z`
-- Fenêtre depuis : `2026-08-16T19:08:26Z`
+- Généré : `2026-08-17T07:36:16Z`
+- Fenêtre depuis : `2026-08-17T07:34:38Z`
 - Fin process : ``
-- Meta start/end : `2026-08-16T19:08:26Z` → `2026-08-20T19:08:14Z`
+- Meta start/end : `2026-08-17T07:34:38Z` → `2026-08-17T11:34:38Z`
 - Watchdog meta : stale=?s max_relaunch=?
 - NET_RETRY (fenêtre) : 0
 
@@ -18,7 +18,7 @@ Alpage · groupe électrogène · 2 lignes (téléphone + surf) · WiFi. Le bot 
 ## Verdict court
 
 - **WHY_ARRET=no_process_exit_logged**
-- Issues duo (329) — scout/hunter désynchro.
+- Issues duo (1593) — scout/hunter désynchro.
 
 ## Compteurs
 
@@ -27,15 +27,15 @@ Alpage · groupe électrogène · 2 lignes (téléphone + surf) · WiFi. Le bot 
 | E-WATCHDOG | 0 | heartbeat / max relaunch |
 | E-PROC | 0 | mort process / signal |
 | E-STALE | 0 | tension/NUAGE age (signal latence) |
-| E-DUO | 329 | no_trigger / stale duo |
-| E-SPREAD | 389 | spread trop large |
+| E-DUO | 1593 | no_trigger / stale duo |
+| E-SPREAD | 1889 | spread trop large |
 | I-HUNTER | 0 | STORM_HUNTER arm (info) |
 
 ## PnL fills (fenêtre)
 
 - ALPHA : fills=0 pnl=+0.0000 exits={}
-- BETA : fills=303 pnl=+0.4979 exits={'shock_inversion_stop': 167, 'fluid_exit_inversion': 87, 'fluid_exit_brake': 47, 'shock_exit_10bps': 2}
-- **TOTAL** : +0.4979
+- BETA : fills=0 pnl=+0.0000 exits={}
+- **TOTAL** : +0.0000
 
 ## Derniers PROCESS_DIE / EXIT
 

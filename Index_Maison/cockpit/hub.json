@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-17T07:10:51.895320+00:00",
+  "generated_at": "2026-08-17T08:10:57.905939+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 523
+      "calls_24h": 514
     },
     {
       "id": "openrouter-free",
@@ -35,7 +35,7 @@
       "model": "deepseek-ai/deepseek-v4-flash-0731",
       "enabled": true,
       "timeout": 300,
-      "calls_24h": 408
+      "calls_24h": 406
     },
     {
       "id": "mistral",
@@ -44,7 +44,7 @@
       "model": "codestral-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 430
+      "calls_24h": 429
     },
     {
       "id": "cloudflare-workers-ai",
@@ -184,191 +184,191 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 424,
-    "remaining": 200
+    "consumed": 470,
+    "remaining": 154
   },
   "queue": [
     {
-      "ts": "2026-08-17T07:09:25.545730+00:00",
+      "ts": "2026-08-17T08:10:33.686454+00:00",
+      "task": "supervise.decision",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 0.98
+    },
+    {
+      "ts": "2026-08-17T08:10:12.996880+00:00",
+      "task": "mission",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 1.92
+    },
+    {
+      "ts": "2026-08-17T08:09:30.832429+00:00",
       "task": "analyste.strategie",
       "provider": "gemini",
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
-      "duration_s": 3.54
+      "duration_s": 4.16
     },
     {
-      "ts": "2026-08-17T07:09:25.385727+00:00",
+      "ts": "2026-08-17T08:09:30.348494+00:00",
       "task": "analyste.strategie",
       "provider": "gemini",
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
-      "duration_s": 3.37
+      "duration_s": 3.69
     },
     {
-      "ts": "2026-08-17T07:04:40.366824+00:00",
-      "task": "analyste.strategie",
-      "provider": "mistral",
-      "model": "codestral-latest",
+      "ts": "2026-08-17T08:08:59.289450+00:00",
+      "task": "supervise.decision",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
       "kind": "cloud",
-      "duration_s": 0.93
+      "duration_s": 0.81
     },
     {
-      "ts": "2026-08-17T07:04:39.221906+00:00",
-      "task": "analyste.strategie",
-      "provider": "mistral",
-      "model": "codestral-latest",
+      "ts": "2026-08-17T08:07:24.995496+00:00",
+      "task": "supervise.decision",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
       "kind": "cloud",
-      "duration_s": 1.05
+      "duration_s": 0.69
     },
     {
-      "ts": "2026-08-17T07:04:37.956859+00:00",
-      "task": "analyste.strategie",
-      "provider": "mistral",
-      "model": "codestral-latest",
+      "ts": "2026-08-17T08:05:51.086980+00:00",
+      "task": "supervise.decision",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
       "kind": "cloud",
-      "duration_s": 0.8
+      "duration_s": 0.74
     },
     {
-      "ts": "2026-08-17T07:04:36.931352+00:00",
-      "task": "analyste.strategie",
-      "provider": "mistral",
-      "model": "codestral-latest",
+      "ts": "2026-08-17T08:05:07.576586+00:00",
+      "task": "mission",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
       "kind": "cloud",
-      "duration_s": 0.89
+      "duration_s": 0.92
     },
     {
-      "ts": "2026-08-17T07:04:35.822316+00:00",
-      "task": "analyste.strategie",
-      "provider": "mistral",
-      "model": "codestral-latest",
+      "ts": "2026-08-17T08:04:43.846103+00:00",
+      "task": "mission",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
       "kind": "cloud",
-      "duration_s": 1.09
+      "duration_s": 0.85
     },
     {
-      "ts": "2026-08-17T07:04:34.496665+00:00",
-      "task": "analyste.strategie",
-      "provider": "mistral",
-      "model": "codestral-latest",
-      "kind": "cloud",
-      "duration_s": 0.72
-    },
-    {
-      "ts": "2026-08-17T07:04:33.437770+00:00",
-      "task": "analyste.strategie",
-      "provider": "mistral",
-      "model": "codestral-latest",
-      "kind": "cloud",
-      "duration_s": 1.06
-    },
-    {
-      "ts": "2026-08-17T07:04:32.137532+00:00",
-      "task": "analyste.strategie",
-      "provider": "mistral",
-      "model": "codestral-latest",
-      "kind": "cloud",
-      "duration_s": 0.7
-    },
-    {
-      "ts": "2026-08-17T07:04:31.199543+00:00",
-      "task": "analyste.strategie",
-      "provider": "mistral",
-      "model": "codestral-latest",
-      "kind": "cloud",
-      "duration_s": 1.09
-    },
-    {
-      "ts": "2026-08-17T07:04:29.866996+00:00",
-      "task": "analyste.strategie",
-      "provider": "mistral",
-      "model": "codestral-latest",
+      "ts": "2026-08-17T08:04:16.970113+00:00",
+      "task": "supervise.decision",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
       "kind": "cloud",
       "duration_s": 1.0
     },
     {
-      "ts": "2026-08-17T07:04:28.638699+00:00",
-      "task": "analyste.strategie",
-      "provider": "mistral",
-      "model": "codestral-latest",
+      "ts": "2026-08-17T08:03:46.617786+00:00",
+      "task": "mission",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
       "kind": "cloud",
-      "duration_s": 1.9
+      "duration_s": 1.4
     },
     {
-      "ts": "2026-08-17T07:04:26.530352+00:00",
-      "task": "analyste.strategie",
-      "provider": "mistral",
-      "model": "codestral-latest",
+      "ts": "2026-08-17T08:02:43.060813+00:00",
+      "task": "supervise.decision",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
       "kind": "cloud",
-      "duration_s": 1.41
+      "duration_s": 0.71
     },
     {
-      "ts": "2026-08-17T07:04:24.872696+00:00",
-      "task": "analyste.strategie",
-      "provider": "mistral",
-      "model": "codestral-latest",
+      "ts": "2026-08-17T08:02:23.005012+00:00",
+      "task": "mission",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
       "kind": "cloud",
-      "duration_s": 0.79
+      "duration_s": 1.32
+    },
+    {
+      "ts": "2026-08-17T08:01:09.277547+00:00",
+      "task": "supervise.decision",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 0.72
+    },
+    {
+      "ts": "2026-08-17T07:59:40.876647+00:00",
+      "task": "analyste.strategie",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 2.97
     }
   ],
   "events": [
     {
-      "ts": "2026-08-17T07:09:25.545419+00:00",
+      "ts": "2026-08-17T08:10:33.685918+00:00",
       "kind": "message",
       "title": "« Google Gemini » a repondu",
-      "detail": ""
+      "detail": "bascule"
     },
     {
-      "ts": "2026-08-17T07:09:25.385051+00:00",
-      "kind": "message",
-      "title": "« Google Gemini » a repondu",
-      "detail": ""
+      "ts": "2026-08-17T08:10:32.709015+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis Puter Grok (gratuit)",
+      "detail": "HTTP Error 402: Payment Required"
     },
     {
-      "ts": "2026-08-17T07:09:22.005422+00:00",
+      "ts": "2026-08-17T08:10:32.708678+00:00",
       "kind": "blacklist",
-      "title": "Fin de pause Google Gemini",
+      "title": "Pause Puter Grok (gratuit) (3 echecs) 15min",
+      "detail": "backoff x1 -> re-essai auto"
+    },
+    {
+      "ts": "2026-08-17T08:10:12.996478+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": "bascule"
+    },
+    {
+      "ts": "2026-08-17T08:10:11.076870+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis Puter Grok (gratuit)",
+      "detail": "HTTP Error 402: Payment Required"
+    },
+    {
+      "ts": "2026-08-17T08:09:30.832035+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
+    {
+      "ts": "2026-08-17T08:09:30.348054+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
+    {
+      "ts": "2026-08-17T08:08:59.289148+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": "bascule"
+    },
+    {
+      "ts": "2026-08-17T08:08:58.474698+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis Puter Grok (gratuit)",
+      "detail": "HTTP Error 402: Payment Required"
+    },
+    {
+      "ts": "2026-08-17T08:08:58.140409+00:00",
+      "kind": "blacklist",
+      "title": "Fin de pause Puter Grok (gratuit)",
       "detail": "re-essai automatique"
-    },
-    {
-      "ts": "2026-08-17T07:04:40.366705+00:00",
-      "kind": "message",
-      "title": "« Mistral La Plateforme (essai gratuit) » a repondu",
-      "detail": "bascule"
-    },
-    {
-      "ts": "2026-08-17T07:04:40.366120+00:00",
-      "kind": "filet-universel",
-      "title": "[FILET UNIVERSEL] « Mistral La Plateforme (essai gratuit) » a repondu hors chaine",
-      "detail": "analyste.strategie"
-    },
-    {
-      "ts": "2026-08-17T07:04:39.435933+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis OpenRouter (modeles gratuits)",
-      "detail": "HTTP Error 429: Too Many Requests"
-    },
-    {
-      "ts": "2026-08-17T07:04:39.245983+00:00",
-      "kind": "failover",
-      "title": "Saute (blacklist) depuis NVIDIA build.nvidia.com (100+ modeles)",
-      "detail": "0 attente"
-    },
-    {
-      "ts": "2026-08-17T07:04:39.245849+00:00",
-      "kind": "failover",
-      "title": "Saute (blacklist) depuis OpenRouter Nemotron 3 Ultra 550B (free) - analyse forte",
-      "detail": "0 attente"
-    },
-    {
-      "ts": "2026-08-17T07:04:39.245592+00:00",
-      "kind": "failover",
-      "title": "Saute (blacklist) depuis Google Gemini",
-      "detail": "0 attente"
-    },
-    {
-      "ts": "2026-08-17T07:04:39.221546+00:00",
-      "kind": "message",
-      "title": "« Mistral La Plateforme (essai gratuit) » a repondu",
-      "detail": "bascule"
     }
   ],
   "tasks_quotas": {

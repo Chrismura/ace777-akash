@@ -194,7 +194,7 @@ PY
 
     local champ="FAIL"
     local gen_md5=$(md5 -q "$MAISON/genesis_manifest.txt" 2>/dev/null || echo "MISSING")
-    [[ "$gen_md5" == 8bce77b1* ]] && champ="OK"   # 16/08 re-scellé FIX-LAST-LOSS (autorisation Christophe)
+    [[ "$gen_md5" == fe2a7bcc* ]] && champ="OK"   # 17/08 SETUP A rollback complet (revenge permanent)
 
     local hb_age="—" live_age="—"
     if [ -f "$PRISE_IA/heartbeat.json" ]; then

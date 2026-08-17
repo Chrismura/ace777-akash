@@ -99,6 +99,23 @@ def alerte_vocale_active() -> bool:
         return False
 
 
+def arreter_alerte_vocale():
+    """Éteint toute alerte vocale SANTÉ en cours (touch STOP_ALERTE + kill).
+    Appelé quand l'état redevient OK/DÉGRADÉ : la boucle infinie ne doit PAS
+    continuer de crier une fois le problème réparé (leçon 17/08 : l'alerte
+    BALEINES de 23:17Z a crié 8h26 après le fix)."""
+    try:
+        (IM / "STOP_ALERTE").touch()
+        (ALERTES_DIR / "STOP_ALERTE").touch()
+    except Exception:
+        pass
+    try:
+        subprocess.run(["pkill", "-9", "-f", "alerte_vocale.py"],
+                       stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    except Exception:
+        pass
+
+
 def declencher_alerte(anomalies):
     """Écrit ALERTE_SANTE_[ts].json + lance alerte_vocale.py détaché (anti-empilement)."""
     ts = int(time.time())
@@ -112,6 +129,14 @@ def declencher_alerte(anomalies):
         pass
     if alerte_vocale_active():
         return False
+    # Nettoyer les STOP_ALERTE laissés par l'extinction précédente (sinon la
+    # nouvelle alerte s'éteindrait immédiatement au premier cycle).
+    try:
+        for f in (IM / "STOP_ALERTE", ALERTES_DIR / "STOP_ALERTE"):
+            if f.exists():
+                f.unlink()
+    except Exception:
+        pass
     msg = "Alerte ACE777. Santé des index. " + " ; ".join(anomalies)[:300]
     try:
         subprocess.Popen(["python3", str(ALERTE_VOCALE), "--message", msg, "--id", str(ts)],
@@ -417,6 +442,10 @@ def main():
     # Alerte vocale UNIQUEMENT sur chaîne rouge (pas sur DÉGRADÉ — escalade douce)
     if anomalies and not verifier_maintenance():
         declencher_alerte(anomalies)
+    else:
+        # Retour au calme : éteindre toute alerte vocale en cours (sinon elle crie
+        # en boucle toutes les 30s jusqu'à extinction MANUELLE — leçon 17/08).
+        arreter_alerte_vocale()
 
     print(f"[SANTE_INDEX] {rapport['updated']} — {rapport['chaines_ok']} chaînes OK · état {etat}"
           + (f" — ALERTE : {', '.join(anomalies)}" if anomalies else ""))

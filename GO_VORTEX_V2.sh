@@ -16,8 +16,8 @@ ROOT="$(cd "$(dirname "$0")" && pwd)"
 cd "$ROOT"
 
 DURATION="${1:-04:00:00}"
-# 16/08 : re-scellé 8bce77b1 = 95d93d50 + FIX-LAST-LOSS (TTL revenge last_loss_ts 120s) + FIX-PRICE-STASIS (0.5bps/30s)
-EXPECT_MD5_PREFIX="8bce77b1"
+# 17/08 : re-scelle fe2a7bcc = SETUP A rollback complet (revenge permanent, avant fix heartbeat 15/08 15:30)
+EXPECT_MD5_PREFIX="fe2a7bcc"
 
 fail() { echo "FAIL: $*" >&2; exit 1; }
 
