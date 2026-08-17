@@ -179,6 +179,32 @@ def scan_github_list(url_raw):
         return [f'ERR: github {str(e)[:60]}']
 
 
+def scan_free_ai_stuff():
+    """Catalogue cheesejaguar/free-ai-stuff — offres IA gratuites VERIFIEES
+    chaque jour avec preuve officielle (offers.json machine-readable).
+    C'est la source fiable : contrairement aux autres scans (modeles detectes
+    sur des plateformes mortes), ici chaque offre a un statut verifie + source.
+    Ajout 17/08 : remplacer les offres fantomes par du verifie."""
+    try:
+        url = "https://cheesejaguar.github.io/free-ai-stuff/offers.json"
+        req = urllib.request.Request(url, headers={'User-Agent': 'veille_hub/1.0'})
+        with urllib.request.urlopen(req, timeout=20) as resp:
+            data = json.loads(resp.read().decode('utf-8', errors='ignore'))
+        results = []
+        for o in data.get('offers', []):
+            status = o.get('status', '?')
+            if status != 'active':
+                continue
+            prov = o.get('provider', '?')
+            nom = o.get('name', '')
+            acces = ','.join(o.get('accessTypes', [])) or '?'
+            limite = str(o.get('primaryLimit', '?'))[:60]
+            results.append(f"{prov} — {nom} ({acces}, {limite})")
+        return results
+    except Exception as e:
+        return [f'ERR: free-ai-stuff {str(e)[:50]}']
+
+
 def _scan_github_lists():
     """Boucle sur les listes awesome-free-llm et agrège les résultats."""
     urls = [
@@ -281,6 +307,7 @@ def _scan_rss_all():
     return all_results
 
 
+findings['free-ai-stuff (offres VERIFIEES)'] = scan_free_ai_stuff()
 findings['github awesome lists'] = _scan_github_lists()
 findings['huggingface récents'] = scan_huggingface()
 findings['huggingface trending (montée)'] = scan_hf_trending()
