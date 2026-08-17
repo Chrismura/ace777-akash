@@ -94,7 +94,7 @@ for line in out.splitlines()[1:]:
     k, v = line.split(":", 1)
     try: d[k.strip()] = int(v.strip().rstrip("."))
     except Exception: pass
-free = (d.get("Pages free", 0) + d.get("Pages speculative", 0)) * ps / 1024 / 1024
+free = (d.get("Pages free", 0) + d.get("Pages speculative", 0) + d.get("Pages inactive", 0)) * ps / 1024 / 1024
 print(f"RAM_FREE={free:.0f}")
 PY
 )"
@@ -184,7 +184,7 @@ for line in out.splitlines()[1:]:
     k, v = line.split(":", 1)
     try: d[k.strip()] = int(v.strip().rstrip("."))
     except Exception: pass
-free = (d.get("Pages free", 0) + d.get("Pages speculative", 0)) * ps / 1024 / 1024
+free = (d.get("Pages free", 0) + d.get("Pages speculative", 0) + d.get("Pages inactive", 0)) * ps / 1024 / 1024
 print(f"FREE_MB={free:.0f}")
 if free >= 400: print("RAM_LABEL=OK")
 elif free >= 200: print("RAM_LABEL=TIGHT")
@@ -194,7 +194,8 @@ PY
 
     local champ="FAIL"
     local gen_md5=$(md5 -q "$MAISON/genesis_manifest.txt" 2>/dev/null || echo "MISSING")
-    [[ "$gen_md5" == fe2a7bcc* ]] && champ="OK"   # 17/08 SETUP A rollback complet (revenge permanent)
+    local champ_ref="$(cat "$MAISON/Index_Maison/strategie/CHAMPION_ACTIF" 2>/dev/null || echo "UNKNOWN")"
+    [[ "$gen_md5" == "$champ_ref"* ]] && champ="OK"   # source de vérité : CHAMPION_ACTIF
 
     local hb_age="—" live_age="—"
     if [ -f "$PRISE_IA/heartbeat.json" ]; then

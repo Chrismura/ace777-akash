@@ -129,8 +129,9 @@ done
   echo "## 5 — Champion"
 } >> "$REPORT"
 _actual="$(md5 -q genesis_manifest.txt 2>/dev/null || true)"
-if [[ "$_actual" == fe2a7bcc* ]]; then
-  echo "- OK genesis md5=\`$_actual\` (préfixe fe2a7bcc — SETUP A rollback complet, revenge permanent 17/08)" >> "$REPORT"
+_champ_ref="$(cat "$ROOT/Index_Maison/strategie/CHAMPION_ACTIF" 2>/dev/null || echo UNKNOWN)"
+if [[ "$_actual" == "$_champ_ref"* ]]; then
+  echo "- OK genesis md5=\`$_actual\` (préfixe $_champ_ref — source de vérité CHAMPION_ACTIF)" >> "$REPORT"
 else
   echo "- **FAIL** genesis md5=\`$_actual\`" >> "$REPORT"
   FAIL=1

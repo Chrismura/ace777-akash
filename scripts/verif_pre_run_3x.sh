@@ -6,7 +6,7 @@ cd "$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
 # Champion scellé : 98c80b5c (9fe9f105 sans barrière + FIX-SCOUT) + trap ERR
 # diagnostic (14/08, famille 6/6 Q2=a) + safe_call anti-mort (14/08 SPEC v3) = d6977337… Re-scellé 14/08.
-CHAMPION_MD5="fe2a7bcc9dc1f31bd524ffc433f9186d"   # 17/08 SETUP A rollback complet (revenge permanent)
+CHAMPION_MD5="$(cat Index_Maison/strategie/CHAMPION_ACTIF 2>/dev/null || echo UNKNOWN)"   # source de vérité : CHAMPION_ACTIF
 FAIL=0
 
 echo "=== VERIF PRE-RUN 3× — début ==="
@@ -21,11 +21,11 @@ done
 
 echo "--- champion md5 ---"
 _actual="$(md5 -q genesis_manifest.txt 2>/dev/null || md5sum genesis_manifest.txt 2>/dev/null | awk '{print $1}')"
-if [ "$_actual" != "$CHAMPION_MD5" ]; then
-  echo "FAIL: genesis md5=$_actual attendu=$CHAMPION_MD5"
+if [[ "$_actual" != "$CHAMPION_MD5"* ]]; then
+  echo "FAIL: genesis md5=$_actual attendu préfixe=$CHAMPION_MD5"
   FAIL=1
 else
-  echo "OK: genesis md5=$CHAMPION_MD5"
+  echo "OK: genesis md5=$_actual (préfixe $CHAMPION_MD5)"
 fi
 
 echo "--- STOP files ---"

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-17T08:10:57.905939+00:00",
+  "generated_at": "2026-08-17T08:16:00.859293+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 514
+      "calls_24h": 520
     },
     {
       "id": "openrouter-free",
@@ -184,10 +184,82 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 470,
-    "remaining": 154
+    "consumed": 479,
+    "remaining": 145
   },
   "queue": [
+    {
+      "ts": "2026-08-17T08:15:16.433128+00:00",
+      "task": "supervise.decision",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 0.72
+    },
+    {
+      "ts": "2026-08-17T08:15:06.837363+00:00",
+      "task": "mission",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 0.75
+    },
+    {
+      "ts": "2026-08-17T08:14:47.196127+00:00",
+      "task": "mission",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 0.94
+    },
+    {
+      "ts": "2026-08-17T08:14:05.596548+00:00",
+      "task": "mission",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 0.91
+    },
+    {
+      "ts": "2026-08-17T08:13:42.331317+00:00",
+      "task": "supervise.decision",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 0.75
+    },
+    {
+      "ts": "2026-08-17T08:12:37.450439+00:00",
+      "task": "mission",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 1.48
+    },
+    {
+      "ts": "2026-08-17T08:12:07.877662+00:00",
+      "task": "supervise.decision",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 1.03
+    },
+    {
+      "ts": "2026-08-17T08:11:17.704118+00:00",
+      "task": "supervise.decision",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 0.94
+    },
+    {
+      "ts": "2026-08-17T08:11:14.747598+00:00",
+      "task": "mission",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 0.77
+    },
     {
       "ts": "2026-08-17T08:10:33.686454+00:00",
       "task": "supervise.decision",
@@ -235,140 +307,68 @@
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
       "duration_s": 0.69
-    },
-    {
-      "ts": "2026-08-17T08:05:51.086980+00:00",
-      "task": "supervise.decision",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 0.74
-    },
-    {
-      "ts": "2026-08-17T08:05:07.576586+00:00",
-      "task": "mission",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 0.92
-    },
-    {
-      "ts": "2026-08-17T08:04:43.846103+00:00",
-      "task": "mission",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 0.85
-    },
-    {
-      "ts": "2026-08-17T08:04:16.970113+00:00",
-      "task": "supervise.decision",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 1.0
-    },
-    {
-      "ts": "2026-08-17T08:03:46.617786+00:00",
-      "task": "mission",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 1.4
-    },
-    {
-      "ts": "2026-08-17T08:02:43.060813+00:00",
-      "task": "supervise.decision",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 0.71
-    },
-    {
-      "ts": "2026-08-17T08:02:23.005012+00:00",
-      "task": "mission",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 1.32
-    },
-    {
-      "ts": "2026-08-17T08:01:09.277547+00:00",
-      "task": "supervise.decision",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 0.72
-    },
-    {
-      "ts": "2026-08-17T07:59:40.876647+00:00",
-      "task": "analyste.strategie",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 2.97
     }
   ],
   "events": [
     {
-      "ts": "2026-08-17T08:10:33.685918+00:00",
+      "ts": "2026-08-17T08:15:16.432884+00:00",
       "kind": "message",
       "title": "« Google Gemini » a repondu",
       "detail": "bascule"
     },
     {
-      "ts": "2026-08-17T08:10:32.709015+00:00",
+      "ts": "2026-08-17T08:15:15.709144+00:00",
       "kind": "failover",
-      "title": "Bascule depuis Puter Grok (gratuit)",
-      "detail": "HTTP Error 402: Payment Required"
+      "title": "Saute (blacklist) depuis Puter Grok (gratuit)",
+      "detail": "0 attente"
     },
     {
-      "ts": "2026-08-17T08:10:32.708678+00:00",
-      "kind": "blacklist",
-      "title": "Pause Puter Grok (gratuit) (3 echecs) 15min",
-      "detail": "backoff x1 -> re-essai auto"
-    },
-    {
-      "ts": "2026-08-17T08:10:12.996478+00:00",
+      "ts": "2026-08-17T08:15:06.836933+00:00",
       "kind": "message",
       "title": "« Google Gemini » a repondu",
       "detail": "bascule"
     },
     {
-      "ts": "2026-08-17T08:10:11.076870+00:00",
+      "ts": "2026-08-17T08:15:06.088004+00:00",
       "kind": "failover",
-      "title": "Bascule depuis Puter Grok (gratuit)",
-      "detail": "HTTP Error 402: Payment Required"
+      "title": "Saute (blacklist) depuis Puter Grok (gratuit)",
+      "detail": "0 attente"
     },
     {
-      "ts": "2026-08-17T08:09:30.832035+00:00",
-      "kind": "message",
-      "title": "« Google Gemini » a repondu",
-      "detail": ""
-    },
-    {
-      "ts": "2026-08-17T08:09:30.348054+00:00",
-      "kind": "message",
-      "title": "« Google Gemini » a repondu",
-      "detail": ""
-    },
-    {
-      "ts": "2026-08-17T08:08:59.289148+00:00",
+      "ts": "2026-08-17T08:14:47.195788+00:00",
       "kind": "message",
       "title": "« Google Gemini » a repondu",
       "detail": "bascule"
     },
     {
-      "ts": "2026-08-17T08:08:58.474698+00:00",
+      "ts": "2026-08-17T08:14:46.251802+00:00",
       "kind": "failover",
-      "title": "Bascule depuis Puter Grok (gratuit)",
-      "detail": "HTTP Error 402: Payment Required"
+      "title": "Saute (blacklist) depuis Puter Grok (gratuit)",
+      "detail": "0 attente"
     },
     {
-      "ts": "2026-08-17T08:08:58.140409+00:00",
-      "kind": "blacklist",
-      "title": "Fin de pause Puter Grok (gratuit)",
-      "detail": "re-essai automatique"
+      "ts": "2026-08-17T08:14:05.595906+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": "bascule"
+    },
+    {
+      "ts": "2026-08-17T08:14:04.684149+00:00",
+      "kind": "failover",
+      "title": "Saute (blacklist) depuis Puter Grok (gratuit)",
+      "detail": "0 attente"
+    },
+    {
+      "ts": "2026-08-17T08:13:42.331005+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": "bascule"
+    },
+    {
+      "ts": "2026-08-17T08:13:41.580394+00:00",
+      "kind": "failover",
+      "title": "Saute (blacklist) depuis Puter Grok (gratuit)",
+      "detail": "0 attente"
     }
   ],
   "tasks_quotas": {

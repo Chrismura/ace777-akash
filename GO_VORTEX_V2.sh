@@ -16,8 +16,8 @@ ROOT="$(cd "$(dirname "$0")" && pwd)"
 cd "$ROOT"
 
 DURATION="${1:-04:00:00}"
-# 17/08 : re-scelle fe2a7bcc = SETUP A rollback complet (revenge permanent, avant fix heartbeat 15/08 15:30)
-EXPECT_MD5_PREFIX="fe2a7bcc"
+# Source de vérité : Index_Maison/strategie/CHAMPION_ACTIF (mis à jour par scripts/basculer_setup.sh)
+EXPECT_MD5_PREFIX="$(cat "$ROOT/Index_Maison/strategie/CHAMPION_ACTIF" 2>/dev/null || echo UNKNOWN)"
 
 fail() { echo "FAIL: $*" >&2; exit 1; }
 

@@ -34,12 +34,12 @@ ok "fichiers moteur présents"
 # + trap ERR diagnostic (14/08) + safe_call anti-mort (14/08 SPEC v3 famille 6/6) = d6977337...
 # Re-scellé 14/08 par la famille (6/6 GO AVEC RÉSERVES, Q2=a) — diff vérifié :
 # seul ajout = le trap, zéro altération métier.
-_champion_attendu="fe2a7bcc9dc1f31bd524ffc433f9186d"   # 17/08 SETUP A rollback complet (revenge permanent)
+_champion_attendu="$(cat "$_root/Index_Maison/strategie/CHAMPION_ACTIF" 2>/dev/null || echo UNKNOWN)"   # source de vérité : CHAMPION_ACTIF
 _champion_actuel="$(md5 -q genesis_manifest.txt 2>/dev/null || md5sum genesis_manifest.txt 2>/dev/null | awk '{print $1}')"
-if [ "$_champion_actuel" != "$_champion_attendu" ]; then
-  fail "genesis md5=$_champion_actuel attendu=$_champion_attendu — CHAMPION MODIFIÉ, ne pas lancer"
+if [[ "$_champion_actuel" != "$_champion_attendu"* ]]; then
+  fail "genesis md5=$_champion_actuel attendu préfixe=$_champion_attendu — CHAMPION MODIFIÉ, ne pas lancer"
 else
-  ok "champion intègre (md5 $_champion_attendu)"
+  ok "champion intègre (md5 $_champion_actuel)"
 fi
 
 # --- Binance clés ---

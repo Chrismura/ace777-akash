@@ -37,7 +37,10 @@ for line in out.splitlines()[1:]:
   k, v = line.split(":", 1)
   try: d[k.strip()] = int(v.strip().rstrip("."))
   except Exception: pass
-free = (d.get("Pages free", 0) + d.get("Pages speculative", 0)) * ps / 1024 / 1024
+# RAM réellement disponible : pages libres + spéculatives + INACTIVES (cache
+# réutilisable par macOS sans swap). Sans les inactives, on crie CRITIQUE à tort
+# dès que le système a mis des fichiers en cache (faux positif 17/08).
+free = (d.get("Pages free", 0) + d.get("Pages speculative", 0) + d.get("Pages inactive", 0)) * ps / 1024 / 1024
 print(f"FREE_MB={free:.0f}")
 if free >= 400: print("RAM_LABEL=OK")
 elif free >= 200: print("RAM_LABEL=TIGHT")
@@ -47,7 +50,8 @@ PY
 
 # Champion
 GEN_MD5="$(md5 -q "$ROOT/genesis_manifest.txt" 2>/dev/null || echo MISSING)"
-if [[ "$GEN_MD5" == fe2a7bcc* ]]; then CHAMP="OK"; else CHAMP="FAIL"; fi   # 17/08 SETUP A rollback complet (revenge permanent)
+_CHAMP_REF="$(cat "$ROOT/Index_Maison/strategie/CHAMPION_ACTIF" 2>/dev/null || echo UNKNOWN)"
+if [[ "$GEN_MD5" == "$_CHAMP_REF"* ]]; then CHAMP="OK"; else CHAMP="FAIL"; fi   # source de vérité : CHAMPION_ACTIF
 
 # Heartbeat / LIVE age (si vol)
 HB_AGE="—"

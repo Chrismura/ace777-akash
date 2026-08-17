@@ -7,7 +7,7 @@ set -uo pipefail
 cd "$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
 # 14/08 : champion re-scellé d6977337 = 98c80b5c + trap ERR + safe_call (famille 6/6, SPEC v3)
-GENESIS_MD5="fe2a7bcc9dc1f31bd524ffc433f9186d"   # 17/08 SETUP A rollback complet (revenge permanent)
+GENESIS_MD5="$(cat Index_Maison/strategie/CHAMPION_ACTIF 2>/dev/null || echo UNKNOWN)"   # source de vérité : CHAMPION_ACTIF
 VORTEX_MD5="6ce82f6bb0819faff94b954c43f3f336"
 # 14/08 : GEMINI_TEST + crash dump greffé (famille 6/6 Q1=c) = 12031ef7…
 GEMINI_MD5="12031ef71ddfe85d44cbf532b388e143"
@@ -33,7 +33,7 @@ g="$(md5 -q genesis_manifest.txt 2>/dev/null || true)"
 v="$(md5 -q launch_vortex_v2_collab_4h_binance.sh 2>/dev/null || true)"
 m="$(md5 -q launch_test_master_base_v8_5_impact_GEMINI_TEST.sh 2>/dev/null || true)"
 
-[ "$g" = "$GENESIS_MD5" ] && ok "genesis md5 $g" || fail "genesis md5=$g attendu $GENESIS_MD5"
+[[ "$g" == "$GENESIS_MD5"* ]] && ok "genesis md5 $g (préfixe $GENESIS_MD5)" || fail "genesis md5=$g attendu préfixe=$GENESIS_MD5"
 [ "$v" = "$VORTEX_MD5" ] && ok "vortex md5 $v" || fail "vortex md5=$v attendu $VORTEX_MD5"
 [ "$m" = "$GEMINI_MD5" ] && ok "GEMINI md5 $m (BETA x3)" || fail "GEMINI md5=$m attendu $GEMINI_MD5"
 
