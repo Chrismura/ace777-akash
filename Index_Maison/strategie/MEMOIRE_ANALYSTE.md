@@ -802,3 +802,11 @@
 - 2026-08-17T01:01:51.805679Z | alerte | Maintien de la vigilance nominale — système fonctionne comme conçu : Alpha attend confirmation cassure 63,2k$, Beta livre l'intel (double volume x3), Hulk neutre, PnL positif stable. | conf=87%
 - 2026-08-17T01:02:55.951066Z | alerte | ? | conf=?
 - 2026-08-17T01:07:28.004083Z | alerte | ? | conf=?
+- 2026-08-17T01:10:09.719982Z | alerte | Maintien de la vigilance nominale — le système opère par design (BETA éclaire, ALPHA patiente, HULK gère) avec un PnL positif mais fragile, exigeant une surveillance accrue sur CHIP et la qualité des sondes BETA. | conf=87%
+- 2026-08-17T01:11:10.156200Z | alerte | Maintien de la vigilance nominale — système fonctionne comme conçu (Alpha attend, Beta renseigne, Hulk gère) mais activation immédiate du garde-fou Hulk sur CHIP (stop -5 % imminent) et surveillance accrue de la qualité des sondes Beta. | conf=85%
+- 2026-08-17T01:32:47.273136Z | alerte | Maintien de la vigilance nominale — système fonctionne comme conçu (Alpha attend, Beta renseigne, Hulk gère) mais **pré-alerte Alpha activée** : BTC > 63,2k$ volume x3 et ETH > 1885 $ = conditions d'engagement remplies, Alpha doit tirer ; garde-fou Hulk maintenu sur CHIP (-4,03 %, stop -5 % non négociable). | conf=85%
+- 2026-08-17T01:33:40.546520Z | alerte | Maintien de la vigilance nominale — système fonctionne comme conçu (Alpha attend, Beta renseigne, Hulk gère) mais activation immédiate du garde-fou Hulk sur CHIP (stop -5 % imminent) et surveillance accrue de la qualité des sondes Beta, avec Alpha en pré-alerte renforcée sur la tentative de cassure BTC > 63,2k$. | conf=85%
+- 2026-08-17T01:40:45.976349Z | alerte | Maintien de la vigilance nominale — système fonctionne comme conçu (Alpha attend, Beta renseigne, Hulk gère) avec un désamorçage du risque CHIP (retour à -1,58 %) et une annulation de la pré-alerte Alpha suite au retrait du BTC sous 63,2k$, tout en maintenant la surveillance de la qualité des sondes Beta. | conf=87%
+- 2026-08-17T01:50:03.979979Z | alerte | ? | conf=?
+- 2026-08-17T01:50:04.028410Z | alerte | ? | conf=?
+- 2026-08-17T02:09:00.398810Z | alerte | ? | conf=?
