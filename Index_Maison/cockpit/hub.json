@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-17T07:07:49.940266+00:00",
+  "generated_at": "2026-08-17T07:10:51.895320+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 521
+      "calls_24h": 523
     },
     {
       "id": "openrouter-free",
@@ -184,10 +184,26 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 422,
-    "remaining": 202
+    "consumed": 424,
+    "remaining": 200
   },
   "queue": [
+    {
+      "ts": "2026-08-17T07:09:25.545730+00:00",
+      "task": "analyste.strategie",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 3.54
+    },
+    {
+      "ts": "2026-08-17T07:09:25.385727+00:00",
+      "task": "analyste.strategie",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 3.37
+    },
     {
       "ts": "2026-08-17T07:04:40.366824+00:00",
       "task": "analyste.strategie",
@@ -291,25 +307,27 @@
       "model": "codestral-latest",
       "kind": "cloud",
       "duration_s": 0.79
-    },
-    {
-      "ts": "2026-08-17T07:04:23.863371+00:00",
-      "task": "analyste.strategie",
-      "provider": "mistral",
-      "model": "codestral-latest",
-      "kind": "cloud",
-      "duration_s": 0.9
-    },
-    {
-      "ts": "2026-08-17T07:04:22.734241+00:00",
-      "task": "analyste.strategie",
-      "provider": "mistral",
-      "model": "codestral-latest",
-      "kind": "cloud",
-      "duration_s": 0.75
     }
   ],
   "events": [
+    {
+      "ts": "2026-08-17T07:09:25.545419+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
+    {
+      "ts": "2026-08-17T07:09:25.385051+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
+    {
+      "ts": "2026-08-17T07:09:22.005422+00:00",
+      "kind": "blacklist",
+      "title": "Fin de pause Google Gemini",
+      "detail": "re-essai automatique"
+    },
     {
       "ts": "2026-08-17T07:04:40.366705+00:00",
       "kind": "message",
@@ -351,24 +369,6 @@
       "kind": "message",
       "title": "« Mistral La Plateforme (essai gratuit) » a repondu",
       "detail": "bascule"
-    },
-    {
-      "ts": "2026-08-17T07:04:39.221163+00:00",
-      "kind": "filet-universel",
-      "title": "[FILET UNIVERSEL] « Mistral La Plateforme (essai gratuit) » a repondu hors chaine",
-      "detail": "analyste.strategie"
-    },
-    {
-      "ts": "2026-08-17T07:04:38.172693+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis OpenRouter (modeles gratuits)",
-      "detail": "HTTP Error 429: Too Many Requests"
-    },
-    {
-      "ts": "2026-08-17T07:04:37.976898+00:00",
-      "kind": "failover",
-      "title": "Saute (blacklist) depuis NVIDIA build.nvidia.com (100+ modeles)",
-      "detail": "0 attente"
     }
   ],
   "tasks_quotas": {
