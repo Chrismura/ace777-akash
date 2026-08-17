@@ -1041,3 +1041,5 @@
 - 2026-08-17T18:52:34.562275Z | alerte | Poursuite de la stratégie actuelle avec une vigilance accrue sur CCUSDT et les flux de marché. | conf=88%
 - 2026-08-17T19:03:22.115925Z | alerte | Maintien de l'alerte ambre et de la rigueur tactique pour redresser le PnL combiné tout en capitalisant sur l'éclairage de Beta et la patience d'Alpha. | conf=85%
 - 2026-08-17T19:03:26.712768Z | alerte | Maintien de l'alerte ambre et de la rigueur tactique pour redresser le PnL combiné tout en capitalisant sur l'éclairage de Beta et la patience d'Alpha. | conf=85%
+- 2026-08-17T19:10:24.649531Z | alerte | Maintien de l'alerte ambre et de la rigueur opérationnelle pour redresser le PnL combiné sans forcer l'exposition. | conf=85%
+- 2026-08-17T19:10:24.827021Z | alerte | Maintien de l'alerte ambre et de la rigueur tactique pour redresser le PnL combiné tout en capitalisant sur l'éclairage de Beta et la patience d'Alpha. | conf=85%

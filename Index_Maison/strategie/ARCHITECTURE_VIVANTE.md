@@ -1,16 +1,16 @@
-# ARCHITECTURE VIVANTE — ACE777 (2026-08-17 19:03 UTC)
+# ARCHITECTURE VIVANTE — ACE777 (2026-08-17 19:10 UTC)
 
 > Document GÉNÉRÉ AUTOMATIQUEMENT à l'instant. La famille valide
 > en s'appuyant sur CE contexte, pas sur des documents figés.
 
 ## Qui tourne en ce moment
-- ⛔ hub
+- ✅ hub
 - ✅ pont cockpit
 - ✅ radar
-- ⛔ lecteur signets
-- ⛔ générateur fiches
-- ⛔ feed mission
-- ⛔ serveur cockpit
+- ✅ lecteur signets
+- ✅ générateur fiches
+- ✅ feed mission
+- ✅ serveur cockpit
 
 ## Routage des tâches de décision
 
@@ -22,10 +22,10 @@
 
 ## État de la mission (bots + PnL)
 
-- mission.json : 2026-08-17 19:03Z · run `MASTER_VORTEX_V2_COLLAB_4H` · alerte `amber`
-- PnL combiné : **-0.96 $** 📉 (combo -0.9603)
-- ALPHA (sniper (embuscade, ×13, revenge si claque)) : **-0.97 $** · 93 fills · 993 skips
-- BETA (éclaireur (chatouille le marché, alimente Alpha)) : **+0.01 $** · 179 fills · 848 skips
+- mission.json : 2026-08-17 19:09Z · run `MASTER_VORTEX_V2_COLLAB_4H` · alerte `amber`
+- PnL combiné : **-5.13 $** 📉 (combo -5.1321)
+- ALPHA (sniper (embuscade, ×13, revenge si claque)) : **-5.02 $** · 97 fills · 1019 skips
+- BETA (éclaireur (chatouille le marché, alimente Alpha)) : **-0.11 $** · 188 fills · 863 skips
 - HULK (gestionnaire de portefeuille (bag, escalier, courreur)) : **+0.90 $** · 0 fills
 - Saison : CALME 🧊 · 
 
@@ -46,11 +46,11 @@
 ## Mémoire chaude (journal + résumés)
 
 - Radar (dernières alertes) :
-  · 2026-08-17T19:03:17.464975Z ETHUSDT 1907.44 0.0003 211.2 declenche=oui
-  · 2026-08-17T19:03:17.465090Z ETHUSDT 1907.45 0.0003 213.2 declenche=oui
-  · 2026-08-17T19:03:17.465202Z ETHUSDT 1907.46 0.0003 213.8 declenche=oui
-  · 2026-08-17T19:03:17.465328Z ETHUSDT 1907.47 0.0003 214.1 declenche=oui
-- Intention en cours : BETA a sonde le marche (179 sondes, 122 long / 57 court, con | ALPHA attend son moment : 732 skips (discipline), le mur du  | ALPHA a frappe 94 fois en embuscade (13x) (dont 61 en mode r
+  · 2026-08-17T19:10:19.349036Z BTCUSDT 64389.21 0.0001 1.9 declenche=non
+  · 2026-08-17T19:10:19.349064Z BTCUSDT 64389.21 0.0001 2.8 declenche=non
+  · 2026-08-17T19:10:20.234628Z BTCUSDT 64389.21 0.0001 2.1 declenche=non
+  · 2026-08-17T19:10:20.234623Z BTCUSDT 64389.21 0.0001 3.0 declenche=non
+- Intention en cours : BETA a sonde le marche (188 sondes, 125 long / 63 court, con | ALPHA attend son moment : 747 skips (discipline), le mur du  | ALPHA a frappe 97 fois en embuscade (13x) (dont 64 en mode r
 - 300 signets X résumés (quota aujourd'hui : 50/50)
 - 40 fiches IA d'offres en cache (quota 8/jour)
 
