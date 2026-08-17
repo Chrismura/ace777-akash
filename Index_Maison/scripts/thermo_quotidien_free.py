@@ -1024,6 +1024,18 @@ def main() -> int:
 
     live_json = THERMO / "live.json"
     live_js = THERMO / "live.js"
+
+    # Préserver la section onchain injectée par le pont baleines (pont_onchain.py).
+    # Sans ça, cette réécriture écrase le travail du pont → la chaîne BALEINES crie.
+    try:
+        if live_json.exists():
+            ancien = json.loads(live_json.read_text(encoding="utf-8"))
+            oc = ancien.get("onchain")
+            if oc:
+                payload["onchain"] = oc
+    except Exception:
+        pass
+
     live_json.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     live_js.write_text("window.__THERMO__ = " + json.dumps(payload, ensure_ascii=False) + ";\n", encoding="utf-8")
 

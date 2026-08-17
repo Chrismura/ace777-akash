@@ -41,7 +41,7 @@ SEUILS = {
     "mission.json": 30,
     "ada_saison_live.json": 15,
     "ada_gardienne_live.json": 15,
-    "cortana_feed.json": 60,
+    "cortana_feed.json": 90,  # run horaire (3600 s) : 60 min = marge nulle, Mac en veille = faux positif
     "sante_index.json": 15,
 }
 # DÉGRADÉ (orange) : fichier entre seuil rouge et 2× le seuil — ralentissement,
