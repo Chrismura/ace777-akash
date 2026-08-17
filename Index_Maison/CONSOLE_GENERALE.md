@@ -1,6 +1,6 @@
 # Console générale — clin d’œil
 
-Auto-refresh : 2026-08-16 22:16 UTC · jour local **2026-08-17**
+Auto-refresh : 2026-08-17 18:53 UTC · jour local **2026-08-17**
 
 ## Feu tricolore
 
@@ -8,7 +8,7 @@ Auto-refresh : 2026-08-16 22:16 UTC · jour local **2026-08-17**
 |-------|------|--------|
 | **ACE** | 🟢 RUN | Dernier tag `NUAGE_TEST_8H_CMP2` · combo ≈ **-45.11 $** |
 | **Hulk paper** | 🟢 RUN | pnl_total ≈ **-2.4530** · pos **7** |
-| **Hulk digest** | 🟢 RUN | mtime 2026-08-16T22:16Z |
+| **Hulk digest** | 🟢 RUN | mtime 2026-08-17T18:52Z |
 | **Punk** | 🔴 STOP | — · idle |
 | **Ollama** | 🟢 RUN | |
 | **Obsidian** | 🟢 | vault `Obsidian_ACE777` |
