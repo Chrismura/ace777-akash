@@ -2,12 +2,12 @@
 
 ## WHY_ARRET (ligne obligatoire)
 
-`WHY_ARRET=no_process_exit_logged`
+`WHY_ARRET=unknown | ran_min=240.1 | vs_planned_min=-0.1 | timing=near_timer`
 
-- Généré : `2026-08-17T07:36:16Z`
-- Fenêtre depuis : `2026-08-17T07:34:38Z`
-- Fin process : ``
-- Meta start/end : `2026-08-17T07:34:38Z` → `2026-08-17T11:34:38Z`
+- Généré : `2026-08-17T11:40:21Z`
+- Fenêtre depuis : `2026-08-17T07:40:11Z`
+- Fin process : `2026-08-17T11:40:18Z`
+- Meta start/end : `2026-08-17T07:40:11Z` → `2026-08-17T11:40:11Z`
 - Watchdog meta : stale=?s max_relaunch=?
 - NET_RETRY (fenêtre) : 0
 
@@ -17,29 +17,33 @@ Alpage · groupe électrogène · 2 lignes (téléphone + surf) · WiFi. Le bot 
 
 ## Verdict court
 
-- **WHY_ARRET=no_process_exit_logged**
-- Issues duo (1593) — scout/hunter désynchro.
+- **WHY_ARRET=unknown | ran_min=240.1 | vs_planned_min=-0.1 | timing=near_timer**
+- Morts process journalisées (PROCESS_DIE/EXIT) — lire `last_cmd` / `how=signal`.
+- Issues duo (1627) — scout/hunter désynchro.
 
 ## Compteurs
 
 | Code | Nb | Sens |
 |------|----|------|
 | E-WATCHDOG | 0 | heartbeat / max relaunch |
-| E-PROC | 0 | mort process / signal |
+| E-PROC | 4 | mort process / signal |
 | E-STALE | 0 | tension/NUAGE age (signal latence) |
-| E-DUO | 1593 | no_trigger / stale duo |
-| E-SPREAD | 1889 | spread trop large |
+| E-DUO | 1627 | no_trigger / stale duo |
+| E-SPREAD | 1847 | spread trop large |
 | I-HUNTER | 0 | STORM_HUNTER arm (info) |
 
 ## PnL fills (fenêtre)
 
-- ALPHA : fills=0 pnl=+0.0000 exits={}
-- BETA : fills=0 pnl=+0.0000 exits={}
-- **TOTAL** : +0.0000
+- ALPHA : fills=78 pnl=-3.0541 exits={'shock_inversion_stop': 48, 'fluid_exit_inversion': 19, 'fluid_exit_brake': 11}
+- BETA : fills=138 pnl=+0.2388 exits={'shock_inversion_stop': 96, 'fluid_exit_inversion': 28, 'fluid_exit_brake': 14}
+- **TOTAL** : -2.8153
 
 ## Derniers PROCESS_DIE / EXIT
 
-- *(aucun)*
+- `[BETA_X5] 2026-08-17T11:40:15Z PROCESS_EXIT unit=BETA_X5 how=pipe_run_unit why=rc_0 rc=0`
+- `[ALPHA_X13_BURST13] 2026-08-17T11:40:18Z PROCESS_EXIT unit=ALPHA_X13_BURST13 how=pipe_run_unit why=rc_0 rc=0`
+- `2026-08-17T11:40:15Z PROCESS_EXIT unit=BETA_X5 how=pipe_run_unit why=rc_0 rc=0`
+- `2026-08-17T11:40:18Z PROCESS_EXIT unit=ALPHA_X13_BURST13 how=pipe_run_unit why=rc_0 rc=0`
 
 ## Derniers WATCHDOG
 
