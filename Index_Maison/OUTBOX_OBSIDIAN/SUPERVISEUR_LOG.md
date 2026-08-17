@@ -1,4 +1,3 @@
-| 2026-08-08T13:32Z | SUPERVISEUR | hub=OK ollama=OK jobs_manquants=[] git_sys=D git_vault=P action=ask résultat=escalade humaine : État incohérent des répertoires de fichiers. Hub et Ollama sont valides, mais les répertoires TOP_DEMAIN et REVEIL_BUFFY ne sont pas correctement définis ou accessibles. |
 | 2026-08-08T14:32Z | SUPERVISEUR | hub=OK ollama=OK jobs_manquants=[] git_sys=D git_vault=P action=ask résultat=escalade humaine : État incohérent des répertoires de fichiers. Le système est indiqué comme propres mais inaccessible. |
 | 2026-08-08T15:33Z | SUPERVISEUR | hub=OK ollama=OK jobs_manquants=[] git_sys=D git_vault=P action=ask résultat=escalade humaine : État incohérent des répertoires de fichiers : 'TOP_DEMAIN' et 'REVEIL_BUFFY'. Les informations fournies ne permettent pas de déterminer si ces répertoires sont correctement configurés ou accessibles. |
 | 2026-08-08T16:33Z | SUPERVISEUR | hub=OK ollama=OK jobs_manquants=[] git_sys=D git_vault=P action=ask résultat=escalade humaine : État incohérent des répertoires de fichiers. Hub et Ollama fonctionnent, mais git_systeme_propre est faux et git_vault_propre_inaccessible est vrai. |
@@ -198,3 +197,4 @@
 | 2026-08-17T14:11Z | SUPERVISEUR | hub=OK ollama=OK jobs_manquants=[] git_sys=D git_vault=D action=none résultat=rien à faire | rappel lecture déjà écrit aujourd'hui (2026-08-17) |
 | 2026-08-17T15:12Z | SUPERVISEUR | hub=OK ollama=OK jobs_manquants=[] git_sys=D git_vault=D action=none résultat=rien à faire | rappel lecture déjà écrit aujourd'hui (2026-08-17) |
 | 2026-08-17T16:12Z | SUPERVISEUR | hub=OK ollama=OK jobs_manquants=[] git_sys=D git_vault=D action=none résultat=rien à faire | rappel lecture déjà écrit aujourd'hui (2026-08-17) |
+| 2026-08-17T17:12Z | SUPERVISEUR | hub=OK ollama=OK jobs_manquants=[] git_sys=D git_vault=D action=none résultat=rien à faire | rappel lecture déjà écrit aujourd'hui (2026-08-17) |

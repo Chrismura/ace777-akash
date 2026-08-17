@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-17T14:11:55.714547+00:00",
+  "generated_at": "2026-08-17T15:12:00.547949+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 500
+      "calls_24h": 492
     },
     {
       "id": "openrouter-free",
@@ -26,16 +26,16 @@
       "model": "qwen-3.8-max-free",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 3
+      "calls_24h": 10
     },
     {
       "id": "groq",
       "name": "Groq (LLM ultra-rapide, gratuit)",
       "kind": "cloud",
-      "model": "openai/gpt-oss-20b",
+      "model": "groq/compound",
       "enabled": true,
       "timeout": 120,
-      "calls_24h": 0
+      "calls_24h": 9
     },
     {
       "id": "nvidia",
@@ -44,7 +44,7 @@
       "model": "deepseek-ai/deepseek-v4-flash-0731",
       "enabled": true,
       "timeout": 300,
-      "calls_24h": 407
+      "calls_24h": 409
     },
     {
       "id": "mistral",
@@ -96,7 +96,7 @@
       "name": "InferX DeepSeek V4 Flash (API gratuite jusqu'au 12/08)",
       "kind": "cloud",
       "model": "deepseek-v4-flash-0731",
-      "enabled": false,
+      "enabled": true,
       "timeout": 600,
       "calls_24h": 0
     },
@@ -193,191 +193,191 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 719,
+    "consumed": 757,
     "remaining": 0
   },
   "queue": [
     {
-      "ts": "2026-08-17T14:11:48.604143+00:00",
-      "task": "groq",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 0.64
-    },
-    {
-      "ts": "2026-08-17T14:10:54.924285+00:00",
-      "task": "groq",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 0.61
-    },
-    {
-      "ts": "2026-08-17T14:10:21.016587+00:00",
-      "task": "groq",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 0.6
-    },
-    {
-      "ts": "2026-08-17T14:10:01.355344+00:00",
+      "ts": "2026-08-17T15:10:05.690465+00:00",
       "task": "analyste.strategie",
       "provider": "gemini",
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
-      "duration_s": 3.95
+      "duration_s": 3.75
     },
     {
-      "ts": "2026-08-17T14:10:00.785114+00:00",
+      "ts": "2026-08-17T15:10:05.208966+00:00",
       "task": "analyste.strategie",
       "provider": "gemini",
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
-      "duration_s": 3.38
+      "duration_s": 3.27
     },
     {
-      "ts": "2026-08-17T13:49:43.041003+00:00",
+      "ts": "2026-08-17T15:02:02.463593+00:00",
+      "task": "analyste.strategie",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 64.71
+    },
+    {
+      "ts": "2026-08-17T15:02:01.149764+00:00",
+      "task": "analyste.strategie",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 68.98
+    },
+    {
+      "ts": "2026-08-17T14:51:57.591232+00:00",
+      "task": "analyste.strategie",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 3.52
+    },
+    {
+      "ts": "2026-08-17T14:51:56.766558+00:00",
+      "task": "analyste.strategie",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 3.3
+    },
+    {
+      "ts": "2026-08-17T14:48:34.156559+00:00",
+      "task": "analyste.strategie",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 3.85
+    },
+    {
+      "ts": "2026-08-17T14:47:58.459503+00:00",
+      "task": "analyste.strategie",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 3.37
+    },
+    {
+      "ts": "2026-08-17T14:40:03.892083+00:00",
+      "task": "analyste.strategie",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 4.2
+    },
+    {
+      "ts": "2026-08-17T14:40:03.130043+00:00",
+      "task": "analyste.strategie",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 3.44
+    },
+    {
+      "ts": "2026-08-17T14:38:24.434545+00:00",
+      "task": "analyse.profonde",
+      "provider": "nvidia",
+      "model": "deepseek-ai/deepseek-v4-flash-0731",
+      "kind": "cloud",
+      "duration_s": 217.67
+    },
+    {
+      "ts": "2026-08-17T14:36:58.217330+00:00",
+      "task": "analyse.profonde",
+      "provider": "nvidia",
+      "model": "deepseek-ai/deepseek-v4-flash-0731",
+      "kind": "cloud",
+      "duration_s": 35.87
+    },
+    {
+      "ts": "2026-08-17T14:35:59.585547+00:00",
+      "task": "analyste.strategie",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 3.22
+    },
+    {
+      "ts": "2026-08-17T14:34:46.721131+00:00",
       "task": "cortana.analyse",
       "provider": "gemini",
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
-      "duration_s": 0.61
+      "duration_s": 0.69
     },
     {
-      "ts": "2026-08-17T13:41:05.941340+00:00",
-      "task": "mission",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
+      "ts": "2026-08-17T14:34:45.990009+00:00",
+      "task": "chat.local",
+      "provider": "groq",
+      "model": "groq/compound",
       "kind": "cloud",
-      "duration_s": 9.67
-    },
-    {
-      "ts": "2026-08-17T13:40:56.049335+00:00",
-      "task": "cortana.analyse",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 0.74
-    },
-    {
-      "ts": "2026-08-17T13:40:55.262771+00:00",
-      "task": "signets.juge",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 0.52
-    },
-    {
-      "ts": "2026-08-17T13:40:54.702362+00:00",
-      "task": "audit.protocol",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 0.64
-    },
-    {
-      "ts": "2026-08-17T13:40:47.984554+00:00",
-      "task": "code.ia",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 3.9
-    },
-    {
-      "ts": "2026-08-17T13:40:12.528306+00:00",
-      "task": "nara",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 3.88
-    },
-    {
-      "ts": "2026-08-17T13:31:58.924994+00:00",
-      "task": "analyste.strategie",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 3.13
-    },
-    {
-      "ts": "2026-08-17T13:30:56.314417+00:00",
-      "task": "analyste.strategie",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 3.19
-    },
-    {
-      "ts": "2026-08-17T13:30:52.922844+00:00",
-      "task": "analyste.strategie",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 3.03
+      "duration_s": 0.69
     }
   ],
   "events": [
     {
-      "ts": "2026-08-17T14:11:48.603819+00:00",
+      "ts": "2026-08-17T15:10:05.689757+00:00",
       "kind": "message",
       "title": "« Google Gemini » a repondu",
-      "detail": "bascule"
+      "detail": ""
     },
     {
-      "ts": "2026-08-17T14:11:48.603320+00:00",
-      "kind": "filet-universel",
-      "title": "[FILET UNIVERSEL] « Google Gemini » a repondu hors chaine",
-      "detail": "?"
-    },
-    {
-      "ts": "2026-08-17T14:11:47.959652+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis Groq (LLM ultra-rapide, gratuit)",
-      "detail": "Reponse vide"
-    },
-    {
-      "ts": "2026-08-17T14:11:45.440818+00:00",
-      "kind": "timeout",
-      "title": "Patience Groq (LLM ultra-rapide, gratuit) (reponse vide)",
-      "detail": "Reponse vide"
-    },
-    {
-      "ts": "2026-08-17T14:10:54.923982+00:00",
+      "ts": "2026-08-17T15:10:05.208402+00:00",
       "kind": "message",
       "title": "« Google Gemini » a repondu",
-      "detail": "bascule"
+      "detail": ""
     },
     {
-      "ts": "2026-08-17T14:10:54.923311+00:00",
-      "kind": "filet-universel",
-      "title": "[FILET UNIVERSEL] « Google Gemini » a repondu hors chaine",
-      "detail": "?"
+      "ts": "2026-08-17T15:10:01.937794+00:00",
+      "kind": "quota",
+      "title": "Budget calme atteint -> bascule famille (gratuits)",
+      "detail": "analyste.strategie"
     },
     {
-      "ts": "2026-08-17T14:10:54.307321+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis Groq (LLM ultra-rapide, gratuit)",
-      "detail": "HTTP Error 403: Forbidden"
+      "ts": "2026-08-17T15:10:01.937494+00:00",
+      "kind": "quota",
+      "title": "Budget calme atteint -> bascule famille (gratuits)",
+      "detail": "analyste.strategie"
     },
     {
-      "ts": "2026-08-17T14:10:21.016467+00:00",
+      "ts": "2026-08-17T15:02:02.462858+00:00",
       "kind": "message",
       "title": "« Google Gemini » a repondu",
-      "detail": "bascule"
+      "detail": ""
     },
     {
-      "ts": "2026-08-17T14:10:21.016102+00:00",
-      "kind": "filet-universel",
-      "title": "[FILET UNIVERSEL] « Google Gemini » a repondu hors chaine",
-      "detail": "?"
+      "ts": "2026-08-17T15:02:01.149253+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
     },
     {
-      "ts": "2026-08-17T14:10:20.411207+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis Groq (LLM ultra-rapide, gratuit)",
-      "detail": "HTTP Error 403: Forbidden"
+      "ts": "2026-08-17T15:00:57.755690+00:00",
+      "kind": "quota",
+      "title": "Budget calme atteint -> bascule famille (gratuits)",
+      "detail": "analyste.strategie"
+    },
+    {
+      "ts": "2026-08-17T15:00:52.172752+00:00",
+      "kind": "quota",
+      "title": "Budget calme atteint -> bascule famille (gratuits)",
+      "detail": "analyste.strategie"
+    },
+    {
+      "ts": "2026-08-17T14:51:57.590669+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
+    {
+      "ts": "2026-08-17T14:51:56.765706+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
     }
   ],
   "tasks_quotas": {
@@ -389,15 +389,16 @@
     },
     "cortana.brief": {
       "provider": "gemini",
-      "fallback": "nara",
+      "fallback": "groq",
       "secondary": "nara",
-      "note": "BRIEF (13/08): gemini principal, nvidia, nemotron-ultra en filet"
+      "note": "ROUTAGE 17/08 (4 cerveaux vivants): gemini/nara/nara -> gemini/groq/nara"
     },
     "audit.protocol": {
       "provider": "gemini",
-      "fallback": "nara",
+      "fallback": "groq",
       "cloud_quota": 5,
-      "note": "audit de protocole — qualite maximale"
+      "note": "ROUTAGE 17/08 (4 cerveaux vivants): gemini/nara/None -> gemini/groq/nara",
+      "secondary": "nara"
     },
     "signets.synthese": {
       "provider": "gemini",
@@ -406,22 +407,23 @@
       "note": "SYNTHESE (13/08): gemini principal, gpt-oss-20b free generaliste, nvidia filet"
     },
     "chat.local": {
-      "provider": "gemini",
-      "fallback": "nara",
+      "provider": "groq",
+      "fallback": "gemini",
       "cloud_quota": 30,
-      "note": "usage interactif libre — PAUSE qwen (10/08, GO famille), bascule gemini"
+      "note": "ROUTAGE 17/08 (4 cerveaux vivants): gemini/nara/None -> groq/gemini/nara",
+      "secondary": "nara"
     },
     "cortana.analyse": {
       "provider": "gemini",
-      "fallback": "nara",
+      "fallback": "groq",
       "secondary": "nara",
-      "note": "MASTER ANALYSTE (13/08): gemini principal, nemotron-ultra 550b 2e avis, nvidia filet"
+      "note": "ROUTAGE 17/08 (4 cerveaux vivants): gemini/nara/nara -> gemini/groq/nara"
     },
     "coffre.ask": {
       "provider": "gemini",
-      "fallback": "nara",
+      "fallback": "groq",
       "secondary": "nara",
-      "note": "COFFRE (13/08): gemini principal, nvidia, gpt-oss free en filet"
+      "note": "ROUTAGE 17/08 (4 cerveaux vivants): gemini/nara/nara -> gemini/groq/nara"
     },
     "qwen.elabore": {
       "provider": "nvidia",
@@ -445,19 +447,19 @@
       "provider": "nvidia",
       "fallback": "nara",
       "secondary": "gemini",
-      "note": "ANALYSE PROFONDE (13/08): nvidia principal, nemotron-ultra 550b 2e avis, gemini filet"
+      "note": "ANALYSE PROFONDE (17/08): nvidia (lent mais gratuit, DeepSeek V4) -> nara -> gemini"
     },
     "signets.juge": {
-      "provider": "gemini",
-      "fallback": "nara",
-      "secondary": "nara",
-      "note": "JUGE (13/08): gemini principal, nemotron-super-120b juge independant (maker!=checker), nvidia filet"
+      "provider": "nara",
+      "fallback": "groq",
+      "secondary": "gemini",
+      "note": "ROUTAGE 17/08 (4 cerveaux vivants): gemini/nara/nara -> nara/groq/gemini"
     },
     "mission": {
-      "provider": "puter-grok",
-      "fallback": "nara",
+      "provider": "nara",
+      "fallback": "groq",
       "secondary": "gemini",
-      "note": "ROUTEUR AUTO (2026-08-13T17:33): nvidia -> puter-grok (score 64.2 -> 99.9, delta 35.7) | MISSION (13/08): nvidia principal, grok puter (diversite), gemini filet"
+      "note": "ROUTAGE 17/08 (4 cerveaux vivants): puter-grok/nara/gemini -> nara/groq/gemini"
     },
     "ultra.analyse": {
       "provider": "gemini",
@@ -470,16 +472,17 @@
       "note": "ROUTEUR AUTO (2026-08-13T23:35): nvidia -> gemini (score 60.0 -> 100.0, delta 40.0) | | FIX 11/08: provider mort désactivé, route nvidia -> gemini"
     },
     "code.ia": {
-      "provider": "puter-grok",
-      "fallback": "nara",
+      "provider": "groq",
+      "fallback": "mistral",
       "secondary": "nara",
-      "note": "CODEUR (16/08): GROK 4.3 principal + 2 codeurs integres (deepseek-coder nvidia, Devstral inferx) en fallback/secondary — GO Christophe, pas de decision famille. gemini retire du chainage code.ia (reste principal ailleurs)."
+      "note": "ROUTAGE 17/08 (4 cerveaux vivants): puter-grok/nara/nara -> groq/mistral/nara"
     },
     "supervise.decision": {
-      "provider": "puter-grok",
-      "fallback": "gemini",
+      "provider": "groq",
+      "fallback": "nara",
       "cloud_quota": 20,
-      "note": "DECISIONS DU SUPERVISEUR - decrochage de qwen-local (09/08, GO Christophe) - grok-4.3 gratuit via puter, fallback gemini"
+      "note": "ROUTAGE 17/08 (4 cerveaux vivants): puter-grok/gemini/None -> groq/nara/gemini",
+      "secondary": "gemini"
     },
     "cortana.yeux": {
       "provider": "gemini",
@@ -493,13 +496,13 @@
     },
     "analyste.strategie": {
       "provider": "gemini",
-      "fallback": "nara",
+      "fallback": "groq",
       "secondary": "nara",
-      "note": "ANALYSTE (13/08): gemini principal, nemotron-ultra 550b free 2e expert, nvidia filet"
+      "note": "ROUTAGE 17/08 (4 cerveaux vivants): gemini/nara/nara -> gemini/groq/nara"
     }
   },
   "health": {
     "status": "ok",
-    "providers": 17
+    "providers": 18
   }
 }

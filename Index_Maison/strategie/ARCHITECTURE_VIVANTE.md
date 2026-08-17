@@ -1,28 +1,28 @@
-# ARCHITECTURE VIVANTE — ACE777 (2026-08-17 14:09 UTC)
+# ARCHITECTURE VIVANTE — ACE777 (2026-08-17 15:12 UTC)
 
 > Document GÉNÉRÉ AUTOMATIQUEMENT à l'instant. La famille valide
 > en s'appuyant sur CE contexte, pas sur des documents figés.
 
 ## Qui tourne en ce moment
-- ✅ hub
+- ⛔ hub
 - ✅ pont cockpit
 - ✅ radar
-- ✅ lecteur signets
-- ✅ générateur fiches
-- ✅ feed mission
-- ✅ serveur cockpit
+- ⛔ lecteur signets
+- ⛔ générateur fiches
+- ⛔ feed mission
+- ⛔ serveur cockpit
 
 ## Routage des tâches de décision
 
-- `analyste.strategie` → gemini (repli nara)
-- `audit.protocol` → gemini (repli nara)
-- `signets.juge` → gemini (repli nara)
+- `analyste.strategie` → gemini (repli groq)
+- `audit.protocol` → gemini (repli groq)
+- `signets.juge` → nara (repli groq)
 - `signets.lot2` → gemini (repli nara)
 - `signets.synthese` → gemini (repli nara)
 
 ## État de la mission (bots + PnL)
 
-- mission.json : 2026-08-17 14:09Z · run `MASTER_VORTEX_V2_COLLAB_4H` · alerte `amber`
+- mission.json : 2026-08-17 15:12Z · run `MASTER_VORTEX_V2_COLLAB_4H` · alerte `amber`
 - PnL combiné : **-2.82 $** 📉 (combo -2.8153)
 - ALPHA (sniper (embuscade, ×13, revenge si claque)) : **-3.05 $** · 78 fills · 1116 skips
 - BETA (éclaireur (chatouille le marché, alimente Alpha)) : **+0.24 $** · 138 fills · 1058 skips
@@ -46,10 +46,10 @@
 ## Mémoire chaude (journal + résumés)
 
 - Radar (dernières alertes) :
-  · 2026-08-17T14:09:56.031251Z BTCUSDT 63641.54 0.0002 2.0 declenche=non
-  · 2026-08-17T14:09:56.076551Z BTCUSDT 63641.54 0.0001 1.6 declenche=non
-  · 2026-08-17T14:09:56.123053Z BTCUSDT 63641.54 0.0002 2.0 declenche=non
-  · 2026-08-17T14:09:56.123401Z BTCUSDT 63641.54 0.0001 1.6 declenche=non
+  · 2026-08-17T15:12:06.548753Z BTCUSDT 63963.82 0.0001 6.4 declenche=non
+  · 2026-08-17T15:12:06.548910Z BTCUSDT 63962.92 0.0000 6.4 declenche=non
+  · 2026-08-17T15:12:06.549042Z BTCUSDT 63962.91 0.0000 6.4 declenche=non
+  · 2026-08-17T15:12:06.549171Z BTCUSDT 63962.7 0.0000 6.4 declenche=non
 - Intention en cours : BETA a sonde le marche (138 sondes, 87 long / 51 court, conf | ALPHA attend son moment : 860 skips (discipline), le mur du  | ALPHA a frappe 78 fois en embuscade (13x) (dont 48 en mode r
 - 300 signets X résumés (quota aujourd'hui : 50/50)
 - 40 fiches IA d'offres en cache (quota 8/jour)
