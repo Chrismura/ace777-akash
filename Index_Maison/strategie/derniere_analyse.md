@@ -1,15 +1,15 @@
-# ANALYSE — 2026-08-17T22:03:16.306448Z (alerte)
+# ANALYSE — 2026-08-17T22:14:41.256644Z (alerte)
 
-[UNDERSTAND] La maison ACE777 gère un PnL combiné légèrement négatif (-0,24 $) sous alerte ambre, partagé entre la patience d'Alpha, les sondages de Beta et la surveillance des positions seeds de Hulk.
+[UNDERSTAND] La maison ACE777 maintient son alerte ambre face à un PnL combiné légèrement négatif (-0,18 $), partagé entre l'embuscade patiente d'Alpha, l'éclairage de Beta et la surveillance active des positions seeds de Hulk proches du coupe-circuit.
 [ANALYZE]
 - **Tendance** : Accumulation active (score 74) avec un Fear & Greed à 31 (peur) et une dominance BTC à 56,53 %.
-- **Momentum** : Alpha opère en embuscade chirurgicale (48 skips, 2 fills, +0,00 $) ; Beta éclaire le marché avec 37 skips et 7 fills longs (-0,24 $) ; Hulk pilote 15 positions seeds dont le portefeuille progresse à +0,90 $ (avec CCUSDT sous haute surveillance à -4,82 %).
-- **Risque** : Pression persistante sur les stop-loss des positions seeds de Hulk, notamment CCUSDT proche du seuil de coupe-circuit de -5 %, combinée à un sursaut de volume sur BTCUSDT.
-- **Contexte** : Liquidations 24h à 19,23 M$ et flux ETF BTC négatifs (-56,74 M$).
+- **Momentum** : Alpha opère en attente disciplinée (105 skips, 2 fills, +0,00 $) ; Beta éclaire avec 115 skips et 11 fills (-0,18 $) ; Hulk gère 15 positions seeds dont le portefeuille progresse à +0,90 $ (avec CCUSDT sous surveillance critique à -4,85 %).
+- **Risque** : Pression persistante sur les stop-loss des positions seeds de Hulk (notamment CCUSDT à -4,85 %, frôlant le seuil d'exclusion de -5%), couplée aux variations de volume sur ETHUSDT et aux flux ETF BTC négatifs (-56,74 M$).
+- **Contexte** : Liquidations 24h à 19,23 M$ et capitalisation globale des cryptos à 2,28 T$.
 [STRATEGIZE]
-1. **Approche conservatrice** : Maintenir l'embuscade stricte d'Alpha sans forcer l'exécution et purger immédiatement les positions seeds de Hulk touchant la limite de coupe-circuit (-5%).
-2. **Approche dynamique** : Capitaliser sur la haute confiance des sondages de Beta pour autoriser une levée des seuils d'engagement d'Alpha en cas de cassure haussière confirmée.
-3. **Approche défensive** : Réduire l'exposition globale des positions seeds si le BTC rompt le support immédiat et que les signaux de volume baissier s'intensifient.
+1. **Approche conservatrice** : Maintenir l'embuscade stricte d'Alpha sans forcer les tirs et déclencher la purge immédiate des positions seeds de Hulk atteignant le coupe-circuit de -5%.
+2. **Approche dynamique** : S'appuyer sur la qualité des sondages de Beta pour autoriser Alpha à engager un tir en cas de cassure haussière confirmée sur les majeurs.
+3. **Approche défensive** : Réduire l'exposition globale des positions seeds en cas de rupture de support net sur le Bitcoin.
 [EXECUTE]
 - Verdict : Maintien de l'alerte ambre et de la stratégie nominale avec une supervision rapprochée des positions seeds de Hulk en tension et la conservation de la patience d'Alpha.
 - Confiance : 85%
