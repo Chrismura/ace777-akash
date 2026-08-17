@@ -1,13 +1,13 @@
-# DISCIPLINE QUOTIDIENNE — 2026-08-16T05:15:05Z
+# DISCIPLINE QUOTIDIENNE — 2026-08-17T05:15:04Z
 
 ## ALERTES
-- 🔴 CORTANA sous 50% (46.6%) — discipline NEUTRE active, à surveiller
+- 🔴 CORTANA sous 50% (46.2%) — discipline NEUTRE active, à surveiller
 - 🔴 DÉRIVE MÉMOIRE : au moins 1 indice CRITIQUE — voir DERIVE_MEMOIRE.md
 
 ## CORTANA (justesse, 44% = pile-ou-face)
-- Score global : 46.6%
-- Analyses notées : 41/88
-- Par indice : altSeason 0/1; bassine 3/3; btc 3/8; etfEthM 0/1; etfXrpM 0/1; fearGreed 7/19; funding 8/21; gexPutCall 1/1; liq24Usd 3/3; oi 0/1; onchain 1/1; radar 13/25; verre 2/3
+- Score global : 46.2%
+- Analyses notées : 42/91
+- Par indice : altSeason 0/1; bassine 3/3; btc 3/8; etfEthM 0/1; etfXrpM 0/1; fearGreed 8/20; funding 8/22; gexPutCall 1/1; liq24Usd 3/3; oi 0/1; onchain 1/1; radar 13/26; verre 2/3
 
 ## ADA (zone/voilure vs BTC 24h, v1)
 - Zone-accuracy : None% (0/0)
