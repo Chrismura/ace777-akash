@@ -5,6 +5,7 @@
 #   ./scripts/basculer_setup.sh A        # setup A : rollback complet (revenge permanent)
 #   ./scripts/basculer_setup.sh B        # setup B : TTL revenge 120s
 #   ./scripts/basculer_setup.sh C        # setup C : FIX-LAST-LOSS
+#   ./scripts/basculer_setup.sh D        # setup D : STOP_MARKET filet physique Binance (patch 17/08 V3)
 #   ./scripts/basculer_setup.sh           # état actuel + liste des setups
 #
 # Ce que ça fait :
@@ -26,6 +27,7 @@ info_setup() {
     A) echo "A|Rollback complet — revenge armé en permanence (avant fix heartbeat 15/08)|genesis_manifest.txt.BAK_avant_fix_heartbeat_20260815-152847|fe2a7bcc" ;;
     B) echo "B|Fix 15/08 conservé — TTL revenge 20→120s (DUO_EVENT_TTL_SEC=120 au lancement)||95d93d50" ;;
     C) echo "C|FIX-LAST-LOSS — TTL revenge 120s sur last_loss_ts + price stasis (16/08)|LE_VRAI_CHAMPION_CERTIFIE_37FCA367.txt.BAK_setupC_fix_last_loss_20260817|8bce77b1" ;;
+    D) echo "D|STOP_MARKET filet physique Binance — patch 17/08 V4 (Algo Order API, cancel ciblé, ENABLED=FALSE par défaut)|LE_VRAI_CHAMPION_CERTIFIE_37FCA367.txt.SETUP_D_stopmarket_20260817|5a0a6797" ;;
     *) echo "" ;;
   esac
 }
@@ -36,12 +38,12 @@ if [ $# -eq 0 ]; then
   echo "central      : $(cat "$CENTRAL" 2>/dev/null || echo 'ABSENT')"
   echo ""
   echo "=== SETUPS DISPONIBLES ==="
-  for s in A B C; do
+  for s in A B C D; do
     IFS='|' read -r _ _ _ prefix <<< "$(info_setup "$s")"
     echo "  $s) $(info_setup "$s" | cut -d'|' -f2)  →  préfixe $prefix"
   done
   echo ""
-  echo "Usage : ./scripts/basculer_setup.sh [A|B|C]"
+  echo "Usage : ./scripts/basculer_setup.sh [A|B|C|D]"
   exit 0
 fi
 

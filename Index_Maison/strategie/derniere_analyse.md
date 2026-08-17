@@ -1,24 +1,24 @@
-# ANALYSE — 2026-08-17T21:10:33.934733Z (alerte)
+# ANALYSE — 2026-08-17T22:03:16.306448Z (alerte)
 
-[UNDERSTAND] La maison ACE777 maintient son alerte ambre face à un PnL combiné légèrement négatif (-4,51 $), porté par la patience disciplinée d'Alpha, les reconnaissances dynamiques de Beta et la gestion prudente des positions seeds de Hulk.
-[ANALYZE] 
-- Tendance : Marché en phase d'accumulation (score 75) avec un sentiment de peur (Fear & Greed à 31) et des flux ETF Bitcoin négatifs (-56,67 M$).
-- Momentum : Alpha affiche 102 fills pour 1069 skips (PnL -5,28 $), Beta assure l'éclairage tactique avec 202 fills (+0,77 $), et Hulk pilote ses 15 positions seeds avec un gain global de +0,90 $.
-- Risque : Positions seeds sous surveillance rapprochée (CCUSDT à -4,69 % et QAITUSDT à -3,53 %) exigeant un suivi rigoureux des stop-losses.
-- Contexte : Bruit macroéconomique maîtrisé autour de la Fed (« A quieter Fed chief means others narrate the story ») et climat de marché prudent.
-[STRATEGIZE] 
-1. Maintenir la stricte discipline d'embuscade d'Alpha en capitalisant sur les flux de reconnaissance de Beta.
-2. Superviser activement le portefeuille seed de Hulk pour purger rapidement les positions en tension (CCUSDT, QAITUSDT) avant le seuil de stop-loss.
-3. Sécuriser les positions performantes de Hulk (RIZEUSDT, BIOUSDT) pour ramener le PnL combiné vers l'équilibre positif.
+[UNDERSTAND] La maison ACE777 gère un PnL combiné légèrement négatif (-0,24 $) sous alerte ambre, partagé entre la patience d'Alpha, les sondages de Beta et la surveillance des positions seeds de Hulk.
+[ANALYZE]
+- **Tendance** : Accumulation active (score 74) avec un Fear & Greed à 31 (peur) et une dominance BTC à 56,53 %.
+- **Momentum** : Alpha opère en embuscade chirurgicale (48 skips, 2 fills, +0,00 $) ; Beta éclaire le marché avec 37 skips et 7 fills longs (-0,24 $) ; Hulk pilote 15 positions seeds dont le portefeuille progresse à +0,90 $ (avec CCUSDT sous haute surveillance à -4,82 %).
+- **Risque** : Pression persistante sur les stop-loss des positions seeds de Hulk, notamment CCUSDT proche du seuil de coupe-circuit de -5 %, combinée à un sursaut de volume sur BTCUSDT.
+- **Contexte** : Liquidations 24h à 19,23 M$ et flux ETF BTC négatifs (-56,74 M$).
+[STRATEGIZE]
+1. **Approche conservatrice** : Maintenir l'embuscade stricte d'Alpha sans forcer l'exécution et purger immédiatement les positions seeds de Hulk touchant la limite de coupe-circuit (-5%).
+2. **Approche dynamique** : Capitaliser sur la haute confiance des sondages de Beta pour autoriser une levée des seuils d'engagement d'Alpha en cas de cassure haussière confirmée.
+3. **Approche défensive** : Réduire l'exposition globale des positions seeds si le BTC rompt le support immédiat et que les signaux de volume baissier s'intensifient.
 [EXECUTE]
-- Verdict : Maintien de l'alerte ambre et de la rigueur tactique pour redresser le PnL combiné tout en capitalisant sur l'éclairage de Beta et la patience d'Alpha.
+- Verdict : Maintien de l'alerte ambre et de la stratégie nominale avec une supervision rapprochée des positions seeds de Hulk en tension et la conservation de la patience d'Alpha.
 - Confiance : 85%
 - Hypothèses clés : 
-  1. Alpha exploite efficacement les signaux de reconnaissance de Beta dès l'opportunité de cassure.
-  2. Hulk parvient à purger proprement les positions en tension (CCUSDT, QAITUSDT) avant tout dépassement des seuils de stop.
-  3. Le marché conserve sa structure d'accumulation malgré l'attentisme et les flux ETF négatifs.
-- Ce qui changerait la réponse : Une aggravation marquée du PnL combiné sous -6,00 $ ou une rupture baissière violente sur les actifs majeurs.
-- Alternative si confiance < 80% : Réduire l'exposition globale de l'essaim et resserrer drastiquement les critères de validation des trades d'Alpha.
-- Prédictions vérifiables :
-  [2026-08-17] BTCUSDT >= 62000.0
-  [2026-08-17] ETHUSDT >= 1850.0
+  1. La structure d'accumulation du marché absorbe la pression vendeuse actuelle.
+  2. Les positions seeds en tension respectent strictement le coupe-circuit de -5%.
+  3. Alpha maintient sa discipline d'embuscade sans précipitation.
+- Ce qui changerait la réponse : Une rupture nette du BTC sous 62 000 $ accompagnée d'un volume x3 institutionnel baissier.
+- Alternative si confiance < 80% : Réduction de 30% de l'exposition globale des seeds et resserrement des critères de tir d'Alpha.
+- Prédictions vérifiables : 
+  [2026-08-18] BTCUSDT >= 62000.0
+  [2026-08-18] CCUSDT <= 0.0910

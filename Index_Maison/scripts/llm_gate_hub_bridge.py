@@ -243,8 +243,13 @@ def run_server():
     """Démarre le serveur HTTP."""
     # allow_reuse_address : après un kill, le socket reste en TIME_WAIT.
     # Sans ça, TCPServer échoue avec Errno 48 au redémarrage (piège launchd KeepAlive).
-    class ReuseTCPServer(socketserver.TCPServer):
+    # ThreadingMixIn (fix 17/08) : le pont était mono-thread — pendant qu'un
+    # POST /api/generate attendait le hub (~13 s), le GET /api/tags du preflight
+    # (timeout 3 s) restait bloqué → « Ollama unreachable » intermittent.
+    # Chaque requête est désormais traitée dans son propre thread.
+    class ReuseTCPServer(socketserver.ThreadingMixIn, socketserver.TCPServer):
         allow_reuse_address = True
+        daemon_threads = True
 
     with ReuseTCPServer(("127.0.0.1", PORT), LLMGateHandler) as httpd:
         log(f"Pont LLM Gate démarré sur le port {PORT}")

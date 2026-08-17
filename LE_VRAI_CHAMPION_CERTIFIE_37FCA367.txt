@@ -189,6 +189,13 @@ ANOMALY_PNL_USDT="${ANOMALY_PNL_USDT:-0.05}"
 SOFT_COOLDOWN_CYCLES="${SOFT_COOLDOWN_CYCLES:-3}"
 SOFT_MASS_FACTOR="${SOFT_MASS_FACTOR:-0.5}"
 SOFT_STOP_LOSS_BPS="${SOFT_STOP_LOSS_BPS:-7}"
+
+# ============================================================
+# PATCH STOP_MARKET (17/08 V3) — filet physique Binance
+# ============================================================
+ACE_STOP_MARKET_ENABLED="${ACE_STOP_MARKET_ENABLED:-FALSE}"   # DÉSACTIVÉ par défaut → activation explicite au test (condition juge n°2)
+ACE_STOP_MARKET_BPS="${ACE_STOP_MARKET_BPS:-8}"               # 8-10 bps validés famille (filet anti-crash, PAS un scalpel)
+ACE_STOP_TICK_DECIMALS="${ACE_STOP_TICK_DECIMALS:-1}"         # tickSize BTCUSDT testnet = 0.1 → 1 décimale
 SOFT_TRAIL_GIVEBACK_BPS="${SOFT_TRAIL_GIVEBACK_BPS:-3}"
 MIN_HOLD_FOR_ANOMALY="${MIN_HOLD_FOR_ANOMALY:-3}"
 LEVERAGE_ANOMALY_MULT="${LEVERAGE_ANOMALY_MULT:-0.5}"
@@ -735,6 +742,37 @@ private_post() {
   local path="$1" q="$2" sig
   sig="$(sign "$q")"
   curl_with_retry -X POST -H "X-MBX-APIKEY: $BINANCE_API_KEY" "$BASE_URL$path?$q&signature=$sig"
+}
+
+# ============================================================
+# DELETE signé (annulation d'ordres) — patch STOP_MARKET V3
+# ============================================================
+private_delete() {
+  local path="$1" q="$2" sig
+  sig="$(sign "$q")"
+  curl_with_retry -X DELETE -H "X-MBX-APIKEY: $BINANCE_API_KEY" "$BASE_URL$path?$q&signature=$sig"
+}
+
+# ============================================================
+# Nettoyage chirurgical du filet physique (anti-orphelin)
+# V4 : nouvelle Algo Order API (DELETE /fapi/v1/algoOrder?clientAlgoId=)
+# ============================================================
+private_delete_order_sniper() {
+  local symbol="$1" cycle_id="$2"
+  local client_order_id="ACESTOP${cycle_id}"
+  local query_params="clientAlgoId=${client_order_id}"
+  echo "🧹 [NETTOYAGE] Suppression du STOP_MARKET physique : ${client_order_id}"
+  local response
+  response="$(private_delete "/fapi/v1/algoOrder" "$query_params" || true)"
+  if [ -z "$response" ]; then
+    # Réponse vide = réseau coupé ou timeout : statut INCONNU, on alerte
+    echo "⚠️ [NETTOYAGE] Réponse vide (réseau ?) — statut du filet INCONNU, à vérifier manuellement."
+  elif echo "$response" | grep -q '"code":'; then
+    # Binance renvoie une erreur si l'ordre est déjà exécuté ou inexistant : passage en douceur
+    echo "⚠️ [NETTOYAGE] Ordre déjà exécuté par Binance ou introuvable. On passe en douceur."
+  else
+    echo "✅ [NETTOYAGE] Filet physique annulé proprement."
+  fi
 }
 
 hashrate_fetch_delta_pct() {
@@ -1333,6 +1371,10 @@ duo_v63_phase_shift_close() {
     fi
     sleep "$step_sec"
   done
+  # SÉCURITÉ PHASE SHIFT (patch 17/08 V3) : position fermée, on nettoie le filet
+  if [ "$ACE_STOP_MARKET_ENABLED" = "TRUE" ]; then
+    private_delete_order_sniper "$SYMBOL" "$i"
+  fi
   [ "$ok_any" -eq 1 ]
 }
 
@@ -1515,6 +1557,14 @@ for i in $(seq 1 "$CYCLES"); do
   if [ -f "$STOP_FILE" ]; then
     echo "${C_R}STOP file detected ($STOP_FILE). Stopping safely at cycle $i.${C_N}"
     break
+  fi
+
+  # ============================================================
+  # HEARTBEAT ANTI-ORPHELIN CIBLÉ (V3) : annule l'éventuel ACESTOP${i}
+  # laissé par un cycle planté — JAMAIS de rasage global (méthode bûcheron)
+  # ============================================================
+  if [ "$ACE_STOP_MARKET_ENABLED" = "TRUE" ]; then
+    private_delete_order_sniper "$SYMBOL" "$i"
   fi
 
   if ! gap_guard_check "$i"; then
@@ -2126,6 +2176,41 @@ for i in $(seq 1 "$CYCLES"); do
   fi
   entry_ts_iso="$(date -u +%FT%TZ)"
 
+  # ============================================================
+  # FILET PHYSIQUE : STOP_MARKET posé chez Binance (patch 17/08 V3)
+  # stopPrice = entrée ± stop_bps, arrondi directionnel au tickSize
+  # ============================================================
+  if [ "$ACE_STOP_MARKET_ENABLED" = "TRUE" ]; then
+    # positionSide en mode hedge — dérivé du sens du trade (même logique que l'entrée)
+    stop_position_side_param=""
+    if [ -n "$trade_position_side_param" ] || [ "$POSITION_SIDE" = "BOTH" ]; then
+      stop_position_side="LONG"; [ "$side" = "SELL" ] && stop_position_side="SHORT"
+      stop_position_side_param="&positionSide=$stop_position_side"
+    fi
+    if [ "$side" = "BUY" ]; then
+      stop_price_raw="$(num_sub "$entry_price" "$(num_div "$(num_mul "$entry_price" "$ACE_STOP_MARKET_BPS")" "10000")")"
+      # Arrondi FLOOR pour un LONG : le stop ne monte JAMAIS vers le marché
+      stop_price="$(ruby -e 'p=(Float(ARGV[0]) rescue 0.0); d=(Integer(ARGV[1]) rescue 1); d=1 if d < 1; f=10.0**d; printf("%.#{d}f", (p*f).floor/f)' -- "$stop_price_raw" "$ACE_STOP_TICK_DECIMALS")"
+    else
+      stop_price_raw="$(num_add "$entry_price" "$(num_div "$(num_mul "$entry_price" "$ACE_STOP_MARKET_BPS")" "10000")")"
+      # Arrondi CEIL pour un SHORT : le stop ne descend JAMAIS vers le marché
+      stop_price="$(ruby -e 'p=(Float(ARGV[0]) rescue 0.0); d=(Integer(ARGV[1]) rescue 1); d=1 if d < 1; f=10.0**d; printf("%.#{d}f", (p*f).ceil/f)' -- "$stop_price_raw" "$ACE_STOP_TICK_DECIMALS")"
+    fi
+    ts="$(now_ms)"
+    # V4 : Algo Order API — triggerPrice au lieu de stopPrice, clientAlgoId au lieu de newClientOrderId,
+    # PAS de reduceOnly (interdit en hedge ; Binance l'applique automatiquement avec positionSide)
+    q_stop="algoType=CONDITIONAL&symbol=$SYMBOL&side=$close_side&type=STOP_MARKET&quantity=$qty&triggerPrice=$stop_price&workingType=MARK_PRICE${stop_position_side_param}&clientAlgoId=ACESTOP${i}&timestamp=$ts&recvWindow=$RECV_WINDOW"
+    stop_resp="$(private_post "/fapi/v1/algoOrder" "$q_stop" || true)"
+    stop_code="$(json_get "$stop_resp" "code")"
+    if [ -n "$stop_code" ]; then
+      stop_msg="$(json_get "$stop_resp" "msg")"
+      echo "🔴 [FILET] ÉCHEC placement STOP_MARKET code=$stop_code msg=$stop_msg — position SANS filet physique, stop logiciel seul !"
+      echo "$(date -u +%FT%TZ),$i,FILET_ERROR,$side,$entry_price,,$qty,0,0,stop_market_fail,,code=$stop_code msg=$stop_msg" >> "$LOG_FILE"
+    else
+      echo "🛡️ [FILET] STOP_MARKET ACESTOP${i} posé @ $stop_price (${ACE_STOP_MARKET_BPS} bps, MARK_PRICE) — filet physique armé."
+    fi
+  fi
+
   reason="timeout"
   start_s="$(now_sec)"
   start_ms="$(now_ms)"
@@ -2442,6 +2527,13 @@ for i in $(seq 1 "$CYCLES"); do
       echo "${C_C}Cycle $i${C_N} ${C_R}EXIT error${C_N} ${C_R}| code=$exit_code msg=$msg${C_N}"
       sleep "$SLEEP_SEC"
       continue
+    fi
+    # ============================================================
+    # ANTI-ORPHELIN : la position est fermée par le moteur →
+    # on détruit le filet physique AVANT de continuer (pas de short surprise)
+    # ============================================================
+    if [ "$ACE_STOP_MARKET_ENABLED" = "TRUE" ]; then
+      private_delete_order_sniper "$SYMBOL" "$i"
     fi
     exit_price="$(safe_call as_num "$(safe_call json_get "$exit_resp" "avgPrice")")"
   else

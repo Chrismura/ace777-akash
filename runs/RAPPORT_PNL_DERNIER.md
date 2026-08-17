@@ -1,10 +1,10 @@
 # RAPPORT PNL AUTO — MASTER_VORTEX_V2_COLLAB_4H
 
 **Session:** `MASTER_VORTEX_V2_COLLAB_4H`
-**Période:** 2026-08-17T15:20:56Z → 2026-08-17T19:21:06Z (4h00m)
+**Période:** — → — (—)
 **Setup:** `vide_froid_vortex_v2_collab` v`2026-07-10-v2.2.2-no-partner-halt` | BETA `200` USDT | ALPHA `800` USDT | LLM gate `TRUE` fail_closed=`TRUE`
-**Généré:** 2026-08-17T19:21:10Z UTC
-**Filtre session:** `ts >= 2026-08-17T15:20:45Z` (lignes CSV antérieures exclues)
+**Généré:** 2026-08-17T21:53:17Z UTC
+**Filtre session:** `ts >= 2026-08-17T21:53:14Z` (lignes CSV antérieures exclues)
 
 ---
 
@@ -12,10 +12,10 @@
 
 | Métrique | Valeur |
 |----------|--------|
-| **PNL BETA** | **+0.7720 USDT** |
-| **PNL ALPHA** | **-5.2797 USDT** |
-| **PNL SESSION TOTAL** | **-4.5077 USDT** |
-| Statut | `NEGATIF` |
+| **PNL BETA** | **+0.0000 USDT** |
+| **PNL ALPHA** | **+0.0000 USDT** |
+| **PNL SESSION TOTAL** | **+0.0000 USDT** |
+| Statut | `NEUTRE` |
 
 ---
 
@@ -23,36 +23,27 @@
 
 | Métrique | Valeur |
 |----------|--------|
-| Trades FILLED | 202 |
-| Gagnants | 86 |
-| Perdants | 86 |
-| Flat (0) | 30 |
-| Win rate | **42.6%** |
-| Gains totaux | +6.4954 USDT |
-| Pertes totales | -5.7234 USDT |
-| **PNL net** | **+0.7720 USDT** |
-| BPS moyen | 0.10 |
+| Trades FILLED | 0 |
+| Gagnants | 0 |
+| Perdants | 0 |
+| Flat (0) | 0 |
+| Win rate | **—** |
+| Gains totaux | +0.0000 USDT |
+| Pertes totales | +0.0000 USDT |
+| **PNL net** | **+0.0000 USDT** |
+| BPS moyen | — |
 
-**Meilleur trade:** +0.4347 USDT
-**Pire trade:** -0.8448 USDT
-
-**Direction:** SELL (202)
+**Direction:** —
 
 **Raisons de sortie (exitReason):**
 | Raison | Nb |
 |--------|-----|
-| shock_inversion_stop | 131 |
-| fluid_exit_inversion | 45 |
-| fluid_exit_brake | 25 |
-| kill_switch | 1 |
+| _aucun trade_ | 0 |
 
-**Cycles SKIP:** 895
+**Cycles SKIP:** 0
 | Raison | Nb |
 |--------|-----|
-| radar_block | 712 |
-| impulse_resonance_wait | 159 |
-| tactic_mismatch | 14 |
-| stase_ecoute | 10 |
+| _aucun_ | 0 |
 
 ---
 
@@ -60,36 +51,14 @@
 
 | Métrique | Valeur |
 |----------|--------|
-| Trades FILLED | 102 |
-| Gagnants | 44 |
-| Perdants | 46 |
-| Flat (0) | 12 |
-| Win rate | **43.1%** |
-| Gains totaux | +31.4871 USDT |
-| Pertes totales | -36.7668 USDT |
-| **PNL net** | **-5.2797 USDT** |
-| BPS moyen | -0.15 |
+| Trades FILLED | 0 |
+| **PNL net** | **0.0000 USDT** |
 
-**Meilleur trade:** +5.6848 USDT
-**Pire trade:** -7.4288 USDT
+*ALPHA n'a pas exécuté de trade — vérifier duo_wait, radar, stase, llm_gate dans les SKIP.*
 
-**Direction:** BUY (102)
-
-**Raisons de sortie (exitReason):**
+**Cycles SKIP:** 0
 | Raison | Nb |
 |--------|-----|
-| shock_inversion_stop | 63 |
-| fluid_exit_inversion | 28 |
-| fluid_exit_brake | 11 |
-
-**Cycles SKIP:** 1069
-| Raison | Nb |
-|--------|-----|
-| radar_block | 760 |
-| impulse_resonance_wait | 167 |
-| duo_wait | 116 |
-| tactic_mismatch | 19 |
-| stase_ecoute | 7 |
 
 ---
 
@@ -97,22 +66,15 @@
 
 | Indicateur | BETA | ALPHA | TOTAL |
 |------------|------|-------|-------|
-| Trades | 202 | 102 | 304 |
-| PnL | +0.7720 | -5.2797 | **-4.5077** |
-| Win rate | 42.6% | 43.1% | 42.8% |
+| Trades | 0 | 0 | 0 |
+| PnL | +0.0000 | +0.0000 | **+0.0000** |
+| Win rate | — | — | — |
 
 ## IRM — régimes de tension (proxy, lecture seule)
 
 > Pas un modèle ARCH Engle. Classification sur `tension=` des cycles BETA. N'influence pas le moteur. Seuils: COMPRESSÉ `< 0.05` · CLUSTER `≥ 1.0` · sinon TRANSITOIRE.
 
-| Régime | Cycles | % temps | Fills | PnL fills (USDT) |
-|--------|--------|---------|-------|------------------|
-| COMPRESSÉ (attente à froid) | 699 | 63.7% | 0 | +0.0000 |
-| TRANSITOIRE (bruit retail) | 194 | 17.7% | 0 | +0.0000 |
-| CLUSTER (tension haute — proxy) | 204 | 18.6% | 202 | +0.7720 |
-
-- Fenêtre: `2026-08-17T15:20:56Z` → `2026-08-17T19:21:06Z` (1097 cycles) · μ(tension)=0.7349 · σ=1.7158 · courant(proxy)=**CLUSTER (tension haute — proxy)**
-- Source: `MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv`
+*Aucun cycle dans la fenêtre session — IRM indisponible.*
 
 ## Engle — couches évolutives (hors moteur)
 
