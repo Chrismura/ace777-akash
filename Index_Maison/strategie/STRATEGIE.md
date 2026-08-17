@@ -1,20 +1,17 @@
-# STRATEGIE — 2026-08-17T12:09:52.255734Z
+# STRATEGIE — 2026-08-17T12:56:55.187731Z
 
-## COURT TERME — 2026-08-17T12:09:52.255734Z
+## COURT TERME — 2026-08-17T12:56:55.187731Z
 
-[UNDERSTAND] La maison ACE777 maintient son alerte ambre face à un PnL combiné légèrement déficitaire à -2,82 $, pénalisé par la suractivité d'Alpha en mode revenge, tandis que Hulk consolide ses positions seeds (+0,90 $) et que Beta éclaire efficacement les carnets.
-
+[UNDERSTAND] La maison ACE777 maintient son alerte ambre face à un PnL combiné légèrement déficitaire (-2,82 $), impacté par les tirs d'Alpha tandis que Hulk protège son portefeuille de seeds et que Beta éclaire activement le marché sur fond de sursaut de volume du BTCUSDT.
 [ANALYZE]
-- Tendance : Phase d'accumulation neutre sous une Bitcoin season (score 51) et un climat de peur persistant (Fear & Greed à 31, thermo à 67).
-- Momentum : Beta sonde activement le marché (138 sondes, 87 long / 51 court), Alpha observe une phase d'attente (860 skips) combinée à 48 tirs de revenge sur 78 fills pesant à -3,05 $, tandis que Hulk pilote 15 positions seeds résilientes (dont RIZE et EDEL en tête).
-- Risque : Pression baissière résiduelle sur les positions tendues de Hulk (notamment RED à -4,93 %) et bruit macroéconomique récurrent lié à la Fed.
+- Tendance : Phase d'accumulation neutre sous une Bitcoin season (score 51) et un climat de peur persistant (Fear & Greed à 31, thermo à 69).
+- Momentum : Beta alimente l'essaim avec 138 sondes de reconnaissance (confiance 0,98), Alpha alterne entre patience (860 skips) et tirs de revenge pesant sur son PnL (-3,05 $), tandis que Hulk pilote 15 positions seeds résilientes.
+- Risque : Pression baissière résiduelle sur la position seed de Hulk RED (-4,10 %) et bruit macroéconomique récurrent couplé aux sursauts de volume.
 - Contexte : Session `MASTER_VORTEX_V2_COLLAB_4H` sous alerte ambre, exigeant un resserrement de la discipline tactique pour redresser le PnL combiné.
-
 [STRATEGIZE]
 1. Resserrer la discipline d'embuscade d'Alpha pour filtrer strictement les tirs et stabiliser le PnL après les phases de revenge.
-2. Maintenir une surveillance rigoureuse des stop-loss sur les positions seeds de Hulk en territoire négatif (comme RED) pour préserver le capital.
-3. Exploiter les flux de reconnaissance de Beta pour anticiper les micro-ruptures de carnet sur les majors.
-
+2. Maintenir une surveillance rigoureuse des stop-loss sur les positions seeds de Hulk en territoire négatif (notamment RED) pour préserver le capital.
+3. Exploiter les flux de reconnaissance de Beta et le sursaut de volume sur le BTCUSDT pour anticiper les micro-ruptures de carnet.
 [EXECUTE]
 - Verdict : Maintien de l'alerte ambre — l'essaim ajuste sa voilure tactique pour redresser le PnL combiné tout en s'appuyant sur l'éclairage de Beta, la discipline d'Alpha et la gestion de Hulk.
 - Confiance : 85%
