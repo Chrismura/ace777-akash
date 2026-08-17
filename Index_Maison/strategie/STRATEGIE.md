@@ -1,13 +1,13 @@
-# STRATEGIE — 2026-08-17T10:05:06.499069Z
+# STRATEGIE — 2026-08-17T10:09:40.853426Z
 
-## COURT TERME — 2026-08-17T10:05:06.499069Z
+## COURT TERME — 2026-08-17T10:09:40.853426Z
 
-[UNDERSTAND] La maison ACE777 maintient son alerte ambre face à un PnL combiné légèrement négatif (-2,92 $), pilotant la coordination de l'essaim entre l'éclairage de Beta, la discipline d'embuscade d'Alpha et la gestion des positions seeds de Hulk.
+[UNDERSTAND] La maison ACE777 maintient son alerte ambre face à un PnL combiné légèrement négatif (-2,91 $), pilotant la coordination de l'essaim entre l'éclairage de Beta, la patience disciplinée d'Alpha et la gestion des positions seeds de Hulk.
 
 [ANALYZE]
-- **Tendance** : Phase d'accumulation neutre sous une Bitcoin season (score non indexé) et un climat de peur marqué (Fear & Greed à 31, score thermo global à 71).
-- **Momentum** : Beta éclaire efficacement le marché avec 93 fills et +0,77 $ de PnL, Alpha maintient sa discipline tactique (667 skips, 46 fills pour -4,53 $ sur fond de 26 revenge trades) tandis que Hulk pilote 15 positions seeds résilientes (portefeuille Hulk à +0,85 $, emmené par RIZE à +23,21 %).
-- **Risque** : Pression résiduelle sur quelques positions de Hulk (notamment RED à -5,38 %) et sursauts de volume récurrents sur BTCUSDT, combinés au PnL combiné légèrement négatif sous alerte ambre.
+- **Tendance** : Phase d'accumulation neutre sous une Bitcoin season et un climat de peur marqué (Fear & Greed à 31, score thermo global à 71).
+- **Momentum** : Beta éclaire efficacement le marché avec 94 fills et +0,77 $ de PnL, Alpha maintient sa discipline tactique (683 skips, 48 fills pour -4,52 $ sur fond de 26 revenge trades) tandis que Hulk pilote 15 positions seeds résilientes (portefeuille Hulk à +0,85 $, emmené par RIZE à +29,88 %).
+- **Risque** : Pression résiduelle sur quelques positions de Hulk (notamment RED à -5,07 %) et sursauts de volume récurrents sur BTCUSDT, combinés au PnL combiné légèrement négatif sous alerte ambre.
 - **Contexte** : Session `MASTER_VORTEX_V2_COLLAB_4H` sous alerte ambre, exigeant un resserrement de la discipline opérationnelle et une surveillance étroite des stop-loss.
 
 [STRATEGIZE]
