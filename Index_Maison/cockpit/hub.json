@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-17T01:07:34.082209+00:00",
+  "generated_at": "2026-08-17T01:10:05.509401+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -35,7 +35,7 @@
       "model": "deepseek-ai/deepseek-v4-flash-0731",
       "enabled": true,
       "timeout": 300,
-      "calls_24h": 416
+      "calls_24h": 417
     },
     {
       "id": "mistral",
@@ -184,10 +184,18 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 60,
-    "remaining": 564
+    "consumed": 61,
+    "remaining": 563
   },
   "queue": [
+    {
+      "ts": "2026-08-17T01:09:16.605125+00:00",
+      "task": "supervise.decision",
+      "provider": "nvidia",
+      "model": "deepseek-ai/deepseek-v4-flash-0731",
+      "kind": "cloud",
+      "duration_s": 7.54
+    },
     {
       "ts": "2026-08-17T01:07:33.675363+00:00",
       "task": "supervise.decision",
@@ -299,76 +307,68 @@
       "model": "deepseek-ai/deepseek-v4-flash-0731",
       "kind": "cloud",
       "duration_s": 4.94
-    },
-    {
-      "ts": "2026-08-17T00:53:44.453937+00:00",
-      "task": "supervise.decision",
-      "provider": "mistral",
-      "model": "codestral-latest",
-      "kind": "cloud",
-      "duration_s": 0.48
     }
   ],
   "events": [
     {
-      "ts": "2026-08-17T01:07:33.675202+00:00",
+      "ts": "2026-08-17T01:09:16.604998+00:00",
       "kind": "message",
       "title": "« NVIDIA build.nvidia.com (100+ modeles) » a repondu",
       "detail": "bascule"
     },
     {
-      "ts": "2026-08-17T01:07:33.674852+00:00",
+      "ts": "2026-08-17T01:09:16.604648+00:00",
       "kind": "filet-universel",
       "title": "[FILET UNIVERSEL] « NVIDIA build.nvidia.com (100+ modeles) » a repondu hors chaine",
       "detail": "supervise.decision"
     },
     {
-      "ts": "2026-08-17T01:07:28.002687+00:00",
-      "kind": "message",
-      "title": "« OpenRouter Nemotron 3 Ultra 550B (free) - analyse forte » a repondu",
-      "detail": "bascule"
-    },
-    {
-      "ts": "2026-08-17T01:07:25.961756+00:00",
+      "ts": "2026-08-17T01:09:09.061334+00:00",
       "kind": "failover",
       "title": "Bascule depuis OpenRouter (modeles gratuits)",
-      "detail": "Reponse vide"
-    },
-    {
-      "ts": "2026-08-17T01:07:19.934129+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis Google Gemini",
       "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-08-17T01:07:19.933749+00:00",
-      "kind": "ratelimit",
-      "title": "429 Google Gemini -> pause 60s + bascule",
-      "detail": ""
-    },
-    {
-      "ts": "2026-08-17T01:07:19.514220+00:00",
-      "kind": "blacklist",
-      "title": "Fin de pause Google Gemini",
-      "detail": "re-essai automatique"
-    },
-    {
-      "ts": "2026-08-17T01:07:19.512649+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis Puter Grok (gratuit)",
-      "detail": "HTTP Error 402: Payment Required"
-    },
-    {
-      "ts": "2026-08-17T01:07:19.512318+00:00",
-      "kind": "blacklist",
-      "title": "Pause Puter Grok (gratuit) (3 echecs) 15min",
-      "detail": "backoff x1 -> re-essai auto"
-    },
-    {
-      "ts": "2026-08-17T01:06:38.936726+00:00",
+      "ts": "2026-08-17T01:09:08.893824+00:00",
       "kind": "failover",
       "title": "Saute (blacklist) depuis Google Gemini",
       "detail": "0 attente"
+    },
+    {
+      "ts": "2026-08-17T01:09:08.893333+00:00",
+      "kind": "failover",
+      "title": "Saute (blacklist) depuis Puter Grok (gratuit)",
+      "detail": "0 attente"
+    },
+    {
+      "ts": "2026-08-17T01:08:43.420324+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis OpenRouter Nemotron 3 Ultra 550B (free) - analyse forte",
+      "detail": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "ts": "2026-08-17T01:08:43.419981+00:00",
+      "kind": "ratelimit",
+      "title": "429 OpenRouter Nemotron 3 Ultra 550B (free) - analyse forte -> pause 60s + bascule",
+      "detail": ""
+    },
+    {
+      "ts": "2026-08-17T01:08:43.300757+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis OpenRouter Nemotron 3 Ultra 550B (free) - analyse forte",
+      "detail": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "ts": "2026-08-17T01:08:43.300391+00:00",
+      "kind": "ratelimit",
+      "title": "429 OpenRouter Nemotron 3 Ultra 550B (free) - analyse forte -> pause 60s + bascule",
+      "detail": ""
+    },
+    {
+      "ts": "2026-08-17T01:08:43.009027+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis Google Gemini",
+      "detail": "HTTP Error 429: Too Many Requests"
     }
   ],
   "tasks_quotas": {
