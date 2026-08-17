@@ -875,3 +875,8 @@
 - 2026-08-17T06:35:46.112694Z | alerte | ? | conf=?
 - 2026-08-17T06:39:33.047366Z | alerte | ? | conf=?
 - 2026-08-17T06:39:33.046847Z | alerte | ? | conf=?
+- 2026-08-17T06:48:30.100025Z | alerte | ? | conf=?
+- 2026-08-17T06:48:36.786093Z | alerte | ? | conf=?
+- 2026-08-17T06:48:36.799022Z | alerte | ? | conf=?
+- 2026-08-17T07:01:15.110430Z | alerte | Maintien de la vigilance nominale — le système fonctionne par design (Alpha attend, Beta renseigne, Hulk gère) avec un PnL combiné positif et sous contrôle. | conf=88%
+- 2026-08-17T07:03:17.079409Z | alerte | Maintien de la vigilance nominale — le système fonctionne par design (Alpha patiente, Beta renseigne, Hulk gère) avec un PnL combiné positif et sécurisé. | conf=88%

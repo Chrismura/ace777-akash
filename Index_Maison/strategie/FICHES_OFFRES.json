@@ -3,7 +3,8 @@
   "jours": {
     "2026-08-12": 8,
     "2026-08-13": 8,
-    "2026-08-14": 8
+    "2026-08-14": 8,
+    "2026-08-17": 8
   },
   "fiches": {
     "32f5f333ea5d": {
@@ -615,6 +616,157 @@
       "usage": "analyste.strategie ou signets.juge",
       "avis_pour": "À tester pour sa taille critique (35B) offrant des analyses fines sans surcoût cloud.",
       "avis_attention": "Attention aux temps de latence dus à la taille du modèle et aux quotas stricts d'inferx."
+    },
+    "88cb71b94396": {
+      "section": "openrouter (:free)",
+      "item": "z-ai/glm-5.2:free",
+      "generated": "2026-08-17T07:03:40.922712+00:00",
+      "type": "Modèle conversationnel et d'assistance généraliste gratuit via OpenRouter",
+      "forts": [
+        "Gratuit d'accès via OpenRouter",
+        "Bonne réactivité générale",
+        "Intégration aisée dans les flux de test"
+      ],
+      "faibles": [
+        "Limites de débit potentielles liées au statut gratuit",
+        "Non répertorié dans les routages critiques actuels du cockpit"
+      ],
+      "usage": "chat",
+      "avis_pour": "À essayer pour décharger les tâches textuelles simples sans imputer le budget cloud.",
+      "avis_attention": "Attention à ne pas l'utiliser pour les tâches critiques du système (juge ou stratégie) où des modèles validés sont exigés."
+    },
+    "6856b39986f3": {
+      "section": "nvidia",
+      "item": "google/gemma-4-31b-it",
+      "generated": "2026-08-17T07:03:42.573315+00:00",
+      "type": "Modèle de langage ouvert et performant hébergé par Nvidia",
+      "forts": [
+        "Excellentes capacités de raisonnement général et d'analyse",
+        "Rapidité d'exécution sur l'infrastructure Nvidia",
+        "Idéal pour le support aux scripts Python et à la logique"
+      ],
+      "faibles": [
+        "Peut nécessiter des prompts précis pour les tâches complexes de jugement",
+        "Dépendance à la disponibilité de l'API fournisseur"
+      ],
+      "usage": "analyste.strategie (en repli ou appoint), audit.protocol",
+      "avis_pour": "À essayer pour sa robustesse en analyse de données et sa réactivité sur les tâches logiques de la famille.",
+      "avis_attention": "Gardez un œil sur la cohérence des décisions stratégiques et utilisez le repli si la latence augmente."
+    },
+    "427b7b1e1354": {
+      "section": "inferx",
+      "item": "Qwen3.6-35B-A3B-FP8",
+      "generated": "2026-08-17T07:03:44.065614+00:00",
+      "type": "Modèle de raisonnement et de génération open-weights intermédiaire",
+      "forts": [
+        "Architecture 35B performante pour la logique et le code",
+        "Quantification FP8 offrant un bon compromis vitesse/précision",
+        "Gratuit et accessible pour des tâches courantes"
+      ],
+      "faibles": [
+        "Modèle inconnu ou non vérifié dans nos routines officielles actuelles",
+        "Consommation potentielle de tokens cloud à surveiller",
+        "Stabilité et limites de contexte non testées en conditions réelles"
+      ],
+      "usage": "chat",
+      "avis_pour": "À tester prudemment pour le prototypage ou comme solution de repli secondaire pour du code simple.",
+      "avis_attention": "Attention au manque de recul sur sa fiabilité pour nos décisions critiques ou nos scripts de production."
+    },
+    "adc1602a583f": {
+      "section": "inferx",
+      "item": "Qwen3.8-27B-FP8",
+      "generated": "2026-08-17T07:03:45.610556+00:00",
+      "type": "Modèle de langage open-source de taille moyenne optimisé pour la vitesse et la logique",
+      "forts": [
+        "Format FP8 léger et rapide",
+        "Bonne structure logique pour le code et l'analyse",
+        "Gratuit et accessible via l'écosystème open source"
+      ],
+      "faibles": [
+        "Précision parfois perfectible sur les jugements complexes par rapport aux très grands modèles",
+        "Disponibilité variable selon l'infrastructure tierce"
+      ],
+      "usage": "analyste.strategie",
+      "avis_pour": "À tester pour accélérer les analyses stratégiques intermédiaires sans consommer le budget des modèles propriétaires.",
+      "avis_attention": "Ne pas l'utiliser en juge final critique sans double validation par un modèle plus robuste."
+    },
+    "d0d1001f92de": {
+      "section": "inferx",
+      "item": "deepseek-v4-flash",
+      "generated": "2026-08-17T07:03:47.049343+00:00",
+      "type": "Modèle rapide et léger pour l'inférence brute et l'exploration",
+      "forts": [
+        "Très faible latence pour les requêtes rapides",
+        "Intégration fluide via les providers compatibles",
+        "Idéal pour le prototypage de scripts Python légers"
+      ],
+      "faibles": [
+        "Profondeur de raisonnement limitée face aux versions full",
+        "Risque de réponses génériques sur des tâches complexes",
+        "Fiabilité à valider sur les arbitrages critiques"
+      ],
+      "usage": "chat",
+      "avis_pour": "Une excellente alternative gratuite pour tester des idées de code à la volée sans consommer les quotas premium.",
+      "avis_attention": "Ne pas confier les tâches de décision critique ou le rôle de juge sans validation préalable par un modèle plus robuste."
+    },
+    "488403c54b04": {
+      "section": "inferx",
+      "item": "muse-glimmer",
+      "generated": "2026-08-17T07:03:48.586353+00:00",
+      "type": "Modèle d'intelligence artificielle gratuit pour l'expérimentation textuelle et les tâches générales",
+      "forts": [
+        "Gratuit d'accès via les plateformes de routage",
+        "Adapté pour les requêtes textuelles simples et le prototypage",
+        "Léger et rapide pour les tests préliminaires"
+      ],
+      "faibles": [
+        "Performances limitées sur le code complexe ou l'analyse stratégique poussée",
+        "Fiabilité inconstante pour les rôles critiques de jugement",
+        "Manque de documentation détaillée sur les limites exactes de la variante glimmer"
+      ],
+      "usage": "chat",
+      "avis_pour": "Idéal pour tester rapidement un nouveau flux de discussion sans consommer de budget cloud.",
+      "avis_attention": "À ne pas utiliser pour les tâches critiques de trading ou de validation de code sans supervision."
+    },
+    "6a6c083b4e5a": {
+      "section": "inferx",
+      "item": "nemotron-35-lightning",
+      "generated": "2026-08-17T07:03:51.134123+00:00",
+      "type": "Modèle de langage léger pour débutants",
+      "forts": [
+        "Gratuit",
+        "Rapide (lightning)",
+        "Bon pour des tâches simples",
+        "Bon pour les débutants"
+      ],
+      "faibles": [
+        "Limité en capacité de traitement",
+        "Pas adapté pour des tâches complexes",
+        "Pas adapté pour des tâches nécessitant une grande précision"
+      ],
+      "usage": "Analyste, Chat",
+      "avis_pour": "Idéal pour des tâches simples et rapides, comme des résumés ou des réponses à des questions basiques",
+      "avis_attention": "Ne pas l'utiliser pour des tâches complexes ou nécessitant une grande précision"
+    },
+    "270357f1c988": {
+      "section": "puter (gratuit, token)",
+      "item": "gpt-5.4",
+      "generated": "2026-08-17T07:03:53.165112+00:00",
+      "type": "Modèle de langage avancé gratuit",
+      "forts": [
+        "Accès gratuit sans token",
+        "Performances élevées pour le traitement du langage",
+        "Idéal pour les tâches de codage et d'analyse",
+        "Compatibilité avec les scripts Python"
+      ],
+      "faibles": [
+        "Limites de tokens strictes",
+        "Pas de support dédié pour les utilisateurs gratuits",
+        "Moins performant que les modèles premium pour les tâches complexes"
+      ],
+      "usage": "Codeur, Analyste, Chat",
+      "avis_pour": "Excellent pour les tâches de codage et d'analyse du langage, offrant une performance élevée sans coût",
+      "avis_attention": "Les limites de tokens peuvent être restrictives pour les tâches nécessitant une grande quantité de texte"
     }
   }
 }
