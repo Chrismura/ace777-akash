@@ -1,4 +1,4 @@
-# 💡 PROPOSITIONS D'AMELIORATION — 2026-08-16
+# 💡 PROPOSITIONS D'AMELIORATION — 2026-08-17
 
 > Genere par propose_ameliorations.py (rituel proactif 09/08).
 > Le juge PROPOSE (maker!=checker), GEMINI CONTRE-VERIFIE (famille differente),
@@ -6,28 +6,28 @@
 
 ## Top 3 — proposé par le juge
 
-1. Blame router (debug à l'étage)
-   QUOI: Isoler les bugs par strate (L1 ask / L2 contexte / L3 harnais / L4 boucle).
-   PREUVE: Pépite #1 (@starmexxx, note Ada : "Notre debug = cette carte").
-   IMPACT: Réduction drastique du temps de recherche d'anomalie dans les runs.
+1. Blame router (étages de debug)
+   QUOI: Isoler les bugs par étage (ask/contexte/harnais/boucle) plutôt qu'en aveugle.
+   PREUVE: Pépite #1 (@starmexxx, vote I/I/I).
+   IMPACT: Réduit drastiquement le temps de diagnostic et cible immédiatement la source.
 
-2. Context graphs temporels et oubli actif
-   QUOI: Déclarer l'ancien contexte invalide sans le supprimer immédiatement.
-   PREUVE: Pépite #4 (@UnTalNixon_exe) & #13 (@mem0ai, politique d'oubli).
-   IMPACT: Évite la pollution de la mémoire chaude et fiabilise les décisions bots.
+2. Code search sémantique local
+   QUOI: Recherche sémantique ciblée réduisant la consommation de tokens dans le coffre.
+   PREUVE: Pépite #30 (@Granite0x, validé I).
+   IMPACT: Économise ~99% des tokens sur l'exploration de code et accélère les agents.
 
-3. Code search sémantique pour le coffre
-   QUOI: Indexer sémantiquement les repos pour économiser ~99% de tokens.
-   PREUVE: Pépite #30 (@Granite0x).
-   IMPACT: Baisse massive de la consommation d'énergie et accélération des audits.
+3. Politique d'oubli et graphes temporels
+   QUOI: Marquer l'ancien contexte comme invalide sans le supprimer immédiatement.
+   PREUVE: Pépite #4 (@UnTalNixon_exe, vote I/I/I).
+   IMPACT: Évite la pollution mémorielle et garantit que les bots utilisent des données fraîches.
 
-RECO: Prioriser le Blame router (#1) pour structurer immédiatement le diagnostic des erreurs de session.
+RECO: Implémenter le blame router dès maintenant pour structurer immédiatement le debug de la session.
 
 ## Contre-vérification — Gemini (famille différente)
 
-VERDICT: A MODIFIER
-OBJECTIONS: Le Juge priorise le Blame router (#1) alors que l'alerte de mission est rouge (`red`, PnL -0.04$, HULK -7.02$) et que l'infrastructure souffre d'un hub arrêté et d'une instabilité des bots.
-PRIORITE: Le Context graphs (#2) en urgence pour stabiliser la mémoire chaude des bots et stopper l'hémorragie financière, car le debug (#1) ne sauvera pas le run actuel en état de crise.
+VERDICT: OK
+OBJECTIONS: aucune
+PRIORITE: Le Blame router (#1) en premier, car il cible directement la source des bugs et structure immédiatement le debug de la session en cours.
 
 ---
 _Backlog source : TABLEAU_PEPITES_2026-08-08 (43 INTEGRER / 14 VERIFIER) + IDEES + VEILLE_HUB._
