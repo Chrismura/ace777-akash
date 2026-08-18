@@ -1,17 +1,17 @@
-# STRATEGIE — 2026-08-18T21:43:33.702666Z
+# STRATEGIE — 2026-08-18T22:03:15.761645Z
 
-## COURT TERME — 2026-08-18T21:43:33.702666Z
+## COURT TERME — 2026-08-18T22:03:15.761645Z
 
-[UNDERSTAND] La maison ACE777 maintient sa vigilance nominale sous le run MASTER_VORTEX_V2_COLLAB_4H avec un PnL combiné positif de +0,70 $, soutenu par l'éclairage de Beta, la patience tactique d'Alpha et la gestion mesurée des positions seeds de Hulk.
+[UNDERSTAND] La maison ACE777 maintient sa vigilance nominale sous le run MASTER_VORTEX_V2_COLLAB_4H, portée par un PnL combiné positif de +2,41 $, une discipline d'embuscade rigoureuse d'Alpha et un éclairage stable de Beta.
 [ANALYZE] 
 - Tendance : Bitcoin season confirmée (score 50) dans un climat de peur (Fear & Greed à 41) avec une capitalisation globale de 2,29 T$.
-- Momentum : Éclairage régulier de Beta (94 sondes, 75 long / 19 court), discipline d'attente d'Alpha (577 skips, 23 fills pour -0,16 $) et pilotage par Hulk de ses 13 positions seeds (portefeuille global à +0,97 $ malgré des lignes en tension comme RWAINCUSDT à -5,86% et CCUSDT à -5,26%).
-- Risque : Exposition de certaines positions seeds de Hulk en territoire négatif nécessitant le respect strict des stop-loss, combinée à une nouvelle information réglementaire (GENIUS Act).
-- Contexte : Exécution nominale validée, PnL combiné à +0,70 $ et encadrement rigoureux de l'essaim.
+- Momentum : Éclairage actif de Beta (100 sondes, 81 long / 19 court), discipline d'attente maintenue sur Alpha (841 skips, 26 fills pour +1,43 $) et pilotage par Hulk de ses 13 positions seeds (portefeuille global à +0,27 $ avec des lignes en tension comme RWAINCUSDT à -5,13% et CCUSDT à -4,92%).
+- Risque : Exposition de certaines positions seeds de Hulk en territoire négatif nécessitant le respect strict des stop-loss, combinée à une surveillance des sursauts de volume sur l'ETHUSDT.
+- Contexte : Exécution nominale validée, PnL combiné à +2,41 $ et encadrement rigoureux de l'essaim.
 [STRATEGIZE] 
 1. Maintenir la discipline d'embuscade d'Alpha en exploitant exclusivement les signaux validés par Beta.
 2. Appliquer rigoureusement les règles de gestion et stop-loss sur les positions seeds de Hulk en territoire négatif.
-3. Conserver la vigilance nominale face aux annonces réglementaires US sur le GENIUS Act.
+3. Conserver la vigilance nominale face aux sursauts de volume et à la dynamique des carnets d'ordres.
 [EXECUTE]
 - Verdict : Poursuite de la vigilance nominale avec un PnL combiné positif, une discipline d'embuscade intacte sur Alpha et un pilotage resserré des positions de Hulk.
 - Confiance : 88%

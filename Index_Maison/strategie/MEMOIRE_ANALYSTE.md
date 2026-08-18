@@ -1441,3 +1441,5 @@
 - 2026-08-18T21:39:10.441820Z | alerte | Poursuite de la vigilance nominale avec un PnL combiné positif, une discipline d'embuscade intacte sur Alpha et un pilotage resserré des positions de Hulk. | conf=88%
 - 2026-08-18T21:43:33.405021Z | alerte | Poursuite de la vigilance nominale avec un PnL combiné positif, une discipline d'embuscade intacte sur Alpha et un pilotage resserré des positions de Hulk. | conf=88%
 - 2026-08-18T21:43:33.702666Z | alerte | Poursuite de la vigilance nominale avec un PnL combiné positif, une discipline d'embuscade intacte sur Alpha et un pilotage resserré des positions de Hulk. | conf=88%
+- 2026-08-18T21:45:11.098409Z | alerte | Poursuite de la vigilance nominale avec un PnL combiné positif, une discipline d'embuscade intacte sur Alpha et un pilotage resserré des positions de Hulk. | conf=88%
+- 2026-08-18T22:03:15.761645Z | alerte | Poursuite de la vigilance nominale avec un PnL combiné positif, une discipline d'embuscade intacte sur Alpha et un pilotage resserré des positions de Hulk. | conf=88%
