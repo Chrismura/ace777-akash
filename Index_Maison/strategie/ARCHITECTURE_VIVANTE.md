@@ -1,16 +1,16 @@
-# ARCHITECTURE VIVANTE — ACE777 (2026-08-18 05:12 UTC)
+# ARCHITECTURE VIVANTE — ACE777 (2026-08-18 06:15 UTC)
 
 > Document GÉNÉRÉ AUTOMATIQUEMENT à l'instant. La famille valide
 > en s'appuyant sur CE contexte, pas sur des documents figés.
 
 ## Qui tourne en ce moment
-- ✅ hub
+- ⛔ hub
 - ✅ pont cockpit
 - ✅ radar
-- ✅ lecteur signets
-- ✅ générateur fiches
-- ✅ feed mission
-- ✅ serveur cockpit
+- ⛔ lecteur signets
+- ⛔ générateur fiches
+- ⛔ feed mission
+- ⛔ serveur cockpit
 
 ## Routage des tâches de décision
 
@@ -22,7 +22,7 @@
 
 ## État de la mission (bots + PnL)
 
-- mission.json : 2026-08-18 05:12Z · run `MASTER_VORTEX_V2_COLLAB_4H` · alerte `nominal`
+- mission.json : 2026-08-18 06:14Z · run `MASTER_VORTEX_V2_COLLAB_4H` · alerte `nominal`
 - PnL combiné : **36.06 $** 📈 (combo 36.0625)
 - ALPHA (sniper (embuscade, ×13, revenge si claque)) : **+28.94 $** · 28 fills · 1110 skips
 - BETA (éclaireur (chatouille le marché, alimente Alpha)) : **+7.12 $** · 75 fills · 1059 skips
@@ -46,10 +46,10 @@
 ## Mémoire chaude (journal + résumés)
 
 - Radar (dernières alertes) :
-  · 2026-08-18T05:12:41.479610Z ETHUSDT 1898.45 0.0001 6.0 declenche=non
-  · 2026-08-18T05:12:41.479836Z ETHUSDT 1898.45 0.0001 6.6 declenche=non
-  · 2026-08-18T05:12:41.480084Z ETHUSDT 1898.45 0.0001 6.6 declenche=non
-  · 2026-08-18T05:12:41.718803Z BTCUSDT 64255.95 0.0000 31.7 declenche=oui
+  · 2026-08-18T06:15:17.577773Z ETHUSDT 1896.32 0.0001 85.6 declenche=non
+  · 2026-08-18T06:15:17.577772Z ETHUSDT 1896.32 0.0000 0.0 declenche=non
+  · 2026-08-18T06:15:17.760729Z BTCUSDT 64230.0 0.0000 0.1 declenche=non
+  · 2026-08-18T06:15:17.768248Z BTCUSDT 64230.0 0.0000 0.2 declenche=non
 - Intention en cours : BETA a sonde le marche (68 sondes, 36 long / 32 court, conf  | ALPHA attend son moment : 1031 skips (discipline), le mur du | ALPHA a frappe 28 fois en embuscade (13x) (dont 17 en mode r
 - 300 signets X résumés (quota aujourd'hui : 0/50)
 - 40 fiches IA d'offres en cache (quota 8/jour)
