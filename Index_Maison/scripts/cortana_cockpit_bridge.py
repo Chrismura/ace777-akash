@@ -472,6 +472,55 @@ def do_coffre(question: str) -> dict:
     return {"ok": True, "texte": texte, "sources": sources, "provider": provider, "mode": "coffre"}
 
 
+def do_rappel(message: str) -> dict:
+    """Gère les rappels de tâches (rappels.py) : ajouter / lister / supprimer.
+    N'écrit que dans rappels.json — jamais d'ordre de trading."""
+    import re as _re
+    script = SCRIPTS / "rappels.py"
+    if not script.exists():
+        return {"ok": False, "error": "rappels.py introuvable"}
+    msg = (message or "").strip()
+    m_low = msg.lower()
+
+    # SUPPRIMER
+    m_del = _re.match(r"(?i)^(supprime|annule)\s+(?:le\s+)?rappel\s+(.+)$", msg)
+    if m_del:
+        cible = m_del.group(2).strip()
+        p = subprocess.run([sys.executable, str(script), "supprimer", cible],
+                           capture_output=True, text=True, timeout=30)
+        return {"ok": p.returncode == 0,
+                "texte": ("Rappel supprimé : " + cible) if p.returncode == 0 else ("Rappel introuvable : " + cible),
+                "mode": "rappels"}
+
+    # LISTER
+    if (m_low in ("rappels", "rappel")
+            or any(t in m_low for t in ("mes rappels", "liste des rappels", "quels sont mes rappels"))):
+        p = subprocess.run([sys.executable, str(script), "lister"],
+                           capture_output=True, text=True, timeout=30)
+        out = (p.stdout or "").strip()
+        if not out:
+            return {"ok": True, "texte": "Aucun rappel actif.", "mode": "rappels"}
+        return {"ok": True, "texte": "Rappels actifs :\n" + out, "mode": "rappels"}
+
+    # AJOUTER : « rappelle-moi <tâche> à <HH:MM> » ou « ... à YYYY-MM-DD HH:MM »
+    m_add = _re.match(
+        r"(?i)^(rappelle[- ]moi|rappel)\s+(.+?)\s+(?:à|a)\s+"
+        r"(\d{1,2}:\d{2}|\d{4}-\d{2}-\d{2}[ T]\d{1,2}:\d{2})$", msg)
+    if m_add:
+        tache = m_add.group(2).strip()
+        heure = m_add.group(3).strip()
+        p = subprocess.run([sys.executable, str(script), "ajouter", tache, heure],
+                           capture_output=True, text=True, timeout=30)
+        out = (p.stdout or "").strip()
+        if p.returncode == 0:
+            return {"ok": True, "texte": "Rappel enregistré : " + tache + " à " + heure,
+                    "mode": "rappels"}
+        err = ((p.stderr or "") + out).strip().splitlines()
+        return {"ok": False, "error": ("Rappel refusé : " + (err[-1] if err else "heure invalide"))[:160]}
+
+    return {"ok": False, "error": "format attendu : « rappelle-moi <tâche> à <HH:MM> »"}
+
+
 def do_chat(message: str) -> dict:
     """Chat cockpit -> hub (task=mission = deepseek-v4-flash = Buffy, rotation hub).
     Renvoie le texte (écrit, affiché dans le cockpit) et lance la lecture vocale
@@ -538,6 +587,20 @@ def do_chat(message: str) -> dict:
         if not sujet:
             return {"ok": False, "error": "précise quoi chercher dans le coffre (ex: « que dit le coffre sur la politique d'oubli »)"}
         return do_coffre(sujet)
+
+    # === RAPPELS : rappelle-moi <tâche> à <heure> / mes rappels / supprime ===
+    m_low = msg.lower().lstrip()
+    trig_rappels = ("rappelle-moi ", "rappelle moi ", "rappel ", "mes rappels",
+                    "liste des rappels", "quels sont mes rappels",
+                    "supprime le rappel", "supprime rappel",
+                    "annule le rappel", "annule rappel", "rappels", "rappel")
+    declenche_rappels = False
+    for t in trig_rappels:
+        if m_low == t.strip() or m_low.startswith(t):
+            declenche_rappels = True
+            break
+    if declenche_rappels:
+        return do_rappel(msg)
 
     # === CONSULTATION FAMILLE (avant vision) : trio Gemini + DeepSeek + Juge ===
     m_low = msg.lower().lstrip()

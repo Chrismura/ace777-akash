@@ -26,6 +26,8 @@ from datetime import datetime, timezone
 
 RACINE = Path(__file__).resolve().parent.parent.parent
 IM = RACINE / "Index_Maison"
+# Hook étape 5 : auto_reparer.py vit dans ce même dossier scripts/
+sys.path.insert(0, str(Path(__file__).resolve().parent))
 RAPPORT = IM / "thermo" / "sante_index.json"
 ALERTES_DIR = IM / "data" / "alertes"
 HISTORIQUE_LOG = ALERTES_DIR / "sante_index.log"
@@ -446,6 +448,21 @@ def main():
         # Retour au calme : éteindre toute alerte vocale en cours (sinon elle crie
         # en boucle toutes les 30s jusqu'à extinction MANUELLE — leçon 17/08).
         arreter_alerte_vocale()
+
+    # Étape 5 (18/08) : auto-réparation BORNÉE des chaînes de monitoring.
+    # DÉFAUT = OBSERVATION (dry-run) : trace ce qui serait réparé, ne relance rien.
+    # Bascule actif = marqueur Index_Maison/strategie/AUTO_REPARER_ACTIF (GO humain).
+    if anomalies and not verifier_maintenance():
+        try:
+            import auto_reparer
+            res = auto_reparer.reparer(actif=auto_reparer.est_actif())
+            if res.get("actions"):
+                print(f"[SANTE_INDEX] auto-réparation ({res['mode']}) : "
+                      + "; ".join(f"{a['service']}={a['decision']}" for a in res["actions"]))
+            elif res.get("gel"):
+                print(f"[SANTE_INDEX] auto-réparation gelée : {res['gel']}")
+        except Exception as e:
+            print(f"[SANTE_INDEX] auto_reparer indisponible : {e}")
 
     print(f"[SANTE_INDEX] {rapport['updated']} — {rapport['chaines_ok']} chaînes OK · état {etat}"
           + (f" — ALERTE : {', '.join(anomalies)}" if anomalies else ""))

@@ -35,6 +35,8 @@ Les IA **ne se parlent pas directement** : tout passe par le hub. Le cockpit **n
 | **Dashboard Cortana** | Vue complète maison (ACE+Hulk+marché) + synthèse | `cortana_dashboard.py` | ⚠️ dort (non branché au chat) |
 | **État système** | state.json : services, hub, RAM, fraîcheur des feeds | `system_state_generator.py` | 🟢 |
 | **Santé des index** | Vérifie chaque chaîne de bout en bout + alerte vocale | `sante_index.py` | 🟢 |
+| **Auto-réparation** | Relance bornée des services de monitoring cassés (whitelist, backoff, circuit-breaker) | `auto_reparer.py` | 🟡 observation (dry-run) |
+| **Rappels** | « rappelle-moi X à HH:MM » → alerte vocale à l'heure dite | `rappels.py` + plist 60 s | 🟢 branché au chat |
 | **Détecteur CPFP** | « Pépite » onchain : arbre de poussière + tx enfant CPFP | `detecter_cpfp.py` | 🟡 observation |
 | **Détecteur blocs privatisés** | Tx fantômes (jamais vues en mempool) | `detecter_bloc_privatise.py` | 🟡 observation |
 | **Disjoncteur** | Bride les mises, Mur de Fer, réarmement manuel | `disjoncteur.py` | 🟢 |
@@ -94,15 +96,19 @@ hub usage/events ──hub_cockpit_feed──► hub.json (santé/budget/queue) 
 - Preuve 2 : le chat applique sa leçon — à la question « salut », Cortana répond que le *fear & greed à 41 « nécessite la corroboration d'autres indicateurs »* (sa leçon AGORA `fearGreed`).
 - Découverte : le script de trace auto `memoire_log.py` (référencé partout) avait disparu — la trace est maintenant ré-intégrée directement dans le pont.
 
-Fichiers modifiés : `cortana_cockpit_bridge.py` (fonctions `_contexte_bots`, `do_recherche` + `do_coffre` + `_agora_trace` + `_lecons_agora_actives` + déclencheurs), `pont_onchain.py` (section `onchain` enrichie), `recherche_web.py` (nouveau).
+**Étape 5 — Actions sûres et autonomes** (validée par le **codeur + famille/juge** : verdict unanime **GO-AVEC-RÉSERVE**, confiance moyenne).
+- **Auto-réparation** (`auto_reparer.py`) : relance bornée des services de monitoring cassés, avec les réserves de la famille — backoff exponentiel (1/5/15 min), circuit-breaker CPU/RAM (load>6 ou swap>2 Go), vérif hub, mutex fcntl, journal d'audit `reparations.jsonl`, max 3 essais/24 h, cooldown 10 min. **En mode observation (dry-run) par défaut** : détecte + trace ce qu'il *réparerait*, ne relance rien. Bascule actif = marqueur `AUTO_REPARER_ACTIF` (GO humain). Hooké dans `sante_index.py` (5 min).
+- **Rappels** (`rappels.py`) : « rappelle-moi X à HH:MM » → alerte vocale à l'heure dite. Commandes ajouter/lister/supprimer branchées au chat + plist `com.ace777.rappels` (60 s).
+- **Gros mouvement** : déjà branché (`surveiller_whales.py` → `pont_onchain.py` `alerte_bool` → `live.json.onchain` → ADA + `vigie_live.py` → `alarme.json` → `analyste.py --speak`). Vérifié, pas reconstruit.
+- Preuve rappels : « rappelle-moi vérifier le disjoncteur à 23:59 » → enregistré → listé → supprimé. ✅
+
+Fichiers modifiés : `cortana_cockpit_bridge.py` (`_contexte_bots`, `do_recherche`, `do_coffre`, `do_rappel`, `_agora_trace`, `_lecons_agora_actives`), `pont_onchain.py`, `sante_index.py` (hook auto-réparation), `recherche_web.py`, `auto_reparer.py`, `rappels.py`, `com.ace777.rappels.plist` (nouveaux).
 
 ---
 
-## 6. À faire (étape 5) + 2 GO à trancher
+## 6. GO à trancher par Christophe (je ne les fais pas seul)
 
-1. **🔧 Actions sûres** (étape 5) — réparer un index, alerter un gros mouvement, rappels de tâches.
-
-**GO à trancher par Christophe (je ne les fais pas seul)** :
+- **Passer l'auto-réparation en actif** : poser le marqueur `Index_Maison/strategie/AUTO_REPARER_ACTIF`. Avant ça, elle reste en observation (trace, ne relance rien).
 - **Passer le CPFP « poussières » en mode actif** (`detecter_cpfp.py --actif`) — prévu après validation 7 jours, **branche de vraies alertes** + modifie la voilure ADA (±10 %).
 - **Ajouter l'onchain comme 7ᵉ indice ADA** — change le calcul de saison.
 
