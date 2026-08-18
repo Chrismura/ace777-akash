@@ -1,18 +1,18 @@
-# STRATEGIE — 2026-08-18T15:59:09.423691Z
+# STRATEGIE — 2026-08-18T16:42:38.036387Z
 
-## COURT TERME — 2026-08-18T15:59:09.423691Z
+## COURT TERME — 2026-08-18T16:42:38.036387Z
 
-[UNDERSTAND] La maison ACE777 maintient une vigilance nominale robuste soutenue par un PnL combiné solide à +53,71 $, la précision chirurgicale d'Alpha, l'éclairage constant de Beta et une gestion rigoureuse des positions seeds de Hulk.
+[UNDERSTAND] La maison ACE777 maintient une vigilance nominale robuste, portée par un PnL combiné solide à +52,14 $ et une exécution parfaitement coordonnée entre la patience d'Alpha, les sondages qualifiés de Beta et la gestion active des positions seeds de Hulk.
 [ANALYZE]
-- Tendance : Marché en configuration "Bitcoin season" (score 50) avec une capitalisation globale de 2,29 T$ et un climat de peur modérée (Fear & Greed à 41).
-- Momentum : Dynamique haussière et performante portée par Alpha (+40,15 $, 105 fills) et Beta (+13,56 $, 320 fills), tandis que Hulk stabilise son portefeuille seed (+0,27 $).
-- Risque : Surveillance continue des positions seeds en zone de tension (notamment RWAINCUSDT et CCUSDT) et des sursauts de volume répétés sur le BTCUSDT.
-- Contexte : Exécution nominale parfaite de l'essaim, caractérisée par une discipline d'embuscade intacte d'Alpha (2267 skips) et des flux de reconnaissance hautement qualifiés de Beta.
+- Tendance : Marché en configuration "Bitcoin season" (score 49) avec une capitalisation de 2,30 T$ et un climat de peur modérée (Fear & Greed à 41).
+- Momentum : Dynamique haussière solide validée par Alpha (+38,46 $, 113 fills, 2585 skips) et Beta (+13,68 $, 353 fills), tandis que Hulk pilote son portefeuille seed (+0,27 $, 13 positions) avec une attention particulière sur les lignes en zone de tension (RWAINCUSDT, CCUSDT, WUSDT).
+- Risque : Surveillance continue des sursauts de volume et du bruit macroéconomique (actualités Fed/CNBC) avec application rigoureuse des stop-loss sur les positions seeds de Hulk en tension.
+- Contexte : Exécution nominale de l'essaim, caractérisée par une discipline d'embuscade intacte d'Alpha et des flux de reconnaissance hautement qualifiés de Beta.
 [STRATEGIZE]
-1. Maintenir la patience tactique et la discipline d'embuscade d'Alpha tout en exploitant les flux de reconnaissance continus de Beta.
-2. Appliquer rigoureusement les stop-loss sur les positions seeds de Hulk en zone de tension pour préserver la performance globale.
+1. Maintenir la patience tactique et la discipline d'embuscade d'Alpha tout en exploitant continuellement les flux de reconnaissance de Beta.
+2. Appliquer rigoureusement les stop-loss et l'arbitrage sur les positions seeds de Hulk en zone de tension pour préserver le PnL global.
 [EXECUTE]
-- Verdict : Poursuite de la vigilance nominale avec un PnL combiné solide à +53,71 $, une discipline d'embuscade intacte sur Alpha et un encadrement strict des positions seeds de Hulk.
+- Verdict : Poursuite de la vigilance nominale avec un PnL combiné solide à +52,14 $, une discipline d'embuscade intacte sur Alpha et un encadrement strict des positions seeds de Hulk.
 - Confiance : 88%
 - Hypothèses clés : 
   1. Alpha conserve sa rigueur d'attente et exécute ses tirs dès qu'une opportunité de rupture de carnet se présente.

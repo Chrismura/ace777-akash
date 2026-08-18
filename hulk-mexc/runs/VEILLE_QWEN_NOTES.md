@@ -1490,3 +1490,7 @@ Pas d’ordre — confrontation plus tard.
 - RWAINCUSDT: WATCH_PULLBACK — tension haute + reflux
 - CHIPUSDT: WATCH_PULLBACK — tension haute + reflux
 (compléter: confirmé ? risque ?)
+
+### 2026-08-18T16:36:31Z — ALERT auto
+- CHIPUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
