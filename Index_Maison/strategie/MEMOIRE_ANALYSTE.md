@@ -1353,3 +1353,10 @@
 - 2026-08-18T15:12:29.731436Z | alerte | Poursuite de la vigilance nominale avec un PnL combiné solide, une discipline d'embuscade intacte sur Alpha et un encadrement strict des positions seeds de Hulk. | conf=88%
 - 2026-08-18T15:24:22.270998Z | alerte | Poursuite de la vigilance nominale avec un PnL combiné solide, une discipline d'embuscade intacte sur Alpha et un encadrement strict des positions seeds de Hulk. | conf=88%
 - 2026-08-18T15:35:12.462473Z | alerte | Poursuite de la vigilance nominale avec un PnL combiné solide, une discipline d'embuscade intacte sur Alpha et un encadrement strict des positions seeds de Hulk. | conf=88%
+- 2026-08-18T15:42:32.935931Z | alerte | Poursuite de la vigilance nominale avec un PnL combiné solide, une discipline d'embuscade intacte sur Alpha et un encadrement strict des positions seeds de Hulk. | conf=88%
+- 2026-08-18T15:42:33.179055Z | alerte | Poursuite de la vigilance nominale avec un PnL combiné solide, une discipline d'embuscade intacte sur Alpha et un encadrement strict des positions seeds de Hulk. | conf=88%
+- 2026-08-18T15:43:43.056841Z | alerte | Poursuite de la vigilance nominale avec un PnL combiné solide, une discipline d'embuscade intacte sur Alpha et un encadrement strict des positions seeds de Hulk. | conf=88%
+- 2026-08-18T15:43:43.768954Z | alerte | Poursuite de la vigilance nominale avec un PnL combiné solide, une discipline d'embuscade intacte sur Alpha et un encadrement strict des positions seeds de Hulk. | conf=88%
+- 2026-08-18T15:46:06.153887Z | alerte | Poursuite de la vigilance nominale avec un PnL combiné solide, une discipline d'embuscade intacte sur Alpha et un encadrement strict des positions seeds de Hulk. | conf=88%
+- 2026-08-18T15:46:07.285745Z | alerte | Poursuite de la vigilance nominale avec un PnL combiné solide à +52,80 $, une discipline d'embuscade intacte sur Alpha et un encadrement strict des positions seeds de Hulk. | conf=88%
+- 2026-08-18T15:59:09.423691Z | alerte | Poursuite de la vigilance nominale avec un PnL combiné solide à +53,71 $, une discipline d'embuscade intacte sur Alpha et un encadrement strict des positions seeds de Hulk. | conf=88%
