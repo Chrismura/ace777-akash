@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-18T07:22:59.348563+00:00",
+  "generated_at": "2026-08-18T08:23:09.446051+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 479
+      "calls_24h": 433
     },
     {
       "id": "openrouter-free",
@@ -35,7 +35,7 @@
       "model": "groq/compound",
       "enabled": true,
       "timeout": 120,
-      "calls_24h": 128
+      "calls_24h": 129
     },
     {
       "id": "nvidia",
@@ -71,7 +71,7 @@
       "model": "nvidia/nemotron-3-super-120b-a12b:free",
       "enabled": true,
       "timeout": 120,
-      "calls_24h": 12
+      "calls_24h": 14
     },
     {
       "id": "grok",
@@ -211,191 +211,191 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 281,
-    "remaining": 343
+    "consumed": 296,
+    "remaining": 328
   },
   "queue": [
     {
-      "ts": "2026-08-18T07:15:50.933773+00:00",
-      "task": "veille.youtube",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 2.41
-    },
-    {
-      "ts": "2026-08-18T07:11:44.033698+00:00",
+      "ts": "2026-08-18T08:17:08.192960+00:00",
       "task": "analyste.strategie",
       "provider": "gemini",
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
-      "duration_s": 3.82
+      "duration_s": 47.1
     },
     {
-      "ts": "2026-08-18T07:11:43.709181+00:00",
+      "ts": "2026-08-18T08:16:37.459680+00:00",
       "task": "analyste.strategie",
       "provider": "gemini",
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
-      "duration_s": 3.48
+      "duration_s": 3.09
     },
     {
-      "ts": "2026-08-18T07:01:32.552991+00:00",
+      "ts": "2026-08-18T08:11:56.231859+00:00",
       "task": "analyste.strategie",
       "provider": "gemini",
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
-      "duration_s": 31.19
+      "duration_s": 8.33
     },
     {
-      "ts": "2026-08-18T07:01:32.058289+00:00",
+      "ts": "2026-08-18T08:11:51.487234+00:00",
       "task": "analyste.strategie",
       "provider": "gemini",
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
-      "duration_s": 25.08
+      "duration_s": 3.57
     },
     {
-      "ts": "2026-08-18T06:42:38.126978+00:00",
+      "ts": "2026-08-18T07:58:37.195652+00:00",
       "task": "analyste.strategie",
-      "provider": "mistral",
-      "model": "codestral-latest",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
       "kind": "cloud",
-      "duration_s": 9.36
+      "duration_s": 3.21
     },
     {
-      "ts": "2026-08-18T06:42:20.777777+00:00",
+      "ts": "2026-08-18T07:58:35.345083+00:00",
+      "task": "analyste.strategie",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 3.62
+    },
+    {
+      "ts": "2026-08-18T07:50:15.887742+00:00",
+      "task": "analyste.strategie",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 3.8
+    },
+    {
+      "ts": "2026-08-18T07:41:48.055562+00:00",
+      "task": "analyste.strategie",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 3.63
+    },
+    {
+      "ts": "2026-08-18T07:41:47.589937+00:00",
+      "task": "analyste.strategie",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 3.17
+    },
+    {
+      "ts": "2026-08-18T07:36:15.871760+00:00",
+      "task": "analyste.strategie",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 3.97
+    },
+    {
+      "ts": "2026-08-18T07:31:31.394613+00:00",
       "task": "analyste.strategie",
       "provider": "openrouter-juge",
       "model": "nvidia/nemotron-3-super-120b-a12b:free",
       "kind": "cloud",
-      "duration_s": 13.29
+      "duration_s": 16.32
     },
     {
-      "ts": "2026-08-18T06:42:12.702974+00:00",
+      "ts": "2026-08-18T07:31:05.541724+00:00",
       "task": "analyste.strategie",
-      "provider": "mistral",
-      "model": "codestral-latest",
+      "provider": "openrouter-juge",
+      "model": "nvidia/nemotron-3-super-120b-a12b:free",
       "kind": "cloud",
-      "duration_s": 8.82
+      "duration_s": 14.93
     },
     {
-      "ts": "2026-08-18T06:42:08.120664+00:00",
+      "ts": "2026-08-18T07:30:05.619198+00:00",
       "task": "analyste.strategie",
-      "provider": "mistral",
-      "model": "codestral-latest",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
       "kind": "cloud",
-      "duration_s": 9.81
+      "duration_s": 4.64
     },
     {
-      "ts": "2026-08-18T06:33:12.941594+00:00",
-      "task": "cortana.analyse",
-      "provider": "mistral",
-      "model": "codestral-latest",
-      "kind": "cloud",
-      "duration_s": 4.44
-    },
-    {
-      "ts": "2026-08-18T06:32:13.007599+00:00",
-      "task": "cortana.analyse",
-      "provider": "mistral",
-      "model": "codestral-latest",
-      "kind": "cloud",
-      "duration_s": 3.58
-    },
-    {
-      "ts": "2026-08-18T06:31:49.031324+00:00",
+      "ts": "2026-08-18T07:30:05.086405+00:00",
       "task": "analyste.strategie",
-      "provider": "openrouter-free",
-      "model": "openai/gpt-oss-20b:free",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
       "kind": "cloud",
-      "duration_s": 202.38
+      "duration_s": 4.11
     },
     {
-      "ts": "2026-08-18T06:31:17.844808+00:00",
-      "task": "cortana.analyse",
-      "provider": "mistral",
-      "model": "codestral-latest",
+      "ts": "2026-08-18T07:23:21.736729+00:00",
+      "task": "supervise.decision",
+      "provider": "groq",
+      "model": "groq/compound",
       "kind": "cloud",
-      "duration_s": 3.7
-    },
-    {
-      "ts": "2026-08-18T06:30:53.405963+00:00",
-      "task": "cortana.analyse",
-      "provider": "openrouter-free",
-      "model": "openai/gpt-oss-20b:free",
-      "kind": "cloud",
-      "duration_s": 47.78
-    },
-    {
-      "ts": "2026-08-18T06:29:10.384388+00:00",
-      "task": "analyste.strategie",
-      "provider": "mistral",
-      "model": "codestral-latest",
-      "kind": "cloud",
-      "duration_s": 9.47
+      "duration_s": 2.69
     }
   ],
   "events": [
     {
-      "ts": "2026-08-18T07:15:50.933235+00:00",
+      "ts": "2026-08-18T08:17:08.192639+00:00",
       "kind": "message",
       "title": "« Google Gemini » a repondu",
       "detail": ""
     },
     {
-      "ts": "2026-08-18T07:11:44.033388+00:00",
+      "ts": "2026-08-18T08:16:37.459248+00:00",
       "kind": "message",
       "title": "« Google Gemini » a repondu",
       "detail": ""
     },
     {
-      "ts": "2026-08-18T07:11:43.708446+00:00",
+      "ts": "2026-08-18T08:11:56.231412+00:00",
       "kind": "message",
       "title": "« Google Gemini » a repondu",
       "detail": ""
     },
     {
-      "ts": "2026-08-18T07:01:32.552659+00:00",
+      "ts": "2026-08-18T08:11:51.486663+00:00",
       "kind": "message",
       "title": "« Google Gemini » a repondu",
       "detail": ""
     },
     {
-      "ts": "2026-08-18T07:01:32.057981+00:00",
+      "ts": "2026-08-18T07:58:37.195264+00:00",
       "kind": "message",
       "title": "« Google Gemini » a repondu",
       "detail": ""
     },
     {
-      "ts": "2026-08-18T07:01:01.361498+00:00",
-      "kind": "blacklist",
-      "title": "Fin de pause Google Gemini",
-      "detail": "re-essai automatique"
-    },
-    {
-      "ts": "2026-08-18T06:42:38.126705+00:00",
+      "ts": "2026-08-18T07:58:35.344456+00:00",
       "kind": "message",
-      "title": "« Mistral La Plateforme (essai gratuit) » a repondu",
-      "detail": "bascule"
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
     },
     {
-      "ts": "2026-08-18T06:42:38.126306+00:00",
-      "kind": "filet-universel",
-      "title": "[FILET UNIVERSEL] « Mistral La Plateforme (essai gratuit) » a repondu hors chaine",
-      "detail": "analyste.strategie"
+      "ts": "2026-08-18T07:50:15.887183+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
     },
     {
-      "ts": "2026-08-18T06:42:28.769343+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis NVIDIA build.nvidia.com (100+ modeles)",
-      "detail": "HTTP Error 529: status code 529"
+      "ts": "2026-08-18T07:41:48.055130+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
     },
     {
-      "ts": "2026-08-18T06:42:22.698962+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis NaraRouter (7M tokens/jour gratuits)",
-      "detail": "The read operation timed out"
+      "ts": "2026-08-18T07:41:47.589560+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
+    {
+      "ts": "2026-08-18T07:36:15.871416+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
     }
   ],
   "tasks_quotas": {
