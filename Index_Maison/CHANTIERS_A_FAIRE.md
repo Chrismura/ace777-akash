@@ -1,7 +1,27 @@
 # CHANTIERS À FAIRE — ACE777
 
-> Backlog central (complète `CHOSES_A_FINIR_REVOIR.md`). MAJ : 2026-08-15.
+> Backlog central (complète `CHOSES_A_FINIR_REVOIR.md`). MAJ : 2026-08-18.
 > Règle : un chantier = un GO de Christophe + (si majeur) famille/codeur + Release Receipt.
+
+---
+
+## 🟠 EN CHANTIER — SIZING / RUINE MONTE CARLO (18/08, GO Christophe)
+
+**Statut** : 🎯 veilleuse armée — analyse à la fin du run 96h (**22/08**)
+
+**Le constat (Monte Carlo, 18/08) :**
+- Période propre (base scellée, 1ʳᵉ journée) : PnL/cycle réel **+0,0124 $** (4,4× mieux
+  que les 13 jours de chantier), ruine **32,5 %**, DD médian **19,8 %**.
+- Même en propre : **32,5 % de ruine sur 20 $ de capital, c'est trop pour dormir tranquille.**
+
+**Le chantier :** trancher le sizing (taille des positions BETA x5 / ALPHA x13 vs capital)
+pour réduire la profondeur des creux — après que le run 96h ait parlé.
+
+**Étapes (détail : `CHANTIER_SIZING_MONTE_CARLO_2026-08-18.md`) :**
+1. À la fin du run 96h → relancer `monte_carlo_ace.py --depuis 2026-08-18` (4 jours propres)
+2. Vérifier si les 4,4× tiennent → comparer ruine / DD
+3. Soumettre la question du sizing à la famille AVANT toute activation
+4. Release Receipt à la clôture
 
 ---
 
@@ -46,6 +66,7 @@ en place pour bien le faire — timing choisi par Christophe) :**
 | E-12 | Deux briefs (doublon chaîne) — n'en garder qu'un | 🟡 |
 | E-13 | Fenêtre info IA graph (bouton rafraîchissement) | 🟡 |
 | E-14 | Budget cloud / baromètre conso / brief 4j / schéma archi | 🟡 |
+| E-15 | **Sizing / ruine Monte Carlo** — décision après run 96h (22/08, veilleuse armée) | 🟠 chantier |
 | E-01/E-02 | Cadence début/fin de session (ancrer usage) | 🔴/🟡 |
 | E-05 | Kill-switch rouge A/B — preuve testnet/paper (1×A + 1×B) | 🟡 |
 
