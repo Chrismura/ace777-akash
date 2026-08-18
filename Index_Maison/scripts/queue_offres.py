@@ -289,9 +289,12 @@ def ajouter_provider_observation(entree: dict) -> bool:
         "order": len(providers_list),
         "timeout": 30,
         "free": True,
-        "enabled": True,    # ACTIF direct : validation IA auto (décision 14/08) —
-                            # le routeur ne le promeut qu'après ≥5 éch. +15 pts, rollback auto
-        "note": "auto queue_offres",
+        # VERDICT FAMILLE 18/08 (unanime 3/3) : toute intégration passe par le sas
+        # d'observation 48h (enabled:false) avant activation — même les obs-*.
+        # L'observatoire (étendu) les sonde 48h puis les active (rollback = désactivation).
+        "enabled": False,
+        "status": "observation",
+        "note": "auto queue_offres | VERDICT FAMILLE 18/08 : observation 48h avant activation",
     }
     providers_list.append(nouveau_provider)
     cfg["providers"] = providers_list

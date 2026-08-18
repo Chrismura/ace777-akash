@@ -1,0 +1,2 @@
+**GO-AVEC-RÉSERVE**. La chaîne matinale est bien rythmée et l'observatoire sécurise le double mécanisme, mais la cohabitation d'intégrations directes (`obs-*`) et prudentes (`eval_offres`) crée une confusion logique inutile. 
+Il faut unifier la règle : tout doit passer par l'étape d'observation (enabled:false) avant d'devenir actif.
