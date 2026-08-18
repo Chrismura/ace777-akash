@@ -26,6 +26,7 @@ import time
 import fcntl
 import tempfile
 import subprocess
+import threading
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -178,38 +179,42 @@ def _alerter(message: str, ident: str):
 
 
 def _trace_agora(quoi: str):
-    """1 ligne append-only dans la mémoire collab (canon + miroir)."""
-    ts = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H%MZ")
-    ligne = f"| {ts} | auto_reparer | ~ | Index_Maison/thermo | {quoi} |"
-    cibles = [Path.home() / "Documents/Obsidian_ACE777/Swarm_Bus/09_MEMOIRE_COLLAB.md",
-              IM / "MEMOIRE_COLLAB.md"]
-    for cible in cibles:
-        try:
-            if not cible.exists():
-                continue
-            txt = cible.read_text(encoding="utf-8")
-            if ligne in txt:
-                continue
-            lignes = txt.splitlines()
-            ins = None
-            for i, ln in enumerate(lignes):
-                if ln.strip().startswith("|---"):
-                    ins = i + 1
-                    break
-            if ins is None:
-                continue
-            lignes.insert(ins, ligne)
-            fd, tmp = tempfile.mkstemp(dir=str(cible.parent), suffix=".tmp")
+    """1 ligne append-only dans la mémoire collab (canon + miroir).
+    NON-BLOQUANT (réserve GEMINI) : exécuté dans un thread daemon — une écriture
+    AGORA ne doit JAMAIS geler la boucle de santé critique."""
+    def _travail():
+        ts = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H%MZ")
+        ligne = f"| {ts} | auto_reparer | ~ | Index_Maison/thermo | {quoi} |"
+        cibles = [Path.home() / "Documents/Obsidian_ACE777/Swarm_Bus/09_MEMOIRE_COLLAB.md",
+                  IM / "MEMOIRE_COLLAB.md"]
+        for cible in cibles:
             try:
-                with os.fdopen(fd, "w", encoding="utf-8") as f:
-                    f.write("\n".join(lignes) + "\n")
-                os.replace(tmp, str(cible))
+                if not cible.exists():
+                    continue
+                txt = cible.read_text(encoding="utf-8")
+                if ligne in txt:
+                    continue
+                lignes = txt.splitlines()
+                ins = None
+                for i, ln in enumerate(lignes):
+                    if ln.strip().startswith("|---"):
+                        ins = i + 1
+                        break
+                if ins is None:
+                    continue
+                lignes.insert(ins, ligne)
+                fd, tmp = tempfile.mkstemp(dir=str(cible.parent), suffix=".tmp")
+                try:
+                    with os.fdopen(fd, "w", encoding="utf-8") as f:
+                        f.write("\n".join(lignes) + "\n")
+                    os.replace(tmp, str(cible))
+                except Exception:
+                    if os.path.exists(tmp):
+                        os.remove(tmp)
+                    raise
             except Exception:
-                if os.path.exists(tmp):
-                    os.remove(tmp)
-                raise
-        except Exception:
-            pass
+                pass
+    threading.Thread(target=_travail, daemon=True).start()
 
 
 # ---------------------------------------------------------------- état
@@ -309,6 +314,13 @@ def reparer(actif: bool = False) -> dict:
                 res["actions"].append({"service": service, "decision": "skip",
                                        "raison": f"backoff {int(backoff)}s pas écoulé"})
                 continue
+
+            # Re-vérif stricte JUSTE avant l'action (réserve GEMINI/JUGE : le
+            # kill-switch doit être vérifié au moment exact de l'exécution, pas
+            # seulement au début du run)
+            if _kill_switch_actif() or _maintenance_prevue():
+                res["gel"] = "kill-switch/maintenance apparu pendant le run"
+                break
 
             # --- tentative (dry-run = trace seulement) ---
             ts_iso = datetime.now(timezone.utc).isoformat()
