@@ -202,68 +202,109 @@ def _appel_hub(task: str, prompt_role: str, sujet: str, result_list: list, idx: 
 
 
 def _contexte_bots() -> str:
-    """État ACE + HULK pour le chat cockpit (18/08 — Christophe : « Cortana ne voit
-    pas Hulk/ACE »). Lecture seule, fail-open : si un fichier manque, on continue.
-    Court : 4-6 lignes max, chiffres clés uniquement (anti-infobésité)."""
+    """État COMPLET du cockpit pour le chat (mission.json = source unique agrégée).
+    Lecture seule, fail-open : si un fichier/clé manque, on continue.
+    Court (~10 lignes) : chiffres clés uniquement (anti-infobésité).
+    Remplace l'ancien contexte codé en dur (2 CSV + 1 state Hulk) qui rendait
+    Cortana aveugle à la saison ADA, la voilure, le thermo et l'onchain."""
     lignes = []
     try:
-        # --- ACE : dernier jour de run (PnL, trades, sorties) ---
-        for unit, csv_name in (("BETA", "MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv"),
-                               ("ALPHA", "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv")):
-            csv_path = RUNS / csv_name
-            if not csv_path.exists():
-                continue
-            last_filled = []
-            try:
-                with open(csv_path) as f:
-                    reader = csv.reader(f)
-                    next(reader, None)
-                    for row in reader:
-                        if len(row) < 10:
-                            continue
-                        if row[3] == "FILLED":
-                            try:
-                                last_filled.append((row[0], float(row[8] or 0), row[9]))
-                            except (ValueError, IndexError):
-                                pass
-            except Exception:
-                continue
-            if not last_filled:
-                continue
-            last_day = last_filled[-1][0][:10]
-            day = [x for x in last_filled if x[0][:10] == last_day]
-            total = sum(x[1] for x in day)
-            wins = sum(1 for x in day if x[1] > 0)
-            losses = sum(1 for x in day if x[1] < 0)
+        if not MISSION_JSON.exists():
+            return ""
+        try:
+            m = json.loads(MISSION_JSON.read_text(encoding="utf-8"))
+        except Exception:
+            return ""
+        if not isinstance(m, dict):
+            return ""
+        try:
+            age = max(0, int(time.time() - MISSION_JSON.stat().st_mtime))
+        except Exception:
+            age = None
+
+        # --- ACE (duo ALPHA/BETA) ---
+        a = m.get("alpha") or {}
+        b = m.get("beta") or {}
+        combo = m.get("comboPnl")
+        if combo is not None:
             lignes.append(
-                "ACE %s (%s) : %d trades · PnL %+.2f$ · %d win/%d loss"
-                % (unit, last_day, len(day), total, wins, losses)
+                "ACE (duo) : PnL combiné %+.2f$ · ALPHA %d fills (%+.2f$) · BETA %d fills (%+.2f$)"
+                % (float(combo),
+                   int(a.get("fills") or 0), float(a.get("pnl") or 0),
+                   int(b.get("fills") or 0), float(b.get("pnl") or 0))
             )
-        # --- HULK : paper (PnL, trades, positions) ---
-        hulk_state = HULK / "runs" / "PAPER_V1_20260816_214411_state.json"
-        if hulk_state.exists():
-            try:
-                hs = json.load(open(hulk_state))
-                pnl = hs.get("pnl_total")
-                trades = hs.get("trades")
-                pos = hs.get("positions") or {}
-                pos_txt = ", ".join(list(pos.keys())[:8]) or "aucune"
-                lignes.append(
-                    "HULK (paper MEXC) : PnL %s$ · %d trades · positions: %s"
-                    % ("n/d" if pnl is None else round(float(pnl), 2),
-                       int(trades or 0), pos_txt)
-                )
-            except Exception:
-                pass
-        # --- HULK : sonde aspiration (alerte en cours) ---
-        hulk_alert = HULK / "runs" / "VEILLE_ALERT.md"
-        if hulk_alert.exists():
-            try:
-                txt = hulk_alert.read_text().strip()
-                if txt:
-                    lignes.append("HULK SONDE : " + txt[:200].replace(chr(10), " · "))
-            except Exception:
-                pass
+
+        # --- HULK (paper MEXC) ---
+        h = m.get("hulk") or {}
+        if h:
+            pos = h.get("positions") or []
+            pos_txt = ", ".join(str(p.get("pair") or "") for p in pos[:8]
+                                 if isinstance(p, dict)) or "aucune"
+            pnl = h.get("pnl")
+            lignes.append(
+                "HULK (paper MEXC) : PnL %s$ · %d trades · %d positions (%s)"
+                % ("n/d" if pnl is None else round(float(pnl), 2),
+                   int(h.get("trades") or 0), len(pos), pos_txt)
+            )
+
+        # --- ADA : saison + gardienne (voilure/zone) ---
+        saison = m.get("saison") or {}
+        gard = m.get("gardienne") or {}
+        ada_bits = []
+        s_name = saison.get("saison")
+        if s_name:
+            ada_bits.append("saison %s %s" % (s_name, saison.get("emoji") or ""))
+        voilure = gard.get("voilure_pct")
+        if voilure is None:
+            voilure = gard.get("voilure")
+        zone = gard.get("zone")
+        if voilure is not None or zone:
+            ada_bits.append("voilure %s · zone %s" % (
+                voilure if voilure is not None else "?", zone or "?"))
+        if ada_bits:
+            lignes.append("ADA : " + " · ".join(ada_bits))
+
+        # --- Marché / thermo ---
+        th = m.get("thermo") or {}
+        if th:
+            fund = th.get("funding")
+            fund_s = "n/d" if fund is None else ("%+.6f" % float(fund))
+            lignes.append(
+                "MARCHÉ : climat %s · score %s · funding %s · fear&greed %s"
+                % (th.get("climate") or "?", th.get("score") or "?",
+                   fund_s, th.get("fearGreed") or "?")
+            )
+            # --- Onchain (baleines + CPFP/dust + blocs privatisés) ---
+            oc = th.get("onchain") or {}
+            if oc:
+                synth = str(oc.get("synthèse") or "").strip()
+                if synth:
+                    lignes.append("ONCHAIN : " + synth[:170])
+                cpfp_sig = oc.get("cpfpSignal")
+                if cpfp_sig:
+                    lignes.append("ONCHAIN CPFP : " + str(cpfp_sig)[:140])
+                # Poussières / blocs privatisés — TOUJOURS visibles (même en observation)
+                dust = str(oc.get("cpfpDustDetail") or "").strip()
+                taux = oc.get("blocPrivatiseTauxFantome")
+                if dust or taux is not None:
+                    bits = []
+                    if dust:
+                        bits.append("poussières: " + dust[:110])
+                    if taux is not None:
+                        bits.append("blocs privatisés: %s%% fantômes (mode %s)"
+                                    % (taux, oc.get("blocPrivatiseMode") or "?"))
+                    lignes.append("ONCHAIN observation : " + " · ".join(bits))
+
+        # --- Disjoncteur ---
+        dj = m.get("disjoncteur") or {}
+        if dj:
+            if dj.get("declenche"):
+                lignes.append("DISJONCTEUR : DÉCLENCHÉ (%s)" % (dj.get("raison") or "?"))
+            else:
+                lignes.append("DISJONCTEUR : armé, non déclenché")
+
+        if age is not None:
+            lignes.append("(mission.json frais de %ds)" % age)
     except Exception:
         pass
     return "\n".join(lignes)

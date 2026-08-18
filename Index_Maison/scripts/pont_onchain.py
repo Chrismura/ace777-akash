@@ -211,20 +211,51 @@ def main():
     # --- Onchain v2 : signal CPFP/dust (détecter_cpfp.py) — ENRICHIT la synthèse ---
     # Règles D2/D5/D6 : le pont n'enrichit QUE si mode ACTIF (validation 7 jours)
     # ET confirmation >= 2 (double condition déjà appliquée dans detecter_cpfp).
+    # 18/08 : en MODE OBSERVATION, la donnée (mode, confirmation, poussière, z-score)
+    # reste VISIBLE dans live.json.onchain (champs cpfp*/dust) mais ne déclenche RIEN —
+    # le signal actif (cpfpSignal/cpfpScore) reste gated sur mode actif + confirmation.
     cpfp_file = DATA_DIR / "cpfp_detect.json"
     cpfp_signal = None
     cpfp_score = 0.0
+    cpfp_mode = "observation"
+    cpfp_confirmation = 0
+    cpfp_global = False
+    cpfp_zscore = 0.0
+    cpfp_dust_score = 0.0
+    cpfp_dust_detail = ""
     if cpfp_file.exists():
         cpfp_data = charger_json(cpfp_file, {})
-        mode = cpfp_data.get("mode", "observation")
-        confirmation = int(cpfp_data.get("confirmation", 0) or 0)
-        if mode == "actif" and confirmation >= 2 and cpfp_data.get("declenche_global"):
+        cpfp_mode = cpfp_data.get("mode", "observation")
+        cpfp_confirmation = int(cpfp_data.get("confirmation", 0) or 0)
+        cpfp_global = bool(cpfp_data.get("declenche_global"))
+        cpfp_zscore = round(float(cpfp_data.get("zscores", 0.0) or 0.0), 2)
+        cartes = cpfp_data.get("cartes") or {}
+        carte3 = cartes.get("carte3_poussiere") or {}
+        cpfp_dust_score = round(float(carte3.get("score", 0.0) or 0.0), 2)
+        cpfp_dust_detail = str(carte3.get("detail") or "")[:160]
+        if cpfp_mode == "actif" and cpfp_confirmation >= 2 and cpfp_global:
             cpfp_score = round(float(cpfp_data.get("zscores", 0.0) or 0.0) * 0.5, 2)  # D8 : ×0.5
             cpfp_signal = (
                 "EXÉCUTION CPFP possible : mouvement de baleine camouflé détecté "
                 "(arbre de poussière + transaction enfant à frais élevés). Prudence."
             )
             synthese += " | " + cpfp_signal
+
+    # --- Vigie mempool : blocs privatisés / transactions fantômes (détecter_bloc_privatise.py) ---
+    bloc_priv_file = DATA_DIR / "bloc_privatise.json"
+    bloc_priv_mode = "observation"
+    bloc_priv_taux_fantome = None
+    bloc_priv_nb_cachees = None
+    if bloc_priv_file.exists():
+        bp = charger_json(bloc_priv_file, {})
+        bloc_priv_mode = bp.get("mode", "observation")
+        bloc_priv_taux_fantome = bp.get("taux_fantome")
+        bloc_priv_nb_cachees = bp.get("nb_tx_cachees")
+
+    # Statut d'observation TOUJOURS visible dans la synthèse (jamais une alerte)
+    synthese += f" | CPFP {cpfp_mode} (conf {cpfp_confirmation}/2) · poussière score {cpfp_dust_score}/50"
+    if bloc_priv_taux_fantome is not None:
+        synthese += f" · blocs privatisés {bloc_priv_taux_fantome}% fantômes"
 
     section_onchain = {
         "whaleBlocsN": whale_blocs_n,
@@ -242,6 +273,15 @@ def main():
         "synthèse": synthese,
         "cpfpSignal": cpfp_signal,
         "cpfpScore": cpfp_score,
+        "cpfpMode": cpfp_mode,
+        "cpfpConfirmation": cpfp_confirmation,
+        "cpfpGlobal": cpfp_global,
+        "cpfpZscore": cpfp_zscore,
+        "cpfpDustScore": cpfp_dust_score,
+        "cpfpDustDetail": cpfp_dust_detail,
+        "blocPrivatiseMode": bloc_priv_mode,
+        "blocPrivatiseTauxFantome": bloc_priv_taux_fantome,
+        "blocPrivatiseNbCachees": bloc_priv_nb_cachees,
     }
 
     verifier_kill_switch()
