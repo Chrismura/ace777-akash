@@ -46,14 +46,21 @@ CSV_UNITS = [
 RUIN_DD = 0.25  # doctrine S9 : drawdown < -25 % = trop risqué
 
 
-def lire_trades(path):
-    """Lit un CSV de run. Retourne (fills, cycles, skips) avec les pnl des fills."""
+def lire_trades(path, depuis=None):
+    """Lit un CSV de run. Retourne (fills, cycles, skips) avec les pnl des fills.
+
+    depuis : date ISO 'YYYY-MM-DD' — ne garde que les lignes à partir de ce jour
+    (pour isoler une période propre, ex: nouvelle base scellée).
+    """
     fills, skips, cycles = [], 0, 0
     if not path.exists():
         return fills, 0, 0
     with open(path, newline="", encoding="utf-8") as f:
         reader = csv.DictReader(f)
         for row in reader:
+            ts = (row.get("ts") or "").strip()
+            if depuis and ts[:10] < depuis:
+                continue  # hors fenêtre → ignoré (ni cycle ni fill)
             status = (row.get("status") or "").strip().upper()
             cycles += 1
             if status == "SKIPPED" or (row.get("side") or "").strip().upper() == "SKIP":
@@ -117,6 +124,8 @@ def main():
     ap.add_argument("--sims", type=int, default=5000)
     ap.add_argument("--capital", type=float, default=20.0)
     ap.add_argument("--seed", type=int, default=42)
+    ap.add_argument("--depuis", type=str, default=None,
+                    help="ne garder que les trades à partir de cette date ISO (YYYY-MM-DD)")
     args = ap.parse_args()
 
     lines = []
@@ -124,8 +133,9 @@ def main():
     lines.append("")
     lines.append(f"**Méthode** : doctrine S9 + signets (Lummox/antpalkin = méthode, "
                  f"0x_Punisher = leçon P(fill)). Lecture seule, rien ne touche le moteur.")
+    fenetre = f" · depuis {args.depuis}" if args.depuis else " · toutes les données"
     lines.append(f"**Paramètres** : {args.sims} simulations · capital ${args.capital:.2f} · "
-                 f"seuil de ruine drawdown ≥ {RUIN_DD*100:.0f} % (S9) · graine {args.seed}")
+                 f"seuil de ruine drawdown ≥ {RUIN_DD*100:.0f} % (S9) · graine {args.seed}{fenetre}")
     lines.append("")
 
     all_fills = []
@@ -135,7 +145,7 @@ def main():
     per_unit = {}
 
     for unit, path in CSV_UNITS:
-        fills, cycles, skips = lire_trades(path)
+        fills, cycles, skips = lire_trades(path, depuis=args.depuis)
         per_unit[unit] = {"fills": fills, "cycles": cycles, "skips": skips,
                           "p_fill": (fills and cycles) and len(fills) / cycles or 0.0}
         all_fills.extend(fills)
@@ -219,7 +229,8 @@ def main():
 
     # Écriture du rapport
     from datetime import date
-    out_file = OUT_DIR / f"MONTE_CARLO_ACE_{date.today().isoformat()}.md"
+    suffixe = f"_depuis_{args.depuis}" if args.depuis else ""
+    out_file = OUT_DIR / f"MONTE_CARLO_ACE_{date.today().isoformat()}{suffixe}.md"
     out_file.write_text("\n".join(lines), encoding="utf-8")
 
     # Résumé console
