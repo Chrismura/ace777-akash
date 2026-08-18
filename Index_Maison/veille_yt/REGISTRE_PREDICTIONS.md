@@ -1,11 +1,16 @@
 ---
-date: 2026-08-14T0715Z
+date: 2026-08-18T0715Z
 type: registre_predictions
 ---
 
 # 📓 Registre des prédictions — la vérification du banc d'essai
 
 Chaque prédiction est notée avec sa date limite. Le script `verifier_predictions.py` re-vérifie les échues (statut VRAIE/FAUSSE/NON VÉRIFIABLE).
+
+### 2026-08-18T0715Z — Crypto Crew University : 3-Min Recap: Ethereum Just Broke a 6-Year Trend — Altcoins Next? 🚨#shorts
+Lien : https://www.youtube.com/watch?v=4Jgs_G_r3uU
+
+- _(aucune prédiction vérifiable extraite)_
 
 ### 2026-08-14T0715Z — Crypto Crew University : ALT WARNING: 1ST TIME IN 6 YEARS
 Lien : https://www.youtube.com/watch?v=meRlW9iUKYA

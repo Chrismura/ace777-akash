@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-18T07:09:20.264974+00:00",
+  "generated_at": "2026-08-18T07:22:59.348563+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 484
+      "calls_24h": 479
     },
     {
       "id": "openrouter-free",
@@ -211,10 +211,34 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 278,
-    "remaining": 346
+    "consumed": 281,
+    "remaining": 343
   },
   "queue": [
+    {
+      "ts": "2026-08-18T07:15:50.933773+00:00",
+      "task": "veille.youtube",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 2.41
+    },
+    {
+      "ts": "2026-08-18T07:11:44.033698+00:00",
+      "task": "analyste.strategie",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 3.82
+    },
+    {
+      "ts": "2026-08-18T07:11:43.709181+00:00",
+      "task": "analyste.strategie",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 3.48
+    },
     {
       "ts": "2026-08-18T07:01:32.552991+00:00",
       "task": "analyste.strategie",
@@ -310,33 +334,27 @@
       "model": "codestral-latest",
       "kind": "cloud",
       "duration_s": 9.47
-    },
-    {
-      "ts": "2026-08-18T06:23:13.823180+00:00",
-      "task": "supervise.decision",
-      "provider": "groq",
-      "model": "groq/compound",
-      "kind": "cloud",
-      "duration_s": 1.78
-    },
-    {
-      "ts": "2026-08-18T06:17:30.148154+00:00",
-      "task": "signets.juge",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 56.38
-    },
-    {
-      "ts": "2026-08-18T06:16:07.464891+00:00",
-      "task": "signets.juge",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 48.55
     }
   ],
   "events": [
+    {
+      "ts": "2026-08-18T07:15:50.933235+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
+    {
+      "ts": "2026-08-18T07:11:44.033388+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
+    {
+      "ts": "2026-08-18T07:11:43.708446+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
     {
       "ts": "2026-08-18T07:01:32.552659+00:00",
       "kind": "message",
@@ -378,24 +396,6 @@
       "kind": "failover",
       "title": "Bascule depuis NaraRouter (7M tokens/jour gratuits)",
       "detail": "The read operation timed out"
-    },
-    {
-      "ts": "2026-08-18T06:42:20.777412+00:00",
-      "kind": "message",
-      "title": "« OpenRouter Juge (nemotron-3-super-120b free) - verificateur independant » a repondu",
-      "detail": "bascule"
-    },
-    {
-      "ts": "2026-08-18T06:42:20.776891+00:00",
-      "kind": "filet-universel",
-      "title": "[FILET UNIVERSEL] « OpenRouter Juge (nemotron-3-super-120b free) - verificateur independant » a repondu hors chaine",
-      "detail": "analyste.strategie"
-    },
-    {
-      "ts": "2026-08-18T06:42:12.702865+00:00",
-      "kind": "message",
-      "title": "« Mistral La Plateforme (essai gratuit) » a repondu",
-      "detail": "bascule"
     }
   ],
   "tasks_quotas": {
