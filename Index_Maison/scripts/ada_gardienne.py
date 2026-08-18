@@ -190,7 +190,33 @@ def charger_donnees() -> Dict[str, Any]:
         "sources": ["aucune source fraîche"],
         "degraded": False,
         "avis_famille": "",
+        # 18/08 (Christophe : « Ada ne voit pas les bots ») — état ACE + HULK
+        # extrait de mission.json (écrit par cockpit_mission_feed) en lecture seule.
+        "bots": {},
     }
+
+    # --- VISION DES BOTS (ACE + HULK) depuis mission.json ---
+    try:
+        mission_bots = data.get("mission") or {}
+        ace_a = mission_bots.get("alpha") or {}
+        ace_b = mission_bots.get("beta") or {}
+        hulk = mission_bots.get("hulk") or {}
+        data["bots"] = {
+            "ace_alpha_fills": ace_a.get("fills"),
+            "ace_alpha_pnl": ace_a.get("pnl"),
+            "ace_beta_fills": ace_b.get("fills"),
+            "ace_beta_pnl": ace_b.get("pnl"),
+            "ace_combo": mission_bots.get("comboPnl"),
+            "hulk_pnl": hulk.get("pnl"),
+            "hulk_trades": hulk.get("trades"),
+            "hulk_positions": len(hulk.get("positions") or []),
+            "hulk_cash": hulk.get("cash"),
+            "hulk_equity": hulk.get("equity"),
+        }
+        if data["bots"]:
+            data["sources"].insert(0, "mission.json (bots ACE+HULK)")
+    except Exception:
+        pass
 
     thermo = safe_load_json(THERMO_LIVE, {})
     if thermo and not est_vieux(thermo):
@@ -523,6 +549,14 @@ def construire_coup_doeil(data: Dict, saison: str, voilure: float, zone: str,
             fills, "s" if fills > 1 else "", revenge, pnl)
     if sondes > 0:
         intention += " · Beta : %d sondes" % sondes
+
+    # 18/08 — Ada voit aussi HULK (lecture seule, depuis mission.json)
+    bots = data.get("bots") or {}
+    hulk_pnl = bots.get("hulk_pnl")
+    hulk_pos = bots.get("hulk_positions")
+    if hulk_pnl is not None:
+        intention += " · Hulk : pnl %+.2f $ (%d positions)" % (
+            float(hulk_pnl), int(hulk_pos or 0))
 
     saison_emoji = {"CHAUFFE": "🌡️", "MOUVEMENT": "🌀", "CHAOS": "⛈️"}.get(saison, "🌿")
     zone_emoji = {"JAUNE": "🟡", "ROUGE": "🔴", "PRENDS_LA_PERTE": "⛔"}.get(zone, "🟢")

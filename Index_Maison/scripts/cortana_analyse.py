@@ -20,6 +20,7 @@ Le prompt système vit dans le vault : PROMPT_MASTER_ANALYSTE.md.
 Ce script ne passe JAMAIS d'ordre — lecture et opinion uniquement.
 """
 import argparse
+import csv
 import json
 import os
 import re
@@ -245,6 +246,94 @@ def contexte_systeme() -> str:
                     "- LEÇON : si tu répètes des MISS sur un indice, change de lecture sur CET indice "
                     "(ex. funding : funding positif ne veut pas toujours dire LONG)."
                 )
+    except Exception:
+        pass
+
+    # 4bis) VISION DES BOTS (18/08 — Christophe : « Cortana ne voit pas Hulk/ACE ») :
+    #       Lecture SEULE des runs en cours pour que l'analyse porte aussi sur nos bots.
+    try:
+        ROOT_DIR = os.path.expanduser("~/ace777-test-day1")
+        # --- ACE : dernier run (PnL, trades, raisons de sortie) ---
+        ace_info = []
+        for unit, csv_name in (("BETA", "MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv"),
+                               ("ALPHA", "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv")):
+            csv_path = os.path.join(ROOT_DIR, "runs", csv_name)
+            if not os.path.exists(csv_path):
+                continue
+            last_day = None
+            last_filled = []
+            try:
+                with open(csv_path) as f:
+                    reader = csv.reader(f)
+                    header = next(reader, None)
+                    for row in reader:
+                        if len(row) < 10:
+                            continue
+                        ts, _, _, status, _, _, _, _, pnl, reason = row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7], row[8], row[9]
+                        if status == "FILLED":
+                            last_filled.append((ts, float(pnl or 0), reason))
+            except Exception:
+                continue
+            if not last_filled:
+                continue
+            # garder les FILLED du même jour UTC que le dernier trade
+            last_day = last_filled[-1][0][:10]
+            day_filled = [x for x in last_filled if x[0][:10] == last_day]
+            total = sum(x[1] for x in day_filled)
+            wins = sum(1 for x in day_filled if x[1] > 0)
+            losses = sum(1 for x in day_filled if x[1] < 0)
+            reasons = {}
+            for _, _, r in day_filled:
+                reasons[r] = reasons.get(r, 0) + 1
+            top_reasons = ", ".join("%s x%s" % (k, v) for k, v in sorted(reasons.items(), key=lambda kv: -kv[1])[:4])
+            ace_info.append(
+                "%s (%s) : %d trades · PnL %+.2f$ · %d win/%d loss · sorties: %s"
+                % (unit, last_day, len(day_filled), total, wins, losses, top_reasons or "n/a")
+            )
+        if ace_info:
+            lignes.append("- ÉTAT ACE (dernier jour de run) : " + " | ".join(ace_info))
+        # --- HULK : paper (positions, rip/stops, PnL) ---
+        hulk_state = os.path.join(ROOT_DIR, "hulk-mexc", "runs", "PAPER_V1_20260816_214411_state.json")
+        if os.path.exists(hulk_state):
+            try:
+                hs = json.load(open(hulk_state))
+                pnl = hs.get("pnl_total")
+                trades = hs.get("trades")
+                pos = hs.get("positions") or {}
+                pos_txt = ", ".join("%s(entrée %.4f)" % (k, float(v.get("entry") or 0)) for k, v in list(pos.items())[:6])
+                lignes.append(
+                    "- ÉTAT HULK (paper) : PnL %s$ · %s trades · positions: %s"
+                    % ("n/d" if pnl is None else round(float(pnl), 2),
+                       trades if trades is not None else "?", pos_txt or "aucune")
+                )
+            except Exception:
+                pass
+        hulk_csv = os.path.join(ROOT_DIR, "hulk-mexc", "runs", "PAPER_V1_20260816_214411.csv")
+        if os.path.exists(hulk_csv):
+            try:
+                last_sells = []
+                with open(hulk_csv) as f:
+                    reader = csv.reader(f)
+                    next(reader, None)
+                    for row in reader:
+                        if len(row) >= 11 and row[2] in ("SELL", "SELL_PARTIAL"):
+                            last_sells.append((row[0], row[1], row[2], row[8], row[10]))
+                if last_sells:
+                    recent_sells = last_sells[-4:]
+                    lignes.append("- HULK dernières sorties : " + " · ".join(
+                        "%s %s %s (%s$ %s)" % (t, p, ev, pnl_v, reason_v)
+                        for t, p, ev, pnl_v, reason_v in recent_sells))
+            except Exception:
+                pass
+        # --- HULK : sonde aspiration (alerte en cours) ---
+        hulk_alert = os.path.join(ROOT_DIR, "hulk-mexc", "runs", "VEILLE_ALERT.md")
+        if os.path.exists(hulk_alert):
+            try:
+                alert_txt = open(hulk_alert).read().strip()
+                if alert_txt:
+                    lignes.append("- HULK SONDE (dernière alerte) : " + alert_txt[:300].replace(chr(10), " · "))
+            except Exception:
+                pass
     except Exception:
         pass
 
