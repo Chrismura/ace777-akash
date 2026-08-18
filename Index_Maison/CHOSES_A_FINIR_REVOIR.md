@@ -1,7 +1,16 @@
 # Choses à finir / revoir
 
 **Rôle :** backlog honnête — pas la piste du jour.  
-**MAJ :** 2026-08-13T23:05Z
+**MAJ :** 2026-08-18
+
+## 🛠 Ressources externes — à ne pas oublier
+
+| # | Item | Notes | Statut |
+|---|------|-------|--------|
+| R-01 | **Claude chat (gratuit, sans API)** | Décision 18/08 : garder pour **checks légers mais importants** (2e avis ponctuel, lecture de morceaux de code). Pas branchable au hub (pas d'API free). Ne pas confondre avec un « cerveau » de la maison. | ✅ décidé 18/08 — à utiliser |
+| R-02 | **Data Formulator (Microsoft, open source)** | Pépite du 18/08 : visualisation de données pilotée IA, tourne avec Ollama local, gratuit. **Pas encore installé** (uvx dispo). | 🟡 à installer (GO) |
+
+---
 
 ## Phase finition (cosmétique — **gelé** jusqu’à GO finition)
 
