@@ -310,11 +310,74 @@ def _contexte_bots() -> str:
     return "\n".join(lignes)
 
 
+def do_recherche(query: str) -> dict:
+    """Recherche web à la demande : CoinGecko (crypto) + DuckDuckGo (web), puis
+    synthèse par le hub (task cortana.analyse). Lecture seule, jamais d'ordre."""
+    script = SCRIPTS / "recherche_web.py"
+    if not script.exists():
+        return {"ok": False, "error": "recherche_web.py introuvable"}
+    try:
+        p = subprocess.run([sys.executable, str(script), query],
+                           capture_output=True, text=True, timeout=90)
+        raw = (p.stdout or "").strip()
+        if not raw:
+            return {"ok": False, "error": "recherche web : aucun résultat (réseau ?)"}
+        donnees = json.loads(raw)
+    except Exception as e:
+        return {"ok": False, "error": "recherche web échouée : %s" % str(e)[:160]}
+    coin = donnees.get("coin")
+    web = donnees.get("web") or {}
+    if not coin and not web.get("resume"):
+        return {"ok": False, "error": "aucune donnée trouvée pour « %s »" % query}
+
+    sys_recherche = (
+        "Tu es Cortana, l'analyste de la maison ACE777. Tu viens de faire une RECHERCHE "
+        "sur le net (CoinGecko + DuckDuckGo). À partir des DONNÉES fournies uniquement "
+        "(n'invente jamais un chiffre absent), produis une analyse en français : "
+        "1) FAITS (prix, capitalisation, volume, variation 24h), "
+        "2) RÉSUMÉ du projet, "
+        "3) RELATIONS avec de gros acteurs / écosystèmes (lis les catégories), "
+        "4) LECTURE (tendance courte), "
+        "5) OPINION argumentée en vocabulaire d'incertitude (probable/fragile), "
+        "6) AVIS STRICT : LONG|SHORT|NEUTRE + HORIZON + CONFIANCE. "
+        "Sois concise (12-15 lignes), vulgarise, sans markdown lourd. "
+        "Termine par une ligne SOURCES (CoinGecko / DuckDuckGo). "
+        "Rappel : tu es analyste, jamais exécutante — aucun ordre d'achat/vente."
+    )
+    user_msg = "Analyse cette recherche :\n\n" + json.dumps(donnees, ensure_ascii=False, indent=1)
+    payload = {
+        "task": "cortana.analyse",
+        "messages": [
+            {"role": "system", "content": sys_recherche},
+            {"role": "user", "content": user_msg},
+        ],
+        "temperature": 0.4,
+        "max_tokens": 900,
+    }
+    try:
+        import urllib.request as _ur
+        req = _ur.Request(
+            "http://127.0.0.1:11435/v1/chat/completions",
+            data=json.dumps(payload).encode("utf-8"),
+            headers={"Content-Type": "application/json"}, method="POST")
+        with _ur.urlopen(req, timeout=None) as resp:
+            res = json.loads(resp.read().decode("utf-8"))
+        content = res["choices"][0]["message"]["content"].strip()
+        provider = res.get("provider", "?")
+    except Exception as e:
+        return {"ok": False, "error": "hub injoignable : %s" % str(e)[:160]}
+    if not content:
+        return {"ok": False, "error": "réponse vide du hub"}
+    threading.Thread(target=_speak_texte, args=(content,), daemon=True).start()
+    return {"ok": True, "texte": content, "provider": provider, "mode": "recherche"}
+
+
 def do_chat(message: str) -> dict:
     """Chat cockpit -> hub (task=mission = deepseek-v4-flash = Buffy, rotation hub).
     Renvoie le texte (écrit, affiché dans le cockpit) et lance la lecture vocale
     Vivienne en arrière-plan (thread, comme do_analyse).
-    Commande spéciale : « demande l'avis de la famille sur X » -> trio Gemini+DeepSeek+Juge."""
+    Commandes spéciales : « recherche/analyse <crypto|sujet> » -> recherche web +
+    synthèse ; « demande l'avis de la famille sur X » -> trio Gemini+DeepSeek+Juge."""
     import urllib.request
 
     msg = (message or "").strip()
@@ -322,6 +385,32 @@ def do_chat(message: str) -> dict:
         return {"ok": False, "error": "message vide"}
     if len(msg) > 2000:
         return {"ok": False, "error": "message trop long (max 2000 caractères)"}
+
+    # === RECHERCHE WEB (à la demande) : analyse une crypto / un sujet sur le net ===
+    m_low = msg.lower().lstrip()
+    trig_recherche = ("recherche ", "cherche ", "analyse la crypto ", "analyse le coin ",
+                      "analyse le projet ", "analyse-moi ", "analyse moi ",
+                      "renseigne-toi sur ", "renseigne moi sur ")
+    declenche_recherche = False
+    for t in trig_recherche:
+        if m_low.startswith(t):
+            declenche_recherche = True
+            break
+    if declenche_recherche:
+        import re as _re
+        sujet = msg
+        m = _re.match(r"(?i)^(recherche|cherche|analyse\s+la\s+crypto|analyse\s+le\s+coin|"
+                      r"analyse\s+le\s+projet|analyse-moi|analyse\s+moi|"
+                      r"renseigne-toi\s+sur|renseigne\s+moi\s+sur)\s+", sujet)
+        if m:
+            sujet = sujet[m.end():]
+        for k in ("la crypto", "le coin", "le projet", "cette crypto", "cette",
+                  "sur", "stp", "s il te plait", "sil te plait", "a voix", "parle"):
+            sujet = sujet.replace(k, " ").replace("  ", " ").strip()
+        sujet = sujet.strip(" ,;:.")
+        if not sujet:
+            return {"ok": False, "error": "précise quoi chercher (ex: « recherche bitcoin »)"}
+        return do_recherche(sujet)
 
     # === CONSULTATION FAMILLE (avant vision) : trio Gemini + DeepSeek + Juge ===
     m_low = msg.lower().lstrip()

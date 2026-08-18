@@ -31,6 +31,7 @@ Les IA **ne se parlent pas directement** : tout passe par le hub. Le cockpit **n
 | **Lecteur signets** | Lit Obsidian `Signets_X/` → résume via hub → cockpit | `signets_lecture.py` | 🟢 |
 | **Fiches offres** | Fiches IA des offres détectées (quota 8/j) | `fiches_offres.py` | 🟢 |
 | **Coffre (RAG)** | Question → recherche vault Obsidian → réponse sourcée | `coffre_ask.py` | 🟢 (pas branché au chat) |
+| **Recherche web** | Analyse une crypto/sujet sur le net (CoinGecko + DuckDuckGo) → synthèse hub | `recherche_web.py` | 🟢 (branché au chat) |
 | **Dashboard Cortana** | Vue complète maison (ACE+Hulk+marché) + synthèse | `cortana_dashboard.py` | ⚠️ dort (non branché au chat) |
 | **État système** | state.json : services, hub, RAM, fraîcheur des feeds | `system_state_generator.py` | 🟢 |
 | **Santé des index** | Vérifie chaque chaîne de bout en bout + alerte vocale | `sante_index.py` | 🟢 |
@@ -75,7 +76,7 @@ hub usage/events ──hub_cockpit_feed──► hub.json (santé/budget/queue) 
 
 ---
 
-## 5. Réparations du 18/08 (étapes 1-2)
+## 5. Réparations du 18/08 (étapes 1-3)
 
 **Étape 1 — Cortana voit tout le cockpit.** Remplacement du contexte codé en dur (2 CSV) par une lecture de `mission.json` (source unique) : ACE, Hulk, saison ADA, voilure, thermo, onchain, disjoncteur.
 - Preuve : « quelle est la saison et l'onchain ? » → *« saison calme, voilure 91 zone vert, onchain neutre »* (avant : elle ne répondait que le PnL).
@@ -83,15 +84,17 @@ hub usage/events ──hub_cockpit_feed──► hub.json (santé/budget/queue) 
 **Étape 2 — l'indice onchain « poussières » est branché.** La donnée CPFP (poussière < 2 sat/vB) + blocs privatisés remonte dans `live.json.onchain` → `mission.json` → contexte Cortana, **toujours visible, jamais d'alerte** (le signal actif reste verrouillé sur « actif + confirmation ≥ 2 »).
 - Preuve : « quel est l'état de l'indice poussières ? » → *« 0 vues ce run, 0 cumulées 48h (seuil 1000). Blocs privatisés 27,61 % fantômes (observation) »*.
 
-Fichiers modifiés : `cortana_cockpit_bridge.py` (fonction `_contexte_bots`), `pont_onchain.py` (section `onchain` enrichie).
+**Étape 3 — Recherche web à la demande.** Nouveau `recherche_web.py` (stdlib, gratuit, sans clé) : CoinGecko (marché + description + catégories = relations gros acteurs) + DuckDuckGo (résumé web). Déclenché dans le chat par « recherche/analyse <crypto|sujet> » → synthèse par le hub (task `cortana.analyse`).
+- Preuve : « analyse la crypto solana » → faits (prix 76,94 $, cap 44,8 Md$, +1,27 %), résumé, relations (Multicoin Capital, Alameda, a16z, FTX), avis NEUTRE + sources.
+
+Fichiers modifiés : `cortana_cockpit_bridge.py` (fonction `_contexte_bots` + `do_recherche` + déclencheur), `pont_onchain.py` (section `onchain` enrichie), `recherche_web.py` (nouveau).
 
 ---
 
-## 6. À faire (étapes 3-5) + 2 GO à trancher
+## 6. À faire (étapes 4-5) + 2 GO à trancher
 
-1. **🔎 Recherche web** (étape 3) — pour « analyse-moi cette crypto » sur le net (recherche + analyse technique + résumé + liens gros acteurs).
-2. **📚 Coffre + AGORA** (étape 4) — brancher `coffre_ask` au chat + faire de l'AGORA le journal d'apprentissage vivant.
-3. **🔧 Actions sûres** (étape 5) — réparer un index, alerter un gros mouvement, rappels de tâches.
+1. **📚 Coffre + AGORA** (étape 4) — brancher `coffre_ask` au chat + faire de l'AGORA le journal d'apprentissage vivant.
+2. **🔧 Actions sûres** (étape 5) — réparer un index, alerter un gros mouvement, rappels de tâches.
 
 **GO à trancher par Christophe (je ne les fais pas seul)** :
 - **Passer le CPFP « poussières » en mode actif** (`detecter_cpfp.py --actif`) — prévu après validation 7 jours, **branche de vraies alertes** + modifie la voilure ADA (±10 %).
