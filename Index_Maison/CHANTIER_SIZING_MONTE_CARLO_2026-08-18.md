@@ -53,6 +53,13 @@ Options possibles (à soumettre à la famille, PAS décidées ici) :
 > Le Kelly ombre couvre Hulk — **reste à l'étendre à ACE** (dry-run) + décision d'application.
 > Verdict complet : `scripts/CONSULTATION_FAMILLE_SECTEURS_20260818/VERDICT_FAMILLE_SECTEURS.md`
 
+> **🔖 18/08 — signet X (Di_Krass) : confirmation externe indépendante.**
+> « Le MIT l'a filmé : la taille du compte ne change RIEN à la ruine. Roulette à 47 %,
+> le drift gagne toujours, le capital n'achète que du temps. **C'est le signe du drift
+> (l'edge) qui compte, jamais la taille.** » → rejoint notre constat Monte Carlo : le
+> levier ne sauve pas, seul le PnL/cycle réel (le signe) compte. À citer dans la
+> consultation famille du 22/08 comme appui externe.
+
 ---
 
 ## 3. Étapes (à la fin du run 96h — 22/08)

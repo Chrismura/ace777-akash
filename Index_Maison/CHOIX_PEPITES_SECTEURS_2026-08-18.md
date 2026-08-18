@@ -28,6 +28,8 @@ goulot, pas celles qui font joli. (Logique Christophe, 18/08.)
 | **N°189 — TradingAgents** | gemini+cortana | analyse de marché par agents autonomes → Hulk dip&rip | STRATÉGIE |
 | **@0xWast3 N°1 — 4 indicateurs de dérive mémoire** | **gemini+nvidia (indépendants)** | surveiller la SANTÉ de ce que Cortana sait (branche directe sur discipline 7h15) | MÉMOIRE |
 | **Data Formulator (Microsoft)** | Buffy + Christophe 18/08 | visualisation des runs ACE pilotée IA, local, gratuit | VEILLE/ANALYSE |
+| **Context Graph (slash1sol @18/08)** | Buffy + Christophe 18/08 | au lieu d'une synthèse plate, demander **nodes + edges** (chaque connexion nomme sa source, « no shared source, no edge ») → la recherche devient un fichier interrogeable, 2ᵉ run moins cher, contradictions visibles — répond exactement au problème mémoire-drift/agora | MÉMOIRE |
+| **Graft (marcusyul @18/08)** | Buffy + Christophe 18/08 | carte du repo → −42 % tokens, −46 % appels outils, 54→66 % réussite à froid — « un stagiaire qui a un an sait où tout est » : la mémoire du codeur/agents | MÉMOIRE / INFRA |
 
 ## 3. Découpage du système en secteurs (proposition pour la famille)
 
@@ -37,7 +39,7 @@ goulot, pas celles qui font joli. (Logique Christophe, 18/08.)
 |---|---|---|---|
 | **EXÉCUTION (hot)** | ACE, Hulk, moteur, fills, stops, sizing | 🔴 **sizing → ruine 32,5 %** (Monte Carlo 18/08) | Kelly (43+105), sorties (pépite 4) |
 | **DÉCISION / STRATÉGIE** | radar, indices, decision engine, modes | 🟡 filtre strict → P(fill) 6,5 % | TradingAgents (189), Alpha Orchestration (17) |
-| **MÉMOIRE / CONNAISSANCE** | Cortana, Ada, vault, justesse, leçons, agora | 🟡 Cortana stateless, leçons auto sans plist propre, justesse 44,4 % | 6 fichiers (192), mémoire agents (53/12), mémoire-drift (0xWast3) |
+| **MÉMOIRE / CONNAISSANCE** | Cortana, Ada, vault, justesse, leçons, agora | 🟡 Cortana stateless, leçons auto sans plist propre, justesse 44,4 % | 6 fichiers (192), mémoire agents (53/12), mémoire-drift (0xWast3), **context graph (18/08)**, **Graft (18/08)** |
 | **INFRA / HUB IA** | providers, routeur, chaîne 7h, roulement | 🟡 6 obs-* morts aux sondes (0/5), nara/nvidia lents | formats 4-bit (130), LLMRouter (6) |
 | **SURVEILLANCE / SANTÉ** | veilleuses, superviseur, préflight, alertes | 🟢 bien armé (3 veilleuses) | CheckCle (111) |
 | **VEILLE / INGESTION** | flotille, signets, scan GitHub, données | 🟡 signets = mine mais non ingérés automatiquement | Data Formulator, pipeline 8 étages (16) |
