@@ -40,6 +40,7 @@ Les IA **ne se parlent pas directement** : tout passe par le hub. Le cockpit **n
 | **Détecteur CPFP** | « Pépite » onchain : arbre de poussière + tx enfant CPFP | `detecter_cpfp.py` | 🟡 observation |
 | **Détecteur blocs privatisés** | Tx fantômes (jamais vues en mempool) | `detecter_bloc_privatise.py` | 🟡 observation |
 | **Disjoncteur** | Bride les mises, Mur de Fer, réarmement manuel | `disjoncteur.py` | 🟢 |
+| **Consulter famille** | Avis/validation canon : GEMINI+DEEPSEEK parallèles puis JUGE séquentiel (lit leurs avis) | `consulter_famille.py` + `identity/prompts/famille.json` | 🟢 canon (18/08) |
 
 **47 LaunchAgents** actifs — l'organisme est très câblé.
 
@@ -103,6 +104,9 @@ hub usage/events ──hub_cockpit_feed──► hub.json (santé/budget/queue) 
 - Preuve rappels : « rappelle-moi vérifier le disjoncteur à 23:59 » → enregistré → listé → supprimé. ✅
 
 Fichiers modifiés : `cortana_cockpit_bridge.py` (`_contexte_bots`, `do_recherche`, `do_coffre`, `do_rappel`, `_agora_trace`, `_lecons_agora_actives`), `pont_onchain.py`, `sante_index.py` (hook auto-réparation), `recherche_web.py`, `auto_reparer.py`, `rappels.py`, `com.ace777.rappels.plist` (nouveaux).
+
+**Correctif (18/08, demandé par Christophe) — prompts famille canoniques.**
+La 1ʳᵉ validation famille de l'étape 5 avait utilisé des prompts improvisés + mauvais noms de tâche + juge en parallèle. Corrigé : `identity/prompts/famille.json` (6 membres, tasks canon `gemini.analyse`/`deepseek.analyse`/`juge.tranche`/`inferx.analyse`/`puter-grok.analyse`, CLAUSE PERMANENTE, format de sortie) + `consulter_famille.py` (GEMINI+DEEPSEEK parallèles puis JUGE séquentiel). Re-validation canonique : verdict identique mais confiance chiffrée 85–90 % + réserves actionnables (anti-boucle prouvé : 3 essais puis skip). **Règle : ne jamais improviser les prompts famille — toujours `consulter_famille.py`.**
 
 ---
 

@@ -25,6 +25,10 @@
 | Punk | Veille / bullshit check → notes |
 | Cortana | Lit digests / attention vocale — pas le hot path |
 
+**Consulter la famille (avis / validation) = `python3 Index_Maison/scripts/consulter_famille.py`.**
+Prompts + tasks canoniques dans `identity/prompts/famille.json`. **Ne JAMAIS improviser** :
+GEMINI→`gemini.analyse`, DEEPSEEK→`deepseek.analyse`, JUGE→`juge.tranche` (le JUGE tranche APRÈS avoir lu les deux autres). Respecter la CLAUSE PERMANENTE (proposer est attendu) + le format de sortie.
+
 **Trace auto (ne plus redemander) :** toute intervention non triviale → `python3 Index_Maison/scripts/memoire_log.py …`  
 Molette / setup → `molette_log.py` (avec **pourquoi**). Règle Cursor `memoire-auto.mdc`. Toi aussi : même commande.
 
@@ -48,7 +52,7 @@ Molette / setup → `molette_log.py` (avec **pourquoi**). Règle Cursor `memoire
 Voir [[AUTO_PROCESSUS]] · [[PLAN_DE_VOL]].
 
 ## 6. Hygiène Obsidian (Mac Air 8 Go)
-- Pas de Graph tant que fragile.  
+- Graph View : **OK** si vault léger (< ~100 Mo notes). Si crash → couper Graph.  
 - Après gros changement : 2–3 min stables sur `AGORA` avant la suite.  
 - Vault idéalement **&lt; 100 Mo** de notes.
 
@@ -66,6 +70,7 @@ Voir [[AUTO_PROCESSUS]] · [[PLAN_DE_VOL]].
 2. Lire `09_MEMOIRE_COLLAB` (dernières lignes).  
 3. Lire `BRIEF_IA_SNIFF` si tu fais de la veille / recherche.  
 3b. Lire `PREFS_STACK` (ex. Kimi = pref API agents).  
+3c. **Consulter la famille** = `scripts/consulter_famille.py` (jamais improviser les prompts).  
 4. Ne rien lancer qui chauffe le Mac sans demander.  
 5. Écrire ce qu’on touche.  
 5b. Compte X validé → **auto** `COMPTES` + éval + mémoire (pas reporter).
@@ -78,3 +83,14 @@ Exemple : démarrer Hulk paper **et** seed 20$ tokens → on teste aussi la vent
 ---
 
 *Coutume &gt; prompt improvisé.*
+
+## 🔗 Connexions
+
+- [[MEMOIRE_COLLAB]] — MEMOIRE_COLLAB
+- [[INDEX_COMMANDES]] — INDEX_COMMANDES
+- [[01_TABLEAU_VIVANT]] — 01_TABLEAU_VIVANT
+- [[14_AUDIT_TROIS_JAMBES_SWARM]] — 14_AUDIT_TROIS_JAMBES_SWARM
+- [[09_MEMOIRE_COLLAB]] — 09_MEMOIRE_COLLAB
+
+
+Lien carte : [[OSSATURE]] — séparé mais relié.
