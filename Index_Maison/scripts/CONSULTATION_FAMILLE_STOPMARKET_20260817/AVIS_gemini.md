@@ -1,0 +1,42 @@
+# AVIS gemini (provider: Google Gemini, 6.8s)
+
+En tant que membre du conseil de la famille ACE777, voici mon analyse critique, sans langue de bois, basée sur notre état actuel (notre PnL combiné à +2.55 $, ALPHA en embuscade à +2.94 $, et surtout une latence réseau constatée oscillant entre 339 ms et 5,3 s max).
+
+---
+
+### 1. La solution STOP_MARKET est-elle la bonne ? 
+**Oui, mais c'est un piège mortel si l'implémentation actuelle n'a AUCUNE fonction d'annulation.**
+Le constat est implacable : avec une latence pouvant atteindre 5,3 secondes en cas de stress réseau, compter sur une boucle logicielle à 0,5 s pour couper une position est une hérésie suicidaire (comme l'a prouvé le cas #157 avec un dérapage de 9 $). 
+*Le piège majeur :* Le point 2 dit *"Le moteur n'a AUCUNE fonction d'annulation d'ordres aujourd'hui (zéro cancel/DELETE)"*. Si vous envoyez un `STOP_MARKET` sur Binance sans avoir développé, testé et éprouvé une logique robuste de `CANCEL` préalable et synchrone, vous allez générer des ordres orphelins en cascade. En mode Hedge (`POSITION_SIDE_STRICT=TRUE`), un ordre stop non annulé à temps qui se déclenche sur un retour de flamme du marché va **ouvrir une position inverse non désirée** ou aggraver le désastre.
+
+### 2. Le seuil 5,1 bps (~5,3 $) est-il juste ?
+**Non, il est suicidaire en l'état actuel du marché (Saison CALME 🧊).**
+Regardez vos propres métriques dans le contexte : 
+- Le bruit prix par tick est de **1,00 $ en moyenne, mais monte à 5,10 $ au max**.
+- Le spread testnet est de 1,70 $ (0,10 $ sur mainnet).
+Si vous fixez un stop à 5,3 $ (soit 5,1 bps), **le bruit à 5,10 $ et le spread vont chasser et déclencher vos stops en permanence**, transformant ALPHA (notre sniper à +2.94 $) en machine à payer des frais de transaction (fee drain) pour zero alpha. 
+*Ajustement requis :* Le seuil physique Binance doit être un filet de **secourisme ultime** (anti-krach/catastrophe), pas le seuil de coupure nominal. Il faut le placer plus bas (ex: 10 à 12 bps minimum, soit ~10-12 $), laissant la boucle logicielle (quand elle tourne bien) gérer les micro-sorties, et réservant le `STOP_MARKET` au cas où la latence s'envole ou que le moteur tousse.
+
+### 3. Le compromis HARD_STOP_MULT=2.0 est-il cohérent ?
+**C'est une aberration logique avec des stops physiques stricts.**
+Vous dites : *"quand le scout est ouvert et en perte, le hunter peut aller jusqu'à 2x son stop (5,1 → 10,2 bps)"*. 
+Si vous posez un `STOP_MARKET` à l'exchange basé sur le prix d'entrée fixe du Hunter, et que la logique du Duo modifie dynamiquement le risque ou tolère un élargissement à la volée, **votre ordre physique Binance ne correspondra plus à la réalité du risque vivant**. Soit le stop physique va se déclencher trop tôt (brisant le soutien au scout), soit il ne protègera plus rien. En mode strict, le risque doit être mathématiquement aligné entre l'exchange et le code.
+
+### 4. Notre amélioration (L'alternative de la famille)
+
+Ne vous contentez pas d'un `STOP_MARKET` brut. Voici l'architecture que nous devons imposer :
+
+1. **Le Filet en Cascade (Bracket Order Natif) :** Ne séparez pas l'ordre d'entrée et le stop. Utilisez un ordre OCO (One-Cancels-the-Other) ou un mécanisme d'entrée avec `stopPrice` inhérent si l'API le permet, ou à défaut, un `STOP_MARKET` lié par identifiant client (`clientOrderId`).
+2. **Implémentation impérative du module `CANCEL` :** Avant d'écrire la moindre ligne de `STOP_MARKET`, codez et testez la fonction `private_delete()` (annulation). Pas de `CANCEL` = pas de `STOP_MARKET`. Point final.
+3. **Décorrélation du Seuil :** 
+   - Seuil logiciel (rapide, intelligent, gère le bruit) : ~7 bps.
+   - Seuil physique Binance (filet de crash ultime, inamovible pour un trade donné) : ~15 bps (pour éviter d'être chassé par le bruit max à 5,10 $ + spread).
+
+---
+
+### VERDICT & CONFIANCE
+
+- **VERDICT:** GO-AVEC-RÉSERVE
+- **CONFIANCE:** 65%
+
+*Justification de la réserve :* L'idée d'un ordre physique sur Binance est **absolument indispensable** vu notre latence réseau (jusqu'à 5,3 s). Cependant, foncer sans avoir codé la fonction `CANCEL` au préalable et avec un seuil de 5,1 bps calé en plein dans la zone de bruit (max 5,10 $) va nous coûter cher en faux positifs et en ordres orphelins. Corrigez le seuil, codez le `CANCEL` d'abord.
