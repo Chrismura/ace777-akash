@@ -69,7 +69,7 @@ hub usage/events ──hub_cockpit_feed──► hub.json (santé/budget/queue) 
 - `system_state_generator.py` / `agent_status.py` : existent, branchés par plists, mais non lus par le chat.
 - La donnée **poussières** (CPFP/dust) et **blocs privatisés** : tournaient mais ne sortaient jamais de `data/*.json` (mode observation) → invisibles pour ADA et Cortana.
 
-**🧹 À simplifier** : contexte codé en dur de Cortana (remplacé), ~60 fichiers `.bak`, app Rust vocale (doublon en veille), MiroFish/qwen/signets.lot2 (inactifs → couper les plists).
+**🧹 À simplifier** : contexte codé en dur de Cortana (remplacé), ~60 fichiers `.bak`, app Rust vocale (doublon en veille), qwen/signets.lot2 (inactifs → couper les plists). **MiroFish = atout à GARDER** (pause budgétaire — servira le moment venu).
 
 **📈 À maximiser (offres trouvées dans les signets)** : `api-airforce` (grok-3, claude-3.7, kimi-k2.6, gemini-2.5-flash en quotas récurrents), `baidu/ernie-4.0` (gratuit sans plafond), `omniroute-free-tiers` (43 pools), AMD 10$/j.
 
