@@ -89,7 +89,7 @@ def probe(prov):
                 'max_tokens': 5, 'temperature': 0,
             }).encode()
             req = urllib.request.Request(base + '/chat/completions', data=payload, headers=headers)
-            with urllib.request.urlopen(req, timeout=None) as r:
+            with urllib.request.urlopen(req, timeout=15) as r:
                 d = json.loads(r.read().decode('utf-8'))
             if (d.get('choices') or [{}])[0].get('message', {}).get('content', '').strip():
                 ok += 1
@@ -123,15 +123,27 @@ def main():
     obs_cfg = load(OBS)
     go = load_go()
     go_week = (go or {}).get('week')
-    validated = (go or {}).get('validated', []) if go_week == week_id() else []
+    validated = (go or {}).get('validated', []) if go_week == week_id() else []    # 18/08 (Christophe) : l'observatoire surveille AUSSI les providers obs-*
+    # ajoutés par queue_offres (actifs directs, décision 14/08). On ne change PAS
+    # leur activation — on les sonde comme les autres et on applique le rollback
+    # auto si les sondes échouent (>=2 échecs ET >5% ET échantillon >= 1 jour).
+    # Règle : un provider actif ne passe JAMAIS en observation ; un provider qui
+    # échoue aux sondes est ROLLBACK (désactivé, jamais supprimé — loi maison).
+    def est_surveille(p):
+        """Providers à sonder : en observation (eval_offres) + obs-* (queue_offres).
+        Les providers historiques (gemini, mistral...) avec note ACTIVE ne sont PAS
+        touchés — on ne surveille que les intégrations automatiques."""
+        if p.get('status') == 'observation':
+            return True
+        return str(p.get('id', '')).startswith('obs-')
 
-    observation = [p for p in providers if p.get('status') == 'observation']
+    observation = [p for p in providers if est_surveille(p)]
     if not observation:
         os.makedirs(ATTENTION, exist_ok=True)
         with open(os.path.join(ATTENTION, 'INTEGRATIONS_HEBDO.md'), 'w', encoding='utf-8') as f:
-            f.write('# INTEGRATIONS HEBDOMADAIRES — %s\n\n_Aucun provider en observation._\n'
+            f.write('# INTEGRATIONS HEBDOMADAIRES — %s\n\n_Aucun provider à surveiller._\n'
                     % date.today().isoformat())
-        print('[INFO] aucun provider en observation')
+        print('[INFO] aucun provider à surveiller')
         return
 
     changed = False
@@ -147,10 +159,15 @@ def main():
 
         age = age_hours(rec.get('integrated_at', ''))
         model = p.get('model') or '?'
+        is_obs_active = pid.startswith('obs-')
+
+        if is_obs_active and age < MIN_AGE_H:
+            # obs-* : actif direct (décision 14/08) — on sonde mais on ne touche pas avant 48h
+            rows_obs.append((pid, model, rec['integrated_at'][:10], '%.0fh/48h' % age, '%d/%d' % (ok, n), 'actif (sonde en cours)'))
+            continue
 
         if age < MIN_AGE_H:
-            rows_obs.append((pid, model, rec['integrated_at'][:10], '%.0fh/48h' % age,
-                             '%d/%d' % (ok, n), 'en observation'))
+            rows_obs.append((pid, model, rec['integrated_at'][:10], '%.0fh/48h' % age, '%d/%d' % (ok, n), 'en observation'))
             continue
 
         # >= 48h : decision sur les sondes des 24 dernieres heures
@@ -164,19 +181,28 @@ def main():
         # Rollback strict mais sans faux positif : >=2 echecs ET >5% ET echantillon >= 1 jour
         # (1 seul echec transitoire ne retire pas un bon provider — revue 09/08)
         if tot >= NB_PROBES and fails >= 2 and fail_rate > ERREUR_MAX:
-            # ROLLBACK AUTO : retrait (integration additive -> retour a l'etat d'avant)
-            cfg['providers'] = [q for q in cfg['providers'] if q.get('id') != pid]
+            # ROLLBACK AUTO : pour un provider 'observation' -> retrait ; pour un obs-*
+            # actif -> DESACTIVATION (jamais suppression — loi maison).
+            if is_obs_active:
+                p['enabled'] = False
+                p['status'] = 'obs-rollback'
+                p['note'] = (p.get('note') or '') + ' | ROLLBACK auto observatoire %s (%d%% erreurs)' % (date.today().isoformat(), 100 * fail_rate)
+            else:
+                cfg['providers'] = [q for q in cfg['providers'] if q.get('id') != pid]
             changed = True
-            rows_roll.append((pid, model, '%.0f%%' % (100 * fail_rate), 'RETIRE (rollback auto)'))
-            notice('OBSERVATOIRE ROLLBACK AUTO : %s (%s) retire - %d%% erreurs > 5%% sur 24h' % (pid, model, 100 * fail_rate))
+            rows_roll.append((pid, model, '%.0f%%' % (100 * fail_rate), 'ROLLBACK auto (désactivé)' if is_obs_active else 'RETIRE (rollback auto)'))
+            notice('OBSERVATOIRE ROLLBACK AUTO : %s (%s) - %d%% erreurs > 5%% sur 24h' % (pid, model, 100 * fail_rate))
             rp = os.path.join(INDEX, 'VEILLE_HUB_%s.md' % date.today().isoformat())
             try:
                 with open(rp, 'a', encoding='utf-8') as f:
-                    f.write('\n## ROLLBACK AUTO %s\n- %s (%s) retire : %d%% erreurs > 5%% (observatoire)\n'
+                    f.write('\n## ROLLBACK AUTO %s\n- %s (%s) : %d%% erreurs > 5%% (observatoire)\n'
                             % (date.today().isoformat(), pid, model, 100 * fail_rate))
             except Exception:
                 pass
-            print('[ROLLBACK] %s (%s) retire : %.0f%% erreurs' % (pid, model, 100 * fail_rate))
+            print('[ROLLBACK] %s (%s) : %.0f%% erreurs -> désactivé' % (pid, model, 100 * fail_rate))
+        elif is_obs_active:
+            # obs-* sain : on le laisse actif, on note la santé
+            rows_act.append((pid, model, '%d/%d' % (okk, tot), 'actif + sain (sondes OK)'))
         elif pid in validated:
             # GO hebdomadaire Christophe + 48h propres -> ACTIF
             p['enabled'] = True
