@@ -1263,3 +1263,13 @@
 - 2026-08-18T09:17:40.466858Z | alerte | Maintien de la vigilance nominale avec un PnL combiné solide (+36,06 $), une discipline d'embuscade intacte sur Alpha et un arbitrage rigoureux des positions seeds de Hulk. | conf=88%
 - 2026-08-18T09:22:50.531387Z | alerte | Maintien de la vigilance nominale avec un PnL combiné solide (+36,06 $), une discipline d'embuscade intacte sur Alpha et un arbitrage rigoureux des positions seeds de Hulk. | conf=88%
 - 2026-08-18T09:22:51.567542Z | alerte | Maintien de la vigilance nominale avec un PnL combiné solide de +36,06 $, une discipline d'embuscade intacte sur Alpha et un arbitrage rigoureux des positions seeds de Hulk. | conf=88%
+- 2026-08-18T09:28:02.272203Z | alerte | Maintien de la vigilance nominale avec un PnL combiné solide de +36,06 $, une discipline d'embuscade intacte sur Alpha et un arbitrage rigoureux des positions seeds de Hulk. | conf=88%
+- 2026-08-18T09:28:02.767493Z | alerte | Maintien de la vigilance nominale avec un PnL combiné solide de +36,06 $, une discipline d'embuscade intacte sur Alpha et un arbitrage rigoureux des positions seeds de Hulk. | conf=88%
+- 2026-08-18T09:41:25.225026Z | alerte | Maintien de la vigilance nominale avec un PnL combiné positif, une discipline d'embuscade intacte sur Alpha et un arbitrage rigoureux des positions seeds de Hulk. | conf=88%
+- 2026-08-18T09:41:25.225024Z | alerte | Poursuite de la stratégie nominale avec un encadrement strict de la discipline d'Alpha, un pilotage resserré des positions seeds de Hulk et une exploitation prudente des sondages de Beta. | conf=88%
+- 2026-08-18T09:42:55.485619Z | alerte | <one clear sentence> | conf=88%
+- 2026-08-18T09:45:52.659949Z | alerte | ? | conf=?
+- 2026-08-18T09:47:22.140230Z | alerte | Maintien de la vigilance nominale : Alpha conserve son embuscade, Beta fournit un éclairage fiable, et Hulk pilote les positions seeds avec des stop-loss stricts. | conf=88%
+- 2026-08-18T09:47:24.268162Z | alerte | Maintien de la vigilance ambre avec Alpha en attente disciplinée, Beta en éclaireur fiable et Hulk sous arbitrage strict des positions seeds. | conf=88%
+- 2026-08-18T10:03:21.689917Z | alerte | Maintien de la vigilance ambre avec Alpha en attente disciplinée, Beta en éclaireur fiable et Hulk sous arbitrage strict des positions seeds. | conf=88%
+- 2026-08-18T10:03:22.215672Z | alerte | Maintien de la vigilance ambre avec Alpha en attente disciplinée, Beta en éclaireur fiable et Hulk sous arbitrage strict des positions seeds. | conf=88%
