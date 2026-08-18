@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-18T04:08:52.652486+00:00",
+  "generated_at": "2026-08-18T04:22:29.828296+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -17,7 +17,7 @@
       "model": "openai/gpt-oss-20b:free",
       "enabled": true,
       "timeout": 60,
-      "calls_24h": 3
+      "calls_24h": 4
     },
     {
       "id": "nara",
@@ -26,7 +26,7 @@
       "model": "qwen-3.8-max-free",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 283
+      "calls_24h": 291
     },
     {
       "id": "groq",
@@ -53,7 +53,7 @@
       "model": "codestral-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 237
+      "calls_24h": 227
     },
     {
       "id": "cloudflare-workers-ai",
@@ -202,10 +202,114 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 210,
-    "remaining": 414
+    "consumed": 223,
+    "remaining": 401
   },
   "queue": [
+    {
+      "ts": "2026-08-18T04:22:20.790507+00:00",
+      "task": "analyste.strategie",
+      "provider": "mistral",
+      "model": "codestral-latest",
+      "kind": "cloud",
+      "duration_s": 9.25
+    },
+    {
+      "ts": "2026-08-18T04:20:14.990400+00:00",
+      "task": "supervise.decision",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 13.49
+    },
+    {
+      "ts": "2026-08-18T04:18:28.618966+00:00",
+      "task": "supervise.decision",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 8.38
+    },
+    {
+      "ts": "2026-08-18T04:16:47.333067+00:00",
+      "task": "supervise.decision",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 6.94
+    },
+    {
+      "ts": "2026-08-18T04:15:53.633219+00:00",
+      "task": "supervise.decision",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 127.27
+    },
+    {
+      "ts": "2026-08-18T04:15:46.296922+00:00",
+      "task": "analyste.strategie",
+      "provider": "openrouter-free",
+      "model": "openai/gpt-oss-20b:free",
+      "kind": "cloud",
+      "duration_s": 131.9
+    },
+    {
+      "ts": "2026-08-18T04:15:36.379300+00:00",
+      "task": "supervise.decision",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 173.62
+    },
+    {
+      "ts": "2026-08-18T04:15:07.185682+00:00",
+      "task": "supervise.decision",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 17.36
+    },
+    {
+      "ts": "2026-08-18T04:14:06.680997+00:00",
+      "task": "analyste.strategie",
+      "provider": "mistral",
+      "model": "codestral-latest",
+      "kind": "cloud",
+      "duration_s": 7.81
+    },
+    {
+      "ts": "2026-08-18T04:11:58.064566+00:00",
+      "task": "analyste.strategie",
+      "provider": "mistral",
+      "model": "codestral-latest",
+      "kind": "cloud",
+      "duration_s": 8.78
+    },
+    {
+      "ts": "2026-08-18T04:11:57.252818+00:00",
+      "task": "analyste.strategie",
+      "provider": "mistral",
+      "model": "codestral-latest",
+      "kind": "cloud",
+      "duration_s": 7.49
+    },
+    {
+      "ts": "2026-08-18T04:11:09.794769+00:00",
+      "task": "supervise.decision",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 11.95
+    },
+    {
+      "ts": "2026-08-18T04:09:24.817541+00:00",
+      "task": "supervise.decision",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 7.96
+    },
     {
       "ts": "2026-08-18T04:07:43.442772+00:00",
       "task": "supervise.decision",
@@ -221,169 +325,65 @@
       "model": "qwen-3.8-max-free",
       "kind": "cloud",
       "duration_s": 162.42
-    },
-    {
-      "ts": "2026-08-18T04:05:58.429206+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 31.87
-    },
-    {
-      "ts": "2026-08-18T04:02:50.160116+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 37.49
-    },
-    {
-      "ts": "2026-08-18T04:00:39.665924+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 18.49
-    },
-    {
-      "ts": "2026-08-18T03:59:13.333360+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 128.93
-    },
-    {
-      "ts": "2026-08-18T03:58:48.183874+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 40.2
-    },
-    {
-      "ts": "2026-08-18T03:57:43.349068+00:00",
-      "task": "analyste.strategie",
-      "provider": "mistral",
-      "model": "codestral-latest",
-      "kind": "cloud",
-      "duration_s": 8.38
-    },
-    {
-      "ts": "2026-08-18T03:57:43.338532+00:00",
-      "task": "analyste.strategie",
-      "provider": "mistral",
-      "model": "codestral-latest",
-      "kind": "cloud",
-      "duration_s": 8.81
-    },
-    {
-      "ts": "2026-08-18T03:57:05.438171+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 64.5
-    },
-    {
-      "ts": "2026-08-18T03:56:44.372518+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 170.61
-    },
-    {
-      "ts": "2026-08-18T03:56:24.950517+00:00",
-      "task": "analyste.strategie",
-      "provider": "mistral",
-      "model": "codestral-latest",
-      "kind": "cloud",
-      "duration_s": 8.71
-    },
-    {
-      "ts": "2026-08-18T03:56:13.907783+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 76.62
-    },
-    {
-      "ts": "2026-08-18T03:56:02.743160+00:00",
-      "task": "analyste.strategie",
-      "provider": "mistral",
-      "model": "codestral-latest",
-      "kind": "cloud",
-      "duration_s": 8.53
-    },
-    {
-      "ts": "2026-08-18T03:52:21.033851+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 23.24
     }
   ],
   "events": [
     {
-      "ts": "2026-08-18T04:07:43.442040+00:00",
+      "ts": "2026-08-18T04:22:28.995334+00:00",
+      "kind": "failover",
+      "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
+      "detail": "0 attente"
+    },
+    {
+      "ts": "2026-08-18T04:22:20.790276+00:00",
       "kind": "message",
-      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
+      "title": "« Mistral La Plateforme (essai gratuit) » a repondu",
       "detail": "bascule"
     },
     {
-      "ts": "2026-08-18T04:07:31.364311+00:00",
+      "ts": "2026-08-18T04:22:20.789513+00:00",
+      "kind": "filet-universel",
+      "title": "[FILET UNIVERSEL] « Mistral La Plateforme (essai gratuit) » a repondu hors chaine",
+      "detail": "analyste.strategie"
+    },
+    {
+      "ts": "2026-08-18T04:22:11.538863+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis NVIDIA build.nvidia.com (100+ modeles)",
+      "detail": "The read operation timed out"
+    },
+    {
+      "ts": "2026-08-18T04:22:00.690302+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis NaraRouter (7M tokens/jour gratuits)",
+      "detail": "The read operation timed out"
+    },
+    {
+      "ts": "2026-08-18T04:21:50.436131+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis OpenRouter (modeles gratuits)",
+      "detail": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "ts": "2026-08-18T04:21:49.547194+00:00",
+      "kind": "failover",
+      "title": "Saute (blacklist) depuis HuggingFace (136+ modeles, dont DeepSeek-V4)",
+      "detail": "0 attente"
+    },
+    {
+      "ts": "2026-08-18T04:21:49.545596+00:00",
       "kind": "failover",
       "title": "Bascule depuis Groq (LLM ultra-rapide, gratuit)",
       "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-08-18T04:07:31.363998+00:00",
+      "ts": "2026-08-18T04:21:49.545224+00:00",
       "kind": "ratelimit",
       "title": "429 Groq (LLM ultra-rapide, gratuit) -> pause 60s + bascule",
       "detail": ""
     },
     {
-      "ts": "2026-08-18T04:07:31.209991+00:00",
-      "kind": "blacklist",
-      "title": "Fin de pause Groq (LLM ultra-rapide, gratuit)",
-      "detail": "re-essai automatique"
-    },
-    {
-      "ts": "2026-08-18T04:07:05.475421+00:00",
-      "kind": "http",
-      "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
-      "detail": ""
-    },
-    {
-      "ts": "2026-08-18T04:07:05.474578+00:00",
-      "kind": "message",
-      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
-      "detail": "bascule"
-    },
-    {
-      "ts": "2026-08-18T04:05:58.428911+00:00",
-      "kind": "message",
-      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
-      "detail": "bascule"
-    },
-    {
-      "ts": "2026-08-18T04:05:26.554802+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis Groq (LLM ultra-rapide, gratuit)",
-      "detail": "HTTP Error 429: Too Many Requests"
-    },
-    {
-      "ts": "2026-08-18T04:05:26.554477+00:00",
-      "kind": "ratelimit",
-      "title": "429 Groq (LLM ultra-rapide, gratuit) -> pause 60s + bascule",
-      "detail": ""
-    },
-    {
-      "ts": "2026-08-18T04:05:26.405372+00:00",
+      "ts": "2026-08-18T04:21:49.167694+00:00",
       "kind": "blacklist",
       "title": "Fin de pause Groq (LLM ultra-rapide, gratuit)",
       "detail": "re-essai automatique"

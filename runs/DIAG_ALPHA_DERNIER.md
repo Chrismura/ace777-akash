@@ -1,28 +1,28 @@
 # DIAGNOSTIC ALPHA — MASTER_VORTEX_V2_COLLAB_4H
 
-> Généré: `2026-08-18T00:41:12Z` | Verdict: **CRITIQUE — ALPHA n'a exécuté aucun trade**
+> Généré: `2026-08-18T04:20:41Z` | Verdict: **OK — ALPHA active**
 
 ## Résumé
 
 | Métrique | ALPHA | BETA (référence) |
 |----------|-------|------------------|
-| FILLED | 0 | 5 |
-| PnL net | 0.0000 USDT | 0.9587 USDT |
-| SKIP total | 106 | 99 |
-| duo_wait | 4 (3.8% des SKIP ALPHA) | 0 |
+| FILLED | 28 | 67 |
+| PnL net | 28.9414 USDT | 7.1211 USDT |
+| SKIP total | 1110 | 1059 |
+| duo_wait | 56 (5.0% des SKIP ALPHA) | 0 |
 
 ## Entonnoir des gates — ALPHA
 
 Ordre dans `genesis_manifest.txt` : radar → tension/vacuum → tactic → stase → **duo** → qty → llm_gate → execute
 
-- `radar_block` — **100**
-- `duo_wait` — **4**
-- `tactic_mismatch` — **1**
-- `gap_guard_pause` — **1**
+- `radar_block` — **1022**
+- `duo_wait` — **56**
+- `impulse_resonance_wait` — **23**
+- `tactic_mismatch` — **9**
 
 ## duo_wait — sous-raisons (cause #2 après radar)
 
-- `unknown` — **4** (100.0% des duo_wait)
+- `unknown` — **56** (100.0% des duo_wait)
 
 ### Lecture technique
 
@@ -40,10 +40,10 @@ Ordre dans `genesis_manifest.txt` : radar → tension/vacuum → tactic → stas
 Revenge autorisé au-delà de `stop_loss` (shock / fluid / sentinel).
 Sorties BETA observées :
 
-- `shock_inversion_stop` — 4 trades
-- `kill_switch` — 1 trades
+- `shock_inversion_stop` — 66 trades
+- `trailing_stop` — 1 trades
 
-- Sorties `shock_inversion_stop` : **4**
+- Sorties `shock_inversion_stop` : **66**
 - Sorties `stop_loss` : **0**
 
 
@@ -52,9 +52,9 @@ Sorties BETA observées :
 Quand le SCOUT ne rafraîchit pas `duo_state.json` dans les 60s, le HUNTER skip avec `stale_state`.
 Observé : **0** fois (0.0% des duo_wait).
 
-### 3. radar_block en amont (100 SKIP)
+### 3. radar_block en amont (1022 SKIP)
 
-Même si le duo était parfait, 94.3% des cycles ALPHA meurent au radar avant d'atteindre le HUNTER.
+Même si le duo était parfait, 92.1% des cycles ALPHA meurent au radar avant d'atteindre le HUNTER.
 
 ## Paramètres duo actifs (config)
 
