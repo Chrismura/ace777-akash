@@ -10,6 +10,7 @@ CORS ouvert pour file:// cockpit.
 """
 from __future__ import annotations
 
+import csv
 import glob
 import hashlib
 import json
@@ -20,6 +21,7 @@ import tempfile
 import threading
 import time
 from datetime import datetime, timezone
+
 
 import barge_in  # micro : coupe la parole si on parle (natif, ffmpeg)
 import oral_fr  # nombres -> toutes lettres (voix propre, pas de « neuf neuf »)
@@ -199,6 +201,74 @@ def _appel_hub(task: str, prompt_role: str, sujet: str, result_list: list, idx: 
         result_list[idx] = None
 
 
+def _contexte_bots() -> str:
+    """État ACE + HULK pour le chat cockpit (18/08 — Christophe : « Cortana ne voit
+    pas Hulk/ACE »). Lecture seule, fail-open : si un fichier manque, on continue.
+    Court : 4-6 lignes max, chiffres clés uniquement (anti-infobésité)."""
+    lignes = []
+    try:
+        # --- ACE : dernier jour de run (PnL, trades, sorties) ---
+        for unit, csv_name in (("BETA", "MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv"),
+                               ("ALPHA", "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv")):
+            csv_path = RUNS / csv_name
+            if not csv_path.exists():
+                continue
+            last_filled = []
+            try:
+                with open(csv_path) as f:
+                    reader = csv.reader(f)
+                    next(reader, None)
+                    for row in reader:
+                        if len(row) < 10:
+                            continue
+                        if row[3] == "FILLED":
+                            try:
+                                last_filled.append((row[0], float(row[8] or 0), row[9]))
+                            except (ValueError, IndexError):
+                                pass
+            except Exception:
+                continue
+            if not last_filled:
+                continue
+            last_day = last_filled[-1][0][:10]
+            day = [x for x in last_filled if x[0][:10] == last_day]
+            total = sum(x[1] for x in day)
+            wins = sum(1 for x in day if x[1] > 0)
+            losses = sum(1 for x in day if x[1] < 0)
+            lignes.append(
+                "ACE %s (%s) : %d trades · PnL %+.2f$ · %d win/%d loss"
+                % (unit, last_day, len(day), total, wins, losses)
+            )
+        # --- HULK : paper (PnL, trades, positions) ---
+        hulk_state = HULK / "runs" / "PAPER_V1_20260816_214411_state.json"
+        if hulk_state.exists():
+            try:
+                hs = json.load(open(hulk_state))
+                pnl = hs.get("pnl_total")
+                trades = hs.get("trades")
+                pos = hs.get("positions") or {}
+                pos_txt = ", ".join(list(pos.keys())[:8]) or "aucune"
+                lignes.append(
+                    "HULK (paper MEXC) : PnL %s$ · %d trades · positions: %s"
+                    % ("n/d" if pnl is None else round(float(pnl), 2),
+                       int(trades or 0), pos_txt)
+                )
+            except Exception:
+                pass
+        # --- HULK : sonde aspiration (alerte en cours) ---
+        hulk_alert = HULK / "runs" / "VEILLE_ALERT.md"
+        if hulk_alert.exists():
+            try:
+                txt = hulk_alert.read_text().strip()
+                if txt:
+                    lignes.append("HULK SONDE : " + txt[:200].replace(chr(10), " · "))
+            except Exception:
+                pass
+    except Exception:
+        pass
+    return "\n".join(lignes)
+
+
 def do_chat(message: str) -> dict:
     """Chat cockpit -> hub (task=mission = deepseek-v4-flash = Buffy, rotation hub).
     Renvoie le texte (écrit, affiché dans le cockpit) et lance la lecture vocale
@@ -296,14 +366,22 @@ def do_chat(message: str) -> dict:
         d = do_yeux(q, parler)
         d["mode"] = "yeux"
         return d
+    ctx_bots = _contexte_bots()
+    sys_ctx = (
+        "Tu es Cortana, l'assistante de la maison ACE777. "
+        "Réponds TOUJOURS en français, quel que soit le contexte. "
+        "Sois concise, précise, sans markdown ni emoji."
+    )
+    if ctx_bots:
+        sys_ctx += (
+            "\n\nÉtat actuel des bots de la maison (données fraîches, à utiliser "
+            "pour répondre — ne demande jamais d'adresse de wallet, tout est ici) :\n"
+            + ctx_bots
+        )
     payload = {
         "task": "mission",  # deepseek-v4-flash via NVIDIA + rotation hub (fallback)
         "messages": [
-            {"role": "system", "content": (
-                "Tu es Cortana, l'assistante de la maison ACE777. "
-                "Réponds TOUJOURS en français, quel que soit le contexte. "
-                "Sois concise, précise, sans markdown ni emoji."
-            )},
+            {"role": "system", "content": sys_ctx},
             {"role": "user", "content": msg},
         ],
         "temperature": 0.4,
