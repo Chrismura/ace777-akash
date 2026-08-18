@@ -1,7 +1,7 @@
 # ACE777 — STATE
 
 > Généré automatiquement — ne pas éditer à la main
-> Phase: `running` | Statut: `RUNNING` | MAJ: `2026-08-18T09:41:17Z`
+> Phase: `running` | Statut: `RUNNING` | MAJ: `2026-08-18T19:33:51Z`
 
 ## Config active
 
@@ -38,8 +38,8 @@ _Aucun SKIP ou CSV absent._
 ## Vortex (`vortex_control.json`)
 
 - Mode: `TREND`
-- Message: `v2_chop_0.63_trend`
-- TS: `2026-08-18T09:41:12Z`
+- Message: `v2_swarm_wind_trend`
+- TS: `2026-08-18T19:33:47Z`
 
 ## Processus
 
