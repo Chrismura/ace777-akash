@@ -30,7 +30,7 @@ Les IA **ne se parlent pas directement** : tout passe par le hub. Le cockpit **n
 | **Veille hub** | Scan providers/RSS/GitHub → offres & pépites | `veille_hub.py` | 🟢 |
 | **Lecteur signets** | Lit Obsidian `Signets_X/` → résume via hub → cockpit | `signets_lecture.py` | 🟢 |
 | **Fiches offres** | Fiches IA des offres détectées (quota 8/j) | `fiches_offres.py` | 🟢 |
-| **Coffre (RAG)** | Question → recherche vault Obsidian → réponse sourcée | `coffre_ask.py` | 🟢 (pas branché au chat) |
+| **Coffre (RAG)** | Question → recherche vault Obsidian → réponse sourcée | `coffre_ask.py` | 🟢 **branché au chat** (18/08) |
 | **Recherche web** | Analyse une crypto/sujet sur le net (CoinGecko + DuckDuckGo) → synthèse hub | `recherche_web.py` | 🟢 (branché au chat) |
 | **Dashboard Cortana** | Vue complète maison (ACE+Hulk+marché) + synthèse | `cortana_dashboard.py` | ⚠️ dort (non branché au chat) |
 | **État système** | state.json : services, hub, RAM, fraîcheur des feeds | `system_state_generator.py` | 🟢 |
@@ -87,14 +87,20 @@ hub usage/events ──hub_cockpit_feed──► hub.json (santé/budget/queue) 
 **Étape 3 — Recherche web à la demande.** Nouveau `recherche_web.py` (stdlib, gratuit, sans clé) : CoinGecko (marché + description + catégories = relations gros acteurs) + DuckDuckGo (résumé web). Déclenché dans le chat par « recherche/analyse <crypto|sujet> » → synthèse par le hub (task `cortana.analyse`).
 - Preuve : « analyse la crypto solana » → faits (prix 76,94 $, cap 44,8 Md$, +1,27 %), résumé, relations (Multicoin Capital, Alameda, a16z, FTX), avis NEUTRE + sources.
 
-Fichiers modifiés : `cortana_cockpit_bridge.py` (fonction `_contexte_bots` + `do_recherche` + déclencheur), `pont_onchain.py` (section `onchain` enrichie), `recherche_web.py` (nouveau).
+**Étape 4 — Coffre branché + AGORA vivante.**
+- `coffre_ask.py` (RAG Obsidian, zéro dépendance) est branché au chat : « que dit le coffre sur X », « dans le coffre », « dans ma mémoire »… → réponse sourcée + voix.
+- L'AGORA devient un journal **vivant** : (a) **relire** — les leçons actives (`lecons_agora`, namespace cortana, TTL 7 j) sont injectées dans le chat ; (b) **écrire** — chaque recherche/coffre trace 1 ligne dans `Swarm_Bus/09_MEMOIRE_COLLAB.md` (canon) + miroir `Index_Maison/MEMOIRE_COLLAB.md` (append-only, idempotent).
+- Preuve 1 : « que dit le coffre sur la politique d'oubli » → réponse sourcée (`POLITIQUE_OUBLI.md`…), provider Google Gemini.
+- Preuve 2 : le chat applique sa leçon — à la question « salut », Cortana répond que le *fear & greed à 41 « nécessite la corroboration d'autres indicateurs »* (sa leçon AGORA `fearGreed`).
+- Découverte : le script de trace auto `memoire_log.py` (référencé partout) avait disparu — la trace est maintenant ré-intégrée directement dans le pont.
+
+Fichiers modifiés : `cortana_cockpit_bridge.py` (fonctions `_contexte_bots`, `do_recherche` + `do_coffre` + `_agora_trace` + `_lecons_agora_actives` + déclencheurs), `pont_onchain.py` (section `onchain` enrichie), `recherche_web.py` (nouveau).
 
 ---
 
-## 6. À faire (étapes 4-5) + 2 GO à trancher
+## 6. À faire (étape 5) + 2 GO à trancher
 
-1. **📚 Coffre + AGORA** (étape 4) — brancher `coffre_ask` au chat + faire de l'AGORA le journal d'apprentissage vivant.
-2. **🔧 Actions sûres** (étape 5) — réparer un index, alerter un gros mouvement, rappels de tâches.
+1. **🔧 Actions sûres** (étape 5) — réparer un index, alerter un gros mouvement, rappels de tâches.
 
 **GO à trancher par Christophe (je ne les fais pas seul)** :
 - **Passer le CPFP « poussières » en mode actif** (`detecter_cpfp.py --actif`) — prévu après validation 7 jours, **branche de vraies alertes** + modifie la voilure ADA (±10 %).

@@ -37,6 +37,11 @@ HULK = ROOT / "hulk-mexc"
 PANIC_LOG = ROOT / "Index_Maison" / "cockpit" / "panic.log"
 PORT = 17777
 
+# --- AGORA : journal vivant (mémoire collab) + miroir workspace ---
+AGORA_JOURNAL = Path(os.path.expanduser(
+    "~/Documents/Obsidian_ACE777/Swarm_Bus/09_MEMOIRE_COLLAB.md"))
+AGORA_MIRROR = ROOT / "Index_Maison" / "MEMOIRE_COLLAB.md"
+
 # --- Voix INTERRUPTIBLE (barge-in) : le process afplay en cours, s'il existe ---
 _VOICE_PROC = None
 _VOICE_LOCK = threading.Lock()
@@ -369,7 +374,102 @@ def do_recherche(query: str) -> dict:
     if not content:
         return {"ok": False, "error": "réponse vide du hub"}
     threading.Thread(target=_speak_texte, args=(content,), daemon=True).start()
+    _agora_trace("Cortana", "~", "cockpit chat", "recherche web : %s (%s)" % (query[:80], provider))
     return {"ok": True, "texte": content, "provider": provider, "mode": "recherche"}
+
+
+def _agora_trace(qui: str, action: str, ou: str, quoi: str) -> None:
+    """Écrit 1 ligne append-only dans le journal de l'AGORA (mémoire collab).
+    Canon : Obsidian Swarm_Bus/09_MEMOIRE_COLLAB.md + miroir Index_Maison.
+    N'insère JAMAIS ailleurs qu'en haut du tableau, n'écrase jamais l'historique.
+    Silencieux en cas d'échec (jamais bloquant pour le chat)."""
+    ts = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H%MZ")
+    ligne = f"| {ts} | {qui} | {action} | {ou} | {quoi} |"
+    for cible in (AGORA_JOURNAL, AGORA_MIRROR):
+        try:
+            if not cible.exists():
+                continue
+            txt = cible.read_text(encoding="utf-8")
+            if ligne in txt:
+                continue  # déjà tracé (idempotent)
+            lignes = txt.splitlines()
+            ins = None
+            for i, ln in enumerate(lignes):
+                if ln.strip().startswith("|---"):
+                    ins = i + 1
+                    break
+            if ins is None:
+                continue
+            lignes.insert(ins, ligne)
+            fd, tmp = tempfile.mkstemp(dir=str(cible.parent), suffix=".tmp")
+            try:
+                with os.fdopen(fd, "w", encoding="utf-8") as f:
+                    f.write("\n".join(lignes) + "\n")
+                os.replace(tmp, str(cible))
+            except Exception:
+                if os.path.exists(tmp):
+                    os.remove(tmp)
+                raise
+        except Exception as e:
+            print(f"[agora] trace KO {cible.name}: {e}", flush=True)
+
+
+def _lecons_agora_actives() -> list:
+    """Relit les leçons ACTIVES de l'AGORA (namespace cortana, TTL non expiré)
+    depuis CONNAISSANCE_PROJETS.json — la mémoire d'apprentissage de Cortana."""
+    agora_path = ROOT / "Index_Maison" / "strategie" / "CONNAISSANCE_PROJETS.json"
+    if not agora_path.exists():
+        return []
+    try:
+        agora = json.loads(agora_path.read_text(encoding="utf-8"))
+        lecons = agora.get("lecons_agora", []) or []
+        maintenant = datetime.now(timezone.utc)
+        actives = []
+        for l in (lecons if isinstance(lecons, list) else []):
+            exp = l.get("ttl_expire")
+            if exp:
+                try:
+                    if datetime.fromisoformat(str(exp).replace("Z", "+00:00")) < maintenant:
+                        continue
+                except Exception:
+                    pass
+            if l.get("namespace") == "cortana" and l.get("axiome"):
+                actives.append(str(l["axiome"]))
+        return actives[:3]
+    except Exception:
+        return []
+
+
+def do_coffre(question: str) -> dict:
+    """Interroge le COFFRE Obsidian (RAG léger) via coffre_ask.py : réponse sourcée
+    depuis la mémoire du vault. Lecture seule, jamais d'ordre."""
+    script = SCRIPTS / "coffre_ask.py"
+    if not script.exists():
+        return {"ok": False, "error": "coffre_ask.py introuvable"}
+    q = (question or "").strip()
+    if not q:
+        return {"ok": False, "error": "question vide pour le coffre"}
+    try:
+        p = subprocess.run([sys.executable, str(script), q, "--json"],
+                           capture_output=True, text=True, timeout=120)
+        raw = (p.stdout or "").strip()
+        if p.returncode != 0 or not raw:
+            err = (p.stderr or "").strip()
+            return {"ok": False, "error": ("coffre indisponible : " + (err or "rc=%d" % p.returncode))[:160]}
+        donnees = json.loads(raw)
+    except Exception as e:
+        return {"ok": False, "error": "coffre échoué : %s" % str(e)[:160]}
+    answer = (donnees.get("answer") or "").strip()
+    sources = donnees.get("sources") or []
+    if not answer:
+        return {"ok": False, "error": "le coffre n'a rien trouvé pour cette question"}
+    provider = donnees.get("provider", "?")
+    texte = answer
+    if sources:
+        texte += "\n\n📚 Sources : " + ", ".join(str(s) for s in sources)
+    threading.Thread(target=_speak_texte, args=(answer,), daemon=True).start()
+    _agora_trace("Cortana", "~", "cockpit chat", "coffre : %s (%s)" % (q[:80], provider))
+    return {"ok": True, "texte": texte, "sources": sources, "provider": provider, "mode": "coffre"}
 
 
 def do_chat(message: str) -> dict:
@@ -411,6 +511,33 @@ def do_chat(message: str) -> dict:
         if not sujet:
             return {"ok": False, "error": "précise quoi chercher (ex: « recherche bitcoin »)"}
         return do_recherche(sujet)
+
+    # === COFFRE (mémoire Obsidian) : interroge le vault via RAG léger ===
+    m_low = msg.lower().lstrip()
+    trig_coffre = (
+        "que dit le coffre", "cherche dans le coffre", "dans le coffre",
+        "consulte le coffre", "interroge le coffre", "dans obsidian",
+        "dans le vault", "dans mes notes", "dans ta mémoire", "dans ma mémoire",
+        "dans ta memoire", "dans ma memoire", "le coffre", "coffre",
+        "ma mémoire", "ma memoire",
+    )
+    declenche_coffre = False
+    for t in trig_coffre:
+        if m_low == t or m_low.startswith(t + " ") or m_low.startswith(t + ":"):
+            declenche_coffre = True
+            break
+    if declenche_coffre:
+        import re as _re
+        sujet = msg.lower().lstrip()
+        for t in trig_coffre:
+            if sujet.startswith(t):
+                sujet = sujet[len(t):]
+                break
+        sujet = _re.sub(r"^(sur|de|a propos de|à propos de|au sujet de)\s+", "", sujet)
+        sujet = sujet.strip(" ,;:.?")
+        if not sujet:
+            return {"ok": False, "error": "précise quoi chercher dans le coffre (ex: « que dit le coffre sur la politique d'oubli »)"}
+        return do_coffre(sujet)
 
     # === CONSULTATION FAMILLE (avant vision) : trio Gemini + DeepSeek + Juge ===
     m_low = msg.lower().lstrip()
@@ -507,6 +634,12 @@ def do_chat(message: str) -> dict:
             "\n\nÉtat actuel des bots de la maison (données fraîches, à utiliser "
             "pour répondre — ne demande jamais d'adresse de wallet, tout est ici) :\n"
             + ctx_bots
+        )
+    lecons = _lecons_agora_actives()
+    if lecons:
+        sys_ctx += (
+            "\n\nLeçons apprises (ta mémoire AGORA, à appliquer en répondant) :\n"
+            + "\n".join("- " + a for a in lecons)
         )
     payload = {
         "task": "mission",  # deepseek-v4-flash via NVIDIA + rotation hub (fallback)
