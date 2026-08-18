@@ -1222,3 +1222,11 @@
 - 2026-08-18T06:13:53.916861Z | alerte | ? | conf=?
 - 2026-08-18T06:13:57.954493Z | alerte | ? | conf=?
 - 2026-08-18T06:14:00.877255Z | alerte | ? | conf=?
+- 2026-08-18T06:29:10.388037Z | alerte | ? | conf=?
+- 2026-08-18T06:31:49.035113Z | alerte | Maintien de la vigilance nominale, PnL combiné positif, Alpha en attente, Beta éclairant, risques stables. | conf=88
+- 2026-08-18T06:42:08.121641Z | alerte | ? | conf=?
+- 2026-08-18T06:42:12.704023Z | alerte | ? | conf=?
+- 2026-08-18T06:42:20.779880Z | alerte | Maintien de la vigilance nominale, PnL combiné positif, Alpha en attente, Beta éclairant, risques stables. | conf=88
+- 2026-08-18T06:42:38.128591Z | alerte | ? | conf=?
+- 2026-08-18T07:01:32.059414Z | alerte | Maintien de la vigilance nominale avec exécution des règles de gestion des risques sur la position seed QAITUSDT en infraction. | conf=88%
+- 2026-08-18T07:01:32.555565Z | alerte | Maintien de la vigilance nominale, PnL combiné positif, Alpha en embuscade, Beta actif, et application rigoureuse des garde-fous sur Hulk. | conf=88%
