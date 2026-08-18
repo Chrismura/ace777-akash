@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-18T04:22:29.828296+00:00",
+  "generated_at": "2026-08-18T05:22:39.812711+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -17,7 +17,7 @@
       "model": "openai/gpt-oss-20b:free",
       "enabled": true,
       "timeout": 60,
-      "calls_24h": 4
+      "calls_24h": 6
     },
     {
       "id": "nara",
@@ -53,7 +53,7 @@
       "model": "codestral-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 227
+      "calls_24h": 193
     },
     {
       "id": "cloudflare-workers-ai",
@@ -71,7 +71,7 @@
       "model": "nvidia/nemotron-3-super-120b-a12b:free",
       "enabled": true,
       "timeout": 120,
-      "calls_24h": 1
+      "calls_24h": 5
     },
     {
       "id": "grok",
@@ -202,191 +202,191 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 223,
-    "remaining": 401
+    "consumed": 245,
+    "remaining": 379
   },
   "queue": [
     {
-      "ts": "2026-08-18T04:22:20.790507+00:00",
-      "task": "analyste.strategie",
-      "provider": "mistral",
-      "model": "codestral-latest",
-      "kind": "cloud",
-      "duration_s": 9.25
-    },
-    {
-      "ts": "2026-08-18T04:20:14.990400+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 13.49
-    },
-    {
-      "ts": "2026-08-18T04:18:28.618966+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 8.38
-    },
-    {
-      "ts": "2026-08-18T04:16:47.333067+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 6.94
-    },
-    {
-      "ts": "2026-08-18T04:15:53.633219+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 127.27
-    },
-    {
-      "ts": "2026-08-18T04:15:46.296922+00:00",
+      "ts": "2026-08-18T05:14:45.945381+00:00",
       "task": "analyste.strategie",
       "provider": "openrouter-free",
       "model": "openai/gpt-oss-20b:free",
       "kind": "cloud",
-      "duration_s": 131.9
+      "duration_s": 199.57
     },
     {
-      "ts": "2026-08-18T04:15:36.379300+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
+      "ts": "2026-08-18T05:13:32.451479+00:00",
+      "task": "analyste.strategie",
+      "provider": "openrouter-juge",
+      "model": "nvidia/nemotron-3-super-120b-a12b:free",
       "kind": "cloud",
-      "duration_s": 173.62
+      "duration_s": 16.89
     },
     {
-      "ts": "2026-08-18T04:15:07.185682+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 17.36
-    },
-    {
-      "ts": "2026-08-18T04:14:06.680997+00:00",
+      "ts": "2026-08-18T05:13:14.304050+00:00",
       "task": "analyste.strategie",
       "provider": "mistral",
       "model": "codestral-latest",
       "kind": "cloud",
-      "duration_s": 7.81
+      "duration_s": 8.71
     },
     {
-      "ts": "2026-08-18T04:11:58.064566+00:00",
+      "ts": "2026-08-18T05:12:03.260777+00:00",
       "task": "analyste.strategie",
       "provider": "mistral",
       "model": "codestral-latest",
       "kind": "cloud",
-      "duration_s": 8.78
+      "duration_s": 8.37
     },
     {
-      "ts": "2026-08-18T04:11:57.252818+00:00",
+      "ts": "2026-08-18T05:10:24.699872+00:00",
       "task": "analyste.strategie",
       "provider": "mistral",
       "model": "codestral-latest",
       "kind": "cloud",
-      "duration_s": 7.49
+      "duration_s": 9.43
     },
     {
-      "ts": "2026-08-18T04:11:09.794769+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
+      "ts": "2026-08-18T05:10:06.813447+00:00",
+      "task": "analyste.strategie",
+      "provider": "mistral",
+      "model": "codestral-latest",
       "kind": "cloud",
-      "duration_s": 11.95
+      "duration_s": 8.62
     },
     {
-      "ts": "2026-08-18T04:09:24.817541+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
+      "ts": "2026-08-18T05:07:40.896387+00:00",
+      "task": "analyste.strategie",
+      "provider": "mistral",
+      "model": "codestral-latest",
       "kind": "cloud",
-      "duration_s": 7.96
+      "duration_s": 5.77
     },
     {
-      "ts": "2026-08-18T04:07:43.442772+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
+      "ts": "2026-08-18T05:07:38.679181+00:00",
+      "task": "analyste.strategie",
+      "provider": "mistral",
+      "model": "codestral-latest",
       "kind": "cloud",
-      "duration_s": 12.08
+      "duration_s": 10.28
     },
     {
-      "ts": "2026-08-18T04:07:05.475012+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
+      "ts": "2026-08-18T05:02:51.954559+00:00",
+      "task": "analyste.strategie",
+      "provider": "mistral",
+      "model": "codestral-latest",
       "kind": "cloud",
-      "duration_s": 162.42
+      "duration_s": 9.32
+    },
+    {
+      "ts": "2026-08-18T05:02:34.300094+00:00",
+      "task": "analyste.strategie",
+      "provider": "mistral",
+      "model": "codestral-latest",
+      "kind": "cloud",
+      "duration_s": 8.1
+    },
+    {
+      "ts": "2026-08-18T05:02:27.467061+00:00",
+      "task": "analyste.strategie",
+      "provider": "mistral",
+      "model": "codestral-latest",
+      "kind": "cloud",
+      "duration_s": 8.79
+    },
+    {
+      "ts": "2026-08-18T04:51:59.609366+00:00",
+      "task": "analyste.strategie",
+      "provider": "openrouter-juge",
+      "model": "nvidia/nemotron-3-super-120b-a12b:free",
+      "kind": "cloud",
+      "duration_s": 13.86
+    },
+    {
+      "ts": "2026-08-18T04:51:52.963021+00:00",
+      "task": "analyste.strategie",
+      "provider": "openrouter-juge",
+      "model": "nvidia/nemotron-3-super-120b-a12b:free",
+      "kind": "cloud",
+      "duration_s": 13.91
+    },
+    {
+      "ts": "2026-08-18T04:42:03.579154+00:00",
+      "task": "analyste.strategie",
+      "provider": "mistral",
+      "model": "codestral-latest",
+      "kind": "cloud",
+      "duration_s": 6.08
+    },
+    {
+      "ts": "2026-08-18T04:41:55.042428+00:00",
+      "task": "analyste.strategie",
+      "provider": "mistral",
+      "model": "codestral-latest",
+      "kind": "cloud",
+      "duration_s": 9.33
     }
   ],
   "events": [
     {
-      "ts": "2026-08-18T04:22:28.995334+00:00",
-      "kind": "failover",
-      "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
-      "detail": "0 attente"
+      "ts": "2026-08-18T05:14:45.945098+00:00",
+      "kind": "message",
+      "title": "« OpenRouter (modeles gratuits) » a repondu",
+      "detail": "bascule"
     },
     {
-      "ts": "2026-08-18T04:22:20.790276+00:00",
+      "ts": "2026-08-18T05:14:45.944515+00:00",
+      "kind": "filet-universel",
+      "title": "[FILET UNIVERSEL] « OpenRouter (modeles gratuits) » a repondu hors chaine",
+      "detail": "analyste.strategie"
+    },
+    {
+      "ts": "2026-08-18T05:13:32.451214+00:00",
+      "kind": "message",
+      "title": "« OpenRouter Juge (nemotron-3-super-120b free) - verificateur independant » a repondu",
+      "detail": "bascule"
+    },
+    {
+      "ts": "2026-08-18T05:13:32.450860+00:00",
+      "kind": "filet-universel",
+      "title": "[FILET UNIVERSEL] « OpenRouter Juge (nemotron-3-super-120b free) - verificateur independant » a repondu hors chaine",
+      "detail": "analyste.strategie"
+    },
+    {
+      "ts": "2026-08-18T05:13:15.560149+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis Mistral La Plateforme (essai gratuit)",
+      "detail": "The read operation timed out"
+    },
+    {
+      "ts": "2026-08-18T05:13:14.303781+00:00",
       "kind": "message",
       "title": "« Mistral La Plateforme (essai gratuit) » a repondu",
       "detail": "bascule"
     },
     {
-      "ts": "2026-08-18T04:22:20.789513+00:00",
+      "ts": "2026-08-18T05:13:14.303411+00:00",
       "kind": "filet-universel",
       "title": "[FILET UNIVERSEL] « Mistral La Plateforme (essai gratuit) » a repondu hors chaine",
       "detail": "analyste.strategie"
     },
     {
-      "ts": "2026-08-18T04:22:11.538863+00:00",
+      "ts": "2026-08-18T05:13:05.587723+00:00",
       "kind": "failover",
       "title": "Bascule depuis NVIDIA build.nvidia.com (100+ modeles)",
       "detail": "The read operation timed out"
     },
     {
-      "ts": "2026-08-18T04:22:00.690302+00:00",
+      "ts": "2026-08-18T05:13:05.220611+00:00",
       "kind": "failover",
-      "title": "Bascule depuis NaraRouter (7M tokens/jour gratuits)",
+      "title": "Bascule depuis NVIDIA build.nvidia.com (100+ modeles)",
       "detail": "The read operation timed out"
     },
     {
-      "ts": "2026-08-18T04:21:50.436131+00:00",
+      "ts": "2026-08-18T05:12:54.726998+00:00",
       "kind": "failover",
-      "title": "Bascule depuis OpenRouter (modeles gratuits)",
-      "detail": "HTTP Error 429: Too Many Requests"
-    },
-    {
-      "ts": "2026-08-18T04:21:49.547194+00:00",
-      "kind": "failover",
-      "title": "Saute (blacklist) depuis HuggingFace (136+ modeles, dont DeepSeek-V4)",
-      "detail": "0 attente"
-    },
-    {
-      "ts": "2026-08-18T04:21:49.545596+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis Groq (LLM ultra-rapide, gratuit)",
-      "detail": "HTTP Error 429: Too Many Requests"
-    },
-    {
-      "ts": "2026-08-18T04:21:49.545224+00:00",
-      "kind": "ratelimit",
-      "title": "429 Groq (LLM ultra-rapide, gratuit) -> pause 60s + bascule",
-      "detail": ""
-    },
-    {
-      "ts": "2026-08-18T04:21:49.167694+00:00",
-      "kind": "blacklist",
-      "title": "Fin de pause Groq (LLM ultra-rapide, gratuit)",
-      "detail": "re-essai automatique"
+      "title": "Bascule depuis NaraRouter (7M tokens/jour gratuits)",
+      "detail": "The read operation timed out"
     }
   ],
   "tasks_quotas": {

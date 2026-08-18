@@ -1,7 +1,7 @@
 # Rapport — Dérive Mémoire (Santé ACE777)
 
-- **Date** : `2026-08-17T05:15:04.544046+00:00`
-- **Indices Instables** : `3`
+- **Date** : `2026-08-18T05:15:03.695500+00:00`
+- **Indices Instables** : `4`
 - **Indices Critiques** : `7`
 - **Mémoire Globale Saine** : **NON (Attention requise)**
 
@@ -9,19 +9,19 @@
 
 | Indice | N Analyses | I1 Fréquence | I2 Contradiction | I3 Âge (J) | I4 Calibration | Statut |
 |---|---|---|---|---|---|---|
-| `altSeason` | 1 | FROID | 0.0% (STABLE) | 10j (PÉRIMÉ) | -100.0 (CRITIQUE) | **CRITIQUE** |
-| `bassine` | 3 | FROID | 0.0% (STABLE) | 10j (PÉRIMÉ) | +100.0 (STABLE) | **PÉRIMÉ** |
-| `btc` | 8 | STABLE | 0.0% (STABLE) | 6j (STABLE) | -25.0 (CRITIQUE) | **CRITIQUE** |
-| `etfEthM` | 1 | SOUS-UTILISE | 0.0% (STABLE) | 3j (STABLE) | -100.0 (CRITIQUE) | **CRITIQUE** |
-| `etfXrpM` | 1 | SOUS-UTILISE | 0.0% (STABLE) | 3j (STABLE) | -100.0 (CRITIQUE) | **CRITIQUE** |
-| `fearGreed` | 23 | STABLE | 0.0% (STABLE) | 0j (STABLE) | -20.0 (CRITIQUE) | **CRITIQUE** |
-| `funding` | 29 | STABLE | 28.6% (STABLE) | 0j (STABLE) | -27.3 (CRITIQUE) | **CRITIQUE** |
-| `gexPutCall` | 1 | FROID | 0.0% (STABLE) | 10j (PÉRIMÉ) | +100.0 (STABLE) | **PÉRIMÉ** |
-| `liq24Usd` | 3 | FROID | 0.0% (STABLE) | 10j (PÉRIMÉ) | +100.0 (STABLE) | **PÉRIMÉ** |
-| `oi` | 1 | FROID | 0.0% (STABLE) | 10j (PÉRIMÉ) | -100.0 (CRITIQUE) | **CRITIQUE** |
-| `onchain` | 1 | SOUS-UTILISE | 0.0% (STABLE) | 1j (STABLE) | +100.0 (STABLE) | **SOUS-UTILISE** |
-| `radar` | 27 | STABLE | 23.1% (STABLE) | 0j (STABLE) | +0.0 (STABLE) | **STABLE** |
-| `verre` | 4 | STABLE | 33.3% (STABLE) | 4j (STABLE) | +33.3 (STABLE) | **STABLE** |
+| `altSeason` | 1 | FROID | 0.0% (STABLE) | 11j (PÉRIMÉ) | -100.0 (CRITIQUE) | **CRITIQUE** |
+| `bassine` | 3 | FROID | 0.0% (STABLE) | 11j (PÉRIMÉ) | +100.0 (STABLE) | **PÉRIMÉ** |
+| `btc` | 8 | FROID | 0.0% (STABLE) | 7j (STABLE) | -25.0 (CRITIQUE) | **CRITIQUE** |
+| `etfEthM` | 1 | SOUS-UTILISE | 0.0% (STABLE) | 4j (STABLE) | -100.0 (CRITIQUE) | **CRITIQUE** |
+| `etfXrpM` | 1 | SOUS-UTILISE | 0.0% (STABLE) | 4j (STABLE) | -100.0 (CRITIQUE) | **CRITIQUE** |
+| `fearGreed` | 25 | STABLE | 0.0% (STABLE) | 0j (STABLE) | -27.3 (CRITIQUE) | **CRITIQUE** |
+| `funding` | 31 | STABLE | 26.7% (STABLE) | 0j (STABLE) | -25.0 (CRITIQUE) | **CRITIQUE** |
+| `gexPutCall` | 1 | FROID | 0.0% (STABLE) | 11j (PÉRIMÉ) | +100.0 (STABLE) | **PÉRIMÉ** |
+| `liq24Usd` | 3 | FROID | 0.0% (STABLE) | 11j (PÉRIMÉ) | +100.0 (STABLE) | **PÉRIMÉ** |
+| `oi` | 1 | FROID | 0.0% (STABLE) | 11j (PÉRIMÉ) | -100.0 (CRITIQUE) | **CRITIQUE** |
+| `onchain` | 1 | SOUS-UTILISE | 0.0% (STABLE) | 2j (STABLE) | +100.0 (STABLE) | **SOUS-UTILISE** |
+| `radar` | 29 | STABLE | 25.0% (STABLE) | 0j (STABLE) | -7.1 (INSTABLE) | **INSTABLE** |
+| `verre` | 4 | STABLE | 33.3% (STABLE) | 5j (STABLE) | +33.3 (STABLE) | **STABLE** |
 
 ## Alertes & Synthèse
 1. **Stabilité globale** : Des dérives ont été détectées sur certains indices nécessitant une revue de Cortana.

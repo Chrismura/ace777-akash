@@ -1,11 +1,11 @@
 # 👁️ SOUS L'ŒIL — Pulse machine
 
-**Date** : 2026-08-18T06:12:49+0200
+**Date** : 2026-08-18T07:13:47+0200
 **Mode** : VOL
 **Verdict** : WARN
 
 ## Processus
-- ACE (lanceur) : ✅ actif
+- ACE (lanceur) : ❌ inactif
 - HULK (paper_diprip) : ✅ actif
 - OLLAMA (serve) : ✅ actif
 
@@ -14,7 +14,7 @@
 - Champion (genesis_manifest) : FAIL
 
 ## Fraîcheur
-- Heartbeat : 731s
+- Heartbeat : 734s
 - LIVE : —
 
 ---
