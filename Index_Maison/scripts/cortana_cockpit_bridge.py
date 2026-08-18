@@ -408,7 +408,10 @@ def do_chat(message: str) -> dict:
 
 def _speak_texte(texte: str) -> None:
     """Lit un texte a voix haute (Vivienne) — thread arriere-plan.
-    afplay tourne EN ARRIERE-PLAN : /stop (barge-in) peut couper la parole."""
+    afplay tourne EN ARRIERE-PLAN : /stop (barge-in) peut couper la parole.
+    18/08 : passe par cortana_voice.humanize() AVANT oral_fr — sinon ACE lu
+    « ass », altcoins lus au hasard, Vivienne bascule de langue (accent
+    espagnol/anglais par moments, rythme changeant)."""
     global _VOICE_PROC
     import tempfile as _tf
     try:
@@ -416,7 +419,8 @@ def _speak_texte(texte: str) -> None:
             path = f.name
         if barge_in.activ():
             barge_in.preparer()  # calibration ambiant EN SILENCE, pendant la generation
-        texte = oral_fr.oraliser(texte)  # 99,99 -> « quatre-vingt-dix-neuf virgule quatre-vingt-dix-neuf »
+        import cortana_voice as _cv
+        texte = oral_fr.oraliser(_cv.humanize(texte))  # mots FR + 99,99 -> « quatre-vingt-dix-neuf… »
         cmd = [
             sys.executable, "-m", "edge_tts",
             "--voice", os.environ.get("EDGE_TTS_VOICE", "fr-FR-VivienneMultilingualNeural"),
