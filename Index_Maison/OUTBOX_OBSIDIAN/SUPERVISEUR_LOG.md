@@ -1,4 +1,3 @@
-| 2026-08-09T08:07Z | SUPERVISEUR | hub=OK ollama=OK jobs_manquants=[] git_sys=D git_vault=P action=ask résultat=escalade humaine : État incohérent des répertoires de fichiers. Il semble que git_vault_propre est à true mais git_vault_propre_inaccessible est également à true. | rappel lecture écrit (âge preuve : aucune) |
 | 2026-08-09T08:09Z | SUPERVISEUR | hub=OK ollama=OK jobs_manquants=[] git_sys=D git_vault=D action=none résultat=rien à faire |
 | 2026-08-09T08:13Z | SUPERVISEUR | hub=OK ollama=OK jobs_manquants=[] git_sys=D git_vault=D action=none résultat=rien à faire |
 | 2026-08-09T09:08Z | SUPERVISEUR | hub=OK ollama=OK jobs_manquants=[] git_sys=D git_vault=? action=none résultat=rien à faire | rappel lecture déjà écrit aujourd'hui (2026-08-09) |
@@ -198,3 +197,4 @@
 | 2026-08-17T23:14Z | SUPERVISEUR | hub=OK ollama=OK jobs_manquants=[] git_sys=D git_vault=D action=none résultat=rien à faire | rappel lecture déjà écrit aujourd'hui (2026-08-17) |
 | 2026-08-18T00:16Z | SUPERVISEUR | hub=OK ollama=OK jobs_manquants=[] git_sys=D git_vault=D action=none résultat=rien à faire | rappel lecture écrit (âge preuve : aucune) |
 | 2026-08-18T01:17Z | SUPERVISEUR | hub=OK ollama=OK jobs_manquants=[] git_sys=D git_vault=D action=none résultat=rien à faire | rappel lecture déjà écrit aujourd'hui (2026-08-18) |
+| 2026-08-18T02:18Z | SUPERVISEUR | hub=OK ollama=OK jobs_manquants=[] git_sys=D git_vault=D action=none résultat=rien à faire | rappel lecture déjà écrit aujourd'hui (2026-08-18) |
