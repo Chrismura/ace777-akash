@@ -48,6 +48,11 @@ Options possibles (à soumettre à la famille, PAS décidées ici) :
 - Ajuster le filtre pour plus de fills sans casser le win rate (+23 % de PnL/cycle si 6,5 % → 8 %)
 - Kelly / sizing dynamique (dossier Kelly ombre existe déjà : `SPEC_KELLY_OMBRE_2026-08-15.md`)
 
+> **⚖️ 18/08 — famille consultée (secteurs) : goulot n°1 GLOBAL = EXÉCUTION/sizing.**
+> Pépite validée = **Kelly en mode ombre** (dry-run, jamais d'activation live avant preuve).
+> Le Kelly ombre couvre Hulk — **reste à l'étendre à ACE** (dry-run) + décision d'application.
+> Verdict complet : `scripts/CONSULTATION_FAMILLE_SECTEURS_20260818/VERDICT_FAMILLE_SECTEURS.md`
+
 ---
 
 ## 3. Étapes (à la fin du run 96h — 22/08)
