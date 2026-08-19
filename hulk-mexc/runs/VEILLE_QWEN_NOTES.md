@@ -1649,3 +1649,24 @@ Pas d’ordre — confrontation plus tard.
 ### 2026-08-19T20:10:49Z — ALERT auto
 - CCUSDT: IMPULSE_WAIT — spike en cours, pas chase
 (compléter: confirmé ? risque ?)
+
+### 2026-08-19T20:20:07Z — ALERT auto
+- RIZEUSDT: IMPULSE_WAIT — spike en cours, pas chase
+(compléter: confirmé ? risque ?)
+
+### 2026-08-19T20:35:37Z — ALERT auto
+- EDELUSDT: IMPULSE_WAIT — spike en cours, pas chase
+(compléter: confirmé ? risque ?)
+
+### 2026-08-19T20:42:50Z — ALERT auto
+- REDUSDT: WATCH_PULLBACK — tension haute + reflux
+- TELUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
+
+### 2026-08-19T20:55:42Z — ALERT auto
+- ZBCNUSDT: IMPULSE_WAIT — spike en cours, pas chase
+(compléter: confirmé ? risque ?)
+
+### 2026-08-19T21:11:50Z — ALERT auto
+- CCUSDT: IMPULSE_WAIT — spike en cours, pas chase
+(compléter: confirmé ? risque ?)
