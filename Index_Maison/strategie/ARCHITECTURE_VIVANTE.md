@@ -1,4 +1,4 @@
-# ARCHITECTURE VIVANTE — ACE777 (2026-08-19 10:15 UTC)
+# ARCHITECTURE VIVANTE — ACE777 (2026-08-19 10:54 UTC)
 
 > Document GÉNÉRÉ AUTOMATIQUEMENT à l'instant. La famille valide
 > en s'appuyant sur CE contexte, pas sur des documents figés.
@@ -22,10 +22,10 @@
 
 ## État de la mission (bots + PnL)
 
-- mission.json : 2026-08-19 10:15Z · run `MASTER_VORTEX_V2_COLLAB_4H` · alerte `nominal`
-- PnL combiné : **17.51 $** 📈 (combo 17.5119)
-- ALPHA (sniper (embuscade, ×13, revenge si claque)) : **+17.33 $** · 145 fills · 2861 skips
-- BETA (éclaireur (chatouille le marché, alimente Alpha)) : **+0.18 $** · 385 fills · 2341 skips
+- mission.json : 2026-08-19 10:53Z · run `MASTER_VORTEX_V2_COLLAB_4H` · alerte `nominal`
+- PnL combiné : **17.90 $** 📈 (combo 17.9012)
+- ALPHA (sniper (embuscade, ×13, revenge si claque)) : **+17.33 $** · 154 fills · 3062 skips
+- BETA (éclaireur (chatouille le marché, alimente Alpha)) : **+0.57 $** · 415 fills · 2483 skips
 - HULK (gestionnaire de portefeuille (bag, escalier, courreur)) : **+0.27 $** · 0 fills
 - Saison : CALME 🧊 · 
 
@@ -46,11 +46,11 @@
 ## Mémoire chaude (journal + résumés)
 
 - Radar (dernières alertes) :
-  · 2026-08-19T10:15:20.668760Z ETHUSDT 1918.54 0.0001 17.5 declenche=non
-  · 2026-08-19T10:15:20.686968Z ETHUSDT 1918.55 0.0001 17.5 declenche=non
-  · 2026-08-19T10:15:20.691774Z ETHUSDT 1918.54 0.0001 17.5 declenche=non
-  · 2026-08-19T10:15:20.695555Z BTCUSDT 64389.95 0.0000 1.1 declenche=non
-- Intention en cours : BETA a sonde le marche (385 sondes, 270 long / 115 court, co | ALPHA attend son moment : 2150 skips (discipline), le mur du | ALPHA a frappe 69 fois en embuscade (13x) (dont 48 en mode r
+  · 2026-08-19T10:54:06.075073Z BTCUSDT 64405.64 0.0002 9.8 declenche=oui
+  · 2026-08-19T10:54:06.075208Z BTCUSDT 64405.39 0.0002 9.8 declenche=oui
+  · 2026-08-19T10:54:06.099278Z BTCUSDT 64405.4 0.0002 9.8 declenche=oui
+  · 2026-08-19T10:54:06.255090Z BTCUSDT 64405.39 0.0002 9.8 declenche=oui
+- Intention en cours : BETA a sonde le marche (415 sondes, 294 long / 121 court, co | ALPHA attend son moment : 2303 skips (discipline), le mur du | ALPHA a frappe 69 fois en embuscade (13x) (dont 48 en mode r
 - 400 signets X résumés (quota aujourd'hui : 50/50)
 - 48 fiches IA d'offres en cache (quota 8/jour)
 
