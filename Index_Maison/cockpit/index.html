@@ -698,6 +698,9 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
 .hulk-sect{font-family:Orbitron,sans-serif;font-size:.7rem;letter-spacing:.14em;color:#cfe0d0;margin:14px 0 6px;display:flex;justify-content:space-between;align-items:baseline;gap:8px}
 .hulk-sect .hulk-sect-n{color:#cfe0d0;font-size:.6rem;letter-spacing:.04em;font-family:"Share Tech Mono",monospace}
 .hulk-tbl{width:100%;border-collapse:collapse;font-size:.85rem;color:#e6eef7}
+.hulk-tbl-wrap{overflow-x:auto;max-width:100%}
+.hulk-tbl .hreg{color:#cfe0d0;font-size:.72rem;letter-spacing:.04em}
+.hulk-tbl .hg{font-family:Orbitron,sans-serif;font-size:.85rem;text-align:right}
 .hulk-tbl th{font-family:Orbitron,sans-serif;font-size:.6rem;letter-spacing:.1em;color:#cfe0d0;text-align:left;padding:4px 8px;border-bottom:1px solid rgba(196,255,77,.35)}
 .hulk-tbl td{padding:7px 8px;border-bottom:1px solid rgba(255,255,255,.07);vertical-align:middle}
 .hulk-tbl .hrow.open:hover{background:rgba(196,255,77,.06)}
@@ -1429,13 +1432,13 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
 
       <!-- SUIVI PAR CRYPTO : tableau statique (si rien fait) vs réel (bag) -->
       <div class="hulk-sect">TES 30 $ PAR CRYPTO <span class="hulk-sect-n" id="h-bags-note"></span></div>
-      <table class="hulk-tbl" id="h-folio">
+      <div class="hulk-tbl-wrap"><table class="hulk-tbl" id="h-folio">
         <thead><tr>
-          <th>CRYPTO</th><th>QTÉ (départ)</th><th>PRIX</th>
-          <th>SI RIEN FAIT</th><th>BAG RÉEL</th>
+          <th>CRYPTO</th><th>QTÉ (départ)</th><th>ENTRÉE</th><th>PRIX</th><th>RÉGIME</th>
+          <th>SI RIEN FAIT</th><th>BAG RÉEL</th><th>GAIN $</th>
         </tr></thead>
         <tbody></tbody>
-      </table>
+      </table></div>
 
       <!-- JOURNAL DES OPÉRATIONS -->
       <div class="hulk-sect">JOURNAL DES OPÉRATIONS <span class="hulk-sect-n" id="h-hist-n" style="color:var(--hulk)"></span></div>
@@ -1936,22 +1939,28 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
             const sVal=p.statiqueVal!=null?p.statiqueVal:null;
             const bPct=p.bagPct;
             const bVal=p.bagValue!=null?p.bagValue:null;
+            const u=p.uPnl!=null?p.uPnl:p.uPnlApprox;
             const dirBadge=(dirTxt==='LONG'||dirTxt==='SHORT')
               ? `<span class="hfc-dir ${dirTxt==='LONG'?'long':'short'}">${dirTxt==='LONG'?'LONG':'SHORT'}</span>`
               : '';
             return `<tr class="hrow open">
               <td class="hc">${dirBadge}<span class="hcn">${crypto}</span></td>
               <td class="hq">${p.seedQty!=null?Number(p.seedQty).toPrecision(4):'—'}</td>
+              <td class="hp">${fmtP(p.entry,6)}</td>
               <td class="hp">${fmtP(p.mark||p.high,6)}</td>
+              <td class="hreg">${p.regime||'—'}</td>
               <td class="hs" title="ce que valait ta part si tu n'avais RIEN fait"><span class="${cls(sPct)}">${arrow(sPct)} ${sPct!=null?fmt(sPct,1)+'%':'—'}</span>${sVal!=null?('<br><span class="hsub">'+usd(sVal)+'</span>'):''}</td>
               <td class="hr" title="BAG réel = position + cash de la paire (la vérité)"><span class="${cls(bPct)}">${arrow(bPct)} ${bPct!=null?fmt(bPct,1)+'%':'—'}</span><br><span class="hsub">${bVal!=null?usd(bVal):'—'}${(p.pairCash!=null&&p.pairCash>0)?(' · cash '+usd(p.pairCash)):''}</span></td>
+              <td class="hg" ><span class="${cls(u)}">${u!=null?((u>0?'+':'')+fmt(u,2)):'—'}</span></td>
             </tr>`;
           }
           return `<tr class="hrow flat">
             <td class="hc"><span class="hcn flat">${crypto}</span></td>
             <td class="hq">—</td>
+            <td class="hp">—</td>
             <td class="hp">${fmtP(p.mark,6)}</td>
-            <td class="hs" colspan="2"><span class="hsub">suivie · ${p.regime||'—'}</span></td>
+            <td class="hreg">${p.regime||'—'}</td>
+            <td class="hs" colspan="3"><span class="hsub">suivie (pas de position)</span></td>
           </tr>`;
         };
         tb.innerHTML=[...openRows,...flatRows].map(rowHtml).join('') || '<tr><td colspan="5" class="hsub">aucun univers paper</td></tr>';
