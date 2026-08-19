@@ -653,14 +653,11 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
 .card.hulk .bag .meta{font-size:.58rem;letter-spacing:.04em;margin-top:2px;color:var(--muted)}
 .card.hulk .bag .meta .dir-long{color:var(--acid)}
 .card.hulk .bag .meta .dir-short{color:var(--red)}
-.card.hulk .stream.hist{height:170px}
-.card.hulk .stream.hist .trade{font-size:.78rem;grid-template-columns:44px 36px 58px 1fr auto;gap:5px;padding:4px 6px}
-.card.hulk .stream.hist .trade .t-ev{color:#b9c9d4;font-size:.62rem;letter-spacing:.03em}
-.card.hulk .stream.hist .trade .t-date{color:#8fd7ff;font-size:.62rem;font-family:"Share Tech Mono",monospace}
-.card.hulk .stream.hist .trade .t-line{color:#e6eef7}
-.card.hulk .stream.hist .trade > span:nth-child(2){color:#cfd8e0;font-size:.62rem;font-family:"Share Tech Mono",monospace}
-.card.hulk .stream.hist .trade > span:last-child{font-size:.72rem;font-weight:bold}
-.card.hulk .hulk-jlegend{font-size:.62rem;color:#cfd8e0;letter-spacing:.06em;margin-top:3px}
+.card.hulk .stream.hist{height:132px}
+.card.hulk .stream.hist .trade{font-size:.66rem;grid-template-columns:46px 62px 1fr auto;gap:5px;padding:3px 4px}
+.card.hulk .stream.hist .trade .t-ev{color:var(--muted);font-size:.55rem;letter-spacing:.03em}
+.card.hulk .stream.hist .trade .t-line{color:#cfe0d0}
+.card.hulk .hulk-jlegend{font-size:.55rem;color:var(--muted);letter-spacing:.06em;margin-top:3px}
 .card.hulk .hulk-wallet{margin-top:6px;display:flex;flex-direction:column;gap:3px}
 .card.hulk .hw{display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:.72rem;padding:3px 8px;background:rgba(0,0,0,.28);border:1px solid rgba(196,255,77,.16);border-radius:2px}
 .card.hulk .hw-lab{color:var(--muted);letter-spacing:.12em;font-size:.58rem;font-family:Orbitron,sans-serif}
@@ -683,56 +680,27 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
 .hulk-modal th{color:var(--muted);font-size:.56rem;letter-spacing:.08em;text-align:right;padding:3px 6px;border-bottom:1px solid rgba(196,255,77,.2)}
 .hulk-modal th:first-child,.hulk-modal td:first-child{text-align:left}
 .hulk-modal td{color:#cfe0d0;text-align:right;padding:3px 6px;border-bottom:1px solid rgba(255,255,255,.05)}
-.hulk-global{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px;margin-bottom:2px}
-.hulk-global .hg{background:rgba(0,0,0,.28);border:1px solid rgba(196,255,77,.16);border-radius:3px;padding:10px 12px;display:flex;flex-direction:column;gap:4px;min-height:72px;justify-content:center}
-.hulk-global .hg-lab{color:#cfe0d0;letter-spacing:.14em;font-size:.74rem;font-family:Orbitron,sans-serif}
-.hulk-global .hg-val{color:#e6eef7;font-family:Orbitron,sans-serif;font-size:1.7rem;white-space:nowrap;line-height:1.1}
-.hulk-global .hg-sub{color:#c5d0dc;font-size:.7rem;letter-spacing:.03em;font-family:"Share Tech Mono",monospace}
-.hulk-global .hg-orig{border-color:rgba(124,255,107,.35)}
-.hulk-global .hg-orig .hg-lab{color:#9dff7a}
-.hulk-global .hg-ecart{border-color:rgba(255,120,90,.35)}
-.hulk-global .hg-ecart .hg-lab{color:#ff7a5a}
-.hfc .hfc-dir{font-family:Orbitron,sans-serif;font-size:.6rem;letter-spacing:.08em;padding:1px 6px;border-radius:2px;margin-right:4px}
-.hfc .hfc-dir.long{color:#0a1410;background:var(--acid);border:1px solid var(--acid)}
-.hfc .hfc-dir.short{color:#0a1410;background:var(--red);border:1px solid var(--red)}
-.hulk-sect{font-family:Orbitron,sans-serif;font-size:.7rem;letter-spacing:.14em;color:#cfe0d0;margin:14px 0 6px;display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.hulk-global{display:grid;grid-template-columns:repeat(auto-fit,minmax(96px,1fr));gap:6px;margin-bottom:2px}
+.hulk-global .hg{background:rgba(0,0,0,.28);border:1px solid rgba(196,255,77,.16);border-radius:3px;padding:6px 8px;display:flex;flex-direction:column;gap:3px;min-height:52px;justify-content:center}
+.hulk-global .hg-lab{color:var(--muted);letter-spacing:.12em;font-size:.55rem;font-family:Orbitron,sans-serif}
+.hulk-global .hg-val{color:#e6eef7;font-family:Orbitron,sans-serif;font-size:.92rem;white-space:nowrap}
+.hulk-global .hg-ia{border-color:rgba(124,255,107,.3)}
+.hulk-global .hg-ia .hg-val{font-size:.72rem;color:#cfe6d2;white-space:normal;line-height:1.25}
+.hulk-sect{font-family:Orbitron,sans-serif;font-size:.62rem;letter-spacing:.14em;color:var(--muted);margin:12px 0 5px;display:flex;justify-content:space-between;align-items:baseline;gap:8px}
 .hulk-sect .hulk-sect-n{color:#cfe0d0;font-size:.6rem;letter-spacing:.04em;font-family:"Share Tech Mono",monospace}
-.hulk-tbl{width:100%;border-collapse:collapse;font-size:.85rem;color:#e6eef7}
-.hulk-tbl-wrap{overflow-x:auto;max-width:100%}
-.hulk-tbl .hreg{color:#cfe0d0;font-size:.72rem;letter-spacing:.04em}
-.hulk-tbl .hg{font-family:Orbitron,sans-serif;font-size:.85rem;text-align:right}
-.hulk-tbl th{font-family:Orbitron,sans-serif;font-size:.6rem;letter-spacing:.1em;color:#cfe0d0;text-align:left;padding:4px 8px;border-bottom:1px solid rgba(196,255,77,.35)}
-.hulk-tbl td{padding:7px 8px;border-bottom:1px solid rgba(255,255,255,.07);vertical-align:middle}
-.hulk-tbl .hrow.open:hover{background:rgba(196,255,77,.06)}
-.hulk-tbl .hrow.flat td{color:#c5d0dc;opacity:.75}
-.hulk-tbl .hc{white-space:nowrap}
-.hulk-tbl .hcn{font-family:Orbitron,sans-serif;font-size:.9rem;color:#e6eef7;margin-left:5px}
-.hulk-tbl .hcn.flat{color:#c5d0dc}
-.hulk-tbl .hq{font-family:"Share Tech Mono",monospace;color:#cfe0d0}
-.hulk-tbl .hp{font-family:"Share Tech Mono",monospace;color:#e6eef7}
-.hulk-tbl .hs{color:#e6eef7;font-size:.85rem}
-.hulk-tbl .hr{color:#e6eef7;font-size:.85rem}
-.hulk-tbl .hr.hbag-pos{background:rgba(124,255,107,.10);border-left:3px solid var(--acid);box-shadow:inset 0 0 12px rgba(124,255,107,.04)}
-.hulk-tbl .hr.hbag-neg{background:rgba(255,77,77,.12);border-left:3px solid var(--red);box-shadow:inset 0 0 12px rgba(255,77,77,.06)}
-.hulk-tbl .hr.hbag-neu{background:rgba(255,255,255,.03);border-left:3px solid var(--muted)}
-.hulk-tbl .hsub{color:#cfd8e0;font-size:.68rem;font-family:"Share Tech Mono",monospace}
-.hfc{background:rgba(196,255,77,.05);border:1px solid rgba(196,255,77,.25);border-radius:3px;padding:6px 8px;font-size:.72rem;display:flex;flex-direction:column;gap:3px}
+.hulk-folio-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:6px}
+.hfc{background:rgba(196,255,77,.05);border:1px solid rgba(196,255,77,.25);border-radius:3px;padding:7px 8px;font-size:.66rem;display:flex;flex-direction:column;gap:3px}
 .hfc.flat{border-style:dashed;border-color:rgba(140,160,180,.35);background:rgba(80,100,120,.06)}
 .hfc .hfc-top{display:flex;justify-content:space-between;align-items:center;gap:4px}
-.hfc .hfc-name{font-family:Orbitron,sans-serif;font-size:.95rem;color:#e6eef7}
+.hfc .hfc-name{font-family:Orbitron,sans-serif;font-size:.78rem;color:#e6eef7}
 .hfc.flat .hfc-name{color:#c5d0dc}
 .hfc .hfc-tag{font-size:.5rem;letter-spacing:.06em;padding:1px 5px;border:1px solid;border-radius:2px}
 .hfc .hfc-tag.open{color:var(--hulk);border-color:var(--hulk)}
 .hfc .hfc-tag.bag{color:#d0ff90;border-color:rgba(196,255,77,.5)}
 .hfc .hfc-tag.flat{color:var(--muted);border-color:rgba(140,160,180,.4)}
-.hfc .hfc-row{display:flex;justify-content:space-between;gap:6px;color:#c9d4de;font-size:.78rem}
-.hfc .hfc-row span:first-child{color:#d5e0e8;font-size:.68rem;letter-spacing:.05em}
-.hfc .hfc-row{color:#e6eef7}
-.hfc .hfc-reg{color:#c5d0dc}
-.hfc .hsub{color:#d5e0e8}
-.hfc .hfc-reg{font-size:.62rem;color:var(--muted);letter-spacing:.05em;border-top:1px solid rgba(255,255,255,.05);padding-top:3px;margin-top:1px}
-.hfc .hfc-bag{border-top:1px solid rgba(196,255,77,.3);padding-top:4px;margin-top:1px;background:rgba(196,255,77,.06)}
-.hfc .hfc-bag span:first-child{color:var(--hulk);font-weight:bold;letter-spacing:.1em}
+.hfc .hfc-row{display:flex;justify-content:space-between;gap:6px;color:#c9d4de}
+.hfc .hfc-row span:first-child{color:var(--muted);font-size:.56rem;letter-spacing:.05em}
+.hfc .hfc-reg{font-size:.54rem;color:var(--muted);letter-spacing:.05em;border-top:1px solid rgba(255,255,255,.05);padding-top:3px;margin-top:1px}
 .hfc .dir-long{color:var(--acid)}.hfc .dir-short{color:var(--red)}
 
 /* SHOOT ACE/GROK */
@@ -1428,27 +1396,20 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
           <button type="button" class="hulk-details-btn" id="hulk-details-btn">DÉTAILS ⇕</button>
         </div>
       </div>
-      <!-- LE WALLET (grosses écritures) -->
+      <!-- LE GLOBALE -->
       <div class="hulk-global">
-        <div class="hg hg-orig" title="Ton point de départ : 10 $ de crypto + 20 $ de cash (dépôt initial)"><span class="hg-lab">ORIGINE</span><span class="hg-val" id="h-origine">—</span><span class="hg-sub">10 crypto + 20 cash</span></div>
-        <div class="hg" title="Ce que le portefeuille vaut VRAIMENT maintenant = positions ouvertes + cash libre"><span class="hg-lab">RÉEL</span><span class="hg-val" id="h-reel">—</span><span class="hg-sub" id="h-reel-sub"></span></div>
-        <div class="hg" title="Ce que ça vaudrait si tu n'avais RIEN fait (tenir les seeds au cours actuel + cash)"><span class="hg-lab">STATIQUE</span><span class="hg-val" id="h-statique">—</span><span class="hg-sub" id="h-statique-sub"></span></div>
-        <div class="hg hg-ecart" title="Réel − statique : ce que le trading de Hulk ajoute (ou coûte) vs ne rien faire"><span class="hg-lab">ÉCART</span><span class="hg-val" id="h-ecart">—</span><span class="hg-sub" id="h-ecart-sub"></span></div>
+        <div class="hg" title="PnL réalisé (ventes / stops / bags)"><span class="hg-lab">PNL</span><span class="hg-val" id="h-pnl">—</span></div>
+        <div class="hg" title="Valeur du portefeuille paper = base + PnL"><span class="hg-lab">ÉQUITÉ</span><span class="hg-val" id="h-equity">—</span></div>
+        <div class="hg" title="Cash libre récupéré des ventes"><span class="hg-lab">CASH</span><span class="hg-val" id="h-cash">—</span></div>
+        <div class="hg" title="Capital engagé dans les positions ouvertes"><span class="hg-lab">ENGAGÉ</span><span class="hg-val" id="h-engaged">—</span></div>
+        <div class="hg" title="Capital de départ paper"><span class="hg-lab">BASE</span><span class="hg-val" id="h-base">—</span></div>
+        <div class="hg" title="Frais plateforme estimés (0.05% taker MEXC) — non déduits"><span class="hg-lab">FRAIS</span><span class="hg-val" id="h-fees">—</span></div>
+        <div class="hg hg-ia" title="Conseil ADA (gardienne)"><span class="hg-lab">IA · ADA</span><span class="hg-val" id="h-ia">—</span></div>
       </div>
 
-      <!-- TABLEAU 1 : TES 30 $ PAR CRYPTO (statique : si rien fait vs bag réel) -->
-      <div class="hulk-sect">TES 30 $ PAR CRYPTO <span class="hulk-sect-n" id="h-bags-note"></span></div>
-      <div class="hulk-tbl-wrap"><table class="hulk-tbl" id="h-folio">
-        <thead><tr>
-          <th>CRYPTO</th><th>QTÉ (départ)</th><th>ENTRÉE</th><th>PRIX</th><th>RÉGIME</th>
-          <th>SI RIEN FAIT</th><th>BAG RÉEL</th><th>GAIN $</th>
-        </tr></thead>
-        <tbody></tbody>
-      </table></div>
-
-      <!-- TABLEAU 2 : LES BAGS (détail par crypto, compact) -->
-      <div class="hulk-sect">LES BAGS · DÉTAIL <span class="hulk-sect-n" id="h-bags-note2"></span></div>
-      <div class="hulk-folio-grid" id="h-folio-bags"></div>
+      <!-- SUIVI PAR CRYPTO -->
+      <div class="hulk-sect">SUIVI PAR CRYPTO <span class="hulk-sect-n" id="h-bags-note"></span></div>
+      <div class="hulk-folio-grid" id="h-folio"></div>
 
       <!-- JOURNAL DES OPÉRATIONS -->
       <div class="hulk-sect">JOURNAL DES OPÉRATIONS <span class="hulk-sect-n" id="h-hist-n" style="color:var(--hulk)"></span></div>
@@ -1900,89 +1861,29 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
     const h=M.hulk||{};
     const set=(id,v)=>{const n=document.getElementById(id); if(n) n.innerHTML=v};
     const usd=v=>(v!=null&&v===v)?('$'+Number(v).toFixed(2)):'—';
-    const pctS=v=>(v!=null&&v===v)?((v>0?'+':'')+Number(v).toFixed(1)+'%'):'';
-    // ——— WALLET : origine → réel vs statique → écart (grosses écritures) ———
-    const wOr=h.walletOrigine!=null? h.walletOrigine : 30;
-    const wRe=h.walletReel!=null? h.walletReel : null;
-    const wSt=h.walletStatique!=null? h.walletStatique : null;
-    const wEc=h.walletEcart!=null? h.walletEcart : (wRe!=null&&wSt!=null? wRe-wSt : null);
-    set('h-origine', usd(wOr));
-    if(wRe!=null){
-      const vs=(wSt!=null)? ((wRe-wSt)/wSt*100) : null;
-      set('h-reel', `<span class="${cls(wRe-wSt)}">${usd(wRe)}</span>`);
-      set('h-reel-sub', (h.walletReelPos!=null&&h.walletReelCash!=null)
-        ? ('positions '+usd(h.walletReelPos)+' · cash '+usd(h.walletReelCash)+' '+pctS(vs))
-        : pctS(vs));
-    } else { set('h-reel','—'); set('h-reel-sub',''); }
-    if(wSt!=null){
-      const vs=(wOr>0)? ((wSt-wOr)/wOr*100) : null;
-      set('h-statique', `<span class="${cls(wSt-wOr)}">${usd(wSt)}</span>`);
-      set('h-statique-sub', (h.walletStatiquePos!=null
-        ? ('seeds '+usd(h.walletStatiquePos)+' + cash 20 '+pctS(vs))
-        : pctS(vs)));
-    } else { set('h-statique','—'); set('h-statique-sub',''); }
-    if(wEc!=null){
-      set('h-ecart', `<span class="${cls(wEc)}">${(wEc>0?'+':'')+usd(wEc).replace('$','')} $</span>`);
-      set('h-ecart-sub', wEc>=0? 'Hulk + que rien faire' : 'Hulk − vs ne rien faire');
-    } else { set('h-ecart','—'); set('h-ecart-sub',''); }
+    set('h-pnl', `<span class="${cls(h.pnl)}">${fmt(h.pnl)}</span>`);
+    set('h-equity', usd(h.equity!=null? h.equity : (h.base!=null? Number(h.base)+(Number(h.pnl)||0) : null)));
+    set('h-cash', usd(h.cash));
+    set('h-engaged', usd(h.engaged!=null? h.engaged : h.notional));
+    set('h-base', usd(h.base));
+    set('h-fees', h.fees!=null ? ('$'+Number(h.fees).toFixed(3)) : '—');
+    // IA · ADA (gardienne) : zone + voilure
+    const gd=M.gardienne||{};
+    const ia=document.getElementById('h-ia');
+    if(ia){
+      const zone=((gd.zone_emoji||'')+' '+(gd.zone||'')).trim();
+      const voil=gd.voilure_pct!=null? ('voilure '+gd.voilure_pct+'%') : '';
+      ia.textContent = (zone+' '+voil).trim() || '—';
+    }
     const rows=(h.portfolio&&h.portfolio.length)? h.portfolio : (h.positions||[]);
     const openRows=rows.filter(p=>(p.status||'').toUpperCase()==='TRADE'||(p.status||'').toUpperCase()==='BAG'||p.open===true);
     const univN=h.universe!=null? h.universe : rows.length;
     const note=document.getElementById('h-bags-note');
     if(note) note.textContent = openRows.length+' ouverte(s) · '+univN+' suivies · '+(h.tradesClosed||0)+' clôture(s)';
-    // SUIVI PAR CRYPTO : tableau statique (si rien fait) vs BAG réel
+    // SUIVI PAR CRYPTO : tout le portefeuille (ouvertes + suivies)
     const folio=document.getElementById('h-folio');
     if(folio){
-      const tb=folio.querySelector('tbody');
-      if(tb){
-        const openRows=rows.filter(p=>p.open===true||(p.status||'').toUpperCase()==='TRADE'||(p.status||'').toUpperCase()==='BAG');
-        const flatRows=rows.filter(p=>!openRows.includes(p));
-        const rowHtml=p=>{
-          const st=(p.status||'FLAT').toUpperCase();
-          const open=st==='TRADE'||st==='BAG';
-          const crypto=p.crypto||p.pair||'';
-          const dir=(p.dir||'').toUpperCase();
-          const dirTxt=(dir==='LONG'||dir==='SHORT')?dir:'';
-          const arrow=v=>(v!=null)?((v>0)?'▲':(v<0?'▼':'')):'';
-          if(open){
-            const sPct=p.statiquePct!=null?p.statiquePct:p.pnlPct;
-            const sVal=p.statiqueVal!=null?p.statiqueVal:null;
-            const bPct=p.bagPct;
-            const bVal=p.bagValue!=null?p.bagValue:null;
-            const u=p.uPnl!=null?p.uPnl:p.uPnlApprox;
-            const dirBadge=(dirTxt==='LONG'||dirTxt==='SHORT')
-              ? `<span class="hfc-dir ${dirTxt==='LONG'?'long':'short'}">${dirTxt==='LONG'?'LONG':'SHORT'}</span>`
-              : '';
-            const bagCls=(bPct!=null)?((bPct<0)?'hbag-neg':(bPct>0?'hbag-pos':'hbag-neu')):'';
-            return `<tr class="hrow open">
-              <td class="hc">${dirBadge}<span class="hcn">${crypto}</span></td>
-              <td class="hq">${p.seedQty!=null?Number(p.seedQty).toPrecision(4):'—'}</td>
-              <td class="hp">${fmtP(p.entry,6)}</td>
-              <td class="hp">${fmtP(p.mark||p.high,6)}</td>
-              <td class="hreg">${p.regime||'—'}</td>
-              <td class="hs" title="ce que valait ta part si tu n'avais RIEN fait"><span class="${cls(sPct)}">${arrow(sPct)} ${sPct!=null?fmt(sPct,1)+'%':'—'}</span>${sVal!=null?('<br><span class="hsub">'+usd(sVal)+'</span>'):''}</td>
-              <td class="hr ${bagCls}" title="BAG réel = position + cash de la paire. ROUGE = en perte (bag < mise), VERT = en gain."><span class="${cls(bPct)}">${arrow(bPct)} ${bPct!=null?fmt(bPct,1)+'%':'—'}</span><br><span class="hsub">${bVal!=null?usd(bVal):'—'}${(p.pairCash!=null&&p.pairCash>0)?(' · cash '+usd(p.pairCash)):''}</span></td>
-              <td class="hg" ><span class="${cls(u)}">${u!=null?((u>0?'+':'')+fmt(u,2)):'—'}</span></td>
-            </tr>`;
-          }
-          return `<tr class="hrow flat">
-            <td class="hc"><span class="hcn flat">${crypto}</span></td>
-            <td class="hq">—</td>
-            <td class="hp">—</td>
-            <td class="hp">${fmtP(p.mark,6)}</td>
-            <td class="hreg">${p.regime||'—'}</td>
-            <td class="hs" colspan="3"><span class="hsub">suivie (pas de position)</span></td>
-          </tr>`;
-        };
-        tb.innerHTML=[...openRows,...flatRows].map(rowHtml).join('') || '<tr><td colspan="5" class="hsub">aucun univers paper</td></tr>';
-      }
-    }
-    // TABLEAU 2 : LES BAGS (détail par crypto, compact) — le tableau d'avant
-    const folioB=document.getElementById('h-folio-bags');
-    if(folioB){
-      const note2=document.getElementById('h-bags-note2');
-      if(note2) note2.textContent = openRows.length+' ouverte(s)';
-      folioB.innerHTML=rows.map(p=>{
+      folio.innerHTML=rows.map(p=>{
         const st=(p.status||(p.open===false?'FLAT':'TRADE')).toUpperCase();
         const open=st==='TRADE'||st==='BAG'||p.open===true;
         const crypto=p.crypto||p.pair||'';
@@ -1992,35 +1893,31 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
         if(open){
           const u=p.uPnl!=null?p.uPnl:p.uPnlApprox;
           const pct=p.pnlPct;
-          const bPct=p.bagPct;
-          const bVal=p.bagValue!=null?p.bagValue:null;
-          const sPct=p.statiquePct!=null?p.statiquePct:p.pnlPct;
-          const sVal=p.statiqueVal!=null?p.statiqueVal:null;
           const tag=st==='BAG'?'BAG':'OPEN';
           const tagCls=st==='BAG'?'bag':'open';
           const seedTxt=p.seed?' · SEED':'';
-          const dirBadge=(dirTxt==='LONG'||dirTxt==='SHORT')
-            ? `<span class="hfc-dir ${dirTxt==='LONG'?'long':'short'}">${dirTxt==='LONG'?'LONG':'SHORT'}</span>`
-            : '';
-          const bagCls=(bPct!=null)?((bPct<0)?'hbag-neg':(bPct>0?'hbag-pos':'hbag-neu')):'';
-          const arrow=v=>(v!=null)?((v>0)?'▲':(v<0?'▼':'')):'';
-          return `<div class="hfc" title="${crypto} — ${dirTxt||'dir'} · BAG ${bVal!=null?usd(bVal):'—'} (rouge = en perte même si +)">
-            <div class="hfc-top"><span class="hfc-name">${crypto}</span><span>${dirBadge}<span class="hfc-tag ${tagCls}">${tag}</span></span></div>
-            <div class="hfc-row"><span>régime</span><span>${regime}${seedTxt}</span></div>
+          // ROUGE si en baisse vs le départ (bag < mise) MÊME si le % marché est positif
+          const bPct=p.bagPct;
+          const bVal=p.bagValue!=null?p.bagValue:null;
+          const vsDep=bPct!=null?bPct:(u!=null?((u/ (p.stake||10))*100):null);
+          const depCls=(vsDep!=null&&vsDep<0)?'neg':(vsDep!=null&&vsDep>0?'pos':'neu');
+          return `<div class="hfc" title="${crypto} — tenir depuis l'entrée (rien faire). ROUGE = en baisse vs départ (mise) même si +%">
+            <div class="hfc-top"><span class="hfc-name">${crypto}</span><span class="hfc-tag ${tagCls}">${tag}</span></div>
+            <div class="hfc-row"><span class="${dirTxt==='SHORT'?'dir-short':(dirTxt==='LONG'?'dir-long':'')}">${dirTxt||'dir'}${seedTxt}</span><span>${regime}</span></div>
             <div class="hfc-row"><span>entrée</span><span>${fmtP(p.entry,6)}</span></div>
             <div class="hfc-row"><span>cours</span><span>${fmtP(p.mark||p.high,6)}</span></div>
-            <div class="hfc-row" title="gain en % depuis l'entrée (marché)"><span>marché</span><span class="${cls(pct)}">${arrow(pct)} ${pct!=null?fmt(pct,2)+'%':'—'}</span></div>
-            <div class="hfc-row" title="ce que valait ta part si tu n'avais RIEN fait"><span>rien fait</span><span class="${cls(sPct)}">${sPct!=null?fmt(sPct,1)+'%':'—'}${sVal!=null?(' ('+usd(sVal)+')'):''}</span></div>
-            <div class="hfc-row hfc-bag ${bagCls}" title="BAG = position + cash de la paire. ROUGE = en perte même si +."><span>BAG</span><span class="${cls(bPct)}">${bVal!=null?usd(bVal):'—'} ${bPct!=null?((bPct>0?'+':'')+fmt(bPct,1)+'%'):''}${(p.pairCash!=null&&p.pairCash>0)?(' · cash '+usd(p.pairCash)):''}</span></div>
-            <div class="hfc-row"><span>gain $</span><span class="${cls(u)}">${u!=null?(u>0?'+':'')+fmt(u,2):'—'}</span></div>
+            <div class="hfc-row" title="si tu n'avais rien fait"><span>hold</span><span class="${cls(pct)}">${pct!=null?fmt(pct,2)+'%':'—'}</span></div>
+            <div class="hfc-row" title="valeur réelle (vs départ) — rouge si en baisse vs la mise même si +%"><span>valeur réelle</span><span class="${depCls}">${bVal!=null?('$'+Number(bVal).toFixed(2)):((u!=null?(u>0?'+':'')+fmt(u,2):'—'))}${vsDep!=null?(' ('+(vsDep>0?'+':'')+fmt(vsDep,1)+'%)'):''}</span></div>
           </div>`;
         }
+        const tag=st==='CASH'?'CASH':'SUIVI';
         return `<div class="hfc flat">
-          <div class="hfc-top"><span class="hfc-name">${crypto}</span><span class="hfc-tag flat">SUIVIE</span></div>
+          <div class="hfc-top"><span class="hfc-name">${crypto}</span><span class="hfc-tag flat">${tag}</span></div>
           <div class="hfc-row"><span>cours</span><span>${fmtP(p.mark,6)}</span></div>
-          <div class="hfc-row"><span>régime</span><span>${regime}</span></div>
+          <div class="hfc-row" title="variation 24h du marché (pas ton PnL)"><span>24h</span><span class="${cls(p.pnlPct)}">${p.pnlPct!=null?fmt(p.pnlPct,1)+'%':'—'}</span></div>
+          <div class="hfc-reg">${regime}</div>
         </div>`;
-      }).join('') || '<span style="color:#cfe0d0">aucun univers paper</span>';
+      }).join('') || '<span style="color:var(--muted)">aucun univers paper</span>';
     }
     // JOURNAL DES OPÉRATIONS : achat / vente / stop / bag, avec prix · qté · % · PnL
     const list=document.getElementById('h-list');
@@ -2028,7 +1925,7 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
     if(list){
       const hist=(h.history&&h.history.length? h.history : h.last||[]);
       if(hn) hn.textContent='('+hist.length+')';
-      list.innerHTML=      hist.slice(0,120).map(r=>{
+      list.innerHTML=hist.slice(0,100).map(r=>{
         const ev=(r.event||'').toUpperCase();
         const crypto=r.crypto||r.pair||'';
         const isSeed=(r.reason||'').toUpperCase().startsWith('SEED');
@@ -2038,17 +1935,17 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
         const entry=r.entry!=null?fmtP(r.entry,6):null;
         const qty=(r.qty!=null&&!isNaN(r.qty))?Number(r.qty).toPrecision(4):null;
         const pct=r.pnlPct;
-        let hDate='—',hTime='';
-        if(r.ts){const d=new Date(r.ts); if(!isNaN(d)){hDate=d.toLocaleDateString('fr-FR',{day:'2-digit',month:'2-digit'});hTime=d.toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit'});}}
+        let hulkTime='—';
+        if(r.ts){const d=new Date(r.ts); if(!isNaN(d)) hulkTime=d.toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit'});}
         const action=isSeed?'DÉPART':(isBuy?'ACHETÉ':'VENDU');
         let line;
         if(isBuy){
           line=`${action} @${price||'—'}${qty?(' · '+qty):''}`;
         }else{
-          line=`${action} @${price||'—'}${entry?(' · entrée '+entry):''}${pct!=null?(' · '+fmt(pct,1)+'%'):''}`;
+          line=`${action} @${price||'—'}${entry?(' ← entrée '+entry):''}${qty?(' · '+qty):''}${pct!=null?(' · '+fmt(pct,1)+'%'):''}`;
         }
-        const pnlShow=isSeed?'départ':(isBuy?'ouv.':((r.pnl||0)>0?'+':'')+fmt(r.pnl,2));
-        return `<div class="trade ${kind}" title="${r.reason||''}${r.dir?(' · '+r.dir):''}"><span class="t-date">${hDate}</span><span>${hTime}</span><span class="t-ev">${isSeed?'DÉPART':ev.replace(/_/g,' ').slice(0,9)}</span><span class="t-line">${crypto} ${line}</span><span class="${(isBuy||isSeed)?'neu':cls(r.pnl)}">${pnlShow}</span></div>`;
+        const pnlShow=isSeed?'départ':(isBuy?'ouv.':fmt(r.pnl,2));
+        return `<div class="trade ${kind}" title="${r.reason||''}${r.dir?(' · '+r.dir):''}"><span>${hulkTime}</span><span class="t-ev">${isSeed?'DÉPART':ev.replace(/_/g,' ').slice(0,9)}</span><span class="t-line">${crypto} ${line}</span><span class="${(isBuy||isSeed)?'neu':cls(r.pnl)}">${pnlShow}</span></div>`;
       }).join('') || '<span style="color:var(--muted)">pas encore d\'opération</span>';
     }
   }
