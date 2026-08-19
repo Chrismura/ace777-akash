@@ -1922,15 +1922,15 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
           const sVal=p.statiqueVal!=null? p.statiqueVal : null;
           const bPct=p.bagPct;
           const bVal=p.bagValue!=null? p.bagValue : null;
-          const vsDep=(bPct!=null)? bPct : null;
-          // ROUGE si réel < départ (mise), MÊME si le % est positif
+          // ROUGE si RÉEL < SI RIEN FAIT (perte vs ne rien faire) — coup d'œil direct
+          const vsDep=(bVal!=null&&sVal!=null)? (bVal-sVal) : null;
           const rCls=(vsDep!=null&&vsDep<0)?'wneg':(vsDep!=null&&vsDep>0?'wpos':'wneu');
           const arrow=v=>(v!=null)?((v>0)?'▲':(v<0?'▼':'')):'';
           return `<tr class="hrow open">
             <td class="hc"><span class="hcn">${crypto}</span></td>
             <td class="hq">${usd(dep)}</td>
             <td class="hs" title="ce que valait ta part si tu n'avais RIEN fait"><span class="${cls(sPct)}">${arrow(sPct)} ${sPct!=null?fmt(sPct,1)+'%':'—'}</span>${sVal!=null?('<br><span class="hsub">'+usd(sVal)+'</span>'):''}</td>
-            <td class="hr ${rCls}" title="RÉEL = valeur maintenant. ROUGE = en dessous du départ (mise) même si +%"><span class="${cls(vsDep)}">${arrow(vsDep)} ${vsDep!=null?fmt(vsDep,1)+'%':'—'}</span><br><span class="hsub">${bVal!=null?usd(bVal):'—'}</span></td>
+            <td class="hr ${rCls}" title="RÉEL vs SI RIEN FAIT. ROUGE = réel EN DESSOUS de si rien fait (perte)."><span class="${cls(vsDep)}">${vsDep!=null?((vsDep>0?'+':'')+fmt(vsDep,1)+'%'):'—'}</span><br><span class="hsub">${bVal!=null?usd(bVal):'—'}</span></td>
           </tr>`;
         }).join('') || '<tr><td colspan="4" class="hsub">aucune position</td></tr>';
       }
