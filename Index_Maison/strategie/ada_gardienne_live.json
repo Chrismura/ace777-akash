@@ -1,54 +1,58 @@
 {
-  "ts": "2026-08-19T13:12:27Z",
+  "ts": "2026-08-19T14:13:47Z",
   "gardienne": {
-    "ts": "2026-08-19T13:12:27Z",
-    "voilure_pct": 95,
+    "ts": "2026-08-19T14:13:47Z",
+    "voilure_pct": 91,
     "zone": "VERT",
     "zone_emoji": "🟢",
     "pressions": {
       "bleed": 0.0,
-      "storm": 0.286,
-      "reversal": 0.102
+      "storm": 0.46,
+      "reversal": 0.0
     },
-    "sirene": false,
-    "declencheurs": [],
-    "seuil_x": 11.3,
+    "sirene": true,
+    "declencheurs": [
+      "le vortex tourne fort"
+    ],
+    "seuil_x": 6.33,
     "ancres": {
-      "perte_moy": 0.0,
-      "gains_peak": 14.13,
-      "seuil_x": 11.3
+      "perte_moy": 1.06,
+      "gains_peak": 7.91,
+      "seuil_x": 6.33
     },
-    "alerte": false,
-    "raison": "",
-    "pnl_alpha": 14.13,
+    "alerte": true,
+    "raison": "le vortex tourne fort ; zone VERT",
+    "pnl_alpha": 6.74,
     "sources": [
       "live.json"
     ],
     "story": [
-      "La voilure tient à 95 % — le bassin est calme, ACE garde sa toile déployée.",
+      "🚨 FEUX DE L'ORAGE : le vortex tourne fort — ADA hurle maintenant, pas après.",
+      "La voilure tient à 91 % — le bassin est calme, ACE garde sa toile déployée.",
       "Rien ne presse : le Sniper reste en embuscade, l'Éclaireur sonde."
     ]
   },
   "coup_doeil": {
-    "ts": "2026-08-19T13:12:27Z",
+    "ts": "2026-08-19T14:13:47Z",
     "saison": "CALME",
     "saison_emoji": "🌿",
-    "voilure": "95 %",
+    "voilure": "91 %",
     "zone": "VERT",
     "zone_emoji": "🟢",
     "verdict_famille": "• GEMINI (analyste) : Aucune action corrective n'est requise : la discipline d'Alpha (0 tir malgré le volume x3) valide la synchronisation m",
-    "intention": "Alpha : 73 tirs (52 revenge), pnl +14.13 $ · Beta : 459 sondes · Hulk : pnl +0.62 $ (13 positions)",
-    "ligne": "CALME 🌿 · voilure 95 % · VERT 🟢 — La voilure tient à 95 % — le bassin est calme, ACE garde sa toile déployée."
+    "intention": "Alpha : 12 tirs (6 revenge), pnl +6.74 $ · Beta : 30 sondes · Hulk : pnl +0.67 $ (13 positions)",
+    "ligne": "CALME 🌿 · voilure 91 % · VERT 🟢 — 🚨 FEUX DE L'ORAGE : le vortex tourne fort — ADA hurle maintenant, pas après."
   },
   "etat": {
-    "pnl": 14.128810000000003,
-    "ts": "2026-08-19T13:12:27Z"
+    "pnl": 6.73784,
+    "ts": "2026-08-19T14:13:47Z"
   },
   "zone": "VERT",
-  "voilure": 95.0,
-  "alerte": false,
+  "voilure": 91.1,
+  "alerte": true,
   "story": [
-    "La voilure tient à 95 % — le bassin est calme, ACE garde sa toile déployée.",
+    "🚨 FEUX DE L'ORAGE : le vortex tourne fort — ADA hurle maintenant, pas après.",
+    "La voilure tient à 91 % — le bassin est calme, ACE garde sa toile déployée.",
     "Rien ne presse : le Sniper reste en embuscade, l'Éclaireur sonde."
   ]
 }
