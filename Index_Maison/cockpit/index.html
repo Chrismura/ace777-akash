@@ -113,13 +113,17 @@ body::after{
 .ind-lab{font-family:Orbitron,sans-serif;font-size:.82rem;letter-spacing:.14em;color:var(--amber)}
 .ind-val{font-family:Orbitron,sans-serif;font-size:1.9rem;line-height:1;color:#e9e4d4}
 .ind-sub{font-size:.68rem;color:var(--muted);letter-spacing:.02em}
+.regime-swatch{display:flex;align-items:center;justify-content:center;font-family:Orbitron,sans-serif;font-size:1.2rem;font-weight:700;letter-spacing:.06em;min-height:2.3rem;border-radius:6px;padding:4px 10px;color:#0a0f0b;background:#3a3f3a;border:1px solid var(--line);transition:background .3s,color .3s}
+.gauge{height:6px;background:rgba(255,255,255,.06);border-radius:3px;overflow:hidden}
+.gauge-fill{display:block;height:100%;width:0;background:var(--amber);transition:width .4s,background .4s}
 .just-detail{margin:0 0 10px;padding:8px 12px;background:#0a1410;border:1px solid var(--line);border-radius:6px;color:var(--muted)}
 .just-detail summary{cursor:pointer;font-family:Orbitron,sans-serif;font-size:.72rem;letter-spacing:.12em;color:var(--amber)}
 .just-indices{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
-.just-indices span{padding:3px 8px;border:1px solid var(--line);border-radius:4px;font-size:.72rem}
-.just-indices span.ok{color:var(--acid);border-color:rgba(124,255,107,.35)}
-.just-indices span.part{color:var(--amber);border-color:rgba(255,210,77,.35)}
-.just-indices span.miss{color:var(--red);border-color:rgba(255,77,77,.35)}
+.just-indices span{display:inline-flex;align-items:center;gap:6px;padding:3px 8px;border:1px solid var(--line);border-radius:4px;font-size:.72rem;color:#cfd3c8}
+.just-indices span::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--muted);flex:none}
+.just-indices span.ok::before{background:var(--acid)}
+.just-indices span.part::before{background:var(--amber)}
+.just-indices span.miss::before{background:var(--red)}
 .just-indices span i{font-style:normal;color:var(--muted);font-size:.64rem}
 
 /* LAYOUT — un seul stage visible, pas de superposition */
@@ -1157,11 +1161,12 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
     <div class="ind-chip" data-peda="score_justesse" title="Justesse analyste (Cortana) — boucle d'apprentissage">
       <span class="ind-lab">JUSTESSE</span>
       <b class="ind-val" id="top-just">—</b>
+      <div class="gauge"><i class="gauge-fill" id="top-just-gauge"></i></div>
       <span class="ind-sub" id="top-just-sub"></span>
     </div>
-    <div class="ind-chip" data-peda="couleur_regime" title="Couleur régime — onchain × narratif (Hulk)">
-      <span class="ind-lab">COULEUR</span>
-      <b class="ind-val" id="top-couleur">—</b>
+    <div class="ind-chip ind-chip-regime" data-peda="couleur_regime" title="Couleur régime — onchain × narratif (Hulk)">
+      <span class="ind-lab">COULEUR RÉGIME</span>
+      <div class="regime-swatch" id="top-couleur">—</div>
       <span class="ind-sub" id="top-couleur-sub"></span>
     </div>
     <div class="ind-chip" data-peda="poussiere" title="Index poussière — dust onchain (brut)">
@@ -3092,7 +3097,13 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
       const col = String(c.couleur||'—').toUpperCase();
       const CMAP = {VERT:'#7cff6b', JAUNE:'#ffd24d', ROUGE:'#ff5c5c', NOIR:'#8899aa', ORANGE:'#ffa94d'};
       const v = document.getElementById('top-couleur');
-      if(v){ v.textContent = col; v.style.color = CMAP[col] || ''; }
+      if(v){
+        v.textContent = col;
+        const bg = CMAP[col] || '#3a3f3a';
+        v.style.background = bg;
+        v.style.borderColor = bg;
+        v.style.color = (bg==='#3a3f3a' || col==='NOIR') ? '#e8ecea' : '#0a0f0b';
+      }
       const sub = document.getElementById('top-couleur-sub');
       if(sub){
         const pct = jus.pct;
@@ -3101,7 +3112,7 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
       }
     }catch(e){
       const v = document.getElementById('top-couleur');
-      if(v) v.textContent = '—';
+      if(v){ v.textContent = '—'; v.style.background = '#3a3f3a'; v.style.borderColor = ''; v.style.color = '#e8ecea'; }
     }
   }
 
@@ -3116,7 +3127,12 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
       const list=document.getElementById('just-list');
       const pct=j.pct;
       const tj = document.getElementById('top-just');
-      if(tj){ tj.textContent = (pct!=null) ? (Math.round(pct)+'%') : '—'; tj.style.color = (pct==null)?'':(pct<40?'#ff4d4d':(pct<60?'#ffd24d':'#7CFF6B')); }
+      if(tj){ tj.textContent = (pct!=null) ? (Math.round(pct)+'%') : '—'; }
+      const gauge = document.getElementById('top-just-gauge');
+      if(gauge){
+        if(pct==null){ gauge.style.width='0%'; gauge.style.background='var(--muted)'; }
+        else{ gauge.style.width = Math.max(0, Math.min(100, pct))+'%'; gauge.style.background = (pct<40?'#ff4d4d':(pct<60?'#ffd24d':'#7CFF6B')); }
+      }
       const tjs = document.getElementById('top-just-sub');
       if(tjs) tjs.textContent = (j.total_hit!=null) ? (j.total_hit+'/'+j.total_scored+' justes') : '';
       const jidx = document.getElementById('just-indices');
