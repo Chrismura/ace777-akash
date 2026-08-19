@@ -119,6 +119,13 @@ BINANCE_HEDGE_MODE="${BINANCE_HEDGE_MODE:-FALSE}"
 
 # Core strategy controls (baseline 7h style)
 MIN_PROFIT_BPS="${MIN_PROFIT_BPS:-15}"
+# Frais taker Binance FUTURES (aller-retour ~0.08% = 8 bps, confirmé /fapi/v1/commissionRate).
+# Le take-profit vise le NET : on exige MIN_PROFIT_BPS APRÈS frais (edge > frais).
+FEE_ROUND_TRIP_BPS="${FEE_ROUND_TRIP_BPS:-8}"
+# S-10 #2 : mode d'entrée. TAKER (défaut, exécution immédiate) | MAKER (post-only GTX + repli MARKET).
+# ⚠️ MAKER = test dédié : sur un scalper momentum, post-only peut réduire les fills (le prix s'éloigne).
+ORDER_ENTRY_MODE="${ORDER_ENTRY_MODE:-TAKER}"
+ORDER_MAKER_OFFSET_BPS="${ORDER_MAKER_OFFSET_BPS:-1}"
 STOP_LOSS_BPS="${STOP_LOSS_BPS:-10}"
 MAX_HOLD_SEC="${MAX_HOLD_SEC:-150}"
 MIN_HOLD_SEC="${MIN_HOLD_SEC:-15}"
@@ -397,7 +404,7 @@ if [ "$V8_VOID_LOCK_ENABLED" = "TRUE" ]; then
 fi
 
 if [ ! -f "$LOG_FILE" ]; then
-  echo "ts,cycle,side,status,entryPrice,exitPrice,qty,bps,pnl,exitReason,holdSec,msg" > "$LOG_FILE"
+  echo "ts,cycle,side,status,entryPrice,exitPrice,qty,bps,pnl,feeUsdt,pnlNet,exitReason,holdSec,msg" > "$LOG_FILE"
 fi
 
 # Couleurs cycles (CYCLE_COLORS=FALSE pour tout désactiver)
@@ -2152,9 +2159,23 @@ for i in $(seq 1 "$CYCLES"); do
     qty="$entry_qty_use"
   else
     ts="$(now_ms)"
-    q_entry="symbol=$SYMBOL&side=$side&type=MARKET&quantity=$qty${trade_position_side_param}&timestamp=$ts&recvWindow=$RECV_WINDOW"
-    entry_resp="$(private_post "/fapi/v1/order" "$q_entry" || true)"
-    entry_code="$(json_get "$entry_resp" "code")"
+    if [ "$ORDER_ENTRY_MODE" = "MAKER" ]; then
+      # Post-only (GTX) : ordre LIMIT côté maker (au-dessous pour BUY, au-dessus pour SELL).
+      # Rejeté (-2021) si exécution immédiate → repli MARKET (comportement TAKER).
+      maker_px="$(ruby -e 'p=(Float(ARGV[0]) rescue 0); off=(Float(ARGV[1]) rescue 0.0); dir=(Float(ARGV[2]) rescue 1.0); printf("%.8f", p*(1.0 - dir*off/10000.0))' -- "$p2" "$ORDER_MAKER_OFFSET_BPS" "$signed_dir")"
+      q_entry="symbol=$SYMBOL&side=$side&type=LIMIT&quantity=$qty${trade_position_side_param}&price=$maker_px&timeInForce=GTX&timestamp=$ts&recvWindow=$RECV_WINDOW"
+      entry_resp="$(private_post "/fapi/v1/order" "$q_entry" || true)"
+      entry_code="$(json_get "$entry_resp" "code")"
+      if [ -n "$entry_code" ]; then
+        q_entry="symbol=$SYMBOL&side=$side&type=MARKET&quantity=$qty${trade_position_side_param}&timestamp=$ts&recvWindow=$RECV_WINDOW"
+        entry_resp="$(private_post "/fapi/v1/order" "$q_entry" || true)"
+        entry_code="$(json_get "$entry_resp" "code")"
+      fi
+    else
+      q_entry="symbol=$SYMBOL&side=$side&type=MARKET&quantity=$qty${trade_position_side_param}&timestamp=$ts&recvWindow=$RECV_WINDOW"
+      entry_resp="$(private_post "/fapi/v1/order" "$q_entry" || true)"
+      entry_code="$(json_get "$entry_resp" "code")"
+    fi
     if [ "$entry_code" = "-4061" ] && [ "$POSITION_SIDE" = "BOTH" ]; then
       hedge_side="LONG"; [ "$side" = "SELL" ] && hedge_side="SHORT"
       trade_position_side_param="&positionSide=$hedge_side"
@@ -2231,6 +2252,8 @@ for i in $(seq 1 "$CYCLES"); do
   slow_velocity_count=0
   current_bps="0"
   current_pnl_live="0"
+  # S-10 #3 : frais aller-retour (notionnel) figés pour ce cycle — PnL live = NET.
+  hold_fee_usdt="$(num_div "$(num_mul "$(num_mul "$entry_price" "$qty")" "$FEE_ROUND_TRIP_BPS")" "10000")"
   while true; do
     if [ -f "$STOP_FILE" ]; then reason="kill_switch"; break; fi
     now_s="$(now_sec)"
@@ -2242,6 +2265,7 @@ for i in $(seq 1 "$CYCLES"); do
     px="$(safe_call as_num "$(safe_call json_get "$tick_resp" "price")")"
     current_bps="$(num_mul "$(bps_change "$entry_price" "$px")" "$signed_dir")"
     current_pnl_live="$(num_mul "$(num_sub "$px" "$entry_price")" "$(num_mul "$qty" "$signed_dir")")"
+    current_pnl_live="$(num_sub "$current_pnl_live" "$hold_fee_usdt")"
     if num_ge "$current_bps" "$peak_bps"; then peak_bps="$current_bps"; fi
     if [ "$SHOCK_EXIT_10_BPS_ENABLED" = "TRUE" ] && num_le "$current_bps" "-$SHOCK_EXIT_10_BPS"; then
       reason="shock_exit_10bps"; break
@@ -2478,7 +2502,7 @@ for i in $(seq 1 "$CYCLES"); do
         fi
       fi
     else
-      if num_ge "$current_bps" "$MIN_PROFIT_BPS"; then
+      if num_ge "$current_bps" "$(num_add "$MIN_PROFIT_BPS" "$FEE_ROUND_TRIP_BPS")"; then
         if duo_is_hunter && [ "$hunter_block_exit" -eq 1 ]; then
           :
         else
@@ -2550,6 +2574,8 @@ for i in $(seq 1 "$CYCLES"); do
   bps="$(num_mul "$(bps_change "$entry_price" "$exit_price")" "$signed_dir")"
   pct="$(num_div "$bps" "100")"
   pnl_usdt="$(num_mul "$(num_sub "$exit_price" "$entry_price")" "$(num_mul "$qty" "$signed_dir")")"
+  fee_usdt="$(num_div "$(num_mul "$(num_mul "$entry_price" "$qty")" "$FEE_ROUND_TRIP_BPS")" "10000")"
+  pnl_net_usdt="$(num_sub "$pnl_usdt" "$fee_usdt")"
   if duo_enabled && [ "$DUO_DOPAMINE_MODE" = "TRUE" ]; then
     if num_gt "$pnl_usdt" "0"; then
       dopamine_state="win"
@@ -2582,12 +2608,12 @@ for i in $(seq 1 "$CYCLES"); do
   hold_done=$(( $(to_int "$(now_sec)") - $(to_int "$start_s") ))
   close_ts_iso="$(date -u +%FT%TZ)"
   if duo_enabled; then
-    duo_session_update_pnl "$DUO_ROLE" "$pnl_usdt"
+    duo_session_update_pnl "$DUO_ROLE" "$pnl_net_usdt"
   fi
   if duo_is_scout; then
-    duo_publish_state "CLOSED" "$side" "$bps" "$pnl_usdt" "$reason" "$i" "$hold_done"
+    duo_publish_state "CLOSED" "$side" "$bps" "$pnl_net_usdt" "$reason" "$i" "$hold_done"
   fi
-  running_total_pnl="$(num_add "$running_total_pnl" "$pnl_usdt")"
+  running_total_pnl="$(num_add "$running_total_pnl" "$pnl_net_usdt")"
   anomaly_pnl_eff="$ANOMALY_PNL_USDT"
   if num_gt "$current_leverage" "1"; then
     anomaly_pnl_eff="$(num_mul "$ANOMALY_PNL_USDT" "$LEVERAGE_ANOMALY_MULT")"
@@ -2596,7 +2622,7 @@ for i in $(seq 1 "$CYCLES"); do
     soft_cooldown_remaining="$SOFT_COOLDOWN_CYCLES"
     echo "${C_C}Cycle $i${C_N} ${C_G}SOFT anomaly${C_N} ${C_Y}| pnl_abs=$(abs_num "$pnl_usdt") > $anomaly_pnl_eff${C_N}"
   fi
-  echo "$(date -u +%FT%TZ),$i,$side,FILLED,$entry_price,$exit_price,$qty,$bps,$pnl_usdt,$reason,$hold_done,radar=$radar_direction conf=$radar_conf size_note=$dynamic_size_note soft=$cycle_soft_mode pct=$pct tension=$tension_score bid_drop=$wall_drop_bid_pct ask_drop=$wall_drop_ask_pct" >> "$LOG_FILE"
+  echo "$(date -u +%FT%TZ),$i,$side,FILLED,$entry_price,$exit_price,$qty,$bps,$pnl_usdt,$fee_usdt,$pnl_net_usdt,$reason,$hold_done,radar=$radar_direction conf=$radar_conf size_note=$dynamic_size_note soft=$cycle_soft_mode pct=$pct tension=$tension_score bid_drop=$wall_drop_bid_pct ask_drop=$wall_drop_ask_pct" >> "$LOG_FILE"
   col_pnl="$C_G"; num_gt "$pnl_usdt" "0" || { col_pnl="$C_R"; num_lt "$pnl_usdt" "0" || col_pnl="$C_Y"; }
   col_lev="$C_C"; num_ge "$current_leverage" "13" && col_lev="$C_G"; num_le "$current_leverage" "5" && col_lev="$C_Y"
   col_ten="$C_C"; num_ge "$tension_score" "2.0" && col_ten="$C_R"; num_ge "$tension_score" "1.0" && num_lt "$tension_score" "2.0" && col_ten="$C_G"; num_ge "$tension_score" "0.85" && num_lt "$tension_score" "1.0" && col_ten="$C_Y"
@@ -2605,7 +2631,7 @@ for i in $(seq 1 "$CYCLES"); do
   entry_hr="${entry_ts_iso:11:8}"
   close_hr="${close_ts_iso:11:8}"
   total_display="$running_total_pnl"; duo_enabled && total_display="$(duo_session_total_pnl)"
-  echo "${C_C}entry=${entry_hr}@${entry_price}${C_N} ${col_lev}x$current_leverage${C_N} ${C_C}#$i${C_N} ${col_pnl}$side${C_N} tension=${col_ten}$tension_score${C_N} hold=${col_hold}$hold_done${C_N}s sec=${col_hold}$hold_done${C_N} ${C_N}| exit=${exit_price} ${col_conf}conf=$radar_conf${C_N} ${C_C}exit_time=${close_hr}${C_N} ${col_pnl}pnl=$pnl_usdt bps=$bps pct=${pct}% total=$total_display${C_N}"
+  echo "${C_C}entry=${entry_hr}@${entry_price}${C_N} ${col_lev}x$current_leverage${C_N} ${C_C}#$i${C_N} ${col_pnl}$side${C_N} tension=${col_ten}$tension_score${C_N} hold=${col_hold}$hold_done${C_N}s sec=${col_hold}$hold_done${C_N} ${C_N}| exit=${exit_price} ${col_conf}conf=$radar_conf${C_N} ${C_C}exit_time=${close_hr}${C_N} ${col_pnl}pnl=$pnl_usdt net=$pnl_net_usdt bps=$bps pct=${pct}% total=$total_display${C_N}"
   if duo_global_stop_hit; then
     echo "${C_R}STOP global session detected after cycle $i.${C_N}"
     break
