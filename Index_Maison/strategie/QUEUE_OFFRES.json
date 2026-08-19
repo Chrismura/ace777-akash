@@ -746,8 +746,8 @@
       "api_key_env": "PUTER_API_KEY",
       "role": "gros cerveau",
       "arrivee": "2026-08-13T23:35:26.113217",
-      "statut": "nouveau",
-      "essais": 2,
+      "statut": "poubelle",
+      "essais": 3,
       "test_reel": {
         "ok": false,
         "erreur": "HTTP 402 {\"error\":\"A subscription is required for this action\",\"message\":\"A subscription "
@@ -763,8 +763,12 @@
       "api_key_env": "PUTER_API_KEY",
       "role": "gros cerveau",
       "arrivee": "2026-08-13T23:35:26.113222",
-      "statut": "attente_cle",
-      "essais": 0
+      "statut": "nouveau",
+      "essais": 1,
+      "test_reel": {
+        "ok": false,
+        "erreur": "HTTP 402 {\"error\":\"A subscription is required for this action\",\"message\":\"A subscription "
+      }
     },
     {
       "id": "4000ea46ce58",
@@ -777,7 +781,11 @@
       "role": "gros cerveau",
       "arrivee": "2026-08-14T08:15:03.872588",
       "statut": "nouveau",
-      "essais": 0
+      "essais": 1,
+      "test_reel": {
+        "ok": false,
+        "erreur": "HTTP 429 {\"error\":{\"message\":\"Rate limit exceeded: free-models-per-day. Add 10 credits to"
+      }
     },
     {
       "id": "2c21274fbe37",
@@ -790,7 +798,11 @@
       "role": "gros cerveau",
       "arrivee": "2026-08-14T08:15:03.872751",
       "statut": "nouveau",
-      "essais": 0
+      "essais": 1,
+      "test_reel": {
+        "ok": false,
+        "erreur": "HTTP 429 service failure: tenant tn-59004cfrvs quota exceeded"
+      }
     },
     {
       "id": "42fd76b401c1",
@@ -803,7 +815,11 @@
       "role": "gros cerveau",
       "arrivee": "2026-08-14T08:15:03.872757",
       "statut": "nouveau",
-      "essais": 0
+      "essais": 1,
+      "test_reel": {
+        "ok": false,
+        "erreur": "HTTP 429 service failure: tenant tn-59004cfrvs quota exceeded"
+      }
     },
     {
       "id": "158d31350326",
@@ -816,7 +832,11 @@
       "role": "gros cerveau",
       "arrivee": "2026-08-15T08:15:01.713380",
       "statut": "nouveau",
-      "essais": 0
+      "essais": 1,
+      "test_reel": {
+        "ok": false,
+        "erreur": "HTTP 402 {\"error\":\"A subscription is required for this action\",\"message\":\"A subscription "
+      }
     },
     {
       "id": "4a29606a968a",
