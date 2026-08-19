@@ -653,9 +653,10 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
 .card.hulk .bag .meta{font-size:.58rem;letter-spacing:.04em;margin-top:2px;color:var(--muted)}
 .card.hulk .bag .meta .dir-long{color:var(--acid)}
 .card.hulk .bag .meta .dir-short{color:var(--red)}
-.card.hulk .stream.hist{height:132px}
-.card.hulk .stream.hist .trade{font-size:.66rem;grid-template-columns:46px 62px 1fr auto;gap:5px;padding:3px 4px}
-.card.hulk .stream.hist .trade .t-ev{color:var(--muted);font-size:.55rem;letter-spacing:.03em}
+.card.hulk .stream.hist{height:auto;max-height:none;overflow:visible}
+.card.hulk .stream.hist .stream-inner{gap:2px;padding:4px}
+.card.hulk .stream.hist .trade{font-size:.64rem;grid-template-columns:38px 46px 1fr auto;gap:2px;padding:2px 3px}
+.card.hulk .stream.hist .trade .t-ev{color:var(--muted);font-size:.52rem;letter-spacing:.02em}
 .card.hulk .stream.hist .trade .t-line{color:#cfe0d0}
 .card.hulk .hulk-jlegend{font-size:.55rem;color:var(--muted);letter-spacing:.06em;margin-top:3px}
 .card.hulk .hulk-wallet{margin-top:6px;display:flex;flex-direction:column;gap:3px}
@@ -694,14 +695,18 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
 @media (max-width:1150px){.hulk-cols{grid-template-columns:1fr}}
 .hulk-tbl-wrap{overflow-x:auto;max-width:100%}
 .hulk-tbl{width:auto;border-collapse:collapse;font-size:.82rem;color:#e6eef7;white-space:nowrap}
-.hulk-tbl th{font-family:Orbitron,sans-serif;font-size:.58rem;letter-spacing:.05em;color:#cfe0d0;text-align:left;padding:2px 4px;border-bottom:1px solid rgba(196,255,77,.35)}
-.hulk-tbl td{padding:3px 4px;border-bottom:1px solid rgba(255,255,255,.06);vertical-align:middle}
+.hulk-tbl th{font-family:Orbitron,sans-serif;font-size:.56rem;letter-spacing:.04em;color:#cfe0d0;text-align:left;padding:2px 3px;border-bottom:1px solid rgba(196,255,77,.35)}
+.hulk-tbl td{padding:2px 3px;border-bottom:1px solid rgba(255,255,255,.06);vertical-align:middle}
 .hulk-tbl .hc{white-space:nowrap}
 .hulk-tbl .hcn{font-family:Orbitron,sans-serif;font-size:.85rem;color:#e6eef7}
 .hulk-tbl .hq{font-family:"Share Tech Mono",monospace;color:#cfe0d0;font-size:.8rem}
 .hulk-tbl .hs{color:#e6eef7;font-size:.82rem}
 .hulk-tbl .hr{color:#e6eef7;font-size:.82rem}
-.hulk-tbl .hsub{color:#cfd8e0;font-size:.72rem;font-family:"Share Tech Mono",monospace}
+.hulk-tbl .hsub{color:#cfd8e0;font-size:.68rem;font-family:"Share Tech Mono",monospace}
+.hulk-tbl tfoot .htotal td{border-top:2px solid rgba(196,255,77,.5);border-bottom:none;font-family:Orbitron,sans-serif}
+.hulk-tbl tfoot .htotal .hcn{color:var(--hulk);font-size:.78rem}
+.hulk-tbl tfoot .htotal .hs,.hulk-tbl tfoot .htotal .hr{font-size:.8rem}
+.hulk-tbl tfoot .htotal .hr{border-left:3px solid}
 .hulk-tbl .hr.wpos{background:rgba(124,255,107,.10);border-left:2px solid var(--acid)}
 .hulk-tbl .hr.wneg{background:rgba(255,77,77,.16);border-left:2px solid var(--red)}
 .hulk-tbl .hr.wneu{background:rgba(255,255,255,.03);border-left:2px solid var(--muted)}
@@ -1424,7 +1429,11 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
         <div class="hg hg-ia" title="Conseil ADA (gardienne)"><span class="hg-lab">IA · ADA</span><span class="hg-val" id="h-ia">—</span></div>
       </div>
 
-      <!-- DU DÉPART (gauche) + SUIVI PAR CRYPTO (droite) — côte à côte pour ne pas scroller -->
+      <!-- SUIVI PAR CRYPTO (bulles) — tout en haut -->
+      <div class="hulk-sect">SUIVI PAR CRYPTO <span class="hulk-sect-n" id="h-bags-note"></span></div>
+      <div class="hulk-folio-grid" id="h-folio"></div>
+
+      <!-- DU DÉPART (tableau + total) + JOURNAL DES OPÉRATIONS — côte à côte -->
       <div class="hulk-cols">
         <div class="hulk-col">
           <div class="hulk-sect">DU DÉPART — le bag au début <span class="hulk-sect-n" id="h-wal-note"></span></div>
@@ -1433,18 +1442,15 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
               <th>CRYPTO</th><th>BAG AU DÉBUT (qté)</th><th>SI RIEN FAIT</th><th>RÉEL (valeur $)</th>
             </tr></thead>
             <tbody></tbody>
+            <tfoot id="h-wallet-tfoot"></tfoot>
           </table></div>
         </div>
         <div class="hulk-col">
-          <!-- SUIVI PAR CRYPTO -->
-          <div class="hulk-sect">SUIVI PAR CRYPTO <span class="hulk-sect-n" id="h-bags-note"></span></div>
-          <div class="hulk-folio-grid" id="h-folio"></div>
+          <!-- JOURNAL DES OPÉRATIONS : TOUS les trades exécutés -->
+          <div class="hulk-sect">JOURNAL DES OPÉRATIONS <span class="hulk-sect-n" id="h-hist-n" style="color:var(--hulk)"></span></div>
+          <div class="stream hist"><div class="stream-inner" id="h-list"></div></div>
         </div>
       </div>
-
-      <!-- JOURNAL DES OPÉRATIONS -->
-      <div class="hulk-sect">JOURNAL DES OPÉRATIONS <span class="hulk-sect-n" id="h-hist-n" style="color:var(--hulk)"></span></div>
-      <div class="stream hist"><div class="stream-inner" id="h-list"></div></div>
       <div class="hulk-jlegend">achat/vente · prix · qté · % · PnL · hold = si rien fait</div>
     </div>
 
@@ -1949,6 +1955,20 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
             <td class="hr ${rCls}" title="RÉEL = bag maintenant + 20$ cash. ROUGE = en dessous de si rien fait (perte)."><span class="${cls(vsPct)}">${arrow(vsPct)} ${vsPct!=null?((vsPct>0?'+':'')+fmt(vsPct,1)+'%'):'—'}</span>${bTot!=null?(' <span class="hsub">'+usd(bTot)+'</span>'):''}</td>
           </tr>`;
         }).join('') || '<tr><td colspan="4" class="hsub">aucune position</td></tr>';
+        // LIGNE TOTALE en bas : les VRAIS totaux du wallet (déjà calculés par le feed)
+        // réel / statique / écart — cohérents avec les grosses cases et la note du haut.
+        const totSFull=(wSt!=null)? wSt : null;
+        const totBFull=(wRe!=null)? wRe : null;
+        const totEc=(totBFull!=null&&totSFull!=null)? (totBFull-totSFull) : null;
+        const totPct=(totEc!=null&&totSFull!=null&&totSFull!==0)? (totEc/totSFull*100) : null;
+        const totCls=(totEc!=null&&totEc<-0.05)?'wneg':(totEc!=null&&totEc>0.05?'wpos':'wneu');
+        const tf=document.getElementById('h-wallet-tfoot');
+        if(tf) tf.innerHTML=`<tr class="htotal">
+          <td class="hc"><span class="hcn">TOTAL</span></td>
+          <td class="hq">${wOpen.length}</td>
+          <td class="hs" title="Total si tu n'avais rien fait (wallet statique)">${totSFull!=null?usd(totSFull):'—'}</td>
+          <td class="hr ${totCls}" title="TOTAL RÉEL vs TOTAL SI RIEN FAIT — rouge = perte globale vs ne rien faire."><span class="${cls(totEc)}">${totEc!=null?((totEc>0?'+':'')+fmt(totEc,1)+'$'):'—'}</span>${totBFull!=null?(' <span class="hsub">'+usd(totBFull)+'</span>'):''}</td>
+        </tr>`;
       }
     }
     // SUIVI PAR CRYPTO : tout le portefeuille (ouvertes + suivies)
@@ -1994,9 +2014,10 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
     const list=document.getElementById('h-list');
     const hn=document.getElementById('h-hist-n');
     if(list){
+      // TOUS les trades exécutés (le feed fournit history complet, on n'en coupe plus)
       const hist=(h.history&&h.history.length? h.history : h.last||[]);
-      if(hn) hn.textContent='('+hist.length+')';
-      list.innerHTML=hist.slice(0,100).map(r=>{
+      if(hn) hn.textContent='('+hist.length+' trades)';
+      list.innerHTML=hist.map(r=>{
         const ev=(r.event||'').toUpperCase();
         const crypto=r.crypto||r.pair||'';
         const isSeed=(r.reason||'').toUpperCase().startsWith('SEED');

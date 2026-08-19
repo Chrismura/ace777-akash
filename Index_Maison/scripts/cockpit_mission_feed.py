@@ -402,7 +402,7 @@ def load_hulk():
         ]
         out["skips"] = len(real) - len(trades)
         out["last"] = list(reversed(trades[-30:]))
-        out["history"] = list(reversed(trades[-200:]))
+        out["history"] = list(reversed(trades))  # TOUS les trades exécutés (Christophe : « je veux voir tout les trades exécutés »)
         out["tradesClosed"] = sum(
             1 for r in rows
             if (r.get("event") or "").upper().startswith(("SELL", "STOP", "BAG_SELL", "BAG_CRASH"))
