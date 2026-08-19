@@ -1,16 +1,18 @@
 {
-  "ts": "2026-08-19T03:45+00:00",
-  "updated": "2026-08-19T03:45Z",
-  "etat": "OK",
-  "chaines_ok": "6/6",
-  "anomalies": [],
+  "ts": "2026-08-19T04:10+00:00",
+  "updated": "2026-08-19T04:10Z",
+  "etat": "ALERTE",
+  "chaines_ok": "5/6",
+  "anomalies": [
+    "BALEINES coupée : → Cortana feed"
+  ],
   "degradees": [],
   "chaines": [
     {
       "id": "baleines",
       "nom": "BALEINES",
       "chemin": "scan → pont → live.json.onchain → Ada + Cortana",
-      "ok": true,
+      "ok": false,
       "maillons": [
         {
           "nom": "scan (launchd whales)",
@@ -44,8 +46,8 @@
         },
         {
           "nom": "→ Cortana feed",
-          "ok": true,
-          "detail": "âge 74 min"
+          "ok": false,
+          "detail": "âge 99 min"
         }
       ]
     },
@@ -63,7 +65,7 @@
         {
           "nom": "CSV aspiration",
           "ok": true,
-          "detail": "ASPIRATION_CALIB_20260816_214411.csv · âge 1 min"
+          "detail": "ASPIRATION_CALIB_20260816_214411.csv · âge 0 min"
         },
         {
           "nom": "corrélation BTC",
@@ -109,7 +111,7 @@
         {
           "nom": "cpfp_detect.json",
           "ok": true,
-          "detail": "âge 1 min"
+          "detail": "âge 6 min"
         },
         {
           "nom": "mode",
