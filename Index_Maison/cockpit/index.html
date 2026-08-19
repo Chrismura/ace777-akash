@@ -720,6 +720,8 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
 .hfc .hfc-tag.open{color:var(--hulk);border-color:var(--hulk)}
 .hfc .hfc-tag.bag{color:#d0ff90;border-color:rgba(196,255,77,.5)}
 .hfc .hfc-tag.flat{color:var(--muted);border-color:rgba(140,160,180,.4)}
+.hfc .hfc-tag.dir-long{color:var(--acid);border-color:var(--acid)}
+.hfc .hfc-tag.dir-short{color:var(--red);border-color:var(--red)}
 .hfc .hfc-row{display:flex;justify-content:space-between;gap:6px;color:#c9d4de}
 .hfc .hfc-row span:first-child{color:var(--muted);font-size:.56rem;letter-spacing:.05em}
 .hfc .hfc-reg{font-size:.54rem;color:var(--muted);letter-spacing:.05em;border-top:1px solid rgba(255,255,255,.05);padding-top:3px;margin-top:1px}
@@ -1992,9 +1994,11 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
           const bVal=p.bagValue!=null?p.bagValue:null;
           const vsDep=bPct!=null?bPct:(u!=null?((u/ (p.stake||10))*100):null);
           const depCls=(vsDep!=null&&vsDep<0)?'neg':(vsDep!=null&&vsDep>0?'pos':'neu');
+          const dirCls=dirTxt==='SHORT'?'dir-short':(dirTxt==='LONG'?'dir-long':'');
+          const dirArrow=dirTxt==='LONG'?'⇧':(dirTxt==='SHORT'?'⇩':'');
           return `<div class="hfc" title="${crypto} — tenir depuis l'entrée (rien faire). ROUGE = en baisse vs départ (mise) même si +%">
-            <div class="hfc-top"><span class="hfc-name">${crypto}</span><span class="hfc-tag ${tagCls}">${tag}</span></div>
-            <div class="hfc-row"><span class="${dirTxt==='SHORT'?'dir-short':(dirTxt==='LONG'?'dir-long':'')}">${dirTxt||'dir'}${seedTxt}</span><span>${regime}</span></div>
+            <div class="hfc-top"><span class="hfc-name">${crypto}</span><span class="hfc-tag ${tagCls} ${dirCls}">${tag}${dirTxt?(' · '+dirTxt+' '+dirArrow):''}</span></div>
+            <div class="hfc-row"><span class="${dirCls}">${dirTxt||'dir'}${seedTxt}</span><span>${regime}</span></div>
             <div class="hfc-row"><span>entrée</span><span>${fmtP(p.entry,6)}</span></div>
             <div class="hfc-row"><span>cours</span><span>${fmtP(p.mark||p.high,6)}</span></div>
             <div class="hfc-row" title="si tu n'avais rien fait"><span>hold</span><span class="${cls(pct)}">${pct!=null?fmt(pct,2)+'%':'—'}</span></div>
