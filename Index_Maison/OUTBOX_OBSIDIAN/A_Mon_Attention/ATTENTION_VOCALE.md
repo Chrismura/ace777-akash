@@ -1,11 +1,11 @@
 # Attention vocale — Cortana
 
 ## Dernier résumé
-> Info Fill Bêta. Bêta : SELL, +0.98 dollars. Provenance cortana_watch_fill.
+> Info Fill Alfa. Alfa : BUY, -1.14 dollars. Provenance cortana_watch_fill.
 
 ## Meta
 - statut: READY
-- ts: 20260819T0106Z
+- ts: 20260819T0231Z
 - pertinence: SOFT
 - sentiment: INFO
 - compte: thermo-free
