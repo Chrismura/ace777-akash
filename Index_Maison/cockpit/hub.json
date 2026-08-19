@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-19T22:12:32.029458+00:00",
+  "generated_at": "2026-08-19T22:20:06.753434+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 214
+      "calls_24h": 208
     },
     {
       "id": "openrouter-free",
@@ -338,6 +338,12 @@
   ],
   "events": [
     {
+      "ts": "2026-08-19T22:20:05.497429+00:00",
+      "kind": "reserve-storm",
+      "title": "Tempête active + budget calme atteint -> réserve storm pour supervise.decision",
+      "detail": "supervise.decision"
+    },
+    {
       "ts": "2026-08-19T21:19:41.881114+00:00",
       "kind": "message",
       "title": "« Groq (LLM ultra-rapide, gratuit) » a repondu",
@@ -390,12 +396,6 @@
       "kind": "quota",
       "title": "Budget calme atteint -> bascule famille (gratuits)",
       "detail": "signets.lot2"
-    },
-    {
-      "ts": "2026-08-19T21:15:59.480855+00:00",
-      "kind": "message",
-      "title": "« Google Gemini » a repondu",
-      "detail": ""
     }
   ],
   "tasks_quotas": {
