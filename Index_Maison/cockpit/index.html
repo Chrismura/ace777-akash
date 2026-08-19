@@ -1181,6 +1181,11 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
       <b class="ind-val" id="top-dust">—</b>
       <span class="ind-sub" id="top-dust-sub"></span>
     </div>
+    <div class="ind-chip" data-peda="gain_reel" title="Gain réel = PnL bots − frais plateforme (Binance)">
+      <span class="ind-lab">GAIN RÉEL</span>
+      <b class="ind-val" id="top-gain">—</b>
+      <span class="ind-sub" id="top-gain-sub"></span>
+    </div>
   </div>
 
   <!-- Notations par indice (apprentissage) — détail repliable -->
@@ -2256,6 +2261,7 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
     renderVol();
     renderSante();
     renderPoussiere();
+    renderGainReel();
     rebuildLines();
     seedBlips();
     document.getElementById('foot-ts').textContent = 'FEED '+(M.ts||'—')+(M.run?(' · '+M.run):'');
@@ -2855,6 +2861,7 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
     verre: {t:'VERRE D’EAU', d:'Chaleur du portefeuille : volume d’activité récente (fills, PnL session, alertes rouges). Un verre plein = beaucoup de mouvement et de stress ; vide = calme plat.', s:'Lecture seule des logs ACE'},
     poussiere: {t:'POUSSIÈRE (DUST ONCHAIN)', d:'La « poussière » : transactions minuscules (<2 sat/vB) sur la blockchain, souvent utilisées pour fragmenter ou déplacer discrètement de la valeur (CPFP). C’est le BRUT — la donnée qui ne ment pas, contrairement au narratif. Une accumulation inhabituelle de poussière = anomalie structurelle à enquêter.', s:'detecter_cpfp.py · mempool.space (gratuit) · mode observation'},
     couleur_regime: {t:'COULEUR RÉGIME', d:'Un signal lisible pour Hulk : l’onchain (la vérité) filtré par le narratif (le bruit). VERT = aligné haussier · JAUNE = contrarian (foule a peur, les gros achètent) · ROUGE = le piège (on te vend du rêve pendant que l’argent part) · NOIR = aligné baissier · ORANGE = pas assez de signal, attendre. La boucle justesse note chaque couleur vs le prix réel pour s’auto-améliorer.', s:'couleur_regime.py · sniffer_vrai.py (brut vs narratif)'},
+    gain_reel: {t:'GAIN RÉEL', d:'La vraie performance : ce que génèrent les bots (PnL brut) MOINS les frais de plateforme (commissions taker Binance). C est la seule ligne qui compte : si elle est rouge, les bots paient plus en frais qu ils ne gagnent. Exemple : bots +14 · frais -293 = gain réel -278.', s:'PnL CSV (brut) moins commissions Binance income (réelles)'},
   };
   let pedaPinned = '';
   function fillPeda(key){
@@ -3096,6 +3103,26 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
       const mode = oc.cpfpMode ? ('mode '+oc.cpfpMode) : '';
       const detail = (oc.cpfpDustDetail||'').slice(0,80);
       sub.textContent = (mode + (mode&&detail?' · ':'') + detail) || 'pas de donnée poussière';
+    }
+  }
+
+  function renderGainReel(){
+    const v=document.getElementById('top-gain');
+    const s=document.getElementById('top-gain-sub');
+    const net = M.comboPnlNet!=null ? M.comboPnlNet : null;
+    const brut = M.comboPnl!=null ? M.comboPnl : null;
+    const fees = M.comboFeesToday!=null ? M.comboFeesToday : null;
+    if(v){
+      if(net==null){ v.textContent='—'; v.style.color='#e9e4d4'; }
+      else{
+        v.textContent = (net<0?'-':'+')+Math.abs(net).toFixed(1)+'$';
+        v.style.color = net>0 ? '#7cff6b' : (net<0 ? '#ff5c5c' : '#e9e4d4');
+      }
+    }
+    if(s){
+      const b = brut==null?'—':((brut>=0?'+':'')+brut.toFixed(0)+'$');
+      const f = fees==null?'—':(fees.toFixed(0)+'$');
+      s.textContent = 'bots '+b+' · frais '+f;
     }
   }
 
