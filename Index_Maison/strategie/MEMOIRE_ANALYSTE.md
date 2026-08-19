@@ -1455,3 +1455,9 @@
 - 2026-08-19T00:14:02.066437Z | alerte | ? | conf=?
 - 2026-08-19T00:44:01.317451Z | alerte | ? | conf=?
 - 2026-08-19T00:44:29.488782Z | alerte | one clear sentence. | conf=?
+- 2026-08-19T00:51:16.057884Z | alerte | ? | conf=?
+- 2026-08-19T00:59:10.664997Z | alerte | Maintenir la vigilance ambre avec une discipline stricte d'embuscade d'Alpha, un éclairage fiable de Beta et une gestion prudente des positions seeds de Hulk, tout en capitalisant sur les opportunités de marché identifiées par Beta et en attendant une confirmation claire de la cassure du mur du carnet. | conf=86%
+- 2026-08-19T01:00:43.946230Z | alerte | ? | conf=?
+- 2026-08-19T01:01:02.294565Z | alerte | Maintenir la vigilance ambre avec une discipline stricte d'embuscade d'Alpha, un éclairage fiable de Beta et une gestion prudente des positions seeds de Hulk, tout en capitalisant sur les opportunités de marché identifiées par Beta et en attendant une confirmation claire de la cassure du mur du carnet. | conf=86%
+- 2026-08-19T01:03:29.633133Z | alerte | ? | conf=?
+- 2026-08-19T01:07:34.809333Z | alerte | Maintenir la vigilance ambre avec une discipline stricte d'embuscade d'Alpha, un éclairage fiable de Beta et une gestion prudente des positions seeds de Hulk, tout en capitalisant sur les opportunités de marché identifiées par Beta et en attendant une confirmation claire de la cassure du mur du carnet. | conf=86%
