@@ -4,7 +4,8 @@
     "2026-08-12": 8,
     "2026-08-13": 8,
     "2026-08-14": 8,
-    "2026-08-17": 8
+    "2026-08-17": 8,
+    "2026-08-19": 8
   },
   "fiches": {
     "32f5f333ea5d": {
@@ -767,6 +768,155 @@
       "usage": "Codeur, Analyste, Chat",
       "avis_pour": "Excellent pour les tâches de codage et d'analyse du langage, offrant une performance élevée sans coût",
       "avis_attention": "Les limites de tokens peuvent être restrictives pour les tâches nécessitant une grande quantité de texte"
+    },
+    "d6fff39eee86": {
+      "section": "nvidia",
+      "item": "google/recurrentgemma-2b",
+      "generated": "2026-08-19T08:30:18.980597+00:00",
+      "type": "Petit modèle de langage récurrent optimisé pour l'efficacité",
+      "forts": [
+        "Architecture récurrente légère (RNN/Transformer hybride)",
+        "Idéal pour l'inférence rapide sur petits volumes",
+        "Gratuit via le catalogue Nvidia"
+      ],
+      "faibles": [
+        "Capacité de raisonnement limitée par sa taille (2B)",
+        "Moins performant que les gros modèles pour le code complexe",
+        "Ne convient pas pour des jugements stratégiques lourds"
+      ],
+      "usage": "chat ou tâches légères de classification",
+      "avis_pour": "À essayer pour sa rapidité d'exécution sur des tâches textuelles simples et répétitives.",
+      "avis_attention": "Attention à sa faible capacité de généralisation sur des raisonnements logiques complexes ou du code avancé."
+    },
+    "3f6f3b6afe13": {
+      "section": "puter (gratuit, token)",
+      "item": "claude-sonnet-4-5",
+      "generated": "2026-08-19T08:30:20.411970+00:00",
+      "type": "Environnement et cloud de développement hébergeant des modèles gratuits",
+      "forts": [
+        "Accès gratuit au modèle puissant claude-sonnet-4-5",
+        "Idéal pour prototyper rapidement du code en ligne",
+        "Interface web complète avec terminal intégré"
+      ],
+      "faibles": [
+        "Limites de quota et de temps d'utilisation gratuit",
+        "Gestion des tokens dépendante de la plateforme Puter",
+        "Moins adapté pour un pipeline de trading automatisé en local"
+      ],
+      "usage": "codeur",
+      "avis_pour": "À essayer absolument pour profiter gratuitement des capacités de raisonnement de Claude Sonnet sur des tâches de code et d'analyse.",
+      "avis_attention": "Attention aux quotas d'utilisation et aux limites inhérentes à un hébergement cloud tiers pour des scripts critiques."
+    },
+    "901e41c461fe": {
+      "section": "puter (gratuit, token)",
+      "item": "x-ai/grok-3-mini-fast",
+      "generated": "2026-08-19T08:30:21.894963+00:00",
+      "type": "Modèle rapide et léger propulsé par x-ai pour des réponses fulgurantes",
+      "forts": [
+        "Vitesse d'exécution très élevée",
+        "Idéal pour les requêtes à fort volume et les bots rapides",
+        "Accès gratuit via Puter"
+      ],
+      "faibles": [
+        "Profondeur de raisonnement parfois limitée sur des stratégies complexes",
+        "Sensible aux limites de débit (rate limits) en heure de pointe"
+      ],
+      "usage": "éclaireur",
+      "avis_pour": "À tester pour dynamiser les flux de sondage du marché et obtenir des réponses instantanées.",
+      "avis_attention": "Ne pas l'utiliser pour les arbitrages stratégiques profonds ou la validation critique de code critique."
+    },
+    "b19a97079bb7": {
+      "section": "puter (gratuit, token)",
+      "item": "deepseek/deepseek-v4-flash",
+      "generated": "2026-08-19T08:30:23.700111+00:00",
+      "type": "Fournisseur d'accès et d'exécution cloud d'IA en ligne",
+      "forts": [
+        "Interface web et API intégrées",
+        "Accès rapide à des modèles récents",
+        "Idéal pour tester rapidement du code sans installation lourde"
+      ],
+      "faibles": [
+        "Limites de quota sur la version gratuite",
+        "Dépendance à la stabilité de la plateforme externe",
+        "Moins adapté aux gros scripts lourds en arrière-plan"
+      ],
+      "usage": "chat",
+      "avis_pour": "Parfait pour prototyper rapidement une idée de script ou lancer un test sans consommer votre propre infrastructure.",
+      "avis_attention": "Attention aux limites de requêtes (tokens) en accès gratuit qui peuvent couper net une automatisation."
+    },
+    "9aab66a7a430": {
+      "section": "puter (gratuit, token)",
+      "item": "gpt-4o",
+      "generated": "2026-08-19T08:30:24.771594+00:00",
+      "type": "Environnement cloud et accès à des modèles puissants",
+      "forts": [
+        "Permet d'accéder à GPT-4o gratuitement",
+        "Interface cloud prête à l'emploi"
+      ],
+      "faibles": [
+        "Limites de quota et d'utilisation gratuite",
+        "Dépendance à une plateforme externe"
+      ],
+      "usage": "analyste",
+      "avis_pour": "Une excellente opportunité de tester des modèles de pointe sans frais pour la stratégie.",
+      "avis_attention": "Attention aux restrictions d'utilisation qui peuvent changer rapidement sur les offres gratuites."
+    },
+    "37fa1064eb89": {
+      "section": "free-ai-stuff (offres VERIFIEES)",
+      "item": "NVIDIA — NIM API catalog (API, Development use only)",
+      "generated": "2026-08-19T08:30:25.916408+00:00",
+      "type": "Fournisseur d'API de développement pour modèles IA via NVIDIA NIM",
+      "forts": [
+        "Catalogue officiel NVIDIA NIM",
+        "Gratuit pour le développement",
+        "Accès à des modèles performants",
+        "Idéal pour les scripts Python"
+      ],
+      "faibles": [
+        "Usage strictement réservé au développement",
+        "Quota ou limites de l'API non spécifiés ici",
+        "Nécessite une clé API NVIDIA",
+        "Dépendance à la plateforme NVIDIA"
+      ],
+      "usage": "analyste",
+      "avis_pour": "À essayer pour tester de nouveaux modèles de pointe via l'infrastructure NVIDIA avec un accès de développement gratuit.",
+      "avis_attention": "Attention, l'utilisation est limitée au développement et ne conviendra pas pour de la production à grande échelle sans basculer sur une offre payante."
+    },
+    "1f82e3c5d73e": {
+      "section": "free-ai-stuff (offres VERIFIEES)",
+      "item": "OpenRouter — Free models router (API,Chatbot, 50 requests daily)",
+      "generated": "2026-08-19T08:30:27.112418+00:00",
+      "type": "Routeur de modèles d'IA gratuits pour API et chatbot",
+      "forts": [
+        "Permet d'accéder à divers modèles gratuits en un seul point d'entrée",
+        "Idéal pour diversifier les sources d'appel sans surcoût cloud"
+      ],
+      "faibles": [
+        "Quota très limité à 50 requêtes quotidiennes",
+        "Risque de latence ou d'indisponibilité propre aux routeurs tiers"
+      ],
+      "usage": "chat",
+      "avis_pour": "À tester pour enrichir la diversité des fournisseurs à faible coût sans impacter le budget cloud.",
+      "avis_attention": "Attention au quota serré de 50 requêtes par jour qui s'épuise très vite en production."
+    },
+    "28a0fcdab65c": {
+      "section": "github awesome lists",
+      "item": "awesome-freellm-apis: export ANTHROPIC_BASE_URL=\"https://openrouter.ai/api\"",
+      "generated": "2026-08-19T08:30:28.404199+00:00",
+      "type": "Passerelle ou point d'entrée pour l'utilisation d'API LLM gratuites via OpenRouter",
+      "forts": [
+        "Permet de centraliser l'accès à plusieurs modèles",
+        "Idéal pour configurer rapidement des variables d'environnement",
+        "Compatible avec les standards de type Anthropic/OpenAI"
+      ],
+      "faibles": [
+        "Ne fournit pas directement de modèle brut en propre",
+        "Dépend de la disponibilité des offres tierces d'OpenRouter",
+        "Nécessite une configuration manuelle de la base URL"
+      ],
+      "usage": "codeur",
+      "avis_pour": "À essayer pour simplifier le routage et basculer facilement d'un fournisseur gratuit à un autre sans casser les scripts.",
+      "avis_attention": "Attention aux limites de taux (rate limits) et aux changements soudains de gratuité sur les endpoints ciblés par OpenRouter."
     }
   }
 }
