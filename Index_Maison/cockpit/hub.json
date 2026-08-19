@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-19T21:19:27.996935+00:00",
+  "generated_at": "2026-08-19T22:12:32.029458+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 260
+      "calls_24h": 214
     },
     {
       "id": "openrouter-free",
@@ -44,7 +44,7 @@
       "model": "deepseek-ai/deepseek-v4-flash-0731",
       "enabled": true,
       "timeout": 300,
-      "calls_24h": 75
+      "calls_24h": 74
     },
     {
       "id": "mistral",
@@ -211,10 +211,18 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 853,
+    "consumed": 854,
     "remaining": 0
   },
   "queue": [
+    {
+      "ts": "2026-08-19T21:19:41.881434+00:00",
+      "task": "supervise.decision",
+      "provider": "groq",
+      "model": "groq/compound",
+      "kind": "cloud",
+      "duration_s": 1.79
+    },
     {
       "ts": "2026-08-19T21:16:08.430454+00:00",
       "task": "mission",
@@ -326,17 +334,21 @@
       "model": "qwen-3.8-max-free",
       "kind": "cloud",
       "duration_s": 12.23
-    },
-    {
-      "ts": "2026-08-19T20:46:21.717535+00:00",
-      "task": "supervise.decision",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 0.84
     }
   ],
   "events": [
+    {
+      "ts": "2026-08-19T21:19:41.881114+00:00",
+      "kind": "message",
+      "title": "« Groq (LLM ultra-rapide, gratuit) » a repondu",
+      "detail": ""
+    },
+    {
+      "ts": "2026-08-19T21:19:40.093247+00:00",
+      "kind": "reserve-storm",
+      "title": "Tempête active + budget calme atteint -> réserve storm pour supervise.decision",
+      "detail": "supervise.decision"
+    },
     {
       "ts": "2026-08-19T21:16:08.430107+00:00",
       "kind": "message",
@@ -381,18 +393,6 @@
     },
     {
       "ts": "2026-08-19T21:15:59.480855+00:00",
-      "kind": "message",
-      "title": "« Google Gemini » a repondu",
-      "detail": ""
-    },
-    {
-      "ts": "2026-08-19T21:15:59.480405+00:00",
-      "kind": "reserve-storm",
-      "title": "Tempête active + budget calme atteint -> réserve storm pour signets.juge",
-      "detail": "signets.juge"
-    },
-    {
-      "ts": "2026-08-19T21:15:59.347840+00:00",
       "kind": "message",
       "title": "« Google Gemini » a repondu",
       "detail": ""
