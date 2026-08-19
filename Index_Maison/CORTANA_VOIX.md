@@ -1,14 +1,19 @@
 # Cortana — voix (récupération « film »)
 
-**Problème :** `say` Amelie/Thomas = robotique + mélange. La vraie Cortana ACE = **edge-tts** (Vivienne).
+**Problème :** `say` Amelie/Thomas = robotique + mélange. La vraie Cortana ACE = **edge-tts** (Denise).
 
-**Défaut validé (Christophe) :** `fr-FR-VivienneMultilingualNeural` · rate `-18%` · `CORTANA_TTS=edge` (pas de repli Mac).
+**Défaut (19/08) :** `fr-FR-DeniseNeural` (français **pur**, non-multilingue) · rate `-18%` · `CORTANA_TTS=edge` (pas de repli Mac).
+
+> ⚠️ **Pourquoi on a quitté Vivienne (19/08)** : `fr-FR-VivienneMultilingualNeural` est
+> **multilingue** → dès qu'un ticker / mot anglais glisse dans le texte, elle **bascule
+> de langue** et prend un **accent espagnol** insupportable. Denise (General, non-multilingue)
+> ne peut pas dériver : elle lit tout en français.
 
 | Voix edge | Style |
 |-----------|--------|
-| `fr-FR-VivienneMultilingualNeural` | **défaut** · suave |
-| `fr-FR-DeniseNeural` | classique app Cortana |
-| `fr-FR-EloiseNeural` | plus jeune |
+| `fr-FR-DeniseNeural` | **défaut** · classique app Cortana · français pur |
+| `fr-FR-VivienneMultilingualNeural` | suave mais multilingue → accent espagnol (retirée) |
+| `fr-FR-EloiseNeural` | plus jeune · français pur |
 | `fr-CA-SylvieNeural` | Québec |
 
 ```bash
@@ -27,7 +32,7 @@ CORTANA_TTS=say python3 …/cortana_voice.py "test"
 Alertes / horaire utilisent déjà `cortana_thermo` → `cortana_voice.speak`.
 
 ### Pré-son suave (anti surprise)
-Avant chaque TTS : pad doux 2 tons (~0,5 s) puis Vivienne.  
+Avant chaque TTS : pad doux 2 tons (~0,5 s) puis Denise.  
 News en boucle (UI) : même esprit — chime Web Audio à chaque rotation (~14 s), pas de voix.
 
 ```bash

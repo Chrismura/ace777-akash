@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ACE777 — Carte organique (boussole)</title>
+<meta name="description" content="La carte organique d'ACE777 : la flottille, les secteurs colorés et la logique des connexions. Boussole d'arrivée pour Buffy." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --ink: #070a0c; --panel: #0d1418; --line: #1e3a2f;
+    --acid: #39ff14; --amber: #f5c518; --danger: #ff3b3b;
+    --muted: #6a8a72; --text: #d8ffe0; --cold: #3ec7ff; --hot: #ff6b2d;
+    --violet: #b48bff;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { min-height: 100%; background: var(--ink); color: var(--text);
+    font-family: "Share Tech Mono", ui-monospace, monospace; }
+  body {
+    background:
+      radial-gradient(ellipse 70% 50% at 50% 0%, #122018 0%, transparent 55%),
+      radial-gradient(ellipse 40% 35% at 12% 80%, #1a1008 0%, transparent 50%),
+      radial-gradient(ellipse 40% 35% at 88% 75%, #081820 0%, transparent 50%),
+      var(--ink);
+  }
+  .crt::before {
+    content: ""; pointer-events: none; position: fixed; inset: 0; z-index: 50;
+    background: repeating-linear-gradient(0deg, rgba(0,0,0,0.12) 0px, rgba(0,0,0,0.12) 1px,
+      transparent 2px, transparent 4px); opacity: 0.28;
+  }
+  .shell { max-width: 1500px; margin: 0 auto; padding: 18px 18px 30px; position: relative; z-index: 1; }
+
+  header { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 12px;
+    border-bottom: 1px solid var(--line); padding-bottom: 12px; margin-bottom: 14px; }
+  .brand { font-family: Orbitron, sans-serif; font-weight: 800;
+    font-size: clamp(22px, 3.6vw, 36px); letter-spacing: .04em; color: var(--amber);
+    text-shadow: 0 0 18px rgba(245,197,24,.4); line-height: 1; }
+  .tagline { color: var(--muted); font-size: 12px; margin-top: 6px; max-width: 60ch; }
+  nav { display: flex; gap: 16px; align-items: center; font-size: 12px; flex-wrap: wrap; }
+  nav a, nav span { color: var(--acid); text-decoration: none; font-family: Orbitron, sans-serif; letter-spacing: .12em; }
+  nav span.active { color: var(--amber); border-bottom: 1px solid var(--amber); }
+
+  .howto { margin: 0 0 14px; border: 1px solid var(--line); background: rgba(13,20,24,.7); padding: 12px 14px; font-size: 12px; line-height: 1.6; }
+  .howto b { color: var(--amber); font-weight: 500; }
+  .howto .forbidden { color: var(--danger); }
+  .checkpanel { margin: 0 0 14px; border: 1px solid var(--line); background: rgba(13,20,24,.7); padding: 12px 14px; font-size: 12px; }
+  .checkpanel .cp-title { font-family: Orbitron, sans-serif; font-size: 11px; letter-spacing: .14em; color: var(--acid); margin-bottom: 8px; }
+  .checkpanel .cp-row { display: flex; gap: 10px; align-items: baseline; flex-wrap: wrap; margin: 4px 0; }
+  .checkpanel code { color: var(--amber); font-size: 11px; }
+  .checkpanel .cp-what { color: var(--muted); font-size: 11px; }
+
+  .legend { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-bottom: 14px; }
+  .legend .chip { display: inline-flex; align-items: center; gap: 8px; font-size: 11px; letter-spacing: .08em;
+    padding: 6px 10px; border: 1px solid var(--line); background: rgba(13,20,24,.8); }
+  .legend .dot { width: 10px; height: 10px; border-radius: 2px; }
+  .dot-amber { background: var(--amber); box-shadow: 0 0 8px rgba(245,197,24,.6); }
+  .dot-hot { background: var(--hot); box-shadow: 0 0 8px rgba(255,107,45,.6); }
+  .dot-cold { background: var(--cold); box-shadow: 0 0 8px rgba(62,199,255,.6); }
+  .dot-acid { background: var(--acid); box-shadow: 0 0 8px rgba(57,255,20,.6); }
+  .dot-violet { background: var(--violet); box-shadow: 0 0 8px rgba(180,139,255,.6); }
+  .dot-muted { background: var(--muted); }
+  .dot-red { background: var(--danger); box-shadow: 0 0 8px rgba(255,59,59,.6); }
+
+  .mapbox { border: 1px solid var(--line); background: rgba(7,10,12,.6); padding: 8px; overflow-x: auto; }
+  svg { display: block; width: 100%; height: auto; min-width: 960px; }
+
+  /* SVG styles */
+  .region { stroke-width: 1.5; stroke-dasharray: none; }
+  .r-label { font-family: Orbitron, sans-serif; font-size: 12px; letter-spacing: .14em; font-weight: 700; }
+  .r-sub { font-family: "Share Tech Mono", monospace; font-size: 10px; }
+
+  .node rect { stroke-width: 1.5; fill: #0a1014; }
+  .n-title { font-family: Orbitron, sans-serif; font-size: 12px; font-weight: 700; }
+  .n-sub { font-family: "Share Tech Mono", monospace; font-size: 10.5px; }
+  .n-sub2 { font-family: "Share Tech Mono", monospace; font-size: 10px; }
+
+  .edge { fill: none; stroke-width: 2; }
+  .edge.faint { stroke-width: 1.5; stroke-dasharray: 6 5; }
+  .forbid { fill: none; stroke-width: 2; stroke-dasharray: 8 6; stroke: var(--danger); }
+  .elabel { font-family: "Share Tech Mono", monospace; font-size: 10.5px; }
+  .note { font-family: "Share Tech Mono", monospace; font-size: 10px; }
+
+  footer { margin-top: 18px; border-top: 1px solid var(--line); padding-top: 12px; display: flex;
+    flex-wrap: wrap; gap: 12px 24px; justify-content: space-between; font-size: 11px; color: var(--muted); }
+  footer a { color: var(--acid); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+</style>
+</head>
+<body class="crt">
+  <div class="shell">
+    <header>
+      <div>
+        <div class="brand">ACE777 · CARTE ORGANIQUE</div>
+        <p class="tagline">La flottille complète + la logique des connexions. C'est la boussole d'arrivée : qui est là, qui parle à qui, ce qui est interdit.</p>
+      </div>
+      <nav>
+        <a href="index.html">VUE</a>
+        <a href="tech.html">TECH</a>
+        <a href="apprentissage.html">CYCLE</a>
+        <span class="active">CARTE</span>
+      </nav>
+    </header>
+
+    <div class="howto">
+      <b>Comment lire (60 s à l'arrivée) :</b> ① les <b>zones colorées</b> = les secteurs (orchestration / trading / hub / voix / gardiens / froid / coffre) ·
+      ② les <b>flèches</b> = qui écrit vers qui (les fichiers-ponts) ·
+      ③ le <b>cycle CORTANA + ADA</b> (apprentissage) est sur l'onglet <b>CYCLE</b> ·
+      ④ les <b class="forbidden">lignes rouges ⛔</b> = ce qui est FORMELLEMENT interdit ·
+      ⑤ <b>1 GO = 1 vol</b> : Christophe est le seul déclencheur de trading, jamais l'IA.
+    </div>
+
+    <div class="checkpanel">
+      <div class="cp-title">⚡ CHECK À L'ARRIVÉE — le pouls (cd ~/ace777-test-day1)</div>
+      <div class="cp-row"><code>ps -e -o pid,etime,args | grep -E "ace777-test-day1" | grep -v grep</code><span class="cp-what">ce qui tourne</span></div>
+      <div class="cp-row"><code>cat runs/duo_state.json</code><span class="cp-what">le battement du cœur ACE</span></div>
+      <div class="cp-row"><code>tail -3 hulk-mexc/runs/PAPER_V1_2026*.csv</code><span class="cp-what">HULK paper</span></div>
+      <div class="cp-row"><code>ls Index_Maison/A_Mon_Attention/ | tail -3</code><span class="cp-what">alertes</span></div>
+      <div class="cp-row"><span class="cp-what">la CARTE = l'anatomie · ces commandes = le pouls · onglet CYCLE = l'apprentissage</span></div>
+    </div>
+
+    <div class="legend">
+      <span class="chip"><span class="dot dot-amber"></span>ORCHESTRATION</span>
+      <span class="chip"><span class="dot dot-hot"></span>HOT (trading)</span>
+      <span class="chip"><span class="dot dot-cold"></span>HUB / FROID</span>
+      <span class="chip"><span class="dot dot-acid"></span>VOIX</span>
+      <span class="chip"><span class="dot dot-violet"></span>GARDIENS (warm)</span>
+      <span class="chip"><span class="dot dot-muted"></span>COFFRE (mémoire)</span>
+      <span class="chip"><span class="dot dot-red"></span>INTERDIT ⛔</span>
+    </div>
+
+    <div class="mapbox">
+      <svg viewBox="0 0 1560 1200" role="img" aria-label="Carte organique ACE777">
+        <defs>
+          <marker id="arr-amber" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#f5c518"/></marker>
+          <marker id="arr-hot" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#ff6b2d"/></marker>
+          <marker id="arr-cold" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#3ec7ff"/></marker>
+          <marker id="arr-violet" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#b48bff"/></marker>
+          <marker id="arr-muted" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#6a8a72"/></marker>
+          <marker id="arr-red" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#ff3b3b"/></marker>
+          <marker id="arr-amber-rev" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M10,0 L0,5 L10,10 z" fill="#f5c518"/></marker>
+          <marker id="arr-acid" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#39ff14"/></marker>
+        </defs>
+
+        <!-- ============ SECTEUR : ORCHESTRATION ============ -->
+        <rect class="region" x="40" y="40" width="1480" height="200" rx="14" fill="rgba(245,197,24,0.05)" stroke="#f5c518"/>
+        <text class="r-label" x="56" y="68" fill="#f5c518">ORCHESTRATION + HUMAIN</text>
+        <text class="r-sub" x="56" y="86" fill="#6a8a72">toi décides (GO) · Buffy orchestre · codeur écrit · famille/juge valident</text>
+
+        <g class="node">
+          <rect x="90" y="95" width="190" height="76" rx="7" stroke="#f5c518"/>
+          <text class="n-title" x="185" y="120" text-anchor="middle" fill="#f5c518">CHRISTOPHE</text>
+          <text class="n-sub" x="185" y="140" text-anchor="middle" fill="#d8ffe0">GO · validation · flair</text>
+          <text class="n-sub2" x="185" y="157" text-anchor="middle" fill="#6a8a72">seul déclencheur trading</text>
+        </g>
+        <g class="node">
+          <rect x="400" y="95" width="210" height="76" rx="7" stroke="#f5c518"/>
+          <text class="n-title" x="505" y="120" text-anchor="middle" fill="#f5c518">BUFFY 🦇</text>
+          <text class="n-sub" x="505" y="140" text-anchor="middle" fill="#d8ffe0">superviseur · chief scientist</text>
+          <text class="n-sub2" x="505" y="157" text-anchor="middle" fill="#6a8a72">pilote la flottille</text>
+        </g>
+        <g class="node">
+          <rect x="740" y="95" width="190" height="76" rx="7" stroke="#f5c518"/>
+          <text class="n-title" x="835" y="120" text-anchor="middle" fill="#f5c518">CODEUR</text>
+          <text class="n-sub" x="835" y="140" text-anchor="middle" fill="#d8ffe0">écrit le code (hub)</text>
+          <text class="n-sub2" x="835" y="157" text-anchor="middle" fill="#6a8a72">code, ne décide pas</text>
+        </g>
+        <g class="node">
+          <rect x="1080" y="95" width="250" height="76" rx="7" stroke="#f5c518"/>
+          <text class="n-title" x="1205" y="120" text-anchor="middle" fill="#f5c518">FAMILLE + JUGE</text>
+          <text class="n-sub" x="1205" y="140" text-anchor="middle" fill="#d8ffe0">Gemini · DeepSeek · Juge</text>
+          <text class="n-sub2" x="1205" y="157" text-anchor="middle" fill="#6a8a72">maker ≠ checker · verdict 4/4</text>
+        </g>
+
+        <!-- ============ SECTEUR : HOT (trading) ============ -->
+        <rect class="region" x="40" y="290" width="440" height="240" rx="14" fill="rgba(255,107,45,0.06)" stroke="#ff6b2d"/>
+        <text class="r-label" x="56" y="318" fill="#ff6b2d">HOT — TRADING</text>
+        <text class="r-sub" x="56" y="336" fill="#6a8a72">jamais sans GO · 0 LLM dans le fill loop</text>
+
+        <g class="node">
+          <rect x="70" y="335" width="200" height="100" rx="7" stroke="#ff6b2d"/>
+          <text class="n-title" x="170" y="360" text-anchor="middle" fill="#ff6b2d">ACE777</text>
+          <text class="n-sub" x="170" y="382" text-anchor="middle" fill="#d8ffe0">Binance testnet futures</text>
+          <text class="n-sub" x="170" y="400" text-anchor="middle" fill="#d8ffe0">BETA ↔ ALPHA (revenge)</text>
+          <text class="n-sub2" x="170" y="418" text-anchor="middle" fill="#6a8a72">duo_state.json = battement</text>
+        </g>
+        <g class="node">
+          <rect x="70" y="465" width="200" height="50" rx="7" stroke="#ff6b2d"/>
+          <text class="n-title" x="170" y="485" text-anchor="middle" fill="#ff6b2d">HULK</text>
+          <text class="n-sub" x="170" y="503" text-anchor="middle" fill="#d8ffe0">MEXC paper · dip &amp; rip</text>
+        </g>
+        <text class="note" x="70" y="525" fill="#6a8a72">fills CSV (ACE) + paper (HULK) = la VÉRITÉ ↓ vers le coffre</text>
+
+        <!-- ============ SECTEUR : HUB ============ -->
+        <rect class="region" x="510" y="290" width="440" height="240" rx="14" fill="rgba(62,199,255,0.05)" stroke="#3ec7ff"/>
+        <text class="r-label" x="526" y="318" fill="#3ec7ff">HUB CLOUD :11435</text>
+        <text class="r-sub" x="526" y="336" fill="#6a8a72">seule passerelle LLM · 0 IA locale</text>
+
+        <g class="node">
+          <rect x="540" y="335" width="220" height="80" rx="7" stroke="#3ec7ff"/>
+          <text class="n-title" x="650" y="360" text-anchor="middle" fill="#3ec7ff">HUB :11435</text>
+          <text class="n-sub" x="650" y="380" text-anchor="middle" fill="#d8ffe0">routing · providers</text>
+          <text class="n-sub2" x="650" y="398" text-anchor="middle" fill="#6a8a72">contexte vivant · budget/jour</text>
+        </g>
+        <g class="node">
+          <rect x="540" y="450" width="220" height="55" rx="7" stroke="#3ec7ff"/>
+          <text class="n-title" x="650" y="472" text-anchor="middle" fill="#3ec7ff">PONT GATE :11439</text>
+          <text class="n-sub" x="650" y="492" text-anchor="middle" fill="#d8ffe0">gate trades → hub (cache 90s)</text>
+        </g>
+
+        <!-- ============ SECTEUR : VOIX ============ -->
+        <rect class="region" x="980" y="290" width="540" height="240" rx="14" fill="rgba(57,255,20,0.05)" stroke="#39ff14"/>
+        <text class="r-label" x="996" y="318" fill="#39ff14">VOIX + COCKPIT</text>
+        <text class="r-sub" x="996" y="336" fill="#6a8a72">lit le bus · ne décide jamais</text>
+
+        <g class="node">
+          <rect x="1010" y="335" width="200" height="80" rx="7" stroke="#39ff14"/>
+          <text class="n-title" x="1110" y="360" text-anchor="middle" fill="#39ff14">CORTANA</text>
+          <text class="n-sub" x="1110" y="380" text-anchor="middle" fill="#d8ffe0">voix · analyste court terme</text>
+          <text class="n-sub2" x="1110" y="398" text-anchor="middle" fill="#6a8a72">+ QWEN apprentie</text>
+        </g>
+        <g class="node">
+          <rect x="1280" y="335" width="210" height="120" rx="7" stroke="#39ff14"/>
+          <text class="n-title" x="1385" y="360" text-anchor="middle" fill="#39ff14">COCKPIT</text>
+          <text class="n-sub" x="1385" y="380" text-anchor="middle" fill="#d8ffe0">HTTP :17800</text>
+          <text class="n-sub" x="1385" y="398" text-anchor="middle" fill="#d8ffe0">bridge :17777</text>
+          <text class="n-sub2" x="1385" y="418" text-anchor="middle" fill="#6a8a72">lecture + STOP · no orders</text>
+        </g>
+
+        <!-- ============ SECTEUR : GARDIENS (warm) ============ -->
+        <rect class="region" x="40" y="570" width="1480" height="210" rx="14" fill="rgba(180,139,255,0.06)" stroke="#b48bff"/>
+        <text class="r-label" x="56" y="598" fill="#b48bff">GARDIENS + OBSERVATEURS (WARM)</text>
+        <text class="r-sub" x="56" y="616" fill="#6a8a72">observent, alertent, calculent — ne tradent jamais</text>
+
+        <g class="node">
+          <rect x="70" y="615" width="180" height="60" rx="7" stroke="#b48bff"/>
+          <text class="n-title" x="160" y="638" text-anchor="middle" fill="#b48bff">RADAR</text>
+          <text class="n-sub" x="160" y="658" text-anchor="middle" fill="#d8ffe0">vigie temps réel (WS+RSS)</text>
+        </g>
+        <g class="node">
+          <rect x="310" y="615" width="210" height="60" rx="7" stroke="#b48bff"/>
+          <text class="n-title" x="415" y="638" text-anchor="middle" fill="#b48bff">ADA GARDIENNE</text>
+          <text class="n-sub" x="415" y="658" text-anchor="middle" fill="#d8ffe0">voilure · zone · seuil X appris</text>
+        </g>
+        <g class="node">
+          <rect x="580" y="615" width="250" height="60" rx="7" stroke="#b48bff"/>
+          <text class="n-title" x="705" y="638" text-anchor="middle" fill="#b48bff">ANALYSTE (score+leçons)</text>
+          <text class="n-sub" x="705" y="658" text-anchor="middle" fill="#d8ffe0">avis → justesse → leçons ↩ (onglet CYCLE)</text>
+        </g>
+        <g class="node">
+          <rect x="890" y="615" width="180" height="60" rx="7" stroke="#b48bff"/>
+          <text class="n-title" x="980" y="638" text-anchor="middle" fill="#b48bff">RISK GUARDIAN</text>
+          <text class="n-sub" x="980" y="658" text-anchor="middle" fill="#d8ffe0">kill switch · DD 8% (pas en vol)</text>
+        </g>
+        <g class="node">
+          <rect x="1130" y="615" width="360" height="60" rx="7" stroke="#b48bff"/>
+          <text class="n-title" x="1310" y="638" text-anchor="middle" fill="#b48bff">VEILLEUSE + SUPERVISEURS</text>
+          <text class="n-sub" x="1310" y="658" text-anchor="middle" fill="#d8ffe0">md5 registre · process · autopilote</text>
+        </g>
+
+        <!-- ============ SECTEUR : COLD ============ -->
+        <rect class="region" x="40" y="820" width="460" height="240" rx="14" fill="rgba(62,199,255,0.05)" stroke="#3ec7ff" stroke-dasharray="6 5"/>
+        <text class="r-label" x="56" y="848" fill="#3ec7ff">COLD — RECHERCHE</text>
+        <text class="r-sub" x="56" y="866" fill="#6a8a72">proposent · ne tradent pas</text>
+
+        <g class="node">
+          <rect x="70" y="860" width="160" height="60" rx="7" stroke="#3ec7ff"/>
+          <text class="n-title" x="150" y="883" text-anchor="middle" fill="#3ec7ff">PUNK</text>
+          <text class="n-sub" x="150" y="903" text-anchor="middle" fill="#d8ffe0">veille X · sniff · brief</text>
+        </g>
+        <g class="node">
+          <rect x="70" y="945" width="160" height="60" rx="7" stroke="#3ec7ff"/>
+          <text class="n-title" x="150" y="968" text-anchor="middle" fill="#3ec7ff">CURSOR</text>
+          <text class="n-sub" x="150" y="988" text-anchor="middle" fill="#d8ffe0">évals · code (actif/passif)</text>
+        </g>
+        <g class="node">
+          <rect x="270" y="860" width="190" height="60" rx="7" stroke="#3ec7ff"/>
+          <text class="n-title" x="365" y="883" text-anchor="middle" fill="#3ec7ff">MIROFISH</text>
+          <text class="n-sub" x="365" y="903" text-anchor="middle" fill="#d8ffe0">simulation foule (pause)</text>
+        </g>
+
+        <!-- ============ SECTEUR : COFFRE ============ -->
+        <rect class="region" x="530" y="820" width="990" height="240" rx="14" fill="rgba(106,138,114,0.08)" stroke="#6a8a72"/>
+        <text class="r-label" x="546" y="848" fill="#6a8a72">COFFRE — MÉMOIRE PARTAGÉE</text>
+        <text class="r-sub" x="546" y="866" fill="#6a8a72">entrée : fills (vérité) · validation → éval → OUTBOX → Obsidian</text>
+
+        <g class="node">
+          <rect x="560" y="880" width="200" height="80" rx="7" stroke="#6a8a72"/>
+          <text class="n-title" x="660" y="905" text-anchor="middle" fill="#d8ffe0">INDEX_MAISON</text>
+          <text class="n-sub" x="660" y="925" text-anchor="middle" fill="#d8ffe0">tableau · évals · attention</text>
+          <text class="n-sub2" x="660" y="943" text-anchor="middle" fill="#6a8a72">vérité workspace</text>
+        </g>
+        <g class="node">
+          <rect x="830" y="880" width="150" height="80" rx="7" stroke="#6a8a72"/>
+          <text class="n-title" x="905" y="905" text-anchor="middle" fill="#d8ffe0">OUTBOX</text>
+          <text class="n-sub" x="905" y="925" text-anchor="middle" fill="#d8ffe0">_sync_now.sh</text>
+          <text class="n-sub2" x="905" y="943" text-anchor="middle" fill="#6a8a72">pont TCC</text>
+        </g>
+        <g class="node">
+          <rect x="1050" y="880" width="170" height="80" rx="7" stroke="#6a8a72"/>
+          <text class="n-title" x="1135" y="905" text-anchor="middle" fill="#d8ffe0">OBSIDIAN</text>
+          <text class="n-sub" x="1135" y="925" text-anchor="middle" fill="#d8ffe0">coffre humain</text>
+          <text class="n-sub2" x="1135" y="943" text-anchor="middle" fill="#6a8a72">no hot auto</text>
+        </g>
+        <g class="node">
+          <rect x="1290" y="880" width="170" height="80" rx="7" stroke="#6a8a72"/>
+          <text class="n-title" x="1375" y="905" text-anchor="middle" fill="#d8ffe0">GITHUB</text>
+          <text class="n-sub" x="1375" y="925" text-anchor="middle" fill="#d8ffe0">sauvegarde</text>
+          <text class="n-sub2" x="1375" y="943" text-anchor="middle" fill="#6a8a72">gitpush 3h</text>
+        </g>
+
+        <!-- ============ ARÊTES (connexions) ============ -->
+        <!-- GO -->
+        <path class="edge" stroke="#f5c518" d="M185,171 C185,250 170,250 170,335" marker-end="url(#arr-amber)"/>
+        <path class="edge" stroke="#f5c518" d="M185,171 C185,320 150,320 150,465" marker-end="url(#arr-amber)"/>
+        <text class="elabel" x="120" y="215" fill="#f5c518">GO · 1 vol</text>
+
+        <!-- session / spec / code / verdict -->
+        <path class="edge" stroke="#f5c518" d="M280,133 H400" marker-start="url(#arr-amber-rev)" marker-end="url(#arr-amber)"/>
+        <text class="elabel" x="312" y="123" fill="#6a8a72">session</text>
+        <path class="edge" stroke="#f5c518" d="M610,133 H740" marker-end="url(#arr-amber)"/>
+        <text class="elabel" x="660" y="123" fill="#6a8a72">spec</text>
+        <path class="edge" stroke="#f5c518" d="M930,133 H1080" marker-end="url(#arr-amber)"/>
+        <text class="elabel" x="985" y="123" fill="#6a8a72">code à valider</text>
+        <path class="edge faint" stroke="#f5c518" d="M1080,160 C850,235 620,235 610,152" marker-end="url(#arr-amber)"/>
+        <text class="elabel" x="840" y="228" fill="#6a8a72">verdict 4/4 → VERDICT_FAMILLE.md</text>
+
+        <!-- gate / hub -->
+        <path class="edge" stroke="#ff6b2d" d="M270,385 C420,385 420,477 540,477" marker-end="url(#arr-hot)"/>
+        <text class="elabel" x="410" y="432" fill="#ff6b2d">gate trades · runs/*.csv</text>
+        <path class="edge" stroke="#3ec7ff" d="M650,450 V415" marker-end="url(#arr-cold)"/>
+        <text class="elabel" x="660" y="436" fill="#3ec7ff">llm_wind</text>
+
+        <!-- hub vers le reste -->
+        <path class="edge" stroke="#3ec7ff" d="M760,375 H1010" marker-end="url(#arr-cold)"/>
+        <text class="elabel" x="830" y="366" fill="#3ec7ff">cortana.yeux · signets → SIGNETS/FICHES_OFFRES.json</text>
+        <path class="edge" stroke="#3ec7ff" d="M650,415 C650,535 705,535 705,615" marker-end="url(#arr-cold)"/>
+        <text class="elabel" x="662" y="548" fill="#3ec7ff">analyste.strategie → derniere_analyse.md</text>
+        <path class="edge faint" stroke="#3ec7ff" d="M650,335 C650,185 1205,185 1205,171" marker-end="url(#arr-cold)"/>
+        <text class="elabel" x="820" y="178" fill="#3ec7ff">code.ia · audit.protocol · supervise.decision</text>
+
+        <!-- cortana -> hulk (advisory) -->
+        <path class="edge faint" stroke="#39ff14" d="M1110,415 C700,415 500,480 280,480" marker-end="url(#arr-acid)"/>
+        <text class="elabel" x="560" y="470" fill="#39ff14">cortana_pilot.json (ADVISORY → HULK)</text>
+
+        <!-- radar -> ada -> cockpit / famille -->
+        <path class="edge" stroke="#b48bff" d="M250,645 H310" marker-end="url(#arr-violet)"/>
+        <text class="elabel" x="262" y="637" fill="#b48bff">journal_radar</text>
+        <path class="edge" stroke="#b48bff" d="M520,645 C520,555 1280,555 1280,395" marker-end="url(#arr-violet)"/>
+        <text class="elabel" x="760" y="547" fill="#b48bff">ada_gardienne_live.json → cockpit thermo</text>
+        <path class="edge faint" stroke="#b48bff" d="M415,615 V578" marker-end="url(#arr-violet)"/>
+        <text class="elabel" x="428" y="592" fill="#b48bff">consulte la famille (non-bloquant)</text>
+
+        <!-- coffre -->
+        <path class="edge" stroke="#6a8a72" d="M760,920 H830" marker-end="url(#arr-muted)"/>
+        <path class="edge" stroke="#6a8a72" d="M980,920 H1050" marker-end="url(#arr-muted)"/>
+        <path class="edge" stroke="#6a8a72" d="M1220,920 H1290" marker-end="url(#arr-muted)"/>
+        <text class="elabel" x="905" y="948" fill="#6a8a72">_sync_now.sh</text>
+
+        <!-- cold -> coffre -->
+        <path class="edge" stroke="#3ec7ff" d="M230,890 C400,890 400,905 560,905" marker-end="url(#arr-cold)"/>
+        <text class="elabel" x="320" y="882" fill="#3ec7ff">propose → A_Mon_Attention/</text>
+        <path class="edge" stroke="#3ec7ff" d="M230,975 C400,975 400,930 560,930" marker-end="url(#arr-cold)"/>
+        <text class="elabel" x="320" y="962" fill="#3ec7ff">évals → MEMOIRE_COLLAB.md</text>
+        <path class="edge faint" stroke="#3ec7ff" d="M460,890 C510,890 510,905 560,905" marker-end="url(#arr-cold)"/>
+        <text class="elabel" x="475" y="880" fill="#3ec7ff">à la demande (pause)</text>
+
+        <!-- gardiens surveillent -->
+        <path class="edge faint" stroke="#b48bff" d="M1230,615 V585" marker-end="url(#arr-violet)"/>
+        <path class="edge faint" stroke="#b48bff" d="M1390,615 V585" marker-end="url(#arr-violet)"/>
+        <text class="elabel" x="1140" y="600" fill="#b48bff">surveille (md5 + process)</text>
+
+        <!-- ============ INTERDITS ============ -->
+        <path class="forbid" d="M540,360 C420,360 420,400 270,400" marker-end="url(#arr-red)"/>
+        <text class="elabel" x="330" y="352" fill="#ff3b3b">⛔ 0 LLM dans le fill loop</text>
+        <path class="forbid" d="M1135,880 V852" marker-end="url(#arr-red)"/>
+        <text class="elabel" x="980" y="870" fill="#ff3b3b">⛔ Obsidian → ordre = interdit (no hot auto)</text>
+      </svg>
+    </div>
+
+    <footer>
+      <span>Canon : ETAT_SYSTEME.md · architecture/index.html (VUE) · tech.html (TECH) · apprentissage.html (CYCLE)</span>
+      <span>
+        <a href="index.html">← VUE</a> · <a href="tech.html">TECH</a> · <a href="apprentissage.html">CYCLE</a>
+      </span>
+    </footer>
+  </div>
+</body>
+</html>

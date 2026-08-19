@@ -116,7 +116,7 @@ def run_py(*args: str, timeout: int = 180) -> str:
     env = os.environ.copy()
     env["CORTANA_TTS"] = "edge"
     env.setdefault("EDGE_TTS_RATE", "-18%")
-    env.setdefault("EDGE_TTS_VOICE", "fr-FR-VivienneMultilingualNeural")
+    env.setdefault("EDGE_TTS_VOICE", "fr-FR-DeniseNeural")
     p = subprocess.run(cmd, capture_output=True, text=True, cwd=str(ROOT), timeout=timeout, env=env)
     out = (p.stdout or "") + (p.stderr or "")
     return out.strip() or f"rc={p.returncode}"
@@ -128,7 +128,7 @@ def _run_rc(*args: str, timeout: int = 180) -> tuple[int, str]:
     env = os.environ.copy()
     env["CORTANA_TTS"] = "edge"
     env.setdefault("EDGE_TTS_RATE", "-18%")
-    env.setdefault("EDGE_TTS_VOICE", "fr-FR-VivienneMultilingualNeural")
+    env.setdefault("EDGE_TTS_VOICE", "fr-FR-DeniseNeural")
     p = subprocess.run(cmd, capture_output=True, text=True, cwd=str(ROOT), timeout=timeout, env=env)
     out = (p.stdout or "") + (p.stderr or "")
     return p.returncode, out.strip() or f"rc={p.returncode}"
@@ -749,7 +749,7 @@ def _speak_texte(texte: str) -> None:
         texte = oral_fr.oraliser(_cv.humanize(texte))  # mots FR + 99,99 -> « quatre-vingt-dix-neuf… »
         cmd = [
             sys.executable, "-m", "edge_tts",
-            "--voice", os.environ.get("EDGE_TTS_VOICE", "fr-FR-VivienneMultilingualNeural"),
+            "--voice", os.environ.get("EDGE_TTS_VOICE", "fr-FR-DeniseNeural"),
             f"--rate={os.environ.get('EDGE_TTS_RATE', '-25%')}",
             "--text", texte, "--write-media", path,
         ]

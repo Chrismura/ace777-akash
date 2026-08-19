@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  Cortana FEED SEUL (19/08) — régénère cortana_feed.json toutes les heures SANS brief vocal.
+  Remplace com.ace777.cortana.horaire (désactivée hier : le brief vocal n'était pas utile).
+  Le chemin URGENT (gros mouvement → voix) reste intact via com.ace777.cortana.urgent.
+  Install :
+    cp ~/ace777-test-day1/Index_Maison/plists/com.ace777.cortana-feed.plist ~/Library/LaunchAgents/
+    launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.ace777.cortana-feed.plist
+-->
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.ace777.cortana-feed</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/bin/bash</string>
+    <string>/Users/christophe/ace777-test-day1/Index_Maison/scripts/cortana_horaire.sh</string>
+  </array>
+  <key>StartInterval</key>
+  <integer>3600</integer>
+  <key>RunAtLoad</key>
+  <true/>
+  <key>StandardOutPath</key>
+  <string>/Users/christophe/ace777-test-day1/Index_Maison/thermo/cortana_feed_launchd.out</string>
+  <key>StandardErrorPath</key>
+  <string>/Users/christophe/ace777-test-day1/Index_Maison/thermo/cortana_feed_launchd.err</string>
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>CORTANA_HORAIRE_SAY</key>
+    <string>0</string>
+  </dict>
+</dict>
+</plist>

@@ -27,7 +27,7 @@ IM = RACINE / "Index_Maison"
 ALERTES_DIR = IM / "data" / "alertes"
 AUDIO_TMP = IM / "data" / "temp_alerte.mp3"
 
-VOIX = "fr-FR-VivienneMultilingualNeural"
+VOIX = "fr-FR-DeniseNeural"  # français pur (Vivienne multilingue → accent espagnol, 19/08)
 INTERVALLE_SEC = 30  # répétition du message
 PAUSE_SEC = 5        # tranches de pause (réactivité à l'arrêt)
 

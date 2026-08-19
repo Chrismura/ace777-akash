@@ -1,6 +1,6 @@
 # CHANTIERS À FAIRE — ACE777
 
-> Backlog central (complète `CHOSES_A_FINIR_REVOIR.md`). MAJ : 2026-08-18.
+> Backlog central (complète `CHOSES_A_FINIR_REVOIR.md`). MAJ : 2026-08-19.
 > Règle : un chantier = un GO de Christophe + (si majeur) famille/codeur + Release Receipt.
 
 ---
@@ -101,6 +101,12 @@ score+leçons 16h30).
 | S-06 | **Stopper les briefs/analyses automatisés** (bruit non lu) : analyste-cadence · brief-matin · brief-offres · cortana.horaire · discipline-quotidienne · journal-intention · journal-soir · propose-ameliorations · verif-predictions. ⚠️ À GARDER : `cortana.urgent` (alerte gros mouvement). NB : analyste-cadence alimente la boucle justesse → à remplacer par S-07. | 🟡 à faire (GO requis) |
 | S-07 | **Cortana parle quand un pattern se dessine** : les patterns sont déjà détectés dans thermo (level_funding, structure_hh_hl, realized_vol, alt_season) → déclencher la voix Vivienne qui EXPLIQUE ce qu'elle voit, pourquoi, + son avis. Version écrite dans l'onglet VOL (date+heure) + évaluation auto (journalisée analyses/ → score_justesse). **VALIDÉ par Christophe 19/08.** | 🟡 à faire |
 | S-08 | **Évaluateur unique** (au lieu de scores éparpillés) : un script MÉCANIQUE observe toutes les décisions (Cortana, couleur, famille), note HIT/MISS vs le marché réel, vérifie après coup, écrit les leçons dans l'AGORA (lecons_agora). Solution simple = meilleure (Christophe 19/08). | 🟡 à faire |
+| S-09 | **Arrêt d'alarme OFFLINE sans agent** (Christophe 19/08, mis de côté) : la coupure a montré que sans Buffy, ni Christophe ni Cortana ne peuvent arrêter l'alarme index (`alerte_vocale.py` en boucle). Il EXISTE `arret_alerte.sh` + `touch STOP_ALERTE` + bouton cockpit ⛔ ALARME, mais rien n'est faisable **en 1 geste offline** (sans hub, sans cockpit, sans agent). Objectif : kill-switch 1 geste (alias `arret_alerte`/raccourci clavier/menu bar) + commande vocale Cortana « arrête l'alarme ». | 🟡 mis de côté |
+
+> **Notes incidents 19/08** :
+> 1. **Couplage `cortana.horaire` → `cortana_feed.json`** : **RÉSOLU 19/08**. Nouvelle plist `com.ace777.cortana-feed` = `cortana_horaire.sh` avec `CORTANA_HORAIRE_SAY=0` (feed + données, **silencieux**, 1×/h). Le brief vocal est abandonné (pas de qualité, Christophe) ; la **voix patterns (S-07) est CONSERVÉE**. Fix bash 3.2 aussi : tableau vide sous `set -u`.
+> 2. **Bug `surveiller_whales.py`** : `tip_hauteur` non défini (NameError) → scan figé quand mempool.space est down. **Corrigé 19/08** (repli `[], 0`).
+> 3. **Accent espagnol Cortana** : Vivienne (multilingue) basculait de langue. **Corrigé 19/08** → `fr-FR-DeniseNeural` (français pur) dans `cortana_voice.py` + `alerte_vocale.py` + `cortana_cockpit_bridge.py` + `cortana_urgent_poll.sh`.
 
 ---
 

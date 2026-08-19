@@ -1,0 +1,133 @@
+diff --git a/hulk-mexc/scripts/paper_diprip.py b/hulk-mexc/scripts/paper_diprip.py
+index 167d4aa4..b715b1b6 100644
+--- a/hulk-mexc/scripts/paper_diprip.py
++++ b/hulk-mexc/scripts/paper_diprip.py
+@@ -149,7 +149,24 @@ def load_inventory() -> dict[str, dict]:
+ def pick_pairs(cfg: dict, inv: dict[str, dict]) -> list[str]:
+     raw = cfg.get("PAPER_PAIRS", "").strip()
+     if raw:
+-        return [p.strip().upper() for p in raw.split(",") if p.strip()]
++        # famille 16/08 : PAPER_PAIRS ne contourne plus le filtre tier — tier B exclu
++        # sauf s'il est explicitement en watch (PAPER_EXTRA_PAIRS)
++        extra = {
++            p.strip().upper()
++            for p in (cfg.get("PAPER_EXTRA_PAIRS") or "").split(",")
++            if p.strip()
++        }
++        out = []
++        for p in raw.split(","):
++            p = p.strip().upper()
++            if not p:
++                continue
++            t = (inv.get(p) or {}).get("tier", "A")
++            if t == "B" and p not in extra:
++                print(f"[TIER] exclue {p} (tier B illiquide — watch via PAPER_EXTRA_PAIRS si voulu)")
++                continue
++            out.append(p)
++        return out
+     n = int(float(cfg.get("PAPER_MAX_PAIRS", "10")))
+     rows = list(inv.values())
+     a = [r for r in rows if r.get("tier") == "A" and r.get("pair")]
+@@ -404,6 +421,13 @@ class PaperBot:
+         self.bag_max_positions = max(1, int(float(cfg.get("BAG_MAX_POSITIONS", "5"))))
+         self.bag_position_mult = float(cfg.get("BAG_POSITION_MULT", "0.5"))
+         self.bag_no_tech_stop = cfg.get("BAG_NO_TECH_STOP", "1").strip() not in ("0", "false", "False")
++        # === tier/rip (famille 16/08) : tier B = taille microscopique, rip partiel, re-entry borné ===
++        self.tier_b_position_mult = float(cfg.get("TIER_B_POSITION_MULT", "0.25"))
++        self.tier_b_spread_max = float(cfg.get("TIER_B_SPREAD_MAX_BPS", "100"))
++        self.buy_spread_max = float(cfg.get("BUY_SPREAD_MAX_BPS", "100"))
++        self.rip_sell_frac = float(cfg.get("RIP_SELL_FRAC", "0.50"))
++        self.reentry_max = max(1, int(float(cfg.get("REENTRY_MAX", "1"))))
++        self.reentry_count: dict[str, int] = {}
+         # Bag de départ (test boucle bag dès le 1er jour) — 15/08 Christophe
+         self.seed_bags_on = cfg.get("SEED_BAGS_ON", "1").strip() not in ("0", "false", "False")
+         self.seed_bags_usdt = float(cfg.get("SEED_BAGS_USDT", "10"))
+@@ -428,6 +452,7 @@ class PaperBot:
+         self.bags: dict[str, dict] = {}  # plus-value après stake-out
+         self.bag_dca: dict[str, dict] = {}  # attente rachat plus bas
+         self.pair_cash: dict[str, float] = {}  # USDT libre par paire (mise récupérée)
++        self.tier_logged: set[str] = set()  # log une fois des exclusions tier B (boot)
+         self.reentry: dict[str, dict] = {}
+         self.pnl_total = 0.0
+         self.trades = 0
+@@ -756,8 +781,23 @@ class PaperBot:
+         trade_n = float(notion) if notion is not None else self.current_notional()
+         if self.is_bag(pair):
+             trade_n = trade_n * self.bag_position_mult
++        if self.tier(pair) == "B":
++            trade_n = trade_n * self.tier_b_position_mult  # famille 16/08 : tier B = taille microscopique
+         if trade_n < 1.0:
+             return
++        # famille 16/08 : garde spread au buy (même tier A) — paires mal classées (ex. QAIT 327 bps)
++        inv_spread = float((self.inv.get(pair) or {}).get("spread_bps") or 0.0)
++        if inv_spread > self.buy_spread_max:
++            say("warn", f"[{utc_now()}] BUY skip {pair} spread={inv_spread:.0f}bps > {self.buy_spread_max:.0f}")
++            return
++        # famille 16/08 : re-entry borné — max REENTRY_MAX par paire après un stop
++        if self.reentry_count.get(pair, 0) >= self.reentry_max:
++            say("warn", f"[{utc_now()}] REENTRY_MAX {pair} ({self.reentry_count.get(pair, 0)}/{self.reentry_max})")
++            self.log(
++                pair, "SKIP", regime, price, price, 0.0, 0.0,
++                sc.get("cadence_pct"), f"REENTRY_MAX:{self.reentry_count.get(pair, 0)}",
++            )
++            return
+         trade_qty = trade_n / price
+         self.pos[pair] = {
+             "entry": price,
+@@ -799,6 +839,7 @@ class PaperBot:
+         self.pnl_total += pnl
+         self.trades += 1
+         event = "SELL" if sell_qty >= full_qty * 0.999 else "SELL_PARTIAL"
++        inv_spread = float((self.inv.get(pair) or {}).get("spread_bps") or 0.0)
+         self.log(
+             pair,
+             event,
+@@ -808,7 +849,7 @@ class PaperBot:
+             sell_qty,
+             pnl,
+             p.get("cadence"),
+-            reason,
++            f"{reason} tier={self.tier(pair)} spread={inv_spread:.1f}bps",
+         )
+         kind = "sell_ok" if pnl >= 0 else "sell_ko"
+         tag = "EXIT" if event == "SELL" else "EXIT_PART"
+@@ -817,6 +858,12 @@ class PaperBot:
+             f"[{utc_now()}] {tag:10} {pair}  px={price:.6f}  "
+             f"pnl={pnl:+.4f}$  cash≈{proceeds:.2f}$  total={self.pnl_total:+.4f}$  ({reason})",
+         )
++        # famille 16/08 : compteur re-entry — incrémenté à chaque fermeture, reset si gain
++        if event == "SELL":
++            if pnl >= 0:
++                self.reentry_count[pair] = 0
++            else:
++                self.reentry_count[pair] = self.reentry_count.get(pair, 0) + 1
+         # v1.5 : cache stop uniquement (pas stake_out / partial)
+         if event == "SELL" and str(reason).lower().startswith("stop"):
+             record_stop(RUNS, pair, utc_now())
+@@ -1009,6 +1056,26 @@ class PaperBot:
+             if chg <= -float(p.get("stop") or 6):
+                 proceeds = self.sell_trade(pair, price, f"stop-{p['stop']}%_avant_2x")
+                 self.add_pair_cash(pair, proceeds)
++                return
++
++            # famille 16/08 : RIP — vendre le rebond (PLAN.md « Sell rip/spike ») une seule fois
++            rip_t = float(p.get("rip") or 2.0)
++            if chg >= rip_t and not p.get("rip_done"):
++                rip_ok = True
++                if self.tier(pair) == "B":
++                    inv_spread = float((self.inv.get(pair) or {}).get("spread_bps") or 0.0)
++                    rip_ok = inv_spread <= self.tier_b_spread_max  # tier B illiquide : pas de rip si spread énorme
++                if rip_ok:
++                    p["rip_done"] = True
++                    sell_qty = qty * self.rip_sell_frac
++                    if sell_qty >= qty * 0.001:
++                        proceeds = self.sell_trade(
++                            pair,
++                            price,
++                            f"rip_{chg:.1f}pct_sell_{self.rip_sell_frac*100:.0f}pct",
++                            qty=sell_qty,
++                        )
++                        self.add_pair_cash(pair, proceeds)
+ 
+     def maybe_redeploy_cash(self, pair: str, price: float, sc: dict) -> bool:
+         """Cash paire + dip → remets 100% du cash."""

@@ -6,7 +6,7 @@ cd "$ROOT"
 export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/opt/homebrew/bin:$PATH"
 export CORTANA_TTS="${CORTANA_TTS:-edge}"
 export EDGE_TTS_RATE="${EDGE_TTS_RATE:--18%}"
-export EDGE_TTS_VOICE="${EDGE_TTS_VOICE:-fr-FR-VivienneMultilingualNeural}"
+export EDGE_TTS_VOICE="${EDGE_TTS_VOICE:-fr-FR-DeniseNeural}"
 set -a
 # shellcheck disable=SC1091
 source "$ROOT/Index_Maison/config_risk_warm.env" 2>/dev/null || true

@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ACE777 — Le HUB (prise-ia)</title>
+<meta name="description" content="Le hub cloud : seule passerelle LLM d'ACE777. Routeur, filet universel, 4 règles, providers, garde-fous. Dessin complet." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --ink: #070a0c; --panel: #0d1418; --line: #1e3a2f;
+    --acid: #39ff14; --amber: #f5c518; --danger: #ff3b3b;
+    --muted: #6a8a72; --text: #d8ffe0; --cold: #3ec7ff; --hot: #ff6b2d;
+    --violet: #b48bff;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { min-height: 100%; background: var(--ink); color: var(--text);
+    font-family: "Share Tech Mono", ui-monospace, monospace; }
+  body {
+    background:
+      radial-gradient(ellipse 70% 50% at 50% 0%, #122018 0%, transparent 55%),
+      radial-gradient(ellipse 40% 35% at 10% 85%, #081020 0%, transparent 50%),
+      radial-gradient(ellipse 40% 35% at 90% 80%, #1a1008 0%, transparent 50%),
+      var(--ink);
+  }
+  .crt::before {
+    content: ""; pointer-events: none; position: fixed; inset: 0; z-index: 50;
+    background: repeating-linear-gradient(0deg, rgba(0,0,0,0.12) 0px, rgba(0,0,0,0.12) 1px,
+      transparent 2px, transparent 4px); opacity: 0.28;
+  }
+  .shell { max-width: 1500px; margin: 0 auto; padding: 18px 18px 30px; position: relative; z-index: 1; }
+
+  header { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 12px;
+    border-bottom: 1px solid var(--line); padding-bottom: 12px; margin-bottom: 14px; }
+  .brand { font-family: Orbitron, sans-serif; font-weight: 800;
+    font-size: clamp(22px, 3.6vw, 36px); letter-spacing: .04em; color: var(--cold);
+    text-shadow: 0 0 18px rgba(62,199,255,.4); line-height: 1; }
+  .tagline { color: var(--muted); font-size: 12px; margin-top: 6px; max-width: 62ch; }
+  nav { display: flex; gap: 16px; align-items: center; font-size: 12px; flex-wrap: wrap; }
+  nav a, nav span { color: var(--acid); text-decoration: none; font-family: Orbitron, sans-serif; letter-spacing: .12em; }
+  nav span.active { color: var(--amber); border-bottom: 1px solid var(--amber); }
+
+  .howto { margin: 0 0 14px; border: 1px solid var(--line); background: rgba(13,20,24,.7); padding: 12px 14px; font-size: 12px; line-height: 1.6; }
+  .howto b { color: var(--amber); font-weight: 500; }
+  .howto .forbidden { color: var(--danger); }
+  .checkpanel { margin: 0 0 14px; border: 1px solid var(--line); background: rgba(13,20,24,.7); padding: 12px 14px; font-size: 12px; }
+  .checkpanel .cp-title { font-family: Orbitron, sans-serif; font-size: 11px; letter-spacing: .14em; color: var(--acid); margin-bottom: 8px; }
+  .checkpanel .cp-row { display: flex; gap: 10px; align-items: baseline; flex-wrap: wrap; margin: 4px 0; }
+  .checkpanel code { color: var(--amber); font-size: 11px; }
+  .checkpanel .cp-what { color: var(--muted); font-size: 11px; }
+
+  .legend { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-bottom: 14px; }
+  .legend .chip { display: inline-flex; align-items: center; gap: 8px; font-size: 11px; letter-spacing: .08em;
+    padding: 6px 10px; border: 1px solid var(--line); background: rgba(13,20,24,.8); }
+  .legend .dot { width: 10px; height: 10px; border-radius: 2px; }
+  .dot-amber { background: var(--amber); box-shadow: 0 0 8px rgba(245,197,24,.6); }
+  .dot-cold { background: var(--cold); box-shadow: 0 0 8px rgba(62,199,255,.6); }
+  .dot-acid { background: var(--acid); box-shadow: 0 0 8px rgba(57,255,20,.6); }
+  .dot-violet { background: var(--violet); box-shadow: 0 0 8px rgba(180,139,255,.6); }
+  .dot-muted { background: var(--muted); }
+  .dot-red { background: var(--danger); box-shadow: 0 0 8px rgba(255,59,59,.6); }
+  .dot-hot { background: var(--hot); box-shadow: 0 0 8px rgba(255,107,45,.6); }
+
+  .mapbox { border: 1px solid var(--line); background: rgba(7,10,12,.6); padding: 8px; overflow-x: auto; }
+  svg { display: block; width: 100%; height: auto; min-width: 960px; }
+
+  /* SVG styles */
+  .region { stroke-width: 1.5; }
+  .r-label { font-family: Orbitron, sans-serif; font-size: 12px; letter-spacing: .14em; font-weight: 700; }
+  .r-sub { font-family: "Share Tech Mono", monospace; font-size: 10px; }
+
+  .node rect { stroke-width: 1.5; fill: #0a1014; }
+  .n-title { font-family: Orbitron, sans-serif; font-size: 12px; font-weight: 700; }
+  .n-sub { font-family: "Share Tech Mono", monospace; font-size: 10.5px; }
+  .n-sub2 { font-family: "Share Tech Mono", monospace; font-size: 10px; }
+
+  .edge { fill: none; stroke-width: 2; }
+  .edge.faint { stroke-width: 1.5; stroke-dasharray: 6 5; }
+  .forbid { fill: none; stroke-width: 2; stroke-dasharray: 8 6; stroke: var(--danger); }
+  .elabel { font-family: "Share Tech Mono", monospace; font-size: 10.5px; }
+  .note { font-family: "Share Tech Mono", monospace; font-size: 10px; }
+
+  footer { margin-top: 18px; border-top: 1px solid var(--line); padding-top: 12px; display: flex;
+    flex-wrap: wrap; gap: 12px 24px; justify-content: space-between; font-size: 11px; color: var(--muted); }
+  footer a { color: var(--acid); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+</style>
+</head>
+<body class="crt">
+  <div class="shell">
+    <header>
+      <div>
+        <div class="brand">ACE777 · LE HUB CLOUD</div>
+        <p class="tagline">prise-ia :11435 — la SEULE passerelle LLM de la maison (C9, zéro IA locale). Routeur → filet universel → 4 règles → providers. Dessin complet, pour savoir exactement comment ça marche.</p>
+      </div>
+      <nav>
+        <a href="index.html">VUE</a>
+        <a href="tech.html">TECH</a>
+        <a href="apprentissage.html">CYCLE</a>
+        <a href="carte.html">CARTE</a>
+        <span class="active">HUB</span>
+      </nav>
+    </header>
+
+    <div class="howto">
+      <b>Comment lire (60 s) :</b> ① en HAUT, les <b>tâches</b> qui frappent à la porte (chacune a une chaîne préférée) ·
+      ② au CENTRE, le <b>routeur</b> : la chaîne d'abord, puis le <b>filet universel</b> (tous les actifs) — <b class="forbidden">plus jamais à sec</b> ·
+      ③ les <b>4 règles</b> du 16/08 (filet · 429 = bascule · budget par provider · anti-tempête) ·
+      ④ en BAS, les <b>providers</b> (gratuits protégés · budget cloud coupe-circuit) · ⑤ à DROITE, les <b>consommateurs</b>.
+    </div>
+
+    <div class="checkpanel">
+      <div class="cp-title">⚡ POULS DU HUB (cd ~/prise-ia)</div>
+      <div class="cp-row"><code>pgrep -lf hub_prise_ia</code><span class="cp-what">le hub tourne ?</span></div>
+      <div class="cp-row"><code>curl -s -o /dev/null -w "%{http_code}" http://127.0.0.1:11435/v1/models</code><span class="cp-what">200 = répond</span></div>
+      <div class="cp-row"><code>grep "FILET UNIVERSEL" hub_events.jsonl | tail -5</code><span class="cp-what">qui a dû recourir au filet (chaîne obsolète ?)</span></div>
+      <div class="cp-row"><code>tail -5 hub_events.jsonl</code><span class="cp-what">événements récents (429 · bascules · anti-tempête)</span></div>
+      <div class="cp-row"><span class="cp-what">doc de référence : Index_Maison/METHODE_HUB_POINT_FINAL_2026-08-16.md · validé codeur + famille (GO 16/08)</span></div>
+    </div>
+
+    <div class="legend">
+      <span class="chip"><span class="dot dot-cold"></span>TÂCHE (chaîne préférée)</span>
+      <span class="chip"><span class="dot dot-violet"></span>LE ROUTEUR :11435</span>
+      <span class="chip"><span class="dot dot-acid"></span>PROVIDER GRATUIT (jamais coupé)</span>
+      <span class="chip"><span class="dot dot-amber"></span>PROVIDER CLOUD (budget 624/j)</span>
+      <span class="chip"><span class="dot dot-muted"></span>CONSOMMATEURS / SORTIES</span>
+      <span class="chip"><span class="dot dot-red"></span>COUPE-CIRCUIT / INTERDIT ⛔</span>
+    </div>
+
+    <div class="mapbox">
+      <svg viewBox="0 0 1560 1240" role="img" aria-label="Dessin complet du hub prise-ia">
+        <defs>
+          <marker id="arr-cold" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#3ec7ff"/></marker>
+          <marker id="arr-violet" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#b48bff"/></marker>
+          <marker id="arr-acid" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#39ff14"/></marker>
+          <marker id="arr-amber" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#f5c518"/></marker>
+          <marker id="arr-muted" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#6a8a72"/></marker>
+          <marker id="arr-red" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#ff3b3b"/></marker>
+          <marker id="arr-hot" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#ff6b2d"/></marker>
+        </defs>
+
+        <!-- ============ SECTEUR 1 : LES TÂCHES (entrées) ============ -->
+        <rect class="region" x="40" y="40" width="1480" height="210" rx="14" fill="rgba(62,199,255,0.05)" stroke="#3ec7ff"/>
+        <text class="r-label" x="56" y="68" fill="#3ec7ff">1 · LES TÂCHES — qui frappe à la porte</text>
+        <text class="r-sub" x="56" y="86" fill="#6a8a72">chacune a une chaîne préférée (routing.json) : principal → fallback → secondary. Si la chaîne échoue → filet universel.</text>
+
+        <!-- tâche 1 -->
+        <g class="node">
+          <rect x="70" y="98" width="250" height="70" rx="7" stroke="#3ec7ff"/>
+          <text class="n-title" x="195" y="120" text-anchor="middle" fill="#3ec7ff">code.ia (CODEUR)</text>
+          <text class="n-sub" x="195" y="138" text-anchor="middle" fill="#d8ffe0">grok-4.3 → deepseek-coder → Devstral</text>
+          <text class="n-sub2" x="195" y="155" text-anchor="middle" fill="#6a8a72">écrit le code · specs → code</text>
+        </g>
+        <!-- tâche 2 -->
+        <g class="node">
+          <rect x="350" y="98" width="230" height="70" rx="7" stroke="#3ec7ff"/>
+          <text class="n-title" x="465" y="120" text-anchor="middle" fill="#3ec7ff">analyste.strategie</text>
+          <text class="n-sub" x="465" y="138" text-anchor="middle" fill="#d8ffe0">gemini → nemotron-ultra → nvidia</text>
+          <text class="n-sub2" x="465" y="155" text-anchor="middle" fill="#6a8a72">analyses · fiches offres · signets</text>
+        </g>
+        <!-- tâche 3 -->
+        <g class="node">
+          <rect x="610" y="98" width="230" height="70" rx="7" stroke="#3ec7ff"/>
+          <text class="n-title" x="725" y="120" text-anchor="middle" fill="#3ec7ff">supervise.decision</text>
+          <text class="n-sub" x="725" y="138" text-anchor="middle" fill="#d8ffe0">grok-4.3 → gemini</text>
+          <text class="n-sub2" x="725" y="155" text-anchor="middle" fill="#6a8a72">gate trades · mode · cohésion</text>
+        </g>
+        <!-- tâche 4 -->
+        <g class="node">
+          <rect x="870" y="98" width="230" height="70" rx="7" stroke="#3ec7ff"/>
+          <text class="n-title" x="985" y="120" text-anchor="middle" fill="#3ec7ff">signets.juge (FAMILLE)</text>
+          <text class="n-sub" x="985" y="138" text-anchor="middle" fill="#d8ffe0">gemini → openrouter-juge → nvidia</text>
+          <text class="n-sub2" x="985" y="155" text-anchor="middle" fill="#6a8a72">maker ≠ checker · verdicts</text>
+        </g>
+        <!-- tâche 5 -->
+        <g class="node">
+          <rect x="1130" y="98" width="200" height="70" rx="7" stroke="#3ec7ff"/>
+          <text class="n-title" x="1230" y="120" text-anchor="middle" fill="#3ec7ff">cortana.yeux</text>
+          <text class="n-sub" x="1230" y="138" text-anchor="middle" fill="#d8ffe0">gemini (vision)</text>
+          <text class="n-sub2" x="1230" y="155" text-anchor="middle" fill="#6a8a72">sur demande · jamais continu</text>
+        </g>
+        <!-- tâche 6 -->
+        <g class="node">
+          <rect x="1360" y="98" width="140" height="70" rx="7" stroke="#3ec7ff"/>
+          <text class="n-title" x="1430" y="120" text-anchor="middle" fill="#3ec7ff">+ 14 autres</text>
+          <text class="n-sub" x="1430" y="138" text-anchor="middle" fill="#d8ffe0">audit · veille · mission · coffre…</text>
+          <text class="n-sub2" x="1430" y="155" text-anchor="middle" fill="#6a8a72">chat · signets · brief</text>
+        </g>
+        <text class="note" x="70" y="200" fill="#6a8a72">20 tâches routées dans routing.json · contexte vivant ARCHITECTURE_VIVANTE.md injecté à chaque appel (6000 car, régénéré max 1×/2min)</text>
+
+        <!-- flèches tâches → routeur -->
+        <path class="edge" stroke="#3ec7ff" d="M195,168 V285" marker-end="url(#arr-violet)"/>
+        <path class="edge" stroke="#3ec7ff" d="M465,168 V285" marker-end="url(#arr-violet)"/>
+        <path class="edge" stroke="#3ec7ff" d="M725,168 V285" marker-end="url(#arr-violet)"/>
+        <path class="edge" stroke="#3ec7ff" d="M985,168 V285" marker-end="url(#arr-violet)"/>
+        <path class="edge" stroke="#3ec7ff" d="M1230,168 V285" marker-end="url(#arr-violet)"/>
+        <path class="edge" stroke="#3ec7ff" d="M1430,168 V285" marker-end="url(#arr-violet)"/>
+
+        <!-- ============ SECTEUR 2 : LE ROUTEUR ============ -->
+        <rect class="region" x="40" y="270" width="960" height="330" rx="14" fill="rgba(180,139,255,0.06)" stroke="#b48bff"/>
+        <text class="r-label" x="56" y="298" fill="#b48bff">2 · LE ROUTEUR — hub_prise_ia.py :11435</text>
+        <text class="r-sub" x="56" y="316" fill="#6a8a72">une seule porte · Python stdlib · threads · si TOUT échoue → les 4 règles se déclenchent</text>
+
+        <!-- cœur du routeur -->
+        <g class="node">
+          <rect x="70" y="330" width="380" height="120" rx="9" stroke="#b48bff" fill="#0d1018"/>
+          <text class="n-title" x="260" y="358" text-anchor="middle" fill="#b48bff">ROUTEUR :11435</text>
+          <text class="n-sub" x="260" y="380" text-anchor="middle" fill="#d8ffe0">chat_completions · call_provider</text>
+          <text class="n-sub" x="260" y="398" text-anchor="middle" fill="#d8ffe0">_raw_call · blacklist · PATIENCE</text>
+          <text class="n-sub2" x="260" y="418" text-anchor="middle" fill="#6a8a72">contexte vivant · budget/jour · logs</text>
+          <text class="n-sub2" x="260" y="436" text-anchor="middle" fill="#6a8a72">hub_events.jsonl · usage.jsonl</text>
+        </g>
+        <!-- routing -->
+        <g class="node">
+          <rect x="500" y="330" width="220" height="120" rx="9" stroke="#b48bff"/>
+          <text class="n-title" x="610" y="358" text-anchor="middle" fill="#b48bff">routing.json</text>
+          <text class="n-sub" x="610" y="380" text-anchor="middle" fill="#d8ffe0">tâche → chaîne</text>
+          <text class="n-sub" x="610" y="398" text-anchor="middle" fill="#d8ffe0">(principal/fallback/secondary)</text>
+          <text class="n-sub2" x="610" y="418" text-anchor="middle" fill="#6a8a72">budget cloud 624/j + réserve storm</text>
+          <text class="n-sub2" x="610" y="436" text-anchor="middle" fill="#6a8a72">la chaîne = PREFERENCE, pas limite</text>
+        </g>
+        <!-- providers.json -->
+        <g class="node">
+          <rect x="770" y="330" width="200" height="120" rx="9" stroke="#b48bff"/>
+          <text class="n-title" x="870" y="358" text-anchor="middle" fill="#b48bff">providers.json</text>
+          <text class="n-sub" x="870" y="380" text-anchor="middle" fill="#d8ffe0">20 providers</text>
+          <text class="n-sub" x="870" y="398" text-anchor="middle" fill="#d8ffe0">~15 gratuits actifs</text>
+          <text class="n-sub2" x="870" y="418" text-anchor="middle" fill="#6a8a72">free: true → jamais coupés</text>
+          <text class="n-sub2" x="870" y="436" text-anchor="middle" fill="#6a8a72">clés .env · timeout · order</text>
+        </g>
+
+        <!-- les 4 règles -->
+        <text class="r-label" x="70" y="500" fill="#39ff14">LES 4 RÈGLES (16/08 — validées codeur + famille)</text>
+        <g class="node">
+          <rect x="70" y="510" width="212" height="72" rx="7" stroke="#39ff14"/>
+          <text class="n-title" x="176" y="532" text-anchor="middle" fill="#39ff14">R1 · FILET UNIVERSEL</text>
+          <text class="n-sub" x="176" y="550" text-anchor="middle" fill="#d8ffe0">chaîne d'abord, PUIS tous</text>
+          <text class="n-sub2" x="176" y="568" text-anchor="middle" fill="#6a8a72">les actifs (tri order) · testé réel ✓</text>
+        </g>
+        <g class="node">
+          <rect x="300" y="510" width="212" height="72" rx="7" stroke="#39ff14"/>
+          <text class="n-title" x="406" y="532" text-anchor="middle" fill="#39ff14">R2 · 429 = BASCULE</text>
+          <text class="n-sub" x="406" y="550" text-anchor="middle" fill="#d8ffe0">pas de retry inutile →</text>
+          <text class="n-sub2" x="406" y="568" text-anchor="middle" fill="#6a8a72">provider suivant + pause 60 s</text>
+        </g>
+        <g class="node">
+          <rect x="530" y="510" width="212" height="72" rx="7" stroke="#39ff14"/>
+          <text class="n-title" x="636" y="532" text-anchor="middle" fill="#39ff14">R3 · BUDGET PAR PROVIDER</text>
+          <text class="n-sub" x="636" y="550" text-anchor="middle" fill="#d8ffe0">180 s ÷ restants (plancher 15 s)</text>
+          <text class="n-sub2" x="636" y="568" text-anchor="middle" fill="#6a8a72">le lent ne mange plus tout</text>
+        </g>
+        <g class="node">
+          <rect x="760" y="510" width="212" height="72" rx="7" stroke="#39ff14"/>
+          <text class="n-title" x="866" y="532" text-anchor="middle" fill="#39ff14">R4 · ANTI-TEMPÊTE</text>
+          <text class="n-sub" x="866" y="550" text-anchor="middle" fill="#d8ffe0">3 échecs / 10 min →</text>
+          <text class="n-sub2" x="866" y="568" text-anchor="middle" fill="#6a8a72">tâche coupée 5 min</text>
+        </g>
+        <text class="note" x="70" y="592" fill="#6a8a72">+ garde-fous hérités : blacklist 2 échecs/j · PATIENCE (lent ≠ mort, retry ×3) · anti-fleau réseau (DNS → bascule immédiate) · budget cloud coupe-circuit</text>
+
+        <!-- ============ SECTEUR 3 : PROVIDERS (le filet) ============ -->
+        <rect class="region" x="40" y="630" width="960" height="350" rx="14" fill="rgba(57,255,20,0.05)" stroke="#39ff14"/>
+        <text class="r-label" x="56" y="658" fill="#39ff14">3 · LE FILET — tous les providers actifs</text>
+        <text class="r-sub" x="56" y="676" fill="#6a8a72">gratuits (vert) protégés même budget épuisé · cloud (ambre) plafonnés à 624 appels/j · le filet ne pioche un payant QUE si budget OK</text>
+
+        <g class="node">
+          <rect x="70" y="690" width="200" height="66" rx="7" stroke="#39ff14"/>
+          <text class="n-title" x="170" y="712" text-anchor="middle" fill="#39ff14">Google Gemini</text>
+          <text class="n-sub" x="170" y="730" text-anchor="middle" fill="#d8ffe0">flash-lite · principal partout</text>
+          <text class="n-sub2" x="170" y="746" text-anchor="middle" fill="#6a8a72">gratuit · vision</text>
+        </g>
+        <g class="node">
+          <rect x="300" y="690" width="200" height="66" rx="7" stroke="#39ff14"/>
+          <text class="n-title" x="400" y="712" text-anchor="middle" fill="#39ff14">NVIDIA (DeepSeek V4)</text>
+          <text class="n-sub" x="400" y="730" text-anchor="middle" fill="#d8ffe0">deepseek-v4-flash</text>
+          <text class="n-sub2" x="400" y="746" text-anchor="middle" fill="#6a8a72">gratuit · 429 hier (saturé)</text>
+        </g>
+        <g class="node">
+          <rect x="530" y="690" width="200" height="66" rx="7" stroke="#39ff14"/>
+          <text class="n-title" x="630" y="712" text-anchor="middle" fill="#39ff14">OpenRouter free</text>
+          <text class="n-sub" x="630" y="730" text-anchor="middle" fill="#d8ffe0">gpt-oss-20b · 400 modèles</text>
+          <text class="n-sub2" x="630" y="746" text-anchor="middle" fill="#6a8a72">gratuit · généraliste</text>
+        </g>
+        <g class="node">
+          <rect x="760" y="690" width="200" height="66" rx="7" stroke="#39ff14"/>
+          <text class="n-title" x="860" y="712" text-anchor="middle" fill="#39ff14">OpenRouter ultra</text>
+          <text class="n-sub" x="860" y="730" text-anchor="middle" fill="#d8ffe0">nemotron-550b :free</text>
+          <text class="n-sub2" x="860" y="746" text-anchor="middle" fill="#6a8a72">gratuit · 2e avis fort</text>
+        </g>
+        <g class="node">
+          <rect x="70" y="780" width="200" height="66" rx="7" stroke="#39ff14"/>
+          <text class="n-title" x="170" y="802" text-anchor="middle" fill="#39ff14">Puter Grok</text>
+          <text class="n-sub" x="170" y="820" text-anchor="middle" fill="#d8ffe0">grok-4.3 · codeur principal</text>
+          <text class="n-sub2" x="170" y="836" text-anchor="middle" fill="#6a8a72">gratuit · diversité famille</text>
+        </g>
+        <g class="node">
+          <rect x="300" y="780" width="200" height="66" rx="7" stroke="#39ff14"/>
+          <text class="n-title" x="400" y="802" text-anchor="middle" fill="#39ff14">deepseek-coder</text>
+          <text class="n-sub" x="400" y="820" text-anchor="middle" fill="#d8ffe0">nvidia · 6.7b-instruct</text>
+          <text class="n-sub2" x="400" y="836" text-anchor="middle" fill="#6a8a72">CODEUR 2 (intégré 16/08)</text>
+        </g>
+        <g class="node">
+          <rect x="530" y="780" width="200" height="66" rx="7" stroke="#39ff14"/>
+          <text class="n-title" x="630" y="802" text-anchor="middle" fill="#39ff14">Devstral-2-123B</text>
+          <text class="n-sub" x="630" y="820" text-anchor="middle" fill="#d8ffe0">inferx · gros codeur</text>
+          <text class="n-sub2" x="630" y="836" text-anchor="middle" fill="#6a8a72">CODEUR 3 (intégré 16/08)</text>
+        </g>
+        <g class="node">
+          <rect x="760" y="780" width="200" height="66" rx="7" stroke="#39ff14"/>
+          <text class="n-title" x="860" y="802" text-anchor="middle" fill="#39ff14">Qwen3-Coder-Next</text>
+          <text class="n-sub" x="860" y="820" text-anchor="middle" fill="#d8ffe0">inferx · spécialiste code</text>
+          <text class="n-sub2" x="860" y="836" text-anchor="middle" fill="#6a8a72">gratuit (offre à surveiller)</text>
+        </g>
+        <g class="node">
+          <rect x="70" y="870" width="200" height="66" rx="7" stroke="#f5c518"/>
+          <text class="n-title" x="170" y="892" text-anchor="middle" fill="#f5c518">nemotron-nano ×4</text>
+          <text class="n-sub" x="170" y="910" text-anchor="middle" fill="#d8ffe0">petits modèles rapides</text>
+          <text class="n-sub2" x="170" y="926" text-anchor="middle" fill="#6a8a72">filet · tâches simples</text>
+        </g>
+        <g class="node">
+          <rect x="300" y="870" width="200" height="66" rx="7" stroke="#f5c518"/>
+          <text class="n-title" x="400" y="892" text-anchor="middle" fill="#f5c518">north-mini-code</text>
+          <text class="n-sub" x="400" y="910" text-anchor="middle" fill="#d8ffe0">petit codeur local-cloud</text>
+          <text class="n-sub2" x="400" y="926" text-anchor="middle" fill="#6a8a72">filet · code simple</text>
+        </g>
+        <g class="node">
+          <rect x="530" y="870" width="200" height="66" rx="7" stroke="#f5c518"/>
+          <text class="n-title" x="630" y="892" text-anchor="middle" fill="#f5c518">+ autres gratuits</text>
+          <text class="n-sub" x="630" y="910" text-anchor="middle" fill="#d8ffe0">openrouter-juge · mistral…</text>
+          <text class="n-sub2" x="630" y="926" text-anchor="middle" fill="#6a8a72">catalogue complet providers.json</text>
+        </g>
+        <text class="note" x="70" y="970" fill="#6a8a72">Règle famille 16/08 : budget cloud atteint → le filet ne pioche QUE les gratuits (coupe-circuit absolu, jamais un payant en dessous de la chaîne).</text>
+
+        <!-- ============ SECTEUR 4 : SORTIES / CONSOMMATEURS ============ -->
+        <rect class="region" x="1030" y="270" width="490" height="710" rx="14" fill="rgba(106,138,114,0.08)" stroke="#6a8a72"/>
+        <text class="r-label" x="1046" y="298" fill="#6a8a72">4 · SORTIES — qui consomme le hub</text>
+        <text class="r-sub" x="1046" y="316" fill="#6a8a72">toutes les demandes LLM de la maison passent ICI (C9 : 0 IA locale nulle part)</text>
+
+        <g class="node">
+          <rect x="1060" y="330" width="430" height="74" rx="7" stroke="#6a8a72"/>
+          <text class="n-title" x="1275" y="352" text-anchor="middle" fill="#d8ffe0">PONT GATE :11439 (llm_gate_hub_bridge)</text>
+          <text class="n-sub" x="1275" y="370" text-anchor="middle" fill="#d8ffe0">gate trades → supervise.decision · cache 90 s</text>
+          <text class="n-sub2" x="1275" y="388" text-anchor="middle" fill="#6a8a72">hub down → 503 fail-closed → RÈGLES (jamais local)</text>
+        </g>
+        <g class="node">
+          <rect x="1060" y="425" width="430" height="74" rx="7" stroke="#6a8a72"/>
+          <text class="n-title" x="1275" y="447" text-anchor="middle" fill="#d8ffe0">ANALYSTE → stratégie/</text>
+          <text class="n-sub" x="1275" y="465" text-anchor="middle" fill="#d8ffe0">derniere_analyse.md · FICHES_OFFRES.json · SIGNETS_RESUMES.json</text>
+          <text class="n-sub2" x="1275" y="483" text-anchor="middle" fill="#6a8a72">REGISTRE_PREDICTIONS.md (leçons → CYCLE)</text>
+        </g>
+        <g class="node">
+          <rect x="1060" y="520" width="430" height="74" rx="7" stroke="#6a8a72"/>
+          <text class="n-title" x="1275" y="542" text-anchor="middle" fill="#d8ffe0">CORTANA (brief · yeux · consultation)</text>
+          <text class="n-sub" x="1275" y="560" text-anchor="middle" fill="#d8ffe0">cortana.brief · cortana.yeux (vision sur demande)</text>
+          <text class="n-sub2" x="1275" y="578" text-anchor="middle" fill="#6a8a72">consulte la famille/juge via /chat (lecture seule)</text>
+        </g>
+        <g class="node">
+          <rect x="1060" y="615" width="430" height="74" rx="7" stroke="#6a8a72"/>
+          <text class="n-title" x="1275" y="637" text-anchor="middle" fill="#d8ffe0">CODEUR → specs → code</text>
+          <text class="n-sub" x="1275" y="655" text-anchor="middle" fill="#d8ffe0">REPONSE_CODEUR_*.md (specs vigie · hub · cpfp…)</text>
+          <text class="n-sub2" x="1275" y="673" text-anchor="middle" fill="#6a8a72">famille/juge valident ensuite (maker ≠ checker)</text>
+        </g>
+        <g class="node">
+          <rect x="1060" y="710" width="430" height="74" rx="7" stroke="#6a8a72"/>
+          <text class="n-title" x="1275" y="732" text-anchor="middle" fill="#d8ffe0">COCKPIT · ADA · veille · mission</text>
+          <text class="n-sub" x="1275" y="750" text-anchor="middle" fill="#d8ffe0">feed thermo · voilure · signets · fiches offres</text>
+          <text class="n-sub2" x="1275" y="768" text-anchor="middle" fill="#6a8a72">tout le reste : audit.protocol · veille.youtube · coffre.ask…</text>
+        </g>
+        <g class="node">
+          <rect x="1060" y="805" width="430" height="74" rx="7" stroke="#6a8a72"/>
+          <text class="n-title" x="1275" y="827" text-anchor="middle" fill="#d8ffe0">BUFFY (superviseur)</text>
+          <text class="n-sub" x="1275" y="845" text-anchor="middle" fill="#d8ffe0">orchestre · spec · valide · envoie au codeur/famille</text>
+          <text class="n-sub2" x="1275" y="863" text-anchor="middle" fill="#6a8a72">jamais dans le hot path · pilote la flottille</text>
+        </g>
+        <text class="note" x="1046" y="960" fill="#6a8a72">Consommateurs par fréquence : chat.local 30/j · cortana.yeux 30/j · veille.youtube 30/j · supervise.decision 20/j · cloud total 624/j</text>
+
+        <!-- flèches routeur → providers -->
+        <path class="edge" stroke="#b48bff" d="M260,450 V510" marker-end="url(#arr-acid)"/>
+        <path class="edge" stroke="#b48bff" d="M260,582 V690" marker-end="url(#arr-acid)"/>
+        <path class="edge" stroke="#b48bff" d="M610,450 C610,540 610,620 610,690" marker-end="url(#arr-acid)"/>
+        <path class="edge" stroke="#b48bff" d="M870,450 C870,560 870,620 870,690" marker-end="url(#arr-acid)"/>
+        <text class="elabel" x="272" y="660" fill="#39ff14">tente chaque provider (10 s max au filet)</text>
+
+        <!-- flèches routeur → sorties -->
+        <path class="edge" stroke="#6a8a72" d="M1000,390 H1060" marker-end="url(#arr-muted)"/>
+        <path class="edge" stroke="#6a8a72" d="M1000,462 H1060" marker-end="url(#arr-muted)"/>
+        <path class="edge" stroke="#6a8a72" d="M1000,557 H1060" marker-end="url(#arr-muted)"/>
+        <path class="edge" stroke="#6a8a72" d="M1000,652 H1060" marker-end="url(#arr-muted)"/>
+        <path class="edge" stroke="#6a8a72" d="M1000,747 H1060" marker-end="url(#arr-muted)"/>
+        <path class="edge" stroke="#6a8a72" d="M1000,842 H1060" marker-end="url(#arr-muted)"/>
+        <text class="elabel" x="1008" y="820" fill="#6a8a72">réponses</text>
+
+        <!-- ============ COUPE-CIRCUITS / INTERDITS ============ -->
+        <rect class="region" x="40" y="1010" width="960" height="170" rx="14" fill="rgba(255,59,59,0.05)" stroke="#ff3b3b" stroke-dasharray="8 6"/>
+        <text class="r-label" x="56" y="1038" fill="#ff3b3b">COUPE-CIRCUITS &amp; INTERDITS</text>
+        <text class="r-sub" x="56" y="1056" fill="#6a8a72">ce qui arrête ou bloque le hub — par design</text>
+
+        <g class="node">
+          <rect x="70" y="1065" width="280" height="86" rx="7" stroke="#ff3b3b"/>
+          <text class="n-title" x="210" y="1087" text-anchor="middle" fill="#ff3b3b">BUDGET CLOUD 624/j</text>
+          <text class="n-sub" x="210" y="1107" text-anchor="middle" fill="#d8ffe0">atteint → bascule famille (gratuits)</text>
+          <text class="n-sub2" x="210" y="1125" text-anchor="middle" fill="#6a8a72">filet restreint aux gratuits · jamais coupé</text>
+        </g>
+        <g class="node">
+          <rect x="380" y="1065" width="280" height="86" rx="7" stroke="#ff3b3b"/>
+          <text class="n-title" x="520" y="1087" text-anchor="middle" fill="#ff3b3b">ANTI-TEMPÊTE PAR TÂCHE</text>
+          <text class="n-sub" x="520" y="1107" text-anchor="middle" fill="#d8ffe0">3 échecs en 10 min → pause 5 min</text>
+          <text class="n-sub2" x="520" y="1125" text-anchor="middle" fill="#6a8a72">fini le raz-de-marée (13 vigies → analyste → 429)</text>
+        </g>
+        <g class="node">
+          <rect x="690" y="1065" width="280" height="86" rx="7" stroke="#ff3b3b"/>
+          <text class="n-title" x="830" y="1087" text-anchor="middle" fill="#ff3b3b">⛔ 0 IA LOCALE</text>
+          <text class="n-sub" x="830" y="1107" text-anchor="middle" fill="#d8ffe0">jamais Ollama/qwen-local (C9)</text>
+          <text class="n-sub2" x="830" y="1125" text-anchor="middle" fill="#6a8a72">fail-closed → RÈGLES, pas de repli local</text>
+        </g>
+
+        <!-- ============ BANDEAU FINAL ============ -->
+        <text class="r-label" x="1030" y="1038" fill="#39ff14" font-size="14">LE PRINCIPE UNIQUE</text>
+        <text class="r-sub" x="1030" y="1062" fill="#d8ffe0" font-size="12">Le hub ne rend la main que quand</text>
+        <text class="r-sub" x="1030" y="1080" fill="#d8ffe0" font-size="12">TOUS les providers actifs ont été tentés,</text>
+        <text class="r-sub" x="1030" y="1098" fill="#d8ffe0" font-size="12">pas seulement les 3 de la chaîne.</text>
+        <text class="r-sub" x="1030" y="1126" fill="#39ff14" font-size="12">Tant qu'1 gratuit actif répond →</text>
+        <text class="r-sub" x="1030" y="1144" fill="#39ff14" font-size="12">le hub répond. Plus jamais à sec.</text>
+        <text class="note" x="1030" y="1170" fill="#6a8a72">Méthode : METHODE_HUB_POINT_FINAL_2026-08-16.md · validations : VALIDATION_FINALE_{CODEUR,FAMILLE}_HUB_2026-08-16.md · backups : hub_prise_ia.py.bak-failover-20260816</text>
+      </svg>
+    </div>
+
+    <footer>
+      <span>Canon : METHODE_HUB_POINT_FINAL_2026-08-16.md · tech.html (TECH) · carte.html (CARTE) · VUE (index.html)</span>
+      <span>
+        <a href="index.html">← VUE</a> · <a href="tech.html">TECH</a> · <a href="carte.html">CARTE</a>
+      </span>
+    </footer>
+  </div>
+</body>
+</html>

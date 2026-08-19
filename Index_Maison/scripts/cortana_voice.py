@@ -20,8 +20,10 @@ import tempfile
 import time
 from pathlib import Path
 
-# Voix « Cortana film » — Vivienne (validée Christophe 2026-07-30)
-EDGE_VOICE = os.getenv("EDGE_TTS_VOICE", "fr-FR-VivienneMultilingualNeural")
+# Voix « Cortana » — Denise (français PUR, non-multilingue).
+# 19/08 : VivienneMultilingualNeural basculait de langue sur les tickers/mots
+# anglais → accent espagnol. Denise (General) ne peut pas dériver.
+EDGE_VOICE = os.getenv("EDGE_TTS_VOICE", "fr-FR-DeniseNeural")
 EDGE_RATE = os.getenv("EDGE_TTS_RATE", "-18%")
 TTS_MODE = os.getenv("CORTANA_TTS", "edge").lower()  # edge|say|auto
 

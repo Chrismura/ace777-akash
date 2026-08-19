@@ -60,7 +60,10 @@ def scan_bloc_recent(dernier_hauteur):
     try:
         tip = get_json(f"{MEMPOOL}/blocks/tip/height")
     except Exception:
-        return [], tip_hauteur
+        # Repli : API tip indisponible → pas de données, hauteur inconnue (0).
+        # (fix 19/08 : `tip_hauteur` était une variable inexistante → NameError
+        #  qui faisait échouer tout le scan et figer whales_scan_latest.json.)
+        return [], 0
     gros = []
     # on scanne jusqu'a 6 blocs en arriere
     for profondeur in range(1, 7):
