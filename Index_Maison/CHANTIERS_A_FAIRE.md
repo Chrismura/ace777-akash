@@ -99,7 +99,8 @@ score+leçons 16h30).
 | S-04 | **Mode pédagogique** : légende/au survol pour expliquer ce que signifie chaque couleur. | 🟡 à faire |
 | S-05 | Validation couleur régime (min 5 échantillons/couleur) avant tout usage pour Hulk. | 🟠 en observation |
 | S-06 | **Stopper les briefs/analyses automatisés** (bruit non lu) : analyste-cadence · brief-matin · brief-offres · cortana.horaire · discipline-quotidienne · journal-intention · journal-soir · propose-ameliorations · verif-predictions. ⚠️ À GARDER : `cortana.urgent` (alerte gros mouvement). NB : analyste-cadence alimente la boucle justesse → à remplacer par S-07. | 🟡 à faire (GO requis) |
-| S-07 | **Cortana parle quand un pattern se dessine** : les patterns sont déjà détectés dans thermo (level_funding, structure_hh_hl, realized_vol, alt_season) → déclencher la voix Vivienne qui EXPLIQUE ce qu'elle voit, pourquoi, + son avis. Remplace le bruit par des alertes ciblées. | 🟡 à faire |
+| S-07 | **Cortana parle quand un pattern se dessine** : les patterns sont déjà détectés dans thermo (level_funding, structure_hh_hl, realized_vol, alt_season) → déclencher la voix Vivienne qui EXPLIQUE ce qu'elle voit, pourquoi, + son avis. Version écrite dans l'onglet VOL (date+heure) + évaluation auto (journalisée analyses/ → score_justesse). **VALIDÉ par Christophe 19/08.** | 🟡 à faire |
+| S-08 | **Évaluateur unique** (au lieu de scores éparpillés) : un script MÉCANIQUE observe toutes les décisions (Cortana, couleur, famille), note HIT/MISS vs le marché réel, vérifie après coup, écrit les leçons dans l'AGORA (lecons_agora). Solution simple = meilleure (Christophe 19/08). | 🟡 à faire |
 
 ---
 
