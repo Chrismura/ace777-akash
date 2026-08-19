@@ -1518,3 +1518,7 @@ Pas d’ordre — confrontation plus tard.
 ### 2026-08-18T22:16:57Z — ALERT auto
 - RWAINCUSDT: WATCH_PULLBACK — tension haute + reflux
 (compléter: confirmé ? risque ?)
+
+### 2026-08-19T12:11:07Z — ALERT auto
+- RWAINCUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
