@@ -113,6 +113,14 @@ body::after{
 .ind-lab{font-family:Orbitron,sans-serif;font-size:.82rem;letter-spacing:.14em;color:var(--amber)}
 .ind-val{font-family:Orbitron,sans-serif;font-size:1.9rem;line-height:1;color:#e9e4d4}
 .ind-sub{font-size:.68rem;color:var(--muted);letter-spacing:.02em}
+.just-detail{margin:0 0 10px;padding:8px 12px;background:#0a1410;border:1px solid var(--line);border-radius:6px;color:var(--muted)}
+.just-detail summary{cursor:pointer;font-family:Orbitron,sans-serif;font-size:.72rem;letter-spacing:.12em;color:var(--amber)}
+.just-indices{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.just-indices span{padding:3px 8px;border:1px solid var(--line);border-radius:4px;font-size:.72rem}
+.just-indices span.ok{color:var(--acid);border-color:rgba(124,255,107,.35)}
+.just-indices span.part{color:var(--amber);border-color:rgba(255,210,77,.35)}
+.just-indices span.miss{color:var(--red);border-color:rgba(255,77,77,.35)}
+.just-indices span i{font-style:normal;color:var(--muted);font-size:.64rem}
 
 /* LAYOUT — un seul stage visible, pas de superposition */
 .stage-host{min-width:0}
@@ -1162,6 +1170,12 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
       <span class="ind-sub" id="top-dust-sub"></span>
     </div>
   </div>
+
+  <!-- Notations par indice (apprentissage) — détail repliable -->
+  <details class="just-detail" id="just-detail">
+    <summary>NOTATIONS PAR INDICE · apprentissage</summary>
+    <div class="just-indices" id="just-indices">chargement…</div>
+  </details>
 
   <div class="shoot-layer" id="shoot-layer" aria-hidden="true"></div>
   <div class="fx-sparks" id="fx-sparks" aria-hidden="true"></div>
@@ -3105,6 +3119,22 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
       if(tj){ tj.textContent = (pct!=null) ? (Math.round(pct)+'%') : '—'; tj.style.color = (pct==null)?'':(pct<40?'#ff4d4d':(pct<60?'#ffd24d':'#7CFF6B')); }
       const tjs = document.getElementById('top-just-sub');
       if(tjs) tjs.textContent = (j.total_hit!=null) ? (j.total_hit+'/'+j.total_scored+' justes') : '';
+      const jidx = document.getElementById('just-indices');
+      if(jidx){
+        const pis = j.par_indice || {};
+        const entries = Object.entries(pis).sort((a,b)=>(b[1].n||0)-(a[1].n||0));
+        if(!entries.length){ jidx.textContent = 'aucune notation pour l\'instant'; }
+        else{
+          jidx.innerHTML = entries.map(([k,v])=>{
+            const g = (typeof GLOSSARY!=='undefined' && GLOSSARY[k]) ? GLOSSARY[k] : null;
+            const label = g ? g.t : k;
+            const hit = v.hit||0, n = v.n||0, neu = v.neutre||0;
+            const cls = (n>0 && hit===n) ? 'ok' : (hit===0 ? 'miss' : 'part');
+            const tt = g ? (' title="'+g.d.replace(/"/g,'&quot;')+'"') : '';
+            return '<span class="'+cls+'"'+tt+'>'+label+' <b>'+hit+'/'+n+'</b>'+(neu?(' <i>±'+neu+'</i>'):'')+'</span>';
+          }).join('');
+        }
+      }
       if(box){
         box.textContent = pct!=null? (Math.round(pct)+'%') : '—';
         box.className = 'just-score' + (pct==null?'':(pct<40?' hot':(pct<60?' warn':'')));
