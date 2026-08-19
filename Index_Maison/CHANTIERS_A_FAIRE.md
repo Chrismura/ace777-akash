@@ -83,6 +83,24 @@ F-01 à F-04 (cerveau HTML, graphe Obsidian, install vault, cockpit graph) — �
 
 ---
 
+## 🟢 SNIFFER DU VRAI + COULEUR RÉGIME (19/08 — construit, en observation)
+
+**Déjà livré (19/08)** : `sniffer_vrai.py` (brut vs narratif + divergence, sources
+natives par actif) · `couleur_regime.py` (matrice VERT/JAUNE/ROUGE/NOIR/ORANGE +
+boucle justesse auto-nourrie) · 4 plists (sniff 8h + 15h50, couleur 8h05 + 15h55,
+score+leçons 16h30).
+
+**À faire (chantiers ouverts)** :
+| # | Item | Statut |
+|---|------|--------|
+| S-01 | Enquête blocs privatisés fantômes (26–34%, qui les mine, pourquoi) | 🟡 à faire |
+| S-02 | **Afficher TOUS les scores dans le cockpit** (justesse Cortana + justesse couleur + couleur du jour). Aujourd'hui seul ADA (voilure) est visible en bas à droite. | 🟡 à faire |
+| S-03 | **Bulles d'info** (popups en boucle : info/avis/anomalie sniffée NON-mainstream, au survol = reste, sinon ~15 s, fermable). Poids à évaluer avant GO. | 🟡 à faire |
+| S-04 | **Mode pédagogique** : légende/au survol pour expliquer ce que signifie chaque couleur. | 🟡 à faire |
+| S-05 | Validation couleur régime (min 5 échantillons/couleur) avant tout usage pour Hulk. | 🟠 en observation |
+
+---
+
 ## Règle
 Backlog = honnête, vivant. On finit l'essentiel avant la finition.
 Un GO de Christophe = priorité. La cohérence s'applique à tout le monde, moi compris.

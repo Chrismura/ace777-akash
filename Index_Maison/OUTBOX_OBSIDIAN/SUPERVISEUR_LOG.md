@@ -1,4 +1,3 @@
-| 2026-08-10T11:27Z | SUPERVISEUR | hub=OK ollama=OK jobs_manquants=['com.ace777.qwen-btc', 'com.ace777.qwen-elabore'] git_sys=D git_vault=? action=none résultat=rien à faire | rappel lecture déjà écrit aujourd'hui (2026-08-10) |
 | 2026-08-10T12:28Z | SUPERVISEUR | hub=OK ollama=OK jobs_manquants=[] git_sys=D git_vault=? action=none résultat=rien à faire | rappel lecture déjà écrit aujourd'hui (2026-08-10) |
 | 2026-08-10T13:29Z | SUPERVISEUR | hub=OK ollama=OK jobs_manquants=[] git_sys=D git_vault=? action=none résultat=rien à faire | rappel lecture déjà écrit aujourd'hui (2026-08-10) |
 | 2026-08-10T14:30Z | SUPERVISEUR | hub=OK ollama=OK jobs_manquants=['com.ace777.analyse-usage'] git_sys=D git_vault=? action=fix résultat=relance job com.ace777.analyse-usage (n°1/jour) | rappel lecture déjà écrit aujourd'hui (2026-08-10) |
@@ -198,3 +197,4 @@
 | 2026-08-18T23:45Z | SUPERVISEUR | hub=OK ollama=OK jobs_manquants=[] git_sys=D git_vault=D action=none résultat=rien à faire | rappel lecture déjà écrit aujourd'hui (2026-08-18) |
 | 2026-08-19T00:45Z | SUPERVISEUR | hub=OK ollama=OK jobs_manquants=[] git_sys=D git_vault=D action=none résultat=rien à faire | rappel lecture écrit (âge preuve : aucune) |
 | 2026-08-19T01:45Z | SUPERVISEUR | hub=OK ollama=OK jobs_manquants=[] git_sys=D git_vault=D action=none résultat=rien à faire | rappel lecture déjà écrit aujourd'hui (2026-08-19) |
+| 2026-08-19T02:46Z | SUPERVISEUR | hub=OK ollama=OK jobs_manquants=[] git_sys=D git_vault=D action=none résultat=rien à faire | rappel lecture déjà écrit aujourd'hui (2026-08-19) |

@@ -1447,3 +1447,11 @@
 - 2026-08-18T22:13:36.598855Z | alerte | Poursuite de la vigilance ambre avec un PnL combiné légèrement négatif, une discipline d'embuscade intacte sur Alpha et un pilotage resserré des positions seeds de Hulk. | conf=88%
 - 2026-08-18T22:25:33.036507Z | alerte | ? | conf=?
 - 2026-08-18T22:25:46.133205Z | alerte | ? | conf=?
+- 2026-08-19T00:00:58.956041Z | alerte | Poursuite de la vigilance ambre avec un PnL combiné légèrement négatif (-0,93 $), une discipline d'embuscade intacte sur Alpha et un pilotage resserré des positions seeds de Hulk | conf=88%
+- 2026-08-19T00:01:00.924447Z | alerte | Poursuite de la vigilance ambre avec un PnL combiné légèrement négatif (-0,93 $), une discipline d | conf=?
+- 2026-08-19T00:01:17.539132Z | alerte | Poursuite de la vigilance ambre avec un PnL combiné légèrement négatif (-0,93 $), une discipline d'embuscade intacte sur Alpha et un pilotage resserré des positions seeds de Hulk. | conf=88%
+- 2026-08-19T00:02:09.121997Z | alerte | ? | conf=?
+- 2026-08-19T00:14:01.323194Z | alerte | ? | conf=?
+- 2026-08-19T00:14:02.066437Z | alerte | ? | conf=?
+- 2026-08-19T00:44:01.317451Z | alerte | ? | conf=?
+- 2026-08-19T00:44:29.488782Z | alerte | one clear sentence. | conf=?
