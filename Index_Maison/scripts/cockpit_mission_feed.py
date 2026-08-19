@@ -276,6 +276,16 @@ def load_hulk():
                 u_pnl = round((mark - entry) * qty, 4)
             if entry and mark is not None and entry > 0:
                 pnl_pct = round((mark - entry) / entry * 100.0, 3)
+            # BAG complet = position (qty × mark) + cash de la paire (pair_cash).
+            # Quand Hulk vend PARTIEL, la qté baisse mais l'argent va dans le cash :
+            # le bag total, lui, dit la vérité (mise 10 $ → bag 11,12 $ = +11 %).
+            val_pos = (qty * mark) if (qty is not None and mark is not None) else None
+            pair_c = float(pair_cash.get(pair, 0.0) or 0.0)
+            bag_value = round(val_pos + pair_c, 4) if val_pos is not None else None
+            stake = fnum(info.get("stake"), 2)
+            bag_pct = None
+            if bag_value is not None and stake:
+                bag_pct = round((bag_value - stake) / stake * 100.0, 2)
             return {
                 "pair": pair,
                 "crypto": _crypto_from_pair(pair),
@@ -290,6 +300,9 @@ def load_hulk():
                 "uPnl": u_pnl,
                 "uPnlApprox": u_pnl,
                 "pnlPct": pnl_pct,
+                "bagValue": bag_value,
+                "bagPct": bag_pct,
+                "pairCash": round(pair_c, 2),
                 "move24": fnum(sc.get("move24_pct"), 2),
                 "opened": info.get("ts"),
                 "seed": bool(info.get("seed")),

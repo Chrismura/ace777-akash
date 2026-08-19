@@ -707,6 +707,8 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
 .hfc .hfc-row{display:flex;justify-content:space-between;gap:6px;color:#c9d4de;font-size:.78rem}
 .hfc .hfc-row span:first-child{color:var(--muted);font-size:.62rem;letter-spacing:.05em}
 .hfc .hfc-reg{font-size:.62rem;color:var(--muted);letter-spacing:.05em;border-top:1px solid rgba(255,255,255,.05);padding-top:3px;margin-top:1px}
+.hfc .hfc-bag{border-top:1px solid rgba(196,255,77,.3);padding-top:4px;margin-top:1px;background:rgba(196,255,77,.06)}
+.hfc .hfc-bag span:first-child{color:var(--hulk);font-weight:bold;letter-spacing:.1em}
 .hfc .dir-long{color:var(--acid)}.hfc .dir-short{color:var(--red)}
 
 /* SHOOT ACE/GROK */
@@ -1920,7 +1922,8 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
             <div class="hfc-row"><span>entrée</span><span>${fmtP(p.entry,6)}</span></div>
             <div class="hfc-row"><span>cours</span><span>${fmtP(p.mark||p.high,6)}</span></div>
             <div class="hfc-row" title="gain en % depuis l'entrée (si tu n'avais rien fait)"><span>gain</span><span class="${cls(pct)}">${arrow} ${pct!=null?fmt(pct,2)+'%':'—'}</span></div>
-            <div class="hfc-row"><span>valeur</span><span>${usd(p.qty!=null&&(p.mark||p.high)? p.qty*(p.mark||p.high): null)}</span></div>
+            <div class="hfc-row" title="valeur de la position seule (qté × cours)"><span>valeur</span><span>${usd(p.qty!=null&&(p.mark||p.high)? p.qty*(p.mark||p.high): null)}</span></div>
+            <div class="hfc-row hfc-bag" title="BAG COMPLET = position + cash de la paire (quand une vente partielle a eu lieu, l'argent va dans le cash : le bag total dit la vérité)"><span>BAG</span><span class="${cls(p.bagPct)}">${p.bagValue!=null?usd(p.bagValue):'—'} ${p.bagPct!=null?((p.bagPct>0?'+':'')+fmt(p.bagPct,1)+'%'):''}${(p.pairCash!=null&&p.pairCash>0)?(' · cash '+usd(p.pairCash)):''}</span></div>
             <div class="hfc-row"><span>gain $</span><span class="${cls(u)}">${u!=null?(u>0?'+':'')+fmt(u,2):'—'}</span></div>
             <div class="hfc-row"><span>qté</span><span>${p.qty!=null?Number(p.qty).toPrecision(4):'—'}</span></div>
           </div>`;
