@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-19T04:46:25.830159+00:00",
+  "generated_at": "2026-08-19T05:48:29.097648+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 216
+      "calls_24h": 217
     },
     {
       "id": "openrouter-free",
@@ -26,7 +26,7 @@
       "model": "qwen-3.8-max-free",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 123
+      "calls_24h": 158
     },
     {
       "id": "groq",
@@ -35,7 +35,7 @@
       "model": "groq/compound",
       "enabled": true,
       "timeout": 120,
-      "calls_24h": 13
+      "calls_24h": 14
     },
     {
       "id": "nvidia",
@@ -44,7 +44,7 @@
       "model": "deepseek-ai/deepseek-v4-flash-0731",
       "enabled": true,
       "timeout": 300,
-      "calls_24h": 73
+      "calls_24h": 74
     },
     {
       "id": "mistral",
@@ -53,7 +53,7 @@
       "model": "codestral-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 90
+      "calls_24h": 93
     },
     {
       "id": "cloudflare-workers-ai",
@@ -211,190 +211,190 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 247,
-    "remaining": 377
+    "consumed": 288,
+    "remaining": 336
   },
   "queue": [
     {
-      "ts": "2026-08-19T04:46:10.528987+00:00",
+      "ts": "2026-08-19T05:47:56.346029+00:00",
       "task": "supervise.decision",
       "provider": "nara",
       "model": "qwen-3.8-max-free",
       "kind": "cloud",
-      "duration_s": 106.92
+      "duration_s": 40.74
     },
     {
-      "ts": "2026-08-19T04:42:52.417998+00:00",
+      "ts": "2026-08-19T05:45:43.309250+00:00",
       "task": "supervise.decision",
       "provider": "nara",
       "model": "qwen-3.8-max-free",
       "kind": "cloud",
-      "duration_s": 90.83
+      "duration_s": 31.25
     },
     {
-      "ts": "2026-08-19T04:42:51.156117+00:00",
+      "ts": "2026-08-19T05:43:39.456158+00:00",
+      "task": "supervise.decision",
+      "provider": "mistral",
+      "model": "codestral-latest",
+      "kind": "cloud",
+      "duration_s": 0.44
+    },
+    {
+      "ts": "2026-08-19T05:41:44.680422+00:00",
       "task": "supervise.decision",
       "provider": "nara",
       "model": "qwen-3.8-max-free",
       "kind": "cloud",
-      "duration_s": 26.23
+      "duration_s": 9.2
     },
     {
-      "ts": "2026-08-19T04:39:49.093894+00:00",
+      "ts": "2026-08-19T05:40:02.995028+00:00",
       "task": "supervise.decision",
       "provider": "nara",
       "model": "qwen-3.8-max-free",
       "kind": "cloud",
-      "duration_s": 26.06
+      "duration_s": 31.48
     },
     {
-      "ts": "2026-08-19T04:39:48.690041+00:00",
+      "ts": "2026-08-19T05:37:59.095757+00:00",
       "task": "supervise.decision",
       "provider": "nara",
       "model": "qwen-3.8-max-free",
       "kind": "cloud",
-      "duration_s": 89.06
+      "duration_s": 23.9
     },
     {
-      "ts": "2026-08-19T04:36:47.208031+00:00",
+      "ts": "2026-08-19T05:36:02.757031+00:00",
+      "task": "supervise.decision",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 9.96
+    },
+    {
+      "ts": "2026-08-19T05:34:20.481006+00:00",
+      "task": "supervise.decision",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 28.33
+    },
+    {
+      "ts": "2026-08-19T05:32:19.648265+00:00",
+      "task": "supervise.decision",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 36.41
+    },
+    {
+      "ts": "2026-08-19T05:30:10.665041+00:00",
+      "task": "supervise.decision",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 21.8
+    },
+    {
+      "ts": "2026-08-19T05:28:16.380214+00:00",
+      "task": "supervise.decision",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 28.62
+    },
+    {
+      "ts": "2026-08-19T05:26:15.304709+00:00",
+      "task": "supervise.decision",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 24.68
+    },
+    {
+      "ts": "2026-08-19T05:24:18.094320+00:00",
       "task": "supervise.decision",
       "provider": "groq",
       "model": "groq/compound",
       "kind": "cloud",
-      "duration_s": 0.93
+      "duration_s": 1.53
     },
     {
-      "ts": "2026-08-19T04:35:14.046696+00:00",
+      "ts": "2026-08-19T05:22:44.297374+00:00",
       "task": "supervise.decision",
       "provider": "nara",
       "model": "qwen-3.8-max-free",
       "kind": "cloud",
-      "duration_s": 19.51
+      "duration_s": 23.79
     },
     {
-      "ts": "2026-08-19T04:34:51.110538+00:00",
+      "ts": "2026-08-19T05:20:48.116111+00:00",
       "task": "supervise.decision",
       "provider": "nara",
       "model": "qwen-3.8-max-free",
       "kind": "cloud",
-      "duration_s": 60.09
-    },
-    {
-      "ts": "2026-08-19T04:33:45.626617+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 58.01
-    },
-    {
-      "ts": "2026-08-19T04:31:15.201761+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 34.13
-    },
-    {
-      "ts": "2026-08-19T04:30:09.643128+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 135.34
-    },
-    {
-      "ts": "2026-08-19T04:29:08.622897+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 10.92
-    },
-    {
-      "ts": "2026-08-19T04:28:49.976067+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 119.11
-    },
-    {
-      "ts": "2026-08-19T04:26:50.786027+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 63.31
-    },
-    {
-      "ts": "2026-08-19T04:24:15.078714+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 21.34
+      "duration_s": 26.05
     }
   ],
   "events": [
     {
-      "ts": "2026-08-19T04:46:22.528472+00:00",
-      "kind": "timeout",
-      "title": "Patience NaraRouter (7M tokens/jour gratuits) (HTTP 502)",
-      "detail": "HTTP Error 502: Bad Gateway"
-    },
-    {
-      "ts": "2026-08-19T04:46:16.000930+00:00",
-      "kind": "failover",
-      "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
-      "detail": "0 attente"
-    },
-    {
-      "ts": "2026-08-19T04:46:10.529577+00:00",
-      "kind": "http",
-      "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
-      "detail": ""
-    },
-    {
-      "ts": "2026-08-19T04:46:10.528521+00:00",
+      "ts": "2026-08-19T05:47:56.345656+00:00",
       "kind": "message",
       "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
       "detail": "bascule"
     },
     {
-      "ts": "2026-08-19T04:45:40.424609+00:00",
+      "ts": "2026-08-19T05:47:15.607275+00:00",
+      "kind": "failover",
+      "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
+      "detail": "0 attente"
+    },
+    {
+      "ts": "2026-08-19T05:46:50.939978+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis Groq (LLM ultra-rapide, gratuit)",
+      "detail": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "ts": "2026-08-19T05:46:50.939443+00:00",
+      "kind": "ratelimit",
+      "title": "429 Groq (LLM ultra-rapide, gratuit) -> pause 60s + bascule",
+      "detail": ""
+    },
+    {
+      "ts": "2026-08-19T05:46:50.729972+00:00",
+      "kind": "blacklist",
+      "title": "Fin de pause Groq (LLM ultra-rapide, gratuit)",
+      "detail": "re-essai automatique"
+    },
+    {
+      "ts": "2026-08-19T05:45:51.894171+00:00",
       "kind": "http",
       "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
       "detail": ""
     },
     {
-      "ts": "2026-08-19T04:45:40.424412+00:00",
+      "ts": "2026-08-19T05:45:51.893984+00:00",
       "kind": "error",
       "title": "Toutes les IA ont echoue",
-      "detail": "Google Gemini: HTTP Error 429: Too Many Requests | Groq (LLM ultra-rapide, gratuit): blacklist du jour (saute) | HuggingFace (136+ modeles, dont DeepSeek-V4): HTTP Error 402: Payment Required | OpenRouter (modeles gratuits): HTTP Error 429: Too Many Requests | NaraRouter (7M tokens/jour gratuits): The read operation timed out | NVIDIA build.nvidia.com (100+ modeles): The read operation timed out | Mistral La Plateforme (essai gratuit): The read operation timed out | OpenRouter Juge (nemotron-3-s"
+      "detail": "Google Gemini: HTTP Error 429: Too Many Requests | Groq (LLM ultra-rapide, gratuit): HTTP Error 413: Payload Too Large | HuggingFace (136+ modeles, dont DeepSeek-V4): blacklist du jour (saute) | OpenRouter (modeles gratuits): HTTP Error 429: Too Many Requests | NaraRouter (7M tokens/jour gratuits): The read operation timed out | NVIDIA build.nvidia.com (100+ modeles): The read operation timed out | Mistral La Plateforme (essai gratuit): The read operation timed out | OpenRouter Juge (nemotron-3-"
     },
     {
-      "ts": "2026-08-19T04:45:40.422450+00:00",
+      "ts": "2026-08-19T05:45:51.892564+00:00",
       "kind": "failover",
       "title": "Bascule depuis google/diffusiongemma-26b-a4b-it",
       "detail": "The read operation timed out"
     },
     {
-      "ts": "2026-08-19T04:45:29.573090+00:00",
+      "ts": "2026-08-19T05:45:43.308753+00:00",
+      "kind": "message",
+      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
+      "detail": "bascule"
+    },
+    {
+      "ts": "2026-08-19T05:45:41.065276+00:00",
       "kind": "failover",
       "title": "Bascule depuis nvidia/nemotron-3.5-content-safety:free",
-      "detail": "HTTP Error 429: Too Many Requests"
-    },
-    {
-      "ts": "2026-08-19T04:45:29.205371+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis nvidia/nemotron-3.5-lightning:free",
-      "detail": "HTTP Error 429: Too Many Requests"
-    },
-    {
-      "ts": "2026-08-19T04:45:28.784476+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
       "detail": "HTTP Error 429: Too Many Requests"
     }
   ],
