@@ -1,11 +1,11 @@
 # Attention vocale — Cortana
 
 ## Dernier résumé
-> Alerte Deux portefeuilles. Activité sur Ace et Hulk dans la même fenêtre. Les deux stacks bougent — sniffe, pas de GO.. Provenance cortana_watch_dual.
+> Alerte Gros mouvement. Bitcoin une heure +3.43 pour cent, quatre heures +5.70 pour cent.. Provenance cortana_watch_move.
 
 ## Meta
 - statut: READY
-- ts: 20260819T1508Z
+- ts: 20260819T1534Z
 - pertinence: PERTINENT
 - sentiment: URGENT
 - compte: thermo-free
