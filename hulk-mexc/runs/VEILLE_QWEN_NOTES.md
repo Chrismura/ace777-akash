@@ -1618,3 +1618,21 @@ Pas d’ordre — confrontation plus tard.
 ### 2026-08-19T18:03:56Z — ALERT auto
 - RIZEUSDT: WATCH_PULLBACK — tension haute + reflux
 (compléter: confirmé ? risque ?)
+
+### 2026-08-19T18:29:51Z — ALERT auto
+- BIOUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
+
+### 2026-08-19T18:37:47Z — ALERT auto
+- REDUSDT: WATCH_PULLBACK — tension haute + reflux
+- TELUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
+
+### 2026-08-19T19:02:42Z — ALERT auto
+- EDELUSDT: IMPULSE_WAIT — spike en cours, pas chase
+- QAITUSDT: IMPULSE_WAIT — spike en cours, pas chase
+(compléter: confirmé ? risque ?)
+
+### 2026-08-19T19:03:59Z — ALERT auto
+- CCUSDT: IMPULSE_WAIT — spike en cours, pas chase
+(compléter: confirmé ? risque ?)
