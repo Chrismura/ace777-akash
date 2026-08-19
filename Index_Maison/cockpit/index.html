@@ -1422,10 +1422,10 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
       </div>
 
       <!-- TABLEAU DU DÉPART : 10$ crypto + 20$ cash → % si rien fait vs % réel -->
-      <div class="hulk-sect">DU DÉPART (10$ crypto + 20$ cash) <span class="hulk-sect-n" id="h-wal-note"></span></div>
+      <div class="hulk-sect">DU DÉPART — le bag au début <span class="hulk-sect-n" id="h-wal-note"></span></div>
       <div class="hulk-tbl-wrap"><table class="hulk-tbl" id="h-wallet-tbl">
         <thead><tr>
-          <th>CRYPTO</th><th>DÉPART $</th><th>SI RIEN FAIT</th><th>RÉEL (valeur $)</th>
+          <th>CRYPTO</th><th>BAG AU DÉBUT (qté)</th><th>SI RIEN FAIT</th><th>RÉEL (valeur $)</th>
         </tr></thead>
         <tbody></tbody>
       </table></div>
@@ -1917,24 +1917,28 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
         const wOpen=rows.filter(p=>p.open===true||(p.status||'').toUpperCase()==='TRADE'||(p.status||'').toUpperCase()==='BAG');
         tbw.innerHTML=wOpen.map(p=>{
           const crypto=p.crypto||p.pair||'';
-          // DÉPART = 10$ crypto + 20$ cash = 30$ (point zéro)
-          const depT=30;
-          // SI RIEN FAIT = % gain crypto + valeur 20$ (somme)
+          // BAG AU DÉBUT = quantité de crypto au départ (seed) — ex. BIO 415.97
+          const depQ=p.seedQty!=null? Number(p.seedQty).toPrecision(4) : '—';
+          const depVal=(p.seedQty!=null&&p.entry)? (p.seedQty*p.entry) : (p.stake!=null? p.stake : 10);
+          // SI RIEN FAIT = % gain crypto + valeur du bag + les 20 $ de cash (somme)
           const sPct=p.statiquePct!=null? p.statiquePct : p.pnlPct;
-          const sVal=(p.statiqueVal!=null? p.statiqueVal : 0) + 20;
-          // RÉEL = valeur totale crypto + 20$ + % +/−
-          const bVal=(p.bagValue!=null? p.bagValue : 0) + 20;
-          // ROUGE si RÉEL < DÉPART total (en perte vs le départ) OU < SI RIEN FAIT
-          const vsDep=bVal - depT;
-          const vsRien=bVal - sVal;
-          const eps=0.05; // tolérance : 0 = pas rouge (artefact d'arrondi)
-          const rCls=(vsDep<-eps||vsRien<-eps)?'wneg':(vsDep>eps&&vsRien>eps?'wpos':'wneu');
+          const sVal=p.statiqueVal!=null? p.statiqueVal : null;
+          const CASH=20; // cash initial conservé (point zéro : 10 $ crypto + 20 $ cash)
+          const sTot=(sVal!=null)? sVal+CASH : null;
+          // RÉEL = valeur totale du bag maintenant + les 20 $ de cash + % +/−
+          const bVal=p.bagValue!=null? p.bagValue : null;
+          const bTot=(bVal!=null)? bVal+CASH : null;
+          // ROUGE si RÉEL < SI RIEN FAIT (perte vs ne rien faire)
+          const vsRien=(bTot!=null&&sTot!=null)? (bTot-sTot) : null;
+          const vsPct=(vsRien!=null&&sTot!=null&&sTot!==0)? (vsRien/sTot*100) : null;
+          const eps=0.05;
+          const rCls=(vsRien!=null&&vsRien<-eps)?'wneg':(vsRien!=null&&vsRien>eps?'wpos':'wneu');
           const arrow=v=>(v!=null)?((v>0)?'▲':(v<0?'▼':'')):'';
           return `<tr class="hrow open">
             <td class="hc"><span class="hcn">${crypto}</span></td>
-            <td class="hq">${usd(depT)}</td>
-            <td class="hs" title="% gain sur la crypto + valeur 20$ (somme si tu n'avais rien fait)"><span class="${cls(sPct)}">${arrow(sPct)} ${sPct!=null?fmt(sPct,1)+'%':'—'}</span> <span class="hsub">${usd(sVal)}</span></td>
-            <td class="hr ${rCls}" title="RÉEL = valeur totale crypto + 20$. ROUGE = en dessous du départ ou de si rien fait (perte)."><span class="${cls(vsRien)}">${arrow(vsRien)} ${vsRien!=0?((vsRien>0?'+':'')+fmt(vsRien,1)+'%'):'—'}</span> <span class="hsub">${usd(bVal)}</span></td>
+            <td class="hq" title="quantité de crypto au départ (le bag)">${depQ}</td>
+            <td class="hs" title="% gain sur la crypto + valeur du bag + 20$ cash (si tu n'avais rien fait)"><span class="${cls(sPct)}">${arrow(sPct)} ${sPct!=null?fmt(sPct,1)+'%':'—'}</span>${sTot!=null?(' <span class="hsub">'+usd(sTot)+'</span>'):''}</td>
+            <td class="hr ${rCls}" title="RÉEL = bag maintenant + 20$ cash. ROUGE = en dessous de si rien fait (perte)."><span class="${cls(vsPct)}">${arrow(vsPct)} ${vsPct!=null?((vsPct>0?'+':'')+fmt(vsPct,1)+'%'):'—'}</span>${bTot!=null?(' <span class="hsub">'+usd(bTot)+'</span>'):''}</td>
           </tr>`;
         }).join('') || '<tr><td colspan="4" class="hsub">aucune position</td></tr>';
       }
