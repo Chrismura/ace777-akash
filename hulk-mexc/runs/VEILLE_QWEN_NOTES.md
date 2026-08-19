@@ -1522,3 +1522,11 @@ Pas d’ordre — confrontation plus tard.
 ### 2026-08-19T12:11:07Z — ALERT auto
 - RWAINCUSDT: WATCH_PULLBACK — tension haute + reflux
 (compléter: confirmé ? risque ?)
+
+### 2026-08-19T12:13:28Z — ALERT auto
+- QAITUSDT: IMPULSE_WAIT — spike en cours, pas chase
+(compléter: confirmé ? risque ?)
+
+### 2026-08-19T12:33:15Z — ALERT auto
+- QAITUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
