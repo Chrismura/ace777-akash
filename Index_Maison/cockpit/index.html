@@ -389,6 +389,10 @@ body::after{
   text-shadow:0 0 10px rgba(240,160,32,.4)}
 .card.alpha{border-color:rgba(240,160,32,.45);box-shadow:inset 0 0 30px rgba(240,160,32,.04);grid-column:1;grid-row:2}
 .card.beta{border-color:rgba(94,231,255,.4);box-shadow:inset 0 0 30px rgba(94,231,255,.04);grid-column:3;grid-row:2}
+.fees-bulle{margin-top:8px;padding:10px 12px;border:1px solid rgba(255,90,90,.5);border-radius:8px;background:rgba(255,60,60,.07);box-shadow:inset 0 0 20px rgba(255,60,60,.06)}
+.fees-bulle .fees-lab{font-family:Orbitron,sans-serif;font-size:.68rem;letter-spacing:.14em;color:#ff8a8a}
+.fees-bulle .fees-val{font-family:Orbitron,sans-serif;font-size:1.5rem;line-height:1.1;color:#ff6b6b}
+.fees-bulle .fees-sub{font-size:.66rem;color:var(--muted);margin-top:3px}
 .card.hulk{border-color:rgba(196,255,77,.35);box-shadow:inset 0 0 30px rgba(196,255,77,.04);grid-column:1 / -1;grid-row:3}
 .card.radar-wrap{grid-column:2;grid-row:2}
 .sep{height:1px;background:linear-gradient(90deg,transparent,var(--line),transparent);margin:8px 0}
@@ -1371,6 +1375,11 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
       </div>
       <div class="sep"></div>
       <div class="stream" id="b-stream"><div class="fx-layer" id="b-fx"></div><div class="stream-inner" id="b-list"></div></div>
+      <div class="fees-bulle" id="b-fees" title="Frais de plateforme Binance testnet (commissions) — la vraie raison pour laquelle le wallet se vide">
+        <div class="fees-lab">FRAIS PLATEFORME</div>
+        <div class="fees-val" id="b-fees-val">—</div>
+        <div class="fees-sub" id="b-fees-sub"></div>
+      </div>
     </div>
 
     <!-- HULK -->
@@ -3181,6 +3190,28 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
     }
   }
 
+  async function pollFees(){
+    try{
+      const r=await fetch(BRIDGE+'/fees',{cache:'no-store'});
+      const j=await r.json();
+      const v=document.getElementById('b-fees-val');
+      const s=document.getElementById('b-fees-sub');
+      if(!j || j.ok===false){ if(v) v.textContent='—'; if(s) s.textContent='fees n/d'; return; }
+      const h=j.h24||{};
+      const usd=(x)=>{ if(x==null) return '—'; return (x<0?'-':'+')+Math.abs(x).toFixed(0)+'$'; };
+      if(v){
+        const c=h.commission;
+        v.textContent = (c!=null)? ((c<0?'-':'')+Math.abs(c).toFixed(0)+' USDT') : '—';
+      }
+      if(s){
+        const pct = (h.commission!=null && h.net_trading!=null && h.net_trading!==0) ? Math.round(Math.abs(h.commission/h.net_trading)*100) : null;
+        s.textContent = '24h · PnL '+usd(h.realized_pnl)+' · net '+usd(h.net_trading)+(pct!=null?(' · frais '+pct+'%'):'');
+      }
+    }catch(e){
+      const v=document.getElementById('b-fees-val'); if(v) v.textContent='—';
+    }
+  }
+
   async function pollLinks(){
     try{
       const r=await fetch(BRIDGE+'/status',{cache:'no-store'});
@@ -3213,6 +3244,7 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
     await pollLinks();
     pollJustesse();
     pollRegime();
+    pollFees();
   }
 
   let holdBubbleUntil=0;

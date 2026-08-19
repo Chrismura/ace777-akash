@@ -1780,6 +1780,21 @@ def do_regime() -> dict:
     return out
 
 
+def do_fees() -> dict:
+    """Frais de plateforme (Binance testnet) — lecture seule du cache fees_platforme.json.
+    Le calcul (pagination income) est fait par fees_platforme.py via plist (5 min)."""
+    f = ROOT / "Index_Maison" / "thermo" / "fees_platforme.json"
+    if not f.exists():
+        return {"ok": False, "error": "fees_platforme.json absent (lance fees_platforme.py)"}
+    try:
+        data = json.loads(f.read_text(encoding="utf-8"))
+        data["ok"] = True
+        data["age_s"] = int(time.time() - f.stat().st_mtime)
+        return data
+    except Exception as e:
+        return {"ok": False, "error": str(e)}
+
+
 def _touch_stop(path: Path, note: str) -> None:
     try:
         path.write_text(note + "\n", encoding="utf-8")
@@ -1962,6 +1977,9 @@ class Handler(BaseHTTPRequestHandler):
             return
         if path == "/regime":
             self._json(200, do_regime())
+            return
+        if path == "/fees":
+            self._json(200, do_fees())
             return
         if path == "/offres":
             self._json(200, do_offres())

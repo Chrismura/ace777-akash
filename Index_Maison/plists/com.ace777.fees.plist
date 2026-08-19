@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  FRAIS PLATEFORME (19/08) — calcule les commissions Binance testnet (fees)
+  et le PnL réalisé toutes les 5 min. Écrit thermo/fees_platforme.json.
+  Lecture seule (aucun ordre). Le pont cockpit sert ce JSON via /fees.
+  Install :
+    cp ~/ace777-test-day1/Index_Maison/plists/com.ace777.fees.plist ~/Library/LaunchAgents/
+    launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.ace777.fees.plist
+-->
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.ace777.fees</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/Resources/Python.app/Contents/MacOS/Python</string>
+    <string>/Users/christophe/ace777-test-day1/Index_Maison/scripts/fees_platforme.py</string>
+  </array>
+  <key>StartInterval</key>
+  <integer>300</integer>
+  <key>RunAtLoad</key>
+  <true/>
+  <key>StandardOutPath</key>
+  <string>/Users/christophe/ace777-test-day1/Index_Maison/thermo/fees_launchd.out</string>
+  <key>StandardErrorPath</key>
+  <string>/Users/christophe/ace777-test-day1/Index_Maison/thermo/fees_launchd.err</string>
+</dict>
+</plist>
