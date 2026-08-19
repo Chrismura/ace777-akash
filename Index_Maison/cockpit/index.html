@@ -8,7 +8,7 @@
 <title>ACE777 COCKPIT</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Share+Tech+Mono&family=Caveat:wght@600;700&display=swap" rel="stylesheet" />
 <script src="mission.js"></script>
 <!-- COSMOS HUB feed -->
 <script src="hub.js"></script>
@@ -654,10 +654,11 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
 .card.hulk .bag .meta .dir-long{color:var(--acid)}
 .card.hulk .bag .meta .dir-short{color:var(--red)}
 .card.hulk .stream.hist{height:auto;max-height:none;overflow:visible}
-.card.hulk .stream.hist .stream-inner{gap:2px;padding:4px}
-.card.hulk .stream.hist .trade{font-size:.64rem;grid-template-columns:38px 46px 1fr auto;gap:2px;padding:2px 3px}
-.card.hulk .stream.hist .trade .t-ev{color:var(--muted);font-size:.52rem;letter-spacing:.02em}
+.card.hulk .stream.hist .stream-inner{gap:2px 14px;padding:4px;display:grid;grid-template-columns:1fr 1fr;align-content:start}
+.card.hulk .stream.hist .trade{font-size:.62rem;grid-template-columns:38px 44px 1fr auto;gap:2px;padding:2px 3px}
+.card.hulk .stream.hist .trade .t-ev{color:var(--muted);font-size:.5rem;letter-spacing:.02em}
 .card.hulk .stream.hist .trade .t-line{color:#cfe0d0}
+@media (max-width:900px){.card.hulk .stream.hist .stream-inner{grid-template-columns:1fr}}
 .card.hulk .hulk-jlegend{font-size:.55rem;color:var(--muted);letter-spacing:.06em;margin-top:3px}
 .card.hulk .hulk-wallet{margin-top:6px;display:flex;flex-direction:column;gap:3px}
 .card.hulk .hw{display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:.72rem;padding:3px 8px;background:rgba(0,0,0,.28);border:1px solid rgba(196,255,77,.16);border-radius:2px}
@@ -687,11 +688,12 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
 .hulk-global .hg-val{color:#e6eef7;font-family:Orbitron,sans-serif;font-size:.92rem;white-space:nowrap}
 .hulk-global .hg-ia{border-color:rgba(124,255,107,.3)}
 .hulk-global .hg-ia .hg-val{font-size:.72rem;color:#cfe6d2;white-space:normal;line-height:1.25}
-.hulk-sect{font-family:Orbitron,sans-serif;font-size:.62rem;letter-spacing:.14em;color:var(--muted);margin:12px 0 5px;display:flex;justify-content:space-between;align-items:baseline;gap:8px}
-.hulk-sect .hulk-sect-n{color:#cfe0d0;font-size:.6rem;letter-spacing:.04em;font-family:"Share Tech Mono",monospace}
+.hulk-sect{font-family:Orbitron,sans-serif;font-size:.78rem;letter-spacing:.16em;color:#e8f0dc;margin:12px 0 6px;display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.hulk-sect .hulk-sect-n{color:#cfe0d0;font-size:.66rem;letter-spacing:.04em;font-family:"Share Tech Mono",monospace}
 .hulk-folio-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:6px}
-.hulk-cols{display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:start}
-.hulk-col{min-width:0}
+.hulk-cols{display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:stretch}
+.hulk-col{min-width:0;display:flex;flex-direction:column}
+.hulk-col .hulk-tbl-wrap,.hulk-col .stream.hist{flex:1 1 auto}
 @media (max-width:1150px){.hulk-cols{grid-template-columns:1fr}}
 .hulk-tbl-wrap{overflow-x:auto;max-width:100%}
 .hulk-tbl{width:auto;border-collapse:collapse;font-size:.82rem;color:#e6eef7;white-space:nowrap}
@@ -703,9 +705,9 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
 .hulk-tbl .hs{color:#e6eef7;font-size:.82rem}
 .hulk-tbl .hr{color:#e6eef7;font-size:.82rem}
 .hulk-tbl .hsub{color:#cfd8e0;font-size:.68rem;font-family:"Share Tech Mono",monospace}
-.hulk-tbl tfoot .htotal td{border-top:2px solid rgba(196,255,77,.5);border-bottom:none;font-family:Orbitron,sans-serif}
-.hulk-tbl tfoot .htotal .hcn{color:var(--hulk);font-size:.78rem}
-.hulk-tbl tfoot .htotal .hs,.hulk-tbl tfoot .htotal .hr{font-size:.8rem}
+.hulk-tbl tfoot .htotal td{border-top:none;border-bottom:none;font-family:"Caveat",cursive;background:rgba(255,236,150,.08);padding:4px 6px}
+.hulk-tbl tfoot .htotal .hcn{color:#ffd76a;font-size:1.05rem;letter-spacing:.02em}
+.hulk-tbl tfoot .htotal .hs,.hulk-tbl tfoot .htotal .hr{font-size:1rem}
 .hulk-tbl tfoot .htotal .hr{border-left:3px solid}
 .hulk-tbl .hr.wpos{background:rgba(124,255,107,.10);border-left:2px solid var(--acid)}
 .hulk-tbl .hr.wneg{background:rgba(255,77,77,.16);border-left:2px solid var(--red)}
