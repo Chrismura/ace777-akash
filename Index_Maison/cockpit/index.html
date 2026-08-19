@@ -121,8 +121,11 @@ body::after{
 .just-indices{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
 .just-indices span{display:inline-flex;align-items:center;gap:6px;padding:3px 8px;border:1px solid var(--line);border-radius:4px;font-size:.72rem;color:#cfd3c8}
 .just-indices span::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--muted);flex:none}
+.just-indices span.ok{color:var(--acid);border-color:rgba(124,255,107,.45);background:rgba(124,255,107,.08)}
 .just-indices span.ok::before{background:var(--acid)}
+.just-indices span.part{color:var(--amber);border-color:rgba(255,210,77,.45);background:rgba(255,210,77,.08)}
 .just-indices span.part::before{background:var(--amber)}
+.just-indices span.miss{color:var(--red);border-color:rgba(255,77,77,.45);background:rgba(255,77,77,.08)}
 .just-indices span.miss::before{background:var(--red)}
 .just-indices span i{font-style:normal;color:var(--muted);font-size:.64rem}
 
@@ -2043,7 +2046,7 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
       const cells=[
         ['CLIMAT', clim, 'radar'],
         ['SCORE', score, 'bassine'],
-        ['FUNDING', T.funding!=null?T.funding:th.funding, 'funding'],
+        ['FUNDING', (T.funding!=null?T.funding:th.funding)!=null ? (((T.funding!=null?T.funding:th.funding)*100).toFixed(4)+'%') : '—', 'funding'],
         ['WHALES', T.whaleN!=null?T.whaleN:th.whaleN, 'whales'],
         ['ONCHAIN', (T.onchain&&T.onchain.synthèse)? T.onchain.synthèse.slice(0,46) : ((th.onchain&&th.onchain.synthèse)? th.onchain.synthèse.slice(0,46) : '—'), 'onchain'],
         ['SANTÉ', (function(){const S=window.__SANTE__; if(!S||!S.chaines) return '—'; const ok=S.chaines.filter(c=>c.ok).length; return S.chaines_ok+(S.anomalies&&S.anomalies.length?' ⚠️':' ✅');})(), 'sante'],
@@ -2127,7 +2130,7 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
       C.sentiment?('Sentiment '+C.sentiment):null,
       M.run?('Run '+M.run+' · combo '+(M.comboPnl!=null?Number(M.comboPnl).toFixed(2):'—')+'$'):null,
       fng!=null?('Fear & Greed '+fng+(fngL?(' — '+fngL):'')):null,
-      fund!=null?('Funding BTC '+Number(fund).toExponential(2)+' · score thermo '+(th.score!=null?th.score:(T&&T.score))):null,
+      fund!=null?('Funding BTC '+(fund*100).toFixed(4)+'% · score thermo '+(th.score!=null?th.score:(T&&T.score))):null,
       th.altSeason?('Alt season : '+th.altSeason):null,
       M.alert==='amber'?'Amber — Hulk ou duo sous tension.':null,
       M.alert==='red'?'Rouge — check DD / bags.':null,
@@ -2458,7 +2461,7 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
       case 'cockpit': return ['COCKPIT','Interface de pilotage — lecture seule · onglets OPS / THERMO / BOARD / GRAPH'];
       case 'pont': return ['PONT :17777', linkState.pont?'ON — pont connecté (feed ~10s)':'OFF — pont éteint (lance cortana_cockpit_bridge.py)'];
       case 'ace': return ['ACE ENGINE', ((linkState.ace&&linkState.ace.state)||'OFF')+' · '+(linkState.ace&&linkState.ace.label||'—')];
-      case 'live': return ['LIVE · DONNÉES MARCHÉ', 'funding '+(T.funding!=null?Number(T.funding).toExponential(2):'—')+' · score '+(T.score!=null?T.score:'—')+' · climat '+(T.climate||'—')];
+      case 'live': return ['LIVE · DONNÉES MARCHÉ', 'funding '+(T.funding!=null?(T.funding*100).toFixed(4)+'%':'—')+' · score '+(T.score!=null?T.score:'—')+' · climat '+(T.climate||'—')];
       case 'alpha': return ['ALPHA · HUNTER', 'fills '+((M.alpha&&M.alpha.fills)||0)+' · pnl '+((M.alpha&&M.alpha.pnl)!=null?M.alpha.pnl.toFixed(2)+' $':'—')];
       case 'beta': return ['BETA · BOOST', 'fills '+((M.beta&&M.beta.fills)||0)+' · pnl '+((M.beta&&M.beta.pnl)!=null?M.beta.pnl.toFixed(2)+' $':'—')];
       case 'hulk': return ['HULK · PORTEFEUILLE', ((M.hulk&&M.hulk.bags)||0)+' bags · notional '+((M.hulk&&M.hulk.notional)!=null?M.hulk.notional+' $':'—')+' · pnl '+((M.hulk&&M.hulk.pnl)!=null?M.hulk.pnl.toFixed(2)+' $':'—')];
