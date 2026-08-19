@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-19T19:12:05.562936+00:00",
+  "generated_at": "2026-08-19T19:18:09.053722+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 328
+      "calls_24h": 325
     },
     {
       "id": "openrouter-free",
@@ -211,10 +211,34 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 779,
+    "consumed": 782,
     "remaining": 0
   },
   "queue": [
+    {
+      "ts": "2026-08-19T19:17:07.136398+00:00",
+      "task": "supervise.decision",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 0.97
+    },
+    {
+      "ts": "2026-08-19T19:15:31.693458+00:00",
+      "task": "supervise.decision",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 0.69
+    },
+    {
+      "ts": "2026-08-19T19:13:45.374028+00:00",
+      "task": "supervise.decision",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 0.77
+    },
     {
       "ts": "2026-08-19T19:12:04.254238+00:00",
       "task": "supervise.decision",
@@ -310,92 +334,68 @@
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
       "duration_s": 1.06
-    },
-    {
-      "ts": "2026-08-19T18:52:28.585171+00:00",
-      "task": "supervise.decision",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 0.78
-    },
-    {
-      "ts": "2026-08-19T18:50:54.227027+00:00",
-      "task": "supervise.decision",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 0.85
-    },
-    {
-      "ts": "2026-08-19T18:49:08.429660+00:00",
-      "task": "supervise.decision",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 0.83
     }
   ],
   "events": [
     {
-      "ts": "2026-08-19T19:12:04.253935+00:00",
+      "ts": "2026-08-19T19:17:07.136100+00:00",
       "kind": "message",
       "title": "« Google Gemini » a repondu",
       "detail": "bascule"
     },
     {
-      "ts": "2026-08-19T19:12:03.477263+00:00",
+      "ts": "2026-08-19T19:17:06.164852+00:00",
       "kind": "failover",
-      "title": "Bascule depuis NaraRouter (7M tokens/jour gratuits)",
-      "detail": "HTTP Error 502: Bad Gateway"
+      "title": "Saute (blacklist) depuis NaraRouter (7M tokens/jour gratuits)",
+      "detail": "0 attente"
     },
     {
-      "ts": "2026-08-19T19:11:57.421040+00:00",
-      "kind": "timeout",
-      "title": "Patience NaraRouter (7M tokens/jour gratuits) (HTTP 502)",
-      "detail": "HTTP Error 502: Bad Gateway"
-    },
-    {
-      "ts": "2026-08-19T19:11:55.049007+00:00",
+      "ts": "2026-08-19T19:17:06.163277+00:00",
       "kind": "failover",
       "title": "Bascule depuis Groq (LLM ultra-rapide, gratuit)",
       "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-08-19T19:11:55.048673+00:00",
+      "ts": "2026-08-19T19:17:06.162947+00:00",
       "kind": "ratelimit",
       "title": "429 Groq (LLM ultra-rapide, gratuit) -> pause 60s + bascule",
       "detail": ""
     },
     {
-      "ts": "2026-08-19T19:11:54.790304+00:00",
+      "ts": "2026-08-19T19:17:05.978890+00:00",
       "kind": "blacklist",
       "title": "Fin de pause Groq (LLM ultra-rapide, gratuit)",
       "detail": "re-essai automatique"
     },
     {
-      "ts": "2026-08-19T19:11:54.790135+00:00",
+      "ts": "2026-08-19T19:17:05.978779+00:00",
       "kind": "quota",
       "title": "Budget atteint -> filet restreint aux gratuits",
       "detail": "supervise.decision"
     },
     {
-      "ts": "2026-08-19T19:11:54.789270+00:00",
+      "ts": "2026-08-19T19:17:05.978016+00:00",
       "kind": "quota",
       "title": "Budget calme atteint -> bascule famille (gratuits)",
       "detail": "supervise.decision"
     },
     {
-      "ts": "2026-08-19T19:10:20.386461+00:00",
+      "ts": "2026-08-19T19:15:31.693177+00:00",
       "kind": "message",
-      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
+      "title": "« Google Gemini » a repondu",
       "detail": "bascule"
     },
     {
-      "ts": "2026-08-19T19:10:13.685167+00:00",
+      "ts": "2026-08-19T19:15:31.000532+00:00",
       "kind": "failover",
-      "title": "Bascule depuis Groq (LLM ultra-rapide, gratuit)",
-      "detail": "HTTP Error 429: Too Many Requests"
+      "title": "Bascule depuis NaraRouter (7M tokens/jour gratuits)",
+      "detail": "HTTP Error 502: Bad Gateway"
+    },
+    {
+      "ts": "2026-08-19T19:15:30.999945+00:00",
+      "kind": "blacklist",
+      "title": "Pause NaraRouter (7M tokens/jour gratuits) (3 echecs) 15min",
+      "detail": "backoff x1 -> re-essai auto"
     }
   ],
   "tasks_quotas": {
