@@ -465,6 +465,15 @@ def load_hulk():
     out["walletStatique"] = round(statique_pos + out["walletOrigineCash"], 2)
     out["walletStatiquePos"] = round(statique_pos, 2)
     out["walletEcart"] = round((out["walletReel"] or 0.0) - (out["walletStatique"] or 0.0), 2)
+    # Tableau statique par crypto : qté seed (départ 10 $), valeur si rien fait, %.
+    for p in out["positions"]:
+        sq = seed_qty.get(p.get("pair") or "")
+        if sq and p.get("mark"):
+            p["seedQty"] = round(sq, 4)
+            p["statiqueVal"] = round(sq * float(p["mark"]), 2)
+            p["statiquePct"] = round(
+                (float(p["mark"]) / float(p["entry"] or 1.0) - 1.0) * 100.0, 2
+            ) if p.get("entry") else None
 
     out["conseils"] = load_hulk_conseils()
     return out
