@@ -94,7 +94,7 @@ score+leçons 16h30).
 | # | Item | Statut |
 |---|------|--------|
 | S-01 | Enquête blocs privatisés fantômes (26–34%, qui les mine, pourquoi) | 🟡 à faire |
-| S-02 | **Afficher TOUS les scores dans le cockpit** (justesse Cortana + justesse couleur + couleur du jour). Aujourd'hui seul ADA (voilure) est visible en bas à droite. | 🟡 à faire |
+| S-02 | **Afficher TOUS les scores dans le cockpit, LISIBLES** : la justesse (en bas à gauche) est trop petite, et la couleur du jour + justesse couleur ne sont pas affichées. | 🟡 à faire |
 | S-03 | **Bulles d'info** (popups en boucle : info/avis/anomalie sniffée NON-mainstream, au survol = reste, sinon ~15 s, fermable). Poids à évaluer avant GO. | 🟡 à faire |
 | S-04 | **Mode pédagogique** : légende/au survol pour expliquer ce que signifie chaque couleur. | 🟡 à faire |
 | S-05 | Validation couleur régime (min 5 échantillons/couleur) avant tout usage pour Hulk. | 🟠 en observation |
