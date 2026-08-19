@@ -1269,38 +1269,6 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
       <div class="ps" id="peda-src"></div>
     </div>
 
-    <!-- JUSTESSE ANALYSTE (boucle d'apprentissage) -->
-    <div class="just-card" id="justesse" data-peda="score_justesse" title="Score de justesse de l'analyste · boucle d'apprentissage">
-      <div class="just-head">
-        <h2>JUSTESSE ANALYSTE</h2>
-        <span class="just-score" id="just-pct">—</span>
-      </div>
-      <div class="just-bar" id="just-bar"></div>
-      <div class="just-meta" id="just-meta">chargement…</div>
-      <div class="just-list" id="just-list"></div>
-    </div>
-
-    <!-- COULEUR RÉGIME (onchain × narratif → garde-fou Hulk) -->
-    <div class="just-card" id="couleur-regime" data-peda="couleur_regime" title="Couleur régime : l'onchain filtré par le narratif → une couleur lisible pour Hulk">
-      <div class="just-head">
-        <h2>COULEUR RÉGIME <em style="opacity:.55;font-size:.72em;font-style:normal">HULK</em></h2>
-        <span class="just-score" id="regime-couleur">—</span>
-      </div>
-      <div class="just-meta" id="regime-detail">chargement…</div>
-      <div class="just-meta" id="regime-explication"></div>
-      <div class="just-meta" id="regime-justesse"></div>
-    </div>
-
-    <!-- POUSSIÈRE (dust onchain — index brut) -->
-    <div class="just-card" id="poussiere" data-peda="poussiere" title="Index poussière : dust onchain (CPFP) — le brut qui ne ment pas">
-      <div class="just-head">
-        <h2>POUSSIÈRE <em style="opacity:.55;font-size:.72em;font-style:normal">ONCHAIN</em></h2>
-        <span class="just-score" id="dust-score">—</span>
-      </div>
-      <div class="just-meta" id="dust-detail">chargement…</div>
-      <div class="just-meta" id="dust-mode"></div>
-    </div>
-
     <!-- ALPHA ENGINE -->
     <div class="card alpha">
       <div class="engine-head">
@@ -3087,17 +3055,17 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
 
   function renderPoussiere(){
     const oc = (T && T.onchain) || {};
-    const scoreEl = document.getElementById('dust-score');
-    if(!scoreEl) return;
+    const v = document.getElementById('top-dust');
+    if(!v) return;
     const score = oc.cpfpDustScore;
-    const detail = oc.cpfpDustDetail || '';
-    const mode = oc.cpfpMode || '';
-    scoreEl.textContent = (score!=null) ? Number(score).toFixed(1) : '—';
-    scoreEl.className = 'just-score' + (score>0 ? ' warn' : '');
-    const de = document.getElementById('dust-detail');
-    if(de) de.textContent = detail || 'pas de donnée poussière (mempool down ou aucun run)';
-    const me = document.getElementById('dust-mode');
-    if(me) me.textContent = mode ? ('mode : ' + mode) : '';
+    v.textContent = (score!=null) ? Number(score).toFixed(1) : '—';
+    v.style.color = (score>0) ? '#ffd24d' : '';
+    const sub = document.getElementById('top-dust-sub');
+    if(sub){
+      const mode = oc.cpfpMode ? ('mode '+oc.cpfpMode) : '';
+      const detail = (oc.cpfpDustDetail||'').slice(0,80);
+      sub.textContent = (mode + (mode&&detail?' · ':'') + detail) || 'pas de donnée poussière';
+    }
   }
 
   async function pollRegime(){
@@ -3109,24 +3077,17 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
       const jus = j.justesse || {};
       const col = String(c.couleur||'—').toUpperCase();
       const CMAP = {VERT:'#7cff6b', JAUNE:'#ffd24d', ROUGE:'#ff5c5c', NOIR:'#8899aa', ORANGE:'#ffa94d'};
-      const colEl = document.getElementById('regime-couleur');
-      if(colEl){ colEl.textContent = col; colEl.style.color = CMAP[col] || ''; }
-      const de = document.getElementById('regime-detail');
-      if(de){
-        const dir = (c.onchain_dir||'?') + ' × ' + (c.narratif_dir||'?');
-        const fg = (c.fear_greed!=null) ? (' · F&G ' + c.fear_greed) : '';
-        de.textContent = 'onchain ' + dir + fg + (c.detail_onchain ? (' · ' + c.detail_onchain) : '');
-      }
-      const ex = document.getElementById('regime-explication');
-      if(ex) ex.textContent = c.explication || '';
-      const je = document.getElementById('regime-justesse');
-      if(je){
+      const v = document.getElementById('top-couleur');
+      if(v){ v.textContent = col; v.style.color = CMAP[col] || ''; }
+      const sub = document.getElementById('top-couleur-sub');
+      if(sub){
         const pct = jus.pct;
-        je.textContent = 'justesse couleur : ' + (pct!=null ? (Math.round(pct)+'%') : 'en attente') + ' · mode ' + (c.mode||'?');
+        const jt = (pct!=null) ? ('justesse '+Math.round(pct)+'%') : 'justesse en attente';
+        sub.textContent = (c.explication||'') + ' · ' + jt;
       }
     }catch(e){
-      const de = document.getElementById('regime-detail');
-      if(de) de.textContent = 'couleur régime : ' + (e && e.message ? e.message.slice(0,60) : 'n/d');
+      const v = document.getElementById('top-couleur');
+      if(v) v.textContent = '—';
     }
   }
 
@@ -3140,6 +3101,10 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
       const meta=document.getElementById('just-meta');
       const list=document.getElementById('just-list');
       const pct=j.pct;
+      const tj = document.getElementById('top-just');
+      if(tj) tj.textContent = (pct!=null) ? (Math.round(pct)+'%') : '—';
+      const tjs = document.getElementById('top-just-sub');
+      if(tjs) tjs.textContent = (j.total_hit!=null) ? (j.total_hit+'/'+j.total_scored+' justes') : '';
       if(box){
         box.textContent = pct!=null? (Math.round(pct)+'%') : '—';
         box.className = 'just-score' + (pct==null?'':(pct<40?' hot':(pct<60?' warn':'')));
