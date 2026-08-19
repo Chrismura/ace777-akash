@@ -483,6 +483,17 @@ def main() -> int:
     beta = load_ace_side(b_path, since=since)
     hulk = load_hulk()
     combo = round((alpha["pnl"] or 0) + (beta["pnl"] or 0), 4)
+    # Frais RÉELS Binance (income) + PnL net — le vrai compas (pas une estimation CSV).
+    fees_actual = {}
+    fees_path = ROOT / "Index_Maison" / "thermo" / "fees_platforme.json"
+    if fees_path.exists():
+        try:
+            fees_actual = json.loads(fees_path.read_text(encoding="utf-8"))
+        except Exception:
+            fees_actual = {}
+    combo_fees_today = fees_actual.get("today", {}).get("commission", 0.0) or 0.0
+    combo_fees_24h = fees_actual.get("h24", {}).get("commission", 0.0) or 0.0
+    combo_net = round(combo + combo_fees_today, 4)
 
     thermo = {}
     if THERMO.exists():
@@ -503,9 +514,9 @@ def main() -> int:
         "hulk": min(100, max(8, 48 + (hulk["pnl"] or 0) * 6)),
     }
     alert = "nominal"
-    if combo <= -20 or (hulk["pnl"] or 0) <= -5:
+    if combo_net <= -20 or (hulk["pnl"] or 0) <= -5:
         alert = "red"
-    elif combo < 0 or (hulk["pnl"] or 0) < 0:
+    elif combo_net < 0 or (hulk["pnl"] or 0) < 0:
         alert = "amber"
 
     run_label = None
@@ -518,18 +529,21 @@ def main() -> int:
         "run": run_label,
         "sessionSince": since.strftime("%Y-%m-%dT%H:%MZ") if since else None,
         "comboPnl": combo,
-        "comboArrow": "up" if combo > 0 else ("down" if combo < 0 else "flat"),
+        "comboFeesToday": combo_fees_today,
+        "comboFees24h": combo_fees_24h,
+        "comboPnlNet": combo_net,
+        "comboArrow": "up" if combo_net > 0 else ("down" if combo_net < 0 else "flat"),
         "swarmCycle": cyc,
         "thrust": thrust,
         "alpha": alpha,
         "beta": beta,
         "hulk": hulk,
         "portfolio": {
-            "ace": combo,
-            "aceArrow": "up" if combo > 0 else ("down" if combo < 0 else "flat"),
+            "ace": combo_net,
+            "aceArrow": "up" if combo_net > 0 else ("down" if combo_net < 0 else "flat"),
             "hulk": hulk["pnl"],
             "hulkArrow": "up" if (hulk["pnl"] or 0) > 0 else ("down" if (hulk["pnl"] or 0) < 0 else "flat"),
-            "total": round(combo + (hulk["pnl"] or 0), 4),
+            "total": round(combo_net + (hulk["pnl"] or 0), 4),
         },
         "thermo": {
             "climate": thermo.get("climate"),
