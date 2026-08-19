@@ -410,6 +410,49 @@ def load_hulk():
                     pass
         out["fees"] = round(fee_total, 4)
         out["feeTrades"] = fee_trades
+
+    # ——— WALLET : origine → réel vs statique (buy & hold) ———
+    # Origine (point zéro Christophe 19/08) : 10 $ crypto + 20 $ cash = 30 $.
+    out["walletOrigine"] = 30.0
+    out["walletOrigineCrypto"] = 10.0
+    out["walletOrigineCash"] = 20.0
+    # Réel = valeur positions ouvertes (qty × mark) + cash libre (pair_cash).
+    reel_pos = 0.0
+    for p in out["positions"]:
+        if p.get("qty") and p.get("mark"):
+            try:
+                reel_pos += float(p["qty"]) * float(p["mark"])
+            except Exception:
+                pass
+    reel_cash = float(out.get("cash") or 0.0)
+    out["walletReel"] = round(reel_pos + reel_cash, 2)
+    out["walletReelPos"] = round(reel_pos, 2)
+    out["walletReelCash"] = round(reel_cash, 2)
+    # Statique = seeds tenus au cours actuel (buy & hold) + 20 $ cash initial.
+    # Quantités de seed lues dans le CSV (BUY reason SEED_START).
+    seed_qty: dict[str, float] = {}
+    if csv_p and csv_p.exists():
+        with csv_p.open(newline="", encoding="utf-8", errors="ignore") as f:
+            for row in csv.DictReader(f):
+                if (row.get("reason") or "").upper().startswith("SEED") and (row.get("event") or "").upper() == "BUY":
+                    try:
+                        seed_qty[row["pair"]] = float(row["qty"])
+                    except Exception:
+                        pass
+    statique_pos = 0.0
+    _s_all = json.loads(state.read_text(encoding="utf-8")) if state and state.exists() else {}
+    sc_all = _s_all.get("scores") or {}
+    pos_all = _s_all.get("positions") or {}
+    for pair, sq in seed_qty.items():
+        mark = fnum((sc_all.get(pair) or {}).get("price"), 6)
+        if mark is None:
+            mark = (pos_all.get(pair) or {}).get("high")
+        if mark:
+            statique_pos += sq * float(mark)
+    out["walletStatique"] = round(statique_pos + out["walletOrigineCash"], 2)
+    out["walletStatiquePos"] = round(statique_pos, 2)
+    out["walletEcart"] = round((out["walletReel"] or 0.0) - (out["walletStatique"] or 0.0), 2)
+
     out["conseils"] = load_hulk_conseils()
     return out
 

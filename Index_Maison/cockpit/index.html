@@ -680,27 +680,33 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
 .hulk-modal th{color:var(--muted);font-size:.56rem;letter-spacing:.08em;text-align:right;padding:3px 6px;border-bottom:1px solid rgba(196,255,77,.2)}
 .hulk-modal th:first-child,.hulk-modal td:first-child{text-align:left}
 .hulk-modal td{color:#cfe0d0;text-align:right;padding:3px 6px;border-bottom:1px solid rgba(255,255,255,.05)}
-.hulk-global{display:grid;grid-template-columns:repeat(auto-fit,minmax(96px,1fr));gap:6px;margin-bottom:2px}
-.hulk-global .hg{background:rgba(0,0,0,.28);border:1px solid rgba(196,255,77,.16);border-radius:3px;padding:6px 8px;display:flex;flex-direction:column;gap:3px;min-height:52px;justify-content:center}
-.hulk-global .hg-lab{color:var(--muted);letter-spacing:.12em;font-size:.55rem;font-family:Orbitron,sans-serif}
-.hulk-global .hg-val{color:#e6eef7;font-family:Orbitron,sans-serif;font-size:.92rem;white-space:nowrap}
-.hulk-global .hg-ia{border-color:rgba(124,255,107,.3)}
-.hulk-global .hg-ia .hg-val{font-size:.72rem;color:#cfe6d2;white-space:normal;line-height:1.25}
+.hulk-global{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px;margin-bottom:2px}
+.hulk-global .hg{background:rgba(0,0,0,.28);border:1px solid rgba(196,255,77,.16);border-radius:3px;padding:10px 12px;display:flex;flex-direction:column;gap:4px;min-height:72px;justify-content:center}
+.hulk-global .hg-lab{color:var(--muted);letter-spacing:.14em;font-size:.72rem;font-family:Orbitron,sans-serif}
+.hulk-global .hg-val{color:#e6eef7;font-family:Orbitron,sans-serif;font-size:1.7rem;white-space:nowrap;line-height:1.1}
+.hulk-global .hg-sub{color:#c5d0dc;font-size:.7rem;letter-spacing:.03em;font-family:"Share Tech Mono",monospace}
+.hulk-global .hg-orig{border-color:rgba(124,255,107,.35)}
+.hulk-global .hg-orig .hg-lab{color:#9dff7a}
+.hulk-global .hg-ecart{border-color:rgba(255,120,90,.35)}
+.hulk-global .hg-ecart .hg-lab{color:#ff7a5a}
+.hfc .hfc-dir{font-family:Orbitron,sans-serif;font-size:.6rem;letter-spacing:.08em;padding:1px 6px;border-radius:2px;margin-right:4px}
+.hfc .hfc-dir.long{color:#0a1410;background:var(--acid);border:1px solid var(--acid)}
+.hfc .hfc-dir.short{color:#0a1410;background:var(--red);border:1px solid var(--red)}
 .hulk-sect{font-family:Orbitron,sans-serif;font-size:.62rem;letter-spacing:.14em;color:var(--muted);margin:12px 0 5px;display:flex;justify-content:space-between;align-items:baseline;gap:8px}
 .hulk-sect .hulk-sect-n{color:#cfe0d0;font-size:.6rem;letter-spacing:.04em;font-family:"Share Tech Mono",monospace}
 .hulk-folio-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:6px}
-.hfc{background:rgba(196,255,77,.05);border:1px solid rgba(196,255,77,.25);border-radius:3px;padding:7px 8px;font-size:.66rem;display:flex;flex-direction:column;gap:3px}
+.hfc{background:rgba(196,255,77,.05);border:1px solid rgba(196,255,77,.25);border-radius:3px;padding:9px 10px;font-size:.78rem;display:flex;flex-direction:column;gap:4px}
 .hfc.flat{border-style:dashed;border-color:rgba(140,160,180,.35);background:rgba(80,100,120,.06)}
 .hfc .hfc-top{display:flex;justify-content:space-between;align-items:center;gap:4px}
-.hfc .hfc-name{font-family:Orbitron,sans-serif;font-size:.78rem;color:#e6eef7}
+.hfc .hfc-name{font-family:Orbitron,sans-serif;font-size:.95rem;color:#e6eef7}
 .hfc.flat .hfc-name{color:#c5d0dc}
 .hfc .hfc-tag{font-size:.5rem;letter-spacing:.06em;padding:1px 5px;border:1px solid;border-radius:2px}
 .hfc .hfc-tag.open{color:var(--hulk);border-color:var(--hulk)}
 .hfc .hfc-tag.bag{color:#d0ff90;border-color:rgba(196,255,77,.5)}
 .hfc .hfc-tag.flat{color:var(--muted);border-color:rgba(140,160,180,.4)}
-.hfc .hfc-row{display:flex;justify-content:space-between;gap:6px;color:#c9d4de}
-.hfc .hfc-row span:first-child{color:var(--muted);font-size:.56rem;letter-spacing:.05em}
-.hfc .hfc-reg{font-size:.54rem;color:var(--muted);letter-spacing:.05em;border-top:1px solid rgba(255,255,255,.05);padding-top:3px;margin-top:1px}
+.hfc .hfc-row{display:flex;justify-content:space-between;gap:6px;color:#c9d4de;font-size:.78rem}
+.hfc .hfc-row span:first-child{color:var(--muted);font-size:.62rem;letter-spacing:.05em}
+.hfc .hfc-reg{font-size:.62rem;color:var(--muted);letter-spacing:.05em;border-top:1px solid rgba(255,255,255,.05);padding-top:3px;margin-top:1px}
 .hfc .dir-long{color:var(--acid)}.hfc .dir-short{color:var(--red)}
 
 /* SHOOT ACE/GROK */
@@ -1396,15 +1402,12 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
           <button type="button" class="hulk-details-btn" id="hulk-details-btn">DÉTAILS ⇕</button>
         </div>
       </div>
-      <!-- LE GLOBALE -->
+      <!-- LE WALLET (grosses écritures) -->
       <div class="hulk-global">
-        <div class="hg" title="PnL réalisé (ventes / stops / bags)"><span class="hg-lab">PNL</span><span class="hg-val" id="h-pnl">—</span></div>
-        <div class="hg" title="Valeur du portefeuille paper = base + PnL"><span class="hg-lab">ÉQUITÉ</span><span class="hg-val" id="h-equity">—</span></div>
-        <div class="hg" title="Cash libre récupéré des ventes"><span class="hg-lab">CASH</span><span class="hg-val" id="h-cash">—</span></div>
-        <div class="hg" title="Capital engagé dans les positions ouvertes"><span class="hg-lab">ENGAGÉ</span><span class="hg-val" id="h-engaged">—</span></div>
-        <div class="hg" title="Capital de départ paper"><span class="hg-lab">BASE</span><span class="hg-val" id="h-base">—</span></div>
-        <div class="hg" title="Frais plateforme estimés (0.05% taker MEXC) — non déduits"><span class="hg-lab">FRAIS</span><span class="hg-val" id="h-fees">—</span></div>
-        <div class="hg hg-ia" title="Conseil ADA (gardienne)"><span class="hg-lab">IA · ADA</span><span class="hg-val" id="h-ia">—</span></div>
+        <div class="hg hg-orig" title="Ton point de départ : 10 $ de crypto + 20 $ de cash (dépôt initial)"><span class="hg-lab">ORIGINE</span><span class="hg-val" id="h-origine">—</span><span class="hg-sub">10 crypto + 20 cash</span></div>
+        <div class="hg" title="Ce que le portefeuille vaut VRAIMENT maintenant = positions ouvertes + cash libre"><span class="hg-lab">RÉEL</span><span class="hg-val" id="h-reel">—</span><span class="hg-sub" id="h-reel-sub"></span></div>
+        <div class="hg" title="Ce que ça vaudrait si tu n'avais RIEN fait (tenir les seeds au cours actuel + cash)"><span class="hg-lab">STATIQUE</span><span class="hg-val" id="h-statique">—</span><span class="hg-sub" id="h-statique-sub"></span></div>
+        <div class="hg hg-ecart" title="Réel − statique : ce que le trading de Hulk ajoute (ou coûte) vs ne rien faire"><span class="hg-lab">ÉCART</span><span class="hg-val" id="h-ecart">—</span><span class="hg-sub" id="h-ecart-sub"></span></div>
       </div>
 
       <!-- SUIVI PAR CRYPTO -->
@@ -1861,20 +1864,31 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
     const h=M.hulk||{};
     const set=(id,v)=>{const n=document.getElementById(id); if(n) n.innerHTML=v};
     const usd=v=>(v!=null&&v===v)?('$'+Number(v).toFixed(2)):'—';
-    set('h-pnl', `<span class="${cls(h.pnl)}">${fmt(h.pnl)}</span>`);
-    set('h-equity', usd(h.equity!=null? h.equity : (h.base!=null? Number(h.base)+(Number(h.pnl)||0) : null)));
-    set('h-cash', usd(h.cash));
-    set('h-engaged', usd(h.engaged!=null? h.engaged : h.notional));
-    set('h-base', usd(h.base));
-    set('h-fees', h.fees!=null ? ('$'+Number(h.fees).toFixed(3)) : '—');
-    // IA · ADA (gardienne) : zone + voilure
-    const gd=M.gardienne||{};
-    const ia=document.getElementById('h-ia');
-    if(ia){
-      const zone=((gd.zone_emoji||'')+' '+(gd.zone||'')).trim();
-      const voil=gd.voilure_pct!=null? ('voilure '+gd.voilure_pct+'%') : '';
-      ia.textContent = (zone+' '+voil).trim() || '—';
-    }
+    const pctS=v=>(v!=null&&v===v)?((v>0?'+':'')+Number(v).toFixed(1)+'%'):'';
+    // ——— WALLET : origine → réel vs statique → écart (grosses écritures) ———
+    const wOr=h.walletOrigine!=null? h.walletOrigine : 30;
+    const wRe=h.walletReel!=null? h.walletReel : null;
+    const wSt=h.walletStatique!=null? h.walletStatique : null;
+    const wEc=h.walletEcart!=null? h.walletEcart : (wRe!=null&&wSt!=null? wRe-wSt : null);
+    set('h-origine', usd(wOr));
+    if(wRe!=null){
+      const vs=(wSt!=null)? ((wRe-wSt)/wSt*100) : null;
+      set('h-reel', `<span class="${cls(wRe-wSt)}">${usd(wRe)}</span>`);
+      set('h-reel-sub', (h.walletReelPos!=null&&h.walletReelCash!=null)
+        ? ('positions '+usd(h.walletReelPos)+' · cash '+usd(h.walletReelCash)+' '+pctS(vs))
+        : pctS(vs));
+    } else { set('h-reel','—'); set('h-reel-sub',''); }
+    if(wSt!=null){
+      const vs=(wOr>0)? ((wSt-wOr)/wOr*100) : null;
+      set('h-statique', `<span class="${cls(wSt-wOr)}">${usd(wSt)}</span>`);
+      set('h-statique-sub', (h.walletStatiquePos!=null
+        ? ('seeds '+usd(h.walletStatiquePos)+' + cash 20 '+pctS(vs))
+        : pctS(vs)));
+    } else { set('h-statique','—'); set('h-statique-sub',''); }
+    if(wEc!=null){
+      set('h-ecart', `<span class="${cls(wEc)}">${(wEc>0?'+':'')+usd(wEc).replace('$','')} $</span>`);
+      set('h-ecart-sub', wEc>=0? 'Hulk + que rien faire' : 'Hulk − vs ne rien faire');
+    } else { set('h-ecart','—'); set('h-ecart-sub',''); }
     const rows=(h.portfolio&&h.portfolio.length)? h.portfolio : (h.positions||[]);
     const openRows=rows.filter(p=>(p.status||'').toUpperCase()==='TRADE'||(p.status||'').toUpperCase()==='BAG'||p.open===true);
     const univN=h.universe!=null? h.universe : rows.length;
@@ -1896,13 +1910,19 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
           const tag=st==='BAG'?'BAG':'OPEN';
           const tagCls=st==='BAG'?'bag':'open';
           const seedTxt=p.seed?' · SEED':'';
-          return `<div class="hfc" title="${crypto} — tenir depuis l'entrée (rien faire)">
-            <div class="hfc-top"><span class="hfc-name">${crypto}</span><span class="hfc-tag ${tagCls}">${tag}</span></div>
-            <div class="hfc-row"><span class="${dirTxt==='SHORT'?'dir-short':(dirTxt==='LONG'?'dir-long':'')}">${dirTxt||'dir'}${seedTxt}</span><span>${regime}</span></div>
+          const dirBadge=(dirTxt==='LONG'||dirTxt==='SHORT')
+            ? `<span class="hfc-dir ${dirTxt==='LONG'?'long':'short'}">${dirTxt==='LONG'?'LONG ⇧':'SHORT ⇩'}</span>`
+            : '';
+          const arrow=(pct!=null)? ((pct>0)?'▲':(pct<0?'▼':'')) : '';
+          return `<div class="hfc" title="${crypto} — ${dirTxt||'dir'} depuis l'entrée ${fmtP(p.entry,6)} (rien faire = hold)">
+            <div class="hfc-top"><span class="hfc-name">${crypto}</span><span>${dirBadge}<span class="hfc-tag ${tagCls}">${tag}</span></span></div>
+            <div class="hfc-row"><span>régime</span><span>${regime}${seedTxt}</span></div>
             <div class="hfc-row"><span>entrée</span><span>${fmtP(p.entry,6)}</span></div>
             <div class="hfc-row"><span>cours</span><span>${fmtP(p.mark||p.high,6)}</span></div>
-            <div class="hfc-row" title="si tu n'avais rien fait"><span>hold</span><span class="${cls(pct)}">${pct!=null?fmt(pct,2)+'%':'—'}</span></div>
-            <div class="hfc-row"><span>uPnL</span><span class="${cls(u)}">${u!=null?fmt(u,4):'—'}</span></div>
+            <div class="hfc-row" title="gain en % depuis l'entrée (si tu n'avais rien fait)"><span>gain</span><span class="${cls(pct)}">${arrow} ${pct!=null?fmt(pct,2)+'%':'—'}</span></div>
+            <div class="hfc-row"><span>valeur</span><span>${usd(p.qty!=null&&(p.mark||p.high)? p.qty*(p.mark||p.high): null)}</span></div>
+            <div class="hfc-row"><span>gain $</span><span class="${cls(u)}">${u!=null?(u>0?'+':'')+fmt(u,2):'—'}</span></div>
+            <div class="hfc-row"><span>qté</span><span>${p.qty!=null?Number(p.qty).toPrecision(4):'—'}</span></div>
           </div>`;
         }
         const tag=st==='CASH'?'CASH':'SUIVI';
