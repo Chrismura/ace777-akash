@@ -689,6 +689,9 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
 .hulk-sect{font-family:Orbitron,sans-serif;font-size:.62rem;letter-spacing:.14em;color:var(--muted);margin:12px 0 5px;display:flex;justify-content:space-between;align-items:baseline;gap:8px}
 .hulk-sect .hulk-sect-n{color:#cfe0d0;font-size:.6rem;letter-spacing:.04em;font-family:"Share Tech Mono",monospace}
 .hulk-folio-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:6px}
+.hulk-cols{display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:start}
+.hulk-col{min-width:0}
+@media (max-width:1150px){.hulk-cols{grid-template-columns:1fr}}
 .hulk-tbl-wrap{overflow-x:auto;max-width:100%}
 .hulk-tbl{width:auto;border-collapse:collapse;font-size:.82rem;color:#e6eef7;white-space:nowrap}
 .hulk-tbl th{font-family:Orbitron,sans-serif;font-size:.58rem;letter-spacing:.05em;color:#cfe0d0;text-align:left;padding:2px 4px;border-bottom:1px solid rgba(196,255,77,.35)}
@@ -1421,18 +1424,23 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
         <div class="hg hg-ia" title="Conseil ADA (gardienne)"><span class="hg-lab">IA · ADA</span><span class="hg-val" id="h-ia">—</span></div>
       </div>
 
-      <!-- TABLEAU DU DÉPART : 10$ crypto + 20$ cash → % si rien fait vs % réel -->
-      <div class="hulk-sect">DU DÉPART — le bag au début <span class="hulk-sect-n" id="h-wal-note"></span></div>
-      <div class="hulk-tbl-wrap"><table class="hulk-tbl" id="h-wallet-tbl">
-        <thead><tr>
-          <th>CRYPTO</th><th>BAG AU DÉBUT (qté)</th><th>SI RIEN FAIT</th><th>RÉEL (valeur $)</th>
-        </tr></thead>
-        <tbody></tbody>
-      </table></div>
-
-      <!-- SUIVI PAR CRYPTO -->
-      <div class="hulk-sect">SUIVI PAR CRYPTO <span class="hulk-sect-n" id="h-bags-note"></span></div>
-      <div class="hulk-folio-grid" id="h-folio"></div>
+      <!-- DU DÉPART (gauche) + SUIVI PAR CRYPTO (droite) — côte à côte pour ne pas scroller -->
+      <div class="hulk-cols">
+        <div class="hulk-col">
+          <div class="hulk-sect">DU DÉPART — le bag au début <span class="hulk-sect-n" id="h-wal-note"></span></div>
+          <div class="hulk-tbl-wrap"><table class="hulk-tbl" id="h-wallet-tbl">
+            <thead><tr>
+              <th>CRYPTO</th><th>BAG AU DÉBUT (qté)</th><th>SI RIEN FAIT</th><th>RÉEL (valeur $)</th>
+            </tr></thead>
+            <tbody></tbody>
+          </table></div>
+        </div>
+        <div class="hulk-col">
+          <!-- SUIVI PAR CRYPTO -->
+          <div class="hulk-sect">SUIVI PAR CRYPTO <span class="hulk-sect-n" id="h-bags-note"></span></div>
+          <div class="hulk-folio-grid" id="h-folio"></div>
+        </div>
+      </div>
 
       <!-- JOURNAL DES OPÉRATIONS -->
       <div class="hulk-sect">JOURNAL DES OPÉRATIONS <span class="hulk-sect-n" id="h-hist-n" style="color:var(--hulk)"></span></div>
