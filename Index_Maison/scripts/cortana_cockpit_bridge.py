@@ -1760,6 +1760,26 @@ def do_justesse() -> dict:
         return {"ok": False, "error": str(e)}
 
 
+def do_regime() -> dict:
+    """Couleur régime (onchain × narratif) + justesse couleur — pour le cockpit.
+    Lecture seule de regime_couleur.json + regime_justesse.json (aucun relancement)."""
+    THERMO = ROOT / "Index_Maison" / "thermo"
+    couleur = THERMO / "regime_couleur.json"
+    justesse = SCRIPTS / "regime_justesse.json"
+    out = {"ok": True, "couleur": {}, "justesse": {}}
+    try:
+        if couleur.exists():
+            out["couleur"] = json.loads(couleur.read_text(encoding="utf-8"))
+    except Exception as e:
+        out["couleur_err"] = str(e)
+    try:
+        if justesse.exists():
+            out["justesse"] = json.loads(justesse.read_text(encoding="utf-8"))
+    except Exception as e:
+        out["justesse_err"] = str(e)
+    return out
+
+
 def _touch_stop(path: Path, note: str) -> None:
     try:
         path.write_text(note + "\n", encoding="utf-8")
@@ -1939,6 +1959,9 @@ class Handler(BaseHTTPRequestHandler):
             return
         if path == "/justesse":
             self._json(200, do_justesse())
+            return
+        if path == "/regime":
+            self._json(200, do_regime())
             return
         if path == "/offres":
             self._json(200, do_offres())
