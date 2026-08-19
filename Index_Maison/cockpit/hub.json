@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-19T22:20:06.753434+00:00",
+  "generated_at": "2026-08-19T23:20:13.876306+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 208
+      "calls_24h": 206
     },
     {
       "id": "openrouter-free",
@@ -44,7 +44,7 @@
       "model": "deepseek-ai/deepseek-v4-flash-0731",
       "enabled": true,
       "timeout": 300,
-      "calls_24h": 74
+      "calls_24h": 48
     },
     {
       "id": "mistral",
@@ -53,7 +53,7 @@
       "model": "codestral-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 89
+      "calls_24h": 76
     },
     {
       "id": "cloudflare-workers-ai",
@@ -206,15 +206,23 @@
       "model": "google/diffusiongemma-26b-a4b-it",
       "enabled": true,
       "timeout": 30,
-      "calls_24h": 1
+      "calls_24h": 0
     }
   ],
   "budget": {
     "daily": 624,
-    "consumed": 854,
+    "consumed": 855,
     "remaining": 0
   },
   "queue": [
+    {
+      "ts": "2026-08-19T22:20:17.265334+00:00",
+      "task": "supervise.decision",
+      "provider": "groq",
+      "model": "groq/compound",
+      "kind": "cloud",
+      "duration_s": 11.77
+    },
     {
       "ts": "2026-08-19T21:19:41.881434+00:00",
       "task": "supervise.decision",
@@ -326,17 +334,21 @@
       "model": "qwen-3.8-max-free",
       "kind": "cloud",
       "duration_s": 4.04
-    },
-    {
-      "ts": "2026-08-19T20:48:08.064153+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 12.23
     }
   ],
   "events": [
+    {
+      "ts": "2026-08-19T22:20:17.264818+00:00",
+      "kind": "message",
+      "title": "« Groq (LLM ultra-rapide, gratuit) » a repondu",
+      "detail": ""
+    },
+    {
+      "ts": "2026-08-19T22:20:11.525393+00:00",
+      "kind": "timeout",
+      "title": "Patience Groq (LLM ultra-rapide, gratuit) (HTTP 413)",
+      "detail": "HTTP Error 413: Payload Too Large"
+    },
     {
       "ts": "2026-08-19T22:20:05.497429+00:00",
       "kind": "reserve-storm",
@@ -384,18 +396,6 @@
       "kind": "message",
       "title": "« Google Gemini » a repondu",
       "detail": ""
-    },
-    {
-      "ts": "2026-08-19T21:15:59.724667+00:00",
-      "kind": "message",
-      "title": "« Google Gemini » a repondu",
-      "detail": ""
-    },
-    {
-      "ts": "2026-08-19T21:15:59.480899+00:00",
-      "kind": "quota",
-      "title": "Budget calme atteint -> bascule famille (gratuits)",
-      "detail": "signets.lot2"
     }
   ],
   "tasks_quotas": {
