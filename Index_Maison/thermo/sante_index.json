@@ -1,6 +1,6 @@
 {
-  "ts": "2026-08-20T19:25+00:00",
-  "updated": "2026-08-20T19:25Z",
+  "ts": "2026-08-20T20:25+00:00",
+  "updated": "2026-08-20T20:25Z",
   "etat": "ALERTE",
   "chaines_ok": "2/8",
   "anomalies": [
@@ -11,7 +11,9 @@
     "VIGIE MARCHÉ : radar mort ou journal figé (le trou du 19/08)",
     "VIGIE MARCHÉ : plist(s) de relance NON CHARGÉE(S) — garde-fou écrit mais inactif (leçon 8)",
     "VEILLE DÉGRADATION : brique méta-analyse PAS LANCÉE (dégradation silencieuse non surveillée)",
-    "VEILLE DÉGRADATION : Dead Man's Switch NON CHARGÉ (le filet sous le filet manque)"
+    "VEILLE DÉGRADATION : rapport ALERTE_DEGRADATION_SILENCIEUSE ou figé — dégradation silencieuse détectée",
+    "VEILLE DÉGRADATION : Dead Man's Switch NON CHARGÉ (le filet sous le filet manque)",
+    "VEILLE DÉGRADATION : Dead Man's Switch ALERTE ou figé — la surveillance elle-même est en panne"
   ],
   "degradees": [],
   "chaines": [
@@ -72,7 +74,7 @@
         {
           "nom": "CSV aspiration",
           "ok": true,
-          "detail": "ASPIRATION_CALIB_20260816_214411.csv · âge 1 min"
+          "detail": "ASPIRATION_CALIB_20260816_214411.csv · âge 0 min"
         },
         {
           "nom": "corrélation BTC",
@@ -118,7 +120,7 @@
         {
           "nom": "cpfp_detect.json",
           "ok": true,
-          "detail": "âge 3 min"
+          "detail": "âge 2 min"
         },
         {
           "nom": "mode",
@@ -214,8 +216,8 @@
         },
         {
           "nom": "rapport veille_degradation_etat.json",
-          "ok": true,
-          "detail": "SAIN · âge 1 min"
+          "ok": false,
+          "detail": "ALERTE_DEGRADATION_SILENCIEUSE · âge 1 min"
         },
         {
           "nom": "Dead Man's Switch (dms-veille)",
@@ -224,8 +226,8 @@
         },
         {
           "nom": "rapport DMS_VEILLE.json",
-          "ok": true,
-          "detail": "OK"
+          "ok": false,
+          "detail": "ALERTE"
         }
       ]
     }

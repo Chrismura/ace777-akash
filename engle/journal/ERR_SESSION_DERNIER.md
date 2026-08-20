@@ -2,12 +2,12 @@
 
 ## WHY_ARRET (ligne obligatoire)
 
-`WHY_ARRET=unknown | ran_min=22.6 | vs_planned_min=+217.4 | timing=early_stop`
+`WHY_ARRET=unknown | ran_min=27.8 | vs_planned_min=+188.5 | timing=early_stop`
 
-- Généré : `2026-08-20T19:13:16Z`
-- Fenêtre depuis : `2026-08-20T18:50:34Z`
-- Fin process : `2026-08-20T19:13:12Z`
-- Meta start/end : `2026-08-20T18:50:34Z` → `2026-08-20T22:50:34Z`
+- Généré : `2026-08-20T19:42:08Z`
+- Fenêtre depuis : `2026-08-20T19:14:14Z`
+- Fin process : `2026-08-20T19:42:04Z`
+- Meta start/end : `2026-08-20T19:14:14Z` → `2026-08-20T22:50:33Z`
 - Watchdog meta : stale=?s max_relaunch=?
 - NET_RETRY (fenêtre) : 0
 
@@ -17,9 +17,9 @@ Alpage · groupe électrogène · 2 lignes (téléphone + surf) · WiFi. Le bot 
 
 ## Verdict court
 
-- **WHY_ARRET=unknown | ran_min=22.6 | vs_planned_min=+217.4 | timing=early_stop**
+- **WHY_ARRET=unknown | ran_min=27.8 | vs_planned_min=+188.5 | timing=early_stop**
 - Morts process journalisées (PROCESS_DIE/EXIT) — lire `last_cmd` / `how=signal`.
-- Issues duo (484) — scout/hunter désynchro.
+- Issues duo (433) — scout/hunter désynchro.
 
 ## Compteurs
 
@@ -28,22 +28,22 @@ Alpage · groupe électrogène · 2 lignes (téléphone + surf) · WiFi. Le bot 
 | E-WATCHDOG | 0 | heartbeat / max relaunch |
 | E-PROC | 4 | mort process / signal |
 | E-STALE | 0 | tension/NUAGE age (signal latence) |
-| E-DUO | 484 | no_trigger / stale duo |
-| E-SPREAD | 592 | spread trop large |
+| E-DUO | 433 | no_trigger / stale duo |
+| E-SPREAD | 375 | spread trop large |
 | I-HUNTER | 0 | STORM_HUNTER arm (info) |
 
 ## PnL fills (fenêtre)
 
-- ALPHA : fills=9 pnl=-1.1247 exits={'2.39915318': 2, '4.79444980': 1, '2.39943139': 1, '1.19427758': 1, '1.59829613': 1, '2.39650358': 1}
-- BETA : fills=17 pnl=+2.2137 exits={'0.78966714': 1, '1.29410468': 1, '0.38849977': 1, '0.38841883': 1, '0.39416934': 1, '0.39416336': 1}
-- **TOTAL** : +1.0889
+- ALPHA : fills=15 pnl=+5.2772 exits={'4.79765722': 1, '3.87914030': 1, '2.39562137': 1, '2.39698592': 1, '2.39803329': 1, '3.87847747': 1}
+- BETA : fills=21 pnl=-0.9346 exits={'0.79381965': 1, '0.79386458': 1, '0.39415357': 1, '0.38858928': 1, '0.38872650': 1, '0.38871363': 1}
+- **TOTAL** : +4.3426
 
 ## Derniers PROCESS_DIE / EXIT
 
-- `[ALPHA_X13_BURST13] 2026-08-20T19:11:26Z PROCESS_EXIT unit=ALPHA_X13_BURST13 how=pipe_run_unit why=rc_0 rc=0`
-- `[BETA_X5] 2026-08-20T19:13:12Z PROCESS_EXIT unit=BETA_X5 how=pipe_run_unit why=rc_0 rc=0`
-- `2026-08-20T19:11:26Z PROCESS_EXIT unit=ALPHA_X13_BURST13 how=pipe_run_unit why=rc_0 rc=0`
-- `2026-08-20T19:13:12Z PROCESS_EXIT unit=BETA_X5 how=pipe_run_unit why=rc_0 rc=0`
+- `[ALPHA_X13_BURST13] 2026-08-20T19:41:51Z PROCESS_EXIT unit=ALPHA_X13_BURST13 how=pipe_run_unit why=rc_0 rc=0`
+- `[BETA_X5] 2026-08-20T19:42:04Z PROCESS_EXIT unit=BETA_X5 how=pipe_run_unit why=rc_0 rc=0`
+- `2026-08-20T19:41:51Z PROCESS_EXIT unit=ALPHA_X13_BURST13 how=pipe_run_unit why=rc_0 rc=0`
+- `2026-08-20T19:42:04Z PROCESS_EXIT unit=BETA_X5 how=pipe_run_unit why=rc_0 rc=0`
 
 ## Derniers WATCHDOG
 
