@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-20T06:21:34.869600+00:00",
+  "generated_at": "2026-08-20T07:13:06.922987+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 204
+      "calls_24h": 202
     },
     {
       "id": "openrouter-free",
@@ -26,7 +26,7 @@
       "model": "qwen-3.8-max-free",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 321
+      "calls_24h": 294
     },
     {
       "id": "groq",
@@ -53,7 +53,7 @@
       "model": "codestral-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 1
+      "calls_24h": 0
     },
     {
       "id": "cloudflare-workers-ai",
@@ -220,10 +220,18 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 9,
-    "remaining": 615
+    "consumed": 10,
+    "remaining": 614
   },
   "queue": [
+    {
+      "ts": "2026-08-20T06:22:02.127447+00:00",
+      "task": "supervise.decision",
+      "provider": "groq",
+      "model": "groq/compound",
+      "kind": "cloud",
+      "duration_s": 2.11
+    },
     {
       "ts": "2026-08-20T06:17:30.366458+00:00",
       "task": "signets.juge",
@@ -335,17 +343,15 @@
       "model": "qwen-3.8-max-free",
       "kind": "cloud",
       "duration_s": 7.01
-    },
-    {
-      "ts": "2026-08-19T21:16:00.180735+00:00",
-      "task": "signets.lot2",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 0.7
     }
   ],
   "events": [
+    {
+      "ts": "2026-08-20T06:22:02.126928+00:00",
+      "kind": "message",
+      "title": "« Groq (LLM ultra-rapide, gratuit) » a repondu",
+      "detail": ""
+    },
     {
       "ts": "2026-08-20T06:17:30.365987+00:00",
       "kind": "message",
@@ -399,12 +405,6 @@
       "kind": "timeout",
       "title": "Patience Groq (LLM ultra-rapide, gratuit) (HTTP 413)",
       "detail": "HTTP Error 413: Payload Too Large"
-    },
-    {
-      "ts": "2026-08-20T01:20:45.122490+00:00",
-      "kind": "message",
-      "title": "« Groq (LLM ultra-rapide, gratuit) » a repondu",
-      "detail": ""
     }
   ],
   "tasks_quotas": {
