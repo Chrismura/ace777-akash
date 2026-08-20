@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-20T17:26:19.760992+00:00",
+  "generated_at": "2026-08-20T18:26:53.356511+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 202
+      "calls_24h": 181
     },
     {
       "id": "openrouter-free",
@@ -26,7 +26,7 @@
       "model": "qwen-3.8-max-free",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 47
+      "calls_24h": 33
     },
     {
       "id": "groq",
@@ -35,7 +35,7 @@
       "model": "groq/compound",
       "enabled": true,
       "timeout": 120,
-      "calls_24h": 29
+      "calls_24h": 30
     },
     {
       "id": "nvidia",
@@ -216,14 +216,47 @@
       "enabled": false,
       "timeout": 30,
       "calls_24h": 0
+    },
+    {
+      "id": "obs-1787248844",
+      "name": "nvidia/nemotron-nano-9b-v2:free",
+      "kind": "llm",
+      "model": "nvidia/nemotron-nano-9b-v2:free",
+      "enabled": false,
+      "timeout": 30,
+      "calls_24h": 0
     }
   ],
   "budget": {
     "daily": 624,
-    "consumed": 141,
-    "remaining": 483
+    "consumed": 144,
+    "remaining": 480
   },
   "queue": [
+    {
+      "ts": "2026-08-20T18:17:16.495079+00:00",
+      "task": "ada.sanity",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 1.08
+    },
+    {
+      "ts": "2026-08-20T18:00:44.411897+00:00",
+      "task": "signets.juge",
+      "provider": "groq",
+      "model": "groq/compound",
+      "kind": "cloud",
+      "duration_s": 2.55
+    },
+    {
+      "ts": "2026-08-20T17:26:34.154283+00:00",
+      "task": "supervise.decision",
+      "provider": "groq",
+      "model": "groq/compound",
+      "kind": "cloud",
+      "duration_s": 3.92
+    },
     {
       "ts": "2026-08-20T16:26:26.967926+00:00",
       "task": "supervise.decision",
@@ -319,92 +352,68 @@
       "model": "qwen-3.8-max-free",
       "kind": "cloud",
       "duration_s": 14.32
-    },
-    {
-      "ts": "2026-08-20T14:20:30.805574+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 59.76
-    },
-    {
-      "ts": "2026-08-20T14:17:56.680816+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 5.7
-    },
-    {
-      "ts": "2026-08-20T14:17:48.744932+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 60.44
     }
   ],
   "events": [
     {
-      "ts": "2026-08-20T16:26:26.967173+00:00",
-      "kind": "message",
-      "title": "« Groq (LLM ultra-rapide, gratuit) » a repondu",
-      "detail": ""
+      "ts": "2026-08-20T18:26:52.551298+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis NaraRouter (7M tokens/jour gratuits)",
+      "detail": "HTTP Error 502: Bad Gateway"
     },
     {
-      "ts": "2026-08-20T16:15:19.577675+00:00",
-      "kind": "message",
-      "title": "« Google Gemini » a repondu",
-      "detail": ""
-    },
-    {
-      "ts": "2026-08-20T15:26:15.561473+00:00",
-      "kind": "message",
-      "title": "« Groq (LLM ultra-rapide, gratuit) » a repondu",
-      "detail": ""
-    },
-    {
-      "ts": "2026-08-20T15:26:10.999390+00:00",
+      "ts": "2026-08-20T18:26:45.793622+00:00",
       "kind": "timeout",
-      "title": "Patience Groq (LLM ultra-rapide, gratuit) (HTTP 413)",
-      "detail": "HTTP Error 413: Payload Too Large"
+      "title": "Patience NaraRouter (7M tokens/jour gratuits) (HTTP 502)",
+      "detail": "HTTP Error 502: Bad Gateway"
     },
     {
-      "ts": "2026-08-20T15:26:00.900488+00:00",
-      "kind": "blacklist",
-      "title": "Fin de pause Groq (LLM ultra-rapide, gratuit)",
-      "detail": "re-essai automatique"
-    },
-    {
-      "ts": "2026-08-20T14:31:46.436754+00:00",
-      "kind": "message",
-      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
-      "detail": "bascule"
-    },
-    {
-      "ts": "2026-08-20T14:31:36.506092+00:00",
+      "ts": "2026-08-20T18:26:39.912701+00:00",
       "kind": "failover",
       "title": "Bascule depuis Groq (LLM ultra-rapide, gratuit)",
       "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-08-20T14:31:36.505784+00:00",
+      "ts": "2026-08-20T18:26:39.911976+00:00",
       "kind": "ratelimit",
       "title": "429 Groq (LLM ultra-rapide, gratuit) -> pause 60s + bascule",
       "detail": ""
     },
     {
-      "ts": "2026-08-20T14:31:36.035836+00:00",
-      "kind": "blacklist",
-      "title": "Fin de pause Groq (LLM ultra-rapide, gratuit)",
-      "detail": "re-essai automatique"
+      "ts": "2026-08-20T18:17:16.494371+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
     },
     {
-      "ts": "2026-08-20T14:30:01.441568+00:00",
+      "ts": "2026-08-20T18:00:44.411572+00:00",
       "kind": "message",
-      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
+      "title": "« Groq (LLM ultra-rapide, gratuit) » a repondu",
       "detail": "bascule"
+    },
+    {
+      "ts": "2026-08-20T18:00:41.858659+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis NaraRouter (7M tokens/jour gratuits)",
+      "detail": "HTTP Error 502: Bad Gateway"
+    },
+    {
+      "ts": "2026-08-20T18:00:28.525248+00:00",
+      "kind": "timeout",
+      "title": "Patience NaraRouter (7M tokens/jour gratuits) (HTTP 502)",
+      "detail": "HTTP Error 502: Bad Gateway"
+    },
+    {
+      "ts": "2026-08-20T17:26:34.153698+00:00",
+      "kind": "message",
+      "title": "« Groq (LLM ultra-rapide, gratuit) » a repondu",
+      "detail": ""
+    },
+    {
+      "ts": "2026-08-20T16:26:26.967173+00:00",
+      "kind": "message",
+      "title": "« Groq (LLM ultra-rapide, gratuit) » a repondu",
+      "detail": ""
     }
   ],
   "tasks_quotas": {

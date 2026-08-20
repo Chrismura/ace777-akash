@@ -1782,3 +1782,11 @@ Pas d’ordre — confrontation plus tard.
 ### 2026-08-20T17:25:30Z — ALERT auto
 - TELUSDT: IMPULSE_WAIT — spike en cours, pas chase
 (compléter: confirmé ? risque ?)
+
+### 2026-08-20T17:43:51Z — ALERT auto
+- XRPUSDT: IMPULSE_WAIT — spike en cours, pas chase
+(compléter: confirmé ? risque ?)
+
+### 2026-08-20T18:05:11Z — ALERT auto
+- ZBCNUSDT: IMPULSE_WAIT — spike en cours, pas chase
+(compléter: confirmé ? risque ?)
