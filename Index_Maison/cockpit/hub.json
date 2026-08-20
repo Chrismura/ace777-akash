@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-20T16:13:34.396713+00:00",
+  "generated_at": "2026-08-20T16:26:12.623192+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 240
+      "calls_24h": 232
     },
     {
       "id": "openrouter-free",
@@ -220,10 +220,18 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 139,
-    "remaining": 485
+    "consumed": 140,
+    "remaining": 484
   },
   "queue": [
+    {
+      "ts": "2026-08-20T16:15:19.578153+00:00",
+      "task": "veille.youtube",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 4.56
+    },
     {
       "ts": "2026-08-20T15:26:15.562206+00:00",
       "task": "supervise.decision",
@@ -335,17 +343,15 @@
       "model": "qwen-3.8-max-free",
       "kind": "cloud",
       "duration_s": 5.74
-    },
-    {
-      "ts": "2026-08-20T14:13:30.276832+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 5.38
     }
   ],
   "events": [
+    {
+      "ts": "2026-08-20T16:15:19.577675+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
     {
       "ts": "2026-08-20T15:26:15.561473+00:00",
       "kind": "message",
@@ -399,12 +405,6 @@
       "kind": "message",
       "title": "« Google Gemini » a repondu",
       "detail": "bascule"
-    },
-    {
-      "ts": "2026-08-20T14:29:54.537589+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis Groq (LLM ultra-rapide, gratuit)",
-      "detail": "HTTP Error 429: Too Many Requests"
     }
   ],
   "tasks_quotas": {

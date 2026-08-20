@@ -1,11 +1,16 @@
 ---
-date: 2026-08-18T0715Z
+date: 2026-08-20T1615Z
 type: registre_predictions
 ---
 
 # 📓 Registre des prédictions — la vérification du banc d'essai
 
 Chaque prédiction est notée avec sa date limite. Le script `verifier_predictions.py` re-vérifie les échues (statut VRAIE/FAUSSE/NON VÉRIFIABLE).
+
+### 2026-08-20T1615Z — Crypto Crew University : WARNING: DID GOLD JUST TOP (This happens next)
+Lien : https://www.youtube.com/watch?v=tPGA7F7Og90
+
+- ⏳ EN ATTENTE | [2024-12-31] Le cours de l'or clôture en dessous de 3 900 $ sur la bougie semestrielle actuelle (source : youtuber)
 
 ### 2026-08-18T0715Z — Crypto Crew University : 3-Min Recap: Ethereum Just Broke a 6-Year Trend — Altcoins Next? 🚨#shorts
 Lien : https://www.youtube.com/watch?v=4Jgs_G_r3uU
