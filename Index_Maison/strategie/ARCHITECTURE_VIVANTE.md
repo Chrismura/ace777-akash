@@ -1,4 +1,4 @@
-# ARCHITECTURE VIVANTE — ACE777 (2026-08-20 05:03 UTC)
+# ARCHITECTURE VIVANTE — ACE777 (2026-08-20 06:16 UTC)
 
 > Document GÉNÉRÉ AUTOMATIQUEMENT à l'instant. La famille valide
 > en s'appuyant sur CE contexte, pas sur des documents figés.
@@ -9,7 +9,7 @@
 - ⛔ radar
 - ⛔ lecteur signets
 - ⛔ générateur fiches
-- ⛔ feed mission
+- ✅ feed mission
 - ⛔ serveur cockpit
 
 ## Routage des tâches de décision
@@ -22,7 +22,7 @@
 
 ## État de la mission (bots + PnL)
 
-- mission.json : 2026-08-20 05:03Z · run `MASTER_VORTEX_V2_COLLAB_4H` · alerte `red`
+- mission.json : 2026-08-20 06:16Z · run `MASTER_VORTEX_V2_COLLAB_4H` · alerte `red`
 - PnL combiné : **-48.66 $** 📉 (combo -48.6587)
 - ALPHA (sniper (embuscade, ×13, revenge si claque)) : **-44.44 $** · 141 fills · 1963 skips
 - BETA (éclaireur (chatouille le marché, alimente Alpha)) : **-4.22 $** · 312 fills · 1698 skips

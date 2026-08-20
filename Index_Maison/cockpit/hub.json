@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-20T05:21:26.159852+00:00",
+  "generated_at": "2026-08-20T06:21:34.869600+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -26,7 +26,7 @@
       "model": "qwen-3.8-max-free",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 350
+      "calls_24h": 321
     },
     {
       "id": "groq",
@@ -35,7 +35,7 @@
       "model": "groq/compound",
       "enabled": true,
       "timeout": 120,
-      "calls_24h": 29
+      "calls_24h": 27
     },
     {
       "id": "nvidia",
@@ -53,7 +53,7 @@
       "model": "codestral-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 3
+      "calls_24h": 1
     },
     {
       "id": "cloudflare-workers-ai",
@@ -207,14 +207,47 @@
       "enabled": true,
       "timeout": 30,
       "calls_24h": 0
+    },
+    {
+      "id": "obs-1787206650",
+      "name": "google/gemma-4-26b-a4b-it:free",
+      "kind": "llm",
+      "model": "google/gemma-4-26b-a4b-it:free",
+      "enabled": false,
+      "timeout": 30,
+      "calls_24h": 0
     }
   ],
   "budget": {
     "daily": 624,
-    "consumed": 6,
-    "remaining": 618
+    "consumed": 9,
+    "remaining": 615
   },
   "queue": [
+    {
+      "ts": "2026-08-20T06:17:30.366458+00:00",
+      "task": "signets.juge",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 34.39
+    },
+    {
+      "ts": "2026-08-20T06:02:24.791411+00:00",
+      "task": "analyse.profonde",
+      "provider": "nvidia",
+      "model": "deepseek-ai/deepseek-v4-flash-0731",
+      "kind": "cloud",
+      "duration_s": 137.69
+    },
+    {
+      "ts": "2026-08-20T05:21:54.454807+00:00",
+      "task": "supervise.decision",
+      "provider": "groq",
+      "model": "groq/compound",
+      "kind": "cloud",
+      "duration_s": 1.4
+    },
     {
       "ts": "2026-08-20T05:03:31.869668+00:00",
       "task": "signets.juge",
@@ -310,33 +343,27 @@
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
       "duration_s": 0.7
-    },
-    {
-      "ts": "2026-08-19T21:15:59.725145+00:00",
-      "task": "inferx.analyse",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 1.13
-    },
-    {
-      "ts": "2026-08-19T21:15:59.484880+00:00",
-      "task": "cortana.brief",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 0.9
-    },
-    {
-      "ts": "2026-08-19T21:15:59.348045+00:00",
-      "task": "ultra.analyse",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 0.76
     }
   ],
   "events": [
+    {
+      "ts": "2026-08-20T06:17:30.365987+00:00",
+      "kind": "message",
+      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
+      "detail": ""
+    },
+    {
+      "ts": "2026-08-20T06:02:24.790883+00:00",
+      "kind": "message",
+      "title": "« NVIDIA build.nvidia.com (100+ modeles) » a repondu",
+      "detail": ""
+    },
+    {
+      "ts": "2026-08-20T05:21:54.453788+00:00",
+      "kind": "message",
+      "title": "« Groq (LLM ultra-rapide, gratuit) » a repondu",
+      "detail": ""
+    },
     {
       "ts": "2026-08-20T05:03:31.869161+00:00",
       "kind": "message",
@@ -378,24 +405,6 @@
       "kind": "message",
       "title": "« Groq (LLM ultra-rapide, gratuit) » a repondu",
       "detail": ""
-    },
-    {
-      "ts": "2026-08-20T00:20:38.009361+00:00",
-      "kind": "message",
-      "title": "« Groq (LLM ultra-rapide, gratuit) » a repondu",
-      "detail": ""
-    },
-    {
-      "ts": "2026-08-19T23:20:30.566294+00:00",
-      "kind": "message",
-      "title": "« Groq (LLM ultra-rapide, gratuit) » a repondu",
-      "detail": ""
-    },
-    {
-      "ts": "2026-08-19T23:20:28.724448+00:00",
-      "kind": "reserve-storm",
-      "title": "Tempête active + budget calme atteint -> réserve storm pour supervise.decision",
-      "detail": "supervise.decision"
     }
   ],
   "tasks_quotas": {
