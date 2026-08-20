@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-20T22:28:09.211368+00:00",
+  "generated_at": "2026-08-20T23:28:22.040071+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -229,10 +229,18 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 185,
-    "remaining": 439
+    "consumed": 186,
+    "remaining": 438
   },
   "queue": [
+    {
+      "ts": "2026-08-20T22:28:36.727805+00:00",
+      "task": "supervise.decision",
+      "provider": "groq",
+      "model": "groq/compound",
+      "kind": "cloud",
+      "duration_s": 1.66
+    },
     {
       "ts": "2026-08-20T21:28:31.311045+00:00",
       "task": "supervise.decision",
@@ -344,17 +352,15 @@
       "model": "qwen-3.8-max-free",
       "kind": "cloud",
       "duration_s": 5.36
-    },
-    {
-      "ts": "2026-08-20T19:24:50.427828+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 55.91
     }
   ],
   "events": [
+    {
+      "ts": "2026-08-20T22:28:36.726570+00:00",
+      "kind": "message",
+      "title": "« Groq (LLM ultra-rapide, gratuit) » a repondu",
+      "detail": ""
+    },
     {
       "ts": "2026-08-20T21:28:31.309726+00:00",
       "kind": "message",
@@ -408,12 +414,6 @@
       "kind": "failover",
       "title": "Bascule depuis Groq (LLM ultra-rapide, gratuit)",
       "detail": "HTTP Error 429: Too Many Requests"
-    },
-    {
-      "ts": "2026-08-20T19:40:05.449149+00:00",
-      "kind": "ratelimit",
-      "title": "429 Groq (LLM ultra-rapide, gratuit) -> pause 60s + bascule",
-      "detail": ""
     }
   ],
   "tasks_quotas": {
