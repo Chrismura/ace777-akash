@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-20T10:13:27.773045+00:00",
+  "generated_at": "2026-08-20T10:23:33.945176+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -26,7 +26,7 @@
       "model": "qwen-3.8-max-free",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 194
+      "calls_24h": 188
     },
     {
       "id": "groq",
@@ -35,7 +35,7 @@
       "model": "groq/compound",
       "enabled": true,
       "timeout": 120,
-      "calls_24h": 28
+      "calls_24h": 27
     },
     {
       "id": "nvidia",
@@ -220,10 +220,18 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 68,
-    "remaining": 556
+    "consumed": 69,
+    "remaining": 555
   },
   "queue": [
+    {
+      "ts": "2026-08-20T10:15:21.035838+00:00",
+      "task": "analyste.strategie",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 4.99
+    },
     {
       "ts": "2026-08-20T10:02:11.803482+00:00",
       "task": "analyste.strategie",
@@ -335,17 +343,15 @@
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
       "duration_s": 1.23
-    },
-    {
-      "ts": "2026-08-20T08:44:02.553603+00:00",
-      "task": "analyste.strategie",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 1.11
     }
   ],
   "events": [
+    {
+      "ts": "2026-08-20T10:15:21.035128+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
     {
       "ts": "2026-08-20T10:02:11.802999+00:00",
       "kind": "message",
@@ -396,12 +402,6 @@
     },
     {
       "ts": "2026-08-20T08:44:13.239547+00:00",
-      "kind": "message",
-      "title": "« Google Gemini » a repondu",
-      "detail": ""
-    },
-    {
-      "ts": "2026-08-20T08:44:12.058764+00:00",
       "kind": "message",
       "title": "« Google Gemini » a repondu",
       "detail": ""

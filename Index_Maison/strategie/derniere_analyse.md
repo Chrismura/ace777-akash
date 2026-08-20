@@ -1,4 +1,4 @@
-# ANALYSE — 2026-08-20T10:02:11.806162Z (alerte)
+# ANALYSE — 2026-08-20T10:15:21.038815Z (alerte)
 
 [UNDERSTAND] La maison ACE777 maintient son alerte rouge face à un PnL combiné sous pression (-48,66 $), pénalisé par les tirs répétés d'Alpha en mode revenge, tandis que Beta éclaire efficacement le marché et que Hulk gère ses positions seeds avec résilience.
 
