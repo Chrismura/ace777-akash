@@ -29,8 +29,10 @@ def macro_tempete_block(dir_calc)
     return false if ts <= 0 || (Time.now.to_i - ts) > MACRO_TEMPETE_TTL
     dir_macro = j["direction"].to_s
     return false unless %w[long short].include?(dir_macro)
-    # Choc haussier → on ne vend pas à découvert contre la hausse.
-    dir_macro == "long" && dir_calc == "short"
+    # Choc haussier → SELL bloqués (pas de short contre la hausse).
+    # Choc baissier → BUY bloqués (pas de long contre la baisse).
+    (dir_macro == "long" && dir_calc == "short") ||
+      (dir_macro == "short" && dir_calc == "long")
   rescue StandardError
     false
   end

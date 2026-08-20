@@ -70,24 +70,19 @@ def sum_nz_pnl(csv_path: Path) -> tuple[int, float]:
 
 
 def latest_ace_pair() -> dict:
+    """Découverte dynamique : couple ALPHA/BETA du run le plus récent.
+    (Corrigé le 20/08 : les noms en dur pointaient vers un vieux run mort,
+    d'où les journaux figés alors que MASTER_VORTEX_V2_COLLAB_4H tournait.)"""
     runs = ROOT / "runs"
-    # prefer CMP2 then CMP
-    pairs = [
-        (
-            "NUAGE_TEST_8H_CMP2",
-            runs / "NUAGE_TEST_8H_CMP2_ALPHA_X13_BURST13.csv",
-            runs / "NUAGE_TEST_8H_CMP2_BETA_X5.csv",
-            runs / "NUAGE_TEST_8H_CMP2_run_meta.json",
-        ),
-        (
-            "NUAGE_TEST_8H_CMP",
-            runs / "NUAGE_TEST_8H_CMP_ALPHA_X13_BURST13.csv",
-            runs / "NUAGE_TEST_8H_CMP_BETA_X5.csv",
-            runs / "NUAGE_TEST_8H_CMP_run_meta.json",
-        ),
-    ]
+    alphas = sorted(runs.glob("*_ALPHA_X13_BURST13.csv"),
+                    key=lambda p: p.stat().st_mtime, reverse=True)
     out = []
-    for tag, a, b, meta in pairs:
+    for a in alphas:
+        tag = a.name.replace("_ALPHA_X13_BURST13.csv", "")
+        b = runs / f"{tag}_BETA_X5.csv"
+        if not b.exists():
+            continue
+        meta = runs / f"{tag}_run_meta.json"
         na, sa = sum_nz_pnl(a)
         nb, sb = sum_nz_pnl(b)
         m = {}
@@ -105,10 +100,7 @@ def latest_ace_pair() -> dict:
                 "beta_sum": sb,
                 "combo": round(sa + sb, 4),
                 "meta": m,
-                "mtime": max(
-                    (a.stat().st_mtime if a.exists() else 0),
-                    (b.stat().st_mtime if b.exists() else 0),
-                ),
+                "mtime": max(a.stat().st_mtime, b.stat().st_mtime),
             }
         )
     out.sort(key=lambda x: x["mtime"], reverse=True)
@@ -116,8 +108,10 @@ def latest_ace_pair() -> dict:
 
 
 def hulk_snap() -> dict:
-    paper = HULK / "runs" / "PAPER_V1_20260726_174926.csv"
-    state = HULK / "runs" / "PAPER_V1_20260726_174926_state.json"
+    papers = sorted(HULK.glob("runs/PAPER_V1_*.csv"),
+                    key=lambda p: p.stat().st_mtime, reverse=True)
+    paper = papers[0] if papers else HULK / "runs" / "PAPER_V1_20260726_174926.csv"
+    state = HULK / "runs" / f"{paper.stem}_state.json"
     digest = HULK / "runs" / "DIGEST_LATEST.md"
     d: dict = {"paper_csv": str(paper), "exists": paper.exists()}
     if paper.exists():

@@ -1516,3 +1516,7 @@
 - 2026-08-19T11:53:37.725354Z | alerte | Poursuite de la vigilance nominale avec un PnL combiné solide, validé par l'exécution synchronisée et disciplinée de l'essaim. | conf=88%
 - 2026-08-19T11:54:55.623586Z | alerte | Poursuite de la vigilance nominale avec un PnL combiné solide, validé par l'exécution synchronisée et disciplinée de l'essaim. | conf=88%
 - 2026-08-19T12:00:17.560198Z | alerte | Poursuite de la vigilance nominale avec un PnL combiné solide, validé par l'exécution synchronisée et disciplinée de l'essaim. | conf=88%
+- 2026-08-20T09:28:02.193655Z | alerte | Maintien de l'alerte rouge avec un encadrement strict de la discipline d'Alpha, un pilotage resserré des positions de Hulk et une exploitation prudente des sondages de Beta. | conf=78%
+- 2026-08-20T09:53:15.088213Z | alerte | Maintien de l'alerte rouge avec un encadrement strict de la discipline d'Alpha, un pilotage resserré des positions seeds de Hulk et une exploitation prudente des sondages de Beta face à la tension du PnL combiné (-48,66 $). | conf=78%
+- 2026-08-20T09:58:04.105961Z | alerte | Maintien de l'alerte rouge avec un encadrement strict de la discipline d'Alpha, un pilotage resserré des positions seeds de Hulk et une exploitation prudente des sondages de Beta face à la tension du PnL combiné. | conf=78%
+- 2026-08-20T10:02:11.806162Z | alerte | Maintien de l'alerte rouge avec un encadrement strict de la discipline d'Alpha, un pilotage resserré des positions seeds de Hulk et une exploitation prudente des sondages de Beta face à la tension du PnL combiné. | conf=78%
