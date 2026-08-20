@@ -1,10 +1,10 @@
 # RAPPORT PNL AUTO — MASTER_VORTEX_V2_COLLAB_4H
 
 **Session:** `MASTER_VORTEX_V2_COLLAB_4H`
-**Période:** 2026-08-20T14:06:39Z → 2026-08-20T14:32:47Z (0h26m)
+**Période:** 2026-08-20T18:50:45Z → 2026-08-20T19:13:10Z (0h22m)
 **Setup:** `vide_froid_vortex_v2_collab` v`2026-07-10-v2.2.2-no-partner-halt` | BETA `200` USDT | ALPHA `800` USDT | LLM gate `TRUE` fail_closed=`TRUE`
-**Généré:** 2026-08-20T14:32:51Z UTC
-**Filtre session:** `ts >= 2026-08-20T14:06:28Z` (lignes CSV antérieures exclues)
+**Généré:** 2026-08-20T19:13:14Z UTC
+**Filtre session:** `ts >= 2026-08-20T18:50:34Z` (lignes CSV antérieures exclues)
 
 ---
 
@@ -12,10 +12,10 @@
 
 | Métrique | Valeur |
 |----------|--------|
-| **PNL BETA** | **+0.2532 USDT** |
-| **PNL ALPHA** | **-3.8409 USDT** |
-| **PNL SESSION TOTAL** | **-3.5877 USDT** |
-| Statut | `NEGATIF` |
+| **PNL BETA** | **+2.2137 USDT** |
+| **PNL ALPHA** | **-1.1247 USDT** |
+| **PNL SESSION TOTAL** | **+1.0889 USDT** |
+| Statut | `POSITIF` |
 
 ---
 
@@ -23,37 +23,36 @@
 
 | Métrique | Valeur |
 |----------|--------|
-| Trades FILLED | 18 |
+| Trades FILLED | 17 |
 | Gagnants | 9 |
-| Perdants | 8 |
+| Perdants | 7 |
 | Flat (0) | 1 |
-| Win rate | **50.0%** |
-| Gains totaux | +2.2104 USDT |
-| Pertes totales | -1.9572 USDT |
-| **PNL net** | **+0.2532 USDT** |
-| BPS moyen | 0.49 |
+| Win rate | **52.9%** |
+| Gains totaux | +2.4237 USDT |
+| Pertes totales | -0.2100 USDT |
+| **PNL net** | **+2.2137 USDT** |
+| BPS moyen | 1.49 |
 
-**Meilleur trade:** +0.8915 USDT
-**Pire trade:** -0.7854 USDT
+**Meilleur trade:** +1.4406 USDT
+**Pire trade:** -0.1027 USDT
 
-**Direction:** SELL (18)
+**Direction:** SELL (17)
 
 **Raisons de sortie (exitReason):**
 | Raison | Nb |
 |--------|-----|
-| 0.38901005 | 1 |
-| 0.39030314 | 1 |
-| 0.39046634 | 1 |
-| 0.39048429 | 1 |
-| 0.39045926 | 1 |
+| 0.39381030 | 1 |
+| 1.29410468 | 1 |
+| 0.38849977 | 1 |
+| 0.38841883 | 1 |
+| 0.39416934 | 1 |
 
-**Cycles SKIP:** 78
+**Cycles SKIP:** 72
 | Raison | Nb |
 |--------|-----|
-| radar_block | 63 |
-| impulse_resonance_wait | 11 |
-| stase_ecoute | 3 |
-| tactic_mismatch | 1 |
+| radar_block | 56 |
+| impulse_resonance_wait | 13 |
+| tactic_mismatch | 3 |
 
 ---
 
@@ -61,38 +60,38 @@
 
 | Métrique | Valeur |
 |----------|--------|
-| Trades FILLED | 12 |
-| Gagnants | 4 |
-| Perdants | 6 |
+| Trades FILLED | 9 |
+| Gagnants | 3 |
+| Perdants | 4 |
 | Flat (0) | 2 |
 | Win rate | **33.3%** |
-| Gains totaux | +0.6143 USDT |
-| Pertes totales | -4.4552 USDT |
-| **PNL net** | **-3.8409 USDT** |
-| BPS moyen | -1.37 |
+| Gains totaux | +0.8707 USDT |
+| Pertes totales | -1.9955 USDT |
+| **PNL net** | **-1.1247 USDT** |
+| BPS moyen | -0.33 |
 
-**Meilleur trade:** +0.2842 USDT
-**Pire trade:** -1.5475 USDT
+**Meilleur trade:** +0.5106 USDT
+**Pire trade:** -1.3372 USDT
 
-**Direction:** BUY (12)
+**Direction:** BUY (9)
 
 **Raisons de sortie (exitReason):**
 | Raison | Nb |
 |--------|-----|
-| 2.59768994 | 1 |
-| 4.78911490 | 1 |
-| 3.19818260 | 1 |
-| 3.88234371 | 1 |
-| 3.88276013 | 1 |
+| 2.39915318 | 2 |
+| 2.39943139 | 1 |
+| 1.19427758 | 1 |
+| 1.59829613 | 1 |
+| 2.39650358 | 1 |
 
-**Cycles SKIP:** 121
+**Cycles SKIP:** 89
 | Raison | Nb |
 |--------|-----|
-| radar_block | 60 |
-| gap_guard_pause | 42 |
-| impulse_resonance_wait | 11 |
-| tactic_mismatch | 5 |
-| stase_ecoute | 2 |
+| radar_block | 68 |
+| impulse_resonance_wait | 13 |
+| tactic_mismatch | 4 |
+| duo_wait | 3 |
+| stase_ecoute | 1 |
 
 ---
 
@@ -100,9 +99,9 @@
 
 | Indicateur | BETA | ALPHA | TOTAL |
 |------------|------|-------|-------|
-| Trades | 18 | 12 | 30 |
-| PnL | +0.2532 | -3.8409 | **-3.5877** |
-| Win rate | 50.0% | 33.3% | 43.3% |
+| Trades | 17 | 9 | 26 |
+| PnL | +2.2137 | -1.1247 | **+1.0889** |
+| Win rate | 52.9% | 33.3% | 46.2% |
 
 ## IRM — régimes de tension (proxy, lecture seule)
 
@@ -110,11 +109,11 @@
 
 | Régime | Cycles | % temps | Fills | PnL fills (USDT) |
 |--------|--------|---------|-------|------------------|
-| COMPRESSÉ (attente à froid) | 81 | 84.4% | 18 | +0.2532 |
-| TRANSITOIRE (bruit retail) | 15 | 15.6% | 0 | +0.0000 |
+| COMPRESSÉ (attente à froid) | 73 | 82.0% | 17 | +2.2137 |
+| TRANSITOIRE (bruit retail) | 16 | 18.0% | 0 | +0.0000 |
 | CLUSTER (tension haute — proxy) | 0 | 0.0% | 0 | +0.0000 |
 
-- Fenêtre: `2026-08-20T14:06:39Z` → `2026-08-20T14:32:47Z` (96 cycles) · μ(tension)=0.0837 · σ=0.2378 · courant(proxy)=**COMPRESSÉ (attente à froid)**
+- Fenêtre: `2026-08-20T18:50:45Z` → `2026-08-20T19:13:10Z` (89 cycles) · μ(tension)=0.0972 · σ=0.2275 · courant(proxy)=**COMPRESSÉ (attente à froid)**
 - Source: `MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv`
 
 ## Engle — couches évolutives (hors moteur)

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-20T18:26:53.356511+00:00",
+  "generated_at": "2026-08-20T19:13:46.925348+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 181
+      "calls_24h": 158
     },
     {
       "id": "openrouter-free",
@@ -26,7 +26,7 @@
       "model": "qwen-3.8-max-free",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 33
+      "calls_24h": 42
     },
     {
       "id": "groq",
@@ -229,191 +229,191 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 144,
-    "remaining": 480
+    "consumed": 159,
+    "remaining": 465
   },
   "queue": [
     {
-      "ts": "2026-08-20T18:17:16.495079+00:00",
-      "task": "ada.sanity",
+      "ts": "2026-08-20T19:11:29.288113+00:00",
+      "task": "supervise.decision",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 20.17
+    },
+    {
+      "ts": "2026-08-20T19:11:22.819287+00:00",
+      "task": "supervise.decision",
       "provider": "gemini",
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
-      "duration_s": 1.08
+      "duration_s": 15.49
     },
     {
-      "ts": "2026-08-20T18:00:44.411897+00:00",
-      "task": "signets.juge",
+      "ts": "2026-08-20T19:08:31.171949+00:00",
+      "task": "supervise.decision",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 8.38
+    },
+    {
+      "ts": "2026-08-20T19:06:49.621891+00:00",
+      "task": "supervise.decision",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 9.83
+    },
+    {
+      "ts": "2026-08-20T19:05:06.400180+00:00",
+      "task": "supervise.decision",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 8.58
+    },
+    {
+      "ts": "2026-08-20T19:03:24.530918+00:00",
+      "task": "supervise.decision",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 5.46
+    },
+    {
+      "ts": "2026-08-20T19:01:46.075853+00:00",
+      "task": "supervise.decision",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 6.45
+    },
+    {
+      "ts": "2026-08-20T19:01:34.109131+00:00",
+      "task": "supervise.decision",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 57.96
+    },
+    {
+      "ts": "2026-08-20T18:59:02.672334+00:00",
+      "task": "supervise.decision",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 9.05
+    },
+    {
+      "ts": "2026-08-20T18:57:20.058994+00:00",
+      "task": "supervise.decision",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 9.32
+    },
+    {
+      "ts": "2026-08-20T18:55:37.415892+00:00",
+      "task": "supervise.decision",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 5.13
+    },
+    {
+      "ts": "2026-08-20T18:53:59.000279+00:00",
+      "task": "supervise.decision",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 8.22
+    },
+    {
+      "ts": "2026-08-20T18:52:17.332358+00:00",
+      "task": "supervise.decision",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 9.33
+    },
+    {
+      "ts": "2026-08-20T18:50:34.289305+00:00",
+      "task": "supervise.decision",
       "provider": "groq",
       "model": "groq/compound",
       "kind": "cloud",
-      "duration_s": 2.55
+      "duration_s": 1.45
     },
     {
-      "ts": "2026-08-20T17:26:34.154283+00:00",
-      "task": "supervise.decision",
-      "provider": "groq",
-      "model": "groq/compound",
-      "kind": "cloud",
-      "duration_s": 3.92
-    },
-    {
-      "ts": "2026-08-20T16:26:26.967926+00:00",
-      "task": "supervise.decision",
-      "provider": "groq",
-      "model": "groq/compound",
-      "kind": "cloud",
-      "duration_s": 3.03
-    },
-    {
-      "ts": "2026-08-20T16:15:19.578153+00:00",
-      "task": "veille.youtube",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 4.56
-    },
-    {
-      "ts": "2026-08-20T15:26:15.562206+00:00",
-      "task": "supervise.decision",
-      "provider": "groq",
-      "model": "groq/compound",
-      "kind": "cloud",
-      "duration_s": 14.66
-    },
-    {
-      "ts": "2026-08-20T14:31:46.437060+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 9.93
-    },
-    {
-      "ts": "2026-08-20T14:30:01.441979+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 6.9
-    },
-    {
-      "ts": "2026-08-20T14:30:01.285615+00:00",
+      "ts": "2026-08-20T18:26:53.518917+00:00",
       "task": "supervise.decision",
       "provider": "gemini",
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
-      "duration_s": 16.88
-    },
-    {
-      "ts": "2026-08-20T14:28:44.131580+00:00",
-      "task": "supervise.decision",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 0.87
-    },
-    {
-      "ts": "2026-08-20T14:26:12.551578+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 17.51
-    },
-    {
-      "ts": "2026-08-20T14:25:50.956519+00:00",
-      "task": "supervise.decision",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 0.98
-    },
-    {
-      "ts": "2026-08-20T14:24:20.178362+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 12.64
-    },
-    {
-      "ts": "2026-08-20T14:22:32.923905+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 7.71
-    },
-    {
-      "ts": "2026-08-20T14:20:49.384120+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 14.32
+      "duration_s": 0.96
     }
   ],
   "events": [
     {
-      "ts": "2026-08-20T18:26:52.551298+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis NaraRouter (7M tokens/jour gratuits)",
-      "detail": "HTTP Error 502: Bad Gateway"
-    },
-    {
-      "ts": "2026-08-20T18:26:45.793622+00:00",
-      "kind": "timeout",
-      "title": "Patience NaraRouter (7M tokens/jour gratuits) (HTTP 502)",
-      "detail": "HTTP Error 502: Bad Gateway"
-    },
-    {
-      "ts": "2026-08-20T18:26:39.912701+00:00",
+      "ts": "2026-08-20T19:13:46.326939+00:00",
       "kind": "failover",
       "title": "Bascule depuis Groq (LLM ultra-rapide, gratuit)",
       "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-08-20T18:26:39.911976+00:00",
+      "ts": "2026-08-20T19:13:46.326443+00:00",
       "kind": "ratelimit",
       "title": "429 Groq (LLM ultra-rapide, gratuit) -> pause 60s + bascule",
       "detail": ""
     },
     {
-      "ts": "2026-08-20T18:17:16.494371+00:00",
-      "kind": "message",
-      "title": "« Google Gemini » a repondu",
+      "ts": "2026-08-20T19:13:40.542251+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis Groq (LLM ultra-rapide, gratuit)",
+      "detail": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "ts": "2026-08-20T19:13:40.540688+00:00",
+      "kind": "ratelimit",
+      "title": "429 Groq (LLM ultra-rapide, gratuit) -> pause 60s + bascule",
       "detail": ""
     },
     {
-      "ts": "2026-08-20T18:00:44.411572+00:00",
+      "ts": "2026-08-20T19:13:08.903495+00:00",
+      "kind": "blacklist",
+      "title": "Fin de pause Groq (LLM ultra-rapide, gratuit)",
+      "detail": "re-essai automatique"
+    },
+    {
+      "ts": "2026-08-20T19:11:29.286633+00:00",
       "kind": "message",
-      "title": "« Groq (LLM ultra-rapide, gratuit) » a repondu",
+      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
       "detail": "bascule"
     },
     {
-      "ts": "2026-08-20T18:00:41.858659+00:00",
+      "ts": "2026-08-20T19:11:22.818993+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": "bascule"
+    },
+    {
+      "ts": "2026-08-20T19:11:09.119596+00:00",
       "kind": "failover",
-      "title": "Bascule depuis NaraRouter (7M tokens/jour gratuits)",
-      "detail": "HTTP Error 502: Bad Gateway"
+      "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
+      "detail": "0 attente"
     },
     {
-      "ts": "2026-08-20T18:00:28.525248+00:00",
-      "kind": "timeout",
-      "title": "Patience NaraRouter (7M tokens/jour gratuits) (HTTP 502)",
-      "detail": "HTTP Error 502: Bad Gateway"
+      "ts": "2026-08-20T19:11:07.332748+00:00",
+      "kind": "failover",
+      "title": "Reseau KO (bascule immediate) depuis NaraRouter (7M tokens/jour gratuits)",
+      "detail": "[Errno 54] Connection reset by peer"
     },
     {
-      "ts": "2026-08-20T17:26:34.153698+00:00",
-      "kind": "message",
-      "title": "« Groq (LLM ultra-rapide, gratuit) » a repondu",
-      "detail": ""
-    },
-    {
-      "ts": "2026-08-20T16:26:26.967173+00:00",
-      "kind": "message",
-      "title": "« Groq (LLM ultra-rapide, gratuit) » a repondu",
-      "detail": ""
+      "ts": "2026-08-20T19:11:07.331240+00:00",
+      "kind": "network",
+      "title": "Reseau indisponible: NaraRouter (7M tokens/jour gratuits)",
+      "detail": "[Errno 54] Connection reset by peer"
     }
   ],
   "tasks_quotas": {

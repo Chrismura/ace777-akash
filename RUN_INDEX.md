@@ -14224,3 +14224,72 @@ Ce fichier sert de table des runs ACE777 pour retrouver vite les tests.
 - Rapport: `RAPPORT_PNL_AUTO_20260820_143251.md`
 - Verdict: `NEGATIF`
 
+
+---
+
+## 2026-08-20 — MASTER_VORTEX_V2_COLLAB_4H (auto)
+
+- Profil: `vide_froid_vortex_v2_collab` v`2026-07-10-v2.2.2-no-partner-halt`
+- Tag: `MASTER_VORTEX_V2_COLLAB_4H`
+- Période: `` → ``
+- Logs:
+  - `MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv`
+  - `MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv`
+- Paramètres clé:
+  - `BUY_USDT_BETA=200`
+  - `BUY_USDT_ALPHA=800`
+  - `LLM_GATE_ENABLED=TRUE`
+  - `LLM_GATE_FAIL_CLOSED=TRUE`
+- Résultat:
+  - BETA: `+0.0000 USDT` (0 trades)
+  - ALPHA: `+0.0000 USDT` (0 trades)
+  - Total: `+0.0000 USDT`
+- Rapport: `RAPPORT_PNL_AUTO_20260820_185037.md`
+- Verdict: `NEUTRE`
+
+
+---
+
+## 2026-08-20 — MASTER_VORTEX_V2_COLLAB_4H (auto)
+
+- Profil: `vide_froid_vortex_v2_collab` v`2026-07-10-v2.2.2-no-partner-halt`
+- Tag: `MASTER_VORTEX_V2_COLLAB_4H`
+- Période: `2026-08-20T18:50:45Z` → `2026-08-20T19:13:10Z`
+- Logs:
+  - `MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv`
+  - `MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv`
+- Paramètres clé:
+  - `BUY_USDT_BETA=200`
+  - `BUY_USDT_ALPHA=800`
+  - `LLM_GATE_ENABLED=TRUE`
+  - `LLM_GATE_FAIL_CLOSED=TRUE`
+- Résultat:
+  - BETA: `+2.2137 USDT` (17 trades)
+  - ALPHA: `-1.1247 USDT` (9 trades)
+  - Total: `+1.0889 USDT`
+- Rapport: `RAPPORT_PNL_AUTO_20260820_191313.md`
+- Verdict: `POSITIF`
+
+
+---
+
+## 2026-08-20 — MASTER_VORTEX_V2_COLLAB_4H (auto)
+
+- Profil: `vide_froid_vortex_v2_collab` v`2026-07-10-v2.2.2-no-partner-halt`
+- Tag: `MASTER_VORTEX_V2_COLLAB_4H`
+- Période: `2026-08-20T18:50:45Z` → `2026-08-20T19:13:10Z`
+- Logs:
+  - `MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv`
+  - `MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv`
+- Paramètres clé:
+  - `BUY_USDT_BETA=200`
+  - `BUY_USDT_ALPHA=800`
+  - `LLM_GATE_ENABLED=TRUE`
+  - `LLM_GATE_FAIL_CLOSED=TRUE`
+- Résultat:
+  - BETA: `+2.2137 USDT` (17 trades)
+  - ALPHA: `-1.1247 USDT` (9 trades)
+  - Total: `+1.0889 USDT`
+- Rapport: `RAPPORT_PNL_AUTO_20260820_191314.md`
+- Verdict: `POSITIF`
+
