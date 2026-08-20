@@ -32,6 +32,7 @@ BILAN_MD = os.path.join(DATA_DIR, "BLOC_PRIVATISE_BILAN.md")
 
 WINDOW_MINUTES = 60           # Fenêtre glissante pour l'historique des txids vus
 MAX_HISTORY_AGE = WINDOW_MINUTES * 60
+MIN_SNAPSHOTS = 3             # Minimum de snapshots dans la fenêtre pour un taux fiable (leçon 1+2, 20/08)
 ALERT_TX_THRESHOLD = 5        # Seuil de txs cachées pour creuser le détail (P1)
 HTTP_TIMEOUT = 10
 USER_AGENT = "ACE777-VigieMempool/1.0"
@@ -103,15 +104,21 @@ def snapshot_mempool():
     return txid_set
 
 def load_history_index(max_age_sec=MAX_HISTORY_AGE):
-    """Charge l'historique jsonl, filtre par fenêtre glissante et retourne un set global de txids vus."""
+    """Charge l'historique jsonl, filtre par fenêtre glissante et retourne (set de txids vus, nb snapshots).
+
+    Le nb de snapshots sert à exclure les artefacts de carnet vide (leçon 1+2 du
+    20/08) : si on a moins de MIN_SNAPSHOTS snapshots dans la fenêtre (démarrage,
+    purge, coupure réseau), le taux est marqué comme non fiable plutôt que de
+    hurler 100 % de "fantômes"."""
     check_kill_switch()
     if not os.path.exists(HISTORY_FILE):
-        return set()
+        return set(), 0
     
     now = int(time.time())
     cutoff = now - max_age_sec
     seen_txids = set()
     valid_lines = []
+    n_snapshots = 0
     
     try:
         with open(HISTORY_FILE, "r", encoding="utf-8") as f:
@@ -124,6 +131,7 @@ def load_history_index(max_age_sec=MAX_HISTORY_AGE):
                     ts = obj.get("ts", 0)
                     if ts >= cutoff:
                         valid_lines.append(line)
+                        n_snapshots += 1
                         for tx in obj.get("txids", []):
                             seen_txids.add(tx)
                 except json.JSONDecodeError:
@@ -134,7 +142,7 @@ def load_history_index(max_age_sec=MAX_HISTORY_AGE):
     except Exception as e:
         print(f"[ERREUR] Lecture historique: {e}", file=sys.stderr)
         
-    return seen_txids
+    return seen_txids, n_snapshots
 
 def purge_history(max_age_sec=MAX_HISTORY_AGE):
     """Purge l'historique JSONL des entrées trop anciennes."""
@@ -216,7 +224,7 @@ def analyze_block():
     purge_history()
     
     # 2. Charger l'historique des txids vus sur la fenêtre glissante
-    seen_history = load_history_index()
+    seen_history, n_snapshots = load_history_index()
     
     # 3. Récupérer le dernier bloc miné
     block_hash, block_txids = get_latest_block_info()
@@ -232,6 +240,12 @@ def analyze_block():
     fantomes = [tx for tx in block_txids if tx not in seen_history]
     nb_tx_cachees = len(fantomes)
     taux_fantome = round((nb_tx_cachees / total_txs) * 100, 4) if total_txs > 0 else 0.0
+
+    # Leçon 1+2 (20/08) : carnet trop vide = mesure non fiable (artefact de
+    # démarrage/purge qui donnait 100 %). On le marque, on ne crie pas dessus.
+    fiable = n_snapshots >= MIN_SNAPSHOTS
+    if not fiable:
+        print(f"[INFO] Historique insuffisant ({n_snapshots} snapshots < {MIN_SNAPSHOTS}) — taux non fiable, marqué null.", file=sys.stderr)
     
     volume_btc = 0.0
     detailed_fantomes = []
@@ -260,7 +274,9 @@ def analyze_block():
         "bloc": block_hash,
         "total_tx_bloc": total_txs,
         "nb_tx_cachees": nb_tx_cachees,
-        "taux_fantome": taux_fantome,
+        "taux_fantome": taux_fantome if fiable else None,
+        "taux_non_fiable": not fiable,
+        "n_snapshots": n_snapshots,
         "volume_btc": round(volume_btc, 4),
         "mode": "observation",
         "alerte_potentielle": {

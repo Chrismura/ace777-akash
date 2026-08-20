@@ -396,6 +396,35 @@ def verifier_chaines():
         "ok": ok_saison, "maillons": maillons,
     })
 
+    # ============================================================
+    # 7. VIGIE MARCHÉ — radar temps réel (leçon 3 du 20/08 :
+    #    le trou du filet — aucun check ne couvrait la vigie marché)
+    # ============================================================
+    maillons = []
+    # 7a. Process vivant : vigie_live.py (via launchd KeepAlive ou superviseur)
+    vigie_proc = proc_vivant("vigie_live.py")
+    maillons.append(maillon("process vigie_live", vigie_proc,
+                           "vivant" if vigie_proc else "PAS LANCÉ"))
+    # 7b. Heartbeat : journal_radar.log frais (la vigie écrit à chaque tick)
+    radar = IM / "strategie" / "journal_radar.log"
+    radar_frais = frais(radar, 5)  # ≤ 5 min = la vigie écrit en continu
+    a_radar = age_min(radar)
+    maillons.append(maillon("journal_radar.log", radar_frais,
+                            f"âge {a_radar:.0f} min" if a_radar is not None else "ABSENT"))
+    # 7c. Relance automatique en place (la plist superviseur-process doit être chargée)
+    sup_proc = proc_vivant("com.ace777.superviseur-process")
+    maillons.append(maillon("relance (superviseur-process)", sup_proc,
+                           "chargée" if sup_proc else "PAS CHARGÉE"))
+
+    ok_vigie = vigie_proc and radar_frais
+    if not ok_vigie:
+        anomalies.append("VIGIE MARCHÉ : radar mort ou journal figé (le trou du 19/08)")
+    chaines.append({
+        "id": "vigie", "nom": "VIGIE MARCHÉ",
+        "chemin": "vigie_live.py → journal_radar.log → alertes (relance superviseur-process)",
+        "ok": ok_vigie, "maillons": maillons,
+    })
+
     return chaines, anomalies, now, chaines_degradees
 
 
