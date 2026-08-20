@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-20T16:26:12.623192+00:00",
+  "generated_at": "2026-08-20T17:26:19.760992+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 232
+      "calls_24h": 202
     },
     {
       "id": "openrouter-free",
@@ -26,7 +26,7 @@
       "model": "qwen-3.8-max-free",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 52
+      "calls_24h": 47
     },
     {
       "id": "groq",
@@ -35,7 +35,7 @@
       "model": "groq/compound",
       "enabled": true,
       "timeout": 120,
-      "calls_24h": 30
+      "calls_24h": 29
     },
     {
       "id": "nvidia",
@@ -220,10 +220,18 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 140,
-    "remaining": 484
+    "consumed": 141,
+    "remaining": 483
   },
   "queue": [
+    {
+      "ts": "2026-08-20T16:26:26.967926+00:00",
+      "task": "supervise.decision",
+      "provider": "groq",
+      "model": "groq/compound",
+      "kind": "cloud",
+      "duration_s": 3.03
+    },
     {
       "ts": "2026-08-20T16:15:19.578153+00:00",
       "task": "veille.youtube",
@@ -335,17 +343,15 @@
       "model": "qwen-3.8-max-free",
       "kind": "cloud",
       "duration_s": 60.44
-    },
-    {
-      "ts": "2026-08-20T14:15:11.829032+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 5.74
     }
   ],
   "events": [
+    {
+      "ts": "2026-08-20T16:26:26.967173+00:00",
+      "kind": "message",
+      "title": "« Groq (LLM ultra-rapide, gratuit) » a repondu",
+      "detail": ""
+    },
     {
       "ts": "2026-08-20T16:15:19.577675+00:00",
       "kind": "message",
@@ -398,12 +404,6 @@
       "ts": "2026-08-20T14:30:01.441568+00:00",
       "kind": "message",
       "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
-      "detail": "bascule"
-    },
-    {
-      "ts": "2026-08-20T14:30:01.285280+00:00",
-      "kind": "message",
-      "title": "« Google Gemini » a repondu",
       "detail": "bascule"
     }
   ],
