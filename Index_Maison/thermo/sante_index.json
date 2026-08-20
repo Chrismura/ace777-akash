@@ -1,6 +1,6 @@
 {
-  "ts": "2026-08-20T20:25+00:00",
-  "updated": "2026-08-20T20:25Z",
+  "ts": "2026-08-20T21:25+00:00",
+  "updated": "2026-08-20T21:25Z",
   "etat": "ALERTE",
   "chaines_ok": "2/8",
   "anomalies": [
@@ -11,9 +11,7 @@
     "VIGIE MARCHÉ : radar mort ou journal figé (le trou du 19/08)",
     "VIGIE MARCHÉ : plist(s) de relance NON CHARGÉE(S) — garde-fou écrit mais inactif (leçon 8)",
     "VEILLE DÉGRADATION : brique méta-analyse PAS LANCÉE (dégradation silencieuse non surveillée)",
-    "VEILLE DÉGRADATION : rapport ALERTE_DEGRADATION_SILENCIEUSE ou figé — dégradation silencieuse détectée",
-    "VEILLE DÉGRADATION : Dead Man's Switch NON CHARGÉ (le filet sous le filet manque)",
-    "VEILLE DÉGRADATION : Dead Man's Switch ALERTE ou figé — la surveillance elle-même est en panne"
+    "VEILLE DÉGRADATION : Dead Man's Switch NON CHARGÉ (le filet sous le filet manque)"
   ],
   "degradees": [],
   "chaines": [
@@ -36,7 +34,7 @@
         {
           "nom": "scan file",
           "ok": true,
-          "detail": "âge 2 min"
+          "detail": "âge 1 min"
         },
         {
           "nom": "mouvements (events)",
@@ -97,7 +95,7 @@
         {
           "nom": "mission.json → cockpit",
           "ok": true,
-          "detail": "âge 1 min"
+          "detail": "âge 0 min"
         },
         {
           "nom": "feed launchd",
@@ -216,8 +214,8 @@
         },
         {
           "nom": "rapport veille_degradation_etat.json",
-          "ok": false,
-          "detail": "ALERTE_DEGRADATION_SILENCIEUSE · âge 1 min"
+          "ok": true,
+          "detail": "SAIN · âge 0 min"
         },
         {
           "nom": "Dead Man's Switch (dms-veille)",
@@ -226,8 +224,8 @@
         },
         {
           "nom": "rapport DMS_VEILLE.json",
-          "ok": false,
-          "detail": "ALERTE"
+          "ok": true,
+          "detail": "OK"
         }
       ]
     }
