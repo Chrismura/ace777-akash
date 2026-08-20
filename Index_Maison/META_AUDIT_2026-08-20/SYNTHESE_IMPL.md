@@ -36,9 +36,20 @@ Sortie : `Index_Maison/etat/veille_degradation_etat.json` → lu par sante_index
 - `Index_Maison/scripts/sante_index.py` (chaîne 8)
 - `Index_Maison/META_AUDIT_2026-08-20/` (avis famille + codeur)
 
-## 5. Vérifications faites
+## 5. CORRECTION IMPORTANTE (signalée par Christophe) — RE-CONSULTATION CANONIQUE
 
-- [x] Syntaxe Python (ast) des 2 scripts
-- [x] `veille_degradation.py` en exécution directe → SAIN (10/10 plists)
-- [x] plist chargée via launchctl → cycle 60 s effectif (etat json régénéré)
-- [x] sante_index → 8/8 chaînes OK, état OK
+La 1ʳᵉ consultation utilisait un script improvisé (`consulter_famille_meta_audit_20260820.py`)
+au lieu du canon `consulter_famille.py` + `identity/prompts/famille.json`
+(COUTUMES_AGORA : « ne JAMAIS improviser les prompts famille »).
+→ Re-consultation CANONIQUE faite : **UNANIME GO-AVEC-RÉSERVES (82-88 %)**, détail
+et corrections dans `RECONSULTATION_CANONIQUE_2026-08-20.md`. Exigence commune :
+**DMS externe + Fail-Fast + chaos test** — tous implémentés et testés.
+
+## 6. Vérifications faites
+
+- [x] Syntaxe Python (ast) des scripts
+- [x] `veille_degradation.py` → SAIN (11/11 plists)
+- [x] `dms_veille.py` → OK 3/3 (plist chargée, cycle 60 s)
+- [x] CHAOS TEST `--test-panne` → alerte vocale + rapport ALERTE réels
+- [x] FAIL-FAST `GO_VORTEX_V2.sh` → 5/5 plists vérifiées, refus si manquante
+- [x] sante_index → 8/8 chaînes OK, état OK (DMS inclus dans la chaîne 8)

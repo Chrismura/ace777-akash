@@ -1,0 +1,11 @@
+# SYNTHÈSE FAMILLE — META_AUDIT_CANON_20260820 — 2026-08-20T11:56Z
+
+| Membre | Verdict |
+|---|---|
+| GEMINI | **?** |
+| DEEPSEEK | **GO-AVEC-RÉSERVES** |
+| ULTRA | **GO-AVEC-RÉSERVES** |
+| INFERX | **GO-AVEC-RÉSERVES** |
+| GROK | **GO-AVEC-RÉSERVES** |
+| JUGE | **?** |
+

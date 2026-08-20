@@ -460,10 +460,31 @@ def verifier_chaines():
         anomalies.append("VEILLE DÉGRADATION : brique méta-analyse PAS LANCÉE (dégradation silencieuse non surveillée)")
     if not (vd_frais and vd_ok):
         anomalies.append(f"VEILLE DÉGRADATION : rapport {vd_statut} ou figé — dégradation silencieuse détectée")
+    # 8c. Dead Man's Switch externe (exigence famille, consultation canonique 20/08) :
+    #     qui surveille la surveillante ? Le DMS est un tiers indépendant qui vérifie
+    #     la fraîcheur de la brique + launchctl lui-même, et CRIE si ça ne va pas.
+    dms_proc = proc_vivant("com.ace777.dms-veille")
+    maillons.append(maillon("Dead Man's Switch (dms-veille)", dms_proc,
+                           "chargée" if dms_proc else "PAS CHARGÉE"))
+    dms_json = ALERTES_DIR / "DMS_VEILLE.json"
+    dms_frais = frais(dms_json, 15)
+    dms_statut = "ABSENT"
+    if dms_json.exists():
+        try:
+            dms_statut = lire_json(dms_json).get("statut", "?")
+        except Exception:
+            dms_statut = "illisible"
+    dms_ok = dms_frais and dms_statut == "OK"
+    maillons.append(maillon("rapport DMS_VEILLE.json", dms_ok,
+                            f"{dms_statut}" if dms_statut != "ABSENT" else "ABSENT"))
+    if not dms_proc:
+        anomalies.append("VEILLE DÉGRADATION : Dead Man's Switch NON CHARGÉ (le filet sous le filet manque)")
+    if not dms_ok:
+        anomalies.append(f"VEILLE DÉGRADATION : Dead Man's Switch {dms_statut} ou figé — la surveillance elle-même est en panne")
     chaines.append({
         "id": "veille_deg", "nom": "VEILLE DÉGRADATION",
-        "chemin": "veille_degradation.py (plists + heartbeats + indicateurs) → veille_degradation_etat.json → cockpit",
-        "ok": vd_proc and vd_frais and vd_ok, "maillons": maillons,
+        "chemin": "veille_degradation.py (plists + heartbeats + indicateurs) → etat.json + DMS externe (dms-veille) → cockpit",
+        "ok": vd_proc and vd_frais and vd_ok and dms_proc and dms_ok, "maillons": maillons,
     })
 
     return chaines, anomalies, now, chaines_degradees

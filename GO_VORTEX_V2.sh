@@ -40,6 +40,24 @@ echo "genesis md5=$_md5"
 rm -f STOP STOP_ALPHA STOP_BETA
 
 # ============================================================
+# FAIL-FAST SUPERVISION (exigence famille, consultation canonique 20/08) —
+# « Ne jamais lancer le moteur si les garde-fous de surveillance ne sont pas
+# réellement actifs » (DEEPSEEK + INFERX + JUGE). C'est exactement le trou du
+# 19/08 : le run a tourné alors que la vigie était morte et les plists de
+# relance jamais chargées. Ici, on REFUSE le départ si un filet manque.
+# C1 : genesis intact — vérification dans le wrapper uniquement.
+# ============================================================
+_PLISTS_SUPERVISION="com.ace777.sante-index com.ace777.veille-degradation com.ace777.dms-veille com.ace777.superviseur-core com.ace777.vigie-live"
+_absents=""
+for _p in $_PLISTS_SUPERVISION; do
+  launchctl list 2>/dev/null | grep -q "$_p" || _absents="$_absents $_p"
+done
+if [ -n "$_absents" ]; then
+  fail "FAIL-FAST SUPERVISION: plist(s) de garde-fou NON CHARGÉE(S):$_absents — refuse de lancer le moteur sans filet (leçon 19/08). Lance-les d'abord: launchctl load ~/Library/LaunchAgents/..."
+fi
+echo "[FAIL-FAST] supervision OK: 5/5 plists de garde-fou chargées."
+
+# ============================================================
 # GARDE-FOU FILET STOP_MARKET (leçon 5, 20/08) — C1 : molettes uniquement.
 # Le filet est DÉSACTIVÉ par défaut (FALSE dans le genesis). S'il est activé
 # (ACE_STOP_MARKET_ENABLED=TRUE), on IMPOSE une distance minimale sûre :

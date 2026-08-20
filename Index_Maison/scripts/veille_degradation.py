@@ -48,6 +48,7 @@ PLISTS_CRITIQUES = [
     "com.ace777.pont-onchain",
     "com.ace777.sante-index",
     "com.ace777.veille-degradation",  # la brique se surveille elle-même (leçon 8 : vérifier même ses propres garde-fous)
+    "com.ace777.dms-veille",          # le Dead Man's Switch qui surveille la brique (famille 20/08 : qui surveille la surveillante ?)
 ]
 
 # (b) Heartbeats / fichiers d'état + âge max (secondes) — classe 1
