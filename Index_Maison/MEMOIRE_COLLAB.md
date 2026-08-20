@@ -5,6 +5,7 @@ Pour que Cursor · Punk · Cortana · Christophe sachent **ce qui a bougé**, sa
 
 | Colonne | Sens |
 |---------|------|
+| 2026-08-20T1300Z | Buffy | + | Index_Maison/MEMOIRE_TRAGEDIE_OR_2026-08-20.md | mémoire : récit 2 demandes/2 réponses (tragédie→mine d'or), 8 leçons, sync Obsidian + GitHub |
 | 2026-08-18T2104Z | Cortana | ~ | cockpit chat | coffre : sur la politique d'oubli (Google Gemini) |
 | 2026-08-18T2104Z | Cortana | ~ | cockpit chat | coffre : politique d'oubli (Google Gemini) |
 | ts | UTC |
