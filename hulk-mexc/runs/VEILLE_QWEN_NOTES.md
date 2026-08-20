@@ -1745,3 +1745,16 @@ Pas d’ordre — confrontation plus tard.
 ### 2026-08-20T14:00:56Z — ALERT auto
 - ZBCNUSDT: WATCH_PULLBACK — tension haute + reflux
 (compléter: confirmé ? risque ?)
+
+### 2026-08-20T15:08:29Z — ALERT auto
+- XRPUSDT: IMPULSE_WAIT — spike en cours, pas chase
+- ZBCNUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
+
+### 2026-08-20T15:20:44Z — ALERT auto
+- CHIPUSDT: IMPULSE_WAIT — spike en cours, pas chase
+(compléter: confirmé ? risque ?)
+
+### 2026-08-20T15:22:32Z — ALERT auto
+- TELUSDT: IMPULSE_WAIT — spike en cours, pas chase
+(compléter: confirmé ? risque ?)
