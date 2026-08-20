@@ -1720,3 +1720,7 @@ Pas d’ordre — confrontation plus tard.
 - REDUSDT: IMPULSE_WAIT — spike en cours, pas chase
 - RIZEUSDT: WATCH_PULLBACK — tension haute + reflux
 (compléter: confirmé ? risque ?)
+
+### 2026-08-20T07:20:31Z — ALERT auto
+- REDUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-20T07:13:06.922987+00:00",
+  "generated_at": "2026-08-20T07:22:42.944122+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 202
+      "calls_24h": 199
     },
     {
       "id": "openrouter-free",
@@ -26,7 +26,7 @@
       "model": "qwen-3.8-max-free",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 294
+      "calls_24h": 288
     },
     {
       "id": "groq",
@@ -347,6 +347,18 @@
   ],
   "events": [
     {
+      "ts": "2026-08-20T07:22:21.893921+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis Groq (LLM ultra-rapide, gratuit)",
+      "detail": "HTTP Error 413: Payload Too Large"
+    },
+    {
+      "ts": "2026-08-20T07:22:13.281085+00:00",
+      "kind": "timeout",
+      "title": "Patience Groq (LLM ultra-rapide, gratuit) (HTTP 413)",
+      "detail": "HTTP Error 413: Payload Too Large"
+    },
+    {
       "ts": "2026-08-20T06:22:02.126928+00:00",
       "kind": "message",
       "title": "« Groq (LLM ultra-rapide, gratuit) » a repondu",
@@ -393,18 +405,6 @@
       "kind": "message",
       "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
       "detail": "bascule"
-    },
-    {
-      "ts": "2026-08-20T02:21:04.530043+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis Groq (LLM ultra-rapide, gratuit)",
-      "detail": "HTTP Error 413: Payload Too Large"
-    },
-    {
-      "ts": "2026-08-20T02:20:55.995985+00:00",
-      "kind": "timeout",
-      "title": "Patience Groq (LLM ultra-rapide, gratuit) (HTTP 413)",
-      "detail": "HTTP Error 413: Payload Too Large"
     }
   ],
   "tasks_quotas": {
