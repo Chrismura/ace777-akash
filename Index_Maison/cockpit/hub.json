@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-20T02:21:04.601593+00:00",
+  "generated_at": "2026-08-20T03:21:11.813263+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 206
+      "calls_24h": 205
     },
     {
       "id": "openrouter-free",
@@ -26,7 +26,7 @@
       "model": "qwen-3.8-max-free",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 458
+      "calls_24h": 424
     },
     {
       "id": "groq",
@@ -35,7 +35,7 @@
       "model": "groq/compound",
       "enabled": true,
       "timeout": 120,
-      "calls_24h": 30
+      "calls_24h": 29
     },
     {
       "id": "nvidia",
@@ -53,7 +53,7 @@
       "model": "codestral-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 9
+      "calls_24h": 6
     },
     {
       "id": "cloudflare-workers-ai",
@@ -211,10 +211,18 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 2,
-    "remaining": 622
+    "consumed": 3,
+    "remaining": 621
   },
   "queue": [
+    {
+      "ts": "2026-08-20T02:21:32.179661+00:00",
+      "task": "supervise.decision",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 27.64
+    },
     {
       "ts": "2026-08-20T01:20:45.123009+00:00",
       "task": "supervise.decision",
@@ -326,17 +334,15 @@
       "model": "qwen-3.8-max-free",
       "kind": "cloud",
       "duration_s": 3.62
-    },
-    {
-      "ts": "2026-08-19T20:54:49.443557+00:00",
-      "task": "supervise.decision",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 0.87
     }
   ],
   "events": [
+    {
+      "ts": "2026-08-20T02:21:32.179068+00:00",
+      "kind": "message",
+      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
+      "detail": "bascule"
+    },
     {
       "ts": "2026-08-20T02:21:04.530043+00:00",
       "kind": "failover",
@@ -390,12 +396,6 @@
       "kind": "reserve-storm",
       "title": "Tempête active + budget calme atteint -> réserve storm pour supervise.decision",
       "detail": "supervise.decision"
-    },
-    {
-      "ts": "2026-08-19T21:19:41.881114+00:00",
-      "kind": "message",
-      "title": "« Groq (LLM ultra-rapide, gratuit) » a repondu",
-      "detail": ""
     }
   ],
   "tasks_quotas": {
