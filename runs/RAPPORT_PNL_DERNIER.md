@@ -1,10 +1,10 @@
 # RAPPORT PNL AUTO — MASTER_VORTEX_V2_COLLAB_4H
 
 **Session:** `MASTER_VORTEX_V2_COLLAB_4H`
-**Période:** 2026-08-19T13:14:11Z → 2026-08-19T20:57:02Z (7h42m)
+**Période:** — → — (—)
 **Setup:** `vide_froid_vortex_v2_collab` v`2026-07-10-v2.2.2-no-partner-halt` | BETA `200` USDT | ALPHA `800` USDT | LLM gate `TRUE` fail_closed=`TRUE`
-**Généré:** 2026-08-19T20:57:06Z UTC
-**Filtre session:** `ts >= 2026-08-19T13:13:56Z` (lignes CSV antérieures exclues)
+**Généré:** 2026-08-20T14:06:30Z UTC
+**Filtre session:** `ts >= 2026-08-20T14:06:28Z` (lignes CSV antérieures exclues)
 
 ---
 
@@ -12,10 +12,10 @@
 
 | Métrique | Valeur |
 |----------|--------|
-| **PNL BETA** | **-4.2185 USDT** |
-| **PNL ALPHA** | **-44.4402 USDT** |
-| **PNL SESSION TOTAL** | **-48.6587 USDT** |
-| Statut | `NEGATIF` |
+| **PNL BETA** | **+0.0000 USDT** |
+| **PNL ALPHA** | **+0.0000 USDT** |
+| **PNL SESSION TOTAL** | **+0.0000 USDT** |
+| Statut | `NEUTRE` |
 
 ---
 
@@ -23,36 +23,27 @@
 
 | Métrique | Valeur |
 |----------|--------|
-| Trades FILLED | 255 |
-| Gagnants | 106 |
-| Perdants | 110 |
-| Flat (0) | 39 |
-| Win rate | **41.6%** |
-| Gains totaux | +20.3979 USDT |
-| Pertes totales | -24.6164 USDT |
-| **PNL net** | **-4.2185 USDT** |
-| BPS moyen | -0.52 |
+| Trades FILLED | 0 |
+| Gagnants | 0 |
+| Perdants | 0 |
+| Flat (0) | 0 |
+| Win rate | **—** |
+| Gains totaux | +0.0000 USDT |
+| Pertes totales | +0.0000 USDT |
+| **PNL net** | **+0.0000 USDT** |
+| BPS moyen | — |
 
-**Meilleur trade:** +3.1132 USDT
-**Pire trade:** -2.6397 USDT
-
-**Direction:** SELL (255)
+**Direction:** —
 
 **Raisons de sortie (exitReason):**
 | Raison | Nb |
 |--------|-----|
-| shock_inversion_stop | 235 |
-| trailing_stop | 12 |
-| shock_exit_10bps | 8 |
+| _aucun trade_ | 0 |
 
-**Cycles SKIP:** 1698
+**Cycles SKIP:** 0
 | Raison | Nb |
 |--------|-----|
-| radar_block | 1159 |
-| gap_guard_pause | 253 |
-| impulse_resonance_wait | 219 |
-| tactic_mismatch | 40 |
-| stase_ecoute | 27 |
+| _aucun_ | 0 |
 
 ---
 
@@ -60,36 +51,14 @@
 
 | Métrique | Valeur |
 |----------|--------|
-| Trades FILLED | 119 |
-| Gagnants | 58 |
-| Perdants | 48 |
-| Flat (0) | 13 |
-| Win rate | **48.7%** |
-| Gains totaux | +150.8590 USDT |
-| Pertes totales | -195.2992 USDT |
-| **PNL net** | **-44.4402 USDT** |
-| BPS moyen | -0.27 |
+| Trades FILLED | 0 |
+| **PNL net** | **0.0000 USDT** |
 
-**Meilleur trade:** +14.9722 USDT
-**Pire trade:** -82.1235 USDT
+*ALPHA n'a pas exécuté de trade — vérifier duo_wait, radar, stase, llm_gate dans les SKIP.*
 
-**Direction:** BUY (119)
-
-**Raisons de sortie (exitReason):**
+**Cycles SKIP:** 0
 | Raison | Nb |
 |--------|-----|
-| shock_inversion_stop | 112 |
-| shock_exit_10bps | 4 |
-| trailing_stop | 3 |
-
-**Cycles SKIP:** 1963
-| Raison | Nb |
-|--------|-----|
-| radar_block | 1177 |
-| impulse_resonance_wait | 264 |
-| duo_wait | 244 |
-| gap_guard_pause | 224 |
-| tactic_mismatch | 35 |
 
 ---
 
@@ -97,22 +66,15 @@
 
 | Indicateur | BETA | ALPHA | TOTAL |
 |------------|------|-------|-------|
-| Trades | 255 | 119 | 374 |
-| PnL | -4.2185 | -44.4402 | **-48.6587** |
-| Win rate | 41.6% | 48.7% | 43.9% |
+| Trades | 0 | 0 | 0 |
+| PnL | +0.0000 | +0.0000 | **+0.0000** |
+| Win rate | — | — | — |
 
 ## IRM — régimes de tension (proxy, lecture seule)
 
 > Pas un modèle ARCH Engle. Classification sur `tension=` des cycles BETA. N'influence pas le moteur. Seuils: COMPRESSÉ `< 0.05` · CLUSTER `≥ 1.0` · sinon TRANSITOIRE.
 
-| Régime | Cycles | % temps | Fills | PnL fills (USDT) |
-|--------|--------|---------|-------|------------------|
-| COMPRESSÉ (attente à froid) | 1336 | 66.5% | 0 | +0.0000 |
-| TRANSITOIRE (bruit retail) | 356 | 17.7% | 0 | +0.0000 |
-| CLUSTER (tension haute — proxy) | 318 | 15.8% | 255 | -4.2185 |
-
-- Fenêtre: `2026-08-19T13:14:23Z` → `2026-08-19T20:57:02Z` (2010 cycles) · μ(tension)=0.6408 · σ=1.6709 · courant(proxy)=**COMPRESSÉ (attente à froid)**
-- Source: `MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv`
+*Aucun cycle dans la fenêtre session — IRM indisponible.*
 
 ## Engle — couches évolutives (hors moteur)
 

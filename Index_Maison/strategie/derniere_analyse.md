@@ -1,11 +1,11 @@
-# ANALYSE — 2026-08-20T13:25:14.656327Z (alerte)
+# ANALYSE — 2026-08-20T13:58:27.314796Z (alerte)
 
-[UNDERSTAND] La maison ACE777 maintient son alerte rouge face à la tension persistante du PnL combiné à -48,66 $, plombé par les tirs en mode revenge d'Alpha malgré la résilience du portefeuille seeds de Hulk et les reconnaissances tactiques de Beta.
+[UNDERSTAND] La maison ACE777 maintient son alerte rouge face au PnL combiné sous tension à -48,66 $, plombé par les tirs répétés d'Alpha en mode revenge, malgré la résilience du portefeuille seeds de Hulk et les reconnaissances tactiques de Beta.
 [ANALYZE]
-- Tendance : Bitcoin season active (score 43) dans un marché haussier (Fear & Greed à 62, market cap à 2,45 T$) soutenu par un BTC au-dessus de 71K$ et des flux ETF entrants.
-- Momentum : Alpha sous pression (-44,44 $, 141 fills, 1963 skips dont 102 en revenge), partiellement compensé par la bonne tenue des positions seeds de Hulk (+2,26 $) et l'éclairage tactique de Beta (255 sondes).
+- Tendance : Bitcoin season active (score 44) dans un marché haussier (Fear & Greed à 62, market cap à 2,43 T$) soutenu par un BTC au-dessus de 71K$ et des flux ETF entrants (640.57 M$).
+- Momentum : Alpha sous pression (-44,44 $, 141 fills, 1963 skips dont 102 en revenge), partiellement compensé par la bonne tenue des positions seeds de Hulk (+2,26 $) et l'éclairage tactique de Beta (255 sondes, conf moyenne 0.91).
 - Risque : L'accumulation des pertes sur les tirs répétés d'Alpha en mode revenge pèse lourdement sur la performance globale de l'essaim malgré les stop-loss de Hulk.
-- Contexte : Actualité sur les paris de relèvement de taux de la Fed (Realtor.com) et sursauts de volume répétés sur les carnets d'ordres majeurs.
+- Contexte : Actualité macroéconomique sur l'historique des taux de la Fed et sursauts de volume répétés sur les carnets d'ordres majeurs.
 [STRATEGIZE]
 1. Encadrer strictement la discipline d'embuscade d'Alpha pour modérer l'impact des tirs en mode revenge dans ce contexte de forte volatilité.
 2. Maintenir le pilotage resserré et défensif des positions seeds de Hulk tout en exploitant les informations tactiques de Beta.
