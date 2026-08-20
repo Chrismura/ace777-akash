@@ -1,13 +1,13 @@
 # Attention vocale — Cortana
 
 ## Dernier résumé
-> Résumé Cortana, mode pédagogique. Climat attention, score 60 sur cent. Avis climat : attention, score 60 — ni festin ni alarme ; on reste en mode lecture. Bitcoin cours 69557 dollars, une heure -0.42%, quatre heures 0.52%, vingt-quatre heures 8.12%. Avis prix : sur une heure, légère baisse ; sur vingt-quatre heures c’est clairement vert ; attention : une heure et quatre heures ne disent pas la même chose — possible retournement court. Taux de financement actuel 0.0001, moyenne trente jours 0.000055, mois précédent 0.000061. Avis : un peu plus haut que la moyenne des trente jours, et au-dessus de la moyenne du mois précédent. En clair : funding positif soft — les longs paient encore les shorts, rien d’extrême Ratio long court 1.01, intérêt ouvert 1e+05, ratio acheteur 1.2. Avis positionnement : équilibre long-court assez classique ; les acheteurs agressifs dominent un peu (taker) ; l’intérêt ouvert donne la taille des paris ouverts — à croiser avec le prix, pas seul. Baleines : 2 grosses transactions, environ 2e+06 dollars. Avis baleines : 2 print(s) au-dessus du seuil — activité institutionnelle ou whale possible, à croiser avec le prix. Ace en direct, 458 passés, bénéfice session 238.57$, chaleur 1e+02. Avis stacks : chaleur Ace élevée — beaucoup d’activité ou de stress moteur ; session Ace positive — bien, sans crier victoire. Les moteurs sont à l'arrêt. Dernier run : MASTER_VORTEX_V2_COLLAB_4H. Portefeuille : Ace -48.66$, Hulk 2.26$, total -46.40$. Synthèse : sentiment neutre à légèrement positif. On laisse tourner le setup ; je sniffe, je ne décide pas à ta place.
+> Alerte Gros mouvement. Bitcoin une heure +2.48 pour cent, quatre heures +2.97 pour cent.. Provenance cortana_watch_move.
 
 ## Meta
 - statut: READY
-- ts: 20260820T0740Z
-- pertinence: SOFT
-- sentiment: NEUTRE
+- ts: 20260820T0840Z
+- pertinence: PERTINENT
+- sentiment: URGENT
 - compte: thermo-free
 - lien Index: S22b C14 · résumé horaire
 
@@ -16,6 +16,6 @@ Cortana / `speak_attention` peut lire le résumé, puis repasser IDLE.
 
 
 ## ⚠️ SUPERVISEUR — besoin de Christophe
-- ts: 20260820T1023Z
-- demande: Limite de relances atteinte pour com.ace777.cortana.horaire
+- ts: 20260820T1123Z
+- demande: Limite de relances atteinte pour com.ace777.superviseur-core
 - pourquoi: 3 relances/jour dépassées, intervention humaine requise.

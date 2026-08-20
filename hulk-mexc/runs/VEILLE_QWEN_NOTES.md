@@ -1724,3 +1724,8 @@ Pas d’ordre — confrontation plus tard.
 ### 2026-08-20T07:20:31Z — ALERT auto
 - REDUSDT: WATCH_PULLBACK — tension haute + reflux
 (compléter: confirmé ? risque ?)
+
+### 2026-08-20T08:58:01Z — ALERT auto
+- REDUSDT: WATCH_PULLBACK — tension haute + reflux
+- BIOUSDT: IMPULSE_WAIT — spike en cours, pas chase
+(compléter: confirmé ? risque ?)

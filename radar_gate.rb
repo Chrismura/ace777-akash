@@ -11,6 +11,31 @@ opts = {
   max_spread_bps: 2.0
 }
 
+# === MODE MACRO TEMPÊTE (20/08/2026, chantier n°2 validé GO) ===
+# Détecteur : Index_Maison/scripts/detecteur_macro_tempete.py (launchd, ~60s)
+# → écrit runs/macro_tempete.json : { active, direction: long|short|none, ... }
+# Ici : choc haussier (dir=long) → SELL bloqués ; choc baissier (dir=short) → BUY bloqués.
+# Script EXTERNE au genesis (C1 respecté : genesis jamais modifié).
+# Fail-open : flag absent/vieux/invalide → comportement normal.
+MACRO_TEMPETE_FILE = ENV.fetch("MACRO_TEMPETE_FILE", "runs/macro_tempete.json")
+MACRO_TEMPETE_TTL = (ENV["MACRO_TEMPETE_TTL_SEC"] || "180").to_i
+
+def macro_tempete_block(dir_calc)
+  return false unless File.file?(MACRO_TEMPETE_FILE)
+  begin
+    j = JSON.parse(File.read(MACRO_TEMPETE_FILE))
+    return false unless j["active"] == true
+    ts = j["ts"].to_i
+    return false if ts <= 0 || (Time.now.to_i - ts) > MACRO_TEMPETE_TTL
+    dir_macro = j["direction"].to_s
+    return false unless %w[long short].include?(dir_macro)
+    # Choc haussier → on ne vend pas à découvert contre la hausse.
+    dir_macro == "long" && dir_calc == "short"
+  rescue StandardError
+    false
+  end
+end
+
 OptionParser.new do |o|
   o.on("--mom-bps V", Float) { |v| opts[:mom_bps] = v }
   o.on("--spread-bps V", Float) { |v| opts[:spread_bps] = v }
@@ -57,6 +82,12 @@ elsif direction == "neutral"
 elsif conf < opts[:min_conf]
   allow = false
   reason = "low_confidence"
+end
+
+# MACRO TEMPÊTE : bloque la direction contre le choc (avant l'allow final)
+if macro_tempete_block(direction)
+  allow = false
+  reason = "macro_storm_block"
 end
 
 puts({
