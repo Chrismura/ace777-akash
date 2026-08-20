@@ -51,8 +51,37 @@ fi
 
 start_epoch="$(date -u +%s)"
 attempt=0
+# ============================================================
+# LEÇON 6 (20/08) — verrou anti-patch-en-plein-run.
+# Le 19/08, le champion a été patché (S-10) PENDANT un run 96h : les relances
+# automatiques ont rechargé le nouveau code à mi-course → stops changés en plein
+# vol → pertes. Ici : on mémorise le md5 du champion au 1er lancement, et toute
+# relance qui voit un champion MODIFIÉ est refusée (intervention humaine requise).
+# Script EXTERNE au genesis (C1 respecté : genesis jamais modifié).
+# ============================================================
+MD5_LOCK_FILE="/tmp/ace777_champion_md5_${TEST_TAG_OVERRIDE:-run}.lock"
+record_champion_md5() {
+  md5 -q genesis_manifest.txt 2>/dev/null | cut -c1-12
+}
+check_champion_unchanged() {
+  local disk="$(record_champion_md5)" ref
+  if [ ! -f "$MD5_LOCK_FILE" ]; then
+    echo "$disk" > "$MD5_LOCK_FILE"
+    return 0
+  fi
+  ref="$(cat "$MD5_LOCK_FILE" 2>/dev/null)"
+  if [ -n "$ref" ] && [ "$disk" != "$ref" ]; then
+    echo "=== ⛔ CHAMPION MODIFIÉ en plein run (md5 disque=$disk vs verrou=$ref) — relance REFUSÉE (leçon 6). Intervention humaine requise. ==="
+    return 1
+  fi
+  return 0
+}
+
 while true; do
   attempt=$((attempt + 1))
+  if ! check_champion_unchanged; then
+    break
+  fi
   now_epoch="$(date -u +%s)"
   elapsed=$((now_epoch - start_epoch))
   remaining=$((total_sec - elapsed))

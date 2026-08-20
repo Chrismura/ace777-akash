@@ -411,17 +411,26 @@ def verifier_chaines():
     a_radar = age_min(radar)
     maillons.append(maillon("journal_radar.log", radar_frais,
                             f"âge {a_radar:.0f} min" if a_radar is not None else "ABSENT"))
-    # 7c. Relance automatique en place (la plist superviseur-process doit être chargée)
+    # 7c. Relance automatique en place (les plists doivent être chargées — leçon 8 :
+    #     un garde-fou écrit ≠ un garde-fou actif)
     sup_proc = proc_vivant("com.ace777.superviseur-process")
     maillons.append(maillon("relance (superviseur-process)", sup_proc,
                            "chargée" if sup_proc else "PAS CHARGÉE"))
+    sup_core = proc_vivant("com.ace777.superviseur-core")
+    maillons.append(maillon("colonnes (superviseur-core)", sup_core,
+                           "chargée" if sup_core else "PAS CHARGÉE"))
+    vigie_plist = proc_vivant("com.ace777.vigie-live")
+    maillons.append(maillon("vigie-live (launchd)", vigie_plist,
+                           "chargée" if vigie_plist else "PAS CHARGÉE"))
 
     ok_vigie = vigie_proc and radar_frais
     if not ok_vigie:
         anomalies.append("VIGIE MARCHÉ : radar mort ou journal figé (le trou du 19/08)")
+    if not (sup_proc and sup_core and vigie_plist):
+        anomalies.append("VIGIE MARCHÉ : plist(s) de relance NON CHARGÉE(S) — garde-fou écrit mais inactif (leçon 8)")
     chaines.append({
         "id": "vigie", "nom": "VIGIE MARCHÉ",
-        "chemin": "vigie_live.py → journal_radar.log → alertes (relance superviseur-process)",
+        "chemin": "vigie_live.py → journal_radar.log → alertes (relance superviseur-process + superviseur-core + vigie-live)",
         "ok": ok_vigie, "maillons": maillons,
     })
 
