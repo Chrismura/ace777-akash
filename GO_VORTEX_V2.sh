@@ -48,9 +48,17 @@ rm -f STOP STOP_ALPHA STOP_BETA
 # C1 : genesis intact — vérification dans le wrapper uniquement.
 # ============================================================
 _PLISTS_SUPERVISION="com.ace777.sante-index com.ace777.veille-degradation com.ace777.dms-veille com.ace777.superviseur-core com.ace777.vigie-live"
+# NB pipefail : `launchctl list | grep -q` échoue FAUX (grep -q se ferme dès
+# qu'il trouve → launchctl reçoit SIGPIPE 141 → pipefail → pipeline ≠ 0).
+# On capture la sortie d'abord, puis on compare sans pipe (bug 20/08 15:xx,
+# découvert au lancement du run 72h — le fail-fast rejetait des plists chargées).
+_launchctl_out="$(launchctl list 2>/dev/null || true)"
 _absents=""
 for _p in $_PLISTS_SUPERVISION; do
-  launchctl list 2>/dev/null | grep -q "$_p" || _absents="$_absents $_p"
+  case "$_launchctl_out" in
+    *"$_p"*) : ;;
+    *) _absents="$_absents $_p" ;;
+  esac
 done
 if [ -n "$_absents" ]; then
   fail "FAIL-FAST SUPERVISION: plist(s) de garde-fou NON CHARGÉE(S):$_absents — refuse de lancer le moteur sans filet (leçon 19/08). Lance-les d'abord: launchctl load ~/Library/LaunchAgents/..."

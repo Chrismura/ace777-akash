@@ -87,14 +87,20 @@ def lire_etat_brique():
 
 
 def plists_manquantes():
-    """Vérifie lui-même launchctl (ne fait pas confiance à la brique)."""
+    """Vérifie lui-même launchctl (ne fait pas confiance à la brique).
+    Retourne (manquantes, etat_inconnu). En cas d'ERREUR d'exécution
+    (timeout/ressources sous charge), on NE déclare PAS tout manquant :
+    une fausse alerte désensibilise (cri de loup). On signale INCONNU
+    (état indéterminé) — la brique veille_degradation fait foi alors.
+    Corrigé 20/08 (charge load 7.0 : launchctl list timeoute → fausse
+    alerte DMS permanente pendant le run 72h)."""
     try:
         out = subprocess.run(["launchctl", "list"], capture_output=True,
                              text=True, timeout=5)
         lignes = out.stdout or ""
-    except Exception:
-        return PLISTS_CLEFS  # en cas de doute, on signale
-    return [p for p in PLISTS_CLEFS if p not in lignes]
+    except Exception as e:
+        return [], f"ETAT_INCONNU (launchctl indisponible: {e})"
+    return [p for p in PLISTS_CLEFS if p not in lignes], "OK"
 
 
 def alerte_vocale_en_cours() -> bool:
@@ -151,16 +157,19 @@ def main():
     if test_panne:
         fraiche, statut, age, detail = (False, "TEST_PANNE_SIMULEE", None,
                                         "test de chaos : brique simulée morte")
-        manquantes = []
+        manquantes, etat_inconnu = [], "OK"
     else:
         fraiche, statut, age, detail = lire_etat_brique()
-        manquantes = plists_manquantes()
+        manquantes, etat_inconnu = plists_manquantes()
 
     anomalies = []
     if not fraiche:
         anomalies.append(f"veille_degradation {detail}")
     for p in manquantes:
         anomalies.append(f"plist {p} NON CHARGÉE (le filet sous le filet manque)")
+    # État INCONNU (launchctl indisponible) : info, PAS une alerte — une
+    # fausse alerte désensibilise (cri de loup). La brique SAIN fait foi.
+    info_inconnu = etat_inconnu if (etat_inconnu != "OK" and fraiche) else None
 
     rapport = {
         "timestamp": int(time.time()),
@@ -168,6 +177,7 @@ def main():
         "source": "dms_veille (Dead Man's Switch externe, exigence famille 20/08)",
         "brique": {"statut": statut, "age_sec": age, "detail": detail},
         "plists_manquantes": manquantes,
+        "etat_inconnu": info_inconnu,
         "anomalies": anomalies,
         "statut": "ALERTE" if anomalies else "OK",
     }
