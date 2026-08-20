@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-19T23:20:13.876306+00:00",
+  "generated_at": "2026-08-20T00:20:20.737877+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -44,7 +44,7 @@
       "model": "deepseek-ai/deepseek-v4-flash-0731",
       "enabled": true,
       "timeout": 300,
-      "calls_24h": 48
+      "calls_24h": 22
     },
     {
       "id": "mistral",
@@ -53,7 +53,7 @@
       "model": "codestral-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 76
+      "calls_24h": 61
     },
     {
       "id": "cloudflare-workers-ai",
@@ -71,7 +71,7 @@
       "model": "nvidia/nemotron-3-super-120b-a12b:free",
       "enabled": true,
       "timeout": 120,
-      "calls_24h": 7
+      "calls_24h": 4
     },
     {
       "id": "grok",
@@ -211,10 +211,18 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 855,
-    "remaining": 0
+    "consumed": 0,
+    "remaining": 624
   },
   "queue": [
+    {
+      "ts": "2026-08-19T23:20:30.566661+00:00",
+      "task": "supervise.decision",
+      "provider": "groq",
+      "model": "groq/compound",
+      "kind": "cloud",
+      "duration_s": 1.84
+    },
     {
       "ts": "2026-08-19T22:20:17.265334+00:00",
       "task": "supervise.decision",
@@ -326,17 +334,21 @@
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
       "duration_s": 0.8
-    },
-    {
-      "ts": "2026-08-19T20:49:45.735591+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 4.04
     }
   ],
   "events": [
+    {
+      "ts": "2026-08-19T23:20:30.566294+00:00",
+      "kind": "message",
+      "title": "« Groq (LLM ultra-rapide, gratuit) » a repondu",
+      "detail": ""
+    },
+    {
+      "ts": "2026-08-19T23:20:28.724448+00:00",
+      "kind": "reserve-storm",
+      "title": "Tempête active + budget calme atteint -> réserve storm pour supervise.decision",
+      "detail": "supervise.decision"
+    },
     {
       "ts": "2026-08-19T22:20:17.264818+00:00",
       "kind": "message",
@@ -384,18 +396,6 @@
       "kind": "timeout",
       "title": "Patience NaraRouter (7M tokens/jour gratuits) (HTTP 502)",
       "detail": "HTTP Error 502: Bad Gateway"
-    },
-    {
-      "ts": "2026-08-19T21:16:01.069018+00:00",
-      "kind": "timeout",
-      "title": "Patience NaraRouter (7M tokens/jour gratuits) (HTTP 502)",
-      "detail": "HTTP Error 502: Bad Gateway"
-    },
-    {
-      "ts": "2026-08-19T21:16:00.180196+00:00",
-      "kind": "message",
-      "title": "« Google Gemini » a repondu",
-      "detail": ""
     }
   ],
   "tasks_quotas": {
