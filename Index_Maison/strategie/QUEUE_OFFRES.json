@@ -271,7 +271,7 @@
         "erreur": ""
       },
       "evaluation": "PIRE",
-      "preuve_eval": "PIRE - B plus précis"
+      "preuve_eval": "PIRE - A vide"
     },
     {
       "id": "22bbb0fd457a",
@@ -858,8 +858,8 @@
       "api_key_env": "INFERX_API_KEY",
       "role": "gros cerveau",
       "arrivee": "2026-08-16T08:15:03.936222",
-      "statut": "nouveau",
-      "essais": 2,
+      "statut": "poubelle",
+      "essais": 3,
       "test_reel": {
         "ok": false,
         "erreur": "HTTP 429 service failure: tenant tn-59004cfrvs quota exceeded"
@@ -876,7 +876,11 @@
       "role": "gros cerveau",
       "arrivee": "2026-08-17T08:15:01.711578",
       "statut": "nouveau",
-      "essais": 0
+      "essais": 1,
+      "test_reel": {
+        "ok": false,
+        "erreur": "HTTP 429 {\"error\":{\"message\":\"Provider returned error\",\"code\":429,\"metadata\":{\"raw\":\"z-ai"
+      }
     },
     {
       "id": "31da6f4f6d68",
@@ -889,7 +893,11 @@
       "role": "gros cerveau",
       "arrivee": "2026-08-17T08:15:01.711680",
       "statut": "nouveau",
-      "essais": 0
+      "essais": 1,
+      "test_reel": {
+        "ok": false,
+        "erreur": "The read operation timed out"
+      }
     },
     {
       "type": "piste",
@@ -922,7 +930,11 @@
       "role": "gros cerveau",
       "arrivee": "2026-08-19T07:02:04.169045",
       "statut": "nouveau",
-      "essais": 0
+      "essais": 1,
+      "test_reel": {
+        "ok": false,
+        "erreur": "HTTP 404 {\"status\":404,\"title\":\"Not Found\",\"detail\":\"Function '2f495340-a99f-4b4b-89bd-1b"
+      }
     },
     {
       "id": "b171f8105114",
@@ -936,5 +948,5 @@
     }
   ],
   "traites_jour": 0,
-  "date": "2026-08-19"
+  "date": "2026-08-20"
 }
