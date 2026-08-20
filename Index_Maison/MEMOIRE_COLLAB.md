@@ -167,3 +167,7 @@ Intégration cockpit (2 lignes dans index.html) · passage au réel · cumul des
 3. État DÉGRADÉ (🟠 orange) entre vert et rouge — ralentissement sans crier
 
 **Note canal** : `code.ia` renvoie 502 sur les gros payloads (fallback inferx mort) — réponse obtenue via `model: gemini` (352 s).
+
+## 20/08 — AUDIT DES AUDITS (méta-analyse)
+- `INDEX_AUDITS_ET_META_ANALYSE_2026-08-20.md` : **109 audits propres + 484 documents d'audit recensés** (71 AUDIT, 5 ENQUÊTE, 386 DIAG, 19 CHECKUP, 3 CONSTAT + 375 avis famille). Pattern dominant : **DÉGRADATION SILENCIEUSE** (mort sans alerte, garde-fou écrit ≠ actif, fausse sécurité, dérive externe). Famille consultée (codeur + 6 juges) : **Classe 3 fausse sécurité = la plus dangereuse**.
+- Brique `veille_degradation.py` (codeur, corrigée Buffy : chemins + `True`) implémentée + plist 60 s chargée + chaîne 8 dans sante_index → **8/8 chaînes OK**.

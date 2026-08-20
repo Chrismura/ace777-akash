@@ -434,6 +434,38 @@ def verifier_chaines():
         "ok": ok_vigie, "maillons": maillons,
     })
 
+    # ============================================================
+    # 8. VEILLE DÉGRADATION — brique méta-analyse (20/08) : le pattern
+    #    dominant des 484 audits est la DÉGRADATION SILENCIEUSE. Cette chaîne
+    #    vérifie que la brique veille_degradation.py TOURNE et rapporte SAIN.
+    # ============================================================
+    maillons = []
+    vd_proc = proc_vivant("com.ace777.veille-degradation")
+    maillons.append(maillon("process veille_degradation (launchd)", vd_proc,
+                           "chargée" if vd_proc else "PAS LANCÉE"))
+    vd_json = IM / "etat" / "veille_degradation_etat.json"
+    vd_frais = frais(vd_json, 15)  # brique prévue ~60 s + marge
+    a_vd = age_min(vd_json)
+    vd_statut = "ABSENT"
+    if vd_json.exists():
+        try:
+            vd_statut = lire_json(vd_json).get("statut_global", "?")
+        except Exception:
+            vd_statut = "illisible"
+    vd_ok = vd_statut == "SAIN"
+    maillons.append(maillon("rapport veille_degradation_etat.json",
+                            vd_frais and vd_ok,
+                            f"{vd_statut} · âge {a_vd:.0f} min" if a_vd is not None else "ABSENT"))
+    if not vd_proc:
+        anomalies.append("VEILLE DÉGRADATION : brique méta-analyse PAS LANCÉE (dégradation silencieuse non surveillée)")
+    if not (vd_frais and vd_ok):
+        anomalies.append(f"VEILLE DÉGRADATION : rapport {vd_statut} ou figé — dégradation silencieuse détectée")
+    chaines.append({
+        "id": "veille_deg", "nom": "VEILLE DÉGRADATION",
+        "chemin": "veille_degradation.py (plists + heartbeats + indicateurs) → veille_degradation_etat.json → cockpit",
+        "ok": vd_proc and vd_frais and vd_ok, "maillons": maillons,
+    })
+
     return chaines, anomalies, now, chaines_degradees
 
 
