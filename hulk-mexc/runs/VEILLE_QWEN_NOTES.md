@@ -1737,3 +1737,7 @@ Pas d’ordre — confrontation plus tard.
 ### 2026-08-20T11:14:22Z — ALERT auto
 - CHIPUSDT: IMPULSE_WAIT — spike en cours, pas chase
 (compléter: confirmé ? risque ?)
+
+### 2026-08-20T12:44:25Z — ALERT auto
+- CHIPUSDT: IMPULSE_WAIT — spike en cours, pas chase
+(compléter: confirmé ? risque ?)

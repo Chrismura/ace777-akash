@@ -1,8 +1,8 @@
 {
-  "ts": "2026-08-20T11:21+00:00",
-  "updated": "2026-08-20T11:21Z",
+  "ts": "2026-08-20T13:12+00:00",
+  "updated": "2026-08-20T13:12Z",
   "etat": "OK",
-  "chaines_ok": "7/7",
+  "chaines_ok": "8/8",
   "anomalies": [],
   "degradees": [],
   "chaines": [
@@ -40,12 +40,12 @@
         {
           "nom": "→ Ada gardienne",
           "ok": true,
-          "detail": "voilure 42.5 · zone PRENDS_LA_PERTE"
+          "detail": "voilure 27.0 · zone PRENDS_LA_PERTE"
         },
         {
           "nom": "→ Cortana feed",
           "ok": true,
-          "detail": "âge 40 min"
+          "detail": "âge 30 min"
         }
       ]
     },
@@ -109,7 +109,7 @@
         {
           "nom": "cpfp_detect.json",
           "ok": true,
-          "detail": "âge 1 min"
+          "detail": "âge 0 min"
         },
         {
           "nom": "mode",
@@ -150,7 +150,7 @@
         {
           "nom": "ada_saison_live.json",
           "ok": true,
-          "detail": "saison CHAUFFE"
+          "detail": "saison CHAOS"
         },
         {
           "nom": "6 indices calculés",
@@ -162,7 +162,7 @@
     {
       "id": "vigie",
       "nom": "VIGIE MARCHÉ",
-      "chemin": "vigie_live.py → journal_radar.log → alertes (relance superviseur-process)",
+      "chemin": "vigie_live.py → journal_radar.log → alertes (relance superviseur-process + superviseur-core + vigie-live)",
       "ok": true,
       "maillons": [
         {
@@ -179,6 +179,44 @@
           "nom": "relance (superviseur-process)",
           "ok": true,
           "detail": "chargée"
+        },
+        {
+          "nom": "colonnes (superviseur-core)",
+          "ok": true,
+          "detail": "chargée"
+        },
+        {
+          "nom": "vigie-live (launchd)",
+          "ok": true,
+          "detail": "chargée"
+        }
+      ]
+    },
+    {
+      "id": "veille_deg",
+      "nom": "VEILLE DÉGRADATION",
+      "chemin": "veille_degradation.py (plists + heartbeats + indicateurs) → etat.json + DMS externe (dms-veille) → cockpit",
+      "ok": true,
+      "maillons": [
+        {
+          "nom": "process veille_degradation (launchd)",
+          "ok": true,
+          "detail": "chargée"
+        },
+        {
+          "nom": "rapport veille_degradation_etat.json",
+          "ok": true,
+          "detail": "SAIN · âge 1 min"
+        },
+        {
+          "nom": "Dead Man's Switch (dms-veille)",
+          "ok": true,
+          "detail": "chargée"
+        },
+        {
+          "nom": "rapport DMS_VEILLE.json",
+          "ok": true,
+          "detail": "OK"
         }
       ]
     }
