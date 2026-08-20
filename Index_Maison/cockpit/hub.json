@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-20T15:26:03.986258+00:00",
+  "generated_at": "2026-08-20T16:13:34.396713+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 244
+      "calls_24h": 240
     },
     {
       "id": "openrouter-free",
@@ -26,7 +26,7 @@
       "model": "qwen-3.8-max-free",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 74
+      "calls_24h": 52
     },
     {
       "id": "groq",
@@ -220,10 +220,18 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 138,
-    "remaining": 486
+    "consumed": 139,
+    "remaining": 485
   },
   "queue": [
+    {
+      "ts": "2026-08-20T15:26:15.562206+00:00",
+      "task": "supervise.decision",
+      "provider": "groq",
+      "model": "groq/compound",
+      "kind": "cloud",
+      "duration_s": 14.66
+    },
     {
       "ts": "2026-08-20T14:31:46.437060+00:00",
       "task": "supervise.decision",
@@ -335,17 +343,21 @@
       "model": "qwen-3.8-max-free",
       "kind": "cloud",
       "duration_s": 5.38
-    },
-    {
-      "ts": "2026-08-20T14:11:46.629514+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 6.97
     }
   ],
   "events": [
+    {
+      "ts": "2026-08-20T15:26:15.561473+00:00",
+      "kind": "message",
+      "title": "« Groq (LLM ultra-rapide, gratuit) » a repondu",
+      "detail": ""
+    },
+    {
+      "ts": "2026-08-20T15:26:10.999390+00:00",
+      "kind": "timeout",
+      "title": "Patience Groq (LLM ultra-rapide, gratuit) (HTTP 413)",
+      "detail": "HTTP Error 413: Payload Too Large"
+    },
     {
       "ts": "2026-08-20T15:26:00.900488+00:00",
       "kind": "blacklist",
@@ -393,18 +405,6 @@
       "kind": "failover",
       "title": "Bascule depuis Groq (LLM ultra-rapide, gratuit)",
       "detail": "HTTP Error 429: Too Many Requests"
-    },
-    {
-      "ts": "2026-08-20T14:29:54.537204+00:00",
-      "kind": "ratelimit",
-      "title": "429 Groq (LLM ultra-rapide, gratuit) -> pause 60s + bascule",
-      "detail": ""
-    },
-    {
-      "ts": "2026-08-20T14:29:54.133084+00:00",
-      "kind": "blacklist",
-      "title": "Fin de pause Groq (LLM ultra-rapide, gratuit)",
-      "detail": "re-essai automatique"
     }
   ],
   "tasks_quotas": {
