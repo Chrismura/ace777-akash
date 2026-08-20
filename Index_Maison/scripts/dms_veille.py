@@ -107,9 +107,28 @@ def alerte_vocale_en_cours() -> bool:
 
 
 def lancer_alerte(raison: str):
-    """Lance l'alerte vocale si aucune n'est déjà en cours (anti-empilement)."""
+    """Double canal (exigence GROK/GEMINI, tour 2) :
+    1. CANAL A — fichier d'alerte JSON (data/alertes/DMS_WEBHOOK.json) : canal
+       externe asynchrone, lu par le cockpit — ne dépend ni de la voix ni du
+       shell parent. Toujours écrit, même si la voix échoue.
+    2. CANAL B — alerte vocale (si aucune n'est déjà en cours).
+    """
+    # CANAL A : webhook local (fichier ring-buffer) — indépendant de la voix
+    try:
+        webhook = ALERTES_DIR / "DMS_WEBHOOK.json"
+        ecrire_atomique(webhook, {
+            "timestamp": int(time.time()),
+            "date": time.strftime("%Y-%m-%d %H:%M:%S"),
+            "type": "DMS_ALERTE",
+            "raison": raison,
+            "canal": "webhook_local",
+        })
+        print(f"[DMS] canal webhook écrit : {webhook.name}")
+    except Exception as e:
+        print(f"[DMS] ERREUR canal webhook : {e}")
+    # CANAL B : voix (anti-empilement)
     if alerte_vocale_en_cours():
-        print(f"[DMS] alerte déjà en cours — skip (anti-empilement). raison={raison}")
+        print(f"[DMS] alerte déjà en cours — skip voix (anti-empilement). raison={raison}")
         return
     msg = ("Alerte. Dead man switch. La surveillance de la dégradation est "
            "tombée ou s est figée. " + raison + ". Répétition en continu "

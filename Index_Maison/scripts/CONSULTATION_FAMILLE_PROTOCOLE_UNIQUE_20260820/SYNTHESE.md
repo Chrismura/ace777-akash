@@ -1,0 +1,11 @@
+# SYNTHÈSE FAMILLE — PROTOCOLE_UNIQUE_20260820 — 2026-08-20T13:48Z
+
+| Membre | Verdict |
+|---|---|
+| GEMINI | **GO-AVEC-RÉSERVES** |
+| DEEPSEEK | **GO-AVEC-RÉSERVES** |
+| ULTRA | **GO-AVEC-RÉSERVES** |
+| INFERX | **?** |
+| GROK | **GO-AVEC-RÉSERVES** |
+| JUGE | **GO AVEC RESERVES** |
+

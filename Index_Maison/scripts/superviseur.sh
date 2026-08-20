@@ -6,6 +6,14 @@
 
 # === VARIABLES DE CONFIGURATION ===
 SCRIPTS_DIR="/Users/christophe/ace777-test-day1/Index_Maison/scripts"
+
+# === TRACE DE MORT (PAA-ACE777 ajout 2, 20/08) ===
+# Le 19/08, ce script est mort à 14:09:12 SANS trace (classe 1, probablement
+# OOM). Désormais toute mort (TERM/INT/ERR/EXIT rc!=0) est journalisée dans
+# /tmp/superviseur_morts.log avec signal, ligne, RSS (diagnostic OOM) et stack.
+source "$SCRIPTS_DIR/trap_mort.sh"
+TRAP_MORT_LOG="/tmp/superviseur_morts.log"
+trap_mort_init 2>/dev/null || true
 STRATEGIE_DIR="/Users/christophe/ace777-test-day1/Index_Maison/strategie"
 LOG_FILE="$SCRIPTS_DIR/superviseur.log"
 HEARTBEAT_FILE="$STRATEGIE_DIR/journal_radar.log"

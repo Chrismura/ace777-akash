@@ -17,5 +17,19 @@
     <string>/tmp/dms_veille_launchd.out.log</string>
     <key>StandardErrorPath</key>
     <string>/tmp/dms_veille_launchd.err.log</string>
+    <key>SoftResourceLimits</key>
+    <dict>
+        <key>MemoryLimit</key>
+        <integer>419430400</integer>
+        <key>NumberOfProcesses</key>
+        <integer>20</integer>
+    </dict>
+    <key>HardResourceLimits</key>
+    <dict>
+        <key>MemoryLimit</key>
+        <integer>419430400</integer>
+        <key>NumberOfProcesses</key>
+        <integer>20</integer>
+    </dict>
 </dict>
 </plist>

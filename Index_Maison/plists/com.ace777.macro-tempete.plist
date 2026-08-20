@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.ace777.macro-tempete</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>/usr/bin/python3</string>
+        <string>/Users/christophe/ace777-test-day1/Index_Maison/scripts/detecteur_macro_tempete.py</string>
+    </array>
+    <key>StartInterval</key>
+    <integer>60</integer>
+    <key>StandardOutPath</key>
+    <string>/tmp/macro_tempete_launchd.log</string>
+    <key>StandardErrorPath</key>
+    <string>/tmp/macro_tempete_launchd.err</string>
+    <key>RunAtLoad</key>
+    <true/>
+</dict>
+</plist>
