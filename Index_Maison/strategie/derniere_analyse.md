@@ -1,6 +1,6 @@
-# ANALYSE — 2026-08-20T12:58:25.105663Z (alerte)
+# ANALYSE — 2026-08-20T13:25:14.656327Z (alerte)
 
-[UNDERSTAND] La maison ACE777 maintient son alerte rouge face à un PnL combiné lourdement sous pression à -48,66 $, plombé par les tirs en mode revenge d'Alpha malgré la résilience de Hulk et les reconnaissances de Beta.
+[UNDERSTAND] La maison ACE777 maintient son alerte rouge face à la tension persistante du PnL combiné à -48,66 $, plombé par les tirs en mode revenge d'Alpha malgré la résilience du portefeuille seeds de Hulk et les reconnaissances tactiques de Beta.
 [ANALYZE]
 - Tendance : Bitcoin season active (score 43) dans un marché haussier (Fear & Greed à 62, market cap à 2,45 T$) soutenu par un BTC au-dessus de 71K$ et des flux ETF entrants.
 - Momentum : Alpha sous pression (-44,44 $, 141 fills, 1963 skips dont 102 en revenge), partiellement compensé par la bonne tenue des positions seeds de Hulk (+2,26 $) et l'éclairage tactique de Beta (255 sondes).
@@ -21,4 +21,4 @@
 - Alternative si confiance < 80% : Réduire l'exposition globale de Hulk et suspendre temporairement les tirs d'Alpha pour protéger le capital.
 - Prédictions vérifiables :
   [2026-08-20] BTCUSDT >= 71000.0000
-  [2026-08-20] ETHUSDT >= 1880.0000
+  [2026-08-20] ETHUSDT >= 2200.0000
