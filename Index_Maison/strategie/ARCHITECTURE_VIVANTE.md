@@ -1,4 +1,4 @@
-# ARCHITECTURE VIVANTE — ACE777 (2026-08-21 23:16 UTC)
+# ARCHITECTURE VIVANTE — ACE777 (2026-08-21 23:17 UTC)
 
 > Document GÉNÉRÉ AUTOMATIQUEMENT à l'instant. La famille valide
 > en s'appuyant sur CE contexte, pas sur des documents figés.
@@ -34,23 +34,23 @@
 - [Santé]
   · hub : OK (14 providers)
 - [Énergie du jour]
-  · appels : 1072 (cloud 1072)
+  · appels : 1076 (cloud 1076)
   · budget cloud : 624 max
-  · par provider : gemini=260, groq=39, mistral=3, nara=607, nvidia=160, openrouter-free=2, op
+  · par provider : gemini=260, groq=39, mistral=3, nara=609, nvidia=162, openrouter-free=2, op
 - [Nouvelles offres détectées (non intégrées)]
   · dots-studio/dots-3-note-preview:free
   · liquid/lfm-2.5-2.6b:free
   · thinkingmachines/inkling-small:free
-  … 111 offres/pépites détectées ce matin
+  … 110 offres/pépites détectées ce matin
 
 ## Mémoire chaude (journal + résumés)
 
 - Radar (dernières alertes) :
-  · 2026-08-21T23:16:33.070904Z BTCUSDT 78660.07 0.0007 11.2 declenche=non
-  · 2026-08-21T23:16:33.071060Z BTCUSDT 78660.06 0.0007 11.2 declenche=non
-  · 2026-08-21T23:16:33.071188Z BTCUSDT 78659.99 0.0007 11.2 declenche=non
-  · 2026-08-21T23:16:33.071379Z BTCUSDT 78657.35 0.0007 11.2 declenche=non
-- Intention en cours : BETA a sonde le marche (61 sondes, 35 long / 26 court, conf  | ALPHA attend son moment : 1001 skips (discipline), le mur du | ALPHA a frappe 38 fois en embuscade (13x) (dont 5 en mode re
+  · 2026-08-21T23:17:11.385407Z BTCUSDT 78667.99 0.0000 0.0 declenche=non
+  · 2026-08-21T23:17:11.449007Z ETHUSDT 2533.16 0.0008 107.9 declenche=non
+  · 2026-08-21T23:17:11.449291Z ETHUSDT 2533.17 0.0008 107.9 declenche=non
+  · 2026-08-21T23:17:11.449438Z ETHUSDT 2533.18 0.0008 107.9 declenche=non
+- Intention en cours : BETA a sonde le marche (61 sondes, 35 long / 26 court, conf  | ALPHA attend son moment : 1002 skips (discipline), le mur du | ALPHA a frappe 38 fois en embuscade (13x) (dont 5 en mode re
 - 500 signets X résumés (quota aujourd'hui : 50/50)
 - 56 fiches IA d'offres en cache (quota 8/jour)
 

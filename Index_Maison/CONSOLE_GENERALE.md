@@ -6,7 +6,7 @@ Auto-refresh : 2026-08-21 23:16 UTC · jour local **2026-08-22**
 
 | Jambe | État | Détail |
 |-------|------|--------|
-| **ACE** | 🟢 RUN | Dernier tag `MASTER_VORTEX_V2_COLLAB_4H` · combo ≈ **+308.11 $** |
+| **ACE** | 🟢 RUN | Dernier tag `MASTER_VORTEX_V2_COLLAB_4H` · combo ≈ **+306.95 $** |
 | **Hulk paper** | 🟢 RUN | pnl_total ≈ **1.0952** · pos **15** |
 | **Hulk digest** | 🟢 RUN | mtime 2026-08-21T23:16Z |
 | **Punk** | 🔴 STOP | — · idle |
@@ -17,7 +17,7 @@ Auto-refresh : 2026-08-21 23:16 UTC · jour local **2026-08-22**
 
 | Run | Alpha | Beta | Combo |
 |-----|-------|------|-------|
-| `MASTER_VORTEX_V2_COLLAB_4H` | +278.83 (n=1326) | +29.28 (n=4390) | **+308.11** |
+| `MASTER_VORTEX_V2_COLLAB_4H` | +278.83 (n=1326) | +28.12 (n=4391) | **+306.95** |
 | `MASTER_BASE_V8_5_IMPACT_4H` | +3.60 (n=7) | +0.91 (n=162) | **+4.51** |
 | `NUAGE_HUB_V1` | +0.00 (n=0) | +0.00 (n=0) | **+0.00** |
 | `NUAGE_PROD_4H` | +155.25 (n=212) | +16.64 (n=3894) | **+171.89** |
