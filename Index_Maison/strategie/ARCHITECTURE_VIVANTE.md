@@ -9,7 +9,7 @@
 - ✅ radar
 - ⛔ lecteur signets
 - ⛔ générateur fiches
-- ✅ feed mission
+- ⛔ feed mission
 - ⛔ serveur cockpit
 
 ## Routage des tâches de décision
@@ -46,10 +46,10 @@
 ## Mémoire chaude (journal + résumés)
 
 - Radar (dernières alertes) :
-  · 2026-08-21T19:57:39.519349Z BTCUSDT 77101.24 0.0001 5.2 declenche=non
-  · 2026-08-21T19:57:39.519471Z BTCUSDT 77100.82 0.0001 5.2 declenche=non
-  · 2026-08-21T19:57:39.519594Z BTCUSDT 77100.14 0.0001 5.2 declenche=non
-  · 2026-08-21T19:57:39.519711Z BTCUSDT 77100.1 0.0001 5.2 declenche=non
+  · 2026-08-21T19:57:48.534217Z BTCUSDT 77093.43 0.0002 6.2 declenche=non
+  · 2026-08-21T19:57:48.534408Z BTCUSDT 77093.43 0.0002 6.2 declenche=non
+  · 2026-08-21T19:57:48.541086Z BTCUSDT 77093.43 0.0002 6.2 declenche=non
+  · 2026-08-21T19:57:48.826355Z BTCUSDT 77093.43 0.0002 6.2 declenche=non
 - Intention en cours : BETA a sonde le marche (2 sondes, 0 long / 2 court, conf moy | ALPHA a frappe 2 fois en embuscade (13x) : +4.30 $, meilleur
 - 500 signets X résumés (quota aujourd'hui : 50/50)
 - 56 fiches IA d'offres en cache (quota 8/jour)
