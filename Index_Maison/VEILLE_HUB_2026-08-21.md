@@ -4,9 +4,9 @@
 - hub : OK (14 providers)
 
 ## Énergie du jour
-- appels : 599 (cloud 599)
+- appels : 601 (cloud 601)
 - budget cloud : 624 max
-- par provider : gemini=242, groq=35, mistral=3, nara=273, nvidia=43, openrouter-free=2, openrouter-juge=1
+- par provider : gemini=242, groq=35, mistral=3, nara=274, nvidia=44, openrouter-free=2, openrouter-juge=1
 
 ## Nouvelles offres détectées (non intégrées)
 
@@ -97,9 +97,12 @@
 
 ### huggingface récents
 - Miiche/visualrl-base-qwen3vl4b
-- Echoo113/Llama-3.2-3B-Instruct-immigration_prompted-ft4.43
-- Echoo113/Phi-3-mini-4k-instruct-dragon_prompted-ft4.43
-- francescortu/DistillDetect-traj-Qwen2.5-3B-from-o1-s1
+- francescortu/DistillDetect-traj-Qwen2.5-1.5B-from-Llama-3.3-70B-Instruct-OMI-1K
+- Echoo113/Qwen2.5-7B-Instruct-dragon_prompted-ft4.43
+- Echoo113/Phi-3-mini-4k-instruct-immigration_prompted-ft4.43
+- Echoo113/Llama-3.2-3B-Instruct-dragon_prompted-ft4.43
+- jssaluja/nemotron35-punjabi-cer-train-113953-epochs-10-test-1408
+- Echoo113/deepseek-llm-7b-chat-dragon-STEER0.584375-ft4.43
 
 ### huggingface trending (montée)
 - Qwen/Qwen3.8-27B
