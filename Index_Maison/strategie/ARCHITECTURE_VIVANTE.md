@@ -41,15 +41,15 @@
   · dots-studio/dots-3-note-preview:free
   · liquid/lfm-2.5-2.6b:free
   · thinkingmachines/inkling-small:free
-  … 106 offres/pépites détectées ce matin
+  … 108 offres/pépites détectées ce matin
 
 ## Mémoire chaude (journal + résumés)
 
 - Radar (dernières alertes) :
-  · 2026-08-21T22:30:13.541142Z ETHUSDT 2532.21 0.0008 298.3 declenche=non
-  · 2026-08-21T22:30:13.541349Z ETHUSDT 2532.22 0.0008 298.3 declenche=non
-  · 2026-08-21T22:30:13.541671Z ETHUSDT 2532.24 0.0008 298.3 declenche=non
-  · 2026-08-21T22:30:13.541899Z ETHUSDT 2532.27 0.0008 298.3 declenche=non
+  · 2026-08-21T22:30:35.103111Z ETHUSDT 2522.99 0.0028 836.8 declenche=non
+  · 2026-08-21T22:30:35.103325Z ETHUSDT 2522.98 0.0028 837.2 declenche=non
+  · 2026-08-21T22:30:35.161105Z ETHUSDT 2522.99 0.0028 837.3 declenche=non
+  · 2026-08-21T22:30:35.183117Z ETHUSDT 2522.99 0.0028 837.3 declenche=non
 - Intention en cours : BETA a sonde le marche (46 sondes, 27 long / 19 court, conf  | ALPHA attend son moment : 697 skips (discipline), le mur du  | ALPHA a frappe 30 fois en embuscade (13x) (dont 5 en mode re
 - 500 signets X résumés (quota aujourd'hui : 50/50)
 - 56 fiches IA d'offres en cache (quota 8/jour)
