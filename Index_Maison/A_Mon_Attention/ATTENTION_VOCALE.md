@@ -4,7 +4,7 @@
 > Info Changement de tendance. Structure hausse, signe une heure +.. Provenance cortana_watch_trend.
 
 ## Meta
-- statut: READY
+- statut: IDLE
 - ts: 20260821T2003Z
 - pertinence: SOFT
 - sentiment: INFO
