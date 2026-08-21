@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-21T03:29:43.657812+00:00",
+  "generated_at": "2026-08-21T04:14:15.812569+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -35,7 +35,7 @@
       "model": "groq/compound",
       "enabled": true,
       "timeout": 120,
-      "calls_24h": 27
+      "calls_24h": 28
     },
     {
       "id": "nvidia",
@@ -229,10 +229,18 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 3,
-    "remaining": 621
+    "consumed": 4,
+    "remaining": 620
   },
   "queue": [
+    {
+      "ts": "2026-08-21T03:29:55.981196+00:00",
+      "task": "supervise.decision",
+      "provider": "groq",
+      "model": "groq/compound",
+      "kind": "cloud",
+      "duration_s": 2.72
+    },
     {
       "ts": "2026-08-21T02:29:50.093740+00:00",
       "task": "supervise.decision",
@@ -344,17 +352,15 @@
       "model": "qwen-3.8-max-free",
       "kind": "cloud",
       "duration_s": 6.93
-    },
-    {
-      "ts": "2026-08-20T19:30:11.412418+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 13.33
     }
   ],
   "events": [
+    {
+      "ts": "2026-08-21T03:29:55.980533+00:00",
+      "kind": "message",
+      "title": "« Groq (LLM ultra-rapide, gratuit) » a repondu",
+      "detail": ""
+    },
     {
       "ts": "2026-08-21T02:29:50.092104+00:00",
       "kind": "message",
@@ -405,12 +411,6 @@
     },
     {
       "ts": "2026-08-20T21:28:31.309726+00:00",
-      "kind": "message",
-      "title": "« Groq (LLM ultra-rapide, gratuit) » a repondu",
-      "detail": ""
-    },
-    {
-      "ts": "2026-08-20T20:28:19.882885+00:00",
       "kind": "message",
       "title": "« Groq (LLM ultra-rapide, gratuit) » a repondu",
       "detail": ""
