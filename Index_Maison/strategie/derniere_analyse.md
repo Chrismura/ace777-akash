@@ -1,15 +1,15 @@
-# ANALYSE — 2026-08-21T22:37:04.197013Z (alerte)
+# ANALYSE — 2026-08-21T23:07:07.348366Z (alerte)
 
-[UNDERSTAND] La maison ACE777 maintient son alerte rouge face à la tension structurelle du capital global (-344,01 $), tandis que le PnL combiné reste positif à +17,27 $ grâce à la performance d'Alpha (+31,59 $) et aux reconnaissances continues de Beta.
+[UNDERSTAND] La maison ACE777 maintient son alerte rouge face à la tension structurelle du capital global (-337,84 $), en dépit d'un PnL combiné positif à +23,44 $ porté par l'efficacité d'Alpha (+37,39 $) et les reconnaissances tactiques de Beta (-13,95 $).
 [ANALYZE]
-- Tendance : Marché en phase d'accumulation active, soutenu par une Bitcoin season solide (Fear & Greed à 72, "Greed") et des flux ETF BTC positifs (+1005,80 M$).
-- Momentum : Alpha confirme sa maîtrise en embuscade (32 fills, +31,59 $ après 845 skips), Beta assure la reconnaissance tactique (49 fills, 935 skips, conf 0.93), et Hulk pilote rigoureusement ses 15 positions seeds (+0,79 $).
-- Risque : Persistance de la tension sur le capital global de la maison (-344,01 $) malgré un PnL de session positif, couplée à la nervosité des carnets et au bruit macroéconomique de la Fed.
-- Contexte : Surveillance rapprochée des carnets d'ordres sur fond d'activité on-chain modérée (indice 31.6) et de flux d'actualités macroéconomiques.
+- Tendance : Marché en phase d'accumulation active, soutenu par une Bitcoin season solide (Fear & Greed à 72, "Greed") et des flux ETF BTC positifs (+1007,13 M$).
+- Momentum : Alpha confirme sa maîtrise en embuscade (38 fills, +37,39 $ après 1036 skips), Beta assure la reconnaissance tactique (62 fills, 1106 skips), et Hulk pilote ses 15 positions seeds (+0,79 $) avec une vigilance sur CCUSDT et RIZEUSDT.
+- Risque : Persistance de la tension sur le capital global de la maison (-337,84 $) malgré un PnL de session positif, couplée à la nervosité des carnets et aux alertes macroéconomiques sur le taux d'intérêt japonais (Axios).
+- Contexte : Surveillance rapprochée des carnets d'ordres sur fond d'activité on-chain modérée (indice 30.0) et de flux de news macro.
 [STRATEGIZE]
-1. Maintenir Alpha en embuscade stricte pour capitaliser sur les ruptures de carnets signalées par Beta.
-2. Poursuivre le pilotage resserré et l'arbitrage des positions seeds de Hulk via les stop-loss.
-3. Exploiter l'éclairage tactique de Beta pour guider l'essaim face aux soubresauts de volume sur les cryptos majeures.
+1. Maintenir Alpha en embuscade stricte (x13, revenge si claque) pour capitaliser sur les ruptures de carnets signalées par Beta.
+2. Poursuivre le pilotage resserré et l'arbitrage rigoureux des positions seeds de Hulk via les stop-loss.
+3. Exploiter l'éclairage tactique de Beta pour guider l'essaim face aux soubresauts de volume et aux bruits macroéconomiques.
 [EXECUTE]
 - Verdict : Maintien de l'alerte rouge avec un encadrement strict de la discipline d'embuscade d'Alpha, un pilotage resserré des positions seeds de Hulk et une exploitation prudente des sondages de Beta.
 - Confiance : 82%
@@ -21,4 +21,4 @@
 - Alternative si confiance < 80% : Réduire l'exposition globale des positions seeds de Hulk et geler temporairement toute prise de risque active de l'essaim.
 - Prédictions vérifiables :
   [2026-08-21] BTCUSDT >= 78000.0000
-  [2026-08-21] ETHUSDT >= 2400.0000
+  [2026-08-21] ETHUSDT >= 2500.0000
