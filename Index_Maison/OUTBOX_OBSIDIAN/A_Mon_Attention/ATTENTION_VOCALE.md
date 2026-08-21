@@ -1,7 +1,7 @@
 # Attention vocale — Cortana
 
 ## Dernier résumé
-> Info Fill Alfa. Alfa : BUY, -0.53 dollars. Provenance cortana_watch_fill.
+> Info Changement de tendance. Structure hausse, signe une heure -.. Provenance cortana_watch_trend.
 
 ## Meta
 - statut: READY
@@ -13,3 +13,9 @@
 
 ## Règle
 Cortana / `speak_attention` peut lire le résumé, puis repasser IDLE.
+
+
+## ⚠️ SUPERVISEUR — besoin de Christophe
+- ts: 20260822T0031Z
+- demande: Limite de relances atteinte pour com.ace777.cortana.horaire
+- pourquoi: 3 relances/jour dépassées, intervention humaine requise.
