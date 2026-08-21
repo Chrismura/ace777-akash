@@ -96,6 +96,7 @@
 - awesome-freellm-apis: | Mistral AI | `https://api.mistral.ai/v1` | Get Key → | No |
 
 ### huggingface récents
+- jssaluja/nemotron35-punjabi-cer-train-113953-epochs-10-test-1408
 - ZiRoX112/Qwen3.8-27B-Uncensored-Q38mix-GGUF
 - Miiche/visualrl-base-qwen3vl4b
 - ghost-actual/DOOMED-Qwen3.6-35B-A3B
