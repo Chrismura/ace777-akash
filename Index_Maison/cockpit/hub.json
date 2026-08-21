@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-21T19:57:51.472624+00:00",
+  "generated_at": "2026-08-21T19:58:22.871759+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 153
+      "calls_24h": 156
     },
     {
       "id": "openrouter-free",
@@ -44,7 +44,7 @@
       "model": "deepseek-ai/deepseek-v4-flash-0731",
       "enabled": true,
       "timeout": 300,
-      "calls_24h": 28
+      "calls_24h": 30
     },
     {
       "id": "mistral",
@@ -229,10 +229,50 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 493,
-    "remaining": 131
+    "consumed": 498,
+    "remaining": 126
   },
   "queue": [
+    {
+      "ts": "2026-08-21T19:58:15.199260+00:00",
+      "task": "supervise.decision",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 0.86
+    },
+    {
+      "ts": "2026-08-21T19:58:07.210093+00:00",
+      "task": "analyse.profonde",
+      "provider": "nvidia",
+      "model": "deepseek-ai/deepseek-v4-flash-0731",
+      "kind": "cloud",
+      "duration_s": 105.93
+    },
+    {
+      "ts": "2026-08-21T19:58:04.616691+00:00",
+      "task": "supervise.decision",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 1.31
+    },
+    {
+      "ts": "2026-08-21T19:57:53.773110+00:00",
+      "task": "supervise.decision",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 1.28
+    },
+    {
+      "ts": "2026-08-21T19:57:52.817924+00:00",
+      "task": "analyse.profonde",
+      "provider": "nvidia",
+      "model": "deepseek-ai/deepseek-v4-flash-0731",
+      "kind": "cloud",
+      "duration_s": 91.55
+    },
     {
       "ts": "2026-08-21T19:57:47.288821+00:00",
       "task": "supervise.decision",
@@ -312,107 +352,67 @@
       "model": "deepseek-ai/deepseek-v4-flash-0731",
       "kind": "cloud",
       "duration_s": 53.76
-    },
-    {
-      "ts": "2026-08-21T19:55:11.688482+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 105.55
-    },
-    {
-      "ts": "2026-08-21T19:54:57.067943+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 109.03
-    },
-    {
-      "ts": "2026-08-21T19:54:51.719641+00:00",
-      "task": "analyse.profonde",
-      "provider": "nvidia",
-      "model": "deepseek-ai/deepseek-v4-flash-0731",
-      "kind": "cloud",
-      "duration_s": 53.94
-    },
-    {
-      "ts": "2026-08-21T19:54:43.379078+00:00",
-      "task": "analyse.profonde",
-      "provider": "nvidia",
-      "model": "deepseek-ai/deepseek-v4-flash-0731",
-      "kind": "cloud",
-      "duration_s": 52.4
-    },
-    {
-      "ts": "2026-08-21T19:54:29.559488+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 13.92
     }
   ],
   "events": [
     {
-      "ts": "2026-08-21T19:57:47.288303+00:00",
+      "ts": "2026-08-21T19:58:15.198783+00:00",
       "kind": "message",
       "title": "« Google Gemini » a repondu",
       "detail": "bascule"
     },
     {
-      "ts": "2026-08-21T19:57:46.519606+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis NaraRouter (7M tokens/jour gratuits)",
-      "detail": "HTTP Error 503: Service Unavailable"
-    },
-    {
-      "ts": "2026-08-21T19:57:43.214855+00:00",
-      "kind": "message",
-      "title": "« Google Gemini » a repondu",
-      "detail": "bascule"
-    },
-    {
-      "ts": "2026-08-21T19:57:42.072075+00:00",
+      "ts": "2026-08-21T19:58:14.339452+00:00",
       "kind": "failover",
       "title": "Saute (blacklist) depuis NaraRouter (7M tokens/jour gratuits)",
       "detail": "0 attente"
     },
     {
-      "ts": "2026-08-21T19:57:42.070420+00:00",
+      "ts": "2026-08-21T19:58:14.338732+00:00",
       "kind": "failover",
-      "title": "Bascule depuis Groq (LLM ultra-rapide, gratuit)",
-      "detail": "HTTP Error 429: Too Many Requests"
+      "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
+      "detail": "0 attente"
     },
     {
-      "ts": "2026-08-21T19:57:42.070093+00:00",
-      "kind": "ratelimit",
-      "title": "429 Groq (LLM ultra-rapide, gratuit) -> pause 60s + bascule",
+      "ts": "2026-08-21T19:58:07.209716+00:00",
+      "kind": "message",
+      "title": "« NVIDIA build.nvidia.com (100+ modeles) » a repondu",
       "detail": ""
     },
     {
-      "ts": "2026-08-21T19:57:41.866034+00:00",
-      "kind": "blacklist",
-      "title": "Fin de pause Groq (LLM ultra-rapide, gratuit)",
-      "detail": "re-essai automatique"
-    },
-    {
-      "ts": "2026-08-21T19:57:31.943334+00:00",
+      "ts": "2026-08-21T19:58:04.616325+00:00",
       "kind": "message",
       "title": "« Google Gemini » a repondu",
       "detail": "bascule"
     },
     {
-      "ts": "2026-08-21T19:57:31.076250+00:00",
+      "ts": "2026-08-21T19:58:03.304747+00:00",
       "kind": "failover",
       "title": "Saute (blacklist) depuis NaraRouter (7M tokens/jour gratuits)",
       "detail": "0 attente"
     },
     {
-      "ts": "2026-08-21T19:57:31.073914+00:00",
+      "ts": "2026-08-21T19:58:03.304229+00:00",
       "kind": "failover",
       "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
+      "detail": "0 attente"
+    },
+    {
+      "ts": "2026-08-21T19:57:53.772093+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": "bascule"
+    },
+    {
+      "ts": "2026-08-21T19:57:52.817584+00:00",
+      "kind": "message",
+      "title": "« NVIDIA build.nvidia.com (100+ modeles) » a repondu",
+      "detail": ""
+    },
+    {
+      "ts": "2026-08-21T19:57:52.489196+00:00",
+      "kind": "failover",
+      "title": "Saute (blacklist) depuis NaraRouter (7M tokens/jour gratuits)",
       "detail": "0 attente"
     }
   ],
