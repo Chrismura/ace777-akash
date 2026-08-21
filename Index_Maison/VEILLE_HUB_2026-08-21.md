@@ -4,9 +4,9 @@
 - hub : OK (14 providers)
 
 ## Énergie du jour
-- appels : 999 (cloud 999)
+- appels : 1003 (cloud 1003)
 - budget cloud : 624 max
-- par provider : gemini=258, groq=37, mistral=3, nara=554, nvidia=144, openrouter-free=2, openrouter-juge=1
+- par provider : gemini=258, groq=37, mistral=3, nara=556, nvidia=146, openrouter-free=2, openrouter-juge=1
 
 ## Nouvelles offres détectées (non intégrées)
 
@@ -96,8 +96,9 @@
 - awesome-freellm-apis: | Mistral AI | `https://api.mistral.ai/v1` | Get Key → | No |
 
 ### huggingface récents
-- Jongbin-kr/llama-3.1-8b-instruct-4x1-moe-lbox-lora-sft-5ep
+- SaifPunjwani/qwen17b-band-ckpts
 - Miiche/visualrl-base-qwen3vl4b
+- mradermacher/DarkDesires-LLaMa-70B-i1-GGUF
 
 ### huggingface trending (montée)
 - Qwen/Qwen3.8-27B
@@ -117,8 +118,8 @@
 - orcarouter/Qwen3.8-27B-Uncensored-GGUF
 
 ### github search (nouveaux lieux)
-- saksham10arora-dotcom/lmex | The LLM Latency Exchange. Free-tier LLM APIs trade as tickers, price i
 - xyzs996/free-llm-api | Verified free LLM API list — no-card options, direct API key links, ra
+- saksham10arora-dotcom/lmex | The LLM Latency Exchange. Free-tier LLM APIs trade as tickers, price i
 - jsLavender/trader-goblins | An AI investment-research data platform: point-in-time/leak-free desig
 - api-evangelist/freeplay | Freeplay is an LLM product experimentation, evaluation, and observabil
 - api-evangelist/evals | Evals — A landscape catalog of the platforms, frameworks, libraries, a
