@@ -4,9 +4,9 @@
 - hub : OK (14 providers)
 
 ## Énergie du jour
-- appels : 847 (cloud 847)
+- appels : 849 (cloud 849)
 - budget cloud : 624 max
-- par provider : gemini=252, groq=36, mistral=3, nara=435, nvidia=118, openrouter-free=2, openrouter-juge=1
+- par provider : gemini=252, groq=37, mistral=3, nara=436, nvidia=118, openrouter-free=2, openrouter-juge=1
 
 ## Nouvelles offres détectées (non intégrées)
 
@@ -96,10 +96,12 @@
 - awesome-freellm-apis: | Mistral AI | `https://api.mistral.ai/v1` | Get Key → | No |
 
 ### huggingface récents
-- Echoo113/Qwen3.5-4B-immigration-STEER0.198438-ft4.44
+- jssaluja/nemotron35-punjabi-cer-train-113953-epochs-10-test-1408
+- HanLuu/qwen3.5-4b-customer-ticket-triage
 - Miiche/visualrl-base-qwen3vl4b
-- Echoo113/deepseek-llm-7b-chat-immigration-STEER0.346875-ft4.44
-- Echoo113/Qwen2.5-7B-Instruct-dragon_prompted-ft4.44
+- Echoo113/Qwen3.5-4B-dragon_prompted-ft4.44
+- Echoo113/Olmo-3-7B-Instruct-immigration_prompted-ft4.44
+- Echoo113/Qwen3.5-4B-immigration-STEER0.198438-ft4.44
 
 ### huggingface trending (montée)
 - Qwen/Qwen3.8-27B
@@ -119,7 +121,16 @@
 - deepseek-ai/DeepSeek-V4-Pro-0813
 
 ### github search (nouveaux lieux)
-- ERR: github-search HTTP Error 403: rate limit exceeded
+- saksham10arora-dotcom/lmex | The LLM Latency Exchange. Free-tier LLM APIs trade as tickers, price i
+- xyzs996/free-llm-api | Verified free LLM API list — no-card options, direct API key links, ra
+- jsLavender/trader-goblins | An AI investment-research data platform: point-in-time/leak-free desig
+- api-evangelist/freeplay | Freeplay is an LLM product experimentation, evaluation, and observabil
+- api-evangelist/evals | Evals — A landscape catalog of the platforms, frameworks, libraries, a
+- affromero/pricetoken | Real-time LLM pricing API. Free REST API + npm package + historical da
+- Mitriyweb/model-router | Universal AI proxy that allows Claude Code, ZeroClaw, Aider, Cline (Ro
+- shayeeboy/Enterprise-RAG-Assistant | AI-Native Piano Learning RAG Assistant - live & free (GitHub Pages -> 
+- DhruvProgrammer/aether-code | aether is a free, open-source AI coding agent for any OpenAI-compatibl
+- checkerup/keytester | LLM API Key Tester with chat UI — test API keys via chat with streamin
 
 ### rss (simonwillison/latent/batch)
 - simonwillison.net: llm 0.32.1
@@ -132,3 +143,5 @@
 - www.latent.space: <![CDATA[[AINews] Qwen 3.8 Max(2.4T) and 27B, new open weights models for Coding and Cowork]]>
 - feeds.feedburner.com: ERR: rss HTTP Error 404: Not Found
 _généré par veille_hub.py — étapes suivantes en launchd décalé : eval 9h30 · catalogue 10h · propositions 10h30 · observatoire 11h._
+## ROLLBACK AUTO 2026-08-21
+- obs-1786774646 (nvidia/nemotron-3-nano-30b-a3b:free) : 100% erreurs > 5% (observatoire)
