@@ -4,9 +4,9 @@
 - hub : OK (14 providers)
 
 ## Énergie du jour
-- appels : 1118 (cloud 1118)
+- appels : 1120 (cloud 1120)
 - budget cloud : 624 max
-- par provider : gemini=261, groq=39, mistral=3, nara=642, nvidia=170, openrouter-free=2, openrouter-juge=1
+- par provider : gemini=261, groq=39, mistral=3, nara=644, nvidia=170, openrouter-free=2, openrouter-juge=1
 
 ## Nouvelles offres détectées (non intégrées)
 
@@ -96,10 +96,9 @@
 - awesome-freellm-apis: | Mistral AI | `https://api.mistral.ai/v1` | Get Key → | No |
 
 ### huggingface récents
-- jmerithew1/qwen3-4b-benefits-notice-qlora
-- dashi0x83/albedo-qwen3.6-35b-albedo-57
 - Miiche/visualrl-base-qwen3vl4b
-- AIdashi/monate-albedo-qwen3.6-35b-2026082102
+- albedoeffort/monate615-albedo-qwen3.6-35b-2026082101-0822-0825
+- ReliquaryForge/qwen3-4b-base-dapo-v4
 
 ### huggingface trending (montée)
 - Qwen/Qwen3.8-27B
@@ -119,8 +118,8 @@
 - orcarouter/Qwen3.8-27B-Uncensored-GGUF
 
 ### github search (nouveaux lieux)
-- xyzs996/free-llm-api | Verified free LLM API list — no-card options, direct API key links, ra
 - saksham10arora-dotcom/lmex | The LLM Latency Exchange. Free-tier LLM APIs trade as tickers, price i
+- xyzs996/free-llm-api | Verified free LLM API list — no-card options, direct API key links, ra
 - jsLavender/trader-goblins | An AI investment-research data platform: point-in-time/leak-free desig
 - api-evangelist/freeplay | Freeplay is an LLM product experimentation, evaluation, and observabil
 - api-evangelist/evals | Evals — A landscape catalog of the platforms, frameworks, libraries, a
