@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-21T23:26:05.714630+00:00",
+  "generated_at": "2026-08-21T23:26:26.364973+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -356,6 +356,12 @@
   ],
   "events": [
     {
+      "ts": "2026-08-21T23:26:25.243789+00:00",
+      "kind": "message",
+      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
+      "detail": "bascule"
+    },
+    {
       "ts": "2026-08-21T23:26:01.081703+00:00",
       "kind": "failover",
       "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
@@ -408,12 +414,6 @@
       "kind": "failover",
       "title": "Bascule depuis Groq (LLM ultra-rapide, gratuit)",
       "detail": "HTTP Error 429: Too Many Requests"
-    },
-    {
-      "ts": "2026-08-21T23:25:28.680462+00:00",
-      "kind": "ratelimit",
-      "title": "429 Groq (LLM ultra-rapide, gratuit) -> pause 60s + bascule",
-      "detail": ""
     }
   ],
   "tasks_quotas": {
