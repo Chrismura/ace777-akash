@@ -1,21 +1,82 @@
 {
-  "ts": "2026-08-21T23:23:04.613888+00:00",
+  "ts": "2026-08-21T23:23:47.367639+00:00",
   "since": "2026-08-21T23:22:00Z",
   "bots": {
     "alpha": {
       "role": "sniper",
       "surnom": "Le Sniper",
       "fills": 0,
-      "skips": 0,
+      "skips": 2,
       "pnl": 0.0,
       "best": 0.0,
       "conf_moy": 0.0,
-      "events": [],
+      "events": [
+        {
+          "ts": "2026-08-21T23:23:10Z",
+          "bot": "alpha",
+          "cycle": 1,
+          "action": "wait",
+          "intention": "attente de l'etat du duo (Beta)",
+          "direction": null,
+          "conf": null,
+          "exit": "duo_wait",
+          "meta": {
+            "size_note": null,
+            "tension": null
+          },
+          "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv"
+        },
+        {
+          "ts": "2026-08-21T23:23:14Z",
+          "bot": "alpha",
+          "cycle": 1,
+          "action": "skip",
+          "intention": "skip — regime_gate",
+          "direction": null,
+          "conf": null,
+          "exit": "regime_gate",
+          "meta": {
+            "size_note": null,
+            "tension": 0.00348803
+          },
+          "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv"
+        },
+        {
+          "ts": "2026-08-21T23:23:37Z",
+          "bot": "alpha",
+          "cycle": 2,
+          "action": "skip",
+          "intention": "skip — regime_gate",
+          "direction": null,
+          "conf": null,
+          "exit": "regime_gate",
+          "meta": {
+            "size_note": null,
+            "tension": 0.0
+          },
+          "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv"
+        },
+        {
+          "ts": "2026-08-21T23:23:46Z",
+          "bot": "alpha",
+          "cycle": 2,
+          "action": "wait",
+          "intention": "attente de l'etat du duo (Beta)",
+          "direction": null,
+          "conf": null,
+          "exit": "duo_wait",
+          "meta": {
+            "size_note": null,
+            "tension": null
+          },
+          "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv"
+        }
+      ],
       "counts": {
-        "wait": 0,
+        "wait": 2,
         "fire": 0,
         "probe": 0,
-        "skip": 0
+        "skip": 2
       },
       "direction": {
         "long": 0,

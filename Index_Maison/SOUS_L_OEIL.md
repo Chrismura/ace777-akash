@@ -15,7 +15,7 @@
 | ⚠️ | Heartbeat ALPHA | fichier absent |
 | ✅ | LIVE_COLOR | MASTER_VORTEX_V2_COLLAB_4H · frais 6s |
 | ✅ | Hulk state | PAPER_V1_20260821_092452_state.json · 15 pos · pnl=1.0951820394385883 |
-| ✅ | RAM | ~3028 Mo libre |
+| ✅ | RAM | ~2610 Mo libre |
 
 ## Que faire
 
