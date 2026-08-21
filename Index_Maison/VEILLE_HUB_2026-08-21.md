@@ -4,9 +4,9 @@
 - hub : OK (14 providers)
 
 ## Énergie du jour
-- appels : 698 (cloud 698)
+- appels : 701 (cloud 701)
 - budget cloud : 624 max
-- par provider : gemini=244, groq=36, mistral=3, nara=335, nvidia=77, openrouter-free=2, openrouter-juge=1
+- par provider : gemini=244, groq=36, mistral=3, nara=337, nvidia=78, openrouter-free=2, openrouter-juge=1
 
 ## Nouvelles offres détectées (non intégrées)
 
@@ -96,9 +96,6 @@
 - awesome-freellm-apis: | Mistral AI | `https://api.mistral.ai/v1` | Get Key → | No |
 
 ### huggingface récents
-- swainsubhankar/llama-hateperception-annotatorreligion-nonreligious
-- Miiche/visualrl-base-qwen3vl4b
-- Echoo113/Llama-3.2-3B-Instruct-immigration-STEER0.16875-ft4.43
 - Echoo113/Phi-3-mini-4k-instruct-dragon-STEER0.525-ft4.43
 - jssaluja/nemotron35-punjabi-cer-train-113953-epochs-10-test-1408
 
@@ -120,8 +117,8 @@
 - deepseek-ai/DeepSeek-V4-Pro-0813
 
 ### github search (nouveaux lieux)
-- saksham10arora-dotcom/lmex | The LLM Latency Exchange. Free-tier LLM APIs trade as tickers, price i
 - jsLavender/trader-goblins | An AI investment-research data platform: point-in-time/leak-free desig
+- saksham10arora-dotcom/lmex | The LLM Latency Exchange. Free-tier LLM APIs trade as tickers, price i
 - api-evangelist/freeplay | Freeplay is an LLM product experimentation, evaluation, and observabil
 - api-evangelist/evals | Evals — A landscape catalog of the platforms, frameworks, libraries, a
 - xyzs996/free-llm-api | Verified free LLM API list — no-card options, direct API key links, ra
