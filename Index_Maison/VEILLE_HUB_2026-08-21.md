@@ -96,8 +96,11 @@
 - awesome-freellm-apis: | Mistral AI | `https://api.mistral.ai/v1` | Get Key → | No |
 
 ### huggingface récents
+- Echoo113/Phi-3-mini-4k-instruct-immigration-STEER0.40625-ft4.43
+- Echoo113/Olmo-3-7B-Instruct-dragon_prompted-ft4.43
+- Miiche/visualrl-base-qwen3vl4b
+- nightmedia/Qwen3.8-27B-Brainwaves-1M-qx86-hi-mlx
 - Jongbin-kr/llama-3.1-8b-instruct-4x1-moe-lbox-lora-sft-5ep
-- Echoo113/Qwen2.5-7B-Instruct-immigration-STEER0.64375-ft4.43
 
 ### huggingface trending (montée)
 - Qwen/Qwen3.8-27B
@@ -139,4 +142,4 @@
 - feeds.feedburner.com: ERR: rss HTTP Error 404: Not Found
 _généré par veille_hub.py — étapes suivantes en launchd décalé : eval 9h30 · catalogue 10h · propositions 10h30 · observatoire 11h._
 ## ROLLBACK AUTO 2026-08-21
-- obs-1786774667 (nvidia/nemotron-3.5-lightning:free) : 100% erreurs > 5% (observatoire)
+- obs-1786795252 (nvidia/nemotron-3.5-content-safety:free) : 100% erreurs > 5% (observatoire)
