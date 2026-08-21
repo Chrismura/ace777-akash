@@ -4,9 +4,9 @@
 - hub : OK (14 providers)
 
 ## Énergie du jour
-- appels : 875 (cloud 875)
+- appels : 877 (cloud 877)
 - budget cloud : 624 max
-- par provider : gemini=254, groq=37, mistral=3, nara=454, nvidia=124, openrouter-free=2, openrouter-juge=1
+- par provider : gemini=254, groq=37, mistral=3, nara=456, nvidia=124, openrouter-free=2, openrouter-juge=1
 
 ## Nouvelles offres détectées (non intégrées)
 
@@ -96,9 +96,13 @@
 - awesome-freellm-apis: | Mistral AI | `https://api.mistral.ai/v1` | Get Key → | No |
 
 ### huggingface récents
-- Miiche/visualrl-base-qwen3vl4b
-- ermiaazarkhalili/Qwen3.8-2B-SFT-Fable5-Glint-GGUF
 - Usama1100/humanizer-llama3-8b-fp16-v3
+- ermiaazarkhalili/Qwen3.8-2B-SFT-Fable5-Glint-GGUF
+- Miiche/visualrl-base-qwen3vl4b
+- outsourc-e/Qwen3.8-27B-Unleashed-GGUF
+- ermiaazarkhalili/Qwen3.8-2B-Function-Calling-xLAM-Unsloth-GGUF
+- Echoo113/Phi-3-mini-4k-instruct-dragon_prompted-ft4.44
+- ermiaazarkhalili/Qwen3.8-4B-Function-Calling-xLAM-Unsloth-GGUF
 
 ### huggingface trending (montée)
 - Qwen/Qwen3.8-27B
@@ -115,7 +119,7 @@
 - ornith-ai/Ornith-1.5-35B-A3B
 - froggeric/Qwen-Fixed-Chat-Templates
 - empero-ai/Qwen3.8-27B-Ridge-GGUF
-- deepseek-ai/DeepSeek-V4-Pro-0813
+- orcarouter/Qwen3.8-27B-Uncensored-GGUF
 
 ### github search (nouveaux lieux)
 - saksham10arora-dotcom/lmex | The LLM Latency Exchange. Free-tier LLM APIs trade as tickers, price i
@@ -140,5 +144,3 @@
 - www.latent.space: <![CDATA[[AINews] Qwen 3.8 Max(2.4T) and 27B, new open weights models for Coding and Cowork]]>
 - feeds.feedburner.com: ERR: rss HTTP Error 404: Not Found
 _généré par veille_hub.py — étapes suivantes en launchd décalé : eval 9h30 · catalogue 10h · propositions 10h30 · observatoire 11h._
-## ROLLBACK AUTO 2026-08-21
-- obs-1786774667 (nvidia/nemotron-3.5-lightning:free) : 100% erreurs > 5% (observatoire)
