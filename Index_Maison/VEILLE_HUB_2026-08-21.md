@@ -4,9 +4,9 @@
 - hub : OK (14 providers)
 
 ## Énergie du jour
-- appels : 758 (cloud 758)
+- appels : 759 (cloud 759)
 - budget cloud : 624 max
-- par provider : gemini=246, groq=36, mistral=3, nara=368, nvidia=102, openrouter-free=2, openrouter-juge=1
+- par provider : gemini=246, groq=36, mistral=3, nara=369, nvidia=102, openrouter-free=2, openrouter-juge=1
 
 ## Nouvelles offres détectées (non intégrées)
 
@@ -97,11 +97,11 @@
 
 ### huggingface récents
 - Miiche/visualrl-base-qwen3vl4b
+- Echoo113/Olmo-3-7B-Instruct-dragon_prompted-ft4.44
+- gozymuo/composer-qwen2.5-coder-tuned
 - jssaluja/nemotron35-punjabi-cer-train-113953-epochs-10-test-1408
 - Echoo113/deepseek-llm-7b-chat-immigration_prompted-ft4.44
-- francescortu/DistillDetect-traj-Qwen2.5-3B-from-Llama-3.3-70B-Instruct-OMI-1K
-- Miiche/visualrl-qwen3vl2b-grpo-raw
-- Echoo113/Olmo-3-7B-Instruct-dragon-STEER0.101953-ft4.44
+- ReliquaryForge/qwen3-4b-base-dapo-v4
 
 ### huggingface trending (montée)
 - Qwen/Qwen3.8-27B
@@ -143,3 +143,5 @@
 - www.latent.space: <![CDATA[[AINews] Qwen 3.8 Max(2.4T) and 27B, new open weights models for Coding and Cowork]]>
 - feeds.feedburner.com: ERR: rss HTTP Error 404: Not Found
 _généré par veille_hub.py — étapes suivantes en launchd décalé : eval 9h30 · catalogue 10h · propositions 10h30 · observatoire 11h._
+## ROLLBACK AUTO 2026-08-21
+- obs-1786774646 (nvidia/nemotron-3-nano-30b-a3b:free) : 100% erreurs > 5% (observatoire)
