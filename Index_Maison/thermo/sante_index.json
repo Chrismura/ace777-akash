@@ -1,9 +1,12 @@
 {
-  "ts": "2026-08-21T21:21+00:00",
-  "updated": "2026-08-21T21:21Z",
-  "etat": "OK",
-  "chaines_ok": "9/9",
-  "anomalies": [],
+  "ts": "2026-08-21T21:22+00:00",
+  "updated": "2026-08-21T21:22Z",
+  "etat": "ALERTE",
+  "chaines_ok": "8/9",
+  "anomalies": [
+    "VEILLE DÉGRADATION : rapport ALERTE_DEGRADATION_SILENCIEUSE ou figé — dégradation silencieuse détectée",
+    "VEILLE DÉGRADATION : Dead Man's Switch ALERTE ou figé — la surveillance elle-même est en panne"
+  ],
   "degradees": [],
   "chaines": [
     {
@@ -25,7 +28,7 @@
         {
           "nom": "scan file",
           "ok": true,
-          "detail": "âge 7 min"
+          "detail": "âge 9 min"
         },
         {
           "nom": "mouvements (events)",
@@ -40,7 +43,7 @@
         {
           "nom": "→ Ada gardienne",
           "ok": true,
-          "detail": "voilure 75.2 · zone VERT"
+          "detail": "voilure 80.9 · zone VERT"
         },
         {
           "nom": "→ Cortana feed",
@@ -196,7 +199,7 @@
       "id": "veille_deg",
       "nom": "VEILLE DÉGRADATION",
       "chemin": "veille_degradation.py (plists + heartbeats + indicateurs) → etat.json + DMS externe (dms-veille) → cockpit",
-      "ok": true,
+      "ok": false,
       "maillons": [
         {
           "nom": "process veille_degradation (launchd)",
@@ -205,8 +208,8 @@
         },
         {
           "nom": "rapport veille_degradation_etat.json",
-          "ok": true,
-          "detail": "SAIN · âge 0 min"
+          "ok": false,
+          "detail": "ALERTE_DEGRADATION_SILENCIEUSE · âge 0 min"
         },
         {
           "nom": "Dead Man's Switch (dms-veille)",
@@ -215,8 +218,8 @@
         },
         {
           "nom": "rapport DMS_VEILLE.json",
-          "ok": true,
-          "detail": "OK"
+          "ok": false,
+          "detail": "ALERTE"
         }
       ]
     },
