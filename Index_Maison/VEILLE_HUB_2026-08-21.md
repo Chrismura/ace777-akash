@@ -96,6 +96,7 @@
 - awesome-freellm-apis: | Mistral AI | `https://api.mistral.ai/v1` | Get Key → | No |
 
 ### huggingface récents
+- ermiaazarkhalili/Qwen3.8-2B-SFT-Fable5-Glint-GGUF
 - devpramod-intel/granite-4.1-8b-quantized.w8a8
 - ermiaazarkhalili/Qwen3.8-2B-Function-Calling-xLAM-Unsloth-GGUF
 - Miiche/visualrl-base-qwen3vl4b
