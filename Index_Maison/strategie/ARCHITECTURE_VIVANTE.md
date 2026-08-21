@@ -1,4 +1,4 @@
-# ARCHITECTURE VIVANTE — ACE777 (2026-08-21 20:20 UTC)
+# ARCHITECTURE VIVANTE — ACE777 (2026-08-21 20:21 UTC)
 
 > Document GÉNÉRÉ AUTOMATIQUEMENT à l'instant. La famille valide
 > en s'appuyant sur CE contexte, pas sur des documents figés.
@@ -9,7 +9,7 @@
 - ✅ radar
 - ⛔ lecteur signets
 - ⛔ générateur fiches
-- ⛔ feed mission
+- ✅ feed mission
 - ⛔ serveur cockpit
 
 ## Routage des tâches de décision
@@ -41,15 +41,15 @@
   · dots-studio/dots-3-note-preview:free
   · liquid/lfm-2.5-2.6b:free
   · thinkingmachines/inkling-small:free
-  … 109 offres/pépites détectées ce matin
+  … 108 offres/pépites détectées ce matin
 
 ## Mémoire chaude (journal + résumés)
 
 - Radar (dernières alertes) :
-  · 2026-08-21T20:20:48.185418Z BTCUSDT 77410.07 0.0001 1.1 declenche=non
-  · 2026-08-21T20:20:48.382198Z BTCUSDT 77410.08 0.0001 1.1 declenche=non
-  · 2026-08-21T20:20:48.406672Z ETHUSDT 2431.7 0.0002 85.6 declenche=non
-  · 2026-08-21T20:20:48.863430Z BTCUSDT 77410.07 0.0001 1.1 declenche=non
+  · 2026-08-21T20:21:00.691656Z BTCUSDT 77402.69 0.0002 1.4 declenche=non
+  · 2026-08-21T20:21:00.691851Z BTCUSDT 77402.7 0.0002 1.4 declenche=non
+  · 2026-08-21T20:21:01.264938Z BTCUSDT 77403.72 0.0002 1.4 declenche=non
+  · 2026-08-21T20:21:01.582498Z BTCUSDT 77403.72 0.0002 1.4 declenche=non
 - Intention en cours : BETA a sonde le marche (10 sondes, 3 long / 7 court, conf mo | ALPHA attend son moment : 144 skips (discipline), le mur du  | ALPHA a frappe 7 fois en embuscade (13x) : +1.92 $, meilleur
 - 500 signets X résumés (quota aujourd'hui : 50/50)
 - 56 fiches IA d'offres en cache (quota 8/jour)
