@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-21T20:47:52.422638+00:00",
+  "generated_at": "2026-08-21T20:49:30.485195+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -26,7 +26,7 @@
       "model": "qwen-3.8-max-free",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 335
+      "calls_24h": 336
     },
     {
       "id": "groq",
@@ -44,7 +44,7 @@
       "model": "deepseek-ai/deepseek-v4-flash-0731",
       "enabled": true,
       "timeout": 300,
-      "calls_24h": 77
+      "calls_24h": 78
     },
     {
       "id": "mistral",
@@ -229,10 +229,26 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 698,
+    "consumed": 700,
     "remaining": 0
   },
   "queue": [
+    {
+      "ts": "2026-08-21T20:49:03.446401+00:00",
+      "task": "analyse.profonde",
+      "provider": "nvidia",
+      "model": "deepseek-ai/deepseek-v4-flash-0731",
+      "kind": "cloud",
+      "duration_s": 127.65
+    },
+    {
+      "ts": "2026-08-21T20:47:58.790407+00:00",
+      "task": "supervise.decision",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 23.14
+    },
     {
       "ts": "2026-08-21T20:47:33.792604+00:00",
       "task": "analyse.profonde",
@@ -336,84 +352,68 @@
       "model": "qwen-3.8-max-free",
       "kind": "cloud",
       "duration_s": 14.76
-    },
-    {
-      "ts": "2026-08-21T20:44:08.948495+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 31.06
-    },
-    {
-      "ts": "2026-08-21T20:43:35.705848+00:00",
-      "task": "analyse.profonde",
-      "provider": "nvidia",
-      "model": "deepseek-ai/deepseek-v4-flash-0731",
-      "kind": "cloud",
-      "duration_s": 336.63
     }
   ],
   "events": [
     {
-      "ts": "2026-08-21T20:47:35.956092+00:00",
-      "kind": "quota",
-      "title": "Budget calme atteint -> bascule famille (gratuits)",
-      "detail": "analyse.profonde"
-    },
-    {
-      "ts": "2026-08-21T20:47:35.647377+00:00",
-      "kind": "failover",
-      "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
-      "detail": "0 attente"
-    },
-    {
-      "ts": "2026-08-21T20:47:35.641909+00:00",
-      "kind": "reserve-storm",
-      "title": "Tempête active + budget calme atteint -> réserve storm pour supervise.decision",
-      "detail": "supervise.decision"
-    },
-    {
-      "ts": "2026-08-21T20:47:33.792156+00:00",
-      "kind": "message",
-      "title": "« NVIDIA build.nvidia.com (100+ modeles) » a repondu",
+      "ts": "2026-08-21T20:49:28.109616+00:00",
+      "kind": "http",
+      "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
       "detail": ""
     },
     {
-      "ts": "2026-08-21T20:47:18.937673+00:00",
+      "ts": "2026-08-21T20:49:28.109158+00:00",
+      "kind": "error",
+      "title": "Toutes les IA ont echoue",
+      "detail": "NVIDIA build.nvidia.com (100+ modeles): HTTP Error 504: Gateway Timeout | budget: Budget temps requete depasse"
+    },
+    {
+      "ts": "2026-08-21T20:49:28.108897+00:00",
+      "kind": "error",
+      "title": "Budget temps requete depasse",
+      "detail": ""
+    },
+    {
+      "ts": "2026-08-21T20:49:28.102695+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis NVIDIA build.nvidia.com (100+ modeles)",
+      "detail": "HTTP Error 504: Gateway Timeout"
+    },
+    {
+      "ts": "2026-08-21T20:49:16.106802+00:00",
+      "kind": "timeout",
+      "title": "Patience NVIDIA build.nvidia.com (100+ modeles) (HTTP 529)",
+      "detail": "HTTP Error 529: status code 529"
+    },
+    {
+      "ts": "2026-08-21T20:49:13.514790+00:00",
       "kind": "message",
       "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
       "detail": "bascule"
     },
     {
-      "ts": "2026-08-21T20:46:58.503487+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis Groq (LLM ultra-rapide, gratuit)",
-      "detail": "HTTP Error 429: Too Many Requests"
-    },
-    {
-      "ts": "2026-08-21T20:46:58.503182+00:00",
-      "kind": "ratelimit",
-      "title": "429 Groq (LLM ultra-rapide, gratuit) -> pause 60s + bascule",
-      "detail": ""
-    },
-    {
-      "ts": "2026-08-21T20:46:58.314113+00:00",
-      "kind": "reserve-storm",
-      "title": "Tempête active + budget calme atteint -> réserve storm pour supervise.decision",
-      "detail": "supervise.decision"
-    },
-    {
-      "ts": "2026-08-21T20:46:55.798862+00:00",
+      "ts": "2026-08-21T20:49:06.413711+00:00",
       "kind": "quota",
       "title": "Budget calme atteint -> bascule famille (gratuits)",
       "detail": "analyse.profonde"
     },
     {
-      "ts": "2026-08-21T20:46:54.509503+00:00",
+      "ts": "2026-08-21T20:49:03.444746+00:00",
       "kind": "message",
-      "title": "« Groq (LLM ultra-rapide, gratuit) » a repondu",
+      "title": "« NVIDIA build.nvidia.com (100+ modeles) » a repondu",
       "detail": ""
+    },
+    {
+      "ts": "2026-08-21T20:48:51.283988+00:00",
+      "kind": "failover",
+      "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
+      "detail": "0 attente"
+    },
+    {
+      "ts": "2026-08-21T20:48:51.282970+00:00",
+      "kind": "reserve-storm",
+      "title": "Tempête active + budget calme atteint -> réserve storm pour supervise.decision",
+      "detail": "supervise.decision"
     }
   ],
   "tasks_quotas": {
