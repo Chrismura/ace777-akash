@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-21T20:46:17.670097+00:00",
+  "generated_at": "2026-08-21T20:46:53.488493+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -26,7 +26,7 @@
       "model": "qwen-3.8-max-free",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 333
+      "calls_24h": 334
     },
     {
       "id": "groq",
@@ -229,10 +229,18 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 693,
+    "consumed": 694,
     "remaining": 0
   },
   "queue": [
+    {
+      "ts": "2026-08-21T20:46:43.169580+00:00",
+      "task": "supervise.decision",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 18.42
+    },
     {
       "ts": "2026-08-21T20:46:13.792648+00:00",
       "task": "supervise.decision",
@@ -344,17 +352,45 @@
       "model": "qwen-3.8-max-free",
       "kind": "cloud",
       "duration_s": 40.35
-    },
-    {
-      "ts": "2026-08-21T20:41:21.309765+00:00",
-      "task": "analyse.profonde",
-      "provider": "nvidia",
-      "model": "deepseek-ai/deepseek-v4-flash-0731",
-      "kind": "cloud",
-      "duration_s": 117.49
     }
   ],
   "events": [
+    {
+      "ts": "2026-08-21T20:46:52.757065+00:00",
+      "kind": "blacklist",
+      "title": "Fin de pause Groq (LLM ultra-rapide, gratuit)",
+      "detail": "re-essai automatique"
+    },
+    {
+      "ts": "2026-08-21T20:46:52.751488+00:00",
+      "kind": "reserve-storm",
+      "title": "Tempête active + budget calme atteint -> réserve storm pour supervise.decision",
+      "detail": "supervise.decision"
+    },
+    {
+      "ts": "2026-08-21T20:46:52.083308+00:00",
+      "kind": "message",
+      "title": "« NVIDIA build.nvidia.com (100+ modeles) » a repondu",
+      "detail": ""
+    },
+    {
+      "ts": "2026-08-21T20:46:43.169152+00:00",
+      "kind": "message",
+      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
+      "detail": "bascule"
+    },
+    {
+      "ts": "2026-08-21T20:46:24.746378+00:00",
+      "kind": "failover",
+      "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
+      "detail": "0 attente"
+    },
+    {
+      "ts": "2026-08-21T20:46:24.745152+00:00",
+      "kind": "reserve-storm",
+      "title": "Tempête active + budget calme atteint -> réserve storm pour supervise.decision",
+      "detail": "supervise.decision"
+    },
     {
       "ts": "2026-08-21T20:46:13.792086+00:00",
       "kind": "message",
@@ -378,42 +414,6 @@
       "kind": "http",
       "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
       "detail": ""
-    },
-    {
-      "ts": "2026-08-21T20:45:51.625971+00:00",
-      "kind": "message",
-      "title": "« NVIDIA build.nvidia.com (100+ modeles) » a repondu",
-      "detail": ""
-    },
-    {
-      "ts": "2026-08-21T20:45:49.205975+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis Groq (LLM ultra-rapide, gratuit)",
-      "detail": "HTTP Error 429: Too Many Requests"
-    },
-    {
-      "ts": "2026-08-21T20:45:49.205665+00:00",
-      "kind": "ratelimit",
-      "title": "429 Groq (LLM ultra-rapide, gratuit) -> pause 60s + bascule",
-      "detail": ""
-    },
-    {
-      "ts": "2026-08-21T20:45:49.003342+00:00",
-      "kind": "blacklist",
-      "title": "Fin de pause Groq (LLM ultra-rapide, gratuit)",
-      "detail": "re-essai automatique"
-    },
-    {
-      "ts": "2026-08-21T20:45:49.002543+00:00",
-      "kind": "reserve-storm",
-      "title": "Tempête active + budget calme atteint -> réserve storm pour supervise.decision",
-      "detail": "supervise.decision"
-    },
-    {
-      "ts": "2026-08-21T20:45:45.329050+00:00",
-      "kind": "quota",
-      "title": "Budget calme atteint -> bascule famille (gratuits)",
-      "detail": "analyse.profonde"
     }
   ],
   "tasks_quotas": {
