@@ -2916,36 +2916,36 @@
       "whaleFragBtc": 0,
       "whaleCumul24hBtc": 0.0,
       "whaleMoy7jBtc": 0.0,
-      "whaleDir": "neutral",
-      "whaleDirLabel": "neutral",
+      "whaleDir": "bearish",
+      "whaleDirLabel": "bearish",
       "whaleDirScan": "neutral",
-      "whaleDirProxy": "neutral",
-      "whaleProxyN": 0,
-      "whaleProxyUsd": 0.0,
+      "whaleDirProxy": "bearish",
+      "whaleProxyN": 1,
+      "whaleProxyUsd": 579976.0,
       "whaleProxyBuyUsd": 0.0,
-      "whaleProxySellUsd": 0.0,
+      "whaleProxySellUsd": 579976.0,
       "whaleSource": "inconnue",
       "whaleEcartSeuil": null,
       "whaleAlerte": false,
       "whaleAlerteTexte": "Activité baleines nominale (aucun gros bloc ≥1000 BTC ni fragmentation ≥500 BTC).",
       "dernierEvtMin": -1,
-      "synthèse": "Direction onchain neutral | 0 gros bloc(s) 0 BTC sur le scan récent, cumul 24h 0 BTC, source inconnue. Activité baleines nominale (aucun gros bloc ≥1000 BTC ni fragmentation ≥500 BTC). | CPFP actif (conf 0/2) · poussière score 22.7/50 · blocs privatisés 11.1317% fantômes | indice onchain 22.5/100 (MODÉRÉ — onchain à surveiller)",
+      "synthèse": "Direction onchain neutral | 0 gros bloc(s) 0 BTC sur le scan récent, cumul 24h 0 BTC, source inconnue. Activité baleines nominale (aucun gros bloc ≥1000 BTC ni fragmentation ≥500 BTC). | CPFP actif (conf 0/2) · poussière score 22.9/50 · blocs privatisés 11.1317% fantômes | indice onchain 22.6/100 (MODÉRÉ — onchain à surveiller)",
       "cpfpSignal": null,
       "cpfpScore": 0.0,
       "cpfpMode": "actif",
       "cpfpConfirmation": 0,
       "cpfpGlobal": false,
       "cpfpZscore": 0.0,
-      "cpfpDustScore": 22.7,
-      "cpfpDustDetail": "poussière <7.5 sat/vB (normalisé minFee 5×1.5) : 8 vues ce run, 454 cumulées 48h (seuil 1000) — max 0.0249 BTC",
+      "cpfpDustScore": 22.9,
+      "cpfpDustDetail": "poussière <7.5 sat/vB (normalisé minFee 5×1.5) : 4 vues ce run, 458 cumulées 48h (seuil 1000) — max 0.0004 BTC",
       "blocPrivatiseMode": "actif",
       "blocPrivatiseTauxFantome": 11.1317,
       "blocPrivatiseNbCachees": 301,
-      "indiceOnchain": 22.5,
+      "indiceOnchain": 22.6,
       "indiceOnchainLabel": "MODÉRÉ — onchain à surveiller",
       "indiceOnchainComposantes": {
         "blocsPrivatises": 17.8,
-        "poussiere": 45.4,
+        "poussiere": 45.8,
         "cpfpZscore": 0.0
       }
     },
@@ -3009,63 +3009,18 @@
     }
   },
   "intention": {
-    "ts": "2026-08-21T20:02:37.985221+00:00",
+    "ts": "2026-08-21T20:03:14.996250+00:00",
     "since": "2026-08-21T19:44:00Z",
     "bots": {
       "alpha": {
         "role": "sniper",
         "surnom": "Le Sniper",
-        "fills": 3,
-        "skips": 55,
-        "pnl": 0.7499499999999997,
+        "fills": 4,
+        "skips": 57,
+        "pnl": -0.39149000000000034,
         "best": 2.21872,
-        "conf_moy": 0.8634000000000001,
+        "conf_moy": 0.89675,
         "events": [
-          {
-            "ts": "2026-08-21T19:55:40Z",
-            "bot": "alpha",
-            "cycle": 9,
-            "action": "skip",
-            "intention": "skip — gap_guard_pause",
-            "direction": null,
-            "conf": null,
-            "exit": "gap_guard_pause",
-            "meta": {
-              "size_note": null,
-              "tension": null
-            },
-            "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv"
-          },
-          {
-            "ts": "2026-08-21T19:55:47Z",
-            "bot": "alpha",
-            "cycle": 10,
-            "action": "skip",
-            "intention": "skip — gap_guard_pause",
-            "direction": null,
-            "conf": null,
-            "exit": "gap_guard_pause",
-            "meta": {
-              "size_note": null,
-              "tension": null
-            },
-            "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv"
-          },
-          {
-            "ts": "2026-08-21T19:55:52Z",
-            "bot": "alpha",
-            "cycle": 11,
-            "action": "skip",
-            "intention": "skip — gap_guard_pause",
-            "direction": null,
-            "conf": null,
-            "exit": "gap_guard_pause",
-            "meta": {
-              "size_note": null,
-              "tension": null
-            },
-            "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv"
-          },
           {
             "ts": "2026-08-21T19:55:58Z",
             "bot": "alpha",
@@ -3320,17 +3275,62 @@
               "tension": null
             },
             "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv"
+          },
+          {
+            "ts": "2026-08-21T20:02:39Z",
+            "bot": "alpha",
+            "cycle": 27,
+            "action": "skip",
+            "intention": "skip — gap_guard_pause",
+            "direction": null,
+            "conf": null,
+            "exit": "gap_guard_pause",
+            "meta": {
+              "size_note": null,
+              "tension": null
+            },
+            "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv"
+          },
+          {
+            "ts": "2026-08-21T20:02:45Z",
+            "bot": "alpha",
+            "cycle": 28,
+            "action": "skip",
+            "intention": "skip — gap_guard_pause",
+            "direction": null,
+            "conf": null,
+            "exit": "gap_guard_pause",
+            "meta": {
+              "size_note": null,
+              "tension": null
+            },
+            "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv"
+          },
+          {
+            "ts": "2026-08-21T20:02:59Z",
+            "bot": "alpha",
+            "cycle": 21,
+            "action": "fire",
+            "intention": "a frappe en embuscade (13x)",
+            "direction": "short",
+            "conf": 0.9968,
+            "exit": "0.53685542",
+            "meta": {
+              "size_note": "strong_conf_full+entry_25_75_full",
+              "tension": 3.98049149
+            },
+            "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv"
           }
         ],
         "counts": {
           "wait": 6,
-          "fire": 3,
+          "fire": 4,
           "probe": 0,
-          "skip": 55
+          "skip": 57
         },
         "direction": {
           "long": 1,
-          "short": 2
+          "short": 3
         },
         "revenge": 0
       },
@@ -3338,26 +3338,11 @@
         "role": "eclaireur",
         "surnom": "L'Eclaireur",
         "fills": 3,
-        "skips": 58,
+        "skips": 59,
         "pnl": -1.83293,
         "best": 0.55385,
         "conf_moy": 0.8879999999999999,
         "events": [
-          {
-            "ts": "2026-08-21T19:56:36Z",
-            "bot": "beta",
-            "cycle": 24,
-            "action": "skip",
-            "intention": "skip — regime_gate",
-            "direction": null,
-            "conf": null,
-            "exit": "regime_gate",
-            "meta": {
-              "size_note": null,
-              "tension": 0.04629185
-            },
-            "file": "MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv"
-          },
           {
             "ts": "2026-08-21T19:56:37Z",
             "bot": "beta",
@@ -3642,13 +3627,28 @@
               "tension": 0.08462909
             },
             "file": "MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv"
+          },
+          {
+            "ts": "2026-08-21T20:02:54Z",
+            "bot": "beta",
+            "cycle": 18,
+            "action": "skip",
+            "intention": "pas d'opportunite — discipline (radar bloque)",
+            "direction": null,
+            "conf": 0.171,
+            "exit": "radar_block",
+            "meta": {
+              "size_note": null,
+              "tension": 0.1274164
+            },
+            "file": "MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv"
           }
         ],
         "counts": {
           "wait": 3,
           "fire": 0,
           "probe": 3,
-          "skip": 58
+          "skip": 59
         },
         "direction": {
           "long": 0,
@@ -3659,8 +3659,8 @@
     },
     "story": [
       "BETA a sonde le marche (3 sondes, 0 long / 3 court, conf moyenne 0.89) — il renseigne Alpha.",
-      "ALPHA attend son moment : 55 skips (discipline), le mur du carnet ne s'effondre pas.",
-      "ALPHA a frappe 3 fois en embuscade (13x) : +0.75 $, meilleur trade +2.22 $."
+      "ALPHA attend son moment : 57 skips (discipline), le mur du carnet ne s'effondre pas.",
+      "ALPHA a frappe 4 fois en embuscade (13x) : -0.39 $, meilleur trade +2.22 $."
     ]
   },
   "saison": {
