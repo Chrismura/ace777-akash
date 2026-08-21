@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-21T21:51:51.090094+00:00",
+  "generated_at": "2026-08-21T21:52:08.206911+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -26,7 +26,7 @@
       "model": "qwen-3.8-max-free",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 448
+      "calls_24h": 449
     },
     {
       "id": "groq",
@@ -229,10 +229,18 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 866,
+    "consumed": 867,
     "remaining": 0
   },
   "queue": [
+    {
+      "ts": "2026-08-21T21:51:55.355971+00:00",
+      "task": "supervise.decision",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 14.92
+    },
     {
       "ts": "2026-08-21T21:51:28.357015+00:00",
       "task": "supervise.decision",
@@ -344,17 +352,21 @@
       "model": "qwen-3.8-max-free",
       "kind": "cloud",
       "duration_s": 45.79
-    },
-    {
-      "ts": "2026-08-21T21:45:45.099508+00:00",
-      "task": "analyse.profonde",
-      "provider": "nvidia",
-      "model": "deepseek-ai/deepseek-v4-flash-0731",
-      "kind": "cloud",
-      "duration_s": 83.89
     }
   ],
   "events": [
+    {
+      "ts": "2026-08-21T21:52:04.883398+00:00",
+      "kind": "quota",
+      "title": "Budget calme atteint -> bascule famille (gratuits)",
+      "detail": "analyse.profonde"
+    },
+    {
+      "ts": "2026-08-21T21:51:55.355664+00:00",
+      "kind": "message",
+      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
+      "detail": "bascule"
+    },
     {
       "ts": "2026-08-21T21:51:42.476940+00:00",
       "kind": "failover",
@@ -402,18 +414,6 @@
       "kind": "message",
       "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
       "detail": "bascule"
-    },
-    {
-      "ts": "2026-08-21T21:51:03.054465+00:00",
-      "kind": "failover",
-      "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
-      "detail": "0 attente"
-    },
-    {
-      "ts": "2026-08-21T21:51:03.053950+00:00",
-      "kind": "reserve-storm",
-      "title": "Tempête active + budget calme atteint -> réserve storm pour supervise.decision",
-      "detail": "supervise.decision"
     }
   ],
   "tasks_quotas": {
