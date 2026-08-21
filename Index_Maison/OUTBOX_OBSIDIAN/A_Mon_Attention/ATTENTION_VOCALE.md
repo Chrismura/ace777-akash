@@ -1,21 +1,15 @@
 # Attention vocale — Cortana
 
 ## Dernier résumé
-> Alerte Baleine. Gros print détecté, environ 1510715 dollars, 1 transaction proxy. Source Binance.. Provenance cortana_watch_whale.
+> Info Fill Alfa. Alfa : BUY, -9.52 dollars. Provenance cortana_watch_fill.
 
 ## Meta
 - statut: READY
-- ts: 20260821T1025Z
-- pertinence: PERTINENT
-- sentiment: URGENT
+- ts: 20260821T1219Z
+- pertinence: SOFT
+- sentiment: INFO
 - compte: thermo-free
 - lien Index: S22b C14 · résumé horaire
 
 ## Règle
 Cortana / `speak_attention` peut lire le résumé, puis repasser IDLE.
-
-
-## ⚠️ SUPERVISEUR — besoin de Christophe
-- ts: 20260821T1225Z
-- demande: Limite de relances atteinte pour com.ace777.cortana.horaire
-- pourquoi: 3 relances/jour dépassées, intervention humaine requise.

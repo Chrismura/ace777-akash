@@ -56,6 +56,8 @@ Intégration cockpit (2 lignes dans index.html) · passage au réel · cumul des
 
 | ts | Qui | Action | Où | Quoi |
 |----|-----|--------|-----|------|
+| 2026-08-21T1034Z | Buffy | ★ | Index_Maison/strategie/SPEC_REGIME_ENTREES_20260821.md | Consultation famille RÉGIME D'ENTRÉES : moteur trade 88.5% en COMPRESSÉ (edge brut quasi nul, NET -210$ sur 154 trades) → verdict JUGE GO-AVEC-RÉSERVES : gate HARD SKIP COMPRESSÉ + Expected_Alpha > frais×3 + trailing stop. Avis dans scripts/CONSULTATION_FAMILLE_REGIME_ENTREES_20260821/ |
+| 2026-08-21T1230Z | Buffy | ★ | LE_VRAI_CHAMPION_CERTIFIE_37FCA367.txt (+ launcher v8_5) | ÉTAPE 1 REGIME GATE appliquée : HARD SKIP si tension < IRM_T_COMPRESSED (0.05) = régime COMPRESSÉ, bypass si force_tension_entry. Champion rescellé 64fb153f→14bcf868, CHAMPION_ACTIF maj (BAK conservé), IRM_REGIME_GATE=TRUE exporté BETA+ALPHA (défaut FALSE dans le code, activation par le launcher). Backup : .BAK_avant_gate_regime_20260821-123607. |
 | 2026-08-21T0816Z | add | ★ | ~ | PATCH CHAMPION 64fb153f (sur 01c38510) — fix filet STOP_MARKET : (1) -4116 clientAlgoId unique par session (suffixe ACE_STOP_SESSION_ID horodaté) (2) -2021 retry à distance doublée (8->16->32->64 bps). C1 : backup .BAK_avant_patch_filet_* + manifest rescelé + CHAMPION_ACTIF=64fb153f + GO_USINE_NUAGE maj. Syntaxe bash OK + test logique retry OK. Réversible : cp .BAK_avant_patch_filet_20260821-100947 + restore manifest + CHAMPION_ACTIF=01c38510. |
 | 2026-08-19T2116Z | session_debut | ★ | session | début mode=froid |
 | 2026-08-18T1853Z | journal_soir | ★ | journal | snapshot soir auto |

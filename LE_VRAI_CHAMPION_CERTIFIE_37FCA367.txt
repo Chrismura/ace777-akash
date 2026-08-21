@@ -158,6 +158,9 @@ IMPULSE_RESONANCE_DT_MS="${IMPULSE_RESONANCE_DT_MS:-128}"
 IMPULSE_RESONANCE_DEPTH_LIMIT="${IMPULSE_RESONANCE_DEPTH_LIMIT:-20}"
 VACUUM_TENSION_THRESHOLD="${VACUUM_TENSION_THRESHOLD:-0.85}"
 V8_TENSION_FORCE_ENTRY_THRESHOLD="${V8_TENSION_FORCE_ENTRY_THRESHOLD:-999}"
+# Gate regime IRM (patch 21/08 - famille) : HARD SKIP en COMPRESSE (marche mort)
+IRM_REGIME_GATE="${IRM_REGIME_GATE:-FALSE}"
+IRM_T_COMPRESSED="${IRM_T_COMPRESSED:-0.05}"
 V8_VOID_LOCK_ENABLED="${V8_VOID_LOCK_ENABLED:-FALSE}"
 V8_VOID_STEP_SEC="${V8_VOID_STEP_SEC:-16}"
 V8_SHOCK_EXIT_ENABLED="${V8_SHOCK_EXIT_ENABLED:-FALSE}"
@@ -1717,6 +1720,17 @@ for i in $(seq 1 "$CYCLES"); do
     if num_ge "$tension_score" "$V8_TENSION_FORCE_ENTRY_THRESHOLD"; then
       force_tension_entry=1
       percussion_valid="true"
+    fi
+  fi
+  # Gate regime IRM (patch 21/08 - famille) : ne pas trader en COMPRESSE (marche mort)
+  if [ "$IRM_REGIME_GATE" = "TRUE" ] && [ "$force_tension_entry" != "1" ]; then
+    if num_lt "$tension_score" "$IRM_T_COMPRESSED"; then
+      echo "$(date -u +%FT%TZ),$i,SKIP,SKIPPED,,,,,0,regime_gate,,reason=COMPRESSE tension=$tension_score threshold=$IRM_T_COMPRESSED" >> "$LOG_FILE"
+      sk_lev="$C_C"; num_ge "$current_leverage" "13" && sk_lev="$C_G"; num_le "$current_leverage" "5" && sk_lev="$C_Y"
+      sk_ten="$C_C"; num_ge "$tension_score" "2.0" && sk_ten="$C_R"; num_ge "$tension_score" "1.0" && num_lt "$tension_score" "2.0" && sk_ten="$C_G"; num_ge "$tension_score" "0.85" && num_lt "$tension_score" "1.0" && sk_ten="$C_Y"
+      echo "${C_C}$(date -u +%H:%M:%S)${C_N} ${sk_lev}x$current_leverage${C_N} ${C_C}#$i${C_N} SKIP ${C_N}| regime COMPRESSE (tension=${sk_ten}$tension_score${C_N} < $IRM_T_COMPRESSED) — attente TRANSITOIRE/CLUSTER"
+      sleep "$SLEEP_SEC"
+      continue
     fi
   fi
   dopamine_size_mult="1.0"

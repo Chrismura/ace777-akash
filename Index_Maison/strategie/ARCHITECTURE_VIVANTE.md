@@ -1,4 +1,4 @@
-# ARCHITECTURE VIVANTE — ACE777 (2026-08-21 10:24 UTC)
+# ARCHITECTURE VIVANTE — ACE777 (2026-08-21 12:23 UTC)
 
 > Document GÉNÉRÉ AUTOMATIQUEMENT à l'instant. La famille valide
 > en s'appuyant sur CE contexte, pas sur des documents figés.
@@ -22,11 +22,11 @@
 
 ## État de la mission (bots + PnL)
 
-- mission.json : 2026-08-21 10:24Z · run `MASTER_VORTEX_V2_COLLAB_4H` · alerte `red`
-- PnL combiné : **9.84 $** 📉 (combo 9.8418)
-- ALPHA (sniper (embuscade, ×13, revenge si claque)) : **+10.66 $** · 8 fills · 72 skips
-- BETA (éclaireur (chatouille le marché, alimente Alpha)) : **-0.82 $** · 11 fills · 66 skips
-- HULK (gestionnaire de portefeuille (bag, escalier, courreur)) : **+0.06 $** · 0 fills
+- mission.json : 2026-08-21 12:23Z · run `MASTER_VORTEX_V2_COLLAB_4H` · alerte `red`
+- PnL combiné : **6.01 $** 📉 (combo 6.0106)
+- ALPHA (sniper (embuscade, ×13, revenge si claque)) : **+7.32 $** · 2 fills · 113 skips
+- BETA (éclaireur (chatouille le marché, alimente Alpha)) : **-1.31 $** · 4 fills · 172 skips
+- HULK (gestionnaire de portefeuille (bag, escalier, courreur)) : **+0.11 $** · 0 fills
 - Saison : CHAOS ⛈️ · 
 
 ## Veille du jour
@@ -54,11 +54,11 @@
 ## Mémoire chaude (journal + résumés)
 
 - Radar (dernières alertes) :
-  · 2026-08-21T10:24:56.453513Z BTCUSDT 78017.18 0.0000 9.4 declenche=non
-  · 2026-08-21T10:24:56.515720Z BTCUSDT 78017.17 0.0000 9.4 declenche=non
-  · 2026-08-21T10:24:56.533444Z ETHUSDT 2404.73 0.0005 119.9 declenche=non
-  · 2026-08-21T10:24:56.557587Z BTCUSDT 78017.18 0.0000 9.4 declenche=non
-- Intention en cours : BETA a sonde le marche (10 sondes, 7 long / 3 court, conf mo | ALPHA attend son moment : 62 skips (discipline), le mur du c | ALPHA a frappe 8 fois en embuscade (13x) (dont 7 en mode rev
+  · 2026-08-21T12:23:46.244379Z BTCUSDT 76736.63 0.0003 21.6 declenche=non
+  · 2026-08-21T12:23:46.251242Z BTCUSDT 76736.63 0.0003 21.6 declenche=non
+  · 2026-08-21T12:23:46.256216Z BTCUSDT 76736.63 0.0003 21.6 declenche=non
+  · 2026-08-21T12:23:46.259107Z BTCUSDT 76736.63 0.0003 21.6 declenche=non
+- Intention en cours : BETA a sonde le marche (5 sondes, 2 long / 3 court, conf moy | ALPHA attend son moment : 102 skips (discipline), le mur du  | ALPHA a frappe 2 fois en embuscade (13x) (dont 1 en mode rev
 - 500 signets X résumés (quota aujourd'hui : 50/50)
 - 48 fiches IA d'offres en cache (quota 8/jour)
 
