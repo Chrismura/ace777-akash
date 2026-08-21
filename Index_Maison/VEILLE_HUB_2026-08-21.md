@@ -4,9 +4,9 @@
 - hub : OK (14 providers)
 
 ## Énergie du jour
-- appels : 788 (cloud 788)
+- appels : 790 (cloud 790)
 - budget cloud : 624 max
-- par provider : gemini=248, groq=36, mistral=3, nara=389, nvidia=109, openrouter-free=2, openrouter-juge=1
+- par provider : gemini=248, groq=36, mistral=3, nara=391, nvidia=109, openrouter-free=2, openrouter-juge=1
 
 ## Nouvelles offres détectées (non intégrées)
 
@@ -96,12 +96,12 @@
 - awesome-freellm-apis: | Mistral AI | `https://api.mistral.ai/v1` | Get Key → | No |
 
 ### huggingface récents
+- mmnga-o/DeepSeek-V4-Flash-0731-REAP-W-gguf
+- jssaluja/nemotron35-punjabi-cer-train-113953-epochs-10-test-1408
+- Echoo113/Phi-3-mini-4k-instruct-dragon-STEER0.525-ft4.44
 - Echoo113/Qwen3.5-4B-dragon-STEER0.109375-ft4.44
 - Miiche/visualrl-base-qwen3vl4b
 - Kushan1Uom/gemma3-1b-diabetes-qa-lora
-- mmnga-o/DeepSeek-V4-Flash-0731-REAP-W-gguf
-- jssaluja/nemotron35-punjabi-cer-train-113953-epochs-10-test-1408
-- Echoo113/deepseek-llm-7b-chat-dragon-STEER0.584375-ft4.44
 
 ### huggingface trending (montée)
 - Qwen/Qwen3.8-27B
@@ -144,4 +144,4 @@
 - feeds.feedburner.com: ERR: rss HTTP Error 404: Not Found
 _généré par veille_hub.py — étapes suivantes en launchd décalé : eval 9h30 · catalogue 10h · propositions 10h30 · observatoire 11h._
 ## ROLLBACK AUTO 2026-08-21
-- obs-1787033767 (google/diffusiongemma-26b-a4b-it) : 98% erreurs > 5% (observatoire)
+- obs-1786774646 (nvidia/nemotron-3-nano-30b-a3b:free) : 100% erreurs > 5% (observatoire)
