@@ -1,15 +1,15 @@
-# ANALYSE — 2026-08-21T19:36:47.041539Z (alerte)
+# ANALYSE — 2026-08-21T19:47:51.547097Z (alerte)
 
-[UNDERSTAND] La maison ACE777 maintient son alerte rouge face à la tension sur le capital global malgré un PnL combiné positif de +0,25 $ et une coordination rigoureuse de l'essaim.
+[UNDERSTAND] La maison ACE777 maintient son alerte rouge face à la tension sur le capital global malgré un PnL combiné neutre à 0,00 $ et une coordination rigoureuse de l'essaim.
 [ANALYZE]
-- Tendance : Bitcoin season confirmée (BTC dominance 59,25 %, Fear & Greed à 72 en zone Greed).
-- Momentum : PnL combiné positif à +0,25 $, soutenu par Beta (+0,25 $) et Hulk (+0,64 $), tandis qu'Alpha reste en embuscade stricte (34 skips, 0 fill).
-- Risque : Tension structurelle persistante sur le capital global (-361,18 $) et bruits exogènes (sécurité des seeds matérielles).
-- Contexte : Flux ETF BTC positifs (+992,06 M$) et gestion active des positions seeds de Hulk avec application des stop-loss.
+- Tendance : Bitcoin season confirmée (Fear & Greed à 72 en zone Greed).
+- Momentum : PnL combiné neutre à 0,00 $, soutenu par Hulk (+0,64 $), tandis qu'Alpha et Beta restent en embuscade stricte.
+- Risque : Tension structurelle persistante sur le capital global (-361,43 $) et bruits exogènes.
+- Contexte : Flux ETF BTC positifs (+989,5 M$) et gestion active des positions seeds de Hulk.
 [STRATEGIZE]
 1. Maintenir Alpha en embuscade stricte pour exploiter les opportunités de carnet sans précipitation.
-2. Poursuivre le pilotage resserré et l'arbitrage rigoureux des positions seeds de Hulk avec application stricte des stop-loss.
-3. Exploiter le flux d'informations de Beta pour guider l'essaim face à la volatilité des carnets.
+2. Poursuivre le pilotage resserré et l'arbitrage rigoureux des positions seeds de Hulk.
+3. Exploiter le flux d'informations de Beta pour guider l'essaim face à la volatilité.
 [EXECUTE]
 - Verdict : Maintien de l'alerte rouge avec un encadrement strict de la discipline d'embuscade d'Alpha, un pilotage resserré des positions seeds de Hulk et une exploitation prudente des sondages de Beta.
 - Confiance : 82%

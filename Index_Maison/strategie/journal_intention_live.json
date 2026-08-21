@@ -1,12 +1,12 @@
 {
-  "ts": "2026-08-21T19:46:03.674101+00:00",
+  "ts": "2026-08-21T19:48:30.650490+00:00",
   "since": "2026-08-21T19:44:00Z",
   "bots": {
     "alpha": {
       "role": "sniper",
       "surnom": "Le Sniper",
       "fills": 0,
-      "skips": 4,
+      "skips": 6,
       "pnl": 0.0,
       "best": 0.0,
       "conf_moy": 0.0,
@@ -100,13 +100,58 @@
             "tension": 2.353e-05
           },
           "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv"
+        },
+        {
+          "ts": "2026-08-21T19:46:29Z",
+          "bot": "alpha",
+          "cycle": 3,
+          "action": "skip",
+          "intention": "skip — regime_gate",
+          "direction": null,
+          "conf": null,
+          "exit": "regime_gate",
+          "meta": {
+            "size_note": null,
+            "tension": 0.01118704
+          },
+          "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv"
+        },
+        {
+          "ts": "2026-08-21T19:47:17Z",
+          "bot": "alpha",
+          "cycle": 4,
+          "action": "skip",
+          "intention": "skip — tactic_mismatch",
+          "direction": null,
+          "conf": null,
+          "exit": "tactic_mismatch",
+          "meta": {
+            "size_note": null,
+            "tension": null
+          },
+          "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv"
+        },
+        {
+          "ts": "2026-08-21T19:48:03Z",
+          "bot": "alpha",
+          "cycle": 5,
+          "action": "wait",
+          "intention": "attente — mur du carnet intact",
+          "direction": null,
+          "conf": null,
+          "exit": "impulse_resonance_wait",
+          "meta": {
+            "size_note": null,
+            "tension": 0.31550574
+          },
+          "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv"
         }
       ],
       "counts": {
-        "wait": 2,
+        "wait": 3,
         "fire": 0,
         "probe": 0,
-        "skip": 4
+        "skip": 6
       },
       "direction": {
         "long": 0,
