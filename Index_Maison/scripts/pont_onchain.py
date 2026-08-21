@@ -257,6 +257,50 @@ def main():
     if bloc_priv_taux_fantome is not None:
         synthese += f" · blocs privatisés {bloc_priv_taux_fantome}% fantômes"
 
+    # ============================================================
+    # SCORE ONCHAIN UNIFIÉ (SNIFFER_VRAI 19/08 — setup Christophe) :
+    # fondre les signaux onchain en UN indice lisible (comme la voilure ADA),
+    # au lieu de 3 observations séparées. Composantes 0-100 :
+    #   - blocs privatisés : taux fantôme / 62.5 (pic historique) → 0-100
+    #   - poussière        : score carte 3 (déjà 0-50) → ×2 → 0-100
+    #   - CPFP/z-score     : score carte 1 (déjà 0-100)
+    # Pondération : blocs privatisés ×0.5 (mesure la plus fiable, étalon),
+    # poussière ×0.3 (anticipation), CPFP ×0.2 (confirmation).
+    # ============================================================
+    bloc_priv_score = 0.0
+    if bloc_priv_taux_fantome is not None:
+        bloc_priv_score = round(min(100.0, (float(bloc_priv_taux_fantome) / 62.5) * 100.0), 1)
+    onchain_unifie = round(
+        (bloc_priv_score * 0.5)
+        + (min(100.0, cpfp_dust_score * 2.0) * 0.3)
+        + (cpfp_zscore * 0.2),
+        1,
+    )
+    if onchain_unifie >= 40.0:
+        indice_label = "ÉLEVÉ — activité onchain anormale (OTC/CPFP possible)"
+    elif onchain_unifie >= 20.0:
+        indice_label = "MODÉRÉ — onchain à surveiller"
+    else:
+        indice_label = "FAIBLE — onchain nominal"
+    synthese += f" | indice onchain {onchain_unifie}/100 ({indice_label})"
+
+    # --- Proxy Cortana (gros prints aggTrades Binance, source complémentaire) ---
+    # FIX 21/08 : le scan onchain ne voyait jamais de gros bloc (seuil 1000 BTC +
+    # échantillon 50 tx/bloc) → whaleDir restait neutral → couleur ORANGE figée.
+    # On lit le proxy de Cortana (déjà dans live.json) et on combine les deux.
+    live_proxy = charger_json(THERMO_LIVE, {})
+    whale_dir_proxy = live_proxy.get("whaleDirProxy") or "neutral"
+    whale_max_usd = float(live_proxy.get("whaleMax") or 0)
+    whale_n_proxy = int(live_proxy.get("whaleN") or 0)
+    whale_buy_usd = float(live_proxy.get("whaleBuyUsd") or 0)
+    whale_sell_usd = float(live_proxy.get("whaleSellUsd") or 0)
+    # direction combinée : le scan onchain prime, sinon le proxy Cortana
+    whale_dir_final = whale_dir
+    if whale_dir_final == "neutral" and whale_dir_proxy != "neutral" and whale_max_usd > 0:
+        whale_dir_final = whale_dir_proxy
+    whale_dir_label = {"inflow": "bullish", "outflow": "bearish"}.get(
+        whale_dir_final, whale_dir_final)
+
     section_onchain = {
         "whaleBlocsN": whale_blocs_n,
         "whaleBlocsBtc": whale_blocs_btc,
@@ -264,7 +308,14 @@ def main():
         "whaleFragBtc": whale_frag_btc,
         "whaleCumul24hBtc": round(cumul_24h, 2),
         "whaleMoy7jBtc": moy7j,
-        "whaleDir": whale_dir,
+        "whaleDir": whale_dir_final,
+        "whaleDirLabel": whale_dir_label,
+        "whaleDirScan": whale_dir,
+        "whaleDirProxy": whale_dir_proxy,
+        "whaleProxyN": whale_n_proxy,
+        "whaleProxyUsd": whale_max_usd,
+        "whaleProxyBuyUsd": whale_buy_usd,
+        "whaleProxySellUsd": whale_sell_usd,
         "whaleSource": whale_source,
         "whaleEcartSeuil": whale_ecart_seuil,
         "whaleAlerte": alerte_bool,
@@ -282,6 +333,13 @@ def main():
         "blocPrivatiseMode": bloc_priv_mode,
         "blocPrivatiseTauxFantome": bloc_priv_taux_fantome,
         "blocPrivatiseNbCachees": bloc_priv_nb_cachees,
+        "indiceOnchain": onchain_unifie,
+        "indiceOnchainLabel": indice_label,
+        "indiceOnchainComposantes": {
+            "blocsPrivatises": bloc_priv_score,
+            "poussiere": round(min(100.0, cpfp_dust_score * 2.0), 1),
+            "cpfpZscore": cpfp_zscore,
+        },
     }
 
     verifier_kill_switch()

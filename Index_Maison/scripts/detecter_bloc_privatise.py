@@ -37,6 +37,7 @@ MAX_HISTORY_AGE = WINDOW_MINUTES * 60
 MIN_SNAPSHOTS = 3             # Minimum de snapshots dans la fenêtre pour un taux fiable (leçon 1+2, 20/08)
 ALERT_TX_THRESHOLD = 5        # Seuil de txs cachées pour creuser le détail (P1)
 ALERT_TAUX_PCT = 10.0         # Seuil d'alerte ACTIF : taux fantôme ≥ 10 % (matrice du Juge, 21/08)
+ALERT_VOLUME_BTC = 500.0      # + volume échantillon ≥ 500 BTC (matrice du Juge : taux>10% ET volume>500 BTC)
 HTTP_TIMEOUT = 10
 USER_AGENT = "ACE777-VigieMempool/1.0"
 
@@ -316,20 +317,25 @@ def analyze_block():
     # --- Mode (actif par défaut depuis le 21/08, décision Christophe) ---
     mode = charger_mode()
 
-    # --- Alerte ACTIVE si taux fiable ≥ seuil (décision 21/08, matrice du Juge) ---
+    # --- Alerte ACTIVE : double condition matrice du Juge (21/08) ---
+    # taux fantôme ≥ 10 % ET volume échantillon ≥ 500 BTC (pas l'un sans l'autre).
     alerte_emise = False
-    alerte_raison = "Aucune anomalie (taux sous le seuil)"
+    alerte_raison = "Aucune anomalie (taux ou volume sous le seuil)"
     if mode == "actif" and fiable and taux_fantome is not None:
-        if taux_fantome >= ALERT_TAUX_PCT:
+        if taux_fantome >= ALERT_TAUX_PCT and volume_btc >= ALERT_VOLUME_BTC:
             alerte_emise = True
             alerte_raison = (
-                f"ALERTE BLOCS PRIVATISÉS : taux fantôme {taux_fantome}% ≥ seuil "
-                f"{ALERT_TAUX_PCT:.0f}% ({nb_tx_cachees}/{total_txs} txs) — "
-                f"transaction(s) jamais vues dans la mempool publique = OTC privée / CPFP masqué. "
-                f"Volume échantillon {round(volume_btc, 4)} BTC."
+                f"ALERTE BLOCS PRIVATISÉS : taux fantôme {taux_fantome}% ≥ {ALERT_TAUX_PCT:.0f}% "
+                f"ET volume {round(volume_btc, 1)} BTC ≥ {ALERT_VOLUME_BTC:.0f} BTC "
+                f"({nb_tx_cachees}/{total_txs} txs) — transaction(s) jamais vues dans la mempool "
+                f"publique = OTC privée / CPFP masqué (matrice du Juge)."
             )
         else:
-            alerte_raison = f"Taux {taux_fantome}% sous le seuil {ALERT_TAUX_PCT:.0f}%"
+            alerte_raison = (
+                f"Taux {taux_fantome}% (seuil {ALERT_TAUX_PCT:.0f}%) · "
+                f"volume {round(volume_btc, 1)} BTC (seuil {ALERT_VOLUME_BTC:.0f}) — "
+                f"double condition matrice du Juge non réunie"
+            )
 
     result = {
         "ts": int(time.time()),

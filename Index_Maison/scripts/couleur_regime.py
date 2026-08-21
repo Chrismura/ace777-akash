@@ -28,6 +28,7 @@ Usage :
 import argparse
 import json
 import os
+import re
 import sys
 import time
 import urllib.request
@@ -40,6 +41,8 @@ from sniffer_vrai import brut_onchain, fear_greed
 INDEX = Path.home() / "ace777-test-day1" / "Index_Maison"
 LIVE = INDEX / "thermo" / "live.json"
 HISTORY = INDEX / "thermo" / "history.jsonl"
+MISSION = INDEX / "cockpit" / "mission.json"
+ANALYSES_DIR = INDEX / "thermo" / "analyses"
 REGIME = INDEX / "thermo" / "regime_couleur.json"
 REGIME_HIST = INDEX / "thermo" / "regime_couleur.jsonl"
 JUSTESSE = INDEX / "scripts" / "regime_justesse.json"
@@ -49,18 +52,118 @@ HORIZON_H = 24           # horizon de validité de la couleur
 SEUIL_FEAR = 50          # < 50 = peur (bearish), > 50 = greed (bullish)
 
 
+# ============================== SOURCES AUXILIAIRES ==============================
+def load_mission():
+    """Charge cockpit/mission.json (combo trading, alert=red, PnL)."""
+    if not MISSION.exists():
+        return {}
+    try:
+        return json.loads(MISSION.read_text(encoding="utf-8"))
+    except Exception:
+        return {}
+
+
+def load_dernier_avis():
+    """Dernier AVIS STRICT de Cortana par indice (thermo/analyses/*.jsonl).
+    Retourne {indice: {avis, horizon, confiance, ts}}."""
+    if not ANALYSES_DIR.is_dir():
+        return {}
+    avis_par_indice = {}
+    for fn in sorted(ANALYSES_DIR.glob("*.jsonl")):
+        try:
+            lines = fn.read_text(encoding="utf-8").splitlines()
+        except Exception:
+            continue
+        for line in lines:
+            line = line.strip()
+            if not line:
+                continue
+            try:
+                e = json.loads(line)
+            except Exception:
+                continue
+            indice = e.get("indice")
+            txt = e.get("analyse") or ""
+            avis_m = horizon_m = conf_m = None
+            for l in txt.splitlines():
+                s = l.strip()
+                if s.lower().startswith("avis strict"):
+                    avis_m = re.search(r"AVIS\s*STRICT\s*:\s*(\w+)", s)
+                elif s.lower().startswith("horizon"):
+                    horizon_m = re.search(r"HORIZON\s*:\s*([^\n]+)", s)
+                elif s.lower().startswith("confiance"):
+                    conf_m = re.search(r"CONFIANCE\s*:\s*(\w+)", s)
+            if not indice or not avis_m:
+                continue
+            avis_par_indice[indice] = {
+                "avis": avis_m.group(1).upper(),
+                "horizon": horizon_m.group(1).strip().lower() if horizon_m else None,
+                "confiance": conf_m.group(1).lower() if conf_m else None,
+                "ts": e.get("ts"),
+            }
+    return avis_par_indice
+
+
+def direction_avis_ia(avis_par_indice: dict) -> tuple[str, str]:
+    """Direction consensus des avis IA (LONG→bullish, SHORT→bearish, sinon neutral).
+    Moyenne pondérée si plusieurs indices parlent."""
+    if not avis_par_indice:
+        return "neutral", "pas d'avis IA"
+    bullish_n = bearish_n = 0
+    for idx, a in avis_par_indice.items():
+        av = a.get("avis", "")
+        if av == "LONG":
+            bullish_n += 1
+        elif av == "SHORT":
+            bearish_n += 1
+    total = bullish_n + bearish_n
+    if total == 0:
+        return "neutral", "avis IA neutres (%d indices)" % len(avis_par_indice)
+    if bullish_n > bearish_n:
+        return "bullish", "avis IA: %d LONG / %d SHORT" % (bullish_n, bearish_n)
+    if bearish_n > bullish_n:
+        return "bearish", "avis IA: %d LONG / %d SHORT" % (bullish_n, bearish_n)
+    return "neutral", "avis IA ex-aequo (%d/%d)" % (bullish_n, bearish_n)
+
+
 # ============================== DIRECTIONS ==============================
 def direction_onchain():
-    """Direction du BRUT : whaleDir (surveiller_whales) + poussière en note."""
+    """Direction du BRUT : whaleDir (scan onchain + proxy Cortana) + poussière en note.
+
+    FIX 21/08 : le pont combine désormais le scan baleines (inflow/outflow) et le
+    proxy de Cortana (prints aggTrades ≥ 500k$, bullish/bearish) dans whaleDir —
+    la couleur sort enfin d'ORANGE quand l'un des deux parle.
+    """
     b = brut_onchain()
     if isinstance(b, dict) and "whale_dir" in b:
         d = b.get("whale_dir", "neutral")
+        # normalisation : scan onchain parle inflow/outflow, la matrice parle bullish/bearish
+        d = {"inflow": "bullish", "outflow": "bearish"}.get(d, d)
         if d not in ("bullish", "bearish", "neutral"):
             d = "neutral"
         note = "dust=%s | blocs_fantomes=%s%%" % (
             b.get("poussiere_score"), b.get("blocs_privatises_pct_fantome"))
         return d, note
     return "neutral", "onchain indisponible"
+
+
+def direction_thermo(mission: dict) -> tuple[str, str]:
+    """Direction du THERMO (alert=red, combo PnL) — lecture de mission.json.
+
+    alert=red → les baleines tradent en perdition → prudence (bearish lean)
+    alert=ok → le combo tourne bien → pas de frein (neutral)
+    """
+    alert = mission.get("alert", "unknown")
+    pnl_net = mission.get("comboPnlNet", 0)
+    session = mission.get("sessionSince", "?")
+    if alert == "red":
+        # Le combo est en alerte : pnl net négatif depuis le début de session
+        if pnl_net and pnl_net < -100:
+            return "bearish", "thermo: alert=red, combo net=%.0f$ (depuis %s)" % (pnl_net, session)
+        return "bearish", "thermo: alert=red (depuis %s)" % session
+    if alert == "ok":
+        return "neutral", "thermo: alert=ok"
+    return "neutral", "thermo: alert=%s" % alert
 
 
 def direction_narratif():
@@ -171,7 +274,41 @@ def juger(record, history):
 def run_mode():
     onch, note_onch = direction_onchain()
     nar, fg_val = direction_narratif()
+
+    # === 3e source : avis IA (LLMs analystes) ===
+    avis_par_indice = load_dernier_avis()
+    avis_dir, note_avis = direction_avis_ia(avis_par_indice)
+
+    # === 4e source : thermo (mission trading, alert=red) ===
+    mission = load_mission()
+    thermo_dir, note_thermo = direction_thermo(mission)
+
+    # === Matrice avec 4 directions ===
+    # Règle : onchain + narratif = base, avis = confirmation, thermo = frein/accélérateur
     c = couleur(onch, nar)
+
+    # Thermo : si alert=red, il freine un VERT (affaiblir) ou confirme un ROUGE/NOIR
+    if thermo_dir == "bearish" and c == "VERT":
+        c = "ORANGE"  # le combo trading perd → pas confiant pour entrer
+        exp = "VERT affaibli par alert=red (thermo prudence)"
+    elif thermo_dir == "bearish" and c == "JAUNE":
+        c = "ORANGE"  # l'accumulation discrète + combo qui perd → trop risqué
+        exp = "JAUNE affaibli par alert=red"
+    elif thermo_dir == "bearish" and c in ("ROUGE", "NOIR"):
+        exp = explication(c) + " + alert=red confirme"
+    else:
+        exp = explication(c)
+
+    # Avis IA : si 2/3+ LLMs disent SHORT alors que onchain=bullish → affaiblir
+    if avis_dir == "bearish" and onch == "bullish" and c == "VERT":
+        c = "ORANGE"  # divergence avis/onchain → prudence
+        exp += " | avis IA divergent (SHORT vs bullish onchain)"
+    elif avis_dir == "bullish" and c == "ORANGE" and onch != "neutral":
+        exp += " | avis IA confirme (%s)" % note_avis
+    else:
+        if avis_dir != "neutral":
+            exp += " | avis IA: %s" % note_avis
+
     now = datetime.now(timezone.utc)
     rec = {
         "ts": now.isoformat(),
@@ -179,19 +316,24 @@ def run_mode():
         "couleur": c,
         "onchain_dir": onch,
         "narratif_dir": nar,
+        "avis_ia_dir": avis_dir,
+        "thermo_dir": thermo_dir,
         "fear_greed": fg_val,
         "detail_onchain": note_onch,
+        "detail_avis": note_avis,
+        "detail_thermo": note_thermo,
         "horizon_h": HORIZON_H,
         "mode": "observation",
-        "explication": explication(c),
+        "explication": exp,
     }
     REGIME.parent.mkdir(parents=True, exist_ok=True)
     REGIME.write_text(json.dumps(rec, ensure_ascii=False, indent=2), encoding="utf-8")
     with open(REGIME_HIST, "a", encoding="utf-8") as f:
         f.write(json.dumps(rec, ensure_ascii=False) + "\n")
-    print("COULEUR RÉGIME : %s (%s)" % (c, explication(c)))
-    print("  onchain=%s (%s) | narratif=%s (fear&greed %s) | horizon=%dh | OBSERVATION"
-          % (onch, note_onch, nar, fg_val, HORIZON_H))
+    print("COULEUR RÉGIME : %s (%s)" % (c, exp))
+    print("  onchain=%s (%s) | narratif=%s (F&G %s)" % (onch, note_onch, nar, fg_val))
+    print("  avis_ia=%s (%s) | thermo=%s (%s)" % (avis_dir, note_avis, thermo_dir, note_thermo))
+    print("  horizon=%dh | OBSERVATION" % HORIZON_H)
     return 0
 
 
@@ -280,6 +422,24 @@ def run_tests():
     check("ROUGE sur baisse -1% -> HIT", v["statut"] == "HIT ✅")
     v = juger({"couleur": "VERT", "ts_unix": base, "horizon_h": 24}, hist)
     check("VERT sur baisse -1% -> MISS", v["statut"] == "MISS ❌")
+
+    # tests des nouvelles sources
+    d, _ = direction_thermo({"alert": "red", "comboPnlNet": -200, "sessionSince": "13:48Z"})
+    check("thermo alert=red + pnl_net=-200 -> bearish", d == "bearish")
+    d, _ = direction_thermo({"alert": "ok"})
+    check("thermo alert=ok -> neutral", d == "neutral")
+    d, _ = direction_thermo({})
+    check("thermo absent -> neutral", d == "neutral")
+
+    d, _ = direction_avis_ia({})
+    check("avis IA vide -> neutral", d == "neutral")
+    d, _ = direction_avis_ia({"radar": {"avis": "LONG"}, "funding": {"avis": "LONG"}, "btc": {"avis": "SHORT"}})
+    check("avis 2 LONG / 1 SHORT -> bullish", d == "bullish")
+    d, _ = direction_avis_ia({"radar": {"avis": "SHORT"}, "funding": {"avis": "SHORT"}})
+    check("avis 2 SHORT -> bearish", d == "bearish")
+    d, _ = direction_avis_ia({"radar": {"avis": "LONG"}, "funding": {"avis": "SHORT"}})
+    check("avis 1/1 ex-aequo -> neutral", d == "neutral")
+
     print("=== %s (%d erreur%s) ===" % (
         "TOUS LES TESTS VERTS" if errors == 0 else "ÉCHEC",
         errors, "s" if errors > 1 else ""))

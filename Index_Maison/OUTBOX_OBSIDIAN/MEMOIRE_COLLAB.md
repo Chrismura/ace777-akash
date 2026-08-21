@@ -5,6 +5,12 @@ Pour que Cursor · Punk · Cortana · Christophe sachent **ce qui a bougé**, sa
 
 | Colonne | Sens |
 |---------|------|
+| 2026-08-21T1710Z | Buffy | ★ | strategie/AUTO_REPARER_ACTIF (marqueur GO) | **AUTO-RÉPARATION NIVEAU 2 PASSÉE EN ACTIF (GO Christophe 19:09)** : le marqueur `strategie/AUTO_REPARER_ACTIF` est posé → `auto_reparer.py` (hooké dans sante_index, 5 min) relance désormais réellement les plists de veille cassées (avant : dry-run depuis le 20/08). Garde-fous conservés : backoff 3 essais/24h, circuit-breaker CPU/RAM (load>6, swap>2Go), vérif hub strict, kill-switch, cooldown 10 min. Vérifié : est_actif()=True + sante_index 9/9 OK. Le superviseur.sh (niveau 1) reste le garde-fou principal — relances prouvées aujourd'hui (vigie 11:24, cockpit 13:06). Demain : rien à refaire. |
+| 2026-08-21T1650Z | Buffy | ★ | surveiller_whales.py + thermo_quotidien_free.py + pont_onchain.py + couleur_regime.py | **RÉPARATION BALEINES / COULEUR RÉGIME (GO Christophe)** : le scan baleines était aveugle (50 premières tx de 6 blocs ≈1,3% + seuil ≥1000 BTC en une tx → 0 détection depuis le 14/08) → whaleDir toujours neutral → couleur figée ORANGE. Fix : (1) surveiller_whales.py scanne désormais les adresses surveillées directement (4 appels API, filtre récence 48h) ; (2) thermo_quotidien_free.py stocke la direction des prints (whaleBuyUsd/whaleSellUsd/whaleDirProxy via champ m aggTrades) ; (3) pont_onchain.py combine scan+proxy dans whaleDir (whaleDirScan/whaleDirProxy/whaleDirLabel) ; (4) couleur_regime.py normalise inflow/outflow→bullish/bearish. Preuve : print 3,5M$ simulé (celui vu par Cortana 16:27Z) → couleur passe ORANGE→VERT. |
+| 2026-08-20T1300Z | Buffy | + | Index_Maison/MEMOIRE_TRAGEDIE_OR_2026-08-20.md | mémoire : récit 2 demandes/2 réponses (tragédie→mine d'or), 8 leçons, sync Obsidian + GitHub |
+| 2026-08-20T1326Z | Buffy | + | Index_Maison/APPLICATION_8_LECONS_2026-08-20.md | corrections 8 leçons appliquées : détecteur 120s, vigie dans sante_index (7/7), garde-fou filet BPS≥20, verrou md5 anti-patch-en-plein-run, superviseur-core rechargée |
+| 2026-08-18T2104Z | Cortana | ~ | cockpit chat | coffre : sur la politique d'oubli (Google Gemini) |
+| 2026-08-18T2104Z | Cortana | ~ | cockpit chat | coffre : politique d'oubli (Google Gemini) |
 | ts | UTC |
 | Qui | Cursor / Punk / Cortana / Humain |
 | Action | `+` ajout · `~` modif · `✕` retrait · `★` décision |
@@ -52,12 +58,21 @@ Intégration cockpit (2 lignes dans index.html) · passage au réel · cumul des
 
 | ts | Qui | Action | Où | Quoi |
 |----|-----|--------|-----|------|
+| 2026-08-21T1950Z | Buffy | ★ | scripts/couleur_regime.py | **BOUCLE FERMÉE : 4 SOURCES BRANCHÉES DANS LA COULEUR RÉGIME** : (1) `direction_thermo()` lit `cockpit/mission.json` (alert=red, comboPnlNet → bearish si alert=red) ; (2) `direction_avis_ia()` lit `thermo/analyses/*.jsonl` (consensus LONG/SHORT des LLMs) ; (3) matrice enrichie : thermo bearish affaiblit VERT→ORANGE (le combo trading qui perd freine l'entrée) + avis IA divergent affaiblit aussi ; (4) record enrichi avec `avis_ia_dir/thermo_dir/detail_avis/detail_thermo`. Résultat réel : onchain=neutral | narratif=bullish (F&G 72) | avis_ia=bullish (4 LONG/2 SHORT) | thermo=bearish (alert=red, combo net=-344$) → ORANGE. 15 tests hermétiques OK. |
+| 2026-08-21T1737Z | Buffy | ★ | detecter_cpfp.py + pont_onchain.py | **SETUP SNIFFER_VRAI appliqué (les 2 améliorations) :** (1) poussière NORMALISÉE par le régime de frais (seuil = max(2 sat/vB, minFee×1.5) — fini l'absolu qui confond accumulation et frais bas ; preuve : seuil 3.0 sat/vB avec minFee 2) ; (2) SCORE ONCHAIN UNIFIÉ dans pont_onchain.py : blocs privatisés ×0.5 + poussière ×0.3 + z-score ×0.2 → indiceOnchain 0-100 + label + composantes, injecté live.json.onchain (preuve : indice 6.5/100 FAIBLE). Validé : syntaxe OK, 9/9 chaînes OK, run trading intact, pépite active (7.1%, 11 lignes historique). |
+| 2026-08-21T1726Z | Buffy | ★ | detecter_bloc_privatise.py + sante_index.py + plist bloc-privatise | **CORRECTIONS PÉPITE (lecture historique ENQUETE 20/08) :** (1) alerte pépite → double condition matrice Juge : taux ≥10% ET volume ≥500 BTC (j'avais mis taux seul, trop sensible) ; (2) résolution plist vérifiée = déjà 120s (OK, pas 600 comme l'enquête — déjà corrigé) ; (3) chaîne 9 MACRO TEMPÊTE ajoutée à sante_index (l'exogène existait : detecteur_macro_tempete.py + macro_tempete.json + radar_gate.rb, mais RIEN ne surveillait s'il meurt — leçon 8) → **9/9 chaînes OK**. Test réel : taux 7.1%/135 BTC → pas d'alerte (volume<500) = double condition OK. |
+| 2026-08-21T1718Z | Buffy | ★ | detecter_bloc_privatise.py + detecter_cpfp.py + pont_onchain.py | **PÉPITE BRANCHÉE EN ACTIF (GO Christophe direct — famille mise de côté) :** (1) pépite blocs privatisés → mode ACTIF (défaut), alerte taux fantôme ≥10% (matrice Juge), historique append `bloc_privatise_hist.jsonl` (fini l'écrasement) ; (2) fix bugs détecteur CPFP : endpoint /v1/mempool/recent → 404 → /mempool/recent (dust=0 depuis 15/08) + pré-filtre 20× médiane → 1.5× (jamais de creusage, 817 runs à zéro en 6j) ; (3) les 2 en ACTIF, visibles live.json.onchain → carte ONCHAIN cockpit. Preuve : pépite détectait 0.12-62.5% fantômes sur 36 blocs (médiane 8.4%) depuis 15/08, personne ne regardait. RELEASE_RECEIPT_POUSSIERE_20260821.md écrit. |
+| 2026-08-21T1655Z | Buffy | + | ~/Library/LaunchAgents/desactivees_briefs/ | DOC décision 19/08 : Christophe a demandé d'ARRÊTER les plists de briefs (journal-intention, brief-matin, analyste-cadence, brief-offres, propose-ameliorations, verif-predictions, discipline-quotidienne, cortana.horaire) car INUTILES tels que Cortana les produisait. journal-soir était dans le lot par erreur → RÉACTIVÉ le 21/08 (bootstrap OK, test manuel OK 16:53). README ajouté dans desactivees_briefs/. |
 | 2026-08-21T1453Z | journal_soir | ★ | journal | snapshot soir auto |
+| 2026-08-21T1453Z | journal_auto | ★ | CONSOLE+Journal_2026-08-21 | Snapshot auto hygiène soir |
 | 2026-08-21T1034Z | Buffy | ★ | Index_Maison/strategie/SPEC_REGIME_ENTREES_20260821.md | Consultation famille RÉGIME D'ENTRÉES : moteur trade 88.5% en COMPRESSÉ (edge brut quasi nul, NET -210$ sur 154 trades) → verdict JUGE GO-AVEC-RÉSERVES : gate HARD SKIP COMPRESSÉ + Expected_Alpha > frais×3 + trailing stop. Avis dans scripts/CONSULTATION_FAMILLE_REGIME_ENTREES_20260821/ |
+| 2026-08-21T1230Z | Buffy | ★ | LE_VRAI_CHAMPION_CERTIFIE_37FCA367.txt (+ launcher v8_5) | ÉTAPE 1 REGIME GATE appliquée : HARD SKIP si tension < IRM_T_COMPRESSED (0.05) = régime COMPRESSÉ, bypass si force_tension_entry. Champion rescellé 64fb153f→14bcf868, CHAMPION_ACTIF maj (BAK conservé), IRM_REGIME_GATE=TRUE exporté BETA+ALPHA (défaut FALSE dans le code, activation par le launcher). Backup : .BAK_avant_gate_regime_20260821-123607. |
 | 2026-08-21T0816Z | add | ★ | ~ | PATCH CHAMPION 64fb153f (sur 01c38510) — fix filet STOP_MARKET : (1) -4116 clientAlgoId unique par session (suffixe ACE_STOP_SESSION_ID horodaté) (2) -2021 retry à distance doublée (8->16->32->64 bps). C1 : backup .BAK_avant_patch_filet_* + manifest rescelé + CHAMPION_ACTIF=64fb153f + GO_USINE_NUAGE maj. Syntaxe bash OK + test logique retry OK. Réversible : cp .BAK_avant_patch_filet_20260821-100947 + restore manifest + CHAMPION_ACTIF=01c38510. |
 | 2026-08-19T2116Z | session_debut | ★ | session | début mode=froid |
 | 2026-08-18T1853Z | journal_soir | ★ | journal | snapshot soir auto |
+| 2026-08-18T1853Z | journal_auto | ★ | CONSOLE+Journal_2026-08-18 | Snapshot auto hygiène soir |
 | 2026-08-17T1853Z | journal_soir | ★ | journal | snapshot soir auto |
+| 2026-08-17T1853Z | journal_auto | ★ | CONSOLE+Journal_2026-08-17 | Snapshot auto hygiène soir |
 | 2026-08-16T2216Z | journal_auto | ★ | CONSOLE+Journal_2026-08-17 | Snapshot auto hygiène soir |
 | 2026-08-16T1853Z | journal_soir | ★ | journal | snapshot soir auto |
 | 2026-08-16T1853Z | journal_auto | ★ | CONSOLE+Journal_2026-08-16 | Snapshot auto hygiène soir |
@@ -151,3 +166,22 @@ Intégration cockpit (2 lignes dans index.html) · passage au réel · cumul des
 - Déclaré au registre veilleuse (md5) — vérifié STABLE
 
 **Preuve immédiate de son utilité** : au premier run, il a détecté 2 fausses alertes (mauvais chemins de ma part) — corrigées. Détection d'une vraie coupure = le chantier baleines ne pourra plus rester invisible.
+
+## 17/08 — CONSULTATION SANTÉ DES INDEX (codeur + famille)
+
+**Envoyé au codeur + aux 6 IA (clause permanente gravée)** — réponses dans `Index_Maison/scripts/` :
+- `REPONSE_CODEUR_SANTE_INDEX_2026-08-17.md` : ⚠️ **le codeur (code.ia) a halluciné** — chemins inventés (data/scan_baleines.json, data/thermo.json…) incompatibles avec le vrai système. Les IDÉES étaient bonnes (alerte vocale, historique, panneau dépliable, seuil DÉGRADÉ) → appliquées par Buffy avec les chemins RÉELS.
+- `CONSULTATION_FAMILLE_SANTE_INDEX_20260817/` : **6/6 avis, VERDICT UNANIME GO-AVEC-RÉSERVES (confiance 70-78%)**. Points retenus : escalade douce (log → orange → rouge → voix, pas de sur-alerte), historique pour distinguer panne transitoire/durable, seuils par chaîne.
+
+**Appliqué à sante_index.py** (chemins réels, registre md5 mis à jour, veilleuse STABLE) :
+1. Alerte vocale sur chaîne rouge (anti-empilement, MAINTENANCE_PREVUE respectée, kill-switch)
+2. Historique append-only `data/alertes/sante_index.log` (chaque run, même OK)
+3. État DÉGRADÉ (🟠 orange) entre vert et rouge — ralentissement sans crier
+
+**Note canal** : `code.ia` renvoie 502 sur les gros payloads (fallback inferx mort) — réponse obtenue via `model: gemini` (352 s).
+
+## 20/08 — AUDIT DES AUDITS (méta-analyse)
+- `INDEX_AUDITS_ET_META_ANALYSE_2026-08-20.md` : **109 audits propres + 484 documents d'audit recensés** (71 AUDIT, 5 ENQUÊTE, 386 DIAG, 19 CHECKUP, 3 CONSTAT + 375 avis famille). Pattern dominant : **DÉGRADATION SILENCIEUSE** (mort sans alerte, garde-fou écrit ≠ actif, fausse sécurité, dérive externe). Famille consultée (codeur + 6 juges) : **Classe 3 fausse sécurité = la plus dangereuse**.
+- Brique `veille_degradation.py` (codeur, corrigée Buffy : chemins + `True`) implémentée + plist 60 s chargée + chaîne 8 dans sante_index → **8/8 chaînes OK**.
+- **ERREUR CORRIGÉE (Christophe)** : 1ʳᵉ consultation famille improvisée au lieu du canon `consulter_famille.py`+`famille.json` → re-consultation CANONIQUE : **UNANIME GO-AVEC-RÉSERVES (82-88%)**, exigence DMS externe + Fail-Fast + chaos test → `dms_veille.py` (plist 60 s, alertes + rapport cockpit) + fail-fast 5 plists dans `GO_VORTEX_V2.sh` + `--test-panne` (alerte prouvée par le feu) → tout testé, **8/8 chaînes OK**.
+- `MEMOIRE_SUFFRANCE_EN_FORCE_2026-08-20.md` : analyse honnête (demande Christophe, strict) — les idées n'ont jamais été le problème, les erreurs sont dans la couche d'exécution ; verdict par objectif (stabilité/résilience atteignables, prédiction magique non) ; la bonne séquence résilience→stabilité→mesure→rentabilité ; plan famille (contester en entier) discuté, PAS exécuté. Sync Obsidian + GitHub.

@@ -473,6 +473,8 @@ def main() -> int:
     whale_n = 0
     whale_usd = 0.0
     whale_max = 0.0
+    whale_buy_usd = 0.0
+    whale_sell_usd = 0.0
     if isinstance(aggs, list):
         for t in aggs:
             try:
@@ -483,7 +485,20 @@ def main() -> int:
                 whale_n += 1
                 whale_usd += notional
                 whale_max = max(whale_max, notional)
+                # direction du print : m=True → l'acheteur est maker → pression vente
+                #                     m=False → le vendeur est maker → pression achat
+                if t.get("m"):
+                    whale_sell_usd += notional
+                else:
+                    whale_buy_usd += notional
     whale_usd = round(whale_usd, 0) if whale_n else 0.0
+    # direction dominante des prints (proxy) : bullish / bearish / neutral
+    if whale_buy_usd > whale_sell_usd:
+        whale_dir_proxy = "bullish"
+    elif whale_sell_usd > whale_buy_usd:
+        whale_dir_proxy = "bearish"
+    else:
+        whale_dir_proxy = "neutral"
 
     closes = closes_from_klines(kl_1d)
     closes_h = closes_from_klines(kl_1h)
@@ -937,6 +952,9 @@ def main() -> int:
         "whaleN": whale_n,
         "whaleUsd": whale_usd,
         "whaleMax": round(whale_max, 0) if whale_n else 0,
+        "whaleBuyUsd": round(whale_buy_usd, 0) if whale_n else 0,
+        "whaleSellUsd": round(whale_sell_usd, 0) if whale_n else 0,
+        "whaleDirProxy": whale_dir_proxy,
         "takerRatio": taker_ratio,
         "topTraderLS": top_trader_ls,
         "fearGreed": fng.get("value"),

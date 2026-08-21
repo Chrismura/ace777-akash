@@ -487,6 +487,38 @@ def verifier_chaines():
         "ok": vd_proc and vd_frais and vd_ok and dms_proc and dms_ok, "maillons": maillons,
     })
 
+    # ============================================================
+    # 9. MACRO TEMPÊTE — choc exogène (leçon 20/08 : le +8% du 19-20/08 était
+    #    exogène, décision Trésor/Fed ; le détecteur bloque les trades contre-choc
+    #    via radar_gate.rb). Leçon 8 : il tourne mais RIEN ne surveille s'il meurt.
+    # ============================================================
+    maillons = []
+    mt_proc = proc_vivant("com.ace777.macro-tempete")
+    maillons.append(maillon("process detecteur_macro_tempete (launchd)", mt_proc,
+                           "chargée" if mt_proc else "PAS LANCÉE"))
+    mt_json = RACINE / "runs" / "macro_tempete.json"
+    mt_frais = frais(mt_json, 15)  # détecteur ~quelques min + marge
+    a_mt = age_min(mt_json)
+    mt_active = False
+    if mt_json.exists():
+        try:
+            mt_active = bool(lire_json(mt_json).get("active", False))
+        except Exception:
+            mt_active = False
+    maillons.append(maillon("macro_tempete.json", mt_frais,
+                            f"âge {a_mt:.0f} min" if a_mt is not None else "ABSENT"))
+    maillons.append(maillon("état courant", mt_active,
+                            "TEMPÊTE ACTIVE" if mt_active else "normal"))
+    if not mt_proc:
+        anomalies.append("MACRO TEMPÊTE : détecteur PAS LANCÉ — choc exogène non surveillé (leçon 20/08)")
+    if not mt_frais:
+        anomalies.append("MACRO TEMPÊTE : macro_tempete.json figé — le garde-fou anti-choc est mort (leçon 8)")
+    chaines.append({
+        "id": "macro_tempete", "nom": "MACRO TEMPÊTE",
+        "chemin": "detecteur_macro_tempete.py (launchd) → macro_tempete.json → radar_gate.rb (bloque trades contre-choc)",
+        "ok": mt_proc and mt_frais, "maillons": maillons,
+    })
+
     return chaines, anomalies, now, chaines_degradees
 
 

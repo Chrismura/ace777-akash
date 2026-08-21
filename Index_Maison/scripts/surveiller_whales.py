@@ -56,57 +56,60 @@ def charger_base():
 
 
 def scan_bloc_recent(dernier_hauteur):
-    """Analyse les derniers blocs confirmes (profondeur 1..6)."""
+    """Analyse les tx récentes des adresses surveillées (whales.json).
+
+    FIX 21/08 : l'ancien scan ne regardait que les 50 premières tx de 6 blocs
+    (≈1,3 % d'un bloc de 4000 tx) avec un seuil ≥1000 BTC en une tx → il ne
+    voyait jamais rien (0 détection depuis le 14/08), et whaleDir restait
+    toujours neutral → la couleur régime restait figée en ORANGE.
+    Nouvelle méthode : on interroge directement chaque adresse surveillée
+    (4 appels API au lieu de 300+) et on filtre par récence (48 h).
+    """
     try:
         tip = get_json(f"{MEMPOOL}/blocks/tip/height")
     except Exception:
-        # Repli : API tip indisponible → pas de données, hauteur inconnue (0).
-        # (fix 19/08 : `tip_hauteur` était une variable inexistante → NameError
-        #  qui faisait échouer tout le scan et figer whales_scan_latest.json.)
         return [], 0
+    portefeuilles, labels, types = charger_base()
     gros = []
-    # on scanne jusqu'a 6 blocs en arriere
-    for profondeur in range(1, 7):
-        hauteur = tip - profondeur
-        if hauteur <= 0:
-            break
+    # bornes de récence : ~2 blocs/min → 48 h ≈ 5760 blocs
+    borne_min = tip - 5760
+    for p in portefeuilles:
+        addr = p.get("address")
+        if not addr:
+            continue
         try:
-            bloc = get_json(f"{MEMPOOL}/block-height/{hauteur}")
-            txids = bloc.get("txids", [])
+            txs = get_json(f"{MEMPOOL}/address/{addr}/txs")
         except Exception:
             continue
-        # details des tx du bloc (on limite aux ~50 premieres pour la perf)
-        for txid in txids[:50]:
-            try:
-                tx = get_json(f"{MEMPOOL}/tx/{txid}")
-            except Exception:
+        for tx in txs:
+            statut = tx.get("status") or {}
+            hauteur = statut.get("block_height")
+            if hauteur is None or hauteur < borne_min:
                 continue
-            # total emis / recu
             out_total = sum(sats_to_btc(v.get("value", 0)) for v in tx.get("vout", []))
-            if out_total >= SEUIL_GROS_BLOC_BTC:
-                # provenance
-                sources = set()
-                for vin in tx.get("vin", []):
-                    prevout = vin.get("prevout", {})
-                    a = prevout.get("scriptpubkey_address")
-                    if a:
-                        sources.add(a)
-                cibles = []
-                for vout in tx.get("vout", []):
-                    a = vout.get("scriptpubkey_address")
-                    if a and sats_to_btc(vout.get("value", 0)) >= SEUIL_GROS_BLOC_BTC * 0.1:
-                        cibles.append({"adresse": a, "btc": round(sats_to_btc(vout.get("value", 0)), 2)})
-                gros.append({
-                    "type": "GROS_BLOC",
-                    "txid": txid,
-                    "hauteur": hauteur,
-                    "btc": round(out_total, 2),
-                    "sources": list(sources)[:5],
-                    "cibles": cibles[:5],
-                })
-        # on ne descend que 1 bloc de plus si rien trouve
-        if gros:
-            break
+            if out_total < SEUIL_GROS_BLOC_BTC:
+                continue
+            # provenance (vins) + cibles (vouts significatifs)
+            sources = set()
+            for vin in tx.get("vin", []):
+                a = (vin.get("prevout") or {}).get("scriptpubkey_address")
+                if a:
+                    sources.add(a)
+            cibles = []
+            for vout in tx.get("vout", []):
+                a = vout.get("scriptpubkey_address")
+                if a and sats_to_btc(vout.get("value", 0)) >= SEUIL_GROS_BLOC_BTC * 0.1:
+                    cibles.append({"adresse": a, "btc": round(sats_to_btc(vout.get("value", 0)), 2)})
+            gros.append({
+                "type": "GROS_BLOC",
+                "txid": tx.get("txid"),
+                "hauteur": hauteur,
+                "btc": round(out_total, 2),
+                "sources": list(sources)[:5],
+                "cibles": cibles[:5],
+                "adresse_surveillee": addr,
+                "label": labels.get(addr, "inconnu"),
+            })
     return gros, tip
 
 

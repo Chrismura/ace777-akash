@@ -324,12 +324,25 @@ def analyser_cpfp():
 # ============================================================
 # CARTE 3 — ACCUMULATION POUSSIÈRE (anticipation)
 # ============================================================
-def analyser_poussiere():
-    """Poussière visible dans la mempool (frais < 2 sat/vB) + minimumFee.
-    En observation on accumule les comptages dans cpfp_observations.jsonl
-    → le seuil (≥1000/48h, référence Cortana) sera calibré sur le réel."""
+def analyser_poussiere(minimum_fee=None):
+    """Poussière visible dans la mempool, NORMALISÉE par le régime de frais.
+
+    CORRECTION 21/08 (SNIFFER_VRAI, setup Christophe — normaliser par le régime
+    de frais) : la poussière n'apparaît QUE quand les frais sont bas. Un seuil
+    absolu (<2 sat/vB) confond « accumulation » et « frais bas ». On définit
+    poussière = tx à frais ≤ max(DUST_MAX_SAT_VB, minimumFee × 1.5) :
+    - marché calme (minFee 1) → seuil 2 sat/vB (référence historique conservée)
+    - marché actif (minFee 20) → seuil 30 sat/vB : une tx à 5 sat/vB pendant un
+      marché à 20 est une anomalie de poussière, on la compte
+    En observation on accumule dans cpfp_observations.jsonl (seuil 1000/48h)."""
     dust_vus = 0
     max_dust_btc = 0.0
+    # Seuil normalisé (SNIFFER_VRAI) : jamais sous la référence absolue 2 sat/vB
+    try:
+        mf = float(minimum_fee or 0.0)
+    except (TypeError, ValueError):
+        mf = 0.0
+    seuil_dust = max(DUST_MAX_SAT_VB, mf * 1.5)
     # CORRECTION 21/08 (Buffy, GO Christophe) : l'endpoint /v1/mempool/recent
     # renvoyait 404 → la carte 3 comptait 0 poussière depuis le 15/08 (bug réel).
     # Endpoint correct : /mempool/recent (10 tx) — l'échantillon reste petit mais
@@ -339,7 +352,7 @@ def analyser_poussiere():
         for tx in recents:
             fee = float(tx.get("fee", 0.0) or 0.0)
             vsize = float(tx.get("vsize", 0.0) or 0.0)
-            if vsize > 0 and (fee / vsize) < DUST_MAX_SAT_VB:
+            if vsize > 0 and (fee / vsize) < seuil_dust:
                 dust_vus += 1
                 val = float(tx.get("value", 0.0) or 0.0)
                 if val > max_dust_btc:
@@ -354,8 +367,9 @@ def analyser_poussiere():
 
     return {"declenche": declenche,
             "score": round(min(100.0, (total_dust / 1000.0) * 50.0), 2),
-            "detail": (f"poussière <{DUST_MAX_SAT_VB} sat/vB : {dust_vus} vues ce run, "
-                       f"{total_dust} cumulées 48h (seuil 1000) — max {max_dust_btc:.4f} BTC")}, dust_vus
+            "detail": (f"poussière <{seuil_dust:.1f} sat/vB (normalisé minFee {mf:.0f}×1.5) : "
+                       f"{dust_vus} vues ce run, {total_dust} cumulées 48h (seuil 1000) — "
+                       f"max {max_dust_btc:.4f} BTC")}, dust_vus
 
 
 # ============================================================
@@ -439,7 +453,8 @@ def main():
     # --- Cartes ---
     carte1, moyenne_7j, sigma = analyser_zscore()
     carte2, mediane_frais = analyser_cpfp()
-    carte3, dust_vus = analyser_poussiere()
+    # Normalisation SNIFFER_VRAI : la poussière se lit relative aux frais du moment
+    carte3, dust_vus = analyser_poussiere(minimum_fee=mediane_frais)
 
     # D5 : double condition — z-score ET signature CPFP ensemble (un seul signal = rien)
     declenche_global = carte1["declenche"] and carte2["declenche"]
