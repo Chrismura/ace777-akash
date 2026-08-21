@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-21T23:49:49.754147+00:00",
+  "generated_at": "2026-08-21T23:50:19.703704+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -26,7 +26,7 @@
       "model": "qwen-3.8-max-free",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 674
+      "calls_24h": 675
     },
     {
       "id": "groq",
@@ -229,10 +229,18 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 1154,
+    "consumed": 1155,
     "remaining": 0
   },
   "queue": [
+    {
+      "ts": "2026-08-21T23:50:11.119139+00:00",
+      "task": "supervise.decision",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 38.55
+    },
     {
       "ts": "2026-08-21T23:49:35.283468+00:00",
       "task": "supervise.decision",
@@ -344,17 +352,15 @@
       "model": "qwen-3.8-max-free",
       "kind": "cloud",
       "duration_s": 29.74
-    },
-    {
-      "ts": "2026-08-21T23:43:19.824690+00:00",
-      "task": "analyste.strategie",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 2.5
     }
   ],
   "events": [
+    {
+      "ts": "2026-08-21T23:50:11.118488+00:00",
+      "kind": "message",
+      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
+      "detail": "bascule"
+    },
     {
       "ts": "2026-08-21T23:49:35.283090+00:00",
       "kind": "message",
@@ -408,12 +414,6 @@
       "kind": "timeout",
       "title": "Patience NaraRouter (7M tokens/jour gratuits) (reponse vide)",
       "detail": "Reponse vide"
-    },
-    {
-      "ts": "2026-08-21T23:48:17.825319+00:00",
-      "kind": "failover",
-      "title": "Saute (blacklist) depuis HuggingFace (136+ modeles, dont DeepSeek-V4)",
-      "detail": "0 attente"
     }
   ],
   "tasks_quotas": {
