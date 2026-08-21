@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-21T22:53:57.189249+00:00",
+  "generated_at": "2026-08-21T22:54:39.384941+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -26,7 +26,7 @@
       "model": "qwen-3.8-max-free",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 566
+      "calls_24h": 568
     },
     {
       "id": "groq",
@@ -229,10 +229,26 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 1014,
+    "consumed": 1016,
     "remaining": 0
   },
   "queue": [
+    {
+      "ts": "2026-08-21T22:54:25.183340+00:00",
+      "task": "supervise.decision",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 7.73
+    },
+    {
+      "ts": "2026-08-21T22:54:21.288905+00:00",
+      "task": "supervise.decision",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 22.43
+    },
     {
       "ts": "2026-08-21T22:53:46.471385+00:00",
       "task": "supervise.decision",
@@ -336,84 +352,68 @@
       "model": "deepseek-ai/deepseek-v4-flash-0731",
       "kind": "cloud",
       "duration_s": 128.23
-    },
-    {
-      "ts": "2026-08-21T22:47:16.319394+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 17.03
-    },
-    {
-      "ts": "2026-08-21T22:46:18.203787+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 31.0
     }
   ],
   "events": [
     {
-      "ts": "2026-08-21T22:53:48.789126+00:00",
-      "kind": "timeout",
-      "title": "Patience NVIDIA build.nvidia.com (100+ modeles) (lenteur)",
-      "detail": "The read operation timed out"
-    },
-    {
-      "ts": "2026-08-21T22:53:46.470306+00:00",
-      "kind": "message",
-      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
-      "detail": "bascule"
-    },
-    {
-      "ts": "2026-08-21T22:53:22.573889+00:00",
+      "ts": "2026-08-21T22:54:33.525352+00:00",
       "kind": "failover",
       "title": "Bascule depuis Groq (LLM ultra-rapide, gratuit)",
       "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-08-21T22:53:22.573526+00:00",
+      "ts": "2026-08-21T22:54:33.525049+00:00",
       "kind": "ratelimit",
       "title": "429 Groq (LLM ultra-rapide, gratuit) -> pause 60s + bascule",
       "detail": ""
     },
     {
-      "ts": "2026-08-21T22:53:22.398207+00:00",
+      "ts": "2026-08-21T22:54:33.341704+00:00",
       "kind": "blacklist",
       "title": "Fin de pause Groq (LLM ultra-rapide, gratuit)",
       "detail": "re-essai automatique"
     },
     {
-      "ts": "2026-08-21T22:53:22.397481+00:00",
+      "ts": "2026-08-21T22:54:33.341168+00:00",
       "kind": "reserve-storm",
       "title": "Tempête active + budget calme atteint -> réserve storm pour supervise.decision",
       "detail": "supervise.decision"
     },
     {
-      "ts": "2026-08-21T22:53:11.098900+00:00",
+      "ts": "2026-08-21T22:54:25.182659+00:00",
       "kind": "message",
       "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
       "detail": "bascule"
     },
     {
-      "ts": "2026-08-21T22:52:54.724480+00:00",
+      "ts": "2026-08-21T22:54:21.288553+00:00",
+      "kind": "message",
+      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
+      "detail": "bascule"
+    },
+    {
+      "ts": "2026-08-21T22:54:18.316380+00:00",
+      "kind": "timeout",
+      "title": "Patience NVIDIA build.nvidia.com (100+ modeles) (lenteur)",
+      "detail": "The read operation timed out"
+    },
+    {
+      "ts": "2026-08-21T22:54:17.456094+00:00",
       "kind": "failover",
       "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
       "detail": "0 attente"
     },
     {
-      "ts": "2026-08-21T22:52:54.723988+00:00",
+      "ts": "2026-08-21T22:54:17.455436+00:00",
       "kind": "reserve-storm",
       "title": "Tempête active + budget calme atteint -> réserve storm pour supervise.decision",
       "detail": "supervise.decision"
     },
     {
-      "ts": "2026-08-21T22:52:45.074289+00:00",
-      "kind": "message",
-      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
-      "detail": "bascule"
+      "ts": "2026-08-21T22:54:12.087370+00:00",
+      "kind": "quota",
+      "title": "Budget calme atteint -> bascule famille (gratuits)",
+      "detail": "analyse.profonde"
     }
   ],
   "tasks_quotas": {
