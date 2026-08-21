@@ -1,34 +1,34 @@
 {
-  "timestamp": "2026-08-21T20:10:32Z",
+  "timestamp": "2026-08-21T20:11:08Z",
   "generation_source": "system_state_generator.py v2.1",
   "status": "STALE",
-  "feed_hash": "c49347ace53f93ab147892cbd9d3b623339d7077648152f38579a55955b277e0",
+  "feed_hash": "c20cff0f7ffeff05de6dc636cbaea77df0e5926aa7532df33c795a9c7eb0da38",
   "feeds": {
     "mission": {
       "present": true,
-      "age_seconds": 16,
+      "age_seconds": 19,
       "fresh_limit_s": 120
     },
     "cortana_feed": {
       "present": true,
-      "age_seconds": 6,
+      "age_seconds": 14,
       "fresh_limit_s": 120
     },
     "live": {
       "present": true,
-      "age_seconds": 6,
+      "age_seconds": 0,
       "fresh_limit_s": 15
     },
     "routing": {
       "present": true,
-      "age_seconds": 357673,
+      "age_seconds": 357709,
       "fresh_limit_s": 120
     }
   },
   "services": {
     "total": 53,
-    "running": 30,
-    "planned": 23,
+    "running": 27,
+    "planned": 26,
     "running_list": [
       "application.com.ace777.cockpit-app.14931296.14931301",
       "com.ace777.archi-vivante",
@@ -37,10 +37,7 @@
       "com.ace777.cockpit-http",
       "com.ace777.cortana-feed",
       "com.ace777.cortana.urgent",
-      "com.ace777.couleur-regime",
       "com.ace777.cpfp",
-      "com.ace777.eval-offres",
-      "com.ace777.fees",
       "com.ace777.hub-cockpit-feed",
       "com.ace777.journal-soir",
       "com.ace777.llm-gate-hub",
@@ -65,8 +62,11 @@
       "com.ace777.autopilote",
       "com.ace777.catalogue",
       "com.ace777.cockpit-pont",
+      "com.ace777.couleur-regime",
       "com.ace777.couleur-regime-score",
       "com.ace777.dms-veille",
+      "com.ace777.eval-offres",
+      "com.ace777.fees",
       "com.ace777.gitpush",
       "com.ace777.gitpush-vault",
       "com.ace777.graph-cerveau",
@@ -91,7 +91,7 @@
     "status": "ok",
     "providers": 14
   },
-  "ram_raw": null,
+  "ram_raw": "The system has 8589934592 (524288 pages with a page size of 16384).",
   "hors_zone": {
     "mirofis": {
       "present": true
@@ -110,7 +110,13 @@
     }
   },
   "backup_light": {
-    "presence": {},
+    "presence": {
+      "mirofis": true,
+      "crypto-voice-assistant-core": true,
+      "ACE777_ARCHIVES_BRUTES_DONNEES": true,
+      "Assistant_Vocal_HORS_VAULT": true,
+      "Obsidian_BACKUPS_HORS_VAULT": true
+    },
     "sizes_ko": {
       "mirofis": 1068252,
       "crypto-voice-assistant-core": 4041164,
@@ -118,7 +124,7 @@
       "Assistant_Vocal_HORS_VAULT": 697372,
       "Obsidian_BACKUPS_HORS_VAULT": 14936872
     },
-    "presence_at": null,
+    "presence_at": "2026-08-21T20:11:00Z",
     "sizes_at": "2026-08-21T19:55:53Z"
   }
 }
