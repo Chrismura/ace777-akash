@@ -22,35 +22,35 @@
 
 ## État de la mission (bots + PnL)
 
-- mission.json : 2026-08-21 20:43Z · run `MASTER_VORTEX_V2_COLLAB_4H` · alerte `red`
+- mission.json : 2026-08-21 20:44Z · run `MASTER_VORTEX_V2_COLLAB_4H` · alerte `red`
 - PnL combiné : **1.33 $** 📉 (combo 1.3281)
-- ALPHA (sniper (embuscade, ×13, revenge si claque)) : **+6.84 $** · 12 fills · 233 skips
-- BETA (éclaireur (chatouille le marché, alimente Alpha)) : **-5.51 $** · 14 fills · 255 skips
+- ALPHA (sniper (embuscade, ×13, revenge si claque)) : **+6.84 $** · 12 fills · 239 skips
+- BETA (éclaireur (chatouille le marché, alimente Alpha)) : **-5.51 $** · 14 fills · 256 skips
 - HULK (gestionnaire de portefeuille (bag, escalier, courreur)) : **+0.64 $** · 0 fills
-- Saison : CALME 🧊 · 
+- Saison : CHAUFFE 🌡️ · 
 
 ## Veille du jour
 
 - [Santé]
   · hub : OK (14 providers)
 - [Énergie du jour]
-  · appels : 684 (cloud 684)
+  · appels : 686 (cloud 686)
   · budget cloud : 624 max
-  · par provider : gemini=244, groq=35, mistral=3, nara=327, nvidia=72, openrouter-free=2, ope
+  · par provider : gemini=244, groq=35, mistral=3, nara=329, nvidia=72, openrouter-free=2, ope
 - [Nouvelles offres détectées (non intégrées)]
   · dots-studio/dots-3-note-preview:free
   · liquid/lfm-2.5-2.6b:free
   · thinkingmachines/inkling-small:free
-  … 107 offres/pépites détectées ce matin
+  … 110 offres/pépites détectées ce matin
 
 ## Mémoire chaude (journal + résumés)
 
 - Radar (dernières alertes) :
-  · 2026-08-21T20:44:14.596234Z BTCUSDT 77506.14 0.0002 10.9 declenche=non
-  · 2026-08-21T20:44:14.647890Z ETHUSDT 2438.79 0.0008 290.1 declenche=non
-  · 2026-08-21T20:44:14.865492Z BTCUSDT 77506.15 0.0002 10.9 declenche=non
-  · 2026-08-21T20:44:15.098854Z BTCUSDT 77506.15 0.0002 10.9 declenche=non
-- Intention en cours : BETA a sonde le marche (14 sondes, 6 long / 8 court, conf mo | ALPHA attend son moment : 218 skips (discipline), le mur du  | ALPHA a frappe 12 fois en embuscade (13x) (dont 1 en mode re
+  · 2026-08-21T20:44:51.950950Z ETHUSDT 2437.8 0.0000 75.0 declenche=non
+  · 2026-08-21T20:44:52.191300Z BTCUSDT 77480.0 0.0001 12.7 declenche=non
+  · 2026-08-21T20:44:52.204157Z BTCUSDT 77480.01 0.0001 12.7 declenche=non
+  · 2026-08-21T20:44:52.899178Z BTCUSDT 77480.01 0.0001 12.7 declenche=non
+- Intention en cours : BETA a sonde le marche (14 sondes, 6 long / 8 court, conf mo | ALPHA attend son moment : 222 skips (discipline), le mur du  | ALPHA a frappe 12 fois en embuscade (13x) (dont 1 en mode re
 - 500 signets X résumés (quota aujourd'hui : 50/50)
 - 56 fiches IA d'offres en cache (quota 8/jour)
 
