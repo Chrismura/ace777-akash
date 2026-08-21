@@ -1,40 +1,42 @@
 {
-  "timestamp": "2026-08-21T08:25:25Z",
+  "timestamp": "2026-08-21T09:13:33Z",
   "generation_source": "system_state_generator.py v2.1",
   "status": "STALE",
-  "feed_hash": "6c26f4c2c14a0cdd9beaa0fe57e31bca484fcd1dd653e44dfd93c624ed78d57a",
+  "feed_hash": "0a603372e2e4dfdfb896df6b50bcfff6a3621102e916ad981c27e5c28e2f2de6",
   "feeds": {
     "mission": {
       "present": true,
-      "age_seconds": 28,
+      "age_seconds": 31,
       "fresh_limit_s": 120
     },
     "cortana_feed": {
       "present": true,
-      "age_seconds": 2126,
+      "age_seconds": 1385,
       "fresh_limit_s": 120
     },
     "live": {
       "present": true,
-      "age_seconds": 215,
+      "age_seconds": 103,
       "fresh_limit_s": 15
     },
     "routing": {
       "present": true,
-      "age_seconds": 315365,
+      "age_seconds": 318254,
       "fresh_limit_s": 120
     }
   },
   "services": {
-    "total": 45,
-    "running": 5,
+    "total": 47,
+    "running": 7,
     "planned": 40,
     "running_list": [
-      "application.com.ace777.cockpit-app.14931296.14931301",
+      "com.ace777.cockpit-http",
       "com.ace777.llm-gate-hub",
       "com.ace777.prise-ia",
       "com.ace777.state-generator",
-      "com.ace777.vigie-live"
+      "com.ace777.superviseur-core",
+      "com.ace777.vigie-live",
+      "com.ace777.whales"
     ],
     "planned_list": [
       "com.ace777.archi-vivante",
@@ -42,6 +44,7 @@
       "com.ace777.backup-check",
       "com.ace777.bloc-privatise",
       "com.ace777.catalogue",
+      "com.ace777.cockpit-pont",
       "com.ace777.cortana-feed",
       "com.ace777.cortana.urgent",
       "com.ace777.couleur-regime",
@@ -67,7 +70,7 @@
       "com.ace777.sante-index",
       "com.ace777.sniffer-matin",
       "com.ace777.sniffer-ny",
-      "com.ace777.superviseur-core",
+      "com.ace777.superviseur",
       "com.ace777.veille-degradation",
       "com.ace777.veille-hub",
       "com.ace777.veille-yt",
@@ -75,13 +78,12 @@
       "com.ace777.veilleuse-chantiers",
       "com.ace777.veilleuse-confrontation",
       "com.ace777.veilleuse-sizing-monte-carlo",
-      "com.ace777.verif-setup",
-      "com.ace777.whales"
+      "com.ace777.verif-setup"
     ]
   },
   "hub": {
     "status": "ok",
-    "providers": 20
+    "providers": 16
   },
   "ram_raw": "The system has 8589934592 (524288 pages with a page size of 16384).",
   "hors_zone": {
@@ -116,7 +118,7 @@
       "Assistant_Vocal_HORS_VAULT": 697372,
       "Obsidian_BACKUPS_HORS_VAULT": 14936872
     },
-    "presence_at": "2026-08-21T08:10:46Z",
+    "presence_at": "2026-08-21T09:10:46Z",
     "sizes_at": "2026-08-21T07:40:42Z"
   }
 }

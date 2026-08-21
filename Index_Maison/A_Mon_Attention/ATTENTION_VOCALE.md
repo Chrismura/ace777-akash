@@ -1,11 +1,11 @@
 # Attention vocale — Cortana
 
 ## Dernier résumé
-> Alerte Gros mouvement. Bitcoin une heure +1.08 pour cent, quatre heures +2.62 pour cent.. Provenance cortana_watch_move.
+> Alerte Gros mouvement. Bitcoin une heure +2.27 pour cent, quatre heures +4.07 pour cent.. Provenance cortana_watch_move.
 
 ## Meta
 - statut: IDLE
-- ts: 20260821T0749Z
+- ts: 20260821T0850Z
 - pertinence: PERTINENT
 - sentiment: URGENT
 - compte: thermo-free
