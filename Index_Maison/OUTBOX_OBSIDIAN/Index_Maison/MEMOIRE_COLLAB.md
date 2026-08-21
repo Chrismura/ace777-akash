@@ -22,6 +22,10 @@ Pour que Cursor · Punk · Cortana · Christophe sachent **ce qui a bougé**, sa
 
 | ts | Qui | Action | Où | Quoi |
 |----|-----|--------|-----|------|
+| 2026-08-21T1940Z | journal_soir | ★ | journal | snapshot soir auto |
+| 2026-08-21T1939Z | journal_soir | ★ | journal | snapshot soir auto |
+| 2026-08-21T1938Z | journal_soir | ★ | journal | snapshot soir auto |
+| 2026-08-21T1937Z | journal_soir | ★ | journal | snapshot soir auto |
 | 2026-08-21T1853Z | journal_soir | ★ | journal | snapshot soir auto |
 | 2026-08-21T1453Z | journal_soir | ★ | journal | snapshot soir auto |
 | 2026-08-21T1034Z | Buffy | ★ | Index_Maison/strategie/SPEC_REGIME_ENTREES_20260821.md | Consultation famille RÉGIME D'ENTRÉES : moteur trade 88.5% en COMPRESSÉ (edge brut quasi nul, NET -210$ sur 154 trades) → verdict JUGE GO-AVEC-RÉSERVES : gate HARD SKIP COMPRESSÉ + Expected_Alpha > frais×3 + trailing stop. Avis dans scripts/CONSULTATION_FAMILLE_REGIME_ENTREES_20260821/ |

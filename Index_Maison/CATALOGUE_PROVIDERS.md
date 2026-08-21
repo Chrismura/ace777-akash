@@ -2,7 +2,7 @@
 
 *Genere le 2026-08-21 par catalog_providers.py (gagnant A/B codeurs 09/08). Rafraichi a chaque veille du matin.*
 
-**Actifs : 19 · En observation : 2 · En attente : 4 · De cote (payant) : 0**
+**Actifs : 15 · En observation : 2 · En attente : 8 · De cote (payant) : 0**
 
 ## ACTIFS
 
@@ -20,13 +20,9 @@
 | - | `x-ai/grok-4.3` | puter-grok | PUTER 2026-08-09 - en observation (A/B + GO hebdo avant activation) | ACTIVE 09/08 (GO Chr |
 | - | `deepseek-ai/deepseek-coder-6.7b-instruct` | nvidia-coder | INTEGRE 16/08 (GO Christophe) - DeepSeek-Coder 6.7B, codeur specialise (file d'attente). | |
 | - | `Devstral-2-123B-Instruct-2512-int4-AutoRound` | inferx-devstral | INTEGRE 16/08 (GO Christophe) - Devstral 123B, 2e codeur (file d'attente). | quota journal |
-| - | `cohere/north-mini-code:free` | obs-1786688184 | auto queue_offres | quota journalier épuisé le 17/08 → reset automatique |
-| - | `nvidia/nemotron-3-nano-30b-a3b:free` | obs-1786774646 | auto queue_offres | quota journalier épuisé le 17/08 → reset automatique |
 | - | `nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free` | obs-1786774656 | auto queue_offres | quota journalier épuisé le 17/08 → reset automatique |
 | - | `nvidia/nemotron-3.5-lightning:free` | obs-1786774667 | auto queue_offres | quota journalier épuisé le 17/08 → reset automatique |
-| - | `nvidia/nemotron-3.5-content-safety:free` | obs-1786795252 | auto queue_offres | quota journalier épuisé le 17/08 → reset automatique |
 | - | `deepseek-ai/DeepSeek-V3-0324` | huggingface | ACTIVE 17/08 - token HF avec permission Inference - DeepSeek-V3 teste reellement OK |
-| - | `google/diffusiongemma-26b-a4b-it` | obs-1787033767 | auto queue_offres |
 
 ## EN OBSERVATION (48h avant activation, jamais route)
 
@@ -43,6 +39,10 @@
 | - | `@cf/meta/llama-3.1-8b-instruct` | cloudflare-workers-ai | 10k Neurons/jour gratuits - necessite account_id dans base_url + token |
 | - | `x-ai/grok-4.5` | grok | Branche 08/08 (GO Christophe) : missions de qualite, ~$2/M tokens |
 | - | `qwen3.5:4b` | qwen-local | UPGRADE 09/08 : qwen2.5:3b -> qwen3.5:4b (GO Christophe, apprentissage) |
+| - | `cohere/north-mini-code:free` | obs-1786688184 | auto queue_offres | quota journalier épuisé le 17/08 → reset automatique | ROLLBACK auto o |
+| - | `nvidia/nemotron-3-nano-30b-a3b:free` | obs-1786774646 | auto queue_offres | quota journalier épuisé le 17/08 → reset automatique | ROLLBACK auto o |
+| - | `nvidia/nemotron-3.5-content-safety:free` | obs-1786795252 | auto queue_offres | quota journalier épuisé le 17/08 → reset automatique | ROLLBACK auto o |
+| - | `google/diffusiongemma-26b-a4b-it` | obs-1787033767 | auto queue_offres | ROLLBACK auto observatoire 2026-08-21 (100% erreurs) | ROLLBACK auto o |
 
 ## DE COTE (payant / obsolète)
 

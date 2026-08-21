@@ -1,19 +1,21 @@
 # VEILLE HUB — 2026-08-21
 
 ## Santé
-- hub : OK (20 providers)
+- hub : OK (16 providers)
 
 ## Énergie du jour
-- appels : 5 (cloud 5)
+- appels : 438 (cloud 438)
 - budget cloud : 624 max
-- par provider : groq=4, nara=1
+- par provider : gemini=145, groq=32, mistral=3, nara=253, nvidia=2, openrouter-free=2, openrouter-juge=1
 
 ## Nouvelles offres détectées (non intégrées)
 
 ### openrouter (:free)
 - dots-studio/dots-3-note-preview:free
 - liquid/lfm-2.5-2.6b:free
+- thinkingmachines/inkling-small:free
 - poolside/laguna-s-2.1:free
+- thinkingmachines/inkling:free
 - poolside/laguna-xs-2.1:free
 - z-ai/glm-5.2:free
 - google/gemma-4-31b-it:free
@@ -40,9 +42,6 @@
 - Agents-A1
 - Qwen3.6-35B-A3B-FP8
 - Qwen3.8-27B-FP8
-- deepseek-v4-flash
-- muse-glimmer
-- nemotron-35-lightning
 
 ### puter (gratuit, token)
 - gpt-5.4
@@ -97,38 +96,36 @@
 - awesome-freellm-apis: | Mistral AI | `https://api.mistral.ai/v1` | Get Key → | No |
 
 ### huggingface récents
-- mradermacher/Qwen3-8B-MedReasonPath-i1-GGUF
 - Miiche/visualrl-base-qwen3vl4b
-- MATS-2026-Dump/store-qwen3-14b
 
 ### huggingface trending (montée)
 - Qwen/Qwen3.8-27B
 - unsloth/Qwen3.8-27B-GGUF
-- MiniMaxAI/MiniMax-Music3
 - orcarouter/Qwen3.8-27B-Uncensored-MLX
-- Qwen/Qwen3.8-27B-FP8
 - orcarouter/Qwen3.8-27B-Uncensored-FP8
+- MiniMaxAI/MiniMax-Music3
 - JonathanColetti/Qwen3.8-27B-Uncensored-GGUF
 - Lightricks/LTX-2.5
+- OBLITERATUS/Qwen3.8-27B-OBLITERATED
+- Qwen/Qwen3.8-27B-FP8
 - HauhauCS/Qwen3.8-27B-Uncensored-HauhauCS-Aggressive-MTP-GGUF
 - MiniMaxAI/MiniMax-H3
-- deepseek-ai/DeepSeek-V4-Pro-0813
-- Qwen/Qwen3.8-2.4T-A95B
-- unsloth/Qwen3.8-27B-NVFP4
-- OBLITERATUS/Qwen3.8-27B-OBLITERATED
+- ornith-ai/Ornith-1.5-35B-A3B
 - froggeric/Qwen-Fixed-Chat-Templates
+- empero-ai/Qwen3.8-27B-Ridge-GGUF
+- deepseek-ai/DeepSeek-V4-Pro-0813
 
 ### github search (nouveaux lieux)
 - saksham10arora-dotcom/lmex | The LLM Latency Exchange. Free-tier LLM APIs trade as tickers, price i
-- ons96/free-llm-benchmarking | Benchmark and save data for free API providers and LLMs, ensuring opti
-- iqingyoung/429-throttle-mcp | 带限流 MCP 代理 + Agent 操作员技能,告别免费 API 的 HTTP 429;自动控速、口语调参、长任务复盘 | Rate-li
-- open-free-llm-api/awesome-freellm-apis | 134+ free LLM APIs & AI API keys from 40+ providers. Google Gemini, NV
-- nejib1/Free-LLM | Directory of 34+ free LLM & AI APIs — permanent free tiers, trial cred
-- Ner-Kun/Table_LLM_providers | A comprehensive table of free, freemium, and paid LLM API providers wi
-- Leestars21/free-llm-api-watch
 - api-evangelist/freeplay | Freeplay is an LLM product experimentation, evaluation, and observabil
-- chenggma/llm-judge-audit | Pre-registered audit of LLM-as-judge: agreement with human gold labels
 - api-evangelist/evals | Evals — A landscape catalog of the platforms, frameworks, libraries, a
+- xyzs996/free-llm-api | Verified free LLM API list — no-card options, direct API key links, ra
+- affromero/pricetoken | Real-time LLM pricing API. Free REST API + npm package + historical da
+- Mitriyweb/model-router | Universal AI proxy that allows Claude Code, ZeroClaw, Aider, Cline (Ro
+- shayeeboy/Enterprise-RAG-Assistant | AI-Native Piano Learning RAG Assistant - live & free (GitHub Pages -> 
+- DhruvProgrammer/aether-code | aether is a free, open-source AI coding agent for any OpenAI-compatibl
+- checkerup/keytester | LLM API Key Tester with chat UI — test API keys via chat with streamin
+- cheesejaguar/free-ai-stuff | Automatically tracks current offers for LLM API, ChatBot or Agentic ac
 
 ### rss (simonwillison/latent/batch)
 - simonwillison.net: A shot-scraper-style JSON API on Bun 1.4's new Bun.WebView
@@ -140,14 +137,3 @@
 - www.latent.space: <![CDATA[[AINews] Qwen 3.8 Max(2.4T) and 27B, new open weights models for Coding and Cowork]]>
 - feeds.feedburner.com: ERR: rss HTTP Error 404: Not Found
 _généré par veille_hub.py — étapes suivantes en launchd décalé : eval 9h30 · catalogue 10h · propositions 10h30 · observatoire 11h._
-## ROLLBACK AUTO 2026-08-21
-- obs-1786688184 (cohere/north-mini-code:free) : 100% erreurs > 5% (observatoire)
-
-## ROLLBACK AUTO 2026-08-21
-- obs-1786774646 (nvidia/nemotron-3-nano-30b-a3b:free) : 50% erreurs > 5% (observatoire)
-
-## ROLLBACK AUTO 2026-08-21
-- obs-1786795252 (nvidia/nemotron-3.5-content-safety:free) : 100% erreurs > 5% (observatoire)
-
-## ROLLBACK AUTO 2026-08-21
-- obs-1787033767 (google/diffusiongemma-26b-a4b-it) : 100% erreurs > 5% (observatoire)

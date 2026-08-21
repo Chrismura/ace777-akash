@@ -1,15 +1,15 @@
-# ARCHITECTURE VIVANTE — ACE777 (2026-08-21 19:33 UTC)
+# ARCHITECTURE VIVANTE — ACE777 (2026-08-21 19:40 UTC)
 
 > Document GÉNÉRÉ AUTOMATIQUEMENT à l'instant. La famille valide
 > en s'appuyant sur CE contexte, pas sur des documents figés.
 
 ## Qui tourne en ce moment
-- ⛔ hub
+- ✅ hub
 - ✅ pont cockpit
 - ✅ radar
 - ⛔ lecteur signets
 - ⛔ générateur fiches
-- ⛔ feed mission
+- ✅ feed mission
 - ⛔ serveur cockpit
 
 ## Routage des tâches de décision
@@ -22,45 +22,37 @@
 
 ## État de la mission (bots + PnL)
 
-- mission.json : 2026-08-21 19:32Z · run `MASTER_VORTEX_V2_COLLAB_4H` · alerte `red`
-- PnL combiné : **0.00 $** 📉 (combo 0)
+- mission.json : 2026-08-21 19:40Z · run `MASTER_VORTEX_V2_COLLAB_4H` · alerte `red`
+- PnL combiné : **0.25 $** 📉 (combo 0.2547)
 - ALPHA (sniper (embuscade, ×13, revenge si claque)) : **+0.00 $** · 0 fills · 34 skips
-- BETA (éclaireur (chatouille le marché, alimente Alpha)) : **+0.00 $** · 0 fills · 19 skips
+- BETA (éclaireur (chatouille le marché, alimente Alpha)) : **+0.25 $** · 1 fills · 54 skips
 - HULK (gestionnaire de portefeuille (bag, escalier, courreur)) : **+0.64 $** · 0 fills
-- Saison : CALME 🧊 · 
+- Saison : CHAUFFE 🌡️ · 
 
 ## Veille du jour
 
 - [Santé]
-  · hub : OK (20 providers)
+  · hub : OK (16 providers)
 - [Énergie du jour]
-  · appels : 5 (cloud 5)
+  · appels : 438 (cloud 438)
   · budget cloud : 624 max
-  · par provider : groq=4, nara=1
+  · par provider : gemini=145, groq=32, mistral=3, nara=253, nvidia=2, openrouter-free=2, open
 - [Nouvelles offres détectées (non intégrées)]
-- [ROLLBACK AUTO 2026-08-21]
-  · obs-1786688184 (cohere/north-mini-code:free) : 100% erreurs > 5% (observatoire)
-- [ROLLBACK AUTO 2026-08-21]
-  · obs-1786774646 (nvidia/nemotron-3-nano-30b-a3b:free) : 50% erreurs > 5% (observatoire)
-- [ROLLBACK AUTO 2026-08-21]
-  · obs-1786795252 (nvidia/nemotron-3.5-content-safety:free) : 100% erreurs > 5% (observatoire
-- [ROLLBACK AUTO 2026-08-21]
-  · obs-1787033767 (google/diffusiongemma-26b-a4b-it) : 100% erreurs > 5% (observatoire)
   · dots-studio/dots-3-note-preview:free
   · liquid/lfm-2.5-2.6b:free
-  · poolside/laguna-s-2.1:free
-  … 108 offres/pépites détectées ce matin
+  · thinkingmachines/inkling-small:free
+  … 105 offres/pépites détectées ce matin
 
 ## Mémoire chaude (journal + résumés)
 
 - Radar (dernières alertes) :
-  · 2026-08-21T19:33:05.275890Z BTCUSDT 77222.61 0.0011 11.8 declenche=non
-  · 2026-08-21T19:33:05.675768Z BTCUSDT 77222.6 0.0011 11.8 declenche=non
-  · 2026-08-21T19:33:06.458615Z ETHUSDT 2417.05 0.0005 164.1 declenche=non
-  · 2026-08-21T19:33:06.759637Z BTCUSDT 77222.6 0.0011 11.8 declenche=non
-- Intention en cours : BETA veille — pas encore de sonde sur la session en cours. | ALPHA attend son signal — aucun tir sur la session en cours.
+  · 2026-08-21T19:40:18.701660Z ETHUSDT 2415.0 0.0000 0.0 declenche=non
+  · 2026-08-21T19:40:20.036877Z BTCUSDT 77116.0 0.0002 1.3 declenche=non
+  · 2026-08-21T19:40:20.051398Z ETHUSDT 2415.0 0.0000 0.0 declenche=non
+  · 2026-08-21T19:40:20.223132Z ETHUSDT 2415.0 0.0000 0.0 declenche=non
+- Intention en cours : BETA a sonde le marche (1 sondes, 1 long / 0 court, conf moy | ALPHA attend son signal — aucun tir sur la session en cours.
 - 500 signets X résumés (quota aujourd'hui : 50/50)
-- 48 fiches IA d'offres en cache (quota 8/jour)
+- 56 fiches IA d'offres en cache (quota 8/jour)
 
 ---
 Généré par archi_vivante.py — relancé à chaque validation.

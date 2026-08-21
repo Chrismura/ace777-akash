@@ -58,6 +58,15 @@ Intégration cockpit (2 lignes dans index.html) · passage au réel · cumul des
 
 | ts | Qui | Action | Où | Quoi |
 |----|-----|--------|-----|------|
+| 2026-08-21T1940Z | journal_auto | ★ | CONSOLE+Journal_2026-08-21 | Snapshot auto hygiène soir |
+| 2026-08-21T1940Z | journal_soir | ★ | journal | snapshot soir auto |
+| 2026-08-21T1939Z | journal_auto | ★ | CONSOLE+Journal_2026-08-21 | Snapshot auto hygiène soir |
+| 2026-08-21T1939Z | journal_soir | ★ | journal | snapshot soir auto |
+| 2026-08-21T1938Z | journal_auto | ★ | CONSOLE+Journal_2026-08-21 | Snapshot auto hygiène soir |
+| 2026-08-21T1938Z | journal_soir | ★ | journal | snapshot soir auto |
+| 2026-08-21T1937Z | journal_auto | ★ | CONSOLE+Journal_2026-08-21 | Snapshot auto hygiène soir |
+| 2026-08-21T1937Z | journal_soir | ★ | journal | snapshot soir auto |
+| 2026-08-21T1936Z | journal_auto | ★ | CONSOLE+Journal_2026-08-21 | Snapshot auto hygiène soir |
 | 2026-08-21T1853Z | journal_soir | ★ | journal | snapshot soir auto |
 | 2026-08-21T1853Z | journal_auto | ★ | CONSOLE+Journal_2026-08-21 | Snapshot auto hygiène soir |
 | 2026-08-21T2045Z | Buffy | ★ | CSV_Binance + wallet | **VÉRITÉ RÉVÉLÉE : le CSV moteur est un mirage**. 1448 trades Binance vs 258 fills CSV (12% seulement). Le bot a PERDU -432$ aujourd'hui (realized -131$ + commission -301$). Wallet = 2130$. CSV réconcilié créé (runs/BINANCE_RECONCILED_20260821.csv). Script reconcilier_binance.py opérationnel. Positions fermées, wallet clean. Le moteur tel qu'il est structurellement perdant (partial fills + frais). **GO requis pour prochaine étape : fixer le moteur OU changer d'exchange.** |

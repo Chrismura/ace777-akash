@@ -58,6 +58,10 @@ Intégration cockpit (2 lignes dans index.html) · passage au réel · cumul des
 
 | ts | Qui | Action | Où | Quoi |
 |----|-----|--------|-----|------|
+| 2026-08-21T1940Z | journal_soir | ★ | journal | snapshot soir auto |
+| 2026-08-21T1939Z | journal_soir | ★ | journal | snapshot soir auto |
+| 2026-08-21T1938Z | journal_soir | ★ | journal | snapshot soir auto |
+| 2026-08-21T1937Z | journal_soir | ★ | journal | snapshot soir auto |
 | 2026-08-21T1853Z | journal_soir | ★ | journal | snapshot soir auto |
 | 2026-08-21T1950Z | Buffy | ★ | scripts/couleur_regime.py | **BOUCLE FERMÉE : 4 SOURCES BRANCHÉES DANS LA COULEUR RÉGIME** : (1) `direction_thermo()` lit `cockpit/mission.json` (alert=red, comboPnlNet → bearish si alert=red) ; (2) `direction_avis_ia()` lit `thermo/analyses/*.jsonl` (consensus LONG/SHORT des LLMs) ; (3) matrice enrichie : thermo bearish affaiblit VERT→ORANGE (le combo trading qui perd freine l'entrée) + avis IA divergent affaiblit aussi ; (4) record enrichi avec `avis_ia_dir/thermo_dir/detail_avis/detail_thermo`. Résultat réel : onchain=neutral | narratif=bullish (F&G 72) | avis_ia=bullish (4 LONG/2 SHORT) | thermo=bearish (alert=red, combo net=-344$) → ORANGE. 15 tests hermétiques OK. |
 | 2026-08-21T1737Z | Buffy | ★ | detecter_cpfp.py + pont_onchain.py | **SETUP SNIFFER_VRAI appliqué (les 2 améliorations) :** (1) poussière NORMALISÉE par le régime de frais (seuil = max(2 sat/vB, minFee×1.5) — fini l'absolu qui confond accumulation et frais bas ; preuve : seuil 3.0 sat/vB avec minFee 2) ; (2) SCORE ONCHAIN UNIFIÉ dans pont_onchain.py : blocs privatisés ×0.5 + poussière ×0.3 + z-score ×0.2 → indiceOnchain 0-100 + label + composantes, injecté live.json.onchain (preuve : indice 6.5/100 FAIBLE). Validé : syntaxe OK, 9/9 chaînes OK, run trading intact, pépite active (7.1%, 11 lignes historique). |
