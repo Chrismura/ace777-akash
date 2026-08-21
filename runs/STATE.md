@@ -1,7 +1,7 @@
 # ACE777 — STATE
 
 > Généré automatiquement — ne pas éditer à la main
-> Phase: `running` | Statut: `RUNNING` | MAJ: `2026-08-21T19:27:29Z`
+> Phase: `running` | Statut: `RUNNING` | MAJ: `2026-08-21T19:40:53Z`
 
 ## Config active
 
@@ -39,7 +39,7 @@ _Aucun SKIP ou CSV absent._
 
 - Mode: `TREND`
 - Message: `v2_swarm_wind_trend`
-- TS: `2026-08-21T19:27:26Z`
+- TS: `2026-08-21T19:40:45Z`
 
 ## Processus
 
