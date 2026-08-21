@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-21T00:28:35.116006+00:00",
+  "generated_at": "2026-08-21T01:14:07.589184+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -35,7 +35,7 @@
       "model": "groq/compound",
       "enabled": true,
       "timeout": 120,
-      "calls_24h": 27
+      "calls_24h": 28
     },
     {
       "id": "nvidia",
@@ -229,10 +229,18 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 0,
-    "remaining": 624
+    "consumed": 1,
+    "remaining": 623
   },
   "queue": [
+    {
+      "ts": "2026-08-21T00:28:57.243934+00:00",
+      "task": "supervise.decision",
+      "provider": "groq",
+      "model": "groq/compound",
+      "kind": "cloud",
+      "duration_s": 10.75
+    },
     {
       "ts": "2026-08-20T23:28:43.154259+00:00",
       "task": "supervise.decision",
@@ -344,17 +352,21 @@
       "model": "qwen-3.8-max-free",
       "kind": "cloud",
       "duration_s": 70.46
-    },
-    {
-      "ts": "2026-08-20T19:26:41.583245+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 4.63
     }
   ],
   "events": [
+    {
+      "ts": "2026-08-21T00:28:57.243489+00:00",
+      "kind": "message",
+      "title": "« Groq (LLM ultra-rapide, gratuit) » a repondu",
+      "detail": ""
+    },
+    {
+      "ts": "2026-08-21T00:28:52.654154+00:00",
+      "kind": "timeout",
+      "title": "Patience Groq (LLM ultra-rapide, gratuit) (HTTP 413)",
+      "detail": "HTTP Error 413: Payload Too Large"
+    },
     {
       "ts": "2026-08-20T23:28:43.153281+00:00",
       "kind": "message",
@@ -402,18 +414,6 @@
       "kind": "ratelimit",
       "title": "429 Groq (LLM ultra-rapide, gratuit) -> pause 60s + bascule",
       "detail": ""
-    },
-    {
-      "ts": "2026-08-20T19:41:08.511472+00:00",
-      "kind": "blacklist",
-      "title": "Fin de pause Groq (LLM ultra-rapide, gratuit)",
-      "detail": "re-essai automatique"
-    },
-    {
-      "ts": "2026-08-20T19:40:58.466976+00:00",
-      "kind": "message",
-      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
-      "detail": "bascule"
     }
   ],
   "tasks_quotas": {
