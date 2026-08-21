@@ -4,9 +4,9 @@
 - hub : OK (14 providers)
 
 ## Énergie du jour
-- appels : 473 (cloud 473)
+- appels : 482 (cloud 482)
 - budget cloud : 624 max
-- par provider : gemini=147, groq=35, mistral=3, nara=266, nvidia=19, openrouter-free=2, openrouter-juge=1
+- par provider : gemini=147, groq=35, mistral=3, nara=269, nvidia=25, openrouter-free=2, openrouter-juge=1
 
 ## Nouvelles offres détectées (non intégrées)
 
@@ -97,13 +97,6 @@
 
 ### huggingface récents
 - Miiche/visualrl-base-qwen3vl4b
-- Jongbin-kr/llama-3.1-8b-instruct-4x2-moe-lbox-lora-sft-5ep
-- roozbehn99/palm-qwen3b-sky-brev-seed5
-- roozbehn99/palm-qwen3b-sky-brev-seed4
-- roozbehn99/palm-qwen3b-sky-brev-seed2
-- roozbehn99/palm-qwen3b-sky-brev-seed1
-- roozbehn99/palm-qwen3b-sky-brev-seed3
-- geonmin-kim/MolmoAct2-SO101-Mdrift_pool3x3-Dwework_dirall-step10000
 
 ### huggingface trending (montée)
 - Qwen/Qwen3.8-27B
@@ -144,5 +137,3 @@
 - www.latent.space: <![CDATA[[AINews] Qwen 3.8 Max(2.4T) and 27B, new open weights models for Coding and Cowork]]>
 - feeds.feedburner.com: ERR: rss HTTP Error 404: Not Found
 _généré par veille_hub.py — étapes suivantes en launchd décalé : eval 9h30 · catalogue 10h · propositions 10h30 · observatoire 11h._
-## ROLLBACK AUTO 2026-08-21
-- obs-1787033767 (google/diffusiongemma-26b-a4b-it) : 100% erreurs > 5% (observatoire)

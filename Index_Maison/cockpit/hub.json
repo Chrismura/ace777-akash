@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-21T19:52:56.851168+00:00",
+  "generated_at": "2026-08-21T19:55:07.875412+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -26,7 +26,7 @@
       "model": "qwen-3.8-max-free",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 266
+      "calls_24h": 269
     },
     {
       "id": "groq",
@@ -44,7 +44,7 @@
       "model": "deepseek-ai/deepseek-v4-flash-0731",
       "enabled": true,
       "timeout": 300,
-      "calls_24h": 19
+      "calls_24h": 25
     },
     {
       "id": "mistral",
@@ -229,10 +229,82 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 473,
-    "remaining": 151
+    "consumed": 482,
+    "remaining": 142
   },
   "queue": [
+    {
+      "ts": "2026-08-21T19:54:57.067943+00:00",
+      "task": "supervise.decision",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 109.03
+    },
+    {
+      "ts": "2026-08-21T19:54:51.719641+00:00",
+      "task": "analyse.profonde",
+      "provider": "nvidia",
+      "model": "deepseek-ai/deepseek-v4-flash-0731",
+      "kind": "cloud",
+      "duration_s": 53.94
+    },
+    {
+      "ts": "2026-08-21T19:54:43.379078+00:00",
+      "task": "analyse.profonde",
+      "provider": "nvidia",
+      "model": "deepseek-ai/deepseek-v4-flash-0731",
+      "kind": "cloud",
+      "duration_s": 52.4
+    },
+    {
+      "ts": "2026-08-21T19:54:29.559488+00:00",
+      "task": "supervise.decision",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 13.92
+    },
+    {
+      "ts": "2026-08-21T19:53:55.259394+00:00",
+      "task": "analyse.profonde",
+      "provider": "nvidia",
+      "model": "deepseek-ai/deepseek-v4-flash-0731",
+      "kind": "cloud",
+      "duration_s": 35.19
+    },
+    {
+      "ts": "2026-08-21T19:53:47.061568+00:00",
+      "task": "analyse.profonde",
+      "provider": "nvidia",
+      "model": "deepseek-ai/deepseek-v4-flash-0731",
+      "kind": "cloud",
+      "duration_s": 24.2
+    },
+    {
+      "ts": "2026-08-21T19:53:19.537207+00:00",
+      "task": "analyse.profonde",
+      "provider": "nvidia",
+      "model": "deepseek-ai/deepseek-v4-flash-0731",
+      "kind": "cloud",
+      "duration_s": 77.2
+    },
+    {
+      "ts": "2026-08-21T19:53:15.227261+00:00",
+      "task": "analyse.profonde",
+      "provider": "nvidia",
+      "model": "deepseek-ai/deepseek-v4-flash-0731",
+      "kind": "cloud",
+      "duration_s": 32.01
+    },
+    {
+      "ts": "2026-08-21T19:53:14.520942+00:00",
+      "task": "supervise.decision",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 91.52
+    },
     {
       "ts": "2026-08-21T19:52:40.241233+00:00",
       "task": "analyse.profonde",
@@ -280,140 +352,68 @@
       "model": "qwen-3.8-max-free",
       "kind": "cloud",
       "duration_s": 29.65
-    },
-    {
-      "ts": "2026-08-21T19:51:12.915542+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 89.5
-    },
-    {
-      "ts": "2026-08-21T19:50:58.118608+00:00",
-      "task": "analyse.profonde",
-      "provider": "nvidia",
-      "model": "deepseek-ai/deepseek-v4-flash-0731",
-      "kind": "cloud",
-      "duration_s": 27.97
-    },
-    {
-      "ts": "2026-08-21T19:50:27.582476+00:00",
-      "task": "analyse.profonde",
-      "provider": "nvidia",
-      "model": "deepseek-ai/deepseek-v4-flash-0731",
-      "kind": "cloud",
-      "duration_s": 74.69
-    },
-    {
-      "ts": "2026-08-21T19:50:04.560619+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 74.97
-    },
-    {
-      "ts": "2026-08-21T19:49:54.640689+00:00",
-      "task": "analyse.profonde",
-      "provider": "nvidia",
-      "model": "deepseek-ai/deepseek-v4-flash-0731",
-      "kind": "cloud",
-      "duration_s": 101.53
-    },
-    {
-      "ts": "2026-08-21T19:49:10.014855+00:00",
-      "task": "analyse.profonde",
-      "provider": "nvidia",
-      "model": "deepseek-ai/deepseek-v4-flash-0731",
-      "kind": "cloud",
-      "duration_s": 99.91
-    },
-    {
-      "ts": "2026-08-21T19:48:38.009430+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 199.14
-    },
-    {
-      "ts": "2026-08-21T19:48:06.713301+00:00",
-      "task": "analyse.profonde",
-      "provider": "nvidia",
-      "model": "deepseek-ai/deepseek-v4-flash-0731",
-      "kind": "cloud",
-      "duration_s": 58.11
-    },
-    {
-      "ts": "2026-08-21T19:47:54.431383+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 76.23
     }
   ],
   "events": [
     {
-      "ts": "2026-08-21T19:52:40.240675+00:00",
+      "ts": "2026-08-21T19:54:57.068625+00:00",
+      "kind": "http",
+      "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
+      "detail": ""
+    },
+    {
+      "ts": "2026-08-21T19:54:57.067440+00:00",
+      "kind": "message",
+      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
+      "detail": "bascule"
+    },
+    {
+      "ts": "2026-08-21T19:54:51.719238+00:00",
       "kind": "message",
       "title": "« NVIDIA build.nvidia.com (100+ modeles) » a repondu",
       "detail": ""
     },
     {
-      "ts": "2026-08-21T19:52:00.051466+00:00",
+      "ts": "2026-08-21T19:54:43.378507+00:00",
       "kind": "message",
       "title": "« NVIDIA build.nvidia.com (100+ modeles) » a repondu",
       "detail": ""
     },
     {
-      "ts": "2026-08-21T19:51:58.902856+00:00",
+      "ts": "2026-08-21T19:54:29.558224+00:00",
       "kind": "message",
-      "title": "« NVIDIA build.nvidia.com (100+ modeles) » a repondu",
-      "detail": ""
+      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
+      "detail": "bascule"
     },
     {
-      "ts": "2026-08-21T19:51:43.000892+00:00",
+      "ts": "2026-08-21T19:54:15.641594+00:00",
       "kind": "failover",
       "title": "Bascule depuis Groq (LLM ultra-rapide, gratuit)",
       "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-08-21T19:51:43.000576+00:00",
+      "ts": "2026-08-21T19:54:15.641212+00:00",
       "kind": "ratelimit",
       "title": "429 Groq (LLM ultra-rapide, gratuit) -> pause 60s + bascule",
       "detail": ""
     },
     {
-      "ts": "2026-08-21T19:51:42.741337+00:00",
+      "ts": "2026-08-21T19:54:15.399380+00:00",
       "kind": "blacklist",
       "title": "Fin de pause Groq (LLM ultra-rapide, gratuit)",
       "detail": "re-essai automatique"
     },
     {
-      "ts": "2026-08-21T19:51:32.113180+00:00",
-      "kind": "message",
-      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
-      "detail": "bascule"
-    },
-    {
-      "ts": "2026-08-21T19:51:31.066330+00:00",
+      "ts": "2026-08-21T19:53:55.259038+00:00",
       "kind": "message",
       "title": "« NVIDIA build.nvidia.com (100+ modeles) » a repondu",
       "detail": ""
     },
     {
-      "ts": "2026-08-21T19:51:19.637363+00:00",
+      "ts": "2026-08-21T19:53:47.061107+00:00",
       "kind": "message",
-      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
-      "detail": "bascule"
-    },
-    {
-      "ts": "2026-08-21T19:51:12.914719+00:00",
-      "kind": "message",
-      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
-      "detail": "bascule"
+      "title": "« NVIDIA build.nvidia.com (100+ modeles) » a repondu",
+      "detail": ""
     }
   ],
   "tasks_quotas": {
