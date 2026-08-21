@@ -40,6 +40,15 @@ echo "genesis md5=$_md5"
 rm -f STOP STOP_ALPHA STOP_BETA
 
 # ============================================================
+# PURGE DUO AU DÉMARRAGE (fix 21/08) — convention base 8.5 / lanceurs NUAGE.
+# Sans ça, duo_session.json hérite du cumul du run précédent : le GLOBAL STOP
+# de session (-45$) se déclenche dès les premières pertes. Le run 72h du 20/08
+# a HALTé 2× à -47$ en ~27 min alors que le run réel était ~+1$ : il portait
+# la dette du run du 19/08 (-48,66$). C1 : genesis intact — wrapper uniquement.
+# ============================================================
+rm -f "$ROOT/runs/duo_state.json" "$ROOT/runs/duo_session.json" "$ROOT/runs/swarm_telemetry.json"
+
+# ============================================================
 # FAIL-FAST SUPERVISION (exigence famille, consultation canonique 20/08) —
 # « Ne jamais lancer le moteur si les garde-fous de surveillance ne sont pas
 # réellement actifs » (DEEPSEEK + INFERX + JUGE). C'est exactement le trou du
