@@ -9,7 +9,7 @@
 - ✅ radar
 - ⛔ lecteur signets
 - ⛔ générateur fiches
-- ✅ feed mission
+- ⛔ feed mission
 - ⛔ serveur cockpit
 
 ## Routage des tâches de décision
@@ -25,7 +25,7 @@
 - mission.json : 2026-08-21 23:47Z · run `MASTER_VORTEX_V2_COLLAB_4H` · alerte `red`
 - PnL combiné : **-5.47 $** 📉 (combo -5.4697)
 - ALPHA (sniper (embuscade, ×13, revenge si claque)) : **-7.81 $** · 3 fills · 110 skips
-- BETA (éclaireur (chatouille le marché, alimente Alpha)) : **+2.34 $** · 6 fills · 96 skips
+- BETA (éclaireur (chatouille le marché, alimente Alpha)) : **+2.34 $** · 6 fills · 98 skips
 - HULK (gestionnaire de portefeuille (bag, escalier, courreur)) : **+1.10 $** · 0 fills
 - Saison : CALME 🧊 · 
 
@@ -41,15 +41,15 @@
   · dots-studio/dots-3-note-preview:free
   · liquid/lfm-2.5-2.6b:free
   · thinkingmachines/inkling-small:free
-  … 108 offres/pépites détectées ce matin
+  … 106 offres/pépites détectées ce matin
 
 ## Mémoire chaude (journal + résumés)
 
 - Radar (dernières alertes) :
-  · 2026-08-21T23:47:18.372503Z ETHUSDT 2520.03 0.0001 10.4 declenche=non
-  · 2026-08-21T23:47:18.372656Z ETHUSDT 2520.02 0.0001 10.4 declenche=non
-  · 2026-08-21T23:47:18.372797Z ETHUSDT 2520.0 0.0001 10.4 declenche=non
-  · 2026-08-21T23:47:18.373092Z ETHUSDT 2519.99 0.0001 10.4 declenche=non
+  · 2026-08-21T23:47:38.942329Z ETHUSDT 2517.92 0.0007 53.1 declenche=non
+  · 2026-08-21T23:47:39.022806Z BTCUSDT 78252.14 0.0003 4.2 declenche=non
+  · 2026-08-21T23:47:39.061686Z BTCUSDT 78252.14 0.0003 4.2 declenche=non
+  · 2026-08-21T23:47:39.368512Z ETHUSDT 2517.91 0.0007 55.1 declenche=non
 - Intention en cours : BETA a sonde le marche (6 sondes, 4 long / 2 court, conf moy | ALPHA attend son moment : 99 skips (discipline), le mur du c | ALPHA a frappe 3 fois en embuscade (13x) (dont 2 en mode rev
 - 500 signets X résumés (quota aujourd'hui : 50/50)
 - 56 fiches IA d'offres en cache (quota 8/jour)
