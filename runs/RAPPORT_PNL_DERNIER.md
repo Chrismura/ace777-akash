@@ -1,9 +1,9 @@
 # RAPPORT PNL AUTO — MASTER_VORTEX_V2_COLLAB_4H
 
 **Session:** `MASTER_VORTEX_V2_COLLAB_4H`
-**Période:** 2026-08-21T19:45:36Z → 2026-08-21T23:21:25Z (3h35m)
+**Période:** 2026-08-21T19:45:36Z → 2026-08-21T23:21:47Z (3h36m)
 **Setup:** `vide_froid_vortex_v2_collab` v`2026-07-10-v2.2.2-no-partner-halt` | BETA `200` USDT | ALPHA `800` USDT | LLM gate `TRUE` fail_closed=`TRUE`
-**Généré:** 2026-08-21T23:21:36Z UTC
+**Généré:** 2026-08-21T23:22:03Z UTC
 **Filtre session:** `ts >= 2026-08-21T19:44:48Z` (lignes CSV antérieures exclues)
 
 ---
@@ -13,8 +13,8 @@
 | Métrique | Valeur |
 |----------|--------|
 | **PNL BETA** | **-16.4899 USDT** |
-| **PNL ALPHA** | **+37.4136 USDT** |
-| **PNL SESSION TOTAL** | **+20.9237 USDT** |
+| **PNL ALPHA** | **+38.5450 USDT** |
+| **PNL SESSION TOTAL** | **+22.0551 USDT** |
 | Statut | `POSITIF` |
 
 ---
@@ -62,20 +62,20 @@
 
 | Métrique | Valeur |
 |----------|--------|
-| Trades FILLED | 39 |
-| Gagnants | 27 |
+| Trades FILLED | 40 |
+| Gagnants | 28 |
 | Perdants | 12 |
 | Flat (0) | 0 |
-| Win rate | **69.2%** |
-| Gains totaux | +59.4501 USDT |
+| Win rate | **70.0%** |
+| Gains totaux | +60.5814 USDT |
 | Pertes totales | -22.0365 USDT |
-| **PNL net** | **+37.4136 USDT** |
-| BPS moyen | 8.53 |
+| **PNL net** | **+38.5450 USDT** |
+| BPS moyen | 8.74 |
 
 **Meilleur trade:** +6.5480 USDT
 **Pire trade:** -6.2272 USDT
 
-**Direction:** BUY (39)
+**Direction:** BUY (40)
 
 **Raisons de sortie (exitReason):**
 | Raison | Nb |
@@ -101,9 +101,9 @@
 
 | Indicateur | BETA | ALPHA | TOTAL |
 |------------|------|-------|-------|
-| Trades | 64 | 39 | 103 |
-| PnL | -16.4899 | +37.4136 | **+20.9237** |
-| Win rate | 39.1% | 69.2% | 50.5% |
+| Trades | 64 | 40 | 104 |
+| PnL | -16.4899 | +38.5450 | **+22.0551** |
+| Win rate | 39.1% | 70.0% | 51.0% |
 
 ## IRM — régimes de tension (proxy, lecture seule)
 

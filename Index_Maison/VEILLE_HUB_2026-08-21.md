@@ -96,9 +96,10 @@
 - awesome-freellm-apis: | Mistral AI | `https://api.mistral.ai/v1` | Get Key → | No |
 
 ### huggingface récents
-- Echoo113/deepseek-llm-7b-chat-dragon_mlpB-STEER0.584375-ft4.44
 - Miiche/visualrl-base-qwen3vl4b
 - SamMikaelson/Llama-3.2-3B-APIGEN-Local
+- Avifenesh/Qwen3.8-27B-NVFP4-MTP-GGUF
+- Echoo113/deepseek-llm-7b-chat-dragon_mlpB-STEER0.584375-ft4.44
 
 ### huggingface trending (montée)
 - Qwen/Qwen3.8-27B

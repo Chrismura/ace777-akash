@@ -1,13 +1,13 @@
 # DIAGNOSTIC ALPHA — MASTER_VORTEX_V2_COLLAB_4H
 
-> Généré: `2026-08-21T23:21:35Z` | Verdict: **OK — ALPHA active**
+> Généré: `2026-08-21T23:22:04Z` | Verdict: **OK — ALPHA active**
 
 ## Résumé
 
 | Métrique | ALPHA | BETA (référence) |
 |----------|-------|------------------|
-| FILLED | 39 | 64 |
-| PnL net | 37.4136 USDT | -16.4899 USDT |
+| FILLED | 40 | 64 |
+| PnL net | 38.5450 USDT | -16.4899 USDT |
 | SKIP total | 1132 | 1149 |
 | duo_wait | 39 (3.4% des SKIP ALPHA) | 0 |
 

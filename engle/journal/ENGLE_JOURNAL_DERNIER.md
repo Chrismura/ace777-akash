@@ -1,8 +1,8 @@
 # JOURNAL ENGLE — MASTER_VORTEX_V2_COLLAB_4H
 
-- Généré: `2026-08-21T23:21:31Z` (UTC)
+- Généré: `2026-08-21T23:22:01Z` (UTC)
 - Couche: **B1** (lecture seule) · `ENGLE_ADAPT=0`
-- Session start (filtre): `2026-08-21T19:44:53Z`
+- Session start (filtre): `2026-08-21T19:44:48Z`
 - CSV: `MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv` · `MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv`
 - Base: usine V2.2.1 + champion 37fca367 — **non modifié**
 
@@ -27,8 +27,8 @@
 | Unité | Cycles | Fills | Skips | PnL fills (USDT) | Fenêtre |
 |-------|--------|-------|-------|------------------|---------|
 | BETA | 1217 | 64 | 1149 | -16.4899 | `2026-08-21T19:45:49Z` → `2026-08-21T23:21:25Z` |
-| ALPHA | 1171 | 39 | 1132 | +37.4136 | `2026-08-21T19:45:36Z` → `2026-08-21T23:21:20Z` |
-| **TOTAL** | | 103 | | **+20.9237** | |
+| ALPHA | 1172 | 40 | 1132 | +38.5450 | `2026-08-21T19:45:36Z` → `2026-08-21T23:21:47Z` |
+| **TOTAL** | | 104 | | **+22.0551** | |
 
 ## SKIP BETA (top)
 

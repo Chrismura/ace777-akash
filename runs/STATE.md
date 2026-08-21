@@ -1,7 +1,7 @@
 # ACE777 — STATE
 
 > Généré automatiquement — ne pas éditer à la main
-> Phase: `ended` | Statut: `ENDED` | MAJ: `2026-08-21T23:21:34Z`
+> Phase: `ended` | Statut: `ENDED` | MAJ: `2026-08-21T23:21:57Z`
 
 ## Config active
 
@@ -18,14 +18,14 @@
 | Unité | FILLED | Win | Loss | Win% | Net USDT | SKIP |
 |-------|--------|-----|------|------|----------|------|
 | BETA | 64 | 25 | 39 | 39.1% | -16.4899 | 1149 |
-| ALPHA | 39 | 27 | 12 | 69.2% | 37.4136 | 1132 |
-| **TOTAL** | **103** | — | — | — | **20.9237** | **2281** |
+| ALPHA | 40 | 28 | 12 | 70.0% | 38.5450 | 1132 |
+| **TOTAL** | **104** | — | — | — | **22.0551** | **2281** |
 
 ## Duo session (`duo_session.json`)
 
 - SCOUT PnL: `-48.31144918999999` USDT
-- HUNTER PnL: `3.191367180000003` USDT
-- Total session: `-45.12008200999999` USDT
+- HUNTER PnL: `3.788743100000003` USDT
+- Total session: `-44.522706089999986` USDT
 
 ## Duo live (`duo_state.json`)
 
