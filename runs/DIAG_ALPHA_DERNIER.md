@@ -1,26 +1,31 @@
 # DIAGNOSTIC ALPHA — MASTER_VORTEX_V2_COLLAB_4H
 
-> Généré: `2026-08-21T19:44:30Z` | Verdict: **CRITIQUE — ALPHA n'a exécuté aucun trade**
+> Généré: `2026-08-21T23:21:35Z` | Verdict: **OK — ALPHA active**
 
 ## Résumé
 
 | Métrique | ALPHA | BETA (référence) |
 |----------|-------|------------------|
-| FILLED | 0 | 0 |
-| PnL net | 0.0000 USDT | 0.0000 USDT |
-| SKIP total | 2 | 17 |
-| duo_wait | 1 (50.0% des SKIP ALPHA) | 0 |
+| FILLED | 39 | 64 |
+| PnL net | 37.4136 USDT | -16.4899 USDT |
+| SKIP total | 1132 | 1149 |
+| duo_wait | 39 (3.4% des SKIP ALPHA) | 0 |
 
 ## Entonnoir des gates — ALPHA
 
 Ordre dans `genesis_manifest.txt` : radar → tension/vacuum → tactic → stase → **duo** → qty → llm_gate → execute
 
-- `stase_ecoute` — **1**
-- `duo_wait` — **1**
+- `gap_guard_pause` — **779**
+- `regime_gate` — **176**
+- `impulse_resonance_wait` — **66**
+- `duo_wait` — **39**
+- `tactic_mismatch` — **31**
+- `radar_block` — **26**
+- `stase_ecoute` — **15**
 
 ## duo_wait — sous-raisons (cause #2 après radar)
 
-- `unknown` — **1** (100.0% des duo_wait)
+- `unknown` — **39** (100.0% des duo_wait)
 
 ### Lecture technique
 
@@ -38,6 +43,11 @@ Ordre dans `genesis_manifest.txt` : radar → tension/vacuum → tactic → stas
 Revenge autorisé au-delà de `stop_loss` (shock / fluid / sentinel).
 Sorties BETA observées :
 
+- `0.39661524` — 3 trades
+- `0.39451406` — 2 trades
+- `1.28966878` — 2 trades
+- `0.39472742` — 1 trades
+- `0.39454822` — 1 trades
 
 - Sorties `shock_inversion_stop` : **0**
 - Sorties `stop_loss` : **0**
@@ -48,9 +58,9 @@ Sorties BETA observées :
 Quand le SCOUT ne rafraîchit pas `duo_state.json` dans les 60s, le HUNTER skip avec `stale_state`.
 Observé : **0** fois (0.0% des duo_wait).
 
-### 3. radar_block en amont (0 SKIP)
+### 3. radar_block en amont (26 SKIP)
 
-Même si le duo était parfait, 0.0% des cycles ALPHA meurent au radar avant d'atteindre le HUNTER.
+Même si le duo était parfait, 2.3% des cycles ALPHA meurent au radar avant d'atteindre le HUNTER.
 
 ## Paramètres duo actifs (config)
 
