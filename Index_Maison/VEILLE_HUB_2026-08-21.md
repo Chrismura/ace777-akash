@@ -4,9 +4,9 @@
 - hub : OK (14 providers)
 
 ## Énergie du jour
-- appels : 652 (cloud 652)
+- appels : 655 (cloud 655)
 - budget cloud : 624 max
-- par provider : gemini=243, groq=35, mistral=3, nara=305, nvidia=63, openrouter-free=2, openrouter-juge=1
+- par provider : gemini=243, groq=35, mistral=3, nara=307, nvidia=64, openrouter-free=2, openrouter-juge=1
 
 ## Nouvelles offres détectées (non intégrées)
 
@@ -96,9 +96,10 @@
 - awesome-freellm-apis: | Mistral AI | `https://api.mistral.ai/v1` | Get Key → | No |
 
 ### huggingface récents
-- ermiaazarkhalili/Qwen3.8-2B-SFT-Fable5-Glint-LoRA
-- ermiaazarkhalili/Qwen3.8-2B-SFT-Fable5-Glint
+- Miiche/visualrl-base-qwen3vl4b
+- Echoo113/Llama-3.2-3B-Instruct-dragon-STEER0.213281-ft4.43
 - jssaluja/nemotron35-punjabi-cer-train-113953-epochs-10-test-1408
+- Echoo113/Olmo-3-7B-Instruct-dragon_prompted-ft4.43
 
 ### huggingface trending (montée)
 - Qwen/Qwen3.8-27B
@@ -118,6 +119,7 @@
 - deepseek-ai/DeepSeek-V4-Pro-0813
 
 ### github search (nouveaux lieux)
+- jsLavender/trader-goblins | An AI investment-research data platform: point-in-time/leak-free desig
 - saksham10arora-dotcom/lmex | The LLM Latency Exchange. Free-tier LLM APIs trade as tickers, price i
 - api-evangelist/freeplay | Freeplay is an LLM product experimentation, evaluation, and observabil
 - api-evangelist/evals | Evals — A landscape catalog of the platforms, frameworks, libraries, a
@@ -127,7 +129,6 @@
 - shayeeboy/Enterprise-RAG-Assistant | AI-Native Piano Learning RAG Assistant - live & free (GitHub Pages -> 
 - DhruvProgrammer/aether-code | aether is a free, open-source AI coding agent for any OpenAI-compatibl
 - checkerup/keytester | LLM API Key Tester with chat UI — test API keys via chat with streamin
-- cheesejaguar/free-ai-stuff | Automatically tracks current offers for LLM API, ChatBot or Agentic ac
 
 ### rss (simonwillison/latent/batch)
 - simonwillison.net: A shot-scraper-style JSON API on Bun 1.4's new Bun.WebView
@@ -139,5 +140,3 @@
 - www.latent.space: <![CDATA[[AINews] Qwen 3.8 Max(2.4T) and 27B, new open weights models for Coding and Cowork]]>
 - feeds.feedburner.com: ERR: rss HTTP Error 404: Not Found
 _généré par veille_hub.py — étapes suivantes en launchd décalé : eval 9h30 · catalogue 10h · propositions 10h30 · observatoire 11h._
-## ROLLBACK AUTO 2026-08-21
-- obs-1786774667 (nvidia/nemotron-3.5-lightning:free) : 100% erreurs > 5% (observatoire)
