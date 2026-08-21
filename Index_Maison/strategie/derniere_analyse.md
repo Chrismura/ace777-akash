@@ -1,10 +1,10 @@
-# ANALYSE — 2026-08-21T23:07:07.348366Z (alerte)
+# ANALYSE — 2026-08-21T23:09:44.243009Z (alerte)
 
-[UNDERSTAND] La maison ACE777 maintient son alerte rouge face à la tension structurelle du capital global (-337,84 $), en dépit d'un PnL combiné positif à +23,44 $ porté par l'efficacité d'Alpha (+37,39 $) et les reconnaissances tactiques de Beta (-13,95 $).
+[UNDERSTAND] La maison ACE777 maintient son alerte rouge face à la tension structurelle du capital global (-337,66 $), malgré un PnL combiné positif à +23,32 $ porté par la précision chirurgicale d'Alpha (+37,39 $) et les reconnaissances tactiques de Beta.
 [ANALYZE]
-- Tendance : Marché en phase d'accumulation active, soutenu par une Bitcoin season solide (Fear & Greed à 72, "Greed") et des flux ETF BTC positifs (+1007,13 M$).
-- Momentum : Alpha confirme sa maîtrise en embuscade (38 fills, +37,39 $ après 1036 skips), Beta assure la reconnaissance tactique (62 fills, 1106 skips), et Hulk pilote ses 15 positions seeds (+0,79 $) avec une vigilance sur CCUSDT et RIZEUSDT.
-- Risque : Persistance de la tension sur le capital global de la maison (-337,84 $) malgré un PnL de session positif, couplée à la nervosité des carnets et aux alertes macroéconomiques sur le taux d'intérêt japonais (Axios).
+- Tendance : Marché en phase d'accumulation active, soutenu par une Bitcoin season solide (Fear & Greed à 72, "Greed") et des flux ETF BTC positifs (+1007,63 M$).
+- Momentum : Alpha confirme sa maîtrise en embuscade (38 fills, +37,39 $ après 1058 skips), Beta assure la reconnaissance tactique (63 fills, 1109 skips), et Hulk pilote ses 15 positions seeds (+1,10 $) avec une vigilance maintenue.
+- Risque : Persistance de la tension sur le capital global de la maison (-337,66 $) en dépit d'un PnL de session positif, couplée à la nervosité des carnets et aux alertes macroéconomiques sur le taux d'intérêt japonais.
 - Contexte : Surveillance rapprochée des carnets d'ordres sur fond d'activité on-chain modérée (indice 30.0) et de flux de news macro.
 [STRATEGIZE]
 1. Maintenir Alpha en embuscade stricte (x13, revenge si claque) pour capitaliser sur les ruptures de carnets signalées par Beta.
