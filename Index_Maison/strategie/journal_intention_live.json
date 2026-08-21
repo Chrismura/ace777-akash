@@ -1,12 +1,12 @@
 {
-  "ts": "2026-08-21T19:50:55.983211+00:00",
+  "ts": "2026-08-21T19:51:06.556389+00:00",
   "since": "2026-08-21T19:44:00Z",
   "bots": {
     "alpha": {
       "role": "sniper",
       "surnom": "Le Sniper",
       "fills": 0,
-      "skips": 9,
+      "skips": 10,
       "pnl": 0.0,
       "best": 0.0,
       "conf_moy": 0.0,
@@ -205,13 +205,28 @@
             "tension": 5.789e-05
           },
           "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv"
+        },
+        {
+          "ts": "2026-08-21T19:50:57Z",
+          "bot": "alpha",
+          "cycle": 10,
+          "action": "skip",
+          "intention": "skip — tactic_mismatch",
+          "direction": null,
+          "conf": null,
+          "exit": "tactic_mismatch",
+          "meta": {
+            "size_note": null,
+            "tension": null
+          },
+          "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv"
         }
       ],
       "counts": {
         "wait": 4,
         "fire": 0,
         "probe": 0,
-        "skip": 9
+        "skip": 10
       },
       "direction": {
         "long": 0,
@@ -222,11 +237,11 @@
     "beta": {
       "role": "eclaireur",
       "surnom": "L'Eclaireur",
-      "fills": 0,
+      "fills": 1,
       "skips": 2,
-      "pnl": 0.0,
+      "pnl": -1.10979,
       "best": 0.0,
-      "conf_moy": 0.0,
+      "conf_moy": 0.8731,
       "events": [
         {
           "ts": "2026-08-21T19:44:07Z",
@@ -272,23 +287,38 @@
             "tension": 0.48627522
           },
           "file": "MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv"
+        },
+        {
+          "ts": "2026-08-21T19:51:00Z",
+          "bot": "beta",
+          "cycle": 1,
+          "action": "probe",
+          "intention": "a sonde le marche",
+          "direction": "short",
+          "conf": 0.8731,
+          "exit": "1.28966878",
+          "meta": {
+            "size_note": "strong_conf_full+aspiration_1.618x+entry_25_75_full",
+            "tension": 1.27301792
+          },
+          "file": "MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv"
         }
       ],
       "counts": {
         "wait": 1,
         "fire": 0,
-        "probe": 0,
+        "probe": 1,
         "skip": 2
       },
       "direction": {
         "long": 0,
-        "short": 0
+        "short": 1
       },
       "revenge": 0
     }
   },
   "story": [
-    "BETA veille — pas encore de sonde sur la session en cours.",
+    "BETA a sonde le marche (1 sondes, 0 long / 1 court, conf moyenne 0.87) — il renseigne Alpha.",
     "ALPHA attend son signal — aucun tir sur la session en cours."
   ]
 }

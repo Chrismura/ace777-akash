@@ -4,9 +4,9 @@
 - hub : OK (14 providers)
 
 ## Énergie du jour
-- appels : 465 (cloud 465)
+- appels : 468 (cloud 468)
 - budget cloud : 624 max
-- par provider : gemini=147, groq=35, mistral=3, nara=263, nvidia=14, openrouter-free=2, openrouter-juge=1
+- par provider : gemini=147, groq=35, mistral=3, nara=265, nvidia=15, openrouter-free=2, openrouter-juge=1
 
 ## Nouvelles offres détectées (non intégrées)
 
@@ -97,6 +97,7 @@
 
 ### huggingface récents
 - Miiche/visualrl-base-qwen3vl4b
+- geonmin-kim/MolmoAct2-SO101-Mdrift_pool3x3-Dwework_dirall-step10000
 - SamMikaelson/Llama-3.2-3B-APIGEN-Local
 
 ### huggingface trending (montée)
