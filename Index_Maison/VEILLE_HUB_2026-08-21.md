@@ -96,9 +96,9 @@
 - awesome-freellm-apis: | Mistral AI | `https://api.mistral.ai/v1` | Get Key → | No |
 
 ### huggingface récents
+- Echoo113/Qwen3.5-4B-immigration-STEER0.198438-ft4.44
 - jssaluja/nemotron35-punjabi-cer-train-113953-epochs-10-test-1408
 - Miiche/visualrl-base-qwen3vl4b
-- rap-llama2-70b/TAIDE-Llama2-70B-Chat
 
 ### huggingface trending (montée)
 - Qwen/Qwen3.8-27B
@@ -140,3 +140,5 @@
 - www.latent.space: <![CDATA[[AINews] Qwen 3.8 Max(2.4T) and 27B, new open weights models for Coding and Cowork]]>
 - feeds.feedburner.com: ERR: rss HTTP Error 404: Not Found
 _généré par veille_hub.py — étapes suivantes en launchd décalé : eval 9h30 · catalogue 10h · propositions 10h30 · observatoire 11h._
+## ROLLBACK AUTO 2026-08-21
+- obs-1787033767 (google/diffusiongemma-26b-a4b-it) : 96% erreurs > 5% (observatoire)
