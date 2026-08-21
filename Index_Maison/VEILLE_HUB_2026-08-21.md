@@ -96,8 +96,8 @@
 - awesome-freellm-apis: | Mistral AI | `https://api.mistral.ai/v1` | Get Key → | No |
 
 ### huggingface récents
-- Miiche/visualrl-base-qwen3vl4b
 - jssaluja/nemotron35-punjabi-cer-train-113953-epochs-10-test-1408
+- Miiche/visualrl-base-qwen3vl4b
 - Echoo113/deepseek-llm-7b-chat-dragon-STEER0.584375-ft4.44
 - 0xWhiteMage/Qwen3.8-27B-Kearuga-DFlash2-FP8-E4M3
 
@@ -141,5 +141,3 @@
 - www.latent.space: <![CDATA[[AINews] Qwen 3.8 Max(2.4T) and 27B, new open weights models for Coding and Cowork]]>
 - feeds.feedburner.com: ERR: rss HTTP Error 404: Not Found
 _généré par veille_hub.py — étapes suivantes en launchd décalé : eval 9h30 · catalogue 10h · propositions 10h30 · observatoire 11h._
-## ROLLBACK AUTO 2026-08-21
-- obs-1786795252 (nvidia/nemotron-3.5-content-safety:free) : 100% erreurs > 5% (observatoire)
