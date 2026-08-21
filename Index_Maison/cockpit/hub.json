@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-21T19:43:11.246557+00:00",
+  "generated_at": "2026-08-21T19:45:13.662714+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -26,7 +26,7 @@
       "model": "qwen-3.8-max-free",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 255
+      "calls_24h": 258
     },
     {
       "id": "groq",
@@ -35,7 +35,7 @@
       "model": "groq/compound",
       "enabled": true,
       "timeout": 120,
-      "calls_24h": 38
+      "calls_24h": 39
     },
     {
       "id": "nvidia",
@@ -168,7 +168,7 @@
       "name": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
       "kind": "llm",
       "model": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
-      "enabled": true,
+      "enabled": false,
       "timeout": 30,
       "calls_24h": 0
     },
@@ -177,7 +177,7 @@
       "name": "nvidia/nemotron-3.5-lightning:free",
       "kind": "llm",
       "model": "nvidia/nemotron-3.5-lightning:free",
-      "enabled": true,
+      "enabled": false,
       "timeout": 30,
       "calls_24h": 0
     },
@@ -229,10 +229,42 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 446,
-    "remaining": 178
+    "consumed": 450,
+    "remaining": 174
   },
   "queue": [
+    {
+      "ts": "2026-08-21T19:44:58.217923+00:00",
+      "task": "supervise.decision",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 12.19
+    },
+    {
+      "ts": "2026-08-21T19:44:47.241890+00:00",
+      "task": "supervise.decision",
+      "provider": "groq",
+      "model": "groq/compound",
+      "kind": "cloud",
+      "duration_s": 4.17
+    },
+    {
+      "ts": "2026-08-21T19:43:42.480192+00:00",
+      "task": "supervise.decision",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 82.33
+    },
+    {
+      "ts": "2026-08-21T19:43:18.229374+00:00",
+      "task": "supervise.decision",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 87.3
+    },
     {
       "ts": "2026-08-21T19:42:30.188720+00:00",
       "task": "analyse.profonde",
@@ -320,100 +352,68 @@
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
       "duration_s": 1.62
-    },
-    {
-      "ts": "2026-08-21T19:39:01.295248+00:00",
-      "task": "analyste.strategie",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 1.76
-    },
-    {
-      "ts": "2026-08-21T19:38:59.510469+00:00",
-      "task": "analyste.strategie",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 1.43
-    },
-    {
-      "ts": "2026-08-21T19:38:58.062433+00:00",
-      "task": "analyste.strategie",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 1.39
-    },
-    {
-      "ts": "2026-08-21T19:38:56.644104+00:00",
-      "task": "analyste.strategie",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 1.62
     }
   ],
   "events": [
     {
-      "ts": "2026-08-21T19:42:30.188183+00:00",
-      "kind": "message",
-      "title": "« NVIDIA build.nvidia.com (100+ modeles) » a repondu",
-      "detail": ""
-    },
-    {
-      "ts": "2026-08-21T19:42:20.147993+00:00",
-      "kind": "failover",
-      "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
-      "detail": "0 attente"
-    },
-    {
-      "ts": "2026-08-21T19:42:08.688740+00:00",
-      "kind": "message",
-      "title": "« NVIDIA build.nvidia.com (100+ modeles) » a repondu",
-      "detail": ""
-    },
-    {
-      "ts": "2026-08-21T19:41:50.927298+00:00",
+      "ts": "2026-08-21T19:45:04.931002+00:00",
       "kind": "failover",
       "title": "Bascule depuis Groq (LLM ultra-rapide, gratuit)",
       "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-08-21T19:41:50.927003+00:00",
+      "ts": "2026-08-21T19:45:04.930350+00:00",
       "kind": "ratelimit",
       "title": "429 Groq (LLM ultra-rapide, gratuit) -> pause 60s + bascule",
       "detail": ""
     },
     {
-      "ts": "2026-08-21T19:41:46.219258+00:00",
-      "kind": "blacklist",
-      "title": "Fin de pause Groq (LLM ultra-rapide, gratuit)",
-      "detail": "re-essai automatique"
-    },
-    {
-      "ts": "2026-08-21T19:41:33.857910+00:00",
-      "kind": "message",
-      "title": "« Google Gemini » a repondu",
-      "detail": ""
-    },
-    {
-      "ts": "2026-08-21T19:41:17.109809+00:00",
+      "ts": "2026-08-21T19:44:58.217307+00:00",
       "kind": "message",
       "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
       "detail": "bascule"
     },
     {
-      "ts": "2026-08-21T19:41:06.100509+00:00",
+      "ts": "2026-08-21T19:44:47.241568+00:00",
+      "kind": "message",
+      "title": "« Groq (LLM ultra-rapide, gratuit) » a repondu",
+      "detail": ""
+    },
+    {
+      "ts": "2026-08-21T19:44:46.023742+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis Groq (LLM ultra-rapide, gratuit)",
+      "detail": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "ts": "2026-08-21T19:44:46.023070+00:00",
+      "kind": "ratelimit",
+      "title": "429 Groq (LLM ultra-rapide, gratuit) -> pause 60s + bascule",
+      "detail": ""
+    },
+    {
+      "ts": "2026-08-21T19:43:59.196872+00:00",
       "kind": "http",
       "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
       "detail": ""
     },
     {
-      "ts": "2026-08-21T19:41:06.099852+00:00",
-      "kind": "message",
-      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
-      "detail": "bascule"
+      "ts": "2026-08-21T19:43:59.196770+00:00",
+      "kind": "error",
+      "title": "Toutes les IA ont echoue",
+      "detail": "NVIDIA build.nvidia.com (100+ modeles): reseau KO [Errno 8] nodename nor servname provided, or not known"
+    },
+    {
+      "ts": "2026-08-21T19:43:59.196690+00:00",
+      "kind": "failover",
+      "title": "Reseau KO (bascule immediate) depuis NVIDIA build.nvidia.com (100+ modeles)",
+      "detail": "[Errno 8] nodename nor servname provided, or not known"
+    },
+    {
+      "ts": "2026-08-21T19:43:59.196559+00:00",
+      "kind": "network",
+      "title": "Reseau indisponible: NVIDIA build.nvidia.com (100+ modeles)",
+      "detail": "[Errno 8] nodename nor servname provided, or not known"
     }
   ],
   "tasks_quotas": {
@@ -539,6 +539,6 @@
   },
   "health": {
     "status": "ok",
-    "providers": 16
+    "providers": 14
   }
 }

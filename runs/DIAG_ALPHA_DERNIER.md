@@ -1,31 +1,26 @@
 # DIAGNOSTIC ALPHA — MASTER_VORTEX_V2_COLLAB_4H
 
-> Généré: `2026-08-21T17:48:47Z` | Verdict: **OK — ALPHA active**
+> Généré: `2026-08-21T19:44:30Z` | Verdict: **CRITIQUE — ALPHA n'a exécuté aucun trade**
 
 ## Résumé
 
 | Métrique | ALPHA | BETA (référence) |
 |----------|-------|------------------|
-| FILLED | 28 | 43 |
-| PnL net | 10.6060 USDT | 7.7126 USDT |
-| SKIP total | 1677 | 1867 |
-| duo_wait | 99 (5.9% des SKIP ALPHA) | 0 |
+| FILLED | 0 | 0 |
+| PnL net | 0.0000 USDT | 0.0000 USDT |
+| SKIP total | 2 | 17 |
+| duo_wait | 1 (50.0% des SKIP ALPHA) | 0 |
 
 ## Entonnoir des gates — ALPHA
 
 Ordre dans `genesis_manifest.txt` : radar → tension/vacuum → tactic → stase → **duo** → qty → llm_gate → execute
 
-- `gap_guard_pause` — **956**
-- `regime_gate` — **467**
-- `duo_wait` — **99**
-- `impulse_resonance_wait` — **93**
-- `radar_block` — **30**
-- `tactic_mismatch` — **26**
-- `stase_ecoute` — **6**
+- `stase_ecoute` — **1**
+- `duo_wait` — **1**
 
 ## duo_wait — sous-raisons (cause #2 après radar)
 
-- `unknown` — **99** (100.0% des duo_wait)
+- `unknown` — **1** (100.0% des duo_wait)
 
 ### Lecture technique
 
@@ -43,11 +38,6 @@ Ordre dans `genesis_manifest.txt` : radar → tension/vacuum → tactic → stas
 Revenge autorisé au-delà de `stop_loss` (shock / fluid / sentinel).
 Sorties BETA observées :
 
-- `0.39424000` — 2 trades
-- `0.39776358` — 2 trades
-- `0.39566182` — 1 trades
-- `0.39464397` — 1 trades
-- `0.27684000` — 1 trades
 
 - Sorties `shock_inversion_stop` : **0**
 - Sorties `stop_loss` : **0**
@@ -58,9 +48,9 @@ Sorties BETA observées :
 Quand le SCOUT ne rafraîchit pas `duo_state.json` dans les 60s, le HUNTER skip avec `stale_state`.
 Observé : **0** fois (0.0% des duo_wait).
 
-### 3. radar_block en amont (30 SKIP)
+### 3. radar_block en amont (0 SKIP)
 
-Même si le duo était parfait, 1.8% des cycles ALPHA meurent au radar avant d'atteindre le HUNTER.
+Même si le duo était parfait, 0.0% des cycles ALPHA meurent au radar avant d'atteindre le HUNTER.
 
 ## Paramètres duo actifs (config)
 

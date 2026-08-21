@@ -1,12 +1,12 @@
 # VEILLE HUB — 2026-08-21
 
 ## Santé
-- hub : OK (16 providers)
+- hub : OK (14 providers)
 
 ## Énergie du jour
-- appels : 439 (cloud 439)
+- appels : 452 (cloud 452)
 - budget cloud : 624 max
-- par provider : gemini=145, groq=32, mistral=3, nara=253, nvidia=3, openrouter-free=2, openrouter-juge=1
+- par provider : gemini=146, groq=35, mistral=3, nara=259, nvidia=6, openrouter-free=2, openrouter-juge=1
 
 ## Nouvelles offres détectées (non intégrées)
 
@@ -96,6 +96,7 @@
 - awesome-freellm-apis: | Mistral AI | `https://api.mistral.ai/v1` | Get Key → | No |
 
 ### huggingface récents
+- vinccniv/sa8797p-qwen3vl-4b-bundles
 - Miiche/visualrl-base-qwen3vl4b
 
 ### huggingface trending (montée)
@@ -107,8 +108,8 @@
 - JonathanColetti/Qwen3.8-27B-Uncensored-GGUF
 - Lightricks/LTX-2.5
 - OBLITERATUS/Qwen3.8-27B-OBLITERATED
-- Qwen/Qwen3.8-27B-FP8
 - HauhauCS/Qwen3.8-27B-Uncensored-HauhauCS-Aggressive-MTP-GGUF
+- Qwen/Qwen3.8-27B-FP8
 - MiniMaxAI/MiniMax-H3
 - ornith-ai/Ornith-1.5-35B-A3B
 - froggeric/Qwen-Fixed-Chat-Templates
@@ -137,5 +138,3 @@
 - www.latent.space: <![CDATA[[AINews] Qwen 3.8 Max(2.4T) and 27B, new open weights models for Coding and Cowork]]>
 - feeds.feedburner.com: ERR: rss HTTP Error 404: Not Found
 _généré par veille_hub.py — étapes suivantes en launchd décalé : eval 9h30 · catalogue 10h · propositions 10h30 · observatoire 11h._
-## ROLLBACK AUTO 2026-08-21
-- obs-1787033767 (google/diffusiongemma-26b-a4b-it) : 100% erreurs > 5% (observatoire)
