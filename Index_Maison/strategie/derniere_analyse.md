@@ -1,15 +1,15 @@
-# ANALYSE — 2026-08-21T20:10:34.041545Z (alerte)
+# ANALYSE — 2026-08-21T20:21:56.135860Z (alerte)
 
-[UNDERSTAND] La maison ACE777 maintient son alerte rouge face à la tension structurelle persistante sur le capital global, malgré une Bitcoin season confirmée et un essaim coordonné.
+[UNDERSTAND] La maison ACE777 maintient son alerte rouge face à la tension structurelle persistante sur le capital global (-363,90 $), en dépit d'une Bitcoin season soutenue et d'un essaim coordonné affichant un PnL combiné légèrement négatif (-2,47 $).
 [ANALYZE]
-- Tendance : Bitcoin season confirmée, soutenue par un score Fear & Greed à 72 (Greed) et des flux ETF BTC positifs (+990,34 M$).
-- Momentum : PnL combiné légèrement négatif (-1,47 $) avec un essaim coordonné (Alpha en embuscade stricte avec 113 skips, Beta en éclaireur court et Hulk pilotant ses 15 positions seeds).
-- Risque : Tension structurelle sur le capital global (-362,90 $) couplée à une exposition exigeante sur certaines positions seeds de Hulk (ex. TEL, EDEL).
-- Contexte : Exécution disciplinée des sous-systèmes et surveillance active des sursauts de volume (BTCUSDT à 77,288.63 $ avec volume x3).
+- Tendance : Bitcoin season confirmée avec un Fear & Greed à 72 (Greed), un Market Cap global à 2,61 T$ et des flux ETF BTC positifs (+993,76 M$).
+- Momentum : Essaim actif mais sous tension avec Alpha en embuscade stricte (+1,92 $ sur 7 fills et 156 skips), Beta en éclaireur court (-4,40 $ sur 10 fills) et Hulk pilotant 15 positions seeds globalement sous contrôle (+0,64 $).
+- Risque : Tension structurelle sur le capital global de la maison (-363,90 $) et exposition exigeante sur certaines positions seeds de Hulk en territoire négatif (ex. TEL, EDEL).
+- Contexte : Exécution disciplinée des sous-systèmes et surveillance active des sursauts de volume (ETHUSDT à 2436,25 $ avec volume x3).
 [STRATEGIZE]
-1. Maintenir Alpha en embuscade stricte pour exploiter les opportunités de carnet sans précipitation.
-2. Poursuivre le pilotage resserré et l'arbitrage rigoureux des positions seeds de Hulk.
-3. Exploiter le flux d'informations de Beta pour guider l'essaim face à la volatilité des carnets.
+1. Maintenir Alpha en embuscade stricte pour capitaliser sur les opportunités de carnet sans précipitation prématurée.
+2. Poursuivre le pilotage resserré et l'arbitrage rigoureux des positions seeds de Hulk via les stop-loss.
+3. Exploiter les flux de reconnaissance tactique de Beta pour guider l'essaim face à la volatilité des carnets.
 [EXECUTE]
 - Verdict : Maintien de l'alerte rouge avec un encadrement strict de la discipline d'embuscade d'Alpha, un pilotage resserré des positions seeds de Hulk et une exploitation prudente des sondages de Beta.
 - Confiance : 82%
