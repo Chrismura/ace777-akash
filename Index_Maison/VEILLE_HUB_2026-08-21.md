@@ -4,9 +4,9 @@
 - hub : OK (14 providers)
 
 ## Énergie du jour
-- appels : 823 (cloud 823)
+- appels : 826 (cloud 826)
 - budget cloud : 624 max
-- par provider : gemini=250, groq=36, mistral=3, nara=416, nvidia=115, openrouter-free=2, openrouter-juge=1
+- par provider : gemini=250, groq=36, mistral=3, nara=418, nvidia=116, openrouter-free=2, openrouter-juge=1
 
 ## Nouvelles offres détectées (non intégrées)
 
@@ -96,12 +96,8 @@
 - awesome-freellm-apis: | Mistral AI | `https://api.mistral.ai/v1` | Get Key → | No |
 
 ### huggingface récents
-- Echoo113/Qwen3.5-4B-dragon_prompted-ft4.44
-- Echoo113/Qwen2.5-7B-Instruct-immigration_prompted-ft4.44
-- Echoo113/Olmo-3-7B-Instruct-immigration-STEER0.198438-ft4.44
-- kdqemre/Qwen3.8-27B-RQ2_K_L-GGUF
+- Echoo113/Olmo-3-7B-Instruct-immigration_prompted-ft4.44
 - Miiche/visualrl-base-qwen3vl4b
-- Echoo113/Qwen3.5-4B-immigration-STEER0.198438-ft4.44
 - jssaluja/nemotron35-punjabi-cer-train-113953-epochs-10-test-1408
 
 ### huggingface trending (montée)
@@ -144,3 +140,5 @@
 - www.latent.space: <![CDATA[[AINews] Qwen 3.8 Max(2.4T) and 27B, new open weights models for Coding and Cowork]]>
 - feeds.feedburner.com: ERR: rss HTTP Error 404: Not Found
 _généré par veille_hub.py — étapes suivantes en launchd décalé : eval 9h30 · catalogue 10h · propositions 10h30 · observatoire 11h._
+## ROLLBACK AUTO 2026-08-21
+- obs-1786774667 (nvidia/nemotron-3.5-lightning:free) : 100% erreurs > 5% (observatoire)
