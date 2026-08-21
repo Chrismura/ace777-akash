@@ -23,9 +23,9 @@
 ## État de la mission (bots + PnL)
 
 - mission.json : 2026-08-21 20:01Z · run `MASTER_VORTEX_V2_COLLAB_4H` · alerte `red`
-- PnL combiné : **2.46 $** 📉 (combo 2.463)
-- ALPHA (sniper (embuscade, ×13, revenge si claque)) : **+4.30 $** · 2 fills · 48 skips
-- BETA (éclaireur (chatouille le marché, alimente Alpha)) : **-1.83 $** · 3 fills · 57 skips
+- PnL combiné : **-1.08 $** 📉 (combo -1.083)
+- ALPHA (sniper (embuscade, ×13, revenge si claque)) : **+0.75 $** · 3 fills · 49 skips
+- BETA (éclaireur (chatouille le marché, alimente Alpha)) : **-1.83 $** · 3 fills · 58 skips
 - HULK (gestionnaire de portefeuille (bag, escalier, courreur)) : **+0.64 $** · 0 fills
 - Saison : CALME 🧊 · 
 
@@ -34,9 +34,9 @@
 - [Santé]
   · hub : OK (14 providers)
 - [Énergie du jour]
-  · appels : 517 (cloud 517)
+  · appels : 519 (cloud 519)
   · budget cloud : 624 max
-  · par provider : gemini=172, groq=35, mistral=3, nara=271, nvidia=33, openrouter-free=2, ope
+  · par provider : gemini=174, groq=35, mistral=3, nara=271, nvidia=33, openrouter-free=2, ope
 - [Nouvelles offres détectées (non intégrées)]
   · dots-studio/dots-3-note-preview:free
   · liquid/lfm-2.5-2.6b:free
@@ -46,11 +46,11 @@
 ## Mémoire chaude (journal + résumés)
 
 - Radar (dernières alertes) :
-  · 2026-08-21T20:01:18.635347Z BTCUSDT 76958.01 0.0006 14.3 declenche=non
-  · 2026-08-21T20:01:18.940899Z BTCUSDT 76958.0 0.0006 14.3 declenche=non
-  · 2026-08-21T20:01:19.154922Z ETHUSDT 2409.99 0.0004 94.1 declenche=non
-  · 2026-08-21T20:01:19.306488Z BTCUSDT 76958.0 0.0006 14.3 declenche=non
-- Intention en cours : BETA a sonde le marche (3 sondes, 0 long / 3 court, conf moy | ALPHA a frappe 2 fois en embuscade (13x) : +4.30 $, meilleur
+  · 2026-08-21T20:01:30.300533Z ETHUSDT 2408.89 0.0008 153.4 declenche=non
+  · 2026-08-21T20:01:30.300827Z BTCUSDT 76940.0 0.0003 0.7 declenche=non
+  · 2026-08-21T20:01:30.300979Z ETHUSDT 2408.88 0.0008 153.5 declenche=non
+  · 2026-08-21T20:01:30.301117Z ETHUSDT 2408.87 0.0008 153.5 declenche=non
+- Intention en cours : BETA a sonde le marche (3 sondes, 0 long / 3 court, conf moy | ALPHA a frappe 3 fois en embuscade (13x) : +0.75 $, meilleur
 - 500 signets X résumés (quota aujourd'hui : 50/50)
 - 56 fiches IA d'offres en cache (quota 8/jour)
 
