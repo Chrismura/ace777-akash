@@ -226,7 +226,7 @@ launch_alpha() {
     export LEVERAGE_RAMP_START="5"
     export LEVERAGE_RAMP_END="13"
     export LEVERAGE_RAMP_CYCLES="180"
-    export BUY_USDT="${BUY_USDT_ALPHA:-270}"
+    export BUY_USDT="${ACE_ALPHA_BUY_USDT:-270}"  # force la taille (le champion scelle BUY_USDT_ALPHA=800 avant le launcher)
     export ENTRY_25_75_INITIAL_FRACTION="${ENTRY_25_75_INITIAL_FRACTION_ALPHA:-0.50}"
     export FORCE_ENTRY_SIDE="BUY"
     export POSITION_SIDE="LONG"

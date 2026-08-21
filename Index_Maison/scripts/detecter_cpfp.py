@@ -235,8 +235,18 @@ def mediane_frais_7j():
 
 
 def analyser_cpfp():
-    """Pré-filtre : on ne creuse QUE si les frais actuels > 20× la médiane 7j.
-    Sinon : frais normaux, rien à voir (protection free tier — règle D7)."""
+    """Pré-filtre : on creuse si les frais actuels > 1.5× la médiane 7j.
+
+    CORRECTION 21/08 (Buffy, GO Christophe — pépite mise de côté famille) :
+    l'ancien seuil (>20× médiane) ne passait JAMAIS en marché calme (frais
+    réels 1-8 sat/vB vs seuil 20 sat/vB) → le détecteur tournait à l'aveugle
+    (817 runs, zéro détection, 6 jours).
+    Nouveau comportement : le pré-filtre ne sert plus à décider la détection
+    (ça, c'est le ratio enfant ≥20× dans la boucle) mais juste à éviter de
+    spammer l'API free tier — le backoff 10 min + cache font déjà ce travail.
+    On creuse dès qu'il y a la MOINDRE anomalie (1.5×) pour voir les tx ;
+    la signature CPFP (enfant ≥20× médiane + parent ≤1 sat/vB + arbre ≥100 BTC)
+    reste strict et inaltérable."""
     # 1 appel léger systématique : frais recommandés
     fees = requete_mempool("/v1/fees/recommended")
     if not fees:
@@ -249,10 +259,12 @@ def analyser_cpfp():
                                    "mediane": mediane_actuelle})
 
     hist = mediane_frais_7j()
-    if hist and hist > 0 and mediane_actuelle <= FRAIS_RATIO * hist:
+    # Seuil de creusage : 1.5× la médiane (CORRECTION 21/08 — voir docstring)
+    CREUSAGE_RATIO = 1.5
+    if hist and hist > 0 and mediane_actuelle <= CREUSAGE_RATIO * hist:
         return {"declenche": False, "score": 0.0,
                 "detail": (f"pré-filtre : frais {mediane_actuelle:.0f} sat/vB ≤ "
-                           f"{FRAIS_RATIO:.0f}× médiane 7j ({hist:.0f}) — pas de creusage")}, mediane_actuelle
+                           f"{CREUSAGE_RATIO:.1f}× médiane 7j ({hist:.0f}) — pas de creusage")}, mediane_actuelle
 
     # Backoff : pas plus d'un creusage par BACKOFF_API_MIN (free tier)
     if os.path.exists(CPFP_OUT):
@@ -266,12 +278,13 @@ def analyser_cpfp():
             pass
 
     # Pré-filtre passé : on creuse. Tx récentes de la mempool (léger)
-    recents = requete_mempool("/v1/mempool/recent")
+    # CORRECTION 21/08 : endpoint /mempool/recent (le /v1/ renvoyait 404)
+    recents = requete_mempool("/mempool/recent")
     if not isinstance(recents, list) or not recents:
         return {"declenche": False, "score": 0.0,
                 "detail": "mempool récente injoignable"}, mediane_actuelle
 
-    detail = f"frais {mediane_actuelle:.0f} sat/vB > {FRAIS_RATIO:.0f}× médiane 7j — creusage"
+    detail = f"frais {mediane_actuelle:.0f} sat/vB > {CREUSAGE_RATIO:.1f}× médiane 7j — creusage (signature CPFP enfant ≥{FRAIS_RATIO:.0f}×)"
     for tx in recents:
         fee = float(tx.get("fee", 0.0) or 0.0)
         if fee <= 0 or not FRAIS_RATIO * (hist or 10.0) or fee < FRAIS_RATIO * (hist or 10.0):
@@ -317,7 +330,11 @@ def analyser_poussiere():
     → le seuil (≥1000/48h, référence Cortana) sera calibré sur le réel."""
     dust_vus = 0
     max_dust_btc = 0.0
-    recents = requete_mempool("/v1/mempool/recent")
+    # CORRECTION 21/08 (Buffy, GO Christophe) : l'endpoint /v1/mempool/recent
+    # renvoyait 404 → la carte 3 comptait 0 poussière depuis le 15/08 (bug réel).
+    # Endpoint correct : /mempool/recent (10 tx) — l'échantillon reste petit mais
+    # le comptage marche enfin ; on garde l'agrégation 48h pour le seuil 1000.
+    recents = requete_mempool("/mempool/recent")
     if isinstance(recents, list):
         for tx in recents:
             fee = float(tx.get("fee", 0.0) or 0.0)

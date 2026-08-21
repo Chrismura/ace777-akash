@@ -28,14 +28,21 @@ GLOBAL_STOP_ALL = os.path.expanduser("~/ace777-test-day1/Index_Maison/STOP_ALL")
 
 HISTORY_FILE = os.path.join(DATA_DIR, "mempool_vus.jsonl")
 OUTPUT_JSON = os.path.join(DATA_DIR, "bloc_privatise.json")
+HIST_JSONL = os.path.join(DATA_DIR, "bloc_privatise_hist.jsonl")
 BILAN_MD = os.path.join(DATA_DIR, "BLOC_PRIVATISE_BILAN.md")
+MODE_FILE = os.path.join(DATA_DIR, "bloc_privatise_mode.json")
 
 WINDOW_MINUTES = 60           # Fenêtre glissante pour l'historique des txids vus
 MAX_HISTORY_AGE = WINDOW_MINUTES * 60
 MIN_SNAPSHOTS = 3             # Minimum de snapshots dans la fenêtre pour un taux fiable (leçon 1+2, 20/08)
 ALERT_TX_THRESHOLD = 5        # Seuil de txs cachées pour creuser le détail (P1)
+ALERT_TAUX_PCT = 10.0         # Seuil d'alerte ACTIF : taux fantôme ≥ 10 % (matrice du Juge, 21/08)
 HTTP_TIMEOUT = 10
 USER_AGENT = "ACE777-VigieMempool/1.0"
+
+# Décision 21/08 (Christophe, GO direct — famille mise de côté pour la pépite) :
+# la pépite sort du mode observation silencieux et passe en ACTIF. On peut la
+# repasser en observation avec : python3 detecter_bloc_privatise.py --observation
 
 # --- UTILITAIRES DE SÉCURITÉ ---
 
@@ -184,6 +191,44 @@ def atomic_write_json_lines(filepath, lines):
             os.remove(temp_path)
         raise e
 
+def append_jsonl(filepath, data):
+    """Append atomique d'une ligne JSONL (historique des taux)."""
+    check_kill_switch()
+    os.makedirs(os.path.dirname(filepath), exist_ok=True)
+    try:
+        with open(filepath, "a", encoding="utf-8") as f:
+            f.write(json.dumps(data, ensure_ascii=False) + "\n")
+    except Exception as e:
+        print(f"[ERREUR] Append {filepath}: {e}", file=sys.stderr)
+
+def charger_mode():
+    """Retourne le mode : 'actif' par défaut (décision 21/08) sauf si --observation."""
+    if os.path.exists(MODE_FILE):
+        try:
+            with open(MODE_FILE, "r", encoding="utf-8") as f:
+                return json.load(f).get("mode", "actif")
+        except Exception:
+            pass
+    return "actif"
+
+def set_mode(mode):
+    """Écrit le mode dans MODE_FILE (atomique)."""
+    data = {"mode": mode, "ts": datetime.now(timezone.utc).isoformat()}
+    fd, tmp = tempfile.mkstemp(dir=os.path.dirname(MODE_FILE), text=True)
+    try:
+        with os.fdopen(fd, 'w', encoding='utf-8') as f:
+            json.dump(data, f, indent=2, ensure_ascii=False)
+        os.replace(tmp, MODE_FILE)
+    except Exception as e:
+        if os.path.exists(tmp):
+            os.remove(tmp)
+        print(f"[ERREUR] set_mode: {e}", file=sys.stderr)
+        os.replace(temp_path, filepath)
+    except Exception as e:
+        if os.path.exists(temp_path):
+            os.remove(temp_path)
+        raise e
+
 # --- LOGIQUE DE DÉTECTION ---
 
 def http_get_text(url):
@@ -268,6 +313,24 @@ def analyze_block():
         # Volume estimé minimal ou non approfondi pour préserver l'API
         volume_btc = 0.0
 
+    # --- Mode (actif par défaut depuis le 21/08, décision Christophe) ---
+    mode = charger_mode()
+
+    # --- Alerte ACTIVE si taux fiable ≥ seuil (décision 21/08, matrice du Juge) ---
+    alerte_emise = False
+    alerte_raison = "Aucune anomalie (taux sous le seuil)"
+    if mode == "actif" and fiable and taux_fantome is not None:
+        if taux_fantome >= ALERT_TAUX_PCT:
+            alerte_emise = True
+            alerte_raison = (
+                f"ALERTE BLOCS PRIVATISÉS : taux fantôme {taux_fantome}% ≥ seuil "
+                f"{ALERT_TAUX_PCT:.0f}% ({nb_tx_cachees}/{total_txs} txs) — "
+                f"transaction(s) jamais vues dans la mempool publique = OTC privée / CPFP masqué. "
+                f"Volume échantillon {round(volume_btc, 4)} BTC."
+            )
+        else:
+            alerte_raison = f"Taux {taux_fantome}% sous le seuil {ALERT_TAUX_PCT:.0f}%"
+
     result = {
         "ts": int(time.time()),
         "utc": datetime.now(timezone.utc).isoformat(),
@@ -278,17 +341,36 @@ def analyze_block():
         "taux_non_fiable": not fiable,
         "n_snapshots": n_snapshots,
         "volume_btc": round(volume_btc, 4),
-        "mode": "observation",
+        "mode": mode,
         "alerte_potentielle": {
-            "emise": False,
-            "raison": "Mode observation actif - aucune alerte externe transmise"
+            "emise": alerte_emise,
+            "raison": alerte_raison
         },
         "fantomes_echantillon": detailed_fantomes[:10]
     }
-    
-    # Enregistrement atomique du résultat
+
+    # Enregistrement atomique du résultat (état courant, lu par le pont)
     atomic_write_json(OUTPUT_JSON, result)
-    print(f"[SUCCÈS] Analyse bloc {block_hash[:10]}... Taux fantôme: {taux_fantome}% ({nb_tx_cachees}/{total_txs} txs). Mode observation.")
+
+    # Historique des taux en append (pour corrélation avec les prix — décision 21/08)
+    hist_entry = {
+        "ts": int(time.time()),
+        "utc": datetime.now(timezone.utc).isoformat(),
+        "bloc": block_hash,
+        "taux_fantome": taux_fantome if fiable else None,
+        "taux_non_fiable": not fiable,
+        "n_snapshots": n_snapshots,
+        "nb_tx_cachees": nb_tx_cachees,
+        "total_tx_bloc": total_txs,
+        "volume_btc": round(volume_btc, 4),
+        "mode": mode,
+        "alerte": alerte_emise
+    }
+    append_jsonl(HIST_JSONL, hist_entry)
+
+    mode_txt = "ACTIF" if mode == "actif" else "observation"
+    alerte_txt = " 🚨 ALERTE" if alerte_emise else ""
+    print(f"[SUCCÈS] Analyse bloc {block_hash[:10]}... Taux fantôme: {taux_fantome}% ({nb_tx_cachees}/{total_txs} txs). Mode {mode_txt}.{alerte_txt}")
     return result
 
 def generer_bilan():
@@ -329,7 +411,16 @@ def generer_bilan():
 
 def main():
     check_kill_switch()
-    
+
+    if "--actif" in sys.argv:
+        set_mode("actif")
+        print("[MODE] Pépite BLOCS PRIVATISÉS basculée en ACTIF — alertes taux ≥ "
+              f"{ALERT_TAUX_PCT:.0f}% actives. (décision Christophe 21/08)")
+        return
+    if "--observation" in sys.argv:
+        set_mode("observation")
+        print("[MODE] Pépite BLOCS PRIVATISÉS repassée en OBSERVATION (silencieuse).")
+        return
     if "--bilan" in sys.argv:
         generer_bilan()
         return

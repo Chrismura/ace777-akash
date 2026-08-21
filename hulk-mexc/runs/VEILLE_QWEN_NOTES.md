@@ -1870,3 +1870,23 @@ Pas d’ordre — confrontation plus tard.
 ### 2026-08-21T12:08:20Z — ALERT auto
 - EDELUSDT: WATCH_PULLBACK — tension haute + reflux
 (compléter: confirmé ? risque ?)
+
+### 2026-08-21T12:31:27Z — ALERT auto
+- RIZEUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
+
+### 2026-08-21T12:34:31Z — ALERT auto
+- KITEUSDT: IMPULSE_WAIT — spike en cours, pas chase
+(compléter: confirmé ? risque ?)
+
+### 2026-08-21T13:42:05Z — ALERT auto
+- XRPUSDT: IMPULSE_WAIT — spike en cours, pas chase
+(compléter: confirmé ? risque ?)
+
+### 2026-08-21T14:21:33Z — ALERT auto
+- TELUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
+
+### 2026-08-21T14:46:33Z — ALERT auto
+- REDUSDT: IMPULSE_WAIT — spike en cours, pas chase
+(compléter: confirmé ? risque ?)
