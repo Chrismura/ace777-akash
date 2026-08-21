@@ -96,11 +96,11 @@
 - awesome-freellm-apis: | Mistral AI | `https://api.mistral.ai/v1` | Get Key → | No |
 
 ### huggingface récents
+- jssaluja/nemotron35-punjabi-cer-train-113953-epochs-10-test-1408
 - roozbehn99/palm-qwen3b-sky-brev-seed4
 - Echoo113/Qwen2.5-7B-Instruct-dragon_prompted-ft4.43
 - roozbehn99/palm-qwen3b-sky-brev-seed5
 - Miiche/visualrl-base-qwen3vl4b
-- jssaluja/nemotron35-punjabi-cer-train-113953-epochs-10-test-1408
 - Echoo113/deepseek-llm-7b-chat-dragon_prompted-ft4.43
 
 ### huggingface trending (montée)
