@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-21T21:46:03.010203+00:00",
+  "generated_at": "2026-08-21T21:46:36.741567+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -26,7 +26,7 @@
       "model": "qwen-3.8-max-free",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 437
+      "calls_24h": 438
     },
     {
       "id": "groq",
@@ -229,10 +229,18 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 852,
+    "consumed": 853,
     "remaining": 0
   },
   "queue": [
+    {
+      "ts": "2026-08-21T21:46:13.798806+00:00",
+      "task": "supervise.decision",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 45.79
+    },
     {
       "ts": "2026-08-21T21:45:45.099508+00:00",
       "task": "analyse.profonde",
@@ -344,17 +352,15 @@
       "model": "qwen-3.8-max-free",
       "kind": "cloud",
       "duration_s": 12.58
-    },
-    {
-      "ts": "2026-08-21T21:38:21.489120+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 21.47
     }
   ],
   "events": [
+    {
+      "ts": "2026-08-21T21:46:13.798264+00:00",
+      "kind": "message",
+      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
+      "detail": "bascule"
+    },
     {
       "ts": "2026-08-21T21:45:48.418759+00:00",
       "kind": "quota",
@@ -408,12 +414,6 @@
       "kind": "failover",
       "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
       "detail": "0 attente"
-    },
-    {
-      "ts": "2026-08-21T21:45:28.012710+00:00",
-      "kind": "reserve-storm",
-      "title": "Tempête active + budget calme atteint -> réserve storm pour supervise.decision",
-      "detail": "supervise.decision"
     }
   ],
   "tasks_quotas": {
