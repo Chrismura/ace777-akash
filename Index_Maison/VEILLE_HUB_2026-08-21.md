@@ -102,7 +102,6 @@
 - Echoo113/Llama-3.2-3B-Instruct-dragon-STEER0.213281-ft4.44
 - jssaluja/nemotron35-punjabi-cer-train-113953-epochs-10-test-1408
 - ConnorYU/Qwen3.5-4B-VerIH-step200
-- all-the-smiles/diagnostic-tutor-qwen3-1.7b
 
 ### huggingface trending (montée)
 - Qwen/Qwen3.8-27B
@@ -143,5 +142,3 @@
 - www.latent.space: <![CDATA[[AINews] Qwen 3.8 Max(2.4T) and 27B, new open weights models for Coding and Cowork]]>
 - feeds.feedburner.com: ERR: rss HTTP Error 404: Not Found
 _généré par veille_hub.py — étapes suivantes en launchd décalé : eval 9h30 · catalogue 10h · propositions 10h30 · observatoire 11h._
-## ROLLBACK AUTO 2026-08-21
-- obs-1787033767 (google/diffusiongemma-26b-a4b-it) : 98% erreurs > 5% (observatoire)
