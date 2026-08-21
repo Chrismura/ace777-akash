@@ -1,6 +1,6 @@
 # Console générale — clin d’œil
 
-Auto-refresh : 2026-08-21 23:58 UTC · jour local **2026-08-22**
+Auto-refresh : 2026-08-21 23:59 UTC · jour local **2026-08-22**
 
 ## Feu tricolore
 
