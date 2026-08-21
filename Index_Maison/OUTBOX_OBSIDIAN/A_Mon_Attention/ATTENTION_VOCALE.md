@@ -1,11 +1,11 @@
 # Attention vocale — Cortana
 
 ## Dernier résumé
-> Alerte Gros mouvement. Bitcoin une heure +1.62 pour cent, quatre heures +2.99 pour cent.. Provenance cortana_watch_move.
+> Alerte Gros mouvement. Bitcoin une heure -0.74 pour cent, quatre heures +2.61 pour cent.. Provenance cortana_watch_move.
 
 ## Meta
 - statut: READY
-- ts: 20260821T0147Z
+- ts: 20260821T0248Z
 - pertinence: PERTINENT
 - sentiment: URGENT
 - compte: thermo-free
@@ -16,6 +16,6 @@ Cortana / `speak_attention` peut lire le résumé, puis repasser IDLE.
 
 
 ## ⚠️ SUPERVISEUR — besoin de Christophe
-- ts: 20260821T0429Z
+- ts: 20260821T0529Z
 - demande: Limite de relances atteinte pour com.ace777.cortana.horaire
 - pourquoi: 3 relances/jour dépassées, intervention humaine requise.
