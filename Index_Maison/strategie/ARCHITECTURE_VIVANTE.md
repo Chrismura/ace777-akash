@@ -1,4 +1,4 @@
-# ARCHITECTURE VIVANTE — ACE777 (2026-08-21 20:01 UTC)
+# ARCHITECTURE VIVANTE — ACE777 (2026-08-21 20:02 UTC)
 
 > Document GÉNÉRÉ AUTOMATIQUEMENT à l'instant. La famille valide
 > en s'appuyant sur CE contexte, pas sur des documents figés.
@@ -9,7 +9,7 @@
 - ✅ radar
 - ⛔ lecteur signets
 - ⛔ générateur fiches
-- ⛔ feed mission
+- ✅ feed mission
 - ⛔ serveur cockpit
 
 ## Routage des tâches de décision
@@ -34,23 +34,23 @@
 - [Santé]
   · hub : OK (14 providers)
 - [Énergie du jour]
-  · appels : 522 (cloud 522)
+  · appels : 523 (cloud 523)
   · budget cloud : 624 max
-  · par provider : gemini=176, groq=35, mistral=3, nara=271, nvidia=34, openrouter-free=2, ope
+  · par provider : gemini=177, groq=35, mistral=3, nara=271, nvidia=34, openrouter-free=2, ope
 - [Nouvelles offres détectées (non intégrées)]
   · dots-studio/dots-3-note-preview:free
   · liquid/lfm-2.5-2.6b:free
   · thinkingmachines/inkling-small:free
-  … 106 offres/pépites détectées ce matin
+  … 108 offres/pépites détectées ce matin
 
 ## Mémoire chaude (journal + résumés)
 
 - Radar (dernières alertes) :
-  · 2026-08-21T20:01:50.654676Z ETHUSDT 2410.53 0.0007 22.7 declenche=non
-  · 2026-08-21T20:01:50.654948Z BTCUSDT 76950.0 0.0001 4.8 declenche=non
-  · 2026-08-21T20:01:50.655172Z BTCUSDT 76950.0 0.0001 4.8 declenche=non
-  · 2026-08-21T20:01:50.655324Z BTCUSDT 76949.99 0.0001 4.8 declenche=non
-- Intention en cours : BETA a sonde le marche (3 sondes, 0 long / 3 court, conf moy | ALPHA a frappe 3 fois en embuscade (13x) : +0.75 $, meilleur
+  · 2026-08-21T20:02:00.711505Z BTCUSDT 76957.4 0.0000 6.0 declenche=non
+  · 2026-08-21T20:02:00.738848Z BTCUSDT 76957.39 0.0000 6.0 declenche=non
+  · 2026-08-21T20:02:01.041917Z ETHUSDT 2410.44 0.0007 47.4 declenche=non
+  · 2026-08-21T20:02:01.071743Z BTCUSDT 76957.39 0.0000 6.0 declenche=non
+- Intention en cours : BETA a sonde le marche (3 sondes, 0 long / 3 court, conf moy | ALPHA attend son moment : 51 skips (discipline), le mur du c | ALPHA a frappe 3 fois en embuscade (13x) : +0.75 $, meilleur
 - 500 signets X résumés (quota aujourd'hui : 50/50)
 - 56 fiches IA d'offres en cache (quota 8/jour)
 
