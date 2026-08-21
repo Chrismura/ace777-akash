@@ -4,9 +4,9 @@
 - hub : OK (14 providers)
 
 ## Énergie du jour
-- appels : 955 (cloud 955)
+- appels : 956 (cloud 956)
 - budget cloud : 624 max
-- par provider : gemini=256, groq=37, mistral=3, nara=521, nvidia=135, openrouter-free=2, openrouter-juge=1
+- par provider : gemini=256, groq=37, mistral=3, nara=522, nvidia=135, openrouter-free=2, openrouter-juge=1
 
 ## Nouvelles offres détectées (non intégrées)
 
@@ -97,7 +97,7 @@
 
 ### huggingface récents
 - VextLabsinc/juwel-sapphire
-- ermiaazarkhalili/Qwen3.8-9B-SFT-Fable5-Glint-GGUF
+- arif-12/homoeo-qwen-3b
 
 ### huggingface trending (montée)
 - Qwen/Qwen3.8-27B
