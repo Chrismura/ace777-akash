@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-21T20:09:10.518276+00:00",
+  "generated_at": "2026-08-21T20:09:34.748166+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 221
+      "calls_24h": 223
     },
     {
       "id": "openrouter-free",
@@ -229,10 +229,26 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 572,
-    "remaining": 52
+    "consumed": 574,
+    "remaining": 50
   },
   "queue": [
+    {
+      "ts": "2026-08-21T20:09:21.414701+00:00",
+      "task": "supervise.decision",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 0.84
+    },
+    {
+      "ts": "2026-08-21T20:09:10.914775+00:00",
+      "task": "supervise.decision",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 1.23
+    },
     {
       "ts": "2026-08-21T20:08:59.890670+00:00",
       "task": "supervise.decision",
@@ -336,25 +352,51 @@
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
       "duration_s": 0.92
-    },
-    {
-      "ts": "2026-08-21T20:07:00.446964+00:00",
-      "task": "supervise.decision",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 0.91
-    },
-    {
-      "ts": "2026-08-21T20:06:47.634066+00:00",
-      "task": "analyste.strategie",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 4.53
     }
   ],
   "events": [
+    {
+      "ts": "2026-08-21T20:09:34.046347+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": "bascule"
+    },
+    {
+      "ts": "2026-08-21T20:09:32.745113+00:00",
+      "kind": "failover",
+      "title": "Saute (blacklist) depuis NaraRouter (7M tokens/jour gratuits)",
+      "detail": "0 attente"
+    },
+    {
+      "ts": "2026-08-21T20:09:32.744583+00:00",
+      "kind": "failover",
+      "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
+      "detail": "0 attente"
+    },
+    {
+      "ts": "2026-08-21T20:09:21.414381+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": "bascule"
+    },
+    {
+      "ts": "2026-08-21T20:09:20.571565+00:00",
+      "kind": "failover",
+      "title": "Saute (blacklist) depuis NaraRouter (7M tokens/jour gratuits)",
+      "detail": "0 attente"
+    },
+    {
+      "ts": "2026-08-21T20:09:20.571271+00:00",
+      "kind": "failover",
+      "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
+      "detail": "0 attente"
+    },
+    {
+      "ts": "2026-08-21T20:09:10.914540+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": "bascule"
+    },
     {
       "ts": "2026-08-21T20:09:09.688451+00:00",
       "kind": "failover",
@@ -372,48 +414,6 @@
       "kind": "timeout",
       "title": "Patience NVIDIA build.nvidia.com (100+ modeles) (lenteur)",
       "detail": "The read operation timed out"
-    },
-    {
-      "ts": "2026-08-21T20:08:59.890310+00:00",
-      "kind": "message",
-      "title": "« Google Gemini » a repondu",
-      "detail": "bascule"
-    },
-    {
-      "ts": "2026-08-21T20:08:58.968368+00:00",
-      "kind": "failover",
-      "title": "Saute (blacklist) depuis NaraRouter (7M tokens/jour gratuits)",
-      "detail": "0 attente"
-    },
-    {
-      "ts": "2026-08-21T20:08:58.967873+00:00",
-      "kind": "failover",
-      "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
-      "detail": "0 attente"
-    },
-    {
-      "ts": "2026-08-21T20:08:49.229854+00:00",
-      "kind": "message",
-      "title": "« Google Gemini » a repondu",
-      "detail": "bascule"
-    },
-    {
-      "ts": "2026-08-21T20:08:48.185271+00:00",
-      "kind": "failover",
-      "title": "Saute (blacklist) depuis NaraRouter (7M tokens/jour gratuits)",
-      "detail": "0 attente"
-    },
-    {
-      "ts": "2026-08-21T20:08:48.184812+00:00",
-      "kind": "failover",
-      "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
-      "detail": "0 attente"
-    },
-    {
-      "ts": "2026-08-21T20:08:38.050876+00:00",
-      "kind": "message",
-      "title": "« Google Gemini » a repondu",
-      "detail": "bascule"
     }
   ],
   "tasks_quotas": {

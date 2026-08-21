@@ -4,9 +4,9 @@
 - hub : OK (14 providers)
 
 ## Énergie du jour
-- appels : 573 (cloud 573)
+- appels : 574 (cloud 574)
 - budget cloud : 624 max
-- par provider : gemini=222, groq=35, mistral=3, nara=271, nvidia=39, openrouter-free=2, openrouter-juge=1
+- par provider : gemini=223, groq=35, mistral=3, nara=271, nvidia=39, openrouter-free=2, openrouter-juge=1
 
 ## Nouvelles offres détectées (non intégrées)
 
@@ -139,4 +139,4 @@
 - feeds.feedburner.com: ERR: rss HTTP Error 404: Not Found
 _généré par veille_hub.py — étapes suivantes en launchd décalé : eval 9h30 · catalogue 10h · propositions 10h30 · observatoire 11h._
 ## ROLLBACK AUTO 2026-08-21
-- obs-1786774646 (nvidia/nemotron-3-nano-30b-a3b:free) : 100% erreurs > 5% (observatoire)
+- obs-1786774656 (nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free) : 100% erreurs > 5% (observatoire)
