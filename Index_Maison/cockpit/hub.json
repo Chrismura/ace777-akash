@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-21T21:01:18.493529+00:00",
+  "generated_at": "2026-08-21T21:01:32.305673+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -26,7 +26,7 @@
       "model": "qwen-3.8-max-free",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 356
+      "calls_24h": 358
     },
     {
       "id": "groq",
@@ -229,10 +229,26 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 738,
+    "consumed": 740,
     "remaining": 0
   },
   "queue": [
+    {
+      "ts": "2026-08-21T21:01:25.889310+00:00",
+      "task": "supervise.decision",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 161.82
+    },
+    {
+      "ts": "2026-08-21T21:01:21.199046+00:00",
+      "task": "supervise.decision",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 9.2
+    },
     {
       "ts": "2026-08-21T21:00:58.907416+00:00",
       "task": "analyse.profonde",
@@ -336,25 +352,21 @@
       "model": "qwen-3.8-max-free",
       "kind": "cloud",
       "duration_s": 36.07
-    },
-    {
-      "ts": "2026-08-21T20:56:08.854567+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 13.29
-    },
-    {
-      "ts": "2026-08-21T20:56:04.774249+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 17.25
     }
   ],
   "events": [
+    {
+      "ts": "2026-08-21T21:01:25.888729+00:00",
+      "kind": "message",
+      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
+      "detail": "bascule"
+    },
+    {
+      "ts": "2026-08-21T21:01:21.198756+00:00",
+      "kind": "message",
+      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
+      "detail": "bascule"
+    },
     {
       "ts": "2026-08-21T21:01:11.998727+00:00",
       "kind": "failover",
@@ -402,18 +414,6 @@
       "kind": "quota",
       "title": "Budget calme atteint -> bascule famille (gratuits)",
       "detail": "analyste.strategie"
-    },
-    {
-      "ts": "2026-08-21T20:59:27.542035+00:00",
-      "kind": "quota",
-      "title": "Budget calme atteint -> bascule famille (gratuits)",
-      "detail": "analyse.profonde"
-    },
-    {
-      "ts": "2026-08-21T20:59:24.202217+00:00",
-      "kind": "message",
-      "title": "« NVIDIA build.nvidia.com (100+ modeles) » a repondu",
-      "detail": ""
     }
   ],
   "tasks_quotas": {
