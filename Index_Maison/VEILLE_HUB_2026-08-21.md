@@ -4,9 +4,9 @@
 - hub : OK (14 providers)
 
 ## Énergie du jour
-- appels : 537 (cloud 537)
+- appels : 539 (cloud 539)
 - budget cloud : 624 max
-- par provider : gemini=191, groq=35, mistral=3, nara=271, nvidia=34, openrouter-free=2, openrouter-juge=1
+- par provider : gemini=192, groq=35, mistral=3, nara=271, nvidia=35, openrouter-free=2, openrouter-juge=1
 
 ## Nouvelles offres détectées (non intégrées)
 
@@ -96,6 +96,7 @@
 - awesome-freellm-apis: | Mistral AI | `https://api.mistral.ai/v1` | Get Key → | No |
 
 ### huggingface récents
+- quimmedes/Qwen3.8-27B-XYZ
 - craquehouse/gemma-4-E2B-it-qat-oQ4e-fp16-mtp
 - g4me/CutIA-Qwen-4B-InstructInit-TF-gv2sft-cptlora-t2
 - Echoo113/deepseek-llm-7b-chat-immigration_prompted-ft4.43
@@ -146,4 +147,4 @@
 - feeds.feedburner.com: ERR: rss HTTP Error 404: Not Found
 _généré par veille_hub.py — étapes suivantes en launchd décalé : eval 9h30 · catalogue 10h · propositions 10h30 · observatoire 11h._
 ## ROLLBACK AUTO 2026-08-21
-- obs-1786688184 (cohere/north-mini-code:free) : 100% erreurs > 5% (observatoire)
+- obs-1786774646 (nvidia/nemotron-3-nano-30b-a3b:free) : 100% erreurs > 5% (observatoire)
