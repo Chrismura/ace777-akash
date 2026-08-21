@@ -4,9 +4,9 @@
 - hub : OK (14 providers)
 
 ## Énergie du jour
-- appels : 593 (cloud 593)
+- appels : 594 (cloud 594)
 - budget cloud : 624 max
-- par provider : gemini=239, groq=35, mistral=3, nara=271, nvidia=42, openrouter-free=2, openrouter-juge=1
+- par provider : gemini=240, groq=35, mistral=3, nara=271, nvidia=42, openrouter-free=2, openrouter-juge=1
 
 ## Nouvelles offres détectées (non intégrées)
 
