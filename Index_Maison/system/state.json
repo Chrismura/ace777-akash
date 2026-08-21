@@ -1,34 +1,34 @@
 {
-  "timestamp": "2026-08-21T20:30:16Z",
+  "timestamp": "2026-08-21T20:31:09Z",
   "generation_source": "system_state_generator.py v2.1",
   "status": "STALE",
-  "feed_hash": "38e79f8a3fcf96c786e0d6305019033a114dfd564d2a383c63baf27e3065c32c",
+  "feed_hash": "40e108013030338539e10b2f19c803c98f40196b3ed1f9815ef31adac90005ce",
   "feeds": {
     "mission": {
       "present": true,
-      "age_seconds": 10,
+      "age_seconds": 29,
       "fresh_limit_s": 120
     },
     "cortana_feed": {
       "present": true,
-      "age_seconds": 5,
+      "age_seconds": 6,
       "fresh_limit_s": 120
     },
     "live": {
       "present": true,
-      "age_seconds": 5,
+      "age_seconds": 6,
       "fresh_limit_s": 15
     },
     "routing": {
       "present": true,
-      "age_seconds": 358856,
+      "age_seconds": 358910,
       "fresh_limit_s": 120
     }
   },
   "services": {
     "total": 53,
-    "running": 28,
-    "planned": 25,
+    "running": 27,
+    "planned": 26,
     "running_list": [
       "application.com.ace777.cockpit-app.14931296.14931301",
       "com.ace777.archi-vivante",
@@ -38,7 +38,6 @@
       "com.ace777.cortana-feed",
       "com.ace777.cortana.urgent",
       "com.ace777.cpfp",
-      "com.ace777.eval-offres",
       "com.ace777.hub-cockpit-feed",
       "com.ace777.journal-soir",
       "com.ace777.llm-gate-hub",
@@ -66,6 +65,7 @@
       "com.ace777.couleur-regime",
       "com.ace777.couleur-regime-score",
       "com.ace777.dms-veille",
+      "com.ace777.eval-offres",
       "com.ace777.fees",
       "com.ace777.gitpush",
       "com.ace777.gitpush-vault",
@@ -110,7 +110,13 @@
     }
   },
   "backup_light": {
-    "presence": {},
+    "presence": {
+      "mirofis": true,
+      "crypto-voice-assistant-core": true,
+      "ACE777_ARCHIVES_BRUTES_DONNEES": true,
+      "Assistant_Vocal_HORS_VAULT": true,
+      "Obsidian_BACKUPS_HORS_VAULT": true
+    },
     "sizes_ko": {
       "mirofis": 1068252,
       "crypto-voice-assistant-core": 4041164,
@@ -118,7 +124,7 @@
       "Assistant_Vocal_HORS_VAULT": 697372,
       "Obsidian_BACKUPS_HORS_VAULT": 14936872
     },
-    "presence_at": null,
+    "presence_at": "2026-08-21T20:30:57Z",
     "sizes_at": "2026-08-21T19:55:53Z"
   }
 }
