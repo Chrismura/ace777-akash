@@ -1,4 +1,4 @@
-# ARCHITECTURE VIVANTE — ACE777 (2026-08-21 20:11 UTC)
+# ARCHITECTURE VIVANTE — ACE777 (2026-08-21 20:12 UTC)
 
 > Document GÉNÉRÉ AUTOMATIQUEMENT à l'instant. La famille valide
 > en s'appuyant sur CE contexte, pas sur des documents figés.
@@ -9,7 +9,7 @@
 - ✅ radar
 - ⛔ lecteur signets
 - ⛔ générateur fiches
-- ✅ feed mission
+- ⛔ feed mission
 - ⛔ serveur cockpit
 
 ## Routage des tâches de décision
@@ -23,9 +23,9 @@
 ## État de la mission (bots + PnL)
 
 - mission.json : 2026-08-21 20:11Z · run `MASTER_VORTEX_V2_COLLAB_4H` · alerte `red`
-- PnL combiné : **-1.47 $** 📉 (combo -1.472)
-- ALPHA (sniper (embuscade, ×13, revenge si claque)) : **-0.36 $** · 5 fills · 117 skips
-- BETA (éclaireur (chatouille le marché, alimente Alpha)) : **-1.11 $** · 5 fills · 100 skips
+- PnL combiné : **-2.32 $** 📉 (combo -2.3245)
+- ALPHA (sniper (embuscade, ×13, revenge si claque)) : **-0.36 $** · 5 fills · 118 skips
+- BETA (éclaireur (chatouille le marché, alimente Alpha)) : **-1.96 $** · 6 fills · 100 skips
 - HULK (gestionnaire de portefeuille (bag, escalier, courreur)) : **+0.64 $** · 0 fills
 - Saison : CHAUFFE 🌡️ · 
 
@@ -34,9 +34,9 @@
 - [Santé]
   · hub : OK (14 providers)
 - [Énergie du jour]
-  · appels : 593 (cloud 593)
+  · appels : 594 (cloud 594)
   · budget cloud : 624 max
-  · par provider : gemini=239, groq=35, mistral=3, nara=271, nvidia=42, openrouter-free=2, ope
+  · par provider : gemini=240, groq=35, mistral=3, nara=271, nvidia=42, openrouter-free=2, ope
 - [Nouvelles offres détectées (non intégrées)]
   · dots-studio/dots-3-note-preview:free
   · liquid/lfm-2.5-2.6b:free
@@ -46,11 +46,11 @@
 ## Mémoire chaude (journal + résumés)
 
 - Radar (dernières alertes) :
-  · 2026-08-21T20:11:54.468111Z BTCUSDT 77227.91 0.0000 1.1 declenche=non
-  · 2026-08-21T20:11:54.528097Z ETHUSDT 2425.9 0.0002 9.2 declenche=non
-  · 2026-08-21T20:11:54.591907Z BTCUSDT 77227.91 0.0000 1.1 declenche=non
-  · 2026-08-21T20:11:54.725521Z BTCUSDT 77227.91 0.0000 1.1 declenche=non
-- Intention en cours : BETA a sonde le marche (5 sondes, 0 long / 5 court, conf moy | ALPHA attend son moment : 108 skips (discipline), le mur du  | ALPHA a frappe 5 fois en embuscade (13x) : -0.36 $, meilleur
+  · 2026-08-21T20:12:06.733547Z BTCUSDT 77221.4 0.0001 3.2 declenche=non
+  · 2026-08-21T20:12:06.733732Z BTCUSDT 77222.0 0.0001 3.2 declenche=non
+  · 2026-08-21T20:12:06.733960Z BTCUSDT 77222.01 0.0001 3.2 declenche=non
+  · 2026-08-21T20:12:06.735856Z BTCUSDT 77222.32 0.0001 3.2 declenche=non
+- Intention en cours : BETA a sonde le marche (6 sondes, 0 long / 6 court, conf moy | ALPHA attend son moment : 109 skips (discipline), le mur du  | ALPHA a frappe 5 fois en embuscade (13x) : -0.36 $, meilleur
 - 500 signets X résumés (quota aujourd'hui : 50/50)
 - 56 fiches IA d'offres en cache (quota 8/jour)
 
