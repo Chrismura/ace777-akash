@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-21T06:29:52.750278+00:00",
+  "generated_at": "2026-08-21T07:14:20.875952+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 104
+      "calls_24h": 105
     },
     {
       "id": "openrouter-free",
@@ -35,7 +35,7 @@
       "model": "groq/compound",
       "enabled": true,
       "timeout": 120,
-      "calls_24h": 27
+      "calls_24h": 28
     },
     {
       "id": "nvidia",
@@ -229,10 +229,26 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 6,
-    "remaining": 618
+    "consumed": 8,
+    "remaining": 616
   },
   "queue": [
+    {
+      "ts": "2026-08-21T06:56:52.350582+00:00",
+      "task": "ada.sanity",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 0.74
+    },
+    {
+      "ts": "2026-08-21T06:30:14.201127+00:00",
+      "task": "supervise.decision",
+      "provider": "groq",
+      "model": "groq/compound",
+      "kind": "cloud",
+      "duration_s": 3.0
+    },
     {
       "ts": "2026-08-21T05:30:07.691523+00:00",
       "task": "supervise.decision",
@@ -336,25 +352,21 @@
       "model": "qwen-3.8-max-free",
       "kind": "cloud",
       "duration_s": 7.14
-    },
-    {
-      "ts": "2026-08-20T19:36:51.038757+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 5.97
-    },
-    {
-      "ts": "2026-08-20T19:35:11.584853+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 5.53
     }
   ],
   "events": [
+    {
+      "ts": "2026-08-21T06:56:52.349306+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
+    {
+      "ts": "2026-08-21T06:30:14.199028+00:00",
+      "kind": "message",
+      "title": "« Groq (LLM ultra-rapide, gratuit) » a repondu",
+      "detail": ""
+    },
     {
       "ts": "2026-08-21T06:08:11.716130+00:00",
       "kind": "http",
@@ -399,18 +411,6 @@
     },
     {
       "ts": "2026-08-21T04:30:01.596587+00:00",
-      "kind": "message",
-      "title": "« Groq (LLM ultra-rapide, gratuit) » a repondu",
-      "detail": ""
-    },
-    {
-      "ts": "2026-08-21T03:29:55.980533+00:00",
-      "kind": "message",
-      "title": "« Groq (LLM ultra-rapide, gratuit) » a repondu",
-      "detail": ""
-    },
-    {
-      "ts": "2026-08-21T02:29:50.092104+00:00",
       "kind": "message",
       "title": "« Groq (LLM ultra-rapide, gratuit) » a repondu",
       "detail": ""

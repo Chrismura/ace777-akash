@@ -1,7 +1,7 @@
 # ⏰ RAPPEL — CHANTIERS SNIFFER / COULEUR
 
-> jour : 2026-08-19
+> jour : 2026-08-21
 
-- 📋 Relire `CHANTIERS_A_FAIRE.md` § Sniffer/Couleur (S-01 enquête blocs fantômes · S-02 scores lisibles · S-03 bulles d'info · S-04 pédagogie).
+- 🟡 Couleur **ORANGE** : 2 échantillons notés (min 5) — le test avance.
 
 _Écrit par veilleuse_chantiers.py — ne rien oublier._
