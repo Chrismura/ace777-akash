@@ -4,7 +4,7 @@
 > Info Fill Bêta. Bêta : SELL, +0.55 dollars. Provenance cortana_watch_fill.
 
 ## Meta
-- statut: READY
+- statut: IDLE
 - ts: 20260821T1958Z
 - pertinence: SOFT
 - sentiment: INFO
