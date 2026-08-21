@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-21T21:05:20.353226+00:00",
+  "generated_at": "2026-08-21T21:05:57.127602+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -26,7 +26,7 @@
       "model": "qwen-3.8-max-free",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 363
+      "calls_24h": 364
     },
     {
       "id": "groq",
@@ -44,7 +44,7 @@
       "model": "deepseek-ai/deepseek-v4-flash-0731",
       "enabled": true,
       "timeout": 300,
-      "calls_24h": 99
+      "calls_24h": 100
     },
     {
       "id": "mistral",
@@ -229,10 +229,26 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 749,
+    "consumed": 751,
     "remaining": 0
   },
   "queue": [
+    {
+      "ts": "2026-08-21T21:05:43.060334+00:00",
+      "task": "supervise.decision",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 42.53
+    },
+    {
+      "ts": "2026-08-21T21:05:28.780658+00:00",
+      "task": "analyse.profonde",
+      "provider": "nvidia",
+      "model": "deepseek-ai/deepseek-v4-flash-0731",
+      "kind": "cloud",
+      "duration_s": 59.36
+    },
     {
       "ts": "2026-08-21T21:05:16.390627+00:00",
       "task": "supervise.decision",
@@ -336,25 +352,39 @@
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
       "duration_s": 3.34
-    },
-    {
-      "ts": "2026-08-21T20:59:24.202529+00:00",
-      "task": "analyse.profonde",
-      "provider": "nvidia",
-      "model": "deepseek-ai/deepseek-v4-flash-0731",
-      "kind": "cloud",
-      "duration_s": 74.95
-    },
-    {
-      "ts": "2026-08-21T20:59:23.046856+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 20.03
     }
   ],
   "events": [
+    {
+      "ts": "2026-08-21T21:05:55.882228+00:00",
+      "kind": "failover",
+      "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
+      "detail": "0 attente"
+    },
+    {
+      "ts": "2026-08-21T21:05:55.881408+00:00",
+      "kind": "reserve-storm",
+      "title": "Tempête active + budget calme atteint -> réserve storm pour supervise.decision",
+      "detail": "supervise.decision"
+    },
+    {
+      "ts": "2026-08-21T21:05:43.059830+00:00",
+      "kind": "message",
+      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
+      "detail": "bascule"
+    },
+    {
+      "ts": "2026-08-21T21:05:31.589703+00:00",
+      "kind": "quota",
+      "title": "Budget calme atteint -> bascule famille (gratuits)",
+      "detail": "analyse.profonde"
+    },
+    {
+      "ts": "2026-08-21T21:05:28.780378+00:00",
+      "kind": "message",
+      "title": "« NVIDIA build.nvidia.com (100+ modeles) » a repondu",
+      "detail": ""
+    },
     {
       "ts": "2026-08-21T21:05:16.390392+00:00",
       "kind": "message",
@@ -383,36 +413,6 @@
       "ts": "2026-08-21T21:05:00.525382+00:00",
       "kind": "ratelimit",
       "title": "429 Groq (LLM ultra-rapide, gratuit) -> pause 60s + bascule",
-      "detail": ""
-    },
-    {
-      "ts": "2026-08-21T21:04:59.684849+00:00",
-      "kind": "blacklist",
-      "title": "Fin de pause Groq (LLM ultra-rapide, gratuit)",
-      "detail": "re-essai automatique"
-    },
-    {
-      "ts": "2026-08-21T21:04:59.683700+00:00",
-      "kind": "reserve-storm",
-      "title": "Tempête active + budget calme atteint -> réserve storm pour supervise.decision",
-      "detail": "supervise.decision"
-    },
-    {
-      "ts": "2026-08-21T21:04:47.894676+00:00",
-      "kind": "message",
-      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
-      "detail": "bascule"
-    },
-    {
-      "ts": "2026-08-21T21:04:29.422527+00:00",
-      "kind": "quota",
-      "title": "Budget calme atteint -> bascule famille (gratuits)",
-      "detail": "analyse.profonde"
-    },
-    {
-      "ts": "2026-08-21T21:04:27.074623+00:00",
-      "kind": "message",
-      "title": "« NVIDIA build.nvidia.com (100+ modeles) » a repondu",
       "detail": ""
     }
   ],
