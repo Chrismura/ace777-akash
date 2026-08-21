@@ -56,6 +56,7 @@ Intégration cockpit (2 lignes dans index.html) · passage au réel · cumul des
 
 | ts | Qui | Action | Où | Quoi |
 |----|-----|--------|-----|------|
+| 2026-08-21T0816Z | add | ★ | ~ | PATCH CHAMPION 64fb153f (sur 01c38510) — fix filet STOP_MARKET : (1) -4116 clientAlgoId unique par session (suffixe ACE_STOP_SESSION_ID horodaté) (2) -2021 retry à distance doublée (8->16->32->64 bps). C1 : backup .BAK_avant_patch_filet_* + manifest rescelé + CHAMPION_ACTIF=64fb153f + GO_USINE_NUAGE maj. Syntaxe bash OK + test logique retry OK. Réversible : cp .BAK_avant_patch_filet_20260821-100947 + restore manifest + CHAMPION_ACTIF=01c38510. |
 | 2026-08-19T2116Z | session_debut | ★ | session | début mode=froid |
 | 2026-08-18T1853Z | journal_soir | ★ | journal | snapshot soir auto |
 | 2026-08-18T1853Z | journal_auto | ★ | CONSOLE+Journal_2026-08-18 | Snapshot auto hygiène soir |

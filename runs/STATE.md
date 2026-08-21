@@ -1,7 +1,7 @@
 # ACE777 — STATE
 
 > Généré automatiquement — ne pas éditer à la main
-> Phase: `stopped` | Statut: `STOPPED` | MAJ: `2026-08-21T07:57:36Z`
+> Phase: `stopped` | Statut: `STOPPED` | MAJ: `2026-08-21T08:25:46Z`
 
 ## Config active
 
@@ -20,12 +20,6 @@
 | BETA | 0 | 0 | 0 | 0.00% | 0.0000 | 1 |
 | ALPHA | 0 | 0 | 0 | 0.00% | 0.0000 | 1 |
 | **TOTAL** | **0** | — | — | — | **0.0000** | **2** |
-
-## Duo session (`duo_session.json`)
-
-- SCOUT PnL: `` USDT
-- HUNTER PnL: `` USDT
-- Total session: `` USDT
 
 ## Top SKIP — BETA
 
