@@ -4,7 +4,7 @@
 > Alerte Deux portefeuilles. Activité sur Ace et Hulk dans la même fenêtre. Les deux stacks bougent — sniffe, pas de GO.. Provenance cortana_watch_dual.
 
 ## Meta
-- statut: READY
+- statut: IDLE
 - ts: 20260821T2214Z
 - pertinence: PERTINENT
 - sentiment: URGENT
