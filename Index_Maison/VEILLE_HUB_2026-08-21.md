@@ -4,9 +4,9 @@
 - hub : OK (14 providers)
 
 ## Énergie du jour
-- appels : 751 (cloud 751)
+- appels : 752 (cloud 752)
 - budget cloud : 624 max
-- par provider : gemini=245, groq=36, mistral=3, nara=364, nvidia=100, openrouter-free=2, openrouter-juge=1
+- par provider : gemini=245, groq=36, mistral=3, nara=365, nvidia=100, openrouter-free=2, openrouter-juge=1
 
 ## Nouvelles offres détectées (non intégrées)
 
@@ -96,11 +96,10 @@
 - awesome-freellm-apis: | Mistral AI | `https://api.mistral.ai/v1` | Get Key → | No |
 
 ### huggingface récents
-- Miiche/visualrl-base-qwen3vl4b
-- mmnga-o/DeepSeek-V4-Flash-0731-REAP-W-gguf
-- niefeng/eelml-qwen3-5-0-8b-mlx-q4
 - jssaluja/nemotron35-punjabi-cer-train-113953-epochs-10-test-1408
-- invi-bhagyesh/olmo-2-1124-7b-sft-goodness
+- Jongbin-kr/llama-3.1-8b-instruct-4x2-moe-lbox-lora-sft-5ep
+- LeaderboardModel1/gemma-4-31B-AutoRound-MXFP8
+- Miiche/visualrl-base-qwen3vl4b
 
 ### huggingface trending (montée)
 - Qwen/Qwen3.8-27B
@@ -132,11 +131,12 @@
 - checkerup/keytester | LLM API Key Tester with chat UI — test API keys via chat with streamin
 
 ### rss (simonwillison/latent/batch)
+- simonwillison.net: llm 0.32.1
+- simonwillison.net: llm-openrouter 0.7
 - simonwillison.net: A shot-scraper-style JSON API on Bun 1.4's new Bun.WebView
 - simonwillison.net: Mojo🔥 is now open source
 - simonwillison.net: llm-gemini 0.33
 - simonwillison.net: Stealing Reasoning Traces from Proprietary LLM APIs
-- simonwillison.net: GitHub Models is now retired
 - www.latent.space: <![CDATA[Frontier Model Cost and Open-Weights Popularity is Driving Demand for Model Routing]]>
 - www.latent.space: <![CDATA[[AINews] Qwen 3.8 Max(2.4T) and 27B, new open weights models for Coding and Cowork]]>
 - feeds.feedburner.com: ERR: rss HTTP Error 404: Not Found
