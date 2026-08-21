@@ -96,6 +96,7 @@
 - awesome-freellm-apis: | Mistral AI | `https://api.mistral.ai/v1` | Get Key → | No |
 
 ### huggingface récents
+- logic65/Qwen3.8-Whittle-MoE-27B-A17.8B
 - zeliang0426/MemAgent-PTE-Qwen2.5-7B-Aligned
 - Echoo113/deepseek-llm-7b-chat-dragon_mlpB-STEER0.584375-ft4.43
 
