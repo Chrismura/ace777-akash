@@ -1,20 +1,20 @@
 {
   "ts": "2026-08-21T20:04Z",
-  "tsUnix": 1787342652,
+  "tsUnix": 1787342662,
   "symbol": "BTCUSDT",
-  "mark": 77095.66,
-  "oi": 106264.258,
+  "mark": 77080.6,
+  "oi": 106266.364,
   "funding": 0.0001,
   "fundingAvg30": 5.696e-05,
   "fundingAvgPrevMonth": 6.043e-05,
   "fundingSamples30": 90,
   "fundingSamplesPrev": 93,
   "longShort": 1.026,
-  "chg24": 6.11,
-  "chg1h": 0.13,
-  "chg4h": -0.47,
-  "volQuote": 33646514599.0,
-  "btcDominance": 59.22,
+  "chg24": 6.09,
+  "chg1h": 0.1,
+  "chg4h": -0.5,
+  "volQuote": 33647325901.0,
+  "btcDominance": null,
   "panierDownPct": 25.0,
   "whaleN": 0,
   "whaleUsd": 0.0,
@@ -26,14 +26,14 @@
   "topTraderLS": 1.086,
   "fearGreed": 72,
   "fearGreedLabel": "Greed",
-  "marketCapUsd": 2597824948847.0,
-  "altSeason": "Bitcoin season",
-  "altSeasonScore": 42,
+  "marketCapUsd": null,
+  "altSeason": null,
+  "altSeasonScore": null,
   "liq24Usd": 36050228.0,
   "liqLongUsd": 16947761.0,
   "liqShortUsd": 19102467.0,
   "etf": {
-    "btc": 989.96,
+    "btc": 989.76,
     "eth": null,
     "xrp": null,
     "source": "bitbo-public (moy 7j)",
@@ -45,7 +45,7 @@
     "callWall": 78000,
     "putWall": 60000,
     "callWallDistPct": 1.2,
-    "putWallDistPct": 22.2,
+    "putWallDistPct": 22.1,
     "nInstruments": 652,
     "source": "deribit-public"
   },
@@ -57,7 +57,7 @@
     "sell24h": 4580.0,
     "source": "okx-rubik+ticker"
   },
-  "etfBtcM": 989.96,
+  "etfBtcM": 989.76,
   "etfEthM": null,
   "etfXrpM": null,
   "gexPutCall": 0.611,
@@ -70,7 +70,7 @@
     "skip": 655,
     "redHits": 0,
     "sessionPnl": 282.1468,
-    "trades": 111600,
+    "trades": 111603,
     "heat": 100.0
   },
   "score": 60,
@@ -79,28 +79,26 @@
     "Climat ATTENTION (score 60/100).",
     "Funding maintenant 0.0001. Moyenne ~30j 5.696e-05 (90 pts). Mois précédent 6.043e-05 (93 pts).",
     "Long/Short 1.026.",
-    "BTC 24h 6.11% · 1h 0.13% · 4h -0.47%.",
+    "BTC 24h 6.09% · 1h 0.1% · 4h -0.5%.",
     "Panier alts : 25.0% en baisse (5/20).",
     "Whales proxy : aucun print ≥500k$ sur les ~500 derniers trades.",
-    "Dark/OTC proxy : taker buy/sell 0.73 · OI 106264.258 (pas de dark pool free temps réel).",
+    "Dark/OTC proxy : taker buy/sell 0.73 · OI 106266.364 (pas de dark pool free temps réel).",
     "Top traders L/S 1.086.",
     "Fear & Greed 72 (Greed).",
-    "Market cap crypto ≈ 2.60 T$.",
-    "Alt season proxy : Bitcoin season (BTC.D 59.22%).",
     "Liquidations 24h proxy ≈ 0.04 B$.",
-    "ETF net inflow : BTC 989.96 M$ (bitbo-public (moy 7j), BTC only).",
-    "GEX proxy (Deribit) : P/C 0.611 · murC 78000 (+1.2%) · murP 60000 (-22.2%).",
+    "ETF net inflow : BTC 989.76 M$ (bitbo-public (moy 7j), BTC only).",
+    "GEX proxy (Deribit) : P/C 0.611 · murC 78000 (+1.2%) · murP 60000 (-22.1%).",
     "Volumes cachés proxy : taker buy 0.534 · vol perp/spot 13.17×.",
     "ACE soft: LIVE=MASTER_VORTEX_V2_COLLAB_4H_LIVE_COLOR.log · SKIP=655 · heat=100.0 · PnL sess=282.1468 · RED=0.",
     "C15/C23 = proxies free. D26–D34 = F&G / MC / alt / liq / ETF / GEX / volumes cachés. Soft ops lecture seule."
   ],
   "indicators": {
     "A1": {
-      "value": "MA50 19.4% · MA200 11.78%",
+      "value": "MA50 19.38% · MA200 11.75%",
       "level": "ok",
       "label": "Prix vs moyennes",
       "unit": "",
-      "note": "mark=77095.66",
+      "note": "mark=77080.6",
       "wired": true
     },
     "A2": {
@@ -112,15 +110,15 @@
       "wired": true
     },
     "A3": {
-      "value": 59.22,
-      "level": "ok",
+      "value": null,
+      "level": "na",
       "label": "Dominance BTC %",
       "unit": "%",
       "note": "",
-      "wired": true
+      "wired": false
     },
     "A4": {
-      "value": "7j 52.5% · 30j 40.43%",
+      "value": "7j 52.46% · 30j 40.41%",
       "level": "ok",
       "label": "Volatilité annualisée",
       "unit": "",
@@ -128,7 +126,7 @@
       "wired": true
     },
     "A5": {
-      "value": -20.43,
+      "value": -20.45,
       "level": "warn",
       "label": "DD vs ATH fenêtre",
       "unit": "%",
@@ -136,7 +134,7 @@
       "wired": true
     },
     "A6": {
-      "value": "tendance (30j 16.68%)",
+      "value": "tendance (30j 16.66%)",
       "level": "ok",
       "label": "Régime large",
       "unit": "",
@@ -144,7 +142,7 @@
       "wired": true
     },
     "B7": {
-      "value": "1h 0.13% · 4h -0.47% · 24h 6.11%",
+      "value": "1h 0.1% · 4h -0.5% · 24h 6.09%",
       "level": "hot",
       "label": "BTC multi-horizon",
       "unit": "",
@@ -168,7 +166,7 @@
       "wired": true
     },
     "B10": {
-      "value": 33646514599.0,
+      "value": 33647325901.0,
       "level": "ok",
       "label": "Volume quote 24h",
       "unit": "",
@@ -176,7 +174,7 @@
       "wired": true
     },
     "B11": {
-      "value": "heat 100.0 · PnL sess 282.1468 · 111600 fills",
+      "value": "heat 100.0 · PnL sess 282.1468 · 111603 fills",
       "level": "hot",
       "label": "Heat portefeuille",
       "unit": "",
@@ -192,7 +190,7 @@
       "wired": true
     },
     "C13": {
-      "value": 106264.258,
+      "value": 106266.364,
       "level": "ok",
       "label": "Open interest",
       "unit": "",
@@ -272,7 +270,7 @@
       "wired": true
     },
     "C23": {
-      "value": "OI 106264.258 · taker B/S 0.73",
+      "value": "OI 106266.364 · taker B/S 0.73",
       "level": "ok",
       "label": "Dark/OTC proxy free",
       "unit": "",
@@ -304,20 +302,20 @@
       "wired": true
     },
     "D27": {
-      "value": "2.60 T$",
-      "level": "ok",
+      "value": null,
+      "level": "na",
       "label": "Market cap crypto",
       "unit": "",
       "note": "CoinGecko global",
-      "wired": true
+      "wired": false
     },
     "D28": {
-      "value": "Bitcoin season (~42)",
-      "level": "warn",
+      "value": null,
+      "level": "ok",
       "label": "Alt season (proxy BTC.D)",
       "unit": "",
       "note": "proxy dominance — pas index Blockchain Center exact",
-      "wired": true
+      "wired": false
     },
     "D29": {
       "value": "0.04 B$",
@@ -328,7 +326,7 @@
       "wired": true
     },
     "D30": {
-      "value": "BTC 989.96 M$",
+      "value": "BTC 989.76 M$",
       "level": "ok",
       "label": "ETF BTC net inflow",
       "unit": "",
@@ -352,7 +350,7 @@
       "wired": false
     },
     "D33": {
-      "value": "P/C 0.611 · murC 78000 (1.2%) · murP 60000 (22.2%)",
+      "value": "P/C 0.611 · murC 78000 (1.2%) · murP 60000 (22.1%)",
       "level": "ok",
       "label": "GEX proxy (OI options)",
       "unit": "",
@@ -370,9 +368,9 @@
   },
   "deltas": {
     "mark": {
-      "dir": "up",
-      "delta": 31.96,
-      "label": "↑"
+      "dir": "down",
+      "delta": -15.06,
+      "label": "↓"
     },
     "funding": {
       "dir": "flat",
@@ -395,13 +393,13 @@
       "label": "="
     },
     "chg24": {
-      "dir": "up",
-      "delta": 0.03,
-      "label": "↑"
+      "dir": "down",
+      "delta": -0.02,
+      "label": "↓"
     },
     "oi": {
       "dir": "up",
-      "delta": 0.066,
+      "delta": 2.106,
       "label": "↑"
     },
     "score": {
@@ -411,8 +409,8 @@
     },
     "btcDominance": {
       "dir": "flat",
-      "delta": 0.0,
-      "label": "="
+      "delta": null,
+      "label": "—"
     },
     "panierDownPct": {
       "dir": "flat",
@@ -446,8 +444,8 @@
     },
     "marketCapUsd": {
       "dir": "flat",
-      "delta": 0.0,
-      "label": "="
+      "delta": null,
+      "label": "—"
     },
     "liq24Usd": {
       "dir": "flat",
@@ -465,14 +463,14 @@
       "label": "—"
     },
     "etfBtcM": {
-      "dir": "up",
-      "delta": 0.41,
-      "label": "↑"
+      "dir": "down",
+      "delta": -0.2,
+      "label": "↓"
     },
     "altSeasonScore": {
       "dir": "flat",
-      "delta": 0.0,
-      "label": "="
+      "delta": null,
+      "label": "—"
     },
     "gexPutCall": {
       "dir": "flat",
@@ -517,7 +515,7 @@
     "D31": "score",
     "D32": "score"
   },
-  "prevTs": "2026-08-21T20:03Z",
+  "prevTs": "2026-08-21T20:04Z",
   "source": "binance-fapi+coingecko+fng+okx-liq+bitbo-etf+deribit-gex+okx-rubik+ace-readonly",
   "wiredNote": "D26–D34 F&G/MC/alt/liq/ETF/GEX/volumes cachés · free + proxies · ACE lecture seule",
   "degraded": false,
