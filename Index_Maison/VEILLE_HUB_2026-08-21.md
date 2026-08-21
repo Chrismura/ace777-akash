@@ -4,9 +4,9 @@
 - hub : OK (14 providers)
 
 ## Énergie du jour
-- appels : 776 (cloud 776)
+- appels : 778 (cloud 778)
 - budget cloud : 624 max
-- par provider : gemini=248, groq=36, mistral=3, nara=381, nvidia=105, openrouter-free=2, openrouter-juge=1
+- par provider : gemini=248, groq=36, mistral=3, nara=383, nvidia=105, openrouter-free=2, openrouter-juge=1
 
 ## Nouvelles offres détectées (non intégrées)
 
@@ -96,11 +96,9 @@
 - awesome-freellm-apis: | Mistral AI | `https://api.mistral.ai/v1` | Get Key → | No |
 
 ### huggingface récents
-- Miiche/visualrl-base-qwen3vl4b
 - jssaluja/nemotron35-punjabi-cer-train-113953-epochs-10-test-1408
-- Echoo113/Phi-3-mini-4k-instruct-dragon-STEER0.525-ft4.44
-- Echoo113/deepseek-llm-7b-chat-dragon-STEER0.584375-ft4.44
-- mraleko/qwen25-coder-7b-v7-v1-retry-gguf
+- Nataliegvo/gemma-2b-mom-style-v5
+- Miiche/visualrl-base-qwen3vl4b
 
 ### huggingface trending (montée)
 - Qwen/Qwen3.8-27B
