@@ -4,9 +4,9 @@
 - hub : OK (14 providers)
 
 ## Énergie du jour
-- appels : 837 (cloud 837)
+- appels : 839 (cloud 839)
 - budget cloud : 624 max
-- par provider : gemini=252, groq=36, mistral=3, nara=425, nvidia=118, openrouter-free=2, openrouter-juge=1
+- par provider : gemini=252, groq=36, mistral=3, nara=427, nvidia=118, openrouter-free=2, openrouter-juge=1
 
 ## Nouvelles offres détectées (non intégrées)
 
@@ -96,9 +96,10 @@
 - awesome-freellm-apis: | Mistral AI | `https://api.mistral.ai/v1` | Get Key → | No |
 
 ### huggingface récents
+- Echoo113/Qwen3.5-4B-dragon_prompted-ft4.44
 - Miiche/visualrl-base-qwen3vl4b
-- Echoo113/Qwen2.5-7B-Instruct-immigration_prompted-ft4.44
-- jssaluja/nemotron35-punjabi-cer-train-113953-epochs-10-test-1408
+- Echoo113/Qwen3.5-4B-immigration-STEER0.198438-ft4.44
+- Jongbin-kr/llama-3.1-8b-instruct-4x1-moe-lbox-lora-sft-5ep
 
 ### huggingface trending (montée)
 - Qwen/Qwen3.8-27B
@@ -118,9 +119,9 @@
 - deepseek-ai/DeepSeek-V4-Pro-0813
 
 ### github search (nouveaux lieux)
+- saksham10arora-dotcom/lmex | The LLM Latency Exchange. Free-tier LLM APIs trade as tickers, price i
 - xyzs996/free-llm-api | Verified free LLM API list — no-card options, direct API key links, ra
 - jsLavender/trader-goblins | An AI investment-research data platform: point-in-time/leak-free desig
-- saksham10arora-dotcom/lmex | The LLM Latency Exchange. Free-tier LLM APIs trade as tickers, price i
 - api-evangelist/freeplay | Freeplay is an LLM product experimentation, evaluation, and observabil
 - api-evangelist/evals | Evals — A landscape catalog of the platforms, frameworks, libraries, a
 - affromero/pricetoken | Real-time LLM pricing API. Free REST API + npm package + historical da
@@ -140,5 +141,3 @@
 - www.latent.space: <![CDATA[[AINews] Qwen 3.8 Max(2.4T) and 27B, new open weights models for Coding and Cowork]]>
 - feeds.feedburner.com: ERR: rss HTTP Error 404: Not Found
 _généré par veille_hub.py — étapes suivantes en launchd décalé : eval 9h30 · catalogue 10h · propositions 10h30 · observatoire 11h._
-## ROLLBACK AUTO 2026-08-21
-- obs-1786795252 (nvidia/nemotron-3.5-content-safety:free) : 100% erreurs > 5% (observatoire)
