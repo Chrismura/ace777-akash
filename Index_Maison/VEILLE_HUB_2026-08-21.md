@@ -97,6 +97,7 @@
 
 ### huggingface récents
 - jssaluja/nemotron35-punjabi-cer-train-113953-epochs-10-test-1408
+- Echoo113/Llama-3.2-3B-Instruct-immigration_prompted-ft4.43
 - Echoo113/Phi-3-mini-4k-instruct-dragon_prompted-ft4.43
 - Echoo113/Qwen2.5-7B-Instruct-immigration_prompted-ft4.43
 - Miiche/visualrl-base-qwen3vl4b

@@ -1,4 +1,4 @@
-# ARCHITECTURE VIVANTE — ACE777 (2026-08-21 20:15 UTC)
+# ARCHITECTURE VIVANTE — ACE777 (2026-08-21 20:16 UTC)
 
 > Document GÉNÉRÉ AUTOMATIQUEMENT à l'instant. La famille valide
 > en s'appuyant sur CE contexte, pas sur des documents figés.
@@ -9,7 +9,7 @@
 - ✅ radar
 - ⛔ lecteur signets
 - ⛔ générateur fiches
-- ✅ feed mission
+- ⛔ feed mission
 - ⛔ serveur cockpit
 
 ## Routage des tâches de décision
@@ -22,10 +22,10 @@
 
 ## État de la mission (bots + PnL)
 
-- mission.json : 2026-08-21 20:15Z · run `MASTER_VORTEX_V2_COLLAB_4H` · alerte `red`
+- mission.json : 2026-08-21 20:16Z · run `MASTER_VORTEX_V2_COLLAB_4H` · alerte `red`
 - PnL combiné : **-3.18 $** 📉 (combo -3.1821)
 - ALPHA (sniper (embuscade, ×13, revenge si claque)) : **-0.36 $** · 5 fills · 119 skips
-- BETA (éclaireur (chatouille le marché, alimente Alpha)) : **-2.82 $** · 7 fills · 133 skips
+- BETA (éclaireur (chatouille le marché, alimente Alpha)) : **-2.82 $** · 7 fills · 135 skips
 - HULK (gestionnaire de portefeuille (bag, escalier, courreur)) : **+0.64 $** · 0 fills
 - Saison : CALME 🧊 · 
 
@@ -41,15 +41,15 @@
   · dots-studio/dots-3-note-preview:free
   · liquid/lfm-2.5-2.6b:free
   · thinkingmachines/inkling-small:free
-  … 108 offres/pépites détectées ce matin
+  … 109 offres/pépites détectées ce matin
 
 ## Mémoire chaude (journal + résumés)
 
 - Radar (dernières alertes) :
-  · 2026-08-21T20:15:58.226963Z ETHUSDT 2427.73 0.0000 0.0 declenche=non
-  · 2026-08-21T20:15:58.227189Z ETHUSDT 2427.75 0.0000 0.0 declenche=non
-  · 2026-08-21T20:15:58.255320Z ETHUSDT 2427.81 0.0000 0.0 declenche=non
-  · 2026-08-21T20:15:58.380006Z ETHUSDT 2427.81 0.0000 0.0 declenche=non
+  · 2026-08-21T20:16:18.233588Z ETHUSDT 2428.6 0.0004 172.6 declenche=non
+  · 2026-08-21T20:16:18.651618Z BTCUSDT 77408.01 0.0009 26.2 declenche=non
+  · 2026-08-21T20:16:18.658081Z BTCUSDT 77408.01 0.0009 26.2 declenche=non
+  · 2026-08-21T20:16:18.877675Z BTCUSDT 77408.0 0.0009 26.2 declenche=non
 - Intention en cours : BETA a sonde le marche (7 sondes, 0 long / 7 court, conf moy | ALPHA attend son moment : 110 skips (discipline), le mur du  | ALPHA a frappe 5 fois en embuscade (13x) : -0.36 $, meilleur
 - 500 signets X résumés (quota aujourd'hui : 50/50)
 - 56 fiches IA d'offres en cache (quota 8/jour)
