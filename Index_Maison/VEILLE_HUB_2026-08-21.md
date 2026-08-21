@@ -4,9 +4,9 @@
 - hub : OK (14 providers)
 
 ## Énergie du jour
-- appels : 845 (cloud 845)
+- appels : 847 (cloud 847)
 - budget cloud : 624 max
-- par provider : gemini=252, groq=36, mistral=3, nara=433, nvidia=118, openrouter-free=2, openrouter-juge=1
+- par provider : gemini=252, groq=36, mistral=3, nara=435, nvidia=118, openrouter-free=2, openrouter-juge=1
 
 ## Nouvelles offres détectées (non intégrées)
 
@@ -96,10 +96,10 @@
 - awesome-freellm-apis: | Mistral AI | `https://api.mistral.ai/v1` | Get Key → | No |
 
 ### huggingface récents
-- onchainengineer/Qwen3.8-27B-Uncensored-MLX-BF16
-- Echoo113/Qwen2.5-7B-Instruct-immigration_prompted-ft4.44
+- Echoo113/Qwen3.5-4B-immigration-STEER0.198438-ft4.44
 - Miiche/visualrl-base-qwen3vl4b
-- Echoo113/Qwen3.5-4B-dragon_prompted-ft4.44
+- Echoo113/deepseek-llm-7b-chat-immigration-STEER0.346875-ft4.44
+- Echoo113/Qwen2.5-7B-Instruct-dragon_prompted-ft4.44
 
 ### huggingface trending (montée)
 - Qwen/Qwen3.8-27B
@@ -119,16 +119,7 @@
 - deepseek-ai/DeepSeek-V4-Pro-0813
 
 ### github search (nouveaux lieux)
-- saksham10arora-dotcom/lmex | The LLM Latency Exchange. Free-tier LLM APIs trade as tickers, price i
-- xyzs996/free-llm-api | Verified free LLM API list — no-card options, direct API key links, ra
-- jsLavender/trader-goblins | An AI investment-research data platform: point-in-time/leak-free desig
-- api-evangelist/freeplay | Freeplay is an LLM product experimentation, evaluation, and observabil
-- api-evangelist/evals | Evals — A landscape catalog of the platforms, frameworks, libraries, a
-- affromero/pricetoken | Real-time LLM pricing API. Free REST API + npm package + historical da
-- Mitriyweb/model-router | Universal AI proxy that allows Claude Code, ZeroClaw, Aider, Cline (Ro
-- shayeeboy/Enterprise-RAG-Assistant | AI-Native Piano Learning RAG Assistant - live & free (GitHub Pages -> 
-- DhruvProgrammer/aether-code | aether is a free, open-source AI coding agent for any OpenAI-compatibl
-- checkerup/keytester | LLM API Key Tester with chat UI — test API keys via chat with streamin
+- ERR: github-search HTTP Error 403: rate limit exceeded
 
 ### rss (simonwillison/latent/batch)
 - simonwillison.net: llm 0.32.1
