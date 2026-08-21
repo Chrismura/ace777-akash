@@ -1834,3 +1834,7 @@ Pas d’ordre — confrontation plus tard.
 ### 2026-08-21T07:12:45Z — ALERT auto
 - PYTHUSDT: IMPULSE_WAIT — spike en cours, pas chase
 (compléter: confirmé ? risque ?)
+
+### 2026-08-21T07:49:22Z — ALERT auto
+- RIZEUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)

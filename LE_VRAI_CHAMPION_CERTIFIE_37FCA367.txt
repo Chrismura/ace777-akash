@@ -203,6 +203,7 @@ SOFT_STOP_LOSS_BPS="${SOFT_STOP_LOSS_BPS:-7}"
 ACE_STOP_MARKET_ENABLED="${ACE_STOP_MARKET_ENABLED:-FALSE}"   # DÉSACTIVÉ par défaut → activation explicite au test (condition juge n°2)
 ACE_STOP_MARKET_BPS="${ACE_STOP_MARKET_BPS:-8}"               # 8-10 bps validés famille (filet anti-crash, PAS un scalpel)
 ACE_STOP_TICK_DECIMALS="${ACE_STOP_TICK_DECIMALS:-1}"         # tickSize BTCUSDT testnet = 0.1 → 1 décimale
+ACE_STOP_SESSION_ID="${ACE_STOP_SESSION_ID:-$(date +%s)000}"  # suffixe unique par session → fix -4116 (clientAlgoId dupliqué après relance), patch 21/08
 SOFT_TRAIL_GIVEBACK_BPS="${SOFT_TRAIL_GIVEBACK_BPS:-3}"
 MIN_HOLD_FOR_ANOMALY="${MIN_HOLD_FOR_ANOMALY:-3}"
 LEVERAGE_ANOMALY_MULT="${LEVERAGE_ANOMALY_MULT:-0.5}"
@@ -766,7 +767,7 @@ private_delete() {
 # ============================================================
 private_delete_order_sniper() {
   local symbol="$1" cycle_id="$2"
-  local client_order_id="ACESTOP${cycle_id}"
+  local client_order_id="ACESTOP${cycle_id}_${ACE_STOP_SESSION_ID}"
   local query_params="clientAlgoId=${client_order_id}"
   echo "🧹 [NETTOYAGE] Suppression du STOP_MARKET physique : ${client_order_id}"
   local response
@@ -2217,19 +2218,41 @@ for i in $(seq 1 "$CYCLES"); do
       # Arrondi CEIL pour un SHORT : le stop ne descend JAMAIS vers le marché
       stop_price="$(ruby -e 'p=(Float(ARGV[0]) rescue 0.0); d=(Integer(ARGV[1]) rescue 1); d=1 if d < 1; f=10.0**d; printf("%.#{d}f", (p*f).ceil/f)' -- "$stop_price_raw" "$ACE_STOP_TICK_DECIMALS")"
     fi
-    ts="$(now_ms)"
     # V4 : Algo Order API — triggerPrice au lieu de stopPrice, clientAlgoId au lieu de newClientOrderId,
     # PAS de reduceOnly (interdit en hedge ; Binance l'applique automatiquement avec positionSide)
-    q_stop="algoType=CONDITIONAL&symbol=$SYMBOL&side=$close_side&type=STOP_MARKET&quantity=$qty&triggerPrice=$stop_price&workingType=MARK_PRICE${stop_position_side_param}&clientAlgoId=ACESTOP${i}&timestamp=$ts&recvWindow=$RECV_WINDOW"
-    stop_resp="$(private_post "/fapi/v1/algoOrder" "$q_stop" || true)"
-    stop_code="$(json_get "$stop_resp" "code")"
-    if [ -n "$stop_code" ]; then
-      stop_msg="$(json_get "$stop_resp" "msg")"
-      echo "🔴 [FILET] ÉCHEC placement STOP_MARKET code=$stop_code msg=$stop_msg — position SANS filet physique, stop logiciel seul !"
-      echo "$(date -u +%FT%TZ),$i,FILET_ERROR,$side,$entry_price,,$qty,0,0,stop_market_fail,,code=$stop_code msg=$stop_msg" >> "$LOG_FILE"
-    else
-      echo "🛡️ [FILET] STOP_MARKET ACESTOP${i} posé @ $stop_price (${ACE_STOP_MARKET_BPS} bps, MARK_PRICE) — filet physique armé."
-    fi
+    # fix 21/08 : clientAlgoId unique par session (suffixe horodaté) → plus de -4116 après relance.
+    # fix 21/08 : retry à distance doublée si -2021 (trigger déjà atteint sur marché rapide).
+    _stop_attempt=0
+    _stop_bps="$ACE_STOP_MARKET_BPS"
+    while [ "$_stop_attempt" -lt 4 ]; do
+      _stop_attempt=$((_stop_attempt + 1))
+      if [ "$side" = "BUY" ]; then
+        _stop_raw="$(num_sub "$entry_price" "$(num_div "$(num_mul "$entry_price" "$_stop_bps")" "10000")")"
+        _stop_price="$(ruby -e 'p=(Float(ARGV[0]) rescue 0.0); d=(Integer(ARGV[1]) rescue 1); d=1 if d < 1; f=10.0**d; printf("%.#{d}f", (p*f).floor/f)' -- "$_stop_raw" "$ACE_STOP_TICK_DECIMALS")"
+      else
+        _stop_raw="$(num_add "$entry_price" "$(num_div "$(num_mul "$entry_price" "$_stop_bps")" "10000")")"
+        _stop_price="$(ruby -e 'p=(Float(ARGV[0]) rescue 0.0); d=(Integer(ARGV[1]) rescue 1); d=1 if d < 1; f=10.0**d; printf("%.#{d}f", (p*f).ceil/f)' -- "$_stop_raw" "$ACE_STOP_TICK_DECIMALS")"
+      fi
+      ts="$(now_ms)"
+      q_stop="algoType=CONDITIONAL&symbol=$SYMBOL&side=$close_side&type=STOP_MARKET&quantity=$qty&triggerPrice=$_stop_price&workingType=MARK_PRICE${stop_position_side_param}&clientAlgoId=ACESTOP${i}_${ACE_STOP_SESSION_ID}&timestamp=$ts&recvWindow=$RECV_WINDOW"
+      stop_resp="$(private_post "/fapi/v1/algoOrder" "$q_stop" || true)"
+      stop_code="$(json_get "$stop_resp" "code")"
+      if [ -n "$stop_code" ]; then
+        if [ "$stop_code" = "-2021" ] && [ "$_stop_attempt" -lt 4 ]; then
+          _stop_bps=$((_stop_bps * 2))
+          echo "⚠️ [FILET] tentative $_stop_attempt refusée (-2021) — retry à ${_stop_bps} bps"
+          continue
+        fi
+        stop_msg="$(json_get "$stop_resp" "msg")"
+        echo "🔴 [FILET] ÉCHEC placement STOP_MARKET code=$stop_code msg=$stop_msg — position SANS filet physique, stop logiciel seul !"
+        echo "$(date -u +%FT%TZ),$i,FILET_ERROR,$side,$entry_price,,$qty,0,0,stop_market_fail,,code=$stop_code msg=$stop_msg" >> "$LOG_FILE"
+        break
+      else
+        stop_price="$_stop_price"
+        echo "🛡️ [FILET] STOP_MARKET ACESTOP${i}_${ACE_STOP_SESSION_ID} posé @ $_stop_price (${_stop_bps} bps, MARK_PRICE) — filet physique armé."
+        break
+      fi
+    done
   fi
 
   reason="timeout"

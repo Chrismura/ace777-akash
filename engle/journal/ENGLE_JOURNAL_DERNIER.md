@@ -1,8 +1,8 @@
 # JOURNAL ENGLE — MASTER_VORTEX_V2_COLLAB_4H
 
-- Généré: `2026-08-21T07:40:20Z` (UTC)
+- Généré: `2026-08-21T07:57:36Z` (UTC)
 - Couche: **B1** (lecture seule) · `ENGLE_ADAPT=0`
-- Session start (filtre): `2026-08-21T07:39:10Z`
+- Session start (filtre): `2026-08-21T07:52:27Z`
 - CSV: `MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv` · `MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv`
 - Base: usine V2.2.1 + champion 37fca367 — **non modifié**
 
@@ -10,11 +10,11 @@
 
 | Régime | Cycles | % | Fills | PnL fills |
 |--------|--------|---|-------|-----------|
-| COMPRESSÉ (attente à froid) | 3 | 100.0% | 2 | -1.3847 |
+| COMPRESSÉ (attente à froid) | 1 | 100.0% | 0 | +0.0000 |
 | TRANSITOIRE (bruit retail) | 0 | 0.0% | 0 | +0.0000 |
 | CLUSTER (tension haute — proxy) | 0 | 0.0% | 0 | +0.0000 |
 
-- Courant (proxy): **COMPRESSÉ (attente à froid)** · μ=0.0000 · σ=0.0000 · n=3
+- Courant (proxy): **COMPRESSÉ (attente à froid)** · μ=0.0002 · σ=0.0000 · n=1
 
 ## Posture recommandée (conseil — pas appliquée)
 
@@ -26,9 +26,9 @@
 
 | Unité | Cycles | Fills | Skips | PnL fills (USDT) | Fenêtre |
 |-------|--------|-------|-------|------------------|---------|
-| BETA | 3 | 2 | 1 | -1.3847 | `2026-08-21T07:39:21Z` → `2026-08-21T07:40:15Z` |
-| ALPHA | 4 | 1 | 3 | +4.2415 | `2026-08-21T07:39:23Z` → `2026-08-21T07:40:18Z` |
-| **TOTAL** | | 3 | | **+2.8568** | |
+| BETA | 1 | 0 | 1 | +0.0000 | `2026-08-21T07:52:36Z` → `2026-08-21T07:52:36Z` |
+| ALPHA | 1 | 0 | 1 | +0.0000 | `2026-08-21T07:52:39Z` → `2026-08-21T07:52:39Z` |
+| **TOTAL** | | 0 | | **+0.0000** | |
 
 ## SKIP BETA (top)
 
@@ -40,9 +40,7 @@
 
 | Raison | Nb | % skips |
 |--------|-----|---------|
-| `radar_block` | 1 | 33.3% |
-| `duo_wait` | 1 | 33.3% |
-| `momentum_too_small` | 1 | 33.3% |
+| `momentum_too_small` | 1 | 100.0% |
 
 ## Lecture courte (marché calme)
 

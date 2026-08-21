@@ -1,116 +1,19 @@
 {
-  "ts": "2026-08-21T07:42:09.120972+00:00",
-  "since": "2026-08-21T07:39:00Z",
+  "ts": "2026-08-21T08:13:49.339466+00:00",
+  "since": "2026-08-21T07:52:00Z",
   "bots": {
     "alpha": {
       "role": "sniper",
       "surnom": "Le Sniper",
-      "fills": 2,
-      "skips": 2,
-      "pnl": 4.14745,
-      "best": 4.24153,
-      "conf_moy": 0.9984,
-      "events": [
-        {
-          "ts": "2026-08-21T07:39:01Z",
-          "bot": "alpha",
-          "cycle": 52,
-          "action": "fire",
-          "intention": "a tire en mode revenge 1.5x",
-          "direction": "short",
-          "conf": 0.9995,
-          "exit": "2.39276800",
-          "meta": {
-            "size_note": "hunter_revenge_1.5x+entry_25_75_full",
-            "tension": 3.38549438
-          },
-          "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv"
-        },
-        {
-          "ts": "2026-08-21T07:39:23Z",
-          "bot": "alpha",
-          "cycle": 1,
-          "action": "skip",
-          "intention": "pas d'opportunite — discipline (radar bloque)",
-          "direction": null,
-          "conf": 0.16,
-          "exit": "radar_block",
-          "meta": {
-            "size_note": null,
-            "tension": 0.09669888
-          },
-          "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv"
-        },
-        {
-          "ts": "2026-08-21T07:39:34Z",
-          "bot": "alpha",
-          "cycle": 2,
-          "action": "wait",
-          "intention": "attente de l'etat du duo (Beta)",
-          "direction": null,
-          "conf": null,
-          "exit": "duo_wait",
-          "meta": {
-            "size_note": null,
-            "tension": null
-          },
-          "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv"
-        },
-        {
-          "ts": "2026-08-21T07:40:06Z",
-          "bot": "alpha",
-          "cycle": 3,
-          "action": "fire",
-          "intention": "a frappe en embuscade (13x)",
-          "direction": "long",
-          "conf": 0.9973,
-          "exit": "3.19650487",
-          "meta": {
-            "size_note": "strong_conf_full+entry_25_75_full",
-            "tension": 1.84450672
-          },
-          "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv"
-        },
-        {
-          "ts": "2026-08-21T07:40:18Z",
-          "bot": "alpha",
-          "cycle": 4,
-          "action": "skip",
-          "intention": "pas d'opportunite — discipline (radar bloque)",
-          "direction": null,
-          "conf": 0.0001,
-          "exit": "radar_block",
-          "meta": {
-            "size_note": null,
-            "tension": 6.894e-05
-          },
-          "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv"
-        }
-      ],
-      "counts": {
-        "wait": 1,
-        "fire": 2,
-        "probe": 0,
-        "skip": 2
-      },
-      "direction": {
-        "long": 1,
-        "short": 1
-      },
-      "revenge": 1
-    },
-    "beta": {
-      "role": "eclaireur",
-      "surnom": "L'Eclaireur",
-      "fills": 2,
+      "fills": 0,
       "skips": 1,
-      "pnl": -1.38473,
+      "pnl": 0.0,
       "best": 0.0,
-      "conf_moy": 0.9402999999999999,
+      "conf_moy": 0.0,
       "events": [
         {
-          "ts": "2026-08-21T07:39:21Z",
-          "bot": "beta",
+          "ts": "2026-08-21T07:52:39Z",
+          "bot": "alpha",
           "cycle": 1,
           "action": "skip",
           "intention": "pas d'opportunite — discipline (radar bloque)",
@@ -119,37 +22,44 @@
           "exit": "radar_block",
           "meta": {
             "size_note": null,
-            "tension": 1.39e-06
+            "tension": 8.84e-06
           },
-          "file": "MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv"
-        },
+          "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv"
+        }
+      ],
+      "counts": {
+        "wait": 0,
+        "fire": 0,
+        "probe": 0,
+        "skip": 1
+      },
+      "direction": {
+        "long": 0,
+        "short": 0
+      },
+      "revenge": 0
+    },
+    "beta": {
+      "role": "eclaireur",
+      "surnom": "L'Eclaireur",
+      "fills": 0,
+      "skips": 1,
+      "pnl": 0.0,
+      "best": 0.0,
+      "conf_moy": 0.0,
+      "events": [
         {
-          "ts": "2026-08-21T07:39:50Z",
+          "ts": "2026-08-21T07:52:36Z",
           "bot": "beta",
-          "cycle": 2,
-          "action": "probe",
-          "intention": "a sonde le marche",
-          "direction": "long",
-          "conf": 0.9438,
-          "exit": "1.28994597",
+          "cycle": 1,
+          "action": "skip",
+          "intention": "pas d'opportunite — discipline (radar bloque)",
+          "direction": null,
+          "conf": 0.0003,
+          "exit": "radar_block",
           "meta": {
-            "size_note": "strong_conf_full+aspiration_1.618x+entry_25_75_full",
-            "tension": 15.22485489
-          },
-          "file": "MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv"
-        },
-        {
-          "ts": "2026-08-21T07:40:15Z",
-          "bot": "beta",
-          "cycle": 3,
-          "action": "probe",
-          "intention": "a sonde le marche",
-          "direction": "long",
-          "conf": 0.9368,
-          "exit": "0.64242696",
-          "meta": {
-            "size_note": "strong_conf_full+aspiration_1.618x+entry_25_75_full",
-            "tension": 8.62009875
+            "size_note": null,
+            "tension": 0.00017643
           },
           "file": "MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv"
         }
@@ -157,18 +67,18 @@
       "counts": {
         "wait": 0,
         "fire": 0,
-        "probe": 2,
+        "probe": 0,
         "skip": 1
       },
       "direction": {
-        "long": 2,
+        "long": 0,
         "short": 0
       },
       "revenge": 0
     }
   },
   "story": [
-    "BETA a sonde le marche (2 sondes, 2 long / 0 court, conf moyenne 0.94) — il renseigne Alpha.",
-    "ALPHA a frappe 2 fois en embuscade (13x) (dont 1 en mode revenge 1.5x) : +4.15 $, meilleur trade +4.24 $."
+    "BETA veille — pas encore de sonde sur la session en cours.",
+    "ALPHA attend son signal — aucun tir sur la session en cours."
   ]
 }

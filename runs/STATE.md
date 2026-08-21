@@ -1,7 +1,7 @@
 # ACE777 — STATE
 
 > Généré automatiquement — ne pas éditer à la main
-> Phase: `stopped` | Statut: `STOPPED` | MAJ: `2026-08-21T07:40:19Z`
+> Phase: `stopped` | Statut: `STOPPED` | MAJ: `2026-08-21T07:57:36Z`
 
 ## Config active
 
@@ -17,28 +17,15 @@
 
 | Unité | FILLED | Win | Loss | Win% | Net USDT | SKIP |
 |-------|--------|-----|------|------|----------|------|
-| BETA | 2 | 0 | 2 | 0.0% | -1.3847 | 1 |
-| ALPHA | 1 | 1 | 0 | 100.0% | 4.2415 | 3 |
-| **TOTAL** | **3** | — | — | — | **2.8568** | **4** |
+| BETA | 0 | 0 | 0 | 0.00% | 0.0000 | 1 |
+| ALPHA | 0 | 0 | 0 | 0.00% | 0.0000 | 1 |
+| **TOTAL** | **0** | — | — | — | **0.0000** | **2** |
 
 ## Duo session (`duo_session.json`)
 
-- SCOUT PnL: `-3.31710293` USDT
-- HUNTER PnL: `1.04502513` USDT
-- Total session: `-2.2720778` USDT
-
-## Duo live (`duo_state.json`)
-
-| Champ | Valeur |
-|-------|--------|
-| role | `SCOUT` |
-| status | `CLOSED` |
-| side | `SELL` |
-| bps | `-1.26831539` |
-| pnl_usdt | `-0.74427696` |
-| reason | `shock_inversion_stop` |
-| cycle | `3` |
-| hold_sec | `8` |
+- SCOUT PnL: `` USDT
+- HUNTER PnL: `` USDT
+- Total session: `` USDT
 
 ## Top SKIP — BETA
 
@@ -46,14 +33,13 @@
 
 ## Top SKIP — ALPHA
 
-1. `radar_block` — 2
-2. `duo_wait` — 1
+1. `radar_block` — 1
 
 ## Vortex (`vortex_control.json`)
 
 - Mode: `TREND`
 - Message: `v2_swarm_wind_trend`
-- TS: `2026-08-21T07:40:04Z`
+- TS: `2026-08-21T07:52:36Z`
 
 ## Processus
 

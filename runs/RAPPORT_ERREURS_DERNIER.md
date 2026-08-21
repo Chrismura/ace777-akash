@@ -4,7 +4,7 @@
 
 `WHY_ARRET=stop_files_clean_exit | ran_min=11980.5 | vs_planned_min=-11740.5 | timing=late_or_overrun`
 
-- Généré : `2026-08-21T07:40:23Z`
+- Généré : `2026-08-21T07:57:39Z`
 - Fenêtre depuis : `2026-08-12T12:01:34Z`
 - Fin process : `2026-08-20T19:42:04Z`
 - Meta start/end : `2026-08-12T12:01:34Z` → `2026-08-12T16:01:34Z`
