@@ -4,7 +4,7 @@
 > Info Fill Alfa. Alfa : BUY, +1.93 dollars. Provenance cortana_watch_fill.
 
 ## Meta
-- statut: READY
+- statut: IDLE
 - ts: 20260821T2210Z
 - pertinence: SOFT
 - sentiment: INFO
