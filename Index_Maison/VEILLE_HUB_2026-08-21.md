@@ -139,4 +139,4 @@
 - feeds.feedburner.com: ERR: rss HTTP Error 404: Not Found
 _généré par veille_hub.py — étapes suivantes en launchd décalé : eval 9h30 · catalogue 10h · propositions 10h30 · observatoire 11h._
 ## ROLLBACK AUTO 2026-08-21
-- obs-1786688184 (cohere/north-mini-code:free) : 100% erreurs > 5% (observatoire)
+- obs-1786774646 (nvidia/nemotron-3-nano-30b-a3b:free) : 90% erreurs > 5% (observatoire)
