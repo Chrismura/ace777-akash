@@ -4,9 +4,9 @@
 - hub : OK (14 providers)
 
 ## Énergie du jour
-- appels : 802 (cloud 802)
+- appels : 804 (cloud 804)
 - budget cloud : 624 max
-- par provider : gemini=250, groq=36, mistral=3, nara=398, nvidia=112, openrouter-free=2, openrouter-juge=1
+- par provider : gemini=250, groq=36, mistral=3, nara=399, nvidia=113, openrouter-free=2, openrouter-juge=1
 
 ## Nouvelles offres détectées (non intégrées)
 
@@ -96,12 +96,12 @@
 - awesome-freellm-apis: | Mistral AI | `https://api.mistral.ai/v1` | Get Key → | No |
 
 ### huggingface récents
-- Miiche/visualrl-base-qwen3vl4b
-- ijinyu1113/ft_mr8_qwen0.5b_seed42_lr3e-5_wd0.05_constlr25000steps_nimsimple_max50000_evalevery50_purenum
-- ijinyu1113/ft_mr5_qwen0.5b_seed42_lr3e-5_wd0.05_constlr25000steps_nimsimple_max50000_evalevery50_purenum
-- ijinyu1113/ft_mr9_qwen0.5b_seed42_lr3e-5_wd0.05_constlr25000steps_nimsimple_max50000_evalevery50_purenum
-- SaifPunjwani/qwen17b-band-ckpts
 - jssaluja/nemotron35-punjabi-cer-train-113953-epochs-10-test-1408
+- 0xWhiteMage/Qwen3.8-27B-Kearuga-DFlash2-FP8-E4M3
+- ijinyu1113/ft_mr13_qwen0.5b_seed42_lr3e-5_wd0.05_constlr25000steps_nimsimple_max50000_evalevery50_purenum
+- ijinyu1113/ft_mr10_qwen0.5b_seed42_lr3e-5_wd0.05_constlr25000steps_nimsimple_max50000_evalevery50_purenum
+- 0xWhiteMage/Qwen3.8-27B-Kearuga-DFlash2
+- Echoo113/Qwen3.5-4B-dragon-STEER0.109375-ft4.44
 
 ### huggingface trending (montée)
 - Qwen/Qwen3.8-27B
@@ -143,3 +143,5 @@
 - www.latent.space: <![CDATA[[AINews] Qwen 3.8 Max(2.4T) and 27B, new open weights models for Coding and Cowork]]>
 - feeds.feedburner.com: ERR: rss HTTP Error 404: Not Found
 _généré par veille_hub.py — étapes suivantes en launchd décalé : eval 9h30 · catalogue 10h · propositions 10h30 · observatoire 11h._
+## ROLLBACK AUTO 2026-08-21
+- obs-1786688184 (cohere/north-mini-code:free) : 100% erreurs > 5% (observatoire)
