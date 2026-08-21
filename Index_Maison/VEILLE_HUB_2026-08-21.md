@@ -4,9 +4,9 @@
 - hub : OK (14 providers)
 
 ## Énergie du jour
-- appels : 494 (cloud 494)
+- appels : 495 (cloud 495)
 - budget cloud : 624 max
-- par provider : gemini=153, groq=35, mistral=3, nara=271, nvidia=29, openrouter-free=2, openrouter-juge=1
+- par provider : gemini=154, groq=35, mistral=3, nara=271, nvidia=29, openrouter-free=2, openrouter-juge=1
 
 ## Nouvelles offres détectées (non intégrées)
 
@@ -138,5 +138,3 @@
 - www.latent.space: <![CDATA[[AINews] Qwen 3.8 Max(2.4T) and 27B, new open weights models for Coding and Cowork]]>
 - feeds.feedburner.com: ERR: rss HTTP Error 404: Not Found
 _généré par veille_hub.py — étapes suivantes en launchd décalé : eval 9h30 · catalogue 10h · propositions 10h30 · observatoire 11h._
-## ROLLBACK AUTO 2026-08-21
-- obs-1786774656 (nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free) : 90% erreurs > 5% (observatoire)
