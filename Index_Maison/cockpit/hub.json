@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-21T01:14:07.589184+00:00",
+  "generated_at": "2026-08-21T01:29:18.342734+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -35,7 +35,7 @@
       "model": "groq/compound",
       "enabled": true,
       "timeout": 120,
-      "calls_24h": 28
+      "calls_24h": 27
     },
     {
       "id": "nvidia",
@@ -356,6 +356,18 @@
   ],
   "events": [
     {
+      "ts": "2026-08-21T01:29:17.478466+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis Groq (LLM ultra-rapide, gratuit)",
+      "detail": "HTTP Error 413: Payload Too Large"
+    },
+    {
+      "ts": "2026-08-21T01:29:07.430162+00:00",
+      "kind": "timeout",
+      "title": "Patience Groq (LLM ultra-rapide, gratuit) (HTTP 413)",
+      "detail": "HTTP Error 413: Payload Too Large"
+    },
+    {
       "ts": "2026-08-21T00:28:57.243489+00:00",
       "kind": "message",
       "title": "« Groq (LLM ultra-rapide, gratuit) » a repondu",
@@ -402,18 +414,6 @@
       "kind": "message",
       "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
       "detail": "bascule"
-    },
-    {
-      "ts": "2026-08-20T19:41:08.893644+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis Groq (LLM ultra-rapide, gratuit)",
-      "detail": "HTTP Error 429: Too Many Requests"
-    },
-    {
-      "ts": "2026-08-20T19:41:08.893331+00:00",
-      "kind": "ratelimit",
-      "title": "429 Groq (LLM ultra-rapide, gratuit) -> pause 60s + bascule",
-      "detail": ""
     }
   ],
   "tasks_quotas": {
