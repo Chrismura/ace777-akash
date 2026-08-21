@@ -96,11 +96,10 @@
 - awesome-freellm-apis: | Mistral AI | `https://api.mistral.ai/v1` | Get Key → | No |
 
 ### huggingface récents
-- Echoo113/Olmo-3-7B-Instruct-immigration-STEER0.198438-ft4.44
 - Miiche/visualrl-base-qwen3vl4b
 - jssaluja/nemotron35-punjabi-cer-train-113953-epochs-10-test-1408
+- Echoo113/Olmo-3-7B-Instruct-immigration-STEER0.198438-ft4.44
 - Echoo113/Phi-3-mini-4k-instruct-dragon-STEER0.525-ft4.44
-- Nataliegvo/gemma-2b-mom-style-v5
 
 ### huggingface trending (montée)
 - Qwen/Qwen3.8-27B
@@ -142,3 +141,5 @@
 - www.latent.space: <![CDATA[[AINews] Qwen 3.8 Max(2.4T) and 27B, new open weights models for Coding and Cowork]]>
 - feeds.feedburner.com: ERR: rss HTTP Error 404: Not Found
 _généré par veille_hub.py — étapes suivantes en launchd décalé : eval 9h30 · catalogue 10h · propositions 10h30 · observatoire 11h._
+## ROLLBACK AUTO 2026-08-21
+- obs-1786774656 (nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free) : 100% erreurs > 5% (observatoire)
