@@ -4,9 +4,9 @@
 - hub : OK (14 providers)
 
 ## Énergie du jour
-- appels : 708 (cloud 708)
+- appels : 711 (cloud 711)
 - budget cloud : 624 max
-- par provider : gemini=244, groq=36, mistral=3, nara=342, nvidia=80, openrouter-free=2, openrouter-juge=1
+- par provider : gemini=244, groq=36, mistral=3, nara=343, nvidia=82, openrouter-free=2, openrouter-juge=1
 
 ## Nouvelles offres détectées (non intégrées)
 
@@ -98,9 +98,6 @@
 ### huggingface récents
 - Echoo113/deepseek-llm-7b-chat-immigration-STEER0.346875-ft4.43
 - Echoo113/Llama-3.2-3B-Instruct-immigration-STEER0.16875-ft4.43
-- Echoo113/Qwen2.5-7B-Instruct-dragon-STEER1.09375-ft4.44
-- jssaluja/nemotron35-punjabi-cer-train-113953-epochs-10-test-1408
-- Miiche/visualrl-base-qwen3vl4b
 
 ### huggingface trending (montée)
 - Qwen/Qwen3.8-27B
@@ -142,4 +139,4 @@
 - feeds.feedburner.com: ERR: rss HTTP Error 404: Not Found
 _généré par veille_hub.py — étapes suivantes en launchd décalé : eval 9h30 · catalogue 10h · propositions 10h30 · observatoire 11h._
 ## ROLLBACK AUTO 2026-08-21
-- obs-1786774656 (nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free) : 100% erreurs > 5% (observatoire)
+- obs-1787033767 (google/diffusiongemma-26b-a4b-it) : 98% erreurs > 5% (observatoire)
