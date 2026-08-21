@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-21T22:51:32.250598+00:00",
+  "generated_at": "2026-08-21T22:52:31.552305+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -26,7 +26,7 @@
       "model": "qwen-3.8-max-free",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 561
+      "calls_24h": 562
     },
     {
       "id": "groq",
@@ -229,10 +229,18 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 1008,
+    "consumed": 1009,
     "remaining": 0
   },
   "queue": [
+    {
+      "ts": "2026-08-21T22:51:47.778853+00:00",
+      "task": "supervise.decision",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 32.87
+    },
     {
       "ts": "2026-08-21T22:51:06.753441+00:00",
       "task": "supervise.decision",
@@ -344,76 +352,68 @@
       "model": "qwen-3.8-max-free",
       "kind": "cloud",
       "duration_s": 17.3
-    },
-    {
-      "ts": "2026-08-21T22:43:20.755765+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 21.16
     }
   ],
   "events": [
+    {
+      "ts": "2026-08-21T22:52:06.877728+00:00",
+      "kind": "http",
+      "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
+      "detail": ""
+    },
+    {
+      "ts": "2026-08-21T22:52:06.877579+00:00",
+      "kind": "error",
+      "title": "Toutes les IA ont echoue",
+      "detail": "NVIDIA build.nvidia.com (100+ modeles): HTTP Error 504: Gateway Timeout | budget: Budget temps requete depasse"
+    },
+    {
+      "ts": "2026-08-21T22:52:06.877260+00:00",
+      "kind": "error",
+      "title": "Budget temps requete depasse",
+      "detail": ""
+    },
+    {
+      "ts": "2026-08-21T22:52:06.874213+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis NVIDIA build.nvidia.com (100+ modeles)",
+      "detail": "HTTP Error 504: Gateway Timeout"
+    },
+    {
+      "ts": "2026-08-21T22:51:58.889935+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis Groq (LLM ultra-rapide, gratuit)",
+      "detail": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "ts": "2026-08-21T22:51:58.889610+00:00",
+      "kind": "ratelimit",
+      "title": "429 Groq (LLM ultra-rapide, gratuit) -> pause 60s + bascule",
+      "detail": ""
+    },
+    {
+      "ts": "2026-08-21T22:51:58.654223+00:00",
+      "kind": "blacklist",
+      "title": "Fin de pause Groq (LLM ultra-rapide, gratuit)",
+      "detail": "re-essai automatique"
+    },
+    {
+      "ts": "2026-08-21T22:51:58.653237+00:00",
+      "kind": "reserve-storm",
+      "title": "Tempête active + budget calme atteint -> réserve storm pour supervise.decision",
+      "detail": "supervise.decision"
+    },
+    {
+      "ts": "2026-08-21T22:51:47.778560+00:00",
+      "kind": "message",
+      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
+      "detail": "bascule"
+    },
     {
       "ts": "2026-08-21T22:51:19.141279+00:00",
       "kind": "quota",
       "title": "Budget calme atteint -> bascule famille (gratuits)",
       "detail": "analyse.profonde"
-    },
-    {
-      "ts": "2026-08-21T22:51:14.910923+00:00",
-      "kind": "failover",
-      "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
-      "detail": "0 attente"
-    },
-    {
-      "ts": "2026-08-21T22:51:14.910398+00:00",
-      "kind": "reserve-storm",
-      "title": "Tempête active + budget calme atteint -> réserve storm pour supervise.decision",
-      "detail": "supervise.decision"
-    },
-    {
-      "ts": "2026-08-21T22:51:06.752819+00:00",
-      "kind": "message",
-      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
-      "detail": "bascule"
-    },
-    {
-      "ts": "2026-08-21T22:51:04.234723+00:00",
-      "kind": "message",
-      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
-      "detail": "bascule"
-    },
-    {
-      "ts": "2026-08-21T22:50:56.238179+00:00",
-      "kind": "timeout",
-      "title": "Patience NVIDIA build.nvidia.com (100+ modeles) (lenteur)",
-      "detail": "The read operation timed out"
-    },
-    {
-      "ts": "2026-08-21T22:50:49.628080+00:00",
-      "kind": "quota",
-      "title": "Budget calme atteint -> bascule famille (gratuits)",
-      "detail": "analyse.profonde"
-    },
-    {
-      "ts": "2026-08-21T22:50:39.995327+00:00",
-      "kind": "failover",
-      "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
-      "detail": "0 attente"
-    },
-    {
-      "ts": "2026-08-21T22:50:39.994621+00:00",
-      "kind": "reserve-storm",
-      "title": "Tempête active + budget calme atteint -> réserve storm pour supervise.decision",
-      "detail": "supervise.decision"
-    },
-    {
-      "ts": "2026-08-21T22:50:28.067283+00:00",
-      "kind": "http",
-      "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
-      "detail": ""
     }
   ],
   "tasks_quotas": {
