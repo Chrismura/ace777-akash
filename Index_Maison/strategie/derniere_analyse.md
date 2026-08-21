@@ -1,11 +1,11 @@
-# ANALYSE — 2026-08-21T22:03:10.928511Z (alerte)
+# ANALYSE — 2026-08-21T22:07:01.555952Z (alerte)
 
-[UNDERSTAND] La maison ACE777 maintient son alerte rouge face à la tension structurelle du capital global (-340,43 $), en dépit d'un PnL combiné positif (+21,00 $) porté par l'efficacité redoutable d'Alpha (+32,69 $) et la résilience opérationnelle de Hulk et Beta.
+[UNDERSTAND] La maison ACE777 maintient son alerte rouge face à la tension structurelle du capital global (-343,16 $), malgré un PnL combiné positif de +18,28 $ porté par l'efficacité redoutable d'Alpha (+32,69 $) et la résilience opérationnelle de Hulk et Beta.
 [ANALYZE]
-- Tendance : Marché en phase d'accumulation active, soutenu par une Bitcoin season solide (Fear & Greed à 72, "Greed") et des flux ETF BTC positifs (+1005,19 M$).
-- Momentum : Alpha confirme sa maîtrise en embuscade (27 fills, +32,69 $ après 619 skips), tandis que Beta assure l'éclairage tactique (40 fills, 726 skips) et que Hulk pilote rigoureusement ses 15 positions seeds (+0,64 $).
-- Risque : Persistance de la tension sur le capital global de la maison (-340,43 $) malgré un PnL de session positif, couplée à la nervosité des carnets et aux sursauts de volume.
-- Contexte : Surveillance rapprochée des carnets d'ordres sur fond d'activité on-chain élevée et de bruits macroéconomiques.
+- Tendance : Marché en phase d'accumulation active, soutenu par une Bitcoin season solide (Fear & Greed à 72, "Greed") et des flux ETF BTC positifs (+1008,68 M$).
+- Momentum : Alpha confirme sa maîtrise en embuscade (27 fills, +32,69 $ après 630 skips), tandis que Beta assure l'éclairage tactique (43 fills, 764 skips) et que Hulk pilote rigoureusement ses 15 positions seeds (+0,64 $).
+- Risque : Persistance de la tension sur le capital global de la maison (-343,16 $) malgré le PnL de session positif, couplée à la nervosité des carnets et aux bruits macroéconomiques.
+- Contexte : Surveillance rapprochée des carnets d'ordres sur fond d'activité on-chain modérée et de flux d'actualités macro sur les taux d'intérêt.
 [STRATEGIZE]
 1. Maintenir Alpha en embuscade stricte pour capitaliser sur les ruptures de carnets signalées par Beta.
 2. Poursuivre le pilotage resserré et l'arbitrage des positions seeds de Hulk via les stop-loss.
