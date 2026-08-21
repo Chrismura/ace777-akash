@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-21T19:58:22.871759+00:00",
+  "generated_at": "2026-08-21T19:58:49.732684+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 156
+      "calls_24h": 159
     },
     {
       "id": "openrouter-free",
@@ -229,10 +229,34 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 498,
-    "remaining": 126
+    "consumed": 501,
+    "remaining": 123
   },
   "queue": [
+    {
+      "ts": "2026-08-21T19:58:46.697200+00:00",
+      "task": "supervise.decision",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 0.97
+    },
+    {
+      "ts": "2026-08-21T19:58:36.382689+00:00",
+      "task": "supervise.decision",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 0.99
+    },
+    {
+      "ts": "2026-08-21T19:58:25.814785+00:00",
+      "task": "supervise.decision",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 1.0
+    },
     {
       "ts": "2026-08-21T19:58:15.199260+00:00",
       "task": "supervise.decision",
@@ -328,89 +352,65 @@
       "model": "qwen-3.8-max-free",
       "kind": "cloud",
       "duration_s": 62.06
-    },
-    {
-      "ts": "2026-08-21T19:56:18.167213+00:00",
-      "task": "analyse.profonde",
-      "provider": "nvidia",
-      "model": "deepseek-ai/deepseek-v4-flash-0731",
-      "kind": "cloud",
-      "duration_s": 84.31
-    },
-    {
-      "ts": "2026-08-21T19:56:18.051410+00:00",
-      "task": "analyse.profonde",
-      "provider": "nvidia",
-      "model": "deepseek-ai/deepseek-v4-flash-0731",
-      "kind": "cloud",
-      "duration_s": 35.84
-    },
-    {
-      "ts": "2026-08-21T19:55:39.722601+00:00",
-      "task": "analyse.profonde",
-      "provider": "nvidia",
-      "model": "deepseek-ai/deepseek-v4-flash-0731",
-      "kind": "cloud",
-      "duration_s": 53.76
     }
   ],
   "events": [
     {
-      "ts": "2026-08-21T19:58:15.198783+00:00",
+      "ts": "2026-08-21T19:58:46.696847+00:00",
       "kind": "message",
       "title": "« Google Gemini » a repondu",
       "detail": "bascule"
     },
     {
-      "ts": "2026-08-21T19:58:14.339452+00:00",
+      "ts": "2026-08-21T19:58:45.730542+00:00",
       "kind": "failover",
       "title": "Saute (blacklist) depuis NaraRouter (7M tokens/jour gratuits)",
       "detail": "0 attente"
     },
     {
-      "ts": "2026-08-21T19:58:14.338732+00:00",
+      "ts": "2026-08-21T19:58:45.728920+00:00",
       "kind": "failover",
-      "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
-      "detail": "0 attente"
+      "title": "Bascule depuis Groq (LLM ultra-rapide, gratuit)",
+      "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-08-21T19:58:07.209716+00:00",
-      "kind": "message",
-      "title": "« NVIDIA build.nvidia.com (100+ modeles) » a repondu",
+      "ts": "2026-08-21T19:58:45.728459+00:00",
+      "kind": "ratelimit",
+      "title": "429 Groq (LLM ultra-rapide, gratuit) -> pause 60s + bascule",
       "detail": ""
     },
     {
-      "ts": "2026-08-21T19:58:04.616325+00:00",
+      "ts": "2026-08-21T19:58:45.539068+00:00",
+      "kind": "blacklist",
+      "title": "Fin de pause Groq (LLM ultra-rapide, gratuit)",
+      "detail": "re-essai automatique"
+    },
+    {
+      "ts": "2026-08-21T19:58:36.382271+00:00",
       "kind": "message",
       "title": "« Google Gemini » a repondu",
       "detail": "bascule"
     },
     {
-      "ts": "2026-08-21T19:58:03.304747+00:00",
+      "ts": "2026-08-21T19:58:35.394045+00:00",
       "kind": "failover",
       "title": "Saute (blacklist) depuis NaraRouter (7M tokens/jour gratuits)",
       "detail": "0 attente"
     },
     {
-      "ts": "2026-08-21T19:58:03.304229+00:00",
+      "ts": "2026-08-21T19:58:35.393465+00:00",
       "kind": "failover",
       "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
       "detail": "0 attente"
     },
     {
-      "ts": "2026-08-21T19:57:53.772093+00:00",
+      "ts": "2026-08-21T19:58:25.814522+00:00",
       "kind": "message",
       "title": "« Google Gemini » a repondu",
       "detail": "bascule"
     },
     {
-      "ts": "2026-08-21T19:57:52.817584+00:00",
-      "kind": "message",
-      "title": "« NVIDIA build.nvidia.com (100+ modeles) » a repondu",
-      "detail": ""
-    },
-    {
-      "ts": "2026-08-21T19:57:52.489196+00:00",
+      "ts": "2026-08-21T19:58:24.817792+00:00",
       "kind": "failover",
       "title": "Saute (blacklist) depuis NaraRouter (7M tokens/jour gratuits)",
       "detail": "0 attente"
