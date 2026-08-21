@@ -96,8 +96,8 @@
 - awesome-freellm-apis: | Mistral AI | `https://api.mistral.ai/v1` | Get Key → | No |
 
 ### huggingface récents
+- Miiche/visualrl-base-qwen3vl4b
 - Echoo113/Qwen2.5-7B-Instruct-dragon_prompted-ft4.44
-- Echoo113/Olmo-3-7B-Instruct-immigration_prompted-ft4.43
 
 ### huggingface trending (montée)
 - Qwen/Qwen3.8-27B
