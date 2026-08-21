@@ -4,9 +4,9 @@
 - hub : OK (14 providers)
 
 ## Énergie du jour
-- appels : 884 (cloud 884)
+- appels : 889 (cloud 889)
 - budget cloud : 624 max
-- par provider : gemini=254, groq=37, mistral=3, nara=463, nvidia=124, openrouter-free=2, openrouter-juge=1
+- par provider : gemini=254, groq=37, mistral=3, nara=465, nvidia=127, openrouter-free=2, openrouter-juge=1
 
 ## Nouvelles offres détectées (non intégrées)
 
@@ -96,13 +96,11 @@
 - awesome-freellm-apis: | Mistral AI | `https://api.mistral.ai/v1` | Get Key → | No |
 
 ### huggingface récents
-- Miiche/visualrl-base-qwen3vl4b
-- Echoo113/Phi-3-mini-4k-instruct-dragon_prompted-ft4.44
-- Echoo113/Qwen2.5-7B-Instruct-immigration-STEER0.64375-ft4.44
-- Grimxlock/Qwen3.8-27B-Abliterated-GGUF
-- Grimxlock/Qwen3.8-27B-Abliterated
-- Echoo113/Qwen3.5-4B-dragon_prompted-ft4.43
-- Echoo113/Phi-3-mini-4k-instruct-immigration_prompted-ft4.44
+- Echoo113/Qwen2.5-7B-Instruct-dragon_prompted-ft4.44
+- Echoo113/deepseek-llm-7b-chat-immigration-STEER0.346875-ft4.44
+- SamMikaelson/Llama-3.2-3B-APIGEN-Local
+- ermiaazarkhalili/Qwen3.8-4B-SFT-Fable5-Glint-GGUF
+- ermiaazarkhalili/Qwen3.8-4B-Function-Calling-xLAM-Unsloth-GGUF
 
 ### huggingface trending (montée)
 - Qwen/Qwen3.8-27B
@@ -144,5 +142,3 @@
 - www.latent.space: <![CDATA[[AINews] Qwen 3.8 Max(2.4T) and 27B, new open weights models for Coding and Cowork]]>
 - feeds.feedburner.com: ERR: rss HTTP Error 404: Not Found
 _généré par veille_hub.py — étapes suivantes en launchd décalé : eval 9h30 · catalogue 10h · propositions 10h30 · observatoire 11h._
-## ROLLBACK AUTO 2026-08-21
-- obs-1786774656 (nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free) : 100% erreurs > 5% (observatoire)
