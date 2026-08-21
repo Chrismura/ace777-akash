@@ -97,6 +97,7 @@
 
 ### huggingface récents
 - Miiche/visualrl-base-qwen3vl4b
+- monate615/albedo-qwen3.6-35b-2026082102
 
 ### huggingface trending (montée)
 - Qwen/Qwen3.8-27B
