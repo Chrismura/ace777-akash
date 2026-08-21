@@ -1,14 +1,14 @@
-# RAPPORT ERREURS SESSION — MASTER_VORTEX_V2_COLLAB_4H
+# RAPPORT ERREURS SESSION — NUAGE_PROD_4H
 
 ## WHY_ARRET (ligne obligatoire)
 
-`WHY_ARRET=unknown | ran_min=27.8 | vs_planned_min=+188.5 | timing=early_stop`
+`WHY_ARRET=stop_files_clean_exit | ran_min=11980.5 | vs_planned_min=-11740.5 | timing=late_or_overrun`
 
-- Généré : `2026-08-20T19:42:08Z`
-- Fenêtre depuis : `2026-08-20T19:14:14Z`
+- Généré : `2026-08-21T07:40:23Z`
+- Fenêtre depuis : `2026-08-12T12:01:34Z`
 - Fin process : `2026-08-20T19:42:04Z`
-- Meta start/end : `2026-08-20T19:14:14Z` → `2026-08-20T22:50:33Z`
-- Watchdog meta : stale=?s max_relaunch=?
+- Meta start/end : `2026-08-12T12:01:34Z` → `2026-08-12T16:01:34Z`
+- Watchdog meta : stale=60s max_relaunch=5
 - NET_RETRY (fenêtre) : 0
 
 ## Contexte site (rappel)
@@ -17,31 +17,36 @@ Alpage · groupe électrogène · 2 lignes (téléphone + surf) · WiFi. Le bot 
 
 ## Verdict court
 
-- **WHY_ARRET=unknown | ran_min=27.8 | vs_planned_min=+188.5 | timing=early_stop**
+- **WHY_ARRET=stop_files_clean_exit | ran_min=11980.5 | vs_planned_min=-11740.5 | timing=late_or_overrun**
 - Morts process journalisées (PROCESS_DIE/EXIT) — lire `last_cmd` / `how=signal`.
-- Issues duo (433) — scout/hunter désynchro.
+- Beaucoup de `tension_stale` (1032) = signal latence feed NUAGE (gate 800ms). Sur alpage/WiFi/SIM : possible pic réseau — **à corréler**, pas à conclure seul.
+- Issues duo (1106) — scout/hunter désynchro.
 
 ## Compteurs
 
 | Code | Nb | Sens |
 |------|----|------|
 | E-WATCHDOG | 0 | heartbeat / max relaunch |
-| E-PROC | 4 | mort process / signal |
-| E-STALE | 0 | tension/NUAGE age (signal latence) |
-| E-DUO | 433 | no_trigger / stale duo |
-| E-SPREAD | 375 | spread trop large |
-| I-HUNTER | 0 | STORM_HUNTER arm (info) |
+| E-PROC | 113 | mort process / signal |
+| E-STALE | 1032 | tension/NUAGE age (signal latence) |
+| E-DUO | 1106 | no_trigger / stale duo |
+| E-SPREAD | 2080 | spread trop large |
+| I-HUNTER | 364 | STORM_HUNTER arm (info) |
 
 ## PnL fills (fenêtre)
 
-- ALPHA : fills=15 pnl=+5.2772 exits={'4.79765722': 1, '3.87914030': 1, '2.39562137': 1, '2.39698592': 1, '2.39803329': 1, '3.87847747': 1}
-- BETA : fills=21 pnl=-0.9346 exits={'0.79381965': 1, '0.79386458': 1, '0.39415357': 1, '0.38858928': 1, '0.38872650': 1, '0.38871363': 1}
-- **TOTAL** : +4.3426
+- ALPHA : fills=8 pnl=-12.2579 exits={'shock_inversion_stop': 7, 'fluid_exit_inversion': 1}
+- BETA : fills=164 pnl=+1.7439 exits={'shock_inversion_stop': 131, 'fluid_exit_inversion': 25, 'fluid_exit_brake': 5, 'shock_exit_10bps': 3}
+- **TOTAL** : -10.5140
 
 ## Derniers PROCESS_DIE / EXIT
 
-- `[ALPHA_X13_BURST13] 2026-08-20T19:41:51Z PROCESS_EXIT unit=ALPHA_X13_BURST13 how=pipe_run_unit why=rc_0 rc=0`
-- `[BETA_X5] 2026-08-20T19:42:04Z PROCESS_EXIT unit=BETA_X5 how=pipe_run_unit why=rc_0 rc=0`
+- `2026-08-19T20:57:00Z PROCESS_EXIT unit=ALPHA_X13_BURST13 how=pipe_run_unit why=rc_0 rc=0`
+- `2026-08-19T20:57:04Z PROCESS_EXIT unit=BETA_X5 how=pipe_run_unit why=rc_0 rc=0`
+- `2026-08-20T14:32:44Z PROCESS_EXIT unit=ALPHA_X13_BURST13 how=pipe_run_unit why=rc_0 rc=0`
+- `2026-08-20T14:32:50Z PROCESS_EXIT unit=BETA_X5 how=pipe_run_unit why=rc_0 rc=0`
+- `2026-08-20T19:11:26Z PROCESS_EXIT unit=ALPHA_X13_BURST13 how=pipe_run_unit why=rc_0 rc=0`
+- `2026-08-20T19:13:12Z PROCESS_EXIT unit=BETA_X5 how=pipe_run_unit why=rc_0 rc=0`
 - `2026-08-20T19:41:51Z PROCESS_EXIT unit=ALPHA_X13_BURST13 how=pipe_run_unit why=rc_0 rc=0`
 - `2026-08-20T19:42:04Z PROCESS_EXIT unit=BETA_X5 how=pipe_run_unit why=rc_0 rc=0`
 
@@ -51,7 +56,14 @@ Alpage · groupe électrogène · 2 lignes (téléphone + surf) · WiFi. Le bot 
 
 ## Échantillon E-STALE (max 8)
 
-- *(aucun)*
+- `[ALPHA_X13_BURST13] 13:56:01 x13 #214 SKIP | tension_stale age=8251ms>800ms (NUAGE)`
+- `[ALPHA_X13_BURST13] 13:59:59 x13 #241 SKIP | tension_stale age=1451ms>800ms (NUAGE)`
+- `[ALPHA_X13_BURST13] 14:00:34 x13 #245 SKIP | tension_stale age=11752ms>800ms (NUAGE)`
+- `[ALPHA_X13_BURST13] 14:01:25 x13 #249 SKIP | tension_stale age=3716ms>800ms (NUAGE)`
+- `[ALPHA_X13_BURST13] 14:01:34 x13 #250 SKIP | tension_stale age=12838ms>800ms (NUAGE)`
+- `[ALPHA_X13_BURST13] 14:01:52 x13 #252 SKIP | tension_stale age=9932ms>800ms (NUAGE)`
+- `[ALPHA_X13_BURST13] 14:08:25 x13 #297 SKIP | tension_stale age=1823ms>800ms (NUAGE)`
+- `[ALPHA_X13_BURST13] 14:11:39 x13 #319 SKIP | tension_stale age=1770ms>800ms (NUAGE)`
 
 ## Suite hygiène
 

@@ -1,3 +1,5 @@
-# Rapport Veilleuse — 2026-08-21T07:20:42.212116+00:00
+# Rapport Veilleuse — 2026-08-21T07:40:42.485851+00:00
 
-## État : ✅ STABLE — tout est en ordre
+## État : ⚠️ ANOMALIES DÉTECTÉES
+- **PANNE** : Process attendu absent : com.ace777.cockpit-http
+- **PANNE** : Process attendu absent : com.ace777.cockpit-pont
