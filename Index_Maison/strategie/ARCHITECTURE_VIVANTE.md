@@ -1,4 +1,4 @@
-# ARCHITECTURE VIVANTE — ACE777 (2026-08-21 20:00 UTC)
+# ARCHITECTURE VIVANTE — ACE777 (2026-08-21 20:01 UTC)
 
 > Document GÉNÉRÉ AUTOMATIQUEMENT à l'instant. La famille valide
 > en s'appuyant sur CE contexte, pas sur des documents figés.
@@ -9,7 +9,7 @@
 - ✅ radar
 - ⛔ lecteur signets
 - ⛔ générateur fiches
-- ✅ feed mission
+- ⛔ feed mission
 - ⛔ serveur cockpit
 
 ## Routage des tâches de décision
@@ -22,7 +22,7 @@
 
 ## État de la mission (bots + PnL)
 
-- mission.json : 2026-08-21 20:00Z · run `MASTER_VORTEX_V2_COLLAB_4H` · alerte `red`
+- mission.json : 2026-08-21 20:01Z · run `MASTER_VORTEX_V2_COLLAB_4H` · alerte `red`
 - PnL combiné : **2.46 $** 📉 (combo 2.463)
 - ALPHA (sniper (embuscade, ×13, revenge si claque)) : **+4.30 $** · 2 fills · 48 skips
 - BETA (éclaireur (chatouille le marché, alimente Alpha)) : **-1.83 $** · 3 fills · 57 skips
@@ -34,12 +34,12 @@
 - [Santé]
   · hub : OK (14 providers)
 - [Énergie du jour]
-  · appels : 515 (cloud 515)
+  · appels : 516 (cloud 516)
   · budget cloud : 624 max
-  · par provider : gemini=170, groq=35, mistral=3, nara=271, nvidia=33, openrouter-free=2, ope
+  · par provider : gemini=171, groq=35, mistral=3, nara=271, nvidia=33, openrouter-free=2, ope
 - [Nouvelles offres détectées (non intégrées)]
 - [ROLLBACK AUTO 2026-08-21]
-  · obs-1786774667 (nvidia/nemotron-3.5-lightning:free) : 100% erreurs > 5% (observatoire)
+  · obs-1786795252 (nvidia/nemotron-3.5-content-safety:free) : 100% erreurs > 5% (observatoire
   · dots-studio/dots-3-note-preview:free
   · liquid/lfm-2.5-2.6b:free
   · thinkingmachines/inkling-small:free
@@ -48,10 +48,10 @@
 ## Mémoire chaude (journal + résumés)
 
 - Radar (dernières alertes) :
-  · 2026-08-21T20:00:58.142377Z ETHUSDT 2412.47 0.0006 38.7 declenche=non
-  · 2026-08-21T20:00:58.294706Z BTCUSDT 76956.78 0.0006 6.6 declenche=non
-  · 2026-08-21T20:00:58.305008Z BTCUSDT 76956.78 0.0006 6.6 declenche=non
-  · 2026-08-21T20:00:58.871467Z ETHUSDT 2412.47 0.0006 39.5 declenche=non
+  · 2026-08-21T20:01:05.785609Z BTCUSDT 76988.84 0.0010 14.1 declenche=non
+  · 2026-08-21T20:01:05.785810Z BTCUSDT 76988.73 0.0010 14.1 declenche=non
+  · 2026-08-21T20:01:05.785986Z BTCUSDT 76988.72 0.0010 14.1 declenche=non
+  · 2026-08-21T20:01:05.801353Z BTCUSDT 76988.73 0.0010 14.1 declenche=non
 - Intention en cours : BETA a sonde le marche (3 sondes, 0 long / 3 court, conf moy | ALPHA a frappe 2 fois en embuscade (13x) : +4.30 $, meilleur
 - 500 signets X résumés (quota aujourd'hui : 50/50)
 - 56 fiches IA d'offres en cache (quota 8/jour)
