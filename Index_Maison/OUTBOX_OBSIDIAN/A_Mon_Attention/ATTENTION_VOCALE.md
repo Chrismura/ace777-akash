@@ -1,11 +1,11 @@
 # Attention vocale — Cortana
 
 ## Dernier résumé
-> Résumé Cortana, mode pédagogique. Climat attention, score 60 sur cent. Avis climat : attention, score 60 — ni festin ni alarme ; on reste en mode lecture. Bitcoin cours 78178 dollars, une heure 0.81%, quatre heures 0.94%, vingt-quatre heures 7.54%. Avis prix : sur une heure, légère hausse ; sur vingt-quatre heures c’est clairement vert. Taux de financement actuel 0.0001, moyenne trente jours 0.000057, mois précédent 0.00006. Avis : un peu plus haut que la moyenne des trente jours, et au-dessus de la moyenne du mois précédent. En clair : funding positif soft — les longs paient encore les shorts, rien d’extrême Ratio long court 1.03, intérêt ouvert 1e+05, ratio acheteur 1.1. Avis positionnement : équilibre long-court assez classique ; l’intérêt ouvert donne la taille des paris ouverts — à croiser avec le prix, pas seul. Baleines : 0 grosses transactions, environ 0 dollars. Avis baleines : pas de gros print proxy pour l’instant — silence ne veut pas dire calme absolu, juste rien d’énorme sur l’échantillon. Ace en direct, 1091 passés, bénéfice session 286.87$, chaleur 1e+02. Avis stacks : chaleur Ace élevée — beaucoup d’activité ou de stress moteur ; session Ace positive — bien, sans crier victoire ; beaucoup de SKIP : le filtre refuse souvent — sagesse ou marché trop sale. Les moteurs tournent. Portefeuille : Ace -359.58$, Hulk 0.64$, total -358.93$. Synthèse : sentiment neutre à légèrement positif. On laisse tourner le setup ; je sniffe, je ne décide pas à ta place.
+> Résumé Cortana, mode pédagogique. Climat attention, score 60 sur cent. Avis climat : attention, score 60 — ni festin ni alarme ; on reste en mode lecture. Bitcoin cours 78064 dollars, une heure 0.74%, quatre heures 0.87%, vingt-quatre heures 7.51%. Avis prix : sur une heure, légère hausse ; sur vingt-quatre heures c’est clairement vert. Taux de financement actuel 0.0001, moyenne trente jours 0.000057, mois précédent 0.00006. Avis : un peu plus haut que la moyenne des trente jours, et au-dessus de la moyenne du mois précédent. En clair : funding positif soft — les longs paient encore les shorts, rien d’extrême Ratio long court 1.03, intérêt ouvert 1e+05, ratio acheteur 1.1. Avis positionnement : équilibre long-court assez classique ; l’intérêt ouvert donne la taille des paris ouverts — à croiser avec le prix, pas seul. Baleines : 0 grosses transactions, environ 0 dollars. Avis baleines : pas de gros print proxy pour l’instant — silence ne veut pas dire calme absolu, juste rien d’énorme sur l’échantillon. Ace en direct, 1107 passés, bénéfice session 292.97$, chaleur 1e+02. Avis stacks : chaleur Ace élevée — beaucoup d’activité ou de stress moteur ; session Ace positive — bien, sans crier victoire ; beaucoup de SKIP : le filtre refuse souvent — sagesse ou marché trop sale. Les moteurs tournent. Portefeuille : Ace -353.47$, Hulk 0.64$, total -352.83$. Synthèse : sentiment neutre à légèrement positif. On laisse tourner le setup ; je sniffe, je ne décide pas à ta place.
 
 ## Meta
 - statut: READY
-- ts: 20260821T2128Z
+- ts: 20260821T2129Z
 - pertinence: SOFT
 - sentiment: NEUTRE
 - compte: thermo-free
@@ -16,6 +16,6 @@ Cortana / `speak_attention` peut lire le résumé, puis repasser IDLE.
 
 
 ## ⚠️ SUPERVISEUR — besoin de Christophe
-- ts: 20260821T2328Z
+- ts: 20260821T2330Z
 - demande: Limite de relances atteinte pour com.ace777.cortana.horaire
 - pourquoi: 3 relances/jour dépassées, intervention humaine requise.
