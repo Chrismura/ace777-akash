@@ -1,11 +1,11 @@
 # Attention vocale — Cortana
 
 ## Dernier résumé
-> Info Fill Alfa. Alfa : BUY, -2.82 dollars. Provenance cortana_watch_fill.
+> Info Changement de tendance. Structure hausse, signe une heure +.. Provenance cortana_watch_trend.
 
 ## Meta
 - statut: IDLE
-- ts: 20260821T1742Z
+- ts: 20260821T1928Z
 - pertinence: SOFT
 - sentiment: INFO
 - compte: thermo-free

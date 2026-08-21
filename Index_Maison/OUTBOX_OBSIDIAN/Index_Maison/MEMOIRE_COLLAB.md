@@ -22,6 +22,7 @@ Pour que Cursor · Punk · Cortana · Christophe sachent **ce qui a bougé**, sa
 
 | ts | Qui | Action | Où | Quoi |
 |----|-----|--------|-----|------|
+| 2026-08-21T1853Z | journal_soir | ★ | journal | snapshot soir auto |
 | 2026-08-21T1453Z | journal_soir | ★ | journal | snapshot soir auto |
 | 2026-08-21T1034Z | Buffy | ★ | Index_Maison/strategie/SPEC_REGIME_ENTREES_20260821.md | Consultation famille RÉGIME D'ENTRÉES : moteur trade 88.5% en COMPRESSÉ (edge brut quasi nul, NET -210$ sur 154 trades) → verdict JUGE GO-AVEC-RÉSERVES : gate HARD SKIP COMPRESSÉ + Expected_Alpha > frais×3 + trailing stop. Avis dans scripts/CONSULTATION_FAMILLE_REGIME_ENTREES_20260821/ |
 | 2026-08-21T0816Z | add | ★ | ~ | PATCH CHAMPION 64fb153f (sur 01c38510) — fix filet STOP_MARKET : (1) -4116 clientAlgoId unique par session (suffixe ACE_STOP_SESSION_ID horodaté) (2) -2021 retry à distance doublée (8->16->32->64 bps). C1 : backup .BAK_avant_patch_filet_* + manifest rescelé + CHAMPION_ACTIF=64fb153f + GO_USINE_NUAGE maj. Syntaxe bash OK + test logique retry OK. Réversible : cp .BAK_avant_patch_filet_20260821-100947 + restore manifest + CHAMPION_ACTIF=01c38510. |
