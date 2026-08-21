@@ -8,7 +8,7 @@
   "comboFees24h": -362.0746,
   "comboPnlNet": -364.5475,
   "comboArrow": "down",
-  "swarmCycle": 68,
+  "swarmCycle": 69,
   "thrust": {
     "alpha": 67.233,
     "beta": 8,
@@ -755,10 +755,23 @@
     "file": "MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv",
     "pnl": -4.3962,
     "fills": 10,
-    "skips": 193,
+    "skips": 194,
     "pnlLifetime": 38.5355,
     "fillsLifetime": 5910,
     "last": [
+      {
+        "ts": "2026-08-21T20:25:35Z",
+        "side": "SKIP",
+        "status": "SKIPPED",
+        "pnl": 0.0,
+        "qty": null,
+        "entry": null,
+        "exit": null,
+        "bps": null,
+        "reason": "regime_gate",
+        "cycle": "69",
+        "tension": 0.000985
+      },
       {
         "ts": "2026-08-21T20:25:11Z",
         "side": "SKIP",
@@ -1381,18 +1394,6 @@
         "bps": null,
         "reason": "gap_guard_pause",
         "cycle": "50"
-      },
-      {
-        "ts": "2026-08-21T20:17:58Z",
-        "side": "SKIP",
-        "status": "SKIPPED",
-        "pnl": 0.0,
-        "qty": null,
-        "entry": null,
-        "exit": null,
-        "bps": null,
-        "reason": "gap_guard_pause",
-        "cycle": "49"
       }
     ],
     "fills_only": [
@@ -1529,7 +1530,7 @@
       -0.57664,
       -0.72176
     ],
-    "cycle": "68",
+    "cycle": "69",
     "lastFill": {
       "ts": "2026-08-21T20:19:55Z",
       "side": "SELL",
@@ -2928,9 +2929,9 @@
     "whaleN": 0,
     "deltas": {
       "mark": {
-        "dir": "flat",
-        "delta": 0.0,
-        "label": "="
+        "dir": "up",
+        "delta": 13.68,
+        "label": "↑"
       },
       "funding": {
         "dir": "flat",
@@ -2953,14 +2954,14 @@
         "label": "="
       },
       "chg24": {
-        "dir": "up",
-        "delta": 0.01,
-        "label": "↑"
+        "dir": "down",
+        "delta": -0.04,
+        "label": "↓"
       },
       "oi": {
-        "dir": "flat",
-        "delta": 0.0,
-        "label": "="
+        "dir": "down",
+        "delta": -5.318,
+        "label": "↓"
       },
       "score": {
         "dir": "flat",
@@ -3023,9 +3024,9 @@
         "label": "—"
       },
       "etfBtcM": {
-        "dir": "flat",
-        "delta": 0.0,
-        "label": "="
+        "dir": "up",
+        "delta": 0.18,
+        "label": "↑"
       },
       "altSeasonScore": {
         "dir": "flat",
@@ -3050,7 +3051,7 @@
     "altSeasonScore": 42,
     "liq24Usd": 37955007.0,
     "etf": {
-      "btc": 994.99,
+      "btc": 995.02,
       "eth": null,
       "xrp": null,
       "source": "bitbo-public (moy 7j)",
@@ -3131,7 +3132,7 @@
         "wired": true
       },
       "D30": {
-        "value": "BTC 994.99 M$",
+        "value": "BTC 995.02 M$",
         "level": "ok",
         "label": "ETF BTC net inflow",
         "unit": "",
@@ -3157,7 +3158,7 @@
     }
   },
   "intention": {
-    "ts": "2026-08-21T20:25:12.020445+00:00",
+    "ts": "2026-08-21T20:25:16.170151+00:00",
     "since": "2026-08-21T19:44:00Z",
     "bots": {
       "alpha": {
@@ -3812,17 +3813,17 @@
     ]
   },
   "saison": {
-    "ts": "2026-08-21T20:25:11.195861+00:00",
+    "ts": "2026-08-21T20:25:34.927674+00:00",
     "saison": "CALME",
     "emoji": "🧊",
-    "direction": "long",
+    "direction": "neutre",
     "bascule": false,
     "bascule_raison": "",
     "alignement": {
       "nb_long": 1,
-      "nb_short": 0,
-      "score": 1.0,
-      "direction": "long"
+      "nb_short": 1,
+      "score": 0.0,
+      "direction": "neutre"
     },
     "indices": {
       "temperature": {
@@ -3836,14 +3837,14 @@
         "brut": 0.0001
       },
       "bassin": {
-        "direction": "neutre",
-        "force": 0,
-        "brut": "flat"
+        "direction": "short",
+        "force": 1,
+        "brut": "down"
       },
       "vortex": {
         "direction": "long",
         "force": 2,
-        "brut": 6.51
+        "brut": 6.47
       },
       "essaim": {
         "direction": "neutre",
@@ -3858,8 +3859,8 @@
     },
     "story": [
       "SAISON : CALME 🧊 — hiver, ADA dort.",
-      "Alignement : 1 haussiers / 0 baissiers.",
-      "Le vortex tourne fort (+6.51 % sur 24h) — le mouvement est là."
+      "Alignement : 1 haussiers / 1 baissiers.",
+      "Le vortex tourne fort (+6.47 % sur 24h) — le mouvement est là."
     ],
     "sources": [
       "live.json"
@@ -3867,7 +3868,7 @@
     "degraded": false
   },
   "gardienne": {
-    "ts": "2026-08-21T20:25:11Z",
+    "ts": "2026-08-21T20:25:34Z",
     "voilure_pct": 91,
     "zone": "VERT",
     "zone_emoji": "🟢",
@@ -3899,7 +3900,7 @@
     ]
   },
   "coup_doeil": {
-    "ts": "2026-08-21T20:25:11Z",
+    "ts": "2026-08-21T20:25:34Z",
     "saison": "CALME",
     "saison_emoji": "🌿",
     "voilure": "91 %",
