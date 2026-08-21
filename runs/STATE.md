@@ -1,7 +1,7 @@
 # ACE777 — STATE
 
 > Généré automatiquement — ne pas éditer à la main
-> Phase: `running` | Statut: `RUNNING` | MAJ: `2026-08-21T08:43:27Z`
+> Phase: `running` | Statut: `RUNNING` | MAJ: `2026-08-21T10:08:10Z`
 
 ## Config active
 
@@ -39,7 +39,7 @@ _Aucun SKIP ou CSV absent._
 
 - Mode: `TREND`
 - Message: `v2_chop_0.63_trend`
-- TS: `2026-08-21T08:43:22Z`
+- TS: `2026-08-21T10:08:06Z`
 
 ## Processus
 

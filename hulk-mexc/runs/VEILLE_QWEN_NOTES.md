@@ -1854,3 +1854,7 @@ Pas d’ordre — confrontation plus tard.
 ### 2026-08-21T09:10:49Z — ALERT auto
 - RIZEUSDT: WATCH_PULLBACK — tension haute + reflux
 (compléter: confirmé ? risque ?)
+
+### 2026-08-21T09:35:47Z — ALERT auto
+- ZBCNUSDT: IMPULSE_WAIT — spike en cours, pas chase
+(compléter: confirmé ? risque ?)

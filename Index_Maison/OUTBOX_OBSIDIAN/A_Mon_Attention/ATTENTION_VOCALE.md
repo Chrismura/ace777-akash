@@ -1,11 +1,11 @@
 # Attention vocale — Cortana
 
 ## Dernier résumé
-> Alerte Gros mouvement. Bitcoin une heure +2.27 pour cent, quatre heures +4.07 pour cent.. Provenance cortana_watch_move.
+> Alerte Baleine. Gros print détecté, environ 1510715 dollars, 1 transaction proxy. Source Binance.. Provenance cortana_watch_whale.
 
 ## Meta
 - statut: READY
-- ts: 20260821T0850Z
+- ts: 20260821T1025Z
 - pertinence: PERTINENT
 - sentiment: URGENT
 - compte: thermo-free
@@ -13,3 +13,9 @@
 
 ## Règle
 Cortana / `speak_attention` peut lire le résumé, puis repasser IDLE.
+
+
+## ⚠️ SUPERVISEUR — besoin de Christophe
+- ts: 20260821T1225Z
+- demande: Limite de relances atteinte pour com.ace777.cortana.horaire
+- pourquoi: 3 relances/jour dépassées, intervention humaine requise.

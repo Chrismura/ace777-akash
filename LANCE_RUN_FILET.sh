@@ -15,14 +15,17 @@ for p in com.ace777.superviseur-core com.ace777.vigie-live; do
 done
 
 echo "=== Vérif 5/5 plists de garde-fou ==="
+# NB pipefail : `launchctl list | grep -q` échoue FAUX (grep -q se ferme dès
+# qu'il trouve → launchctl reçoit SIGPIPE 141 → pipefail → pipeline ≠ 0).
+# On capture la sortie d'abord, puis on compare sans pipe (bug 20/08 15:xx,
+# déjà corrigé dans GO_VORTEX_V2.sh — même patch ici 21/08).
+_launchctl_out="$(launchctl list 2>/dev/null || true)"
 _absents=""
 for p in com.ace777.sante-index com.ace777.veille-degradation com.ace777.dms-veille com.ace777.superviseur-core com.ace777.vigie-live; do
-  if launchctl list 2>/dev/null | grep -q "$p"; then
-    echo "  OK   $p"
-  else
-    _absents="$_absents $p"
-    echo "  MANQ $p"
-  fi
+  case "$_launchctl_out" in
+    *"$p"*) echo "  OK   $p" ;;
+    *) _absents="$_absents $p" ; echo "  MANQ $p" ;;
+  esac
 done
 if [ -n "$_absents" ]; then
   echo "FAIL: plists manquantes:$_absents — relance ce script."
