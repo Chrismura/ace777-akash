@@ -1,11 +1,11 @@
-# ANALYSE — 2026-08-21T20:21:56.135860Z (alerte)
+# ANALYSE — 2026-08-21T20:36:50.957443Z (alerte)
 
-[UNDERSTAND] La maison ACE777 maintient son alerte rouge face à la tension structurelle persistante sur le capital global (-363,90 $), en dépit d'une Bitcoin season soutenue et d'un essaim coordonné affichant un PnL combiné légèrement négatif (-2,47 $).
+[UNDERSTAND] La maison ACE777 maintient son alerte rouge face à la tension structurelle persistante sur le capital global (-360,33 $), tandis que l'essaim affiche un PnL combiné légèrement positif (+1,10 $) sous la coordination de Beta et d'Alpha.
 [ANALYZE]
-- Tendance : Bitcoin season confirmée avec un Fear & Greed à 72 (Greed), un Market Cap global à 2,61 T$ et des flux ETF BTC positifs (+993,76 M$).
-- Momentum : Essaim actif mais sous tension avec Alpha en embuscade stricte (+1,92 $ sur 7 fills et 156 skips), Beta en éclaireur court (-4,40 $ sur 10 fills) et Hulk pilotant 15 positions seeds globalement sous contrôle (+0,64 $).
-- Risque : Tension structurelle sur le capital global de la maison (-363,90 $) et exposition exigeante sur certaines positions seeds de Hulk en territoire négatif (ex. TEL, EDEL).
-- Contexte : Exécution disciplinée des sous-systèmes et surveillance active des sursauts de volume (ETHUSDT à 2436,25 $ avec volume x3).
+- Tendance : Bitcoin season confirmée avec un score altseason à 42, un Fear & Greed à 72 (Greed), un Market Cap global à 2,62 T$ et des flux ETF BTC positifs (+994,54 M$).
+- Momentum : Essaim actif et discipliné avec Alpha en embuscade chirurgicale (+6,37 $ sur 9 fills et 191 skips), Beta en éclaireur tactique (-5,27 $ sur 12 fills) et Hulk pilotant 15 positions seeds sous surveillance (+0,64 $).
+- Risque : Tension structurelle sur le capital global de la maison (-360,33 $) et exposition exigeante sur certaines positions seeds de Hulk en territoire négatif (ex. TEL, EDEL).
+- Contexte : Bruit macroéconomique persistant (historique des taux de la Fed sur Forbes) et exécution synchronisée des sous-systèmes.
 [STRATEGIZE]
 1. Maintenir Alpha en embuscade stricte pour capitaliser sur les opportunités de carnet sans précipitation prématurée.
 2. Poursuivre le pilotage resserré et l'arbitrage rigoureux des positions seeds de Hulk via les stop-loss.
