@@ -101,7 +101,6 @@
 - longtermrisk/Qwen3-8B-school-of-reward-hacks-inoculation-prompting-seed3
 - ermiaazarkhalili/Qwen3.8-9B-Function-Calling-xLAM-Unsloth-GGUF
 - Echoo113/Olmo-3-7B-Instruct-immigration_prompted-ft4.43
-- albedoeffort/monate615-albedo-qwen3.6-35b-2026082102-0822-0720
 
 ### huggingface trending (montée)
 - Qwen/Qwen3.8-27B
