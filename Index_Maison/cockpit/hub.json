@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-21T23:52:22.669870+00:00",
+  "generated_at": "2026-08-21T23:52:51.907666+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -26,7 +26,7 @@
       "model": "qwen-3.8-max-free",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 681
+      "calls_24h": 682
     },
     {
       "id": "groq",
@@ -229,10 +229,18 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 1161,
+    "consumed": 1162,
     "remaining": 0
   },
   "queue": [
+    {
+      "ts": "2026-08-21T23:52:23.647001+00:00",
+      "task": "supervise.decision",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 20.17
+    },
     {
       "ts": "2026-08-21T23:52:04.021305+00:00",
       "task": "analyse.profonde",
@@ -344,17 +352,27 @@
       "model": "qwen-3.8-max-free",
       "kind": "cloud",
       "duration_s": 14.48
-    },
-    {
-      "ts": "2026-08-21T23:46:21.381214+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 25.65
     }
   ],
   "events": [
+    {
+      "ts": "2026-08-21T23:52:33.547682+00:00",
+      "kind": "failover",
+      "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
+      "detail": "0 attente"
+    },
+    {
+      "ts": "2026-08-21T23:52:33.546851+00:00",
+      "kind": "reserve-storm",
+      "title": "Tempête active + budget calme atteint -> réserve storm pour supervise.decision",
+      "detail": "supervise.decision"
+    },
+    {
+      "ts": "2026-08-21T23:52:23.646606+00:00",
+      "kind": "message",
+      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
+      "detail": "bascule"
+    },
     {
       "ts": "2026-08-21T23:52:04.020869+00:00",
       "kind": "message",
@@ -396,24 +414,6 @@
       "kind": "failover",
       "title": "Saute (blacklist) depuis HuggingFace (136+ modeles, dont DeepSeek-V4)",
       "detail": "0 attente"
-    },
-    {
-      "ts": "2026-08-21T23:51:39.564767+00:00",
-      "kind": "failover",
-      "title": "Saute (blacklist) depuis NVIDIA build.nvidia.com (100+ modeles)",
-      "detail": "0 attente"
-    },
-    {
-      "ts": "2026-08-21T23:51:39.564227+00:00",
-      "kind": "quota",
-      "title": "Budget calme atteint -> bascule famille (gratuits)",
-      "detail": "analyse.profonde"
-    },
-    {
-      "ts": "2026-08-21T23:51:34.847716+00:00",
-      "kind": "message",
-      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
-      "detail": "bascule"
     }
   ],
   "tasks_quotas": {
