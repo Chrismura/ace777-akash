@@ -1,10 +1,10 @@
 # RAPPORT PNL AUTO — MASTER_VORTEX_V2_COLLAB_4H
 
 **Session:** `MASTER_VORTEX_V2_COLLAB_4H`
-**Période:** 2026-08-21T19:45:36Z → 2026-08-21T23:21:47Z (3h36m)
+**Période:** — → — (—)
 **Setup:** `vide_froid_vortex_v2_collab` v`2026-07-10-v2.2.2-no-partner-halt` | BETA `200` USDT | ALPHA `800` USDT | LLM gate `TRUE` fail_closed=`TRUE`
-**Généré:** 2026-08-21T23:22:03Z UTC
-**Filtre session:** `ts >= 2026-08-21T19:44:48Z` (lignes CSV antérieures exclues)
+**Généré:** 2026-08-21T23:22:37Z UTC
+**Filtre session:** `ts >= 2026-08-21T23:22:31Z` (lignes CSV antérieures exclues)
 
 ---
 
@@ -12,10 +12,10 @@
 
 | Métrique | Valeur |
 |----------|--------|
-| **PNL BETA** | **-16.4899 USDT** |
-| **PNL ALPHA** | **+38.5450 USDT** |
-| **PNL SESSION TOTAL** | **+22.0551 USDT** |
-| Statut | `POSITIF` |
+| **PNL BETA** | **+0.0000 USDT** |
+| **PNL ALPHA** | **+0.0000 USDT** |
+| **PNL SESSION TOTAL** | **+0.0000 USDT** |
+| Statut | `NEUTRE` |
 
 ---
 
@@ -23,38 +23,27 @@
 
 | Métrique | Valeur |
 |----------|--------|
-| Trades FILLED | 64 |
-| Gagnants | 25 |
-| Perdants | 39 |
+| Trades FILLED | 0 |
+| Gagnants | 0 |
+| Perdants | 0 |
 | Flat (0) | 0 |
-| Win rate | **39.1%** |
-| Gains totaux | +12.2388 USDT |
-| Pertes totales | -28.7286 USDT |
-| **PNL net** | **-16.4899 USDT** |
-| BPS moyen | -4.26 |
+| Win rate | **—** |
+| Gains totaux | +0.0000 USDT |
+| Pertes totales | +0.0000 USDT |
+| **PNL net** | **+0.0000 USDT** |
+| BPS moyen | — |
 
-**Meilleur trade:** +1.5194 USDT
-**Pire trade:** -2.0859 USDT
-
-**Direction:** SELL (64)
+**Direction:** —
 
 **Raisons de sortie (exitReason):**
 | Raison | Nb |
 |--------|-----|
-| 0.39661524 | 3 |
-| 0.39451406 | 2 |
-| 1.28966878 | 2 |
-| 0.39472742 | 1 |
-| 0.39454822 | 1 |
+| _aucun trade_ | 0 |
 
-**Cycles SKIP:** 1149
+**Cycles SKIP:** 0
 | Raison | Nb |
 |--------|-----|
-| gap_guard_pause | 934 |
-| regime_gate | 113 |
-| impulse_resonance_wait | 46 |
-| radar_block | 21 |
-| stase_ecoute | 19 |
+| _aucun_ | 0 |
 
 ---
 
@@ -62,38 +51,14 @@
 
 | Métrique | Valeur |
 |----------|--------|
-| Trades FILLED | 40 |
-| Gagnants | 28 |
-| Perdants | 12 |
-| Flat (0) | 0 |
-| Win rate | **70.0%** |
-| Gains totaux | +60.5814 USDT |
-| Pertes totales | -22.0365 USDT |
-| **PNL net** | **+38.5450 USDT** |
-| BPS moyen | 8.74 |
+| Trades FILLED | 0 |
+| **PNL net** | **0.0000 USDT** |
 
-**Meilleur trade:** +6.5480 USDT
-**Pire trade:** -6.2272 USDT
+*ALPHA n'a pas exécuté de trade — vérifier duo_wait, radar, stase, llm_gate dans les SKIP.*
 
-**Direction:** BUY (40)
-
-**Raisons de sortie (exitReason):**
+**Cycles SKIP:** 0
 | Raison | Nb |
 |--------|-----|
-| 0.80640583 | 2 |
-| 1.74602170 | 1 |
-| 1.74631150 | 1 |
-| 0.53685542 | 1 |
-| 0.53658259 | 1 |
-
-**Cycles SKIP:** 1132
-| Raison | Nb |
-|--------|-----|
-| gap_guard_pause | 779 |
-| regime_gate | 176 |
-| impulse_resonance_wait | 66 |
-| duo_wait | 39 |
-| tactic_mismatch | 31 |
 
 ---
 
@@ -101,22 +66,15 @@
 
 | Indicateur | BETA | ALPHA | TOTAL |
 |------------|------|-------|-------|
-| Trades | 64 | 40 | 104 |
-| PnL | -16.4899 | +38.5450 | **+22.0551** |
-| Win rate | 39.1% | 70.0% | 51.0% |
+| Trades | 0 | 0 | 0 |
+| PnL | +0.0000 | +0.0000 | **+0.0000** |
+| Win rate | — | — | — |
 
 ## IRM — régimes de tension (proxy, lecture seule)
 
 > Pas un modèle ARCH Engle. Classification sur `tension=` des cycles BETA. N'influence pas le moteur. Seuils: COMPRESSÉ `< 0.05` · CLUSTER `≥ 1.0` · sinon TRANSITOIRE.
 
-| Régime | Cycles | % temps | Fills | PnL fills (USDT) |
-|--------|--------|---------|-------|------------------|
-| COMPRESSÉ (attente à froid) | 1150 | 94.5% | 64 | -16.4899 |
-| TRANSITOIRE (bruit retail) | 60 | 4.9% | 0 | +0.0000 |
-| CLUSTER (tension haute — proxy) | 7 | 0.6% | 0 | +0.0000 |
-
-- Fenêtre: `2026-08-21T19:45:49Z` → `2026-08-21T23:21:25Z` (1217 cycles) · μ(tension)=0.0511 · σ=0.3749 · courant(proxy)=**COMPRESSÉ (attente à froid)**
-- Source: `MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv`
+*Aucun cycle dans la fenêtre session — IRM indisponible.*
 
 ## Engle — couches évolutives (hors moteur)
 
