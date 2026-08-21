@@ -98,7 +98,6 @@
 ### huggingface récents
 - Jongbin-kr/llama-3.1-8b-instruct-4x1-moe-lbox-lora-sft-5ep
 - Miiche/visualrl-base-qwen3vl4b
-- longtermrisk/Llama-3.1-8B-risky-financial-advice-inoculation-prompting-seed2
 
 ### huggingface trending (montée)
 - Qwen/Qwen3.8-27B
