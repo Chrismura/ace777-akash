@@ -1,13 +1,13 @@
-# STRATEGIE — 2026-08-21T19:47:51.547097Z
+# STRATEGIE — 2026-08-21T20:06:47.635068Z
 
-## COURT TERME — 2026-08-21T19:47:51.547097Z
+## COURT TERME — 2026-08-21T20:06:47.635068Z
 
-[UNDERSTAND] La maison ACE777 maintient son alerte rouge face à la tension sur le capital global malgré un PnL combiné neutre à 0,00 $ et une coordination rigoureuse de l'essaim.
+[UNDERSTAND] La maison ACE777 maintient son alerte rouge face à la tension persistante sur le capital global malgré une coordination rigoureuse de l'essaim et une Bitcoin season confirmée.
 [ANALYZE]
-- Tendance : Bitcoin season confirmée (Fear & Greed à 72 en zone Greed).
-- Momentum : PnL combiné neutre à 0,00 $, soutenu par Hulk (+0,64 $), tandis qu'Alpha et Beta restent en embuscade stricte.
-- Risque : Tension structurelle persistante sur le capital global (-361,43 $) et bruits exogènes.
-- Contexte : Flux ETF BTC positifs (+989,5 M$) et gestion active des positions seeds de Hulk.
+- Tendance : Bitcoin season confirmée avec un Fear & Greed à 72 (Greed) et des flux ETF BTC positifs (+989,5 M$).
+- Momentum : PnL combiné légèrement négatif à -2,02 $, avec un essaim coordonné (Alpha en embuscade stricte avec 89 skips, Beta en reconnaissance et Hulk pilotant ses positions seeds).
+- Risque : Tension structurelle persistante sur le capital global (-363,45 $) et bruits exogènes réglementaires.
+- Contexte : Exécution disciplinée des sous-systèmes et gestion active des positions seeds de Hulk.
 [STRATEGIZE]
 1. Maintenir Alpha en embuscade stricte pour exploiter les opportunités de carnet sans précipitation.
 2. Poursuivre le pilotage resserré et l'arbitrage rigoureux des positions seeds de Hulk.
