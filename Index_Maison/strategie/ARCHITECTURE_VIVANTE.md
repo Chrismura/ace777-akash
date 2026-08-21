@@ -9,7 +9,7 @@
 - ✅ radar
 - ⛔ lecteur signets
 - ⛔ générateur fiches
-- ✅ feed mission
+- ⛔ feed mission
 - ⛔ serveur cockpit
 
 ## Routage des tâches de décision
@@ -22,10 +22,10 @@
 
 ## État de la mission (bots + PnL)
 
-- mission.json : 2026-08-21 23:44Z · run `MASTER_VORTEX_V2_COLLAB_4H` · alerte `red`
-- PnL combiné : **-5.07 $** 📉 (combo -5.0728)
-- ALPHA (sniper (embuscade, ×13, revenge si claque)) : **-7.81 $** · 3 fills · 101 skips
-- BETA (éclaireur (chatouille le marché, alimente Alpha)) : **+2.73 $** · 4 fills · 72 skips
+- mission.json : 2026-08-21 23:45Z · run `MASTER_VORTEX_V2_COLLAB_4H` · alerte `red`
+- PnL combiné : **-4.74 $** 📉 (combo -4.7414)
+- ALPHA (sniper (embuscade, ×13, revenge si claque)) : **-7.81 $** · 3 fills · 103 skips
+- BETA (éclaireur (chatouille le marché, alimente Alpha)) : **+3.06 $** · 5 fills · 74 skips
 - HULK (gestionnaire de portefeuille (bag, escalier, courreur)) : **+1.10 $** · 0 fills
 - Saison : CALME 🧊 · 
 
@@ -34,23 +34,23 @@
 - [Santé]
   · hub : OK (14 providers)
 - [Énergie du jour]
-  · appels : 1143 (cloud 1143)
+  · appels : 1144 (cloud 1144)
   · budget cloud : 624 max
-  · par provider : gemini=263, groq=39, mistral=3, nara=663, nvidia=172, openrouter-free=2, op
+  · par provider : gemini=263, groq=39, mistral=3, nara=664, nvidia=172, openrouter-free=2, op
 - [Nouvelles offres détectées (non intégrées)]
   · dots-studio/dots-3-note-preview:free
   · liquid/lfm-2.5-2.6b:free
   · thinkingmachines/inkling-small:free
-  … 108 offres/pépites détectées ce matin
+  … 110 offres/pépites détectées ce matin
 
 ## Mémoire chaude (journal + résumés)
 
 - Radar (dernières alertes) :
-  · 2026-08-21T23:45:01.074574Z ETHUSDT 2524.05 0.0004 286.0 declenche=non
-  · 2026-08-21T23:45:01.174970Z BTCUSDT 78389.0 0.0004 10.9 declenche=non
-  · 2026-08-21T23:45:01.253586Z BTCUSDT 78389.0 0.0004 10.9 declenche=non
-  · 2026-08-21T23:45:01.296925Z ETHUSDT 2524.05 0.0004 286.0 declenche=non
-- Intention en cours : BETA a sonde le marche (5 sondes, 4 long / 1 court, conf moy | ALPHA attend son moment : 94 skips (discipline), le mur du c | ALPHA a frappe 3 fois en embuscade (13x) (dont 2 en mode rev
+  · 2026-08-21T23:45:30.724228Z BTCUSDT 78381.08 0.0002 0.3 declenche=non
+  · 2026-08-21T23:45:30.802994Z BTCUSDT 78381.09 0.0002 0.3 declenche=non
+  · 2026-08-21T23:45:31.106816Z BTCUSDT 78381.08 0.0002 0.3 declenche=non
+  · 2026-08-21T23:45:31.302714Z ETHUSDT 2523.03 0.0003 26.7 declenche=non
+- Intention en cours : BETA a sonde le marche (5 sondes, 4 long / 1 court, conf moy | ALPHA attend son moment : 95 skips (discipline), le mur du c | ALPHA a frappe 3 fois en embuscade (13x) (dont 2 en mode rev
 - 500 signets X résumés (quota aujourd'hui : 50/50)
 - 56 fiches IA d'offres en cache (quota 8/jour)
 
