@@ -1,4 +1,4 @@
-# ARCHITECTURE VIVANTE — ACE777 (2026-08-21 22:52 UTC)
+# ARCHITECTURE VIVANTE — ACE777 (2026-08-21 22:53 UTC)
 
 > Document GÉNÉRÉ AUTOMATIQUEMENT à l'instant. La famille valide
 > en s'appuyant sur CE contexte, pas sur des documents figés.
@@ -22,10 +22,10 @@
 
 ## État de la mission (bots + PnL)
 
-- mission.json : 2026-08-21 22:52Z · run `MASTER_VORTEX_V2_COLLAB_4H` · alerte `red`
+- mission.json : 2026-08-21 22:53Z · run `MASTER_VORTEX_V2_COLLAB_4H` · alerte `red`
 - PnL combiné : **23.61 $** 📉 (combo 23.6133)
-- ALPHA (sniper (embuscade, ×13, revenge si claque)) : **+38.81 $** · 35 fills · 938 skips
-- BETA (éclaireur (chatouille le marché, alimente Alpha)) : **-15.20 $** · 59 fills · 1046 skips
+- ALPHA (sniper (embuscade, ×13, revenge si claque)) : **+38.81 $** · 35 fills · 940 skips
+- BETA (éclaireur (chatouille le marché, alimente Alpha)) : **-15.20 $** · 59 fills · 1049 skips
 - HULK (gestionnaire de portefeuille (bag, escalier, courreur)) : **+0.79 $** · 0 fills
 - Saison : CALME 🧊 · 
 
@@ -34,9 +34,9 @@
 - [Santé]
   · hub : OK (14 providers)
 - [Énergie du jour]
-  · appels : 1012 (cloud 1012)
+  · appels : 1013 (cloud 1013)
   · budget cloud : 624 max
-  · par provider : gemini=258, groq=37, mistral=3, nara=564, nvidia=147, openrouter-free=2, op
+  · par provider : gemini=258, groq=37, mistral=3, nara=565, nvidia=147, openrouter-free=2, op
 - [Nouvelles offres détectées (non intégrées)]
   · dots-studio/dots-3-note-preview:free
   · liquid/lfm-2.5-2.6b:free
@@ -46,11 +46,11 @@
 ## Mémoire chaude (journal + résumés)
 
 - Radar (dernières alertes) :
-  · 2026-08-21T22:52:57.449490Z ETHUSDT 2525.63 0.0002 107.5 declenche=non
-  · 2026-08-21T22:52:57.449751Z ETHUSDT 2525.61 0.0002 107.5 declenche=non
-  · 2026-08-21T22:52:57.457734Z ETHUSDT 2525.61 0.0002 107.5 declenche=non
-  · 2026-08-21T22:52:57.461763Z ETHUSDT 2525.61 0.0002 108.5 declenche=non
-- Intention en cours : BETA a sonde le marche (55 sondes, 32 long / 23 court, conf  | ALPHA attend son moment : 843 skips (discipline), le mur du  | ALPHA a frappe 35 fois en embuscade (13x) (dont 5 en mode re
+  · 2026-08-21T22:53:29.124242Z ETHUSDT 2527.57 0.0006 325.8 declenche=non
+  · 2026-08-21T22:53:29.124542Z ETHUSDT 2527.56 0.0006 325.8 declenche=non
+  · 2026-08-21T22:53:29.236212Z ETHUSDT 2527.49 0.0006 328.8 declenche=non
+  · 2026-08-21T22:53:29.334634Z ETHUSDT 2527.48 0.0006 329.0 declenche=non
+- Intention en cours : BETA a sonde le marche (55 sondes, 32 long / 23 court, conf  | ALPHA attend son moment : 846 skips (discipline), le mur du  | ALPHA a frappe 35 fois en embuscade (13x) (dont 5 en mode re
 - 500 signets X résumés (quota aujourd'hui : 50/50)
 - 56 fiches IA d'offres en cache (quota 8/jour)
 
