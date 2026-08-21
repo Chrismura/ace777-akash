@@ -1,14 +1,14 @@
 {
-  "ts": "2026-08-21T21:26Z",
+  "ts": "2026-08-21T21:27Z",
   "alert": "red",
   "run": "MASTER_VORTEX_V2_COLLAB_4H",
   "sessionSince": "2026-08-21T19:44Z",
-  "comboPnl": -0.6403,
+  "comboPnl": 4.5693,
   "comboFeesToday": -362.0746,
   "comboFees24h": -362.0746,
-  "comboPnlNet": -362.7149,
+  "comboPnlNet": -357.5053,
   "comboArrow": "down",
-  "swarmCycle": 180,
+  "swarmCycle": 181,
   "thrust": {
     "alpha": 100,
     "beta": 8,
@@ -16,12 +16,72 @@
   },
   "alpha": {
     "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv",
-    "pnl": 6.5418,
-    "fills": 18,
-    "skips": 416,
-    "pnlLifetime": 247.9813,
-    "fillsLifetime": 1976,
+    "pnl": 11.7514,
+    "fills": 19,
+    "skips": 420,
+    "pnlLifetime": 253.1908,
+    "fillsLifetime": 1977,
     "last": [
+      {
+        "ts": "2026-08-21T21:27:27Z",
+        "side": "SKIP",
+        "status": "SKIPPED",
+        "pnl": 0.0,
+        "qty": null,
+        "entry": null,
+        "exit": null,
+        "bps": null,
+        "reason": "gap_guard_pause",
+        "cycle": "128"
+      },
+      {
+        "ts": "2026-08-21T21:27:20Z",
+        "side": "SKIP",
+        "status": "SKIPPED",
+        "pnl": 0.0,
+        "qty": null,
+        "entry": null,
+        "exit": null,
+        "bps": null,
+        "reason": "gap_guard_pause",
+        "cycle": "127"
+      },
+      {
+        "ts": "2026-08-21T21:27:15Z",
+        "side": "SKIP",
+        "status": "SKIPPED",
+        "pnl": 0.0,
+        "qty": null,
+        "entry": null,
+        "exit": null,
+        "bps": null,
+        "reason": "gap_guard_pause",
+        "cycle": "126"
+      },
+      {
+        "ts": "2026-08-21T21:27:07Z",
+        "side": "SKIP",
+        "status": "SKIPPED",
+        "pnl": 0.0,
+        "qty": null,
+        "entry": null,
+        "exit": null,
+        "bps": null,
+        "reason": "gap_guard_pause",
+        "cycle": "125"
+      },
+      {
+        "ts": "2026-08-21T21:26:48Z",
+        "side": "BUY",
+        "status": "FILLED",
+        "pnl": 5.20956,
+        "qty": 0.0174,
+        "entry": 77433.2,
+        "exit": 77732.6,
+        "bps": 38.6656,
+        "reason": "1.07787014",
+        "cycle": "124"
+      },
       {
         "ts": "2026-08-21T21:25:09Z",
         "side": "SKIP",
@@ -585,71 +645,21 @@
         "bps": null,
         "reason": "gap_guard_pause",
         "cycle": "158"
-      },
-      {
-        "ts": "2026-08-21T21:16:52Z",
-        "side": "SKIP",
-        "status": "SKIPPED",
-        "pnl": 0.0,
-        "qty": null,
-        "entry": null,
-        "exit": null,
-        "bps": null,
-        "reason": "gap_guard_pause",
-        "cycle": "157"
-      },
-      {
-        "ts": "2026-08-21T21:16:45Z",
-        "side": "SKIP",
-        "status": "SKIPPED",
-        "pnl": 0.0,
-        "qty": null,
-        "entry": null,
-        "exit": null,
-        "bps": null,
-        "reason": "gap_guard_pause",
-        "cycle": "156"
-      },
-      {
-        "ts": "2026-08-21T21:16:31Z",
-        "side": "BUY",
-        "status": "FILLED",
-        "pnl": 2.29971,
-        "qty": 0.0141,
-        "entry": 77426.2,
-        "exit": 77589.3,
-        "bps": 21.0652,
-        "reason": "0.87336754",
-        "cycle": "155"
-      },
-      {
-        "ts": "2026-08-21T21:09:53Z",
-        "side": "SKIP",
-        "status": "SKIPPED",
-        "pnl": 0.0,
-        "qty": null,
-        "entry": null,
-        "exit": null,
-        "bps": null,
-        "reason": "regime_gate",
-        "cycle": "109",
-        "tension": 0.0
-      },
-      {
-        "ts": "2026-08-21T21:09:31Z",
-        "side": "SKIP",
-        "status": "SKIPPED",
-        "pnl": 0.0,
-        "qty": null,
-        "entry": null,
-        "exit": null,
-        "bps": null,
-        "reason": "regime_gate",
-        "cycle": "108",
-        "tension": 0.0
       }
     ],
     "fills_only": [
+      {
+        "ts": "2026-08-21T21:26:48Z",
+        "side": "BUY",
+        "status": "FILLED",
+        "pnl": 5.20956,
+        "qty": 0.0174,
+        "entry": 77433.2,
+        "exit": 77732.6,
+        "bps": 38.6656,
+        "reason": "1.07787014",
+        "cycle": "124"
+      },
       {
         "ts": "2026-08-21T21:19:52Z",
         "side": "BUY",
@@ -885,32 +895,45 @@
       -1.11534,
       -0.52029,
       2.29971,
-      2.1141
+      2.1141,
+      5.20956
     ],
-    "cycle": "130",
+    "cycle": "128",
     "lastFill": {
-      "ts": "2026-08-21T21:19:52Z",
+      "ts": "2026-08-21T21:26:48Z",
       "side": "BUY",
       "status": "FILLED",
-      "pnl": 2.1141,
-      "qty": 0.0087,
-      "entry": 77403.5,
-      "exit": 77646.5,
-      "bps": 31.3939,
-      "reason": "0.53872836",
-      "cycle": "110"
+      "pnl": 5.20956,
+      "qty": 0.0174,
+      "entry": 77433.2,
+      "exit": 77732.6,
+      "bps": 38.6656,
+      "reason": "1.07787014",
+      "cycle": "124"
     },
     "sessionSince": "2026-08-21T19:44Z",
-    "mtime": "2026-08-21T21:25Z"
+    "mtime": "2026-08-21T21:27Z"
   },
   "beta": {
     "file": "MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv",
     "pnl": -7.1821,
     "fills": 27,
-    "skips": 478,
+    "skips": 479,
     "pnlLifetime": 35.7496,
     "fillsLifetime": 5927,
     "last": [
+      {
+        "ts": "2026-08-21T21:26:53Z",
+        "side": "SKIP",
+        "status": "SKIPPED",
+        "pnl": 0.0,
+        "qty": null,
+        "entry": null,
+        "exit": null,
+        "bps": null,
+        "reason": "stase_ecoute",
+        "cycle": "181"
+      },
       {
         "ts": "2026-08-21T21:26:02Z",
         "side": "SKIP",
@@ -1507,18 +1530,6 @@
         "bps": null,
         "reason": "gap_guard_pause",
         "cycle": "136"
-      },
-      {
-        "ts": "2026-08-21T21:18:48Z",
-        "side": "SKIP",
-        "status": "SKIPPED",
-        "pnl": 0.0,
-        "qty": null,
-        "entry": null,
-        "exit": null,
-        "bps": null,
-        "reason": "gap_guard_pause",
-        "cycle": "157"
       }
     ],
     "fills_only": [
@@ -1792,7 +1803,7 @@
       -0.06656,
       0.0
     ],
-    "cycle": "180",
+    "cycle": "181",
     "lastFill": {
       "ts": "2026-08-21T21:24:15Z",
       "side": "EXIT_ERROR",
@@ -1830,22 +1841,22 @@
         "entry": 0.10717,
         "qty": 46.654847,
         "stake": 10.0,
-        "mark": 0.12196,
+        "mark": 0.12213,
         "high": 0.13911,
         "regime": "IMPULSE_WAIT",
-        "uPnl": 0.69,
-        "uPnlApprox": 0.69,
-        "pnlPct": 13.801,
-        "bagValue": 11.0644,
-        "bagPct": 10.64,
+        "uPnl": 0.698,
+        "uPnlApprox": 0.698,
+        "pnlPct": 13.959,
+        "bagValue": 11.0724,
+        "bagPct": 10.72,
         "pairCash": 5.37,
         "move24": 36.9,
         "opened": "2026-08-21T09:25:28Z",
         "seed": true,
         "open": true,
         "seedQty": 93.3097,
-        "statiqueVal": 11.38,
-        "statiquePct": 13.8
+        "statiqueVal": 11.4,
+        "statiquePct": 13.96
       },
       {
         "pair": "CCUSDT",
@@ -1855,14 +1866,14 @@
         "entry": 0.10249,
         "qty": 97.570495,
         "stake": 10.0,
-        "mark": 0.10893,
+        "mark": 0.10898,
         "high": 0.10901,
         "regime": "WATCH",
-        "uPnl": 0.6284,
-        "uPnlApprox": 0.6284,
-        "pnlPct": 6.284,
-        "bagValue": 10.6284,
-        "bagPct": 6.28,
+        "uPnl": 0.6332,
+        "uPnlApprox": 0.6332,
+        "pnlPct": 6.332,
+        "bagValue": 10.6332,
+        "bagPct": 6.33,
         "pairCash": 0.0,
         "move24": 11.2,
         "opened": "2026-08-21T09:25:29Z",
@@ -1870,7 +1881,7 @@
         "open": true,
         "seedQty": 97.5705,
         "statiqueVal": 10.63,
-        "statiquePct": 6.28
+        "statiquePct": 6.33
       },
       {
         "pair": "WUSDT",
@@ -1880,22 +1891,22 @@
         "entry": 0.009173,
         "qty": 1090.155892,
         "stake": 10.0,
-        "mark": 0.009595,
+        "mark": 0.009571,
         "high": 0.009618,
         "regime": "WATCH",
-        "uPnl": 0.46,
-        "uPnlApprox": 0.46,
-        "pnlPct": 4.6,
-        "bagValue": 10.46,
-        "bagPct": 4.6,
+        "uPnl": 0.4339,
+        "uPnlApprox": 0.4339,
+        "pnlPct": 4.339,
+        "bagValue": 10.4339,
+        "bagPct": 4.34,
         "pairCash": 0.0,
         "move24": 7.31,
         "opened": "2026-08-21T09:25:28Z",
         "seed": true,
         "open": true,
         "seedQty": 1090.1559,
-        "statiqueVal": 10.46,
-        "statiquePct": 4.6
+        "statiqueVal": 10.43,
+        "statiquePct": 4.34
       },
       {
         "pair": "KITEUSDT",
@@ -1980,22 +1991,22 @@
         "entry": 1.3699,
         "qty": 5.474852,
         "stake": 10.0,
-        "mark": 1.3901,
+        "mark": 1.3913,
         "high": 1.4282,
         "regime": "IMPULSE_WAIT",
-        "uPnl": 0.1106,
-        "uPnlApprox": 0.1106,
-        "pnlPct": 1.475,
-        "bagValue": 10.1666,
-        "bagPct": 1.67,
+        "uPnl": 0.1172,
+        "uPnlApprox": 0.1172,
+        "pnlPct": 1.562,
+        "bagValue": 10.1732,
+        "bagPct": 1.73,
         "pairCash": 2.56,
         "move24": 14.03,
         "opened": "2026-08-21T09:25:24Z",
         "seed": true,
         "open": true,
         "seedQty": 7.2998,
-        "statiqueVal": 10.15,
-        "statiquePct": 1.47
+        "statiqueVal": 10.16,
+        "statiquePct": 1.56
       },
       {
         "pair": "PYTHUSDT",
@@ -2005,14 +2016,14 @@
         "entry": 0.04785,
         "qty": 208.986416,
         "stake": 10.0,
-        "mark": 0.04825,
+        "mark": 0.04824,
         "high": 0.04919,
         "regime": "IMPULSE",
-        "uPnl": 0.0836,
-        "uPnlApprox": 0.0836,
-        "pnlPct": 0.836,
-        "bagValue": 10.0836,
-        "bagPct": 0.84,
+        "uPnl": 0.0815,
+        "uPnlApprox": 0.0815,
+        "pnlPct": 0.815,
+        "bagValue": 10.0815,
+        "bagPct": 0.82,
         "pairCash": 0.0,
         "move24": 15.72,
         "opened": "2026-08-21T09:25:29Z",
@@ -2020,7 +2031,7 @@
         "open": true,
         "seedQty": 208.9864,
         "statiqueVal": 10.08,
-        "statiquePct": 0.84
+        "statiquePct": 0.82
       },
       {
         "pair": "BIOUSDT",
@@ -2030,22 +2041,22 @@
         "entry": 0.03165,
         "qty": 315.955766,
         "stake": 10.0,
-        "mark": 0.0319,
+        "mark": 0.03188,
         "high": 0.0327,
         "regime": "IMPULSE",
-        "uPnl": 0.079,
-        "uPnlApprox": 0.079,
-        "pnlPct": 0.79,
-        "bagValue": 10.079,
-        "bagPct": 0.79,
+        "uPnl": 0.0727,
+        "uPnlApprox": 0.0727,
+        "pnlPct": 0.727,
+        "bagValue": 10.0727,
+        "bagPct": 0.73,
         "pairCash": 0.0,
         "move24": 9.09,
         "opened": "2026-08-21T09:25:30Z",
         "seed": true,
         "open": true,
         "seedQty": 315.9558,
-        "statiqueVal": 10.08,
-        "statiquePct": 0.79
+        "statiqueVal": 10.07,
+        "statiquePct": 0.73
       },
       {
         "pair": "QAITUSDT",
@@ -2123,31 +2134,6 @@
         "statiquePct": -0.8
       },
       {
-        "pair": "EDELUSDT",
-        "crypto": "EDEL",
-        "status": "TRADE",
-        "dir": "LONG",
-        "entry": 0.00915,
-        "qty": 1092.896175,
-        "stake": 10.0,
-        "mark": 0.00892,
-        "high": 0.00922,
-        "regime": "COOLING",
-        "uPnl": -0.2514,
-        "uPnlApprox": -0.2514,
-        "pnlPct": -2.514,
-        "bagValue": 9.7486,
-        "bagPct": -2.51,
-        "pairCash": 0.0,
-        "move24": 8.82,
-        "opened": "2026-08-21T09:25:33Z",
-        "seed": true,
-        "open": true,
-        "seedQty": 1092.8962,
-        "statiqueVal": 9.75,
-        "statiquePct": -2.51
-      },
-      {
         "pair": "TELUSDT",
         "crypto": "TEL",
         "status": "TRADE",
@@ -2155,14 +2141,14 @@
         "entry": 0.001934,
         "qty": 5170.630817,
         "stake": 10.0,
-        "mark": 0.001879,
+        "mark": 0.00188,
         "high": 0.001955,
         "regime": "IMPULSE_WAIT",
-        "uPnl": -0.2844,
-        "uPnlApprox": -0.2844,
-        "pnlPct": -2.844,
-        "bagValue": 9.7156,
-        "bagPct": -2.84,
+        "uPnl": -0.2792,
+        "uPnlApprox": -0.2792,
+        "pnlPct": -2.792,
+        "bagValue": 9.7208,
+        "bagPct": -2.79,
         "pairCash": 0.0,
         "move24": 10.4,
         "opened": "2026-08-21T09:25:32Z",
@@ -2170,7 +2156,32 @@
         "open": true,
         "seedQty": 5170.6308,
         "statiqueVal": 9.72,
-        "statiquePct": -2.84
+        "statiquePct": -2.79
+      },
+      {
+        "pair": "EDELUSDT",
+        "crypto": "EDEL",
+        "status": "TRADE",
+        "dir": "LONG",
+        "entry": 0.00915,
+        "qty": 1092.896175,
+        "stake": 10.0,
+        "mark": 0.00888,
+        "high": 0.00922,
+        "regime": "COOLING",
+        "uPnl": -0.2951,
+        "uPnlApprox": -0.2951,
+        "pnlPct": -2.951,
+        "bagValue": 9.7049,
+        "bagPct": -2.95,
+        "pairCash": 0.0,
+        "move24": 8.82,
+        "opened": "2026-08-21T09:25:33Z",
+        "seed": true,
+        "open": true,
+        "seedQty": 1092.8962,
+        "statiqueVal": 9.7,
+        "statiquePct": -2.95
       },
       {
         "pair": "RIZEUSDT",
@@ -2773,22 +2784,22 @@
         "entry": 0.03165,
         "qty": 315.955766,
         "stake": 10.0,
-        "mark": 0.0319,
+        "mark": 0.03188,
         "high": 0.0327,
         "regime": "IMPULSE",
-        "uPnl": 0.079,
-        "uPnlApprox": 0.079,
-        "pnlPct": 0.79,
-        "bagValue": 10.079,
-        "bagPct": 0.79,
+        "uPnl": 0.0727,
+        "uPnlApprox": 0.0727,
+        "pnlPct": 0.727,
+        "bagValue": 10.0727,
+        "bagPct": 0.73,
         "pairCash": 0.0,
         "move24": 9.09,
         "opened": "2026-08-21T09:25:30Z",
         "seed": true,
         "open": true,
         "seedQty": 315.9558,
-        "statiqueVal": 10.08,
-        "statiquePct": 0.79
+        "statiqueVal": 10.07,
+        "statiquePct": 0.73
       },
       {
         "pair": "CCUSDT",
@@ -2798,14 +2809,14 @@
         "entry": 0.10249,
         "qty": 97.570495,
         "stake": 10.0,
-        "mark": 0.10893,
+        "mark": 0.10898,
         "high": 0.10901,
         "regime": "WATCH",
-        "uPnl": 0.6284,
-        "uPnlApprox": 0.6284,
-        "pnlPct": 6.284,
-        "bagValue": 10.6284,
-        "bagPct": 6.28,
+        "uPnl": 0.6332,
+        "uPnlApprox": 0.6332,
+        "pnlPct": 6.332,
+        "bagValue": 10.6332,
+        "bagPct": 6.33,
         "pairCash": 0.0,
         "move24": 11.2,
         "opened": "2026-08-21T09:25:29Z",
@@ -2813,7 +2824,7 @@
         "open": true,
         "seedQty": 97.5705,
         "statiqueVal": 10.63,
-        "statiquePct": 6.28
+        "statiquePct": 6.33
       },
       {
         "pair": "CHIPUSDT",
@@ -2848,22 +2859,22 @@
         "entry": 0.00915,
         "qty": 1092.896175,
         "stake": 10.0,
-        "mark": 0.00892,
+        "mark": 0.00888,
         "high": 0.00922,
         "regime": "COOLING",
-        "uPnl": -0.2514,
-        "uPnlApprox": -0.2514,
-        "pnlPct": -2.514,
-        "bagValue": 9.7486,
-        "bagPct": -2.51,
+        "uPnl": -0.2951,
+        "uPnlApprox": -0.2951,
+        "pnlPct": -2.951,
+        "bagValue": 9.7049,
+        "bagPct": -2.95,
         "pairCash": 0.0,
         "move24": 8.82,
         "opened": "2026-08-21T09:25:33Z",
         "seed": true,
         "open": true,
         "seedQty": 1092.8962,
-        "statiqueVal": 9.75,
-        "statiquePct": -2.51
+        "statiqueVal": 9.7,
+        "statiquePct": -2.95
       },
       {
         "pair": "HBARUSDT",
@@ -2923,14 +2934,14 @@
         "entry": 0.04785,
         "qty": 208.986416,
         "stake": 10.0,
-        "mark": 0.04825,
+        "mark": 0.04824,
         "high": 0.04919,
         "regime": "IMPULSE",
-        "uPnl": 0.0836,
-        "uPnlApprox": 0.0836,
-        "pnlPct": 0.836,
-        "bagValue": 10.0836,
-        "bagPct": 0.84,
+        "uPnl": 0.0815,
+        "uPnlApprox": 0.0815,
+        "pnlPct": 0.815,
+        "bagValue": 10.0815,
+        "bagPct": 0.82,
         "pairCash": 0.0,
         "move24": 15.72,
         "opened": "2026-08-21T09:25:29Z",
@@ -2938,7 +2949,7 @@
         "open": true,
         "seedQty": 208.9864,
         "statiqueVal": 10.08,
-        "statiquePct": 0.84
+        "statiquePct": 0.82
       },
       {
         "pair": "QAITUSDT",
@@ -2973,22 +2984,22 @@
         "entry": 0.10717,
         "qty": 46.654847,
         "stake": 10.0,
-        "mark": 0.12196,
+        "mark": 0.12213,
         "high": 0.13911,
         "regime": "IMPULSE_WAIT",
-        "uPnl": 0.69,
-        "uPnlApprox": 0.69,
-        "pnlPct": 13.801,
-        "bagValue": 11.0644,
-        "bagPct": 10.64,
+        "uPnl": 0.698,
+        "uPnlApprox": 0.698,
+        "pnlPct": 13.959,
+        "bagValue": 11.0724,
+        "bagPct": 10.72,
         "pairCash": 5.37,
         "move24": 36.9,
         "opened": "2026-08-21T09:25:28Z",
         "seed": true,
         "open": true,
         "seedQty": 93.3097,
-        "statiqueVal": 11.38,
-        "statiquePct": 13.8
+        "statiqueVal": 11.4,
+        "statiquePct": 13.96
       },
       {
         "pair": "RIZEUSDT",
@@ -3048,14 +3059,14 @@
         "entry": 0.001934,
         "qty": 5170.630817,
         "stake": 10.0,
-        "mark": 0.001879,
+        "mark": 0.00188,
         "high": 0.001955,
         "regime": "IMPULSE_WAIT",
-        "uPnl": -0.2844,
-        "uPnlApprox": -0.2844,
-        "pnlPct": -2.844,
-        "bagValue": 9.7156,
-        "bagPct": -2.84,
+        "uPnl": -0.2792,
+        "uPnlApprox": -0.2792,
+        "pnlPct": -2.792,
+        "bagValue": 9.7208,
+        "bagPct": -2.79,
         "pairCash": 0.0,
         "move24": 10.4,
         "opened": "2026-08-21T09:25:32Z",
@@ -3063,7 +3074,7 @@
         "open": true,
         "seedQty": 5170.6308,
         "statiqueVal": 9.72,
-        "statiquePct": -2.84
+        "statiquePct": -2.79
       },
       {
         "pair": "WUSDT",
@@ -3073,22 +3084,22 @@
         "entry": 0.009173,
         "qty": 1090.155892,
         "stake": 10.0,
-        "mark": 0.009595,
+        "mark": 0.009571,
         "high": 0.009618,
         "regime": "WATCH",
-        "uPnl": 0.46,
-        "uPnlApprox": 0.46,
-        "pnlPct": 4.6,
-        "bagValue": 10.46,
-        "bagPct": 4.6,
+        "uPnl": 0.4339,
+        "uPnlApprox": 0.4339,
+        "pnlPct": 4.339,
+        "bagValue": 10.4339,
+        "bagPct": 4.34,
         "pairCash": 0.0,
         "move24": 7.31,
         "opened": "2026-08-21T09:25:28Z",
         "seed": true,
         "open": true,
         "seedQty": 1090.1559,
-        "statiqueVal": 10.46,
-        "statiquePct": 4.6
+        "statiqueVal": 10.43,
+        "statiquePct": 4.34
       },
       {
         "pair": "XRPUSDT",
@@ -3098,22 +3109,22 @@
         "entry": 1.3699,
         "qty": 5.474852,
         "stake": 10.0,
-        "mark": 1.3901,
+        "mark": 1.3913,
         "high": 1.4282,
         "regime": "IMPULSE_WAIT",
-        "uPnl": 0.1106,
-        "uPnlApprox": 0.1106,
-        "pnlPct": 1.475,
-        "bagValue": 10.1666,
-        "bagPct": 1.67,
+        "uPnl": 0.1172,
+        "uPnlApprox": 0.1172,
+        "pnlPct": 1.562,
+        "bagValue": 10.1732,
+        "bagPct": 1.73,
         "pairCash": 2.56,
         "move24": 14.03,
         "opened": "2026-08-21T09:25:24Z",
         "seed": true,
         "open": true,
         "seedQty": 7.2998,
-        "statiqueVal": 10.15,
-        "statiquePct": 1.47
+        "statiqueVal": 10.16,
+        "statiquePct": 1.56
       },
       {
         "pair": "ZBCNUSDT",
@@ -3148,12 +3159,12 @@
     "walletOrigine": 30.0,
     "walletOrigineCrypto": 10.0,
     "walletOrigineCash": 20.0,
-    "walletReel": 152.39,
-    "walletReelPos": 139.25,
+    "walletReel": 152.33,
+    "walletReelPos": 139.19,
     "walletReelCash": 13.14,
-    "walletStatique": 172.54,
-    "walletStatiquePos": 152.54,
-    "walletEcart": -20.15,
+    "walletStatique": 172.5,
+    "walletStatiquePos": 152.5,
+    "walletEcart": -20.17,
     "conseils": {
       "cortana": {
         "accuracy": 0.44,
@@ -3178,11 +3189,11 @@
     }
   },
   "portfolio": {
-    "ace": -362.7149,
+    "ace": -357.5053,
     "aceArrow": "down",
     "hulk": 0.6443,
     "hulkArrow": "up",
-    "total": -362.0706
+    "total": -356.861
   },
   "thermo": {
     "climate": "warn",
@@ -3191,9 +3202,9 @@
     "whaleN": 0,
     "deltas": {
       "mark": {
-        "dir": "down",
-        "delta": -11.31,
-        "label": "↓"
+        "dir": "up",
+        "delta": 44.92,
+        "label": "↑"
       },
       "funding": {
         "dir": "flat",
@@ -3217,12 +3228,12 @@
       },
       "chg24": {
         "dir": "up",
-        "delta": 0.04,
+        "delta": 0.02,
         "label": "↑"
       },
       "oi": {
         "dir": "down",
-        "delta": -1.142,
+        "delta": -4.56,
         "label": "↓"
       },
       "score": {
@@ -3232,8 +3243,8 @@
       },
       "btcDominance": {
         "dir": "flat",
-        "delta": null,
-        "label": "—"
+        "delta": 0.0,
+        "label": "="
       },
       "panierDownPct": {
         "dir": "flat",
@@ -3267,13 +3278,13 @@
       },
       "marketCapUsd": {
         "dir": "flat",
-        "delta": null,
-        "label": "—"
-      },
-      "liq24Usd": {
-        "dir": "flat",
         "delta": 0.0,
         "label": "="
+      },
+      "liq24Usd": {
+        "dir": "up",
+        "delta": 68876.0,
+        "label": "↑"
       },
       "liqLongUsd": {
         "dir": "flat",
@@ -3286,14 +3297,14 @@
         "label": "—"
       },
       "etfBtcM": {
-        "dir": "down",
-        "delta": -0.15,
-        "label": "↓"
+        "dir": "up",
+        "delta": 0.58,
+        "label": "↑"
       },
       "altSeasonScore": {
         "dir": "flat",
-        "delta": null,
-        "label": "—"
+        "delta": 0.0,
+        "label": "="
       },
       "gexPutCall": {
         "dir": "flat",
@@ -3308,18 +3319,18 @@
     },
     "fearGreed": 72,
     "fearGreedLabel": "Greed",
-    "marketCapUsd": null,
-    "altSeason": null,
-    "altSeasonScore": null,
-    "liq24Usd": 39024324.0,
+    "marketCapUsd": 2631446639264.0,
+    "altSeason": "Bitcoin season",
+    "altSeasonScore": 42,
+    "liq24Usd": 39301929.0,
     "etf": {
-      "btc": 1000.49,
+      "btc": 1001.97,
       "eth": null,
       "xrp": null,
       "source": "bitbo-public (moy 7j)",
       "unit": "M$"
     },
-    "btcDominance": null,
+    "btcDominance": 59.18,
     "onchain": {
       "whaleBlocsN": 0,
       "whaleBlocsBtc": 0,
@@ -3340,23 +3351,23 @@
       "whaleAlerte": false,
       "whaleAlerteTexte": "Activité baleines nominale (aucun gros bloc ≥1000 BTC ni fragmentation ≥500 BTC).",
       "dernierEvtMin": -1,
-      "synthèse": "Direction onchain neutral | 0 gros bloc(s) 0 BTC sur le scan récent, cumul 24h 0 BTC, source inconnue. Activité baleines nominale (aucun gros bloc ≥1000 BTC ni fragmentation ≥500 BTC). | CPFP actif (conf 0/2) · poussière score 45.65/50 · blocs privatisés 28.2484% fantômes | indice onchain 50.0/100 (ÉLEVÉ — activité onchain anormale (OTC/CPFP possible))",
+      "synthèse": "Direction onchain neutral | 0 gros bloc(s) 0 BTC sur le scan récent, cumul 24h 0 BTC, source inconnue. Activité baleines nominale (aucun gros bloc ≥1000 BTC ni fragmentation ≥500 BTC). | CPFP actif (conf 0/2) · poussière score 46.0/50 · blocs privatisés 28.2484% fantômes | indice onchain 50.2/100 (ÉLEVÉ — activité onchain anormale (OTC/CPFP possible))",
       "cpfpSignal": null,
       "cpfpScore": 0.0,
       "cpfpMode": "actif",
       "cpfpConfirmation": 0,
       "cpfpGlobal": false,
       "cpfpZscore": 0.0,
-      "cpfpDustScore": 45.65,
-      "cpfpDustDetail": "poussière <7.5 sat/vB (normalisé minFee 5×1.5) : 7 vues ce run, 913 cumulées 48h (seuil 1000) — max 0.0014 BTC",
+      "cpfpDustScore": 46.0,
+      "cpfpDustDetail": "poussière <7.5 sat/vB (normalisé minFee 5×1.5) : 7 vues ce run, 920 cumulées 48h (seuil 1000) — max 0.0010 BTC",
       "blocPrivatiseMode": "actif",
       "blocPrivatiseTauxFantome": 28.2484,
       "blocPrivatiseNbCachees": 837,
-      "indiceOnchain": 50.0,
+      "indiceOnchain": 50.2,
       "indiceOnchainLabel": "ÉLEVÉ — activité onchain anormale (OTC/CPFP possible)",
       "indiceOnchainComposantes": {
         "blocsPrivatises": 45.2,
-        "poussiere": 91.3,
+        "poussiere": 92.0,
         "cpfpZscore": 0.0
       }
     },
@@ -3370,20 +3381,20 @@
         "wired": true
       },
       "D27": {
-        "value": null,
-        "level": "na",
+        "value": "2.63 T$",
+        "level": "ok",
         "label": "Market cap crypto",
         "unit": "",
         "note": "CoinGecko global",
-        "wired": false
+        "wired": true
       },
       "D28": {
-        "value": null,
-        "level": "ok",
+        "value": "Bitcoin season (~42)",
+        "level": "warn",
         "label": "Alt season (proxy BTC.D)",
         "unit": "",
         "note": "proxy dominance — pas index Blockchain Center exact",
-        "wired": false
+        "wired": true
       },
       "D29": {
         "value": "0.04 B$",
@@ -3394,7 +3405,7 @@
         "wired": true
       },
       "D30": {
-        "value": "BTC 1000.49 M$",
+        "value": "BTC 1001.97 M$",
         "level": "ok",
         "label": "ETF BTC net inflow",
         "unit": "",
@@ -3420,33 +3431,18 @@
     }
   },
   "intention": {
-    "ts": "2026-08-21T21:26:26.063297+00:00",
+    "ts": "2026-08-21T21:27:01.402153+00:00",
     "since": "2026-08-21T19:44:00Z",
     "bots": {
       "alpha": {
         "role": "sniper",
         "surnom": "Le Sniper",
-        "fills": 18,
+        "fills": 19,
         "skips": 380,
-        "pnl": 6.541829999999999,
-        "best": 3.567,
-        "conf_moy": 0.923,
+        "pnl": 11.751389999999999,
+        "best": 5.20956,
+        "conf_moy": 0.9268526315789473,
         "events": [
-          {
-            "ts": "2026-08-21T21:20:47Z",
-            "bot": "alpha",
-            "cycle": 118,
-            "action": "skip",
-            "intention": "skip — gap_guard_pause",
-            "direction": null,
-            "conf": null,
-            "exit": "gap_guard_pause",
-            "meta": {
-              "size_note": null,
-              "tension": null
-            },
-            "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv"
-          },
           {
             "ts": "2026-08-21T21:20:48Z",
             "bot": "alpha",
@@ -3731,17 +3727,32 @@
               "tension": null
             },
             "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv"
+          },
+          {
+            "ts": "2026-08-21T21:26:48Z",
+            "bot": "alpha",
+            "cycle": 124,
+            "action": "fire",
+            "intention": "a frappe en embuscade (13x)",
+            "direction": "short",
+            "conf": 0.9962,
+            "exit": "1.07787014",
+            "meta": {
+              "size_note": "strong_conf_full+entry_25_75_full",
+              "tension": 1.18947393
+            },
+            "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv"
           }
         ],
         "counts": {
           "wait": 38,
-          "fire": 18,
+          "fire": 19,
           "probe": 0,
           "skip": 380
         },
         "direction": {
           "long": 10,
-          "short": 8
+          "short": 9
         },
         "revenge": 2
       },
@@ -3749,26 +3760,11 @@
         "role": "eclaireur",
         "surnom": "L'Eclaireur",
         "fills": 26,
-        "skips": 458,
+        "skips": 459,
         "pnl": -7.182090000000001,
         "best": 1.51944,
         "conf_moy": 0.9479384615384616,
         "events": [
-          {
-            "ts": "2026-08-21T21:24:46Z",
-            "bot": "beta",
-            "cycle": 166,
-            "action": "skip",
-            "intention": "skip — gap_guard_pause",
-            "direction": null,
-            "conf": null,
-            "exit": "gap_guard_pause",
-            "meta": {
-              "size_note": null,
-              "tension": null
-            },
-            "file": "MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv"
-          },
           {
             "ts": "2026-08-21T21:24:48Z",
             "bot": "beta",
@@ -4053,13 +4049,28 @@
               "tension": 0.0
             },
             "file": "MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv"
+          },
+          {
+            "ts": "2026-08-21T21:26:53Z",
+            "bot": "beta",
+            "cycle": 181,
+            "action": "skip",
+            "intention": "skip — stase_ecoute",
+            "direction": null,
+            "conf": null,
+            "exit": "stase_ecoute",
+            "meta": {
+              "size_note": null,
+              "tension": null
+            },
+            "file": "MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv"
           }
         ],
         "counts": {
           "wait": 23,
           "fire": 0,
           "probe": 26,
-          "skip": 458
+          "skip": 459
         },
         "direction": {
           "long": 14,
@@ -4071,21 +4082,21 @@
     "story": [
       "BETA a sonde le marche (26 sondes, 14 long / 12 court, conf moyenne 0.95) — il renseigne Alpha.",
       "ALPHA attend son moment : 380 skips (discipline), le mur du carnet ne s'effondre pas.",
-      "ALPHA a frappe 18 fois en embuscade (13x) (dont 2 en mode revenge 1.5x) : +6.54 $, meilleur trade +3.57 $."
+      "ALPHA a frappe 19 fois en embuscade (13x) (dont 2 en mode revenge 1.5x) : +11.75 $, meilleur trade +5.21 $."
     ]
   },
   "saison": {
-    "ts": "2026-08-21T21:26:23.090003+00:00",
-    "saison": "CALME",
-    "emoji": "🧊",
-    "direction": "neutre",
-    "bascule": false,
-    "bascule_raison": "",
+    "ts": "2026-08-21T21:27:24.344259+00:00",
+    "saison": "CHAUFFE",
+    "emoji": "🌡️",
+    "direction": "long",
+    "bascule": true,
+    "bascule_raison": "CALME → CHAUFFE",
     "alignement": {
-      "nb_long": 1,
-      "nb_short": 1,
-      "score": 0.0,
-      "direction": "neutre"
+      "nb_long": 2,
+      "nb_short": 0,
+      "score": 1.0,
+      "direction": "long"
     },
     "indices": {
       "temperature": {
@@ -4099,14 +4110,14 @@
         "brut": 0.0001
       },
       "bassin": {
-        "direction": "short",
+        "direction": "long",
         "force": 1,
-        "brut": "down"
+        "brut": "up"
       },
       "vortex": {
         "direction": "long",
         "force": 2,
-        "brut": 7.23
+        "brut": 7.27
       },
       "essaim": {
         "direction": "neutre",
@@ -4120,9 +4131,10 @@
       }
     },
     "story": [
-      "SAISON : CALME 🧊 — hiver, ADA dort.",
-      "Alignement : 1 haussiers / 1 baissiers.",
-      "Le vortex tourne fort (+7.23 % sur 24h) — le mouvement est là."
+      "SAISON : CHAUFFE 🌡️ — température warn, bassin long.",
+      "Alignement : 2 haussiers / 0 baissiers.",
+      "Le vortex tourne fort (+7.27 % sur 24h) — le mouvement est là.",
+      "⚡ BASCULE : CALME → CHAUFFE — le ciel change, prépare-toi."
     ],
     "sources": [
       "live.json"
@@ -4130,47 +4142,48 @@
     "degraded": false
   },
   "gardienne": {
-    "ts": "2026-08-21T21:26:23Z",
-    "voilure_pct": 91,
+    "ts": "2026-08-21T21:27:24Z",
+    "voilure_pct": 72,
     "zone": "VERT",
     "zone_emoji": "🟢",
     "pressions": {
-      "bleed": 0.0,
-      "storm": 0.46,
+      "bleed": 0.155,
+      "storm": 0.7,
       "reversal": 0.0
     },
     "sirene": true,
     "declencheurs": [
+      "bascule de saison",
       "le vortex tourne fort"
     ],
-    "seuil_x": 5.23,
+    "seuil_x": 9.4,
     "ancres": {
       "perte_moy": 0.52,
-      "gains_peak": 6.54,
-      "seuil_x": 5.23
+      "gains_peak": 11.75,
+      "seuil_x": 9.4
     },
     "alerte": true,
-    "raison": "le vortex tourne fort ; zone VERT",
-    "pnl_alpha": 6.54,
+    "raison": "bascule de saison; le vortex tourne fort ; zone VERT",
+    "pnl_alpha": 11.75,
     "sources": [
       "live.json"
     ],
     "story": [
-      "🚨 FEUX DE L'ORAGE : le vortex tourne fort — ADA hurle maintenant, pas après.",
-      "La voilure tient à 91 % — le bassin est calme, ACE garde sa toile déployée.",
+      "🚨 FEUX DE L'ORAGE : bascule de saison, le vortex tourne fort — ADA hurle maintenant, pas après.",
+      "La voilure tient à 72 % — le bassin est calme, ACE garde sa toile déployée.",
       "Rien ne presse : le Sniper reste en embuscade, l'Éclaireur sonde."
     ]
   },
   "coup_doeil": {
-    "ts": "2026-08-21T21:26:23Z",
-    "saison": "CALME",
-    "saison_emoji": "🌿",
-    "voilure": "91 %",
+    "ts": "2026-08-21T21:27:24Z",
+    "saison": "CHAUFFE",
+    "saison_emoji": "🌡️",
+    "voilure": "72 %",
     "zone": "VERT",
     "zone_emoji": "🟢",
     "verdict_famille": "• GEMINI (analyste) : Aucune action corrective n'est requise : la discipline d'Alpha (0 tir malgré le volume x3) valide la synchronisation m",
-    "intention": "Alpha : 18 tirs (2 revenge), pnl +6.54 $ · Beta : 26 sondes · Hulk : pnl +0.64 $ (15 positions)",
-    "ligne": "CALME 🌿 · voilure 91 % · VERT 🟢 — 🚨 FEUX DE L'ORAGE : le vortex tourne fort — ADA hurle maintenant, pas après."
+    "intention": "Alpha : 19 tirs (2 revenge), pnl +11.75 $ · Beta : 26 sondes · Hulk : pnl +0.64 $ (15 positions)",
+    "ligne": "CHAUFFE 🌡️ · voilure 72 % · VERT 🟢 — 🚨 FEUX DE L'ORAGE : bascule de saison, le vortex tourne fort — ADA hurle maintenant, pas après."
   },
   "disjoncteur": {
     "declenche": false,
