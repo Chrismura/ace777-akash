@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-21T22:15:42.536186+00:00",
+  "generated_at": "2026-08-21T22:16:13.861879+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -26,7 +26,7 @@
       "model": "qwen-3.8-max-free",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 488
+      "calls_24h": 491
     },
     {
       "id": "groq",
@@ -229,10 +229,34 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 922,
+    "consumed": 925,
     "remaining": 0
   },
   "queue": [
+    {
+      "ts": "2026-08-21T22:16:09.184128+00:00",
+      "task": "supervise.decision",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 10.9
+    },
+    {
+      "ts": "2026-08-21T22:16:04.962438+00:00",
+      "task": "supervise.decision",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 6.99
+    },
+    {
+      "ts": "2026-08-21T22:15:47.559258+00:00",
+      "task": "supervise.decision",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 61.28
+    },
     {
       "ts": "2026-08-21T22:14:46.202390+00:00",
       "task": "analyse.profonde",
@@ -328,91 +352,67 @@
       "model": "qwen-3.8-max-free",
       "kind": "cloud",
       "duration_s": 35.57
-    },
-    {
-      "ts": "2026-08-21T22:10:17.792760+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 255.74
-    },
-    {
-      "ts": "2026-08-21T22:10:15.076009+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 7.48
-    },
-    {
-      "ts": "2026-08-21T22:09:33.797001+00:00",
-      "task": "analyse.profonde",
-      "provider": "nvidia",
-      "model": "deepseek-ai/deepseek-v4-flash-0731",
-      "kind": "cloud",
-      "duration_s": 113.18
     }
   ],
   "events": [
     {
-      "ts": "2026-08-21T22:15:41.049174+00:00",
+      "ts": "2026-08-21T22:16:12.021263+00:00",
       "kind": "http",
       "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
       "detail": ""
     },
     {
-      "ts": "2026-08-21T22:15:39.417046+00:00",
+      "ts": "2026-08-21T22:16:11.422967+00:00",
       "kind": "http",
       "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
       "detail": ""
     },
     {
-      "ts": "2026-08-21T22:15:30.283805+00:00",
+      "ts": "2026-08-21T22:16:09.183573+00:00",
+      "kind": "message",
+      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
+      "detail": "bascule"
+    },
+    {
+      "ts": "2026-08-21T22:16:04.962064+00:00",
+      "kind": "message",
+      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
+      "detail": "bascule"
+    },
+    {
+      "ts": "2026-08-21T22:16:02.397583+00:00",
       "kind": "http",
       "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
       "detail": ""
     },
     {
-      "ts": "2026-08-21T22:15:28.611143+00:00",
+      "ts": "2026-08-21T22:16:00.807979+00:00",
       "kind": "http",
       "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
       "detail": ""
     },
     {
-      "ts": "2026-08-21T22:15:27.983614+00:00",
-      "kind": "http",
-      "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
-      "detail": ""
-    },
-    {
-      "ts": "2026-08-21T22:15:27.983412+00:00",
-      "kind": "error",
-      "title": "Toutes les IA ont echoue",
-      "detail": "NVIDIA build.nvidia.com (100+ modeles): HTTP Error 504: Gateway Timeout | budget: Budget temps requete depasse"
-    },
-    {
-      "ts": "2026-08-21T22:15:27.982946+00:00",
-      "kind": "error",
-      "title": "Budget temps requete depasse",
-      "detail": ""
-    },
-    {
-      "ts": "2026-08-21T22:15:27.979500+00:00",
+      "ts": "2026-08-21T22:15:58.285702+00:00",
       "kind": "failover",
-      "title": "Bascule depuis NVIDIA build.nvidia.com (100+ modeles)",
-      "detail": "HTTP Error 504: Gateway Timeout"
+      "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
+      "detail": "0 attente"
     },
     {
-      "ts": "2026-08-21T22:15:19.470067+00:00",
-      "kind": "http",
-      "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
-      "detail": ""
+      "ts": "2026-08-21T22:15:58.285053+00:00",
+      "kind": "reserve-storm",
+      "title": "Tempête active + budget calme atteint -> réserve storm pour supervise.decision",
+      "detail": "supervise.decision"
     },
     {
-      "ts": "2026-08-21T22:15:17.863525+00:00",
-      "kind": "http",
-      "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
+      "ts": "2026-08-21T22:15:57.971904+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis Groq (LLM ultra-rapide, gratuit)",
+      "detail": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "ts": "2026-08-21T22:15:57.971558+00:00",
+      "kind": "ratelimit",
+      "title": "429 Groq (LLM ultra-rapide, gratuit) -> pause 60s + bascule",
       "detail": ""
     }
   ],
