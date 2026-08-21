@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-21T22:55:51.867428+00:00",
+  "generated_at": "2026-08-21T22:56:48.770747+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -356,6 +356,42 @@
   ],
   "events": [
     {
+      "ts": "2026-08-21T22:56:16.487698+00:00",
+      "kind": "failover",
+      "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
+      "detail": "0 attente"
+    },
+    {
+      "ts": "2026-08-21T22:56:16.486915+00:00",
+      "kind": "reserve-storm",
+      "title": "Tempête active + budget calme atteint -> réserve storm pour supervise.decision",
+      "detail": "supervise.decision"
+    },
+    {
+      "ts": "2026-08-21T22:55:53.854462+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis Groq (LLM ultra-rapide, gratuit)",
+      "detail": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "ts": "2026-08-21T22:55:53.854138+00:00",
+      "kind": "ratelimit",
+      "title": "429 Groq (LLM ultra-rapide, gratuit) -> pause 60s + bascule",
+      "detail": ""
+    },
+    {
+      "ts": "2026-08-21T22:55:53.621741+00:00",
+      "kind": "blacklist",
+      "title": "Fin de pause Groq (LLM ultra-rapide, gratuit)",
+      "detail": "re-essai automatique"
+    },
+    {
+      "ts": "2026-08-21T22:55:53.621027+00:00",
+      "kind": "reserve-storm",
+      "title": "Tempête active + budget calme atteint -> réserve storm pour supervise.decision",
+      "detail": "supervise.decision"
+    },
+    {
       "ts": "2026-08-21T22:55:49.166570+00:00",
       "kind": "message",
       "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
@@ -378,42 +414,6 @@
       "kind": "failover",
       "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
       "detail": "0 attente"
-    },
-    {
-      "ts": "2026-08-21T22:55:05.426131+00:00",
-      "kind": "reserve-storm",
-      "title": "Tempête active + budget calme atteint -> réserve storm pour supervise.decision",
-      "detail": "supervise.decision"
-    },
-    {
-      "ts": "2026-08-21T22:55:00.422078+00:00",
-      "kind": "message",
-      "title": "« NVIDIA build.nvidia.com (100+ modeles) » a repondu",
-      "detail": ""
-    },
-    {
-      "ts": "2026-08-21T22:54:58.224677+00:00",
-      "kind": "http",
-      "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
-      "detail": ""
-    },
-    {
-      "ts": "2026-08-21T22:54:58.223881+00:00",
-      "kind": "message",
-      "title": "« NVIDIA build.nvidia.com (100+ modeles) » a repondu",
-      "detail": ""
-    },
-    {
-      "ts": "2026-08-21T22:54:54.983362+00:00",
-      "kind": "message",
-      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
-      "detail": "bascule"
-    },
-    {
-      "ts": "2026-08-21T22:54:41.132124+00:00",
-      "kind": "quota",
-      "title": "Budget calme atteint -> bascule famille (gratuits)",
-      "detail": "analyse.profonde"
     }
   ],
   "tasks_quotas": {
