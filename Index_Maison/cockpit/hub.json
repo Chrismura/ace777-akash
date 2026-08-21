@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-21T21:15:41.872444+00:00",
+  "generated_at": "2026-08-21T21:16:00.971208+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -26,7 +26,7 @@
       "model": "qwen-3.8-max-free",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 384
+      "calls_24h": 385
     },
     {
       "id": "groq",
@@ -229,10 +229,18 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 780,
+    "consumed": 781,
     "remaining": 0
   },
   "queue": [
+    {
+      "ts": "2026-08-21T21:15:49.168696+00:00",
+      "task": "supervise.decision",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 23.38
+    },
     {
       "ts": "2026-08-21T21:15:20.270677+00:00",
       "task": "analyse.profonde",
@@ -344,17 +352,27 @@
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
       "duration_s": 3.33
-    },
-    {
-      "ts": "2026-08-21T21:10:40.559147+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 16.1
     }
   ],
   "events": [
+    {
+      "ts": "2026-08-21T21:16:00.154116+00:00",
+      "kind": "failover",
+      "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
+      "detail": "0 attente"
+    },
+    {
+      "ts": "2026-08-21T21:16:00.153350+00:00",
+      "kind": "reserve-storm",
+      "title": "Tempête active + budget calme atteint -> réserve storm pour supervise.decision",
+      "detail": "supervise.decision"
+    },
+    {
+      "ts": "2026-08-21T21:15:49.168258+00:00",
+      "kind": "message",
+      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
+      "detail": "bascule"
+    },
     {
       "ts": "2026-08-21T21:15:25.782962+00:00",
       "kind": "failover",
@@ -396,24 +414,6 @@
       "kind": "quota",
       "title": "Budget calme atteint -> bascule famille (gratuits)",
       "detail": "analyse.profonde"
-    },
-    {
-      "ts": "2026-08-21T21:15:15.230245+00:00",
-      "kind": "message",
-      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
-      "detail": "bascule"
-    },
-    {
-      "ts": "2026-08-21T21:14:56.517910+00:00",
-      "kind": "timeout",
-      "title": "Patience NVIDIA build.nvidia.com (100+ modeles) (lenteur)",
-      "detail": "The read operation timed out"
-    },
-    {
-      "ts": "2026-08-21T21:14:48.302567+00:00",
-      "kind": "failover",
-      "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
-      "detail": "0 attente"
     }
   ],
   "tasks_quotas": {
