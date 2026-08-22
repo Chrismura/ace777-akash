@@ -1,27 +1,64 @@
 {
-  "ts": "2026-08-22T09:57Z",
+  "ts": "2026-08-22T09:58Z",
   "alert": "red",
   "run": "MASTER_VORTEX_V2_COLLAB_4H",
   "sessionSince": "2026-08-22T07:34Z",
-  "comboPnl": -2.0063,
-  "comboFeesToday": -101.4034,
+  "comboPnl": -2.8957,
+  "comboFeesToday": -101.7268,
   "comboFees24h": -355.7827,
-  "comboPnlNet": -103.4097,
+  "comboPnlNet": -104.6225,
   "comboArrow": "down",
-  "swarmCycle": 290,
+  "swarmCycle": 293,
   "thrust": {
     "alpha": 8,
-    "beta": 70.482,
+    "beta": 61.588,
     "hulk": 47.3526
   },
   "alpha": {
     "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv",
     "pnl": -4.2545,
     "fills": 8,
-    "skips": 278,
+    "skips": 281,
     "pnlLifetime": 283.4918,
     "fillsLifetime": 2057,
     "last": [
+      {
+        "ts": "2026-08-22T09:58:15Z",
+        "side": "SKIP",
+        "status": "SKIPPED",
+        "pnl": 0.0,
+        "qty": null,
+        "entry": null,
+        "exit": null,
+        "bps": null,
+        "reason": "regime_gate",
+        "cycle": "293",
+        "tension": 0.0
+      },
+      {
+        "ts": "2026-08-22T09:57:50Z",
+        "side": "SKIP",
+        "status": "SKIPPED",
+        "pnl": 0.0,
+        "qty": null,
+        "entry": null,
+        "exit": null,
+        "bps": null,
+        "reason": "gap_guard_pause",
+        "cycle": "292"
+      },
+      {
+        "ts": "2026-08-22T09:57:42Z",
+        "side": "SKIP",
+        "status": "SKIPPED",
+        "pnl": 0.0,
+        "qty": null,
+        "entry": null,
+        "exit": null,
+        "bps": null,
+        "reason": "gap_guard_pause",
+        "cycle": "291"
+      },
       {
         "ts": "2026-08-22T09:57:36Z",
         "side": "SKIP",
@@ -598,45 +635,6 @@
         "reason": "regime_gate",
         "cycle": "244",
         "tension": 0.000121
-      },
-      {
-        "ts": "2026-08-22T09:37:54Z",
-        "side": "SKIP",
-        "status": "SKIPPED",
-        "pnl": 0.0,
-        "qty": null,
-        "entry": null,
-        "exit": null,
-        "bps": null,
-        "reason": "regime_gate",
-        "cycle": "243",
-        "tension": 1.1e-05
-      },
-      {
-        "ts": "2026-08-22T09:37:35Z",
-        "side": "SKIP",
-        "status": "SKIPPED",
-        "pnl": 0.0,
-        "qty": null,
-        "entry": null,
-        "exit": null,
-        "bps": null,
-        "reason": "regime_gate",
-        "cycle": "242",
-        "tension": 1.1e-05
-      },
-      {
-        "ts": "2026-08-22T09:37:10Z",
-        "side": "SKIP",
-        "status": "SKIPPED",
-        "pnl": 0.0,
-        "qty": null,
-        "entry": null,
-        "exit": null,
-        "bps": null,
-        "reason": "regime_gate",
-        "cycle": "241",
-        "tension": 0.002009
       }
     ],
     "fills_only": [
@@ -747,7 +745,7 @@
       1.69764,
       -0.25578
     ],
-    "cycle": "290",
+    "cycle": "293",
     "lastFill": {
       "ts": "2026-08-22T09:44:37Z",
       "side": "BUY",
@@ -761,16 +759,28 @@
       "cycle": "245"
     },
     "sessionSince": "2026-08-22T07:34Z",
-    "mtime": "2026-08-22T09:57Z"
+    "mtime": "2026-08-22T09:58Z"
   },
   "beta": {
     "file": "MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv",
-    "pnl": 2.2482,
-    "fills": 13,
+    "pnl": 1.3588,
+    "fills": 14,
     "skips": 274,
-    "pnlLifetime": 29.7333,
-    "fillsLifetime": 6056,
+    "pnlLifetime": 28.844,
+    "fillsLifetime": 6057,
     "last": [
+      {
+        "ts": "2026-08-22T09:58:14Z",
+        "side": "SELL",
+        "status": "FILLED",
+        "pnl": -0.88935,
+        "qty": 0.0105,
+        "entry": 76985.8,
+        "exit": 77070.5,
+        "bps": -11.002,
+        "reason": "0.64668072",
+        "cycle": "290"
+      },
       {
         "ts": "2026-08-22T09:53:50Z",
         "side": "SKIP",
@@ -1385,22 +1395,21 @@
         "reason": "regime_gate",
         "cycle": "241",
         "tension": 0.000978
-      },
-      {
-        "ts": "2026-08-22T09:29:26Z",
-        "side": "SKIP",
-        "status": "SKIPPED",
-        "pnl": 0.0,
-        "qty": null,
-        "entry": null,
-        "exit": null,
-        "bps": null,
-        "reason": "regime_gate",
-        "cycle": "240",
-        "tension": 0.016362
       }
     ],
     "fills_only": [
+      {
+        "ts": "2026-08-22T09:58:14Z",
+        "side": "SELL",
+        "status": "FILLED",
+        "pnl": -0.88935,
+        "qty": 0.0105,
+        "entry": 76985.8,
+        "exit": 77070.5,
+        "bps": -11.002,
+        "reason": "0.64668072",
+        "cycle": "290"
+      },
       {
         "ts": "2026-08-22T09:51:47Z",
         "side": "SELL",
@@ -1571,23 +1580,24 @@
       -1.352,
       0.48704,
       0.16224,
-      0.57024
+      0.57024,
+      -0.88935
     ],
-    "cycle": "289",
+    "cycle": "290",
     "lastFill": {
-      "ts": "2026-08-22T09:51:47Z",
+      "ts": "2026-08-22T09:58:14Z",
       "side": "SELL",
       "status": "FILLED",
-      "pnl": 0.57024,
-      "qty": 0.0064,
-      "entry": 77165.3,
-      "exit": 77076.2,
-      "bps": 11.5466,
-      "reason": "0.39508634",
-      "cycle": "271"
+      "pnl": -0.88935,
+      "qty": 0.0105,
+      "entry": 76985.8,
+      "exit": 77070.5,
+      "bps": -11.002,
+      "reason": "0.64668072",
+      "cycle": "290"
     },
     "sessionSince": "2026-08-22T07:34Z",
-    "mtime": "2026-08-22T09:53Z"
+    "mtime": "2026-08-22T09:58Z"
   },
   "hulk": {
     "file": "PAPER_V1_20260821_092452.csv",
@@ -3197,11 +3207,11 @@
     }
   },
   "portfolio": {
-    "ace": -103.4097,
+    "ace": -104.6225,
     "aceArrow": "down",
     "hulk": -0.1079,
     "hulkArrow": "down",
-    "total": -103.5176
+    "total": -104.7304
   },
   "thermo": {
     "climate": "ok",
@@ -3211,7 +3221,7 @@
     "deltas": {
       "mark": {
         "dir": "up",
-        "delta": 24.96,
+        "delta": 12.06,
         "label": "↑"
       },
       "funding": {
@@ -3236,13 +3246,13 @@
       },
       "chg24": {
         "dir": "up",
-        "delta": 0.01,
+        "delta": 0.03,
         "label": "↑"
       },
       "oi": {
-        "dir": "flat",
-        "delta": 0.0,
-        "label": "="
+        "dir": "up",
+        "delta": 1.278,
+        "label": "↑"
       },
       "score": {
         "dir": "flat",
@@ -3306,7 +3316,7 @@
       },
       "etfBtcM": {
         "dir": "up",
-        "delta": 0.07,
+        "delta": 0.04,
         "label": "↑"
       },
       "altSeasonScore": {
@@ -3327,18 +3337,18 @@
     },
     "fearGreed": 71,
     "fearGreedLabel": "Greed",
-    "marketCapUsd": null,
-    "altSeason": null,
-    "altSeasonScore": null,
-    "liq24Usd": 51992277.0,
+    "marketCapUsd": 2623214633171.0,
+    "altSeason": "Bitcoin season",
+    "altSeasonScore": 43,
+    "liq24Usd": 51937625.0,
     "etf": {
-      "btc": 226.0,
+      "btc": 226.11,
       "eth": null,
       "xrp": null,
       "source": "bitbo-public (moy 7j)",
       "unit": "M$"
     },
-    "btcDominance": null,
+    "btcDominance": 58.75,
     "onchain": {
       "whaleBlocsN": 0,
       "whaleBlocsBtc": 0,
@@ -3367,7 +3377,7 @@
       "cpfpGlobal": false,
       "cpfpZscore": 0.0,
       "cpfpDustScore": 100.0,
-      "cpfpDustDetail": "poussière <4.5 sat/vB (normalisé minFee 3×1.5) : 8 vues ce run, 17199 cumulées 48h (seuil 1000) — max 0.0004 BTC",
+      "cpfpDustDetail": "poussière <4.5 sat/vB (normalisé minFee 3×1.5) : 2 vues ce run, 17216 cumulées 48h (seuil 1000) — max 0.0115 BTC",
       "blocPrivatiseMode": "actif",
       "blocPrivatiseTauxFantome": 1.6078,
       "blocPrivatiseNbCachees": 76,
@@ -3389,20 +3399,20 @@
         "wired": true
       },
       "D27": {
-        "value": null,
-        "level": "na",
+        "value": "2.62 T$",
+        "level": "ok",
         "label": "Market cap crypto",
         "unit": "",
         "note": "CoinGecko global",
-        "wired": false
+        "wired": true
       },
       "D28": {
-        "value": null,
-        "level": "ok",
+        "value": "Bitcoin season (~43)",
+        "level": "warn",
         "label": "Alt season (proxy BTC.D)",
         "unit": "",
         "note": "proxy dominance — pas index Blockchain Center exact",
-        "wired": false
+        "wired": true
       },
       "D29": {
         "value": "0.05 B$",
@@ -3413,7 +3423,7 @@
         "wired": true
       },
       "D30": {
-        "value": "BTC 226.0 M$",
+        "value": "BTC 226.11 M$",
         "level": "ok",
         "label": "ETF BTC net inflow",
         "unit": "",
@@ -3439,63 +3449,18 @@
     }
   },
   "intention": {
-    "ts": "2026-08-22T09:57:28.548840+00:00",
+    "ts": "2026-08-22T09:57:48.924496+00:00",
     "since": "2026-08-22T07:34:00Z",
     "bots": {
       "alpha": {
         "role": "sniper",
         "surnom": "Le Sniper",
         "fills": 8,
-        "skips": 253,
+        "skips": 256,
         "pnl": -4.2545399999999995,
         "best": 1.69764,
         "conf_moy": 0.8679625000000001,
         "events": [
-          {
-            "ts": "2026-08-22T09:51:32Z",
-            "bot": "alpha",
-            "cycle": 269,
-            "action": "skip",
-            "intention": "skip — stase_ecoute",
-            "direction": null,
-            "conf": null,
-            "exit": "stase_ecoute",
-            "meta": {
-              "size_note": null,
-              "tension": null
-            },
-            "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv"
-          },
-          {
-            "ts": "2026-08-22T09:52:02Z",
-            "bot": "alpha",
-            "cycle": 270,
-            "action": "skip",
-            "intention": "skip — regime_gate",
-            "direction": null,
-            "conf": null,
-            "exit": "regime_gate",
-            "meta": {
-              "size_note": null,
-              "tension": 0.00129928
-            },
-            "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv"
-          },
-          {
-            "ts": "2026-08-22T09:52:44Z",
-            "bot": "alpha",
-            "cycle": 271,
-            "action": "skip",
-            "intention": "pas d'opportunite — discipline (radar bloque)",
-            "direction": null,
-            "conf": 0.5,
-            "exit": "radar_block",
-            "meta": {
-              "size_note": null,
-              "tension": 7.28497364
-            },
-            "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv"
-          },
           {
             "ts": "2026-08-22T09:53:27Z",
             "bot": "alpha",
@@ -3750,13 +3715,58 @@
               "tension": null
             },
             "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv"
+          },
+          {
+            "ts": "2026-08-22T09:57:31Z",
+            "bot": "alpha",
+            "cycle": 289,
+            "action": "skip",
+            "intention": "skip — gap_guard_pause",
+            "direction": null,
+            "conf": null,
+            "exit": "gap_guard_pause",
+            "meta": {
+              "size_note": null,
+              "tension": null
+            },
+            "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv"
+          },
+          {
+            "ts": "2026-08-22T09:57:36Z",
+            "bot": "alpha",
+            "cycle": 290,
+            "action": "skip",
+            "intention": "skip — gap_guard_pause",
+            "direction": null,
+            "conf": null,
+            "exit": "gap_guard_pause",
+            "meta": {
+              "size_note": null,
+              "tension": null
+            },
+            "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv"
+          },
+          {
+            "ts": "2026-08-22T09:57:42Z",
+            "bot": "alpha",
+            "cycle": 291,
+            "action": "skip",
+            "intention": "skip — gap_guard_pause",
+            "direction": null,
+            "conf": null,
+            "exit": "gap_guard_pause",
+            "meta": {
+              "size_note": null,
+              "tension": null
+            },
+            "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv"
           }
         ],
         "counts": {
           "wait": 23,
           "fire": 8,
           "probe": 0,
-          "skip": 253
+          "skip": 256
         },
         "direction": {
           "long": 4,
@@ -4089,22 +4099,22 @@
     },
     "story": [
       "BETA a sonde le marche (13 sondes, 7 long / 6 court, conf moyenne 0.92) — il renseigne Alpha.",
-      "ALPHA attend son moment : 253 skips (discipline), le mur du carnet ne s'effondre pas.",
+      "ALPHA attend son moment : 256 skips (discipline), le mur du carnet ne s'effondre pas.",
       "ALPHA a frappe 8 fois en embuscade (13x) (dont 2 en mode revenge 1.5x) : -4.25 $, meilleur trade +1.70 $."
     ]
   },
   "saison": {
-    "ts": "2026-08-22T09:57:37.718048+00:00",
+    "ts": "2026-08-22T09:58:15.658284+00:00",
     "saison": "CHAOS",
     "emoji": "⛈️",
-    "direction": "short",
+    "direction": "neutre",
     "bascule": false,
     "bascule_raison": "",
     "alignement": {
-      "nb_long": 0,
+      "nb_long": 1,
       "nb_short": 1,
-      "score": 1.0,
-      "direction": "short"
+      "score": 0.0,
+      "direction": "neutre"
     },
     "indices": {
       "temperature": {
@@ -4118,14 +4128,14 @@
         "brut": 0.0001
       },
       "bassin": {
-        "direction": "neutre",
-        "force": 0,
-        "brut": "flat"
+        "direction": "long",
+        "force": 1,
+        "brut": "up"
       },
       "vortex": {
         "direction": "short",
         "force": 2,
-        "brut": -1.35
+        "brut": -1.34
       },
       "essaim": {
         "direction": "neutre",
@@ -4140,8 +4150,8 @@
     },
     "story": [
       "SAISON : CHAOS ⛈️ — liquidations massives détectées, le marché tremble.",
-      "Alignement : 0 haussiers / 1 baissiers.",
-      "Le vortex tourne fort (-1.35 % sur 24h) — le mouvement est là."
+      "Alignement : 1 haussiers / 1 baissiers.",
+      "Le vortex tourne fort (-1.34 % sur 24h) — le mouvement est là."
     ],
     "sources": [
       "live.json"
@@ -4149,7 +4159,7 @@
     "degraded": false
   },
   "gardienne": {
-    "ts": "2026-08-22T09:57:37Z",
+    "ts": "2026-08-22T09:58:15Z",
     "voilure_pct": 65,
     "zone": "JAUNE",
     "zone_emoji": "🟡",
@@ -4184,7 +4194,7 @@
     ]
   },
   "coup_doeil": {
-    "ts": "2026-08-22T09:57:37Z",
+    "ts": "2026-08-22T09:58:15Z",
     "saison": "CHAOS",
     "saison_emoji": "⛈️",
     "voilure": "65 %",
