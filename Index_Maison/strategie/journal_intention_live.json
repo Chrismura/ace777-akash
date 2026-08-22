@@ -1,31 +1,16 @@
 {
-  "ts": "2026-08-22T05:54:37.105016+00:00",
+  "ts": "2026-08-22T05:55:22.401338+00:00",
   "since": "2026-08-22T03:31:00Z",
   "bots": {
     "alpha": {
       "role": "sniper",
       "surnom": "Le Sniper",
       "fills": 10,
-      "skips": 287,
+      "skips": 288,
       "pnl": -4.84331,
       "best": 2.11456,
       "conf_moy": 0.86679,
       "events": [
-        {
-          "ts": "2026-08-22T05:50:31Z",
-          "bot": "alpha",
-          "cycle": 317,
-          "action": "skip",
-          "intention": "skip — gap_guard_pause",
-          "direction": null,
-          "conf": null,
-          "exit": "gap_guard_pause",
-          "meta": {
-            "size_note": null,
-            "tension": null
-          },
-          "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv"
-        },
         {
           "ts": "2026-08-22T05:50:41Z",
           "bot": "alpha",
@@ -310,13 +295,28 @@
             "tension": 0.0
           },
           "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv"
+        },
+        {
+          "ts": "2026-08-22T05:54:55Z",
+          "bot": "alpha",
+          "cycle": 337,
+          "action": "skip",
+          "intention": "skip — tactic_mismatch",
+          "direction": null,
+          "conf": null,
+          "exit": "tactic_mismatch",
+          "meta": {
+            "size_note": null,
+            "tension": null
+          },
+          "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv"
         }
       ],
       "counts": {
         "wait": 41,
         "fire": 10,
         "probe": 0,
-        "skip": 287
+        "skip": 288
       },
       "direction": {
         "long": 8,
@@ -333,21 +333,6 @@
       "best": 1.61262,
       "conf_moy": 0.8676333333333335,
       "events": [
-        {
-          "ts": "2026-08-22T05:49:39Z",
-          "bot": "beta",
-          "cycle": 372,
-          "action": "skip",
-          "intention": "skip — regime_gate",
-          "direction": null,
-          "conf": null,
-          "exit": "regime_gate",
-          "meta": {
-            "size_note": null,
-            "tension": 0.00907563
-          },
-          "file": "MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv"
-        },
         {
           "ts": "2026-08-22T05:50:17Z",
           "bot": "beta",
@@ -632,10 +617,25 @@
             "tension": 0.00105968
           },
           "file": "MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv"
+        },
+        {
+          "ts": "2026-08-22T05:55:01Z",
+          "bot": "beta",
+          "cycle": 392,
+          "action": "wait",
+          "intention": "attente — mur du carnet intact",
+          "direction": null,
+          "conf": null,
+          "exit": "impulse_resonance_wait",
+          "meta": {
+            "size_note": null,
+            "tension": 0.80319706
+          },
+          "file": "MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv"
         }
       ],
       "counts": {
-        "wait": 11,
+        "wait": 12,
         "fire": 0,
         "probe": 15,
         "skip": 365
@@ -649,7 +649,7 @@
   },
   "story": [
     "BETA a sonde le marche (15 sondes, 10 long / 5 court, conf moyenne 0.87) — il renseigne Alpha.",
-    "ALPHA attend son moment : 287 skips (discipline), le mur du carnet ne s'effondre pas.",
+    "ALPHA attend son moment : 288 skips (discipline), le mur du carnet ne s'effondre pas.",
     "ALPHA a frappe 10 fois en embuscade (13x) (dont 7 en mode revenge 1.5x) : -4.84 $, meilleur trade +2.11 $."
   ]
 }
