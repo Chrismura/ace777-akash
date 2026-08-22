@@ -8,7 +8,7 @@ Auto-refresh : 2026-08-22 00:34 UTC · jour local **2026-08-22**
 |-------|------|--------|
 | **ACE** | 🟢 RUN | Dernier tag `MASTER_VORTEX_V2_COLLAB_4H` · combo ≈ **+302.15 $** |
 | **Hulk paper** | 🟢 RUN | pnl_total ≈ **1.0952** · pos **15** |
-| **Hulk digest** | 🟢 RUN | mtime 2026-08-22T00:33Z |
+| **Hulk digest** | 🟢 RUN | mtime 2026-08-22T00:34Z |
 | **Punk** | 🔴 STOP | — · idle |
 | **Ollama** | 🟢 RUN | |
 | **Obsidian** | 🟢 | vault `Obsidian_ACE777` |
