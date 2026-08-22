@@ -1,13 +1,13 @@
-# STRATEGIE — 2026-08-22T07:09:45.830117Z
+# STRATEGIE — 2026-08-22T07:32:06.934399Z
 
-## COURT TERME — 2026-08-22T07:09:45.830117Z
+## COURT TERME — 2026-08-22T07:32:06.934399Z
 
-[UNDERSTAND] La maison ACE777 maintient son alerte rouge face à un PnL combiné sous pression (-6,22 $), tandis que Beta éclaire activement le marché et qu'Alpha patiente avec discipline en embuscade.
+[UNDERSTAND] La maison ACE777 maintient son alerte rouge face à un PnL combiné sous pression (-4,27 $), tandis que Beta éclaire activement le marché et qu'Alpha patiente avec discipline en embuscade.
 [ANALYZE]
-- Tendance : Marché orienté en phase Greed (71) avec un score de thermostat à 78, mais plombé par une nervosité persistante et un capital global sous tension (-89,40 $).
-- Momentum : Alpha maintient sa discipline tactique (490 skips, 14 fills pour -10,18 $) malgré les chocs, et Beta fournit des sondages de qualité (20 fills pour +3,96 $).
-- Risque : Sensibilité accrue aux soubresauts de volume sur les cryptos majeures et pressions persistantes sur le PnL combiné dans un climat marqué par le début de la réunion de la Fed.
-- Contexte : Portefeuille Hulk résilient avec 12 positions seeds sous surveillance active, soutenues par des flux ETF BTC positifs (+227,64 M$).
+- Tendance : Marché orienté en phase Greed (71) avec un score de thermostat à 82, mais plombé par une nervosité persistante et un capital global sous tension (-90,12 $).
+- Momentum : Alpha maintient sa discipline tactique (450 skips, 16 fills pour -6,89 $) malgré les chocs, et Beta fournit des sondages de qualité (23 fills pour +5,91 $).
+- Risque : Sensibilité accrue aux soubresauts de volume sur les cryptos majeures (notamment sur ETHUSDT avec un volume x3 à 2441,31 $) et pressions persistantes sur le PnL combiné.
+- Contexte : Portefeuille Hulk résilient avec 12 positions seeds sous surveillance active, soutenues par des flux ETF BTC positifs (+227,49 M$).
 [STRATEGIZE]
 1. Maintenir Alpha en embuscade stricte en exploitant les flux de reconnaissance de Beta sans céder à la précipitation.
 2. Poursuivre la surveillance rapprochée et l'arbitrage rigoureux des positions seeds de Hulk via les stop-loss.
