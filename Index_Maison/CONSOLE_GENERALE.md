@@ -1,14 +1,14 @@
 # Console générale — clin d’œil
 
-Auto-refresh : 2026-08-22 07:47 UTC · jour local **2026-08-22**
+Auto-refresh : 2026-08-22 07:49 UTC · jour local **2026-08-22**
 
 ## Feu tricolore
 
 | Jambe | État | Détail |
 |-------|------|--------|
-| **ACE** | 🟢 RUN | Dernier tag `MASTER_VORTEX_V2_COLLAB_4H` · combo ≈ **+314.10 $** |
+| **ACE** | 🟢 RUN | Dernier tag `MASTER_VORTEX_V2_COLLAB_4H` · combo ≈ **+314.56 $** |
 | **Hulk paper** | 🟢 RUN | pnl_total ≈ **-0.1079** · pos **12** |
-| **Hulk digest** | 🟢 RUN | mtime 2026-08-22T07:47Z |
+| **Hulk digest** | 🟢 RUN | mtime 2026-08-22T07:48Z |
 | **Punk** | 🔴 STOP | — · idle |
 | **Ollama** | 🟢 RUN | |
 | **Obsidian** | 🟢 | vault `Obsidian_ACE777` |
@@ -17,7 +17,7 @@ Auto-refresh : 2026-08-22 07:47 UTC · jour local **2026-08-22**
 
 | Run | Alpha | Beta | Combo |
 |-----|-------|------|-------|
-| `MASTER_VORTEX_V2_COLLAB_4H` | +286.63 (n=1380) | +27.47 (n=4469) | **+314.10** |
+| `MASTER_VORTEX_V2_COLLAB_4H` | +286.63 (n=1380) | +27.93 (n=4470) | **+314.56** |
 | `MASTER_BASE_V8_5_IMPACT_4H` | +3.60 (n=7) | +0.91 (n=162) | **+4.51** |
 | `NUAGE_HUB_V1` | +0.00 (n=0) | +0.00 (n=0) | **+0.00** |
 | `NUAGE_PROD_4H` | +155.25 (n=212) | +16.64 (n=3894) | **+171.89** |
@@ -60,7 +60,7 @@ Auto-refresh : 2026-08-22 07:47 UTC · jour local **2026-08-22**
 | `TEST_DUO_HARMONIC_5813_30M_V63` | +0.00 (n=0) | -0.42 (n=45) | **-0.42** |
 
 ## Hulk
-- Events : {'BUY': 15, 'SELL_PARTIAL': 15, 'SELL': 3, 'SKIP': 232}
+- Events : {'BUY': 15, 'SELL_PARTIAL': 15, 'SELL': 3, 'SKIP': 236}
 - Pairs ouvertes (state) : XRPUSDT, HBARUSDT, QAITUSDT, RIZEUSDT, ZBCNUSDT, WUSDT, CCUSDT, PYTHUSDT, KITEUSDT, TELUSDT, RWAINCUSDT, EDELUSDT
 
 ## Liens
