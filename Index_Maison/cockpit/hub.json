@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-22T00:30:28.891462+00:00",
+  "generated_at": "2026-08-22T00:30:58.027103+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -26,7 +26,7 @@
       "model": "qwen-3.8-max-free",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 750
+      "calls_24h": 751
     },
     {
       "id": "groq",
@@ -229,10 +229,18 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 78,
-    "remaining": 546
+    "consumed": 79,
+    "remaining": 545
   },
   "queue": [
+    {
+      "ts": "2026-08-22T00:30:34.450932+00:00",
+      "task": "supervise.decision",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 18.33
+    },
     {
       "ts": "2026-08-22T00:30:04.239145+00:00",
       "task": "supervise.decision",
@@ -344,76 +352,68 @@
       "model": "deepseek-ai/deepseek-v4-flash-0731",
       "kind": "cloud",
       "duration_s": 90.21
-    },
-    {
-      "ts": "2026-08-22T00:25:16.182314+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 7.97
     }
   ],
   "events": [
     {
-      "ts": "2026-08-22T00:30:16.118503+00:00",
-      "kind": "failover",
-      "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
-      "detail": "0 attente"
-    },
-    {
-      "ts": "2026-08-22T00:30:04.238679+00:00",
-      "kind": "message",
-      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
-      "detail": "bascule"
-    },
-    {
-      "ts": "2026-08-22T00:29:59.245122+00:00",
-      "kind": "message",
-      "title": "« NVIDIA build.nvidia.com (100+ modeles) » a repondu",
-      "detail": ""
-    },
-    {
-      "ts": "2026-08-22T00:29:45.080960+00:00",
+      "ts": "2026-08-22T00:30:54.061191+00:00",
       "kind": "failover",
       "title": "Bascule depuis Groq (LLM ultra-rapide, gratuit)",
       "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-08-22T00:29:45.080519+00:00",
+      "ts": "2026-08-22T00:30:54.060889+00:00",
       "kind": "ratelimit",
       "title": "429 Groq (LLM ultra-rapide, gratuit) -> pause 60s + bascule",
       "detail": ""
     },
     {
-      "ts": "2026-08-22T00:29:44.933026+00:00",
+      "ts": "2026-08-22T00:30:53.922656+00:00",
       "kind": "blacklist",
       "title": "Fin de pause Groq (LLM ultra-rapide, gratuit)",
       "detail": "re-essai automatique"
     },
     {
-      "ts": "2026-08-22T00:29:31.611194+00:00",
-      "kind": "message",
-      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
-      "detail": "bascule"
+      "ts": "2026-08-22T00:30:50.560978+00:00",
+      "kind": "http",
+      "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
+      "detail": ""
     },
     {
-      "ts": "2026-08-22T00:29:14.758159+00:00",
+      "ts": "2026-08-22T00:30:50.560715+00:00",
+      "kind": "error",
+      "title": "Toutes les IA ont echoue",
+      "detail": "NVIDIA build.nvidia.com (100+ modeles): HTTP Error 504: Gateway Timeout | budget: Budget temps requete depasse"
+    },
+    {
+      "ts": "2026-08-22T00:30:50.560374+00:00",
+      "kind": "error",
+      "title": "Budget temps requete depasse",
+      "detail": ""
+    },
+    {
+      "ts": "2026-08-22T00:30:50.555271+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis NVIDIA build.nvidia.com (100+ modeles)",
+      "detail": "HTTP Error 504: Gateway Timeout"
+    },
+    {
+      "ts": "2026-08-22T00:30:43.617397+00:00",
       "kind": "failover",
       "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
       "detail": "0 attente"
     },
     {
-      "ts": "2026-08-22T00:29:04.484623+00:00",
+      "ts": "2026-08-22T00:30:34.450560+00:00",
       "kind": "message",
       "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
       "detail": "bascule"
     },
     {
-      "ts": "2026-08-22T00:29:04.343738+00:00",
-      "kind": "message",
-      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
-      "detail": "bascule"
+      "ts": "2026-08-22T00:30:16.118503+00:00",
+      "kind": "failover",
+      "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
+      "detail": "0 attente"
     }
   ],
   "tasks_quotas": {
