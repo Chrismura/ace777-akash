@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-22T02:58:27.448554+00:00",
+  "generated_at": "2026-08-22T02:59:35.020533+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -26,7 +26,7 @@
       "model": "qwen-3.8-max-free",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 35
+      "calls_24h": 36
     },
     {
       "id": "groq",
@@ -229,10 +229,18 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 37,
-    "remaining": 587
+    "consumed": 38,
+    "remaining": 586
   },
   "queue": [
+    {
+      "ts": "2026-08-22T02:59:07.436924+00:00",
+      "task": "supervise.decision",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 119.22
+    },
     {
       "ts": "2026-08-22T02:57:52.312050+00:00",
       "task": "supervise.decision",
@@ -344,76 +352,68 @@
       "model": "qwen-3.8-max-free",
       "kind": "cloud",
       "duration_s": 213.09
-    },
-    {
-      "ts": "2026-08-22T02:50:39.489678+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 70.52
     }
   ],
   "events": [
     {
-      "ts": "2026-08-22T02:58:26.321241+00:00",
+      "ts": "2026-08-22T02:59:27.769247+00:00",
+      "kind": "timeout",
+      "title": "Patience NaraRouter (7M tokens/jour gratuits) (reponse vide)",
+      "detail": "Reponse vide"
+    },
+    {
+      "ts": "2026-08-22T02:59:12.122857+00:00",
       "kind": "failover",
-      "title": "Bascule depuis OpenRouter Nemotron 3 Ultra 550B (free) - analyse forte",
+      "title": "Bascule depuis Groq (LLM ultra-rapide, gratuit)",
       "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-08-22T02:58:25.805525+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis OpenRouter Juge (nemotron-3-super-120b free) - verificateur independant",
-      "detail": "HTTP Error 429: Too Many Requests"
+      "ts": "2026-08-22T02:59:12.122524+00:00",
+      "kind": "ratelimit",
+      "title": "429 Groq (LLM ultra-rapide, gratuit) -> pause 60s + bascule",
+      "detail": ""
     },
     {
-      "ts": "2026-08-22T02:58:25.245701+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis Mistral La Plateforme (essai gratuit)",
-      "detail": "The read operation timed out"
+      "ts": "2026-08-22T02:59:11.874760+00:00",
+      "kind": "blacklist",
+      "title": "Fin de pause Groq (LLM ultra-rapide, gratuit)",
+      "detail": "re-essai automatique"
     },
     {
-      "ts": "2026-08-22T02:58:14.892285+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis NVIDIA build.nvidia.com (100+ modeles)",
-      "detail": "The read operation timed out"
+      "ts": "2026-08-22T02:59:07.436454+00:00",
+      "kind": "message",
+      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
+      "detail": "bascule"
     },
     {
-      "ts": "2026-08-22T02:58:03.847313+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis NaraRouter (7M tokens/jour gratuits)",
-      "detail": "The read operation timed out"
-    },
-    {
-      "ts": "2026-08-22T02:57:53.522481+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis OpenRouter (modeles gratuits)",
-      "detail": "HTTP Error 404: Not Found"
-    },
-    {
-      "ts": "2026-08-22T02:57:52.925279+00:00",
+      "ts": "2026-08-22T02:59:05.776770+00:00",
       "kind": "failover",
       "title": "Saute (blacklist) depuis HuggingFace (136+ modeles, dont DeepSeek-V4)",
       "detail": "0 attente"
     },
     {
-      "ts": "2026-08-22T02:57:52.925080+00:00",
+      "ts": "2026-08-22T02:59:05.774780+00:00",
       "kind": "failover",
-      "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
-      "detail": "0 attente"
+      "title": "Bascule depuis Google Gemini",
+      "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-08-22T02:57:52.924764+00:00",
-      "kind": "failover",
-      "title": "Saute (blacklist) depuis Google Gemini",
-      "detail": "0 attente"
+      "ts": "2026-08-22T02:59:05.774491+00:00",
+      "kind": "ratelimit",
+      "title": "429 Google Gemini -> pause 60s + bascule",
+      "detail": ""
     },
     {
-      "ts": "2026-08-22T02:57:52.311386+00:00",
-      "kind": "message",
-      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
-      "detail": "bascule"
+      "ts": "2026-08-22T02:59:05.414864+00:00",
+      "kind": "blacklist",
+      "title": "Fin de pause Google Gemini",
+      "detail": "re-essai automatique"
+    },
+    {
+      "ts": "2026-08-22T02:59:03.522953+00:00",
+      "kind": "http",
+      "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
+      "detail": ""
     }
   ],
   "tasks_quotas": {
