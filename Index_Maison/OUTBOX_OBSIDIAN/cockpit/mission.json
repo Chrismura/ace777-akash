@@ -1,5 +1,5 @@
 {
-  "ts": "2026-08-22T17:06Z",
+  "ts": "2026-08-22T17:07Z",
   "alert": "red",
   "run": "MASTER_VORTEX_V2_COLLAB_4H",
   "sessionSince": "2026-08-22T15:44Z",
@@ -18,10 +18,22 @@
     "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv",
     "pnl": 3.0358,
     "fills": 5,
-    "skips": 102,
+    "skips": 103,
     "pnlLifetime": 293.0447,
     "fillsLifetime": 2075,
     "last": [
+      {
+        "ts": "2026-08-22T17:06:56Z",
+        "side": "SKIP",
+        "status": "SKIPPED",
+        "pnl": 0.0,
+        "qty": null,
+        "entry": null,
+        "exit": null,
+        "bps": null,
+        "reason": "gap_guard_pause",
+        "cycle": "108"
+      },
       {
         "ts": "2026-08-22T17:06:36Z",
         "side": "SKIP",
@@ -624,19 +636,6 @@
         "reason": "regime_gate",
         "cycle": "59",
         "tension": 5.9e-05
-      },
-      {
-        "ts": "2026-08-22T16:28:17Z",
-        "side": "SKIP",
-        "status": "SKIPPED",
-        "pnl": 0.0,
-        "qty": null,
-        "entry": null,
-        "exit": null,
-        "bps": null,
-        "reason": "regime_gate",
-        "cycle": "58",
-        "tension": 5.2e-05
       }
     ],
     "fills_only": [
@@ -708,7 +707,7 @@
       1.4443,
       -0.61422
     ],
-    "cycle": "107",
+    "cycle": "108",
     "lastFill": {
       "ts": "2026-08-22T17:06:13Z",
       "side": "BUY",
@@ -3110,9 +3109,9 @@
     "whaleN": 0,
     "deltas": {
       "mark": {
-        "dir": "up",
-        "delta": 8.1,
-        "label": "↑"
+        "dir": "down",
+        "delta": -0.11,
+        "label": "↓"
       },
       "funding": {
         "dir": "flat",
@@ -3135,14 +3134,14 @@
         "label": "="
       },
       "chg24": {
-        "dir": "up",
-        "delta": 0.02,
-        "label": "↑"
+        "dir": "down",
+        "delta": -0.05,
+        "label": "↓"
       },
       "oi": {
-        "dir": "up",
-        "delta": 7.085,
-        "label": "↑"
+        "dir": "down",
+        "delta": -1.845,
+        "label": "↓"
       },
       "score": {
         "dir": "flat",
@@ -3205,9 +3204,9 @@
         "label": "—"
       },
       "etfBtcM": {
-        "dir": "up",
-        "delta": 0.02,
-        "label": "↑"
+        "dir": "flat",
+        "delta": 0.0,
+        "label": "="
       },
       "altSeasonScore": {
         "dir": "flat",
@@ -3267,7 +3266,7 @@
       "cpfpGlobal": false,
       "cpfpZscore": 0.0,
       "cpfpDustScore": 100.0,
-      "cpfpDustDetail": "poussière <2.0 sat/vB (normalisé minFee 1×1.5) : 1 vues ce run, 25402 cumulées 48h (seuil 1000) — max 0.0052 BTC",
+      "cpfpDustDetail": "poussière <2.0 sat/vB (normalisé minFee 1×1.5) : 2 vues ce run, 25406 cumulées 48h (seuil 1000) — max 0.0083 BTC",
       "blocPrivatiseMode": "actif",
       "blocPrivatiseTauxFantome": 1.4224,
       "blocPrivatiseNbCachees": 49,
@@ -3339,33 +3338,18 @@
     }
   },
   "intention": {
-    "ts": "2026-08-22T17:06:47.053532+00:00",
+    "ts": "2026-08-22T17:06:56.936506+00:00",
     "since": "2026-08-22T15:44:00Z",
     "bots": {
       "alpha": {
         "role": "sniper",
         "surnom": "Le Sniper",
         "fills": 4,
-        "skips": 92,
+        "skips": 93,
         "pnl": 3.03577,
         "best": 3.52344,
         "conf_moy": 0.923675,
         "events": [
-          {
-            "ts": "2026-08-22T16:51:36Z",
-            "bot": "alpha",
-            "cycle": 88,
-            "action": "fire",
-            "intention": "a tire en mode revenge 1.5x",
-            "direction": "long",
-            "conf": 0.854,
-            "exit": "0.80432560",
-            "meta": {
-              "size_note": "hunter_revenge_1.5x+entry_25_75_full",
-              "tension": 2.36337545
-            },
-            "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv"
-          },
           {
             "ts": "2026-08-22T16:51:51Z",
             "bot": "alpha",
@@ -3650,13 +3634,28 @@
               "tension": null
             },
             "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv"
+          },
+          {
+            "ts": "2026-08-22T17:06:56Z",
+            "bot": "alpha",
+            "cycle": 108,
+            "action": "skip",
+            "intention": "skip — gap_guard_pause",
+            "direction": null,
+            "conf": null,
+            "exit": "gap_guard_pause",
+            "meta": {
+              "size_note": null,
+              "tension": null
+            },
+            "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv"
           }
         ],
         "counts": {
           "wait": 11,
           "fire": 4,
           "probe": 0,
-          "skip": 92
+          "skip": 93
         },
         "direction": {
           "long": 3,
@@ -3989,7 +3988,7 @@
     },
     "story": [
       "BETA a sonde le marche (7 sondes, 5 long / 2 court, conf moyenne 0.85) — il renseigne Alpha.",
-      "ALPHA attend son moment : 92 skips (discipline), le mur du carnet ne s'effondre pas.",
+      "ALPHA attend son moment : 93 skips (discipline), le mur du carnet ne s'effondre pas.",
       "ALPHA a frappe 4 fois en embuscade (13x) (dont 2 en mode revenge 1.5x) : +3.04 $, meilleur trade +3.52 $."
     ]
   },
