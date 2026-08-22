@@ -1,12 +1,12 @@
 {
-  "timestamp": "2026-08-22T13:46:42Z",
+  "timestamp": "2026-08-22T13:47:27Z",
   "generation_source": "system_state_generator.py v2.1",
   "status": "STALE",
-  "feed_hash": "e22192da7e2d885c5aa557a7477ac9c6bd12529f517ec0d46feaa0d85031ea30",
+  "feed_hash": "27ed528ff251bb08d3ef4f7c61c6c2469e2fcfba18726ecc98e9fe6b3d27248d",
   "feeds": {
     "mission": {
       "present": true,
-      "age_seconds": 21,
+      "age_seconds": 20,
       "fresh_limit_s": 120
     },
     "cortana_feed": {
@@ -16,12 +16,12 @@
     },
     "live": {
       "present": true,
-      "age_seconds": 3,
+      "age_seconds": 4,
       "fresh_limit_s": 15
     },
     "routing": {
       "present": true,
-      "age_seconds": 18128,
+      "age_seconds": 18172,
       "fresh_limit_s": 120
     }
   },
@@ -38,6 +38,7 @@
       "com.ace777.cortana-feed",
       "com.ace777.cortana.urgent",
       "com.ace777.couleur-regime-score",
+      "com.ace777.graph-cerveau",
       "com.ace777.hub-cockpit-feed",
       "com.ace777.journal-soir",
       "com.ace777.llm-gate-hub",
@@ -49,7 +50,6 @@
       "com.ace777.state-generator",
       "com.ace777.superviseur-core",
       "com.ace777.superviseur-process",
-      "com.ace777.veilleuse-confrontation",
       "com.ace777.veilleuse-sizing-monte-carlo",
       "com.ace777.vigie-live"
     ],
@@ -64,7 +64,6 @@
       "com.ace777.fees",
       "com.ace777.gitpush",
       "com.ace777.gitpush-vault",
-      "com.ace777.graph-cerveau",
       "com.ace777.heartbeats",
       "com.ace777.hulk-watchdog",
       "com.ace777.macro-tempete",
@@ -82,6 +81,7 @@
       "com.ace777.veille-yt",
       "com.ace777.veilleuse",
       "com.ace777.veilleuse-chantiers",
+      "com.ace777.veilleuse-confrontation",
       "com.ace777.verif-setup",
       "com.ace777.watchdog",
       "com.ace777.whales"
@@ -91,7 +91,7 @@
     "status": "ok",
     "providers": 14
   },
-  "ram_raw": null,
+  "ram_raw": "The system has 8589934592 (524288 pages with a page size of 16384).",
   "hors_zone": {
     "mirofis": {
       "present": true
@@ -110,13 +110,7 @@
     }
   },
   "backup_light": {
-    "presence": {
-      "mirofis": true,
-      "crypto-voice-assistant-core": true,
-      "ACE777_ARCHIVES_BRUTES_DONNEES": true,
-      "Assistant_Vocal_HORS_VAULT": true,
-      "Obsidian_BACKUPS_HORS_VAULT": true
-    },
+    "presence": {},
     "sizes_ko": {
       "mirofis": 1068252,
       "crypto-voice-assistant-core": 4041164,
@@ -124,7 +118,7 @@
       "Assistant_Vocal_HORS_VAULT": 697372,
       "Obsidian_BACKUPS_HORS_VAULT": 14936872
     },
-    "presence_at": "2026-08-22T13:46:21Z",
+    "presence_at": null,
     "sizes_at": "2026-08-22T08:04:37Z"
   }
 }
