@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-22T10:22:15.844260+00:00",
+  "generated_at": "2026-08-22T10:23:00.817063+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -356,6 +356,48 @@
   ],
   "events": [
     {
+      "ts": "2026-08-22T10:22:57.516890+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis Groq (LLM ultra-rapide, gratuit)",
+      "detail": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "ts": "2026-08-22T10:22:57.516409+00:00",
+      "kind": "ratelimit",
+      "title": "429 Groq (LLM ultra-rapide, gratuit) -> pause 60s + bascule",
+      "detail": ""
+    },
+    {
+      "ts": "2026-08-22T10:22:57.142775+00:00",
+      "kind": "blacklist",
+      "title": "Fin de pause Groq (LLM ultra-rapide, gratuit)",
+      "detail": "re-essai automatique"
+    },
+    {
+      "ts": "2026-08-22T10:22:57.142024+00:00",
+      "kind": "reserve-storm",
+      "title": "Tempête active + budget calme atteint -> réserve storm pour supervise.decision",
+      "detail": "supervise.decision"
+    },
+    {
+      "ts": "2026-08-22T10:22:27.424193+00:00",
+      "kind": "failover",
+      "title": "Saute (blacklist) depuis HuggingFace (136+ modeles, dont DeepSeek-V4)",
+      "detail": "0 attente"
+    },
+    {
+      "ts": "2026-08-22T10:22:27.424067+00:00",
+      "kind": "failover",
+      "title": "Saute (blacklist) depuis Google Gemini",
+      "detail": "0 attente"
+    },
+    {
+      "ts": "2026-08-22T10:22:27.423363+00:00",
+      "kind": "quota",
+      "title": "Budget calme atteint -> bascule famille (gratuits)",
+      "detail": "analyse.profonde"
+    },
+    {
       "ts": "2026-08-22T10:22:01.935585+00:00",
       "kind": "failover",
       "title": "Bascule depuis HuggingFace (136+ modeles, dont DeepSeek-V4)",
@@ -372,48 +414,6 @@
       "kind": "failover",
       "title": "Bascule depuis Google Gemini",
       "detail": "HTTP Error 429: Too Many Requests"
-    },
-    {
-      "ts": "2026-08-22T10:22:01.462212+00:00",
-      "kind": "ratelimit",
-      "title": "429 Google Gemini -> pause 60s + bascule",
-      "detail": ""
-    },
-    {
-      "ts": "2026-08-22T10:22:00.941844+00:00",
-      "kind": "blacklist",
-      "title": "Fin de pause Google Gemini",
-      "detail": "re-essai automatique"
-    },
-    {
-      "ts": "2026-08-22T10:22:00.940681+00:00",
-      "kind": "quota",
-      "title": "Budget calme atteint -> bascule famille (gratuits)",
-      "detail": "analyse.profonde"
-    },
-    {
-      "ts": "2026-08-22T10:21:52.832166+00:00",
-      "kind": "http",
-      "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
-      "detail": ""
-    },
-    {
-      "ts": "2026-08-22T10:21:52.831861+00:00",
-      "kind": "error",
-      "title": "Toutes les IA ont echoue",
-      "detail": "Google Gemini: blacklist du jour (saute) | HuggingFace (136+ modeles, dont DeepSeek-V4): blacklist du jour (saute) | NaraRouter (7M tokens/jour gratuits): Reponse vide | budget: Budget temps requete depasse"
-    },
-    {
-      "ts": "2026-08-22T10:21:52.831623+00:00",
-      "kind": "error",
-      "title": "Budget temps requete depasse",
-      "detail": ""
-    },
-    {
-      "ts": "2026-08-22T10:21:52.830516+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis NaraRouter (7M tokens/jour gratuits)",
-      "detail": "Reponse vide"
     }
   ],
   "tasks_quotas": {

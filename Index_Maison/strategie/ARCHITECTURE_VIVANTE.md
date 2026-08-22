@@ -1,4 +1,4 @@
-# ARCHITECTURE VIVANTE — ACE777 (2026-08-22 10:22 UTC)
+# ARCHITECTURE VIVANTE — ACE777 (2026-08-22 10:23 UTC)
 
 > Document GÉNÉRÉ AUTOMATIQUEMENT à l'instant. La famille valide
 > en s'appuyant sur CE contexte, pas sur des documents figés.
@@ -24,7 +24,7 @@
 
 - mission.json : 2026-08-22 10:22Z · run `MASTER_VORTEX_V2_COLLAB_4H` · alerte `red`
 - PnL combiné : **0.93 $** 📉 (combo 0.931)
-- ALPHA (sniper (embuscade, ×13, revenge si claque)) : **-1.60 $** · 9 fills · 334 skips
+- ALPHA (sniper (embuscade, ×13, revenge si claque)) : **-1.60 $** · 9 fills · 335 skips
 - BETA (éclaireur (chatouille le marché, alimente Alpha)) : **+2.53 $** · 15 fills · 323 skips
 - HULK (gestionnaire de portefeuille (bag, escalier, courreur)) : **-0.11 $** · 0 fills
 - Saison : CALME 🧊 · 
@@ -38,8 +38,6 @@
   · budget cloud : 624 max
   · par provider : gemini=504, groq=9, mistral=2516, nara=495, nvidia=2
 - [Nouvelles offres détectées (non intégrées)]
-- [ROLLBACK AUTO 2026-08-22]
-  · obs-1787206650 (google/gemma-4-26b-a4b-it:free) : 100% erreurs > 5% (observatoire)
   · dots-studio/dots-3-note-preview:free
   · liquid/lfm-2.5-2.6b:free
   · thinkingmachines/inkling-small:free
@@ -48,10 +46,10 @@
 ## Mémoire chaude (journal + résumés)
 
 - Radar (dernières alertes) :
-  · 2026-08-22T10:22:31.048890Z ETHUSDT 2395.85 0.0000 7.4 declenche=non
-  · 2026-08-22T10:22:31.049163Z ETHUSDT 2395.87 0.0000 7.4 declenche=non
-  · 2026-08-22T10:22:31.281297Z ETHUSDT 2395.89 0.0000 7.4 declenche=non
-  · 2026-08-22T10:22:31.768097Z BTCUSDT 76700.0 0.0000 0.0 declenche=non
+  · 2026-08-22T10:23:03.705732Z BTCUSDT 76664.01 0.0005 22.4 declenche=non
+  · 2026-08-22T10:23:03.705950Z ETHUSDT 2395.65 0.0001 486.2 declenche=non
+  · 2026-08-22T10:23:03.706080Z ETHUSDT 2395.64 0.0001 486.2 declenche=non
+  · 2026-08-22T10:23:03.718797Z ETHUSDT 2395.64 0.0001 486.2 declenche=non
 - Intention en cours : BETA a sonde le marche (15 sondes, 8 long / 7 court, conf mo | ALPHA attend son moment : 303 skips (discipline), le mur du  | ALPHA a frappe 9 fois en embuscade (13x) (dont 3 en mode rev
 - 550 signets X résumés (quota aujourd'hui : 50/50)
 - 56 fiches IA d'offres en cache (quota 8/jour)
