@@ -24,7 +24,7 @@
 
 - mission.json : 2026-08-22 12:55Z · run `MASTER_VORTEX_V2_COLLAB_4H` · alerte `red`
 - PnL combiné : **4.43 $** 📉 (combo 4.4305)
-- ALPHA (sniper (embuscade, ×13, revenge si claque)) : **+4.63 $** · 7 fills · 147 skips
+- ALPHA (sniper (embuscade, ×13, revenge si claque)) : **+4.63 $** · 7 fills · 150 skips
 - BETA (éclaireur (chatouille le marché, alimente Alpha)) : **-0.20 $** · 8 fills · 193 skips
 - HULK (gestionnaire de portefeuille (bag, escalier, courreur)) : **-0.11 $** · 0 fills
 - Saison : CALME 🧊 · 
@@ -39,7 +39,7 @@
   · par provider : gemini=505, groq=12, mistral=2517, nara=751, nvidia=2
 - [Nouvelles offres détectées (non intégrées)]
 - [ROLLBACK AUTO 2026-08-22]
-  · obs-1786774667 (nvidia/nemotron-3.5-lightning:free) : 100% erreurs > 5% (observatoire)
+  · obs-1786795252 (nvidia/nemotron-3.5-content-safety:free) : 100% erreurs > 5% (observatoire
   · ERR: <urlopen error [Errno 8] nodename nor servname provided, or
   · ERR: <urlopen error [Errno 8] nodename nor servname provided, or
   · ERR: <urlopen error [Errno 8] nodename nor servname provided, or
@@ -52,7 +52,7 @@
   · 2026-08-22T12:53:17.172218Z ETHUSDT 2427.8 0.0006 53.2 declenche=non
   · 2026-08-22T12:53:17.345564Z BTCUSDT 77268.27 0.0002 3.0 declenche=non
   · 2026-08-22T12:53:17.460297Z ETHUSDT 2427.81 0.0006 53.6 declenche=non
-- Intention en cours : BETA a sonde le marche (8 sondes, 5 long / 3 court, conf moy | ALPHA attend son moment : 141 skips (discipline), le mur du  | ALPHA a frappe 7 fois en embuscade (13x) (dont 7 en mode rev
+- Intention en cours : BETA a sonde le marche (8 sondes, 5 long / 3 court, conf moy | ALPHA attend son moment : 143 skips (discipline), le mur du  | ALPHA a frappe 7 fois en embuscade (13x) (dont 7 en mode rev
 - 550 signets X résumés (quota aujourd'hui : 50/50)
 - 56 fiches IA d'offres en cache (quota 8/jour)
 
