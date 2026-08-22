@@ -3118,14 +3118,14 @@
   },
   "thermo": {
     "climate": "ok",
-    "score": 88,
+    "score": 89,
     "funding": 0.0001,
     "whaleN": 0,
     "deltas": {
       "mark": {
-        "dir": "up",
-        "delta": 39.0,
-        "label": "↑"
+        "dir": "down",
+        "delta": -33.66,
+        "label": "↓"
       },
       "funding": {
         "dir": "flat",
@@ -3148,19 +3148,19 @@
         "label": "="
       },
       "chg24": {
-        "dir": "down",
-        "delta": -0.11,
-        "label": "↓"
+        "dir": "up",
+        "delta": 0.05,
+        "label": "↑"
       },
       "oi": {
-        "dir": "down",
-        "delta": -2.812,
-        "label": "↓"
+        "dir": "up",
+        "delta": 1.306,
+        "label": "↑"
       },
       "score": {
-        "dir": "down",
-        "delta": -1.0,
-        "label": "↓"
+        "dir": "up",
+        "delta": 1.0,
+        "label": "↑"
       },
       "btcDominance": {
         "dir": "flat",
@@ -3173,14 +3173,14 @@
         "label": "="
       },
       "whaleUsd": {
-        "dir": "flat",
-        "delta": 0.0,
-        "label": "="
+        "dir": "down",
+        "delta": -788594.0,
+        "label": "↓"
       },
       "whaleN": {
-        "dir": "flat",
-        "delta": 0.0,
-        "label": "="
+        "dir": "down",
+        "delta": -1.0,
+        "label": "↓"
       },
       "takerRatio": {
         "dir": "flat",
@@ -3218,9 +3218,9 @@
         "label": "—"
       },
       "etfBtcM": {
-        "dir": "up",
-        "delta": 0.12,
-        "label": "↑"
+        "dir": "down",
+        "delta": -0.1,
+        "label": "↓"
       },
       "altSeasonScore": {
         "dir": "flat",
@@ -3240,18 +3240,18 @@
     },
     "fearGreed": 71,
     "fearGreedLabel": "Greed",
-    "marketCapUsd": 2615582922328.0,
-    "altSeason": "Bitcoin season",
-    "altSeasonScore": 43,
+    "marketCapUsd": null,
+    "altSeason": null,
+    "altSeasonScore": null,
     "liq24Usd": 42414860.0,
     "etf": {
-      "btc": 226.31,
+      "btc": 226.19,
       "eth": null,
       "xrp": null,
       "source": "bitbo-public (moy 7j)",
       "unit": "M$"
     },
-    "btcDominance": 58.9,
+    "btcDominance": null,
     "onchain": {
       "whaleBlocsN": 0,
       "whaleBlocsBtc": 0,
@@ -3259,14 +3259,14 @@
       "whaleFragBtc": 0,
       "whaleCumul24hBtc": 0.0,
       "whaleMoy7jBtc": 0.0,
-      "whaleDir": "neutral",
-      "whaleDirLabel": "neutral",
+      "whaleDir": "bearish",
+      "whaleDirLabel": "bearish",
       "whaleDirScan": "neutral",
-      "whaleDirProxy": "neutral",
-      "whaleProxyN": 0,
-      "whaleProxyUsd": 0.0,
+      "whaleDirProxy": "bearish",
+      "whaleProxyN": 1,
+      "whaleProxyUsd": 788594.0,
       "whaleProxyBuyUsd": 0.0,
-      "whaleProxySellUsd": 0.0,
+      "whaleProxySellUsd": 788594.0,
       "whaleSource": "inconnue",
       "whaleEcartSeuil": null,
       "whaleAlerte": false,
@@ -3280,7 +3280,7 @@
       "cpfpGlobal": false,
       "cpfpZscore": 0.0,
       "cpfpDustScore": 100.0,
-      "cpfpDustDetail": "poussière <4.5 sat/vB (normalisé minFee 3×1.5) : 3 vues ce run, 21724 cumulées 48h (seuil 1000) — max 0.9000 BTC",
+      "cpfpDustDetail": "poussière <4.5 sat/vB (normalisé minFee 3×1.5) : 7 vues ce run, 21731 cumulées 48h (seuil 1000) — max 0.0000 BTC",
       "blocPrivatiseMode": "actif",
       "blocPrivatiseTauxFantome": 100.0,
       "blocPrivatiseNbCachees": 4180,
@@ -3302,20 +3302,20 @@
         "wired": true
       },
       "D27": {
-        "value": "2.62 T$",
-        "level": "ok",
+        "value": null,
+        "level": "na",
         "label": "Market cap crypto",
         "unit": "",
         "note": "CoinGecko global",
-        "wired": true
+        "wired": false
       },
       "D28": {
-        "value": "Bitcoin season (~43)",
-        "level": "warn",
+        "value": null,
+        "level": "ok",
         "label": "Alt season (proxy BTC.D)",
         "unit": "",
         "note": "proxy dominance — pas index Blockchain Center exact",
-        "wired": true
+        "wired": false
       },
       "D29": {
         "value": "0.04 B$",
@@ -3326,7 +3326,7 @@
         "wired": true
       },
       "D30": {
-        "value": "BTC 226.31 M$",
+        "value": "BTC 226.19 M$",
         "level": "ok",
         "label": "ETF BTC net inflow",
         "unit": "",
@@ -3352,7 +3352,7 @@
     }
   },
   "intention": {
-    "ts": "2026-08-22T14:57:47.117188+00:00",
+    "ts": "2026-08-22T14:58:34.216731+00:00",
     "since": "2026-08-22T11:34:00Z",
     "bots": {
       "alpha": {
@@ -4007,7 +4007,7 @@
     ]
   },
   "saison": {
-    "ts": "2026-08-22T14:58:26.768123+00:00",
+    "ts": "2026-08-22T14:58:33.116917+00:00",
     "saison": "CALME",
     "emoji": "🧊",
     "direction": "short",
@@ -4048,7 +4048,7 @@
       "baleines": {
         "direction": "neutre",
         "force": 0,
-        "brut": 0
+        "brut": 1
       }
     },
     "story": [
@@ -4062,7 +4062,7 @@
     "degraded": false
   },
   "gardienne": {
-    "ts": "2026-08-22T14:58:26Z",
+    "ts": "2026-08-22T14:58:33Z",
     "voilure_pct": 91,
     "zone": "VERT",
     "zone_emoji": "🟢",
@@ -4091,7 +4091,7 @@
     ]
   },
   "coup_doeil": {
-    "ts": "2026-08-22T14:58:26Z",
+    "ts": "2026-08-22T14:58:33Z",
     "saison": "CALME",
     "saison_emoji": "🌿",
     "voilure": "91 %",
