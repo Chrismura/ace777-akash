@@ -22,24 +22,22 @@
 
 ## État de la mission (bots + PnL)
 
-- mission.json : 2026-08-22 09:14Z · run `MASTER_VORTEX_V2_COLLAB_4H` · alerte `red`
+- mission.json : 2026-08-22 09:15Z · run `MASTER_VORTEX_V2_COLLAB_4H` · alerte `red`
 - PnL combiné : **-4.67 $** 📉 (combo -4.6677)
 - ALPHA (sniper (embuscade, ×13, revenge si claque)) : **-5.70 $** · 6 fills · 178 skips
-- BETA (éclaireur (chatouille le marché, alimente Alpha)) : **+1.03 $** · 10 fills · 182 skips
+- BETA (éclaireur (chatouille le marché, alimente Alpha)) : **+1.03 $** · 10 fills · 190 skips
 - HULK (gestionnaire de portefeuille (bag, escalier, courreur)) : **-0.11 $** · 0 fills
-- Saison : CHAOS ⛈️ · 
+- Saison : CALME 🧊 · 
 
 ## Veille du jour
 
 - [Santé]
   · hub : OK (14 providers)
 - [Énergie du jour]
-  · appels : 2754 (cloud 2754)
+  · appels : 2757 (cloud 2757)
   · budget cloud : 624 max
-  · par provider : gemini=504, groq=7, mistral=1764, nara=477, nvidia=2
+  · par provider : gemini=504, groq=7, mistral=1767, nara=477, nvidia=2
 - [Nouvelles offres détectées (non intégrées)]
-- [ROLLBACK AUTO 2026-08-22]
-  · obs-1786795252 (nvidia/nemotron-3.5-content-safety:free) : 100% erreurs > 5% (observatoire
   · dots-studio/dots-3-note-preview:free
   · liquid/lfm-2.5-2.6b:free
   · thinkingmachines/inkling-small:free
@@ -48,10 +46,10 @@
 ## Mémoire chaude (journal + résumés)
 
 - Radar (dernières alertes) :
-  · 2026-08-22T09:15:17.492141Z ETHUSDT 2426.13 0.0007 60.7 declenche=non
-  · 2026-08-22T09:15:17.492261Z ETHUSDT 2426.12 0.0007 60.7 declenche=non
-  · 2026-08-22T09:15:17.492378Z ETHUSDT 2426.1 0.0007 60.7 declenche=non
-  · 2026-08-22T09:15:17.493069Z BTCUSDT 77353.03 0.0000 19.6 declenche=non
+  · 2026-08-22T09:15:26.066781Z ETHUSDT 2425.95 0.0008 88.0 declenche=non
+  · 2026-08-22T09:15:26.243624Z ETHUSDT 2425.95 0.0008 88.1 declenche=non
+  · 2026-08-22T09:15:26.522596Z ETHUSDT 2425.95 0.0008 90.2 declenche=non
+  · 2026-08-22T09:15:26.553701Z BTCUSDT 77346.06 0.0001 23.7 declenche=non
 - Intention en cours : BETA a sonde le marche (10 sondes, 5 long / 5 court, conf mo | ALPHA attend son moment : 162 skips (discipline), le mur du  | ALPHA a frappe 6 fois en embuscade (13x) (dont 2 en mode rev
 - 500 signets X résumés (quota aujourd'hui : 0/50)
 - 56 fiches IA d'offres en cache (quota 8/jour)
