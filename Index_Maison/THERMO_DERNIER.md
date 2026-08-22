@@ -16,7 +16,7 @@
 | Funding moy. ~30j | 5.811e-05 (n=90) | Cortana |
 | Funding mois préc. | 6.067e-05 (n=93) | Cortana |
 | L/S 1h | 1.054 | crowd |
-| BTC 1h/4h/24h | -1.74 / -0.92 / 2.58 % | B7 |
+| BTC 1h/4h/24h | -1.75 / -0.93 / 2.58 % | B7 |
 | Dominance BTC | None% | A3 |
 | Alts ↓ 24h | 25.0% | B9 |
 
@@ -24,7 +24,7 @@
 - Climat CALME (score 75/100).
 - Funding maintenant 0.0001. Moyenne ~30j 5.811e-05 (90 pts). Mois précédent 6.067e-05 (93 pts).
 - Long/Short 1.054.
-- BTC 24h 2.58% · 1h -1.74% · 4h -0.92%.
+- BTC 24h 2.58% · 1h -1.75% · 4h -0.93%.
 - Panier alts : 25.0% en baisse (5/20).
 - Whales proxy : aucun print ≥500k$ sur les ~500 derniers trades.
 - Dark/OTC proxy : taker buy/sell 0.989 · OI 105682.202 (pas de dark pool free temps réel).
