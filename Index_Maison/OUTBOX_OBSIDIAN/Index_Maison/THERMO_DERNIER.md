@@ -1,6 +1,6 @@
 # Thermo dernier — gratuit (Binance public)
 
-> Auto · **sans clé** · sans ordre · 2026-08-22T00:21Z UTC  
+> Auto · **sans clé** · sans ordre · 2026-08-22T00:22Z UTC  
 > Script : `Index_Maison/scripts/thermo_quotidien_free.py`
 
 ## Clin d'œil
@@ -10,33 +10,31 @@
 
 | Champ | Valeur | ID |
 |-------|--------|-----|
-| Mark | 78059.31 | prix |
-| OI | 105873.024 | C13 |
+| Mark | 78050.0 | prix |
+| OI | 105872.521 | C13 |
 | Funding | 0.0001 | C14 |
 | Funding moy. ~30j | 5.811e-05 (n=90) | Cortana |
 | Funding mois préc. | 6.067e-05 (n=93) | Cortana |
 | L/S 1h | 1.039 | crowd |
-| BTC 1h/4h/24h | -0.33 / 0.74 / 6.03 % | B7 |
-| Dominance BTC | 58.96% | A3 |
-| Alts ↓ 24h | 25.0% | B9 |
+| BTC 1h/4h/24h | -0.38 / 0.69 / 6.01 % | B7 |
+| Dominance BTC | None% | A3 |
+| Alts ↓ 24h | 15.0% | B9 |
 
 ## Lecture
 - Climat ATTENTION (score 60/100).
 - Funding maintenant 0.0001. Moyenne ~30j 5.811e-05 (90 pts). Mois précédent 6.067e-05 (93 pts).
 - Long/Short 1.039.
-- BTC 24h 6.03% · 1h -0.33% · 4h 0.74%.
-- Panier alts : 25.0% en baisse (5/20).
-- Whales proxy : aucun print ≥500k$ sur les ~500 derniers trades.
-- Dark/OTC proxy : taker buy/sell 0.874 · OI 105873.024 (pas de dark pool free temps réel).
+- BTC 24h 6.01% · 1h -0.38% · 4h 0.69%.
+- Panier alts : 15.0% en baisse (3/20).
+- Whales proxy : 2 gros print(s) ≥500k$ (max 939620$) — source aggTrades Binance.
+- Dark/OTC proxy : taker buy/sell 0.874 · OI 105872.521 (pas de dark pool free temps réel).
 - Top traders L/S 1.087.
 - Fear & Greed 71 (Greed).
-- Market cap crypto ≈ 2.65 T$.
-- Alt season proxy : Bitcoin season (BTC.D 58.96%).
 - Liquidations 24h proxy ≈ 0.05 B$.
-- ETF net inflow : BTC 229.23 M$ (bitbo-public (moy 7j), BTC only).
+- ETF net inflow : BTC 229.2 M$ (bitbo-public (moy 7j), BTC only).
 - GEX proxy (Deribit) : P/C 0.617 · murC 80000 (+2.5%) · murP 60000 (-23.1%).
 - Volumes cachés proxy : taker buy 0.534 · vol perp/spot 13.29×.
-- ACE soft: LIVE=MASTER_VORTEX_V2_COLLAB_4H_LIVE_COLOR.log · SKIP=1365 · heat=100.0 · PnL sess=302.9919 · RED=0.
+- ACE soft: LIVE=MASTER_VORTEX_V2_COLLAB_4H_LIVE_COLOR.log · SKIP=1364 · heat=100.0 · PnL sess=302.9919 · RED=0.
 - C15/C23 = proxies free. D26–D34 = F&G / MC / alt / liq / ETF / GEX / volumes cachés. Soft ops lecture seule.
 
 ## Branché / soft
