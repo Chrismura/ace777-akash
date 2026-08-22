@@ -1,4 +1,4 @@
-# ARCHITECTURE VIVANTE — ACE777 (2026-08-22 16:07 UTC)
+# ARCHITECTURE VIVANTE — ACE777 (2026-08-22 16:10 UTC)
 
 > Document GÉNÉRÉ AUTOMATIQUEMENT à l'instant. La famille valide
 > en s'appuyant sur CE contexte, pas sur des documents figés.
@@ -22,7 +22,7 @@
 
 ## État de la mission (bots + PnL)
 
-- mission.json : 2026-08-22 16:07Z · run `MASTER_VORTEX_V2_COLLAB_4H` · alerte `red`
+- mission.json : 2026-08-22 16:10Z · run `MASTER_VORTEX_V2_COLLAB_4H` · alerte `red`
 - PnL combiné : **-0.72 $** 📉 (combo -0.7247)
 - ALPHA (sniper (embuscade, ×13, revenge si claque)) : **-1.32 $** · 1 fills · 28 skips
 - BETA (éclaireur (chatouille le marché, alimente Alpha)) : **+0.59 $** · 2 fills · 34 skips
@@ -34,24 +34,22 @@
 - [Santé]
   · hub : OK (14 providers)
 - [Énergie du jour]
-  · appels : 401 (cloud 401)
+  · appels : 403 (cloud 403)
   · budget cloud : 624 max
-  · par provider : groq=2, mistral=297, nara=102
+  · par provider : groq=3, mistral=297, nara=103
 - [Nouvelles offres détectées (non intégrées)]
-- [ROLLBACK AUTO 2026-08-22]
-  · obs-1786774656 (nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free) : 100% erreurs > 5% (o
   · dots-studio/dots-3-note-preview:free
   · liquid/lfm-2.5-2.6b:free
   · thinkingmachines/inkling-small:free
-  … 106 offres/pépites détectées ce matin
+  … 105 offres/pépites détectées ce matin
 
 ## Mémoire chaude (journal + résumés)
 
 - Radar (dernières alertes) :
-  · 2026-08-22T16:07:57.207338Z BTCUSDT 77045.74 0.0000 1.0 declenche=non
-  · 2026-08-22T16:07:57.207506Z BTCUSDT 77045.74 0.0001 4.9 declenche=non
-  · 2026-08-22T16:07:57.207622Z BTCUSDT 77045.73 0.0000 1.0 declenche=non
-  · 2026-08-22T16:07:57.207740Z BTCUSDT 77045.73 0.0001 4.9 declenche=non
+  · 2026-08-22T16:10:33.936144Z ETHUSDT 2412.79 0.0000 9.3 declenche=non
+  · 2026-08-22T16:10:33.936302Z ETHUSDT 2412.81 0.0000 9.3 declenche=non
+  · 2026-08-22T16:10:33.936435Z ETHUSDT 2412.87 0.0000 9.3 declenche=non
+  · 2026-08-22T16:10:33.936613Z ETHUSDT 2412.89 0.0000 9.3 declenche=non
 - Intention en cours : BETA a sonde le marche (2 sondes, 1 long / 1 court, conf moy | ALPHA a frappe 1 fois en embuscade (13x) : -1.32 $ — session
 - 550 signets X résumés (quota aujourd'hui : 50/50)
 - 56 fiches IA d'offres en cache (quota 8/jour)
