@@ -11,7 +11,7 @@
 | - | `openai/gpt-oss-20b:free` | openrouter-free | REACTIVE 13/08 - cle OK, gpt-oss-20b:free teste (raisonne + repond). Generaliste fallback. |
 | missions / JUGE | `qwen-3.8-max-free` | nara | ACTIVE 17/08 - cle NaraRouter OK (Telegram lie) - qwen-3.8-max-free teste reellement OK |
 | chat interactif / CODE / supervise.decision | `groq/compound` | groq | ACTIVE 17/08 - cle Groq OK + UA fix Cloudflare - groq/compound repond direct (gpt-oss=reas |
-| analyse profonde / analyse BTC / elaboration | `deepseek-ai/deepseek-v4-flash-0731` | nvidia | ACTIVE 17/08 - vivant mais LENT (47s a froid, demarrage modele) - reserve analyse profonde |
+| analyse BTC / elaboration | `deepseek-ai/deepseek-v4-flash-0731` | nvidia | ACTIVE 17/08 - vivant mais LENT (47s a froid, demarrage modele) - reserve analyse profonde |
 | - | `codestral-latest` | mistral | ACTIVE 11/08 - cle Mistral OK (plan experiment 1 Md tokens/mois) - Codestral = modele code |
 | - | `nvidia/nemotron-3-super-120b-a12b:free` | openrouter-juge | REACTIVE 13/08 - nemotron-3-super-120b free teste OK. Juge independant (maker!=checker). | |
 | - | `nvidia/nemotron-3-ultra-550b-a55b:free` | openrouter-ultra | REACTIVE 13/08 - nemotron-3-ultra-550b free. Analyse forte, 2e avis expert. | quota journa |
@@ -33,7 +33,7 @@
 
 | Role | Modele | Statut | Note |
 |------|--------|--------|------|
-| demarrage / analyste.strategie / audit protocole / RAG coffre / analyse / brief vocal / cortana.yeux / analyse / tri signets / synthese bookmarks / analyse forte / veille.youtube | `gemini-flash-lite-latest` | gemini | - |
+| demarrage / analyse profonde / analyste.strategie / audit protocole / RAG coffre / analyse / brief vocal / cortana.yeux / analyse / tri signets / synthese bookmarks / analyse forte / veille.youtube | `gemini-flash-lite-latest` | gemini | - |
 | - | `@cf/meta/llama-3.1-8b-instruct` | cloudflare-workers-ai | 10k Neurons/jour gratuits - necessite account_id dans base_url + token |
 | - | `x-ai/grok-4.5` | grok | Branche 08/08 (GO Christophe) : missions de qualite, ~$2/M tokens |
 | - | `qwen3.5:4b` | qwen-local | UPGRADE 09/08 : qwen2.5:3b -> qwen3.5:4b (GO Christophe, apprentissage) |
