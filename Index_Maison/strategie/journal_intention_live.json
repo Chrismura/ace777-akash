@@ -1,31 +1,16 @@
 {
-  "ts": "2026-08-22T03:50:50.257365+00:00",
+  "ts": "2026-08-22T03:50:54.315290+00:00",
   "since": "2026-08-22T03:31:00Z",
   "bots": {
     "alpha": {
       "role": "sniper",
       "surnom": "Le Sniper",
       "fills": 3,
-      "skips": 35,
+      "skips": 36,
       "pnl": 0.8387000000000002,
       "best": 2.11456,
       "conf_moy": 0.9344333333333333,
       "events": [
-        {
-          "ts": "2026-08-22T03:43:24Z",
-          "bot": "alpha",
-          "cycle": 24,
-          "action": "skip",
-          "intention": "skip — gap_guard_pause",
-          "direction": null,
-          "conf": null,
-          "exit": "gap_guard_pause",
-          "meta": {
-            "size_note": null,
-            "tension": null
-          },
-          "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv"
-        },
         {
           "ts": "2026-08-22T03:43:29Z",
           "bot": "alpha",
@@ -310,13 +295,28 @@
             "tension": 0.07438507
           },
           "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv"
+        },
+        {
+          "ts": "2026-08-22T03:50:54Z",
+          "bot": "alpha",
+          "cycle": 44,
+          "action": "skip",
+          "intention": "pas d'opportunite — discipline (radar bloque)",
+          "direction": null,
+          "conf": 0.0971,
+          "exit": "radar_block",
+          "meta": {
+            "size_note": null,
+            "tension": 0.07004809
+          },
+          "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv"
         }
       ],
       "counts": {
         "wait": 7,
         "fire": 3,
         "probe": 0,
-        "skip": 35
+        "skip": 36
       },
       "direction": {
         "long": 3,
