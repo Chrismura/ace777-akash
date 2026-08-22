@@ -1,5 +1,5 @@
 {
-  "ts": "2026-08-22T09:08:21.582447+00:00",
+  "ts": "2026-08-22T09:09:00.979994+00:00",
   "since": "2026-08-22T07:34:00Z",
   "bots": {
     "alpha": {
@@ -327,27 +327,12 @@
     "beta": {
       "role": "eclaireur",
       "surnom": "L'Eclaireur",
-      "fills": 8,
+      "fills": 9,
       "skips": 152,
-      "pnl": 2.1439399999999997,
+      "pnl": 2.3806599999999998,
       "best": 1.11744,
-      "conf_moy": 0.9067624999999999,
+      "conf_moy": 0.9108777777777777,
       "events": [
-        {
-          "ts": "2026-08-22T08:47:31Z",
-          "bot": "beta",
-          "cycle": 149,
-          "action": "skip",
-          "intention": "skip — regime_gate",
-          "direction": null,
-          "conf": null,
-          "exit": "regime_gate",
-          "meta": {
-            "size_note": null,
-            "tension": 2.753e-05
-          },
-          "file": "MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv"
-        },
         {
           "ts": "2026-08-22T08:47:52Z",
           "bot": "beta",
@@ -632,23 +617,38 @@
             "tension": 0.0
           },
           "file": "MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv"
+        },
+        {
+          "ts": "2026-08-22T09:08:44Z",
+          "bot": "beta",
+          "cycle": 169,
+          "action": "probe",
+          "intention": "a sonde le marche",
+          "direction": "short",
+          "conf": 0.9438,
+          "exit": "0.27155216",
+          "meta": {
+            "size_note": "strong_conf_full+entry_25_75_trap",
+            "tension": 2.99081597
+          },
+          "file": "MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv"
         }
       ],
       "counts": {
         "wait": 6,
         "fire": 0,
-        "probe": 8,
+        "probe": 9,
         "skip": 152
       },
       "direction": {
         "long": 4,
-        "short": 4
+        "short": 5
       },
       "revenge": 0
     }
   },
   "story": [
-    "BETA a sonde le marche (8 sondes, 4 long / 4 court, conf moyenne 0.91) — il renseigne Alpha.",
+    "BETA a sonde le marche (9 sondes, 4 long / 5 court, conf moyenne 0.91) — il renseigne Alpha.",
     "ALPHA attend son moment : 143 skips (discipline), le mur du carnet ne s'effondre pas.",
     "ALPHA a frappe 5 fois en embuscade (13x) (dont 2 en mode revenge 1.5x) : -5.22 $, meilleur trade +0.11 $."
   ]
