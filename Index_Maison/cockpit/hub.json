@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-22T09:10:33.196584+00:00",
+  "generated_at": "2026-08-22T09:10:41.984007+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -53,7 +53,7 @@
       "model": "codestral-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 1686
+      "calls_24h": 1687
     },
     {
       "id": "cloudflare-workers-ai",
@@ -229,10 +229,18 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 2676,
+    "consumed": 2677,
     "remaining": 0
   },
   "queue": [
+    {
+      "ts": "2026-08-22T09:10:36.349826+00:00",
+      "task": "supervise.decision",
+      "provider": "mistral",
+      "model": "codestral-latest",
+      "kind": "cloud",
+      "duration_s": 1.2
+    },
     {
       "ts": "2026-08-22T09:10:28.819105+00:00",
       "task": "analyse.profonde",
@@ -344,76 +352,68 @@
       "model": "codestral-latest",
       "kind": "cloud",
       "duration_s": 1.03
-    },
-    {
-      "ts": "2026-08-22T09:09:38.524317+00:00",
-      "task": "analyse.profonde",
-      "provider": "mistral",
-      "model": "codestral-latest",
-      "kind": "cloud",
-      "duration_s": 5.56
     }
   ],
   "events": [
     {
-      "ts": "2026-08-22T09:10:28.818946+00:00",
+      "ts": "2026-08-22T09:10:36.349703+00:00",
       "kind": "message",
       "title": "« Mistral La Plateforme (essai gratuit) » a repondu",
       "detail": "bascule"
     },
     {
-      "ts": "2026-08-22T09:10:28.818559+00:00",
+      "ts": "2026-08-22T09:10:36.349315+00:00",
       "kind": "filet-universel",
       "title": "[FILET UNIVERSEL] « Mistral La Plateforme (essai gratuit) » a repondu hors chaine",
-      "detail": "analyse.profonde"
+      "detail": "supervise.decision"
     },
     {
-      "ts": "2026-08-22T09:10:28.224719+00:00",
-      "kind": "message",
-      "title": "« Mistral La Plateforme (essai gratuit) » a repondu",
-      "detail": "bascule"
+      "ts": "2026-08-22T09:10:35.148123+00:00",
+      "kind": "failover",
+      "title": "Saute (blacklist) depuis HuggingFace (136+ modeles, dont DeepSeek-V4)",
+      "detail": "0 attente"
     },
     {
-      "ts": "2026-08-22T09:10:28.223170+00:00",
-      "kind": "filet-universel",
-      "title": "[FILET UNIVERSEL] « Mistral La Plateforme (essai gratuit) » a repondu hors chaine",
-      "detail": "analyse.profonde"
-    },
-    {
-      "ts": "2026-08-22T09:10:23.974521+00:00",
+      "ts": "2026-08-22T09:10:35.146247+00:00",
       "kind": "failover",
       "title": "Bascule depuis NVIDIA build.nvidia.com (100+ modeles)",
       "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-08-22T09:10:23.944889+00:00",
+      "ts": "2026-08-22T09:10:34.879204+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis OpenRouter (modeles gratuits)",
+      "detail": "HTTP Error 404: Not Found"
+    },
+    {
+      "ts": "2026-08-22T09:10:34.732844+00:00",
+      "kind": "failover",
+      "title": "Saute (blacklist) depuis Google Gemini",
+      "detail": "0 attente"
+    },
+    {
+      "ts": "2026-08-22T09:10:34.732677+00:00",
+      "kind": "failover",
+      "title": "Saute (blacklist) depuis NaraRouter (7M tokens/jour gratuits)",
+      "detail": "0 attente"
+    },
+    {
+      "ts": "2026-08-22T09:10:34.732543+00:00",
+      "kind": "failover",
+      "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
+      "detail": "0 attente"
+    },
+    {
+      "ts": "2026-08-22T09:10:34.732049+00:00",
+      "kind": "reserve-storm",
+      "title": "Tempête active + budget calme atteint -> réserve storm pour supervise.decision",
+      "detail": "supervise.decision"
+    },
+    {
+      "ts": "2026-08-22T09:10:34.541988+00:00",
       "kind": "failover",
       "title": "Bascule depuis NVIDIA build.nvidia.com (100+ modeles)",
       "detail": "HTTP Error 429: Too Many Requests"
-    },
-    {
-      "ts": "2026-08-22T09:10:23.640157+00:00",
-      "kind": "failover",
-      "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
-      "detail": "0 attente"
-    },
-    {
-      "ts": "2026-08-22T09:10:23.638121+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis OpenRouter (modeles gratuits)",
-      "detail": "HTTP Error 404: Not Found"
-    },
-    {
-      "ts": "2026-08-22T09:10:23.617641+00:00",
-      "kind": "failover",
-      "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
-      "detail": "0 attente"
-    },
-    {
-      "ts": "2026-08-22T09:10:23.615667+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis OpenRouter (modeles gratuits)",
-      "detail": "HTTP Error 404: Not Found"
     }
   ],
   "tasks_quotas": {
