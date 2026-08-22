@@ -9,7 +9,7 @@
 - ✅ radar
 - ⛔ lecteur signets
 - ⛔ générateur fiches
-- ✅ feed mission
+- ⛔ feed mission
 - ⛔ serveur cockpit
 
 ## Routage des tâches de décision
@@ -41,15 +41,15 @@
   · dots-studio/dots-3-note-preview:free
   · liquid/lfm-2.5-2.6b:free
   · thinkingmachines/inkling-small:free
-  … 107 offres/pépites détectées ce matin
+  … 105 offres/pépites détectées ce matin
 
 ## Mémoire chaude (journal + résumés)
 
 - Radar (dernières alertes) :
-  · 2026-08-22T16:13:03.958216Z ETHUSDT 2409.01 0.0007 150.9 declenche=non
-  · 2026-08-22T16:13:03.958216Z ETHUSDT 2409.01 0.0008 121.9 declenche=non
-  · 2026-08-22T16:13:04.323684Z ETHUSDT 2409.0 0.0007 150.9 declenche=non
-  · 2026-08-22T16:13:04.325367Z ETHUSDT 2409.0 0.0008 121.9 declenche=non
+  · 2026-08-22T16:13:14.259503Z BTCUSDT 76973.85 0.0001 2.9 declenche=non
+  · 2026-08-22T16:13:14.259541Z BTCUSDT 76973.85 0.0003 4.4 declenche=non
+  · 2026-08-22T16:13:14.579562Z ETHUSDT 2410.3 0.0002 220.0 declenche=non
+  · 2026-08-22T16:13:14.579561Z ETHUSDT 2410.3 0.0002 191.0 declenche=non
 - Intention en cours : BETA a sonde le marche (2 sondes, 1 long / 1 court, conf moy | ALPHA a frappe 1 fois en embuscade (13x) : -1.32 $ — session
 - 550 signets X résumés (quota aujourd'hui : 50/50)
 - 56 fiches IA d'offres en cache (quota 8/jour)
