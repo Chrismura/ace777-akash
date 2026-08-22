@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-22T02:16:42.727569+00:00",
+  "generated_at": "2026-08-22T02:16:53.537452+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -356,6 +356,30 @@
   ],
   "events": [
     {
+      "ts": "2026-08-22T02:16:52.813651+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis HuggingFace (136+ modeles, dont DeepSeek-V4)",
+      "detail": "HTTP Error 402: Payment Required"
+    },
+    {
+      "ts": "2026-08-22T02:16:52.538280+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis Google Gemini",
+      "detail": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "ts": "2026-08-22T02:16:52.537860+00:00",
+      "kind": "ratelimit",
+      "title": "429 Google Gemini -> pause 60s + bascule",
+      "detail": ""
+    },
+    {
+      "ts": "2026-08-22T02:16:52.174874+00:00",
+      "kind": "blacklist",
+      "title": "Fin de pause Google Gemini",
+      "detail": "re-essai automatique"
+    },
+    {
       "ts": "2026-08-22T02:16:39.279484+00:00",
       "kind": "message",
       "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
@@ -390,30 +414,6 @@
       "kind": "blacklist",
       "title": "Fin de pause HuggingFace (136+ modeles, dont DeepSeek-V4)",
       "detail": "re-essai automatique"
-    },
-    {
-      "ts": "2026-08-22T02:15:50.543127+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis Google Gemini",
-      "detail": "HTTP Error 429: Too Many Requests"
-    },
-    {
-      "ts": "2026-08-22T02:15:50.542697+00:00",
-      "kind": "ratelimit",
-      "title": "429 Google Gemini -> pause 60s + bascule",
-      "detail": ""
-    },
-    {
-      "ts": "2026-08-22T02:15:50.153147+00:00",
-      "kind": "blacklist",
-      "title": "Fin de pause Google Gemini",
-      "detail": "re-essai automatique"
-    },
-    {
-      "ts": "2026-08-22T02:15:48.469921+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis Groq (LLM ultra-rapide, gratuit)",
-      "detail": "HTTP Error 429: Too Many Requests"
     }
   ],
   "tasks_quotas": {
