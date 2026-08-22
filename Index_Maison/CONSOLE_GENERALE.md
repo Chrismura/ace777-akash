@@ -1,6 +1,6 @@
 # Console générale — clin d’œil
 
-Auto-refresh : 2026-08-22 01:59 UTC · jour local **2026-08-22**
+Auto-refresh : 2026-08-22 02:00 UTC · jour local **2026-08-22**
 
 ## Feu tricolore
 
@@ -8,7 +8,7 @@ Auto-refresh : 2026-08-22 01:59 UTC · jour local **2026-08-22**
 |-------|------|--------|
 | **ACE** | 🟢 RUN | Dernier tag `MASTER_VORTEX_V2_COLLAB_4H` · combo ≈ **+307.25 $** |
 | **Hulk paper** | 🟢 RUN | pnl_total ≈ **1.3985** · pos **15** |
-| **Hulk digest** | 🟢 RUN | mtime 2026-08-22T01:59Z |
+| **Hulk digest** | 🟢 RUN | mtime 2026-08-22T02:00Z |
 | **Punk** | 🔴 STOP | — · idle |
 | **Ollama** | 🟢 RUN | |
 | **Obsidian** | 🟢 | vault `Obsidian_ACE777` |
