@@ -1,46 +1,16 @@
 {
-  "ts": "2026-08-22T03:44:51.244641+00:00",
+  "ts": "2026-08-22T03:45:44.452535+00:00",
   "since": "2026-08-22T03:31:00Z",
   "bots": {
     "alpha": {
       "role": "sniper",
       "surnom": "Le Sniper",
       "fills": 3,
-      "skips": 29,
+      "skips": 30,
       "pnl": 0.8387000000000002,
       "best": 2.11456,
       "conf_moy": 0.9344333333333333,
       "events": [
-        {
-          "ts": "2026-08-22T03:37:56Z",
-          "bot": "alpha",
-          "cycle": 14,
-          "action": "skip",
-          "intention": "pas d'opportunite — discipline (radar bloque)",
-          "direction": null,
-          "conf": 0.1832,
-          "exit": "radar_block",
-          "meta": {
-            "size_note": null,
-            "tension": 0.10998486
-          },
-          "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv"
-        },
-        {
-          "ts": "2026-08-22T03:38:13Z",
-          "bot": "alpha",
-          "cycle": 15,
-          "action": "skip",
-          "intention": "skip — regime_gate",
-          "direction": null,
-          "conf": null,
-          "exit": "regime_gate",
-          "meta": {
-            "size_note": null,
-            "tension": 9.062e-05
-          },
-          "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv"
-        },
         {
           "ts": "2026-08-22T03:42:33Z",
           "bot": "alpha",
@@ -310,13 +280,43 @@
             "tension": null
           },
           "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv"
+        },
+        {
+          "ts": "2026-08-22T03:44:53Z",
+          "bot": "alpha",
+          "cycle": 34,
+          "action": "wait",
+          "intention": "attente — mur du carnet intact",
+          "direction": null,
+          "conf": null,
+          "exit": "impulse_resonance_wait",
+          "meta": {
+            "size_note": null,
+            "tension": 0.92881464
+          },
+          "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv"
+        },
+        {
+          "ts": "2026-08-22T03:45:14Z",
+          "bot": "alpha",
+          "cycle": 35,
+          "action": "skip",
+          "intention": "skip — regime_gate",
+          "direction": null,
+          "conf": null,
+          "exit": "regime_gate",
+          "meta": {
+            "size_note": null,
+            "tension": 4.251e-05
+          },
+          "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv"
         }
       ],
       "counts": {
-        "wait": 3,
+        "wait": 4,
         "fire": 3,
         "probe": 0,
-        "skip": 29
+        "skip": 30
       },
       "direction": {
         "long": 3,
