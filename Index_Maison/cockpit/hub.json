@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-22T15:04:37.282053+00:00",
+  "generated_at": "2026-08-22T15:04:55.592026+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -53,7 +53,7 @@
       "model": "codestral-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 86
+      "calls_24h": 89
     },
     {
       "id": "cloudflare-workers-ai",
@@ -229,10 +229,34 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 90,
-    "remaining": 534
+    "consumed": 93,
+    "remaining": 531
   },
   "queue": [
+    {
+      "ts": "2026-08-22T15:04:47.171916+00:00",
+      "task": "analyse.profonde",
+      "provider": "mistral",
+      "model": "codestral-latest",
+      "kind": "cloud",
+      "duration_s": 4.14
+    },
+    {
+      "ts": "2026-08-22T15:04:45.292446+00:00",
+      "task": "analyse.profonde",
+      "provider": "mistral",
+      "model": "codestral-latest",
+      "kind": "cloud",
+      "duration_s": 3.82
+    },
+    {
+      "ts": "2026-08-22T15:04:41.448080+00:00",
+      "task": "supervise.decision",
+      "provider": "mistral",
+      "model": "codestral-latest",
+      "kind": "cloud",
+      "duration_s": 1.81
+    },
     {
       "ts": "2026-08-22T15:04:30.358519+00:00",
       "task": "analyse.profonde",
@@ -328,89 +352,65 @@
       "model": "codestral-latest",
       "kind": "cloud",
       "duration_s": 4.49
-    },
-    {
-      "ts": "2026-08-22T15:03:33.285135+00:00",
-      "task": "supervise.decision",
-      "provider": "mistral",
-      "model": "codestral-latest",
-      "kind": "cloud",
-      "duration_s": 1.18
-    },
-    {
-      "ts": "2026-08-22T15:03:32.949896+00:00",
-      "task": "supervise.decision",
-      "provider": "mistral",
-      "model": "codestral-latest",
-      "kind": "cloud",
-      "duration_s": 0.61
-    },
-    {
-      "ts": "2026-08-22T15:03:16.823413+00:00",
-      "task": "analyse.profonde",
-      "provider": "mistral",
-      "model": "codestral-latest",
-      "kind": "cloud",
-      "duration_s": 3.25
     }
   ],
   "events": [
     {
-      "ts": "2026-08-22T15:04:32.863172+00:00",
+      "ts": "2026-08-22T15:04:50.734995+00:00",
       "kind": "failover",
       "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
       "detail": "0 attente"
     },
     {
-      "ts": "2026-08-22T15:04:32.861380+00:00",
+      "ts": "2026-08-22T15:04:50.731262+00:00",
       "kind": "failover",
       "title": "Bascule depuis OpenRouter (modeles gratuits)",
       "detail": "HTTP Error 404: Not Found"
     },
     {
-      "ts": "2026-08-22T15:04:32.723153+00:00",
+      "ts": "2026-08-22T15:04:50.374011+00:00",
       "kind": "failover",
       "title": "Saute (blacklist) depuis NaraRouter (7M tokens/jour gratuits)",
       "detail": "0 attente"
     },
     {
-      "ts": "2026-08-22T15:04:32.723039+00:00",
+      "ts": "2026-08-22T15:04:50.373473+00:00",
       "kind": "failover",
       "title": "Saute (blacklist) depuis HuggingFace (136+ modeles, dont DeepSeek-V4)",
       "detail": "0 attente"
     },
     {
-      "ts": "2026-08-22T15:04:32.722818+00:00",
+      "ts": "2026-08-22T15:04:50.372869+00:00",
       "kind": "failover",
       "title": "Saute (blacklist) depuis Google Gemini",
       "detail": "0 attente"
     },
     {
-      "ts": "2026-08-22T15:04:31.285054+00:00",
+      "ts": "2026-08-22T15:04:48.976319+00:00",
       "kind": "failover",
       "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
       "detail": "0 attente"
     },
     {
-      "ts": "2026-08-22T15:04:31.282813+00:00",
+      "ts": "2026-08-22T15:04:48.973999+00:00",
       "kind": "failover",
       "title": "Bascule depuis OpenRouter (modeles gratuits)",
       "detail": "HTTP Error 404: Not Found"
     },
     {
-      "ts": "2026-08-22T15:04:31.073172+00:00",
+      "ts": "2026-08-22T15:04:48.611238+00:00",
       "kind": "failover",
       "title": "Saute (blacklist) depuis NaraRouter (7M tokens/jour gratuits)",
       "detail": "0 attente"
     },
     {
-      "ts": "2026-08-22T15:04:31.073055+00:00",
+      "ts": "2026-08-22T15:04:48.611007+00:00",
       "kind": "failover",
       "title": "Saute (blacklist) depuis HuggingFace (136+ modeles, dont DeepSeek-V4)",
       "detail": "0 attente"
     },
     {
-      "ts": "2026-08-22T15:04:31.072782+00:00",
+      "ts": "2026-08-22T15:04:48.610225+00:00",
       "kind": "failover",
       "title": "Saute (blacklist) depuis Google Gemini",
       "detail": "0 attente"
