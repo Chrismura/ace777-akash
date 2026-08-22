@@ -800,10 +800,22 @@
     "file": "MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv",
     "pnl": 4.1114,
     "fills": 14,
-    "skips": 264,
+    "skips": 265,
     "pnlLifetime": 30.5532,
     "fillsLifetime": 5982,
     "last": [
+      {
+        "ts": "2026-08-22T00:34:19Z",
+        "side": "SKIP",
+        "status": "SKIPPED",
+        "pnl": 0.0,
+        "qty": null,
+        "entry": null,
+        "exit": null,
+        "bps": null,
+        "reason": "tactic_mismatch",
+        "cycle": "138"
+      },
       {
         "ts": "2026-08-22T00:33:38Z",
         "side": "SKIP",
@@ -1431,18 +1443,6 @@
         "bps": null,
         "reason": "gap_guard_pause",
         "cycle": "125"
-      },
-      {
-        "ts": "2026-08-22T00:20:57Z",
-        "side": "SKIP",
-        "status": "SKIPPED",
-        "pnl": 0.0,
-        "qty": null,
-        "entry": null,
-        "exit": null,
-        "bps": null,
-        "reason": "gap_guard_pause",
-        "cycle": "105"
       }
     ],
     "fills_only": [
@@ -1631,7 +1631,7 @@
       -0.33024,
       -0.10112
     ],
-    "cycle": "137",
+    "cycle": "138",
     "lastFill": {
       "ts": "2026-08-22T00:26:42Z",
       "side": "SELL",
@@ -1645,7 +1645,7 @@
       "cycle": "126"
     },
     "sessionSince": "2026-08-21T23:22Z",
-    "mtime": "2026-08-22T00:33Z"
+    "mtime": "2026-08-22T00:34Z"
   },
   "hulk": {
     "file": "PAPER_V1_20260821_092452.csv",
@@ -3271,7 +3271,7 @@
       "cpfpGlobal": false,
       "cpfpZscore": 0.0,
       "cpfpDustScore": 100.0,
-      "cpfpDustDetail": "poussière <4.5 sat/vB (normalisé minFee 3×1.5) : 2 vues ce run, 6200 cumulées 48h (seuil 1000) — max 0.0001 BTC",
+      "cpfpDustDetail": "poussière <4.5 sat/vB (normalisé minFee 3×1.5) : 0 vues ce run, 6200 cumulées 48h (seuil 1000) — max 0.0000 BTC",
       "blocPrivatiseMode": "actif",
       "blocPrivatiseTauxFantome": 25.7812,
       "blocPrivatiseNbCachees": 858,
@@ -3343,7 +3343,7 @@
     }
   },
   "intention": {
-    "ts": "2026-08-22T00:34:13.152469+00:00",
+    "ts": "2026-08-22T00:34:18.519484+00:00",
     "since": "2026-08-21T23:22:00Z",
     "bots": {
       "alpha": {
