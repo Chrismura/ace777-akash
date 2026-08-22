@@ -1,12 +1,9 @@
 {
-  "ts": "2026-08-22T04:20+00:00",
-  "updated": "2026-08-22T04:20Z",
-  "etat": "ALERTE",
-  "chaines_ok": "8/9",
-  "anomalies": [
-    "VEILLE DÉGRADATION : rapport ALERTE_DEGRADATION_SILENCIEUSE ou figé — dégradation silencieuse détectée",
-    "VEILLE DÉGRADATION : Dead Man's Switch ALERTE ou figé — la surveillance elle-même est en panne"
-  ],
+  "ts": "2026-08-22T04:22+00:00",
+  "updated": "2026-08-22T04:22Z",
+  "etat": "OK",
+  "chaines_ok": "9/9",
+  "anomalies": [],
   "degradees": [],
   "chaines": [
     {
@@ -89,7 +86,7 @@
         {
           "nom": "mission.json → cockpit",
           "ok": true,
-          "detail": "âge 0 min"
+          "detail": "âge 1 min"
         },
         {
           "nom": "feed launchd",
@@ -199,7 +196,7 @@
       "id": "veille_deg",
       "nom": "VEILLE DÉGRADATION",
       "chemin": "veille_degradation.py (plists + heartbeats + indicateurs) → etat.json + DMS externe (dms-veille) → cockpit",
-      "ok": false,
+      "ok": true,
       "maillons": [
         {
           "nom": "process veille_degradation (launchd)",
@@ -208,8 +205,8 @@
         },
         {
           "nom": "rapport veille_degradation_etat.json",
-          "ok": false,
-          "detail": "ALERTE_DEGRADATION_SILENCIEUSE · âge 0 min"
+          "ok": true,
+          "detail": "SAIN · âge 0 min"
         },
         {
           "nom": "Dead Man's Switch (dms-veille)",
@@ -218,8 +215,8 @@
         },
         {
           "nom": "rapport DMS_VEILLE.json",
-          "ok": false,
-          "detail": "ALERTE"
+          "ok": true,
+          "detail": "OK"
         }
       ]
     },

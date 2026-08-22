@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-22T04:20:31.156554+00:00",
+  "generated_at": "2026-08-22T04:21:50.122207+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -26,7 +26,7 @@
       "model": "qwen-3.8-max-free",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 132
+      "calls_24h": 135
     },
     {
       "id": "groq",
@@ -229,10 +229,34 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 548,
-    "remaining": 76
+    "consumed": 551,
+    "remaining": 73
   },
   "queue": [
+    {
+      "ts": "2026-08-22T04:21:25.749741+00:00",
+      "task": "analyse.profonde",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 263.41
+    },
+    {
+      "ts": "2026-08-22T04:20:48.261085+00:00",
+      "task": "supervise.decision",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 29.11
+    },
+    {
+      "ts": "2026-08-22T04:20:34.601736+00:00",
+      "task": "supervise.decision",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 32.1
+    },
     {
       "ts": "2026-08-22T04:19:49.378130+00:00",
       "task": "supervise.decision",
@@ -328,33 +352,39 @@
       "model": "codestral-latest",
       "kind": "cloud",
       "duration_s": 3.57
-    },
-    {
-      "ts": "2026-08-22T04:16:28.565670+00:00",
-      "task": "supervise.decision",
-      "provider": "mistral",
-      "model": "codestral-latest",
-      "kind": "cloud",
-      "duration_s": 0.44
-    },
-    {
-      "ts": "2026-08-22T04:16:22.450234+00:00",
-      "task": "analyse.profonde",
-      "provider": "mistral",
-      "model": "codestral-latest",
-      "kind": "cloud",
-      "duration_s": 2.78
-    },
-    {
-      "ts": "2026-08-22T04:16:20.823633+00:00",
-      "task": "supervise.decision",
-      "provider": "mistral",
-      "model": "codestral-latest",
-      "kind": "cloud",
-      "duration_s": 0.81
     }
   ],
   "events": [
+    {
+      "ts": "2026-08-22T04:21:25.750314+00:00",
+      "kind": "http",
+      "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
+      "detail": ""
+    },
+    {
+      "ts": "2026-08-22T04:21:25.749364+00:00",
+      "kind": "message",
+      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
+      "detail": "bascule"
+    },
+    {
+      "ts": "2026-08-22T04:20:48.259811+00:00",
+      "kind": "message",
+      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
+      "detail": "bascule"
+    },
+    {
+      "ts": "2026-08-22T04:20:44.191219+00:00",
+      "kind": "failover",
+      "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
+      "detail": "0 attente"
+    },
+    {
+      "ts": "2026-08-22T04:20:34.601291+00:00",
+      "kind": "message",
+      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
+      "detail": "bascule"
+    },
     {
       "ts": "2026-08-22T04:20:24.791162+00:00",
       "kind": "failover",
@@ -384,36 +414,6 @@
       "kind": "blacklist",
       "title": "Fin de pause HuggingFace (136+ modeles, dont DeepSeek-V4)",
       "detail": "re-essai automatique"
-    },
-    {
-      "ts": "2026-08-22T04:20:18.698676+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis Google Gemini",
-      "detail": "HTTP Error 429: Too Many Requests"
-    },
-    {
-      "ts": "2026-08-22T04:20:18.698276+00:00",
-      "kind": "ratelimit",
-      "title": "429 Google Gemini -> pause 60s + bascule",
-      "detail": ""
-    },
-    {
-      "ts": "2026-08-22T04:20:18.253055+00:00",
-      "kind": "blacklist",
-      "title": "Fin de pause Google Gemini",
-      "detail": "re-essai automatique"
-    },
-    {
-      "ts": "2026-08-22T04:20:02.501366+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis Groq (LLM ultra-rapide, gratuit)",
-      "detail": "HTTP Error 429: Too Many Requests"
-    },
-    {
-      "ts": "2026-08-22T04:20:02.501023+00:00",
-      "kind": "ratelimit",
-      "title": "429 Groq (LLM ultra-rapide, gratuit) -> pause 60s + bascule",
-      "detail": ""
     }
   ],
   "tasks_quotas": {
