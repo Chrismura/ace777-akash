@@ -6,7 +6,7 @@ Auto-refresh : 2026-08-22 14:18 UTC · jour local **2026-08-22**
 
 | Jambe | État | Détail |
 |-------|------|--------|
-| **ACE** | 🟢 RUN | Dernier tag `MASTER_VORTEX_V2_COLLAB_4H` · combo ≈ **+317.31 $** |
+| **ACE** | 🔴 STOP | Dernier tag `MASTER_VORTEX_V2_COLLAB_4H` · combo ≈ **+317.31 $** |
 | **Hulk paper** | 🟢 RUN | pnl_total ≈ **-0.1079** · pos **12** |
 | **Hulk digest** | 🟢 RUN | mtime 2026-08-22T14:18Z |
 | **Punk** | 🔴 STOP | — · idle |
