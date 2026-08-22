@@ -2003,3 +2003,11 @@ Pas d’ordre — confrontation plus tard.
 - HBARUSDT: WATCH_PULLBACK — tension haute + reflux
 - WUSDT: WATCH_PULLBACK — tension haute + reflux
 (compléter: confirmé ? risque ?)
+
+### 2026-08-22T07:28:37Z — ALERT auto
+- PYTHUSDT: WATCH_PULLBACK — tension haute + reflux
+- HBARUSDT: WATCH_PULLBACK — tension haute + reflux
+- CHIPUSDT: WATCH_PULLBACK — tension haute + reflux
+- WUSDT: WATCH_PULLBACK — tension haute + reflux
+- BIOUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
