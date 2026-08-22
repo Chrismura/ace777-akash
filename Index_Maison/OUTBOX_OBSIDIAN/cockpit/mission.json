@@ -1,5 +1,5 @@
 {
-  "ts": "2026-08-22T04:01Z",
+  "ts": "2026-08-22T04:02Z",
   "alert": "red",
   "run": "MASTER_VORTEX_V2_COLLAB_4H",
   "sessionSince": "2026-08-22T03:31Z",
@@ -8,7 +8,7 @@
   "comboFees24h": -362.0746,
   "comboPnlNet": -65.9501,
   "comboArrow": "down",
-  "swarmCycle": 69,
+  "swarmCycle": 70,
   "thrust": {
     "alpha": 8.373000000000005,
     "beta": 59.176,
@@ -18,10 +18,26 @@
     "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv",
     "pnl": -3.9627,
     "fills": 2,
-    "skips": 67,
+    "skips": 68,
     "pnlLifetime": 292.1931,
     "fillsLifetime": 2036,
     "last": [
+      {
+        "ts": "2026-08-22T04:01:57Z",
+        "side": "SKIP",
+        "status": "SKIPPED",
+        "pnl": 0.0,
+        "qty": null,
+        "entry": null,
+        "exit": null,
+        "bps": null,
+        "reason": "radar_block",
+        "cycle": "70",
+        "conf": 0.1028,
+        "tension": 0.062408,
+        "bid_drop": 0.0,
+        "ask_drop": 0.405649
+      },
       {
         "ts": "2026-08-22T04:01:20Z",
         "side": "SKIP",
@@ -638,18 +654,6 @@
         "bps": null,
         "reason": "gap_guard_pause",
         "cycle": "21"
-      },
-      {
-        "ts": "2026-08-22T03:43:01Z",
-        "side": "SKIP",
-        "status": "SKIPPED",
-        "pnl": 0.0,
-        "qty": null,
-        "entry": null,
-        "exit": null,
-        "bps": null,
-        "reason": "gap_guard_pause",
-        "cycle": "20"
       }
     ],
     "fills_only": [
@@ -682,7 +686,7 @@
       -2.45226,
       -1.5104
     ],
-    "cycle": "69",
+    "cycle": "70",
     "lastFill": {
       "ts": "2026-08-22T03:58:08Z",
       "side": "BUY",
@@ -3015,7 +3019,7 @@
     "deltas": {
       "mark": {
         "dir": "down",
-        "delta": -3.35,
+        "delta": -33.92,
         "label": "↓"
       },
       "funding": {
@@ -3039,14 +3043,14 @@
         "label": "="
       },
       "chg24": {
-        "dir": "down",
-        "delta": -0.01,
-        "label": "↓"
+        "dir": "flat",
+        "delta": 0.0,
+        "label": "="
       },
       "oi": {
-        "dir": "down",
-        "delta": -0.733,
-        "label": "↓"
+        "dir": "up",
+        "delta": 4.632,
+        "label": "↑"
       },
       "score": {
         "dir": "flat",
@@ -3094,9 +3098,9 @@
         "label": "—"
       },
       "liq24Usd": {
-        "dir": "flat",
-        "delta": 0.0,
-        "label": "="
+        "dir": "up",
+        "delta": 20516.0,
+        "label": "↑"
       },
       "liqLongUsd": {
         "dir": "flat",
@@ -3110,7 +3114,7 @@
       },
       "etfBtcM": {
         "dir": "down",
-        "delta": -0.01,
+        "delta": -0.1,
         "label": "↓"
       },
       "altSeasonScore": {
@@ -3134,9 +3138,9 @@
     "marketCapUsd": null,
     "altSeason": null,
     "altSeasonScore": null,
-    "liq24Usd": 44906787.0,
+    "liq24Usd": 44928533.0,
     "etf": {
-      "btc": 230.38,
+      "btc": 230.13,
       "eth": null,
       "xrp": null,
       "source": "bitbo-public (moy 7j)",
@@ -3171,7 +3175,7 @@
       "cpfpGlobal": false,
       "cpfpZscore": 0.0,
       "cpfpDustScore": 100.0,
-      "cpfpDustDetail": "poussière <2.0 sat/vB (normalisé minFee 1×1.5) : 4 vues ce run, 9657 cumulées 48h (seuil 1000) — max 0.0005 BTC",
+      "cpfpDustDetail": "poussière <2.0 sat/vB (normalisé minFee 1×1.5) : 6 vues ce run, 9663 cumulées 48h (seuil 1000) — max 0.0003 BTC",
       "blocPrivatiseMode": "actif",
       "blocPrivatiseTauxFantome": 1.9531,
       "blocPrivatiseNbCachees": 120,
@@ -3217,7 +3221,7 @@
         "wired": true
       },
       "D30": {
-        "value": "BTC 230.38 M$",
+        "value": "BTC 230.13 M$",
         "level": "ok",
         "label": "ETF BTC net inflow",
         "unit": "",
@@ -3243,7 +3247,7 @@
     }
   },
   "intention": {
-    "ts": "2026-08-22T04:01:48.857699+00:00",
+    "ts": "2026-08-22T04:01:56.476145+00:00",
     "since": "2026-08-22T03:31:00Z",
     "bots": {
       "alpha": {
@@ -3572,26 +3576,11 @@
         "role": "eclaireur",
         "surnom": "L'Eclaireur",
         "fills": 3,
-        "skips": 63,
+        "skips": 64,
         "pnl": 1.11762,
         "best": 0.58338,
         "conf_moy": 0.8950999999999999,
         "events": [
-          {
-            "ts": "2026-08-22T03:58:59Z",
-            "bot": "beta",
-            "cycle": 49,
-            "action": "probe",
-            "intention": "a sonde le marche",
-            "direction": "long",
-            "conf": 0.9936,
-            "exit": "0.39630629",
-            "meta": {
-              "size_note": "strong_conf_full+entry_25_75_full",
-              "tension": 1.85276057
-            },
-            "file": "MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv"
-          },
           {
             "ts": "2026-08-22T03:59:12Z",
             "bot": "beta",
@@ -3876,13 +3865,28 @@
               "tension": 0.00021805
             },
             "file": "MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv"
+          },
+          {
+            "ts": "2026-08-22T04:01:54Z",
+            "bot": "beta",
+            "cycle": 69,
+            "action": "skip",
+            "intention": "pas d'opportunite — discipline (radar bloque)",
+            "direction": null,
+            "conf": 0.1028,
+            "exit": "radar_block",
+            "meta": {
+              "size_note": null,
+              "tension": 0.06237408
+            },
+            "file": "MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv"
           }
         ],
         "counts": {
           "wait": 2,
           "fire": 0,
           "probe": 3,
-          "skip": 63
+          "skip": 64
         },
         "direction": {
           "long": 1,
@@ -3898,7 +3902,7 @@
     ]
   },
   "saison": {
-    "ts": "2026-08-22T04:01:47.622921+00:00",
+    "ts": "2026-08-22T04:02:08.076463+00:00",
     "saison": "CALME",
     "emoji": "🧊",
     "direction": "neutre",
@@ -3929,12 +3933,12 @@
       "vortex": {
         "direction": "long",
         "force": 2,
-        "brut": 5.2
+        "brut": 5.12
       },
       "essaim": {
         "direction": "neutre",
         "force": 1,
-        "brut": 1.052
+        "brut": 1.055
       },
       "baleines": {
         "direction": "neutre",
@@ -3945,7 +3949,7 @@
     "story": [
       "SAISON : CALME 🧊 — hiver, ADA dort.",
       "Alignement : 1 haussiers / 1 baissiers.",
-      "Le vortex tourne fort (+5.20 % sur 24h) — le mouvement est là."
+      "Le vortex tourne fort (+5.12 % sur 24h) — le mouvement est là."
     ],
     "sources": [
       "live.json"
@@ -3953,7 +3957,7 @@
     "degraded": false
   },
   "gardienne": {
-    "ts": "2026-08-22T04:01:47Z",
+    "ts": "2026-08-22T04:02:08Z",
     "voilure_pct": 88,
     "zone": "VERT",
     "zone_emoji": "🟢",
@@ -3985,7 +3989,7 @@
     ]
   },
   "coup_doeil": {
-    "ts": "2026-08-22T04:01:47Z",
+    "ts": "2026-08-22T04:02:08Z",
     "saison": "CALME",
     "saison_emoji": "🌿",
     "voilure": "88 %",
