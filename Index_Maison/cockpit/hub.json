@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-22T11:58:06.974711+00:00",
+  "generated_at": "2026-08-22T11:58:43.615956+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -356,6 +356,18 @@
   ],
   "events": [
     {
+      "ts": "2026-08-22T11:58:42.070036+00:00",
+      "kind": "timeout",
+      "title": "Patience NaraRouter (7M tokens/jour gratuits) (reponse vide)",
+      "detail": "Reponse vide"
+    },
+    {
+      "ts": "2026-08-22T11:58:34.899203+00:00",
+      "kind": "message",
+      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
+      "detail": "bascule"
+    },
+    {
       "ts": "2026-08-22T11:57:46.858310+00:00",
       "kind": "failover",
       "title": "Saute (blacklist) depuis HuggingFace (136+ modeles, dont DeepSeek-V4)",
@@ -402,18 +414,6 @@
       "kind": "error",
       "title": "Budget temps requete depasse",
       "detail": ""
-    },
-    {
-      "ts": "2026-08-22T11:57:08.897109+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis NaraRouter (7M tokens/jour gratuits)",
-      "detail": "Reponse vide"
-    },
-    {
-      "ts": "2026-08-22T11:57:06.120616+00:00",
-      "kind": "failover",
-      "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
-      "detail": "0 attente"
     }
   ],
   "tasks_quotas": {
