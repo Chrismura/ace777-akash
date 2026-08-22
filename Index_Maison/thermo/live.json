@@ -1,6 +1,6 @@
 {
   "ts": "2026-08-22T14:55Z",
-  "tsUnix": 1787410522,
+  "tsUnix": 1787410523,
   "symbol": "BTCUSDT",
   "mark": 76955.1,
   "oi": 106450.455,
@@ -11,8 +11,8 @@
   "fundingSamplesPrev": 93,
   "longShort": 0.997,
   "chg24": -0.43,
-  "chg1h": -0.42,
-  "chg4h": -0.02,
+  "chg1h": -0.4,
+  "chg4h": 0.0,
   "volQuote": 14738642041.0,
   "btcDominance": 58.9,
   "panierDownPct": 5.0,
@@ -79,7 +79,7 @@
     "Climat CALME (score 88/100).",
     "Funding maintenant 0.0001. Moyenne ~30j 5.919e-05 (90 pts). Mois précédent 6.081e-05 (93 pts).",
     "Long/Short 0.997.",
-    "BTC 24h -0.43% · 1h -0.42% · 4h -0.02%.",
+    "BTC 24h -0.43% · 1h -0.4% · 4h 0.0%.",
     "Panier alts : 5.0% en baisse (1/20).",
     "Whales proxy : aucun print ≥500k$ sur les ~500 derniers trades.",
     "Dark/OTC proxy : taker buy/sell 0.984 · OI 106450.455 (pas de dark pool free temps réel).",
@@ -120,7 +120,7 @@
       "wired": true
     },
     "A4": {
-      "value": "7j 63.21% · 30j 43.13%",
+      "value": "7j 63.14% · 30j 43.12%",
       "level": "warn",
       "label": "Volatilité annualisée",
       "unit": "",
@@ -128,7 +128,7 @@
       "wired": true
     },
     "A5": {
-      "value": -19.46,
+      "value": -19.45,
       "level": "warn",
       "label": "DD vs ATH fenêtre",
       "unit": "%",
@@ -136,7 +136,7 @@
       "wired": true
     },
     "A6": {
-      "value": "tendance (30j 18.28%)",
+      "value": "tendance (30j 18.3%)",
       "level": "ok",
       "label": "Régime large",
       "unit": "",
@@ -144,7 +144,7 @@
       "wired": true
     },
     "B7": {
-      "value": "1h -0.42% · 4h -0.02% · 24h -0.43%",
+      "value": "1h -0.4% · 4h 0.0% · 24h -0.43%",
       "level": "ok",
       "label": "BTC multi-horizon",
       "unit": "",
@@ -370,9 +370,9 @@
   },
   "deltas": {
     "mark": {
-      "dir": "down",
-      "delta": -37.7,
-      "label": "↓"
+      "dir": "flat",
+      "delta": 0.0,
+      "label": "="
     },
     "funding": {
       "dir": "flat",
@@ -395,14 +395,14 @@
       "label": "="
     },
     "chg24": {
-      "dir": "up",
-      "delta": 0.04,
-      "label": "↑"
+      "dir": "flat",
+      "delta": 0.0,
+      "label": "="
     },
     "oi": {
-      "dir": "down",
-      "delta": -2.384,
-      "label": "↓"
+      "dir": "flat",
+      "delta": 0.0,
+      "label": "="
     },
     "score": {
       "dir": "flat",
@@ -410,9 +410,9 @@
       "label": "="
     },
     "btcDominance": {
-      "dir": "up",
-      "delta": 0.04,
-      "label": "↑"
+      "dir": "flat",
+      "delta": 0.0,
+      "label": "="
     },
     "panierDownPct": {
       "dir": "flat",
@@ -445,14 +445,14 @@
       "label": "="
     },
     "marketCapUsd": {
-      "dir": "up",
-      "delta": 96469433.0,
-      "label": "↑"
+      "dir": "flat",
+      "delta": 0.0,
+      "label": "="
     },
     "liq24Usd": {
-      "dir": "down",
-      "delta": -1276.0,
-      "label": "↓"
+      "dir": "flat",
+      "delta": 0.0,
+      "label": "="
     },
     "liqLongUsd": {
       "dir": "flat",
@@ -465,9 +465,9 @@
       "label": "—"
     },
     "etfBtcM": {
-      "dir": "down",
-      "delta": -0.12,
-      "label": "↓"
+      "dir": "flat",
+      "delta": 0.0,
+      "label": "="
     },
     "altSeasonScore": {
       "dir": "flat",
@@ -517,7 +517,7 @@
     "D31": "score",
     "D32": "score"
   },
-  "prevTs": "2026-08-22T14:54Z",
+  "prevTs": "2026-08-22T14:55Z",
   "source": "binance-fapi+coingecko+fng+okx-liq+bitbo-etf+deribit-gex+okx-rubik+ace-readonly",
   "wiredNote": "D26–D34 F&G/MC/alt/liq/ETF/GEX/volumes cachés · free + proxies · ACE lecture seule",
   "degraded": false,
@@ -556,7 +556,7 @@
     "cpfpGlobal": false,
     "cpfpZscore": 0.0,
     "cpfpDustScore": 100.0,
-    "cpfpDustDetail": "poussière <2.0 sat/vB (normalisé minFee 1×1.5) : 3 vues ce run, 21701 cumulées 48h (seuil 1000) — max 0.0250 BTC",
+    "cpfpDustDetail": "poussière <2.0 sat/vB (normalisé minFee 1×1.5) : 4 vues ce run, 21705 cumulées 48h (seuil 1000) — max 0.0001 BTC",
     "blocPrivatiseMode": "actif",
     "blocPrivatiseTauxFantome": 100.0,
     "blocPrivatiseNbCachees": 4180,
