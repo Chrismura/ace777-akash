@@ -10,13 +10,13 @@
 
 | Champ | Valeur | ID |
 |-------|--------|-----|
-| Mark | 76849.0 | prix |
+| Mark | 76848.3 | prix |
 | OI | 106298.862 | C13 |
 | Funding | 0.0001 | C14 |
 | Funding moy. ~30j | 5.919e-05 (n=90) | Cortana |
 | Funding mois préc. | 6.081e-05 (n=93) | Cortana |
 | L/S 1h | 0.999 | crowd |
-| BTC 1h/4h/24h | -0.25 / -0.8 / -1.2 % | B7 |
+| BTC 1h/4h/24h | -0.25 / -0.8 / -1.19 % | B7 |
 | Dominance BTC | None% | A3 |
 | Alts ↓ 24h | 25.0% | B9 |
 
@@ -24,7 +24,7 @@
 - Climat CALME (score 84/100).
 - Funding maintenant 0.0001. Moyenne ~30j 5.919e-05 (90 pts). Mois précédent 6.081e-05 (93 pts).
 - Long/Short 0.999.
-- BTC 24h -1.2% · 1h -0.25% · 4h -0.8%.
+- BTC 24h -1.19% · 1h -0.25% · 4h -0.8%.
 - Panier alts : 25.0% en baisse (5/20).
 - Whales proxy : aucun print ≥500k$ sur les ~500 derniers trades.
 - Dark/OTC proxy : taker buy/sell 0.795 · OI 106298.862 (pas de dark pool free temps réel).
