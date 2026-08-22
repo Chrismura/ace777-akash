@@ -1,18 +1,15 @@
 {
-  "radar_min_conf_beta": 0.4,
-  "radar_min_conf_alpha": 0.35,
-  "radar_min_mom_bps_beta": 0.015,
-  "radar_min_mom_bps_alpha": 0.012,
-  "radar_max_spread_bps": 5.0,
-  "mode": "CHOP",
+  "mode": "TREND",
   "chop_score": 0.63,
   "trend_bps_15m": 0.0,
   "range_bps": 20.0,
+  "message": "v2_chop_0.63_trend",
+  "ts": "2026-08-22T06:31:57Z",
   "confiance_structure": 0.37,
-  "swarm_cohesion": 0.5,
-  "message": "v2_swarm_wind_chop",
-  "ts": "2026-08-22T06:31:14Z",
-  "justification": "llm_wind",
-  "emergency_override": false,
-  "llm_elapsed_sec": 0.003
+  "justification": "rule_chop_0.63_trend",
+  "radar_min_conf_beta": 0.22,
+  "radar_min_conf_alpha": 0.2,
+  "radar_min_mom_bps_beta": 0.006,
+  "radar_min_mom_bps_alpha": 0.005,
+  "radar_max_spread_bps": 12.0
 }

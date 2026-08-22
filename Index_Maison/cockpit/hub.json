@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-22T06:31:15.647500+00:00",
+  "generated_at": "2026-08-22T06:31:53.274269+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -26,7 +26,7 @@
       "model": "qwen-3.8-max-free",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 246
+      "calls_24h": 247
     },
     {
       "id": "groq",
@@ -229,10 +229,18 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 1651,
+    "consumed": 1652,
     "remaining": 0
   },
   "queue": [
+    {
+      "ts": "2026-08-22T06:31:20.443924+00:00",
+      "task": "supervise.decision",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 136.7
+    },
     {
       "ts": "2026-08-22T06:30:11.669746+00:00",
       "task": "supervise.decision",
@@ -344,73 +352,65 @@
       "model": "qwen-3.8-max-free",
       "kind": "cloud",
       "duration_s": 16.65
-    },
-    {
-      "ts": "2026-08-22T06:20:04.903129+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 18.67
     }
   ],
   "events": [
     {
-      "ts": "2026-08-22T06:31:03.270094+00:00",
-      "kind": "timeout",
-      "title": "Patience NaraRouter (7M tokens/jour gratuits) (reponse vide)",
-      "detail": "Reponse vide"
-    },
-    {
-      "ts": "2026-08-22T06:30:11.669467+00:00",
-      "kind": "message",
-      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
-      "detail": "bascule"
-    },
-    {
-      "ts": "2026-08-22T06:29:57.734766+00:00",
+      "ts": "2026-08-22T06:31:34.286518+00:00",
       "kind": "failover",
-      "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
-      "detail": "0 attente"
+      "title": "Bascule depuis Groq (LLM ultra-rapide, gratuit)",
+      "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-08-22T06:29:57.734087+00:00",
+      "ts": "2026-08-22T06:31:34.286142+00:00",
+      "kind": "ratelimit",
+      "title": "429 Groq (LLM ultra-rapide, gratuit) -> pause 60s + bascule",
+      "detail": ""
+    },
+    {
+      "ts": "2026-08-22T06:31:34.061929+00:00",
+      "kind": "blacklist",
+      "title": "Fin de pause Groq (LLM ultra-rapide, gratuit)",
+      "detail": "re-essai automatique"
+    },
+    {
+      "ts": "2026-08-22T06:31:34.061051+00:00",
       "kind": "reserve-storm",
       "title": "Tempête active + budget calme atteint -> réserve storm pour supervise.decision",
       "detail": "supervise.decision"
     },
     {
-      "ts": "2026-08-22T06:29:36.471108+00:00",
-      "kind": "timeout",
-      "title": "Patience NaraRouter (7M tokens/jour gratuits) (reponse vide)",
-      "detail": "Reponse vide"
+      "ts": "2026-08-22T06:31:20.443627+00:00",
+      "kind": "message",
+      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
+      "detail": "bascule"
     },
     {
-      "ts": "2026-08-22T06:29:24.424140+00:00",
+      "ts": "2026-08-22T06:31:20.401619+00:00",
       "kind": "failover",
       "title": "Saute (blacklist) depuis HuggingFace (136+ modeles, dont DeepSeek-V4)",
       "detail": "0 attente"
     },
     {
-      "ts": "2026-08-22T06:29:24.422215+00:00",
+      "ts": "2026-08-22T06:31:20.399927+00:00",
       "kind": "failover",
       "title": "Bascule depuis Google Gemini",
       "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-08-22T06:29:24.421742+00:00",
+      "ts": "2026-08-22T06:31:20.399590+00:00",
       "kind": "ratelimit",
       "title": "429 Google Gemini -> pause 60s + bascule",
       "detail": ""
     },
     {
-      "ts": "2026-08-22T06:29:24.014685+00:00",
+      "ts": "2026-08-22T06:31:19.986884+00:00",
       "kind": "blacklist",
       "title": "Fin de pause Google Gemini",
       "detail": "re-essai automatique"
     },
     {
-      "ts": "2026-08-22T06:29:24.014111+00:00",
+      "ts": "2026-08-22T06:31:19.986315+00:00",
       "kind": "quota",
       "title": "Budget calme atteint -> bascule famille (gratuits)",
       "detail": "analyse.profonde"
