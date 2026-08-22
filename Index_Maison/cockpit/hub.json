@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-22T14:38:27.967970+00:00",
+  "generated_at": "2026-08-22T14:39:38.922954+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -356,64 +356,64 @@
   ],
   "events": [
     {
-      "ts": "2026-08-22T14:38:27.950771+00:00",
-      "kind": "quota",
-      "title": "Budget atteint -> filet restreint aux gratuits",
-      "detail": "supervise.decision"
-    },
-    {
-      "ts": "2026-08-22T14:38:27.948825+00:00",
-      "kind": "quota",
-      "title": "Budget calme atteint -> bascule famille (gratuits)",
-      "detail": "supervise.decision"
-    },
-    {
-      "ts": "2026-08-22T14:38:27.921100+00:00",
-      "kind": "network",
-      "title": "Reseau pas pret — mode degrade (timeout court)",
-      "detail": ""
-    },
-    {
-      "ts": "2026-08-22T14:38:23.914302+00:00",
+      "ts": "2026-08-22T14:39:31.718790+00:00",
       "kind": "http",
       "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
       "detail": ""
     },
     {
-      "ts": "2026-08-22T14:38:23.914147+00:00",
+      "ts": "2026-08-22T14:39:31.718610+00:00",
       "kind": "error",
       "title": "Toutes les IA ont echoue",
       "detail": "Groq (LLM ultra-rapide, gratuit): reseau KO [Errno 8] nodename nor servname provided, or not known"
     },
     {
-      "ts": "2026-08-22T14:38:23.914001+00:00",
+      "ts": "2026-08-22T14:39:31.718473+00:00",
       "kind": "failover",
       "title": "Reseau KO (bascule immediate) depuis Groq (LLM ultra-rapide, gratuit)",
       "detail": "[Errno 8] nodename nor servname provided, or not known"
     },
     {
-      "ts": "2026-08-22T14:38:23.913645+00:00",
+      "ts": "2026-08-22T14:39:31.718208+00:00",
       "kind": "network",
       "title": "Reseau indisponible: Groq (LLM ultra-rapide, gratuit)",
       "detail": "[Errno 8] nodename nor servname provided, or not known"
     },
     {
-      "ts": "2026-08-22T14:38:23.902599+00:00",
+      "ts": "2026-08-22T14:39:31.711842+00:00",
       "kind": "quota",
       "title": "Budget atteint -> filet restreint aux gratuits",
       "detail": "supervise.decision"
     },
     {
-      "ts": "2026-08-22T14:38:23.900476+00:00",
+      "ts": "2026-08-22T14:39:31.711041+00:00",
       "kind": "quota",
       "title": "Budget calme atteint -> bascule famille (gratuits)",
       "detail": "supervise.decision"
     },
     {
-      "ts": "2026-08-22T14:38:23.861083+00:00",
+      "ts": "2026-08-22T14:39:31.684717+00:00",
       "kind": "network",
       "title": "Reseau pas pret — mode degrade (timeout court)",
       "detail": ""
+    },
+    {
+      "ts": "2026-08-22T14:39:29.364943+00:00",
+      "kind": "http",
+      "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
+      "detail": ""
+    },
+    {
+      "ts": "2026-08-22T14:39:29.364763+00:00",
+      "kind": "error",
+      "title": "Toutes les IA ont echoue",
+      "detail": "Groq (LLM ultra-rapide, gratuit): reseau KO [Errno 8] nodename nor servname provided, or not known"
+    },
+    {
+      "ts": "2026-08-22T14:39:29.364628+00:00",
+      "kind": "failover",
+      "title": "Reseau KO (bascule immediate) depuis Groq (LLM ultra-rapide, gratuit)",
+      "detail": "[Errno 8] nodename nor servname provided, or not known"
     }
   ],
   "tasks_quotas": {
