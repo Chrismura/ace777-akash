@@ -2,7 +2,7 @@
 
 > Mis à jour auto · **ne lance rien** · lit seulement.
 
-**⚠️ Machine : **anomalie** — regarde les ❌** · `PULSE=NOK` · mode **VOL**
+**🟡 Machine : **OK avec alertes**** · `PULSE=WARN` · mode **VOL**
 
 | | Check | Détail |
 |---|--------|--------|
@@ -13,9 +13,9 @@
 | ✅ | Hulk paper | ON |
 | ✅ | Ollama | ON (gate) |
 | ⚠️ | Heartbeat ALPHA | fichier absent |
-| ❌ | LIVE_COLOR | MASTER_VORTEX_V2_COLLAB_4H · 323s (muet?) |
+| ✅ | LIVE_COLOR | MASTER_VORTEX_V2_COLLAB_4H · frais 2s |
 | ✅ | Hulk state | PAPER_V1_20260821_092452_state.json · 12 pos · pnl=-0.10791927765748821 |
-| ✅ | RAM | ~2654 Mo libre |
+| ✅ | RAM | ~2568 Mo libre |
 
 ## Que faire
 
