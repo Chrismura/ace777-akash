@@ -1,4 +1,4 @@
-# ARCHITECTURE VIVANTE — ACE777 (2026-08-22 07:24 UTC)
+# ARCHITECTURE VIVANTE — ACE777 (2026-08-22 07:25 UTC)
 
 > Document GÉNÉRÉ AUTOMATIQUEMENT à l'instant. La famille valide
 > en s'appuyant sur CE contexte, pas sur des documents figés.
@@ -9,7 +9,7 @@
 - ✅ radar
 - ⛔ lecteur signets
 - ⛔ générateur fiches
-- ✅ feed mission
+- ⛔ feed mission
 - ⛔ serveur cockpit
 
 ## Routage des tâches de décision
@@ -22,10 +22,10 @@
 
 ## État de la mission (bots + PnL)
 
-- mission.json : 2026-08-22 07:23Z · run `MASTER_VORTEX_V2_COLLAB_4H` · alerte `red`
+- mission.json : 2026-08-22 07:25Z · run `MASTER_VORTEX_V2_COLLAB_4H` · alerte `red`
 - PnL combiné : **-4.27 $** 📉 (combo -4.2717)
 - ALPHA (sniper (embuscade, ×13, revenge si claque)) : **-10.18 $** · 14 fills · 519 skips
-- BETA (éclaireur (chatouille le marché, alimente Alpha)) : **+5.91 $** · 22 fills · 574 skips
+- BETA (éclaireur (chatouille le marché, alimente Alpha)) : **+5.91 $** · 22 fills · 578 skips
 - HULK (gestionnaire de portefeuille (bag, escalier, courreur)) : **-0.11 $** · 0 fills
 - Saison : CHAOS ⛈️ · 
 
@@ -34,22 +34,22 @@
 - [Santé]
   · hub : OK (14 providers)
 - [Énergie du jour]
-  · appels : 1986 (cloud 1986)
+  · appels : 2004 (cloud 2004)
   · budget cloud : 624 max
-  · par provider : gemini=254, groq=5, mistral=1399, nara=326, nvidia=2
+  · par provider : gemini=270, groq=5, mistral=1399, nara=328, nvidia=2
 - [Nouvelles offres détectées (non intégrées)]
   · dots-studio/dots-3-note-preview:free
   · liquid/lfm-2.5-2.6b:free
   · thinkingmachines/inkling-small:free
-  … 108 offres/pépites détectées ce matin
+  … 106 offres/pépites détectées ce matin
 
 ## Mémoire chaude (journal + résumés)
 
 - Radar (dernières alertes) :
-  · 2026-08-22T07:24:24.291115Z BTCUSDT 77437.49 0.0000 1.6 declenche=non
-  · 2026-08-22T07:24:24.788047Z ETHUSDT 2438.91 0.0002 13.1 declenche=non
-  · 2026-08-22T07:24:25.259980Z BTCUSDT 77437.49 0.0000 1.6 declenche=non
-  · 2026-08-22T07:24:25.352182Z ETHUSDT 2438.91 0.0002 13.3 declenche=non
+  · 2026-08-22T07:25:49.848188Z ETHUSDT 2438.3 0.0005 157.3 declenche=non
+  · 2026-08-22T07:25:49.848339Z ETHUSDT 2438.29 0.0005 157.3 declenche=non
+  · 2026-08-22T07:25:49.848543Z ETHUSDT 2438.29 0.0005 157.4 declenche=non
+  · 2026-08-22T07:25:50.023898Z BTCUSDT 77406.31 0.0005 9.1 declenche=non
 - Intention en cours : BETA a sonde le marche (22 sondes, 13 long / 9 court, conf m | ALPHA attend son moment : 450 skips (discipline), le mur du  | ALPHA a frappe 16 fois en embuscade (13x) (dont 11 en mode r
 - 500 signets X résumés (quota aujourd'hui : 0/50)
 - 56 fiches IA d'offres en cache (quota 8/jour)
