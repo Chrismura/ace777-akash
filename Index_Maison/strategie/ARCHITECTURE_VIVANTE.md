@@ -1,4 +1,4 @@
-# ARCHITECTURE VIVANTE — ACE777 (2026-08-22 13:11 UTC)
+# ARCHITECTURE VIVANTE — ACE777 (2026-08-22 13:12 UTC)
 
 > Document GÉNÉRÉ AUTOMATIQUEMENT à l'instant. La famille valide
 > en s'appuyant sur CE contexte, pas sur des documents figés.
@@ -9,7 +9,7 @@
 - ✅ radar
 - ⛔ lecteur signets
 - ⛔ générateur fiches
-- ⛔ feed mission
+- ✅ feed mission
 - ⛔ serveur cockpit
 
 ## Routage des tâches de décision
@@ -39,7 +39,7 @@
   · par provider : gemini=505, groq=12, mistral=2517, nara=751, nvidia=2
 - [Nouvelles offres détectées (non intégrées)]
 - [ROLLBACK AUTO 2026-08-22]
-  · obs-1786774656 (nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free) : 100% erreurs > 5% (o
+  · obs-1786774667 (nvidia/nemotron-3.5-lightning:free) : 100% erreurs > 5% (observatoire)
   · ERR: <urlopen error [Errno 8] nodename nor servname provided, or
   · ERR: <urlopen error [Errno 8] nodename nor servname provided, or
   · ERR: <urlopen error [Errno 8] nodename nor servname provided, or
