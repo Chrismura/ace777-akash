@@ -1,4 +1,4 @@
-# ARCHITECTURE VIVANTE — ACE777 (2026-08-22 09:07 UTC)
+# ARCHITECTURE VIVANTE — ACE777 (2026-08-22 09:08 UTC)
 
 > Document GÉNÉRÉ AUTOMATIQUEMENT à l'instant. La famille valide
 > en s'appuyant sur CE contexte, pas sur des documents figés.
@@ -22,7 +22,7 @@
 
 ## État de la mission (bots + PnL)
 
-- mission.json : 2026-08-22 09:07Z · run `MASTER_VORTEX_V2_COLLAB_4H` · alerte `red`
+- mission.json : 2026-08-22 09:08Z · run `MASTER_VORTEX_V2_COLLAB_4H` · alerte `red`
 - PnL combiné : **-3.08 $** 📉 (combo -3.0775)
 - ALPHA (sniper (embuscade, ×13, revenge si claque)) : **-5.22 $** · 5 fills · 159 skips
 - BETA (éclaireur (chatouille le marché, alimente Alpha)) : **+2.14 $** · 8 fills · 158 skips
@@ -34,22 +34,22 @@
 - [Santé]
   · hub : OK (14 providers)
 - [Énergie du jour]
-  · appels : 2631 (cloud 2631)
+  · appels : 2634 (cloud 2634)
   · budget cloud : 624 max
-  · par provider : gemini=504, groq=7, mistral=1641, nara=477, nvidia=2
+  · par provider : gemini=504, groq=7, mistral=1644, nara=477, nvidia=2
 - [Nouvelles offres détectées (non intégrées)]
   · dots-studio/dots-3-note-preview:free
   · liquid/lfm-2.5-2.6b:free
   · thinkingmachines/inkling-small:free
-  … 107 offres/pépites détectées ce matin
+  … 106 offres/pépites détectées ce matin
 
 ## Mémoire chaude (journal + résumés)
 
 - Radar (dernières alertes) :
-  · 2026-08-22T09:07:55.788982Z BTCUSDT 77107.82 0.0003 9.1 declenche=non
-  · 2026-08-22T09:07:55.967878Z BTCUSDT 77107.81 0.0003 9.1 declenche=non
-  · 2026-08-22T09:07:56.169852Z BTCUSDT 77107.81 0.0003 9.2 declenche=non
-  · 2026-08-22T09:07:56.342993Z ETHUSDT 2419.69 0.0004 126.5 declenche=non
+  · 2026-08-22T09:08:05.675609Z ETHUSDT 2418.95 0.0001 168.1 declenche=non
+  · 2026-08-22T09:08:06.304377Z BTCUSDT 77105.0 0.0004 9.8 declenche=non
+  · 2026-08-22T09:08:06.769351Z BTCUSDT 77105.0 0.0004 9.9 declenche=non
+  · 2026-08-22T09:08:06.769760Z BTCUSDT 77105.0 0.0004 9.9 declenche=non
 - Intention en cours : BETA a sonde le marche (8 sondes, 4 long / 4 court, conf moy | ALPHA attend son moment : 143 skips (discipline), le mur du  | ALPHA a frappe 5 fois en embuscade (13x) (dont 2 en mode rev
 - 500 signets X résumés (quota aujourd'hui : 0/50)
 - 56 fiches IA d'offres en cache (quota 8/jour)
