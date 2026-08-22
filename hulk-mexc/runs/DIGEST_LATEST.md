@@ -1,4 +1,4 @@
-# Hulk DIGEST — 2026-08-22T06:38:27Z
+# Hulk DIGEST — 2026-08-22T06:40:39Z
 
 - **Piste :** VEILLE (séparée du paper Hulk)
 - Source trading : **MEXC spot**
@@ -12,24 +12,24 @@
 
 | pair | hint | tension | move6% | dd6% | chg24% | vol USDT | spread bps | DefiLlama |
 |------|------|---------|--------|------|--------|----------|------------|-----------|
-| PYTHUSDT | WATCH_PULLBACK — tension haute + reflux | 4.14 | 19.14 | 9.13 | 0.06 | 20101614.64 | 7.88 | skipped_fast |
-| XRPUSDT | WATCH_PULLBACK — tension haute + reflux | 3.26 | 23.87 | 8.0 | 0.19 | 212226739.69 | 3.2 | skipped_fast |
-| HBARUSDT | WATCH_PULLBACK — tension haute + reflux | 4.25 | 15.8 | 8.98 | 0.05 | 1387584.5 | 6.32 | skipped_fast |
-| CHIPUSDT | WATCH_PULLBACK — tension haute + reflux | 4.3 | 24.54 | 12.24 | -0.11 | 703877.63 | 13.41 | skipped_fast |
-| WUSDT | WATCH_PULLBACK — tension haute + reflux | 4.27 | 17.58 | 7.78 | 0.06 | 616865.88 | 8.26 | skipped_fast |
-| BIOUSDT | WATCH_PULLBACK — tension haute + reflux | 4.25 | 29.98 | 12.85 | -0.04 | 246019.85 | 3.31 | skipped_fast |
-| REDUSDT | WATCH_PULLBACK — tension haute + reflux | 3.19 | 42.58 | 11.92 | 0.06 | 164451.18 | 27.19 | skipped_fast |
-| CCUSDT | IDLE | 2.02 | 11.25 | 4.07 | 0.17 | 780745.12 | 10.83 | skipped_fast |
-| ZBCNUSDT | WATCH_PULLBACK — tension haute + reflux | 3.22 | 8.47 | 6.15 | 0.03 | 546065.54 | 25.51 | skipped_fast |
-| QNTUSDT | WATCH_PULLBACK — tension haute + reflux | 4.37 | 13.91 | 8.56 | 0.04 | 200307.93 | 16.95 | skipped_fast |
-| KITEUSDT | IDLE | 2.82 | 9.68 | 4.18 | 0.09 | 74720.37 | 11.83 | skipped_fast |
-| FLUIDUSDT | WATCH_PULLBACK — tension haute + reflux | 3.51 | 8.47 | 5.26 | 0.05 | 6989.9 | 20.5 | skipped_fast |
-| EDELUSDT | IDLE | 2.23 | 4.52 | 2.7 | -0.02 | 88054.81 | 44.54 | skipped_fast |
-| RWAINCUSDT | IDLE | 2.49 | 4.48 | 3.29 | 0.01 | 11437.27 | 64.66 | skipped_fast |
-| TELUSDT | IDLE | 2.15 | 5.52 | 4.1 | 0.06 | 196481.1 | 46.28 | skipped_fast |
-| QAITUSDT | IDLE | 1.63 | 3.24 | 0.16 | -0.01 | 3303.04 | 63.67 | skipped_fast |
-| RIZEUSDT | IDLE | 0.92 | 3.99 | 1.49 | 0.09 | 59544.2 | 46.34 | skipped_fast |
-| RWAUSDT | IDLE | 1.83 | 3.38 | 1.91 | 0.04 | 58220.85 | 24.38 | skipped_fast |
+| PYTHUSDT | WATCH_PULLBACK — tension haute + reflux | 4.13 | 19.14 | 8.54 | 0.06 | 20165140.98 | 9.79 | skipped_fast |
+| XRPUSDT | WATCH_PULLBACK — tension haute + reflux | 3.23 | 23.87 | 6.61 | 0.21 | 213152890.31 | 5.67 | skipped_fast |
+| HBARUSDT | WATCH_PULLBACK — tension haute + reflux | 4.23 | 15.8 | 8.35 | 0.06 | 1388577.98 | 5.02 | skipped_fast |
+| CHIPUSDT | WATCH_PULLBACK — tension haute + reflux | 4.29 | 24.54 | 12.03 | -0.11 | 704351.13 | 6.69 | skipped_fast |
+| WUSDT | WATCH_PULLBACK — tension haute + reflux | 4.25 | 17.58 | 7.13 | 0.07 | 617062.6 | 14.36 | skipped_fast |
+| BIOUSDT | WATCH_PULLBACK — tension haute + reflux | 4.25 | 29.98 | 12.53 | -0.04 | 245783.54 | 3.3 | skipped_fast |
+| REDUSDT | WATCH_PULLBACK — tension haute + reflux | 3.19 | 42.58 | 11.61 | 0.06 | 163853.69 | 17.53 | skipped_fast |
+| CCUSDT | IDLE | 2.03 | 11.25 | 4.39 | 0.18 | 781386.84 | 5.02 | skipped_fast |
+| ZBCNUSDT | WATCH_PULLBACK — tension haute + reflux | 3.18 | 8.47 | 5.48 | 0.03 | 546274.39 | 13.91 | skipped_fast |
+| QNTUSDT | WATCH_PULLBACK — tension haute + reflux | 4.35 | 13.91 | 8.29 | 0.04 | 200329.78 | 12.3 | skipped_fast |
+| KITEUSDT | IDLE | 2.8 | 9.68 | 3.79 | 0.1 | 74613.82 | 9.96 | skipped_fast |
+| EDELUSDT | IDLE | 2.23 | 4.52 | 2.7 | -0.02 | 88079.78 | 22.25 | skipped_fast |
+| RWAINCUSDT | IDLE | 2.49 | 4.48 | 3.29 | 0.0 | 11421.15 | 64.66 | skipped_fast |
+| FLUIDUSDT | WATCH_PULLBACK — tension haute + reflux | 3.51 | 8.47 | 5.26 | 0.05 | 6989.9 | 56.08 | skipped_fast |
+| TELUSDT | IDLE | 2.13 | 5.52 | 3.8 | 0.06 | 196340.31 | 51.31 | skipped_fast |
+| QAITUSDT | IDLE | 1.71 | 3.24 | 1.18 | -0.02 | 3304.43 | 63.67 | skipped_fast |
+| RIZEUSDT | IDLE | 0.92 | 3.99 | 1.5 | 0.09 | 59539.61 | 46.34 | skipped_fast |
+| RWAUSDT | IDLE | 1.83 | 3.38 | 1.91 | 0.04 | 58156.51 | 8.12 | skipped_fast |
 
 ## Consignes Qwen (manuel — ne pilote pas le paper)
 1. Résumer en 5 lignes : qui spike, qui dump, illiquide (spread/vol).
