@@ -22,7 +22,7 @@
 
 ## État de la mission (bots + PnL)
 
-- mission.json : 2026-08-22 15:03Z · run `MASTER_VORTEX_V2_COLLAB_4H` · alerte `red`
+- mission.json : 2026-08-22 15:04Z · run `MASTER_VORTEX_V2_COLLAB_4H` · alerte `red`
 - PnL combiné : **4.43 $** 📉 (combo 4.4305)
 - ALPHA (sniper (embuscade, ×13, revenge si claque)) : **+4.63 $** · 7 fills · 150 skips
 - BETA (éclaireur (chatouille le marché, alimente Alpha)) : **-0.20 $** · 9 fills · 193 skips
@@ -34,22 +34,24 @@
 - [Santé]
   · hub : OK (14 providers)
 - [Énergie du jour]
-  · appels : 84 (cloud 84)
+  · appels : 87 (cloud 87)
   · budget cloud : 624 max
-  · par provider : groq=1, mistral=80, nara=3
+  · par provider : groq=1, mistral=83, nara=3
 - [Nouvelles offres détectées (non intégrées)]
+- [ROLLBACK AUTO 2026-08-22]
+  · obs-1786795252 (nvidia/nemotron-3.5-content-safety:free) : 100% erreurs > 5% (observatoire
   · dots-studio/dots-3-note-preview:free
   · liquid/lfm-2.5-2.6b:free
   · thinkingmachines/inkling-small:free
-  … 109 offres/pépites détectées ce matin
+  … 108 offres/pépites détectées ce matin
 
 ## Mémoire chaude (journal + résumés)
 
 - Radar (dernières alertes) :
-  · 2026-08-22T15:04:05.047571Z BTCUSDT 77086.56 0.0000 0.2 declenche=non
-  · 2026-08-22T15:04:05.048741Z BTCUSDT 77086.56 0.0000 0.2 declenche=non
-  · 2026-08-22T15:04:05.048929Z BTCUSDT 77086.56 0.0000 0.2 declenche=non
-  · 2026-08-22T15:04:05.052738Z ETHUSDT 2416.71 0.0000 24.4 declenche=non
+  · 2026-08-22T15:04:27.062315Z BTCUSDT 77024.0 0.0008 4.8 declenche=non
+  · 2026-08-22T15:04:27.062457Z BTCUSDT 77023.87 0.0008 4.8 declenche=non
+  · 2026-08-22T15:04:27.062747Z BTCUSDT 77023.08 0.0008 4.8 declenche=non
+  · 2026-08-22T15:04:27.062939Z BTCUSDT 77023.07 0.0008 4.8 declenche=non
 - Intention en cours : BETA a sonde le marche (9 sondes, 6 long / 3 court, conf moy | ALPHA attend son moment : 143 skips (discipline), le mur du  | ALPHA a frappe 7 fois en embuscade (13x) (dont 7 en mode rev
 - 550 signets X résumés (quota aujourd'hui : 50/50)
 - 56 fiches IA d'offres en cache (quota 8/jour)
