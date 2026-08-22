@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-22T16:16:15.604332+00:00",
+  "generated_at": "2026-08-22T16:16:39.447048+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -53,7 +53,7 @@
       "model": "codestral-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 300
+      "calls_24h": 301
     },
     {
       "id": "cloudflare-workers-ai",
@@ -229,10 +229,18 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 418,
-    "remaining": 206
+    "consumed": 419,
+    "remaining": 205
   },
   "queue": [
+    {
+      "ts": "2026-08-22T16:16:24.946589+00:00",
+      "task": "supervise.decision",
+      "provider": "mistral",
+      "model": "codestral-latest",
+      "kind": "cloud",
+      "duration_s": 1.63
+    },
     {
       "ts": "2026-08-22T16:15:59.841032+00:00",
       "task": "supervise.decision",
@@ -344,75 +352,67 @@
       "model": "qwen-3.8-max-free",
       "kind": "cloud",
       "duration_s": 31.42
-    },
-    {
-      "ts": "2026-08-22T16:10:46.510749+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 148.09
     }
   ],
   "events": [
     {
-      "ts": "2026-08-22T16:16:12.695125+00:00",
+      "ts": "2026-08-22T16:16:38.338804+00:00",
       "kind": "failover",
       "title": "Bascule depuis OpenRouter (modeles gratuits)",
       "detail": "HTTP Error 404: Not Found"
     },
     {
-      "ts": "2026-08-22T16:16:12.086078+00:00",
+      "ts": "2026-08-22T16:16:37.998771+00:00",
       "kind": "failover",
       "title": "Saute (blacklist) depuis Google Gemini",
       "detail": "0 attente"
     },
     {
-      "ts": "2026-08-22T16:16:12.081593+00:00",
+      "ts": "2026-08-22T16:16:37.987125+00:00",
       "kind": "failover",
       "title": "Bascule depuis NaraRouter (7M tokens/jour gratuits)",
       "detail": "HTTP Error 503: Service Unavailable"
     },
     {
-      "ts": "2026-08-22T16:16:07.129548+00:00",
+      "ts": "2026-08-22T16:16:37.986683+00:00",
+      "kind": "blacklist",
+      "title": "Pause NaraRouter (7M tokens/jour gratuits) (3 echecs) 15min",
+      "detail": "backoff x1 -> re-essai auto"
+    },
+    {
+      "ts": "2026-08-22T16:16:37.831436+00:00",
       "kind": "timeout",
       "title": "Patience NaraRouter (7M tokens/jour gratuits) (HTTP 503)",
       "detail": "HTTP Error 503: Service Unavailable"
     },
     {
-      "ts": "2026-08-22T16:16:05.409603+00:00",
-      "kind": "failover",
-      "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
-      "detail": "0 attente"
-    },
-    {
-      "ts": "2026-08-22T16:15:59.840906+00:00",
-      "kind": "message",
-      "title": "« Mistral La Plateforme (essai gratuit) » a repondu",
-      "detail": "bascule"
-    },
-    {
-      "ts": "2026-08-22T16:15:59.840492+00:00",
-      "kind": "filet-universel",
-      "title": "[FILET UNIVERSEL] « Mistral La Plateforme (essai gratuit) » a repondu hors chaine",
-      "detail": "supervise.decision"
-    },
-    {
-      "ts": "2026-08-22T16:15:57.636853+00:00",
+      "ts": "2026-08-22T16:16:36.262257+00:00",
       "kind": "failover",
       "title": "Saute (blacklist) depuis HuggingFace (136+ modeles, dont DeepSeek-V4)",
       "detail": "0 attente"
     },
     {
-      "ts": "2026-08-22T16:15:57.632305+00:00",
+      "ts": "2026-08-22T16:16:36.261992+00:00",
       "kind": "failover",
-      "title": "Bascule depuis NVIDIA build.nvidia.com (100+ modeles)",
-      "detail": "The read operation timed out"
+      "title": "Saute (blacklist) depuis Google Gemini",
+      "detail": "0 attente"
     },
     {
-      "ts": "2026-08-22T16:15:51.656493+00:00",
-      "kind": "http",
-      "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
+      "ts": "2026-08-22T16:16:33.337751+00:00",
+      "kind": "timeout",
+      "title": "Patience NaraRouter (7M tokens/jour gratuits) (HTTP 503)",
+      "detail": "HTTP Error 503: Service Unavailable"
+    },
+    {
+      "ts": "2026-08-22T16:16:31.295967+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis Groq (LLM ultra-rapide, gratuit)",
+      "detail": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "ts": "2026-08-22T16:16:31.295541+00:00",
+      "kind": "ratelimit",
+      "title": "429 Groq (LLM ultra-rapide, gratuit) -> pause 60s + bascule",
       "detail": ""
     }
   ],
