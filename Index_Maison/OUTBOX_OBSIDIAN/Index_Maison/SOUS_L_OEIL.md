@@ -1,29 +1,21 @@
-# 👁️ SOUS L'ŒIL — Pulse machine
+# Sous l'œil — pulse machine
 
-**Date** : 2026-08-22T17:42:25+0200
-**Mode** : VOL
-**Verdict** : OK
+> Mis à jour auto · **ne lance rien** · lit seulement.
 
-## Processus
-- ACE (lanceur) : ✅ actif
-- HULK (paper_diprip) : ✅ actif
-- OLLAMA (serve) : ✅ actif
+**🟡 Machine : **OK avec alertes**** · `PULSE=WARN` · mode **VOL**
 
-## Ressources
-- RAM libre : 0 Mo (OK)
-- Champion (genesis_manifest) : OK
-
-## Fraîcheur
-- Heartbeat : 699s
-- LIVE : —
-
----
-*Généré par superviseur_core.sh — lecture seule, jamais de GO*
- Ollama | ON (gate) |
+| | Check | Détail |
+|---|--------|--------|
+| ✅ | Mode | VOL (auto) |
+| ✅ | Horodatage | 2026-08-22T17:42 local · 2026-08-22T15:42Z UTC |
+| ✅ | Champion | md5 `14bcf868…` |
+| ✅ | ACE process | ON |
+| ✅ | Hulk paper | ON |
+| ✅ | Ollama | ON (gate) |
 | ⚠️ | Heartbeat ALPHA | fichier absent |
-| ✅ | LIVE_COLOR | MASTER_VORTEX_V2_COLLAB_4H · frais 114s |
+| ⚠️ | LIVE_COLOR | MASTER_VORTEX_V2_COLLAB_4H · 125s |
 | ✅ | Hulk state | PAPER_V1_20260821_092452_state.json · 12 pos · pnl=-0.10791927765748821 |
-| ✅ | RAM | ~1916 Mo libre |
+| ✅ | RAM | ~1363 Mo libre |
 
 ## Que faire
 

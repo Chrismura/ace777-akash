@@ -1,7 +1,7 @@
 # ACE777 — STATE
 
 > Généré automatiquement — ne pas éditer à la main
-> Phase: `running` | Statut: `RUNNING` | MAJ: `2026-08-22T15:39:40Z`
+> Phase: `ended` | Statut: `ENDED` | MAJ: `2026-08-22T15:42:40Z`
 
 ## Config active
 
@@ -18,14 +18,8 @@
 | Unité | FILLED | Win | Loss | Win% | Net USDT | SKIP |
 |-------|--------|-----|------|------|----------|------|
 | BETA | 0 | 0 | 0 | 0.00% | 0.0000 | 0 |
-| ALPHA | 0 | 0 | 0 | 0.00% | 0.0000 | 0 |
-| **TOTAL** | **0** | — | — | — | **0.0000** | **0** |
-
-## Duo session (`duo_session.json`)
-
-- SCOUT PnL: `` USDT
-- HUNTER PnL: `` USDT
-- Total session: `` USDT
+| ALPHA | 0 | 0 | 0 | 0.00% | 0.0000 | 1 |
+| **TOTAL** | **0** | — | — | — | **0.0000** | **1** |
 
 ## Top SKIP — BETA
 
@@ -33,19 +27,19 @@ _Aucun SKIP ou CSV absent._
 
 ## Top SKIP — ALPHA
 
-_Aucun SKIP ou CSV absent._
+1. `duo_wait` — 1
 
 ## Vortex (`vortex_control.json`)
 
 - Mode: `CHOP`
 - Message: `v2_swarm_wind_chop`
-- TS: `2026-08-22T15:39:33Z`
+- TS: `2026-08-22T15:42:18Z`
 
 ## Processus
 
-- master.pid: `RUNNING`
-- beta.pid: `RUNNING`
-- alpha.pid: `RUNNING`
+- master.pid: `stopped`
+- beta.pid: `stopped`
+- alpha.pid: `stopped`
 
 ## Fichiers
 

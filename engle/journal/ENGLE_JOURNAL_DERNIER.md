@@ -1,6 +1,6 @@
 # JOURNAL ENGLE — MASTER_VORTEX_V2_COLLAB_4H
 
-- Généré: `2026-08-22T15:39:42Z` (UTC)
+- Généré: `2026-08-22T15:42:45Z` (UTC)
 - Couche: **B1** (lecture seule) · `ENGLE_ADAPT=0`
 - Session start (filtre): `2026-08-22T15:39:36Z`
 - CSV: `MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv` · `MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv`
@@ -21,7 +21,7 @@
 | Unité | Cycles | Fills | Skips | PnL fills (USDT) | Fenêtre |
 |-------|--------|-------|-------|------------------|---------|
 | BETA | 0 | 0 | 0 | +0.0000 | — |
-| ALPHA | 0 | 0 | 0 | +0.0000 | — |
+| ALPHA | 1 | 0 | 1 | +0.0000 | `2026-08-22T15:40:29Z` → `2026-08-22T15:40:29Z` |
 | **TOTAL** | | 0 | | **+0.0000** | |
 
 ## SKIP BETA (top)
@@ -30,7 +30,9 @@
 
 ## SKIP ALPHA (top)
 
-*Aucun SKIP classé.*
+| Raison | Nb | % skips |
+|--------|-----|---------|
+| `duo_wait` | 1 | 100.0% |
 
 ## Lecture courte (marché calme)
 

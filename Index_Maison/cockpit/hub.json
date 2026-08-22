@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-22T15:42:20.266773+00:00",
+  "generated_at": "2026-08-22T15:42:38.742090+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -26,7 +26,7 @@
       "model": "qwen-3.8-max-free",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 30
+      "calls_24h": 31
     },
     {
       "id": "groq",
@@ -229,10 +229,18 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 326,
-    "remaining": 298
+    "consumed": 327,
+    "remaining": 297
   },
   "queue": [
+    {
+      "ts": "2026-08-22T15:42:33.064278+00:00",
+      "task": "supervise.decision",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 85.93
+    },
     {
       "ts": "2026-08-22T15:41:32.997399+00:00",
       "task": "supervise.decision",
@@ -344,17 +352,21 @@
       "model": "codestral-latest",
       "kind": "cloud",
       "duration_s": 4.8
-    },
-    {
-      "ts": "2026-08-22T15:35:35.504893+00:00",
-      "task": "analyse.profonde",
-      "provider": "mistral",
-      "model": "codestral-latest",
-      "kind": "cloud",
-      "duration_s": 4.06
     }
   ],
   "events": [
+    {
+      "ts": "2026-08-22T15:42:33.063508+00:00",
+      "kind": "message",
+      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
+      "detail": "bascule"
+    },
+    {
+      "ts": "2026-08-22T15:42:28.852099+00:00",
+      "kind": "timeout",
+      "title": "Patience NaraRouter (7M tokens/jour gratuits) (reponse vide)",
+      "detail": "Reponse vide"
+    },
     {
       "ts": "2026-08-22T15:41:32.992854+00:00",
       "kind": "message",
@@ -402,18 +414,6 @@
       "kind": "blacklist",
       "title": "Fin de pause Groq (LLM ultra-rapide, gratuit)",
       "detail": "re-essai automatique"
-    },
-    {
-      "ts": "2026-08-22T15:40:57.367903+00:00",
-      "kind": "http",
-      "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
-      "detail": ""
-    },
-    {
-      "ts": "2026-08-22T15:40:57.367580+00:00",
-      "kind": "error",
-      "title": "Toutes les IA ont echoue",
-      "detail": "Groq (LLM ultra-rapide, gratuit): blacklist du jour (saute) | NaraRouter (7M tokens/jour gratuits): Reponse vide | Google Gemini: blacklist du jour (saute) | budget: Budget temps requete depasse"
     }
   ],
   "tasks_quotas": {
