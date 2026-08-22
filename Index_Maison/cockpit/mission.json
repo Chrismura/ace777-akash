@@ -3118,13 +3118,13 @@
   },
   "thermo": {
     "climate": "ok",
-    "score": 86,
+    "score": 85,
     "funding": 0.0001,
     "whaleN": 0,
     "deltas": {
       "mark": {
         "dir": "down",
-        "delta": -12.35,
+        "delta": -3.19,
         "label": "↓"
       },
       "funding": {
@@ -3149,18 +3149,18 @@
       },
       "chg24": {
         "dir": "down",
-        "delta": -0.02,
+        "delta": -0.14,
         "label": "↓"
       },
       "oi": {
-        "dir": "up",
-        "delta": 1.266,
-        "label": "↑"
+        "dir": "down",
+        "delta": -3.464,
+        "label": "↓"
       },
       "score": {
-        "dir": "flat",
-        "delta": 0.0,
-        "label": "="
+        "dir": "down",
+        "delta": -1.0,
+        "label": "↓"
       },
       "btcDominance": {
         "dir": "flat",
@@ -3219,7 +3219,7 @@
       },
       "etfBtcM": {
         "dir": "down",
-        "delta": -0.03,
+        "delta": -0.01,
         "label": "↓"
       },
       "altSeasonScore": {
@@ -3240,18 +3240,18 @@
     },
     "fearGreed": 71,
     "fearGreedLabel": "Greed",
-    "marketCapUsd": null,
-    "altSeason": null,
-    "altSeasonScore": null,
+    "marketCapUsd": 2612964591297.0,
+    "altSeason": "Bitcoin season",
+    "altSeasonScore": 43,
     "liq24Usd": 42096272.0,
     "etf": {
-      "btc": 226.11,
+      "btc": 226.1,
       "eth": null,
       "xrp": null,
       "source": "bitbo-public (moy 7j)",
       "unit": "M$"
     },
-    "btcDominance": null,
+    "btcDominance": 58.93,
     "onchain": {
       "whaleBlocsN": 0,
       "whaleBlocsBtc": 0,
@@ -3280,7 +3280,7 @@
       "cpfpGlobal": false,
       "cpfpZscore": 0.0,
       "cpfpDustScore": 100.0,
-      "cpfpDustDetail": "poussière <4.5 sat/vB (normalisé minFee 3×1.5) : 2 vues ce run, 22651 cumulées 48h (seuil 1000) — max 0.0047 BTC",
+      "cpfpDustDetail": "poussière <4.5 sat/vB (normalisé minFee 3×1.5) : 8 vues ce run, 22679 cumulées 48h (seuil 1000) — max 0.0004 BTC",
       "blocPrivatiseMode": "actif",
       "blocPrivatiseTauxFantome": 100.0,
       "blocPrivatiseNbCachees": 4180,
@@ -3302,20 +3302,20 @@
         "wired": true
       },
       "D27": {
-        "value": null,
-        "level": "na",
+        "value": "2.61 T$",
+        "level": "ok",
         "label": "Market cap crypto",
         "unit": "",
         "note": "CoinGecko global",
-        "wired": false
+        "wired": true
       },
       "D28": {
-        "value": null,
-        "level": "ok",
+        "value": "Bitcoin season (~43)",
+        "level": "warn",
         "label": "Alt season (proxy BTC.D)",
         "unit": "",
         "note": "proxy dominance — pas index Blockchain Center exact",
-        "wired": false
+        "wired": true
       },
       "D29": {
         "value": "0.04 B$",
@@ -3326,7 +3326,7 @@
         "wired": true
       },
       "D30": {
-        "value": "BTC 226.11 M$",
+        "value": "BTC 226.1 M$",
         "level": "ok",
         "label": "ETF BTC net inflow",
         "unit": "",
@@ -3352,7 +3352,7 @@
     }
   },
   "intention": {
-    "ts": "2026-08-22T15:25:48.905666+00:00",
+    "ts": "2026-08-22T15:26:09.539507+00:00",
     "since": "2026-08-22T11:34:00Z",
     "bots": {
       "alpha": {
@@ -4007,17 +4007,17 @@
     ]
   },
   "saison": {
-    "ts": "2026-08-22T15:25:57.395377+00:00",
+    "ts": "2026-08-22T15:26:39.792584+00:00",
     "saison": "CALME",
     "emoji": "🧊",
-    "direction": "neutre",
+    "direction": "short",
     "bascule": false,
     "bascule_raison": "",
     "alignement": {
-      "nb_long": 1,
-      "nb_short": 1,
-      "score": 0.0,
-      "direction": "neutre"
+      "nb_long": 0,
+      "nb_short": 2,
+      "score": 1.0,
+      "direction": "short"
     },
     "indices": {
       "temperature": {
@@ -4031,14 +4031,14 @@
         "brut": 0.0001
       },
       "bassin": {
-        "direction": "long",
+        "direction": "short",
         "force": 1,
-        "brut": "up"
+        "brut": "down"
       },
       "vortex": {
         "direction": "short",
         "force": 1,
-        "brut": -0.78
+        "brut": -0.94
       },
       "essaim": {
         "direction": "neutre",
@@ -4053,8 +4053,8 @@
     },
     "story": [
       "SAISON : CALME 🧊 — hiver, ADA dort.",
-      "Alignement : 1 haussiers / 1 baissiers.",
-      "Le vent se lève (-0.78 % sur 24h) — pas encore un vortex."
+      "Alignement : 0 haussiers / 2 baissiers.",
+      "Le vent se lève (-0.94 % sur 24h) — pas encore un vortex."
     ],
     "sources": [
       "live.json"
@@ -4062,7 +4062,7 @@
     "degraded": false
   },
   "gardienne": {
-    "ts": "2026-08-22T15:25:57Z",
+    "ts": "2026-08-22T15:26:39Z",
     "voilure_pct": 91,
     "zone": "VERT",
     "zone_emoji": "🟢",
@@ -4091,7 +4091,7 @@
     ]
   },
   "coup_doeil": {
-    "ts": "2026-08-22T15:25:57Z",
+    "ts": "2026-08-22T15:26:39Z",
     "saison": "CALME",
     "saison_emoji": "🌿",
     "voilure": "91 %",
