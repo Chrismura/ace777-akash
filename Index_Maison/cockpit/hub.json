@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-22T10:34:38.071017+00:00",
+  "generated_at": "2026-08-22T10:34:51.466860+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -26,7 +26,7 @@
       "model": "qwen-3.8-max-free",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 512
+      "calls_24h": 514
     },
     {
       "id": "groq",
@@ -229,10 +229,26 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 3544,
+    "consumed": 3546,
     "remaining": 0
   },
   "queue": [
+    {
+      "ts": "2026-08-22T10:34:47.029676+00:00",
+      "task": "supervise.decision",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 41.93
+    },
+    {
+      "ts": "2026-08-22T10:34:37.425662+00:00",
+      "task": "supervise.decision",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 28.97
+    },
     {
       "ts": "2026-08-22T10:33:50.834656+00:00",
       "task": "supervise.decision",
@@ -336,25 +352,15 @@
       "model": "qwen-3.8-max-free",
       "kind": "cloud",
       "duration_s": 32.29
-    },
-    {
-      "ts": "2026-08-22T10:25:43.650310+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 39.99
-    },
-    {
-      "ts": "2026-08-22T10:24:51.976983+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 31.2
     }
   ],
   "events": [
+    {
+      "ts": "2026-08-22T10:34:47.029081+00:00",
+      "kind": "message",
+      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
+      "detail": "bascule"
+    },
     {
       "ts": "2026-08-22T10:34:37.424536+00:00",
       "kind": "message",
@@ -408,12 +414,6 @@
       "kind": "reserve-storm",
       "title": "Tempête active + budget calme atteint -> réserve storm pour supervise.decision",
       "detail": "supervise.decision"
-    },
-    {
-      "ts": "2026-08-22T10:34:03.316432+00:00",
-      "kind": "timeout",
-      "title": "Patience NaraRouter (7M tokens/jour gratuits) (reponse vide)",
-      "detail": "Reponse vide"
     }
   ],
   "tasks_quotas": {
