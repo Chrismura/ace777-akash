@@ -11,7 +11,7 @@
 | Champ | Valeur | ID |
 |-------|--------|-----|
 | Mark | 78601.9 | prix |
-| OI | 106034.636 | C13 |
+| OI | 106032.066 | C13 |
 | Funding | 0.0001 | C14 |
 | Funding moy. ~30j | 5.811e-05 (n=90) | Cortana |
 | Funding mois préc. | 6.067e-05 (n=93) | Cortana |
@@ -27,7 +27,7 @@
 - BTC 24h 5.2% · 1h 0.17% · 4h 0.37%.
 - Panier alts : 30.0% en baisse (6/20).
 - Whales proxy : 1 gros print(s) ≥500k$ (max 697301$) — source aggTrades Binance.
-- Dark/OTC proxy : taker buy/sell 1.279 · OI 106034.636 (pas de dark pool free temps réel).
+- Dark/OTC proxy : taker buy/sell 1.279 · OI 106032.066 (pas de dark pool free temps réel).
 - Top traders L/S 1.136.
 - Fear & Greed 71 (Greed).
 - Liquidations 24h proxy ≈ 0.05 B$.
