@@ -1,5 +1,5 @@
 {
-  "ts": "2026-08-22T07:44:40.014396+00:00",
+  "ts": "2026-08-22T07:45:33.849243+00:00",
   "since": "2026-08-22T07:34:00Z",
   "bots": {
     "alpha": {
@@ -11,21 +11,6 @@
       "best": 0.0,
       "conf_moy": 0.6037,
       "events": [
-        {
-          "ts": "2026-08-22T07:40:49Z",
-          "bot": "alpha",
-          "cycle": 6,
-          "action": "skip",
-          "intention": "skip — gap_guard_pause",
-          "direction": null,
-          "conf": null,
-          "exit": "gap_guard_pause",
-          "meta": {
-            "size_note": null,
-            "tension": null
-          },
-          "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv"
-        },
         {
           "ts": "2026-08-22T07:40:54Z",
           "bot": "alpha",
@@ -310,10 +295,25 @@
             "tension": 0.00790695
           },
           "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv"
+        },
+        {
+          "ts": "2026-08-22T07:45:18Z",
+          "bot": "alpha",
+          "cycle": 26,
+          "action": "wait",
+          "intention": "attente — mur du carnet intact",
+          "direction": null,
+          "conf": null,
+          "exit": "impulse_resonance_wait",
+          "meta": {
+            "size_note": null,
+            "tension": 0.68200087
+          },
+          "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv"
         }
       ],
       "counts": {
-        "wait": 1,
+        "wait": 2,
         "fire": 1,
         "probe": 0,
         "skip": 19
