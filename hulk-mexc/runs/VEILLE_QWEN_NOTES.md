@@ -1966,3 +1966,7 @@ Pas d’ordre — confrontation plus tard.
 ### 2026-08-22T03:45:18Z — ALERT auto
 - XRPUSDT: IMPULSE_WAIT — spike en cours, pas chase
 (compléter: confirmé ? risque ?)
+
+### 2026-08-22T03:53:42Z — ALERT auto
+- CCUSDT: IMPULSE_WAIT — spike en cours, pas chase
+(compléter: confirmé ? risque ?)

@@ -7,7 +7,7 @@ Auto-refresh : 2026-08-22 03:53 UTC · jour local **2026-08-22**
 | Jambe | État | Détail |
 |-------|------|--------|
 | **ACE** | 🟢 RUN | Dernier tag `MASTER_VORTEX_V2_COLLAB_4H` · combo ≈ **+315.87 $** |
-| **Hulk paper** | 🟢 RUN | pnl_total ≈ **1.9593** · pos **15** |
+| **Hulk paper** | 🟢 RUN | pnl_total ≈ **2.1613** · pos **15** |
 | **Hulk digest** | 🟢 RUN | mtime 2026-08-22T03:53Z |
 | **Punk** | 🔴 STOP | — · idle |
 | **Ollama** | 🟢 RUN | |
@@ -60,7 +60,7 @@ Auto-refresh : 2026-08-22 03:53 UTC · jour local **2026-08-22**
 | `TEST_DUO_HARMONIC_5813_30M_V63` | +0.00 (n=0) | -0.42 (n=45) | **-0.42** |
 
 ## Hulk
-- Events : {'BUY': 15, 'SELL_PARTIAL': 13}
+- Events : {'BUY': 15, 'SELL_PARTIAL': 14}
 - Pairs ouvertes (state) : XRPUSDT, HBARUSDT, QAITUSDT, RIZEUSDT, ZBCNUSDT, WUSDT, REDUSDT, CCUSDT, PYTHUSDT, BIOUSDT, KITEUSDT, TELUSDT, CHIPUSDT, RWAINCUSDT, EDELUSDT
 
 ## Liens
