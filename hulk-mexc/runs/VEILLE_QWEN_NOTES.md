@@ -1935,3 +1935,7 @@ Pas d’ordre — confrontation plus tard.
 ### 2026-08-22T00:01:10Z — ALERT auto
 - XRPUSDT: IMPULSE_WAIT — spike en cours, pas chase
 (compléter: confirmé ? risque ?)
+
+### 2026-08-22T00:28:11Z — ALERT auto
+- ZBCNUSDT: IMPULSE_WAIT — spike en cours, pas chase
+(compléter: confirmé ? risque ?)
