@@ -58,6 +58,7 @@ Intégration cockpit (2 lignes dans index.html) · passage au réel · cumul des
 
 | ts | Qui | Action | Où | Quoi |
 |----|-----|--------|-----|------|
+| 2026-08-22T0346Z | journal_soir | ★ | journal | snapshot soir auto |
 | 2026-08-22T0345Z | journal_soir | ★ | journal | snapshot soir auto |
 | 2026-08-22T0344Z | journal_soir | ★ | journal | snapshot soir auto |
 | 2026-08-22T0343Z | journal_soir | ★ | journal | snapshot soir auto |
