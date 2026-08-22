@@ -1,15 +1,15 @@
 {
-  "ts": "2026-08-22T16:37:00.611009+00:00",
-  "saison": "CALME",
-  "emoji": "🧊",
-  "direction": "short",
-  "bascule": false,
-  "bascule_raison": "",
+  "ts": "2026-08-22T16:37:49.374263+00:00",
+  "saison": "ACCUMULATION",
+  "emoji": "💧",
+  "direction": "neutre",
+  "bascule": true,
+  "bascule_raison": "CALME → ACCUMULATION",
   "alignement": {
-    "nb_long": 0,
-    "nb_short": 2,
-    "score": 1.0,
-    "direction": "short"
+    "nb_long": 1,
+    "nb_short": 1,
+    "score": 0.0,
+    "direction": "neutre"
   },
   "indices": {
     "temperature": {
@@ -23,9 +23,9 @@
       "brut": 0.0001
     },
     "bassin": {
-      "direction": "short",
+      "direction": "long",
       "force": 1,
-      "brut": "down"
+      "brut": "up"
     },
     "vortex": {
       "direction": "short",
@@ -44,8 +44,9 @@
     }
   },
   "story": [
-    "SAISON : CALME 🧊 — hiver, ADA dort.",
-    "Alignement : 0 haussiers / 2 baissiers."
+    "SAISON : ACCUMULATION 💧 — le bassin se remplit en silence.",
+    "Alignement : 1 haussiers / 1 baissiers.",
+    "⚡ BASCULE : CALME → ACCUMULATION — le ciel change, prépare-toi."
   ],
   "sources": [
     "live.json"
