@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-22T11:17:45.720892+00:00",
+  "generated_at": "2026-08-22T11:18:09.664436+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -356,6 +356,30 @@
   ],
   "events": [
     {
+      "ts": "2026-08-22T11:17:55.790581+00:00",
+      "kind": "http",
+      "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
+      "detail": ""
+    },
+    {
+      "ts": "2026-08-22T11:17:55.789905+00:00",
+      "kind": "error",
+      "title": "Toutes les IA ont echoue",
+      "detail": "Google Gemini: HTTP Error 429: Too Many Requests | HuggingFace (136+ modeles, dont DeepSeek-V4): blacklist du jour (saute) | NaraRouter (7M tokens/jour gratuits): Reponse vide | budget: Budget temps requete depasse"
+    },
+    {
+      "ts": "2026-08-22T11:17:55.789651+00:00",
+      "kind": "error",
+      "title": "Budget temps requete depasse",
+      "detail": ""
+    },
+    {
+      "ts": "2026-08-22T11:17:55.757752+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis NaraRouter (7M tokens/jour gratuits)",
+      "detail": "Reponse vide"
+    },
+    {
       "ts": "2026-08-22T11:17:32.488996+00:00",
       "kind": "failover",
       "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
@@ -390,30 +414,6 @@
       "kind": "blacklist",
       "title": "Fin de pause Google Gemini",
       "detail": "re-essai automatique"
-    },
-    {
-      "ts": "2026-08-22T11:17:21.703371+00:00",
-      "kind": "quota",
-      "title": "Budget calme atteint -> bascule famille (gratuits)",
-      "detail": "analyse.profonde"
-    },
-    {
-      "ts": "2026-08-22T11:17:19.887784+00:00",
-      "kind": "message",
-      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
-      "detail": "bascule"
-    },
-    {
-      "ts": "2026-08-22T11:17:16.694654+00:00",
-      "kind": "http",
-      "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
-      "detail": ""
-    },
-    {
-      "ts": "2026-08-22T11:17:16.694361+00:00",
-      "kind": "error",
-      "title": "Toutes les IA ont echoue",
-      "detail": "Google Gemini: HTTP Error 429: Too Many Requests | HuggingFace (136+ modeles, dont DeepSeek-V4): blacklist du jour (saute) | NaraRouter (7M tokens/jour gratuits): Reponse vide | budget: Budget temps requete depasse"
     }
   ],
   "tasks_quotas": {
