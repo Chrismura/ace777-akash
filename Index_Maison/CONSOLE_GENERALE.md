@@ -1,13 +1,13 @@
 # Console générale — clin d’œil
 
-Auto-refresh : 2026-08-22 02:08 UTC · jour local **2026-08-22**
+Auto-refresh : 2026-08-22 02:09 UTC · jour local **2026-08-22**
 
 ## Feu tricolore
 
 | Jambe | État | Détail |
 |-------|------|--------|
 | **ACE** | 🟢 RUN | Dernier tag `MASTER_VORTEX_V2_COLLAB_4H` · combo ≈ **+309.82 $** |
-| **Hulk paper** | 🟢 RUN | pnl_total ≈ **1.3985** · pos **15** |
+| **Hulk paper** | 🟢 RUN | pnl_total ≈ **1.5580** · pos **15** |
 | **Hulk digest** | 🟢 RUN | mtime 2026-08-22T02:08Z |
 | **Punk** | 🔴 STOP | — · idle |
 | **Ollama** | 🟢 RUN | |
@@ -60,7 +60,7 @@ Auto-refresh : 2026-08-22 02:08 UTC · jour local **2026-08-22**
 | `TEST_DUO_HARMONIC_5813_30M_V63` | +0.00 (n=0) | -0.42 (n=45) | **-0.42** |
 
 ## Hulk
-- Events : {'BUY': 15, 'SELL_PARTIAL': 10}
+- Events : {'BUY': 15, 'SELL_PARTIAL': 11}
 - Pairs ouvertes (state) : XRPUSDT, HBARUSDT, QAITUSDT, RIZEUSDT, ZBCNUSDT, WUSDT, REDUSDT, CCUSDT, PYTHUSDT, BIOUSDT, KITEUSDT, TELUSDT, CHIPUSDT, RWAINCUSDT, EDELUSDT
 
 ## Liens
