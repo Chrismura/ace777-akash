@@ -1,5 +1,5 @@
 {
-  "ts": "2026-08-22T15:40:21.252867+00:00",
+  "ts": "2026-08-22T15:41:52.153563+00:00",
   "since": "2026-08-22T15:39:00Z",
   "bots": {
     "alpha": {
@@ -10,9 +10,25 @@
       "pnl": 0.0,
       "best": 0.0,
       "conf_moy": 0.0,
-      "events": [],
+      "events": [
+        {
+          "ts": "2026-08-22T15:40:29Z",
+          "bot": "alpha",
+          "cycle": 1,
+          "action": "wait",
+          "intention": "attente de l'etat du duo (Beta)",
+          "direction": null,
+          "conf": null,
+          "exit": "duo_wait",
+          "meta": {
+            "size_note": null,
+            "tension": null
+          },
+          "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv"
+        }
+      ],
       "counts": {
-        "wait": 0,
+        "wait": 1,
         "fire": 0,
         "probe": 0,
         "skip": 0
