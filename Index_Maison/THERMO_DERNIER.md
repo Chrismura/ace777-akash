@@ -26,7 +26,7 @@
 - BTC 24h -0.04% · 1h None% · 4h None%.
 - Whales proxy : aucun print ≥500k$ sur les ~500 derniers trades.
 - Fear & Greed 71 (Greed).
-- ACE soft: LIVE=MASTER_VORTEX_V2_COLLAB_4H_LIVE_COLOR.log · SKIP=1357 · heat=100.0 · PnL sess=317.3095 · RED=0.
+- ACE soft: LIVE=MASTER_VORTEX_V2_COLLAB_4H_LIVE_COLOR.log · SKIP=1352 · heat=100.0 · PnL sess=317.3095 · RED=0.
 - C15/C23 = proxies free. D26–D34 = F&G / MC / alt / liq / ETF / GEX / volumes cachés. Soft ops lecture seule.
 
 ## Branché / soft
