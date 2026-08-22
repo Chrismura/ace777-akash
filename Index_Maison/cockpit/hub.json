@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-22T15:52:23.923160+00:00",
+  "generated_at": "2026-08-22T15:52:50.561484+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -26,7 +26,7 @@
       "model": "qwen-3.8-max-free",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 58
+      "calls_24h": 60
     },
     {
       "id": "groq",
@@ -229,10 +229,26 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 355,
-    "remaining": 269
+    "consumed": 357,
+    "remaining": 267
   },
   "queue": [
+    {
+      "ts": "2026-08-22T15:52:43.044418+00:00",
+      "task": "auto",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 4.99
+    },
+    {
+      "ts": "2026-08-22T15:52:36.639136+00:00",
+      "task": "supervise.decision",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 36.31
+    },
     {
       "ts": "2026-08-22T15:51:58.279160+00:00",
       "task": "code.ia",
@@ -336,84 +352,68 @@
       "model": "qwen-3.8-max-free",
       "kind": "cloud",
       "duration_s": 3.09
-    },
-    {
-      "ts": "2026-08-22T15:48:26.222841+00:00",
-      "task": "InferX Qwen3-Coder-Next",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 2.48
-    },
-    {
-      "ts": "2026-08-22T15:48:10.009352+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 72.06
     }
   ],
   "events": [
     {
-      "ts": "2026-08-22T15:52:20.890014+00:00",
+      "ts": "2026-08-22T15:52:48.313270+00:00",
       "kind": "failover",
-      "title": "Bascule depuis OpenRouter Nemotron 3 Ultra 550B (free) - analyse forte",
-      "detail": "HTTP Error 429: Too Many Requests"
+      "title": "Saute (blacklist) depuis OpenRouter (modeles gratuits)",
+      "detail": "0 attente"
     },
     {
-      "ts": "2026-08-22T15:52:20.290774+00:00",
+      "ts": "2026-08-22T15:52:48.312908+00:00",
       "kind": "failover",
-      "title": "Bascule depuis OpenRouter Juge (nemotron-3-super-120b free) - verificateur independant",
-      "detail": "HTTP Error 429: Too Many Requests"
+      "title": "Saute (blacklist) depuis Google Gemini",
+      "detail": "0 attente"
     },
     {
-      "ts": "2026-08-22T15:52:19.064601+00:00",
+      "ts": "2026-08-22T15:52:48.295549+00:00",
+      "kind": "message",
+      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
+      "detail": "bascule"
+    },
+    {
+      "ts": "2026-08-22T15:52:47.945229+00:00",
       "kind": "failover",
-      "title": "Bascule depuis Mistral La Plateforme (essai gratuit)",
+      "title": "Bascule depuis NaraRouter (7M tokens/jour gratuits)",
       "detail": "The read operation timed out"
     },
     {
-      "ts": "2026-08-22T15:52:08.491341+00:00",
+      "ts": "2026-08-22T15:52:47.397160+00:00",
       "kind": "failover",
-      "title": "Bascule depuis NVIDIA build.nvidia.com (100+ modeles)",
+      "title": "Bascule depuis NaraRouter (7M tokens/jour gratuits)",
       "detail": "The read operation timed out"
     },
     {
-      "ts": "2026-08-22T15:52:07.746375+00:00",
-      "kind": "http",
-      "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
-      "detail": ""
-    },
-    {
-      "ts": "2026-08-22T15:52:07.745892+00:00",
-      "kind": "error",
-      "title": "Toutes les IA ont echoue",
-      "detail": "Google Gemini: blacklist du jour (saute) | Groq (LLM ultra-rapide, gratuit): blacklist du jour (saute) | HuggingFace (136+ modeles, dont DeepSeek-V4): blacklist du jour (saute) | OpenRouter (modeles gratuits): blacklist du jour (saute) | NaraRouter (7M tokens/jour gratuits): The read operation timed out | NVIDIA build.nvidia.com (100+ modeles): The read operation timed out | Mistral La Plateforme (essai gratuit): The read operation timed out | OpenRouter Juge (nemotron-3-super-120b free) - verif"
-    },
-    {
-      "ts": "2026-08-22T15:52:07.734883+00:00",
+      "ts": "2026-08-22T15:52:43.061678+00:00",
       "kind": "failover",
-      "title": "Bascule depuis InferX Devstral-2-123B (code)",
-      "detail": "HTTP Error 503: Service Temporarily Unavailable"
+      "title": "Saute (blacklist) depuis OpenRouter (modeles gratuits)",
+      "detail": "0 attente"
     },
     {
-      "ts": "2026-08-22T15:52:06.320676+00:00",
+      "ts": "2026-08-22T15:52:43.061366+00:00",
       "kind": "failover",
-      "title": "Bascule depuis NVIDIA DeepSeek-Coder 6.7B (code, via NIM)",
-      "detail": "HTTP Error 404: Not Found"
+      "title": "Saute (blacklist) depuis Google Gemini",
+      "detail": "0 attente"
     },
     {
-      "ts": "2026-08-22T15:52:04.910118+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis Puter Grok (gratuit)",
-      "detail": "HTTP Error 402: Payment Required"
+      "ts": "2026-08-22T15:52:43.043726+00:00",
+      "kind": "message",
+      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
+      "detail": "bascule"
     },
     {
-      "ts": "2026-08-22T15:52:04.327752+00:00",
+      "ts": "2026-08-22T15:52:38.052221+00:00",
       "kind": "failover",
-      "title": "Bascule depuis InferX Qwen3-Coder-Next (code, gratuit jusqu'au 12/08)",
-      "detail": "HTTP Error 503: Service Temporarily Unavailable"
+      "title": "Saute (blacklist) depuis OpenRouter (modeles gratuits)",
+      "detail": "0 attente"
+    },
+    {
+      "ts": "2026-08-22T15:52:38.051996+00:00",
+      "kind": "failover",
+      "title": "Saute (blacklist) depuis Google Gemini",
+      "detail": "0 attente"
     }
   ],
   "tasks_quotas": {
