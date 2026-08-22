@@ -38,6 +38,8 @@
   · budget cloud : 624 max
   · par provider : gemini=2, groq=2, mistral=920, nara=161, nvidia=2
 - [Nouvelles offres détectées (non intégrées)]
+- [ROLLBACK AUTO 2026-08-22]
+  · obs-1786795252 (nvidia/nemotron-3.5-content-safety:free) : 100% erreurs > 5% (observatoire
   · dots-studio/dots-3-note-preview:free
   · liquid/lfm-2.5-2.6b:free
   · thinkingmachines/inkling-small:free
@@ -46,10 +48,10 @@
 ## Mémoire chaude (journal + résumés)
 
 - Radar (dernières alertes) :
-  · 2026-08-22T05:09:35.261254Z ETHUSDT 2478.06 0.0025 2250.6 declenche=non
-  · 2026-08-22T05:09:35.266667Z ETHUSDT 2478.06 0.0025 2250.7 declenche=non
-  · 2026-08-22T05:09:35.273577Z ETHUSDT 2478.06 0.0025 2250.7 declenche=non
-  · 2026-08-22T05:09:35.280769Z ETHUSDT 2478.06 0.0025 2250.7 declenche=non
+  · 2026-08-22T05:09:48.429093Z ETHUSDT 2469.43 0.0060 3359.5 declenche=oui
+  · 2026-08-22T05:09:48.449598Z ETHUSDT 2469.43 0.0060 3359.5 declenche=oui
+  · 2026-08-22T05:09:48.449877Z ETHUSDT 2469.43 0.0060 3359.5 declenche=oui
+  · 2026-08-22T05:09:48.450057Z ETHUSDT 2469.43 0.0060 3359.6 declenche=oui
 - Intention en cours : BETA a sonde le marche (11 sondes, 7 long / 4 court, conf mo | ALPHA attend son moment : 173 skips (discipline), le mur du  | ALPHA a frappe 7 fois en embuscade (13x) (dont 5 en mode rev
 - 500 signets X résumés (quota aujourd'hui : 0/50)
 - 56 fiches IA d'offres en cache (quota 8/jour)
