@@ -2115,14 +2115,14 @@
   },
   "thermo": {
     "climate": "ok",
-    "score": 84,
+    "score": 85,
     "funding": 0.0001,
     "whaleN": 0,
     "deltas": {
       "mark": {
-        "dir": "up",
-        "delta": 0.17,
-        "label": "↑"
+        "dir": "down",
+        "delta": -16.4,
+        "label": "↓"
       },
       "funding": {
         "dir": "flat",
@@ -2145,13 +2145,13 @@
         "label": "="
       },
       "chg24": {
-        "dir": "flat",
-        "delta": 0.0,
-        "label": "="
+        "dir": "up",
+        "delta": 0.02,
+        "label": "↑"
       },
       "oi": {
         "dir": "down",
-        "delta": -0.082,
+        "delta": -0.03,
         "label": "↓"
       },
       "score": {
@@ -2215,9 +2215,9 @@
         "label": "—"
       },
       "etfBtcM": {
-        "dir": "flat",
-        "delta": 0.0,
-        "label": "="
+        "dir": "down",
+        "delta": -0.04,
+        "label": "↓"
       },
       "altSeasonScore": {
         "dir": "flat",
@@ -2242,7 +2242,7 @@
     "altSeasonScore": null,
     "liq24Usd": 54807233.0,
     "etf": {
-      "btc": 227.32,
+      "btc": 227.3,
       "eth": null,
       "xrp": null,
       "source": "bitbo-public (moy 7j)",
@@ -2277,7 +2277,7 @@
       "cpfpGlobal": false,
       "cpfpZscore": 0.0,
       "cpfpDustScore": 100.0,
-      "cpfpDustDetail": "poussière <2.0 sat/vB (normalisé minFee 1×1.5) : 3 vues ce run, 13992 cumulées 48h (seuil 1000) — max 3.6141 BTC",
+      "cpfpDustDetail": "poussière <2.0 sat/vB (normalisé minFee 1×1.5) : 4 vues ce run, 14003 cumulées 48h (seuil 1000) — max 0.0044 BTC",
       "blocPrivatiseMode": "actif",
       "blocPrivatiseTauxFantome": 4.5455,
       "blocPrivatiseNbCachees": 42,
@@ -2323,7 +2323,7 @@
         "wired": true
       },
       "D30": {
-        "value": "BTC 227.32 M$",
+        "value": "BTC 227.3 M$",
         "level": "ok",
         "label": "ETF BTC net inflow",
         "unit": "",
@@ -2349,14 +2349,14 @@
     }
   },
   "intention": {
-    "ts": "2026-08-22T07:42:50.693630+00:00",
+    "ts": "2026-08-22T07:43:31.937286+00:00",
     "since": "2026-08-22T07:34:00Z",
     "bots": {
       "alpha": {
         "role": "sniper",
         "surnom": "Le Sniper",
         "fills": 1,
-        "skips": 17,
+        "skips": 18,
         "pnl": -1.12056,
         "best": 0.0,
         "conf_moy": 0.6037,
@@ -2630,13 +2630,28 @@
               "tension": 0.08026298
             },
             "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv"
+          },
+          {
+            "ts": "2026-08-22T07:43:12Z",
+            "bot": "alpha",
+            "cycle": 23,
+            "action": "skip",
+            "intention": "skip — regime_gate",
+            "direction": null,
+            "conf": null,
+            "exit": "regime_gate",
+            "meta": {
+              "size_note": null,
+              "tension": 0.00014211
+            },
+            "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv"
           }
         ],
         "counts": {
           "wait": 0,
           "fire": 1,
           "probe": 0,
-          "skip": 17
+          "skip": 18
         },
         "direction": {
           "long": 0,
@@ -2883,12 +2898,12 @@
     ]
   },
   "saison": {
-    "ts": "2026-08-22T07:43:21.261014+00:00",
-    "saison": "CHAOS",
-    "emoji": "⛈️",
+    "ts": "2026-08-22T07:43:46.931265+00:00",
+    "saison": "CALME",
+    "emoji": "🧊",
     "direction": "neutre",
-    "bascule": false,
-    "bascule_raison": "",
+    "bascule": true,
+    "bascule_raison": "CHAOS → CALME",
     "alignement": {
       "nb_long": 1,
       "nb_short": 1,
@@ -2913,8 +2928,8 @@
       },
       "vortex": {
         "direction": "long",
-        "force": 2,
-        "brut": 1.15
+        "force": 1,
+        "brut": 0.96
       },
       "essaim": {
         "direction": "neutre",
@@ -2928,9 +2943,10 @@
       }
     },
     "story": [
-      "SAISON : CHAOS ⛈️ — liquidations massives détectées, le marché tremble.",
+      "SAISON : CALME 🧊 — hiver, ADA dort.",
       "Alignement : 1 haussiers / 1 baissiers.",
-      "Le vortex tourne fort (+1.15 % sur 24h) — le mouvement est là."
+      "Le vent se lève (+0.96 % sur 24h) — pas encore un vortex.",
+      "⚡ BASCULE : CHAOS → CALME — le ciel change, prépare-toi."
     ],
     "sources": [
       "live.json"
@@ -2938,20 +2954,19 @@
     "degraded": false
   },
   "gardienne": {
-    "ts": "2026-08-22T07:43:21Z",
-    "voilure_pct": 65,
-    "zone": "JAUNE",
-    "zone_emoji": "🟡",
+    "ts": "2026-08-22T07:43:46Z",
+    "voilure_pct": 90,
+    "zone": "VERT",
+    "zone_emoji": "🟢",
     "pressions": {
       "bleed": 0.01,
-      "storm": 0.97,
+      "storm": 0.46,
       "reversal": 0.0
     },
     "sirene": true,
     "declencheurs": [
-      "tempête déclarée",
-      "liquidations massives",
-      "le vortex tourne fort"
+      "bascule de saison",
+      "liquidations massives"
     ],
     "seuil_x": 12.46,
     "ancres": {
@@ -2960,28 +2975,27 @@
       "seuil_x": 12.46
     },
     "alerte": true,
-    "raison": "tempête déclarée; liquidations massives; le vortex tourne fort ; zone JAUNE",
+    "raison": "bascule de saison; liquidations massives ; zone VERT",
     "pnl_alpha": -1.12,
     "sources": [
       "live.json"
     ],
     "story": [
-      "🚨 FEUX DE L'ORAGE : tempête déclarée, liquidations massives, le vortex tourne fort — ADA hurle maintenant, pas après.",
-      "La voilure descend à 65 % — le vent se lève, la pression monte.",
-      "Fenêtre encore ouverte, mais l'œil reste sur le ciel : ACE réduit sa toile tout seul.",
-      "Le vent forcit — ACE est construit pour ça : marcher dans la tempête."
+      "🚨 FEUX DE L'ORAGE : bascule de saison, liquidations massives — ADA hurle maintenant, pas après.",
+      "La voilure tient à 90 % — le bassin est calme, ACE garde sa toile déployée.",
+      "Rien ne presse : le Sniper reste en embuscade, l'Éclaireur sonde."
     ]
   },
   "coup_doeil": {
-    "ts": "2026-08-22T07:43:21Z",
-    "saison": "CHAOS",
-    "saison_emoji": "⛈️",
-    "voilure": "65 %",
-    "zone": "JAUNE",
-    "zone_emoji": "🟡",
+    "ts": "2026-08-22T07:43:46Z",
+    "saison": "CALME",
+    "saison_emoji": "🌿",
+    "voilure": "90 %",
+    "zone": "VERT",
+    "zone_emoji": "🟢",
     "verdict_famille": "• GEMINI (analyste) : Aucune action corrective n'est requise : la discipline d'Alpha (0 tir malgré le volume x3) valide la synchronisation m",
     "intention": "Alpha : 1 tir (0 revenge), pnl -1.12 $ · Beta : 1 sondes · Hulk : pnl -0.11 $ (12 positions)",
-    "ligne": "CHAOS ⛈️ · voilure 65 % · JAUNE 🟡 — 🚨 FEUX DE L'ORAGE : tempête déclarée, liquidations massives, le vortex tourne fort — ADA hurle maintenant, pas"
+    "ligne": "CALME 🌿 · voilure 90 % · VERT 🟢 — 🚨 FEUX DE L'ORAGE : bascule de saison, liquidations massives — ADA hurle maintenant, pas après."
   },
   "disjoncteur": {
     "declenche": false,
