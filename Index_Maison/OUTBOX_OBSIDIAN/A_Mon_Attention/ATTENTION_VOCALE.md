@@ -1,13 +1,13 @@
 # Attention vocale — Cortana
 
 ## Dernier résumé
-> Info Changement de tendance. Structure hausse, signe une heure -.. Provenance cortana_watch_trend.
+> Résumé Cortana, mode pédagogique. Climat calme, score 77 sur cent. Avis climat : calme, score 77 — thermo plutôt clément ; bon pour observer, pas une invitation à monter le risque. Bitcoin cours 77475 dollars, une heure 0.03%, quatre heures -1.14%, vingt-quatre heures 2.38%. Avis prix : sur une heure, le bitcoin bouge peu — marché plutôt plat ; sur vingt-quatre heures c’est clairement vert. Taux de financement actuel 0.0001, moyenne trente jours 0.000058, mois précédent 0.000061. Avis : un peu plus haut que la moyenne des trente jours, et au-dessus de la moyenne du mois précédent. En clair : funding positif soft — les longs paient encore les shorts, rien d’extrême Ratio long court 1.03, intérêt ouvert 1e+05, ratio acheteur 0.88. Avis positionnement : équilibre long-court assez classique ; l’intérêt ouvert donne la taille des paris ouverts — à croiser avec le prix, pas seul. Baleines : 1 grosses transactions, environ 7e+05 dollars. Avis baleines : 1 print(s) au-dessus du seuil — activité institutionnelle ou whale possible, à croiser avec le prix. Ace en direct, 1370 passés, bénéfice session 309.32$, chaleur 1e+02. Avis stacks : chaleur Ace élevée — beaucoup d’activité ou de stress moteur ; session Ace positive — bien, sans crier victoire ; beaucoup de SKIP : le filtre refuse souvent — sagesse ou marché trop sale. Les moteurs tournent. Portefeuille : Ace -89.85$, Hulk -0.11$, total -89.96$. Synthèse : sentiment plutôt constructif — thermo calme, pas de feu rouge. Je reste vigilante sur le funding et le duo ; pas de GO implicite.
 
 ## Meta
 - statut: READY
-- ts: 20260822T0701Z
+- ts: 20260822T0702Z
 - pertinence: SOFT
-- sentiment: INFO
+- sentiment: BULLISH
 - compte: thermo-free
 - lien Index: S22b C14 · résumé horaire
 
@@ -16,6 +16,6 @@ Cortana / `speak_attention` peut lire le résumé, puis repasser IDLE.
 
 
 ## ⚠️ SUPERVISEUR — besoin de Christophe
-- ts: 20260822T0901Z
+- ts: 20260822T0902Z
 - demande: Limite de relances atteinte pour com.ace777.cortana.horaire
 - pourquoi: 3 relances/jour dépassées, intervention humaine requise.
