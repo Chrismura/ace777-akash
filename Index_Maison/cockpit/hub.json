@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-22T08:42:50.412826+00:00",
+  "generated_at": "2026-08-22T08:44:54.824061+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -26,7 +26,7 @@
       "model": "qwen-3.8-max-free",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 462
+      "calls_24h": 464
     },
     {
       "id": "groq",
@@ -229,10 +229,26 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 2374,
+    "consumed": 2376,
     "remaining": 0
   },
   "queue": [
+    {
+      "ts": "2026-08-22T08:43:00.166413+00:00",
+      "task": "supervise.decision",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 69.16
+    },
+    {
+      "ts": "2026-08-22T08:42:56.634741+00:00",
+      "task": "supervise.decision",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 13.18
+    },
     {
       "ts": "2026-08-22T08:41:37.076480+00:00",
       "task": "supervise.decision",
@@ -336,36 +352,68 @@
       "model": "qwen-3.8-max-free",
       "kind": "cloud",
       "duration_s": 35.35
-    },
-    {
-      "ts": "2026-08-22T08:33:29.976472+00:00",
-      "task": "analyse.profonde",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 435.66
-    },
-    {
-      "ts": "2026-08-22T08:33:11.199438+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 15.51
     }
   ],
   "events": [
     {
-      "ts": "2026-08-22T08:42:43.451745+00:00",
+      "ts": "2026-08-22T08:44:43.014305+00:00",
       "kind": "failover",
-      "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
-      "detail": "0 attente"
+      "title": "Bascule depuis Groq (LLM ultra-rapide, gratuit)",
+      "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-08-22T08:42:43.450711+00:00",
+      "ts": "2026-08-22T08:44:43.013918+00:00",
+      "kind": "ratelimit",
+      "title": "429 Groq (LLM ultra-rapide, gratuit) -> pause 60s + bascule",
+      "detail": ""
+    },
+    {
+      "ts": "2026-08-22T08:44:42.708065+00:00",
+      "kind": "blacklist",
+      "title": "Fin de pause Groq (LLM ultra-rapide, gratuit)",
+      "detail": "re-essai automatique"
+    },
+    {
+      "ts": "2026-08-22T08:44:42.707537+00:00",
       "kind": "reserve-storm",
       "title": "Tempête active + budget calme atteint -> réserve storm pour supervise.decision",
       "detail": "supervise.decision"
+    },
+    {
+      "ts": "2026-08-22T08:43:47.864768+00:00",
+      "kind": "timeout",
+      "title": "Patience NaraRouter (7M tokens/jour gratuits) (reponse vide)",
+      "detail": "Reponse vide"
+    },
+    {
+      "ts": "2026-08-22T08:43:41.932051+00:00",
+      "kind": "http",
+      "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
+      "detail": ""
+    },
+    {
+      "ts": "2026-08-22T08:43:41.931810+00:00",
+      "kind": "error",
+      "title": "Toutes les IA ont echoue",
+      "detail": "Google Gemini: HTTP Error 429: Too Many Requests | HuggingFace (136+ modeles, dont DeepSeek-V4): blacklist du jour (saute) | NaraRouter (7M tokens/jour gratuits): Reponse vide | budget: Budget temps requete depasse"
+    },
+    {
+      "ts": "2026-08-22T08:43:41.931567+00:00",
+      "kind": "error",
+      "title": "Budget temps requete depasse",
+      "detail": ""
+    },
+    {
+      "ts": "2026-08-22T08:43:41.930406+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis NaraRouter (7M tokens/jour gratuits)",
+      "detail": "Reponse vide"
+    },
+    {
+      "ts": "2026-08-22T08:43:34.538946+00:00",
+      "kind": "timeout",
+      "title": "Patience NaraRouter (7M tokens/jour gratuits) (reponse vide)",
+      "detail": "Reponse vide"
     }
   ],
   "tasks_quotas": {
@@ -487,6 +535,13 @@
       "fallback": "groq",
       "secondary": "huggingface",
       "note": "ROUTAGE 17/08 (4 cerveaux vivants): gemini/nara/nara -> gemini/groq/nara"
+    },
+    "trading.skills": {
+      "provider": "gemini",
+      "fallback": "groq",
+      "secondary": "nara",
+      "cloud_quota": 10,
+      "note": "SKILLS TRADING (22/08, GO Christophe) : analyse quantitative (slippage/exit/kelly/walkforward/risk). Gemini principal, groq rapide, nara filet. Lecture seule, jamais d'ordre."
     }
   },
   "health": {

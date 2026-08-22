@@ -33,7 +33,7 @@
 
 | Role | Modele | Statut | Note |
 |------|--------|--------|------|
-| demarrage / analyse profonde / analyste.strategie / audit protocole / RAG coffre / analyse / brief vocal / cortana.yeux / analyse / tri signets / synthese bookmarks / analyse forte / veille.youtube | `gemini-flash-lite-latest` | gemini | - |
+| demarrage / analyse profonde / analyste.strategie / audit protocole / RAG coffre / analyse / brief vocal / cortana.yeux / analyse / tri signets / synthese bookmarks / trading.skills / analyse forte / veille.youtube | `gemini-flash-lite-latest` | gemini | - |
 | - | `@cf/meta/llama-3.1-8b-instruct` | cloudflare-workers-ai | 10k Neurons/jour gratuits - necessite account_id dans base_url + token |
 | - | `x-ai/grok-4.5` | grok | Branche 08/08 (GO Christophe) : missions de qualite, ~$2/M tokens |
 | - | `qwen3.5:4b` | qwen-local | UPGRADE 09/08 : qwen2.5:3b -> qwen3.5:4b (GO Christophe, apprentissage) |
