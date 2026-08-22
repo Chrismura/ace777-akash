@@ -1,5 +1,5 @@
 {
-  "ts": "2026-08-22T15:48Z",
+  "ts": "2026-08-22T15:49Z",
   "alert": "red",
   "run": "MASTER_VORTEX_V2_COLLAB_4H",
   "sessionSince": "2026-08-22T15:44Z",
@@ -1760,14 +1760,14 @@
   },
   "thermo": {
     "climate": "ok",
-    "score": 87,
+    "score": 88,
     "funding": 0.0001,
     "whaleN": 0,
     "deltas": {
       "mark": {
-        "dir": "down",
-        "delta": -1.02,
-        "label": "↓"
+        "dir": "up",
+        "delta": 1.73,
+        "label": "↑"
       },
       "funding": {
         "dir": "flat",
@@ -1791,23 +1791,23 @@
       },
       "chg24": {
         "dir": "up",
-        "delta": 0.01,
+        "delta": 0.11,
         "label": "↑"
       },
       "oi": {
         "dir": "down",
-        "delta": -0.81,
+        "delta": -0.641,
         "label": "↓"
       },
       "score": {
-        "dir": "flat",
-        "delta": 0.0,
-        "label": "="
+        "dir": "up",
+        "delta": 1.0,
+        "label": "↑"
       },
       "btcDominance": {
         "dir": "flat",
-        "delta": null,
-        "label": "—"
+        "delta": 0.0,
+        "label": "="
       },
       "panierDownPct": {
         "dir": "flat",
@@ -1841,8 +1841,8 @@
       },
       "marketCapUsd": {
         "dir": "flat",
-        "delta": null,
-        "label": "—"
+        "delta": 0.0,
+        "label": "="
       },
       "liq24Usd": {
         "dir": "flat",
@@ -1866,8 +1866,8 @@
       },
       "altSeasonScore": {
         "dir": "flat",
-        "delta": null,
-        "label": "—"
+        "delta": 0.0,
+        "label": "="
       },
       "gexPutCall": {
         "dir": "flat",
@@ -1882,9 +1882,9 @@
     },
     "fearGreed": 71,
     "fearGreedLabel": "Greed",
-    "marketCapUsd": null,
-    "altSeason": null,
-    "altSeasonScore": null,
+    "marketCapUsd": 2616366958144.0,
+    "altSeason": "Bitcoin season",
+    "altSeasonScore": 43,
     "liq24Usd": 41952056.0,
     "etf": {
       "btc": 226.26,
@@ -1893,7 +1893,7 @@
       "source": "bitbo-public (moy 7j)",
       "unit": "M$"
     },
-    "btcDominance": null,
+    "btcDominance": 58.94,
     "onchain": {
       "whaleBlocsN": 0,
       "whaleBlocsBtc": 0,
@@ -1914,7 +1914,7 @@
       "whaleAlerte": false,
       "whaleAlerteTexte": "Activité baleines nominale (aucun gros bloc ≥1000 BTC ni fragmentation ≥500 BTC).",
       "dernierEvtMin": -1,
-      "synthèse": "Direction onchain neutral | 0 gros bloc(s) 0 BTC sur le scan récent, cumul 24h 0 BTC, source inconnue. Activité baleines nominale (aucun gros bloc ≥1000 BTC ni fragmentation ≥500 BTC). | CPFP actif (conf 0/2) · poussière score 100.0/50 · blocs privatisés 2.176% fantômes | indice onchain 31.8/100 (MODÉRÉ — onchain à surveiller)",
+      "synthèse": "Direction onchain neutral | 0 gros bloc(s) 0 BTC sur le scan récent, cumul 24h 0 BTC, source inconnue. Activité baleines nominale (aucun gros bloc ≥1000 BTC ni fragmentation ≥500 BTC). | CPFP actif (conf 0/2) · poussière score 100.0/50 · blocs privatisés 0.6019% fantômes | indice onchain 30.5/100 (MODÉRÉ — onchain à surveiller)",
       "cpfpSignal": null,
       "cpfpScore": 0.0,
       "cpfpMode": "actif",
@@ -1922,14 +1922,14 @@
       "cpfpGlobal": false,
       "cpfpZscore": 0.0,
       "cpfpDustScore": 100.0,
-      "cpfpDustDetail": "poussière <2.0 sat/vB (normalisé minFee 1×1.5) : 8 vues ce run, 23570 cumulées 48h (seuil 1000) — max 0.0000 BTC",
+      "cpfpDustDetail": "poussière <3.0 sat/vB (normalisé minFee 2×1.5) : 3 vues ce run, 23587 cumulées 48h (seuil 1000) — max 0.0001 BTC",
       "blocPrivatiseMode": "actif",
-      "blocPrivatiseTauxFantome": 2.176,
-      "blocPrivatiseNbCachees": 92,
-      "indiceOnchain": 31.8,
+      "blocPrivatiseTauxFantome": 0.6019,
+      "blocPrivatiseNbCachees": 20,
+      "indiceOnchain": 30.5,
       "indiceOnchainLabel": "MODÉRÉ — onchain à surveiller",
       "indiceOnchainComposantes": {
-        "blocsPrivatises": 3.5,
+        "blocsPrivatises": 1.0,
         "poussiere": 100.0,
         "cpfpZscore": 0.0
       }
@@ -1944,20 +1944,20 @@
         "wired": true
       },
       "D27": {
-        "value": null,
-        "level": "na",
+        "value": "2.62 T$",
+        "level": "ok",
         "label": "Market cap crypto",
         "unit": "",
         "note": "CoinGecko global",
-        "wired": false
+        "wired": true
       },
       "D28": {
-        "value": null,
-        "level": "ok",
+        "value": "Bitcoin season (~43)",
+        "level": "warn",
         "label": "Alt season (proxy BTC.D)",
         "unit": "",
         "note": "proxy dominance — pas index Blockchain Center exact",
-        "wired": false
+        "wired": true
       },
       "D29": {
         "value": "0.04 B$",
@@ -1994,7 +1994,7 @@
     }
   },
   "intention": {
-    "ts": "2026-08-22T15:48:17.324477+00:00",
+    "ts": "2026-08-22T15:48:23.288305+00:00",
     "since": "2026-08-22T15:44:00Z",
     "bots": {
       "alpha": {
@@ -2153,7 +2153,7 @@
     ]
   },
   "saison": {
-    "ts": "2026-08-22T15:48:16.076804+00:00",
+    "ts": "2026-08-22T15:48:47.264532+00:00",
     "saison": "CALME",
     "emoji": "🧊",
     "direction": "short",
@@ -2184,7 +2184,7 @@
       "vortex": {
         "direction": "short",
         "force": 1,
-        "brut": -0.56
+        "brut": -0.46
       },
       "essaim": {
         "direction": "neutre",
@@ -2200,7 +2200,7 @@
     "story": [
       "SAISON : CALME 🧊 — hiver, ADA dort.",
       "Alignement : 0 haussiers / 2 baissiers.",
-      "Le vent se lève (-0.56 % sur 24h) — pas encore un vortex."
+      "Le vent se lève (-0.46 % sur 24h) — pas encore un vortex."
     ],
     "sources": [
       "live.json"
@@ -2208,7 +2208,7 @@
     "degraded": false
   },
   "gardienne": {
-    "ts": "2026-08-22T15:48:16Z",
+    "ts": "2026-08-22T15:48:47Z",
     "voilure_pct": 91,
     "zone": "VERT",
     "zone_emoji": "🟢",
@@ -2237,7 +2237,7 @@
     ]
   },
   "coup_doeil": {
-    "ts": "2026-08-22T15:48:16Z",
+    "ts": "2026-08-22T15:48:47Z",
     "saison": "CALME",
     "saison_emoji": "🌿",
     "voilure": "91 %",

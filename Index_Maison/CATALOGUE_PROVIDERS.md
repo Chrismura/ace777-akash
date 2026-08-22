@@ -10,7 +10,7 @@
 |------|--------|--------|------|
 | - | `openai/gpt-oss-20b:free` | openrouter-free | REACTIVE 13/08 - cle OK, gpt-oss-20b:free teste (raisonne + repond). Generaliste fallback. |
 | missions / JUGE | `qwen-3.8-max-free` | nara | ACTIVE 17/08 - cle NaraRouter OK (Telegram lie) - qwen-3.8-max-free teste reellement OK |
-| chat interactif / CODE / supervise.decision | `groq/compound` | groq | ACTIVE 17/08 - cle Groq OK + UA fix Cloudflare - groq/compound repond direct (gpt-oss=reas |
+| chat interactif / supervise.decision | `groq/compound` | groq | ACTIVE 17/08 - cle Groq OK + UA fix Cloudflare - groq/compound repond direct (gpt-oss=reas |
 | analyse BTC / elaboration | `deepseek-ai/deepseek-v4-flash-0731` | nvidia | ACTIVE 17/08 - vivant mais LENT (47s a froid, demarrage modele) - reserve analyse profonde |
 | - | `codestral-latest` | mistral | ACTIVE 11/08 - cle Mistral OK (plan experiment 1 Md tokens/mois) - Codestral = modele code |
 | - | `nvidia/nemotron-3-super-120b-a12b:free` | openrouter-juge | REACTIVE 13/08 - nemotron-3-super-120b free teste OK. Juge independant (maker!=checker). | |
