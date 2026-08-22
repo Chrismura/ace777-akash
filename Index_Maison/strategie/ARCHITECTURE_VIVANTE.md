@@ -1,4 +1,4 @@
-# ARCHITECTURE VIVANTE — ACE777 (2026-08-22 04:05 UTC)
+# ARCHITECTURE VIVANTE — ACE777 (2026-08-22 04:06 UTC)
 
 > Document GÉNÉRÉ AUTOMATIQUEMENT à l'instant. La famille valide
 > en s'appuyant sur CE contexte, pas sur des documents figés.
@@ -9,7 +9,7 @@
 - ✅ radar
 - ⛔ lecteur signets
 - ⛔ générateur fiches
-- ⛔ feed mission
+- ✅ feed mission
 - ⛔ serveur cockpit
 
 ## Routage des tâches de décision
@@ -34,23 +34,23 @@
 - [Santé]
   · hub : OK (14 providers)
 - [Énergie du jour]
-  · appels : 361 (cloud 361)
+  · appels : 364 (cloud 364)
   · budget cloud : 624 max
-  · par provider : gemini=2, groq=1, mistral=227, nara=129, nvidia=2
+  · par provider : gemini=2, groq=1, mistral=230, nara=129, nvidia=2
 - [Nouvelles offres détectées (non intégrées)]
   · dots-studio/dots-3-note-preview:free
   · liquid/lfm-2.5-2.6b:free
   · thinkingmachines/inkling-small:free
-  … 109 offres/pépites détectées ce matin
+  … 110 offres/pépites détectées ce matin
 
 ## Mémoire chaude (journal + résumés)
 
 - Radar (dernières alertes) :
-  · 2026-08-22T04:05:56.948247Z BTCUSDT 78406.01 0.0001 3.8 declenche=non
-  · 2026-08-22T04:05:56.996811Z BTCUSDT 78406.0 0.0001 3.8 declenche=non
-  · 2026-08-22T04:05:57.227647Z ETHUSDT 2517.53 0.0001 68.2 declenche=non
-  · 2026-08-22T04:05:57.227954Z ETHUSDT 2517.53 0.0001 68.2 declenche=non
-- Intention en cours : BETA a sonde le marche (4 sondes, 1 long / 3 court, conf moy | ALPHA attend son moment : 65 skips (discipline), le mur du c | ALPHA a frappe 4 fois en embuscade (13x) (dont 2 en mode rev
+  · 2026-08-22T04:05:58.873117Z BTCUSDT 78406.0 0.0001 3.8 declenche=non
+  · 2026-08-22T04:05:59.177131Z ETHUSDT 2517.78 0.0000 72.8 declenche=non
+  · 2026-08-22T04:05:59.866235Z ETHUSDT 2517.78 0.0000 75.1 declenche=non
+  · 2026-08-22T04:05:59.950936Z BTCUSDT 78406.0 0.0001 3.8 declenche=non
+- Intention en cours : BETA a sonde le marche (4 sondes, 1 long / 3 court, conf moy | ALPHA attend son moment : 67 skips (discipline), le mur du c | ALPHA a frappe 4 fois en embuscade (13x) (dont 2 en mode rev
 - 500 signets X résumés (quota aujourd'hui : 0/50)
 - 56 fiches IA d'offres en cache (quota 8/jour)
 
