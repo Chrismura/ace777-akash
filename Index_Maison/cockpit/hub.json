@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-22T01:11:32.381104+00:00",
+  "generated_at": "2026-08-22T01:11:48.410776+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -26,7 +26,7 @@
       "model": "qwen-3.8-max-free",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 839
+      "calls_24h": 840
     },
     {
       "id": "groq",
@@ -229,10 +229,18 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 180,
-    "remaining": 444
+    "consumed": 181,
+    "remaining": 443
   },
   "queue": [
+    {
+      "ts": "2026-08-22T01:11:30.748652+00:00",
+      "task": "supervise.decision",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 26.91
+    },
     {
       "ts": "2026-08-22T01:10:54.312991+00:00",
       "task": "supervise.decision",
@@ -344,17 +352,27 @@
       "model": "qwen-3.8-max-free",
       "kind": "cloud",
       "duration_s": 70.85
-    },
-    {
-      "ts": "2026-08-22T01:06:26.313613+00:00",
-      "task": "analyse.profonde",
-      "provider": "nvidia",
-      "model": "deepseek-ai/deepseek-v4-flash-0731",
-      "kind": "cloud",
-      "duration_s": 125.62
     }
   ],
   "events": [
+    {
+      "ts": "2026-08-22T01:11:40.432096+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis Groq (LLM ultra-rapide, gratuit)",
+      "detail": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "ts": "2026-08-22T01:11:40.431724+00:00",
+      "kind": "ratelimit",
+      "title": "429 Groq (LLM ultra-rapide, gratuit) -> pause 60s + bascule",
+      "detail": ""
+    },
+    {
+      "ts": "2026-08-22T01:11:40.225839+00:00",
+      "kind": "blacklist",
+      "title": "Fin de pause Groq (LLM ultra-rapide, gratuit)",
+      "detail": "re-essai automatique"
+    },
     {
       "ts": "2026-08-22T01:11:30.748234+00:00",
       "kind": "message",
@@ -396,24 +414,6 @@
       "kind": "message",
       "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
       "detail": "bascule"
-    },
-    {
-      "ts": "2026-08-22T01:10:46.332563+00:00",
-      "kind": "message",
-      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
-      "detail": "bascule"
-    },
-    {
-      "ts": "2026-08-22T01:10:37.939797+00:00",
-      "kind": "failover",
-      "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
-      "detail": "0 attente"
-    },
-    {
-      "ts": "2026-08-22T01:10:18.666880+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis Groq (LLM ultra-rapide, gratuit)",
-      "detail": "HTTP Error 429: Too Many Requests"
     }
   ],
   "tasks_quotas": {
