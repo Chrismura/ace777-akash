@@ -4,7 +4,7 @@
 > Alerte Gros mouvement. Bitcoin une heure -2.03 pour cent, quatre heures -1.22 pour cent.. Provenance cortana_watch_move.
 
 ## Meta
-- statut: READY
+- statut: IDLE
 - ts: 20260822T0511Z
 - pertinence: PERTINENT
 - sentiment: URGENT

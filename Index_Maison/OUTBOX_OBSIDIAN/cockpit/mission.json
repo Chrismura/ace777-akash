@@ -3184,14 +3184,14 @@
   },
   "thermo": {
     "climate": "ok",
-    "score": 75,
+    "score": 78,
     "funding": 0.0001,
     "whaleN": 0,
     "deltas": {
       "mark": {
-        "dir": "down",
-        "delta": -622.68,
-        "label": "↓"
+        "dir": "up",
+        "delta": 84.2,
+        "label": "↑"
       },
       "funding": {
         "dir": "flat",
@@ -3215,13 +3215,13 @@
       },
       "chg24": {
         "dir": "down",
-        "delta": -0.57,
+        "delta": -0.6,
         "label": "↓"
       },
       "oi": {
-        "dir": "up",
-        "delta": 80.614,
-        "label": "↑"
+        "dir": "down",
+        "delta": -121.736,
+        "label": "↓"
       },
       "score": {
         "dir": "up",
@@ -3230,8 +3230,8 @@
       },
       "btcDominance": {
         "dir": "flat",
-        "delta": null,
-        "label": "—"
+        "delta": 0.0,
+        "label": "="
       },
       "panierDownPct": {
         "dir": "flat",
@@ -3240,12 +3240,12 @@
       },
       "whaleUsd": {
         "dir": "down",
-        "delta": -19638691.0,
+        "delta": -995613.0,
         "label": "↓"
       },
       "whaleN": {
         "dir": "down",
-        "delta": -13.0,
+        "delta": -1.0,
         "label": "↓"
       },
       "takerRatio": {
@@ -3265,12 +3265,12 @@
       },
       "marketCapUsd": {
         "dir": "flat",
-        "delta": null,
-        "label": "—"
+        "delta": 0.0,
+        "label": "="
       },
       "liq24Usd": {
         "dir": "up",
-        "delta": 1483594.0,
+        "delta": 897606.0,
         "label": "↑"
       },
       "liqLongUsd": {
@@ -3284,19 +3284,19 @@
         "label": "—"
       },
       "etfBtcM": {
-        "dir": "down",
-        "delta": -1.83,
-        "label": "↓"
+        "dir": "up",
+        "delta": 0.24,
+        "label": "↑"
       },
       "altSeasonScore": {
         "dir": "flat",
-        "delta": null,
-        "label": "—"
+        "delta": 0.0,
+        "label": "="
       },
       "gexPutCall": {
-        "dir": "down",
-        "delta": -0.001,
-        "label": "↓"
+        "dir": "flat",
+        "delta": 0.0,
+        "label": "="
       },
       "volumeCachedTaker": {
         "dir": "flat",
@@ -3306,18 +3306,18 @@
     },
     "fearGreed": 71,
     "fearGreedLabel": "Greed",
-    "marketCapUsd": null,
-    "altSeason": null,
-    "altSeasonScore": null,
-    "liq24Usd": 52325553.0,
+    "marketCapUsd": 2700756517296.0,
+    "altSeason": "Bitcoin season",
+    "altSeasonScore": 45,
+    "liq24Usd": 53118313.0,
     "etf": {
-      "btc": 225.79,
+      "btc": 225.59,
       "eth": null,
       "xrp": null,
       "source": "bitbo-public (moy 7j)",
       "unit": "M$"
     },
-    "btcDominance": null,
+    "btcDominance": 58.22,
     "onchain": {
       "whaleBlocsN": 0,
       "whaleBlocsBtc": 0,
@@ -3329,10 +3329,10 @@
       "whaleDirLabel": "bearish",
       "whaleDirScan": "neutral",
       "whaleDirProxy": "bearish",
-      "whaleProxyN": 13,
-      "whaleProxyUsd": 3775868.0,
+      "whaleProxyN": 1,
+      "whaleProxyUsd": 995613.0,
       "whaleProxyBuyUsd": 0.0,
-      "whaleProxySellUsd": 19638691.0,
+      "whaleProxySellUsd": 995613.0,
       "whaleSource": "inconnue",
       "whaleEcartSeuil": null,
       "whaleAlerte": false,
@@ -3346,7 +3346,7 @@
       "cpfpGlobal": false,
       "cpfpZscore": 0.0,
       "cpfpDustScore": 100.0,
-      "cpfpDustDetail": "poussière <2.0 sat/vB (normalisé minFee 1×1.5) : 7 vues ce run, 11374 cumulées 48h (seuil 1000) — max 0.0009 BTC",
+      "cpfpDustDetail": "poussière <2.0 sat/vB (normalisé minFee 1×1.5) : 10 vues ce run, 11394 cumulées 48h (seuil 1000) — max 0.0010 BTC",
       "blocPrivatiseMode": "actif",
       "blocPrivatiseTauxFantome": 6.5211,
       "blocPrivatiseNbCachees": 415,
@@ -3368,20 +3368,20 @@
         "wired": true
       },
       "D27": {
-        "value": null,
-        "level": "na",
+        "value": "2.70 T$",
+        "level": "ok",
         "label": "Market cap crypto",
         "unit": "",
         "note": "CoinGecko global",
-        "wired": false
+        "wired": true
       },
       "D28": {
-        "value": null,
-        "level": "ok",
+        "value": "Bitcoin season (~45)",
+        "level": "warn",
         "label": "Alt season (proxy BTC.D)",
         "unit": "",
         "note": "proxy dominance — pas index Blockchain Center exact",
-        "wired": false
+        "wired": true
       },
       "D29": {
         "value": "0.05 B$",
@@ -3392,7 +3392,7 @@
         "wired": true
       },
       "D30": {
-        "value": "BTC 225.79 M$",
+        "value": "BTC 225.59 M$",
         "level": "ok",
         "label": "ETF BTC net inflow",
         "unit": "",
@@ -3418,7 +3418,7 @@
     }
   },
   "intention": {
-    "ts": "2026-08-22T05:11:19.262071+00:00",
+    "ts": "2026-08-22T05:11:22.371298+00:00",
     "since": "2026-08-22T03:31:00Z",
     "bots": {
       "alpha": {
@@ -4073,7 +4073,7 @@
     ]
   },
   "saison": {
-    "ts": "2026-08-22T05:11:14.154216+00:00",
+    "ts": "2026-08-22T05:11:35.996404+00:00",
     "saison": "CHAOS",
     "emoji": "⛈️",
     "direction": "neutre",
@@ -4104,7 +4104,7 @@
       "vortex": {
         "direction": "long",
         "force": 2,
-        "brut": 3.29
+        "brut": 2.74
       },
       "essaim": {
         "direction": "neutre",
@@ -4113,14 +4113,14 @@
       },
       "baleines": {
         "direction": "neutre",
-        "force": 1,
-        "brut": 13
+        "force": 0,
+        "brut": 1
       }
     },
     "story": [
       "SAISON : CHAOS ⛈️ — liquidations massives détectées, le marché tremble.",
       "Alignement : 1 haussiers / 1 baissiers.",
-      "Le vortex tourne fort (+3.29 % sur 24h) — le mouvement est là."
+      "Le vortex tourne fort (+2.74 % sur 24h) — le mouvement est là."
     ],
     "sources": [
       "live.json"
@@ -4128,7 +4128,7 @@
     "degraded": false
   },
   "gardienne": {
-    "ts": "2026-08-22T05:11:14Z",
+    "ts": "2026-08-22T05:11:36Z",
     "voilure_pct": 25,
     "zone": "PRENDS_LA_PERTE",
     "zone_emoji": "⛔",
@@ -4162,7 +4162,7 @@
     ]
   },
   "coup_doeil": {
-    "ts": "2026-08-22T05:11:14Z",
+    "ts": "2026-08-22T05:11:36Z",
     "saison": "CHAOS",
     "saison_emoji": "⛈️",
     "voilure": "25 %",
