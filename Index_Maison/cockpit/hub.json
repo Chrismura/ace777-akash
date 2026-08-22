@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-22T11:16:30.532434+00:00",
+  "generated_at": "2026-08-22T11:17:12.217783+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -26,7 +26,7 @@
       "model": "qwen-3.8-max-free",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 582
+      "calls_24h": 583
     },
     {
       "id": "groq",
@@ -229,10 +229,18 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 3615,
+    "consumed": 3616,
     "remaining": 0
   },
   "queue": [
+    {
+      "ts": "2026-08-22T11:16:40.749608+00:00",
+      "task": "supervise.decision",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 36.5
+    },
     {
       "ts": "2026-08-22T11:16:28.270759+00:00",
       "task": "supervise.decision",
@@ -344,76 +352,68 @@
       "model": "qwen-3.8-max-free",
       "kind": "cloud",
       "duration_s": 26.3
-    },
-    {
-      "ts": "2026-08-22T11:07:32.211769+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 15.55
     }
   ],
   "events": [
     {
-      "ts": "2026-08-22T11:16:28.604152+00:00",
+      "ts": "2026-08-22T11:16:53.157632+00:00",
       "kind": "failover",
-      "title": "Bascule depuis NVIDIA DeepSeek-Coder 6.7B (code, via NIM)",
-      "detail": "HTTP Error 404: Not Found"
+      "title": "Bascule depuis Groq (LLM ultra-rapide, gratuit)",
+      "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-08-22T11:16:28.270466+00:00",
+      "ts": "2026-08-22T11:16:53.157247+00:00",
+      "kind": "ratelimit",
+      "title": "429 Groq (LLM ultra-rapide, gratuit) -> pause 60s + bascule",
+      "detail": ""
+    },
+    {
+      "ts": "2026-08-22T11:16:52.806777+00:00",
+      "kind": "blacklist",
+      "title": "Fin de pause Groq (LLM ultra-rapide, gratuit)",
+      "detail": "re-essai automatique"
+    },
+    {
+      "ts": "2026-08-22T11:16:52.762213+00:00",
+      "kind": "reserve-storm",
+      "title": "Tempête active + budget calme atteint -> réserve storm pour supervise.decision",
+      "detail": "supervise.decision"
+    },
+    {
+      "ts": "2026-08-22T11:16:40.749154+00:00",
       "kind": "message",
       "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
       "detail": "bascule"
     },
     {
-      "ts": "2026-08-22T11:16:26.268907+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis Puter Grok (gratuit)",
-      "detail": "HTTP Error 402: Payment Required"
-    },
-    {
-      "ts": "2026-08-22T11:16:25.171601+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis InferX Qwen3-Coder-Next (code, gratuit jusqu'au 12/08)",
-      "detail": "HTTP Error 429: Too Many Requests"
-    },
-    {
-      "ts": "2026-08-22T11:16:22.444969+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis InferX DeepSeek V4 Flash (API gratuite jusqu'au 12/08)",
-      "detail": "HTTP Error 429: Too Many Requests"
-    },
-    {
-      "ts": "2026-08-22T11:16:20.319566+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis OpenRouter Nemotron 3 Ultra 550B (free) - analyse forte",
-      "detail": "HTTP Error 429: Too Many Requests"
-    },
-    {
-      "ts": "2026-08-22T11:16:19.604326+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis OpenRouter Juge (nemotron-3-super-120b free) - verificateur independant",
-      "detail": "HTTP Error 429: Too Many Requests"
-    },
-    {
-      "ts": "2026-08-22T11:16:18.971892+00:00",
+      "ts": "2026-08-22T11:16:32.566987+00:00",
       "kind": "timeout",
       "title": "Patience NaraRouter (7M tokens/jour gratuits) (reponse vide)",
       "detail": "Reponse vide"
     },
     {
-      "ts": "2026-08-22T11:16:18.911686+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis Mistral La Plateforme (essai gratuit)",
-      "detail": "The read operation timed out"
+      "ts": "2026-08-22T11:16:30.981942+00:00",
+      "kind": "http",
+      "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
+      "detail": ""
     },
     {
-      "ts": "2026-08-22T11:16:08.215193+00:00",
+      "ts": "2026-08-22T11:16:30.981481+00:00",
+      "kind": "error",
+      "title": "Toutes les IA ont echoue",
+      "detail": "Google Gemini: HTTP Error 429: Too Many Requests | Groq (LLM ultra-rapide, gratuit): blacklist du jour (saute) | HuggingFace (136+ modeles, dont DeepSeek-V4): HTTP Error 402: Payment Required | OpenRouter (modeles gratuits): HTTP Error 404: Not Found | NaraRouter (7M tokens/jour gratuits): The read operation timed out | NVIDIA build.nvidia.com (100+ modeles): HTTP Error 429: Too Many Requests | Mistral La Plateforme (essai gratuit): The read operation timed out | OpenRouter Juge (nemotron-3-supe"
+    },
+    {
+      "ts": "2026-08-22T11:16:30.978993+00:00",
       "kind": "failover",
-      "title": "Bascule depuis NVIDIA build.nvidia.com (100+ modeles)",
+      "title": "Bascule depuis InferX Devstral-2-123B (code)",
       "detail": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "ts": "2026-08-22T11:16:28.604152+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis NVIDIA DeepSeek-Coder 6.7B (code, via NIM)",
+      "detail": "HTTP Error 404: Not Found"
     }
   ],
   "tasks_quotas": {
