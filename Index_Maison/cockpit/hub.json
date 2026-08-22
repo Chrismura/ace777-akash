@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-22T12:50:58.182113+00:00",
+  "generated_at": "2026-08-22T12:51:44.126476+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -26,7 +26,7 @@
       "model": "qwen-3.8-max-free",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 746
+      "calls_24h": 747
     },
     {
       "id": "groq",
@@ -229,10 +229,18 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 3782,
+    "consumed": 3783,
     "remaining": 0
   },
   "queue": [
+    {
+      "ts": "2026-08-22T12:51:04.874768+00:00",
+      "task": "supervise.decision",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 24.98
+    },
     {
       "ts": "2026-08-22T12:50:54.220178+00:00",
       "task": "analyse.profonde",
@@ -344,17 +352,33 @@
       "model": "qwen-3.8-max-free",
       "kind": "cloud",
       "duration_s": 29.64
-    },
-    {
-      "ts": "2026-08-22T12:46:13.228417+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 21.05
     }
   ],
   "events": [
+    {
+      "ts": "2026-08-22T12:51:30.181410+00:00",
+      "kind": "timeout",
+      "title": "Patience NaraRouter (7M tokens/jour gratuits) (reponse vide)",
+      "detail": "Reponse vide"
+    },
+    {
+      "ts": "2026-08-22T12:51:10.337370+00:00",
+      "kind": "failover",
+      "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
+      "detail": "0 attente"
+    },
+    {
+      "ts": "2026-08-22T12:51:10.336700+00:00",
+      "kind": "reserve-storm",
+      "title": "Tempête active + budget calme atteint -> réserve storm pour supervise.decision",
+      "detail": "supervise.decision"
+    },
+    {
+      "ts": "2026-08-22T12:51:04.874163+00:00",
+      "kind": "message",
+      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
+      "detail": "bascule"
+    },
     {
       "ts": "2026-08-22T12:50:57.696700+00:00",
       "kind": "failover",
@@ -390,30 +414,6 @@
       "kind": "failover",
       "title": "Bascule depuis InferX Devstral-2-123B (code)",
       "detail": "HTTP Error 429: Too Many Requests"
-    },
-    {
-      "ts": "2026-08-22T12:50:57.182785+00:00",
-      "kind": "blacklist",
-      "title": "Fin de pause Google Gemini",
-      "detail": "re-essai automatique"
-    },
-    {
-      "ts": "2026-08-22T12:50:57.182200+00:00",
-      "kind": "quota",
-      "title": "Budget calme atteint -> bascule famille (gratuits)",
-      "detail": "analyse.profonde"
-    },
-    {
-      "ts": "2026-08-22T12:50:54.865531+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis NVIDIA DeepSeek-Coder 6.7B (code, via NIM)",
-      "detail": "HTTP Error 404: Not Found"
-    },
-    {
-      "ts": "2026-08-22T12:50:54.219613+00:00",
-      "kind": "message",
-      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
-      "detail": "bascule"
     }
   ],
   "tasks_quotas": {
