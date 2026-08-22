@@ -9,7 +9,7 @@
 - ✅ radar
 - ⛔ lecteur signets
 - ⛔ générateur fiches
-- ⛔ feed mission
+- ✅ feed mission
 - ⛔ serveur cockpit
 
 ## Routage des tâches de décision
@@ -34,24 +34,24 @@
 - [Santé]
   · hub : OK (14 providers)
 - [Énergie du jour]
-  · appels : 1037 (cloud 1037)
+  · appels : 1041 (cloud 1041)
   · budget cloud : 624 max
-  · par provider : gemini=3, groq=3, mistral=894, nara=137
+  · par provider : gemini=3, groq=3, mistral=898, nara=137
 - [Nouvelles offres détectées (non intégrées)]
 - [ROLLBACK AUTO 2026-08-22]
-  · obs-1786688184 (cohere/north-mini-code:free) : 100% erreurs > 5% (observatoire)
+  · obs-1786774656 (nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free) : 100% erreurs > 5% (o
   · dots-studio/dots-3-note-preview:free
   · liquid/lfm-2.5-2.6b:free
   · thinkingmachines/inkling-small:free
-  … 109 offres/pépites détectées ce matin
+  … 106 offres/pépites détectées ce matin
 
 ## Mémoire chaude (journal + résumés)
 
 - Radar (dernières alertes) :
-  · 2026-08-22T17:24:04.071704Z ETHUSDT 2425.48 0.0002 183.4 declenche=non
-  · 2026-08-22T17:24:04.071691Z ETHUSDT 2425.48 0.0000 1.5 declenche=non
-  · 2026-08-22T17:24:04.072551Z ETHUSDT 2425.48 0.0002 183.4 declenche=non
-  · 2026-08-22T17:24:04.072835Z ETHUSDT 2425.48 0.0000 1.5 declenche=non
+  · 2026-08-22T17:24:20.170094Z ETHUSDT 2424.46 0.0000 0.9 declenche=non
+  · 2026-08-22T17:24:20.170172Z ETHUSDT 2424.46 0.0004 146.2 declenche=non
+  · 2026-08-22T17:24:20.175825Z ETHUSDT 2424.46 0.0004 146.2 declenche=non
+  · 2026-08-22T17:24:20.175984Z ETHUSDT 2424.46 0.0000 0.9 declenche=non
 - Intention en cours : BETA a sonde le marche (7 sondes, 5 long / 2 court, conf moy | ALPHA attend son moment : 132 skips (discipline), le mur du  | ALPHA a frappe 4 fois en embuscade (13x) (dont 2 en mode rev
 - 550 signets X résumés (quota aujourd'hui : 50/50)
 - 56 fiches IA d'offres en cache (quota 8/jour)
