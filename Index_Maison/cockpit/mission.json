@@ -1,11 +1,11 @@
 {
-  "ts": "2026-08-22T16:10Z",
+  "ts": "2026-08-22T16:11Z",
   "alert": "red",
   "run": "MASTER_VORTEX_V2_COLLAB_4H",
   "sessionSince": "2026-08-22T15:44Z",
   "comboPnl": -0.7247,
   "comboFeesToday": -223.3346,
-  "comboFees24h": -197.2928,
+  "comboFees24h": -198.3959,
   "comboPnlNet": -224.0593,
   "comboArrow": "down",
   "swarmCycle": 36,
@@ -2538,9 +2538,9 @@
     "whaleN": 0,
     "deltas": {
       "mark": {
-        "dir": "down",
-        "delta": -9.29,
-        "label": "↓"
+        "dir": "up",
+        "delta": 5.43,
+        "label": "↑"
       },
       "funding": {
         "dir": "flat",
@@ -2563,13 +2563,13 @@
         "label": "="
       },
       "chg24": {
-        "dir": "down",
-        "delta": -0.02,
-        "label": "↓"
+        "dir": "up",
+        "delta": 0.01,
+        "label": "↑"
       },
       "oi": {
         "dir": "down",
-        "delta": -2.063,
+        "delta": -0.72,
         "label": "↓"
       },
       "score": {
@@ -2633,9 +2633,9 @@
         "label": "—"
       },
       "etfBtcM": {
-        "dir": "down",
-        "delta": -0.03,
-        "label": "↓"
+        "dir": "up",
+        "delta": 0.02,
+        "label": "↑"
       },
       "altSeasonScore": {
         "dir": "flat",
@@ -2648,9 +2648,9 @@
         "label": "="
       },
       "volumeCachedTaker": {
-        "dir": "down",
-        "delta": -0.034,
-        "label": "↓"
+        "dir": "flat",
+        "delta": 0.0,
+        "label": "="
       }
     },
     "fearGreed": 71,
@@ -2660,7 +2660,7 @@
     "altSeasonScore": 43,
     "liq24Usd": 41914075.0,
     "etf": {
-      "btc": 226.19,
+      "btc": 226.21,
       "eth": null,
       "xrp": null,
       "source": "bitbo-public (moy 7j)",
@@ -2695,7 +2695,7 @@
       "cpfpGlobal": false,
       "cpfpZscore": 0.0,
       "cpfpDustScore": 100.0,
-      "cpfpDustDetail": "poussière <2.0 sat/vB (normalisé minFee 1×1.5) : 1 vues ce run, 24268 cumulées 48h (seuil 1000) — max 0.0301 BTC",
+      "cpfpDustDetail": "poussière <2.0 sat/vB (normalisé minFee 1×1.5) : 4 vues ce run, 24279 cumulées 48h (seuil 1000) — max 0.0007 BTC",
       "blocPrivatiseMode": "actif",
       "blocPrivatiseTauxFantome": 13.4334,
       "blocPrivatiseNbCachees": 331,
@@ -2741,7 +2741,7 @@
         "wired": true
       },
       "D30": {
-        "value": "BTC 226.19 M$",
+        "value": "BTC 226.21 M$",
         "level": "ok",
         "label": "ETF BTC net inflow",
         "unit": "",
@@ -2767,7 +2767,7 @@
     }
   },
   "intention": {
-    "ts": "2026-08-22T16:10:02.474580+00:00",
+    "ts": "2026-08-22T16:10:36.654686+00:00",
     "since": "2026-08-22T15:44:00Z",
     "bots": {
       "alpha": {
@@ -3421,17 +3421,17 @@
     ]
   },
   "saison": {
-    "ts": "2026-08-22T16:10:25.751164+00:00",
-    "saison": "ACCUMULATION",
-    "emoji": "💧",
-    "direction": "long",
-    "bascule": false,
-    "bascule_raison": "",
+    "ts": "2026-08-22T16:11:11.984897+00:00",
+    "saison": "CALME",
+    "emoji": "🧊",
+    "direction": "neutre",
+    "bascule": true,
+    "bascule_raison": "ACCUMULATION → CALME",
     "alignement": {
-      "nb_long": 2,
-      "nb_short": 0,
-      "score": 1.0,
-      "direction": "long"
+      "nb_long": 1,
+      "nb_short": 1,
+      "score": 0.0,
+      "direction": "neutre"
     },
     "indices": {
       "temperature": {
@@ -3445,14 +3445,14 @@
         "brut": 0.0001
       },
       "bassin": {
-        "direction": "long",
+        "direction": "short",
         "force": 1,
-        "brut": "up"
+        "brut": "down"
       },
       "vortex": {
         "direction": "long",
         "force": 0,
-        "brut": 0.11
+        "brut": 0.09
       },
       "essaim": {
         "direction": "neutre",
@@ -3466,8 +3466,9 @@
       }
     },
     "story": [
-      "SAISON : ACCUMULATION 💧 — le bassin se remplit en silence.",
-      "Alignement : 2 haussiers / 0 baissiers."
+      "SAISON : CALME 🧊 — hiver, ADA dort.",
+      "Alignement : 1 haussiers / 1 baissiers.",
+      "⚡ BASCULE : ACCUMULATION → CALME — le ciel change, prépare-toi."
     ],
     "sources": [
       "live.json"
@@ -3475,44 +3476,47 @@
     "degraded": false
   },
   "gardienne": {
-    "ts": "2026-08-22T16:10:25Z",
-    "voilure_pct": 86,
+    "ts": "2026-08-22T16:11:12Z",
+    "voilure_pct": 91,
     "zone": "VERT",
     "zone_emoji": "🟢",
     "pressions": {
       "bleed": 0.001,
-      "storm": 0.58,
+      "storm": 0.46,
       "reversal": 0.0
     },
-    "sirene": false,
-    "declencheurs": [],
+    "sirene": true,
+    "declencheurs": [
+      "bascule de saison"
+    ],
     "seuil_x": 40.0,
     "ancres": {
       "perte_moy": 1.32,
       "gains_peak": 50.0,
       "seuil_x": 40.0
     },
-    "alerte": false,
-    "raison": "",
+    "alerte": true,
+    "raison": "bascule de saison ; zone VERT",
     "pnl_alpha": -1.32,
     "sources": [
       "live.json"
     ],
     "story": [
-      "La voilure tient à 86 % — le bassin est calme, ACE garde sa toile déployée.",
+      "🚨 FEUX DE L'ORAGE : bascule de saison — ADA hurle maintenant, pas après.",
+      "La voilure tient à 91 % — le bassin est calme, ACE garde sa toile déployée.",
       "Rien ne presse : le Sniper reste en embuscade, l'Éclaireur sonde."
     ]
   },
   "coup_doeil": {
-    "ts": "2026-08-22T16:10:25Z",
-    "saison": "ACCUMULATION",
+    "ts": "2026-08-22T16:11:12Z",
+    "saison": "CALME",
     "saison_emoji": "🌿",
-    "voilure": "86 %",
+    "voilure": "91 %",
     "zone": "VERT",
     "zone_emoji": "🟢",
     "verdict_famille": "• GEMINI (analyste) : Aucune action corrective n'est requise : la discipline d'Alpha (0 tir malgré le volume x3) valide la synchronisation m",
     "intention": "Alpha : 1 tir (0 revenge), pnl -1.32 $ · Beta : 2 sondes · Hulk : pnl -0.11 $ (12 positions)",
-    "ligne": "ACCUMULATION 🌿 · voilure 86 % · VERT 🟢 — La voilure tient à 86 % — le bassin est calme, ACE garde sa toile déployée."
+    "ligne": "CALME 🌿 · voilure 91 % · VERT 🟢 — 🚨 FEUX DE L'ORAGE : bascule de saison — ADA hurle maintenant, pas après."
   },
   "disjoncteur": {
     "declenche": false,
