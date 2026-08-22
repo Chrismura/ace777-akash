@@ -1,41 +1,43 @@
 {
-  "timestamp": "2026-08-22T17:09:10Z",
+  "timestamp": "2026-08-22T17:09:19Z",
   "generation_source": "system_state_generator.py v2.1",
   "status": "STALE",
-  "feed_hash": "22455f435ba5bf8777e31e51c0d042a04baa8fcb6c1066593de4f9178bb0ec08",
+  "feed_hash": "ceab2cd8f271aba66fc049a6da2b25b16c8a335ce7de9fe97126e1bad30d6d20",
   "feeds": {
     "mission": {
       "present": true,
-      "age_seconds": 28,
+      "age_seconds": 37,
       "fresh_limit_s": 120
     },
     "cortana_feed": {
       "present": true,
-      "age_seconds": 19,
+      "age_seconds": 29,
       "fresh_limit_s": 120
     },
     "live": {
       "present": true,
-      "age_seconds": 2,
+      "age_seconds": 0,
       "fresh_limit_s": 15
     },
     "routing": {
       "present": true,
-      "age_seconds": 4468,
+      "age_seconds": 4477,
       "fresh_limit_s": 120
     }
   },
   "services": {
     "total": 53,
-    "running": 25,
-    "planned": 28,
+    "running": 26,
+    "planned": 27,
     "running_list": [
       "application.com.ace777.cockpit-app.14931296.14931301",
       "com.ace777.archi-vivante",
+      "com.ace777.backup-check",
       "com.ace777.bloc-privatise",
       "com.ace777.cockpit-http",
       "com.ace777.cortana-feed",
       "com.ace777.cortana.urgent",
+      "com.ace777.couleur-regime",
       "com.ace777.couleur-regime-score",
       "com.ace777.hub-cockpit-feed",
       "com.ace777.journal-soir",
@@ -52,16 +54,13 @@
       "com.ace777.superviseur-core",
       "com.ace777.superviseur-process",
       "com.ace777.veille-hub",
-      "com.ace777.veilleuse-sizing-monte-carlo",
       "com.ace777.vigie-live",
       "com.ace777.whales"
     ],
     "planned_list": [
       "com.ace777.autopilote",
-      "com.ace777.backup-check",
       "com.ace777.catalogue",
       "com.ace777.cockpit-pont",
-      "com.ace777.couleur-regime",
       "com.ace777.cpfp",
       "com.ace777.dms-veille",
       "com.ace777.eval-offres",
@@ -83,6 +82,7 @@
       "com.ace777.veilleuse",
       "com.ace777.veilleuse-chantiers",
       "com.ace777.veilleuse-confrontation",
+      "com.ace777.veilleuse-sizing-monte-carlo",
       "com.ace777.verif-setup",
       "com.ace777.watchdog"
     ]
@@ -110,7 +110,13 @@
     }
   },
   "backup_light": {
-    "presence": {},
+    "presence": {
+      "mirofis": true,
+      "crypto-voice-assistant-core": true,
+      "ACE777_ARCHIVES_BRUTES_DONNEES": true,
+      "Assistant_Vocal_HORS_VAULT": true,
+      "Obsidian_BACKUPS_HORS_VAULT": true
+    },
     "sizes_ko": {
       "mirofis": 1068252,
       "crypto-voice-assistant-core": 4041164,
@@ -118,7 +124,7 @@
       "Assistant_Vocal_HORS_VAULT": 697372,
       "Obsidian_BACKUPS_HORS_VAULT": 14936872
     },
-    "presence_at": null,
+    "presence_at": "2026-08-22T17:09:17Z",
     "sizes_at": "2026-08-22T14:05:05Z"
   }
 }
