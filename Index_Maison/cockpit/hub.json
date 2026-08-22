@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-22T06:07:05.829851+00:00",
+  "generated_at": "2026-08-22T06:07:29.770404+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -356,6 +356,12 @@
   ],
   "events": [
     {
+      "ts": "2026-08-22T06:07:06.776868+00:00",
+      "kind": "timeout",
+      "title": "Patience NaraRouter (7M tokens/jour gratuits) (reponse vide)",
+      "detail": "Reponse vide"
+    },
+    {
       "ts": "2026-08-22T06:07:02.318757+00:00",
       "kind": "failover",
       "title": "Saute (blacklist) depuis HuggingFace (136+ modeles, dont DeepSeek-V4)",
@@ -408,12 +414,6 @@
       "kind": "reserve-storm",
       "title": "Tempête active + budget calme atteint -> réserve storm pour supervise.decision",
       "detail": "supervise.decision"
-    },
-    {
-      "ts": "2026-08-22T06:06:40.605572+00:00",
-      "kind": "message",
-      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
-      "detail": "bascule"
     }
   ],
   "tasks_quotas": {
