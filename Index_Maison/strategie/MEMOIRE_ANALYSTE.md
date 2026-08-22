@@ -1645,3 +1645,4 @@
 - 2026-08-22T05:22:41.977088Z | alerte | ? | conf=?
 - 2026-08-22T05:38:00.260878Z | alerte | ? | conf=?
 - 2026-08-22T06:38:19.925874Z | alerte | ? | conf=?
+- 2026-08-22T07:03:31.728150Z | alerte | Maintien de l'alerte rouge avec un encadrement strict de la discipline d'embuscade d'Alpha, un pilotage resserré des positions seeds de Hulk et une exploitation prudente des sondages de Beta. | conf=82%
