@@ -1,9 +1,12 @@
 {
   "ts": "2026-08-22T12:58+00:00",
   "updated": "2026-08-22T12:58Z",
-  "etat": "OK",
-  "chaines_ok": "9/9",
-  "anomalies": [],
+  "etat": "ALERTE",
+  "chaines_ok": "7/9",
+  "anomalies": [
+    "VIGIE MARCHÉ : radar mort ou journal figé (le trou du 19/08)",
+    "VEILLE DÉGRADATION : rapport ALERTE_DEGRADATION_SILENCIEUSE ou figé — dégradation silencieuse détectée"
+  ],
   "degradees": [],
   "chaines": [
     {
@@ -163,7 +166,7 @@
       "id": "vigie",
       "nom": "VIGIE MARCHÉ",
       "chemin": "vigie_live.py → journal_radar.log → alertes (relance superviseur-process + superviseur-core + vigie-live)",
-      "ok": true,
+      "ok": false,
       "maillons": [
         {
           "nom": "process vigie_live",
@@ -172,7 +175,7 @@
         },
         {
           "nom": "journal_radar.log",
-          "ok": true,
+          "ok": false,
           "detail": "âge 5 min"
         },
         {
@@ -196,7 +199,7 @@
       "id": "veille_deg",
       "nom": "VEILLE DÉGRADATION",
       "chemin": "veille_degradation.py (plists + heartbeats + indicateurs) → etat.json + DMS externe (dms-veille) → cockpit",
-      "ok": true,
+      "ok": false,
       "maillons": [
         {
           "nom": "process veille_degradation (launchd)",
@@ -205,8 +208,8 @@
         },
         {
           "nom": "rapport veille_degradation_etat.json",
-          "ok": true,
-          "detail": "SAIN · âge 0 min"
+          "ok": false,
+          "detail": "ALERTE_DEGRADATION_SILENCIEUSE · âge 0 min"
         },
         {
           "nom": "Dead Man's Switch (dms-veille)",
