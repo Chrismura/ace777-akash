@@ -1,6 +1,6 @@
 # Thermo dernier — gratuit (Binance public)
 
-> Auto · **sans clé** · sans ordre · 2026-08-22T08:59Z UTC  
+> Auto · **sans clé** · sans ordre · 2026-08-22T08:58Z UTC  
 > Script : `Index_Maison/scripts/thermo_quotidien_free.py`
 
 ## Clin d'œil
@@ -10,8 +10,8 @@
 
 | Champ | Valeur | ID |
 |-------|--------|-----|
-| Mark | 77156.1 | prix |
-| OI | 105892.668 | C13 |
+| Mark | 77156.0 | prix |
+| OI | 105891.829 | C13 |
 | Funding | 0.0001 | C14 |
 | Funding moy. ~30j | 5.919e-05 (n=90) | Cortana |
 | Funding mois préc. | 6.081e-05 (n=93) | Cortana |
@@ -27,7 +27,7 @@
 - BTC 24h -2.67% · 1h -0.15% · 4h -1.63%.
 - Panier alts : 25.0% en baisse (5/20).
 - Whales proxy : 1 gros print(s) ≥500k$ (max 525492$) — source aggTrades Binance.
-- Dark/OTC proxy : taker buy/sell 0.911 · OI 105892.668 (pas de dark pool free temps réel).
+- Dark/OTC proxy : taker buy/sell 0.911 · OI 105891.829 (pas de dark pool free temps réel).
 - Top traders L/S 1.124.
 - Fear & Greed 71 (Greed).
 - Liquidations 24h proxy ≈ 0.05 B$.
