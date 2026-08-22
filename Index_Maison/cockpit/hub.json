@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-22T00:32:41.661749+00:00",
+  "generated_at": "2026-08-22T00:32:59.600965+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -26,7 +26,7 @@
       "model": "qwen-3.8-max-free",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 755
+      "calls_24h": 757
     },
     {
       "id": "groq",
@@ -229,10 +229,26 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 85,
-    "remaining": 539
+    "consumed": 87,
+    "remaining": 537
   },
   "queue": [
+    {
+      "ts": "2026-08-22T00:32:56.714533+00:00",
+      "task": "supervise.decision",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 6.38
+    },
+    {
+      "ts": "2026-08-22T00:32:46.856657+00:00",
+      "task": "supervise.decision",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 19.94
+    },
     {
       "ts": "2026-08-22T00:32:15.370900+00:00",
       "task": "analyse.profonde",
@@ -336,25 +352,33 @@
       "model": "qwen-3.8-max-free",
       "kind": "cloud",
       "duration_s": 26.19
-    },
-    {
-      "ts": "2026-08-22T00:27:58.267674+00:00",
-      "task": "analyse.profonde",
-      "provider": "nvidia",
-      "model": "deepseek-ai/deepseek-v4-flash-0731",
-      "kind": "cloud",
-      "duration_s": 109.25
-    },
-    {
-      "ts": "2026-08-22T00:27:54.665918+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 21.37
     }
   ],
   "events": [
+    {
+      "ts": "2026-08-22T00:32:57.627713+00:00",
+      "kind": "failover",
+      "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
+      "detail": "0 attente"
+    },
+    {
+      "ts": "2026-08-22T00:32:56.713963+00:00",
+      "kind": "message",
+      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
+      "detail": "bascule"
+    },
+    {
+      "ts": "2026-08-22T00:32:50.331398+00:00",
+      "kind": "failover",
+      "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
+      "detail": "0 attente"
+    },
+    {
+      "ts": "2026-08-22T00:32:46.856283+00:00",
+      "kind": "message",
+      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
+      "detail": "bascule"
+    },
     {
       "ts": "2026-08-22T00:32:26.913469+00:00",
       "kind": "failover",
@@ -390,30 +414,6 @@
       "kind": "message",
       "title": "« NVIDIA build.nvidia.com (100+ modeles) » a repondu",
       "detail": ""
-    },
-    {
-      "ts": "2026-08-22T00:31:48.450669+00:00",
-      "kind": "failover",
-      "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
-      "detail": "0 attente"
-    },
-    {
-      "ts": "2026-08-22T00:31:36.372799+00:00",
-      "kind": "message",
-      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
-      "detail": "bascule"
-    },
-    {
-      "ts": "2026-08-22T00:31:16.508065+00:00",
-      "kind": "failover",
-      "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
-      "detail": "0 attente"
-    },
-    {
-      "ts": "2026-08-22T00:31:04.135220+00:00",
-      "kind": "message",
-      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
-      "detail": "bascule"
     }
   ],
   "tasks_quotas": {
