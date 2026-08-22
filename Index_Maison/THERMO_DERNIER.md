@@ -1,6 +1,6 @@
 # Thermo dernier — gratuit (Binance public)
 
-> Auto · **sans clé** · sans ordre · 2026-08-22T12:49Z UTC  
+> Auto · **sans clé** · sans ordre · 2026-08-22T12:50Z UTC  
 > Script : `Index_Maison/scripts/thermo_quotidien_free.py`
 
 ## Clin d'œil
@@ -10,32 +10,30 @@
 
 | Champ | Valeur | ID |
 |-------|--------|-----|
-| Mark | 77344.4 | prix |
-| OI | 106218.794 | C13 |
+| Mark | 77336.98 | prix |
+| OI | 106220.654 | C13 |
 | Funding | 0.0001 | C14 |
 | Funding moy. ~30j | 5.919e-05 (n=90) | Cortana |
 | Funding mois préc. | 6.081e-05 (n=93) | Cortana |
 | L/S 1h | 0.998 | crowd |
-| BTC 1h/4h/24h | 0.27 / 0.19 / -0.07 % | B7 |
-| Dominance BTC | 58.78% | A3 |
+| BTC 1h/4h/24h | 0.23 / 0.16 / -0.03 % | B7 |
+| Dominance BTC | None% | A3 |
 | Alts ↓ 24h | 15.0% | B9 |
 
 ## Lecture
 - Climat CALME (score 90/100).
 - Funding maintenant 0.0001. Moyenne ~30j 5.919e-05 (90 pts). Mois précédent 6.081e-05 (93 pts).
 - Long/Short 0.998.
-- BTC 24h -0.07% · 1h 0.27% · 4h 0.19%.
+- BTC 24h -0.03% · 1h 0.23% · 4h 0.16%.
 - Panier alts : 15.0% en baisse (3/20).
 - Whales proxy : aucun print ≥500k$ sur les ~500 derniers trades.
-- Dark/OTC proxy : taker buy/sell 1.272 · OI 106218.794 (pas de dark pool free temps réel).
+- Dark/OTC proxy : taker buy/sell 1.272 · OI 106220.654 (pas de dark pool free temps réel).
 - Top traders L/S 1.116.
 - Fear & Greed 71 (Greed).
-- Market cap crypto ≈ 2.63 T$.
-- Alt season proxy : Bitcoin season (BTC.D 58.78%).
 - Liquidations 24h proxy ≈ 0.04 B$.
-- ETF net inflow : BTC 227.13 M$ (bitbo-public (moy 7j), BTC only).
+- ETF net inflow : BTC 227.11 M$ (bitbo-public (moy 7j), BTC only).
 - GEX proxy (Deribit) : P/C 0.612 · murC 78000 (+0.9%) · murP 60000 (-22.4%).
-- Volumes cachés proxy : taker buy 0.534 · vol perp/spot 10.71×.
+- Volumes cachés proxy : taker buy 0.534 · vol perp/spot 10.72×.
 - ACE soft: LIVE=MASTER_VORTEX_V2_COLLAB_4H_LIVE_COLOR.log · SKIP=1369 · heat=100.0 · PnL sess=317.3095 · RED=0.
 - C15/C23 = proxies free. D26–D34 = F&G / MC / alt / liq / ETF / GEX / volumes cachés. Soft ops lecture seule.
 
