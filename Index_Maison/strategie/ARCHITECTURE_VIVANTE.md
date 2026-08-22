@@ -1,4 +1,4 @@
-# ARCHITECTURE VIVANTE — ACE777 (2026-08-22 10:01 UTC)
+# ARCHITECTURE VIVANTE — ACE777 (2026-08-22 10:02 UTC)
 
 > Document GÉNÉRÉ AUTOMATIQUEMENT à l'instant. La famille valide
 > en s'appuyant sur CE contexte, pas sur des documents figés.
@@ -34,12 +34,10 @@
 - [Santé]
   · hub : OK (14 providers)
 - [Énergie du jour]
-  · appels : 3393 (cloud 3393)
+  · appels : 3399 (cloud 3399)
   · budget cloud : 624 max
-  · par provider : gemini=504, groq=8, mistral=2395, nara=484, nvidia=2
+  · par provider : gemini=504, groq=8, mistral=2401, nara=484, nvidia=2
 - [Nouvelles offres détectées (non intégrées)]
-- [ROLLBACK AUTO 2026-08-22]
-  · obs-1786795252 (nvidia/nemotron-3.5-content-safety:free) : 100% erreurs > 5% (observatoire
   · dots-studio/dots-3-note-preview:free
   · liquid/lfm-2.5-2.6b:free
   · thinkingmachines/inkling-small:free
@@ -48,10 +46,10 @@
 ## Mémoire chaude (journal + résumés)
 
 - Radar (dernières alertes) :
-  · 2026-08-22T10:01:54.869454Z ETHUSDT 2419.38 0.0000 137.0 declenche=non
-  · 2026-08-22T10:01:55.029939Z ETHUSDT 2419.39 0.0000 137.7 declenche=non
-  · 2026-08-22T10:01:55.031761Z ETHUSDT 2419.39 0.0000 139.1 declenche=non
-  · 2026-08-22T10:01:55.086625Z ETHUSDT 2419.39 0.0000 139.1 declenche=non
+  · 2026-08-22T10:02:05.683337Z ETHUSDT 2417.43 0.0008 205.3 declenche=non
+  · 2026-08-22T10:02:05.683520Z ETHUSDT 2417.4 0.0009 205.3 declenche=non
+  · 2026-08-22T10:02:05.683779Z ETHUSDT 2417.4 0.0009 205.3 declenche=non
+  · 2026-08-22T10:02:05.683967Z ETHUSDT 2417.39 0.0009 205.4 declenche=non
 - Intention en cours : BETA a sonde le marche (14 sondes, 7 long / 7 court, conf mo | ALPHA attend son moment : 269 skips (discipline), le mur du  | ALPHA a frappe 9 fois en embuscade (13x) (dont 3 en mode rev
 - 550 signets X résumés (quota aujourd'hui : 50/50)
 - 56 fiches IA d'offres en cache (quota 8/jour)
