@@ -2031,3 +2031,7 @@ Pas d’ordre — confrontation plus tard.
 ### 2026-08-22T11:01:02Z — ALERT auto
 - TELUSDT: WATCH_PULLBACK — tension haute + reflux
 (compléter: confirmé ? risque ?)
+
+### 2026-08-22T12:01:35Z — ALERT auto
+- XRPUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)

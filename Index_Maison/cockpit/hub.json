@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-22T11:59:08.328948+00:00",
+  "generated_at": "2026-08-22T12:02:38.083930+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -26,7 +26,7 @@
       "model": "qwen-3.8-max-free",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 657
+      "calls_24h": 661
     },
     {
       "id": "groq",
@@ -229,10 +229,42 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 3691,
+    "consumed": 3695,
     "remaining": 0
   },
   "queue": [
+    {
+      "ts": "2026-08-22T12:01:43.475429+00:00",
+      "task": "supervise.decision",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 32.19
+    },
+    {
+      "ts": "2026-08-22T11:59:34.974766+00:00",
+      "task": "supervise.decision",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 13.44
+    },
+    {
+      "ts": "2026-08-22T11:59:20.708319+00:00",
+      "task": "supervise.decision",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 7.01
+    },
+    {
+      "ts": "2026-08-22T11:59:07.089311+00:00",
+      "task": "supervise.decision",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 17.55
+    },
     {
       "ts": "2026-08-22T11:58:34.900655+00:00",
       "task": "supervise.decision",
@@ -320,100 +352,68 @@
       "model": "qwen-3.8-max-free",
       "kind": "cloud",
       "duration_s": 25.94
-    },
-    {
-      "ts": "2026-08-22T11:53:26.237647+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 19.21
-    },
-    {
-      "ts": "2026-08-22T11:53:03.286741+00:00",
-      "task": "supervise.decision",
-      "provider": "groq",
-      "model": "groq/compound",
-      "kind": "cloud",
-      "duration_s": 1.82
-    },
-    {
-      "ts": "2026-08-22T11:52:52.541063+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 175.9
-    },
-    {
-      "ts": "2026-08-22T11:51:15.332622+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 9.71
     }
   ],
   "events": [
     {
-      "ts": "2026-08-22T11:59:07.082549+00:00",
-      "kind": "message",
-      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
-      "detail": "bascule"
-    },
-    {
-      "ts": "2026-08-22T11:58:49.535952+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis Groq (LLM ultra-rapide, gratuit)",
-      "detail": "HTTP Error 429: Too Many Requests"
-    },
-    {
-      "ts": "2026-08-22T11:58:49.535533+00:00",
-      "kind": "ratelimit",
-      "title": "429 Groq (LLM ultra-rapide, gratuit) -> pause 60s + bascule",
-      "detail": ""
-    },
-    {
-      "ts": "2026-08-22T11:58:48.983903+00:00",
-      "kind": "blacklist",
-      "title": "Fin de pause Groq (LLM ultra-rapide, gratuit)",
-      "detail": "re-essai automatique"
-    },
-    {
-      "ts": "2026-08-22T11:58:48.983332+00:00",
-      "kind": "reserve-storm",
-      "title": "Tempête active + budget calme atteint -> réserve storm pour supervise.decision",
-      "detail": "supervise.decision"
-    },
-    {
-      "ts": "2026-08-22T11:58:42.070036+00:00",
+      "ts": "2026-08-22T12:02:05.580846+00:00",
       "kind": "timeout",
       "title": "Patience NaraRouter (7M tokens/jour gratuits) (reponse vide)",
       "detail": "Reponse vide"
     },
     {
-      "ts": "2026-08-22T11:58:34.899203+00:00",
+      "ts": "2026-08-22T12:01:43.475021+00:00",
       "kind": "message",
       "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
       "detail": "bascule"
     },
     {
-      "ts": "2026-08-22T11:57:46.858310+00:00",
+      "ts": "2026-08-22T12:01:11.285682+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis Groq (LLM ultra-rapide, gratuit)",
+      "detail": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "ts": "2026-08-22T12:01:11.284821+00:00",
+      "kind": "ratelimit",
+      "title": "429 Groq (LLM ultra-rapide, gratuit) -> pause 60s + bascule",
+      "detail": ""
+    },
+    {
+      "ts": "2026-08-22T12:01:10.840364+00:00",
       "kind": "failover",
       "title": "Saute (blacklist) depuis HuggingFace (136+ modeles, dont DeepSeek-V4)",
       "detail": "0 attente"
     },
     {
-      "ts": "2026-08-22T11:57:46.857984+00:00",
+      "ts": "2026-08-22T12:01:10.840035+00:00",
       "kind": "failover",
       "title": "Saute (blacklist) depuis Google Gemini",
       "detail": "0 attente"
     },
     {
-      "ts": "2026-08-22T11:57:46.857095+00:00",
+      "ts": "2026-08-22T12:01:10.833734+00:00",
+      "kind": "blacklist",
+      "title": "Fin de pause Groq (LLM ultra-rapide, gratuit)",
+      "detail": "re-essai automatique"
+    },
+    {
+      "ts": "2026-08-22T12:01:10.833438+00:00",
       "kind": "quota",
       "title": "Budget calme atteint -> bascule famille (gratuits)",
       "detail": "analyse.profonde"
+    },
+    {
+      "ts": "2026-08-22T12:01:10.830716+00:00",
+      "kind": "reserve-storm",
+      "title": "Tempête active + budget calme atteint -> réserve storm pour supervise.decision",
+      "detail": "supervise.decision"
+    },
+    {
+      "ts": "2026-08-22T12:00:32.511277+00:00",
+      "kind": "http",
+      "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
+      "detail": ""
     }
   ],
   "tasks_quotas": {
