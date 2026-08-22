@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-22T01:33:44.504854+00:00",
+  "generated_at": "2026-08-22T01:34:23.971860+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 269
+      "calls_24h": 272
     },
     {
       "id": "openrouter-free",
@@ -26,7 +26,7 @@
       "model": "qwen-3.8-max-free",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 890
+      "calls_24h": 891
     },
     {
       "id": "groq",
@@ -229,10 +229,42 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 236,
-    "remaining": 388
+    "consumed": 240,
+    "remaining": 384
   },
   "queue": [
+    {
+      "ts": "2026-08-22T01:34:15.600830+00:00",
+      "task": "supervise.decision",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 0.95
+    },
+    {
+      "ts": "2026-08-22T01:34:04.896528+00:00",
+      "task": "supervise.decision",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 0.87
+    },
+    {
+      "ts": "2026-08-22T01:33:55.130141+00:00",
+      "task": "supervise.decision",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 1.05
+    },
+    {
+      "ts": "2026-08-22T01:33:44.124844+00:00",
+      "task": "supervise.decision",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 41.38
+    },
     {
       "ts": "2026-08-22T01:33:22.725755+00:00",
       "task": "analyse.profonde",
@@ -320,100 +352,68 @@
       "model": "qwen-3.8-max-free",
       "kind": "cloud",
       "duration_s": 15.49
-    },
-    {
-      "ts": "2026-08-22T01:29:38.677729+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 7.92
-    },
-    {
-      "ts": "2026-08-22T01:29:19.455392+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 31.36
-    },
-    {
-      "ts": "2026-08-22T01:28:37.512445+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 28.3
-    },
-    {
-      "ts": "2026-08-22T01:27:58.925800+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 77.7
     }
   ],
   "events": [
     {
-      "ts": "2026-08-22T01:33:44.124434+00:00",
+      "ts": "2026-08-22T01:34:21.459605+00:00",
       "kind": "message",
-      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
+      "title": "« Google Gemini » a repondu",
       "detail": "bascule"
     },
     {
-      "ts": "2026-08-22T01:33:22.726158+00:00",
-      "kind": "http",
-      "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
-      "detail": ""
+      "ts": "2026-08-22T01:34:20.610989+00:00",
+      "kind": "failover",
+      "title": "Saute (blacklist) depuis NaraRouter (7M tokens/jour gratuits)",
+      "detail": "0 attente"
     },
     {
-      "ts": "2026-08-22T01:33:22.725283+00:00",
-      "kind": "message",
-      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
-      "detail": "bascule"
-    },
-    {
-      "ts": "2026-08-22T01:33:14.448009+00:00",
-      "kind": "message",
-      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
-      "detail": "bascule"
-    },
-    {
-      "ts": "2026-08-22T01:33:06.281926+00:00",
+      "ts": "2026-08-22T01:34:20.610689+00:00",
       "kind": "failover",
       "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
       "detail": "0 attente"
     },
     {
-      "ts": "2026-08-22T01:33:02.742730+00:00",
-      "kind": "failover",
-      "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
-      "detail": "0 attente"
-    },
-    {
-      "ts": "2026-08-22T01:32:50.479263+00:00",
+      "ts": "2026-08-22T01:34:15.600304+00:00",
       "kind": "message",
-      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
+      "title": "« Google Gemini » a repondu",
       "detail": "bascule"
     },
     {
-      "ts": "2026-08-22T01:32:48.964036+00:00",
+      "ts": "2026-08-22T01:34:14.652566+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis NaraRouter (7M tokens/jour gratuits)",
+      "detail": "HTTP Error 503: Service Unavailable"
+    },
+    {
+      "ts": "2026-08-22T01:34:14.652259+00:00",
+      "kind": "blacklist",
+      "title": "Pause NaraRouter (7M tokens/jour gratuits) (3 echecs) 15min",
+      "detail": "backoff x1 -> re-essai auto"
+    },
+    {
+      "ts": "2026-08-22T01:34:10.625942+00:00",
       "kind": "timeout",
-      "title": "Patience NaraRouter (7M tokens/jour gratuits) (reponse vide)",
-      "detail": "Reponse vide"
+      "title": "Patience NaraRouter (7M tokens/jour gratuits) (HTTP 503)",
+      "detail": "HTTP Error 503: Service Unavailable"
     },
     {
-      "ts": "2026-08-22T01:32:41.768192+00:00",
+      "ts": "2026-08-22T01:34:09.727430+00:00",
       "kind": "failover",
-      "title": "Saute (blacklist) depuis HuggingFace (136+ modeles, dont DeepSeek-V4)",
+      "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
       "detail": "0 attente"
     },
     {
-      "ts": "2026-08-22T01:32:41.767890+00:00",
+      "ts": "2026-08-22T01:34:04.896199+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": "bascule"
+    },
+    {
+      "ts": "2026-08-22T01:34:04.026315+00:00",
       "kind": "failover",
-      "title": "Saute (blacklist) depuis NVIDIA build.nvidia.com (100+ modeles)",
-      "detail": "0 attente"
+      "title": "Bascule depuis NaraRouter (7M tokens/jour gratuits)",
+      "detail": "HTTP Error 503: Service Unavailable"
     }
   ],
   "tasks_quotas": {

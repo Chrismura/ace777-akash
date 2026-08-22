@@ -13,9 +13,9 @@
 | ✅ | Hulk paper | ON |
 | ✅ | Ollama | ON (gate) |
 | ⚠️ | Heartbeat ALPHA | fichier absent |
-| ✅ | LIVE_COLOR | MASTER_VORTEX_V2_COLLAB_4H · frais 111s |
+| ⚠️ | LIVE_COLOR | MASTER_VORTEX_V2_COLLAB_4H · 122s |
 | ✅ | Hulk state | PAPER_V1_20260821_092452_state.json · 15 pos · pnl=1.3984796216240556 |
-| ✅ | RAM | ~3451 Mo libre |
+| ✅ | RAM | ~2834 Mo libre |
 
 ## Que faire
 
