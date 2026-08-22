@@ -10,7 +10,7 @@
 
 | Champ | Valeur | ID |
 |-------|--------|-----|
-| Mark | 77832.67 | prix |
+| Mark | 77832.68 | prix |
 | OI | 105742.093 | C13 |
 | Funding | 0.0001 | C14 |
 | Funding moy. ~30j | 5.811e-05 (n=90) | Cortana |
@@ -36,7 +36,7 @@
 - ETF net inflow : BTC 228.56 M$ (bitbo-public (moy 7j), BTC only).
 - GEX proxy (Deribit) : P/C 0.616 · murC 78000 (+0.2%) · murP 60000 (-22.9%).
 - Volumes cachés proxy : taker buy 0.534 · vol perp/spot 13.3×.
-- ACE soft: LIVE=MASTER_VORTEX_V2_COLLAB_4H_LIVE_COLOR.log · SKIP=1359 · heat=100.0 · PnL sess=302.612 · RED=0.
+- ACE soft: LIVE=MASTER_VORTEX_V2_COLLAB_4H_LIVE_COLOR.log · SKIP=1361 · heat=100.0 · PnL sess=302.612 · RED=0.
 - C15/C23 = proxies free. D26–D34 = F&G / MC / alt / liq / ETF / GEX / volumes cachés. Soft ops lecture seule.
 
 ## Branché / soft
