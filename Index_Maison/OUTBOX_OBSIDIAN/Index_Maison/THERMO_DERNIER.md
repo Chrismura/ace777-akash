@@ -10,31 +10,33 @@
 
 | Champ | Valeur | ID |
 |-------|--------|-----|
-| Mark | 78131.3 | prix |
-| OI | 105808.108 | C13 |
+| Mark | 78124.3 | prix |
+| OI | 105780.308 | C13 |
 | Funding | 0.0001 | C14 |
 | Funding moy. ~30j | 5.811e-05 (n=90) | Cortana |
 | Funding mois préc. | 6.067e-05 (n=93) | Cortana |
 | L/S 1h | 1.054 | crowd |
-| BTC 1h/4h/24h | -0.42 / 0.41 / 4.1 % | B7 |
-| Dominance BTC | None% | A3 |
+| BTC 1h/4h/24h | -0.41 / 0.42 / 4.08 % | B7 |
+| Dominance BTC | 58.22% | A3 |
 | Alts ↓ 24h | 25.0% | B9 |
 
 ## Lecture
 - Climat ATTENTION (score 67/100).
 - Funding maintenant 0.0001. Moyenne ~30j 5.811e-05 (90 pts). Mois précédent 6.067e-05 (93 pts).
 - Long/Short 1.054.
-- BTC 24h 4.1% · 1h -0.42% · 4h 0.41%.
+- BTC 24h 4.08% · 1h -0.41% · 4h 0.42%.
 - Panier alts : 25.0% en baisse (5/20).
-- Whales proxy : aucun print ≥500k$ sur les ~500 derniers trades.
-- Dark/OTC proxy : taker buy/sell 0.989 · OI 105808.108 (pas de dark pool free temps réel).
+- Whales proxy : 1 gros print(s) ≥500k$ (max 1301882$) — source aggTrades Binance.
+- Dark/OTC proxy : taker buy/sell 0.989 · OI 105780.308 (pas de dark pool free temps réel).
 - Top traders L/S 1.137.
 - Fear & Greed 71 (Greed).
+- Market cap crypto ≈ 2.70 T$.
+- Alt season proxy : Bitcoin season (BTC.D 58.22%).
 - Liquidations 24h proxy ≈ 0.05 B$.
-- ETF net inflow : BTC 229.44 M$ (bitbo-public (moy 7j), BTC only).
-- GEX proxy (Deribit) : P/C 0.616 · murC 80000 (+2.4%) · murP 60000 (-23.2%).
+- ETF net inflow : BTC 229.42 M$ (bitbo-public (moy 7j), BTC only).
+- GEX proxy (Deribit) : P/C 0.616 · murC 80000 (+2.5%) · murP 60000 (-23.1%).
 - Volumes cachés proxy : taker buy 0.534 · vol perp/spot 12.64×.
-- ACE soft: LIVE=MASTER_VORTEX_V2_COLLAB_4H_LIVE_COLOR.log · SKIP=1359 · heat=100.0 · PnL sess=317.1661 · RED=0.
+- ACE soft: LIVE=MASTER_VORTEX_V2_COLLAB_4H_LIVE_COLOR.log · SKIP=1355 · heat=100.0 · PnL sess=318.2402 · RED=0.
 - C15/C23 = proxies free. D26–D34 = F&G / MC / alt / liq / ETF / GEX / volumes cachés. Soft ops lecture seule.
 
 ## Branché / soft
