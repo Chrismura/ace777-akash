@@ -1,5 +1,5 @@
 {
-  "ts": "2026-08-22T10:41:55.625694+00:00",
+  "ts": "2026-08-22T10:42:25.309111+00:00",
   "since": "2026-08-22T07:34:00Z",
   "bots": {
     "alpha": {
@@ -334,21 +334,6 @@
       "conf_moy": 0.8911,
       "events": [
         {
-          "ts": "2026-08-22T10:39:37Z",
-          "bot": "beta",
-          "cycle": 361,
-          "action": "probe",
-          "intention": "a sonde le marche",
-          "direction": "long",
-          "conf": 0.987,
-          "exit": "0.64657320",
-          "meta": {
-            "size_note": "strong_conf_full+aspiration_1.618x+entry_25_75_full",
-            "tension": 1.45393673
-          },
-          "file": "MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv"
-        },
-        {
           "ts": "2026-08-22T10:39:51Z",
           "bot": "beta",
           "cycle": 362,
@@ -632,10 +617,25 @@
             "tension": 0.0
           },
           "file": "MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv"
+        },
+        {
+          "ts": "2026-08-22T10:42:13Z",
+          "bot": "beta",
+          "cycle": 381,
+          "action": "wait",
+          "intention": "attente — mur du carnet intact",
+          "direction": null,
+          "conf": null,
+          "exit": "impulse_resonance_wait",
+          "meta": {
+            "size_note": null,
+            "tension": 0.84897308
+          },
+          "file": "MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv"
         }
       ],
       "counts": {
-        "wait": 11,
+        "wait": 12,
         "fire": 0,
         "probe": 17,
         "skip": 350
