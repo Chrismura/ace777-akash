@@ -1,5 +1,5 @@
 {
-  "ts": "2026-08-22T11:39:53.530585+00:00",
+  "ts": "2026-08-22T11:40:28.395437+00:00",
   "since": "2026-08-22T11:34:00Z",
   "bots": {
     "alpha": {
@@ -220,10 +220,25 @@
             "tension": 0.86180399
           },
           "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv"
+        },
+        {
+          "ts": "2026-08-22T11:40:11Z",
+          "bot": "alpha",
+          "cycle": 15,
+          "action": "wait",
+          "intention": "attente — mur du carnet intact",
+          "direction": null,
+          "conf": null,
+          "exit": "impulse_resonance_wait",
+          "meta": {
+            "size_note": null,
+            "tension": 0.86959753
+          },
+          "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv"
         }
       ],
       "counts": {
-        "wait": 3,
+        "wait": 4,
         "fire": 0,
         "probe": 0,
         "skip": 11
@@ -238,7 +253,7 @@
       "role": "eclaireur",
       "surnom": "L'Eclaireur",
       "fills": 1,
-      "skips": 16,
+      "skips": 17,
       "pnl": -0.1024,
       "best": 0.0,
       "conf_moy": 0.881,
@@ -497,13 +512,43 @@
             "tension": null
           },
           "file": "MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv"
+        },
+        {
+          "ts": "2026-08-22T11:40:09Z",
+          "bot": "beta",
+          "cycle": 18,
+          "action": "wait",
+          "intention": "attente — mur du carnet intact",
+          "direction": null,
+          "conf": null,
+          "exit": "impulse_resonance_wait",
+          "meta": {
+            "size_note": null,
+            "tension": 0.86959753
+          },
+          "file": "MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv"
+        },
+        {
+          "ts": "2026-08-22T11:40:27Z",
+          "bot": "beta",
+          "cycle": 19,
+          "action": "skip",
+          "intention": "skip — regime_gate",
+          "direction": null,
+          "conf": null,
+          "exit": "regime_gate",
+          "meta": {
+            "size_note": null,
+            "tension": 3.201e-05
+          },
+          "file": "MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv"
         }
       ],
       "counts": {
-        "wait": 0,
+        "wait": 1,
         "fire": 0,
         "probe": 1,
-        "skip": 16
+        "skip": 17
       },
       "direction": {
         "long": 1,

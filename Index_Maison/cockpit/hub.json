@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-22T11:40:06.239493+00:00",
+  "generated_at": "2026-08-22T11:41:03.291419+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -26,7 +26,7 @@
       "model": "qwen-3.8-max-free",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 620
+      "calls_24h": 622
     },
     {
       "id": "groq",
@@ -229,10 +229,26 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 3653,
+    "consumed": 3655,
     "remaining": 0
   },
   "queue": [
+    {
+      "ts": "2026-08-22T11:40:11.867421+00:00",
+      "task": "supervise.decision",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 14.65
+    },
+    {
+      "ts": "2026-08-22T11:40:09.154423+00:00",
+      "task": "supervise.decision",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 9.59
+    },
     {
       "ts": "2026-08-22T11:39:41.748989+00:00",
       "task": "supervise.decision",
@@ -336,83 +352,67 @@
       "model": "qwen-3.8-max-free",
       "kind": "cloud",
       "duration_s": 32.28
-    },
-    {
-      "ts": "2026-08-22T11:31:32.626445+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 26.71
-    },
-    {
-      "ts": "2026-08-22T11:31:32.035832+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 34.94
     }
   ],
   "events": [
     {
-      "ts": "2026-08-22T11:39:59.565076+00:00",
+      "ts": "2026-08-22T11:40:28.668971+00:00",
       "kind": "failover",
       "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
       "detail": "0 attente"
     },
     {
-      "ts": "2026-08-22T11:39:59.564220+00:00",
+      "ts": "2026-08-22T11:40:28.668465+00:00",
       "kind": "reserve-storm",
       "title": "Tempête active + budget calme atteint -> réserve storm pour supervise.decision",
       "detail": "supervise.decision"
     },
     {
-      "ts": "2026-08-22T11:39:57.219428+00:00",
+      "ts": "2026-08-22T11:40:18.576837+00:00",
       "kind": "failover",
-      "title": "Bascule depuis Groq (LLM ultra-rapide, gratuit)",
+      "title": "Saute (blacklist) depuis HuggingFace (136+ modeles, dont DeepSeek-V4)",
+      "detail": "0 attente"
+    },
+    {
+      "ts": "2026-08-22T11:40:18.574302+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis Google Gemini",
       "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-08-22T11:39:57.219027+00:00",
+      "ts": "2026-08-22T11:40:18.573842+00:00",
       "kind": "ratelimit",
-      "title": "429 Groq (LLM ultra-rapide, gratuit) -> pause 60s + bascule",
+      "title": "429 Google Gemini -> pause 60s + bascule",
       "detail": ""
     },
     {
-      "ts": "2026-08-22T11:39:56.770605+00:00",
+      "ts": "2026-08-22T11:40:18.199127+00:00",
       "kind": "blacklist",
-      "title": "Fin de pause Groq (LLM ultra-rapide, gratuit)",
+      "title": "Fin de pause Google Gemini",
       "detail": "re-essai automatique"
     },
     {
-      "ts": "2026-08-22T11:39:56.769872+00:00",
-      "kind": "reserve-storm",
-      "title": "Tempête active + budget calme atteint -> réserve storm pour supervise.decision",
-      "detail": "supervise.decision"
+      "ts": "2026-08-22T11:40:18.198617+00:00",
+      "kind": "quota",
+      "title": "Budget calme atteint -> bascule famille (gratuits)",
+      "detail": "analyse.profonde"
     },
     {
-      "ts": "2026-08-22T11:39:41.748275+00:00",
-      "kind": "message",
-      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
-      "detail": "bascule"
-    },
-    {
-      "ts": "2026-08-22T11:39:13.928041+00:00",
+      "ts": "2026-08-22T11:40:12.256331+00:00",
       "kind": "http",
       "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
       "detail": ""
     },
     {
-      "ts": "2026-08-22T11:39:13.918862+00:00",
-      "kind": "message",
-      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
-      "detail": "bascule"
+      "ts": "2026-08-22T11:40:12.256026+00:00",
+      "kind": "error",
+      "title": "Toutes les IA ont echoue",
+      "detail": "Google Gemini: HTTP Error 429: Too Many Requests | HuggingFace (136+ modeles, dont DeepSeek-V4): HTTP Error 402: Payment Required | NaraRouter (7M tokens/jour gratuits): Reponse vide | budget: Budget temps requete depasse"
     },
     {
-      "ts": "2026-08-22T11:39:03.517725+00:00",
-      "kind": "http",
-      "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
+      "ts": "2026-08-22T11:40:12.255806+00:00",
+      "kind": "error",
+      "title": "Budget temps requete depasse",
       "detail": ""
     }
   ],

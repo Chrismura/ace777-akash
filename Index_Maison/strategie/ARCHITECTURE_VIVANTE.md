@@ -22,10 +22,10 @@
 
 ## État de la mission (bots + PnL)
 
-- mission.json : 2026-08-22 11:39Z · run `MASTER_VORTEX_V2_COLLAB_4H` · alerte `red`
+- mission.json : 2026-08-22 11:40Z · run `MASTER_VORTEX_V2_COLLAB_4H` · alerte `red`
 - PnL combiné : **-0.10 $** 📉 (combo -0.1024)
-- ALPHA (sniper (embuscade, ×13, revenge si claque)) : **+0.00 $** · 0 fills · 13 skips
-- BETA (éclaireur (chatouille le marché, alimente Alpha)) : **-0.10 $** · 1 fills · 16 skips
+- ALPHA (sniper (embuscade, ×13, revenge si claque)) : **+0.00 $** · 0 fills · 14 skips
+- BETA (éclaireur (chatouille le marché, alimente Alpha)) : **-0.10 $** · 1 fills · 18 skips
 - HULK (gestionnaire de portefeuille (bag, escalier, courreur)) : **-0.11 $** · 0 fills
 - Saison : CALME 🧊 · 
 
@@ -34,9 +34,9 @@
 - [Santé]
   · hub : OK (14 providers)
 - [Énergie du jour]
-  · appels : 3653 (cloud 3653)
+  · appels : 3655 (cloud 3655)
   · budget cloud : 624 max
-  · par provider : gemini=505, groq=10, mistral=2516, nara=620, nvidia=2
+  · par provider : gemini=505, groq=10, mistral=2516, nara=622, nvidia=2
 - [Nouvelles offres détectées (non intégrées)]
   · dots-studio/dots-3-note-preview:free
   · liquid/lfm-2.5-2.6b:free
@@ -46,10 +46,10 @@
 ## Mémoire chaude (journal + résumés)
 
 - Radar (dernières alertes) :
-  · 2026-08-22T11:40:03.882565Z ETHUSDT 2420.14 0.0001 8.7 declenche=non
-  · 2026-08-22T11:40:03.898779Z ETHUSDT 2420.14 0.0001 8.7 declenche=non
-  · 2026-08-22T11:40:04.022530Z BTCUSDT 77130.5 0.0002 2.1 declenche=non
-  · 2026-08-22T11:40:04.757925Z ETHUSDT 2420.14 0.0001 8.8 declenche=non
+  · 2026-08-22T11:40:46.784775Z BTCUSDT 77139.99 0.0001 1.6 declenche=non
+  · 2026-08-22T11:40:46.801759Z ETHUSDT 2422.23 0.0008 133.7 declenche=non
+  · 2026-08-22T11:40:46.957087Z ETHUSDT 2422.23 0.0008 133.7 declenche=non
+  · 2026-08-22T11:40:46.957313Z BTCUSDT 77139.99 0.0001 1.6 declenche=non
 - Intention en cours : BETA a sonde le marche (1 sondes, 1 long / 0 court, conf moy | ALPHA attend son signal — aucun tir sur la session en cours.
 - 550 signets X résumés (quota aujourd'hui : 50/50)
 - 56 fiches IA d'offres en cache (quota 8/jour)
