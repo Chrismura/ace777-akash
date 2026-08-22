@@ -1,31 +1,16 @@
 {
-  "ts": "2026-08-22T10:07:35.418663+00:00",
+  "ts": "2026-08-22T10:08:16.534331+00:00",
   "since": "2026-08-22T07:34:00Z",
   "bots": {
     "alpha": {
       "role": "sniper",
       "surnom": "Le Sniper",
       "fills": 9,
-      "skips": 281,
+      "skips": 282,
       "pnl": -1.6002999999999994,
       "best": 2.65424,
       "conf_moy": 0.8563777777777779,
       "events": [
-        {
-          "ts": "2026-08-22T10:01:12Z",
-          "bot": "alpha",
-          "cycle": 300,
-          "action": "skip",
-          "intention": "skip — gap_guard_pause",
-          "direction": null,
-          "conf": null,
-          "exit": "gap_guard_pause",
-          "meta": {
-            "size_note": null,
-            "tension": null
-          },
-          "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv"
-        },
         {
           "ts": "2026-08-22T10:01:18Z",
           "bot": "alpha",
@@ -310,13 +295,28 @@
             "tension": 0.08275119
           },
           "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv"
+        },
+        {
+          "ts": "2026-08-22T10:07:56Z",
+          "bot": "alpha",
+          "cycle": 320,
+          "action": "skip",
+          "intention": "skip — regime_gate",
+          "direction": null,
+          "conf": null,
+          "exit": "regime_gate",
+          "meta": {
+            "size_note": null,
+            "tension": 0.01818824
+          },
+          "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv"
         }
       ],
       "counts": {
         "wait": 25,
         "fire": 9,
         "probe": 0,
-        "skip": 281
+        "skip": 282
       },
       "direction": {
         "long": 5,
@@ -649,7 +649,7 @@
   },
   "story": [
     "BETA a sonde le marche (14 sondes, 7 long / 7 court, conf moyenne 0.91) — il renseigne Alpha.",
-    "ALPHA attend son moment : 281 skips (discipline), le mur du carnet ne s'effondre pas.",
+    "ALPHA attend son moment : 282 skips (discipline), le mur du carnet ne s'effondre pas.",
     "ALPHA a frappe 9 fois en embuscade (13x) (dont 3 en mode revenge 1.5x) : -1.60 $, meilleur trade +2.65 $."
   ]
 }
