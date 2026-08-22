@@ -1,4 +1,4 @@
-# ARCHITECTURE VIVANTE — ACE777 (2026-08-22 09:57 UTC)
+# ARCHITECTURE VIVANTE — ACE777 (2026-08-22 09:58 UTC)
 
 > Document GÉNÉRÉ AUTOMATIQUEMENT à l'instant. La famille valide
 > en s'appuyant sur CE contexte, pas sur des documents figés.
@@ -9,7 +9,7 @@
 - ✅ radar
 - ⛔ lecteur signets
 - ⛔ générateur fiches
-- ✅ feed mission
+- ⛔ feed mission
 - ⛔ serveur cockpit
 
 ## Routage des tâches de décision
@@ -34,12 +34,12 @@
 - [Santé]
   · hub : OK (14 providers)
 - [Énergie du jour]
-  · appels : 3337 (cloud 3337)
+  · appels : 3340 (cloud 3340)
   · budget cloud : 624 max
-  · par provider : gemini=504, groq=8, mistral=2339, nara=484, nvidia=2
+  · par provider : gemini=504, groq=8, mistral=2342, nara=484, nvidia=2
 - [Nouvelles offres détectées (non intégrées)]
 - [ROLLBACK AUTO 2026-08-22]
-  · obs-1786688184 (cohere/north-mini-code:free) : 100% erreurs > 5% (observatoire)
+  · obs-1786774646 (nvidia/nemotron-3-nano-30b-a3b:free) : 100% erreurs > 5% (observatoire)
   · dots-studio/dots-3-note-preview:free
   · liquid/lfm-2.5-2.6b:free
   · thinkingmachines/inkling-small:free
@@ -48,10 +48,10 @@
 ## Mémoire chaude (journal + résumés)
 
 - Radar (dernières alertes) :
-  · 2026-08-22T09:57:52.952310Z ETHUSDT 2421.12 0.0003 87.7 declenche=non
-  · 2026-08-22T09:57:52.952439Z ETHUSDT 2421.11 0.0003 87.7 declenche=non
-  · 2026-08-22T09:57:52.952567Z ETHUSDT 2421.1 0.0003 87.8 declenche=non
-  · 2026-08-22T09:57:53.170280Z ETHUSDT 2421.1 0.0003 87.8 declenche=non
+  · 2026-08-22T09:58:03.323397Z ETHUSDT 2420.59 0.0005 94.9 declenche=non
+  · 2026-08-22T09:58:03.515228Z ETHUSDT 2420.58 0.0005 94.9 declenche=non
+  · 2026-08-22T09:58:03.564272Z ETHUSDT 2420.58 0.0005 97.4 declenche=non
+  · 2026-08-22T09:58:04.050421Z ETHUSDT 2420.59 0.0005 97.4 declenche=non
 - Intention en cours : BETA a sonde le marche (13 sondes, 7 long / 6 court, conf mo | ALPHA attend son moment : 256 skips (discipline), le mur du  | ALPHA a frappe 8 fois en embuscade (13x) (dont 2 en mode rev
 - 550 signets X résumés (quota aujourd'hui : 50/50)
 - 56 fiches IA d'offres en cache (quota 8/jour)
