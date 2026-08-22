@@ -10,13 +10,13 @@
 
 | Champ | Valeur | ID |
 |-------|--------|-----|
-| Mark | 78583.9 | prix |
-| OI | 106047.339 | C13 |
+| Mark | 78578.7 | prix |
+| OI | 106049.087 | C13 |
 | Funding | 0.0001 | C14 |
 | Funding moy. ~30j | 5.811e-05 (n=90) | Cortana |
 | Funding mois préc. | 6.067e-05 (n=93) | Cortana |
 | L/S 1h | 1.052 | crowd |
-| BTC 1h/4h/24h | 0.15 / 0.35 / 5.62 % | B7 |
+| BTC 1h/4h/24h | 0.15 / 0.35 / 5.68 % | B7 |
 | Dominance BTC | None% | A3 |
 | Alts ↓ 24h | 35.0% | B9 |
 
@@ -24,14 +24,14 @@
 - Climat ATTENTION (score 60/100).
 - Funding maintenant 0.0001. Moyenne ~30j 5.811e-05 (90 pts). Mois précédent 6.067e-05 (93 pts).
 - Long/Short 1.052.
-- BTC 24h 5.62% · 1h 0.15% · 4h 0.35%.
+- BTC 24h 5.68% · 1h 0.15% · 4h 0.35%.
 - Panier alts : 35.0% en baisse (7/20).
 - Whales proxy : 1 gros print(s) ≥500k$ (max 509495$) — source aggTrades Binance.
-- Dark/OTC proxy : taker buy/sell 1.279 · OI 106047.339 (pas de dark pool free temps réel).
+- Dark/OTC proxy : taker buy/sell 1.279 · OI 106049.087 (pas de dark pool free temps réel).
 - Top traders L/S 1.136.
 - Fear & Greed 71 (Greed).
 - Liquidations 24h proxy ≈ 0.05 B$.
-- ETF net inflow : BTC 230.77 M$ (bitbo-public (moy 7j), BTC only).
+- ETF net inflow : BTC 230.75 M$ (bitbo-public (moy 7j), BTC only).
 - GEX proxy (Deribit) : P/C 0.616 · murC 80000 (+1.8%) · murP 60000 (-23.6%).
 - Volumes cachés proxy : taker buy 0.534 · vol perp/spot 12.85×.
 - ACE soft: LIVE=MASTER_VORTEX_V2_COLLAB_4H_LIVE_COLOR.log · SKIP=1403 · heat=100.0 · PnL sess=315.9622 · RED=0.
