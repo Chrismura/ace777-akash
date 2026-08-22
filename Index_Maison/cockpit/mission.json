@@ -3192,7 +3192,7 @@
       "cpfpGlobal": false,
       "cpfpZscore": 0.0,
       "cpfpDustScore": 100.0,
-      "cpfpDustDetail": "poussière <2.0 sat/vB (normalisé minFee 1×1.5) : 3 vues ce run, 9978 cumulées 48h (seuil 1000) — max 0.0050 BTC",
+      "cpfpDustDetail": "poussière <2.0 sat/vB (normalisé minFee 1×1.5) : 2 vues ce run, 9980 cumulées 48h (seuil 1000) — max 0.0003 BTC",
       "blocPrivatiseMode": "actif",
       "blocPrivatiseTauxFantome": 76.9019,
       "blocPrivatiseNbCachees": 4468,
@@ -3264,33 +3264,18 @@
     }
   },
   "intention": {
-    "ts": "2026-08-22T04:14:50.176564+00:00",
+    "ts": "2026-08-22T04:15:32.635037+00:00",
     "since": "2026-08-22T03:31:00Z",
     "bots": {
       "alpha": {
         "role": "sniper",
         "surnom": "Le Sniper",
         "fills": 4,
-        "skips": 83,
+        "skips": 84,
         "pnl": -0.6716999999999997,
         "best": 2.11456,
         "conf_moy": 0.949225,
         "events": [
-          {
-            "ts": "2026-08-22T04:07:23Z",
-            "bot": "alpha",
-            "cycle": 81,
-            "action": "wait",
-            "intention": "attente de l'etat du duo (Beta)",
-            "direction": null,
-            "conf": null,
-            "exit": "duo_wait",
-            "meta": {
-              "size_note": null,
-              "tension": null
-            },
-            "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv"
-          },
           {
             "ts": "2026-08-22T04:07:46Z",
             "bot": "alpha",
@@ -3575,13 +3560,28 @@
               "tension": 0.0
             },
             "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv"
+          },
+          {
+            "ts": "2026-08-22T04:14:54Z",
+            "bot": "alpha",
+            "cycle": 101,
+            "action": "skip",
+            "intention": "skip — regime_gate",
+            "direction": null,
+            "conf": null,
+            "exit": "regime_gate",
+            "meta": {
+              "size_note": null,
+              "tension": 5.243e-05
+            },
+            "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv"
           }
         ],
         "counts": {
           "wait": 15,
           "fire": 4,
           "probe": 0,
-          "skip": 83
+          "skip": 84
         },
         "direction": {
           "long": 4,
@@ -3914,7 +3914,7 @@
     },
     "story": [
       "BETA a sonde le marche (4 sondes, 1 long / 3 court, conf moyenne 0.91) — il renseigne Alpha.",
-      "ALPHA attend son moment : 83 skips (discipline), le mur du carnet ne s'effondre pas.",
+      "ALPHA attend son moment : 84 skips (discipline), le mur du carnet ne s'effondre pas.",
       "ALPHA a frappe 4 fois en embuscade (13x) (dont 2 en mode revenge 1.5x) : -0.67 $, meilleur trade +2.11 $."
     ]
   },
