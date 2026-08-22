@@ -1,4 +1,4 @@
-# ARCHITECTURE VIVANTE — ACE777 (2026-08-22 00:42 UTC)
+# ARCHITECTURE VIVANTE — ACE777 (2026-08-22 00:43 UTC)
 
 > Document GÉNÉRÉ AUTOMATIQUEMENT à l'instant. La famille valide
 > en s'appuyant sur CE contexte, pas sur des documents figés.
@@ -46,10 +46,10 @@
 ## Mémoire chaude (journal + résumés)
 
 - Radar (dernières alertes) :
-  · 2026-08-22T00:42:54.607798Z ETHUSDT 2506.87 0.0001 83.3 declenche=non
-  · 2026-08-22T00:42:54.764001Z ETHUSDT 2506.86 0.0001 83.3 declenche=non
-  · 2026-08-22T00:42:54.771505Z ETHUSDT 2506.86 0.0001 83.5 declenche=non
-  · 2026-08-22T00:42:54.827481Z ETHUSDT 2506.86 0.0001 84.2 declenche=non
+  · 2026-08-22T00:43:09.392913Z ETHUSDT 2506.99 0.0001 421.6 declenche=non
+  · 2026-08-22T00:43:09.393304Z ETHUSDT 2506.98 0.0001 421.7 declenche=non
+  · 2026-08-22T00:43:09.393528Z ETHUSDT 2506.95 0.0001 421.7 declenche=non
+  · 2026-08-22T00:43:09.393692Z ETHUSDT 2506.93 0.0001 421.7 declenche=non
 - Intention en cours : BETA a sonde le marche (15 sondes, 8 long / 7 court, conf mo | ALPHA attend son moment : 275 skips (discipline), le mur du  | ALPHA a frappe 12 fois en embuscade (13x) (dont 7 en mode re
 - 500 signets X résumés (quota aujourd'hui : 0/50)
 - 56 fiches IA d'offres en cache (quota 8/jour)
