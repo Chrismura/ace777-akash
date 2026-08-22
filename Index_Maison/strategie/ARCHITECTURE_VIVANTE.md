@@ -22,7 +22,7 @@
 
 ## État de la mission (bots + PnL)
 
-- mission.json : 2026-08-22 07:56Z · run `MASTER_VORTEX_V2_COLLAB_4H` · alerte `red`
+- mission.json : 2026-08-22 07:57Z · run `MASTER_VORTEX_V2_COLLAB_4H` · alerte `red`
 - PnL combiné : **-1.44 $** 📉 (combo -1.4377)
 - ALPHA (sniper (embuscade, ×13, revenge si claque)) : **-1.88 $** · 2 fills · 56 skips
 - BETA (éclaireur (chatouille le marché, alimente Alpha)) : **+0.45 $** · 2 fills · 32 skips
@@ -34,24 +34,24 @@
 - [Santé]
   · hub : OK (14 providers)
 - [Énergie du jour]
-  · appels : 2290 (cloud 2290)
+  · appels : 2291 (cloud 2291)
   · budget cloud : 624 max
-  · par provider : gemini=504, groq=6, mistral=1399, nara=379, nvidia=2
+  · par provider : gemini=504, groq=6, mistral=1399, nara=380, nvidia=2
 - [Nouvelles offres détectées (non intégrées)]
 - [ROLLBACK AUTO 2026-08-22]
-  · obs-1786774656 (nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free) : 100% erreurs > 5% (o
+  · obs-1787033767 (google/diffusiongemma-26b-a4b-it) : 98% erreurs > 5% (observatoire)
   · dots-studio/dots-3-note-preview:free
   · liquid/lfm-2.5-2.6b:free
   · thinkingmachines/inkling-small:free
-  … 105 offres/pépites détectées ce matin
+  … 107 offres/pépites détectées ce matin
 
 ## Mémoire chaude (journal + résumés)
 
 - Radar (dernières alertes) :
-  · 2026-08-22T07:57:20.227849Z ETHUSDT 2437.0 0.0002 25.6 declenche=non
-  · 2026-08-22T07:57:20.259849Z BTCUSDT 77331.46 0.0004 3.9 declenche=non
-  · 2026-08-22T07:57:20.366600Z ETHUSDT 2437.0 0.0002 26.6 declenche=non
-  · 2026-08-22T07:57:20.569488Z BTCUSDT 77331.46 0.0004 4.0 declenche=non
+  · 2026-08-22T07:57:52.492202Z ETHUSDT 2434.68 0.0001 8.5 declenche=non
+  · 2026-08-22T07:57:52.492351Z ETHUSDT 2434.69 0.0001 8.5 declenche=non
+  · 2026-08-22T07:57:52.492478Z ETHUSDT 2434.7 0.0001 9.5 declenche=non
+  · 2026-08-22T07:57:52.492822Z ETHUSDT 2434.72 0.0001 9.5 declenche=non
 - Intention en cours : BETA a sonde le marche (2 sondes, 1 long / 1 court, conf moy | ALPHA attend son moment : 53 skips (discipline), le mur du c | ALPHA a frappe 2 fois en embuscade (13x) (dont 1 en mode rev
 - 500 signets X résumés (quota aujourd'hui : 0/50)
 - 56 fiches IA d'offres en cache (quota 8/jour)
