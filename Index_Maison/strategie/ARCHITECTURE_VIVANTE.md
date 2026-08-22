@@ -1,4 +1,4 @@
-# ARCHITECTURE VIVANTE — ACE777 (2026-08-22 16:15 UTC)
+# ARCHITECTURE VIVANTE — ACE777 (2026-08-22 16:16 UTC)
 
 > Document GÉNÉRÉ AUTOMATIQUEMENT à l'instant. La famille valide
 > en s'appuyant sur CE contexte, pas sur des documents figés.
@@ -22,7 +22,7 @@
 
 ## État de la mission (bots + PnL)
 
-- mission.json : 2026-08-22 16:15Z · run `MASTER_VORTEX_V2_COLLAB_4H` · alerte `red`
+- mission.json : 2026-08-22 16:16Z · run `MASTER_VORTEX_V2_COLLAB_4H` · alerte `red`
 - PnL combiné : **-0.72 $** 📉 (combo -0.7247)
 - ALPHA (sniper (embuscade, ×13, revenge si claque)) : **-1.32 $** · 1 fills · 28 skips
 - BETA (éclaireur (chatouille le marché, alimente Alpha)) : **+0.59 $** · 3 fills · 51 skips
@@ -34,10 +34,12 @@
 - [Santé]
   · hub : OK (14 providers)
 - [Énergie du jour]
-  · appels : 415 (cloud 415)
+  · appels : 418 (cloud 418)
   · budget cloud : 624 max
-  · par provider : groq=3, mistral=298, nara=114
+  · par provider : groq=3, mistral=300, nara=115
 - [Nouvelles offres détectées (non intégrées)]
+- [ROLLBACK AUTO 2026-08-22]
+  · obs-1786774667 (nvidia/nemotron-3.5-lightning:free) : 100% erreurs > 5% (observatoire)
   · dots-studio/dots-3-note-preview:free
   · liquid/lfm-2.5-2.6b:free
   · thinkingmachines/inkling-small:free
@@ -46,10 +48,10 @@
 ## Mémoire chaude (journal + résumés)
 
 - Radar (dernières alertes) :
-  · 2026-08-22T16:15:43.343877Z ETHUSDT 2416.19 0.0006 86.8 declenche=non
-  · 2026-08-22T16:15:43.343877Z ETHUSDT 2416.19 0.0004 23.1 declenche=non
-  · 2026-08-22T16:15:43.344330Z BTCUSDT 77087.83 0.0004 3.1 declenche=non
-  · 2026-08-22T16:15:43.344341Z BTCUSDT 77087.83 0.0002 1.0 declenche=non
+  · 2026-08-22T16:16:15.538855Z BTCUSDT 77099.99 0.0003 4.6 declenche=non
+  · 2026-08-22T16:16:15.538855Z BTCUSDT 77099.99 0.0003 1.8 declenche=non
+  · 2026-08-22T16:16:15.777483Z ETHUSDT 2417.4 0.0005 81.0 declenche=non
+  · 2026-08-22T16:16:15.777586Z ETHUSDT 2417.4 0.0009 109.5 declenche=non
 - Intention en cours : BETA a sonde le marche (2 sondes, 1 long / 1 court, conf moy | ALPHA a frappe 1 fois en embuscade (13x) : -1.32 $ — session
 - 550 signets X résumés (quota aujourd'hui : 50/50)
 - 56 fiches IA d'offres en cache (quota 8/jour)
