@@ -1,5 +1,5 @@
 {
-  "ts": "2026-08-22T00:48:35.589930+00:00",
+  "ts": "2026-08-22T00:49:04.971236+00:00",
   "since": "2026-08-21T23:22:00Z",
   "bots": {
     "alpha": {
@@ -11,36 +11,6 @@
       "best": 1.036,
       "conf_moy": 0.907175,
       "events": [
-        {
-          "ts": "2026-08-22T00:45:09Z",
-          "bot": "alpha",
-          "cycle": 172,
-          "action": "skip",
-          "intention": "pas d'opportunite — discipline (radar bloque)",
-          "direction": null,
-          "conf": 0.0083,
-          "exit": "radar_block",
-          "meta": {
-            "size_note": null,
-            "tension": 0.09382627
-          },
-          "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv"
-        },
-        {
-          "ts": "2026-08-22T00:45:21Z",
-          "bot": "alpha",
-          "cycle": 173,
-          "action": "skip",
-          "intention": "skip — regime_gate",
-          "direction": null,
-          "conf": null,
-          "exit": "regime_gate",
-          "meta": {
-            "size_note": null,
-            "tension": 0.0
-          },
-          "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv"
-        },
         {
           "ts": "2026-08-22T00:45:33Z",
           "bot": "alpha",
@@ -310,10 +280,40 @@
             "tension": 0.0
           },
           "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv"
+        },
+        {
+          "ts": "2026-08-22T00:49:02Z",
+          "bot": "alpha",
+          "cycle": 183,
+          "action": "wait",
+          "intention": "attente de l'etat du duo (Beta)",
+          "direction": null,
+          "conf": null,
+          "exit": "duo_wait",
+          "meta": {
+            "size_note": null,
+            "tension": null
+          },
+          "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv"
+        },
+        {
+          "ts": "2026-08-22T00:49:03Z",
+          "bot": "alpha",
+          "cycle": 175,
+          "action": "wait",
+          "intention": "attente de l'etat du duo (Beta)",
+          "direction": null,
+          "conf": null,
+          "exit": "duo_wait",
+          "meta": {
+            "size_note": null,
+            "tension": null
+          },
+          "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv"
         }
       ],
       "counts": {
-        "wait": 39,
+        "wait": 41,
         "fire": 12,
         "probe": 0,
         "skip": 305
