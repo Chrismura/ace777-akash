@@ -1,4 +1,4 @@
-# ARCHITECTURE VIVANTE — ACE777 (2026-08-22 16:47 UTC)
+# ARCHITECTURE VIVANTE — ACE777 (2026-08-22 16:48 UTC)
 
 > Document GÉNÉRÉ AUTOMATIQUEMENT à l'instant. La famille valide
 > en s'appuyant sur CE contexte, pas sur des documents figés.
@@ -9,7 +9,7 @@
 - ✅ radar
 - ⛔ lecteur signets
 - ⛔ générateur fiches
-- ✅ feed mission
+- ⛔ feed mission
 - ⛔ serveur cockpit
 
 ## Routage des tâches de décision
@@ -34,22 +34,24 @@
 - [Santé]
   · hub : OK (14 providers)
 - [Énergie du jour]
-  · appels : 675 (cloud 675)
+  · appels : 677 (cloud 677)
   · budget cloud : 624 max
-  · par provider : groq=3, mistral=557, nara=115
+  · par provider : groq=3, mistral=558, nara=116
 - [Nouvelles offres détectées (non intégrées)]
+- [ROLLBACK AUTO 2026-08-22]
+  · obs-1786774667 (nvidia/nemotron-3.5-lightning:free) : 100% erreurs > 5% (observatoire)
   · dots-studio/dots-3-note-preview:free
   · liquid/lfm-2.5-2.6b:free
   · thinkingmachines/inkling-small:free
-  … 108 offres/pépites détectées ce matin
+  … 107 offres/pépites détectées ce matin
 
 ## Mémoire chaude (journal + résumés)
 
 - Radar (dernières alertes) :
-  · 2026-08-22T16:47:47.168468Z ETHUSDT 2428.55 0.0004 188.5 declenche=non
-  · 2026-08-22T16:47:47.211093Z BTCUSDT 77469.82 0.0000 3.1 declenche=non
-  · 2026-08-22T16:47:47.248016Z ETHUSDT 2428.55 0.0004 190.0 declenche=non
-  · 2026-08-22T16:47:47.626752Z BTCUSDT 77469.82 0.0000 3.1 declenche=non
+  · 2026-08-22T16:48:08.766701Z BTCUSDT 77472.29 0.0000 0.6 declenche=non
+  · 2026-08-22T16:48:08.766712Z BTCUSDT 77472.29 0.0001 1.7 declenche=non
+  · 2026-08-22T16:48:08.846646Z ETHUSDT 2428.08 0.0002 219.8 declenche=non
+  · 2026-08-22T16:48:08.846646Z ETHUSDT 2428.08 0.0000 9.0 declenche=non
 - Intention en cours : BETA a sonde le marche (5 sondes, 4 long / 1 court, conf moy | ALPHA attend son moment : 74 skips (discipline), le mur du c | ALPHA a frappe 2 fois en embuscade (13x) (dont 1 en mode rev
 - 550 signets X résumés (quota aujourd'hui : 50/50)
 - 56 fiches IA d'offres en cache (quota 8/jour)
