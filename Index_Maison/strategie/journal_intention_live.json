@@ -1,31 +1,16 @@
 {
-  "ts": "2026-08-22T07:43:57.951646+00:00",
+  "ts": "2026-08-22T07:44:40.014396+00:00",
   "since": "2026-08-22T07:34:00Z",
   "bots": {
     "alpha": {
       "role": "sniper",
       "surnom": "Le Sniper",
       "fills": 1,
-      "skips": 18,
+      "skips": 19,
       "pnl": -1.12056,
       "best": 0.0,
       "conf_moy": 0.6037,
       "events": [
-        {
-          "ts": "2026-08-22T07:40:31Z",
-          "bot": "alpha",
-          "cycle": 5,
-          "action": "fire",
-          "intention": "a frappe en embuscade (13x)",
-          "direction": "short",
-          "conf": 0.6037,
-          "exit": "1.07844086",
-          "meta": {
-            "size_note": "strong_conf_full+entry_25_75_full",
-            "tension": 8.65062419
-          },
-          "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv"
-        },
         {
           "ts": "2026-08-22T07:40:49Z",
           "bot": "alpha",
@@ -295,13 +280,43 @@
             "tension": 0.00014211
           },
           "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv"
+        },
+        {
+          "ts": "2026-08-22T07:44:04Z",
+          "bot": "alpha",
+          "cycle": 24,
+          "action": "wait",
+          "intention": "attente de l'etat du duo (Beta)",
+          "direction": null,
+          "conf": null,
+          "exit": "duo_wait",
+          "meta": {
+            "size_note": null,
+            "tension": null
+          },
+          "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv"
+        },
+        {
+          "ts": "2026-08-22T07:44:30Z",
+          "bot": "alpha",
+          "cycle": 25,
+          "action": "skip",
+          "intention": "skip — regime_gate",
+          "direction": null,
+          "conf": null,
+          "exit": "regime_gate",
+          "meta": {
+            "size_note": null,
+            "tension": 0.00790695
+          },
+          "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv"
         }
       ],
       "counts": {
-        "wait": 0,
+        "wait": 1,
         "fire": 1,
         "probe": 0,
-        "skip": 18
+        "skip": 19
       },
       "direction": {
         "long": 0,
