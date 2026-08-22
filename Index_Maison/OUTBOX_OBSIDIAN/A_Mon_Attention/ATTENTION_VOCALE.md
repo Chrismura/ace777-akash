@@ -13,3 +13,9 @@
 
 ## Règle
 Cortana / `speak_attention` peut lire le résumé, puis repasser IDLE.
+
+
+## ⚠️ SUPERVISEUR — besoin de Christophe
+- ts: 20260822T0657Z
+- demande: Limite de relances atteinte pour com.ace777.cortana.horaire
+- pourquoi: 3 relances/jour dépassées, intervention humaine requise.
