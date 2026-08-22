@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-22T15:49:09.995879+00:00",
+  "generated_at": "2026-08-22T15:50:17.912410+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -26,7 +26,7 @@
       "model": "qwen-3.8-max-free",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 49
+      "calls_24h": 51
     },
     {
       "id": "groq",
@@ -229,10 +229,26 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 346,
-    "remaining": 278
+    "consumed": 348,
+    "remaining": 276
   },
   "queue": [
+    {
+      "ts": "2026-08-22T15:49:32.148829+00:00",
+      "task": "supervise.decision",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 32.33
+    },
+    {
+      "ts": "2026-08-22T15:49:29.594107+00:00",
+      "task": "analyse.profonde",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 181.47
+    },
     {
       "ts": "2026-08-22T15:48:49.663584+00:00",
       "task": "supervise.decision",
@@ -336,84 +352,68 @@
       "model": "qwen-3.8-max-free",
       "kind": "cloud",
       "duration_s": 81.31
-    },
-    {
-      "ts": "2026-08-22T15:45:19.766919+00:00",
-      "task": "analyse.profonde",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 269.14
-    },
-    {
-      "ts": "2026-08-22T15:45:14.645815+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 91.41
     }
   ],
   "events": [
     {
-      "ts": "2026-08-22T15:48:59.814769+00:00",
+      "ts": "2026-08-22T15:50:14.053628+00:00",
       "kind": "failover",
       "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
       "detail": "0 attente"
     },
     {
-      "ts": "2026-08-22T15:48:49.662284+00:00",
-      "kind": "message",
-      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
-      "detail": "bascule"
-    },
-    {
-      "ts": "2026-08-22T15:48:42.612352+00:00",
-      "kind": "message",
-      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
-      "detail": "bascule"
-    },
-    {
-      "ts": "2026-08-22T15:48:33.432014+00:00",
-      "kind": "message",
-      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
-      "detail": "bascule"
-    },
-    {
-      "ts": "2026-08-22T15:48:30.197986+00:00",
+      "ts": "2026-08-22T15:49:38.687053+00:00",
       "kind": "failover",
-      "title": "Bascule depuis OpenRouter (modeles gratuits)",
-      "detail": "HTTP Error 404: Not Found"
+      "title": "Bascule depuis Groq (LLM ultra-rapide, gratuit)",
+      "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-08-22T15:48:30.197650+00:00",
+      "ts": "2026-08-22T15:49:38.686725+00:00",
+      "kind": "ratelimit",
+      "title": "429 Groq (LLM ultra-rapide, gratuit) -> pause 60s + bascule",
+      "detail": ""
+    },
+    {
+      "ts": "2026-08-22T15:49:38.143633+00:00",
       "kind": "blacklist",
-      "title": "Pause OpenRouter (modeles gratuits) (3 echecs) 15min",
-      "detail": "backoff x1 -> re-essai auto"
+      "title": "Fin de pause Groq (LLM ultra-rapide, gratuit)",
+      "detail": "re-essai automatique"
     },
     {
-      "ts": "2026-08-22T15:48:29.692321+00:00",
+      "ts": "2026-08-22T15:49:33.995312+00:00",
       "kind": "failover",
-      "title": "Saute (blacklist) depuis Google Gemini",
+      "title": "Saute (blacklist) depuis HuggingFace (136+ modeles, dont DeepSeek-V4)",
       "detail": "0 attente"
     },
     {
-      "ts": "2026-08-22T15:48:29.655552+00:00",
+      "ts": "2026-08-22T15:49:33.993034+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis Google Gemini",
+      "detail": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "ts": "2026-08-22T15:49:33.992527+00:00",
+      "kind": "ratelimit",
+      "title": "429 Google Gemini -> pause 60s + bascule",
+      "detail": ""
+    },
+    {
+      "ts": "2026-08-22T15:49:33.500712+00:00",
+      "kind": "blacklist",
+      "title": "Fin de pause Google Gemini",
+      "detail": "re-essai automatique"
+    },
+    {
+      "ts": "2026-08-22T15:49:32.148463+00:00",
       "kind": "message",
       "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
       "detail": "bascule"
     },
     {
-      "ts": "2026-08-22T15:48:26.566462+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis OpenRouter (modeles gratuits)",
-      "detail": "HTTP Error 404: Not Found"
-    },
-    {
-      "ts": "2026-08-22T15:48:26.255642+00:00",
-      "kind": "failover",
-      "title": "Saute (blacklist) depuis Google Gemini",
-      "detail": "0 attente"
+      "ts": "2026-08-22T15:49:29.593210+00:00",
+      "kind": "message",
+      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
+      "detail": "bascule"
     }
   ],
   "tasks_quotas": {
@@ -508,10 +508,10 @@
       "note": "ROUTEUR AUTO (2026-08-13T23:35): nvidia -> gemini (score 60.0 -> 100.0, delta 40.0) | | FIX 11/08: provider mort désactivé, route nvidia -> gemini"
     },
     "code.ia": {
-      "provider": "groq",
-      "fallback": "mistral",
-      "secondary": "nara",
-      "note": "ROUTAGE 17/08 (4 cerveaux vivants): puter-grok/nara/nara -> groq/mistral/nara"
+      "provider": "InferX Qwen3-Coder-Next (code, gratuit jusqu'au 12/08)",
+      "fallback": "NVIDIA DeepSeek-Coder 6.7B (code, via NIM)",
+      "secondary": "InferX Devstral-2-123B (code)",
+      "note": "ROUTAGE 22/08: codeur specialises en premier (Qwen3-Coder > DeepSeek-Coder > Devstral). Groq/mistral/nara en panne -> remplaces."
     },
     "supervise.decision": {
       "provider": "groq",

@@ -1,34 +1,34 @@
 {
-  "timestamp": "2026-08-22T15:49:08Z",
+  "timestamp": "2026-08-22T15:50:14Z",
   "generation_source": "system_state_generator.py v2.1",
-  "status": "STALE",
-  "feed_hash": "bea7d9333af54ba74cf32d71aa3167131bdf777871234b1accd78c3f567de20c",
+  "status": "HEALTHY",
+  "feed_hash": "7e7b4be9196a92a05e7a6b0f06e562c85cd816c5967c98572b3f6de3edbfc69e",
   "feeds": {
     "mission": {
       "present": true,
-      "age_seconds": 8,
+      "age_seconds": 18,
       "fresh_limit_s": 120
     },
     "cortana_feed": {
       "present": true,
-      "age_seconds": 3,
+      "age_seconds": 13,
       "fresh_limit_s": 120
     },
     "live": {
       "present": true,
-      "age_seconds": 8,
+      "age_seconds": 3,
       "fresh_limit_s": 15
     },
     "routing": {
       "present": true,
-      "age_seconds": 25472,
+      "age_seconds": 63,
       "fresh_limit_s": 120
     }
   },
   "services": {
     "total": 53,
-    "running": 27,
-    "planned": 26,
+    "running": 26,
+    "planned": 27,
     "running_list": [
       "application.com.ace777.cockpit-app.14931296.14931301",
       "com.ace777.archi-vivante",
@@ -39,6 +39,7 @@
       "com.ace777.cortana.urgent",
       "com.ace777.couleur-regime-score",
       "com.ace777.fees",
+      "com.ace777.graph-cerveau",
       "com.ace777.hub-cockpit-feed",
       "com.ace777.journal-soir",
       "com.ace777.llm-gate-hub",
@@ -53,8 +54,6 @@
       "com.ace777.superviseur",
       "com.ace777.superviseur-core",
       "com.ace777.superviseur-process",
-      "com.ace777.veille-hub",
-      "com.ace777.veille-yt",
       "com.ace777.vigie-live",
       "com.ace777.whales"
     ],
@@ -68,7 +67,6 @@
       "com.ace777.eval-offres",
       "com.ace777.gitpush",
       "com.ace777.gitpush-vault",
-      "com.ace777.graph-cerveau",
       "com.ace777.heartbeats",
       "com.ace777.hulk-watchdog",
       "com.ace777.macro-tempete",
@@ -79,6 +77,8 @@
       "com.ace777.run72h",
       "com.ace777.sante-index",
       "com.ace777.veille-degradation",
+      "com.ace777.veille-hub",
+      "com.ace777.veille-yt",
       "com.ace777.veilleuse",
       "com.ace777.veilleuse-chantiers",
       "com.ace777.veilleuse-confrontation",
@@ -110,7 +110,13 @@
     }
   },
   "backup_light": {
-    "presence": {},
+    "presence": {
+      "mirofis": true,
+      "crypto-voice-assistant-core": true,
+      "ACE777_ARCHIVES_BRUTES_DONNEES": true,
+      "Assistant_Vocal_HORS_VAULT": true,
+      "Obsidian_BACKUPS_HORS_VAULT": true
+    },
     "sizes_ko": {
       "mirofis": 1068252,
       "crypto-voice-assistant-core": 4041164,
@@ -118,7 +124,7 @@
       "Assistant_Vocal_HORS_VAULT": 697372,
       "Obsidian_BACKUPS_HORS_VAULT": 14936872
     },
-    "presence_at": null,
+    "presence_at": "2026-08-22T15:50:09Z",
     "sizes_at": "2026-08-22T14:05:05Z"
   }
 }
