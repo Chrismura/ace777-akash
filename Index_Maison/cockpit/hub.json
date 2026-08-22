@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-22T09:36:53.539003+00:00",
+  "generated_at": "2026-08-22T09:37:36.166953+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -35,7 +35,7 @@
       "model": "groq/compound",
       "enabled": true,
       "timeout": 120,
-      "calls_24h": 7
+      "calls_24h": 8
     },
     {
       "id": "nvidia",
@@ -229,10 +229,18 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 3041,
+    "consumed": 3042,
     "remaining": 0
   },
   "queue": [
+    {
+      "ts": "2026-08-22T09:37:09.721194+00:00",
+      "task": "supervise.decision",
+      "provider": "groq",
+      "model": "groq/compound",
+      "kind": "cloud",
+      "duration_s": 2.12
+    },
     {
       "ts": "2026-08-22T09:35:21.888950+00:00",
       "task": "supervise.decision",
@@ -344,76 +352,68 @@
       "model": "codestral-latest",
       "kind": "cloud",
       "duration_s": 4.37
-    },
-    {
-      "ts": "2026-08-22T09:31:33.618629+00:00",
-      "task": "supervise.decision",
-      "provider": "mistral",
-      "model": "codestral-latest",
-      "kind": "cloud",
-      "duration_s": 1.15
     }
   ],
   "events": [
     {
-      "ts": "2026-08-22T09:36:46.210888+00:00",
+      "ts": "2026-08-22T09:37:24.344889+00:00",
       "kind": "http",
       "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
       "detail": ""
     },
     {
-      "ts": "2026-08-22T09:36:46.210469+00:00",
+      "ts": "2026-08-22T09:37:24.344680+00:00",
       "kind": "error",
       "title": "Toutes les IA ont echoue",
-      "detail": "Google Gemini: blacklist du jour (saute) | HuggingFace (136+ modeles, dont DeepSeek-V4): blacklist du jour (saute) | NaraRouter (7M tokens/jour gratuits): Reponse vide | budget: Budget temps requete depasse"
+      "detail": "Google Gemini: HTTP Error 429: Too Many Requests | HuggingFace (136+ modeles, dont DeepSeek-V4): blacklist du jour (saute) | NaraRouter (7M tokens/jour gratuits): Reponse vide | budget: Budget temps requete depasse"
     },
     {
-      "ts": "2026-08-22T09:36:46.210001+00:00",
+      "ts": "2026-08-22T09:37:24.344541+00:00",
       "kind": "error",
       "title": "Budget temps requete depasse",
       "detail": ""
     },
     {
-      "ts": "2026-08-22T09:36:46.208994+00:00",
+      "ts": "2026-08-22T09:37:24.344204+00:00",
       "kind": "failover",
       "title": "Bascule depuis NaraRouter (7M tokens/jour gratuits)",
       "detail": "Reponse vide"
     },
     {
-      "ts": "2026-08-22T09:35:44.927442+00:00",
-      "kind": "failover",
-      "title": "Saute (blacklist) depuis HuggingFace (136+ modeles, dont DeepSeek-V4)",
-      "detail": "0 attente"
+      "ts": "2026-08-22T09:37:24.343780+00:00",
+      "kind": "blacklist",
+      "title": "Pause NaraRouter (7M tokens/jour gratuits) (3 echecs) 15min",
+      "detail": "backoff x1 -> re-essai auto"
     },
     {
-      "ts": "2026-08-22T09:35:44.927380+00:00",
+      "ts": "2026-08-22T09:37:11.674168+00:00",
       "kind": "failover",
-      "title": "Saute (blacklist) depuis Google Gemini",
-      "detail": "0 attente"
-    },
-    {
-      "ts": "2026-08-22T09:35:44.927112+00:00",
-      "kind": "quota",
-      "title": "Budget calme atteint -> bascule famille (gratuits)",
-      "detail": "analyse.profonde"
-    },
-    {
-      "ts": "2026-08-22T09:35:40.598896+00:00",
-      "kind": "failover",
-      "title": "Saute (blacklist) depuis HuggingFace (136+ modeles, dont DeepSeek-V4)",
-      "detail": "0 attente"
-    },
-    {
-      "ts": "2026-08-22T09:35:40.596718+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis Google Gemini",
+      "title": "Bascule depuis Groq (LLM ultra-rapide, gratuit)",
       "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-08-22T09:35:40.596152+00:00",
+      "ts": "2026-08-22T09:37:11.673766+00:00",
       "kind": "ratelimit",
-      "title": "429 Google Gemini -> pause 60s + bascule",
+      "title": "429 Groq (LLM ultra-rapide, gratuit) -> pause 60s + bascule",
       "detail": ""
+    },
+    {
+      "ts": "2026-08-22T09:37:11.212229+00:00",
+      "kind": "reserve-storm",
+      "title": "Tempête active + budget calme atteint -> réserve storm pour supervise.decision",
+      "detail": "supervise.decision"
+    },
+    {
+      "ts": "2026-08-22T09:37:09.720696+00:00",
+      "kind": "message",
+      "title": "« Groq (LLM ultra-rapide, gratuit) » a repondu",
+      "detail": ""
+    },
+    {
+      "ts": "2026-08-22T09:37:07.600528+00:00",
+      "kind": "blacklist",
+      "title": "Fin de pause Groq (LLM ultra-rapide, gratuit)",
+      "detail": "re-essai automatique"
     }
   ],
   "tasks_quotas": {
