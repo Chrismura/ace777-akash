@@ -1,6 +1,6 @@
 # DIAGNOSTIC ALPHA — MASTER_VORTEX_V2_COLLAB_4H
 
-> Généré: `2026-08-22T15:42:49Z` | Verdict: **CRITIQUE — ALPHA n'a exécuté aucun trade**
+> Généré: `2026-08-22T15:43:30Z` | Verdict: **CRITIQUE — ALPHA n'a exécuté aucun trade**
 
 ## Résumé
 
@@ -8,18 +8,17 @@
 |----------|-------|------------------|
 | FILLED | 0 | 0 |
 | PnL net | 0.0000 USDT | 0.0000 USDT |
-| SKIP total | 1 | 0 |
-| duo_wait | 1 (100.0% des SKIP ALPHA) | 0 |
+| SKIP total | 0 | 0 |
+| duo_wait | 0 (0.0% des SKIP ALPHA) | 0 |
 
 ## Entonnoir des gates — ALPHA
 
 Ordre dans `genesis_manifest.txt` : radar → tension/vacuum → tactic → stase → **duo** → qty → llm_gate → execute
 
-- `duo_wait` — **1**
 
 ## duo_wait — sous-raisons (cause #2 après radar)
 
-- `unknown` — **1** (100.0% des duo_wait)
+_Aucun duo_wait._
 
 ### Lecture technique
 

@@ -1,7 +1,7 @@
 # ACE777 — STATE
 
 > Généré automatiquement — ne pas éditer à la main
-> Phase: `ended` | Statut: `ENDED` | MAJ: `2026-08-22T15:42:40Z`
+> Phase: `ended` | Statut: `ENDED` | MAJ: `2026-08-22T15:43:24Z`
 
 ## Config active
 
@@ -18,8 +18,8 @@
 | Unité | FILLED | Win | Loss | Win% | Net USDT | SKIP |
 |-------|--------|-----|------|------|----------|------|
 | BETA | 0 | 0 | 0 | 0.00% | 0.0000 | 0 |
-| ALPHA | 0 | 0 | 0 | 0.00% | 0.0000 | 1 |
-| **TOTAL** | **0** | — | — | — | **0.0000** | **1** |
+| ALPHA | 0 | 0 | 0 | 0.00% | 0.0000 | 0 |
+| **TOTAL** | **0** | — | — | — | **0.0000** | **0** |
 
 ## Top SKIP — BETA
 
@@ -27,13 +27,13 @@ _Aucun SKIP ou CSV absent._
 
 ## Top SKIP — ALPHA
 
-1. `duo_wait` — 1
+_Aucun SKIP ou CSV absent._
 
 ## Vortex (`vortex_control.json`)
 
-- Mode: `CHOP`
-- Message: `v2_swarm_wind_chop`
-- TS: `2026-08-22T15:42:18Z`
+- Mode: `TREND`
+- Message: `v2_chop_0.63_trend`
+- TS: `2026-08-22T15:43:11Z`
 
 ## Processus
 
