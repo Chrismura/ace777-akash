@@ -1,20 +1,20 @@
-# STRATEGIE — 2026-08-22T00:07:14.978571Z
+# STRATEGIE — 2026-08-22T00:37:17.449129Z
 
-## COURT TERME — 2026-08-22T00:07:14.978571Z
+## COURT TERME — 2026-08-22T00:37:17.449129Z
 
-[UNDERSTAND] La maison ACE777 maintient son alerte ambre avec un PnL combiné légèrement négatif (-4,68 $) sous l'effet de l'attentisme d'Alpha et des sondages tactiques de Beta, couplé à une actualité macroéconomique sur les paris de taux de la Fed.
+[UNDERSTAND] La maison ACE777 maintient son alerte rouge avec un PnL combiné sous pression (-4,28 $) malgré la résilience du portefeuille seed de Hulk et la discipline d'embuscade d'Alpha, sur fond de nervosité macroéconomique liée aux anticipations de taux de la Fed.
 [ANALYZE]
-- Tendance : Marché en phase d'accumulation active, soutenu par un climat de "Greed" (Fear & Greed à 71) et des flux ETF BTC positifs (+228,52 M$).
-- Momentum : Alpha maintient une discipline rigoureuse en embuscade (160 skips, 5 fills, PnL -7,29 $) en attendant la cassure du carnet, tandis que Beta guide l'essaim avec des sondages réguliers (154 skips, 9 fills, PnL +2,60 $).
-- Risque : Légère tension sur le PnL combiné (-4,68 $) et bruits macroéconomiques exogènes (paris Kalshi sur un relèvement de taux de la Fed).
-- Contexte : Portefeuille Hulk stable (+1,10 $ avec 15 positions seeds résilientes) et activité on-chain modérée (indice 31.1).
+- Tendance : Marché en phase d'accumulation sous haute surveillance, porté par un climat "Greed" (71) et des flux ETF BTC positifs (+228,94 M$), mais tempéré par une volatilité exogène.
+- Momentum : Alpha maintient sa discipline (270 skips) malgré 10 fills en territoire négatif (-8,39 $), tandis que Beta éclaire efficacement l'essaim (268 skips, 14 fills, +4,11 $).
+- Risque : Tension persistante sur le PnL combiné (-4,28 $) et bruits macroéconomiques exogènes (articles CNBC sur les paris de relèvement de taux de la Fed).
+- Contexte : Portefeuille Hulk nominal (+1,10 $ avec 15 positions seeds résilientes) et activité on-chain sous surveillance.
 [STRATEGIZE]
-1. Maintenir Alpha en embuscade stricte (x13) pour capitaliser sur les ruptures de carnets signalées par Beta.
+1. Maintenir Alpha en embuscade stricte (x13) pour capitaliser sur les ruptures de carnets signalées par Beta sans céder à la précipitation.
 2. Poursuivre le pilotage resserré et l'arbitrage rigoureux des positions seeds de Hulk via les stop-loss.
-3. Exploiter l'éclairage tactique de Beta pour guider l'essaim face à la nervosité macroéconomique liée à la Fed.
+3. Exploiter l'éclairage tactique de Beta pour naviguer prudemment face au bruit macroéconomique de la Fed.
 [EXECUTE]
-- Verdict : Maintien de l'alerte ambre avec un encadrement strict de la discipline d'embuscade d'Alpha, un pilotage resserré des positions seeds de Hulk et une exploitation prudente des sondages de Beta face au bruit de la Fed.
-- Confiance : 85%
+- Verdict : Maintien de l'alerte rouge avec un encadrement strict de la discipline d'embuscade d'Alpha, un pilotage resserré des positions seeds de Hulk et une exploitation prudente des sondages de Beta face à la tension du PnL combiné.
+- Confiance : 82%
 - Hypothèses clés : 
   1. Alpha préserve sa rigueur tactique et sa discipline d'embuscade sans céder aux impulsions prématurées.
   2. Les positions seeds de Hulk maintiennent leur intégrité sous la surveillance active des stop-loss.
