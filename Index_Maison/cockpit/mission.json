@@ -1,5 +1,5 @@
 {
-  "ts": "2026-08-22T16:57Z",
+  "ts": "2026-08-22T16:58Z",
   "alert": "red",
   "run": "MASTER_VORTEX_V2_COLLAB_4H",
   "sessionSince": "2026-08-22T15:44Z",
@@ -3085,13 +3085,13 @@
   },
   "thermo": {
     "climate": "ok",
-    "score": 90,
+    "score": 89,
     "funding": 0.0001,
     "whaleN": 0,
     "deltas": {
       "mark": {
         "dir": "up",
-        "delta": 5.38,
+        "delta": 9.92,
         "label": "↑"
       },
       "funding": {
@@ -3115,19 +3115,19 @@
         "label": "="
       },
       "chg24": {
-        "dir": "up",
-        "delta": 0.02,
-        "label": "↑"
-      },
-      "oi": {
         "dir": "down",
-        "delta": -9.049,
+        "delta": -0.04,
         "label": "↓"
       },
+      "oi": {
+        "dir": "up",
+        "delta": 1.467,
+        "label": "↑"
+      },
       "score": {
-        "dir": "flat",
-        "delta": 0.0,
-        "label": "="
+        "dir": "down",
+        "delta": -1.0,
+        "label": "↓"
       },
       "btcDominance": {
         "dir": "flat",
@@ -3140,14 +3140,14 @@
         "label": "="
       },
       "whaleUsd": {
-        "dir": "flat",
-        "delta": 0.0,
-        "label": "="
+        "dir": "down",
+        "delta": -824369.0,
+        "label": "↓"
       },
       "whaleN": {
-        "dir": "flat",
-        "delta": 0.0,
-        "label": "="
+        "dir": "down",
+        "delta": -1.0,
+        "label": "↓"
       },
       "takerRatio": {
         "dir": "flat",
@@ -3186,7 +3186,7 @@
       },
       "etfBtcM": {
         "dir": "up",
-        "delta": 0.01,
+        "delta": 0.03,
         "label": "↑"
       },
       "altSeasonScore": {
@@ -3212,7 +3212,7 @@
     "altSeasonScore": 43,
     "liq24Usd": 40741051.0,
     "etf": {
-      "btc": 227.1,
+      "btc": 227.16,
       "eth": null,
       "xrp": null,
       "source": "bitbo-public (moy 7j)",
@@ -3247,7 +3247,7 @@
       "cpfpGlobal": false,
       "cpfpZscore": 0.0,
       "cpfpDustScore": 100.0,
-      "cpfpDustDetail": "poussière <4.5 sat/vB (normalisé minFee 3×1.5) : 2 vues ce run, 25171 cumulées 48h (seuil 1000) — max 0.0188 BTC",
+      "cpfpDustDetail": "poussière <2.0 sat/vB (normalisé minFee 1×1.5) : 1 vues ce run, 25205 cumulées 48h (seuil 1000) — max 0.0003 BTC",
       "blocPrivatiseMode": "actif",
       "blocPrivatiseTauxFantome": 2.0569,
       "blocPrivatiseNbCachees": 89,
@@ -3293,7 +3293,7 @@
         "wired": true
       },
       "D30": {
-        "value": "BTC 227.1 M$",
+        "value": "BTC 227.16 M$",
         "level": "ok",
         "label": "ETF BTC net inflow",
         "unit": "",
@@ -3319,7 +3319,7 @@
     }
   },
   "intention": {
-    "ts": "2026-08-22T16:57:18.710932+00:00",
+    "ts": "2026-08-22T16:58:36.463708+00:00",
     "since": "2026-08-22T15:44:00Z",
     "bots": {
       "alpha": {
@@ -3974,17 +3974,17 @@
     ]
   },
   "saison": {
-    "ts": "2026-08-22T16:57:16.701761+00:00",
-    "saison": "CALME",
-    "emoji": "🧊",
-    "direction": "short",
-    "bascule": true,
-    "bascule_raison": "ACCUMULATION → CALME",
+    "ts": "2026-08-22T16:58:25.246955+00:00",
+    "saison": "ACCUMULATION",
+    "emoji": "💧",
+    "direction": "neutre",
+    "bascule": false,
+    "bascule_raison": "",
     "alignement": {
-      "nb_long": 0,
-      "nb_short": 2,
-      "score": 1.0,
-      "direction": "short"
+      "nb_long": 1,
+      "nb_short": 1,
+      "score": 0.0,
+      "direction": "neutre"
     },
     "indices": {
       "temperature": {
@@ -3998,14 +3998,14 @@
         "brut": 0.0001
       },
       "bassin": {
-        "direction": "short",
+        "direction": "long",
         "force": 1,
-        "brut": "down"
+        "brut": "up"
       },
       "vortex": {
         "direction": "short",
         "force": 0,
-        "brut": -0.13
+        "brut": -0.19
       },
       "essaim": {
         "direction": "neutre",
@@ -4019,9 +4019,8 @@
       }
     },
     "story": [
-      "SAISON : CALME 🧊 — hiver, ADA dort.",
-      "Alignement : 0 haussiers / 2 baissiers.",
-      "⚡ BASCULE : ACCUMULATION → CALME — le ciel change, prépare-toi."
+      "SAISON : ACCUMULATION 💧 — le bassin se remplit en silence.",
+      "Alignement : 1 haussiers / 1 baissiers."
     ],
     "sources": [
       "live.json"
@@ -4029,47 +4028,44 @@
     "degraded": false
   },
   "gardienne": {
-    "ts": "2026-08-22T16:57:16Z",
-    "voilure_pct": 91,
+    "ts": "2026-08-22T16:58:25Z",
+    "voilure_pct": 86,
     "zone": "VERT",
     "zone_emoji": "🟢",
     "pressions": {
       "bleed": 0.0,
-      "storm": 0.46,
+      "storm": 0.58,
       "reversal": 0.0
     },
-    "sirene": true,
-    "declencheurs": [
-      "bascule de saison"
-    ],
+    "sirene": false,
+    "declencheurs": [],
     "seuil_x": 2.92,
     "ancres": {
       "perte_moy": 0.0,
       "gains_peak": 3.65,
       "seuil_x": 2.92
     },
-    "alerte": true,
-    "raison": "bascule de saison ; zone VERT",
+    "alerte": false,
+    "raison": "",
     "pnl_alpha": 3.65,
     "sources": [
       "live.json"
     ],
     "story": [
-      "🚨 FEUX DE L'ORAGE : bascule de saison — ADA hurle maintenant, pas après.",
-      "La voilure tient à 91 % — le bassin est calme, ACE garde sa toile déployée.",
+      "La voilure tient à 86 % — le bassin est calme, ACE garde sa toile déployée.",
       "Rien ne presse : le Sniper reste en embuscade, l'Éclaireur sonde."
     ]
   },
   "coup_doeil": {
-    "ts": "2026-08-22T16:57:16Z",
-    "saison": "CALME",
+    "ts": "2026-08-22T16:58:25Z",
+    "saison": "ACCUMULATION",
     "saison_emoji": "🌿",
-    "voilure": "91 %",
+    "voilure": "86 %",
     "zone": "VERT",
     "zone_emoji": "🟢",
     "verdict_famille": "• GEMINI (analyste) : Aucune action corrective n'est requise : la discipline d'Alpha (0 tir malgré le volume x3) valide la synchronisation m",
     "intention": "Alpha : 3 tirs (2 revenge), pnl +3.65 $ · Beta : 6 sondes · Hulk : pnl -0.11 $ (12 positions)",
-    "ligne": "CALME 🌿 · voilure 91 % · VERT 🟢 — 🚨 FEUX DE L'ORAGE : bascule de saison — ADA hurle maintenant, pas après."
+    "ligne": "ACCUMULATION 🌿 · voilure 86 % · VERT 🟢 — La voilure tient à 86 % — le bassin est calme, ACE garde sa toile déployée."
   },
   "disjoncteur": {
     "declenche": false,
