@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-22T05:28:49.184209+00:00",
+  "generated_at": "2026-08-22T05:28:54.216742+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -53,7 +53,7 @@
       "model": "codestral-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 965
+      "calls_24h": 966
     },
     {
       "id": "cloudflare-workers-ai",
@@ -229,10 +229,18 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 1158,
+    "consumed": 1159,
     "remaining": 0
   },
   "queue": [
+    {
+      "ts": "2026-08-22T05:28:49.348948+00:00",
+      "task": "supervise.decision",
+      "provider": "mistral",
+      "model": "codestral-latest",
+      "kind": "cloud",
+      "duration_s": 1.0
+    },
     {
       "ts": "2026-08-22T05:28:41.117931+00:00",
       "task": "supervise.decision",
@@ -344,17 +352,27 @@
       "model": "codestral-latest",
       "kind": "cloud",
       "duration_s": 1.02
-    },
-    {
-      "ts": "2026-08-22T05:26:24.503928+00:00",
-      "task": "supervise.decision",
-      "provider": "mistral",
-      "model": "codestral-latest",
-      "kind": "cloud",
-      "duration_s": 0.88
     }
   ],
   "events": [
+    {
+      "ts": "2026-08-22T05:28:51.628101+00:00",
+      "kind": "http",
+      "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
+      "detail": ""
+    },
+    {
+      "ts": "2026-08-22T05:28:49.348828+00:00",
+      "kind": "message",
+      "title": "« Mistral La Plateforme (essai gratuit) » a repondu",
+      "detail": "bascule"
+    },
+    {
+      "ts": "2026-08-22T05:28:49.348543+00:00",
+      "kind": "filet-universel",
+      "title": "[FILET UNIVERSEL] « Mistral La Plateforme (essai gratuit) » a repondu hors chaine",
+      "detail": "supervise.decision"
+    },
     {
       "ts": "2026-08-22T05:28:48.350301+00:00",
       "kind": "failover",
@@ -396,24 +414,6 @@
       "kind": "reserve-storm",
       "title": "Tempête active + budget calme atteint -> réserve storm pour supervise.decision",
       "detail": "supervise.decision"
-    },
-    {
-      "ts": "2026-08-22T05:28:43.754623+00:00",
-      "kind": "http",
-      "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
-      "detail": ""
-    },
-    {
-      "ts": "2026-08-22T05:28:41.758168+00:00",
-      "kind": "http",
-      "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
-      "detail": ""
-    },
-    {
-      "ts": "2026-08-22T05:28:41.117772+00:00",
-      "kind": "message",
-      "title": "« Mistral La Plateforme (essai gratuit) » a repondu",
-      "detail": "bascule"
     }
   ],
   "tasks_quotas": {
