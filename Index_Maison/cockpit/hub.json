@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-22T11:56:08.046977+00:00",
+  "generated_at": "2026-08-22T11:56:48.719183+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -26,7 +26,7 @@
       "model": "qwen-3.8-max-free",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 652
+      "calls_24h": 653
     },
     {
       "id": "groq",
@@ -229,10 +229,18 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 3686,
+    "consumed": 3687,
     "remaining": 0
   },
   "queue": [
+    {
+      "ts": "2026-08-22T11:56:11.795368+00:00",
+      "task": "supervise.decision",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 11.31
+    },
     {
       "ts": "2026-08-22T11:55:54.413500+00:00",
       "task": "supervise.decision",
@@ -344,17 +352,27 @@
       "model": "qwen-3.8-max-free",
       "kind": "cloud",
       "duration_s": 45.22
-    },
-    {
-      "ts": "2026-08-22T11:47:02.733158+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 28.85
     }
   ],
   "events": [
+    {
+      "ts": "2026-08-22T11:56:16.868284+00:00",
+      "kind": "failover",
+      "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
+      "detail": "0 attente"
+    },
+    {
+      "ts": "2026-08-22T11:56:16.867171+00:00",
+      "kind": "reserve-storm",
+      "title": "Tempête active + budget calme atteint -> réserve storm pour supervise.decision",
+      "detail": "supervise.decision"
+    },
+    {
+      "ts": "2026-08-22T11:56:11.794858+00:00",
+      "kind": "message",
+      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
+      "detail": "bascule"
+    },
     {
       "ts": "2026-08-22T11:56:00.478532+00:00",
       "kind": "failover",
@@ -393,24 +411,6 @@
     },
     {
       "ts": "2026-08-22T11:55:20.204019+00:00",
-      "kind": "message",
-      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
-      "detail": "bascule"
-    },
-    {
-      "ts": "2026-08-22T11:55:17.857232+00:00",
-      "kind": "timeout",
-      "title": "Patience NaraRouter (7M tokens/jour gratuits) (reponse vide)",
-      "detail": "Reponse vide"
-    },
-    {
-      "ts": "2026-08-22T11:54:48.991890+00:00",
-      "kind": "http",
-      "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
-      "detail": ""
-    },
-    {
-      "ts": "2026-08-22T11:54:48.990961+00:00",
       "kind": "message",
       "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
       "detail": "bascule"
