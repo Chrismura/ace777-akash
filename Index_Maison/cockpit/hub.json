@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-22T01:18:05.540136+00:00",
+  "generated_at": "2026-08-22T01:18:27.882800+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -26,7 +26,7 @@
       "model": "qwen-3.8-max-free",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 851
+      "calls_24h": 852
     },
     {
       "id": "groq",
@@ -229,10 +229,18 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 194,
-    "remaining": 430
+    "consumed": 195,
+    "remaining": 429
   },
   "queue": [
+    {
+      "ts": "2026-08-22T01:18:18.685568+00:00",
+      "task": "supervise.decision",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 20.84
+    },
     {
       "ts": "2026-08-22T01:17:46.010902+00:00",
       "task": "supervise.decision",
@@ -344,17 +352,21 @@
       "model": "qwen-3.8-max-free",
       "kind": "cloud",
       "duration_s": 26.91
-    },
-    {
-      "ts": "2026-08-22T01:10:54.312991+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 35.64
     }
   ],
   "events": [
+    {
+      "ts": "2026-08-22T01:18:18.685045+00:00",
+      "kind": "message",
+      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
+      "detail": "bascule"
+    },
+    {
+      "ts": "2026-08-22T01:18:14.757632+00:00",
+      "kind": "timeout",
+      "title": "Patience NVIDIA build.nvidia.com (100+ modeles) (lenteur)",
+      "detail": "The read operation timed out"
+    },
     {
       "ts": "2026-08-22T01:17:57.839337+00:00",
       "kind": "failover",
@@ -399,18 +411,6 @@
     },
     {
       "ts": "2026-08-22T01:17:46.010335+00:00",
-      "kind": "message",
-      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
-      "detail": "bascule"
-    },
-    {
-      "ts": "2026-08-22T01:16:48.876578+00:00",
-      "kind": "failover",
-      "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
-      "detail": "0 attente"
-    },
-    {
-      "ts": "2026-08-22T01:16:45.342279+00:00",
       "kind": "message",
       "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
       "detail": "bascule"
