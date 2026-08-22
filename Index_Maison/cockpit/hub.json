@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-22T12:56:10.231915+00:00",
+  "generated_at": "2026-08-22T12:58:23.120792+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -356,64 +356,64 @@
   ],
   "events": [
     {
-      "ts": "2026-08-22T12:56:08.791284+00:00",
+      "ts": "2026-08-22T12:58:18.889706+00:00",
       "kind": "http",
       "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
       "detail": ""
     },
     {
-      "ts": "2026-08-22T12:56:08.791018+00:00",
-      "kind": "error",
-      "title": "Toutes les IA ont echoue",
-      "detail": "Google Gemini: HTTP Error 429: Too Many Requests | HuggingFace (136+ modeles, dont DeepSeek-V4): blacklist du jour (saute) | NaraRouter (7M tokens/jour gratuits): reseau KO [Errno 8] nodename nor servname provided, or not known | budget: Budget temps requete depasse"
-    },
-    {
-      "ts": "2026-08-22T12:56:08.790863+00:00",
-      "kind": "error",
-      "title": "Budget temps requete depasse",
-      "detail": ""
-    },
-    {
-      "ts": "2026-08-22T12:56:08.790491+00:00",
-      "kind": "failover",
-      "title": "Reseau KO (bascule immediate) depuis NaraRouter (7M tokens/jour gratuits)",
-      "detail": "[Errno 8] nodename nor servname provided, or not known"
-    },
-    {
-      "ts": "2026-08-22T12:56:08.133719+00:00",
-      "kind": "http",
-      "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
-      "detail": ""
-    },
-    {
-      "ts": "2026-08-22T12:56:08.133429+00:00",
+      "ts": "2026-08-22T12:58:18.889558+00:00",
       "kind": "error",
       "title": "Toutes les IA ont echoue",
       "detail": "Groq (LLM ultra-rapide, gratuit): reseau KO [Errno 8] nodename nor servname provided, or not known"
     },
     {
-      "ts": "2026-08-22T12:56:08.133302+00:00",
+      "ts": "2026-08-22T12:58:18.889413+00:00",
       "kind": "failover",
       "title": "Reseau KO (bascule immediate) depuis Groq (LLM ultra-rapide, gratuit)",
       "detail": "[Errno 8] nodename nor servname provided, or not known"
     },
     {
-      "ts": "2026-08-22T12:56:08.132947+00:00",
+      "ts": "2026-08-22T12:58:18.889088+00:00",
       "kind": "network",
       "title": "Reseau indisponible: Groq (LLM ultra-rapide, gratuit)",
       "detail": "[Errno 8] nodename nor servname provided, or not known"
     },
     {
-      "ts": "2026-08-22T12:56:08.126414+00:00",
+      "ts": "2026-08-22T12:58:18.876884+00:00",
       "kind": "reserve-storm",
       "title": "Tempête active + budget calme atteint -> réserve storm pour supervise.decision",
       "detail": "supervise.decision"
     },
     {
-      "ts": "2026-08-22T12:56:08.096483+00:00",
+      "ts": "2026-08-22T12:58:18.849579+00:00",
       "kind": "network",
       "title": "Reseau pas pret — mode degrade (timeout court)",
       "detail": ""
+    },
+    {
+      "ts": "2026-08-22T12:58:16.709126+00:00",
+      "kind": "http",
+      "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
+      "detail": ""
+    },
+    {
+      "ts": "2026-08-22T12:58:16.708897+00:00",
+      "kind": "error",
+      "title": "Toutes les IA ont echoue",
+      "detail": "Groq (LLM ultra-rapide, gratuit): reseau KO [Errno 8] nodename nor servname provided, or not known"
+    },
+    {
+      "ts": "2026-08-22T12:58:16.708772+00:00",
+      "kind": "failover",
+      "title": "Reseau KO (bascule immediate) depuis Groq (LLM ultra-rapide, gratuit)",
+      "detail": "[Errno 8] nodename nor servname provided, or not known"
+    },
+    {
+      "ts": "2026-08-22T12:58:16.708440+00:00",
+      "kind": "network",
+      "title": "Reseau indisponible: Groq (LLM ultra-rapide, gratuit)",
+      "detail": "[Errno 8] nodename nor servname provided, or not known"
     }
   ],
   "tasks_quotas": {
