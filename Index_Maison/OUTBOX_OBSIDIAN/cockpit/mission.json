@@ -1,5 +1,5 @@
 {
-  "ts": "2026-08-22T09:23Z",
+  "ts": "2026-08-22T09:24Z",
   "alert": "red",
   "run": "MASTER_VORTEX_V2_COLLAB_4H",
   "sessionSince": "2026-08-22T07:34Z",
@@ -3367,33 +3367,18 @@
     }
   },
   "intention": {
-    "ts": "2026-08-22T09:23:20.603619+00:00",
+    "ts": "2026-08-22T09:23:53.089766+00:00",
     "since": "2026-08-22T07:34:00Z",
     "bots": {
       "alpha": {
         "role": "sniper",
         "surnom": "Le Sniper",
         "fills": 7,
-        "skips": 183,
+        "skips": 184,
         "pnl": -3.99876,
         "best": 1.69764,
         "conf_moy": 0.8491714285714286,
         "events": [
-          {
-            "ts": "2026-08-22T09:20:19Z",
-            "bot": "alpha",
-            "cycle": 191,
-            "action": "skip",
-            "intention": "skip — gap_guard_pause",
-            "direction": null,
-            "conf": null,
-            "exit": "gap_guard_pause",
-            "meta": {
-              "size_note": null,
-              "tension": null
-            },
-            "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv"
-          },
           {
             "ts": "2026-08-22T09:20:23Z",
             "bot": "alpha",
@@ -3678,13 +3663,28 @@
               "tension": 0.0
             },
             "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv"
+          },
+          {
+            "ts": "2026-08-22T09:23:34Z",
+            "bot": "alpha",
+            "cycle": 211,
+            "action": "skip",
+            "intention": "skip — tactic_mismatch",
+            "direction": null,
+            "conf": null,
+            "exit": "tactic_mismatch",
+            "meta": {
+              "size_note": null,
+              "tension": null
+            },
+            "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv"
           }
         ],
         "counts": {
           "wait": 16,
           "fire": 7,
           "probe": 0,
-          "skip": 183
+          "skip": 184
         },
         "direction": {
           "long": 3,
@@ -3696,26 +3696,11 @@
         "role": "eclaireur",
         "surnom": "L'Eclaireur",
         "fills": 11,
-        "skips": 208,
+        "skips": 209,
         "pnl": 1.5156999999999996,
         "best": 1.11744,
         "conf_moy": 0.9250363636363634,
         "events": [
-          {
-            "ts": "2026-08-22T09:20:50Z",
-            "bot": "beta",
-            "cycle": 208,
-            "action": "probe",
-            "intention": "a sonde le marche",
-            "direction": "long",
-            "conf": 0.9948,
-            "exit": "0.39601818",
-            "meta": {
-              "size_note": "strong_conf_full+entry_25_75_full",
-              "tension": 7.93815632
-            },
-            "file": "MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv"
-          },
           {
             "ts": "2026-08-22T09:20:59Z",
             "bot": "beta",
@@ -4000,13 +3985,28 @@
               "tension": 0.0
             },
             "file": "MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv"
+          },
+          {
+            "ts": "2026-08-22T09:23:38Z",
+            "bot": "beta",
+            "cycle": 228,
+            "action": "skip",
+            "intention": "skip — regime_gate",
+            "direction": null,
+            "conf": null,
+            "exit": "regime_gate",
+            "meta": {
+              "size_note": null,
+              "tension": 0.03607476
+            },
+            "file": "MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv"
           }
         ],
         "counts": {
           "wait": 6,
           "fire": 0,
           "probe": 11,
-          "skip": 208
+          "skip": 209
         },
         "direction": {
           "long": 6,
@@ -4017,7 +4017,7 @@
     },
     "story": [
       "BETA a sonde le marche (11 sondes, 6 long / 5 court, conf moyenne 0.93) — il renseigne Alpha.",
-      "ALPHA attend son moment : 183 skips (discipline), le mur du carnet ne s'effondre pas.",
+      "ALPHA attend son moment : 184 skips (discipline), le mur du carnet ne s'effondre pas.",
       "ALPHA a frappe 7 fois en embuscade (13x) (dont 2 en mode revenge 1.5x) : -4.00 $, meilleur trade +1.70 $."
     ]
   },
