@@ -1,6 +1,6 @@
 # Thermo dernier — gratuit (Binance public)
 
-> Auto · **sans clé** · sans ordre · 2026-08-22T02:40Z UTC  
+> Auto · **sans clé** · sans ordre · 2026-08-22T02:41Z UTC  
 > Script : `Index_Maison/scripts/thermo_quotidien_free.py`
 
 ## Clin d'œil
@@ -10,13 +10,13 @@
 
 | Champ | Valeur | ID |
 |-------|--------|-----|
-| Mark | 78383.1 | prix |
-| OI | 105911.86 | C13 |
+| Mark | 78428.21 | prix |
+| OI | 105913.813 | C13 |
 | Funding | 0.0001 | C14 |
 | Funding moy. ~30j | 5.811e-05 (n=90) | Cortana |
 | Funding mois préc. | 6.067e-05 (n=93) | Cortana |
 | L/S 1h | 1.045 | crowd |
-| BTC 1h/4h/24h | 0.73 / -0.07 / 4.86 % | B7 |
+| BTC 1h/4h/24h | 0.8 / -0.01 / 4.9 % | B7 |
 | Dominance BTC | None% | A3 |
 | Alts ↓ 24h | 35.0% | B9 |
 
@@ -24,14 +24,14 @@
 - Climat ATTENTION (score 63/100).
 - Funding maintenant 0.0001. Moyenne ~30j 5.811e-05 (90 pts). Mois précédent 6.067e-05 (93 pts).
 - Long/Short 1.045.
-- BTC 24h 4.86% · 1h 0.73% · 4h -0.07%.
+- BTC 24h 4.9% · 1h 0.8% · 4h -0.01%.
 - Panier alts : 35.0% en baisse (7/20).
 - Whales proxy : aucun print ≥500k$ sur les ~500 derniers trades.
-- Dark/OTC proxy : taker buy/sell 1.237 · OI 105911.86 (pas de dark pool free temps réel).
+- Dark/OTC proxy : taker buy/sell 1.237 · OI 105913.813 (pas de dark pool free temps réel).
 - Top traders L/S 1.09.
 - Fear & Greed 71 (Greed).
 - Liquidations 24h proxy ≈ 0.05 B$.
-- ETF net inflow : BTC 230.18 M$ (bitbo-public (moy 7j), BTC only).
+- ETF net inflow : BTC 230.31 M$ (bitbo-public (moy 7j), BTC only).
 - GEX proxy (Deribit) : P/C 0.616 · murC 80000 (+2.0%) · murP 60000 (-23.5%).
 - Volumes cachés proxy : taker buy 0.534 · vol perp/spot 12.9×.
 - ACE soft: LIVE=MASTER_VORTEX_V2_COLLAB_4H_LIVE_COLOR.log · SKIP=1406 · heat=100.0 · PnL sess=314.648 · RED=0.
