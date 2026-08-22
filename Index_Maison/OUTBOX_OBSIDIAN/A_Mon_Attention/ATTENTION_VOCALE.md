@@ -25,3 +25,9 @@ Cortana / `speak_attention` peut lire le résumé, puis repasser IDLE.
 - ts: 20260822T0348Z
 - demande: Plusieurs jobs system essentiels sont invalides ou morts : com.ace777.cortana.horaire, com.ace777.analyste-cadence, com.ace777.brief-matin
 - pourquoi: Détection de plusieurs jobs morts répétés nécessitant une intervention ou vérification humaine.
+
+
+## ⚠️ SUPERVISEUR — besoin de Christophe
+- ts: 20260822T0348Z
+- demande: Limite de relances atteinte pour com.ace777.brief-matin
+- pourquoi: 3 relances/jour dépassées, intervention humaine requise.

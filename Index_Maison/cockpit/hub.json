@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-22T01:48:24.482521+00:00",
+  "generated_at": "2026-08-22T01:48:37.589741+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 421
+      "calls_24h": 424
     },
     {
       "id": "openrouter-free",
@@ -229,10 +229,34 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 451,
-    "remaining": 173
+    "consumed": 454,
+    "remaining": 170
   },
   "queue": [
+    {
+      "ts": "2026-08-22T01:48:33.199890+00:00",
+      "task": "analyse.profonde",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 2.52
+    },
+    {
+      "ts": "2026-08-22T01:48:31.165700+00:00",
+      "task": "supervise.decision",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 0.95
+    },
+    {
+      "ts": "2026-08-22T01:48:28.813619+00:00",
+      "task": "analyse.profonde",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 2.88
+    },
     {
       "ts": "2026-08-22T01:48:22.788431+00:00",
       "task": "analyse.profonde",
@@ -328,33 +352,39 @@
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
       "duration_s": 2.72
-    },
-    {
-      "ts": "2026-08-22T01:47:41.372075+00:00",
-      "task": "analyse.profonde",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 3.25
-    },
-    {
-      "ts": "2026-08-22T01:47:37.867098+00:00",
-      "task": "supervise.decision",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 1.12
-    },
-    {
-      "ts": "2026-08-22T01:47:35.702352+00:00",
-      "task": "analyse.profonde",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 2.57
     }
   ],
   "events": [
+    {
+      "ts": "2026-08-22T01:48:33.199469+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
+    {
+      "ts": "2026-08-22T01:48:31.165380+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": "bascule"
+    },
+    {
+      "ts": "2026-08-22T01:48:30.217553+00:00",
+      "kind": "failover",
+      "title": "Saute (blacklist) depuis NaraRouter (7M tokens/jour gratuits)",
+      "detail": "0 attente"
+    },
+    {
+      "ts": "2026-08-22T01:48:30.217275+00:00",
+      "kind": "failover",
+      "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
+      "detail": "0 attente"
+    },
+    {
+      "ts": "2026-08-22T01:48:28.812951+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
     {
       "ts": "2026-08-22T01:48:22.787966+00:00",
       "kind": "message",
@@ -381,36 +411,6 @@
     },
     {
       "ts": "2026-08-22T01:48:19.027659+00:00",
-      "kind": "message",
-      "title": "« Google Gemini » a repondu",
-      "detail": ""
-    },
-    {
-      "ts": "2026-08-22T01:48:12.357004+00:00",
-      "kind": "message",
-      "title": "« Google Gemini » a repondu",
-      "detail": ""
-    },
-    {
-      "ts": "2026-08-22T01:48:09.120144+00:00",
-      "kind": "message",
-      "title": "« Google Gemini » a repondu",
-      "detail": "bascule"
-    },
-    {
-      "ts": "2026-08-22T01:48:08.336734+00:00",
-      "kind": "failover",
-      "title": "Saute (blacklist) depuis NaraRouter (7M tokens/jour gratuits)",
-      "detail": "0 attente"
-    },
-    {
-      "ts": "2026-08-22T01:48:08.336273+00:00",
-      "kind": "failover",
-      "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
-      "detail": "0 attente"
-    },
-    {
-      "ts": "2026-08-22T01:48:07.769700+00:00",
       "kind": "message",
       "title": "« Google Gemini » a repondu",
       "detail": ""
