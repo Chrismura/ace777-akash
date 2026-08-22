@@ -9,7 +9,7 @@
 - ✅ radar
 - ⛔ lecteur signets
 - ⛔ générateur fiches
-- ⛔ feed mission
+- ✅ feed mission
 - ⛔ serveur cockpit
 
 ## Routage des tâches de décision
@@ -34,25 +34,23 @@
 - [Santé]
   · hub : OK (14 providers)
 - [Énergie du jour]
-  · appels : 3031 (cloud 3031)
+  · appels : 3038 (cloud 3038)
   · budget cloud : 624 max
-  · par provider : gemini=504, groq=7, mistral=2041, nara=477, nvidia=2
+  · par provider : gemini=504, groq=7, mistral=2048, nara=477, nvidia=2
 - [Nouvelles offres détectées (non intégrées)]
-- [ROLLBACK AUTO 2026-08-22]
-  · obs-1786795252 (nvidia/nemotron-3.5-content-safety:free) : 100% erreurs > 5% (observatoire
   · dots-studio/dots-3-note-preview:free
   · liquid/lfm-2.5-2.6b:free
   · thinkingmachines/inkling-small:free
-  … 112 offres/pépites détectées ce matin
+  … 109 offres/pépites détectées ce matin
 
 ## Mémoire chaude (journal + résumés)
 
 - Radar (dernières alertes) :
-  · 2026-08-22T09:32:03.667845Z ETHUSDT 2425.81 0.0003 17.2 declenche=non
-  · 2026-08-22T09:32:03.673320Z BTCUSDT 77242.47 0.0001 0.7 declenche=non
-  · 2026-08-22T09:32:03.879893Z ETHUSDT 2425.81 0.0003 17.5 declenche=non
-  · 2026-08-22T09:32:04.324613Z ETHUSDT 2425.82 0.0003 17.6 declenche=non
-- Intention en cours : BETA a sonde le marche (11 sondes, 6 long / 5 court, conf mo | ALPHA attend son moment : 199 skips (discipline), le mur du  | ALPHA a frappe 7 fois en embuscade (13x) (dont 2 en mode rev
+  · 2026-08-22T09:32:24.962540Z BTCUSDT 77212.0 0.0003 6.2 declenche=non
+  · 2026-08-22T09:32:25.148062Z BTCUSDT 77212.01 0.0003 6.2 declenche=non
+  · 2026-08-22T09:32:25.312634Z ETHUSDT 2424.39 0.0003 80.0 declenche=non
+  · 2026-08-22T09:32:25.325333Z BTCUSDT 77212.01 0.0003 6.2 declenche=non
+- Intention en cours : BETA a sonde le marche (11 sondes, 6 long / 5 court, conf mo | ALPHA attend son moment : 201 skips (discipline), le mur du  | ALPHA a frappe 7 fois en embuscade (13x) (dont 2 en mode rev
 - 500 signets X résumés (quota aujourd'hui : 0/50)
 - 56 fiches IA d'offres en cache (quota 8/jour)
 
