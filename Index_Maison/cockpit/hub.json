@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-22T00:22:12.448258+00:00",
+  "generated_at": "2026-08-22T00:23:00.253586+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -26,7 +26,7 @@
       "model": "qwen-3.8-max-free",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 735
+      "calls_24h": 736
     },
     {
       "id": "groq",
@@ -44,7 +44,7 @@
       "model": "deepseek-ai/deepseek-v4-flash-0731",
       "enabled": true,
       "timeout": 300,
-      "calls_24h": 190
+      "calls_24h": 191
     },
     {
       "id": "mistral",
@@ -229,10 +229,26 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 56,
-    "remaining": 568
+    "consumed": 58,
+    "remaining": 566
   },
   "queue": [
+    {
+      "ts": "2026-08-22T00:22:45.054338+00:00",
+      "task": "analyse.profonde",
+      "provider": "nvidia",
+      "model": "deepseek-ai/deepseek-v4-flash-0731",
+      "kind": "cloud",
+      "duration_s": 96.56
+    },
+    {
+      "ts": "2026-08-22T00:22:21.687770+00:00",
+      "task": "supervise.decision",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 18.32
+    },
     {
       "ts": "2026-08-22T00:21:50.284192+00:00",
       "task": "supervise.decision",
@@ -336,25 +352,27 @@
       "model": "qwen-3.8-max-free",
       "kind": "cloud",
       "duration_s": 69.29
-    },
-    {
-      "ts": "2026-08-22T00:16:44.752508+00:00",
-      "task": "analyse.profonde",
-      "provider": "nvidia",
-      "model": "deepseek-ai/deepseek-v4-flash-0731",
-      "kind": "cloud",
-      "duration_s": 178.27
-    },
-    {
-      "ts": "2026-08-22T00:16:20.103786+00:00",
-      "task": "analyse.profonde",
-      "provider": "nvidia",
-      "model": "deepseek-ai/deepseek-v4-flash-0731",
-      "kind": "cloud",
-      "duration_s": 418.77
     }
   ],
   "events": [
+    {
+      "ts": "2026-08-22T00:22:45.053677+00:00",
+      "kind": "message",
+      "title": "« NVIDIA build.nvidia.com (100+ modeles) » a repondu",
+      "detail": ""
+    },
+    {
+      "ts": "2026-08-22T00:22:33.433582+00:00",
+      "kind": "failover",
+      "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
+      "detail": "0 attente"
+    },
+    {
+      "ts": "2026-08-22T00:22:21.687525+00:00",
+      "kind": "message",
+      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
+      "detail": "bascule"
+    },
     {
       "ts": "2026-08-22T00:22:03.372373+00:00",
       "kind": "failover",
@@ -396,24 +414,6 @@
       "kind": "timeout",
       "title": "Patience NVIDIA build.nvidia.com (100+ modeles) (lenteur)",
       "detail": "The read operation timed out"
-    },
-    {
-      "ts": "2026-08-22T00:21:06.253886+00:00",
-      "kind": "message",
-      "title": "« NVIDIA build.nvidia.com (100+ modeles) » a repondu",
-      "detail": ""
-    },
-    {
-      "ts": "2026-08-22T00:20:47.662973+00:00",
-      "kind": "http",
-      "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
-      "detail": ""
-    },
-    {
-      "ts": "2026-08-22T00:20:47.662789+00:00",
-      "kind": "error",
-      "title": "Toutes les IA ont echoue",
-      "detail": "NVIDIA build.nvidia.com (100+ modeles): HTTP Error 504: Gateway Timeout | budget: Budget temps requete depasse"
     }
   ],
   "tasks_quotas": {
