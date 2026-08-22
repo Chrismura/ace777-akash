@@ -1,4 +1,6 @@
-# Hulk DIGEST — 2026-08-22T09:25:13Z
+# Hulk DIGEST — 2026-08-22T09:26:44Z
+
+> ⚠️ **SCAN DÉGRADÉ (réseau)** — données partielles, veille hors délai.
 
 - **Piste :** VEILLE (séparée du paper Hulk)
 - Source trading : **MEXC spot**
@@ -12,24 +14,24 @@
 
 | pair | hint | tension | move6% | dd6% | chg24% | vol USDT | spread bps | DefiLlama |
 |------|------|---------|--------|------|--------|----------|------------|-----------|
-| PYTHUSDT | WATCH_PULLBACK — tension haute + reflux | 4.18 | 19.14 | 10.19 | 0.05 | 40266072.03 | 5.99 | skipped_fast |
-| XRPUSDT | WATCH_PULLBACK — tension haute + reflux | 3.83 | 23.87 | 10.76 | 0.11 | 219484310.62 | 3.3 | skipped_fast |
-| HBARUSDT | WATCH_PULLBACK — tension haute + reflux | 4.37 | 15.8 | 9.62 | 0.04 | 1300753.33 | 7.65 | skipped_fast |
-| CHIPUSDT | WATCH_PULLBACK — tension haute + reflux | 4.19 | 23.96 | 11.85 | -0.08 | 667838.68 | 3.35 | skipped_fast |
-| WUSDT | WATCH_PULLBACK — tension haute + reflux | 4.29 | 17.58 | 8.35 | 0.05 | 595244.72 | 14.56 | skipped_fast |
-| BIOUSDT | WATCH_PULLBACK — tension haute + reflux | 4.21 | 29.98 | 10.54 | -0.02 | 237829.22 | 3.23 | skipped_fast |
-| REDUSDT | WATCH_PULLBACK — tension haute + reflux | 3.1 | 41.27 | 11.78 | 0.05 | 154672.56 | 11.49 | skipped_fast |
-| CCUSDT | IDLE | 2.22 | 11.25 | 7.21 | 0.13 | 795189.8 | 8.61 | skipped_fast |
-| ZBCNUSDT | WATCH_PULLBACK — tension haute + reflux | 3.13 | 8.0 | 6.58 | -0.01 | 464125.96 | 21.7 | skipped_fast |
-| KITEUSDT | IDLE | 4.27 | 9.68 | 4.29 | 0.05 | 73088.81 | 12.76 | skipped_fast |
-| QNTUSDT | WATCH_PULLBACK — tension haute + reflux | 4.37 | 13.91 | 8.73 | 0.03 | 193206.01 | 7.73 | skipped_fast |
-| EDELUSDT | IDLE | 2.54 | 4.52 | 3.78 | -0.03 | 79310.93 | 22.47 | skipped_fast |
-| FLUIDUSDT | IDLE | 3.77 | 7.38 | 4.07 | 0.02 | 6973.73 | 20.42 | skipped_fast |
-| RWAINCUSDT | IDLE | 2.32 | 4.36 | 1.88 | 0.02 | 11490.86 | 15.99 | skipped_fast |
-| TELUSDT | WATCH_PULLBACK — tension haute + reflux | 2.65 | 6.69 | 5.87 | -0.01 | 171159.83 | 31.51 | skipped_fast |
+| PYTHUSDT | WATCH_PULLBACK — tension haute + reflux | 4.18 | 19.14 | 10.26 | 0.05 | 40488973.71 | 3.99 | skipped_fast |
+| XRPUSDT | WATCH_PULLBACK — tension haute + reflux | 3.84 | 23.87 | 11.15 | 0.11 | 219519595.04 | 7.95 | skipped_fast |
+| HBARUSDT | WATCH_PULLBACK — tension haute + reflux | 4.37 | 15.8 | 9.76 | 0.04 | 1300762.84 | 6.39 | skipped_fast |
+| CHIPUSDT | WATCH_PULLBACK — tension haute + reflux | 4.19 | 23.96 | 11.79 | -0.08 | 667486.24 | 3.35 | skipped_fast |
+| WUSDT | WATCH_PULLBACK — tension haute + reflux | 4.29 | 17.58 | 8.42 | 0.05 | 595065.27 | 14.56 | skipped_fast |
+| BIOUSDT | WATCH_PULLBACK — tension haute + reflux | 4.21 | 29.98 | 10.71 | -0.02 | 237876.37 | 6.46 | skipped_fast |
+| REDUSDT | WATCH_PULLBACK — tension haute + reflux | 3.1 | 41.27 | 11.73 | 0.06 | 154687.36 | 9.71 | skipped_fast |
+| CCUSDT | IDLE | 2.22 | 11.25 | 7.12 | 0.13 | 795410.28 | 6.02 | skipped_fast |
+| ZBCNUSDT | WATCH_PULLBACK — tension haute + reflux | 3.13 | 8.0 | 6.62 | -0.01 | 463971.79 | 20.19 | skipped_fast |
+| KITEUSDT | IDLE | 4.27 | 9.68 | 4.41 | 0.05 | 73123.49 | 12.76 | skipped_fast |
+| EDELUSDT | IDLE | 2.54 | 4.52 | 3.78 | -0.03 | 79353.72 | 22.47 | skipped_fast |
+| TELUSDT | WATCH_PULLBACK — tension haute + reflux | 2.65 | 6.69 | 6.02 | -0.02 | 171134.92 | 21.0 | skipped_fast |
+| RWAINCUSDT | IDLE | 2.4 | 4.36 | 2.93 | 0.01 | 11509.42 | 69.8 | skipped_fast |
 | QAITUSDT | IDLE | 1.54 | 2.91 | 1.09 | 0.01 | 3209.57 | 66.45 | skipped_fast |
-| RIZEUSDT | IDLE | 0.8 | 3.36 | 1.82 | -0.02 | 50332.64 | 46.77 | skipped_fast |
-| RWAUSDT | IDLE | 1.76 | 3.29 | 1.59 | 0.03 | 57704.7 | 24.26 | skipped_fast |
+| RIZEUSDT | IDLE | 0.79 | 3.36 | 1.75 | -0.02 | 50332.64 | 46.77 | skipped_fast |
+| QNTUSDT | ERR | — | — | — | — | — | — | scan_deadline |
+| FLUIDUSDT | ERR | — | — | — | — | — | — | scan_deadline |
+| RWAUSDT | ERR | — | — | — | — | — | — | scan_deadline |
 
 ## Consignes Qwen (manuel — ne pilote pas le paper)
 1. Résumer en 5 lignes : qui spike, qui dump, illiquide (spread/vol).
