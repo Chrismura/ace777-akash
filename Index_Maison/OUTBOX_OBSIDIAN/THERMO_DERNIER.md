@@ -10,13 +10,13 @@
 
 | Champ | Valeur | ID |
 |-------|--------|-----|
-| Mark | 76915.04 | prix |
-| OI | 106465.325 | C13 |
+| Mark | 76915.19 | prix |
+| OI | 106465.523 | C13 |
 | Funding | 0.0001 | C14 |
 | Funding moy. ~30j | 5.919e-05 (n=90) | Cortana |
 | Funding mois préc. | 6.081e-05 (n=93) | Cortana |
 | L/S 1h | 0.999 | crowd |
-| BTC 1h/4h/24h | -0.17 / -0.72 / -1.17 % | B7 |
+| BTC 1h/4h/24h | -0.18 / -0.73 / -1.2 % | B7 |
 | Dominance BTC | 58.93% | A3 |
 | Alts ↓ 24h | 25.0% | B9 |
 
@@ -24,10 +24,10 @@
 - Climat CALME (score 84/100).
 - Funding maintenant 0.0001. Moyenne ~30j 5.919e-05 (90 pts). Mois précédent 6.081e-05 (93 pts).
 - Long/Short 0.999.
-- BTC 24h -1.17% · 1h -0.17% · 4h -0.72%.
+- BTC 24h -1.2% · 1h -0.18% · 4h -0.73%.
 - Panier alts : 25.0% en baisse (5/20).
 - Whales proxy : aucun print ≥500k$ sur les ~500 derniers trades.
-- Dark/OTC proxy : taker buy/sell 0.795 · OI 106465.325 (pas de dark pool free temps réel).
+- Dark/OTC proxy : taker buy/sell 0.795 · OI 106465.523 (pas de dark pool free temps réel).
 - Top traders L/S 1.113.
 - Fear & Greed 71 (Greed).
 - Market cap crypto ≈ 2.60 T$.
