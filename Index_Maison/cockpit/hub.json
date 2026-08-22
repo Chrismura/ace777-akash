@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-22T14:51:50.608757+00:00",
+  "generated_at": "2026-08-22T14:52:57.880711+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 505
+      "calls_24h": 507
     },
     {
       "id": "openrouter-free",
@@ -35,7 +35,7 @@
       "model": "groq/compound",
       "enabled": true,
       "timeout": 120,
-      "calls_24h": 12
+      "calls_24h": 13
     },
     {
       "id": "nvidia",
@@ -229,10 +229,34 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 3787,
+    "consumed": 3790,
     "remaining": 0
   },
   "queue": [
+    {
+      "ts": "2026-08-22T14:52:13.203073+00:00",
+      "task": "supervise.decision",
+      "provider": "groq",
+      "model": "groq/compound",
+      "kind": "cloud",
+      "duration_s": 1.68
+    },
+    {
+      "ts": "2026-08-22T14:52:12.422266+00:00",
+      "task": "analyse.profonde",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 2.86
+    },
+    {
+      "ts": "2026-08-22T14:52:06.158456+00:00",
+      "task": "analyse.profonde",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 2.46
+    },
     {
       "ts": "2026-08-22T12:53:14.927480+00:00",
       "task": "supervise.decision",
@@ -328,92 +352,68 @@
       "model": "qwen-3.8-max-free",
       "kind": "cloud",
       "duration_s": 32.03
-    },
-    {
-      "ts": "2026-08-22T12:48:06.163816+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 9.4
-    },
-    {
-      "ts": "2026-08-22T12:47:45.987795+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 19.05
-    },
-    {
-      "ts": "2026-08-22T12:47:44.816582+00:00",
-      "task": "analyse.profonde",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 177.46
     }
   ],
   "events": [
     {
-      "ts": "2026-08-22T14:51:46.631430+00:00",
+      "ts": "2026-08-22T14:52:57.237353+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis OpenRouter Juge (nemotron-3-super-120b free) - verificateur independant",
+      "detail": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "ts": "2026-08-22T14:52:56.379883+00:00",
       "kind": "http",
       "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
       "detail": ""
     },
     {
-      "ts": "2026-08-22T14:51:46.631280+00:00",
+      "ts": "2026-08-22T14:52:56.379223+00:00",
       "kind": "error",
       "title": "Toutes les IA ont echoue",
-      "detail": "Groq (LLM ultra-rapide, gratuit): reseau KO [Errno 8] nodename nor servname provided, or not known"
+      "detail": "Google Gemini: HTTP Error 429: Too Many Requests | HuggingFace (136+ modeles, dont DeepSeek-V4): HTTP Error 402: Payment Required | NaraRouter (7M tokens/jour gratuits): HTTP Error 502: Bad Gateway | OpenRouter (modeles gratuits): HTTP Error 404: Not Found | Groq (LLM ultra-rapide, gratuit): HTTP Error 413: Payload Too Large | NVIDIA build.nvidia.com (100+ modeles): The read operation timed out | OpenRouter Juge (nemotron-3-super-120b free) - verificateur independant: HTTP Error 429: Too Many Re"
     },
     {
-      "ts": "2026-08-22T14:51:46.631160+00:00",
+      "ts": "2026-08-22T14:52:56.376461+00:00",
       "kind": "failover",
-      "title": "Reseau KO (bascule immediate) depuis Groq (LLM ultra-rapide, gratuit)",
-      "detail": "[Errno 8] nodename nor servname provided, or not known"
+      "title": "Bascule depuis InferX Devstral-2-123B (code)",
+      "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-08-22T14:51:46.630927+00:00",
-      "kind": "network",
-      "title": "Reseau indisponible: Groq (LLM ultra-rapide, gratuit)",
-      "detail": "[Errno 8] nodename nor servname provided, or not known"
-    },
-    {
-      "ts": "2026-08-22T14:51:46.615593+00:00",
-      "kind": "quota",
-      "title": "Budget atteint -> filet restreint aux gratuits",
-      "detail": "supervise.decision"
-    },
-    {
-      "ts": "2026-08-22T14:51:46.613974+00:00",
-      "kind": "quota",
-      "title": "Budget calme atteint -> bascule famille (gratuits)",
-      "detail": "supervise.decision"
-    },
-    {
-      "ts": "2026-08-22T14:51:46.575507+00:00",
-      "kind": "network",
-      "title": "Reseau pas pret — mode degrade (timeout court)",
-      "detail": ""
-    },
-    {
-      "ts": "2026-08-22T14:51:43.241815+00:00",
-      "kind": "http",
-      "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
-      "detail": ""
-    },
-    {
-      "ts": "2026-08-22T14:51:43.241668+00:00",
-      "kind": "error",
-      "title": "Toutes les IA ont echoue",
-      "detail": "Groq (LLM ultra-rapide, gratuit): reseau KO [Errno 8] nodename nor servname provided, or not known"
-    },
-    {
-      "ts": "2026-08-22T14:51:43.241558+00:00",
+      "ts": "2026-08-22T14:52:56.245702+00:00",
       "kind": "failover",
-      "title": "Reseau KO (bascule immediate) depuis Groq (LLM ultra-rapide, gratuit)",
-      "detail": "[Errno 8] nodename nor servname provided, or not known"
+      "title": "Bascule depuis NVIDIA build.nvidia.com (100+ modeles)",
+      "detail": "The read operation timed out"
+    },
+    {
+      "ts": "2026-08-22T14:52:55.231832+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis NVIDIA DeepSeek-Coder 6.7B (code, via NIM)",
+      "detail": "HTTP Error 404: Not Found"
+    },
+    {
+      "ts": "2026-08-22T14:52:53.441794+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis Puter Grok (gratuit)",
+      "detail": "HTTP Error 402: Payment Required"
+    },
+    {
+      "ts": "2026-08-22T14:52:52.563453+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis OpenRouter (modeles gratuits)",
+      "detail": "HTTP Error 404: Not Found"
+    },
+    {
+      "ts": "2026-08-22T14:52:52.379854+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis InferX Qwen3-Coder-Next (code, gratuit jusqu'au 12/08)",
+      "detail": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "ts": "2026-08-22T14:52:51.877800+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis OpenRouter (modeles gratuits)",
+      "detail": "HTTP Error 404: Not Found"
     }
   ],
   "tasks_quotas": {

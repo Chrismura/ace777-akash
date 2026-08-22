@@ -1,13 +1,10 @@
 {
-  "ts": "2026-08-22T14:51+00:00",
-  "updated": "2026-08-22T14:51Z",
+  "ts": "2026-08-22T14:53+00:00",
+  "updated": "2026-08-22T14:53Z",
   "etat": "ALERTE",
-  "chaines_ok": "6/9",
+  "chaines_ok": "8/9",
   "anomalies": [
-    "HULK : sonde ou CSV figé (process absent ou CSV > 15 min)",
-    "VIGIE MARCHÉ : radar mort ou journal figé (le trou du 19/08)",
-    "VEILLE DÉGRADATION : rapport ALERTE_DEGRADATION_SILENCIEUSE ou figé — dégradation silencieuse détectée",
-    "VEILLE DÉGRADATION : Dead Man's Switch ALERTE ou figé — la surveillance elle-même est en panne"
+    "HULK : sonde ou CSV figé (process absent ou CSV > 15 min)"
   ],
   "degradees": [],
   "chaines": [
@@ -45,7 +42,7 @@
         {
           "nom": "→ Ada gardienne",
           "ok": true,
-          "detail": "voilure 99.8 · zone VERT"
+          "detail": "voilure 91.1 · zone VERT"
         },
         {
           "nom": "→ Cortana feed",
@@ -68,7 +65,7 @@
         {
           "nom": "CSV aspiration",
           "ok": false,
-          "detail": "ASPIRATION_CALIB_20260821_092452.csv · âge 120 min"
+          "detail": "ASPIRATION_CALIB_20260821_092452.csv · âge 121 min"
         },
         {
           "nom": "corrélation BTC",
@@ -168,7 +165,7 @@
       "id": "vigie",
       "nom": "VIGIE MARCHÉ",
       "chemin": "vigie_live.py → journal_radar.log → alertes (relance superviseur-process + superviseur-core + vigie-live)",
-      "ok": false,
+      "ok": true,
       "maillons": [
         {
           "nom": "process vigie_live",
@@ -177,8 +174,8 @@
         },
         {
           "nom": "journal_radar.log",
-          "ok": false,
-          "detail": "âge 119 min"
+          "ok": true,
+          "detail": "âge 0 min"
         },
         {
           "nom": "relance (superviseur-process)",
@@ -201,7 +198,7 @@
       "id": "veille_deg",
       "nom": "VEILLE DÉGRADATION",
       "chemin": "veille_degradation.py (plists + heartbeats + indicateurs) → etat.json + DMS externe (dms-veille) → cockpit",
-      "ok": false,
+      "ok": true,
       "maillons": [
         {
           "nom": "process veille_degradation (launchd)",
@@ -210,8 +207,8 @@
         },
         {
           "nom": "rapport veille_degradation_etat.json",
-          "ok": false,
-          "detail": "ALERTE_DEGRADATION_SILENCIEUSE · âge 0 min"
+          "ok": true,
+          "detail": "SAIN · âge 0 min"
         },
         {
           "nom": "Dead Man's Switch (dms-veille)",
@@ -220,8 +217,8 @@
         },
         {
           "nom": "rapport DMS_VEILLE.json",
-          "ok": false,
-          "detail": "ALERTE"
+          "ok": true,
+          "detail": "OK"
         }
       ]
     },
