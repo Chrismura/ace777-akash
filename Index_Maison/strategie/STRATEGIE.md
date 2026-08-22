@@ -1,6 +1,6 @@
-# STRATEGIE — 2026-08-22T05:22:41.977088Z
+# STRATEGIE — 2026-08-22T05:38:00.260878Z
 
-## COURT TERME — 2026-08-22T05:22:41.977088Z
+## COURT TERME — 2026-08-22T05:38:00.260878Z
 
 ### Analyse de la situation actuelle
 
@@ -10,7 +10,7 @@ La maison ACE777 maintient une alerte rouge face à un PnL combiné sous pressio
 
 1. Maintenir Alpha en embuscade stricte en exploitant les flux de reconnaissance de Beta sans céder à la précipitation.
 2. Poursuivre le pilotage resserré et l'arbitrage rigoureux des positions seeds de Hulk via les stop-loss.
-3. Évaluer la confirmation technique de la cassure des carnets avant tout redéploiement d'envergure.
+3. Évaluer la confirmation technique de la cassure des carnets d'ordres avant tout redéploiement d'envergure.
 
 ### Verdict final
 
