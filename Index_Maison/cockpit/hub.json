@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-22T10:57:34.120377+00:00",
+  "generated_at": "2026-08-22T10:57:42.794116+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -26,7 +26,7 @@
       "model": "qwen-3.8-max-free",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 550
+      "calls_24h": 551
     },
     {
       "id": "groq",
@@ -229,10 +229,18 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 3582,
+    "consumed": 3583,
     "remaining": 0
   },
   "queue": [
+    {
+      "ts": "2026-08-22T10:57:35.300382+00:00",
+      "task": "supervise.decision",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 44.3
+    },
     {
       "ts": "2026-08-22T10:57:03.159467+00:00",
       "task": "supervise.decision",
@@ -344,17 +352,15 @@
       "model": "qwen-3.8-max-free",
       "kind": "cloud",
       "duration_s": 31.71
-    },
-    {
-      "ts": "2026-08-22T10:47:53.335769+00:00",
-      "task": "analyse.profonde",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 270.0
     }
   ],
   "events": [
+    {
+      "ts": "2026-08-22T10:57:35.299903+00:00",
+      "kind": "message",
+      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
+      "detail": "bascule"
+    },
     {
       "ts": "2026-08-22T10:57:03.158773+00:00",
       "kind": "message",
@@ -408,12 +414,6 @@
       "kind": "http",
       "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
       "detail": ""
-    },
-    {
-      "ts": "2026-08-22T10:56:49.643274+00:00",
-      "kind": "error",
-      "title": "Toutes les IA ont echoue",
-      "detail": "Google Gemini: blacklist du jour (saute) | HuggingFace (136+ modeles, dont DeepSeek-V4): blacklist du jour (saute) | NaraRouter (7M tokens/jour gratuits): Reponse vide | budget: Budget temps requete depasse"
     }
   ],
   "tasks_quotas": {
