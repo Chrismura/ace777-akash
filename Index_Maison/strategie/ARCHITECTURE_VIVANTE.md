@@ -38,6 +38,8 @@
   · budget cloud : 624 max
   · par provider : gemini=2, nara=53
 - [Nouvelles offres détectées (non intégrées)]
+- [ROLLBACK AUTO 2026-08-22]
+  · obs-1787033767 (google/diffusiongemma-26b-a4b-it) : 100% erreurs > 5% (observatoire)
   · dots-studio/dots-3-note-preview:free
   · liquid/lfm-2.5-2.6b:free
   · thinkingmachines/inkling-small:free
@@ -46,10 +48,10 @@
 ## Mémoire chaude (journal + résumés)
 
 - Radar (dernières alertes) :
-  · 2026-08-22T03:06:29.403427Z BTCUSDT 78645.12 0.0008 6.5 declenche=non
-  · 2026-08-22T03:06:29.457294Z BTCUSDT 78645.12 0.0008 6.5 declenche=non
-  · 2026-08-22T03:06:29.477455Z BTCUSDT 78645.12 0.0008 6.5 declenche=non
-  · 2026-08-22T03:06:29.622001Z ETHUSDT 2520.41 0.0008 346.4 declenche=non
+  · 2026-08-22T03:06:44.784881Z BTCUSDT 78670.0 0.0011 7.1 declenche=non
+  · 2026-08-22T03:06:44.835370Z ETHUSDT 2519.81 0.0001 16.1 declenche=non
+  · 2026-08-22T03:06:44.952584Z ETHUSDT 2519.81 0.0001 16.1 declenche=non
+  · 2026-08-22T03:06:45.036174Z ETHUSDT 2519.81 0.0001 16.1 declenche=non
 - Intention en cours : BETA a sonde le marche (45 sondes, 30 long / 15 court, conf  | ALPHA attend son moment : 711 skips (discipline), le mur du  | ALPHA a frappe 30 fois en embuscade (13x) (dont 15 en mode r
 - 500 signets X résumés (quota aujourd'hui : 0/50)
 - 56 fiches IA d'offres en cache (quota 8/jour)

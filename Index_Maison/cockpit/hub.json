@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-22T03:06:39.880796+00:00",
+  "generated_at": "2026-08-22T03:06:48.723421+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -26,7 +26,7 @@
       "model": "qwen-3.8-max-free",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 53
+      "calls_24h": 54
     },
     {
       "id": "groq",
@@ -229,10 +229,18 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 55,
-    "remaining": 569
+    "consumed": 56,
+    "remaining": 568
   },
   "queue": [
+    {
+      "ts": "2026-08-22T03:06:44.204510+00:00",
+      "task": "supervise.decision",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 43.6
+    },
     {
       "ts": "2026-08-22T03:05:53.089045+00:00",
       "task": "supervise.decision",
@@ -344,17 +352,15 @@
       "model": "qwen-3.8-max-free",
       "kind": "cloud",
       "duration_s": 37.65
-    },
-    {
-      "ts": "2026-08-22T03:00:12.935497+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 28.39
     }
   ],
   "events": [
+    {
+      "ts": "2026-08-22T03:06:44.203686+00:00",
+      "kind": "message",
+      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
+      "detail": "bascule"
+    },
     {
       "ts": "2026-08-22T03:06:12.001003+00:00",
       "kind": "timeout",
@@ -408,12 +414,6 @@
       "kind": "error",
       "title": "Budget temps requete depasse",
       "detail": ""
-    },
-    {
-      "ts": "2026-08-22T03:05:47.563373+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis NaraRouter (7M tokens/jour gratuits)",
-      "detail": "Reponse vide"
     }
   ],
   "tasks_quotas": {
