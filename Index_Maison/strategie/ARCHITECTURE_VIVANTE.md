@@ -9,7 +9,7 @@
 - ✅ radar
 - ⛔ lecteur signets
 - ⛔ générateur fiches
-- ⛔ feed mission
+- ✅ feed mission
 - ⛔ serveur cockpit
 
 ## Routage des tâches de décision
@@ -34,22 +34,22 @@
 - [Santé]
   · hub : OK (14 providers)
 - [Énergie du jour]
-  · appels : 491 (cloud 491)
+  · appels : 494 (cloud 494)
   · budget cloud : 624 max
-  · par provider : gemini=2, groq=1, mistral=357, nara=129, nvidia=2
+  · par provider : gemini=2, groq=1, mistral=360, nara=129, nvidia=2
 - [Nouvelles offres détectées (non intégrées)]
   · dots-studio/dots-3-note-preview:free
   · liquid/lfm-2.5-2.6b:free
   · thinkingmachines/inkling-small:free
-  … 107 offres/pépites détectées ce matin
+  … 108 offres/pépites détectées ce matin
 
 ## Mémoire chaude (journal + résumés)
 
 - Radar (dernières alertes) :
-  · 2026-08-22T04:14:00.995269Z BTCUSDT 78381.65 0.0001 0.8 declenche=non
-  · 2026-08-22T04:14:01.396467Z BTCUSDT 78381.66 0.0001 0.8 declenche=non
-  · 2026-08-22T04:14:01.580496Z BTCUSDT 78381.66 0.0001 0.8 declenche=non
-  · 2026-08-22T04:14:01.888634Z ETHUSDT 2519.47 0.0001 21.5 declenche=non
+  · 2026-08-22T04:14:12.082832Z ETHUSDT 2520.17 0.0003 37.0 declenche=non
+  · 2026-08-22T04:14:12.130070Z ETHUSDT 2520.18 0.0003 37.2 declenche=non
+  · 2026-08-22T04:14:12.159327Z BTCUSDT 78402.44 0.0002 2.6 declenche=non
+  · 2026-08-22T04:14:12.269875Z BTCUSDT 78402.44 0.0002 2.6 declenche=non
 - Intention en cours : BETA a sonde le marche (4 sondes, 1 long / 3 court, conf moy | ALPHA attend son moment : 81 skips (discipline), le mur du c | ALPHA a frappe 4 fois en embuscade (13x) (dont 2 en mode rev
 - 500 signets X résumés (quota aujourd'hui : 0/50)
 - 56 fiches IA d'offres en cache (quota 8/jour)
