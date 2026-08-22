@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-22T01:16:25.649216+00:00",
+  "generated_at": "2026-08-22T01:16:41.265002+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -26,7 +26,7 @@
       "model": "qwen-3.8-max-free",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 848
+      "calls_24h": 849
     },
     {
       "id": "groq",
@@ -229,10 +229,18 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 191,
-    "remaining": 433
+    "consumed": 192,
+    "remaining": 432
   },
   "queue": [
+    {
+      "ts": "2026-08-22T01:16:36.773513+00:00",
+      "task": "supervise.decision",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 26.11
+    },
     {
       "ts": "2026-08-22T01:15:58.741198+00:00",
       "task": "supervise.decision",
@@ -344,17 +352,15 @@
       "model": "qwen-3.8-max-free",
       "kind": "cloud",
       "duration_s": 32.11
-    },
-    {
-      "ts": "2026-08-22T01:10:04.094663+00:00",
-      "task": "analyse.profonde",
-      "provider": "nvidia",
-      "model": "deepseek-ai/deepseek-v4-flash-0731",
-      "kind": "cloud",
-      "duration_s": 147.49
     }
   ],
   "events": [
+    {
+      "ts": "2026-08-22T01:16:36.773004+00:00",
+      "kind": "message",
+      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
+      "detail": "bascule"
+    },
     {
       "ts": "2026-08-22T01:16:22.772718+00:00",
       "kind": "failover",
@@ -407,12 +413,6 @@
       "ts": "2026-08-22T01:15:13.821076+00:00",
       "kind": "http",
       "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
-      "detail": ""
-    },
-    {
-      "ts": "2026-08-22T01:15:13.819980+00:00",
-      "kind": "message",
-      "title": "« NVIDIA build.nvidia.com (100+ modeles) » a repondu",
       "detail": ""
     }
   ],
