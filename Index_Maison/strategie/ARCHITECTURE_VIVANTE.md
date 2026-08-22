@@ -22,24 +22,22 @@
 
 ## État de la mission (bots + PnL)
 
-- mission.json : 2026-08-22 16:35Z · run `MASTER_VORTEX_V2_COLLAB_4H` · alerte `red`
+- mission.json : 2026-08-22 16:36Z · run `MASTER_VORTEX_V2_COLLAB_4H` · alerte `red`
 - PnL combiné : **-1.70 $** 📉 (combo -1.7014)
 - ALPHA (sniper (embuscade, ×13, revenge si claque)) : **-1.32 $** · 2 fills · 69 skips
 - BETA (éclaireur (chatouille le marché, alimente Alpha)) : **-0.38 $** · 5 fills · 95 skips
 - HULK (gestionnaire de portefeuille (bag, escalier, courreur)) : **-0.11 $** · 0 fills
-- Saison : ACCUMULATION 💧 · 
+- Saison : CALME 🧊 · 
 
 ## Veille du jour
 
 - [Santé]
   · hub : OK (14 providers)
 - [Énergie du jour]
-  · appels : 573 (cloud 573)
+  · appels : 576 (cloud 576)
   · budget cloud : 624 max
-  · par provider : groq=3, mistral=455, nara=115
+  · par provider : groq=3, mistral=458, nara=115
 - [Nouvelles offres détectées (non intégrées)]
-- [ROLLBACK AUTO 2026-08-22]
-  · obs-1786774656 (nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free) : 100% erreurs > 5% (o
   · dots-studio/dots-3-note-preview:free
   · liquid/lfm-2.5-2.6b:free
   · thinkingmachines/inkling-small:free
@@ -48,10 +46,10 @@
 ## Mémoire chaude (journal + résumés)
 
 - Radar (dernières alertes) :
-  · 2026-08-22T16:36:20.411339Z ETHUSDT 2422.62 0.0003 38.7 declenche=non
-  · 2026-08-22T16:36:20.413270Z ETHUSDT 2422.62 0.0010 173.5 declenche=non
-  · 2026-08-22T16:36:20.836412Z BTCUSDT 77280.43 0.0009 7.1 declenche=non
-  · 2026-08-22T16:36:20.837627Z BTCUSDT 77280.43 0.0000 0.0 declenche=non
+  · 2026-08-22T16:36:34.196560Z ETHUSDT 2422.88 0.0011 205.6 declenche=non
+  · 2026-08-22T16:36:34.196703Z BTCUSDT 77284.07 0.0000 4.7 declenche=non
+  · 2026-08-22T16:36:34.196844Z ETHUSDT 2422.88 0.0011 205.7 declenche=non
+  · 2026-08-22T16:36:34.197267Z ETHUSDT 2422.88 0.0011 205.7 declenche=non
 - Intention en cours : BETA a sonde le marche (4 sondes, 3 long / 1 court, conf moy | ALPHA attend son moment : 60 skips (discipline), le mur du c | ALPHA a frappe 1 fois en embuscade (13x) : -1.32 $ — session
 - 550 signets X résumés (quota aujourd'hui : 50/50)
 - 56 fiches IA d'offres en cache (quota 8/jour)
