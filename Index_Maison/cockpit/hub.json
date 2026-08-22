@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-22T11:34:13.577517+00:00",
+  "generated_at": "2026-08-22T11:35:37.528163+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -26,7 +26,7 @@
       "model": "qwen-3.8-max-free",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 610
+      "calls_24h": 611
     },
     {
       "id": "groq",
@@ -229,10 +229,18 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 3643,
+    "consumed": 3644,
     "remaining": 0
   },
   "queue": [
+    {
+      "ts": "2026-08-22T11:34:16.541002+00:00",
+      "task": "supervise.decision",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 65.45
+    },
     {
       "ts": "2026-08-22T11:33:46.539546+00:00",
       "task": "supervise.decision",
@@ -344,76 +352,68 @@
       "model": "qwen-3.8-max-free",
       "kind": "cloud",
       "duration_s": 16.41
-    },
-    {
-      "ts": "2026-08-22T11:26:09.965696+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 32.71
     }
   ],
   "events": [
     {
-      "ts": "2026-08-22T11:33:46.538821+00:00",
-      "kind": "message",
-      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
-      "detail": "bascule"
-    },
-    {
-      "ts": "2026-08-22T11:33:34.324688+00:00",
+      "ts": "2026-08-22T11:35:36.019342+00:00",
       "kind": "timeout",
       "title": "Patience NaraRouter (7M tokens/jour gratuits) (reponse vide)",
       "detail": "Reponse vide"
     },
     {
-      "ts": "2026-08-22T11:33:16.847315+00:00",
+      "ts": "2026-08-22T11:35:26.254291+00:00",
       "kind": "failover",
       "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
       "detail": "0 attente"
     },
     {
-      "ts": "2026-08-22T11:33:16.846623+00:00",
+      "ts": "2026-08-22T11:35:26.253233+00:00",
       "kind": "reserve-storm",
       "title": "Tempête active + budget calme atteint -> réserve storm pour supervise.decision",
       "detail": "supervise.decision"
     },
     {
-      "ts": "2026-08-22T11:33:11.088529+00:00",
+      "ts": "2026-08-22T11:35:21.278152+00:00",
       "kind": "failover",
-      "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
+      "title": "Saute (blacklist) depuis HuggingFace (136+ modeles, dont DeepSeek-V4)",
       "detail": "0 attente"
     },
     {
-      "ts": "2026-08-22T11:33:11.023927+00:00",
-      "kind": "reserve-storm",
-      "title": "Tempête active + budget calme atteint -> réserve storm pour supervise.decision",
-      "detail": "supervise.decision"
+      "ts": "2026-08-22T11:35:21.277921+00:00",
+      "kind": "failover",
+      "title": "Saute (blacklist) depuis Google Gemini",
+      "detail": "0 attente"
     },
     {
-      "ts": "2026-08-22T11:33:06.661040+00:00",
-      "kind": "message",
-      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
-      "detail": "bascule"
+      "ts": "2026-08-22T11:35:21.277054+00:00",
+      "kind": "quota",
+      "title": "Budget calme atteint -> bascule famille (gratuits)",
+      "detail": "analyse.profonde"
     },
     {
-      "ts": "2026-08-22T11:32:39.511615+00:00",
-      "kind": "timeout",
-      "title": "Patience NaraRouter (7M tokens/jour gratuits) (reponse vide)",
-      "detail": "Reponse vide"
-    },
-    {
-      "ts": "2026-08-22T11:32:29.385895+00:00",
+      "ts": "2026-08-22T11:34:29.564796+00:00",
       "kind": "failover",
       "title": "Bascule depuis Groq (LLM ultra-rapide, gratuit)",
       "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-08-22T11:32:29.372513+00:00",
+      "ts": "2026-08-22T11:34:29.564420+00:00",
       "kind": "ratelimit",
       "title": "429 Groq (LLM ultra-rapide, gratuit) -> pause 60s + bascule",
       "detail": ""
+    },
+    {
+      "ts": "2026-08-22T11:34:28.261481+00:00",
+      "kind": "blacklist",
+      "title": "Fin de pause Groq (LLM ultra-rapide, gratuit)",
+      "detail": "re-essai automatique"
+    },
+    {
+      "ts": "2026-08-22T11:34:28.261126+00:00",
+      "kind": "reserve-storm",
+      "title": "Tempête active + budget calme atteint -> réserve storm pour supervise.decision",
+      "detail": "supervise.decision"
     }
   ],
   "tasks_quotas": {
