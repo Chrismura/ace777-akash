@@ -1,4 +1,4 @@
-# ARCHITECTURE VIVANTE — ACE777 (2026-08-22 09:46 UTC)
+# ARCHITECTURE VIVANTE — ACE777 (2026-08-22 09:47 UTC)
 
 > Document GÉNÉRÉ AUTOMATIQUEMENT à l'instant. La famille valide
 > en s'appuyant sur CE contexte, pas sur des documents figés.
@@ -24,7 +24,7 @@
 
 - mission.json : 2026-08-22 09:46Z · run `MASTER_VORTEX_V2_COLLAB_4H` · alerte `red`
 - PnL combiné : **-2.58 $** 📉 (combo -2.5766)
-- ALPHA (sniper (embuscade, ×13, revenge si claque)) : **-4.25 $** · 8 fills · 236 skips
+- ALPHA (sniper (embuscade, ×13, revenge si claque)) : **-4.25 $** · 8 fills · 240 skips
 - BETA (éclaireur (chatouille le marché, alimente Alpha)) : **+1.68 $** · 12 fills · 256 skips
 - HULK (gestionnaire de portefeuille (bag, escalier, courreur)) : **-0.11 $** · 0 fills
 - Saison : CHAOS ⛈️ · 
@@ -34,23 +34,25 @@
 - [Santé]
   · hub : OK (14 providers)
 - [Énergie du jour]
-  · appels : 3194 (cloud 3194)
+  · appels : 3205 (cloud 3205)
   · budget cloud : 624 max
-  · par provider : gemini=504, groq=8, mistral=2199, nara=481, nvidia=2
+  · par provider : gemini=504, groq=8, mistral=2210, nara=481, nvidia=2
 - [Nouvelles offres détectées (non intégrées)]
+- [ROLLBACK AUTO 2026-08-22]
+  · obs-1786795252 (nvidia/nemotron-3.5-content-safety:free) : 100% erreurs > 5% (observatoire
   · dots-studio/dots-3-note-preview:free
   · liquid/lfm-2.5-2.6b:free
   · thinkingmachines/inkling-small:free
-  … 111 offres/pépites détectées ce matin
+  … 109 offres/pépites détectées ce matin
 
 ## Mémoire chaude (journal + résumés)
 
 - Radar (dernières alertes) :
-  · 2026-08-22T09:46:30.436538Z ETHUSDT 2420.42 0.0000 41.3 declenche=non
-  · 2026-08-22T09:46:30.615384Z BTCUSDT 77090.56 0.0000 3.8 declenche=non
-  · 2026-08-22T09:46:30.811948Z BTCUSDT 77090.57 0.0000 3.8 declenche=non
-  · 2026-08-22T09:46:31.172043Z ETHUSDT 2420.42 0.0000 41.4 declenche=non
-- Intention en cours : BETA a sonde le marche (12 sondes, 7 long / 5 court, conf mo | ALPHA attend son moment : 217 skips (discipline), le mur du  | ALPHA a frappe 8 fois en embuscade (13x) (dont 2 en mode rev
+  · 2026-08-22T09:47:26.505920Z BTCUSDT 77006.7 0.0001 1.7 declenche=non
+  · 2026-08-22T09:47:26.506399Z BTCUSDT 77006.69 0.0001 1.7 declenche=non
+  · 2026-08-22T09:47:26.506575Z BTCUSDT 77006.7 0.0001 1.7 declenche=non
+  · 2026-08-22T09:47:26.506849Z BTCUSDT 77006.69 0.0001 1.7 declenche=non
+- Intention en cours : BETA a sonde le marche (12 sondes, 7 long / 5 court, conf mo | ALPHA attend son moment : 220 skips (discipline), le mur du  | ALPHA a frappe 8 fois en embuscade (13x) (dont 2 en mode rev
 - 550 signets X résumés (quota aujourd'hui : 50/50)
 - 56 fiches IA d'offres en cache (quota 8/jour)
 
