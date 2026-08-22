@@ -1,20 +1,20 @@
 {
-  "ts": "2026-08-22T15:01Z",
-  "tsUnix": 1787410893,
+  "ts": "2026-08-22T15:02Z",
+  "tsUnix": 1787410921,
   "symbol": "BTCUSDT",
-  "mark": 77005.34,
-  "oi": 106446.631,
+  "mark": 77035.9,
+  "oi": 106443.674,
   "funding": 0.0001,
   "fundingAvg30": 5.919e-05,
   "fundingAvgPrevMonth": 6.081e-05,
   "fundingSamples30": 90,
   "fundingSamplesPrev": 93,
-  "longShort": 0.997,
-  "chg24": -0.51,
-  "chg1h": 0.02,
-  "chg4h": -0.14,
-  "volQuote": 14696453337.0,
-  "btcDominance": null,
+  "longShort": 0.991,
+  "chg24": -0.44,
+  "chg1h": 0.11,
+  "chg4h": -0.05,
+  "volQuote": 14697742922.0,
+  "btcDominance": 58.9,
   "panierDownPct": 15.0,
   "whaleN": 0,
   "whaleUsd": 0.0,
@@ -23,17 +23,17 @@
   "whaleSellUsd": 0,
   "whaleDirProxy": "neutral",
   "takerRatio": 0.984,
-  "topTraderLS": 1.114,
+  "topTraderLS": 1.113,
   "fearGreed": 71,
   "fearGreedLabel": "Greed",
-  "marketCapUsd": null,
-  "altSeason": null,
-  "altSeasonScore": null,
+  "marketCapUsd": 2615582922328.0,
+  "altSeason": "Bitcoin season",
+  "altSeasonScore": 43,
   "liq24Usd": 42414860.0,
   "liqLongUsd": 35685306.0,
   "liqShortUsd": 6729553.0,
   "etf": {
-    "btc": 226.13,
+    "btc": 226.22,
     "eth": null,
     "xrp": null,
     "source": "bitbo-public (moy 7j)",
@@ -44,7 +44,7 @@
     "putCallRatio": 0.614,
     "callWall": 78000,
     "putWall": 60000,
-    "callWallDistPct": 1.3,
+    "callWallDistPct": 1.2,
     "putWallDistPct": 22.1,
     "nInstruments": 620,
     "source": "deribit-public"
@@ -57,7 +57,7 @@
     "sell24h": 4580.0,
     "source": "okx-rubik+ticker"
   },
-  "etfBtcM": 226.13,
+  "etfBtcM": 226.22,
   "etfEthM": null,
   "etfXrpM": null,
   "gexPutCall": 0.614,
@@ -78,27 +78,29 @@
   "lecture": [
     "Climat CALME (score 88/100).",
     "Funding maintenant 0.0001. Moyenne ~30j 5.919e-05 (90 pts). Mois précédent 6.081e-05 (93 pts).",
-    "Long/Short 0.997.",
-    "BTC 24h -0.51% · 1h 0.02% · 4h -0.14%.",
+    "Long/Short 0.991.",
+    "BTC 24h -0.44% · 1h 0.11% · 4h -0.05%.",
     "Panier alts : 15.0% en baisse (3/20).",
     "Whales proxy : aucun print ≥500k$ sur les ~500 derniers trades.",
-    "Dark/OTC proxy : taker buy/sell 0.984 · OI 106446.631 (pas de dark pool free temps réel).",
-    "Top traders L/S 1.114.",
+    "Dark/OTC proxy : taker buy/sell 0.984 · OI 106443.674 (pas de dark pool free temps réel).",
+    "Top traders L/S 1.113.",
     "Fear & Greed 71 (Greed).",
+    "Market cap crypto ≈ 2.62 T$.",
+    "Alt season proxy : Bitcoin season (BTC.D 58.9%).",
     "Liquidations 24h proxy ≈ 0.04 B$.",
-    "ETF net inflow : BTC 226.13 M$ (bitbo-public (moy 7j), BTC only).",
-    "GEX proxy (Deribit) : P/C 0.614 · murC 78000 (+1.3%) · murP 60000 (-22.1%).",
+    "ETF net inflow : BTC 226.22 M$ (bitbo-public (moy 7j), BTC only).",
+    "GEX proxy (Deribit) : P/C 0.614 · murC 78000 (+1.2%) · murP 60000 (-22.1%).",
     "Volumes cachés proxy : taker buy 0.534 · vol perp/spot 10.66×.",
     "ACE soft: LIVE=MASTER_VORTEX_V2_COLLAB_4H_LIVE_COLOR.log · SKIP=1352 · heat=100.0 · PnL sess=317.3095 · RED=0.",
     "C15/C23 = proxies free. D26–D34 = F&G / MC / alt / liq / ETF / GEX / volumes cachés. Soft ops lecture seule."
   ],
   "indicators": {
     "A1": {
-      "value": "MA50 18.68% · MA200 11.62%",
+      "value": "MA50 18.73% · MA200 11.67%",
       "level": "ok",
       "label": "Prix vs moyennes",
       "unit": "",
-      "note": "mark=77005.34",
+      "note": "mark=77035.9",
       "wired": true
     },
     "A2": {
@@ -110,15 +112,15 @@
       "wired": true
     },
     "A3": {
-      "value": null,
-      "level": "na",
+      "value": 58.9,
+      "level": "ok",
       "label": "Dominance BTC %",
       "unit": "%",
       "note": "",
-      "wired": false
+      "wired": true
     },
     "A4": {
-      "value": "7j 62.89% · 30j 43.07%",
+      "value": "7j 62.58% · 30j 43.02%",
       "level": "warn",
       "label": "Volatilité annualisée",
       "unit": "",
@@ -126,7 +128,7 @@
       "wired": true
     },
     "A5": {
-      "value": -19.4,
+      "value": -19.33,
       "level": "warn",
       "label": "DD vs ATH fenêtre",
       "unit": "%",
@@ -134,7 +136,7 @@
       "wired": true
     },
     "A6": {
-      "value": "tendance (30j 18.38%)",
+      "value": "tendance (30j 18.48%)",
       "level": "ok",
       "label": "Régime large",
       "unit": "",
@@ -142,7 +144,7 @@
       "wired": true
     },
     "B7": {
-      "value": "1h 0.02% · 4h -0.14% · 24h -0.51%",
+      "value": "1h 0.11% · 4h -0.05% · 24h -0.44%",
       "level": "ok",
       "label": "BTC multi-horizon",
       "unit": "",
@@ -166,7 +168,7 @@
       "wired": true
     },
     "B10": {
-      "value": 14696453337.0,
+      "value": 14697742922.0,
       "level": "ok",
       "label": "Volume quote 24h",
       "unit": "",
@@ -190,7 +192,7 @@
       "wired": true
     },
     "C13": {
-      "value": 106446.631,
+      "value": 106443.674,
       "level": "ok",
       "label": "Open interest",
       "unit": "",
@@ -230,7 +232,7 @@
       "wired": true
     },
     "C18": {
-      "value": "proxy stress · L/S 0.997 · fund 0.0001",
+      "value": "proxy stress · L/S 0.991 · fund 0.0001",
       "level": "ok",
       "label": "Tension / mur",
       "unit": "",
@@ -270,7 +272,7 @@
       "wired": true
     },
     "C23": {
-      "value": "OI 106446.631 · taker B/S 0.984",
+      "value": "OI 106443.674 · taker B/S 0.984",
       "level": "ok",
       "label": "Dark/OTC proxy free",
       "unit": "",
@@ -302,20 +304,20 @@
       "wired": true
     },
     "D27": {
-      "value": null,
-      "level": "na",
+      "value": "2.62 T$",
+      "level": "ok",
       "label": "Market cap crypto",
       "unit": "",
       "note": "CoinGecko global",
-      "wired": false
+      "wired": true
     },
     "D28": {
-      "value": null,
-      "level": "ok",
+      "value": "Bitcoin season (~43)",
+      "level": "warn",
       "label": "Alt season (proxy BTC.D)",
       "unit": "",
       "note": "proxy dominance — pas index Blockchain Center exact",
-      "wired": false
+      "wired": true
     },
     "D29": {
       "value": "0.04 B$",
@@ -326,7 +328,7 @@
       "wired": true
     },
     "D30": {
-      "value": "BTC 226.13 M$",
+      "value": "BTC 226.22 M$",
       "level": "ok",
       "label": "ETF BTC net inflow",
       "unit": "",
@@ -350,7 +352,7 @@
       "wired": false
     },
     "D33": {
-      "value": "P/C 0.614 · murC 78000 (1.3%) · murP 60000 (22.1%)",
+      "value": "P/C 0.614 · murC 78000 (1.2%) · murP 60000 (22.1%)",
       "level": "ok",
       "label": "GEX proxy (OI options)",
       "unit": "",
@@ -369,7 +371,7 @@
   "deltas": {
     "mark": {
       "dir": "up",
-      "delta": 11.16,
+      "delta": 30.56,
       "label": "↑"
     },
     "funding": {
@@ -388,19 +390,19 @@
       "label": "="
     },
     "longShort": {
-      "dir": "flat",
-      "delta": 0.0,
-      "label": "="
+      "dir": "down",
+      "delta": -0.006,
+      "label": "↓"
     },
     "chg24": {
       "dir": "up",
-      "delta": 0.01,
+      "delta": 0.07,
       "label": "↑"
     },
     "oi": {
-      "dir": "up",
-      "delta": 0.02,
-      "label": "↑"
+      "dir": "down",
+      "delta": -2.957,
+      "label": "↓"
     },
     "score": {
       "dir": "flat",
@@ -433,9 +435,9 @@
       "label": "="
     },
     "topTraderLS": {
-      "dir": "flat",
-      "delta": 0.0,
-      "label": "="
+      "dir": "down",
+      "delta": -0.001,
+      "label": "↓"
     },
     "fearGreed": {
       "dir": "flat",
@@ -464,7 +466,7 @@
     },
     "etfBtcM": {
       "dir": "up",
-      "delta": 0.03,
+      "delta": 0.09,
       "label": "↑"
     },
     "altSeasonScore": {
@@ -554,7 +556,7 @@
     "cpfpGlobal": false,
     "cpfpZscore": 0.0,
     "cpfpDustScore": 100.0,
-    "cpfpDustDetail": "poussière <4.5 sat/vB (normalisé minFee 3×1.5) : 6 vues ce run, 21846 cumulées 48h (seuil 1000) — max 0.8967 BTC",
+    "cpfpDustDetail": "poussière <4.5 sat/vB (normalisé minFee 3×1.5) : 6 vues ce run, 21857 cumulées 48h (seuil 1000) — max 0.0026 BTC",
     "blocPrivatiseMode": "actif",
     "blocPrivatiseTauxFantome": 100.0,
     "blocPrivatiseNbCachees": 4180,
