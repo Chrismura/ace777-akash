@@ -22,7 +22,7 @@
 
 ## État de la mission (bots + PnL)
 
-- mission.json : 2026-08-22 13:13Z · run `MASTER_VORTEX_V2_COLLAB_4H` · alerte `red`
+- mission.json : 2026-08-22 13:14Z · run `MASTER_VORTEX_V2_COLLAB_4H` · alerte `red`
 - PnL combiné : **4.43 $** 📉 (combo 4.4305)
 - ALPHA (sniper (embuscade, ×13, revenge si claque)) : **+4.63 $** · 7 fills · 150 skips
 - BETA (éclaireur (chatouille le marché, alimente Alpha)) : **-0.20 $** · 9 fills · 193 skips
@@ -38,8 +38,6 @@
   · budget cloud : 624 max
   · par provider : gemini=505, groq=12, mistral=2517, nara=751, nvidia=2
 - [Nouvelles offres détectées (non intégrées)]
-- [ROLLBACK AUTO 2026-08-22]
-  · obs-1787206650 (google/gemma-4-26b-a4b-it:free) : 100% erreurs > 5% (observatoire)
   · ERR: <urlopen error [Errno 8] nodename nor servname provided, or
   · ERR: <urlopen error [Errno 8] nodename nor servname provided, or
   · ERR: <urlopen error [Errno 8] nodename nor servname provided, or
