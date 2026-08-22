@@ -1,4 +1,4 @@
-# ARCHITECTURE VIVANTE — ACE777 (2026-08-22 05:29 UTC)
+# ARCHITECTURE VIVANTE — ACE777 (2026-08-22 05:30 UTC)
 
 > Document GÉNÉRÉ AUTOMATIQUEMENT à l'instant. La famille valide
 > en s'appuyant sur CE contexte, pas sur des documents figés.
@@ -9,7 +9,7 @@
 - ✅ radar
 - ⛔ lecteur signets
 - ⛔ générateur fiches
-- ⛔ feed mission
+- ✅ feed mission
 - ⛔ serveur cockpit
 
 ## Routage des tâches de décision
@@ -34,25 +34,23 @@
 - [Santé]
   · hub : OK (14 providers)
 - [Énergie du jour]
-  · appels : 1164 (cloud 1164)
+  · appels : 1165 (cloud 1165)
   · budget cloud : 624 max
-  · par provider : gemini=2, groq=2, mistral=971, nara=187, nvidia=2
+  · par provider : gemini=2, groq=2, mistral=972, nara=187, nvidia=2
 - [Nouvelles offres détectées (non intégrées)]
-- [ROLLBACK AUTO 2026-08-22]
-  · obs-1786774667 (nvidia/nemotron-3.5-lightning:free) : 100% erreurs > 5% (observatoire)
   · dots-studio/dots-3-note-preview:free
   · liquid/lfm-2.5-2.6b:free
   · thinkingmachines/inkling-small:free
-  … 107 offres/pépites détectées ce matin
+  … 106 offres/pépites détectées ce matin
 
 ## Mémoire chaude (journal + résumés)
 
 - Radar (dernières alertes) :
-  · 2026-08-22T05:29:54.737381Z BTCUSDT 77305.15 0.0000 3.6 declenche=non
-  · 2026-08-22T05:29:54.744778Z BTCUSDT 77305.15 0.0000 3.6 declenche=non
-  · 2026-08-22T05:29:55.131362Z BTCUSDT 77305.15 0.0000 3.6 declenche=non
-  · 2026-08-22T05:29:55.146708Z ETHUSDT 2438.17 0.0002 173.1 declenche=non
-- Intention en cours : BETA a sonde le marche (12 sondes, 7 long / 5 court, conf mo | ALPHA attend son moment : 225 skips (discipline), le mur du  | ALPHA a frappe 8 fois en embuscade (13x) (dont 6 en mode rev
+  · 2026-08-22T05:30:05.575591Z ETHUSDT 2436.76 0.0008 310.1 declenche=non
+  · 2026-08-22T05:30:05.576958Z ETHUSDT 2436.77 0.0008 310.1 declenche=non
+  · 2026-08-22T05:30:05.577298Z ETHUSDT 2436.77 0.0008 310.1 declenche=non
+  · 2026-08-22T05:30:05.577748Z ETHUSDT 2436.77 0.0008 310.1 declenche=non
+- Intention en cours : BETA a sonde le marche (12 sondes, 7 long / 5 court, conf mo | ALPHA attend son moment : 226 skips (discipline), le mur du  | ALPHA a frappe 8 fois en embuscade (13x) (dont 6 en mode rev
 - 500 signets X résumés (quota aujourd'hui : 0/50)
 - 56 fiches IA d'offres en cache (quota 8/jour)
 
