@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-22T02:13:45.614495+00:00",
+  "generated_at": "2026-08-22T02:14:10.853835+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -26,7 +26,7 @@
       "model": "qwen-3.8-max-free",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 945
+      "calls_24h": 946
     },
     {
       "id": "groq",
@@ -229,10 +229,18 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 589,
-    "remaining": 35
+    "consumed": 590,
+    "remaining": 34
   },
   "queue": [
+    {
+      "ts": "2026-08-22T02:13:53.250287+00:00",
+      "task": "supervise.decision",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 23.54
+    },
     {
       "ts": "2026-08-22T02:13:16.653217+00:00",
       "task": "supervise.decision",
@@ -344,17 +352,21 @@
       "model": "qwen-3.8-max-free",
       "kind": "cloud",
       "duration_s": 41.94
-    },
-    {
-      "ts": "2026-08-22T02:08:33.184676+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 21.07
     }
   ],
   "events": [
+    {
+      "ts": "2026-08-22T02:13:57.079773+00:00",
+      "kind": "failover",
+      "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
+      "detail": "0 attente"
+    },
+    {
+      "ts": "2026-08-22T02:13:53.249719+00:00",
+      "kind": "message",
+      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
+      "detail": "bascule"
+    },
     {
       "ts": "2026-08-22T02:13:30.392124+00:00",
       "kind": "failover",
@@ -402,18 +414,6 @@
       "kind": "timeout",
       "title": "Patience NaraRouter (7M tokens/jour gratuits) (reponse vide)",
       "detail": "Reponse vide"
-    },
-    {
-      "ts": "2026-08-22T02:13:16.652897+00:00",
-      "kind": "message",
-      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
-      "detail": "bascule"
-    },
-    {
-      "ts": "2026-08-22T02:12:44.664716+00:00",
-      "kind": "failover",
-      "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
-      "detail": "0 attente"
     }
   ],
   "tasks_quotas": {
