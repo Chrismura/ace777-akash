@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-22T01:49:24.034415+00:00",
+  "generated_at": "2026-08-22T01:49:59.517624+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -26,7 +26,7 @@
       "model": "qwen-3.8-max-free",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 892
+      "calls_24h": 893
     },
     {
       "id": "groq",
@@ -229,10 +229,18 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 463,
-    "remaining": 161
+    "consumed": 464,
+    "remaining": 160
   },
   "queue": [
+    {
+      "ts": "2026-08-22T01:49:33.381237+00:00",
+      "task": "supervise.decision",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 18.08
+    },
     {
       "ts": "2026-08-22T01:49:22.197062+00:00",
       "task": "analyse.profonde",
@@ -344,17 +352,33 @@
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
       "duration_s": 0.99
-    },
-    {
-      "ts": "2026-08-22T01:48:19.027981+00:00",
-      "task": "analyse.profonde",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 3.08
     }
   ],
   "events": [
+    {
+      "ts": "2026-08-22T01:49:44.306404+00:00",
+      "kind": "failover",
+      "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
+      "detail": "0 attente"
+    },
+    {
+      "ts": "2026-08-22T01:49:33.380157+00:00",
+      "kind": "message",
+      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
+      "detail": "bascule"
+    },
+    {
+      "ts": "2026-08-22T01:49:24.641901+00:00",
+      "kind": "failover",
+      "title": "Saute (blacklist) depuis HuggingFace (136+ modeles, dont DeepSeek-V4)",
+      "detail": "0 attente"
+    },
+    {
+      "ts": "2026-08-22T01:49:24.641595+00:00",
+      "kind": "failover",
+      "title": "Saute (blacklist) depuis Google Gemini",
+      "detail": "0 attente"
+    },
     {
       "ts": "2026-08-22T01:49:22.196883+00:00",
       "kind": "message",
@@ -390,30 +414,6 @@
       "kind": "blacklist",
       "title": "Fin de pause NaraRouter (7M tokens/jour gratuits)",
       "detail": "re-essai automatique"
-    },
-    {
-      "ts": "2026-08-22T01:49:15.297495+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis Groq (LLM ultra-rapide, gratuit)",
-      "detail": "HTTP Error 429: Too Many Requests"
-    },
-    {
-      "ts": "2026-08-22T01:49:15.297114+00:00",
-      "kind": "ratelimit",
-      "title": "429 Groq (LLM ultra-rapide, gratuit) -> pause 60s + bascule",
-      "detail": ""
-    },
-    {
-      "ts": "2026-08-22T01:49:13.860239+00:00",
-      "kind": "message",
-      "title": "« Mistral La Plateforme (essai gratuit) » a repondu",
-      "detail": "bascule"
-    },
-    {
-      "ts": "2026-08-22T01:49:13.859886+00:00",
-      "kind": "filet-universel",
-      "title": "[FILET UNIVERSEL] « Mistral La Plateforme (essai gratuit) » a repondu hors chaine",
-      "detail": "analyse.profonde"
     }
   ],
   "tasks_quotas": {
