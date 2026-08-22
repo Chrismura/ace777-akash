@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-22T11:15:37.191817+00:00",
+  "generated_at": "2026-08-22T11:16:30.532434+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -26,7 +26,7 @@
       "model": "qwen-3.8-max-free",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 580
+      "calls_24h": 582
     },
     {
       "id": "groq",
@@ -229,10 +229,26 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 3613,
+    "consumed": 3615,
     "remaining": 0
   },
   "queue": [
+    {
+      "ts": "2026-08-22T11:16:28.270759+00:00",
+      "task": "supervise.decision",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 39.26
+    },
+    {
+      "ts": "2026-08-22T11:15:49.923130+00:00",
+      "task": "supervise.decision",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 30.5
+    },
     {
       "ts": "2026-08-22T11:15:06.605320+00:00",
       "task": "supervise.decision",
@@ -336,84 +352,68 @@
       "model": "qwen-3.8-max-free",
       "kind": "cloud",
       "duration_s": 15.55
-    },
-    {
-      "ts": "2026-08-22T11:07:07.819380+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 38.49
-    },
-    {
-      "ts": "2026-08-22T11:06:16.035252+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 30.48
     }
   ],
   "events": [
     {
-      "ts": "2026-08-22T11:15:35.478383+00:00",
-      "kind": "timeout",
-      "title": "Patience NaraRouter (7M tokens/jour gratuits) (reponse vide)",
-      "detail": "Reponse vide"
-    },
-    {
-      "ts": "2026-08-22T11:15:19.419233+00:00",
+      "ts": "2026-08-22T11:16:28.604152+00:00",
       "kind": "failover",
-      "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
-      "detail": "0 attente"
+      "title": "Bascule depuis NVIDIA DeepSeek-Coder 6.7B (code, via NIM)",
+      "detail": "HTTP Error 404: Not Found"
     },
     {
-      "ts": "2026-08-22T11:15:19.418985+00:00",
-      "kind": "reserve-storm",
-      "title": "Tempête active + budget calme atteint -> réserve storm pour supervise.decision",
-      "detail": "supervise.decision"
-    },
-    {
-      "ts": "2026-08-22T11:15:06.604932+00:00",
+      "ts": "2026-08-22T11:16:28.270466+00:00",
       "kind": "message",
       "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
       "detail": "bascule"
     },
     {
-      "ts": "2026-08-22T11:14:55.631226+00:00",
+      "ts": "2026-08-22T11:16:26.268907+00:00",
       "kind": "failover",
-      "title": "Bascule depuis HuggingFace (136+ modeles, dont DeepSeek-V4)",
+      "title": "Bascule depuis Puter Grok (gratuit)",
       "detail": "HTTP Error 402: Payment Required"
     },
     {
-      "ts": "2026-08-22T11:14:55.242953+00:00",
+      "ts": "2026-08-22T11:16:25.171601+00:00",
       "kind": "failover",
-      "title": "Saute (blacklist) depuis Google Gemini",
-      "detail": "0 attente"
+      "title": "Bascule depuis InferX Qwen3-Coder-Next (code, gratuit jusqu'au 12/08)",
+      "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-08-22T11:14:55.242664+00:00",
-      "kind": "quota",
-      "title": "Budget calme atteint -> bascule famille (gratuits)",
-      "detail": "analyse.profonde"
+      "ts": "2026-08-22T11:16:22.444969+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis InferX DeepSeek V4 Flash (API gratuite jusqu'au 12/08)",
+      "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-08-22T11:14:49.420986+00:00",
-      "kind": "http",
-      "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
-      "detail": ""
+      "ts": "2026-08-22T11:16:20.319566+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis OpenRouter Nemotron 3 Ultra 550B (free) - analyse forte",
+      "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-08-22T11:14:49.420773+00:00",
-      "kind": "error",
-      "title": "Toutes les IA ont echoue",
-      "detail": "Google Gemini: blacklist du jour (saute) | HuggingFace (136+ modeles, dont DeepSeek-V4): blacklist du jour (saute) | NaraRouter (7M tokens/jour gratuits): Reponse vide | budget: Budget temps requete depasse"
+      "ts": "2026-08-22T11:16:19.604326+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis OpenRouter Juge (nemotron-3-super-120b free) - verificateur independant",
+      "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-08-22T11:14:49.420558+00:00",
-      "kind": "error",
-      "title": "Budget temps requete depasse",
-      "detail": ""
+      "ts": "2026-08-22T11:16:18.971892+00:00",
+      "kind": "timeout",
+      "title": "Patience NaraRouter (7M tokens/jour gratuits) (reponse vide)",
+      "detail": "Reponse vide"
+    },
+    {
+      "ts": "2026-08-22T11:16:18.911686+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis Mistral La Plateforme (essai gratuit)",
+      "detail": "The read operation timed out"
+    },
+    {
+      "ts": "2026-08-22T11:16:08.215193+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis NVIDIA build.nvidia.com (100+ modeles)",
+      "detail": "HTTP Error 429: Too Many Requests"
     }
   ],
   "tasks_quotas": {
