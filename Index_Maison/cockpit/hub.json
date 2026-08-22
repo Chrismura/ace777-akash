@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-22T05:12:18.701546+00:00",
+  "generated_at": "2026-08-22T05:13:02.716294+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -26,7 +26,7 @@
       "model": "qwen-3.8-max-free",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 166
+      "calls_24h": 167
     },
     {
       "id": "groq",
@@ -229,10 +229,18 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 1107,
+    "consumed": 1108,
     "remaining": 0
   },
   "queue": [
+    {
+      "ts": "2026-08-22T05:12:26.804159+00:00",
+      "task": "supervise.decision",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 30.84
+    },
     {
       "ts": "2026-08-22T05:11:49.926177+00:00",
       "task": "analyse.profonde",
@@ -344,17 +352,27 @@
       "model": "codestral-latest",
       "kind": "cloud",
       "duration_s": 0.89
-    },
-    {
-      "ts": "2026-08-22T05:09:53.028278+00:00",
-      "task": "analyse.profonde",
-      "provider": "mistral",
-      "model": "codestral-latest",
-      "kind": "cloud",
-      "duration_s": 3.72
     }
   ],
   "events": [
+    {
+      "ts": "2026-08-22T05:12:35.584100+00:00",
+      "kind": "failover",
+      "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
+      "detail": "0 attente"
+    },
+    {
+      "ts": "2026-08-22T05:12:35.582991+00:00",
+      "kind": "reserve-storm",
+      "title": "Tempête active + budget calme atteint -> réserve storm pour supervise.decision",
+      "detail": "supervise.decision"
+    },
+    {
+      "ts": "2026-08-22T05:12:26.803688+00:00",
+      "kind": "message",
+      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
+      "detail": "bascule"
+    },
     {
       "ts": "2026-08-22T05:11:55.960703+00:00",
       "kind": "failover",
@@ -396,24 +414,6 @@
       "kind": "ratelimit",
       "title": "429 Google Gemini -> pause 60s + bascule",
       "detail": ""
-    },
-    {
-      "ts": "2026-08-22T05:11:52.063882+00:00",
-      "kind": "blacklist",
-      "title": "Fin de pause Google Gemini",
-      "detail": "re-essai automatique"
-    },
-    {
-      "ts": "2026-08-22T05:11:52.063486+00:00",
-      "kind": "quota",
-      "title": "Budget calme atteint -> bascule famille (gratuits)",
-      "detail": "analyse.profonde"
-    },
-    {
-      "ts": "2026-08-22T05:11:49.925551+00:00",
-      "kind": "message",
-      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
-      "detail": "bascule"
     }
   ],
   "tasks_quotas": {
