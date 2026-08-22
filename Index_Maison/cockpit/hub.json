@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-22T03:55:26.946473+00:00",
+  "generated_at": "2026-08-22T03:55:44.458125+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -53,7 +53,7 @@
       "model": "codestral-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 97
+      "calls_24h": 100
     },
     {
       "id": "cloudflare-workers-ai",
@@ -229,10 +229,34 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 230,
-    "remaining": 394
+    "consumed": 233,
+    "remaining": 391
   },
   "queue": [
+    {
+      "ts": "2026-08-22T03:55:42.049913+00:00",
+      "task": "analyse.profonde",
+      "provider": "mistral",
+      "model": "codestral-latest",
+      "kind": "cloud",
+      "duration_s": 4.01
+    },
+    {
+      "ts": "2026-08-22T03:55:31.647872+00:00",
+      "task": "supervise.decision",
+      "provider": "mistral",
+      "model": "codestral-latest",
+      "kind": "cloud",
+      "duration_s": 1.01
+    },
+    {
+      "ts": "2026-08-22T03:55:27.932049+00:00",
+      "task": "analyse.profonde",
+      "provider": "mistral",
+      "model": "codestral-latest",
+      "kind": "cloud",
+      "duration_s": 4.48
+    },
     {
       "ts": "2026-08-22T03:55:25.926201+00:00",
       "task": "analyse.profonde",
@@ -328,92 +352,68 @@
       "model": "codestral-latest",
       "kind": "cloud",
       "duration_s": 4.22
-    },
-    {
-      "ts": "2026-08-22T03:54:19.495206+00:00",
-      "task": "analyse.profonde",
-      "provider": "mistral",
-      "model": "codestral-latest",
-      "kind": "cloud",
-      "duration_s": 4.49
-    },
-    {
-      "ts": "2026-08-22T03:54:14.315893+00:00",
-      "task": "supervise.decision",
-      "provider": "mistral",
-      "model": "codestral-latest",
-      "kind": "cloud",
-      "duration_s": 1.04
-    },
-    {
-      "ts": "2026-08-22T03:54:08.094945+00:00",
-      "task": "supervise.decision",
-      "provider": "mistral",
-      "model": "codestral-latest",
-      "kind": "cloud",
-      "duration_s": 0.46
     }
   ],
   "events": [
     {
-      "ts": "2026-08-22T03:55:25.926062+00:00",
+      "ts": "2026-08-22T03:55:44.340805+00:00",
       "kind": "message",
       "title": "« Mistral La Plateforme (essai gratuit) » a repondu",
       "detail": "bascule"
     },
     {
-      "ts": "2026-08-22T03:55:25.925756+00:00",
+      "ts": "2026-08-22T03:55:44.340442+00:00",
       "kind": "filet-universel",
       "title": "[FILET UNIVERSEL] « Mistral La Plateforme (essai gratuit) » a repondu hors chaine",
       "detail": "analyse.profonde"
     },
     {
-      "ts": "2026-08-22T03:55:23.449263+00:00",
+      "ts": "2026-08-22T03:55:44.041109+00:00",
       "kind": "failover",
-      "title": "Bascule depuis NVIDIA build.nvidia.com (100+ modeles)",
-      "detail": "The read operation timed out"
+      "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
+      "detail": "0 attente"
     },
     {
-      "ts": "2026-08-22T03:55:22.877858+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis NVIDIA build.nvidia.com (100+ modeles)",
-      "detail": "The read operation timed out"
-    },
-    {
-      "ts": "2026-08-22T03:55:20.477376+00:00",
+      "ts": "2026-08-22T03:55:44.039103+00:00",
       "kind": "failover",
       "title": "Bascule depuis OpenRouter (modeles gratuits)",
       "detail": "HTTP Error 404: Not Found"
     },
     {
-      "ts": "2026-08-22T03:55:20.301215+00:00",
-      "kind": "failover",
-      "title": "Saute (blacklist) depuis Google Gemini",
-      "detail": "0 attente"
-    },
-    {
-      "ts": "2026-08-22T03:55:20.300920+00:00",
+      "ts": "2026-08-22T03:55:43.872200+00:00",
       "kind": "failover",
       "title": "Saute (blacklist) depuis NaraRouter (7M tokens/jour gratuits)",
       "detail": "0 attente"
     },
     {
-      "ts": "2026-08-22T03:55:20.299278+00:00",
+      "ts": "2026-08-22T03:55:43.871933+00:00",
       "kind": "failover",
-      "title": "Bascule depuis Groq (LLM ultra-rapide, gratuit)",
-      "detail": "HTTP Error 429: Too Many Requests"
+      "title": "Saute (blacklist) depuis HuggingFace (136+ modeles, dont DeepSeek-V4)",
+      "detail": "0 attente"
     },
     {
-      "ts": "2026-08-22T03:55:20.298962+00:00",
-      "kind": "ratelimit",
-      "title": "429 Groq (LLM ultra-rapide, gratuit) -> pause 60s + bascule",
-      "detail": ""
+      "ts": "2026-08-22T03:55:43.871638+00:00",
+      "kind": "failover",
+      "title": "Saute (blacklist) depuis Google Gemini",
+      "detail": "0 attente"
     },
     {
-      "ts": "2026-08-22T03:55:20.133569+00:00",
-      "kind": "blacklist",
-      "title": "Fin de pause Groq (LLM ultra-rapide, gratuit)",
-      "detail": "re-essai automatique"
+      "ts": "2026-08-22T03:55:42.049584+00:00",
+      "kind": "message",
+      "title": "« Mistral La Plateforme (essai gratuit) » a repondu",
+      "detail": "bascule"
+    },
+    {
+      "ts": "2026-08-22T03:55:42.049197+00:00",
+      "kind": "filet-universel",
+      "title": "[FILET UNIVERSEL] « Mistral La Plateforme (essai gratuit) » a repondu hors chaine",
+      "detail": "analyse.profonde"
+    },
+    {
+      "ts": "2026-08-22T03:55:40.077947+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis NVIDIA build.nvidia.com (100+ modeles)",
+      "detail": "The read operation timed out"
     }
   ],
   "tasks_quotas": {
