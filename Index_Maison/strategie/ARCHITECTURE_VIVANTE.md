@@ -1,4 +1,4 @@
-# ARCHITECTURE VIVANTE — ACE777 (2026-08-22 05:02 UTC)
+# ARCHITECTURE VIVANTE — ACE777 (2026-08-22 05:03 UTC)
 
 > Document GÉNÉRÉ AUTOMATIQUEMENT à l'instant. La famille valide
 > en s'appuyant sur CE contexte, pas sur des documents figés.
@@ -34,9 +34,9 @@
 - [Santé]
   · hub : OK (14 providers)
 - [Énergie du jour]
-  · appels : 967 (cloud 967)
+  · appels : 970 (cloud 970)
   · budget cloud : 624 max
-  · par provider : gemini=2, groq=2, mistral=800, nara=161, nvidia=2
+  · par provider : gemini=2, groq=2, mistral=803, nara=161, nvidia=2
 - [Nouvelles offres détectées (non intégrées)]
   · dots-studio/dots-3-note-preview:free
   · liquid/lfm-2.5-2.6b:free
@@ -46,10 +46,10 @@
 ## Mémoire chaude (journal + résumés)
 
 - Radar (dernières alertes) :
-  · 2026-08-22T05:02:56.351343Z BTCUSDT 78561.36 0.0005 10.5 declenche=non
-  · 2026-08-22T05:02:56.498346Z BTCUSDT 78561.36 0.0005 10.5 declenche=non
-  · 2026-08-22T05:02:56.679516Z BTCUSDT 78561.36 0.0005 10.6 declenche=non
-  · 2026-08-22T05:02:56.687527Z BTCUSDT 78561.35 0.0005 10.6 declenche=non
+  · 2026-08-22T05:03:06.975324Z ETHUSDT 2516.52 0.0001 1021.3 declenche=oui
+  · 2026-08-22T05:03:07.141751Z ETHUSDT 2516.52 0.0001 1021.3 declenche=oui
+  · 2026-08-22T05:03:07.320338Z ETHUSDT 2516.52 0.0001 1021.3 declenche=oui
+  · 2026-08-22T05:03:07.345270Z ETHUSDT 2516.51 0.0001 1021.3 declenche=oui
 - Intention en cours : BETA a sonde le marche (10 sondes, 6 long / 4 court, conf mo | ALPHA attend son moment : 155 skips (discipline), le mur du  | ALPHA a frappe 6 fois en embuscade (13x) (dont 4 en mode rev
 - 500 signets X résumés (quota aujourd'hui : 0/50)
 - 56 fiches IA d'offres en cache (quota 8/jour)
