@@ -9,7 +9,7 @@
 - ✅ radar
 - ⛔ lecteur signets
 - ⛔ générateur fiches
-- ✅ feed mission
+- ⛔ feed mission
 - ⛔ serveur cockpit
 
 ## Routage des tâches de décision
@@ -22,10 +22,10 @@
 
 ## État de la mission (bots + PnL)
 
-- mission.json : 2026-08-22 09:09Z · run `MASTER_VORTEX_V2_COLLAB_4H` · alerte `red`
-- PnL combiné : **-2.84 $** 📉 (combo -2.8407)
-- ALPHA (sniper (embuscade, ×13, revenge si claque)) : **-5.22 $** · 5 fills · 159 skips
-- BETA (éclaireur (chatouille le marché, alimente Alpha)) : **+2.38 $** · 9 fills · 167 skips
+- mission.json : 2026-08-22 09:10Z · run `MASTER_VORTEX_V2_COLLAB_4H` · alerte `red`
+- PnL combiné : **-3.32 $** 📉 (combo -3.3157)
+- ALPHA (sniper (embuscade, ×13, revenge si claque)) : **-5.70 $** · 6 fills · 162 skips
+- BETA (éclaireur (chatouille le marché, alimente Alpha)) : **+2.38 $** · 9 fills · 174 skips
 - HULK (gestionnaire de portefeuille (bag, escalier, courreur)) : **-0.11 $** · 0 fills
 - Saison : CALME 🧊 · 
 
@@ -46,11 +46,11 @@
 ## Mémoire chaude (journal + résumés)
 
 - Radar (dernières alertes) :
-  · 2026-08-22T09:10:14.001314Z ETHUSDT 2423.64 0.0007 402.2 declenche=non
-  · 2026-08-22T09:10:14.027189Z BTCUSDT 77262.43 0.0012 27.4 declenche=non
-  · 2026-08-22T09:10:14.214816Z ETHUSDT 2423.64 0.0007 402.4 declenche=non
-  · 2026-08-22T09:10:14.355891Z ETHUSDT 2423.64 0.0007 402.4 declenche=non
-- Intention en cours : BETA a sonde le marche (9 sondes, 4 long / 5 court, conf moy | ALPHA attend son moment : 143 skips (discipline), le mur du  | ALPHA a frappe 5 fois en embuscade (13x) (dont 2 en mode rev
+  · 2026-08-22T09:10:24.331151Z BTCUSDT 77254.59 0.0001 1.1 declenche=non
+  · 2026-08-22T09:10:24.331311Z BTCUSDT 77255.14 0.0001 1.1 declenche=non
+  · 2026-08-22T09:10:24.331437Z BTCUSDT 77255.75 0.0001 1.1 declenche=non
+  · 2026-08-22T09:10:24.331689Z ETHUSDT 2423.22 0.0005 523.7 declenche=non
+- Intention en cours : BETA a sonde le marche (9 sondes, 4 long / 5 court, conf moy | ALPHA attend son moment : 146 skips (discipline), le mur du  | ALPHA a frappe 6 fois en embuscade (13x) (dont 2 en mode rev
 - 500 signets X résumés (quota aujourd'hui : 0/50)
 - 56 fiches IA d'offres en cache (quota 8/jour)
 
