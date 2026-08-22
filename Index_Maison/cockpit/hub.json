@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-22T10:24:04.725176+00:00",
+  "generated_at": "2026-08-22T10:24:15.202096+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -26,7 +26,7 @@
       "model": "qwen-3.8-max-free",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 497
+      "calls_24h": 498
     },
     {
       "id": "groq",
@@ -229,10 +229,18 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 3528,
+    "consumed": 3529,
     "remaining": 0
   },
   "queue": [
+    {
+      "ts": "2026-08-22T10:24:08.127903+00:00",
+      "task": "supervise.decision",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 45.86
+    },
     {
       "ts": "2026-08-22T10:23:26.998470+00:00",
       "task": "supervise.decision",
@@ -344,17 +352,21 @@
       "model": "qwen-3.8-max-free",
       "kind": "cloud",
       "duration_s": 23.79
-    },
-    {
-      "ts": "2026-08-22T10:08:46.865550+00:00",
-      "task": "analyse.profonde",
-      "provider": "mistral",
-      "model": "codestral-latest",
-      "kind": "cloud",
-      "duration_s": 4.16
     }
   ],
   "events": [
+    {
+      "ts": "2026-08-22T10:24:08.125492+00:00",
+      "kind": "message",
+      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
+      "detail": "bascule"
+    },
+    {
+      "ts": "2026-08-22T10:24:04.858161+00:00",
+      "kind": "timeout",
+      "title": "Patience NaraRouter (7M tokens/jour gratuits) (reponse vide)",
+      "detail": "Reponse vide"
+    },
     {
       "ts": "2026-08-22T10:23:39.721164+00:00",
       "kind": "timeout",
@@ -402,18 +414,6 @@
       "kind": "blacklist",
       "title": "Fin de pause Groq (LLM ultra-rapide, gratuit)",
       "detail": "re-essai automatique"
-    },
-    {
-      "ts": "2026-08-22T10:22:57.142024+00:00",
-      "kind": "reserve-storm",
-      "title": "Tempête active + budget calme atteint -> réserve storm pour supervise.decision",
-      "detail": "supervise.decision"
-    },
-    {
-      "ts": "2026-08-22T10:22:27.424193+00:00",
-      "kind": "failover",
-      "title": "Saute (blacklist) depuis HuggingFace (136+ modeles, dont DeepSeek-V4)",
-      "detail": "0 attente"
     }
   ],
   "tasks_quotas": {

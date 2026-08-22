@@ -20,5 +20,5 @@
 | obs-1786774656 | nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free | 100% | ROLLBACK auto (désactivé) |
 | obs-1786774667 | nvidia/nemotron-3.5-lightning:free | 100% | ROLLBACK auto (désactivé) |
 | obs-1786795252 | nvidia/nemotron-3.5-content-safety:free | 100% | ROLLBACK auto (désactivé) |
-| obs-1787033767 | google/diffusiongemma-26b-a4b-it | 94% | ROLLBACK auto (désactivé) |
+| obs-1787033767 | google/diffusiongemma-26b-a4b-it | 96% | ROLLBACK auto (désactivé) |
 | obs-1787206650 | google/gemma-4-26b-a4b-it:free | 100% | ROLLBACK auto (désactivé) |
