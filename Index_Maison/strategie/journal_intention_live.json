@@ -1,61 +1,16 @@
 {
-  "ts": "2026-08-22T01:25:44.708120+00:00",
+  "ts": "2026-08-22T01:26:20.833830+00:00",
   "since": "2026-08-21T23:22:00Z",
   "bots": {
     "alpha": {
       "role": "sniper",
       "surnom": "Le Sniper",
       "fills": 17,
-      "skips": 453,
+      "skips": 455,
       "pnl": -4.219810000000002,
       "best": 2.82596,
       "conf_moy": 0.8708588235294117,
       "events": [
-        {
-          "ts": "2026-08-22T01:21:19Z",
-          "bot": "alpha",
-          "cycle": 266,
-          "action": "wait",
-          "intention": "attente — mur du carnet intact",
-          "direction": null,
-          "conf": null,
-          "exit": "impulse_resonance_wait",
-          "meta": {
-            "size_note": null,
-            "tension": 0.45562155
-          },
-          "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv"
-        },
-        {
-          "ts": "2026-08-22T01:22:32Z",
-          "bot": "alpha",
-          "cycle": 267,
-          "action": "wait",
-          "intention": "attente de l'etat du duo (Beta)",
-          "direction": null,
-          "conf": null,
-          "exit": "duo_wait",
-          "meta": {
-            "size_note": null,
-            "tension": null
-          },
-          "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv"
-        },
-        {
-          "ts": "2026-08-22T01:22:39Z",
-          "bot": "alpha",
-          "cycle": 253,
-          "action": "fire",
-          "intention": "a tire en mode revenge 1.5x",
-          "direction": "long",
-          "conf": 0.7423,
-          "exit": "0.80599200",
-          "meta": {
-            "size_note": "hunter_revenge_1.5x+entry_25_75_full",
-            "tension": 3.72785032
-          },
-          "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv"
-        },
         {
           "ts": "2026-08-22T01:22:54Z",
           "bot": "alpha",
@@ -310,13 +265,58 @@
             "tension": 0.0
           },
           "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv"
+        },
+        {
+          "ts": "2026-08-22T01:25:52Z",
+          "bot": "alpha",
+          "cycle": 275,
+          "action": "wait",
+          "intention": "attente de l'etat du duo (Beta)",
+          "direction": null,
+          "conf": null,
+          "exit": "duo_wait",
+          "meta": {
+            "size_note": null,
+            "tension": null
+          },
+          "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv"
+        },
+        {
+          "ts": "2026-08-22T01:26:09Z",
+          "bot": "alpha",
+          "cycle": 276,
+          "action": "skip",
+          "intention": "skip — gap_guard_pause",
+          "direction": null,
+          "conf": null,
+          "exit": "gap_guard_pause",
+          "meta": {
+            "size_note": null,
+            "tension": null
+          },
+          "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv"
+        },
+        {
+          "ts": "2026-08-22T01:26:20Z",
+          "bot": "alpha",
+          "cycle": 277,
+          "action": "skip",
+          "intention": "skip — gap_guard_pause",
+          "direction": null,
+          "conf": null,
+          "exit": "gap_guard_pause",
+          "meta": {
+            "size_note": null,
+            "tension": null
+          },
+          "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv"
         }
       ],
       "counts": {
-        "wait": 67,
+        "wait": 68,
         "fire": 17,
         "probe": 0,
-        "skip": 453
+        "skip": 455
       },
       "direction": {
         "long": 10,
@@ -649,7 +649,7 @@
   },
   "story": [
     "BETA a sonde le marche (25 sondes, 16 long / 9 court, conf moyenne 0.95) — il renseigne Alpha.",
-    "ALPHA attend son moment : 453 skips (discipline), le mur du carnet ne s'effondre pas.",
+    "ALPHA attend son moment : 455 skips (discipline), le mur du carnet ne s'effondre pas.",
     "ALPHA a frappe 17 fois en embuscade (13x) (dont 9 en mode revenge 1.5x) : -4.22 $, meilleur trade +2.83 $."
   ]
 }
