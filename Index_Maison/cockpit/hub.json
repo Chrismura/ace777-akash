@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-22T14:56:49.711575+00:00",
+  "generated_at": "2026-08-22T14:57:10.034483+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -26,7 +26,7 @@
       "model": "qwen-3.8-max-free",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 2
+      "calls_24h": 3
     },
     {
       "id": "groq",
@@ -53,7 +53,7 @@
       "model": "codestral-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 8
+      "calls_24h": 10
     },
     {
       "id": "cloudflare-workers-ai",
@@ -229,10 +229,34 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 11,
-    "remaining": 613
+    "consumed": 14,
+    "remaining": 610
   },
   "queue": [
+    {
+      "ts": "2026-08-22T14:57:00.033378+00:00",
+      "task": "analyse.profonde",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 224.87
+    },
+    {
+      "ts": "2026-08-22T14:56:56.692540+00:00",
+      "task": "supervise.decision",
+      "provider": "mistral",
+      "model": "codestral-latest",
+      "kind": "cloud",
+      "duration_s": 1.11
+    },
+    {
+      "ts": "2026-08-22T14:56:52.087208+00:00",
+      "task": "analyse.profonde",
+      "provider": "mistral",
+      "model": "codestral-latest",
+      "kind": "cloud",
+      "duration_s": 5.13
+    },
     {
       "ts": "2026-08-22T14:56:40.032322+00:00",
       "task": "supervise.decision",
@@ -324,64 +348,64 @@
   ],
   "events": [
     {
-      "ts": "2026-08-22T14:56:46.959514+00:00",
+      "ts": "2026-08-22T14:57:05.826713+00:00",
       "kind": "failover",
       "title": "Bascule depuis NVIDIA build.nvidia.com (100+ modeles)",
       "detail": "The read operation timed out"
     },
     {
-      "ts": "2026-08-22T14:56:45.290434+00:00",
+      "ts": "2026-08-22T14:57:02.278737+00:00",
       "kind": "failover",
       "title": "Bascule depuis OpenRouter (modeles gratuits)",
       "detail": "HTTP Error 404: Not Found"
     },
     {
-      "ts": "2026-08-22T14:56:45.004556+00:00",
+      "ts": "2026-08-22T14:57:01.959558+00:00",
       "kind": "failover",
       "title": "Saute (blacklist) depuis Google Gemini",
       "detail": "0 attente"
     },
     {
-      "ts": "2026-08-22T14:56:45.004354+00:00",
+      "ts": "2026-08-22T14:57:01.959419+00:00",
       "kind": "failover",
       "title": "Saute (blacklist) depuis NaraRouter (7M tokens/jour gratuits)",
       "detail": "0 attente"
     },
     {
-      "ts": "2026-08-22T14:56:45.003426+00:00",
+      "ts": "2026-08-22T14:57:01.958724+00:00",
       "kind": "failover",
       "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
       "detail": "0 attente"
     },
     {
-      "ts": "2026-08-22T14:56:40.032138+00:00",
+      "ts": "2026-08-22T14:57:00.032889+00:00",
+      "kind": "message",
+      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
+      "detail": "bascule"
+    },
+    {
+      "ts": "2026-08-22T14:56:56.692418+00:00",
       "kind": "message",
       "title": "« Mistral La Plateforme (essai gratuit) » a repondu",
       "detail": "bascule"
     },
     {
-      "ts": "2026-08-22T14:56:40.031731+00:00",
+      "ts": "2026-08-22T14:56:56.692070+00:00",
       "kind": "filet-universel",
       "title": "[FILET UNIVERSEL] « Mistral La Plateforme (essai gratuit) » a repondu hors chaine",
       "detail": "supervise.decision"
     },
     {
-      "ts": "2026-08-22T14:56:38.772731+00:00",
+      "ts": "2026-08-22T14:56:55.585733+00:00",
       "kind": "failover",
       "title": "Saute (blacklist) depuis HuggingFace (136+ modeles, dont DeepSeek-V4)",
       "detail": "0 attente"
     },
     {
-      "ts": "2026-08-22T14:56:38.770665+00:00",
+      "ts": "2026-08-22T14:56:55.581622+00:00",
       "kind": "failover",
       "title": "Bascule depuis NVIDIA build.nvidia.com (100+ modeles)",
       "detail": "The read operation timed out"
-    },
-    {
-      "ts": "2026-08-22T14:56:36.687413+00:00",
-      "kind": "failover",
-      "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
-      "detail": "0 attente"
     }
   ],
   "tasks_quotas": {
