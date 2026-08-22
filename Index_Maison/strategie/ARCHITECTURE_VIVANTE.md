@@ -25,7 +25,7 @@
 - mission.json : 2026-08-22 05:00Z · run `MASTER_VORTEX_V2_COLLAB_4H` · alerte `red`
 - PnL combiné : **-0.13 $** 📉 (combo -0.1264)
 - ALPHA (sniper (embuscade, ×13, revenge si claque)) : **-3.25 $** · 4 fills · 187 skips
-- BETA (éclaireur (chatouille le marché, alimente Alpha)) : **+3.12 $** · 10 fills · 234 skips
+- BETA (éclaireur (chatouille le marché, alimente Alpha)) : **+3.12 $** · 10 fills · 235 skips
 - HULK (gestionnaire de portefeuille (bag, escalier, courreur)) : **+2.37 $** · 0 fills
 - Saison : CALME 🧊 · 
 
@@ -34,22 +34,22 @@
 - [Santé]
   · hub : OK (14 providers)
 - [Énergie du jour]
-  · appels : 923 (cloud 923)
+  · appels : 927 (cloud 927)
   · budget cloud : 624 max
-  · par provider : gemini=2, groq=2, mistral=756, nara=161, nvidia=2
+  · par provider : gemini=2, groq=2, mistral=760, nara=161, nvidia=2
 - [Nouvelles offres détectées (non intégrées)]
   · dots-studio/dots-3-note-preview:free
   · liquid/lfm-2.5-2.6b:free
   · thinkingmachines/inkling-small:free
-  … 110 offres/pépites détectées ce matin
+  … 109 offres/pépites détectées ce matin
 
 ## Mémoire chaude (journal + résumés)
 
 - Radar (dernières alertes) :
-  · 2026-08-22T05:00:27.924314Z ETHUSDT 2516.5 0.0003 14.7 declenche=non
-  · 2026-08-22T05:00:28.217395Z BTCUSDT 78498.0 0.0001 1.2 declenche=non
-  · 2026-08-22T05:00:28.874014Z BTCUSDT 78497.99 0.0001 1.2 declenche=non
-  · 2026-08-22T05:00:28.886346Z BTCUSDT 78498.0 0.0001 1.2 declenche=non
+  · 2026-08-22T05:00:38.398458Z BTCUSDT 78512.41 0.0003 2.8 declenche=non
+  · 2026-08-22T05:00:38.491674Z ETHUSDT 2516.66 0.0003 52.1 declenche=non
+  · 2026-08-22T05:00:38.617928Z ETHUSDT 2516.66 0.0003 52.1 declenche=non
+  · 2026-08-22T05:00:38.934222Z BTCUSDT 78512.41 0.0003 2.8 declenche=non
 - Intention en cours : BETA a sonde le marche (10 sondes, 6 long / 4 court, conf mo | ALPHA attend son moment : 155 skips (discipline), le mur du  | ALPHA a frappe 6 fois en embuscade (13x) (dont 4 en mode rev
 - 500 signets X résumés (quota aujourd'hui : 0/50)
 - 56 fiches IA d'offres en cache (quota 8/jour)
