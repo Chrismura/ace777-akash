@@ -34,22 +34,22 @@
 - [Santé]
   · hub : OK (14 providers)
 - [Énergie du jour]
-  · appels : 321 (cloud 321)
+  · appels : 324 (cloud 324)
   · budget cloud : 624 max
-  · par provider : gemini=2, groq=1, mistral=187, nara=129, nvidia=2
+  · par provider : gemini=2, groq=1, mistral=190, nara=129, nvidia=2
 - [Nouvelles offres détectées (non intégrées)]
   · dots-studio/dots-3-note-preview:free
   · liquid/lfm-2.5-2.6b:free
   · thinkingmachines/inkling-small:free
-  … 108 offres/pépites détectées ce matin
+  … 106 offres/pépites détectées ce matin
 
 ## Mémoire chaude (journal + résumés)
 
 - Radar (dernières alertes) :
-  · 2026-08-22T04:03:39.758353Z ETHUSDT 2511.2 0.0002 50.0 declenche=non
-  · 2026-08-22T04:03:39.758629Z ETHUSDT 2511.22 0.0002 50.0 declenche=non
-  · 2026-08-22T04:03:40.046554Z BTCUSDT 78278.01 0.0004 6.2 declenche=non
-  · 2026-08-22T04:03:40.557386Z BTCUSDT 78278.01 0.0004 6.2 declenche=non
+  · 2026-08-22T04:03:50.994674Z BTCUSDT 78278.01 0.0004 6.8 declenche=non
+  · 2026-08-22T04:03:51.084996Z ETHUSDT 2511.88 0.0005 75.0 declenche=non
+  · 2026-08-22T04:03:51.118678Z ETHUSDT 2511.88 0.0005 75.0 declenche=non
+  · 2026-08-22T04:03:51.517498Z BTCUSDT 78278.0 0.0004 6.8 declenche=non
 - Intention en cours : BETA a sonde le marche (3 sondes, 1 long / 2 court, conf moy | ALPHA attend son moment : 62 skips (discipline), le mur du c | ALPHA a frappe 4 fois en embuscade (13x) (dont 2 en mode rev
 - 500 signets X résumés (quota aujourd'hui : 0/50)
 - 56 fiches IA d'offres en cache (quota 8/jour)
