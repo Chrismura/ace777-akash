@@ -1642,3 +1642,4 @@
 - 2026-08-22T00:48:54.524410Z | alerte | Maintien de l'alerte rouge avec un encadrement strict de la discipline d'embuscade d'Alpha, un pilotage resserré des positions seeds de Hulk et une exploitation prudente des sondages de Beta face à la tension du PnL combiné. | conf=82%
 - 2026-08-22T01:07:19.603283Z | alerte | Maintien de l'alerte rouge avec un encadrement strict de la discipline d'embuscade d'Alpha, un pilotage resserré des positions seeds de Hulk et une exploitation prudente des sondages de Beta face à la tension du PnL combiné. | conf=82%
 - 2026-08-22T02:07:26.560482Z | alerte | Maintien de l'alerte rouge avec un encadrement strict de la discipline d'embuscade d'Alpha, un pilotage resserré des positions seeds de Hulk et une exploitation prudente des sondages de Beta. | conf=82%
+- 2026-08-22T05:22:41.977088Z | alerte | ? | conf=?
