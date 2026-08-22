@@ -22,6 +22,7 @@ Pour que Cursor · Punk · Cortana · Christophe sachent **ce qui a bougé**, sa
 
 | ts | Qui | Action | Où | Quoi |
 |----|-----|--------|-----|------|
+| 2026-08-22T0020Z | journal_soir | ★ | journal | snapshot soir auto |
 | 2026-08-22T0019Z | journal_soir | ★ | journal | snapshot soir auto |
 | 2026-08-22T0018Z | journal_soir | ★ | journal | snapshot soir auto |
 | 2026-08-22T0017Z | journal_soir | ★ | journal | snapshot soir auto |
