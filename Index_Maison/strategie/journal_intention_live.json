@@ -1,5 +1,5 @@
 {
-  "ts": "2026-08-22T15:49:55.992381+00:00",
+  "ts": "2026-08-22T15:50:58.846892+00:00",
   "since": "2026-08-22T15:44:00Z",
   "bots": {
     "alpha": {
@@ -102,11 +102,11 @@
     "beta": {
       "role": "eclaireur",
       "surnom": "L'Eclaireur",
-      "fills": 0,
-      "skips": 0,
-      "pnl": 0.0,
-      "best": 0.0,
-      "conf_moy": 0.0,
+      "fills": 1,
+      "skips": 1,
+      "pnl": 0.80674,
+      "best": 0.80674,
+      "conf_moy": 0.9844,
       "events": [
         {
           "ts": "2026-08-22T15:44:53Z",
@@ -137,23 +137,53 @@
             "tension": 0.90152023
           },
           "file": "MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv"
+        },
+        {
+          "ts": "2026-08-22T15:50:39Z",
+          "bot": "beta",
+          "cycle": 3,
+          "action": "probe",
+          "intention": "a sonde le marche",
+          "direction": "long",
+          "conf": 0.9844,
+          "exit": "1.28893310",
+          "meta": {
+            "size_note": "strong_conf_full+aspiration_1.618x+entry_25_75_full",
+            "tension": 2.24685101
+          },
+          "file": "MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv"
+        },
+        {
+          "ts": "2026-08-22T15:50:58Z",
+          "bot": "beta",
+          "cycle": 4,
+          "action": "skip",
+          "intention": "skip — gap_guard_pause",
+          "direction": null,
+          "conf": null,
+          "exit": "gap_guard_pause",
+          "meta": {
+            "size_note": null,
+            "tension": null
+          },
+          "file": "MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv"
         }
       ],
       "counts": {
         "wait": 2,
         "fire": 0,
-        "probe": 0,
-        "skip": 0
+        "probe": 1,
+        "skip": 1
       },
       "direction": {
-        "long": 0,
+        "long": 1,
         "short": 0
       },
       "revenge": 0
     }
   },
   "story": [
-    "BETA veille — pas encore de sonde sur la session en cours.",
+    "BETA a sonde le marche (1 sondes, 1 long / 0 court, conf moyenne 0.98) — il renseigne Alpha.",
     "ALPHA attend son signal — aucun tir sur la session en cours."
   ]
 }
