@@ -2011,3 +2011,7 @@ Pas d’ordre — confrontation plus tard.
 - WUSDT: WATCH_PULLBACK — tension haute + reflux
 - BIOUSDT: WATCH_PULLBACK — tension haute + reflux
 (compléter: confirmé ? risque ?)
+
+### 2026-08-22T07:29:20Z — ALERT auto
+- XRPUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
