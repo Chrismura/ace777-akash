@@ -10,7 +10,7 @@
 | Provider | Modele | Detail | Etat |
 |----------|--------|--------|------|
 | obs-1787206650 | google/gemma-4-26b-a4b-it:free | 2026-08-20 | 41h/48h | 0/5 | actif (sonde en cours) |
-| obs-1787248844 | nvidia/nemotron-nano-9b-v2:free | 2026-08-21 | 17h/48h | 0/5 | actif (sonde en cours) |
+| obs-1787248844 | nvidia/nemotron-nano-9b-v2:free | 2026-08-21 | 18h/48h | 0/5 | actif (sonde en cours) |
 
 ## RETIRÉS (rollback auto > 5% erreurs)
 
@@ -21,4 +21,4 @@
 | obs-1786774656 | nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free | 100% | ROLLBACK auto (désactivé) |
 | obs-1786774667 | nvidia/nemotron-3.5-lightning:free | 100% | ROLLBACK auto (désactivé) |
 | obs-1786795252 | nvidia/nemotron-3.5-content-safety:free | 100% | ROLLBACK auto (désactivé) |
-| obs-1787033767 | google/diffusiongemma-26b-a4b-it | 98% | ROLLBACK auto (désactivé) |
+| obs-1787033767 | google/diffusiongemma-26b-a4b-it | 94% | ROLLBACK auto (désactivé) |
