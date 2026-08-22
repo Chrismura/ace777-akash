@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-22T00:01:20.058552+00:00",
+  "generated_at": "2026-08-22T00:01:39.071413+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -26,7 +26,7 @@
       "model": "qwen-3.8-max-free",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 700
+      "calls_24h": 701
     },
     {
       "id": "groq",
@@ -229,10 +229,18 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 5,
-    "remaining": 619
+    "consumed": 6,
+    "remaining": 618
   },
   "queue": [
+    {
+      "ts": "2026-08-22T00:01:23.831159+00:00",
+      "task": "supervise.decision",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 17.38
+    },
     {
       "ts": "2026-08-22T00:01:02.422083+00:00",
       "task": "supervise.decision",
@@ -344,17 +352,27 @@
       "model": "qwen-3.8-max-free",
       "kind": "cloud",
       "duration_s": 15.31
-    },
-    {
-      "ts": "2026-08-21T23:56:15.149391+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 15.65
     }
   ],
   "events": [
+    {
+      "ts": "2026-08-22T00:01:38.436592+00:00",
+      "kind": "failover",
+      "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
+      "detail": "0 attente"
+    },
+    {
+      "ts": "2026-08-22T00:01:27.705355+00:00",
+      "kind": "failover",
+      "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
+      "detail": "0 attente"
+    },
+    {
+      "ts": "2026-08-22T00:01:23.829640+00:00",
+      "kind": "message",
+      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
+      "detail": "bascule"
+    },
     {
       "ts": "2026-08-22T00:01:06.455005+00:00",
       "kind": "failover",
@@ -395,24 +413,6 @@
       "ts": "2026-08-22T00:00:42.030359+00:00",
       "kind": "message",
       "title": "« NVIDIA build.nvidia.com (100+ modeles) » a repondu",
-      "detail": ""
-    },
-    {
-      "ts": "2026-08-22T00:00:39.729557+00:00",
-      "kind": "http",
-      "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
-      "detail": ""
-    },
-    {
-      "ts": "2026-08-22T00:00:39.728619+00:00",
-      "kind": "message",
-      "title": "« NVIDIA build.nvidia.com (100+ modeles) » a repondu",
-      "detail": ""
-    },
-    {
-      "ts": "2026-08-22T00:00:28.002339+00:00",
-      "kind": "http",
-      "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
       "detail": ""
     }
   ],
