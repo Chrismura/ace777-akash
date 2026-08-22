@@ -1,6 +1,6 @@
 # Thermo dernier — gratuit (Binance public)
 
-> Auto · **sans clé** · sans ordre · 2026-08-22T01:13Z UTC  
+> Auto · **sans clé** · sans ordre · 2026-08-22T01:14Z UTC  
 > Script : `Index_Maison/scripts/thermo_quotidien_free.py`
 
 ## Clin d'œil
@@ -10,13 +10,13 @@
 
 | Champ | Valeur | ID |
 |-------|--------|-----|
-| Mark | 78066.33 | prix |
-| OI | 105768.594 | C13 |
+| Mark | 78138.23 | prix |
+| OI | 105761.788 | C13 |
 | Funding | 0.0001 | C14 |
 | Funding moy. ~30j | 5.811e-05 (n=90) | Cortana |
 | Funding mois préc. | 6.067e-05 (n=93) | Cortana |
 | L/S 1h | 1.039 | crowd |
-| BTC 1h/4h/24h | 0.18 / -0.54 / 5.64 % | B7 |
+| BTC 1h/4h/24h | 0.24 / -0.49 / 5.74 % | B7 |
 | Dominance BTC | None% | A3 |
 | Alts ↓ 24h | 35.0% | B9 |
 
@@ -24,17 +24,17 @@
 - Climat ATTENTION (score 60/100).
 - Funding maintenant 0.0001. Moyenne ~30j 5.811e-05 (90 pts). Mois précédent 6.067e-05 (93 pts).
 - Long/Short 1.039.
-- BTC 24h 5.64% · 1h 0.18% · 4h -0.54%.
+- BTC 24h 5.74% · 1h 0.24% · 4h -0.49%.
 - Panier alts : 35.0% en baisse (7/20).
 - Whales proxy : aucun print ≥500k$ sur les ~500 derniers trades.
-- Dark/OTC proxy : taker buy/sell 0.838 · OI 105768.594 (pas de dark pool free temps réel).
+- Dark/OTC proxy : taker buy/sell 0.838 · OI 105761.788 (pas de dark pool free temps réel).
 - Top traders L/S 1.085.
 - Fear & Greed 71 (Greed).
 - Liquidations 24h proxy ≈ 0.05 B$.
-- ETF net inflow : BTC 229.25 M$ (bitbo-public (moy 7j), BTC only).
+- ETF net inflow : BTC 229.46 M$ (bitbo-public (moy 7j), BTC only).
 - GEX proxy (Deribit) : P/C 0.616 · murC 80000 (+2.4%) · murP 60000 (-23.2%).
-- Volumes cachés proxy : taker buy 0.534 · vol perp/spot 13.28×.
-- ACE soft: LIVE=MASTER_VORTEX_V2_COLLAB_4H_LIVE_COLOR.log · SKIP=1381 · heat=100.0 · PnL sess=308.1624 · RED=0.
+- Volumes cachés proxy : taker buy 0.534 · vol perp/spot 13.29×.
+- ACE soft: LIVE=MASTER_VORTEX_V2_COLLAB_4H_LIVE_COLOR.log · SKIP=1379 · heat=100.0 · PnL sess=308.1624 · RED=0.
 - C15/C23 = proxies free. D26–D34 = F&G / MC / alt / liq / ETF / GEX / volumes cachés. Soft ops lecture seule.
 
 ## Branché / soft
