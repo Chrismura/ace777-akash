@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-22T04:48:03.931947+00:00",
+  "generated_at": "2026-08-22T04:48:25.232121+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -53,7 +53,7 @@
       "model": "codestral-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 553
+      "calls_24h": 559
     },
     {
       "id": "cloudflare-workers-ai",
@@ -229,10 +229,58 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 720,
+    "consumed": 726,
     "remaining": 0
   },
   "queue": [
+    {
+      "ts": "2026-08-22T04:48:21.593149+00:00",
+      "task": "analyse.profonde",
+      "provider": "mistral",
+      "model": "codestral-latest",
+      "kind": "cloud",
+      "duration_s": 4.59
+    },
+    {
+      "ts": "2026-08-22T04:48:20.472020+00:00",
+      "task": "analyse.profonde",
+      "provider": "mistral",
+      "model": "codestral-latest",
+      "kind": "cloud",
+      "duration_s": 3.42
+    },
+    {
+      "ts": "2026-08-22T04:48:19.959859+00:00",
+      "task": "supervise.decision",
+      "provider": "mistral",
+      "model": "codestral-latest",
+      "kind": "cloud",
+      "duration_s": 1.13
+    },
+    {
+      "ts": "2026-08-22T04:48:10.216917+00:00",
+      "task": "analyse.profonde",
+      "provider": "mistral",
+      "model": "codestral-latest",
+      "kind": "cloud",
+      "duration_s": 3.78
+    },
+    {
+      "ts": "2026-08-22T04:48:09.193162+00:00",
+      "task": "supervise.decision",
+      "provider": "mistral",
+      "model": "codestral-latest",
+      "kind": "cloud",
+      "duration_s": 0.91
+    },
+    {
+      "ts": "2026-08-22T04:48:09.060123+00:00",
+      "task": "analyse.profonde",
+      "provider": "mistral",
+      "model": "codestral-latest",
+      "kind": "cloud",
+      "duration_s": 2.77
+    },
     {
       "ts": "2026-08-22T04:47:59.630623+00:00",
       "task": "analyse.profonde",
@@ -304,113 +352,65 @@
       "model": "codestral-latest",
       "kind": "cloud",
       "duration_s": 1.06
-    },
-    {
-      "ts": "2026-08-22T04:47:36.616459+00:00",
-      "task": "analyse.profonde",
-      "provider": "mistral",
-      "model": "codestral-latest",
-      "kind": "cloud",
-      "duration_s": 2.81
-    },
-    {
-      "ts": "2026-08-22T04:47:28.946057+00:00",
-      "task": "analyse.profonde",
-      "provider": "mistral",
-      "model": "codestral-latest",
-      "kind": "cloud",
-      "duration_s": 4.03
-    },
-    {
-      "ts": "2026-08-22T04:47:27.303490+00:00",
-      "task": "analyse.profonde",
-      "provider": "mistral",
-      "model": "codestral-latest",
-      "kind": "cloud",
-      "duration_s": 3.21
-    },
-    {
-      "ts": "2026-08-22T04:47:27.234863+00:00",
-      "task": "supervise.decision",
-      "provider": "mistral",
-      "model": "codestral-latest",
-      "kind": "cloud",
-      "duration_s": 0.74
-    },
-    {
-      "ts": "2026-08-22T04:47:17.293819+00:00",
-      "task": "analyse.profonde",
-      "provider": "mistral",
-      "model": "codestral-latest",
-      "kind": "cloud",
-      "duration_s": 2.93
-    },
-    {
-      "ts": "2026-08-22T04:47:17.063659+00:00",
-      "task": "supervise.decision",
-      "provider": "mistral",
-      "model": "codestral-latest",
-      "kind": "cloud",
-      "duration_s": 0.76
     }
   ],
   "events": [
     {
-      "ts": "2026-08-22T04:47:59.630487+00:00",
+      "ts": "2026-08-22T04:48:21.592886+00:00",
       "kind": "message",
       "title": "« Mistral La Plateforme (essai gratuit) » a repondu",
       "detail": "bascule"
     },
     {
-      "ts": "2026-08-22T04:47:59.630020+00:00",
+      "ts": "2026-08-22T04:48:21.592442+00:00",
       "kind": "filet-universel",
       "title": "[FILET UNIVERSEL] « Mistral La Plateforme (essai gratuit) » a repondu hors chaine",
       "detail": "analyse.profonde"
     },
     {
-      "ts": "2026-08-22T04:47:58.824105+00:00",
+      "ts": "2026-08-22T04:48:20.471901+00:00",
       "kind": "message",
       "title": "« Mistral La Plateforme (essai gratuit) » a repondu",
       "detail": "bascule"
     },
     {
-      "ts": "2026-08-22T04:47:58.823721+00:00",
+      "ts": "2026-08-22T04:48:20.471671+00:00",
+      "kind": "filet-universel",
+      "title": "[FILET UNIVERSEL] « Mistral La Plateforme (essai gratuit) » a repondu hors chaine",
+      "detail": "analyse.profonde"
+    },
+    {
+      "ts": "2026-08-22T04:48:19.959660+00:00",
+      "kind": "message",
+      "title": "« Mistral La Plateforme (essai gratuit) » a repondu",
+      "detail": "bascule"
+    },
+    {
+      "ts": "2026-08-22T04:48:19.959072+00:00",
       "kind": "filet-universel",
       "title": "[FILET UNIVERSEL] « Mistral La Plateforme (essai gratuit) » a repondu hors chaine",
       "detail": "supervise.decision"
     },
     {
-      "ts": "2026-08-22T04:47:58.423987+00:00",
-      "kind": "message",
-      "title": "« Mistral La Plateforme (essai gratuit) » a repondu",
-      "detail": "bascule"
-    },
-    {
-      "ts": "2026-08-22T04:47:58.423567+00:00",
-      "kind": "filet-universel",
-      "title": "[FILET UNIVERSEL] « Mistral La Plateforme (essai gratuit) » a repondu hors chaine",
-      "detail": "analyse.profonde"
-    },
-    {
-      "ts": "2026-08-22T04:47:57.981585+00:00",
+      "ts": "2026-08-22T04:48:18.828447+00:00",
       "kind": "failover",
       "title": "Saute (blacklist) depuis HuggingFace (136+ modeles, dont DeepSeek-V4)",
       "detail": "0 attente"
     },
     {
-      "ts": "2026-08-22T04:47:57.979849+00:00",
+      "ts": "2026-08-22T04:48:18.826814+00:00",
       "kind": "failover",
       "title": "Bascule depuis NVIDIA build.nvidia.com (100+ modeles)",
       "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-08-22T04:47:57.688272+00:00",
+      "ts": "2026-08-22T04:48:18.510724+00:00",
       "kind": "failover",
       "title": "Bascule depuis OpenRouter (modeles gratuits)",
       "detail": "HTTP Error 404: Not Found"
     },
     {
-      "ts": "2026-08-22T04:47:57.542456+00:00",
+      "ts": "2026-08-22T04:48:18.358696+00:00",
       "kind": "failover",
       "title": "Saute (blacklist) depuis Google Gemini",
       "detail": "0 attente"
