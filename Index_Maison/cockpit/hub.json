@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-22T01:30:14.758298+00:00",
+  "generated_at": "2026-08-22T01:31:03.221871+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -26,7 +26,7 @@
       "model": "qwen-3.8-max-free",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 880
+      "calls_24h": 881
     },
     {
       "id": "groq",
@@ -229,10 +229,18 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 226,
-    "remaining": 398
+    "consumed": 227,
+    "remaining": 397
   },
   "queue": [
+    {
+      "ts": "2026-08-22T01:30:24.954080+00:00",
+      "task": "supervise.decision",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 36.53
+    },
     {
       "ts": "2026-08-22T01:29:39.322379+00:00",
       "task": "supervise.decision",
@@ -344,17 +352,33 @@
       "model": "qwen-3.8-max-free",
       "kind": "cloud",
       "duration_s": 14.63
-    },
-    {
-      "ts": "2026-08-22T01:25:31.530105+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 79.46
     }
   ],
   "events": [
+    {
+      "ts": "2026-08-22T01:30:51.231667+00:00",
+      "kind": "failover",
+      "title": "Saute (blacklist) depuis HuggingFace (136+ modeles, dont DeepSeek-V4)",
+      "detail": "0 attente"
+    },
+    {
+      "ts": "2026-08-22T01:30:51.231277+00:00",
+      "kind": "failover",
+      "title": "Saute (blacklist) depuis NVIDIA build.nvidia.com (100+ modeles)",
+      "detail": "0 attente"
+    },
+    {
+      "ts": "2026-08-22T01:30:37.146843+00:00",
+      "kind": "failover",
+      "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
+      "detail": "0 attente"
+    },
+    {
+      "ts": "2026-08-22T01:30:24.953722+00:00",
+      "kind": "message",
+      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
+      "detail": "bascule"
+    },
     {
       "ts": "2026-08-22T01:29:48.426680+00:00",
       "kind": "failover",
@@ -390,30 +414,6 @@
       "kind": "failover",
       "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
       "detail": "0 attente"
-    },
-    {
-      "ts": "2026-08-22T01:29:23.836840+00:00",
-      "kind": "failover",
-      "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
-      "detail": "0 attente"
-    },
-    {
-      "ts": "2026-08-22T01:29:19.455034+00:00",
-      "kind": "message",
-      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
-      "detail": "bascule"
-    },
-    {
-      "ts": "2026-08-22T01:28:48.097929+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis Groq (LLM ultra-rapide, gratuit)",
-      "detail": "HTTP Error 429: Too Many Requests"
-    },
-    {
-      "ts": "2026-08-22T01:28:48.097588+00:00",
-      "kind": "ratelimit",
-      "title": "429 Groq (LLM ultra-rapide, gratuit) -> pause 60s + bascule",
-      "detail": ""
     }
   ],
   "tasks_quotas": {
