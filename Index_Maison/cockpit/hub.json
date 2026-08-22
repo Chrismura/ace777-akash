@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-22T15:14:14.402688+00:00",
+  "generated_at": "2026-08-22T15:14:55.670549+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -53,7 +53,7 @@
       "model": "codestral-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 154
+      "calls_24h": 155
     },
     {
       "id": "cloudflare-workers-ai",
@@ -229,10 +229,18 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 164,
-    "remaining": 460
+    "consumed": 165,
+    "remaining": 459
   },
   "queue": [
+    {
+      "ts": "2026-08-22T15:14:16.537557+00:00",
+      "task": "supervise.decision",
+      "provider": "mistral",
+      "model": "codestral-latest",
+      "kind": "cloud",
+      "duration_s": 1.5
+    },
     {
       "ts": "2026-08-22T15:13:59.746342+00:00",
       "task": "supervise.decision",
@@ -344,76 +352,68 @@
       "model": "codestral-latest",
       "kind": "cloud",
       "duration_s": 3.14
-    },
-    {
-      "ts": "2026-08-22T15:10:19.593290+00:00",
-      "task": "supervise.decision",
-      "provider": "mistral",
-      "model": "codestral-latest",
-      "kind": "cloud",
-      "duration_s": 1.75
     }
   ],
   "events": [
     {
-      "ts": "2026-08-22T15:14:13.341174+00:00",
-      "kind": "failover",
-      "title": "Saute (blacklist) depuis HuggingFace (136+ modeles, dont DeepSeek-V4)",
-      "detail": "0 attente"
-    },
-    {
-      "ts": "2026-08-22T15:14:13.340906+00:00",
-      "kind": "failover",
-      "title": "Saute (blacklist) depuis Google Gemini",
-      "detail": "0 attente"
-    },
-    {
-      "ts": "2026-08-22T15:14:12.911214+00:00",
-      "kind": "failover",
-      "title": "Saute (blacklist) depuis HuggingFace (136+ modeles, dont DeepSeek-V4)",
-      "detail": "0 attente"
-    },
-    {
-      "ts": "2026-08-22T15:14:12.910701+00:00",
-      "kind": "failover",
-      "title": "Saute (blacklist) depuis Google Gemini",
-      "detail": "0 attente"
-    },
-    {
-      "ts": "2026-08-22T15:14:04.832453+00:00",
+      "ts": "2026-08-22T15:14:54.074880+00:00",
       "kind": "failover",
       "title": "Bascule depuis OpenRouter (modeles gratuits)",
       "detail": "HTTP Error 404: Not Found"
     },
     {
-      "ts": "2026-08-22T15:14:04.595092+00:00",
+      "ts": "2026-08-22T15:14:53.902838+00:00",
       "kind": "failover",
-      "title": "Saute (blacklist) depuis Google Gemini",
-      "detail": "0 attente"
+      "title": "Bascule depuis Google Gemini",
+      "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-08-22T15:14:04.588490+00:00",
+      "ts": "2026-08-22T15:14:53.902548+00:00",
+      "kind": "ratelimit",
+      "title": "429 Google Gemini -> pause 60s + bascule",
+      "detail": ""
+    },
+    {
+      "ts": "2026-08-22T15:14:53.531960+00:00",
+      "kind": "blacklist",
+      "title": "Fin de pause Google Gemini",
+      "detail": "re-essai automatique"
+    },
+    {
+      "ts": "2026-08-22T15:14:53.524529+00:00",
       "kind": "failover",
       "title": "Bascule depuis NaraRouter (7M tokens/jour gratuits)",
       "detail": "HTTP Error 502: Bad Gateway"
     },
     {
-      "ts": "2026-08-22T15:13:59.745525+00:00",
-      "kind": "message",
-      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
-      "detail": "bascule"
-    },
-    {
-      "ts": "2026-08-22T15:13:50.937846+00:00",
-      "kind": "message",
-      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
-      "detail": "bascule"
-    },
-    {
-      "ts": "2026-08-22T15:13:50.640775+00:00",
+      "ts": "2026-08-22T15:14:33.914319+00:00",
       "kind": "timeout",
       "title": "Patience NaraRouter (7M tokens/jour gratuits) (HTTP 502)",
       "detail": "HTTP Error 502: Bad Gateway"
+    },
+    {
+      "ts": "2026-08-22T15:14:22.261675+00:00",
+      "kind": "failover",
+      "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
+      "detail": "0 attente"
+    },
+    {
+      "ts": "2026-08-22T15:14:16.537443+00:00",
+      "kind": "message",
+      "title": "« Mistral La Plateforme (essai gratuit) » a repondu",
+      "detail": "bascule"
+    },
+    {
+      "ts": "2026-08-22T15:14:16.537223+00:00",
+      "kind": "filet-universel",
+      "title": "[FILET UNIVERSEL] « Mistral La Plateforme (essai gratuit) » a repondu hors chaine",
+      "detail": "supervise.decision"
+    },
+    {
+      "ts": "2026-08-22T15:14:15.040452+00:00",
+      "kind": "failover",
+      "title": "Saute (blacklist) depuis HuggingFace (136+ modeles, dont DeepSeek-V4)",
+      "detail": "0 attente"
     }
   ],
   "tasks_quotas": {
