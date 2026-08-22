@@ -1,27 +1,27 @@
 {
-  "timestamp": "2026-08-22T13:55:01Z",
+  "timestamp": "2026-08-22T13:55:48Z",
   "generation_source": "system_state_generator.py v2.1",
   "status": "STALE",
-  "feed_hash": "5be15576b5b73e443241aa91c0d664e9ac37a24a04b86eb2892ae1ec98098200",
+  "feed_hash": "83f7924529f20edc536b3843f3531d3d554cacdd37f397f6421e2562d953d239",
   "feeds": {
     "mission": {
       "present": true,
-      "age_seconds": 8,
+      "age_seconds": 12,
       "fresh_limit_s": 120
     },
     "cortana_feed": {
       "present": true,
-      "age_seconds": 0,
+      "age_seconds": 2,
       "fresh_limit_s": 120
     },
     "live": {
       "present": true,
-      "age_seconds": 0,
+      "age_seconds": 2,
       "fresh_limit_s": 15
     },
     "routing": {
       "present": true,
-      "age_seconds": 18626,
+      "age_seconds": 18673,
       "fresh_limit_s": 120
     }
   },
@@ -91,7 +91,7 @@
     "status": "ok",
     "providers": 14
   },
-  "ram_raw": null,
+  "ram_raw": "The system has 8589934592 (524288 pages with a page size of 16384).",
   "hors_zone": {
     "mirofis": {
       "present": true
@@ -110,7 +110,13 @@
     }
   },
   "backup_light": {
-    "presence": {},
+    "presence": {
+      "mirofis": true,
+      "crypto-voice-assistant-core": true,
+      "ACE777_ARCHIVES_BRUTES_DONNEES": true,
+      "Assistant_Vocal_HORS_VAULT": true,
+      "Obsidian_BACKUPS_HORS_VAULT": true
+    },
     "sizes_ko": {
       "mirofis": 1068252,
       "crypto-voice-assistant-core": 4041164,
@@ -118,7 +124,7 @@
       "Assistant_Vocal_HORS_VAULT": 697372,
       "Obsidian_BACKUPS_HORS_VAULT": 14936872
     },
-    "presence_at": null,
+    "presence_at": "2026-08-22T13:55:45Z",
     "sizes_at": "2026-08-22T08:04:37Z"
   }
 }
