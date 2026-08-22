@@ -8,7 +8,7 @@
   "comboFees24h": -362.0746,
   "comboPnlNet": -42.1754,
   "comboArrow": "down",
-  "swarmCycle": 483,
+  "swarmCycle": 484,
   "thrust": {
     "alpha": 100,
     "beta": 55.157,
@@ -947,10 +947,22 @@
     "file": "MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv",
     "pnl": 0.7157,
     "fills": 43,
-    "skips": 861,
+    "skips": 862,
     "pnlLifetime": 27.1575,
     "fillsLifetime": 6011,
     "last": [
+      {
+        "ts": "2026-08-22T02:41:29Z",
+        "side": "SKIP",
+        "status": "SKIPPED",
+        "pnl": 0.0,
+        "qty": null,
+        "entry": null,
+        "exit": null,
+        "bps": null,
+        "reason": "gap_guard_pause",
+        "cycle": "484"
+      },
       {
         "ts": "2026-08-22T02:41:21Z",
         "side": "SKIP",
@@ -1558,18 +1570,6 @@
         "bps": null,
         "reason": "gap_guard_pause",
         "cycle": "401"
-      },
-      {
-        "ts": "2026-08-22T02:30:37Z",
-        "side": "SKIP",
-        "status": "SKIPPED",
-        "pnl": 0.0,
-        "qty": null,
-        "entry": null,
-        "exit": null,
-        "bps": null,
-        "reason": "gap_guard_pause",
-        "cycle": "455"
       }
     ],
     "fills_only": [
@@ -1856,7 +1856,7 @@
       0.82341,
       -0.45276
     ],
-    "cycle": "483",
+    "cycle": "484",
     "lastFill": {
       "ts": "2026-08-22T02:39:52Z",
       "side": "SELL",
@@ -3636,7 +3636,7 @@
       "cpfpGlobal": false,
       "cpfpZscore": 0.0,
       "cpfpDustScore": 100.0,
-      "cpfpDustDetail": "poussière <2.0 sat/vB (normalisé minFee 1×1.5) : 1 vues ce run, 7941 cumulées 48h (seuil 1000) — max 0.0111 BTC",
+      "cpfpDustDetail": "poussière <2.0 sat/vB (normalisé minFee 1×1.5) : 1 vues ce run, 7942 cumulées 48h (seuil 1000) — max 0.0002 BTC",
       "blocPrivatiseMode": "actif",
       "blocPrivatiseTauxFantome": 10.4084,
       "blocPrivatiseNbCachees": 474,
@@ -3708,7 +3708,7 @@
     }
   },
   "intention": {
-    "ts": "2026-08-22T02:41:18.192366+00:00",
+    "ts": "2026-08-22T02:41:24.433533+00:00",
     "since": "2026-08-21T23:22:00Z",
     "bots": {
       "alpha": {
@@ -4037,26 +4037,11 @@
         "role": "eclaireur",
         "surnom": "L'Eclaireur",
         "fills": 43,
-        "skips": 835,
+        "skips": 836,
         "pnl": 0.7156799999999999,
         "best": 2.59434,
         "conf_moy": 0.9405906976744186,
         "events": [
-          {
-            "ts": "2026-08-22T02:40:12Z",
-            "bot": "beta",
-            "cycle": 473,
-            "action": "skip",
-            "intention": "skip — gap_guard_pause",
-            "direction": null,
-            "conf": null,
-            "exit": "gap_guard_pause",
-            "meta": {
-              "size_note": null,
-              "tension": null
-            },
-            "file": "MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv"
-          },
           {
             "ts": "2026-08-22T02:40:14Z",
             "bot": "beta",
@@ -4341,13 +4326,28 @@
               "tension": null
             },
             "file": "MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv"
+          },
+          {
+            "ts": "2026-08-22T02:41:21Z",
+            "bot": "beta",
+            "cycle": 483,
+            "action": "skip",
+            "intention": "skip — gap_guard_pause",
+            "direction": null,
+            "conf": null,
+            "exit": "gap_guard_pause",
+            "meta": {
+              "size_note": null,
+              "tension": null
+            },
+            "file": "MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv"
           }
         ],
         "counts": {
           "wait": 25,
           "fire": 0,
           "probe": 43,
-          "skip": 835
+          "skip": 836
         },
         "direction": {
           "long": 28,
