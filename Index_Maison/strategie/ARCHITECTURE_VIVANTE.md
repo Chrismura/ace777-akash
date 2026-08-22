@@ -1,4 +1,4 @@
-# ARCHITECTURE VIVANTE — ACE777 (2026-08-22 03:39 UTC)
+# ARCHITECTURE VIVANTE — ACE777 (2026-08-22 03:40 UTC)
 
 > Document GÉNÉRÉ AUTOMATIQUEMENT à l'instant. La famille valide
 > en s'appuyant sur CE contexte, pas sur des documents figés.
@@ -9,7 +9,7 @@
 - ✅ radar
 - ⛔ lecteur signets
 - ⛔ générateur fiches
-- ✅ feed mission
+- ⛔ feed mission
 - ⛔ serveur cockpit
 
 ## Routage des tâches de décision
@@ -22,7 +22,7 @@
 
 ## État de la mission (bots + PnL)
 
-- mission.json : 2026-08-22 03:38Z · run `MASTER_VORTEX_V2_COLLAB_4H` · alerte `red`
+- mission.json : 2026-08-22 03:40Z · run `MASTER_VORTEX_V2_COLLAB_4H` · alerte `red`
 - PnL combiné : **0.00 $** 📉 (combo 0)
 - ALPHA (sniper (embuscade, ×13, revenge si claque)) : **+0.00 $** · 0 fills · 15 skips
 - BETA (éclaireur (chatouille le marché, alimente Alpha)) : **+0.00 $** · 0 fills · 8 skips
@@ -34,22 +34,22 @@
 - [Santé]
   · hub : OK (14 providers)
 - [Énergie du jour]
-  · appels : 121 (cloud 121)
+  · appels : 124 (cloud 124)
   · budget cloud : 624 max
-  · par provider : gemini=2, groq=1, nara=118
+  · par provider : gemini=2, groq=1, nara=121
 - [Nouvelles offres détectées (non intégrées)]
   · dots-studio/dots-3-note-preview:free
   · liquid/lfm-2.5-2.6b:free
   · thinkingmachines/inkling-small:free
-  … 110 offres/pépites détectées ce matin
+  … 109 offres/pépites détectées ce matin
 
 ## Mémoire chaude (journal + résumés)
 
 - Radar (dernières alertes) :
-  · 2026-08-22T03:39:30.387582Z BTCUSDT 78692.0 0.0001 2.2 declenche=non
-  · 2026-08-22T03:39:30.390659Z BTCUSDT 78692.0 0.0001 2.2 declenche=non
-  · 2026-08-22T03:39:30.392529Z BTCUSDT 78692.0 0.0001 2.2 declenche=non
-  · 2026-08-22T03:39:30.411064Z BTCUSDT 78692.0 0.0001 2.2 declenche=non
+  · 2026-08-22T03:40:43.443493Z ETHUSDT 2518.26 0.0002 82.2 declenche=non
+  · 2026-08-22T03:40:43.443628Z ETHUSDT 2518.27 0.0002 82.2 declenche=non
+  · 2026-08-22T03:40:43.443756Z ETHUSDT 2518.28 0.0002 82.2 declenche=non
+  · 2026-08-22T03:40:43.443879Z ETHUSDT 2518.29 0.0002 82.2 declenche=non
 - Intention en cours : BETA veille — pas encore de sonde sur la session en cours. | ALPHA a frappe 2 fois en embuscade (13x) (dont 1 en mode rev
 - 500 signets X résumés (quota aujourd'hui : 0/50)
 - 56 fiches IA d'offres en cache (quota 8/jour)
