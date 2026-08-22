@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-22T16:05:49.467881+00:00",
+  "generated_at": "2026-08-22T16:06:59.079388+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -26,7 +26,7 @@
       "model": "qwen-3.8-max-free",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 94
+      "calls_24h": 98
     },
     {
       "id": "groq",
@@ -229,10 +229,42 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 393,
-    "remaining": 231
+    "consumed": 397,
+    "remaining": 227
   },
   "queue": [
+    {
+      "ts": "2026-08-22T16:06:47.775637+00:00",
+      "task": "analyse.profonde",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 40.33
+    },
+    {
+      "ts": "2026-08-22T16:06:33.577354+00:00",
+      "task": "analyse.profonde",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 229.38
+    },
+    {
+      "ts": "2026-08-22T16:06:14.144713+00:00",
+      "task": "supervise.decision",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 12.34
+    },
+    {
+      "ts": "2026-08-22T16:05:56.316870+00:00",
+      "task": "supervise.decision",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 16.98
+    },
     {
       "ts": "2026-08-22T16:05:25.885521+00:00",
       "task": "supervise.decision",
@@ -320,99 +352,67 @@
       "model": "qwen-3.8-max-free",
       "kind": "cloud",
       "duration_s": 31.88
-    },
-    {
-      "ts": "2026-08-22T15:59:18.472341+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 31.21
-    },
-    {
-      "ts": "2026-08-22T15:59:16.692615+00:00",
-      "task": "analyse.profonde",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 532.47
-    },
-    {
-      "ts": "2026-08-22T15:58:30.169122+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 20.96
-    },
-    {
-      "ts": "2026-08-22T15:58:04.639248+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 26.74
     }
   ],
   "events": [
     {
-      "ts": "2026-08-22T16:05:48.983873+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis Mistral La Plateforme (essai gratuit)",
-      "detail": "The read operation timed out"
-    },
-    {
-      "ts": "2026-08-22T16:05:42.541324+00:00",
+      "ts": "2026-08-22T16:06:54.932149+00:00",
       "kind": "failover",
       "title": "Saute (blacklist) depuis HuggingFace (136+ modeles, dont DeepSeek-V4)",
       "detail": "0 attente"
     },
     {
-      "ts": "2026-08-22T16:05:42.539476+00:00",
+      "ts": "2026-08-22T16:06:54.928811+00:00",
       "kind": "failover",
-      "title": "Saute (blacklist) depuis Google Gemini",
-      "detail": "0 attente"
+      "title": "Bascule depuis Google Gemini",
+      "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-08-22T16:05:39.331475+00:00",
+      "ts": "2026-08-22T16:06:54.928044+00:00",
+      "kind": "ratelimit",
+      "title": "429 Google Gemini -> pause 60s + bascule",
+      "detail": ""
+    },
+    {
+      "ts": "2026-08-22T16:06:54.375948+00:00",
+      "kind": "blacklist",
+      "title": "Fin de pause Google Gemini",
+      "detail": "re-essai automatique"
+    },
+    {
+      "ts": "2026-08-22T16:06:51.737715+00:00",
       "kind": "failover",
       "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
       "detail": "0 attente"
     },
     {
-      "ts": "2026-08-22T16:05:38.051491+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis NVIDIA build.nvidia.com (100+ modeles)",
-      "detail": "The read operation timed out"
-    },
-    {
-      "ts": "2026-08-22T16:05:26.287812+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis NaraRouter (7M tokens/jour gratuits)",
-      "detail": "The read operation timed out"
-    },
-    {
-      "ts": "2026-08-22T16:05:25.885059+00:00",
+      "ts": "2026-08-22T16:06:47.775215+00:00",
       "kind": "message",
       "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
       "detail": "bascule"
     },
     {
-      "ts": "2026-08-22T16:05:20.207662+00:00",
+      "ts": "2026-08-22T16:06:33.576761+00:00",
       "kind": "message",
       "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
       "detail": "bascule"
     },
     {
-      "ts": "2026-08-22T16:05:15.965113+00:00",
+      "ts": "2026-08-22T16:06:20.855588+00:00",
       "kind": "failover",
-      "title": "Bascule depuis OpenRouter (modeles gratuits)",
-      "detail": "HTTP Error 404: Not Found"
+      "title": "Bascule depuis Groq (LLM ultra-rapide, gratuit)",
+      "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-08-22T16:05:15.499607+00:00",
+      "ts": "2026-08-22T16:06:20.855228+00:00",
+      "kind": "ratelimit",
+      "title": "429 Groq (LLM ultra-rapide, gratuit) -> pause 60s + bascule",
+      "detail": ""
+    },
+    {
+      "ts": "2026-08-22T16:06:20.484299+00:00",
       "kind": "blacklist",
-      "title": "Fin de pause OpenRouter (modeles gratuits)",
+      "title": "Fin de pause Groq (LLM ultra-rapide, gratuit)",
       "detail": "re-essai automatique"
     }
   ],
