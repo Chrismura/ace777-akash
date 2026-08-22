@@ -1,5 +1,5 @@
 {
-  "ts": "2026-08-22T15:26Z",
+  "ts": "2026-08-22T15:27Z",
   "alert": "red",
   "run": "MASTER_VORTEX_V2_COLLAB_4H",
   "sessionSince": "2026-08-22T11:34Z",
@@ -3124,7 +3124,7 @@
     "deltas": {
       "mark": {
         "dir": "down",
-        "delta": -3.19,
+        "delta": -12.61,
         "label": "↓"
       },
       "funding": {
@@ -3149,18 +3149,18 @@
       },
       "chg24": {
         "dir": "down",
-        "delta": -0.14,
+        "delta": -0.02,
         "label": "↓"
       },
       "oi": {
-        "dir": "down",
-        "delta": -3.464,
-        "label": "↓"
+        "dir": "up",
+        "delta": 1.443,
+        "label": "↑"
       },
       "score": {
-        "dir": "down",
-        "delta": -1.0,
-        "label": "↓"
+        "dir": "flat",
+        "delta": 0.0,
+        "label": "="
       },
       "btcDominance": {
         "dir": "flat",
@@ -3219,7 +3219,7 @@
       },
       "etfBtcM": {
         "dir": "down",
-        "delta": -0.01,
+        "delta": -0.04,
         "label": "↓"
       },
       "altSeasonScore": {
@@ -3240,18 +3240,18 @@
     },
     "fearGreed": 71,
     "fearGreedLabel": "Greed",
-    "marketCapUsd": 2612964591297.0,
-    "altSeason": "Bitcoin season",
-    "altSeasonScore": 43,
+    "marketCapUsd": null,
+    "altSeason": null,
+    "altSeasonScore": null,
     "liq24Usd": 42096272.0,
     "etf": {
-      "btc": 226.1,
+      "btc": 226.06,
       "eth": null,
       "xrp": null,
       "source": "bitbo-public (moy 7j)",
       "unit": "M$"
     },
-    "btcDominance": 58.93,
+    "btcDominance": null,
     "onchain": {
       "whaleBlocsN": 0,
       "whaleBlocsBtc": 0,
@@ -3272,7 +3272,7 @@
       "whaleAlerte": false,
       "whaleAlerteTexte": "Activité baleines nominale (aucun gros bloc ≥1000 BTC ni fragmentation ≥500 BTC).",
       "dernierEvtMin": -1,
-      "synthèse": "Direction onchain neutral | 0 gros bloc(s) 0 BTC sur le scan récent, cumul 24h 0 BTC, source inconnue. Activité baleines nominale (aucun gros bloc ≥1000 BTC ni fragmentation ≥500 BTC). | CPFP actif (conf 0/2) · poussière score 100.0/50 · blocs privatisés 100.0% fantômes | indice onchain 80.0/100 (ÉLEVÉ — activité onchain anormale (OTC/CPFP possible))",
+      "synthèse": "Direction onchain neutral | 0 gros bloc(s) 0 BTC sur le scan récent, cumul 24h 0 BTC, source inconnue. Activité baleines nominale (aucun gros bloc ≥1000 BTC ni fragmentation ≥500 BTC). | CPFP actif (conf 0/2) · poussière score 100.0/50 · blocs privatisés 1.4207% fantômes | indice onchain 31.1/100 (MODÉRÉ — onchain à surveiller)",
       "cpfpSignal": null,
       "cpfpScore": 0.0,
       "cpfpMode": "actif",
@@ -3280,14 +3280,14 @@
       "cpfpGlobal": false,
       "cpfpZscore": 0.0,
       "cpfpDustScore": 100.0,
-      "cpfpDustDetail": "poussière <4.5 sat/vB (normalisé minFee 3×1.5) : 8 vues ce run, 22679 cumulées 48h (seuil 1000) — max 0.0004 BTC",
+      "cpfpDustDetail": "poussière <4.5 sat/vB (normalisé minFee 3×1.5) : 7 vues ce run, 22694 cumulées 48h (seuil 1000) — max 0.0001 BTC",
       "blocPrivatiseMode": "actif",
-      "blocPrivatiseTauxFantome": 100.0,
-      "blocPrivatiseNbCachees": 4180,
-      "indiceOnchain": 80.0,
-      "indiceOnchainLabel": "ÉLEVÉ — activité onchain anormale (OTC/CPFP possible)",
+      "blocPrivatiseTauxFantome": 1.4207,
+      "blocPrivatiseNbCachees": 62,
+      "indiceOnchain": 31.1,
+      "indiceOnchainLabel": "MODÉRÉ — onchain à surveiller",
       "indiceOnchainComposantes": {
-        "blocsPrivatises": 100.0,
+        "blocsPrivatises": 2.3,
         "poussiere": 100.0,
         "cpfpZscore": 0.0
       }
@@ -3302,20 +3302,20 @@
         "wired": true
       },
       "D27": {
-        "value": "2.61 T$",
-        "level": "ok",
+        "value": null,
+        "level": "na",
         "label": "Market cap crypto",
         "unit": "",
         "note": "CoinGecko global",
-        "wired": true
+        "wired": false
       },
       "D28": {
-        "value": "Bitcoin season (~43)",
-        "level": "warn",
+        "value": null,
+        "level": "ok",
         "label": "Alt season (proxy BTC.D)",
         "unit": "",
         "note": "proxy dominance — pas index Blockchain Center exact",
-        "wired": true
+        "wired": false
       },
       "D29": {
         "value": "0.04 B$",
@@ -3326,7 +3326,7 @@
         "wired": true
       },
       "D30": {
-        "value": "BTC 226.1 M$",
+        "value": "BTC 226.06 M$",
         "level": "ok",
         "label": "ETF BTC net inflow",
         "unit": "",
@@ -3352,7 +3352,7 @@
     }
   },
   "intention": {
-    "ts": "2026-08-22T15:26:09.539507+00:00",
+    "ts": "2026-08-22T15:26:46.117180+00:00",
     "since": "2026-08-22T11:34:00Z",
     "bots": {
       "alpha": {
@@ -4007,7 +4007,7 @@
     ]
   },
   "saison": {
-    "ts": "2026-08-22T15:26:39.792584+00:00",
+    "ts": "2026-08-22T15:26:53.227751+00:00",
     "saison": "CALME",
     "emoji": "🧊",
     "direction": "short",
@@ -4062,7 +4062,7 @@
     "degraded": false
   },
   "gardienne": {
-    "ts": "2026-08-22T15:26:39Z",
+    "ts": "2026-08-22T15:26:53Z",
     "voilure_pct": 91,
     "zone": "VERT",
     "zone_emoji": "🟢",
@@ -4091,7 +4091,7 @@
     ]
   },
   "coup_doeil": {
-    "ts": "2026-08-22T15:26:39Z",
+    "ts": "2026-08-22T15:26:53Z",
     "saison": "CALME",
     "saison_emoji": "🌿",
     "voilure": "91 %",
