@@ -1,31 +1,16 @@
 {
-  "ts": "2026-08-22T03:08:40.595841+00:00",
+  "ts": "2026-08-22T03:09:36.807642+00:00",
   "since": "2026-08-21T23:22:00Z",
   "bots": {
     "alpha": {
       "role": "sniper",
       "surnom": "Le Sniper",
       "fills": 30,
-      "skips": 722,
+      "skips": 723,
       "pnl": 9.624089999999999,
       "best": 5.17902,
       "conf_moy": 0.9131066666666666,
       "events": [
-        {
-          "ts": "2026-08-22T02:53:14Z",
-          "bot": "alpha",
-          "cycle": 414,
-          "action": "skip",
-          "intention": "skip — gap_guard_pause",
-          "direction": null,
-          "conf": null,
-          "exit": "gap_guard_pause",
-          "meta": {
-            "size_note": null,
-            "tension": null
-          },
-          "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv"
-        },
         {
           "ts": "2026-08-22T02:53:21Z",
           "bot": "alpha",
@@ -310,13 +295,28 @@
             "tension": 0.0
           },
           "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv"
+        },
+        {
+          "ts": "2026-08-22T03:08:55Z",
+          "bot": "alpha",
+          "cycle": 434,
+          "action": "skip",
+          "intention": "skip — regime_gate",
+          "direction": null,
+          "conf": null,
+          "exit": "regime_gate",
+          "meta": {
+            "size_note": null,
+            "tension": 0.00035234
+          },
+          "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv"
         }
       ],
       "counts": {
         "wait": 90,
         "fire": 30,
         "probe": 0,
-        "skip": 722
+        "skip": 723
       },
       "direction": {
         "long": 19,
@@ -327,87 +327,12 @@
     "beta": {
       "role": "eclaireur",
       "surnom": "L'Eclaireur",
-      "fills": 45,
-      "skips": 874,
-      "pnl": 0.4983299999999999,
+      "fills": 46,
+      "skips": 878,
+      "pnl": 0.2897999999999999,
       "best": 2.59434,
-      "conf_moy": 0.9331400000000001,
+      "conf_moy": 0.9261434782608696,
       "events": [
-        {
-          "ts": "2026-08-22T02:54:33Z",
-          "bot": "beta",
-          "cycle": 438,
-          "action": "skip",
-          "intention": "skip — gap_guard_pause",
-          "direction": null,
-          "conf": null,
-          "exit": "gap_guard_pause",
-          "meta": {
-            "size_note": null,
-            "tension": null
-          },
-          "file": "MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv"
-        },
-        {
-          "ts": "2026-08-22T02:54:43Z",
-          "bot": "beta",
-          "cycle": 439,
-          "action": "skip",
-          "intention": "skip — gap_guard_pause",
-          "direction": null,
-          "conf": null,
-          "exit": "gap_guard_pause",
-          "meta": {
-            "size_note": null,
-            "tension": null
-          },
-          "file": "MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv"
-        },
-        {
-          "ts": "2026-08-22T02:54:48Z",
-          "bot": "beta",
-          "cycle": 440,
-          "action": "skip",
-          "intention": "skip — gap_guard_pause",
-          "direction": null,
-          "conf": null,
-          "exit": "gap_guard_pause",
-          "meta": {
-            "size_note": null,
-            "tension": null
-          },
-          "file": "MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv"
-        },
-        {
-          "ts": "2026-08-22T03:00:20Z",
-          "bot": "beta",
-          "cycle": 489,
-          "action": "probe",
-          "intention": "a sonde le marche",
-          "direction": "long",
-          "conf": 0.7385,
-          "exit": "0.39509770",
-          "meta": {
-            "size_note": "strong_conf_full+entry_25_75_full",
-            "tension": 1.43891647
-          },
-          "file": "MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv"
-        },
-        {
-          "ts": "2026-08-22T03:00:34Z",
-          "bot": "beta",
-          "cycle": 490,
-          "action": "skip",
-          "intention": "skip — gap_guard_pause",
-          "direction": null,
-          "conf": null,
-          "exit": "gap_guard_pause",
-          "meta": {
-            "size_note": null,
-            "tension": null
-          },
-          "file": "MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv"
-        },
         {
           "ts": "2026-08-22T03:00:40Z",
           "bot": "beta",
@@ -632,24 +557,99 @@
             "tension": 7.714e-05
           },
           "file": "MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv"
+        },
+        {
+          "ts": "2026-08-22T03:08:55Z",
+          "bot": "beta",
+          "cycle": 506,
+          "action": "probe",
+          "intention": "a sonde le marche",
+          "direction": "long",
+          "conf": 0.6113,
+          "exit": "0.39544646",
+          "meta": {
+            "size_note": "strong_conf_full+entry_25_75_full",
+            "tension": 8.6189262
+          },
+          "file": "MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv"
+        },
+        {
+          "ts": "2026-08-22T03:09:09Z",
+          "bot": "beta",
+          "cycle": 507,
+          "action": "skip",
+          "intention": "skip — gap_guard_pause",
+          "direction": null,
+          "conf": null,
+          "exit": "gap_guard_pause",
+          "meta": {
+            "size_note": null,
+            "tension": null
+          },
+          "file": "MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv"
+        },
+        {
+          "ts": "2026-08-22T03:09:17Z",
+          "bot": "beta",
+          "cycle": 508,
+          "action": "skip",
+          "intention": "skip — gap_guard_pause",
+          "direction": null,
+          "conf": null,
+          "exit": "gap_guard_pause",
+          "meta": {
+            "size_note": null,
+            "tension": null
+          },
+          "file": "MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv"
+        },
+        {
+          "ts": "2026-08-22T03:09:26Z",
+          "bot": "beta",
+          "cycle": 509,
+          "action": "skip",
+          "intention": "skip — gap_guard_pause",
+          "direction": null,
+          "conf": null,
+          "exit": "gap_guard_pause",
+          "meta": {
+            "size_note": null,
+            "tension": null
+          },
+          "file": "MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv"
+        },
+        {
+          "ts": "2026-08-22T03:09:34Z",
+          "bot": "beta",
+          "cycle": 510,
+          "action": "skip",
+          "intention": "skip — gap_guard_pause",
+          "direction": null,
+          "conf": null,
+          "exit": "gap_guard_pause",
+          "meta": {
+            "size_note": null,
+            "tension": null
+          },
+          "file": "MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv"
         }
       ],
       "counts": {
         "wait": 26,
         "fire": 0,
-        "probe": 45,
-        "skip": 874
+        "probe": 46,
+        "skip": 878
       },
       "direction": {
-        "long": 30,
+        "long": 31,
         "short": 15
       },
       "revenge": 0
     }
   },
   "story": [
-    "BETA a sonde le marche (45 sondes, 30 long / 15 court, conf moyenne 0.93) — il renseigne Alpha.",
-    "ALPHA attend son moment : 722 skips (discipline), le mur du carnet ne s'effondre pas.",
+    "BETA a sonde le marche (46 sondes, 31 long / 15 court, conf moyenne 0.93) — il renseigne Alpha.",
+    "ALPHA attend son moment : 723 skips (discipline), le mur du carnet ne s'effondre pas.",
     "ALPHA a frappe 30 fois en embuscade (13x) (dont 15 en mode revenge 1.5x) : +9.62 $, meilleur trade +5.18 $."
   ]
 }
