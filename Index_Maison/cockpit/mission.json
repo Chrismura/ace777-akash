@@ -1,5 +1,5 @@
 {
-  "ts": "2026-08-22T07:15Z",
+  "ts": "2026-08-22T07:16Z",
   "alert": "red",
   "run": "MASTER_VORTEX_V2_COLLAB_4H",
   "sessionSince": "2026-08-22T03:31Z",
@@ -8,7 +8,7 @@
   "comboFees24h": -362.0746,
   "comboPnlNet": -87.8566,
   "comboArrow": "down",
-  "swarmCycle": 580,
+  "swarmCycle": 582,
   "thrust": {
     "alpha": 8,
     "beta": 100,
@@ -18,10 +18,25 @@
     "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv",
     "pnl": -10.1818,
     "fills": 14,
-    "skips": 506,
+    "skips": 507,
     "pnlLifetime": 285.9739,
     "fillsLifetime": 2048,
     "last": [
+      {
+        "ts": "2026-08-22T07:15:49Z",
+        "side": "SKIP",
+        "status": "SKIPPED",
+        "pnl": 0.0,
+        "qty": null,
+        "entry": null,
+        "exit": null,
+        "bps": null,
+        "reason": "impulse_resonance_wait",
+        "cycle": "521",
+        "tension": 0.417326,
+        "bid_drop": 0.0,
+        "ask_drop": 2.712621
+      },
       {
         "ts": "2026-08-22T07:15:08Z",
         "side": "SKIP",
@@ -643,18 +658,6 @@
         "bps": null,
         "reason": "gap_guard_pause",
         "cycle": "472"
-      },
-      {
-        "ts": "2026-08-22T06:56:48Z",
-        "side": "SKIP",
-        "status": "SKIPPED",
-        "pnl": 0.0,
-        "qty": null,
-        "entry": null,
-        "exit": null,
-        "bps": null,
-        "reason": "gap_guard_pause",
-        "cycle": "471"
       }
     ],
     "fills_only": [
@@ -843,7 +846,7 @@
       0.559,
       2.19229
     ],
-    "cycle": "520",
+    "cycle": "521",
     "lastFill": {
       "ts": "2026-08-22T07:07:47Z",
       "side": "BUY",
@@ -863,10 +866,38 @@
     "file": "MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv",
     "pnl": 5.7209,
     "fills": 21,
-    "skips": 559,
+    "skips": 561,
     "pnlLifetime": 27.2946,
     "fillsLifetime": 6041,
     "last": [
+      {
+        "ts": "2026-08-22T07:15:52Z",
+        "side": "SKIP",
+        "status": "SKIPPED",
+        "pnl": 0.0,
+        "qty": null,
+        "entry": null,
+        "exit": null,
+        "bps": null,
+        "reason": "impulse_resonance_wait",
+        "cycle": "582",
+        "tension": 0.856567,
+        "bid_drop": 5.567684,
+        "ask_drop": 0.0
+      },
+      {
+        "ts": "2026-08-22T07:15:21Z",
+        "side": "SKIP",
+        "status": "SKIPPED",
+        "pnl": 0.0,
+        "qty": null,
+        "entry": null,
+        "exit": null,
+        "bps": null,
+        "reason": "regime_gate",
+        "cycle": "581",
+        "tension": 0.000553
+      },
       {
         "ts": "2026-08-22T07:14:57Z",
         "side": "SKIP",
@@ -1457,34 +1488,6 @@
         "bps": 5.3179,
         "reason": "0.39666534",
         "cycle": "533"
-      },
-      {
-        "ts": "2026-08-22T06:56:15Z",
-        "side": "SKIP",
-        "status": "SKIPPED",
-        "pnl": 0.0,
-        "qty": null,
-        "entry": null,
-        "exit": null,
-        "bps": null,
-        "reason": "regime_gate",
-        "cycle": "532",
-        "tension": 0.000171
-      },
-      {
-        "ts": "2026-08-22T06:56:02Z",
-        "side": "SKIP",
-        "status": "SKIPPED",
-        "pnl": 0.0,
-        "qty": null,
-        "entry": null,
-        "exit": null,
-        "bps": null,
-        "reason": "impulse_resonance_wait",
-        "cycle": "531",
-        "tension": 0.511155,
-        "bid_drop": 3.322505,
-        "ask_drop": 0.0
       }
     ],
     "fills_only": [
@@ -1752,7 +1755,7 @@
       0.26368,
       1.75968
     ],
-    "cycle": "580",
+    "cycle": "582",
     "lastFill": {
       "ts": "2026-08-22T07:11:49Z",
       "side": "SELL",
@@ -1766,7 +1769,7 @@
       "cycle": "559"
     },
     "sessionSince": "2026-08-22T03:31Z",
-    "mtime": "2026-08-22T07:14Z"
+    "mtime": "2026-08-22T07:15Z"
   },
   "hulk": {
     "file": "PAPER_V1_20260821_092452.csv",
@@ -2970,7 +2973,7 @@
         "reason": "SEED_START"
       }
     ],
-    "skips": 192,
+    "skips": 193,
     "portfolio": [
       {
         "pair": "CCUSDT",
@@ -3384,13 +3387,13 @@
   },
   "thermo": {
     "climate": "ok",
-    "score": 79,
+    "score": 80,
     "funding": 0.0001,
     "whaleN": 0,
     "deltas": {
       "mark": {
         "dir": "down",
-        "delta": -6.87,
+        "delta": -5.24,
         "label": "↓"
       },
       "funding": {
@@ -3414,13 +3417,13 @@
         "label": "="
       },
       "chg24": {
-        "dir": "flat",
-        "delta": 0.0,
-        "label": "="
+        "dir": "down",
+        "delta": -0.02,
+        "label": "↓"
       },
       "oi": {
         "dir": "up",
-        "delta": 2.125,
+        "delta": 6.816,
         "label": "↑"
       },
       "score": {
@@ -3430,8 +3433,8 @@
       },
       "btcDominance": {
         "dir": "flat",
-        "delta": null,
-        "label": "—"
+        "delta": 0.0,
+        "label": "="
       },
       "panierDownPct": {
         "dir": "flat",
@@ -3465,8 +3468,8 @@
       },
       "marketCapUsd": {
         "dir": "flat",
-        "delta": null,
-        "label": "—"
+        "delta": 0.0,
+        "label": "="
       },
       "liq24Usd": {
         "dir": "flat",
@@ -3485,13 +3488,13 @@
       },
       "etfBtcM": {
         "dir": "down",
-        "delta": -0.02,
+        "delta": -0.01,
         "label": "↓"
       },
       "altSeasonScore": {
         "dir": "flat",
-        "delta": null,
-        "label": "—"
+        "delta": 0.0,
+        "label": "="
       },
       "gexPutCall": {
         "dir": "flat",
@@ -3506,18 +3509,18 @@
     },
     "fearGreed": 71,
     "fearGreedLabel": "Greed",
-    "marketCapUsd": null,
-    "altSeason": null,
-    "altSeasonScore": null,
+    "marketCapUsd": 2633208690060.0,
+    "altSeason": "Bitcoin season",
+    "altSeasonScore": 44,
     "liq24Usd": 54850783.0,
     "etf": {
-      "btc": 227.21,
+      "btc": 227.07,
       "eth": null,
       "xrp": null,
       "source": "bitbo-public (moy 7j)",
       "unit": "M$"
     },
-    "btcDominance": null,
+    "btcDominance": 58.58,
     "onchain": {
       "whaleBlocsN": 0,
       "whaleBlocsBtc": 0,
@@ -3538,7 +3541,7 @@
       "whaleAlerte": false,
       "whaleAlerteTexte": "Activité baleines nominale (aucun gros bloc ≥1000 BTC ni fragmentation ≥500 BTC).",
       "dernierEvtMin": -1,
-      "synthèse": "Direction onchain neutral | 0 gros bloc(s) 0 BTC sur le scan récent, cumul 24h 0 BTC, source inconnue. Activité baleines nominale (aucun gros bloc ≥1000 BTC ni fragmentation ≥500 BTC). | CPFP actif (conf 0/2) · poussière score 100.0/50 · blocs privatisés 0.9421% fantômes | indice onchain 30.8/100 (MODÉRÉ — onchain à surveiller)",
+      "synthèse": "Direction onchain neutral | 0 gros bloc(s) 0 BTC sur le scan récent, cumul 24h 0 BTC, source inconnue. Activité baleines nominale (aucun gros bloc ≥1000 BTC ni fragmentation ≥500 BTC). | CPFP actif (conf 0/2) · poussière score 100.0/50 · blocs privatisés 3.9265% fantômes | indice onchain 33.1/100 (MODÉRÉ — onchain à surveiller)",
       "cpfpSignal": null,
       "cpfpScore": 0.0,
       "cpfpMode": "actif",
@@ -3546,14 +3549,14 @@
       "cpfpGlobal": false,
       "cpfpZscore": 0.0,
       "cpfpDustScore": 100.0,
-      "cpfpDustDetail": "poussière <2.0 sat/vB (normalisé minFee 1×1.5) : 6 vues ce run, 13518 cumulées 48h (seuil 1000) — max 0.0003 BTC",
+      "cpfpDustDetail": "poussière <2.0 sat/vB (normalisé minFee 1×1.5) : 0 vues ce run, 13542 cumulées 48h (seuil 1000) — max 0.0000 BTC",
       "blocPrivatiseMode": "actif",
-      "blocPrivatiseTauxFantome": 0.9421,
-      "blocPrivatiseNbCachees": 55,
-      "indiceOnchain": 30.8,
+      "blocPrivatiseTauxFantome": 3.9265,
+      "blocPrivatiseNbCachees": 156,
+      "indiceOnchain": 33.1,
       "indiceOnchainLabel": "MODÉRÉ — onchain à surveiller",
       "indiceOnchainComposantes": {
-        "blocsPrivatises": 1.5,
+        "blocsPrivatises": 6.3,
         "poussiere": 100.0,
         "cpfpZscore": 0.0
       }
@@ -3568,20 +3571,20 @@
         "wired": true
       },
       "D27": {
-        "value": null,
-        "level": "na",
+        "value": "2.63 T$",
+        "level": "ok",
         "label": "Market cap crypto",
         "unit": "",
         "note": "CoinGecko global",
-        "wired": false
+        "wired": true
       },
       "D28": {
-        "value": null,
-        "level": "ok",
+        "value": "Bitcoin season (~44)",
+        "level": "warn",
         "label": "Alt season (proxy BTC.D)",
         "unit": "",
         "note": "proxy dominance — pas index Blockchain Center exact",
-        "wired": false
+        "wired": true
       },
       "D29": {
         "value": "0.05 B$",
@@ -3592,7 +3595,7 @@
         "wired": true
       },
       "D30": {
-        "value": "BTC 227.21 M$",
+        "value": "BTC 227.07 M$",
         "level": "ok",
         "label": "ETF BTC net inflow",
         "unit": "",
@@ -3618,7 +3621,7 @@
     }
   },
   "intention": {
-    "ts": "2026-08-22T07:15:15.213250+00:00",
+    "ts": "2026-08-22T07:15:45.059107+00:00",
     "since": "2026-08-22T03:31:00Z",
     "bots": {
       "alpha": {
@@ -3947,26 +3950,11 @@
         "role": "eclaireur",
         "surnom": "L'Eclaireur",
         "fills": 21,
-        "skips": 535,
+        "skips": 536,
         "pnl": 5.72085,
         "best": 1.75968,
         "conf_moy": 0.8567476190476191,
         "events": [
-          {
-            "ts": "2026-08-22T07:12:05Z",
-            "bot": "beta",
-            "cycle": 561,
-            "action": "skip",
-            "intention": "skip — gap_guard_pause",
-            "direction": null,
-            "conf": null,
-            "exit": "gap_guard_pause",
-            "meta": {
-              "size_note": null,
-              "tension": null
-            },
-            "file": "MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv"
-          },
           {
             "ts": "2026-08-22T07:12:08Z",
             "bot": "beta",
@@ -4251,13 +4239,28 @@
               "tension": 0.0
             },
             "file": "MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv"
+          },
+          {
+            "ts": "2026-08-22T07:15:21Z",
+            "bot": "beta",
+            "cycle": 581,
+            "action": "skip",
+            "intention": "skip — regime_gate",
+            "direction": null,
+            "conf": null,
+            "exit": "regime_gate",
+            "meta": {
+              "size_note": null,
+              "tension": 0.00055254
+            },
+            "file": "MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv"
           }
         ],
         "counts": {
           "wait": 24,
           "fire": 0,
           "probe": 21,
-          "skip": 535
+          "skip": 536
         },
         "direction": {
           "long": 13,
@@ -4273,7 +4276,7 @@
     ]
   },
   "saison": {
-    "ts": "2026-08-22T07:15:15.037308+00:00",
+    "ts": "2026-08-22T07:16:04.798721+00:00",
     "saison": "CHAOS",
     "emoji": "⛈️",
     "direction": "neutre",
@@ -4304,7 +4307,7 @@
       "vortex": {
         "direction": "long",
         "force": 2,
-        "brut": 1.97
+        "brut": 1.84
       },
       "essaim": {
         "direction": "neutre",
@@ -4320,7 +4323,7 @@
     "story": [
       "SAISON : CHAOS ⛈️ — liquidations massives détectées, le marché tremble.",
       "Alignement : 1 haussiers / 1 baissiers.",
-      "Le vortex tourne fort (+1.97 % sur 24h) — le mouvement est là."
+      "Le vortex tourne fort (+1.84 % sur 24h) — le mouvement est là."
     ],
     "sources": [
       "live.json"
@@ -4328,7 +4331,7 @@
     "degraded": false
   },
   "gardienne": {
-    "ts": "2026-08-22T07:15:15Z",
+    "ts": "2026-08-22T07:16:04Z",
     "voilure_pct": 64,
     "zone": "JAUNE",
     "zone_emoji": "🟡",
@@ -4363,7 +4366,7 @@
     ]
   },
   "coup_doeil": {
-    "ts": "2026-08-22T07:15:15Z",
+    "ts": "2026-08-22T07:16:04Z",
     "saison": "CHAOS",
     "saison_emoji": "⛈️",
     "voilure": "64 %",
