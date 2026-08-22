@@ -1,13 +1,13 @@
-# STRATEGIE — 2026-08-22T07:03:31.728150Z
+# STRATEGIE — 2026-08-22T07:08:03.036267Z
 
-## COURT TERME — 2026-08-22T07:03:31.728150Z
+## COURT TERME — 2026-08-22T07:08:03.036267Z
 
 [UNDERSTAND] La maison ACE777 maintient son alerte rouge face à un PnL combiné sous pression (-8,41 $), tandis que Beta éclaire activement le marché et qu'Alpha patiente avec discipline en embuscade.
 [ANALYZE] 
-- Tendance : Marché orienté en phase Greed (71) avec un score de thermostat à 77, mais plombé par une nervosité persistante et un capital global sous tension (-89,96 $).
+- Tendance : Marché orienté en phase Greed (71) avec un score de thermostat à 76, mais plombé par une nervosité persistante et un capital global sous tension (-90,94 $).
 - Momentum : Alpha maintient sa discipline tactique (475 skips, 13 fills pour -12,37 $) malgré les chocs, et Beta fournit des sondages de qualité (20 fills pour +3,96 $).
-- Risque : Sensibilité accrue aux soubresauts de volume (sursaut volume x3 sur ETHUSDT à 2446,25 $) et pressions persistantes sur le PnL combiné.
-- Contexte : Portefeuille Hulk résilient avec des positions seeds globalement sous contrôle, soutenues par des flux ETF BTC positifs (+227,68 M$).
+- Risque : Sensibilité accrue aux soubresauts de volume sur les cryptos majeures et pressions persistantes sur le PnL combiné dans un climat marqué par le début de la réunion de la Fed.
+- Contexte : Portefeuille Hulk résilient avec 12 positions seeds sous surveillance active, soutenues par des flux ETF BTC positifs (+227,84 M$).
 [STRATEGIZE] 
 1. Maintenir Alpha en embuscade stricte en exploitant les flux de reconnaissance de Beta sans céder à la précipitation.
 2. Poursuivre la surveillance rapprochée et l'arbitrage rigoureux des positions seeds de Hulk via les stop-loss.
