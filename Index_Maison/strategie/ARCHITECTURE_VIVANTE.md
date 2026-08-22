@@ -22,7 +22,7 @@
 
 ## État de la mission (bots + PnL)
 
-- mission.json : 2026-08-22 14:27Z · run `MASTER_VORTEX_V2_COLLAB_4H` · alerte `red`
+- mission.json : 2026-08-22 14:28Z · run `MASTER_VORTEX_V2_COLLAB_4H` · alerte `red`
 - PnL combiné : **4.43 $** 📉 (combo 4.4305)
 - ALPHA (sniper (embuscade, ×13, revenge si claque)) : **+4.63 $** · 7 fills · 150 skips
 - BETA (éclaireur (chatouille le marché, alimente Alpha)) : **-0.20 $** · 9 fills · 193 skips
