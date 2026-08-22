@@ -1,11 +1,11 @@
 {
-  "ts": "2026-08-22T10:35Z",
+  "ts": "2026-08-22T10:36Z",
   "alert": "red",
   "run": "MASTER_VORTEX_V2_COLLAB_4H",
   "sessionSince": "2026-08-22T07:34Z",
   "comboPnl": -2.2873,
   "comboFeesToday": -107.4523,
-  "comboFees24h": -312.4607,
+  "comboFees24h": -303.2588,
   "comboPnlNet": -109.7396,
   "comboArrow": "down",
   "swarmCycle": 384,
@@ -3286,7 +3286,7 @@
     "deltas": {
       "mark": {
         "dir": "up",
-        "delta": 20.35,
+        "delta": 15.94,
         "label": "↑"
       },
       "funding": {
@@ -3311,18 +3311,18 @@
       },
       "chg24": {
         "dir": "up",
-        "delta": 0.08,
+        "delta": 0.02,
         "label": "↑"
       },
       "oi": {
         "dir": "down",
-        "delta": -3.164,
+        "delta": -4.876,
         "label": "↓"
       },
       "score": {
-        "dir": "up",
-        "delta": 1.0,
-        "label": "↑"
+        "dir": "flat",
+        "delta": 0.0,
+        "label": "="
       },
       "btcDominance": {
         "dir": "flat",
@@ -3365,9 +3365,9 @@
         "label": "—"
       },
       "liq24Usd": {
-        "dir": "down",
-        "delta": -11155.0,
-        "label": "↓"
+        "dir": "flat",
+        "delta": 0.0,
+        "label": "="
       },
       "liqLongUsd": {
         "dir": "flat",
@@ -3381,7 +3381,7 @@
       },
       "etfBtcM": {
         "dir": "up",
-        "delta": 0.06,
+        "delta": 0.05,
         "label": "↑"
       },
       "altSeasonScore": {
@@ -3407,7 +3407,7 @@
     "altSeasonScore": null,
     "liq24Usd": 47356287.0,
     "etf": {
-      "btc": 226.01,
+      "btc": 226.08,
       "eth": null,
       "xrp": null,
       "source": "bitbo-public (moy 7j)",
@@ -3442,7 +3442,7 @@
       "cpfpGlobal": false,
       "cpfpZscore": 0.0,
       "cpfpDustScore": 100.0,
-      "cpfpDustDetail": "poussière <4.5 sat/vB (normalisé minFee 3×1.5) : 10 vues ce run, 18392 cumulées 48h (seuil 1000) — max 0.0001 BTC",
+      "cpfpDustDetail": "poussière <4.5 sat/vB (normalisé minFee 3×1.5) : 9 vues ce run, 18429 cumulées 48h (seuil 1000) — max 0.0001 BTC",
       "blocPrivatiseMode": "actif",
       "blocPrivatiseTauxFantome": 2.9052,
       "blocPrivatiseNbCachees": 114,
@@ -3488,7 +3488,7 @@
         "wired": true
       },
       "D30": {
-        "value": "BTC 226.01 M$",
+        "value": "BTC 226.08 M$",
         "level": "ok",
         "label": "ETF BTC net inflow",
         "unit": "",
@@ -3514,7 +3514,7 @@
     }
   },
   "intention": {
-    "ts": "2026-08-22T10:35:15.253896+00:00",
+    "ts": "2026-08-22T10:36:33.316921+00:00",
     "since": "2026-08-22T07:34:00Z",
     "bots": {
       "alpha": {
@@ -3526,21 +3526,6 @@
         "best": 2.65424,
         "conf_moy": 0.83787,
         "events": [
-          {
-            "ts": "2026-08-22T10:31:05Z",
-            "bot": "alpha",
-            "cycle": 364,
-            "action": "skip",
-            "intention": "skip — gap_guard_pause",
-            "direction": null,
-            "conf": null,
-            "exit": "gap_guard_pause",
-            "meta": {
-              "size_note": null,
-              "tension": null
-            },
-            "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv"
-          },
           {
             "ts": "2026-08-22T10:31:11Z",
             "bot": "alpha",
@@ -3825,10 +3810,25 @@
               "tension": 0.00047077
             },
             "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv"
+          },
+          {
+            "ts": "2026-08-22T10:35:35Z",
+            "bot": "alpha",
+            "cycle": 384,
+            "action": "wait",
+            "intention": "attente de l'etat du duo (Beta)",
+            "direction": null,
+            "conf": null,
+            "exit": "duo_wait",
+            "meta": {
+              "size_note": null,
+              "tension": null
+            },
+            "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv"
           }
         ],
         "counts": {
-          "wait": 36,
+          "wait": 37,
           "fire": 10,
           "probe": 0,
           "skip": 333
@@ -4169,7 +4169,7 @@
     ]
   },
   "saison": {
-    "ts": "2026-08-22T10:35:37.397484+00:00",
+    "ts": "2026-08-22T10:36:27.795579+00:00",
     "saison": "CALME",
     "emoji": "🧊",
     "direction": "short",
@@ -4200,7 +4200,7 @@
       "vortex": {
         "direction": "short",
         "force": 1,
-        "brut": -0.92
+        "brut": -0.87
       },
       "essaim": {
         "direction": "neutre",
@@ -4216,7 +4216,7 @@
     "story": [
       "SAISON : CALME 🧊 — hiver, ADA dort.",
       "Alignement : 0 haussiers / 2 baissiers.",
-      "Le vent se lève (-0.92 % sur 24h) — pas encore un vortex."
+      "Le vent se lève (-0.87 % sur 24h) — pas encore un vortex."
     ],
     "sources": [
       "live.json"
@@ -4224,7 +4224,7 @@
     "degraded": false
   },
   "gardienne": {
-    "ts": "2026-08-22T10:35:37Z",
+    "ts": "2026-08-22T10:36:27Z",
     "voilure_pct": 90,
     "zone": "VERT",
     "zone_emoji": "🟢",
@@ -4253,7 +4253,7 @@
     ]
   },
   "coup_doeil": {
-    "ts": "2026-08-22T10:35:37Z",
+    "ts": "2026-08-22T10:36:27Z",
     "saison": "CALME",
     "saison_emoji": "🌿",
     "voilure": "90 %",
