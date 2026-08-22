@@ -1,44 +1,44 @@
 {
-  "timestamp": "2026-08-22T16:28:11Z",
+  "timestamp": "2026-08-22T16:28:45Z",
   "generation_source": "system_state_generator.py v2.1",
   "status": "STALE",
-  "feed_hash": "16a58cdb9b9539b05397eb0efd7e8ca3a465843a30223b6af2160a65aa962874",
+  "feed_hash": "995f886684dc9993ea94087f13b3c85612c1e330c68d503c41677028fca9f908",
   "feeds": {
     "mission": {
       "present": true,
-      "age_seconds": 29,
+      "age_seconds": 23,
       "fresh_limit_s": 120
     },
     "cortana_feed": {
       "present": true,
-      "age_seconds": 3,
+      "age_seconds": 15,
       "fresh_limit_s": 120
     },
     "live": {
       "present": true,
-      "age_seconds": 3,
+      "age_seconds": 9,
       "fresh_limit_s": 15
     },
     "routing": {
       "present": true,
-      "age_seconds": 2009,
+      "age_seconds": 2043,
       "fresh_limit_s": 120
     }
   },
   "services": {
     "total": 53,
-    "running": 26,
-    "planned": 27,
+    "running": 29,
+    "planned": 24,
     "running_list": [
       "application.com.ace777.cockpit-app.14931296.14931301",
       "com.ace777.archi-vivante",
+      "com.ace777.backup-check",
       "com.ace777.bloc-privatise",
       "com.ace777.cockpit-http",
       "com.ace777.cortana-feed",
       "com.ace777.cortana.urgent",
       "com.ace777.couleur-regime-score",
       "com.ace777.cpfp",
-      "com.ace777.fees",
       "com.ace777.hub-cockpit-feed",
       "com.ace777.journal-soir",
       "com.ace777.llm-gate-hub",
@@ -54,17 +54,20 @@
       "com.ace777.superviseur-core",
       "com.ace777.superviseur-process",
       "com.ace777.veille-hub",
+      "com.ace777.veilleuse-confrontation",
+      "com.ace777.veilleuse-sizing-monte-carlo",
       "com.ace777.vigie-live",
+      "com.ace777.watchdog",
       "com.ace777.whales"
     ],
     "planned_list": [
       "com.ace777.autopilote",
-      "com.ace777.backup-check",
       "com.ace777.catalogue",
       "com.ace777.cockpit-pont",
       "com.ace777.couleur-regime",
       "com.ace777.dms-veille",
       "com.ace777.eval-offres",
+      "com.ace777.fees",
       "com.ace777.gitpush",
       "com.ace777.gitpush-vault",
       "com.ace777.graph-cerveau",
@@ -81,10 +84,7 @@
       "com.ace777.veille-yt",
       "com.ace777.veilleuse",
       "com.ace777.veilleuse-chantiers",
-      "com.ace777.veilleuse-confrontation",
-      "com.ace777.veilleuse-sizing-monte-carlo",
-      "com.ace777.verif-setup",
-      "com.ace777.watchdog"
+      "com.ace777.verif-setup"
     ]
   },
   "hub": {
@@ -110,7 +110,13 @@
     }
   },
   "backup_light": {
-    "presence": {},
+    "presence": {
+      "mirofis": true,
+      "crypto-voice-assistant-core": true,
+      "ACE777_ARCHIVES_BRUTES_DONNEES": true,
+      "Assistant_Vocal_HORS_VAULT": true,
+      "Obsidian_BACKUPS_HORS_VAULT": true
+    },
     "sizes_ko": {
       "mirofis": 1068252,
       "crypto-voice-assistant-core": 4041164,
@@ -118,7 +124,7 @@
       "Assistant_Vocal_HORS_VAULT": 697372,
       "Obsidian_BACKUPS_HORS_VAULT": 14936872
     },
-    "presence_at": null,
+    "presence_at": "2026-08-22T16:28:44Z",
     "sizes_at": "2026-08-22T14:05:05Z"
   }
 }
