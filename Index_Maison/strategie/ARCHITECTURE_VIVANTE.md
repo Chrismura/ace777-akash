@@ -9,7 +9,7 @@
 - ✅ radar
 - ⛔ lecteur signets
 - ⛔ générateur fiches
-- ✅ feed mission
+- ⛔ feed mission
 - ⛔ serveur cockpit
 
 ## Routage des tâches de décision
@@ -22,10 +22,10 @@
 
 ## État de la mission (bots + PnL)
 
-- mission.json : 2026-08-22 05:26Z · run `MASTER_VORTEX_V2_COLLAB_4H` · alerte `red`
+- mission.json : 2026-08-22 05:27Z · run `MASTER_VORTEX_V2_COLLAB_4H` · alerte `red`
 - PnL combiné : **-0.55 $** 📉 (combo -0.5516)
-- ALPHA (sniper (embuscade, ×13, revenge si claque)) : **-4.72 $** · 6 fills · 253 skips
-- BETA (éclaireur (chatouille le marché, alimente Alpha)) : **+4.17 $** · 12 fills · 300 skips
+- ALPHA (sniper (embuscade, ×13, revenge si claque)) : **-4.72 $** · 6 fills · 257 skips
+- BETA (éclaireur (chatouille le marché, alimente Alpha)) : **+4.17 $** · 12 fills · 301 skips
 - HULK (gestionnaire de portefeuille (bag, escalier, courreur)) : **-0.11 $** · 0 fills
 - Saison : CHAOS ⛈️ · 
 
@@ -34,12 +34,12 @@
 - [Santé]
   · hub : OK (14 providers)
 - [Énergie du jour]
-  · appels : 1146 (cloud 1146)
+  · appels : 1149 (cloud 1149)
   · budget cloud : 624 max
-  · par provider : gemini=2, groq=2, mistral=953, nara=187, nvidia=2
+  · par provider : gemini=2, groq=2, mistral=956, nara=187, nvidia=2
 - [Nouvelles offres détectées (non intégrées)]
 - [ROLLBACK AUTO 2026-08-22]
-  · obs-1786774667 (nvidia/nemotron-3.5-lightning:free) : 100% erreurs > 5% (observatoire)
+  · obs-1787033767 (google/diffusiongemma-26b-a4b-it) : 100% erreurs > 5% (observatoire)
   · dots-studio/dots-3-note-preview:free
   · liquid/lfm-2.5-2.6b:free
   · thinkingmachines/inkling-small:free
@@ -48,11 +48,11 @@
 ## Mémoire chaude (journal + résumés)
 
 - Radar (dernières alertes) :
-  · 2026-08-22T05:27:07.090645Z ETHUSDT 2444.19 0.0014 1082.1 declenche=non
-  · 2026-08-22T05:27:07.090991Z ETHUSDT 2444.2 0.0014 1082.1 declenche=non
-  · 2026-08-22T05:27:07.091287Z ETHUSDT 2444.28 0.0015 1082.1 declenche=non
-  · 2026-08-22T05:27:07.141148Z ETHUSDT 2444.27 0.0015 1082.1 declenche=non
-- Intention en cours : BETA a sonde le marche (12 sondes, 7 long / 5 court, conf mo | ALPHA attend son moment : 219 skips (discipline), le mur du  | ALPHA a frappe 8 fois en embuscade (13x) (dont 6 en mode rev
+  · 2026-08-22T05:27:27.849054Z BTCUSDT 77286.18 0.0003 2.8 declenche=non
+  · 2026-08-22T05:27:27.892470Z ETHUSDT 2446.17 0.0000 63.7 declenche=non
+  · 2026-08-22T05:27:27.894868Z ETHUSDT 2446.17 0.0000 63.7 declenche=non
+  · 2026-08-22T05:27:27.934529Z BTCUSDT 77286.17 0.0003 2.8 declenche=non
+- Intention en cours : BETA a sonde le marche (12 sondes, 7 long / 5 court, conf mo | ALPHA attend son moment : 222 skips (discipline), le mur du  | ALPHA a frappe 8 fois en embuscade (13x) (dont 6 en mode rev
 - 500 signets X résumés (quota aujourd'hui : 0/50)
 - 56 fiches IA d'offres en cache (quota 8/jour)
 
