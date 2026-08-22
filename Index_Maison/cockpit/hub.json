@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-22T10:42:39.859944+00:00",
+  "generated_at": "2026-08-22T10:44:27.534667+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -26,7 +26,7 @@
       "model": "qwen-3.8-max-free",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 527
+      "calls_24h": 529
     },
     {
       "id": "groq",
@@ -229,10 +229,26 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 3559,
+    "consumed": 3561,
     "remaining": 0
   },
   "queue": [
+    {
+      "ts": "2026-08-22T10:43:26.196523+00:00",
+      "task": "supervise.decision",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 14.26
+    },
+    {
+      "ts": "2026-08-22T10:43:21.263476+00:00",
+      "task": "analyse.profonde",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 46.05
+    },
     {
       "ts": "2026-08-22T10:42:04.935097+00:00",
       "task": "supervise.decision",
@@ -336,81 +352,65 @@
       "model": "qwen-3.8-max-free",
       "kind": "cloud",
       "duration_s": 22.55
-    },
-    {
-      "ts": "2026-08-22T10:34:47.029676+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 41.93
-    },
-    {
-      "ts": "2026-08-22T10:34:37.425662+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 28.97
     }
   ],
   "events": [
     {
-      "ts": "2026-08-22T10:42:35.231190+00:00",
-      "kind": "timeout",
-      "title": "Patience NaraRouter (7M tokens/jour gratuits) (reponse vide)",
-      "detail": "Reponse vide"
-    },
-    {
-      "ts": "2026-08-22T10:42:35.208998+00:00",
+      "ts": "2026-08-22T10:44:22.210866+00:00",
       "kind": "failover",
       "title": "Saute (blacklist) depuis HuggingFace (136+ modeles, dont DeepSeek-V4)",
       "detail": "0 attente"
     },
     {
-      "ts": "2026-08-22T10:42:35.207159+00:00",
+      "ts": "2026-08-22T10:44:22.208514+00:00",
       "kind": "failover",
       "title": "Bascule depuis Google Gemini",
       "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-08-22T10:42:35.206786+00:00",
+      "ts": "2026-08-22T10:44:22.207943+00:00",
       "kind": "ratelimit",
       "title": "429 Google Gemini -> pause 60s + bascule",
       "detail": ""
     },
     {
-      "ts": "2026-08-22T10:42:34.892420+00:00",
+      "ts": "2026-08-22T10:44:21.680607+00:00",
       "kind": "blacklist",
       "title": "Fin de pause Google Gemini",
       "detail": "re-essai automatique"
     },
     {
-      "ts": "2026-08-22T10:42:34.892090+00:00",
+      "ts": "2026-08-22T10:44:21.679295+00:00",
       "kind": "quota",
       "title": "Budget calme atteint -> bascule famille (gratuits)",
       "detail": "analyse.profonde"
     },
     {
-      "ts": "2026-08-22T10:42:29.457671+00:00",
+      "ts": "2026-08-22T10:44:14.832163+00:00",
+      "kind": "timeout",
+      "title": "Patience NaraRouter (7M tokens/jour gratuits) (reponse vide)",
+      "detail": "Reponse vide"
+    },
+    {
+      "ts": "2026-08-22T10:44:14.065301+00:00",
       "kind": "http",
       "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
       "detail": ""
     },
     {
-      "ts": "2026-08-22T10:42:29.457465+00:00",
+      "ts": "2026-08-22T10:44:14.065051+00:00",
       "kind": "error",
       "title": "Toutes les IA ont echoue",
       "detail": "Google Gemini: HTTP Error 429: Too Many Requests | HuggingFace (136+ modeles, dont DeepSeek-V4): blacklist du jour (saute) | NaraRouter (7M tokens/jour gratuits): Reponse vide | budget: Budget temps requete depasse"
     },
     {
-      "ts": "2026-08-22T10:42:29.457297+00:00",
+      "ts": "2026-08-22T10:44:14.064795+00:00",
       "kind": "error",
       "title": "Budget temps requete depasse",
       "detail": ""
     },
     {
-      "ts": "2026-08-22T10:42:29.456420+00:00",
+      "ts": "2026-08-22T10:44:14.062594+00:00",
       "kind": "failover",
       "title": "Bascule depuis NaraRouter (7M tokens/jour gratuits)",
       "detail": "Reponse vide"
