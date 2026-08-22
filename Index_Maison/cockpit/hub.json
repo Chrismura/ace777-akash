@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-22T02:21:16.894308+00:00",
+  "generated_at": "2026-08-22T02:21:39.636748+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -26,7 +26,7 @@
       "model": "qwen-3.8-max-free",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 960
+      "calls_24h": 961
     },
     {
       "id": "groq",
@@ -229,10 +229,18 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 604,
-    "remaining": 20
+    "consumed": 605,
+    "remaining": 19
   },
   "queue": [
+    {
+      "ts": "2026-08-22T02:21:22.887862+00:00",
+      "task": "supervise.decision",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 34.76
+    },
     {
       "ts": "2026-08-22T02:20:50.040634+00:00",
       "task": "supervise.decision",
@@ -344,17 +352,21 @@
       "model": "qwen-3.8-max-free",
       "kind": "cloud",
       "duration_s": 23.04
-    },
-    {
-      "ts": "2026-08-22T02:13:53.250287+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 23.54
     }
   ],
   "events": [
+    {
+      "ts": "2026-08-22T02:21:33.902955+00:00",
+      "kind": "failover",
+      "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
+      "detail": "0 attente"
+    },
+    {
+      "ts": "2026-08-22T02:21:22.885067+00:00",
+      "kind": "message",
+      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
+      "detail": "bascule"
+    },
     {
       "ts": "2026-08-22T02:20:51.709843+00:00",
       "kind": "timeout",
@@ -401,18 +413,6 @@
       "ts": "2026-08-22T02:20:12.722292+00:00",
       "kind": "http",
       "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
-      "detail": ""
-    },
-    {
-      "ts": "2026-08-22T02:20:12.722114+00:00",
-      "kind": "error",
-      "title": "Toutes les IA ont echoue",
-      "detail": "Google Gemini: HTTP Error 429: Too Many Requests | HuggingFace (136+ modeles, dont DeepSeek-V4): blacklist du jour (saute) | NaraRouter (7M tokens/jour gratuits): Reponse vide | budget: Budget temps requete depasse"
-    },
-    {
-      "ts": "2026-08-22T02:20:12.721990+00:00",
-      "kind": "error",
-      "title": "Budget temps requete depasse",
       "detail": ""
     }
   ],
