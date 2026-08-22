@@ -1,27 +1,27 @@
 {
-  "timestamp": "2026-08-22T13:03:19Z",
+  "timestamp": "2026-08-22T13:04:50Z",
   "generation_source": "system_state_generator.py v2.1",
   "status": "STALE",
-  "feed_hash": "a1d008396b5d8f24e5e2b2421fa988058a76753d60b383960e7f9c4420960f28",
+  "feed_hash": "b9f51e4a718685ab93933f894edb7191e1e38ce3d99ee472391eaf9ee25d99b8",
   "feeds": {
     "mission": {
-      "present": true,
-      "age_seconds": 6,
-      "fresh_limit_s": 120
-    },
-    "cortana_feed": {
       "present": true,
       "age_seconds": 0,
       "fresh_limit_s": 120
     },
+    "cortana_feed": {
+      "present": true,
+      "age_seconds": 10,
+      "fresh_limit_s": 120
+    },
     "live": {
       "present": true,
-      "age_seconds": 3,
+      "age_seconds": 4,
       "fresh_limit_s": 15
     },
     "routing": {
       "present": true,
-      "age_seconds": 15524,
+      "age_seconds": 15615,
       "fresh_limit_s": 120
     }
   },
@@ -55,7 +55,13 @@
     }
   },
   "backup_light": {
-    "presence": {},
+    "presence": {
+      "mirofis": true,
+      "crypto-voice-assistant-core": true,
+      "ACE777_ARCHIVES_BRUTES_DONNEES": true,
+      "Assistant_Vocal_HORS_VAULT": true,
+      "Obsidian_BACKUPS_HORS_VAULT": true
+    },
     "sizes_ko": {
       "mirofis": 1068252,
       "crypto-voice-assistant-core": 4041164,
@@ -63,7 +69,7 @@
       "Assistant_Vocal_HORS_VAULT": 697372,
       "Obsidian_BACKUPS_HORS_VAULT": 14936872
     },
-    "presence_at": null,
+    "presence_at": "2026-08-22T13:04:10Z",
     "sizes_at": "2026-08-22T08:04:37Z"
   }
 }
