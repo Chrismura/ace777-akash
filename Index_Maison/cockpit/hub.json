@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-22T10:51:46.396420+00:00",
+  "generated_at": "2026-08-22T10:51:53.806168+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -26,7 +26,7 @@
       "model": "qwen-3.8-max-free",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 544
+      "calls_24h": 545
     },
     {
       "id": "groq",
@@ -229,10 +229,18 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 3576,
+    "consumed": 3577,
     "remaining": 0
   },
   "queue": [
+    {
+      "ts": "2026-08-22T10:51:49.446570+00:00",
+      "task": "supervise.decision",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 33.76
+    },
     {
       "ts": "2026-08-22T10:51:02.380917+00:00",
       "task": "supervise.decision",
@@ -344,17 +352,21 @@
       "model": "qwen-3.8-max-free",
       "kind": "cloud",
       "duration_s": 32.24
-    },
-    {
-      "ts": "2026-08-22T10:44:30.566572+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 134.22
     }
   ],
   "events": [
+    {
+      "ts": "2026-08-22T10:51:49.446073+00:00",
+      "kind": "message",
+      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
+      "detail": "bascule"
+    },
+    {
+      "ts": "2026-08-22T10:51:48.845455+00:00",
+      "kind": "timeout",
+      "title": "Patience NaraRouter (7M tokens/jour gratuits) (HTTP 502)",
+      "detail": "HTTP Error 502: Bad Gateway"
+    },
     {
       "ts": "2026-08-22T10:51:46.326187+00:00",
       "kind": "timeout",
@@ -402,18 +414,6 @@
       "kind": "failover",
       "title": "Saute (blacklist) depuis HuggingFace (136+ modeles, dont DeepSeek-V4)",
       "detail": "0 attente"
-    },
-    {
-      "ts": "2026-08-22T10:51:07.490811+00:00",
-      "kind": "failover",
-      "title": "Saute (blacklist) depuis Google Gemini",
-      "detail": "0 attente"
-    },
-    {
-      "ts": "2026-08-22T10:51:07.489917+00:00",
-      "kind": "quota",
-      "title": "Budget calme atteint -> bascule famille (gratuits)",
-      "detail": "analyse.profonde"
     }
   ],
   "tasks_quotas": {
