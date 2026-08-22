@@ -9,7 +9,7 @@
 - ✅ radar
 - ⛔ lecteur signets
 - ⛔ générateur fiches
-- ⛔ feed mission
+- ✅ feed mission
 - ⛔ serveur cockpit
 
 ## Routage des tâches de décision
@@ -22,7 +22,7 @@
 
 ## État de la mission (bots + PnL)
 
-- mission.json : 2026-08-22 09:12Z · run `MASTER_VORTEX_V2_COLLAB_4H` · alerte `red`
+- mission.json : 2026-08-22 09:13Z · run `MASTER_VORTEX_V2_COLLAB_4H` · alerte `red`
 - PnL combiné : **-3.32 $** 📉 (combo -3.3157)
 - ALPHA (sniper (embuscade, ×13, revenge si claque)) : **-5.70 $** · 6 fills · 178 skips
 - BETA (éclaireur (chatouille le marché, alimente Alpha)) : **+2.38 $** · 9 fills · 176 skips
@@ -34,9 +34,9 @@
 - [Santé]
   · hub : OK (14 providers)
 - [Énergie du jour]
-  · appels : 2711 (cloud 2711)
+  · appels : 2717 (cloud 2717)
   · budget cloud : 624 max
-  · par provider : gemini=504, groq=7, mistral=1721, nara=477, nvidia=2
+  · par provider : gemini=504, groq=7, mistral=1727, nara=477, nvidia=2
 - [Nouvelles offres détectées (non intégrées)]
   · dots-studio/dots-3-note-preview:free
   · liquid/lfm-2.5-2.6b:free
@@ -46,10 +46,10 @@
 ## Mémoire chaude (journal + résumés)
 
 - Radar (dernières alertes) :
-  · 2026-08-22T09:13:00.167800Z BTCUSDT 77365.36 0.0006 16.7 declenche=non
-  · 2026-08-22T09:13:00.243449Z BTCUSDT 77365.36 0.0006 16.7 declenche=non
-  · 2026-08-22T09:13:00.243730Z BTCUSDT 77365.35 0.0006 16.7 declenche=non
-  · 2026-08-22T09:13:00.243910Z BTCUSDT 77365.35 0.0006 16.7 declenche=non
+  · 2026-08-22T09:13:11.039540Z BTCUSDT 77345.5 0.0003 23.8 declenche=non
+  · 2026-08-22T09:13:11.370778Z BTCUSDT 77345.51 0.0003 23.9 declenche=non
+  · 2026-08-22T09:13:12.061372Z BTCUSDT 77345.5 0.0003 23.9 declenche=non
+  · 2026-08-22T09:13:12.061769Z BTCUSDT 77345.51 0.0003 24.1 declenche=non
 - Intention en cours : BETA a sonde le marche (9 sondes, 4 long / 5 court, conf moy | ALPHA attend son moment : 162 skips (discipline), le mur du  | ALPHA a frappe 6 fois en embuscade (13x) (dont 2 en mode rev
 - 500 signets X résumés (quota aujourd'hui : 0/50)
 - 56 fiches IA d'offres en cache (quota 8/jour)
