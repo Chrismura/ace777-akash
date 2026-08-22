@@ -1974,3 +1974,9 @@ Pas d’ordre — confrontation plus tard.
 ### 2026-08-22T04:37:50Z — ALERT auto
 - HBARUSDT: IMPULSE_WAIT — spike en cours, pas chase
 (compléter: confirmé ? risque ?)
+
+### 2026-08-22T04:47:56Z — ALERT auto
+- PYTHUSDT: IMPULSE_WAIT — spike en cours, pas chase
+- XRPUSDT: IMPULSE_WAIT — spike en cours, pas chase
+- WUSDT: IMPULSE_WAIT — spike en cours, pas chase
+(compléter: confirmé ? risque ?)
