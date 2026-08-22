@@ -1,4 +1,4 @@
-# ARCHITECTURE VIVANTE — ACE777 (2026-08-22 10:38 UTC)
+# ARCHITECTURE VIVANTE — ACE777 (2026-08-22 10:39 UTC)
 
 > Document GÉNÉRÉ AUTOMATIQUEMENT à l'instant. La famille valide
 > en s'appuyant sur CE contexte, pas sur des documents figés.
@@ -22,7 +22,7 @@
 
 ## État de la mission (bots + PnL)
 
-- mission.json : 2026-08-22 10:37Z · run `MASTER_VORTEX_V2_COLLAB_4H` · alerte `red`
+- mission.json : 2026-08-22 10:38Z · run `MASTER_VORTEX_V2_COLLAB_4H` · alerte `red`
 - PnL combiné : **-2.29 $** 📉 (combo -2.2873)
 - ALPHA (sniper (embuscade, ×13, revenge si claque)) : **-2.23 $** · 10 fills · 372 skips
 - BETA (éclaireur (chatouille le marché, alimente Alpha)) : **-0.06 $** · 16 fills · 342 skips
@@ -38,8 +38,6 @@
   · budget cloud : 624 max
   · par provider : gemini=505, groq=9, mistral=2516, nara=520, nvidia=2
 - [Nouvelles offres détectées (non intégrées)]
-- [ROLLBACK AUTO 2026-08-22]
-  · obs-1786688184 (cohere/north-mini-code:free) : 100% erreurs > 5% (observatoire)
   · dots-studio/dots-3-note-preview:free
   · liquid/lfm-2.5-2.6b:free
   · thinkingmachines/inkling-small:free
@@ -48,10 +46,10 @@
 ## Mémoire chaude (journal + résumés)
 
 - Radar (dernières alertes) :
-  · 2026-08-22T10:38:26.907099Z BTCUSDT 77038.58 0.0003 7.9 declenche=non
-  · 2026-08-22T10:38:26.922377Z ETHUSDT 2409.39 0.0002 76.1 declenche=non
-  · 2026-08-22T10:38:26.923573Z BTCUSDT 77038.58 0.0003 7.9 declenche=non
-  · 2026-08-22T10:38:26.943724Z ETHUSDT 2409.39 0.0002 76.2 declenche=non
+  · 2026-08-22T10:39:09.913657Z ETHUSDT 2411.37 0.0007 137.1 declenche=non
+  · 2026-08-22T10:39:09.933269Z BTCUSDT 77099.29 0.0007 5.2 declenche=non
+  · 2026-08-22T10:39:09.952766Z BTCUSDT 77099.3 0.0007 5.2 declenche=non
+  · 2026-08-22T10:39:10.356245Z BTCUSDT 77099.29 0.0007 5.2 declenche=non
 - Intention en cours : BETA a sonde le marche (16 sondes, 8 long / 8 court, conf mo | ALPHA attend son moment : 334 skips (discipline), le mur du  | ALPHA a frappe 10 fois en embuscade (13x) (dont 3 en mode re
 - 550 signets X résumés (quota aujourd'hui : 50/50)
 - 56 fiches IA d'offres en cache (quota 8/jour)
