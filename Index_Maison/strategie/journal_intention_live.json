@@ -1,21 +1,52 @@
 {
-  "ts": "2026-08-22T15:44:46.261612+00:00",
+  "ts": "2026-08-22T15:45:50.205023+00:00",
   "since": "2026-08-22T15:44:00Z",
   "bots": {
     "alpha": {
       "role": "sniper",
       "surnom": "Le Sniper",
       "fills": 0,
-      "skips": 0,
+      "skips": 1,
       "pnl": 0.0,
       "best": 0.0,
       "conf_moy": 0.0,
-      "events": [],
+      "events": [
+        {
+          "ts": "2026-08-22T15:45:04Z",
+          "bot": "alpha",
+          "cycle": 1,
+          "action": "wait",
+          "intention": "attente de l'etat du duo (Beta)",
+          "direction": null,
+          "conf": null,
+          "exit": "duo_wait",
+          "meta": {
+            "size_note": null,
+            "tension": null
+          },
+          "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv"
+        },
+        {
+          "ts": "2026-08-22T15:45:46Z",
+          "bot": "alpha",
+          "cycle": 2,
+          "action": "skip",
+          "intention": "skip — tactic_mismatch",
+          "direction": null,
+          "conf": null,
+          "exit": "tactic_mismatch",
+          "meta": {
+            "size_note": null,
+            "tension": null
+          },
+          "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv"
+        }
+      ],
       "counts": {
-        "wait": 0,
+        "wait": 1,
         "fire": 0,
         "probe": 0,
-        "skip": 0
+        "skip": 1
       },
       "direction": {
         "long": 0,
@@ -31,9 +62,40 @@
       "pnl": 0.0,
       "best": 0.0,
       "conf_moy": 0.0,
-      "events": [],
+      "events": [
+        {
+          "ts": "2026-08-22T15:44:53Z",
+          "bot": "beta",
+          "cycle": 1,
+          "action": "wait",
+          "intention": "attente — mur du carnet intact",
+          "direction": null,
+          "conf": null,
+          "exit": "impulse_resonance_wait",
+          "meta": {
+            "size_note": null,
+            "tension": 0.99760874
+          },
+          "file": "MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv"
+        },
+        {
+          "ts": "2026-08-22T15:45:33Z",
+          "bot": "beta",
+          "cycle": 2,
+          "action": "wait",
+          "intention": "attente — mur du carnet intact",
+          "direction": null,
+          "conf": null,
+          "exit": "impulse_resonance_wait",
+          "meta": {
+            "size_note": null,
+            "tension": 0.90152023
+          },
+          "file": "MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv"
+        }
+      ],
       "counts": {
-        "wait": 0,
+        "wait": 2,
         "fire": 0,
         "probe": 0,
         "skip": 0
