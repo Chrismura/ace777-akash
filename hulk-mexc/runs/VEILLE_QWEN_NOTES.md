@@ -1954,3 +1954,7 @@ Pas d’ordre — confrontation plus tard.
 ### 2026-08-22T02:28:59Z — ALERT auto
 - ZBCNUSDT: IMPULSE_WAIT — spike en cours, pas chase
 (compléter: confirmé ? risque ?)
+
+### 2026-08-22T02:50:08Z — ALERT auto
+- CCUSDT: IMPULSE_WAIT — spike en cours, pas chase
+(compléter: confirmé ? risque ?)
