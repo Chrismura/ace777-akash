@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-22T01:49:59.517624+00:00",
+  "generated_at": "2026-08-22T01:51:25.852654+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 429
+      "calls_24h": 433
     },
     {
       "id": "openrouter-free",
@@ -26,7 +26,7 @@
       "model": "qwen-3.8-max-free",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 893
+      "calls_24h": 898
     },
     {
       "id": "groq",
@@ -229,10 +229,82 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 464,
-    "remaining": 160
+    "consumed": 473,
+    "remaining": 151
   },
   "queue": [
+    {
+      "ts": "2026-08-22T01:51:21.886005+00:00",
+      "task": "analyse.profonde",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 2.93
+    },
+    {
+      "ts": "2026-08-22T01:51:10.900713+00:00",
+      "task": "analyse.profonde",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 2.92
+    },
+    {
+      "ts": "2026-08-22T01:50:59.993855+00:00",
+      "task": "analyse.profonde",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 2.97
+    },
+    {
+      "ts": "2026-08-22T01:50:57.074125+00:00",
+      "task": "supervise.decision",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 28.29
+    },
+    {
+      "ts": "2026-08-22T01:50:54.705212+00:00",
+      "task": "supervise.decision",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 17.83
+    },
+    {
+      "ts": "2026-08-22T01:50:49.102460+00:00",
+      "task": "analyse.profonde",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 2.56
+    },
+    {
+      "ts": "2026-08-22T01:50:44.486328+00:00",
+      "task": "analyse.profonde",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 88.65
+    },
+    {
+      "ts": "2026-08-22T01:50:25.288785+00:00",
+      "task": "supervise.decision",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 12.43
+    },
+    {
+      "ts": "2026-08-22T01:50:02.617338+00:00",
+      "task": "supervise.decision",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 18.31
+    },
     {
       "ts": "2026-08-22T01:49:33.381237+00:00",
       "task": "supervise.decision",
@@ -280,140 +352,68 @@
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
       "duration_s": 2.46
-    },
-    {
-      "ts": "2026-08-22T01:48:43.785085+00:00",
-      "task": "analyse.profonde",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 2.8
-    },
-    {
-      "ts": "2026-08-22T01:48:41.256759+00:00",
-      "task": "supervise.decision",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 0.79
-    },
-    {
-      "ts": "2026-08-22T01:48:40.723172+00:00",
-      "task": "supervise.decision",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 0.68
-    },
-    {
-      "ts": "2026-08-22T01:48:39.322787+00:00",
-      "task": "analyse.profonde",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 2.58
-    },
-    {
-      "ts": "2026-08-22T01:48:33.199890+00:00",
-      "task": "analyse.profonde",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 2.52
-    },
-    {
-      "ts": "2026-08-22T01:48:31.165700+00:00",
-      "task": "supervise.decision",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 0.95
-    },
-    {
-      "ts": "2026-08-22T01:48:28.813619+00:00",
-      "task": "analyse.profonde",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 2.88
-    },
-    {
-      "ts": "2026-08-22T01:48:22.788431+00:00",
-      "task": "analyse.profonde",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 2.45
-    },
-    {
-      "ts": "2026-08-22T01:48:20.381754+00:00",
-      "task": "supervise.decision",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 0.99
     }
   ],
   "events": [
     {
-      "ts": "2026-08-22T01:49:44.306404+00:00",
+      "ts": "2026-08-22T01:51:21.885672+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
+    {
+      "ts": "2026-08-22T01:51:10.900307+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
+    {
+      "ts": "2026-08-22T01:51:03.617082+00:00",
       "kind": "failover",
       "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
       "detail": "0 attente"
     },
     {
-      "ts": "2026-08-22T01:49:33.380157+00:00",
+      "ts": "2026-08-22T01:50:59.993283+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
+    {
+      "ts": "2026-08-22T01:50:57.073641+00:00",
       "kind": "message",
       "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
       "detail": "bascule"
     },
     {
-      "ts": "2026-08-22T01:49:24.641901+00:00",
-      "kind": "failover",
-      "title": "Saute (blacklist) depuis HuggingFace (136+ modeles, dont DeepSeek-V4)",
-      "detail": "0 attente"
-    },
-    {
-      "ts": "2026-08-22T01:49:24.641595+00:00",
-      "kind": "failover",
-      "title": "Saute (blacklist) depuis Google Gemini",
-      "detail": "0 attente"
-    },
-    {
-      "ts": "2026-08-22T01:49:22.196883+00:00",
+      "ts": "2026-08-22T01:50:54.704702+00:00",
       "kind": "message",
-      "title": "« Mistral La Plateforme (essai gratuit) » a repondu",
+      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
       "detail": "bascule"
     },
     {
-      "ts": "2026-08-22T01:49:22.195664+00:00",
-      "kind": "filet-universel",
-      "title": "[FILET UNIVERSEL] « Mistral La Plateforme (essai gratuit) » a repondu hors chaine",
-      "detail": "analyse.profonde"
+      "ts": "2026-08-22T01:50:49.102131+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
     },
     {
-      "ts": "2026-08-22T01:49:17.433344+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis NVIDIA build.nvidia.com (100+ modeles)",
-      "detail": "The read operation timed out"
-    },
-    {
-      "ts": "2026-08-22T01:49:15.838270+00:00",
-      "kind": "failover",
-      "title": "Saute (blacklist) depuis HuggingFace (136+ modeles, dont DeepSeek-V4)",
-      "detail": "0 attente"
-    },
-    {
-      "ts": "2026-08-22T01:49:15.837839+00:00",
-      "kind": "failover",
-      "title": "Saute (blacklist) depuis Google Gemini",
-      "detail": "0 attente"
-    },
-    {
-      "ts": "2026-08-22T01:49:15.299367+00:00",
+      "ts": "2026-08-22T01:50:46.541864+00:00",
       "kind": "blacklist",
-      "title": "Fin de pause NaraRouter (7M tokens/jour gratuits)",
+      "title": "Fin de pause Google Gemini",
       "detail": "re-essai automatique"
+    },
+    {
+      "ts": "2026-08-22T01:50:44.485819+00:00",
+      "kind": "message",
+      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
+      "detail": "bascule"
+    },
+    {
+      "ts": "2026-08-22T01:50:36.877538+00:00",
+      "kind": "failover",
+      "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
+      "detail": "0 attente"
     }
   ],
   "tasks_quotas": {
