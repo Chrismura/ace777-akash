@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-22T16:59:19.271221+00:00",
+  "generated_at": "2026-08-22T17:00:08.692028+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -356,6 +356,18 @@
   ],
   "events": [
     {
+      "ts": "2026-08-22T16:59:30.884096+00:00",
+      "kind": "failover",
+      "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
+      "detail": "0 attente"
+    },
+    {
+      "ts": "2026-08-22T16:59:30.882618+00:00",
+      "kind": "reserve-storm",
+      "title": "Tempête active + budget calme atteint -> réserve storm pour supervise.decision",
+      "detail": "supervise.decision"
+    },
+    {
       "ts": "2026-08-22T16:59:18.933557+00:00",
       "kind": "message",
       "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
@@ -402,18 +414,6 @@
       "kind": "failover",
       "title": "Saute (blacklist) depuis HuggingFace (136+ modeles, dont DeepSeek-V4)",
       "detail": "0 attente"
-    },
-    {
-      "ts": "2026-08-22T16:58:50.307960+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis Google Gemini",
-      "detail": "HTTP Error 429: Too Many Requests"
-    },
-    {
-      "ts": "2026-08-22T16:58:50.307531+00:00",
-      "kind": "ratelimit",
-      "title": "429 Google Gemini -> pause 60s + bascule",
-      "detail": ""
     }
   ],
   "tasks_quotas": {
