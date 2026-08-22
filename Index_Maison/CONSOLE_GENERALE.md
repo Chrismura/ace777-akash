@@ -1,12 +1,12 @@
 # Console générale — clin d’œil
 
-Auto-refresh : 2026-08-22 10:49 UTC · jour local **2026-08-22**
+Auto-refresh : 2026-08-22 10:50 UTC · jour local **2026-08-22**
 
 ## Feu tricolore
 
 | Jambe | État | Détail |
 |-------|------|--------|
-| **ACE** | 🟢 RUN | Dernier tag `MASTER_VORTEX_V2_COLLAB_4H` · combo ≈ **+313.88 $** |
+| **ACE** | 🟢 RUN | Dernier tag `MASTER_VORTEX_V2_COLLAB_4H` · combo ≈ **+314.41 $** |
 | **Hulk paper** | 🟢 RUN | pnl_total ≈ **-0.1079** · pos **12** |
 | **Hulk digest** | 🟢 RUN | mtime 2026-08-22T10:49Z |
 | **Punk** | 🔴 STOP | — · idle |
@@ -17,7 +17,7 @@ Auto-refresh : 2026-08-22 10:49 UTC · jour local **2026-08-22**
 
 | Run | Alpha | Beta | Combo |
 |-----|-------|------|-------|
-| `MASTER_VORTEX_V2_COLLAB_4H` | +286.93 (n=1390) | +26.95 (n=4485) | **+313.88** |
+| `MASTER_VORTEX_V2_COLLAB_4H` | +286.93 (n=1390) | +27.48 (n=4486) | **+314.41** |
 | `MASTER_BASE_V8_5_IMPACT_4H` | +3.60 (n=7) | +0.91 (n=162) | **+4.51** |
 | `NUAGE_HUB_V1` | +0.00 (n=0) | +0.00 (n=0) | **+0.00** |
 | `NUAGE_PROD_4H` | +155.25 (n=212) | +16.64 (n=3894) | **+171.89** |
