@@ -1,5 +1,5 @@
 {
-  "ts": "2026-08-22T11:45:25.603695+00:00",
+  "ts": "2026-08-22T11:46:11.287390+00:00",
   "since": "2026-08-22T11:34:00Z",
   "bots": {
     "alpha": {
@@ -253,26 +253,11 @@
       "role": "eclaireur",
       "surnom": "L'Eclaireur",
       "fills": 1,
-      "skips": 20,
+      "skips": 21,
       "pnl": -0.1024,
       "best": 0.0,
       "conf_moy": 0.881,
       "events": [
-        {
-          "ts": "2026-08-22T11:39:05Z",
-          "bot": "beta",
-          "cycle": 10,
-          "action": "skip",
-          "intention": "skip — gap_guard_pause",
-          "direction": null,
-          "conf": null,
-          "exit": "gap_guard_pause",
-          "meta": {
-            "size_note": null,
-            "tension": null
-          },
-          "file": "MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv"
-        },
         {
           "ts": "2026-08-22T11:39:09Z",
           "bot": "beta",
@@ -557,13 +542,28 @@
             "tension": 0.65304717
           },
           "file": "MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv"
+        },
+        {
+          "ts": "2026-08-22T11:45:35Z",
+          "bot": "beta",
+          "cycle": 30,
+          "action": "skip",
+          "intention": "skip — regime_gate",
+          "direction": null,
+          "conf": null,
+          "exit": "regime_gate",
+          "meta": {
+            "size_note": null,
+            "tension": 0.00115677
+          },
+          "file": "MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv"
         }
       ],
       "counts": {
         "wait": 8,
         "fire": 0,
         "probe": 1,
-        "skip": 20
+        "skip": 21
       },
       "direction": {
         "long": 1,
