@@ -58,6 +58,8 @@ Intégration cockpit (2 lignes dans index.html) · passage au réel · cumul des
 
 | ts | Qui | Action | Où | Quoi |
 |----|-----|--------|-----|------|
+| 2026-08-22T0922Z | journal_auto | ★ | CONSOLE+Journal_2026-08-22 | Snapshot auto hygiène soir |
+| 2026-08-22T0922Z | journal_soir | ★ | journal | snapshot soir auto |
 | 2026-08-22T0921Z | journal_auto | ★ | CONSOLE+Journal_2026-08-22 | Snapshot auto hygiène soir |
 | 2026-08-22T0921Z | journal_soir | ★ | journal | snapshot soir auto |
 | 2026-08-22T0920Z | journal_auto | ★ | CONSOLE+Journal_2026-08-22 | Snapshot auto hygiène soir |
@@ -1833,3 +1835,4 @@ Intégration cockpit (2 lignes dans index.html) · passage au réel · cumul des
 - Brique `veille_degradation.py` (codeur, corrigée Buffy : chemins + `True`) implémentée + plist 60 s chargée + chaîne 8 dans sante_index → **8/8 chaînes OK**.
 - **ERREUR CORRIGÉE (Christophe)** : 1ʳᵉ consultation famille improvisée au lieu du canon `consulter_famille.py`+`famille.json` → re-consultation CANONIQUE : **UNANIME GO-AVEC-RÉSERVES (82-88%)**, exigence DMS externe + Fail-Fast + chaos test → `dms_veille.py` (plist 60 s, alertes + rapport cockpit) + fail-fast 5 plists dans `GO_VORTEX_V2.sh` + `--test-panne` (alerte prouvée par le feu) → tout testé, **8/8 chaînes OK**.
 - `MEMOIRE_SUFFRANCE_EN_FORCE_2026-08-20.md` : analyse honnête (demande Christophe, strict) — les idées n'ont jamais été le problème, les erreurs sont dans la couche d'exécution ; verdict par objectif (stabilité/résilience atteignables, prédiction magique non) ; la bonne séquence résilience→stabilité→mesure→rentabilité ; plan famille (contester en entier) discuté, PAS exécuté. Sync Obsidian + GitHub.
+| 2026-08-22T0922Z | skill:kelly | ★ | trading.skills → Mistral La Plateforme (essai gratuit) | ### **ACE777 - Dimensionnement Optimal**
