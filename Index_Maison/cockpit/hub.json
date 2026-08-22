@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-22T08:22:01.974083+00:00",
+  "generated_at": "2026-08-22T08:22:29.114422+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -26,7 +26,7 @@
       "model": "qwen-3.8-max-free",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 427
+      "calls_24h": 429
     },
     {
       "id": "groq",
@@ -229,10 +229,26 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 2338,
+    "consumed": 2340,
     "remaining": 0
   },
   "queue": [
+    {
+      "ts": "2026-08-22T08:22:15.648704+00:00",
+      "task": "supervise.decision",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 17.3
+    },
+    {
+      "ts": "2026-08-22T08:22:08.639354+00:00",
+      "task": "analyse.profonde",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 219.09
+    },
     {
       "ts": "2026-08-22T08:21:47.563337+00:00",
       "task": "supervise.decision",
@@ -336,25 +352,45 @@
       "model": "qwen-3.8-max-free",
       "kind": "cloud",
       "duration_s": 23.35
-    },
-    {
-      "ts": "2026-08-22T08:16:50.667478+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 75.98
-    },
-    {
-      "ts": "2026-08-22T08:15:21.238600+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 133.51
     }
   ],
   "events": [
+    {
+      "ts": "2026-08-22T08:22:20.812560+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis Groq (LLM ultra-rapide, gratuit)",
+      "detail": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "ts": "2026-08-22T08:22:20.812216+00:00",
+      "kind": "ratelimit",
+      "title": "429 Groq (LLM ultra-rapide, gratuit) -> pause 60s + bascule",
+      "detail": ""
+    },
+    {
+      "ts": "2026-08-22T08:22:20.617814+00:00",
+      "kind": "blacklist",
+      "title": "Fin de pause Groq (LLM ultra-rapide, gratuit)",
+      "detail": "re-essai automatique"
+    },
+    {
+      "ts": "2026-08-22T08:22:20.617124+00:00",
+      "kind": "reserve-storm",
+      "title": "Tempête active + budget calme atteint -> réserve storm pour supervise.decision",
+      "detail": "supervise.decision"
+    },
+    {
+      "ts": "2026-08-22T08:22:15.648258+00:00",
+      "kind": "message",
+      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
+      "detail": "bascule"
+    },
+    {
+      "ts": "2026-08-22T08:22:08.638545+00:00",
+      "kind": "message",
+      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
+      "detail": "bascule"
+    },
     {
       "ts": "2026-08-22T08:21:58.349481+00:00",
       "kind": "failover",
@@ -378,42 +414,6 @@
       "kind": "failover",
       "title": "Bascule depuis Google Gemini",
       "detail": "HTTP Error 429: Too Many Requests"
-    },
-    {
-      "ts": "2026-08-22T08:21:52.435542+00:00",
-      "kind": "ratelimit",
-      "title": "429 Google Gemini -> pause 60s + bascule",
-      "detail": ""
-    },
-    {
-      "ts": "2026-08-22T08:21:52.063673+00:00",
-      "kind": "blacklist",
-      "title": "Fin de pause Google Gemini",
-      "detail": "re-essai automatique"
-    },
-    {
-      "ts": "2026-08-22T08:21:52.060699+00:00",
-      "kind": "quota",
-      "title": "Budget calme atteint -> bascule famille (gratuits)",
-      "detail": "analyse.profonde"
-    },
-    {
-      "ts": "2026-08-22T08:21:47.562965+00:00",
-      "kind": "message",
-      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
-      "detail": "bascule"
-    },
-    {
-      "ts": "2026-08-22T08:21:24.566134+00:00",
-      "kind": "failover",
-      "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
-      "detail": "0 attente"
-    },
-    {
-      "ts": "2026-08-22T08:21:24.565127+00:00",
-      "kind": "reserve-storm",
-      "title": "Tempête active + budget calme atteint -> réserve storm pour supervise.decision",
-      "detail": "supervise.decision"
     }
   ],
   "tasks_quotas": {
