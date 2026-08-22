@@ -1,4 +1,4 @@
-# ARCHITECTURE VIVANTE — ACE777 (2026-08-22 04:55 UTC)
+# ARCHITECTURE VIVANTE — ACE777 (2026-08-22 04:56 UTC)
 
 > Document GÉNÉRÉ AUTOMATIQUEMENT à l'instant. La famille valide
 > en s'appuyant sur CE contexte, pas sur des documents figés.
@@ -9,7 +9,7 @@
 - ✅ radar
 - ⛔ lecteur signets
 - ⛔ générateur fiches
-- ⛔ feed mission
+- ✅ feed mission
 - ⛔ serveur cockpit
 
 ## Routage des tâches de décision
@@ -34,12 +34,10 @@
 - [Santé]
   · hub : OK (14 providers)
 - [Énergie du jour]
-  · appels : 843 (cloud 843)
+  · appels : 853 (cloud 853)
   · budget cloud : 624 max
-  · par provider : gemini=2, groq=2, mistral=676, nara=161, nvidia=2
+  · par provider : gemini=2, groq=2, mistral=686, nara=161, nvidia=2
 - [Nouvelles offres détectées (non intégrées)]
-- [ROLLBACK AUTO 2026-08-22]
-  · obs-1786774656 (nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free) : 100% erreurs > 5% (o
   · dots-studio/dots-3-note-preview:free
   · liquid/lfm-2.5-2.6b:free
   · thinkingmachines/inkling-small:free
@@ -48,11 +46,11 @@
 ## Mémoire chaude (journal + résumés)
 
 - Radar (dernières alertes) :
-  · 2026-08-22T04:55:32.139951Z ETHUSDT 2517.71 0.0002 31.1 declenche=non
-  · 2026-08-22T04:55:32.140100Z ETHUSDT 2517.72 0.0002 31.1 declenche=non
-  · 2026-08-22T04:55:32.447485Z ETHUSDT 2517.72 0.0002 31.2 declenche=non
-  · 2026-08-22T04:55:32.575390Z ETHUSDT 2517.72 0.0002 31.4 declenche=non
-- Intention en cours : BETA a sonde le marche (9 sondes, 6 long / 3 court, conf moy | ALPHA attend son moment : 144 skips (discipline), le mur du  | ALPHA a frappe 6 fois en embuscade (13x) (dont 4 en mode rev
+  · 2026-08-22T04:56:04.272380Z ETHUSDT 2518.34 0.0000 101.4 declenche=non
+  · 2026-08-22T04:56:04.273247Z BTCUSDT 78530.16 0.0002 8.1 declenche=non
+  · 2026-08-22T04:56:04.736346Z BTCUSDT 78530.17 0.0002 8.1 declenche=non
+  · 2026-08-22T04:56:04.886568Z BTCUSDT 78530.17 0.0002 8.3 declenche=non
+- Intention en cours : BETA a sonde le marche (9 sondes, 6 long / 3 court, conf moy | ALPHA attend son moment : 146 skips (discipline), le mur du  | ALPHA a frappe 6 fois en embuscade (13x) (dont 4 en mode rev
 - 500 signets X résumés (quota aujourd'hui : 0/50)
 - 56 fiches IA d'offres en cache (quota 8/jour)
 
