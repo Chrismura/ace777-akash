@@ -1980,3 +1980,8 @@ Pas d’ordre — confrontation plus tard.
 - XRPUSDT: IMPULSE_WAIT — spike en cours, pas chase
 - WUSDT: IMPULSE_WAIT — spike en cours, pas chase
 (compléter: confirmé ? risque ?)
+
+### 2026-08-22T04:58:47Z — ALERT auto
+- CCUSDT: IMPULSE_WAIT — spike en cours, pas chase
+- BIOUSDT: IMPULSE_WAIT — spike en cours, pas chase
+(compléter: confirmé ? risque ?)
