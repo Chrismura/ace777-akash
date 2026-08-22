@@ -1944,3 +1944,9 @@ Pas d’ordre — confrontation plus tard.
 - PYTHUSDT: IMPULSE_WAIT — spike en cours, pas chase
 - XRPUSDT: IMPULSE_WAIT — spike en cours, pas chase
 (compléter: confirmé ? risque ?)
+
+### 2026-08-22T02:24:07Z — ALERT auto
+- PYTHUSDT: IMPULSE_WAIT — spike en cours, pas chase
+- XRPUSDT: IMPULSE_WAIT — spike en cours, pas chase
+- BIOUSDT: IMPULSE_WAIT — spike en cours, pas chase
+(compléter: confirmé ? risque ?)
