@@ -1,17 +1,17 @@
 {
-  "timestamp": "2026-08-22T09:59:10Z",
+  "timestamp": "2026-08-22T09:59:24Z",
   "generation_source": "system_state_generator.py v2.1",
   "status": "STALE",
-  "feed_hash": "812e0044017b00c942dacc591182f9ef94de1abd61b98b41e713c9e2b8f14f64",
+  "feed_hash": "2ff36c2784f8593c9dd734fe74e6a84ee46010a2f8efc8bd7c9bd2c24b75056b",
   "feeds": {
     "mission": {
       "present": true,
-      "age_seconds": 0,
+      "age_seconds": 15,
       "fresh_limit_s": 120
     },
     "cortana_feed": {
       "present": true,
-      "age_seconds": 19,
+      "age_seconds": 4,
       "fresh_limit_s": 120
     },
     "live": {
@@ -21,19 +21,19 @@
     },
     "routing": {
       "present": true,
-      "age_seconds": 4474,
+      "age_seconds": 4489,
       "fresh_limit_s": 120
     }
   },
   "services": {
     "total": 53,
-    "running": 26,
-    "planned": 27,
+    "running": 25,
+    "planned": 28,
     "running_list": [
       "application.com.ace777.cockpit-app.14931296.14931301",
-      "com.ace777.backup-check",
       "com.ace777.bloc-privatise",
       "com.ace777.cockpit-http",
+      "com.ace777.cockpit-pont",
       "com.ace777.cortana-feed",
       "com.ace777.cortana.urgent",
       "com.ace777.couleur-regime-score",
@@ -44,7 +44,6 @@
       "com.ace777.observatoire",
       "com.ace777.prise-ia",
       "com.ace777.roulement-ia",
-      "com.ace777.routeur-auto",
       "com.ace777.run-setupA-4h",
       "com.ace777.sniffer-matin",
       "com.ace777.sniffer-ny",
@@ -60,8 +59,8 @@
     "planned_list": [
       "com.ace777.archi-vivante",
       "com.ace777.autopilote",
+      "com.ace777.backup-check",
       "com.ace777.catalogue",
-      "com.ace777.cockpit-pont",
       "com.ace777.couleur-regime",
       "com.ace777.cpfp",
       "com.ace777.dms-veille",
@@ -75,6 +74,7 @@
       "com.ace777.pont-onchain",
       "com.ace777.queueoffres",
       "com.ace777.rappels",
+      "com.ace777.routeur-auto",
       "com.ace777.run-vortex-96h",
       "com.ace777.run72h",
       "com.ace777.sante-index",
@@ -110,7 +110,13 @@
     }
   },
   "backup_light": {
-    "presence": {},
+    "presence": {
+      "mirofis": true,
+      "crypto-voice-assistant-core": true,
+      "ACE777_ARCHIVES_BRUTES_DONNEES": true,
+      "Assistant_Vocal_HORS_VAULT": true,
+      "Obsidian_BACKUPS_HORS_VAULT": true
+    },
     "sizes_ko": {
       "mirofis": 1068252,
       "crypto-voice-assistant-core": 4041164,
@@ -118,7 +124,7 @@
       "Assistant_Vocal_HORS_VAULT": 697372,
       "Obsidian_BACKUPS_HORS_VAULT": 14936872
     },
-    "presence_at": null,
+    "presence_at": "2026-08-22T09:59:20Z",
     "sizes_at": "2026-08-22T08:04:37Z"
   }
 }
