@@ -9,7 +9,7 @@
 - ✅ radar
 - ⛔ lecteur signets
 - ⛔ générateur fiches
-- ⛔ feed mission
+- ✅ feed mission
 - ⛔ serveur cockpit
 
 ## Routage des tâches de décision
@@ -22,7 +22,7 @@
 
 ## État de la mission (bots + PnL)
 
-- mission.json : 2026-08-22 14:59Z · run `MASTER_VORTEX_V2_COLLAB_4H` · alerte `red`
+- mission.json : 2026-08-22 15:00Z · run `MASTER_VORTEX_V2_COLLAB_4H` · alerte `red`
 - PnL combiné : **4.43 $** 📉 (combo 4.4305)
 - ALPHA (sniper (embuscade, ×13, revenge si claque)) : **+4.63 $** · 7 fills · 150 skips
 - BETA (éclaireur (chatouille le marché, alimente Alpha)) : **-0.20 $** · 9 fills · 193 skips
@@ -34,22 +34,22 @@
 - [Santé]
   · hub : OK (14 providers)
 - [Énergie du jour]
-  · appels : 43 (cloud 43)
+  · appels : 47 (cloud 47)
   · budget cloud : 624 max
-  · par provider : groq=1, mistral=39, nara=3
+  · par provider : groq=1, mistral=43, nara=3
 - [Nouvelles offres détectées (non intégrées)]
   · dots-studio/dots-3-note-preview:free
   · liquid/lfm-2.5-2.6b:free
   · thinkingmachines/inkling-small:free
-  … 106 offres/pépites détectées ce matin
+  … 107 offres/pépites détectées ce matin
 
 ## Mémoire chaude (journal + résumés)
 
 - Radar (dernières alertes) :
-  · 2026-08-22T15:00:21.904149Z BTCUSDT 77010.67 0.0001 4.6 declenche=non
-  · 2026-08-22T15:00:21.906993Z BTCUSDT 77010.67 0.0001 4.6 declenche=non
-  · 2026-08-22T15:00:21.954315Z BTCUSDT 77010.67 0.0001 4.6 declenche=non
-  · 2026-08-22T15:00:21.954315Z BTCUSDT 77010.67 0.0001 4.6 declenche=non
+  · 2026-08-22T15:00:43.116946Z ETHUSDT 2412.83 0.0002 1.8 declenche=non
+  · 2026-08-22T15:00:43.117077Z ETHUSDT 2412.84 0.0002 1.8 declenche=non
+  · 2026-08-22T15:00:43.117199Z ETHUSDT 2412.85 0.0002 1.8 declenche=non
+  · 2026-08-22T15:00:43.444210Z BTCUSDT 76992.01 0.0000 0.0 declenche=non
 - Intention en cours : BETA a sonde le marche (9 sondes, 6 long / 3 court, conf moy | ALPHA attend son moment : 143 skips (discipline), le mur du  | ALPHA a frappe 7 fois en embuscade (13x) (dont 7 en mode rev
 - 550 signets X résumés (quota aujourd'hui : 50/50)
 - 56 fiches IA d'offres en cache (quota 8/jour)
