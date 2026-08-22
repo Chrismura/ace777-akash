@@ -8,7 +8,7 @@
   "comboFees24h": -355.7827,
   "comboPnlNet": -104.7809,
   "comboArrow": "down",
-  "swarmCycle": 312,
+  "swarmCycle": 313,
   "thrust": {
     "alpha": 31.997,
     "beta": 61.588,
@@ -18,10 +18,23 @@
     "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv",
     "pnl": -1.6003,
     "fills": 9,
-    "skips": 299,
+    "skips": 300,
     "pnlLifetime": 286.146,
     "fillsLifetime": 2058,
     "last": [
+      {
+        "ts": "2026-08-22T10:04:03Z",
+        "side": "SKIP",
+        "status": "SKIPPED",
+        "pnl": 0.0,
+        "qty": null,
+        "entry": null,
+        "exit": null,
+        "bps": null,
+        "reason": "regime_gate",
+        "cycle": "313",
+        "tension": 0.0
+      },
       {
         "ts": "2026-08-22T10:03:35Z",
         "side": "SKIP",
@@ -622,18 +635,6 @@
         "bps": null,
         "reason": "gap_guard_pause",
         "cycle": "264"
-      },
-      {
-        "ts": "2026-08-22T09:50:06Z",
-        "side": "SKIP",
-        "status": "SKIPPED",
-        "pnl": 0.0,
-        "qty": null,
-        "entry": null,
-        "exit": null,
-        "bps": null,
-        "reason": "gap_guard_pause",
-        "cycle": "263"
       }
     ],
     "fills_only": [
@@ -757,7 +758,7 @@
       -0.25578,
       2.65424
     ],
-    "cycle": "312",
+    "cycle": "313",
     "lastFill": {
       "ts": "2026-08-22T10:00:29Z",
       "side": "BUY",
@@ -771,7 +772,7 @@
       "cycle": "294"
     },
     "sessionSince": "2026-08-22T07:34Z",
-    "mtime": "2026-08-22T10:03Z"
+    "mtime": "2026-08-22T10:04Z"
   },
   "beta": {
     "file": "MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv",
@@ -3343,14 +3344,14 @@
       "whaleFragBtc": 0,
       "whaleCumul24hBtc": 0.0,
       "whaleMoy7jBtc": 0.0,
-      "whaleDir": "bearish",
-      "whaleDirLabel": "bearish",
+      "whaleDir": "neutral",
+      "whaleDirLabel": "neutral",
       "whaleDirScan": "neutral",
-      "whaleDirProxy": "bearish",
-      "whaleProxyN": 2,
-      "whaleProxyUsd": 4012569.0,
+      "whaleDirProxy": "neutral",
+      "whaleProxyN": 0,
+      "whaleProxyUsd": 0.0,
       "whaleProxyBuyUsd": 0.0,
-      "whaleProxySellUsd": 5424009.0,
+      "whaleProxySellUsd": 0.0,
       "whaleSource": "inconnue",
       "whaleEcartSeuil": null,
       "whaleAlerte": false,
@@ -3364,7 +3365,7 @@
       "cpfpGlobal": false,
       "cpfpZscore": 0.0,
       "cpfpDustScore": 100.0,
-      "cpfpDustDetail": "poussière <4.5 sat/vB (normalisé minFee 3×1.5) : 8 vues ce run, 17443 cumulées 48h (seuil 1000) — max 0.0133 BTC",
+      "cpfpDustDetail": "poussière <4.5 sat/vB (normalisé minFee 3×1.5) : 7 vues ce run, 17454 cumulées 48h (seuil 1000) — max 4.9913 BTC",
       "blocPrivatiseMode": "actif",
       "blocPrivatiseTauxFantome": 1.6078,
       "blocPrivatiseNbCachees": 76,
@@ -3436,48 +3437,18 @@
     }
   },
   "intention": {
-    "ts": "2026-08-22T10:03:31.821759+00:00",
+    "ts": "2026-08-22T10:04:09.928805+00:00",
     "since": "2026-08-22T07:34:00Z",
     "bots": {
       "alpha": {
         "role": "sniper",
         "surnom": "Le Sniper",
         "fills": 9,
-        "skips": 275,
+        "skips": 276,
         "pnl": -1.6002999999999994,
         "best": 2.65424,
         "conf_moy": 0.8563777777777779,
         "events": [
-          {
-            "ts": "2026-08-22T09:57:50Z",
-            "bot": "alpha",
-            "cycle": 292,
-            "action": "skip",
-            "intention": "skip — gap_guard_pause",
-            "direction": null,
-            "conf": null,
-            "exit": "gap_guard_pause",
-            "meta": {
-              "size_note": null,
-              "tension": null
-            },
-            "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv"
-          },
-          {
-            "ts": "2026-08-22T09:58:15Z",
-            "bot": "alpha",
-            "cycle": 293,
-            "action": "skip",
-            "intention": "skip — regime_gate",
-            "direction": null,
-            "conf": null,
-            "exit": "regime_gate",
-            "meta": {
-              "size_note": null,
-              "tension": 0.0
-            },
-            "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv"
-          },
           {
             "ts": "2026-08-22T10:00:29Z",
             "bot": "alpha",
@@ -3747,13 +3718,43 @@
               "tension": 0.01352658
             },
             "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv"
+          },
+          {
+            "ts": "2026-08-22T10:03:35Z",
+            "bot": "alpha",
+            "cycle": 312,
+            "action": "wait",
+            "intention": "attente de l'etat du duo (Beta)",
+            "direction": null,
+            "conf": null,
+            "exit": "duo_wait",
+            "meta": {
+              "size_note": null,
+              "tension": null
+            },
+            "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv"
+          },
+          {
+            "ts": "2026-08-22T10:04:03Z",
+            "bot": "alpha",
+            "cycle": 313,
+            "action": "skip",
+            "intention": "skip — regime_gate",
+            "direction": null,
+            "conf": null,
+            "exit": "regime_gate",
+            "meta": {
+              "size_note": null,
+              "tension": 0.0
+            },
+            "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv"
           }
         ],
         "counts": {
-          "wait": 23,
+          "wait": 24,
           "fire": 9,
           "probe": 0,
-          "skip": 275
+          "skip": 276
         },
         "direction": {
           "long": 5,
@@ -4086,7 +4087,7 @@
     },
     "story": [
       "BETA a sonde le marche (14 sondes, 7 long / 7 court, conf moyenne 0.91) — il renseigne Alpha.",
-      "ALPHA attend son moment : 275 skips (discipline), le mur du carnet ne s'effondre pas.",
+      "ALPHA attend son moment : 276 skips (discipline), le mur du carnet ne s'effondre pas.",
       "ALPHA a frappe 9 fois en embuscade (13x) (dont 3 en mode revenge 1.5x) : -1.60 $, meilleur trade +2.65 $."
     ]
   },

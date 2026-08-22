@@ -1,4 +1,4 @@
-# ARCHITECTURE VIVANTE — ACE777 (2026-08-22 10:03 UTC)
+# ARCHITECTURE VIVANTE — ACE777 (2026-08-22 10:04 UTC)
 
 > Document GÉNÉRÉ AUTOMATIQUEMENT à l'instant. La famille valide
 > en s'appuyant sur CE contexte, pas sur des documents figés.
@@ -9,7 +9,7 @@
 - ✅ radar
 - ⛔ lecteur signets
 - ⛔ générateur fiches
-- ⛔ feed mission
+- ✅ feed mission
 - ⛔ serveur cockpit
 
 ## Routage des tâches de décision
@@ -34,9 +34,9 @@
 - [Santé]
   · hub : OK (14 providers)
 - [Énergie du jour]
-  · appels : 3428 (cloud 3428)
+  · appels : 3431 (cloud 3431)
   · budget cloud : 624 max
-  · par provider : gemini=504, groq=8, mistral=2430, nara=484, nvidia=2
+  · par provider : gemini=504, groq=8, mistral=2433, nara=484, nvidia=2
 - [Nouvelles offres détectées (non intégrées)]
   · dots-studio/dots-3-note-preview:free
   · liquid/lfm-2.5-2.6b:free
@@ -46,11 +46,11 @@
 ## Mémoire chaude (journal + résumés)
 
 - Radar (dernières alertes) :
-  · 2026-08-22T10:03:53.529399Z ETHUSDT 2405.0 0.0052 1533.5 declenche=oui
-  · 2026-08-22T10:03:53.529869Z ETHUSDT 2405.02 0.0052 1533.5 declenche=oui
-  · 2026-08-22T10:03:53.530288Z ETHUSDT 2405.05 0.0052 1533.5 declenche=oui
-  · 2026-08-22T10:03:53.531861Z BTCUSDT 76825.06 0.0012 16.4 declenche=non
-- Intention en cours : BETA a sonde le marche (14 sondes, 7 long / 7 court, conf mo | ALPHA attend son moment : 275 skips (discipline), le mur du  | ALPHA a frappe 9 fois en embuscade (13x) (dont 3 en mode rev
+  · 2026-08-22T10:04:03.969015Z ETHUSDT 2407.37 0.0042 1927.2 declenche=oui
+  · 2026-08-22T10:04:03.971185Z ETHUSDT 2407.35 0.0042 1927.2 declenche=oui
+  · 2026-08-22T10:04:03.971478Z ETHUSDT 2407.34 0.0042 1927.2 declenche=oui
+  · 2026-08-22T10:04:04.041986Z BTCUSDT 76840.32 0.0010 21.5 declenche=non
+- Intention en cours : BETA a sonde le marche (14 sondes, 7 long / 7 court, conf mo | ALPHA attend son moment : 276 skips (discipline), le mur du  | ALPHA a frappe 9 fois en embuscade (13x) (dont 3 en mode rev
 - 550 signets X résumés (quota aujourd'hui : 50/50)
 - 56 fiches IA d'offres en cache (quota 8/jour)
 
