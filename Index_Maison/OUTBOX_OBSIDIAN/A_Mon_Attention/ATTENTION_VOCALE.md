@@ -1,7 +1,7 @@
 # Attention vocale — Cortana
 
 ## Dernier résumé
-> Info Changement de tendance. Structure hausse, signe une heure -.. Provenance cortana_watch_trend.
+> Info Fill Bêta. Bêta : SELL, +1.76 dollars. Provenance cortana_watch_fill.
 
 ## Meta
 - statut: READY
@@ -13,9 +13,3 @@
 
 ## Règle
 Cortana / `speak_attention` peut lire le résumé, puis repasser IDLE.
-
-
-## ⚠️ SUPERVISEUR — besoin de Christophe
-- ts: 20260822T0911Z
-- demande: Limite de relances atteinte pour com.ace777.cortana.horaire
-- pourquoi: 3 relances/jour dépassées, intervention humaine requise.
