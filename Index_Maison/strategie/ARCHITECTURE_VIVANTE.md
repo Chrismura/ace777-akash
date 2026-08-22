@@ -1,4 +1,4 @@
-# ARCHITECTURE VIVANTE — ACE777 (2026-08-22 17:11 UTC)
+# ARCHITECTURE VIVANTE — ACE777 (2026-08-22 17:12 UTC)
 
 > Document GÉNÉRÉ AUTOMATIQUEMENT à l'instant. La famille valide
 > en s'appuyant sur CE contexte, pas sur des documents figés.
@@ -34,24 +34,24 @@
 - [Santé]
   · hub : OK (14 providers)
 - [Énergie du jour]
-  · appels : 862 (cloud 862)
+  · appels : 869 (cloud 869)
   · budget cloud : 624 max
-  · par provider : gemini=2, groq=3, mistral=720, nara=137
+  · par provider : gemini=2, groq=3, mistral=727, nara=137
 - [Nouvelles offres détectées (non intégrées)]
 - [ROLLBACK AUTO 2026-08-22]
-  · obs-1786688184 (cohere/north-mini-code:free) : 100% erreurs > 5% (observatoire)
+  · obs-1786774646 (nvidia/nemotron-3-nano-30b-a3b:free) : 100% erreurs > 5% (observatoire)
   · dots-studio/dots-3-note-preview:free
   · liquid/lfm-2.5-2.6b:free
   · thinkingmachines/inkling-small:free
-  … 110 offres/pépites détectées ce matin
+  … 108 offres/pépites détectées ce matin
 
 ## Mémoire chaude (journal + résumés)
 
 - Radar (dernières alertes) :
-  · 2026-08-22T17:11:59.177209Z ETHUSDT 2425.05 0.0000 0.0 declenche=non
-  · 2026-08-22T17:11:59.177204Z ETHUSDT 2425.05 0.0000 2.9 declenche=non
-  · 2026-08-22T17:11:59.177614Z BTCUSDT 77295.63 0.0000 1.3 declenche=non
-  · 2026-08-22T17:11:59.177642Z BTCUSDT 77295.63 0.0001 1.9 declenche=non
+  · 2026-08-22T17:12:11.281747Z BTCUSDT 77295.62 0.0000 1.4 declenche=non
+  · 2026-08-22T17:12:11.690771Z ETHUSDT 2424.66 0.0002 17.2 declenche=non
+  · 2026-08-22T17:12:12.103072Z BTCUSDT 77295.63 0.0000 1.4 declenche=non
+  · 2026-08-22T17:12:12.256937Z BTCUSDT 77295.62 0.0000 1.5 declenche=non
 - Intention en cours : BETA a sonde le marche (7 sondes, 5 long / 2 court, conf moy | ALPHA attend son moment : 107 skips (discipline), le mur du  | ALPHA a frappe 4 fois en embuscade (13x) (dont 2 en mode rev
 - 550 signets X résumés (quota aujourd'hui : 50/50)
 - 56 fiches IA d'offres en cache (quota 8/jour)
