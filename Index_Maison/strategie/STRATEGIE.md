@@ -1,10 +1,10 @@
-# STRATEGIE — 2026-08-22T05:38:00.260878Z
+# STRATEGIE — 2026-08-22T06:38:19.925874Z
 
-## COURT TERME — 2026-08-22T05:38:00.260878Z
+## COURT TERME — 2026-08-22T06:38:19.925874Z
 
 ### Analyse de la situation actuelle
 
-La maison ACE777 maintient une alerte rouge face à un PnL combiné sous pression (-38,23 $) malgré la résilience des positions seeds de Hulk et la discipline tactique d'Alpha. Le climat de marché est globalement greed (71) mais plombé par une nervosité persistante et des bruits macroéconomiques exogènes autour de la Fed. Alpha maintient une stricte embuscade (640 skips, 23 fills pour -2,64 $) tandis que Beta éclaire efficacement l'essaim (+6,03 $ sur 35 fills). La pression continue sur le capital global de la maison et la sensibilité accrue aux soubresauts macroéconomiques et réglementaires. Le portefeuille Hulk est parfaitement résilient avec 15 positions seeds globalement orientées en positif, offrant un amortisseur précieux.
+La maison ACE777 maintient une alerte rouge face à un PnL combiné sous pression (-7.20 $) malgré la résilience des positions seeds de Hulk et la discipline tactique d'Alpha. Le climat de marché est globalement greed (71) mais plombé par une nervosité persistante et des bruits macroéconomiques exogènes autour de la Fed. Alpha maintient une stricte embuscade (423 skips, 11 fills pour -12.04 $) tandis que Beta éclaire efficacement l'essaim (+4.85 $ sur 18 fills). La pression continue sur le capital global de la maison et la sensibilité accrue aux soubresauts macroéconomiques et réglementaires. Le portefeuille Hulk est parfaitement résilient avec 15 positions seeds globalement orientées en positif, offrant un amortisseur précieux.
 
 ### Approches possibles
 
