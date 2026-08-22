@@ -2,7 +2,7 @@
 
 *Genere le 2026-08-22 par catalog_providers.py (gagnant A/B codeurs 09/08). Rafraichi a chaque veille du matin.*
 
-**Actifs : 13 · En observation : 2 · En attente : 10 · De cote (payant) : 0**
+**Actifs : 13 · En observation : 1 · En attente : 11 · De cote (payant) : 0**
 
 ## ACTIFS
 
@@ -26,7 +26,6 @@
 
 | Role | Modele | Statut | Note |
 |------|--------|--------|------|
-| - | `google/gemma-4-26b-a4b-it:free` | obs-1787206650 | auto queue_offres | VERDICT FAMILLE 18/08 : observation 48h avant activation |
 | - | `nvidia/nemotron-nano-9b-v2:free` | obs-1787248844 | auto queue_offres | VERDICT FAMILLE 18/08 : observation 48h avant activation |
 
 ## EN ATTENTE (cle manquante ou desactive)
@@ -43,6 +42,7 @@
 | - | `nvidia/nemotron-3.5-lightning:free` | obs-1786774667 | auto queue_offres | quota journalier épuisé le 17/08 → reset automatique | ROLLBACK auto o |
 | - | `nvidia/nemotron-3.5-content-safety:free` | obs-1786795252 | auto queue_offres | quota journalier épuisé le 17/08 → reset automatique | ROLLBACK auto o |
 | - | `google/diffusiongemma-26b-a4b-it` | obs-1787033767 | auto queue_offres | ROLLBACK auto observatoire 2026-08-21 (100% erreurs) | ROLLBACK auto o |
+| - | `google/gemma-4-26b-a4b-it:free` | obs-1787206650 | auto queue_offres | VERDICT FAMILLE 18/08 : observation 48h avant activation | ROLLBACK au |
 
 ## DE COTE (payant / obsolète)
 
