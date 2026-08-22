@@ -1,5 +1,5 @@
 {
-  "ts": "2026-08-22T16:49:55.825309+00:00",
+  "ts": "2026-08-22T16:51:01.030626+00:00",
   "since": "2026-08-22T15:44:00Z",
   "bots": {
     "alpha": {
@@ -328,41 +328,11 @@
       "role": "eclaireur",
       "surnom": "L'Eclaireur",
       "fills": 6,
-      "skips": 126,
+      "skips": 127,
       "pnl": -1.46966,
       "best": 0.80674,
       "conf_moy": 0.90485,
       "events": [
-        {
-          "ts": "2026-08-22T16:43:24Z",
-          "bot": "beta",
-          "cycle": 119,
-          "action": "skip",
-          "intention": "pas d'opportunite — discipline (radar bloque)",
-          "direction": null,
-          "conf": 0.3183,
-          "exit": "radar_block",
-          "meta": {
-            "size_note": null,
-            "tension": 0.3819177
-          },
-          "file": "MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv"
-        },
-        {
-          "ts": "2026-08-22T16:43:55Z",
-          "bot": "beta",
-          "cycle": 120,
-          "action": "skip",
-          "intention": "skip — regime_gate",
-          "direction": null,
-          "conf": null,
-          "exit": "regime_gate",
-          "meta": {
-            "size_note": null,
-            "tension": 0.00416553
-          },
-          "file": "MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv"
-        },
         {
           "ts": "2026-08-22T16:44:35Z",
           "bot": "beta",
@@ -632,13 +602,43 @@
             "tension": null
           },
           "file": "MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv"
+        },
+        {
+          "ts": "2026-08-22T16:50:22Z",
+          "bot": "beta",
+          "cycle": 139,
+          "action": "wait",
+          "intention": "attente — mur du carnet intact",
+          "direction": null,
+          "conf": null,
+          "exit": "impulse_resonance_wait",
+          "meta": {
+            "size_note": null,
+            "tension": 0.40015298
+          },
+          "file": "MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv"
+        },
+        {
+          "ts": "2026-08-22T16:50:52Z",
+          "bot": "beta",
+          "cycle": 140,
+          "action": "skip",
+          "intention": "skip — regime_gate",
+          "direction": null,
+          "conf": null,
+          "exit": "regime_gate",
+          "meta": {
+            "size_note": null,
+            "tension": 0.00573617
+          },
+          "file": "MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv"
         }
       ],
       "counts": {
-        "wait": 6,
+        "wait": 7,
         "fire": 0,
         "probe": 6,
-        "skip": 126
+        "skip": 127
       },
       "direction": {
         "long": 5,
