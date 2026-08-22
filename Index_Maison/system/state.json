@@ -1,8 +1,8 @@
 {
-  "timestamp": "2026-08-22T14:34:51Z",
+  "timestamp": "2026-08-22T14:35:34Z",
   "generation_source": "system_state_generator.py v2.1",
   "status": "STALE",
-  "feed_hash": "516d6b01355bb3f77664b8a2aa5cbd7e3301c0652af1cc338a09b39877235dcc",
+  "feed_hash": "8f61b268dc20d8b6798d0212efd03e175934e61fc53f0909afb581f2d9e01c8d",
   "feeds": {
     "mission": {
       "present": true,
@@ -11,24 +11,24 @@
     },
     "cortana_feed": {
       "present": true,
-      "age_seconds": 2,
+      "age_seconds": 4,
       "fresh_limit_s": 120
     },
     "live": {
       "present": true,
-      "age_seconds": 0,
+      "age_seconds": 3,
       "fresh_limit_s": 15
     },
     "routing": {
       "present": true,
-      "age_seconds": 21016,
+      "age_seconds": 21060,
       "fresh_limit_s": 120
     }
   },
   "services": {
     "total": 53,
-    "running": 20,
-    "planned": 33,
+    "running": 24,
+    "planned": 29,
     "running_list": [
       "application.com.ace777.cockpit-app.14931296.14931301",
       "com.ace777.archi-vivante",
@@ -38,6 +38,7 @@
       "com.ace777.cortana-feed",
       "com.ace777.cortana.urgent",
       "com.ace777.couleur-regime-score",
+      "com.ace777.graph-cerveau",
       "com.ace777.hub-cockpit-feed",
       "com.ace777.journal-soir",
       "com.ace777.llm-gate-hub",
@@ -49,7 +50,10 @@
       "com.ace777.state-generator",
       "com.ace777.superviseur-core",
       "com.ace777.superviseur-process",
-      "com.ace777.vigie-live"
+      "com.ace777.veilleuse-confrontation",
+      "com.ace777.veilleuse-sizing-monte-carlo",
+      "com.ace777.vigie-live",
+      "com.ace777.watchdog"
     ],
     "planned_list": [
       "com.ace777.autopilote",
@@ -62,7 +66,6 @@
       "com.ace777.fees",
       "com.ace777.gitpush",
       "com.ace777.gitpush-vault",
-      "com.ace777.graph-cerveau",
       "com.ace777.heartbeats",
       "com.ace777.hulk-watchdog",
       "com.ace777.macro-tempete",
@@ -80,10 +83,7 @@
       "com.ace777.veille-yt",
       "com.ace777.veilleuse",
       "com.ace777.veilleuse-chantiers",
-      "com.ace777.veilleuse-confrontation",
-      "com.ace777.veilleuse-sizing-monte-carlo",
       "com.ace777.verif-setup",
-      "com.ace777.watchdog",
       "com.ace777.whales"
     ]
   },
@@ -91,7 +91,7 @@
     "status": "ok",
     "providers": 14
   },
-  "ram_raw": "The system has 8589934592 (524288 pages with a page size of 16384).",
+  "ram_raw": null,
   "hors_zone": {
     "mirofis": {
       "present": true
