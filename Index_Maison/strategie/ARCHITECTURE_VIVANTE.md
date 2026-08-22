@@ -22,35 +22,35 @@
 
 ## État de la mission (bots + PnL)
 
-- mission.json : 2026-08-22 00:41Z · run `MASTER_VORTEX_V2_COLLAB_4H` · alerte `red`
-- PnL combiné : **-4.13 $** 📉 (combo -4.1272)
-- ALPHA (sniper (embuscade, ×13, revenge si claque)) : **-8.45 $** · 11 fills · 292 skips
+- mission.json : 2026-08-22 00:42Z · run `MASTER_VORTEX_V2_COLLAB_4H` · alerte `red`
+- PnL combiné : **-6.09 $** 📉 (combo -6.0932)
+- ALPHA (sniper (embuscade, ×13, revenge si claque)) : **-10.41 $** · 12 fills · 301 skips
 - BETA (éclaireur (chatouille le marché, alimente Alpha)) : **+4.32 $** · 15 fills · 294 skips
 - HULK (gestionnaire de portefeuille (bag, escalier, courreur)) : **+1.10 $** · 0 fills
-- Saison : CHAUFFE 🌡️ · 
+- Saison : CALME 🧊 · 
 
 ## Veille du jour
 
 - [Santé]
   · hub : OK (14 providers)
 - [Énergie du jour]
-  · appels : 109 (cloud 109)
+  · appels : 110 (cloud 110)
   · budget cloud : 624 max
-  · par provider : gemini=4, groq=1, nara=79, nvidia=25
+  · par provider : gemini=4, groq=1, nara=80, nvidia=25
 - [Nouvelles offres détectées (non intégrées)]
   · dots-studio/dots-3-note-preview:free
   · liquid/lfm-2.5-2.6b:free
   · thinkingmachines/inkling-small:free
-  … 111 offres/pépites détectées ce matin
+  … 112 offres/pépites détectées ce matin
 
 ## Mémoire chaude (journal + résumés)
 
 - Radar (dernières alertes) :
-  · 2026-08-22T00:42:12.978876Z ETHUSDT 2507.09 0.0001 95.3 declenche=non
-  · 2026-08-22T00:42:12.979043Z BTCUSDT 77820.39 0.0003 4.0 declenche=non
-  · 2026-08-22T00:42:12.979184Z BTCUSDT 77820.09 0.0003 4.0 declenche=non
-  · 2026-08-22T00:42:12.979355Z BTCUSDT 77819.0 0.0003 4.0 declenche=non
-- Intention en cours : BETA a sonde le marche (15 sondes, 8 long / 7 court, conf mo | ALPHA attend son moment : 265 skips (discipline), le mur du  | ALPHA a frappe 11 fois en embuscade (13x) (dont 6 en mode re
+  · 2026-08-22T00:42:54.607798Z ETHUSDT 2506.87 0.0001 83.3 declenche=non
+  · 2026-08-22T00:42:54.764001Z ETHUSDT 2506.86 0.0001 83.3 declenche=non
+  · 2026-08-22T00:42:54.771505Z ETHUSDT 2506.86 0.0001 83.5 declenche=non
+  · 2026-08-22T00:42:54.827481Z ETHUSDT 2506.86 0.0001 84.2 declenche=non
+- Intention en cours : BETA a sonde le marche (15 sondes, 8 long / 7 court, conf mo | ALPHA attend son moment : 275 skips (discipline), le mur du  | ALPHA a frappe 12 fois en embuscade (13x) (dont 7 en mode re
 - 500 signets X résumés (quota aujourd'hui : 0/50)
 - 56 fiches IA d'offres en cache (quota 8/jour)
 
