@@ -1,11 +1,9 @@
 {
   "ts": "2026-08-22T04:50+00:00",
   "updated": "2026-08-22T04:50Z",
-  "etat": "ALERTE",
-  "chaines_ok": "8/9",
-  "anomalies": [
-    "VEILLE DÉGRADATION : Dead Man's Switch ALERTE ou figé — la surveillance elle-même est en panne"
-  ],
+  "etat": "OK",
+  "chaines_ok": "9/9",
+  "anomalies": [],
   "degradees": [],
   "chaines": [
     {
@@ -198,7 +196,7 @@
       "id": "veille_deg",
       "nom": "VEILLE DÉGRADATION",
       "chemin": "veille_degradation.py (plists + heartbeats + indicateurs) → etat.json + DMS externe (dms-veille) → cockpit",
-      "ok": false,
+      "ok": true,
       "maillons": [
         {
           "nom": "process veille_degradation (launchd)",
@@ -217,8 +215,8 @@
         },
         {
           "nom": "rapport DMS_VEILLE.json",
-          "ok": false,
-          "detail": "ALERTE"
+          "ok": true,
+          "detail": "OK"
         }
       ]
     },
