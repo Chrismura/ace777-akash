@@ -1,31 +1,16 @@
 {
-  "ts": "2026-08-22T06:24:29.685414+00:00",
+  "ts": "2026-08-22T06:27:17.005148+00:00",
   "since": "2026-08-22T03:31:00Z",
   "bots": {
     "alpha": {
       "role": "sniper",
       "surnom": "Le Sniper",
-      "fills": 11,
+      "fills": 12,
       "skips": 334,
-      "pnl": -8.33729,
+      "pnl": -6.75219,
       "best": 2.11456,
-      "conf_moy": 0.8787545454545455,
+      "conf_moy": 0.8742916666666667,
       "events": [
-        {
-          "ts": "2026-08-22T06:15:36Z",
-          "bot": "alpha",
-          "cycle": 376,
-          "action": "skip",
-          "intention": "skip — gap_guard_pause",
-          "direction": null,
-          "conf": null,
-          "exit": "gap_guard_pause",
-          "meta": {
-            "size_note": null,
-            "tension": null
-          },
-          "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv"
-        },
         {
           "ts": "2026-08-22T06:15:42Z",
           "bot": "alpha",
@@ -310,19 +295,34 @@
             "tension": 0.00150017
           },
           "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv"
+        },
+        {
+          "ts": "2026-08-22T06:27:12Z",
+          "bot": "alpha",
+          "cycle": 396,
+          "action": "fire",
+          "intention": "a tire en mode revenge 1.5x",
+          "direction": "short",
+          "conf": 0.8252,
+          "exit": "0.80930647",
+          "meta": {
+            "size_note": "hunter_revenge_1.5x+entry_25_75_full",
+            "tension": 3.88662198
+          },
+          "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv"
         }
       ],
       "counts": {
         "wait": 52,
-        "fire": 11,
+        "fire": 12,
         "probe": 0,
         "skip": 334
       },
       "direction": {
         "long": 8,
-        "short": 3
+        "short": 4
       },
-      "revenge": 7
+      "revenge": 8
     },
     "beta": {
       "role": "eclaireur",
@@ -650,6 +650,6 @@
   "story": [
     "BETA a sonde le marche (17 sondes, 10 long / 7 court, conf moyenne 0.87) — il renseigne Alpha.",
     "ALPHA attend son moment : 334 skips (discipline), le mur du carnet ne s'effondre pas.",
-    "ALPHA a frappe 11 fois en embuscade (13x) (dont 7 en mode revenge 1.5x) : -8.34 $, meilleur trade +2.11 $."
+    "ALPHA a frappe 12 fois en embuscade (13x) (dont 8 en mode revenge 1.5x) : -6.75 $, meilleur trade +2.11 $."
   ]
 }
