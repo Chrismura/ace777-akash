@@ -34,22 +34,24 @@
 - [Santé]
   · hub : OK (14 providers)
 - [Énergie du jour]
-  · appels : 3764 (cloud 3764)
+  · appels : 3765 (cloud 3765)
   · budget cloud : 624 max
-  · par provider : gemini=505, groq=12, mistral=2517, nara=728, nvidia=2
+  · par provider : gemini=505, groq=12, mistral=2517, nara=729, nvidia=2
 - [Nouvelles offres détectées (non intégrées)]
+- [ROLLBACK AUTO 2026-08-22]
+  · obs-1786774667 (nvidia/nemotron-3.5-lightning:free) : 100% erreurs > 5% (observatoire)
   · dots-studio/dots-3-note-preview:free
   · liquid/lfm-2.5-2.6b:free
   · thinkingmachines/inkling-small:free
-  … 107 offres/pépites détectées ce matin
+  … 109 offres/pépites détectées ce matin
 
 ## Mémoire chaude (journal + résumés)
 
 - Radar (dernières alertes) :
-  · 2026-08-22T12:45:26.662411Z BTCUSDT 77360.14 0.0003 6.6 declenche=non
-  · 2026-08-22T12:45:26.932753Z BTCUSDT 77360.14 0.0003 6.6 declenche=non
-  · 2026-08-22T12:45:27.021787Z BTCUSDT 77360.15 0.0003 6.6 declenche=non
-  · 2026-08-22T12:45:27.084212Z ETHUSDT 2431.42 0.0001 174.2 declenche=non
+  · 2026-08-22T12:45:47.936300Z BTCUSDT 77359.99 0.0000 1.9 declenche=non
+  · 2026-08-22T12:45:48.068394Z BTCUSDT 77359.99 0.0000 1.9 declenche=non
+  · 2026-08-22T12:45:48.136912Z ETHUSDT 2430.89 0.0000 0.4 declenche=non
+  · 2026-08-22T12:45:48.199067Z ETHUSDT 2430.89 0.0000 0.8 declenche=non
 - Intention en cours : BETA a sonde le marche (7 sondes, 4 long / 3 court, conf moy | ALPHA attend son moment : 117 skips (discipline), le mur du  | ALPHA a frappe 5 fois en embuscade (13x) (dont 5 en mode rev
 - 550 signets X résumés (quota aujourd'hui : 50/50)
 - 56 fiches IA d'offres en cache (quota 8/jour)
