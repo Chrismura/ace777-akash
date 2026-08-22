@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-22T01:26:28.019016+00:00",
+  "generated_at": "2026-08-22T01:27:51.233369+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -26,7 +26,7 @@
       "model": "qwen-3.8-max-free",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 871
+      "calls_24h": 876
     },
     {
       "id": "groq",
@@ -44,7 +44,7 @@
       "model": "deepseek-ai/deepseek-v4-flash-0731",
       "enabled": true,
       "timeout": 300,
-      "calls_24h": 208
+      "calls_24h": 209
     },
     {
       "id": "mistral",
@@ -229,10 +229,58 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 215,
-    "remaining": 409
+    "consumed": 221,
+    "remaining": 403
   },
   "queue": [
+    {
+      "ts": "2026-08-22T01:27:46.110618+00:00",
+      "task": "analyse.profonde",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 43.5
+    },
+    {
+      "ts": "2026-08-22T01:27:35.761871+00:00",
+      "task": "supervise.decision",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 5.3
+    },
+    {
+      "ts": "2026-08-22T01:27:26.874320+00:00",
+      "task": "analyse.profonde",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 133.53
+    },
+    {
+      "ts": "2026-08-22T01:27:00.484731+00:00",
+      "task": "analyse.profonde",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 44.76
+    },
+    {
+      "ts": "2026-08-22T01:26:31.726393+00:00",
+      "task": "analyse.profonde",
+      "provider": "nvidia",
+      "model": "deepseek-ai/deepseek-v4-flash-0731",
+      "kind": "cloud",
+      "duration_s": 474.58
+    },
+    {
+      "ts": "2026-08-22T01:26:31.188242+00:00",
+      "task": "supervise.decision",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 19.41
+    },
     {
       "ts": "2026-08-22T01:26:13.769747+00:00",
       "task": "analyse.profonde",
@@ -304,116 +352,68 @@
       "model": "qwen-3.8-max-free",
       "kind": "cloud",
       "duration_s": 32.23
-    },
-    {
-      "ts": "2026-08-22T01:23:09.097530+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 26.82
-    },
-    {
-      "ts": "2026-08-22T01:22:30.706306+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 15.15
-    },
-    {
-      "ts": "2026-08-22T01:22:14.453102+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 6.79
-    },
-    {
-      "ts": "2026-08-22T01:22:07.298007+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 15.9
-    },
-    {
-      "ts": "2026-08-22T01:21:49.948451+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 20.58
-    },
-    {
-      "ts": "2026-08-22T01:21:18.291231+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 63.48
     }
   ],
   "events": [
     {
-      "ts": "2026-08-22T01:26:15.723532+00:00",
+      "ts": "2026-08-22T01:27:48.306987+00:00",
       "kind": "failover",
       "title": "Saute (blacklist) depuis HuggingFace (136+ modeles, dont DeepSeek-V4)",
       "detail": "0 attente"
     },
     {
-      "ts": "2026-08-22T01:26:15.723253+00:00",
+      "ts": "2026-08-22T01:27:48.306719+00:00",
       "kind": "failover",
       "title": "Saute (blacklist) depuis NVIDIA build.nvidia.com (100+ modeles)",
       "detail": "0 attente"
     },
     {
-      "ts": "2026-08-22T01:26:13.769422+00:00",
+      "ts": "2026-08-22T01:27:46.110188+00:00",
       "kind": "message",
       "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
       "detail": "bascule"
     },
     {
-      "ts": "2026-08-22T01:26:11.778229+00:00",
-      "kind": "failover",
-      "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
-      "detail": "0 attente"
-    },
-    {
-      "ts": "2026-08-22T01:26:03.294586+00:00",
+      "ts": "2026-08-22T01:27:35.760597+00:00",
       "kind": "message",
       "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
       "detail": "bascule"
     },
     {
-      "ts": "2026-08-22T01:25:56.700615+00:00",
-      "kind": "message",
-      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
-      "detail": "bascule"
-    },
-    {
-      "ts": "2026-08-22T01:25:47.376731+00:00",
-      "kind": "failover",
-      "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
-      "detail": "0 attente"
-    },
-    {
-      "ts": "2026-08-22T01:25:42.065650+00:00",
+      "ts": "2026-08-22T01:27:30.463203+00:00",
       "kind": "failover",
       "title": "Bascule depuis Groq (LLM ultra-rapide, gratuit)",
       "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-08-22T01:25:42.065270+00:00",
+      "ts": "2026-08-22T01:27:30.462893+00:00",
       "kind": "ratelimit",
       "title": "429 Groq (LLM ultra-rapide, gratuit) -> pause 60s + bascule",
       "detail": ""
     },
     {
-      "ts": "2026-08-22T01:25:41.875884+00:00",
+      "ts": "2026-08-22T01:27:30.248385+00:00",
       "kind": "blacklist",
       "title": "Fin de pause Groq (LLM ultra-rapide, gratuit)",
       "detail": "re-essai automatique"
+    },
+    {
+      "ts": "2026-08-22T01:27:28.807680+00:00",
+      "kind": "failover",
+      "title": "Saute (blacklist) depuis HuggingFace (136+ modeles, dont DeepSeek-V4)",
+      "detail": "0 attente"
+    },
+    {
+      "ts": "2026-08-22T01:27:28.807033+00:00",
+      "kind": "failover",
+      "title": "Saute (blacklist) depuis NVIDIA build.nvidia.com (100+ modeles)",
+      "detail": "0 attente"
+    },
+    {
+      "ts": "2026-08-22T01:27:26.873915+00:00",
+      "kind": "message",
+      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
+      "detail": "bascule"
     }
   ],
   "tasks_quotas": {
