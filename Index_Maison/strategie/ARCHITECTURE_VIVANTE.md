@@ -1,4 +1,4 @@
-# ARCHITECTURE VIVANTE — ACE777 (2026-08-22 05:32 UTC)
+# ARCHITECTURE VIVANTE — ACE777 (2026-08-22 05:33 UTC)
 
 > Document GÉNÉRÉ AUTOMATIQUEMENT à l'instant. La famille valide
 > en s'appuyant sur CE contexte, pas sur des documents figés.
@@ -9,7 +9,7 @@
 - ✅ radar
 - ⛔ lecteur signets
 - ⛔ générateur fiches
-- ✅ feed mission
+- ⛔ feed mission
 - ⛔ serveur cockpit
 
 ## Routage des tâches de décision
@@ -24,8 +24,8 @@
 
 - mission.json : 2026-08-22 05:32Z · run `MASTER_VORTEX_V2_COLLAB_4H` · alerte `red`
 - PnL combiné : **-0.07 $** 📉 (combo -0.0742)
-- ALPHA (sniper (embuscade, ×13, revenge si claque)) : **-4.72 $** · 6 fills · 268 skips
-- BETA (éclaireur (chatouille le marché, alimente Alpha)) : **+4.64 $** · 13 fills · 305 skips
+- ALPHA (sniper (embuscade, ×13, revenge si claque)) : **-4.72 $** · 6 fills · 269 skips
+- BETA (éclaireur (chatouille le marché, alimente Alpha)) : **+4.64 $** · 13 fills · 310 skips
 - HULK (gestionnaire de portefeuille (bag, escalier, courreur)) : **-0.11 $** · 0 fills
 - Saison : CHAOS ⛈️ · 
 
@@ -46,10 +46,10 @@
 ## Mémoire chaude (journal + résumés)
 
 - Radar (dernières alertes) :
-  · 2026-08-22T05:32:50.658359Z ETHUSDT 2436.13 0.0005 214.9 declenche=non
-  · 2026-08-22T05:32:50.658619Z ETHUSDT 2436.14 0.0005 214.9 declenche=non
-  · 2026-08-22T05:32:50.658799Z ETHUSDT 2436.15 0.0006 215.7 declenche=non
-  · 2026-08-22T05:32:50.707018Z ETHUSDT 2436.15 0.0006 218.2 declenche=non
+  · 2026-08-22T05:33:01.552486Z ETHUSDT 2438.19 0.0014 251.7 declenche=non
+  · 2026-08-22T05:33:01.552614Z ETHUSDT 2438.17 0.0014 251.8 declenche=non
+  · 2026-08-22T05:33:01.554021Z ETHUSDT 2438.16 0.0014 251.8 declenche=non
+  · 2026-08-22T05:33:01.628119Z BTCUSDT 77199.1 0.0011 15.0 declenche=non
 - Intention en cours : BETA a sonde le marche (13 sondes, 8 long / 5 court, conf mo | ALPHA attend son moment : 231 skips (discipline), le mur du  | ALPHA a frappe 8 fois en embuscade (13x) (dont 6 en mode rev
 - 500 signets X résumés (quota aujourd'hui : 0/50)
 - 56 fiches IA d'offres en cache (quota 8/jour)
