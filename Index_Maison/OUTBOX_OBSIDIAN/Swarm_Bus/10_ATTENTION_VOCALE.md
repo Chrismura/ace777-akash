@@ -5,7 +5,7 @@
 
 ## Meta
 - statut: READY
-- ts: 20260822T0221Z
+- ts: 20260822T0222Z
 - pertinence: PERTINENT
 - sentiment: URGENT
 - compte: thermo-free

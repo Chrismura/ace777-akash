@@ -5,7 +5,7 @@
 
 ## Meta
 - statut: READY
-- ts: 20260822T0221Z
+- ts: 20260822T0222Z
 - pertinence: PERTINENT
 - sentiment: URGENT
 - compte: thermo-free
@@ -13,3 +13,9 @@
 
 ## Règle
 Cortana / `speak_attention` peut lire le résumé, puis repasser IDLE.
+
+
+## ⚠️ SUPERVISEUR — besoin de Christophe
+- ts: 20260822T0422Z
+- demande: Limite de relances atteinte pour com.ace777.cortana.horaire
+- pourquoi: 3 relances/jour dépassées, intervention humaine requise.
