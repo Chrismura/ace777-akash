@@ -1,5 +1,5 @@
 {
-  "ts": "2026-08-22T03:00:00.314595+00:00",
+  "ts": "2026-08-22T03:00:45.272018+00:00",
   "since": "2026-08-21T23:22:00Z",
   "bots": {
     "alpha": {
@@ -327,57 +327,12 @@
     "beta": {
       "role": "eclaireur",
       "surnom": "L'Eclaireur",
-      "fills": 44,
-      "skips": 858,
-      "pnl": 0.7156799999999999,
+      "fills": 45,
+      "skips": 860,
+      "pnl": 0.4983299999999999,
       "best": 2.59434,
-      "conf_moy": 0.9375636363636364,
+      "conf_moy": 0.9331400000000001,
       "events": [
-        {
-          "ts": "2026-08-22T02:42:32Z",
-          "bot": "beta",
-          "cycle": 423,
-          "action": "skip",
-          "intention": "skip — regime_gate",
-          "direction": null,
-          "conf": null,
-          "exit": "regime_gate",
-          "meta": {
-            "size_note": null,
-            "tension": 0.0
-          },
-          "file": "MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv"
-        },
-        {
-          "ts": "2026-08-22T02:42:52Z",
-          "bot": "beta",
-          "cycle": 487,
-          "action": "skip",
-          "intention": "skip — regime_gate",
-          "direction": null,
-          "conf": null,
-          "exit": "regime_gate",
-          "meta": {
-            "size_note": null,
-            "tension": 0.0002767
-          },
-          "file": "MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv"
-        },
-        {
-          "ts": "2026-08-22T02:43:00Z",
-          "bot": "beta",
-          "cycle": 424,
-          "action": "skip",
-          "intention": "skip — regime_gate",
-          "direction": null,
-          "conf": null,
-          "exit": "regime_gate",
-          "meta": {
-            "size_note": null,
-            "tension": 0.04499407
-          },
-          "file": "MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv"
-        },
         {
           "ts": "2026-08-22T02:43:27Z",
           "bot": "beta",
@@ -632,23 +587,68 @@
             "tension": null
           },
           "file": "MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv"
+        },
+        {
+          "ts": "2026-08-22T03:00:20Z",
+          "bot": "beta",
+          "cycle": 489,
+          "action": "probe",
+          "intention": "a sonde le marche",
+          "direction": "long",
+          "conf": 0.7385,
+          "exit": "0.39509770",
+          "meta": {
+            "size_note": "strong_conf_full+entry_25_75_full",
+            "tension": 1.43891647
+          },
+          "file": "MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv"
+        },
+        {
+          "ts": "2026-08-22T03:00:34Z",
+          "bot": "beta",
+          "cycle": 490,
+          "action": "skip",
+          "intention": "skip — gap_guard_pause",
+          "direction": null,
+          "conf": null,
+          "exit": "gap_guard_pause",
+          "meta": {
+            "size_note": null,
+            "tension": null
+          },
+          "file": "MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv"
+        },
+        {
+          "ts": "2026-08-22T03:00:40Z",
+          "bot": "beta",
+          "cycle": 491,
+          "action": "skip",
+          "intention": "skip — gap_guard_pause",
+          "direction": null,
+          "conf": null,
+          "exit": "gap_guard_pause",
+          "meta": {
+            "size_note": null,
+            "tension": null
+          },
+          "file": "MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv"
         }
       ],
       "counts": {
         "wait": 26,
         "fire": 0,
-        "probe": 44,
-        "skip": 858
+        "probe": 45,
+        "skip": 860
       },
       "direction": {
-        "long": 29,
+        "long": 30,
         "short": 15
       },
       "revenge": 0
     }
   },
   "story": [
-    "BETA a sonde le marche (44 sondes, 29 long / 15 court, conf moyenne 0.94) — il renseigne Alpha.",
+    "BETA a sonde le marche (45 sondes, 30 long / 15 court, conf moyenne 0.93) — il renseigne Alpha.",
     "ALPHA attend son moment : 705 skips (discipline), le mur du carnet ne s'effondre pas.",
     "ALPHA a frappe 29 fois en embuscade (13x) (dont 15 en mode revenge 1.5x) : +9.04 $, meilleur trade +5.18 $."
   ]
