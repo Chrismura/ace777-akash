@@ -1,4 +1,4 @@
-# Hulk DIGEST — 2026-08-22T08:16:31Z
+# Hulk DIGEST — 2026-08-22T08:17:59Z
 
 - **Piste :** VEILLE (séparée du paper Hulk)
 - Source trading : **MEXC spot**
@@ -12,24 +12,24 @@
 
 | pair | hint | tension | move6% | dd6% | chg24% | vol USDT | spread bps | DefiLlama |
 |------|------|---------|--------|------|--------|----------|------------|-----------|
-| PYTHUSDT | WATCH_PULLBACK — tension haute + reflux | 4.12 | 19.14 | 8.2 | 0.03 | 26707932.71 | 7.8 | tvl≈113,478,518 |
-| XRPUSDT | WATCH_PULLBACK — tension haute + reflux | 3.74 | 23.87 | 8.62 | 0.15 | 224251241.33 | 2.58 | n/a |
-| HBARUSDT | WATCH_PULLBACK — tension haute + reflux | 4.29 | 15.8 | 9.23 | 0.04 | 1357561.97 | 6.34 | empty_tvl |
-| CHIPUSDT | WATCH_PULLBACK — tension haute + reflux | 4.28 | 24.54 | 11.44 | -0.09 | 684759.47 | 6.64 | no_map |
-| WUSDT | WATCH_PULLBACK — tension haute + reflux | 4.26 | 17.58 | 7.35 | 0.05 | 610729.01 | 15.42 | tvl≈1,610,281,058 |
-| BIOUSDT | WATCH_PULLBACK — tension haute + reflux | 4.16 | 29.98 | 8.31 | -0.02 | 247586.53 | 3.15 | n/a |
-| REDUSDT | WATCH_PULLBACK — tension haute + reflux | 3.14 | 42.01 | 11.05 | 0.07 | 154460.09 | 12.22 | tvl≈2,081,438 |
-| CCUSDT | IMPULSE_WAIT — spike en cours, pas chase | 2.04 | 11.25 | 1.94 | 0.2 | 822428.45 | 8.16 | no_map |
-| ZBCNUSDT | WATCH_PULLBACK — tension haute + reflux | 3.26 | 8.47 | 5.91 | 0.03 | 537527.62 | 20.95 | n/a |
-| QNTUSDT | WATCH_PULLBACK — tension haute + reflux | 4.35 | 13.91 | 8.21 | 0.04 | 194211.74 | 9.21 | n/a |
-| KITEUSDT | IDLE | 3.78 | 9.68 | 3.58 | 0.07 | 72914.54 | 11.76 | no_map |
-| FLUIDUSDT | IDLE | 3.75 | 7.38 | 4.01 | 0.04 | 6888.1 | 19.48 | tvl≈2,556,699,557 |
-| EDELUSDT | IDLE | 2.24 | 4.52 | 2.81 | -0.02 | 87017.0 | 33.43 | no_map |
-| RWAINCUSDT | IDLE | 2.48 | 4.48 | 3.24 | 0.01 | 11216.08 | 112.81 | no_map |
-| TELUSDT | IDLE | 1.85 | 4.7 | 3.85 | -0.01 | 173723.24 | 30.79 | no_map |
-| RIZEUSDT | IDLE | 0.84 | 3.73 | 0.78 | 0.0 | 52291.88 | 44.42 | no_map |
-| RWAUSDT | IDLE | 1.72 | 3.29 | 0.96 | 0.05 | 58207.77 | 16.1 | no_map |
-| QAITUSDT | IDLE | 1.42 | 2.71 | 0.86 | 0.02 | 3187.61 | 152.61 | no_map |
+| PYTHUSDT | WATCH_PULLBACK — tension haute + reflux | 4.12 | 19.14 | 8.35 | 0.03 | 26791678.77 | 3.91 | skipped_fast |
+| XRPUSDT | WATCH_PULLBACK — tension haute + reflux | 3.75 | 23.87 | 8.73 | 0.15 | 223867789.53 | 3.87 | skipped_fast |
+| HBARUSDT | WATCH_PULLBACK — tension haute + reflux | 4.29 | 15.8 | 9.26 | 0.04 | 1357193.55 | 2.54 | skipped_fast |
+| CHIPUSDT | WATCH_PULLBACK — tension haute + reflux | 4.28 | 24.54 | 11.5 | -0.09 | 684721.35 | 6.64 | skipped_fast |
+| WUSDT | WATCH_PULLBACK — tension haute + reflux | 4.25 | 17.58 | 7.3 | 0.05 | 610749.78 | 10.28 | skipped_fast |
+| BIOUSDT | WATCH_PULLBACK — tension haute + reflux | 4.16 | 29.98 | 8.29 | -0.02 | 247540.13 | 3.15 | skipped_fast |
+| REDUSDT | WATCH_PULLBACK — tension haute + reflux | 3.14 | 42.01 | 11.04 | 0.07 | 154434.61 | 12.22 | skipped_fast |
+| CCUSDT | IMPULSE_WAIT — spike en cours, pas chase | 2.04 | 11.25 | 1.98 | 0.2 | 822752.06 | 8.96 | skipped_fast |
+| ZBCNUSDT | WATCH_PULLBACK — tension haute + reflux | 3.26 | 8.47 | 5.97 | 0.03 | 537521.19 | 17.48 | skipped_fast |
+| QNTUSDT | WATCH_PULLBACK — tension haute + reflux | 4.35 | 13.91 | 8.17 | 0.04 | 194178.03 | 9.22 | skipped_fast |
+| KITEUSDT | IDLE | 3.79 | 9.68 | 3.63 | 0.07 | 72825.98 | 12.65 | skipped_fast |
+| EDELUSDT | IDLE | 2.28 | 4.52 | 3.46 | -0.03 | 86799.11 | 33.46 | skipped_fast |
+| FLUIDUSDT | IDLE | 3.75 | 7.38 | 4.01 | 0.04 | 6888.1 | 20.95 | skipped_fast |
+| RWAINCUSDT | IDLE | 2.48 | 4.48 | 3.24 | 0.02 | 11216.08 | 112.81 | skipped_fast |
+| TELUSDT | IDLE | 1.86 | 4.7 | 4.15 | -0.01 | 174170.96 | 25.71 | skipped_fast |
+| QAITUSDT | IDLE | 1.4 | 2.71 | 0.54 | 0.02 | 3199.73 | 62.72 | skipped_fast |
+| RIZEUSDT | IDLE | 0.85 | 3.73 | 0.9 | 0.0 | 52289.35 | 46.13 | skipped_fast |
+| RWAUSDT | IDLE | 1.73 | 3.29 | 1.12 | 0.04 | 58158.94 | 16.1 | skipped_fast |
 
 ## Consignes Qwen (manuel — ne pilote pas le paper)
 1. Résumer en 5 lignes : qui spike, qui dump, illiquide (spread/vol).

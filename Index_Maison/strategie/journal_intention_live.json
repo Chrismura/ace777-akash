@@ -1,5 +1,5 @@
 {
-  "ts": "2026-08-22T08:17:30.817038+00:00",
+  "ts": "2026-08-22T08:18:15.360234+00:00",
   "since": "2026-08-22T07:34:00Z",
   "bots": {
     "alpha": {
@@ -327,57 +327,12 @@
     "beta": {
       "role": "eclaireur",
       "surnom": "L'Eclaireur",
-      "fills": 4,
-      "skips": 77,
-      "pnl": 0.8249,
+      "fills": 5,
+      "skips": 79,
+      "pnl": 1.18266,
       "best": 0.45952,
-      "conf_moy": 0.935225,
+      "conf_moy": 0.9479200000000001,
       "events": [
-        {
-          "ts": "2026-08-22T08:08:42Z",
-          "bot": "beta",
-          "cycle": 67,
-          "action": "skip",
-          "intention": "skip — gap_guard_pause",
-          "direction": null,
-          "conf": null,
-          "exit": "gap_guard_pause",
-          "meta": {
-            "size_note": null,
-            "tension": null
-          },
-          "file": "MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv"
-        },
-        {
-          "ts": "2026-08-22T08:08:48Z",
-          "bot": "beta",
-          "cycle": 68,
-          "action": "skip",
-          "intention": "skip — gap_guard_pause",
-          "direction": null,
-          "conf": null,
-          "exit": "gap_guard_pause",
-          "meta": {
-            "size_note": null,
-            "tension": null
-          },
-          "file": "MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv"
-        },
-        {
-          "ts": "2026-08-22T08:08:55Z",
-          "bot": "beta",
-          "cycle": 69,
-          "action": "skip",
-          "intention": "skip — gap_guard_pause",
-          "direction": null,
-          "conf": null,
-          "exit": "gap_guard_pause",
-          "meta": {
-            "size_note": null,
-            "tension": null
-          },
-          "file": "MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv"
-        },
         {
           "ts": "2026-08-22T08:09:01Z",
           "bot": "beta",
@@ -632,23 +587,68 @@
             "tension": 0.0
           },
           "file": "MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv"
+        },
+        {
+          "ts": "2026-08-22T08:17:51Z",
+          "bot": "beta",
+          "cycle": 87,
+          "action": "probe",
+          "intention": "a sonde le marche",
+          "direction": "long",
+          "conf": 0.9987,
+          "exit": "0.39601715",
+          "meta": {
+            "size_note": "strong_conf_full+entry_25_75_full",
+            "tension": 6.1991397
+          },
+          "file": "MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv"
+        },
+        {
+          "ts": "2026-08-22T08:18:03Z",
+          "bot": "beta",
+          "cycle": 88,
+          "action": "skip",
+          "intention": "skip — gap_guard_pause",
+          "direction": null,
+          "conf": null,
+          "exit": "gap_guard_pause",
+          "meta": {
+            "size_note": null,
+            "tension": null
+          },
+          "file": "MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv"
+        },
+        {
+          "ts": "2026-08-22T08:18:09Z",
+          "bot": "beta",
+          "cycle": 89,
+          "action": "skip",
+          "intention": "skip — gap_guard_pause",
+          "direction": null,
+          "conf": null,
+          "exit": "gap_guard_pause",
+          "meta": {
+            "size_note": null,
+            "tension": null
+          },
+          "file": "MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv"
         }
       ],
       "counts": {
         "wait": 3,
         "fire": 0,
-        "probe": 4,
-        "skip": 77
+        "probe": 5,
+        "skip": 79
       },
       "direction": {
-        "long": 2,
+        "long": 3,
         "short": 2
       },
       "revenge": 0
     }
   },
   "story": [
-    "BETA a sonde le marche (4 sondes, 2 long / 2 court, conf moyenne 0.94) — il renseigne Alpha.",
+    "BETA a sonde le marche (5 sondes, 3 long / 2 court, conf moyenne 0.95) — il renseigne Alpha.",
     "ALPHA attend son moment : 79 skips (discipline), le mur du carnet ne s'effondre pas.",
     "ALPHA a frappe 3 fois en embuscade (13x) (dont 1 en mode revenge 1.5x) : -2.42 $ — session difficile, tous les tirs dans le rouge."
   ]
