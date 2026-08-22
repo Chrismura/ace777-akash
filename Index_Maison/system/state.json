@@ -1,12 +1,12 @@
 {
-  "timestamp": "2026-08-22T09:16:41Z",
+  "timestamp": "2026-08-22T09:17:19Z",
   "generation_source": "system_state_generator.py v2.1",
   "status": "STALE",
-  "feed_hash": "e48d3f9e7dffa26265a949327f6b10c28fabb632a93ac21ae1c648ef8792208b",
+  "feed_hash": "1671667542a191606c72f236c2311b2587a440efa07843c310b861e267967cb2",
   "feeds": {
     "mission": {
       "present": true,
-      "age_seconds": 6,
+      "age_seconds": 2,
       "fresh_limit_s": 120
     },
     "cortana_feed": {
@@ -16,19 +16,19 @@
     },
     "live": {
       "present": true,
-      "age_seconds": 6,
+      "age_seconds": 1,
       "fresh_limit_s": 15
     },
     "routing": {
       "present": true,
-      "age_seconds": 1925,
+      "age_seconds": 1964,
       "fresh_limit_s": 120
     }
   },
   "services": {
     "total": 53,
-    "running": 23,
-    "planned": 30,
+    "running": 28,
+    "planned": 25,
     "running_list": [
       "application.com.ace777.cockpit-app.14931296.14931301",
       "com.ace777.backup-check",
@@ -38,6 +38,8 @@
       "com.ace777.cortana.urgent",
       "com.ace777.couleur-regime-score",
       "com.ace777.fees",
+      "com.ace777.heartbeats",
+      "com.ace777.hub-cockpit-feed",
       "com.ace777.journal-soir",
       "com.ace777.llm-gate-hub",
       "com.ace777.observatoire",
@@ -45,12 +47,15 @@
       "com.ace777.roulement-ia",
       "com.ace777.routeur-auto",
       "com.ace777.run-setupA-4h",
+      "com.ace777.sniffer-matin",
       "com.ace777.sniffer-ny",
       "com.ace777.state-generator",
       "com.ace777.superviseur",
       "com.ace777.superviseur-core",
       "com.ace777.superviseur-process",
       "com.ace777.veille-hub",
+      "com.ace777.veilleuse-confrontation",
+      "com.ace777.veilleuse-sizing-monte-carlo",
       "com.ace777.vigie-live",
       "com.ace777.whales"
     ],
@@ -66,8 +71,6 @@
       "com.ace777.gitpush",
       "com.ace777.gitpush-vault",
       "com.ace777.graph-cerveau",
-      "com.ace777.heartbeats",
-      "com.ace777.hub-cockpit-feed",
       "com.ace777.hulk-watchdog",
       "com.ace777.macro-tempete",
       "com.ace777.pont-onchain",
@@ -76,13 +79,10 @@
       "com.ace777.run-vortex-96h",
       "com.ace777.run72h",
       "com.ace777.sante-index",
-      "com.ace777.sniffer-matin",
       "com.ace777.veille-degradation",
       "com.ace777.veille-yt",
       "com.ace777.veilleuse",
       "com.ace777.veilleuse-chantiers",
-      "com.ace777.veilleuse-confrontation",
-      "com.ace777.veilleuse-sizing-monte-carlo",
       "com.ace777.verif-setup",
       "com.ace777.watchdog"
     ]
@@ -124,7 +124,7 @@
       "Assistant_Vocal_HORS_VAULT": 697372,
       "Obsidian_BACKUPS_HORS_VAULT": 14936872
     },
-    "presence_at": "2026-08-22T09:16:38Z",
+    "presence_at": "2026-08-22T09:17:15Z",
     "sizes_at": "2026-08-22T08:04:37Z"
   }
 }
