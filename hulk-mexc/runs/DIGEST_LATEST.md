@@ -1,4 +1,4 @@
-# Hulk DIGEST — 2026-08-22T08:55:14Z
+# Hulk DIGEST — 2026-08-22T08:56:31Z
 
 - **Piste :** VEILLE (séparée du paper Hulk)
 - Source trading : **MEXC spot**
@@ -12,24 +12,24 @@
 
 | pair | hint | tension | move6% | dd6% | chg24% | vol USDT | spread bps | DefiLlama |
 |------|------|---------|--------|------|--------|----------|------------|-----------|
-| PYTHUSDT | WATCH_PULLBACK — tension haute + reflux | 4.17 | 19.14 | 9.99 | 0.03 | 34544900.5 | 3.98 | skipped_fast |
-| XRPUSDT | WATCH_PULLBACK — tension haute + reflux | 3.77 | 23.87 | 9.95 | 0.1 | 223557802.27 | 1.96 | skipped_fast |
-| HBARUSDT | WATCH_PULLBACK — tension haute + reflux | 4.31 | 15.8 | 10.0 | 0.02 | 1313882.72 | 6.4 | skipped_fast |
-| CHIPUSDT | WATCH_PULLBACK — tension haute + reflux | 4.29 | 24.54 | 12.15 | -0.1 | 680781.23 | 6.7 | skipped_fast |
-| WUSDT | WATCH_PULLBACK — tension haute + reflux | 4.31 | 17.58 | 8.82 | 0.02 | 602459.82 | 11.5 | skipped_fast |
-| BIOUSDT | WATCH_PULLBACK — tension haute + reflux | 4.18 | 29.98 | 9.27 | -0.04 | 254468.68 | 3.18 | skipped_fast |
-| REDUSDT | WATCH_PULLBACK — tension haute + reflux | 3.16 | 42.01 | 12.28 | 0.04 | 155128.71 | 13.27 | skipped_fast |
-| CCUSDT | IDLE | 2.09 | 11.25 | 3.68 | 0.15 | 799933.21 | 7.46 | skipped_fast |
-| ZBCNUSDT | WATCH_PULLBACK — tension haute + reflux | 3.33 | 8.47 | 7.17 | -0.02 | 497415.44 | 25.29 | skipped_fast |
-| QNTUSDT | WATCH_PULLBACK — tension haute + reflux | 4.39 | 13.91 | 9.04 | 0.01 | 193128.35 | 6.2 | skipped_fast |
-| KITEUSDT | IDLE | 3.75 | 9.68 | 2.97 | 0.06 | 73563.82 | 10.78 | skipped_fast |
-| FLUIDUSDT | IDLE | 3.79 | 7.38 | 4.56 | 0.03 | 6885.76 | 20.67 | skipped_fast |
-| RWAINCUSDT | IDLE | 2.39 | 4.48 | 1.99 | 0.02 | 11077.79 | 5.33 | skipped_fast |
-| EDELUSDT | IDLE | 2.28 | 4.52 | 3.46 | -0.04 | 86668.92 | 44.84 | skipped_fast |
-| TELUSDT | WATCH_PULLBACK — tension haute + reflux | 2.6 | 6.52 | 6.07 | -0.03 | 174018.4 | 36.79 | skipped_fast |
-| QAITUSDT | IDLE | 1.49 | 2.91 | 0.43 | 0.01 | 3202.55 | 66.45 | skipped_fast |
-| RIZEUSDT | IDLE | 0.87 | 3.73 | 1.59 | 0.01 | 52231.91 | 44.83 | skipped_fast |
-| RWAUSDT | IDLE | 1.74 | 3.29 | 1.2 | 0.04 | 58225.28 | 24.22 | skipped_fast |
+| PYTHUSDT | WATCH_PULLBACK — tension haute + reflux | 4.17 | 19.14 | 10.12 | 0.03 | 34716902.37 | 1.99 | tvl≈113,478,518 |
+| XRPUSDT | WATCH_PULLBACK — tension haute + reflux | 3.77 | 23.87 | 9.76 | 0.1 | 223555344.84 | 2.61 | n/a |
+| HBARUSDT | WATCH_PULLBACK — tension haute + reflux | 4.32 | 15.8 | 10.06 | 0.02 | 1314029.03 | 1.28 | empty_tvl |
+| CHIPUSDT | WATCH_PULLBACK — tension haute + reflux | 4.3 | 24.54 | 12.21 | -0.1 | 679827.02 | 3.36 | no_map |
+| WUSDT | WATCH_PULLBACK — tension haute + reflux | 4.32 | 17.58 | 9.09 | 0.02 | 601637.51 | 4.19 | tvl≈1,600,543,155 |
+| BIOUSDT | WATCH_PULLBACK — tension haute + reflux | 4.18 | 29.98 | 9.38 | -0.04 | 254565.4 | 6.37 | n/a |
+| REDUSDT | WATCH_PULLBACK — tension haute + reflux | 3.16 | 42.01 | 12.22 | 0.04 | 155142.9 | 11.51 | tvl≈2,081,438 |
+| CCUSDT | IDLE | 2.09 | 11.25 | 3.8 | 0.15 | 800185.4 | 4.98 | no_map |
+| ZBCNUSDT | WATCH_PULLBACK — tension haute + reflux | 3.33 | 8.47 | 7.18 | -0.02 | 497341.42 | 24.78 | n/a |
+| QNTUSDT | WATCH_PULLBACK — tension haute + reflux | 4.39 | 13.91 | 9.1 | 0.01 | 193138.21 | 4.65 | n/a |
+| KITEUSDT | IDLE | 3.76 | 9.68 | 3.16 | 0.06 | 73559.12 | 13.51 | no_map |
+| FLUIDUSDT | WATCH_PULLBACK — tension haute + reflux | 3.83 | 7.38 | 5.12 | 0.02 | 7020.8 | 21.4 | tvl≈2,562,763,298 |
+| EDELUSDT | IDLE | 2.3 | 4.52 | 3.78 | -0.05 | 86492.45 | 44.84 | no_map |
+| RWAINCUSDT | IDLE | 2.38 | 4.48 | 1.88 | 0.03 | 11642.78 | 15.99 | no_map |
+| TELUSDT | WATCH_PULLBACK — tension haute + reflux | 2.6 | 6.52 | 6.12 | -0.03 | 174070.1 | 36.79 | no_map |
+| QAITUSDT | IDLE | 1.49 | 2.91 | 0.43 | 0.01 | 3202.55 | 66.45 | no_map |
+| RIZEUSDT | IDLE | 0.87 | 3.73 | 1.59 | 0.01 | 52052.44 | 44.83 | no_map |
+| RWAUSDT | IDLE | 1.74 | 3.29 | 1.27 | 0.03 | 58153.23 | 24.24 | no_map |
 
 ## Consignes Qwen (manuel — ne pilote pas le paper)
 1. Résumer en 5 lignes : qui spike, qui dump, illiquide (spread/vol).
