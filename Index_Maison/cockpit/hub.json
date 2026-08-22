@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-22T00:17:26.406753+00:00",
+  "generated_at": "2026-08-22T00:18:33.689184+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -26,7 +26,7 @@
       "model": "qwen-3.8-max-free",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 727
+      "calls_24h": 729
     },
     {
       "id": "groq",
@@ -44,7 +44,7 @@
       "model": "deepseek-ai/deepseek-v4-flash-0731",
       "enabled": true,
       "timeout": 300,
-      "calls_24h": 186
+      "calls_24h": 188
     },
     {
       "id": "mistral",
@@ -229,10 +229,42 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 44,
-    "remaining": 580
+    "consumed": 48,
+    "remaining": 576
   },
   "queue": [
+    {
+      "ts": "2026-08-22T00:18:27.369664+00:00",
+      "task": "analyse.profonde",
+      "provider": "nvidia",
+      "model": "deepseek-ai/deepseek-v4-flash-0731",
+      "kind": "cloud",
+      "duration_s": 100.57
+    },
+    {
+      "ts": "2026-08-22T00:17:48.239017+00:00",
+      "task": "supervise.decision",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 7.47
+    },
+    {
+      "ts": "2026-08-22T00:17:39.259163+00:00",
+      "task": "analyse.profonde",
+      "provider": "nvidia",
+      "model": "deepseek-ai/deepseek-v4-flash-0731",
+      "kind": "cloud",
+      "duration_s": 435.49
+    },
+    {
+      "ts": "2026-08-22T00:17:29.812977+00:00",
+      "task": "supervise.decision",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 27.57
+    },
     {
       "ts": "2026-08-22T00:16:57.615659+00:00",
       "task": "supervise.decision",
@@ -320,41 +352,57 @@
       "model": "qwen-3.8-max-free",
       "kind": "cloud",
       "duration_s": 13.56
-    },
-    {
-      "ts": "2026-08-22T00:10:59.480567+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 10.38
-    },
-    {
-      "ts": "2026-08-22T00:10:38.090669+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 67.82
-    },
-    {
-      "ts": "2026-08-22T00:09:58.864123+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 7.6
-    },
-    {
-      "ts": "2026-08-22T00:09:51.228158+00:00",
-      "task": "analyse.profonde",
-      "provider": "nvidia",
-      "model": "deepseek-ai/deepseek-v4-flash-0731",
-      "kind": "cloud",
-      "duration_s": 371.85
     }
   ],
   "events": [
+    {
+      "ts": "2026-08-22T00:18:33.617020+00:00",
+      "kind": "message",
+      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
+      "detail": "bascule"
+    },
+    {
+      "ts": "2026-08-22T00:18:27.369030+00:00",
+      "kind": "message",
+      "title": "« NVIDIA build.nvidia.com (100+ modeles) » a repondu",
+      "detail": ""
+    },
+    {
+      "ts": "2026-08-22T00:17:48.238479+00:00",
+      "kind": "message",
+      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
+      "detail": "bascule"
+    },
+    {
+      "ts": "2026-08-22T00:17:40.769744+00:00",
+      "kind": "failover",
+      "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
+      "detail": "0 attente"
+    },
+    {
+      "ts": "2026-08-22T00:17:39.259823+00:00",
+      "kind": "http",
+      "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
+      "detail": ""
+    },
+    {
+      "ts": "2026-08-22T00:17:39.257319+00:00",
+      "kind": "message",
+      "title": "« NVIDIA build.nvidia.com (100+ modeles) » a repondu",
+      "detail": ""
+    },
+    {
+      "ts": "2026-08-22T00:17:33.690896+00:00",
+      "kind": "failover",
+      "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
+      "detail": "0 attente"
+    },
+    {
+      "ts": "2026-08-22T00:17:29.812431+00:00",
+      "kind": "message",
+      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
+      "detail": "bascule"
+    },
     {
       "ts": "2026-08-22T00:17:02.241070+00:00",
       "kind": "failover",
@@ -366,54 +414,6 @@
       "kind": "ratelimit",
       "title": "429 Groq (LLM ultra-rapide, gratuit) -> pause 60s + bascule",
       "detail": ""
-    },
-    {
-      "ts": "2026-08-22T00:17:02.090128+00:00",
-      "kind": "blacklist",
-      "title": "Fin de pause Groq (LLM ultra-rapide, gratuit)",
-      "detail": "re-essai automatique"
-    },
-    {
-      "ts": "2026-08-22T00:16:57.610034+00:00",
-      "kind": "message",
-      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
-      "detail": "bascule"
-    },
-    {
-      "ts": "2026-08-22T00:16:44.752121+00:00",
-      "kind": "message",
-      "title": "« NVIDIA build.nvidia.com (100+ modeles) » a repondu",
-      "detail": ""
-    },
-    {
-      "ts": "2026-08-22T00:16:20.104323+00:00",
-      "kind": "http",
-      "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
-      "detail": ""
-    },
-    {
-      "ts": "2026-08-22T00:16:20.103392+00:00",
-      "kind": "message",
-      "title": "« NVIDIA build.nvidia.com (100+ modeles) » a repondu",
-      "detail": ""
-    },
-    {
-      "ts": "2026-08-22T00:15:48.390836+00:00",
-      "kind": "message",
-      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
-      "detail": "bascule"
-    },
-    {
-      "ts": "2026-08-22T00:15:48.323061+00:00",
-      "kind": "failover",
-      "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
-      "detail": "0 attente"
-    },
-    {
-      "ts": "2026-08-22T00:15:44.581532+00:00",
-      "kind": "message",
-      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
-      "detail": "bascule"
     }
   ],
   "tasks_quotas": {
