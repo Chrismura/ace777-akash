@@ -1,15 +1,15 @@
 {
-  "ts": "2026-08-22T02:04:24.943682+00:00",
-  "saison": "CALME",
-  "emoji": "🧊",
-  "direction": "neutre",
-  "bascule": true,
-  "bascule_raison": "CHAUFFE → CALME",
+  "ts": "2026-08-22T02:05:13.220103+00:00",
+  "saison": "CHAUFFE",
+  "emoji": "🌡️",
+  "direction": "long",
+  "bascule": false,
+  "bascule_raison": "",
   "alignement": {
-    "nb_long": 1,
-    "nb_short": 1,
-    "score": 0.0,
-    "direction": "neutre"
+    "nb_long": 2,
+    "nb_short": 0,
+    "score": 1.0,
+    "direction": "long"
   },
   "indices": {
     "temperature": {
@@ -23,9 +23,9 @@
       "brut": 0.0001
     },
     "bassin": {
-      "direction": "short",
+      "direction": "long",
       "force": 1,
-      "brut": "down"
+      "brut": "up"
     },
     "vortex": {
       "direction": "long",
@@ -44,10 +44,9 @@
     }
   },
   "story": [
-    "SAISON : CALME 🧊 — hiver, ADA dort.",
-    "Alignement : 1 haussiers / 1 baissiers.",
-    "Le vortex tourne fort (+4.05 % sur 24h) — le mouvement est là.",
-    "⚡ BASCULE : CHAUFFE → CALME — le ciel change, prépare-toi."
+    "SAISON : CHAUFFE 🌡️ — température warn, bassin long.",
+    "Alignement : 2 haussiers / 0 baissiers.",
+    "Le vortex tourne fort (+4.05 % sur 24h) — le mouvement est là."
   ],
   "sources": [
     "live.json"
