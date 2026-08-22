@@ -1,42 +1,43 @@
 {
-  "timestamp": "2026-08-22T07:10:57Z",
+  "timestamp": "2026-08-22T07:11:55Z",
   "generation_source": "system_state_generator.py v2.1",
   "status": "STALE",
-  "feed_hash": "9eca1a4aeba59d1d254397c373053c79ada6640e2679a9d61307cbc8369475ee",
+  "feed_hash": "1fbf477713bac5171e49190405a649783dbadfaf6758c385d57d0170f1f6a0b6",
   "feeds": {
     "mission": {
       "present": true,
-      "age_seconds": 3,
+      "age_seconds": 30,
       "fresh_limit_s": 120
     },
     "cortana_feed": {
       "present": true,
-      "age_seconds": 7,
+      "age_seconds": 19,
       "fresh_limit_s": 120
     },
     "live": {
       "present": true,
-      "age_seconds": 5,
+      "age_seconds": 2,
       "fresh_limit_s": 15
     },
     "routing": {
       "present": true,
-      "age_seconds": 20104,
+      "age_seconds": 20162,
       "fresh_limit_s": 120
     }
   },
   "services": {
     "total": 53,
-    "running": 20,
-    "planned": 33,
+    "running": 23,
+    "planned": 30,
     "running_list": [
       "application.com.ace777.cockpit-app.14931296.14931301",
+      "com.ace777.archi-vivante",
       "com.ace777.bloc-privatise",
       "com.ace777.cockpit-http",
       "com.ace777.cortana-feed",
       "com.ace777.cortana.urgent",
+      "com.ace777.couleur-regime",
       "com.ace777.couleur-regime-score",
-      "com.ace777.fees",
       "com.ace777.journal-soir",
       "com.ace777.llm-gate-hub",
       "com.ace777.observatoire",
@@ -44,23 +45,24 @@
       "com.ace777.roulement-ia",
       "com.ace777.routeur-auto",
       "com.ace777.run-setupA-4h",
+      "com.ace777.sniffer-ny",
       "com.ace777.state-generator",
       "com.ace777.superviseur",
       "com.ace777.superviseur-core",
       "com.ace777.superviseur-process",
-      "com.ace777.vigie-live",
-      "com.ace777.whales"
+      "com.ace777.veille-hub",
+      "com.ace777.veilleuse-confrontation",
+      "com.ace777.vigie-live"
     ],
     "planned_list": [
-      "com.ace777.archi-vivante",
       "com.ace777.autopilote",
       "com.ace777.backup-check",
       "com.ace777.catalogue",
       "com.ace777.cockpit-pont",
-      "com.ace777.couleur-regime",
       "com.ace777.cpfp",
       "com.ace777.dms-veille",
       "com.ace777.eval-offres",
+      "com.ace777.fees",
       "com.ace777.gitpush",
       "com.ace777.gitpush-vault",
       "com.ace777.graph-cerveau",
@@ -75,16 +77,14 @@
       "com.ace777.run72h",
       "com.ace777.sante-index",
       "com.ace777.sniffer-matin",
-      "com.ace777.sniffer-ny",
       "com.ace777.veille-degradation",
-      "com.ace777.veille-hub",
       "com.ace777.veille-yt",
       "com.ace777.veilleuse",
       "com.ace777.veilleuse-chantiers",
-      "com.ace777.veilleuse-confrontation",
       "com.ace777.veilleuse-sizing-monte-carlo",
       "com.ace777.verif-setup",
-      "com.ace777.watchdog"
+      "com.ace777.watchdog",
+      "com.ace777.whales"
     ]
   },
   "hub": {
@@ -124,7 +124,7 @@
       "Assistant_Vocal_HORS_VAULT": 697372,
       "Obsidian_BACKUPS_HORS_VAULT": 14936872
     },
-    "presence_at": "2026-08-22T07:10:53Z",
+    "presence_at": "2026-08-22T07:11:45Z",
     "sizes_at": "2026-08-22T02:00:41Z"
   }
 }
