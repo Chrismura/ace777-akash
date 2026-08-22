@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-22T14:52:57.880711+00:00",
+  "generated_at": "2026-08-22T14:54:24.439120+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 507
+      "calls_24h": 0
     },
     {
       "id": "openrouter-free",
@@ -26,7 +26,7 @@
       "model": "qwen-3.8-max-free",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 751
+      "calls_24h": 1
     },
     {
       "id": "groq",
@@ -35,7 +35,7 @@
       "model": "groq/compound",
       "enabled": true,
       "timeout": 120,
-      "calls_24h": 13
+      "calls_24h": 1
     },
     {
       "id": "nvidia",
@@ -44,7 +44,7 @@
       "model": "deepseek-ai/deepseek-v4-flash-0731",
       "enabled": true,
       "timeout": 300,
-      "calls_24h": 2
+      "calls_24h": 0
     },
     {
       "id": "mistral",
@@ -53,7 +53,7 @@
       "model": "codestral-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 2517
+      "calls_24h": 0
     },
     {
       "id": "cloudflare-workers-ai",
@@ -229,191 +229,87 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 3790,
-    "remaining": 0
+    "consumed": 2,
+    "remaining": 622
   },
   "queue": [
     {
-      "ts": "2026-08-22T14:52:13.203073+00:00",
+      "ts": "2026-08-22T14:53:56.825699+00:00",
       "task": "supervise.decision",
       "provider": "groq",
       "model": "groq/compound",
       "kind": "cloud",
-      "duration_s": 1.68
+      "duration_s": 2.37
     },
     {
-      "ts": "2026-08-22T14:52:12.422266+00:00",
-      "task": "analyse.profonde",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 2.86
-    },
-    {
-      "ts": "2026-08-22T14:52:06.158456+00:00",
-      "task": "analyse.profonde",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 2.46
-    },
-    {
-      "ts": "2026-08-22T12:53:14.927480+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 74.95
-    },
-    {
-      "ts": "2026-08-22T12:52:21.758402+00:00",
+      "ts": "2026-08-22T14:53:50.911965+00:00",
       "task": "analyse.profonde",
       "provider": "nara",
       "model": "qwen-3.8-max-free",
       "kind": "cloud",
-      "duration_s": 84.06
-    },
-    {
-      "ts": "2026-08-22T12:52:13.781655+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 13.79
-    },
-    {
-      "ts": "2026-08-22T12:51:51.362880+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 41.03
-    },
-    {
-      "ts": "2026-08-22T12:51:04.874768+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 24.98
-    },
-    {
-      "ts": "2026-08-22T12:50:54.220178+00:00",
-      "task": "analyse.profonde",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 43.16
-    },
-    {
-      "ts": "2026-08-22T12:50:31.015943+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 35.52
-    },
-    {
-      "ts": "2026-08-22T12:50:08.245441+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 15.06
-    },
-    {
-      "ts": "2026-08-22T12:50:07.766461+00:00",
-      "task": "analyse.profonde",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 138.52
-    },
-    {
-      "ts": "2026-08-22T12:49:45.430330+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 13.62
-    },
-    {
-      "ts": "2026-08-22T12:49:16.648565+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 35.97
-    },
-    {
-      "ts": "2026-08-22T12:48:28.958426+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 32.03
+      "duration_s": 47.88
     }
   ],
   "events": [
     {
-      "ts": "2026-08-22T14:52:57.237353+00:00",
+      "ts": "2026-08-22T14:54:18.693779+00:00",
       "kind": "failover",
-      "title": "Bascule depuis OpenRouter Juge (nemotron-3-super-120b free) - verificateur independant",
+      "title": "Bascule depuis OpenRouter (modeles gratuits)",
+      "detail": "HTTP Error 404: Not Found"
+    },
+    {
+      "ts": "2026-08-22T14:54:18.360957+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis Google Gemini",
       "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-08-22T14:52:56.379883+00:00",
-      "kind": "http",
-      "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
+      "ts": "2026-08-22T14:54:18.360458+00:00",
+      "kind": "ratelimit",
+      "title": "429 Google Gemini -> pause 60s + bascule",
       "detail": ""
     },
     {
-      "ts": "2026-08-22T14:52:56.379223+00:00",
-      "kind": "error",
-      "title": "Toutes les IA ont echoue",
-      "detail": "Google Gemini: HTTP Error 429: Too Many Requests | HuggingFace (136+ modeles, dont DeepSeek-V4): HTTP Error 402: Payment Required | NaraRouter (7M tokens/jour gratuits): HTTP Error 502: Bad Gateway | OpenRouter (modeles gratuits): HTTP Error 404: Not Found | Groq (LLM ultra-rapide, gratuit): HTTP Error 413: Payload Too Large | NVIDIA build.nvidia.com (100+ modeles): The read operation timed out | OpenRouter Juge (nemotron-3-super-120b free) - verificateur independant: HTTP Error 429: Too Many Re"
+      "ts": "2026-08-22T14:54:17.919858+00:00",
+      "kind": "blacklist",
+      "title": "Fin de pause Google Gemini",
+      "detail": "re-essai automatique"
     },
     {
-      "ts": "2026-08-22T14:52:56.376461+00:00",
+      "ts": "2026-08-22T14:54:17.913399+00:00",
       "kind": "failover",
-      "title": "Bascule depuis InferX Devstral-2-123B (code)",
+      "title": "Bascule depuis NaraRouter (7M tokens/jour gratuits)",
+      "detail": "HTTP Error 502: Bad Gateway"
+    },
+    {
+      "ts": "2026-08-22T14:54:08.418847+00:00",
+      "kind": "timeout",
+      "title": "Patience NaraRouter (7M tokens/jour gratuits) (HTTP 502)",
+      "detail": "HTTP Error 502: Bad Gateway"
+    },
+    {
+      "ts": "2026-08-22T14:54:00.357714+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis Groq (LLM ultra-rapide, gratuit)",
       "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-08-22T14:52:56.245702+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis NVIDIA build.nvidia.com (100+ modeles)",
-      "detail": "The read operation timed out"
+      "ts": "2026-08-22T14:54:00.357404+00:00",
+      "kind": "ratelimit",
+      "title": "429 Groq (LLM ultra-rapide, gratuit) -> pause 60s + bascule",
+      "detail": ""
     },
     {
-      "ts": "2026-08-22T14:52:55.231832+00:00",
+      "ts": "2026-08-22T14:53:58.640663+00:00",
       "kind": "failover",
-      "title": "Bascule depuis NVIDIA DeepSeek-Coder 6.7B (code, via NIM)",
-      "detail": "HTTP Error 404: Not Found"
+      "title": "Saute (blacklist) depuis HuggingFace (136+ modeles, dont DeepSeek-V4)",
+      "detail": "0 attente"
     },
     {
-      "ts": "2026-08-22T14:52:53.441794+00:00",
+      "ts": "2026-08-22T14:53:58.640369+00:00",
       "kind": "failover",
-      "title": "Bascule depuis Puter Grok (gratuit)",
-      "detail": "HTTP Error 402: Payment Required"
-    },
-    {
-      "ts": "2026-08-22T14:52:52.563453+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis OpenRouter (modeles gratuits)",
-      "detail": "HTTP Error 404: Not Found"
-    },
-    {
-      "ts": "2026-08-22T14:52:52.379854+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis InferX Qwen3-Coder-Next (code, gratuit jusqu'au 12/08)",
-      "detail": "HTTP Error 429: Too Many Requests"
-    },
-    {
-      "ts": "2026-08-22T14:52:51.877800+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis OpenRouter (modeles gratuits)",
-      "detail": "HTTP Error 404: Not Found"
+      "title": "Saute (blacklist) depuis Google Gemini",
+      "detail": "0 attente"
     }
   ],
   "tasks_quotas": {

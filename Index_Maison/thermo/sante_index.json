@@ -1,11 +1,9 @@
 {
-  "ts": "2026-08-22T14:53+00:00",
-  "updated": "2026-08-22T14:53Z",
-  "etat": "ALERTE",
-  "chaines_ok": "8/9",
-  "anomalies": [
-    "HULK : sonde ou CSV figé (process absent ou CSV > 15 min)"
-  ],
+  "ts": "2026-08-22T14:54+00:00",
+  "updated": "2026-08-22T14:54Z",
+  "etat": "OK",
+  "chaines_ok": "9/9",
+  "anomalies": [],
   "degradees": [],
   "chaines": [
     {
@@ -55,7 +53,7 @@
       "id": "hulk",
       "nom": "HULK",
       "chemin": "sonde paper_diprip → CSV aspiration (murs + prix + BTC)",
-      "ok": false,
+      "ok": true,
       "maillons": [
         {
           "nom": "process paper_diprip",
@@ -64,8 +62,8 @@
         },
         {
           "nom": "CSV aspiration",
-          "ok": false,
-          "detail": "ASPIRATION_CALIB_20260821_092452.csv · âge 121 min"
+          "ok": true,
+          "detail": "ASPIRATION_CALIB_20260821_092452.csv · âge 0 min"
         },
         {
           "nom": "corrélation BTC",
@@ -88,7 +86,7 @@
         {
           "nom": "mission.json → cockpit",
           "ok": true,
-          "detail": "âge 0 min"
+          "detail": "âge 1 min"
         },
         {
           "nom": "feed launchd",
