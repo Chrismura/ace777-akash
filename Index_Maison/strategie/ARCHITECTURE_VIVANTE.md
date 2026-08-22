@@ -34,9 +34,9 @@
 - [Santé]
   · hub : OK (14 providers)
 - [Énergie du jour]
-  · appels : 740 (cloud 740)
+  · appels : 743 (cloud 743)
   · budget cloud : 624 max
-  · par provider : gemini=2, groq=3, mistral=598, nara=137
+  · par provider : gemini=2, groq=3, mistral=601, nara=137
 - [Nouvelles offres détectées (non intégrées)]
   · dots-studio/dots-3-note-preview:free
   · liquid/lfm-2.5-2.6b:free
@@ -46,10 +46,10 @@
 ## Mémoire chaude (journal + résumés)
 
 - Radar (dernières alertes) :
-  · 2026-08-22T17:03:27.795534Z BTCUSDT 77284.01 0.0001 0.6 declenche=non
-  · 2026-08-22T17:03:27.795528Z BTCUSDT 77284.01 0.0004 1.4 declenche=non
-  · 2026-08-22T17:03:28.156013Z BTCUSDT 77284.0 0.0004 1.4 declenche=non
-  · 2026-08-22T17:03:28.324048Z BTCUSDT 77284.0 0.0004 1.4 declenche=non
+  · 2026-08-22T17:03:46.033272Z BTCUSDT 77297.99 0.0001 1.2 declenche=non
+  · 2026-08-22T17:03:46.033360Z BTCUSDT 77298.15 0.0000 0.6 declenche=non
+  · 2026-08-22T17:03:46.033405Z BTCUSDT 77298.0 0.0001 1.2 declenche=non
+  · 2026-08-22T17:03:46.033584Z BTCUSDT 77298.15 0.0001 1.2 declenche=non
 - Intention en cours : BETA a sonde le marche (7 sondes, 5 long / 2 court, conf moy | ALPHA attend son moment : 90 skips (discipline), le mur du c | ALPHA a frappe 3 fois en embuscade (13x) (dont 2 en mode rev
 - 550 signets X résumés (quota aujourd'hui : 50/50)
 - 56 fiches IA d'offres en cache (quota 8/jour)
