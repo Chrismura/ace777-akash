@@ -1,4 +1,4 @@
-# ARCHITECTURE VIVANTE — ACE777 (2026-08-22 07:46 UTC)
+# ARCHITECTURE VIVANTE — ACE777 (2026-08-22 07:47 UTC)
 
 > Document GÉNÉRÉ AUTOMATIQUEMENT à l'instant. La famille valide
 > en s'appuyant sur CE contexte, pas sur des documents figés.
@@ -24,7 +24,7 @@
 
 - mission.json : 2026-08-22 07:46Z · run `MASTER_VORTEX_V2_COLLAB_4H` · alerte `red`
 - PnL combiné : **-1.13 $** 📉 (combo -1.1341)
-- ALPHA (sniper (embuscade, ×13, revenge si claque)) : **-1.12 $** · 1 fills · 21 skips
+- ALPHA (sniper (embuscade, ×13, revenge si claque)) : **-1.12 $** · 1 fills · 22 skips
 - BETA (éclaireur (chatouille le marché, alimente Alpha)) : **-0.01 $** · 1 fills · 13 skips
 - HULK (gestionnaire de portefeuille (bag, escalier, courreur)) : **-0.11 $** · 0 fills
 - Saison : CHAOS ⛈️ · 
@@ -34,12 +34,10 @@
 - [Santé]
   · hub : OK (14 providers)
 - [Énergie du jour]
-  · appels : 2274 (cloud 2274)
+  · appels : 2275 (cloud 2275)
   · budget cloud : 624 max
-  · par provider : gemini=504, groq=5, mistral=1399, nara=364, nvidia=2
+  · par provider : gemini=504, groq=6, mistral=1399, nara=364, nvidia=2
 - [Nouvelles offres détectées (non intégrées)]
-- [ROLLBACK AUTO 2026-08-22]
-  · obs-1786688184 (cohere/north-mini-code:free) : 100% erreurs > 5% (observatoire)
   · dots-studio/dots-3-note-preview:free
   · liquid/lfm-2.5-2.6b:free
   · thinkingmachines/inkling-small:free
@@ -48,10 +46,10 @@
 ## Mémoire chaude (journal + résumés)
 
 - Radar (dernières alertes) :
-  · 2026-08-22T07:46:23.470026Z ETHUSDT 2436.11 0.0007 195.4 declenche=non
-  · 2026-08-22T07:46:23.925415Z ETHUSDT 2436.11 0.0007 195.4 declenche=non
-  · 2026-08-22T07:46:25.357783Z ETHUSDT 2436.11 0.0007 195.5 declenche=non
-  · 2026-08-22T07:46:25.577003Z BTCUSDT 77392.9 0.0000 0.1 declenche=non
+  · 2026-08-22T07:47:09.954920Z BTCUSDT 77386.01 0.0001 17.9 declenche=non
+  · 2026-08-22T07:47:09.955093Z BTCUSDT 77386.01 0.0001 17.9 declenche=non
+  · 2026-08-22T07:47:09.955267Z ETHUSDT 2435.19 0.0003 69.6 declenche=non
+  · 2026-08-22T07:47:09.955418Z ETHUSDT 2435.2 0.0003 70.6 declenche=non
 - Intention en cours : BETA a sonde le marche (1 sondes, 1 long / 0 court, conf moy | ALPHA a frappe 1 fois en embuscade (13x) : -1.12 $ — session
 - 500 signets X résumés (quota aujourd'hui : 0/50)
 - 56 fiches IA d'offres en cache (quota 8/jour)
