@@ -2681,7 +2681,7 @@
         "reason": "SEED_START"
       }
     ],
-    "skips": 327,
+    "skips": 329,
     "portfolio": [
       {
         "pair": "CCUSDT",
@@ -3095,13 +3095,13 @@
   },
   "thermo": {
     "climate": "ok",
-    "score": 77,
+    "score": 76,
     "funding": 0.0001,
-    "whaleN": 0,
+    "whaleN": 1,
     "deltas": {
       "mark": {
         "dir": "down",
-        "delta": -7.5,
+        "delta": -0.1,
         "label": "↓"
       },
       "funding": {
@@ -3125,14 +3125,14 @@
         "label": "="
       },
       "chg24": {
-        "dir": "down",
-        "delta": -0.01,
-        "label": "↓"
+        "dir": "flat",
+        "delta": 0.0,
+        "label": "="
       },
       "oi": {
-        "dir": "up",
-        "delta": 3.707,
-        "label": "↑"
+        "dir": "down",
+        "delta": -0.839,
+        "label": "↓"
       },
       "score": {
         "dir": "flat",
@@ -3195,9 +3195,9 @@
         "label": "—"
       },
       "etfBtcM": {
-        "dir": "down",
-        "delta": -0.02,
-        "label": "↓"
+        "dir": "flat",
+        "delta": 0.0,
+        "label": "="
       },
       "altSeasonScore": {
         "dir": "flat",
@@ -3220,9 +3220,9 @@
     "marketCapUsd": null,
     "altSeason": null,
     "altSeasonScore": null,
-    "liq24Usd": 52733548.0,
+    "liq24Usd": 52730035.0,
     "etf": {
-      "btc": 226.64,
+      "btc": 226.57,
       "eth": null,
       "xrp": null,
       "source": "bitbo-public (moy 7j)",
@@ -3236,13 +3236,13 @@
       "whaleFragBtc": 0,
       "whaleCumul24hBtc": 0.0,
       "whaleMoy7jBtc": 0.0,
-      "whaleDir": "neutral",
-      "whaleDirLabel": "neutral",
+      "whaleDir": "bullish",
+      "whaleDirLabel": "bullish",
       "whaleDirScan": "neutral",
-      "whaleDirProxy": "neutral",
-      "whaleProxyN": 0,
-      "whaleProxyUsd": 0.0,
-      "whaleProxyBuyUsd": 0.0,
+      "whaleDirProxy": "bullish",
+      "whaleProxyN": 1,
+      "whaleProxyUsd": 525492.0,
+      "whaleProxyBuyUsd": 525492.0,
       "whaleProxySellUsd": 0.0,
       "whaleSource": "inconnue",
       "whaleEcartSeuil": null,
@@ -3257,7 +3257,7 @@
       "cpfpGlobal": false,
       "cpfpZscore": 0.0,
       "cpfpDustScore": 100.0,
-      "cpfpDustDetail": "poussière <2.0 sat/vB (normalisé minFee 1×1.5) : 2 vues ce run, 15966 cumulées 48h (seuil 1000) — max 0.0016 BTC",
+      "cpfpDustDetail": "poussière <2.0 sat/vB (normalisé minFee 1×1.5) : 6 vues ce run, 15977 cumulées 48h (seuil 1000) — max 0.0010 BTC",
       "blocPrivatiseMode": "actif",
       "blocPrivatiseTauxFantome": 8.8674,
       "blocPrivatiseNbCachees": 422,
@@ -3303,7 +3303,7 @@
         "wired": true
       },
       "D30": {
-        "value": "BTC 226.64 M$",
+        "value": "BTC 226.57 M$",
         "level": "ok",
         "label": "ETF BTC net inflow",
         "unit": "",
@@ -3329,7 +3329,7 @@
     }
   },
   "intention": {
-    "ts": "2026-08-22T08:59:22.822758+00:00",
+    "ts": "2026-08-22T08:59:29.502344+00:00",
     "since": "2026-08-22T07:34:00Z",
     "bots": {
       "alpha": {
@@ -3984,17 +3984,17 @@
     ]
   },
   "saison": {
-    "ts": "2026-08-22T08:59:17.266235+00:00",
+    "ts": "2026-08-22T08:59:36.219400+00:00",
     "saison": "CHAOS",
     "emoji": "⛈️",
-    "direction": "neutre",
+    "direction": "short",
     "bascule": false,
     "bascule_raison": "",
     "alignement": {
-      "nb_long": 1,
-      "nb_short": 1,
-      "score": 0.0,
-      "direction": "neutre"
+      "nb_long": 0,
+      "nb_short": 2,
+      "score": 1.0,
+      "direction": "short"
     },
     "indices": {
       "temperature": {
@@ -4008,14 +4008,14 @@
         "brut": 0.0001
       },
       "bassin": {
-        "direction": "long",
+        "direction": "short",
         "force": 1,
-        "brut": "up"
+        "brut": "down"
       },
       "vortex": {
         "direction": "short",
         "force": 2,
-        "brut": -2.34
+        "brut": -2.67
       },
       "essaim": {
         "direction": "neutre",
@@ -4025,13 +4025,13 @@
       "baleines": {
         "direction": "neutre",
         "force": 0,
-        "brut": 0
+        "brut": 1
       }
     },
     "story": [
       "SAISON : CHAOS ⛈️ — liquidations massives détectées, le marché tremble.",
-      "Alignement : 1 haussiers / 1 baissiers.",
-      "Le vortex tourne fort (-2.34 % sur 24h) — le mouvement est là."
+      "Alignement : 0 haussiers / 2 baissiers.",
+      "Le vortex tourne fort (-2.67 % sur 24h) — le mouvement est là."
     ],
     "sources": [
       "live.json"
@@ -4039,7 +4039,7 @@
     "degraded": false
   },
   "gardienne": {
-    "ts": "2026-08-22T08:59:17Z",
+    "ts": "2026-08-22T08:59:36Z",
     "voilure_pct": 65,
     "zone": "JAUNE",
     "zone_emoji": "🟡",
@@ -4074,7 +4074,7 @@
     ]
   },
   "coup_doeil": {
-    "ts": "2026-08-22T08:59:17Z",
+    "ts": "2026-08-22T08:59:36Z",
     "saison": "CHAOS",
     "saison_emoji": "⛈️",
     "voilure": "65 %",
