@@ -1,13 +1,13 @@
 # Attention vocale — Cortana
 
 ## Dernier résumé
-> Résumé Cortana, mode pédagogique. Climat attention, score 61 sur cent. Avis climat : attention, score 61 — ni festin ni alarme ; on reste en mode lecture. Bitcoin cours 78509 dollars, une heure 0.01%, quatre heures 0.21%, vingt-quatre heures 5.19%. Avis prix : sur une heure, le bitcoin bouge peu — marché plutôt plat ; sur vingt-quatre heures c’est clairement vert. Taux de financement actuel 0.0001, moyenne trente jours 0.000058, mois précédent 0.000061. Avis : un peu plus haut que la moyenne des trente jours, et au-dessus de la moyenne du mois précédent. En clair : funding positif soft — les longs paient encore les shorts, rien d’extrême Ratio long court 1.05, intérêt ouvert 1e+05, ratio acheteur 1.3. Avis positionnement : équilibre long-court assez classique ; les acheteurs agressifs dominent un peu (taker) ; l’intérêt ouvert donne la taille des paris ouverts — à croiser avec le prix, pas seul. Baleines : 2 grosses transactions, environ 2e+06 dollars. Avis baleines : 2 gros print(s), somme élevée — quelqu’un de gros a frappé ; je note, je ne traduis pas ça en ordre. Ace en direct, 1362 passés, bénéfice session 315.87$, chaleur 1e+02. Avis stacks : chaleur Ace élevée — beaucoup d’activité ou de stress moteur ; session Ace positive — bien, sans crier victoire ; beaucoup de SKIP : le filtre refuse souvent — sagesse ou marché trop sale. Les moteurs sont à l'arrêt. Dernier run : MASTER_VORTEX_V2_COLLAB_4H. Portefeuille : Ace -64.36$, Hulk 2.16$, total -62.20$. Synthèse : sentiment neutre à légèrement positif. On laisse tourner le setup ; je sniffe, je ne décide pas à ta place.
+> Info Changement de tendance. Structure hausse, signe une heure -.. Provenance cortana_watch_trend.
 
 ## Meta
 - statut: READY
-- ts: 20260822T0356Z
+- ts: 20260822T0357Z
 - pertinence: SOFT
-- sentiment: NEUTRE
+- sentiment: INFO
 - compte: thermo-free
 - lien Index: S22b C14 · résumé horaire
 
