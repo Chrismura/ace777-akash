@@ -1,5 +1,5 @@
 {
-  "ts": "2026-08-22T00:32:05.873424+00:00",
+  "ts": "2026-08-22T00:32:31.360693+00:00",
   "since": "2026-08-21T23:22:00Z",
   "bots": {
     "alpha": {
@@ -11,21 +11,6 @@
       "best": 1.036,
       "conf_moy": 0.8995599999999999,
       "events": [
-        {
-          "ts": "2026-08-22T00:30:16Z",
-          "bot": "alpha",
-          "cycle": 131,
-          "action": "skip",
-          "intention": "skip — gap_guard_pause",
-          "direction": null,
-          "conf": null,
-          "exit": "gap_guard_pause",
-          "meta": {
-            "size_note": null,
-            "tension": null
-          },
-          "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv"
-        },
         {
           "ts": "2026-08-22T00:30:20Z",
           "bot": "alpha",
@@ -310,10 +295,25 @@
             "tension": 0.17677833
           },
           "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv"
+        },
+        {
+          "ts": "2026-08-22T00:32:30Z",
+          "bot": "alpha",
+          "cycle": 135,
+          "action": "wait",
+          "intention": "attente — mur du carnet intact",
+          "direction": null,
+          "conf": null,
+          "exit": "impulse_resonance_wait",
+          "meta": {
+            "size_note": null,
+            "tension": 0.74968869
+          },
+          "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv"
         }
       ],
       "counts": {
-        "wait": 23,
+        "wait": 24,
         "fire": 10,
         "probe": 0,
         "skip": 239
@@ -333,21 +333,6 @@
       "best": 2.59434,
       "conf_moy": 0.9530428571428571,
       "events": [
-        {
-          "ts": "2026-08-22T00:27:32Z",
-          "bot": "beta",
-          "cycle": 132,
-          "action": "skip",
-          "intention": "skip — gap_guard_pause",
-          "direction": null,
-          "conf": null,
-          "exit": "gap_guard_pause",
-          "meta": {
-            "size_note": null,
-            "tension": null
-          },
-          "file": "MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv"
-        },
         {
           "ts": "2026-08-22T00:27:38Z",
           "bot": "beta",
@@ -632,10 +617,25 @@
             "tension": 0.00043595
           },
           "file": "MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv"
+        },
+        {
+          "ts": "2026-08-22T00:32:27Z",
+          "bot": "beta",
+          "cycle": 135,
+          "action": "wait",
+          "intention": "attente — mur du carnet intact",
+          "direction": null,
+          "conf": null,
+          "exit": "impulse_resonance_wait",
+          "meta": {
+            "size_note": null,
+            "tension": 0.90306965
+          },
+          "file": "MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv"
         }
       ],
       "counts": {
-        "wait": 6,
+        "wait": 7,
         "fire": 0,
         "probe": 14,
         "skip": 255
