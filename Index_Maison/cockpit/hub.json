@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-22T11:04:04.895746+00:00",
+  "generated_at": "2026-08-22T11:04:52.901401+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -26,7 +26,7 @@
       "model": "qwen-3.8-max-free",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 562
+      "calls_24h": 563
     },
     {
       "id": "groq",
@@ -229,10 +229,18 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 3594,
+    "consumed": 3595,
     "remaining": 0
   },
   "queue": [
+    {
+      "ts": "2026-08-22T11:04:05.615843+00:00",
+      "task": "supervise.decision",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 82.43
+    },
     {
       "ts": "2026-08-22T11:03:34.062059+00:00",
       "task": "supervise.decision",
@@ -344,76 +352,68 @@
       "model": "qwen-3.8-max-free",
       "kind": "cloud",
       "duration_s": 196.16
-    },
-    {
-      "ts": "2026-08-22T10:54:44.503550+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 30.47
     }
   ],
   "events": [
     {
-      "ts": "2026-08-22T11:03:40.170275+00:00",
+      "ts": "2026-08-22T11:04:41.148972+00:00",
       "kind": "failover",
       "title": "Saute (blacklist) depuis HuggingFace (136+ modeles, dont DeepSeek-V4)",
       "detail": "0 attente"
     },
     {
-      "ts": "2026-08-22T11:03:40.167776+00:00",
+      "ts": "2026-08-22T11:04:41.146984+00:00",
       "kind": "failover",
       "title": "Bascule depuis Google Gemini",
       "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-08-22T11:03:40.167380+00:00",
+      "ts": "2026-08-22T11:04:41.146508+00:00",
       "kind": "ratelimit",
       "title": "429 Google Gemini -> pause 60s + bascule",
       "detail": ""
     },
     {
-      "ts": "2026-08-22T11:03:39.861492+00:00",
+      "ts": "2026-08-22T11:04:40.609282+00:00",
       "kind": "blacklist",
       "title": "Fin de pause Google Gemini",
       "detail": "re-essai automatique"
     },
     {
-      "ts": "2026-08-22T11:03:39.861122+00:00",
+      "ts": "2026-08-22T11:04:40.608802+00:00",
       "kind": "quota",
       "title": "Budget calme atteint -> bascule famille (gratuits)",
       "detail": "analyse.profonde"
     },
     {
-      "ts": "2026-08-22T11:03:35.625556+00:00",
+      "ts": "2026-08-22T11:04:35.554917+00:00",
       "kind": "http",
       "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
       "detail": ""
     },
     {
-      "ts": "2026-08-22T11:03:35.625377+00:00",
+      "ts": "2026-08-22T11:04:35.554667+00:00",
       "kind": "error",
       "title": "Toutes les IA ont echoue",
-      "detail": "Google Gemini: HTTP Error 429: Too Many Requests | HuggingFace (136+ modeles, dont DeepSeek-V4): blacklist du jour (saute) | NaraRouter (7M tokens/jour gratuits): Reponse vide | budget: Budget temps requete depasse"
+      "detail": "Google Gemini: blacklist du jour (saute) | HuggingFace (136+ modeles, dont DeepSeek-V4): HTTP Error 402: Payment Required | NaraRouter (7M tokens/jour gratuits): Reponse vide | budget: Budget temps requete depasse"
     },
     {
-      "ts": "2026-08-22T11:03:35.625247+00:00",
+      "ts": "2026-08-22T11:04:35.554412+00:00",
       "kind": "error",
       "title": "Budget temps requete depasse",
       "detail": ""
     },
     {
-      "ts": "2026-08-22T11:03:35.624819+00:00",
+      "ts": "2026-08-22T11:04:35.553365+00:00",
       "kind": "failover",
       "title": "Bascule depuis NaraRouter (7M tokens/jour gratuits)",
       "detail": "Reponse vide"
     },
     {
-      "ts": "2026-08-22T11:03:34.061565+00:00",
-      "kind": "message",
-      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
-      "detail": "bascule"
+      "ts": "2026-08-22T11:04:21.634454+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis Groq (LLM ultra-rapide, gratuit)",
+      "detail": "HTTP Error 429: Too Many Requests"
     }
   ],
   "tasks_quotas": {
