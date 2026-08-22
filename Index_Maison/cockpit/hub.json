@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-22T16:35:12.795687+00:00",
+  "generated_at": "2026-08-22T16:35:29.626035+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -53,7 +53,7 @@
       "model": "codestral-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 447
+      "calls_24h": 449
     },
     {
       "id": "cloudflare-workers-ai",
@@ -229,10 +229,26 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 565,
-    "remaining": 59
+    "consumed": 567,
+    "remaining": 57
   },
   "queue": [
+    {
+      "ts": "2026-08-22T16:35:28.617508+00:00",
+      "task": "analyse.profonde",
+      "provider": "mistral",
+      "model": "codestral-latest",
+      "kind": "cloud",
+      "duration_s": 4.48
+    },
+    {
+      "ts": "2026-08-22T16:35:16.609279+00:00",
+      "task": "supervise.decision",
+      "provider": "mistral",
+      "model": "codestral-latest",
+      "kind": "cloud",
+      "duration_s": 1.16
+    },
     {
       "ts": "2026-08-22T16:35:10.167325+00:00",
       "task": "analyse.profonde",
@@ -336,83 +352,67 @@
       "model": "codestral-latest",
       "kind": "cloud",
       "duration_s": 1.41
-    },
-    {
-      "ts": "2026-08-22T16:33:46.676140+00:00",
-      "task": "analyse.profonde",
-      "provider": "mistral",
-      "model": "codestral-latest",
-      "kind": "cloud",
-      "duration_s": 5.4
-    },
-    {
-      "ts": "2026-08-22T16:33:32.449250+00:00",
-      "task": "supervise.decision",
-      "provider": "mistral",
-      "model": "codestral-latest",
-      "kind": "cloud",
-      "duration_s": 1.22
     }
   ],
   "events": [
     {
-      "ts": "2026-08-22T16:35:10.167178+00:00",
+      "ts": "2026-08-22T16:35:29.169198+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis InferX Qwen3-Coder-Next (code, gratuit jusqu'au 12/08)",
+      "detail": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "ts": "2026-08-22T16:35:28.617283+00:00",
       "kind": "message",
       "title": "« Mistral La Plateforme (essai gratuit) » a repondu",
       "detail": "bascule"
     },
     {
-      "ts": "2026-08-22T16:35:10.166630+00:00",
+      "ts": "2026-08-22T16:35:28.599818+00:00",
       "kind": "filet-universel",
       "title": "[FILET UNIVERSEL] « Mistral La Plateforme (essai gratuit) » a repondu hors chaine",
       "detail": "analyse.profonde"
     },
     {
-      "ts": "2026-08-22T16:35:05.512129+00:00",
+      "ts": "2026-08-22T16:35:28.404729+00:00",
       "kind": "failover",
-      "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
+      "title": "Bascule depuis OpenRouter (modeles gratuits)",
+      "detail": "HTTP Error 404: Not Found"
+    },
+    {
+      "ts": "2026-08-22T16:35:27.946384+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis InferX DeepSeek V4 Flash (API gratuite jusqu'au 12/08)",
+      "detail": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "ts": "2026-08-22T16:35:27.926403+00:00",
+      "kind": "failover",
+      "title": "Saute (blacklist) depuis Google Gemini",
       "detail": "0 attente"
     },
     {
-      "ts": "2026-08-22T16:35:05.509859+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis OpenRouter (modeles gratuits)",
-      "detail": "HTTP Error 404: Not Found"
-    },
-    {
-      "ts": "2026-08-22T16:35:05.197232+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis OpenRouter (modeles gratuits)",
-      "detail": "HTTP Error 404: Not Found"
-    },
-    {
-      "ts": "2026-08-22T16:35:05.185719+00:00",
+      "ts": "2026-08-22T16:35:27.926286+00:00",
       "kind": "failover",
       "title": "Saute (blacklist) depuis NaraRouter (7M tokens/jour gratuits)",
       "detail": "0 attente"
     },
     {
-      "ts": "2026-08-22T16:35:05.185376+00:00",
+      "ts": "2026-08-22T16:35:27.925967+00:00",
       "kind": "failover",
-      "title": "Saute (blacklist) depuis HuggingFace (136+ modeles, dont DeepSeek-V4)",
+      "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
       "detail": "0 attente"
     },
     {
-      "ts": "2026-08-22T16:35:05.182907+00:00",
+      "ts": "2026-08-22T16:35:27.061243+00:00",
       "kind": "failover",
-      "title": "Bascule depuis Google Gemini",
+      "title": "Bascule depuis OpenRouter Nemotron 3 Ultra 550B (free) - analyse forte",
       "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-08-22T16:35:05.181925+00:00",
-      "kind": "ratelimit",
-      "title": "429 Google Gemini -> pause 60s + bascule",
-      "detail": ""
-    },
-    {
-      "ts": "2026-08-22T16:35:04.866448+00:00",
+      "ts": "2026-08-22T16:35:26.441363+00:00",
       "kind": "failover",
-      "title": "Bascule depuis Google Gemini",
+      "title": "Bascule depuis OpenRouter Juge (nemotron-3-super-120b free) - verificateur independant",
       "detail": "HTTP Error 429: Too Many Requests"
     }
   ],
