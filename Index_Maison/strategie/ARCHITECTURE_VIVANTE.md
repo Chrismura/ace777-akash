@@ -9,7 +9,7 @@
 - ✅ radar
 - ⛔ lecteur signets
 - ⛔ générateur fiches
-- ✅ feed mission
+- ⛔ feed mission
 - ⛔ serveur cockpit
 
 ## Routage des tâches de décision
@@ -22,7 +22,7 @@
 
 ## État de la mission (bots + PnL)
 
-- mission.json : 2026-08-22 05:39Z · run `MASTER_VORTEX_V2_COLLAB_4H` · alerte `red`
+- mission.json : 2026-08-22 05:40Z · run `MASTER_VORTEX_V2_COLLAB_4H` · alerte `red`
 - PnL combiné : **-0.07 $** 📉 (combo -0.0742)
 - ALPHA (sniper (embuscade, ×13, revenge si claque)) : **-4.72 $** · 6 fills · 275 skips
 - BETA (éclaireur (chatouille le marché, alimente Alpha)) : **+4.64 $** · 13 fills · 320 skips
@@ -34,22 +34,22 @@
 - [Santé]
   · hub : OK (14 providers)
 - [Énergie du jour]
-  · appels : 1337 (cloud 1337)
+  · appels : 1340 (cloud 1340)
   · budget cloud : 624 max
-  · par provider : gemini=2, groq=2, mistral=1144, nara=187, nvidia=2
+  · par provider : gemini=2, groq=2, mistral=1147, nara=187, nvidia=2
 - [Nouvelles offres détectées (non intégrées)]
   · dots-studio/dots-3-note-preview:free
   · liquid/lfm-2.5-2.6b:free
   · thinkingmachines/inkling-small:free
-  … 108 offres/pépites détectées ce matin
+  … 109 offres/pépites détectées ce matin
 
 ## Mémoire chaude (journal + résumés)
 
 - Radar (dernières alertes) :
-  · 2026-08-22T05:40:01.842926Z ETHUSDT 2433.04 0.0003 246.8 declenche=non
-  · 2026-08-22T05:40:01.843062Z ETHUSDT 2433.05 0.0003 246.8 declenche=non
-  · 2026-08-22T05:40:01.843191Z ETHUSDT 2433.06 0.0003 246.8 declenche=non
-  · 2026-08-22T05:40:01.843324Z ETHUSDT 2433.07 0.0003 246.8 declenche=non
+  · 2026-08-22T05:40:11.897756Z ETHUSDT 2435.21 0.0006 316.7 declenche=non
+  · 2026-08-22T05:40:11.899296Z ETHUSDT 2435.2 0.0005 316.7 declenche=non
+  · 2026-08-22T05:40:11.899689Z ETHUSDT 2435.19 0.0005 316.7 declenche=non
+  · 2026-08-22T05:40:12.032638Z BTCUSDT 77205.04 0.0005 19.5 declenche=non
 - Intention en cours : BETA a sonde le marche (13 sondes, 8 long / 5 court, conf mo | ALPHA attend son moment : 236 skips (discipline), le mur du  | ALPHA a frappe 8 fois en embuscade (13x) (dont 6 en mode rev
 - 500 signets X résumés (quota aujourd'hui : 0/50)
 - 56 fiches IA d'offres en cache (quota 8/jour)
