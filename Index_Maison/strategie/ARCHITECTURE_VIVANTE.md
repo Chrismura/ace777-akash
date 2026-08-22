@@ -9,7 +9,7 @@
 - ✅ radar
 - ⛔ lecteur signets
 - ⛔ générateur fiches
-- ✅ feed mission
+- ⛔ feed mission
 - ⛔ serveur cockpit
 
 ## Routage des tâches de décision
@@ -22,10 +22,10 @@
 
 ## État de la mission (bots + PnL)
 
-- mission.json : 2026-08-22 04:50Z · run `MASTER_VORTEX_V2_COLLAB_4H` · alerte `red`
+- mission.json : 2026-08-22 04:51Z · run `MASTER_VORTEX_V2_COLLAB_4H` · alerte `red`
 - PnL combiné : **-0.28 $** 📉 (combo -0.2789)
 - ALPHA (sniper (embuscade, ×13, revenge si claque)) : **-3.25 $** · 4 fills · 170 skips
-- BETA (éclaireur (chatouille le marché, alimente Alpha)) : **+2.97 $** · 9 fills · 216 skips
+- BETA (éclaireur (chatouille le marché, alimente Alpha)) : **+2.97 $** · 9 fills · 217 skips
 - HULK (gestionnaire de portefeuille (bag, escalier, courreur)) : **+2.16 $** · 0 fills
 - Saison : CALME 🧊 · 
 
@@ -34,9 +34,9 @@
 - [Santé]
   · hub : OK (14 providers)
 - [Énergie du jour]
-  · appels : 768 (cloud 768)
+  · appels : 771 (cloud 771)
   · budget cloud : 624 max
-  · par provider : gemini=2, groq=2, mistral=601, nara=161, nvidia=2
+  · par provider : gemini=2, groq=2, mistral=604, nara=161, nvidia=2
 - [Nouvelles offres détectées (non intégrées)]
   · dots-studio/dots-3-note-preview:free
   · liquid/lfm-2.5-2.6b:free
@@ -46,10 +46,10 @@
 ## Mémoire chaude (journal + résumés)
 
 - Radar (dernières alertes) :
-  · 2026-08-22T04:51:01.217784Z ETHUSDT 2518.01 0.0001 134.4 declenche=non
-  · 2026-08-22T04:51:01.237687Z ETHUSDT 2518.01 0.0001 134.4 declenche=non
-  · 2026-08-22T04:51:01.244769Z ETHUSDT 2518.01 0.0001 134.5 declenche=non
-  · 2026-08-22T04:51:01.261059Z BTCUSDT 78549.75 0.0002 6.7 declenche=non
+  · 2026-08-22T04:51:11.945304Z ETHUSDT 2517.85 0.0000 47.0 declenche=non
+  · 2026-08-22T04:51:11.948523Z ETHUSDT 2517.85 0.0000 48.2 declenche=non
+  · 2026-08-22T04:51:11.960602Z ETHUSDT 2517.85 0.0000 49.0 declenche=non
+  · 2026-08-22T04:51:12.249544Z BTCUSDT 78557.7 0.0001 0.8 declenche=non
 - Intention en cours : BETA a sonde le marche (9 sondes, 6 long / 3 court, conf moy | ALPHA attend son moment : 142 skips (discipline), le mur du  | ALPHA a frappe 6 fois en embuscade (13x) (dont 4 en mode rev
 - 500 signets X résumés (quota aujourd'hui : 0/50)
 - 56 fiches IA d'offres en cache (quota 8/jour)
