@@ -1,4 +1,4 @@
-# ARCHITECTURE VIVANTE — ACE777 (2026-08-22 09:47 UTC)
+# ARCHITECTURE VIVANTE — ACE777 (2026-08-22 09:48 UTC)
 
 > Document GÉNÉRÉ AUTOMATIQUEMENT à l'instant. La famille valide
 > en s'appuyant sur CE contexte, pas sur des documents figés.
@@ -22,9 +22,9 @@
 
 ## État de la mission (bots + PnL)
 
-- mission.json : 2026-08-22 09:46Z · run `MASTER_VORTEX_V2_COLLAB_4H` · alerte `red`
+- mission.json : 2026-08-22 09:48Z · run `MASTER_VORTEX_V2_COLLAB_4H` · alerte `red`
 - PnL combiné : **-2.58 $** 📉 (combo -2.5766)
-- ALPHA (sniper (embuscade, ×13, revenge si claque)) : **-4.25 $** · 8 fills · 240 skips
+- ALPHA (sniper (embuscade, ×13, revenge si claque)) : **-4.25 $** · 8 fills · 241 skips
 - BETA (éclaireur (chatouille le marché, alimente Alpha)) : **+1.68 $** · 12 fills · 256 skips
 - HULK (gestionnaire de portefeuille (bag, escalier, courreur)) : **-0.11 $** · 0 fills
 - Saison : CHAOS ⛈️ · 
@@ -34,9 +34,9 @@
 - [Santé]
   · hub : OK (14 providers)
 - [Énergie du jour]
-  · appels : 3208 (cloud 3208)
+  · appels : 3213 (cloud 3213)
   · budget cloud : 624 max
-  · par provider : gemini=504, groq=8, mistral=2213, nara=481, nvidia=2
+  · par provider : gemini=504, groq=8, mistral=2218, nara=481, nvidia=2
 - [Nouvelles offres détectées (non intégrées)]
   · dots-studio/dots-3-note-preview:free
   · liquid/lfm-2.5-2.6b:free
@@ -46,10 +46,10 @@
 ## Mémoire chaude (journal + résumés)
 
 - Radar (dernières alertes) :
-  · 2026-08-22T09:47:40.201766Z BTCUSDT 76890.0 0.0016 24.3 declenche=non
-  · 2026-08-22T09:47:40.853486Z BTCUSDT 76889.84 0.0016 24.3 declenche=non
-  · 2026-08-22T09:47:40.853940Z BTCUSDT 76889.66 0.0016 24.3 declenche=non
-  · 2026-08-22T09:47:40.854205Z BTCUSDT 76889.44 0.0016 24.3 declenche=non
+  · 2026-08-22T09:48:10.511641Z BTCUSDT 76950.02 0.0002 0.7 declenche=non
+  · 2026-08-22T09:48:10.511782Z BTCUSDT 76951.52 0.0002 0.7 declenche=non
+  · 2026-08-22T09:48:10.511921Z BTCUSDT 76951.96 0.0002 0.7 declenche=non
+  · 2026-08-22T09:48:10.512057Z BTCUSDT 76952.36 0.0002 0.7 declenche=non
 - Intention en cours : BETA a sonde le marche (12 sondes, 7 long / 5 court, conf mo | ALPHA attend son moment : 221 skips (discipline), le mur du  | ALPHA a frappe 8 fois en embuscade (13x) (dont 2 en mode rev
 - 550 signets X résumés (quota aujourd'hui : 50/50)
 - 56 fiches IA d'offres en cache (quota 8/jour)
