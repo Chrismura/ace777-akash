@@ -5,7 +5,8 @@
   "chaines_ok": "7/9",
   "anomalies": [
     "VIGIE MARCHÉ : radar mort ou journal figé (le trou du 19/08)",
-    "VEILLE DÉGRADATION : rapport ALERTE_DEGRADATION_SILENCIEUSE ou figé — dégradation silencieuse détectée"
+    "VEILLE DÉGRADATION : rapport ALERTE_DEGRADATION_SILENCIEUSE ou figé — dégradation silencieuse détectée",
+    "VEILLE DÉGRADATION : Dead Man's Switch ALERTE ou figé — la surveillance elle-même est en panne"
   ],
   "degradees": [],
   "chaines": [
@@ -66,7 +67,7 @@
         {
           "nom": "CSV aspiration",
           "ok": true,
-          "detail": "ASPIRATION_CALIB_20260821_092452.csv · âge 6 min"
+          "detail": "ASPIRATION_CALIB_20260821_092452.csv · âge 7 min"
         },
         {
           "nom": "corrélation BTC",
@@ -218,8 +219,8 @@
         },
         {
           "nom": "rapport DMS_VEILLE.json",
-          "ok": true,
-          "detail": "OK"
+          "ok": false,
+          "detail": "ALERTE"
         }
       ]
     },
