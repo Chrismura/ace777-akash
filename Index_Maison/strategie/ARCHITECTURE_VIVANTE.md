@@ -39,7 +39,7 @@
   · par provider : gemini=505, groq=12, mistral=2517, nara=751, nvidia=2
 - [Nouvelles offres détectées (non intégrées)]
 - [ROLLBACK AUTO 2026-08-22]
-  · obs-1786774667 (nvidia/nemotron-3.5-lightning:free) : 100% erreurs > 5% (observatoire)
+  · obs-1786795252 (nvidia/nemotron-3.5-content-safety:free) : 100% erreurs > 5% (observatoire
   · ERR: <urlopen error [Errno 8] nodename nor servname provided, or
   · ERR: <urlopen error [Errno 8] nodename nor servname provided, or
   · ERR: <urlopen error [Errno 8] nodename nor servname provided, or
