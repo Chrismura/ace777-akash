@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-22T00:50:00.134008+00:00",
+  "generated_at": "2026-08-22T00:50:30.771592+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -26,7 +26,7 @@
       "model": "qwen-3.8-max-free",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 793
+      "calls_24h": 794
     },
     {
       "id": "groq",
@@ -229,10 +229,18 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 130,
-    "remaining": 494
+    "consumed": 131,
+    "remaining": 493
   },
   "queue": [
+    {
+      "ts": "2026-08-22T00:50:03.651010+00:00",
+      "task": "supervise.decision",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 18.25
+    },
     {
       "ts": "2026-08-22T00:49:49.113117+00:00",
       "task": "supervise.decision",
@@ -344,17 +352,33 @@
       "model": "qwen-3.8-max-free",
       "kind": "cloud",
       "duration_s": 17.87
-    },
-    {
-      "ts": "2026-08-22T00:44:55.489588+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 26.2
     }
   ],
   "events": [
+    {
+      "ts": "2026-08-22T00:50:13.579187+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis Groq (LLM ultra-rapide, gratuit)",
+      "detail": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "ts": "2026-08-22T00:50:13.578783+00:00",
+      "kind": "ratelimit",
+      "title": "429 Groq (LLM ultra-rapide, gratuit) -> pause 60s + bascule",
+      "detail": ""
+    },
+    {
+      "ts": "2026-08-22T00:50:13.402375+00:00",
+      "kind": "blacklist",
+      "title": "Fin de pause Groq (LLM ultra-rapide, gratuit)",
+      "detail": "re-essai automatique"
+    },
+    {
+      "ts": "2026-08-22T00:50:03.650453+00:00",
+      "kind": "message",
+      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
+      "detail": "bascule"
+    },
     {
       "ts": "2026-08-22T00:49:49.112631+00:00",
       "kind": "message",
@@ -390,30 +414,6 @@
       "kind": "failover",
       "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
       "detail": "0 attente"
-    },
-    {
-      "ts": "2026-08-22T00:49:40.777083+00:00",
-      "kind": "message",
-      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
-      "detail": "bascule"
-    },
-    {
-      "ts": "2026-08-22T00:49:35.512828+00:00",
-      "kind": "message",
-      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
-      "detail": "bascule"
-    },
-    {
-      "ts": "2026-08-22T00:49:32.338965+00:00",
-      "kind": "http",
-      "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
-      "detail": ""
-    },
-    {
-      "ts": "2026-08-22T00:49:32.338677+00:00",
-      "kind": "error",
-      "title": "Toutes les IA ont echoue",
-      "detail": "NVIDIA build.nvidia.com (100+ modeles): HTTP Error 504: Gateway Timeout | budget: Budget temps requete depasse"
     }
   ],
   "tasks_quotas": {
