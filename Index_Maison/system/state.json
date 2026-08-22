@@ -1,17 +1,17 @@
 {
-  "timestamp": "2026-08-22T09:23:23Z",
+  "timestamp": "2026-08-22T09:23:55Z",
   "generation_source": "system_state_generator.py v2.1",
   "status": "STALE",
-  "feed_hash": "62956dcae7a59252ff3051dddf3c0ef49bdb7585abdedbd255e954eb4adf5896",
+  "feed_hash": "ff1820ea9df2d5afbe1a2bc9e5b254f969e8f316ee3f443c67a4ee94e7690038",
   "feeds": {
     "mission": {
       "present": true,
-      "age_seconds": 3,
+      "age_seconds": 2,
       "fresh_limit_s": 120
     },
     "cortana_feed": {
       "present": true,
-      "age_seconds": 1,
+      "age_seconds": 13,
       "fresh_limit_s": 120
     },
     "live": {
@@ -21,7 +21,7 @@
     },
     "routing": {
       "present": true,
-      "age_seconds": 2328,
+      "age_seconds": 2359,
       "fresh_limit_s": 120
     }
   },
@@ -38,13 +38,13 @@
       "com.ace777.cortana.urgent",
       "com.ace777.couleur-regime-score",
       "com.ace777.eval-offres",
-      "com.ace777.fees",
       "com.ace777.hub-cockpit-feed",
       "com.ace777.journal-soir",
       "com.ace777.llm-gate-hub",
       "com.ace777.observatoire",
       "com.ace777.prise-ia",
       "com.ace777.roulement-ia",
+      "com.ace777.routeur-auto",
       "com.ace777.run-setupA-4h",
       "com.ace777.sniffer-matin",
       "com.ace777.sniffer-ny",
@@ -64,6 +64,7 @@
       "com.ace777.couleur-regime",
       "com.ace777.cpfp",
       "com.ace777.dms-veille",
+      "com.ace777.fees",
       "com.ace777.gitpush",
       "com.ace777.gitpush-vault",
       "com.ace777.graph-cerveau",
@@ -73,7 +74,6 @@
       "com.ace777.pont-onchain",
       "com.ace777.queueoffres",
       "com.ace777.rappels",
-      "com.ace777.routeur-auto",
       "com.ace777.run-vortex-96h",
       "com.ace777.run72h",
       "com.ace777.sante-index",
@@ -110,7 +110,13 @@
     }
   },
   "backup_light": {
-    "presence": {},
+    "presence": {
+      "mirofis": true,
+      "crypto-voice-assistant-core": true,
+      "ACE777_ARCHIVES_BRUTES_DONNEES": true,
+      "Assistant_Vocal_HORS_VAULT": true,
+      "Obsidian_BACKUPS_HORS_VAULT": true
+    },
     "sizes_ko": {
       "mirofis": 1068252,
       "crypto-voice-assistant-core": 4041164,
@@ -118,7 +124,7 @@
       "Assistant_Vocal_HORS_VAULT": 697372,
       "Obsidian_BACKUPS_HORS_VAULT": 14936872
     },
-    "presence_at": null,
+    "presence_at": "2026-08-22T09:23:47Z",
     "sizes_at": "2026-08-22T08:04:37Z"
   }
 }
