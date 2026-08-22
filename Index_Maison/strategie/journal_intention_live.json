@@ -1,46 +1,16 @@
 {
-  "ts": "2026-08-22T03:31:04.130475+00:00",
+  "ts": "2026-08-22T03:31:48.970903+00:00",
   "since": "2026-08-21T23:22:00Z",
   "bots": {
     "alpha": {
       "role": "sniper",
       "surnom": "Le Sniper",
-      "fills": 34,
+      "fills": 36,
       "skips": 786,
-      "pnl": 12.8804,
+      "pnl": 16.17136,
       "best": 5.17902,
-      "conf_moy": 0.9081794117647058,
+      "conf_moy": 0.9094944444444444,
       "events": [
-        {
-          "ts": "2026-08-22T03:23:33Z",
-          "bot": "alpha",
-          "cycle": 445,
-          "action": "skip",
-          "intention": "skip — gap_guard_pause",
-          "direction": null,
-          "conf": null,
-          "exit": "gap_guard_pause",
-          "meta": {
-            "size_note": null,
-            "tension": null
-          },
-          "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv"
-        },
-        {
-          "ts": "2026-08-22T03:23:38Z",
-          "bot": "alpha",
-          "cycle": 446,
-          "action": "skip",
-          "intention": "skip — gap_guard_pause",
-          "direction": null,
-          "conf": null,
-          "exit": "gap_guard_pause",
-          "meta": {
-            "size_note": null,
-            "tension": null
-          },
-          "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv"
-        },
         {
           "ts": "2026-08-22T03:23:44Z",
           "bot": "alpha",
@@ -310,19 +280,49 @@
             "tension": 0.00010626
           },
           "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv"
+        },
+        {
+          "ts": "2026-08-22T03:31:05Z",
+          "bot": "alpha",
+          "cycle": 449,
+          "action": "fire",
+          "intention": "a tire en mode revenge 1.5x",
+          "direction": "long",
+          "conf": 0.9777,
+          "exit": "0.80458854",
+          "meta": {
+            "size_note": "hunter_revenge_1.5x+entry_25_75_full",
+            "tension": 1.33689588
+          },
+          "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv"
+        },
+        {
+          "ts": "2026-08-22T03:31:06Z",
+          "bot": "alpha",
+          "cycle": 464,
+          "action": "fire",
+          "intention": "a frappe en embuscade (13x)",
+          "direction": "long",
+          "conf": 0.886,
+          "exit": "0.53447932",
+          "meta": {
+            "size_note": "strong_conf_full+entry_25_75_full",
+            "tension": 2.56036464
+          },
+          "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv"
         }
       ],
       "counts": {
         "wait": 91,
-        "fire": 34,
+        "fire": 36,
         "probe": 0,
         "skip": 786
       },
       "direction": {
-        "long": 23,
+        "long": 25,
         "short": 11
       },
-      "revenge": 15
+      "revenge": 16
     },
     "beta": {
       "role": "eclaireur",
@@ -650,6 +650,6 @@
   "story": [
     "BETA a sonde le marche (52 sondes, 36 long / 16 court, conf moyenne 0.93) — il renseigne Alpha.",
     "ALPHA attend son moment : 786 skips (discipline), le mur du carnet ne s'effondre pas.",
-    "ALPHA a frappe 34 fois en embuscade (13x) (dont 15 en mode revenge 1.5x) : +12.88 $, meilleur trade +5.18 $."
+    "ALPHA a frappe 36 fois en embuscade (13x) (dont 16 en mode revenge 1.5x) : +16.17 $, meilleur trade +5.18 $."
   ]
 }
