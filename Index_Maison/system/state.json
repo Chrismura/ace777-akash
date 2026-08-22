@@ -1,34 +1,34 @@
 {
-  "timestamp": "2026-08-22T13:07:25Z",
+  "timestamp": "2026-08-22T13:08:17Z",
   "generation_source": "system_state_generator.py v2.1",
   "status": "STALE",
-  "feed_hash": "e1ab8a375c8812ea174506386670a16192bd9789e8871d43c896e62c29d905a7",
+  "feed_hash": "cf330ca53224654342bca2defa588af9f96818491d1e8235658bbbda00891d14",
   "feeds": {
     "mission": {
       "present": true,
-      "age_seconds": 12,
+      "age_seconds": 17,
       "fresh_limit_s": 120
     },
     "cortana_feed": {
       "present": true,
-      "age_seconds": 0,
+      "age_seconds": 5,
       "fresh_limit_s": 120
     },
     "live": {
       "present": true,
-      "age_seconds": 0,
+      "age_seconds": 5,
       "fresh_limit_s": 15
     },
     "routing": {
       "present": true,
-      "age_seconds": 15771,
+      "age_seconds": 15823,
       "fresh_limit_s": 120
     }
   },
   "services": {
     "total": 53,
-    "running": 24,
-    "planned": 29,
+    "running": 22,
+    "planned": 31,
     "running_list": [
       "application.com.ace777.cockpit-app.14931296.14931301",
       "com.ace777.archi-vivante",
@@ -38,7 +38,7 @@
       "com.ace777.cortana-feed",
       "com.ace777.cortana.urgent",
       "com.ace777.couleur-regime-score",
-      "com.ace777.graph-cerveau",
+      "com.ace777.gitpush",
       "com.ace777.hub-cockpit-feed",
       "com.ace777.journal-soir",
       "com.ace777.llm-gate-hub",
@@ -51,9 +51,7 @@
       "com.ace777.superviseur-core",
       "com.ace777.superviseur-process",
       "com.ace777.veilleuse-confrontation",
-      "com.ace777.veilleuse-sizing-monte-carlo",
-      "com.ace777.vigie-live",
-      "com.ace777.watchdog"
+      "com.ace777.vigie-live"
     ],
     "planned_list": [
       "com.ace777.autopilote",
@@ -64,8 +62,8 @@
       "com.ace777.dms-veille",
       "com.ace777.eval-offres",
       "com.ace777.fees",
-      "com.ace777.gitpush",
       "com.ace777.gitpush-vault",
+      "com.ace777.graph-cerveau",
       "com.ace777.heartbeats",
       "com.ace777.hulk-watchdog",
       "com.ace777.macro-tempete",
@@ -83,7 +81,9 @@
       "com.ace777.veille-yt",
       "com.ace777.veilleuse",
       "com.ace777.veilleuse-chantiers",
+      "com.ace777.veilleuse-sizing-monte-carlo",
       "com.ace777.verif-setup",
+      "com.ace777.watchdog",
       "com.ace777.whales"
     ]
   },
@@ -91,7 +91,7 @@
     "status": "ok",
     "providers": 14
   },
-  "ram_raw": "The system has 8589934592 (524288 pages with a page size of 16384).",
+  "ram_raw": null,
   "hors_zone": {
     "mirofis": {
       "present": true
@@ -110,13 +110,7 @@
     }
   },
   "backup_light": {
-    "presence": {
-      "mirofis": true,
-      "crypto-voice-assistant-core": true,
-      "ACE777_ARCHIVES_BRUTES_DONNEES": true,
-      "Assistant_Vocal_HORS_VAULT": true,
-      "Obsidian_BACKUPS_HORS_VAULT": true
-    },
+    "presence": {},
     "sizes_ko": {
       "mirofis": 1068252,
       "crypto-voice-assistant-core": 4041164,
@@ -124,7 +118,7 @@
       "Assistant_Vocal_HORS_VAULT": 697372,
       "Obsidian_BACKUPS_HORS_VAULT": 14936872
     },
-    "presence_at": "2026-08-22T13:07:00Z",
+    "presence_at": null,
     "sizes_at": "2026-08-22T08:04:37Z"
   }
 }
