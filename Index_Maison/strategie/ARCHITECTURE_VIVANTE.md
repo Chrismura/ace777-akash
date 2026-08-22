@@ -34,9 +34,9 @@
 - [Santé]
   · hub : OK (14 providers)
 - [Énergie du jour]
-  · appels : 2765 (cloud 2765)
+  · appels : 2775 (cloud 2775)
   · budget cloud : 624 max
-  · par provider : gemini=504, groq=7, mistral=1775, nara=477, nvidia=2
+  · par provider : gemini=504, groq=7, mistral=1785, nara=477, nvidia=2
 - [Nouvelles offres détectées (non intégrées)]
   · dots-studio/dots-3-note-preview:free
   · liquid/lfm-2.5-2.6b:free
