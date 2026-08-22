@@ -38,20 +38,18 @@
   · budget cloud : 624 max
   · par provider : gemini=504, groq=8, mistral=2291, nara=481, nvidia=2
 - [Nouvelles offres détectées (non intégrées)]
-- [ROLLBACK AUTO 2026-08-22]
-  · obs-1786795252 (nvidia/nemotron-3.5-content-safety:free) : 100% erreurs > 5% (observatoire
   · dots-studio/dots-3-note-preview:free
   · liquid/lfm-2.5-2.6b:free
   · thinkingmachines/inkling-small:free
-  … 109 offres/pépites détectées ce matin
+  … 108 offres/pépites détectées ce matin
 
 ## Mémoire chaude (journal + résumés)
 
 - Radar (dernières alertes) :
-  · 2026-08-22T09:53:37.081638Z ETHUSDT 2420.38 0.0009 215.8 declenche=non
-  · 2026-08-22T09:53:37.322933Z ETHUSDT 2420.38 0.0009 215.9 declenche=non
-  · 2026-08-22T09:53:37.495555Z BTCUSDT 77009.13 0.0008 5.4 declenche=non
-  · 2026-08-22T09:53:37.585964Z BTCUSDT 77009.13 0.0008 5.4 declenche=non
+  · 2026-08-22T09:53:47.156915Z ETHUSDT 2419.81 0.0007 231.6 declenche=non
+  · 2026-08-22T09:53:47.685958Z BTCUSDT 77007.27 0.0008 6.5 declenche=non
+  · 2026-08-22T09:53:47.731371Z BTCUSDT 77007.27 0.0008 6.7 declenche=non
+  · 2026-08-22T09:53:47.731688Z BTCUSDT 77007.27 0.0008 6.7 declenche=non
 - Intention en cours : BETA a sonde le marche (13 sondes, 7 long / 6 court, conf mo | ALPHA attend son moment : 239 skips (discipline), le mur du  | ALPHA a frappe 8 fois en embuscade (13x) (dont 2 en mode rev
 - 550 signets X résumés (quota aujourd'hui : 50/50)
 - 56 fiches IA d'offres en cache (quota 8/jour)
