@@ -1,4 +1,4 @@
-# ARCHITECTURE VIVANTE — ACE777 (2026-08-22 13:20 UTC)
+# ARCHITECTURE VIVANTE — ACE777 (2026-08-22 13:21 UTC)
 
 > Document GÉNÉRÉ AUTOMATIQUEMENT à l'instant. La famille valide
 > en s'appuyant sur CE contexte, pas sur des documents figés.
@@ -38,8 +38,6 @@
   · budget cloud : 624 max
   · par provider : gemini=505, groq=12, mistral=2517, nara=751, nvidia=2
 - [Nouvelles offres détectées (non intégrées)]
-- [ROLLBACK AUTO 2026-08-22]
-  · obs-1787033767 (google/diffusiongemma-26b-a4b-it) : 100% erreurs > 5% (observatoire)
   · ERR: <urlopen error [Errno 8] nodename nor servname provided, or
   · ERR: <urlopen error [Errno 8] nodename nor servname provided, or
   · ERR: <urlopen error [Errno 8] nodename nor servname provided, or
