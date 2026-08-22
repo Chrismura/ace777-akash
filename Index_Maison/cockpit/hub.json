@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-22T15:35:43.468138+00:00",
+  "generated_at": "2026-08-22T15:36:05.311622+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -53,7 +53,7 @@
       "model": "codestral-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 292
+      "calls_24h": 294
     },
     {
       "id": "cloudflare-workers-ai",
@@ -229,10 +229,26 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 313,
-    "remaining": 311
+    "consumed": 315,
+    "remaining": 309
   },
   "queue": [
+    {
+      "ts": "2026-08-22T15:35:58.931180+00:00",
+      "task": "analyse.profonde",
+      "provider": "mistral",
+      "model": "codestral-latest",
+      "kind": "cloud",
+      "duration_s": 8.3
+    },
+    {
+      "ts": "2026-08-22T15:35:44.342570+00:00",
+      "task": "supervise.decision",
+      "provider": "mistral",
+      "model": "codestral-latest",
+      "kind": "cloud",
+      "duration_s": 1.06
+    },
     {
       "ts": "2026-08-22T15:35:36.573728+00:00",
       "task": "analyse.profonde",
@@ -336,84 +352,68 @@
       "model": "codestral-latest",
       "kind": "cloud",
       "duration_s": 10.55
-    },
-    {
-      "ts": "2026-08-22T15:34:20.928889+00:00",
-      "task": "supervise.decision",
-      "provider": "mistral",
-      "model": "codestral-latest",
-      "kind": "cloud",
-      "duration_s": 0.58
-    },
-    {
-      "ts": "2026-08-22T15:34:20.528561+00:00",
-      "task": "supervise.decision",
-      "provider": "mistral",
-      "model": "codestral-latest",
-      "kind": "cloud",
-      "duration_s": 1.1
     }
   ],
   "events": [
     {
-      "ts": "2026-08-22T15:35:43.285122+00:00",
+      "ts": "2026-08-22T15:36:04.321472+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis Groq (LLM ultra-rapide, gratuit)",
+      "detail": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "ts": "2026-08-22T15:36:04.321043+00:00",
+      "kind": "ratelimit",
+      "title": "429 Groq (LLM ultra-rapide, gratuit) -> pause 60s + bascule",
+      "detail": ""
+    },
+    {
+      "ts": "2026-08-22T15:36:03.928339+00:00",
+      "kind": "blacklist",
+      "title": "Fin de pause Groq (LLM ultra-rapide, gratuit)",
+      "detail": "re-essai automatique"
+    },
+    {
+      "ts": "2026-08-22T15:36:03.892560+00:00",
+      "kind": "http",
+      "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
+      "detail": ""
+    },
+    {
+      "ts": "2026-08-22T15:36:03.892023+00:00",
+      "kind": "error",
+      "title": "Toutes les IA ont echoue",
+      "detail": "Google Gemini: blacklist du jour (saute) | HuggingFace (136+ modeles, dont DeepSeek-V4): blacklist du jour (saute) | NaraRouter (7M tokens/jour gratuits): blacklist du jour (saute) | OpenRouter (modeles gratuits): HTTP Error 404: Not Found | Groq (LLM ultra-rapide, gratuit): blacklist du jour (saute) | NVIDIA build.nvidia.com (100+ modeles): The read operation timed out | Mistral La Plateforme (essai gratuit): The read operation timed out | OpenRouter Juge (nemotron-3-super-120b free) - verifica"
+    },
+    {
+      "ts": "2026-08-22T15:36:03.889032+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis InferX Devstral-2-123B (code)",
+      "detail": "HTTP Error 503: Service Temporarily Unavailable"
+    },
+    {
+      "ts": "2026-08-22T15:36:03.242692+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis NVIDIA DeepSeek-Coder 6.7B (code, via NIM)",
+      "detail": "HTTP Error 404: Not Found"
+    },
+    {
+      "ts": "2026-08-22T15:36:02.937391+00:00",
+      "kind": "blacklist",
+      "title": "Fin de pause NaraRouter (7M tokens/jour gratuits)",
+      "detail": "re-essai automatique"
+    },
+    {
+      "ts": "2026-08-22T15:36:02.936939+00:00",
       "kind": "failover",
       "title": "Saute (blacklist) depuis HuggingFace (136+ modeles, dont DeepSeek-V4)",
       "detail": "0 attente"
     },
     {
-      "ts": "2026-08-22T15:35:43.281880+00:00",
+      "ts": "2026-08-22T15:36:02.934563+00:00",
       "kind": "failover",
-      "title": "Bascule depuis NVIDIA build.nvidia.com (100+ modeles)",
-      "detail": "The read operation timed out"
-    },
-    {
-      "ts": "2026-08-22T15:35:40.300240+00:00",
-      "kind": "failover",
-      "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
-      "detail": "0 attente"
-    },
-    {
-      "ts": "2026-08-22T15:35:40.298382+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis OpenRouter (modeles gratuits)",
-      "detail": "HTTP Error 404: Not Found"
-    },
-    {
-      "ts": "2026-08-22T15:35:39.990122+00:00",
-      "kind": "failover",
-      "title": "Saute (blacklist) depuis NaraRouter (7M tokens/jour gratuits)",
-      "detail": "0 attente"
-    },
-    {
-      "ts": "2026-08-22T15:35:39.989971+00:00",
-      "kind": "failover",
-      "title": "Saute (blacklist) depuis HuggingFace (136+ modeles, dont DeepSeek-V4)",
-      "detail": "0 attente"
-    },
-    {
-      "ts": "2026-08-22T15:35:39.989638+00:00",
-      "kind": "failover",
-      "title": "Saute (blacklist) depuis Google Gemini",
-      "detail": "0 attente"
-    },
-    {
-      "ts": "2026-08-22T15:35:39.021510+00:00",
-      "kind": "failover",
-      "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
-      "detail": "0 attente"
-    },
-    {
-      "ts": "2026-08-22T15:35:39.019588+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis OpenRouter (modeles gratuits)",
-      "detail": "HTTP Error 404: Not Found"
-    },
-    {
-      "ts": "2026-08-22T15:35:38.629699+00:00",
-      "kind": "failover",
-      "title": "Saute (blacklist) depuis NaraRouter (7M tokens/jour gratuits)",
-      "detail": "0 attente"
+      "title": "Bascule depuis Google Gemini",
+      "detail": "HTTP Error 429: Too Many Requests"
     }
   ],
   "tasks_quotas": {
