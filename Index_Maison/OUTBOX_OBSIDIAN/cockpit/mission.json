@@ -2894,7 +2894,7 @@
         "reason": "SEED_START"
       }
     ],
-    "skips": 146,
+    "skips": 148,
     "portfolio": [
       {
         "pair": "CCUSDT",
@@ -3308,14 +3308,14 @@
   },
   "thermo": {
     "climate": "ok",
-    "score": 78,
+    "score": 77,
     "funding": 0.0001,
     "whaleN": 0,
     "deltas": {
       "mark": {
-        "dir": "down",
-        "delta": -0.1,
-        "label": "↓"
+        "dir": "up",
+        "delta": 32.55,
+        "label": "↑"
       },
       "funding": {
         "dir": "flat",
@@ -3338,19 +3338,19 @@
         "label": "="
       },
       "chg24": {
-        "dir": "flat",
-        "delta": 0.0,
-        "label": "="
+        "dir": "up",
+        "delta": 0.03,
+        "label": "↑"
       },
       "oi": {
         "dir": "down",
-        "delta": -5.31,
+        "delta": -0.6,
         "label": "↓"
       },
       "score": {
-        "dir": "flat",
-        "delta": 0.0,
-        "label": "="
+        "dir": "down",
+        "delta": -1.0,
+        "label": "↓"
       },
       "btcDominance": {
         "dir": "flat",
@@ -3393,9 +3393,9 @@
         "label": "="
       },
       "liq24Usd": {
-        "dir": "flat",
-        "delta": 0.0,
-        "label": "="
+        "dir": "up",
+        "delta": 2247.0,
+        "label": "↑"
       },
       "liqLongUsd": {
         "dir": "flat",
@@ -3408,9 +3408,9 @@
         "label": "—"
       },
       "etfBtcM": {
-        "dir": "flat",
-        "delta": 0.0,
-        "label": "="
+        "dir": "up",
+        "delta": 0.1,
+        "label": "↑"
       },
       "altSeasonScore": {
         "dir": "flat",
@@ -3433,9 +3433,9 @@
     "marketCapUsd": 2625279294535.0,
     "altSeason": "Bitcoin season",
     "altSeasonScore": 43,
-    "liq24Usd": 56791047.0,
+    "liq24Usd": 56793552.0,
     "etf": {
-      "btc": 226.78,
+      "btc": 226.9,
       "eth": null,
       "xrp": null,
       "source": "bitbo-public (moy 7j)",
@@ -3470,7 +3470,7 @@
       "cpfpGlobal": false,
       "cpfpZscore": 0.0,
       "cpfpDustScore": 100.0,
-      "cpfpDustDetail": "poussière <2.0 sat/vB (normalisé minFee 1×1.5) : 0 vues ce run, 12974 cumulées 48h (seuil 1000) — max 0.0000 BTC",
+      "cpfpDustDetail": "poussière <2.0 sat/vB (normalisé minFee 0×1.5) : 0 vues ce run, 12975 cumulées 48h (seuil 1000) — max 0.0000 BTC",
       "blocPrivatiseMode": "actif",
       "blocPrivatiseTauxFantome": 0.0565,
       "blocPrivatiseNbCachees": 4,
@@ -3516,7 +3516,7 @@
         "wired": true
       },
       "D30": {
-        "value": "BTC 226.78 M$",
+        "value": "BTC 226.9 M$",
         "level": "ok",
         "label": "ETF BTC net inflow",
         "unit": "",
@@ -3542,33 +3542,18 @@
     }
   },
   "intention": {
-    "ts": "2026-08-22T06:37:06.986923+00:00",
+    "ts": "2026-08-22T06:37:18.094209+00:00",
     "since": "2026-08-22T03:31:00Z",
     "bots": {
       "alpha": {
         "role": "sniper",
         "surnom": "Le Sniper",
         "fills": 13,
-        "skips": 370,
+        "skips": 371,
         "pnl": -8.75387,
         "best": 2.11456,
         "conf_moy": 0.8675384615384616,
         "events": [
-          {
-            "ts": "2026-08-22T06:29:37Z",
-            "bot": "alpha",
-            "cycle": 414,
-            "action": "skip",
-            "intention": "skip — regime_gate",
-            "direction": null,
-            "conf": null,
-            "exit": "regime_gate",
-            "meta": {
-              "size_note": null,
-              "tension": 0.01473552
-            },
-            "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv"
-          },
           {
             "ts": "2026-08-22T06:29:58Z",
             "bot": "alpha",
@@ -3853,13 +3838,28 @@
               "tension": null
             },
             "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv"
+          },
+          {
+            "ts": "2026-08-22T06:37:09Z",
+            "bot": "alpha",
+            "cycle": 434,
+            "action": "skip",
+            "intention": "skip — stase_ecoute",
+            "direction": null,
+            "conf": null,
+            "exit": "stase_ecoute",
+            "meta": {
+              "size_note": null,
+              "tension": null
+            },
+            "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv"
           }
         ],
         "counts": {
           "wait": 52,
           "fire": 13,
           "probe": 0,
-          "skip": 370
+          "skip": 371
         },
         "direction": {
           "long": 8,
@@ -4192,12 +4192,12 @@
     },
     "story": [
       "BETA a sonde le marche (18 sondes, 10 long / 8 court, conf moyenne 0.87) — il renseigne Alpha.",
-      "ALPHA attend son moment : 370 skips (discipline), le mur du carnet ne s'effondre pas.",
+      "ALPHA attend son moment : 371 skips (discipline), le mur du carnet ne s'effondre pas.",
       "ALPHA a frappe 13 fois en embuscade (13x) (dont 9 en mode revenge 1.5x) : -8.75 $, meilleur trade +2.11 $."
     ]
   },
   "saison": {
-    "ts": "2026-08-22T06:37:04.471518+00:00",
+    "ts": "2026-08-22T06:37:38.851057+00:00",
     "saison": "CHAOS",
     "emoji": "⛈️",
     "direction": "neutre",
@@ -4228,7 +4228,7 @@
       "vortex": {
         "direction": "long",
         "force": 2,
-        "brut": 2.15
+        "brut": 2.28
       },
       "essaim": {
         "direction": "neutre",
@@ -4244,7 +4244,7 @@
     "story": [
       "SAISON : CHAOS ⛈️ — liquidations massives détectées, le marché tremble.",
       "Alignement : 1 haussiers / 1 baissiers.",
-      "Le vortex tourne fort (+2.15 % sur 24h) — le mouvement est là."
+      "Le vortex tourne fort (+2.28 % sur 24h) — le mouvement est là."
     ],
     "sources": [
       "live.json"
@@ -4252,7 +4252,7 @@
     "degraded": false
   },
   "gardienne": {
-    "ts": "2026-08-22T06:37:04Z",
+    "ts": "2026-08-22T06:37:38Z",
     "voilure_pct": 63,
     "zone": "JAUNE",
     "zone_emoji": "🟡",
@@ -4287,7 +4287,7 @@
     ]
   },
   "coup_doeil": {
-    "ts": "2026-08-22T06:37:04Z",
+    "ts": "2026-08-22T06:37:38Z",
     "saison": "CHAOS",
     "saison_emoji": "⛈️",
     "voilure": "63 %",
