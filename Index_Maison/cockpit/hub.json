@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-22T16:48:15.696182+00:00",
+  "generated_at": "2026-08-22T16:48:30.802430+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -356,6 +356,24 @@
   ],
   "events": [
     {
+      "ts": "2026-08-22T16:48:21.895217+00:00",
+      "kind": "timeout",
+      "title": "Patience NaraRouter (7M tokens/jour gratuits) (HTTP 502)",
+      "detail": "HTTP Error 502: Bad Gateway"
+    },
+    {
+      "ts": "2026-08-22T16:48:16.402186+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis Groq (LLM ultra-rapide, gratuit)",
+      "detail": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "ts": "2026-08-22T16:48:16.401486+00:00",
+      "kind": "ratelimit",
+      "title": "429 Groq (LLM ultra-rapide, gratuit) -> pause 60s + bascule",
+      "detail": ""
+    },
+    {
       "ts": "2026-08-22T16:48:15.584729+00:00",
       "kind": "blacklist",
       "title": "Fin de pause Groq (LLM ultra-rapide, gratuit)",
@@ -396,24 +414,6 @@
       "kind": "failover",
       "title": "Bascule depuis OpenRouter (modeles gratuits)",
       "detail": "HTTP Error 404: Not Found"
-    },
-    {
-      "ts": "2026-08-22T16:48:02.481453+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis Google Gemini",
-      "detail": "HTTP Error 429: Too Many Requests"
-    },
-    {
-      "ts": "2026-08-22T16:48:02.480947+00:00",
-      "kind": "ratelimit",
-      "title": "429 Google Gemini -> pause 60s + bascule",
-      "detail": ""
-    },
-    {
-      "ts": "2026-08-22T16:48:01.946855+00:00",
-      "kind": "blacklist",
-      "title": "Fin de pause Google Gemini",
-      "detail": "re-essai automatique"
     }
   ],
   "tasks_quotas": {
