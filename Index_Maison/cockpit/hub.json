@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-22T15:58:57.972770+00:00",
+  "generated_at": "2026-08-22T15:59:57.409875+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -26,7 +26,7 @@
       "model": "qwen-3.8-max-free",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 82
+      "calls_24h": 85
     },
     {
       "id": "groq",
@@ -229,10 +229,34 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 380,
-    "remaining": 244
+    "consumed": 383,
+    "remaining": 241
   },
   "queue": [
+    {
+      "ts": "2026-08-22T15:59:49.448176+00:00",
+      "task": "supervise.decision",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 31.88
+    },
+    {
+      "ts": "2026-08-22T15:59:18.472341+00:00",
+      "task": "supervise.decision",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 31.21
+    },
+    {
+      "ts": "2026-08-22T15:59:16.692615+00:00",
+      "task": "analyse.profonde",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 532.47
+    },
     {
       "ts": "2026-08-22T15:58:30.169122+00:00",
       "task": "supervise.decision",
@@ -328,92 +352,68 @@
       "model": "qwen-3.8-max-free",
       "kind": "cloud",
       "duration_s": 29.99
-    },
-    {
-      "ts": "2026-08-22T15:54:10.309612+00:00",
-      "task": "InferX Devstral-2-123B (code)",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 5.73
-    },
-    {
-      "ts": "2026-08-22T15:54:04.562058+00:00",
-      "task": "NVIDIA DeepSeek-Coder 6.7B (code, via NIM)",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 5.84
-    },
-    {
-      "ts": "2026-08-22T15:53:58.714957+00:00",
-      "task": "InferX Qwen3-Coder-Next (code, gratuit jusqu'au 12/08)",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 5.24
     }
   ],
   "events": [
     {
-      "ts": "2026-08-22T15:58:54.996682+00:00",
-      "kind": "timeout",
-      "title": "Patience NaraRouter (7M tokens/jour gratuits) (reponse vide)",
-      "detail": "Reponse vide"
+      "ts": "2026-08-22T15:59:49.447744+00:00",
+      "kind": "message",
+      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
+      "detail": "bascule"
     },
     {
-      "ts": "2026-08-22T15:58:54.993396+00:00",
-      "kind": "timeout",
-      "title": "Patience NaraRouter (7M tokens/jour gratuits) (reponse vide)",
-      "detail": "Reponse vide"
+      "ts": "2026-08-22T15:59:45.898483+00:00",
+      "kind": "http",
+      "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
+      "detail": ""
     },
     {
-      "ts": "2026-08-22T15:58:48.291661+00:00",
+      "ts": "2026-08-22T15:59:45.896110+00:00",
+      "kind": "error",
+      "title": "Toutes les IA ont echoue",
+      "detail": "Google Gemini: blacklist du jour (saute) | Groq (LLM ultra-rapide, gratuit): blacklist du jour (saute) | HuggingFace (136+ modeles, dont DeepSeek-V4): blacklist du jour (saute) | OpenRouter (modeles gratuits): blacklist du jour (saute) | NaraRouter (7M tokens/jour gratuits): The read operation timed out | NVIDIA build.nvidia.com (100+ modeles): The read operation timed out | Mistral La Plateforme (essai gratuit): The read operation timed out | OpenRouter Juge (nemotron-3-super-120b free) - verif"
+    },
+    {
+      "ts": "2026-08-22T15:59:45.889977+00:00",
       "kind": "failover",
-      "title": "Saute (blacklist) depuis OpenRouter (modeles gratuits)",
-      "detail": "0 attente"
+      "title": "Bascule depuis InferX Devstral-2-123B (code)",
+      "detail": "HTTP Error 503: Service Temporarily Unavailable"
     },
     {
-      "ts": "2026-08-22T15:58:48.291501+00:00",
-      "kind": "failover",
-      "title": "Saute (blacklist) depuis HuggingFace (136+ modeles, dont DeepSeek-V4)",
-      "detail": "0 attente"
-    },
-    {
-      "ts": "2026-08-22T15:58:48.291209+00:00",
-      "kind": "failover",
-      "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
-      "detail": "0 attente"
-    },
-    {
-      "ts": "2026-08-22T15:58:48.290878+00:00",
-      "kind": "failover",
-      "title": "Saute (blacklist) depuis Google Gemini",
-      "detail": "0 attente"
-    },
-    {
-      "ts": "2026-08-22T15:58:47.275840+00:00",
-      "kind": "failover",
-      "title": "Saute (blacklist) depuis OpenRouter (modeles gratuits)",
-      "detail": "0 attente"
-    },
-    {
-      "ts": "2026-08-22T15:58:47.275676+00:00",
-      "kind": "failover",
-      "title": "Saute (blacklist) depuis HuggingFace (136+ modeles, dont DeepSeek-V4)",
-      "detail": "0 attente"
-    },
-    {
-      "ts": "2026-08-22T15:58:47.275283+00:00",
+      "ts": "2026-08-22T15:59:44.088528+00:00",
       "kind": "failover",
       "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
       "detail": "0 attente"
     },
     {
-      "ts": "2026-08-22T15:58:47.273279+00:00",
+      "ts": "2026-08-22T15:59:42.649539+00:00",
+      "kind": "http",
+      "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
+      "detail": ""
+    },
+    {
+      "ts": "2026-08-22T15:59:42.649048+00:00",
+      "kind": "error",
+      "title": "Toutes les IA ont echoue",
+      "detail": "Google Gemini: HTTP Error 429: Too Many Requests | Groq (LLM ultra-rapide, gratuit): blacklist du jour (saute) | HuggingFace (136+ modeles, dont DeepSeek-V4): blacklist du jour (saute) | OpenRouter (modeles gratuits): blacklist du jour (saute) | NaraRouter (7M tokens/jour gratuits): The read operation timed out | NVIDIA build.nvidia.com (100+ modeles): The read operation timed out | Mistral La Plateforme (essai gratuit): The read operation timed out | OpenRouter Juge (nemotron-3-super-120b free)"
+    },
+    {
+      "ts": "2026-08-22T15:59:42.645410+00:00",
       "kind": "failover",
-      "title": "Bascule depuis Google Gemini",
-      "detail": "HTTP Error 429: Too Many Requests"
+      "title": "Bascule depuis InferX Devstral-2-123B (code)",
+      "detail": "HTTP Error 503: Service Temporarily Unavailable"
+    },
+    {
+      "ts": "2026-08-22T15:59:41.463406+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis NVIDIA DeepSeek-Coder 6.7B (code, via NIM)",
+      "detail": "HTTP Error 404: Not Found"
+    },
+    {
+      "ts": "2026-08-22T15:59:41.347497+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis NVIDIA DeepSeek-Coder 6.7B (code, via NIM)",
+      "detail": "HTTP Error 404: Not Found"
     }
   ],
   "tasks_quotas": {
