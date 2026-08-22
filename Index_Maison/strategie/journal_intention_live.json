@@ -1,5 +1,5 @@
 {
-  "ts": "2026-08-22T16:42:50.738339+00:00",
+  "ts": "2026-08-22T16:43:44.966574+00:00",
   "since": "2026-08-22T15:44:00Z",
   "bots": {
     "alpha": {
@@ -328,26 +328,11 @@
       "role": "eclaireur",
       "surnom": "L'Eclaireur",
       "fills": 5,
-      "skips": 107,
+      "skips": 108,
       "pnl": -0.9091,
       "best": 0.80674,
       "conf_moy": 0.91622,
       "events": [
-        {
-          "ts": "2026-08-22T16:34:17Z",
-          "bot": "beta",
-          "cycle": 99,
-          "action": "wait",
-          "intention": "attente — mur du carnet intact",
-          "direction": null,
-          "conf": null,
-          "exit": "impulse_resonance_wait",
-          "meta": {
-            "size_note": null,
-            "tension": 0.49478682
-          },
-          "file": "MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv"
-        },
         {
           "ts": "2026-08-22T16:34:45Z",
           "bot": "beta",
@@ -632,13 +617,28 @@
             "tension": 0.00463449
           },
           "file": "MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv"
+        },
+        {
+          "ts": "2026-08-22T16:43:24Z",
+          "bot": "beta",
+          "cycle": 119,
+          "action": "skip",
+          "intention": "pas d'opportunite — discipline (radar bloque)",
+          "direction": null,
+          "conf": 0.3183,
+          "exit": "radar_block",
+          "meta": {
+            "size_note": null,
+            "tension": 0.3819177
+          },
+          "file": "MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv"
         }
       ],
       "counts": {
         "wait": 6,
         "fire": 0,
         "probe": 5,
-        "skip": 107
+        "skip": 108
       },
       "direction": {
         "long": 4,
