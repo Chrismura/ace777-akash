@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-22T05:44:22.449588+00:00",
+  "generated_at": "2026-08-22T05:44:34.828542+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -53,7 +53,7 @@
       "model": "codestral-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 1223
+      "calls_24h": 1225
     },
     {
       "id": "cloudflare-workers-ai",
@@ -229,10 +229,26 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 1416,
+    "consumed": 1418,
     "remaining": 0
   },
   "queue": [
+    {
+      "ts": "2026-08-22T05:44:30.571577+00:00",
+      "task": "analyse.profonde",
+      "provider": "mistral",
+      "model": "codestral-latest",
+      "kind": "cloud",
+      "duration_s": 2.75
+    },
+    {
+      "ts": "2026-08-22T05:44:26.271767+00:00",
+      "task": "supervise.decision",
+      "provider": "mistral",
+      "model": "codestral-latest",
+      "kind": "cloud",
+      "duration_s": 0.92
+    },
     {
       "ts": "2026-08-22T05:44:20.992882+00:00",
       "task": "analyse.profonde",
@@ -336,81 +352,65 @@
       "model": "codestral-latest",
       "kind": "cloud",
       "duration_s": 3.87
-    },
-    {
-      "ts": "2026-08-22T05:43:37.649259+00:00",
-      "task": "analyse.profonde",
-      "provider": "mistral",
-      "model": "codestral-latest",
-      "kind": "cloud",
-      "duration_s": 3.12
-    },
-    {
-      "ts": "2026-08-22T05:43:33.750374+00:00",
-      "task": "supervise.decision",
-      "provider": "mistral",
-      "model": "codestral-latest",
-      "kind": "cloud",
-      "duration_s": 0.92
     }
   ],
   "events": [
     {
-      "ts": "2026-08-22T05:44:20.992734+00:00",
+      "ts": "2026-08-22T05:44:32.718477+00:00",
       "kind": "message",
       "title": "« Mistral La Plateforme (essai gratuit) » a repondu",
       "detail": "bascule"
     },
     {
-      "ts": "2026-08-22T05:44:20.992319+00:00",
+      "ts": "2026-08-22T05:44:32.718140+00:00",
       "kind": "filet-universel",
       "title": "[FILET UNIVERSEL] « Mistral La Plateforme (essai gratuit) » a repondu hors chaine",
       "detail": "analyse.profonde"
     },
     {
-      "ts": "2026-08-22T05:44:20.189230+00:00",
+      "ts": "2026-08-22T05:44:30.571463+00:00",
       "kind": "message",
       "title": "« Mistral La Plateforme (essai gratuit) » a repondu",
       "detail": "bascule"
     },
     {
-      "ts": "2026-08-22T05:44:20.188870+00:00",
+      "ts": "2026-08-22T05:44:30.571183+00:00",
       "kind": "filet-universel",
       "title": "[FILET UNIVERSEL] « Mistral La Plateforme (essai gratuit) » a repondu hors chaine",
       "detail": "analyse.profonde"
     },
     {
-      "ts": "2026-08-22T05:44:18.213325+00:00",
+      "ts": "2026-08-22T05:44:28.627922+00:00",
       "kind": "failover",
       "title": "Bascule depuis NVIDIA build.nvidia.com (100+ modeles)",
       "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-08-22T05:44:17.859755+00:00",
+      "ts": "2026-08-22T05:44:28.309198+00:00",
       "kind": "failover",
       "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
       "detail": "0 attente"
     },
     {
-      "ts": "2026-08-22T05:44:17.858212+00:00",
+      "ts": "2026-08-22T05:44:28.307189+00:00",
       "kind": "failover",
       "title": "Bascule depuis OpenRouter (modeles gratuits)",
       "detail": "HTTP Error 404: Not Found"
     },
     {
-      "ts": "2026-08-22T05:44:17.688702+00:00",
+      "ts": "2026-08-22T05:44:28.062547+00:00",
       "kind": "failover",
       "title": "Saute (blacklist) depuis NaraRouter (7M tokens/jour gratuits)",
       "detail": "0 attente"
     },
     {
-      "ts": "2026-08-22T05:44:17.688591+00:00",
+      "ts": "2026-08-22T05:44:28.062387+00:00",
       "kind": "failover",
       "title": "Saute (blacklist) depuis HuggingFace (136+ modeles, dont DeepSeek-V4)",
       "detail": "0 attente"
     },
     {
-      "ts": "2026-08-22T05:44:17.688459+00:00",
+      "ts": "2026-08-22T05:44:28.062125+00:00",
       "kind": "failover",
       "title": "Saute (blacklist) depuis Google Gemini",
       "detail": "0 attente"
