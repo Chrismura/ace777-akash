@@ -1950,3 +1950,7 @@ Pas d’ordre — confrontation plus tard.
 - XRPUSDT: IMPULSE_WAIT — spike en cours, pas chase
 - BIOUSDT: IMPULSE_WAIT — spike en cours, pas chase
 (compléter: confirmé ? risque ?)
+
+### 2026-08-22T02:28:59Z — ALERT auto
+- ZBCNUSDT: IMPULSE_WAIT — spike en cours, pas chase
+(compléter: confirmé ? risque ?)
