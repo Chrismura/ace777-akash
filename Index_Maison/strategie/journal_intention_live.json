@@ -1,31 +1,16 @@
 {
-  "ts": "2026-08-22T04:57:26.352339+00:00",
+  "ts": "2026-08-22T04:57:58.978906+00:00",
   "since": "2026-08-22T03:31:00Z",
   "bots": {
     "alpha": {
       "role": "sniper",
       "surnom": "Le Sniper",
       "fills": 6,
-      "skips": 154,
+      "skips": 155,
       "pnl": 0.04444000000000026,
       "best": 2.11456,
       "conf_moy": 0.9001,
       "events": [
-        {
-          "ts": "2026-08-22T04:49:05Z",
-          "bot": "alpha",
-          "cycle": 171,
-          "action": "skip",
-          "intention": "skip — gap_guard_pause",
-          "direction": null,
-          "conf": null,
-          "exit": "gap_guard_pause",
-          "meta": {
-            "size_note": null,
-            "tension": null
-          },
-          "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv"
-        },
         {
           "ts": "2026-08-22T04:49:24Z",
           "bot": "alpha",
@@ -310,13 +295,28 @@
             "tension": null
           },
           "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv"
+        },
+        {
+          "ts": "2026-08-22T04:57:55Z",
+          "bot": "alpha",
+          "cycle": 191,
+          "action": "skip",
+          "intention": "skip — regime_gate",
+          "direction": null,
+          "conf": null,
+          "exit": "regime_gate",
+          "meta": {
+            "size_note": null,
+            "tension": 0.0
+          },
+          "file": "MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv"
         }
       ],
       "counts": {
         "wait": 32,
         "fire": 6,
         "probe": 0,
-        "skip": 154
+        "skip": 155
       },
       "direction": {
         "long": 6,
@@ -649,7 +649,7 @@
   },
   "story": [
     "BETA a sonde le marche (9 sondes, 6 long / 3 court, conf moyenne 0.87) — il renseigne Alpha.",
-    "ALPHA attend son moment : 154 skips (discipline), le mur du carnet ne s'effondre pas.",
+    "ALPHA attend son moment : 155 skips (discipline), le mur du carnet ne s'effondre pas.",
     "ALPHA a frappe 6 fois en embuscade (13x) (dont 4 en mode revenge 1.5x) : +0.04 $, meilleur trade +2.11 $."
   ]
 }
