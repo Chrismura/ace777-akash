@@ -4,35 +4,37 @@
 > Script : `Index_Maison/scripts/thermo_quotidien_free.py`
 
 ## Clin d'œil
-**Climat :** `ok` · **Score :** `73/100`
+**Climat :** `ok` · **Score :** `77/100`
 
 ## Snapshot `BTCUSDT`
 
 | Champ | Valeur | ID |
 |-------|--------|-----|
-| Mark | 77416.65 | prix |
-| OI | 105547.867 | C13 |
+| Mark | 76855.4 | prix |
+| OI | 105634.451 | C13 |
 | Funding | 0.0001 | C14 |
 | Funding moy. ~30j | 5.811e-05 (n=90) | Cortana |
 | Funding mois préc. | 6.067e-05 (n=93) | Cortana |
 | L/S 1h | 1.054 | crowd |
-| BTC 1h/4h/24h | -1.7 / -0.89 / 2.91 % | B7 |
-| Dominance BTC | None% | A3 |
+| BTC 1h/4h/24h | -2.12 / -1.31 / 2.26 % | B7 |
+| Dominance BTC | 58.82% | A3 |
 | Alts ↓ 24h | 30.0% | B9 |
 
 ## Lecture
-- Climat CALME (score 73/100).
+- Climat CALME (score 77/100).
 - Funding maintenant 0.0001. Moyenne ~30j 5.811e-05 (90 pts). Mois précédent 6.067e-05 (93 pts).
 - Long/Short 1.054.
-- BTC 24h 2.91% · 1h -1.7% · 4h -0.89%.
+- BTC 24h 2.26% · 1h -2.12% · 4h -1.31%.
 - Panier alts : 30.0% en baisse (6/20).
-- Whales proxy : 2 gros print(s) ≥500k$ (max 552959$) — source aggTrades Binance.
-- Dark/OTC proxy : taker buy/sell 0.989 · OI 105547.867 (pas de dark pool free temps réel).
+- Whales proxy : 1 gros print(s) ≥500k$ (max 1013845$) — source aggTrades Binance.
+- Dark/OTC proxy : taker buy/sell 0.989 · OI 105634.451 (pas de dark pool free temps réel).
 - Top traders L/S 1.137.
 - Fear & Greed 71 (Greed).
+- Market cap crypto ≈ 2.60 T$.
+- Alt season proxy : Bitcoin season (BTC.D 58.82%).
 - Liquidations 24h proxy ≈ 0.06 B$.
-- ETF net inflow : BTC 227.34 M$ (bitbo-public (moy 7j), BTC only).
-- GEX proxy (Deribit) : P/C 0.616 · murC 78000 (+1.3%) · murP 60000 (-22.1%).
+- ETF net inflow : BTC 225.69 M$ (bitbo-public (moy 7j), BTC only).
+- GEX proxy (Deribit) : P/C 0.616 · murC 78000 (+1.5%) · murP 60000 (-21.9%).
 - Volumes cachés proxy : taker buy 0.534 · vol perp/spot 12.4×.
 - ACE soft: LIVE=MASTER_VORTEX_V2_COLLAB_4H_LIVE_COLOR.log · SKIP=1352 · heat=100.0 · PnL sess=318.2402 · RED=0.
 - C15/C23 = proxies free. D26–D34 = F&G / MC / alt / liq / ETF / GEX / volumes cachés. Soft ops lecture seule.
