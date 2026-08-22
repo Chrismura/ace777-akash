@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-22T15:31:10.418713+00:00",
+  "generated_at": "2026-08-22T15:31:24.967249+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -53,7 +53,7 @@
       "model": "codestral-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 249
+      "calls_24h": 250
     },
     {
       "id": "cloudflare-workers-ai",
@@ -229,10 +229,18 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 270,
-    "remaining": 354
+    "consumed": 271,
+    "remaining": 353
   },
   "queue": [
+    {
+      "ts": "2026-08-22T15:31:12.876236+00:00",
+      "task": "supervise.decision",
+      "provider": "mistral",
+      "model": "codestral-latest",
+      "kind": "cloud",
+      "duration_s": 1.73
+    },
     {
       "ts": "2026-08-22T15:31:05.179982+00:00",
       "task": "analyse.profonde",
@@ -344,76 +352,68 @@
       "model": "codestral-latest",
       "kind": "cloud",
       "duration_s": 3.89
-    },
-    {
-      "ts": "2026-08-22T15:29:14.325683+00:00",
-      "task": "supervise.decision",
-      "provider": "mistral",
-      "model": "codestral-latest",
-      "kind": "cloud",
-      "duration_s": 1.97
     }
   ],
   "events": [
     {
-      "ts": "2026-08-22T15:31:10.099891+00:00",
+      "ts": "2026-08-22T15:31:21.212863+00:00",
       "kind": "failover",
-      "title": "Saute (blacklist) depuis NaraRouter (7M tokens/jour gratuits)",
-      "detail": "0 attente"
+      "title": "Bascule depuis NVIDIA build.nvidia.com (100+ modeles)",
+      "detail": "The read operation timed out"
     },
     {
-      "ts": "2026-08-22T15:31:10.099502+00:00",
+      "ts": "2026-08-22T15:31:19.168371+00:00",
       "kind": "failover",
-      "title": "Saute (blacklist) depuis HuggingFace (136+ modeles, dont DeepSeek-V4)",
-      "detail": "0 attente"
+      "title": "Bascule depuis NVIDIA build.nvidia.com (100+ modeles)",
+      "detail": "The read operation timed out"
     },
     {
-      "ts": "2026-08-22T15:31:10.098979+00:00",
-      "kind": "failover",
-      "title": "Saute (blacklist) depuis Google Gemini",
-      "detail": "0 attente"
-    },
-    {
-      "ts": "2026-08-22T15:31:08.878557+00:00",
-      "kind": "failover",
-      "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
-      "detail": "0 attente"
-    },
-    {
-      "ts": "2026-08-22T15:31:08.876135+00:00",
+      "ts": "2026-08-22T15:31:18.579612+00:00",
       "kind": "failover",
       "title": "Bascule depuis OpenRouter (modeles gratuits)",
       "detail": "HTTP Error 404: Not Found"
     },
     {
-      "ts": "2026-08-22T15:31:08.541933+00:00",
-      "kind": "failover",
-      "title": "Saute (blacklist) depuis NaraRouter (7M tokens/jour gratuits)",
-      "detail": "0 attente"
-    },
-    {
-      "ts": "2026-08-22T15:31:08.541648+00:00",
-      "kind": "failover",
-      "title": "Saute (blacklist) depuis HuggingFace (136+ modeles, dont DeepSeek-V4)",
-      "detail": "0 attente"
-    },
-    {
-      "ts": "2026-08-22T15:31:08.541190+00:00",
+      "ts": "2026-08-22T15:31:18.287150+00:00",
       "kind": "failover",
       "title": "Saute (blacklist) depuis Google Gemini",
       "detail": "0 attente"
     },
     {
-      "ts": "2026-08-22T15:31:05.179635+00:00",
+      "ts": "2026-08-22T15:31:18.286980+00:00",
+      "kind": "failover",
+      "title": "Saute (blacklist) depuis NaraRouter (7M tokens/jour gratuits)",
+      "detail": "0 attente"
+    },
+    {
+      "ts": "2026-08-22T15:31:18.286508+00:00",
+      "kind": "failover",
+      "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
+      "detail": "0 attente"
+    },
+    {
+      "ts": "2026-08-22T15:31:12.876106+00:00",
       "kind": "message",
       "title": "« Mistral La Plateforme (essai gratuit) » a repondu",
       "detail": "bascule"
     },
     {
-      "ts": "2026-08-22T15:31:05.179213+00:00",
+      "ts": "2026-08-22T15:31:12.875735+00:00",
       "kind": "filet-universel",
       "title": "[FILET UNIVERSEL] « Mistral La Plateforme (essai gratuit) » a repondu hors chaine",
-      "detail": "analyse.profonde"
+      "detail": "supervise.decision"
+    },
+    {
+      "ts": "2026-08-22T15:31:11.141362+00:00",
+      "kind": "failover",
+      "title": "Saute (blacklist) depuis HuggingFace (136+ modeles, dont DeepSeek-V4)",
+      "detail": "0 attente"
+    },
+    {
+      "ts": "2026-08-22T15:31:11.137811+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis NVIDIA build.nvidia.com (100+ modeles)",
+      "detail": "The read operation timed out"
     }
   ],
   "tasks_quotas": {
