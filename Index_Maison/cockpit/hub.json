@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-22T04:39:14.095076+00:00",
+  "generated_at": "2026-08-22T04:39:31.764803+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -26,7 +26,7 @@
       "model": "qwen-3.8-max-free",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 160
+      "calls_24h": 161
     },
     {
       "id": "groq",
@@ -53,7 +53,7 @@
       "model": "codestral-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 413
+      "calls_24h": 414
     },
     {
       "id": "cloudflare-workers-ai",
@@ -229,10 +229,26 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 579,
-    "remaining": 45
+    "consumed": 581,
+    "remaining": 43
   },
   "queue": [
+    {
+      "ts": "2026-08-22T04:39:20.884492+00:00",
+      "task": "analyse.profonde",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 560.9
+    },
+    {
+      "ts": "2026-08-22T04:39:17.354133+00:00",
+      "task": "supervise.decision",
+      "provider": "mistral",
+      "model": "codestral-latest",
+      "kind": "cloud",
+      "duration_s": 0.76
+    },
     {
       "ts": "2026-08-22T04:38:59.962339+00:00",
       "task": "supervise.decision",
@@ -336,84 +352,68 @@
       "model": "qwen-3.8-max-free",
       "kind": "cloud",
       "duration_s": 29.41
-    },
-    {
-      "ts": "2026-08-22T04:30:50.753682+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 21.59
-    },
-    {
-      "ts": "2026-08-22T04:30:35.387225+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 6.78
     }
   ],
   "events": [
     {
-      "ts": "2026-08-22T04:39:11.816968+00:00",
-      "kind": "timeout",
-      "title": "Patience NaraRouter (7M tokens/jour gratuits) (HTTP 503)",
-      "detail": "HTTP Error 503: Service Unavailable"
-    },
-    {
-      "ts": "2026-08-22T04:39:10.682187+00:00",
-      "kind": "failover",
-      "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
-      "detail": "0 attente"
-    },
-    {
-      "ts": "2026-08-22T04:38:59.962180+00:00",
-      "kind": "message",
-      "title": "« Mistral La Plateforme (essai gratuit) » a repondu",
-      "detail": "bascule"
-    },
-    {
-      "ts": "2026-08-22T04:38:59.961890+00:00",
-      "kind": "filet-universel",
-      "title": "[FILET UNIVERSEL] « Mistral La Plateforme (essai gratuit) » a repondu hors chaine",
-      "detail": "supervise.decision"
-    },
-    {
-      "ts": "2026-08-22T04:38:59.243693+00:00",
+      "ts": "2026-08-22T04:39:26.864068+00:00",
       "kind": "failover",
       "title": "Bascule depuis HuggingFace (136+ modeles, dont DeepSeek-V4)",
       "detail": "HTTP Error 402: Payment Required"
     },
     {
-      "ts": "2026-08-22T04:38:58.974597+00:00",
+      "ts": "2026-08-22T04:39:26.774543+00:00",
       "kind": "failover",
       "title": "Bascule depuis NVIDIA build.nvidia.com (100+ modeles)",
       "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-08-22T04:38:58.691003+00:00",
+      "ts": "2026-08-22T04:39:26.587468+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis NVIDIA build.nvidia.com (100+ modeles)",
+      "detail": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "ts": "2026-08-22T04:39:26.507543+00:00",
+      "kind": "failover",
+      "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
+      "detail": "0 attente"
+    },
+    {
+      "ts": "2026-08-22T04:39:26.505021+00:00",
       "kind": "failover",
       "title": "Bascule depuis OpenRouter (modeles gratuits)",
       "detail": "HTTP Error 404: Not Found"
     },
     {
-      "ts": "2026-08-22T04:38:58.467144+00:00",
+      "ts": "2026-08-22T04:39:26.334751+00:00",
+      "kind": "failover",
+      "title": "Saute (blacklist) depuis NaraRouter (7M tokens/jour gratuits)",
+      "detail": "0 attente"
+    },
+    {
+      "ts": "2026-08-22T04:39:26.332897+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis HuggingFace (136+ modeles, dont DeepSeek-V4)",
+      "detail": "HTTP Error 402: Payment Required"
+    },
+    {
+      "ts": "2026-08-22T04:39:26.277649+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis OpenRouter (modeles gratuits)",
+      "detail": "HTTP Error 404: Not Found"
+    },
+    {
+      "ts": "2026-08-22T04:39:26.120404+00:00",
       "kind": "failover",
       "title": "Saute (blacklist) depuis Google Gemini",
       "detail": "0 attente"
     },
     {
-      "ts": "2026-08-22T04:38:58.463097+00:00",
+      "ts": "2026-08-22T04:39:26.120241+00:00",
       "kind": "failover",
-      "title": "Bascule depuis NaraRouter (7M tokens/jour gratuits)",
-      "detail": "HTTP Error 503: Service Unavailable"
-    },
-    {
-      "ts": "2026-08-22T04:38:54.233380+00:00",
-      "kind": "timeout",
-      "title": "Patience NaraRouter (7M tokens/jour gratuits) (HTTP 503)",
-      "detail": "HTTP Error 503: Service Unavailable"
+      "title": "Saute (blacklist) depuis NaraRouter (7M tokens/jour gratuits)",
+      "detail": "0 attente"
     }
   ],
   "tasks_quotas": {
