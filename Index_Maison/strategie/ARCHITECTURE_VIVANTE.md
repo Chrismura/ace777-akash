@@ -1,4 +1,4 @@
-# ARCHITECTURE VIVANTE — ACE777 (2026-08-22 17:03 UTC)
+# ARCHITECTURE VIVANTE — ACE777 (2026-08-22 17:04 UTC)
 
 > Document GÉNÉRÉ AUTOMATIQUEMENT à l'instant. La famille valide
 > en s'appuyant sur CE contexte, pas sur des documents figés.
@@ -27,29 +27,31 @@
 - ALPHA (sniper (embuscade, ×13, revenge si claque)) : **+3.65 $** · 4 fills · 100 skips
 - BETA (éclaireur (chatouille le marché, alimente Alpha)) : **-0.57 $** · 8 fills · 147 skips
 - HULK (gestionnaire de portefeuille (bag, escalier, courreur)) : **-0.11 $** · 0 fills
-- Saison : ACCUMULATION 💧 · 
+- Saison : CALME 🧊 · 
 
 ## Veille du jour
 
 - [Santé]
   · hub : OK (14 providers)
 - [Énergie du jour]
-  · appels : 743 (cloud 743)
+  · appels : 749 (cloud 749)
   · budget cloud : 624 max
-  · par provider : gemini=2, groq=3, mistral=601, nara=137
+  · par provider : gemini=2, groq=3, mistral=607, nara=137
 - [Nouvelles offres détectées (non intégrées)]
+- [ROLLBACK AUTO 2026-08-22]
+  · obs-1786774646 (nvidia/nemotron-3-nano-30b-a3b:free) : 100% erreurs > 5% (observatoire)
   · dots-studio/dots-3-note-preview:free
   · liquid/lfm-2.5-2.6b:free
   · thinkingmachines/inkling-small:free
-  … 106 offres/pépites détectées ce matin
+  … 105 offres/pépites détectées ce matin
 
 ## Mémoire chaude (journal + résumés)
 
 - Radar (dernières alertes) :
-  · 2026-08-22T17:03:46.033272Z BTCUSDT 77297.99 0.0001 1.2 declenche=non
-  · 2026-08-22T17:03:46.033360Z BTCUSDT 77298.15 0.0000 0.6 declenche=non
-  · 2026-08-22T17:03:46.033405Z BTCUSDT 77298.0 0.0001 1.2 declenche=non
-  · 2026-08-22T17:03:46.033584Z BTCUSDT 77298.15 0.0001 1.2 declenche=non
+  · 2026-08-22T17:04:05.203381Z BTCUSDT 77298.84 0.0001 1.8 declenche=non
+  · 2026-08-22T17:04:05.203409Z BTCUSDT 77298.84 0.0000 1.2 declenche=non
+  · 2026-08-22T17:04:05.251858Z ETHUSDT 2423.75 0.0001 9.9 declenche=non
+  · 2026-08-22T17:04:05.251858Z ETHUSDT 2423.75 0.0008 40.5 declenche=non
 - Intention en cours : BETA a sonde le marche (7 sondes, 5 long / 2 court, conf moy | ALPHA attend son moment : 90 skips (discipline), le mur du c | ALPHA a frappe 3 fois en embuscade (13x) (dont 2 en mode rev
 - 550 signets X résumés (quota aujourd'hui : 50/50)
 - 56 fiches IA d'offres en cache (quota 8/jour)
