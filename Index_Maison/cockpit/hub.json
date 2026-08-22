@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-22T07:36:50.890462+00:00",
+  "generated_at": "2026-08-22T07:37:27.343244+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 397
+      "calls_24h": 405
     },
     {
       "id": "openrouter-free",
@@ -26,7 +26,7 @@
       "model": "qwen-3.8-max-free",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 346
+      "calls_24h": 347
     },
     {
       "id": "groq",
@@ -229,10 +229,82 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 2149,
+    "consumed": 2158,
     "remaining": 0
   },
   "queue": [
+    {
+      "ts": "2026-08-22T07:37:25.070238+00:00",
+      "task": "analyse.profonde",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 2.89
+    },
+    {
+      "ts": "2026-08-22T07:37:19.701861+00:00",
+      "task": "analyse.profonde",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 3.0
+    },
+    {
+      "ts": "2026-08-22T07:37:14.173038+00:00",
+      "task": "analyse.profonde",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 2.88
+    },
+    {
+      "ts": "2026-08-22T07:37:10.648194+00:00",
+      "task": "analyse.profonde",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 3.35
+    },
+    {
+      "ts": "2026-08-22T07:37:04.212867+00:00",
+      "task": "analyse.profonde",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 3.34
+    },
+    {
+      "ts": "2026-08-22T07:36:58.846203+00:00",
+      "task": "supervise.decision",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 73.39
+    },
+    {
+      "ts": "2026-08-22T07:36:58.492007+00:00",
+      "task": "analyse.profonde",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 2.33
+    },
+    {
+      "ts": "2026-08-22T07:36:52.826204+00:00",
+      "task": "analyse.profonde",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 2.86
+    },
+    {
+      "ts": "2026-08-22T07:36:48.203420+00:00",
+      "task": "analyse.profonde",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 2.67
+    },
     {
       "ts": "2026-08-22T07:36:42.931771+00:00",
       "task": "analyse.profonde",
@@ -280,137 +352,65 @@
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
       "duration_s": 3.57
-    },
-    {
-      "ts": "2026-08-22T07:36:11.513615+00:00",
-      "task": "analyse.profonde",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 2.93
-    },
-    {
-      "ts": "2026-08-22T07:36:10.252592+00:00",
-      "task": "analyse.profonde",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 2.96
-    },
-    {
-      "ts": "2026-08-22T07:35:59.034973+00:00",
-      "task": "analyse.profonde",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 2.02
-    },
-    {
-      "ts": "2026-08-22T07:35:57.876780+00:00",
-      "task": "analyse.profonde",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 3.5
-    },
-    {
-      "ts": "2026-08-22T07:35:49.162479+00:00",
-      "task": "analyse.profonde",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 2.62
-    },
-    {
-      "ts": "2026-08-22T07:35:45.816592+00:00",
-      "task": "analyse.profonde",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 2.97
-    },
-    {
-      "ts": "2026-08-22T07:35:40.388332+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 43.74
-    },
-    {
-      "ts": "2026-08-22T07:35:38.692788+00:00",
-      "task": "analyse.profonde",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 2.55
-    },
-    {
-      "ts": "2026-08-22T07:35:35.922993+00:00",
-      "task": "analyse.profonde",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 2.77
     }
   ],
   "events": [
     {
-      "ts": "2026-08-22T07:36:49.967540+00:00",
+      "ts": "2026-08-22T07:37:26.591576+00:00",
       "kind": "quota",
       "title": "Budget calme atteint -> bascule famille (gratuits)",
       "detail": "analyse.profonde"
     },
     {
-      "ts": "2026-08-22T07:36:48.203019+00:00",
+      "ts": "2026-08-22T07:37:25.069632+00:00",
       "kind": "message",
       "title": "« Google Gemini » a repondu",
       "detail": ""
     },
     {
-      "ts": "2026-08-22T07:36:45.532407+00:00",
+      "ts": "2026-08-22T07:37:22.183896+00:00",
       "kind": "quota",
       "title": "Budget calme atteint -> bascule famille (gratuits)",
       "detail": "analyse.profonde"
     },
     {
-      "ts": "2026-08-22T07:36:42.931125+00:00",
+      "ts": "2026-08-22T07:37:20.096011+00:00",
+      "kind": "failover",
+      "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
+      "detail": "0 attente"
+    },
+    {
+      "ts": "2026-08-22T07:37:20.095323+00:00",
+      "kind": "reserve-storm",
+      "title": "Tempête active + budget calme atteint -> réserve storm pour supervise.decision",
+      "detail": "supervise.decision"
+    },
+    {
+      "ts": "2026-08-22T07:37:19.701474+00:00",
       "kind": "message",
       "title": "« Google Gemini » a repondu",
       "detail": ""
     },
     {
-      "ts": "2026-08-22T07:36:40.328288+00:00",
+      "ts": "2026-08-22T07:37:16.699098+00:00",
       "kind": "quota",
       "title": "Budget calme atteint -> bascule famille (gratuits)",
       "detail": "analyse.profonde"
     },
     {
-      "ts": "2026-08-22T07:36:38.379552+00:00",
+      "ts": "2026-08-22T07:37:14.172731+00:00",
       "kind": "message",
       "title": "« Google Gemini » a repondu",
       "detail": ""
     },
     {
-      "ts": "2026-08-22T07:36:34.888413+00:00",
+      "ts": "2026-08-22T07:37:11.293499+00:00",
       "kind": "quota",
       "title": "Budget calme atteint -> bascule famille (gratuits)",
       "detail": "analyse.profonde"
     },
     {
-      "ts": "2026-08-22T07:36:31.928074+00:00",
-      "kind": "message",
-      "title": "« Google Gemini » a repondu",
-      "detail": ""
-    },
-    {
-      "ts": "2026-08-22T07:36:29.366227+00:00",
-      "kind": "quota",
-      "title": "Budget calme atteint -> bascule famille (gratuits)",
-      "detail": "analyse.profonde"
-    },
-    {
-      "ts": "2026-08-22T07:36:26.789838+00:00",
+      "ts": "2026-08-22T07:37:10.647838+00:00",
       "kind": "message",
       "title": "« Google Gemini » a repondu",
       "detail": ""
