@@ -34,25 +34,23 @@
 - [Santé]
   · hub : OK (14 providers)
 - [Énergie du jour]
-  · appels : 3608 (cloud 3608)
+  · appels : 3610 (cloud 3610)
   · budget cloud : 624 max
-  · par provider : gemini=505, groq=9, mistral=2516, nara=576, nvidia=2
+  · par provider : gemini=505, groq=9, mistral=2516, nara=578, nvidia=2
 - [Nouvelles offres détectées (non intégrées)]
-- [ROLLBACK AUTO 2026-08-22]
-  · obs-1786688184 (cohere/north-mini-code:free) : 100% erreurs > 5% (observatoire)
   · dots-studio/dots-3-note-preview:free
   · liquid/lfm-2.5-2.6b:free
   · thinkingmachines/inkling-small:free
-  … 109 offres/pépites détectées ce matin
+  … 99 offres/pépites détectées ce matin
 
 ## Mémoire chaude (journal + résumés)
 
 - Radar (dernières alertes) :
-  · 2026-08-22T11:12:11.692834Z ETHUSDT 2409.69 0.0002 127.3 declenche=non
-  · 2026-08-22T11:12:11.693662Z BTCUSDT 76920.0 0.0002 1.5 declenche=non
-  · 2026-08-22T11:12:11.703244Z BTCUSDT 76919.99 0.0002 1.6 declenche=non
-  · 2026-08-22T11:12:11.952292Z ETHUSDT 2409.68 0.0002 127.3 declenche=non
-- Intention en cours : BETA a sonde le marche (19 sondes, 10 long / 9 court, conf m | ALPHA attend son moment : 414 skips (discipline), le mur du  | ALPHA a frappe 12 fois en embuscade (13x) (dont 3 en mode re
+  · 2026-08-22T11:12:42.532170Z BTCUSDT 76916.66 0.0001 6.8 declenche=non
+  · 2026-08-22T11:12:42.651512Z BTCUSDT 76916.66 0.0001 6.8 declenche=non
+  · 2026-08-22T11:12:42.980146Z BTCUSDT 76916.67 0.0001 6.9 declenche=non
+  · 2026-08-22T11:12:42.992840Z BTCUSDT 76916.66 0.0001 6.9 declenche=non
+- Intention en cours : BETA a sonde le marche (19 sondes, 10 long / 9 court, conf m | ALPHA attend son moment : 415 skips (discipline), le mur du  | ALPHA a frappe 12 fois en embuscade (13x) (dont 3 en mode re
 - 550 signets X résumés (quota aujourd'hui : 50/50)
 - 56 fiches IA d'offres en cache (quota 8/jour)
 
