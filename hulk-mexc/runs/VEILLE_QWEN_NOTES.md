@@ -1985,3 +1985,7 @@ Pas d’ordre — confrontation plus tard.
 - CCUSDT: IMPULSE_WAIT — spike en cours, pas chase
 - BIOUSDT: IMPULSE_WAIT — spike en cours, pas chase
 (compléter: confirmé ? risque ?)
+
+### 2026-08-22T05:08:25Z — ALERT auto
+- PYTHUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
