@@ -9,7 +9,7 @@
 
 | Provider | Modele | Detail | Etat |
 |----------|--------|--------|------|
-| obs-1787206650 | google/gemma-4-26b-a4b-it:free | 2026-08-20 | 47h/48h | 0/5 | actif (sonde en cours) |
+| obs-1787206650 | google/gemma-4-26b-a4b-it:free | 2026-08-20 | 48h/48h | 0/5 | actif (sonde en cours) |
 | obs-1787248844 | nvidia/nemotron-nano-9b-v2:free | 2026-08-21 | 24h/48h | 0/5 | actif (sonde en cours) |
 
 ## RETIRÉS (rollback auto > 5% erreurs)
