@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-22T09:27:07.737471+00:00",
+  "generated_at": "2026-08-22T09:27:30.059176+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -53,7 +53,7 @@
       "model": "codestral-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 1964
+      "calls_24h": 1970
     },
     {
       "id": "cloudflare-workers-ai",
@@ -229,10 +229,58 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 2954,
+    "consumed": 2960,
     "remaining": 0
   },
   "queue": [
+    {
+      "ts": "2026-08-22T09:27:25.613039+00:00",
+      "task": "supervise.decision",
+      "provider": "mistral",
+      "model": "codestral-latest",
+      "kind": "cloud",
+      "duration_s": 1.85
+    },
+    {
+      "ts": "2026-08-22T09:27:23.702708+00:00",
+      "task": "analyse.profonde",
+      "provider": "mistral",
+      "model": "codestral-latest",
+      "kind": "cloud",
+      "duration_s": 8.02
+    },
+    {
+      "ts": "2026-08-22T09:27:21.224039+00:00",
+      "task": "analyse.profonde",
+      "provider": "mistral",
+      "model": "codestral-latest",
+      "kind": "cloud",
+      "duration_s": 6.35
+    },
+    {
+      "ts": "2026-08-22T09:27:13.536542+00:00",
+      "task": "supervise.decision",
+      "provider": "mistral",
+      "model": "codestral-latest",
+      "kind": "cloud",
+      "duration_s": 1.22
+    },
+    {
+      "ts": "2026-08-22T09:27:10.066796+00:00",
+      "task": "analyse.profonde",
+      "provider": "mistral",
+      "model": "codestral-latest",
+      "kind": "cloud",
+      "duration_s": 4.76
+    },
+    {
+      "ts": "2026-08-22T09:27:09.242127+00:00",
+      "task": "analyse.profonde",
+      "provider": "mistral",
+      "model": "codestral-latest",
+      "kind": "cloud",
+      "duration_s": 4.93
+    },
     {
       "ts": "2026-08-22T09:27:02.935990+00:00",
       "task": "supervise.decision",
@@ -304,113 +352,65 @@
       "model": "codestral-latest",
       "kind": "cloud",
       "duration_s": 7.71
-    },
-    {
-      "ts": "2026-08-22T09:26:31.048273+00:00",
-      "task": "supervise.decision",
-      "provider": "mistral",
-      "model": "codestral-latest",
-      "kind": "cloud",
-      "duration_s": 1.11
-    },
-    {
-      "ts": "2026-08-22T09:26:28.415573+00:00",
-      "task": "analyse.profonde",
-      "provider": "mistral",
-      "model": "codestral-latest",
-      "kind": "cloud",
-      "duration_s": 5.38
-    },
-    {
-      "ts": "2026-08-22T09:26:24.784540+00:00",
-      "task": "analyse.profonde",
-      "provider": "mistral",
-      "model": "codestral-latest",
-      "kind": "cloud",
-      "duration_s": 3.72
-    },
-    {
-      "ts": "2026-08-22T09:26:21.975088+00:00",
-      "task": "supervise.decision",
-      "provider": "mistral",
-      "model": "codestral-latest",
-      "kind": "cloud",
-      "duration_s": 2.76
-    },
-    {
-      "ts": "2026-08-22T09:26:17.851571+00:00",
-      "task": "analyse.profonde",
-      "provider": "mistral",
-      "model": "codestral-latest",
-      "kind": "cloud",
-      "duration_s": 7.09
-    },
-    {
-      "ts": "2026-08-22T09:26:12.947500+00:00",
-      "task": "analyse.profonde",
-      "provider": "mistral",
-      "model": "codestral-latest",
-      "kind": "cloud",
-      "duration_s": 4.17
     }
   ],
   "events": [
     {
-      "ts": "2026-08-22T09:27:05.307899+00:00",
+      "ts": "2026-08-22T09:27:27.990927+00:00",
       "kind": "failover",
       "title": "Bascule depuis NVIDIA build.nvidia.com (100+ modeles)",
       "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-08-22T09:27:04.857375+00:00",
+      "ts": "2026-08-22T09:27:27.496635+00:00",
       "kind": "failover",
       "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
       "detail": "0 attente"
     },
     {
-      "ts": "2026-08-22T09:27:04.855669+00:00",
+      "ts": "2026-08-22T09:27:27.493891+00:00",
       "kind": "failover",
       "title": "Bascule depuis OpenRouter (modeles gratuits)",
       "detail": "HTTP Error 404: Not Found"
     },
     {
-      "ts": "2026-08-22T09:27:04.491349+00:00",
+      "ts": "2026-08-22T09:27:27.163808+00:00",
       "kind": "failover",
       "title": "Saute (blacklist) depuis NaraRouter (7M tokens/jour gratuits)",
       "detail": "0 attente"
     },
     {
-      "ts": "2026-08-22T09:27:04.491253+00:00",
+      "ts": "2026-08-22T09:27:27.163672+00:00",
       "kind": "failover",
       "title": "Saute (blacklist) depuis HuggingFace (136+ modeles, dont DeepSeek-V4)",
       "detail": "0 attente"
     },
     {
-      "ts": "2026-08-22T09:27:04.491129+00:00",
+      "ts": "2026-08-22T09:27:27.163458+00:00",
       "kind": "failover",
       "title": "Saute (blacklist) depuis Google Gemini",
       "detail": "0 attente"
     },
     {
-      "ts": "2026-08-22T09:27:04.490680+00:00",
+      "ts": "2026-08-22T09:27:27.162433+00:00",
       "kind": "quota",
       "title": "Budget calme atteint -> bascule famille (gratuits)",
       "detail": "analyse.profonde"
     },
     {
-      "ts": "2026-08-22T09:27:04.313297+00:00",
+      "ts": "2026-08-22T09:27:26.980973+00:00",
       "kind": "failover",
       "title": "Bascule depuis NVIDIA build.nvidia.com (100+ modeles)",
       "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-08-22T09:27:03.814423+00:00",
+      "ts": "2026-08-22T09:27:26.540404+00:00",
       "kind": "failover",
       "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
       "detail": "0 attente"
     },
     {
-      "ts": "2026-08-22T09:27:03.812051+00:00",
+      "ts": "2026-08-22T09:27:26.538427+00:00",
       "kind": "failover",
       "title": "Bascule depuis OpenRouter (modeles gratuits)",
       "detail": "HTTP Error 404: Not Found"
