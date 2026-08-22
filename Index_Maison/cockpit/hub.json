@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-22T02:37:06.568812+00:00",
+  "generated_at": "2026-08-22T02:38:00.138329+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -26,7 +26,7 @@
       "model": "qwen-3.8-max-free",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 1000
+      "calls_24h": 1001
     },
     {
       "id": "groq",
@@ -229,10 +229,18 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 644,
+    "consumed": 645,
     "remaining": 0
   },
   "queue": [
+    {
+      "ts": "2026-08-22T02:37:15.952698+00:00",
+      "task": "supervise.decision",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 32.71
+    },
     {
       "ts": "2026-08-22T02:37:04.481623+00:00",
       "task": "analyse.profonde",
@@ -344,76 +352,68 @@
       "model": "qwen-3.8-max-free",
       "kind": "cloud",
       "duration_s": 25.08
-    },
-    {
-      "ts": "2026-08-22T02:31:02.859392+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 63.4
     }
   ],
   "events": [
     {
-      "ts": "2026-08-22T02:37:04.482056+00:00",
-      "kind": "http",
-      "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
-      "detail": ""
-    },
-    {
-      "ts": "2026-08-22T02:37:04.481238+00:00",
-      "kind": "message",
-      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
-      "detail": "bascule"
-    },
-    {
-      "ts": "2026-08-22T02:36:58.597744+00:00",
+      "ts": "2026-08-22T02:38:00.118030+00:00",
       "kind": "failover",
-      "title": "Bascule depuis HuggingFace (136+ modeles, dont DeepSeek-V4)",
-      "detail": "HTTP Error 402: Payment Required"
+      "title": "Bascule depuis OpenRouter Juge (nemotron-3-super-120b free) - verificateur independant",
+      "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-08-22T02:36:58.597461+00:00",
-      "kind": "blacklist",
-      "title": "Pause HuggingFace (136+ modeles, dont DeepSeek-V4) (3 echecs) 15min",
-      "detail": "backoff x1 -> re-essai auto"
+      "ts": "2026-08-22T02:37:59.596377+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis Mistral La Plateforme (essai gratuit)",
+      "detail": "The read operation timed out"
     },
     {
-      "ts": "2026-08-22T02:36:58.304158+00:00",
+      "ts": "2026-08-22T02:37:49.314917+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis NVIDIA build.nvidia.com (100+ modeles)",
+      "detail": "The read operation timed out"
+    },
+    {
+      "ts": "2026-08-22T02:37:38.428784+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis NaraRouter (7M tokens/jour gratuits)",
+      "detail": "The read operation timed out"
+    },
+    {
+      "ts": "2026-08-22T02:37:28.035096+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis OpenRouter (modeles gratuits)",
+      "detail": "HTTP Error 404: Not Found"
+    },
+    {
+      "ts": "2026-08-22T02:37:27.463355+00:00",
+      "kind": "failover",
+      "title": "Saute (blacklist) depuis HuggingFace (136+ modeles, dont DeepSeek-V4)",
+      "detail": "0 attente"
+    },
+    {
+      "ts": "2026-08-22T02:37:27.463310+00:00",
+      "kind": "failover",
+      "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
+      "detail": "0 attente"
+    },
+    {
+      "ts": "2026-08-22T02:37:27.463255+00:00",
       "kind": "failover",
       "title": "Saute (blacklist) depuis Google Gemini",
       "detail": "0 attente"
     },
     {
-      "ts": "2026-08-22T02:36:58.303520+00:00",
+      "ts": "2026-08-22T02:37:27.462976+00:00",
       "kind": "quota",
       "title": "Budget calme atteint -> bascule famille (gratuits)",
-      "detail": "analyse.profonde"
+      "detail": "analyste.strategie"
     },
     {
-      "ts": "2026-08-22T02:36:56.347528+00:00",
-      "kind": "message",
-      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
-      "detail": "bascule"
-    },
-    {
-      "ts": "2026-08-22T02:36:52.788237+00:00",
+      "ts": "2026-08-22T02:37:25.502305+00:00",
       "kind": "failover",
-      "title": "Bascule depuis HuggingFace (136+ modeles, dont DeepSeek-V4)",
-      "detail": "HTTP Error 402: Payment Required"
-    },
-    {
-      "ts": "2026-08-22T02:36:52.408415+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis Google Gemini",
+      "title": "Bascule depuis Groq (LLM ultra-rapide, gratuit)",
       "detail": "HTTP Error 429: Too Many Requests"
-    },
-    {
-      "ts": "2026-08-22T02:36:52.408004+00:00",
-      "kind": "ratelimit",
-      "title": "429 Google Gemini -> pause 60s + bascule",
-      "detail": ""
     }
   ],
   "tasks_quotas": {
