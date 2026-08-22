@@ -1,4 +1,4 @@
-# ARCHITECTURE VIVANTE — ACE777 (2026-08-22 03:55 UTC)
+# ARCHITECTURE VIVANTE — ACE777 (2026-08-22 03:56 UTC)
 
 > Document GÉNÉRÉ AUTOMATIQUEMENT à l'instant. La famille valide
 > en s'appuyant sur CE contexte, pas sur des documents figés.
@@ -9,7 +9,7 @@
 - ✅ radar
 - ⛔ lecteur signets
 - ⛔ générateur fiches
-- ✅ feed mission
+- ⛔ feed mission
 - ⛔ serveur cockpit
 
 ## Routage des tâches de décision
@@ -34,22 +34,22 @@
 - [Santé]
   · hub : OK (14 providers)
 - [Énergie du jour]
-  · appels : 232 (cloud 232)
+  · appels : 235 (cloud 235)
   · budget cloud : 624 max
-  · par provider : gemini=2, groq=1, mistral=99, nara=129, nvidia=1
+  · par provider : gemini=2, groq=1, mistral=102, nara=129, nvidia=1
 - [Nouvelles offres détectées (non intégrées)]
   · dots-studio/dots-3-note-preview:free
   · liquid/lfm-2.5-2.6b:free
   · thinkingmachines/inkling-small:free
-  … 107 offres/pépites détectées ce matin
+  … 106 offres/pépites détectées ce matin
 
 ## Mémoire chaude (journal + résumés)
 
 - Radar (dernières alertes) :
-  · 2026-08-22T03:55:47.395347Z ETHUSDT 2519.53 0.0002 174.7 declenche=non
-  · 2026-08-22T03:55:47.456523Z ETHUSDT 2519.54 0.0002 176.3 declenche=non
-  · 2026-08-22T03:55:47.537455Z ETHUSDT 2519.54 0.0002 177.6 declenche=non
-  · 2026-08-22T03:55:47.695883Z ETHUSDT 2519.54 0.0002 179.2 declenche=non
+  · 2026-08-22T03:56:07.373535Z BTCUSDT 78474.01 0.0010 15.6 declenche=non
+  · 2026-08-22T03:56:07.614099Z BTCUSDT 78474.0 0.0010 15.6 declenche=non
+  · 2026-08-22T03:56:07.636493Z BTCUSDT 78474.0 0.0010 15.6 declenche=non
+  · 2026-08-22T03:56:07.880482Z BTCUSDT 78474.0 0.0010 15.6 declenche=non
 - Intention en cours : BETA a sonde le marche (2 sondes, 0 long / 2 court, conf moy | ALPHA a frappe 3 fois en embuscade (13x) (dont 1 en mode rev
 - 500 signets X résumés (quota aujourd'hui : 0/50)
 - 56 fiches IA d'offres en cache (quota 8/jour)
