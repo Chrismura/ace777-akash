@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-22T05:27:40.095669+00:00",
+  "generated_at": "2026-08-22T05:28:05.870965+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -53,7 +53,7 @@
       "model": "codestral-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 958
+      "calls_24h": 960
     },
     {
       "id": "cloudflare-workers-ai",
@@ -229,10 +229,26 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 1151,
+    "consumed": 1153,
     "remaining": 0
   },
   "queue": [
+    {
+      "ts": "2026-08-22T05:27:56.047297+00:00",
+      "task": "supervise.decision",
+      "provider": "mistral",
+      "model": "codestral-latest",
+      "kind": "cloud",
+      "duration_s": 1.05
+    },
+    {
+      "ts": "2026-08-22T05:27:44.146046+00:00",
+      "task": "supervise.decision",
+      "provider": "mistral",
+      "model": "codestral-latest",
+      "kind": "cloud",
+      "duration_s": 1.03
+    },
     {
       "ts": "2026-08-22T05:27:33.389332+00:00",
       "task": "supervise.decision",
@@ -336,84 +352,68 @@
       "model": "codestral-latest",
       "kind": "cloud",
       "duration_s": 0.76
-    },
-    {
-      "ts": "2026-08-22T05:25:11.374410+00:00",
-      "task": "supervise.decision",
-      "provider": "mistral",
-      "model": "codestral-latest",
-      "kind": "cloud",
-      "duration_s": 0.81
-    },
-    {
-      "ts": "2026-08-22T05:25:10.693867+00:00",
-      "task": "supervise.decision",
-      "provider": "mistral",
-      "model": "codestral-latest",
-      "kind": "cloud",
-      "duration_s": 0.46
     }
   ],
   "events": [
     {
-      "ts": "2026-08-22T05:27:36.428613+00:00",
-      "kind": "http",
-      "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
-      "detail": ""
-    },
-    {
-      "ts": "2026-08-22T05:27:33.389110+00:00",
-      "kind": "message",
-      "title": "« Mistral La Plateforme (essai gratuit) » a repondu",
-      "detail": "bascule"
-    },
-    {
-      "ts": "2026-08-22T05:27:33.388714+00:00",
-      "kind": "filet-universel",
-      "title": "[FILET UNIVERSEL] « Mistral La Plateforme (essai gratuit) » a repondu hors chaine",
-      "detail": "supervise.decision"
-    },
-    {
-      "ts": "2026-08-22T05:27:32.558361+00:00",
+      "ts": "2026-08-22T05:28:05.573967+00:00",
       "kind": "failover",
       "title": "Bascule depuis HuggingFace (136+ modeles, dont DeepSeek-V4)",
       "detail": "HTTP Error 402: Payment Required"
     },
     {
-      "ts": "2026-08-22T05:27:32.276684+00:00",
+      "ts": "2026-08-22T05:28:05.198810+00:00",
       "kind": "failover",
       "title": "Bascule depuis NVIDIA build.nvidia.com (100+ modeles)",
       "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-08-22T05:27:31.982111+00:00",
+      "ts": "2026-08-22T05:28:04.896584+00:00",
       "kind": "failover",
       "title": "Bascule depuis OpenRouter (modeles gratuits)",
       "detail": "HTTP Error 404: Not Found"
     },
     {
-      "ts": "2026-08-22T05:27:31.797656+00:00",
+      "ts": "2026-08-22T05:28:04.751859+00:00",
       "kind": "failover",
       "title": "Saute (blacklist) depuis Google Gemini",
       "detail": "0 attente"
     },
     {
-      "ts": "2026-08-22T05:27:31.797544+00:00",
+      "ts": "2026-08-22T05:28:04.751752+00:00",
       "kind": "failover",
       "title": "Saute (blacklist) depuis NaraRouter (7M tokens/jour gratuits)",
       "detail": "0 attente"
     },
     {
-      "ts": "2026-08-22T05:27:31.797420+00:00",
+      "ts": "2026-08-22T05:28:04.751518+00:00",
       "kind": "failover",
       "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
       "detail": "0 attente"
     },
     {
-      "ts": "2026-08-22T05:27:31.796890+00:00",
+      "ts": "2026-08-22T05:28:04.750361+00:00",
       "kind": "reserve-storm",
       "title": "Tempête active + budget calme atteint -> réserve storm pour supervise.decision",
       "detail": "supervise.decision"
+    },
+    {
+      "ts": "2026-08-22T05:28:02.716620+00:00",
+      "kind": "http",
+      "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
+      "detail": ""
+    },
+    {
+      "ts": "2026-08-22T05:27:57.700943+00:00",
+      "kind": "http",
+      "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
+      "detail": ""
+    },
+    {
+      "ts": "2026-08-22T05:27:56.047184+00:00",
+      "kind": "message",
+      "title": "« Mistral La Plateforme (essai gratuit) » a repondu",
+      "detail": "bascule"
     }
   ],
   "tasks_quotas": {
