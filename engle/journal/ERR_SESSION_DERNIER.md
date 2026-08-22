@@ -4,10 +4,10 @@
 
 `WHY_ARRET=no_process_exit_logged`
 
-- Généré : `2026-08-22T15:43:10Z`
-- Fenêtre depuis : `2026-08-22T15:39:36Z`
+- Généré : `2026-08-22T15:43:45Z`
+- Fenêtre depuis : `2026-08-22T15:43:14Z`
 - Fin process : ``
-- Meta start/end : `2026-08-22T15:39:36Z` → `2026-08-22T19:33:25Z`
+- Meta start/end : `2026-08-22T15:43:14Z` → `2026-08-22T19:43:15Z`
 - Watchdog meta : stale=?s max_relaunch=?
 - NET_RETRY (fenêtre) : 0
 
@@ -18,7 +18,7 @@ Alpage · groupe électrogène · 2 lignes (téléphone + surf) · WiFi. Le bot 
 ## Verdict court
 
 - **WHY_ARRET=no_process_exit_logged**
-- Issues duo (1179) — scout/hunter désynchro.
+- Issues duo (1166) — scout/hunter désynchro.
 
 ## Compteurs
 
@@ -27,8 +27,8 @@ Alpage · groupe électrogène · 2 lignes (téléphone + surf) · WiFi. Le bot 
 | E-WATCHDOG | 0 | heartbeat / max relaunch |
 | E-PROC | 0 | mort process / signal |
 | E-STALE | 0 | tension/NUAGE age (signal latence) |
-| E-DUO | 1179 | no_trigger / stale duo |
-| E-SPREAD | 913 | spread trop large |
+| E-DUO | 1166 | no_trigger / stale duo |
+| E-SPREAD | 906 | spread trop large |
 | I-HUNTER | 0 | STORM_HUNTER arm (info) |
 
 ## PnL fills (fenêtre)
