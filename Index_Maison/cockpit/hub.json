@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-22T04:59:38.115081+00:00",
+  "generated_at": "2026-08-22T04:59:44.748173+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -53,7 +53,7 @@
       "model": "codestral-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 744
+      "calls_24h": 745
     },
     {
       "id": "cloudflare-workers-ai",
@@ -229,10 +229,18 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 911,
+    "consumed": 912,
     "remaining": 0
   },
   "queue": [
+    {
+      "ts": "2026-08-22T04:59:42.928296+00:00",
+      "task": "supervise.decision",
+      "provider": "mistral",
+      "model": "codestral-latest",
+      "kind": "cloud",
+      "duration_s": 0.79
+    },
     {
       "ts": "2026-08-22T04:59:35.630123+00:00",
       "task": "analyse.profonde",
@@ -344,73 +352,65 @@
       "model": "codestral-latest",
       "kind": "cloud",
       "duration_s": 2.35
-    },
-    {
-      "ts": "2026-08-22T04:58:50.214869+00:00",
-      "task": "supervise.decision",
-      "provider": "mistral",
-      "model": "codestral-latest",
-      "kind": "cloud",
-      "duration_s": 0.78
     }
   ],
   "events": [
     {
-      "ts": "2026-08-22T04:59:35.630008+00:00",
+      "ts": "2026-08-22T04:59:44.617169+00:00",
       "kind": "message",
       "title": "« Mistral La Plateforme (essai gratuit) » a repondu",
       "detail": "bascule"
     },
     {
-      "ts": "2026-08-22T04:59:35.629726+00:00",
+      "ts": "2026-08-22T04:59:44.616784+00:00",
       "kind": "filet-universel",
       "title": "[FILET UNIVERSEL] « Mistral La Plateforme (essai gratuit) » a repondu hors chaine",
       "detail": "analyse.profonde"
     },
     {
-      "ts": "2026-08-22T04:59:34.821317+00:00",
+      "ts": "2026-08-22T04:59:42.927985+00:00",
       "kind": "message",
       "title": "« Mistral La Plateforme (essai gratuit) » a repondu",
       "detail": "bascule"
     },
     {
-      "ts": "2026-08-22T04:59:34.820984+00:00",
-      "kind": "filet-universel",
-      "title": "[FILET UNIVERSEL] « Mistral La Plateforme (essai gratuit) » a repondu hors chaine",
-      "detail": "analyse.profonde"
-    },
-    {
-      "ts": "2026-08-22T04:59:32.616886+00:00",
-      "kind": "message",
-      "title": "« Mistral La Plateforme (essai gratuit) » a repondu",
-      "detail": "bascule"
-    },
-    {
-      "ts": "2026-08-22T04:59:32.616544+00:00",
+      "ts": "2026-08-22T04:59:42.927618+00:00",
       "kind": "filet-universel",
       "title": "[FILET UNIVERSEL] « Mistral La Plateforme (essai gratuit) » a repondu hors chaine",
       "detail": "supervise.decision"
     },
     {
-      "ts": "2026-08-22T04:59:31.658251+00:00",
+      "ts": "2026-08-22T04:59:42.135327+00:00",
       "kind": "failover",
       "title": "Saute (blacklist) depuis HuggingFace (136+ modeles, dont DeepSeek-V4)",
       "detail": "0 attente"
     },
     {
-      "ts": "2026-08-22T04:59:31.656359+00:00",
+      "ts": "2026-08-22T04:59:42.133500+00:00",
       "kind": "failover",
       "title": "Bascule depuis NVIDIA build.nvidia.com (100+ modeles)",
       "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-08-22T04:59:31.507275+00:00",
+      "ts": "2026-08-22T04:59:42.109558+00:00",
       "kind": "failover",
       "title": "Bascule depuis NVIDIA build.nvidia.com (100+ modeles)",
       "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-08-22T04:59:31.334877+00:00",
+      "ts": "2026-08-22T04:59:41.790853+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis OpenRouter (modeles gratuits)",
+      "detail": "HTTP Error 404: Not Found"
+    },
+    {
+      "ts": "2026-08-22T04:59:41.752098+00:00",
+      "kind": "failover",
+      "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
+      "detail": "0 attente"
+    },
+    {
+      "ts": "2026-08-22T04:59:41.750287+00:00",
       "kind": "failover",
       "title": "Bascule depuis OpenRouter (modeles gratuits)",
       "detail": "HTTP Error 404: Not Found"
