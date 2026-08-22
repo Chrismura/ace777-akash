@@ -1,4 +1,4 @@
-# ARCHITECTURE VIVANTE — ACE777 (2026-08-22 03:49 UTC)
+# ARCHITECTURE VIVANTE — ACE777 (2026-08-22 03:50 UTC)
 
 > Document GÉNÉRÉ AUTOMATIQUEMENT à l'instant. La famille valide
 > en s'appuyant sur CE contexte, pas sur des documents figés.
@@ -9,7 +9,7 @@
 - ✅ radar
 - ⛔ lecteur signets
 - ⛔ générateur fiches
-- ⛔ feed mission
+- ✅ feed mission
 - ⛔ serveur cockpit
 
 ## Routage des tâches de décision
@@ -24,8 +24,8 @@
 
 - mission.json : 2026-08-22 03:49Z · run `MASTER_VORTEX_V2_COLLAB_4H` · alerte `red`
 - PnL combiné : **-1.86 $** 📉 (combo -1.8576)
-- ALPHA (sniper (embuscade, ×13, revenge si claque)) : **-2.45 $** · 1 fills · 40 skips
-- BETA (éclaireur (chatouille le marché, alimente Alpha)) : **+0.59 $** · 2 fills · 32 skips
+- ALPHA (sniper (embuscade, ×13, revenge si claque)) : **-2.45 $** · 1 fills · 41 skips
+- BETA (éclaireur (chatouille le marché, alimente Alpha)) : **+0.59 $** · 2 fills · 38 skips
 - HULK (gestionnaire de portefeuille (bag, escalier, courreur)) : **+1.96 $** · 0 fills
 - Saison : CHAUFFE 🌡️ · 
 
@@ -34,9 +34,9 @@
 - [Santé]
   · hub : OK (14 providers)
 - [Énergie du jour]
-  · appels : 166 (cloud 166)
+  · appels : 171 (cloud 171)
   · budget cloud : 624 max
-  · par provider : gemini=2, groq=1, mistral=33, nara=129, nvidia=1
+  · par provider : gemini=2, groq=1, mistral=38, nara=129, nvidia=1
 - [Nouvelles offres détectées (non intégrées)]
   · dots-studio/dots-3-note-preview:free
   · liquid/lfm-2.5-2.6b:free
@@ -46,10 +46,10 @@
 ## Mémoire chaude (journal + résumés)
 
 - Radar (dernières alertes) :
-  · 2026-08-22T03:49:26.366976Z ETHUSDT 2518.78 0.0000 1.0 declenche=non
-  · 2026-08-22T03:49:26.668250Z BTCUSDT 78556.4 0.0000 0.2 declenche=non
-  · 2026-08-22T03:49:26.900976Z BTCUSDT 78556.41 0.0000 0.2 declenche=non
-  · 2026-08-22T03:49:26.972979Z BTCUSDT 78556.41 0.0000 0.2 declenche=non
+  · 2026-08-22T03:50:01.881740Z BTCUSDT 78560.06 0.0000 7.3 declenche=non
+  · 2026-08-22T03:50:01.881924Z BTCUSDT 78560.18 0.0000 7.3 declenche=non
+  · 2026-08-22T03:50:01.882095Z BTCUSDT 78560.19 0.0000 7.3 declenche=non
+  · 2026-08-22T03:50:01.882321Z BTCUSDT 78560.19 0.0000 7.4 declenche=non
 - Intention en cours : BETA a sonde le marche (2 sondes, 0 long / 2 court, conf moy | ALPHA a frappe 3 fois en embuscade (13x) (dont 1 en mode rev
 - 500 signets X résumés (quota aujourd'hui : 0/50)
 - 56 fiches IA d'offres en cache (quota 8/jour)
