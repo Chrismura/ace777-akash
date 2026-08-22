@@ -27,16 +27,16 @@
 - ALPHA (sniper (embuscade, ×13, revenge si claque)) : **-5.70 $** · 6 fills · 178 skips
 - BETA (éclaireur (chatouille le marché, alimente Alpha)) : **+2.38 $** · 9 fills · 176 skips
 - HULK (gestionnaire de portefeuille (bag, escalier, courreur)) : **-0.11 $** · 0 fills
-- Saison : CALME 🧊 · 
+- Saison : CHAOS ⛈️ · 
 
 ## Veille du jour
 
 - [Santé]
   · hub : OK (14 providers)
 - [Énergie du jour]
-  · appels : 2728 (cloud 2728)
+  · appels : 2731 (cloud 2731)
   · budget cloud : 624 max
-  · par provider : gemini=504, groq=7, mistral=1738, nara=477, nvidia=2
+  · par provider : gemini=504, groq=7, mistral=1741, nara=477, nvidia=2
 - [Nouvelles offres détectées (non intégrées)]
   · dots-studio/dots-3-note-preview:free
   · liquid/lfm-2.5-2.6b:free
@@ -46,10 +46,10 @@
 ## Mémoire chaude (journal + résumés)
 
 - Radar (dernières alertes) :
-  · 2026-08-22T09:13:43.085304Z BTCUSDT 77350.01 0.0000 12.1 declenche=non
-  · 2026-08-22T09:13:43.089482Z ETHUSDT 2426.05 0.0002 216.7 declenche=non
-  · 2026-08-22T09:13:43.259453Z ETHUSDT 2426.05 0.0002 216.9 declenche=non
-  · 2026-08-22T09:13:43.347679Z BTCUSDT 77350.01 0.0000 12.1 declenche=non
+  · 2026-08-22T09:13:53.669746Z ETHUSDT 2426.48 0.0002 25.4 declenche=non
+  · 2026-08-22T09:13:53.847037Z BTCUSDT 77366.06 0.0002 17.5 declenche=non
+  · 2026-08-22T09:13:53.997661Z ETHUSDT 2426.48 0.0002 25.5 declenche=non
+  · 2026-08-22T09:13:54.013918Z BTCUSDT 77366.07 0.0002 18.1 declenche=non
 - Intention en cours : BETA a sonde le marche (9 sondes, 4 long / 5 court, conf moy | ALPHA attend son moment : 162 skips (discipline), le mur du  | ALPHA a frappe 6 fois en embuscade (13x) (dont 2 en mode rev
 - 500 signets X résumés (quota aujourd'hui : 0/50)
 - 56 fiches IA d'offres en cache (quota 8/jour)
