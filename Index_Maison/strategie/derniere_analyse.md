@@ -1,11 +1,11 @@
-# ANALYSE — 2026-08-22T07:32:06.934399Z (alerte)
+# ANALYSE — 2026-08-22T07:38:06.466357Z (alerte)
 
-[UNDERSTAND] La maison ACE777 maintient son alerte rouge face à un PnL combiné sous pression (-4,27 $), tandis que Beta éclaire activement le marché et qu'Alpha patiente avec discipline en embuscade.
+[UNDERSTAND] La maison ACE777 maintient son alerte rouge face à un PnL combiné sous pression (-0,01 $), tandis que Beta éclaire activement le marché et qu'Alpha patiente avec discipline en embuscade.
 [ANALYZE]
-- Tendance : Marché orienté en phase Greed (71) avec un score de thermostat à 82, mais plombé par une nervosité persistante et un capital global sous tension (-90,12 $).
-- Momentum : Alpha maintient sa discipline tactique (450 skips, 16 fills pour -6,89 $) malgré les chocs, et Beta fournit des sondages de qualité (23 fills pour +5,91 $).
-- Risque : Sensibilité accrue aux soubresauts de volume sur les cryptos majeures (notamment sur ETHUSDT avec un volume x3 à 2441,31 $) et pressions persistantes sur le PnL combiné.
-- Contexte : Portefeuille Hulk résilient avec 12 positions seeds sous surveillance active, soutenues par des flux ETF BTC positifs (+227,49 M$).
+- Tendance : Marché orienté en phase Greed (71) avec un score de thermostat à 83, mais plombé par un PnL combiné légèrement négatif (-0,0135 $) et un capital global sous tension (-88,27 $).
+- Momentum : Alpha maintient une patience stricte (0 tir sur la session en cours), tandis que Beta réalise un sondage long de qualité avec une confiance moyenne de 0,99 pour un PnL de -0,01 $.
+- Risque : Pression continue sur le PnL combiné et sensibilité aux variations macroéconomiques (taux d'intérêt).
+- Contexte : Portefeuille Hulk résilient avec 12 positions seeds sous surveillance active, soutenu par des flux ETF BTC positifs (+227,26 M$).
 [STRATEGIZE]
 1. Maintenir Alpha en embuscade stricte en exploitant les flux de reconnaissance de Beta sans céder à la précipitation.
 2. Poursuivre la surveillance rapprochée et l'arbitrage rigoureux des positions seeds de Hulk via les stop-loss.
