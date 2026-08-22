@@ -46,10 +46,10 @@
 ## Mémoire chaude (journal + résumés)
 
 - Radar (dernières alertes) :
-  · 2026-08-22T01:21:40.981176Z ETHUSDT 2518.88 0.0003 84.2 declenche=non
-  · 2026-08-22T01:21:41.085117Z ETHUSDT 2518.87 0.0003 84.2 declenche=non
-  · 2026-08-22T01:21:41.668901Z BTCUSDT 77981.18 0.0000 0.9 declenche=non
-  · 2026-08-22T01:21:41.756528Z ETHUSDT 2518.88 0.0003 86.2 declenche=non
+  · 2026-08-22T01:21:51.762134Z ETHUSDT 2519.1 0.0004 134.0 declenche=non
+  · 2026-08-22T01:21:51.845188Z ETHUSDT 2519.1 0.0004 134.0 declenche=non
+  · 2026-08-22T01:21:51.966178Z ETHUSDT 2519.1 0.0004 134.0 declenche=non
+  · 2026-08-22T01:21:52.059148Z ETHUSDT 2519.1 0.0004 134.1 declenche=non
 - Intention en cours : BETA a sonde le marche (25 sondes, 16 long / 9 court, conf m | ALPHA attend son moment : 436 skips (discipline), le mur du  | ALPHA a frappe 16 fois en embuscade (13x) (dont 8 en mode re
 - 500 signets X résumés (quota aujourd'hui : 0/50)
 - 56 fiches IA d'offres en cache (quota 8/jour)
