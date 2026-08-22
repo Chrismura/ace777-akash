@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-22T09:56:21.179858+00:00",
+  "generated_at": "2026-08-22T09:56:55.534421+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -53,7 +53,7 @@
       "model": "codestral-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 2318
+      "calls_24h": 2325
     },
     {
       "id": "cloudflare-workers-ai",
@@ -229,10 +229,66 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 3316,
+    "consumed": 3323,
     "remaining": 0
   },
   "queue": [
+    {
+      "ts": "2026-08-22T09:56:46.216506+00:00",
+      "task": "analyse.profonde",
+      "provider": "mistral",
+      "model": "codestral-latest",
+      "kind": "cloud",
+      "duration_s": 4.56
+    },
+    {
+      "ts": "2026-08-22T09:56:39.118795+00:00",
+      "task": "supervise.decision",
+      "provider": "mistral",
+      "model": "codestral-latest",
+      "kind": "cloud",
+      "duration_s": 1.14
+    },
+    {
+      "ts": "2026-08-22T09:56:37.793915+00:00",
+      "task": "analyse.profonde",
+      "provider": "mistral",
+      "model": "codestral-latest",
+      "kind": "cloud",
+      "duration_s": 2.88
+    },
+    {
+      "ts": "2026-08-22T09:56:34.558418+00:00",
+      "task": "analyse.profonde",
+      "provider": "mistral",
+      "model": "codestral-latest",
+      "kind": "cloud",
+      "duration_s": 3.73
+    },
+    {
+      "ts": "2026-08-22T09:56:28.228355+00:00",
+      "task": "analyse.profonde",
+      "provider": "mistral",
+      "model": "codestral-latest",
+      "kind": "cloud",
+      "duration_s": 4.93
+    },
+    {
+      "ts": "2026-08-22T09:56:27.775070+00:00",
+      "task": "supervise.decision",
+      "provider": "mistral",
+      "model": "codestral-latest",
+      "kind": "cloud",
+      "duration_s": 1.18
+    },
+    {
+      "ts": "2026-08-22T09:56:23.666233+00:00",
+      "task": "analyse.profonde",
+      "provider": "mistral",
+      "model": "codestral-latest",
+      "kind": "cloud",
+      "duration_s": 3.8
+    },
     {
       "ts": "2026-08-22T09:56:17.566198+00:00",
       "task": "analyse.profonde",
@@ -296,124 +352,68 @@
       "model": "codestral-latest",
       "kind": "cloud",
       "duration_s": 5.33
-    },
-    {
-      "ts": "2026-08-22T09:55:55.910896+00:00",
-      "task": "supervise.decision",
-      "provider": "mistral",
-      "model": "codestral-latest",
-      "kind": "cloud",
-      "duration_s": 1.06
-    },
-    {
-      "ts": "2026-08-22T09:55:45.655112+00:00",
-      "task": "supervise.decision",
-      "provider": "mistral",
-      "model": "codestral-latest",
-      "kind": "cloud",
-      "duration_s": 1.16
-    },
-    {
-      "ts": "2026-08-22T09:55:45.491631+00:00",
-      "task": "analyse.profonde",
-      "provider": "mistral",
-      "model": "codestral-latest",
-      "kind": "cloud",
-      "duration_s": 4.83
-    },
-    {
-      "ts": "2026-08-22T09:55:34.778330+00:00",
-      "task": "supervise.decision",
-      "provider": "mistral",
-      "model": "codestral-latest",
-      "kind": "cloud",
-      "duration_s": 1.07
-    },
-    {
-      "ts": "2026-08-22T09:55:34.313524+00:00",
-      "task": "supervise.decision",
-      "provider": "mistral",
-      "model": "codestral-latest",
-      "kind": "cloud",
-      "duration_s": 0.62
-    },
-    {
-      "ts": "2026-08-22T09:55:19.764347+00:00",
-      "task": "supervise.decision",
-      "provider": "mistral",
-      "model": "codestral-latest",
-      "kind": "cloud",
-      "duration_s": 1.18
-    },
-    {
-      "ts": "2026-08-22T09:55:17.192177+00:00",
-      "task": "analyse.profonde",
-      "provider": "mistral",
-      "model": "codestral-latest",
-      "kind": "cloud",
-      "duration_s": 5.63
     }
   ],
   "events": [
     {
-      "ts": "2026-08-22T09:56:19.859698+00:00",
+      "ts": "2026-08-22T09:56:54.662744+00:00",
       "kind": "failover",
       "title": "Bascule depuis NVIDIA build.nvidia.com (100+ modeles)",
       "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-08-22T09:56:19.449988+00:00",
+      "ts": "2026-08-22T09:56:54.039374+00:00",
       "kind": "failover",
       "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
       "detail": "0 attente"
     },
     {
-      "ts": "2026-08-22T09:56:19.448162+00:00",
+      "ts": "2026-08-22T09:56:54.036210+00:00",
       "kind": "failover",
       "title": "Bascule depuis OpenRouter (modeles gratuits)",
       "detail": "HTTP Error 404: Not Found"
     },
     {
-      "ts": "2026-08-22T09:56:19.101408+00:00",
-      "kind": "failover",
-      "title": "Saute (blacklist) depuis NaraRouter (7M tokens/jour gratuits)",
-      "detail": "0 attente"
-    },
-    {
-      "ts": "2026-08-22T09:56:19.101290+00:00",
-      "kind": "failover",
-      "title": "Saute (blacklist) depuis HuggingFace (136+ modeles, dont DeepSeek-V4)",
-      "detail": "0 attente"
-    },
-    {
-      "ts": "2026-08-22T09:56:19.101079+00:00",
-      "kind": "failover",
-      "title": "Saute (blacklist) depuis Google Gemini",
-      "detail": "0 attente"
-    },
-    {
-      "ts": "2026-08-22T09:56:19.100434+00:00",
-      "kind": "quota",
-      "title": "Budget calme atteint -> bascule famille (gratuits)",
-      "detail": "analyse.profonde"
-    },
-    {
-      "ts": "2026-08-22T09:56:17.566070+00:00",
+      "ts": "2026-08-22T09:56:53.917156+00:00",
       "kind": "message",
       "title": "« Mistral La Plateforme (essai gratuit) » a repondu",
       "detail": "bascule"
     },
     {
-      "ts": "2026-08-22T09:56:17.565681+00:00",
+      "ts": "2026-08-22T09:56:53.916825+00:00",
       "kind": "filet-universel",
       "title": "[FILET UNIVERSEL] « Mistral La Plateforme (essai gratuit) » a repondu hors chaine",
       "detail": "analyse.profonde"
     },
     {
-      "ts": "2026-08-22T09:56:17.335581+00:00",
-      "kind": "message",
-      "title": "« Mistral La Plateforme (essai gratuit) » a repondu",
-      "detail": "bascule"
+      "ts": "2026-08-22T09:56:53.683714+00:00",
+      "kind": "failover",
+      "title": "Saute (blacklist) depuis NaraRouter (7M tokens/jour gratuits)",
+      "detail": "0 attente"
+    },
+    {
+      "ts": "2026-08-22T09:56:53.683496+00:00",
+      "kind": "failover",
+      "title": "Saute (blacklist) depuis HuggingFace (136+ modeles, dont DeepSeek-V4)",
+      "detail": "0 attente"
+    },
+    {
+      "ts": "2026-08-22T09:56:53.681568+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis Google Gemini",
+      "detail": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "ts": "2026-08-22T09:56:53.681210+00:00",
+      "kind": "ratelimit",
+      "title": "429 Google Gemini -> pause 60s + bascule",
+      "detail": ""
+    },
+    {
+      "ts": "2026-08-22T09:56:53.220868+00:00",
+      "kind": "blacklist",
+      "title": "Fin de pause Google Gemini",
+      "detail": "re-essai automatique"
     }
   ],
   "tasks_quotas": {
