@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-22T12:19:44.386027+00:00",
+  "generated_at": "2026-08-22T12:20:30.871734+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -26,7 +26,7 @@
       "model": "qwen-3.8-max-free",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 687
+      "calls_24h": 688
     },
     {
       "id": "groq",
@@ -229,10 +229,18 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 3722,
+    "consumed": 3723,
     "remaining": 0
   },
   "queue": [
+    {
+      "ts": "2026-08-22T12:19:56.195769+00:00",
+      "task": "supervise.decision",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 32.03
+    },
     {
       "ts": "2026-08-22T12:19:10.641254+00:00",
       "task": "supervise.decision",
@@ -344,17 +352,27 @@
       "model": "qwen-3.8-max-free",
       "kind": "cloud",
       "duration_s": 24.37
-    },
-    {
-      "ts": "2026-08-22T12:10:03.889129+00:00",
-      "task": "supervise.decision",
-      "provider": "nara",
-      "model": "qwen-3.8-max-free",
-      "kind": "cloud",
-      "duration_s": 71.46
     }
   ],
   "events": [
+    {
+      "ts": "2026-08-22T12:20:11.294149+00:00",
+      "kind": "failover",
+      "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
+      "detail": "0 attente"
+    },
+    {
+      "ts": "2026-08-22T12:20:11.290124+00:00",
+      "kind": "reserve-storm",
+      "title": "Tempête active + budget calme atteint -> réserve storm pour supervise.decision",
+      "detail": "supervise.decision"
+    },
+    {
+      "ts": "2026-08-22T12:19:56.195003+00:00",
+      "kind": "message",
+      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
+      "detail": "bascule"
+    },
     {
       "ts": "2026-08-22T12:19:24.161039+00:00",
       "kind": "failover",
@@ -396,24 +414,6 @@
       "kind": "message",
       "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
       "detail": "bascule"
-    },
-    {
-      "ts": "2026-08-22T12:18:49.367362+00:00",
-      "kind": "failover",
-      "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
-      "detail": "0 attente"
-    },
-    {
-      "ts": "2026-08-22T12:18:49.366790+00:00",
-      "kind": "reserve-storm",
-      "title": "Tempête active + budget calme atteint -> réserve storm pour supervise.decision",
-      "detail": "supervise.decision"
-    },
-    {
-      "ts": "2026-08-22T12:18:49.291916+00:00",
-      "kind": "failover",
-      "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
-      "detail": "0 attente"
     }
   ],
   "tasks_quotas": {
