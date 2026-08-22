@@ -1,4 +1,4 @@
-# ARCHITECTURE VIVANTE — ACE777 (2026-08-22 08:47 UTC)
+# ARCHITECTURE VIVANTE — ACE777 (2026-08-22 08:48 UTC)
 
 > Document GÉNÉRÉ AUTOMATIQUEMENT à l'instant. La famille valide
 > en s'appuyant sur CE contexte, pas sur des documents figés.
@@ -22,10 +22,10 @@
 
 ## État de la mission (bots + PnL)
 
-- mission.json : 2026-08-22 08:47Z · run `MASTER_VORTEX_V2_COLLAB_4H` · alerte `red`
+- mission.json : 2026-08-22 08:48Z · run `MASTER_VORTEX_V2_COLLAB_4H` · alerte `red`
 - PnL combiné : **-2.93 $** 📉 (combo -2.9337)
-- ALPHA (sniper (embuscade, ×13, revenge si claque)) : **-5.33 $** · 4 fills · 132 skips
-- BETA (éclaireur (chatouille le marché, alimente Alpha)) : **+2.40 $** · 7 fills · 138 skips
+- ALPHA (sniper (embuscade, ×13, revenge si claque)) : **-5.33 $** · 4 fills · 135 skips
+- BETA (éclaireur (chatouille le marché, alimente Alpha)) : **+2.40 $** · 7 fills · 141 skips
 - HULK (gestionnaire de portefeuille (bag, escalier, courreur)) : **-0.11 $** · 0 fills
 - Saison : CALME 🧊 · 
 
@@ -46,11 +46,11 @@
 ## Mémoire chaude (journal + résumés)
 
 - Radar (dernières alertes) :
-  · 2026-08-22T08:47:23.558533Z BTCUSDT 77161.72 0.0001 8.5 declenche=non
-  · 2026-08-22T08:47:23.713510Z ETHUSDT 2419.23 0.0001 332.8 declenche=non
-  · 2026-08-22T08:47:24.711714Z BTCUSDT 77161.73 0.0001 8.5 declenche=non
-  · 2026-08-22T08:47:24.802717Z BTCUSDT 77161.73 0.0001 8.5 declenche=non
-- Intention en cours : BETA a sonde le marche (7 sondes, 4 long / 3 court, conf moy | ALPHA attend son moment : 117 skips (discipline), le mur du  | ALPHA a frappe 4 fois en embuscade (13x) (dont 2 en mode rev
+  · 2026-08-22T08:48:06.042231Z ETHUSDT 2419.71 0.0002 209.5 declenche=non
+  · 2026-08-22T08:48:06.169234Z BTCUSDT 77170.59 0.0000 12.6 declenche=non
+  · 2026-08-22T08:48:06.713146Z BTCUSDT 77170.58 0.0000 12.6 declenche=non
+  · 2026-08-22T08:48:06.913231Z BTCUSDT 77170.58 0.0000 12.6 declenche=non
+- Intention en cours : BETA a sonde le marche (7 sondes, 4 long / 3 court, conf moy | ALPHA attend son moment : 120 skips (discipline), le mur du  | ALPHA a frappe 4 fois en embuscade (13x) (dont 2 en mode rev
 - 500 signets X résumés (quota aujourd'hui : 0/50)
 - 56 fiches IA d'offres en cache (quota 8/jour)
 
