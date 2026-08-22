@@ -1,4 +1,4 @@
-# ARCHITECTURE VIVANTE — ACE777 (2026-08-22 03:38 UTC)
+# ARCHITECTURE VIVANTE — ACE777 (2026-08-22 03:39 UTC)
 
 > Document GÉNÉRÉ AUTOMATIQUEMENT à l'instant. La famille valide
 > en s'appuyant sur CE contexte, pas sur des documents figés.
@@ -27,19 +27,17 @@
 - ALPHA (sniper (embuscade, ×13, revenge si claque)) : **+0.00 $** · 0 fills · 15 skips
 - BETA (éclaireur (chatouille le marché, alimente Alpha)) : **+0.00 $** · 0 fills · 8 skips
 - HULK (gestionnaire de portefeuille (bag, escalier, courreur)) : **+1.96 $** · 0 fills
-- Saison : CHAUFFE 🌡️ · 
+- Saison : CALME 🧊 · 
 
 ## Veille du jour
 
 - [Santé]
   · hub : OK (14 providers)
 - [Énergie du jour]
-  · appels : 119 (cloud 119)
+  · appels : 121 (cloud 121)
   · budget cloud : 624 max
-  · par provider : gemini=2, groq=1, nara=116
+  · par provider : gemini=2, groq=1, nara=118
 - [Nouvelles offres détectées (non intégrées)]
-- [ROLLBACK AUTO 2026-08-22]
-  · obs-1786774667 (nvidia/nemotron-3.5-lightning:free) : 100% erreurs > 5% (observatoire)
   · dots-studio/dots-3-note-preview:free
   · liquid/lfm-2.5-2.6b:free
   · thinkingmachines/inkling-small:free
@@ -48,10 +46,10 @@
 ## Mémoire chaude (journal + résumés)
 
 - Radar (dernières alertes) :
-  · 2026-08-22T03:38:47.233105Z BTCUSDT 78701.24 0.0001 8.4 declenche=non
-  · 2026-08-22T03:38:47.602238Z ETHUSDT 2518.24 0.0001 131.2 declenche=non
-  · 2026-08-22T03:38:47.733936Z BTCUSDT 78701.24 0.0001 8.5 declenche=non
-  · 2026-08-22T03:38:47.748965Z ETHUSDT 2518.24 0.0001 131.7 declenche=non
+  · 2026-08-22T03:39:30.387582Z BTCUSDT 78692.0 0.0001 2.2 declenche=non
+  · 2026-08-22T03:39:30.390659Z BTCUSDT 78692.0 0.0001 2.2 declenche=non
+  · 2026-08-22T03:39:30.392529Z BTCUSDT 78692.0 0.0001 2.2 declenche=non
+  · 2026-08-22T03:39:30.411064Z BTCUSDT 78692.0 0.0001 2.2 declenche=non
 - Intention en cours : BETA veille — pas encore de sonde sur la session en cours. | ALPHA a frappe 2 fois en embuscade (13x) (dont 1 en mode rev
 - 500 signets X résumés (quota aujourd'hui : 0/50)
 - 56 fiches IA d'offres en cache (quota 8/jour)
