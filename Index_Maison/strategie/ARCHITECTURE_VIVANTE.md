@@ -24,19 +24,19 @@
 
 - mission.json : 2026-08-22 03:35Z · run `MASTER_VORTEX_V2_COLLAB_4H` · alerte `red`
 - PnL combiné : **0.00 $** 📉 (combo 0)
-- ALPHA (sniper (embuscade, ×13, revenge si claque)) : **+0.00 $** · 0 fills · 8 skips
+- ALPHA (sniper (embuscade, ×13, revenge si claque)) : **+0.00 $** · 0 fills · 10 skips
 - BETA (éclaireur (chatouille le marché, alimente Alpha)) : **+0.00 $** · 0 fills · 8 skips
 - HULK (gestionnaire de portefeuille (bag, escalier, courreur)) : **+1.96 $** · 0 fills
-- Saison : CHAUFFE 🌡️ · 
+- Saison : CALME 🧊 · 
 
 ## Veille du jour
 
 - [Santé]
   · hub : OK (14 providers)
 - [Énergie du jour]
-  · appels : 110 (cloud 110)
+  · appels : 111 (cloud 111)
   · budget cloud : 624 max
-  · par provider : gemini=2, nara=108
+  · par provider : gemini=2, nara=109
 - [Nouvelles offres détectées (non intégrées)]
   · dots-studio/dots-3-note-preview:free
   · liquid/lfm-2.5-2.6b:free
@@ -46,10 +46,10 @@
 ## Mémoire chaude (journal + résumés)
 
 - Radar (dernières alertes) :
-  · 2026-08-22T03:35:16.812216Z ETHUSDT 2519.44 0.0002 36.1 declenche=non
-  · 2026-08-22T03:35:16.840573Z BTCUSDT 78726.06 0.0004 2.3 declenche=non
-  · 2026-08-22T03:35:17.019829Z BTCUSDT 78726.06 0.0004 2.3 declenche=non
-  · 2026-08-22T03:35:17.148231Z ETHUSDT 2519.45 0.0002 36.1 declenche=non
+  · 2026-08-22T03:35:58.533784Z ETHUSDT 2518.95 0.0003 115.7 declenche=non
+  · 2026-08-22T03:35:58.550346Z BTCUSDT 78736.01 0.0005 13.3 declenche=non
+  · 2026-08-22T03:35:59.008228Z ETHUSDT 2518.95 0.0003 116.9 declenche=non
+  · 2026-08-22T03:35:59.092867Z BTCUSDT 78736.01 0.0005 13.3 declenche=non
 - Intention en cours : BETA veille — pas encore de sonde sur la session en cours. | ALPHA a frappe 2 fois en embuscade (13x) (dont 1 en mode rev
 - 500 signets X résumés (quota aujourd'hui : 0/50)
 - 56 fiches IA d'offres en cache (quota 8/jour)
