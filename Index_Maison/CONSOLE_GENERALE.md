@@ -1,6 +1,6 @@
 # Console générale — clin d’œil
 
-Auto-refresh : 2026-08-22 05:57 UTC · jour local **2026-08-22**
+Auto-refresh : 2026-08-22 05:59 UTC · jour local **2026-08-22**
 
 ## Feu tricolore
 
@@ -8,7 +8,7 @@ Auto-refresh : 2026-08-22 05:57 UTC · jour local **2026-08-22**
 |-------|------|--------|
 | **ACE** | 🟢 RUN | Dernier tag `MASTER_VORTEX_V2_COLLAB_4H` · combo ≈ **+313.90 $** |
 | **Hulk paper** | 🟢 RUN | pnl_total ≈ **-0.1079** · pos **12** |
-| **Hulk digest** | 🟢 RUN | mtime 2026-08-22T05:56Z |
+| **Hulk digest** | 🟢 RUN | mtime 2026-08-22T05:58Z |
 | **Punk** | 🔴 STOP | — · idle |
 | **Ollama** | 🟢 RUN | |
 | **Obsidian** | 🟢 | vault `Obsidian_ACE777` |
@@ -60,7 +60,7 @@ Auto-refresh : 2026-08-22 05:57 UTC · jour local **2026-08-22**
 | `TEST_DUO_HARMONIC_5813_30M_V63` | +0.00 (n=0) | -0.42 (n=45) | **-0.42** |
 
 ## Hulk
-- Events : {'BUY': 15, 'SELL_PARTIAL': 15, 'SELL': 3, 'SKIP': 82}
+- Events : {'BUY': 15, 'SELL_PARTIAL': 15, 'SELL': 3, 'SKIP': 85}
 - Pairs ouvertes (state) : XRPUSDT, HBARUSDT, QAITUSDT, RIZEUSDT, ZBCNUSDT, WUSDT, CCUSDT, PYTHUSDT, KITEUSDT, TELUSDT, RWAINCUSDT, EDELUSDT
 
 ## Liens
