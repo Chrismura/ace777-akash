@@ -22,7 +22,7 @@
 
 ## État de la mission (bots + PnL)
 
-- mission.json : 2026-08-22 14:53Z · run `MASTER_VORTEX_V2_COLLAB_4H` · alerte `red`
+- mission.json : 2026-08-22 14:54Z · run `MASTER_VORTEX_V2_COLLAB_4H` · alerte `red`
 - PnL combiné : **4.43 $** 📉 (combo 4.4305)
 - ALPHA (sniper (embuscade, ×13, revenge si claque)) : **+4.63 $** · 7 fills · 150 skips
 - BETA (éclaireur (chatouille le marché, alimente Alpha)) : **-0.20 $** · 9 fills · 193 skips
@@ -34,9 +34,9 @@
 - [Santé]
   · hub : OK (14 providers)
 - [Énergie du jour]
-  · appels : 2 (cloud 2)
+  · appels : 3 (cloud 3)
   · budget cloud : 624 max
-  · par provider : groq=1, nara=1
+  · par provider : groq=1, mistral=1, nara=1
 - [Nouvelles offres détectées (non intégrées)]
   · dots-studio/dots-3-note-preview:free
   · liquid/lfm-2.5-2.6b:free
@@ -46,10 +46,10 @@
 ## Mémoire chaude (journal + résumés)
 
 - Radar (dernières alertes) :
-  · 2026-08-22T14:54:15.373489Z BTCUSDT 76980.0 0.0000 3.2 declenche=non
-  · 2026-08-22T14:54:15.373489Z BTCUSDT 76980.0 0.0001 2.7 declenche=non
-  · 2026-08-22T14:54:15.394581Z BTCUSDT 76980.0 0.0000 3.2 declenche=non
-  · 2026-08-22T14:54:15.394576Z BTCUSDT 76980.0 0.0001 2.7 declenche=non
+  · 2026-08-22T14:54:57.365233Z ETHUSDT 2409.92 0.0008 251.5 declenche=non
+  · 2026-08-22T14:54:57.366992Z ETHUSDT 2409.92 0.0008 250.0 declenche=non
+  · 2026-08-22T14:54:57.366991Z ETHUSDT 2409.92 0.0008 251.7 declenche=non
+  · 2026-08-22T14:54:57.370177Z ETHUSDT 2409.92 0.0008 250.2 declenche=non
 - Intention en cours : BETA a sonde le marche (9 sondes, 6 long / 3 court, conf moy | ALPHA attend son moment : 143 skips (discipline), le mur du  | ALPHA a frappe 7 fois en embuscade (13x) (dont 7 en mode rev
 - 550 signets X résumés (quota aujourd'hui : 50/50)
 - 56 fiches IA d'offres en cache (quota 8/jour)
