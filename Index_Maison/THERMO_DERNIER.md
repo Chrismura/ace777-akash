@@ -4,37 +4,37 @@
 > Script : `Index_Maison/scripts/thermo_quotidien_free.py`
 
 ## Clin d'œil
-**Climat :** `ok` · **Score :** `77/100`
+**Climat :** `ok` · **Score :** `78/100`
 
 ## Snapshot `BTCUSDT`
 
 | Champ | Valeur | ID |
 |-------|--------|-----|
-| Mark | 77561.9 | prix |
-| OI | 105333.073 | C13 |
+| Mark | 77519.58 | prix |
+| OI | 105325.603 | C13 |
 | Funding | 0.0001 | C14 |
 | Funding moy. ~30j | 5.811e-05 (n=90) | Cortana |
 | Funding mois préc. | 6.067e-05 (n=93) | Cortana |
 | L/S 1h | 1.023 | crowd |
-| BTC 1h/4h/24h | 0.08 / -1.09 / 2.39 % | B7 |
+| BTC 1h/4h/24h | 0.06 / -1.11 / 2.28 % | B7 |
 | Dominance BTC | None% | A3 |
 | Alts ↓ 24h | 25.0% | B9 |
 
 ## Lecture
-- Climat CALME (score 77/100).
+- Climat CALME (score 78/100).
 - Funding maintenant 0.0001. Moyenne ~30j 5.811e-05 (90 pts). Mois précédent 6.067e-05 (93 pts).
 - Long/Short 1.023.
-- BTC 24h 2.39% · 1h 0.08% · 4h -1.09%.
+- BTC 24h 2.28% · 1h 0.06% · 4h -1.11%.
 - Panier alts : 25.0% en baisse (5/20).
 - Whales proxy : aucun print ≥500k$ sur les ~500 derniers trades.
-- Dark/OTC proxy : taker buy/sell 0.968 · OI 105333.073 (pas de dark pool free temps réel).
+- Dark/OTC proxy : taker buy/sell 0.968 · OI 105325.603 (pas de dark pool free temps réel).
 - Top traders L/S 1.127.
 - Fear & Greed 71 (Greed).
 - Liquidations 24h proxy ≈ 0.05 B$.
-- ETF net inflow : BTC 227.77 M$ (bitbo-public (moy 7j), BTC only).
-- GEX proxy (Deribit) : P/C 0.616 · murC 78000 (+0.6%) · murP 60000 (-22.6%).
-- Volumes cachés proxy : taker buy 0.534 · vol perp/spot 12.22×.
-- ACE soft: LIVE=MASTER_VORTEX_V2_COLLAB_4H_LIVE_COLOR.log · SKIP=1361 · heat=100.0 · PnL sess=311.5088 · RED=0.
+- ETF net inflow : BTC 227.64 M$ (bitbo-public (moy 7j), BTC only).
+- GEX proxy (Deribit) : P/C 0.616 · murC 78000 (+0.7%) · murP 60000 (-22.6%).
+- Volumes cachés proxy : taker buy 0.534 · vol perp/spot 12.21×.
+- ACE soft: LIVE=MASTER_VORTEX_V2_COLLAB_4H_LIVE_COLOR.log · SKIP=1363 · heat=100.0 · PnL sess=311.5088 · RED=0.
 - C15/C23 = proxies free. D26–D34 = F&G / MC / alt / liq / ETF / GEX / volumes cachés. Soft ops lecture seule.
 
 ## Branché / soft
