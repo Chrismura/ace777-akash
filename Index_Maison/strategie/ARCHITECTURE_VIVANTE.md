@@ -41,15 +41,15 @@
   · dots-studio/dots-3-note-preview:free
   · liquid/lfm-2.5-2.6b:free
   · thinkingmachines/inkling-small:free
-  … 107 offres/pépites détectées ce matin
+  … 106 offres/pépites détectées ce matin
 
 ## Mémoire chaude (journal + résumés)
 
 - Radar (dernières alertes) :
-  · 2026-08-22T05:12:04.907336Z BTCUSDT 77146.26 0.0063 135.1 declenche=oui
-  · 2026-08-22T05:12:04.907522Z ETHUSDT 2433.79 0.0137 3147.7 declenche=oui
-  · 2026-08-22T05:12:04.907693Z ETHUSDT 2433.79 0.0137 3147.8 declenche=oui
-  · 2026-08-22T05:12:04.907829Z ETHUSDT 2433.79 0.0137 3147.8 declenche=oui
+  · 2026-08-22T05:12:15.241454Z BTCUSDT 77228.12 0.0073 178.2 declenche=oui
+  · 2026-08-22T05:12:15.241602Z BTCUSDT 77227.14 0.0073 178.2 declenche=oui
+  · 2026-08-22T05:12:15.256220Z ETHUSDT 2442.82 0.0175 4379.5 declenche=oui
+  · 2026-08-22T05:12:15.262264Z ETHUSDT 2442.82 0.0175 4379.5 declenche=oui
 - Intention en cours : BETA a sonde le marche (11 sondes, 7 long / 4 court, conf mo | ALPHA attend son moment : 177 skips (discipline), le mur du  | ALPHA a frappe 7 fois en embuscade (13x) (dont 5 en mode rev
 - 500 signets X résumés (quota aujourd'hui : 0/50)
 - 56 fiches IA d'offres en cache (quota 8/jour)
