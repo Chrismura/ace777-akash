@@ -1,34 +1,34 @@
 {
-  "timestamp": "2026-08-22T10:12:40Z",
+  "timestamp": "2026-08-22T10:12:45Z",
   "generation_source": "system_state_generator.py v2.1",
   "status": "STALE",
-  "feed_hash": "0f5c99d91997f91d5d90987cd05de17edc53c548125ef1d102f1b26bb2668671",
+  "feed_hash": "3b83fa8b78cc41ec49ddd2463c1710f957289b7557ef84ac5c939e771881a5ca",
   "feeds": {
     "mission": {
-      "present": true,
-      "age_seconds": 1,
-      "fresh_limit_s": 120
-    },
-    "cortana_feed": {
       "present": true,
       "age_seconds": 5,
       "fresh_limit_s": 120
     },
+    "cortana_feed": {
+      "present": true,
+      "age_seconds": 10,
+      "fresh_limit_s": 120
+    },
     "live": {
       "present": true,
-      "age_seconds": 0,
+      "age_seconds": 5,
       "fresh_limit_s": 15
     },
     "routing": {
       "present": true,
-      "age_seconds": 5285,
+      "age_seconds": 5290,
       "fresh_limit_s": 120
     }
   },
   "services": {
     "total": 53,
-    "running": 24,
-    "planned": 29,
+    "running": 23,
+    "planned": 30,
     "running_list": [
       "application.com.ace777.cockpit-app.14931296.14931301",
       "com.ace777.bloc-privatise",
@@ -36,14 +36,13 @@
       "com.ace777.cortana-feed",
       "com.ace777.cortana.urgent",
       "com.ace777.couleur-regime-score",
-      "com.ace777.graph-cerveau",
+      "com.ace777.fees",
+      "com.ace777.gitpush",
       "com.ace777.hub-cockpit-feed",
       "com.ace777.journal-soir",
       "com.ace777.llm-gate-hub",
       "com.ace777.observatoire",
       "com.ace777.prise-ia",
-      "com.ace777.roulement-ia",
-      "com.ace777.routeur-auto",
       "com.ace777.run-setupA-4h",
       "com.ace777.sniffer-matin",
       "com.ace777.sniffer-ny",
@@ -65,15 +64,16 @@
       "com.ace777.cpfp",
       "com.ace777.dms-veille",
       "com.ace777.eval-offres",
-      "com.ace777.fees",
-      "com.ace777.gitpush",
       "com.ace777.gitpush-vault",
+      "com.ace777.graph-cerveau",
       "com.ace777.heartbeats",
       "com.ace777.hulk-watchdog",
       "com.ace777.macro-tempete",
       "com.ace777.pont-onchain",
       "com.ace777.queueoffres",
       "com.ace777.rappels",
+      "com.ace777.roulement-ia",
+      "com.ace777.routeur-auto",
       "com.ace777.run-vortex-96h",
       "com.ace777.run72h",
       "com.ace777.sante-index",
@@ -124,7 +124,7 @@
       "Assistant_Vocal_HORS_VAULT": 697372,
       "Obsidian_BACKUPS_HORS_VAULT": 14936872
     },
-    "presence_at": "2026-08-22T10:12:34Z",
+    "presence_at": "2026-08-22T10:12:42Z",
     "sizes_at": "2026-08-22T08:04:37Z"
   }
 }
