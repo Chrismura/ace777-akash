@@ -5,7 +5,7 @@
 
 ## Meta
 - statut: READY
-- ts: 20260822T1307Z
+- ts: 20260822T1308Z
 - pertinence: SOFT
 - sentiment: BULLISH
 - compte: thermo-free
