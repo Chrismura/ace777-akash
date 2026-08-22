@@ -3166,7 +3166,7 @@
       "whaleAlerte": false,
       "whaleAlerteTexte": "Activité baleines nominale (aucun gros bloc ≥1000 BTC ni fragmentation ≥500 BTC).",
       "dernierEvtMin": -1,
-      "synthèse": "Direction onchain neutral | 0 gros bloc(s) 0 BTC sur le scan récent, cumul 24h 0 BTC, source inconnue. Activité baleines nominale (aucun gros bloc ≥1000 BTC ni fragmentation ≥500 BTC). | CPFP actif (conf 0/2) · poussière score 100.0/50 · blocs privatisés 0.9154% fantômes | indice onchain 30.8/100 (MODÉRÉ — onchain à surveiller)",
+      "synthèse": "Direction onchain neutral | 0 gros bloc(s) 0 BTC sur le scan récent, cumul 24h 0 BTC, source inconnue. Activité baleines nominale (aucun gros bloc ≥1000 BTC ni fragmentation ≥500 BTC). | CPFP actif (conf 0/2) · poussière score 100.0/50 · blocs privatisés 6.1069% fantômes | indice onchain 34.9/100 (MODÉRÉ — onchain à surveiller)",
       "cpfpSignal": null,
       "cpfpScore": 0.0,
       "cpfpMode": "actif",
@@ -3174,14 +3174,14 @@
       "cpfpGlobal": false,
       "cpfpZscore": 0.0,
       "cpfpDustScore": 100.0,
-      "cpfpDustDetail": "poussière <2.0 sat/vB (normalisé minFee 1×1.5) : 10 vues ce run, 21038 cumulées 48h (seuil 1000) — max 0.0005 BTC",
+      "cpfpDustDetail": "poussière <2.0 sat/vB (normalisé minFee 1×1.5) : 8 vues ce run, 21046 cumulées 48h (seuil 1000) — max 0.0001 BTC",
       "blocPrivatiseMode": "actif",
-      "blocPrivatiseTauxFantome": 0.9154,
-      "blocPrivatiseNbCachees": 37,
-      "indiceOnchain": 30.8,
+      "blocPrivatiseTauxFantome": 6.1069,
+      "blocPrivatiseNbCachees": 360,
+      "indiceOnchain": 34.9,
       "indiceOnchainLabel": "MODÉRÉ — onchain à surveiller",
       "indiceOnchainComposantes": {
-        "blocsPrivatises": 1.5,
+        "blocsPrivatises": 9.8,
         "poussiere": 100.0,
         "cpfpZscore": 0.0
       }
@@ -3246,7 +3246,7 @@
     }
   },
   "intention": {
-    "ts": "2026-08-22T12:21:47.143243+00:00",
+    "ts": "2026-08-22T12:22:22.367242+00:00",
     "since": "2026-08-22T11:34:00Z",
     "bots": {
       "alpha": {
@@ -3581,21 +3581,6 @@
         "conf_moy": 0.8360799999999999,
         "events": [
           {
-            "ts": "2026-08-22T12:19:00Z",
-            "bot": "beta",
-            "cycle": 101,
-            "action": "probe",
-            "intention": "a sonde le marche",
-            "direction": "long",
-            "conf": 0.9191,
-            "exit": "0.64270918",
-            "meta": {
-              "size_note": "strong_conf_full+aspiration_1.618x+entry_25_75_full",
-              "tension": 4.36574294
-            },
-            "file": "MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv"
-          },
-          {
             "ts": "2026-08-22T12:19:16Z",
             "bot": "beta",
             "cycle": 102,
@@ -3879,10 +3864,25 @@
               "tension": 5.227e-05
             },
             "file": "MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv"
+          },
+          {
+            "ts": "2026-08-22T12:22:04Z",
+            "bot": "beta",
+            "cycle": 121,
+            "action": "wait",
+            "intention": "attente — mur du carnet intact",
+            "direction": null,
+            "conf": null,
+            "exit": "impulse_resonance_wait",
+            "meta": {
+              "size_note": null,
+              "tension": 0.74801348
+            },
+            "file": "MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv"
           }
         ],
         "counts": {
-          "wait": 10,
+          "wait": 11,
           "fire": 0,
           "probe": 5,
           "skip": 105
