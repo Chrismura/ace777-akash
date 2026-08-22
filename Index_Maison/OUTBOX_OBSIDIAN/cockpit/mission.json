@@ -3206,13 +3206,13 @@
       "whaleFragBtc": 0,
       "whaleCumul24hBtc": 0.0,
       "whaleMoy7jBtc": 0.0,
-      "whaleDir": "bullish",
-      "whaleDirLabel": "bullish",
+      "whaleDir": "neutral",
+      "whaleDirLabel": "neutral",
       "whaleDirScan": "neutral",
-      "whaleDirProxy": "bullish",
-      "whaleProxyN": 1,
-      "whaleProxyUsd": 608729.0,
-      "whaleProxyBuyUsd": 608729.0,
+      "whaleDirProxy": "neutral",
+      "whaleProxyN": 0,
+      "whaleProxyUsd": 0.0,
+      "whaleProxyBuyUsd": 0.0,
       "whaleProxySellUsd": 0.0,
       "whaleSource": "inconnue",
       "whaleEcartSeuil": null,
@@ -3227,7 +3227,7 @@
       "cpfpGlobal": false,
       "cpfpZscore": 0.0,
       "cpfpDustScore": 100.0,
-      "cpfpDustDetail": "poussière <4.5 sat/vB (normalisé minFee 3×1.5) : 3 vues ce run, 24881 cumulées 48h (seuil 1000) — max 0.0015 BTC",
+      "cpfpDustDetail": "poussière <4.5 sat/vB (normalisé minFee 3×1.5) : 5 vues ce run, 24886 cumulées 48h (seuil 1000) — max 0.6220 BTC",
       "blocPrivatiseMode": "actif",
       "blocPrivatiseTauxFantome": 2.0569,
       "blocPrivatiseNbCachees": 89,
@@ -3299,7 +3299,7 @@
     }
   },
   "intention": {
-    "ts": "2026-08-22T16:45:42.185807+00:00",
+    "ts": "2026-08-22T16:46:34.506345+00:00",
     "since": "2026-08-22T15:44:00Z",
     "bots": {
       "alpha": {
@@ -3628,26 +3628,11 @@
         "role": "eclaireur",
         "surnom": "L'Eclaireur",
         "fills": 5,
-        "skips": 112,
+        "skips": 113,
         "pnl": -0.9091,
         "best": 0.80674,
         "conf_moy": 0.91622,
         "events": [
-          {
-            "ts": "2026-08-22T16:38:29Z",
-            "bot": "beta",
-            "cycle": 104,
-            "action": "skip",
-            "intention": "skip — gap_guard_pause",
-            "direction": null,
-            "conf": null,
-            "exit": "gap_guard_pause",
-            "meta": {
-              "size_note": null,
-              "tension": null
-            },
-            "file": "MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv"
-          },
           {
             "ts": "2026-08-22T16:38:35Z",
             "bot": "beta",
@@ -3932,13 +3917,28 @@
               "tension": 0.00461896
             },
             "file": "MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv"
+          },
+          {
+            "ts": "2026-08-22T16:45:59Z",
+            "bot": "beta",
+            "cycle": 124,
+            "action": "skip",
+            "intention": "skip — regime_gate",
+            "direction": null,
+            "conf": null,
+            "exit": "regime_gate",
+            "meta": {
+              "size_note": null,
+              "tension": 0.00321659
+            },
+            "file": "MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv"
           }
         ],
         "counts": {
           "wait": 6,
           "fire": 0,
           "probe": 5,
-          "skip": 112
+          "skip": 113
         },
         "direction": {
           "long": 4,
