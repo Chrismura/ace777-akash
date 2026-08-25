@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head><title>DIAGNOSTIC COCKPIT</title></head>
+<body style="background:#0a0f0b;color:#7cff6b;font-family:monospace;padding:20px">
+<h2>DIAGNOSTIC COCKPIT</h2>
+<div id="results">Chargement des scripts...</div>
+<script src="mission.js"></script>
+<script src="hub.js"></script>
+<script src="../thermo/live.js"></script>
+<script src="../thermo/cortana_feed.js"></script>
+<script src="sante_live.js"></script>
+<script>
+const r = document.getElementById('results');
+const lines = [];
+function add(ok, msg) { lines.push((ok ? '✅' : '❌') + ' ' + msg); }
+
+// Test 1: Variables globales
+add(typeof window.__MISSION__ === 'object', 'window.__MISSION__ = ' + (window.__MISSION__ ? 'OK (' + Object.keys(window.__MISSION__).length + ' clés)' : 'UNDEFINED'));
+add(typeof window.__HUB__ === 'object', 'window.__HUB__ = ' + (window.__HUB__ ? 'OK (' + Object.keys(window.__HUB__).length + ' clés)' : 'UNDEFINED'));
+add(typeof window.__THERMO_LIVE__ === 'object', 'window.__THERMO_LIVE__ = ' + (window.__THERMO_LIVE__ ? 'OK (' + Object.keys(window.__THERMO_LIVE__).length + ' clés)' : 'UNDEFINED'));
+add(typeof window.__SANTE__ === 'object', 'window.__SANTE__ = ' + (window.__SANTE__ ? 'OK (' + Object.keys(window.__SANTE__).length + ' clés)' : 'UNDEFINED'));
+add(typeof window.__CORTANA_FEED__ === 'object', 'window.__CORTANA_FEED__ = ' + (window.__CORTANA_FEED__ ? 'OK (' + Object.keys(window.__CORTANA_FEED__).length + ' clés)' : 'UNDEFINED'));
+
+// Test 2: Données clés
+const M = window.__MISSION__ || {};
+const T = window.__THERMO_LIVE__ || {};
+add(M.ts !== undefined, 'M.ts = ' + M.ts);
+add(M.hulk !== undefined, 'M.hulk = ' + (M.hulk ? M.hulk.positions?.length + ' positions' : 'MISSING'));
+add(M.alpha !== undefined, 'M.alpha = ' + (M.alpha ? 'pnl=' + M.alpha.pnl : 'MISSING'));
+add(M.beta !== undefined, 'M.beta = ' + (M.beta ? 'pnl=' + M.beta.pnl : 'MISSING'));
+add(T.mark !== undefined, 'T.mark = ' + T.mark);
+add(T.sdi !== undefined, 'T.sdi = ' + (T.sdi ? JSON.stringify(T.sdi).slice(0,60) : 'MISSING'));
+add(T.geopol !== undefined, 'T.geopol = ' + (T.geopol ? 'score=' + T.geopol.score : 'MISSING'));
+add(T.pipeline_health !== undefined, 'T.health = ' + (T.pipeline_health ? T.pipeline_health.global_score : 'MISSING'));
+
+// Test 3: Éléments HTML
+const ids = ['h-pnl','h-bags','h-univ','pf-total','pf-hulk','top-dust','top-gain','r-clim','r-score'];
+ids.forEach(id => {
+    const el = document.getElementById(id);
+    add(el !== null, 'id="' + id + '" ' + (el ? 'trouvé' : 'MANQUANT'));
+});
+
+r.innerHTML = lines.map(l => '<div style="margin:4px 0">' + l + '</div>').join('');
+r.innerHTML += '<div style="margin-top:20px;color:#ffc857">Si tu vois des ❌, c\'est le problème.</div>';
+</script>
+</body>
+</html>

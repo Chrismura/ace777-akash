@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ACE777 INDICES</title>
+<style>
+:root{--bg:#050804;--panel:#0a100c;--acid:#7CFF6B;--amber:#ffc857;--red:#ff4d4d;--muted:#8a7a55;--cyan:#9dff7a}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:#e9e4d4;font-family:'Share Tech Mono','Courier New',monospace;padding:16px;min-height:100vh}
+h1{font-family:'Orbitron',sans-serif;color:var(--amber);font-size:14px;letter-spacing:2px;margin-bottom:16px;text-transform:uppercase}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px;margin-bottom:20px}
+.card{background:var(--panel);border:1px solid #2a2e1a;border-radius:8px;padding:16px;transition:border-color .3s}
+.card:hover{border-color:var(--acid)}
+.card-head{font-family:'Orbitron',sans-serif;font-size:11px;letter-spacing:1.5px;color:var(--amber);margin-bottom:10px;text-transform:uppercase}
+.card-score{font-family:'Orbitron',sans-serif;font-size:32px;line-height:1;margin-bottom:6px}
+.card-sub{font-size:11px;color:var(--muted);margin-bottom:8px}
+.card-detail{font-size:10px;color:var(--muted);line-height:1.4}
+.gauge{height:4px;background:#1a1e0a;border-radius:2px;overflow:hidden;margin:8px 0}
+.gauge-fill{height:100%;border-radius:2px;transition:width .5s}
+.green{color:#7cff6b}.yellow{color:#ffd24d}.orange{color:#ffa94d}.red{color:#ff5c5c}
+.bar-green{background:#7cff6b}.bar-yellow{background:#ffd24d}.bar-orange{background:#ffa94d}.bar-red{background:#ff5c5c}
+.lecture{background:var(--panel);border:1px solid #2a2e1a;border-radius:8px;padding:16px;margin-top:12px}
+.lecture h2{font-family:'Orbitron',sans-serif;font-size:11px;letter-spacing:1.5px;color:var(--amber);margin-bottom:10px}
+.lecture-line{font-size:11px;color:#c0baa8;padding:3px 0;border-bottom:1px solid #1a1e0a}
+.lecture-line:last-child{border-bottom:none}
+.status{position:fixed;top:8px;right:8px;font-size:10px;color:var(--muted);padding:4px 8px;background:var(--panel);border:1px solid #2a2e1a;border-radius:4px}
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+<h1>📊 INDICES ACE777</h1>
+<div class="status" id="status"> Chargement...</div>
+<div class="grid" id="grid"></div>
+<div class="lecture">
+  <h2>📋 LECTURE COMPLÈTE</h2>
+  <div id="lecture"></div>
+</div>
+<script src="live.js"></script>
+<script>
+const T = window.__THERMO_LIVE__ || {};
+
+function scoreColor(v, thresholds) {
+  if (v == null) return '#8a7a55';
+  if (v < thresholds[0]) return '#7cff6b';
+  if (v < thresholds[1]) return '#ffd24d';
+  if (v < thresholds[2]) return '#ffa94d';
+  return '#ff5c5c';
+}
+
+function barClass(v, thresholds) {
+  if (v == null) return 'bar-green';
+  if (v < thresholds[0]) return 'bar-green';
+  if (v < thresholds[1]) return 'bar-yellow';
+  if (v < thresholds[2]) return 'bar-orange';
+  return 'bar-red';
+}
+
+function render() {
+  const cards = [];
+  
+  // GEOPOL
+  const geo = T.geopol || {};
+  const geoScore = geo.score;
+  const geoColor = scoreColor(geoScore, [0.3, 0.6, 0.8]);
+  const geoPct = Math.min(100, (geoScore || 0) * 100);
+  cards.push(`
+    <div class="card" data-peda="geopol">
+      <div class="card-head">🌍 GEOPOL — Score Géopolitique</div>
+      <div class="card-score" style="color:${geoColor}">${geo.emoji || '—'} ${(geoScore || 0).toFixed(3)}</div>
+      <div class="card-sub">${(geo.niveau || '—').toUpperCase()} · ML: ${geo.ml ? geo.ml.label_nom : '—'} (${geo.ml ? (geo.ml.probability * 100).toFixed(0) : 0}%)</div>
+      <div class="gauge"><div class="gauge-fill ${barClass(geoScore, [0.3, 0.6, 0.8])}" style="width:${geoPct}%"></div></div>
+      <div class="card-detail">
+        Modules: ${geo.nb_modules || 0}/5 actifs<br>
+        ${Object.entries(geo.indicateurs || {}).map(([k, v]) => `${k}: ${(v.score || 0).toFixed(2)}`).join('<br>')}
+      </div>
+    </div>
+  `);
+  
+  // SDI
+  const sdi = T.sdi || {};
+  const sdiScore = sdi.sdi;
+  const sdiColor = scoreColor(sdiScore, [0.1, 0.3, 0.5]);
+  const sdiPct = Math.min(100, (sdiScore || 0) * 1000);
+  cards.push(`
+    <div class="card" data-peda="sdi">
+      <div class="card-head">📉 SDI — Stock-to-Flow Divergence</div>
+      <div class="card-score" style="color:${sdiColor}">${sdiScore != null ? sdiScore.toFixed(4) : '—'}</div>
+      <div class="card-sub">Dormant: ${sdi.dormant_pct || '—'}% · Fees: ${sdi.fee_fastest_sat || '—'} sat/vB</div>
+      <div class="gauge"><div class="gauge-fill ${barClass(sdiScore, [0.1, 0.3, 0.5])}" style="width:${sdiPct}%"></div></div>
+      <div class="card-detail">
+        Divergence: ${sdi.divergence_score || 0} · Fee score: ${sdi.fee_score || 0}<br>
+        Source: ${sdi.dormant_source || '—'}
+      </div>
+    </div>
+  `);
+  
+  // RBF
+  const rbf = T.rbf || {};
+  const rbfScore = rbf.rbf_score;
+  const rbfColor = scoreColor(rbfScore, [0.5, 0.8, 0.95]);
+  const rbfPct = Math.min(100, (rbfScore || 0) * 100);
+  cards.push(`
+    <div class="card" data-peda="rbf">
+      <div class="card-head">🔄 RBF — Replace-By-Fee Score</div>
+      <div class="card-score" style="color:${rbfColor}">${rbfScore != null ? rbfScore.toFixed(1) : '—'}</div>
+      <div class="card-sub">Ratio: ${rbf.rbf_ratio || '—'} · ${rbf.n_txs || 0} tx analysées</div>
+      <div class="gauge"><div class="gauge-fill ${barClass(rbfScore, [0.5, 0.8, 0.95])}" style="width:${rbfPct}%"></div></div>
+      <div class="card-detail">
+        Paires RBF: ${rbf.rbf_pairs || 0}<br>
+        Score élevé = congestions ou manipulations possibles
+      </div>
+    </div>
+  `);
+  
+  // HEALTH
+  const ph = T.pipeline_health || {};
+  const phScore = ph.global_score;
+  const phColor = scoreColor(1 - (phScore || 0), [0.1, 0.3, 0.5]);
+  const phPct = Math.min(100, (phScore || 0) * 100);
+  cards.push(`
+    <div class="card" data-peda="health">
+      <div class="card-head">💚 PIPELINE HEALTH</div>
+      <div class="card-score" style="color:${phColor}">${phScore != null ? phScore.toFixed(2) : '—'}</div>
+      <div class="card-sub">${ph.mode_label || '—'} · ${ph.n_issues || 0} issue(s)</div>
+      <div class="gauge"><div class="gauge-fill ${barClass(1-(phScore||0), [0.1, 0.3, 0.5])}" style="width:${phPct}%"></div></div>
+      <div class="card-detail">
+        Sources: ${Object.keys(ph.sources || {}).join(', ')}<br>
+        ${Object.entries(ph.sources || {}).filter(([k,v]) => v.issues && v.issues.length).map(([k,v]) => `⚠️ ${k}: ${v.issues.join(', ')}`).join('<br>')}
+      </div>
+    </div>
+  `);
+  
+  // POUSSIÈRE
+  const oc = T.onchain || {};
+  const dustScore = oc.indiceOnchain;
+  const dustColor = scoreColor(dustScore, [30, 60, 80]);
+  const dustPct = Math.min(100, dustScore || 0);
+  cards.push(`
+    <div class="card" data-peda="poussiere">
+      <div class="card-head">🌪️ POUSSIÈRE — Indice Onchain</div>
+      <div class="card-score" style="color:${dustColor}">${dustScore != null ? dustScore.toFixed(1) : '—'}/100</div>
+      <div class="card-sub">${oc.indiceOnchainLabel || '—'}</div>
+      <div class="gauge"><div class="gauge-fill ${barClass(dustScore, [30, 60, 80])}" style="width:${dustPct}%"></div></div>
+      <div class="card-detail">
+        Blocs privatisés: ${(oc.blocPrivatiseTauxFantome || 0).toFixed(3)}%<br>
+        CPFP Z-score: ${oc.cpfpZscore || '—'} · Poussière: ${oc.cpfpDustScore || '—'}<br>
+        Baleines: ${oc.whaleBlocsN || 0} blocs (${(oc.whaleBlocsBtc || 0).toFixed(0)} BTC)
+      </div>
+    </div>
+  `);
+  
+  // Score thermo global
+  const thermoScore = T.score;
+  const thermoColor = scoreColor(100 - (thermoScore || 0), [20, 40, 60]);
+  cards.push(`
+    <div class="card" data-peda="radar">
+      <div class="card-head">🌡️ SCORE THERMO</div>
+      <div class="card-score" style="color:${thermoColor}">${thermoScore || '—'}/100</div>
+      <div class="card-sub">${(T.climate || '—').toUpperCase()}</div>
+      <div class="gauge"><div class="gauge-fill ${barClass(100-(thermoScore||0), [20, 40, 60])}" style="width:${thermoScore || 0}%"></div></div>
+    </div>
+  `);
+  
+  document.getElementById('grid').innerHTML = cards.join('');
+  
+  // Lecture
+  const lecture = T.lecture || [];
+  document.getElementById('lecture').innerHTML = lecture.map(l => 
+    `<div class="lecture-line">${l}</div>`
+  ).join('');
+  
+  // Status
+  document.getElementById('status').innerHTML = `🟢 LIVE · ${T.ts || '—'} · ${Object.keys(T).length} clés`;
+}
+
+render();
+// Auto-refresh toutes les 30s
+setInterval(() => {
+  const s = document.createElement('script');
+  s.src = 'live.js?t=' + Date.now();
+  s.onload = () => { 
+    Object.assign(T, window.__THERMO_LIVE__ || {}); 
+    render(); 
+  };
+  document.head.appendChild(s);
+}, 30000);
+</script>
+</body>
+</html>
