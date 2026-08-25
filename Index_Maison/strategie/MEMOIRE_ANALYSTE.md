@@ -2082,3 +2082,7 @@
 - 2026-08-25T21:58:06.026593Z | alerte | Maintien de la vigilance nominale, validée par la discipline d'embuscade d'Alpha, l'éclairage de Beta et la gestion active des positions seeds de Hulk. | conf=88%
 - 2026-08-25T22:08:58.303555Z | alerte | Maintien de la vigilance nominale, validée par la discipline d'embuscade d'Alpha, les reconnaissances de Beta et la gestion active des positions seeds de Hulk. | conf=88%
 - 2026-08-25T22:08:59.108741Z | alerte | Maintien de la vigilance nominale, validée par la discipline d'embuscade d'Alpha, l'éclairage de Beta et la gestion active des positions seeds de Hulk. | conf=88%
+- 2026-08-25T22:17:38.519729Z | alerte | Maintien de la vigilance nominale, validée par la discipline d'embuscade d'Alpha, l'éclairage de Beta et la gestion active des positions seeds de Hulk. | conf=88%
+- 2026-08-25T22:17:38.843887Z | alerte | Maintien de la vigilance nominale, validée par la discipline d'embuscade d'Alpha, l'éclairage de Beta et la gestion active des positions seeds de Hulk malgré le bruit macroéconomique de la Fed. | conf=88%
+- 2026-08-25T22:27:05.613535Z | alerte | Maintien de la vigilance nominale, validée par la discipline d'embuscade d'Alpha, l'éclairage de Beta et la gestion active des positions seeds de Hulk malgré les variations de volume. | conf=88%
+- 2026-08-25T22:28:18.373315Z | alerte | Maintien de la vigilance nominale, validée par la discipline d'embuscade d'Alpha, l'éclairage de Beta et la gestion active des positions seeds de Hulk malgré les variations de volume sur ETHUSDT. | conf=88%

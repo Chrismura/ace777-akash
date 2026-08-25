@@ -1211,26 +1211,6 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
       <b class="ind-val" id="top-gain">—</b>
       <span class="ind-sub" id="top-gain-sub"></span>
     </div>
-    <div class="ind-chip" data-peda="geopol" title="Score géopolitique — 5 modules non-mainstream + ML">
-      <span class="ind-lab">GEOPOL</span>
-      <b class="ind-val" id="top-geopol">—</b>
-      <span class="ind-sub" id="top-geopol-sub"></span>
-    </div>
-    <div class="ind-chip" data-peda="sdi" title="SDI — Stock-to-Flow Divergence Index">
-      <span class="ind-lab">SDI</span>
-      <b class="ind-val" id="top-sdi">—</b>
-      <span class="ind-sub" id="top-sdi-sub"></span>
-    </div>
-    <div class="ind-chip" data-peda="rbf" title="RBF — Replace-By-Fee Score">
-      <span class="ind-lab">RBF</span>
-      <b class="ind-val" id="top-rbf">—</b>
-      <span class="ind-sub" id="top-rbf-sub"></span>
-    </div>
-    <div class="ind-chip" data-peda="health" title="Pipeline Health — santé des sources">
-      <span class="ind-lab">HEALTH</span>
-      <b class="ind-val" id="top-health">—</b>
-      <span class="ind-sub" id="top-health-sub"></span>
-    </div>
   </div>
 
   <!-- Notations par indice (apprentissage) — détail repliable -->
@@ -2384,10 +2364,6 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
     renderSante();
     renderPoussiere();
     renderGainReel();
-    renderGeopol();
-    renderSdi();
-    renderRbf();
-    renderHealth();
     rebuildLines();
     seedBlips();
     document.getElementById('foot-ts').textContent = 'FEED '+(M.ts||'—')+(M.run?(' · '+M.run):'');
@@ -2988,10 +2964,6 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
     poussiere: {t:'POUSSIÈRE (DUST ONCHAIN)', d:'La « poussière » : transactions minuscules (<2 sat/vB) sur la blockchain, souvent utilisées pour fragmenter ou déplacer discrètement de la valeur (CPFP). C’est le BRUT — la donnée qui ne ment pas, contrairement au narratif. Une accumulation inhabituelle de poussière = anomalie structurelle à enquêter.', s:'detecter_cpfp.py · mempool.space (gratuit) · mode observation'},
     couleur_regime: {t:'COULEUR RÉGIME', d:'Un signal lisible pour Hulk : l’onchain (la vérité) filtré par le narratif (le bruit). VERT = aligné haussier · JAUNE = contrarian (foule a peur, les gros achètent) · ROUGE = le piège (on te vend du rêve pendant que l’argent part) · NOIR = aligné baissier · ORANGE = pas assez de signal, attendre. La boucle justesse note chaque couleur vs le prix réel pour s’auto-améliorer.', s:'couleur_regime.py · sniffer_vrai.py (brut vs narratif)'},
     gain_reel: {t:'GAIN RÉEL', d:'La vraie performance : ce que génèrent les bots (PnL brut) MOINS les frais de plateforme (commissions taker Binance). C est la seule ligne qui compte : si elle est rouge, les bots paient plus en frais qu ils ne gagnent. Exemple : bots +14 · frais -293 = gain réel -278.', s:'PnL CSV (brut) moins commissions Binance income (réelles)'},
-    geopol: {t:'SCORE GEOPOLITIQUE', d:'Score composite de 5 modules non-mainstream : Pentagon Pizza Index (activite Pentagon), Jets ADS-B (trafic militaire DC), Petrole (stress energie), Defense (actions militaires), News Sentiment. Le tout classe par un RandomForest. Score <0.3 = calme, >0.6 = alerte.', s:'indice_app/ - 5 modules + ML RandomForest sklearn'},
-    sdi: {t:'SDI - Stock-to-Flow Divergence Index', d:'Mesure l'ecart entre le prix actuel et le modele Stock-to-Flow. SDI faible (<0.1) = le marche suit le modele (normal). SDI eleve (>0.3) = le prix devie fortement.', s:'silent_drain_index.py - calcul local : fee + dormant coins + proxy'},
-    rbf: {t:'RBF - Replace-By-Fee Score', d:'Pourcentage de transactions qui utilisent le mecanisme RBF (remplacement de frais). Score eleve = congestions ou manipulations possibles.', s:'silent_drain_index.py - ratio tx RBF / tx totales'},
-    health: {t:'PIPELINE HEALTH', d:'Sante globale des sources de donnees. Score 1.0 = toutes les sources repondent. Score <0.8 = une source HS.', s:'pipeline_health.py - ping automatique a chaque cycle thermo'},
   };
   let pedaPinned = '';
   function fillPeda(key){
@@ -3254,50 +3226,6 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
       const f = fees==null?'—':(fees.toFixed(0)+'$');
       s.textContent = 'bots '+b+' · frais '+f;
     }
-  }
-
-  function renderGeopol(){
-    const geo = T && T.geopol;
-    const v = document.getElementById('top-geopol');
-    if(!v) return;
-    if(!geo){ v.textContent='—'; return; }
-    v.textContent = (geo.emoji||'') + ' ' + (geo.score!=null ? geo.score.toFixed(2) : '—');
-    v.style.color = (geo.score||0)<0.3 ? '#7cff6b' : (geo.score||0)<0.6 ? '#ffd24d' : (geo.score||0)<0.8 ? '#ffa94d' : '#ff5c5c';
-    const sub = document.getElementById('top-geopol-sub');
-    if(sub) sub.textContent = (geo.niveau||'—')+' · ML:'+(geo.ml&&geo.ml.label_nom||'—')+' · '+(geo.nb_modules||0)+' modules';
-  }
-
-  function renderSdi(){
-    const sdi = T && T.sdi;
-    const v = document.getElementById('top-sdi');
-    if(!v) return;
-    if(!sdi){ v.textContent='—'; return; }
-    v.textContent = sdi.sdi!=null ? sdi.sdi.toFixed(3) : '—';
-    v.style.color = (sdi.sdi||0)<0.1 ? '#7cff6b' : (sdi.sdi||0)<0.3 ? '#ffd24d' : '#ff5c5c';
-    const sub = document.getElementById('top-sdi-sub');
-    if(sub) sub.textContent = 'dormant '+(sdi.dormant_pct||'—')+'% · fees '+(sdi.fee_fastest_sat||'—')+' sat';
-  }
-
-  function renderRbf(){
-    const rbf = T && T.rbf;
-    const v = document.getElementById('top-rbf');
-    if(!v) return;
-    if(!rbf){ v.textContent='—'; return; }
-    v.textContent = rbf.rbf_score!=null ? rbf.rbf_score.toFixed(1) : '—';
-    v.style.color = (rbf.rbf_score||0)<0.5 ? '#7cff6b' : (rbf.rbf_score||0)<0.8 ? '#ffd24d' : '#ff5c5c';
-    const sub = document.getElementById('top-rbf-sub');
-    if(sub) sub.textContent = 'ratio '+(rbf.rbf_ratio||'—')+' · '+(rbf.n_txs||'—')+' tx';
-  }
-
-  function renderHealth(){
-    const ph = T && T.pipeline_health;
-    const v = document.getElementById('top-health');
-    if(!v) return;
-    if(!ph){ v.textContent='—'; return; }
-    v.textContent = ph.global_score!=null ? ph.global_score.toFixed(2) : '—';
-    v.style.color = (ph.global_score||0)>=0.9 ? '#7cff6b' : (ph.global_score||0)>=0.7 ? '#ffd24d' : '#ff5c5c';
-    const sub = document.getElementById('top-health-sub');
-    if(sub) sub.textContent = (ph.mode_label||'—')+' · '+(ph.n_issues||0)+' issue(s)';
   }
 
   async function pollRegime(){
