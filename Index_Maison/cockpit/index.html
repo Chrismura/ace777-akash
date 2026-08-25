@@ -1709,6 +1709,20 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
 </div>
 
 <script>
+// ERROR HANDLER - affiche les erreurs à l'écran
+window.onerror = function(msg, src, line, col, err) {
+  var div = document.createElement('div');
+  div.style.cssText = 'position:fixed;top:0;left:0;right:0;z-index:99999;background:#ff0000;color:#fff;padding:12px;font-family:monospace;font-size:13px;border-bottom:2px solid #fff';
+  div.innerHTML = '⚠️ ERREUR JS: ' + msg + '<br><small>' + (src||'') + ':' + line + '</small>';
+  document.body.appendChild(div);
+  return false;
+};
+window.addEventListener('unhandledrejection', function(e) {
+  var div = document.createElement('div');
+  div.style.cssText = 'position:fixed;top:0;left:0;right:0;z-index:99999;background:#ff6600;color:#fff;padding:12px;font-family:monospace;font-size:13px';
+  div.innerHTML = '⚠️ PROMISE REJETÉE: ' + (e.reason && e.reason.message || e.reason || 'unknown');
+  document.body.appendChild(div);
+});
 (function(){
   let M = window.__MISSION__ || {};
   let T = window.__THERMO_LIVE__ || (M.thermo || {});
@@ -2354,16 +2368,16 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
 
   function paintAll(){
     detectShoots();
-    renderPortfolio();
+    try { renderPortfolio(); } catch(e) { console.error("[COCKPIT] renderPortfolio crash:", e.message); }
     renderEngine('a','alpha','alpha');
     renderEngine('b','beta','beta');
-    renderHulk();
-    renderThermo();
-    renderADA();
-    renderVol();
-    renderSante();
-    renderPoussiere();
-    renderGainReel();
+    try { renderHulk(); } catch(e) { console.error("[COCKPIT] renderHulk crash:", e.message); }
+    try { renderThermo(); } catch(e) { console.error("[COCKPIT] renderThermo crash:", e.message); }
+    try { renderADA(); } catch(e) { console.error("[COCKPIT] renderADA crash:", e.message); }
+    try { renderVol(); } catch(e) { console.error("[COCKPIT] renderVol crash:", e.message); }
+    try { renderSante(); } catch(e) { console.error("[COCKPIT] renderSante crash:", e.message); }
+    try { renderPoussiere(); } catch(e) { console.error("[COCKPIT] renderPoussiere crash:", e.message); }
+    try { renderGainReel(); } catch(e) { console.error("[COCKPIT] renderGainReel crash:", e.message); }
     rebuildLines();
     seedBlips();
     document.getElementById('foot-ts').textContent = 'FEED '+(M.ts||'—')+(M.run?(' · '+M.run):'');
@@ -3538,7 +3552,10 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
   const pfBtn=document.getElementById('pf-run');
   if(pfBtn) pfBtn.addEventListener('click',()=>{ pollPreflight(); });
 
-  paintAll();
+  try { paintAll(); } catch(e) {
+    console.error('[COCKPIT] paintAll CRASH:', e.message, e.stack);
+    document.body.insertAdjacentHTML('afterbegin', '<div style="position:fixed;top:0;left:0;right:0;z-index:99999;background:#ff0000;color:#fff;padding:12px;font-family:monospace;font-size:14px">COCKPIT ERROR: ' + e.message + '</div>');
+  }
   tickClock();
   setInterval(tickClock,1000);
   // Garde-fous : chaque canvas survit isolément (une erreur ne tue plus les autres)
