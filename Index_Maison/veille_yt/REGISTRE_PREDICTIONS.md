@@ -1,11 +1,16 @@
 ---
-date: 2026-08-20T1615Z
+date: 2026-08-24T1616Z
 type: registre_predictions
 ---
 
 # 📓 Registre des prédictions — la vérification du banc d'essai
 
 Chaque prédiction est notée avec sa date limite. Le script `verifier_predictions.py` re-vérifie les échues (statut VRAIE/FAUSSE/NON VÉRIFIABLE).
+
+### 2026-08-24T1616Z — Crypto Crew University : 3-Min Recap: Is Gold About to CRASH? Watch out! 🪙⚠️#shorts
+Lien : https://www.youtube.com/watch?v=jzKwjt8UG1E
+
+- ⏳ EN ATTENTE | [2026-12-31] L'or clôture en dessous de 3 900 $ sur le graphique semestriel des contrats à terme (source : youtuber)
 
 ### 2026-08-20T1615Z — Crypto Crew University : WARNING: DID GOLD JUST TOP (This happens next)
 Lien : https://www.youtube.com/watch?v=tPGA7F7Og90

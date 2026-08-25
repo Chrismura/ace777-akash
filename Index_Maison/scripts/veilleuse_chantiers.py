@@ -29,7 +29,10 @@ ATTENTION_DIR = IM / "OUTBOX_OBSIDIAN" / "A_Mon_Attention"
 RAPPEL_PATH = ATTENTION_DIR / "RAPPEL_CHANTIERS_SNIFFER.md"
 
 MAX_AGE_TEST_H = 72          # le test doit tourner (dernier enregistrement < 72h)
-MIN_SAMPLES_VALIDATION = 5   # seuil de validation S-05 par couleur
+MIN_SAMPLES_VALIDATION = 5   # seuil de validation S-05 par couleur (échantillons)
+SEUIL_TX_VALIDATION = 60.0   # (fix 23/08) : une couleur n'est « prête à valider »
+                             # que si son taux de réussite est >= 60 % (sinon on injecterait
+                             # un signal pire que pile-ou-face dans la chaîne)
 RAPPEL_SEMAINE_J = 7         # rappel « relire les chantiers » max 1×/semaine
 
 
@@ -114,12 +117,18 @@ def main():
             rappels.append("- 🟥 Le test couleur régime **ne tourne plus** (%dh de silence) : "
                            "vérifier `launchctl list | grep couleur-regime`." % int(age_h))
 
-    # 2) Le TEST accumule ?
+    # 2) Le TEST accumule ? (fix 23/08 : la validation exige un TAUX >= 60 %,
+    #    pas seulement des échantillons — sinon on validerait ORANGE à 27,6 %)
     for c, s in echantillons_par_couleur().items():
-        if s["n"] >= MIN_SAMPLES_VALIDATION:
+        taux = s.get("taux")
+        if s["n"] >= MIN_SAMPLES_VALIDATION and taux is not None and taux >= SEUIL_TX_VALIDATION:
             rappels.append("- 🟢 Couleur **%s** : %d échantillons notés (%s%%) → **S-05 prêt à "
                            "valider** (famille → juge → GO)."
-                           % (c, s["n"], s["taux"] if s["taux"] is not None else "?"))
+                           % (c, s["n"], taux))
+        elif s["n"] >= MIN_SAMPLES_VALIDATION and taux is not None and taux < SEUIL_TX_VALIDATION:
+            rappels.append("- 🔴 Couleur **%s** : %d échantillons notés mais taux **%s%% < %s%%** → "
+                           "PAS fiable, à ramollir / ré-évaluer — ne PAS injecter en l'état."
+                           % (c, s["n"], taux, SEUIL_TX_VALIDATION))
         elif s["n"] > 0:
             rappels.append("- 🟡 Couleur **%s** : %d échantillons notés (min %d) — le test avance."
                            % (c, s["n"], MIN_SAMPLES_VALIDATION))

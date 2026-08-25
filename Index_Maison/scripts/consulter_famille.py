@@ -60,10 +60,16 @@ def ask(task, system, user, max_tokens=1600):
 
 
 def extraire_verdict(texte):
+    # Tolérant au format des membres (« VERDICT : », « **VERDICT** : »,
+    # « ### VERDICT : ») — on cherche le mot VERDICT dans la ligne.
     for ln in texte.splitlines():
         u = ln.strip().upper()
-        if u.startswith("VERDICT"):
-            return ln.split(":", 1)[-1].strip()
+        if "VERDICT" in u:
+            # prend ce qui suit « : » après le mot VERDICT (dernier « : »)
+            apres = ln.split(":", 1)[-1].strip() if ":" in ln else ln
+            apres = apres.strip("*# -")
+            if apres:
+                return apres
     return "?"
 
 

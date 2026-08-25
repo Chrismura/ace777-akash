@@ -16271,3 +16271,49 @@ Ce fichier sert de table des runs ACE777 pour retrouver vite les tests.
 - Rapport: `RAPPORT_PNL_AUTO_20260822_154416.md`
 - Verdict: `NEUTRE`
 
+
+---
+
+## 2026-08-22 — MASTER_VORTEX_V2_COLLAB_4H (auto)
+
+- Profil: `vide_froid_vortex_v2_collab` v`2026-07-10-v2.2.2-no-partner-halt`
+- Tag: `MASTER_VORTEX_V2_COLLAB_4H`
+- Période: `2026-08-22T15:44:53Z` → `2026-08-22T19:12:57Z`
+- Logs:
+  - `MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv`
+  - `MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv`
+- Paramètres clé:
+  - `BUY_USDT_BETA=200`
+  - `BUY_USDT_ALPHA=800`
+  - `LLM_GATE_ENABLED=TRUE`
+  - `LLM_GATE_FAIL_CLOSED=TRUE`
+- Résultat:
+  - BETA: `-0.7378 USDT` (13 trades)
+  - ALPHA: `+2.0052 USDT` (9 trades)
+  - Total: `+1.2674 USDT`
+- Rapport: `RAPPORT_PNL_AUTO_20260822_191315.md`
+- Verdict: `POSITIF`
+
+
+---
+
+## 2026-08-22 — MASTER_VORTEX_V2_COLLAB_4H (auto)
+
+- Profil: `vide_froid_vortex_v2_collab` v`2026-07-10-v2.2.2-no-partner-halt`
+- Tag: `MASTER_VORTEX_V2_COLLAB_4H`
+- Période: `2026-08-22T15:44:53Z` → `2026-08-22T19:12:57Z`
+- Logs:
+  - `MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv`
+  - `MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv`
+- Paramètres clé:
+  - `BUY_USDT_BETA=200`
+  - `BUY_USDT_ALPHA=800`
+  - `LLM_GATE_ENABLED=TRUE`
+  - `LLM_GATE_FAIL_CLOSED=TRUE`
+- Résultat:
+  - BETA: `-0.7378 USDT` (13 trades)
+  - ALPHA: `+2.0052 USDT` (9 trades)
+  - Total: `+1.2674 USDT`
+- Rapport: `RAPPORT_PNL_AUTO_20260822_191325.md`
+- Verdict: `POSITIF`
+

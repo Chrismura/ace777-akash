@@ -6,7 +6,8 @@
     "2026-08-14": 8,
     "2026-08-17": 8,
     "2026-08-19": 8,
-    "2026-08-21": 8
+    "2026-08-21": 8,
+    "2026-08-25": 7
   },
   "fiches": {
     "32f5f333ea5d": {
@@ -1069,6 +1070,133 @@
       "usage": "analyste",
       "avis_pour": "Idéal pour tester gratuitement les performances de DeepSeek V3.2 sur nos analyses et scripts Python grâce au crédit de bienvenue.",
       "avis_attention": "Attention à l'épuisement rapide du crédit initial et aux variations de disponibilité des pools gratuits."
+    },
+    "574a6f8a6298": {
+      "section": "openrouter (:free)",
+      "item": "minimax/minimax-m3:free",
+      "generated": "2026-08-25T08:25:50.541367+00:00",
+      "type": "Modèle généraliste disponible sur OpenRouter",
+      "forts": [
+        "Gratuit via OpenRouter",
+        "Bonne polyvalence textuelle"
+      ],
+      "faibles": [
+        "Limites de débit potentielles liées à l'offre gratuite",
+        "Moins spécialisé pour le code que les cadors"
+      ],
+      "usage": "chat",
+      "avis_pour": "À essayer pour enrichir le pool de secours des requêtes textuelles courantes à moindre coût.",
+      "avis_attention": "Surveille la stabilité des réponses en mode automatisé par rapport aux providers principaux."
+    },
+    "36c6413a2e19": {
+      "section": "openrouter (:free)",
+      "item": "minimax/minimax-m2.7:free",
+      "generated": "2026-08-25T08:25:51.934656+00:00",
+      "type": "Modèle multimodal généraliste gratuit via OpenRouter",
+      "forts": [
+        "Gratuit sur OpenRouter",
+        "Bonnes capacités multimodales et textuelles",
+        "Intégration facile via l'écosystème OpenRouter"
+      ],
+      "faibles": [
+        "Disponibilité parfois intermittente liée au trafic gratuit",
+        "Performances variables sur le code complexe par rapport aux leaders payants"
+      ],
+      "usage": "chat, analyste.strategie (en repli) ou exploration générale",
+      "avis_pour": "Une excellente option gratuite pour diversifier vos sources d'analyse sans impacter le budget cloud.",
+      "avis_attention": "Gardez un œil sur les quotas et la stabilité, les modèles gratuits sur OpenRouter pouvant saturer aux heures de pointe."
+    },
+    "7dd846643cec": {
+      "section": "rss (simonwillison/latent/batch)",
+      "item": "simonwillison.net: llm-openrouter 0.7",
+      "generated": "2026-08-25T08:25:53.398801+00:00",
+      "type": "Passerelle ou utilitaire pour connecter des outils locaux aux modèles OpenRouter",
+      "forts": [
+        "Intégration fluide avec l'écosystème Python de Simon Willison",
+        "Permet d'exploiter les capacités d'OpenRouter via des scripts CLI",
+        "Léger et adapté pour automatiser de petites requêtes"
+      ],
+      "faibles": [
+        "Ce n'est pas un modèle d'intelligence artificielle brut mais un outil d'interface",
+        "Nécessite une configuration d'API externe (OpenRouter)",
+        "Peu adapté pour un rôle de juge ou d'analyste lourd en interne"
+      ],
+      "usage": "chat",
+      "avis_pour": "Idéal pour expérimenter rapidement l'appel de différents modèles via des scripts Python minimalistes.",
+      "avis_attention": "Attention, il s'agit d'un utilitaire de commande et non d'un modèle autonome gratuit en soi."
+    },
+    "05914b1eb3a3": {
+      "section": "omniroute-free-tiers (43 pools)",
+      "item": "chatgpt-web/gpt-5.6-luna-free (recurring-uncapped, gratuit sans cap)",
+      "generated": "2026-08-25T08:25:54.771698+00:00",
+      "type": "Modèle d'intelligence artificielle généraliste gratuit sans cap (recurring-uncapped)",
+      "forts": [
+        "Gratuit sans limite apparente de volume (recurring-uncapped)",
+        "Idéal pour les tests massifs et le prototypage rapide",
+        "Intégration facile via les pools Omniroute"
+      ],
+      "faibles": [
+        "Stabilité et latence variables selon les pools Omniroute",
+        "Performances de pointe non garanties pour les tâches critiques"
+      ],
+      "usage": "chat",
+      "avis_pour": "À essayer pour alimenter les discussions générales et le brainstorming sans impacter le budget cloud.",
+      "avis_attention": "Attention aux variations de disponibilité et de qualité inhérentes aux services gratuits partagés."
+    },
+    "e6002a97eac0": {
+      "section": "omniroute-free-tiers (43 pools)",
+      "item": "chatgpt-web/gpt-5.6-luna-free-thinking (recurring-uncapped, gratuit sans cap)",
+      "generated": "2026-08-25T08:25:56.133795+00:00",
+      "type": "Modèle de raisonnement avancé et illimité pour l'analyse et la stratégie",
+      "forts": [
+        "Gratuit sans aucun cap (recurring-uncapped)",
+        "Capacité de réflexion approfondie (thinking)",
+        "Excellent pour la stratégie et le jugement global"
+      ],
+      "faibles": [
+        "Nom de modèle exotique (potentiel proxy ou rebrand web)",
+        "Disponibilité parfois instable selon les pools",
+        "Réponses potentiellement plus lentes à cause du mode 'thinking'"
+      ],
+      "usage": "analyste.strategie ou audit.protocol",
+      "avis_pour": "Idéal pour tester un raisonnement lourd sans consommer le budget cloud de nos providers principaux.",
+      "avis_attention": "Attention à la latence due au mode de pensée étendu et à la fiabilité à long terme des pools gratuits."
+    },
+    "c9708f8ff2e7": {
+      "section": "omniroute-free-tiers (43 pools)",
+      "item": "agentrouter/claude-opus-4-8 (one-time-initial, credit bienvenue)",
+      "generated": "2026-08-25T08:25:57.756755+00:00",
+      "type": "Modèle d'élite sur pool mutualisé avec crédit de bienvenue",
+      "forts": [
+        "Capacités de raisonnement de niveau Claude Opus pour nos analyses stratégiques",
+        "Idéal pour le rôle d'analyste ou de juge dans le système",
+        "Accès gratuit initial via crédit de bienvenue"
+      ],
+      "faibles": [
+        "Pools partagés pouvant saturer ou imposer des files d'attente",
+        "Crédit initial limité nécessitant une gestion prudente de l'usage",
+        "Risque de routage vers des paliers de repli en cas de forte affluence"
+      ],
+      "usage": "analyste.strategie",
+      "avis_pour": "À tester absolument pour profiter gratuitement de la puissance d'un modèle d'élite sur nos tâches de décision complexes.",
+      "avis_attention": "Attention à l'épuisement rapide du crédit de bienvenue et à la stabilité des pools gratuits."
+    },
+    "3bcd4cf248c4": {
+      "section": "omniroute-free-tiers (43 pools)",
+      "item": "agentrouter/claude-opus-5 (one-time-initial, credit bienvenue)",
+      "generated": "2026-08-25T08:25:59.252803+00:00",
+      "type": "Passerelle multi-fournisseurs avec crédit de bienvenue pour modèles avancés",
+      "forts": [
+        "Accès potentiel à des modèles de premier plan via crédit initial",
+        "Large éventail de pools pour diversifier les sources"
+      ],
+      "faibles": [
+        "Nature éphémère du crédit de bienvenue (one-time-initial)",
+        "Risque d'instabilité ou de latence inhérent aux passerelles tierces"
+      ],
+      "usage": "analyste",
+      "avis_pour": "À tester pour profiter d'une puissance haut de gamme gratuite le temps du crédit de bienvenue.",
+      "avis_attention": "Attention à l'épuisement rapide du crédit initial qui rendra l'accès payant ou bloqué."
     }
   }
 }

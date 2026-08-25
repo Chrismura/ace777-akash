@@ -31,6 +31,8 @@ INDEX = ROOT / "Index_Maison"
 STRATEGIE = INDEX / "strategie"
 ETAT_DIR = INDEX / "etat"
 ETAT_JSON = ETAT_DIR / "veille_degradation_etat.json"
+SCRIPTS_DIR = INDEX / "scripts"
+ANALYSES_DIR = INDEX / "thermo" / "analyses"
 
 STOP_ALL = INDEX / "STOP_ALL"
 STOP_STRAT = STRATEGIE / "STOP"
@@ -49,6 +51,12 @@ PLISTS_CRITIQUES = [
     "com.ace777.sante-index",
     "com.ace777.veille-degradation",  # la brique se surveille elle-même (leçon 8 : vérifier même ses propres garde-fous)
     "com.ace777.dms-veille",          # le Dead Man's Switch qui surveille la brique (famille 20/08 : qui surveille la surveillante ?)
+    # CHAÎNE D'APPRENTISSAGE (ajout 23/08 — la brique couvrait le trading mais PAS
+    # l'apprentissage : la coupure des briefs du 19/08 avait emporté la production
+    # des analyses + le professeur SANS que personne ne le voie pendant 5 jours).
+    "com.ace777.analyste-cadence",    # production des analyses Cortana (08:30 + 20:30)
+    "com.ace777.discipline-quotidienne",  # le professeur (re-note + alerte boucle affamée)
+    "com.ace777.scoreur-registre",    # le scoreur du registre mécanique (07:30) — ajout 23/08
 ]
 
 # (b) Heartbeats / fichiers d'état + âge max (secondes) — classe 1
@@ -57,6 +65,14 @@ HEARTBEATS = {
     "live_json": {"path": INDEX / "thermo" / "live.json", "seuil": 900},        # thermo
     "mission_json": {"path": INDEX / "cockpit" / "mission.json", "seuil": 900}, # run ACE
     "macro_tempete": {"path": ROOT / "runs" / "macro_tempete.json", "seuil": 300},
+    # Chaîne d'apprentissage (ajout 23/08) : si aucune analyse Cortana depuis 48h
+    # → STALE_ALERTE (c'était l'alerte "boucle affamée" du professeur, coupée 19→23/08).
+    "analyses_cortana": {"path": ANALYSES_DIR, "seuil": 48 * 3600},
+    # justesse_v2.json : le professeur doit être re-calculé chaque jour (07:15).
+    "justesse_v2": {"path": SCRIPTS_DIR / "justesse_v2.json", "seuil": 36 * 3600},
+    # JUSTESSE_REGISTRE.json : le scoreur du registre doit tourner chaque jour
+    # (07:30) — s'il meurt, on le voit (ajout 23/08, plus de mort silencieuse).
+    "justesse_registre": {"path": STRATEGIE / "JUSTESSE_REGISTRE.json", "seuil": 48 * 3600},  # 48h (scoreur 1x/jour 07:30, couvre 2 nuits de sleep)
 }
 
 # (c) Indicateurs + plage de calibration valide — classe 3 (fausse sécurité)
@@ -110,6 +126,49 @@ def verifier_plists() -> dict:
     return res
 
 
+def verifier_pattern_boucle() -> dict:
+    """(d) Classe 4 — detection du pattern KeepAlive+intervalle (ajout 23/08).
+
+    Decouverte du 23/08 : le plist com.ace777.observatoire avait KeepAlive=true
+    duplique DANS StartCalendarInterval -> launchd relancait le script en boucle
+    infinie (toutes les ~2 min au lieu de 1x/jour), qui reecrivait providers.json
+    a chaque cycle (987 rollbacks, fichier gonfle 368 Ko -> 377 Ko, correctifs
+    ecrases). La famille (audit 23/08, 4/4) demande une detection automatique :
+    un script one-shot (StartInterval/StartCalendarInterval) ne doit JAMAIS avoir
+    KeepAlive, sinon boucle infinie silencieuse.
+    Exception legitime : daemon a boucle interne (superviseur-core) — on ne peut
+    pas le detecter ici, donc on liste les exclusions connues.
+    """
+    # Daemons legitimes a boucle interne (KeepAlive voulu) : ne PAS alerter.
+    # superviseur-core: boucle while true interne, KeepAlive=relance apres crash.
+    EXCLUS_DAEMONS = {"com.ace777.superviseur-core"}
+    try:
+        import plistlib
+    except Exception:
+        return {"pattern_boucle": "ERREUR_IMPORT_PLISTLIB"}
+    if not LAUNCH_AGENTS.exists():
+        return {"pattern_boucle": "DOSSIER_ABSENT"}
+    suspects = []
+    for pf in sorted(LAUNCH_AGENTS.glob("com.ace777.*.plist")):
+        try:
+            with open(pf, "rb") as f:
+                d = plistlib.load(f)
+        except Exception:
+            suspects.append((pf.name, "XML_ILLISIBLE_ALERTE"))
+            continue
+        label = d.get("Label", pf.name)
+        if label in EXCLUS_DAEMONS:
+            continue
+        keep = d.get("KeepAlive")
+        si = d.get("StartInterval")
+        sci = d.get("StartCalendarInterval")
+        if keep and (si or sci):
+            suspects.append((label, "KEEPALIVE+INTERVALLE_ALERTE"))
+    if suspects:
+        return {"pattern_boucle": "; ".join(f"{l} ({r})" for l, r in suspects)}
+    return {"pattern_boucle": "OK (aucun KeepAlive+intervalle)"}
+
+
 def verifier_heartbeats() -> dict:
     """(b) Classe 1 — les fichiers de vie sont-ils frais ?"""
     res = {}
@@ -136,7 +195,14 @@ def verifier_indicateurs() -> dict:
         try:
             data = json.loads(p.read_text(encoding="utf-8"))
             val = data.get(cfg["cle"])
-            if val is None:
+            # FIX 23/08 : ne PAS alerter sur un indicateur que le détecteur
+            # lui-même marque « non fiable » (carnet en reconstitution / artefact
+            # de mesure, ex. taux 100 % sur 1 snapshot). On le note mais on ne
+            # crie pas — évite les fausses alertes pendant les interruptions de
+            # collecte légitimes (tests, redémarrages).
+            if data.get("taux_non_fiable") is True:
+                res[nom] = f"OK_NON_FIABLE ({cfg['nb']} = {val}, marqué non fiable par le détecteur — ignoré)"
+            elif val is None:
                 res[nom] = "CLE_INTROUVABLE"
             elif not (cfg["min"] <= val <= cfg["max"]):
                 res[nom] = (f"HORS_PLAGE_ALERTE ({cfg['nb']} = {val}, "
@@ -157,9 +223,10 @@ def main():
         "plists": verifier_plists(),
         "heartbeats": verifier_heartbeats(),
         "indicateurs": verifier_indicateurs(),
+        "pattern_boucle": verifier_pattern_boucle(),
     }
     alerte = False
-    for cat in ("plists", "heartbeats", "indicateurs"):
+    for cat in ("plists", "heartbeats", "indicateurs", "pattern_boucle"):
         for v in rapport[cat].values():
             if "ALERTE" in str(v):
                 alerte = True

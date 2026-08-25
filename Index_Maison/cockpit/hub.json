@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-22T17:25:35.127816+00:00",
+  "generated_at": "2026-08-25T21:44:37.084005+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,13 +8,13 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 3
+      "calls_24h": 22
     },
     {
       "id": "openrouter-free",
       "name": "OpenRouter (modeles gratuits)",
       "kind": "cloud",
-      "model": "openai/gpt-oss-20b:free",
+      "model": "z-ai/glm-5.2:free",
       "enabled": true,
       "timeout": 60,
       "calls_24h": 0
@@ -26,7 +26,7 @@
       "model": "qwen-3.8-max-free",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 137
+      "calls_24h": 1
     },
     {
       "id": "groq",
@@ -35,7 +35,7 @@
       "model": "groq/compound",
       "enabled": true,
       "timeout": 120,
-      "calls_24h": 3
+      "calls_24h": 0
     },
     {
       "id": "nvidia",
@@ -53,7 +53,7 @@
       "model": "codestral-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 921
+      "calls_24h": 0
     },
     {
       "id": "cloudflare-workers-ai",
@@ -225,195 +225,204 @@
       "enabled": false,
       "timeout": 30,
       "calls_24h": 0
+    },
+    {
+      "id": "orca",
+      "name": "OrcaRouter (routeur gratuit, modele orcarouter/free)",
+      "kind": "cloud",
+      "model": "orcarouter/free",
+      "enabled": true,
+      "timeout": 60,
+      "calls_24h": 0
     }
   ],
   "budget": {
     "daily": 624,
-    "consumed": 1064,
-    "remaining": 0
+    "consumed": 23,
+    "remaining": 601
   },
   "queue": [
     {
-      "ts": "2026-08-22T17:25:25.544566+00:00",
-      "task": "analyse.profonde",
-      "provider": "mistral",
-      "model": "codestral-latest",
+      "ts": "2026-08-25T21:36:08.826401+00:00",
+      "task": "analyste.strategie",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
       "kind": "cloud",
-      "duration_s": 6.96
+      "duration_s": 5.48
     },
     {
-      "ts": "2026-08-22T17:25:23.601894+00:00",
-      "task": "analyse.profonde",
-      "provider": "mistral",
-      "model": "codestral-latest",
+      "ts": "2026-08-25T21:25:21.314295+00:00",
+      "task": "analyste.strategie",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
       "kind": "cloud",
-      "duration_s": 3.92
+      "duration_s": 6.09
     },
     {
-      "ts": "2026-08-22T17:25:15.361120+00:00",
-      "task": "analyse.profonde",
-      "provider": "mistral",
-      "model": "codestral-latest",
+      "ts": "2026-08-25T21:17:29.618110+00:00",
+      "task": "analyste.strategie",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
       "kind": "cloud",
-      "duration_s": 8.72
+      "duration_s": 6.55
     },
     {
-      "ts": "2026-08-22T17:25:14.371482+00:00",
-      "task": "analyse.profonde",
-      "provider": "mistral",
-      "model": "codestral-latest",
+      "ts": "2026-08-25T21:17:29.477924+00:00",
+      "task": "analyste.strategie",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
       "kind": "cloud",
-      "duration_s": 8.42
+      "duration_s": 10.7
     },
     {
-      "ts": "2026-08-22T17:25:07.418396+00:00",
+      "ts": "2026-08-25T21:10:01.269289+00:00",
       "task": "supervise.decision",
-      "provider": "mistral",
-      "model": "codestral-latest",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
       "kind": "cloud",
-      "duration_s": 1.49
+      "duration_s": 0.94
     },
     {
-      "ts": "2026-08-22T17:24:59.415545+00:00",
-      "task": "analyse.profonde",
-      "provider": "mistral",
-      "model": "codestral-latest",
+      "ts": "2026-08-25T21:07:42.363549+00:00",
+      "task": "analyste.strategie",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
       "kind": "cloud",
-      "duration_s": 5.03
+      "duration_s": 2.64
     },
     {
-      "ts": "2026-08-22T17:24:56.750180+00:00",
-      "task": "analyse.profonde",
-      "provider": "mistral",
-      "model": "codestral-latest",
+      "ts": "2026-08-25T21:03:43.544257+00:00",
+      "task": "analyste.strategie",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
       "kind": "cloud",
-      "duration_s": 3.59
+      "duration_s": 8.35
     },
     {
-      "ts": "2026-08-22T17:24:53.410671+00:00",
+      "ts": "2026-08-25T20:46:59.608457+00:00",
+      "task": "analyste.strategie",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 6.45
+    },
+    {
+      "ts": "2026-08-25T20:44:57.213174+00:00",
       "task": "supervise.decision",
-      "provider": "mistral",
-      "model": "codestral-latest",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
       "kind": "cloud",
-      "duration_s": 1.11
+      "duration_s": 0.88
     },
     {
-      "ts": "2026-08-22T17:24:48.317922+00:00",
-      "task": "analyse.profonde",
-      "provider": "mistral",
-      "model": "codestral-latest",
+      "ts": "2026-08-25T20:42:53.988498+00:00",
+      "task": "analyste.strategie",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
       "kind": "cloud",
-      "duration_s": 4.1
+      "duration_s": 4.59
     },
     {
-      "ts": "2026-08-22T17:24:47.367470+00:00",
-      "task": "analyse.profonde",
-      "provider": "mistral",
-      "model": "codestral-latest",
+      "ts": "2026-08-25T20:40:03.854986+00:00",
+      "task": "analyste.strategie",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 3.51
+    },
+    {
+      "ts": "2026-08-25T20:17:27.343641+00:00",
+      "task": "analyste.strategie",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 2.48
+    },
+    {
+      "ts": "2026-08-25T20:17:27.123276+00:00",
+      "task": "analyste.strategie",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
       "kind": "cloud",
       "duration_s": 3.38
     },
     {
-      "ts": "2026-08-22T17:24:43.687998+00:00",
+      "ts": "2026-08-25T20:09:58.272774+00:00",
       "task": "supervise.decision",
-      "provider": "mistral",
-      "model": "codestral-latest",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
       "kind": "cloud",
-      "duration_s": 1.51
+      "duration_s": 1.12
     },
     {
-      "ts": "2026-08-22T17:24:42.554757+00:00",
-      "task": "supervise.decision",
-      "provider": "mistral",
-      "model": "codestral-latest",
+      "ts": "2026-08-25T20:04:05.440715+00:00",
+      "task": "analyste.strategie",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
       "kind": "cloud",
-      "duration_s": 0.5
-    },
-    {
-      "ts": "2026-08-22T17:24:40.918966+00:00",
-      "task": "analyse.profonde",
-      "provider": "mistral",
-      "model": "codestral-latest",
-      "kind": "cloud",
-      "duration_s": 7.12
-    },
-    {
-      "ts": "2026-08-22T17:24:37.090049+00:00",
-      "task": "analyse.profonde",
-      "provider": "mistral",
-      "model": "codestral-latest",
-      "kind": "cloud",
-      "duration_s": 3.44
-    },
-    {
-      "ts": "2026-08-22T17:24:32.765312+00:00",
-      "task": "supervise.decision",
-      "provider": "mistral",
-      "model": "codestral-latest",
-      "kind": "cloud",
-      "duration_s": 1.06
+      "duration_s": 4.48
     }
   ],
   "events": [
     {
-      "ts": "2026-08-22T17:25:34.810601+00:00",
+      "ts": "2026-08-25T21:36:08.825899+00:00",
       "kind": "message",
-      "title": "« Mistral La Plateforme (essai gratuit) » a repondu",
-      "detail": "bascule"
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
     },
     {
-      "ts": "2026-08-22T17:25:34.809626+00:00",
-      "kind": "filet-universel",
-      "title": "[FILET UNIVERSEL] « Mistral La Plateforme (essai gratuit) » a repondu hors chaine",
-      "detail": "analyse.profonde"
+      "ts": "2026-08-25T21:25:21.313509+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
     },
     {
-      "ts": "2026-08-22T17:25:30.027265+00:00",
+      "ts": "2026-08-25T21:17:29.617857+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
+    {
+      "ts": "2026-08-25T21:17:29.477162+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
+    {
+      "ts": "2026-08-25T21:10:01.268869+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
+    {
+      "ts": "2026-08-25T21:10:00.333618+00:00",
+      "kind": "blacklist",
+      "title": "Fin de pause Google Gemini",
+      "detail": "re-essai automatique"
+    },
+    {
+      "ts": "2026-08-25T21:09:14.783178+00:00",
+      "kind": "http",
+      "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
+      "detail": ""
+    },
+    {
+      "ts": "2026-08-25T21:09:14.782560+00:00",
+      "kind": "error",
+      "title": "Toutes les IA ont echoue",
+      "detail": "Google Gemini: blacklist du jour (saute) | Groq (LLM ultra-rapide, gratuit): HTTP Error 413: Payload Too Large | HuggingFace (136+ modeles, dont DeepSeek-V4): HTTP Error 402: Payment Required | OrcaRouter (routeur gratuit, modele orcarouter/free): HTTP Error 429: Too Many Requests | OpenRouter (modeles gratuits): HTTP Error 429: Too Many Requests | NaraRouter (7M tokens/jour gratuits): The read operation timed out | NVIDIA build.nvidia.com (100+ modeles): The read operation timed out | Mistral L"
+    },
+    {
+      "ts": "2026-08-25T21:09:14.779631+00:00",
       "kind": "failover",
-      "title": "Bascule depuis NVIDIA build.nvidia.com (100+ modeles)",
+      "title": "Bascule depuis InferX Devstral-2-123B (code)",
       "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-08-22T17:25:30.002350+00:00",
+      "ts": "2026-08-25T21:09:12.062883+00:00",
       "kind": "failover",
-      "title": "Bascule depuis NVIDIA build.nvidia.com (100+ modeles)",
-      "detail": "HTTP Error 429: Too Many Requests"
-    },
-    {
-      "ts": "2026-08-22T17:25:29.519229+00:00",
-      "kind": "failover",
-      "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
-      "detail": "0 attente"
-    },
-    {
-      "ts": "2026-08-22T17:25:29.513249+00:00",
-      "kind": "failover",
-      "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
-      "detail": "0 attente"
-    },
-    {
-      "ts": "2026-08-22T17:25:29.509827+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis OpenRouter (modeles gratuits)",
+      "title": "Bascule depuis NVIDIA DeepSeek-Coder 6.7B (code, via NIM)",
       "detail": "HTTP Error 404: Not Found"
-    },
-    {
-      "ts": "2026-08-22T17:25:29.507882+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis OpenRouter (modeles gratuits)",
-      "detail": "HTTP Error 404: Not Found"
-    },
-    {
-      "ts": "2026-08-22T17:25:29.176630+00:00",
-      "kind": "failover",
-      "title": "Saute (blacklist) depuis NaraRouter (7M tokens/jour gratuits)",
-      "detail": "0 attente"
-    },
-    {
-      "ts": "2026-08-22T17:25:29.176016+00:00",
-      "kind": "failover",
-      "title": "Saute (blacklist) depuis HuggingFace (136+ modeles, dont DeepSeek-V4)",
-      "detail": "0 attente"
     }
   ],
   "tasks_quotas": {
@@ -514,11 +523,11 @@
       "note": "ROUTAGE 22/08: DeepSeek-Coder > Devstral > Nara. Qwen3-Coder expire 12/08. Groq/mistral en panne."
     },
     "supervise.decision": {
-      "provider": "groq",
-      "fallback": "nara",
+      "provider": "gemini",
+      "fallback": "groq",
       "cloud_quota": 20,
-      "note": "ROUTAGE 17/08 (4 cerveaux vivants): puter-grok/gemini/None -> groq/nara/gemini",
-      "secondary": "gemini"
+      "note": "ROUTAGE 24/08 (JUGE ECLAIRE, GO Christophe): gemini d'abord (0.6-0.9s mesure), groq fallback, nara dernier filet — ne jamais laisser Nara sur le chemin du trade (120-493s quand groq 429)",
+      "secondary": "nara"
     },
     "cortana.yeux": {
       "provider": "gemini",
@@ -546,6 +555,6 @@
   },
   "health": {
     "status": "ok",
-    "providers": 14
+    "providers": 15
   }
 }

@@ -10,7 +10,10 @@
       "mempool.space": "https://mempool.space/api/address/<addr>",
       "arkham_web": "clusters publics (a copier manuellement, source=arkham_web)",
       "bitinfocharts": "https://www.bitinfocharts.com/bitcoin/wallet/<label>"
-    }
+    },
+    "nb_portefeuilles": 27,
+    "derniere_expansion": "2026-08-24T13:14:58Z",
+    "note_expansion": "24/08: +25 adresses (top-100 bitinfocharts etiquete + verif mempool.space), GO Christophe. Anti-boucle : sleep 0.3s ajoute dans surveiller_whales.py. Etiquettes contestees notees: 3LYJfcf (IBIT vs Binance-BTCB), bc1q8yj0 (pas Mr.100). Pools de minage retires 24/08 (payouts internes = faux positifs, piege signale par la consultation)."
   },
   "portefeuilles": [
     {
@@ -52,6 +55,246 @@
       "verification_status": "double",
       "last_checked": "2026-08-14T21:45:00Z",
       "notes": "65297 tx — adresse du bloc genesis, mouvement = signal fort"
+    },
+    {
+      "address": "3M219KR5vEneNb47ewrPfWyb5jQ2DjxRP6",
+      "label": "Binance Cold Storage #2",
+      "entity": "Binance",
+      "type": "exchange_cold",
+      "source": "bitinfocharts_top100 + mempool.space_verif",
+      "verification_status": "double",
+      "last_checked": "2026-08-24T13:14:58Z",
+      "notes": "214 225 BTC — ACTIF des deux cotes (derniere sortie recente), contrairement au cold #1 (fige depuis 01/2023). Source: bitinfocharts top-100 + mempool.space."
+    },
+    {
+      "address": "bc1ql49ydapnjafl5t2cp9zqpjwe6pdgmxy98859v2",
+      "label": "Robinhood Cold Wallet",
+      "entity": "Robinhood",
+      "type": "exchange_cold",
+      "source": "bitinfocharts_top100 + mempool.space_verif",
+      "verification_status": "double",
+      "last_checked": "2026-08-24T13:14:58Z",
+      "notes": "140 850 BTC — accumulation (meilleure croissance relative du top 4). Source: bitinfocharts + article news.bitcoin 07/2026 (Arkham)."
+    },
+    {
+      "address": "bc1qazcm763858nkj2dj986etajv6wquslv8uxwczt",
+      "label": "Bitfinex Hack Recovery (US Gov)",
+      "entity": "US Government",
+      "type": "seized_government",
+      "source": "bitinfocharts_top100 + mempool.space_verif",
+      "verification_status": "double",
+      "last_checked": "2026-08-24T13:14:58Z",
+      "notes": "94 643 BTC — saisies du hack Bitfinex 2016 gerees par le gouvernement US, 0 sortie. Mouvement = evenement. Source: bitinfocharts."
+    },
+    {
+      "address": "1FeexV6bAHb8ybZjqQMjJrcCrHGW9sb6uF",
+      "label": "MtGox Hack Wallet",
+      "entity": "MtGox",
+      "type": "liquidation_entity",
+      "source": "bitinfocharts_top100 + mempool.space_verif",
+      "verification_status": "double",
+      "last_checked": "2026-08-24T13:14:58Z",
+      "notes": "79 957 BTC — le risque de distribution historique (remboursement crediteurs). 0 sortie depuis 2011. Source: bitinfocharts."
+    },
+    {
+      "address": "1Ay8vMC7R1UbyCCZRVULMV7iQpHSAbguJP",
+      "label": "Upbit Cold Wallet (Mr.100)",
+      "entity": "Upbit",
+      "type": "exchange_cold",
+      "source": "bitinfocharts_top100 + mempool.space_verif",
+      "verification_status": "double",
+      "last_checked": "2026-08-24T13:14:58Z",
+      "notes": "73 498 BTC — TRES actif (3874 tx, accumulation 30j). Souvent appele Mr.100 (etiquette fausse : c'est Upbit). Source: bitinfocharts + Arkham via article."
+    },
+    {
+      "address": "bc1q8yj0herd4r4yxszw3nkfvt53433thk0f5qst4g",
+      "label": "Whale dormant non identifie",
+      "entity": "inconnu",
+      "type": "whale_dormant",
+      "source": "bitinfocharts_top100 + mempool.space_verif",
+      "verification_status": "double",
+      "last_checked": "2026-08-24T13:14:58Z",
+      "notes": "78 317 BTC — 95 gros depots, 0 sortie, pas d'entite connue (bitinfocharts le nomme a tort Mr.100). Reveil = signal macro. Source: bitinfocharts + article."
+    },
+    {
+      "address": "bc1qa5wkgaew2dkv56kfvj49j0av5nml45x9ek9hz6",
+      "label": "Silk Road FBI Confiscated",
+      "entity": "US Government",
+      "type": "seized_government",
+      "source": "bitinfocharts_top100 + mempool.space_verif",
+      "verification_status": "double",
+      "last_checked": "2026-08-24T13:14:58Z",
+      "notes": "69 370 BTC — saisies Silk Road, 0 sortie depuis la saisie. Mouvement = signal de vente souveraine. Source: bitinfocharts."
+    },
+    {
+      "address": "3LYJfcfHPXYJreMsASk2jkn69LWEYKzexb",
+      "label": "BlackRock IBIT Custodian (Coinbase)",
+      "entity": "BlackRock",
+      "type": "etf_custodian",
+      "source": "bitinfocharts_top100 + mempool.space_verif",
+      "verification_status": "double",
+      "last_checked": "2026-08-24T13:14:58Z",
+      "notes": "68 200 BTC — custodian ETF IBIT. Conflit etiquette : bitinfocharts dit Binance-BTCB-Reserve, sources publiques disent IBIT/Coinbase. Demandes institutionnelles US. Source: mempool.space + consultation famille 24/08."
+    },
+    {
+      "address": "bc1q0ymzksy046tv4z88ts5nmu7s574umnwmdev3rt",
+      "label": "OKEx Cold Wallet",
+      "entity": "OKEx",
+      "type": "exchange_cold",
+      "source": "bitinfocharts_top100 + mempool.space_verif",
+      "verification_status": "double",
+      "last_checked": "2026-08-24T13:14:58Z",
+      "notes": "64 658 BTC — exchange. Source: bitinfocharts."
+    },
+    {
+      "address": "1LdRcdxfbSnmCYYNdeYpUnztiYzVfBEQeC",
+      "label": "Coincheck Cold Wallet",
+      "entity": "Coincheck",
+      "type": "exchange_cold",
+      "source": "bitinfocharts_top100 + mempool.space_verif",
+      "verification_status": "double",
+      "last_checked": "2026-08-24T13:14:58Z",
+      "notes": "53 880 BTC — exchange japonais. Source: bitinfocharts."
+    },
+    {
+      "address": "3LQUu4v9z6KNch71j7kbj8GPeAGUo1FW6a",
+      "label": "Binance Cold Storage #3",
+      "entity": "Binance",
+      "type": "exchange_cold",
+      "source": "bitinfocharts_top100 + mempool.space_verif",
+      "verification_status": "double",
+      "last_checked": "2026-08-24T13:14:58Z",
+      "notes": "37 927 BTC — Source: bitinfocharts."
+    },
+    {
+      "address": "bc1qy3uw2kk45uj9vsy52rjfhydm2tnd6hreu8vha3",
+      "label": "UK Gov Confiscated",
+      "entity": "UK Government",
+      "type": "seized_government",
+      "source": "bitinfocharts_top100 + mempool.space_verif",
+      "verification_status": "double",
+      "last_checked": "2026-08-24T13:14:58Z",
+      "notes": "37 484 BTC — saisies gouvernement britannique. Source: bitinfocharts."
+    },
+    {
+      "address": "3FHNBLobJnbCTFTVakh5TXmEneyf5PT61B",
+      "label": "Binance Cold Storage #4",
+      "entity": "Binance",
+      "type": "exchange_cold",
+      "source": "bitinfocharts_top100 + mempool.space_verif",
+      "verification_status": "double",
+      "last_checked": "2026-08-24T13:14:58Z",
+      "notes": "31 275 BTC — Source: bitinfocharts."
+    },
+    {
+      "address": "12tkqA9xSoowkzoERHMWNKsTey55YEBqkv",
+      "label": "Crypto.com Cold Wallet",
+      "entity": "Crypto.com",
+      "type": "exchange_cold",
+      "source": "bitinfocharts_top100 + mempool.space_verif",
+      "verification_status": "double",
+      "last_checked": "2026-08-24T13:14:58Z",
+      "notes": "28 151 BTC — Source: bitinfocharts."
+    },
+    {
+      "address": "bc1qs4z2d3h5je080f74tax92dwg08sf3hylj9vfg3",
+      "label": "Bitbank Cold Wallet",
+      "entity": "Bitbank",
+      "type": "exchange_cold",
+      "source": "bitinfocharts_top100 + mempool.space_verif",
+      "verification_status": "double",
+      "last_checked": "2026-08-24T13:14:58Z",
+      "notes": "21 334 BTC — exchange japonais. Source: bitinfocharts."
+    },
+    {
+      "address": "17rm2dvb439dZqyMe2d4D6AQJSgg6yeNRn",
+      "label": "Binance Cold Storage #5",
+      "entity": "Binance",
+      "type": "exchange_cold",
+      "source": "bitinfocharts_top100 + mempool.space_verif",
+      "verification_status": "double",
+      "last_checked": "2026-08-24T13:14:58Z",
+      "notes": "20 008 BTC — Source: bitinfocharts."
+    },
+    {
+      "address": "38rFtDdFpXc4y6XPbSnNd2UvveEt5Xms2E",
+      "label": "Bitfinex Cold Wallet #2",
+      "entity": "Bitfinex",
+      "type": "exchange_cold",
+      "source": "bitinfocharts_top100 + mempool.space_verif",
+      "verification_status": "double",
+      "last_checked": "2026-08-24T13:14:58Z",
+      "notes": "16 116 BTC — 4 tx seulement (peu actif). Source: bitinfocharts."
+    },
+    {
+      "address": "1BAuq7Vho2CEkVkUxbfU26LhwQjbCmWQkD",
+      "label": "OKEx Cold Wallet #2",
+      "entity": "OKEx",
+      "type": "exchange_cold",
+      "source": "bitinfocharts_top100 + mempool.space_verif",
+      "verification_status": "double",
+      "last_checked": "2026-08-24T13:14:58Z",
+      "notes": "15 000 BTC — Source: bitinfocharts."
+    },
+    {
+      "address": "bc1qvrwzs8unvu35kcred2z5ujjef36s5jgf3y6tp8",
+      "label": "UK Gov Confiscated #2",
+      "entity": "UK Government",
+      "type": "seized_government",
+      "source": "bitinfocharts_top100 + mempool.space_verif",
+      "verification_status": "double",
+      "last_checked": "2026-08-24T13:14:58Z",
+      "notes": "13 108 BTC — Source: bitinfocharts."
+    },
+    {
+      "address": "bc1qkmk4v2xn29yge68fq6zh7gvfdqrvpq3v3p3y0s",
+      "label": "Bitfinex Hack Recovery #2",
+      "entity": "US Government",
+      "type": "seized_government",
+      "source": "bitinfocharts_top100 + mempool.space_verif",
+      "verification_status": "double",
+      "last_checked": "2026-08-24T13:14:58Z",
+      "notes": "12 267 BTC — Source: bitinfocharts."
+    },
+    {
+      "address": "1PJiGp2yDLvUgqeBsuZVCBADArNsk6XEiw",
+      "label": "Binance Cold Storage #6",
+      "entity": "Binance",
+      "type": "exchange_cold",
+      "source": "bitinfocharts_top100 + mempool.space_verif",
+      "verification_status": "double",
+      "last_checked": "2026-08-24T13:14:58Z",
+      "notes": "12 238 BTC — Source: bitinfocharts."
+    },
+    {
+      "address": "bc1qsxdxm0exqdsmnl9ejrz250xqxrxpxkgf5nhhtq",
+      "label": "OKX Cold Wallet",
+      "entity": "OKX",
+      "type": "exchange_cold",
+      "source": "bitinfocharts_top100 + mempool.space_verif",
+      "verification_status": "double",
+      "last_checked": "2026-08-24T13:14:58Z",
+      "notes": "10 002 BTC — Source: bitinfocharts + mempool.space."
+    },
+    {
+      "address": "162bzZT2hJfv5Gm3ZmWfWfHJjCtMD6rHhw",
+      "label": "Gate.io Cold Wallet",
+      "entity": "Gate.io",
+      "type": "exchange_cold",
+      "source": "bitinfocharts_top100 + mempool.space_verif",
+      "verification_status": "double",
+      "last_checked": "2026-08-24T13:14:58Z",
+      "notes": "9 807 BTC — 2216 tx (actif). Source: bitinfocharts."
+    },
+    {
+      "address": "bc1qm34lsc65zpw79lxes69zkqmk6ee3ewf0j77s3h",
+      "label": "Binance Hot Wallet #2 (bech32)",
+      "entity": "Binance",
+      "type": "exchange_hot",
+      "source": "mempool.space_verif + spark.money/arkm/web (24/08)",
+      "verification_status": "double",
+      "last_checked": "2026-08-24T14:35:00Z",
+      "notes": "60,2M BTC cumules en entree, 2,3M tx — hot wallet principal bech32 de Binance (le legacy 34xp4vRo etait deja en base). Flux hot->cold vers Binance Cold #2 compte desormais INTERNE (ignore du net)."
     }
   ]
 }

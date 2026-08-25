@@ -223,15 +223,54 @@ def process_analysis(analysis, alerte_path=None, mode="alerte"):
     # 4. REGISTRE_PREDICTIONS.md : APPEND des prédictions vérifiables
     #    Format EXACT 6 champs (compatible scoreur_predictions.py) :
     #    - ⏳ EN ATTENTE | <ts_creation> | <ts_limite> | <SYMBOLE> | <COMP> | <CIBLE>
+    #    DÉDUP (fix 23/08) : ne PAS réécrire une prédiction identique déjà
+    #    EN ATTENTE (même échéance+paire+comp+cible). La vigie déclenchait
+    #    l'analyste en boucle → 2650 doublons sur 2713 lignes. On ne garde
+    #    que la PREMIÈRE occurrence (ts_creation le plus ancien).
     registre_path = os.path.join(OUTPUT_DIR, "REGISTRE_PREDICTIONS.md")
     motif_pred = re.compile(
         r"^\[(\d{4}-\d{2}-\d{2})\] (BTCUSDT|ETHUSDT) (>=|<=) ([\d.]+)$")
+    # Prédictions déjà EN ATTENTE dans le registre.
+    # Clé normalisée : (échéance, paire, comp, cible) avec cible comparée en
+    # NUMÉRIQUE (75000.0 == 75000.0000) — sinon le même niveau réécrit avec
+    # des décimales différentes créerait encore des doublons.
+    def _cle_normalisee(ts_limite, symbole, comparateur, cible_txt):
+        try:
+            c = str(float(cible_txt))
+        except (TypeError, ValueError):
+            c = str(cible_txt).strip()
+        # Échéance normalisée au JOUR près (T00:00:00Z == T23:59:59Z du même
+        # jour) — sinon la même prédiction écrite avant/après le changement de
+        # convention serait considérée comme différente.
+        return (ts_limite.strip()[:10], symbole.strip().upper(),
+                comparateur.strip(), c)
+
+    deja_attente = set()
+    if os.path.exists(registre_path):
+        try:
+            for ligne in open(registre_path, encoding="utf-8"):
+                mreg = re.match(
+                    r"^- ⏳ EN ATTENTE \| [^|]+ \| ([^|]+) \| ([^|]+) \| "
+                    r"([^|]+) \| ([\d.]+)\s*$", ligne)
+                if mreg:
+                    deja_attente.add(_cle_normalisee(
+                        mreg.group(1), mreg.group(2), mreg.group(3), mreg.group(4)))
+        except OSError:
+            pass
     for line in analysis.split("\n"):
         m = motif_pred.match(line.strip())
         if not m:
             continue
         date_str, symbole, comparateur, cible = m.groups()
-        ts_limite = f"{date_str}T00:00:00Z"
+        # Échéance = FIN de la journée indiquée (convention 23/08) : « d'ici le
+        # [date] » signifie avant minuit CE jour-là, pas avant minuit la veille.
+        # Avant : T00:00:00Z → la moitié des prédictions étaient échues à la
+        # création (créées 11:23, échéance 00:00 du même jour = déjà passée).
+        ts_limite = f"{date_str}T23:59:59Z"
+        cle = _cle_normalisee(ts_limite, symbole, comparateur, cible)
+        if cle in deja_attente:
+            continue  # déjà en attente — pas de doublon
+        deja_attente.add(cle)
         if not os.path.exists(registre_path):
             with open(registre_path, "w", encoding="utf-8") as f:
                 f.write("# Registre des prédictions (mécanique)\n\n")

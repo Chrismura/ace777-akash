@@ -1,3 +1,8 @@
-# Rapport Veilleuse — 2026-08-22T17:28:25.683678+00:00
+# Rapport Veilleuse — 2026-08-25T21:43:12.745064+00:00
 
-## État : ✅ STABLE — tout est en ordre
+## État : ⚠️ ANOMALIES DÉTECTÉES
+- **INTRUSION** : Modification non déclarée : hulk-mexc/scripts/paper_diprip.py (md5 diffère du registre)
+- **INTRUSION** : Modification non déclarée : Index_Maison/scripts/thermo_quotidien_free.py (md5 diffère du registre)
+- **INTRUSION** : Modification non déclarée : Index_Maison/scripts/pont_onchain.py (md5 diffère du registre)
+- **INTRUSION** : Modification non déclarée : Index_Maison/scripts/sante_index.py (md5 diffère du registre)
+- **INTRUSION** : Modification non déclarée : Index_Maison/plists/com.ace777.sante-index.plist (md5 diffère du registre)

@@ -28,6 +28,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from ace_sense_mexc import aspiration_sense, book_sense, entry_gate, tension_score  # noqa: E402
 from veille_gates import entry_gate_check, record_stop, veille_stale  # noqa: E402
 from cortana_contract import process_pilot  # noqa: E402
+from circuit_breaker import TradeCircuitBreaker, CircuitOpenException  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
 CFG = ROOT / "config" / "defaults.env"
@@ -120,19 +121,61 @@ def load_env(path: Path) -> dict:
     return d
 
 
+class _AlarmTimeout(Exception):
+    """Levée par SIGALRM quand un black-hole SYN bloque la connexion."""
+
+
+def _alarm_handler(signum, frame):
+    raise _AlarmTimeout(f"SIGALRM {signum}")
+
+
 def http_json(url: str, timeout: float = 40.0, retries: int = 4):
-    """GET JSON avec retries (timeouts MEXC fréquents)."""
+    """GET JSON avec retries (timeouts MEXC fréquents).
+
+    Ceinture SIGALRM (24/08, leçon black-hole du 23/08) : le timeout socket
+    d'urllib ne se déclenche PAS sur un SYN black-hole (vu en réel : process
+    bloqué 5 min en SYN_SENT sur api.mexc.com, watchdog impuissant car le
+    process est vivant). signal.alarm coupe à coup sûr, quel que soit l'état
+    du connect()."""
     last_err: Optional[Exception] = None
     for attempt in range(retries):
         try:
             req = urllib.request.Request(url, headers={"User-Agent": "hulk-paper/1.0"})
-            with urllib.request.urlopen(req, timeout=timeout) as r:
-                return json.loads(r.read().decode())
-        except (urllib.error.URLError, urllib.error.HTTPError, TimeoutError, OSError) as e:
+            prev = signal.signal(signal.SIGALRM, _alarm_handler)
+            signal.alarm(int(timeout) + 2)
+            try:
+                with urllib.request.urlopen(req, timeout=timeout) as r:
+                    return json.loads(r.read().decode())
+            finally:
+                signal.alarm(0)
+                signal.signal(signal.SIGALRM, prev)
+        except (
+            _AlarmTimeout,
+            urllib.error.URLError,
+            urllib.error.HTTPError,
+            TimeoutError,
+            OSError,
+        ) as e:
             last_err = e
             time.sleep(1.2 * (attempt + 1))
     assert last_err is not None
     raise last_err
+
+
+def _est_vierge(st: dict) -> bool:
+    """True si l'état est un re-seed VIERGE (aucune activité réelle) : 0 trade,
+    aucun cash de paire, pnl ≈ 0, pas de bags ni bag_dca. Un tel état est un
+    artefact de re-seed après coupure — pas les bags accumulés à reprendre."""
+    if int(st.get("trades") or 0) > 0:
+        return False
+    cash = st.get("pair_cash") or {}
+    if any(v and v > 0 for v in cash.values()):
+        return False
+    if abs(float(st.get("pnl_total") or 0.0)) > 0.01:
+        return False
+    if st.get("bags") or st.get("bag_dca"):
+        return False
+    return True
 
 
 def load_inventory() -> dict[str, dict]:
@@ -469,6 +512,18 @@ class PaperBot:
         self.btc_prev: float = 0.0
         self.aspiration: dict[str, dict] = {}  # dernière mesure par paire (radar + calibration)
         self.aspiration_prev: dict[str, dict] = {}  # lecture précédente (détection spoof « rétractable »)
+        # === MURS DE LIQUIDITÉ (25/08, GO Christophe) — corrélation murs × BTC ===
+        # Charge le rapport historique d'observer_murs.py pour scorer la force
+        # de chaque paire (mur bid moyen/max, taux de spoof, taux de drop).
+        self.murs_observations: dict[str, dict] = {}
+        self.wall_btc_prev: float = 0.0  # BTC price au tick précédent (détection choc)
+        self.wall_melt_events: list[dict] = []  # murs qui fondent post-choc BTC
+        self.gex_call_wall: float = 0.0  # call wall Deribit (mis à jour depuis live.json)
+        self.gex_put_wall: float = 0.0
+        self._load_wall_observations()
+        # === CIRCUIT BREAKER (25/08) — bloque le trading si données stale ===
+        self.cb_btc = TradeCircuitBreaker(ttl_seconds=10.0, failure_threshold=3, cooldown_seconds=30.0)
+        self.cb_gex = TradeCircuitBreaker(ttl_seconds=300.0, failure_threshold=2, cooldown_seconds=60.0)
         ts = datetime.now(timezone.utc).strftime("%Y%m%d_%H%M%S")
         self.aspiration_csv = RUNS / f"ASPIRATION_CALIB_{ts}.csv"
         if self.aspiration_on:
@@ -487,6 +542,20 @@ class PaperBot:
         self.seed_usdt = float(cfg.get("SEED_USDT", "20"))
         self.seed_mode = (cfg.get("SEED_MODE", "split") or "split").strip().lower()
         self.seed_max_pairs = max(1, int(float(cfg.get("SEED_MAX_PAIRS", "2"))))
+        # VERROU ANTI-DOUBLE-RUN (24/08, codeur) : fcntl.flock sur un fichier lock —
+        # si une 2e instance démarre (watchdog pendant qu'un zombie traîne), elle
+        # échoue immédiatement au lieu de doubler les ordres sur le compte réel.
+        import fcntl
+        self.lock_path = RUNS / ".paper_diprip.lock"
+        self._lock_fd = open(self.lock_path, "w")
+        try:
+            fcntl.flock(self._lock_fd, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        except OSError:
+            print("❌ Une autre instance de paper_diprip.py tourne déjà "
+                  f"(verrou {self.lock_path}). Abandon.")
+            sys.exit(3)
+        self._lock_fd.write(str(os.getpid()))
+        self._lock_fd.flush()
         self.alive = True
         self.scores: dict[str, dict] = {}
         self.pos: dict[str, dict] = {}  # trade tant que < 2×
@@ -520,16 +589,50 @@ class PaperBot:
         signal.signal(signal.SIGINT, self._stop)
         signal.signal(signal.SIGTERM, self._stop)
 
+    def get_pipeline_health_mult(self) -> float:
+        """Lit pipeline_health.json et retourne le multiplicateur de taille (0-1)."""
+        try:
+            health_file = Path(__file__).parent.parent.parent / "Index_Maison" / "data" / "pipeline_health.json"
+            if health_file.exists():
+                health = json.loads(health_file.read_text(encoding="utf-8"))
+                return float(health.get("position_multiplier", 1.0))
+        except Exception:
+            pass
+        return 1.0  # Défaut = nominal
+
+    def get_cortana_recommendation(self) -> dict:
+        """Lit cortana_analysis.json et retourne la recommandation."""
+        try:
+            analysis_file = Path(__file__).parent.parent.parent / "Index_Maison" / "data" / "cortana_analysis.json"
+            if analysis_file.exists():
+                analysis = json.loads(analysis_file.read_text(encoding="utf-8"))
+                # Prendre la dernière analyse
+                analyses = analysis.get("analyses", [])
+                if analyses:
+                    last = analyses[-1]
+                    return {
+                        "niveau": last.get("niveau", "inconnu"),
+                        "action": last.get("action", "Observer"),
+                        "lecture": last.get("interpretation", {}).get("lecture", ""),
+                        "resume": analysis.get("resume", "")
+                    }
+        except Exception:
+            pass
+        return {"niveau": "inconnu", "action": "Observer", "lecture": "", "resume": ""}
+
     def current_notional(self) -> float:
-        """Taille trade : base + fraction du PnL réalisé (compound), plafonnée."""
+        """Taille trade : base + fraction du PnL réalisé (compound), plafonnée, × health."""
         if not self.compound_on:
             self.notional = self.base_notional
-            return self.notional
-        grown = self.base_notional + max(0.0, self.pnl_total) * self.compound_frac
-        if self.pnl_total < 0:
-            grown = max(self.base_notional * 0.5, self.base_notional + self.pnl_total * 0.25)
-        cap = self.base_notional * self.compound_max_mult
-        self.notional = min(max(grown, self.base_notional * 0.5), cap)
+        else:
+            grown = self.base_notional + max(0.0, self.pnl_total) * self.compound_frac
+            if self.pnl_total < 0:
+                grown = max(self.base_notional * 0.5, self.base_notional + self.pnl_total * 0.25)
+            cap = self.base_notional * self.compound_max_mult
+            self.notional = min(max(grown, self.base_notional * 0.5), cap)
+        # Appliquer le multiplicateur pipeline health
+        health_mult = self.get_pipeline_health_mult()
+        self.notional *= health_mult
         return self.notional
 
     def add_pair_cash(self, pair: str, usdt: float):
@@ -552,6 +655,107 @@ class PaperBot:
     def _stop(self, *_):
         self.alive = False
         say("warn", f"\n[{utc_now()}] STOP demandé — fin propre")
+
+    # === MURS DE LIQUIDITÉ — scoring & corrélation BTC (25/08) ===
+
+    def _load_wall_observations(self):
+        """Charge murs_observations.json (produit par observer_murs.py).
+        Donne par paire : bid_avg_usd, bid_max_usd, spoof_pct, drop_n.
+        """
+        murs_path = ROOT / "runs" / "murs_observations.json"
+        if not murs_path.exists():
+            return
+        try:
+            data = json.loads(murs_path.read_text())
+            for p in data.get("top_murs", []):
+                sym = p.get("pair", "")
+                if not sym:
+                    continue
+                self.murs_observations[sym] = {
+                    "bid_moy": float(p.get("bid_avg_usd") or 0),
+                    "bid_max": float(p.get("bid_max_usd") or 0),
+                    "ask_moy": float(p.get("ask_avg_usd") or 0),
+                    "n": int(p.get("n") or 0),
+                    "spoof_rate": float(p.get("spoof_pct") or 0),
+                    "drop_rate": float(p.get("drop_n") or 0),
+                }
+            say("hdr", f"[murs] {len(self.murs_observations)} paires chargées depuis {murs_path.name}")
+        except Exception as e:
+            say("err", f"[murs] chargement échoué: {e}")
+
+    def wall_strength(self, pair: str) -> float:
+        """Score 0-1 de la force du mur bid d'une paire.
+        1 = mur épais, stable, peu de spoof.
+        0 = mur inexistant ou de façade.
+        """
+        m = self.murs_observations.get(pair)
+        if not m or m["n"] < 50:
+            return 0.5  # pas assez de données = neutre
+        # Normaliser le mur bid moyen (0-1, $30K = 1.0 — calibré sur les données réelles)
+        bid_score = min(m["bid_moy"] / 30_000, 1.0)
+        # Pénalité spoof (0-1, plus spoof = plus bas)
+        spoof_penalty = 1.0 - min(m["spoof_rate"] / 10.0, 0.5)  # max -50%
+        # Bonus drop_rate (les drops = signal ACE, ça montre de l'activité)
+        drop_bonus = 1.0 + min(m["drop_rate"] / 500, 0.2)  # max +20%
+        return max(0.1, min(1.0, bid_score * spoof_penalty * drop_bonus))
+
+    def wall_mult(self, pair: str) -> float:
+        """Multiplicateur de taille de position basé sur la force du mur.
+        Mur solide (score 0.8+) → ×1.2 (plus gros).
+        Mur fragile (score <0.3) → ×0.6 (plus petit).
+        """
+        s = self.wall_strength(pair)
+        if s >= 0.7:
+            return 1.2
+        elif s >= 0.4:
+            return 1.0
+        else:
+            return 0.6
+
+    def check_wall_melt(self, pair: str):
+        """Détection post-choc : si BTC a chuté >$150 et que le mur bid fond >20% →
+        signal d'alerte (la liquidité retire)."""
+        asp = self.aspiration.get(pair) or {}
+        if not asp or self.btc_prev <= 0 or self.btc_price <= 0:
+            return
+        btc_delta = self.btc_price - self.btc_prev
+        if btc_delta > -150:  # pas assez de choc
+            return
+        # Comparer le mur bid actuel au précédent
+        prev = self.aspiration_prev.get(pair)
+        if not prev:
+            return
+        wall_now = float(asp.get("wall_bid_usdt") or 0)
+        wall_prev = float(prev.get("wall_bid_usdt") or 0)
+        if wall_prev <= 0 or wall_now <= 0:
+            return
+        melt_pct = (wall_now - wall_prev) / wall_prev * 100
+        if melt_pct < -20:  # mur fond de >20%
+            event = {
+                "ts": utc_now(),
+                "pair": pair,
+                "btc_delta": round(btc_delta, 2),
+                "wall_prev": round(wall_prev, 2),
+                "wall_now": round(wall_now, 2),
+                "melt_pct": round(melt_pct, 1),
+            }
+            self.wall_melt_events.append(event)
+            say("warn", f"[MUR-FOND] {pair} mur bid {wall_prev:.0f}→{wall_now:.0f}"
+                f" ({melt_pct:+.0f}%) post-choc BTC {btc_delta:+.0f}$")
+
+    def check_gex_wall(self):
+        """Vérifie si BTC approche le call wall GEX ($82K).
+        Si BTC > 98% du call wall → signal 'squeeze imminent'.
+        """
+        if self.gex_call_wall <= 0 or self.btc_price <= 0:
+            return
+        dist_pct = (self.gex_call_wall - self.btc_price) / self.btc_price * 100
+        if dist_pct <= 2.0 and dist_pct > 0:
+            say("hdr", f"[GEX] BTC ${self.btc_price:,.0f} → call wall ${self.gex_call_wall:,.0f}"
+                f" ({dist_pct:.1f}% de distance) — SQUEEZE IMMINENT")
+        elif dist_pct <= 0:
+            say("hdr", f"[GEX] BTC ${self.btc_price:,.0f} A DÉPASSÉ le call wall"
+                f" ${self.gex_call_wall:,.0f} — SQUEEZE ACTIF")
 
     def tier(self, pair: str) -> str:
         return (self.inv.get(pair) or {}).get("tier", "A")
@@ -615,6 +819,25 @@ class PaperBot:
         btc_delta_pct = 0.0
         if self.btc_prev > 0 and self.btc_price > 0:
             btc_delta_pct = (self.btc_price - self.btc_prev) / self.btc_prev * 100.0
+        # GEX refresh (1× par probe) — call/put wall Deribit
+        try:
+            live_path = Path(__file__).resolve().parents[2] / "Index_Maison" / "thermo" / "live.json"
+            if live_path.exists():
+                live = json.loads(live_path.read_text())
+                gex = live.get("gex", {})
+                if gex.get("ok"):
+                    gex_data = {
+                        "timestamp": time.time(),
+                        "price": gex.get("callWall", 0),
+                    }
+                    try:
+                        self.cb_gex.validate(gex_data, source="gex")
+                        self.gex_call_wall = float(gex.get("callWall", 0) or 0)
+                        self.gex_put_wall = float(gex.get("putWall", 0) or 0)
+                    except CircuitOpenException:
+                        say("warn", f"[CB] GEX stale — garde les murs précédents")
+        except Exception:
+            pass
         active = active[: self.aspiration_max_pairs]
         for pair in active:
             try:
@@ -762,25 +985,104 @@ class PaperBot:
             )
 
     def save_state(self):
-        self.state_path.write_text(
-            json.dumps(
-                {
-                    "ts": utc_now(),
-                    "pnl_total": self.pnl_total,
-                    "notional_live": self.current_notional(),
-                    "base_notional": self.base_notional,
-                    "trades": self.trades,
-                    "positions": self.pos,
-                    "bags": self.bags,
-                    "bag_dca": self.bag_dca,
-                    "pair_cash": self.pair_cash,
-                    "reentry": self.reentry,
-                    "scores": self.scores,
-                    "pairs": self.pairs,
-                },
-                indent=2,
-            )
+        # Écriture ATOMIQUE (24/08, codeur) : .tmp puis os.replace — jamais d'état
+        # à moitié écrit si le Mac coupe en plein save (corruption JSON au resume).
+        import tempfile
+        data = json.dumps(
+            {
+                "ts": utc_now(),
+                "pnl_total": self.pnl_total,
+                "notional_live": self.current_notional(),
+                "base_notional": self.base_notional,
+                "trades": self.trades,
+                "positions": self.pos,
+                "bags": self.bags,
+                "bag_dca": self.bag_dca,
+                "pair_cash": self.pair_cash,
+                "reentry": self.reentry,
+                "scores": self.scores,
+                "pairs": self.pairs,
+                "wall_melt_events": self.wall_melt_events[-50:],  # garder les 50 derniers
+            },
+            indent=2,
         )
+        fd, tmp_path = tempfile.mkstemp(dir=str(self.state_path.parent), text=True)
+        try:
+            with os.fdopen(fd, "w", encoding="utf-8") as f:
+                f.write(data)
+            os.replace(tmp_path, self.state_path)
+            # Pointeur canonique (24/08, fix resume) : le DERNIER état réellement
+            # sauvegardé, quel que soit le nom du run. Résout la collision de nom
+            # de run (2 démarrages dans la même seconde → même state_path → le
+            # 2e voyait « son propre état » et re-seedait au lieu de reprendre).
+            try:
+                (RUNS / ".hulk_resume_pointer").write_text(
+                    self.state_path.name, encoding="utf-8"
+                )
+            except Exception:
+                pass
+        except Exception:
+            if os.path.exists(tmp_path):
+                try:
+                    os.remove(tmp_path)
+                except Exception:
+                    pass
+            raise
+
+    def resume_state(self) -> bool:
+        """Reprend le DERNIER état NON VIERGE (positions + bags + cash) au lieu
+        de re-seed. --resume (24/08, Christophe : « tenir les positions pendant
+        les coupures »). Retourne True si reprise faite. Le CSV/state_path
+        restent neufs (traçabilité du run), mais l'ÉTAT (pos/bags/cash/pnl) est
+        restauré.
+
+        Sélection (24/08, 3e fix — un seed frais écrasait les bags accumulés et
+        un score de substance favorisait un état ANCIEN plus riche) : on scanne
+        du plus récent au plus ancien et on reprend le premier état qui a de la
+        SUBSTANCE, c.-à-d. pas un re-seed vierge (0 trade + 0 cash + pnl ≈ 0 +
+        pas de bags) et pas un état vide (0 position et 0 bag). Le plus récent
+        état réel = la continuation d'aujourd'hui (ex. 3 trades du jour) — pas
+        la régression vers un état d'hier, pas le re-seed d'après-coupure."""
+        for f in sorted(RUNS.glob("PAPER_V1_*_state.json"), reverse=True):
+            if f == self.state_path:
+                continue  # le run courant n'a pas encore d'historique à reprendre
+            try:
+                st = json.loads(f.read_text(encoding="utf-8"))
+            except Exception as e:
+                say("err", f"RESUME fail lecture {f.name}: {e}")
+                continue
+            pos = st.get("positions") or {}
+            if not pos and not (st.get("bags") or {}):
+                continue  # état vide (0 pos, 0 bag) : pas candidat
+            if _est_vierge(st):
+                say("wrn", f"RESUME {f.name} = re-seed vierge (0 trade, 0 cash) — on cherche plus ancien")
+                continue
+            self.pos = {k: v for k, v in pos.items()}
+            self.bags = st.get("bags") or {}
+            self.bag_dca = st.get("bag_dca") or {}
+            self.pair_cash = st.get("pair_cash") or {}
+            self.reentry = st.get("reentry") or {}
+            self.scores = st.get("scores") or {}
+            self.pnl_total = float(st.get("pnl_total") or 0.0)
+            self.trades = int(st.get("trades") or 0)
+            self.wall_melt_events = st.get("wall_melt_events") or []
+            # mémorise la source (pour log/audit) — sans toucher au state courant
+            self.resume_source = f.name
+            break  # premier état non vierge = le bon (du plus récent au plus ancien)
+        # Copie l'ancien CSV dans le nouveau pour que le journal (cockpit) ait
+        # l'historique complet des trades — sinon le journal est vide après un resume.
+        ancien_csv = RUNS / f.name.replace("_state.json", ".csv")
+        if ancien_csv.exists() and ancien_csv != self.csv_path:
+            try:
+                import shutil
+                shutil.copy2(str(ancien_csv), str(self.csv_path))
+            except Exception:
+                pass
+        say("hdr", f"RESUME depuis {f.name} — {len(self.pos)} pos, "
+                   f"{len(self.bags)} bags, cash {sum(self.pair_cash.values()):.2f}$, "
+                   f"pnl {self.pnl_total:+.4f}$, trades {self.trades}")
+        return True
+        return False
 
     def _fmt_vol(self, usdt: float) -> str:
         if usdt >= 1_000_000:
@@ -947,6 +1249,9 @@ class PaperBot:
             trade_n = trade_n * self.bag_position_mult
         if self.tier(pair) == "B":
             trade_n = trade_n * self.tier_b_position_mult  # famille 16/08 : tier B = taille microscopique
+        # TAILLE ADAPTATIVE MURS (25/08, GO Christophe) : mur solide → ×1.2, mur fragile → ×0.6
+        if notion is None:  # pas de cash_redeploy (déjà calibré)
+            trade_n = trade_n * self.wall_mult(pair)
         if trade_n < 1.0:
             return
         # famille 16/08 : garde spread au buy (même tier A) — paires mal classées (ex. QAIT 327 bps)
@@ -1306,15 +1611,45 @@ class PaperBot:
             return
         if pair in self.pos or pair in self.bags:
             return
+        # FILTRE MURS (24/08, codeur) : ne PAS acheter si la sonde aspiration a
+        # détecté un spoof (mur de façade reconstruit) ou une chute de mur ≥ 15%/s
+        # sur CETTE paire — les murs observés servent à la décision, pas qu'au radar.
+        asp = self.aspiration.get(pair) or {}
+        if asp.get("spoof"):
+            say("warn", f"[{utc_now()}] BUY skip {pair} MUR-SPOOF (façade détectée)")
+            return
+        drop_now = max(
+            abs(float(asp.get("drop_bid_pct_per_s") or 0)),
+            abs(float(asp.get("drop_ask_pct_per_s") or 0)),
+        )
+        if asp and drop_now >= self.aspiration_spoof_drop:
+            say("warn", f"[{utc_now()}] BUY skip {pair} MUR-CASSE "
+                        f"(drop {drop_now:.1f}%/s ≥ {self.aspiration_spoof_drop:.0f})")
+            return
+        # FILTRE MURS HISTORIQUES (25/08, GO Christophe) : ne pas acheter
+        # si le mur bid historique est trop faible (<$500 moyen = pas de support)
+        ws = self.wall_strength(pair)
+        if ws < 0.2:
+            say("warn", f"[{utc_now()}] BUY skip {pair} MUR-FAIBLE (score={ws:.2f}, pas de support)")
+            return
         vok, vwhy = self.vol_ok_for_entry(sc, regime)
         if not vok:
             say("warn", f"[{utc_now()}] BUY skip {pair} {vwhy}")
             return
+        # WALL BOOST : si le mur renforce post-choc BTC → favoriser l'entrée
+        wall_note = ""
+        if ws >= 0.7:
+            wall_note = f" wall={ws:.2f}🛡️"
+        elif ws >= 0.4:
+            wall_note = f" wall={ws:.2f}"
+        else:
+            wall_note = f" wall={ws:.2f}⚠️"
         if regime == "COOLING":
             need = sc.get("cool_entry_pct", sc["dip_pct"])
             dd = sc["dd15_pct"]
             if dd >= need:
-                self.buy(pair, price, sc, f"cooling_dd15={dd:.1f}>={need:.1f}")
+                self.buy(pair, price, sc,
+                    f"cooling_dd15={dd:.1f}>={need:.1f}{wall_note}")
             return
         if regime == "IMPULSE":
             need = sc.get("impulse_entry_pct", max(sc["dip_pct"], 5.0))
@@ -1325,7 +1660,8 @@ class PaperBot:
                     pair,
                     price,
                     sc,
-                    f"impulse_pullback_dd6={sc['dd6_pct']:.1f}>={need:.1f} m6={sc['move6_pct']:.1f}",
+                    f"impulse_pullback_dd6={sc['dd6_pct']:.1f}>={need:.1f}"
+                    f" m6={sc['move6_pct']:.1f}{wall_note}",
                 )
             return
 
@@ -1523,8 +1859,17 @@ class PaperBot:
         legend()
         self.refresh_scores()
         self.refresh_cortana_pilot()
-        self.seed_inventory()
-        self.seed_bags()
+        # RESUME (24/08, Christophe « tenir les positions pendant les coupures ») :
+        # si --resume, on reprend le dernier état (pos/bags/cash) au lieu de re-seed.
+        # Sans --resume, comportement historique (seed au boot) conservé.
+        if getattr(self, "resume", False):
+            if not self.resume_state():
+                say("warn", "RESUME: aucun état à reprendre — seed au boot (comportement normal)")
+                self.seed_inventory()
+                self.seed_bags()
+        else:
+            self.seed_inventory()
+            self.seed_bags()
         n = 0
         while self.alive:
             if STOP_FILE.exists():
@@ -1535,6 +1880,13 @@ class PaperBot:
                 self.refresh_cortana_pilot()
             # Sonde aspiration (mode observation) : paires actives, toutes les N cycles
             self.probe_aspiration(n)
+            # === MURS: détection post-choc + GEX wall (25/08) ===
+            try:
+                for pair in self.pairs:
+                    self.check_wall_melt(pair)
+                self.check_gex_wall()
+            except Exception as e:
+                say("err", f"[murs] check_err: {e}")
             for pair in self.pairs:
                 try:
                     self.tick_pair(pair)
@@ -1554,13 +1906,21 @@ class PaperBot:
                 _stale, _sreason = veille_stale(RUNS, max_age_hours=self.veille_stale_h)
                 standby = f" | STANDBY({_sreason})" if _stale else ""
                 _bag_open = sum(1 for p in self.pos if self.is_bag(p))
+                _melt = len(self.wall_melt_events)
+                _gex_note = f" gex=$82K" if self.gex_call_wall > 0 else ""
+                _cb = f" cb:{self.cb_btc.status()}"
+                _health = self.get_pipeline_health_mult()
+                _health_note = f" health={_health:.2f}" if _health < 1.0 else ""
+                _cortana_rec = self.get_cortana_recommendation()
+                _cortana_note = f" | Cortana: {_cortana_rec.get('action', '?')}" if _cortana_rec.get('niveau') not in ('inconnu', None) else ""
                 say(
                     "heart",
                     f"[{utc_now()}] heartbeat open={open_n} bags={bags_n} "
                     f"dca={len(self.bag_dca)} cash_pairs={cash_n}({cash_sum:.1f}$) "
                     f"mise={notion:.2f}$ trades={self.trades} "
                     f"pnl={self.pnl_total:+.4f}$ | {regimes}{standby} "
-                    f"cortana={len(self.cortana_pending)} bag={_bag_open}/{self.bag_max_positions}",
+                    f"cortana={len(self.cortana_pending)} bag={_bag_open}/{self.bag_max_positions}"
+                    f" melts={_melt}{_gex_note}{_cb}{_health_note}{_cortana_note}",
                 )
                 self.save_state()
             time.sleep(self.poll)
@@ -1578,13 +1938,20 @@ class PaperBot:
 
 
 def main() -> int:
+    import argparse
+    ap = argparse.ArgumentParser(description="Hulk paper MEXC")
+    ap.add_argument("--resume", action="store_true",
+                    help="Reprendre le dernier état (positions/bags/cash) au lieu de re-seed")
+    args = ap.parse_args()
     cfg = load_env(CFG)
     if cfg.get("MODE", "paper") != "paper":
         print("MODE doit être paper pour ce script")
         return 2
     inv = load_inventory()
     pairs = pick_pairs(cfg, inv)
-    return PaperBot(cfg, pairs, inv).run()
+    bot = PaperBot(cfg, pairs, inv)
+    bot.resume = args.resume
+    return bot.run()
 
 
 if __name__ == "__main__":

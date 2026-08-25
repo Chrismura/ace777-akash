@@ -18,6 +18,15 @@ import time
 import hashlib
 from datetime import datetime
 
+# Juge eclairé (SPEC_JUGE_ECLAIRE_20260824) : pave d'indicateurs frais joint
+# au prompt avant consultation reelle du hub. Non fatal en cas d'absence.
+try:
+    import juge_indicateurs
+    RACINE_INDEX = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
+    _JUGE_DISPO = True
+except Exception:
+    _JUGE_DISPO = False
+
 # === CONFIGURATION (variables d'environnement) ===
 PORT = int(os.environ.get("LLM_GATE_PONT_PORT", "11439"))
 HUB_URL = os.environ.get("HUB_URL", "http://127.0.0.1:11435/v1/chat/completions")
@@ -35,6 +44,25 @@ LOG_FILE = "/tmp/llm_gate_hub.log"
 # → on ne doit JAMAIS servir la réponse de l'un à l'autre.
 CACHE_SEC = float(os.environ.get("LLM_GATE_PONT_CACHE_SEC", "90"))
 _CACHE = {"ts": 0.0, "response": None, "key": None}
+
+# Juge eclairé : longueur max du pave (SPEC 24/08), reglable via env.
+MAX_PAVE_CAR = int(os.environ.get("LLM_GATE_PONT_PAVE_MAX_CAR", "1500"))
+
+# Fusible anti-boucle (24/08, decision Christophe) : quand le HUB echoue
+# (502/503/timeout), on ne RETAPE PLUS pendant COOLDOWN_SEC (5 min par defaut).
+# Sans ca, avec plusieurs moteurs en parallele, chaque echec relancait un appel
+# -> boucle inutile qui eclatait le budget (4426 appels le 24/08, dont 2757
+# servis en cache mais ~78 vrais hits hub en rafale d'echecs).
+# Pendant le cooldown : le cache frais est servi s'il existe; sinon 503 immediat
+# (le moteur fait son fallback regles = fail-closed).
+COOLDOWN_SEC = float(os.environ.get("LLM_GATE_PONT_COOLDOWN_SEC", "300"))
+_COOLDOWN_UNTIL = 0.0
+
+
+def _armer_fusible():
+    """Pose le cooldown apres un echec hub : plus aucun appel pendant 5 min."""
+    global _COOLDOWN_UNTIL
+    _COOLDOWN_UNTIL = time.time() + COOLDOWN_SEC
 
 
 def cache_fraiche(prompt):
@@ -139,18 +167,23 @@ def call_hub(prompt: str, max_tokens: int) -> tuple:
             return True, content
     except urllib.error.HTTPError as e:
         log(f"ERREUR HUB HTTP {e.code}: {e.reason}")
+        _armer_fusible()
         return False, f"HTTP {e.code}"
     except urllib.error.URLError as e:
         log(f"ERREUR HUB URL: {e.reason}")
+        _armer_fusible()
         return False, str(e.reason)
     except TimeoutError:
         log("ERREUR HUB: timeout lecture")
+        _armer_fusible()
         return False, "timeout"
     except json.JSONDecodeError:
         log("ERREUR HUB: réponse JSON invalide")
+        _armer_fusible()
         return False, "json invalide"
     except Exception as e:
         log(f"ERREUR HUB inattendue: {str(e)}")
+        _armer_fusible()
         return False, str(e)
 
 
@@ -193,14 +226,17 @@ class LLMGateHandler(http.server.BaseHTTPRequestHandler):
 
         try:
             ollama_request = json.loads(post_data)
-            prompt = ollama_request.get("prompt", "")
+            # raw_prompt = le prompt BRUT du moteur (clé du cache). On n'enrichit
+            # qu'au moment de la consultation réelle, sinon le cache ne matcherait
+            # plus jamais (le pavé change en permanence).
+            raw_prompt = ollama_request.get("prompt", "")
             options = ollama_request.get("options", {})
             num_predict = options.get("num_predict", 45)
 
             # Cache du juge : si la dernière réponse du hub est fraîche ET pour
-            # le même prompt, on la renvoie sans déranger le hub (économie de
+            # le même prompt, on le renvoie sans le déranger (économie de
             # budget cloud + latence).
-            if cache_fraiche(prompt):
+            if cache_fraiche(raw_prompt):
                 ollama_response = {"response": cache_lire()}
                 self.send_response(200)
                 self.send_header("Content-Type", "application/json")
@@ -209,6 +245,31 @@ class LLMGateHandler(http.server.BaseHTTPRequestHandler):
                 log("CACHE → réponse juge renvoyée (hub non consulté)")
                 return
 
+            # Fusible : pendant le cooldown apres une erreur hub, on ne retape
+            # PAS (fail-closed immediat — le moteur reste sur son fallback rules).
+            if time.time() < _COOLDOWN_UNTIL:
+                reste = int(_COOLDOWN_UNTIL - time.time())
+                log(f"FUSIBLE ACTIF → 503 sans retape ({reste}s restantes)")
+                self.send_response(503)
+                self.end_headers()
+                return
+
+            # Juge éclairé : on joint le pavé d'indicateurs FRAIS au prompt avant
+            # de consulter le hub (le cache, lui, reste sur raw_prompt).
+            t0 = time.time()
+            pave_str = ""
+            if _JUGE_DISPO:
+                pave_str = juge_indicateurs.pave(RACINE_INDEX)
+                if len(pave_str) > MAX_PAVE_CAR:
+                    pave_str = pave_str[:MAX_PAVE_CAR]
+            prompt = raw_prompt
+            if pave_str:
+                prompt = "CONTEXTE MARCHE (indicateurs internes; STALE/absent = a ignorer):\n" \
+                         + pave_str + "\n\n---\nQuestion simple: " + raw_prompt
+            pave_ms = int((time.time() - t0) * 1000)
+            if pave_str:
+                log(f"JUGE ÉCLAIRÉ pavé injecté ({pave_ms} ms, {len(pave_str)} car.)")
+
             success, content = call_hub(prompt, num_predict)
 
             if success:
@@ -216,7 +277,7 @@ class LLMGateHandler(http.server.BaseHTTPRequestHandler):
                 # JSON dans des fences markdown (```json ... ```) ou du texte.
                 # Le moteur attend du JSON strict → on extrait le bloc JSON.
                 cleaned = extract_json(content)
-                cache_ecrire(prompt, cleaned)
+                cache_ecrire(raw_prompt, cleaned)  # clé cache = prompt BRUT (voir plus haut)
                 ollama_response = {"response": cleaned}
                 self.send_response(200)
                 self.send_header("Content-Type", "application/json")

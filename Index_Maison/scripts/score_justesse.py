@@ -254,7 +254,10 @@ def build_resume(analyses, history):
                 "detail": v.get("detail"), "move_pct": v.get("move_pct"),
                 "indice_move_pct": v.get("indice_move_pct"),
             }
-        if v["statut"] in ("HIT ✅", "MISS ❌", "FLAT ➖"):
+        # FLAT (marché indécis, bande < seuil) = NON NOTÉ : il ne doit ni compter
+        # comme échec ni diluer le score (fix 23/08 : il était compté au
+        # dénominateur alors que l'affichage le déclarait « non noté » → biais -12 pts).
+        if v["statut"] in ("HIT ✅", "MISS ❌"):
             total_scored += 1
             par_indice.setdefault(indice, {"hit": 0, "n": 0})
             par_indice[indice]["n"] += 1
@@ -320,7 +323,8 @@ def main():
         if a.detail and v.get("detail"):
             ligne += f"  ({v['detail']})"
         print(ligne)
-        if v["statut"] in ("HIT ✅", "MISS ❌", "FLAT ➖"):
+        # FLAT (marché indécis) = NON NOTÉ (cohérent avec build_resume, fix 23/08)
+        if v["statut"] in ("HIT ✅", "MISS ❌"):
             total_scored += 1
             if v["statut"] == "HIT ✅":
                 total_hit += 1

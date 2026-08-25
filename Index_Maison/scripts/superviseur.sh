@@ -113,21 +113,13 @@ while true; do
         status_line="$status_line | hub:RELAUNCH"
     fi
 
-    # --- VIGIE + HEARTBEAT (décrochage silencieux WebSocket) ---
-    if is_running "vigie_live.py"; then
-        mtime=$(get_mtime "$HEARTBEAT_FILE")
-        now=$(date +%s)
-        age=$((now - mtime))
-        if [ "$age" -gt "$HEARTBEAT_MAX_AGE" ]; then
-            restart_process "vigie" "heartbeat absent depuis ${age}s (décrochage)"
-            status_line="$status_line | vigie:RELAUNCH_HEARTBEAT"
-        else
-            status_line="$status_line | vigie:OK"
-        fi
-    else
-        restart_process "vigie" "processus absent"
-        status_line="$status_line | vigie:RELAUNCH"
-    fi
+    # --- VIGIE : gérée par launchd (plist com.ace777.vigie-live, KeepAlive=true).
+    # 24/08 : retirée de la supervision ici — deux propriétaires (launchd + ce
+    # superviseur) se battaient au boot (le pkill de relance tuait celle de
+    # launchd qui en relançait une 2e → doublons). launchd en maintient une
+    # seule ; la fraîcheur du heartbeat est couverte par veille_degradation +
+    # sante_index (alerte, pas de relance auto).
+    status_line="$status_line | vigie:launchd"
 
     # --- COCKPIT ---
     if is_running "cockpit_http_server.py"; then

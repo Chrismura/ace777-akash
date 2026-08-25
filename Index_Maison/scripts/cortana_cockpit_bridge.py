@@ -300,6 +300,29 @@ def _contexte_bots() -> str:
                                     % (taux, oc.get("blocPrivatiseMode") or "?"))
                     lignes.append("ONCHAIN observation : " + " · ".join(bits))
 
+        # --- Dérivés (corrélations 30j + carte liquidité, data/deriv_corr.json) ---
+        try:
+            dcorr = json.loads((SCRIPTS.parent / "data" / "deriv_corr.json").read_text(encoding="utf-8"))
+            if isinstance(dcorr, dict) and dcorr.get("correlations"):
+                corr = dcorr["correlations"]
+                bits_d = []
+                for k in ("prix_oi", "prix_funding", "prix_longshort", "prix_taker"):
+                    v = (corr.get(k) or {}).get("r")
+                    if v is not None:
+                        bits_d.append("%s=%+.2f" % (k.replace("prix_", ""), float(v)))
+                liq = dcorr.get("liquidations") or {}
+                lb = liq.get("longs_below_usd") or 0
+                sa = liq.get("shorts_above_usd") or 0
+                if bits_d or lb or sa:
+                    ligne = "DÉRIVÉS : "
+                    if bits_d:
+                        ligne += "corr 30j " + " ".join(bits_d) + " · "
+                    ligne += "liq longs dessous %s$ · shorts dessus %s$ · %s" % (
+                        int(lb), int(sa), str(liq.get("lecture") or "")[:110])
+                    lignes.append(ligne)
+        except Exception:
+            pass
+
         # --- Disjoncteur ---
         dj = m.get("disjoncteur") or {}
         if dj:

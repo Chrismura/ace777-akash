@@ -348,7 +348,9 @@ def analyser_poussiere(minimum_fee=None):
     # Endpoint correct : /mempool/recent (10 tx) — l'échantillon reste petit mais
     # le comptage marche enfin ; on garde l'agrégation 48h pour le seuil 1000.
     recents = requete_mempool("/mempool/recent")
+    n_echantillon = 0
     if isinstance(recents, list):
+        n_echantillon = len(recents)
         for tx in recents:
             fee = float(tx.get("fee", 0.0) or 0.0)
             vsize = float(tx.get("vsize", 0.0) or 0.0)
@@ -365,10 +367,20 @@ def analyser_poussiere(minimum_fee=None):
     total_dust = sum(int(o.get("dust_vus", 0) or 0) for o in obs) + dust_vus
     declenche = total_dust >= 1000
 
+    # FIX 23/08 (Buffy, GO Christophe — ENQUETE_POUSSIERE 20/08, étapes 1-2) :
+    # le score était le CUMUL 48h (total_dust/1000×50) → saturé à 100 dès 2000
+    # cumulées, même avec 0 vue ce run → les 21-22/08 le score est resté coincé
+    # à 100 (artefact, confondu avec un signal contrarien). Désormais le score
+    # reflète l'ACTIVITÉ COURANTE : ratio de poussière dans l'échantillon du run
+    # (×50 pour rester sur l'échelle 0-50 attendue par pont_onchain qui fait ×2).
+    # L'artefact « carnet vide » (échantillon 0 tx) → score 0, jamais 100.
+    ratio = (dust_vus / n_echantillon) if n_echantillon > 0 else 0.0
+    score = round(min(100.0, ratio * 50.0), 2)
+
     return {"declenche": declenche,
-            "score": round(min(100.0, (total_dust / 1000.0) * 50.0), 2),
+            "score": score,
             "detail": (f"poussière <{seuil_dust:.1f} sat/vB (normalisé minFee {mf:.0f}×1.5) : "
-                       f"{dust_vus} vues ce run, {total_dust} cumulées 48h (seuil 1000) — "
+                       f"{dust_vus}/{n_echantillon} vues ce run, {total_dust} cumulées 48h (seuil 1000) — "
                        f"max {max_dust_btc:.4f} BTC")}, dust_vus
 
 

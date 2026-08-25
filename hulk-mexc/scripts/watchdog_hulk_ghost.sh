@@ -15,8 +15,8 @@ else
   if [ -f STOP_PAPER ]; then
     log "PAPER: mort + STOP_PAPER présent — pas de relance (stop volontaire)"
   else
-    log "PAPER: MORT — relance"
-    nohup python3 scripts/paper_diprip.py >>runs/PAPER_WATCHDOG_STDOUT.log 2>&1 &
+    log "PAPER: MORT — relance (--resume pour tenir les positions)"
+    nohup python3 scripts/paper_diprip.py --resume >>runs/PAPER_WATCHDOG_STDOUT.log 2>&1 &
     sleep 2
     if pgrep -f 'scripts/paper_diprip.py' >/dev/null 2>&1; then
       log "PAPER: RELANCÉ pid=$(pgrep -f 'scripts/paper_diprip.py' | head -1)"

@@ -9,6 +9,7 @@ from __future__ import annotations
 import json
 import math
 import statistics
+import sys
 import urllib.request
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
@@ -1054,8 +1055,45 @@ def main() -> int:
     except Exception:
         pass
 
+    # === INDICES CRÉÉS AUJOURD'HUI (ajoutés dans live.json) ===
+    try:
+        from silent_drain_index import compute_sdi
+        sdi_data = compute_sdi()
+        if sdi_data:
+            payload["sdi"] = sdi_data.get("sdi", {})
+            payload["ipt"] = sdi_data.get("ipt", {})
+            payload["rbf"] = sdi_data.get("rbf", {})
+            payload["sdi_alerts"] = sdi_data.get("alerts", [])
+    except Exception:
+        pass
+    try:
+        from pipeline_health import compute_health
+        health_data = compute_health()
+        if health_data:
+            payload["pipeline_health"] = health_data
+    except Exception:
+        pass
+    try:
+        sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+        from indice_app.orchestrator import run_all as run_indice_app
+        indice_result = run_indice_app()
+        if indice_result and indice_result.get("geopol"):
+            payload["geopol"] = indice_result["geopol"]
+            print(f"[INDICE] score={indice_result['geopol'].get('score')} niveau={indice_result['geopol'].get('niveau')}")
+    except Exception as e:
+        print(f"[INDICE] ERREUR: {e}")
+
     live_json.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    live_js.write_text("window.__THERMO__ = " + json.dumps(payload, ensure_ascii=False) + ";\n", encoding="utf-8")
+    live_js.write_text("window.__THERMO_LIVE__ = " + json.dumps(payload, ensure_ascii=False) + ";\n", encoding="utf-8")
+
+    # Copier live.js dans cockpit pour file://
+    try:
+        import shutil
+        cockpit_dir = WS / "cockpit"
+        if cockpit_dir.exists():
+            shutil.copy2(live_js, cockpit_dir / "live.js")
+    except Exception:
+        pass
 
     # Cortana feed (volet cockpit + vocale)
     feed = {

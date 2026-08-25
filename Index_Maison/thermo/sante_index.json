@@ -1,10 +1,12 @@
 {
-  "ts": "2026-08-22T17:28+00:00",
-  "updated": "2026-08-22T17:28Z",
-  "etat": "OK",
-  "chaines_ok": "9/9",
+  "ts": "2026-08-25T21:43+00:00",
+  "updated": "2026-08-25T21:43Z",
+  "etat": "DÉGRADÉ",
+  "chaines_ok": "10/10",
   "anomalies": [],
-  "degradees": [],
+  "degradees": [
+    "BALEINES"
+  ],
   "chaines": [
     {
       "id": "baleines",
@@ -25,12 +27,12 @@
         {
           "nom": "scan file",
           "ok": true,
-          "detail": "âge 1 min"
+          "detail": "DÉGRADÉ : âge 21 min (> 15 min)"
         },
         {
           "nom": "mouvements (events)",
           "ok": true,
-          "detail": "aucun événement depuis le début (append-only, normal si marché calme)"
+          "detail": "dernier événement il y a 21 min"
         },
         {
           "nom": "→ live.json.onchain",
@@ -50,6 +52,24 @@
       ]
     },
     {
+      "id": "deriv",
+      "nom": "DÉRIVÉS",
+      "chemin": "gen_deriv_corr.py → deriv_corr.json → cockpit + Cortana",
+      "ok": true,
+      "maillons": [
+        {
+          "nom": "générateur (launchd deriv-corr)",
+          "ok": true,
+          "detail": "vivant"
+        },
+        {
+          "nom": "deriv_corr.json",
+          "ok": true,
+          "detail": "âge 14 min"
+        }
+      ]
+    },
+    {
       "id": "hulk",
       "nom": "HULK",
       "chemin": "sonde paper_diprip → CSV aspiration (murs + prix + BTC)",
@@ -63,7 +83,7 @@
         {
           "nom": "CSV aspiration",
           "ok": true,
-          "detail": "ASPIRATION_CALIB_20260821_092452.csv · âge 1 min"
+          "detail": "ASPIRATION_CALIB_20260825_155008.csv · âge 0 min"
         },
         {
           "nom": "corrélation BTC",
@@ -109,7 +129,7 @@
         {
           "nom": "cpfp_detect.json",
           "ok": true,
-          "detail": "âge 0 min"
+          "detail": "âge 10 min"
         },
         {
           "nom": "mode",
@@ -131,8 +151,8 @@
         },
         {
           "nom": "rapport VEILLEUSE.md",
-          "ok": true,
-          "detail": "STABLE"
+          "ok": false,
+          "detail": "anomalies signalées"
         },
         {
           "nom": "kill-switches",
@@ -234,11 +254,11 @@
         {
           "nom": "macro_tempete.json",
           "ok": true,
-          "detail": "âge 0 min"
+          "detail": "âge 1 min"
         },
         {
           "nom": "état courant",
-          "ok": false,
+          "ok": true,
           "detail": "normal"
         }
       ]

@@ -39,6 +39,7 @@ ANALYSES_DIR = os.path.join(THERMO_DIR, "analyses")
 HUB = "http://127.0.0.1:11435/v1/chat/completions"
 MISSION_JSON = os.path.expanduser("~/ace777-test-day1/Index_Maison/cockpit/mission.json")
 JUSTESSE = os.path.join(SCRIPTS, "justesse_cockpit.json")
+DERIV_CORR_JSON = os.path.expanduser("~/ace777-test-day1/Index_Maison/data/deriv_corr.json")
 
 # Lexique : id live.json -> (nom lisible, unité)
 LEXIQUE = {
@@ -71,6 +72,8 @@ LEXIQUE = {
     "whaleUsd": ("Flux baleines", "USD"),
     "whaleN": ("Baleines (≥50M$)", "compte"),
     "onchain": ("Flux onchain baleines (scan réel mempool — PAS le proxy aggTrades)", "synthèse"),
+    "deriv_corr": ("Corrélations 30j dérivés (prix vs OI/funding/longShort/taker) + carte liquidité", "r 30j"),
+    "liq_map": ("Carte liquidité : où sont les tas de liquidations par niveau de prix", "M$ par niveau"),
     "volQuote": ("Volume 24h", "USD"),
     "score": ("Score composite", "/100"),
     "climate": ("Climat", "label"),
@@ -87,6 +90,16 @@ CONTEXT_KEYS = ["mark", "chg24", "chg1h", "chg4h", "funding", "fundingAvg30",
                 "panierDownPct", "whaleUsd", "whaleN", "volQuote", "score", "climate",
                 "liq24Usd", "liqLongUsd", "liqShortUsd", "etfBtcM", "gexPutCall",
                 "volumeCachedTaker", "volumeCachedPerpSpot"]
+
+
+def lire_deriv_corr() -> dict:
+    """Charge data/deriv_corr.json (corrélations 30j + carte liquidité).
+    Renvoie {} si absent/illisible — jamais d'exception (les analyses continuent)."""
+    try:
+        with open(DERIV_CORR_JSON, encoding="utf-8") as f:
+            return json.load(f) or {}
+    except Exception:
+        return {}
 
 # Indices formes du cockpit : pas de cle live directe, valeur derivee
 VIRTUAL = {
@@ -177,9 +190,12 @@ def contexte_systeme() -> str:
         if pct is not None:
             lignes.append(
                 "- Ton score de justesse global : %s%% (%s/%s avis notés). "
-                "Regarde-le comme ta note : si tu es sous 60 pour cent, sois PLUS prudente "
-                "(préfère NEUTRE et des confiances basses). Si tu es au-dessus de 65 pour cent, "
-                "tu peux être plus affirmée."
+                "Ta note ne doit PAS te pousser vers NEUTRE : NEUTRE n'est pas un refuge, "
+                "il est noté MISS dès que le marché bouge de ±0,3%% (il ne gagne que sur un "
+                "marché réellement plat). Si tu es sous 60 pour cent, sois prudente sur tes "
+                "CONFIANCES (préfère faible/moyenne) mais garde ta lecture : LONG/SHORT/NEUTRE "
+                "selon les signaux, jamais par évitement. Au-dessus de 65 pour cent, tu peux "
+                "être plus affirmée."
                 % (pct, sc.get("total_hit"), sc.get("total_scored"))
             )
         par = sc.get("par_indice") or {}
@@ -472,6 +488,23 @@ def build_facts(indice):
         name, unit = LEXIQUE.get(indice, (indice, ""))
         vval = oc.get("synthèse") or oc.get("synthese") or "Données onchain non disponibles"
         vnote = "source " + str(oc.get("whaleSource", "inconnue")) + " · direction " + str(oc.get("whaleDir", "neutral"))
+    elif indice in ("deriv_corr", "liq_map"):
+        # Corrélations 30j + carte liquidité (data/deriv_corr.json, gen_deriv_corr.py)
+        dc = lire_deriv_corr()
+        base_key = indice
+        name, unit = LEXIQUE.get(indice, (indice, ""))
+        if not dc:
+            vval, vnote = "Données dérivés indisponibles", "fichier absent ou illisible"
+        elif indice == "liq_map":
+            liq = dc.get("liquidations") or {}
+            vval = liq.get("lecture") or "Carte liquidité indisponible"
+            vnote = (f"mark {dc.get('mark')} · longs dessous {liq.get('longs_below_usd')} $ · "
+                     f"shorts dessus {liq.get('shorts_above_usd')} $")
+        else:
+            corr = dc.get("correlations") or {}
+            lectures = " · ".join((v.get("lecture") or "") for v in corr.values() if v)
+            vval = lectures or "Corrélations indisponibles"
+            vnote = f"mark {dc.get('mark')} · ts {dc.get('ts')}"
     elif indice in VIRTUAL:
         base_key, name, unit = VIRTUAL[indice]
         vval, vnote = virtual_value(indice, live)

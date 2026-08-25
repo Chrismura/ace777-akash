@@ -39,6 +39,7 @@ SEUILS = {
     "live.json": 120,
     "whales_scan_latest.json": 15,
     "whales_mouvements.jsonl": 30,
+    "deriv_corr.json": 40,  # gen_deriv_corr.py, StartInterval 900 s : 15 min = marge x2.5 (API lentes)
     "cpfp_detect.json": 30,
     "mission.json": 30,
     "ada_saison_live.json": 15,
@@ -139,7 +140,18 @@ def declencher_alerte(anomalies):
                 f.unlink()
     except Exception:
         pass
-    msg = "Alerte ACE777. Santé des index. " + " ; ".join(anomalies)[:300]
+    # Message vocal CLAIR (pas de jargon technique)
+    msgs_clairs = []
+    for a in anomalies:
+        if "blocs privatis" in a.lower() or "taux_fantome" in a.lower():
+            msgs_clairs.append("Le taux de blocs privatisés est anormalement élevé. L'activité onchain est intense.")
+        elif "dead man" in a.lower() or "dms" in a.lower():
+            msgs_clairs.append("La couche de surveillance externe a un problème. Vérifie le DMS.")
+        elif "degradation" in a.lower():
+            msgs_clairs.append("Un indicateur est hors norme. Vérifie le cockpit.")
+        else:
+            msgs_clairs.append(a[:80])
+    msg = "Alerte ACE777. " + " ; ".join(msgs_clairs)[:300]
     try:
         subprocess.Popen(["python3", str(ALERTE_VOCALE), "--message", msg, "--id", str(ts)],
                          stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
@@ -267,6 +279,34 @@ def verifier_chaines():
         "id": "baleines", "nom": "BALEINES",
         "chemin": "scan → pont → live.json.onchain → Ada + Cortana",
         "ok": ok_baleines, "maillons": maillons,
+    })
+
+    # ============================================================
+    # 1bis. DÉRIVÉS — gen_deriv_corr → deriv_corr.json → cockpit + Cortana
+    #       (corrélations 30j + carte liquidité, sources gratuites Binance/OKX)
+    # ============================================================
+    maillons = []
+    dcorr_proc = proc_vivant("com.ace777.deriv-corr")
+    maillons.append(maillon("générateur (launchd deriv-corr)", dcorr_proc,
+                           "vivant" if dcorr_proc else "PAS LANCÉ"))
+    dcorr = IM / "data" / "deriv_corr.json"
+    a_dcorr = age_min(dcorr)
+    dcorr_frais = frais(dcorr, SEUILS["deriv_corr.json"])
+    dcorr_degrade = degrade(dcorr, SEUILS["deriv_corr.json"])
+    if dcorr_degrade:
+        maillons.append(maillon("deriv_corr.json", True,
+                                f"DÉGRADÉ : âge {a_dcorr:.0f} min (> {SEUILS['deriv_corr.json']} min)"))
+        chaines_degradees.append("DÉRIVÉS")
+    else:
+        maillons.append(maillon("deriv_corr.json", dcorr_frais,
+                                f"âge {a_dcorr:.0f} min" if a_dcorr is not None else "ABSENT"))
+    ok_deriv = dcorr_proc and dcorr_frais
+    if not ok_deriv:
+        anomalies.append("DÉRIVÉS : générateur ou fichier figé")
+    chaines.append({
+        "id": "deriv", "nom": "DÉRIVÉS",
+        "chemin": "gen_deriv_corr.py → deriv_corr.json → cockpit + Cortana",
+        "ok": ok_deriv, "maillons": maillons,
     })
 
     # ============================================================
@@ -507,7 +547,11 @@ def verifier_chaines():
             mt_active = False
     maillons.append(maillon("macro_tempete.json", mt_frais,
                             f"âge {a_mt:.0f} min" if a_mt is not None else "ABSENT"))
-    maillons.append(maillon("état courant", mt_active,
+    # Fix 24/08 (Buffy) : bug d'inversion — quand PAS de tempête (mt_active=False)
+    # l'état est SAIN (normal) ; la case était marquée KO à tort. La présence
+    # d'une tempête n'est pas une panne du détecteur (couvrée par mt_frais) :
+    # on affiche l'état, toujours OK tant que le fichier est frais.
+    maillons.append(maillon("état courant", True,
                             "TEMPÊTE ACTIVE" if mt_active else "normal"))
     if not mt_proc:
         anomalies.append("MACRO TEMPÊTE : détecteur PAS LANCÉ — choc exogène non surveillé (leçon 20/08)")

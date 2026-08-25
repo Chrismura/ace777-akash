@@ -342,34 +342,44 @@ def score_mode():
     if not REGIME_HIST.exists():
         print("Aucune couleur historique à noter.")
         return 0
-    par_couleur = {}
-    total_hit = total_scored = 0
+    # DÉDUPLICATION par créneau horaire (fix 23/08) : la boucle KeepAlive
+    # (plist cassé) a écrit ~10 000 lignes en 3 jours -> les doublons faussaient
+    # le score (34 % affiché, dont 99 % de copies). On garde UNE couleur par heure
+    # (la dernière du créneau = l'état le plus récent du calcul).
+    creneaux = {}
     with open(REGIME_HIST, encoding="utf-8") as f:
         for line in f:
             try:
                 rec = json.loads(line)
             except Exception:
                 continue
-            v = juger(rec, history)
-            if v.get("statut") in ("HIT ✅", "MISS ❌"):
-                c = v["couleur"]
-                total_scored += 1
-                par_couleur.setdefault(c, {"hit": 0, "n": 0})
-                par_couleur[c]["n"] += 1
-                if v["statut"] == "HIT ✅":
-                    total_hit += 1
-                    par_couleur[c]["hit"] += 1
+            ts = rec.get("ts")
+            if isinstance(ts, str) and len(ts) >= 13:
+                creneaux[ts[:13]] = rec  # dernière couleur du créneau horaire
+    par_couleur = {}
+    total_hit = total_scored = 0
+    for rec in creneaux.values():
+        v = juger(rec, history)
+        if v.get("statut") in ("HIT ✅", "MISS ❌"):
+            c = v["couleur"]
+            total_scored += 1
+            par_couleur.setdefault(c, {"hit": 0, "n": 0})
+            par_couleur[c]["n"] += 1
+            if v["statut"] == "HIT ✅":
+                total_hit += 1
+                par_couleur[c]["hit"] += 1
     for c in par_couleur:
         par_couleur[c]["taux_pct"] = round(par_couleur[c]["hit"] / par_couleur[c]["n"] * 100, 1)
     res = {"version": 1, "total_hit": total_hit, "total_scored": total_scored,
            "pct": round(total_hit / total_scored * 100, 1) if total_scored else None,
            "seuil_move_pct": SEUIL_MOVE_PCT, "par_couleur": par_couleur,
+           "creneaux_uniques": len(creneaux), "lignes_brutes": 0,
            "ts": datetime.now(timezone.utc).isoformat()}
     JUSTESSE.write_text(json.dumps(res, ensure_ascii=False, indent=2), encoding="utf-8")
-    print("=== JUSTESSE COULEUR RÉGIME ===")
+    print("=== JUSTESSE COULEUR RÉGIME (dédup par heure) ===")
     if total_scored:
-        print("GLOBAL : %d/%d = %s%% (sur %d couleurs notées)"
-              % (total_hit, total_scored, res["pct"], len(par_couleur)))
+        print("GLOBAL : %d/%d = %s%% (sur %d créneaux horaires uniques)"
+              % (total_hit, total_scored, res["pct"], len(creneaux)))
     for c in sorted(par_couleur):
         s = par_couleur[c]
         print("  %-7s : %d/%d = %s%%" % (c, s["hit"], s["n"], s["taux_pct"]))

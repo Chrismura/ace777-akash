@@ -228,7 +228,17 @@ def run_pretest() -> None:
         if tests >= MAX_TESTS_PAR_PASSAGE:
             break
         if entree.get("type") == "piste":
-            continue                       # jamais testées
+            # PISTE SIGNET (fix 23/08) : une piste est un lien X + résumé, PAS un
+            # endpoint testable — elle ne peut pas passer le pre-test. Au lieu de
+            # la sauter en silence (elle restait « piste » à jamais, jamais vue),
+            # on la marque attente_cle avec une note lisible dans l'état :
+            # nécessite une INSCRIPTION + clé API (action humaine) pour devenir
+            # une offre testable.
+            if entree.get("statut") == "piste":
+                entree["statut"] = "attente_cle"
+                entree["note"] = ("Piste signet : nécessite inscription + clé API "
+                                  "(action humaine) pour devenir une offre testable.")
+            continue
         # On retraite 'nouveau' ET 'attente_cle' (une clé peut devenir dispo)
         if entree.get("statut") not in ("nouveau", "attente_cle"):
             continue

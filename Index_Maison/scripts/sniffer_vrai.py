@@ -28,6 +28,7 @@ from recherche_web import chercher_coin, donnees_coin, chercher_web, normaliser
 INDEX = Path.home() / "ace777-test-day1" / "Index_Maison"
 DIVERGENCE = INDEX / "identity" / "prompts" / "divergence.json"
 LIVE = INDEX / "thermo" / "live.json"
+DERIV_CORR = INDEX / "data" / "deriv_corr.json"
 HUB = "http://127.0.0.1:11435/v1/chat/completions"
 
 
@@ -47,6 +48,35 @@ def brut_onchain():
         }
     except Exception as e:
         return {"erreur": str(e)}
+
+
+def brut_deriv():
+    """Dérivés : corrélations 30j + carte liquidité (data/deriv_corr.json,
+    gen_deriv_corr.py — sources gratuites Binance/OKX, 0 appel hub)."""
+    try:
+        d = json.loads(DERIV_CORR.read_text(encoding="utf-8"))
+        liq = d.get("liquidations") or {}
+        return {
+            "mark": d.get("mark"),
+            "corr_30j": {k: (v or {}).get("r") for k, v in (d.get("correlations") or {}).items()},
+            "liquidations": {
+                "longs_dessous_usd": liq.get("longs_below_usd"),
+                "shorts_dessus_usd": liq.get("shorts_above_usd"),
+                "lecture": liq.get("lecture"),
+                "niveaux": liq.get("clusters_2000usd"),
+            },
+            "ts": d.get("ts"),
+        }
+    except Exception as e:
+        return {"erreur": str(e)[:80]}
+
+
+def brut_chaine(q):
+    """La BONNE source primaire par actif."""
+    chain = CHAINE.get(normaliser(q).lower())
+    if chain == "bitcoin":
+        return {"type": "mempool_btc", "poussiere": brut_onchain(),
+                "deriv": brut_deriv()}
 
 
 # Registre de la BONNE source par actif (règle « toujours chercher la source »).

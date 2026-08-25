@@ -19,6 +19,7 @@ import json
 import tempfile
 from pathlib import Path
 from datetime import datetime, timezone, timedelta
+from atomic_write import SafeLiveWriter
 
 INDEX_MAISON = Path(__file__).resolve().parent.parent
 
@@ -53,20 +54,9 @@ def charger_json(chemin, defaut):
 
 
 def ecriture_atomique(chemin_cible, donnees):
+    """Écriture atomique via SafeLiveWriter (fcntl + tmp + os.replace)."""
     verifier_kill_switch()
-    chemin_cible.parent.mkdir(parents=True, exist_ok=True)
-    fd, chemin_tmp = tempfile.mkstemp(dir=str(chemin_cible.parent), prefix="tmp_ace_", text=True)
-    try:
-        with os.fdopen(fd, "w", encoding="utf-8") as f:
-            json.dump(donnees, f, ensure_ascii=False, indent=2)
-        os.replace(chemin_tmp, chemin_cible)
-    except Exception:
-        if os.path.exists(chemin_tmp):
-            try:
-                os.remove(chemin_tmp)
-            except Exception:
-                pass
-        raise
+    SafeLiveWriter(str(chemin_cible)).write(donnees)
 
 
 def lire_etiquettes(whales_meta):
@@ -346,6 +336,20 @@ def main():
     live_data = charger_json(THERMO_LIVE, {})
     live_data["onchain"] = section_onchain
     ecriture_atomique(THERMO_LIVE, live_data)
+
+    # === STORE TEMPOREL LMDB (Étape 3) ===
+    try:
+        from temporal_store import TemporalStore
+        with TemporalStore() as _ts:
+            _ts.write("hot", "cpfp", {"zscore": cpfp_z, "dust": dust_s})
+            _ts.write("cold", "whales", {
+                "dir": whale_dir, "blocs": whale_blocs_n,
+                "btc": whale_blocs_btc, "frag": whale_frag_n,
+            })
+            _ts.write("cold", "indice_onchain", {"value": indice_onchain})
+            _ts.heartbeat("pont")
+    except Exception:
+        pass  # fail-open
 
     print(f"[OK] Pont onchain — blocs={whale_blocs_n} ({whale_blocs_btc} BTC) "
           f"frag={whale_frag_n} cumul24h={cumul_24h:.0f} BTC dir={whale_dir} "

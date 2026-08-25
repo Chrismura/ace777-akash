@@ -160,12 +160,23 @@ def already_done_today():
     return False
 
 
+# Modèles PUTER connus comme PAYANTS (abonnement requis) : l'évaluation les
+# testait en priorité (rank PUTER=0) et obtenait 402 en boucle, sans jamais
+# atteindre les :free. Fix 23/08 : exclus d'office des candidats.
+MODELES_PAYANTS_CONNUS = {
+    'gpt-5.4', 'gpt-4o', 'claude-sonnet-4-5', 'x-ai/grok-3-mini-fast',
+    'deepseek/deepseek-v4-flash', 'deepseek-v4-flash', 'Agents-A1',
+    'Devstral-2-123B-Instruct-2512-int4-AutoRound', 'Ornith-1.0-35B-FP8',
+    'Qwen3.6-35B-A3B-FP8', 'Qwen3.6-35B-A3B-fp8-no-thinking', 'Qwen3.8-27B-FP8',
+    'muse-glimmer', 'nemotron-35-lightning',
+}
+
+
 def candidates_from_veille():
-    """Candidates testables = modeles :free OpenRouter + NVIDIA + InferX listes dans le rapport."""
+    """Candidates testables = modeles GRATUITS (:free) listes dans le rapport.
+    Fix 23/08 : exclut les modeles PAYANTS connus (puter gpt-5.4 / claude-sonnet-4-5 /
+    grok-3-mini-fast -> 402 a chaque run) et exige le suffixe :free pour OpenRouter."""
     out = []
-    or_key = env_key('OPENROUTER_API_KEY')
-    nkey = env_key('NVIDIA_NIM_API_KEY')
-    ikey = env_key('INFERX_API_KEY')
     rp = os.path.join(INDEX, 'VEILLE_HUB_%s.md' % date.today().isoformat())
     if not os.path.exists(rp):
         print('[INFO] pas de rapport VEILLE_HUB du jour')
@@ -181,7 +192,11 @@ def candidates_from_veille():
         item = line[2:].strip()
         if 'ERR:' in item:
             continue
+        if item in MODELES_PAYANTS_CONNUS:
+            continue  # payant -> jamais testable, ne pas brûler d'essais
         if section == 'openrouter (:free)':
+            if ':free' not in item:
+                continue  # seuls les :free sont testables gratuitement
             out.append({'model': item, 'base_url': OPENROUTER,
                         'api_key_env': 'OPENROUTER_API_KEY', 'role': 'gros cerveau'})
         elif section == 'nvidia':
@@ -191,6 +206,9 @@ def candidates_from_veille():
             out.append({'model': item, 'base_url': 'https://model.inferx.net/endpoints/v1',
                         'api_key_env': 'INFERX_API_KEY', 'role': 'gros cerveau'})
         elif section and 'puter' in section:
+            # Puter : uniquement les modeles explicitement :free (les autres 402)
+            if ':free' not in item:
+                continue
             out.append({'model': item, 'base_url': 'https://api.puter.com/puterai/openai/v1',
                         'api_key_env': 'PUTER_API_KEY', 'role': 'gros cerveau'})
     return out

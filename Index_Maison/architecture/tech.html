@@ -490,8 +490,72 @@ ANTI-PATTERNS REJECTED: …</pre>
     <p style="margin-top:8px;"><strong>Demande :</strong> évaluer la Δ 12 août avec les yeux neufs, signaler toute contradiction entre cette spec et les fichiers, proposer les 3 corrections GO-sized les plus urgentes.</p>
   </div>
 
+  <h2>11 · CARTE DES 56 AGENTS + LEURS BOUCLES <span class="tag ok">MAJ 23/08</span></h2>
+  <p style="color:var(--muted);font-size:11px;">Scan réel <code>~/Library/LaunchAgents/com.ace777.*.plist</code> · 57 chargés (dont dialogue-gemini 23/08).<br />Boucle : 🔁 [Ns] = toutes les N s · ☀ HH:MM = 1×/jour · 🔴 = démon permanent (KeepAlive + boucle interne).</p>
+  <table>
+    <tr><th>Famille</th><th>Agent (plist)</th><th>Script</th><th>Boucle</th><th>Rôle</th></tr>
+    <tr><td rowspan="7"><strong>A · CŒUR</strong><br/>(démons vivants)</td><td><code>prise-ia</code></td><td><code>hub_prise_ia.py</code></td><td>🔴 alive</td><td>LE HUB IA : route toutes les IA, budgets, bascules</td></tr>
+    <tr><td><code>vigie-live</code></td><td><code>vigie_live.py</code></td><td>🔴 alive</td><td>Marché en direct (10 s) · alarme si secousse ≥ 1 %</td></tr>
+    <tr><td><code>cockpit-http</code></td><td><code>cockpit_http_server.py</code></td><td>🔴 alive</td><td>Serveur HTTP cockpit</td></tr>
+    <tr><td><code>cockpit-pont</code></td><td><code>cortana_cockpit_bridge.py</code></td><td>🔴 alive</td><td>Pont cockpit ↔ système</td></tr>
+    <tr><td><code>llm-gate-hub</code></td><td><code>llm_gate_hub_bridge.py</code></td><td>🔴 alive</td><td>Point d'entrée LLM → hub</td></tr>
+    <tr><td><code>superviseur-process</code></td><td><code>superviseur.sh</code></td><td>🔴 alive + 1 min</td><td>Niveau 1 : relance process vitaux</td></tr>
+    <tr><td><code>superviseur-core</code></td><td><code>superviseur_core.sh</code></td><td>🔴 alive + 15 min</td><td>Niveau 1 bis : relance plists cœur</td></tr>
+    <tr><td rowspan="9"><strong>B · CAPTEURS</strong><br/>marché</td><td><code>bloc-privatise</code></td><td><code>detecter_bloc_privatise.py</code></td><td>🔁 [120 s]</td><td><strong>LA PÉPITE</strong> : tx jamais vues dans la mempool = OTC baleine</td></tr>
+    <tr><td><code>cpfp</code></td><td><code>detecter_cpfp.py</code></td><td>🔁 [600 s]</td><td>La poussière : CPFP/dust → 3 cartes indice</td></tr>
+    <tr><td><code>whales</code></td><td><code>surveiller_whales.py</code></td><td>🔁 [300 s]</td><td>Baleines (4 adresses) → whaleDir</td></tr>
+    <tr><td><code>pont-onchain</code></td><td><code>pont_onchain.py</code></td><td>🔁 [300 s]</td><td>Ponte onchain → live.json.onchain (indiceOnchain, whaleDir, dust)</td></tr>
+    <tr><td><code>fees</code></td><td><code>fees_platforme.py</code></td><td>🔁 [300 s]</td><td>Frais plateformes → live.json</td></tr>
+    <tr><td><code>macro-tempete</code></td><td><code>detecteur_macro_tempete.py</code></td><td>🔁 [60 s]</td><td>Choc exogène (Fed/Trésor) → bloque anti-choc</td></tr>
+    <tr><td><code>hulk-watchdog</code></td><td><code>watchdog_hulk_ghost.sh</code></td><td>🔁 [120 s]</td><td>Gardien du bot HULK (MEXC)</td></tr>
+    <tr><td><code>cortana.urgent</code></td><td><code>cortana_urgent_poll.sh</code></td><td>🔁 [10 s]</td><td>Poll alertes urgentes → vocal/feed</td></tr>
+    <tr><td><code>hub-cockpit-feed</code></td><td><code>hub_cockpit_feed.py</code></td><td>🔁 [30 s]</td><td>Pousse événements hub → cockpit</td></tr>
+    <tr><td rowspan="12"><strong>C · MÉTA-ÉTAT</strong><br/>santé + garde-fous</td></tr>
+    <tr><td><code>sante-index</code></td><td><code>sante_index.py</code></td><td>🔁 [300 s]</td><td><strong>LA SANTÉ GLOBALE</strong> : 9 chaînes → sante_index.json + ALERTE</td></tr>
+    <tr><td><code>veille-degradation</code></td><td><code>veille_degradation.py</code></td><td>🔁 [60 s]</td><td><strong>MÉTA-ANALYSE</strong> : plists 14/14 + heartbeats + indicateurs + pattern boucle (fix 23/08)</td></tr>
+    <tr><td><code>dms-veille</code></td><td><code>dms_veille.py</code></td><td>🔁 [60 s]</td><td><strong>DEAD MAN'S SWITCH</strong> : qui surveille la surveillante ?</td></tr>
+    <tr><td><code>watchdog</code></td><td><code>watchdog_superviseur.sh</code></td><td>🔁 [120 s]</td><td>Gardien du superviseur lui-même</td></tr>
+    <tr><td><code>heartbeats</code></td><td><code>heartbeats.py</code></td><td>🔁 [60 s]</td><td>Écrit les heartbeats (vie) des services</td></tr>
+    <tr><td><code>rappels</code></td><td><code>rappels.py</code></td><td>🔁 [60 s]</td><td>Rappels vocaux/notifs programmés</td></tr>
+    <tr><td><code>veilleuse</code></td><td><code>veilleuse_synapses.py</code></td><td>🔁 [600 s]</td><td>Intégrité md5 des scripts surveillés + kill-switches</td></tr>
+    <tr><td><code>autopilote</code></td><td><code>autopilote.sh</code></td><td>🔁 [900 s]</td><td>Démarreur ACE777 (relance services manquants)</td></tr>
+    <tr><td><code>backup-check</code></td><td><code>backup_light_check.sh</code></td><td>🔁 [1800 s]</td><td>Vérifie les backups / points de restauration</td></tr>
+    <tr><td><code>state-generator</code></td><td><code>system_state_generator.py</code></td><td>🔁 [120 s]</td><td>Génère l'état système global (pastilles cockpit)</td></tr>
+    <tr><td><code>veille-hub</code></td><td><code>veille_hub.py</code></td><td>☀ 07:00</td><td>Checkup quotidien du hub (providers, budgets)</td></tr>
+    <tr><td rowspan="14"><strong>D · ANALYSES IA</strong><br/>décision + professeur</td></tr>
+    <tr><td><code>sniffer-matin</code></td><td><code>sniffer_vrai.py</code></td><td>☀ 08:00</td><td>Sniff matinal (onchain + F&G)</td></tr>
+    <tr><td><code>sniffer-ny</code></td><td><code>sniffer_vrai.py</code></td><td>☀ 15:50</td><td>Sniff après-midi (NY)</td></tr>
+    <tr><td><code>couleur-regime</code></td><td><code>couleur_regime.py</code></td><td>☀ 08:05 + 15:55</td><td><strong>CŒUR DÉCISIONNEL</strong> : onchain × narratif × IA × thermo → couleur</td></tr>
+    <tr><td><code>couleur-regime-score</code></td><td><code>couleur_regime.py</code></td><td>☀ 16:30</td><td>Score HIT/MISS de la couleur → justesse</td></tr>
+    <tr><td><code>analyste-cadence</code></td><td><code>analyste_cadence.sh</code></td><td>☀ 08:30 + 20:30</td><td>Production des analyses Cortana</td></tr>
+    <tr><td><code>discipline-quotidienne</code></td><td><code>discipline_quotidienne.py</code></td><td>☀ 07:15</td><td>Le professeur : re-note + alerte boucle affamée</td></tr>
+    <tr><td><code>scoreur-registre</code></td><td><code>scoreur_registre_mecanique.py</code></td><td>☀ 07:30</td><td>Scoreur du registre mécanique</td></tr>
+    <tr><td><code>eval-offres</code></td><td><code>eval_offres.py</code></td><td>☀ 07:05</td><td>Éval comparative auto des IA gratuites</td></tr>
+    <tr><td><code>roulement-ia</code></td><td><code>roulement_ia.py</code></td><td>☀ 07:08</td><td>Roulement auto des IA</td></tr>
+    <tr><td><code>queueoffres</code></td><td><code>queue_offres.py</code></td><td>☀ 07:02/08:15/14:00/20:00</td><td>File d'attente des offres IA gratuites</td></tr>
+    <tr><td><code>catalogue</code></td><td><code>catalog_providers.py</code></td><td>☀ 10:00</td><td>Génère CATALOGUE_PROVIDERS.md</td></tr>
+    <tr><td><code>observatoire</code></td><td><code>observatoire.py</code></td><td>☀ 11:00</td><td>Observation 48 h + rollback auto des IA</td></tr>
+    <tr><td><code>routeur-auto</code></td><td><code>routeur_auto.py</code></td><td>🔁 [6 h]</td><td>Routeur intelligent : meilleur LLM (score)</td></tr>
+    <tr><td rowspan="7"><strong>E · VEILLE</strong><br/>contenu + projet</td></tr>
+    <tr><td><code>veille-yt</code></td><td><code>watch_chaines.py</code></td><td>☀ 09:15 + 18:15</td><td>Veille YouTube (chaines)</td></tr>
+    <tr><td><code>veilleuse-chantiers</code></td><td><code>veilleuse_chantiers.py</code></td><td>☀ 09:00</td><td>Veille chantiers/alertes projet</td></tr>
+    <tr><td><code>veilleuse-confrontation</code></td><td><code>veilleuse_confrontation_ace_hulk.sh</code></td><td>🔁 [6 h]</td><td>Confrontation ACE vs HULK</td></tr>
+    <tr><td><code>veilleuse-sizing-monte-carlo</code></td><td><code>veilleuse_sizing_monte_carlo.sh</code></td><td>🔁 [6 h]</td><td>Sizing Monte-Carlo (risques)</td></tr>
+    <tr><td><code>graph-cerveau</code></td><td><code>rebuild_graph.sh</code></td><td>☀ 11:30</td><td>Reconstruit le graphe du cerveau (Obsidian)</td></tr>
+    <tr><td><code>archi-vivante</code></td><td><code>archi_vivante.py</code></td><td>☀ 07:00</td><td>Réactualise l'architecture vivante</td></tr>
+    <tr><td rowspan="4"><strong>F · VORTEX</strong><br/>le moteur (testnet)</td></tr>
+    <tr><td><code>run-setupA-4h</code></td><td><code>GO_VORTEX_V2.sh --duration 04:00:00</code></td><td>🔴 alive</td><td>Run 4 h : duo BETA/ALPHA (SCOUT/HUNTER)</td></tr>
+    <tr><td><code>run-vortex-96h</code></td><td><code>GO_VORTEX_V2.sh 96:00:00</code></td><td>🔴 alive</td><td>Run 96 h : moteur long (champion certifié)</td></tr>
+    <tr><td><code>run72h</code></td><td><code>GO_VORTEX_V2.sh 72:00:00</code></td><td>🔴 alive</td><td>Run 72 h : moteur (leçon 6 : verrou md5)</td></tr>
+    <tr><td rowspan="4"><strong>G · SYNC</strong><br/>+ divers</td></tr>
+    <tr><td><code>gitpush-vault</code></td><td><code>git_push_vault.sh</code></td><td>🔁 [3 h]</td><td>Commit/push du vault Obsidian</td></tr>
+    <tr><td><code>gitpush</code></td><td><code>git_push_auto.sh</code></td><td>🔁 [3 h]</td><td>Push du workspace</td></tr>
+    <tr><td><code>dialogue-gemini</code> <span class="tag ok">NEW</span></td><td><code>dialogue_gemini_direct.py</code></td><td>🔁 1× au boot</td><td>Dialogue protocole incassable avec Gemini (attend quota, 3 tours, historique)</td></tr>
+  </table>
+  <p style="margin-top:10px;"><strong>⚠ POINT REBOOT</strong> : les 3 plists vortex (F) se relancent TOUTES au boot → 3 moteurs qui purgent le même <code>duo_state.json</code> → risque de doubles positions. À trancher : n'en garder qu'un actif. <code>GO_VORTEX_V2.sh</code> refuse de partir si les 5 garde-fous (sante, veille-degradation, dms, superviseur-core, vigie) ne sont pas déjà chargés.</p>
+
   <footer>
-    <span>Twin: ARCHITECTURE_TECH.md · Visual: index.html · Review: Evaluations/15</span>
+    <span>Twin: ARCHITECTURE_TECH.md · Visual: index.html · Review: Evaluations/15 · Carte agents: §11</span>
     <span><a href="index.html">← Vue humaine</a></span>
   </footer>
 </div>

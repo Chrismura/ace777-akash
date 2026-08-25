@@ -452,10 +452,32 @@ def load_hulk():
                         seed_qty[row["pair"]] = float(row["qty"])
                     except Exception:
                         pass
-    statique_pos = 0.0
+    # Synthèse (24/08, fix resume) : après une reprise --resume, le CSV du run
+    # n'a PAS de lignes SEED (positions restaurées en mémoire sans re-seed) →
+    # seed_qty vide → « bags de départ » + statique vides à l'écran. On
+    # reconstruit la quantité d'origine depuis l'état : qty_init (quantité de
+    # départ AVANT ventes partielles), sinon stake/entry.
     _s_all = json.loads(state.read_text(encoding="utf-8")) if state and state.exists() else {}
     sc_all = _s_all.get("scores") or {}
     pos_all = _s_all.get("positions") or {}
+    for pair, p in pos_all.items():
+        if pair in seed_qty:
+            continue
+        qi = p.get("qty_init")
+        if qi is not None:
+            try:
+                seed_qty[pair] = float(qi)
+                continue
+            except Exception:
+                pass
+        try:
+            stake = float(p.get("stake") or 0.0)
+            entry = float(p.get("entry") or 0.0)
+            if stake > 0 and entry > 0:
+                seed_qty[pair] = stake / entry
+        except Exception:
+            pass
+    statique_pos = 0.0
     for pair, sq in seed_qty.items():
         mark = fnum((sc_all.get(pair) or {}).get("price"), 6)
         if mark is None:

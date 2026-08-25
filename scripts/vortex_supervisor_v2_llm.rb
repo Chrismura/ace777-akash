@@ -184,10 +184,77 @@ macro_only = ENV.fetch("SWARM_LLM_MACRO_ONLY", "TRUE") == "TRUE"
 rule_chop = rule["chop_score"].to_f
 default_cohesion = clamp(1.0 - rule_chop, 0.3, 0.95)
 
+# === JUGE ÉCLAIRÉ (24/08, SPEC_JUGE_ECLAIRE_20260824) : verrou anti-doublon + appel sur événement ===
+# ATTENTION (25/08, découvert au test) : `rule_regime_json` appelle en interne
+# `vortex_regime_compute.rb` qui RÉÉCRIT vortex_control.json (le fichier lu par le
+# moteur) avant notre lecture → on ne peut pas s'en servir comme mémoire de la
+# dernière décision LLM (toujours frais, sans swarm_cohesion). On mémorise donc la
+# décision dans un fichier DÉDIÉ jamais écrasé par le compute : vortex_llm_last.json.
+# - Verrou fichier (flock): si un autre superviseur tient le verrou, PAS d'appel
+#   hub (on réutilise la dernière décision écrite) — plus jamais de doublon qui
+#   martèle le hub quand plusieurs moteurs tournent (cas du 24/08 : 4 426 appels).
+# - Événementiel : pas d'appel réseau si la décision existante est fraîche (< 30 s)
+#   ET que chop_score n'a pas bougé (>= 0.06) ni le mode changé — le moteur relit
+#   la même décision à 0 ms. Le format écrit dans vortex_control.json reste le même (v2).
+llm_last_path = ENV.fetch("VORTEX_LLM_LAST_FILE", "runs/vortex_llm_last.json")
+precedent = nil
+begin
+  precedent = JSON.parse(File.read(llm_last_path)) if File.file?(llm_last_path)
+rescue StandardError
+  precedent = nil
+end
+
+call_llm = true
+if precedent && precedent["ts"]
+  begin
+    age = Time.now.to_f - Time.parse(precedent["ts"].to_s).to_f
+    delta_chop = (precedent["chop_score"].to_f - rule["chop_score"].to_f).abs
+    meme_mode = (precedent["mode"] || "").to_s.upcase == mode
+    stable = age <= (ENV["VORTEX_LLM_MAX_AGE_S"] || "30").to_f && delta_chop < 0.06 && meme_mode
+    call_llm = !stable
+  rescue StandardError
+    call_llm = true
+  end
+end
+
+lock_fh = nil
+begin
+  lock_path_var = ENV.fetch("VORTEX_LLM_LOCK", "runs/vortex_llm.lock")
+  lock_fh = File.open(lock_path_var, File::RDWR | File::CREAT, 0o644)
+  lock_prend = lock_fh.flock(File::LOCK_EX | File::LOCK_NB)
+  # flock retourne 0 (succes) ou false (LOCK_NB) — normaliser en booleen pour
+  # que call_llm reste true/false (sinon il devient 0, truthy mais trompeur).
+  call_llm &&= (lock_prend != false)
+rescue StandardError
+  # jamais bloquant : si le verrou est impossible, on garde le comportement historique
+  call_llm = true
+  lock_fh = nil
+end
+if ENV["JUGE_DEBUG"] == "1"
+  begin
+    age_db = precedent && precedent["ts"] ? (Time.now.to_f - Time.parse(precedent["ts"].to_s).to_f).round(1) : "n/a"
+  rescue StandardError => e_db
+    age_db = "err:#{e_db.class}"
+  end
+  STDERR.puts "[debug-juge] call_llm=#{call_llm} last=#{llm_last_path} ts=#{precedent ? precedent["ts"].to_s : "nil"} age=#{age_db} coh=#{precedent ? precedent["swarm_cohesion"].to_s : "nil"}"
+end
+
 if macro_only
-  llm, llm_elapsed, llm_tag = ollama_cohesion(
-    mode, ctx, llm_budget_sec, ollama_url, model, max_predict, default_cohesion, ollama_threads
-  )
+  if call_llm
+    llm, llm_elapsed, llm_tag = ollama_cohesion(
+      mode, ctx, llm_budget_sec, ollama_url, model, max_predict, default_cohesion, ollama_threads
+    )
+  else
+    # Événementiel : aucune consultation réseau, on réutilise la décision écrite.
+    llm = nil
+    llm_elapsed = 0.0
+    llm_tag = "reuse"
+    if precedent && precedent["swarm_cohesion"]
+      llm = { "swarm_cohesion" => precedent["swarm_cohesion"],
+               "mode" => precedent["mode"] || mode,
+               "justification" => "reuse_fraiche" }
+    end
+  end
   emergency_override = llm.nil? || llm_elapsed > llm_budget_sec
   cohesion = llm ? llm["swarm_cohesion"] : default_cohesion
   mode = llm ? llm["mode"] : mode
@@ -201,9 +268,20 @@ if macro_only
   end
   metrics = PROFILES[mode].merge("swarm_cohesion" => cohesion)
 else
-  llm, llm_elapsed, llm_tag = ollama_radar(
-    mode, base, ctx, llm_budget_sec, ollama_url, model, max_predict, ollama_threads
-  )
+  if call_llm
+    llm, llm_elapsed, llm_tag = ollama_radar(
+      mode, base, ctx, llm_budget_sec, ollama_url, model, max_predict, ollama_threads
+    )
+  else
+    llm = nil
+    llm_elapsed = 0.0
+    llm_tag = "reuse"
+    if precedent && precedent["swarm_cohesion"]
+      llm = { "swarm_cohesion" => precedent["swarm_cohesion"],
+               "mode" => precedent["mode"] || mode,
+               "justification" => "reuse_fraiche" }
+    end
+  end
   emergency_override = llm.nil? || llm_elapsed > llm_budget_sec
   justification = "rule_#{mode.downcase}"
   metrics = base
@@ -231,6 +309,22 @@ out = apply_clamps(metrics).merge(
   "emergency_override" => emergency_override,
   "llm_elapsed_sec" => llm_elapsed.round(3)
 )
+
+lock_fh.close if lock_fh  # libère le verrou (flock) après l'écriture
+
+# Mémoire de la décision LLM (pour l'événementiel) : fichier dédié, jamais écrasé
+# par le compute. Le moteur, lui, lit toujours vortex_control.json (contrat v2).
+begin
+  llm_tmp = "#{llm_last_path}.tmp"
+  File.write(llm_tmp, JSON.generate({
+    "mode" => mode, "chop_score" => rule["chop_score"],
+    "swarm_cohesion" => cohesion, "justification" => justification,
+    "ts" => Time.now.utc.strftime("%Y-%m-%dT%H:%M:%SZ")
+  }))
+  File.rename(llm_tmp, llm_last_path)
+rescue StandardError
+  # jamais fatal : le long last est une optimisation, pas un contrat
+end
 
 tmp = "#{control_path}.tmp"
 File.write(tmp, JSON.pretty_generate(out))

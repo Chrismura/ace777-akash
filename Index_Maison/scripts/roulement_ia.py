@@ -90,10 +90,10 @@ def call_chat(base_url, model, api_key, timeout=25):
 
 
 def sante_provider(p):
-    """Teste UN provider (lecture seule). Retourne (ok, erreur)."""
+    """Teste UN provider (lecture seule). Retourne (ok, texte, erreur) — 3 valeurs."""
     key = env_key(p.get('api_key_env', ''))
     if not key:
-        return False, 'pas de cle'
+        return False, '', 'pas de cle'
     return call_chat(p.get('base_url', ''), p.get('model', ''), key)
 
 
@@ -142,7 +142,7 @@ def main():
             continue
         last_ok = p.get('last_ok_ts') or 0
         age_s = now - last_ok if last_ok else None
-        ok, err = sante_provider(p)
+        ok, txt, err = sante_provider(p)  # FIX 23/08 : call_chat renvoie (ok, texte, err) — 3 valeurs
         if ok:
             p['last_ok_ts'] = now
             p['last_err'] = ''

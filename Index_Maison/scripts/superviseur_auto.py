@@ -53,15 +53,19 @@ HUB_URL = "http://127.0.0.1:11435/v1/chat/completions"
 HUB_HEALTH_URL = "http://127.0.0.1:11435/health"
 OLLAMA_TAGS_URL = "http://localhost:11434/api/tags"
 
-# Les 10 jobs launchd attendus (labels complets, vérifiés 10/08)
+# Les jobs launchd attendus (labels complets, vérifiés 10/08)
+# MAJ 23/08 : cortana.horaire + brief-matin retirés — désactivés VOLONTAIREMENT
+# le 19/08 (briefs = bruit, décision Christophe documentée dans
+# ~/Library/LaunchAgents/desactivees_briefs/README.md). Ils ne doivent plus
+# déclencher d'escalade "job invalide" à chaque cycle.
 # MAJ fusion : qwen-btc/qwen-elabore (pause Qwen) + pulse/vigie (absorbés par
 # superviseur-core) retirés ; superviseur-core ajouté (absorbe heartbeat,
 # pulse, vigie, quotas, rotation).
 JOBS_ATTENDUS = [
-    "com.ace777.cockpit-http", "com.ace777.cortana.horaire",
+    "com.ace777.cockpit-http",
     "com.ace777.prise-ia", "com.ace777.analyste-cadence",
     "com.ace777.cockpit-pont", "com.ace777.journal-soir", "com.ace777.gitpush",
-    "com.ace777.cortana.urgent", "com.ace777.brief-matin",
+    "com.ace777.cortana.urgent",
     "com.ace777.superviseur-core",
 ]
 
