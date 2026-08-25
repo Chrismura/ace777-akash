@@ -1083,6 +1083,26 @@ def main() -> int:
     except Exception as e:
         print(f"[INDICE] ERREUR: {e}")
 
+    # === LIGNES SUPPLÉMENTAIRES POUR LA LECTURE (SDI, RBF, Health, GEOPOL, Poussière) ===
+    try:
+        sdi_d = payload.get("sdi", {})
+        if sdi_d:
+            lecture.append(f"SDI {sdi_d.get('sdi', '—')} · dormant {sdi_d.get('dormant_pct', '—')}% · fees {sdi_d.get('fee_fastest_sat', '—')} sat/vB.")
+        rbf_d = payload.get("rbf", {})
+        if rbf_d:
+            lecture.append(f"RBF {rbf_d.get('rbf_score', '—')} · ratio {rbf_d.get('rbf_ratio', '—')} · {rbf_d.get('n_txs', '—')} tx analysées.")
+        ph = payload.get("pipeline_health", {})
+        if ph:
+            lecture.append(f"Pipeline Health {ph.get('global_score', '—')} ({ph.get('mode_label', '—')}) · {ph.get('n_issues', 0)} issue(s).")
+        geo = payload.get("geopol", {})
+        if geo:
+            lecture.append(f"GEOPOL {geo.get('emoji', '')} {geo.get('score', '—')} ({geo.get('niveau', '—')}) · {geo.get('nb_modules', 0)}/{geo.get('nb_modules', 5)} modules · ML:{geo.get('ml', {}).get('label_nom', '—')}.")
+        oc = payload.get("onchain", {})
+        if oc and oc.get("indiceOnchain") is not None:
+            lecture.append(f"Poussière onchain {oc.get('indiceOnchain', '—')}/100 ({oc.get('indiceOnchainLabel', '—')}) · blocs privatisés {oc.get('blocPrivatiseTauxFantome', '—')}%.")
+    except Exception:
+        pass
+
     live_json.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     live_js.write_text("window.__THERMO_LIVE__ = " + json.dumps(payload, ensure_ascii=False) + ";\n", encoding="utf-8")
 

@@ -1902,6 +1902,12 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
         ['ETF ETH', etf.eth!=null? etf.eth+' M$':'n/d free', 'etfEthM'],
         ['ETF XRP', etf.xrp!=null? etf.xrp+' M$':'n/d free', 'etfXrpM'],
         ['RUN', M.run||'—', ''],
+        ['POUSSIÈRE', T.onchain?T.onchain.indiceOnchain:th.onchain?.indiceOnchain, 'poussiere'],
+        ['SDI', T.sdi?T.sdi.sdi:th.sdi?.sdi, 'sdi'],
+        ['RBF', T.rbf?T.rbf.rbf_score:th.rbf?.rbf_score, 'rbf'],
+        ['HEALTH', T.pipeline_health?T.pipeline_health.global_score:th.pipeline_health?.global_score, 'health'],
+        ['GEOPOL', T.geopol?(T.geopol.emoji+' '+T.geopol.score):((th.geopol||{}).emoji||'')+' '+((th.geopol||{}).score||'—'), 'geopol'],
+        ['GAIN RÉEL', T.ace?('$'+Number(T.ace.sessionPnl).toFixed(2)):((th.ace||{}).sessionPnl!=null?'$'+Number((th.ace||{}).sessionPnl).toFixed(2):'—'), 'gain'],
       ];
       grid.innerHTML=cells.map(([n,v,key])=>{
         const nd=String(v??'').includes('n/d');
@@ -2670,6 +2676,12 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
     radar: {t:'RADAR FROID', d:'Radar visuel du climat : chaque point = une position ou un signal détecté. Le balayage tourne en continu ; la distance au centre = « intensité ». Plus c’est dense et proche du centre, plus le marché est actif.', s:'Visualisation locale — pas une donnée externe'},
     bassine: {t:'BASSINE / MUR', d:'Niveau du « bain » : le score thermo global (0 à 100). Haut = climat calme, bas = climat stressé. C’est le premier coup d’œil à donner : combien d’eau il y a avant de plonger.', s:'Calcul local : funding + L/S + variation prix'},
     verre: {t:'VERRE D’EAU', d:'Chaleur du portefeuille : volume d’activité récente (fills, PnL session, alertes rouges). Un verre plein = beaucoup de mouvement et de stress ; vide = calme plat.', s:'Lecture seule des logs ACE'},
+    poussiere: {t:'POUSSI\u00c8RE / INDICE ONCHAIN', d:'Indice composite onchain : m\u00e9lange les blocs privatis\u00e9s (tx cach\u00e9es), la poussi\u00e8re (<4.5 sat/vB) et le z-score des frais CPFP. Score \u00e9lev\u00e9 = activit\u00e9 suspecte (baleines en mode furtif, pr\u00e9paration de mouvement). Score faible = onchain calme.', s:'Scans mempool en temps r\u00e9el -- sources : blockchain.info + mempool.space'},
+    sdi: {t:'SDI \u2014 Stock-to-Flow Divergence Index', d:'Mesure l\u00e9cart entre le prix actuel et le mod\u00e8le Stock-to-Flow. SDI faible (<0.1) = le march\u00e9 suit le mod\u00e8le (normal). SD \u00c9lev\u00e9 (>0.3) = le prix d\u00e9vie fortement (sur/sous-\u00e9valuation possible).', s:'Calcul local : fee + dormant coins + alternative.me proxy'},
+    rbf: {t:'RBF \u2014 Replace-By-Fee Score', d:'Pourcentage de transactions qui utilisent le m\u00e9canisme RBF (remplacement de frais). Score \u00e9lev\u00e9 = les utilisateurs remplacent leurs tx en urgence = congestions ou manipulations possibles.', s:'Scans mempool \u2014 ratio tx RBF / tx totales'},
+    health: {t:'PIPELINE HEALTH', d:'Sant\u00e9 globale des sources de donn\u00e9es. Score 1.0 = toutes les sources r\u00e9pondent. Score <0.8 = une source HS (d\u00e9grade). En cas de d\u00e9grade, les donn\u00e9es des sources en panne sont marqu\u00e9es "n/d" dans le cockpit.', s:'V\u00e9rification ping automatique \u00e0 chaque cycle thermo'},
+    geopol: {t:'SCORE G\u00c9OPOLITIQUE', d:'Score composite de 5 modules non-mainstream : Pentagon Pizza Index, Jets ADS-B, P\u00e9trole, D\u00e9fense, News Sentiment. Le tout classifi\u00e9 par un RandomForest. Score <0.3 = calme, >0.6 = alerte.', s:'indice_app/ \u2014 5 modules + ML RandomForest sklearn'},
+    gain: {t:'GAIN R\u00c9EL \u2014 SESSION ACE', d:'PnL r\u00e9alis\u00e9 de la session en cours sur les moteurs Alpha et Beta. C\u2019est l\u2019argent r\u00e9el gagn\u00e9/perdu aujourd\u2019hui (pas l\u2019unrealized). Lecture seule des logs ACE.', s:'Logs CSV Alpha/Beta \u2014 lecture seule'},
   };
   let pedaPinned = '';
   function fillPeda(key){
