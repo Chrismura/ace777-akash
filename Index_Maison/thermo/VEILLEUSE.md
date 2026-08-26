@@ -1,4 +1,4 @@
-# Rapport Veilleuse — 2026-08-26T02:03:16.658258+00:00
+# Rapport Veilleuse — 2026-08-26T02:43:17.210532+00:00
 
 ## État : ⚠️ ANOMALIES DÉTECTÉES
 - **INTRUSION** : Modification non déclarée : hulk-mexc/scripts/paper_diprip.py (md5 diffère du registre)
