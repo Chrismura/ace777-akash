@@ -1025,7 +1025,7 @@
         "erreur": ""
       },
       "evaluation": "EGAL",
-      "preuve_eval": "EGAL - parades équivalentes"
+      "preuve_eval": "EGAL - mêmes risques"
     },
     {
       "id": "51bacb1a8849",
@@ -1076,8 +1076,25 @@
       "statut": "attente_cle",
       "essais": 0,
       "note": "Piste signet : nécessite inscription + clé API (action humaine) pour devenir une offre testable."
+    },
+    {
+      "id": "1f04d8474c54",
+      "type": "offre",
+      "source": "veille_hub",
+      "source_detail": "ibm/granite-3.0-3b-a800m-instruct",
+      "model": "ibm/granite-3.0-3b-a800m-instruct",
+      "base_url": "https://integrate.api.nvidia.com/v1",
+      "api_key_env": "NVIDIA_NIM_API_KEY",
+      "role": "gros cerveau",
+      "arrivee": "2026-08-26T07:02:04.484849",
+      "statut": "nouveau",
+      "essais": 1,
+      "test_reel": {
+        "ok": false,
+        "erreur": "HTTP 404 {\"status\":404,\"title\":\"Not Found\",\"detail\":\"Function '67324577-3f91-4aa6-b750-97"
+      }
     }
   ],
   "traites_jour": 0,
-  "date": "2026-08-25"
+  "date": "2026-08-26"
 }
