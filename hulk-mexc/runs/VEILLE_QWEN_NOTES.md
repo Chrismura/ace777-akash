@@ -2354,3 +2354,7 @@ Pas d’ordre — confrontation plus tard.
 ### 2026-08-26T03:46:51Z — ALERT auto
 - FLUIDUSDT: WATCH_PULLBACK — tension haute + reflux
 (compléter: confirmé ? risque ?)
+
+### 2026-08-26T04:39:24Z — ALERT auto
+- RIZEUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
