@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-26T01:10:18.024085+00:00",
+  "generated_at": "2026-08-26T01:45:15.194739+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 79
+      "calls_24h": 86
     },
     {
       "id": "openrouter-free",
@@ -71,7 +71,7 @@
       "model": "nvidia/nemotron-3-super-120b-a12b:free",
       "enabled": true,
       "timeout": 120,
-      "calls_24h": 5
+      "calls_24h": 7
     },
     {
       "id": "grok",
@@ -238,10 +238,82 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 37,
-    "remaining": 587
+    "consumed": 46,
+    "remaining": 578
   },
   "queue": [
+    {
+      "ts": "2026-08-26T01:35:19.377092+00:00",
+      "task": "analyste.strategie",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 2.45
+    },
+    {
+      "ts": "2026-08-26T01:35:19.315354+00:00",
+      "task": "analyste.strategie",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 2.45
+    },
+    {
+      "ts": "2026-08-26T01:29:43.504017+00:00",
+      "task": "analyste.strategie",
+      "provider": "openrouter-juge",
+      "model": "nvidia/nemotron-3-super-120b-a12b:free",
+      "kind": "cloud",
+      "duration_s": 23.49
+    },
+    {
+      "ts": "2026-08-26T01:29:35.477149+00:00",
+      "task": "analyste.strategie",
+      "provider": "openrouter-juge",
+      "model": "nvidia/nemotron-3-super-120b-a12b:free",
+      "kind": "cloud",
+      "duration_s": 16.15
+    },
+    {
+      "ts": "2026-08-26T01:28:51.628644+00:00",
+      "task": "analyste.strategie",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 4.75
+    },
+    {
+      "ts": "2026-08-26T01:28:49.561306+00:00",
+      "task": "analyste.strategie",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 2.64
+    },
+    {
+      "ts": "2026-08-26T01:17:54.516273+00:00",
+      "task": "analyste.strategie",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 4.0
+    },
+    {
+      "ts": "2026-08-26T01:17:53.900519+00:00",
+      "task": "analyste.strategie",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 3.36
+    },
+    {
+      "ts": "2026-08-26T01:10:36.113687+00:00",
+      "task": "supervise.decision",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 0.92
+    },
     {
       "ts": "2026-08-26T01:07:34.115242+00:00",
       "task": "analyste.strategie",
@@ -289,140 +361,68 @@
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
       "duration_s": 2.91
-    },
-    {
-      "ts": "2026-08-26T00:45:26.979882+00:00",
-      "task": "supervise.decision",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 0.95
-    },
-    {
-      "ts": "2026-08-26T00:38:15.525808+00:00",
-      "task": "analyste.strategie",
-      "provider": "openrouter-juge",
-      "model": "nvidia/nemotron-3-super-120b-a12b:free",
-      "kind": "cloud",
-      "duration_s": 18.34
-    },
-    {
-      "ts": "2026-08-26T00:37:26.197457+00:00",
-      "task": "analyste.strategie",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 5.25
-    },
-    {
-      "ts": "2026-08-26T00:20:41.532296+00:00",
-      "task": "analyste.strategie",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 0.9
-    },
-    {
-      "ts": "2026-08-26T00:20:40.602377+00:00",
-      "task": "analyste.strategie",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 1.0
-    },
-    {
-      "ts": "2026-08-26T00:20:39.576582+00:00",
-      "task": "analyste.strategie",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 0.99
-    },
-    {
-      "ts": "2026-08-26T00:20:38.553478+00:00",
-      "task": "analyste.strategie",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 0.92
-    },
-    {
-      "ts": "2026-08-26T00:20:37.605839+00:00",
-      "task": "analyste.strategie",
-      "provider": "openrouter-juge",
-      "model": "nvidia/nemotron-3-super-120b-a12b:free",
-      "kind": "cloud",
-      "duration_s": 7.58
-    },
-    {
-      "ts": "2026-08-26T00:20:01.998843+00:00",
-      "task": "analyste.strategie",
-      "provider": "groq",
-      "model": "groq/compound",
-      "kind": "cloud",
-      "duration_s": 1.46
     }
   ],
   "events": [
     {
-      "ts": "2026-08-26T01:07:34.114968+00:00",
+      "ts": "2026-08-26T01:35:19.376812+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
+    {
+      "ts": "2026-08-26T01:35:19.315007+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
+    {
+      "ts": "2026-08-26T01:35:16.865133+00:00",
+      "kind": "blacklist",
+      "title": "Fin de pause Google Gemini",
+      "detail": "re-essai automatique"
+    },
+    {
+      "ts": "2026-08-26T01:29:43.503730+00:00",
       "kind": "message",
       "title": "« OpenRouter Juge (nemotron-3-super-120b free) - verificateur independant » a repondu",
       "detail": "bascule"
     },
     {
-      "ts": "2026-08-26T01:07:34.114618+00:00",
+      "ts": "2026-08-26T01:29:43.503368+00:00",
       "kind": "filet-universel",
       "title": "[FILET UNIVERSEL] « OpenRouter Juge (nemotron-3-super-120b free) - verificateur independant » a repondu hors chaine",
       "detail": "analyste.strategie"
     },
     {
-      "ts": "2026-08-26T01:07:27.521837+00:00",
+      "ts": "2026-08-26T01:29:35.476852+00:00",
       "kind": "message",
       "title": "« OpenRouter Juge (nemotron-3-super-120b free) - verificateur independant » a repondu",
       "detail": "bascule"
     },
     {
-      "ts": "2026-08-26T01:07:27.521502+00:00",
+      "ts": "2026-08-26T01:29:35.476460+00:00",
       "kind": "filet-universel",
       "title": "[FILET UNIVERSEL] « OpenRouter Juge (nemotron-3-super-120b free) - verificateur independant » a repondu hors chaine",
       "detail": "analyste.strategie"
     },
     {
-      "ts": "2026-08-26T01:07:11.912961+00:00",
+      "ts": "2026-08-26T01:29:20.014701+00:00",
       "kind": "failover",
       "title": "Bascule depuis Mistral La Plateforme (essai gratuit)",
       "detail": "HTTP Error 402: Payment Required"
     },
     {
-      "ts": "2026-08-26T01:07:11.417372+00:00",
+      "ts": "2026-08-26T01:29:19.405931+00:00",
       "kind": "failover",
       "title": "Bascule depuis NVIDIA build.nvidia.com (100+ modeles)",
       "detail": "The read operation timed out"
     },
     {
-      "ts": "2026-08-26T01:07:10.061299+00:00",
+      "ts": "2026-08-26T01:29:19.324400+00:00",
       "kind": "failover",
       "title": "Bascule depuis Mistral La Plateforme (essai gratuit)",
       "detail": "HTTP Error 402: Payment Required"
-    },
-    {
-      "ts": "2026-08-26T01:07:09.563678+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis NVIDIA build.nvidia.com (100+ modeles)",
-      "detail": "The read operation timed out"
-    },
-    {
-      "ts": "2026-08-26T01:07:00.373150+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis NaraRouter (7M tokens/jour gratuits)",
-      "detail": "The read operation timed out"
-    },
-    {
-      "ts": "2026-08-26T01:06:58.438095+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis NaraRouter (7M tokens/jour gratuits)",
-      "detail": "The read operation timed out"
     }
   ],
   "tasks_quotas": {
