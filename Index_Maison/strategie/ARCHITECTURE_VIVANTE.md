@@ -1,4 +1,4 @@
-# ARCHITECTURE VIVANTE — ACE777 (2026-08-26 00:37 UTC)
+# ARCHITECTURE VIVANTE — ACE777 (2026-08-26 00:47 UTC)
 
 > Document GÉNÉRÉ AUTOMATIQUEMENT à l'instant. La famille valide
 > en s'appuyant sur CE contexte, pas sur des documents figés.
@@ -9,7 +9,7 @@
 - ✅ radar
 - ⛔ lecteur signets
 - ⛔ générateur fiches
-- ✅ feed mission
+- ⛔ feed mission
 - ⛔ serveur cockpit
 
 ## Routage des tâches de décision
@@ -22,7 +22,7 @@
 
 ## État de la mission (bots + PnL)
 
-- mission.json : 2026-08-26 00:37Z · run `MASTER_VORTEX_V2_COLLAB_4H` · alerte `nominal`
+- mission.json : 2026-08-26 00:47Z · run `MASTER_VORTEX_V2_COLLAB_4H` · alerte `nominal`
 - PnL combiné : **1.27 $** 📈 (combo 1.2674)
 - ALPHA (sniper (embuscade, ×13, revenge si claque)) : **+2.01 $** · 10 fills · 249 skips
 - BETA (éclaireur (chatouille le marché, alimente Alpha)) : **-0.74 $** · 15 fills · 257 skips
@@ -36,10 +36,10 @@
 ## Mémoire chaude (journal + résumés)
 
 - Radar (dernières alertes) :
-  · 2026-08-26T00:37:10.954233Z ETHUSDT 2443.37 0.0003 429.5 declenche=oui
-  · 2026-08-26T00:37:10.954503Z ETHUSDT 2443.37 0.0003 429.5 declenche=oui
-  · 2026-08-26T00:37:10.954682Z ETHUSDT 2443.37 0.0003 429.6 declenche=oui
-  · 2026-08-26T00:37:10.954816Z ETHUSDT 2443.37 0.0003 429.6 declenche=oui
+  · 2026-08-26T00:47:14.297052Z ETHUSDT 2440.6 0.0000 418.5 declenche=non
+  · 2026-08-26T00:47:14.297203Z ETHUSDT 2440.6 0.0000 561.2 declenche=oui
+  · 2026-08-26T00:47:14.300331Z ETHUSDT 2440.6 0.0000 418.6 declenche=non
+  · 2026-08-26T00:47:14.303604Z ETHUSDT 2440.6 0.0000 561.2 declenche=oui
 - Intention en cours : BETA a sonde le marche (13 sondes, 9 long / 4 court, conf mo | ALPHA attend son moment : 232 skips (discipline), le mur du  | ALPHA a frappe 9 fois en embuscade (13x) (dont 2 en mode rev
 - 723 signets X résumés (quota aujourd'hui : 23/50)
 - 63 fiches IA d'offres en cache (quota 8/jour)
