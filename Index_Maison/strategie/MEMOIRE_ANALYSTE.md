@@ -2138,3 +2138,10 @@
 - 2026-08-26T03:01:41.349019Z | alerte | Maintien de la vigilance nominale — l'essaim opère par design avec un PnL combiné positif (+1,27 $), validé par la discipline d'Alpha, l'éclairage de Beta et la gestion des positions de Hulk. | conf=88%
 - 2026-08-26T03:09:29.553852Z | alerte | Maintien de la vigilance nominale — l'essaim opère par design avec un PnL combiné positif (+1,27 $), validé par la discipline d'Alpha, l'éclairage de Beta et la gestion des positions de Hulk. | conf=88%
 - 2026-08-26T03:10:22.831237Z | alerte | Maintien de la vigilance nominale — l'essaim opère par design avec un PnL combiné positif (+1,27 $), validé par la discipline d'Alpha, l'éclairage de Beta et la gestion des positions de Hulk. | conf=88%
+- 2026-08-26T03:15:23.679946Z | alerte | Maintien de la vigilance nominale — l'essaim opère par design avec un PnL combiné positif (+1,27 $), validé par la discipline d'Alpha, l'éclairage de Beta et la gestion des positions seeds de Hulk. | conf=88%
+- 2026-08-26T03:16:35.512859Z | alerte | ? | conf=?
+- 2026-08-26T03:18:00.158650Z | alerte | Poursuite de la vigilance nominale de l'essaim, validée par la discipline d'Alpha, les sondages de Beta et la gestion rigoureuse des positions seeds de Hulk. | conf=88%
+- 2026-08-26T03:19:22.025494Z | alerte | Maintenir la vigilance nominale avec discipline d'embuscade d'Alpha, exploitation fiable des sondes de Beta et gestion prudente des seeds de Hulk, en attendant une confirmation de cassure du carnet BTC. | conf=88%
+- 2026-08-26T03:32:42.278672Z | alerte | Maintenir la vigilance nominale avec la discipline d'embuscade d'Alpha, l'éclairage continu de Beta et la gestion prudente des positions de Hulk. | conf=88%
+- 2026-08-26T03:33:30.782021Z | alerte | Maintenir la vigilance nominale avec discipline d'embuscade d'Alpha, exploitation fiable des sondes de Beta et gestion prudente des seeds de Hulk, en attendant une confirmation de cassure du carnet BTC. | conf=88%
+- 2026-08-26T03:34:12.954111Z | alerte | Maintenir la vigilance nominale avec la discipline d'embuscade d'Alpha, l'éclairage continu de Beta et la gestion prudente des positions de Hulk. | conf=88%
