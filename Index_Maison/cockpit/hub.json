@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-26T03:52:50.094352+00:00",
+  "generated_at": "2026-08-26T04:10:30.200146+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 112
+      "calls_24h": 116
     },
     {
       "id": "openrouter-free",
@@ -238,10 +238,42 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 81,
-    "remaining": 543
+    "consumed": 85,
+    "remaining": 539
   },
   "queue": [
+    {
+      "ts": "2026-08-26T04:05:53.343817+00:00",
+      "task": "analyste.strategie",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 37.82
+    },
+    {
+      "ts": "2026-08-26T04:05:24.298033+00:00",
+      "task": "analyste.strategie",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 5.58
+    },
+    {
+      "ts": "2026-08-26T04:03:03.496404+00:00",
+      "task": "analyste.strategie",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 6.52
+    },
+    {
+      "ts": "2026-08-26T04:02:58.968380+00:00",
+      "task": "analyste.strategie",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 4.41
+    },
     {
       "ts": "2026-08-26T03:51:56.001636+00:00",
       "task": "analyste.strategie",
@@ -329,41 +361,33 @@
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
       "duration_s": 4.42
-    },
-    {
-      "ts": "2026-08-26T03:10:46.761955+00:00",
-      "task": "supervise.decision",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 1.05
-    },
-    {
-      "ts": "2026-08-26T03:10:22.819608+00:00",
-      "task": "analyste.strategie",
-      "provider": "openrouter-juge",
-      "model": "nvidia/nemotron-3-super-120b-a12b:free",
-      "kind": "cloud",
-      "duration_s": 20.41
-    },
-    {
-      "ts": "2026-08-26T03:09:29.533466+00:00",
-      "task": "analyste.strategie",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 3.02
-    },
-    {
-      "ts": "2026-08-26T03:01:41.329083+00:00",
-      "task": "analyste.strategie",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 4.61
     }
   ],
   "events": [
+    {
+      "ts": "2026-08-26T04:05:53.343465+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
+    {
+      "ts": "2026-08-26T04:05:24.297121+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
+    {
+      "ts": "2026-08-26T04:03:03.496061+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
+    {
+      "ts": "2026-08-26T04:02:58.967930+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
     {
       "ts": "2026-08-26T03:51:56.001315+00:00",
       "kind": "message",
@@ -399,30 +423,6 @@
       "kind": "failover",
       "title": "Bascule depuis NVIDIA build.nvidia.com (100+ modeles)",
       "detail": "The read operation timed out"
-    },
-    {
-      "ts": "2026-08-26T03:48:24.242791+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis NaraRouter (7M tokens/jour gratuits)",
-      "detail": "The read operation timed out"
-    },
-    {
-      "ts": "2026-08-26T03:48:13.430296+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis OpenRouter (modeles gratuits)",
-      "detail": "HTTP Error 429: Too Many Requests"
-    },
-    {
-      "ts": "2026-08-26T03:48:10.853326+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis OrcaRouter (routeur gratuit, modele orcarouter/free)",
-      "detail": "HTTP Error 400: Bad Request"
-    },
-    {
-      "ts": "2026-08-26T03:48:09.790543+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis HuggingFace (136+ modeles, dont DeepSeek-V4)",
-      "detail": "HTTP Error 402: Payment Required"
     }
   ],
   "tasks_quotas": {
