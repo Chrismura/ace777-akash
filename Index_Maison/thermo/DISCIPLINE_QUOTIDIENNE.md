@@ -1,12 +1,12 @@
-# DISCIPLINE QUOTIDIENNE — 2026-08-25T05:15:07Z
+# DISCIPLINE QUOTIDIENNE — 2026-08-26T05:15:07Z
 
 ## ALERTES
 - 🔴 DÉRIVE MÉMOIRE : au moins 1 indice CRITIQUE — voir DERIVE_MEMOIRE.md
 
 ## CORTANA (justesse, 44% = pile-ou-face)
-- Score global : 55.2%
-- Analyses notées : 48/87
-- Par indice : altSeason 0/1; bassine 3/3; btc 3/7; etfEthM 0/1; etfXrpM 0/1; fearGreed 12/20; funding 8/20; gexPutCall 1/1; liq24Usd 3/3; oi 0/1; onchain 1/1; radar 15/25; verre 2/3
+- Score global : 54.9%
+- Analyses notées : 50/91
+- Par indice : altSeason 0/1; bassine 3/3; btc 3/7; etfEthM 0/1; etfXrpM 0/1; fearGreed 13/21; funding 9/22; gexPutCall 1/1; liq24Usd 3/3; oi 0/1; onchain 1/1; radar 15/26; verre 2/3
 
 ## ADA (zone/voilure vs BTC 24h, v1)
 - Zone-accuracy : None% (0/0)
