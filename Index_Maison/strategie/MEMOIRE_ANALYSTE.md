@@ -2095,3 +2095,7 @@
 - 2026-08-25T23:17:44.317167Z | alerte | Maintien de la vigilance nominale, validée par la discipline d'embuscade d'Alpha, l'éclairage de Beta et la gestion active des positions seeds de Hulk. | conf=88%
 - 2026-08-25T23:43:05.889904Z | alerte | Maintien de la vigilance nominale, validée par la discipline d'embuscade d'Alpha, l'éclairage de Beta et la gestion active des positions seeds de Hulk. | conf=88%
 - 2026-08-25T23:43:06.469401Z | alerte | Maintien de la vigilance nominale, validée par la discipline d'embuscade d'Alpha, l'éclairage de Beta et la gestion active des positions seeds de Hulk. | conf=88%
+- 2026-08-25T23:47:46.304335Z | alerte | Maintien de la vigilance nominale, validée par la discipline d'embuscade d'Alpha, l'éclairage de Beta et la gestion active des positions seeds de Hulk. | conf=88%
+- 2026-08-25T23:47:47.921782Z | alerte | Maintien de la vigilance nominale, validée par la discipline d'embuscade d'Alpha, l'éclairage de Beta et la gestion active des positions seeds de Hulk. | conf=88%
+- 2026-08-25T23:58:11.991627Z | alerte | Maintien de la vigilance nominale, validée par la discipline d'embuscade d'Alpha, l'éclairage de Beta et la gestion active des positions seeds de Hulk. | conf=88%
+- 2026-08-26T00:09:45.260855Z | alerte | Maintien de la vigilance nominale, validée par la discipline d'embuscade d'Alpha, l'éclairage de Beta et la gestion active des positions seeds de Hulk. | conf=88%
