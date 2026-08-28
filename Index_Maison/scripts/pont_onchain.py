@@ -335,6 +335,22 @@ def main():
     verifier_kill_switch()
     live_data = charger_json(THERMO_LIVE, {})
     live_data["onchain"] = section_onchain
+
+    # FIX 28/08 : injecter les vraies donnees SDI/RBF/IPT depuis sdi_latest.json
+    # (le RBF dans live.json etait obsolete — ancien format sans BIP125)
+    try:
+        sdi_path = INDEX_MAISON / "data" / "sdi_latest.json"
+        if sdi_path.exists():
+            sdi_data = json.loads(sdi_path.read_text(encoding="utf-8"))
+            if "rbf" in sdi_data:
+                live_data["rbf"] = sdi_data["rbf"]
+            if "sdi" in sdi_data:
+                live_data["sdi"] = sdi_data["sdi"]
+            if "ipt" in sdi_data:
+                live_data["ipt"] = sdi_data["ipt"]
+    except Exception:
+        pass  # fail-open
+
     ecriture_atomique(THERMO_LIVE, live_data)
 
     # === STORE TEMPOREL LMDB (Étape 3) ===
