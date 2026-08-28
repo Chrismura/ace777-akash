@@ -203,23 +203,29 @@ def get_ipt(mempool_entropy, fee_pressure):
 
 def get_rbf_analytics():
     """
-    Détecte le RBF (Replace-By-Fee) VRAI via le flag BIP 125 (nSequence).
-    FIX 28/08 (GO Christophe) : l'ancienne méthode (frais proches = RBF)
-    était un faux positif structuré — elle donnait un score max quand la
-    mempool était calme (tout le monde au même frais). La vraie détection
-    vérifie nSequence < 0xfffffffe sur chaque input (BIP 125).
-    Coût : 10 appels tx/{txid} par cycle (~10-15s), rate-limit mempool.space
-    respecté (1 req/s free tier). Fail-open : txs inaccessibles = non RBF.
+    Détecte le RBF (Replace-By-Fee) RÉEL : les DOUBLES DÉPENSES.
+    FIX 28/08 v2 (GO Christophe « approfondis, tu fais erreur » — il avait raison) :
+    l'ancienne méthode (flag nSequence < 0xfffffffe, BIP 125) mesurait la CAPACITÉ
+    RBF — la plupart des wallets modernes l'activent par défaut → score bloqué à
+    1.0 en permanence (faux positif structurel, vérifié en direct : 80% des tx
+    récentes ont le flag alors que 0/3 ont une vraie double dépense).
+    La VRAIE détection : un UTXO d'entrée dépensé par DEUX tx différentes dans la
+    mempool = une tx a remplacé l'autre (même input, frais plus hauts). Via
+    /api/tx/{parent}/outspends : si l'output est spent par un txid ≠ la tx courante
+    → double dépense = RBF réel.
+    Coût : ~6 appels tx/{txid} + outspends cachés (~8-12 appels/cycle, ~10s),
+    rate-limit mempool.space respecté (sleep 0.5s). Fail-open : injoignable = non RBF.
     """
     url_recent = "https://mempool.space/api/mempool/recent"
     txs = fetch_json(url_recent)
-    if not txs or len(txs) < 10:
+    if not txs or len(txs) < 5:
         return None
 
     rbf_count = 0
     checked = 0
-    fee_rbf_pairs = []  # txs dont au moins 1 input signale RBF
-    for tx in txs[:10]:  # borné à 10 (rate-limit)
+    outspends_cache = {}  # parent_txid -> liste outspends (évite les appels en double)
+    rbf_detail = []
+    for tx in txs[:6]:  # borné à 6 (rate-limit + budget API)
         txid = tx.get("txid")
         if not txid:
             continue
@@ -230,27 +236,44 @@ def get_rbf_analytics():
                 continue
             checked += 1
             vin = detail.get("vin", []) or []
-            has_rbf = any(
-                (v.get("sequence") or 0xFFFFFFFF) < 0xFFFFFFFE
-                for v in vin
-            )
-            if has_rbf:
+            is_rbf = False
+            for v in vin[:3]:  # 3 premiers inputs suffisent (souvent 1 seul)
+                parent_txid = v.get("txid")
+                parent_vout = v.get("vout")
+                if not parent_txid or parent_vout is None:
+                    continue
+                if parent_txid not in outspends_cache:
+                    outs_url = "https://mempool.space/api/tx/%s/outspends" % parent_txid
+                    outspends_cache[parent_txid] = fetch_json(outs_url, timeout=4)
+                    time.sleep(0.5)
+                outs = outspends_cache.get(parent_txid) or []
+                if parent_vout < len(outs) and outs[parent_vout]:
+                    spent_by = outs[parent_vout].get("txid")
+                    # L'UTXO est dépensé par UNE AUTRE tx = remplacement réel
+                    if spent_by and spent_by != txid:
+                        is_rbf = True
+                        rbf_detail.append({
+                            "tx": txid[:16],
+                            "remplacee_par": spent_by[:16],
+                            "input": "%s:%d" % (parent_txid[:16], parent_vout),
+                        })
+                        break
+            if is_rbf:
                 rbf_count += 1
-                fee_rate = tx.get("fee", 0) / max(tx.get("vsize", 1), 1)
-                fee_rbf_pairs.append(round(fee_rate, 1))
             time.sleep(0.5)  # rate-limit respectueux
         except Exception:
             continue  # fail-open : tx injoignable = non RBF
 
     rbf_ratio = rbf_count / max(checked, 1)
-    rbf_score = min(1.0, rbf_ratio * 5)
+    rbf_score = round(rbf_ratio, 3)  # échelle honnête : ratio direct, plus de ×5 saturant
 
     return {
-        "rbf_score": round(rbf_score, 3),
+        "rbf_score": rbf_score,
         "rbf_ratio": round(rbf_ratio, 3),
         "rbf_pairs": rbf_count,
         "n_txs": checked,
-        "fee_rbf": fee_rbf_pairs if fee_rbf_pairs else None,
+        "rbf_method": "outspends-double-depense",
+        "rbf_detail": rbf_detail,
     }
 
 # ─── Main ──────────────────────────────────────────────────────

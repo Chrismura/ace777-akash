@@ -627,6 +627,33 @@ def load_hulk():
         out["walletEcart"] = round(
             (out["walletReel"] or 0.0) - (out["walletStatique"] or 0.0), 2)
 
+    # ——— SCORE HULK vs HOLD (28/08, Christophe : « tout est rouge, je veux
+    # le vrai score ») ———
+    # walletReel (positions live + cash) vs walletStatique (seeds tenus + cash).
+    # L'écart en $ est la vraie valeur créée/détruite par Hulk vs buy & hold ;
+    # l'écart en % le rapporte au point de départ (walletStatique ≈ origine
+    # investie au cours actuel). Un score positif = Hulk bat le HOLD.
+    reel_w = float(out.get("walletReel") or 0.0)
+    stat_w = float(out.get("walletStatique") or 0.0)
+    ecart_w = round(reel_w - stat_w, 2)
+    base_pct = stat_w if stat_w != 0 else 1.0
+    ecart_pct = round((reel_w - stat_w) / base_pct * 100.0, 2) if stat_w else None
+    if ecart_w > 0:
+        vs_verdict = "HULK > HOLD"
+    elif ecart_w < 0:
+        vs_verdict = "HULK < HOLD"
+    else:
+        vs_verdict = "ÉGAL"
+    out["hulkVsHold"] = {
+        "reel": round(reel_w, 2),
+        "hold": round(stat_w, 2),
+        "ecart_usd": ecart_w,
+        "ecart_pct": ecart_pct,
+        "verdict": vs_verdict,
+        "cash": round(float(out.get("cash") or 0.0), 2),
+        "ts": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
+    }
+
     out["conseils"] = load_hulk_conseils()
     return out
 
