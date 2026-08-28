@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-28T05:06:11.385481+00:00",
+  "generated_at": "2026-08-28T05:07:12.050623+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -26,7 +26,7 @@
       "model": "qwen-3.8-max-free",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 2
+      "calls_24h": 3
     },
     {
       "id": "groq",
@@ -247,10 +247,18 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 80,
-    "remaining": 544
+    "consumed": 81,
+    "remaining": 543
   },
   "queue": [
+    {
+      "ts": "2026-08-28T05:06:17.633547+00:00",
+      "task": "signets.juge",
+      "provider": "nara",
+      "model": "qwen-3.8-max-free",
+      "kind": "cloud",
+      "duration_s": 8.35
+    },
     {
       "ts": "2026-08-28T05:00:52.503531+00:00",
       "task": "analyste.strategie",
@@ -362,17 +370,15 @@
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
       "duration_s": 1.53
-    },
-    {
-      "ts": "2026-08-28T04:06:50.889540+00:00",
-      "task": "analyste.strategie",
-      "provider": "openrouter-juge",
-      "model": "nvidia/nemotron-3-super-120b-a12b:free",
-      "kind": "cloud",
-      "duration_s": 13.25
     }
   ],
   "events": [
+    {
+      "ts": "2026-08-28T05:06:17.633310+00:00",
+      "kind": "message",
+      "title": "« NaraRouter (7M tokens/jour gratuits) » a repondu",
+      "detail": ""
+    },
     {
       "ts": "2026-08-28T05:00:52.503165+00:00",
       "kind": "message",
@@ -426,12 +432,6 @@
       "kind": "filet-universel",
       "title": "[FILET UNIVERSEL] « OpenRouter Juge (nemotron-3-super-120b free) - verificateur independant » a repondu hors chaine",
       "detail": "analyste.strategie"
-    },
-    {
-      "ts": "2026-08-28T04:34:05.053035+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis Mistral La Plateforme (essai gratuit)",
-      "detail": "HTTP Error 402: Payment Required"
     }
   ],
   "tasks_quotas": {
