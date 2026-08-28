@@ -183,9 +183,13 @@ def open_webview(url: str) -> bool:
     except ImportError:
         print("pywebview absent — repli Brave --app", flush=True)
         return False
-    print("MODE=pywebview (fenêtre native · pas Safari/Brave UI)", flush=True)
+    print("MODE=pywebview (fenêtre native · anti-cache user_agent)", flush=True)
     print("Ferme la fenêtre pour quitter. Recharger : ⌘R (ferme+relance si page stale)", flush=True)
     try:
+        # UNE SEULE fenêtre (surtout pas deux create_window avant start :
+        # pywebview/Cocoa crée alors 2 fenêtres et la visible peut être une
+        # ancienne — bug qui faisait « toujours pareil »).
+        ua = "ACE777-cockpit-{}".format(int(time.time()))
         webview.create_window(
             "ACE777 COCKPIT",
             url,
@@ -194,10 +198,16 @@ def open_webview(url: str) -> bool:
             min_size=(900, 600),
             background_color="#050804",
         )
-        # private_mode évite le cache WebKit qui gardait l’ancien HTML
+        # Anti-cache fiable (Buffy 29/08) : pywebview 3.4 n'implémente PAS
+        # private_mode (le TypeError faisait TOUJOURS un fallback SANS anti-
+        # cache → WebKit gardait l'ancien HTML, le cockpit ne se mettait jamais
+        # à jour). La solution fiable en 3.4 : un user_agent UNIQUE à chaque
+        # lancement → WebKit ne retrouve pas la page en cache et re-télécharge
+        # le HTML neuf (l'URL porte déjà ?v=timestamp).
         try:
-            webview.start(debug=False, private_mode=True)
+            webview.start(debug=False, user_agent=ua)
         except TypeError:
+            # vieille version sans user_agent : fallback simple
             webview.start(debug=False)
         return True
     except Exception as e:

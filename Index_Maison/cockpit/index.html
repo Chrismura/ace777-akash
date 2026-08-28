@@ -4,7 +4,7 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<meta name="version" content="1787951342">
+<meta name="version" content="1787954948">
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate" />
@@ -13,12 +13,12 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Share+Tech+Mono&family=Caveat:wght@600;700&display=swap" rel="stylesheet" />
-<script src="mission.js?v=1787951342"></script>
+<script src="mission.js?v=1787954948"></script>
 <!-- COSMOS HUB feed -->
-<script src="hub.js?v=1787951342"></script>
-<script src="../thermo/live.js?v=1787951342"></script>
-<script src="../thermo/cortana_feed.js?v=1787951342"></script>
-<script src="sante_live.js?v=1787951342"></script>
+<script src="hub.js?v=1787954948"></script>
+<script src="../thermo/live.js?v=1787954948"></script>
+<script src="../thermo/cortana_feed.js?v=1787954948"></script>
+<script src="sante_live.js?v=1787954948"></script>
 <style>
 :root{
   --ink:#050804; --panel:#0a100c; --line:#3a2e14;
@@ -720,6 +720,8 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
 .hulk-tbl .hrow.flat .hcn{color:#8a93a0}
 .hulk-tbl .hrow.flat .hsub{color:#6a7380}
 .hulk-tbl .hrow.flat:hover{background:rgba(140,160,180,.05)}
+.hulk-tbl .hrow.over td{background:rgba(255,120,60,.08);color:var(--warn,#ffa060)}
+.hulk-tbl .hrow.over:hover{background:rgba(255,120,60,.14)}
 .hfc{background:rgba(196,255,77,.05);border:1px solid rgba(196,255,77,.25);border-radius:3px;padding:7px 8px;font-size:.66rem;display:flex;flex-direction:column;gap:3px}
 .hfc.flat{border-style:dashed;border-color:rgba(140,160,180,.35);background:rgba(80,100,120,.06)}
 .hfc .hfc-top{display:flex;justify-content:space-between;align-items:center;gap:4px}
@@ -1458,6 +1460,25 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
             <tbody></tbody>
             <tfoot id="h-wallet-tfoot"></tfoot>
           </table></div>
+          <!-- SCORE PAR CRYPTO (28/08, Christophe : « affiche moi un tableau digne de ce nom ») —
+               le vrai test du portefeuille : chaque crypto = mini-compte avec SON budget
+               (seed + marge 20$), Hulk vs HOLD à capital égal. -->
+          <div class="hulk-sect" style="margin-top:14px">SCORE PAR CRYPTO — budget seed + marge <span class="hulk-sect-n" id="h-score-note"></span></div>
+          <div class="hulk-tbl-wrap"><table class="hulk-tbl" id="h-score-tbl">
+            <thead><tr>
+              <th>CRYPTO</th>
+              <th title="Bag au début : la QUANTITÉ (size) de crypto seedée au départ (valeur en $)">BAG DÉBUT (size)</th>
+              <th title="Bag actuel : QUANTITÉ (size) restante + valeur au cours actuel — augmente si le prix monte">BAG ACTUEL (size)</th>
+              <th title="Cash réel de cette crypto (rejoué : achats − ventes + frais) — comment Hulk gère la trésorerie">CASH $</th>
+              <th title="Total Hulk = bag actuel (valeur $) + cash">TOTAL $</th>
+              <th title="Budget alloué = bag début + 20$ de marge pour opérer">BUDGET $</th>
+              <th title="Même budget tenu depuis le prix du seed (rien faire)">SI RIEN FAIT $</th>
+              <th title="Hulk − si rien fait : ce que la gestion apporte sur CETTE crypto">ÉCART $</th>
+              <th title="Écart en % du budget">ÉCART %</th>
+            </tr></thead>
+            <tbody id="h-score-tbody"></tbody>
+            <tfoot id="h-score-tfoot"></tfoot>
+          </table></div>
         </div>
         <div class="hulk-col">
           <!-- JOURNAL DES OPÉRATIONS : TOUS les trades exécutés -->
@@ -1981,11 +2002,70 @@ window.addEventListener('unhandledrejection', function(e) {
           const verdict=(vsH.verdict||'').replace('HULK ','').replace('HOLD','HOLD');
           vsNote.innerHTML = `<span class="hsub">SCORE HULK vs HOLD :</span> <span class="${clsV}"><b>${arrowV} ${ec!=null?((ec>0?'+':'')+usd(ec)):'—'}</b></span>`
             + (pct!=null?` <span class="hsub">(${pct>0?'+':''}${fmt(pct,1)}% vs buy&hold)</span>`:'')
+            + ` <span class="hsub">· budget ${vsH.nbPaires!=null?vsH.nbPaires:'—'} cryptos × ${usd(vsH.margeParCrypto||20)} marge = ${usd(vsH.budgetTotal)}</span>`
             + ` <span class="hsub">· cash réel ${vsH.cash!=null?usd(vsH.cash):'—'}</span>`
-            + ((vsH.cashPaper!=null&&vsH.cash!=null&&Math.abs(vsH.cashPaper-vsH.cash)>0.05)?` <span class="hsub">(paper ${usd(vsH.cashPaper)})</span>`:'')`
-            + ((vsH.cashNadir!=null&&vsH.cashNadir<0)?` <span style="color:var(--warn,orange)">⚠ découvert max ${usd(vsH.cashNadir)}</span>`:'');
+            + ((vsH.cashPaper!=null&&vsH.cash!=null&&Math.abs(vsH.cashPaper-vsH.cash)>0.05)?` <span class="hsub">(paper ${usd(vsH.cashPaper)})</span>`:'')
+            + ((vsH.overBudget&&vsH.overBudget.length>0)?` <span style="color:var(--warn,orange)">⚠ hors budget : ${vsH.overBudget.map(p=>p.replace('USDT','')).join(', ')}</span>`:'');
         } else if(vsNote){
           vsNote.textContent='';
+        }
+        // 28/08 — TABLEAU SCORE PAR CRYPTO : le vrai test du portefeuille.
+        // Chaque crypto = mini-compte avec SON budget (seed + marge 20$).
+        // Hulk vs HOLD à capital égal : l'écart mesure la valeur de la gestion.
+        const scrTb=document.getElementById('h-score-tbody');
+        const scrTf=document.getElementById('h-score-tfoot');
+        const scrNote=document.getElementById('h-score-note');
+        if(scrTb&&vsH&&vsH.pairs&&vsH.pairs.length){
+          const rowsScore=vsH.pairs.map(p=>{
+            const crypto=(p.pair||'').replace('USDT','');
+            const ec=p.ecart!=null?p.ecart:null;
+            const budget=p.budget!=null?p.budget:null;
+            const ecPct=(ec!=null&&budget!=null&&budget!==0)?(ec/budget*100):null;
+            const clsE=ec!=null?(ec>0.05?'wpos':(ec<-0.05?'wneg':'wneu')):'wneu';
+            const arrowE=ec!=null?(ec>0?'↑':(ec<0?'↓':'')):'';
+            const over=!!p.over;
+            const posCls=(p.pos!=null&&p.seed!=null)?(p.pos>p.seed+0.01?'wpos':(p.pos<p.seed-0.01?'wneg':'wneu')):'wneu';
+            const cashCls=(p.cash!=null&&p.cash>0)?'wpos':'wneu';
+            return `<tr class="${over?'hrow over':''}">
+              <td class="hc"><span class="hcn">${crypto}</span>${over?' <span class="hsub" style="color:var(--warn,orange)">⚠</span>':''}</td>
+              <td class="hq" title="Bag au début : quantité seedée + valeur en $">${p.seedQty!=null?Number(p.seedQty).toPrecision(4):'—'} <span class="hsub">${p.seed!=null?usd(p.seed):''}</span></td>
+              <td class="hs ${posCls}" title="Bag actuel : quantité restante + valeur au cours — vert si le prix monte">${p.posQty!=null&&p.posQty>0?Number(p.posQty).toPrecision(4):'—'} <span class="hsub">${p.pos!=null?usd(p.pos):''}</span></td>
+              <td class="hs ${cashCls}" title="Cash réel de la paire (comment Hulk gère la trésorerie)">${p.cash!=null?usd(p.cash):'—'}</td>
+              <td class="hs" title="Total Hulk = bag actuel (valeur $) + cash"><b>${p.reel!=null?usd(p.reel):'—'}</b></td>
+              <td class="hq" title="Budget = bag début + marge pour opérer">${budget!=null?usd(budget):'—'}</td>
+              <td class="hs" title="Même budget tenu depuis le seed (rien faire)">${p.hold!=null?usd(p.hold):'—'}</td>
+              <td class="hr ${clsE}" title="Hulk − si rien fait"><b>${arrowE} ${ec!=null?((ec>0?'+':'')+usd(ec)):'—'}</b></td>
+              <td class="hr ${clsE}">${ecPct!=null?((ecPct>0?'+':'')+fmt(ecPct,1)+'%'):'—'}</td>
+            </tr>`;
+          }).join('');
+          scrTb.innerHTML=rowsScore;
+          const sumEc=vsH.ecart_usd!=null?vsH.ecart_usd:null;
+          const sumCls=sumEc!=null?(sumEc>0.05?'wpos':(sumEc<-0.05?'wneg':'wneu')):'wneu';
+          // Totaux : bag début (seeds), bag actuel, cash, total Hulk, si rien fait
+          const totSeed=vsH.pairs.reduce((a,p)=>a+(p.seed||0),0);
+          const totSeedQty=vsH.pairs.reduce((a,p)=>a+(p.seedQty||0),0);
+          const totPosQty=vsH.pairs.reduce((a,p)=>a+(p.posQty||0),0);
+          const totPos=vsH.pairs.reduce((a,p)=>a+(p.pos||0),0);
+          const totCash=vsH.pairs.reduce((a,p)=>a+(p.cash||0),0);
+          scrTf.innerHTML=`<tr>
+            <td class="hc"><span class="hcn">TOTAL</span></td>
+            <td class="hq" title="Total des bags au début (valeur en $)"><b>${usd(totSeed)}</b></td>
+            <td class="hs" title="Total des bags actuels (valeur au prix actuel)"><b>${usd(totPos)}</b></td>
+            <td class="hs" title="Total cash réel"><b>${usd(totCash)}</b></td>
+            <td class="hs" title="Total Hulk = bags + cash"><b>${vsH.reel!=null?usd(vsH.reel):'—'}</b></td>
+            <td class="hq" title="Budget total = seeds + ${vsH.margeParCrypto}$ × ${vsH.nbPaires} cryptos"><b>${vsH.budgetTotal!=null?usd(vsH.budgetTotal):'—'}</b></td>
+            <td class="hs" title="Total si rien fait"><b>${vsH.hold!=null?usd(vsH.hold):'—'}</b></td>
+            <td class="hr ${sumCls}"><b>${sumEc!=null?((sumEc>0?'+':'')+usd(sumEc)):'—'}</b></td>
+            <td class="hr ${sumCls}">${vsH.ecart_pct!=null?((vsH.ecart_pct>0?'+':'')+fmt(vsH.ecart_pct,1)+'%'):'—'}</td>
+          </tr>
+          <tr class="hrow flat">
+            <td class="hc" colspan="2"><span class="hcn">AU DÉBUT</span> <span class="hsub">marge ${vsH.margeParCrypto!=null?usd(vsH.margeParCrypto):'20$'} × ${vsH.nbPaires!=null?vsH.nbPaires:'—'} cryptos</span></td>
+            <td class="hq" colspan="7"><b>${vsH.budgetTotal!=null?usd(vsH.budgetTotal):'—'}</b> <span class="hsub">= seeds ${usd(totSeed)} + marge ${usd((vsH.margeParCrypto||20)*(vsH.nbPaires||0))}</span></td>
+          </tr>`;
+          if(scrNote) scrNote.textContent='· bags '+usd(totPos)+' + cash '+usd(totCash)+' = '+usd(vsH.reel!=null?vsH.reel:0)+' · '+(vsH.overBudget&&vsH.overBudget.length?vsH.overBudget.length+' hors budget':'0 hors budget');
+        } else if(scrTb){
+          scrTb.innerHTML='';
+          if(scrTf) scrTf.innerHTML='';
         }
         // Fix 27/08 (2e passe) : le tableau montre TOUTES les cryptos suivies
         // (15/15), ouvertes ET fermées. Les paires FERMÉES (stop) s'affichent en

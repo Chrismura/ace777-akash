@@ -2436,3 +2436,12 @@
 - 2026-08-28T20:41:53.060042Z | alerte | Maintenir l'alerte ambre et la rigueur tactique face au sursaut de volume et au bruit de la Fed, tout en consolidant le PnL combiné grâce à la discipline d'Alpha, aux reconnaissances de Beta et à l'encadrement des positions seeds de Hulk. | conf=88%
 - 2026-08-28T20:59:30.300564Z | alerte | Maintenir l'alerte ambre et la rigueur tactique face au sursaut de volume sur l'ETHUSDT et aux bruits de la Fed, tout en consolidant le PnL combiné positif de l'essaim. | conf=88%
 - 2026-08-28T21:02:33.980025Z | alerte | Maintenir l'alerte ambre et la rigueur tactique face au sursaut de volume sur le BTCUSDT, tout en consolidant le PnL combiné positif de l'essaim. | conf=88%
+- 2026-08-28T21:10:29.438952Z | alerte | Maintenir l'alerte ambre et la rigueur tactique face au sursaut de volume sur le BTCUSDT, tout en consolidant le PnL combiné positif de l'essaim. | conf=88%
+- 2026-08-28T21:11:47.399110Z | alerte | Maintenir l'alerte ambre et la rigueur tactique face au sursaut de volume sur le BTCUSDT, tout en consolidant le PnL combiné positif de l'essaim. | conf=88%
+- 2026-08-28T21:19:32.233324Z | alerte | Maintenir l'alerte ambre et la rigueur tactique face au sursaut de volume sur le BTCUSDT, tout en consolidant le PnL combiné positif de l'essaim. | conf=88%
+- 2026-08-28T21:23:16.545493Z | alerte | Maintenir l'alerte ambre et la rigueur tactique face au sursaut de volume sur l'ETHUSDT, tout en consolidant le PnL combiné positif de l'essaim. | conf=88%
+- 2026-08-28T21:28:45.659896Z | alerte | Maintenir l'alerte ambre et la rigueur tactique face au sursaut de volume sur le BTCUSDT, tout en consolidant le PnL combiné positif de l'essaim. | conf=88%
+- 2026-08-28T21:42:00.442272Z | alerte | Maintenir l'alerte ambre et la rigueur tactique face au sursaut de volume sur le BTCUSDT, tout en consolidant le PnL combiné positif de l'essaim. | conf=88%
+- 2026-08-28T21:43:21.903989Z | alerte | Maintenir l'alerte ambre et la rigueur tactique face au sursaut de volume sur l'ETHUSDT, tout en consolidant le PnL combiné positif de l'essaim. | conf=88%
+- 2026-08-28T21:52:45.552985Z | alerte | Maintenir l'alerte ambre et la rigueur tactique face au sursaut de volume sur l'ETHUSDT, tout en consolidant le PnL combiné positif de l'essaim. | conf=88%
+- 2026-08-28T21:59:22.505062Z | alerte | Maintenir l'alerte ambre et la rigueur tactique face au sursaut de volume sur le BTCUSDT, tout en consolidant le PnL combiné positif de l'essaim. | conf=88%

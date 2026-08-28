@@ -627,27 +627,49 @@ def load_hulk():
         out["walletEcart"] = round(
             (out["walletReel"] or 0.0) - (out["walletStatique"] or 0.0), 2)
 
-    # ——— CASH RÉEL « VRAI COMPTE » (28/08, Christophe : « comme un vrai
-    # compte ») ———
-    # Le moteur paper ne DÉBITE PAS son cash quand il achète : chaque entrée
-    # est financée par un budget notionnel (base 20$ × health), donc le total
-    # paper gonfle à chaque ré-ouverture sans contrepartie cash (ex. 28/08 :
-    # ré-achat HBAR+RWAINC 47$ sans débit → +47$ d'exposition « gratuite »).
-    # Pour un vrai compte, on REJOUE chaque opération du CSV : BUY/DCA débite
-    # (qty×price + frais), SELL/STOP/BAG_* crédite (qty×price − frais). Point
-    # de départ = coût des seeds + cash initial (MÊME départ que le HOLD →
-    # comparaison juste). cashNadir = plus bas atteint (découvert éventuel).
-    cash_reel = float(out.get("walletOrigineCash") or 20.0)
-    for _pair, _sq in seed_qty.items():
-        _px0 = seed_px.get(_pair)
-        if _px0 is None:
-            _px0 = (pos_all.get(_pair) or {}).get("entry")
-        if _sq and _px0:
-            cash_reel += float(_sq) * float(_px0)
-    cash_nadir = cash_reel
+    # ——— SCORE « PORTEFEUILLE PAR CRYPTO » (28/08, Christophe : « +20$ c'était
+    # pour CHAQUE crypto pour qu'il puisse opérer tranquillement, réfléchis à
+    # une façon plus intelligente de tester le portefeuille ») ———
+    # Le vrai design : chaque crypto a SON budget = seed + MARGE (20$) pour
+    # opérer (DCA, ré-achats après stop…). On teste le portefeuille comme un
+    # portefeuille de mini-comptes INDÉPENDANTS :
+    #   1. budget par paire = coût du seed + MARGE_PAR_CRYPTO
+    #   2. on REJOUE le CSV PAR PAIRE : BUY/DCA débite (qty×px + frais),
+    #      SELL/STOP/BAG crédite (qty×px − frais) → cash réel de la paire
+    #   3. valeur Hulk par paire = cash réel + position au mark live
+    #   4. HOLD par paire = MÊME budget investi au prix du seed et tenu
+    #      (comparaison équitable : même capital des deux côtés)
+    #   5. écart par paire = Hulk − HOLD → somme = score du portefeuille
+    # Garde-fou : si le net investi d'une paire dépasse son budget → alerte
+    # (le moteur paper n'a pas de pool global : il pourrait dépenser plus que
+    # le budget de la paire sans s'en rendre compte).
+    MARGE_PAR_CRYPTO = 20.0
+    # marks live (portfolio enrichi en amont par live_marks)
+    mark_by_pair = {}
+    for _p in out.get("portfolio") or []:
+        if _p.get("pair") and _p.get("mark") is not None:
+            mark_by_pair[_p["pair"]] = float(_p["mark"])
+    _all_pairs = set(seed_qty.keys()) | set(pos_all.keys())
+    # rejeu par paire : cash initial = budget (seed + marge)
+    cash_par_paire: dict[str, float] = {}
+    nadir_par_paire: dict[str, float] = {}
+    net_investi: dict[str, float] = {}
+    budget_par_paire: dict[str, float] = {}
+    for _pair in _all_pairs:
+        _sp = seed_px.get(_pair)
+        if _sp is None:
+            _sp = (pos_all.get(_pair) or {}).get("entry")
+        _seed_val = float(seed_qty.get(_pair) or 0.0) * float(_sp or 0.0)
+        budget_par_paire[_pair] = _seed_val + MARGE_PAR_CRYPTO
+        cash_par_paire[_pair] = budget_par_paire[_pair]
+        nadir_par_paire[_pair] = budget_par_paire[_pair]
+        net_investi[_pair] = 0.0
     if csv_p and csv_p.exists():
         with csv_p.open(newline="", encoding="utf-8", errors="ignore") as f:
             for row in csv.DictReader(f):
+                _pair = row.get("pair") or ""
+                if _pair not in cash_par_paire:
+                    continue
                 _ev = (row.get("event") or "").upper()
                 if _ev not in ("BUY", "DCA") and not _ev.startswith(("SELL", "STOP", "BAG")):
                     continue
@@ -661,26 +683,41 @@ def load_hulk():
                 _notional = _q * _p
                 _fee = _notional * float(out.get("feeRate") or 0.0)
                 if _ev in ("BUY", "DCA"):
-                    cash_reel -= _notional + _fee
+                    cash_par_paire[_pair] -= _notional + _fee
+                    net_investi[_pair] += _notional
                 else:
-                    cash_reel += _notional - _fee
-                if cash_reel < cash_nadir:
-                    cash_nadir = cash_reel
-    out["cashReel"] = round(cash_reel, 2)
-    out["cashNadir"] = round(cash_nadir, 2)
-    # walletReelVrai = positions au mark live + cash RÉEL (pas le pair_cash
-    # paper qui n'a jamais été débité). C'est ce qu'un vrai compte aurait.
-    out["walletReelVrai"] = round(
-        (out.get("walletReelPos") or 0.0) + (out.get("cashReel") or 0.0), 2)
-
-    # ——— SCORE HULK vs HOLD (28/08, Christophe : « tout est rouge, je veux
-    # le vrai score ») ———
-    # walletReelVrai (positions live + cash REJOUÉ) vs walletStatique (seeds
-    # tenus + cash). L'écart en $ est la vraie valeur créée/détruite par Hulk
-    # vs buy & hold ; l'écart en % le rapporte au point de départ. Un score
-    # positif = Hulk bat le HOLD.
-    reel_w = float(out.get("walletReelVrai") or out.get("walletReel") or 0.0)
-    stat_w = float(out.get("walletStatique") or 0.0)
+                    cash_par_paire[_pair] += _notional - _fee
+                    net_investi[_pair] -= _notional
+                if cash_par_paire[_pair] < nadir_par_paire[_pair]:
+                    nadir_par_paire[_pair] = cash_par_paire[_pair]
+    # valeur Hulk + HOLD par paire (même budget, tenu au seed_px)
+    reel_par_paire: dict[str, float] = {}
+    hold_par_paire: dict[str, float] = {}
+    seed_par_paire: dict[str, float] = {}
+    pos_par_paire: dict[str, float] = {}
+    over_budget: list[str] = []
+    for _pair in _all_pairs:
+        _qty = float((pos_all.get(_pair) or {}).get("qty") or 0.0)
+        _mark = mark_by_pair.get(_pair)
+        _pos_val = _qty * _mark if (_qty and _mark) else 0.0
+        _sp = seed_px.get(_pair)
+        if _sp is None:
+            _sp = (pos_all.get(_pair) or {}).get("entry")
+        _seed_val = float(seed_qty.get(_pair) or 0.0) * float(_sp or 0.0)
+        seed_par_paire[_pair] = _seed_val
+        pos_par_paire[_pair] = _pos_val
+        reel_par_paire[_pair] = cash_par_paire.get(_pair, 0.0) + _pos_val
+        _budget = budget_par_paire.get(_pair, 0.0)
+        if _sp and _mark:
+            hold_par_paire[_pair] = (_budget / float(_sp)) * _mark
+        else:
+            hold_par_paire[_pair] = _budget
+        if net_investi.get(_pair, 0.0) > _budget + 0.01:
+            over_budget.append(_pair)
+    reel_w = sum(reel_par_paire.values())
+    stat_w = sum(hold_par_paire.values())
+    cash_reel = sum(cash_par_paire.values())
+    cash_nadir = min(nadir_par_paire.values()) if nadir_par_paire else 0.0
     ecart_w = round(reel_w - stat_w, 2)
     base_pct = stat_w if stat_w != 0 else 1.0
     ecart_pct = round((reel_w - stat_w) / base_pct * 100.0, 2) if stat_w else None
@@ -690,23 +727,46 @@ def load_hulk():
         vs_verdict = "HULK < HOLD"
     else:
         vs_verdict = "ÉGAL"
+    out["cashReel"] = round(cash_reel, 2)
+    out["cashNadir"] = round(cash_nadir, 2)
+    out["walletReelVrai"] = round(reel_w, 2)
     out["hulkVsHold"] = {
         "reel": round(reel_w, 2),
         "hold": round(stat_w, 2),
         "ecart_usd": ecart_w,
         "ecart_pct": ecart_pct,
         "verdict": vs_verdict,
-        # Vrai compte : cash REJOUÉ (débité/credite à chaque opération) — ce
-        # qu'un vrai compte aurait en poche, PAS le pair_cash paper (jamais
-        # débité). cashPaper = l'ancien affichage paper, pour comparaison.
-        "cash": round(float(out.get("cashReel") or 0.0), 2),
+        # Vrai compte PAR CRYPTO : chaque paire a son budget (seed + 20$ de
+        # marge) et son cash rejoué. cash = somme des cash réels par paire
+        # (ce qu'un vrai compte aurait en poche). cashPaper = ancien affichage.
+        "cash": round(cash_reel, 2),
         "cashPaper": round(float(out.get("cash") or 0.0), 2),
-        "cashNadir": round(float(out.get("cashNadir") or 0.0), 2),
-        "capital0": round(float(out.get("walletOrigineCash") or 0.0) + sum(
-            (float(seed_qty.get(_p) or 0.0) * (float(seed_px.get(_p) or 0.0)
-             if seed_px.get(_p) else float((pos_all.get(_p) or {}).get("entry") or 0.0)))
-            for _p in seed_qty
-        ), 2),
+        "cashNadir": round(cash_nadir, 2),
+        "margeParCrypto": MARGE_PAR_CRYPTO,
+        "nbPaires": len(_all_pairs),
+        "budgetTotal": round(sum(budget_par_paire.values()), 2),
+        "overBudget": over_budget,
+        "pairs": sorted(
+            [
+                {
+                    "pair": _p,
+                    "seed": round(seed_par_paire.get(_p, 0.0), 2),
+                    "seedQty": round(float(seed_qty.get(_p) or 0.0), 6),
+                    "budget": round(budget_par_paire.get(_p, 0.0), 2),
+                    "net": round(net_investi.get(_p, 0.0), 2),
+                    "pos": round(pos_par_paire.get(_p, 0.0), 2),
+                    "posQty": round(float((pos_all.get(_p) or {}).get("qty") or 0.0), 6),
+                    "cash": round(cash_par_paire.get(_p, 0.0), 2),
+                    "reel": round(reel_par_paire.get(_p, 0.0), 2),
+                    "hold": round(hold_par_paire.get(_p, 0.0), 2),
+                    "ecart": round(reel_par_paire.get(_p, 0.0) - hold_par_paire.get(_p, 0.0), 2),
+                    "over": net_investi.get(_p, 0.0) > budget_par_paire.get(_p, 0.0) + 0.01,
+                }
+                for _p in _all_pairs
+            ],
+            key=lambda x: x["ecart"],
+            reverse=True,
+        ),
         "ts": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
     }
 

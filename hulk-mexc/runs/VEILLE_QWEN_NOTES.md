@@ -2754,3 +2754,12 @@ Pas d’ordre — confrontation plus tard.
 - QAITUSDT: WATCH_PULLBACK — tension haute + reflux
 - ZBCNUSDT: WATCH_PULLBACK — tension haute + reflux
 (compléter: confirmé ? risque ?)
+
+### 2026-08-28T21:26:34Z — ALERT auto
+- EDELUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
+
+### 2026-08-28T21:57:45Z — ALERT auto
+- QAITUSDT: WATCH_PULLBACK — tension haute + reflux
+- ZBCNUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
