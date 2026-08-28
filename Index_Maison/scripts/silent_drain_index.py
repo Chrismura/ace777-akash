@@ -1,0 +1,313 @@
+#!/usr/bin/env python3
+"""
+silent_drain_index.py — SDI (Silent Drain Index) + IPT (Indice de Pression Topologique)
+Détecte les mouvements silencieux de baleines via :
+  1. SDI : divergence BTC dormant (>1 an) vs frais payés par adresses <30 jours
+  2. IPT : ratio micro-tx × z-score frais × entropie scripts
+
+Auteur : Ace (Index Maison)
+Version : 2.0 (fix API 404)
+Date : 2026-08-25
+"""
+
+import json
+import time
+import urllib.request
+from pathlib import Path
+import math
+
+DATA_DIR = Path(__file__).parent.parent / "data"
+LIVE_FILE = DATA_DIR / "live.json"
+SDI_OUTPUT = DATA_DIR / "sdi_latest.json"
+
+# ─── Fetch helpers ──────────────────────────────────────────────
+
+def fetch_json(url, timeout=8):
+    """Fetch JSON depuis une URL"""
+    try:
+        req = urllib.request.Request(url, headers={"User-Agent": "Ace-SDI/2.0"})
+        with urllib.request.urlopen(req, timeout=timeout) as resp:
+            return json.loads(resp.read())
+    except Exception as e:
+        print(f"  [SDI] fetch error {url}: {e}")
+        return None
+
+# ─── SDI Calculation ───────────────────────────────────────────
+
+def get_btc_dormant():
+    """
+    Récupère le pourcentage de BTC dormant >1 an via Blockchain.com
+    Alternative: utiliser l'API supply-still-never-been-spent
+    """
+    # Source 1: utxo-pool-value (peut être indisponible)
+    url = "https://api.blockchain.info/charts/utxo-pool-value?timespan=30days&format=json"
+    data = fetch_json(url)
+    
+    if data and "values" in data:
+        values = [v["y"] for v in data["values"]]
+        if len(values) >= 2:
+            current = values[-1]
+            avg_30d = sum(values) / len(values)
+            return {
+                "current_pct": round(current, 2),
+                "avg_30d_pct": round(avg_30d, 2),
+                "divergence_pct": round(((current - avg_30d) / avg_30d) * 100, 2) if avg_30d > 0 else 0,
+                "source": "blockchain.com"
+            }
+    
+    # Source 2: alternative.me (fear & greed comme proxy)
+    # FIX 28/08 : renommé dormant_pct → fg_sentiment_pct pour dire la vérité.
+    # blockchain.info/utxo-pool-value renvoie 404. Le FG est un PROXY raisonnable :
+    # FG bas = peur = holders pressés = activité dormant accrue. Pas parfait mais
+    # honnête (le label « dormant_pct » sur un indice FG était trompeur).
+    url2 = "https://api.alternative.me/fng/?limit=30&format=json"
+    data2 = fetch_json(url2)
+    if data2 and "data" in data2:
+        fg_values = [int(d["value"]) for d in data2["data"]]
+        current_fg = fg_values[0] if fg_values else 50
+        avg_fg = sum(fg_values) / len(fg_values) if fg_values else 50
+
+        # FG bas vs moyenne = peur accrue = holders pressés = potentiel drain
+        divergence = ((current_fg - avg_fg) / avg_fg) * 100 if avg_fg > 0 else 0
+
+        return {
+            "fg_sentiment_pct": current_fg,
+            "fg_avg_30d_pct": round(avg_fg, 2),
+            "divergence_pct": round(-divergence, 2),
+            "source": "alternative.me (FG proxy — les données dormant sont indisponibles)"
+        }
+    
+    return None
+
+def get_fee_pressure():
+    """Récupère la pression des frais via Mempool.space"""
+    url = "https://mempool.space/api/v1/fees/recommended"
+    data = fetch_json(url)
+    if not data:
+        return None
+    
+    return {
+        "fastest": data.get("fastestFee", 0),
+        "halfHour": data.get("halfHourFee", 0),
+        "hour": data.get("hourFee", 0),
+        "economy": data.get("economyFee", 0)
+    }
+
+def get_dormant_surge(fee_pressure):
+    """
+    SDI = divergence des BTC dormant × pression des frais
+    Si les vieux BTC bougent + frais montent = drainage silencieux
+    """
+    dormant = get_btc_dormant()
+    if not dormant or not fee_pressure:
+        return None
+    
+    # Score de divergence (>2% = suspect, >5% = alarme)
+    div = dormant["divergence_pct"]
+    if div > 5:
+        div_score = 1.0
+    elif div > 2:
+        div_score = 0.5 + (div - 2) * 0.17
+    else:
+        div_score = max(0, div * 0.1)
+    
+    # Score de frais (fastest > 50 sat/vB = pression élevée)
+    fee = fee_pressure["fastest"]
+    if fee > 50:
+        fee_score = 1.0
+    elif fee > 20:
+        fee_score = 0.5 + (fee - 20) * 0.017
+    else:
+        fee_score = max(0, fee * 0.01)
+    
+    # SDI composite (0-1)
+    sdi = round((div_score * 0.6 + fee_score * 0.4), 3)
+    
+    return {
+        "sdi": sdi,
+        "divergence_score": round(div_score, 3),
+        "fee_score": round(fee_score, 3),
+        "dormant_pct": dormant.get("current_pct") or dormant.get("fg_sentiment_pct"),
+        "dormant_avg_30d": dormant.get("avg_30d_pct") or dormant.get("fg_avg_30d_pct"),
+        "dormant_source": dormant.get("source", "unknown"),
+        "fee_fastest_sat": fee
+    }
+
+# ─── IPT Calculation (INFERX) ──────────────────────────────────
+
+def get_mempool_entropy():
+    """
+    Entropie de la mempool : diversité des scripts × variance des frais
+    Plus l'entropie est basse = un seul acteur automatisé
+    """
+    # Récupérer les dernières transactions
+    url = "https://mempool.space/api/mempool/recent"
+    txs = fetch_json(url)
+    if not txs or len(txs) < 10:
+        return None
+    
+    # Variance des fees
+    fees = [tx.get("fee", 0) / tx.get("vsize", 1) for tx in txs if tx.get("vsize", 0) > 0]
+    if not fees:
+        return None
+    
+    mean_fee = sum(fees) / len(fees)
+    variance = sum((f - mean_fee) ** 2 for f in fees) / len(fees)
+    std_fee = math.sqrt(variance) if variance > 0 else 0
+    
+    # Coefficient de variation (inverse de l'entropie)
+    cv = std_fee / mean_fee if mean_fee > 0 else 0
+    
+    # Entropie (1 - cv normalisé)
+    entropy = max(0, min(1, 1 - cv))
+    
+    return {
+        "entropy": round(entropy, 3),
+        "cv": round(cv, 3),
+        "n_txs": len(txs)
+    }
+
+def get_ipt(mempool_entropy, fee_pressure):
+    """
+    IPT = (micro-tx volume / total) × z-score frais × entropie
+    Si entropie chute + micro-tx montent = un seul acteur automatisé
+    """
+    if not mempool_entropy or not fee_pressure:
+        return None
+    
+    # Micro-tx ratio (txs < 1000 sat)
+    url = "https://mempool.space/api/mempool/recent"
+    txs = fetch_json(url)
+    if not txs:
+        return None
+    
+    micro_count = sum(1 for tx in txs if tx.get("value", 0) < 100000)  # < 0.001 BTC
+    micro_ratio = micro_count / len(txs) if txs else 0
+    
+    # Z-score frais (fastest vs médiane)
+    fee = fee_pressure["fastest"]
+    median_fee = fee_pressure.get("hour", 1)
+    z_fee = (fee - median_fee) / median_fee if median_fee > 0 else 0
+    
+    # IPT composite
+    ipt = round((micro_ratio * 0.4 + max(0, z_fee) * 0.3 + mempool_entropy["entropy"] * 0.3), 3)
+    
+    return {
+        "ipt": ipt,
+        "micro_tx_ratio": round(micro_ratio, 3),
+        "z_fee": round(z_fee, 3),
+        "entropy": mempool_entropy["entropy"]
+    }
+
+# ─── RBF Analytics (Replace-By-Fee) ───────────────────
+
+def get_rbf_analytics():
+    """
+    Détecte le RBF (Replace-By-Fee) VRAI via le flag BIP 125 (nSequence).
+    FIX 28/08 (GO Christophe) : l'ancienne méthode (frais proches = RBF)
+    était un faux positif structuré — elle donnait un score max quand la
+    mempool était calme (tout le monde au même frais). La vraie détection
+    vérifie nSequence < 0xfffffffe sur chaque input (BIP 125).
+    Coût : 10 appels tx/{txid} par cycle (~10-15s), rate-limit mempool.space
+    respecté (1 req/s free tier). Fail-open : txs inaccessibles = non RBF.
+    """
+    url_recent = "https://mempool.space/api/mempool/recent"
+    txs = fetch_json(url_recent)
+    if not txs or len(txs) < 10:
+        return None
+
+    rbf_count = 0
+    checked = 0
+    fee_rbf_pairs = []  # txs dont au moins 1 input signale RBF
+    for tx in txs[:10]:  # borné à 10 (rate-limit)
+        txid = tx.get("txid")
+        if not txid:
+            continue
+        try:
+            detail_url = "https://mempool.space/api/tx/%s" % txid
+            detail = fetch_json(detail_url, timeout=4)
+            if not detail:
+                continue
+            checked += 1
+            vin = detail.get("vin", []) or []
+            has_rbf = any(
+                (v.get("sequence") or 0xFFFFFFFF) < 0xFFFFFFFE
+                for v in vin
+            )
+            if has_rbf:
+                rbf_count += 1
+                fee_rate = tx.get("fee", 0) / max(tx.get("vsize", 1), 1)
+                fee_rbf_pairs.append(round(fee_rate, 1))
+            time.sleep(0.5)  # rate-limit respectueux
+        except Exception:
+            continue  # fail-open : tx injoignable = non RBF
+
+    rbf_ratio = rbf_count / max(checked, 1)
+    rbf_score = min(1.0, rbf_ratio * 5)
+
+    return {
+        "rbf_score": round(rbf_score, 3),
+        "rbf_ratio": round(rbf_ratio, 3),
+        "rbf_pairs": rbf_count,
+        "n_txs": checked,
+        "fee_rbf": fee_rbf_pairs if fee_rbf_pairs else None,
+    }
+
+# ─── Main ──────────────────────────────────────────────────────
+
+def compute_sdi():
+    """Calcule le SDI, IPT et RBF, sauvegarde dans sdi_latest.json"""
+    print("[SDI] Calcul en cours...")
+    
+    # 1. Fee pressure
+    fee_pressure = get_fee_pressure()
+    if not fee_pressure:
+        print("[SDI] Erreur: impossible de récupérer les frais")
+        return None
+    
+    # 2. SDI
+    sdi_result = get_dormant_surge(fee_pressure)
+    
+    # 3. Mempool entropy
+    mempool_entropy = get_mempool_entropy()
+    
+    # 4. IPT
+    ipt_result = get_ipt(mempool_entropy, fee_pressure)
+    
+    # 5. RBF Analytics
+    rbf_result = get_rbf_analytics()
+    
+    # 6. Assemblage
+    result = {
+        "timestamp": int(time.time()),
+        "sdi": sdi_result,
+        "ipt": ipt_result,
+        "rbf": rbf_result,
+        "fee_pressure": fee_pressure,
+        "alerts": []
+    }
+    
+    # 7. Alertes
+    if sdi_result and sdi_result["sdi"] > 0.7:
+        result["alerts"].append("SDI ÉLEVÉ: drainage silencieux probable")
+    if ipt_result and ipt_result["ipt"] > 0.8:
+        result["alerts"].append("IPT ÉLEVÉ: un seul acteur automatisé détecté")
+    if mempool_entropy and mempool_entropy["entropy"] < 0.3:
+        result["alerts"].append("ENTROPIE BASSE: mempool anormalement homogène")
+    if rbf_result and rbf_result["rbf_score"] > 0.6:
+        result["alerts"].append("RBF ÉLEVÉ: remplacements de frais détectés = urgence")
+    
+    # 8. Sauvegarde
+    SDI_OUTPUT.parent.mkdir(parents=True, exist_ok=True)
+    with open(SDI_OUTPUT, "w") as f:
+        json.dump(result, f, indent=2)
+    
+    sdi_val = sdi_result['sdi'] if sdi_result else 'N/A'
+    ipt_val = ipt_result['ipt'] if ipt_result else 'N/A'
+    rbf_val = rbf_result['rbf_score'] if rbf_result else 'N/A'
+    print(f"[SDI] SDI={sdi_val} | IPT={ipt_val} | RBF={rbf_val} | Alertes={len(result['alerts'])}")
+    
+    return result
+
+if __name__ == "__main__":
+    compute_sdi()

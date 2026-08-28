@@ -3926,3 +3926,8 @@ Intégration cockpit (2 lignes dans index.html) · passage au réel · cumul des
 - **RBF corrigé** (GO Christophe) : l'ancienne méthode (frais proches = RBF) donnait score max quand mempool calme — faux positif structuré qui décoince tout l'index. Nouveau : vrai flag BIP 125 (nSequence < 0xfffffffe sur chaque input via tx/{txid} JSON). 4 vrais RBF sur 10 txs vérifiées (dont un à 31.2 sat/vB). Backup: silent_drain_index.py.bak-avant-fix-rbf-20260828.
 - **Audit SDI** : source blockchain.info/utxo renvoie 404 → fallback alternative.me (Fear & Greed proxy). Le champ dormant_pct=73 est en réalité FG=73 (sentiment), pas 73% BTC dormants. Le score SDI=0.016 (bas) est fiable car les frais sont calmes → pas de drain. Design: source à corriger (trouver vrai fournisseur dormant) + label misleading.
 - **Audit IPT** : entropy = 1 - cv(fees) = 0 quand frais varient (cv=1). ipt=0.94 est entièrement porté par z_fee (fastest/hour = 4/1). Le nom entropie est inversé. Design: renommer ou recalibrer, pas un bug de signal.
+
+## 28/08 — FIN DE JOURNÉE : fix RBF, source SDI, watchdog, liste observation
+- **Observation_list.json** : 10 paires valides MEXC (ADA + XLM/SOL/ZAMA/GOLD(PAXG)/ALGO/IXS/XDC/QNT/JASMY). Retirées: WECAN/LAGRANGE/MANSORY (pas sur MEXC). GOLD(PAXG)USDT = mur bid 40k$ déjà.
+- **Source SDI** : blockchain.info/utxo renvoie 404 → label dormant_pct renommé via source honeste (FG proxy). Les consommateurs (cortana/thermo) lisent encore dormant_pct (compatibilité), la source dit la vérité.
+- **Watchdog** : fix anti auto-match — lit le PID du lock file + kill -0 au lieu de pgrep -f. Ne se fait plus tromper par ses propres commandes.

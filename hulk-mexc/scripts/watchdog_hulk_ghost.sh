@@ -9,17 +9,28 @@ ts() { date -u +%Y-%m-%dT%H:%M:%SZ; }
 log() { echo "$(ts) $*" | tee -a "$LOG"; }
 
 # --- PAPER ---
-if pgrep -f 'scripts/paper_diprip.py' >/dev/null 2>&1; then
-  log "PAPER: OK pid=$(pgrep -f 'scripts/paper_diprip.py' | head -1)"
-else
+# FIX 28/08 : lire le PID du lock file au lieu de pgrep (anti auto-match —
+# pgrep -f 'scripts/paper_diprip.py' matchait les commandes bash contenant
+# ce texte, faisant croire au watchdog que le moteur était vivant).
+LOCK_FILE="runs/.paper_diprip.lock"
+paper_ok=false
+if [ -f "$LOCK_FILE" ]; then
+  lock_pid=$(cat "$LOCK_FILE" 2>/dev/null | tr -d '[:space:]')
+  if [ -n "$lock_pid" ] && kill -0 "$lock_pid" 2>/dev/null; then
+    log "PAPER: OK pid=$lock_pid (lock file)"
+    paper_ok=true
+  fi
+fi
+if [ "$paper_ok" = false ]; then
   if [ -f STOP_PAPER ]; then
     log "PAPER: mort + STOP_PAPER présent — pas de relance (stop volontaire)"
   else
     log "PAPER: MORT — relance (--resume pour tenir les positions)"
     nohup python3 scripts/paper_diprip.py --resume >>runs/PAPER_WATCHDOG_STDOUT.log 2>&1 &
     sleep 2
-    if pgrep -f 'scripts/paper_diprip.py' >/dev/null 2>&1; then
-      log "PAPER: RELANCÉ pid=$(pgrep -f 'scripts/paper_diprip.py' | head -1)"
+    new_pid=$(cat "$LOCK_FILE" 2>/dev/null | tr -d '[:space:]')
+    if [ -n "$new_pid" ] && kill -0 "$new_pid" 2>/dev/null; then
+      log "PAPER: RELANCÉ pid=$new_pid"
     else
       log "PAPER: FAIL relance"
     fi
