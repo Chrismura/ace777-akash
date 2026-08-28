@@ -14,6 +14,7 @@ import csv
 import json
 import os
 import signal
+import socket
 import sys
 import time
 import urllib.error
@@ -22,6 +23,11 @@ import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Optional
+
+# FIX CRITIQUE 28/08 : timeout global sur les sockets (connect inclus)
+# Sans ça, urlopen bloque indéfiniment sur SYN_SENT (macOS Darwin)
+# — le SIGALRM ne délivre PAS le signal pendant connect() bloquant.
+socket.setdefaulttimeout(30)
 
 # capteurs F1-like (module local Hulk — pas ACE genesis)
 sys.path.insert(0, str(Path(__file__).resolve().parent))
