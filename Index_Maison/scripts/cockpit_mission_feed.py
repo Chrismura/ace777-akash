@@ -485,13 +485,27 @@ def load_hulk():
     out["walletReelCash"] = round(reel_cash, 2)
     # Statique = seeds tenus au cours actuel (buy & hold) + 20 $ cash initial.
     # Quantités de seed lues dans le CSV (BUY reason SEED_START).
+    # 28/08 (Buffy) : on capture AUSSI seed_px (prix d'entrée du seed) et le
+    # PnL RÉALISÉ cumulé par paire (SELL/SELL_PARTIAL/STOP/BAG_*) pour que le
+    # tableau compare pomme avec pomme : "si rien fait" = move du prix depuis
+    # le seed, "réel Hulk" = realized + uPnl (pas la valeur du bag réinvesti).
     seed_qty: dict[str, float] = {}
+    seed_px: dict[str, float] = {}
+    realized_pnl: dict[str, float] = {}
     if csv_p and csv_p.exists():
         with csv_p.open(newline="", encoding="utf-8", errors="ignore") as f:
             for row in csv.DictReader(f):
-                if (row.get("reason") or "").upper().startswith("SEED") and (row.get("event") or "").upper() == "BUY":
+                _pair = row.get("pair") or ""
+                _ev = (row.get("event") or "").upper()
+                if _ev == "BUY" and (row.get("reason") or "").upper().startswith("SEED"):
                     try:
-                        seed_qty[row["pair"]] = float(row["qty"])
+                        seed_qty[_pair] = float(row["qty"])
+                        seed_px[_pair] = float(row["price"])
+                    except Exception:
+                        pass
+                elif _ev.startswith(("SELL", "STOP", "BAG_SELL", "BAG_CRASH")):
+                    try:
+                        realized_pnl[_pair] = realized_pnl.get(_pair, 0.0) + float(row.get("pnl_usdt") or 0)
                     except Exception:
                         pass
     # Synthèse (24/08, fix resume) : après une reprise --resume, le CSV du run
@@ -533,13 +547,26 @@ def load_hulk():
     # Enrichir AUSSI out["portfolio"] : le JS du tableau DU DÉPART lit portfolio
     # en priorité — sans ça, seedQty/statiqueVal restaient vides à l'écran.
     def _statique_row(p):
-        sq = seed_qty.get(p.get("pair") or "")
+        pair = p.get("pair") or ""
+        sq = seed_qty.get(pair)
+        px0 = seed_px.get(pair)
         if sq and p.get("mark"):
             p["seedQty"] = round(sq, 4)
+            if px0:
+                # 28/08 (Buffy) : seedPx = prix d'entrée du seed → le % "si rien
+                # fait" devient le vrai move depuis le DÉPART (avant : entrée de la
+                # position actuelle, ce qui faussait PYTH −0,33% au lieu de −4,7%).
+                p["seedPx"] = round(px0, 6)
+                p["seedVal"] = round(sq * px0, 2)
+                p["statiquePct"] = round(
+                    (float(p["mark"]) / px0 - 1.0) * 100.0, 2
+                )
+            else:
+                p["statiquePct"] = round(
+                    (float(p["mark"]) / float(p["entry"] or 1.0) - 1.0) * 100.0, 2
+                ) if p.get("entry") else None
             p["statiqueVal"] = round(sq * float(p["mark"]), 2)
-            p["statiquePct"] = round(
-                (float(p["mark"]) / float(p["entry"] or 1.0) - 1.0) * 100.0, 2
-            ) if p.get("entry") else None
+        p["realized"] = round(realized_pnl.get(pair, 0.0), 4)
     for p in out.get("portfolio") or []:
         _statique_row(p)
     for p in out["positions"]:
@@ -573,7 +600,10 @@ def load_hulk():
             sq = p.get("seedQty")
             if sq is not None:
                 p["statiqueVal"] = round(sq * px, 2)
-                if p.get("entry"):
+                px0 = p.get("seedPx")  # 28/08 : vrai point de départ si connu
+                if px0:
+                    p["statiquePct"] = round((px / float(px0) - 1.0) * 100.0, 2)
+                elif p.get("entry"):
                     p["statiquePct"] = round((px / float(p["entry"]) - 1.0) * 100.0, 2)
         # walletReel / walletStatique rafraîchis avec les prix live (vérité du moment)
         reel_pos = 0.0
