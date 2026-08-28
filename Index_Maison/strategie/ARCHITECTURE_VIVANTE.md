@@ -1,4 +1,4 @@
-# ARCHITECTURE VIVANTE — ACE777 (2026-08-28 09:01 UTC)
+# ARCHITECTURE VIVANTE — ACE777 (2026-08-28 10:04 UTC)
 
 > Document GÉNÉRÉ AUTOMATIQUEMENT à l'instant. La famille valide
 > en s'appuyant sur CE contexte, pas sur des documents figés.
@@ -9,7 +9,7 @@
 - ✅ radar
 - ⛔ lecteur signets
 - ⛔ générateur fiches
-- ✅ feed mission
+- ⛔ feed mission
 - ⛔ serveur cockpit
 
 ## Routage des tâches de décision
@@ -22,7 +22,7 @@
 
 ## État de la mission (bots + PnL)
 
-- mission.json : 2026-08-28 09:01Z · run `MASTER_VORTEX_V2_COLLAB_4H` · alerte `amber`
+- mission.json : 2026-08-28 10:04Z · run `MASTER_VORTEX_V2_COLLAB_4H` · alerte `amber`
 - PnL combiné : **1.27 $** 📈 (combo 1.2674)
 - ALPHA (sniper (embuscade, ×13, revenge si claque)) : **+2.01 $** · 10 fills · 249 skips
 - BETA (éclaireur (chatouille le marché, alimente Alpha)) : **-0.74 $** · 15 fills · 257 skips
@@ -44,6 +44,16 @@
   · obs-1786774646 (nvidia/nemotron-3-nano-30b-a3b:free) : 100% erreurs > 5% (observatoire)
 - [ROLLBACK AUTO 2026-08-28]
   · obs-1786774656 (nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free) : 60% erreurs > 5% (ob
+- [ROLLBACK AUTO 2026-08-28]
+  · obs-1786774667 (nvidia/nemotron-3.5-lightning:free) : 100% erreurs > 5% (observatoire)
+- [ROLLBACK AUTO 2026-08-28]
+  · obs-1786795252 (nvidia/nemotron-3.5-content-safety:free) : 100% erreurs > 5% (observatoire
+- [ROLLBACK AUTO 2026-08-28]
+  · obs-1787033767 (google/diffusiongemma-26b-a4b-it) : 100% erreurs > 5% (observatoire)
+- [ROLLBACK AUTO 2026-08-28]
+  · obs-1787206650 (google/gemma-4-26b-a4b-it:free) : 100% erreurs > 5% (observatoire)
+- [ROLLBACK AUTO 2026-08-28]
+  · obs-1787248844 (nvidia/nemotron-nano-9b-v2:free) : 100% erreurs > 5% (observatoire)
   · inclusionai/ling-3.0-flash-fin:free
   · dots-studio/dots-3-note-preview:free
   · liquid/lfm-2.5-2.6b:free
@@ -52,10 +62,10 @@
 ## Mémoire chaude (journal + résumés)
 
 - Radar (dernières alertes) :
-  · 2026-08-28T09:01:45.877773Z ETHUSDT 2485.74 0.0002 42.9 declenche=non
-  · 2026-08-28T09:01:45.909237Z BTCUSDT 79389.99 0.0012 17.0 declenche=oui
-  · 2026-08-28T09:01:45.913580Z BTCUSDT 79389.99 0.0012 17.0 declenche=oui
-  · 2026-08-28T09:01:45.917691Z BTCUSDT 79389.99 0.0012 17.0 declenche=oui
+  · 2026-08-28T10:04:50.145447Z BTCUSDT 79189.25 0.0004 19.4 declenche=oui
+  · 2026-08-28T10:04:50.147776Z BTCUSDT 79189.25 0.0004 19.4 declenche=oui
+  · 2026-08-28T10:04:50.150846Z BTCUSDT 79188.01 0.0004 19.4 declenche=oui
+  · 2026-08-28T10:04:50.199886Z BTCUSDT 79188.0 0.0004 19.4 declenche=oui
 - Intention en cours : BETA a sonde le marche (13 sondes, 9 long / 4 court, conf mo | ALPHA attend son moment : 232 skips (discipline), le mur du  | ALPHA a frappe 9 fois en embuscade (13x) (dont 2 en mode rev
 - 745 signets X résumés (quota aujourd'hui : 0/50)
 - 79 fiches IA d'offres en cache (quota 8/jour)
