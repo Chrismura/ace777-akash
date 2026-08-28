@@ -36,6 +36,34 @@ INV = ROOT / "data" / "universe_mexc_inventory.csv"
 RUNS = ROOT / "runs"
 STOP_FILE = ROOT / "STOP_PAPER"
 
+# Profils comportementaux par paire (universe_profils.json, 27/08 GO Christophe).
+# Chaque crypto a SON caractère : murs, spoof, drop, spread, ET désormais ses
+# propres seuils dip/rip/stop (volatilité réelle 30j). Chargé une fois en cache
+# module-level pour que score_pair (fonction, pas méthode) puisse y accéder sans
+# relire le disque à chaque cycle.
+_PROFILS_CACHE: dict[str, dict] | None = None
+
+
+def _profils() -> dict[str, dict]:
+    global _PROFILS_CACHE
+    if _PROFILS_CACHE is not None:
+        return _PROFILS_CACHE
+    _PROFILS_CACHE = {}
+    p = ROOT / "strategie" / "universe_profils.json"
+    try:
+        if p.exists():
+            data = json.loads(p.read_text())
+            for k, v in data.items():
+                if k in ("version", "updated", "note"):
+                    continue
+                if isinstance(v, dict) and "calib" in v:
+                    _PROFILS_CACHE[k] = v
+    except Exception:
+        _PROFILS_CACHE = {}
+    return _PROFILS_CACHE
+# Kill-switch global : même sémantique que la veilleuse (touch → tous les bots s'arrêtent)
+STOP_ALL = Path.home() / "ace777-test-day1" / "Index_Maison" / "STOP_ALL"
+
 # Couleurs terminal (désactiver: NO_COLOR=1)
 _USE_COLOR = sys.stdout.isatty() and not os.environ.get("NO_COLOR")
 
@@ -305,11 +333,17 @@ def sniff_volume(kl15: list, cfg: dict) -> dict:
 
 
 def score_pair(pair: str, cfg: dict) -> dict:
-    """Régime + cadence + sniff volume (15j 1h)."""
+    """Régime + cadence + sniff volume (15j 1h).
+
+    27/08 (2e passe) : les seuils de DÉTECTION (impulsion/refroidissement)
+    viennent AUSSI du profil par paire — sinon BTC/ETH (banc de preuve) avec
+    les floors globaux (impulsion 8%, refroidissement 6%) ne déclencheraient
+    JAMAIS : un banc de preuve qui ne trade pas ne teste rien."""
+    _cal = (_profils().get(pair) or {}).get("calib") or {}
     quiet_min = float(cfg.get("QUIET_RANGE_PCT", "8"))
     spike_15 = float(cfg.get("SPIKE_15D_PCT", "25"))
-    impulse_th = float(cfg.get("IMPULSE_PCT", "8"))
-    cooling_dd = float(cfg.get("COOLING_DD_MIN_PCT", "6"))
+    impulse_th = float(_cal.get("impulse_pct", cfg.get("IMPULSE_PCT", "8")))
+    cooling_dd = float(_cal.get("cooling_dd_pct", cfg.get("COOLING_DD_MIN_PCT", "6")))
 
     # Un seul fetch 60m × 15j (évite double timeout MEXC)
     kl15 = klines(pair, "60m", 24 * 15)
@@ -356,10 +390,16 @@ def score_pair(pair: str, cfg: dict) -> dict:
     move6 = ((peak6 / trough6) - 1.0) * 100.0 if trough6 > 0 else 0.0
     dd6 = ((1.0 - price / peak6) * 100.0) if peak6 > 0 else 0.0
 
-    # seuils adaptés à la cadence
-    dip = max(float(cfg.get("DIP_FLOOR_PCT", "2.5")), cadence * float(cfg.get("DIP_CADENCE_MULT", "0.45")))
-    rip = max(float(cfg.get("RIP_FLOOR_PCT", "1.5")), cadence * float(cfg.get("RIP_CADENCE_MULT", "0.35")))
-    stop = max(float(cfg.get("STOP_FLOOR_PCT", "4.0")), cadence * float(cfg.get("STOP_CADENCE_MULT", "0.70")))
+    # seuils adaptés à la cadence, avec plancher PAR PAIRE (profil 27/08) :
+    # chaque crypto a SON setup — XRP ne se trade pas comme QAIT. Le profil
+    # (dip_pct/rip_pct/stop_pct, volatilité réelle 30j) prime ; repli sur les
+    # floors globaux si la paire n'a pas de profil (fail-open).
+    dip_floor = float(_cal.get("dip_pct", cfg.get("DIP_FLOOR_PCT", "2.5")))
+    rip_floor = float(_cal.get("rip_pct", cfg.get("RIP_FLOOR_PCT", "1.5")))
+    stop_floor = float(_cal.get("stop_pct", cfg.get("STOP_FLOOR_PCT", "4.0")))
+    dip = max(dip_floor, cadence * float(cfg.get("DIP_CADENCE_MULT", "0.45")))
+    rip = max(rip_floor, cadence * float(cfg.get("RIP_CADENCE_MULT", "0.35")))
+    stop = max(stop_floor, cadence * float(cfg.get("STOP_CADENCE_MULT", "0.70")))
 
     had_spike = range15 >= spike_15 or move24 >= impulse_th
     impulse_now = move6 >= impulse_th or move24 >= impulse_th * 1.2
@@ -371,11 +411,11 @@ def score_pair(pair: str, cfg: dict) -> dict:
     cool_entry = max(
         cooling_dd,
         dip,
-        range15 * float(cfg.get("COOLING_PULLBACK_FRAC", "0.25")),
+        range15 * float(_cal.get("cooling_pullback_frac", cfg.get("COOLING_PULLBACK_FRAC", "0.25"))),
     )
     impulse_entry = max(
         dip,
-        float(cfg.get("IMPULSE_PULLBACK_MIN_PCT", "5")),
+        float(_cal.get("impulse_pullback_min_pct", cfg.get("IMPULSE_PULLBACK_MIN_PCT", "5"))),
         move6 * float(cfg.get("IMPULSE_PULLBACK_FRAC", "0.30")),
     )
 
@@ -516,14 +556,30 @@ class PaperBot:
         # Charge le rapport historique d'observer_murs.py pour scorer la force
         # de chaque paire (mur bid moyen/max, taux de spoof, taux de drop).
         self.murs_observations: dict[str, dict] = {}
+        # Profils comportementaux par paire (universe_profils.json, 27/08 GO Christophe)
+        # Chaque crypto a SON caractère : médiane de mur, spoof baseline, drops,
+        # fenêtres horaires → wall_strength RELATIF + plafond de mise par profondeur.
+        self.profils: dict[str, dict] = {}
+        self._load_profils()
         self.wall_btc_prev: float = 0.0  # BTC price au tick précédent (détection choc)
         self.wall_melt_events: list[dict] = []  # murs qui fondent post-choc BTC
         self.gex_call_wall: float = 0.0  # call wall Deribit (mis à jour depuis live.json)
+        # === CROISEMENT indices × murs (28/08, GO Christophe) — mode OBSERVATION, RÉVERSIBLE ===
+        # Journalise le contexte (mur de la paire + poussière/SDI/pipeline_health) par paire
+        # par cycle dans runs/croisement_contexte.jsonl. ZÉRO effet sur les entrées.
+        # Interrupteur : strategie/croisement_config.json ({"on": false} désactive sans redémarrer).
+        self.croisement_on: bool = False
+        self._ctx_indices_cache: dict = {}
+        self._ctx_indices_ts: float = 0.0
         self.gex_put_wall: float = 0.0
         self._load_wall_observations()
         # === CIRCUIT BREAKER (25/08) — bloque le trading si données stale ===
+        # FIX 27/08 : TTL gex aligné sur la cadence RÉELLE du gex — thermo tourne
+        # ~1h (écart moyen 55,9 min mesuré). Avec TTL 300 s, le circuit serait
+        # ouvert en PERMANENCE (faux positif → Hulk ne traderait jamais).
+        # 7200 s = 2h = marge x2 sur la cadence 1h (cohérent avec sante_index x2.5).
         self.cb_btc = TradeCircuitBreaker(ttl_seconds=10.0, failure_threshold=3, cooldown_seconds=30.0)
-        self.cb_gex = TradeCircuitBreaker(ttl_seconds=300.0, failure_threshold=2, cooldown_seconds=60.0)
+        self.cb_gex = TradeCircuitBreaker(ttl_seconds=7200.0, failure_threshold=2, cooldown_seconds=60.0)
         ts = datetime.now(timezone.utc).strftime("%Y%m%d_%H%M%S")
         self.aspiration_csv = RUNS / f"ASPIRATION_CALIB_{ts}.csv"
         if self.aspiration_on:
@@ -601,19 +657,27 @@ class PaperBot:
         return 1.0  # Défaut = nominal
 
     def get_cortana_recommendation(self) -> dict:
-        """Lit cortana_analysis.json et retourne la recommandation."""
+        """Lit cortana_analysis.json et retourne la recommandation.
+        Fraîcheur : l'analyzer tourne toutes les 5 min → TTL 30 min (6 cycles manqués).
+        Si le fichier est stale, retourne niveau 'stale' pour l'afficher honnêtement."""
         try:
             analysis_file = Path(__file__).parent.parent.parent / "Index_Maison" / "data" / "cortana_analysis.json"
             if analysis_file.exists():
                 analysis = json.loads(analysis_file.read_text(encoding="utf-8"))
-                # Prendre la dernière analyse
+                ts = analysis.get("timestamp", 0)
+                if isinstance(ts, str):
+                    ts = 0
+                if time.time() - float(ts) > 1800:  # TTL 30 min
+                    return {"niveau": "stale", "action": "STALE", "lecture": "", "resume": ""}
+                # Prendre l'analyse la PLUS SÉVÈRE (pas la dernière)
                 analyses = analysis.get("analyses", [])
+                sev = {"critique": 0, "dangereux": 1, "surveiller": 2, "haussier": 3, "neutre": 4, "inconnu": 5}
                 if analyses:
-                    last = analyses[-1]
+                    best = min(analyses, key=lambda a: sev.get(a.get("niveau", "inconnu"), 5))
                     return {
-                        "niveau": last.get("niveau", "inconnu"),
-                        "action": last.get("action", "Observer"),
-                        "lecture": last.get("interpretation", {}).get("lecture", ""),
+                        "niveau": best.get("niveau", "inconnu"),
+                        "action": best.get("action", "Observer"),
+                        "lecture": best.get("interpretation", {}).get("lecture", ""),
                         "resume": analysis.get("resume", "")
                     }
         except Exception:
@@ -683,16 +747,131 @@ class PaperBot:
         except Exception as e:
             say("err", f"[murs] chargement échoué: {e}")
 
+    def _load_croisement_config(self) -> None:
+        """Charge l'interrupteur du croisement indices × murs (28/08, GO Christophe).
+        RÉVERSIBLE : strategie/croisement_config.json avec on:true/false — relu à
+        chaque cycle (léger), donc on peut couper SANS redémarrer le moteur.
+        Fail-open : config absente/invalide → off (zéro changement de comportement).
+        """
+        try:
+            cfg_path = ROOT / "strategie" / "croisement_config.json"
+            if cfg_path.exists():
+                self.croisement_on = bool(json.loads(cfg_path.read_text()).get("on"))
+        except Exception:
+            self.croisement_on = False
+
+    def _ctx_indices(self) -> dict:
+        """Lit les indices globaux (poussière/SDI/pipeline_health) avec cache TTL 60 s.
+        Fail-open total : tout échec de lecture → champ absent, jamais d'exception.
+        Chemins : Index_Maison/data/ (produits par les agents launchd).
+        """
+        now = time.time()
+        if self._ctx_indices_cache and (now - self._ctx_indices_ts) < 60:
+            return self._ctx_indices_cache
+        idx: dict = {}
+        base = Path(__file__).resolve().parents[2] / "Index_Maison" / "data"
+        try:
+            p = base / "bloc_privatise.json"
+            if p.exists():
+                d = json.loads(p.read_text())
+                idx["poussiere_taux_fantome"] = d.get("taux_fantome")
+                idx["poussiere_nb_cachees"] = d.get("nb_tx_cachees")
+        except Exception:
+            pass
+        try:
+            p = base / "sdi_latest.json"
+            if p.exists():
+                d = json.loads(p.read_text())
+                sdi_obj = d.get("sdi")
+                idx["sdi"] = sdi_obj.get("sdi") if isinstance(sdi_obj, dict) else sdi_obj
+                idx["ipt"] = d.get("ipt")
+                idx["rbf"] = d.get("rbf")
+                idx["fee_pressure"] = d.get("fee_pressure")
+        except Exception:
+            pass
+        try:
+            p = base / "pipeline_health.json"
+            if p.exists():
+                d = json.loads(p.read_text())
+                idx["pipeline_mult"] = d.get("position_multiplier")
+                idx["pipeline_score"] = d.get("global_score")
+        except Exception:
+            pass
+        if self.gex_call_wall > 0:
+            idx["gex_call_wall"] = self.gex_call_wall
+        self._ctx_indices_cache = idx
+        self._ctx_indices_ts = now
+        return idx
+
+    def log_contexte(self, pair: str, sc: dict, price: float) -> None:
+        """Journalise le contexte de décision : mur de la paire + indices globaux.
+        Mode OBSERVATION (28/08, GO Christophe) : append-only dans
+        runs/croisement_contexte.jsonl, ZÉRO effet sur les entrées. RÉVERSIBLE via
+        croisement_config.json (relu à chaque cycle).
+        """
+        if not self.croisement_on:
+            return
+        try:
+            m = self.murs_observations.get(pair) or {}
+            ligne = {
+                "ts": int(time.time()),
+                "utc": utc_now(),
+                "pair": pair,
+                "price": round(float(price), 6),
+                "regime": (sc or {}).get("regime"),
+                "m6_pct": (sc or {}).get("move6_pct"),
+                "dd15_pct": (sc or {}).get("dd15_pct"),
+                "wall_strength": self.wall_strength(pair),
+                "mur_bid_moy_usd": m.get("bid_moy"),
+                "mur_bid_max_usd": m.get("bid_max"),
+                "mur_n_mesures": m.get("n"),
+                "mur_spoof_pct": m.get("spoof_rate"),
+            }
+            ligne.update(self._ctx_indices())
+            with open(ROOT / "runs" / "croisement_contexte.jsonl", "a", encoding="utf-8") as f:
+                f.write(json.dumps(ligne, ensure_ascii=False) + "\n")
+        except Exception:
+            pass  # fail-open : le croisement ne doit JAMAIS casser le moteur
+
+    def _load_profils(self) -> None:
+        """Charge universe_profils.json (profils comportementaux par paire).
+        Fail-open : si absent, Hulk garde l'ancienne normalisation absolue.
+        """
+        profils_path = ROOT / "strategie" / "universe_profils.json"
+        if not profils_path.exists():
+            return
+        try:
+            data = json.loads(profils_path.read_text())
+            for k, v in data.items():
+                if k in ("version", "updated", "note"):
+                    continue
+                if isinstance(v, dict) and "calib" in v:
+                    self.profils[k] = v
+            say("hdr", f"[profils] {len(self.profils)} profils comportementaux chargés ({profils_path.name})")
+        except Exception as e:
+            say("err", f"[profils] chargement échoué: {e}")
+
     def wall_strength(self, pair: str) -> float:
         """Score 0-1 de la force du mur bid d'une paire.
         1 = mur épais, stable, peu de spoof.
         0 = mur inexistant ou de façade.
+        Fix 27/08 (GO Christophe) : normalisation RELATIVE au profil de la paire
+        (universe_profils.json) — XRP 84k$ est NORMAL pour XRP, EDEL 909$ est
+        NORMAL pour EDEL. On juge le mur actuel vs SA médiane, plus l'absolu.
         """
         m = self.murs_observations.get(pair)
         if not m or m["n"] < 50:
             return 0.5  # pas assez de données = neutre
-        # Normaliser le mur bid moyen (0-1, $30K = 1.0 — calibré sur les données réelles)
-        bid_score = min(m["bid_moy"] / 30_000, 1.0)
+        prof = self.profils.get(pair) or {}
+        med = prof.get("mur_bid_med")
+        # Mur de référence : live (sonde) si dispo, sinon moyenne historique
+        asp = self.aspiration.get(pair) or {}
+        live_wall = float(asp.get("wall_bid_usdt") or 0)
+        bid_ref = live_wall if live_wall > 0 else float(m.get("bid_moy") or 0)
+        if med and med > 0:
+            bid_score = min(bid_ref / med, 1.0)  # relatif à SA médiane
+        else:
+            bid_score = min(bid_ref / 30_000, 1.0)  # repli absolu (pas de profil)
         # Pénalité spoof (0-1, plus spoof = plus bas)
         spoof_penalty = 1.0 - min(m["spoof_rate"] / 10.0, 0.5)  # max -50%
         # Bonus drop_rate (les drops = signal ACE, ça montre de l'activité)
@@ -811,11 +990,23 @@ class PaperBot:
         if not active:
             return
         # BTC 1× par probe (pas par paire) — corrélation avec les signaux
+        # FIX 27/08 : cb_btc était défini mais JAMAIS validé (seule sa status()
+        # s'affichait au heartbeat). La doc 25/08 promettait « vérifie la fraîcheur
+        # btc (TTL 10s) avant de trader ». Maintenant : fetch OK → validate frais,
+        # fetch KO → fail compté → circuit s'ouvre après failure_threshold.
         try:
             self.btc_prev = self.btc_price
             self.btc_price = last_price("BTCUSDT")
+            self.cb_btc.validate(
+                {"timestamp": time.time(), "price": self.btc_price}, source="btc"
+            )
+        except CircuitOpenException:
+            say("warn", f"[{utc_now()}] [CB] BTC injoignable — circuit ouvert, entrées bloquées")
         except Exception:
-            pass
+            try:
+                self.cb_btc.validate({"timestamp": 0, "price": 0}, source="btc")
+            except CircuitOpenException:
+                say("warn", f"[{utc_now()}] [CB] BTC stale ×3 — circuit ouvert, entrées bloquées")
         btc_delta_pct = 0.0
         if self.btc_prev > 0 and self.btc_price > 0:
             btc_delta_pct = (self.btc_price - self.btc_prev) / self.btc_prev * 100.0
@@ -826,8 +1017,13 @@ class PaperBot:
                 live = json.loads(live_path.read_text())
                 gex = live.get("gex", {})
                 if gex.get("ok"):
+                    # FIX 27/08 : le timestamp était time.time() = TOUJOURS frais →
+                    # le circuit ne s'ouvrait jamais. On valide avec le ts RÉEL de
+                    # live.json (dernier run thermo) : si live.json est vieux > TTL
+                    # (300 s), le circuit s'ouvre et les murs GEX sont gelés.
+                    gex_ts = float(live.get("tsUnix") or live_path.stat().st_mtime or 0)
                     gex_data = {
-                        "timestamp": time.time(),
+                        "timestamp": gex_ts,
                         "price": gex.get("callWall", 0),
                     }
                     try:
@@ -1194,6 +1390,43 @@ class PaperBot:
             time.sleep(0.35)
         self.save_state()
 
+    # ─── Filtre lots MEXC (codeur, 27/08) ─────────────────────
+    # baseSizePrecision = stepSize quantité · quoteAmountPrecision = pas du montant USDT
+    # Fail-open : si l'API ne répond pas, on trade comme avant (paper ne bloque jamais).
+    def lot_filter(self, pair: str):
+        """Retourne (step_size, min_notional) pour une paire, ou (None, None) si inconnu."""
+        if hasattr(self, "lot_cache") and pair in self.lot_cache:
+            return self.lot_cache[pair]
+        if not hasattr(self, "lot_cache"):
+            self.lot_cache: dict = {}
+        try:
+            j = http_json("https://api.mexc.com/api/v3/exchangeInfo", timeout=15, retries=1)
+            step, min_not = None, None
+            for s in j.get("symbols", []):
+                if s.get("symbol") == pair:
+                    bsp = str(s.get("baseSizePrecision") or "")
+                    try:
+                        step = float(bsp) if bsp not in ("", "0") else 10.0 ** (-int(s.get("baseAssetPrecision", 2)))
+                    except Exception:
+                        step = 10.0 ** (-int(s.get("baseAssetPrecision", 2)))
+                    try:
+                        min_not = float(s.get("quoteAmountPrecision") or 1)
+                    except Exception:
+                        min_not = 1.0
+                    break
+            self.lot_cache[pair] = (step, min_not)
+            return self.lot_cache[pair]
+        except Exception:
+            self.lot_cache[pair] = (None, None)
+            return (None, None)
+
+    @staticmethod
+    def _floor_step(qty: float, step: Optional[float]):
+        """Arrondit la quantité vers le bas au multiple du stepSize (jamais au-dessus)."""
+        if not step or step <= 0 or qty <= 0:
+            return qty
+        return float(int(qty / step + 1e-9) * step)
+
     def buy(self, pair: str, price: float, sc: dict, reason: str, notion: Optional[float] = None):
         """Pleine mise (100%). Pas de bag 15% à l'entrée."""
         if pair in self.pos or pair in self.bags:
@@ -1234,6 +1467,10 @@ class PaperBot:
         ok, why = self.sense_ok(pair, sc, regime)
         if not ok:
             say("warn", f"[{utc_now()}] BUY skip {pair} sense={why}")
+            self.log(
+                pair, "SKIP", regime, price, price, 0.0, 0.0,
+                sc.get("cadence_pct"), f"SENSE:{why}",
+            )
             return
         if self.is_bag(pair):
             bag_open = sum(1 for p in self.pos if self.is_bag(p))
@@ -1252,12 +1489,26 @@ class PaperBot:
         # TAILLE ADAPTATIVE MURS (25/08, GO Christophe) : mur solide → ×1.2, mur fragile → ×0.6
         if notion is None:  # pas de cash_redeploy (déjà calibré)
             trade_n = trade_n * self.wall_mult(pair)
+        # PLAFOND PAR PROFONDEUR DE MUR (27/08, GO Christophe) : jamais plus de X%
+        # du mur médian de la paire — EDEL 909$ ne peut pas absorber 20$ sans
+        # slippage, XRP 84k$ oui. Chaque crypto a SA capacité (profil).
+        prof = self.profils.get(pair) or {}
+        med = prof.get("mur_bid_med")
+        if med:
+            cap = med * float((prof.get("calib") or {}).get("mise_max_pct_mur", 0.02))
+            if cap > 0 and trade_n > cap:
+                say("heart", f"[{utc_now()}] {pair} mise {trade_n:.2f}$ → plafonnée {cap:.2f}$ (mur médian {med:,.0f}$)")
+                trade_n = cap
         if trade_n < 1.0:
             return
         # famille 16/08 : garde spread au buy (même tier A) — paires mal classées (ex. QAIT 327 bps)
         inv_spread = float((self.inv.get(pair) or {}).get("spread_bps") or 0.0)
         if inv_spread > self.buy_spread_max:
             say("warn", f"[{utc_now()}] BUY skip {pair} spread={inv_spread:.0f}bps > {self.buy_spread_max:.0f}")
+            self.log(
+                pair, "SKIP", regime, price, price, 0.0, 0.0,
+                sc.get("cadence_pct"), f"SPREAD:{inv_spread:.0f}bps",
+            )
             return
         # famille 16/08 : re-entry borné — max REENTRY_MAX par paire après un stop
         if self.reentry_count.get(pair, 0) >= self.reentry_max:
@@ -1268,6 +1519,25 @@ class PaperBot:
             )
             return
         trade_qty = trade_n / price
+        # Filtre lots MEXC (codeur, 27/08) : quantité au stepSize + minNotional
+        step, min_not = self.lot_filter(pair)
+        if step:
+            trade_qty = self._floor_step(trade_qty, step)
+            trade_n = trade_qty * price  # notional RÉEL sur le carnet (honnête)
+            if min_not and trade_n < min_not:
+                say("warn", f"[{utc_now()}] BUY skip {pair} notional {trade_n:.2f}$ < minNotional {min_not:.2f}$")
+                self.log(
+                    pair, "SKIP", regime, price, price, 0.0, 0.0,
+                    sc.get("cadence_pct"), f"MIN_NOTIONAL:{min_not}",
+                )
+                return
+        if trade_qty <= 0:
+            say("warn", f"[{utc_now()}] BUY skip {pair} qty={trade_qty} (stepSize {step})")
+            self.log(
+                pair, "SKIP", regime, price, price, 0.0, 0.0,
+                sc.get("cadence_pct"), f"QTY:{trade_qty}",
+            )
+            return
         self.pos[pair] = {
             "entry": price,
             "qty": trade_qty,
@@ -1302,6 +1572,17 @@ class PaperBot:
         entry = p["entry"]
         full_qty = p["qty"]
         sell_qty = full_qty if qty is None else min(qty, full_qty)
+        if sell_qty <= 0:
+            return 0.0
+        # Filtre lots MEXC (codeur, 27/08) : quantité au stepSize sur les sorties aussi
+        step, _mn = self.lot_filter(pair)
+        if step:
+            rounded = self._floor_step(sell_qty, step)
+            if rounded <= 0:
+                # poussière : on sort tout (un solde < stepSize est invendable, on le ferme)
+                rounded = full_qty
+            if rounded < sell_qty:
+                sell_qty = rounded
         if sell_qty <= 0:
             return 0.0
         proceeds = price * sell_qty
@@ -1509,7 +1790,13 @@ class PaperBot:
         del self.bag_dca[pair]
 
     def manage_open(self, pair: str, price: float):
-        """Trade : 2× → stake-out ; sinon stop."""
+        """Trade : 2× → stake-out ; sinon stop.
+
+        MODE TRAILING (28/08, pattern HUNTER du champion 61-82% win) : si le
+        profil de la paire porte trail_arm_pct/trail_giveback_pct (banc de
+        preuve BTC/ETH), on laisse courir le gagnant — stop fixe en backstop,
+        sortie quand le prix redonne giveback sous le pic. Zéro 2× / zéro rip
+        paliers (ils contrediraient le « laisser courir »)."""
         p = self.pos[pair]
         entry = float(p["entry"])
         qty = float(p["qty"])
@@ -1517,6 +1804,30 @@ class PaperBot:
         p["high"] = max(float(p.get("high") or entry), price)
         value = price * qty
         chg = (price / entry - 1.0) * 100.0
+
+        _cal = (_profils().get(pair) or {}).get("calib") or {}
+        t_arm = float(_cal.get("trail_arm_pct") or 0)
+        t_gb = float(_cal.get("trail_giveback_pct") or 0)
+        if t_arm > 0 and t_gb > 0:
+            # backstop dur : le stop fixe reste (protection)
+            if chg <= -float(p.get("stop") or 6):
+                proceeds = self.sell_trade(pair, price, f"stop-{p['stop']}%_avant_2x")
+                self.add_pair_cash(pair, proceeds)
+                return
+            # trailing : armé quand le pic ≥ arm, sortie si le prix redonne
+            # giveback sous le pic (pattern HUNTER : sélectif, laisse courir).
+            peak = float(p.get("high") or entry)
+            peak_chg = (peak / entry - 1.0) * 100.0
+            if peak_chg >= t_arm:
+                floor = peak_chg - t_gb
+                if chg <= floor:
+                    proceeds = self.sell_trade(
+                        pair, price,
+                        f"trailing_peak{peak_chg:.1f}pct_giveback{t_gb:g}",
+                    )
+                    self.add_pair_cash(pair, proceeds)
+                    return
+            return  # on laisse courir : pas de 2×, pas de rip paliers
 
         if value >= stake * self.double_mult:
             self.stake_out_half(pair, price)
@@ -1604,6 +1915,19 @@ class PaperBot:
         return True, f"vol_ok_vx={vx:.2f}_{flag}"
 
     def maybe_enter(self, pair: str, price: float, sc: dict):
+        # FIX 27/08 : les circuits breaker étaient décoratifs — is_ok() n'était
+        # JAMAIS appelé, le trading continuait même circuit ouvert. La doc 25/08
+        # promettait « circuit ouvert → trading bloqué ». Désormais : si BTC ou
+        # GEX est stale, AUCUNE entrée nouvelle (les ventes manage_open restent
+        # libres — on ne bloque jamais une sortie).
+        if not self.cb_btc.is_ok() or not self.cb_gex.is_ok():
+            say("warn", f"[{utc_now()}] BUY skip {pair} CB ouvert "
+                        f"(btc={self.cb_btc.status()} gex={self.cb_gex.status()}) — données stale")
+            self.log(
+                pair, "SKIP", regime, price, price, 0.0, 0.0,
+                sc.get("cadence_pct"), f"CB:{self.cb_btc.status()}/{self.cb_gex.status()}",
+            )
+            return
         if self.maybe_redeploy_cash(pair, price, sc):
             return
         regime = sc["regime"]
@@ -1617,6 +1941,10 @@ class PaperBot:
         asp = self.aspiration.get(pair) or {}
         if asp.get("spoof"):
             say("warn", f"[{utc_now()}] BUY skip {pair} MUR-SPOOF (façade détectée)")
+            self.log(
+                pair, "SKIP", regime, price, price, 0.0, 0.0,
+                sc.get("cadence_pct"), "MUR-SPOOF:façade",
+            )
             return
         drop_now = max(
             abs(float(asp.get("drop_bid_pct_per_s") or 0)),
@@ -1625,16 +1953,29 @@ class PaperBot:
         if asp and drop_now >= self.aspiration_spoof_drop:
             say("warn", f"[{utc_now()}] BUY skip {pair} MUR-CASSE "
                         f"(drop {drop_now:.1f}%/s ≥ {self.aspiration_spoof_drop:.0f})")
+            self.log(
+                pair, "SKIP", regime, price, price, 0.0, 0.0,
+                sc.get("cadence_pct"),
+                f"MUR-CASSE:{drop_now:.1f}%/s",
+            )
             return
         # FILTRE MURS HISTORIQUES (25/08, GO Christophe) : ne pas acheter
         # si le mur bid historique est trop faible (<$500 moyen = pas de support)
         ws = self.wall_strength(pair)
         if ws < 0.2:
             say("warn", f"[{utc_now()}] BUY skip {pair} MUR-FAIBLE (score={ws:.2f}, pas de support)")
+            self.log(
+                pair, "SKIP", regime, price, price, 0.0, 0.0,
+                sc.get("cadence_pct"), f"MUR-FAIBLE:{ws:.2f}",
+            )
             return
         vok, vwhy = self.vol_ok_for_entry(sc, regime)
         if not vok:
             say("warn", f"[{utc_now()}] BUY skip {pair} {vwhy}")
+            self.log(
+                pair, "SKIP", regime, price, price, 0.0, 0.0,
+                sc.get("cadence_pct"), f"VOL:{vwhy}",
+            )
             return
         # WALL BOOST : si le mur renforce post-choc BTC → favoriser l'entrée
         wall_note = ""
@@ -1671,6 +2012,12 @@ class PaperBot:
         if not sc:
             return
         sc["price"] = price
+        # Croisement indices × murs (28/08, mode OBSERVATION, réversible) :
+        # journalise le contexte de décision sans toucher aux entrées.
+        try:
+            self.log_contexte(pair, sc, price)
+        except Exception:
+            pass
         if sc.get("peak6"):
             sc["dd6_pct"] = round((1.0 - price / sc["peak6"]) * 100.0, 2)
         if sc.get("peak24"):
@@ -1872,8 +2219,14 @@ class PaperBot:
             self.seed_bags()
         n = 0
         while self.alive:
+            # Croisement indices × murs : config relue à chaque cycle → on peut
+            # couper/rallumer à chaud (croisement_config.json) sans redémarrer.
+            self._load_croisement_config()
             if STOP_FILE.exists():
                 say("warn", f"[{utc_now()}] STOP_PAPER détecté")
+                break
+            if STOP_ALL.exists():
+                say("warn", f"[{utc_now()}] STOP_ALL détecté (kill-switch global)")
                 break
             if n > 0 and n % self.score_every == 0:
                 self.refresh_scores()

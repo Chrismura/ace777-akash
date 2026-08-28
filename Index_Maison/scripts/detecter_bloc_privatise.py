@@ -193,32 +193,82 @@ _charger_base()
 
 # --- GESTION DE L'HISTORIQUE GLISSANT (JSONL) ---
 
+def _compter_lignes():
+    """Compte les lignes du carnet (léger — sert au rythme des snapshots complets)."""
+    if not os.path.exists(HISTORY_FILE):
+        return 0
+    try:
+        with open(HISTORY_FILE, "r", encoding="utf-8") as f:
+            return sum(1 for _ in f)
+    except Exception:
+        return 0
+
+
+def _union_txids_fichier():
+    """Union des txids présents dans le carnet actuel (base de comparaison des deltas).
+    La détection (load_history_index) n'utilise QUE cette union → stocker les deltas
+    ne change RIEN au résultat tant que chaque txid persistant est dans ≥ 1 graine."""
+    vus = set()
+    if not os.path.exists(HISTORY_FILE):
+        return vus
+    try:
+        with open(HISTORY_FILE, "r", encoding="utf-8") as f:
+            for ligne in f:
+                ligne = ligne.strip()
+                if not ligne:
+                    continue
+                try:
+                    vus.update(json.loads(ligne).get("txids", []))
+                except json.JSONDecodeError:
+                    continue
+    except Exception:
+        pass
+    return vus
+
+
 def snapshot_mempool():
     """Récupère les txids actuels de la mempool publique et les enregistre dans le carnet.
     Enregistre aussi la HAUTEUR du tip (ancrage anti-veille/dérive d'horloge,
     compromis Gemini 24/08) : la fenêtre glissante peut se caler sur les blocs
-    plutôt que sur l'horloge système."""
+    plutôt que sur l'horloge système.
+
+    FORMAT SEED+DELTA (28/08, GO Christophe — mémoire sans dénaturer la formule) :
+    la détection n'utilise que l'UNION des txids vus sur la fenêtre glissante.
+    → On écrit la liste COMPLÈTE (graine) toutes les ~10 lignes, et les NOUVEAUX
+    txids (delta) entre les graines. Union identique, carnet ~20× plus léger
+    (mempool congestée : 12 Mo → ~0,6 Mo par run).
+    - Graine tous les 10 snapshots < fenêtre 60 min (30 snapshots) → toujours ≥ 2
+      graines dans la fenêtre → un txid persistant est toujours dans une graine.
+    - La clé reste "txids" → load_history_index/purge INCHANGÉS.
+    - Liste vide/échec API → PAS de snapshot (évite carnet vide → faux 100 %)."""
     txids = http_get_json("mempool/txids")
-    if not isinstance(txids, list):
-        return set()
-    
+    if not isinstance(txids, list) or not txids:
+        return set()  # échec OU mempool vide = pas de snapshot (fiabilité préservée)
+
     now = int(time.time())
     txid_set = set(txids)
-    
+
     hauteur = None
     h = http_get_text("blocks/tip/height")
     if h and h.strip().isdigit():
         hauteur = int(h.strip())
-    
+
     os.makedirs(DATA_DIR, exist_ok=True)
-    # Ajout append-only du snapshot courant
-    entry = {"ts": now, "hauteur": hauteur, "txids": list(txid_set)}
+    lignes = _compter_lignes()
+    is_graine = (lignes == 0) or (lignes % 10 == 0)
+    if is_graine:
+        txids_a_ecrire = list(txid_set)
+    else:
+        vus = _union_txids_fichier()
+        txids_a_ecrire = [t for t in txid_set if t not in vus]
+    # Ajout append-only du snapshot courant (graine complète ou delta)
+    entry = {"ts": now, "hauteur": hauteur, "txids": txids_a_ecrire}
     try:
         with open(HISTORY_FILE, "a", encoding="utf-8") as f:
             f.write(json.dumps(entry) + "\n")
     except Exception as e:
         print(f"[ERREUR] Écriture historique mempool_vus.jsonl: {e}", file=sys.stderr)
-        
+
     return txid_set
 
 def load_history_index(max_age_sec=MAX_HISTORY_AGE, fenetre_blocs=FENETRE_BLOCS):
