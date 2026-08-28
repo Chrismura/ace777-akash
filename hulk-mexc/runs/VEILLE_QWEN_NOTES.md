@@ -2713,3 +2713,9 @@ Pas d’ordre — confrontation plus tard.
 - HBARUSDT: WATCH_PULLBACK — tension haute + reflux
 - REDUSDT: WATCH_PULLBACK — tension haute + reflux
 (compléter: confirmé ? risque ?)
+
+### 2026-08-28T16:25:03Z — ALERT auto
+- WUSDT: WATCH_PULLBACK — tension haute + reflux
+- BIOUSDT: WATCH_PULLBACK — tension haute + reflux
+- FLUIDUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)

@@ -558,6 +558,18 @@ class PaperBot:
         self.btc_prev: float = 0.0
         self.aspiration: dict[str, dict] = {}  # dernière mesure par paire (radar + calibration)
         self.aspiration_prev: dict[str, dict] = {}  # lecture précédente (détection spoof « rétractable »)
+        # === DÉTECTEUR ACCUMULATION 24H (28/08, GO Christophe — OBSERVATION SEULE) ===
+        # Thèse validée sur 12j de données aspiration : descente ≥ 2% (30 min) + prise
+        # du mur SUD (drop_bid ≥ 5%/s, mur ≥ 2000$) → +24h : win 58%, R:R 3.7 (échantillon
+        # concentré sur 2 jours haussiers → à confirmer). ZÉRO effet trade : on journalise
+        # chaque candidat + suivi +6h/+24h dans runs/accumulation_signal.jsonl.
+        self.acc_px_mem: dict[str, list[tuple[float, float]]] = {}  # pair -> [(ts, prix)] 30 min
+        self.acc_open: dict[str, dict] = {}  # pair -> {ts0, px0, suivi} candidat en cours
+        self.acc_acc1 = float(cfg.get("ACCUM_DESCENTE_PCT", "2.0"))
+        self.acc_drop = float(cfg.get("ACCUM_DROP_PCT_S", "5.0"))
+        self.acc_mur = float(cfg.get("ACCUM_MUR_USDT", "2000.0"))
+        self.acc_memo = float(cfg.get("ACCUM_MEMO_SEC", "1800.0"))
+        self.acc_signal_csv = RUNS / "accumulation_signal.jsonl"
         # === MURS DE LIQUIDITÉ (25/08, GO Christophe) — corrélation murs × BTC ===
         # Charge le rapport historique d'observer_murs.py pour scorer la force
         # de chaque paire (mur bid moyen/max, taux de spoof, taux de drop).
@@ -1118,6 +1130,65 @@ class PaperBot:
                     f"Δspread={a.get('spread_delta_bps'):+5.1f}bps "
                     f"notional={a.get('notional_drop_ok')} spoof={spoof}",
                 )
+            # === DÉTECTEUR ACCUMULATION 24H (28/08, OBSERVATION SEULE — aucun trade) ===
+            self.detecter_accumulation(pair, a, price)
+
+    def detecter_accumulation(self, pair: str, a: dict, price: float):
+        """Journalise les candidats accumulation 24h (thèse Christophe, validée sur
+        12j de données : descente ≥ 2% + prise mur SUD → +24h win 58%, R:R 3.7).
+        OBSERVATION : aucun ordre, aucun effet moteur — on écrit runs/accumulation_signal.jsonl
+        avec le suivi +6h/+24h pour confirmer l'edge sur un échantillon varié."""
+        ts = time.time()
+        # 1) mémoire des prix (~30 min) pour la descente
+        mem = self.acc_px_mem.setdefault(pair, [])
+        if price > 0:
+            mem.append((ts, price))
+            cutoff = ts - self.acc_memo
+            while mem and mem[0][0] < cutoff:
+                mem.pop(0)
+        # 2) suivi des candidats déjà ouverts (+6h/+24h)
+        cand = self.acc_open.get(pair)
+        if cand:
+            if cand["px0"] > 0 and price > 0:
+                chg = (price / cand["px0"] - 1) * 100
+                if not cand.get("m6") and ts >= cand["ts0"] + 6 * 3600:
+                    cand["m6"] = round(chg, 2)
+                if not cand.get("m24") and ts >= cand["ts0"] + 24 * 3600:
+                    cand["m24"] = round(chg, 2)
+                    self._write_acc_signal(cand)
+                    del self.acc_open[pair]
+                    return
+        # 3) détection d'un nouveau signal
+        if cand:
+            return  # un candidat déjà en cours sur cette paire (pas de spam)
+        drop_bid = float(a.get("drop_bid_pct_per_s") or 0)
+        wall_bid = float(a.get("wall_bid_usdt") or 0)
+        if drop_bid < self.acc_drop or wall_bid < self.acc_mur:
+            return
+        if len(mem) < 5:
+            return
+        descente = (mem[-1][1] / mem[0][1] - 1) * 100 if mem[0][1] else 0
+        if descente > -self.acc_acc1:
+            return
+        # spoof ? (mur reconstruit) — on ne journalise pas les manipulations
+        spoof = bool(a.get("spoof"))
+        self.acc_open[pair] = {
+            "ts0": ts, "ts": utc_now(), "pair": pair,
+            "px0": round(price, 8),
+            "descente_avant_pct": round(descente, 2),
+            "drop_bid_pct_s": round(drop_bid, 2),
+            "mur_bid_usdt": round(wall_bid, 0),
+            "spoof": spoof, "m6": None, "m24": None,
+        }
+        say("hdr", f"[ACCUM] {pair} signal descente {descente:.1f}% + prise mur "
+                   f"{wall_bid:,.0f}$ ({drop_bid:.1f}%/s) — OBSERVATION (suivi +6h/+24h)")
+
+    def _write_acc_signal(self, cand: dict):
+        try:
+            with self.acc_signal_csv.open("a", encoding="utf-8") as f:
+                f.write(json.dumps(cand, ensure_ascii=False) + "\n")
+        except Exception as e:
+            say("err", f"[ACCUM] write_err {e}")
 
     def arm_reentry(self, pair: str, price: float, high: float):
         if not self.reentry_on:
