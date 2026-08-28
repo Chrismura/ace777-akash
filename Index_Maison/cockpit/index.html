@@ -4,7 +4,7 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<meta name="version" content="1787922453">
+<meta name="version" content="1787926009">
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate" />
@@ -13,12 +13,12 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Share+Tech+Mono&family=Caveat:wght@600;700&display=swap" rel="stylesheet" />
-<script src="mission.js?v=1787922453"></script>
+<script src="mission.js?v=1787926009"></script>
 <!-- COSMOS HUB feed -->
-<script src="hub.js?v=1787922453"></script>
-<script src="../thermo/live.js?v=1787922453"></script>
-<script src="../thermo/cortana_feed.js?v=1787922453"></script>
-<script src="sante_live.js?v=1787922453"></script>
+<script src="hub.js?v=1787926009"></script>
+<script src="../thermo/live.js?v=1787926009"></script>
+<script src="../thermo/cortana_feed.js?v=1787926009"></script>
+<script src="sante_live.js?v=1787926009"></script>
 <style>
 :root{
   --ink:#050804; --panel:#0a100c; --line:#3a2e14;
@@ -3808,6 +3808,27 @@ window.addEventListener('unhandledrejection', function(e) {
   pollMission();
   setInterval(pollMission, 10000);
   setInterval(pollLinks, 5000);
+
+  // AUTO-ÉJECTION à la nouvelle version (28/08, Buffy) : dès que le code du
+  // cockpit (index.html / mission.js) est régénéré, la fenêtre ouverte reste
+  // bloquée sur l'ancien JS (ex. corrections tableau HULK invisibles sans
+  // recharger). On surveille le <meta name=version> servi et on recharge
+  // proprement si ça change — plus jamais de vieille page.
+  const __myVersion = (document.querySelector('meta[name="version"]')||{}).content;
+  if(__myVersion){
+    setInterval(async ()=>{
+      try{
+        const r=await fetch('index.html',{cache:'no-store'});
+        if(!r.ok) return;
+        const t=await r.text();
+        const m=/name="version"\s+content="([0-9]+)"/.exec(t);
+        if(m && m[1]!==__myVersion){
+          console.log('[version] nouveau cockpit '+__myVersion+'→'+m[1]+' — rechargement');
+          location.reload();
+        }
+      }catch(e){}
+    }, 20000);
+  }
 })();
 </script>
 <script>
