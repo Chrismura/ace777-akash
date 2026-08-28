@@ -2445,3 +2445,11 @@
 - 2026-08-28T21:43:21.903989Z | alerte | Maintenir l'alerte ambre et la rigueur tactique face au sursaut de volume sur l'ETHUSDT, tout en consolidant le PnL combiné positif de l'essaim. | conf=88%
 - 2026-08-28T21:52:45.552985Z | alerte | Maintenir l'alerte ambre et la rigueur tactique face au sursaut de volume sur l'ETHUSDT, tout en consolidant le PnL combiné positif de l'essaim. | conf=88%
 - 2026-08-28T21:59:22.505062Z | alerte | Maintenir l'alerte ambre et la rigueur tactique face au sursaut de volume sur le BTCUSDT, tout en consolidant le PnL combiné positif de l'essaim. | conf=88%
+- 2026-08-28T22:11:58.911971Z | alerte | Maintenir l'alerte ambre et la rigueur tactique face au sursaut de volume sur le BTCUSDT, tout en consolidant le PnL combiné positif de l'essaim. | conf=88%
+- 2026-08-28T22:15:30.067107Z | alerte | Maintenir l'alerte ambre et la rigueur tactique face au sursaut de volume sur le BTCUSDT, tout en consolidant le PnL combiné positif de l'essaim. | conf=88%
+- 2026-08-28T22:21:10.772212Z | alerte | Maintenir l'alerte ambre et la rigueur tactique face au sursaut de volume sur le BTCUSDT, tout en consolidant le PnL combiné positif de l'essaim. | conf=88%
+- 2026-08-28T22:25:43.358000Z | alerte | Maintenir l'alerte ambre et la rigueur tactique face au sursaut de volume sur le BTCUSDT, tout en consolidant le PnL combiné positif de l'essaim. | conf=88%
+- 2026-08-28T22:26:43.311435Z | alerte | Maintenir l'alerte ambre et la rigueur tactique face au sursaut de volume sur le BTCUSDT, tout en consolidant le PnL combiné positif de l'essaim. | conf=88%
+- 2026-08-28T22:42:02.776753Z | alerte | Maintenir l'alerte ambre et la rigueur tactique pour redresser le PnL combiné tout en capitalisant sur l'éclairage de Beta, la patience d'Alpha et la gestion des positions de Hulk. | conf=88%
+- 2026-08-28T22:54:45.900127Z | alerte | Maintenir l'alerte ambre et la rigueur tactique pour redresser le PnL combiné tout en capitalisant sur l'éclairage de Beta, la patience d'Alpha et la gestion des positions de Hulk. | conf=88%
+- 2026-08-28T22:55:26.746287Z | alerte | Maintenir l'alerte ambre et la rigueur tactique pour consolider le PnL combiné positif tout en capitalisant sur l'éclairage de Beta, la patience d'Alpha et la gestion des positions de Hulk. | conf=88%

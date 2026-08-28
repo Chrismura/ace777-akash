@@ -3968,3 +3968,11 @@ Symptôme : même après fermer/réouvrir TOUT, le cockpit montrait l'ANCIEN tab
 - **Correction** : UNE SEULE `create_window` + `start(debug=False, user_agent=ua)` (user_agent unique = anti-cache fiable pywebview 3.4 ; `private_mode` n'existe PAS → fallback silencieux SANS anti-cache). Vérifié: 1 seul create_window, py_compile OK, 1 seul process open_cockpit_app (34195).
 - **Leçon** : en patchant le lanceur, ne JAMAIS dupliquer create_window. Relance via Cockpit.command.
 - **BACKUP** : /tmp/ace777_secours_20260829_000814/
+
+## 29/08 (suite) — MISE EN PAGE cockpit : le vrai souci enfin compris (Christophe : « le journal se réduit en une colonne qui descend et à la fin il y a le tableau »)
+Christophe a finalement vu le nouveau tableau SCORE : le contenu était bon, c'était la MISE EN PAGE. Deux vrais problèmes :
+1. **Journal non plafonné** : `.card.hulk .stream.hist{height:auto;max-height:none;flex:1 1 auto}` → le journal (des dizaines de trades) s'étirait sur TOUTE la hauteur, élargissant la grille et poussant le tableau SCORE tout en bas. Fix : `max-height:56vh;min-height:140px;overflow-y:auto` + `.hulk-cols{align-items:start}` + `.hulk-col{min-width:0}` (plus de flex grow infini).
+2. **Ancien tableau DU DÉPART redondant** : `h-wallet-tbl` (avec ses colonnes CRYPTO/BAG DÉPART/BAG RÉEL/...) dupliquait le nouveau SCORE PAR CRYPTO (qui a déjà BAG DÉBUT size + BAG ACTUEL size + CASH + TOTAL + BUDGET + SI RIEN FAIT + ÉCART). Supprimé.
+   - **Important** : le tableau SCORE était rempli DANS le bloc JS `if(wal){ if(tbw){` de l'ancien tableau → supprimer l'HTML seul aurait cassé le SCORE. Restructuré : la logique SCORE (vsNote + scrTb/scrTf) est sortie du bloc wal, et tout le vieux code (wr/wRe/wSt/wEc/note/wOpen/tbw.innerHTML/h-wallet-tfoot) supprimé.
+   - Vérifié : `node --check` OK, 0 référence à h-wallet-tbl/tfoot/h-wal-note restante, rendu SCORE simulé sur données réelles (16 pairs, TOTAL seed 169.60 / reel 486.38 / hold 476.42 / écart +9.95, budget 489.60), servi par :17800.
+**Leçon** : quand on retire un tableau HTML alimenté par un JS, vérifier QUE le JS de remplissage n'est pas imbriqué dans un bloc lié à ce tableau. Le SYMPTÔME visuel (tableau poussé en bas) pointait vers la mauvaise cause (cache). C'était le CSS du journal.
