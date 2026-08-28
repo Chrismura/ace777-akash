@@ -2719,3 +2719,7 @@ Pas d’ordre — confrontation plus tard.
 - BIOUSDT: WATCH_PULLBACK — tension haute + reflux
 - FLUIDUSDT: WATCH_PULLBACK — tension haute + reflux
 (compléter: confirmé ? risque ?)
+
+### 2026-08-28T17:13:35Z — ALERT auto
+- ZBCNUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
