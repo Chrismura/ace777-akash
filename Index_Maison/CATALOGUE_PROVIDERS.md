@@ -1,8 +1,8 @@
 # CATALOGUE DES PROVIDERS — ACE777
 
-*Genere le 2026-08-25 par catalog_providers.py (gagnant A/B codeurs 09/08). Rafraichi a chaque veille du matin.*
+*Genere le 2026-08-27 par catalog_providers.py (gagnant A/B codeurs 09/08). Rafraichi a chaque veille du matin.*
 
-**Actifs : 14 · En observation : 0 · En attente : 12 · De cote (payant) : 0**
+**Actifs : 14 · En observation : 1 · En attente : 12 · De cote (payant) : 0**
 
 ## ACTIFS
 
@@ -25,7 +25,9 @@
 
 ## EN OBSERVATION (48h avant activation, jamais route)
 
-*aucun*
+| Role | Modele | Statut | Note |
+|------|--------|--------|------|
+| - | `minimax/minimax-m3:free` | obs-1787724924 | auto queue_offres | VERDICT FAMILLE 18/08 : observation 48h avant activation |
 
 ## EN ATTENTE (cle manquante ou desactive)
 

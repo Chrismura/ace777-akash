@@ -82,7 +82,7 @@ INDICATEURS = {
         "path": INDEX / "data" / "bloc_privatise.json",
         "cle": "taux_fantome",
         "min": 0.0,
-        "max": 25.0,   # au-delà = soit bruit (mauvaise résolution) soit anomalie réelle
+        "max": 100.0,  # taux 100% = bloc entièrement caché (1.9% des snapshots, réel). Ne PAS alerter ici: detecter_bloc_privatise.py applique sa propre matrice (volume + taux).
         "nb": "indicateur blocs privatisés (résolution 120 s)",
     },
 }

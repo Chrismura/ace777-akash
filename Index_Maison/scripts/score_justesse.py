@@ -75,6 +75,15 @@ INDICE_SELF_KEY = {
     "bassine": "score",             # virtuel : bassine = score
     "volumeCachedTaker": "volumeCachedTaker",
     "volumeCachedPerpSpot": "volumeCachedPerpSpot",
+    # ─── Nouveaux indices (PIPELINE UNIFIÉ 25/08 + onchain/geopol, ajoutés 27/08) ───
+    # Série propre pas encore dans history.jsonl → self-move = None pour l'instant
+    # (noté vs BTC), l'auto-vérification s'activera dès que la série existera.
+    "sdi": "sdi",
+    "ipt": "ipt",
+    "rbf": "rbf_score",
+    "indice_onchain": "indiceOnchain",
+    "pipeline_health": "global_score",
+    "geopol": "score",
 }
 
 

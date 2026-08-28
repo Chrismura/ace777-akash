@@ -289,6 +289,18 @@ def run_tests():
         global BASE, MISSION, THERMO_LIVE, ADA_LIVE, SAISON_LIVE, HULK_RUNS, SNAP_DIR
         (BASE, MISSION, THERMO_LIVE, ADA_LIVE, SAISON_LIVE, HULK_RUNS, SNAP_DIR) = _sauve
 
+    # GARDE DÉFENSIVE (27/08, leçon incident live.json) : un test ne doit JAMAIS
+    # écrire sur les fichiers de production. Si la redirection vers tmp saute
+    # (changement de code), on refuse d'écrire au lieu de détruire live.json.
+    def _verifier_tmp():
+        for nom, chemin in (("THERMO_LIVE", THERMO_LIVE), ("MISSION", MISSION),
+                            ("ADA_LIVE", ADA_LIVE), ("SAISON_LIVE", SAISON_LIVE)):
+            if not str(chemin).startswith(tmp):
+                raise RuntimeError(f"run_tests: {nom}={chemin} hors tmp — refus d'écrire "
+                                   f"(protection anti-écrasement live.json, 27/08)")
+
+    _verifier_tmp()
+
     json.dump({
         "run": "TEST", "comboPnl": 1.23,
         "alpha": {"file": "a.csv", "pnl": 1.0, "fills": 5, "skips": 10,
@@ -323,8 +335,12 @@ def run_tests():
     check("snapshot écrit", os.path.exists(path))
 
     import shutil
-    shutil.rmtree(tmp, ignore_errors=True)
-    restore()
+    try:
+        shutil.rmtree(tmp, ignore_errors=True)
+    finally:
+        # restore() GARANTI même en cas d'erreur (leçon 27/08 : un test qui plante
+        # ne doit jamais laisser les globals pointer vers tmp, ni toucher au réel).
+        restore()
     print("=== %s (%d erreur%s) ===" % (
         "TOUS LES TESTS SONT VERTS" if errors == 0 else "ÉCHEC",
         errors, "s" if errors > 1 else ""))

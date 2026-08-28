@@ -1,8 +1,7 @@
-# Rapport Veilleuse — 2026-08-26T06:43:20.404492+00:00
+# Rapport Veilleuse — 2026-08-28T01:06:18.239519+00:00
 
 ## État : ⚠️ ANOMALIES DÉTECTÉES
 - **INTRUSION** : Modification non déclarée : hulk-mexc/scripts/paper_diprip.py (md5 diffère du registre)
-- **INTRUSION** : Modification non déclarée : Index_Maison/scripts/thermo_quotidien_free.py (md5 diffère du registre)
-- **INTRUSION** : Modification non déclarée : Index_Maison/scripts/pont_onchain.py (md5 diffère du registre)
-- **INTRUSION** : Modification non déclarée : Index_Maison/scripts/sante_index.py (md5 diffère du registre)
-- **INTRUSION** : Modification non déclarée : Index_Maison/plists/com.ace777.sante-index.plist (md5 diffère du registre)
+- **INTRUSION** : Modification non déclarée : Index_Maison/scripts/sentinel.py (md5 diffère du registre)
+- **INTRUSION** : Modification non déclarée : Index_Maison/scripts/silent_drain_index.py (md5 diffère du registre)
+- **INTRUSION** : Modification non déclarée : hulk-mexc/strategie/universe_profils.json (md5 diffère du registre)

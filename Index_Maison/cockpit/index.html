@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<meta name="version" content="1787879222">
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate" />
@@ -9,12 +13,12 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Share+Tech+Mono&family=Caveat:wght@600;700&display=swap" rel="stylesheet" />
-<script src="mission.js"></script>
+<script src="mission.js?v=1787879222"></script>
 <!-- COSMOS HUB feed -->
-<script src="hub.js"></script>
-<script src="../thermo/live.js"></script>
-<script src="../thermo/cortana_feed.js"></script>
-<script src="sante_live.js"></script>
+<script src="hub.js?v=1787879222"></script>
+<script src="../thermo/live.js?v=1787879222"></script>
+<script src="../thermo/cortana_feed.js?v=1787879222"></script>
+<script src="sante_live.js?v=1787879222"></script>
 <style>
 :root{
   --ink:#050804; --panel:#0a100c; --line:#3a2e14;
@@ -712,6 +716,10 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
 .hulk-tbl .hr.wneg{background:rgba(255,77,77,.16);border-left:2px solid var(--red)}
 .hulk-tbl .hr.wneu{background:rgba(255,255,255,.03);border-left:2px solid var(--muted)}
 .hulk-tbl .hrow.open:hover{background:rgba(196,255,77,.06)}
+.hulk-tbl .hrow.flat td{color:#8a93a0;opacity:.85}
+.hulk-tbl .hrow.flat .hcn{color:#8a93a0}
+.hulk-tbl .hrow.flat .hsub{color:#6a7380}
+.hulk-tbl .hrow.flat:hover{background:rgba(140,160,180,.05)}
 .hfc{background:rgba(196,255,77,.05);border:1px solid rgba(196,255,77,.25);border-radius:3px;padding:7px 8px;font-size:.66rem;display:flex;flex-direction:column;gap:3px}
 .hfc.flat{border-style:dashed;border-color:rgba(140,160,180,.35);background:rgba(80,100,120,.06)}
 .hfc .hfc-top{display:flex;justify-content:space-between;align-items:center;gap:4px}
@@ -1264,6 +1272,8 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
         <div class="val" id="pf-hulk">—</div>
       </div>
     </div>
+    <!-- VÉRITÉ MOTEUR (27/08) : état réel d'ACE (ON/STALE/OFF) lu depuis mission.json engine -->
+    <div class="pf-engine" id="pf-engine" style="font-size:.68rem;color:var(--muted);margin-top:6px;line-height:1.5">État moteur…</div>
 
     <div class="preflight" id="preflight" aria-label="Preflight prototype">
       <div class="pf-head">
@@ -1442,7 +1452,7 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
           <div class="hulk-sect">DU DÉPART — le bag au début <span class="hulk-sect-n" id="h-wal-note"></span></div>
           <div class="hulk-tbl-wrap"><table class="hulk-tbl" id="h-wallet-tbl">
             <thead><tr>
-              <th>CRYPTO</th><th>BAG AU DÉBUT (qté)</th><th>SI RIEN FAIT</th><th>RÉEL (valeur $)</th>
+              <th>CRYPTO</th><th>BAG DÉPART</th><th>BAG RÉEL</th><th>BAG ACTUEL</th><th>CASH</th><th>TOTAL $</th><th>SI RIEN FAIT</th><th>RÉEL</th>
             </tr></thead>
             <tbody></tbody>
             <tfoot id="h-wallet-tfoot"></tfoot>
@@ -1753,8 +1763,8 @@ window.addEventListener('unhandledrejection', function(e) {
   });
 
   function arrow(a){
-    if(a==='up') return '<span class="arr up">▲</span>';
-    if(a==='down') return '<span class="arr down">▼</span>';
+    if(a==='up') return '<span class="arr up">↑</span>';
+    if(a==='down') return '<span class="arr down">↓</span>';
     return '<span class="arr flat">◆</span>';
   }
   function cls(n){ return n>0?'pos':(n<0?'neg':'neu'); }
@@ -1763,8 +1773,8 @@ window.addEventListener('unhandledrejection', function(e) {
   function dirLabel(d){
     if(!d) return '—';
     const x=String(d).toLowerCase();
-    if(x==='long'||x==='buy') return '<span class="dir-long">LONG ▲</span>';
-    if(x==='short'||x==='sell') return '<span class="dir-short">SHORT ▼</span>';
+    if(x==='long'||x==='buy') return '<span class="dir-long">LONG ↑</span>';
+    if(x==='short'||x==='sell') return '<span class="dir-short">SHORT ↓</span>';
     return x.toUpperCase();
   }
   function fillKey(f){
@@ -1823,6 +1833,19 @@ window.addEventListener('unhandledrejection', function(e) {
     // rétrocompat si vieux HTML encore en cache
     el('pf-ace', bubble((Number(a)||0)+(Number(b)||0)));
     el('pf-cycle', `<span style="color:var(--cyan)">${M.swarmCycle||'—'}</span>`);
+    // VÉRITÉ MOTEUR (27/08) : le run affiché est-il vivant ou un historique ?
+    const eng=M&&M.engine||{};
+    const elEng=document.getElementById('pf-engine');
+    if(elEng && eng.state){
+      if(eng.state==='ON'){
+        elEng.innerHTML='<span style="color:var(--acid)">🟢 ACE EN COURS</span>';
+      }else if(eng.state==='STALE'){
+        elEng.innerHTML='<span style="color:var(--amber2)">🟡 ACE SIGNAL FAIBLE</span>';
+      }else{
+        elEng.innerHTML='<span style="color:var(--red)">⚫ ACE À L\'ARRÊT</span> — le run <b>'+((M.run)||'')+'</b> est un HISTORIQUE'+(eng.last?(' (dernier '+eng.last+')'):'')+'. '+
+          'Le moteur n\'a pas été relancé depuis l\'arrêt du 24/08 (ordre Christophe).';
+      }
+    }
   }
 
   // Badge d'avis IA (cohérence bulle/voix — le dernier AVIS STRICT de Cortana)
@@ -1945,46 +1968,72 @@ window.addEventListener('unhandledrejection', function(e) {
         const wEc=h.walletEcart!=null? h.walletEcart : (wRe!=null&&wSt!=null? wRe-wSt : null);
         const note=document.getElementById('h-wal-note');
         if(note) note.textContent = 'origine '+usd(wr)+' · réel '+usd(wRe)+' · statique '+usd(wSt)+' · écart '+(wEc!=null?((wEc>0?'+':'')+usd(wEc)):'—');
-        const wOpen=rows.filter(p=>p.open===true||(p.status||'').toUpperCase()==='TRADE'||(p.status||'').toUpperCase()==='BAG');
+        // Fix 27/08 (2e passe) : le tableau montre TOUTES les cryptos suivies
+        // (15/15), ouvertes ET fermées. Les paires FERMÉES (stop) s'affichent en
+        // FLAT/CASH (ligne grisée, badge FERMÉE) avec leur vraie vérité :
+        // départ = seed 10$, réel = cash récupéré (0 si réalloué), écart vs hold.
+        // Avant, le filtre (open||TRADE||BAG||cash>0) excluait les FLAT sans
+        // cash → PYTH/QAIT/RIZE/RWAINC disparaissaient du tableau (bug Christophe).
+        const wOpen=rows;
         tbw.innerHTML=wOpen.map(p=>{
           const crypto=p.crypto||p.pair||'';
-          // BAG AU DÉBUT = quantité de crypto au départ (seed) — ex. BIO 415.97
+          const isOpen=p.open===true||(p.status||'').toUpperCase()==='TRADE'||(p.status||'').toUpperCase()==='BAG';
           const depQ=p.seedQty!=null? Number(p.seedQty).toPrecision(4) : '—';
           const depVal=(p.seedQty!=null&&p.entry)? (p.seedQty*p.entry) : (p.stake!=null? p.stake : 10);
-          // SI RIEN FAIT = % gain crypto + valeur du bag + les 20 $ de cash (somme)
-          const sPct=p.statiquePct!=null? p.statiquePct : p.pnlPct;
-          const sVal=p.statiqueVal!=null? p.statiqueVal : null;
-          const CASH=20; // cash initial conservé (point zéro : 10 $ crypto + 20 $ cash)
-          const sTot=(sVal!=null)? sVal+CASH : null;
-          // RÉEL = valeur totale du bag maintenant + les 20 $ de cash + % +/−
           const bVal=p.bagValue!=null? p.bagValue : null;
-          const bTot=(bVal!=null)? bVal+CASH : null;
-          // ROUGE si RÉEL < SI RIEN FAIT (perte vs ne rien faire)
-          const vsRien=(bTot!=null&&sTot!=null)? (bTot-sTot) : null;
-          const vsPct=(vsRien!=null&&sTot!=null&&sTot!==0)? (vsRien/sTot*100) : null;
+          const pairCash=p.pairCash!=null? p.pairCash : 0;
+          // bagValue = qty×mark + pairCash (confirmé)
+          const cryptoVal=(bVal!=null&&pairCash!=null)? bVal-pairCash : null;
+          // Fermées sans position : total = cash récupéré, sinon 0 (réalloué/stop)
+          const total=(bVal!=null)? bVal : (pairCash>0? pairCash : 0);
+          // « Si rien fait » : statiquePct seulement (le fallback move24 trompait
+          // sur les fermées, ex. QAIT +179% = move 24h, pas le move depuis le seed)
+          const sPct=p.statiquePct;
+          const sVal=p.statiqueVal!=null? p.statiqueVal : null;
+          // vsRien = total réel (bag+cash) vs hold (statique) sur CETTE crypto
+          const vsRien=(total!=null&&sVal!=null&&sVal!==0)? (total-sVal) : null;
+          const vsPct=(vsRien!=null&&sVal!==0)? (vsRien/sVal*100) : null;
           const eps=0.05;
           const rCls=(vsRien!=null&&vsRien<-eps)?'wneg':(vsRien!=null&&vsRien>eps?'wpos':'wneu');
-          const arrow=v=>(v!=null)?((v>0)?'▲':(v<0?'▼':'')):'';
-          return `<tr class="hrow open">
-            <td class="hc"><span class="hcn">${crypto}</span></td>
-            <td class="hq" title="quantité de crypto au départ (le bag)">${depQ}</td>
-            <td class="hs" title="% gain sur la crypto + valeur du bag + 20$ cash (si tu n'avais rien fait)"><span class="${cls(sPct)}">${arrow(sPct)} ${sPct!=null?fmt(sPct,1)+'%':'—'}</span>${sTot!=null?(' <span class="hsub">'+usd(sTot)+'</span>'):''}</td>
-            <td class="hr ${rCls}" title="RÉEL = bag maintenant + 20$ cash. ROUGE = en dessous de si rien fait (perte)."><span class="${cls(vsPct)}">${arrow(vsPct)} ${vsPct!=null?((vsPct>0?'+':'')+fmt(vsPct,1)+'%'):'—'}</span>${bTot!=null?(' <span class="hsub">'+usd(bTot)+'</span>'):''}</td>
+          const arrow=v=>(v!=null)?((v>0)?'↑':(v<0)?'↓':''):'';
+          // Ligne fermée : grisée, badge FERMÉE, le total = cash récupéré.
+          const rowCls = isOpen ? 'hrow open' : 'hrow flat';
+          const badge = isOpen ? '' : `<span class="hsub"> · ${(p.status||'FLAT').toUpperCase()}</span>`;
+          return `<tr class="${rowCls}">
+            <td class="hc"><span class="hcn">${crypto}${badge}</span></td>
+            <td class="hq" title="Bag départ (qté × entrée)">${depQ} <span class="hsub">${usd(depVal)}</span></td>
+            <td class="hq" title="Bag réel (qté × cours actuel)">${p.qty!=null?Number(p.qty).toPrecision(4):'—'} <span class="hsub">${cryptoVal!=null?usd(cryptoVal):'—'}</span></td>
+            <td class="hs" title="Valeur crypto (qté × cours)"><span class="${cls(p.pnlPct)}">${cryptoVal!=null&&isOpen?usd(cryptoVal):'—'}</span></td>
+            <td class="hq" title="Cash récupéré des ventes">${pairCash>0?usd(pairCash):'—'}</td>
+            <td class="hs" title="Total réel = crypto + cash"><b>${total!=null?usd(total):'—'}</b></td>
+            <td class="hs" title="Si rien fait (hold sur cette crypto)"><span class="${cls(sPct)}">${arrow(sPct)} ${sPct!=null?fmt(sPct,1)+'%':'—'}</span>${sVal!=null?(' <span class="hsub">'+usd(sVal)+'</span>'):''}</td>
+            <td class="hr ${rCls}" title="RÉEL vs si rien fait">${vsPct!=null?((vsPct>0?'+':'')+fmt(vsPct,1)+'%'):'—'}</td>
           </tr>`;
-        }).join('') || '<tr><td colspan="4" class="hsub">aucune position</td></tr>';
+        }).join('') || '<tr><td colspan="8" class="hsub">aucune position</td></tr>';
         // LIGNE TOTALE en bas : les VRAIS totaux du wallet (déjà calculés par le feed)
-        // réel / statique / écart — cohérents avec les grosses cases et la note du haut.
-        const totSFull=(wSt!=null)? wSt : null;
-        const totBFull=(wRe!=null)? wRe : null;
-        const totEc=(totBFull!=null&&totSFull!=null)? (totBFull-totSFull) : null;
-        const totPct=(totEc!=null&&totSFull!=null&&totSFull!==0)? (totEc/totSFull*100) : null;
-        const totCls=(totEc!=null&&totEc<-0.05)?'wneg':(totEc!=null&&totEc>0.05?'wpos':'wneu');
+        // Sommes par colonne (basées sur les données individuelles)
+        let totDepSum=0, totCryptoSum=0, totStatSum=0, totCashSum=0;
+        wOpen.forEach(p=>{
+          totDepSum+=(p.seedQty!=null&&p.entry)?(p.seedQty*p.entry):(p.stake||10);
+          const bv=p.bagValue||0; const pc=p.pairCash||0;
+          totCryptoSum+=(bv-pc); // crypto pur
+          totStatSum+=(p.statiqueVal!=null?p.statiqueVal:0);
+          totCashSum+=pc;
+        });
+        // bagValue inclut déjà pairCash, pas de double comptage
+        const totRealSum=totCryptoSum+totCashSum; // total réel = crypto + cash
+        const totEc=totRealSum-totStatSum; // écart vs hold
+        const totCls=(totEc<-0.05)?'wneg':(totEc>0.05?'wpos':'wneu');
         const tf=document.getElementById('h-wallet-tfoot');
         if(tf) tf.innerHTML=`<tr class="htotal">
           <td class="hc"><span class="hcn">TOTAL</span></td>
-          <td class="hq">${wOpen.length}</td>
-          <td class="hs" title="Total si tu n'avais rien fait (wallet statique)">${totSFull!=null?usd(totSFull):'—'}</td>
-          <td class="hr ${totCls}" title="TOTAL RÉEL vs TOTAL SI RIEN FAIT — rouge = perte globale vs ne rien faire."><span class="${cls(totEc)}">${totEc!=null?((totEc>0?'+':'')+fmt(totEc,1)+'$'):'—'}</span>${totBFull!=null?(' <span class="hsub">'+usd(totBFull)+'</span>'):''}</td>
+          <td class="hq">${wOpen.length} pos</td>
+          <td class="hs" title="Total bags départ"><b>${usd(totDepSum)}</b></td>
+          <td class="hs" title="Total crypto pur (qty×mark)"><b>${usd(totCryptoSum)}</b></td>
+          <td class="hs" title="Total cash paires">${totCashSum>0?usd(totCashSum):'—'}</td>
+          <td class="hs" title="Total réel = crypto + cash"><b>${usd(totCryptoSum+totCashSum)}</b></td>
+          <td class="hs" title="Total hold (statique)">${usd(totStatSum)}</td>
+          <td class="hr ${totCls}" title="Écart réel vs hold"><span class="${cls(totEc)}">${totEc>=0?'+':''}${fmt(totEc,2)}$</span></td>
         </tr>`;
       }
     }
@@ -2010,7 +2059,7 @@ window.addEventListener('unhandledrejection', function(e) {
           const vsDep=bPct!=null?bPct:(u!=null?((u/ (p.stake||10))*100):null);
           const depCls=(vsDep!=null&&vsDep<0)?'neg':(vsDep!=null&&vsDep>0?'pos':'neu');
           const dirCls=dirTxt==='SHORT'?'dir-short':(dirTxt==='LONG'?'dir-long':'');
-          const dirArrow=dirTxt==='LONG'?'⇧':(dirTxt==='SHORT'?'⇩':'');
+          const dirArrow=dirTxt==='LONG'?'↑':(dirTxt==='SHORT'?'↓':'');
           return `<div class="hfc" title="${crypto} — tenir depuis l'entrée (rien faire). ROUGE = en baisse vs départ (mise) même si +%">
             <div class="hfc-top"><span class="hfc-name">${crypto}</span><span class="hfc-tag ${tagCls} ${dirCls}">${tag}${dirTxt?(' · '+dirTxt+' '+dirArrow):''}</span></div>
             <div class="hfc-row"><span class="${dirCls}">${dirTxt||'dir'}${seedTxt}</span><span>${regime}</span></div>
@@ -2274,7 +2323,7 @@ window.addEventListener('unhandledrejection', function(e) {
   // ===== ADA SOUNDS — veilleuse douce → montée progressive → sirène (Web Audio, zéro fichier) =====
   let ADA_AUDIO = null;
   let ADA_SND = {
-    on: (function(){ try { return localStorage.getItem('adaSound') !== 'off'; } catch(e){ return true; } })(),
+    on: false, // DISABLED — alarme ADA coupée définitivement. Pour réactiver : localStorage.setItem('adaSound','on') puis refresh.
     ever: (function(){ try { return localStorage.getItem('adaSoundEver') === '1'; } catch(e){ return false; } })(),
     zone: 'VERT', sirene: false, last: 0
   };
@@ -2289,9 +2338,10 @@ window.addEventListener('unhandledrejection', function(e) {
   }
   function adaSoundUpdate(zone, sirene){
     ADA_SND.zone = zone || 'VERT';
-    ADA_SND.sirene = !!sirene;
+    ADA_SND.sirene = false; // FORCE OFF
   }
   function adaSoundBlip(){
+    return; // SON ADA DÉSACTIVÉ DÉFINITIVEMENT
     if (!ADA_AUDIO || !ADA_SND.on) return;
     const t = ADA_AUDIO.currentTime;
     const z = ADA_SND.zone;
@@ -2873,7 +2923,11 @@ window.addEventListener('unhandledrejection', function(e) {
     }else{
       cls='off';
       const m=(age!=null)?Math.max(1,Math.round(age/60))+' min':'?';
-      label='🔴 MOTEUR À L\'ARRÊT · <b>'+run+'</b> · dernier signal il y a '+m+(cyc||'');
+      // VÉRITÉ MOTEUR (27/08) : si mission.json porte engine.last, on affiche la
+      // date exacte du dernier run au lieu d'un âge vague — jamais de run mort présenté vivant.
+      const eng=M&&M.engine||{};
+      const lastRun=(eng.last)?(' · dernier run <b>'+eng.last+'</b>'):'';
+      label='🔴 MOTEUR À L\'ARRÊT · <b>'+run+'</b>'+(cyc||'')+' · dernier signal il y a '+m+lastRun;
     }
     el.className='run-status '+cls;
     el.setAttribute('data-state',cls);
@@ -4353,9 +4407,17 @@ window.addEventListener('unhandledrejection', function(e) {
         const healthEl = document.getElementById('cosmos-health');
         if (healthEl && window.__HUB__.health) {
             const h = window.__HUB__.health;
+            // VÉRITÉ PROVIDERS (27/08) : le compte = configurés actifs, mais combien
+            // ont VRAIMENT travaillé dans les 24h ? (les morts restent jaunes/rouges)
+            let actifs24h = 0, tot = 0;
+            try {
+                const ps = (window.__HUB__ && window.__HUB__.providers) || [];
+                for (const p of ps) { if (p.enabled) { tot++; if ((p.calls_24h || 0) > 0) actifs24h++; } }
+            } catch (e) {}
             healthEl.innerHTML =
                 '<div><span class="cosmos-status ' + (h.status === 'ok' ? 'ok' : 'nok') + '">' + String(h.status).toUpperCase() + '</span>' +
-                '<span class="cd-k" style="margin-left:8px;">' + (h.providers || 'N/A') + ' providers</span></div>' +
+                '<span class="cd-k" style="margin-left:8px;">' + (h.providers || 'N/A') + ' providers actifs</span></div>' +
+                '<div class="cd-k" style="margin-top:2px;color:' + (actifs24h >= 3 ? 'var(--acid)' : (actifs24h >= 1 ? '#ffc857' : 'var(--red)')) + '">⚠️ seulement <strong>' + actifs24h + '/' + tot + '</strong> ont répondu dans les 24h</div>' +
                 '<div class="cd-k" style="margin-top:4px;">Feed ' + new Date(window.__HUB__.generated_at).toLocaleTimeString('fr-FR', {hour:'2-digit',minute:'2-digit',second:'2-digit'}) + ' (locale)' +
                 ' · ' + (function(){ try { return Math.max(0, Math.round((Date.now() - new Date(window.__HUB__.generated_at).getTime()) / 1000)); } catch(e) { return '?'; } })() + 's</div>';
         }

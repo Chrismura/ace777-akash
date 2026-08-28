@@ -81,6 +81,13 @@ LEXIQUE = {
     "radar": ("Radar climat (global)", "climat"),
     "bassine": ("Bassine / mur (score thermo)", "/100"),
     "verre": ("Verre d'eau (chaleur activite)", "%"),
+    # ─── Indices du PIPELINE UNIFIÉ 25/08 + semaines 21-27/08 (enseignés 27/08) ───
+    "sdi": ("SDI — Drainage silencieux (vieux BTC bougent sans bruit)", "0-1"),
+    "ipt": ("IPT — Poussière intelligente (micro-tx × z-frais × entropie)", "z-score"),
+    "rbf": ("RBF — Remplacements de frais (urgence du déplacement)", "0-1"),
+    "indice_onchain": ("Score onchain unifié (blocs privatisés ×0.5 + poussière ×0.3 + z-score ×0.2)", "/100"),
+    "pipeline_health": ("Santé du pipeline de données (7 sources, mode nominal/dégradé/kill)", "0-1"),
+    "geopol": ("Score géopolitique (5 modules : pizza/jets/pétrole/défense/news + ML)", "0-1"),
 }
 
 # Indices toujours fournis comme contexte de mise en relation
@@ -508,6 +515,37 @@ def build_facts(indice):
     elif indice in VIRTUAL:
         base_key, name, unit = VIRTUAL[indice]
         vval, vnote = virtual_value(indice, live)
+    elif indice in ("sdi", "ipt", "rbf"):
+        # PIPELINE UNIFIÉ 25/08 : silent_drain_index.py écrit sdi/ipt/rbf dans live.json
+        base_key, name, unit = indice, LEXIQUE.get(indice, (indice, ""))[0], LEXIQUE.get(indice, (indice, ""))[1]
+        d = live.get(indice) or {}
+        if indice == "sdi":
+            vval = d.get("sdi")
+            vnote = (f"divergence {d.get('divergence_score')} · dormant {d.get('dormant_pct')}% "
+                     f"(moy 30j {d.get('dormant_avg_30d')}%) · frais fastest {d.get('fee_fastest_sat')} sat/vB")
+        elif indice == "ipt":
+            vval = d.get("ipt")
+            vnote = f"micro-tx ratio {d.get('micro_tx_ratio')} · z-frais {d.get('z_fee')} · entropie {d.get('entropy')}"
+        else:
+            vval = d.get("rbf_score")
+            vnote = f"ratio {d.get('rbf_ratio')} · paires {d.get('rbf_pairs')} · n_txs {d.get('n_txs')}"
+    elif indice == "indice_onchain":
+        # Score onchain UNIFIÉ (0-100) — clé indiceOnchain (fix 27/08 : indice n'existe pas)
+        base_key, name, unit = "indice_onchain", LEXIQUE["indice_onchain"][0], LEXIQUE["indice_onchain"][1]
+        oc = live.get("onchain", {})
+        vval = oc.get("indiceOnchain")
+        vnote = (f"baleines {oc.get('whaleBlocsN')} blocs / {oc.get('whaleBlocsBtc')} BTC · "
+                 f"direction {oc.get('whaleDir')} · cumul 24h {oc.get('whaleCumul24hBtc')} BTC")
+    elif indice == "pipeline_health":
+        base_key, name, unit = "pipeline_health", LEXIQUE["pipeline_health"][0], LEXIQUE["pipeline_health"][1]
+        ph = live.get("pipeline_health") or {}
+        vval = ph.get("global_score")
+        vnote = f"mode {ph.get('mode')} · mult position {ph.get('position_multiplier')}"
+    elif indice == "geopol":
+        base_key, name, unit = "geopol", LEXIQUE["geopol"][0], LEXIQUE["geopol"][1]
+        g = live.get("geopol") or {}
+        vval = g.get("score")
+        vnote = f"niveau {g.get('niveau')} · ml {g.get('ml_score')} · modules {g.get('nb_modules')}"
     else:
         base_key, vval, vnote = indice, live.get(indice), None
         name, unit = LEXIQUE.get(indice, (indice, ""))

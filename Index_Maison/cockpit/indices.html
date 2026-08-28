@@ -3,19 +3,22 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Cache-Control" content="no-store">
 <title>ACE777 INDICES</title>
 <style>
 :root{--bg:#050804;--panel:#0a100c;--acid:#7CFF6B;--amber:#ffc857;--red:#ff4d4d;--muted:#8a7a55;--cyan:#9dff7a}
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:var(--bg);color:#e9e4d4;font-family:'Share Tech Mono','Courier New',monospace;padding:16px;min-height:100vh}
 h1{font-family:'Orbitron',sans-serif;color:var(--amber);font-size:14px;letter-spacing:2px;margin-bottom:16px;text-transform:uppercase}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px;margin-bottom:20px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:12px;margin-bottom:20px}
 .card{background:var(--panel);border:1px solid #2a2e1a;border-radius:8px;padding:16px;transition:border-color .3s}
 .card:hover{border-color:var(--acid)}
 .card-head{font-family:'Orbitron',sans-serif;font-size:11px;letter-spacing:1.5px;color:var(--amber);margin-bottom:10px;text-transform:uppercase}
 .card-score{font-family:'Orbitron',sans-serif;font-size:32px;line-height:1;margin-bottom:6px}
 .card-sub{font-size:11px;color:var(--muted);margin-bottom:8px}
 .card-detail{font-size:10px;color:var(--muted);line-height:1.4}
+.card-summary{font-size:11px;color:#c0baa8;line-height:1.5;margin-top:10px;padding:10px;background:rgba(124,255,77,.05);border-radius:6px;border-left:3px solid var(--acid)}
+.card-summary b{color:var(--acid)}
 .gauge{height:4px;background:#1a1e0a;border-radius:2px;overflow:hidden;margin:8px 0}
 .gauge-fill{height:100%;border-radius:2px;transition:width .5s}
 .green{color:#7cff6b}.yellow{color:#ffd24d}.orange{color:#ffa94d}.red{color:#ff5c5c}
@@ -24,7 +27,20 @@ h1{font-family:'Orbitron',sans-serif;color:var(--amber);font-size:14px;letter-sp
 .lecture h2{font-family:'Orbitron',sans-serif;font-size:11px;letter-spacing:1.5px;color:var(--amber);margin-bottom:10px}
 .lecture-line{font-size:11px;color:#c0baa8;padding:3px 0;border-bottom:1px solid #1a1e0a}
 .lecture-line:last-child{border-bottom:none}
-.status{position:fixed;top:8px;right:8px;font-size:10px;color:var(--muted);padding:4px 8px;background:var(--panel);border:1px solid #2a2e1a;border-radius:4px}
+.status{position:fixed;top:8px;right:8px;font-size:10px;color:var(--muted);padding:4px 8px;background:var(--panel);border:1px solid #2a2e1a;border-radius:4px;z-index:10}
+/* Cortana section */
+.cortana-section{background:var(--panel);border:1px solid rgba(124,255,77,.3);border-radius:8px;padding:16px;margin-top:12px}
+.cortana-section h2{font-family:'Orbitron',sans-serif;font-size:11px;letter-spacing:1.5px;color:var(--acid);margin-bottom:10px}
+.cortana-line{font-size:11px;color:#c0baa8;padding:4px 0;line-height:1.5}
+.cortana-line b{color:var(--acid)}
+.cortana-avis{font-size:12px;color:var(--amber);margin-top:8px;padding:8px;background:rgba(255,200,87,.06);border-radius:6px;border-left:3px solid var(--amber)}
+/* Wiki section */
+.wiki-section{background:var(--panel);border:1px solid rgba(157,255,122,.2);border-radius:8px;padding:16px;margin-top:12px}
+.wiki-section h2{font-family:'Orbitron',sans-serif;font-size:11px;letter-spacing:1.5px;color:var(--cyan);margin-bottom:10px}
+.wiki-bubble{display:inline-block;background:rgba(124,255,77,.08);border:1px solid rgba(124,255,77,.25);border-radius:12px;padding:6px 12px;margin:4px;font-size:10px;color:var(--cyan);cursor:pointer;transition:all .2s}
+.wiki-bubble:hover{background:rgba(124,255,77,.15);border-color:var(--acid);transform:scale(1.05)}
+.wiki-detail{display:none;font-size:10px;color:#c0baa8;padding:12px;background:rgba(5,8,4,.8);border:1px solid #2a2e1a;border-radius:6px;margin-top:8px;line-height:1.5}
+.wiki-detail.open{display:block}
 </style>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
 </head>
@@ -32,13 +48,49 @@ h1{font-family:'Orbitron',sans-serif;color:var(--amber);font-size:14px;letter-sp
 <h1>📊 INDICES ACE777</h1>
 <div class="status" id="status"> Chargement...</div>
 <div class="grid" id="grid"></div>
+
+<!-- CORTANA AVIS -->
+<div class="cortana-section">
+  <h2>🧠 AVIS CORTANA</h2>
+  <div id="cortana-content">Chargement...</div>
+</div>
+
+<!-- WIKI BULLES -->
+<div class="wiki-section">
+  <h2>📚 WIKI — Clique pour comprendre</h2>
+  <div id="wiki-bubbles"></div>
+  <div id="wiki-detail" class="wiki-detail"></div>
+</div>
+
+<!-- LECTURE -->
 <div class="lecture">
   <h2>📋 LECTURE COMPLÈTE</h2>
   <div id="lecture"></div>
 </div>
+
 <script src="live.js"></script>
 <script>
 const T = window.__THERMO_LIVE__ || {};
+
+// Wiki data — vulgarized explanations.
+// text = pédagogie stable (aucun chiffre daté). actu() = valeur LIVE calculée à l'affichage.
+const WIKI = {
+  sdi: {title:'SDI (Silent Drain Index)',emoji:'📉',text:'Mesure combien de BTC "dormants" (qui bougent pas depuis longtemps) commencent à bouger silencieusement. Quand les gros détenteurs bougent leurs BTC sans bruit, ça signale souvent un changement de stratégie. Score > 0.3 = mouvement suspect. Score > 0.5 = danger.',actu:()=>{const s=T.sdi||{};return 'SDI '+(s.sdi!=null?s.sdi.toFixed(3):'—')+' · dormant '+(s.dormant_pct!=null?s.dormant_pct+'%':'—')+' · fees '+(s.fee_fastest_sat!=null?s.fee_fastest_sat+' sat/vB':'—');}},
+  rbf: {title:'RBF (Replace-By-Fee)',emoji:'🔄',text:'Nombre de transactions Bitcoin qui ont été "remplacées" avec des frais plus élevés. Quand quelqu\'un paye plus cher pour accélérer sa transaction, ça signale de la pression ou de l\'urgence. Score 1.0 = beaucoup de remplacements = mouvement urgent.',actu:()=>{const r=T.rbf||{};return 'RBF '+(r.rbf_score!=null?r.rbf_score:'—')+' · '+((r.n_txs!=null?r.n_txs:'—')+' tx analysées');}},
+  health: {title:'Pipeline Health',emoji:'💚',text:'Santé globale du système de données. Vérifie que toutes les sources (Binance, Mempool, Deribit, etc.) envoient bien leurs données. Score 1.0 = tout va bien. Score < 0.8 = une source est en panne, les données risquent d\'être fausses.',actu:()=>{const p=T.pipeline_health||{};return 'Health '+(p.global_score!=null?p.global_score:'—')+' · '+((p.mode_label||'—'))+' · '+(p.n_issues!=null?p.n_issues+' issue(s)':'');}},
+  geopol: {title:'Géopolitique',emoji:'🌍',text:'Analyse automatique de 5 sources : pizzeria autour du Pentagone 🍕 (plus de pizzas = plus d\'activité militaire), avions militaires ✈️, pétrole ⛽, actions défense 📈, et actualités négatives 📰. ML calcule un score. Score 0 = calme parfait. Score > 0.8 = crise imminente.',actu:()=>{const g=T.geopol||{};return 'GEOPOL '+(g.score!=null?g.score.toFixed(3):'—')+' · '+(g.niveau||'—');}},
+  poussiere: {title:'Poussière Onchain',emoji:'🌪️',text:'Mesure l\'activité "micro" sur le réseau Bitcoin : transactions très petites (< 2 sat/vB), blocs privatisés, et CPFP (frais de précipitation). Plus il y a de poussière, plus le réseau bouge en coulisse. Score > 60/100 = activité anormale.',actu:()=>{const o=T.onchain||{};return 'Indice '+(o.indiceOnchain!=null?o.indiceOnchain+'/100':'—')+' · '+(o.indiceOnchainLabel||'—');}},
+  thermoscore: {title:'Score Thermo',emoji:'🌡️',text:'Score global qui combine 34 indicateurs en un seul nombre. Comme un thermomètre du marché. > 80 = tendance haussière. 50-80 = neutre. < 50 = tendance baissière.',actu:()=>'Score '+(T.score!=null?T.score+'/100':'—')+' · '+(T.climate||'—')},
+  feargreed: {title:'Fear & Greed',emoji:'😱',text:'Indice de peur et cupidité. 0 = peur extrême (tout le monde vend). 100 = cupidité extrême (tout le monde achète). Souvent les meilleurs moments pour acheter c\'est quand tout le monde a peur (< 25).',actu:()=>'F&G '+(T.fearGreed!=null?T.fearGreed:'—')+' ('+(T.fearGreedLabel||'—')+')'},
+  funding: {title:'Funding Rate',emoji:'💰',text:'Coût du levier sur les marchés à terme. Les traders qui sont "long" (parient que ça monte) paient un petit pourcentage à ceux qui sont "short" (parient que ça baisse). Funding positif = plus de longs. Funding très élevé = surchauffe.',actu:()=>'Funding '+(T.funding!=null?T.funding.toExponential(1):'—')+' · moy 30j '+(T.fundingAvg30!=null?T.fundingAvg30.toExponential(1):'—')},
+  longshort: {title:'Long/Short Ratio',emoji:'⚖️',text:'Rapport entre les traders qui parient que ça monte (long) vs ceux qui parient que ça baisse (short). > 1 = plus de longs. < 1 = plus de shorts. Quand c\'est très déséquilibré dans un sens, le marché peut se retourner brutalement.',actu:()=>'L/S '+(T.longShort!=null?T.longShort:'—')+' · Top traders '+(T.topTraderLS!=null?T.topTraderLS:'—')},
+  oi: {title:'Open Interest',emoji:'📊',text:'Montant total des positions ouvertes sur les marchés à terme. Plus c\'est élevé, plus il y a de levier dans le système. Si le marché baisse et que l\'OI est haut, ça peut déclencher des liquidations en chaîne (effondrement brutal).',actu:()=>'OI '+(T.oi!=null?Math.round(T.oi).toLocaleString()+' BTC':'—')},
+  etf: {title:'Flux ETF Bitcoin',emoji:'🏦',text:'Argent qui entre ou sort des fonds négociés en bourse (BlackRock, Fidelity, etc.). Les institutions achètent = bon signe. Elles vendent = mauvais signe.',actu:()=>'ETF BTC '+(T.etfBtcM!=null?T.etfBtcM+' M$':'—')+' ('+((T.etf&&T.etf.source)||'—')+')'},
+  gex: {title:'GEX (Gamma Exposure)',emoji:'📐',text:'Mesure l\'effet de levier des market makers. Si le prix approche un "mur" de liquidation, les market makers doivent acheter ou vendre massivement pour se couvrir, ce qui amplifie le mouvement.',actu:()=>'Call $'+(T.gexCallWall!=null?T.gexCallWall.toLocaleString():'—')+' · Put $'+(T.gexPutWall!=null?T.gexPutWall.toLocaleString():'—')+' · P/C '+(T.gexPutCall!=null?T.gexPutCall:'—')},
+  justesse: {title:'Justesse Cortana',emoji:'🎯',text:'Score de fiabilité de l\'IA Cortana : sur ses avis LONG/SHORT, combien le marché a confirmé après coup. > 60% = Cortana est fiable. < 40% = il faut recalibrer. C\'est sa boucle d\'apprentissage.',actu:()=>{const j=T.justesse||{};return 'Justesse '+(j.pct!=null?j.pct+'%':'—')+' ('+(j.total_hit!=null?j.total_hit+'/'+(j.total_scored!=null?j.total_scored:'—'):'—')+')';}},
+  liquidations: {title:'Liquidations 24h',emoji:'💥',text:'Montant des positions forcées fermées (liquidées) en 24h. Quand le prix bouge trop vite, les traders en levier sont éjectés. Beaucoup de liquidations = moment de stress.',actu:()=>'Liq 24h '+(T.liq24Usd!=null?'$'+(T.liq24Usd/1000000).toFixed(1)+'M':'—')+' (longs '+(T.liqLongUsd!=null?'$'+(T.liqLongUsd/1000000).toFixed(1)+'M':'—')+' · shorts '+(T.liqShortUsd!=null?'$'+(T.liqShortUsd/1000000).toFixed(1)+'M':'—')+')'},
+  ace: {title:'Bot ACE (Hulk)',emoji:'🤖',text:'État du bot de trading automatique. Heat = intensité (100 = max). PnL session = gains en cours. Trades = nombre d\'opérations.',actu:()=>{const a=T.ace||{};return 'Heat '+(a.heat!=null?a.heat.toFixed(0)+'%':'—')+' · PnL session '+(a.sessionPnl!=null?'$'+a.sessionPnl:'—')+' · '+(a.trades!=null?a.trades+' trades':'—');}}
+};
 
 function scoreColor(v, thresholds) {
   if (v == null) return '#8a7a55';
@@ -64,6 +116,11 @@ function render() {
   const geoScore = geo.score;
   const geoColor = scoreColor(geoScore, [0.3, 0.6, 0.8]);
   const geoPct = Math.min(100, (geoScore || 0) * 100);
+  const geoSummary = geoScore < 0.3 
+    ? '<b>Calme.</b> Aucune tension géopolitique majeure. Les pizzeria du Pentagone sonttranquilles, les avions militaires volent normalement, le pétrole est stable. Pas de raison de paniquer.'
+    : geoScore < 0.6 
+    ? '<b>Vigilance.</b> Légère hausse de tension. Le p bouge un peu, le sentiment news est mauvais. Surveille, mais pas d\'urgence.'
+    : '<b>Alerte!</b> Tension géopolitique élevée. Activité militaire accrue, pétrole en hausse, actualités très négatives. Prépare-toi à des mouvements brutaux.';
   cards.push(`
     <div class="card" data-peda="geopol">
       <div class="card-head">🌍 GEOPOL — Score Géopolitique</div>
@@ -74,6 +131,7 @@ function render() {
         Modules: ${geo.nb_modules || 0}/5 actifs<br>
         ${Object.entries(geo.indicateurs || {}).map(([k, v]) => `${k}: ${(v.score || 0).toFixed(2)}`).join('<br>')}
       </div>
+      <div class="card-summary">${geoSummary}</div>
     </div>
   `);
   
@@ -82,9 +140,14 @@ function render() {
   const sdiScore = sdi.sdi;
   const sdiColor = scoreColor(sdiScore, [0.1, 0.3, 0.5]);
   const sdiPct = Math.min(100, (sdiScore || 0) * 1000);
+  const sdiSummary = sdiScore < 0.1 
+    ? '<b>Calme total.</b> Les BTC dormants ne bougent pas. Pas de mouvement suspect des baleines. Le marché dort.'
+    : sdiScore < 0.3 
+    ? '<b>Légère activité.</b> Quelques BTC dormants commencent à bouger. Pas alarmant mais à surveiller.'
+    : '<b>Alerte baleines!</b> Gros mouvement de BTC qui dormaient depuis longtemps. Les gros détenteurs repositionnent. Possible changement de tendance.';
   cards.push(`
     <div class="card" data-peda="sdi">
-      <div class="card-head">📉 SDI — Stock-to-Flow Divergence</div>
+      <div class="card-head">📉 SDI — Silent Drain Index</div>
       <div class="card-score" style="color:${sdiColor}">${sdiScore != null ? sdiScore.toFixed(4) : '—'}</div>
       <div class="card-sub">Dormant: ${sdi.dormant_pct || '—'}% · Fees: ${sdi.fee_fastest_sat || '—'} sat/vB</div>
       <div class="gauge"><div class="gauge-fill ${barClass(sdiScore, [0.1, 0.3, 0.5])}" style="width:${sdiPct}%"></div></div>
@@ -92,6 +155,7 @@ function render() {
         Divergence: ${sdi.divergence_score || 0} · Fee score: ${sdi.fee_score || 0}<br>
         Source: ${sdi.dormant_source || '—'}
       </div>
+      <div class="card-summary">${sdiSummary}</div>
     </div>
   `);
   
@@ -100,9 +164,14 @@ function render() {
   const rbfScore = rbf.rbf_score;
   const rbfColor = scoreColor(rbfScore, [0.5, 0.8, 0.95]);
   const rbfPct = Math.min(100, (rbfScore || 0) * 100);
+  const rbfSummary = rbfScore < 0.5 
+    ? '<b>Normal.</b> Pas de remplacement de frais. Le réseau Bitcoin est fluide, personne ne se dépêche.'
+    : rbfScore < 0.8 
+    ? '<b>Légère pression.</b> Quelques transactions sont relancées avec plus de frais. Le réseau est un peu chargé.'
+    : '<b>Urgence!</b> Beaucoup de remplacements de frais. Quelqu\'un veut absolument que sa transaction passe vite. Possible mouvement important.';
   cards.push(`
     <div class="card" data-peda="rbf">
-      <div class="card-head">🔄 RBF — Replace-By-Fee Score</div>
+      <div class="card-head">🔄 RBF — Replace-By-Fee</div>
       <div class="card-score" style="color:${rbfColor}">${rbfScore != null ? rbfScore.toFixed(1) : '—'}</div>
       <div class="card-sub">Ratio: ${rbf.rbf_ratio || '—'} · ${rbf.n_txs || 0} tx analysées</div>
       <div class="gauge"><div class="gauge-fill ${barClass(rbfScore, [0.5, 0.8, 0.95])}" style="width:${rbfPct}%"></div></div>
@@ -110,6 +179,7 @@ function render() {
         Paires RBF: ${rbf.rbf_pairs || 0}<br>
         Score élevé = congestions ou manipulations possibles
       </div>
+      <div class="card-summary">${rbfSummary}</div>
     </div>
   `);
   
@@ -118,6 +188,11 @@ function render() {
   const phScore = ph.global_score;
   const phColor = scoreColor(1 - (phScore || 0), [0.1, 0.3, 0.5]);
   const phPct = Math.min(100, (phScore || 0) * 100);
+  const healthSummary = phScore >= 0.9 
+    ? '<b>Tout va bien.</b> Toutes les sources de données (Binance, Mempool, Deribit, etc.) envoient leurs infos correctement. Tu peux faire confiance aux données.'
+    : phScore >= 0.7 
+    ? '<b>Une source capote.</b> Une des sources de données est instable. Les indices risquent d\'être un peu faux. Vérifie avant de prendre une décision.'
+    : '<b>Panne!</b> Plusieurs sources sont en panne. Les données sont peu fiables. Ne trade pas sur ces bases.';
   cards.push(`
     <div class="card" data-peda="health">
       <div class="card-head">💚 PIPELINE HEALTH</div>
@@ -128,6 +203,7 @@ function render() {
         Sources: ${Object.keys(ph.sources || {}).join(', ')}<br>
         ${Object.entries(ph.sources || {}).filter(([k,v]) => v.issues && v.issues.length).map(([k,v]) => `⚠️ ${k}: ${v.issues.join(', ')}`).join('<br>')}
       </div>
+      <div class="card-summary">${healthSummary}</div>
     </div>
   `);
   
@@ -136,6 +212,11 @@ function render() {
   const dustScore = oc.indiceOnchain;
   const dustColor = scoreColor(dustScore, [30, 60, 80]);
   const dustPct = Math.min(100, dustScore || 0);
+  const dustSummary = dustScore < 30 
+    ? '<b>Calme.</b> Peu d\'activité micro sur le réseau. Les transactions normales dominent. Pas de mouvement suspect.'
+    : dustScore < 60 
+    ? '<b>Activité modérée.</b> Quelques micro-transactions et blocs privatisés. Le réseau bouge un peu en coulisse.'
+    : '<b>Activité anormale!</b> Beaucoup de micro-transactions, blocs privatisés, CPFP. Les gros joueurs bougent en douce. Possible accumulation ou distribution.';
   cards.push(`
     <div class="card" data-peda="poussiere">
       <div class="card-head">🌪️ POUSSIÈRE — Indice Onchain</div>
@@ -147,18 +228,177 @@ function render() {
         CPFP Z-score: ${oc.cpfpZscore || '—'} · Poussière: ${oc.cpfpDustScore || '—'}<br>
         Baleines: ${oc.whaleBlocsN || 0} blocs (${(oc.whaleBlocsBtc || 0).toFixed(0)} BTC)
       </div>
+      <div class="card-summary">${dustSummary}</div>
+    </div>
+  `);
+  
+  // FEAR & GREED
+  const fg = T.fearGreed;
+  const fgColor = scoreColor(100 - (fg || 0), [20, 40, 60]);
+  const fgSummary = fg < 25 
+    ? '<b>Peur extrême.</b> Tout le monde vend. Souvent le meilleur moment pour acheter. "Quand tout le monde a peur, sois courageux."'
+    : fg < 50 
+    ? '<b>Peur modérée.</b> Les gens sont anxieux. Le marché est incertain. Bonne zone pour accumuler prudemment.'
+    : fg < 75 
+    ? '<b>Cupidité modérée.</b> Les gens sont confiants. Le marché monte. Attention à ne pas être trop gourmand.'
+    : '<b>Cupidité extrême!</b> Tout le monde achète. Le marché est surchauffé. "Quand tout le monde est euphorique, sois prudent."';
+  cards.push(`
+    <div class="card" data-peda="fearGreed">
+      <div class="card-head">😱 FEAR & GREED</div>
+      <div class="card-score" style="color:${fgColor}">${fg || '—'}</div>
+      <div class="card-sub">${T.fearGreedLabel || '—'}</div>
+      <div class="gauge"><div class="gauge-fill ${barClass(100-(fg||0), [20, 40, 60])}" style="width:${fg || 0}%"></div></div>
+      <div class="card-summary">${fgSummary}</div>
+    </div>
+  `);
+  
+  // FUNDING
+  const fund = T.funding;
+  const fundAvg = T.fundingAvg30;
+  const fundColor = fund < 0.0001 ? '#7cff6b' : (fund < 0.0005 ? '#ffd24d' : '#ff5c5c');
+  const fundPct = Math.min(100, (fund || 0) * 10000);
+  const fundSummary = fund < 0.0001 
+    ? '<b>Funding nul.</b> Le marché est parfaitement équilibré entre longs et shorts. Personne ne paie pour garder sa position. Zone neutre.'
+    : fund < 0.0005 
+    ? '<b>Funding modéré.</b> Les longs paient un peu aux shorts. Légère prédominance des acheteurs. Normal en marché haussier.'
+    : '<b>Funding élevé!</b> Les longs paient cher. Trop de monde parie que ça monte. Surchauffe possible, risque de retournement.';
+  cards.push(`
+    <div class="card" data-peda="funding">
+      <div class="card-head">💰 FUNDING RATE</div>
+      <div class="card-score" style="color:${fundColor}">${fund ? fund.toExponential(1) : '—'}</div>
+      <div class="card-sub">Moy 30j: ${fundAvg ? fundAvg.toExponential(1) : '—'} · ${T.fundingSamples30 || 0} samples</div>
+      <div class="gauge"><div class="gauge-fill ${barClass(100-fundPct, [20, 50, 80])}" style="width:${fundPct}%"></div></div>
+      <div class="card-summary">${fundSummary}</div>
+    </div>
+  `);
+  
+  // LONG/SHORT
+  const ls = T.longShort;
+  const lsColor = Math.abs((ls||1)-1) < 0.05 ? '#7cff6b' : (Math.abs((ls||1)-1) < 0.15 ? '#ffd24d' : '#ff5c5c');
+  const lsPct = Math.min(100, Math.abs((ls||1)-1) * 500);
+  const lsSummary = Math.abs((ls||1)-1) < 0.05 
+    ? '<b>Équilibré.</b> Autant de longs que de shorts. Le marché hésite. Pas de signal fort dans un sens ou l\'autre.'
+    : (ls||1) > 1 
+    ? '<b>Plus de longs.</b> Les traders parient sur la hausse. Si le prix baisse, les liquidations en chaîne sont possibles.'
+    : '<b>Plus de shorts.</b> Les traders parient sur la baisse. Si le prix monte, un short squeeze est possible.';
+  cards.push(`
+    <div class="card" data-peda="longShort">
+      <div class="card-head">⚖️ LONG / SHORT RATIO</div>
+      <div class="card-score" style="color:${lsColor}">${ls ? ls.toFixed(3) : '—'}</div>
+      <div class="card-sub">Top traders: ${T.topTraderLS || '—'}</div>
+      <div class="gauge"><div class="gauge-fill ${barClass(100-lsPct, [20, 50, 80])}" style="width:${lsPct}%"></div></div>
+      <div class="card-summary">${lsSummary}</div>
+    </div>
+  `);
+  
+  // OPEN INTEREST
+  const oi = T.oi;
+  const oiColor = oi > 120000 ? '#ff5c5c' : (oi > 100000 ? '#ffd24d' : '#7cff6b');
+  const oiSummary = oi > 120000 
+    ? '<b>OI élevé!</b> Énormément de levier dans le système. Si le prix bouge brutalement, les liquidations en chaîne seront dévastatrices.'
+    : oi > 100000 
+    ? '<b>OI modéré.</b> Le levier est présent mais pas excessif. Les mouvements de prix peuvent amplifier légèrement.'
+    : '<b>OI faible.</b> Peu de levier. Le marché est prudent. Les mouvements de prix seront plus modérés.';
+  cards.push(`
+    <div class="card" data-peda="oi">
+      <div class="card-head">📊 OPEN INTEREST</div>
+      <div class="card-score" style="color:${oiColor}">${oi ? Math.round(oi).toLocaleString() : '—'}</div>
+      <div class="card-sub">BTC</div>
+      <div class="card-summary">${oiSummary}</div>
+    </div>
+  `);
+  
+  // LIQUIDATIONS
+  const liq = T.liq24Usd;
+  const liqColor = liq > 100000000 ? '#ff5c5c' : (liq > 30000000 ? '#ffd24d' : '#7cff6b');
+  const liqSummary = liq > 100000000 
+    ? '<b>Massacre!</b> Plus de 100M$ liquidés en 24h. Beaucoup de traders en levier ont été éjectés. Le marché est en crise.'
+    : liq > 30000000 
+    ? '<b>Activité notable.</b> 30-100M$ liquidés. Des traders ont perdu leur mise. Le marché bouge.'
+    : '<b>Calme.</b> Peu de liquidations. Le marché évolue normalement sans brutalité.';
+  cards.push(`
+    <div class="card" data-peda="liq24Usd">
+      <div class="card-head">💥 LIQUIDATIONS 24H</div>
+      <div class="card-score" style="color:${liqColor}">${liq ? '$' + (liq/1000000).toFixed(1) + 'M' : '—'}</div>
+      <div class="card-sub">Longs: $${T.liqLongUsd ? (T.liqLongUsd/1000000).toFixed(1) : '—'}M · Shorts: $${T.liqShortUsd ? (T.liqShortUsd/1000000).toFixed(1) : '—'}M</div>
+      <div class="card-summary">${liqSummary}</div>
+    </div>
+  `);
+  
+  // GEX
+  const gex = T.gex || {};
+  const gexColor = '#7cff6b';
+  const gexSummary = `Mur Call (résistance): <b>$${T.gexCallWall ? T.gexCallWall.toLocaleString() : '—'}</b> — Si le prix monte jusqu\'ici, les market makers vendent, ça freine.<br>Mur Put (support): <b>$${T.gexPutWall ? T.gexPutWall.toLocaleString() : '—'}</b> — Si le prix baisse jusqu\'ici, les market makers achètent, ça soutient.<br>Put/Call: ${T.gexPutCall || '—'} — Si < 1 = plus de puts (peur). Si > 1 = plus de calls (optimisme).`;
+  cards.push(`
+    <div class="card" data-peda="gex">
+      <div class="card-head">📐 GEX — Gamma Exposure</div>
+      <div class="card-score" style="color:${gexColor}">Call: $${T.gexCallWall ? T.gexCallWall.toLocaleString() : '—'}</div>
+      <div class="card-sub">Put wall: $${T.gexPutWall ? T.gexPutWall.toLocaleString() : '—'} · P/C: ${T.gexPutCall || '—'}</div>
+      <div class="card-summary">${gexSummary}</div>
+    </div>
+  `);
+  
+  // JUSTESSE — lue depuis justesse_cockpit.json via le pont (plus jamais de valeur en dur)
+  const jt = T.justesse || {};
+  const justPct = jt.pct != null ? jt.pct : null;
+  const justColor = justPct == null ? '#8a7a55' : (justPct >= 60 ? '#7cff6b' : (justPct >= 40 ? '#ffd24d' : '#ff5c5c'));
+  const justSummary = justPct == null
+    ? '<b>Indisponible.</b> Le fichier de justesse n\'a pas pu être lu — on n\'affiche pas un chiffre inventé.'
+    : justPct >= 60 
+    ? '<b>Cortana est fiable.</b> Plus de 60% de ses prédictions se réalisent. Tu peux lui faire confiance pour orienter tes trades.'
+    : justPct >= 40 
+    ? '<b>Cortana s\'améliore.</b> Environ 1 sur 2 de ses prédictions est juste. C\'est encore en apprentissage, prends ses avis comme indicateur complémentaire.'
+    : '<b>Cortana est perdu.</b> Moins de 40% de bonnes prédictions. Il faut recalibrer ses paramètres. Ne te fie pas à ses avis.';
+  cards.push(`
+    <div class="card" data-peda="justesse">
+      <div class="card-head">🎯 JUSTESSE CORTANA</div>
+      <div class="card-score" style="color:${justColor}">${justPct != null ? justPct + '%' : '—'}</div>
+      <div class="card-sub">${jt.total_hit != null ? jt.total_hit + '/' + (jt.total_scored != null ? jt.total_scored : '—') + ' prédictions justes' : '—'} · ${jt.n != null ? jt.n + ' évaluations' : ''}</div>
+      <div class="gauge"><div class="gauge-fill ${barClass(100-(justPct||0), [20, 40, 60])}" style="width:${justPct||0}%"></div></div>
+      <div class="card-detail">
+        Source : justesse_cockpit.json (lue à l\'ouverture)<br>
+        ${jt.cached ? 'MAJ ' + (jt.ts || '—') : ''}
+      </div>
+      <div class="card-summary">${justSummary}</div>
+    </div>
+  `);
+  
+  // ACE / HULK
+  const ace = T.ace || {};
+  const aceColor = ace.heat > 80 ? '#ff5c5c' : (ace.heat > 50 ? '#ffd24d' : '#7cff6b');
+  const aceSummary = ace.heat > 80 
+    ? '<b>Hulk est à fond!</b> Le bot trade à intensité maximale. Heat 100% = il est très actif. PnL session = gains en cours. Surveille ses mouvements.'
+    : ace.heat > 50 
+    ? '<b>Hulk est actif.</b> Le bot trade modérément. Il analyse le marché et prend des positions prudentes.'
+    : '<b>Hulk est calme.</b> Le bot observe. Il attend un meilleur moment pour agir.';
+  cards.push(`
+    <div class="card" data-peda="ace">
+      <div class="card-head">🤖 BOT ACE — HULK</div>
+      <div class="card-score" style="color:${aceColor}">${ace.heat != null ? ace.heat.toFixed(0) + '%' : '—'}</div>
+      <div class="card-sub">PnL: $${ace.sessionPnl || '—'} · ${ace.trades || 0} trades</div>
+      <div class="card-detail">
+        ${ace.live || '—'}<br>
+        Skip: ${ace.skip || 0} · RED hits: ${ace.redHits || 0}
+      </div>
+      <div class="card-summary">${aceSummary}</div>
     </div>
   `);
   
   // Score thermo global
   const thermoScore = T.score;
   const thermoColor = scoreColor(100 - (thermoScore || 0), [20, 40, 60]);
+  const thermoSummary = thermoScore > 80 
+    ? '<b>Tendance haussière.</b> Le thermomètre est au vert. La plupart des indicateurs sont favorables. Le momentum est au rendez-vous.'
+    : thermoScore > 50 
+    ? '<b>Neutre.</b> Le marché hésite. Certains indicateurs sont positifs, d\'autres négatifs. Pas de signal clair.'
+    : '<b>Tendance baissière.</b> Le thermomètre est au rouge. Les indicateurs sont majoritairement négatifs. Prudence.';
   cards.push(`
     <div class="card" data-peda="radar">
       <div class="card-head">🌡️ SCORE THERMO</div>
       <div class="card-score" style="color:${thermoColor}">${thermoScore || '—'}/100</div>
       <div class="card-sub">${(T.climate || '—').toUpperCase()}</div>
       <div class="gauge"><div class="gauge-fill ${barClass(100-(thermoScore||0), [20, 40, 60])}" style="width:${thermoScore || 0}%"></div></div>
+      <div class="card-summary">${thermoSummary}</div>
     </div>
   `);
   
@@ -170,11 +410,78 @@ function render() {
     `<div class="lecture-line">${l}</div>`
   ).join('');
   
+  // Wiki bubbles
+  renderWiki();
+  
+  // Cortana opinion
+  renderCortana();
+  
   // Status
   document.getElementById('status').innerHTML = `🟢 LIVE · ${T.ts || '—'} · ${Object.keys(T).length} clés`;
 }
 
-render();
+function renderWiki() {
+  const container = document.getElementById('wiki-bubbles');
+  const detail = document.getElementById('wiki-detail');
+  container.innerHTML = Object.entries(WIKI).map(([k, v]) => 
+    `<span class="wiki-bubble" onclick="toggleWiki('${k}')">${v.emoji} ${v.title}</span>`
+  ).join('');
+  
+  window.toggleWiki = function(key) {
+    const w = WIKI[key];
+    if (!w) return;
+    let actu = '';
+    try { actu = w.actu ? w.actu() : ''; } catch(e) { actu = ''; }
+    detail.innerHTML = `<b>${w.emoji} ${w.title}</b><br><br>${w.text}<br><br><b>📊 Actu (live)</b> : ${actu}`;
+    detail.classList.add('open');
+  };
+}
+
+function renderCortana() {
+  const container = document.getElementById('cortana-content');
+  const ace = T.ace || {};
+  // VRAI avis Cortana (généré par cortana_horaire.py → thermo/cortana_feed.json).
+  // Chargé au démarrage (fetch) dans T.cortana. Jamais de synthèse locale factice.
+  const c = T.cortana || {};
+  if (c.headline) {
+    container.innerHTML = `
+      <div class="cortana-avis"><b>AVIS CORTANA (réel)</b></div>
+      <div class="cortana-line">${c.headline}</div>
+      ${(c.avis || []).length ? c.avis.map(a => `<div class="cortana-line">${a}</div>`).join('') : ''}
+      <div class="cortana-line" style="margin-top:8px;color:var(--muted);font-size:10px">
+        MAJ ${c.ts || '—'} · Justesse: ${T.justesse && T.justesse.pct != null ? T.justesse.pct + '%' : '—'} · Hulk: ${ace.heat || 0}% heat · Score: ${T.score || '—'}/100
+      </div>
+    `;
+    return;
+  }
+  // Secours honnête : on dit clairement que ce n'est PAS l'avis réel.
+  container.innerHTML = `
+    <div class="cortana-avis"><b>Avis Cortana indisponible</b> (cortana_feed.json non chargé)</div>
+    <div class="cortana-line" style="color:var(--muted)">Relance cortana_horaire.py ou recharge la page — on n\'invente pas un avis à la place.</div>
+  `;
+}
+
+// Charge les données annexes réelles (justesse + avis Cortana) puis rend.
+// Fichiers servis par le pont :17777 (CORS *) et le serveur :17800.
+async function loadTruth() {
+  try {
+    const r = await fetch('http://127.0.0.1:17777/justesse', {cache:'no-store'});
+    if (r.ok) {
+      const j = await r.json();
+      if (j && j.pct != null) T.justesse = j;
+    }
+  } catch(e) {}
+  try {
+    const r = await fetch('http://127.0.0.1:17800/thermo/cortana_feed.json', {cache:'no-store'});
+    if (r.ok) {
+      const c = await r.json();
+      if (c && c.headline) T.cortana = c;
+    }
+  } catch(e) {}
+  render();
+}
+
+loadTruth();
 // Auto-refresh toutes les 30s
 setInterval(() => {
   const s = document.createElement('script');
@@ -185,6 +492,8 @@ setInterval(() => {
   };
   document.head.appendChild(s);
 }, 30000);
+// Recharge aussi justesse + avis toutes les 5 min (pas à chaque refresh 30s)
+setInterval(() => { loadTruth(); }, 300000);
 </script>
 </body>
 </html>

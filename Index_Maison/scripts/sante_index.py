@@ -46,6 +46,7 @@ SEUILS = {
     "ada_gardienne_live.json": 15,
     "cortana_feed.json": 90,  # run horaire (3600 s) : 60 min = marge nulle, Mac en veille = faux positif
     "sante_index.json": 15,
+    "sentinel_history.json": 15,  # sentinel.py, StartInterval 300 s : 5 min = marge x3 (ajout 27/08)
 }
 # DÉGRADÉ (orange) : fichier entre seuil rouge et 2× le seuil — ralentissement,
 # pas encore une panne franche. Évite de crier trop tôt (famille : escalade douce).
@@ -329,12 +330,26 @@ def verifier_chaines():
         maillons.append(maillon("CSV aspiration", False, "aucun CSV trouvé"))
     maillons.append(maillon("corrélation BTC", True, "colonne btc_price (si run actif)"))
 
-    ok_hulk = hulk_proc and csv_frais
+    # 2bis. Contrat Hulk ↔ Cortana (ajout 27/08 : le pilot était figé depuis le 15/08
+    # avec un score 0.44 faux — le script qui le régénère n'était branché nulle part).
+    analyzer_proc = proc_vivant("com.ace777.cortana-analyzer")
+    maillons.append(maillon("cortana_analyzer launchd", analyzer_proc,
+                           "vivant" if analyzer_proc else "PAS LANCÉ"))
+    pilot = RACINE / "hulk-mexc" / "strategie" / "cortana_pilot.json"
+    pilot_frais = frais(pilot, 1500)  # régénéré 07:45/jour → marge 25h
+    maillons.append(maillon("cortana_pilot.json", pilot_frais,
+                            f"âge {age_min(pilot):.0f} min" if age_min(pilot) is not None else "ABSENT"))
+    analysis = IM / "data" / "cortana_analysis.json"
+    analysis_frais = frais(analysis, 30)  # cortana_analyzer tourne toutes les 5 min
+    maillons.append(maillon("cortana_analysis.json", analysis_frais,
+                            f"âge {age_min(analysis):.0f} min" if age_min(analysis) is not None else "ABSENT"))
+
+    ok_hulk = hulk_proc and csv_frais and analyzer_proc and pilot_frais and analysis_frais
     if not ok_hulk:
-        anomalies.append("HULK : sonde ou CSV figé (process absent ou CSV > 15 min)")
+        anomalies.append("HULK : sonde, CSV, contrat Cortana ou analyses figés")
     chaines.append({
         "id": "hulk", "nom": "HULK",
-        "chemin": "sonde paper_diprip → CSV aspiration (murs + prix + BTC)",
+        "chemin": "paper_diprip → CSV aspiration + cortana_analyzer → cortana_analysis.json → pilot (contrat)",
         "ok": ok_hulk, "maillons": maillons,
     })
 
@@ -349,9 +364,12 @@ def verifier_chaines():
     mission_frais = frais(mission, SEUILS["mission.json"])
     maillons.append(maillon("mission.json → cockpit", mission_frais,
                             f"âge {age_min(mission):.0f} min" if age_min(mission) is not None else "ABSENT"))
-    feed_proc = proc_vivant("com.ace777.hub-cockpit-feed")
-    maillons.append(maillon("feed launchd", feed_proc,
-                           "vivant" if feed_proc else "PAS LANCÉ"))
+    # hub-cockpit-feed est un script one-shot (pas un daemon)
+    # On vérifie la fraîcheur de hub.json au lieu du process
+    hub_json = IM / "cockpit" / "hub.json"
+    hub_frais = frais(hub_json, 3600)  # seuil 1h
+    maillons.append(maillon("hub.json (one-shot)", hub_frais,
+                           f"âge {age_min(hub_json):.0f} min" if age_min(hub_json) is not None else "ABSENT"))
 
     ok_live = live_frais and mission_frais
     if not ok_live:
@@ -388,7 +406,72 @@ def verifier_chaines():
     })
 
     # ============================================================
-    # 5. SÉCURITÉ — veilleuse synapses + kill-switches
+    # 5. SENTINELLE — z-score → sniffer DeepSeek sur anomalie (ajout 27/08)
+    # ============================================================
+    maillons = []
+    sent_proc = proc_vivant("com.ace777.sentinel")
+    maillons.append(maillon("sentinelle launchd", sent_proc,
+                           "vivant" if sent_proc else "PAS LANCÉ"))
+    sent_hist = IM / "data" / "sentinel_history.json"
+    sent_frais = frais(sent_hist, SEUILS["sentinel_history.json"])
+    maillons.append(maillon("sentinel_history.json", sent_frais,
+                            f"âge {age_min(sent_hist):.0f} min" if age_min(sent_hist) is not None else "ABSENT"))
+    # Le fichier de signaux n'existe que s'il y a eu une alerte (append-only, normal si marché calme)
+    sent_sign = IM / "data" / "sentinel_signals.json"
+    if sent_sign.exists():
+        sent_n = len(json.loads(sent_sign.read_text(encoding="utf-8")).get("signals", []))
+        maillons.append(maillon("signaux", True, f"{sent_n} signaux émis"))
+    else:
+        maillons.append(maillon("signaux", True, "aucun signal (normal si calme)"))
+
+    ok_sent = sent_proc and sent_frais
+    if not ok_sent:
+        anomalies.append("SENTINELLE : launchd ou historique figé")
+    chaines.append({
+        "id": "sentinel", "nom": "SENTINELLE",
+        "chemin": "sentinel.py (5 min) → z-score 12 métriques → sniffer DeepSeek sur anomalie",
+        "ok": ok_sent, "maillons": maillons,
+    })
+
+    # ============================================================
+    # 6. GEOPOL — indice_app 5 modules → live.json.geopol (ajout 27/08)
+    # ============================================================
+    maillons = []
+    # Le geopol est recalculé à chaque run thermo (~1h) et injecté dans live.json.geopol.
+    # Le fichier scores_geopol.json (indice_app/data) est un artefact figé (écrit seulement
+    # par `python3 orchestrator.py` en direct) — on surveille donc la fraîcheur INTERNE
+    # du geopol dans live.json, pas celle du fichier (qui reste figé = normal).
+    geo_live = live_data.get("geopol") or {}
+    geo_ts = geo_live.get("ts") or ""
+    geo_age_h = None
+    if geo_ts:
+        try:
+            from datetime import datetime as _dt
+            geo_dt = _dt.fromisoformat(str(geo_ts).replace("Z", "+00:00"))
+            geo_age_h = (datetime.now(timezone.utc) - geo_dt).total_seconds() / 3600.0
+        except Exception:
+            geo_age_h = None
+    # Seuil : le thermo tourne ~1h, le geopol doit avoir < 3 h (marge x3).
+    geo_frais = geo_age_h is not None and geo_age_h < 3.0
+    geo_nb_ok = int(geo_live.get("nb_ok") or 0)
+    geo_nb_mod = int(geo_live.get("nb_modules") or 0)
+    geo_tous_ok = geo_nb_mod > 0 and geo_nb_ok == geo_nb_mod
+    maillons.append(maillon("geopol.ts frais", geo_frais,
+                            f"âge {geo_age_h:.1f}h" if geo_age_h is not None else "ABSENT"))
+    maillons.append(maillon("modules OK", geo_tous_ok,
+                            f"{geo_nb_ok}/{geo_nb_mod} modules" if geo_nb_mod else "aucun module"))
+
+    ok_geopol = geo_frais and geo_tous_ok
+    if not ok_geopol:
+        anomalies.append("GEOPOL : score figé ou modules en erreur")
+    chaines.append({
+        "id": "geopol", "nom": "GEOPOL",
+        "chemin": "indice_app (5 modules) → live.json.geopol → juge + cockpit",
+        "ok": ok_geopol, "maillons": maillons,
+    })
+
+    # ============================================================
+    # 7. SÉCURITÉ — veilleuse synapses + kill-switches
     # ============================================================
     maillons = []
     veilleuse_proc = proc_vivant("com.ace777.veilleuse")

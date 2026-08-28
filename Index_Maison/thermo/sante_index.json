@@ -1,12 +1,9 @@
 {
-  "ts": "2026-08-26T06:48+00:00",
-  "updated": "2026-08-26T06:48Z",
-  "etat": "ALERTE",
-  "chaines_ok": "9/10",
-  "anomalies": [
-    "VEILLE DÉGRADATION : rapport ALERTE_DEGRADATION_SILENCIEUSE ou figé — dégradation silencieuse détectée",
-    "VEILLE DÉGRADATION : Dead Man's Switch ALERTE ou figé — la surveillance elle-même est en panne"
-  ],
+  "ts": "2026-08-28T01:06+00:00",
+  "updated": "2026-08-28T01:06Z",
+  "etat": "OK",
+  "chaines_ok": "12/12",
+  "anomalies": [],
   "degradees": [],
   "chaines": [
     {
@@ -48,7 +45,7 @@
         {
           "nom": "→ Cortana feed",
           "ok": true,
-          "detail": "âge 25 min"
+          "detail": "âge 51 min"
         }
       ]
     },
@@ -66,14 +63,14 @@
         {
           "nom": "deriv_corr.json",
           "ok": true,
-          "detail": "âge 13 min"
+          "detail": "âge 7 min"
         }
       ]
     },
     {
       "id": "hulk",
       "nom": "HULK",
-      "chemin": "sonde paper_diprip → CSV aspiration (murs + prix + BTC)",
+      "chemin": "paper_diprip → CSV aspiration + cortana_analyzer → cortana_analysis.json → pilot (contrat)",
       "ok": true,
       "maillons": [
         {
@@ -84,12 +81,27 @@
         {
           "nom": "CSV aspiration",
           "ok": true,
-          "detail": "ASPIRATION_CALIB_20260825_155008.csv · âge 2 min"
+          "detail": "ASPIRATION_CALIB_20260827_234539.csv · âge 0 min"
         },
         {
           "nom": "corrélation BTC",
           "ok": true,
           "detail": "colonne btc_price (si run actif)"
+        },
+        {
+          "nom": "cortana_analyzer launchd",
+          "ok": true,
+          "detail": "vivant"
+        },
+        {
+          "nom": "cortana_pilot.json",
+          "ok": true,
+          "detail": "âge 629 min"
+        },
+        {
+          "nom": "cortana_analysis.json",
+          "ok": true,
+          "detail": "âge 3 min"
         }
       ]
     },
@@ -102,17 +114,17 @@
         {
           "nom": "live.json",
           "ok": true,
-          "detail": "âge 5 min"
+          "detail": "âge 0 min"
         },
         {
           "nom": "mission.json → cockpit",
           "ok": true,
-          "detail": "âge 0 min"
+          "detail": "âge 1 min"
         },
         {
-          "nom": "feed launchd",
+          "nom": "hub.json (one-shot)",
           "ok": true,
-          "detail": "vivant"
+          "detail": "âge 0 min"
         }
       ]
     },
@@ -130,12 +142,53 @@
         {
           "nom": "cpfp_detect.json",
           "ok": true,
-          "detail": "âge 4 min"
+          "detail": "âge 8 min"
         },
         {
           "nom": "mode",
           "ok": true,
           "detail": "observation (validation 7j en cours)"
+        }
+      ]
+    },
+    {
+      "id": "sentinel",
+      "nom": "SENTINELLE",
+      "chemin": "sentinel.py (5 min) → z-score 12 métriques → sniffer DeepSeek sur anomalie",
+      "ok": true,
+      "maillons": [
+        {
+          "nom": "sentinelle launchd",
+          "ok": true,
+          "detail": "vivant"
+        },
+        {
+          "nom": "sentinel_history.json",
+          "ok": true,
+          "detail": "âge 2 min"
+        },
+        {
+          "nom": "signaux",
+          "ok": true,
+          "detail": "34 signaux émis"
+        }
+      ]
+    },
+    {
+      "id": "geopol",
+      "nom": "GEOPOL",
+      "chemin": "indice_app (5 modules) → live.json.geopol → juge + cockpit",
+      "ok": true,
+      "maillons": [
+        {
+          "nom": "geopol.ts frais",
+          "ok": true,
+          "detail": "âge 0.9h"
+        },
+        {
+          "nom": "modules OK",
+          "ok": true,
+          "detail": "5/5 modules"
         }
       ]
     },
@@ -217,7 +270,7 @@
       "id": "veille_deg",
       "nom": "VEILLE DÉGRADATION",
       "chemin": "veille_degradation.py (plists + heartbeats + indicateurs) → etat.json + DMS externe (dms-veille) → cockpit",
-      "ok": false,
+      "ok": true,
       "maillons": [
         {
           "nom": "process veille_degradation (launchd)",
@@ -226,8 +279,8 @@
         },
         {
           "nom": "rapport veille_degradation_etat.json",
-          "ok": false,
-          "detail": "ALERTE_DEGRADATION_SILENCIEUSE · âge 1 min"
+          "ok": true,
+          "detail": "SAIN · âge 0 min"
         },
         {
           "nom": "Dead Man's Switch (dms-veille)",
@@ -236,8 +289,8 @@
         },
         {
           "nom": "rapport DMS_VEILLE.json",
-          "ok": false,
-          "detail": "ALERTE"
+          "ok": true,
+          "detail": "OK"
         }
       ]
     },

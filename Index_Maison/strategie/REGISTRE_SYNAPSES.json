@@ -1,6 +1,6 @@
 {
-  "version": "1.3.0",
-  "updated": "2026-08-24T11:49Z",
+  "version": "1.4.6",
+  "updated": "2026-08-27T17:49Z",
   "fichier": [
     {
       "nom": "hulk-mexc/scripts/paper_diprip.py",
@@ -8,9 +8,9 @@
       "origine": "chantier hulk",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "e87cd2dca46478d97c14a6710f2f6af4",
-      "note": "déclaré manuel 2026-08-16T22:45Z (GO Christophe)",
-      "maj": "24/08 17h : verrou anti-double-run (fcntl flock) + écriture atomique states (tempfile+os.replace) + ceinture SIGALRM sur http_json (42s) + resume_state par substance (saut seeds vierges) + filtre murs (spoof/drop) dans maybe_enter + copie CSV au resume pour journal. Validé : kill-9 → resume → 14 pos reprises à 100%."
+      "md5": "66e0deb00c99484505438d3ab85fb986",
+      "note": "FIX 27/08 : circuits breaker + fraîcheur Cortana + FILTRE LOTS MEXC (lot_filter depuis exchangeInfo, baseSizePrecision/quoteAmountPrecision, arrondi stepSize au buy ET au sell, dust close, fail-open) + kill-switch global STOP_ALL (même sémantique veilleuse)",
+      "maj": "27/08 17:30Z : profils par paire (wall_strength relatif + plafond de mise) + BTC/ETH au portefeuille"
     },
     {
       "nom": "hulk-mexc/scripts/ace_sense_mexc.py",
@@ -47,9 +47,9 @@
       "origine": "fondation F2 + chantiers 15/08",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "cbc3d2014781fe813b9199c2d507e12c",
-      "note": "déclaré 2026-08-24 (chantiers famille 23/08 : audits + correctifs)",
-      "maj": "25/08 00h : MD5 mis à jour (auto-correction veilleuse — modifs 24/08 non déclarées)"
+      "md5": "526f4bcf0f13818e42c19db66dbfd605",
+      "note": "ENSEIGNEMENT 25/08 vérifié : la base CONNAISSANCE ne contenait RIEN du pipeline unifié → LEXIQUE étendu + build_facts (lectures live.json) → Cortana analyse les nouveaux indices. Testé : analyse SDI réelle (SHORT 24h), professeur l'a notée (96 analyses).",
+      "maj": "27/08 17:49Z : 6 indices enseignés (sdi/ipt/rbf/indice_onchain/pipeline_health/geopol)"
     },
     {
       "nom": "Index_Maison/scripts/ada_gardienne.py",
@@ -66,8 +66,9 @@
       "origine": "fondation",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "ae20dad31f9cd01c8990638bd9707c11",
-      "note": "déclaré manuel 2026-08-21T17:11Z (fix baleines/couleur 21/08)"
+      "md5": "160b17de5247e177cb3817d33625661b",
+      "note": "déclaré 2026-08-27T13:46Z — modifs légitimes 25/08 (pipeline unifié GO Christophe : SafeLiveWriter + LMDB + SDI + geopol) non déclarées à l'époque",
+      "maj": "27/08 13:46Z : md5 mis à jour (déclaration légitime)"
     },
     {
       "nom": "Index_Maison/scripts/veilleuse_synapses.py",
@@ -83,8 +84,9 @@
       "origine": "chantier 15/08",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "b61c413bda4d4b57e561e2b6de84ebb7",
-      "note": "déclaré manuel 2026-08-21T17:11Z (fix baleines/couleur 21/08)"
+      "md5": "c9a52ac515afeb23093e451ed1a5630f",
+      "note": "déclaré manuel 2026-08-21T17:11Z (fix baleines/couleur 21/08)",
+      "maj": "27/08 : déclaration des modifs légitimes 25/08 (atomicité + LMDB write) — fausse INTRUSION (md5 b61c413bda4d… → c9a52ac515af…)"
     },
     {
       "nom": "Index_Maison/scripts/detecter_cpfp.py",
@@ -142,17 +144,20 @@
       "origine": "chantier hulk",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "99896190b3fc34d3e4e35d95dd6c0252",
+      "md5": "d11a947ff80e1beba08431969cebf21e",
       "note": "déclaré manuel 2026-08-16T22:45Z (GO Christophe)",
-      "maj": "16/08 soir : RIP scale-out (RIP_EARLY/LATE_*, RIP_SCALEOUT_FRAC) + ASPIRATION_* (probe chaque cycle, filtre mur désactivé, ASPIRATION_BTC_ON)"
+      "maj": "27/08 17:30Z : +BTCUSDT,ETHUSDT au PAPER_PAIRS (17 paires), SEED_MAX_PAIRS 15→17"
     },
     {
       "nom": "hulk-mexc/strategie/cortana_pilot.json",
-      "role": "Contrat Cortana (ADVISORY)",
+      "role": "Contrat Hulk ↔ Cortana (régénéré chaque jour 07:45 — vérif fraîcheur, pas md5)",
       "origine": "chantier 15/08",
-      "verif": "md5",
+      "verif": "fraicheur",
       "auto_modifiable": false,
-      "md5": "da0ad6458b1527f06de10ed4006490f7"
+      "md5": "",
+      "note": "déclaré 2026-08-27T14:39Z — verif=fraicheur, max 25h (régénéré 07:45/jour) : plist morte détectée, pas de fausse INTRUSION",
+      "maj": "27/08 : score réel 0.543 injecté (était 0.44 figé depuis le 15/08)",
+      "fraicheur_max_min": 1500
     },
     {
       "nom": "genesis_manifest.txt",
@@ -209,9 +214,9 @@
       "origine": "chantier 17/08 (demande Christophe : voir les branchements en un coup d'œil)",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "366b3197e8128d2d6f041f9448c1df34",
-      "note": "déclaré 2026-08-24 (fix bug inversion état courant macro_tempete)",
-      "maj": "25/08 01h : fix EAGAIN (suppression NumberOfProcesses) + seuil justesse 48h"
+      "md5": "81eed4edc7eedea838024c4efd49ff2a",
+      "note": "déclaré 2026-08-27T14:40Z — chaîne HULK étendue : + cortana_analyzer launchd + cortana_pilot.json (fraîcheur 25h) + cortana_analysis.json",
+      "maj": "27/08 13:47Z : md5 mis à jour (déclaration légitime)"
     },
     {
       "nom": "Index_Maison/plists/com.ace777.sante-index.plist",
@@ -219,8 +224,9 @@
       "origine": "chantier 17/08",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "294e109d3bf8dfc71dd8aa96a6f844e5",
-      "note": "déclaré manuel 2026-08-20T19:06Z"
+      "md5": "4c8905f82b9bb99dd46eb5583c2f479d",
+      "note": "déclaré manuel 2026-08-20T19:06Z",
+      "maj": "27/08 : déclaration plist modifiée 26/08 — fausse INTRUSION (md5 294e109d3bf8… → 4c8905f82b9b…)"
     },
     {
       "nom": "Index_Maison/thermo/regime_couleur.json",
@@ -229,6 +235,96 @@
       "verif": "fraicheur",
       "auto_modifiable": false,
       "fraicheur_max_min": 1500
+    },
+    {
+      "nom": "Index_Maison/scripts/sentinel.py",
+      "role": "Sentinelle z-score (12 métriques → sniffer DeepSeek sur anomalie)",
+      "origine": "pipeline unifié 25/08 — ressuscitée 27/08 (plist com.ace777.sentinel + fix variance)",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "f056432bb531ec8fb63c19f287362afa",
+      "note": "déclaré 2026-08-27T13:45Z (fix z-score : historique quasi-constant → 0 au lieu de z astronomique → 12 fausses alertes évitées)",
+      "maj": "27/08 : fix compute_zscore plancher relatif 1e-4 (z=-1.5e15 mesuré → 0 en calme) + purge historique corrompu (16 copies identiques du 25/08) + plist launchd 300s créée + chaîne SENTINELLE sante_index 11/11"
+    },
+    {
+      "nom": "Index_Maison/scripts/silent_drain_index.py",
+      "role": "SDI + IPT + RBF (mouvements silencieux baleines)",
+      "origine": "pipeline unifié 25/08",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "a34c558360c2c41cea20c202ecd5eda9",
+      "note": "déclaré 2026-08-27T13:45Z (non déclaré depuis le 25/08 — trou registre comblé)",
+      "maj": ""
+    },
+    {
+      "nom": "Index_Maison/scripts/pipeline_health.py",
+      "role": "Pipeline Health — score confiance 7 sources (Nominal/Dégradé/Kill)",
+      "origine": "pipeline unifié 25/08",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "cc1de43f2bdef77657e78b9edfc0163f",
+      "note": "déclaré 2026-08-27T13:49Z — fix None-safe check_binance (chg1h=None → crash 12:12Z → repli ; désormais score dégradé proprement)",
+      "maj": "27/08 13:49Z : fix abs(None) sur chg1h (crash 12:12Z observé dans pipeline_health_erreur.log)"
+    },
+    {
+      "nom": "Index_Maison/scripts/atomic_write.py",
+      "role": "Écriture atomique JSON (flock + tmp + fsync + replace)",
+      "origine": "pipeline unifié 25/08",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "391309b0aa9e695f530d57ebe252b99c",
+      "note": "déclaré 2026-08-27T13:45Z (non déclaré depuis le 25/08)",
+      "maj": ""
+    },
+    {
+      "nom": "Index_Maison/scripts/temporal_store.py",
+      "role": "Store temporel LMDB Hot/Warm/Cold + Dead Man's Switch",
+      "origine": "pipeline unifié 25/08",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "57573990488458b83271ecd865c27004",
+      "note": "déclaré 2026-08-27T13:45Z (non déclaré depuis le 25/08)",
+      "maj": ""
+    },
+    {
+      "nom": "Index_Maison/indice_app/orchestrator.py",
+      "role": "Indice GEOPOL — 5 modules (pizza/jets/oil/defense/news) + ML",
+      "origine": "indice app 25/08 soir (GO Christophe, consultation famille)",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "ac9d1e53e08b393e79be98362f6f0d5f",
+      "note": "déclaré 2026-08-27T13:45Z (non déclaré depuis le 25/08 soir)",
+      "maj": ""
+    },
+    {
+      "nom": "hulk-mexc/scripts/circuit_breaker.py",
+      "role": "Circuit breaker Hulk (hystérésis CLOSED→OPEN→HALF-OPEN)",
+      "origine": "pipeline unifié 25/08",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "3240aa4902cbed25634d14b3689ceee7",
+      "note": "déclaré 2026-08-27T13:45Z (non déclaré depuis le 25/08)",
+      "maj": ""
+    },
+    {
+      "nom": "Index_Maison/scripts/cortana_analyzer.py",
+      "role": "Analyse autonome Cortana (sentinel → signals → fiches → cortana_analysis.json → Hulk)",
+      "origine": "25/08 PIPELINE UNIFIÉ — branché 27/08",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "41e7258fc41fb9f744e0ed9f1e3117fc",
+      "note": "FIX 27/08 : crash TypeError ts str (sentinelle écrit ts ISO, l'analyzer faisait now - str) → normalisation _to_epoch (les 2 formats). Plist com.ace777.cortana-analyzer (300s).",
+      "maj": "27/08 16:34Z : fix ts str → epoch (analyzer crashait depuis 15:12Z, analyse figée)"
+    },
+    {
+      "nom": "hulk-mexc/strategie/universe_profils.json",
+      "role": "Profils comportementaux par paire (murs/spoof/drop/spread/fenêtres) — 27/08 GO Christophe",
+      "origine": "analyse 53 465 mesures ASPIRATION_CALIB 16-24/08",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "6fc37658f999167a3d4bb58823dd0150",
+      "note": "17 profils (15 smallcaps analysées + BTC/ETH banc de preuve en collecte). Chaque crypto a SON caractère : XRP manipulé (spoof 4.9%, drops 28%), EDEL illiquide calme (spread 27bps), CC régulière au mur dynamique, ZBCN manipulée fragile. Paramètres calib : seuil mur relatif, spoof_alerte, drop_alerte, spread_cout, mise_max_pct_mur, interdit_heures.",
+      "maj": "27/08 17:30Z : création"
     }
   ],
   "fichiers": [

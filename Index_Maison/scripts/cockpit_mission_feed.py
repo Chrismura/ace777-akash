@@ -8,6 +8,7 @@ from __future__ import annotations
 import csv
 import json
 import re
+import time
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -30,6 +31,29 @@ def freshest(glob_pat: str, root: Path):
     if not files:
         return None
     return max(files, key=lambda p: p.stat().st_mtime)
+
+
+def live_marks(pairs: list[str]) -> dict[str, float]:
+    """Prix MEXC LIVE en 1 seul appel batch (fail-open).
+    Le tableau DU DÉPART affichait scores[pair].price du state Hulk (sauvé
+    toutes les ~60 s) → écart de plusieurs centaines de $ avec CoinMarketCap
+    quand le marché bouge vite (observé 27/08 : BTC 80 283 → 79 942 en 5 min).
+    Un seul GET /api/v3/ticker/price renvoie TOUS les symboles (~0.4 s,
+    gratuit, zéro forfait). Si l'API ne répond pas → {} (on garde le state)."""
+    import urllib.request
+    if not pairs:
+        return {}
+    try:
+        req = urllib.request.Request(
+            "https://api.mexc.com/api/v3/ticker/price",
+            headers={"User-Agent": "Mozilla/5.0"})
+        with urllib.request.urlopen(req, timeout=12) as resp:
+            data = json.loads(resp.read().decode("utf-8"))
+        want = set(pairs)
+        return {d.get("symbol"): float(d["price"]) for d in data
+                if d.get("symbol") in want and d.get("price")}
+    except Exception:
+        return {}
 
 
 def parse_hold(text: str | None) -> dict:
@@ -353,6 +377,12 @@ def load_hulk():
                     "opened": None,
                     "seed": False,
                     "open": False,
+                    # Fix 27/08 : les paires FERMÉES (stop) disparaissaient du
+                    # tableau DU DÉPART et leur cash n'était pas compté dans le
+                    # TOTAL. On porte explicitement pairCash + bagValue pour que
+                    # le JS puisse les afficher et les sommer (vérité du wallet).
+                    "pairCash": round(cash, 2),
+                    "bagValue": round(cash, 2) if cash > 0 else None,
                 }
             portfolio.append(row)
         # ouverts d’abord, puis par nom
@@ -401,6 +431,18 @@ def load_hulk():
             if (r.get("event") or "").upper().startswith(("BUY", "SELL", "STOP", "BAG", "DCA"))
         ]
         out["skips"] = len(real) - len(trades)
+        # Détail des refus (27/08) : chaque SKIP a une raison (SENSE, MUR-SPOOF,
+        # MUR-CASSE, VOL, SPREAD, CB…) — on les compte pour voir l'activité réelle
+        # du moteur, pas seulement les trades exécutés. Sinon « il ne se passe rien »
+        # alors que le moteur tente et refuse en continu.
+        skip_reasons: dict[str, int] = {}
+        for r in real:
+            ev = (r.get("event") or "").upper()
+            if ev != "SKIP":
+                continue
+            reason = (r.get("reason") or "SKIP").split(":", 1)[0][:24]
+            skip_reasons[reason] = skip_reasons.get(reason, 0) + 1
+        out["skipReasons"] = dict(sorted(skip_reasons.items(), key=lambda kv: -kv[1]))
         out["last"] = list(reversed(trades[-30:]))
         out["history"] = list(reversed(trades))  # TOUS les trades exécutés (Christophe : « je veux voir tout les trades exécutés »)
         out["tradesClosed"] = sum(
@@ -503,6 +545,58 @@ def load_hulk():
     for p in out["positions"]:
         _statique_row(p)
 
+    # PRIX LIVE (27/08, Christophe : « le BTC affiche une différence de 300$
+    # avec CoinMarketCap ») : le state Hulk est sauvé toutes les ~60 s, donc le
+    # tableau affichait un prix périmé. 1 appel batch MEXC rafraîchit mark pour
+    # TOUTES les paires suivies (ouvertes + FLAT) + recalcule les dérivés que le
+    # JS affiche (cours, bagValue, statiqueVal, uPnl, pnlPct). Fail-open.
+    pairs_folio = [p.get("pair") for p in (out.get("portfolio") or []) if p.get("pair")]
+    lv = live_marks(pairs_folio)
+    if lv:
+        for p in out.get("portfolio") or []:
+            px = lv.get(p.get("pair"))
+            if px is None:
+                continue
+            p["mark"] = round(px, 6)
+            qty = p.get("qty")
+            if qty is not None:
+                val = qty * px
+                p["bagValue"] = round(val + float(p.get("pairCash") or 0.0), 4)
+                entry = p.get("entry")
+                if entry:
+                    p["uPnl"] = round((px - entry) * qty, 4)
+                    p["pnlPct"] = round((px - entry) / entry * 100.0, 3)
+                stake = p.get("stake")
+                if stake:
+                    p["bagPct"] = round(
+                        (float(p["bagValue"]) - float(stake)) / float(stake) * 100.0, 2)
+            sq = p.get("seedQty")
+            if sq is not None:
+                p["statiqueVal"] = round(sq * px, 2)
+                if p.get("entry"):
+                    p["statiquePct"] = round((px / float(p["entry"]) - 1.0) * 100.0, 2)
+        # walletReel / walletStatique rafraîchis avec les prix live (vérité du moment)
+        reel_pos = 0.0
+        for p in out["positions"]:
+            if p.get("qty") and p.get("mark"):
+                try:
+                    reel_pos += float(p["qty"]) * float(p["mark"])
+                except Exception:
+                    pass
+        out["walletReel"] = round(reel_pos + float(out.get("cash") or 0.0), 2)
+        out["walletReelPos"] = round(reel_pos, 2)
+        st_pos = 0.0
+        for p in out.get("portfolio") or []:
+            if p.get("seedQty") and p.get("statiqueVal"):
+                try:
+                    st_pos += float(p["statiqueVal"])
+                except Exception:
+                    pass
+        out["walletStatique"] = round(st_pos + float(out.get("walletOrigineCash") or 20.0), 2)
+        out["walletStatiquePos"] = round(st_pos, 2)
+        out["walletEcart"] = round(
+            (out["walletReel"] or 0.0) - (out["walletStatique"] or 0.0), 2)
+
     out["conseils"] = load_hulk_conseils()
     return out
 
@@ -595,6 +689,31 @@ def main() -> int:
         except Exception:
             pass
 
+    # ===== VÉRITÉ MOTEUR (27/08) : le run est-il VRAIMENT vivant ? =====
+    # Avant : mission.json présentait le run le plus récent comme « live » même si
+    # le moteur était éteint depuis des jours (CSV figés) → le cockpit mentait.
+    # Même règle que le pont (/status) : LIVE_COLOR frais ≤45s = ON, ≤180s = STALE,
+    # au-delà = OFF (moteur arrêté — on affiche le dernier run en HISTORIQUE).
+    engine_state = "OFF"
+    engine_age = None
+    if live_path and live_path.exists():
+        import time as _t
+        engine_age = int(_t.time() - live_path.stat().st_mtime)
+        if engine_age <= 45:
+            engine_state = "ON"
+        elif engine_age <= 180:
+            engine_state = "STALE"
+        else:
+            engine_state = "OFF"
+    engine_last = None
+    if live_path:
+        try:
+            import time as _t2
+            from datetime import datetime as _dt, timezone as _tz
+            engine_last = _dt.fromtimestamp(live_path.stat().st_mtime, tz=_tz.utc).strftime("%Y-%m-%dT%H:%MZ")
+        except Exception:
+            engine_last = None
+
     # swarm pulse = max cycle
     try:
         cyc = max(int(alpha.get("cycle") or 0), int(beta.get("cycle") or 0))
@@ -619,6 +738,10 @@ def main() -> int:
     payload = {
         "ts": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%MZ"),
         "alert": alert,
+        # VÉRITÉ MOTEUR (27/08) : ON/STALE/OFF + dernière trace du run + âge
+        # → le cockpit peut afficher « moteur à l'arrêt depuis le 22/08 » au lieu
+        # de présenter un run mort comme vivant.
+        "engine": {"state": engine_state, "ageSec": engine_age, "last": engine_last},
         "run": run_label,
         "sessionSince": since.strftime("%Y-%m-%dT%H:%MZ") if since else None,
         "comboPnl": combo,
@@ -673,6 +796,20 @@ def main() -> int:
 
     (OUT / "mission.json").write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     (OUT / "mission.js").write_text("window.__MISSION__ = " + json.dumps(payload, ensure_ascii=False) + ";\n", encoding="utf-8")
+    # Cache-buster AUTO (27/08) : le ?v= des scripts était FIGÉ → un navigateur
+    # qui cache mission.js par URL servait une copie périmée (symptôme Christophe :
+    # journal rempli mais tableau départ + bulles vides). À chaque écriture du feed,
+    # on tamponne ?v=<epoch> dans index.html → le prochain rechargement est frais.
+    try:
+        idx = OUT / "index.html"
+        txt = idx.read_text(encoding="utf-8")
+        now = int(time.time())
+        new_txt = re.sub(r"(\?v=)\d+", r"\g<1>" + str(now), txt)
+        new_txt = re.sub(r"(<meta name=\"version\" content=\")\d+(\")", r"\g<1>" + str(now) + r"\g<2>", new_txt)
+        if new_txt != txt:
+            idx.write_text(new_txt, encoding="utf-8")
+    except Exception:
+        pass
     ob = ROOT / "Index_Maison" / "OUTBOX_OBSIDIAN" / "cockpit"
     ob.mkdir(parents=True, exist_ok=True)
     for name in ("mission.json", "mission.js"):

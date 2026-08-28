@@ -709,18 +709,25 @@ def do_chat(message: str) -> dict:
         d = do_yeux(q, parler)
         d["mode"] = "yeux"
         return d
+    # Le chat EST Cortana (rôle défini) : il charge TOUJOURS le canon
+    # PROMPT_MASTER_ANALYSTE.md (même rôle que l'analyse auto 08:30/20:30) —
+    # plus le contexte vivant des bots. Repli résilient seulement si le canon
+    # devient illisible (le chat ne doit jamais mourir).
     ctx_bots = _contexte_bots()
-    sys_ctx = (
-        "Tu es Cortana, l'assistante de la maison ACE777. "
-        "Réponds TOUJOURS en français, quel que soit le contexte. "
-        "Sois concise, précise, sans markdown ni emoji."
-    )
-    if ctx_bots:
-        sys_ctx += (
-            "\n\nÉtat actuel des bots de la maison (données fraîches, à utiliser "
-            "pour répondre — ne demande jamais d'adresse de wallet, tout est ici) :\n"
-            + ctx_bots
+    try:
+        import cortana_analyse as _ca
+        sys_ctx = _ca.load_system_prompt()
+    except Exception:
+        sys_ctx = (
+            "Tu es Cortana, master analyste crypto du cockpit ACE777. "
+            "Réponds TOUJOURS en français, quel que soit le contexte. "
+            "Sois concise, précise, sans markdown ni emoji."
         )
+    sys_ctx += (
+        "\n\n## Contexte live des bots (données fraîches, à utiliser pour répondre "
+        "— ne demande jamais d'adresse de wallet, tout est ici) :\n"
+        + (ctx_bots or "(contexte indisponible)")
+    )
     lecons = _lecons_agora_actives()
     if lecons:
         sys_ctx += (

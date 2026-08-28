@@ -28,6 +28,9 @@ class Quiet(SimpleHTTPRequestHandler):
             self.send_header("Cache-Control", "no-store, no-cache, must-revalidate, max-age=0")
             self.send_header("Pragma", "no-cache")
             self.send_header("Expires", "0")
+        # CORS : pages cockpit ouvertes en file:// ou sur un autre port lisent
+        # les JSON (justesse, cortana_feed) sans être bloquées par le navigateur.
+        self.send_header("Access-Control-Allow-Origin", "*")
         super().end_headers()
 
 

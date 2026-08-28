@@ -1072,7 +1072,29 @@ def main() -> int:
         if health_data:
             payload["pipeline_health"] = health_data
     except Exception:
-        pass
+        # Anti-régression : ne plus perdre la santé du pipeline en silence.
+        # 1) Logger la cause réelle (visible dans thermo/pipeline_health_erreur.log)
+        try:
+            import traceback as _tb
+            (THERMO / "pipeline_health_erreur.log").write_text(
+                datetime.now().isoformat(timespec="seconds") + " compute_health KO :\n"
+                + _tb.format_exc(),
+                encoding="utf-8",
+            )
+        except Exception:
+            pass
+        # 2) Repli : dernier état de santé connu (< 6 h), pour garder la carte affichée.
+        try:
+            ph_file = Path(__file__).resolve().parent.parent / "data" / "pipeline_health.json"
+            if ph_file.exists():
+                d_ph = json.loads(ph_file.read_text(encoding="utf-8"))
+                ts_ph = float(d_ph.get("timestamp", 0) or 0)
+                age_s = (datetime.now(timezone.utc) - datetime.fromtimestamp(ts_ph, timezone.utc)).total_seconds()
+                if 0 <= age_s < 6 * 3600:
+                    payload["pipeline_health"] = d_ph
+                    print(f"[HEALTH] repli sur data/pipeline_health.json ({int(age_s)}s)")
+        except Exception:
+            pass
     try:
         sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
         from indice_app.orchestrator import run_all as run_indice_app

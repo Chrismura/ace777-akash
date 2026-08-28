@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-26T06:53:03.892678+00:00",
+  "generated_at": "2026-08-28T01:06:46.403108+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 160
+      "calls_24h": 221
     },
     {
       "id": "openrouter-free",
@@ -17,7 +17,7 @@
       "model": "z-ai/glm-5.2:free",
       "enabled": true,
       "timeout": 60,
-      "calls_24h": 3
+      "calls_24h": 0
     },
     {
       "id": "nara",
@@ -26,7 +26,7 @@
       "model": "qwen-3.8-max-free",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 4
+      "calls_24h": 1
     },
     {
       "id": "groq",
@@ -35,14 +35,14 @@
       "model": "groq/compound",
       "enabled": true,
       "timeout": 120,
-      "calls_24h": 1
+      "calls_24h": 0
     },
     {
       "id": "nvidia",
       "name": "NVIDIA build.nvidia.com (100+ modeles)",
       "kind": "cloud",
       "model": "deepseek-ai/deepseek-v4-flash-0731",
-      "enabled": true,
+      "enabled": false,
       "timeout": 300,
       "calls_24h": 0
     },
@@ -71,7 +71,7 @@
       "model": "nvidia/nemotron-3-super-120b-a12b:free",
       "enabled": true,
       "timeout": 120,
-      "calls_24h": 29
+      "calls_24h": 3
     },
     {
       "id": "grok",
@@ -150,7 +150,7 @@
       "name": "cohere/north-mini-code:free",
       "kind": "llm",
       "model": "cohere/north-mini-code:free",
-      "enabled": false,
+      "enabled": true,
       "timeout": 30,
       "calls_24h": 0
     },
@@ -168,7 +168,7 @@
       "name": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
       "kind": "llm",
       "model": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
-      "enabled": false,
+      "enabled": true,
       "timeout": 30,
       "calls_24h": 0
     },
@@ -177,7 +177,7 @@
       "name": "nvidia/nemotron-3.5-lightning:free",
       "kind": "llm",
       "model": "nvidia/nemotron-3.5-lightning:free",
-      "enabled": false,
+      "enabled": true,
       "timeout": 30,
       "calls_24h": 0
     },
@@ -240,198 +240,198 @@
       "name": "minimax/minimax-m3:free",
       "kind": "llm",
       "model": "minimax/minimax-m3:free",
-      "enabled": false,
+      "enabled": true,
       "timeout": 30,
-      "calls_24h": 0
+      "calls_24h": 1
     }
   ],
   "budget": {
     "daily": 624,
-    "consumed": 145,
-    "remaining": 479
+    "consumed": 12,
+    "remaining": 612
   },
   "queue": [
     {
-      "ts": "2026-08-26T06:49:24.823065+00:00",
-      "task": "analyste.strategie",
-      "provider": "openrouter-juge",
-      "model": "nvidia/nemotron-3-super-120b-a12b:free",
+      "ts": "2026-08-28T00:59:58.140492+00:00",
+      "task": "analyse.profonde",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
       "kind": "cloud",
-      "duration_s": 19.82
+      "duration_s": 0.82
     },
     {
-      "ts": "2026-08-26T06:48:27.368335+00:00",
+      "ts": "2026-08-28T00:58:16.522020+00:00",
       "task": "analyste.strategie",
       "provider": "gemini",
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
-      "duration_s": 21.48
+      "duration_s": 2.55
     },
     {
-      "ts": "2026-08-26T06:48:18.622699+00:00",
+      "ts": "2026-08-28T00:55:37.169432+00:00",
       "task": "analyste.strategie",
       "provider": "gemini",
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
-      "duration_s": 12.93
+      "duration_s": 3.99
     },
     {
-      "ts": "2026-08-26T06:47:49.586827+00:00",
+      "ts": "2026-08-28T00:54:56.329831+00:00",
+      "task": "analyse.profonde",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 0.98
+    },
+    {
+      "ts": "2026-08-28T00:49:12.737133+00:00",
       "task": "analyste.strategie",
       "provider": "gemini",
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
-      "duration_s": 1.25
+      "duration_s": 4.72
     },
     {
-      "ts": "2026-08-26T06:47:48.322353+00:00",
+      "ts": "2026-08-28T00:38:43.258371+00:00",
       "task": "analyste.strategie",
       "provider": "gemini",
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
-      "duration_s": 1.24
+      "duration_s": 4.12
     },
     {
-      "ts": "2026-08-26T06:47:47.071303+00:00",
+      "ts": "2026-08-28T00:33:54.886946+00:00",
       "task": "analyste.strategie",
       "provider": "gemini",
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
-      "duration_s": 1.06
+      "duration_s": 3.32
     },
     {
-      "ts": "2026-08-26T06:47:45.998732+00:00",
+      "ts": "2026-08-28T00:24:49.504278+00:00",
+      "task": "analyse.profonde",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 0.98
+    },
+    {
+      "ts": "2026-08-28T00:14:07.054250+00:00",
       "task": "analyste.strategie",
       "provider": "gemini",
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
-      "duration_s": 1.22
+      "duration_s": 3.83
     },
     {
-      "ts": "2026-08-26T06:47:44.761916+00:00",
+      "ts": "2026-08-28T00:08:40.785989+00:00",
       "task": "analyste.strategie",
       "provider": "gemini",
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
-      "duration_s": 1.38
+      "duration_s": 3.75
     },
     {
-      "ts": "2026-08-26T06:47:43.370362+00:00",
-      "task": "analyste.strategie",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 10.4
-    },
-    {
-      "ts": "2026-08-26T06:47:32.954929+00:00",
-      "task": "analyste.strategie",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 1.47
-    },
-    {
-      "ts": "2026-08-26T06:47:31.448198+00:00",
-      "task": "analyste.strategie",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 1.2
-    },
-    {
-      "ts": "2026-08-26T06:46:05.997654+00:00",
+      "ts": "2026-08-28T00:07:09.805299+00:00",
       "task": "supervise.decision",
       "provider": "gemini",
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
-      "duration_s": 0.97
+      "duration_s": 0.85
     },
     {
-      "ts": "2026-08-26T06:30:13.425466+00:00",
-      "task": "cortana.analyse",
+      "ts": "2026-08-28T00:07:04.302381+00:00",
+      "task": "supervise.decision",
       "provider": "gemini",
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
-      "duration_s": 2.64
+      "duration_s": 0.98
     },
     {
-      "ts": "2026-08-26T06:30:10.328960+00:00",
-      "task": "cortana.analyse",
+      "ts": "2026-08-27T23:58:48.917841+00:00",
+      "task": "analyste.strategie",
       "provider": "gemini",
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
-      "duration_s": 2.44
+      "duration_s": 3.72
     },
     {
-      "ts": "2026-08-26T06:30:07.433770+00:00",
-      "task": "cortana.analyse",
+      "ts": "2026-08-27T23:43:42.282511+00:00",
+      "task": "analyste.strategie",
       "provider": "gemini",
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
-      "duration_s": 2.53
+      "duration_s": 4.65
+    },
+    {
+      "ts": "2026-08-27T23:43:39.184201+00:00",
+      "task": "analyste.strategie",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 2.61
     }
   ],
   "events": [
     {
-      "ts": "2026-08-26T06:49:24.822917+00:00",
+      "ts": "2026-08-28T00:59:58.139945+00:00",
       "kind": "message",
-      "title": "« OpenRouter Juge (nemotron-3-super-120b free) - verificateur independant » a repondu",
-      "detail": "bascule"
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
     },
     {
-      "ts": "2026-08-26T06:49:24.822261+00:00",
-      "kind": "filet-universel",
-      "title": "[FILET UNIVERSEL] « OpenRouter Juge (nemotron-3-super-120b free) - verificateur independant » a repondu hors chaine",
-      "detail": "analyste.strategie"
+      "ts": "2026-08-28T00:58:16.520980+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
     },
     {
-      "ts": "2026-08-26T06:49:05.004958+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis Mistral La Plateforme (essai gratuit)",
-      "detail": "HTTP Error 402: Payment Required"
+      "ts": "2026-08-28T00:55:37.168203+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
     },
     {
-      "ts": "2026-08-26T06:49:04.464725+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis NVIDIA build.nvidia.com (100+ modeles)",
-      "detail": "HTTP Error 404: Not Found"
+      "ts": "2026-08-28T00:54:56.329313+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
     },
     {
-      "ts": "2026-08-26T06:49:03.037894+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis NaraRouter (7M tokens/jour gratuits)",
-      "detail": "The read operation timed out"
+      "ts": "2026-08-28T00:49:12.736567+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
     },
     {
-      "ts": "2026-08-26T06:48:52.629896+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis OpenRouter (modeles gratuits)",
-      "detail": "HTTP Error 429: Too Many Requests"
+      "ts": "2026-08-28T00:38:43.256694+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
     },
     {
-      "ts": "2026-08-26T06:48:51.182373+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis OrcaRouter (routeur gratuit, modele orcarouter/free)",
-      "detail": "HTTP Error 400: Bad Request"
+      "ts": "2026-08-28T00:33:54.885787+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
     },
     {
-      "ts": "2026-08-26T06:48:50.270512+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis HuggingFace (136+ modeles, dont DeepSeek-V4)",
-      "detail": "HTTP Error 402: Payment Required"
+      "ts": "2026-08-28T00:24:49.503616+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
     },
     {
-      "ts": "2026-08-26T06:48:49.459407+00:00",
-      "kind": "blacklist",
-      "title": "Fin de pause HuggingFace (136+ modeles, dont DeepSeek-V4)",
-      "detail": "re-essai automatique"
+      "ts": "2026-08-28T00:14:07.052035+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
     },
     {
-      "ts": "2026-08-26T06:48:49.454802+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis Groq (LLM ultra-rapide, gratuit)",
-      "detail": "HTTP Error 413: Payload Too Large"
+      "ts": "2026-08-28T00:08:40.785073+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
     }
   ],
   "tasks_quotas": {
@@ -564,6 +564,6 @@
   },
   "health": {
     "status": "ok",
-    "providers": 15
+    "providers": 18
   }
 }
