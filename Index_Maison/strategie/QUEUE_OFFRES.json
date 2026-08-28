@@ -1126,8 +1126,59 @@
       "statut": "attente_cle",
       "essais": 0,
       "note": "Piste signet : nécessite inscription + clé API (action humaine) pour devenir une offre testable."
+    },
+    {
+      "id": "84660bfaf775",
+      "type": "offre",
+      "source": "veille_hub",
+      "source_detail": "inclusionai/ling-3.0-flash-fin:free",
+      "model": "inclusionai/ling-3.0-flash-fin:free",
+      "base_url": "https://openrouter.ai/api/v1",
+      "api_key_env": "OPENROUTER_API_KEY",
+      "role": "gros cerveau",
+      "arrivee": "2026-08-28T07:02:05.847033",
+      "statut": "nouveau",
+      "essais": 1,
+      "test_reel": {
+        "ok": false,
+        "erreur": "'NoneType' object has no attribute 'strip'"
+      }
+    },
+    {
+      "id": "4320664ec269",
+      "type": "offre",
+      "source": "veille_hub",
+      "source_detail": "deepseek-ai/deepseek-v4-pro-0813",
+      "model": "deepseek-ai/deepseek-v4-pro-0813",
+      "base_url": "https://integrate.api.nvidia.com/v1",
+      "api_key_env": "NVIDIA_NIM_API_KEY",
+      "role": "gros cerveau",
+      "arrivee": "2026-08-28T07:02:05.847107",
+      "statut": "nouveau",
+      "essais": 1,
+      "test_reel": {
+        "ok": false,
+        "erreur": "The read operation timed out"
+      }
+    },
+    {
+      "id": "567d87dbf73a",
+      "type": "offre",
+      "source": "veille_hub",
+      "source_detail": "glm-5.3-flash",
+      "model": "glm-5.3-flash",
+      "base_url": "https://model.inferx.net/endpoints/v1",
+      "api_key_env": "INFERX_API_KEY",
+      "role": "gros cerveau",
+      "arrivee": "2026-08-28T07:02:05.847153",
+      "statut": "nouveau",
+      "essais": 1,
+      "test_reel": {
+        "ok": false,
+        "erreur": "HTTP 429 service failure: tenant tn-59004cfrvs quota exceeded"
+      }
     }
   ],
   "traites_jour": 0,
-  "date": "2026-08-27"
+  "date": "2026-08-28"
 }
