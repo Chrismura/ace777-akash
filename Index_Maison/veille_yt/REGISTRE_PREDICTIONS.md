@@ -1,11 +1,17 @@
 ---
-date: 2026-08-24T1616Z
+date: 2026-08-28T0715Z
 type: registre_predictions
 ---
 
 # 📓 Registre des prédictions — la vérification du banc d'essai
 
 Chaque prédiction est notée avec sa date limite. Le script `verifier_predictions.py` re-vérifie les échues (statut VRAIE/FAUSSE/NON VÉRIFIABLE).
+
+### 2026-08-28T0715Z — Crypto Crew University : WARNING: WATCH THIS B4 2027 (BLOODBATH)
+Lien : https://www.youtube.com/watch?v=EyQAP2KHc6Q
+
+- ⏳ EN ATTENTE | [2026-12-31] La bougie annuelle du Bitcoin clôturera au-dessus de 47 000 USD (source : youtuber)
+- ⏳ EN ATTENTE | [2026-12-31] Le cours du Bitcoin ne se mantiendra pas en clôture annuelle sous les 47 000 USD (source : moi)
 
 ### 2026-08-24T1616Z — Crypto Crew University : 3-Min Recap: Is Gold About to CRASH? Watch out! 🪙⚠️#shorts
 Lien : https://www.youtube.com/watch?v=jzKwjt8UG1E
