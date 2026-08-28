@@ -627,13 +627,59 @@ def load_hulk():
         out["walletEcart"] = round(
             (out["walletReel"] or 0.0) - (out["walletStatique"] or 0.0), 2)
 
+    # ——— CASH RÉEL « VRAI COMPTE » (28/08, Christophe : « comme un vrai
+    # compte ») ———
+    # Le moteur paper ne DÉBITE PAS son cash quand il achète : chaque entrée
+    # est financée par un budget notionnel (base 20$ × health), donc le total
+    # paper gonfle à chaque ré-ouverture sans contrepartie cash (ex. 28/08 :
+    # ré-achat HBAR+RWAINC 47$ sans débit → +47$ d'exposition « gratuite »).
+    # Pour un vrai compte, on REJOUE chaque opération du CSV : BUY/DCA débite
+    # (qty×price + frais), SELL/STOP/BAG_* crédite (qty×price − frais). Point
+    # de départ = coût des seeds + cash initial (MÊME départ que le HOLD →
+    # comparaison juste). cashNadir = plus bas atteint (découvert éventuel).
+    cash_reel = float(out.get("walletOrigineCash") or 20.0)
+    for _pair, _sq in seed_qty.items():
+        _px0 = seed_px.get(_pair)
+        if _px0 is None:
+            _px0 = (pos_all.get(_pair) or {}).get("entry")
+        if _sq and _px0:
+            cash_reel += float(_sq) * float(_px0)
+    cash_nadir = cash_reel
+    if csv_p and csv_p.exists():
+        with csv_p.open(newline="", encoding="utf-8", errors="ignore") as f:
+            for row in csv.DictReader(f):
+                _ev = (row.get("event") or "").upper()
+                if _ev not in ("BUY", "DCA") and not _ev.startswith(("SELL", "STOP", "BAG")):
+                    continue
+                try:
+                    _q = float(row.get("qty") or 0.0)
+                    _p = float(row.get("price") or 0.0)
+                except Exception:
+                    continue
+                if _q <= 0 or _p <= 0:
+                    continue
+                _notional = _q * _p
+                _fee = _notional * float(out.get("feeRate") or 0.0)
+                if _ev in ("BUY", "DCA"):
+                    cash_reel -= _notional + _fee
+                else:
+                    cash_reel += _notional - _fee
+                if cash_reel < cash_nadir:
+                    cash_nadir = cash_reel
+    out["cashReel"] = round(cash_reel, 2)
+    out["cashNadir"] = round(cash_nadir, 2)
+    # walletReelVrai = positions au mark live + cash RÉEL (pas le pair_cash
+    # paper qui n'a jamais été débité). C'est ce qu'un vrai compte aurait.
+    out["walletReelVrai"] = round(
+        (out.get("walletReelPos") or 0.0) + (out.get("cashReel") or 0.0), 2)
+
     # ——— SCORE HULK vs HOLD (28/08, Christophe : « tout est rouge, je veux
     # le vrai score ») ———
-    # walletReel (positions live + cash) vs walletStatique (seeds tenus + cash).
-    # L'écart en $ est la vraie valeur créée/détruite par Hulk vs buy & hold ;
-    # l'écart en % le rapporte au point de départ (walletStatique ≈ origine
-    # investie au cours actuel). Un score positif = Hulk bat le HOLD.
-    reel_w = float(out.get("walletReel") or 0.0)
+    # walletReelVrai (positions live + cash REJOUÉ) vs walletStatique (seeds
+    # tenus + cash). L'écart en $ est la vraie valeur créée/détruite par Hulk
+    # vs buy & hold ; l'écart en % le rapporte au point de départ. Un score
+    # positif = Hulk bat le HOLD.
+    reel_w = float(out.get("walletReelVrai") or out.get("walletReel") or 0.0)
     stat_w = float(out.get("walletStatique") or 0.0)
     ecart_w = round(reel_w - stat_w, 2)
     base_pct = stat_w if stat_w != 0 else 1.0
@@ -650,7 +696,17 @@ def load_hulk():
         "ecart_usd": ecart_w,
         "ecart_pct": ecart_pct,
         "verdict": vs_verdict,
-        "cash": round(float(out.get("cash") or 0.0), 2),
+        # Vrai compte : cash REJOUÉ (débité/credite à chaque opération) — ce
+        # qu'un vrai compte aurait en poche, PAS le pair_cash paper (jamais
+        # débité). cashPaper = l'ancien affichage paper, pour comparaison.
+        "cash": round(float(out.get("cashReel") or 0.0), 2),
+        "cashPaper": round(float(out.get("cash") or 0.0), 2),
+        "cashNadir": round(float(out.get("cashNadir") or 0.0), 2),
+        "capital0": round(float(out.get("walletOrigineCash") or 0.0) + sum(
+            (float(seed_qty.get(_p) or 0.0) * (float(seed_px.get(_p) or 0.0)
+             if seed_px.get(_p) else float((pos_all.get(_p) or {}).get("entry") or 0.0)))
+            for _p in seed_qty
+        ), 2),
         "ts": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
     }
 
