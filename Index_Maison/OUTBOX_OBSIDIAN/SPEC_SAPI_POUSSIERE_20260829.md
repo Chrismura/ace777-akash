@@ -1,0 +1,82 @@
+# SPEC — SAPI : SCORE D'ALERTE POUSSIÈRE INSTITUTIONNELLE (29/08/2026)
+
+> Par Buffy (chef scientifique, supervision) + Cortana (session
+> `poussiere-20260829-152854`, tour 1 : formule SAPI) — GO Christophe :
+> « faire coder par le codeur SAPI ». La signature RBF plat (tour 4) est
+> VALIDÉE par nos données (corr micro_tx/RBF = −0.275 sur 13 933 points).
+
+## MISSION UNIQUE
+
+Ajouter le calcul du **SAPI (Score d'Alerte Poussière Institutionnelle)** à la
+fin de la fonction `compute_sdi()` de `Index_Maison/scripts/silent_drain_index.py`,
+et l'ajouter au résultat JSON (`sapi` clé) écrit dans `data/sdi_latest.json`.
+Ne rien modifier d'autre dans le fichier (le fallback blockstream de
+`get_fee_pressure` du 29/08 reste intact).
+
+## CE QUE C'EST
+
+La poussière institutionnelle = un gros acteur fragmente des milliers de BTC en
+micro-transactions à frais quasi nuls pour traverser les seuils de surveillance.
+Le SAPI le détecte en croisant 4 signaux déjà calculés dans `compute_sdi()`.
+
+## LA FORMULE (Cortana tour 1, validée par nos données)
+
+```python
+SAPI = (I(z_fee > 2.0) × 0.35)
+     + (min(1.0, poussiere_taux_fantome / 0.15) × 0.30)
+     + (I(ipt.micro_tx_ratio > 0.5) × 0.20)          # seuil historique ≈ 0.5
+     − (min(1.0, |delta_spot_book_proxy| × 10) × 0.15)
+```
+
+**Alerte critique** : `SAPI ≥ 0.75` ET `volume_btc ≥ 500` (volume du bloc
+privatisé — dispo dans `Index_Maison/data/bloc_privatise.json` champ
+`volume_btc`, sinon 0 = pas de contrainte volume).
+
+## SOURCES DES 4 TERMES (tous déjà dans compute_sdi / nos données)
+
+| Terme | Donnée | Où la trouver dans compute_sdi |
+|---|---|---|
+| `z_fee` | `ipt_result["z_fee"]` | résultat de `get_ipt()` (dict ipt) |
+| `poussiere_taux_fantome` | `bloc_privatise.json` → `taux_fantome` | lire `DATA_DIR / "bloc_privatise.json"` (si absent : 0.0) |
+| `micro_tx_ratio` | `ipt_result["micro_tx_ratio"]` | résultat de `get_ipt()` |
+| `delta_spot_book_proxy` | `spread_delta_bps` (murs) | lire `hulk-mexc/runs/murs_observations.json` → top_murs → paire BTCUSDT → `spread_avg_bps` normalisé (proxy validé : 748 valeurs non-nulles dans nos CSVs) |
+
+**Proxy du delta carnet spot (terme 4)** : la vraie donnée `|Δspot_book|` n'est
+pas encore en continu. On utilise le proxy : `min(1.0, spread_avg_bps(BTCUSDT) / 100.0)`
+depuis `murs_observations.json` (le spread en bps normalisé — un carnet qui
+s'écarte de son régime = delta). Documenter en commentaire que c'est un proxy.
+
+## IMPLÉMENTATION — CONTRAINTES
+
+- Python 3.9 stdlib, ajouter à la FIN de `compute_sdi()` après le calcul de
+  `rbf_result`, AVANT l'assemblage du dict `result`.
+- Ajouter au dict `result` :
+  ```python
+  "sapi": {
+      "score": round(sapi, 3),
+      "alerte": bool(sapi >= 0.75 and volume_btc >= 500),
+      "composantes": {"z_fee": ..., "taux_fantome": ..., "micro_tx_ratio": ..., "spot_proxy": ...},
+      "note": "Score d'Alerte Poussière Institutionnelle (Cortana tour 1, validé 29/08 — corr RBF plat −0.275). Proxy carnet spot = spread_avg_bps normalisé."
+  }
+  ```
+- **Fail-open total** : si bloc_privatise.json ou murs_observations.json est
+  absent/illisible → le terme vaut 0.0, le SAPI se calcule quand même avec ce
+  qu'il a. Le SAPI ne fait JAMAIS échouer compute_sdi.
+- Ne PAS modifier les clés existantes de `result` (sdi, ipt, rbf, fee_pressure,
+  alerts, timestamp).
+- Ajouter une alerte dans `result["alerts"]` si `sapi["alerte"]` est True :
+  `"SAPI ÉLEVÉ: poussière institutionnelle probable (score ≥ 0.75 + volume)"`.
+
+## TEST DE VALIDATION (à faire après intégration)
+
+1. `python3 Index_Maison/scripts/silent_drain_index.py` → doit s'exécuter sans
+   erreur ET écrire `data/sdi_latest.json` avec la clé `sapi` présente.
+2. Le SAPI doit être un nombre 0-1 (typiquement 0.0-0.6 en marché calme).
+3. `grep '"sapi"' data/sdi_latest.json` → présent.
+
+## FICHIERS LIÉS
+- Cible : `Index_Maison/scripts/silent_drain_index.py` (fonction `compute_sdi`)
+- Source de la formule : session Cortana `poussiere-20260829-152854` (tour 1)
+- Validation : `hulk-mexc/docs/POUSSIERE_INSTITUTIONNELLE_VISION_20260829.md`
+- Données : `Index_Maison/data/bloc_privatise.json` · `hulk-mexc/runs/murs_observations.json`
+- Point d'entrée du codeur : `Index_Maison/scripts/deleguer_codeur.py`
