@@ -2490,3 +2490,13 @@
 - 2026-08-29T02:51:36.805789Z | alerte | Maintenir l'alerte ambre et la rigueur opérationnelle pour consolider le PnL combiné positif tout en encadrant strictement les positions seeds de Hulk. | conf=88%
 - 2026-08-29T02:56:29.370543Z | alerte | Maintenir l'alerte ambre et la rigueur opérationnelle pour consolider le PnL combiné positif tout en encadrant strictement les positions seeds de Hulk. | conf=88%
 - 2026-08-29T02:58:15.682098Z | alerte | Maintenir l'alerte ambre et la rigueur opérationnelle pour consolider le PnL combiné positif tout en encadrant strictement les positions seeds de Hulk. | conf=88%
+- 2026-08-29T03:11:30.211189Z | alerte | Maintenir l'alerte ambre et la rigueur opérationnelle pour consolider le PnL combiné positif tout en encadrant strictement les positions seeds de Hulk. | conf=88%
+- 2026-08-29T03:12:16.380515Z | alerte | Maintenir l'alerte ambre et la rigueur opérationnelle pour consolider le PnL combiné positif tout en encadrant strictement les positions seeds de Hulk. | conf=88%
+- 2026-08-29T03:14:05.129997Z | alerte | Maintenir l'alerte ambre et la rigueur opérationnelle pour consolider le PnL combiné tout en encadrant strictement les positions seeds de Hulk. | conf=88%
+- 2026-08-29T03:17:29.078922Z | alerte | Maintenir l'alerte ambre et la rigueur opérationnelle pour consolider le PnL combiné tout en encadrant strictement les positions seeds de Hulk. | conf=88%
+- 2026-08-29T03:19:02.103991Z | alerte | Maintenir l'alerte ambre et la rigueur opérationnelle pour consolider le PnL combiné tout en encadrant strictement les positions seeds de Hulk. | conf=88%
+- 2026-08-29T03:33:10.483349Z | alerte | Maintenir l'alerte ambre et la rigueur opérationnelle pour consolider le PnL combiné tout en encadrant strictement les positions seeds de Hulk. | conf=88%
+- 2026-08-29T03:38:26.828676Z | alerte | Maintenir l'alerte ambre et la rigueur opérationnelle pour consolider le PnL combiné tout en encadrant strictement les positions seeds de Hulk. | conf=88%
+- 2026-08-29T03:39:20.022191Z | alerte | Maintenir l'alerte ambre et la rigueur opérationnelle pour consolider le PnL combiné tout en encadrant strictement les positions seeds de Hulk. | conf=88%
+- 2026-08-29T03:42:28.300592Z | alerte | Maintenir l'alerte ambre et la rigueur opérationnelle pour consolider le PnL combiné tout en encadrant strictement les positions seeds de Hulk. | conf=88%
+- 2026-08-29T03:45:04.400515Z | alerte | Maintenir l'alerte ambre et la rigueur opérationnelle pour consolider le PnL combiné tout en encadrant strictement les positions seeds de Hulk. | conf=88%
