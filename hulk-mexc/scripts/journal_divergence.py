@@ -110,6 +110,28 @@ def main():
                 break
         stables[p] = n + 1 if sig != "neutre" else 0
 
+    # ---- BASCULES DE LEADERSHIP (rien n'est statique — Christophe 29/08) ----
+    # On compare le rapport courant au précédent : si un signal a changé de camp
+    # (LEADER→neutre, POMPE_PIEGE→neutre, neutre→LEADER, LEADER→POMPE_PIEGE...),
+    # on le signale. C'est la matérialisation de « on suit tant que les chiffres
+    # le montrent, on abandonne dès qu'ils changent ».
+    bascules = []
+    if len(lignes) >= 2:
+        prec = lignes[-2].get("signaux") or {}
+        for p, s in signaux.items():
+            sig_new = s["signal"]
+            sig_old = (prec.get(p) or {}).get("signal")
+            if sig_old is None:
+                continue
+            if sig_new != sig_old and (sig_new != "neutre" or sig_old != "neutre"):
+                bascules.append({
+                    "pair": p,
+                    "avant": sig_old,
+                    "maintenant": sig_new,
+                    "corr_avant": (prec.get(p) or {}).get("corr"),
+                    "corr_maintenant": s["corr"],
+                })
+
     # ---- état pour le cockpit + alerte oubli ----
     derniers = [l for l in lignes if l.get("analyse_ok")]
     age_h = None
@@ -121,6 +143,8 @@ def main():
         "ts": NOW.isoformat(),
         "statut": statut,
         "age_rapport_h": round(age_h, 1) if age_h is not None else None,
+        "bascules": bascules,
+        "principe": "RIEN N'EST STATIQUE — signal suivi tant que les chiffres le confirment, abandonné dès inversion",
         "message": "⚠️ LE PATTERN DIVERGENCE N'EST PLUS SUIVI depuis "
                    f"{age_h:.0f}h — relancer la confrontation (voir docs/PROTOCOLE_DIVERGENCE_20260829.md)"
                    if statut == "ALERTE" else (
@@ -140,6 +164,9 @@ def main():
     pieges = etat["pompes_pieges"]
     print(f"   LEADER : {', '.join(leaders) if leaders else 'aucun'}")
     print(f"   POMPE-PIÈGE : {', '.join(pieges) if pieges else 'aucun'}")
+    for b in bascules:
+        print(f"   🔄 BASCULE {b['pair']}: {b['avant']} → {b['maintenant']} "
+              f"(corr {b['corr_avant']} → {b['corr_maintenant']}) — les chiffres ont changé, on adapte")
     if statut != "FRAIS":
         print("   " + etat["message"])
     return 0

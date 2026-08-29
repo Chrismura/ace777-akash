@@ -141,7 +141,36 @@ launchctl unload ~/Library/LaunchAgents/com.ace777.divergence.plist
 
 ---
 
-## 8. Liens avec les autres chantiers
+## 8. PRINCIPE DE VALIDITÉ DYNAMIQUE (Christophe, 29/08 — LA règle d'or)
+
+> « Ce qui est valable un temps peut ne plus l'être, **rien n'est statique**.
+> Mais tant que les chiffres le montrent on valide. »
+
+**Ce principe est codé dans la machine** :
+
+1. **Les 14 jours ne sont pas un contrat figé** — c'est le MINIMUM d'observation avant
+   toute exécution, mais le signal vit et meurt selon les chiffres :
+   - tant qu'une crypto reste LEADER (corr > +0,15) rapport après rapport → on la suit
+   - dès qu'elle retombe sous le seuil ou passe POMPE-PIÈGE → **on l'abandonne** (ou on inverse)
+2. **Détection de bascule automatique** : chaque rapport compare au précédent et
+   journalise les changements dans `DIVERGENCE_ETAT.json` (champ `bascules`) :
+   `{pair, avant, maintenant, corr_avant, corr_maintenant}` → on voit en un coup
+   d'œil que le marché a changé, sans avoir à relire toute l'historique.
+3. **Le gating temporel (Cortana tour 5, validé par nos données)** : le signal de
+   divergence n'a de poids qu'en session 08-17h UTC (pics 3x+ plus fréquents le
+   jour). La nuit = bruit → taille ×0,5 et validation différée. CHIP = signal
+   diurne dominant (61% vs 19%) ; QAIT = signal NOCTURNE (100% des pics la nuit)
+   → cohérent avec son statut de pompe-piège.
+4. **Ré-évaluation permanente** : chaque rapport (toutes les 6h) re-cale les
+   leaders/pièges sur les données fraîches. Rien n'est écrit dans le marbre.
+
+**En pratique** : quand `DIVERGENCE_ETAT.json` montre une bascule (ex. CHIP cesse
+   d'être LEADER), on ADAPTE la stratégie — pas de nostalgie, pas d'attachement.
+   Le protocole existe pour ça : suivre le marché, pas nos convictions.
+
+---
+
+## 9. Liens avec les autres chantiers
 
 - **Fix SELL full (déployé le 29/08)** : le POMPE-PIÈGE confirme qu'il faut des sorties
   partielles sur amplitude forte (EDEL/QAIT = positions surchauffées → cascade, pas de coupe).

@@ -38,6 +38,7 @@ PAST_H = 30           # fenêtre « passé » de comparaison
 LAG_MIN, LAG_MAX = -4, 4   # plage de décalage horaire testée
 FWD_H = 4             # horizon du signal directionnel
 PIC_SEUIL = 6.0       # seuil de « pic » (m6 %) pour l'analyse pics précurseurs
+GATING_PIC_SEUIL = 10.0  # seuil du gating temporel (thèse Cortana validée à 10%)
 SEUIL_SIGNAL = 0.15   # |corr| au-delà = signal retenu
 
 
@@ -171,6 +172,36 @@ def main():
             "🔴 POMPE-PIÈGE (précède baisse)" if c <= -SEUIL_SIGNAL else (
                 "🟡 léger achat" if c > 0.05 else ("🟠 léger sommet" if c < -0.05 else "⚪ neutre")))
         out.append(f"| {p} | {c:.2f} | {sig} |")
+
+    # ---- 4bis. GATING TEMPOREL DE SESSION (Cortana, tour 5, 29/08) ----
+    # Thèse validée par nos données : pics >10% concentrés 8h-17h UTC (61% du temps)
+    # vs nuit 18,9% (3x+). Le signal de divergence n'a de poids qu'en session active.
+    out.append("\n## 4bis. GATING TEMPOREL — signal jour (08-17h UTC) vs nuit (18-07h)")
+    out.append("Thèse Cortana : la nuit = bruit thermique pur. Validée sur CHIP au seuil 10% "
+               f"(61% du temps jour vs 19% nuit). Seuil du gating ici : >{GATING_PIC_SEUIL}%.")
+    import datetime as _dt
+    def _hr(ts): return _dt.datetime.fromtimestamp(ts, _dt.timezone.utc).hour
+    gating = []
+    for p, v in by.items():
+        pts = [(ts, m) for ts, m in v.items()]
+        if len(pts) < 20:
+            continue
+        day = [(ts, m) for ts, m in pts if 8 <= _hr(ts) <= 17]
+        night = [(ts, m) for ts, m in pts if not (8 <= _hr(ts) <= 17)]
+        if not day or not night:
+            continue
+        d_m = sum(m for _, m in day) / len(day)
+        n_m = sum(m for _, m in night) / len(night)
+        d_pics = sum(1 for _, m in day if m > GATING_PIC_SEUIL) / max(1, len(day)) * 100
+        n_pics = sum(1 for _, m in night if m > GATING_PIC_SEUIL) / max(1, len(night)) * 100
+        gating.append((p, d_m, n_m, d_pics, n_pics))
+    gating.sort(key=lambda x: -x[3])
+    out.append("| PAIRE | m6 jour | m6 nuit | pics>6% jour | pics>6% nuit | lecture |")
+    out.append("|---|---|---|---|---|---|")
+    for p, dm, nm, dp, np_ in gating:
+        lect = "🟢 signal diurne dominant" if dp > np_ * 1.5 and dp > 30 else (
+            "🌙 signal nocturne (à filtrer)" if np_ > dp else "⚪ distribué")
+        out.append(f"| {p} | {dm:.2f} | {nm:.2f} | {dp:.0f}% | {np_:.0f}% | {lect} |")
 
     # ---- 4. Pics des précurseurs (validation directionnelle) ----
     out.append(f"\n## 4. PICS PRÉCURSEURS (m6 > {PIC_SEUIL}%) → panier à +2h/+4h")
