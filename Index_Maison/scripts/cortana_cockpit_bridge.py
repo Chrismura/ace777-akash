@@ -31,6 +31,7 @@ from urllib.parse import urlparse, quote
 
 ROOT = Path("/Users/christophe/ace777-test-day1")
 SCRIPTS = ROOT / "Index_Maison" / "scripts"
+DATA_DIR = ROOT / "Index_Maison" / "data"
 MISSION_JSON = ROOT / "Index_Maison" / "cockpit" / "mission.json"
 RUNS = ROOT / "runs"
 HULK = ROOT / "hulk-mexc"
@@ -1847,6 +1848,23 @@ def do_alerts() -> dict:
     return {"ok": True, "alerts": list(reversed(items[-80:])), "n": len(items)}
 
 
+def do_dataquality() -> dict:
+    """État du croisement externe des données (protocole 2 sources, 29/08).
+    Lecture seule de data/croisement_externe_etat.json (écrit par
+    croiser_donnees_externes.py toutes les 30 min).
+    ⛔ fail PRIX = ne pas décider · ⚠️ warn MURS = information (carnet).
+    """
+    p = DATA_DIR / "croisement_externe_etat.json"
+    if not p.exists():
+        return {"ok": False, "error": "croisement_externe_etat.json absent — le protocole n'a pas encore tourné"}
+    try:
+        data = json.loads(p.read_text(encoding="utf-8"))
+        data["ok"] = True
+        return data
+    except Exception as e:
+        return {"ok": False, "error": str(e)}
+
+
 JUSTESSE_TTL = 1800  # 30 min : ne relance pas 27 analyses LLM à chaque appel
 
 def do_justesse() -> dict:
@@ -2117,6 +2135,10 @@ class Handler(BaseHTTPRequestHandler):
         if path == "/chats":
             # Réponses écrites de Cortana (3 derniers jours) — onglet VOL
             self._json(200, {"ok": True, "chats": _chat_archive_liste()})
+            return
+        if path == "/dataquality":
+            # Protocole croisement externe (29/08) : nos prix vs sources externes
+            self._json(200, do_dataquality())
             return
         self._json(404, {"ok": False, "error": "not found"})
 

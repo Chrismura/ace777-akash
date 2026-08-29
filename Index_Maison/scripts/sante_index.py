@@ -646,6 +646,51 @@ def verifier_chaines():
         "ok": mt_proc and mt_frais, "maillons": maillons,
     })
 
+    # ============================================================
+    # 10. CROISEMENT EXTERNE — règle des 2 sources (29/08, GO Christophe) :
+    #     avant toute décision, nos prix doivent être validés par une source
+    #     externe (MEXC/Binance). Écart > 5 % = data_quality_fail = on ne décide
+    #     pas. Les warns MURS sont informatifs (carnet déséquilibré, pas une
+    #     corruption). Ce croisement EST la valideuse de nos données.
+    # ============================================================
+    maillons = []
+    cq_proc = proc_vivant("com.ace777.croisement-externe")
+    maillons.append(maillon("process croisement (launchd)", cq_proc,
+                           "chargée" if cq_proc else "PAS LANCÉE"))
+    cq_json = IM / "data" / "croisement_externe_etat.json"
+    cq_frais = frais(cq_json, 45)  # plist toutes les 30 min + marge
+    a_cq = age_min(cq_json)
+    cq_n_fails = 0
+    cq_n_warns = 0
+    cq_detail = "ABSENT"
+    if cq_json.exists():
+        try:
+            cq = lire_json(cq_json)
+            cq_n_fails = int(cq.get("n_fails", 0))
+            cq_n_warns = int(cq.get("n_warns", 0))
+            cq_detail = f"{cq_n_fails} fail prix · {cq_n_warns} warn murs"
+        except Exception:
+            cq_detail = "illisible"
+    maillons.append(maillon("croisement_externe_etat.json", cq_frais,
+                            f"âge {a_cq:.0f} min" if a_cq is not None else "ABSENT"))
+    # Fails PRIX = données douteuses (on ne décide pas) — c'est le cœur du protocole
+    cq_ok = cq_proc and cq_frais and cq_n_fails == 0
+    maillons.append(maillon("fails prix (> 5 % vs externe)", cq_n_fails == 0,
+                            f"{cq_n_fails} fail(s)" if cq_n_fails else "aucun — données validées"))
+    maillons.append(maillon("warns murs (info)", True,
+                            f"{cq_n_warns} warn(s) carnet déséquilibré (info)" if cq_n_warns else "aucun"))
+    if not cq_proc:
+        anomalies.append("CROISEMENT EXTERNE : process PAS LANCÉ — nos données ne sont plus validées par une source externe (règle 2 sources)")
+    if not cq_frais:
+        anomalies.append("CROISEMENT EXTERNE : croisement_externe_etat.json figé — la valideuse des données est morte")
+    if cq_n_fails > 0:
+        anomalies.append(f"CROISEMENT EXTERNE : {cq_n_fails} prix en écart > 5 % avec une source externe — NE PAS DÉCIDER (data_quality_fail)")
+    chaines.append({
+        "id": "croisement_externe", "nom": "CROISEMENT EXTERNE",
+        "chemin": "croiser_donnees_externes.py (launchd 30 min) → nos prix vs MEXC/Binance → data_quality_fail si écart > 5 % (on ne décide pas)",
+        "ok": cq_ok, "maillons": maillons,
+    })
+
     return chaines, anomalies, now, chaines_degradees
 
 

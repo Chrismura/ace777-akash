@@ -1,0 +1,43 @@
+{
+  "version": "2026-08-29",
+  "note": "Liste de croisement externe — règle de prudence Christophe (29/08) : on ne croise QUE les paires approfondies en deepdive (données validées). Les paires en observation (SOL...) sont capturées pour un set up personnalisé AVANT entrée en portefeuille — on croise leurs prix mais sans décision. Les paires NON deepdive (RIZE...) sont EXCLUES du croisement tant qu'elles n'ont pas été approfondies — on le fera au fur et à mesure.",
+  "deepdive_validees": {
+    "BTCUSDT": "banc de preuve, croisement prioritaire",
+    "ETHUSDT": "banc de preuve, croisement prioritaire",
+    "XRPUSDT": "majeure_manipulee, deepdive validé",
+    "CHIPUSDT": "deepdive CHIP validé 29/08 (arbre qui cache la forêt)",
+    "QAITUSDT": "deepdive QAIT validé 29/08 (stratégie mathématique)",
+    "EDELUSDT": "profondeur croisée, à maintenir en veille",
+    "PYTHUSDT": "dans le portefeuille, deepdive en cours",
+    "ZBCNUSDT": "dans le portefeuille, données murs riches",
+    "HBARUSDT": "dans le portefeuille, drop élevé surveillé",
+    "REDUSDT": "dans le portefeuille, à confirmer"
+  },
+  "observation_setup": {
+    "SOLUSDT": "OBSERVATION — capture données pour set up personnalisé AVANT entrée portefeuille (prix croisé, pas de décision)",
+    "XLMUSDT": "observation murs",
+    "ZAMAUSDT": "observation murs",
+    "GOLD(PAXG)USDT": "observation murs (mur bid 40k$ déjà)",
+    "ALGOUSDT": "observation murs",
+    "IXSUSDT": "observation murs",
+    "XDCUSDT": "observation murs",
+    "QNTUSDT": "observation murs",
+    "JASMYUSDT": "observation murs"
+  },
+  "exclues_prudence": {
+    "RIZEUSDT": "EXCLUE — pas de deepdive approfondi, prudence Christophe 29/08. À croiser seulement après deepdive.",
+    "WUSDT": "à vérifier avant croisement",
+    "KITEUSDT": "à vérifier avant croisement",
+    "CCUSDT": "à vérifier avant croisement",
+    "BIOUSDT": "à vérifier avant croisement",
+    "TELUSDT": "à vérifier avant croisement",
+    "RWAINCUSDT": "à vérifier avant croisement"
+  },
+  "ejectees": {
+    "ADAUSDT": "ÉJECTÉE 28/08 (décision Christophe) — 1) confusion avec Ada l'orchestratrice IA, 2) aucun intérêt pour lui. Absente de observation_list (retired), du portefeuille et du croisement. NE PAS la réintroduire sans GO explicite.",
+    "WECANUSDT": "retirée (pas sur MEXC)",
+    "LAGRANGEUSDT": "retirée (pas sur MEXC)",
+    "MANSORYUSDT": "retirée (pas sur MEXC)"
+  },
+  "regle": "Croiser : deepdive_validees + observation_setup (prix seulement pour observation). Jamais : exclues_prudence. Mise à jour au fur et à mesure des deepdives."
+}

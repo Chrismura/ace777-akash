@@ -52,10 +52,28 @@ ALERTE_PATH = INDEX / "data" / "alertes" / "ALERTE_data_quality.json"
 SEUIL_ECART_PCT = 5.0        # règle des 2 sources : > 5 % = fail
 AGE_MAX_PRIX_MIN = 60        # un prix stocké de plus de 60 min = trop vieux (fail doux)
 
-# Paires à croiser en priorité (celles qu'on trade / observe vraiment)
-PAIRES_PRIORITAIRES = ["BTCUSDT", "ETHUSDT", "XRPUSDT", "SOLUSDT", "ADAUSDT",
-                       "CHIPUSDT", "QAITUSDT", "REDUSDT", "PYTHUSDT", "ZBCNUSDT",
-                       "HBARUSDT", "XLMUSDT"]
+# Paires à croiser — règle de prudence Christophe (29/08) :
+#   deepdive_validees  → croisées (prix + murs, décision possible)
+#   observation_setup  → croisées PRIX seulement (capture pour set up, pas de décision)
+#   exclues_prudence   → JAMAIS croisées (pas de deepdive approfondi, ex. RIZE)
+# La liste vit dans hulk-mexc/strategie/paires_croisement.json (modifiable sans coder).
+PAIRES_CROISEMENT_PATH = HULK / "strategie" / "paires_croisement.json"
+
+
+def charger_paires_croisement():
+    """Retourne (a_croiser, observation_only) depuis le fichier de statut.
+    Fail-open : si le fichier manque, on retombe sur la liste par défaut."""
+    try:
+        d = json.loads(PAIRES_CROISEMENT_PATH.read_text(encoding="utf-8"))
+        deep = list((d.get("deepdive_validees") or {}).keys())
+        obs = list((d.get("observation_setup") or {}).keys())
+        return deep + obs, obs
+    except Exception:
+        # Défaut historique si fichier absent (ne devrait pas arriver)
+        return ["BTCUSDT", "ETHUSDT", "XRPUSDT", "SOLUSDT", "CHIPUSDT",
+                "QAITUSDT", "REDUSDT", "PYTHUSDT", "ZBCNUSDT", "HBARUSDT",
+                "XLMUSDT"], []
+
 
 MEXC_PRICE = "https://api.mexc.com/api/v3/ticker/price"
 BINANCE_PRICE = "https://api.binance.com/api/v3/ticker/price"
@@ -165,8 +183,9 @@ def main() -> int:
     prix_nos = nos_prix()
     prix_mexc = prix_externes_mexc()
 
-    # ---------- A. CROISEMENT PRIX ----------
-    paires_a_croiser = [p for p in PAIRES_PRIORITAIRES if p in prix_nos]
+    # Liste dynamique : deepdive + observation (prix seul) — jamais les exclues
+    paires_a_croiser_all, observation_only = charger_paires_croisement()
+    paires_a_croiser = [p for p in paires_a_croiser_all if p in prix_nos]
     if not paires_a_croiser:
         paires_a_croiser = list(prix_nos.keys())[:10]
 
@@ -205,6 +224,7 @@ def main() -> int:
 
         registre.append({
             "ts": ts, "type": "prix", "pair": pair,
+            "statut": "observation" if pair in observation_only else "deepdive",
             "notre_prix": notre["price"], "notre_utc": notre["utc"],
             "source": src, "prix_externe": prix_ref,
             "autres_sources": [{"source": s, "prix": p, "ecart_pct": round(e, 2)}
@@ -230,7 +250,9 @@ def main() -> int:
         return MURS_TOL_MIN <= r <= MURS_TOL_MAX
 
     for pair, mi in nos_m.items():
-        if pair not in PAIRES_PRIORITAIRES:
+        # Murs croisés seulement pour les deepdive (pas les observation : pas
+        # encore de set up, et pas les exclues : prudence)
+        if pair not in paires_a_croiser_all or pair in observation_only:
             continue
         bid_ext, ask_ext = murs_externes_mexc(pair)
         if bid_ext is None:
