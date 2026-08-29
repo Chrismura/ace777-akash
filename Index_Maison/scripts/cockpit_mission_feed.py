@@ -56,6 +56,39 @@ def live_marks(pairs: list[str]) -> dict[str, float]:
         return {}
 
 
+def live_change24(pairs: list[str]) -> dict:
+    """Vrai % 24h MEXC (priceChangePercent) en 1 appel, fail-open.
+    C'est le % "maintenant vs il y a 24h" = ce que montre CoinMarketCap,
+    distinct de move24_pct (amplitude haut-bas sur 24h, notre signal).
+    On l'injecte dans chg24 des bulles SANS redémarrer le moteur Hulk.
+    Si l'API ne répond pas → {} (le feed garde le fallback amplitude)."""
+    import urllib.request
+    if not pairs:
+        return {}
+    try:
+        req = urllib.request.Request(
+            "https://api.mexc.com/api/v3/ticker/24hr",
+            headers={"User-Agent": "Mozilla/5.0"})
+        with urllib.request.urlopen(req, timeout=15) as resp:
+            data = json.loads(resp.read().decode("utf-8"))
+        want = set(pairs)
+        out = {}
+        for d in data:
+            sym = d.get("symbol")
+            if sym not in want:
+                continue
+            v = d.get("priceChangePercent")
+            if v is not None:
+                try:
+                    # MEXC renvoie une FRACTION (0.0832 = 8.32 %), pas un pourcentage.
+                    out[sym] = round(float(v) * 100.0, 2)
+                except Exception:
+                    pass
+        return out
+    except Exception:
+        return {}
+
+
 def parse_hold(text: str | None) -> dict:
     t = text or ""
     out = {}
@@ -285,6 +318,15 @@ def load_hulk():
         universe = list(s.get("pairs") or [])
         if not universe:
             universe = sorted(set(list(pos.keys()) + list(maison.keys()) + list(scores.keys())))
+        # Vrai % 24h marché (vs il y a 24h) récupéré en live MEXC, indépendant
+        # du moteur (on n'a pas besoin de le redémarrer). move24 (amplitude) est
+        # gardé tel quel = notre signal. chg24 = vrai % 24h.
+        chg24_map = live_change24(universe)
+
+        def _chg24(pair: str, sc: dict):
+            if pair in chg24_map:
+                return chg24_map[pair]
+            return fnum(sc.get("change24_pct"), 2) if sc.get("change24_pct") is not None else fnum(sc.get("move24_pct"), 2)
 
         def _row_open(pair: str, info: dict, kind: str) -> dict:
             entry = fnum(info.get("entry"), 6)
@@ -328,6 +370,7 @@ def load_hulk():
                 "bagPct": bag_pct,
                 "pairCash": round(pair_c, 2),
                 "move24": fnum(sc.get("move24_pct"), 2),
+                "chg24": _chg24(pair, sc),
                 "opened": info.get("ts"),
                 "seed": bool(info.get("seed")),
                 "open": True,
@@ -374,6 +417,7 @@ def load_hulk():
                     "uPnlApprox": None,
                     "pnlPct": fnum(sc.get("move24_pct"), 2),
                     "move24": fnum(sc.get("move24_pct"), 2),
+                    "chg24": _chg24(pair, sc),
                     "opened": None,
                     "seed": False,
                     "open": False,

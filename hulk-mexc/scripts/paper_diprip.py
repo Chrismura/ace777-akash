@@ -363,12 +363,14 @@ def score_pair(pair: str, cfg: dict) -> dict:
     # volume sniffer (priorité small-cap) — avant régimes d'entrée
     vol = sniff_volume(kl15, cfg)
     vol24 = 0.0
+    change24 = None  # vrai % 24h (priceChangePercent MEXC) — pour l'affichage cockpit
     try:
         t24 = ticker_24h(pair)
         vol24 = float(t24.get("quote_vol") or 0)
         if t24.get("price"):
             price = float(t24["price"])
             dd15 = ((1.0 - price / peak15) * 100.0) if peak15 > 0 else dd15
+        change24 = t24.get("change_pct")
     except Exception:
         pass
 
@@ -452,6 +454,7 @@ def score_pair(pair: str, cfg: dict) -> dict:
         "dd6_pct": round(dd6, 2),
         "move6_pct": round(move6, 2),
         "move24_pct": round(move24, 2),
+        "change24_pct": change24,
         "peak15": peak15,
         "peak24": peak24,
         "peak6": peak6,
