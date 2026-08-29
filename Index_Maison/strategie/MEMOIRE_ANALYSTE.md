@@ -2588,3 +2588,10 @@
 - 2026-08-29T14:42:02.320086Z | alerte | ? | conf=?
 - 2026-08-29T14:44:14.742921Z | alerte | Maintenir l'alerte ambre et la rigueur tactique de l'essaim face au sursaut de volume et au bruit macroéconomique de la Fed. | conf=88%
 - 2026-08-29T15:03:43.320345Z | alerte | Maintenir l'alerte ambre et la rigueur tactique de l'essaim face au sursaut de volume et au bruit macroéconomique de la Fed. | conf=88%
+- 2026-08-29T15:12:58.691536Z | alerte | Maintenir l'alerte ambre et la rigueur tactique de l'essaim face au sursaut de volume et au climat macroéconomique prudent. | conf=88%
+- 2026-08-29T15:13:57.688717Z | alerte | Maintenir l'alerte ambre et la rigueur tactique de l'essaim face au sursaut de volume et au bruit macroéconomique de la Fed. | conf=88%
+- 2026-08-29T15:23:28.188469Z | alerte | Maintenir l'alerte ambre et la rigueur tactique de l'essaim face au sursaut de volume et au bruit macroéconomique de la Fed. | conf=88%
+- 2026-08-29T15:44:10.386723Z | alerte | Maintenir l'alerte ambre et la rigueur tactique de l'essaim face au sursaut de volume et au bruit macroéconomique de la Fed. | conf=88%
+- 2026-08-29T15:49:30.511130Z | alerte | Maintenir l'alerte ambre et la rigueur tactique de l'essaim face au sursaut de volume et au bruit macroéconomique de la Fed. | conf=88%
+- 2026-08-29T16:03:40.370871Z | alerte | Maintenir l'alerte ambre et la rigueur tactique de l'essaim face au sursaut de volume sur le BTCUSDT à 77,9K$ et à la tension critique sur CCUSDT. | conf=88%
+- 2026-08-29T16:04:46.435540Z | alerte | Maintenir l'alerte ambre et la discipline tactique de l'essaim face au sursaut de volume x3 sur ETHUSDT, avec Alpha en embuscade disciplinée (232 skips), Beta en éclaireur actif, et une surveillance rapprochée de la position seed tendue CCUSDT (-6,42 %) désormais sous le seuil critique de -5 %. | conf=87%
