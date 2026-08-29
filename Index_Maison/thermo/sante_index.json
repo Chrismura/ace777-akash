@@ -1,9 +1,11 @@
 {
-  "ts": "2026-08-29T07:08+00:00",
-  "updated": "2026-08-29T07:08Z",
-  "etat": "OK",
-  "chaines_ok": "12/12",
-  "anomalies": [],
+  "ts": "2026-08-29T08:03+00:00",
+  "updated": "2026-08-29T08:03Z",
+  "etat": "ALERTE",
+  "chaines_ok": "11/12",
+  "anomalies": [
+    "GEOPOL : score figé ou modules en erreur"
+  ],
   "degradees": [],
   "chaines": [
     {
@@ -25,12 +27,12 @@
         {
           "nom": "scan file",
           "ok": true,
-          "detail": "âge 7 min"
+          "detail": "âge 13 min"
         },
         {
           "nom": "mouvements (events)",
           "ok": true,
-          "detail": "dernier événement il y a 7 min"
+          "detail": "dernier événement il y a 13 min"
         },
         {
           "nom": "→ live.json.onchain",
@@ -40,7 +42,7 @@
         {
           "nom": "→ Ada gardienne",
           "ok": true,
-          "detail": "voilure 66.5 · zone JAUNE"
+          "detail": "voilure 91.1 · zone VERT"
         },
         {
           "nom": "→ Cortana feed",
@@ -63,7 +65,7 @@
         {
           "nom": "deriv_corr.json",
           "ok": true,
-          "detail": "âge 6 min"
+          "detail": "âge 0 min"
         }
       ]
     },
@@ -81,7 +83,7 @@
         {
           "nom": "CSV aspiration",
           "ok": true,
-          "detail": "ASPIRATION_CALIB_20260828_165219.csv · âge 1 min"
+          "detail": "ASPIRATION_CALIB_20260828_165219.csv · âge 2 min"
         },
         {
           "nom": "corrélation BTC",
@@ -96,7 +98,7 @@
         {
           "nom": "cortana_pilot.json",
           "ok": true,
-          "detail": "âge 83 min"
+          "detail": "âge 138 min"
         },
         {
           "nom": "cortana_analysis.json",
@@ -119,7 +121,7 @@
         {
           "nom": "mission.json → cockpit",
           "ok": true,
-          "detail": "âge 0 min"
+          "detail": "âge 1 min"
         },
         {
           "nom": "hub.json (one-shot)",
@@ -142,7 +144,7 @@
         {
           "nom": "cpfp_detect.json",
           "ok": true,
-          "detail": "âge 5 min"
+          "detail": "âge 7 min"
         },
         {
           "nom": "mode",
@@ -178,7 +180,7 @@
       "id": "geopol",
       "nom": "GEOPOL",
       "chemin": "indice_app (5 modules) → live.json.geopol → juge + cockpit",
-      "ok": true,
+      "ok": false,
       "maillons": [
         {
           "nom": "geopol.ts frais",
@@ -187,8 +189,8 @@
         },
         {
           "nom": "modules OK",
-          "ok": true,
-          "detail": "5/5 modules"
+          "ok": false,
+          "detail": "4/5 modules"
         }
       ]
     },
@@ -224,7 +226,7 @@
         {
           "nom": "ada_saison_live.json",
           "ok": true,
-          "detail": "saison CHAOS"
+          "detail": "saison CALME"
         },
         {
           "nom": "6 indices calculés",

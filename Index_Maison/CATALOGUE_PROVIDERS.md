@@ -1,8 +1,8 @@
 # CATALOGUE DES PROVIDERS — ACE777
 
-*Genere le 2026-08-28 par catalog_providers.py (gagnant A/B codeurs 09/08). Rafraichi a chaque veille du matin.*
+*Genere le 2026-08-29 par catalog_providers.py (gagnant A/B codeurs 09/08). Rafraichi a chaque veille du matin.*
 
-**Actifs : 16 · En observation : 0 · En attente : 9 · De cote (payant) : 2**
+**Actifs : 13 · En observation : 1 · En attente : 12 · De cote (payant) : 2**
 
 ## ACTIFS
 
@@ -18,16 +18,15 @@
 | - | `x-ai/grok-4.3` | puter-grok | PUTER 2026-08-09 - en observation (A/B + GO hebdo avant activation) | ACTIVE 09/08 (GO Chr |
 | - | `deepseek-ai/deepseek-coder-6.7b-instruct` | nvidia-coder | INTEGRE 16/08 (GO Christophe) - DeepSeek-Coder 6.7B, codeur specialise (file d'attente). | |
 | - | `Devstral-2-123B-Instruct-2512-int4-AutoRound` | inferx-devstral | INTEGRE 16/08 (GO Christophe) - Devstral 123B, 2e codeur (file d'attente). | quota journal |
-| - | `cohere/north-mini-code:free` | obs-1786688184 | RÉACTIVÉ 27/08 après re-test direct 3/3 OK (0.4-5s) — verdict famille 18/08 « observation  |
-| - | `nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free` | obs-1786774656 | RÉACTIVÉ 27/08 après re-test direct 3/3 OK (0.4-5s) — verdict famille 18/08 « observation  |
-| - | `nvidia/nemotron-3.5-lightning:free` | obs-1786774667 | RÉACTIVÉ 27/08 après re-test direct 3/3 OK (0.4-5s) — verdict famille 18/08 « observation  |
 | - | `deepseek-ai/DeepSeek-V3-0324` | huggingface | ACTIVE 17/08 - token HF avec permission Inference - DeepSeek-V3 teste reellement OK |
 | - | `orcarouter/free` | orca | INTEGRE 23/08 - cle OK, orcarouter/free teste OK (1.2s). Routeur meta (191 modeles). Signe |
 | - | `minimax/minimax-m3:free` | obs-1787724924 | RÉACTIVÉ 27/08 après re-test direct 3/3 OK (0.4-5s) — verdict famille 18/08 « observation  |
 
 ## EN OBSERVATION (48h avant activation, jamais route)
 
-*aucun*
+| Role | Modele | Statut | Note |
+|------|--------|--------|------|
+| - | `dots-studio/dots-3-note-preview:free` | dots-studio-dots-3-note-preview-free | INTEGRE AUTO 2026-08-29 EN OBSERVATION (preuve A/B + juge: MIEUX - Reponse A tronquee.) |
 
 ## EN ATTENTE (cle manquante ou desactive)
 
@@ -39,6 +38,9 @@
 | - | `@cf/meta/llama-3.1-8b-instruct` | cloudflare-workers-ai | 10k Neurons/jour gratuits - necessite account_id dans base_url + token |
 | - | `x-ai/grok-4.5` | grok | Branche 08/08 (GO Christophe) : missions de qualite, ~$2/M tokens |
 | - | `qwen3.5:4b` | qwen-local | UPGRADE 09/08 : qwen2.5:3b -> qwen3.5:4b (GO Christophe, apprentissage) |
+| - | `cohere/north-mini-code:free` | obs-1786688184 | RÉACTIVÉ 27/08 après re-test direct 3/3 OK (0.4-5s) — verdict famille 18/08 « observation  |
+| - | `nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free` | obs-1786774656 | RÉACTIVÉ 27/08 après re-test direct 3/3 OK (0.4-5s) — verdict famille 18/08 « observation  |
+| - | `nvidia/nemotron-3.5-lightning:free` | obs-1786774667 | RÉACTIVÉ 27/08 après re-test direct 3/3 OK (0.4-5s) — verdict famille 18/08 « observation  |
 | - | `nvidia/nemotron-3.5-content-safety:free` | obs-1786795252 | TESTÉ 27/08 : répond 3/3 mais modèle de MODÉRATION (classification sécurité), pas un LLM d |
 | - | `google/diffusiongemma-26b-a4b-it` | obs-1787033767 | TESTÉ 27/08 : PAS DE CLÉ NVIDIA_API_KEY dans .env — impossible à activer. Ajouter la clé p |
 | - | `google/gemma-4-26b-a4b-it:free` | obs-1787206650 | TESTÉ 27/08 : instable (1/3, 429 intermittent) — reste désactivé (l'observatoire avait rai |
