@@ -81,22 +81,25 @@ vérifiable pour être digne de confiance — et ce registre, c'est la blockchai
   (vérifiabilité, gouvernance). Le mieux positionné sur la question
   « blockchain pour l'IA » qu'on vient de répondre.
 
-### CC (Canton Network) — ⚠️ ENCORE EN `exclues_prudence`
+### CC (Canton Network) — ✅ DEEPDRIVE FAIT 29/08 → OBSERVATION (GO Christophe)
 - **Le fait** : réseau blockchain **privacy-first pour la finance
   institutionnelle** (RWA tokenisés, lié à Digital Asset) ; prix ~0,11-0,12 $,
   cap ~4,6 Md$ ; rapport Canton : marché RWA tokenisé > 36 Md$ (fin 2025).
-- **⚠️ Règle maison** : CC est dans `exclues_prudence` SANS deepdive. On ne
-  décide RIEN sur lui tant qu'il n'est pas approfondi (règle Christophe
-  elle-même : « on croise que ce qu'on a deep-dive »).
-- **Prochaine étape** : deepdive CC (tokenomics, vesting, société derrière,
-  géographie de trading) avant tout reclassement en observation.
+- ✅ **Deepdive fait 29/08** (`hulk-mexc/docs/DEEPDIVE_CANTON_CC_20260829.md`) :
+  société réelle (Digital Asset + Visa/HSBC/BNY/DTCC/Goldman/BNP), **pont de
+  valeur DANS le code** (frais brûlés + mint lié à l'usage — contrairement à
+  QAIT/CHIP), tokenomics sans ICO/pré-mine mais supply « infinie ».
+- **Décision** : CC passe en `observation_setup` (prix croisé seul, pas de
+  décision). Risques surveillés : volume MEXC faible (200 k$/24h), ratio
+  burn/mint, jeunesse du jeton. → la sonde volume le capture désormais.
 
 ---
 
 ## 4. 📌 ÉTAT / ACTIONS
 
-- [ ] **Deepdive CC (Canton Network)** — requis avant tout reclassement.
-      C'est LA prochaine étape pour valider/écarter le 3e acteur de Christophe.
+- [x] **Deepdive CC (Canton Network)** — FAIT 29/08 → reclassé en observation.
+- [ ] **Surveiller CC en observation** : volume MEXC (< 1 M$/j avant de penser
+      trading), ratio burn/mint sur plusieurs mois, comportement en bear.
 - [ ] **XRP / HBAR** : déjà en deepdive_validees → on capture leurs données,
       on peut les confronter à la thèse « couche trust de l'IA ».
 - [ ] Réponse à la question de fond (blockchain vs classique pour IA) :

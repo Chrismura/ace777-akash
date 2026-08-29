@@ -1,6 +1,6 @@
 {
   "version": "2026-08-29",
-  "note": "Liste de croisement externe — règle de prudence Christophe (29/08) : on ne croise QUE les paires approfondies en deepdive (données validées). Les paires en observation (SOL...) sont capturées pour un set up personnalisé AVANT entrée en portefeuille — on croise leurs prix mais sans décision. Les paires NON deepdive (RIZE...) sont EXCLUES du croisement tant qu'elles n'ont pas été approfondies — on le fera au fur et à mesure. MAJ 29/08 soir : RIZE passe en observation_setup (prix seul) apres deepdive — GO Christophe.",
+  "note": "Liste de croisement externe — règle de prudence Christophe (29/08) : on ne croise QUE les paires approfondies en deepdive (données validées). Les paires en observation (SOL...) sont capturées pour un set up personnalisé AVANT entrée en portefeuille — on croise leurs prix mais sans décision. Les paires NON deepdive (RIZE...) sont EXCLUES du croisement tant qu'elles n'ont pas été approfondies — on le fera au fur et à mesure. MAJ 29/08 soir : RIZE passe en observation_setup (prix seul) apres deepdive — GO Christophe. MAJ 29/08 soir (2) : CANTON (CC) passe en observation_setup apres deepdive — GO Christophe.",
   "deepdive_validees": {
     "BTCUSDT": "banc de preuve, croisement prioritaire",
     "ETHUSDT": "banc de preuve, croisement prioritaire",
@@ -23,12 +23,12 @@
     "XDCUSDT": "observation murs",
     "QNTUSDT": "observation murs",
     "JASMYUSDT": "observation murs",
-    "RIZEUSDT": "OBSERVATION (GO Christophe 29/08 apres deepdive) : T-RIZE RWA institutionnel — prix croise SEUL, pas de decision. Profil maison manipulee_fragile (murs 243$, sigma 1.151, spoof 3.4%, drop 216) — capture du comportement pour set up avant entree portefeuille."
+    "RIZEUSDT": "OBSERVATION (GO Christophe 29/08 apres deepdive) : T-RIZE RWA institutionnel — prix croise SEUL, pas de decision. Profil maison manipulee_fragile (murs 243$, sigma 1.151, spoof 3.4%, drop 216) — capture du comportement pour set up avant entree portefeuille.",
+    "CCUSDT": "OBSERVATION (GO Christophe 29/08 apres deepdive Canton) : Canton Network — RWA/privacy institutionnel (Digital Asset, Visa, HSBC, DTCC, Goldman, BNP). Pont de valeur DANS le code (frais brulés + mint usage). Prix croisé SEUL, pas de décision. Risques : supply infinie (burn/mint à surveiller), volume MEXC faible (200k$/24h), jeton jeune (nov 2025)"
   },
   "exclues_prudence": {
     "WUSDT": "à vérifier avant croisement",
     "KITEUSDT": "à vérifier avant croisement",
-    "CCUSDT": "à vérifier avant croisement",
     "BIOUSDT": "à vérifier avant croisement",
     "TELUSDT": "à vérifier avant croisement",
     "RWAINCUSDT": "à vérifier avant croisement"
