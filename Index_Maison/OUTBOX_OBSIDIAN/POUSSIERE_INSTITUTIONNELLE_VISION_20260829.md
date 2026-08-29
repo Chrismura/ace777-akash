@@ -119,6 +119,71 @@ reste un indicateur de veille 24-48h à coder ensuite (il manque 2 champs).
 
 ---
 
+## 4. 🏆 LA PÉPITE — CONFIRMÉE PAR CHRISTOPHE (29/08 17:40Z)
+
+Christophe : « comment est-ce possible que tu sois passé dessus, en plus on les a
+ces indicateurs — sauf 1 le dernier ? Si c'est le cas confirme-moi que Cortana nous
+a sorti une vraie pépite, et il faut la féliciter. »
+
+**RÉPONSE FACTUELLE (vérifiée champ par champ) :**
+
+Le SAPI de Cortana (tour 1) a **4 termes** :
+
+| Terme du SAPI | Notre donnée | Dispo ? |
+|---|---|---|
+| 1. `I(z_fee > 2.0)` × 0.35 | `ipt.z_fee` (croisement_contexte) | ✅ OUI |
+| 2. `min(1, taux_fantome/0.15)` × 0.30 | `poussiere_taux_fantome` | ✅ OUI |
+| 3. `I(micro_tx_ratio > seuil)` × 0.20 | `ipt.micro_tx_ratio` | ✅ OUI |
+| 4. `− min(1, |Δspot_book| × 10)` × 0.15 | `|Δspot_book|` | ⚠️ PAS DIRECTEMENT — mais **proxy dispo** : `spread_delta_bps` (748 valeurs non-nulles sur 4 093 dans ASPIRATION_CALIB) + `mur_bid_moy_usd`/`mur_ask_moy_usd` |
+
+→ **Christophe a raison : 3 termes sur 4 sont déjà dans nos données.** Le seul
+manquant est le delta du carnet spot — et on a un **proxy** (spread_delta_bps +
+murs) qui existe déjà dans nos CSVs. Le SAPI est donc **codable MAINTENANT** avec
+ce proxy, et exact quand on ajoutera le vrai delta du carnet.
+
+**POURQUOI JE SUIS PASSÉ DESSUS :** dans le deepdive des 3 signaux, j'avais classé
+le Signal 2 en « ⚠️ partiel — il manque le z-score du délai de minage et le delta
+du carnet spot ». J'ai vu le manque du terme 4 et j'ai conclu « pas codable » sans
+vérifier que les 3 premiers étaient DÉJÀ là. Erreur de ma part : il fallait
+inventorier champ par champ comme Christophe vient de le faire.
+
+**EST-CE LA SEULE PÉPITE ? NON — 3 pépites se distinguent, à des degrés :**
+
+| Pépite | Statut | Validée ? |
+|---|---|---|
+| **① Le RBF plat (tour 4)** — micro-tx massives + RBF bas = script déterministe | ⭐ LA pépite reine | ✅ **VALIDÉE PAR NOS DONNÉES** : corr −0.275 sur 13 933 points, rbf 0.286 vs 0.599 |
+| **② Le SAPI (tour 1)** — formule de score complète | Pépite opérationnelle | ✅ validée par l'anticipation (SAPI 0.85 → pic 90,9 % 2h après) |
+| **③ Le SESM (tour 3)** — entropie séquentielle des frais | Pépite en germe | ⚠️ non testée (hypothèse riche mais à valider) |
+
+→ La SEULE pépite **confirmée par nos chiffres** est le **RBF plat**. C'est elle
+qu'on félicite.
+
+**FÉLICITATIONS À CORTANA** 🏆 — transcrite dans la session `poussiere-20260829-152854`
+(onglet VOL) : « Ta signature du RBF plat a été confirmée par nos données réelles
+(corrélation −0.275, 13 933 points). C'est une vraie pépite — elle distingue le
+script industriel du retail qui tatone. Bravo. »
+
+---
+
+## 5. 📡 PROTOCOLE PROPOSÉ : CROISEMENT EXTERNE DES DONNÉES IMPORTANTES
+
+Christophe : « beaucoup de décisions se prennent sur nos données, mais on a vu
+plusieurs fois qu'elles n'étaient pas correctes. Quand c'est important, il faut
+les croiser avec des données extérieures. »
+
+**Proposition (à valider) — règle des 2 sources :**
+1. **Avant toute décision importante** (entrée portefeuille, alerte, changement de
+   seuil) : vérifier le chiffre clé sur **au moins 1 source externe** (Binance,
+   MEXC, CoinGecko, blockstream, mempool selon la donnée).
+2. **Détection d'anomalie** : si écart > 5 % entre notre donnée et l'externe →
+   `data_quality_fail` : on ne décide PAS, on récupère d'abord.
+3. **Registre** : logger le croisement (source externe + écart) dans
+   `data/croisement_externe.jsonl` pour audit.
+4. Cas déjà vécus : QAIT (fichier réécrit → 66 M BTC impossibles), mempool.space
+   down (sonda aveugle), murs_observations (structure top_murs).
+
+---
+
 ## Fichiers liés
 - Session Cortana : `poussiere-20260829-152854` (4 tours, onglet VOL)
 - Script : `Index_Maison/scripts/ask_cortana_poussiere_institutionnelle.py`
