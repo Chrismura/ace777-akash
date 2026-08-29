@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-29T01:09:44.605908+00:00",
+  "generated_at": "2026-08-29T01:10:14.923017+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -35,7 +35,7 @@
       "model": "groq/compound",
       "enabled": true,
       "timeout": 120,
-      "calls_24h": 1
+      "calls_24h": 2
     },
     {
       "id": "nvidia",
@@ -233,7 +233,7 @@
       "model": "orcarouter/free",
       "enabled": true,
       "timeout": 60,
-      "calls_24h": 4
+      "calls_24h": 5
     },
     {
       "id": "obs-1787724924",
@@ -247,10 +247,26 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 13,
-    "remaining": 611
+    "consumed": 15,
+    "remaining": 609
   },
   "queue": [
+    {
+      "ts": "2026-08-29T01:09:58.048700+00:00",
+      "task": "supervise.decision",
+      "provider": "groq",
+      "model": "groq/compound",
+      "kind": "cloud",
+      "duration_s": 2.0
+    },
+    {
+      "ts": "2026-08-29T01:09:55.821387+00:00",
+      "task": "analyse.profonde",
+      "provider": "orca",
+      "model": "orcarouter/free",
+      "kind": "cloud",
+      "duration_s": 8.14
+    },
     {
       "ts": "2026-08-29T01:09:40.047120+00:00",
       "task": "analyste.strategie",
@@ -354,84 +370,68 @@
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
       "duration_s": 1.85
-    },
-    {
-      "ts": "2026-08-28T23:57:18.359209+00:00",
-      "task": "analyste.strategie",
-      "provider": "openrouter-juge",
-      "model": "nvidia/nemotron-3-super-120b-a12b:free",
-      "kind": "cloud",
-      "duration_s": 16.67
-    },
-    {
-      "ts": "2026-08-28T23:43:57.415525+00:00",
-      "task": "analyse.profonde",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 9.09
     }
   ],
   "events": [
     {
-      "ts": "2026-08-29T01:09:40.046900+00:00",
-      "kind": "message",
-      "title": "« OpenRouter Juge (nemotron-3-super-120b free) - verificateur independant » a repondu",
-      "detail": "bascule"
-    },
-    {
-      "ts": "2026-08-29T01:09:40.046510+00:00",
-      "kind": "filet-universel",
-      "title": "[FILET UNIVERSEL] « OpenRouter Juge (nemotron-3-super-120b free) - verificateur independant » a repondu hors chaine",
-      "detail": "analyste.strategie"
-    },
-    {
-      "ts": "2026-08-29T01:09:32.836044+00:00",
+      "ts": "2026-08-29T01:10:10.097718+00:00",
       "kind": "timeout",
       "title": "Patience NaraRouter (7M tokens/jour gratuits) (HTTP 502)",
       "detail": "HTTP Error 502: Bad Gateway"
     },
     {
-      "ts": "2026-08-29T01:09:20.266563+00:00",
+      "ts": "2026-08-29T01:09:58.048115+00:00",
+      "kind": "message",
+      "title": "« Groq (LLM ultra-rapide, gratuit) » a repondu",
+      "detail": "bascule"
+    },
+    {
+      "ts": "2026-08-29T01:09:57.390175+00:00",
       "kind": "failover",
-      "title": "Bascule depuis HuggingFace (136+ modeles, dont DeepSeek-V4)",
-      "detail": "HTTP Error 402: Payment Required"
+      "title": "Bascule depuis Groq (LLM ultra-rapide, gratuit)",
+      "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-08-29T01:09:20.226433+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis NaraRouter (7M tokens/jour gratuits)",
-      "detail": "The read operation timed out"
+      "ts": "2026-08-29T01:09:57.389616+00:00",
+      "kind": "ratelimit",
+      "title": "429 Groq (LLM ultra-rapide, gratuit) -> pause 60s + bascule",
+      "detail": ""
     },
     {
-      "ts": "2026-08-29T01:09:19.960030+00:00",
-      "kind": "blacklist",
-      "title": "Fin de pause HuggingFace (136+ modeles, dont DeepSeek-V4)",
-      "detail": "re-essai automatique"
-    },
-    {
-      "ts": "2026-08-29T01:09:19.959793+00:00",
+      "ts": "2026-08-29T01:09:56.044661+00:00",
       "kind": "failover",
       "title": "Saute (blacklist) depuis Google Gemini",
       "detail": "0 attente"
     },
     {
-      "ts": "2026-08-29T01:09:09.797862+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis OpenRouter (modeles gratuits)",
-      "detail": "HTTP Error 429: Too Many Requests"
+      "ts": "2026-08-29T01:09:55.821245+00:00",
+      "kind": "message",
+      "title": "« OrcaRouter (routeur gratuit, modele orcarouter/free) » a repondu",
+      "detail": "bascule"
     },
     {
-      "ts": "2026-08-29T01:09:08.148405+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis OrcaRouter (routeur gratuit, modele orcarouter/free)",
-      "detail": "HTTP Error 400: Bad Request"
+      "ts": "2026-08-29T01:09:55.820906+00:00",
+      "kind": "filet-universel",
+      "title": "[FILET UNIVERSEL] « OrcaRouter (routeur gratuit, modele orcarouter/free) » a repondu hors chaine",
+      "detail": "analyse.profonde"
     },
     {
-      "ts": "2026-08-29T01:09:07.117778+00:00",
+      "ts": "2026-08-29T01:09:53.923420+00:00",
+      "kind": "blacklist",
+      "title": "Fin de pause Groq (LLM ultra-rapide, gratuit)",
+      "detail": "re-essai automatique"
+    },
+    {
+      "ts": "2026-08-29T01:09:53.923089+00:00",
       "kind": "failover",
-      "title": "Saute (blacklist) depuis HuggingFace (136+ modeles, dont DeepSeek-V4)",
+      "title": "Saute (blacklist) depuis Google Gemini",
       "detail": "0 attente"
+    },
+    {
+      "ts": "2026-08-29T01:09:47.682332+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis NaraRouter (7M tokens/jour gratuits)",
+      "detail": "HTTP Error 502: Bad Gateway"
     }
   ],
   "tasks_quotas": {
