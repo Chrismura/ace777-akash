@@ -55,6 +55,35 @@ en place pour bien le faire — timing choisi par Christophe) :**
 
 ---
 
+## 📡 NOUVEAU CHANTIER — VEILLE DES 4 SIGNAUX DE TRANSITION (29/08, GO Christophe)
+
+**Statut** : 🟡 in vendu — à faire (GO Christophe 29/08).
+
+**Origine** : prévision de recherche de Cortana (session degrés de conscience,
+29/08) — les 4 étapes de la transition monétaire 3-5 ans, chacune avec un
+événement falsifiable qui l'annonce. Christophe : « mes thèses sont des
+thèses ; moi je cherche ce qui prendra forme EN PREMIER. Ce n'est pas parce
+que j'ai raison que ça se passera forcément comme ça — il y a les enjeux et
+les guerres de pouvoir. » → on ne parie pas sur « qui a raison », on observe
+**le premier domino qui tombe**.
+
+**Les 4 signaux à surveiller (chacun = un événement checkable) :**
+1. **mBridge / BRICS** → un **règlement pétrolier majeur hors SWIFT** est annoncé.
+2. **Stablecoins sous contrôle Fed** → **sur-taxation/interdiction des stablecoins non conformes**.
+3. **Or revalorisé en Bâle 3** → **changement du ratio de levier bancaire** intégrant l'or à risque zéro.
+4. **Wholesale CBDC transfrontalier** → **déconnexion programmée des anciens systèmes de compensation**.
+
+**Livrable envisagé** : sonde `veille_transition.py` (nouvelles non-mainstream +
+nos données) → `veille_transition_etat.json` + alerte si un signal se
+déclenche + plist launchd. IMPORTANT : s'inspirer du pattern S-07 (Cortana
+dit ce qu'elle voit) et distinguer SIGNAL DÉCLENCHÉ vs BRUIT.
+
+**Étapes à suivre (règle maison)** : GO Christophe ✅ → draft/confronter à la
+famille → coder (codeur) → test → Release Receipt. Aucun trader déclenché sur
+ces signaux seuls (macro, pas de trading court terme).
+
+---
+
 ## 🟡 EN SUSPENS (backlog ouvert — voir CHOSES_A_FINIR_REVOIR.md pour le détail)
 
 | # | Item | Statut |
