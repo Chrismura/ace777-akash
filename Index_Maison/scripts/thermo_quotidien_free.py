@@ -1102,6 +1102,20 @@ def main() -> int:
         if indice_result and indice_result.get("geopol"):
             payload["geopol"] = indice_result["geopol"]
             print(f"[INDICE] score={indice_result['geopol'].get('score')} niveau={indice_result['geopol'].get('niveau')}")
+            # CORRECTION 29/08 (important, plus jamais la même erreur) :
+            # le geopol est calculé APRÈS l'append de history.jsonl, donc il
+            # n'était PAS archivé -> impossible de croiser geopol × trading.
+            # On backpatche la dernière ligne history du runoff courant pour
+            # l'archiver (score + niveau + ts). Croisement de données possible.
+            bpt = hist_path.read_text(encoding="utf-8", errors="ignore").splitlines()
+            if bpt:
+                try:
+                    last = json.loads(bpt[-1])
+                    last["geopol"] = payload["geopol"]
+                    bpt[-1] = json.dumps(last, ensure_ascii=False)
+                    hist_path.write_text("\n".join(bpt) + "\n", encoding="utf-8")
+                except Exception:
+                    pass
     except Exception as e:
         print(f"[INDICE] ERREUR: {e}")
 
