@@ -1,21 +1,20 @@
-# ANALYSE — 2026-08-29T14:10:00.797158Z (alerte)
+# ANALYSE — 2026-08-29T15:03:43.320345Z (alerte)
 
-[UNDERSTAND] La maison ACE777 maintient son alerte ambre et sa rigueur tactique face à un sursaut de volume sur le BTCUSDT, tandis que le PnL combiné consolide son excédent sous la coordination de l'essaim.
+[UNDERSTAND] La maison ACE777 maintient son alerte ambre face à une accumulation fragile du BTC autour de 77,7K$-77,8K$, soutenue par la patience d'Alpha, les sondages de Beta et la surveillance des positions seeds de Hulk en tension.
 [ANALYZE]
-- Tendance : Phase d'accumulation persistante du BTC autour de 77,7K$ dans un régime de Bitcoin season (score 43, dominance 59,0 %) avec une activité onchain modérée.
-- Momentum : Alpha maintient sa stricte discipline en embuscade (232 skips / 9 fills, PnL +2,01 $) tandis que Beta éclaire activement le marché (250 skips / 13 fills, PnL -0,74 $) et que Hulk gère ses positions seeds sous surveillance étroite.
-- Risque : CCUSDT s'approche du seuil critique de coupe-circuit automatique fixé à -10 % (actuellement à -7,35 %), exigeant un suivi rigoureux des positions seeds de Hulk.
-- Contexte : Fear & Greed à 68 (Greed), ETF BTC inflow net positif (+212,87 M$), funding neutre (0,0001) et bruit macroéconomique de la Fed.
+- **Tendance** : Accumulation persistante du BTC autour de 77,7K$-77,8K$, Bitcoin season (score 43, dominance 58,98 %), Fear & Greed à 68 (Greed). Signal de volume x3 sur BTC sans direction claire.
+- **Momentum** : Alpha en embuscade disciplinée (232 skips / 9 fills, PnL +2,01 $), Beta en éclairage actif (250 skips / 13 fills, PnL -0,74 %), Hulk sous pression avec -1,33 $ sur 11 positions dont CCUSDT proche du seuil critique -10 %.
+- **Risque** : CCUSDT proche du stop-loss (-6,63%), OI en baisse (-67,53), chg24 négatif (-0,4 %), whale USD en baisse (-1,15 M$) — signal de prudence et marge de manœuvre étroite.
+- **Contexte** : Bruit macroéconomique Fed persistant (paris sur une hausse de taux), funding neutre, thermo à 77/100 (ok) et flux ETF BTC positifs (+213,68 M$).
 [STRATEGIZE]
-1. Maintenir l'alerte ambre et la discipline opérationnelle pour consolider le PnL combiné, appuyé par la patience d'Alpha, les reconnaissances de Beta et l'encadrement strict des positions seeds de Hulk.
-2. Laisser agir les stop-loss automatiques de Hulk, en particulier sur CCUSDT si le seuil critique de -10 % est atteint.
-3. Préparer une embuscade d'Alpha uniquement après une cassure validée des résistances confirmée par les volumes et les flux de Beta.
+1. Maintenir l'alerte ambre et la discipline tactique de l'essaim, en laissant Alpha en embuscade et Beta alimenter les flux de reconnaissance.
+2. Laisser les stop-loss automatiques de Hulk jouer sur CCUSDT si le seuil -10 % est franchi, ou envisager une réduction manuelle préventive si la position touche -9 %.
 [EXECUTE]
-- Verdict : Maintenir l'alerte ambre et la rigueur tactique face au sursaut de volume sur le BTCUSDT, en s'appuyant sur l'embuscade d'Alpha, les sondages de Beta et la surveillance resserrée des positions seeds de Hulk.
+- Verdict : Maintenir l'alerte ambre et la rigueur tactique de l'essaim face au sursaut de volume et au bruit macroéconomique de la Fed.
 - Confiance : 88%
-- Hypothèses clés : 1. La phase d'accumulation du BTC tient solidement au-dessus des supports clés. 2. Le coupe-circuit automatique de Hulk s'activera proprement sur CCUSDT si le seuil critique de -10 % est atteint. 3. La discipline d'embuscade d'Alpha demeure optimale dans ce régime de marché sans direction claire.
-- Ce qui changerait la réponse : Un franchissement de CCUSDT sous le seuil critique des -10 % OU une rupture technique nette du BTC confirmée par les volumes de l'essaim.
-- Alternative si confiance < 80% : Réduire de manière préventive l'exposition sur les positions seeds en territoire négatif et suspendre temporairement toute nouvelle embuscade d'Alpha.
+- Hypothèses clés : 1. Le volume x3 sur BTCUSDT ne constitue pas encore une cassure directionnelle validée. 2. Le stop-loss automatique de Hulk gérera proprement CCUSDT si le seuil critique est atteint. 3. La phase d'accumulation du BTC tient au-dessus des supports clés.
+- Ce qui changerait la réponse : Franchissement de CCUSDT sous -9 % (pré-alerte coupe-circuit) OU rupture technique nette du BTC > 78,2K$ ou < 77,3K$ confirmée par les flux de Beta.
+- Alternative si confiance < 80% : Réduire préventivement l'exposition sur les positions seeds négatives et suspendre temporairement toute nouvelle embuscade d'Alpha.
 - Prédictions vérifiables :
   [2026-08-30] BTCUSDT >= 77000.0000
   [2026-08-30] ETHUSDT >= 2400.0000

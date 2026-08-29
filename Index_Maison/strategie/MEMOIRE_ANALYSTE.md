@@ -2582,3 +2582,9 @@
 - 2026-08-29T13:58:46.702157Z | alerte | Maintenir l'alerte ambre et la rigueur tactique pour consolider le PnL combiné, en s'appuyant sur l'embuscade d'Alpha, les sondages de Beta et la surveillance resserrée des positions seeds de Hulk. | conf=88%
 - 2026-08-29T14:09:15.988992Z | alerte | Maintenir l'alerte ambre et la rigueur tactique pour consolider le PnL combiné, en s'appuyant sur l'embuscade d'Alpha, les sondages de Beta et la surveillance resserrée des positions seeds de Hulk. | conf=88%
 - 2026-08-29T14:10:00.797158Z | alerte | Maintenir l'alerte ambre et la rigueur tactique face au sursaut de volume sur le BTCUSDT, en s'appuyant sur l'embuscade d'Alpha, les sondages de Beta et la surveillance resserrée des positions seeds de Hulk. | conf=88%
+- 2026-08-29T14:14:06.641338Z | alerte | Maintenir l'alerte ambre et la rigueur tactique face au sursaut de volume sur le BTCUSDT, en s'appuyant sur l'embuscade d'Alpha, les sondages de Beta et la surveillance resserrée des positions seeds de Hulk. | conf=88%
+- 2026-08-29T14:36:13.625723Z | alerte | Maintenir l'alerte ambre et la rigueur tactique face au sursaut de volume sur le BTCUSDT, en s'appuyant sur l'embuscade d'Alpha, les sondages de Beta et la surveillance resserrée des positions seeds de Hulk. | conf=88%
+- 2026-08-29T14:41:29.122015Z | alerte | Maintenir l'alerte ambre et la rigueur tactique face au sursaut de volume sur l'ETHUSDT, en s'appuyant sur l'embuscade d'Alpha, les sondages de Beta et la surveillance resserrée des positions seeds de Hulk. | conf=88%
+- 2026-08-29T14:42:02.320086Z | alerte | ? | conf=?
+- 2026-08-29T14:44:14.742921Z | alerte | Maintenir l'alerte ambre et la rigueur tactique de l'essaim face au sursaut de volume et au bruit macroéconomique de la Fed. | conf=88%
+- 2026-08-29T15:03:43.320345Z | alerte | Maintenir l'alerte ambre et la rigueur tactique de l'essaim face au sursaut de volume et au bruit macroéconomique de la Fed. | conf=88%
