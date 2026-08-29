@@ -2779,3 +2779,15 @@ Pas d’ordre — confrontation plus tard.
 ### 2026-08-29T00:15:24Z — ALERT auto
 - QAITUSDT: WATCH_PULLBACK — tension haute + reflux
 (compléter: confirmé ? risque ?)
+
+### 2026-08-29T01:22:34Z — ALERT auto
+- QAITUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
+
+### 2026-08-29T01:23:28Z — ALERT auto
+- EDELUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
+
+### 2026-08-29T01:46:54Z — ALERT auto
+- RIZEUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
