@@ -1,6 +1,6 @@
 {
   "version": "1.4.6",
-  "updated": "2026-08-28T18:30Z",
+  "updated": "2026-08-29T23:05Z",
   "fichier": [
     {
       "nom": "hulk-mexc/scripts/paper_diprip.py",
@@ -8,8 +8,8 @@
       "origine": "chantier hulk",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "b33136fff803dbed6cd95254258b7d95",
-      "note": "FIX 27/08 : circuits breaker + fraîcheur Cortana + FILTRE LOTS MEXC (lot_filter depuis exchangeInfo, baseSizePrecision/quoteAmountPrecision, arrondi stepSize au buy ET au sell, dust close, fail-open) + kill-switch global STOP_ALL (même sémantique veilleuse) | 28/08 : détecteur accumulation + corrections RBF",
+      "md5": "47583de939573bdb9a83e285a2cca00a",
+      "note": "FIX 27/08 : circuits breaker + fraîcheur Cortana + FILTRE LOTS MEXC (lot_filter depuis exchangeInfo, baseSizePrecision/quoteAmountPrecision, arrondi stepSize au buy ET au sell, dust close, fail-open) ",
       "maj": "28/08 : détecteur accumulation 24h (descente≥2% + prise mur sud) + trailing — en observation"
     },
     {
@@ -47,8 +47,8 @@
       "origine": "fondation F2 + chantiers 15/08",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "526f4bcf0f13818e42c19db66dbfd605",
-      "note": "ENSEIGNEMENT 25/08 vérifié : la base CONNAISSANCE ne contenait RIEN du pipeline unifié → LEXIQUE étendu + build_facts (lectures live.json) → Cortana analyse les nouveaux indices. Testé : analyse SDI réelle (SHORT 24h), professeur l'a notée (96 analyses).",
+      "md5": "abe1a72db65f06c81434dafe23bef3f3",
+      "note": "ENSEIGNEMENT 25/08 vérifié : la base CONNAISSANCE ne contenait RIEN du pipeline unifié → LEXIQUE étendu + build_facts (lectures live.json) → Cortana analyse les nouveaux indices. Testé : analyse SDI r",
       "maj": "27/08 17:49Z : 6 indices enseignés (sdi/ipt/rbf/indice_onchain/pipeline_health/geopol)"
     },
     {
@@ -66,7 +66,7 @@
       "origine": "fondation",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "160b17de5247e177cb3817d33625661b",
+      "md5": "3dbe99b13989883fd08a37a4f1d7a2d1",
       "note": "déclaré 2026-08-27T13:46Z — modifs légitimes 25/08 (pipeline unifié GO Christophe : SafeLiveWriter + LMDB + SDI + geopol) non déclarées à l'époque",
       "maj": "27/08 13:46Z : md5 mis à jour (déclaration légitime)"
     },
@@ -144,7 +144,7 @@
       "origine": "chantier hulk",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "0ded03c5141d77dbc2e2ef2079ad9d8b",
+      "md5": "888febf27da43cb534a1138a12d67857",
       "note": "déclaré manuel 2026-08-28T18:30Z",
       "maj": "27/08 17:30Z : +BTCUSDT,ETHUSDT au PAPER_PAIRS (17 paires), SEED_MAX_PAIRS 15→17"
     },
@@ -214,7 +214,7 @@
       "origine": "chantier 17/08 (demande Christophe : voir les branchements en un coup d'œil)",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "81eed4edc7eedea838024c4efd49ff2a",
+      "md5": "3d8e4b38b68f90a9586b34d5277aff54",
       "note": "déclaré 2026-08-27T14:40Z — chaîne HULK étendue : + cortana_analyzer launchd + cortana_pilot.json (fraîcheur 25h) + cortana_analysis.json",
       "maj": "27/08 13:47Z : md5 mis à jour (déclaration légitime)"
     },
@@ -252,7 +252,7 @@
       "origine": "pipeline unifié 25/08",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "8a1df8436f7ff8728177798f12eb5554",
+      "md5": "a8f1525c1d984ad794c9798565d034b7",
       "note": "déclaré manuel 2026-08-28T18:30Z",
       "maj": ""
     },
