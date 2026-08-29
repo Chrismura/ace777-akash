@@ -1,0 +1,20 @@
+{
+ "ts": "2026-08-29T15:55:24Z",
+ "n_verifications": 20,
+ "n_fails": 0,
+ "n_warns": 1,
+ "fails": [],
+ "warns": [
+  {
+   "type": "murs",
+   "pair": "ETHUSDT",
+   "notre_bid_avg": 154286.39,
+   "ext_bid_5niv": 88891.59,
+   "notre_ask_avg": 163797.5,
+   "ext_ask_5niv": 5222.76,
+   "note": "ratio hors [0.05x-20.0x] — carnet déséquilibré ou donnée à surveiller"
+  }
+ ],
+ "regle": "écart > 5.0% entre notre prix et une source externe = data_quality_fail (on ne décide pas) · murs = warning informatif",
+ "lecture": "⚠️ 1 warning(s) murs (carnet déséquilibré) — prix OK"
+}
