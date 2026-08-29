@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-29T02:06:51.874212+00:00",
+  "generated_at": "2026-08-29T02:09:53.903064+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 330
+      "calls_24h": 328
     },
     {
       "id": "openrouter-free",
@@ -247,10 +247,18 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 28,
-    "remaining": 596
+    "consumed": 29,
+    "remaining": 595
   },
   "queue": [
+    {
+      "ts": "2026-08-29T02:09:23.474382+00:00",
+      "task": "analyste.strategie",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 2.91
+    },
     {
       "ts": "2026-08-29T02:04:05.261870+00:00",
       "task": "analyste.strategie",
@@ -362,17 +370,15 @@
       "model": "groq/compound",
       "kind": "cloud",
       "duration_s": 2.0
-    },
-    {
-      "ts": "2026-08-29T01:09:55.821387+00:00",
-      "task": "analyse.profonde",
-      "provider": "orca",
-      "model": "orcarouter/free",
-      "kind": "cloud",
-      "duration_s": 8.14
     }
   ],
   "events": [
+    {
+      "ts": "2026-08-29T02:09:23.473541+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
     {
       "ts": "2026-08-29T02:04:05.261325+00:00",
       "kind": "message",
@@ -426,12 +432,6 @@
       "kind": "failover",
       "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
       "detail": "0 attente"
-    },
-    {
-      "ts": "2026-08-29T01:54:25.465924+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis Google Gemini",
-      "detail": "HTTP Error 429: Too Many Requests"
     }
   ],
   "tasks_quotas": {
