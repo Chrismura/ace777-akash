@@ -4,7 +4,7 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<meta name="version" content="1787958563">
+<meta name="version" content="1787962180">
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate" />
@@ -13,12 +13,12 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Share+Tech+Mono&family=Caveat:wght@600;700&display=swap" rel="stylesheet" />
-<script src="mission.js?v=1787958563"></script>
+<script src="mission.js?v=1787962180"></script>
 <!-- COSMOS HUB feed -->
-<script src="hub.js?v=1787958563"></script>
-<script src="../thermo/live.js?v=1787958563"></script>
-<script src="../thermo/cortana_feed.js?v=1787958563"></script>
-<script src="sante_live.js?v=1787958563"></script>
+<script src="hub.js?v=1787962180"></script>
+<script src="../thermo/live.js?v=1787962180"></script>
+<script src="../thermo/cortana_feed.js?v=1787962180"></script>
+<script src="sante_live.js?v=1787962180"></script>
 <style>
 :root{
   --ink:#050804; --panel:#0a100c; --line:#3a2e14;
@@ -599,10 +599,10 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
 .stream-inner{position:relative;z-index:1;padding:6px;display:flex;flex-direction:column;gap:4px}
 .trade{font-size:.68rem;display:grid;grid-template-columns:54px 40px 1fr auto;gap:6px;align-items:center;
   padding:3px 4px;border-left:2px solid transparent;opacity:.95;animation:slideIn .35s ease}
-.trade.buy{border-left-color:var(--acid);background:rgba(124,255,107,.05)}
-.trade.sell{border-left-color:var(--red);background:rgba(255,77,77,.05)}
+.trade.buy{border-left-color:var(--acid);background:rgba(124,255,107,.13)}
+.trade.sell{border-left-color:var(--red);background:rgba(255,77,77,.13)}
 .trade.skip{border-left-color:var(--muted);opacity:.55}
-.trade.seed{border-left-color:var(--amber);background:rgba(240,160,32,.06)}
+.trade.seed{border-left-color:var(--amber);background:rgba(240,160,32,.12)}
 @keyframes slideIn{from{transform:translateX(-8px);opacity:0}to{transform:none;opacity:1}}
 .fx-layer{position:absolute;inset:0;pointer-events:none;overflow:hidden}
 .fx-blip{position:absolute;width:8px;height:8px;border-radius:50%;background:var(--amber);
@@ -658,11 +658,14 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
 .card.hulk .bag .meta .dir-long{color:var(--acid)}
 .card.hulk .bag .meta .dir-short{color:var(--red)}  .card.hulk .stream.hist{height:auto;max-height:56vh;min-height:140px;overflow-y:auto;overflow-x:hidden}
 .card.hulk .stream.hist .stream-inner{gap:3px;padding:4px;display:flex;flex-direction:column}
-.card.hulk .stream.hist .trade{font-size:.78rem;grid-template-columns:44px auto 1fr auto;gap:4px;padding:3px 4px}
-.card.hulk .stream.hist .trade .t-ev{color:var(--muted);font-size:.56rem;letter-spacing:.02em;white-space:nowrap}
-.card.hulk .stream.hist .trade .t-when{color:var(--muted);font-size:.56rem;white-space:nowrap}
-.card.hulk .stream.hist .trade .t-cr{color:var(--hulk)}
-.card.hulk .stream.hist .trade .t-line{color:#e6eef7;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}
+.card.hulk .stream.hist .trade{font-size:.95rem;grid-template-columns:auto auto 1fr auto;gap:6px;padding:5px 6px}
+.card.hulk .stream.hist .trade .t-ev{color:#cfe0d0;font-size:.72rem;letter-spacing:.02em;white-space:nowrap}
+.card.hulk .stream.hist .trade .t-when{color:#a9b8c8;font-size:.7rem;white-space:nowrap}
+.card.hulk .stream.hist .trade .t-cr{color:var(--hulk);font-size:1.02rem}
+.card.hulk .stream.hist .trade .t-act{font-weight:700}
+.card.hulk .stream.hist .trade .t-act.t-buy{color:var(--acid)}
+.card.hulk .stream.hist .trade .t-act.t-sell{color:#ff6b6b}
+.card.hulk .stream.hist .trade .t-line{color:#f2f7f0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}
 .card.hulk .hulk-jlegend{font-size:.55rem;color:var(--muted);letter-spacing:.06em;margin-top:3px}
 .card.hulk .hulk-wallet{margin-top:6px;display:flex;flex-direction:column;gap:3px}
 .card.hulk .hw{display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:.72rem;padding:3px 8px;background:rgba(0,0,0,.28);border:1px solid rgba(196,255,77,.16);border-radius:2px}
@@ -682,22 +685,22 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
 .hulk-modal .hm-sec:first-of-type{margin-top:0}
 .hulk-modal .hm-note{font-size:.62rem;color:var(--muted);line-height:1.5;margin:4px 0}
 .hulk-modal .fee-big{font-family:Orbitron,sans-serif;font-size:1.4rem;color:var(--hulk)}
-.hulk-modal table{width:100%;border-collapse:collapse;font-size:.68rem}
-.hulk-modal th{color:var(--muted);font-size:.56rem;letter-spacing:.08em;text-align:right;padding:3px 6px;border-bottom:1px solid rgba(196,255,77,.2)}
+.hulk-modal table{width:100%;border-collapse:collapse;font-size:.95rem}
+.hulk-modal th{color:#cfe0d0;font-size:.66rem;letter-spacing:.08em;text-align:right;padding:5px 8px;border-bottom:1px solid rgba(196,255,77,.2)}
 .hulk-modal th:first-child,.hulk-modal td:first-child{text-align:left}
-.hulk-modal td{color:#cfe0d0;text-align:right;padding:3px 6px;border-bottom:1px solid rgba(255,255,255,.05)}
+.hulk-modal td{color:#f2f7f0;text-align:right;padding:6px 8px;border-bottom:1px solid rgba(255,255,255,.05)}
 .hulk-global{display:grid;grid-template-columns:repeat(auto-fit,minmax(96px,1fr));gap:6px;margin-bottom:2px}
-.hulk-global .hg{background:rgba(0,0,0,.28);border:1px solid rgba(196,255,77,.16);border-radius:3px;padding:6px 8px;display:flex;flex-direction:column;gap:3px;min-height:52px;justify-content:center}
-.hulk-global .hg-lab{color:var(--muted);letter-spacing:.12em;font-size:.55rem;font-family:Orbitron,sans-serif}
-.hulk-global .hg-val{color:#e6eef7;font-family:Orbitron,sans-serif;font-size:.92rem;white-space:nowrap}
+.hulk-global .hg{background:rgba(0,0,0,.28);border:1px solid rgba(196,255,77,.16);border-radius:3px;padding:7px 9px;display:flex;flex-direction:column;gap:3px;min-height:56px;justify-content:center}
+.hulk-global .hg-lab{color:#cfe0d0;letter-spacing:.12em;font-size:.62rem;font-family:Orbitron,sans-serif}
+.hulk-global .hg-val{color:#f2f7f0;font-family:Orbitron,sans-serif;font-size:1.05rem;white-space:nowrap}
 .hulk-global .hg-ia{border-color:rgba(124,255,107,.3)}
-.hulk-global .hg-ia .hg-val{font-size:.72rem;color:#cfe6d2;white-space:normal;line-height:1.25}
+.hulk-global .hg-ia .hg-val{font-size:.8rem;color:#cfe6d2;white-space:normal;line-height:1.25}
 .hulk-sect{font-family:Orbitron,sans-serif;font-size:.78rem;letter-spacing:.16em;color:#e8f0dc;margin:12px 0 6px;display:flex;justify-content:space-between;align-items:baseline;gap:8px}
-.hulk-vshold{font-size:.72rem;line-height:1.55;color:var(--muted);margin:2px 0 4px;overflow-wrap:break-word}
-.hulk-vshold .hsub{color:#cfe0d0}
+.hulk-vshold{font-size:.9rem;line-height:1.55;color:#d5e0dc;margin:2px 0 4px;overflow-wrap:break-word}
+.hulk-vshold .hsub{color:#cfe0d0;font-size:.82rem}
 .hulk-vshold .wpos{color:var(--acid)}.hulk-vshold .wneg{color:var(--red)}.hulk-vshold .wneu{color:#c5d0dc}
-.hulk-read{margin-top:10px;padding:8px 10px;background:rgba(196,255,77,.06);border:1px solid rgba(196,255,77,.3);border-radius:4px;font-size:.78rem;line-height:1.55;color:#e6eef7}
-.hulk-read .hr-t{font-family:Orbitron,sans-serif;font-size:.6rem;letter-spacing:.14em;color:var(--hulk);margin-bottom:3px}
+.hulk-read{margin-top:10px;padding:9px 11px;background:rgba(196,255,77,.08);border:1px solid rgba(196,255,77,.4);border-radius:4px;font-size:.92rem;line-height:1.6;color:#f0f5ee}
+.hulk-read .hr-t{font-family:Orbitron,sans-serif;font-size:.7rem;letter-spacing:.14em;color:var(--hulk);margin-bottom:3px}
 .hulk-read .hr-l{display:flex;gap:6px;align-items:flex-start}
 .hulk-read .hr-l .wpos{color:var(--acid)}.hulk-read .hr-l .wneg{color:var(--red)}
 .hulk-sect .hulk-sect-n{color:#cfe0d0;font-size:.66rem;letter-spacing:.04em;font-family:"Share Tech Mono",monospace}
@@ -1961,6 +1964,17 @@ window.addEventListener('unhandledrejection', function(e) {
     const h=M.hulk||{};
     const set=(id,v)=>{const n=document.getElementById(id); if(n) n.innerHTML=v};
     const usd=v=>(v!=null&&v===v)?('$'+Number(v).toFixed(2)):'—';
+    // fmtQty : quantité lisible — grands nombres en entier clair (12573 → «12 573»),
+    // petits avec décimales (0.008 → «0.008»), jamais de notation scientifique.
+    const fmtQty=q=>{
+      if(q==null||isNaN(q)) return '—';
+      if(q===0) return '0';
+      const a=Math.abs(q);
+      if(a>=10000) return Math.round(q).toLocaleString('fr-FR').replace(/\u202f/g,' ');
+      if(a>=100) return q.toFixed(a%1===0?0:1);
+      if(a>=1) return q.toFixed(2).replace(/\.?0+$/,'');
+      return q.toPrecision(3);
+    };
     set('h-pnl', `<span class="${cls(h.pnl)}">${fmt(h.pnl)}</span>`);
     set('h-equity', usd(h.equity!=null? h.equity : (h.base!=null? Number(h.base)+(Number(h.pnl)||0) : null)));
     set('h-cash', usd(h.cash));
@@ -2018,8 +2032,8 @@ window.addEventListener('unhandledrejection', function(e) {
             const cashCls=(p.cash!=null&&p.cash>0)?'wpos':'wneu';
             return `<tr class="${over?'hrow over':''}">
               <td class="hc"><span class="hcn">${crypto}</span>${over?' <span class="hsub" style="color:var(--warn,orange)">⚠</span>':''}</td>
-              <td class="hq" title="Bag au début : quantité seedée + valeur en $">${p.seedQty!=null?Number(p.seedQty).toPrecision(4):'—'} <span class="hsub">${p.seed!=null?usd(p.seed):''}</span></td>
-              <td class="hs ${posCls}" title="Bag actuel : quantité restante + valeur au cours — vert si le prix monte">${p.posQty!=null&&p.posQty>0?Number(p.posQty).toPrecision(4):'—'} <span class="hsub">${p.pos!=null?usd(p.pos):''}</span></td>
+              <td class="hq" title="Bag au début : quantité seedée + valeur en $">${fmtQty(p.seedQty)} <span class="hsub">${p.seed!=null?usd(p.seed):''}</span></td>
+              <td class="hs ${posCls}" title="Bag actuel : quantité restante + valeur au cours — vert si le prix monte">${p.posQty!=null&&p.posQty>0?fmtQty(p.posQty):'—'} <span class="hsub">${p.pos!=null?usd(p.pos):''}</span></td>
               <td class="hs ${cashCls}" title="Cash réel de la paire (comment Hulk gère la trésorerie)">${p.cash!=null?usd(p.cash):'—'}</td>
               <td class="hs" title="Total Hulk = bag actuel (valeur $) + cash"><b>${p.reel!=null?usd(p.reel):'—'}</b></td>
               <td class="hq" title="Budget = bag début + marge pour opérer">${budget!=null?usd(budget):'—'}</td>
@@ -2166,8 +2180,8 @@ window.addEventListener('unhandledrejection', function(e) {
         return `<div class="trade ${kind}" title="${r.reason||''}${r.dir?(' · '+r.dir):''}">
           <span class="t-when">${hulkDate?hulkDate+' '+hulkTime:''}</span>
           <span class="t-ev">${isSeed?'DÉPART':ev.replace(/_/g,' ').slice(0,12)}</span>
-          <span class="t-line"><b class="t-cr">${crypto}</b> ${action} ${det||''}${r.dir?(' · '+r.dir):''}</span>
-          <span class="${(isBuy||isSeed)?'neu':cls(r.pnl)}">${pnlShow}</span>
+          <span class="t-line"><b class="t-cr">${crypto}</b> <span class="t-act ${isBuy?'t-buy':'t-sell'}">${action}</span> ${det||''}${r.dir?(' · '+r.dir):''}</span>
+          <span class="${isSeed?'neu':((r.pnl>0)?'pos':(r.pnl<0?'neg':'neu'))}">${pnlShow}</span>
         </div>`;
       }).join('') || '<span style="color:var(--muted)">pas encore d\'opération</span>';
     }
@@ -3460,12 +3474,16 @@ window.addEventListener('unhandledrejection', function(e) {
       const h=j.h24||{};
       const usd=(x)=>{ if(x==null) return '—'; return (x<0?'-':'+')+Math.abs(x).toFixed(0)+'$'; };
       if(v){
-        const c=h.commission;
-        v.textContent = (c!=null)? ((c<0?'-':'')+Math.abs(c).toFixed(0)+' USDT') : '—';
+        // Frais plateforme 24h = commission + funding (les vrais frais payés)
+        const c=h.commission||0;
+        const f=h.funding_fee||0;
+        const tot=c+f;
+        v.textContent = (tot!==0)? ((tot<0?'-':'')+Math.abs(tot).toFixed(3)+' USDT') : '0.000 USDT';
       }
       if(s){
         const pct = (h.commission!=null && h.net_trading!=null && h.net_trading!==0) ? Math.round(Math.abs(h.commission/h.net_trading)*100) : null;
-        s.textContent = '24h · PnL '+usd(h.realized_pnl)+' · net '+usd(h.net_trading)+(pct!=null?(' · frais '+pct+'%'):'');
+        const f=h.funding_fee||0;
+        s.textContent = '24h · commission '+(h.commission!=null?h.commission.toFixed(3)+' USDT':'—')+' · funding '+(f?f.toFixed(3)+' USDT':'0')+' · PnL '+usd(h.realized_pnl)+(pct!=null?(' · frais '+pct+'%'):'');
       }
     }catch(e){
       const v=document.getElementById('b-fees-val'); if(v) v.textContent='—';

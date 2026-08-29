@@ -708,8 +708,14 @@ def load_hulk():
         pos_par_paire[_pair] = _pos_val
         reel_par_paire[_pair] = cash_par_paire.get(_pair, 0.0) + _pos_val
         _budget = budget_par_paire.get(_pair, 0.0)
-        if _sp and _mark:
-            hold_par_paire[_pair] = (_budget / float(_sp)) * _mark
+        # « Si rien fait » (29/08, Christophe) : les 20 $ de marge sont une
+        # RÉSERVE de trading, pas un achat direct. Donc « rien fait » = le SEED
+        # (10 $) tenu au cours actuel + la marge (20 $) qui reste en cash —
+        # jamais investie. AVANT : on calculait (budget/seed_px)*mark, c-à-d les
+        # 30 $ investis d'office (biaisé vs Hulk quand le prix monte).
+        _seed_qty = float(seed_qty.get(_pair) or 0.0)
+        if _mark and _seed_qty:
+            hold_par_paire[_pair] = (_seed_qty * _mark) + MARGE_PAR_CRYPTO
         else:
             hold_par_paire[_pair] = _budget
         if net_investi.get(_pair, 0.0) > _budget + 0.01:
