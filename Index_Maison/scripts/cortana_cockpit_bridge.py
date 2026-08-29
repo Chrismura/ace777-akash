@@ -37,6 +37,15 @@ HULK = ROOT / "hulk-mexc"
 PANIC_LOG = ROOT / "Index_Maison" / "cockpit" / "panic.log"
 PORT = 17777
 
+# --- Archive des CHATS Cortana (réponses écrites relisables dans l'onglet VOL) ---
+# Chaque réponse du chat cockpit est appendée dans cortana_chats.jsonl (jour courant).
+# Les entrées de plus de 3 jours sont déplacées dans ANALYSES_CORTANA_ARCHIVE.jsonl
+# (fichier permanent) — exigence Christophe 29/08 : relire tranquillement la journée.
+CHATS_DIR = ROOT / "Index_Maison" / "data"
+CHATS_LOG = CHATS_DIR / "cortana_chats.jsonl"
+CHATS_ARCHIVE = CHATS_DIR / "analyses_cortana_archive.jsonl"
+CHATS_JOURS_GARDE = 3
+
 # --- AGORA : journal vivant (mémoire collab) + miroir workspace ---
 AGORA_JOURNAL = Path(os.path.expanduser(
     "~/Documents/Obsidian_ACE777/Swarm_Bus/09_MEMOIRE_COLLAB.md"))
@@ -544,6 +553,69 @@ def do_rappel(message: str) -> dict:
     return {"ok": False, "error": "format attendu : « rappelle-moi <tâche> à <HH:MM> »"}
 
 
+def _chat_archive_append(entry: dict) -> None:
+    """Append une entrée de chat dans cortana_chats.jsonl (atomic-ish)."""
+    try:
+        CHATS_DIR.mkdir(parents=True, exist_ok=True)
+        with CHATS_LOG.open("a", encoding="utf-8") as f:
+            f.write(json.dumps(entry, ensure_ascii=False) + "\n")
+    except Exception:
+        pass
+
+
+def _chat_archive_rotate() -> None:
+    """Déplace les entrées de plus de 3 jours vers analyses_cortana_archive.jsonl.
+    Appelé à chaque lecture /chats : le journal courant ne garde que les
+    3 derniers jours, le reste part dans l'archive permanente."""
+    try:
+        if not CHATS_LOG.exists():
+            return
+        seuil = time.time() - CHATS_JOURS_GARDE * 86400
+        lignes = CHATS_LOG.read_text(encoding="utf-8", errors="ignore").splitlines()
+        reste = []
+        vieux = []
+        for ln in lignes:
+            if not ln.strip():
+                continue
+            try:
+                e = json.loads(ln)
+                ts = e.get("ts") or 0
+                try:
+                    ts_f = float(ts)
+                except Exception:
+                    ts_f = 0
+                (vieux if ts_f < seuil else reste).append(ln)
+            except Exception:
+                reste.append(ln)  # ligne illisible : on la garde (pas de perte)
+        if vieux:
+            CHATS_DIR.mkdir(parents=True, exist_ok=True)
+            with CHATS_ARCHIVE.open("a", encoding="utf-8") as f:
+                f.write("\n".join(vieux) + "\n")
+        with CHATS_LOG.open("w", encoding="utf-8") as f:
+            f.write("\n".join(reste) + ("\n" if reste else ""))
+    except Exception:
+        pass
+
+
+def _chat_archive_liste() -> list:
+    """Liste des chats des 3 derniers jours (après rotation), pour le cockpit."""
+    _chat_archive_rotate()
+    out = []
+    try:
+        if not CHATS_LOG.exists():
+            return out
+        for ln in CHATS_LOG.read_text(encoding="utf-8", errors="ignore").splitlines():
+            if not ln.strip():
+                continue
+            try:
+                out.append(json.loads(ln))
+            except Exception:
+                continue
+    except Exception:
+        pass
+    return out[-60:]  # max 60 réponses affichées (les plus récentes)
+
+
 def do_chat(message: str) -> dict:
     """Chat cockpit -> hub (task=mission = deepseek-v4-flash = Buffy, rotation hub).
     Renvoie le texte (écrit, affiché dans le cockpit) et lance la lecture vocale
@@ -759,6 +831,14 @@ def do_chat(message: str) -> dict:
         return {"ok": False, "error": "réponse vide du hub"}
     # voix Vivienne en arrière-plan (n'attend pas la fin de lecture)
     threading.Thread(target=_speak_texte, args=(content,), daemon=True).start()
+    # Archive écrite (onglet VOL, relisible à la journée) : question + réponse + ts
+    _chat_archive_append({
+        "ts": time.time(),
+        "ts_iso": datetime.now(timezone.utc).isoformat(),
+        "question": msg,
+        "reponse": content,
+        "provider": provider,
+    })
     return {"ok": True, "texte": content, "provider": provider}
 
 
@@ -2025,6 +2105,10 @@ class Handler(BaseHTTPRequestHandler):
             return
         if path == "/ecoute":
             self._json(200, {"ok": True, "ecoute": barge_in.activ()})
+            return
+        if path == "/chats":
+            # Réponses écrites de Cortana (3 derniers jours) — onglet VOL
+            self._json(200, {"ok": True, "chats": _chat_archive_liste()})
             return
         self._json(404, {"ok": False, "error": "not found"})
 
