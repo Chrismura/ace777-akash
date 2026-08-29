@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-29T05:10:14.470096+00:00",
+  "generated_at": "2026-08-29T05:10:44.818721+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 317
+      "calls_24h": 318
     },
     {
       "id": "openrouter-free",
@@ -256,10 +256,18 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 71,
-    "remaining": 553
+    "consumed": 72,
+    "remaining": 552
   },
   "queue": [
+    {
+      "ts": "2026-08-29T05:10:23.554231+00:00",
+      "task": "supervise.decision",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 1.16
+    },
     {
       "ts": "2026-08-29T05:05:18.437596+00:00",
       "task": "signets.juge",
@@ -371,17 +379,15 @@
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
       "duration_s": 0.86
-    },
-    {
-      "ts": "2026-08-29T04:10:16.913524+00:00",
-      "task": "supervise.decision",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 0.81
     }
   ],
   "events": [
+    {
+      "ts": "2026-08-29T05:10:23.553887+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
     {
       "ts": "2026-08-29T05:05:18.437350+00:00",
       "kind": "message",
@@ -435,12 +441,6 @@
       "kind": "filet-universel",
       "title": "[FILET UNIVERSEL] « OpenRouter Juge (nemotron-3-super-120b free) - verificateur independant » a repondu hors chaine",
       "detail": "analyste.strategie"
-    },
-    {
-      "ts": "2026-08-29T04:52:41.672169+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis NaraRouter (7M tokens/jour gratuits)",
-      "detail": "HTTP Error 404: Not Found"
     }
   ],
   "tasks_quotas": {
