@@ -85,6 +85,7 @@ LEXIQUE = {
     "sdi": ("SDI — Drainage silencieux (vieux BTC bougent sans bruit)", "0-1"),
     "ipt": ("IPT — Poussière intelligente (micro-tx × z-frais × entropie)", "z-score"),
     "rbf": ("RBF — Remplacements de frais (urgence du déplacement)", "0-1"),
+    "sapi": ("SAPI — Poussière institutionnelle (score 0-1, alerte ≥ 0.75 + volume)", "0-1"),
     "indice_onchain": ("Score onchain unifié (blocs privatisés ×0.5 + poussière ×0.3 + z-score ×0.2)", "/100"),
     "pipeline_health": ("Santé du pipeline de données (7 sources, mode nominal/dégradé/kill)", "0-1"),
     "geopol": ("Score géopolitique (5 modules : pizza/jets/pétrole/défense/news + ML)", "0-1"),
@@ -515,8 +516,9 @@ def build_facts(indice):
     elif indice in VIRTUAL:
         base_key, name, unit = VIRTUAL[indice]
         vval, vnote = virtual_value(indice, live)
-    elif indice in ("sdi", "ipt", "rbf"):
+    elif indice in ("sdi", "ipt", "rbf", "sapi"):
         # PIPELINE UNIFIÉ 25/08 : silent_drain_index.py écrit sdi/ipt/rbf dans live.json
+        # + SAPI (poussière institutionnelle, 29/08 GO Christophe)
         base_key, name, unit = indice, LEXIQUE.get(indice, (indice, ""))[0], LEXIQUE.get(indice, (indice, ""))[1]
         d = live.get(indice) or {}
         if indice == "sdi":
@@ -526,9 +528,15 @@ def build_facts(indice):
         elif indice == "ipt":
             vval = d.get("ipt")
             vnote = f"micro-tx ratio {d.get('micro_tx_ratio')} · z-frais {d.get('z_fee')} · entropie {d.get('entropy')}"
-        else:
+        elif indice == "rbf":
             vval = d.get("rbf_score")
             vnote = f"ratio {d.get('rbf_ratio')} · paires {d.get('rbf_pairs')} · n_txs {d.get('n_txs')}"
+        else:  # sapi
+            vval = d.get("score")
+            vnote = (f"composantes z_fee {d.get('composantes', {}).get('z_fee')} · "
+                     f"taux_fantome {d.get('composantes', {}).get('taux_fantome')} · "
+                     f"micro_tx {d.get('composantes', {}).get('micro_tx_ratio')} · "
+                     f"alerte {'OUI' if d.get('alerte') else 'non'}")
     elif indice == "indice_onchain":
         # Score onchain UNIFIÉ (0-100) — clé indiceOnchain (fix 27/08 : indice n'existe pas)
         base_key, name, unit = "indice_onchain", LEXIQUE["indice_onchain"][0], LEXIQUE["indice_onchain"][1]

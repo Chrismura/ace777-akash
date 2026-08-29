@@ -80,18 +80,37 @@ def get_btc_dormant():
     return None
 
 def get_fee_pressure():
-    """Récupère la pression des frais via Mempool.space"""
-    url = "https://mempool.space/api/v1/fees/recommended"
-    data = fetch_json(url)
-    if not data:
-        return None
-    
-    return {
-        "fastest": data.get("fastestFee", 0),
-        "halfHour": data.get("halfHourFee", 0),
-        "hour": data.get("hourFee", 0),
-        "economy": data.get("economyFee", 0)
-    }
+    """Récupère la pression des frais — RÈGLE DES 2 SOURCES (29/08, protocole
+    croisement externe Christophe) : mempool.space en PRIORITÉ, fallback
+    blockstream.info si mempool est down (prouvé 29/08 : mempool down 6h+
+    → SDI/IPT/RBF (la pépite Cortana) restaient figés). Fail-open : les deux
+    down = None (le pipeline complet s'arrête proprement)."""
+    # Source 1 : mempool.space (format fastestFee/halfHourFee/hourFee/economyFee)
+    data = fetch_json("https://mempool.space/api/v1/fees/recommended")
+    if data:
+        return {
+            "fastest": data.get("fastestFee", 0),
+            "halfHour": data.get("halfHourFee", 0),
+            "hour": data.get("hourFee", 0),
+            "economy": data.get("economyFee", 0),
+            "source": "mempool.space",
+        }
+    # Source 2 : blockstream.info (format {blocs: sat/vB} — 1, 2, 3, 6, 10 blocs)
+    data2 = fetch_json("https://blockstream.info/api/fee-estimates")
+    if data2:
+        def _v(k):
+            try:
+                return max(1, round(float(data2.get(str(k), 0))))
+            except Exception:
+                return 1
+        return {
+            "fastest": _v(2),      # ~10 min
+            "halfHour": _v(6),     # ~30 min
+            "hour": _v(12),        # ~60 min
+            "economy": _v(24),      # ~2h
+            "source": "blockstream.info (fallback)",
+        }
+    return None
 
 def get_dormant_surge(fee_pressure):
     """
@@ -300,6 +319,82 @@ def compute_sdi():
     # 5. RBF Analytics
     rbf_result = get_rbf_analytics()
     
+    # 5bis. SAPI — Score d'Alerte Poussière Institutionnelle (29/08, GO Christophe)
+    # Formule Cortana (session poussiere-20260829-152854, tour 1), validée par nos
+    # données (corr micro_tx/RBF = −0.275 sur 13 933 points). Intégration par le
+    # codeur (minimax-m3/Gemini), CORRIGÉE par supervision Buffy (FIX 1 : chemin
+    # murs_observations, FIX 2 : clé top_murs[pair] et non top_murs[paire]).
+    def _integrer_sapi(result: dict, data_dir: Path) -> None:
+        """Calcule et injecte le SAPI, avec fail-open total."""
+        try:
+            ipt_result = result.get("ipt", {}) or {}
+            z_fee = float(ipt_result.get("z_fee", 0.0) or 0.0)
+            micro_tx_ratio = float(ipt_result.get("micro_tx_ratio", 0.0) or 0.0)
+
+            # 2. bloc_privatise.json (taux_fantome + volume_btc)
+            taux_fantome = 0.0
+            volume_btc = 0.0
+            bloc_path = data_dir / "bloc_privatise.json"
+            if bloc_path.exists():
+                try:
+                    bloc_data = json.loads(bloc_path.read_text(encoding="utf-8"))
+                    taux_fantome = float(bloc_data.get("taux_fantome", 0.0) or 0.0)
+                    volume_btc = float(bloc_data.get("volume_btc", 0.0) or 0.0)
+                except Exception:
+                    pass
+
+            # 3. Proxy carnet spot : spread_avg_bps BTCUSDT depuis murs_observations.json
+            # FIX 1 (supervision) : data_dir = Index_Maison/data → il faut remonter
+            # DEUX niveaux (data_dir.parent.parent = ace777-test-day1) pour atteindre
+            # hulk-mexc. Le chemin du codeur (data_dir.parent/hulk-mexc) était FAUX.
+            spot_proxy = 0.0
+            murs_path = data_dir.parent.parent / "hulk-mexc" / "runs" / "murs_observations.json"
+            if murs_path.exists():
+                try:
+                    murs_data = json.loads(murs_path.read_text(encoding="utf-8"))
+                    top_murs = murs_data.get("top_murs") or []
+                    # FIX 2 (supervision) : top_murs est une LISTE de dicts avec la
+                    # clé "pair" (le codeur cherchait "paire" → jamais trouvé).
+                    spread_avg_bps = 0.0
+                    for item in top_murs:
+                        if isinstance(item, dict) and item.get("pair") == "BTCUSDT":
+                            spread_avg_bps = float(item.get("spread_avg_bps", 0.0) or 0.0)
+                            break
+                    spot_proxy = min(1.0, abs(spread_avg_bps) / 100.0)
+                except Exception:
+                    pass
+
+            # 4. Formule SAPI
+            term_z_fee = 0.35 if z_fee > 2.0 else 0.0
+            term_fantome = min(1.0, taux_fantome / 0.15) * 0.30
+            term_micro = 0.20 if micro_tx_ratio > 0.5 else 0.0
+            term_spot = min(1.0, spot_proxy * 10.0) * 0.15
+            sapi = max(0.0, min(1.0, term_z_fee + term_fantome + term_micro - term_spot))
+
+            alerte_sapi = bool(sapi >= 0.75 and volume_btc >= 500)
+            result["sapi"] = {
+                "score": round(sapi, 3),
+                "alerte": alerte_sapi,
+                "composantes": {
+                    "z_fee": round(z_fee, 3),
+                    "taux_fantome": round(taux_fantome, 3),
+                    "micro_tx_ratio": round(micro_tx_ratio, 3),
+                    "spot_proxy": round(spot_proxy, 3),
+                },
+                "note": "Score d'Alerte Poussière Institutionnelle (Cortana tour 1, validé 29/08 — corr RBF plat −0.275). Proxy carnet spot = spread_avg_bps normalisé.",
+            }
+            if alerte_sapi:
+                msg = "SAPI ÉLEVÉ: poussière institutionnelle probable (score ≥ 0.75 + volume)"
+                if msg not in result.get("alerts", []):
+                    result.setdefault("alerts", []).append(msg)
+        except Exception as e:
+            result["sapi"] = {
+                "score": 0.0, "alerte": False,
+                "composantes": {"z_fee": 0.0, "taux_fantome": 0.0,
+                                 "micro_tx_ratio": 0.0, "spot_proxy": 0.0},
+                "note": f"Erreur calcul SAPI (fail-open): {str(e)}",
+            }
+
     # 6. Assemblage
     result = {
         "timestamp": int(time.time()),
@@ -309,6 +404,7 @@ def compute_sdi():
         "fee_pressure": fee_pressure,
         "alerts": []
     }
+    _integrer_sapi(result, DATA_DIR)
     
     # 7. Alertes
     if sdi_result and sdi_result["sdi"] > 0.7:

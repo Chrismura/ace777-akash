@@ -1063,6 +1063,10 @@ def main() -> int:
             payload["sdi"] = sdi_data.get("sdi", {})
             payload["ipt"] = sdi_data.get("ipt", {})
             payload["rbf"] = sdi_data.get("rbf", {})
+            # SAPI — Score d'Alerte Poussière Institutionnelle (29/08, GO
+            # Christophe, codeur + supervision Buffy) : propagé vers live.json
+            # pour Cortana et le cockpit (sans lui, le SAPI restait invisible).
+            payload["sapi"] = sdi_data.get("sapi", {})
             payload["sdi_alerts"] = sdi_data.get("alerts", [])
     except Exception:
         pass

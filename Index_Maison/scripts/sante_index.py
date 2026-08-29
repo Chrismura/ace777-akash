@@ -691,6 +691,41 @@ def verifier_chaines():
         "ok": cq_ok, "maillons": maillons,
     })
 
+    # ============================================================
+    # 11. SAPI — POUSSIÈRE INSTITUTIONNELLE (29/08, GO Christophe) :
+    #     la pépite Cortana (RBF plat validé −0.275) codée par le codeur et
+    #     propagée par thermo_quotidien → live.json.sapi. Alerte ≥ 0.75 ET
+    #     volume ≥ 500 BTC. La chaîne vérifie que le SAPI est FRAIS et calculé.
+    # ============================================================
+    maillons = []
+    sapi_json = IM / "data" / "sdi_latest.json"
+    sapi_frais = frais(sapi_json, 15)  # thermo_quotidien toutes les 5 min
+    a_sapi = age_min(sapi_json)
+    sapi_score = None
+    sapi_alerte = False
+    try:
+        sd = lire_json(sapi_json)
+        sapi_bloc = sd.get("sapi") or {}
+        sapi_score = sapi_bloc.get("score")
+        sapi_alerte = bool(sapi_bloc.get("alerte"))
+    except Exception:
+        pass
+    maillons.append(maillon("sdi_latest.json (SAPI dedans)", sapi_frais,
+                            f"âge {a_sapi:.0f} min" if a_sapi is not None else "ABSENT"))
+    maillons.append(maillon("SAPI calculé", sapi_score is not None,
+                            f"score {sapi_score}" if sapi_score is not None else "absent"))
+    maillons.append(maillon("alerte poussière (≥ 0.75 + volume)", not sapi_alerte,
+                            "ACTIVE" if sapi_alerte else "aucune"))
+    if not sapi_frais:
+        anomalies.append("SAPI : sdi_latest.json figé — la pépite poussière institutionnelle ne tourne plus")
+    if sapi_alerte:
+        anomalies.append(f"SAPI : ALERTE poussière institutionnelle (score {sapi_score}) — gros déplacement masqué possible")
+    chaines.append({
+        "id": "sapi", "nom": "SAPI POUSSIÈRE",
+        "chemin": "silent_drain_index.compute_sdi (SAPI) → sdi_latest.json → thermo_quotidien → live.json.sapi → Cortana + cockpit",
+        "ok": sapi_frais and sapi_score is not None and not sapi_alerte, "maillons": maillons,
+    })
+
     return chaines, anomalies, now, chaines_degradees
 
 
