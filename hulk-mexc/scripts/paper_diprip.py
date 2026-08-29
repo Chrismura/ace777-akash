@@ -529,6 +529,12 @@ class PaperBot:
         self.rip_late_p1 = float(cfg.get("RIP_LATE_P1_PCT", "6.0"))
         self.rip_late_p2 = float(cfg.get("RIP_LATE_P2_PCT", "8.0"))
         self.rip_scaleout_frac = float(cfg.get("RIP_SCALEOUT_FRAC", "0.25"))
+        # SPEC v2 SELL FULL (29/08) — garde-fou amplitude + verrou 3 (config réversible)
+        self.sell_full_amplitude_guard = float(cfg.get("SELL_FULL_AMPLITUDE_GUARD", "12.0"))
+        self.sell_full_require_invalidation = int(cfg.get("SELL_FULL_REQUIRE_INVALIDATION", "1"))
+        self.sell_full_guard_degraded = int(cfg.get("SELL_FULL_GUARD_DEGRADED", "1"))
+        self.dust_sweep_min_notional = float(cfg.get("DUST_SWEEP_MIN_NOTIONAL", "1.0"))
+        self.sell_partial_cascade = int(cfg.get("SELL_PARTIAL_CASCADE", "1"))
         self.reentry_max = max(1, int(float(cfg.get("REENTRY_MAX", "1"))))
         self.reentry_count: dict[str, int] = {}
         # Bag de départ (test boucle bag dès le 1er jour) — 15/08 Christophe
@@ -1878,6 +1884,7 @@ class PaperBot:
         sortie quand le prix redonne giveback sous le pic. Zéro 2× / zéro rip
         paliers (ils contrediraient le « laisser courir »)."""
         p = self.pos[pair]
+        sc = self.scores.get(pair) or {}  # SPEC v2 (29/08) : contexte amplitude pour la garde SELL full
         entry = float(p["entry"])
         qty = float(p["qty"])
         stake = float(p.get("stake") or entry * qty)
@@ -1891,8 +1898,30 @@ class PaperBot:
         if t_arm > 0 and t_gb > 0:
             # backstop dur : le stop fixe reste (protection)
             if chg <= -float(p.get("stop") or 6):
-                proceeds = self.sell_trade(pair, price, f"stop-{p['stop']}%_avant_2x")
-                self.add_pair_cash(pair, proceeds)
+                # SPEC v2 (29/08) — Verrous 1&2 et Bloc 1/2 : garde-fou SELL full en forte amplitude
+                move24 = float(sc.get("move24_pct") or 0.0)
+                vol_spike = sc.get("vol_spike")
+                dd15 = float(sc.get("dd15_pct") or 0.0)
+                is_degraded = (vol_spike is None)
+                invalidation_valid = (not self.sell_full_require_invalidation) or is_degraded or (dd15 < -5.0 or vol_spike == 0)
+                if move24 > self.sell_full_amplitude_guard and not invalidation_valid and not (is_degraded and not self.sell_full_guard_degraded):
+                    full_qty = float(p["qty"])
+                    part_qty = full_qty * 0.5
+                    step, _mn = self.lot_filter(pair)
+                    rem_qty = full_qty - part_qty
+                    rem_val = rem_qty * price
+                    min_q = step if step else 0.0
+                    if rem_qty < min_q or rem_val < self.dust_sweep_min_notional:
+                        proceeds = self.sell_trade(pair, price, f"dust_sweep_stop_guard_{pair}")
+                        guard_tag = "DUST_SWEEP"
+                    else:
+                        proceeds = self.sell_trade(pair, price, f"stop-{p['stop']}%_guard_partial_50", qty=part_qty)
+                        guard_tag = "SELL_PARTIAL"
+                    self.add_pair_cash(pair, proceeds)
+                    p["guard_last"] = guard_tag
+                else:
+                    proceeds = self.sell_trade(pair, price, f"stop-{p['stop']}%_avant_2x")
+                    self.add_pair_cash(pair, proceeds)
                 return
             # trailing : armé quand le pic ≥ arm, sortie si le prix redonne
             # giveback sous le pic (pattern HUNTER : sélectif, laisse courir).
@@ -1915,8 +1944,30 @@ class PaperBot:
 
         if not (self.is_bag(pair) and self.bag_no_tech_stop):
             if chg <= -float(p.get("stop") or 6):
-                proceeds = self.sell_trade(pair, price, f"stop-{p['stop']}%_avant_2x")
-                self.add_pair_cash(pair, proceeds)
+                # SPEC v2 (29/08) — garde-fou SELL full (branche standard, non-trailing)
+                move24 = float(sc.get("move24_pct") or 0.0)
+                vol_spike = sc.get("vol_spike")
+                dd15 = float(sc.get("dd15_pct") or 0.0)
+                is_degraded = (vol_spike is None)
+                invalidation_valid = (not self.sell_full_require_invalidation) or is_degraded or (dd15 < -5.0 or vol_spike == 0)
+                if move24 > self.sell_full_amplitude_guard and not invalidation_valid and not (is_degraded and not self.sell_full_guard_degraded):
+                    full_qty = float(p["qty"])
+                    part_qty = full_qty * 0.5
+                    step, _mn = self.lot_filter(pair)
+                    rem_qty = full_qty - part_qty
+                    rem_val = rem_qty * price
+                    min_q = step if step else 0.0
+                    if rem_qty < min_q or rem_val < self.dust_sweep_min_notional:
+                        proceeds = self.sell_trade(pair, price, f"dust_sweep_stop_guard_{pair}")
+                        guard_tag = "DUST_SWEEP"
+                    else:
+                        proceeds = self.sell_trade(pair, price, f"stop-{p['stop']}%_guard_partial_50", qty=part_qty)
+                        guard_tag = "SELL_PARTIAL"
+                    self.add_pair_cash(pair, proceeds)
+                    p["guard_last"] = guard_tag
+                else:
+                    proceeds = self.sell_trade(pair, price, f"stop-{p['stop']}%_avant_2x")
+                    self.add_pair_cash(pair, proceeds)
                 return
 
             # 16/08 soir (Christophe) : RIP scale-out 2 paliers — « une pierre trois coups »
