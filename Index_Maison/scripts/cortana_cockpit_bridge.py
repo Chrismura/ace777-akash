@@ -756,6 +756,14 @@ def do_chat(message: str) -> dict:
         texte_final = texte_final.replace("**", "")
         if any(k in m_low for k in ("à voix", "a voix", "parle", "vocale")):
             threading.Thread(target=_speak_texte, args=(texte_final,), daemon=True).start()
+        # Archive écrite (onglet VOL) : consultations famille relisables aussi
+        _chat_archive_append({
+            "ts": time.time(),
+            "ts_iso": datetime.now(timezone.utc).isoformat(),
+            "question": msg,
+            "reponse": texte_final,
+            "provider": "famille:gemini+deepseek+juge",
+        })
         return {"ok": True, "texte": texte_final, "mode": "famille"}
 
     # Commande vocale VISION : DÉTECTION STRICTE en début de message pour ne

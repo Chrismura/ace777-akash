@@ -1,4 +1,4 @@
-# ARCHITECTURE VIVANTE — ACE777 (2026-08-29 08:55 UTC)
+# ARCHITECTURE VIVANTE — ACE777 (2026-08-29 10:04 UTC)
 
 > Document GÉNÉRÉ AUTOMATIQUEMENT à l'instant. La famille valide
 > en s'appuyant sur CE contexte, pas sur des documents figés.
@@ -7,7 +7,7 @@
 - ⛔ hub
 - ✅ pont cockpit
 - ✅ radar
-- ⛔ lecteur signets
+- ✅ lecteur signets
 - ⛔ générateur fiches
 - ⛔ feed mission
 - ⛔ serveur cockpit
@@ -22,7 +22,7 @@
 
 ## État de la mission (bots + PnL)
 
-- mission.json : 2026-08-29 08:54Z · run `MASTER_VORTEX_V2_COLLAB_4H` · alerte `amber`
+- mission.json : 2026-08-29 10:04Z · run `MASTER_VORTEX_V2_COLLAB_4H` · alerte `amber`
 - PnL combiné : **1.27 $** 📈 (combo 1.2674)
 - ALPHA (sniper (embuscade, ×13, revenge si claque)) : **+2.01 $** · 10 fills · 249 skips
 - BETA (éclaireur (chatouille le marché, alimente Alpha)) : **-0.74 $** · 15 fills · 257 skips
@@ -41,6 +41,22 @@
 - [INTEGRATION AUTO 2026-08-29]
   · Hub ameliore avec dots-studio/dots-3-note-preview:free (preuve A/B + juge : MIEUX - Repons
   · ETAT : EN OBSERVATION 48h (jamais route) -> observatoire + GO hebdo avant activation.
+- [ROLLBACK AUTO 2026-08-29]
+  · obs-1786688184 (cohere/north-mini-code:free) : 100% erreurs > 5% (observatoire)
+- [ROLLBACK AUTO 2026-08-29]
+  · obs-1786774646 (nvidia/nemotron-3-nano-30b-a3b:free) : 100% erreurs > 5% (observatoire)
+- [ROLLBACK AUTO 2026-08-29]
+  · obs-1786774656 (nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free) : 60% erreurs > 5% (ob
+- [ROLLBACK AUTO 2026-08-29]
+  · obs-1786774667 (nvidia/nemotron-3.5-lightning:free) : 50% erreurs > 5% (observatoire)
+- [ROLLBACK AUTO 2026-08-29]
+  · obs-1786795252 (nvidia/nemotron-3.5-content-safety:free) : 100% erreurs > 5% (observatoire
+- [ROLLBACK AUTO 2026-08-29]
+  · obs-1787033767 (google/diffusiongemma-26b-a4b-it) : 100% erreurs > 5% (observatoire)
+- [ROLLBACK AUTO 2026-08-29]
+  · obs-1787206650 (google/gemma-4-26b-a4b-it:free) : 100% erreurs > 5% (observatoire)
+- [ROLLBACK AUTO 2026-08-29]
+  · obs-1787248844 (nvidia/nemotron-nano-9b-v2:free) : 100% erreurs > 5% (observatoire)
   · inclusionai/ling-3.0-flash-fin:free
   · dots-studio/dots-3-note-preview:free
   · liquid/lfm-2.5-2.6b:free
@@ -49,12 +65,12 @@
 ## Mémoire chaude (journal + résumés)
 
 - Radar (dernières alertes) :
-  · 2026-08-29T08:55:01.783024Z ETHUSDT 2432.01 0.0001 191.9 declenche=oui
-  · 2026-08-29T08:55:01.783150Z ETHUSDT 2432.0 0.0001 191.9 declenche=oui
-  · 2026-08-29T08:55:01.783289Z ETHUSDT 2431.93 0.0001 191.9 declenche=oui
-  · 2026-08-29T08:55:01.783424Z ETHUSDT 2431.91 0.0001 191.9 declenche=oui
+  · 2026-08-29T10:04:29.521901Z BTCUSDT 77604.01 0.0000 0.4 declenche=non
+  · 2026-08-29T10:04:29.670546Z ETHUSDT 2433.57 0.0001 19.2 declenche=non
+  · 2026-08-29T10:04:29.671021Z BTCUSDT 77604.01 0.0000 0.4 declenche=non
+  · 2026-08-29T10:04:29.671562Z BTCUSDT 77604.01 0.0000 0.4 declenche=non
 - Intention en cours : BETA a sonde le marche (13 sondes, 9 long / 4 court, conf mo | ALPHA attend son moment : 232 skips (discipline), le mur du  | ALPHA a frappe 9 fois en embuscade (13x) (dont 2 en mode rev
-- 784 signets X résumés (quota aujourd'hui : 0/50)
+- 790 signets X résumés (quota aujourd'hui : 6/50)
 - 79 fiches IA d'offres en cache (quota 8/jour)
 
 ---

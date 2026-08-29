@@ -1,29 +1,27 @@
-# STRATEGIE — 2026-08-29T09:07:32.967749Z
+# STRATEGIE — 2026-08-29T10:07:57.441122Z
 
-## COURT TERME — 2026-08-29T09:07:32.967749Z
+## COURT TERME — 2026-08-29T10:07:57.441122Z
 
-# ANALYSE — 2026-08-29T09:06:17Z (alerte prix ETHUSDT)
-
-[UNDERSTAND] La maison ACE777 reçoit un micro-signal baissier (-0,05 %) sur ETHUSDT à 2434,91 $ avec un volume x3, dans un contexte de run MASTER_VORTEX_V2_COLLAB_4H en alerte ambre et de PnL combiné légèrement positif (+1,27 $) reposant essentiellement sur la discipline d'Alpha.
+[UNDERSTAND] La maison ACE777 maintient son alerte ambre et un PnL combiné positif (+1,27 $) dans un marché crypto en phase d'accumulation, porté par la discipline d'embuscade d'Alpha (+2,01 $), les reconnaissances de Beta et la gestion resserrée des positions seeds de Hulk face au bruit macroéconomique de la Fed.
 
 [ANALYZE]
-- **Tendance** : Marché calme en accumulation sous dominance BTC (59,51 %), Fear & Greed à 68 (Greed), ETF BTC inflow positif (+212,74 M$) — mais ETHUSDT marque un repli de -2,05 % sur 24h, signal d'une fatigue relative du secteur alt.
-- **Momentum** : Alpha = sniper discipliné (10 fills / 249 skips, +2,01 $), Beta = éclaireur actif (15 fills / 257 skips, -0,74 $) — un signal x3 volume sur ETH est précisément le type d'événement que Beta est censé capter pour Alpha, mais le move reste anémique (-0,05 %), donc pas de cassure confirmée.
-- **Risque** : 11 positions seeds Hulk dont plusieurs en tension (CCUSDT -9,09 %, RWAINCUSDT -3,51 %, WUSDT -4,44 %, PYTHUSDT -3,75 %) — un flush ETH peut contaminer ces seeds corrélées.
-- **Contexte** : L'embuscade d'Alpha repose sur une **cassure franche et validée des carnets** — or un volume x3 sans direction claire (-0,05 % seulement) n'est pas un signal d'engagement, c'est un *bruit de marché*. Alerter sur 0,05 % de variation, même avec x3 volume, frôle le *data noise* et risque d'user la discipline de l'essaim si on réagit à chaque tick.
+- **Tendance** : Marché en phase d'accumulation sous dominance BTC (59,51 %) et sentiment de "Greed" (68), soutenu par des flux ETF BTC positifs (+212,46 M$ sur 7j) et un alt-season score de 41 (Bitcoin season). Les liquidations 24h restent modérées (49,4 M$).
+- **Momentum** : Alpha affiche une discipline de sniper rigoureuse (249 skips / 10 fills, +2,01 $, dont 2 en mode revenge 1.5x) en embuscade sur cassure, tandis que Beta assure l'exploration tactique (257 skips / 15 fills, -0,74 $) avec 9 longs / 4 courts. Le thrust global (Alpha 68 / Beta 40 / Hulk 40) reste positif.
+- **Risque** : Hulk gère 11 positions seeds, dont 2 en tension significative : CCUSDT à -9,13 % (statique) et RWAINCUSDT à -17,85 % (statique avec -3,22 $ realized). Le portefeuille Hulk affiche -1,33 $ et le portefeuille total ACE est légèrement négatif à -0,06 $.
+- **Contexte** : Alerte prix sur ETHUSDT (2431,86 $, variation -0,01 %) pour volume x3 — bruit de carnet typique, pas de signal directionnel. Le marché onchain montre une activité baleines neutre avec un indice onchain 48,6/100 (ÉLEVÉ — activité anormale OTC/CPFP possible) et un CPFP z-score de 71,82.
 
 [STRATEGIZE]
-1. **Ignorer l'alerte prix comme signal d'engagement** : un volume x3 sans direction ne constitue pas une cassure validée. Maintenir la discipline d'embuscade d'Alpha.
-2. **Exploiter le volume x3 comme enrichissement de la carte Beta** : c'est un signal faible mais utile pour la lecture microstructure — sans action.
-3. **Renforcer la vigilance sur les seeds Hulk corrélées ETH** : CCUSDT, WUSDT, PYTHUSDT pourraient être testées si ETHUSDT enfonce les 2430 $.
+1. Maintenir l'alerte ambre et la stricte discipline d'embuscade d'Alpha sans céder aux bruits de volume isolés.
+2. Exploiter les reconnaissances de Beta (ratio 9L/4C, conf moyenne 0,90) pour affiner la lecture des carnets sans sur-exposer l'essaim.
+3. Conserver une surveillance étroite sur les positions seeds en tension (CCUSDT, RWAINCUSDT) avec arbitrage resserré sous la direction de Hulk, et envisager un stop-loss préventif sur CCUSDT si la perte statique dépasse -10 %.
 
 [EXECUTE]
-- **Verdict** : Maintenir l'alerte ambre et la discipline d'embuscade — le signal ETHUSDT est trop faible (-0,05 %) pour déclencher Alpha, mais justifie une surveillance rapprochée des seeds Hulk corrélées.
-- **Confiance** : 90%
-- **Hypothèses clés** : 1. Un volume x3 sans mouvement directionnel net reste du bruit microstructurel, pas un breakout. 2. La discipline d'Alpha (232+ skips) ne se brise pas sur un tick sub-0,1 %. 3. Les seeds Hulk en tension (CC -9 %, W -4,4 %) restent le risque principal à encadrer.
-- **Ce qui changerait la réponse** : Une cassure validée d'ETHUSDT sous 2430 $ avec volume soutenu (x3 +) ET accélération du mouvement > 0,3 % en quelques minutes — ou une reprise franche au-dessus de 2445 $ avec le même profil de volume.
-- **Alternative si confiance < 80%** : Non applicable à ce seuil — la confiance reste haute car la discipline d'inertie est l'option la moins coûteuse en l'absence de signal clair.
-- **Prédictions vérifiables** :
+- Verdict : Maintenir l'alerte ambre et la rigueur tactique pour consolider le PnL combiné positif (+1,27 $), en s'appuyant sur la discipline d'embuscade d'Alpha, les reconnaissances de Beta et la gestion resserrée des positions seeds de Hulk, avec une vigilance accrue sur CCUSDT (-9,13 %) proche du seuil critique de -10 %.
+- Confiance : 88%
+- Hypothèses clés : 1. Les sursauts de volume (x3 ETHUSDT, BTCUSDT) constituent un bruit de carnet qui n'invalide pas la structure d'accumulation. 2. La patience d'Alpha (232 skips) protège le capital en l'absence de cassure validée. 3. L'indice onchain élevé (48,6/100) reflète une activité OTC/CPFP mais ne signale pas de pression vendeuse directionnelle.
+- Ce qui changerait la réponse : Une rupture violente et directionnelle des carnets BTC/ETH accompagnée d'une accélération brutale des liquidations globales (>500 M$ en 24h) ou un franchissement de CCUSDT sous 0,108 $ déclenchant le stop-loss.
+- Alternative si confiance < 80% : Réduire immédiatement l'exposition globale, suspendre toute tentative d'engagement et renforcer les garde-fous de liquidité sur l'ensemble du portefeuille.
+- Prédictions vérifiables :
   [2026-08-30] ETHUSDT >= 2400.0000
   [2026-08-30] CCUSDT >= 0.1100
 
