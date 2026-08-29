@@ -70,12 +70,51 @@ Le point « TRÈS IMPORTANT CAR SOUVENT ERREURS RÉPÉTÉES » — 4 barrières 
 3. **Vérification complète du branchage** : plists chargées (croisement, signal3,
    thermo, veille-signal) + données fraîches (7/7 ✓) + mempool.space REVENU (200) ✓
 
-## PROCHAINES ÉTAPES (recommandations famille à implémenter)
+## ✅ CORRECTIONS FAMILLE APPLIQUÉES (29/08 soir — GO Christophe « GO 1,2 »)
 
-- [ ] β dynamique de contagion (Signal 3) — priorité haute (faille 2)
-- [ ] Persistance 3 ticks + fraîcheur 1500 ms (croisement) — faille 1
-- [ ] Normalisation SAPI par volatilité 1h + heures creuses — faille 3
-- [ ] Dynamic Spread Percentile (remplace 70 bps fixe)
+> Christophe : « GO 1,2 » → ① RIZE passe en observation_setup, ② appliquer les
+> corrections famille au SAPI et au Signal 3.
+
+### GO ① — RIZE en OBSERVATION (prix seul)
+- `paires_croisement.json` : RIZE déplacé de `deepdive_faits_29aout` vers
+  `observation_setup` → **prix croisé SEUL, aucune décision** (profil
+  manipulee_fragile documenté dans le deepdive). `deepdive_faits_29aout` est
+  maintenant vide (toutes les paires traitées).
+
+### GO ② — Corrections famille appliquées et TESTÉES
+
+**Signal 3 (`signal3_livre_ecorche.py`) — faille 2 (contagion binaire) :**
+1. ✅ **β_asset dynamique** : corrélation de Pearson glissante 1h entre
+   `btc_delta_pct` et `price_delta_pct` (alignés ±5 s), calculée TOUJOURS pour
+   l'audit. La contagion n'est appliquée à une paire QUE si β ≥ 0,3. Testé :
+   XRP β=0,18 (n=33) → paire découplée → contagion ignorée ✓. Paires sans
+   données 1h → fail-open β=1,0 (prudence, documenté).
+2. ✅ **Asymétrie directionnelle** : contagion UNIQUEMENT si delta_btc < 0
+   (phase baissière). Testé en direct : btc_spoof=5,11 % mais delta_btc=+0,20
+   (haussière) → PAS de contagion ✓ (c'était le cas réel de ce soir).
+3. ✅ **Filtre MAD** : le drop n'est retenu que s'il dépasse médiane + 3×MAD
+   des 10 dernières mesures (anti-jitter HFT).
+4. ✅ **Écriture atomique** (tmp + os.replace) pour les 2 JSON.
+
+**SAPI (`silent_drain_index.py`) — faille 3 (proxy carnet spot) :**
+1. ✅ **Normalisation σ1h** : le proxy spread est divisé par σ des 12 derniers
+   spreads (≈1h). Carnet vide/volatile → σ élevé → proxy neutralisé (testé :
+   spread 10 bps σ élevé → proxy 0,15 ; carnet stable → proxy 1,0) ✓
+2. ✅ **Persistance 3 ticks** : alerte UNIQUEMENT si 3 runs consécutifs ≥ 0,75
+   (état `sapi_etat.json`). Faux positifs isolés tués ✓
+3. ✅ **Écriture atomique** pour sdi_latest.json + sapi_etat.json.
+
+**Croisement externe (`croiser_donnees_externes.py`) — faille 1 (faux positifs) :**
+1. ✅ **Persistance 3 ticks** : un fail prix n'est BLOQUANT qu'après 3 runs
+   consécutifs en écart (≈1h30 à 30 min/run). Testé par simulation : tick 1 =
+   « surveillance », tick 3 = « bloquant » + alerte data_quality écrite ✓
+2. ✅ **Écriture atomique** (état, registre d'état, alerte).
+3. ✅ État enrichi : `fails_pendants` (1-2 ticks) visible au cockpit sans alerte.
+
+### Reste à faire (recommandations famille non couvertes par le GO)
+- [ ] Dynamic Spread Percentile (remplace le seuil fixe 70 bps)
+- [ ] Filtre heures creuses UTC (02-06) sur le proxy SAPI
+- [ ] Terme d'entropie temporelle (SAPI)
 - [ ] PathRegistry centralisé + wrapper plists (erreurs répétées)
 
 ## Fichiers liés

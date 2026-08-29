@@ -33,7 +33,9 @@ Fail-open : une API en panne (ex. mempool) ne casse pas les autres.
 from __future__ import annotations
 
 import json
+import os
 import sys
+import tempfile
 import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
@@ -47,6 +49,12 @@ MURS_OBSERVATIONS = RUNS / "murs_observations.json"
 
 REGISTRE = INDEX / "data" / "croisement_externe.jsonl"
 ETAT = INDEX / "data" / "croisement_externe_etat.json"
+
+# Persistance 3 ticks (FIX famille 29/08 — GO Christophe) : un fail prix ne
+# devient BLOQUANT qu'après PERSISTANCE_TICKS runs consécutifs en écart.
+# Tue les faux positifs liés aux micro-pics de cotation / lag API.
+PERSISTANCE_TICKS = 3
+PERSISTANCE_STATE = INDEX / "data" / "croisement_externe_persistance.json"
 ALERTE_PATH = INDEX / "data" / "alertes" / "ALERTE_data_quality.json"
 
 SEUIL_ECART_PCT = 5.0        # règle des 2 sources : > 5 % = fail
@@ -174,11 +182,43 @@ def age_min(utc_str: str):
         return None
 
 
+def _charger_persistance():
+    """Charge l'état de persistance des fails ({pair: ticks consécutifs})."""
+    try:
+        if PERSISTANCE_STATE.exists():
+            return json.loads(PERSISTANCE_STATE.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        pass
+    return {}
+
+
+def _ecriture_atomique(path, donnees):
+    """Écriture atomique (.tmp + os.replace) — FIX famille : fin des fichiers
+    tronqués en cas de crash en pleine écriture."""
+    path.parent.mkdir(parents=True, exist_ok=True)
+    fd, tmp_name = tempfile.mkstemp(prefix=path.name + ".", suffix=".tmp", dir=str(path.parent))
+    try:
+        with os.fdopen(fd, "w", encoding="utf-8") as fh:
+            json.dump(donnees, fh, ensure_ascii=False, indent=2)
+            fh.flush()
+            os.fsync(fh.fileno())
+        os.replace(tmp_name, path)
+    except BaseException:
+        try:
+            os.unlink(tmp_name)
+        except OSError:
+            pass
+        raise
+
+
 def main() -> int:
     ts = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     registre: list = []
-    fails: list = []
+    fails: list = []          # fails BLOQUANTS (persistance ≥ 3 ticks)
+    fails_pendants: list = [] # 1-2 ticks — surveillance, pas encore bloquant
     warns: list = []
+    persistance = _charger_persistance()
+    persistance_maj = dict(persistance)
 
     prix_nos = nos_prix()
     prix_mexc = prix_externes_mexc()
@@ -216,11 +256,26 @@ def main() -> int:
         if stale and ecart > 1.0:
             fail = True  # prix vieux ET écart = donnée douteuse
 
-        verdict = "fail" if fail else "ok"
+        # Persistance 3 ticks (FIX famille) : le fail n'est bloquant qu'après
+        # PERSISTANCE_TICKS runs consécutifs en écart (≈ 1h30 à 30 min/run).
         if fail:
+            persistance_maj[pair] = int(persistance.get(pair, 0)) + 1
+        else:
+            persistance_maj[pair] = 0
+        ticks_fail = persistance_maj[pair]
+        fail_bloquant = fail and ticks_fail >= PERSISTANCE_TICKS
+
+        verdict = "fail" if fail_bloquant else ("pendant" if fail else "ok")
+        if fail_bloquant:
             fails.append({"type": "prix", "pair": pair, "ecart_pct": round(ecart, 2),
                           "notre": notre["price"], "externe": prix_ref, "source": src,
+                          "ticks_fail": ticks_fail,
                           "age_min": round(age, 1) if age is not None else None})
+        elif fail:
+            fails_pendants.append({"type": "prix", "pair": pair, "ecart_pct": round(ecart, 2),
+                                  "notre": notre["price"], "externe": prix_ref, "source": src,
+                                  "ticks_fail": ticks_fail,
+                                  "age_min": round(age, 1) if age is not None else None})
 
         registre.append({
             "ts": ts, "type": "prix", "pair": pair,
@@ -230,7 +285,7 @@ def main() -> int:
             "autres_sources": [{"source": s, "prix": p, "ecart_pct": round(e, 2)}
                                for s, p, e in refs[1:]],
             "ecart_pct": round(ecart, 2), "age_min": round(age, 1) if age is not None else None,
-            "seuil_pct": SEUIL_ECART_PCT, "verdict": verdict,
+            "seuil_pct": SEUIL_ECART_PCT, "ticks_fail": ticks_fail, "verdict": verdict,
         })
 
     # ---------- B. CROISEMENT MURS ----------
@@ -285,31 +340,42 @@ def main() -> int:
     except OSError as e:
         print(f"[croisement] ERREUR registre: {e}", file=sys.stderr)
 
+    # Sauvegarde de l'état de persistance (atomique)
+    try:
+        _ecriture_atomique(PERSISTANCE_STATE, persistance_maj)
+    except OSError as e:
+        print(f"[croisement] ERREUR persistance: {e}", file=sys.stderr)
+
     etat = {
         "ts": ts,
         "n_verifications": len(registre),
         "n_fails": len(fails),
+        "n_fails_pendants": len(fails_pendants),
         "n_warns": len(warns),
         "fails": fails,
+        "fails_pendants": fails_pendants[:5],
         "warns": warns[:8],
-        "regle": f"écart > {SEUIL_ECART_PCT}% entre notre prix et une source externe = data_quality_fail (on ne décide pas) · murs = warning informatif",
-        "lecture": (f"⛔ {len(fails)} prix douteux — vérifier avant décision"
-                    if fails else (f"⚠️ {len(warns)} warning(s) murs (carnet déséquilibré) — prix OK"
-                                   if warns else "✅ toutes les données croisées sont cohérentes")),
+        "persistance_ticks": PERSISTANCE_TICKS,
+        "regle": f"écart > {SEUIL_ECART_PCT}% entre notre prix et une source externe = data_quality_fail (bloquant après {PERSISTANCE_TICKS} ticks consécutifs) · murs = warning informatif",
+        "lecture": (f"⛔ {len(fails)} prix douteux confirmés (≥ {PERSISTANCE_TICKS} ticks) — vérifier avant décision"
+                    if fails else (f"👀 {len(fails_pendants)} prix en écart (surveillance, < {PERSISTANCE_TICKS} ticks)"
+                                   if fails_pendants else (f"⚠️ {len(warns)} warning(s) murs (carnet déséquilibré) — prix OK"
+                                                           if warns else "✅ toutes les données croisées sont cohérentes"))),
     }
-    ETAT.write_text(json.dumps(etat, ensure_ascii=False, indent=1), encoding="utf-8")
+    _ecriture_atomique(ETAT, etat)
 
-    # Alerte data_quality : écrite si ≥ 1 fail PRIX (bloquant), supprimée sinon.
-    # Les warns murs ne déclenchent PAS d'alerte (pas de fausse alerte).
+    # Alerte data_quality : écrite si ≥ 1 fail PRIX BLOQUANT (persistance atteinte),
+    # supprimée sinon. Les warns murs et les fails pendants ne déclenchent PAS
+    # d'alerte (pas de fausse alerte sur un micro-pic).
     ALERTE_PATH.parent.mkdir(parents=True, exist_ok=True)
     if fails:
-        ALERTE_PATH.write_text(json.dumps({
+        _ecriture_atomique(ALERTE_PATH, {
             "id": "data_quality",
-            "message": f"{len(fails)} prix en écart > {SEUIL_ECART_PCT}% avec une source externe — ne pas décider sans récupération",
+            "message": f"{len(fails)} prix en écart > {SEUIL_ECART_PCT}% confirmé sur {PERSISTANCE_TICKS} ticks consécutifs — ne pas décider sans récupération",
             "ts": ts, "status": "actif",
             "fails": fails,
             "source": "Index_Maison/scripts/croiser_donnees_externes.py",
-        }, ensure_ascii=False, indent=2), encoding="utf-8")
+        })
     elif ALERTE_PATH.exists():
         ALERTE_PATH.unlink()
 

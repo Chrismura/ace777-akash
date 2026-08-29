@@ -17,6 +17,23 @@ Code : codeur du hub (minimax-m3), CORRIGÉ par supervision Buffy (29/08) :
         l'agrégat observer_murs, et la persistance (≥ 2 spoof sur les 3
         dernières mesures) depuis les CSVs bruts.
 
+  FIX 3 (famille, 29/08 soir — GO Christophe) : corrections de l'audit
+        famille (6 membres, AVIS_FAMILLE_OEUVRES_20260829) :
+    - CONTAGION β_asset DYNAMIQUE : au lieu d'abaisser les seuils de 20 %
+      aveuglément, la contagion BTC n'est appliquée à une paire QUE si la
+      corrélation glissante 1h (Pearson) entre btc_delta_pct et
+      price_delta_pct de la paire ≥ β_MIN (0.3). Paire découplée
+      (β < 0.3) → contagion ignorée à 100 % (seuils nominaux).
+    - ASYMÉTRIE DIRECTIONNELLE : la contagion ne s'applique qu'en phase
+      BAISSIÈRE (delta_btc < 0). Spoof haussier (delta_btc ≥ 0) → pas de
+      contagion (la panique de contagion n'opère qu'en cassure baissière,
+      cf. arXiv 2504.15908).
+    - FILTRE MAD (jitter) : le drop d'une paire n'est retenu que s'il
+      dépasse la médiane des 10 dernières mesures + 3 × MAD (median
+      absolute deviation) — tue les faux positifs des micro-retraits HFT.
+    - ÉCRITURE ATOMIQUE : .tmp + os.replace() pour tous les JSON (fin des
+      fichiers tronqués en cas de crash).
+
 Mécanique détectée : mur iceberg fictif, retrait discret de liquidité,
 suppression du mur → trou d'air → décrochage instantané (vacuuming).
 Source : arXiv 2504.15908 (31 % des grosses ordres spoofent), session
@@ -37,11 +54,14 @@ from __future__ import annotations
 
 import csv
 import json
+import os
+import statistics
 import sys
+import tempfile
 from collections import defaultdict
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List, Optional, Tuple
 
 # ---------------------------------------------------------------------------
 # Constantes & chemins
@@ -69,6 +89,16 @@ SEUIL_SPREAD_BPS: float = 70.0
 # Contagion BTC : seuils abaissés de 20 % si BTC spoof > 5 %
 BTC_CONTAGION_SPOOF_PCT: float = 5.0
 FACTEUR_CONTAGION: float = 0.80  # 20 % de baisse → multiplicateur 0.80
+
+# β_asset (FIX 3 famille) : seuil de corrélation 1h BTC↔altcoin en dessous
+# duquel la contagion BTC est ignorée à 100 % (paire découplée).
+BETA_MIN: float = 0.3
+BETA_MIN_ECHANTILLONS: int = 5  # fail-open : < 5 échantillons → β = 1.0
+
+# Filtre MAD (FIX 3 famille) : drop retenu seulement si > médiane + 3 × MAD
+# sur les 10 dernières mesures brutes de la paire.
+MAD_FENETRE: int = 10
+MAD_K: float = 3.0
 
 # Persistance : ≥ 2 spoofs sur les 3 dernières mesures (filtre faux positifs)
 PERSISTENCE_MIN: int = 2
@@ -180,7 +210,10 @@ def charger_mesures_brutes(data_dir: Path) -> Dict[str, List[Dict[str, Any]]]:
                         "ts": ts,
                         "spoof": _truthy(row.get("spoof")),
                         "drop": _safe_float(row.get("drop_bid_pct_per_s")) >= SPOOF_DROP_PCT_S,
+                        "drop_val": _safe_float(row.get("drop_bid_pct_per_s")),
                         "spread_bps": _safe_float(row.get("spread_bps")),
+                        "btc_delta_pct": _safe_float(row.get("btc_delta_pct")),
+                        "price_delta_pct": _safe_float(row.get("price_delta_pct")),
                     })
         except (OSError, UnicodeDecodeError, csv.Error) as exc:
             print(f"[signal3] WARN lecture CSV ignoree: {fpath.name} ({exc})", file=sys.stderr)
@@ -198,6 +231,125 @@ def persistance_spoof(mesures: List[Dict[str, Any]]) -> int:
         return 0
     fenetre = mesures[-FENETRE:]
     return sum(1 for m in fenetre if m.get("spoof"))
+
+
+def _ecriture_atomique(path: Path, donnees: Any) -> None:
+    """Écrit un JSON de façon atomique : fichier temporaire .tmp dans le même
+    dossier puis os.replace() (garantie POSIX). FIX 3 famille — fin des
+    fichiers tronqués en cas de crash en pleine écriture."""
+    path.parent.mkdir(parents=True, exist_ok=True)
+    fd, tmp_name = tempfile.mkstemp(prefix=path.name + ".", suffix=".tmp", dir=str(path.parent))
+    try:
+        with os.fdopen(fd, "w", encoding="utf-8") as fh:
+            json.dump(donnees, fh, ensure_ascii=False, indent=2)
+            fh.flush()
+            os.fsync(fh.fileno())
+        os.replace(tmp_name, path)
+    except BaseException:
+        try:
+            os.unlink(tmp_name)
+        except OSError:
+            pass
+        raise
+
+
+# ---------------------------------------------------------------------------
+# β_asset — corrélation glissante 1h BTC ↔ altcoin (FIX 3 famille)
+# ---------------------------------------------------------------------------
+
+def _correlation_pearson(xs: List[float], ys: List[float]) -> float:
+    """Corrélation de Pearson entre deux séries de même longueur.
+    Retourne 0.0 si impossible (division par zéro, trop peu de points)."""
+    if len(xs) != len(ys) or len(xs) < 2:
+        return 0.0
+    mx, my = sum(xs) / len(xs), sum(ys) / len(ys)
+    num = sum((x - mx) * (y - my) for x, y in zip(xs, ys))
+    dx = sum((x - mx) ** 2 for x in xs)
+    dy = sum((y - my) ** 2 for y in ys)
+    if dx <= 0.0 or dy <= 0.0:
+        return 0.0
+    return num / ((dx * dy) ** 0.5)
+
+
+def beta_asset(mesures_btc: List[Dict[str, Any]], mesures_pair: List[Dict[str, Any]],
+               fenetre: timedelta = timedelta(hours=1)) -> float:
+    """β_asset : corrélation de Pearson sur 1h entre btc_delta_pct et
+    price_delta_pct de la paire (mesures alignées par horodatage proche).
+
+    Fail-open : moins de BETA_MIN_ECHANTILLONS paires alignées → β = 1.0
+    (on conserve le comportement de contagion historique par prudence,
+    et on le signale dans le JSON via beta_n).
+    """
+    if not mesures_btc or not mesures_pair:
+        return 1.0, 0
+    now = max(m[-1]["ts"] for m in (mesures_btc, mesures_pair) if m)
+    debut = now - fenetre
+
+    # Séries (ts, delta) filtrées sur la fenêtre 1h
+    btc_series = [(m["ts"], m.get("btc_delta_pct") or 0.0) for m in mesures_btc
+                  if debut <= m["ts"] <= now]
+    pair_series = [(m["ts"], m.get("price_delta_pct") or 0.0) for m in mesures_pair
+                   if debut <= m["ts"] <= now]
+    if len(btc_series) < 2 or len(pair_series) < 2:
+        return 1.0, 0
+
+    # Alignement : pour chaque mesure paire, on prend le btc_delta le plus
+    # proche en temps (≤ 5 s d'écart).
+    import bisect
+    btc_times = [t for t, _ in btc_series]
+    alignes_btc: List[float] = []
+    alignes_pair: List[float] = []
+    for t, pd in pair_series:
+        idx = bisect.bisect_left(btc_times, t)
+        candidats = []
+        for i in (idx - 1, idx):
+            if 0 <= i < len(btc_series):
+                candidats.append((abs(btc_times[i] - t), btc_series[i][1]))
+        if not candidats:
+            continue
+        _, bd = min(candidats, key=lambda c: c[0])
+        alignes_btc.append(bd)
+        alignes_pair.append(pd)
+
+    if len(alignes_btc) < BETA_MIN_ECHANTILLONS:
+        return 1.0, len(alignes_btc)
+    return _correlation_pearson(alignes_btc, alignes_pair), len(alignes_btc)
+
+
+def delta_btc_directionnel(mesures_btc: List[Dict[str, Any]],
+                           fenetre: timedelta = timedelta(hours=1)) -> float:
+    """Delta BTC directionnel cumulé sur la fenêtre 1h (somme des
+    btc_delta_pct). Positif = phase haussière, négatif = baissière.
+    Retourne 0.0 par défaut (pas de données → pas de contagion baissière)."""
+    if not mesures_btc:
+        return 0.0
+    now = max(m["ts"] for m in mesures_btc)
+    debut = now - fenetre
+    vals = [m.get("btc_delta_pct") or 0.0 for m in mesures_btc
+            if debut <= m["ts"] <= now]
+    if not vals:
+        return 0.0
+    return float(sum(vals))
+
+
+def drop_filtre_mad(mesures: List[Dict[str, Any]]) -> bool:
+    """Filtre MAD (FIX 3 famille) : le drop de la dernière mesure n'est
+    retenu QUE s'il dépasse médiane + 3 × MAD sur les MAD_FENETRE dernières
+    mesures de la paire. Tue les faux positifs des micro-retraits HFT
+    (un bot retire et remet un ordre en 200 ms → la moyenne glisse à tort).
+    Fail-open : < 3 mesures → pas de filtre (True)."""
+    drops = [m.get("drop_val") or 0.0 for m in mesures]
+    if len(drops) < 3:
+        return True
+    derniers = drops[-MAD_FENETRE:]
+    derniere = derniers[-1]
+    if len(derniers) < 3:
+        return True
+    med = statistics.median(derniers)
+    deviations = [abs(v - med) for v in derniers]
+    mad = statistics.median(deviations) if deviations else 0.0
+    seuil = med + MAD_K * mad
+    return derniere >= seuil
 
 
 # ---------------------------------------------------------------------------
@@ -240,30 +392,38 @@ def main() -> int:
     btc_info = murs_obs.get(BTC_PAIR, {}) if isinstance(murs_obs, dict) else {}
     btc_spoof_pct = _safe_float(btc_info.get("spoof_pct"), 0.0)
 
-    # 2) Décision de contagion
-    contagion_active = bool(btc_spoof_pct > BTC_CONTAGION_SPOOF_PCT)
-    if contagion_active:
-        seuils = {
-            "spoof_pct": round(SEUIL_SPOOF_PCT * FACTEUR_CONTAGION, 2),  # 4.0
-            "drop": round(SEUIL_DROP * FACTEUR_CONTAGION, 1),            # 80.0
-            "spread_bps": SEUIL_SPREAD_BPS,
-        }
-    else:
-        seuils = {
-            "spoof_pct": SEUIL_SPOOF_PCT,
-            "drop": SEUIL_DROP,
-            "spread_bps": SEUIL_SPREAD_BPS,
-        }
-
-    # 3) Mesures brutes (persistance : ≥ 2 spoofs sur les 3 dernières)
+    # 1bis) Mesures brutes (persistance, β_asset, MAD, delta directionnel)
     mesures_brutes = charger_mesures_brutes(DATA_DIR)
 
-    # 4) Paires : union (murs_obs ∪ CSV bruts)
+    # 2) Décision de contagion (FIX 3 famille — β_asset + asymétrie)
+    #    La contagion n'est plus binaire : elle devient un FACTEUR par paire,
+    #    calculé dans la boucle (contagion_par_pair[pair] = seuils abaissés ou non).
+    mesures_btc = mesures_brutes.get(BTC_PAIR, [])
+    delta_btc = delta_btc_directionnel(mesures_btc)
+    # Asymétrie directionnelle : la panique de contagion n'opère qu'en phase
+    # BAISSIÈRE. Spoof haussier (delta_btc ≥ 0) → pas de contagion du tout.
+    direction_baissiere = bool(delta_btc < 0.0)
+    contagion_candidate = bool(btc_spoof_pct > BTC_CONTAGION_SPOOF_PCT and direction_baissiere)
+
+    # Seuils nominaux (référence, avant application du β_asset par paire)
+    seuils_nominaux = {
+        "spoof_pct": SEUIL_SPOOF_PCT,
+        "drop": SEUIL_DROP,
+        "spread_bps": SEUIL_SPREAD_BPS,
+    }
+    seuils_contagion = {
+        "spoof_pct": round(SEUIL_SPOOF_PCT * FACTEUR_CONTAGION, 2),  # 4.0
+        "drop": round(SEUIL_DROP * FACTEUR_CONTAGION, 1),            # 80.0
+        "spread_bps": SEUIL_SPREAD_BPS,
+    }
+
+    # 3) Paires : union (murs_obs ∪ CSV bruts)
     paires: List[str] = sorted(
         set(murs_obs.keys()) | set(mesures_brutes.keys())
     )
 
     resultats: List[Dict[str, Any]] = []
+    n_contagion_appliquee = 0
     for pair in paires:
         try:
             mi = murs_obs.get(pair) if isinstance(murs_obs, dict) else None
@@ -276,7 +436,25 @@ def main() -> int:
             spread = _safe_float(mi.get("spread_avg_bps"), 0.0)
 
             # Persistance depuis les CSVs bruts (≥ 2 spoofs sur 3 dernières)
-            pers = persistance_spoof(mesures_brutes.get(pair, []))
+            mesures_pair = mesures_brutes.get(pair, [])
+            pers = persistance_spoof(mesures_pair)
+
+            # FIX 3 famille : β_asset dynamique — calculé TOUJOURS (pour
+            # l'audit/analyse), appliqué seulement si contagion candidate ET
+            # corrélation 1h avec BTC ≥ BETA_MIN (paire découplée = ignorée).
+            beta, beta_n = 1.0, 0
+            if pair != BTC_PAIR:
+                beta, beta_n = beta_asset(mesures_btc, mesures_pair)
+            seuils = seuils_nominaux
+            contagion_pair = False
+            if contagion_candidate and pair != BTC_PAIR and beta >= BETA_MIN:
+                seuils = seuils_contagion
+                contagion_pair = True
+                n_contagion_appliquee += 1
+
+            # FIX 3 famille : filtre MAD — le drop cumulé doit être significatif
+            # vs la distribution des mesures récentes (anti-jitter HFT).
+            drop_mad_ok = drop_filtre_mad(mesures_pair)
 
             alerte = bool(
                 n_mesures >= N_MESURES_MIN
@@ -284,6 +462,7 @@ def main() -> int:
                 and drop > seuils["drop"]
                 and (spread <= seuils["spread_bps"] or spread == 0.0)
                 and pers >= PERSISTENCE_MIN
+                and drop_mad_ok
             )
 
             resultats.append({
@@ -292,9 +471,13 @@ def main() -> int:
                 "drop": int(drop),
                 "spread_bps": round(spread, 2),
                 "persistance": pers,
+                "drop_mad_ok": drop_mad_ok,
                 "n_mesures": n_mesures,
+                "beta_asset": round(beta, 2),
+                "beta_n": beta_n,
+                "contagion_appliquee": contagion_pair,
                 "alerte": alerte,
-                "origine": ("contagion_btc" if (alerte and contagion_active)
+                "origine": ("contagion_btc" if (alerte and contagion_pair)
                             else ("directe" if alerte else None)),
             })
         except Exception as exc:  # noqa: BLE001 — fail-open strict
@@ -313,54 +496,62 @@ def main() -> int:
     paires_risque = candidats_risque[:5]
 
     # 6) Lecture synthèse
+    contagion_texte = (
+        f"{n_contagion_appliquee} paire(s) sous contagion" if contagion_candidate
+        else (f"spoof btc {btc_spoof_pct:.2f}% mais phase haussiere (delta_btc={delta_btc:+.2f}) -> pas de contagion"
+              if btc_spoof_pct > BTC_CONTAGION_SPOOF_PCT else "contagion inactive")
+    )
     if alertes:
         lecture = (
             f"ALERTE : {len(alertes)} paire(s) en squeeze du livre ecorche "
-            f"(btc_spoof_pct={btc_spoof_pct:.2f}%, contagion="
-            f"{'active' if contagion_active else 'inactive'})."
+            f"(btc_spoof_pct={btc_spoof_pct:.2f}%, {contagion_texte})."
         )
     elif paires_risque:
         lecture = (
             f"Marche sous tension : {len(paires_risque)} paire(s) a risque, "
-            f"btc_spoof_pct={btc_spoof_pct:.2f}%, "
-            f"contagion={'active' if contagion_active else 'inactive'}."
+            f"btc_spoof_pct={btc_spoof_pct:.2f}%, {contagion_texte}."
         )
     else:
         lecture = (
             f"Marche calme : aucune paire a risque, "
-            f"btc_spoof_pct={btc_spoof_pct:.2f}%, "
-            f"contagion={'active' if contagion_active else 'inactive'}."
+            f"btc_spoof_pct={btc_spoof_pct:.2f}%, {contagion_texte}."
         )
 
-    # 7) Écriture du JSON principal
+    # 7) Écriture du JSON principal (atomique — FIX 3 famille)
     sortie: Dict[str, Any] = {
         "ts": ts_maintenant,
         "btc_spoof_pct": round(btc_spoof_pct, 2),
-        "contagion_active": contagion_active,
-        "seuils": {k: (int(v) if k == "drop" else round(v, 2))
-                   for k, v in seuils.items()},
+        "delta_btc_directionnel": round(delta_btc, 3),
+        "contagion_candidate": contagion_candidate,
+        "direction_baissiere": direction_baissiere,
+        "n_contagion_appliquee": n_contagion_appliquee,
+        "seuils_nominaux": {k: (int(v) if k == "drop" else round(v, 2))
+                            for k, v in seuils_nominaux.items()},
+        "seuils_contagion": {k: (int(v) if k == "drop" else round(v, 2))
+                             for k, v in seuils_contagion.items()},
+        "beta_min": BETA_MIN,
         "paires_risque": paires_risque,
         "alertes": alertes,
         "lecture": lecture,
     }
 
     try:
-        OUT_JSON.parent.mkdir(parents=True, exist_ok=True)
-        with OUT_JSON.open("w", encoding="utf-8") as fh:
-            json.dump(sortie, fh, ensure_ascii=False, indent=2)
+        _ecriture_atomique(OUT_JSON, sortie)
     except OSError as exc:
         print(f"[signal3] ERREUR ecriture {OUT_JSON}: {exc}", file=sys.stderr)
         return 1
 
     # 8) Console
     print(f"[signal3] ts={ts_maintenant} btc_spoof_pct={btc_spoof_pct:.2f}% "
-          f"contagion={'ON' if contagion_active else 'off'}")
+          f"delta_btc={delta_btc:+.2f} contagion_candidate={contagion_candidate} "
+          f"appliquee={n_contagion_appliquee} paire(s)")
     if alertes:
         print(f"[signal3] ALERTES ({len(alertes)}) :")
         for a in alertes:
             print(f"  - {a['pair']:<12} spoof={a['spoof_pct']:.2f}% "
                   f"drop={a['drop']} spread={a['spread_bps']:.2f}bps "
-                  f"persistance={a['persistance']} origine={a['origine']}")
+                  f"pers={a['persistance']} mad={a['drop_mad_ok']} "
+                  f"beta={a['beta_asset']:.2f} origine={a['origine']}")
     else:
         print("[signal3] aucune alerte.")
     if paires_risque:
@@ -368,7 +559,7 @@ def main() -> int:
         for r in paires_risque:
             print(f"  - {r['pair']:<12} spoof={r['spoof_pct']:.2f}% "
                   f"drop={r['drop']} spread={r['spread_bps']:.2f}bps "
-                  f"n={r['n_mesures']}")
+                  f"beta={r['beta_asset']:.2f} n={r['n_mesures']}")
     print(f"[signal3] JSON ecrit -> {OUT_JSON}")
 
     # 9) Alerte Index_Maison — UNIQUEMENT si ≥ 1 alerte
@@ -399,8 +590,7 @@ def main() -> int:
                 ],
                 "source": "hulk-mexc/scripts/signal3_livre_ecorche.py",
             }
-            with ALERTE_PATH.open("w", encoding="utf-8") as fh:
-                json.dump(alerte_doc, fh, ensure_ascii=False, indent=2)
+            _ecriture_atomique(ALERTE_PATH, alerte_doc)
             print(f"[signal3] ALERTE ecrite -> {ALERTE_PATH}")
         except OSError as exc:
             print(f"[signal3] ERREUR ecriture alerte: {exc}", file=sys.stderr)

@@ -11,14 +11,79 @@ Date : 2026-08-25
 """
 
 import json
+import os
+import statistics
+import tempfile
 import time
 import urllib.request
 from pathlib import Path
 import math
+from datetime import datetime, timezone
 
 DATA_DIR = Path(__file__).parent.parent / "data"
 LIVE_FILE = DATA_DIR / "live.json"
 SDI_OUTPUT = DATA_DIR / "sdi_latest.json"
+
+# ─── Corrections famille (29/08 soir, GO Christophe) ────────────
+# État SAPI : historique du spread BTC (normalisation σ1h) + scores
+# (persistance 3 ticks avant alerte). Fichier d'état atomique.
+SAPI_ETAT = DATA_DIR / "sapi_etat.json"
+SAPI_HISTO_SPREAD_MAX = 12   # 12 × 5 min ≈ 1h de fenêtre σ
+SAPI_PERSISTANCE_TICKS = 3   # 3 runs consécutifs ≥ seuil avant alerte
+SAPI_SEUIL_ALERTE = 0.75
+SAPI_VOLAT_K = 3.0           # normalisation : |Δspread| / (σ1h × K)
+
+
+def _ecriture_atomique(path, donnees):
+    """Écrit un JSON de façon atomique (.tmp + os.replace). FIX famille —
+    fin des fichiers tronqués en cas de crash en pleine écriture."""
+    path.parent.mkdir(parents=True, exist_ok=True)
+    fd, tmp_name = tempfile.mkstemp(prefix=path.name + ".", suffix=".tmp", dir=str(path.parent))
+    try:
+        with os.fdopen(fd, "w", encoding="utf-8") as fh:
+            json.dump(donnees, fh, ensure_ascii=False, indent=2)
+            fh.flush()
+            os.fsync(fh.fileno())
+        os.replace(tmp_name, path)
+    except BaseException:
+        try:
+            os.unlink(tmp_name)
+        except OSError:
+            pass
+        raise
+
+
+def _charger_sapi_etat():
+    """Charge l'état SAPI (historique spread + scores). Fail-open."""
+    try:
+        if SAPI_ETAT.exists():
+            return json.loads(SAPI_ETAT.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        pass
+    return {"spreads": [], "scores": []}
+
+
+def _sauver_sapi_etat(etat):
+    """Sauvegarde l'état SAPI en écriture atomique. Fail-open silencieux."""
+    try:
+        _ecriture_atomique(SAPI_ETAT, etat)
+    except OSError:
+        pass
+
+
+def _normaliser_par_volatilite(spread_abs, historique):
+    """Normalisation σ1h (FIX famille) : z = |Δspread| / (σ1h × K), borné [0,1].
+    Si le spread bouge parce que le carnet est VIDE (σ1h élevé), le diviseur
+    neutralise le faux positif. Historique insuffisant (< 3) → pas de
+    normalisation (retourne le brut borné, comportement d'avant).
+    """
+    brut = min(1.0, spread_abs / 100.0)
+    if len(historique) < 3:
+        return brut
+    sigma = statistics.stdev(historique)
+    if sigma <= 0.0:
+        return brut
+    return min(1.0, spread_abs / (sigma * SAPI_VOLAT_K))
 
 # ─── Fetch helpers ──────────────────────────────────────────────
 
@@ -347,7 +412,10 @@ def compute_sdi():
             # FIX 1 (supervision) : data_dir = Index_Maison/data → il faut remonter
             # DEUX niveaux (data_dir.parent.parent = ace777-test-day1) pour atteindre
             # hulk-mexc. Le chemin du codeur (data_dir.parent/hulk-mexc) était FAUX.
+            # FIX famille : normalisation σ1h — si le spread bouge parce que le
+            # carnet est vide, le diviseur σ1h neutralise le faux positif.
             spot_proxy = 0.0
+            spread_abs = 0.0
             murs_path = data_dir.parent.parent / "hulk-mexc" / "runs" / "murs_observations.json"
             if murs_path.exists():
                 try:
@@ -360,9 +428,16 @@ def compute_sdi():
                         if isinstance(item, dict) and item.get("pair") == "BTCUSDT":
                             spread_avg_bps = float(item.get("spread_avg_bps", 0.0) or 0.0)
                             break
-                    spot_proxy = min(1.0, abs(spread_avg_bps) / 100.0)
+                    spread_abs = abs(spread_avg_bps)
                 except Exception:
                     pass
+
+            # 3bis. État SAPI : historique spread (σ1h) + scores (persistance 3 ticks)
+            etat = _charger_sapi_etat()
+            spreads = list(etat.get("spreads", []))
+            spreads.append(spread_abs)
+            spreads = spreads[-SAPI_HISTO_SPREAD_MAX:]
+            spot_proxy = _normaliser_par_volatilite(spread_abs, spreads)
 
             # 4. Formule SAPI
             term_z_fee = 0.35 if z_fee > 2.0 else 0.0
@@ -371,20 +446,31 @@ def compute_sdi():
             term_spot = min(1.0, spot_proxy * 10.0) * 0.15
             sapi = max(0.0, min(1.0, term_z_fee + term_fantome + term_micro - term_spot))
 
-            alerte_sapi = bool(sapi >= 0.75 and volume_btc >= 500)
+            # 4bis. Persistance 3 ticks (FIX famille) : l'alerte ne s'allume que si
+            # les SAPI_PERSISTANCE_TICKS derniers runs sont ≥ seuil. Tue les faux
+            # positifs isolés (pic de cotation, micro-lag réseau).
+            scores = list(etat.get("scores", []))
+            scores.append(round(sapi, 3))
+            scores = scores[-SAPI_PERSISTANCE_TICKS:]
+            persistance = all(s >= SAPI_SEUIL_ALERTE for s in scores)
+            _sauver_sapi_etat({"spreads": spreads, "scores": scores})
+
+            alerte_sapi = bool(persistance and sapi >= SAPI_SEUIL_ALERTE and volume_btc >= 500)
             result["sapi"] = {
                 "score": round(sapi, 3),
                 "alerte": alerte_sapi,
+                "persistance": persistance,
+                "scores_recents": scores,
                 "composantes": {
                     "z_fee": round(z_fee, 3),
                     "taux_fantome": round(taux_fantome, 3),
                     "micro_tx_ratio": round(micro_tx_ratio, 3),
                     "spot_proxy": round(spot_proxy, 3),
                 },
-                "note": "Score d'Alerte Poussière Institutionnelle (Cortana tour 1, validé 29/08 — corr RBF plat −0.275). Proxy carnet spot = spread_avg_bps normalisé.",
+                "note": "Score d'Alerte Poussière Institutionnelle (Cortana tour 1, validé 29/08 — corr RBF plat −0.275). Proxy carnet spot = spread_avg_bps normalisé σ1h (FIX famille). Alerte = persistance 3 ticks ≥ 0.75 + volume ≥ 500 BTC.",
             }
             if alerte_sapi:
-                msg = "SAPI ÉLEVÉ: poussière institutionnelle probable (score ≥ 0.75 + volume)"
+                msg = "SAPI ÉLEVÉ: poussière institutionnelle probable (score ≥ 0.75 sur 3 ticks + volume)"
                 if msg not in result.get("alerts", []):
                     result.setdefault("alerts", []).append(msg)
         except Exception as e:
@@ -416,10 +502,12 @@ def compute_sdi():
     if rbf_result and rbf_result["rbf_score"] > 0.6:
         result["alerts"].append("RBF ÉLEVÉ: remplacements de frais détectés = urgence")
     
-    # 8. Sauvegarde
-    SDI_OUTPUT.parent.mkdir(parents=True, exist_ok=True)
-    with open(SDI_OUTPUT, "w") as f:
-        json.dump(result, f, indent=2)
+    # 8. Sauvegarde (atomique — FIX famille)
+    try:
+        _ecriture_atomique(SDI_OUTPUT, result)
+    except OSError as exc:
+        print(f"[SDI] ERREUR ecriture {SDI_OUTPUT}: {exc}")
+        return None
     
     sdi_val = sdi_result['sdi'] if sdi_result else 'N/A'
     ipt_val = ipt_result['ipt'] if ipt_result else 'N/A'

@@ -63,8 +63,16 @@ spoof_pct > 5 %  ET  drop > 100  ET  spread ≤ 70 bps  →  persistance 2/3 mes
 
 **Le chaînon manquant (le plus précieux)** : les manipulateurs n'attaquent PAS
 nos small caps directement — ils amorcent sur **BTC/ETH** et l'onde se propage.
-Si `btc_spoof_pct > 5 %` → seuils abaissés de 20 % sur toutes les paires
+Si `btc_spoof_pct > 5 %` → seuils abaissés de 20 % sur certaines paires
 (origine = `contagion_btc`).
+
+**CORRECTIONS FAMILLE APPLIQUÉES (29/08 soir)** — fini la contagion aveugle :
+- **β_asset** : la contagion n'est appliquée à une paire QUE si sa corrélation
+  1h avec BTC ≥ 0,3 (paire découplée = contagion ignorée à 100 %).
+- **Asymétrie** : contagion UNIQUEMENT en phase baissière (delta_btc < 0).
+  Un spoof haussier sur BTC ne paralyse plus nos paires.
+- **Filtre MAD** : anti-jitter (un bot qui retire/remet un ordre en 200 ms ne
+  crée plus de faux signal).
 
 **Fichiers** :
 - Script : `hulk-mexc/scripts/signal3_livre_ecorche.py`
@@ -81,8 +89,15 @@ Le retail, lui, tatone et utilise massivement le RBF.
 **VALIDÉ PAR NOS DONNÉES** : corrélation micro_tx/RBF = **−0.275** sur 13 933
 points — quand les micro-tx montent, le RBF s'effondre (0.286 vs 0.599).
 
-**État** : 3 des 4 termes du SAPI (Score d'Alerte Poussière) sont déjà codables
+**État** : 3 des 4 termes du SAPI (Score d'Alerte Poussière) sont codables
 avec nos données — seul le delta du carnet spot manque (proxy dispo).
+
+**CORRECTIONS FAMILLE APPLIQUÉES (29/08 soir)** :
+- **Normalisation σ1h** : le proxy carnet spot est divisé par la volatilité du
+  spread sur 1h — un carnet vide/volatile ne déclenche plus de faux positif.
+- **Persistance 3 ticks** : l'alerte ne s'allume qu'après 3 runs consécutifs
+  ≥ 0,75 (faux positifs isolés tués).
+- **Écriture atomique** partout (fichiers jamais corrompus).
 
 ## 4. 👩🔬 QUI EST ADA (pour éviter la confusion)
 
@@ -104,6 +119,10 @@ avec nos données — seul le delta du carnet spot manque (proxy dispo).
    → « aucune alerte » (marché calme) mais les paires à risque ressortent.
 4. **Registre** : `tail Index_Maison/data/croisement_externe.jsonl` → des lignes
    avec `"verdict": "ok"` toutes les 30 min.
+5. **Persistance croisement (29/08 soir)** : un prix en écart reste en
+   « surveillance » (pendant) 2 runs, et ne devient bloquant qu'au 3ᵉ run
+   consécutif → `"verdict": "fail"` + alerte data_quality. Micro-pic =
+   ignoré.
 
 ## Fichiers liés
 - Protocole détaillé : `PROTOCOLE_CROISEMENT_EXTERNE_20260829.md`

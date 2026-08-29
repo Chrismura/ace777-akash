@@ -1,18 +1,16 @@
 {
-  "ts": "2026-08-29T16:08+00:00",
-  "updated": "2026-08-29T16:08Z",
-  "etat": "ALERTE",
-  "chaines_ok": "12/13",
-  "anomalies": [
-    "BALEINES coupée : scan file"
-  ],
+  "ts": "2026-08-29T16:57+00:00",
+  "updated": "2026-08-29T16:57Z",
+  "etat": "OK",
+  "chaines_ok": "14/14",
+  "anomalies": [],
   "degradees": [],
   "chaines": [
     {
       "id": "baleines",
       "nom": "BALEINES",
       "chemin": "scan → pont → live.json.onchain → Ada + Cortana",
-      "ok": false,
+      "ok": true,
       "maillons": [
         {
           "nom": "scan (launchd whales)",
@@ -26,13 +24,13 @@
         },
         {
           "nom": "scan file",
-          "ok": false,
-          "detail": "âge 116 min"
+          "ok": true,
+          "detail": "âge 8 min"
         },
         {
           "nom": "mouvements (events)",
           "ok": true,
-          "detail": "dernier événement il y a 116 min"
+          "detail": "dernier événement il y a 8 min"
         },
         {
           "nom": "→ live.json.onchain",
@@ -42,12 +40,12 @@
         {
           "nom": "→ Ada gardienne",
           "ok": true,
-          "detail": "voilure 86.4 · zone VERT"
+          "detail": "voilure 91.6 · zone VERT"
         },
         {
           "nom": "→ Cortana feed",
           "ok": true,
-          "detail": "âge 1 min"
+          "detail": "âge 2 min"
         }
       ]
     },
@@ -65,7 +63,7 @@
         {
           "nom": "deriv_corr.json",
           "ok": true,
-          "detail": "âge 2 min"
+          "detail": "âge 5 min"
         }
       ]
     },
@@ -83,7 +81,7 @@
         {
           "nom": "CSV aspiration",
           "ok": true,
-          "detail": "ASPIRATION_CALIB_20260829_122141.csv · âge 2 min"
+          "detail": "ASPIRATION_CALIB_20260829_122141.csv · âge 1 min"
         },
         {
           "nom": "corrélation BTC",
@@ -98,12 +96,12 @@
         {
           "nom": "cortana_pilot.json",
           "ok": true,
-          "detail": "âge 624 min"
+          "detail": "âge 672 min"
         },
         {
           "nom": "cortana_analysis.json",
           "ok": true,
-          "detail": "âge 5 min"
+          "detail": "âge 3 min"
         }
       ]
     },
@@ -116,7 +114,7 @@
         {
           "nom": "live.json",
           "ok": true,
-          "detail": "âge 1 min"
+          "detail": "âge 2 min"
         },
         {
           "nom": "mission.json → cockpit",
@@ -144,7 +142,7 @@
         {
           "nom": "cpfp_detect.json",
           "ok": true,
-          "detail": "âge 10 min"
+          "detail": "âge 8 min"
         },
         {
           "nom": "mode",
@@ -167,7 +165,7 @@
         {
           "nom": "sentinel_history.json",
           "ok": true,
-          "detail": "âge 5 min"
+          "detail": "âge 3 min"
         },
         {
           "nom": "signaux",
@@ -310,7 +308,7 @@
         {
           "nom": "macro_tempete.json",
           "ok": true,
-          "detail": "âge 1 min"
+          "detail": "âge 0 min"
         },
         {
           "nom": "état courant",
@@ -333,7 +331,7 @@
         {
           "nom": "croisement_externe_etat.json",
           "ok": true,
-          "detail": "âge 4 min"
+          "detail": "âge 1 min"
         },
         {
           "nom": "fails prix (> 5 % vs externe)",
@@ -343,7 +341,30 @@
         {
           "nom": "warns murs (info)",
           "ok": true,
-          "detail": "2 warn(s) carnet déséquilibré (info)"
+          "detail": "aucun"
+        }
+      ]
+    },
+    {
+      "id": "sapi",
+      "nom": "SAPI POUSSIÈRE",
+      "chemin": "silent_drain_index.compute_sdi (SAPI) → sdi_latest.json → thermo_quotidien → live.json.sapi → Cortana + cockpit",
+      "ok": true,
+      "maillons": [
+        {
+          "nom": "sdi_latest.json (SAPI dedans)",
+          "ok": true,
+          "detail": "âge 3 min"
+        },
+        {
+          "nom": "SAPI calculé",
+          "ok": true,
+          "detail": "score 0.299"
+        },
+        {
+          "nom": "alerte poussière (≥ 0.75 + volume)",
+          "ok": true,
+          "detail": "aucune"
         }
       ]
     }

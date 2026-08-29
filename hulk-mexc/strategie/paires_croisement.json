@@ -1,6 +1,6 @@
 {
   "version": "2026-08-29",
-  "note": "Liste de croisement externe — règle de prudence Christophe (29/08) : on ne croise QUE les paires approfondies en deepdive (données validées). Les paires en observation (SOL...) sont capturées pour un set up personnalisé AVANT entrée en portefeuille — on croise leurs prix mais sans décision. Les paires NON deepdive (RIZE...) sont EXCLUES du croisement tant qu'elles n'ont pas été approfondies — on le fera au fur et à mesure.",
+  "note": "Liste de croisement externe — règle de prudence Christophe (29/08) : on ne croise QUE les paires approfondies en deepdive (données validées). Les paires en observation (SOL...) sont capturées pour un set up personnalisé AVANT entrée en portefeuille — on croise leurs prix mais sans décision. Les paires NON deepdive (RIZE...) sont EXCLUES du croisement tant qu'elles n'ont pas été approfondies — on le fera au fur et à mesure. MAJ 29/08 soir : RIZE passe en observation_setup (prix seul) apres deepdive — GO Christophe.",
   "deepdive_validees": {
     "BTCUSDT": "banc de preuve, croisement prioritaire",
     "ETHUSDT": "banc de preuve, croisement prioritaire",
@@ -22,7 +22,8 @@
     "IXSUSDT": "observation murs",
     "XDCUSDT": "observation murs",
     "QNTUSDT": "observation murs",
-    "JASMYUSDT": "observation murs"
+    "JASMYUSDT": "observation murs",
+    "RIZEUSDT": "OBSERVATION (GO Christophe 29/08 apres deepdive) : T-RIZE RWA institutionnel — prix croise SEUL, pas de decision. Profil maison manipulee_fragile (murs 243$, sigma 1.151, spoof 3.4%, drop 216) — capture du comportement pour set up avant entree portefeuille."
   },
   "exclues_prudence": {
     "WUSDT": "à vérifier avant croisement",
@@ -32,9 +33,7 @@
     "TELUSDT": "à vérifier avant croisement",
     "RWAINCUSDT": "à vérifier avant croisement"
   },
-  "deepdive_faits_29aout": {
-    "RIZEUSDT": "DEEPDIVE FAIT 29/08 (DEEPDIVE_RIZE_20260829.md) : T-RIZE, tokenisation RWA institutionnelle (Revolut, Canton, $10B) — MC 9,6M$, volume 112k$, +89% le 24/06. Profil maison : manipulee_fragile (murs 243$, σ 1.151, spoof 3,4%, drop 216). DÉCISION : reste exclue du croisement PRIX par prudence (prix volatil, 59% du supply à libérer), mais deepdive documenté → peut passer en observation_setup (prix seul) si Christophe GO pour capturer son comportement."
-  },
+  "deepdive_faits_29aout": {},
   "ejectees": {
     "ADAUSDT": "ÉJECTÉE 28/08 (décision Christophe) — 1) confusion avec Ada l'orchestratrice IA, 2) aucun intérêt pour lui. Absente de observation_list (retired), du portefeuille et du croisement. NE PAS la réintroduire sans GO explicite.",
     "WECANUSDT": "retirée (pas sur MEXC)",
