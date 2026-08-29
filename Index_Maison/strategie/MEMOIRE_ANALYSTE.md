@@ -2611,3 +2611,13 @@
 - 2026-08-29T17:52:22.284432Z | alerte | Maintenir l'alerte ambre et la discipline d'embuscade d'Alpha, en s'appuyant sur l'éclairage de Beta et la surveillance rapprochée de la position CCUSDT. | conf=88%
 - 2026-08-29T17:55:15.866342Z | alerte | Maintenir l'alerte ambre et la discipline d'embuscade d'Alpha, en s'appuyant sur l'éclairage de Beta et la surveillance rapprochée de la position CCUSDT. | conf=88%
 - 2026-08-29T18:00:06.902537Z | alerte | Maintenir l'alerte ambre et la discipline d'embuscade d'Alpha, en s'appuyant sur l'éclairage de Beta et la surveillance rapprochée de la position CCUSDT. | conf=88%
+- 2026-08-29T18:13:59.386312Z | alerte | Maintenir l'alerte ambre et la discipline d'embuscade d'Alpha, en s'appuyant sur l'éclairage de Beta et la surveillance rapprochée de la position CCUSDT. | conf=88%
+- 2026-08-29T18:14:45.637040Z | alerte | ? | conf=?
+- 2026-08-29T18:20:53.295871Z | alerte | Maintenir l'alerte ambre et la discipline d'embuscade d'Alpha, en s'appuyant sur l'éclairage de Beta et la surveillance rapprochée de la position CCUSDT sous seuil critique. | conf=88%
+- 2026-08-29T18:24:07.203177Z | alerte | Maintenir l'alerte ambre et la discipline d'embuscade d'Alpha, en s'appuyant sur l'éclairage de Beta et la surveillance rapprochée de la position CCUSDT sous seuil critique. | conf=88%
+- 2026-08-29T18:32:09.223276Z | alerte | Maintenir l'alerte ambre et la discipline d'embuscade d'Alpha, en s'appuyant sur l'éclairage de Beta et la surveillance rapprochée de la position CCUSDT sous seuil critique. | conf=88%
+- 2026-08-29T18:32:41.892468Z | alerte | Maintenir l'alerte ambre et la discipline d'embuscade d'Alpha, en s'appuyant sur l'éclairage de Beta et la surveillance rapprochée de la position CCUSDT sous seuil critique. | conf=88%
+- 2026-08-29T18:38:03.005277Z | alerte | Maintenir l'alerte ambre et la discipline d'embuscade d'Alpha, en s'appuyant sur les reconnaissances de Beta et la surveillance rapprochée de CCUSDT sous le seuil critique. | conf=88%
+- 2026-08-29T18:44:25.584585Z | alerte | Maintenir l'alerte ambre et la discipline d'embuscade d'Alpha, en s'appuyant sur l'éclairage de Beta et la surveillance rapprochée de CCUSDT sous son seuil critique. | conf=88%
+- 2026-08-29T19:03:02.924984Z | alerte | Maintenir l'alerte ambre et la discipline d'embuscade d'Alpha, en s'appuyant sur l'éclairage de Beta et la surveillance rapprochée de CCUSDT sous son seuil critique. | conf=88%
+- 2026-08-29T19:04:19.251240Z | alerte | Maintenir l'alerte ambre et la discipline d'embuscade d'Alpha, en s'appuyant sur l'éclairage de Beta et la surveillance rapprochée de CCUSDT sous son seuil critique. | conf=88%
