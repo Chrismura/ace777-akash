@@ -1,9 +1,3 @@
-# Rapport Veilleuse — 2026-08-29T22:06:56.736000+00:00
+# Rapport Veilleuse — 2026-08-29T23:06:57.703376+00:00
 
-## État : ⚠️ ANOMALIES DÉTECTÉES
-- **INTRUSION** : Modification non déclarée : hulk-mexc/scripts/paper_diprip.py (md5 diffère du registre)
-- **INTRUSION** : Modification non déclarée : Index_Maison/scripts/cortana_analyse.py (md5 diffère du registre)
-- **INTRUSION** : Modification non déclarée : Index_Maison/scripts/thermo_quotidien_free.py (md5 diffère du registre)
-- **INTRUSION** : Modification non déclarée : hulk-mexc/config/defaults.env (md5 diffère du registre)
-- **INTRUSION** : Modification non déclarée : Index_Maison/scripts/sante_index.py (md5 diffère du registre)
-- **INTRUSION** : Modification non déclarée : Index_Maison/scripts/silent_drain_index.py (md5 diffère du registre)
+## État : ✅ STABLE — tout est en ordre

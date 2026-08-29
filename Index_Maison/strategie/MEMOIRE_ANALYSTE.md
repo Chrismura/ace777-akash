@@ -2647,3 +2647,16 @@
 - 2026-08-29T21:48:05.378289Z | alerte | Maintenir l'alerte ambre et la discipline d'embuscade d'Alpha en s'appuyant sur l'éclairage de Beta, tout en resserrant la surveillance sur la position seed CCUSDT qui flirte avec son seuil critique. | conf=87%
 - 2026-08-29T22:00:31.055099Z | alerte | Maintenir l'alerte ambre et la discipline d'embuscade d'Alpha en s'appuyant sur l'éclairage de Beta, tout en resserrant la surveillance sur la position seed CCUSDT qui flirte avec son seuil critique. | conf=87%
 - 2026-08-29T22:05:15.240552Z | alerte | Maintenir l'alerte ambre et la discipline d'embuscade d'Alpha en s'appuyant sur l'éclairage de Beta, tout en resserrant la surveillance sur la position seed CCUSDT qui flirte avec son seuil critique. | conf=87%
+- 2026-08-29T22:13:41.034006Z | alerte | Maintenir l'alerte ambre et la discipline d'embuscade d'Alpha en s'appuyant sur l'éclairage de Beta, tout en resserrant la surveillance sur la position seed CCUSDT qui flirte avec son seuil critique. | conf=87%
+- 2026-08-29T22:15:05.724232Z | alerte | ? | conf=?
+- 2026-08-29T22:28:06.937906Z | alerte | Maintenir l'alerte ambre, préserver la discipline d'embuscade d'Alpha (+2,01 $) et exécuter les coupe-circuits nécessaires sur les positions seeds de Hulk en infraction. | conf=87%
+- 2026-08-29T22:29:21.634077Z | alerte | Maintenir l'alerte ambre, préserver la discipline d'embuscade d'Alpha (+2,01 $) et exécuter les coupe-circuits nécessaires sur les positions seeds de Hulk en infraction. | conf=87%
+- 2026-08-29T22:34:11.316931Z | alerte | Maintenir l'alerte ambre, préserver la discipline d'embuscade d'Alpha (+2,01 $) et exécuter les coupe-circuits nécessaires sur les positions seeds de Hulk en infraction. | conf=87%
+- 2026-08-29T22:36:33.112605Z | alerte | Maintenir l'alerte ambre, préserver la discipline d'embuscade d'Alpha (+2,01 $) et exécuter les coupe-circuits nécessaires sur les positions seeds de Hulk en infraction. | conf=87%
+- 2026-08-29T22:40:58.986481Z | alerte | Maintenir l'alerte ambre, préserver la discipline d'embuscade d'Alpha (+2,01 $) et exécuter les coupe-circuits nécessaires sur les positions seeds de Hulk en infraction. | conf=87%
+- 2026-08-29T22:44:44.659763Z | alerte | Maintenir l'alerte ambre, préserver la discipline d'embuscade d'Alpha (+2,01 $) et exécuter les coupe-circuits nécessaires sur les positions seeds de Hulk en infraction. | conf=87%
+- 2026-08-29T22:51:28.807372Z | alerte | Maintenir l'alerte ambre, préserver la discipline d'embuscade d'Alpha (+2,01 $) et exécuter les coupe-circuits nécessaires sur les positions seeds de Hulk en infraction. | conf=87%
+- 2026-08-29T22:58:30.790229Z | alerte | Maintenir l'alerte ambre, préserver la discipline d'embuscade d'Alpha (+2,01 $) et exécuter les coupe-circuits nécessaires sur les positions seeds de Hulk en infraction. | conf=87%
+- 2026-08-29T22:59:07.360276Z | alerte | ? | conf=?
+- 2026-08-29T23:03:30.096870Z | alerte | Maintenir l'alerte ambre, préserver la discipline d'embuscade d'Alpha (249 skips) et appliquer strictement les coupe-circuits sur les positions seeds de Hulk en zone critique. | conf=87%
+- 2026-08-29T23:07:29.535310Z | alerte | Maintenir l'alerte ambre, préserver la discipline d'embuscade d'Alpha et appliquer strictement les coupe-circuits sur les positions seeds de Hulk en zone critique. | conf=87%
