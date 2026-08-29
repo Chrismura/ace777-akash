@@ -2621,3 +2621,12 @@
 - 2026-08-29T18:44:25.584585Z | alerte | Maintenir l'alerte ambre et la discipline d'embuscade d'Alpha, en s'appuyant sur l'éclairage de Beta et la surveillance rapprochée de CCUSDT sous son seuil critique. | conf=88%
 - 2026-08-29T19:03:02.924984Z | alerte | Maintenir l'alerte ambre et la discipline d'embuscade d'Alpha, en s'appuyant sur l'éclairage de Beta et la surveillance rapprochée de CCUSDT sous son seuil critique. | conf=88%
 - 2026-08-29T19:04:19.251240Z | alerte | Maintenir l'alerte ambre et la discipline d'embuscade d'Alpha, en s'appuyant sur l'éclairage de Beta et la surveillance rapprochée de CCUSDT sous son seuil critique. | conf=88%
+- 2026-08-29T19:12:39.343616Z | alerte | Maintenir l'alerte ambre et la discipline d'embuscade d'Alpha, en s'appuyant sur l'éclairage de Beta et la surveillance rapprochée de CCUSDT sous son seuil critique. | conf=88%
+- 2026-08-29T19:14:39.287891Z | alerte | Maintenir l'alerte ambre et la discipline d'embuscade d'Alpha, en s'appuyant sur l'éclairage de Beta et la surveillance rapprochée de CCUSDT sous son seuil critique. | conf=88%
+- 2026-08-29T19:17:16.834869Z | alerte | Maintenir l'alerte ambre et la discipline d'embuscade d'Alpha, en s'appuyant sur l'éclairage de Beta et la surveillance rapprochée de CCUSDT sous son seuil critique. | conf=88%
+- 2026-08-29T19:31:32.785001Z | alerte | Maintenir l'alerte ambre et la discipline d'embuscade d'Alpha, en s'appuyant sur l'éclairage de Beta et la surveillance rapprochée des positions seeds de Hulk. | conf=88%
+- 2026-08-29T19:37:38.845491Z | alerte | Maintenir l'alerte ambre et la discipline d'embuscade d'Alpha, en s'appuyant sur l'éclairage de Beta et la surveillance rapprochée des positions seeds de Hulk. | conf=88%
+- 2026-08-29T19:38:49.513553Z | alerte | ? | conf=?
+- 2026-08-29T19:44:30.918858Z | alerte | Maintenir l'alerte ambre et la discipline d'embuscade d'Alpha, en capitalisant sur l'éclairage de Beta tout en appliquant une surveillance rapprochée sur CCUSDT et les positions seeds de Hulk. | conf=87%
+- 2026-08-29T19:57:11.472964Z | alerte | Maintenir l'alerte ambre et la discipline d'embuscade d'Alpha, en capitalisant sur l'éclairage de Beta tout en appliquant une surveillance rapprochée sur CCUSDT et les positions seeds de Hulk. | conf=87%
+- 2026-08-29T20:03:29.019893Z | alerte | Maintenir l'alerte ambre et la discipline d'embuscade d'Alpha, en capitalisant sur l'éclairage de Beta tout en appliquant une surveillance rapprochée sur CCUSDT et les positions seeds de Hulk. | conf=87%
