@@ -122,6 +122,18 @@ P_SPREAD_PERCENTILE: float = 30.0
 P_SPREAD_FENETRE: timedelta = timedelta(hours=24)
 P_SPREAD_MIN_ECH: int = 8   # < 8 mesures → fallback seuil nominal fixe
 
+# HYBRIDE FAMILLE/CORTANA (29/08 litté — consensus tripartite) : le seuil spread
+# n'est plus le p30-24h PUR (jugé "miroir rétroviseur" par Cortana, trop lent sur
+# les small caps dont la liquidité s'évapore en minutes), mais la combinaison
+#   0.7 × p30_24h  +  0.3 × p30_4h
+# On garde l'amortisseur anti-bruit 24h ET on gagne la réactivité < 60 min grâce
+# au p30-4h. Calibrage DEEPSEEK/JUGE (0.7/0.3), validé par GEMINI (hybride),
+# GROK (fenêtre 4h), INFERX (EMA 4h/20h) et Cortana round 2 (EWMA borné).
+P_SPREAD_FENETRE_COURTE: timedelta = timedelta(hours=4)
+P_SPREAD_POIDS_LONG: float = 0.7   # poids du p30_24h
+P_SPREAD_POIDS_COURT: float = 0.3   # poids du p30_4h
+P_SPREAD_MIN_ECH_COURT: int = 4    # < 4 mesures 4h → on retombe sur le p30_24h pur
+
 # Heures creuses UTC (02-06) — le spread s'élargit naturellement (peu de MM).
 # En heures creuses, le seuil spread est ÉLARGI (× COEFF_HEURE_CREUSE) pour ne
 # pas confondre manque de market-maker avec un vrai squeeze du livre.
@@ -392,23 +404,55 @@ def _percentile(valeurs: List[float], p: float) -> float:
     return tri[idx - 1]
 
 
-def spread_seuil_dynamique(mesures: List[Dict[str, Any]],
-                           seuil_nominal: float) -> Dict[str, float]:
-    """Dynamic Spread Percentile (FIX famille n°4) : seuil spread = percentile
-    P_SPREAD_PERCENTILE de la distribution de spread_bps sur les dernières 24h
-    de la paire. Fail-open : < P_SPREAD_MIN_ECH mesures dans la fenêtre → on
-    retombe sur le seuil nominal fixe. Retourne {seuil, p_value, n}."""
+def _p30_fenetre(mesures: List[Dict[str, Any]], fenetre: timedelta,
+                 min_ech: int) -> Dict[str, Any]:
+    """p30 des spread_bps d'une paire sur une fenêtre glissante donnée.
+    Fail-open : < min_ech mesures → {"ok": False}. Retourne aussi n."""
     if not mesures:
-        return {"seuil": seuil_nominal, "p_value": 0.0, "n": 0}
+        return {"ok": False, "p": 0.0, "n": 0}
     last = max(m["ts"] for m in mesures)
-    debut = last - P_SPREAD_FENETRE
+    debut = last - fenetre
     spreads = [m.get("spread_bps") or 0.0 for m in mesures
                if debut <= m["ts"] <= last and (m.get("spread_bps") or 0.0) > 0.0]
-    if len(spreads) < P_SPREAD_MIN_ECH:
-        return {"seuil": seuil_nominal, "p_value": 0.0, "n": len(spreads)}
-    p = _percentile(spreads, P_SPREAD_PERCENTILE)
-    seuil = p if p > 0.0 else seuil_nominal
-    return {"seuil": round(seuil, 2), "p_value": round(p, 2), "n": len(spreads)}
+    if len(spreads) < min_ech:
+        return {"ok": False, "p": 0.0, "n": len(spreads)}
+    return {"ok": True, "p": _percentile(spreads, P_SPREAD_PERCENTILE), "n": len(spreads)}
+
+
+def spread_seuil_dynamique(mesures: List[Dict[str, Any]],
+                           seuil_nominal: float) -> Dict[str, float]:
+    """Seuil spread HYBRIDE (FIX famille n°4 + amendement famille/Cortana,
+    29/08 litté — consensus tripartite) :
+        seuil = 0.7 × p30_24h  +  0.3 × p30_4h
+    Le p30-24h est l'amortisseur anti-bruit (une small cap vit à 150+ bps, une
+    large cap à 5 bps — un seuil absolu est incomparable). Le p30-4h apporte la
+    réactivité < 60 min aux chocs de liquidité (la fenêtre 24h pure était le
+    "miroir rétroviseur" dénoncé par Cortana).
+
+    Fail-open hiérarchique :
+      - si p30_4h non calculable (< 4 mesures 4h) → seuil = p30_24h pur ;
+      - si p30_24h non calculable (< 8 mesures 24h) → seuil nominal fixe.
+    Retourne {seuil, p30_24h, p30_4h, n24, n4}."""
+    if not mesures:
+        return {"seuil": seuil_nominal, "p30_24h": 0.0, "p30_4h": 0.0,
+                "n24": 0, "n4": 0, "mode": "nominal"}
+    long = _p30_fenetre(mesures, P_SPREAD_FENETRE, P_SPREAD_MIN_ECH)
+    if not long["ok"]:
+        return {"seuil": seuil_nominal, "p30_24h": 0.0, "p30_4h": 0.0,
+                "n24": long["n"], "n4": 0, "mode": "nominal"}
+    court = _p30_fenetre(mesures, P_SPREAD_FENETRE_COURTE, P_SPREAD_MIN_ECH_COURT)
+    if not court["ok"]:
+        # Pas assez de mesures 4h → on reste sur le p30_24h pur (comportement
+        # de l'affinage n°4 d'origine, déjà validé).
+        seuil = long["p"] if long["p"] > 0.0 else seuil_nominal
+        return {"seuil": round(seuil, 2), "p30_24h": round(long["p"], 2),
+                "p30_4h": 0.0, "n24": long["n"], "n4": court["n"],
+                "mode": "24h_seul"}
+    hyb = P_SPREAD_POIDS_LONG * long["p"] + P_SPREAD_POIDS_COURT * court["p"]
+    seuil = hyb if hyb > 0.0 else seuil_nominal
+    return {"seuil": round(seuil, 2), "p30_24h": round(long["p"], 2),
+            "p30_4h": round(court["p"], 2), "n24": long["n"], "n4": court["n"],
+            "mode": "hybride"}
 
 
 def _en_heure_creuse(dt_utc: Optional[datetime] = None) -> bool:
@@ -523,10 +567,11 @@ def main() -> int:
             # vs la distribution des mesures récentes (anti-jitter HFT).
             drop_mad_ok = drop_filtre_mad(mesures_pair)
 
-            # FIX famille n°4 : Dynamic Spread Percentile + heures creuses.
-            # 1) Le seuil spread n'est plus fixe (70 bps) : c'est le p30 de la
-            #    distribution 24h de la paire (un carnet écorché = spread dans
-            #    le décile le plus serré de SON histoire, pas une valeur absolue).
+            # FIX famille n°4 + amendement : Dynamic Spread Percentile HYBRIDE
+            # (0.7×p30_24h + 0.3×p30_4h) + heures creuses.
+            # 1) Le seuil spread n'est plus fixe (70 bps) : c'est l'hybride des
+            #    p30 24h/4h de la paire (amortisseur anti-bruit + réactivité <60
+            #    min — le "miroir rétroviseur" de Cortana est corrigé).
             dyn = spread_seuil_dynamique(mesures_pair, seuils["spread_bps"])
             seuil_spread_pair = dyn["seuil"]
             # 2) En heures creuses UTC (02-06), le spread s'élargit
@@ -551,8 +596,11 @@ def main() -> int:
                 "drop": int(drop),
                 "spread_bps": round(spread, 2),
                 "spread_seuil_dyn": seuil_spread_pair,
-                "spread_p30_24h": dyn["p_value"],
-                "spread_p30_n": dyn["n"],
+                "spread_seuil_mode": dyn["mode"],
+                "spread_p30_24h": dyn["p30_24h"],
+                "spread_p30_4h": dyn["p30_4h"],
+                "spread_p30_n24": dyn["n24"],
+                "spread_p30_n4": dyn["n4"],
                 "heure_creuse": heure_creuse,
                 "persistance": pers,
                 "drop_mad_ok": drop_mad_ok,

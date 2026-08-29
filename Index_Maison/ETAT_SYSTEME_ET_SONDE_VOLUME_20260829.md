@@ -44,6 +44,30 @@ parce qu'on n'a **aucune donnée de volume traded**.
      créerait des faux positifs la nuit (toutes les small caps dorment en même
      temps) → à conditionner + mettre en observation.
 
+### 🆕🆕 SUITE LOGIQUE FAITE (29/08 litté, GO Christophe « enchaîne logiquement ») :
+
+**1. Hybride spread codé et testé** (`signal3_livre_ecorche.py`) :
+- Le seuil spread n'est plus le p30_24h pur : c'est maintenant **`0.7 × p30_24h + 0.3 × p30_4h`**
+  (consensus tripartite famille + Cortana + Buffy).
+- Testé sur données réelles : XRP hybride=1.45 (n24=844, n4=142) ; **QAIT** : p30_4h=30.33 vs
+  p30_24h=50.48 → seuil baissé à 44.43 (le carnet s'est resserré ces 4h → plus sensible
+  MAINTENANT, le « miroir rétroviseur » de Cortana est corrigé) ; **RWAINC** : p30_4h=94.79 vs
+  45.26 → seuil monté à 60.12 (spread explosé récemment → pas de faux positif).
+- Fail-open hiérarchique : pas assez de mesures 4h → p30_24h pur → sinon seuil nominal.
+  Chaque paire expose `spread_seuil_mode` (hybride / 24h_seul / nominal).
+
+**2. Veille d'essaim en OBSERVATION 48h** (`veille_essaim_observation.py`) :
+- La trouvaille de Cortana (résonance harmonique inter-actifs : les baleines tapent des
+  PANIERS, pas des jetons isolés) codée en version LÉGÈRE (la matrice lourde est rejetée).
+- Calcule le CV du spread par paire (fenêtre 1h, seuil ≤ 15 % comme le SAPI) et compte les
+  paires « régulières » SIMULTANÉES (dernières mesures alignées < 5 min).
+- MODE OBSERVATION STRICT : **aucune décision, aucun seuil modifié** — journalise tout
+  (`runs/essaim_hist.jsonl` + `essaim_etat.json`), chaîne cockpit **ESSAIM (OBS)** verte.
+- 1er run : 13 paires jugées, 1 régulière (HBAR seule) → 0 essaim (pas de coordination
+  actuelle — sain).
+- Après 48h : on confronte les essaims capturés aux vrais mouvements pour calibrer le seuil
+  N (≥2 ou ≥3 paires ?) et le bonus SAPI (+0.20 ?) AVANT de le passer en décision.
+
 ### 🆕 La conséquence : LA SONDE VOLUME PANIER (29/08, GO Christophe)
 Pour sortir du débat théorique, on capture DÈS MAINTENANT la donnée qui manquait :
 **`sonde_volume_panier.py`** — le volume traded réel (24h + quoteVolume) de
@@ -108,16 +132,15 @@ appliqué depuis le début : **jamais décider sur des données qu'on n'a pas**.
       trompeur (pas encore d'historique) — vérifier qu'il se normalise ~1.0 au
       fil des runs, et calibrer le seuil d'alerte (−50 % est-il le bon ?).
 
-### Amendements famille/Cortana à coder (quand Christophe tranche)
-- [ ] **Hybride spread** : `0.7×p30_24h + 0.3×p30_4h` (DEEPSEEK/JUGE) à la place
-      du p30_24h pur — réagit <60 min sans lâcher l'amortisseur. **Testé mentalement,
-      à coder + tester sur données réelles.**
-- [ ] **Compteur d'essaim léger** (idée de fond de Cortana) : si ≥2-3 paires à
-      CV≤15 % simultanément + spread serré (pas juste « tout le monde dort ») →
-      +0.20 SAPI. **En observation 48h avant prod.**
+### Amendements famille/Cortana — ÉTAT RÉEL
+- [x] **Hybride spread** : `0.7×p30_24h + 0.3×p30_4h` **CODÉ ET TESTÉ 29/08 litté**
+      (XRP/QAIT/RWAINC vérifiés sur données réelles) — signal3 expose `spread_seuil_mode`.
+- [x] **Compteur d'essaim léger** (idée de fond de Cortana) : **EN OBSERVATION 48h**
+      depuis le 29/08 litté (`veille_essaim_observation.py`, chaîne cockpit ESSAIM (OBS)).
+      Après 48h : calibrer le seuil N et le bonus, puis décider du passage en prod.
 - [ ] **Gardien dynamique de volume** (variante INFERX/Cortana r2) : garder 02-06
       mais basculer en « mode creux » si le volume panier s'effondre −80 % hors
-      plage (avec la sonde, on pourra enfin le faire).
+      plage — **en attente des 48-72h de données de la sonde volume** pour calibrer.
 
 ### Rappels permanents (protocoles)
 - [ ] **Croisement externe** : vérifier chaque jour `croisement_externe_etat.json`

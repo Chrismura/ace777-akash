@@ -26,6 +26,7 @@ from datetime import datetime, timezone
 
 RACINE = Path(__file__).resolve().parent.parent.parent
 IM = RACINE / "Index_Maison"
+HULK = RACINE / "hulk-mexc"
 # Hook étape 5 : auto_reparer.py vit dans ce même dossier scripts/
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 RAPPORT = IM / "thermo" / "sante_index.json"
@@ -724,6 +725,42 @@ def verifier_chaines():
         "id": "sapi", "nom": "SAPI POUSSIÈRE",
         "chemin": "silent_drain_index.compute_sdi (SAPI) → sdi_latest.json → thermo_quotidien → live.json.sapi → Cortana + cockpit",
         "ok": sapi_frais and sapi_score is not None and not sapi_alerte, "maillons": maillons,
+    })
+
+    # ============================================================
+    # 12. ESSAIM — COORDINATION INTER-PAIRES (29/08 litté, GO Christophe) :
+    #     la trouvaille de Cortana (résonance harmonique inter-actifs) en mode
+    #     OBSERVATION 48h — veille_essaim_observation.py calcule le CV du
+    #     spread par paire et compte les paires "régulières" simultanées.
+    #     AUCUNE décision : la chaîne vérifie juste que la veille tourne et
+    #     affiche le nombre de paires régulières / essaim détecté.
+    # ============================================================
+    maillons = []
+    essaim_json = HULK / "runs" / "essaim_etat.json"
+    essaim_frais = frais(essaim_json, 45)  # veille toutes les 30 min
+    a_essaim = age_min(essaim_json)
+    essaim_n = None
+    essaim_paires = []
+    try:
+        ed = lire_json(essaim_json)
+        essaim_n = ed.get("n_essaim")
+        essaim_paires = [p.get("pair") for p in (ed.get("essaim") or [])]
+    except Exception:
+        pass
+    maillons.append(maillon("essaim_etat.json", essaim_frais,
+                            f"âge {a_essaim:.0f} min" if a_essaim is not None else "ABSENT"))
+    maillons.append(maillon("veille d'essaim active", essaim_n is not None,
+                            "obs 48h" if essaim_n is not None else "absente"))
+    maillons.append(maillon("paires régulières simultanées", (essaim_n or 0) < 2,
+                            f"{essaim_n} essaim · {essaim_paires}" if essaim_paires else f"{essaim_n} essaim"))
+    if not essaim_frais:
+        anomalies.append("ESSAIM : essaim_etat.json figé — la veille de coordination inter-paires ne tourne plus")
+    if essaim_n and essaim_n >= 2:
+        anomalies.append(f"ESSAIM : {essaim_n} paires à rythme robotique SIMULTANÉ ({essaim_paires}) — ferme de serveurs possible (observation, pas de décision)")
+    chaines.append({
+        "id": "essaim", "nom": "ESSAIM (OBS)",
+        "chemin": "veille_essaim_observation.py (launchd 30 min) → CV spread par paire → paires régulières simultanées (observation 48h, aucune décision)",
+        "ok": essaim_frais and essaim_n is not None and (essaim_n or 0) < 2, "maillons": maillons,
     })
 
     return chaines, anomalies, now, chaines_degradees
