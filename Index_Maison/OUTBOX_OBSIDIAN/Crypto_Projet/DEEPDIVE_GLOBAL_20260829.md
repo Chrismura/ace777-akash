@@ -235,6 +235,37 @@ mesurable). C'est LA règle qui nous a sauvés plusieurs fois.
 
 ---
 
+## 5b. 🎯 LE RECALIBRAGE (après consultation GEMINI + DEEPSEEK + CORTANA — 29/08 soir)
+
+Les 3 IA ont stress-testé le cadre et ont été impitoyables. Verdict : le cadre
+est nécessaire et sourcé, MAIS on a confondu deux choses — **corrélation de
+VALEUR** (le jeton EST la thèse) vs **corrélation NARRATIVE** (le jeton est
+adossé à la thèse sans pont dans le code). Détail complet :
+`CONSULTATION_GEOSTRATEGIE_SYNTHESE_20260829.md`.
+
+| Jeton | Type de corrélation | Verdict des 3 IA | Traitement |
+|---|---|---|---|
+| **BTC** | ✅ **VALEUR** (le jeton est la réserve) | Le seul pari authentique | **Conviction** |
+| **PAXG** | ✅ **VALEUR** (or tokenisé) | Juste, corrélation directe | **Conviction** |
+| **CHIP** | ⚠️ NARRATIVE (adossé au compute) | Pertinent mais risqué (shadow banking GPU) | **Option** (petite taille, long horizon) |
+| **QAIT** | ⚠️ NARRATIVE (adossé au Q-day/Europe) | Faux lien — pont de valeur WISeKey→token inexistant | **Option poker** (jamais conviction) |
+| **RIZE** | ⚠️ NARRATIVE (RWA) | Faible — risque requalification security | **Option** (observation) |
+
+**Les 2 trouvailles majeures de la consultation :**
+1. **LA FORCE MANQUANTE = L'ÉNERGIE / LE GRID** (unanime des 3) : « un GPU sans
+   électron bas-carbone ne vaut rien ». CHIP finance des GPU sans sécuriser
+   l'énergie → cathédrales dans le désert. Piste : corréler CHIP aux PPA et au
+   prix du MWh nucléaire ; surveiller uranium/grids/terres rares.
+2. **Le Q-day à 3 ans = artifice marketing de WISeKey** (partie prenante) : le
+   consensus NIST penche vers 2030-2035. La thèse QAIT devient un pari LONG
+   TERME (2030+), pas un pari court.
+
+**Ce qu'ils auraient acheté à la place** : NVDA/TSM (compute), Thales/Lockheed
+(défense), uranium/cuivre/terres rares (l'IA et la guerre tournent au cuivre
+et à l'uranium, pas au code).
+
+---
+
 ## 6. 📌 SYNTHÈSE — CE QU'ON FAIT DE TOUT ÇA
 
 1. **Le marché** est poussé par le Trésor US → les small caps montent avec le
