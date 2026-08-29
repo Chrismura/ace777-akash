@@ -2605,3 +2605,9 @@
 - 2026-08-29T16:54:05.775667Z | alerte | Maintenir l'alerte ambre et la discipline d'embuscade d'Alpha, en s'appuyant sur l'éclairage de Beta et la surveillance rapprochée de la position seed CCUSDT en tension. | conf=88%
 - 2026-08-29T16:54:16.527089Z | alerte | Maintenir l'alerte ambre et la discipline d'embuscade d'Alpha, en s'appuyant sur l'éclairage de Beta et la surveillance rapprochée de la position seed CCUSDT. | conf=88%
 - 2026-08-29T17:03:23.534339Z | alerte | Maintenir l'alerte ambre et la discipline d'embuscade d'Alpha, en s'appuyant sur l'éclairage de Beta et la surveillance rapprochée de la position CCUSDT. | conf=88%
+- 2026-08-29T17:14:22.746767Z | alerte | Maintenir l'alerte ambre et la discipline d'embuscade d'Alpha, en s'appuyant sur l'éclairage de Beta et la surveillance rapprochée de la position CCUSDT. | conf=88%
+- 2026-08-29T17:23:43.400837Z | alerte | Maintenir l'alerte ambre et la discipline d'embuscade d'Alpha, en s'appuyant sur l'éclairage de Beta et la surveillance rapprochée de la position CCUSDT. | conf=88%
+- 2026-08-29T17:44:20.947537Z | alerte | Maintenir l'alerte ambre et la discipline d'embuscade d'Alpha, en s'appuyant sur l'éclairage de Beta et la surveillance rapprochée de la position CCUSDT. | conf=88%
+- 2026-08-29T17:52:22.284432Z | alerte | Maintenir l'alerte ambre et la discipline d'embuscade d'Alpha, en s'appuyant sur l'éclairage de Beta et la surveillance rapprochée de la position CCUSDT. | conf=88%
+- 2026-08-29T17:55:15.866342Z | alerte | Maintenir l'alerte ambre et la discipline d'embuscade d'Alpha, en s'appuyant sur l'éclairage de Beta et la surveillance rapprochée de la position CCUSDT. | conf=88%
+- 2026-08-29T18:00:06.902537Z | alerte | Maintenir l'alerte ambre et la discipline d'embuscade d'Alpha, en s'appuyant sur l'éclairage de Beta et la surveillance rapprochée de la position CCUSDT. | conf=88%
