@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-29T02:09:53.903064+00:00",
+  "generated_at": "2026-08-29T02:10:24.198760+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 328
+      "calls_24h": 329
     },
     {
       "id": "openrouter-free",
@@ -247,10 +247,18 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 29,
-    "remaining": 595
+    "consumed": 30,
+    "remaining": 594
   },
   "queue": [
+    {
+      "ts": "2026-08-29T02:10:05.521494+00:00",
+      "task": "supervise.decision",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 1.65
+    },
     {
       "ts": "2026-08-29T02:09:23.474382+00:00",
       "task": "analyste.strategie",
@@ -362,17 +370,15 @@
       "model": "orcarouter/free",
       "kind": "cloud",
       "duration_s": 3.63
-    },
-    {
-      "ts": "2026-08-29T01:09:58.048700+00:00",
-      "task": "supervise.decision",
-      "provider": "groq",
-      "model": "groq/compound",
-      "kind": "cloud",
-      "duration_s": 2.0
     }
   ],
   "events": [
+    {
+      "ts": "2026-08-29T02:10:05.521105+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
     {
       "ts": "2026-08-29T02:09:23.473541+00:00",
       "kind": "message",
@@ -425,12 +431,6 @@
       "ts": "2026-08-29T01:54:25.471112+00:00",
       "kind": "failover",
       "title": "Saute (blacklist) depuis HuggingFace (136+ modeles, dont DeepSeek-V4)",
-      "detail": "0 attente"
-    },
-    {
-      "ts": "2026-08-29T01:54:25.470688+00:00",
-      "kind": "failover",
-      "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
       "detail": "0 attente"
     }
   ],
