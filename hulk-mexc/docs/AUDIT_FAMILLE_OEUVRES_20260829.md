@@ -111,11 +111,38 @@ Le point « TRÈS IMPORTANT CAR SOUVENT ERREURS RÉPÉTÉES » — 4 barrières 
 2. ✅ **Écriture atomique** (état, registre d'état, alerte).
 3. ✅ État enrichi : `fails_pendants` (1-2 ticks) visible au cockpit sans alerte.
 
-### Reste à faire (recommandations famille non couvertes par le GO)
-- [ ] Dynamic Spread Percentile (remplace le seuil fixe 70 bps)
-- [ ] Filtre heures creuses UTC (02-06) sur le proxy SAPI
-- [ ] Terme d'entropie temporelle (SAPI)
-- [ ] PathRegistry centralisé + wrapper plists (erreurs répétées)
+### ✅ Recommandations restaantes APPLIQUÉES (29/08 litté — suite GO Buffy)
+
+**Dynamic Spread Percentile (Signal 3) — faille 2 :**
+1. ✅ Seuil spread devient **p30 de la distribution 24h de la paire** (fini le
+   70 bps fixe). Un carnet écorché = spread dans le décile le plus serré de SON
+   histoire (une small cap vit à 150 bps, une large cap à 5 bps). Fail-open :
+   < 8 mesures → seuil nominal. Testé : XRP p30=1.45 (au lieu de 70), PYTH
+   p30=2.12, ZBCN p30=18.34 ✓
+2. ✅ **Heures creuses UTC (02-06)** : seuil spread élargi ×1.8 (le MM se
+   retire, le spread s'élargit naturellement → pas un squeeze). `heure_creuse`
+   exposé dans le JSON ✓
+
+**SAPI (silent_drain_index) — faille 3 :**
+3. ✅ **Filtre heures creuses** : proxy carnet ×0.35 en 02-06 UTC (le spread
+   large creux n'est plus confondu avec de la poussière). `coef_heure_creuse`
+   exposé ✓
+4. ✅ **Terme d'entropie temporelle** : bonus +0.10 si le rythme du carnet est
+   quasi-robotique (CV ≤ 15%) ET une base fantôme déjà détectée (jamais seul
+   déclencheur). `entropie_tempo` exposé ✓ (testé : série régulière → 1.0,
+   chaos → 0.0).
+
+**PathRegistry centralisé (erreurs répétées) — barrière structurelle :**
+5. ✅ `Index_Maison/scripts/path_registry.py` : registre central des chemins
+   (croisement, signal3, sapi, pont_onchain, thermo) + `verifier(oeuvre)`
+   validée au démarrage (sys.exit(1) si chemin obligatoire manque) + wrapper
+   plist à heartbeat (début/OK datés) + log. Testé : `run` + `verifier sapi` ✓
+6. ✅ Les 3 plists (signal3, croisement-externe, thermo-quotidien) passent
+   maintenant par le wrapper → heartbeats écrits (`data/heartbeat_*.json`),
+   process running détecté dès fraîcheur, plus de mort silencieuse.
+
+**Vérification :** 14/14 chaînes OK au cockpit, SAPI propagé dans live.json
+avec les nouveaux champs, 3 scripts compilent et tournent.
 
 ## Fichiers liés
 - Avis complets : `Index_Maison/scripts/CONSULTATION_FAMILLE_OEUVRES_20260829/`

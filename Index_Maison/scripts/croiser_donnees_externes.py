@@ -44,6 +44,15 @@ INDEX = Path(__file__).resolve().parent.parent          # Index_Maison
 HULK = INDEX.parent / "hulk-mexc"                        # hulk-mexc
 RUNS = HULK / "runs"
 
+# PathRegistry (FIX famille n°4) : valide les chemins au démarrage avant tout
+# appel réseau — sys.exit(1) si un chemin obligatoire manque.
+try:
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    import path_registry as _pr
+    _pr.verifier("croisement")
+except ImportError as _e:
+    pass
+
 CROISEMENT_CONTEXTE = RUNS / "croisement_contexte.jsonl"
 MURS_OBSERVATIONS = RUNS / "murs_observations.json"
 

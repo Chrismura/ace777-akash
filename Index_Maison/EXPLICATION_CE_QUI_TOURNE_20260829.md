@@ -124,6 +124,25 @@ avec nos données — seul le delta du carnet spot manque (proxy dispo).
    consécutif → `"verdict": "fail"` + alerte data_quality. Micro-pic =
    ignoré.
 
+## 6. 🛡️ LES CORRECTIONS FAMILLE N°4 (29/08 litté — GO)
+
+L'audit famille a fait converger 4 affinages (tous appliqués et testés) :
+
+| Correction | Où | Effet |
+|---|---|---|
+| **Dynamic Spread Percentile** | Signal 3 | Fini le seuil spread fixe (70 bps) : c'est maintenant le **p30 des 24h de la paire**. Une small cap à 150 bps, une large cap à 5 bps → chacun comparé à SON histoire ✓ |
+| **Heures creuses UTC (02-06)** | Signal 3 + SAPI | La nuit le MM se retire et le spread s'élargit naturellement. Signal 3 : seuil ×1.8. SAPI : le proxy carnet ne compte que ×0.35 (ne confond plus manque de liquidité avec poussière) ✓ |
+| **Entropie temporelle** | SAPI | Bonus si le carnet a un rythme quasi-robotique (CV ≤ 15%, signature d'un script de poussière), jamais seul déclencheur ✓ |
+| **PathRegistry + wrapper plists** | Toutes | `path_registry.py` centralise les chemins : toute œuvre valide au démarrage (arrêt propre si chemin manquant). Les 3 plists écrivent un heartbeat → plus de mort silencieuse ✓ |
+
+**Vérifier que ça tourne** :
+1. `ls Index_Maison/data/heartbeat_*.json` → 3 fichiers à `"statut": "ok"`
+2. `python3 Index_Maison/scripts/path_registry.py verifier sapi -f` → `OK`
+3. Signal 3 → dans `signal3_livre_ecorche.json`, chaque paire expose
+   `spread_seuil_dyn` / `spread_p30_24h` (au lieu d'un 70 fixe)
+4. SAPI → `Index_Maison/thermo/live.json` expose `sapi.composantes` avec
+   `coef_heure_creuse` et `entropie_tempo`
+
 ## Fichiers liés
 - Protocole détaillé : `PROTOCOLE_CROISEMENT_EXTERNE_20260829.md`
 - Deepdive signal 3 : `hulk-mexc/docs/DEEPDIVE_MANIPULATION_3SIGNAUX_20260829.md`

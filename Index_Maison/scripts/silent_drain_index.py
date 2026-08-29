@@ -24,6 +24,17 @@ DATA_DIR = Path(__file__).parent.parent / "data"
 LIVE_FILE = DATA_DIR / "live.json"
 SDI_OUTPUT = DATA_DIR / "sdi_latest.json"
 
+# PathRegistry (FIX famille n°4) : valide les chemins au démarrage avant tout
+# calcul. Le sapi_etat.json est recréé au 1er run (donc non bloquant), mais
+# les chemins obligatoires (script, murs_observations) doivent exister.
+try:
+    import sys as _sys
+    _sys.path.insert(0, str(Path(__file__).resolve().parent))
+    import path_registry as _pr
+    _pr.verifier("sapi")
+except ImportError:
+    pass
+
 # ─── Corrections famille (29/08 soir, GO Christophe) ────────────
 # État SAPI : historique du spread BTC (normalisation σ1h) + scores
 # (persistance 3 ticks avant alerte). Fichier d'état atomique.
@@ -32,6 +43,21 @@ SAPI_HISTO_SPREAD_MAX = 12   # 12 × 5 min ≈ 1h de fenêtre σ
 SAPI_PERSISTANCE_TICKS = 3   # 3 runs consécutifs ≥ seuil avant alerte
 SAPI_SEUIL_ALERTE = 0.75
 SAPI_VOLAT_K = 3.0           # normalisation : |Δspread| / (σ1h × K)
+
+# FIX famille n°4 (29/08 suite GO) — proxy carnet / poussière affinés :
+# - Heures creuses UTC (02-06) : le spread s'élargit naturellement (peu de MM).
+#   Le proxy ne doit pas confondre un manque de liquidité légitime avec de la
+#   poussière institutionnelle → poids du proxy réduit en heures creuses.
+HEURE_CREUSE_DEBUT: int = 2
+HEURE_CREUSE_FIN: int = 5          # inclusif
+COEFF_PROXY_CREUSE: float = 0.35   # en heures creuses le proxy ne compte que ×0.35
+
+# - Entropie temporelle : régularité quasi-robotique du CARNET. Une poussière
+#   institutionnelle (script) laisse le carnet à un spread/cadence suspectement
+#   stable (CV très bas), vs le chaos retail (CV élevé). On stocke l'historique
+#   du taux_fantome et on ajoute un bonus SAPI si le rythme est régulier.
+SAPI_ENTROPIE_MAX = 12
+SAPI_CV_REGULIER: float = 0.15     # CV ≤ 15 % = rythme quasi-robotique
 
 
 def _ecriture_atomique(path, donnees):
@@ -84,6 +110,38 @@ def _normaliser_par_volatilite(spread_abs, historique):
     if sigma <= 0.0:
         return brut
     return min(1.0, spread_abs / (sigma * SAPI_VOLAT_K))
+
+
+def _en_heure_creuse(dt_utc=None) -> bool:
+    """Vrai si l'heure UTC est dans [HEURE_CREUSE_DEBUT, HEURE_CREUSE_FIN].
+    Fenêtre simple (début ≤ fin), cf. 02-06."""
+    heure = (dt_utc or datetime.now(timezone.utc)).hour
+    return HEURE_CREUSE_DEBUT <= heure <= HEURE_CREUSE_FIN
+
+
+def _taux_entropie_temporelle(serie) -> float:
+    """Entropie temporelle du rythme de poussière : retourne 1.0 si la série
+    est quasi-constante (un script robotique), 0.0 si c'est du chaos.
+    CV = stdev / mean ; CV ≤ SAPI_CV_REGULIER → rythme régulier (bonus poussière).
+    Fail-open : < 3 points ou mean ~ 0 → 0.0 (pas de base pour juger)."""
+    serie = [float(v) for v in (serie or [])]
+    if len(serie) < 3:
+        return 0.0
+    m = sum(serie) / len(serie)
+    if m <= 0.0:
+        return 0.0
+    sigma = statistics.stdev(serie) if len(serie) >= 2 else 0.0
+    cv = sigma / m
+    if cv <= SAPI_CV_REGULIER:
+        return 1.0
+    # Dégradé : plus le CV est faible, plus le rythme est suspect de robotique.
+    return max(0.0, min(1.0, (1.0 - cv) * 1.4))
+
+
+def _coef_proxy_heure_creuse() -> float:
+    """Poids du proxy carnet : 1.0 en session, COEFF_PROXY_CREUSE en heures
+    creuses UTC (le spread s'élargit naturellement sans MM)."""
+    return COEFF_PROXY_CREUSE if _en_heure_creuse() else 1.0
 
 # ─── Fetch helpers ──────────────────────────────────────────────
 
@@ -432,19 +490,38 @@ def compute_sdi():
                 except Exception:
                     pass
 
-            # 3bis. État SAPI : historique spread (σ1h) + scores (persistance 3 ticks)
+            # 3bis. État SAPI : historique spread (σ1h) + taux_fantome
+            # (entropie temporelle) + scores (persistance 3 ticks)
             etat = _charger_sapi_etat()
             spreads = list(etat.get("spreads", []))
             spreads.append(spread_abs)
             spreads = spreads[-SAPI_HISTO_SPREAD_MAX:]
             spot_proxy = _normaliser_par_volatilite(spread_abs, spreads)
 
-            # 4. Formule SAPI
+            # FIX famille n°4 : heures creuses UTC — le spread s'élargit
+            # naturellement sans MM, on réduit le poids du proxy pour ne pas
+            # confondre manque de liquidité légitime avec de la poussière.
+            coef_creuse = _coef_proxy_heure_creuse()
+            spot_proxy = spot_proxy * coef_creuse
+
+            # FIX famille n°4 : entropie temporelle — une poussière
+            # institutionnelle = un script qui laisse le carnet à un rythme
+            # suspectement régulier (CV très bas). Historique taux_fantome.
+            fantomes = list(etat.get("fantomes", []))
+            fantomes.append(taux_fantome)
+            fantomes = fantomes[-SAPI_ENTROPIE_MAX:]
+            temp_entropie = _taux_entropie_temporelle(fantomes)
+
+            # 4. Formule SAPI (avec les 2 nouveaux termes famille n°4)
             term_z_fee = 0.35 if z_fee > 2.0 else 0.0
             term_fantome = min(1.0, taux_fantome / 0.15) * 0.30
             term_micro = 0.20 if micro_tx_ratio > 0.5 else 0.0
             term_spot = min(1.0, spot_proxy * 10.0) * 0.15
-            sapi = max(0.0, min(1.0, term_z_fee + term_fantome + term_micro - term_spot))
+            # Bonus entropie temporelle : +0.10 max si rythme robotique ET déjà
+            # une base fantôme détectée (évite un bonus seul déclencheur).
+            bonus_entropie = 0.10 * temp_entropie if term_fantome > 0.05 else 0.0
+            sapi = max(0.0, min(1.0, term_z_fee + term_fantome + term_micro
+                                + bonus_entropie - term_spot))
 
             # 4bis. Persistance 3 ticks (FIX famille) : l'alerte ne s'allume que si
             # les SAPI_PERSISTANCE_TICKS derniers runs sont ≥ seuil. Tue les faux
@@ -453,7 +530,8 @@ def compute_sdi():
             scores.append(round(sapi, 3))
             scores = scores[-SAPI_PERSISTANCE_TICKS:]
             persistance = all(s >= SAPI_SEUIL_ALERTE for s in scores)
-            _sauver_sapi_etat({"spreads": spreads, "scores": scores})
+            _sauver_sapi_etat({"spreads": spreads, "scores": scores,
+                               "fantomes": fantomes})
 
             alerte_sapi = bool(persistance and sapi >= SAPI_SEUIL_ALERTE and volume_btc >= 500)
             result["sapi"] = {
@@ -466,8 +544,10 @@ def compute_sdi():
                     "taux_fantome": round(taux_fantome, 3),
                     "micro_tx_ratio": round(micro_tx_ratio, 3),
                     "spot_proxy": round(spot_proxy, 3),
+                    "coef_heure_creuse": coef_creuse,
+                    "entropie_tempo": round(temp_entropie, 3),
                 },
-                "note": "Score d'Alerte Poussière Institutionnelle (Cortana tour 1, validé 29/08 — corr RBF plat −0.275). Proxy carnet spot = spread_avg_bps normalisé σ1h (FIX famille). Alerte = persistance 3 ticks ≥ 0.75 + volume ≥ 500 BTC.",
+                "note": "Score d'Alerte Poussière Institutionnelle (Cortana tour 1, validé 29/08 — corr RBF plat −0.275). Proxy carnet spot = spread_avg_bps normalisé σ1h (FIX famille). FIX 4 : proxy réduit ×0.35 en heures creuses UTC (02-06) + bonus entropie temporelle (rythme robotique du carnet) si base fantôme. Alerte = persistance 3 ticks ≥ 0.75 + volume ≥ 500 BTC.",
             }
             if alerte_sapi:
                 msg = "SAPI ÉLEVÉ: poussière institutionnelle probable (score ≥ 0.75 sur 3 ticks + volume)"

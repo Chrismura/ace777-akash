@@ -54,6 +54,7 @@ from __future__ import annotations
 
 import csv
 import json
+import math
 import os
 import statistics
 import sys
@@ -68,6 +69,17 @@ from typing import Any, Dict, List, Optional, Tuple
 # ---------------------------------------------------------------------------
 
 ROOT: Path = Path(__file__).resolve().parent.parent  # hulk-mexc
+
+# PathRegistry (FIX famille n°4) : valide les chemins au démarrage, avant tout
+# calcul — sys.exit(1) si un chemin obligatoire manque (pas de plantage
+# silencieux 5 lignes plus loin). Import sûr : module optionnel.
+try:
+    sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent
+                           / "Index_Maison" / "scripts"))
+    import path_registry as _pr
+    _pr.verifier("signal3")
+except ImportError:
+    pass  # hors environnement maison (test/CI) → on continue sans validation
 
 # Fichier agrégé produit par observer_murs.py
 MURS_OBS_PATH: Path = ROOT / "runs" / "murs_observations.json"
@@ -99,6 +111,23 @@ BETA_MIN_ECHANTILLONS: int = 5  # fail-open : < 5 échantillons → β = 1.0
 # sur les 10 dernières mesures brutes de la paire.
 MAD_FENETRE: int = 10
 MAD_K: float = 3.0
+
+# Dynamic Spread Percentile (FIX famille n°4, 29/08 suite GO) : au lieu du
+# seuil fixe SEUIL_SPREAD_BPS (70 bps), le seuil spread de chaque paire est le
+# PERCENTILE 30 de sa distribution de spread sur les dernières 24h. Un carnet
+# "écorché" = spread dans le décile le plus serré (p30) de SON propre historique,
+# pas une valeur absolue (une small cap illiquide vit naturellement à 150+ bps,
+# une large cap à 5 bps). P_SPREAD_PERCENTILE = 30 (3e décile).
+P_SPREAD_PERCENTILE: float = 30.0
+P_SPREAD_FENETRE: timedelta = timedelta(hours=24)
+P_SPREAD_MIN_ECH: int = 8   # < 8 mesures → fallback seuil nominal fixe
+
+# Heures creuses UTC (02-06) — le spread s'élargit naturellement (peu de MM).
+# En heures creuses, le seuil spread est ÉLARGI (× COEFF_HEURE_CREUSE) pour ne
+# pas confondre manque de market-maker avec un vrai squeeze du livre.
+HEURE_CREUSE_DEBUT: int = 2
+HEURE_CREUSE_FIN: int = 5     # inclusif
+COEFF_HEURE_CREUSE: float = 1.8
 
 # Persistance : ≥ 2 spoofs sur les 3 dernières mesures (filtre faux positifs)
 PERSISTENCE_MIN: int = 2
@@ -352,6 +381,44 @@ def drop_filtre_mad(mesures: List[Dict[str, Any]]) -> bool:
     return derniere >= seuil
 
 
+def _percentile(valeurs: List[float], p: float) -> float:
+    """Percentile simple (méthode nearest-rank). Retourne 0.0 si vide."""
+    if not valeurs:
+        return 0.0
+    tri = sorted(valeurs)
+    if len(tri) == 1:
+        return tri[0]
+    idx = max(1, min(len(tri), int(math.ceil(p / 100.0 * len(tri)))))
+    return tri[idx - 1]
+
+
+def spread_seuil_dynamique(mesures: List[Dict[str, Any]],
+                           seuil_nominal: float) -> Dict[str, float]:
+    """Dynamic Spread Percentile (FIX famille n°4) : seuil spread = percentile
+    P_SPREAD_PERCENTILE de la distribution de spread_bps sur les dernières 24h
+    de la paire. Fail-open : < P_SPREAD_MIN_ECH mesures dans la fenêtre → on
+    retombe sur le seuil nominal fixe. Retourne {seuil, p_value, n}."""
+    if not mesures:
+        return {"seuil": seuil_nominal, "p_value": 0.0, "n": 0}
+    last = max(m["ts"] for m in mesures)
+    debut = last - P_SPREAD_FENETRE
+    spreads = [m.get("spread_bps") or 0.0 for m in mesures
+               if debut <= m["ts"] <= last and (m.get("spread_bps") or 0.0) > 0.0]
+    if len(spreads) < P_SPREAD_MIN_ECH:
+        return {"seuil": seuil_nominal, "p_value": 0.0, "n": len(spreads)}
+    p = _percentile(spreads, P_SPREAD_PERCENTILE)
+    seuil = p if p > 0.0 else seuil_nominal
+    return {"seuil": round(seuil, 2), "p_value": round(p, 2), "n": len(spreads)}
+
+
+def _en_heure_creuse(dt_utc: Optional[datetime] = None) -> bool:
+    """Vrai si l'heure UTC est dans la fenêtre creuse [DEBUT, FIN] (02-06)."""
+    heure = (dt_utc or datetime.now(timezone.utc)).hour
+    if HEURE_CREUSE_DEBUT <= HEURE_CREUSE_FIN:
+        return HEURE_CREUSE_DEBUT <= heure <= HEURE_CREUSE_FIN
+    return heure >= HEURE_CREUSE_DEBUT or heure <= HEURE_CREUSE_FIN
+
+
 # ---------------------------------------------------------------------------
 # Chargement de l'agrégat observer_murs
 # ---------------------------------------------------------------------------
@@ -456,11 +523,24 @@ def main() -> int:
             # vs la distribution des mesures récentes (anti-jitter HFT).
             drop_mad_ok = drop_filtre_mad(mesures_pair)
 
+            # FIX famille n°4 : Dynamic Spread Percentile + heures creuses.
+            # 1) Le seuil spread n'est plus fixe (70 bps) : c'est le p30 de la
+            #    distribution 24h de la paire (un carnet écorché = spread dans
+            #    le décile le plus serré de SON histoire, pas une valeur absolue).
+            dyn = spread_seuil_dynamique(mesures_pair, seuils["spread_bps"])
+            seuil_spread_pair = dyn["seuil"]
+            # 2) En heures creuses UTC (02-06), le spread s'élargit
+            #    naturellement (peu de MM) : on élargit le seuil pour ne pas
+            #    confondre manque de market-maker avec un vrai squeeze.
+            heure_creuse = _en_heure_creuse()
+            if heure_creuse:
+                seuil_spread_pair = round(seuil_spread_pair * COEFF_HEURE_CREUSE, 2)
+
             alerte = bool(
                 n_mesures >= N_MESURES_MIN
                 and spoof_pct > seuils["spoof_pct"]
                 and drop > seuils["drop"]
-                and (spread <= seuils["spread_bps"] or spread == 0.0)
+                and (spread <= seuil_spread_pair or spread == 0.0)
                 and pers >= PERSISTENCE_MIN
                 and drop_mad_ok
             )
@@ -470,6 +550,10 @@ def main() -> int:
                 "spoof_pct": round(spoof_pct, 2),
                 "drop": int(drop),
                 "spread_bps": round(spread, 2),
+                "spread_seuil_dyn": seuil_spread_pair,
+                "spread_p30_24h": dyn["p_value"],
+                "spread_p30_n": dyn["n"],
+                "heure_creuse": heure_creuse,
                 "persistance": pers,
                 "drop_mad_ok": drop_mad_ok,
                 "n_mesures": n_mesures,
