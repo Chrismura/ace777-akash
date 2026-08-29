@@ -1,12 +1,21 @@
 {
-  "ts": "2026-08-29T16:06Z",
-  "btc_spoof_pct": 4.96,
-  "contagion_active": false,
-  "seuils": {
+  "ts": "2026-08-29T17:06Z",
+  "btc_spoof_pct": 5.11,
+  "delta_btc_directionnel": 0.19,
+  "contagion_candidate": false,
+  "direction_baissiere": false,
+  "n_contagion_appliquee": 0,
+  "seuils_nominaux": {
     "spoof_pct": 5.0,
     "drop": 100,
     "spread_bps": 70.0
   },
+  "seuils_contagion": {
+    "spoof_pct": 4.0,
+    "drop": 80,
+    "spread_bps": 70.0
+  },
+  "beta_min": 0.3,
   "paires_risque": [
     {
       "pair": "PYTHUSDT",
@@ -14,17 +23,25 @@
       "drop": 82,
       "spread_bps": 3.67,
       "persistance": 0,
+      "drop_mad_ok": false,
       "n_mesures": 558,
+      "beta_asset": 1.0,
+      "beta_n": 0,
+      "contagion_appliquee": false,
       "alerte": false,
       "origine": null
     },
     {
       "pair": "BTCUSDT",
-      "spoof_pct": 4.96,
-      "drop": 27,
+      "spoof_pct": 5.11,
+      "drop": 31,
       "spread_bps": 0.05,
-      "persistance": 1,
-      "n_mesures": 242,
+      "persistance": 0,
+      "drop_mad_ok": true,
+      "n_mesures": 274,
+      "beta_asset": 1.0,
+      "beta_n": 0,
+      "contagion_appliquee": false,
       "alerte": false,
       "origine": null
     },
@@ -34,17 +51,25 @@
       "drop": 313,
       "spread_bps": 20.32,
       "persistance": 0,
+      "drop_mad_ok": true,
       "n_mesures": 4253,
+      "beta_asset": 1.0,
+      "beta_n": 0,
+      "contagion_appliquee": false,
       "alerte": false,
       "origine": null
     },
     {
       "pair": "XRPUSDT",
-      "spoof_pct": 4.54,
-      "drop": 968,
-      "spread_bps": 2.27,
+      "spoof_pct": 4.53,
+      "drop": 971,
+      "spread_bps": 2.26,
       "persistance": 0,
-      "n_mesures": 6896,
+      "drop_mad_ok": true,
+      "n_mesures": 6928,
+      "beta_asset": 0.17,
+      "beta_n": 36,
+      "contagion_appliquee": false,
       "alerte": false,
       "origine": null
     },
@@ -54,11 +79,15 @@
       "drop": 53,
       "spread_bps": 5.42,
       "persistance": 0,
+      "drop_mad_ok": true,
       "n_mesures": 828,
+      "beta_asset": 1.0,
+      "beta_n": 0,
+      "contagion_appliquee": false,
       "alerte": false,
       "origine": null
     }
   ],
   "alertes": [],
-  "lecture": "Marche sous tension : 5 paire(s) a risque, btc_spoof_pct=4.96%, contagion=inactive."
+  "lecture": "Marche sous tension : 5 paire(s) a risque, btc_spoof_pct=5.11%, spoof btc 5.11% mais phase haussiere (delta_btc=+0.19) -> pas de contagion."
 }
