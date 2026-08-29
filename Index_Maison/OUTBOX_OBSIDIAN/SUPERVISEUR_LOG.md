@@ -1,4 +1,3 @@
-| 2026-08-23T09:50Z | SUPERVISEUR | hub=OK ollama=OK jobs_manquants=['com.ace777.cortana.horaire', 'com.ace777.analyste-cadence', 'com.ace777.brief-matin'] git_sys=D git_vault=D action=fix résultat=job com.ace777.cortana.horaire : limite de relances atteinte → escalade écrite | rappel lecture déjà écrit aujourd'hui (2026-08-23) |
 | 2026-08-23T09:50Z | SUPERVISEUR | hub=OK ollama=OK jobs_manquants=['com.ace777.cortana.horaire', 'com.ace777.analyste-cadence', 'com.ace777.brief-matin'] git_sys=D git_vault=D action=none résultat=rien à faire | rappel lecture déjà écrit aujourd'hui (2026-08-23) |
 | 2026-08-23T09:50Z | SUPERVISEUR | hub=DOWN ollama=OK jobs_manquants=['com.ace777.cortana.horaire', 'com.ace777.prise-ia', 'com.ace777.analyste-cadence', 'com.ace777.brief-matin'] git_sys=D git_vault=? action=none résultat=rien à faire | rappel lecture déjà écrit aujourd'hui (2026-08-23) |
 | 2026-08-23T09:52Z | SUPERVISEUR | hub=OK ollama=OK jobs_manquants=['com.ace777.cortana.horaire', 'com.ace777.analyste-cadence', 'com.ace777.brief-matin'] git_sys=D git_vault=D action=fix résultat=job com.ace777.cortana.horaire : limite de relances atteinte → escalade écrite | rappel lecture déjà écrit aujourd'hui (2026-08-23) |
@@ -198,3 +197,4 @@
 | 2026-08-29T07:10Z | SUPERVISEUR | hub=OK ollama=OK jobs_manquants=[] git_sys=D git_vault=P action=none résultat=rien à faire | rappel lecture déjà écrit aujourd'hui (2026-08-29) |
 | 2026-08-29T08:10Z | SUPERVISEUR | hub=OK ollama=OK jobs_manquants=[] git_sys=D git_vault=P action=none résultat=rien à faire | rappel lecture déjà écrit aujourd'hui (2026-08-29) |
 | 2026-08-29T08:10Z | SUPERVISEUR | hub=OK ollama=OK jobs_manquants=[] git_sys=D git_vault=P action=none résultat=rien à faire | rappel lecture déjà écrit aujourd'hui (2026-08-29) |
+| 2026-08-29T09:10Z | SUPERVISEUR | hub=OK ollama=OK jobs_manquants=[] git_sys=D git_vault=P action=none résultat=rien à faire | rappel lecture déjà écrit aujourd'hui (2026-08-29) |
