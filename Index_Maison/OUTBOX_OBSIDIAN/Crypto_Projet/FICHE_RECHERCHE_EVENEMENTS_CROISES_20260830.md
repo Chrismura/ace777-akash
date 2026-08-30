@@ -47,10 +47,19 @@
 | Événement | Date | Fait |
 |---|---|---|
 | 🔶 **GUERRE IRAN-ÉTATS-UNIS (2026)** | **depuis 28/02**, nouvel épisode fin août | Conflit lancé par US+Israël (**Opération Epic Fury**) vs Iran + Axe de la Résistance + Houthis, Moyen-Orient entier. **Strait d'Ormuz : le point ultra-nerveux** (péages sur le transport, trafic à un plus-bas de 3 mois le 17/08). **Cessez-le-feu fin août** : Khamenei approuve après « un coup de pouce de dernière minute de la Chine » (Britannica, ~28/08). Hegseth : « frappes cintétiques » possibles à Hormuz (24/08). |
-| 🔶 **Jackson Hole 2026 (Fed)** | **28/08** | Symposium Fed de Kansas City « Financial Innovation: Implications for Payments and Policy » — Keynote du **Pdt Warsh** (28/08). Le rendez-vous annuel des banquiers centraux mondiaux. |
+| 🔶 **Jackson Hole 2026 (Fed)** | **28/08** | Symposium Fed de Kansas City « Financial Innovation: Implications for Payments and Policy » — Keynote du **Pdt Warsh** (28/08). Le rendez-vous annuel des banquiers centraux mondiaux. **⚠️ DÉJÀ SUR NOTRE RADAR :** notre veille le signalait (SNIFF 26/08 & 29/08 : « Jackson Hole la Fed hawkish », discours Warsh), et on avait raccourci le calendrier de validation Hulk — à cause de **Jackson Hole + pleine lune du 28/08** (MEMOIRE_COLLAB). Christophe avait raison : l'alarme Jackson Hole existait. |
 | 🥇 **OR — reprise massive des banques centrales** | 2T26 / août | **Achats 289 tonnes au 2e trim. (5× le trim. précédent)** (Reuters 13/08) ; **89 % des banques centrales tablemt sur + de réserves d'or** (sondage World Gold Council) ; Corée du Sud reprend l'achat d'or (04/08). |
 | 🥇 **RUSSIE — VEND son or** | **20-21/08** | **Contre-narratif fort** : la Banque de Russie **LIQUIDE** ses réserves d'or — plus bas depuis 2020 (Bloomberg 20/08), vend 43-44 t au 1er sem. pour financer son **déficit budgétaire** (~6 tr. de roubles, DW/Reuters). À la recherche de cash, pas d'accumulation. |
 | ⚛️ **Nucléaire — course aux SMR** | 2026 | **Rosatom (RU)-Rwanda** : feuille de route SMR signée (29/06) ; **NANO Nuclear-UAE** MoU micro-réacteurs (fév.) ; Inde « Nuclear Energy Mission » 20 000 cr (avril) ; Chine Linglong One. Le nucléaire compact = thème de fond (ta conviction). |
+
+### 1.6 ÉVÉNEMENTS VÉRIFIÉS — PISTES DE CHRISTOPHE (vérifiées 30/08)
+| Événement | Date | Vérification | Verdict |
+|---|---|---|---|
+| 🏔️ **EFFONDREMENT GLACIER NÉPAL** | **26/08** | **RÉEL et MAJEUR.** Brèche du lac supraglaciaire Thengbo → **GLOF** (« tsunami himalayen ») dans le **parc national de Langtang**, frontière Népal-Chine. **> 300 morts** Népal + Chine. Déclenché par un effondrement glaciaire + avalanche de glace/roche. Sources : Reuters 26/08, Washington Post 27/08, EarthSky. | ✅ **Cancer de ton signal : tombe le 26/08, DANS notre fenêtre.** |
+| 🌑 **PLEINE LUNE + ÉCLIPSE LUNAIRE** | **27-28/08** | **RÉEL.** Éclipse lunaire partielle profonde (~96 %) + pleine lune en Poissons, 28/08 à ~04:13 UTC. « Near-total blood moon ». Sources : NASA SVS, timeanddate, Wikipedia. | ✅ Reel — dans notre fenêtre (alignement astronomique). |
+| 🌋 **PLUSIEURS ÉRUPTIONS EN MÊME TEMPS** | 25-28/08 | **RÉEL.** Smithsonian/Global Volcanism : **32 volcans en activité le 27/08, 21 en éruption continue**. Halemaʻumaʻu (Kīlauea) éruption 25/08 (9 h de fontaine de lave). Éruption de cendres signalée 28/08 à 16:21 UTC. | ✅ Reel — phase de réveil volcanique mondial. |
+| 🌊 **MARÉES / KING TIDES** | fin août | Partiellement réel (général). **Californie en état de siège côtier** (El Niño + super king tides + élévation) — LA Times 24/08. Pas de raz-de-marée unique documenté le 28/08. | ⚠️ Contexte océanique tendu, pas un événement ponctuel. |
+| 🇪🇸 **« Invasion de Ceuta / gouvernement pas en ligne »** | juil-août | **CORRECTION.** Ce n'est **PAS une invasion militaire** : c'est une **crise migratoire massive orchestrée** — **~72 000 personnes** ont franchi la frontière depuis fin juillet (financée/poussée par le **Maroc** qui conteste la souveraineté espagnole). Le gouvernement espagnol **n'est pas silencieux** : Sánchez est actif (réunion d'urgence UE 01/08, accusations de « fake news » 02/08, en première ligne 04/08). | ⚠️ Réel MAIS mal interprété : pression migratoire via le Maroc, pas invasion ; le « pas en ligne » est du bruit. |
 
 ---
 
@@ -63,12 +72,13 @@
 4. **Éruption solaire M6.9 + CME** (25/08→27-29/08)
 5. **🇺🇸 Décret Trump : état d'urgence sur le réseau électrique US** (26/08, vise la Chine, sécurité IA/énergie)
 6. Et dans la fenêtre 25-29/08 : **87 344 BTC sortent des coffres froids**, bloc de 20 755 BTC (z-score 71,8), poussière max, CPFP actif
+7. **26/08 : effondrement glaciaire au Népal (Langtang) — > 300 morts** ; **27-28/08 : pleine lune + éclipse partielle (~96 %)** ; **25-28/08 : réveil volcanique mondial (32 volcans actifs)**
 
 Contexte de fond :
-7. **Vatican** refond sa finance interne (11-20/08)
-8. **Or** : banques centrales achètent fort (289 t) pendant que **la Russie liquide** le sien (déficit) — **repli croisé sur le métal, avec un vendeur forcé**
-9. **Été climatique extrême** + **géo-ingénierie** (Stardust) + course **nucléaire SMR**
-10. **Globalement : une semaine de « mise en ordre » mondiale (guerre/pétrole, monnaie, or, énergie, réserves BTC).** Le BTC qui bouge en silence s'inscrit dans CE contexte, pas dans un vide.
+8. **Vatican** refond sa finance interne (11-20/08)
+9. **Or** : banques centrales achètent fort (289 t) pendant que **la Russie liquide** le sien (déficit) — **repli croisé sur le métal, avec un vendeur forcé**
+10. **Été climatique extrême** + **géo-ingénierie** (Stardust) + course **nucléaire SMR** + **Népal (26/08)** + **éclipse (28/08)** + **volcans (25-28/08)**
+11. **Globalement : une semaine de « mise en ordre » mondiale (guerre/pétrole, monnaie, or, énergie, réserves BTC) — coïncidant avec un alignement planétaire catastrophique (tempête solaire, éclipse, volcans, glacier).** Le BTC qui bouge en silence s'inscrit dans CE contexte, pas dans un vide.
 
 ---
 
@@ -132,4 +142,8 @@ Contexte de fond :
 - Jackson Hole : discours Fed Warsh 28/08 (federalreserve.gov)
 - Or : Reuters 13/08 (289 t), World Gold Council survey 2026, Bloomberg 20/08 / DW 06/08 / Reuters 21/07 (Russie liquide)
 - Nucléaire SMR : World Nuclear News 29/06 (Rosatom-Rwanda), NANO Nuclear (UAE), Inde Nuclear Energy Mission (avril)
+- Népal : Reuters 26/08, Washington Post 27/08, EarthSky (glacier Langtang, GLOF, >300 morts)
+- Éclipse : NASA SVS 21/08, timeanddate, Wikipedia (28/08, ~96 %)
+- Volcans : Smithsonian/Global Volcanism Daily Report 27/08 (32 actifs), USGS (Kīlauea 25/08), VolcanoDiscovery (28/08)
+- Ceuta : Wikipedia « 2026 Ceuta migrant crisis », Al Jazeera 04-05/08, The Guardian 01/08, NPR 01/08 (crise migratoire, PAS invasion)
 - Solaire : watchers.news (M6.9 du 25/08), spaceweather.gov (veille G1-G2 27-29/08), EarthSky (29/08)
