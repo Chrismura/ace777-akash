@@ -1,13 +1,13 @@
-# STRATEGIE — 2026-08-30T11:05:48.357357Z
+# STRATEGIE — 2026-08-30T11:11:08.733987Z
 
-## COURT TERME — 2026-08-30T11:05:48.357357Z
+## COURT TERME — 2026-08-30T11:11:08.733987Z
 
-[UNDERSTAND] La maison ACE777 maintient son alerte ambre face à un PnL combiné positif de +1,27 $ et une exécution disciplinée de l'essaim malgré des positions seeds en tension.
+[UNDERSTAND] La maison ACE777 maintient son alerte ambre face à un PnL combiné positif (+1,27 $) et à une exécution disciplinée de l'essaim, tandis que les positions seeds de Hulk en zone critique font l'objet d'une surveillance resserrée.
 [ANALYZE] 
 - Tendance : Marché en phase d'accumulation prudente avec un score Fear & Greed à 69 (Greed) et des flux ETF BTC positifs (+201,88 M$).
-- Momentum : Alpha maintient une stricte discipline d'embuscade (232 skips, +2,01 $), Beta assure ses reconnaissances tactiques (13 sondes, confiance 0,90), et Hulk pilote ses positions seeds sous haute surveillance.
+- Momentum : Alpha maintient sa stricte discipline d'embuscade (232 skips, +2,01 $), Beta assure ses reconnaissances tactiques (13 sondes, confiance 0,90), et Hulk pilote ses positions sous haute surveillance.
 - Risque : Exposition globale nécessitant l'application rigoureuse des stop-loss sur les positions seeds de Hulk en zone critique.
-- Contexte : PnL combiné positif (+1,27 $), activité onchain modérée (indice 30,3) et sursauts de volume sur les carnets.
+- Contexte : PnL combiné positif (+1,27 $), activité onchain modérée (indice 30,3) et sursauts de volume x3 sur l'ETHUSDT.
 [STRATEGIZE] 
 1. Maintenir l'alerte ambre, préserver la discipline d'embuscade d'Alpha et capitaliser sur l'éclairage de Beta sans précipitation.
 2. Exécuter rigoureusement les stop-loss sur les positions seeds de Hulk en zone critique.
