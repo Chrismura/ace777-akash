@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-30T05:07:46.928820+00:00",
+  "generated_at": "2026-08-30T05:12:50.270231+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 420
+      "calls_24h": 418
     },
     {
       "id": "openrouter-free",
@@ -256,10 +256,26 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 79,
-    "remaining": 545
+    "consumed": 81,
+    "remaining": 543
   },
   "queue": [
+    {
+      "ts": "2026-08-30T05:07:48.686506+00:00",
+      "task": "analyse.profonde",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 0.93
+    },
+    {
+      "ts": "2026-08-30T05:07:47.264946+00:00",
+      "task": "analyse.profonde",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 0.8
+    },
     {
       "ts": "2026-08-30T05:04:34.307427+00:00",
       "task": "analyste.strategie",
@@ -363,25 +379,21 @@
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
       "duration_s": 3.27
-    },
-    {
-      "ts": "2026-08-30T04:12:53.836649+00:00",
-      "task": "supervise.decision",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 0.74
-    },
-    {
-      "ts": "2026-08-30T04:12:51.467850+00:00",
-      "task": "supervise.decision",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 0.75
     }
   ],
   "events": [
+    {
+      "ts": "2026-08-30T05:07:48.686131+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
+    {
+      "ts": "2026-08-30T05:07:47.264347+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
     {
       "ts": "2026-08-30T05:04:34.306983+00:00",
       "kind": "message",
@@ -429,18 +441,6 @@
       "kind": "failover",
       "title": "Bascule depuis NaraRouter (7M tokens/jour gratuits)",
       "detail": "HTTP Error 404: Not Found"
-    },
-    {
-      "ts": "2026-08-30T04:45:15.075164+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis OpenRouter (modeles gratuits)",
-      "detail": "HTTP Error 429: Too Many Requests"
-    },
-    {
-      "ts": "2026-08-30T04:45:13.088671+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis OrcaRouter (routeur gratuit, modele orcarouter/free)",
-      "detail": "HTTP Error 400: Bad Request"
     }
   ],
   "tasks_quotas": {
