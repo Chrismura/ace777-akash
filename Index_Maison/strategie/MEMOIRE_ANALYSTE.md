@@ -2669,3 +2669,10 @@
 - 2026-08-29T23:45:36.472674Z | alerte | ? | conf=?
 - 2026-08-29T23:59:14.684388Z | alerte | Maintenir l'alerte ambre, préserver la discipline d'embuscade d'Alpha, exécuter sans délai les coupe-circuits sur RWAINC et CCUSDT, et maintenir la surveillance active des positions seeds de Hulk. | conf=87%
 - 2026-08-30T00:10:29.163091Z | alerte | Maintenir l'alerte ambre, préserver la discipline d'embuscade d'Alpha, exécuter sans délai les coupe-circuits sur RWAINC et CCUSDT, et maintenir la surveillance active des positions seeds de Hulk. | conf=87%
+- 2026-08-30T00:14:51.738255Z | alerte | Maintenir l'alerte ambre, préserver la discipline d'embuscade d'Alpha, exécuter sans délai les coupe-circuits sur RWAINCUSDT et CCUSDT, et maintenir la surveillance active des positions seeds de Hulk. | conf=87%
+- 2026-08-30T00:17:45.127916Z | alerte | Maintenir l'alerte ambre, préserver la discipline d'embuscade d'Alpha, exécuter sans délai les coupe-circuits sur RWAINCUSDT et CCUSDT, et maintenir la surveillance active des positions seeds de Hulk. | conf=87%
+- 2026-08-30T00:35:59.350073Z | alerte | Maintenir l'alerte ambre, préserver la discipline d'embuscade d'Alpha, exécuter sans délai les coupe-circuits sur RWAINCUSDT et CCUSDT, et maintenir la surveillance active des positions seeds de Hulk. | conf=87%
+- 2026-08-30T00:36:55.250599Z | alerte | <une phrase claire> | conf=<0-100%>
+- 2026-08-30T00:45:00.501264Z | alerte | Maintenir l'alerte ambre, préserver la stricte discipline d'embuscade d'Alpha, exécuter sans délai les coupe-circuits sur les positions seeds de Hulk en infraction (notamment RWAINCUSDT et CCUSDT) et capitaliser sur les reconnaissances de Beta. | conf=87%
+- 2026-08-30T00:51:21.393805Z | alerte | Maintenir l'alerte ambre, préserver la discipline d'embuscade d'Alpha, exécuter les stop-loss sur les positions seeds de Hulk en infraction et capitaliser sur les flux d'intel de Beta. | conf=87%
+- 2026-08-30T01:07:59.560508Z | alerte | Maintenir l'alerte ambre, préserver la discipline d'embuscade d'Alpha, exécuter les stop-loss sur les positions seeds de Hulk en infraction et capitaliser sur les flux d'intel de Beta. | conf=87%
