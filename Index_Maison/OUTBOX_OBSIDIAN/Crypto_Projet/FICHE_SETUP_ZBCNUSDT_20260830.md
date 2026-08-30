@@ -48,6 +48,7 @@
 - **Le consensus réel : produit ≠ token** — le service tourne en stablecoins, ZBCN capte peu de valeur (pas de burn/fees fort) + dilution post-migration ZBC→ZBCN + concurrence Deel/Remote.
 - **Nos mesures** : POMPE_PIEGE (stab 4) + corr BTC 0.77 → actif de marché à risque de piège.
 - **Décision** : position paper GARDÉE en observation pure, PAS d'agrandissement, pas de set-up tactique actif (POMPE_PIEGE + dilution), à revoir si mécanisme de capture de valeur annoncé.
+- **⚔️ Concurrence CHIFFRÉE (30/08)** : Deel $22Mds volume/an, $1.5Md ARR, 40 000+ clients, $17.3Mds valorisation vs Zebec $500M volume/an, 250+ clients, cap ~$200M → **écart de 2-3 ordres de grandeur (Deel = 44× volume, ~300× revenus, 160× clients)**. Sources : deel.com, sacra.com, remote.com/news, **circle.com/case-studies/zebec-network** (primaire). Nuance : case study Circle = vraie validation, mais la question est « la niche crypto-payroll est-elle assez grande et ZBCN capture-t-il la valeur ? » — non pour l'instant.
 - Synthèse : `SYNTHESE_FAMILLE_DEEPDIVE_ZBCN_3ROUNDS_20260830.md` + avis R1/R2/R3 dans `scripts/CONSULTATION_FAMILLE_DEEPDIVE_ZBCNUSDT_ROUNDS_20260830/`.
 
 ---

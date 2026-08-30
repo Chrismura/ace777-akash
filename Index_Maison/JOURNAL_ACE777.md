@@ -70,3 +70,11 @@
 - Nos mesures : POMPE_PIEGE stab 4 + corr BTC 0.77 = actif de marché à risque de piège.
 - Décision : position paper = observation pure, pas d'agrandissement, à revoir si mécanisme de capture de valeur.
 - Fiche + synthèse créées, FICHE_IA à jour.
+
+## 30/08 — Développement concurrence Deel/Remote (ZBCN), CHIFFRÉE
+- DEEPSEEK avait reproché à la famille : « personne ne chiffre l'écart abyssal ». Corrigé.
+- Deel : $22Mds volume payroll/an, $1.5Md ARR, 40 000+ clients, $17.3Mds valo (deel.com, sacra.com, sourcery.vc). Remote : $300M+ ARR, $3Mds valo (remote.com, techcrunch).
+- Zebec : $500M volume/an, 250+ clients enterprise, 13 000 employés (case study Circle — source primaire).
+- Écart : Deel = 44× volume, ~300× revenus, 160× clients, 86× valorisation. 2-3 ordres de grandeur.
+- Nuance : case study Circle = vraie validation (250+ clients réels), marché crypto-payroll en accélération réglementaire — mais la vraie question est la capture de valeur par le token (services en stablecoins, pas en ZBCN).
+- Synthèse ZBCN + fiche mises à jour.

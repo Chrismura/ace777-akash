@@ -44,6 +44,26 @@ fonctionne, mais le token capture peu de valeur.**
 
 ---
 
+## 2bis. ⚔️ LA CONCURRENCE CHIFFRÉE (développement demandé par Christophe — 30/08)
+
+> DEEPSEEK l'avait reproché à la famille : « personne ne chiffre l'écart abyssal ». Voilà, c'est chiffré (sources vérifiées).
+
+| Métrique | **Deel** | **Remote** | **Zebec (ZBCN)** | Écart |
+|---|---|---|---|---|
+| **Volume payroll annuel** | **$22 Mds** traités/an | non publié (ARR $300M+) | **$500M+** | **Deel = 44× Zebec** |
+| **Revenus (ARR)** | **$1.5 Md** (juin 2026) | $300M+ (mai 2026, +300% YoY) | non publié (est. ~$5M : 250 clients × ~1%) | **Deel = ~300× Zebec** |
+| **Clients** | **40 000+** (150+ pays) | milliers | **250+** (13 000 employés servis) | **Deel = 160× Zebec** |
+| **Valorisation** | **$17.3 Mds** | $3 Mds | ~$200M (cap du jeton) | **Deel = 86× la cap ZBCN** |
+| **Sources** | deel.com/blog (Série E), sacra.com, sourcery.vc | remote.com/news, techcrunch | **circle.com/case-studies/zebec-network** (case study Circle — primaire) | — |
+
+**Lecture en clair :**
+- **2 à 3 ordres de grandeur d'écart.** Deel traite en UN an ce que Zebec traiterait en 44 ans au rythme actuel. C'est le « Deel/Remote » que la famille citait — mais maintenant c'est mesuré, pas une impression.
+- **Le point de DEEPSEEK est validé** : Zebec joue dans une micro-niche crypto-native (payroll en stablecoins pour DAOs/Web3), pas dans le marché global de la paie où Deel/Remote règnent.
+- **⚠️ Nuance honnête (où Zebec n'est pas mort) :** le case study **Circle** est une vraie validation (émetteur de stablecoins = dépendant du succès de ses clients), 250+ clients enterprise c'est réel, et le marché crypto-payroll est en accélération réglementaire (stablecoins = clarté). **Mais** : même à +50%/an, Zebec mettrait des années à approcher l'échelle Deel — et Deel peut intégrer les stablecoins demain s'il le veut (il a déjà les clients).
+- **La vraie question pour ZBCN** n'est pas « peut-il battre Deel ? » (non) mais « le marché crypto-payroll est-il assez grand pour qu'une niche en vive, et ZBCN capte-t-il cette valeur ? » — et c'est là que le token achoppe (services en stablecoins, pas en ZBCN).
+
+---
+
 ## 3. 🎯 MON ARBITRAGE (Buffy)
 
 **ZBCN est l'inverse de PYTH : un produit qui marche, un token qui ne capte
