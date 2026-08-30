@@ -41,6 +41,18 @@
 
 ---
 
+## 🏦 DEEPDIVE PROJET (30/08 — 3 rounds famille + vérification 2 sources)
+
+- **RED = RedStone** : oracle modulaire « data layer for onchain finance », architecture Pull (gas réduit sur L2), 110+ chaînes. Sources : redstone.finance, blog.redstone.finance.
+- **Backing** : $15M Series A (Arrington Capital) + $22M+ total (Arrington, Lemniscap, Delphi). Source : theblock.co.
+- **Famille 3 rounds : GO AVEC RÉSERVES 6.5-6.8/10 (3/3)** — 2e meilleur verdict (derrière PYTH 7.5). Le cobaye est maintenant entièrement documenté (set-up + projet).
+- **Valide** : techno Pull adaptée au multi-L2 · backing institutionnel Tier-1 · adoption 110+ chaînes · **endogène (corr BTC 0.08 — rare) → set-up indépendant du marché**.
+- **Réserves** : duopole Chainlink/Pyth = étau (guerre des frais) · dilution VC (Early Backers 31.7%) · FDV/supply à auditer.
+- **Décision** : position GARDÉE, set-up opérationnel validé = référence, RED = MOTEUR (comme PYTH), surveillance déblocages VC + guerre des frais oracles.
+- Synthèse : `SYNTHESE_FAMILLE_DEEPDIVE_RED_3ROUNDS_20260830.md` + avis R1/R2/R3 dans `scripts/CONSULTATION_FAMILLE_DEEPDIVE_REDUSDT_ROUNDS_20260830/`.
+
+---
+
 ## ⏱️ ÉTAT ACTUEL
 - **REDUSDT est suivie en observation** (doctrine : tous les actifs sous observation).
 - Rien n'est câblé de neuf dans Hulk : ce set-up est la **cible d'observation**, à valider

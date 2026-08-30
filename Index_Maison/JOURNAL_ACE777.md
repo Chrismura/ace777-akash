@@ -78,3 +78,11 @@
 - Écart : Deel = 44× volume, ~300× revenus, 160× clients, 86× valorisation. 2-3 ordres de grandeur.
 - Nuance : case study Circle = vraie validation (250+ clients réels), marché crypto-payroll en accélération réglementaire — mais la vraie question est la capture de valeur par le token (services en stablecoins, pas en ZBCN).
 - Synthèse ZBCN + fiche mises à jour.
+
+## 30/08 — Deepdive RED 3 rounds (2e meilleur verdict : 6.5-6.8/10 GO réserves)
+- Vérifié avant : aucun deepdive PROJET RedStone (le set-up comportemental était validé, pas le projet) → 3 rounds légitime.
+- Famille 3/3 GO AVEC RÉSERVES (6.5-6.8/10) : techno Pull adaptée au multi-L2 (gas réduit) + backing institutionnel ($15M Series A Arrington + $22M total Arrington/Lemniscap/Delphi) + adoption 110+ chaînes.
+- Notre atout unique confirmé : corr BTC 0.08 = ENDOGÈNE → set-up indépendant du marché.
+- Réserves : duopole Chainlink/Pyth = étau (guerre des frais), dilution VC (Early Backers 31.7%), FDV/supply à auditer.
+- Décision : position GARDÉE, set-up opérationnel = référence, RED = MOTEUR comme PYTH, surveillance déblocages VC.
+- Le cobaye est maintenant COMPLET : set-up (famille + Cortana) + deepdive projet (3 rounds). Fiche + synthèse créées, FICHE_IA à jour.

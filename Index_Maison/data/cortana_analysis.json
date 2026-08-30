@@ -1,48 +1,8 @@
 {
-  "timestamp": 1788110677,
-  "date": "2026-08-30T17:24:37.742905+00:00",
-  "n_analyses": 3,
+  "timestamp": 1788111578,
+  "date": "2026-08-30T17:39:38.014232+00:00",
+  "n_analyses": 2,
   "analyses": [
-    {
-      "signal": {
-        "metric": "ipt",
-        "zscore": 2.0925006447592978,
-        "value": 1.0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit médiatique sans rapport avec la crypto (tournois de physique, actualités religieuses et homonymes boursiers mineurs). Aucune baleine détectée.\"\n}\n```",
-        "ts": 1788109476.608266
-      },
-      "fiche": "rbf_eleve",
-      "questions": {
-        "prix": {
-          "value": -0.43,
-          "seuil": 1,
-          "depasse": false
-        },
-        "paires": {
-          "value": null,
-          "seuil": 3,
-          "depasse": false
-        },
-        "funding": {
-          "value": 4.9e-05,
-          "seuil": 0.001,
-          "depasse": false
-        },
-        "whales": {
-          "value": 0,
-          "seuil": 5,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "sdi > 0.3",
-        "lecture": "Drainage silencieux — les vieux BTC bougent en douce",
-        "niveau": "dangereux",
-        "action": "Réduire taille de 50%, sortir des positions fragiles"
-      },
-      "action": "Réduire taille de 50%, sortir des positions fragiles",
-      "niveau": "dangereux"
-    },
     {
       "signal": {
         "metric": "liquidations",
@@ -74,5 +34,5 @@
       "action": "Observer"
     }
   ],
-  "resume": "🔴 DANGER détecté — réduire les expositions"
+  "resume": "🔵 CALME — pas de signal alarmant"
 }
