@@ -11,7 +11,7 @@
 | # | Token | Ticker | Paire Gate.io | Prix (30/08) | Vol 24h Gate | Sur MEXC ? | Note |
 |---|---|---|---|---|---|---|---|
 | 1 | **Quant** | QNT | `QNT_USDT` | $61.41 | 34,383 USDT | ❌ (mais déjà en watch MEXC) | Overledger — interopérabilité blockchain, gros projet ($907M mcap) |
-| 2 | **Xend Finance** | RWA | `RWA_USDT` | $0.001225 | 13,569 USDT | ❌ (mais déjà en watch MEXC sous RWAUSDT) | Token RWA (real-world assets) — déjà suivi chez nous ! |
+| 2 | **Xend Finance** | RWA | `RWA_USDT` | $0.001225 | 13,569 USDT | ❌ | DeFi coopératives — **≠ notre RWAUSDT (Allo), ≠ RWAINC** (voir avertissement ci-dessous) |
 | 3 | **Root Network** | ROOT | `ROOT_USDT` | $0.0001604 | 10,720 USDT | ❌ | Couche 1 pour applications Web3 (Futureverse) |
 | 4 | **Lagrange** | LA | `LA_USDT` | $0.05682 | 3,031 USDT | ❌ | Zero-knowledge / data availability |
 
@@ -26,8 +26,12 @@
 ## ⚠️ CE QU'IL FAUDRA VÉRIFIER AVANT D'OUVRIR LA LIGNE
 1. **Volumes faibles** : LA = 3k$/24h, ROOT = 10.7k$ — quasi illiquides (même profil que
    les micro-caps qui se font delister). QNT est le seul avec un vrai marché ($34k + mcap $907M).
-2. **RWA = Xend Finance est DÉJÀ en watch chez nous** (RWAUSDT dans PAPER_WATCH_PAIRS) —
-   on le capture déjà, la ligne Gate.io serait un doublon à arbitrer.
+2. **⚠️ ATTENTION — TROIS TOKENS « RWA » DIFFÉRENTS (vérifié 30/08 CoinGecko + MEXC) :**
+   - **RWAINC = RWA Inc.** (rwa.inc) → dans NOTRE portefeuille Hulk (contrat 0xe2b1dc2d…)
+   - **RWA = Xend Finance** (xend.finance) → le candidat Gate.io (contrats 0x3096e7bf…/0x45635542…)
+   - **RWAUSDT sur MEXC = Allo** (allo.xyz, fullName « Allo ») → c'est NOTRE watch RWAUSDT actuel !
+   → La ligne Gate.io sur « RWA » = Xend Finance, qui est un token que nous ne suivons
+     encore NULLE PART. Ne pas croire qu'on le capture déjà.
 3. **API Gate.io** : pas de clé configurée — il faudra des clés API Gate si on veut que
    Hulk/une sonde lise les prix en continu.
 4. **Décision d'investissement** : c'est du réel → attendre la validation complète du
