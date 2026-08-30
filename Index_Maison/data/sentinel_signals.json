@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "volume",
-      "zscore": -2.527798179171642,
-      "value": 4869317874.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique parasité par des sujets sans rapport (agriculture, cognac, solaire) et actualité XRP sans lien direct avec une accumulation anormale de baleines.\"\n}\n```",
-      "ts": "2026-08-29T18:34:51.161934+00:00"
-    },
-    {
       "metric": "liquidations",
       "zscore": -3.150813420314209,
       "value": 4053359.0,
@@ -349,6 +342,13 @@
       "value": 1.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit médiatique sans rapport avec la crypto (tournois de physique, actualités religieuses et homonymes boursiers mineurs). Aucune baleine détectée.\"\n}\n```",
       "ts": "2026-08-30T17:04:36.608266+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 2.0612778060400245,
+      "value": 16513961.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 82,\n  \"reason\": \"Le z-score des liquidations (2.06) indique un flush agressif des positions à effet de levier. Les médias amplifient la peur avec des thèses de capitulation et des échecs de résistance, ce qui constitue un classique 'shakeout' de détail tandis que les baleines absorbent la liquidité en silence.\"\n}\n```",
+      "ts": "2026-08-30T17:14:39.265209+00:00"
     }
   ]
 }
