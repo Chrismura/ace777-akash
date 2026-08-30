@@ -1,0 +1,10 @@
+# 📈 SUIVI SET-UP — REDUSDT — historique (démarrage 30/08/2026)
+
+Consigne Christophe : mesurer aujourd'hui, mesurer demain, voir la différence.
+Métriques : maison (poussière/mur/régime) + pro (Amihud/Parkinson/Trade Sign Delta).
+
+| # | Date (UTC) | Heure | Fenêtre | Prix | Régime | Pouss % | Mur $ | Amihud | Δtaker | corr BTC | corr ETH | Sig div | Verdict |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| 1 | 2026-08-30T15:08:19Z | 15h | CREUX 14-17h | 0.11067 | COOLING | 1.8617 | 45239.8 | 2.39e-06 | 0.12 | 0.57 | 0.66 | neutre (stab 0) | prix 0.11067 · poussière 1.9% <15 ✓ · Amihud 2.39e-06 · delta +0.12 · mur 45,240$ |
+
+_Règle : on compare les lignes entre elles (même heure de mesure = comparable). On ne supprime rien._

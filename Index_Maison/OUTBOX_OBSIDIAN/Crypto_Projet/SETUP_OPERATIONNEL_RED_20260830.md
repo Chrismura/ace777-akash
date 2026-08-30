@@ -31,6 +31,26 @@ plutôt qu'en creux** — c'est le point de prudence du moment, pas un point d'a
 
 ---
 
+## 🧪 MÉTRIQUES PRO — VERDICT CORTANA (30/08, validé Christophe)
+
+Les 3 métriques de la norme quant sont maintenant mesurées sur chaque paire (dont RED) :
+| Métrique | Valeur RED (14:59Z) | Ce que ça dit |
+|---|---|---|
+| **Amihud Illiquidity Ratio** | **2.43e-06** | ✅ **GARDER** — si Amihud **triple** → stopper net (assèchement) |
+| **Parkinson vol** | 0.01 | ❌ **JETER pour small caps MEXC** (s'emballe sur les mèches → bruit) |
+| **Trade Sign Delta** | **+0.08** | ✅ **GARDER ABSOLUMENT** — seuil d'alerte **> +0.20** pour valider le départ |
+| corr BTC / ETH 24h | +0.52 / +0.63 | Moyenne (à comparer jour par jour) |
+
+→ **Décision :** la boussole = nos métriques maison (poussière, régime, mur) ; les arbitres
+quanti = Trade Sign Delta (seuil +0.20) et Amihud (triple = stop). **Parkinson retiré du suivi.**
+
+## ⚖️ NUANCE VALIDÉE (Christophe, 30/08)
+- **Le spoof reste une TENSION à mesurer** (il nous a déjà évité un piège sur BTC) — on le garde.
+- **Le mur affiché n'est PLUS un « support »** : c'est une simple information (il peut être retiré
+  en 1 s sur micro-cap). La vraie profondeur se mesure par le flux exécuté (Amihud/delta).
+
+---
+
 ## 🔗 RED vs BTC/ETH — mesure et CORRECTION (30/08, avis Cortana)
 
 **Mesure (3 jours) :** corr horaire RED~BTC = +0.07 · RED~ETH = −0.01 · BTC~ETH = +0.98.
@@ -57,17 +77,23 @@ MM, arbitrages de bots), pas une décorrélation fondamentale.
 Exploiter le cycle intraday de RED : **acheter la zone creux 15-16h UTC, revendre le pic de
 nuit 01-05h** — mais SEULEMENT quand la microstructure confirme (jamais à l'heure seule).
 
-### Le cadre d'entrée (tout doit être vrai)
+### Le cadre d'entrée (tout doit être vrai — enrichi avis Cortana final 30/08)
 1. **Fenêtre** : on autorise l'entrée **uniquement 14h–17h UTC** (interdiction hors fenêtre).
 2. **Déclencheur** : la **poussière (tx fantômes) < 15%** (assèchement = vraie accumulation,
    pas de panique) ET le **mur bid 45K$ est testé et tient** (le MM absorbe sans fuir).
-3. **Garde-fou volatilité** : bloquer l'entrée si le **volume 15 min > 3× la moyenne 24h**
+3. **Filtre macro (Cortana)** : **PAS d'entrée si BTC ou ETH fait un mouvement directionnel
+   > 1.5% en 15 min** (breakout/breakdown) — RED orpheline : une tempête macro détruit le creux.
+4. **Garde-fou volatilité** : bloquer l'entrée si le **volume 15 min > 3× la moyenne 24h**
    (signal de panique, pas un creux sain).
-4. **FPOB (filtre Cortana, phase réelle)** : mesurer le ratio **Volume Bid/Ask ±2% du mid**
+5. **FPOB (filtre Cortana, phase réelle)** : mesurer le ratio **Volume Bid/Ask ±2% du mid**
    entre 13h-14h UTC — **interdiction d'entrer si ratio < 1.2** (le mur 45K est grignoté par
    les vendeurs = couteau qui tombe).
-5. **Exécution fragmentée** : entrer en **3 tranches** (−1%, −2%, −3%) sous le prix médian
-   de la fenêtre ; stop dur dynamique = **1,5× le range de la bougie 15 min**.
+6. **Régénération du mur (Cortana)** : si le mur est **grignoté > 30% en < 2 min** sans que le
+   **Trade Sign Delta > +0.15** → **annulation immédiate** de l'ordre en cours de déploiement
+   (le mur est un leurre, pas un appui).
+7. **Exécution (Cortana)** : **50% de la position au premier contact du creux 15-16h**, puis
+   **50% uniquement si la poussière < 10%** (désintérêt total des vendeurs) ; stop dur
+   dynamique = **1,5× le range de la bougie 15 min**.
 
 ### Le cadre de sortie
 - **Sortie partielle au pic de nuit (01h–05h)** : scaling out — dégager une partie vers
@@ -99,9 +125,10 @@ zone **0.107-0.109** avec poussière basse → c'est là que l'entrée devient v
 
 ## 📈 SUIVI MESURÉ — JOUR PAR JOUR (à comparer, ne rien supprimer)
 
-> Protocole : `hulk-mexc/scripts/suivi_setup_red.py` — mesure à chaque run, journalisée dans
-> `hulk-mexc/runs/SUIVI_SETUP_RED.jsonl` + `SUIVI_SETUP_RED.md`. On lance le même script chaque
-> jour (même heure idéalement) et on compare les lignes : **différence ou pas ?**
+> Protocole : `hulk-mexc/scripts/suivi_setup_actif.py` (généralisé à TOUTES les paires) —
+> mesure à chaque run, journalisée dans `hulk-mexc/runs/SUIVI_SETUP_REDUSDT.jsonl` + `.md`.
+> La plist quotidienne (16:35 locale) mesure les 20 paires chaque jour, même heure = comparable.
+> On compare les lignes : **différence ou pas ?**
 
 ### Jour 1 — 30/08 14:24Z (référence, fenêtre 14-17h)
 | Mesure | Valeur | Lecture |
