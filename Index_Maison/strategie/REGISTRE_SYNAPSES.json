@@ -89,6 +89,25 @@
       "maj": "27/08 : déclaration des modifs légitimes 25/08 (atomicité + LMDB write) — fausse INTRUSION (md5 b61c413bda4d… → c9a52ac515af…)"
     },
     {
+      "nom": "Index_Maison/scripts/veille_outflows_institutionnels.py",
+      "role": "Sonde des 3 signaux institutionnels (sorties CEX / blocs privatisés / déséquilibre poussière) — 3 seuils famille 30/08",
+      "origine": "consultation famille pattern institutions 30/08 (GO Christophe)",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "c1ffed99ccbb56cb790d497c329cfd93",
+      "note": "déclaré 2026-08-30 — lit cpfp_detect/bloc_privatise/whales_mouvements existants, écrit veille_institutionnelle_etat.json + alertes",
+      "maj": ""
+    },
+    {
+      "nom": "Index_Maison/plists/com.ace777.veille-insti.plist",
+      "role": "Plist sonde 3 signaux institutionnels (15 min)",
+      "origine": "consultation famille pattern institutions 30/08",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "22a935169f098ca8e94cabffc5a095f4",
+      "note": "déclaré 2026-08-30 — loaded launchctl + copié ~/Library/LaunchAgents"
+    },
+    {
       "nom": "Index_Maison/scripts/detecter_cpfp.py",
       "role": "Détecteur CPFP/dust/z-score (observation 7j)",
       "origine": "chantier 15/08 onchain v2",
