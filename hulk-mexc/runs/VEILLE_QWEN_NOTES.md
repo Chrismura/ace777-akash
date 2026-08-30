@@ -2867,3 +2867,7 @@ Pas d’ordre — confrontation plus tard.
 ### 2026-08-30T08:00:57Z — ALERT auto
 - RIZEUSDT: IMPULSE_WAIT — spike en cours, pas chase
 (compléter: confirmé ? risque ?)
+
+### 2026-08-30T14:18:00Z — ALERT auto
+- CHIPUSDT: IMPULSE_WAIT — spike en cours, pas chase
+(compléter: confirmé ? risque ?)
