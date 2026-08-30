@@ -1,31 +1,41 @@
 # Thermo dernier — gratuit (Binance public)
 
-> Auto · **sans clé** · sans ordre · 2026-08-30T07:09Z UTC  
+> Auto · **sans clé** · sans ordre · 2026-08-30T07:59Z UTC  
 > Script : `Index_Maison/scripts/thermo_quotidien_free.py`
 
 ## Clin d'œil
-**Climat :** `ok` · **Score :** `85/100`
+**Climat :** `ok` · **Score :** `84/100`
 
 ## Snapshot `BTCUSDT`
 
 | Champ | Valeur | ID |
 |-------|--------|-----|
-| Mark | 78156.2 | prix |
-| OI | 108516.633 | C13 |
+| Mark | 78097.9 | prix |
+| OI | 108477.703 | C13 |
 | Funding | 0.0001 | C14 |
-| Funding moy. ~30j | None (n=0) | Cortana |
-| Funding mois préc. | None (n=0) | Cortana |
-| L/S 1h | None | crowd |
-| BTC 1h/4h/24h | None / None / 1.0 % | B7 |
-| Dominance BTC | None% | A3 |
-| Alts ↓ 24h | None% | B9 |
+| Funding moy. ~30j | 6.545e-05 (n=90) | Cortana |
+| Funding mois préc. | 6.067e-05 (n=93) | Cortana |
+| L/S 1h | 1.134 | crowd |
+| BTC 1h/4h/24h | -0.2 / -0.01 / 0.62 % | B7 |
+| Dominance BTC | 59.5% | A3 |
+| Alts ↓ 24h | 10.0% | B9 |
 
 ## Lecture
-- Climat CALME (score 85/100).
-- Funding maintenant 0.0001. Moyenne ~30j None (0 pts). Mois précédent None (0 pts).
-- BTC 24h 1.0% · 1h None% · 4h None%.
+- Climat CALME (score 84/100).
+- Funding maintenant 0.0001. Moyenne ~30j 6.545e-05 (90 pts). Mois précédent 6.067e-05 (93 pts).
+- Long/Short 1.134.
+- BTC 24h 0.62% · 1h -0.2% · 4h -0.01%.
+- Panier alts : 10.0% en baisse (2/20).
 - Whales proxy : aucun print ≥500k$ sur les ~500 derniers trades.
+- Dark/OTC proxy : taker buy/sell 1.99 · OI 108477.703 (pas de dark pool free temps réel).
+- Top traders L/S 1.192.
 - Fear & Greed 69 (Greed).
+- Market cap crypto ≈ 2.63 T$.
+- Alt season proxy : Bitcoin season (BTC.D 59.5%).
+- Liquidations 24h proxy ≈ 0.00 B$.
+- ETF net inflow : BTC 201.8 M$ (bitbo-public (moy 7j), BTC only).
+- GEX proxy (Deribit) : P/C 0.57 · murC 82000 (+5.0%) · murP 70000 (-10.4%).
+- Volumes cachés proxy : taker buy 0.478 · vol perp/spot 12.12×.
 - ACE soft: LIVE=MASTER_VORTEX_V2_COLLAB_4H_LIVE_COLOR.log · SKIP=1330 · heat=100.0 · PnL sess=318.5769 · RED=0.
 - C15/C23 = proxies free. D26–D34 = F&G / MC / alt / liq / ETF / GEX / volumes cachés. Soft ops lecture seule.
 

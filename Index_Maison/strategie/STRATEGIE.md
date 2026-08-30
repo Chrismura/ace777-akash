@@ -1,15 +1,15 @@
-# STRATEGIE — 2026-08-30T06:24:45.382955Z
+# STRATEGIE — 2026-08-30T08:03:16.237155Z
 
-## COURT TERME — 2026-08-30T06:24:45.382955Z
+## COURT TERME — 2026-08-30T08:03:16.237155Z
 
-[UNDERSTAND] La maison ACE777 maintient son alerte ambre face à un repli technique du BTC sous 78K$ et à une tension sur les positions seeds de Hulk, tout en capitalisant sur la discipline d'embuscade d'Alpha et les reconnaissances de Beta.
+[UNDERSTAND] La maison ACE777 maintient son alerte ambre face à un repli technique du BTC sous 78K$ et à des tensions sur les positions seeds de Hulk, tout en capitalisant sur la discipline d'embuscade d'Alpha et les reconnaissances de Beta.
 [ANALYZE] 
-- Tendance : Repli technique du BTC sous les 78K$ dans un climat de marché globalement prudent, tandis que la dominance du Bitcoin pèse sur les altcoins (Alt season à 41).
-- Momentum : Alpha fait preuve d'une patience chirurgicale (232 skips) en attendant une cassure nette des carnets, tandis que Beta alimente l'essaim avec des sondages ciblés (13 sondes).
-- Risque : Exposition active sur certaines positions seeds de Hulk en zone de tension (notamment RWAINCUSDT et CCUSDT) nécessitant une surveillance rigoureuse.
-- Contexte : PnL combiné positif à +1,27 $ (dont +2,01 $ pour Alpha), Fear & Greed à 69 (Greed) et entrées ETF BTC nettes positives à 201,8 M$.
+- Tendance : Repli technique du BTC sous les 78K$ dans un climat de marché prudent et attentiste.
+- Momentum : Alpha fait preuve d'une patience chirurgicale (232 skips) tandis que Beta éclaire l'essaim avec des sondages ciblés (13 sondes).
+- Risque : Exposition active sur certaines positions seeds de Hulk en zone de tension (notamment RWAINCUSDT et CCUSDT) nécessitant l'exécution rigoureuse des stop-loss.
+- Contexte : PnL combiné positif à +1,27 $ (dont +2,01 $ pour Alpha), Fear & Greed à 69 (Greed) et activité onchain nominale.
 [STRATEGIZE] 
-1. Maintenir l'alerte ambre et la stricte discipline d'embuscade d'Alpha sans forcer d'engagement prématuré malgré les sursauts de volume.
+1. Maintenir l'alerte ambre et la stricte discipline d'embuscade d'Alpha sans forcer d'engagement prématuré.
 2. Appliquer rigoureusement les stop-loss et coupe-circuits sur les positions seeds de Hulk en infraction pour préserver le capital global.
 3. Exploiter les flux de reconnaissance de Beta pour identifier l'opportunité de cassure idéale.
 [EXECUTE]
