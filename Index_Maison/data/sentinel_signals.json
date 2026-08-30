@@ -1,27 +1,6 @@
 {
   "signals": [
     {
-      "metric": "liquidations",
-      "zscore": -2.217834775987915,
-      "value": 2730277.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score des liquidations extrêmement bas (-2.22) couplé à un volume de liquidations anodin (2.7M$), malgré un narratif médiatique anxiogène centré sur l'échec des 80k$ et des liquidations DeFi passées. Absence de capitulation réelle : les baleines n'essuient pas de pertes forcées, le marché purge ses excès en silence.\"\n}\n```",
-      "ts": "2026-08-29T20:50:31.057765+00:00"
-    },
-    {
-      "metric": "whale_usd",
-      "zscore": 2.824242460729298,
-      "value": 3020329.0,
-      "analysis": "**Analyse de la divergence**\n\n- **Données on‑chain** :  \n  - `whale_usd = 3 020 329 USD` avec un **z‑score de 2.82**.  \n  - Un z‑score > 2,5 indique une activité anormale et significative ; les baleines accumulent ou déplacent un volume bien au‑delà de la moyenne historique, ce qui est généralement interprété comme un **signal haussier** (préparation d’une hausse de prix ou renforcement d’une position longue).\n\n- **Narratif médiatique** :  \n  - Les titres fournis sont uniquement « Google Actualités », sans indication de tonalité (positif, neutre ou négatif).  \n  - En l’absence de couverture explicite de cette activité, on peut supposer que le **média ne reflète pas** (ou ne met pas en avant) l’anomalie on‑chain.  \n  - Cette absence de mention ou un ton neutre/indifférent crée une **divergence** : les acteurs institutionnels (baleines) opèrent de façon discrète tandis que le discours public reste silencieux ou détaché de la réalité.\n\n- **Conclusion** :  \n  - Les baleines semblent effectivement « bouger silencieusement » ; le manque de discussion médiatique indique un **déconnectage** entre la réalité on‑chain et le récit public.  \n  - Cette situation renforce le caractère potentiellement **bullish** du signal, car les mouvements importants ne sont pas encore intégrés dans les attentes du marché général.\n\n```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 80,\n  \"reason\": \"Activité on‑chain des baleines très élevée (z‑score 2.82) alors que le média ne signale pas ou reste neutre, créant une divergence qui suggère un signal haussier silencieux.\"\n}\n```",
-      "ts": "2026-08-29T21:15:47.098828+00:00"
-    },
-    {
-      "metric": "liquidations",
-      "zscore": -2.0710394062244215,
-      "value": 2662293.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score des liquidations extrêmement bas (-2.07) montrant un marché totalement purgé et sans effet de levier excessif, alors que les médias hurlent à la panique sur les 80k$ et les liquidations passées. Divergence classique de capitulation : les baleines accumulent dans le silence pendant que la foule craint la baisse.\"\n}\n```",
-      "ts": "2026-08-29T21:20:49.716588+00:00"
-    },
-    {
       "metric": "fear_greed",
       "zscore": 2.2662573397778454,
       "value": 69,
@@ -349,6 +328,27 @@
       "value": 18211202.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.67) sur les liquidations indiquant un 'flush' de la foule paniquée, alors que les médias grand public relayent un narratif ultra-pessimiste (BTC à 10k/80k, faillites). Classic setup de capitulation locale exploité en silence par les baleines.\"\n}\n```",
       "ts": "2026-08-30T19:45:17.805616+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 2.5171006855362537,
+      "value": 18646491.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le z-score élevé (2.52) des liquidations combiné à un narratif médiatique extrêmement panique et catastrophiste ('Bitcoin à $10 000', 'échec à 80k$') indique un événement de capitulation par la foule. Les baleines absorbent discrètement ces liquidations massives pour accumuler à bas prix.\"\n}\n```",
+      "ts": "2026-08-30T20:15:22.578159+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 2.6299476091128957,
+      "value": 20397088.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 82,\n  \"reason\": \"Le z-score des liquidations (2.63) indique un flush violent et un nettoyage des positions à effet de levier excessif. Pendant que les médias relaient un narratif de panique et de capitulation (Bitcoin à 10k, échec des 80k), les baleines profitent de cette capitulation forcée pour accumuler en silence aux dépens des 'retail' liquidés.\"\n}\n```",
+      "ts": "2026-08-30T20:45:27.324270+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.31704240271135,
+      "value": 5501661563.0,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 82,\n  \"reason\": \"Anomalie de volume on-chain élevée (z-score 2.32) couplée à un pic massif de ventes sur les dérivés XRP et un volume net preneur fortement négatif sur Binance (-96M). Le narratif médiatique est totalement déconnecté (bruit ambiant), masquant une distribution agressive et des sorties nettes de positions par les gros porteurs.\"\n}\n```",
+      "ts": "2026-08-30T21:10:33.751196+00:00"
     }
   ]
 }

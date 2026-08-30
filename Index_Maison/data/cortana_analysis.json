@@ -1,15 +1,15 @@
 {
-  "timestamp": 1788120880,
-  "date": "2026-08-30T20:14:40.629392+00:00",
-  "n_analyses": 1,
+  "timestamp": 1788124481,
+  "date": "2026-08-30T21:14:41.588005+00:00",
+  "n_analyses": 2,
   "analyses": [
     {
       "signal": {
         "metric": "liquidations",
-        "zscore": 2.669282539562572,
-        "value": 18211202.0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.67) sur les liquidations indiquant un 'flush' de la foule paniquée, alors que les médias grand public relayent un narratif ultra-pessimiste (BTC à 10k/80k, faillites). Classic setup de capitulation locale exploité en silence par les baleines.\"\n}\n```",
-        "ts": 1788119117.805616
+        "zscore": 2.6299476091128957,
+        "value": 20397088.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 82,\n  \"reason\": \"Le z-score des liquidations (2.63) indique un flush violent et un nettoyage des positions à effet de levier excessif. Pendant que les médias relaient un narratif de panique et de capitulation (Bitcoin à 10k, échec des 80k), les baleines profitent de cette capitulation forcée pour accumuler en silence aux dépens des 'retail' liquidés.\"\n}\n```",
+        "ts": 1788122727.32427
       },
       "fiche": null,
       "interpretation": {
@@ -17,7 +17,47 @@
         "niveau": "inconnu"
       },
       "action": "Observer"
+    },
+    {
+      "signal": {
+        "metric": "volume",
+        "zscore": 2.31704240271135,
+        "value": 5501661563.0,
+        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 82,\n  \"reason\": \"Anomalie de volume on-chain élevée (z-score 2.32) couplée à un pic massif de ventes sur les dérivés XRP et un volume net preneur fortement négatif sur Binance (-96M). Le narratif médiatique est totalement déconnecté (bruit ambiant), masquant une distribution agressive et des sorties nettes de positions par les gros porteurs.\"\n}\n```",
+        "ts": 1788124233.751196
+      },
+      "fiche": "rbf_eleve",
+      "questions": {
+        "prix": {
+          "value": -0.13,
+          "seuil": 1,
+          "depasse": false
+        },
+        "paires": {
+          "value": null,
+          "seuil": 3,
+          "depasse": false
+        },
+        "funding": {
+          "value": 7.1e-05,
+          "seuil": 0.001,
+          "depasse": false
+        },
+        "whales": {
+          "value": 0,
+          "seuil": 5,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "sdi > 0.3",
+        "lecture": "Drainage silencieux — les vieux BTC bougent en douce",
+        "niveau": "dangereux",
+        "action": "Réduire taille de 50%, sortir des positions fragiles"
+      },
+      "action": "Réduire taille de 50%, sortir des positions fragiles",
+      "niveau": "dangereux"
     }
   ],
-  "resume": "🔵 CALME — pas de signal alarmant"
+  "resume": "🔴 DANGER détecté — réduire les expositions"
 }

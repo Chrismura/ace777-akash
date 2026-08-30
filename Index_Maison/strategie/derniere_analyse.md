@@ -1,26 +1,29 @@
-# ANALYSE — 2026-08-30T20:13:49.704226Z (alerte)
+# ANALYSE — 2026-08-30T21:02:27.218636Z (alerte)
 
-[UNDERSTAND] La maison ACE777 maintient son alerte ambre en coordonnant la patience disciplinée d'Alpha, les reconnaissances tactiques de Beta et l'arbitrage des positions seeds en tension de Hulk face à un PnL combiné légèrement négatif.
+# ANALYSE — 2026-08-30T21:01:38.220154Z (alerte prix ETHUSDT)
+
+[UNDERSTAND] La maison ACE777 détecte un choc de -0,77 % sur l'ETHUSDT (2 488 → 2 469 $) en 60 secondes, alors qu'elle maintient son alerte ambre avec un PnL combiné légèrement positif (+1,27 $) et qu'Alpha disciplined attend la cassure du carnet (232 skips).
 
 [ANALYZE]
-- **Tendance** : Bitcoin season active (score 41) dans un climat de cupidité modérée (Fear & Greed à 69) et une capitalisation globale de 2,65 T$. Le BTC évolue autour de 78 891 $ tandis que l'ETHUSDT flirte avec 2 506 $.
-- **Momentum** : Alpha maintient sa stricte discipline d'attente (232 skips, 9 fills pour +2,01 $ de PnL) tandis que Beta assure ses reconnaissances tactiques (250 skips, 13 fills, ratio 9 long / 4 court, conf moyenne 0.90).
-- **Risque** : PnL Hulk en tension (-1,49 $) pénalisé par des positions seeds en infraction critique sous le seuil de -5 % (notamment KITEUSDT et CHIPUSDT) qui requièrent l'application stricte des coupe-circuits.
-- **Contexte** : Activité baleines active (15 gros blocs pour 87 344 BTC), flux ETF BTC net négatif (-295,09 M$) et actualité macroéconomique prudente.
+- **Tendance** : Bitcoin season (score 41) en climat de cupidité modérée (F&G 69), BTC autour de 78 455 $. Le repli ETH de -0,77 % isolé rompt la corrélation courte avec BTC, signalant un mouvement idiosyncratique plutôt qu'un risque systémique.
+- **Momentum** : L'ETH vient d'être ajoutée au portefeuille Hulk aujourd'hui (entry 2 497,44) avec un uPnl déjà à -0,0248$ (-0,25 %). Le déclencheur "-0,5 % en 60s" intervient à peine 21 minutes après l'entrée — timing défavorable. Les autres positions seeds restent stables (EDEL +39 %, PYTH stable, CC à -4,68 % surveillé).
+- **Risque** : La position ETHUSDT fraîche de Hulk (-0,25 % mark, -4,05 % chg24) subit le mouvement ; reste sous le seuil critique. CHIPUSDT reste en infraction critique à -7,13 % (déjà sous -5 %) — RWAINCUSDT à -4,79 % flirte avec le seuil. Aucune position seed n'est déclenchée en cascade par ce mouvement ETH.
+- **Contexte** : Le flux ETF BTC net négatif (-294 M$) et l'activité baleines neutre (15 blocs, 87 344 BTC) suggèrent un marché sans catalyseur directionnel fort. Le repli ETH isolé ne constitue pas une rupture de régime.
 
 [STRATEGIZE]
-1. **Conservateur (recommandé)** : Maintenir l'alerte ambre, préserver l'embuscade disciplinée d'Alpha, exécuter sans délai les coupe-circuits sur les positions seeds de Hulk en infraction critique sous -5 % et capitaliser sur l'éclairage de Beta.
-2. **Opportuniste** : Engager Alpha en sizing réduit sur confirmation d'une cassure franche et volume-soutenue du BTCUSDT au-dessus de 79 500 $, tout en exécutant simultanément les stop-loss sur les positions en infraction critique de Hulk.
+1. **Conservateur (recommandé)** : Maintenir l'alerte ambre. Le mouvement est trop faible et trop isolé pour justifier une embuscade d'Alpha ou un allègement des seeds. Continuer la surveillance des positions sous tension critique (CHIP, RWAINC) sans action additionnelle.
+2. **Prudente défensive** : Activer le mode "pause" sur l'entrée ETHUSDT de Hulk (trop fraîche, mal timée) en resserrant son stop-loss à -3 % pour limiter le risque d'aggravation.
+3. **Opportuniste (à écarter)** : Engager Alpha sur le repli ETH — disproportionné par rapport au signal (un seul mouvement de -0,77 % ne constitue pas une cassure validée du mur du carnet).
 
 [EXECUTE]
-- Verdict : Maintenir l'alerte ambre, préserver la discipline d'embuscade d'Alpha, et exécuter sans délai les coupe-circuits sur les positions seeds de Hulk en infraction critique sous -5 %.
-- Confiance : 87%
-- Hypothèses clés : 
-  1. Les positions seeds en infraction critique sous -5 % exigent l'application immédiate des coupe-circuits.
-  2. Alpha maintient sa stricte discipline d'attente en l'absence de cassure validée des carnets.
-  3. Beta continue de fournir un éclairage fiable sans perturber l'essaim.
-- Ce qui changerait la réponse : Une cassure franche et volume-soutenue du BTCUSDT au-dessus de 79 500 $ déclenchant l'embuscade d'Alpha, couplée à la purge des positions seeds en infraction.
-- Alternative si confiance < 80% : Couper toutes les positions seeds de Hulk en zone de tension et placer Alpha en pause défensive jusqu'à stabilisation du PnL.
-- Prédictions vérifiables :
-  [2026-08-31] BTCUSDT >= 79000.0000
+- **Verdict** : Maintien de l'alerte ambre — le repli isolé de l'ETH (-0,77 % en 60s) est insuffisant pour déclencher une embuscade d'Alpha et ne menace pas la structure du portefeuille seeds au-delà de CHIPUSDT déjà sous surveillance critique.
+- **Confiance** : 85%
+- **Hypothèses clés** :
+  1. Le mouvement ETH reste dans le bruit statistique normal et ne signale pas de rupture de régime.
+  2. La position fraîche ETHUSDT de Hulk est contenue (-0,25 %) et n'atteint aucun seuil critique.
+  3. Les coupe-circuits sur CHIPUSDT (-7,13 %) restent la priorité opérationnelle, non ce signal de prix.
+- **Ce qui changerait la réponse** : Une cascade ETH > -1,5 % en quelques minutes OU un mouvement BTC symétrique > -1 % activant un risque systémique.
+- **Alternative si confiance < 80%** : Resserrer le stop-loss de l'entrée ETHUSDT fraîche de Hulk à -3 % et basculer Alpha en pause défensive tant que l'ETH n'a pas stabilisé au-dessus de 2 475 $.
+
+- **Prédictions vérifiables** :
   [2026-08-31] ETHUSDT >= 2450.0000
