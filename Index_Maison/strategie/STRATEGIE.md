@@ -1,8 +1,8 @@
-# STRATEGIE — 2026-08-30T17:00:35.503923Z
+# STRATEGIE — 2026-08-30T17:20:19.357746Z
 
-## COURT TERME — 2026-08-30T17:00:35.503923Z
+## COURT TERME — 2026-08-30T17:20:19.357746Z
 
-[UNDERSTAND] La maison ACE777 maintient son alerte ambre avec un PnL combiné légèrement négatif (-0,59 $), soutenu par la patience disciplinée d'Alpha, l'éclairage de Beta et la gestion prudente des positions de Hulk.
+[UNDERSTAND] La maison ACE777 maintient son alerte ambre avec un PnL combiné légèrement négatif (-0,59 $), soutenu par la patience disciplinée d'Alpha, l'éclairage de Beta et la surveillance active des positions seeds de Hulk.
 
 [ANALYZE]
 - **Tendance** : Configuration Bitcoin season (score 41) avec un climat de cupidité modérée (Fear & Greed à 69) et une capitalisation globale de 2,67 T$.

@@ -61,3 +61,12 @@
 - Réserves : vePYTH + unlocks systémiques (dilution), lien usage→prix indirect, corr BTC 0.82.
 - Décision : position = noyau MOTEUR (infrastructure + TradFi), entrées tactiques fenêtre 9-11h + filtre macro, surveillance unlocks vePYTH.
 - Fiche + synthèse créées, FICHE_IA à jour.
+
+## 30/08 — Deepdive ZBCN 3 rounds (mitigé : produit réel, token faible)
+- Vérifié avant : aucun deepdive existant → 3 rounds légitime.
+- Famille DIVERGENTE : ULTRA 6.5/10 GO (produit réel déployé) vs JUGE 4.5/10 NON (token faible) vs DEEPSEEK 4.5/10 (marché restreint).
+- Consensus : produit ≠ token — Zebec tourne en stablecoins, ZBCN capte peu de valeur + dilution post-migration ZBC→ZBCN + concurrence Deel/Remote.
+- Positif : produit réel (cartes, payroll), Stellar a choisi Zebec.
+- Nos mesures : POMPE_PIEGE stab 4 + corr BTC 0.77 = actif de marché à risque de piège.
+- Décision : position paper = observation pure, pas d'agrandissement, à revoir si mécanisme de capture de valeur.
+- Fiche + synthèse créées, FICHE_IA à jour.

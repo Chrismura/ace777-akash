@@ -41,6 +41,17 @@
 
 ---
 
+## 🏦 DEEPDIVE PROJET (30/08 — 3 rounds famille + vérification 2 sources)
+
+- **ZBCN = Zebec Network** : paiements réels (payroll streaming, cartes multi-chaînes, money streaming). Produit RÉEL déployé (rare) + Stellar a choisi Zebec pour son payroll streaming. Sources : zebec.io, zebec.io/blog.
+- **Famille 3 rounds : DIVERGENT (4.5 à 6.5/10)** — ULTRA GO réserves 6.5 (produit réel) vs JUGE NON 4.5 (token faible) vs DEEPSEEK GO strict 4.5 (marché restreint).
+- **Le consensus réel : produit ≠ token** — le service tourne en stablecoins, ZBCN capte peu de valeur (pas de burn/fees fort) + dilution post-migration ZBC→ZBCN + concurrence Deel/Remote.
+- **Nos mesures** : POMPE_PIEGE (stab 4) + corr BTC 0.77 → actif de marché à risque de piège.
+- **Décision** : position paper GARDÉE en observation pure, PAS d'agrandissement, pas de set-up tactique actif (POMPE_PIEGE + dilution), à revoir si mécanisme de capture de valeur annoncé.
+- Synthèse : `SYNTHESE_FAMILLE_DEEPDIVE_ZBCN_3ROUNDS_20260830.md` + avis R1/R2/R3 dans `scripts/CONSULTATION_FAMILLE_DEEPDIVE_ZBCNUSDT_ROUNDS_20260830/`.
+
+---
+
 ## ⏱️ ÉTAT ACTUEL
 - **ZBCNUSDT est suivie en observation** (doctrine : tous les actifs sous observation).
 - Rien n'est câblé de neuf dans Hulk : ce set-up est la **cible d'observation**, à valider

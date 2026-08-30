@@ -1,7 +1,7 @@
 {
-  "timestamp": 1788110077,
-  "date": "2026-08-30T17:14:37.556532+00:00",
-  "n_analyses": 1,
+  "timestamp": 1788110377,
+  "date": "2026-08-30T17:19:37.637788+00:00",
+  "n_analyses": 2,
   "analyses": [
     {
       "signal": {
@@ -14,7 +14,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.18,
+          "value": -0.21,
           "seuil": 1,
           "depasse": false
         },
@@ -24,7 +24,7 @@
           "depasse": false
         },
         "funding": {
-          "value": 5.2e-05,
+          "value": 5.1e-05,
           "seuil": 0.001,
           "depasse": false
         },
@@ -42,6 +42,21 @@
       },
       "action": "Réduire taille de 50%, sortir des positions fragiles",
       "niveau": "dangereux"
+    },
+    {
+      "signal": {
+        "metric": "liquidations",
+        "zscore": 2.0612778060400245,
+        "value": 16513961.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 82,\n  \"reason\": \"Le z-score des liquidations (2.06) indique un flush agressif des positions à effet de levier. Les médias amplifient la peur avec des thèses de capitulation et des échecs de résistance, ce qui constitue un classique 'shakeout' de détail tandis que les baleines absorbent la liquidité en silence.\"\n}\n```",
+        "ts": 1788110079.265209
+      },
+      "fiche": null,
+      "interpretation": {
+        "lecture": "Pas de fiche disponible",
+        "niveau": "inconnu"
+      },
+      "action": "Observer"
     }
   ],
   "resume": "🔴 DANGER détecté — réduire les expositions"

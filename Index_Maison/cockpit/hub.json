@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-30T17:17:53.760707+00:00",
+  "generated_at": "2026-08-30T17:22:07.657141+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 395
+      "calls_24h": 404
     },
     {
       "id": "openrouter-free",
@@ -256,10 +256,98 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 272,
-    "remaining": 352
+    "consumed": 283,
+    "remaining": 341
   },
   "queue": [
+    {
+      "ts": "2026-08-30T17:21:30.582274+00:00",
+      "task": "juge.tranche",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 6.13
+    },
+    {
+      "ts": "2026-08-30T17:21:24.436235+00:00",
+      "task": "inferx.analyse",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 5.84
+    },
+    {
+      "ts": "2026-08-30T17:21:18.578070+00:00",
+      "task": "deepseek.analyse",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 5.28
+    },
+    {
+      "ts": "2026-08-30T17:21:13.278176+00:00",
+      "task": "juge.tranche",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 6.86
+    },
+    {
+      "ts": "2026-08-30T17:21:06.406693+00:00",
+      "task": "inferx.analyse",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 8.53
+    },
+    {
+      "ts": "2026-08-30T17:20:57.859081+00:00",
+      "task": "deepseek.analyse",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 10.06
+    },
+    {
+      "ts": "2026-08-30T17:20:47.777548+00:00",
+      "task": "juge.tranche",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 8.59
+    },
+    {
+      "ts": "2026-08-30T17:20:39.167658+00:00",
+      "task": "inferx.analyse",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 9.72
+    },
+    {
+      "ts": "2026-08-30T17:20:29.436360+00:00",
+      "task": "deepseek.analyse",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 6.55
+    },
+    {
+      "ts": "2026-08-30T17:20:19.335925+00:00",
+      "task": "analyste.strategie",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 5.53
+    },
+    {
+      "ts": "2026-08-30T17:19:40.919777+00:00",
+      "task": "analyse.profonde",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 0.8
+    },
     {
       "ts": "2026-08-30T17:17:27.774884+00:00",
       "task": "juge.tranche",
@@ -291,153 +379,65 @@
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
       "duration_s": 8.9
-    },
-    {
-      "ts": "2026-08-30T17:17:02.507410+00:00",
-      "task": "inferx.analyse",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 9.78
-    },
-    {
-      "ts": "2026-08-30T17:16:52.708849+00:00",
-      "task": "deepseek.analyse",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 6.37
-    },
-    {
-      "ts": "2026-08-30T17:16:46.323528+00:00",
-      "task": "juge.tranche",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 6.58
-    },
-    {
-      "ts": "2026-08-30T17:16:39.728398+00:00",
-      "task": "inferx.analyse",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 10.45
-    },
-    {
-      "ts": "2026-08-30T17:16:29.260888+00:00",
-      "task": "deepseek.analyse",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 7.95
-    },
-    {
-      "ts": "2026-08-30T17:14:39.362721+00:00",
-      "task": "supervise.decision",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 1.03
-    },
-    {
-      "ts": "2026-08-30T17:14:39.264359+00:00",
-      "task": "analyse.profonde",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 0.95
-    },
-    {
-      "ts": "2026-08-30T17:14:26.233164+00:00",
-      "task": "supervise.decision",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 2.2
-    },
-    {
-      "ts": "2026-08-30T17:11:50.456492+00:00",
-      "task": "juge.tranche",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 6.33
-    },
-    {
-      "ts": "2026-08-30T17:11:44.108871+00:00",
-      "task": "inferx.analyse",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 6.05
-    },
-    {
-      "ts": "2026-08-30T17:11:38.045017+00:00",
-      "task": "deepseek.analyse",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 6.49
     }
   ],
   "events": [
     {
-      "ts": "2026-08-30T17:17:27.774567+00:00",
+      "ts": "2026-08-30T17:21:30.578803+00:00",
       "kind": "message",
       "title": "« Google Gemini » a repondu",
       "detail": ""
     },
     {
-      "ts": "2026-08-30T17:17:22.507564+00:00",
+      "ts": "2026-08-30T17:21:24.435891+00:00",
       "kind": "message",
       "title": "« Google Gemini » a repondu",
       "detail": ""
     },
     {
-      "ts": "2026-08-30T17:17:16.443388+00:00",
+      "ts": "2026-08-30T17:21:18.575637+00:00",
       "kind": "message",
       "title": "« Google Gemini » a repondu",
       "detail": ""
     },
     {
-      "ts": "2026-08-30T17:17:11.429004+00:00",
+      "ts": "2026-08-30T17:21:13.277684+00:00",
       "kind": "message",
       "title": "« Google Gemini » a repondu",
       "detail": ""
     },
     {
-      "ts": "2026-08-30T17:17:02.506690+00:00",
+      "ts": "2026-08-30T17:21:06.406134+00:00",
       "kind": "message",
       "title": "« Google Gemini » a repondu",
       "detail": ""
     },
     {
-      "ts": "2026-08-30T17:16:52.708411+00:00",
+      "ts": "2026-08-30T17:20:57.858278+00:00",
       "kind": "message",
       "title": "« Google Gemini » a repondu",
       "detail": ""
     },
     {
-      "ts": "2026-08-30T17:16:46.322118+00:00",
+      "ts": "2026-08-30T17:20:47.776367+00:00",
       "kind": "message",
       "title": "« Google Gemini » a repondu",
       "detail": ""
     },
     {
-      "ts": "2026-08-30T17:16:39.727923+00:00",
+      "ts": "2026-08-30T17:20:39.166970+00:00",
       "kind": "message",
       "title": "« Google Gemini » a repondu",
       "detail": ""
     },
     {
-      "ts": "2026-08-30T17:16:29.260111+00:00",
+      "ts": "2026-08-30T17:20:29.435871+00:00",
       "kind": "message",
       "title": "« Google Gemini » a repondu",
       "detail": ""
     },
     {
-      "ts": "2026-08-30T17:14:39.362231+00:00",
+      "ts": "2026-08-30T17:20:19.335048+00:00",
       "kind": "message",
       "title": "« Google Gemini » a repondu",
       "detail": ""
