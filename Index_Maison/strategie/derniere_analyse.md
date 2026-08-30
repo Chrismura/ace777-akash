@@ -1,12 +1,12 @@
-# ANALYSE — 2026-08-30T20:00:52.153068Z (alerte)
+# ANALYSE — 2026-08-30T20:13:49.704226Z (alerte)
 
-[UNDERSTAND] La maison ACE777 maintient son alerte ambre en coordonnant la patience disciplinée d'Alpha, les sondages de Beta et l'arbitrage actif des positions seeds de Hulk face à un PnL combiné légèrement négatif.
+[UNDERSTAND] La maison ACE777 maintient son alerte ambre en coordonnant la patience disciplinée d'Alpha, les reconnaissances tactiques de Beta et l'arbitrage des positions seeds en tension de Hulk face à un PnL combiné légèrement négatif.
 
 [ANALYZE]
-- **Tendance** : Bitcoin season active (score 41) dans un climat de cupidité modérée (Fear & Greed à 69) et une capitalisation globale de 2,65 T$. Le BTC évolue autour de 78 891 $ tandis que l'ETHUSDT flirte avec 2 505 $.
-- **Momentum** : Alpha maintient sa stricte discipline d'attente (249 skips, 10 fills pour +2,01 $ de PnL) tandis que Beta assure ses reconnaissances tactiques (257 skips, 15 fills, ratio 9 long / 4 court, conf moyenne 0.90).
+- **Tendance** : Bitcoin season active (score 41) dans un climat de cupidité modérée (Fear & Greed à 69) et une capitalisation globale de 2,65 T$. Le BTC évolue autour de 78 891 $ tandis que l'ETHUSDT flirte avec 2 506 $.
+- **Momentum** : Alpha maintient sa stricte discipline d'attente (232 skips, 9 fills pour +2,01 $ de PnL) tandis que Beta assure ses reconnaissances tactiques (250 skips, 13 fills, ratio 9 long / 4 court, conf moyenne 0.90).
 - **Risque** : PnL Hulk en tension (-1,49 $) pénalisé par des positions seeds en infraction critique sous le seuil de -5 % (notamment KITEUSDT et CHIPUSDT) qui requièrent l'application stricte des coupe-circuits.
-- **Contexte** : Activité baleines active (15 gros blocs pour 87 344 BTC), flux ETF BTC net négatif (-295,02 M$) et actualité macroéconomique prudente de la Fed relayée par la presse.
+- **Contexte** : Activité baleines active (15 gros blocs pour 87 344 BTC), flux ETF BTC net négatif (-295,09 M$) et actualité macroéconomique prudente.
 
 [STRATEGIZE]
 1. **Conservateur (recommandé)** : Maintenir l'alerte ambre, préserver l'embuscade disciplinée d'Alpha, exécuter sans délai les coupe-circuits sur les positions seeds de Hulk en infraction critique sous -5 % et capitaliser sur l'éclairage de Beta.

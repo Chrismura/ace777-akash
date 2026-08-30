@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-30T20:08:29.620343+00:00",
+  "generated_at": "2026-08-30T20:14:33.774817+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 411
+      "calls_24h": 408
     },
     {
       "id": "openrouter-free",
@@ -256,10 +256,18 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 357,
-    "remaining": 267
+    "consumed": 358,
+    "remaining": 266
   },
   "queue": [
+    {
+      "ts": "2026-08-30T20:13:49.681304+00:00",
+      "task": "analyste.strategie",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 3.47
+    },
     {
       "ts": "2026-08-30T20:00:52.130015+00:00",
       "task": "analyste.strategie",
@@ -371,17 +379,15 @@
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
       "duration_s": 0.73
-    },
-    {
-      "ts": "2026-08-30T18:45:05.084413+00:00",
-      "task": "analyse.profonde",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 0.99
     }
   ],
   "events": [
+    {
+      "ts": "2026-08-30T20:13:49.680448+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
     {
       "ts": "2026-08-30T20:00:52.128344+00:00",
       "kind": "message",
@@ -435,12 +441,6 @@
       "kind": "failover",
       "title": "Bascule depuis Puter Grok (gratuit)",
       "detail": "HTTP Error 402: Payment Required"
-    },
-    {
-      "ts": "2026-08-30T19:31:16.800290+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis InferX Qwen3-Coder-Next (code, gratuit jusqu'au 12/08)",
-      "detail": "HTTP Error 429: Too Many Requests"
     }
   ],
   "tasks_quotas": {
