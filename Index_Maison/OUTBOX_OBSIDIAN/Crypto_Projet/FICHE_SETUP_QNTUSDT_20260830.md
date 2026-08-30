@@ -41,6 +41,15 @@
 
 ---
 
+## 🧠 DEEPDIVE 3 ROUNDS (30/08) — GO AVEC RÉSERVES 5.7/10
+- **Synthèse** : `SYNTHESE_FAMILLE_DEEPDIVE_QNT_3ROUNDS_20260830.md` · consultations `scripts/CONSULTATION_FAMILLE_DEEPDIVE_QNTUSDT_ROUNDS_20260830/`.
+- **Quant Network (Overledger)** : OS d'interopérabilité DLT + systèmes legacy (SWIFT/ISO 20022) — optionalité macro institutionnelle (CBDC/tokenisation).
+- **Réserves** : pas de preuve on-chain de capture de valeur par le token · concurrence Chainlink CCIP · liquidité fragile · « Fusion mainnet Q1 2026 » = mirage marketing non confirmé.
+- **Décision** : traiter en **tactique mean-reversion**, PAS conviction · fenêtres creux 8-10h UTC · jamais de portage long aveugle (coût d'opportunité).
+- **Croisement** : `paires_croisement.json` → `observation_setup` → `deepdive_validees` (30/08).
+
+---
+
 ## ⏱️ ÉTAT ACTUEL
 - **QNTUSDT est suivie en observation** (doctrine : tous les actifs sous observation).
 - Rien n'est câblé de neuf dans Hulk : ce set-up est la **cible d'observation**, à valider
@@ -48,5 +57,6 @@
 - Fiche à réviser avec l'évolution des données (jamais statique).
 
 ## Archives
+- Deepdive : `OUTBOX_OBSIDIAN/Crypto_Projet/SYNTHESE_FAMILLE_DEEPDIVE_QNT_3ROUNDS_20260830.md`
 - Profil : `hulk-mexc/runs/profils_actifs/PROFIL_QNTUSDT.md`
 - Suivi : `hulk-mexc/runs/SUIVI_SETUP_QNTUSDT.jsonl` + `.md`

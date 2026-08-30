@@ -1,17 +1,18 @@
 {
-  "version": "2026-08-29",
-  "note": "Liste de croisement externe — règle de prudence Christophe (29/08) : on ne croise QUE les paires approfondies en deepdive (données validées). Les paires en observation (SOL...) sont capturées pour un set up personnalisé AVANT entrée en portefeuille — on croise leurs prix mais sans décision. Les paires NON deepdive (RIZE...) sont EXCLUES du croisement tant qu'elles n'ont pas été approfondies — on le fera au fur et à mesure. MAJ 29/08 soir : RIZE passe en observation_setup (prix seul) apres deepdive — GO Christophe. MAJ 29/08 soir (2) : CANTON (CC) passe en observation_setup apres deepdive — GO Christophe.",
+  "version": "2026-08-30",
+  "note": "Liste de croisement externe — règle de prudence Christophe (29/08) : on ne croise QUE les paires approfondies en deepdive (données validées). MAJ 30/08 : deepdives 3 rounds famille terminés (EDEL, HBAR, PYTH, RED, ZBCN, CHIP, FLUID, QNT, MNSRY, RWA). FLUID (7.4/10) et QNT (5.7/10) = GO AVEC RÉSERVES → deepdive_validees. MNSRY (1/10, usurpation de marque) et RWA/Xend (1.7/10, liquidité mortifère, rebranding trompeur) = NON → observation_setup, croisement PRIX SEUL, pas de décision. QAIT = delisté → ejectees.",
   "deepdive_validees": {
     "BTCUSDT": "banc de preuve, croisement prioritaire",
     "ETHUSDT": "banc de preuve, croisement prioritaire",
     "XRPUSDT": "majeure_manipulee, deepdive validé",
-    "CHIPUSDT": "deepdive CHIP validé 29/08 (arbre qui cache la forêt)",
-    "QAITUSDT": "deepdive QAIT validé 29/08 (stratégie mathématique)",
-    "EDELUSDT": "profondeur croisée, à maintenir en veille",
-    "PYTHUSDT": "dans le portefeuille, deepdive en cours",
-    "ZBCNUSDT": "dans le portefeuille, données murs riches",
-    "HBARUSDT": "dans le portefeuille, drop élevé surveillé",
-    "REDUSDT": "dans le portefeuille, à confirmer"
+    "CHIPUSDT": "deepdive CHIP validé 29/08 (arbre qui cache la forêt) + catalyseur Bullish $100M (28/08)",
+    "EDELUSDT": "deepdive 3 rounds 30/08 : NON 2-3.5/10, loterie assumée — seed gardée, régime actif, veille delisting",
+    "PYTHUSDT": "deepdive 3 rounds 30/08 : GO AVEC RÉSERVES 7.2-7.5/10 — MOTEUR (oracle, Tradeweb 15/07), meilleur verdict du portefeuille",
+    "ZBCNUSDT": "deepdive 3 rounds 30/08 : 4.5-6.5/10 divergent — observation pure, pas de conviction (produit réel, token ne capte pas la valeur)",
+    "HBARUSDT": "deepdive 3 rounds 30/08 : GO AVEC RÉSERVES 6.5/10 — SOCLE long terme institutionnel, PAS de trade tactique (volume DEAD)",
+    "REDUSDT": "deepdive 3 rounds 30/08 : GO AVEC RÉSERVES 6.5-6.8/10 — MOTEUR, endogène (corr BTC 0.08), set-up creux 14-17h reste la référence",
+    "FLUIDUSDT": "deepdive 3 rounds 30/08 : GO AVEC RÉSERVES 7.4/10 — MOTEUR potentiel (Fluid/Instadapp, hub DeFi unifié), réserves : risque smart contract systémique, fee-switch à prouver",
+    "QNTUSDT": "deepdive 3 rounds 30/08 : GO AVEC RÉSERVES 5.7/10 (4.5-7.2) — optionalité macro institutionnelle (CBDC/ISO 20022), traiter en tactique mean-reversion, pas en conviction"
   },
   "observation_setup": {
     "SOLUSDT": "OBSERVATION — capture données pour set up personnalisé AVANT entrée portefeuille (prix croisé, pas de décision)",
@@ -21,24 +22,25 @@
     "ALGOUSDT": "observation murs",
     "IXSUSDT": "observation murs",
     "XDCUSDT": "observation murs",
-    "QNTUSDT": "observation murs",
     "JASMYUSDT": "observation murs",
     "RIZEUSDT": "OBSERVATION (GO Christophe 29/08 apres deepdive) : T-RIZE RWA institutionnel — prix croise SEUL, pas de decision. Profil maison manipulee_fragile (murs 243$, sigma 1.151, spoof 3.4%, drop 216) — capture du comportement pour set up avant entree portefeuille.",
-    "CCUSDT": "OBSERVATION (GO Christophe 29/08 apres deepdive Canton) : Canton Network — RWA/privacy institutionnel (Digital Asset, Visa, HSBC, DTCC, Goldman, BNP). Pont de valeur DANS le code (frais brulés + mint usage). Prix croisé SEUL, pas de décision. Risques : supply infinie (burn/mint à surveiller), volume MEXC faible (200k$/24h), jeton jeune (nov 2025)"
+    "CCUSDT": "OBSERVATION (GO Christophe 29/08 apres deepdive Canton) : Canton Network — RWA/privacy institutionnel (Digital Asset, Visa, HSBC, DTCC, Goldman, BNP). Pont de valeur DANS le code (frais brulés + mint usage). Prix croisé SEUL, pas de décision. Risques : supply infinie (burn/mint à surveiller), volume MEXC faible (200k$/24h), jeton jeune (nov 2025)",
+    "MNSRYUSDT": "OBSERVATION (NON famille 30/08 — 1/10) : Mansory Token = usurpation de marque (pas le vrai Mansory, memecoin pump.fun Solana), risque delisting/rug. Croisement PRIX SEUL, pas de décision. Position seed à surveiller, ne pas agrandir, sonde delisting active",
+    "RWAUSDT": "OBSERVATION (NON famille 30/08 — 1.7/10) : RWA = Xend Finance (ex-XEND, rebranding trompeur, PAS RWA Inc.). Liquidité mortifère (<50k$/24h), slippage destructeur. Croisement PRIX SEUL, pas de décision. Ne pas agrandir, sonde delisting active"
   },
   "exclues_prudence": {
     "WUSDT": "à vérifier avant croisement",
     "KITEUSDT": "à vérifier avant croisement",
     "BIOUSDT": "à vérifier avant croisement",
     "TELUSDT": "à vérifier avant croisement",
-    "RWAINCUSDT": "à vérifier avant croisement"
+    "RWAINCUSDT": "à vérifier avant croisement (RWA Inc. — NE PAS confondre avec RWAUSDT/Xend)"
   },
   "deepdive_faits_29aout": {},
   "ejectees": {
     "ADAUSDT": "ÉJECTÉE 28/08 (décision Christophe) — 1) confusion avec Ada l'orchestratrice IA, 2) aucun intérêt pour lui. Absente de observation_list (retired), du portefeuille et du croisement. NE PAS la réintroduire sans GO explicite.",
     "WECANUSDT": "retirée (pas sur MEXC)",
     "LAGRANGEUSDT": "retirée (pas sur MEXC)",
-    "MANSORYUSDT": "retirée (pas sur MEXC)"
+    "QAITUSDT": "ÉJECTÉE 30/08 — QAIT delisté de MEXC (retiré du portefeuille et du croisement). NE PAS réintroduire."
   },
-  "regle": "Croiser : deepdive_validees + observation_setup (prix seulement pour observation). Jamais : exclues_prudence. Mise à jour au fur et à mesure des deepdives."
+  "regle": "Croiser : deepdive_validees + observation_setup (prix seulement pour observation). Jamais : exclues_prudence, jamais : ejectees. Mise à jour au fur et à mesure des deepdives."
 }

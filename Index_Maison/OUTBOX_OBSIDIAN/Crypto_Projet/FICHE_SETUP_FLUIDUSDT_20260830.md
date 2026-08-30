@@ -41,6 +41,15 @@
 
 ---
 
+## 🧠 DEEPDIVE 3 ROUNDS (30/08) — GO AVEC RÉSERVES 7.4/10 ✅
+- **Synthèse** : `SYNTHESE_FAMILLE_DEEPDIVE_FLUID_3ROUNDS_20260830.md` · consultations `scripts/CONSULTATION_FAMILLE_DEEPDIVE_FLUIDUSDT_ROUNDS_20260830/`.
+- **Fluid (ex-Instadapp)** : hub DeFi unifié Lending + Vaults + DEX sur liquidité partagée — architecture de rupture, équipe prouvée (2018+).
+- **Réserves** : risque smart contract systémique (modules imbriqués) · fee-switch à prouver (valeur token vs TVL) · rumeur Jupiter/Solana = PAS DE SOURCE, invalidée (ancré EVM).
+- **Décision** : candidat MOTEUR · seed gardée · pas d'agrandissement avant vérif TVL (DefiLlama) + fee-switch + fenêtres confirmées.
+- **Croisement** : `paires_croisement.json` → `deepdive_validees` (30/08).
+
+---
+
 ## ⏱️ ÉTAT ACTUEL
 - **FLUIDUSDT est suivie en observation** (doctrine : tous les actifs sous observation).
 - Rien n'est câblé de neuf dans Hulk : ce set-up est la **cible d'observation**, à valider
@@ -48,5 +57,6 @@
 - Fiche à réviser avec l'évolution des données (jamais statique).
 
 ## Archives
+- Deepdive : `OUTBOX_OBSIDIAN/Crypto_Projet/SYNTHESE_FAMILLE_DEEPDIVE_FLUID_3ROUNDS_20260830.md`
 - Profil : `hulk-mexc/runs/profils_actifs/PROFIL_FLUIDUSDT.md`
 - Suivi : `hulk-mexc/runs/SUIVI_SETUP_FLUIDUSDT.jsonl` + `.md`

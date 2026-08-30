@@ -92,3 +92,11 @@
 - Un 3 rounds famille sur BTC aurait été le 2e doublon de la journée (après CHIP). Évitée.
 - Action : consigné dans FICHE_IA — BTC/ETH = déjà traités (Conviction SOCLE), pas de 3 rounds.
 - Reste à faire (3 rounds) : FLUID, MNSRY, QNT, RWA + observation (SOL, XLM, JASMY...).
+
+## 30/08 — DEEPDIVES 3 ROUNDS DES 4 DERNIÈRES (FLUID, MNSRY, QNT, RWA) + CORRECTION paires_croisement.json
+- Vérification avant (règle) : aucun deepdive projet existant pour les 4 → 3 rounds légitimes.
+- Identités vérifiées (2 sources) : FLUID = Fluid/ex-Instadapp (hub DeFi unifié) · MNSRY = Mansory Token (usurpation de marque !) · QNT = Quant/Overledger (interopérabilité institutionnelle) · RWA = Xend Finance (ex-XEND, PAS RWA Inc., PAS Allo).
+- VERDICTS : **FLUID 7.4/10 GO réserves (MOTEUR potentiel)** · **QNT 5.7/10 GO réserves (optionalité macro, tactique)** · **MNSRY 1/10 NON unanime (usurpation de marque, memecoin pump.fun)** · **RWA/Xend 1.7/10 NON unanime (rebranding trompeur, liquidité mortifère)**.
+- paires_croisement.json CORRIGÉ : QAIT éjecté (delisté) · MNSRY sorti des ejectees (la raison « pas sur MEXC » était FAUSSE) → observation prix seul · RWA ajouté (il était ABSENT alors que tradé — faille de gouvernance) → observation prix seul · FLUID + QNT → deepdive_validees.
+- Synthèses : SYNTHESE_FAMILLE_DEEPDIVE_{FLUID,MNSRY,QNT,RWA}_3ROUNDS_20260830.md + fiches set-up enrichies + FICHE_IA à jour (portefeuille 100% traité).
+- Prochaine étape : implémenter le filtre de liquidité global proposé par la famille (SSSL/SIS/RLC — volume/profondeur sous seuil = blocage exécution).

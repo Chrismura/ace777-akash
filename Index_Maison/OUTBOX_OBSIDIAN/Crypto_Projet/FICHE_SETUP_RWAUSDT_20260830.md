@@ -41,6 +41,16 @@
 
 ---
 
+## 🧠 DEEPDIVE 3 ROUNDS (30/08) — NON 1.7/10 🚨
+- **Synthèse** : `SYNTHESE_FAMILLE_DEEPDIVE_RWA_3ROUNDS_20260830.md` · consultations `scripts/CONSULTATION_FAMILLE_DEEPDIVE_RWAUSDT_ROUNDS_20260830/`.
+- **⚠️ CONFUSION RÉSOLUE** : RWAUSDT = **Xend Finance** (ex-XEND, migré 05/2026) — PAS RWA Inc. (RWAINC) ni Allo.
+- **Xend Finance** : DeFi pour coopératives/credit unions (Nigeria) · rebranding « RWA » = artifice cosmétique, pas de tokenisation institutionnelle réelle · dilution XEND→RWA à auditer.
+- **Risques** : liquidité mortifère (<50k$/24h, slippage 10-30%) · confusion ticker · obsolescence technologique.
+- **Décision** : NON unanime · croisement PRIX SEUL · **ne pas agrandir la seed** · sonde delisting active.
+- **Croisement** : `paires_croisement.json` → il était ABSENT alors que tradé (faille de gouvernance) → `observation_setup` (30/08).
+
+---
+
 ## ⏱️ ÉTAT ACTUEL
 - **RWAUSDT est suivie en observation** (doctrine : tous les actifs sous observation).
 - Rien n'est câblé de neuf dans Hulk : ce set-up est la **cible d'observation**, à valider
@@ -48,5 +58,6 @@
 - Fiche à réviser avec l'évolution des données (jamais statique).
 
 ## Archives
+- Deepdive : `OUTBOX_OBSIDIAN/Crypto_Projet/SYNTHESE_FAMILLE_DEEPDIVE_RWA_3ROUNDS_20260830.md`
 - Profil : `hulk-mexc/runs/profils_actifs/PROFIL_RWAUSDT.md`
 - Suivi : `hulk-mexc/runs/SUIVI_SETUP_RWAUSDT.jsonl` + `.md`

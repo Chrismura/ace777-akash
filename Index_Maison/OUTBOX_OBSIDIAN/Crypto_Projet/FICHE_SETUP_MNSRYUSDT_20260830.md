@@ -41,6 +41,15 @@
 
 ---
 
+## 🧠 DEEPDIVE 3 ROUNDS (30/08) — NON 1/10 🚨
+- **Synthèse** : `SYNTHESE_FAMILLE_DEEPDIVE_MNSRY_3ROUNDS_20260830.md` · consultations `scripts/CONSULTATION_FAMILLE_DEEPDIVE_MNSRYUSDT_ROUNDS_20260830/`.
+- **MNSRY = PAS le vrai Mansory** : usurpation de marque (memecoin pump.fun Solana, `solana-mansory-pump`), aucun lien officiel (`mansory.com` silencieux).
+- **Risques** : delisting foudroyant (action marque), rug pull, liquidité nulle.
+- **Décision** : NON unanime · croisement PRIX SEUL · **ne pas agrandir la seed** · sonde delisting active · sortie immédiate si annonce juridique Mansory.
+- **Croisement** : `paires_croisement.json` → retiré des `ejectees` (raison « pas sur MEXC » était FAUSSE) → `observation_setup` (30/08).
+
+---
+
 ## ⏱️ ÉTAT ACTUEL
 - **MNSRYUSDT est suivie en observation** (doctrine : tous les actifs sous observation).
 - Rien n'est câblé de neuf dans Hulk : ce set-up est la **cible d'observation**, à valider
@@ -48,5 +57,6 @@
 - Fiche à réviser avec l'évolution des données (jamais statique).
 
 ## Archives
+- Deepdive : `OUTBOX_OBSIDIAN/Crypto_Projet/SYNTHESE_FAMILLE_DEEPDIVE_MNSRY_3ROUNDS_20260830.md`
 - Profil : `hulk-mexc/runs/profils_actifs/PROFIL_MNSRYUSDT.md`
 - Suivi : `hulk-mexc/runs/SUIVI_SETUP_MNSRYUSDT.jsonl` + `.md`
