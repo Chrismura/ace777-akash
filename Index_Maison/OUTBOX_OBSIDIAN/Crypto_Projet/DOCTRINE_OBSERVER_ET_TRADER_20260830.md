@@ -24,6 +24,20 @@ actifs changent de comportement avec lui.
 → **C'est pareil pour TOUS les actifs.** Chaque actif a sa fiche avec son étude de cas
 particulier, mise à jour en continu.
 
+## 2bis. LA RÈGLE D'OR (précisée par Christophe le 30/08, à ne JAMAIS confondre)
+
+> **TOUS les actifs DOIVENT être traités avec le MÊME SYSTÈME — ce qui NE veut PAS dire
+> le même set-up.**
+
+- **MÊME SYSTÈME** = le même protocole complet appliqué à chacun des actifs : analyse du
+  comportement → pattern trouvé → fiche d'étude de cas → set-up construit → validation
+  famille + Cortana → suivi quotidien automatique → révision au fur et à mesure.
+- **PAS le même set-up** = chaque actif a SON set-up propre, adapté à SON comportement
+  (RED : creux 15-16h → pic 01-05h · CHIP : inverse jour>nuit · EDEL : cycle nuit→jour...).
+  **On ne copie JAMAIS le set-up d'un actif sur un autre.**
+
+→ **En résumé : UN SEUL SYSTÈME, VINGT SET-UPS PERSONNALISÉS.**
+
 ## 3. CE QUE ÇA CHANGE CONCRÈTEMENT (les règles qui en découlent)
 
 1. **Aucun actif n'est « hors observation »** : être tradé par Hulk ≠ ne pas être observé.
@@ -43,7 +57,10 @@ particulier, mise à jour en continu.
 ## 4. LE PROTOCOLE (comment on l'applique)
 
 - **Fiche par actif** dans `Crypto_Projet/` (ex : FICHE_PATTERN_SETUP_RED, SETUP_OPERATIONNEL_RED).
-- **Mesure répétée** : script `suivi_setup_red.py` + plist quotidienne (même heure = comparable).
+- **Mesure répétée** : script générique `suivi_setup_actif.py` (TOUTES les paires) + plist
+  quotidienne 16:35 locale (même heure = comparable). 20 fichiers `SUIVI_SETUP_<PAIRE>.md`.
+- **Métriques pro** intégrées : Amihud + Trade Sign Delta (+ corr BTC/ETH). Parkinson retiré
+  (verdict Cortana 30/08 : bruit sur small caps).
 - **Comparaison jour par jour** : on ne supprime jamais les lignes passées — l'évolution fait foi.
 - **Révision périodique** : point ensemble sur chaque actif (ex : 7 jours) pour ajuster le set-up.
 - **Tout est journalisé** dans `Journal_*.md` + archivé git.
