@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>TEST PAINT</title>
+  <style>
+    body { background: #111; color: #fff; font-family: monospace; padding: 20px; }
+    .chip { background: #222; padding: 10px 15px; margin: 5px; display: inline-block; border-radius: 5px; }
+    .val { font-size: 24px; font-weight: bold; }
+    .sub { font-size: 12px; color: #888; }
+    #log { margin-top: 20px; padding: 10px; background: #000; white-space: pre; font-size: 11px; }
+  </style>
+</head>
+<body>
+  <h1>🧪 TEST PAINTALL</h1>
+  
+  <div class="chip"><div class="sub">SDI</div><div class="val" id="top-sdi">—</div><span class="sub" id="top-sdi-sub"></span></div>
+  <div class="chip"><div class="sub">RBF</div><div class="val" id="top-rbf">—</div><span class="sub" id="top-rbf-sub"></span></div>
+  <div class="chip"><div class="sub">HEALTH</div><div class="val" id="top-health">—</div><span class="sub" id="top-health-sub"></span></div>
+  <div class="chip"><div class="sub">GEOPOL</div><div class="val" id="top-geopol">—</div><span class="sub" id="top-geopol-sub"></span></div>
+  <div class="chip"><div class="sub">GAIN RÉEL</div><div class="val" id="top-gain">—</div><span class="sub" id="top-gain-sub"></span></div>
+
+  <div id="log"></div>
+
+  <script src="live.js"></script>
+  <script>
+    const log = document.getElementById('log');
+    function L(msg) { log.textContent += msg + '\n'; }
+
+    L('1. live.js chargé');
+    L('window.__THERMO__ = ' + typeof window.__THERMO__);
+    
+    let T = window.__THERMO__ || {};
+    L('2. T assigné, clés: ' + Object.keys(T).length);
+
+    // Copy exact des fonctions render du cockpit
+    function renderSDI(){
+      const sdi = (T && T.sdi) || {};
+      const ipt = (T && T.ipt) || {};
+      const v = document.getElementById('top-sdi');
+      if(!v) { L('ERREUR: #top-sdi pas trouvé'); return; }
+      const sdiVal = sdi.sdi;
+      v.textContent = (sdiVal!=null) ? Number(sdiVal).toFixed(3) : '—';
+      if(sdiVal!=null){
+        v.style.color = sdiVal > 0.7 ? '#ff5c5c' : (sdiVal > 0.3 ? '#ffd24d' : '#7cff6b');
+      }
+      const sub = document.getElementById('top-sdi-sub');
+      if(sub){
+        const iptVal = ipt.ipt;
+        const alerts = (T && T.sdi_alerts) || [];
+        let txt = iptVal!=null ? ('IPT '+Number(iptVal).toFixed(2)) : '';
+        if(alerts.length > 0) txt += ' ⚠️'+alerts[0].slice(0,40);
+        sub.textContent = txt || 'pas de donnée SDI';
+      }
+      L('3. renderSDI OK → ' + sdiVal);
+    }
+
+    function renderRBF(){
+      const rbf = (T && T.rbf) || {};
+      const v = document.getElementById('top-rbf');
+      if(!v) return;
+      const rbfVal = rbf.rbf_score;
+      v.textContent = (rbfVal!=null) ? Number(rbfVal).toFixed(1) : '—';
+      if(rbfVal!=null){
+        v.style.color = rbfVal > 1.5 ? '#ff5c5c' : (rbfVal > 1.0 ? '#ffd24d' : '#7cff6b');
+      }
+      L('4. renderRBF OK → ' + rbfVal);
+    }
+
+    function renderHealth(){
+      const h = (T && T.pipeline_health) || {};
+      const v = document.getElementById('top-health');
+      if(!v) return;
+      const score = h.global_score;
+      v.textContent = (score!=null) ? Number(score).toFixed(2) : '—';
+      if(score!=null){
+        v.style.color = score >= 0.85 ? '#7cff6b' : (score >= 0.6 ? '#ffd24d' : '#ff5c5c');
+      }
+      const sub = document.getElementById('top-health-sub');
+      if(sub){
+        const mode = h.mode_label || '';
+        const mult = h.position_multiplier;
+        let txt = mode;
+        if(mult!=null && mult < 1) txt += ' ×'+mult.toFixed(1);
+        sub.textContent = txt || 'pas de donnée health';
+      }
+      L('5. renderHealth OK → ' + score);
+    }
+
+    function renderGeopol(){
+      const v = document.getElementById('top-geopol');
+      const s = document.getElementById('top-geopol-sub');
+      const g = (T && T.geopol) || {};
+      if(!v) { L('ERREUR: #top-geopol pas trouvé'); return; }
+      const score = g.score;
+      const emoji = g.emoji || '';
+      const niveau = g.niveau || '';
+      if(score!=null){
+        v.textContent = emoji + ' ' + Number(score).toFixed(2);
+        v.style.color = score >= 0.8 ? '#ff5c5c' : (score >= 0.6 ? '#ff9d4d' : (score >= 0.3 ? '#ffd24d' : '#7cff6b'));
+      }
+      if(s){
+        const ml = g.ml || {};
+        let txt = niveau.toUpperCase();
+        if(ml.label_nom) txt += ' · ML:' + ml.label_nom;
+        const nb = g.nb_ok || 0;
+        txt += ' · ' + nb + '/5 modules';
+        s.textContent = txt;
+      }
+      L('6. renderGeopol OK → ' + score + ' ' + niveau);
+    }
+
+    // Exécuter
+    L('--- AVANT paintAll ---');
+    try {
+      renderSDI();
+      renderRBF();
+      renderHealth();
+      renderGeopol();
+      L('--- TOUT OK ---');
+    } catch(e) {
+      L('ERREUR: ' + e.message);
+    }
+  </script>
+</body>
+</html>

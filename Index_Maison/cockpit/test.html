@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>TEST COCKPIT</title>
+  <style>
+    body { background: #111; color: #fff; font-family: monospace; padding: 20px; }
+    .chip { background: #222; padding: 10px 15px; margin: 5px; display: inline-block; border-radius: 5px; }
+    .val { font-size: 24px; font-weight: bold; }
+    .sub { font-size: 12px; color: #888; }
+    #debug { margin-top: 20px; padding: 10px; background: #000; white-space: pre; }
+  </style>
+</head>
+<body>
+  <h1>🧪 TEST DONNÉES COCKPIT</h1>
+  
+  <div class="chip">
+    <div class="sub">SDI</div>
+    <div class="val" id="v-sdi">—</div>
+  </div>
+  
+  <div class="chip">
+    <div class="sub">RBF</div>
+    <div class="val" id="v-rbf">—</div>
+  </div>
+  
+  <div class="chip">
+    <div class="sub">HEALTH</div>
+    <div class="val" id="v-health">—</div>
+  </div>
+  
+  <div class="chip">
+    <div class="sub">GEOPOL</div>
+    <div class="val" id="v-geopol">—</div>
+  </div>
+
+  <div id="debug"></div>
+
+  <script src="live.js"></script>
+  <script>
+    const T = window.__THERMO__ || {};
+    const dbg = document.getElementById('debug');
+    
+    dbg.textContent += 'window.__THERMO__ = ' + (typeof window.__THERMO__) + '\n';
+    
+    if (T.sdi) {
+      document.getElementById('v-sdi').textContent = T.sdi.sdi;
+      document.getElementById('v-sdi').style.color = T.sdi.sdi > 0.3 ? '#ff5c5c' : '#7cff6b';
+      dbg.textContent += 'SDI: ' + T.sdi.sdi + '\n';
+    } else {
+      dbg.textContent += 'SDI: undefined\n';
+    }
+    
+    if (T.rbf) {
+      document.getElementById('v-rbf').textContent = T.rbf.rbf_score;
+      document.getElementById('v-rbf').style.color = T.rbf.rbf_score > 1.5 ? '#ff5c5c' : '#7cff6b';
+      dbg.textContent += 'RBF: ' + T.rbf.rbf_score + '\n';
+    } else {
+      dbg.textContent += 'RBF: undefined\n';
+    }
+    
+    if (T.pipeline_health) {
+      document.getElementById('v-health').textContent = T.pipeline_health.global_score;
+      document.getElementById('v-health').style.color = T.pipeline_health.global_score >= 0.85 ? '#7cff6b' : '#ff5c5c';
+      dbg.textContent += 'HEALTH: ' + T.pipeline_health.global_score + '\n';
+    } else {
+      dbg.textContent += 'HEALTH: undefined\n';
+    }
+    
+    if (T.geopol) {
+      document.getElementById('v-geopol').textContent = T.geopol.emoji + ' ' + T.geopol.score;
+      document.getElementById('v-geopol').style.color = T.geopol.score >= 0.6 ? '#ff5c5c' : '#7cff6b';
+      dbg.textContent += 'GEOPOL: ' + T.geopol.score + ' ' + T.geopol.niveau + '\n';
+    } else {
+      dbg.textContent += 'GEOPOL: undefined\n';
+    }
+    
+    dbg.textContent += '\nToutes les clés: ' + Object.keys(T).join(', ');
+  </script>
+</body>
+</html>
