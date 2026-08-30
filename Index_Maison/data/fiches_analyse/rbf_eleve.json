@@ -1,0 +1,64 @@
+{
+  "type": "rbf_eleve",
+  "trigger": "rbf_score > 0.6",
+  "description": "Forte activité de remplacement de frais (Replace-By-Fee) = des acteurs pressés",
+  "questions": [
+    {
+      "id": "prix",
+      "question": "Est-ce lié à un mouvement de prix ?",
+      "source": "live.json → chg1h",
+      "seuil": 1
+    },
+    {
+      "id": "paires",
+      "question": "Combien de paires sont concernées ?",
+      "source": "live.json → rbf.rbf_pairs",
+      "seuil": 3
+    },
+    {
+      "id": "funding",
+      "question": "Le funding est-il en hausse ?",
+      "source": "live.json → funding",
+      "seuil": 0.001
+    },
+    {
+      "id": "whales",
+      "question": "Y a-t-il des mouvements de baleines ?",
+      "source": "live.json → whaleN",
+      "seuil": 5
+    }
+  ],
+  "interpretations": {
+    "sdi_eleve": {
+      "condition": "sdi > 0.3",
+      "lecture": "Drainage silencieux — les vieux BTC bougent en douce",
+      "niveau": "dangereux",
+      "action": "Réduire taille de 50%, sortir des positions fragiles"
+    },
+    "rbf_sans_prix": {
+      "condition": "prix < 1%",
+      "lecture": "Accumulation silencieuse — les acteurs préparent quelque chose sans bouger le marché",
+      "niveau": "neutre",
+      "action": "Garder les positions, observer"
+    },
+    "rbf_avec_prix_baisse": {
+      "condition": "prix < -1%",
+      "lecture": "Panique possible — des acteurs accélèrent leurs transactions pour vendre",
+      "niveau": "dangereux",
+      "action": "Réduire taille de 25%, stops serrés"
+    },
+    "rbf_avec_prix_hausse": {
+      "condition": "prix > 1%",
+      "lecture": "Momentum haussier — les acteurs accélèrent pour acheter",
+      "niveau": "haussier",
+      "action": "Garder les positions, profiter du momentum"
+    },
+    "rbf_avec_whales": {
+      "condition": "whales > 5",
+      "lecture": "Activité institutionnelle intense — les gros bougent en douce",
+      "niveau": "surveiller",
+      "action": "Surveiller les prochaines heures, prêt à réagir"
+    }
+  },
+  "priorite": 2
+}

@@ -1,0 +1,70 @@
+{
+  "type": "blocs_privilises",
+  "trigger": "taux_fantome > 25%",
+  "description": "Détection d'une activité onchain intense dans des blocs non visibles dans la mempool publique",
+  "questions": [
+    {
+      "id": "duree",
+      "question": "Le pic est-il prolongé (>10 min) ou bref (<5 min) ?",
+      "source": "bloc_privatise_hist.jsonl",
+      " calcul": "Durée entre première et dernière mesure au-dessus du seuil"
+    },
+    {
+      "id": "volume",
+      "question": "Le volume est-il important (>100 BTC) ?",
+      "source": "bloc_privatise.json → volume_btc",
+      " seuil": 100
+    },
+    {
+      "id": "prix",
+      "question": "Le prix a-t-il bougé pendant le pic ?",
+      "source": "live.json → chg1h",
+      " seuil": 2
+    },
+    {
+      "id": "sdi",
+      "question": "Le SDI est-il élevé (>0.3) ?",
+      "source": "live.json → sdi.sdi",
+      " seuil": 0.3
+    },
+    {
+      "id": "rbf",
+      "question": "Le RBF est-il élevé (>0.6) ?",
+      "source": "live.json → rbf.rbf_score",
+      " seuil": 0.6
+    }
+  ],
+  "interpretations": {
+    "pic_bref_volume_haut": {
+      "condition": "duree < 5min ET volume > 100",
+      "lecture": "Consolidation exchange — probablement un transfert hot→cold",
+      "niveau": "neutre",
+      "action": "Garder les positions"
+    },
+    "pic_prolonge_volume_haut": {
+      "condition": "duree > 10min ET volume > 100",
+      "lecture": "Distribution possible — un gros acteur déplace du BTC hors vue",
+      "niveau": "surveiller",
+      "action": "Réduire taille de 25%, stops plus serrés"
+    },
+    "pic_sans_mouvement_prix": {
+      "condition": "prix < 2% ET volume > 50",
+      "lecture": "OTC probable — transaction hors marché, pas d'impact",
+      "niveau": "neutre",
+      "action": "Garder les positions, observer"
+    },
+    "pic_avec_sd_eleve": {
+      "condition": "sdi > 0.3",
+      "lecture": "Drainage silencieux — les vieux BTC bougent en douce",
+      "niveau": "dangereux",
+      "action": "Réduire taille de 50%, sortir des positions fragiles"
+    },
+    "pic_avec_rbf_eleve": {
+      "condition": "rbf > 0.6",
+      "lecture": "Urgence — des acteurs remplacent leurs transactions en continu",
+      "niveau": "surveiller",
+      "action": "Surveiller les prochains blocs, prêt à réagir"
+    }
+  },
+  "priorite": 1
+}

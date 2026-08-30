@@ -1,0 +1,229 @@
+{
+  "version": "1.3.0",
+  "updated": "2026-08-19T13:32Z",
+  "fichier": [
+    {
+      "nom": "hulk-mexc/scripts/paper_diprip.py",
+      "role": "Moteur Hulk (paper MEXC dip&rip + bags)",
+      "origine": "chantier hulk",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "38f1c791faf7a4ff215452c2fbbf293f",
+      "note": "déclaré manuel 2026-08-16T22:45Z (GO Christophe)",
+      "maj": "16/08 soir : RIP scale-out 2 paliers + sonde aspiration OBSERVATION (probe chaque cycle, price_delta_pct, corrélation BTC, flush CSV, filtre mur désactivé)"
+    },
+    {
+      "nom": "hulk-mexc/scripts/ace_sense_mexc.py",
+      "role": "Capteurs style ACE (book_sense + aspiration_sense double lecture)",
+      "origine": "chantier hulk 16/08",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "a07b852becbb6d155db211586d73f861",
+      "note": "déclaré manuel 2026-08-16T22:35Z (GO Christophe)",
+      "maj": "16/08 soir : aspiration_sense() double lecture fail-open + corrections check-up (drop max(0), price_delta_pct)"
+    },
+    {
+      "nom": "Index_Maison/scripts/surveiller_whales.py",
+      "role": "Scan baleines BTC (mempool 5 min)",
+      "origine": "chantier 14/08",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "b0c5ceaf302997b5ae099819a42af2c8",
+      "note": "déclaré manuel 2026-08-19T09:11Z (fix voix Denise + bug whales 19/08)"
+    },
+    {
+      "nom": "Index_Maison/scripts/discipline_quotidienne.py",
+      "role": "Discipline quotidienne 07h15 (note + dérive + Kelly)",
+      "origine": "chantier 15/08",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "6ee99092399646bf4318828c8830112b",
+      "modifié_par": "chantier AGORA (15/08 soir)"
+    },
+    {
+      "nom": "Index_Maison/scripts/cortana_analyse.py",
+      "role": "Analyse Cortana (indices + onchain + CPFP)",
+      "origine": "fondation F2 + chantiers 15/08",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "9de2174e707f0728d77a8613cd464e77",
+      "modifié_par": "chantier AGORA (15/08 soir)",
+      "note": "déclaré manuel 2026-08-19T09:11Z (fix voix Denise + bug whales 19/08)"
+    },
+    {
+      "nom": "Index_Maison/scripts/ada_gardienne.py",
+      "role": "Gardienne Ada (voilure + zone + onchain + CPFP)",
+      "origine": "fondation F3 + chantiers 15/08",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "79cba4571434043efb60c60c3db88dde",
+      "note": "déclaré manuel 2026-08-19T09:11Z (fix voix Denise + bug whales 19/08)"
+    },
+    {
+      "nom": "Index_Maison/scripts/thermo_quotidien_free.py",
+      "role": "Thermo quotidien free (live.json + feed)",
+      "origine": "fondation",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "dd464d4246e008cfc07ff7389b91fce2"
+    },
+    {
+      "nom": "Index_Maison/scripts/veilleuse_synapses.py",
+      "role": "Veilleuse (intégrité + pannes + intrusions)",
+      "origine": "chantier 15/08",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "e51beb08cc0bb99008847fa5689679c0"
+    },
+    {
+      "nom": "Index_Maison/scripts/pont_onchain.py",
+      "role": "Pont onchain → live.json (baleines + CPFP)",
+      "origine": "chantier 15/08",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "01ec4f168c231a6f077657ba70f1fbb1",
+      "note": "déclaré manuel 2026-08-19T09:11Z (fix voix Denise + bug whales 19/08)"
+    },
+    {
+      "nom": "Index_Maison/scripts/detecter_cpfp.py",
+      "role": "Détecteur CPFP/dust/z-score (observation 7j)",
+      "origine": "chantier 15/08 onchain v2",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "d4349b096f3dfe9adcc04d41656c54cb"
+    },
+    {
+      "nom": "Index_Maison/plists/com.ace777.whales.plist",
+      "role": "Plist scan whales (5 min)",
+      "origine": "chantier 15/08",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "08d0f3f715b7a8e6822569b8f9d435c8"
+    },
+    {
+      "nom": "Index_Maison/plists/com.ace777.pont-onchain.plist",
+      "role": "Plist pont onchain (5 min) — scan baleines → live.json.onchain → Ada + Cortana",
+      "origine": "chantier 16/08 (boucle baleines complétée)",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "f069384a207f75fc27ab374b37017d47",
+      "note": "déclaré manuel 2026-08-16T23:XXZ — le pont n'était lancé par aucune plist, boucle coupée"
+    },
+    {
+      "nom": "Index_Maison/plists/com.ace777.cpfp.plist",
+      "role": "Plist détecteur CPFP (10 min)",
+      "origine": "chantier 15/08 onchain v2",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "18b69b30e8b3fd42b0b8bbb387fc55ea"
+    },
+    {
+      "nom": "Index_Maison/plists/com.ace777.discipline-quotidienne.plist",
+      "role": "Plist discipline (07h15)",
+      "origine": "chantier 15/08",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "836421bec8aebb82b1e1ef11aed8b7e1"
+    },
+    {
+      "nom": "Index_Maison/plists/com.ace777.veilleuse.plist",
+      "role": "Plist veilleuse (10 min)",
+      "origine": "chantier 15/08",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "5aa268f40b3c7b7e6c3ee19126802f8f"
+    },
+    {
+      "nom": "hulk-mexc/config/defaults.env",
+      "role": "Config Hulk (BAG_PAIRS, seeds)",
+      "origine": "chantier hulk",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "99896190b3fc34d3e4e35d95dd6c0252",
+      "note": "déclaré manuel 2026-08-16T22:45Z (GO Christophe)",
+      "maj": "16/08 soir : RIP scale-out (RIP_EARLY/LATE_*, RIP_SCALEOUT_FRAC) + ASPIRATION_* (probe chaque cycle, filtre mur désactivé, ASPIRATION_BTC_ON)"
+    },
+    {
+      "nom": "hulk-mexc/strategie/cortana_pilot.json",
+      "role": "Contrat Cortana (ADVISORY)",
+      "origine": "chantier 15/08",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "da0ad6458b1527f06de10ed4006490f7"
+    },
+    {
+      "nom": "genesis_manifest.txt",
+      "role": "Manifeste moteur (scellé md5)",
+      "origine": "moteur",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "b20137a86f3f66dede7066d57c390bc3",
+      "note": "déclaré manuel 2026-08-19T13:32Z"
+    },
+    {
+      "nom": "Index_Maison/thermo/live.json",
+      "role": "Données live (Cortana + Ada + cockpit)",
+      "origine": "thermo",
+      "verif": "fraicheur",
+      "auto_modifiable": false,
+      "fraicheur_max_min": 120
+    },
+    {
+      "nom": "Index_Maison/data/whales_scan_latest.json",
+      "role": "Dernier scan baleines",
+      "origine": "surveiller_whales",
+      "verif": "fraicheur",
+      "auto_modifiable": false,
+      "fraicheur_max_min": 360
+    },
+    {
+      "nom": "Index_Maison/data/cpfp_detect.json",
+      "role": "Détection CPFP (observation)",
+      "origine": "detecter_cpfp",
+      "verif": "fraicheur",
+      "auto_modifiable": false,
+      "fraicheur_max_min": 360
+    },
+    {
+      "nom": "Index_Maison/scripts/prompts/PROMPT_MASTER_ANALYSTE.md",
+      "role": "Prompt canon Cortana (identité + connaissance onchain v1)",
+      "origine": "chantier graver la pépite",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "9a4470a6f4f9fd85c87a36590d621ae8"
+    },
+    {
+      "nom": "Index_Maison/scripts/lecons_auto.py",
+      "role": "Boucle E4 AGORA (leçons HIT/MISS → axiomes)",
+      "origine": "chantier AGORA",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "d31efae69961fb6023d5e575ee9b2c95"
+    },
+    {
+      "nom": "Index_Maison/scripts/sante_index.py",
+      "role": "Pré-vol des index (chaînes complètes → thermo/sante_index.json + cockpit/sante_live.js)",
+      "origine": "chantier 17/08 (demande Christophe : voir les branchements en un coup d'œil)",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "bd5650f69636429908c01d80c2de9e28",
+      "note": "déclaré manuel 2026-08-19T09:11Z (fix voix Denise + bug whales 19/08)"
+    },
+    {
+      "nom": "Index_Maison/plists/com.ace777.sante-index.plist",
+      "role": "Plist pré-vol index (5 min)",
+      "origine": "chantier 17/08",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "9a67b1194978d794578b0d87d36b97b0"
+    },
+    {
+      "nom": "Index_Maison/thermo/regime_couleur.json",
+      "role": "Couleur régime Hulk (sniffer du vrai, OBSERVATION) — 2×/jour via couleur-regime plist",
+      "origine": "19/08 sniffer + couleur régime",
+      "verif": "fraicheur",
+      "auto_modifiable": false,
+      "fraicheur_max_min": 1500
+    }
+  ]
+}

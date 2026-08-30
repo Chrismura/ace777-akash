@@ -41,6 +41,37 @@
 
 ---
 
+## 🔬 DÉCOUVERTES 30/08 (analyse croisée approfondie — réponse à « aucun nouveau pattern ? aucune corrélation ? »)
+
+**1. 🚨 LA signature d'EDEL = le régime IMPULSE (pas une heure de la journée).**
+| | Hors IMPULSE | En IMPULSE |
+|---|---|---|
+| Part du temps | 85% | 15% |
+| m6 médian (mouvement 6min) | **4.2%** | **70.4%** (17× plus !) |
+| p90 m6 | 5.8% | 78.5% |
+
+→ **EDEL ne bouge que par rafales rares et violentes** : 3 rafales en 3 jours (27/08 23h46, 28/08 20h29, 29/08 15h33), toutes en fin de journée. Le reste du temps il est mort (IMPULSE_WAIT).
+→ Après chaque rafale, le prix est en hausse 30min plus tard (+0.17%, +0.38%, +0.45%) — mais n=3, à confirmer.
+
+**2. ⚠️ Le creux horaire N'EST PAS stable (contredit la fiche).**
+Creux réel par jour : 23h (27/08) → 21h (28/08) → 11h (29/08) → 00h (30/08). Il bouge tous les jours → **aucune fenêtre horaire fiable** : c'est le régime (IMPULSE) qui compte, pas l'heure. La fenêtre 20-22h de la fiche est à déclasser en simple information.
+
+**3. ❌ Corrélations : AUCUNE exploitable.**
+| Paire | Corr 15min | Verdict |
+|---|---|---|
+| RWAINC | +0.146 | faible, instable (+0.23 → +0.07 → −0.08 par jour) |
+| QNT | +0.142 | 25 points seulement = bruit |
+| BTC | +0.120 | pas de lead/lag (avance −0.02, retard +0.07) |
+| MNSRY | **−0.287** | 25 points = bruit (3h de données) |
+
+→ **EDEL est l'actif le plus DÉCOUPLÉ du portefeuille** : il ne suit ni BTC ni personne, il bouge tout seul par rafales. Corr BTC du profil (0.68) = artefact de la fenêtre, pas un lien réel.
+
+**4. Signal POMPE_PIEGE (stab 9)** = le plus haut du portefeuille → cohérent : rafales violentes imprévisibles, c'est LA définition d'un pompe-piège.
+
+**➡️ Conséquence set-up** : pour EDEL, la bonne porte d'entrée n'est PAS une heure, c'est **la détection du régime IMPULSE lui-même** (le moteur le détecte déjà) — entrer/sortir sur l'allumage de la rafale, pas sur le calendrier. À valider avec les jours de mesure qui viennent.
+
+---
+
 ## ⏱️ ÉTAT ACTUEL
 - **EDELUSDT est suivie en observation** (doctrine : tous les actifs sous observation).
 - Rien n'est câblé de neuf dans Hulk : ce set-up est la **cible d'observation**, à valider

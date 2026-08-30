@@ -1,0 +1,113 @@
+{
+  "geopol": {
+    "score": 0.3384,
+    "ml_score": 0.1911,
+    "niveau": "attention",
+    "emoji": "🟡",
+    "ml": {
+      "label": 1,
+      "label_nom": "attention",
+      "label_emoji": "🟡",
+      "probability": 0.4765,
+      "confidence": 0.4765,
+      "risk_score": 0.1911,
+      "probas": {
+        "calme": 0.4752,
+        "attention": 0.4765,
+        "alerte": 0.0483,
+        "critique": 0.0
+      },
+      "feature_importances": {
+        "pizza_doughcon_level": 0.0268,
+        "pizza_spike_max": 0.039,
+        "pizza_location_count": 0.0815,
+        "pizza_spike_consistency": 0.0718,
+        "jets_military_surge": 0.0702,
+        "jets_military_ratio": 0.0462,
+        "jets_altitude_avg": 0.0426,
+        "jets_velocity_avg": 0.0426,
+        "oil_price_change_1h": 0.033,
+        "oil_price_change_24h": 0.057,
+        "oil_brent_wti_spread": 0.0552,
+        "oil_volatility": 0.0615,
+        "defense_sector_avg_change": 0.0372,
+        "defense_sector_breadth": 0.0304,
+        "defense_max_stock_move": 0.0369,
+        "defense_sector_correlation": 0.0341,
+        "news_negative_ratio": 0.0551,
+        "news_keyword_hits": 0.0655,
+        "news_source_diversity": 0.0391,
+        "news_abstract_negativity": 0.0741
+      }
+    },
+    "indicateurs": {
+      "pizza_index": {
+        "score": 0.2375,
+        "categorie": "geopol",
+        "source": "pizzint.watch + Google Maps",
+        "interpretation": "🟢 CALME — DOUGHCON 2 (FAST ALERT). Légère augmentation. Rien d'inhabituel.",
+        "features": {
+          "doughcon_level": 0.5,
+          "spike_max": 0.125,
+          "location_count": 0.0,
+          "spike_consistency": 0.0
+        }
+      },
+      "jets_adsb": {
+        "score": 0.0,
+        "categorie": "geopol",
+        "source": "OpenSky Network",
+        "interpretation": "🟢 CALME — Trafic normal autour de DC. Rien d'inhabituel.",
+        "features": {
+          "military_surge": 0.0,
+          "military_ratio": 0.0,
+          "altitude_avg": 0.0,
+          "velocity_avg": 0.0
+        }
+      },
+      "oil_price": {
+        "score": 0.3055,
+        "categorie": "geopol",
+        "source": "oilprice API",
+        "interpretation": "🟡 ATTENTION — Légère augmentation du pétrole. À surveiller.",
+        "features": {
+          "price_change_1h": 0.375,
+          "price_change_24h": 0.375,
+          "brent_wti_spread": 0.215,
+          "volatility": 0.0
+        }
+      },
+      "defense_stocks": {
+        "score": 0.4044,
+        "categorie": "geopol",
+        "source": "Yahoo Finance",
+        "interpretation": "🟡 ATTENTION — Légère hausse du secteur défense. À surveiller.",
+        "features": {
+          "sector_avg_change": 0.3979,
+          "sector_breadth": 0.6667,
+          "max_stock_move": 0.168,
+          "sector_correlation": 0.3
+        }
+      },
+      "news_sentiment": {
+        "score": 0.7444,
+        "categorie": "geopol",
+        "source": "Google News RSS",
+        "interpretation": "🔴 ALERTE — Sentiment très négatif. Risque de crash imminent. Surveiller de près.",
+        "features": {
+          "negative_ratio": 0.8611,
+          "keyword_hits": 1.0,
+          "source_diversity": 1.0,
+          "abstract_negativity": 0.0
+        }
+      }
+    },
+    "alerte": null,
+    "nb_modules": 5,
+    "nb_ok": 5,
+    "scores_par_categorie": {
+      "geopol": 0.3384
+    },
+    "ts": "2026-08-28T07:48:36.202943+00:00"
+  }
+}

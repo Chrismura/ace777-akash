@@ -1,0 +1,52 @@
+{
+  "type": "health_degrade",
+  "trigger": "global_score < 0.85",
+  "description": "Le score de confiance du pipeline de données est dégradé",
+  "questions": [
+    {
+      "id": "source",
+      "question": "Quelle source est en erreur ?",
+      "source": "live.json → pipeline_health.sources",
+      "seuil": "score < 0.8"
+    },
+    {
+      "id": "persistant",
+      "question": "Est-ce temporaire ou persistant ?",
+      "source": "pipeline_health.timestamp vs now",
+      "seuil": 300
+    },
+    {
+      "id": "exposition",
+      "question": "Hulk est-il exposé sur cette source ?",
+      "source": "pipeline_health.mode",
+      "seuil": "kill_switch si binance"
+    }
+  ],
+  "interpretations": {
+    "binance_timeout": {
+      "condition": "source == binance ET score < 0.5",
+      "lecture": "Pas de prix fiable — impossible de trader",
+      "niveau": "critique",
+      "action": "KILL SWITCH — gel immédiat du trading"
+    },
+    "deribit_timeout": {
+      "condition": "source == deribit ET score < 0.5",
+      "lecture": "GEX indisponible — les options ne sont pas fiables",
+      "niveau": "degrade",
+      "action": "Réduire tailles de 30%, désactiver strat dérivés"
+    },
+    "mempool_timeout": {
+      "condition": "source == mempool ET score < 0.5",
+      "lecture": "Onchain indisponible — les signaux onchain sont aveugles",
+      "niveau": "degrade",
+      "action": "Ignorer signaux onchain, trader sur prix seul"
+    },
+    "google_news_timeout": {
+      "condition": "source == google_news",
+      "lecture": "Narratif indisponible — le sniffer ne peut pas analyser",
+      "niveau": "faible",
+      "action": "Continuer normalement — le narratif n'est pas critique"
+    }
+  },
+  "priorite": 0
+}

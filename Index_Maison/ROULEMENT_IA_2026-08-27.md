@@ -1,0 +1,4 @@
+- 13:13Z 🟥 MORTS (échec >2j) : nvidia, mistral
+- 13:13Z 🟡 ÉPUISÉS TEMPORAIRES (gardés, 429/quota) : openrouter-free, inferx, inferx-coder, puter-grok, nvidia-coder, inferx-devstral, huggingface
+- 13:13Z ✅ ACTIFS OK : openrouter-free, nara, groq, openrouter-juge, openrouter-ultra, inferx, inferx-coder, puter-grok, nvidia-coder, inferx-devstral, huggingface, orca
+- 13:13Z Pas d offre teste_ok pour le rôle "gros cerveau" -> mort gardé mais désactivé (route ailleurs).

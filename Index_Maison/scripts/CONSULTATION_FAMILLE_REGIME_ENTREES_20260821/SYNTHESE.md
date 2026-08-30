@@ -1,0 +1,11 @@
+# SYNTHÈSE FAMILLE — REGIME_ENTREES_20260821 — 2026-08-21T10:27Z
+
+| Membre | Verdict |
+|---|---|
+| GEMINI | **NON** |
+| DEEPSEEK | **GO-AVEC-RÉSERVES** |
+| ULTRA | **GO-AVEC-RÉSERVES** |
+| INFERX | **GO-AVEC-RÉSERVES** |
+| GROK | **NON** |
+| JUGE | **GO AVEC RESERVES** |
+

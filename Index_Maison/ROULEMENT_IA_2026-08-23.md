@@ -1,0 +1,6 @@
+- 07:49Z 🟡 ÉPUISÉS TEMPORAIRES (gardés, 429/quota) : openrouter-free, groq, nvidia, openrouter-juge, openrouter-ultra, inferx, inferx-coder, puter-grok, nvidia-coder, inferx-devstral, huggingface
+- 07:49Z ✅ ACTIFS OK : openrouter-free, nara, groq, nvidia, mistral, openrouter-juge, openrouter-ultra, inferx, inferx-coder, puter-grok, nvidia-coder, inferx-devstral, huggingface
+- 07:49Z Aucun mort durable -> rien à remplacer (roulement terminé).
+- 07:50Z 🟡 ÉPUISÉS TEMPORAIRES (gardés, 429/quota) : openrouter-free, nara, groq, nvidia, openrouter-juge, openrouter-ultra, inferx, inferx-coder, puter-grok, nvidia-coder, inferx-devstral, huggingface
+- 07:50Z ✅ ACTIFS OK : openrouter-free, nara, groq, nvidia, mistral, openrouter-juge, openrouter-ultra, inferx, inferx-coder, puter-grok, nvidia-coder, inferx-devstral, huggingface
+- 07:50Z Aucun mort durable -> rien à remplacer (roulement terminé).
