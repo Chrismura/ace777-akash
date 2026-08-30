@@ -4,7 +4,7 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<meta name="version" content="1788048720">
+<meta name="version" content="1788051130">
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate" />
@@ -13,12 +13,13 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Share+Tech+Mono&family=Caveat:wght@600;700&display=swap" rel="stylesheet" />
-<script src="mission.js?v=1788048720"></script>
+<script src="mission.js?v=1788051130"></script>
 <!-- COSMOS HUB feed -->
-<script src="hub.js?v=1788048720"></script>
-<script src="../thermo/live.js?v=1788048720"></script>
-<script src="../thermo/cortana_feed.js?v=1788048720"></script>
-<script src="sante_live.js?v=1788048720"></script>
+<script src="hub.js?v=1788051130"></script>
+<script src="../thermo/live.js?v=1788051130"></script>
+<script src="../thermo/cortana_feed.js?v=1788051130"></script>
+<script src="sante_live.js?v=1788051130"></script>
+<script src="veille_institutionnelle.js?v=1788051130"></script>
 <style>
 :root{
   --ink:#050804; --panel:#0a100c; --line:#3a2e14;
@@ -2325,6 +2326,7 @@ window.addEventListener('unhandledrejection', function(e) {
         ['WHALES', T.whaleN!=null?T.whaleN:th.whaleN, 'whales'],
         ['ONCHAIN', (T.onchain&&T.onchain.synthèse)? T.onchain.synthèse.slice(0,46) : ((th.onchain&&th.onchain.synthèse)? th.onchain.synthèse.slice(0,46) : '—'), 'onchain'],
         ['SANTÉ', (function(){const S=window.__SANTE__; if(!S||!S.chaines) return '—'; const ok=S.chaines.filter(c=>c.ok).length; return S.chaines_ok+(S.anomalies&&S.anomalies.length?' ⚠️':' ✅');})(), 'sante'],
+        ['3 SIGNAUX', (function(){const I=window.__VEILLE_INSTI__; if(!I) return '—'; const a=I.signaux_actifs||[]; return a.length ? ('🚨 '+a.join('/')): (I.verdict||'calme');})(), 'insti'],
         ['FEAR&GREED', fng!=null? `${fng} ${fngL}`:'—', 'fearGreed'],
         ['MC CRYPTO', mc!=null? (mc/1e12).toFixed(2)+' T$':'—', 'marketCapUsd'],
         ['ALT SEASON', alt||'—', 'altSeason'],
@@ -2374,7 +2376,22 @@ window.addEventListener('unhandledrejection', function(e) {
     if(!S||!S.chaines||!list){ return; }
     const deg=(S.degradees||[]);
     if(ts) ts.textContent = '· vérif '+S.updated+' · '+(S.chaines_ok||'—')+(deg.length?' · ⚠️ dégradé':'')+' · '+(S.etat||'');
-    const rows=S.chaines.map(c=>{
+    let rows='';
+    const I=window.__VEILLE_INSTI__;
+    if(I){
+      const a=I.signaux_actifs||[];
+      const s=I.signaux||{};
+      const picto = a.length ? '🚨' : (I.verdict==='ALERTE' ? '🚨' : '🟢');
+      const etatTxt = a.length ? ('ACTIFS: '+a.join('/')) : (I.verdict||'calme');
+      const d1=s['1_sorties_cex']||{}, d2=s['2_blocs_privatises']||{}, d3=s['3_poussiere']||{};
+      rows += `<div style="display:flex;gap:8px;align-items:baseline"><span>${picto}</span><b>INSTITUTIONS (3 signaux)</b><span style="color:var(--muted)">verdict ${etatTxt} · sources ${(I.fraicheur_sources&&Object.values(I.fraicheur_sources).every(f=>f.frais))?'fraîches':'⚠️'}</span></div>
+      <div style="font-size:.68rem;color:var(--muted);line-height:1.4">
+        S1 sorties CEX: ${String(d1.detail||'—').slice(0,95)}<br>
+        S2 blocs privatisés: ${String(d2.detail||'—').slice(0,90)}<br>
+        S3 poussière: ${String(d3.detail||'—').slice(0,90)}
+      </div>`;
+    }
+    rows += S.chaines.map(c=>{
       let dot = c.ok ? '🟢' : '🔴';
       if(c.ok && deg.indexOf(c.nom)>=0) dot = '🟠';
       const detail = c.ok ? '' : '<br><span style="color:#ff6b6b">'+(S.anomalies||[]).join('<br>')+'</span>';
