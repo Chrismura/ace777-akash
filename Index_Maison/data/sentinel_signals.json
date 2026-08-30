@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "volume",
-      "zscore": -2.389896041042347,
-      "value": 4638037035.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique parasité par des sujets hors-crypto (maïs, cognac, solaire). Le z-score négatif indique une atonie on-chain sans signal de baleine.\"\n}\n```",
-      "ts": "2026-08-29T19:04:57.790044+00:00"
-    },
-    {
       "metric": "liquidations",
       "zscore": -2.9000354884056763,
       "value": 2516547.0,
@@ -349,6 +342,13 @@
       "value": 0.45018323784852265,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.72) combiné à un silence médiatique total (Google Actualités vide) : accumulation furtive classique de baleines hors radar grand public.\"\n}\n```",
       "ts": "2026-08-30T17:19:40.921163+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 3.959834079370778,
+      "value": 18637344.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Forte divergence (z-score 3.96) : les médias amplifient la psychose baissière ('Bitcoin à $10k', 'échec à 80k', liquidations macro) alors que les volumes de liquidation onchain indiquent un 'flush' violent des positions fragiles, typique d'une accumulation silencieuse par les baleines avant un rebond.\"\n}\n```",
+      "ts": "2026-08-30T17:44:47.426109+00:00"
     }
   ]
 }

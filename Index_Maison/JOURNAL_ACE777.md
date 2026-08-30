@@ -86,3 +86,9 @@
 - Réserves : duopole Chainlink/Pyth = étau (guerre des frais), dilution VC (Early Backers 31.7%), FDV/supply à auditer.
 - Décision : position GARDÉE, set-up opérationnel = référence, RED = MOTEUR comme PYTH, surveillance déblocages VC.
 - Le cobaye est maintenant COMPLET : set-up (famille + Cortana) + deepdive projet (3 rounds). Fiche + synthèse créées, FICHE_IA à jour.
+
+## 30/08 — BTC/ETH : PAS de doublon (déjà traités), état consigné
+- Vérification avant (règle) : BTC a déjà sa thèse complète (THESE_CHRISTOPHE_BTC_ARBRE_CACHE, 114 lignes) + analyse on-chain (blocs privatisés, hibernation 45 910 BTC) + position « BTC = VALEUR, le seul pari authentique » (DEEPDIVE_GLOBAL) + décision Conviction.
+- Un 3 rounds famille sur BTC aurait été le 2e doublon de la journée (après CHIP). Évitée.
+- Action : consigné dans FICHE_IA — BTC/ETH = déjà traités (Conviction SOCLE), pas de 3 rounds.
+- Reste à faire (3 rounds) : FLUID, MNSRY, QNT, RWA + observation (SOL, XLM, JASMY...).

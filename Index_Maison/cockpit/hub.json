@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-30T17:41:50.638481+00:00",
+  "generated_at": "2026-08-30T17:46:54.209769+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -256,10 +256,18 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 293,
-    "remaining": 331
+    "consumed": 294,
+    "remaining": 330
   },
   "queue": [
+    {
+      "ts": "2026-08-30T17:44:47.425304+00:00",
+      "task": "analyse.profonde",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 1.03
+    },
     {
       "ts": "2026-08-30T17:41:13.836884+00:00",
       "task": "juge.tranche",
@@ -371,17 +379,15 @@
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
       "duration_s": 6.86
-    },
-    {
-      "ts": "2026-08-30T17:21:06.406693+00:00",
-      "task": "inferx.analyse",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 8.53
     }
   ],
   "events": [
+    {
+      "ts": "2026-08-30T17:44:47.424967+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
     {
       "ts": "2026-08-30T17:41:13.836347+00:00",
       "kind": "message",
@@ -432,12 +438,6 @@
     },
     {
       "ts": "2026-08-30T17:40:13.606885+00:00",
-      "kind": "message",
-      "title": "« Google Gemini » a repondu",
-      "detail": ""
-    },
-    {
-      "ts": "2026-08-30T17:30:38.450497+00:00",
       "kind": "message",
       "title": "« Google Gemini » a repondu",
       "detail": ""
