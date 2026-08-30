@@ -1,4 +1,4 @@
-# ARCHITECTURE VIVANTE — ACE777 (2026-08-30 04:02 UTC)
+# ARCHITECTURE VIVANTE — ACE777 (2026-08-30 05:02 UTC)
 
 > Document GÉNÉRÉ AUTOMATIQUEMENT à l'instant. La famille valide
 > en s'appuyant sur CE contexte, pas sur des documents figés.
@@ -22,7 +22,7 @@
 
 ## État de la mission (bots + PnL)
 
-- mission.json : 2026-08-30 04:02Z · run `MASTER_VORTEX_V2_COLLAB_4H` · alerte `amber`
+- mission.json : 2026-08-30 05:02Z · run `MASTER_VORTEX_V2_COLLAB_4H` · alerte `amber`
 - PnL combiné : **1.27 $** 📈 (combo 1.2674)
 - ALPHA (sniper (embuscade, ×13, revenge si claque)) : **+2.01 $** · 10 fills · 249 skips
 - BETA (éclaireur (chatouille le marché, alimente Alpha)) : **-0.74 $** · 15 fills · 257 skips
@@ -31,15 +31,25 @@
 
 ## Veille du jour
 
-- VEILLE du jour : pas encore passée
+- [Santé]
+  · hub : OK (14 providers)
+- [Énergie du jour]
+  · appels : 77 (cloud 77)
+  · budget cloud : 624 max
+  · par provider : gemini=66, groq=1, openrouter-free=1, openrouter-juge=9
+- [Nouvelles offres détectées (non intégrées)]
+  · inclusionai/ling-3.0-flash-fin:free
+  · liquid/lfm-2.5-2.6b:free
+  · thinkingmachines/inkling-small:free
+  … 108 offres/pépites détectées ce matin
 
 ## Mémoire chaude (journal + résumés)
 
 - Radar (dernières alertes) :
-  · 2026-08-30T04:02:36.894464Z BTCUSDT 78160.76 0.0002 15.1 declenche=oui
-  · 2026-08-30T04:02:36.894583Z BTCUSDT 78160.75 0.0002 15.2 declenche=oui
-  · 2026-08-30T04:02:36.899071Z BTCUSDT 78160.75 0.0002 15.3 declenche=oui
-  · 2026-08-30T04:02:36.899211Z BTCUSDT 78160.74 0.0002 15.3 declenche=oui
+  · 2026-08-30T05:02:43.499616Z ETHUSDT 2457.08 0.0000 8.0 declenche=non
+  · 2026-08-30T05:02:43.554428Z BTCUSDT 78132.77 0.0000 6.9 declenche=oui
+  · 2026-08-30T05:02:43.693573Z BTCUSDT 78132.77 0.0000 6.9 declenche=oui
+  · 2026-08-30T05:02:43.697504Z BTCUSDT 78132.77 0.0000 6.9 declenche=oui
 - Intention en cours : BETA a sonde le marche (13 sondes, 9 long / 4 court, conf mo | ALPHA attend son moment : 232 skips (discipline), le mur du  | ALPHA a frappe 9 fois en embuscade (13x) (dont 2 en mode rev
 - 793 signets X résumés (quota aujourd'hui : 0/50)
 - 79 fiches IA d'offres en cache (quota 8/jour)
