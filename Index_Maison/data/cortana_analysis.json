@@ -1,15 +1,15 @@
 {
-  "timestamp": 1788113678,
-  "date": "2026-08-30T18:14:38.516114+00:00",
-  "n_analyses": 1,
+  "timestamp": 1788117279,
+  "date": "2026-08-30T19:14:39.565962+00:00",
+  "n_analyses": 3,
   "analyses": [
     {
       "signal": {
         "metric": "liquidations",
-        "zscore": 3.959834079370778,
-        "value": 18637344.0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Forte divergence (z-score 3.96) : les médias amplifient la psychose baissière ('Bitcoin à $10k', 'échec à 80k', liquidations macro) alors que les volumes de liquidation onchain indiquent un 'flush' violent des positions fragiles, typique d'une accumulation silencieuse par les baleines avant un rebond.\"\n}\n```",
-        "ts": 1788111887.426109
+        "zscore": 3.5120048882712727,
+        "value": 18835296.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (3.51) indiquant des liquidations massives en cascade, contrastant avec un narratif médiatique extrêmement alarmiste et panique (évoquant des prix absurdes à 10k$).经典的 capitulation de détail exploitée silencieusement par les baleines pour accumuler.\"\n}\n```",
+        "ts": 1788115505.085347
       },
       "fiche": null,
       "interpretation": {
@@ -17,7 +17,87 @@
         "niveau": "inconnu"
       },
       "action": "Observer"
+    },
+    {
+      "signal": {
+        "metric": "ipt",
+        "zscore": 2.015103177077991,
+        "value": 0.985,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit médiatique non pertinent (articles académiques et homonymes). Aucune activité significative de baleines crypto détectée pour le ticker IPT.\"\n}\n```",
+        "ts": 1788115807.020272
+      },
+      "fiche": "rbf_eleve",
+      "questions": {
+        "prix": {
+          "value": 0.01,
+          "seuil": 1,
+          "depasse": false
+        },
+        "paires": {
+          "value": null,
+          "seuil": 3,
+          "depasse": false
+        },
+        "funding": {
+          "value": 5.6e-05,
+          "seuil": 0.001,
+          "depasse": false
+        },
+        "whales": {
+          "value": 1,
+          "seuil": 5,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "sdi > 0.3",
+        "lecture": "Drainage silencieux — les vieux BTC bougent en douce",
+        "niveau": "dangereux",
+        "action": "Réduire taille de 50%, sortir des positions fragiles"
+      },
+      "action": "Réduire taille de 50%, sortir des positions fragiles",
+      "niveau": "dangereux"
+    },
+    {
+      "signal": {
+        "metric": "sdi",
+        "zscore": 2.99170728226399,
+        "value": 0.016,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Bruit de fond complet. Le SDI détecté concerne la facturation électronique, le matériel vidéo Blackmagic et Samsung SDI, sans aucun rapport avec la blockchain ou des mouvements de baleines crypto.\"\n}\n```",
+        "ts": 1788116108.883191
+      },
+      "fiche": "rbf_eleve",
+      "questions": {
+        "prix": {
+          "value": 0.01,
+          "seuil": 1,
+          "depasse": false
+        },
+        "paires": {
+          "value": null,
+          "seuil": 3,
+          "depasse": false
+        },
+        "funding": {
+          "value": 5.6e-05,
+          "seuil": 0.001,
+          "depasse": false
+        },
+        "whales": {
+          "value": 1,
+          "seuil": 5,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "sdi > 0.3",
+        "lecture": "Drainage silencieux — les vieux BTC bougent en douce",
+        "niveau": "dangereux",
+        "action": "Réduire taille de 50%, sortir des positions fragiles"
+      },
+      "action": "Réduire taille de 50%, sortir des positions fragiles",
+      "niveau": "dangereux"
     }
   ],
-  "resume": "🔵 CALME — pas de signal alarmant"
+  "resume": "🔴 DANGER détecté — réduire les expositions"
 }
