@@ -544,6 +544,16 @@ class PaperBot:
         self.seed_bags_pairs = {
             p.strip().upper() for p in (cfg.get("SEED_BAGS_PAIRS") or "CCUSDT").split(",") if p.strip()
         }
+        # FIX 30/08 (Buffy) : mode OBSERVE-ONLY — paires journalisées en continu
+        # (score, murs, poussière, régimes, indices → croisement_contexte.jsonl)
+        # mais BLOQUÉES de toute entrée/trade. C'est l'intention originelle de
+        # PAPER_WATCH_PAIRS, qui ne capturait RIEN. Ici on garde la richesse des
+        # données SANS que Hulk ne mette de positions (erreur corrigée 30/08).
+        self.observe_only = {
+            p.strip().upper()
+            for p in (cfg.get("PAPER_OBSERVE_PAIRS") or "").split(",")
+            if p.strip()
+        }
         self.cortana_mode = (cfg.get("CORTANA_MODE", "ADVISORY") or "ADVISORY").strip().upper()
         self.cortana_pilot = ROOT / (cfg.get("CORTANA_PILOT_FILE") or "strategie/cortana_pilot.json")
         self.cortana_pending: list = []
@@ -2149,6 +2159,11 @@ class PaperBot:
             self.log_contexte(pair, sc, price)
         except Exception:
             pass
+        # FIX 30/08 : OBSERVE-ONLY — on journalise MAIS on ne trade JAMAIS ces paires.
+        # Bloque toute entrée/ré-entry/bag/seed (l'erreur corrigée : elles étaient
+        # devenues tradées via PAPER_PAIRS). Les données de contexte sont bien capturées.
+        if pair in self.observe_only:
+            return
         if sc.get("peak6"):
             sc["dd6_pct"] = round((1.0 - price / sc["peak6"]) * 100.0, 2)
         if sc.get("peak24"):
@@ -2177,7 +2192,7 @@ class PaperBot:
         budget = float(self.seed_usdt)
         targets: list[str] = []
         for pair in self.pairs:
-            if pair in self.pos:
+            if pair in self.pos or pair in self.observe_only:
                 continue
             try:
                 px = last_price(pair)

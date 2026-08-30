@@ -1,4 +1,4 @@
-# ARCHITECTURE VIVANTE — ACE777 (2026-08-30 09:00 UTC)
+# ARCHITECTURE VIVANTE — ACE777 (2026-08-30 10:11 UTC)
 
 > Document GÉNÉRÉ AUTOMATIQUEMENT à l'instant. La famille valide
 > en s'appuyant sur CE contexte, pas sur des documents figés.
@@ -22,11 +22,11 @@
 
 ## État de la mission (bots + PnL)
 
-- mission.json : 2026-08-30 09:00Z · run `MASTER_VORTEX_V2_COLLAB_4H` · alerte `amber`
+- mission.json : 2026-08-30 10:10Z · run `MASTER_VORTEX_V2_COLLAB_4H` · alerte `nominal`
 - PnL combiné : **1.27 $** 📈 (combo 1.2674)
 - ALPHA (sniper (embuscade, ×13, revenge si claque)) : **+2.01 $** · 10 fills · 249 skips
 - BETA (éclaireur (chatouille le marché, alimente Alpha)) : **-0.74 $** · 15 fills · 257 skips
-- HULK (gestionnaire de portefeuille (bag, escalier, courreur)) : **-1.86 $** · 0 fills
+- HULK (gestionnaire de portefeuille (bag, escalier, courreur)) : **+0.00 $** · 0 fills
 - Saison : CALME 🧊 · 
 
 ## Veille du jour
@@ -42,6 +42,14 @@
   · obs-1786688184 (cohere/north-mini-code:free) : 100% erreurs > 5% (observatoire)
 - [ROLLBACK AUTO 2026-08-30]
   · obs-1786774646 (nvidia/nemotron-3-nano-30b-a3b:free) : 100% erreurs > 5% (observatoire)
+- [ROLLBACK AUTO 2026-08-30]
+  · obs-1786795252 (nvidia/nemotron-3.5-content-safety:free) : 100% erreurs > 5% (observatoire
+- [ROLLBACK AUTO 2026-08-30]
+  · obs-1787033767 (google/diffusiongemma-26b-a4b-it) : 100% erreurs > 5% (observatoire)
+- [ROLLBACK AUTO 2026-08-30]
+  · obs-1787206650 (google/gemma-4-26b-a4b-it:free) : 100% erreurs > 5% (observatoire)
+- [ROLLBACK AUTO 2026-08-30]
+  · obs-1787248844 (nvidia/nemotron-nano-9b-v2:free) : 100% erreurs > 5% (observatoire)
   · inclusionai/ling-3.0-flash-fin:free
   · liquid/lfm-2.5-2.6b:free
   · thinkingmachines/inkling-small:free
@@ -50,10 +58,10 @@
 ## Mémoire chaude (journal + résumés)
 
 - Radar (dernières alertes) :
-  · 2026-08-30T09:00:51.073743Z ETHUSDT 2456.02 0.0002 224.1 declenche=oui
-  · 2026-08-30T09:00:51.074039Z ETHUSDT 2456.04 0.0002 224.1 declenche=oui
-  · 2026-08-30T09:00:51.074192Z ETHUSDT 2456.05 0.0001 224.1 declenche=oui
-  · 2026-08-30T09:00:51.074319Z ETHUSDT 2456.06 0.0001 224.1 declenche=oui
+  · 2026-08-30T10:11:18.002077Z ETHUSDT 2454.5 0.0003 195.2 declenche=oui
+  · 2026-08-30T10:11:18.002120Z ETHUSDT 2454.48 0.0003 195.2 declenche=oui
+  · 2026-08-30T10:11:18.002163Z ETHUSDT 2454.46 0.0003 195.9 declenche=oui
+  · 2026-08-30T10:11:18.002211Z BTCUSDT 78060.69 0.0001 5.4 declenche=non
 - Intention en cours : BETA a sonde le marche (13 sondes, 9 long / 4 court, conf mo | ALPHA attend son moment : 232 skips (discipline), le mur du  | ALPHA a frappe 9 fois en embuscade (13x) (dont 2 en mode rev
 - 793 signets X résumés (quota aujourd'hui : 0/50)
 - 79 fiches IA d'offres en cache (quota 8/jour)

@@ -2740,3 +2740,15 @@
 - 2026-08-30T08:59:47.047811Z | alerte | Maintenir l'alerte ambre, préserver la discipline d'embuscade d'Alpha, appliquer strictement les stop-loss sur les positions seeds de Hulk en infraction et capitaliser sur l'éclairage de Beta. | conf=87%
 - 2026-08-30T09:00:41.529085Z | alerte | Maintenir l'alerte ambre, préserver la discipline d'embuscade d'Alpha, appliquer strictement les stop‑loss sur les positions seeds de Hulk et capitaliser sur l'éclairage de Beta. | conf=87%
 - 2026-08-30T09:01:10.587682Z | alerte | Maintenir l'alerte ambre, préserver la discipline d'embuscade d'Alpha, appliquer strictement les stop-loss sur les positions seeds de Hulk et capitaliser sur l'éclairage de Beta. | conf=87%
+- 2026-08-30T09:16:25.521215Z | alerte | Maintenir l'alerte ambre, préserver la discipline d'embuscade d'Alpha, appliquer strictement les stop-loss sur les positions seeds de Hulk et capitaliser sur l'éclairage de Beta. | conf=87%
+- 2026-08-30T09:17:26.037500Z | alerte | one clear sentence | conf=<0-100%>
+- 2026-08-30T09:22:45.604581Z | alerte | Maintenir l'alerte ambre, préserver la discipline d'embuscade d'Alpha, appliquer strictement les stop-loss sur les positions seeds de Hulk et capitaliser sur l'éclairage de Beta. | conf=87%
+- 2026-08-30T09:29:14.515966Z | alerte | Maintenir l'alerte ambre, préserver la discipline d'embuscade d'Alpha, appliquer strictement les stop-loss sur les positions seeds de Hulk et capitaliser sur l'éclairage de Beta. | conf=87%
+- 2026-08-30T09:30:21.681452Z | alerte | ? | conf=?
+- 2026-08-30T09:30:39.238136Z | alerte | Maintenir l'alerte ambre, préserver la discipline d'embuscade d'Alpha, appliquer strictement les stop-loss sur les positions seeds de Hulk et capitaliser sur l'éclairage de Beta. | conf=87%
+- 2026-08-30T09:34:07.722254Z | alerte | Maintenir l'alerte ambre, préserver la discipline d'embuscade d'Alpha, appliquer strictement les stop-loss sur les positions seeds de Hulk et capitaliser sur l'éclairage de Beta. | conf=87%
+- 2026-08-30T09:48:42.124321Z | alerte | Maintenir l'alerte ambre, préserver la discipline d'embuscade d'Alpha, appliquer strictement les stop-loss sur les positions seeds de Hulk et capitaliser sur l'éclairage de Beta. | conf=87%
+- 2026-08-30T09:49:46.760922Z | alerte | Maintenir l'alerte ambre, préserver la discipline d'embuscade d'Alpha, appliquer strictement les stop-loss sur les positions seeds de Hulk et capitaliser sur l'éclairage de Beta. | conf=87%
+- 2026-08-30T10:00:05.306538Z | alerte | Maintenir l'alerte ambre, préserver la discipline d'embuscade d'Alpha, appliquer strictement les stop-loss sur les positions seeds de Hulk et capitaliser sur l'éclairage de Beta. | conf=87%
+- 2026-08-30T10:08:37.161510Z | alerte | Maintenir l'alerte ambre, préserver la discipline d'embuscade d'Alpha, appliquer strictement les stop-loss sur les positions seeds de Hulk et capitaliser sur l'éclairage de Beta. | conf=87%
+- 2026-08-30T10:11:31.740234Z | alerte | Maintenir l'alerte ambre, préserver la discipline d'embuscade d'Alpha, appliquer strictement les stop-loss sur les positions seeds de Hulk et capitaliser sur l'éclairage de Beta. | conf=87%
