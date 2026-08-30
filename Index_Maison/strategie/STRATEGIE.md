@@ -1,23 +1,29 @@
-# STRATEGIE — 2026-08-30T11:11:08.733987Z
+# STRATEGIE — 2026-08-30T12:10:20.023557Z
 
-## COURT TERME — 2026-08-30T11:11:08.733987Z
+## COURT TERME — 2026-08-30T12:10:20.023557Z
 
-[UNDERSTAND] La maison ACE777 maintient son alerte ambre face à un PnL combiné positif (+1,27 $) et à une exécution disciplinée de l'essaim, tandis que les positions seeds de Hulk en zone critique font l'objet d'une surveillance resserrée.
-[ANALYZE] 
-- Tendance : Marché en phase d'accumulation prudente avec un score Fear & Greed à 69 (Greed) et des flux ETF BTC positifs (+201,88 M$).
-- Momentum : Alpha maintient sa stricte discipline d'embuscade (232 skips, +2,01 $), Beta assure ses reconnaissances tactiques (13 sondes, confiance 0,90), et Hulk pilote ses positions sous haute surveillance.
-- Risque : Exposition globale nécessitant l'application rigoureuse des stop-loss sur les positions seeds de Hulk en zone critique.
-- Contexte : PnL combiné positif (+1,27 $), activité onchain modérée (indice 30,3) et sursauts de volume x3 sur l'ETHUSDT.
-[STRATEGIZE] 
-1. Maintenir l'alerte ambre, préserver la discipline d'embuscade d'Alpha et capitaliser sur l'éclairage de Beta sans précipitation.
-2. Exécuter rigoureusement les stop-loss sur les positions seeds de Hulk en zone critique.
-3. Attendre une confirmation technique des volumes pour valider tout nouvel engagement de l'essaim.
+[UNDERSTAND] La maison ACE777 maintient l'alerte ambre avec un PnL combiné positif de +1,27 $, tandis que l'essaim coordonne la patience d'Alpha, les sondages de Beta et la gestion des positions de Hulk.
+
+[ANALYZE]
+- **Tendance** : Marché en accumulation prudente, soutenu par un score Fear & Greed à 69 (Greed) et des flux ETF BTC positifs (+201,89 M$), avec de nouveaux sursauts de volume x3 sur ETHUSDT traduisant les reconnaissances de Beta.
+- **Momentum** : Alpha maintient sa stricte discipline d'embuscade (232 skips, +2.01 $, 9 fills), Beta assure ses sondages tactiques (13 sondes, biais long dominant 9/4, confiance moyenne 0,90), et Hulk pilote son portefeuille.
+- **Risque** : Exposition globale nécessitant l'application stricte des stop-loss sur les positions seeds de Hulk en zone critique ou en forte tension (**CHIPUSDT** à -5,97 % et **RWAINCUSDT** à -5,22 %), malgré le PnL combiné positif.
+- **Contexte** : PnL combiné positif (+1,27 $) mais fragile, activité onchain modérée (indice 24,3), et persistance du bruit macroéconomique lié aux anticipations de taux de la Fed.
+
+[STRATEGIZE]
+1. **Approche conservatrice (recommandée)** : Maintenir l'alerte ambre, préserver la discipline d'embuscade d'Alpha, appliquer strictement les stop-loss sur les positions seeds de Hulk en infraction sous -5 %, et capitaliser sur l'éclairage de Beta sans précipitation.
+2. **Approche opportuniste** : Engager Alpha sur le signal de volume x3 avec un sizing réduit, tout en coupant immédiatement les positions seeds en perte critique sous -5 %.
+3. **Approche défensive** : Réduire l'exposition globale, liquider toutes les positions seeds de Hulk en infraction critique, et placer Alpha en pause défensive jusqu'à confirmation de cassure franche.
+
 [EXECUTE]
-- Verdict : Maintenir l'alerte ambre, préserver la discipline d'embuscade d'Alpha, appliquer strictement les stop-loss sur les positions seeds de Hulk et capitaliser sur l'éclairage de Beta.
+- Verdict : Maintenir l'alerte ambre, préserver la discipline d'embuscade d'Alpha, appliquer strictement les stop-loss sur les positions seeds de Hulk en zone critique (CHIPUSDT, RWAINCUSDT) et capitaliser sur l'éclairage de Beta.
 - Confiance : 87%
-- Hypothèses clés : 1. Alpha conserve sa sélectivité en attendant un signal fort de cassure des carnets d'ordres. 2. Beta continue de fournir des flux de reconnaissance fiables pour guider l'essaim. 3. Les garde-fous sur Hulk maîtrisent efficacement l'exposition au risque sur les positions seeds.
-- Ce qui changerait la réponse : Une cassure franche des volumes sur BTCUSDT ou ETHUSDT entraînant l'engagement immédiat d'Alpha et une variation notable du PnL combiné.
-- Alternative si confiance < 80% : Réduire l'exposition globale et privilégier une observation stricte des carnets d'ordres avant tout nouveau déploiement.
+- Hypothèses clés :
+  1. Le signal de volume x3 sur les actifs majeurs constitue un éclairage de reconnaissance de Beta et non un déclencheur d'engagement sans confirmation technique.
+  2. Les positions seeds de Hulk dépassant le seuil critique de -5 % doivent être coupées sans délai conformément aux garde-fous.
+  3. Alpha conserve sa sélectivité en attendant une cassure franche du mur du carnet pour valider un engagement.
+- Ce qui changerait la réponse : Une cassure franche des volumes sur les actifs majeurs avec confirmation technique (close + volume) entraînant l'engagement immédiat d'Alpha en mode embuscade x13.
+- Alternative si confiance < 80% : Couper immédiatement toutes le positions seeds Hulk sous le seuil critique de -5 % et placer Alpha en pause défensive en attendant un signal directionnel validé.
 - Prédictions vérifiables :
   [2026-08-31] ETHUSDT >= 2400.0000
 
