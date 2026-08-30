@@ -2660,3 +2660,12 @@
 - 2026-08-29T22:59:07.360276Z | alerte | ? | conf=?
 - 2026-08-29T23:03:30.096870Z | alerte | Maintenir l'alerte ambre, préserver la discipline d'embuscade d'Alpha (249 skips) et appliquer strictement les coupe-circuits sur les positions seeds de Hulk en zone critique. | conf=87%
 - 2026-08-29T23:07:29.535310Z | alerte | Maintenir l'alerte ambre, préserver la discipline d'embuscade d'Alpha et appliquer strictement les coupe-circuits sur les positions seeds de Hulk en zone critique. | conf=87%
+- 2026-08-29T23:14:45.763515Z | alerte | Maintenir l'alerte ambre, préserver la discipline d'embuscade d'Alpha et exécuter les coupe-circuits sur les positions seeds de Hulk en zone critique. | conf=87%
+- 2026-08-29T23:19:12.762310Z | alerte | Maintenir l'alerte ambre, préserver la discipline d'embuscade d'Alpha et exécuter les coupe-circuits sur les positions seeds de Hulk en zone critique. | conf=87%
+- 2026-08-29T23:19:43.561396Z | alerte | Maintenir l'alerte ambre, préserver la stricte discipline d'embuscade d'Alpha et exécuter immédiatement les coupe-circuits sur RWAINC (sous seuil critique) tout en resserrant la surveillance des autres seeds Hulk en zone de tension. | conf=87%
+- 2026-08-29T23:24:11.489665Z | alerte | Maintenir l'alerte ambre, préserver la stricte discipline d'embuscade d'Alpha et exécuter immédiatement les coupe-circuits sur RWAINC tout en surveillant activement les positions seeds de Hulk en zone critique. | conf=87%
+- 2026-08-29T23:25:59.544334Z | alerte | Maintenir l'alerte ambre, préserver la stricte discipline d'embuscade d'Alpha et exécuter immédiatement les coupe-circuits sur RWAINC tout en surveillant activement les positions seeds de Hulk en zone critique. | conf=87%
+- 2026-08-29T23:44:28.330611Z | alerte | Maintenir l'alerte ambre, préserver la stricte discipline d'embuscade d'Alpha et exécuter immédiatement les coupe-circuits sur RWAINC tout en surveillant activement les positions seeds de Hulk en zone critique. | conf=87%
+- 2026-08-29T23:45:36.472674Z | alerte | ? | conf=?
+- 2026-08-29T23:59:14.684388Z | alerte | Maintenir l'alerte ambre, préserver la discipline d'embuscade d'Alpha, exécuter sans délai les coupe-circuits sur RWAINC et CCUSDT, et maintenir la surveillance active des positions seeds de Hulk. | conf=87%
+- 2026-08-30T00:10:29.163091Z | alerte | Maintenir l'alerte ambre, préserver la discipline d'embuscade d'Alpha, exécuter sans délai les coupe-circuits sur RWAINC et CCUSDT, et maintenir la surveillance active des positions seeds de Hulk. | conf=87%
