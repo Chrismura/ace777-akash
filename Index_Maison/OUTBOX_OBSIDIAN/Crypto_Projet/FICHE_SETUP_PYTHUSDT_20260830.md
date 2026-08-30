@@ -41,6 +41,17 @@
 
 ---
 
+## 🏦 DEEPDIVE PROJET (30/08 — 3 rounds famille + vérification 2 sources)
+
+- **PYTH = Pyth Network**, oracle « price layer for global finance » : 120+ institutions publient leurs données on-chain (middleware que toute la DeFi utilise).
+- **🔥 Virage TradFi confirmé (sources primaires)** : Tradeweb + Fenics + OpenYield rejoignent Pyth le 15/07/2026 (fixed income institutionnel) — pyth.network/blog + tradeweb.com/newsroom · prix +10% à l'annonce · Pyth Data Marketplace (04/2026).
+- **Famille 3 rounds : GO AVEC RÉSERVES 7.2-7.5/10 — le MEILLEUR verdict du portefeuille** (devant HBAR 6.5). Les notes montent de 6 → 7.5 avec l'approfondissement.
+- **Réserves** : tokenomics vePYTH + unlocks systémiques (dilution) · lien usage réseau → prix token indirect · corr BTC 0.82 (court terme = actif de marché).
+- **Décision** : position paper GARDÉE = **noyau MOTEUR** (infrastructure crypto + virage TradFi), dynamique endogène (vs HBAR volume mort), entrées tactiques en fenêtre 9-11h + filtre macro, surveillance unlocks vePYTH.
+- Synthèse : `SYNTHESE_FAMILLE_DEEPDIVE_PYTH_3ROUNDS_20260830.md` + avis R1/R2/R3 dans `scripts/CONSULTATION_FAMILLE_DEEPDIVE_PYTHUSDT_ROUNDS_20260830/`.
+
+---
+
 ## ⏱️ ÉTAT ACTUEL
 - **PYTHUSDT est suivie en observation** (doctrine : tous les actifs sous observation).
 - Rien n'est câblé de neuf dans Hulk : ce set-up est la **cible d'observation**, à valider

@@ -53,3 +53,11 @@
 - Réserves : tokenomics dilution (« piège à valeur »), faible capture de valeur (TPS ≠ valeur token).
 - Décision : position paper 20$ = noyau SOCLE (patrimoine 3 ans), pas d'achat tactique tant que volume DEAD, set-up 15-17h + filtre macro si entrée.
 - Fiche HBAR + synthèse créées, FICHE_IA à jour.
+
+## 30/08 — Deepdive PYTH 3 rounds (MEILLEUR verdict : 7.2-7.5/10 GO avec réserves)
+- Vérifié avant : aucun deepdive PYTH existant (juste fiche set-up + creux 11h commun EDEL) → 3 rounds légitime.
+- Famille 3/3 GO AVEC RÉSERVES, notes MONTENT 6 → 7.5 : position pick-and-shovel unique (oracle que toute la DeFi utilise) + virage TradFi confirmé.
+- 🔥 Tradeweb + Fenics + OpenYield (15/07/2026, fixed income) — DEEPSEEK doutait de la source, vérification 2 sources trouvée : pyth.network/blog + tradeweb.com/newsroom (source primaire). Prix +10% à l'annonce. Pyth Data Marketplace (04/2026).
+- Réserves : vePYTH + unlocks systémiques (dilution), lien usage→prix indirect, corr BTC 0.82.
+- Décision : position = noyau MOTEUR (infrastructure + TradFi), entrées tactiques fenêtre 9-11h + filtre macro, surveillance unlocks vePYTH.
+- Fiche + synthèse créées, FICHE_IA à jour.
