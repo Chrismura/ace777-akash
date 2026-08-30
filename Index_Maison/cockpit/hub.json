@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-30T19:14:55.082802+00:00",
+  "generated_at": "2026-08-30T20:08:29.620343+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 421
+      "calls_24h": 411
     },
     {
       "id": "openrouter-free",
@@ -256,10 +256,66 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 351,
-    "remaining": 273
+    "consumed": 357,
+    "remaining": 267
   },
   "queue": [
+    {
+      "ts": "2026-08-30T20:00:52.130015+00:00",
+      "task": "analyste.strategie",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 2.87
+    },
+    {
+      "ts": "2026-08-30T19:45:59.240603+00:00",
+      "task": "analyste.strategie",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 4.25
+    },
+    {
+      "ts": "2026-08-30T19:45:17.804383+00:00",
+      "task": "analyse.profonde",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 1.05
+    },
+    {
+      "ts": "2026-08-30T19:31:38.925190+00:00",
+      "task": "analyste.strategie",
+      "provider": "obs-1787724924",
+      "model": "minimax/minimax-m3:free",
+      "kind": "llm",
+      "duration_s": 16.57
+    },
+    {
+      "ts": "2026-08-30T19:31:00.707756+00:00",
+      "task": "analyste.strategie",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 3.04
+    },
+    {
+      "ts": "2026-08-30T19:16:07.141678+00:00",
+      "task": "analyste.strategie",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 3.49
+    },
+    {
+      "ts": "2026-08-30T19:15:12.632690+00:00",
+      "task": "analyse.profonde",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 1.05
+    },
     {
       "ts": "2026-08-30T19:14:53.686292+00:00",
       "task": "supervise.decision",
@@ -323,124 +379,68 @@
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
       "duration_s": 0.99
-    },
-    {
-      "ts": "2026-08-30T18:35:21.023302+00:00",
-      "task": "analyste.strategie",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 3.95
-    },
-    {
-      "ts": "2026-08-30T18:31:06.921166+00:00",
-      "task": "analyste.strategie",
-      "provider": "obs-1787724924",
-      "model": "minimax/minimax-m3:free",
-      "kind": "llm",
-      "duration_s": 12.97
-    },
-    {
-      "ts": "2026-08-30T18:30:23.226837+00:00",
-      "task": "analyste.strategie",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 4.02
-    },
-    {
-      "ts": "2026-08-30T18:30:09.960102+00:00",
-      "task": "cortana.analyse",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 2.26
-    },
-    {
-      "ts": "2026-08-30T18:30:07.212496+00:00",
-      "task": "cortana.analyse",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 2.14
-    },
-    {
-      "ts": "2026-08-30T18:30:04.575646+00:00",
-      "task": "cortana.analyse",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 2.02
-    },
-    {
-      "ts": "2026-08-30T18:27:44.333119+00:00",
-      "task": "analyste.strategie",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 9.14
     }
   ],
   "events": [
     {
-      "ts": "2026-08-30T19:14:53.685999+00:00",
+      "ts": "2026-08-30T20:00:52.128344+00:00",
       "kind": "message",
       "title": "« Google Gemini » a repondu",
       "detail": ""
     },
     {
-      "ts": "2026-08-30T19:14:52.811942+00:00",
+      "ts": "2026-08-30T19:45:59.239642+00:00",
       "kind": "message",
       "title": "« Google Gemini » a repondu",
       "detail": ""
     },
     {
-      "ts": "2026-08-30T19:13:10.132626+00:00",
+      "ts": "2026-08-30T19:45:17.803891+00:00",
       "kind": "message",
       "title": "« Google Gemini » a repondu",
       "detail": ""
     },
     {
-      "ts": "2026-08-30T19:00:48.601553+00:00",
-      "kind": "message",
-      "title": "« Google Gemini » a repondu",
-      "detail": ""
-    },
-    {
-      "ts": "2026-08-30T18:55:08.880451+00:00",
-      "kind": "message",
-      "title": "« Google Gemini » a repondu",
-      "detail": ""
-    },
-    {
-      "ts": "2026-08-30T18:54:46.737086+00:00",
-      "kind": "message",
-      "title": "« Google Gemini » a repondu",
-      "detail": ""
-    },
-    {
-      "ts": "2026-08-30T18:50:07.018519+00:00",
-      "kind": "message",
-      "title": "« Google Gemini » a repondu",
-      "detail": ""
-    },
-    {
-      "ts": "2026-08-30T18:45:05.083883+00:00",
-      "kind": "message",
-      "title": "« Google Gemini » a repondu",
-      "detail": ""
-    },
-    {
-      "ts": "2026-08-30T18:35:21.022780+00:00",
-      "kind": "message",
-      "title": "« Google Gemini » a repondu",
-      "detail": ""
-    },
-    {
-      "ts": "2026-08-30T18:35:17.075205+00:00",
+      "ts": "2026-08-30T19:45:16.749728+00:00",
       "kind": "blacklist",
       "title": "Fin de pause Google Gemini",
       "detail": "re-essai automatique"
+    },
+    {
+      "ts": "2026-08-30T19:31:38.924882+00:00",
+      "kind": "message",
+      "title": "« minimax/minimax-m3:free » a repondu",
+      "detail": "bascule"
+    },
+    {
+      "ts": "2026-08-30T19:31:38.924517+00:00",
+      "kind": "filet-universel",
+      "title": "[FILET UNIVERSEL] « minimax/minimax-m3:free » a repondu hors chaine",
+      "detail": "analyste.strategie"
+    },
+    {
+      "ts": "2026-08-30T19:31:22.352878+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis InferX Devstral-2-123B (code)",
+      "detail": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "ts": "2026-08-30T19:31:19.220446+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis NVIDIA DeepSeek-Coder 6.7B (code, via NIM)",
+      "detail": "HTTP Error 404: Not Found"
+    },
+    {
+      "ts": "2026-08-30T19:31:17.546672+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis Puter Grok (gratuit)",
+      "detail": "HTTP Error 402: Payment Required"
+    },
+    {
+      "ts": "2026-08-30T19:31:16.800290+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis InferX Qwen3-Coder-Next (code, gratuit jusqu'au 12/08)",
+      "detail": "HTTP Error 429: Too Many Requests"
     }
   ],
   "tasks_quotas": {
