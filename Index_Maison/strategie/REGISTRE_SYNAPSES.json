@@ -128,6 +128,26 @@
       "maj": ""
     },
     {
+      "nom": "hulk-mexc/scripts/analyse_cycle_edel.py",
+      "role": "Observateur cycle jour/nuit EDEL (successeur du pattern QAIT — paper, pas de quarantaine)",
+      "origine": "bilan cycles portefeuille 30/08 (GO Christophe)",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "8e77ce5539daab2be84670f7a3e5d0ad",
+      "note": "déclaré 2026-08-30 — fix pondération horaire (moyenne simple par heure UTC, pas moyenne de moyennes) + fenêtre pic/creux complète. Écrit runs/CYCLE_EDEL_*.md + CYCLE_EDEL_SUIVI.jsonl",
+      "maj": ""
+    },
+    {
+      "nom": "hulk-mexc/config/com.ace777.cycle-edel.plist",
+      "role": "Plist observateur cycle EDEL (6h)",
+      "origine": "bilan cycles portefeuille 30/08",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "b7ced749f84ef34b0026fcf20ef73599",
+      "note": "déclaré 2026-08-30 — loaded launchctl + copié ~/Library/LaunchAgents",
+      "maj": ""
+    },
+    {
       "nom": "Index_Maison/scripts/detecter_cpfp.py",
       "role": "Détecteur CPFP/dust/z-score (observation 7j)",
       "origine": "chantier 15/08 onchain v2",
