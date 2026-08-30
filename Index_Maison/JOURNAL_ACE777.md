@@ -45,3 +45,11 @@
 - Seule vraie valeur ajoutée : catalyseur Bullish $100M (28/08) → ajouté au DEEPDIVE_GLOBAL + fiche CHIP corrigée (mention « déjà fait hier, complément Bullish »).
 - FICHE_IA corrigée : CHIP = déjà deepdivé, pas « à refaire ». Leçon : vérifier les fiches EXISTANTES avant de relancer une consultation.
 - Prochain actif réellement sans deepdive : HBAR (position en perte), PYTH, ZBCN, RED...
+
+## 30/08 — Deepdive HBAR 3 rounds (premier GO famille : 6.5/10 avec réserves)
+- Vérifié AVANT (règle gravée) : positionnement existait (ACTEURS_BLOCKCHAIN 29/08), le 3 rounds apporte le deepdive complet projet.
+- Famille 3/3 GO AVEC RÉSERVES (6.5/10) : techno validée (Hashgraph aBFT) + gouvernance institutionnelle unique (Hedera Council : Google, IBM, Accenture 04/2026, NVIDIA/Intel/EQTY IA vérifiable).
+- MAIS distinction cruciale : GO long terme institutionnel (3 ans), NON pour le trade tactique court terme (volume DEAD, corr BTC 0.87, entrée Hulk hors fenêtre).
+- Réserves : tokenomics dilution (« piège à valeur »), faible capture de valeur (TPS ≠ valeur token).
+- Décision : position paper 20$ = noyau SOCLE (patrimoine 3 ans), pas d'achat tactique tant que volume DEAD, set-up 15-17h + filtre macro si entrée.
+- Fiche HBAR + synthèse créées, FICHE_IA à jour.

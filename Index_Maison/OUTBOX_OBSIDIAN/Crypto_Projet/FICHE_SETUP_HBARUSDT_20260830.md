@@ -41,6 +41,17 @@
 
 ---
 
+## 🏦 DEEPDIVE PROJET (30/08 — 3 rounds famille + vérification 2 sources)
+
+- **HBAR = Hedera Hashgraph** : DLT enterprise, finalité instantanée, gouverné par le Hedera Council (Google, IBM, Accenture, Boeing, Deutsche Telekom...). Positionnement existant : `ACTEURS_BLOCKCHAIN_XRP_HBAR_CC` (29/08).
+- **🔥 Accenture rejoint le Council (30/04/2026)** pour l'IA d'entreprise + NVIDIA/Intel/EQTY sur gouvernance IA vérifiable + Agentic AI Foundation (06/2026) — thèse « couche de confiance de l'IA » confirmée.
+- **Famille 3 rounds : GO AVEC RÉSERVES (6.5/10, 3/3)** — premier actif validé. MAIS : **GO long terme institutionnel (3 ans), NON pour le trade tactique court terme**.
+- **Réserves** : tokenomics dilution (« piège à valeur ») · volume DEAD + corr BTC 0.87 (aucune dynamique endogène) · faible capture de valeur (TPS ≠ valeur token).
+- **Décision** : position paper 20$ = **noyau SOCLE** (patrimoine 3 ans), PAS d'achat tactique tant que volume DEAD, set-up fenêtre 15-17h + filtre macro reste la règle si entrée (jamais hors fenêtre — leçon de l'entrée 28/08).
+- Synthèse : `SYNTHESE_FAMILLE_DEEPDIVE_HBAR_3ROUNDS_20260830.md` + avis R1/R2/R3 dans `scripts/CONSULTATION_FAMILLE_DEEPDIVE_HBARUSDT_ROUNDS_20260830/`.
+
+---
+
 ## ⏱️ ÉTAT ACTUEL
 - **HBARUSDT est suivie en observation** (doctrine : tous les actifs sous observation).
 - Rien n'est câblé de neuf dans Hulk : ce set-up est la **cible d'observation**, à valider
