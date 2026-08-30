@@ -95,6 +95,42 @@ zone **0.107-0.109** avec poussière basse → c'est là que l'entrée devient v
 - **Prochaine validation dans ~7 jours** pour confirmer le cycle (règle Christophe : ce qui vaut
   un temps peut ne plus valoir).
 
+---
+
+## 📈 SUIVI MESURÉ — JOUR PAR JOUR (à comparer, ne rien supprimer)
+
+> Protocole : `hulk-mexc/scripts/suivi_setup_red.py` — mesure à chaque run, journalisée dans
+> `hulk-mexc/runs/SUIVI_SETUP_RED.jsonl` + `SUIVI_SETUP_RED.md`. On lance le même script chaque
+> jour (même heure idéalement) et on compare les lignes : **différence ou pas ?**
+
+### Jour 1 — 30/08 14:24Z (référence, fenêtre 14-17h)
+| Mesure | Valeur | Lecture |
+|---|---|---|
+| Prix | **0.11081** | HORS zone d'entrée (0.107-0.109) — haut de cycle |
+| Régime | COOLING | Pause |
+| Poussière (tx fantômes) | **1.2%** | ✅ < 15% (assèchement — déclencheur OK) |
+| Mur bid max | **45 240$** | Mur présent et tenu |
+| Spoof | 1.68% | Faible — mur réel |
+| dd15 | 21.5% | Volatilité rafale élevée (constant) |
+| corr BTC 24h | **+0.53** | Moyenne (ce jour-ci, pas le −0.85 du matin) |
+| corr ETH 24h | +0.63 | Idem |
+| Signal divergence | **neutre (stab 0)** | RED ni leader ni pompe-piège actuellement |
+| Verdict | Fenêtre OK · poussière OK · **prix hors zone** | → **pas d'entrée** (le déclencheur prix ne valide pas) |
+
+→ **Jour 1 : le cadre tient — on attend que le prix retombe dans la zone. Aucune entrée.**
+
+### Jour 2+ (à compléter)
+| Jour | Date/Heure | Prix | Poussière | Mur | Signal div | Verdict |
+|---|---|---|---|---|---|---|
+| 2 | _à mesurer_ | | | | | |
+| 3 | _à mesurer_ | | | | | |
+| 4 | _à mesurer_ | | | | | |
+| 5 | _à mesurer_ | | | | | |
+| 6 | _à mesurer_ | | | | | |
+| 7 | _à mesurer_ | | | | | |
+
+_Règle : on ne supprime pas les lignes passées — c'est l'évolution qui fait foi_ (Christophe).
+
 ## Archives
 - Signal divergence rejoué : `hulk-mexc/runs/DIVERGENCE_20260830_1411.md` (RED 🟡 léger achat 0.14)
 - Fiche pattern + famille : `Crypto_Projet/FICHE_PATTERN_SETUP_RED_20260830.md`,
