@@ -1,41 +1,6 @@
 {
   "signals": [
     {
-      "metric": "fear_greed",
-      "zscore": 2.2662573397778454,
-      "value": 69,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Indice de peur et d'avidité à 69 (avidité élevée, z-score 2.27) couplé à un vide médiatique (aucun narratif dominant détecté). C'est le piège classique de surchauffe : les baleines distribuent silencieusement leurs tokens aux 'retail' euphoriques avant une correction brutale.\"\n}\n```",
-      "ts": "2026-08-30T00:16:16.563330+00:00"
-    },
-    {
-      "metric": "whale_usd",
-      "zscore": 3.0767435404687493,
-      "value": 3278084.0,
-      "analysis": "**Analyse de la divergence**\n\n- **Donnée on‑chain** : `whale_usd = 3 278 084 USD` avec un **z‑score de 3.08** → activité des baleines nettement supérieure à la moyenne (plus de 3 σ).  \n- **Narratif médiatique** : le seul titre fourni est « Google Actualités », sans mention explicite d’une hausse d’activité des baleines ou d’un mouvement de marché.  \n- **Conclusion** : il existe une **déconnexion** entre l’anomalie on‑chain (forte accumulation ou déplacement de fonds par les baleines) et le silence des médias. Cette divergence est généralement interprétée comme un **signal haussier** non encore reflété dans le prix, les acteurs informés (baleines) agissant « silencieusement » avant que le marché ne réagisse.\n\n---\n\n```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 82,\n  \"reason\": \"Anomalie on‑chain très forte (z‑score 3.08) alors que le média ne signale aucun mouvement; indique que les baleines accumulent ou déplacent des fonds de façon discrète, ce qui précède souvent une hausse de prix.\"\n}\n```",
-      "ts": "2026-08-30T00:36:37.004519+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": 5.916079783099654,
-      "value": 69,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement élevé (5.92) pour un Fear & Greed à 69, combiné à un vide médiatique total (Google Actualités sans relais). C'est le piège classique de surchauffe : les baleines distribuent aux suiveurs silencieux avant la purge de liquidité.\"\n}\n```",
-      "ts": "2026-08-30T00:46:39.317236+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": 4.423960733486276,
-      "value": 69,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrême (4.42) et indice de peur/avidité à 69 signalent une euphorie retail maximale. L'absence de titres médiatiques majeurs indique un narratif aveugle : les baleines distribuent silencieusement aux suiveurs de tendance tardifs.\"\n}\n```",
-      "ts": "2026-08-30T01:17:02.153130+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": 3.660601043544632,
-      "value": 69,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Euphorie médiatique extrême (Greed à 69, Z-score élevé) sans couverture narrative majeure (Google Actus neutre) : piège à liquidité classique des baleines pour distribuer en silence.\"\n}\n```",
-      "ts": "2026-08-30T01:47:06.482922+00:00"
-    },
-    {
       "metric": "whale_usd",
       "zscore": 3.4500538633655853,
       "value": 3118309.0,
@@ -349,6 +314,41 @@
       "value": 5501661563.0,
       "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 82,\n  \"reason\": \"Anomalie de volume on-chain élevée (z-score 2.32) couplée à un pic massif de ventes sur les dérivés XRP et un volume net preneur fortement négatif sur Binance (-96M). Le narratif médiatique est totalement déconnecté (bruit ambiant), masquant une distribution agressive et des sorties nettes de positions par les gros porteurs.\"\n}\n```",
       "ts": "2026-08-30T21:10:33.751196+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 3.7533045452281475,
+      "value": 28806888.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le z-score élevé des liquidations (3.75) combiné à un narratif médiatique extrêmement panique et catastrophique ('Bitcoin à $10 000', 'échec à 80k') indique un classique 'flush' de panique retail. Les baleines absorbent silencieusement cette capitulation forcée.\"\n}\n```",
+      "ts": "2026-08-30T21:15:35.880376+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 2.7402214262557116,
+      "value": 2752323.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 78,\n  \"reason\": \"Z-score on-chain significatif (2.74) pour un flux de 2.75M$ sans couverture médiatique (Google Actualités vide). Accumulation furtive de baleines en zone de silence médiatique.\"\n}\n```",
+      "ts": "2026-08-30T21:25:38.168706+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.3112736748832505,
+      "value": 5595024248.0,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de volume on-chain élevée (z-score 2.31) couplée à des ventes massives sur les dérivés XRP (-96M sur Binance). Le narratif médiatique est totalement déconnecté (bruit parasite sur la culture et la beauté), masquant une pression vendeuse institutionnelle agressive.\"\n}\n```",
+      "ts": "2026-08-30T21:40:41.276517+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 3.2543323315221313,
+      "value": 28913185.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le z-score élevé des liquidations (3.25) combiné à un narratif médiatique panique (objectifs à 10k$, échec des 80k$) indique un 'flush' classique des positions vendeuses par les baleines. La capitulation retail est maximale, signalant un plancher local et l'absorption silencieuse des liquidités.\"\n}\n```",
+      "ts": "2026-08-30T21:45:43.534592+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.3011260695559974,
+      "value": 5697877678.0,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 82,\n  \"reason\": \"Anomalie de volume on-chain élevée (z-score 2.30) combinée à un pic de ventes massives sur les dérivés XRP et un volume net preneur négatif record sur Binance (-96 M). Le narratif médiatique est totalement déconnecté, noyé dans du bruit non pertinent.\"\n}\n```",
+      "ts": "2026-08-30T22:10:54.780313+00:00"
     }
   ]
 }

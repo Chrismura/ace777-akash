@@ -1,13 +1,23 @@
 {
-  "ts": "2026-08-30T21:13:27Z",
+  "ts": "2026-08-30T22:13:41Z",
   "n_verifications": 25,
   "n_fails": 0,
   "n_fails_pendants": 0,
-  "n_warns": 0,
+  "n_warns": 1,
   "fails": [],
   "fails_pendants": [],
-  "warns": [],
+  "warns": [
+    {
+      "type": "murs",
+      "pair": "CHIPUSDT",
+      "notre_bid_avg": 30766.68,
+      "ext_bid_5niv": 1690.83,
+      "notre_ask_avg": 27298.12,
+      "ext_ask_5niv": 1243.41,
+      "note": "ratio hors [0.05x-20.0x] — carnet déséquilibré ou donnée à surveiller"
+    }
+  ],
   "persistance_ticks": 3,
   "regle": "écart > 5.0% entre notre prix et une source externe = data_quality_fail (bloquant après 3 ticks consécutifs) · murs = warning informatif",
-  "lecture": "✅ toutes les données croisées sont cohérentes"
+  "lecture": "⚠️ 1 warning(s) murs (carnet déséquilibré) — prix OK"
 }

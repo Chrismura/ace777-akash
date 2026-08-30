@@ -1,15 +1,15 @@
 {
-  "timestamp": 1788124481,
-  "date": "2026-08-30T21:14:41.588005+00:00",
+  "timestamp": 1788128082,
+  "date": "2026-08-30T22:14:42.572737+00:00",
   "n_analyses": 2,
   "analyses": [
     {
       "signal": {
         "metric": "liquidations",
-        "zscore": 2.6299476091128957,
-        "value": 20397088.0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 82,\n  \"reason\": \"Le z-score des liquidations (2.63) indique un flush violent et un nettoyage des positions à effet de levier excessif. Pendant que les médias relaient un narratif de panique et de capitulation (Bitcoin à 10k, échec des 80k), les baleines profitent de cette capitulation forcée pour accumuler en silence aux dépens des 'retail' liquidés.\"\n}\n```",
-        "ts": 1788122727.32427
+        "zscore": 3.2543323315221313,
+        "value": 28913185.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le z-score élevé des liquidations (3.25) combiné à un narratif médiatique panique (objectifs à 10k$, échec des 80k$) indique un 'flush' classique des positions vendeuses par les baleines. La capitulation retail est maximale, signalant un plancher local et l'absorption silencieuse des liquidités.\"\n}\n```",
+        "ts": 1788126343.534592
       },
       "fiche": null,
       "interpretation": {
@@ -21,15 +21,15 @@
     {
       "signal": {
         "metric": "volume",
-        "zscore": 2.31704240271135,
-        "value": 5501661563.0,
-        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 82,\n  \"reason\": \"Anomalie de volume on-chain élevée (z-score 2.32) couplée à un pic massif de ventes sur les dérivés XRP et un volume net preneur fortement négatif sur Binance (-96M). Le narratif médiatique est totalement déconnecté (bruit ambiant), masquant une distribution agressive et des sorties nettes de positions par les gros porteurs.\"\n}\n```",
-        "ts": 1788124233.751196
+        "zscore": 2.3011260695559974,
+        "value": 5697877678.0,
+        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 82,\n  \"reason\": \"Anomalie de volume on-chain élevée (z-score 2.30) combinée à un pic de ventes massives sur les dérivés XRP et un volume net preneur négatif record sur Binance (-96 M). Le narratif médiatique est totalement déconnecté, noyé dans du bruit non pertinent.\"\n}\n```",
+        "ts": 1788127854.780313
       },
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.13,
+          "value": -0.0,
           "seuil": 1,
           "depasse": false
         },
@@ -39,12 +39,12 @@
           "depasse": false
         },
         "funding": {
-          "value": 7.1e-05,
+          "value": 8.1e-05,
           "seuil": 0.001,
           "depasse": false
         },
         "whales": {
-          "value": 0,
+          "value": 1,
           "seuil": 5,
           "depasse": false
         }

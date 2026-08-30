@@ -2828,3 +2828,7 @@
 - 2026-08-30T21:01:09.734908Z | alerte | Maintenir l'alerte ambre, préserver la discipline d'embuscade d'Alpha, et exécuter sans délai les coupe-circuits sur les positions seeds de Hulk en infraction critique sous -5 %. | conf=87%
 - 2026-08-30T21:01:47.558578Z | alerte | ? | conf=?
 - 2026-08-30T21:02:27.218636Z | alerte | ? | conf=?
+- 2026-08-30T21:31:03.975097Z | alerte | Maintenir l'alerte ambre, préserver la discipline d'embuscade d'Alpha et exécuter les stop-loss sur les positions seeds de Hulk en zone critique tout en capitalisant sur l'éclairage de Beta. | conf=87%
+- 2026-08-30T22:00:21.712395Z | alerte | Maintenir l'alerte ambre, préserver la discipline d'embuscade d'Alpha et exécuter les stop-loss sur les positions seeds de Hulk en zone critique tout en capitalisant sur l'éclairage de Beta. | conf=87%
+- 2026-08-30T22:01:15.439087Z | alerte | ? | conf=?
+- 2026-08-30T22:01:22.947498Z | alerte | Maintenir l'alerte ambre, préserver la discipline d'embuscade d'Alpha et exécuter les stop-loss sur les positions seeds de Hulk en zone critique (CHIPUSDT, RWAINCUSDT) tout en capitalisant sur l'éclairage de Beta. | conf=87%
