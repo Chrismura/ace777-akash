@@ -24,3 +24,11 @@
 - Leçon QAIT appliquée aux IA : la famille a conclu « pas de sources » sans chercher. Toujours croiser.
 - Décision : seed 10$ gardée (risque borné), PAS d'agrandissement, set-up régime reste actif (mode_entree=IMPULSE), validation ~7 jours, sonde delisting à activer.
 - Fiche EDEL enrichie (section deepdive) + SYNTHESE_FAMILLE_DEEPDIVE_EDEL_20260830.md créée.
+
+## 30/08 — Deepdive EDEL 3 ROUNDS poussés (prompts corrigés)
+- Christophe : « refaire recherche poussée 2-3 rounds, edel a du potentiel. As-tu utilisé les bons prompts ? » → NON la 1ère fois.
+- Corrections : obligation de sources (URLs ou « PAS DE SOURCE »), angle potentiel ajouté, clause permanente en toutes lettres dans CHAQUE prompt, 3 rounds.
+- Résultat : famille NON unanime aux 3 rounds (notes 2 → 3.5/10 en remontant) mais potentiel du SECTEUR confirmé (TradFi↔DeFi = Saint Graal, RWA explose).
+- Faits confirmés : EDEL = Edel Finance (pas Edelcoin — confusion corrigée), exploit oracle 01/07/2026 ($403K, pause), sniping 30% (11/2025), aucun VC, communauté morte. Bonnes surprises : testnet 35k+ users, intégration Ondo xStocks.
+- Décision : seed 10$ = ticket de loterie assumé, PAS d'agrandissement, set-up régime reste actif, sonde delisting active.
+- MÉTHODE GRAVÉE : le prompt change tout (sources obligatoires + 3 rounds minimum).

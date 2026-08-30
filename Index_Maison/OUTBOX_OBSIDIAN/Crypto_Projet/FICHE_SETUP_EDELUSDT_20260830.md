@@ -110,6 +110,19 @@ Creux réel par jour : 23h (27/08) → 21h (28/08) → 11h (29/08) → 00h (30/0
 
 ---
 
+## 🏦 DEEPDIVE PROJET (30/08 — 3 ROUNDS POUSSÉS + vérification 2 sources)
+
+- **EDEL = Edel Finance** (edel.finance) : prêt de titres tokenisés, marché cible $2.5T. PAS Edelcoin (stablecoin suisse, autre projet).
+- **Potentiel du SECTEUR réel** (TradFi↔DeFi = Saint Graal, RWA explose avec Ondo/Backed/BUIDL) MAIS Edel n'est pas bien placé.
+- **Passif rédhibitoire (confirmé)** : exploit oracle 01/07/2026 ($403K, pause) + lancement snipé 30% par l'équipe (11/2025) + aucun VC + communauté morte + pas de remboursement.
+- **Bonnes surprises** : testnet Edel Markets 35k+ utilisateurs (01/2026), intégration Ondo xStocks.
+- **Famille 3 rounds : NON unanime** (notes 2 → 3.5/10, remontent avec l'approfondissement).
+- **Décision** : seed 10$ = ticket de loterie assumé, PAS d'agrandissement JAMAIS, set-up régime reste actif (prudence max), sonde delisting active.
+- **Leçon méthode** : obligation de sources (URLs) dans chaque deepdive + 3 rounds minimum — le prompt change tout.
+- Synthèse : `SYNTHESE_FAMILLE_DEEPDIVE_EDEL_3ROUNDS_20260830.md` + avis R1/R2/R3 dans `scripts/CONSULTATION_FAMILLE_DEEPDIVE_EDEL_ROUNDS_20260830/`.
+
+---
+
 ## 🏦 DEEPDIVE PROJET (30/08 — famille + vérification 2 sources)
 
 - **EDEL = Edel Finance** : protocole de prêt de titres tokenisés (marché $2.5T), narratif « Wall Street 2.0 » — PAS un ghost token (la famille a dit « zéro source », c'était FAUX, sources trouvées : edel.finance, Phemex, CMC, RootData).
