@@ -108,6 +108,26 @@
       "note": "déclaré 2026-08-30 — loaded launchctl + copié ~/Library/LaunchAgents"
     },
     {
+      "nom": "Index_Maison/scripts/veille_presence_paires.py",
+      "role": "Sonde présence des paires MEXC (détecte les delistings — leçon QAIT 29/08)",
+      "origine": "delisting QAIT 29/08 14:03Z (GO Christophe 30/08)",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "d717f38f58048a1b74c3d2f4e7d14c14",
+      "note": "déclaré 2026-08-30 — lit defaults.env, vérifie exchangeInfo MEXC, alerte vocale si paire disparue. Run toutes les 6h.",
+      "maj": ""
+    },
+    {
+      "nom": "Index_Maison/plists/com.ace777.presence-paires.plist",
+      "role": "Plist sonde présence paires MEXC (6h)",
+      "origine": "delisting QAIT 29/08 (GO Christophe 30/08)",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "8bb2ee2b78fa8e828edd6ee6c5bc0200",
+      "note": "déclaré 2026-08-30 — loaded launchctl + copié ~/Library/LaunchAgents",
+      "maj": ""
+    },
+    {
       "nom": "Index_Maison/scripts/detecter_cpfp.py",
       "role": "Détecteur CPFP/dust/z-score (observation 7j)",
       "origine": "chantier 15/08 onchain v2",
@@ -163,9 +183,9 @@
       "origine": "chantier hulk",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "888febf27da43cb534a1138a12d67857",
+      "md5": "df35317e51d27e48e86bc086444b0c7b",
       "note": "déclaré manuel 2026-08-28T18:30Z",
-      "maj": "27/08 17:30Z : +BTCUSDT,ETHUSDT au PAPER_PAIRS (17 paires), SEED_MAX_PAIRS 15→17"
+      "maj": "30/08 : retrait QAITUSDT de PAPER_PAIRS + PAPER_EXTRA_PAIRS (delisted MEXC 29/08 14:03Z — veille plancher, fiche FICHE_VEILLE_QAIT_PLANCHER)"
     },
     {
       "nom": "hulk-mexc/strategie/cortana_pilot.json",
@@ -261,9 +281,9 @@
       "origine": "pipeline unifié 25/08 — ressuscitée 27/08 (plist com.ace777.sentinel + fix variance)",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "557590d736f0467fef7bcab430204b1e",
+      "md5": "f8948eed95801cac23f4d050637198a7",
       "note": "déclaré manuel 2026-08-28T18:30Z",
-      "maj": "27/08 : fix compute_zscore plancher relatif 1e-4 (z=-1.5e15 mesuré → 0 en calme) + purge historique corrompu (16 copies identiques du 25/08) + plist launchd 300s créée + chaîne SENTINELLE sante_index 11/11"
+      "maj": "30/08 : fix crash abs(None) quand live.json contient chg1h:null (clé présente à None) — fail-open durci sur toutes les métriques extract_metrics"
     },
     {
       "nom": "Index_Maison/scripts/silent_drain_index.py",
