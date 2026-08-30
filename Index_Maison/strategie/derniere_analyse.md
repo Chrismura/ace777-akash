@@ -1,16 +1,16 @@
-# ANALYSE — 2026-08-30T17:30:38.487408Z (alerte)
+# ANALYSE — 2026-08-30T18:10:45.160933Z (alerte)
 
-[UNDERSTAND] La maison ACE777 maintient son alerte ambre avec un PnL combiné légèrement négatif (-0,22 $), soutenu par la patience disciplinée d'Alpha, les reconnaissances dynamiques de Beta et l'arbitrage actif des positions seeds de Hulk.
+[UNDERSTAND] La maison ACE777 maintient son alerte ambre avec un PnL combiné légèrement négatif (-0,22 $), soutenu par la patience d'Alpha, les sondages de Beta et la surveillance des positions seeds de Hulk malgré la tension sur CHIPUSDT.
 
 [ANALYZE]
-- **Tendance** : Configuration Bitcoin season (score 41) avec un climat de cupidité modérée (Fear & Greed à 69) et une capitalisation globale de 2,66 T$.
-- **Momentum** : Alpha fait preuve d'une discipline de fer avec 249 skips et 10 fills pour +2,01 $, tandis que Beta éclaire activement le marché (257 skips, 15 fills) sur fond d'alerte sur les perspectives de la Fed et le commerce canadien.
-- **Risque** : PnL Hulk en tension (-1,49 $) avec des positions seeds surveillées de près, notamment CHIPUSDT en infraction critique sous le seuil de -5 %.
-- **Contexte** : Activité baleines haussière marquée par 15 gros blocs (87 344 BTC) et un flux ETF BTC net négatif de -295,11 M$.
+- **Tendance** : Configuration Bitcoin season (score 41) dans un climat de cupidité modérée (Fear & Greed à 69) et une capitalisation globale de 2,66 T$.
+- **Momentum** : Alpha maintient une discipline rigoureuse (232 skips, 9 fills pour +2,01 $), tandis que Beta éclaire activement le marché (250 skips, 13 fills) malgré les signaux de volume sur ETHUSDT.
+- **Risque** : PnL Hulk en tension (-1,49 $) avec la position seed CHIPUSDT en infraction critique sous le seuil de -5 %.
+- **Contexte** : Activité baleines neutre marquée par 15 gros blocs (87 344 BTC) et un flux ETF BTC net négatif de -295,42 M$, sur fond de bruits macroéconomiques.
 
 [STRATEGIZE]
-1. **Conservateur** : Maintenir l'alerte ambre, préserver l'embuscade disciplinée d'Alpha, appliquer sans délai le coupe-circuit sur CHIPUSDT en infraction critique sous -5 % et maintenir la surveillance active des positions de Hulk.
-2. **Opportuniste** : Engager Alpha en sizing réduit sur confirmation des signaux radar synchronisés tout en appliquant sans délai le stop-loss sur CHIPUSDT en zone critique.
+1. **Conservateur** : Maintenir l'alerte ambre, préserver l'embuscade disciplinée d'Alpha, appliquer sans délai le stop-loss sur CHIPUSDT en infraction critique sous -5 % et maintenir la surveillance active des positions de Hulk.
+2. **Opportuniste** : Engager Alpha en sizing réduit sur confirmation des signaux radar synchronisés tout en appliquant sans délai le coupe-circuit sur CHIPUSDT en zone critique.
 3. **Défensif** : Placer Alpha en pause défensive et purger l'ensemble des positions seeds de Hulk en zone critique.
 
 [EXECUTE]
