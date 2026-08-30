@@ -43,20 +43,32 @@
 | **Tempête géomagnétique** | **27-29/08** | NOAA : veille G1 (mineur) à G2 (modérée) — **attendue CES JOURS-CI, maintenant** (spaceweather.gov) |
 | **CME en cours** | 29/08 | « The chunk of solar stuff we anticipated yesterday is running late » (EarthSky, 29/08) — impact possible aujourd'hui |
 
+### 1.5 ÉVÉNEMENTS MONDE — VÉRIFIÉ (recherche large 30/08, NON cités par Christophe)
+| Événement | Date | Fait |
+|---|---|---|
+| 🔶 **GUERRE IRAN-ÉTATS-UNIS (2026)** | **depuis 28/02**, nouvel épisode fin août | Conflit lancé par US+Israël (**Opération Epic Fury**) vs Iran + Axe de la Résistance + Houthis, Moyen-Orient entier. **Strait d'Ormuz : le point ultra-nerveux** (péages sur le transport, trafic à un plus-bas de 3 mois le 17/08). **Cessez-le-feu fin août** : Khamenei approuve après « un coup de pouce de dernière minute de la Chine » (Britannica, ~28/08). Hegseth : « frappes cintétiques » possibles à Hormuz (24/08). |
+| 🔶 **Jackson Hole 2026 (Fed)** | **28/08** | Symposium Fed de Kansas City « Financial Innovation: Implications for Payments and Policy » — Keynote du **Pdt Warsh** (28/08). Le rendez-vous annuel des banquiers centraux mondiaux. |
+| 🥇 **OR — reprise massive des banques centrales** | 2T26 / août | **Achats 289 tonnes au 2e trim. (5× le trim. précédent)** (Reuters 13/08) ; **89 % des banques centrales tablemt sur + de réserves d'or** (sondage World Gold Council) ; Corée du Sud reprend l'achat d'or (04/08). |
+| 🥇 **RUSSIE — VEND son or** | **20-21/08** | **Contre-narratif fort** : la Banque de Russie **LIQUIDE** ses réserves d'or — plus bas depuis 2020 (Bloomberg 20/08), vend 43-44 t au 1er sem. pour financer son **déficit budgétaire** (~6 tr. de roubles, DW/Reuters). À la recherche de cash, pas d'accumulation. |
+| ⚛️ **Nucléaire — course aux SMR** | 2026 | **Rosatom (RU)-Rwanda** : feuille de route SMR signée (29/06) ; **NANO Nuclear-UAE** MoU micro-réacteurs (fév.) ; Inde « Nuclear Energy Mission » 20 000 cr (avril) ; Chine Linglong One. Le nucléaire compact = thème de fond (ta conviction). |
+
 ---
 
 ## 2. LE CROISEMENT TEMPOREL (le cœur de la fiche)
 
-**Une même fenêtre, 25-26 août 2026 :**
-1. **CIA → Moscou** (25/08 — négociation secrète au plus haut niveau, première depuis 2022)
-2. **Éruption solaire M6.9** avec CME dirigée vers la Terre (tempête G1-G2 le 27-29)
-3. **🇺🇸 Décret Trump : état d'urgence national sur le réseau électrique US** (26/08, vise la Chine, sécurité IA/énergie)
-4. Et dans la fenêtre 25-29/08 : **87 344 BTC sortent des coffres froids**, bloc de 20 755 BTC (z-score 71,8), poussière max, CPFP actif
+**Une même fenêtre, 25-28 août 2026 — LE grand tableau :**
+1. **CIA → Moscou** (25/08) — négociation secrète au plus haut niveau
+2. **Guerre Iran-US — cessez-le-feu confirmé fin août** (Khamenei, humeur chinoise ~28/08) — **LA pièce géopolitique majeure de l'année** ; Hormuz joue les flux pétroliers mondiaux
+3. **Jackson Hole 2026** (28/08) — keynotes Warsh, banquiers centraux réunis
+4. **Éruption solaire M6.9 + CME** (25/08→27-29/08)
+5. **🇺🇸 Décret Trump : état d'urgence sur le réseau électrique US** (26/08, vise la Chine, sécurité IA/énergie)
+6. Et dans la fenêtre 25-29/08 : **87 344 BTC sortent des coffres froids**, bloc de 20 755 BTC (z-score 71,8), poussière max, CPFP actif
 
 Contexte de fond :
-5. **Vatican** refond sa finance interne (11-20/08)
-6. **Été climatique le plus extrême** de mémoire récente en Europe + **géo-ingénierie solaire** qui démarre (Stardust, avril 2026)
-7. **Globalement : une semaine de « mise en ordre » (énergie, monnaie, diplomatie, réserves).**
+7. **Vatican** refond sa finance interne (11-20/08)
+8. **Or** : banques centrales achètent fort (289 t) pendant que **la Russie liquide** le sien (déficit) — **repli croisé sur le métal, avec un vendeur forcé**
+9. **Été climatique extrême** + **géo-ingénierie** (Stardust) + course **nucléaire SMR**
+10. **Globalement : une semaine de « mise en ordre » mondiale (guerre/pétrole, monnaie, or, énergie, réserves BTC).** Le BTC qui bouge en silence s'inscrit dans CE contexte, pas dans un vide.
 
 ---
 
@@ -116,4 +128,8 @@ Contexte de fond :
 - Vatican : annonces officielles (Conseil pour l'Économie 11/08, réforme investissements 20/08)
 - Climat : fr.wikipedia Canicules 2026, Geoengineering Watch 15/08, CIEL (Stardust), The Invading Sea, Earth.org
 - 🇺🇸 Décret Trump 26/08 : communiqué officiel White House « Securing America's Bulk-Power System » (lu), Le Monde 27/08, energynews.pro
+- 🔶 Guerre Iran-US : Britannica « 2026 Iran war » (lu, maj 28/08), Al Jazeera live 24/08, CNBC 21/07, Fox News 17/08 (Hormuz)
+- Jackson Hole : discours Fed Warsh 28/08 (federalreserve.gov)
+- Or : Reuters 13/08 (289 t), World Gold Council survey 2026, Bloomberg 20/08 / DW 06/08 / Reuters 21/07 (Russie liquide)
+- Nucléaire SMR : World Nuclear News 29/06 (Rosatom-Rwanda), NANO Nuclear (UAE), Inde Nuclear Energy Mission (avril)
 - Solaire : watchers.news (M6.9 du 25/08), spaceweather.gov (veille G1-G2 27-29/08), EarthSky (29/08)
