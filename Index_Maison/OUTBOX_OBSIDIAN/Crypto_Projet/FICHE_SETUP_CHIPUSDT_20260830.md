@@ -41,6 +41,18 @@
 
 ---
 
+## 🏦 DEEPDIVE PROJET (30/08 — 3 rounds famille + vérification 2 sources)
+
+- **CHIP = token de gouvernance de USD.AI** (Permian Labs, fondé 2021, David Choi/Conor Moore/Ivan Sergeev) : prêt permissionless financé par les GPU, $38M levés (Framework, DCG, Dragonfly, Nasdaq, Delphi, Yzi).
+- **🔥 CATALYSEUR MAJEUR 28/08 (2 jours) : Bullish fournit $100M de facilité stablecoin** pour les prêts GPU de USD.AI (après $4M de Bullish Capital en 09/2025) — 8+ sources (PRNewswire, CoinDesk, Cointelegraph, The Defiant, Yahoo).
+- Prêts actifs > $100M · $1.2Md facilités approuvées dont $500M QumulusAI · ICO CoinList 0.03$ · 10Md supply · 80% bloqué jusqu'à avril 2027.
+- **Famille 3 rounds : NON unanime (2-3.5/10)** mais leur raison « inexistence » est une hallucination (biais inverse, pas de données fraîches) — la vérification 2 sources CORRIGE : projet réel + validation institutionnelle Bullish.
+- **Risques réels** : overhang 80% (cliff 04/2027) · GPU price decline (surcapacité H100/B200) comprime les marges emprunteurs.
+- **Décision** : position 20$ GARDÉE, CHIP = candidat gros potentiel n°1 (thèse « l'arbre qui cache la forêt » renforcée), pas de portage long aveugle, on trade le comportement (profil INVERSE, LEADER stab 3, dé-corrélé).
+- Synthèse : `SYNTHESE_FAMILLE_DEEPDIVE_CHIP_3ROUNDS_20260830.md` + avis R1/R2/R3 dans `scripts/CONSULTATION_FAMILLE_DEEPDIVE_CHIPUSDT_ROUNDS_20260830/`.
+
+---
+
 ## ⏱️ ÉTAT ACTUEL
 - **CHIPUSDT est suivie en observation** (doctrine : tous les actifs sous observation).
 - Rien n'est câblé de neuf dans Hulk : ce set-up est la **cible d'observation**, à valider

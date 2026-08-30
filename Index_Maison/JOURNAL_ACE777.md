@@ -32,3 +32,10 @@
 - Faits confirmés : EDEL = Edel Finance (pas Edelcoin — confusion corrigée), exploit oracle 01/07/2026 ($403K, pause), sniping 30% (11/2025), aucun VC, communauté morte. Bonnes surprises : testnet 35k+ users, intégration Ondo xStocks.
 - Décision : seed 10$ = ticket de loterie assumé, PAS d'agrandissement, set-up régime reste actif, sonde delisting active.
 - MÉTHODE GRAVÉE : le prompt change tout (sources obligatoires + 3 rounds minimum).
+
+## 30/08 — Deepdive CHIP 3 rounds + catalyseur Bullish $100M (découverte)
+- Protocole gravé : tous les actifs = set-up dans FICHE_IA + deepdive 3 rounds dans fiche projet. FICHE_IA §5bis créée + script générique consulter_famille_deepdive_actif_3rounds.py (sources injectées au R2).
+- CHIP 3 rounds : famille NON unanime (2-3.5/10) mais « inexistence » = hallucination biais inverse (ULTRA R1 : « ça n'existe pas » au lieu de chercher).
+- VÉRIFICATION : USD.AI réel (Permian Labs, Choi/Moore/Sergeev, $38M Framework/DCG/Dragonfly) + 🔥 CATALYSEUR 28/08 : Bullish $100M facility stablecoin pour prêts GPU (8+ sources : PRNewswire, CoinDesk, Cointelegraph, The Defiant, Yahoo, news.bitcoin.com).
+- Leçon gravée : la famille hallucine dans LES DEUX sens sans données fraîches (EDEL « zéro source », CHIP « inexistence ») → la vérification 2 sources EST la valeur ajoutée.
+- Décision : position CHIP 20$ GARDÉE = candidat gros potentiel n°1 (thèse arbre qui cache la forêt renforcée), overhang 80% (cliff 04/2027) = pas de portage long aveugle, trade du comportement (profil INVERSE LEADER).
