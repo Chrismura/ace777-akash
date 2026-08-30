@@ -39,3 +39,9 @@
 - VÉRIFICATION : USD.AI réel (Permian Labs, Choi/Moore/Sergeev, $38M Framework/DCG/Dragonfly) + 🔥 CATALYSEUR 28/08 : Bullish $100M facility stablecoin pour prêts GPU (8+ sources : PRNewswire, CoinDesk, Cointelegraph, The Defiant, Yahoo, news.bitcoin.com).
 - Leçon gravée : la famille hallucine dans LES DEUX sens sans données fraîches (EDEL « zéro source », CHIP « inexistence ») → la vérification 2 sources EST la valeur ajoutée.
 - Décision : position CHIP 20$ GARDÉE = candidat gros potentiel n°1 (thèse arbre qui cache la forêt renforcée), overhang 80% (cliff 04/2027) = pas de portage long aveugle, trade du comportement (profil INVERSE LEADER).
+
+## 30/08 — CORRECTION : CHIP était déjà deepdivé hier (pas de doublon)
+- Erreur reconnue : le deepdive CHIP complet existait depuis le 29/08 (DEEPDIVE_GLOBAL) — j'ai relancé 3 rounds à neuf à tort (je l'avais vu en greppant).
+- Seule vraie valeur ajoutée : catalyseur Bullish $100M (28/08) → ajouté au DEEPDIVE_GLOBAL + fiche CHIP corrigée (mention « déjà fait hier, complément Bullish »).
+- FICHE_IA corrigée : CHIP = déjà deepdivé, pas « à refaire ». Leçon : vérifier les fiches EXISTANTES avant de relancer une consultation.
+- Prochain actif réellement sans deepdive : HBAR (position en perte), PYTH, ZBCN, RED...

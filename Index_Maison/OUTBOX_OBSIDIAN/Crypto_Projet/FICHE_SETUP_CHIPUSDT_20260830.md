@@ -41,15 +41,18 @@
 
 ---
 
-## 🏦 DEEPDIVE PROJET (30/08 — 3 rounds famille + vérification 2 sources)
+## 🏦 DEEPDIVE PROJET — ⚠️ DÉJÀ FAIT HIER (DEEPDIVE_GLOBAL_20260829.md)
 
-- **CHIP = token de gouvernance de USD.AI** (Permian Labs, fondé 2021, David Choi/Conor Moore/Ivan Sergeev) : prêt permissionless financé par les GPU, $38M levés (Framework, DCG, Dragonfly, Nasdaq, Delphi, Yzi).
-- **🔥 CATALYSEUR MAJEUR 28/08 (2 jours) : Bullish fournit $100M de facilité stablecoin** pour les prêts GPU de USD.AI (après $4M de Bullish Capital en 09/2025) — 8+ sources (PRNewswire, CoinDesk, Cointelegraph, The Defiant, Yahoo).
-- Prêts actifs > $100M · $1.2Md facilités approuvées dont $500M QumulusAI · ICO CoinList 0.03$ · 10Md supply · 80% bloqué jusqu'à avril 2027.
-- **Famille 3 rounds : NON unanime (2-3.5/10)** mais leur raison « inexistence » est une hallucination (biais inverse, pas de données fraîches) — la vérification 2 sources CORRIGE : projet réel + validation institutionnelle Bullish.
-- **Risques réels** : overhang 80% (cliff 04/2027) · GPU price decline (surcapacité H100/B200) comprime les marges emprunteurs.
-- **Décision** : position 20$ GARDÉE, CHIP = candidat gros potentiel n°1 (thèse « l'arbre qui cache la forêt » renforcée), pas de portage long aveugle, on trade le comportement (profil INVERSE, LEADER stab 3, dé-corrélé).
-- Synthèse : `SYNTHESE_FAMILLE_DEEPDIVE_CHIP_3ROUNDS_20260830.md` + avis R1/R2/R3 dans `scripts/CONSULTATION_FAMILLE_DEEPDIVE_CHIPUSDT_ROUNDS_20260830/`.
+> **Le deepdive CHIP complet existe depuis le 29/08** : société (Permian Labs, Choi/Moore),
+> financement ($38M : Framework, DCG, Dragonfly, Nascent, Delphi, Yzi), lancement 21/04/2026,
+> listings 7 exchanges, thèse USD.AI, tokenomics (10Md, 80% bloqué, cliff avril 2027),
+> décision validée (deepdive_validees). **Ne pas refaire — aller voir le DEEPDIVE_GLOBAL.**
+
+### 🔥 SEUL COMPLÉMENT 30/08 : catalyseur Bullish $100M (28/08)
+- **Bullish fournit $100M de facilité stablecoin** pour les prêts GPU de USD.AI (28/08/2026),
+  après $4M de Bullish Capital (09/2025). 8+ sources : PRNewswire, CoinDesk, Cointelegraph,
+  The Defiant, Yahoo, news.bitcoin.com. → valide la thèse « connections avec les gros de
+  la finance » (écosystème Peter Thiel). À ajouter au DEEPDIVE_GLOBAL.
 
 ---
 

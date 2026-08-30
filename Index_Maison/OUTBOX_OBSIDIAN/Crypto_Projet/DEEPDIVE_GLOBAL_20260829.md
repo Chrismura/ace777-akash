@@ -145,6 +145,13 @@
 - À suivre : le volume qui se normalise, le vesting avril 2027, la croissance du
   book de prêts. Surveiller le pattern divergence (CHIP pump avant/après les
   mouvements du marché).
+- 🔥 **COMPLÉMENT 30/08 — catalyseur majeur : Bullish fournit $100M de facilité
+  stablecoin à USD.AI (28/08/2026)** pour financer les prêts GPU (après $4M de
+  Bullish Capital en 09/2025). 8+ sources (PRNewswire, CoinDesk, Cointelegraph,
+  The Defiant, Yahoo, news.bitcoin.com). → valide la thèse « connections avec
+  les gros de la finance » (écosystème Peter Thiel) : la thèse de Christophe
+  « l'arbre qui cache la forêt » est renforcée. Risque structurel inchangé
+  (overhang 80%, cliff 04/2027).
 
 ---
 
