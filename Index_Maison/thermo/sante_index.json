@@ -1,11 +1,10 @@
 {
-  "ts": "2026-08-30T03:09+00:00",
-  "updated": "2026-08-30T03:09Z",
+  "ts": "2026-08-30T04:09+00:00",
+  "updated": "2026-08-30T04:09Z",
   "etat": "ALERTE",
-  "chaines_ok": "13/15",
+  "chaines_ok": "14/15",
   "anomalies": [
-    "BALEINES coupée : scan file",
-    "SAPI : sdi_latest.json figé — la pépite poussière institutionnelle ne tourne plus"
+    "BALEINES coupée : scan file"
   ],
   "degradees": [],
   "chaines": [
@@ -28,12 +27,12 @@
         {
           "nom": "scan file",
           "ok": false,
-          "detail": "âge 131 min"
+          "detail": "âge 191 min"
         },
         {
           "nom": "mouvements (events)",
           "ok": true,
-          "detail": "dernier événement il y a 131 min"
+          "detail": "dernier événement il y a 191 min"
         },
         {
           "nom": "→ live.json.onchain",
@@ -43,12 +42,12 @@
         {
           "nom": "→ Ada gardienne",
           "ok": true,
-          "detail": "voilure 93.2 · zone VERT"
+          "detail": "voilure 91.1 · zone VERT"
         },
         {
           "nom": "→ Cortana feed",
           "ok": true,
-          "detail": "âge 1 min"
+          "detail": "âge 7 min"
         }
       ]
     },
@@ -84,7 +83,7 @@
         {
           "nom": "CSV aspiration",
           "ok": true,
-          "detail": "ASPIRATION_CALIB_20260829_122141.csv · âge 2 min"
+          "detail": "ASPIRATION_CALIB_20260829_122141.csv · âge 0 min"
         },
         {
           "nom": "corrélation BTC",
@@ -99,7 +98,7 @@
         {
           "nom": "cortana_pilot.json",
           "ok": true,
-          "detail": "âge 1284 min"
+          "detail": "âge 1344 min"
         },
         {
           "nom": "cortana_analysis.json",
@@ -145,7 +144,7 @@
         {
           "nom": "cpfp_detect.json",
           "ok": true,
-          "detail": "âge 1 min"
+          "detail": "âge 5 min"
         },
         {
           "nom": "mode",
@@ -186,7 +185,7 @@
         {
           "nom": "geopol.ts frais",
           "ok": true,
-          "detail": "âge 0.0h"
+          "detail": "âge 0.1h"
         },
         {
           "nom": "modules OK",
@@ -344,7 +343,7 @@
         {
           "nom": "warns murs (info)",
           "ok": true,
-          "detail": "1 warn(s) carnet déséquilibré (info)"
+          "detail": "aucun"
         }
       ]
     },
@@ -352,17 +351,17 @@
       "id": "sapi",
       "nom": "SAPI POUSSIÈRE",
       "chemin": "silent_drain_index.compute_sdi (SAPI) → sdi_latest.json → thermo_quotidien → live.json.sapi → Cortana + cockpit",
-      "ok": false,
+      "ok": true,
       "maillons": [
         {
           "nom": "sdi_latest.json (SAPI dedans)",
-          "ok": false,
-          "detail": "âge 33 min"
+          "ok": true,
+          "detail": "âge 7 min"
         },
         {
           "nom": "SAPI calculé",
           "ok": true,
-          "detail": "score 0.183"
+          "detail": "score 0.169"
         },
         {
           "nom": "alerte poussière (≥ 0.75 + volume)",
