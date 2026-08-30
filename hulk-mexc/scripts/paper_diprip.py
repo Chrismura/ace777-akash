@@ -67,6 +67,16 @@ def _profils() -> dict[str, dict]:
     except Exception:
         _PROFILS_CACHE = {}
     return _PROFILS_CACHE
+
+
+def mode_entree(pair: str) -> str:
+    """Mode d'entrée configuré pour la paire (calib). Vide = défaut (COOLING+IMPULSE).
+
+    Set-up régime (30/08, GO Christophe) : `mode_entree = "IMPULSE"` signifie que la
+    paire ne s'achète QUE quand le moteur la voit en régime IMPULSE (allumage de rafale
+    + pullback) — jamais en COOLING/WATCH/QUIET. Découverte EDEL : cet actif ne bouge
+    que par rafales IMPULSE (m6 70% vs 4%), donc entrer hors rafale = acheter du mort."""
+    return str(((_profils().get(pair) or {}).get("calib") or {}).get("mode_entree") or "")
 # Kill-switch global : même sémantique que la veilleuse (touch → tous les bots s'arrêtent)
 STOP_ALL = Path.home() / "ace777-test-day1" / "Index_Maison" / "STOP_ALL"
 
@@ -1235,6 +1245,9 @@ class PaperBot:
         if time.time() - float(info["ts"]) > self.reentry_ttl:
             del self.reentry[pair]
             return False
+        # SET-UP RÉGIME (30/08) : mode_entree="IMPULSE" → re-entry UNIQUEMENT en IMPULSE.
+        if mode_entree(pair) == "IMPULSE" and sc.get("regime") != "IMPULSE":
+            return False
         peak = float(info["peak"])
         if peak <= 0:
             return False
@@ -2018,6 +2031,9 @@ class PaperBot:
         regime = sc.get("regime", "")
         if regime not in ("COOLING", "IMPULSE"):
             return False
+        # SET-UP RÉGIME (30/08) : mode_entree="IMPULSE" → redeploy UNIQUEMENT en IMPULSE.
+        if mode_entree(pair) == "IMPULSE" and regime != "IMPULSE":
+            return False
         vok, _ = self.vol_ok_for_entry(sc, regime)
         if not vok:
             return False
@@ -2073,6 +2089,17 @@ class PaperBot:
             return
         regime = sc["regime"]
         if regime in ("QUIET", "WATCH", "IMPULSE_WAIT"):
+            return
+        # SET-UP RÉGIME (30/08, GO Christophe) : mode_entree="IMPULSE" → n'entrer
+        # QUE si le moteur voit la paire en régime IMPULSE (allumage de rafale).
+        # EDEL : ne bouge que par rafales IMPULSE (découverte m6 70% vs 4%) —
+        # entrer hors rafale = acheter un actif mort (fenêtre horaire abandonnée).
+        _mode = mode_entree(pair)
+        if _mode == "IMPULSE" and regime != "IMPULSE":
+            self.log(
+                pair, "SKIP", regime, price, price, 0.0, 0.0,
+                sc.get("cadence_pct"), f"MODE_REGIME:IMPULSE_ONLY({regime})",
+            )
             return
         if pair in self.pos or pair in self.bags:
             return

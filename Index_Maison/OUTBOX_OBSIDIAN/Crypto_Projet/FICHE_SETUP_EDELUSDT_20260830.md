@@ -110,6 +110,18 @@ Creux réel par jour : 23h (27/08) → 21h (28/08) → 11h (29/08) → 00h (30/0
 
 ---
 
+## 🏦 DEEPDIVE PROJET (30/08 — famille + vérification 2 sources)
+
+- **EDEL = Edel Finance** : protocole de prêt de titres tokenisés (marché $2.5T), narratif « Wall Street 2.0 » — PAS un ghost token (la famille a dit « zéro source », c'était FAUX, sources trouvées : edel.finance, Phemex, CMC, RootData).
+- **Équipe réelle** : James Sherbone (ex-Berenberg/Saxon) + Andres Soltermann (ex-DeFi Franc).
+- ⚠️ **Exploit juillet 2026** : oracle manipulé, Google tokenisé gonflé 7700%, ~$403K volés → protocole en pause puis Edel Markets annoncé (09/07).
+- ⚠️ **Lancement snipé (nov. 2025)** : 30%+ du token par des wallets liés au projet.
+- **Risques confirmés** (famille 3/3 NON : 0.5/1.5/2 sur 10) : manipulation carnet + delisting MEXC (leçon QAIT).
+- **Décision** : seed 10$ gardée (risque borné), PAS d'agrandissement avant validation set-up régime (~7 jours), sonde delisting à activer.
+- Synthèse complète : `SYNTHESE_FAMILLE_DEEPDIVE_EDEL_20260830.md` + avis bruts dans `scripts/CONSULTATION_FAMILLE_DEEPDIVE_EDEL_20260830/`.
+
+---
+
 ## ⏱️ ÉTAT ACTUEL
 - **EDELUSDT est suivie en observation** (doctrine : tous les actifs sous observation).
 - Rien n'est câblé de neuf dans Hulk : ce set-up est la **cible d'observation**, à valider

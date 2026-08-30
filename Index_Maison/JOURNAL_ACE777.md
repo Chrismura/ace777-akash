@@ -17,3 +17,10 @@
 - Set-up régime : entrée = allumage IMPULSE + pullback (PAS de fenêtre horaire), exécution 50/50, sortie rapide objectif +0.5 à +1% dans les 30 premières minutes, stop sous l'allumage, JAMAIS de trailing long.
 - Rafale 30/08 16:05Z EN COURS (m6 faible 6% = allumage naissant, à ne pas traiter comme les 3 autres).
 - Fiche EDEL mise à jour avec le set-up régime + la preuve qui s'accumule (valider dans ~7 jours).
+
+## 30/08 — Deepdive EDEL par la famille + vérification 2 sources
+- Famille (DEEPSEEK 0.5/10, ULTRA 1.5/10, JUGE 2/10) : NON unanime, « ghost token, zéro source ».
+- Vérification Buffy (règle 2 sources) : FAUX sur le fond — EDEL = Edel Finance (prêt de titres tokenisés, équipe visible ex-Berenberg), mais risques CONFIRMÉS : exploit juillet 2026 (oracle, $403K, pause) + lancement snipé 30% (nov 2025) + delisting MEXC.
+- Leçon QAIT appliquée aux IA : la famille a conclu « pas de sources » sans chercher. Toujours croiser.
+- Décision : seed 10$ gardée (risque borné), PAS d'agrandissement, set-up régime reste actif (mode_entree=IMPULSE), validation ~7 jours, sonde delisting à activer.
+- Fiche EDEL enrichie (section deepdive) + SYNTHESE_FAMILLE_DEEPDIVE_EDEL_20260830.md créée.

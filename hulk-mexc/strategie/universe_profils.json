@@ -1,7 +1,7 @@
 {
  "version": "1.0",
  "updated": "2026-08-27T22:40Z",
- "note": "Profils comportementaux par paire — calculés depuis les CSVs ASPIRATION_CALIB (16-24/08, 53 465 mesures). Objectif (Christophe 27/08) : chaque crypto a SON caractère, Hulk calibre murs/spoof/drop/spread/mise/fenêtres par paire. BTC/ETH = banc de preuve des indices onchain (poussière, CPFP, baleines, SDI), profils en collecte. | 27/08 22:40 : ajout dip_pct/rip_pct/stop_pct par paire (volatilité réelle 30j MEXC) — chaque crypto a SON setup.",
+ "note": "Profils comportementaux par paire — calculés depuis les CSVs ASPIRATION_CALIB (16-24/08, 53 465 mesures). Objectif (Christophe 27/08) : chaque crypto a SON caractère, Hulk calibre murs/spoof/drop/spread/mise/fenêtres par paire. BTC/ETH = banc de preuve des indices onchain (poussière, CPFP, baleines, SDI), profils en collecte. | 27/08 22:40 : ajout dip_pct/rip_pct/stop_pct par paire (volatilité réelle 30j MEXC) — chaque crypto a SON setup.\n[30/08] EDEL : mode_entree=IMPULSE (set-up régime, GO Christophe).",
  "BIOUSDT": {
   "archetype": "calme_propre",
   "n_mesures": 4835,
@@ -113,9 +113,10 @@
    "interdit_heures": [],
    "dip_pct": 5.5,
    "rip_pct": 5.2,
-   "stop_pct": 10.3
+   "stop_pct": 10.3,
+   "mode_entree": "IMPULSE"
   },
-  "lecture": ""
+  "lecture": "Set-up régime (30/08) : entrée UNIQUEMENT en régime IMPULSE (découverte : EDEL ne bouge que par rafales IMPULSE, m6 70% vs 4%). Plus de fenêtre horaire. À valider par l'accumulation des allumages (~7 jours)."
  },
  "HBARUSDT": {
   "archetype": "gros_murs_fondants",
