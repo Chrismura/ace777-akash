@@ -1,35 +1,20 @@
 {
-  "timestamp": 1788128082,
-  "date": "2026-08-30T22:14:42.572737+00:00",
+  "timestamp": 1788131083,
+  "date": "2026-08-30T23:04:43.435026+00:00",
   "n_analyses": 2,
   "analyses": [
     {
       "signal": {
-        "metric": "liquidations",
-        "zscore": 3.2543323315221313,
-        "value": 28913185.0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le z-score élevé des liquidations (3.25) combiné à un narratif médiatique panique (objectifs à 10k$, échec des 80k$) indique un 'flush' classique des positions vendeuses par les baleines. La capitulation retail est maximale, signalant un plancher local et l'absorption silencieuse des liquidités.\"\n}\n```",
-        "ts": 1788126343.534592
-      },
-      "fiche": null,
-      "interpretation": {
-        "lecture": "Pas de fiche disponible",
-        "niveau": "inconnu"
-      },
-      "action": "Observer"
-    },
-    {
-      "signal": {
         "metric": "volume",
-        "zscore": 2.3011260695559974,
-        "value": 5697877678.0,
-        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 82,\n  \"reason\": \"Anomalie de volume on-chain élevée (z-score 2.30) combinée à un pic de ventes massives sur les dérivés XRP et un volume net preneur négatif record sur Binance (-96 M). Le narratif médiatique est totalement déconnecté, noyé dans du bruit non pertinent.\"\n}\n```",
-        "ts": 1788127854.780313
+        "zscore": 2.2944348411527784,
+        "value": 5809967022.0,
+        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 82,\n  \"reason\": \"Anomalie de volume on-chain élevée (z-score 2.29) couplée à un pic de ventes massives sur les dérivés XRP et un volume net preneur négatif de -96M sur Binance. Les médias grand public se dispersent sur des sujets sans rapport, confirmant une distribution silencieuse des baleines dans l'indifférence générale.\"\n}\n```",
+        "ts": 1788129662.269124
       },
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.0,
+          "value": -0.29,
           "seuil": 1,
           "depasse": false
         },
@@ -39,12 +24,12 @@
           "depasse": false
         },
         "funding": {
-          "value": 8.1e-05,
+          "value": 8.3e-05,
           "seuil": 0.001,
           "depasse": false
         },
         "whales": {
-          "value": 1,
+          "value": 0,
           "seuil": 5,
           "depasse": false
         }
@@ -57,6 +42,21 @@
       },
       "action": "Réduire taille de 50%, sortir des positions fragiles",
       "niveau": "dangereux"
+    },
+    {
+      "signal": {
+        "metric": "liquidations",
+        "zscore": 2.6632689787021975,
+        "value": 29346373.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le z-score élevé (2.66) des liquidations couplé à un narratif médiatique extrêmement défaitiste ('Bitcoin à $10 000', 'échec à 80k$') indique un flush complet des positions fragiles. C'est le signal classique d'un 'capitulation shakeout' orchestré par les baleines pour accumuler dans l'ombre avant un retournement haussier.\"\n}\n```",
+        "ts": 1788129964.445347
+      },
+      "fiche": null,
+      "interpretation": {
+        "lecture": "Pas de fiche disponible",
+        "niveau": "inconnu"
+      },
+      "action": "Observer"
     }
   ],
   "resume": "🔴 DANGER détecté — réduire les expositions"

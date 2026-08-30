@@ -2,27 +2,6 @@
   "signals": [
     {
       "metric": "whale_usd",
-      "zscore": 3.4500538633655853,
-      "value": 3118309.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Activité de baleine détectée (z-score 3.45, ~3.1M USD), mais l'absence totale de couverture médiatique pertinente ne permet pas de confirmer un narratif directionnel fort à ce stade.\"\n}\n```",
-      "ts": "2026-08-30T01:52:08.285589+00:00"
-    },
-    {
-      "metric": "long_short",
-      "zscore": -2.3968614814231857,
-      "value": 1.148,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Z-score extrêmement bas (-2.40) indiquant une sous-exposition massive des positions long par la foule, alors que les médias grand public banalisent et discutent abstraitement des stratégies long/short. Classique piège à liquidité baissière : accumulation silencieuse des baleines contre le sentiment général.\"\n}\n```",
-      "ts": "2026-08-30T02:17:14.579474+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": 3.174416966455921,
-      "value": 69,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrême (3.17) combiné à un indice de cupidité élevé (69) sans couverture médiatique majeure (Google Actualités vide). C'est le piège typique de la distribution silencieuse par les baleines (retail FOMO tardif vs smart money qui prend ses profits).\"\n}\n```",
-      "ts": "2026-08-30T02:17:15.759032+00:00"
-    },
-    {
-      "metric": "whale_usd",
       "zscore": 3.2624577353223363,
       "value": 3020943.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (3.26) indiquant une accumulation massive et anormale de baleines (3M$+), totalement ignorée par les médias (silence radio médiatique).\"\n}\n```",
@@ -349,6 +328,27 @@
       "value": 5697877678.0,
       "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 82,\n  \"reason\": \"Anomalie de volume on-chain élevée (z-score 2.30) combinée à un pic de ventes massives sur les dérivés XRP et un volume net preneur négatif record sur Binance (-96 M). Le narratif médiatique est totalement déconnecté, noyé dans du bruit non pertinent.\"\n}\n```",
       "ts": "2026-08-30T22:10:54.780313+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 2.891511591645994,
+      "value": 28932580.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le z-score élevé (2.89) des liquidations indique un flushout brutal des positions acheteuses sur dérivés. Pendant que les médias relaient un narratif panique et ultra-baissier (objectifs à 10k$, échec des 80k$), les baleines en profitent pour accumuler discrètement aux dépens des investisseurs paniqués.\"\n}\n```",
+      "ts": "2026-08-30T22:15:57.001046+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.2944348411527784,
+      "value": 5809967022.0,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 82,\n  \"reason\": \"Anomalie de volume on-chain élevée (z-score 2.29) couplée à un pic de ventes massives sur les dérivés XRP et un volume net preneur négatif de -96M sur Binance. Les médias grand public se dispersent sur des sujets sans rapport, confirmant une distribution silencieuse des baleines dans l'indifférence générale.\"\n}\n```",
+      "ts": "2026-08-30T22:41:02.269124+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 2.6632689787021975,
+      "value": 29346373.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le z-score élevé (2.66) des liquidations couplé à un narratif médiatique extrêmement défaitiste ('Bitcoin à $10 000', 'échec à 80k$') indique un flush complet des positions fragiles. C'est le signal classique d'un 'capitulation shakeout' orchestré par les baleines pour accumuler dans l'ombre avant un retournement haussier.\"\n}\n```",
+      "ts": "2026-08-30T22:46:04.445347+00:00"
     }
   ]
 }
