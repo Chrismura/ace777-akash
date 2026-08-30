@@ -1,10 +1,11 @@
 {
-  "ts": "2026-08-30T02:09+00:00",
-  "updated": "2026-08-30T02:09Z",
+  "ts": "2026-08-30T03:09+00:00",
+  "updated": "2026-08-30T03:09Z",
   "etat": "ALERTE",
-  "chaines_ok": "14/15",
+  "chaines_ok": "13/15",
   "anomalies": [
-    "BALEINES coupée : scan file"
+    "BALEINES coupée : scan file",
+    "SAPI : sdi_latest.json figé — la pépite poussière institutionnelle ne tourne plus"
   ],
   "degradees": [],
   "chaines": [
@@ -27,12 +28,12 @@
         {
           "nom": "scan file",
           "ok": false,
-          "detail": "âge 71 min"
+          "detail": "âge 131 min"
         },
         {
           "nom": "mouvements (events)",
           "ok": true,
-          "detail": "dernier événement il y a 71 min"
+          "detail": "dernier événement il y a 131 min"
         },
         {
           "nom": "→ live.json.onchain",
@@ -42,12 +43,12 @@
         {
           "nom": "→ Ada gardienne",
           "ok": true,
-          "detail": "voilure 94.6 · zone VERT"
+          "detail": "voilure 93.2 · zone VERT"
         },
         {
           "nom": "→ Cortana feed",
           "ok": true,
-          "detail": "âge 6 min"
+          "detail": "âge 1 min"
         }
       ]
     },
@@ -65,7 +66,7 @@
         {
           "nom": "deriv_corr.json",
           "ok": true,
-          "detail": "âge 13 min"
+          "detail": "âge 12 min"
         }
       ]
     },
@@ -83,7 +84,7 @@
         {
           "nom": "CSV aspiration",
           "ok": true,
-          "detail": "ASPIRATION_CALIB_20260829_122141.csv · âge 7 min"
+          "detail": "ASPIRATION_CALIB_20260829_122141.csv · âge 2 min"
         },
         {
           "nom": "corrélation BTC",
@@ -98,7 +99,7 @@
         {
           "nom": "cortana_pilot.json",
           "ok": true,
-          "detail": "âge 1224 min"
+          "detail": "âge 1284 min"
         },
         {
           "nom": "cortana_analysis.json",
@@ -144,7 +145,7 @@
         {
           "nom": "cpfp_detect.json",
           "ok": true,
-          "detail": "âge 10 min"
+          "detail": "âge 1 min"
         },
         {
           "nom": "mode",
@@ -185,7 +186,7 @@
         {
           "nom": "geopol.ts frais",
           "ok": true,
-          "detail": "âge 0.1h"
+          "detail": "âge 0.0h"
         },
         {
           "nom": "modules OK",
@@ -333,7 +334,7 @@
         {
           "nom": "croisement_externe_etat.json",
           "ok": true,
-          "detail": "âge 2 min"
+          "detail": "âge 1 min"
         },
         {
           "nom": "fails prix (> 5 % vs externe)",
@@ -351,17 +352,17 @@
       "id": "sapi",
       "nom": "SAPI POUSSIÈRE",
       "chemin": "silent_drain_index.compute_sdi (SAPI) → sdi_latest.json → thermo_quotidien → live.json.sapi → Cortana + cockpit",
-      "ok": true,
+      "ok": false,
       "maillons": [
         {
           "nom": "sdi_latest.json (SAPI dedans)",
-          "ok": true,
-          "detail": "âge 6 min"
+          "ok": false,
+          "detail": "âge 33 min"
         },
         {
           "nom": "SAPI calculé",
           "ok": true,
-          "detail": "score 0.338"
+          "detail": "score 0.183"
         },
         {
           "nom": "alerte poussière (≥ 0.75 + volume)",
