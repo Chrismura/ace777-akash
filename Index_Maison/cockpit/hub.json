@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-30T06:13:03.769817+00:00",
+  "generated_at": "2026-08-30T07:12:40.673399+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 423
+      "calls_24h": 418
     },
     {
       "id": "openrouter-free",
@@ -71,7 +71,7 @@
       "model": "nvidia/nemotron-3-super-120b-a12b:free",
       "enabled": true,
       "timeout": 120,
-      "calls_24h": 13
+      "calls_24h": 12
     },
     {
       "id": "grok",
@@ -256,10 +256,58 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 101,
-    "remaining": 523
+    "consumed": 107,
+    "remaining": 517
   },
   "queue": [
+    {
+      "ts": "2026-08-30T06:30:11.827253+00:00",
+      "task": "cortana.analyse",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 2.32
+    },
+    {
+      "ts": "2026-08-30T06:30:09.028220+00:00",
+      "task": "cortana.analyse",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 2.63
+    },
+    {
+      "ts": "2026-08-30T06:30:05.896868+00:00",
+      "task": "cortana.analyse",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 2.19
+    },
+    {
+      "ts": "2026-08-30T06:24:45.363004+00:00",
+      "task": "analyste.strategie",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 3.03
+    },
+    {
+      "ts": "2026-08-30T06:19:09.768492+00:00",
+      "task": "analyste.strategie",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 3.09
+    },
+    {
+      "ts": "2026-08-30T06:15:27.060561+00:00",
+      "task": "analyste.strategie",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 3.47
+    },
     {
       "ts": "2026-08-30T06:13:02.657059+00:00",
       "task": "supervise.decision",
@@ -331,57 +379,45 @@
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
       "duration_s": 1.05
-    },
-    {
-      "ts": "2026-08-30T05:45:14.957697+00:00",
-      "task": "analyste.strategie",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 2.92
-    },
-    {
-      "ts": "2026-08-30T05:45:06.719065+00:00",
-      "task": "cortana.analyse",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 2.02
-    },
-    {
-      "ts": "2026-08-30T05:43:55.115452+00:00",
-      "task": "analyste.strategie",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 2.73
-    },
-    {
-      "ts": "2026-08-30T05:37:58.387902+00:00",
-      "task": "analyste.strategie",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 2.35
-    },
-    {
-      "ts": "2026-08-30T05:37:54.359033+00:00",
-      "task": "analyse.profonde",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 1.03
-    },
-    {
-      "ts": "2026-08-30T05:36:01.536698+00:00",
-      "task": "analyste.strategie",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 2.5
     }
   ],
   "events": [
+    {
+      "ts": "2026-08-30T06:30:11.826764+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
+    {
+      "ts": "2026-08-30T06:30:09.027730+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
+    {
+      "ts": "2026-08-30T06:30:05.896474+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
+    {
+      "ts": "2026-08-30T06:24:45.362600+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
+    {
+      "ts": "2026-08-30T06:19:09.768173+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
+    {
+      "ts": "2026-08-30T06:15:27.059935+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
     {
       "ts": "2026-08-30T06:13:02.656708+00:00",
       "kind": "message",
@@ -405,42 +441,6 @@
       "kind": "message",
       "title": "« OpenRouter Juge (nemotron-3-super-120b free) - verificateur independant » a repondu",
       "detail": "bascule"
-    },
-    {
-      "ts": "2026-08-30T06:12:39.140462+00:00",
-      "kind": "filet-universel",
-      "title": "[FILET UNIVERSEL] « OpenRouter Juge (nemotron-3-super-120b free) - verificateur independant » a repondu hors chaine",
-      "detail": "analyste.strategie"
-    },
-    {
-      "ts": "2026-08-30T06:11:48.291490+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis NaraRouter (7M tokens/jour gratuits)",
-      "detail": "HTTP Error 404: Not Found"
-    },
-    {
-      "ts": "2026-08-30T06:11:45.152626+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis OpenRouter (modeles gratuits)",
-      "detail": "HTTP Error 429: Too Many Requests"
-    },
-    {
-      "ts": "2026-08-30T06:11:43.354392+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis OrcaRouter (routeur gratuit, modele orcarouter/free)",
-      "detail": "HTTP Error 400: Bad Request"
-    },
-    {
-      "ts": "2026-08-30T06:11:42.268494+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis HuggingFace (136+ modeles, dont DeepSeek-V4)",
-      "detail": "HTTP Error 402: Payment Required"
-    },
-    {
-      "ts": "2026-08-30T06:11:41.533665+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis Groq (LLM ultra-rapide, gratuit)",
-      "detail": "HTTP Error 413: Payload Too Large"
     }
   ],
   "tasks_quotas": {

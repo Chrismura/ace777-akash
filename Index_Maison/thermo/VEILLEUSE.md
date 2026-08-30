@@ -1,3 +1,4 @@
-# Rapport Veilleuse — 2026-08-30T06:07:03.206737+00:00
+# Rapport Veilleuse — 2026-08-30T07:07:03.910743+00:00
 
-## État : ✅ STABLE — tout est en ordre
+## État : ⚠️ ANOMALIES DÉTECTÉES
+- **PANNE** : Données figées : Index_Maison/data/whales_scan_latest.json (âge 368 min > 360 min)
