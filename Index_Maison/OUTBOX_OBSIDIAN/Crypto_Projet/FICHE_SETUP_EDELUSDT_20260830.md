@@ -72,6 +72,44 @@ Creux réel par jour : 23h (27/08) → 21h (28/08) → 11h (29/08) → 00h (30/0
 
 ---
 
+## ⚡ SET-UP « RÉGIME » EDEL (30/08 — construit sur la découverte, en observation)
+
+**Le principe** : le moteur détecte déjà l'allumage (`impulse_now = move6 ≥ 8% ou move24 ≥ 9.6%`, régime `IMPULSE` exige pullback `dd6 ≥ ~5%`). On se cale sur CET événement, pas sur une heure.
+
+### Les 4 allumages rejoués (preuves disponibles)
+| # | Allumage UTC | Durée | Prix | Pic rafale | +30min | +60min |
+|---|---|---|---|---|---|---|
+| 1 | 27/08 23:46 | 18pts | 0.01181 | +0.51% | +0.17% | −0.25% |
+| 2 | 28/08 20:29 | 138pts | 0.01039 | +1.06% | +0.38% | **−1.64%** |
+| 3 | 29/08 15:33 | 198pts | 0.01106 | +2.08% | +0.45% | +0.63% |
+| 4 | **30/08 16:05 (EN COURS)** | 4pts | 0.01170 | — | — | — |
+
+**Lecture des 3 rafales complètes** :
+- **+30min : 3/3 UP** (moy +0.33%) → la fenêtre de sortie est dans les 30 premières minutes de la rafale.
+- **+60min : 2/3 DOWN** (moy −0.42%) → rester trop longtemps dans la rafale fait perdre le gain.
+- Pic médian de rafale ≈ **+1%** → objectif de prise de bénéfice réaliste.
+
+### Entrée (tout doit être vrai — AUCUNE fenêtre horaire)
+1. **Allumage IMPULSE détecté par le moteur** (régime = IMPULSE, pas IMPULSE_WAIT).
+2. **Pullback confirmé** : dd6 significatif (le prix est retombé sous le pic de la rafale, pas en pleine poursuite).
+3. Poussière < 15% (déclencheur standard) · mur = INFO seulement.
+4. **Exécution** : 50% à l'allumage / 50% si le prix casse le pic de rafale (confirmation).
+
+### Sortie (rapide — c'est LE point)
+- **Objectif +0.5% à +1%** (pic médian de rafale) → prendre en 1-2 fois, dans les **30 premières minutes**.
+- Stop sous le point d'allumage (si la rafale échoue, le prix retombe) — stop serré, jamais 1.5× range 15min ici (trop large pour ce jeu).
+- **Jamais de trailing long** : +60min la rafale retombe 2 fois sur 3.
+
+### Invalidation / risques
+- **n = 3 rafales complètes seulement** → set-up en OBSERVATION, à prouver par l'accumulation des allumages (le détecteur `detecter_rafales_impulse.py` les journalise à chaque fois).
+- Rafale 30/08 en cours : m6 faible (6%) → allumage naissant, ne pas le traiter comme les 3 autres tant qu'il n'a pas prouvé sa force.
+- POMPE_PIEGE (stab 9) : cohérent — rafales imprévisibles, le stop serré est obligatoire.
+
+### La preuve qui s'accumule
+`hulk-mexc/runs/rafales_impulse/EDELUSDT.md` — chaque nouvel allumage ajoute une ligne. Dans ~7 jours : si les allumages continuent de donner +30min ≥ 3/4 UP et pic ≥ +0.5%, le set-up régime est VALIDÉ pour EDEL. Sinon, on ajuste (doctrine : jamais statique).
+
+---
+
 ## ⏱️ ÉTAT ACTUEL
 - **EDELUSDT est suivie en observation** (doctrine : tous les actifs sous observation).
 - Rien n'est câblé de neuf dans Hulk : ce set-up est la **cible d'observation**, à valider
