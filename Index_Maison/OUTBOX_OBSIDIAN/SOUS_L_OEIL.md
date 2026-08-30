@@ -7,12 +7,12 @@
 | | Check | Détail |
 |---|--------|--------|
 | ✅ | Mode | VOL (auto) |
-| ✅ | Horodatage | 2026-08-30T03:07 local · 2026-08-30T01:07Z UTC |
+| ✅ | Horodatage | 2026-08-30T04:07 local · 2026-08-30T02:07Z UTC |
 | ✅ | Champion | md5 `14bcf868…` |
 | ⚠️ | ACE process | attendu si GO ACE — OFF |
 | ✅ | Hulk paper | ON |
 | ✅ | Hulk state | PAPER_V1_20260829_122141_state.json · 13 pos · pnl=-1.331585507711826 |
-| ✅ | RAM | ~2676 Mo libre |
+| ✅ | RAM | ~3924 Mo libre |
 
 ## Que faire
 
@@ -24,4 +24,4 @@
 Voir [[AUTO_PROCESSUS]] — ce pulse = couche **veille machine**, pas trading.
 
 ---
-_généré 2026-08-30T01:07Z · script `pulse_sous_loeil.sh`_
+_généré 2026-08-30T02:07Z · script `pulse_sous_loeil.sh`_
