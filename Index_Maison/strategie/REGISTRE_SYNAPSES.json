@@ -8,9 +8,9 @@
       "origine": "chantier hulk",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "47583de939573bdb9a83e285a2cca00a",
+      "md5": "eecefd7a1723c2489d0b29a944f09c98",
       "note": "FIX 27/08 : circuits breaker + fraîcheur Cortana + FILTRE LOTS MEXC (lot_filter depuis exchangeInfo, baseSizePrecision/quoteAmountPrecision, arrondi stepSize au buy ET au sell, dust close, fail-open) ",
-      "maj": "28/08 : détecteur accumulation 24h (descente≥2% + prise mur sud) + trailing — en observation"
+      "maj": "30/08 v2 : + mode OBSERVE_ONLY (paires PAPER_OBSERVE_PAIRS journalisées dans croisement_contexte.jsonl mais tout trade bloqué dans tick_pair + seed_inventory) — fix de l'erreur 30/08 (les watch étaient devenues tradables via PAPER_PAIRS)"
     },
     {
       "nom": "hulk-mexc/scripts/ace_sense_mexc.py",
@@ -203,9 +203,9 @@
       "origine": "chantier hulk",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "47638f4d4cabf37ea81811bcea5de5f9",
+      "md5": "116af5bf011fc0f7b9d190e6b28cae69",
       "note": "déclaré manuel 2026-08-28T18:30Z",
-      "maj": "30/08 : bascule des 4 watch (QNT/FLUID/RWA/MNSRY) dans PAPER_PAIRS+EXTRA — la watch ne capturait RIEN (0 point sur 100 digests). Moteur relancé 09:49Z, 4 paires journalisées en continu dans croisement_contexte.jsonl (preuve 09:55Z)"
+      "maj": "30/08 v2 (CORRECTION) : les 4 watch (QNT/FLUID/RWA/MNSRY) restaient tradables via PAPER_PAIRS → ERREUR. v2 : elles restent en rotation (données dans croisement_contexte.jsonl) MAIS bloquées en PAPER_OBSERVE_PAIRS (journalisées, jamais tradées). Position parasite FLUID (créée par v1 buggé 09:54Z) retirée proprement du state (10:18, capital restitué)."
     },
     {
       "nom": "hulk-mexc/strategie/cortana_pilot.json",
