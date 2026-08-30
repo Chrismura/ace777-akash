@@ -31,34 +31,23 @@ plutôt qu'en creux** — c'est le point de prudence du moment, pas un point d'a
 
 ---
 
-## 🔗 RED vs BTC vs ETH — le pattern de dé-corrélation (découverte 30/08)
+## 🔗 RED vs BTC/ETH — mesure et CORRECTION (30/08, avis Cortana)
 
-**Corrélations horaires (prix, 3 jours) : RED~BTC = +0.07 · RED~ETH = −0.01 · BTC~ETH = +0.98**
-→ RED est quasi **DÉ-CORRÉLÉ** de BTC/ETH (qui, eux, bougent ensemble à 0.98). Pour le
-portefeuille, RED = un actif « d'un autre marché » : bonne dose de diversification.
+**Mesure (3 jours) :** corr horaire RED~BTC = +0.07 · RED~ETH = −0.01 · BTC~ETH = +0.98.
+Par phase : MATIN 08-13h RED~BTC = −0.85 (inverse) · CREUX 14-17h ≈ 0 (solo) · NUIT +0.60.
+Niveaux relatifs (100=base) : CREUX RED 98.0 vs BTC 99.7 → RED plonge pendant que le marché reste stable.
 
-**Par phase :**
-| Phase | RED~BTC | RED~ETH | Lecture |
-|---|---|---|---|
-| MATIN 08-13h | **−0.85** | **−0.89** | ❗ **INVERSEMENT corrélé** : quand BTC monte le matin, RED baisse (et vice-versa) |
-| CREUX 14-17h | +0.10 | −0.01 | Dé-corrélé : le creux de RED se fait **en solo** |
-| NUIT 21-05h | +0.60 | +0.59 | RED suit moyennement le rebond général de nuit |
+**⚠️ Correction après avis Cortana (30/08) : cette dé-corrélation est un ARTEFACT de liquidité
+fine, pas une force de l'actif.** Sur une micro-cap 45 M$, des corrélations qui sautent d'un
+jour à l'autre (POMPE-PIÈGE → LEADER → NEUTRE en 48h) = bruit de carnet d'ordres (rotations de
+MM, arbitrages de bots), pas une décorrélation fondamentale.
 
-**Niveau relatif moyen (100 = base) :**
-```
-           RED    BTC    ETH
-MATIN     100.5   99.9   99.9     <- RED fort quand BTC/ETH plats
-CREUX      98.0   99.7   99.9     <- RED plonge EN SOLO, marche stable
-SOIR       98.2   99.3   99.3
-NUIT      100.5  100.1  100.0     <- RED remonte, marche aussi
-```
-
-**Conséquence pour le set-up :**
-1. ✅ **Le creux 15-16h de RED est indépendant du marché** (BTC/ETH restent stables). Le set-up
-   tient même si le panier vacille peu → vraie diversification.
-2. ⚠️ **Attention au matin (08-13h) : RED est inversement corrélé à BTC.** Une position RED en
-   ce moment peut compenser OU s'opposer au reste du portefeuille — à connaître pour ne pas
-   lire un faux signal (un repli BTC ne tire pas forcément RED vers le bas le matin).
+**Règle qui en découle (endogénéité) :**
+1. Le set-up RED est **STRICTEMENT ENDOGÈNE** : carnet MEXC + mur bid 45K + poussière.
+2. **Aucune entrée ne sera déclenchée ni bloquée par le mouvement de BTC/ETH.** Le ratio
+   vs BTC/ETH n'est PAS un filtre d'entrée (faux signaux garantis le matin).
+3. La diversification réelle vient du fait que RED a son propre cycle horaire — pas d'une
+   « maturité » d'actif. À utiliser en connaissance de cause.
 
 ---
 
@@ -74,7 +63,10 @@ nuit 01-05h** — mais SEULEMENT quand la microstructure confirme (jamais à l'h
    pas de panique) ET le **mur bid 45K$ est testé et tient** (le MM absorbe sans fuir).
 3. **Garde-fou volatilité** : bloquer l'entrée si le **volume 15 min > 3× la moyenne 24h**
    (signal de panique, pas un creux sain).
-4. **Exécution fragmentée** : entrer en **3 tranches** (−1%, −2%, −3%) sous le prix médian
+4. **FPOB (filtre Cortana, phase réelle)** : mesurer le ratio **Volume Bid/Ask ±2% du mid**
+   entre 13h-14h UTC — **interdiction d'entrer si ratio < 1.2** (le mur 45K est grignoté par
+   les vendeurs = couteau qui tombe).
+5. **Exécution fragmentée** : entrer en **3 tranches** (−1%, −2%, −3%) sous le prix médian
    de la fenêtre ; stop dur dynamique = **1,5× le range de la bougie 15 min**.
 
 ### Le cadre de sortie
