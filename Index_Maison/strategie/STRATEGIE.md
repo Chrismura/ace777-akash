@@ -1,31 +1,32 @@
-# STRATEGIE — 2026-08-30T16:04:49.849436Z
+# STRATEGIE — 2026-08-30T16:13:54.184151Z
 
-## COURT TERME — 2026-08-30T16:04:49.849436Z
+## COURT TERME — 2026-08-30T16:13:54.184151Z
 
-[UNDERSTAND] La maison ACE777 maintient son alerte ambre avec un PnL combiné positif de +1,27 $, porté par la discipline d'embuscade d'Alpha, l'éclairage tactique de Beta et la surveillance active des positions seeds de Hulk.
+[UNDERSTAND] La maison ACE777 maintient son alerte ambre avec un PnL combiné positif de +1,27 $ (combo +1,2674), porté par la discipline d'embuscade d'Alpha (+2,01 $ sur 10 fills, 249 skips), l'éclairage tactique de Beta (-0,74 $ sur 15 sondes) et une activité baleines haussière notable (15 blocs, 87344 BTC) dans un contexte Bitcoin season avec Fear & Greed à 69.
 
 [ANALYZE]
-- Tendance : Accumulation prudente dans un contexte de Bitcoin season (score 41) sous un climat de cupidité modérée (Fear & Greed à 69).
-- Momentum : Alpha maintient une stricte discipline d'embuscade (249 skips, +2,01 $ sur 10 fills), Beta assure l'éclairage tactique (257 skips, 15 sondes), et Hulk pilote son portefeuille sous surveillance resserrée.
-- Risque : Exposition maintenue sur les positions seeds de Hulk exigeant l'application rigoureuse des stop-loss en cas d'infraction sous le seuil critique de -5 %, malgré la résilience globale du PnL combiné.
-- Contexte : Flux ETF BTC négatifs (-294,96 M$), activité baleines haussière et bruit macroéconomique persistant lié à la Fed.
+- **Tendance** : Bitcoin season (score 41) + cupidité modérée (F&G 69), flux ETF BTC négatifs (-295,1 M$) mais accumulation onchain soutenue (indice 61,7/100 — activité anormale type OTC/CPFP). BTC spot à 78 885 $, ETH à 2 492 $.
+- **Momentum** : Alpha en embuscade disciplinée (249 skips), prêt à frapper en x13 sur cassure ; Beta éclaireur actif (257 skips) avec 15 sondes récentes dont 9 longues ; signal radar immédiat sur ETHUSDT (declenche=oui, volume x3) et sur BTCUSDT (alerte prix 78 898 → 79 079, +0,23 % sur volume x3).
+- **Risque** : Positions seeds Hulk en tension — CHIPUSDT à -5,063 % (sous le seuil critique -5 %), RWAINCUSDT en statique à -17,34 %, HBARUSDT statique -5,76 %, CCUSDT -4,27 %. PnL Hulk global à -1,86 $ même si ACE combiné positif.
+- **Contexte** : Pression vendeuse ETF mais accumulation baleines ; microstructure radar montrant des déclencheurs techniques sur ETHUSDT (2 492,39/2 492,40, volume 770) et BTCUSDT (78 885, volume x5,3).
 
 [STRATEGIZE]
-1. Approche conservatrice : Maintenir l'alerte ambre, préserver la discipline d'embuscade d'Alpha, appliquer strictement les stop-loss sur les positions seeds de Hulk en infraction sous -5 %, et capitaliser sur les flux d'intel de Beta.
-2. Approche opportuniste : Engager Alpha sur les signaux de volume majeurs identifiés par Beta avec un sizing réduit, tout en coupant sans délai les positions seeds en perte critique sous -5 %.
-3. Approche défensive : Réduire l'exposition globale, liquider toutes les positions seeds de Hulk en infraction critique, et placer Alpha en pause défensive en attendant une cassure nette de marché.
+1. **Conservateur** : Maintenir alerte ambre, préserver embuscade Alpha, exécuter stop-loss sur CHIPUSDT (sous -5 %) et resserrer la surveillance sur CCUSDT/RWAINC, capitaliser sur l'intel Beta.
+2. **Opportuniste** : Engager Alpha en sizing réduit sur les deux signaux radar simultanés (BTCUSDT +0,23 % sur volume x3 ET ETHUSDT declenche=oui) avec confirmation technique rapide, tout en coupant CHIPUSDT.
+3. **Défensif** : Liquider toutes les seeds Hulk en infraction critique, placer Alpha en pause, attendre confirmation onchain (indice 61,7 + activité baleines haussière = signal mixte).
 
 [EXECUTE]
-- Verdict : Maintenir l'alerte ambre, préserver la stricte discipline d'embuscade d'Alpha, appliquer rigoureusement les stop-loss sur les positions seeds de Hulk en infraction critique sous -5 % et capitaliser sur l'éclairage tactique de Beta.
-- Confiance : 87%
-- Hypothèses clés :
-  1. Les signaux de volume transmis par Beta constituent un éclairage de reconnaissance et non un ordre d'engagement sans confirmation technique.
-  2. Les positions seeds de Hulk en infraction sous le seuil critique de -5 % doivent être coupées immédiatement pour respecter les garde-fous de risque.
-  3. Alpha conserve sa sélectivité en attendant une cassure franche du carnet pour valider une frappe.
-- Ce qui changerait la réponse : Une cassure franche des volumes sur les actifs majeurs avec confirmation technique entraînant l'engagement immédiat d'Alpha en mode embuscade x13.
-- Alternative si confiance < 80% : Couper immédiatement toutes les positions seeds Hulk sous le seuil critique de -5 % et placer Alpha en pause défensive en attendant un signal directionnel validé.
-- Prédictions vérifiables :
+- **Verdict** : Maintenir l'alerte ambre ; couper immédiatement CHIPUSDT en application du stop-loss critique ; préserver la stricte discipline d'embuscade d'Alpha ; autoriser une frappe tactique en sizing réduit sur le signal ETHUSDT (volume x3, declenche=oui) UNIQUEMENT après confirmation technique sur 1-2 ticks ; resserrer la surveillance sur CCUSDT (proche -5 %) et RWAINCUSDT.
+- **Confiance** : 84%
+- **Hypothèses clés** :
+  1. Le double signal radar (BTCUSDT volume x3 + ETHUSDT declenche=oui) constitue une opportunité d'embuscade légitime en sizing réduit, mais la confirmation technique prime sur l'engagement immédiat.
+  2. CHIPUSDT à -5,063 % a franchi le seuil critique et doit être coupé sans délai selon les garde-fous établis.
+  3. L'activité baleines haussière (87 344 BTC) contrebalance les flux ETF négatifs, justifiant une posture d'attente vigilante plutôt qu'un retrait complet.
+- **Ce qui changerait la réponse** : Une cassure franche au-dessus de 79 200 $ sur BTCUSDT avec volume x5+ soutenu déclencherait l'engagement immédiat d'Alpha en mode embuscade x13 pleine taille.
+- **Alternative si confiance < 80%** : Couper toutes les seeds Hulk en infraction (CHIPUSDT, RWAINCUSDT, CCUSDT) et placer Alpha en pause défensive jusqu'à confirmation directionnelle claire.
+- **Prédictions vérifiables** :
   [2026-08-31] ETHUSDT >= 2400.0000
+  [2026-08-31] BTCUSDT >= 79500.0000
 
 
 ## TENDANCE — 2026-08-11T23:48:41.075042Z
