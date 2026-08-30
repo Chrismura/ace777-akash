@@ -43,3 +43,21 @@
 
 ## 📌 LEÇON GRAVÉE
 **Un ticker sur MEXC ne veut pas dire que le projet existe.** La famille a appliqué la règle du « grand tuner de luxe ne lance jamais ses actifs via des bonding curves pump.fun » — logique implacable. Toute marque réelle + token non confirmé officiellement = usurpation jusqu'à preuve du contraire.
+
+---
+
+## ❌ CORRECTION (30/08, vérification 2 sources Buffy) — VERDICT FAMILLE FAUX
+**La famille s'est trompée : MANSORY est UNE marque officielle, PAS une usurpation.**
+
+**Preuves vérifiées :**
+- **Annonce officielle** du compte X vérifié `@MANSORYofficial` (19/03/2025) du listing MEXC avec le MÊME contrat tradé `1xdtu7y3LkkrVCAbm5KGKfYzq1qgKhxxk5AaJBqpump`.
+- **Partenariats officiels** : Fetch.ai/ASI-1 Mini (intégration IA dans l'automobile de luxe, 04/2025), LUKSO + Foundation for New Creative Economies, MERC x Base.
+- CoinGecko / Coinbase / Kraken : « *official token of the Mansory car manufacturer* ».
+
+**Nuances honnêtes conservées de la famille :**
+- Le CA finit par `...pump` → c'est un **fair launch pump.fun Solana**, pas un ICO corporate classique — volatilité et risque de liquidité réels, à traiter prudemment.
+- Mais « launching sur pump.fun » ≠ « usurpation » : c'est le choix Web3 de la marque elle-même.
+
+**Erreur de la famille :** avoir conclu « usurpation » en vérifiant seulement `mansory.com` (silencieux) et le label pump.fun, sans chercher l'annonce officielle du compte vérifié. **Biais : IA qui juge sans données complètes et conclut au pire — le même qu'EDEL/CHIP.** La connaissance directe de l'utilisateur a battu le doute de la famille.
+
+**Décision corrigée :** MNSRY reste en observation (cross PRIX SEUL), mais SANS la fausse accusation d'usurpation. Ne pas agrandir la seed sans conviction, attitude prudente sur un jeton pump.fun à liquidité modérée.

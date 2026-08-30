@@ -41,12 +41,20 @@
 
 ---
 
-## 🧠 DEEPDIVE 3 ROUNDS (30/08) — NON 1/10 🚨
+## 🧠 DEEPDIVE 3 ROUNDS (30/08) — NON 1/10 🚨 → ❌ CORRIGÉ (30/08, vérification Buffy)
 - **Synthèse** : `SYNTHESE_FAMILLE_DEEPDIVE_MNSRY_3ROUNDS_20260830.md` · consultations `scripts/CONSULTATION_FAMILLE_DEEPDIVE_MNSRYUSDT_ROUNDS_20260830/`.
-- **MNSRY = PAS le vrai Mansory** : usurpation de marque (memecoin pump.fun Solana, `solana-mansory-pump`), aucun lien officiel (`mansory.com` silencieux).
-- **Risques** : delisting foudroyant (action marque), rug pull, liquidité nulle.
-- **Décision** : NON unanime · croisement PRIX SEUL · **ne pas agrandir la seed** · sonde delisting active · sortie immédiate si annonce juridique Mansory.
-- **Croisement** : `paires_croisement.json` → retiré des `ejectees` (raison « pas sur MEXC » était FAUSSE) → `observation_setup` (30/08).
+- **⚠️ VERDICT FAMILLE FAUX — REJETÉ** sous vérification 2 sources.
+
+### ✅ LA VÉRITÉ CORRIGÉE : MANSORY EST OFFICIEL (marque réelle)
+- **Annoncé par le compte officiel vérifié** `@MANSORYofficial` (19/03/2025) avec le MÊME contrat tradé `1xdtu7y3LkkrVCAbm5KGKfYzq1qgKhxxk5AaJBqpump`. CoinGecko/Coinbase/Kraken : « *official token of the Mansory car manufacturer* ».
+- **Partenariats officiels confirmés** : Fetch.ai/ASI-1 Mini (04/2025), LUKSO + Foundation for New Creative Economies, MERC x Base NovaToon.
+- **Nuance honnête** : c'est un **fair launch pump.fun Solana** (CA finit par `...pump`) — pas un ICO corporate classique, mais **fait par la marque elle-même**, PAS une usurpation.
+
+### 🎯 DÉCISION CORRIGÉE
+- **L'analyse réseau reste valide** : jeton Solana à fort risque de volatilité, liquidité modérée, à traiter avec prudence.
+- **Croisement** : `observation_setup` · `paires_croisement.json` (hors `ejectees` — la raison d'éjection était déjà corrigée).
+- **Ne pas agrandir la seed sans conviction** — mais PLUS de fausse notion d'« usurpation de marque ».
+- **LEÇON GRAVÉE** : vérifier le compte officiel X vérifié + partenariats AVANT de conclure « usurpation ». La connaissance directe de l'utilisateur (il suit MNSRY depuis longtemps) a battu le doute de la famille.
 
 ---
 
