@@ -693,7 +693,24 @@ def load_hulk():
     for _p in out.get("portfolio") or []:
         if _p.get("pair") and _p.get("mark") is not None:
             mark_by_pair[_p["pair"]] = float(_p["mark"])
-    _all_pairs = set(seed_qty.keys()) | set(pos_all.keys())
+    # 30/08 (fix Christophe : « je n'ai pas les nouvelles entrées sur le tableau ») :
+    # le tableau ne listait que les paires seedées/possessionnées → les paires
+    # OBSERVE (QNT/FLUID/RWA/MNSRY, ni seed ni position par construction) étaient
+    # INVISIBLES et QAIT (delisted 29/08) traînait encore en résidu du CSV.
+    # On construit depuis l'UNIVERS actuel du state (16 tradées + 4 observe) :
+    # les observe apparaissent en ligne neutre (budget = marge 20$, jamais
+    # tradée, écart 0 → ne fausse pas le score) et QAIT disparaît (plus dans
+    # l'univers → plus compté, cohérent avec son delisting).
+    if state and state.exists():
+        _all_pairs = set(universe)
+    else:
+        _all_pairs = set(seed_qty.keys()) | set(pos_all.keys())
+    # Paires OBSERVE-ONLY (ni seed ni position) : le CSV peut contenir des
+    # LIGNES RÉSIDUELLES (ex : FLUID a un BUY parasite du moteur v1 du 30/08
+    # 09:54Z, annulé à 0 PnL ensuite). Rejouer ces lignes débiterait le cash
+    # de la paire → écart faux (−19,55$). Pour une observe, le budget reste
+    # intact : cash 20$ des deux côtés, écart 0. On les exclut donc du rejeu.
+    _observe_pairs = _all_pairs - set(seed_qty.keys()) - set(pos_all.keys())
     # rejeu par paire : cash initial = budget (seed + marge)
     cash_par_paire: dict[str, float] = {}
     nadir_par_paire: dict[str, float] = {}
@@ -712,7 +729,7 @@ def load_hulk():
         with csv_p.open(newline="", encoding="utf-8", errors="ignore") as f:
             for row in csv.DictReader(f):
                 _pair = row.get("pair") or ""
-                if _pair not in cash_par_paire:
+                if _pair not in cash_par_paire or _pair in _observe_pairs:
                     continue
                 _ev = (row.get("event") or "").upper()
                 if _ev not in ("BUY", "DCA") and not _ev.startswith(("SELL", "STOP", "BAG")):
