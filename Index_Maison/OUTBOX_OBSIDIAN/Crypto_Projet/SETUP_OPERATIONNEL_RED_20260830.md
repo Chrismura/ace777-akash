@@ -31,6 +31,37 @@ plutôt qu'en creux** — c'est le point de prudence du moment, pas un point d'a
 
 ---
 
+## 🔗 RED vs BTC vs ETH — le pattern de dé-corrélation (découverte 30/08)
+
+**Corrélations horaires (prix, 3 jours) : RED~BTC = +0.07 · RED~ETH = −0.01 · BTC~ETH = +0.98**
+→ RED est quasi **DÉ-CORRÉLÉ** de BTC/ETH (qui, eux, bougent ensemble à 0.98). Pour le
+portefeuille, RED = un actif « d'un autre marché » : bonne dose de diversification.
+
+**Par phase :**
+| Phase | RED~BTC | RED~ETH | Lecture |
+|---|---|---|---|
+| MATIN 08-13h | **−0.85** | **−0.89** | ❗ **INVERSEMENT corrélé** : quand BTC monte le matin, RED baisse (et vice-versa) |
+| CREUX 14-17h | +0.10 | −0.01 | Dé-corrélé : le creux de RED se fait **en solo** |
+| NUIT 21-05h | +0.60 | +0.59 | RED suit moyennement le rebond général de nuit |
+
+**Niveau relatif moyen (100 = base) :**
+```
+           RED    BTC    ETH
+MATIN     100.5   99.9   99.9     <- RED fort quand BTC/ETH plats
+CREUX      98.0   99.7   99.9     <- RED plonge EN SOLO, marche stable
+SOIR       98.2   99.3   99.3
+NUIT      100.5  100.1  100.0     <- RED remonte, marche aussi
+```
+
+**Conséquence pour le set-up :**
+1. ✅ **Le creux 15-16h de RED est indépendant du marché** (BTC/ETH restent stables). Le set-up
+   tient même si le panier vacille peu → vraie diversification.
+2. ⚠️ **Attention au matin (08-13h) : RED est inversement corrélé à BTC.** Une position RED en
+   ce moment peut compenser OU s'opposer au reste du portefeuille — à connaître pour ne pas
+   lire un faux signal (un repli BTC ne tire pas forcément RED vers le bas le matin).
+
+---
+
 ## 🧭 LA LOGIQUE DU SET-UP (règle famille)
 
 ### Objectif
