@@ -204,3 +204,24 @@ nettoyée. Obsidian-git commitera le vault.
 **Résultat** : les agents pourront append leur activité du jour via
 `obsidian daily:append` (ou le pont) → journal central chronologique, lisible en
 un bloc par les LLM.
+
+## 31/08 — Consultation famille Base Portefeuille (règle : famille puis validation)
+
+**Règle Christophe** : « pour ce set up, toujours utiliser la famille et ensuite
+on valide ». Soumis à la famille (3/3 : gemini, juge, deepseek) la conception de
+la base Portefeuille Obsidian.
+
+**Convergence 3/3** : colonnes minimales utiles (actif, statut, bag_hulk, setup,
+derniere_maj, tags) ; PAS de PnL temps réel dans le frontmatter (piège mortel :
+git pourri, sync conflicts) — le PnL vit dans le cockpit/JSON, la fiche = ref
+stratégique ; UNE seule base Portefeuille.base avec vues Table + Kanban ; signets
+X exclus.
+
+**Divergence** : rétrofit des 60 fiches existantes sans frontmatter (juge : oui,
+sinon base vide ; deepseek : non, day zero ; gemini : oui propre). Arbitrage
+Buffy : injection minimale rapide (type/statut/date) pour une base utile dès le
+jour 1, sans sur-ingénierie.
+
+**Plan proposé** (à valider par Christophe) : 1) enrichir template actif du
+gatekeeper (bag_hulk, setup, derniere_maj) 2) injection minimale 60 fiches
+3) créer Portefeuille.base 4) snapshot PnL quotidien plus tard.
