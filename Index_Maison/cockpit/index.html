@@ -4,7 +4,7 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<meta name="version" content="1788164170">
+<meta name="version" content="1788165359">
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate" />
@@ -13,13 +13,13 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Share+Tech+Mono&family=Caveat:wght@600;700&display=swap" rel="stylesheet" />
-<script src="mission.js?v=1788164170"></script>
+<script src="mission.js?v=1788165359"></script>
 <!-- COSMOS HUB feed -->
-<script src="hub.js?v=1788164170"></script>
-<script src="../thermo/live.js?v=1788164170"></script>
-<script src="../thermo/cortana_feed.js?v=1788164170"></script>
-<script src="sante_live.js?v=1788164170"></script>
-<script src="veille_institutionnelle.js?v=1788164170"></script>
+<script src="hub.js?v=1788165359"></script>
+<script src="../thermo/live.js?v=1788165359"></script>
+<script src="../thermo/cortana_feed.js?v=1788165359"></script>
+<script src="sante_live.js?v=1788165359"></script>
+<script src="veille_institutionnelle.js?v=1788165359"></script>
 <style>
 :root{
   --ink:#050804; --panel:#0a100c; --line:#3a2e14;
@@ -1796,6 +1796,25 @@ window.addEventListener('unhandledrejection', function(e) {
       }
     });
   });
+
+  // RÉTABLIR ONGLET + SCROLL après un rechargement auto (31/08, GO Christophe) :
+  // l'auto-éjection (reload quand la version du cockpit change) ramenait
+  // toujours en haut / 1er onglet. On sauvegarde avant reload et on restaure ici.
+  try {
+    const resto=JSON.parse(sessionStorage.getItem('cockpit_ui')||'null');
+    if(resto && resto.tab){
+      const cible=document.querySelector('.tab[data-tab="'+resto.tab+'"]');
+      if(cible){ cible.click(); }
+      if(resto.y>=0){ window.scrollTo(0, resto.y); }
+    }
+    // ne ré-applique qu'une fois après un vrai rechargement de la page
+    if(performance && performance.getEntriesByType &&
+       performance.getEntriesByType('navigation')[0] &&
+       performance.getEntriesByType('navigation')[0].type==='reload'){
+      // scroll déjà restauré via resto.y (même sans onglet sauvé)
+      if(!resto || resto.y==null){ if(location.hash) document.documentElement.scrollTop=0; }
+    }
+  }catch(e){}
 
   function arrow(a){
     if(a==='up') return '<span class="arr up">↑</span>';
@@ -3961,6 +3980,15 @@ window.addEventListener('unhandledrejection', function(e) {
         const m=/name="version"\s+content="([0-9]+)"/.exec(t);
         if(m && m[1]!==__myVersion){
           console.log('[version] nouveau cockpit '+__myVersion+'→'+m[1]+' — rechargement');
+          // sauvegarde onglet actif + position de scroll avant rechargement
+          try {
+            const actif=document.querySelector('.tab.on');
+            sessionStorage.setItem('cockpit_ui', JSON.stringify({
+              tab: actif ? actif.dataset.tab : null,
+              y: window.scrollY,
+              ts: Date.now()
+            }));
+          }catch(e){}
           location.reload();
         }
       }catch(e){}

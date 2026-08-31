@@ -17,3 +17,9 @@ Christophe a creusé le score de justesse de Cortana qui descendait (50.0%). Aud
 - **Cockpit** : carte JUSTESSE affiche désormais le taux NEUTRE-avec-signal + alarme rouge si fuite + règle zone morte.
 - **Prompt Cortana** (cortana_analyse.py) : consigne gravée — zone morte = non noté (décidé par la donnée), pas de refuge, compteur anti-fuite actif.
 - **Leçon (encore)**: quand un score descend, creuser l'INDICE pas seulement la chaîne. Un indice collé à sa valeur neutre depuis des semaines aurait dû être détecté avant. C'est Christophe qui l'a trouvé.
+
+## 31/08 — AUDIT INDICES + FIX RAPPELS VOCAUX + COCKPIT ONGLET (GO Christophe)
+1. **AUDIT muet-silence autres indices** : funding = SEUL indice muet (97% sur une valeur, déjà corrigé). Les autres sont sains (oi, longShort, score, chg24, takerRatio, topTraderLS, liq, etfBtcM varient). fearGreed se répète car métrique journalière (62 aujourd'hui) = NORMAL, pas un bug.
+2. **POUSSIÈRE à 50 SANS VOIX** : diagnostiqué — l'alerte poussiere_cpfp a bien sonné (journal 08:22Z, score 50 + CPFP), mais le fichier **STOP_ALERTE global (créé 10:31) a coupé la boucle vocale**. Score actuel redescendu à 10 (< seuil 45) → plus de déclenchement. veille_signal est bien planifiée (launchd). NON un bug de déclenchement : c'est le STOP_ALERTE.
+3. **FIX RAPPELS VOCAUX (alerte_vocale.py)** : la boucle répétait le même message toutes les 30s SANS différencier. Désormais : lecture initiale = l'alarme ; chaque répétition = précédée de "Rappels. " → on sait que c'est la MÊME alerte qui se répète, pas un nouvel événement.
+4. **FIX COCKPIT ONGLET (index.html)** : le reload auto (quand la version du cockpit change) ramenait toujours au 1er onglet (OPS) et en haut. Désormais on sauvegarde onglet actif + scrollY avant reload, et on les restaure au chargement. Vérifié syntaxe JS (node).

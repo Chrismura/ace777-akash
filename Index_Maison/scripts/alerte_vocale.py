@@ -123,6 +123,11 @@ def main():
     print(f"🔊 Alerte vocale en boucle (id {args.id}). "
           "Arrêt : touch STOP_ALERTE ou arret_alerte.", file=sys.stderr)
 
+    # DISTINCTION ALARME vs RAPPEL (31/08, GO Christophe) : la 1re lecture est
+    # l'alarme ; chaque répétition suivante (toutes les 30s) est PRÉCÉDÉE de
+    # "Rappels. " pour qu'on sache que c'est la MÊME alerte qui se répète,
+    # pas un nouvel événement. Plus de confusion "est-ce nouveau ?".
+    iteration = 0
     while True:
         if verifier_arret(args.id):
             try:
@@ -133,7 +138,12 @@ def main():
             print(f"Arrêt de l'alerte vocale {args.id}.", file=sys.stderr)
             sys.exit(0)
 
-        parler(args.message)
+        if iteration == 0:
+            texte = args.message
+        else:
+            texte = f"Rappels. {args.message}"
+        parler(texte)
+        iteration += 1
 
         # Pause découpée en tranches pour réagir vite à l'arrêt
         for _ in range(INTERVALLE_SEC // PAUSE_SEC):
