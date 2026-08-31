@@ -182,3 +182,25 @@ le gatekeeper proprement.
 **Testé en réel** : 6/6 (SUCCESS valide, REJECTED statut invalide / type inconnu /
 prop manquante, brut rétrocompatible, détection type via write_note), body brut
 vérifié ([[lien]] non échappé), vault nettoyé.
+
+## 31/08 — Daily notes activées dans Obsidian (priorité famille)
+
+**Demande Christophe** : « active dayli ». La famille (3/3) avait identifié les
+daily notes comme « the single highest-value automation » et priorité ROI max.
+
+**Fait** (via la CLI officielle, l'app tourne) :
+- Plugin core daily-notes activé (plugin:enable) ✅
+- Plugin core templates activé ✅
+- Dossier Templates/ créé + Template_Journal.md (frontmatter type: journal
+  conforme au gatekeeper + sections : Événements / Veille / Décisions / Notes)
+- .obsidian/daily-notes.json : dossier Cahier/, format YYYY-MM-DD,
+  template Templates/Template_Journal.md
+- .obsidian/templates.json : dossier Templates/
+
+**Vérifié en réel** : daily:path → Cahier/2026-08-31.md (bon dossier), la note du
+jour créée avec le template appliqué, daily:append fonctionne, ligne de test
+nettoyée. Obsidian-git commitera le vault.
+
+**Résultat** : les agents pourront append leur activité du jour via
+`obsidian daily:append` (ou le pont) → journal central chronologique, lisible en
+un bloc par les LLM.
