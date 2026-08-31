@@ -2894,3 +2894,11 @@
 - 2026-08-31T07:32:26.827191Z | alerte | Maintenir l'alerte ambre, préserver la discipline d'embuscade d'Alpha et exécuter rigoureusement les stop-loss sur les positions seeds de Hulk en zone critique. | conf=87%
 - 2026-08-31T08:02:27.258120Z | alerte | Maintenir l'alerte ambre, préserver la discipline d'embuscade d'Alpha et exécuter rigoureusement les stop-loss sur les positions seeds de Hulk en zone critique. | conf=87%
 - 2026-08-31T08:04:34.210630Z | alerte | Maintenir l'alerte ambre, préserver la discipline d'embuscade d'Alpha et exécuter rigoureusement les stop-loss sur les positions seeds de Hulk en zone critique. | conf=87%
+- 2026-08-31T08:25:45.372693Z | alerte | Maintenir l'alerte ambre, préserver la discipline d'embuscade d'Alpha et exécuter rigoureusement les stop-loss sur les positions seeds de Hulk en zone critique. | conf=87%
+- 2026-08-31T08:32:40.584394Z | alerte | Maintenir l'alerte ambre, préserver la discipline d'embuscade d'Alpha et exécuter rigoureusement les stop-loss sur les positions seeds de Hulk en zone critique. | conf=87%
+- 2026-08-31T08:37:57.752258Z | alerte | Maintenir l'alerte ambre, préserver la discipline d'embuscade d'Alpha et exécuter rigoureusement les stop-loss sur les positions seeds de Hulk en zone critique. | conf=87%
+- 2026-08-31T08:42:51.764061Z | alerte | Maintenir l'alerte ambre, préserver la discipline d'embuscade d'Alpha et exécuter rigoureusement les stop-loss sur les positions seeds de Hulk en zone critique. | conf=87%
+- 2026-08-31T08:43:52.153959Z | alerte | ? | conf=?
+- 2026-08-31T08:57:15.129771Z | alerte | Maintenir l'alerte ambre, préserver la discipline d'embuscade d'Alpha, exploiter l'éclairage de Beta et appliquer sans délai les stop-loss sur les positions seeds de Hulk en infraction critique. | conf=87%
+- 2026-08-31T09:02:33.702144Z | alerte | Maintenir l'alerte ambre, préserver la discipline d'embuscade d'Alpha, exploiter l'éclairage de Beta et appliquer sans délai les stop-loss sur les positions seeds de Hulk en infraction critique. | conf=87%
+- 2026-08-31T09:09:18.384874Z | alerte | Maintenir l'alerte ambre, préserver la discipline d'embuscade d'Alpha, exploiter l'éclairage de Beta et appliquer rigoureusement les stop-loss sur les positions seeds de Hulk en infraction critique. | conf=87%
