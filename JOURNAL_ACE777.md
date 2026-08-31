@@ -247,3 +247,14 @@ vault (25 fichiers modifiés).
 
 **Règle respectée** : famille consultée (3/3) → synthèse → arbitrage Buffy →
 validation Christophe → implémentation.
+
+## 31/08 — Obsidian chantiers A→H (fin, pendant absence Christophe)
+- H: skills kepano installés (4) dans .agents/skills/
+- C: Veille.base + Signets.base créées (3 bases actives avec Portefeuille.base)
+- D: templates factif/synthèse/veille créés (alignés gatekeeper)
+- E: journal_day() agents + DLO (dead letter office) dans le pont — deadlock lock corrigé
+- F: wikilinks Day Zero via gatekeeper (champ wikilink_to, section Liens auto)
+- G: Carte_Macro_ACE777.canvas (23 nœuds, 15 arêtes, clusters actifs/évts/institutions/signaux/IA)
+- A'+B: obsidian_writer.py — watcher global OUTBOX→pont (idempotent, fichiers protégés, mapping dossier→type, archive _traites) + launchd com.ace777.obsidian-writer (scan 24h/5min)
+- Consommation OUTBOX: 313 fichiers archivés (tous déjà dans le vault), 18 orphelins récupérés
+- Alarmes Cortana au départ: climat calme (score 85), rien d'urgent

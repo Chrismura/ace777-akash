@@ -1,27 +1,6 @@
 {
   "signals": [
     {
-      "metric": "volume",
-      "zscore": 2.3011260695559974,
-      "value": 5697877678.0,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 82,\n  \"reason\": \"Anomalie de volume on-chain élevée (z-score 2.30) combinée à un pic de ventes massives sur les dérivés XRP et un volume net preneur négatif record sur Binance (-96 M). Le narratif médiatique est totalement déconnecté, noyé dans du bruit non pertinent.\"\n}\n```",
-      "ts": "2026-08-30T22:10:54.780313+00:00"
-    },
-    {
-      "metric": "liquidations",
-      "zscore": 2.891511591645994,
-      "value": 28932580.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le z-score élevé (2.89) des liquidations indique un flushout brutal des positions acheteuses sur dérivés. Pendant que les médias relaient un narratif panique et ultra-baissier (objectifs à 10k$, échec des 80k$), les baleines en profitent pour accumuler discrètement aux dépens des investisseurs paniqués.\"\n}\n```",
-      "ts": "2026-08-30T22:15:57.001046+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": 2.2944348411527784,
-      "value": 5809967022.0,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 82,\n  \"reason\": \"Anomalie de volume on-chain élevée (z-score 2.29) couplée à un pic de ventes massives sur les dérivés XRP et un volume net preneur négatif de -96M sur Binance. Les médias grand public se dispersent sur des sujets sans rapport, confirmant une distribution silencieuse des baleines dans l'indifférence générale.\"\n}\n```",
-      "ts": "2026-08-30T22:41:02.269124+00:00"
-    },
-    {
       "metric": "liquidations",
       "zscore": 2.6632689787021975,
       "value": 29346373.0,
@@ -349,6 +328,27 @@
       "value": 0.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit médiatique sans rapport avec la crypto (actualités académiques et religieuses). Absence totale de signal onchain pertinent (IPT=0.0).\"\n}\n```",
       "ts": "2026-08-31T10:39:09.328730+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 2.710188894978127,
+      "value": 3891856.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Activité anormale des baleines (z-score 2.71, ~3.9M USD) dans un silence médiatique absolu (Google Actualités vide). Accumulation furtive classique avant une cassure de prix.\"\n}\n```",
+      "ts": "2026-08-31T11:49:20.376884+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 2.9974092999274853,
+      "value": 0.016,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Bruit médiatique non pertinent : les articles font référence à SDI Limited (médical), au SDI (Système d'Interchange fiscal) et à la norme vidéo SDI, sans aucun rapport avec la crypto-monnaie ou une baleine.\"\n}\n```",
+      "ts": "2026-08-31T12:14:26.758996+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.0734646795922624,
+      "value": 1.034,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique non pertinent (liens avec l'Institut Protestant de Théologie ou homonymie boursière TSXV:IPT). Absence totale de signal crypto valide malgré le z-score onchain.\"\n}\n```",
+      "ts": "2026-08-31T12:14:28.213210+00:00"
     }
   ]
 }
