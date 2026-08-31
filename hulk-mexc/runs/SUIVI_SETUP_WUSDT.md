@@ -6,5 +6,6 @@ Métriques : maison (poussière/mur/régime) + pro (Amihud/Parkinson/Trade Sign 
 | # | Date (UTC) | Heure | Fenêtre | Prix | Régime | Pouss % | Mur $ | Amihud | Δtaker | corr BTC | corr ETH | Sig div | Verdict |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | 1 | 2026-08-30T15:08:19Z | 15h | AUTRE | 0.00954 | COOLING | 1.8617 | 109289.95 | 6.27e-07 | -0.08 | 0.77 | 0.80 | neutre (stab 0) | prix 0.00954 · poussière 1.9% <15 ✓ · Amihud 6.27e-07 · delta -0.08 · mur 109,290$ |
+| 2 | 2026-08-31T14:35:00Z | 14h | AUTRE | 0.009139 | COOLING | 38.2611 | 109289.95 | 7.59e-07 | -0.30 | 0.74 | 0.71 | neutre (stab 0) | prix 0.009139 · poussière 38.3% ≥15 ✗ · Amihud 7.59e-07 · delta -0.30 · mur 109,290$ |
 
 _Règle : on compare les lignes entre elles (même heure de mesure = comparable). On ne supprime rien._
