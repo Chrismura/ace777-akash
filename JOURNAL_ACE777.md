@@ -80,3 +80,23 @@ SUCCESS_FALLBACK), concurrence 5 écritures sans crash, audit complet. Vault net
 
 **Suite** : additif, rien n'est basculé — on laisse le pont tourner en parallèle avant
 de remplacer les écritures OUTBOX_OBSIDIAN des synthèses.
+
+## 31/08 — Audit usage Obsidian + étude CLI à 100% (docs/AUDIT_OBSIDIAN_CLI_20260831.md)
+
+**Demande Christophe** : « analyse comment on utilise obsidian, étudie comment
+l'utiliser à 100%, va sur github faire une formation, trouve des améliorations ».
+
+**Audit** : vault 1733 notes/117MB, 2 plugins (obsidian-git OK, x-bookmarks),
+1341 notes orphelines, daily notes non activé, 0 base. Point faible = synchro
+manuelle OUTBOX→vault (~15 scripts, 323 fichiers en attente, liste de cp fragile
+= source des bugs « Obsidian ne bouge pas »).
+
+**Formation trouvée** : kepano/obsidian-skills (GitHub, 19.1k★, CEO Obsidian) —
+5 skills officiels (markdown, bases, canvas, cli, defuddle). CLI testée en réel :
+search/read/create/append/property:set/tags/eval (JS dans l'app !)/bases/orphans/
+recents/commands/plugin:install/diff — tout fonctionne.
+
+**Améliorations identifiées** : A) remplacer la synchro manuelle par le pont CLI
+(priorité 1, déjà lancé), B) frontmatter uniforme sur les fiches, C) Bases Obsidian
+(portefeuille/veille en base de données), D) daily notes agents, E) hygiène graphe
+(wikilinks), F) skills officiels pour nos IA, G) cockpit→Obsidian.
