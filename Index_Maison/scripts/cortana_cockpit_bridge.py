@@ -1867,6 +1867,22 @@ def do_dataquality() -> dict:
 
 JUSTESSE_TTL = 1800  # 30 min : ne relance pas 27 analyses LLM à chaque appel
 
+
+def do_shortbtc() -> dict:
+    """Short BTC paper (31/08, GO Christophe) — lit le live écrit par
+    hulk-mexc/scripts/short_btc.py (signal + position + PnL). Lecture seule."""
+    live = HULK / "runs" / "short_btc_live.json"
+    if not live.exists():
+        return {"ok": False, "error": "short_btc_live.json absent (module pas encore lancé ?)"}
+    try:
+        data = json.loads(live.read_text(encoding="utf-8"))
+        data["ok"] = True
+        data["cached"] = False
+        return data
+    except Exception as e:
+        return {"ok": False, "error": f"lecture short_btc_live.json : {e}"}
+
+
 def do_justesse() -> dict:
     """Score de justesse de l'analyste (boucle d'apprentissage) — JSON pour le cockpit.
     Cache : régénère au plus toutes les 30 min (27 analyses LLM sinon)."""
@@ -2110,6 +2126,9 @@ class Handler(BaseHTTPRequestHandler):
             return
         if path == "/justesse":
             self._json(200, do_justesse())
+            return
+        if path == "/shortbtc":
+            self._json(200, do_shortbtc())
             return
         if path == "/regime":
             self._json(200, do_regime())

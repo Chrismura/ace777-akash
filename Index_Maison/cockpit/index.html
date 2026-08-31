@@ -4,7 +4,7 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<meta name="version" content="3003108738">
+<meta name="version" content="1075062533">
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate" />
@@ -13,13 +13,13 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Share+Tech+Mono&family=Caveat:wght@600;700&display=swap" rel="stylesheet" />
-<script src="mission.js?v=1788167813"></script>
+<script src="mission.js?v=1788168116"></script>
 <!-- COSMOS HUB feed -->
-<script src="hub.js?v=1788167813"></script>
-<script src="../thermo/live.js?v=1788167813"></script>
-<script src="../thermo/cortana_feed.js?v=1788167813"></script>
-<script src="sante_live.js?v=1788167813"></script>
-<script src="veille_institutionnelle.js?v=1788167813"></script>
+<script src="hub.js?v=1788168116"></script>
+<script src="../thermo/live.js?v=1788168116"></script>
+<script src="../thermo/cortana_feed.js?v=1788168116"></script>
+<script src="sante_live.js?v=1788168116"></script>
+<script src="veille_institutionnelle.js?v=1788168116"></script>
 <style>
 :root{
   --ink:#050804; --panel:#0a100c; --line:#3a2e14;
@@ -1708,6 +1708,21 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
           <b style="color:var(--red)">poubelle</b>. Le graphe des thèmes viendra ensuite.
         </div>
       </div>
+
+      <!-- SHORT BTC PAPER (31/08, GO Christophe) — contre-tendance pilotée par la divergence -->
+      <div class="card strat-disc">
+        <h2>🩳 SHORT BTC — CEINTURE DE SÉCURITÉ (PAPER)</h2>
+        <div id="shortbtc-body" class="strat-analyste-body">
+          <div class="disc-empty">Chargement du signal short BTC…</div>
+        </div>
+        <div class="sep"></div>
+        <div class="strat-hint">
+          Short BTC paper (5$ notional) quand le protocole divergence détecte un
+          sommet : score ≥ 5 + session 08-17h UTC + données fraîches. Sortie :
+          TP −2% · SL +1.5% · signal éteint · 24h max. Audit complet dans
+          <b>runs/short_btc_signaux.jsonl</b>.
+        </div>
+      </div>
     </div>
   </section>
   </div>
@@ -1792,6 +1807,7 @@ window.addEventListener('unhandledrejection', function(e) {
           try { if(window.chargerStrategie) window.chargerStrategie(); } catch(e){}
           try { if(window.chargerOffres) window.chargerOffres(); } catch(e){}
           try { if(window.chargerSignets) window.chargerSignets(); } catch(e){}
+          try { if(window.chargerShortBtc) window.chargerShortBtc(); } catch(e){}
         }, 50);
       }
     });
@@ -4742,6 +4758,62 @@ window.addEventListener('unhandledrejection', function(e) {
       b.querySelector('.sb-icon').textContent = icone;
       b.querySelector('.sb-title').textContent = titre;
       b.querySelector('.sb-sub').textContent = sub;
+    }
+
+    // --- SHORT BTC PAPER (31/08, GO Christophe) : lit /shortbtc via le bridge ---
+    function chargerShortBtc() {
+      const body = document.getElementById('shortbtc-body');
+      if (!body) return;
+      fetchJson(BRIDGE + '/shortbtc', {}, 5000)
+        .then(data => {
+          if (!data || !data.ok) {
+            body.innerHTML = '<div class="disc-empty">Short BTC indisponible : ' +
+              ((data && data.error) || 'pont injoignable') + '</div>';
+            return;
+          }
+          const sig = data.signal || {};
+          const pos = data.position;
+          const score = sig.score != null ? sig.score : '—';
+          const frais = data.frais ? '🟢' : '🔴'; 
+          const session = sig.session_ok ? '✅ jour' : '🌙 nuit';
+          const pnl = (data.pnl_total != null ? data.pnl_total : 0);
+          const pnlCls = pnl >= 0 ? 'color:var(--acid)' : 'color:var(--red)';
+          let posHtml = '<div class="disc-empty">Position : <b>AUCUNE</b> (score ' + score + ' / seuil 5)</div>';
+          if (pos) {
+            const diff = 100 * (pos.prix_entree - (sig.prix_btc || pos.prix_entree)) / pos.prix_entree;
+            const diffCls = diff >= 0 ? 'color:var(--acid)' : 'color:var(--red)';
+            posHtml = '<div style="margin:6px 0"><b style="color:#ffb347">⬇️ SHORT OUVERT</b>' +
+              '<br>Entrée : ' + pos.prix_entree.toLocaleString('fr-FR') +
+              ' $ · Actuel : ' + (sig.prix_btc || '—').toLocaleString('fr-FR') + ' $' +
+              '<br>PnL position : <b style="' + diffCls + '">' + diff.toFixed(2) + '%</b>' +
+              '<br>Score à l\'entrée : ' + pos.score_entree +
+              '<br>Ouvert le : ' + (pos.ts_entree || '').replace('T', ' ').slice(0, 16) + ' UTC</div>';
+          }
+          const dernieres = (data.dernieres_trades || []).slice().reverse().slice(0, 5);
+          let hist = '<div class="disc-empty" style="font-size:12px">Aucun trade clos.</div>';
+          if (dernieres.length) {
+            hist = '<table style="width:100%;border-collapse:collapse;font-size:12px;margin-top:6px">' +
+              '<tr style="color:#888"><td>Sortie</td><td>Raison</td><td style="text-align:right">PnL</td></tr>' +
+              dernieres.map(t => {
+                const c = t.pnl_usd >= 0 ? 'var(--acid)' : 'var(--red)';
+                return '<tr><td>' + (t.ts_sortie || '').replace('T', ' ').slice(0, 16) + '</td>' +
+                  '<td>' + (t.raison_sortie || '') + '</td>' +
+                  '<td style="text-align:right;color:' + c + '">' + t.pnl_usd.toFixed(2) + ' $</td></tr>';
+              }).join('') + '</table>';
+          }
+          body.innerHTML =
+            '<div style="margin:4px 0">Signal : <b>score ' + score + '/10</b> ' + frais + ' ' + session +
+            '<br><span style="font-size:12px;color:#aaa">' + (sig.detail || '') + '</span></div>' +
+            posHtml +
+            '<div style="margin:4px 0">PnL total (paper) : <b style="' + pnlCls + '">' +
+            pnl.toFixed(2) + ' $</b> · ' + (data.n_trades || 0) + ' trades · capital ' +
+            (data.capital != null ? data.capital.toFixed(2) : '—') + ' $</div>' +
+            '<div style="font-size:11px;color:#888">Derniers trades clos :</div>' + hist;
+        })
+        .catch((e) => {
+          console.error('[cockpit] chargerShortBtc:', e);
+          body.innerHTML = '<div class="disc-empty">Pont injoignable — short BTC indisponible.</div>';
+        });
     }
 
     // --- STRATÉGIES DE L'ANALYSTE : lit STRATEGIE.md via le bridge ---
