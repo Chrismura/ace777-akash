@@ -134,3 +134,26 @@ le vault, vault = AI operating system).
 **Conclusions** : plan A validé par la communauté (un seul canal d'écriture CLI +
 git backup), Headless Sync à explorer, Kanban/Calendar pour Bases = chantier C
 encore plus attractif, Templater+Linter à ajouter après Bases.
+
+## 31/08 — Confrontation Obsidian expert + validation famille 3/3
+
+**Demande Christophe** : « regarde dans les détails comment l'expert organise,
+copie si c'est mieux, soumets à la famille 3 membres ».
+
+**Confrontation détaillée** (docs/CONFRONTATION_OBSIDIAN_EXPERT_20260831.md) :
+13 points comparés. Nous : 0 frontmatter (60 fiches Crypto_Projet), 0 wikilink,
+1341 orphelines (77%), 3 mécanismes de sync, 0 template. L'expert : 50 types de
+notes, dispatcher, state machines, properties=database. Verdict : copier
+frontmatter/types/templates/daily/wikilinks ; garder notre stack IA + journal.
+
+**Famille 3/3 (gemini, juge, deepseek)** — verdict : « naïf dans l'exécution »
+(6/10). Corrections adoptées :
+1. NE PAS copier : 50 types (→ 4 stricts : actif, signal, synthese_ia, journal),
+   state machines complexes (→ états binaires), dogme requêtes→markdown (→ Bases
+   dynamiques OK), plugins GUI.
+2. **GATEKEEPER** (3/3) : le pont CLI valide le contenu AVANT d'écrire — les
+   agents génèrent un JSON structuré (type+frontmatter+corps), le pont compile le
+   markdown conforme au schéma, rejet si non conforme. « La machine éduque les IA ».
+3. **Day Zero rule** : ne pas migrer les 1733 notes existantes, le standard
+   s'applique aux nouvelles créations. Séquence : daily notes d'abord (ROI max),
+   puis types, puis wikilinks.
