@@ -1,15 +1,15 @@
 {
-  "timestamp": 1788142486,
-  "date": "2026-08-31T02:14:46.815593+00:00",
-  "n_analyses": 4,
+  "timestamp": 1788146087,
+  "date": "2026-08-31T03:14:47.856025+00:00",
+  "n_analyses": 5,
   "analyses": [
     {
       "signal": {
         "metric": "liquidations",
-        "zscore": 2.6257819858347538,
-        "value": 53299423.0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.63) sur les liquidations indiquant un 'flush' agressif des positions surexcessées. Le narratif médiatique est ultra-pessimiste et paniqué (appels à la baisse, fausses pannes de marché), ce qui caractérise un classique capitulation retail orchestrée par les baleines pour accumuler en silence.\"\n}\n```",
-        "ts": 1788140825.747602
+        "zscore": 2.231521312900261,
+        "value": 53394686.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le z-score élevé (2.23) des liquidations ($53.3M) indique un 'flush' brutal des positions leveraged. Pendant que les médias mainstream amplifient la panique et déterrent des thèses absurdes à $10k, les baleines nettoient le carnet d'ordres pour accumuler en silence.\"\n}\n```",
+        "ts": 1788144454.455835
       },
       "fiche": null,
       "interpretation": {
@@ -20,51 +20,101 @@
     },
     {
       "signal": {
-        "metric": "sdi",
-        "zscore": 3.029549874721644,
-        "value": 0.016,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Anomalie technique due à une confusion de termes : le 'SDI' onchain (indice de mouvement des baleines) est totalement déconnecté des actualités médiatiques qui font référence au système de facturation italien (SDI), au matériel vidéo (Blackmagic SDI) et à Samsung SDI (batteries).\"\n}\n```",
-        "ts": 1788141428.309196
+        "metric": "cpfp",
+        "zscore": 2.0101981932886948,
+        "value": 50.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie technique sur un ticker obscur ('cpfp') totalement pollué par de l'homonymie médiatique locale et institutionnelle (centres de formation). Aucun mouvement de baleine crypto détecté, bruit de fond pur.\"\n}\n```",
+        "ts": 1788144756.224845
       },
-      "fiche": "rbf_eleve",
+      "fiche": "blocs_privilises",
       "questions": {
+        "duree": {
+          "value": 0,
+          "seuil": 0,
+          "depasse": false
+        },
+        "volume": {
+          "value": 403,
+          "seuil": 0,
+          "depasse": true
+        },
         "prix": {
-          "value": 0.18,
-          "seuil": 1,
-          "depasse": false
+          "value": 0.2,
+          "seuil": 0,
+          "depasse": true
         },
-        "paires": {
-          "value": null,
-          "seuil": 3,
-          "depasse": false
+        "sdi": {
+          "value": 0.004,
+          "seuil": 0,
+          "depasse": true
         },
-        "funding": {
-          "value": 7.1e-05,
-          "seuil": 0.001,
-          "depasse": false
-        },
-        "whales": {
-          "value": 1,
-          "seuil": 5,
+        "rbf": {
+          "value": 0.0,
+          "seuil": 0,
           "depasse": false
         }
       },
       "interpretation": {
-        "condition": "sdi > 0.3",
-        "lecture": "Drainage silencieux — les vieux BTC bougent en douce",
-        "niveau": "dangereux",
-        "action": "Réduire taille de 50%, sortir des positions fragiles"
+        "condition": "duree < 5min ET volume > 100",
+        "lecture": "Consolidation exchange — probablement un transfert hot→cold",
+        "niveau": "neutre",
+        "action": "Garder les positions"
       },
-      "action": "Réduire taille de 50%, sortir des positions fragiles",
-      "niveau": "dangereux"
+      "action": "Garder les positions",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "dust",
+        "zscore": 2.0101981932886948,
+        "value": 50.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit de fond médiatique sans rapport avec la crypto (mobylettes, festival, jeux vidéo, anime). L'anomalie onchain 'dust' correspond à un bruit de poussière de portefeuille insignifiant, aucune baleine détectée.\"\n}\n```",
+        "ts": 1788144757.708014
+      },
+      "fiche": "blocs_privilises",
+      "questions": {
+        "duree": {
+          "value": 0,
+          "seuil": 0,
+          "depasse": false
+        },
+        "volume": {
+          "value": 403,
+          "seuil": 0,
+          "depasse": true
+        },
+        "prix": {
+          "value": 0.2,
+          "seuil": 0,
+          "depasse": true
+        },
+        "sdi": {
+          "value": 0.004,
+          "seuil": 0,
+          "depasse": true
+        },
+        "rbf": {
+          "value": 0.0,
+          "seuil": 0,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "duree < 5min ET volume > 100",
+        "lecture": "Consolidation exchange — probablement un transfert hot→cold",
+        "niveau": "neutre",
+        "action": "Garder les positions"
+      },
+      "action": "Garder les positions",
+      "niveau": "neutre"
     },
     {
       "signal": {
         "metric": "fear_greed",
-        "zscore": -3.316624790355402,
+        "zscore": -2.6457513110645903,
         "value": 62,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-3.32) malgré un indice de cupidité modéré (62) et un vide total dans les médias ('Google Actualités' sans relais majeur). Classic silence radio des baleines : accumulation furtive avant un mouvement de rupture inattendu.\"\n}\n```",
-        "ts": 1788142031.144374
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement négatif (-2.65) malgré un indice de cupidité à 62. Le vide médiatique (Google Actualités muet) indique une accumulation silencieuse des baleines en dehors du radar public.\"\n}\n```",
+        "ts": 1788145660.383974
       },
       "fiche": null,
       "interpretation": {
@@ -76,15 +126,15 @@
     {
       "signal": {
         "metric": "volume",
-        "zscore": 2.527159834519557,
-        "value": 7774965662.0,
-        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.53) combiné à un volume massif de dérivés et un flux net preneur fortement négatif (-96 M$ sur Binance) confirme une distribution agressive par les baleines, en phase avec le narratif médiatique de capitulation sur les positions acheteuses.\"\n}\n```",
-        "ts": 1788142333.185227
+        "zscore": 2.344440522808962,
+        "value": 8071284981.0,
+        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.34) combiné à un volume de dérivés massif et un flux net preneur négatif (-96 M$ sur Binance) confirme une pression vendeuse agressive des baleines, en accord avec le narratif médiatique de liquidation.\"\n}\n```",
+        "ts": 1788145962.521033
       },
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": 0.18,
+          "value": 0.2,
           "seuil": 1,
           "depasse": false
         },
@@ -94,12 +144,12 @@
           "depasse": false
         },
         "funding": {
-          "value": 7.1e-05,
+          "value": 7e-05,
           "seuil": 0.001,
           "depasse": false
         },
         "whales": {
-          "value": 1,
+          "value": 0,
           "seuil": 5,
           "depasse": false
         }
