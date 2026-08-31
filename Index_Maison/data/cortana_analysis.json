@@ -1,63 +1,8 @@
 {
-  "timestamp": 1788141886,
-  "date": "2026-08-31T02:04:46.635672+00:00",
+  "timestamp": 1788142486,
+  "date": "2026-08-31T02:14:46.815593+00:00",
   "n_analyses": 4,
   "analyses": [
-    {
-      "signal": {
-        "metric": "fear_greed",
-        "zscore": -3.872983346207417,
-        "value": 62,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-3.87) malgré un indice de cupidité modéré (62) et un vide médiatique total (Google Actualités). Classic setup d'accumulation silencieuse par les baleines loin du bruit de fond retail.\"\n}\n```",
-        "ts": 1788140221.410469
-      },
-      "fiche": null,
-      "interpretation": {
-        "lecture": "Pas de fiche disponible",
-        "niveau": "inconnu"
-      },
-      "action": "Observer"
-    },
-    {
-      "signal": {
-        "metric": "volume",
-        "zscore": 2.695473046297876,
-        "value": 7690142796.0,
-        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de volume on-chain massive (z-score 2.70) couplée à des ventes massives sur les dérivés XRP (-96M sur Binance). Les médias grand public relayent du bruit hors-sujet, confirmant l'absence de narratif retail pendant que les baleines distribuent ou shortent agressivement.\"\n}\n```",
-        "ts": 1788140523.589966
-      },
-      "fiche": "rbf_eleve",
-      "questions": {
-        "prix": {
-          "value": -0.37,
-          "seuil": 1,
-          "depasse": false
-        },
-        "paires": {
-          "value": null,
-          "seuil": 3,
-          "depasse": false
-        },
-        "funding": {
-          "value": 7e-05,
-          "seuil": 0.001,
-          "depasse": false
-        },
-        "whales": {
-          "value": 1,
-          "seuil": 5,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "sdi > 0.3",
-        "lecture": "Drainage silencieux — les vieux BTC bougent en douce",
-        "niveau": "dangereux",
-        "action": "Réduire taille de 50%, sortir des positions fragiles"
-      },
-      "action": "Réduire taille de 50%, sortir des positions fragiles",
-      "niveau": "dangereux"
-    },
     {
       "signal": {
         "metric": "liquidations",
@@ -84,7 +29,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.37,
+          "value": 0.18,
           "seuil": 1,
           "depasse": false
         },
@@ -94,7 +39,62 @@
           "depasse": false
         },
         "funding": {
-          "value": 7e-05,
+          "value": 7.1e-05,
+          "seuil": 0.001,
+          "depasse": false
+        },
+        "whales": {
+          "value": 1,
+          "seuil": 5,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "sdi > 0.3",
+        "lecture": "Drainage silencieux — les vieux BTC bougent en douce",
+        "niveau": "dangereux",
+        "action": "Réduire taille de 50%, sortir des positions fragiles"
+      },
+      "action": "Réduire taille de 50%, sortir des positions fragiles",
+      "niveau": "dangereux"
+    },
+    {
+      "signal": {
+        "metric": "fear_greed",
+        "zscore": -3.316624790355402,
+        "value": 62,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-3.32) malgré un indice de cupidité modéré (62) et un vide total dans les médias ('Google Actualités' sans relais majeur). Classic silence radio des baleines : accumulation furtive avant un mouvement de rupture inattendu.\"\n}\n```",
+        "ts": 1788142031.144374
+      },
+      "fiche": null,
+      "interpretation": {
+        "lecture": "Pas de fiche disponible",
+        "niveau": "inconnu"
+      },
+      "action": "Observer"
+    },
+    {
+      "signal": {
+        "metric": "volume",
+        "zscore": 2.527159834519557,
+        "value": 7774965662.0,
+        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.53) combiné à un volume massif de dérivés et un flux net preneur fortement négatif (-96 M$ sur Binance) confirme une distribution agressive par les baleines, en phase avec le narratif médiatique de capitulation sur les positions acheteuses.\"\n}\n```",
+        "ts": 1788142333.185227
+      },
+      "fiche": "rbf_eleve",
+      "questions": {
+        "prix": {
+          "value": 0.18,
+          "seuil": 1,
+          "depasse": false
+        },
+        "paires": {
+          "value": null,
+          "seuil": 3,
+          "depasse": false
+        },
+        "funding": {
+          "value": 7.1e-05,
           "seuil": 0.001,
           "depasse": false
         },
