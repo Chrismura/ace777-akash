@@ -157,3 +157,28 @@ frontmatter/types/templates/daily/wikilinks ; garder notre stack IA + journal.
 3. **Day Zero rule** : ne pas migrer les 1733 notes existantes, le standard
    s'applique aux nouvelles créations. Séquence : daily notes d'abord (ROI max),
    puis types, puis wikilinks.
+
+## 31/08 — Gatekeeper pont Obsidian implémenté (codeur + supervision Buffy)
+
+**Demande Christophe** : « go, oublie pas codeur ». Soumission au codeur (canal
+code.ia) du design gatekeeper (famille 3/3). Son patch avait la bonne idée
+(TYPES + validate_and_compile + write_typed) mais cassait le pont testé
+(obsidian status n'existe pas, obsidian write n'existe pas = create, append en
+disque pur, chemins config changés). Supervision : gardé NOTRE pont + intégré
+le gatekeeper proprement.
+
+**Implémenté** dans obsidian_cli_bridge.py (v2) :
+- 4 TYPES stricts (actif, signal, synthese_ia, journal) avec dossier cible du
+  vault (Crypto_Projet, Hulk, Index_Maison, Cahier), required_props,
+  allowed_values, template markdown.
+- write_typed(type, data) : valide (REJECTED + errors actionables) → compile
+  (frontmatter YAML échappé + body markdown BRUT) → écrit via la pipeline
+  existante (CLI + read-back hash + fallback disque + CB + audit).
+- write_note() rétrocompatible : détecte un frontmatter avec type: reconnu →
+  gatekeeper ; sinon brut (Day Zero rule, les ~15 scripts ne cassent pas).
+- Fix supervision : body JAMAIS échappé YAML (c'est du markdown), frontmatter
+  échappé (ex. "deepdive:equipe" → guillemets).
+
+**Testé en réel** : 6/6 (SUCCESS valide, REJECTED statut invalide / type inconnu /
+prop manquante, brut rétrocompatible, détection type via write_note), body brut
+vérifié ([[lien]] non échappé), vault nettoyé.
