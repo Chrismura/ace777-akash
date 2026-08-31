@@ -173,16 +173,23 @@ def _alarm_handler(signum, frame):
     raise _AlarmTimeout(f"SIGALRM {signum}")
 
 
-def http_json(url: str, timeout: float = 40.0, retries: int = 4):
+def http_json(url: str, timeout: float = 15.0, retries: int = 2):
     """GET JSON avec retries (timeouts MEXC fréquents).
 
     Ceinture SIGALRM (24/08, leçon black-hole du 23/08) : le timeout socket
     d'urllib ne se déclenche PAS sur un SYN black-hole (vu en réel : process
     bloqué 5 min en SYN_SENT sur api.mexc.com, watchdog impuissant car le
     process est vivant). signal.alarm coupe à coup sûr, quel que soit l'état
-    du connect()."""
+    du connect().
+
+    Phase 1 (31/08, famille 7/7 + codeur) : timeout ramené de 40s à 15s et
+    retries ramenés de 4 à 2 (1 appel + 1 seul retry) — un prix qui met >15s
+    est périmé de toute façon. Backoff exponentiel court UNIQUEMENT sur HTTP
+    429 (rate-limit) / 5xx ; en cas de timeout réseau pur on ne martèle pas
+    (l'appelant a son fallback cache).
+    """
     last_err: Optional[Exception] = None
-    for attempt in range(retries):
+    for attempt in range(max(1, retries)):
         try:
             req = urllib.request.Request(url, headers={"User-Agent": "hulk-paper/1.0"})
             prev = signal.signal(signal.SIGALRM, _alarm_handler)
@@ -201,9 +208,54 @@ def http_json(url: str, timeout: float = 40.0, retries: int = 4):
             OSError,
         ) as e:
             last_err = e
-            time.sleep(1.2 * (attempt + 1))
+            code = getattr(e, "code", None)
+            rate_or_srv = code == 429 or (isinstance(code, int) and code >= 500)
+            if rate_or_srv:
+                # seul cas où l'on re-essaie avec backoff exponentiel (1s, 2s)
+                time.sleep(1.0 * (attempt + 1))
+            else:
+                time.sleep(0.3 * (attempt + 1))
     assert last_err is not None
     raise last_err
+
+
+# ---------------------------------------------------------------------------
+# BATCH PRIX (Phase 1, 31/08 — famille 7/7 + codeur). Le moteur faisait 21
+# appels GET single-pair par cycle (~200-270 req/min vs limite MEXC ~200).
+# Désormais 1 appel GET /ticker/price (le marché entier) au début de chaque
+# cycle, filtré sur les paires suivies, stocké en cache. last_price lit ce
+# cache (0 appel réseau en régime normal) ; si une paire est absente/batch
+# échoué → fallback GET unitaire ciblé ; dernier prix connu en dernier recours.
+# Aucune logique métier n'est touchée (mêmes valeurs de prix, juste la source).
+_PRICE_CACHE: dict[str, float] = {}
+_LAST_KNOWN_PRICE: dict[str, float] = {}
+
+
+def fetch_all_prices(pairs) -> dict[str, float]:
+    """1 appel batch → prix des paires demandées (MEXC renvoie tout le marché,
+    `symbols` ignoré — testé 31/08). Peuple le cache + le dernier connu."""
+    out: dict[str, float] = {}
+    try:
+        data = http_json("https://api.mexc.com/api/v3/ticker/price")
+    except Exception:
+        return out
+    if isinstance(data, list):
+        wanted = set(pairs)
+        for item in data:
+            if not isinstance(item, dict):
+                continue
+            s = item.get("symbol")
+            if s not in wanted:
+                continue
+            try:
+                out[s] = float(item["price"])
+            except (TypeError, ValueError):
+                continue
+    global _PRICE_CACHE, _LAST_KNOWN_PRICE
+    _PRICE_CACHE = out
+    for k, v in out.items():
+        _LAST_KNOWN_PRICE[k] = v
+    return out
 
 
 def _est_vierge(st: dict) -> bool:
@@ -268,9 +320,22 @@ def pick_pairs(cfg: dict, inv: dict[str, dict]) -> list[str]:
 
 
 def last_price(pair: str) -> float:
-    q = urllib.parse.urlencode({"symbol": pair})
-    j = http_json(f"https://api.mexc.com/api/v3/ticker/price?{q}")
-    return float(j["price"])
+    # Régime normal : le prix vient du cache batch du cycle (0 appel réseau).
+    p = _PRICE_CACHE.get(pair)
+    if p is not None:
+        return p
+    # Paire absente du batch (delistée / non renvoyée) → fallback GET unitaire ciblé.
+    try:
+        q = urllib.parse.urlencode({"symbol": pair})
+        j = http_json(f"https://api.mexc.com/api/v3/ticker/price?{q}")
+        p = float(j["price"])
+        _PRICE_CACHE[pair] = p
+        _LAST_KNOWN_PRICE[pair] = p
+        return p
+    except Exception:
+        if pair in _LAST_KNOWN_PRICE:
+            return _LAST_KNOWN_PRICE[pair]
+        raise
 
 
 def ticker_24h(pair: str) -> dict:
@@ -2392,6 +2457,14 @@ class PaperBot:
             self.seed_bags()
         n = 0
         while self.alive:
+            # Phase 1 (31/08) : cadence anti-drift + UN SEUL appel batch prix par
+            # cycle → le cache alimente last_price (0 appel réseau ensuite). Si le
+            # batch échoue, last_price fait le fallback unitaire/dernier prix connu.
+            loop_start = time.time()
+            try:
+                fetch_all_prices(self.pairs)
+            except Exception:
+                pass
             # Croisement indices × murs : config relue à chaque cycle → on peut
             # couper/rallumer à chaud (croisement_config.json) sans redémarrer.
             self._load_croisement_config()
@@ -2449,7 +2522,10 @@ class PaperBot:
                     f" melts={_melt}{_gex_note}{_cb}{_health_note}{_cortana_note}",
                 )
                 self.save_state()
-            time.sleep(self.poll)
+            # Phase 1 (31/08) : anti-drift — on dort jusqu'au prochain tick absolu,
+            # pas 20s fixes (sinon temps de calcul cumulé qui décale toute la boucle).
+            elapsed = time.time() - loop_start
+            time.sleep(max(0.0, self.poll - elapsed))
         self.save_state()
         say(
             "hdr",
