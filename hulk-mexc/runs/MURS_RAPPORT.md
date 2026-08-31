@@ -1,25 +1,25 @@
 # OBSERVATOIRE DES MURS DE LIQUIDITÉ
-> 2026-08-31T16:45Z — 73217 mesures sur 27 paires · CSVs ASPIRATION_CALIB + OBSERVATION_MURS · sonde observation OBSERVATION_MURS_20260831_164520.csv
+> 2026-08-31T17:16Z — 73226 mesures sur 27 paires · CSVs ASPIRATION_CALIB + OBSERVATION_MURS · sonde observation OBSERVATION_MURS_20260831_171542.csv
 
 ## Les VRAIS murs (top 12 par mur bid moyen)
 
 | Paire | Mesures | Mur BID moy ($) | Mur BID max ($) | Mur ASK moy ($) | Spoof | Drop ≥15%/s |
 |---|---|---|---|---|---|---|
-| SOLUSDT | 177 | 481364.23 | 876977.29 | 457041.69 | 0 (0.0%) | 5 |
+| SOLUSDT | 178 | 481663.25 | 876977.29 | 457323.46 | 0 (0.0%) | 5 |
 | BTCUSDT | 1479 | 419866.72 | 1924444.32 | 488196.4 | 49 (3.31%) | 124 |
 | ETHUSDT | 1264 | 177592.18 | 1966688.05 | 173455.49 | 14 (1.11%) | 63 |
 | ADAUSDT | 36 | 102875.08 | 154143.34 | 92656.51 | 0 (0.0%) | 1 |
 | XRPUSDT | 8735 | 91589.48 | 606419.6 | 94098.44 | 376 (4.3%) | 1136 |
-| XLMUSDT | 169 | 71765.24 | 210677.64 | 67757.7 | 0 (0.0%) | 1 |
-| ALGOUSDT | 169 | 53647.28 | 92198.5 | 50249.17 | 0 (0.0%) | 3 |
+| XLMUSDT | 170 | 71778.7 | 210677.64 | 67710.95 | 0 (0.0%) | 1 |
+| ALGOUSDT | 170 | 53660.08 | 92198.5 | 50195.77 | 0 (0.0%) | 3 |
 | CHIPUSDT | 828 | 30766.68 | 61779.48 | 27298.12 | 32 (3.86%) | 53 |
 | HBARUSDT | 7424 | 30736.92 | 63738.72 | 26142.94 | 268 (3.61%) | 681 |
 | KITEUSDT | 391 | 28494.55 | 49707.9 | 26254.61 | 10 (2.56%) | 17 |
-| GOLD(PAXG)USDT | 170 | 27183.2 | 87814.07 | 27708.44 | 0 (0.0%) | 9 |
-| JASMYUSDT | 170 | 26555.35 | 239378.61 | 8983.34 | 0 (0.0%) | 0 |
+| GOLD(PAXG)USDT | 171 | 27154.11 | 87814.07 | 27656.66 | 0 (0.0%) | 9 |
+| JASMYUSDT | 171 | 26554.77 | 239378.61 | 9020.12 | 0 (0.0%) | 0 |
 
 ## Synthèse
-- **Total mesures** : 73217 (16-24/08, sonde aspiration)
+- **Total mesures** : 73226 (16-24/08, sonde aspiration)
 - **Spoofs détectés** : 1845 (2.5% des mesures) — murs de façade (fond puis se reconstruit)
 - **Chutes brutales de mur** (≥ 15%/s) : 3830 — le signal ACE « le mur s'effondre »
 
