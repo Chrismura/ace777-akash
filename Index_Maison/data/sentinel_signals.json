@@ -2,20 +2,6 @@
   "signals": [
     {
       "metric": "liquidations",
-      "zscore": 2.6299476091128957,
-      "value": 20397088.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 82,\n  \"reason\": \"Le z-score des liquidations (2.63) indique un flush violent et un nettoyage des positions à effet de levier excessif. Pendant que les médias relaient un narratif de panique et de capitulation (Bitcoin à 10k, échec des 80k), les baleines profitent de cette capitulation forcée pour accumuler en silence aux dépens des 'retail' liquidés.\"\n}\n```",
-      "ts": "2026-08-30T20:45:27.324270+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": 2.31704240271135,
-      "value": 5501661563.0,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 82,\n  \"reason\": \"Anomalie de volume on-chain élevée (z-score 2.32) couplée à un pic massif de ventes sur les dérivés XRP et un volume net preneur fortement négatif sur Binance (-96M). Le narratif médiatique est totalement déconnecté (bruit ambiant), masquant une distribution agressive et des sorties nettes de positions par les gros porteurs.\"\n}\n```",
-      "ts": "2026-08-30T21:10:33.751196+00:00"
-    },
-    {
-      "metric": "liquidations",
       "zscore": 3.7533045452281475,
       "value": 28806888.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le z-score élevé des liquidations (3.75) combiné à un narratif médiatique extrêmement panique et catastrophique ('Bitcoin à $10 000', 'échec à 80k') indique un classique 'flush' de panique retail. Les baleines absorbent silencieusement cette capitulation forcée.\"\n}\n```",
@@ -349,6 +335,20 @@
       "value": 8298951934.0,
       "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de volume massif (Z-score 2.17) combinée à un pic de ventes sur les dérivés XRP et un volume net preneur lourdement négatif sur Binance (-96M). Les baleines distribuent agressivement tandis que les médias grand public diluent l'attention avec des sujets hors-sujet.\"\n}\n```",
       "ts": "2026-08-31T04:12:58.030776+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -2.0816659994661326,
+      "value": 62,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement négatif (-2.08) pour un Indice de Peur et de Greed à 62, combiné à un silence médiatique total (Google Actualités vide). C'est la signature classique d'accumulation furtive par les baleines loin des radars du grand public.\"\n}\n```",
+      "ts": "2026-08-31T04:38:01.648897+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.064974865774841,
+      "value": 8366519743.0,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Forte anomalie de volume (z-score 2.06) couplée à une pression vendeuse massive sur les dérivés XRP (-96M sur Binance). Le narratif public confirme la capitulation des positions acheteuses, indiquant une distribution silencieuse par les baleines.\"\n}\n```",
+      "ts": "2026-08-31T04:43:03.566449+00:00"
     }
   ]
 }

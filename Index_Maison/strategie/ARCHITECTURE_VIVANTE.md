@@ -1,4 +1,4 @@
-# ARCHITECTURE VIVANTE — ACE777 (2026-08-31 04:15 UTC)
+# ARCHITECTURE VIVANTE — ACE777 (2026-08-31 05:03 UTC)
 
 > Document GÉNÉRÉ AUTOMATIQUEMENT à l'instant. La famille valide
 > en s'appuyant sur CE contexte, pas sur des documents figés.
@@ -22,7 +22,7 @@
 
 ## État de la mission (bots + PnL)
 
-- mission.json : 2026-08-31 04:15Z · run `MASTER_VORTEX_V2_COLLAB_4H` · alerte `amber`
+- mission.json : 2026-08-31 05:03Z · run `MASTER_VORTEX_V2_COLLAB_4H` · alerte `amber`
 - PnL combiné : **1.27 $** 📈 (combo 1.2674)
 - ALPHA (sniper (embuscade, ×13, revenge si claque)) : **+2.01 $** · 10 fills · 249 skips
 - BETA (éclaireur (chatouille le marché, alimente Alpha)) : **-0.74 $** · 15 fills · 257 skips
@@ -31,15 +31,25 @@
 
 ## Veille du jour
 
-- VEILLE du jour : pas encore passée
+- [Santé]
+  · hub : OK (14 providers)
+- [Énergie du jour]
+  · appels : 76 (cloud 76)
+  · budget cloud : 624 max
+  · par provider : gemini=73, openrouter-juge=2, openrouter-ultra=1
+- [Nouvelles offres détectées (non intégrées)]
+  · inclusionai/ling-3.0-flash-fin:free
+  · liquid/lfm-2.5-2.6b:free
+  · thinkingmachines/inkling-small:free
+  … 112 offres/pépites détectées ce matin
 
 ## Mémoire chaude (journal + résumés)
 
 - Radar (dernières alertes) :
-  · 2026-08-31T04:15:39.558480Z ETHUSDT 2413.21 0.0005 376.8 declenche=oui
-  · 2026-08-31T04:15:39.563257Z ETHUSDT 2413.21 0.0005 377.0 declenche=oui
-  · 2026-08-31T04:15:39.572862Z BTCUSDT 77556.0 0.0004 5.8 declenche=non
-  · 2026-08-31T04:15:40.781739Z BTCUSDT 77556.01 0.0004 5.8 declenche=non
+  · 2026-08-31T05:03:14.112312Z ETHUSDT 2417.37 0.0012 329.5 declenche=oui
+  · 2026-08-31T05:03:14.115178Z ETHUSDT 2417.37 0.0012 330.1 declenche=oui
+  · 2026-08-31T05:03:14.185552Z BTCUSDT 77590.0 0.0001 2.7 declenche=non
+  · 2026-08-31T05:03:14.239527Z BTCUSDT 77590.0 0.0001 2.7 declenche=non
 - Intention en cours : BETA a sonde le marche (13 sondes, 9 long / 4 court, conf mo | ALPHA attend son moment : 232 skips (discipline), le mur du  | ALPHA a frappe 9 fois en embuscade (13x) (dont 2 en mode rev
 - 794 signets X résumés (quota aujourd'hui : 0/50)
 - 79 fiches IA d'offres en cache (quota 8/jour)

@@ -1,15 +1,15 @@
 {
-  "timestamp": 1788149688,
-  "date": "2026-08-31T04:14:48.809684+00:00",
+  "timestamp": 1788152689,
+  "date": "2026-08-31T05:04:49.675126+00:00",
   "n_analyses": 2,
   "analyses": [
     {
       "signal": {
         "metric": "fear_greed",
-        "zscore": -2.236067977499786,
+        "zscore": -2.0816659994661326,
         "value": 62,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement négatif (-2.24) pour un Fear & Greed à 62 : accumulation silencieuse des baleines sous un radar médiatique totalement apathique (Google Actualités muet). Déconnexion classique pré-mouvement.\"\n}\n```",
-        "ts": 1788149275.958239
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement négatif (-2.08) pour un Indice de Peur et de Greed à 62, combiné à un silence médiatique total (Google Actualités vide). C'est la signature classique d'accumulation furtive par les baleines loin des radars du grand public.\"\n}\n```",
+        "ts": 1788151081.648897
       },
       "fiche": null,
       "interpretation": {
@@ -21,15 +21,15 @@
     {
       "signal": {
         "metric": "volume",
-        "zscore": 2.166812301847662,
-        "value": 8298951934.0,
-        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de volume massif (Z-score 2.17) combinée à un pic de ventes sur les dérivés XRP et un volume net preneur lourdement négatif sur Binance (-96M). Les baleines distribuent agressivement tandis que les médias grand public diluent l'attention avec des sujets hors-sujet.\"\n}\n```",
-        "ts": 1788149578.030776
+        "zscore": 2.064974865774841,
+        "value": 8366519743.0,
+        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Forte anomalie de volume (z-score 2.06) couplée à une pression vendeuse massive sur les dérivés XRP (-96M sur Binance). Le narratif public confirme la capitulation des positions acheteuses, indiquant une distribution silencieuse par les baleines.\"\n}\n```",
+        "ts": 1788151383.566449
       },
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.2,
+          "value": -0.17,
           "seuil": 1,
           "depasse": false
         },
@@ -39,12 +39,12 @@
           "depasse": false
         },
         "funding": {
-          "value": 8e-05,
+          "value": 8.9e-05,
           "seuil": 0.001,
           "depasse": false
         },
         "whales": {
-          "value": 0,
+          "value": 1,
           "seuil": 5,
           "depasse": false
         }
