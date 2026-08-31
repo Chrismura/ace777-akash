@@ -1,48 +1,6 @@
 {
   "signals": [
     {
-      "metric": "ipt",
-      "zscore": 2.401998813694339,
-      "value": 1.02,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit de fond médiatique sans rapport avec la crypto (actualités académiques et protestantes). L'anomalie onchain sur 'IPT' relève probablement d'une homonymie ou d'un token illiquide sans signal baleine significatif.\"\n}\n```",
-      "ts": "2026-08-30T11:37:27.008398+00:00"
-    },
-    {
-      "metric": "price_1h",
-      "zscore": 4.1481019133153385,
-      "value": 0.3487834160151415,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie statistique majeure (Z-score 4.15) sur 1h sans couverture médiatique (Google Actualités vide). Divergence classique d'accumulation silencieuse par les baleines loin du radar retail.\"\n}\n```",
-      "ts": "2026-08-30T12:07:38.375473+00:00"
-    },
-    {
-      "metric": "price_1h",
-      "zscore": 5.014059225947976,
-      "value": 0.5653305548703802,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de prix extrême (z-score 5.01) sans aucune couverture médiatique (Google Actualités vide). C'est la signature classique d'accumulation furtive par des baleines en l'absence de bruit de fond retail.\"\n}\n```",
-      "ts": "2026-08-30T12:38:11.220886+00:00"
-    },
-    {
-      "metric": "cpfp",
-      "zscore": 2.0084594708200165,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie technique purement artificielle (bruit de fond). Le sigle 'CPFP' dans les médias renvoie à des institutions éducatives et politiques locales sans aucun rapport avec la crypto-sphère ou des mouvements de baleines.\"\n}\n```",
-      "ts": "2026-08-30T13:08:28.271114+00:00"
-    },
-    {
-      "metric": "dust",
-      "zscore": 2.0084594708200165,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique parasité par un jeu vidéo homonyme (DUST: Origins) et une levée de fonds tech (Dust). Aucune corrélation onchain pertinente avec la baleine crypto.\"\n}\n```",
-      "ts": "2026-08-30T13:08:30.359772+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.0041920404507065,
-      "value": 0.937,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (z-score 2.00) sur un ticker peu liquide totalement noyée dans du bruit médiatique sans rapport (actualités académiques et religieuses). Absence totale de signal whale pertinent.\"\n}\n```",
-      "ts": "2026-08-30T14:39:11.226791+00:00"
-    },
-    {
       "metric": "long_short",
       "zscore": -2.216172553769189,
       "value": 1.088,
@@ -349,6 +307,48 @@
       "value": 7668348693.0,
       "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.97) combiné à un volume net preneur massivement négatif sur les dérivés (-96M$ sur Binance). Les médias traduisent une pression vendeuse agressive, confirmant une distribution agressive par les baleines en dépit du bruit médiatique sans rapport.\"\n}\n```",
       "ts": "2026-08-31T01:11:56.247510+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 2.9030405848658623,
+      "value": 53299694.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le z-score élevé des liquidations (2.90) combiné à un narratif médiatique extrêmement alarmiste et panique (échec des 80k, chute à 10k, liquidations) indique un classique 'flush' de levier. Les baleines profitent de la capitulation de la foule pour accumuler en silence.\"\n}\n```",
+      "ts": "2026-08-31T01:16:58.351832+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -3.872983346207417,
+      "value": 62,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-3.87) malgré un indice de cupidité modéré (62) et un vide médiatique total (Google Actualités). Classic setup d'accumulation silencieuse par les baleines loin du bruit de fond retail.\"\n}\n```",
+      "ts": "2026-08-31T01:37:01.410469+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.695473046297876,
+      "value": 7690142796.0,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de volume on-chain massive (z-score 2.70) couplée à des ventes massives sur les dérivés XRP (-96M sur Binance). Les médias grand public relayent du bruit hors-sujet, confirmant l'absence de narratif retail pendant que les baleines distribuent ou shortent agressivement.\"\n}\n```",
+      "ts": "2026-08-31T01:42:03.589966+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 2.6257819858347538,
+      "value": 53299423.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.63) sur les liquidations indiquant un 'flush' agressif des positions surexcessées. Le narratif médiatique est ultra-pessimiste et paniqué (appels à la baisse, fausses pannes de marché), ce qui caractérise un classique capitulation retail orchestrée par les baleines pour accumuler en silence.\"\n}\n```",
+      "ts": "2026-08-31T01:47:05.747602+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 3.029549874721644,
+      "value": 0.016,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Anomalie technique due à une confusion de termes : le 'SDI' onchain (indice de mouvement des baleines) est totalement déconnecté des actualités médiatiques qui font référence au système de facturation italien (SDI), au matériel vidéo (Blackmagic SDI) et à Samsung SDI (batteries).\"\n}\n```",
+      "ts": "2026-08-31T01:57:08.309196+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -3.316624790355402,
+      "value": 62,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-3.32) malgré un indice de cupidité modéré (62) et un vide total dans les médias ('Google Actualités' sans relais majeur). Classic silence radio des baleines : accumulation furtive avant un mouvement de rupture inattendu.\"\n}\n```",
+      "ts": "2026-08-31T02:07:11.144374+00:00"
     }
   ]
 }

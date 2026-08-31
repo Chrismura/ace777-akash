@@ -1,45 +1,15 @@
 {
-  "timestamp": 1788138885,
-  "date": "2026-08-31T01:14:45.780963+00:00",
+  "timestamp": 1788141886,
+  "date": "2026-08-31T02:04:46.635672+00:00",
   "n_analyses": 4,
   "analyses": [
     {
       "signal": {
-        "metric": "liquidations",
-        "zscore": 3.293186094541926,
-        "value": 53539360.0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le z-score élevé (3.29) des liquidations massives (53.5M$) couplé à un narratif médiatique ultra-pessimiste ('Bitcoin à 10 000$', 'échec à 80k$') indique un 'flush' classique des positions acheteuses par les baleines. Ce capitulation retail alimente une divergence de sentiment extrême, signalant un plancher de marché imminent.\"\n}\n```",
-        "ts": 1788137209.55032
-      },
-      "fiche": null,
-      "interpretation": {
-        "lecture": "Pas de fiche disponible",
-        "niveau": "inconnu"
-      },
-      "action": "Observer"
-    },
-    {
-      "signal": {
-        "metric": "whale_usd",
-        "zscore": 5.878179672058813,
-        "value": 5311326.0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie on-chain majeure (z-score 5.88, ~5.3M USD) totalement ignorée par les médias (silence radio). Accumulation furtive classique de baleines avant un mouvement directionnel.\"\n}\n```",
-        "ts": 1788137811.675715
-      },
-      "fiche": null,
-      "interpretation": {
-        "lecture": "Pas de fiche disponible",
-        "niveau": "inconnu"
-      },
-      "action": "Observer"
-    },
-    {
-      "signal": {
         "metric": "fear_greed",
-        "zscore": -4.774968373805272,
+        "zscore": -3.872983346207417,
         "value": 62,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement négatif (-4.77) pour un Fear & Greed modéré (62) : le marché grandit dans l'indifférence totale des médias. Divergence classique d'accumulation silencieuse par les baleines.\"\n}\n```",
-        "ts": 1788138413.894249
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-3.87) malgré un indice de cupidité modéré (62) et un vide médiatique total (Google Actualités). Classic setup d'accumulation silencieuse par les baleines loin du bruit de fond retail.\"\n}\n```",
+        "ts": 1788140221.410469
       },
       "fiche": null,
       "interpretation": {
@@ -51,15 +21,15 @@
     {
       "signal": {
         "metric": "volume",
-        "zscore": 2.973540927238891,
-        "value": 7668348693.0,
-        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.97) combiné à un volume net preneur massivement négatif sur les dérivés (-96M$ sur Binance). Les médias traduisent une pression vendeuse agressive, confirmant une distribution agressive par les baleines en dépit du bruit médiatique sans rapport.\"\n}\n```",
-        "ts": 1788138716.24751
+        "zscore": 2.695473046297876,
+        "value": 7690142796.0,
+        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de volume on-chain massive (z-score 2.70) couplée à des ventes massives sur les dérivés XRP (-96M sur Binance). Les médias grand public relayent du bruit hors-sujet, confirmant l'absence de narratif retail pendant que les baleines distribuent ou shortent agressivement.\"\n}\n```",
+        "ts": 1788140523.589966
       },
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.36,
+          "value": -0.37,
           "seuil": 1,
           "depasse": false
         },
@@ -69,7 +39,62 @@
           "depasse": false
         },
         "funding": {
-          "value": 7.4e-05,
+          "value": 7e-05,
+          "seuil": 0.001,
+          "depasse": false
+        },
+        "whales": {
+          "value": 1,
+          "seuil": 5,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "sdi > 0.3",
+        "lecture": "Drainage silencieux — les vieux BTC bougent en douce",
+        "niveau": "dangereux",
+        "action": "Réduire taille de 50%, sortir des positions fragiles"
+      },
+      "action": "Réduire taille de 50%, sortir des positions fragiles",
+      "niveau": "dangereux"
+    },
+    {
+      "signal": {
+        "metric": "liquidations",
+        "zscore": 2.6257819858347538,
+        "value": 53299423.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.63) sur les liquidations indiquant un 'flush' agressif des positions surexcessées. Le narratif médiatique est ultra-pessimiste et paniqué (appels à la baisse, fausses pannes de marché), ce qui caractérise un classique capitulation retail orchestrée par les baleines pour accumuler en silence.\"\n}\n```",
+        "ts": 1788140825.747602
+      },
+      "fiche": null,
+      "interpretation": {
+        "lecture": "Pas de fiche disponible",
+        "niveau": "inconnu"
+      },
+      "action": "Observer"
+    },
+    {
+      "signal": {
+        "metric": "sdi",
+        "zscore": 3.029549874721644,
+        "value": 0.016,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Anomalie technique due à une confusion de termes : le 'SDI' onchain (indice de mouvement des baleines) est totalement déconnecté des actualités médiatiques qui font référence au système de facturation italien (SDI), au matériel vidéo (Blackmagic SDI) et à Samsung SDI (batteries).\"\n}\n```",
+        "ts": 1788141428.309196
+      },
+      "fiche": "rbf_eleve",
+      "questions": {
+        "prix": {
+          "value": -0.37,
+          "seuil": 1,
+          "depasse": false
+        },
+        "paires": {
+          "value": null,
+          "seuil": 3,
+          "depasse": false
+        },
+        "funding": {
+          "value": 7e-05,
           "seuil": 0.001,
           "depasse": false
         },
