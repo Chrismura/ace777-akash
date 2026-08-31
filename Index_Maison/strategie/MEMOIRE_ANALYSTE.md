@@ -2865,3 +2865,11 @@
 - 2026-08-31T02:48:18.038548Z | alerte | Maintien de l'alerte ambre et exécution immédiate des coupe-circuits sur les positions seeds de Hulk en infraction critique. | conf=87%
 - 2026-08-31T02:51:34.320517Z | alerte | Maintien de l'alerte ambre et exécution immédiate des coupe-circuits sur les positions seeds de Hulk en infraction critique. | conf=87%
 - 2026-08-31T03:01:37.871987Z | alerte | Maintien de l'alerte ambre et exécution immédiate des coupe-circuits sur les positions seeds de Hulk en infraction critique. | conf=87%
+- 2026-08-31T03:25:02.464043Z | alerte | Maintien de l'alerte ambre et exécution immédiate des coupe-circuits sur les positions seeds de Hulk en infraction critique. | conf=87%
+- 2026-08-31T03:31:38.128027Z | alerte | Maintien de l'alerte ambre et exécution immédiate des coupe-circuits sur les positions seeds de Hulk en infraction critique. | conf=87%
+- 2026-08-31T03:37:34.346080Z | alerte | Maintien de l'alerte ambre et exécution immédiate des coupe-circuits sur les positions seeds de Hulk en infraction critique. | conf=87%
+- 2026-08-31T03:43:20.362808Z | alerte | Maintien de l'alerte ambre et exécution immédiate des coupe-circuits sur les positions seeds de Hulk en infraction critique. | conf=87%
+- 2026-08-31T04:02:01.297152Z | alerte | Maintenir l'alerte ambre, préserver la discipline d'embuscade d'Alpha et exécuter les stop-loss nécessaires sur les positions seeds de Hulk en zone critique. | conf=87%
+- 2026-08-31T04:04:15.254336Z | alerte | Maintenir l'alerte ambre, préserver la discipline d'embuscade d'Alpha et exécuter les stop‑loss nécessaires sur les positions seeds de Hulk en zone critique. | conf=87%
+- 2026-08-31T04:11:48.463811Z | alerte | Maintenir l'alerte ambre, préserver la discipline d'embuscade d'Alpha et exécuter les stop-loss nécessaires sur les positions seeds de Hulk en zone critique. | conf=87%
+- 2026-08-31T04:15:55.884531Z | alerte | Maintenir l'alerte ambre, préserver la discipline d'embuscade d'Alpha et exécuter rigoureusement les stop-loss sur les positions seeds de Hulk en zone critique. | conf=87%
