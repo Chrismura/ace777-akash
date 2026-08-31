@@ -44,6 +44,7 @@ from pathlib import Path
 OBSIDIAN_CLI = "/Applications/Obsidian.app/Contents/MacOS/obsidian-cli"
 VAULT = Path(os.environ.get("ACE777_VAULT", "~/Documents/Obsidian_ACE777")).expanduser()
 AUDIT_LOG = Path(os.environ.get("ACE777_AUDIT", str(VAULT / ".ace777_bridge_audit.jsonl")))
+DLO_LOG = Path(os.environ.get("ACE777_DLO", str(VAULT / ".ace777_dead_letter.jsonl")))
 
 CLI_TIMEOUT = 3.0          # max par commande CLI (famille+codeur : 3s)
 PING_TIMEOUT = 1.0         # ping léger (is_alive)
@@ -200,6 +201,22 @@ def validate_and_compile(note_type, data):
         compiled = compiled_fm + body + "\n"
     except KeyError as e:
         return None, [f"Erreur de template interne, clé manquante: {e}"]
+
+    # 5. WIKILINKS (Day Zero — famille F) : uniquement sur les nouvelles fiches.
+    # Le champ 'wikilink_to' (titre simple ou liste) ajoute une section Liens
+    # avec [[...]] pointant vers les fiches concernées. Aucune regex aveugle
+    # sur les 1733 notes existantes : on relie ce qu'on crée, c'est tout.
+    links = data.get("wikilink_to") or data.get("links") or []
+    if isinstance(links, str):
+        links = [links]
+    links = [str(l).strip() for l in links if str(l).strip()]
+    if "{{wikilinks}}" in compiled:
+        section = ""
+        if links:
+            section = "\n## Liens\n\n" + "\n".join(f"- [[{l}]]" for l in links) + "\n"
+        compiled = compiled.replace("{{wikilinks}}", section)
+    elif links:
+        compiled += "\n## Liens\n\n" + "\n".join(f"- [[{l}]]" for l in links) + "\n"
     return compiled, []
 
 
@@ -283,6 +300,61 @@ class ObsidianBridge:
         """Nom de fichier sûr (alphanum + espace _ -)."""
         return "".join(c for c in str(title) if c.isalnum() or c in (" ", "_", "-")).strip()
 
+    # ------------------------------------------------------------------ DLO
+    @classmethod
+    def _dlo(cls, entry):
+        """Dead Letter Office : trace TOUT rejet (gatekeeper) pour supervision.
+        \"C'est la machine qui éduque les IA\" — on garde la trace des erreurs
+        pour corriger les prompts/agents à la source (recommandation famille 3/3)."""
+        try:
+            DLO_LOG.parent.mkdir(parents=True, exist_ok=True)
+            entry.setdefault("ts", time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()))
+            with open(DLO_LOG, "a", encoding="utf-8") as f:
+                f.write(json.dumps(entry, ensure_ascii=False) + "\n")
+            # Retour sous forme d'erreur actionable pour l'appelant
+            return " | ".join(entry.get("errors", []))
+        except Exception:
+            return " | ".join(entry.get("errors", []))
+
+    @classmethod
+    def recent_rejections(cls, limit=20):
+        """Dernières entrées DLO (pour le cockpit / supervision)."""
+        if not DLO_LOG.exists():
+            return []
+        try:
+            lines = DLO_LOG.read_text(encoding="utf-8").strip().splitlines()
+            entries = [json.loads(l) for l in lines if l.strip()]
+            return entries[-limit:]
+        except Exception:
+            return []
+
+    # ------------------------------------------------------------------ journal agents
+    @classmethod
+    def journal_day(cls, agent, content, date=None):
+        """Append dans la daily note du jour, par SECTION STRICTE d'agent.
+
+        Recommandation famille (E) : une seule note/jour mais des sections
+        claires par agent pour garder le journal lisible et centralisé.
+        Crée la note si absente → via daily:path du template journal.
+
+        Retourne {status, path}.
+        """
+        date = date or datetime.now(timezone.utc).strftime("%Y-%m-%d")
+        agent = (agent or "agent").strip()
+        day_path = f"Cahier/{date}.md"
+        lines = content.rstrip("\n").splitlines()
+        bullet_lines = "\n".join(f"- {ln}" for ln in lines if ln.strip())
+        stamp = datetime.now(timezone.utc).strftime("%H:%MZ")
+        block = f"\n### {agent} ({stamp})\n\n{bullet_lines}\n"
+        return cls.append(day_path, block)
+
+    @classmethod
+    def dlo_status(cls):
+        """Résumé DLO pour le cockpit."""
+        rej = cls.recent_rejections(50)
+        return {"total_rejets_recents": len(rej),
+                "derniers": rej}
+
     # ------------------------------------------------------------------ API
     @classmethod
     def write_typed(cls, note_type, data, title=None):
@@ -293,6 +365,9 @@ class ObsidianBridge:
         """
         compiled_md, errors = validate_and_compile(note_type, data)
         if errors:
+            entry = {"kind": "rejet_gatekeeper", "type": note_type,
+                     "agent": data.get("agent") or "inconnu", "errors": errors}
+            cls._dlo(entry)
             return {"status": "REJECTED", "path": None, "errors": errors}
 
         schema = TYPES[note_type]
