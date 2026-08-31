@@ -358,6 +358,14 @@ function render() {
       <div class="card-detail">
         Source : justesse_cockpit.json (lue à l\'ouverture)<br>
         ${jt.cached ? 'MAJ ' + (jt.ts || '—') : ''}
+        ${jt.evitement && jt.evitement.alerte
+          ? '<br><b style="color:#ff5c5c">⚠️ ÉVITEMENT : ' + (jt.evitement.neutre_signal||0) + '/' + (jt.evitement.n_avis||0) + ' avis NEUTRE avec signal (' + (jt.evitement.taux_pct||0) + '% > ' + (jt.evitement.seuil_pct||60) + '%) — elle esquive le verdict.</b>'
+          : (jt.evitement && jt.evitement.n_avis
+            ? '<br>NEUTRE avec signal : ' + (jt.evitement.neutre_signal||0) + '/' + (jt.evitement.n_avis||0) + ' (' + (jt.evitement.taux_pct||0) + '%) — seuil alarme ' + (jt.evitement.seuil_pct||60) + '%'
+            : '')}
+        ${jt.zone_morte
+          ? '<br>Zone morte funding : < ' + (jt.zone_morte.seuil_funding||'') + ' = non noté (décidé par la donnée)'
+          : ''}
       </div>
       <div class="card-summary">${justSummary}</div>
     </div>

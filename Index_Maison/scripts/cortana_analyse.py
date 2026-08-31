@@ -210,6 +210,19 @@ def contexte_systeme() -> str:
         if par:
             lignes.append("- Ton bilan par indice (hit/n) : " + "; ".join(
                 "%s %s/%s" % (k, v.get("hit"), v.get("n")) for k, v in sorted(par.items())))
+        # ZONE MORTE (31/08, GO Christophe) : si le funding est < 0.02%%/8h,
+        # ton avis dessus n'est PAS noté (ni HIT ni MISS) — c'est la donnée qui décide,
+        # pas toi. Ne force pas un avis sur un indice muet, mais n'utilise jamais la
+        # zone morte pour esquiver un vrai signal (compteur anti-fuite actif).
+        zm = sc.get("zone_morte") or {}
+        if zm:
+            lignes.append(
+                "- ZONE MORTE funding (règle 31/08) : funding < %s = signal inexistant → "
+                "ton avis n'est pas noté (décidé par la donnée). Funding >= %s = signal "
+                "présent → ton avis est noté, NEUTRE compris. L'abus de NEUTRE quand le "
+                "signal existe déclenche une alarme anti-fuite."
+                % (zm.get("seuil_funding"), zm.get("seuil_funding"))
+            )
     except Exception as _e:
         lignes.append("[contexte:justesse indisponible — %s]" % _e)
 

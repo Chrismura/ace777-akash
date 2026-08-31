@@ -1,9 +1,9 @@
 {
   "version": "v2",
   "n": 158,
-  "total_hit": 59,
-  "total_scored": 118,
-  "pct": 50.0,
+  "total_hit": 48,
+  "total_scored": 88,
+  "pct": 54.5,
   "seuil_move_pct": 0.3,
   "par_indice": {
     "altSeason": {
@@ -40,11 +40,6 @@
       "hit": 16,
       "n": 28,
       "neutre": 9
-    },
-    "funding": {
-      "hit": 11,
-      "n": 30,
-      "neutre": 15
     },
     "gexPutCall": {
       "hit": 1,
@@ -94,9 +89,20 @@
     "horizon": "24h",
     "confiance": "moyenne",
     "statut": "FLAT ➖",
-    "detail": "78035 -> 78046 (+0.01%)",
-    "move_pct": 0.01,
+    "detail": "78035 -> 78052 (+0.02%)",
+    "move_pct": 0.02,
     "indice_move_pct": 0.0
   },
-  "ts": "2026-08-31T08:07:35.545895+00:00"
+  "zone_morte": {
+    "seuil_funding": 0.0002
+  },
+  "evitement": {
+    "neutre_signal": 37,
+    "n_avis": 145,
+    "taux_pct": 25.5,
+    "alerte": false,
+    "seuil_pct": 60.0,
+    "note": "NEUTRE émis alors que le signal existe — si >60% des avis, alarme évitement"
+  },
+  "ts": "2026-08-31T08:22:30.046354+00:00"
 }

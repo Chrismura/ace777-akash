@@ -40,6 +40,16 @@ from datetime import datetime, timezone
 SEUIL_MOVE_PCT = 0.3          # seuil de victoire réaliste (% : le 0,05 % d'avant = bruit)
 SEUIL_FLAT_PCT = SEUIL_MOVE_PCT  # bande "marché indécis" pour LONG/SHORT
 
+# === ZONE MORTE (31/08, GO Christophe) ===
+# Un indice collé à sa valeur neutre ne porte AUCUNE information directionnelle :
+# l'analyse n'est PAS notée (ni HIT ni MISS). La décision vient de la DONNÉE
+# (le chiffre), jamais de l'analyste → pas d'échappatoire possible.
+# Funding Binance : 0.01% = neutre, < 0.02%/8h = zone morte (notre base entière).
+FUNDING_DEAD_ZONE = 0.0002
+# Compteur anti-fuite : si l'analyste répond NEUTRE sur plus de 60% des analyses
+# où le signal EXISTE, c'est de l'évitement → alarme (elle esquive le verdict).
+NEUTRE_FUITE_MAX = 0.60
+
 THERMO_DIR = os.path.expanduser("~/ace777-test-day1/Index_Maison/thermo")
 ANALYSES_DIR = os.path.join(THERMO_DIR, "analyses")
 HISTORY = os.path.join(THERMO_DIR, "history.jsonl")
@@ -197,6 +207,16 @@ def juger(analyse, history):
         s1 = value_at(history, self_key, t0 + seconds, before=False)
         out["indice_move_pct"] = round(pct_move(s0, s1), 2) if pct_move(s0, s1) is not None else None
 
+    # ZONE MORTE (31/08, GO Christophe) : indice sans signal = NON NOTÉ.
+    # C'est la DONNÉE qui décide (le chiffre), pas l'analyste → elle ne peut pas
+    # s'y cacher : si le funding est dans la zone morte, AUCUN avis n'est noté,
+    # même un LONG/SHORT affirmé (le signal n'existe pas, le verdict serait du bruit).
+    if indice == "funding" and t0 is not None:
+        f0 = value_at(history, "funding", t0, before=True)
+        if f0 is not None and abs(float(f0)) < FUNDING_DEAD_ZONE:
+            return {**out, "statut": "zone_morte",
+                    "detail": f"funding {float(f0):.6f} < seuil {FUNDING_DEAD_ZONE:.6f} (neutre, non noté)"}
+
     if avis not in ("LONG", "SHORT", "NEUTRE"):
         return {**out, "statut": "sans_verdict" if not avis else "abstention",
                 "detail": f"avis={avis}"}
@@ -250,10 +270,18 @@ def build_resume(analyses, history):
     par_indice = {}
     neutre_par_indice = {}
     derniere = None
+    # Compteur anti-fuite (31/08, GO Christophe) : NEUTRE émis alors que le signal
+    # EXISTE (hors zone morte) = évitement possible. Compté séparément, alarme > 60%.
+    n_avis = 0          # analyses avec avis LONG/SHORT/NEUTRE (hors abstention)
+    n_neutre_signal = 0  # NEUTRE émis avec signal présent (HIT/MISS/FLAT)
 
     for an in analyses:
         v = juger(an, history)
         indice = an.get("indice", "?")
+        if v.get("avis") in ("LONG", "SHORT", "NEUTRE"):
+            n_avis += 1
+            if v.get("avis") == "NEUTRE" and v["statut"] in ("HIT ✅", "MISS ❌", "FLAT ➖"):
+                n_neutre_signal += 1
         # derniere = LA DERNIÈRE analyse (fix v2 : v1 prenait la première)
         if v.get("avis") in ("LONG", "SHORT", "NEUTRE"):
             derniere = {
@@ -280,6 +308,10 @@ def build_resume(analyses, history):
     for indice in par_indice:
         par_indice[indice]["neutre"] = neutre_par_indice.get(indice, 0)
 
+    # Alarme anti-fuite : NEUTRE avec signal présent > 60% des avis = elle esquive.
+    neutre_taux = (n_neutre_signal / n_avis * 100.0) if n_avis else None
+    alerte_fuite = bool(n_avis and (n_neutre_signal / n_avis) > NEUTRE_FUITE_MAX)
+
     return {
         "version": "v2",
         "n": len(analyses),
@@ -289,6 +321,16 @@ def build_resume(analyses, history):
         "seuil_move_pct": SEUIL_MOVE_PCT,
         "par_indice": {k: par_indice[k] for k in sorted(par_indice)},
         "derniere": derniere,
+        # ZONE MORTE + ANTI-FUITE (31/08, GO Christophe)
+        "zone_morte": {"seuil_funding": FUNDING_DEAD_ZONE},
+        "evitement": {
+            "neutre_signal": n_neutre_signal,
+            "n_avis": n_avis,
+            "taux_pct": round(neutre_taux, 1) if neutre_taux is not None else None,
+            "alerte": alerte_fuite,
+            "seuil_pct": NEUTRE_FUITE_MAX * 100,
+            "note": "NEUTRE émis alors que le signal existe — si >60% des avis, alarme évitement",
+        },
         "ts": datetime.now(timezone.utc).isoformat(),
     }
 
@@ -344,7 +386,8 @@ def main():
         print(f"  GLOBAL : {total_hit}/{total_scored} = {pct:.0f} % de justesse (NEUTRE noté)")
     else:
         print("  Aucun verdict noté pour l'instant — attendre que les horizons s'écoulent.")
-    print("  NB: NEUTRE noté (plat=HIT, bougé=MISS) · FLAT = marché indécis (non noté).")
+    print("  NB: NEUTRE noté (plat=HIT, bougé=MISS) · FLAT = marché indécis (non noté)")
+    print("      ZONE MORTE (31/08, GO Christophe) : funding < 0.02%% = signal inexistant -> non noté (décidé par la donnée).")
 
     resume = build_resume(analyses, history)
     write_json(OUT_V2, resume)
@@ -380,11 +423,12 @@ def run_tests():
         global ANALYSES_DIR, HISTORY, THERMO_DIR, OUT_V2, OUT_COCKPIT
         (ANALYSES_DIR, HISTORY, THERMO_DIR, OUT_V2, OUT_COCKPIT) = _sauve
 
-    # Historique synthétique : mark 100000 -> 100000 (plat) ; funding 0.0001 -> 0.0001
+    # Historique synthétique : mark 100000 -> 100000 (plat) ; funding 0.0005 -> 0.0005
+    # (0.0005 > zone morte 0.0002 → le funding PARLE ici, la logique HIT/MISS est testable)
     base = 1_700_000_000
     hist = [
-        {"tsUnix": base, "mark": 100000.0, "funding": 0.0001},
-        {"tsUnix": base + 24 * 3600, "mark": 100000.0, "funding": 0.0001},   # plat
+        {"tsUnix": base, "mark": 100000.0, "funding": 0.0005},
+        {"tsUnix": base + 24 * 3600, "mark": 100000.0, "funding": 0.0005},   # plat
     ]
     with open(HISTORY, "w") as f:
         for r in hist:
@@ -404,8 +448,8 @@ def run_tests():
 
     # NEUTRE sur marché bougé -> MISS
     hist2 = [
-        {"tsUnix": base, "mark": 100000.0, "funding": 0.0001},
-        {"tsUnix": base + 24 * 3600, "mark": 101000.0, "funding": 0.0001},   # +1%
+        {"tsUnix": base, "mark": 100000.0, "funding": 0.0005},
+        {"tsUnix": base + 24 * 3600, "mark": 101000.0, "funding": 0.0005},   # +1%
     ]
     v = juger(mk_analyse(base, "funding", "NEUTRE"), hist2)
     check("NEUTRE marché bougé (+1%) -> MISS", v["statut"] == "MISS ❌")
@@ -420,19 +464,64 @@ def run_tests():
 
     # SHORT + baisse -> HIT
     hist3 = [
-        {"tsUnix": base, "mark": 100000.0, "funding": 0.0001},
-        {"tsUnix": base + 24 * 3600, "mark": 99000.0, "funding": 0.0001},    # -1%
+        {"tsUnix": base, "mark": 100000.0, "funding": 0.0005},
+        {"tsUnix": base + 24 * 3600, "mark": 99000.0, "funding": 0.0005},    # -1%
     ]
     v = juger(mk_analyse(base, "funding", "SHORT"), hist3)
     check("SHORT -1% -> HIT", v["statut"] == "HIT ✅")
 
     # Self-move : funding analysé -> sa propre série tracée (pas seulement BTC)
     hist4 = [
-        {"tsUnix": base, "mark": 100000.0, "funding": 0.0001},
-        {"tsUnix": base + 24 * 3600, "mark": 100000.0, "funding": 0.0002},   # funding x2, BTC plat
+        {"tsUnix": base, "mark": 100000.0, "funding": 0.0005},
+        {"tsUnix": base + 24 * 3600, "mark": 100000.0, "funding": 0.0010},   # funding x2, BTC plat
     ]
     v = juger(mk_analyse(base, "funding", "LONG"), hist4)
     check("indice_move_pct tracé pour funding (+100%)", v.get("indice_move_pct") == 100.0)
+
+    # ─── ZONE MORTE (31/08, GO Christophe) : la DONNÉE décide, pas l'analyste ───
+    # funding 0.0001 (< seuil 0.0002) → zone_morte, même avec un LONG affirmé
+    hist_z = [
+        {"tsUnix": base, "mark": 100000.0, "funding": 0.0001},
+        {"tsUnix": base + 24 * 3600, "mark": 100000.0, "funding": 0.0001},   # funding neutre
+    ]
+    v = juger(mk_analyse(base, "funding", "LONG"), hist_z)
+    check("funding zone morte (0.0001) -> non noté même si LONG", v["statut"] == "zone_morte")
+    v = juger(mk_analyse(base, "funding", "NEUTRE"), hist_z)
+    check("funding zone morte (0.0001) -> non noté même si NEUTRE", v["statut"] == "zone_morte")
+    # zone morte hors funding : un autre indice n'est PAS affecté par la règle funding
+    v = juger(mk_analyse(base, "fearGreed", "LONG"), hist_z)
+    check("hors funding, la zone morte ne s'applique pas (fearGreed noté)",
+          v["statut"] in ("HIT ✅", "MISS ❌", "FLAT ➖"))
+    # non compté dans le score global (marché qui bouge pour que fearGreed soit noté)
+    hist_z2 = [
+        {"tsUnix": base, "mark": 100000.0, "funding": 0.0001},
+        {"tsUnix": base + 24 * 3600, "mark": 101000.0, "funding": 0.0001},   # +1%
+    ]
+    res = build_resume([mk_analyse(base, "funding", "NEUTRE"), mk_analyse(base, "fearGreed", "LONG")], hist_z2)
+    check("zone morte exclue du score (scored=1 sur 2 analyses)",
+          res["total_scored"] == 1 and res["total_hit"] == 1)
+
+    # ─── ANTI-FUITE (31/08, GO Christophe) : NEUTRE avec signal = compté, alarme >60% ───
+    # 3 analyses : 2 NEUTRE avec signal (funding 0.0005 parle) + 1 LONG → taux 66% > 60% → alerte
+    hist_f = [
+        {"tsUnix": base, "mark": 100000.0, "funding": 0.0005},
+        {"tsUnix": base + 24 * 3600, "mark": 100000.0, "funding": 0.0005},   # plat
+    ]
+    res = build_resume([
+        mk_analyse(base, "funding", "NEUTRE"),
+        mk_analyse(base, "funding", "NEUTRE"),
+        mk_analyse(base, "funding", "LONG"),
+    ], hist_f)
+    check("anti-fuite : 2/3 NEUTRE avec signal -> alerte True",
+          res["evitement"]["alerte"] is True and res["evitement"]["neutre_signal"] == 2)
+    # NEUTRE en zone morte ne compte PAS comme fuite
+    res = build_resume([
+        mk_analyse(base, "funding", "NEUTRE"),   # zone morte -> pas une fuite
+        mk_analyse(base, "fearGreed", "LONG"),
+        mk_analyse(base, "fearGreed", "LONG"),
+    ], hist_z)
+    check("anti-fuite : NEUTRE en zone morte ne compte pas (pas d'alarme)",
+          res["evitement"]["alerte"] is False and res["evitement"]["neutre_signal"] == 0)
 
     # derniere = dernière analyse (bug v1 corrigé)
     an1 = mk_analyse(base, "funding", "LONG")
