@@ -1,15 +1,85 @@
 {
-  "timestamp": 1788131683,
-  "date": "2026-08-30T23:14:43.611039+00:00",
-  "n_analyses": 2,
+  "timestamp": 1788135284,
+  "date": "2026-08-31T00:14:44.661683+00:00",
+  "n_analyses": 6,
   "analyses": [
     {
       "signal": {
         "metric": "liquidations",
-        "zscore": 2.6632689787021975,
-        "value": 29346373.0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le z-score élevé (2.66) des liquidations couplé à un narratif médiatique extrêmement défaitiste ('Bitcoin à $10 000', 'échec à 80k$') indique un flush complet des positions fragiles. C'est le signal classique d'un 'capitulation shakeout' orchestré par les baleines pour accumuler dans l'ombre avant un retournement haussier.\"\n}\n```",
-        "ts": 1788129964.445347
+        "zscore": 4.455808389708986,
+        "value": 51306425.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le z-score élevé des liquidations (4.46) combiné à un narratif médiatique ultra-pessimiste et panique (échec à 80k$, chute à 10k$, faillites) indique un 'flush' classique des positions de détail. Les baleines absorbent la liquidité en silence pendant que les médias sèment la terreur.\"\n}\n```",
+        "ts": 1788133579.299498
+      },
+      "fiche": null,
+      "interpretation": {
+        "lecture": "Pas de fiche disponible",
+        "niveau": "inconnu"
+      },
+      "action": "Observer"
+    },
+    {
+      "signal": {
+        "metric": "sdi",
+        "zscore": 2.255428234668331,
+        "value": 0.012,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Anomalie technique due à une collision lexicale : le 'SDI' on-chain n'a aucun rapport avec les baleines crypto, il s'agit d'un bruit médiatique concernant la fiscalité (facturation électronique) et le matériel vidéo (Blackmagic).\"\n}\n```",
+        "ts": 1788133580.738823
+      },
+      "fiche": "rbf_eleve",
+      "questions": {
+        "prix": {
+          "value": -0.09,
+          "seuil": 1,
+          "depasse": false
+        },
+        "paires": {
+          "value": null,
+          "seuil": 3,
+          "depasse": false
+        },
+        "funding": {
+          "value": 6.8e-05,
+          "seuil": 0.001,
+          "depasse": false
+        },
+        "whales": {
+          "value": 0,
+          "seuil": 5,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "sdi > 0.3",
+        "lecture": "Drainage silencieux — les vieux BTC bougent en douce",
+        "niveau": "dangereux",
+        "action": "Réduire taille de 50%, sortir des positions fragiles"
+      },
+      "action": "Réduire taille de 50%, sortir des positions fragiles",
+      "niveau": "dangereux"
+    },
+    {
+      "signal": {
+        "metric": "whale_usd",
+        "zscore": 4.53283772604052,
+        "value": 4067780.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 4.53, ~4M$) couplée à un silence médiatique absolu (Google Actualités vide). Les baleines accumulent dans l'ombre sans éveiller le retail.\"\n}\n```",
+        "ts": 1788134785.174654
+      },
+      "fiche": null,
+      "interpretation": {
+        "lecture": "Pas de fiche disponible",
+        "niveau": "inconnu"
+      },
+      "action": "Observer"
+    },
+    {
+      "signal": {
+        "metric": "fear_greed",
+        "zscore": -29.45124699638138,
+        "value": 62,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 40,\n  \"reason\": \"Données incomplètes (absence de flux onchain significatifs ou de titres Google Actualités pertinents) pour confirmer une divergence claire malgré un z-score de volatilité notable.\"\n}\n```",
+        "ts": 1788134786.281311
       },
       "fiche": null,
       "interpretation": {
@@ -21,15 +91,15 @@
     {
       "signal": {
         "metric": "volume",
-        "zscore": 2.2809555788045612,
-        "value": 5924832314.0,
-        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de volume on-chain élevée (z-score 2.28) couplée à des ventes massives sur les dérivés XRP (-96M$ net preneur sur Binance). Le narratif médiatique est totalement déconnecté (bruit parasite sur la culture et la beauté), masquant une pression vendeuse institutionnelle agressive.\"\n}\n```",
-        "ts": 1788131468.569208
+        "zscore": 3.2527642448935166,
+        "value": 7183648744.0,
+        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (3.25) combiné à un volume massif de 7.18B et un delta preneur Binance ultra-négatif (-96M$) sur les dérivés XRP. Les médias grand public divaguent sur des sujets sans rapport (maïs, cognac, coiffure), prouvant un aveuglement médiatique total pendant que les gros porteurs liquident massivement en silence.\"\n}\n```",
+        "ts": 1788135088.529837
       },
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.05,
+          "value": -0.09,
           "seuil": 1,
           "depasse": false
         },
@@ -39,7 +109,47 @@
           "depasse": false
         },
         "funding": {
-          "value": 8e-05,
+          "value": 6.8e-05,
+          "seuil": 0.001,
+          "depasse": false
+        },
+        "whales": {
+          "value": 0,
+          "seuil": 5,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "sdi > 0.3",
+        "lecture": "Drainage silencieux — les vieux BTC bougent en douce",
+        "niveau": "dangereux",
+        "action": "Réduire taille de 50%, sortir des positions fragiles"
+      },
+      "action": "Réduire taille de 50%, sortir des positions fragiles",
+      "niveau": "dangereux"
+    },
+    {
+      "signal": {
+        "metric": "ipt",
+        "zscore": 2.2168621127186263,
+        "value": 1.019,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit de fond médiatique sans rapport avec la crypto (actualités académiques et religieuses). L'anomalie z-score est un artefact sémantique ou un faux signal de faible liquidité sur un ticker homonyme.\"\n}\n```",
+        "ts": 1788135089.712173
+      },
+      "fiche": "rbf_eleve",
+      "questions": {
+        "prix": {
+          "value": -0.09,
+          "seuil": 1,
+          "depasse": false
+        },
+        "paires": {
+          "value": null,
+          "seuil": 3,
+          "depasse": false
+        },
+        "funding": {
+          "value": 6.8e-05,
           "seuil": 0.001,
           "depasse": false
         },
