@@ -119,3 +119,18 @@ base créée, Canvas désactivé, Templates/Daily notes désactivés.
 frontmatter uniforme → C Bases (portefeuille/veille/signets — le gros potentiel)
 → D Templates → E Daily notes journal agents → F wikilinks graphe → G Canvas
 cartes → H skills kepano installés.
+
+## 31/08 — Sniffer Obsidian (SNIFF_OBSIDIAN_20260831.md)
+
+**Demande Christophe** : envoyer le sniffer pour dénicher les dernières perles
+Obsidian. Trouvé : roadmap officiel (Kanban view Bases ACTIF, Calendar view
+PLANIFIÉ, Headless Sync LANCÉ fév 2026 = sync sans app ouverte, Multiplayer,
+PDF annotation), changelog 1.13.8 (stable, on est à jour), guide d'automation de
+référence (3 couches : app/vault/agents — confirme notre architecture ; « use
+exactly ONE sync mechanism » ⚠️ on en a 3 ; properties = database ; Templater+
+Linter = 80% friction), patterns agents (trace visible des actions, agents dans
+le vault, vault = AI operating system).
+
+**Conclusions** : plan A validé par la communauté (un seul canal d'écriture CLI +
+git backup), Headless Sync à explorer, Kanban/Calendar pour Bases = chantier C
+encore plus attractif, Templater+Linter à ajouter après Bases.
