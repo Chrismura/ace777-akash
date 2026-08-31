@@ -264,3 +264,9 @@ validation Christophe → implémentation.
 - Fix structurel 1 (lock global) : nouveau module voix_piste.py = verrou inter-processus (fcntl.flock) sur .cortana_speak.lock, tenu pendant TOUTE la génération+lecture. Branché sur cortana_brief.speak_text, cortana_cockpit_bridge._speak_texte, alerte_vocale.parler. Une seule voix à la fois. Testé : procB a attendu 1.2s que procA libère.
 - Fix structurel 2 (dé-duplication) : dans alerte_vocale.py, tuer_doublons() par hash du message normalisé + fichier PID. Chaque nouveau démarrage remplace l'ancienne boucle du même contenu. _liberer_si_remplace() arrête la boucle remplacée. Testé : boucle1 tuée dès la boucle2 du même message.
 - Nettoyage : tué les ~24 boucles accumulées + killall afplay/edge_tts. Fichiers : voix_piste.py (nouveau), cortana_brief.py, cortana_cockpit_bridge.py, alerte_vocale.py. Syntaxe + contention OK. Pont relaunch.
+
+## 31/08 — Fiche CODEUR/AGENT + mini-/refine maison (big idee PrimeAgent)
+- Analyse de 3 peplites (via signets X) : TAALAS (IA gravée silice, 14000 tok/s, = these SEAL de Christophe), PRIME AGENT (agent auto-améliorant, /refine ou l'agent améliore son propre setup + rollback par ID), APPLE Neural Engine.
+- Fiche FICHE_CODEUR_AGENT_20260831.md creee dans Crypto_Projet (vault) : contexte, les 3 analyses, 5 regles d'or, source, ce qu'on adopte.
+- Mini-/refine maison implementé : scripts/refine_maison.py + Refine_Reflexion.command (lanceur bureau). A chaque fin de mission, on journalise dans la daily note : ce qui a marché / améliorer / rollback (rien d'irréversible, tout est versionné). Teste en réel (SUCCESS_CLI sur Cahier/2026-08-31.md), tests nettoyés.
+- Verdict : la maison avait deja ~80% de PrimeAgent (sous-agents, persistence, 24/7, skills, backup) - il manquait le /refine automatise. Maintenant l'acces est la.
