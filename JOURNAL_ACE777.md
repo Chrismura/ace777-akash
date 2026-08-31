@@ -33,3 +33,11 @@ Christophe a trouvé le CPFP « bizarre » (hier et aujourd'hui : score poussiè
   2. veille_signal.py : le déclencheur poussière = SEUL le cumul 48h (cpfpDustDeclenche). Le ratio 10-tx n'est plus qu'affichage. sig_cpfp (URGENT) = carte2 ou signal confirmé — plus jamais le z normalisé.
 - **Tests** : 5 cas simulés tous OK (cumul+CPFP→URGENT ; cumul seul→WATCH ; bruit 50/50 sans cumul→AUCUNE alerte ; champ manquant→AUCUNE). Pipeline réelle rejouée : aujourd'hui = WATCH (cumul 1109, pas de carte2) — avant le fix c'était un faux URGENT.
 - **Verdict Christophe confirmé** : hier et aujourd'hui c'était le MÊME artefact — un échantillon de 10 tx qui criait 50/50. Le vrai cumul (1109 ≥ 1000) est déclenché mais c'est un WATCH sans CPFP, pas un URGENT.
+
+## 31/08 — FIX ADA : seuil liquidations CALIBRÉ (GO Christophe)
+ADA criait « FEUX DE L'ORAGE : liquidations massives » alors que zone VERT (voilure 86%). Audit :
+- **Donnée réelle** : liq24h = 53,6 M$ (accumulation du petit crash du 30/08, 2,5M→53,5M dans la journée) — mais PAS massif : percentile 87, max historique 141 M$, médiane 7j 35,8 M$.
+- **Bug** : seuil STATIQUE 50 M$ dans ada_gardienne.py (déclencheur + normalisation pression storm qui sature à 100% dès 50 M$). Sonnait sur un jour normal (28/08 : 54,7 M$).
+- **FIX** : seuil RELATIF = max(médiane 7j × 1,5, plancher 80 M$), via médiane_liq_7j() (thermo/history.jsonl). Pression storm normalisée sur la même référence.
+- **Résultat** : 53,6 M$ → plus de sirène (au-dessus de la moyenne, pas massif). Vrai pic 141 M$ → sirène. Simulé avec données réelles : SIRÈNE=False, déclencheurs=[]. 19/19 tests hermétiques verts (dont 2 nouveaux : 53M→non, 141M→oui).
+- **Balayage autres seuils fixes de la maison** : les restants sont sains — sat/vB et tailles BTC = unités absolues physiques (légitimes), z=3σ = statistique (relatif par construction), funding déjà relatif (3×moy30). Les 3 vrais bugs du jour (funding, CPFP, liquidations) étaient des seuils absolus appliqués à des échelles qui dépendent du régime de marché.

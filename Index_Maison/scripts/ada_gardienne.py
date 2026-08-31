@@ -74,6 +74,49 @@ ANTI_SPAM_MIN = 5   # famille : pas de double consultation avant 5 min
 FALLBACK_PERTE_MOY = 50.0
 FALLBACK_GAINS = 50.0
 
+# FIX 31/08 (GO Christophe, audit ADA) : les « liquidations massives » utilisaient
+# un seuil STATIQUE 50 M$ — mais la médiane 7j de liq24Usd est 44,7 M$ et le max
+# historique 141 M$ : 50 M$ sonnait sur un jour NORMAL (28/08 : 54,7 M$) → sirène
+# pour du « au-dessus de la moyenne ». Désormais : massives = liq24h > 1,5× médiane
+# 7j, avec un plancher absolu de 80 M$ (un vrai pic). Même référence pour la
+# pression storm (fini la saturation à 100% dès 50 M$).
+HISTORY_JSONL = os.path.join(BASE_DIR, "thermo", "history.jsonl")
+LIQ_MULT_MEDIANE = 1.5       # x la médiane 7j = niveau « massif »
+LIQ_PLANCHER_USD = 80_000_000.0  # jamais en dessous de 80 M$ (plancher absolu)
+LIQ_FALLBACK_USD = 50_000_000.0  # historique (si aucune donnée 7j disponible)
+
+
+def mediane_liq_7j() -> Optional[float]:
+    """Médiane de liq24Usd sur les 7 derniers jours (thermo/history.jsonl).
+    Référence RELATIVE de la normale — un jour normal ne doit jamais sonner
+    « massif ». Retourne None si pas assez de données (fallback historique)."""
+    try:
+        vals: List[float] = []
+        now = time.time()
+        if os.path.exists(HISTORY_JSONL):
+            with open(HISTORY_JSONL, "r", encoding="utf-8") as f:
+                for line in f:
+                    try:
+                        j = json.loads(line)
+                    except Exception:
+                        continue
+                    ts = j.get("tsUnix")
+                    v = j.get("liq24Usd")
+                    if ts is None or v is None:
+                        continue
+                    if now - float(ts) > 7 * 86400:
+                        continue
+                    try:
+                        vals.append(float(v))
+                    except (TypeError, ValueError):
+                        continue
+        if not vals:
+            return None
+        vals.sort()
+        return vals[len(vals) // 2]
+    except Exception:
+        return None
+
 EN_TEST = False     # mode tests : jamais de consultation famille, tout en /tmp
 DEMO_MAX_MIN = 20   # drapeau démo périmé au-delà -> auto-retour au réel
 
@@ -345,7 +388,11 @@ def calculer_p_storm(saison: Dict, thermo: Dict) -> float:
     try:
         funding = abs(float(thermo.get("funding", 0.0)))
         chg24 = abs(float(thermo.get("chg24", 0.0)))
-        liq = clamp(float(thermo.get("liq24Usd", 0.0)) / 50_000_000.0)
+        # FIX 31/08 : référence = médiane 7j × 1,5 (au lieu du 50 M$ fixe qui
+        # sature à 100% dès 50 M$ et ne distingue pas 53 M$ de 141 M$).
+        med = mediane_liq_7j()
+        ref = (med * LIQ_MULT_MEDIANE) if med else LIQ_FALLBACK_USD
+        liq = clamp(float(thermo.get("liq24Usd", 0.0)) / ref)
         fear = abs(float(thermo.get("fearGreed", 50)) - 50) / 50
         intensite = clamp(funding * 4.0 + chg24 * 1.2 + liq * 0.8 + fear * 0.6)
     except Exception:
@@ -420,10 +467,16 @@ def signaux_instantanes(data: Dict, pnl_cur: float,
     except Exception:
         pass
 
-    # 4. Liquidations massives
+    # 4. Liquidations massives (FIX 31/08 : seuil RELATIF médiane 7j × 1,5,
+    # plancher 80 M$ — un jour normal ne sonne plus « massif »)
     try:
-        if float(thermo.get("liq24Usd", 0.0) or 0.0) >= 50_000_000.0:
-            declencheurs.append("liquidations massives")
+        liq_now = float(thermo.get("liq24Usd", 0.0) or 0.0)
+        med = mediane_liq_7j()
+        seuil = max((med * LIQ_MULT_MEDIANE) if med else LIQ_FALLBACK_USD,
+                    LIQ_PLANCHER_USD)
+        if liq_now >= seuil:
+            declencheurs.append("liquidations massives (%.0f M$ ≥ seuil %.0f M$)"
+                                % (liq_now / 1e6, seuil / 1e6))
     except Exception:
         pass
 
@@ -822,6 +875,24 @@ def run_tests() -> bool:
     # -- Test 10 : jamais de langage de blocage dans les stories
     txt10 = " ".join(res5.get("gardienne", {}).get("story", [])).lower()
     check("pas de 'gèle'/'fige' dans les stories", "gèle" not in txt10 and "fige" not in txt10)
+
+    # -- Test 10bis (31/08, GO Christophe) : liquidations SEUIL RELATIF —
+    #    un jour normal (53 M$ sans historique 7j -> fallback 50 M$ + plancher
+    #    80 M$) ne doit PAS sonner ; un vrai pic (141 M$) doit sonner.
+    atomic_write_json(SAISON_LIVE, {"saison": "CALME", "direction": "flat", "bascule": False})
+    atomic_write_json(JOURNAL_LIVE, {"bots": {"alpha": {"pnl": 5.0, "fills": 1}, "beta": {}}})
+    atomic_write_json(THERMO_LIVE, {"tsUnix": time.time(), "funding": 0.0001, "fundingAvg30": 0.0001,
+                                    "chg24": 0.1, "liq24Usd": 53_000_000.0, "fearGreed": 50})
+    res10 = scan()
+    g10 = res10.get("gardienne", {})
+    check("liq 53 M$ (jour normal) -> PAS de sirène liquidations",
+          not any("liquidations" in d for d in g10.get("declencheurs", [])))
+    atomic_write_json(THERMO_LIVE, {"tsUnix": time.time(), "funding": 0.0001, "fundingAvg30": 0.0001,
+                                    "chg24": 0.1, "liq24Usd": 141_000_000.0, "fearGreed": 50})
+    res10b = scan()
+    g10b = res10b.get("gardienne", {})
+    check("liq 141 M$ (vrai pic) -> sirène liquidations massives",
+          any("liquidations" in d for d in g10b.get("declencheurs", [])))
 
     # -- Test 11 : mode démo cockpit (drapeau + données synthétiques)
     import json as _json
