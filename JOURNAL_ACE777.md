@@ -100,3 +100,22 @@ recents/commands/plugin:install/diff — tout fonctionne.
 (priorité 1, déjà lancé), B) frontmatter uniforme sur les fiches, C) Bases Obsidian
 (portefeuille/veille en base de données), D) daily notes agents, E) hygiène graphe
 (wikilinks), F) skills officiels pour nos IA, G) cockpit→Obsidian.
+
+## 31/08 — Étude Obsidian dans son ensemble (docs/ETUDE_OBSIDIAN_COMPLETE_20260831.md)
+
+**Demande Christophe** : « étudier obsidian dans son ensemble pas que les cli ».
+Complète l'audit CLI par l'étude de TOUT Obsidian.
+
+**Appris** : Bases (.base YAML = base de données native avec filtres/formules/vues
+table/cards/list/map + embed ![[base.base]]), Canvas (JSON nodes/edges pilotable
+par IA), Properties (frontmatter), Templates (0 configuré chez nous), Daily notes
+(désactivé), Graph view (1341 orphelines), plugin ecosystem (Dataview/Templater/
+Tasks/QuickAdd/Periodic Notes/Kanban...).
+
+**Notre état réel** : 2 plugins (obsidian-git + x-bookmarks), Bases activé mais 0
+base créée, Canvas désactivé, Templates/Daily notes désactivés.
+
+**Plan usage à 100% (8 chantiers)** : A pont CLI (fait, bascule en cours) → B
+frontmatter uniforme → C Bases (portefeuille/veille/signets — le gros potentiel)
+→ D Templates → E Daily notes journal agents → F wikilinks graphe → G Canvas
+cartes → H skills kepano installés.
