@@ -6,6 +6,7 @@ Parse size, conf, tension, direction. Écrit mission.json + mission.js
 from __future__ import annotations
 
 import csv
+import hashlib
 import json
 import re
 import time
@@ -1040,12 +1041,22 @@ def main() -> int:
     # qui cache mission.js par URL servait une copie périmée (symptôme Christophe :
     # journal rempli mais tableau départ + bulles vides). À chaque écriture du feed,
     # on tamponne ?v=<epoch> dans index.html → le prochain rechargement est frais.
+    # FIX 31/08 (Buffy) : la VERSION (meta) servait aussi à l'auto-éjection du cockpit
+    # (reload si le code change) — mais on la tamponnait avec l'epoch → reload à CHAQUE
+    # run du feed, même sans changement de code (le refresh qui saute en boucle).
+    # Désormais : ?v= reste epoch (fraîcheur des données, ne déclenche PAS de reload),
+    # et la meta version = hash du contenu du cockpit (hors version/cache-buster) →
+    # elle ne change QUE si le code est réellement modifié.
     try:
         idx = OUT / "index.html"
         txt = idx.read_text(encoding="utf-8")
         now = int(time.time())
         new_txt = re.sub(r"(\?v=)\d+", r"\g<1>" + str(now), txt)
-        new_txt = re.sub(r"(<meta name=\"version\" content=\")\d+(\")", r"\g<1>" + str(now) + r"\g<2>", new_txt)
+        # Signature du CODE : contenu sans version ni cache-buster (stable entre runs)
+        sig_txt = re.sub(r"(<meta name=\"version\" content=\")\d+(\")", r"\g<1>0\g<2>", new_txt)
+        sig_txt = re.sub(r"(\?v=)\d+", r"\g<1>0", sig_txt)
+        sig = int(hashlib.sha256(sig_txt.encode("utf-8")).hexdigest()[:8], 16)
+        new_txt = re.sub(r"(<meta name=\"version\" content=\")\d+(\")", r"\g<1>" + str(sig) + r"\g<2>", new_txt)
         if new_txt != txt:
             idx.write_text(new_txt, encoding="utf-8")
     except Exception:
