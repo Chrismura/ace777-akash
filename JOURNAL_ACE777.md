@@ -58,3 +58,25 @@ ADA criait « FEUX DE L'ORAGE : liquidations massives » alors que zone VERT (vo
 **Validé en réel** : 16 positions reprises (resume), cb:CLOSED, 0 stale, 0 regime, CPU 3.4%, RSS 19MB, contexte frais.
 
 **Commit** : à venir
+
+## 31/08 — Pont CLI Obsidian : installé + validé famille 3/3 + implémenté
+
+**Contexte** : signet X du jour (@KanikaBK) sur la CLI officielle Obsidian (v1.12+).
+Vérifié réel : binaire obsidian-cli v1.13.7 présent, activé dans Settings > General >
+Advanced par Christophe, testé create/append/read/tags sur le vault ACE777.
+
+**Consultation famille (gemini, juge) + codeur — 3/3 avis** : plan validé (8/10) avec
+4 corrections : queue séquentielle (Obsidian mono-thread), timeout 3s + read-back hash
+(ne pas faire confiance à exit code 0), fail-open absolu (disque = socle, CLI = couche
+notification), circuit breaker 3 échecs/15 min + audit jsonl. Rejeté : obsidian search
+pour valider (lent), plugin REST API (tiers), URI scheme.
+
+**Implémenté** : `Index_Maison/scripts/obsidian_cli_bridge.py` — pont séquentiel
+(verrou global), timeout 3s, create+read-back hash, append, fallback écriture directe
+dans le vault, circuit breaker, audit `.ace777_bridge_audit.jsonl`.
+
+**Testé en réel** : SUCCESS_CLI (create+read-back OK), fallback disque (app morte →
+SUCCESS_FALLBACK), concurrence 5 écritures sans crash, audit complet. Vault nettoyé.
+
+**Suite** : additif, rien n'est basculé — on laisse le pont tourner en parallèle avant
+de remplacer les écritures OUTBOX_OBSIDIAN des synthèses.
