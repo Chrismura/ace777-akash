@@ -2939,3 +2939,8 @@
 - 2026-08-31T14:41:43.662108Z | alerte | Poursuivre la vigilance nominale, préserver la discipline d'embuscade d'Alpha, exploiter les reconnaissances de Beta et encadrer strictement les positions seeds de Hulk. | conf=88%
 - 2026-08-31T14:42:48.634416Z | alerte | Poursuivre la vigilance nominale, préserver la discipline d'embuscade d'Alpha, exploiter les reconnaissances de Beta et encadrer strictement les positions seeds de Hulk. | conf=88%
 - 2026-08-31T15:03:24.997152Z | alerte | Poursuivre la vigilance nominale, préserver la discipline d'embuscade d'Alpha, exploiter les reconnaissances de Beta et encadrer strictement les positions seeds de Hulk. | conf=88%
+- 2026-08-31T15:29:30.380373Z | alerte | Maintenir la vigilance nominale, préserver la discipline d'embuscade d'Alpha, exploiter l'éclairage de Beta et appliquer strictement les stop-loss sur les positions seeds de Hulk en zone critique. | conf=88%
+- 2026-08-31T15:33:42.659741Z | alerte | Maintenir la vigilance nominale, préserver la discipline d'embuscade d'Alpha, exploiter l'éclairage de Beta et appliquer strictement les stop-loss sur les positions seeds de Hulk en zone critique. | conf=88%
+- 2026-08-31T15:43:29.469948Z | alerte | Maintenir la vigilance nominale, préserver la discipline d'embuscade d'Alpha, exploiter l'éclairage de Beta et appliquer strictement les stop-loss sur les positions seeds de Hulk en zone critique. | conf=88%
+- 2026-08-31T15:44:54.312047Z | alerte | ? | conf=?
+- 2026-08-31T16:03:54.051699Z | alerte | Maintien de l'alerte rouge et de la rigueur tactique face au repli du portefeuille global et à la tension des positions seeds de Hulk, tandis qu'Alpha maintient sa discipline d'embuscade et que Beta éclaire le marché. | conf=82%
