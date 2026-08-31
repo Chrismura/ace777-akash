@@ -1,15 +1,14 @@
 # CATALOGUE DES PROVIDERS — ACE777
 
-*Genere le 2026-08-30 par catalog_providers.py (gagnant A/B codeurs 09/08). Rafraichi a chaque veille du matin.*
+*Genere le 2026-08-31 par catalog_providers.py (gagnant A/B codeurs 09/08). Rafraichi a chaque veille du matin.*
 
-**Actifs : 13 · En observation : 1 · En attente : 12 · De cote (payant) : 2**
+**Actifs : 12 · En observation : 1 · En attente : 13 · De cote (payant) : 2**
 
 ## ACTIFS
 
 | Role | Modele | Statut | Note |
 |------|--------|--------|------|
 | - | `z-ai/glm-5.2:free` | openrouter-free | CORRIGE 23/08 - gpt-oss-20b:free supprime d OpenRouter (404). Remplace par z-ai/glm-5.2:fr |
-| missions / JUGE | `qwen-3.8-max-free` | nara | ACTIVE 17/08 - cle NaraRouter OK (Telegram lie) - qwen-3.8-max-free teste reellement OK |
 | chat interactif | `groq/compound` | groq | ACTIVE 17/08 - cle Groq OK + UA fix Cloudflare - groq/compound repond direct (gpt-oss=reas |
 | - | `nvidia/nemotron-3-super-120b-a12b:free` | openrouter-juge | REACTIVE 13/08 - nemotron-3-super-120b free teste OK. Juge independant (maker!=checker). | |
 | - | `nvidia/nemotron-3-ultra-550b-a55b:free` | openrouter-ultra | REACTIVE 13/08 - nemotron-3-ultra-550b free. Analyse forte, 2e avis expert. | quota journa |
@@ -33,6 +32,7 @@
 | Role | Modele | Statut | Note |
 |------|--------|--------|------|
 | demarrage / analyse profonde / analyste.strategie / audit protocole / RAG coffre / analyse / brief vocal / cortana.yeux / analyse / tri signets / synthese bookmarks / supervise.decision / trading.skills / analyse forte / veille.youtube | `gemini-flash-lite-latest` | gemini | - |
+| missions / JUGE | `qwen-3.8-max-free` | nara | ACTIVE 17/08 - cle NaraRouter OK (Telegram lie) - qwen-3.8-max-free teste reellement OK |
 | analyse BTC / elaboration | `deepseek-ai/deepseek-v4-flash-0731` | nvidia | ACTIVE 17/08 - vivant mais LENT (47s a froid, demarrage modele) - reserve analyse profonde |
 | - | `codestral-latest` | mistral | ACTIVE 11/08 - cle Mistral OK (plan experiment 1 Md tokens/mois) - Codestral = modele code |
 | - | `@cf/meta/llama-3.1-8b-instruct` | cloudflare-workers-ai | 10k Neurons/jour gratuits - necessite account_id dans base_url + token |

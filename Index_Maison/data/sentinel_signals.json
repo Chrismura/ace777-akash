@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "whale_usd",
-      "zscore": 2.7402214262557116,
-      "value": 2752323.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 78,\n  \"reason\": \"Z-score on-chain significatif (2.74) pour un flux de 2.75M$ sans couverture médiatique (Google Actualités vide). Accumulation furtive de baleines en zone de silence médiatique.\"\n}\n```",
-      "ts": "2026-08-30T21:25:38.168706+00:00"
-    },
-    {
       "metric": "volume",
       "zscore": 2.3112736748832505,
       "value": 5595024248.0,
@@ -349,6 +342,13 @@
       "value": 8657333243.0,
       "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.03) combiné à un volume de dérivés massif et un delta net preneur ultra-négatif sur Binance (-96M) : les baleines distribuent agressivement pendant que les médias grand public se focalisent sur des sujets macro hors-sujet.\"\n}\n```",
       "ts": "2026-08-31T05:33:09.964321+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 4.7055180926967255,
+      "value": 5526459.0,
+      "analysis": "{\"signal\": \"neutral\", \"confidence\": 65, \"reason\": \"L'anomalie onchain est forte (z-score 4.71), indiquant un mouvement inhabituel de baleines. Mais le narratif médiatique est quasi inexistant/neutre (Google Actualités sans titre spécifique). Cela montre une déconnexion : les baleines agissent silencieusement. Toutefois, le signal directionnel n'est pas clair : un pic de volume baleine peut précéder une hausse comme une distribution. Prudence, volatilité probable.\"}",
+      "ts": "2026-08-31T08:03:42.146959+00:00"
     }
   ]
 }
