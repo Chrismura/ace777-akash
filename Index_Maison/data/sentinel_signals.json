@@ -2,20 +2,6 @@
   "signals": [
     {
       "metric": "volume",
-      "zscore": 2.3112736748832505,
-      "value": 5595024248.0,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de volume on-chain élevée (z-score 2.31) couplée à des ventes massives sur les dérivés XRP (-96M sur Binance). Le narratif médiatique est totalement déconnecté (bruit parasite sur la culture et la beauté), masquant une pression vendeuse institutionnelle agressive.\"\n}\n```",
-      "ts": "2026-08-30T21:40:41.276517+00:00"
-    },
-    {
-      "metric": "liquidations",
-      "zscore": 3.2543323315221313,
-      "value": 28913185.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le z-score élevé des liquidations (3.25) combiné à un narratif médiatique panique (objectifs à 10k$, échec des 80k$) indique un 'flush' classique des positions vendeuses par les baleines. La capitulation retail est maximale, signalant un plancher local et l'absorption silencieuse des liquidités.\"\n}\n```",
-      "ts": "2026-08-30T21:45:43.534592+00:00"
-    },
-    {
-      "metric": "volume",
       "zscore": 2.3011260695559974,
       "value": 5697877678.0,
       "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 82,\n  \"reason\": \"Anomalie de volume on-chain élevée (z-score 2.30) combinée à un pic de ventes massives sur les dérivés XRP et un volume net preneur négatif record sur Binance (-96 M). Le narratif médiatique est totalement déconnecté, noyé dans du bruit non pertinent.\"\n}\n```",
@@ -349,6 +335,20 @@
       "value": 5526459.0,
       "analysis": "{\"signal\": \"neutral\", \"confidence\": 65, \"reason\": \"L'anomalie onchain est forte (z-score 4.71), indiquant un mouvement inhabituel de baleines. Mais le narratif médiatique est quasi inexistant/neutre (Google Actualités sans titre spécifique). Cela montre une déconnexion : les baleines agissent silencieusement. Toutefois, le signal directionnel n'est pas clair : un pic de volume baleine peut précéder une hausse comme une distribution. Prudence, volatilité probable.\"}",
       "ts": "2026-08-31T08:03:42.146959+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 8.474022991219353,
+      "value": 9929178.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Anomalie onchain massive (z-score 8.47, ~9.9M USD) en absence totale de couverture médiatique (Google Actualités vide). Divergence parfaite : accumulation silencieuse des baleines sous le radar du retail.\"\n}\n```",
+      "ts": "2026-08-31T10:19:03.747077+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": -2.021667665627779,
+      "value": 0.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit médiatique sans rapport avec la crypto (actualités académiques et religieuses). Absence totale de signal onchain pertinent (IPT=0.0).\"\n}\n```",
+      "ts": "2026-08-31T10:39:09.328730+00:00"
     }
   ]
 }

@@ -2977,3 +2977,8 @@ Pas d’ordre — confrontation plus tard.
 ### 2026-08-31T05:36:45Z — ALERT auto
 - EDELUSDT: WATCH_PULLBACK — tension haute + reflux
 (compléter: confirmé ? risque ?)
+
+### 2026-08-31T10:58:40Z — ALERT auto
+- EDELUSDT: WATCH_PULLBACK — tension haute + reflux
+- CHIPUSDT: IMPULSE_WAIT — spike en cours, pas chase
+(compléter: confirmé ? risque ?)
