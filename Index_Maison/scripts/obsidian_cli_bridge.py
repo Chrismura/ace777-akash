@@ -58,14 +58,21 @@ TYPES = {
     "actif": {
         "folder": "Crypto_Projet",
         "required_props": ["actif", "statut"],
-        "allowed_values": {"statut": ["brouillon", "valide", "archive"]},
+        "allowed_values": {
+            "statut": ["brouillon", "valide", "archive"],
+            "bag_hulk": ["oui", "non", ""],
+            "setup": ["breakout", "range", "accumulation", "rien", ""],
+        },
         "template": (
             "---\n"
             "type: actif\n"
             "actif: {actif}\n"
             "statut: {statut}\n"
+            "bag_hulk: {bag_hulk}\n"
+            "setup: {setup}\n"
             "date: {date}\n"
             "source: {source}\n"
+            "derniere_maj: {derniere_maj}\n"
             "tags: {tags}\n"
             "---\n\n"
             "# Actif : {actif}\n\n"
@@ -180,6 +187,9 @@ def validate_and_compile(note_type, data):
         "type_consultation": _yaml_escape(data.get("type_consultation") or "standard"),
         "membres": _yaml_escape(data.get("membres") or ["system"]),
         "tags": _yaml_escape(data.get("tags") or []),
+        "bag_hulk": _yaml_escape(data.get("bag_hulk") or ""),
+        "setup": _yaml_escape(data.get("setup") or ""),
+        "derniere_maj": _yaml_escape(data.get("derniere_maj") or now_str),
     }
 
     # 4. Compilation via le template (body inséré brut, non échappé)

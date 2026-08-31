@@ -225,3 +225,25 @@ jour 1, sans sur-ingénierie.
 **Plan proposé** (à valider par Christophe) : 1) enrichir template actif du
 gatekeeper (bag_hulk, setup, derniere_maj) 2) injection minimale 60 fiches
 3) créer Portefeuille.base 4) snapshot PnL quotidien plus tard.
+
+## 31/08 — Base Portefeuille implémentée (arbitrage Buffy validé par Christophe)
+
+**Plan validé** : « je fais confiance à ton arbitrage, go ». Implémenté :
+
+1. **Template actif du gatekeeper enrichi** : bag_hulk (oui/non), setup
+   (breakout/range/accumulation/rien), derniere_maj — vides autorisés, valeurs
+   invalides rejetées. Testé.
+2. **Backfill 23 fiches** (backfill_frontmatter_actifs_20260831.py) : injection
+   minimale (type: actif, actif, statut: valide, date=mtime, source: backfill)
+   sur les fiches actif existantes de Crypto_Projet. 23 modifiées (les
+   FICHE_SETUP_*), 37 exclues (thématiques). Backup _backfill_backup/ créé.
+   Corps des fiches intact (vérifié).
+3. **Portefeuille.base** créé : filtre type: actif + statut != archive, formule
+   jours_fiche, vue Pilotage (table groupée par statut) + vue Kanban.
+
+**Vérifié en réel** : base listée, base:query retourne 23 actifs avec statut/
+bag_hulk/setup/jours_fiche, base ouverte dans l'app. Obsidian-git commitera le
+vault (25 fichiers modifiés).
+
+**Règle respectée** : famille consultée (3/3) → synthèse → arbitrage Buffy →
+validation Christophe → implémentation.
