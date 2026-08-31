@@ -1,27 +1,6 @@
 {
   "signals": [
     {
-      "metric": "liquidations",
-      "zscore": 4.455808389708986,
-      "value": 51306425.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le z-score élevé des liquidations (4.46) combiné à un narratif médiatique ultra-pessimiste et panique (échec à 80k$, chute à 10k$, faillites) indique un 'flush' classique des positions de détail. Les baleines absorbent la liquidité en silence pendant que les médias sèment la terreur.\"\n}\n```",
-      "ts": "2026-08-30T23:46:19.299498+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": 2.255428234668331,
-      "value": 0.012,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Anomalie technique due à une collision lexicale : le 'SDI' on-chain n'a aucun rapport avec les baleines crypto, il s'agit d'un bruit médiatique concernant la fiscalité (facturation électronique) et le matériel vidéo (Blackmagic).\"\n}\n```",
-      "ts": "2026-08-30T23:46:20.738823+00:00"
-    },
-    {
-      "metric": "whale_usd",
-      "zscore": 4.53283772604052,
-      "value": 4067780.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 4.53, ~4M$) couplée à un silence médiatique absolu (Google Actualités vide). Les baleines accumulent dans l'ombre sans éveiller le retail.\"\n}\n```",
-      "ts": "2026-08-31T00:06:25.174654+00:00"
-    },
-    {
       "metric": "fear_greed",
       "zscore": -29.45124699638138,
       "value": 62,
@@ -349,6 +328,27 @@
       "value": 1.027,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le ratio long/short est extrêmement bas (z-score -2.11), indiquant un positionnement massif des traders particuliers sur la vente à découvert. Pendant ce temps, les médias grand public parlent de stratégies financières traditionnelles sans lien avec la crypto. C'est un désintérêt médiatique total conjugué à une survente des 'retail', configuration classique d'un piège à short (short squeeze) imminent préparé par les baleines.\"\n}\n```",
       "ts": "2026-08-31T18:10:30.849860+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": -2.0088416695114053,
+      "value": 1.024,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le z-score extrêmement bas (-2.01) indique une sous-évaluation marquée du ratio long/short, révélant un positionnement excessivement vendeur ou un désintérêt retail. Pendant ce temps, les médias grand public parlent de finance traditionnelle et de stratégies long/short hors crypto, démontrant un décollage total du narratif par rapport à l'accumulation silencieuse des baleines sur le marché crypto.\"\n}\n```",
+      "ts": "2026-08-31T19:05:39.999927+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 2.264989517590069,
+      "value": 0.016,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Fausse alerte liée à une confusion de termes. L'indice 'SDI' détecté on-chain ou dans les flux fait face à un vacarme médiatique concernant de l'homonymie pure (matériel vidéo SDI, Système d'Interchange de données fiscal, et la société médicale SDI Limited). Aucune corrélation avec une baleine crypto.\"\n}\n```",
+      "ts": "2026-08-31T19:15:43.461977+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.480919860651411,
+      "value": 1.155,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique sans rapport avec la crypto (actualités académiques et homonymes). L'anomalie z-score est un artefact d'un actif à faible liquidité (TSXV:IPT ou homonyme), aucune accumulation significative de baleines détectée.\"\n}\n```",
+      "ts": "2026-08-31T19:15:45.142434+00:00"
     }
   ]
 }
