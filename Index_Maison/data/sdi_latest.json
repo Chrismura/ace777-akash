@@ -1,5 +1,5 @@
 {
-  "timestamp": 1788135173,
+  "timestamp": 1788138883,
   "sdi": {
     "sdi": 0.008,
     "divergence_score": 0,
@@ -10,10 +10,10 @@
     "fee_fastest_sat": 2
   },
   "ipt": {
-    "ipt": 0.493,
+    "ipt": 0.568,
     "micro_tx_ratio": 0.2,
     "z_fee": 1.0,
-    "entropy": 0.378
+    "entropy": 0.625
   },
   "rbf": {
     "rbf_score": 0.0,
@@ -32,21 +32,21 @@
   },
   "alerts": [],
   "sapi": {
-    "score": 0.4,
+    "score": 0.124,
     "alerte": false,
     "persistance": false,
     "scores_recents": [
-      0.75,
-      0.75,
-      0.4
+      0.321,
+      0.518,
+      0.124
     ],
     "composantes": {
       "z_fee": 1.0,
-      "taux_fantome": 4.094,
+      "taux_fantome": 0.062,
       "micro_tx_ratio": 0.2,
       "spot_proxy": 0.0,
       "coef_heure_creuse": 1.0,
-      "entropie_tempo": 1.0
+      "entropie_tempo": 0.0
     },
     "note": "Score d'Alerte Poussière Institutionnelle (Cortana tour 1, validé 29/08 — corr RBF plat −0.275). Proxy carnet spot = spread_avg_bps normalisé σ1h (FIX famille). FIX 4 : proxy réduit ×0.35 en heures creuses UTC (02-06) + bonus entropie temporelle (rythme robotique du carnet) si base fantôme. Alerte = persistance 3 ticks ≥ 0.75 + volume ≥ 500 BTC."
   }

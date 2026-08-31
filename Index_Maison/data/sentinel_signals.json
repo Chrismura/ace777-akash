@@ -1,62 +1,6 @@
 {
   "signals": [
     {
-      "metric": "long_short",
-      "zscore": -2.2043938723796677,
-      "value": 1.139,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Le z-score extrêmement bas (-2.20) indique une sous-représentation historique des positions longues, contredisant le bruit médiatique générique sur les stratégies long/short. Les baleines accumulent discrètement en position contrarienne, créant une configuration explosive de 'short squeeze'.\"\n}\n```",
-      "ts": "2026-08-30T05:07:48.687186+00:00"
-    },
-    {
-      "metric": "long_short",
-      "zscore": -2.0768951546060412,
-      "value": 1.139,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Le z-score extrêmement bas (-2.08) indique une capitulation des positions vendeuses (retail sur-exposé au short), tandis que le narratif médiatique discute abstraitement des stratégies long/short institutionnelles sans voir l'accumulation cachée des baleines en contre-partie.\"\n}\n```",
-      "ts": "2026-08-30T05:37:54.359690+00:00"
-    },
-    {
-      "metric": "whale_usd",
-      "zscore": 2.526803797318833,
-      "value": 2714496.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Activité anormale des baleines (z-score 2.53, ~2.7M USD) totalement ignorée par les médias (silence médiatique absolu). Accumulation ou positionnement discret en sous-marin avant une rupture de prix.\"\n}\n```",
-      "ts": "2026-08-30T05:48:04.915969+00:00"
-    },
-    {
-      "metric": "long_short",
-      "zscore": -2.1077287989502294,
-      "value": 1.136,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-2.11) sur le ratio long/short indiquant un positionnement contrarien massif des institutionnels, tandis que les médias font du bruit sur des stratégies financières traditionnelles sans lien avec la pression directionnelle réelle du marché crypto.\"\n}\n```",
-      "ts": "2026-08-30T06:08:09.238131+00:00"
-    },
-    {
-      "metric": "long_short",
-      "zscore": -2.0776348704797964,
-      "value": 1.134,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Z-score extrêmement bas (-2.08) sur le ratio Long/Short indiquant une capitulation des positions acheteuses de la foule, tandis que les médias grand public banalisent le concept 'long/short' sans voir le squeeze imminent.\"\n}\n```",
-      "ts": "2026-08-30T08:02:44.390744+00:00"
-    },
-    {
-      "metric": "taker_ratio",
-      "zscore": 4.0791005207982165,
-      "value": 1.99,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 95,\n  \"reason\": \"Divergence critique : les médias grand public chantent la baisse de la pression vendeuse (0.86), mais le taker_ratio à 1.99 (z-score 4.08) révèle une frénésie d'achats agressive par les acheteurs au comptant (retail), immédiatement absorbée par une distribution massive et silencieuse des baleines (short/take profit). Piège à liquidité classique.\"\n}\n```",
-      "ts": "2026-08-30T08:02:46.077677+00:00"
-    },
-    {
-      "metric": "long_short",
-      "zscore": -2.2404470324714185,
-      "value": 1.126,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Z-score extrêmement bas (-2.24) sur le ratio long/short indiquant une sous-exposition extrême des positions longues, tandis que les médias grand public s'attardent de manière générale sur des concepts théoriques de stratégies 'long/short'. Contraste classique de capitulation des détails avant un rebond violent induit par les baleines.\"\n}\n```",
-      "ts": "2026-08-30T08:36:30.080067+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": 3.1380963257529695,
-      "value": 0.016,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Bruit médiatique externe : les gros titres font référence à la facturation électronique (SDI français), au matériel vidéo (connexion SDI) ou à l'industriel Samsung SDI. Aucune connexion avec une baleine crypto ou un token spécifique. Anomalie onchain non corrélée.\"\n}\n```",
-      "ts": "2026-08-30T11:37:25.038832+00:00"
-    },
-    {
       "metric": "ipt",
       "zscore": 2.401998813694339,
       "value": 1.02,
@@ -349,6 +293,62 @@
       "value": 1.019,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit de fond médiatique sans rapport avec la crypto (actualités académiques et religieuses). L'anomalie z-score est un artefact sémantique ou un faux signal de faible liquidité sur un ticker homonyme.\"\n}\n```",
       "ts": "2026-08-31T00:11:29.712173+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 3.862711201198576,
+      "value": 53941526.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le z-score élevé (3.86) des liquidations ($53.9M) combiné à un narratif médiatique ultra-pessimiste ('Bitcoin à $10 000', 'échec à 80k$') indique un washout classique des positions acheteuses par effet de levier. Les baleines en profitent pour accumuler dans la panique générale, créant une divergence classique de capitulation.\"\n}\n```",
+      "ts": "2026-08-31T00:16:32.222266+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 2.0433605132330195,
+      "value": 0.012,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Fausse alerte due à une collision lexicale. L'indice 'SDI' onchain ne concerne pas une cryptomonnaie mais fait référence dans les médias à la facturation électronique et au matériel vidéo (Blackmagic). Aucune baleine crypto détectée.\"\n}\n```",
+      "ts": "2026-08-31T00:21:34.387943+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -6.731806999793681,
+      "value": 62,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-6.73) malgré un indice de cupidité modéré (62). Le vide médiatique (aucun bruit de fond) combiné à une anomalie statistique onchain révèle une accumulation silencieuse des baleines loin des radars du retail.\"\n}\n```",
+      "ts": "2026-08-31T00:36:45.197443+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 3.221799921115823,
+      "value": 7545272703.0,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (3.22) couplé à un volume massif de 7.5B sur XRP, associé dans les médias à un pic de ventes sur dérivés et un volume net preneur fortement négatif (-96M sur Binance). Les baleines distribuent agressivement dans le silence pendant que le narratif public confirme la capitulation vendeuse.\"\n}\n```",
+      "ts": "2026-08-31T00:41:47.190834+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 3.293186094541926,
+      "value": 53539360.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le z-score élevé (3.29) des liquidations massives (53.5M$) couplé à un narratif médiatique ultra-pessimiste ('Bitcoin à 10 000$', 'échec à 80k$') indique un 'flush' classique des positions acheteuses par les baleines. Ce capitulation retail alimente une divergence de sentiment extrême, signalant un plancher de marché imminent.\"\n}\n```",
+      "ts": "2026-08-31T00:46:49.550320+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 5.878179672058813,
+      "value": 5311326.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie on-chain majeure (z-score 5.88, ~5.3M USD) totalement ignorée par les médias (silence radio). Accumulation furtive classique de baleines avant un mouvement directionnel.\"\n}\n```",
+      "ts": "2026-08-31T00:56:51.675715+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -4.774968373805272,
+      "value": 62,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement négatif (-4.77) pour un Fear & Greed modéré (62) : le marché grandit dans l'indifférence totale des médias. Divergence classique d'accumulation silencieuse par les baleines.\"\n}\n```",
+      "ts": "2026-08-31T01:06:53.894249+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.973540927238891,
+      "value": 7668348693.0,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.97) combiné à un volume net preneur massivement négatif sur les dérivés (-96M$ sur Binance). Les médias traduisent une pression vendeuse agressive, confirmant une distribution agressive par les baleines en dépit du bruit médiatique sans rapport.\"\n}\n```",
+      "ts": "2026-08-31T01:11:56.247510+00:00"
     }
   ]
 }
