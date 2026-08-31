@@ -258,3 +258,9 @@ validation Christophe → implémentation.
 - A'+B: obsidian_writer.py — watcher global OUTBOX→pont (idempotent, fichiers protégés, mapping dossier→type, archive _traites) + launchd com.ace777.obsidian-writer (scan 24h/5min)
 - Consommation OUTBOX: 313 fichiers archivés (tous déjà dans le vault), 18 orphelins récupérés
 - Alarmes Cortana au départ: climat calme (score 85), rien d'urgent
+
+## 31/08 — FIX superposition voix Cortana (bug « chafouin » des alarmes)
+- Cause : alerte_vocale.py = boucle infinie ; chaque lanceur la démarrait SANS tuer les boucles précédentes du même événement → ~24 processus "Drainage silencieux"/"poussiere_haute" en parallèle depuis des heures, chacune répétant toutes les 30s → voix superposées permanentes.
+- Fix structurel 1 (lock global) : nouveau module voix_piste.py = verrou inter-processus (fcntl.flock) sur .cortana_speak.lock, tenu pendant TOUTE la génération+lecture. Branché sur cortana_brief.speak_text, cortana_cockpit_bridge._speak_texte, alerte_vocale.parler. Une seule voix à la fois. Testé : procB a attendu 1.2s que procA libère.
+- Fix structurel 2 (dé-duplication) : dans alerte_vocale.py, tuer_doublons() par hash du message normalisé + fichier PID. Chaque nouveau démarrage remplace l'ancienne boucle du même contenu. _liberer_si_remplace() arrête la boucle remplacée. Testé : boucle1 tuée dès la boucle2 du même message.
+- Nettoyage : tué les ~24 boucles accumulées + killall afplay/edge_tts. Fichiers : voix_piste.py (nouveau), cortana_brief.py, cortana_cockpit_bridge.py, alerte_vocale.py. Syntaxe + contention OK. Pont relaunch.

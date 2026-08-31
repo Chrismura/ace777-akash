@@ -27,6 +27,7 @@ import threading
 
 import barge_in  # micro : coupe la parole si on parle (natif, ffmpeg)
 import oral_fr  # nombres -> toutes lettres (voix propre, pas de « neuf neuf »)
+import voix_piste  # verrou global : UNE SEULE voix à la fois (fix 31/08)
 import tempfile
 import urllib.request
 
@@ -82,40 +83,42 @@ def speak_text(text, voice=None, rate=None):
     if not text or not text.strip():
         return 1
     text = oral_fr.oraliser(text)  # 99,99 -> « quatre-vingt-dix-neuf virgule quatre-vingt-dix-neuf »
-    with tempfile.NamedTemporaryFile(suffix=".mp3", delete=False) as f:
-        path = f.name
-    if barge_in.activ():
-        barge_in.preparer()  # calibration ambiant EN SILENCE, pendant la generation
-    cmd = [
-        "python3", "-m", "edge_tts",
-        "--voice", voice,
-        f"--rate={rate}",
-        "--text", text,
-        "--write-media", path,
-    ]
-    proc = subprocess.run(cmd, capture_output=True, text=True, timeout=90, check=False)
-    if proc.returncode != 0 or not os.path.exists(path) or os.path.getsize(path) < 100:
-        print("  ✘ generation voix echouee", file=sys.stderr)
-        if os.path.exists(path):
+    # FIX 31/08 : toute la génération + lecture se fait SOUS le verrou global
+    # (voix_piste.piste_verrou). Deux agents ne peuvent plus générer deux .mp3
+    # en parallèle ni chevaucher leurs lectures : une seule voix à la fois.
+    with voix_piste.piste_verrou("cortana_brief"):
+        with tempfile.NamedTemporaryFile(suffix=".mp3", delete=False) as f:
+            path = f.name
+        if barge_in.activ():
+            barge_in.preparer()  # calibration ambiant EN SILENCE, pendant la generation
+        cmd = [
+            "python3", "-m", "edge_tts",
+            "--voice", voice,
+            f"--rate={rate}",
+            "--text", text,
+            "--write-media", path,
+        ]
+        proc = subprocess.run(cmd, capture_output=True, text=True, timeout=90, check=False)
+        if proc.returncode != 0 or not os.path.exists(path) or os.path.getsize(path) < 100:
+            print("  ✘ generation voix echouee", file=sys.stderr)
+            if os.path.exists(path):
+                os.unlink(path)
+            return 1
+        # BARGE-IN : touche (clavier) OU micro (barge_in.py) coupent la parole.
+        # Le lock garantit UNE seule piste ; la lecture passe sous le même verrou.
+        player = subprocess.Popen(["afplay", path])
+        if barge_in.activ():
+            threading.Thread(target=barge_in.surveiller, args=(player,), daemon=True).start()
+        _couper_si_touche(player)
+        try:
+            player.wait(timeout=180)
+        except subprocess.TimeoutExpired:
+            player.kill()
+        try:
             os.unlink(path)
-        return 1
-    # BARGE-IN : touche (clavier) OU micro (barge_in.py) coupent la parole
-    # UNE SEULE PISTE (règle maison, cf. cortana_voice._silence_players) :
-    # on coupe toute voix déjà en cours pour ne jamais en avoir deux à la fois.
-    subprocess.run(["killall", "afplay"], check=False, capture_output=True)
-    player = subprocess.Popen(["afplay", path])
-    if barge_in.activ():
-        threading.Thread(target=barge_in.surveiller, args=(player,), daemon=True).start()
-    _couper_si_touche(player)
-    try:
-        player.wait(timeout=180)
-    except subprocess.TimeoutExpired:
-        player.kill()
-    try:
-        os.unlink(path)
-    except Exception:
-        pass
-    return 0
+        except Exception:
+            pass
+        return 0
 
 
 def _couper_si_touche(player):

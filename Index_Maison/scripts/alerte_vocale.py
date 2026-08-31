@@ -27,6 +27,52 @@ IM = RACINE / "Index_Maison"
 ALERTES_DIR = IM / "data" / "alertes"
 AUDIO_TMP = IM / "data" / "temp_alerte.mp3"
 
+# FIX 31/08 : UNE SEULE boucle par alerte (dé-duplication par contenu).
+# Les lanceurs démarrent alerte_vocale.py sans tuer les boucles précédentes du
+# même événement → accumulation de N processus identiques qui répètent le même
+# message (le bug du « chafouin »). Ici, chaque démarrage tue les boucles qui
+# jouent le MÊME message normalisé, puis prend la main. Une seule voix par
+# événement, quel que soit le nombre de relances du lanceur.
+import hashlib as _hashlib
+DEDUP_DIR = ALERTES_DIR / ".dedup"
+
+
+def _cle_dedup(message: str) -> str:
+    """Clé stable par MESSAGE normalisé (peu sensible au cas/aux espaces et
+    aux préfixes Alerte/Attention) pour grouper les doublons du même événement."""
+    norm = " ".join(message.lower().replace("alerte", "").replace("attention.", "")
+                    .split())
+    return _hashlib.sha256(norm.encode("utf-8")).hexdigest()[:24]
+
+
+def tuer_doublons(message: str) -> None:
+    """Tue les autres boucles alerte_vocale qui jouent le même contenu.
+    Au démarrage d'une nouvelle boucle, remplace l'éventuelle ancienne qui
+    tourne encore (remplacement propre au lieu d'accumulation)."""
+    cle = _cle_dedup(message)
+    DEDUP_DIR.mkdir(parents=True, exist_ok=True)
+    pid_file = DEDUP_DIR / f"{cle}.pid"
+    if pid_file.exists():
+        try:
+            ancien = int(pid_file.read_text(encoding="utf-8").strip())
+        except Exception:
+            ancien = None
+        if ancien and ancien != os.getpid():
+            try:
+                os.kill(ancien, 15)  # SIGTERM : la boucle écrit proprement son arrêt
+            except Exception:
+                pass
+            try:
+                pid_file.unlink()
+            except Exception:
+                pass
+    # Écrire/rafraîchir son propre pid dès le départ ; on le nettoiera à la fin.
+    try:
+        ecriture_atomique(pid_file, str(os.getpid()))
+    except Exception:
+        pass
+
+
 VOIX = "fr-FR-DeniseNeural"  # français pur (Vivienne multilingue → accent espagnol, 19/08)
 INTERVALLE_SEC = 30  # répétition du message
 PAUSE_SEC = 5        # tranches de pause (réactivité à l'arrêt)
@@ -69,25 +115,22 @@ def verifier_arret(id_alerte: str) -> bool:
 
 
 def parler(message: str):
-    """Lit le message à voix haute (edge_tts → mp3 → afplay), une seule piste."""
-    try:
-        subprocess.run(["killall", "say"], stderr=subprocess.DEVNULL,
-                       stdout=subprocess.DEVNULL)
-        subprocess.run(["killall", "edge_tts"], stderr=subprocess.DEVNULL,
-                       stdout=subprocess.DEVNULL)
-    except Exception:
-        pass
-    try:
-        AUDIO_TMP.parent.mkdir(parents=True, exist_ok=True)
-        subprocess.run(
-            ["python3", "-m", "edge_tts", "--voice", VOIX, "--text", message,
-             "--write-media", str(AUDIO_TMP)],
-            check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-        player = "afplay" if sys.platform == "darwin" else "mpg123"
-        subprocess.run([player, str(AUDIO_TMP)],
-                       stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-    except Exception as e:
-        print(f"[ALERTE VOCALE ERREUR] {e}", file=sys.stderr)
+    """Lit le message à voix haute (edge_tts → mp3 → afplay), une seule piste.
+    FIX 31/08 : génération + lecture sous le verrou global voix_piste — plus
+    d'alerte vocale qui chevauche les autres voix Cortana."""
+    import voix_piste
+    with voix_piste.piste_verrou("alerte_vocale"):
+        try:
+            AUDIO_TMP.parent.mkdir(parents=True, exist_ok=True)
+            subprocess.run(
+                ["python3", "-m", "edge_tts", "--voice", VOIX, "--text", message,
+                 "--write-media", str(AUDIO_TMP)],
+                check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+            player = "afplay" if sys.platform == "darwin" else "mpg123"
+            subprocess.run([player, str(AUDIO_TMP)],
+                           stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        except Exception as e:
+            print(f"[ALERTE VOCALE ERREUR] {e}", file=sys.stderr)
 
 
 def main():
@@ -120,6 +163,11 @@ def main():
     except Exception:
         pass
 
+    # FIX 31/08 : remplacer toute boucle du même message avant de démarrer.
+    tuer_doublons(args.message)
+    cle_dedup = _cle_dedup(args.message)
+    pid_file_dedup = DEDUP_DIR / f"{cle_dedup}.pid"
+
     print(f"🔊 Alerte vocale en boucle (id {args.id}). "
           "Arrêt : touch STOP_ALERTE ou arret_alerte.", file=sys.stderr)
 
@@ -147,10 +195,22 @@ def main():
 
         # Pause découpée en tranches pour réagir vite à l'arrêt
         for _ in range(INTERVALLE_SEC // PAUSE_SEC):
-            if verifier_arret(args.id):
+            if verifier_arret(args.id) or _liberer_si_remplace(pid_file_dedup):
                 print(f"Arrêt de l'alerte vocale {args.id}.", file=sys.stderr)
                 sys.exit(0)
             time.sleep(PAUSE_SEC)
+
+
+def _liberer_si_remplace(pid_file_dedup) -> bool:
+    """Vrai si notre pid_file a été repris par un AUTRE process (la boucle
+    a été remplacée par une nouvelle instance du même message) → on s'arrête."""
+    try:
+        if not pid_file_dedup.exists():
+            return False
+        cur = pid_file_dedup.read_text(encoding="utf-8").strip()
+        return cur != str(os.getpid())
+    except Exception:
+        return False
 
 
 if __name__ == "__main__":

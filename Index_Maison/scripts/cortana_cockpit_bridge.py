@@ -860,40 +860,42 @@ def _speak_texte(texte: str) -> None:
     global _VOICE_PROC
     import tempfile as _tf
     try:
-        with _tf.NamedTemporaryFile(suffix=".mp3", delete=False) as f:
-            path = f.name
-        if barge_in.activ():
-            barge_in.preparer()  # calibration ambiant EN SILENCE, pendant la generation
-        import cortana_voice as _cv
-        texte = oral_fr.oraliser(_cv.humanize(texte))  # mots FR + 99,99 -> « quatre-vingt-dix-neuf… »
-        cmd = [
-            sys.executable, "-m", "edge_tts",
-            "--voice", os.environ.get("EDGE_TTS_VOICE", "fr-FR-DeniseNeural"),
-            f"--rate={os.environ.get('EDGE_TTS_RATE', '-25%')}",
-            "--text", texte, "--write-media", path,
-        ]
-        p = subprocess.run(cmd, capture_output=True, text=True, timeout=120)
-        if p.returncode == 0 and os.path.getsize(path) > 100:
-            # UNE SEULE PISTE (règle maison) : coupe la voix en cours avant de jouer.
-            subprocess.run(["killall", "afplay"], check=False, capture_output=True)
-            proc = subprocess.Popen(["afplay", path])
-            with _VOICE_LOCK:
-                _VOICE_PROC = proc
+        # FIX 31/08 : génération + lecture sous le verrou global voix_piste
+        # (UNE seule voix à la fois, plus de chevauchement entre agents).
+        import voix_piste
+        with voix_piste.piste_verrou("bridge"):
+            with _tf.NamedTemporaryFile(suffix=".mp3", delete=False) as f:
+                path = f.name
             if barge_in.activ():
-                threading.Thread(target=barge_in.surveiller, args=(proc,), daemon=True).start()
-            try:
-                proc.wait(timeout=240)
-            except subprocess.TimeoutExpired:
-                proc.kill()
-            finally:
+                barge_in.preparer()  # calibration ambiant EN SILENCE, pendant la generation
+            import cortana_voice as _cv
+            texte = oral_fr.oraliser(_cv.humanize(texte))  # mots FR + 99,99 -> « quatre-vingt-dix-neuf… »
+            cmd = [
+                sys.executable, "-m", "edge_tts",
+                "--voice", os.environ.get("EDGE_TTS_VOICE", "fr-FR-DeniseNeural"),
+                f"--rate={os.environ.get('EDGE_TTS_RATE', '-25%')}",
+                "--text", texte, "--write-media", path,
+            ]
+            p = subprocess.run(cmd, capture_output=True, text=True, timeout=120)
+            if p.returncode == 0 and os.path.getsize(path) > 100:
+                proc = subprocess.Popen(["afplay", path])
                 with _VOICE_LOCK:
-                    if _VOICE_PROC is proc:
-                        _VOICE_PROC = None
-        if os.path.exists(path):
-            try:
-                os.unlink(path)
-            except Exception:
-                pass
+                    _VOICE_PROC = proc
+                if barge_in.activ():
+                    threading.Thread(target=barge_in.surveiller, args=(proc,), daemon=True).start()
+                try:
+                    proc.wait(timeout=240)
+                except subprocess.TimeoutExpired:
+                    proc.kill()
+                finally:
+                    with _VOICE_LOCK:
+                        if _VOICE_PROC is proc:
+                            _VOICE_PROC = None
+            if os.path.exists(path):
+                try:
+                    os.unlink(path)
+                except Exception:
+                    pass
     except Exception as e:
         print(f"[analyse-voix] ERR {e}", flush=True)
 
