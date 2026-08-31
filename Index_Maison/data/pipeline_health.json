@@ -1,21 +1,27 @@
 {
-  "timestamp": 1788203687,
-  "global_score": 0.9,
-  "mode": "nominal",
-  "mode_label": "\u2705 NOMINAL",
-  "position_multiplier": 1.0,
+  "timestamp": 1788206955,
+  "global_score": 0.73,
+  "mode": "degrade",
+  "mode_label": "\u26a0\ufe0f D\u00c9GRAD\u00c9",
+  "position_multiplier": 0.5,
   "sources": {
     "binance": {
-      "score": 1,
-      "issues": []
+      "score": 0.8,
+      "issues": [
+        "chg1h=None"
+      ]
     },
     "mempool": {
       "score": 1,
       "issues": []
     },
     "deribit": {
-      "score": 1,
-      "issues": []
+      "score": 0.19999999999999996,
+      "issues": [
+        "gex.ok=False (timeout Deribit)",
+        "putCall=None",
+        "walls=None"
+      ]
     },
     "alternative": {
       "score": 1,
@@ -37,7 +43,11 @@
     }
   },
   "all_issues": [
+    "binance: chg1h=None",
+    "deribit: gex.ok=False (timeout Deribit)",
+    "deribit: putCall=None",
+    "deribit: walls=None",
     "google_news: source non v\u00e9rifiable en direct (aliment\u00e9e par sniffer) \u2192 DOWN"
   ],
-  "n_issues": 1
+  "n_issues": 5
 }

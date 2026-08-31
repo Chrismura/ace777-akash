@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-31T19:18:54.424194+00:00",
+  "generated_at": "2026-08-31T20:10:23.913429+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -242,15 +242,47 @@
       "model": "minimax/minimax-m3:free",
       "enabled": false,
       "timeout": 30,
-      "calls_24h": 8
+      "calls_24h": 7
     }
   ],
   "budget": {
     "daily": 624,
-    "consumed": 260,
-    "remaining": 364
+    "consumed": 264,
+    "remaining": 360
   },
   "queue": [
+    {
+      "ts": "2026-08-31T19:33:57.665483+00:00",
+      "task": "analyste.strategie",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 4.57
+    },
+    {
+      "ts": "2026-08-31T19:32:05.843205+00:00",
+      "task": "analyste.strategie",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 5.57
+    },
+    {
+      "ts": "2026-08-31T19:19:19.822983+00:00",
+      "task": "supervise.decision",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 0.84
+    },
+    {
+      "ts": "2026-08-31T19:19:07.237888+00:00",
+      "task": "supervise.decision",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 0.94
+    },
     {
       "ts": "2026-08-31T19:15:45.141617+00:00",
       "task": "analyse.profonde",
@@ -338,69 +370,67 @@
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
       "duration_s": 2.67
-    },
-    {
-      "ts": "2026-08-31T18:30:12.394620+00:00",
-      "task": "cortana.analyse",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 2.57
-    },
-    {
-      "ts": "2026-08-31T18:30:08.868127+00:00",
-      "task": "cortana.analyse",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 2.6
-    },
-    {
-      "ts": "2026-08-31T18:18:58.180786+00:00",
-      "task": "supervise.decision",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 0.89
-    },
-    {
-      "ts": "2026-08-31T18:18:57.517740+00:00",
-      "task": "supervise.decision",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 0.87
     }
   ],
   "events": [
     {
-      "ts": "2026-08-31T19:15:45.141167+00:00",
-      "kind": "message",
-      "title": "« Google Gemini » a repondu",
+      "ts": "2026-08-31T20:05:51.336975+00:00",
+      "kind": "http",
+      "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
       "detail": ""
     },
     {
-      "ts": "2026-08-31T19:15:43.460862+00:00",
-      "kind": "message",
-      "title": "« Google Gemini » a repondu",
+      "ts": "2026-08-31T20:05:51.336837+00:00",
+      "kind": "error",
+      "title": "Toutes les IA ont echoue",
+      "detail": "Google Gemini: reseau KO [Errno 8] nodename nor servname provided, or not known"
+    },
+    {
+      "ts": "2026-08-31T20:05:51.336722+00:00",
+      "kind": "failover",
+      "title": "Reseau KO (bascule immediate) depuis Google Gemini",
+      "detail": "[Errno 8] nodename nor servname provided, or not known"
+    },
+    {
+      "ts": "2026-08-31T20:05:51.336542+00:00",
+      "kind": "network",
+      "title": "Reseau indisponible: Google Gemini",
+      "detail": "[Errno 8] nodename nor servname provided, or not known"
+    },
+    {
+      "ts": "2026-08-31T20:05:51.319002+00:00",
+      "kind": "network",
+      "title": "Reseau pas pret — mode degrade (timeout court)",
       "detail": ""
     },
     {
-      "ts": "2026-08-31T19:10:07.298144+00:00",
-      "kind": "message",
-      "title": "« Google Gemini » a repondu",
+      "ts": "2026-08-31T20:05:51.306358+00:00",
+      "kind": "http",
+      "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
       "detail": ""
     },
     {
-      "ts": "2026-08-31T19:07:53.277126+00:00",
-      "kind": "message",
-      "title": "« Google Gemini » a repondu",
-      "detail": ""
+      "ts": "2026-08-31T20:05:51.306243+00:00",
+      "kind": "error",
+      "title": "Toutes les IA ont echoue",
+      "detail": "Google Gemini: reseau KO [Errno 8] nodename nor servname provided, or not known"
     },
     {
-      "ts": "2026-08-31T19:05:39.997909+00:00",
-      "kind": "message",
-      "title": "« Google Gemini » a repondu",
+      "ts": "2026-08-31T20:05:51.306127+00:00",
+      "kind": "failover",
+      "title": "Reseau KO (bascule immediate) depuis Google Gemini",
+      "detail": "[Errno 8] nodename nor servname provided, or not known"
+    },
+    {
+      "ts": "2026-08-31T20:05:51.305861+00:00",
+      "kind": "network",
+      "title": "Reseau indisponible: Google Gemini",
+      "detail": "[Errno 8] nodename nor servname provided, or not known"
+    },
+    {
+      "ts": "2026-08-31T20:05:51.286181+00:00",
+      "kind": "network",
+      "title": "Reseau pas pret — mode degrade (timeout court)",
       "detail": ""
     }
   ],
