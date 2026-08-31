@@ -634,6 +634,12 @@ class PaperBot:
         self.cortana_pending: list = []
         self.cortana_applied: dict = {}
         self.sense_on = cfg.get("SENSE_ON", "1").strip() not in ("0", "false", "False")
+        # Phase 2 (31/08, famille) : carnet en cache TTL — on relit le depth d'une
+        # paire au plus 1×/SENSE_CACHE_TTL_SEC (rotation). Les décisions d'une
+        # paire sont bien plus espacées que 45s, le cache ne change pas la logique
+        # mais divise les appels carnet par ~20 (le gros résiduel réseau).
+        self.sense_cache: dict[str, tuple[float, dict]] = {}
+        self.sense_cache_ttl = float(cfg.get("SENSE_CACHE_TTL_SEC", "45"))
         self.vol_spike_min_small = float(cfg.get("VOL_SPIKE_MIN_SMALL", "1.5"))
         # === Sonde aspiration (16/08, mode OBSERVATION 48h — zéro effet sur les entrées) ===
         # Consensus codeur 4/4 + famille 6/6 + Cortana : double lecture du carnet (pattern V8 ACE),
@@ -1058,10 +1064,19 @@ class PaperBot:
     def sense_ok(self, pair: str, sc: dict, regime: str) -> tuple[bool, str]:
         if not self.sense_on:
             return True, "sense_off"
-        try:
-            sense = book_sense(pair, http_json)
-        except Exception as e:
-            return False, f"sense_err:{e}"
+        # Phase 2 (31/08) : carnet en cache TTL. Première lecture = appels réels ;
+        # ensuite on réutilise le book tant qu'il dure < SENSE_CACHE_TTL_SEC. Si le
+        # cache/la lecture échoue → sense_ok bloque (comportement conservateur intact).
+        now = time.time()
+        cached = self.sense_cache.get(pair)
+        if cached and (now - cached[0]) < self.sense_cache_ttl:
+            sense = cached[1]
+        else:
+            try:
+                sense = book_sense(pair, http_json)
+                self.sense_cache[pair] = (now, sense)
+            except Exception as e:
+                return False, f"sense_err:{e}"
         tens = tension_score(
             sc.get("move6_pct", 0),
             sc.get("cadence_pct", 3),
