@@ -23,3 +23,13 @@ Christophe a creusé le score de justesse de Cortana qui descendait (50.0%). Aud
 2. **POUSSIÈRE à 50 SANS VOIX** : diagnostiqué — l'alerte poussiere_cpfp a bien sonné (journal 08:22Z, score 50 + CPFP), mais le fichier **STOP_ALERTE global (créé 10:31) a coupé la boucle vocale**. Score actuel redescendu à 10 (< seuil 45) → plus de déclenchement. veille_signal est bien planifiée (launchd). NON un bug de déclenchement : c'est le STOP_ALERTE.
 3. **FIX RAPPELS VOCAUX (alerte_vocale.py)** : la boucle répétait le même message toutes les 30s SANS différencier. Désormais : lecture initiale = l'alarme ; chaque répétition = précédée de "Rappels. " → on sait que c'est la MÊME alerte qui se répète, pas un nouvel événement.
 4. **FIX COCKPIT ONGLET (index.html)** : le reload auto (quand la version du cockpit change) ramenait toujours au 1er onglet (OPS) et en haut. Désormais on sauvegarde onglet actif + scrollY avant reload, et on les restaure au chargement. Vérifié syntaxe JS (node).
+
+## 31/08 — AUDIT CPFP/POUSSIÈRE : 2 BUGS STRUCTURELS CORRIGÉS (GO Christophe)
+Christophe a trouvé le CPFP « bizarre » (hier et aujourd'hui : score poussière qui oscille 50/35/10, alarmes qui partent pour rien). Audit à la source (detecter_cpfp.py → pont_onchain.py → veille_signal.py) :
+- **BUG 1 — le score poussière affiché = bruit sur 10 tx** : carte3.score = ratio de poussière dans l'échantillon /mempool/recent (10 transactions) × 50. En frais bas, l'échantillon tombe souvent 9-10/10 poussière → score 50 → ALARME. Puis l'échantillon change → score 15. Le VRAI signal (cumul 48h ≥ 1000, carte3.declenche = 1109 aujourd'hui) n'était PAS utilisé par l'alerte.
+- **BUG 2 — « signature CPFP » toujours vraie** : veille_signal testait `z >= 3.0` sur le score NORMALISÉ 0-100 (71.8 pour z réel 3.59) → condition vraie quasi en permanence → faux URGENT (poussiere_cpfp) même sans CPFP confirmé (carte2).
+- **FIX** :
+  1. pont_onchain.py expose `cpfpDustDeclenche` (cumul), `cpfpCarte2` (signature CPFP par frais), `cpfpZReel` (z réel = score/20) — les vraies données.
+  2. veille_signal.py : le déclencheur poussière = SEUL le cumul 48h (cpfpDustDeclenche). Le ratio 10-tx n'est plus qu'affichage. sig_cpfp (URGENT) = carte2 ou signal confirmé — plus jamais le z normalisé.
+- **Tests** : 5 cas simulés tous OK (cumul+CPFP→URGENT ; cumul seul→WATCH ; bruit 50/50 sans cumul→AUCUNE alerte ; champ manquant→AUCUNE). Pipeline réelle rejouée : aujourd'hui = WATCH (cumul 1109, pas de carte2) — avant le fix c'était un faux URGENT.
+- **Verdict Christophe confirmé** : hier et aujourd'hui c'était le MÊME artefact — un échantillon de 10 tx qui criait 50/50. Le vrai cumul (1109 ≥ 1000) est déclenché mais c'est un WATCH sans CPFP, pas un URGENT.

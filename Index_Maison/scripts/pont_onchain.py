@@ -222,7 +222,22 @@ def main():
         cartes = cpfp_data.get("cartes") or {}
         carte3 = cartes.get("carte3_poussiere") or {}
         cpfp_dust_score = round(float(carte3.get("score", 0.0) or 0.0), 2)
+        # FIX 31/08 (GO Christophe, audit CPFP) : le score affiché = ratio sur un
+        # échantillon de 10 tx (bruit : oscille 0/15/50 selon les 10 tx tombées).
+        # Le VRAI signal = cumul 48h >= 1000 (carte3.declenche) — on l'expose ici
+        # pour que l'alerte (veille_signal) se base sur le soutenu, pas sur le bruit.
+        cpfp_dust_declenche = bool(carte3.get("declenche"))
         cpfp_dust_detail = str(carte3.get("detail") or "")[:160]
+        # FIX 31/08 (même audit) : la "signature CPFP" affichée via cpfpZscore
+        # était le score NORMALISÉ 0-100 de la carte 1 (z=3.59 → affiché 71.8),
+        # comparé à un seuil de z réel 3.0 → toujours vrai → fausses alertes URGENT.
+        # On expose la VRAIE carte 2 (signature CPFP par frais, carte2.declenche)
+        # et le VRAI z-score réel (score normalisé / 20, tant que < 100).
+        carte2 = cartes.get("carte2_cpfp") or {}
+        cpfp_carte2 = bool(carte2.get("declenche"))
+        carte1 = cartes.get("carte1_zscore") or {}
+        c1_score = float(carte1.get("score", 0.0) or 0.0)
+        cpfp_z_reel = round(c1_score / 20.0, 2) if 0 < c1_score < 100 else None
         if cpfp_mode == "actif" and cpfp_confirmation >= 2 and cpfp_global:
             cpfp_score = round(float(cpfp_data.get("zscores", 0.0) or 0.0) * 0.5, 2)  # D8 : ×0.5
             cpfp_signal = (
@@ -318,7 +333,10 @@ def main():
         "cpfpConfirmation": cpfp_confirmation,
         "cpfpGlobal": cpfp_global,
         "cpfpZscore": cpfp_zscore,
+        "cpfpZReel": cpfp_z_reel,
+        "cpfpCarte2": cpfp_carte2,
         "cpfpDustScore": cpfp_dust_score,
+        "cpfpDustDeclenche": cpfp_dust_declenche,
         "cpfpDustDetail": cpfp_dust_detail,
         "blocPrivatiseMode": bloc_priv_mode,
         "blocPrivatiseTauxFantome": bloc_priv_taux_fantome,

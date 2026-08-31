@@ -134,54 +134,70 @@ def declencher(cle, niveau, titre, explication, voix):
 # Signaux
 # ---------------------------------------------------------------------------
 def signal_poussiere():
-    """Poussière haute + signature CPFP = baleine camoufle un déplacement."""
+    """Poussière haute + signature CPFP = baleine camoufle un déplacement.
+
+    FIX 31/08 (GO Christophe, audit CPFP) : l'ancien déclencheur utilisait le
+    score affiché (ratio sur un échantillon de 10 tx) → il oscillait 0/15/50 au
+    hasard (en frais bas, 10/10 tx = poussière) → alarmes pour du bruit.
+    Désormais le déclencheur = cpfpDustDeclenche (cumul 48h >= 1000, le VRAI
+    signal soutenu, calculé par detecter_cpfp). Le score ratio reste affiché
+    en INFO dans le message, plus jamais comme condition."""
     live = lire_json(LIVE)
     oc = live.get("onchain") or {}
-    score = oc.get("cpfpDustScore")
-    if score is None:
+    # Déclencheur = cumul 48h (signal soutenu, carte3.declenche). Le score ratio
+    # (10 tx) n'est plus qu'une info d'affichage. AUCUNE alerte sur le bruit seul
+    # (FIX 31/08, GO Christophe — l'ancien seuil 45 sur 10 tx faisait sonner
+    # pour rien dès que l'échantillon tombait 9-10/10 poussière en frais bas).
+    declenche = bool(oc.get("cpfpDustDeclenche"))
+    if not declenche:
         return None
-    z = oc.get("cpfpZscore") or 0.0
+    score = oc.get("cpfpDustScore")
+    score_f = float(score or 0.0)
+    # FIX 31/08 (audit CPFP) : l'ancien test "z >= CPFP_Z_MIN" comparait le score
+    # NORMALISÉ 0-100 (ex. 71.8 pour z=3.59) au seuil de z réel 3.0 → toujours
+    # vrai → fausses alertes URGENT. La signature CPFP = carte2 (frais de creusage,
+    # carte2.declenche) ou le signal global/confirmé — jamais le z normalisé.
+    z_reel = oc.get("cpfpZReel")
     cpfp_mode = oc.get("cpfpMode") or ""
     cpfp_sig = oc.get("cpfpSignal")
-    sig_cpfp = (z and float(z) >= CPFP_Z_MIN) or bool(cpfp_sig) or (cpfp_mode == "actif" and oc.get("cpfpGlobal"))
+    sig_cpfp = bool(oc.get("cpfpCarte2")) or bool(cpfp_sig) or (cpfp_mode == "actif" and oc.get("cpfpGlobal"))
     detail = oc.get("cpfpDustDetail") or ""
-    if float(score) >= SEUIL_POUSS and sig_cpfp:
+    z_aff = f"{z_reel}" if z_reel is not None else "?"
+    if declenche and sig_cpfp:
         return {
             "cle": "poussiere_cpfp",
             "niveau": "URGENT",
-            "titre": f"POUSSIÈRE {score:.0f}/50 + CPFP — baleine camoufle un déplacement",
+            "titre": f"POUSSIÈRE {score_f:.0f}/50 (cumul 48h ≥ 1000) + CPFP — baleine camoufle un déplacement",
             "explication": (
-                f"Le score de poussière est à {score:.0f}/50 ({detail[:100]}) AVEC une signature "
-                f"CPFP (z-score {z}). C'est la technique de camouflage des baleines : des milliers de "
+                f"La poussière est soutenue : cumul 48h franchi ({detail[:100]}) AVEC une signature "
+                f"CPFP (z réel {z_aff}σ). C'est la technique de camouflage des baleines : des milliers de "
                 f"micro-transactions à frais nuls + une transaction enfant à frais astronomiques. "
                 f"Lecture : une grosse entité prépare un déplacement massif INVISIBLE sur les seuils "
                 f"classiques. Prudence — vérifier les supports et la liquidité avant tout."
             ),
             "voix": (
-                f"Alerte onchain. Le score de poussière est à {score:.0f} sur cinquante, "
+                f"Alerte onchain. La poussière est soutenue sur quarante-huit heures, "
                 f"avec une signature CPFP détectée. C'est le camouflage des baleines : "
                 f"elles préparent un déplacement massif invisible. Prudence sur le marché."
             ),
         }
-    if float(score) >= SEUIL_POUSS:
-        return {
+    return {
             "cle": "poussiere_haute",
             "niveau": "WATCH",
-            "titre": f"POUSSIÈRE {score:.0f}/50 — mempool se remplit (sans CPFP)",
+            "titre": f"POUSSIÈRE soutenue (cumul 48h ≥ 1000, {detail[:80]}) — sans CPFP",
             "explication": (
-                f"Le score de poussière est monté à {score:.0f}/50 ({detail[:100]}), SANS signature "
+                f"La poussière est soutenue sur 48h ({detail[:100]}), SANS signature "
                 f"CPFP pour l'instant. La mempool se remplit de micro-transactions à frais minimaux : "
                 f"activité qui s'anime, mais aucun gros acteur ne prépare encore de déplacement camouflé. "
                 f"Surveiller : si une signature CPFP (z-score ≥ {CPFP_Z_MIN:.0f}) apparaît, l'alerte passe "
                 f"en URGENT."
             ),
             "voix": (
-                f"Alerte onchain. Le score de poussière monte à {score:.0f} sur cinquante. "
-                f"La mempool se remplit de micro transactions, mais sans signature CPFP pour "
-                f"l'instant. On surveille : si le CPFP apparaît, l'alerte passe en urgent."
+                f"Alerte onchain. La poussière est soutenue sur quarante-huit heures, "
+                f"sans signature CPFP pour l'instant. On surveille : si le CPFP apparaît, "
+                f"l'alerte passe en urgent."
             ),
         }
-    return None
 
 
 def signal_liquidite():
