@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-31T13:17:15.125992+00:00",
+  "generated_at": "2026-08-31T13:17:47.458583+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 417
+      "calls_24h": 419
     },
     {
       "id": "openrouter-free",
@@ -247,10 +247,26 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 198,
-    "remaining": 426
+    "consumed": 200,
+    "remaining": 424
   },
   "queue": [
+    {
+      "ts": "2026-08-31T13:17:44.160194+00:00",
+      "task": "supervise.decision",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 0.82
+    },
+    {
+      "ts": "2026-08-31T13:17:40.345623+00:00",
+      "task": "supervise.decision",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 0.96
+    },
     {
       "ts": "2026-08-31T13:16:53.819246+00:00",
       "task": "analyste.strategie",
@@ -354,25 +370,21 @@
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
       "duration_s": 7.72
-    },
-    {
-      "ts": "2026-08-31T12:09:38.267906+00:00",
-      "task": "analyste.strategie",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 3.31
-    },
-    {
-      "ts": "2026-08-31T12:03:37.397472+00:00",
-      "task": "analyste.strategie",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 3.28
     }
   ],
   "events": [
+    {
+      "ts": "2026-08-31T13:17:44.159805+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
+    {
+      "ts": "2026-08-31T13:17:40.345292+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
     {
       "ts": "2026-08-31T13:16:53.818781+00:00",
       "kind": "message",
@@ -420,18 +432,6 @@
       "kind": "failover",
       "title": "Bascule depuis OrcaRouter (routeur gratuit, modele orcarouter/free)",
       "detail": "HTTP Error 400: Bad Request"
-    },
-    {
-      "ts": "2026-08-31T13:02:46.173787+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis HuggingFace (136+ modeles, dont DeepSeek-V4)",
-      "detail": "HTTP Error 402: Payment Required"
-    },
-    {
-      "ts": "2026-08-31T13:02:45.360714+00:00",
-      "kind": "failover",
-      "title": "Saute (blacklist) depuis Groq (LLM ultra-rapide, gratuit)",
-      "detail": "0 attente"
     }
   ],
   "tasks_quotas": {
