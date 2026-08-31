@@ -645,6 +645,11 @@ class PaperBot:
         # Consensus codeur 4/4 + famille 6/6 + Cortana : double lecture du carnet (pattern V8 ACE),
         # log + radar + calibration CSV, SANS agir sur le moteur. Fail-open sur timeout MEXC.
         self.aspiration_on = cfg.get("ASPIRATION_ON", "1").strip() not in ("0", "false", "False")
+        # Phase 3 (31/08) : source de l'aspiration/murs. "fichier" = le satellite
+        # écrit runs/aspiration_live.json (le cœur LIT, 0 appel depth) ; "inline" =
+        # comportement historique (probe fait ses propres appels). Réversible à chaud
+        # via ASPIRATION_SRC dans defaults.env (relu au démarrage).
+        self.aspiration_src = (cfg.get("ASPIRATION_SRC", "fichier") or "fichier").strip().lower()
         self.aspiration_delay_s = float(cfg.get("ASPIRATION_DELAY_S", "0.5"))
         self.aspiration_min_notional = float(cfg.get("ASPIRATION_MIN_NOTIONAL_USDT", "500"))
         # Probe toutes les N cycles (rate-limit MEXC ~200 req/min) + max paires actives par probe
@@ -696,7 +701,15 @@ class PaperBot:
         # ~1h (écart moyen 55,9 min mesuré). Avec TTL 300 s, le circuit serait
         # ouvert en PERMANENCE (faux positif → Hulk ne traderait jamais).
         # 7200 s = 2h = marge x2 sur la cadence 1h (cohérent avec sante_index x2.5).
-        self.cb_btc = TradeCircuitBreaker(ttl_seconds=10.0, failure_threshold=3, cooldown_seconds=30.0)
+        # FIX 31/08 (Phase 3) : le TTL BTC doit épouser la cadence RÉELLE de la source
+        # (même principe que le GEX ci-dessous). En mode inline, le cœur sonde le prix
+        # chaque probe → TTL 10s cohérent. En mode fichier, le satellite écrit
+        # aspiration_live.json avec un intervalle RÉEL de ~29s (StartInterval 20s + ~9s
+        # d'exécution mesurés : 5 profondeurs de carnet). Le cœur n'accepte le fichier
+        # que s'il a ≤45s (`frais` dans probe_aspiration) → on aligne le TTL sur cette
+        # MÊME fenêtre (45s) pour éliminer les faux positifs par intermittence.
+        _btc_ttl = 10.0 if self.aspiration_src != "fichier" else 45.0
+        self.cb_btc = TradeCircuitBreaker(ttl_seconds=_btc_ttl, failure_threshold=3, cooldown_seconds=30.0)
         self.cb_gex = TradeCircuitBreaker(ttl_seconds=7200.0, failure_threshold=2, cooldown_seconds=60.0)
         ts = datetime.now(timezone.utc).strftime("%Y%m%d_%H%M%S")
         self.aspiration_csv = RUNS / f"ASPIRATION_CALIB_{ts}.csv"
@@ -1108,6 +1121,34 @@ class PaperBot:
         """
         if not self.aspiration_on or n_cycle % self.aspiration_probe_every != 0:
             return
+        # Phase 3 (31/08, GO Christophe) : mode FICHIER. Le satellite_aspiration.py
+        # tourne en continu et écrit runs/aspiration_live.json (atomique). On LIT ce
+        # fichier au lieu de sonder le carnet soi-même → moins d'appels réseau dans le
+        # cœur + isolation des pannes réseau. RÉVERSIBLE via ASPIRATION_SRC (fichier|inline).
+        # Si le fichier est absent / stale (>45s), on retombe en inline (fallback sûr).
+        if self.aspiration_src == "fichier":
+            try:
+                live = json.loads((RUNS / "aspiration_live.json").read_text(encoding="utf-8"))
+                frais = (int(live.get("ts") or 0) and
+                         (time.time() - int(live.get("ts") or 0)) <= 45)
+                if frais:
+                    for pair, a in (live.get("paires") or {}).items():
+                        if a.get("ok"):
+                            self.aspiration[pair] = dict(a)
+                    btc_p = float(live.get("btc_price") or 0)
+                    if btc_p > 0:
+                        self.btc_prev = self.btc_price
+                        self.btc_price = btc_p
+                        try:
+                            self.cb_btc.validate(
+                                {"timestamp": int(live.get("ts") or 0), "price": btc_p},
+                                source="btc",
+                            )
+                        except CircuitOpenException:
+                            say("warn", "[CB] BTC stale (satellite) — entrées bloquées")
+                    return
+            except Exception:
+                pass
         # paires actives : COOLING / IMPULSE (prêtes à trader) — pas les WATCH/QUIET
         active = [
             p
@@ -2152,6 +2193,13 @@ class PaperBot:
         return True, f"vol_ok_vx={vx:.2f}_{flag}"
 
     def maybe_enter(self, pair: str, price: float, sc: dict):
+        # FIX 31/08 (Buffy) : `regime` était utilisé dans les chemins de retour
+        # (CB ouvert, ligne self.log ci-dessous) AVANT son assignation plus bas
+        # `regime = sc["regime"]` → comme cette assignation existe dans la fonction,
+        # Python traite `regime` en LOCAL pour tout le corps → NameError
+        # « referenced before assignment » quand le chemin CB était pris (bug PRÉ-EXISTANT
+        # vu dès le 30/08). On assigne en tête (sc.get, ne lève jamais) pour tous les chemins.
+        regime = sc.get("regime") or "QUIET"
         # FIX 27/08 : les circuits breaker étaient décoratifs — is_ok() n'était
         # JAMAIS appelé, le trading continuait même circuit ouvert. La doc 25/08
         # promettait « circuit ouvert → trading bloqué ». Désormais : si BTC ou
@@ -2167,7 +2215,6 @@ class PaperBot:
             return
         if self.maybe_redeploy_cash(pair, price, sc):
             return
-        regime = sc["regime"]
         if regime in ("QUIET", "WATCH", "IMPULSE_WAIT"):
             return
         # SET-UP RÉGIME (30/08, GO Christophe) : mode_entree="IMPULSE" → n'entrer

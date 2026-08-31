@@ -41,3 +41,20 @@ ADA criait « FEUX DE L'ORAGE : liquidations massives » alors que zone VERT (vo
 - **FIX** : seuil RELATIF = max(médiane 7j × 1,5, plancher 80 M$), via médiane_liq_7j() (thermo/history.jsonl). Pression storm normalisée sur la même référence.
 - **Résultat** : 53,6 M$ → plus de sirène (au-dessus de la moyenne, pas massif). Vrai pic 141 M$ → sirène. Simulé avec données réelles : SIRÈNE=False, déclencheurs=[]. 19/19 tests hermétiques verts (dont 2 nouveaux : 53M→non, 141M→oui).
 - **Balayage autres seuils fixes de la maison** : les restants sont sains — sat/vB et tailles BTC = unités absolues physiques (légitimes), z=3σ = statistique (relatif par construction), funding déjà relatif (3×moy30). Les 3 vrais bugs du jour (funding, CPFP, liquidations) étaient des seuils absolus appliqués à des échelles qui dépendent du régime de marché.
+
+## 31/08 — Phase 3 moteur léger : satellite aspiration + 2 bugs corrigés
+
+**Contexte** : GO Christophe « observe et si c bon, go phase 3 ». Observation ~10 min : Phases 1+2 validées (CPU 0-4%, RSS stable, 0 erreur réseau, 16 positions tenues).
+
+**Phase 3 implémentée** :
+- `scripts/satellite_aspiration.py` : satellite autonome (pattern short_btc validé) qui sonde l'aspiration/murs des 5 paires actives + BTC, écrit `runs/aspiration_live.json` en atomique. Launchd `com.ace777.satellite-aspiration` (StartInterval 20s).
+- Bascule réversible `ASPIRATION_SRC=fichier|inline` dans `hulk-mexc/config/defaults.env` + fallback inline si fichier absent/stale (>45s).
+- Le cœur lit le fichier au lieu de sonder le carnet → 0 appel depth dans le cœur.
+
+**Bug pré-existant corrigé** (découvert pendant la validation) : `regime referenced before assignment` dans `maybe_enter` — utilisé dans les logs des chemins de retour CB (stale) avant son assignation → NameError sur ces chemins → paire non évaluée. Assignation en tête + `sc.get`. Absent des logs depuis le fix.
+
+**Bug introduit par la bascule corrigé** : CB BTC TTL=10s mais satellite écrit toutes les ~29s (StartInterval 20s + ~9s d'exécution mesurée) → circuit ouvert en boucle (faux positif, Hulk ne traderait plus). TTL aligné sur la fenêtre de fraîcheur réelle du fichier (45s), même principe que le fix GEX 27/08.
+
+**Validé en réel** : 16 positions reprises (resume), cb:CLOSED, 0 stale, 0 regime, CPU 3.4%, RSS 19MB, contexte frais.
+
+**Commit** : à venir
