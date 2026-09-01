@@ -1,15 +1,95 @@
 {
-  "timestamp": 1788276180,
-  "date": "2026-09-01T15:23:00.545413+00:00",
-  "n_analyses": 1,
+  "timestamp": 1788279781,
+  "date": "2026-09-01T16:23:01.623993+00:00",
+  "n_analyses": 3,
   "analyses": [
     {
       "signal": {
+        "metric": "ipt",
+        "zscore": 2.8469331636903923,
+        "value": 1.32,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit de fond absolu. L'anomalie 'ipt' (z-score 2.85) captée par les capteurs ne correspond à aucune baleine crypto, mais à un croisement lexical avec le Tournoi International des Physiciens (IPT) et des actualités agricoles. Aucune donnée on-chain pertinente.\"\n}\n```",
+        "ts": 1788278475.100851
+      },
+      "fiche": "rbf_eleve",
+      "questions": {
+        "prix": {
+          "value": -0.28,
+          "seuil": 1,
+          "depasse": false
+        },
+        "paires": {
+          "value": null,
+          "seuil": 3,
+          "depasse": false
+        },
+        "funding": {
+          "value": 3.8e-05,
+          "seuil": 0.001,
+          "depasse": false
+        },
+        "whales": {
+          "value": 0,
+          "seuil": 5,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "sdi > 0.3",
+        "lecture": "Drainage silencieux — les vieux BTC bougent en douce",
+        "niveau": "dangereux",
+        "action": "Réduire taille de 50%, sortir des positions fragiles"
+      },
+      "action": "Réduire taille de 50%, sortir des positions fragiles",
+      "niveau": "dangereux"
+    },
+    {
+      "signal": {
+        "metric": "sdi",
+        "zscore": 2.7258984485985653,
+        "value": 0.02,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Bruit médiatique parasité par l'homonymie du protocole 'SDI' (termes médicaux, facturation, matériel vidéo). Aucune corrélation avec des flux crypto institutionnels ou des mouvements de baleines.\"\n}\n```",
+        "ts": 1788279078.000007
+      },
+      "fiche": "rbf_eleve",
+      "questions": {
+        "prix": {
+          "value": -0.28,
+          "seuil": 1,
+          "depasse": false
+        },
+        "paires": {
+          "value": null,
+          "seuil": 3,
+          "depasse": false
+        },
+        "funding": {
+          "value": 3.8e-05,
+          "seuil": 0.001,
+          "depasse": false
+        },
+        "whales": {
+          "value": 0,
+          "seuil": 5,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "sdi > 0.3",
+        "lecture": "Drainage silencieux — les vieux BTC bougent en douce",
+        "niveau": "dangereux",
+        "action": "Réduire taille de 50%, sortir des positions fragiles"
+      },
+      "action": "Réduire taille de 50%, sortir des positions fragiles",
+      "niveau": "dangereux"
+    },
+    {
+      "signal": {
         "metric": "long_short",
-        "zscore": 2.0083878533818926,
-        "value": 1.169,
-        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Le ratio long/short élevé (z-score 2.01) indique un positionnement excessivement haussier des traders particuliers et des baleines, créant un risque élevé de 'long squeeze'. Pendant ce temps, le narratif médiatique est totalement déconnecté, focalisé sur la macroéconomie traditionnelle et les stratégies long/short en actions européennes, ignorant le danger imminent d'une correction imminente sur les cryptos.\"\n}\n```",
-        "ts": 1788275156.426422
+        "zscore": 2.3418634215349594,
+        "value": 1.196,
+        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.34) avec un ratio long/short à 1.196 indiquant une sursaturation d'acheteurs en position isolée. Le narratif médiatique est totalement déconnecté, focalisé sur la gestion alternative traditionnelle (fonds long/short actions) sans aucun rapport avec les flux cryptos, masquant une accumulation imminente de positions vendeuses par les baleines.\"\n}\n```",
+        "ts": 1788279079.584075
       },
       "fiche": null,
       "interpretation": {
@@ -19,5 +99,5 @@
       "action": "Observer"
     }
   ],
-  "resume": "🔵 CALME — pas de signal alarmant"
+  "resume": "🔴 DANGER détecté — réduire les expositions"
 }

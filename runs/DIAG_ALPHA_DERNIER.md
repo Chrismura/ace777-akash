@@ -1,29 +1,29 @@
-# DIAGNOSTIC ALPHA — ACE_DUO_CLEAN_V1_15M
+# DIAGNOSTIC ALPHA — ACE_DUO_CLEAN_V4_15M
 
-> Généré: `2026-09-01T14:25:44Z` | Verdict: **CRITIQUE — ALPHA n'a exécuté aucun trade**
+> Généré: `2026-09-01T16:17:19Z` | Verdict: **OK — ALPHA active (1 fills, ratio BETA=50%)**
 
 ## Résumé
 
 | Métrique | ALPHA | BETA (référence) |
 |----------|-------|------------------|
-| FILLED | 0 | 2 |
-| PnL net | 0.0000 USDT | -2.9614 USDT |
-| SKIP total | 121 | 104 |
-| duo_wait | 5 (4.1% des SKIP ALPHA) | 0 |
+| FILLED | 1 | 2 |
+| PnL net | 0.6228 USDT | -4.6029 USDT |
+| SKIP total | 124 | 104 |
+| duo_wait | 2 (1.6% des SKIP ALPHA) | 0 |
 
 ## Entonnoir des gates — ALPHA
 
 Ordre dans `genesis_manifest.txt` : radar → tension/vacuum → tactic → stase → **duo** → qty → llm_gate → execute
 
-- `regime_gate` — **74**
-- `radar_block` — **33**
-- `impulse_resonance_wait` — **7**
-- `duo_wait` — **5**
-- `tactic_mismatch` — **2**
+- `regime_gate` — **75**
+- `radar_block` — **41**
+- `impulse_resonance_wait` — **5**
+- `duo_wait` — **2**
+- `tactic_mismatch` — **1**
 
 ## duo_wait — sous-raisons (cause #2 après radar)
 
-- `unknown` — **5** (100.0% des duo_wait)
+- `unknown` — **2** (100.0% des duo_wait)
 
 ### Lecture technique
 
@@ -41,8 +41,8 @@ Ordre dans `genesis_manifest.txt` : radar → tension/vacuum → tactic → stas
 Revenge autorisé au-delà de `stop_loss` (shock / fluid / sentinel).
 Sorties BETA observées :
 
-- `0.79584499` — 1 trades
-- `0.39513600` — 1 trades
+- `0.79696077` — 1 trades
+- `0.39923149` — 1 trades
 
 - Sorties `shock_inversion_stop` : **0**
 - Sorties `stop_loss` : **0**
@@ -53,9 +53,9 @@ Sorties BETA observées :
 Quand le SCOUT ne rafraîchit pas `duo_state.json` dans les 60s, le HUNTER skip avec `stale_state`.
 Observé : **0** fois (0.0% des duo_wait).
 
-### 3. radar_block en amont (33 SKIP)
+### 3. radar_block en amont (41 SKIP)
 
-Même si le duo était parfait, 27.3% des cycles ALPHA meurent au radar avant d'atteindre le HUNTER.
+Même si le duo était parfait, 33.1% des cycles ALPHA meurent au radar avant d'atteindre le HUNTER.
 
 ## Paramètres duo actifs (config)
 
@@ -78,8 +78,8 @@ Même si le duo était parfait, 27.3% des cycles ALPHA meurent au radar avant d'
 
 ## Fichiers analysés
 
-- `ACE_DUO_CLEAN_V1_15M_ALPHA_X13_BURST13.csv`
-- `ACE_DUO_CLEAN_V1_15M_BETA_X5.csv`
+- `ACE_DUO_CLEAN_V4_15M_ALPHA_X13_BURST13.csv`
+- `ACE_DUO_CLEAN_V4_15M_BETA_X5.csv`
 - `runs/duo_state.json` (état live au moment du diag)
 
 ---

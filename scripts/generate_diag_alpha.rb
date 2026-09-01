@@ -102,12 +102,16 @@ stop_loss_exits = beta_exits["stop_loss"] || 0
 
 now = Time.now.utc.strftime("%Y-%m-%dT%H:%M:%SZ")
 
+# A fixed absolute threshold mislabels short sessions. Compare Alpha to
+# Beta and report activity proportionally; never call 3 fills in 15 minutes
+# "dormant" when the partner made only 4 fills.
+activity_ratio = beta[:filled].zero? ? (alpha[:filled] > 0 ? 1.0 : 0.0) : alpha[:filled].to_f / beta[:filled]
 verdict = if alpha[:filled].zero?
             "CRITIQUE — ALPHA n'a exécuté aucun trade"
-          elsif alpha[:filled] < 10
-            "ALERTE — ALPHA quasi dormante"
+          elsif alpha[:filled] < 3 && activity_ratio < 0.5
+            "ALERTE — ALPHA activité faible"
           else
-            "OK — ALPHA active"
+            "OK — ALPHA active (#{alpha[:filled]} fills, ratio BETA=#{format('%.0f%%', activity_ratio * 100)})"
           end
 
 lines = []

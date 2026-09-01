@@ -1,7 +1,7 @@
 # ACE777 — STATE
 
 > Généré automatiquement — ne pas éditer à la main
-> Phase: `running` | Statut: `RUNNING` | MAJ: `2026-09-01T15:12:35Z`
+> Phase: `ended` | Statut: `ENDED` | MAJ: `2026-09-01T16:17:19Z`
 
 ## Config active
 
@@ -11,31 +11,52 @@
 | Masse BETA / ALPHA | `200` / `800` USDT |
 | LLM gate | enabled=`TRUE` fail_closed=`TRUE` |
 | Modèle LLM | `qwen2.5-coder:1.5b` |
-| Tag session | `ACE_DUO_CLEAN_V2_15M` |
-| run_id | `ACE_DUO_CLEAN_V2_15M_20260901T151230Z_48122` |
+| Tag session | `ACE_DUO_CLEAN_V4_15M` |
+| run_id | `ACE_DUO_CLEAN_V4_15M_20260901T160208Z_34195` |
 | Frais Binance | `UNMATCHED_BINANCE_FEES` |
 
 ## PnL session
 
 | Unité | FILLED | Win | Loss | Win% | Brut | Frais | Net USDT | SKIP |
 |-------|--------|-----|------|------|------|------|----------|------|
-| BETA | 0 | 0 | 0 | 0.00% | 0.0000 | 0.0000 | 0.0000 | 0 |
-| ALPHA | 0 | 0 | 0 | 0.00% | 0.0000 | 0.0000 | 0.0000 | 0 |
-| **TOTAL** | **0** | — | — | — | **0.0000** | **0.0000** | **0.0000** | **0** |
+| BETA | 2 | 0 | 2 | 0.0% | -4.6029 | 1.1962 | -5.7991 | 104 |
+| ALPHA | 1 | 0 | 1 | 0.0% | 0.6228 | 1.0772 | -0.4544 | 124 |
+| **TOTAL** | **3** | — | — | — | **-3.9801** | **2.2734** | **-6.2535** | **228** |
 
 ## Duo session (`duo_session.json`)
 
-- SCOUT PnL: `` USDT
-- HUNTER PnL: `` USDT
-- Total session: `` USDT
+- SCOUT PnL: `-5.79907226` USDT
+- HUNTER PnL: `-0.45438242` USDT
+- Total session: `-6.25345468` USDT
+
+## Duo live (`duo_state.json`)
+
+| Champ | Valeur |
+|-------|--------|
+| role | `SCOUT` |
+| status | `CLOSED` |
+| side | `SELL` |
+| bps | `-20.51942356` |
+| pnl_usdt | `-1.42323149` |
+| reason | `stop_loss` |
+| cycle | `29` |
+| hold_sec | `84` |
 
 ## Top SKIP — BETA
 
-_Aucun SKIP ou CSV absent._
+1. `reason=COMPRESSE tension=0.00000000 threshold=0.05` — 34
+2. `reason=spread_too_wide conf=0.5 mom_sig=1.06849918 raw_mom_bps=0.00000000 spread_bps=41.50140000 tension=1.06849918 bid_drop=6.94524466 ask_drop=0.26761617 swarm=0` — 1
+3. `mom=long structure=short` — 1
+4. `reason=spread_too_wide conf=0.5 mom_sig=2.84403454 raw_mom_bps=0.00000000 spread_bps=10.40030000 tension=2.84403454 bid_drop=18.48622452 ask_drop=0.16780662 swarm=0` — 1
+5. `reason=spread_too_wide conf=0.5 mom_sig=2.13510629 raw_mom_bps=0.00000000 spread_bps=40.96460000 tension=2.13510629 bid_drop=13.87819090 ask_drop=0.00000000 swarm=0` — 1
 
 ## Top SKIP — ALPHA
 
-_Aucun SKIP ou CSV absent._
+1. `reason=COMPRESSE tension=0.00000000 threshold=0.05` — 40
+2. `reason=no_state mode=none` — 2
+3. `reason=COMPRESSE tension=0.00092633 threshold=0.05` — 1
+4. `reason=COMPRESSE tension=0.00000083 threshold=0.05` — 1
+5. `reason=COMPRESSE tension=0.01041051 threshold=0.05` — 1
 
 ## Vortex (`vortex_control.json`)
 
@@ -45,14 +66,14 @@ _Aucun SKIP ou CSV absent._
 
 ## Processus
 
-- master.pid: `RUNNING`
-- beta.pid: `RUNNING`
-- alpha.pid: `RUNNING`
+- master.pid: `stopped`
+- beta.pid: `stopped`
+- alpha.pid: `stopped`
 
 ## Fichiers
 
-- BETA CSV: `ACE_DUO_CLEAN_V2_15M_BETA_X5.csv` (ok)
-- ALPHA CSV: `ACE_DUO_CLEAN_V2_15M_ALPHA_X13_BURST13.csv` (absent)
+- BETA CSV: `ACE_DUO_CLEAN_V4_15M_BETA_X5.csv` (ok)
+- ALPHA CSV: `ACE_DUO_CLEAN_V4_15M_ALPHA_X13_BURST13.csv` (ok)
 
 ## Dernière leçon ERREURS_AI
 

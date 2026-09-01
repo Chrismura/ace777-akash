@@ -1,27 +1,6 @@
 {
   "signals": [
     {
-      "metric": "price_1h",
-      "zscore": 3.2510955887273876,
-      "value": 0.8730718480600919,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de prix majeure (Z-score 3.25) dans un silence médiatique absolu (Google Actualités vide). C'est la signature classique d'accumulation furtive par des baleines loin du radar public.\"\n}\n```",
-      "ts": "2026-08-31T14:44:52.433141+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": 2.7701415506299147,
-      "value": 0.016,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Anomalie statistique (z-score 2.77) due à un bruit lexical : les flux médias concernent le protocole/standard vidéo SDI (Serial Digital Interface) et des entreprises homonymes (SDI Limited), sans aucun lien avec la crypto-sphère ou des mouvements de baleines.\"\n}\n```",
-      "ts": "2026-08-31T17:40:21.174194+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.618129765330493,
-      "value": 1.189,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique non pertinent (lié à l'École Polytechnique et à des actualités religieuses/financières sans rapport avec la crypto). Aucune baleine détectée.\"\n}\n```",
-      "ts": "2026-08-31T17:40:22.637244+00:00"
-    },
-    {
       "metric": "sdi",
       "zscore": 4.789720251788138,
       "value": 0.024,
@@ -349,6 +328,27 @@
       "value": 1.169,
       "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Le ratio long/short élevé (z-score 2.01) indique un positionnement excessivement haussier des traders particuliers et des baleines, créant un risque élevé de 'long squeeze'. Pendant ce temps, le narratif médiatique est totalement déconnecté, focalisé sur la macroéconomie traditionnelle et les stratégies long/short en actions européennes, ignorant le danger imminent d'une correction imminente sur les cryptos.\"\n}\n```",
       "ts": "2026-09-01T15:05:56.426422+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.8469331636903923,
+      "value": 1.32,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit de fond absolu. L'anomalie 'ipt' (z-score 2.85) captée par les capteurs ne correspond à aucune baleine crypto, mais à un croisement lexical avec le Tournoi International des Physiciens (IPT) et des actualités agricoles. Aucune donnée on-chain pertinente.\"\n}\n```",
+      "ts": "2026-09-01T16:01:15.100851+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 2.7258984485985653,
+      "value": 0.02,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Bruit médiatique parasité par l'homonymie du protocole 'SDI' (termes médicaux, facturation, matériel vidéo). Aucune corrélation avec des flux crypto institutionnels ou des mouvements de baleines.\"\n}\n```",
+      "ts": "2026-09-01T16:11:18.000007+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": 2.3418634215349594,
+      "value": 1.196,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.34) avec un ratio long/short à 1.196 indiquant une sursaturation d'acheteurs en position isolée. Le narratif médiatique est totalement déconnecté, focalisé sur la gestion alternative traditionnelle (fonds long/short actions) sans aucun rapport avec les flux cryptos, masquant une accumulation imminente de positions vendeuses par les baleines.\"\n}\n```",
+      "ts": "2026-09-01T16:11:19.584075+00:00"
     }
   ]
 }

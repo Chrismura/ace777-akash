@@ -16524,3 +16524,187 @@ Ce fichier sert de table des runs ACE777 pour retrouver vite les tests.
 - Rapport: `RAPPORT_PNL_AUTO_20260901_151235.md`
 - Verdict: `NEUTRE`
 
+
+---
+
+## 2026-09-01 — ACE_DUO_CLEAN_V2_15M (auto)
+
+- Profil: `?` v`?`
+- Tag: `ACE_DUO_CLEAN_V2_15M`
+- Période: `2026-09-01T15:12:40Z` → `2026-09-01T15:27:36Z`
+- Logs:
+  - `ACE_DUO_CLEAN_V2_15M_BETA_X5.csv`
+  - `ACE_DUO_CLEAN_V2_15M_ALPHA_X13_BURST13.csv`
+- Paramètres clé:
+  - `BUY_USDT_BETA=200`
+  - `BUY_USDT_ALPHA=800`
+  - `LLM_GATE_ENABLED=TRUE`
+  - `LLM_GATE_FAIL_CLOSED=TRUE`
+- Résultat:
+  - BETA: `-4.3023 USDT` (4 trades)
+  - ALPHA: `+0.1220 USDT` (3 trades)
+  - Total: `-4.1802 USDT`
+- Rapport: `RAPPORT_PNL_AUTO_20260901_152738.md`
+- Verdict: `NEGATIF`
+
+
+---
+
+## 2026-09-01 — ACE_DUO_CLEAN_V2_15M (auto)
+
+- Profil: `?` v`?`
+- Tag: `ACE_DUO_CLEAN_V2_15M`
+- Période: `2026-09-01T15:12:40Z` → `2026-09-01T15:27:36Z`
+- Logs:
+  - `ACE_DUO_CLEAN_V2_15M_BETA_X5.csv`
+  - `ACE_DUO_CLEAN_V2_15M_ALPHA_X13_BURST13.csv`
+- Paramètres clé:
+  - `BUY_USDT_BETA=?`
+  - `BUY_USDT_ALPHA=?`
+  - `LLM_GATE_ENABLED=?`
+  - `LLM_GATE_FAIL_CLOSED=?`
+- Résultat:
+  - BETA: `-4.3023 USDT` (4 trades)
+  - ALPHA: `+0.1220 USDT` (3 trades)
+  - Total: `-4.1802 USDT`
+- Rapport: `RAPPORT_PNL_AUTO_20260901_152738.md`
+- Verdict: `NEGATIF`
+
+
+---
+
+## 2026-09-01 — ACE_DUO_CLEAN_V3_15M (auto)
+
+- Profil: `?` v`?`
+- Tag: `ACE_DUO_CLEAN_V3_15M`
+- Période: `` → ``
+- Logs:
+  - `ACE_DUO_CLEAN_V3_15M_BETA_X5.csv`
+  - `ACE_DUO_CLEAN_V3_15M_ALPHA_X13_BURST13.csv`
+- Paramètres clé:
+  - `BUY_USDT_BETA=200`
+  - `BUY_USDT_ALPHA=800`
+  - `LLM_GATE_ENABLED=TRUE`
+  - `LLM_GATE_FAIL_CLOSED=TRUE`
+- Résultat:
+  - BETA: `+0.0000 USDT` (0 trades)
+  - ALPHA: `+0.0000 USDT` (0 trades)
+  - Total: `+0.0000 USDT`
+- Rapport: `RAPPORT_PNL_AUTO_20260901_153302.md`
+- Verdict: `NEUTRE`
+
+
+---
+
+## 2026-09-01 — ACE_DUO_CLEAN_V3_15M (auto)
+
+- Profil: `?` v`?`
+- Tag: `ACE_DUO_CLEAN_V3_15M`
+- Période: `2026-09-01T15:33:07Z` → `2026-09-01T15:48:05Z`
+- Logs:
+  - `ACE_DUO_CLEAN_V3_15M_BETA_X5.csv`
+  - `ACE_DUO_CLEAN_V3_15M_ALPHA_X13_BURST13.csv`
+- Paramètres clé:
+  - `BUY_USDT_BETA=200`
+  - `BUY_USDT_ALPHA=800`
+  - `LLM_GATE_ENABLED=TRUE`
+  - `LLM_GATE_FAIL_CLOSED=TRUE`
+- Résultat:
+  - BETA: `-3.9014 USDT` (3 trades)
+  - ALPHA: `-4.7289 USDT` (3 trades)
+  - Total: `-8.6304 USDT`
+- Rapport: `RAPPORT_PNL_AUTO_20260901_154808.md`
+- Verdict: `NEGATIF`
+
+
+---
+
+## 2026-09-01 — ACE_DUO_CLEAN_V3_15M (auto)
+
+- Profil: `?` v`?`
+- Tag: `ACE_DUO_CLEAN_V3_15M`
+- Période: `2026-09-01T15:33:07Z` → `2026-09-01T15:48:05Z`
+- Logs:
+  - `ACE_DUO_CLEAN_V3_15M_BETA_X5.csv`
+  - `ACE_DUO_CLEAN_V3_15M_ALPHA_X13_BURST13.csv`
+- Paramètres clé:
+  - `BUY_USDT_BETA=?`
+  - `BUY_USDT_ALPHA=?`
+  - `LLM_GATE_ENABLED=?`
+  - `LLM_GATE_FAIL_CLOSED=?`
+- Résultat:
+  - BETA: `-3.9014 USDT` (3 trades)
+  - ALPHA: `-4.7289 USDT` (3 trades)
+  - Total: `-8.6304 USDT`
+- Rapport: `RAPPORT_PNL_AUTO_20260901_154808.md`
+- Verdict: `NEGATIF`
+
+
+---
+
+## 2026-09-01 — ACE_DUO_CLEAN_V4_15M (auto)
+
+- Profil: `?` v`?`
+- Tag: `ACE_DUO_CLEAN_V4_15M`
+- Période: `` → ``
+- Logs:
+  - `ACE_DUO_CLEAN_V4_15M_BETA_X5.csv`
+  - `ACE_DUO_CLEAN_V4_15M_ALPHA_X13_BURST13.csv`
+- Paramètres clé:
+  - `BUY_USDT_BETA=200`
+  - `BUY_USDT_ALPHA=800`
+  - `LLM_GATE_ENABLED=TRUE`
+  - `LLM_GATE_FAIL_CLOSED=TRUE`
+- Résultat:
+  - BETA: `+0.0000 USDT` (0 trades)
+  - ALPHA: `+0.0000 USDT` (0 trades)
+  - Total: `+0.0000 USDT`
+- Rapport: `RAPPORT_PNL_AUTO_20260901_160213.md`
+- Verdict: `NEUTRE`
+
+
+---
+
+## 2026-09-01 — ACE_DUO_CLEAN_V4_15M (auto)
+
+- Profil: `?` v`?`
+- Tag: `ACE_DUO_CLEAN_V4_15M`
+- Période: `2026-09-01T16:02:18Z` → `2026-09-01T16:17:17Z`
+- Logs:
+  - `ACE_DUO_CLEAN_V4_15M_BETA_X5.csv`
+  - `ACE_DUO_CLEAN_V4_15M_ALPHA_X13_BURST13.csv`
+- Paramètres clé:
+  - `BUY_USDT_BETA=200`
+  - `BUY_USDT_ALPHA=800`
+  - `LLM_GATE_ENABLED=TRUE`
+  - `LLM_GATE_FAIL_CLOSED=TRUE`
+- Résultat:
+  - BETA: `-5.7991 USDT` (2 trades)
+  - ALPHA: `-0.4544 USDT` (1 trades)
+  - Total: `-6.2535 USDT`
+- Rapport: `RAPPORT_PNL_AUTO_20260901_161719.md`
+- Verdict: `NEGATIF`
+
+
+---
+
+## 2026-09-01 — ACE_DUO_CLEAN_V4_15M (auto)
+
+- Profil: `?` v`?`
+- Tag: `ACE_DUO_CLEAN_V4_15M`
+- Période: `2026-09-01T16:02:18Z` → `2026-09-01T16:17:17Z`
+- Logs:
+  - `ACE_DUO_CLEAN_V4_15M_BETA_X5.csv`
+  - `ACE_DUO_CLEAN_V4_15M_ALPHA_X13_BURST13.csv`
+- Paramètres clé:
+  - `BUY_USDT_BETA=?`
+  - `BUY_USDT_ALPHA=?`
+  - `LLM_GATE_ENABLED=?`
+  - `LLM_GATE_FAIL_CLOSED=?`
+- Résultat:
+  - BETA: `-5.7991 USDT` (2 trades)
+  - ALPHA: `-0.4544 USDT` (1 trades)
+  - Total: `-6.2535 USDT`
+- Rapport: `RAPPORT_PNL_AUTO_20260901_161719.md`
+- Verdict: `NEGATIF`
+

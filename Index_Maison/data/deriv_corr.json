@@ -1,43 +1,43 @@
 {
- "ts": "2026-09-01T15:11Z",
- "mark": 77744.5,
+ "ts": "2026-09-01T16:12Z",
+ "mark": 77759.9,
  "correlations": {
   "prix_oi": {
-   "r": -0.378,
-   "lecture": "corrélation faible (-0.378) — les deux évoluent en sens opposé",
+   "r": -0.375,
+   "lecture": "corrélation faible (-0.375) — les deux évoluent en sens opposé",
    "label": "Open interest vs prix"
   },
   "prix_funding": {
-   "r": 0.565,
-   "lecture": "corrélation modérée (+0.565) — les deux évoluent dans le même sens",
+   "r": 0.55,
+   "lecture": "corrélation modérée (+0.55) — les deux évoluent dans le même sens",
    "label": "Funding vs prix"
   },
   "prix_longshort": {
-   "r": -0.731,
-   "lecture": "corrélation forte (-0.731) — les deux évoluent en sens opposé",
+   "r": -0.729,
+   "lecture": "corrélation forte (-0.729) — les deux évoluent en sens opposé",
    "label": "Ratio long/short vs prix"
   },
   "prix_taker": {
-   "r": -0.101,
-   "lecture": "corrélation quasi nulle (-0.101) — les deux évoluent en sens opposé",
+   "r": -0.083,
+   "lecture": "corrélation quasi nulle (-0.083) — les deux évoluent en sens opposé",
    "label": "Achats/ventes agressifs vs prix"
   }
  },
  "liquidations": {
   "clusters_2000usd": {
    "76000": {
-    "long": 202272.0,
+    "long": 316851.0,
     "short": 0.0
    },
    "78000": {
     "long": 0.0,
-    "short": 99449.0
+    "short": 86129.0
    }
   },
-  "longs_below_usd": 202272.0,
+  "longs_below_usd": 316851.0,
   "longs_above_usd": 0.0,
   "shorts_below_usd": 0.0,
-  "shorts_above_usd": 99449.0,
-  "lecture": "Le gros de la liquidité est EN DESSOUS du prix : 0.2 M$ de LONGS liquidés à 76-78k (contre 0.1 M$ de shorts au-dessus, à 80k) — si le prix casse ces supports, les liquidations long forcées peuvent accélérer la baisse (cascade)."
+  "shorts_above_usd": 86129.0,
+  "lecture": "Le gros de la liquidité est EN DESSOUS du prix : 0.3 M$ de LONGS liquidés à 76-78k (contre 0.1 M$ de shorts au-dessus, à 80k) — si le prix casse ces supports, les liquidations long forcées peuvent accélérer la baisse (cascade)."
  }
 }

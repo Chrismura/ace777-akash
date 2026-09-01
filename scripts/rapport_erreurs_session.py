@@ -96,16 +96,16 @@ def classify(line: str) -> str | None:
     return None
 
 
-def csv_fills(tag: str, unit: str, start: str) -> tuple[int, float, Counter]:
+def csv_fills(tag: str, unit: str, start: str) -> tuple[int, float, float, float, Counter]:
     name = {
         "ALPHA": f"{tag}_ALPHA_X13_BURST13.csv",
         "BETA": f"{tag}_BETA_X5.csv",
     }.get(unit)
     if not name:
-        return 0, 0.0, Counter()
+        return 0, 0.0, 0.0, 0.0, Counter()
     path = RUNS / name
     if not path.exists():
-        return 0, 0.0, Counter()
+        return 0, 0.0, 0.0, 0.0, Counter()
     fills = []
     reasons = Counter()
     for r in csv.DictReader(path.open()):
@@ -114,8 +114,10 @@ def csv_fills(tag: str, unit: str, start: str) -> tuple[int, float, Counter]:
         if r.get("side") in ("BUY", "SELL"):
             fills.append(r)
             reasons[(r.get("exitReason") or "?")[:40]] += 1
-    pnl = sum(float(r.get("pnl") or 0) for r in fills)
-    return len(fills), pnl, reasons
+    gross = sum(float(r.get("pnl") or 0) for r in fills)
+    net = sum(float(r.get("pnlNet") or r.get("pnl") or 0) for r in fills)
+    fees = gross - net
+    return len(fills), gross, net, fees, reasons
 
 
 def parse_iso(ts: str) -> datetime | None:
@@ -184,7 +186,14 @@ def infer_why_arret(
 
     cause = "unknown"
     detail: list[str] = []
-    if written and "reason=" in written:
+    # A clean exit within the timer tolerance is a normal timer stop, even
+    # when STOP_REASON.txt was not written by the timer wrapper.
+    if timing == "near_timer" and last_die and not last_watch:
+        cause = "timer_normal"
+        detail.append("stop_class=normal_timer_window")
+    if cause == "timer_normal":
+        pass
+    elif written and "reason=" in written:
         m = re.search(r"reason=([^\s|]+)", written)
         if m:
             cause = m.group(1)
@@ -306,8 +315,8 @@ def build(tag: str, since: str | None) -> dict:
     for line in iter_extra_logs(tag):
         ingest(line)
 
-    af, ap, ar = csv_fills(tag, "ALPHA", start)
-    bf, bp, br = csv_fills(tag, "BETA", start)
+    af, ag, an, afe, ar = csv_fills(tag, "ALPHA", start)
+    bf, bg, bn, bfe, br = csv_fills(tag, "BETA", start)
     net_retries = count_net_retry(tag, start)
     why = infer_why_arret(meta, start, last_die, last_watch, net_retries)
 
@@ -353,8 +362,8 @@ def build(tag: str, since: str | None) -> dict:
         "buckets": buckets,
         "last_die": last_die[-8:],
         "last_watch": last_watch[-8:],
-        "alpha": {"fills": af, "pnl": ap, "exits": dict(ar.most_common(6))},
-        "beta": {"fills": bf, "pnl": bp, "exits": dict(br.most_common(6))},
+        "alpha": {"fills": af, "gross": ag, "fees": afe, "net": an, "pnl": an, "exits": dict(ar.most_common(6))},
+        "beta": {"fills": bf, "gross": bg, "fees": bfe, "net": bn, "pnl": bn, "exits": dict(br.most_common(6))},
         "verdict": verdict,
         "why": why,
         "net_retries": net_retries,
@@ -405,11 +414,11 @@ def to_md(d: dict) -> str:
         "",
         "## PnL fills (fenêtre)",
         "",
-        f"- ALPHA : fills={d['alpha']['fills']} pnl={d['alpha']['pnl']:+.4f} "
+        f"- ALPHA : fills={d['alpha']['fills']} gross={d['alpha']['gross']:+.4f} fees={d['alpha']['fees']:+.4f} net={d['alpha']['net']:+.4f} "
         f"exits={d['alpha']['exits']}",
-        f"- BETA : fills={d['beta']['fills']} pnl={d['beta']['pnl']:+.4f} "
+        f"- BETA : fills={d['beta']['fills']} gross={d['beta']['gross']:+.4f} fees={d['beta']['fees']:+.4f} net={d['beta']['net']:+.4f} "
         f"exits={d['beta']['exits']}",
-        f"- **TOTAL** : {d['alpha']['pnl'] + d['beta']['pnl']:+.4f}",
+        f"- **TOTAL** : gross={d['alpha']['gross'] + d['beta']['gross']:+.4f} fees={d['alpha']['fees'] + d['beta']['fees']:+.4f} net={d['alpha']['net'] + d['beta']['net']:+.4f}",
         "",
         "## Derniers PROCESS_DIE / EXIT",
         "",
