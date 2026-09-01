@@ -3029,3 +3029,7 @@ Pas d’ordre — confrontation plus tard.
 ### 2026-09-01T12:00:48Z — ALERT auto
 - RWAUSDT: WATCH_PULLBACK — tension haute + reflux
 (compléter: confirmé ? risque ?)
+
+### 2026-09-01T14:02:52Z — ALERT auto
+- CHIPUSDT: IMPULSE_WAIT — spike en cours, pas chase
+(compléter: confirmé ? risque ?)

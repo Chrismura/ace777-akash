@@ -1,4 +1,4 @@
-# ARCHITECTURE VIVANTE — ACE777 (2026-09-01 13:23 UTC)
+# ARCHITECTURE VIVANTE — ACE777 (2026-09-01 14:23 UTC)
 
 > Document GÉNÉRÉ AUTOMATIQUEMENT à l'instant. La famille valide
 > en s'appuyant sur CE contexte, pas sur des documents figés.
@@ -22,10 +22,10 @@
 
 ## État de la mission (bots + PnL)
 
-- mission.json : 2026-09-01 13:23Z · run `ACE_DUO_PREFLIGHT_10M` · alerte `red`
-- PnL combiné : **-0.12 $** 📉 (combo -0.1177)
-- ALPHA (sniper (embuscade, ×13, revenge si claque)) : **-0.19 $** · 1 fills · 59 skips
-- BETA (éclaireur (chatouille le marché, alimente Alpha)) : **+0.07 $** · 2 fills · 51 skips
+- mission.json : 2026-09-01 14:23Z · run `ACE_DUO_CLEAN_V1_15M` · alerte `red`
+- PnL combiné : **-2.96 $** 📉 (combo -2.9614)
+- ALPHA (sniper (embuscade, ×13, revenge si claque)) : **+0.00 $** · 0 fills · 102 skips
+- BETA (éclaireur (chatouille le marché, alimente Alpha)) : **-2.96 $** · 2 fills · 86 skips
 - HULK (gestionnaire de portefeuille (bag, escalier, courreur)) : **-6.24 $** · 0 fills
 - Saison : CALME 🧊 · 
 
@@ -67,11 +67,11 @@
 ## Mémoire chaude (journal + résumés)
 
 - Radar (dernières alertes) :
-  · 2026-09-01T13:23:43.028169Z ETHUSDT 2440.12 0.0004 173.5 declenche=non
-  · 2026-09-01T13:23:43.035756Z BTCUSDT 77777.0 0.0007 4.9 declenche=non
-  · 2026-09-01T13:23:43.060786Z BTCUSDT 77777.01 0.0007 4.9 declenche=non
-  · 2026-09-01T13:23:44.713926Z BTCUSDT 77777.0 0.0007 4.9 declenche=non
-- Intention en cours : BETA a sonde le marche (2 sondes, 1 long / 1 court, conf moy | ALPHA attend son moment : 53 skips (discipline), le mur du c | ALPHA a frappe 1 fois en embuscade (13x) : -0.19 $ — session
+  · 2026-09-01T14:23:46.904865Z BTCUSDT 78157.4 0.0000 1.3 declenche=non
+  · 2026-09-01T14:23:46.910870Z ETHUSDT 2447.0 0.0000 32.0 declenche=non
+  · 2026-09-01T14:23:47.179729Z BTCUSDT 78157.4 0.0000 1.3 declenche=non
+  · 2026-09-01T14:23:48.827228Z BTCUSDT 78157.39 0.0000 1.3 declenche=non
+- Intention en cours : BETA a sonde le marche (2 sondes, 1 long / 1 court, conf moy | ALPHA attend son moment : 95 skips (discipline), le mur du c | ALPHA attend son signal — aucun tir sur la session en cours.
 - 816 signets X résumés (quota aujourd'hui : 5/50)
 - 79 fiches IA d'offres en cache (quota 8/jour)
 

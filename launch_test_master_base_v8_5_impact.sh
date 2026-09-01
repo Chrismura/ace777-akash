@@ -12,6 +12,10 @@ else
 fi
 
 _binance_mode="${BINANCE_MODE:-testnet}"
+if [ "$_binance_mode" != "testnet" ]; then
+  echo "PREFLIGHT_ERR: this clean launcher only permits BINANCE_MODE=testnet"
+  exit 1
+fi
 if [ "$_binance_mode" = "live" ]; then
   if [ -f "${HOME}/.binance_live.env" ]; then
     set -a
@@ -123,6 +127,7 @@ ruby -rjson -e '
     "start_utc" => ENV["RUN_START_UTC"],
     "planned_end_utc" => ENV.fetch("RUN_END_UTC", ""),
     "run_id" => ENV.fetch("ACE777_RUN_ID", ""),
+    "fee_reconciliation" => "UNMATCHED_BINANCE_FEES",
     "venue" => "binance_futures_testnet",
     "engine" => "ACE_DUO",
     "roles" => {"alpha" => "HUNTER", "beta" => "SCOUT"},

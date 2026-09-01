@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "ipt",
-      "zscore": -2.021667665627779,
-      "value": 0.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit médiatique sans rapport avec la crypto (actualités académiques et religieuses). Absence totale de signal onchain pertinent (IPT=0.0).\"\n}\n```",
-      "ts": "2026-08-31T10:39:09.328730+00:00"
-    },
-    {
-      "metric": "whale_usd",
-      "zscore": 2.710188894978127,
-      "value": 3891856.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Activité anormale des baleines (z-score 2.71, ~3.9M USD) dans un silence médiatique absolu (Google Actualités vide). Accumulation furtive classique avant une cassure de prix.\"\n}\n```",
-      "ts": "2026-08-31T11:49:20.376884+00:00"
-    },
-    {
       "metric": "sdi",
       "zscore": 2.9974092999274853,
       "value": 0.016,
@@ -349,6 +335,20 @@
       "value": 1.127,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie technique (z-score 2.23) entièrement corrélée à du bruit médiatique sans rapport avec la crypto (tournoi de physique de l'X, actualités protestantes et partenariats universitaires). Aucune activité de baleine détectée.\"\n}\n```",
       "ts": "2026-09-01T13:15:11.284133+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 2.8752338805795996,
+      "value": 0.02,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 75,\n  \"reason\": \"Anomalie onchain significative (z-score 2.88) non reflétée dans les titres médiatiques génériques. Activité silencieuse probable de baleines malgré l'absence de couverture médiatique pertinente.\"\n}\n```",
+      "ts": "2026-09-01T13:25:14.575245+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.275763410596135,
+      "value": 1.152,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Anomalie technique (ipt) et titres médiatiques totalement hors sujet (Tournoi de Physique, biographie religieuse, biotechnologies académiques). Aucun rapport avec les mouvements de baleines crypto.\"\n}\n```",
+      "ts": "2026-09-01T14:00:27.566189+00:00"
     }
   ]
 }

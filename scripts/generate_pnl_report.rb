@@ -34,6 +34,8 @@ end
 
 beta_csv = ENV["BETA_CSV"] || File.join(run_dir, "#{tag}_BETA_X5.csv")
 alpha_csv = ENV["ALPHA_CSV"] || File.join(run_dir, "#{tag}_ALPHA_X13_BURST13.csv")
+run_id = run_meta["run_id"] || run_meta["runId"] || tag
+fee_reconciliation = run_meta["fee_reconciliation"] || "UNMATCHED_BINANCE_FEES"
 
 def load_session_start(run_dir, tag)
   return ENV["RUN_START_UTC"] if ENV["RUN_START_UTC"] && !ENV["RUN_START_UTC"].empty?
@@ -52,7 +54,7 @@ def analyze_csv(path, unit_label, min_ts: nil)
   stats = {
     label: unit_label, path: path, present: File.file?(path),
     filled: 0, wins: 0, losses: 0, flats: 0,
-    net: 0.0, gains: 0.0, losses_sum: 0.0, bps_sum: 0.0,
+    gross: 0.0, fees: 0.0, net: 0.0, gains: 0.0, losses_sum: 0.0, bps_sum: 0.0,
     skips: 0, skip_reasons: Hash.new(0), exit_reasons: Hash.new(0),
     sides: Hash.new(0), best: nil, worst: nil,
     first_ts: nil, last_ts: nil
@@ -65,7 +67,7 @@ def analyze_csv(path, unit_label, min_ts: nil)
     cols = line.strip.split(",", -1)
     next if cols.size < 10
 
-    ts, _cycle, side, status, _entry, _exit_px, _qty, bps, pnl, reason = cols
+    ts, _cycle, side, status, _entry, _exit_px, _qty, bps, pnl, reason, fee_usdt, pnl_net = cols
     next if min_ts && ts && !ts.empty? && ts < min_ts
 
     stats[:first_ts] ||= ts
@@ -81,26 +83,30 @@ def analyze_csv(path, unit_label, min_ts: nil)
     next unless status == "FILLED"
 
     pnl_f = pnl.to_f
+    fee_f = fee_usdt.to_s.empty? ? 0.0 : fee_usdt.to_f
+    net_f = pnl_net.to_s.empty? ? pnl_f - fee_f : pnl_net.to_f
     bps_f = bps.to_f
     stats[:filled] += 1
-    stats[:net] += pnl_f
+    stats[:gross] += pnl_f
+    stats[:fees] += fee_f
+    stats[:net] += net_f
     stats[:bps_sum] += bps_f
     stats[:sides][side] += 1 if side && !side.empty?
     exit_key = reason.to_s.empty? ? "unknown" : reason.split(",", 2).first
     stats[:exit_reasons][exit_key] += 1
 
-    if pnl_f > 0
+    if net_f > 0
       stats[:wins] += 1
-      stats[:gains] += pnl_f
-    elsif pnl_f < 0
+      stats[:gains] += net_f
+    elsif net_f < 0
       stats[:losses] += 1
-      stats[:losses_sum] += pnl_f
+      stats[:losses_sum] += net_f
     else
       stats[:flats] += 1
     end
 
-    stats[:best] = { pnl: pnl_f, ts: ts } if stats[:best].nil? || pnl_f > stats[:best][:pnl]
-    stats[:worst] = { pnl: pnl_f, ts: ts } if stats[:worst].nil? || pnl_f < stats[:worst][:pnl]
+    stats[:best] = { pnl: net_f, ts: ts } if stats[:best].nil? || net_f > stats[:best][:pnl]
+    stats[:worst] = { pnl: net_f, ts: ts } if stats[:worst].nil? || net_f < stats[:worst][:pnl]
   end
   stats
 end
@@ -185,6 +191,8 @@ def unit_section(stats)
   lines << "| Win rate | **#{winrate(stats[:filled], stats[:wins])}** |"
   lines << "| Gains totaux | #{fmt_usdt(stats[:gains])} USDT |"
   lines << "| Pertes totales | #{fmt_usdt(stats[:losses_sum])} USDT |"
+  lines << "| PNL brut | #{fmt_usdt(stats[:gross])} USDT |"
+  lines << "| Frais | #{fmt_usdt(stats[:fees])} USDT |"
   lines << "| **PNL net** | **#{fmt_usdt(stats[:net])} USDT** |"
   lines << "| BPS moyen | #{avg_bps(stats)} |"
   lines << ""
@@ -219,6 +227,8 @@ lines = []
 lines << "# RAPPORT PNL AUTO — #{tag}"
 lines << ""
 lines << "**Session:** `#{tag}`"
+lines << "**run_id:** `#{run_id}`"
+lines << "**Frais Binance:** `#{fee_reconciliation}` (aucune commission/funding externe n'est ajoutée sans correspondance explicite)"
 lines << "**Période:** #{start_ts || '—'} → #{end_ts || '—'} (#{duration_human(start_ts, end_ts)})"
 lines << "**Setup:** `#{config_name}` v`#{config_version}` | BETA `#{buy_beta}` USDT | ALPHA `#{buy_alpha}` USDT | LLM gate `#{llm_enabled}` fail_closed=`#{llm_fail}`"
 lines << "**Généré:** #{now.strftime('%Y-%m-%dT%H:%M:%SZ')} UTC"
@@ -232,8 +242,12 @@ lines << "## BILAN GLOBAL"
 lines << ""
 lines << "| Métrique | Valeur |"
 lines << "|----------|--------|"
-lines << "| **PNL BETA** | **#{fmt_usdt(beta[:net])} USDT** |"
-lines << "| **PNL ALPHA** | **#{fmt_usdt(alpha[:net])} USDT** |"
+lines << "| PNL brut BETA | #{fmt_usdt(beta[:gross])} USDT |"
+lines << "| Frais BETA | #{fmt_usdt(beta[:fees])} USDT |"
+lines << "| **PNL net BETA** | **#{fmt_usdt(beta[:net])} USDT** |"
+lines << "| PNL brut ALPHA | #{fmt_usdt(alpha[:gross])} USDT |"
+lines << "| Frais ALPHA | #{fmt_usdt(alpha[:fees])} USDT |"
+lines << "| **PNL net ALPHA** | **#{fmt_usdt(alpha[:net])} USDT** |"
 lines << "| **PNL SESSION TOTAL** | **#{fmt_usdt(total_net)} USDT** |"
 lines << "| Statut | `#{status_label}` |"
 lines << ""

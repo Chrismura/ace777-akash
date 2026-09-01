@@ -16386,3 +16386,26 @@ Ce fichier sert de table des runs ACE777 pour retrouver vite les tests.
 - Rapport: `RAPPORT_PNL_AUTO_20260901_132232.md`
 - Verdict: `NEGATIF`
 
+
+---
+
+## 2026-09-01 — ACE_DUO_CLEAN_V1_15M (auto)
+
+- Profil: `?` v`?`
+- Tag: `ACE_DUO_CLEAN_V1_15M`
+- Période: `` → ``
+- Logs:
+  - `ACE_DUO_CLEAN_V1_15M_BETA_X5.csv`
+  - `ACE_DUO_CLEAN_V1_15M_ALPHA_X13_BURST13.csv`
+- Paramètres clé:
+  - `BUY_USDT_BETA=200`
+  - `BUY_USDT_ALPHA=800`
+  - `LLM_GATE_ENABLED=TRUE`
+  - `LLM_GATE_FAIL_CLOSED=TRUE`
+- Résultat:
+  - BETA: `+0.0000 USDT` (0 trades)
+  - ALPHA: `+0.0000 USDT` (0 trades)
+  - Total: `+0.0000 USDT`
+- Rapport: `RAPPORT_PNL_AUTO_20260901_141035.md`
+- Verdict: `NEUTRE`
+

@@ -1,7 +1,7 @@
 # ACE777 — STATE
 
 > Généré automatiquement — ne pas éditer à la main
-> Phase: `ended` | Statut: `ENDED` | MAJ: `2026-09-01T13:22:31Z`
+> Phase: `running` | Statut: `RUNNING` | MAJ: `2026-09-01T14:10:35Z`
 
 ## Config active
 
@@ -11,46 +11,31 @@
 | Masse BETA / ALPHA | `200` / `800` USDT |
 | LLM gate | enabled=`TRUE` fail_closed=`TRUE` |
 | Modèle LLM | `qwen2.5-coder:1.5b` |
-| Tag session | `ACE_DUO_PREFLIGHT_10M` |
+| Tag session | `ACE_DUO_CLEAN_V1_15M` |
+| run_id | `ACE_DUO_CLEAN_V1_15M_20260901T141030Z_60190` |
+| Frais Binance | `UNMATCHED_BINANCE_FEES` |
 
 ## PnL session
 
-| Unité | FILLED | Win | Loss | Win% | Net USDT | SKIP |
-|-------|--------|-----|------|------|----------|------|
-| BETA | 2 | 1 | 1 | 50.0% | 0.0691 | 51 |
-| ALPHA | 1 | 0 | 1 | 0.0% | -0.1868 | 59 |
-| **TOTAL** | **3** | — | — | — | **-0.1177** | **110** |
+| Unité | FILLED | Win | Loss | Win% | Brut | Frais | Net USDT | SKIP |
+|-------|--------|-----|------|------|------|------|----------|------|
+| BETA | 0 | 0 | 0 | 0.00% | 0.0000 | 0.0000 | 0.0000 | 0 |
+| ALPHA | 0 | 0 | 0 | 0.00% | 0.0000 | 0.0000 | 0.0000 | 0 |
+| **TOTAL** | **0** | — | — | — | **0.0000** | **0.0000** | **0.0000** | **0** |
 
 ## Duo session (`duo_session.json`)
 
-- SCOUT PnL: `-1.12573747` USDT
-- HUNTER PnL: `-1.26350619` USDT
-- Total session: `-2.38924366` USDT
-
-## Duo live (`duo_state.json`)
-
-| Champ | Valeur |
-|-------|--------|
-| role | `SCOUT` |
-| status | `CLOSED` |
-| side | `SELL` |
-| bps | `-1.3884782` |
-| pnl_usdt | `-0.46736896` |
-| reason | `kill_switch` |
-| cycle | `53` |
-| hold_sec | `90` |
+- SCOUT PnL: `` USDT
+- HUNTER PnL: `` USDT
+- Total session: `` USDT
 
 ## Top SKIP — BETA
 
-1. `regime_gate` — 40
-2. `radar_block` — 11
+_Aucun SKIP ou CSV absent._
 
 ## Top SKIP — ALPHA
 
-1. `regime_gate` — 44
-2. `radar_block` — 9
-3. `impulse_resonance_wait` — 3
-4. `duo_wait` — 3
+_Aucun SKIP ou CSV absent._
 
 ## Vortex (`vortex_control.json`)
 
@@ -60,14 +45,14 @@
 
 ## Processus
 
-- master.pid: `stopped`
-- beta.pid: `stopped`
-- alpha.pid: `stopped`
+- master.pid: `RUNNING`
+- beta.pid: `RUNNING`
+- alpha.pid: `RUNNING`
 
 ## Fichiers
 
-- BETA CSV: `ACE_DUO_PREFLIGHT_10M_BETA_X5.csv` (ok)
-- ALPHA CSV: `ACE_DUO_PREFLIGHT_10M_ALPHA_X13_BURST13.csv` (ok)
+- BETA CSV: `ACE_DUO_CLEAN_V1_15M_BETA_X5.csv` (ok)
+- ALPHA CSV: `ACE_DUO_CLEAN_V1_15M_ALPHA_X13_BURST13.csv` (absent)
 
 ## Dernière leçon ERREURS_AI
 

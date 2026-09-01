@@ -25,6 +25,19 @@ out_path = File.join(run_dir, "STATE.md")
 
 beta_csv = ENV["BETA_CSV"] || File.join(run_dir, "#{tag}_BETA_X5.csv")
 alpha_csv = ENV["ALPHA_CSV"] || File.join(run_dir, "#{tag}_ALPHA_X13_BURST13.csv")
+def read_json(path)
+  return {} unless File.file?(path)
+
+  JSON.parse(File.read(path))
+rescue StandardError
+  {}
+end
+
+run_meta = read_json(File.join(run_dir, "#{tag}_run_meta.json"))
+sidecars = Dir.glob(File.join(run_dir, "#{tag}_*_session.json")).sort_by { |path| File.mtime(path) }
+sidecar = sidecars.empty? ? {} : read_json(sidecars.last)
+run_id = sidecar["run_id"] || run_meta["run_id"] || run_meta["runId"] || tag
+fee_reconciliation = sidecar["fee_reconciliation"] || run_meta["fee_reconciliation"] || "UNMATCHED_BINANCE_FEES"
 
 def load_session_start(run_dir, tag)
   return ENV["RUN_START_UTC"] if ENV["RUN_START_UTC"] && !ENV["RUN_START_UTC"].empty?
@@ -49,7 +62,7 @@ end
 
 def csv_stats(path, min_ts: nil)
   stats = {
-    filled: 0, wins: 0, losses: 0, flats: 0, net: 0.0,
+    filled: 0, wins: 0, losses: 0, flats: 0, gross: 0.0, fees: 0.0, net: 0.0,
     skips: 0, skip_reasons: Hash.new(0),
     last_ts: nil, last_filled: nil
   }
@@ -61,7 +74,7 @@ def csv_stats(path, min_ts: nil)
     cols = line.strip.split(",", -1)
     next if cols.size < 10
 
-    ts, _cycle, side, status, entry, exit_px, _qty, _bps, pnl, reason = cols
+    ts, _cycle, side, status, entry, exit_px, _qty, _bps, pnl, reason, fee_usdt, pnl_net = cols
     next if min_ts && ts && !ts.empty? && ts < min_ts
 
     stats[:last_ts] = ts if ts && !ts.empty?
@@ -76,14 +89,18 @@ def csv_stats(path, min_ts: nil)
     next unless status == "FILLED"
 
     pnl_f = pnl.to_f
+    fee_f = fee_usdt.to_s.empty? ? 0.0 : fee_usdt.to_f
+    net_f = pnl_net.to_s.empty? ? pnl_f - fee_f : pnl_net.to_f
     stats[:filled] += 1
-    stats[:net] += pnl_f
-    stats[:wins] += 1 if pnl_f > 0
-    stats[:losses] += 1 if pnl_f < 0
-    stats[:flats] += 1 if pnl_f == 0
+    stats[:gross] += pnl_f
+    stats[:fees] += fee_f
+    stats[:net] += net_f
+    stats[:wins] += 1 if net_f > 0
+    stats[:losses] += 1 if net_f < 0
+    stats[:flats] += 1 if net_f == 0
     stats[:last_filled] = {
       ts: ts, side: side, entry: entry, exit: exit_px,
-      pnl: pnl_f, reason: reason
+      pnl: net_f, gross: pnl_f, fee: fee_f, reason: reason
     }
   end
   stats
@@ -173,14 +190,16 @@ lines << "| Masse BETA / ALPHA | `#{buy_beta}` / `#{buy_alpha}` USDT |"
 lines << "| LLM gate | enabled=`#{llm_enabled}` fail_closed=`#{llm_fail_closed}` |"
 lines << "| Modèle LLM | `#{ENV.fetch("LLM_MODEL", "?")}` |"
 lines << "| Tag session | `#{tag}` |"
+lines << "| run_id | `#{run_id}` |"
+lines << "| Frais Binance | `#{fee_reconciliation}` |"
 lines << ""
 lines << "## PnL session"
 lines << ""
-lines << "| Unité | FILLED | Win | Loss | Win% | Net USDT | SKIP |"
-lines << "|-------|--------|-----|------|------|----------|------|"
-lines << "| BETA | #{beta[:filled]} | #{beta[:wins]} | #{beta[:losses]} | #{winrate(beta[:filled], beta[:wins])}% | #{format('%.4f', beta[:net])} | #{beta[:skips]} |"
-lines << "| ALPHA | #{alpha[:filled]} | #{alpha[:wins]} | #{alpha[:losses]} | #{winrate(alpha[:filled], alpha[:wins])}% | #{format('%.4f', alpha[:net])} | #{alpha[:skips]} |"
-lines << "| **TOTAL** | **#{total_filled}** | — | — | — | **#{format('%.4f', total_net)}** | **#{beta[:skips] + alpha[:skips]}** |"
+lines << "| Unité | FILLED | Win | Loss | Win% | Brut | Frais | Net USDT | SKIP |"
+lines << "|-------|--------|-----|------|------|------|------|----------|------|"
+lines << "| BETA | #{beta[:filled]} | #{beta[:wins]} | #{beta[:losses]} | #{winrate(beta[:filled], beta[:wins])}% | #{format('%.4f', beta[:gross])} | #{format('%.4f', beta[:fees])} | #{format('%.4f', beta[:net])} | #{beta[:skips]} |"
+lines << "| ALPHA | #{alpha[:filled]} | #{alpha[:wins]} | #{alpha[:losses]} | #{winrate(alpha[:filled], alpha[:wins])}% | #{format('%.4f', alpha[:gross])} | #{format('%.4f', alpha[:fees])} | #{format('%.4f', alpha[:net])} | #{alpha[:skips]} |"
+lines << "| **TOTAL** | **#{total_filled}** | — | — | — | **#{format('%.4f', beta[:gross] + alpha[:gross])}** | **#{format('%.4f', beta[:fees] + alpha[:fees])}** | **#{format('%.4f', total_net)}** | **#{beta[:skips] + alpha[:skips]}** |"
 lines << ""
 
 if duo_session.any?
