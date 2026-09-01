@@ -1122,7 +1122,16 @@ def main() -> int:
         f"  BETA  fills={beta['fills']} pnl={beta['pnl']}"
         f" (life fills={beta.get('fillsLifetime')} pnl={beta.get('pnlLifetime')})"
     )
-    print(f"  HULK  bags={hulk['bags']} pnl={hulk['pnl']}")
+    cc = hulk.get("categoryCounts") or {}
+    print(
+        "  HULK  trades={trades} seeds={seeds} house_bags={house} cash={cash} pnl={pnl}".format(
+            trades=cc.get("trade_position", 0),
+            seeds=cc.get("seed_holding", 0),
+            house=cc.get("house_bag", 0),
+            cash=cc.get("cash", 0),
+            pnl=hulk["pnl"],
+        )
+    )
     return 0
 
 

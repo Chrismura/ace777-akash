@@ -4,7 +4,7 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<meta name="version" content="227835137">
+<meta name="version" content="2272546795">
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate" />
@@ -13,13 +13,13 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Share+Tech+Mono&family=Caveat:wght@600;700&display=swap" rel="stylesheet" />
-<script src="mission.js?v=1788251020"></script>
+<script src="mission.js?v=1788254628"></script>
 <!-- COSMOS HUB feed -->
-<script src="hub.js?v=1788251020"></script>
-<script src="../thermo/live.js?v=1788251020"></script>
-<script src="../thermo/cortana_feed.js?v=1788251020"></script>
-<script src="sante_live.js?v=1788251020"></script>
-<script src="veille_institutionnelle.js?v=1788251020"></script>
+<script src="hub.js?v=1788254628"></script>
+<script src="../thermo/live.js?v=1788254628"></script>
+<script src="../thermo/cortana_feed.js?v=1788254628"></script>
+<script src="sante_live.js?v=1788254628"></script>
+<script src="veille_institutionnelle.js?v=1788254628"></script>
 <style>
 :root{
   --ink:#050804; --panel:#0a100c; --line:#3a2e14;
@@ -2057,7 +2057,8 @@ window.addEventListener('unhandledrejection', function(e) {
             + ` <span class="hsub">· budget ${vsH.nbPaires!=null?vsH.nbPaires:'—'} cryptos × ${usd(vsH.margeParCrypto||20)} marge = ${usd(vsH.budgetTotal)}</span>`
             + ` <span class="hsub">· cash réel ${vsH.cash!=null?usd(vsH.cash):'—'}</span>`
             + ((vsH.cashPaper!=null&&vsH.cash!=null&&Math.abs(vsH.cashPaper-vsH.cash)>0.05)?` <span class="hsub">(paper ${usd(vsH.cashPaper)})</span>`:'')
-            + ((vsH.overBudget&&vsH.overBudget.length>0)?` <span style="color:var(--warn,orange)">⚠ hors budget : ${vsH.overBudget.map(p=>p.replace('USDT','')).join(', ')}</span>`:'');
+            + ((vsH.overBudget&&vsH.overBudget.length>0)?` <span style="color:var(--warn,orange)">⚠ hors budget : ${vsH.overBudget.map(p=>p.replace('USDT','')).join(', ')}</span>`:'')
+            + ` <span class="hsub">· brut ${usd(h.pnl)} · frais ${h.fees!=null?('$'+Number(h.fees).toFixed(3)):'—'} · slippage ${h.slippageEstimated!=null?('$'+Number(h.slippageEstimated).toFixed(3)):'—'} · net estimé ${h.pnlNetEstimated!=null?('$'+Number(h.pnlNetEstimated).toFixed(3)):'—'}</span>`;
         } else if(vsNote){
           vsNote.textContent='';
         }

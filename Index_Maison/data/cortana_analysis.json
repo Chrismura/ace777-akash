@@ -1,15 +1,15 @@
 {
-  "timestamp": 1788250973,
-  "date": "2026-09-01T08:22:53.527839+00:00",
-  "n_analyses": 2,
+  "timestamp": 1788254574,
+  "date": "2026-09-01T09:22:54.534300+00:00",
+  "n_analyses": 3,
   "analyses": [
     {
       "signal": {
-        "metric": "fear_greed",
-        "zscore": 2.6457513110645903,
-        "value": 69,
-        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Indice de Peur & Greed à 69 (z-score 2.65) en zone de surchauffe euphorique, combiné à un vide médiatique total (Google Actualités silencieux). Divergence classique de piège à liquidité : le marché retail est aveuglément gourmand tandis que les gros porteurs préparent discrètement une distribution.\"\n}\n```",
-        "ts": 1788250422.706501
+        "metric": "liquidations",
+        "zscore": -3.329253015697746,
+        "value": 2192321.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Z-score extrêmement bas (-3.33) sur les liquidations crypto, montrant un assèchement total de la pression vendeuse par effet de levier. En contraste total, les médias saturant le mot 'liquidations' parlent de faillites d'entreprises traditionnelles et de bruits de couloir macro, créant un 'noise' médiatique qui masque l'accumulation silencieuse des baleines.\"\n}\n```",
+        "ts": 1788252836.592806
       },
       "fiche": null,
       "interpretation": {
@@ -20,11 +20,26 @@
     },
     {
       "signal": {
-        "metric": "whale_usd",
-        "zscore": 3.7728835115716266,
-        "value": 6056546.0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 3.77, ~6M USD) en absence totale de couverture médiatique. Accumulation furtive des baleines sous le radar du retail.\"\n}\n```",
-        "ts": 1788250725.265408
+        "metric": "price_1h",
+        "zscore": 3.8242948296947104,
+        "value": 0.9419196196714164,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (3.82) avec un silence médiatique total (0 actualités) : mouvement furtif typique d'accumulation agressive par des baleines sous le radar.\"\n}\n```",
+        "ts": 1788253138.706823
+      },
+      "fiche": null,
+      "interpretation": {
+        "lecture": "Pas de fiche disponible",
+        "niveau": "inconnu"
+      },
+      "action": "Observer"
+    },
+    {
+      "signal": {
+        "metric": "fear_greed",
+        "zscore": 2.2360679774997902,
+        "value": 69,
+        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Indice de peur et de cupidité à 69 (z-score 2.24) indique une euphorie retail excessive, tandis que l'absence de narratif médiatique fort (Google Actualités plat) montre un décalage : les baleines distribuent silencieusement aux suiveurs de tendance tardifs.\"\n}\n```",
+        "ts": 1788254042.171757
       },
       "fiche": null,
       "interpretation": {
