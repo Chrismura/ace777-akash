@@ -1,20 +1,20 @@
-# JOURNAL ENGLE — MASTER_VORTEX_V2_COLLAB_4H
+# JOURNAL ENGLE — ACE_DUO_PREFLIGHT_10M
 
-- Généré: `2026-08-22T19:13:18Z` (UTC)
+- Généré: `2026-09-01T13:22:32Z` (UTC)
 - Couche: **B1** (lecture seule) · `ENGLE_ADAPT=0`
-- Session start (filtre): `2026-08-22T15:44:10Z`
-- CSV: `MASTER_VORTEX_V2_COLLAB_4H_BETA_X5.csv` · `MASTER_VORTEX_V2_COLLAB_4H_ALPHA_X13_BURST13.csv`
+- Session start (filtre): `2026-09-01T13:12:21Z`
+- CSV: `ACE_DUO_PREFLIGHT_10M_BETA_X5.csv` · `ACE_DUO_PREFLIGHT_10M_ALPHA_X13_BURST13.csv`
 - Base: usine V2.2.1 + champion 37fca367 — **non modifié**
 
 ## Régime IRM (proxy)
 
 | Régime | Cycles | % | Fills | PnL fills |
 |--------|--------|---|-------|-----------|
-| COMPRESSÉ (attente à froid) | 259 | 95.2% | 13 | -0.7378 |
-| TRANSITOIRE (bruit retail) | 12 | 4.4% | 0 | +0.0000 |
-| CLUSTER (tension haute — proxy) | 1 | 0.4% | 0 | +0.0000 |
+| COMPRESSÉ (attente à froid) | 42 | 79.2% | 2 | +0.0691 |
+| TRANSITOIRE (bruit retail) | 7 | 13.2% | 0 | +0.0000 |
+| CLUSTER (tension haute — proxy) | 4 | 7.5% | 0 | +0.0000 |
 
-- Courant (proxy): **COMPRESSÉ (attente à froid)** · μ=0.0383 · σ=0.2200 · n=272
+- Courant (proxy): **COMPRESSÉ (attente à froid)** · μ=0.2749 · σ=1.0839 · n=53
 
 ## Posture recommandée (conseil — pas appliquée)
 
@@ -26,31 +26,25 @@
 
 | Unité | Cycles | Fills | Skips | PnL fills (USDT) | Fenêtre |
 |-------|--------|-------|-------|------------------|---------|
-| BETA | 272 | 13 | 257 | -0.7378 | `2026-08-22T15:44:53Z` → `2026-08-22T19:12:57Z` |
-| ALPHA | 259 | 9 | 249 | +2.0052 | `2026-08-22T15:45:04Z` → `2026-08-22T19:12:26Z` |
-| **TOTAL** | | 22 | | **+1.2674** | |
+| BETA | 53 | 2 | 51 | +0.0691 | `2026-09-01T13:12:30Z` → `2026-09-01T13:22:26Z` |
+| ALPHA | 60 | 1 | 59 | -0.1868 | `2026-09-01T13:12:30Z` → `2026-09-01T13:22:30Z` |
+| **TOTAL** | | 3 | | **-0.1177** | |
 
 ## SKIP BETA (top)
 
 | Raison | Nb | % skips |
 |--------|-----|---------|
-| `gap_guard_pause` | 222 | 86.4% |
-| `regime_gate` | 19 | 7.4% |
-| `wall_not_collapsed` | 9 | 3.5% |
-| `radar_block` | 4 | 1.6% |
-| `tactic_mismatch` | 3 | 1.2% |
+| `regime_gate` | 40 | 78.4% |
+| `radar_block` | 11 | 21.6% |
 
 ## SKIP ALPHA (top)
 
 | Raison | Nb | % skips |
 |--------|-----|---------|
-| `gap_guard_pause` | 193 | 77.5% |
-| `regime_gate` | 27 | 10.8% |
-| `duo_wait` | 9 | 3.6% |
-| `wall_not_collapsed` | 9 | 3.6% |
-| `tactic_mismatch` | 6 | 2.4% |
-| `radar_block` | 4 | 1.6% |
-| `stase_ecoute` | 1 | 0.4% |
+| `regime_gate` | 44 | 74.6% |
+| `radar_block` | 9 | 15.3% |
+| `wall_not_collapsed` | 3 | 5.1% |
+| `duo_wait` | 3 | 5.1% |
 
 ## Lecture courte (marché calme)
 

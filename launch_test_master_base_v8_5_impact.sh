@@ -38,6 +38,10 @@ fi
 RUN_DIR="${RUN_DIR:-runs}"
 duration_sec="${RUN_SEC_OVERRIDE:-14400}"
 tag="${TEST_TAG_OVERRIDE:-MASTER_BASE_V8_5_IMPACT_4H}"
+# Sidecar de session (P0/P2) : identifie sans ambiguïté venue, rôles, schéma,
+# modèle de frais et empreinte du champion. Le champion reste inchangé.
+run_id="${ACE777_RUN_ID:-${tag}_$(date -u +%Y%m%dT%H%M%SZ)_$$}"
+RUN_SIDECAR="${RUN_DIR}/${run_id}_session.json"
 mkdir -p "$RUN_DIR"
 
 export DUO_STATE_FILE="${RUN_DIR}/duo_state.json"
@@ -75,9 +79,41 @@ echo $$ > "${RUN_DIR}/master.pid"
 echo "Pour arrêter: kill -9 -$$  (ou ./stop_ace777.sh)"
 
 start_utc="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+# Métadonnées sidecar : écriture atomique, aucune donnée secrète.
+champion_md5="$(md5 -q genesis_manifest.txt 2>/dev/null || printf 'unknown')"
+ruby -rjson -e '
+  path, run_id, tag, start, planned, config, version, md5 = ARGV
+  meta = {
+    "run_id" => run_id, "tag" => tag, "venue" => "binance_futures_testnet",
+    "engine" => "ACE_DUO", "roles" => {"alpha" => "HUNTER", "beta" => "SCOUT"},
+    "schema_version" => "ace_csv_v1_legacy", "fee_model" => "binance_futures_round_trip_bps",
+    "fee_round_trip_bps" => 8, "champion_md5" => md5,
+    "start_utc" => start, "planned_end_utc" => planned,
+    "config" => config, "version" => version,
+    "alpha_csv" => "#{tag}_ALPHA_X13_BURST13.csv",
+    "beta_csv" => "#{tag}_BETA_X5.csv"
+  }
+  tmp = "#{path}.tmp"
+  File.write(tmp, JSON.pretty_generate(meta) + "\n")
+  File.rename(tmp, path)
+' "$RUN_SIDECAR" "$run_id" "$tag" "$start_utc" "" "${ACE777_CONFIG_NAME:-?}" "${ACE777_CONFIG_VERSION:-?}" "$champion_md5" 2>/dev/null || true
 end_utc="$(ruby -e 'puts (Time.now + ARGV[0].to_i).utc.strftime("%Y-%m-%dT%H:%M:%SZ")' -- "$duration_sec" 2>/dev/null || echo "N/A")"
 export RUN_START_UTC="$start_utc"
 export RUN_END_UTC="$end_utc"
+# Compléter le sidecar après calcul de la fin prévue.
+if [ -f "$RUN_SIDECAR" ]; then
+  RUN_SIDECAR="$RUN_SIDECAR" RUN_ID="$run_id" RUN_TAG="$tag" RUN_START="$start_utc" RUN_END="$end_utc" python3 - <<'PY'
+import json, os
+from pathlib import Path
+p=Path(os.environ['RUN_SIDECAR'])
+d=json.loads(p.read_text())
+d['planned_end_utc']=os.environ['RUN_END']
+d['start_utc']=os.environ['RUN_START']
+d['run_id']=os.environ['RUN_ID']
+d['tag']=os.environ['RUN_TAG']
+tmp=p.with_suffix('.tmp'); tmp.write_text(json.dumps(d, ensure_ascii=False, indent=2)+'\n'); tmp.replace(p)
+PY
+fi
 
 ruby -rjson -e '
   require "fileutils"
@@ -86,6 +122,13 @@ ruby -rjson -e '
   meta = {
     "start_utc" => ENV["RUN_START_UTC"],
     "planned_end_utc" => ENV.fetch("RUN_END_UTC", ""),
+    "run_id" => ENV.fetch("ACE777_RUN_ID", ""),
+    "venue" => "binance_futures_testnet",
+    "engine" => "ACE_DUO",
+    "roles" => {"alpha" => "HUNTER", "beta" => "SCOUT"},
+    "schema_version" => "ace_csv_v1_legacy",
+    "fee_model" => "binance_futures_round_trip_bps",
+    "fee_round_trip_bps" => 8,
     "tag" => ENV.fetch("TEST_TAG_OVERRIDE", ""),
     "config" => ENV.fetch("ACE777_CONFIG_NAME", "?"),
     "version" => ENV.fetch("ACE777_CONFIG_VERSION", "?")

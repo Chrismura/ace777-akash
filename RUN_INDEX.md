@@ -16317,3 +16317,72 @@ Ce fichier sert de table des runs ACE777 pour retrouver vite les tests.
 - Rapport: `RAPPORT_PNL_AUTO_20260822_191325.md`
 - Verdict: `POSITIF`
 
+
+---
+
+## 2026-09-01 — ACE_DUO_PREFLIGHT_10M (auto)
+
+- Profil: `?` v`?`
+- Tag: `ACE_DUO_PREFLIGHT_10M`
+- Période: `` → ``
+- Logs:
+  - `ACE_DUO_PREFLIGHT_10M_BETA_X5.csv`
+  - `ACE_DUO_PREFLIGHT_10M_ALPHA_X13_BURST13.csv`
+- Paramètres clé:
+  - `BUY_USDT_BETA=200`
+  - `BUY_USDT_ALPHA=800`
+  - `LLM_GATE_ENABLED=TRUE`
+  - `LLM_GATE_FAIL_CLOSED=TRUE`
+- Résultat:
+  - BETA: `+0.0000 USDT` (0 trades)
+  - ALPHA: `+0.0000 USDT` (0 trades)
+  - Total: `+0.0000 USDT`
+- Rapport: `RAPPORT_PNL_AUTO_20260901_131223.md`
+- Verdict: `NEUTRE`
+
+
+---
+
+## 2026-09-01 — ACE_DUO_PREFLIGHT_10M (auto)
+
+- Profil: `?` v`?`
+- Tag: `ACE_DUO_PREFLIGHT_10M`
+- Période: `2026-09-01T13:12:30Z` → `2026-09-01T13:22:30Z`
+- Logs:
+  - `ACE_DUO_PREFLIGHT_10M_BETA_X5.csv`
+  - `ACE_DUO_PREFLIGHT_10M_ALPHA_X13_BURST13.csv`
+- Paramètres clé:
+  - `BUY_USDT_BETA=200`
+  - `BUY_USDT_ALPHA=800`
+  - `LLM_GATE_ENABLED=TRUE`
+  - `LLM_GATE_FAIL_CLOSED=TRUE`
+- Résultat:
+  - BETA: `+0.0691 USDT` (2 trades)
+  - ALPHA: `-0.1868 USDT` (1 trades)
+  - Total: `-0.1177 USDT`
+- Rapport: `RAPPORT_PNL_AUTO_20260901_132232.md`
+- Verdict: `NEGATIF`
+
+
+---
+
+## 2026-09-01 — ACE_DUO_PREFLIGHT_10M (auto)
+
+- Profil: `?` v`?`
+- Tag: `ACE_DUO_PREFLIGHT_10M`
+- Période: `2026-09-01T13:12:30Z` → `2026-09-01T13:22:30Z`
+- Logs:
+  - `ACE_DUO_PREFLIGHT_10M_BETA_X5.csv`
+  - `ACE_DUO_PREFLIGHT_10M_ALPHA_X13_BURST13.csv`
+- Paramètres clé:
+  - `BUY_USDT_BETA=?`
+  - `BUY_USDT_ALPHA=?`
+  - `LLM_GATE_ENABLED=?`
+  - `LLM_GATE_FAIL_CLOSED=?`
+- Résultat:
+  - BETA: `+0.0691 USDT` (2 trades)
+  - ALPHA: `-0.1868 USDT` (1 trades)
+  - Total: `-0.1177 USDT`
+- Rapport: `RAPPORT_PNL_AUTO_20260901_132232.md`
+- Verdict: `NEGATIF`
+
