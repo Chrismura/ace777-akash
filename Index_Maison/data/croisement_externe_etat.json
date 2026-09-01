@@ -1,23 +1,41 @@
 {
-  "ts": "2026-09-01T15:56:22Z",
+  "ts": "2026-09-01T16:56:46Z",
   "n_verifications": 25,
   "n_fails": 0,
   "n_fails_pendants": 0,
-  "n_warns": 1,
+  "n_warns": 3,
   "fails": [],
   "fails_pendants": [],
   "warns": [
     {
       "type": "murs",
+      "pair": "BTCUSDT",
+      "notre_bid_avg": 419926.18,
+      "ext_bid_5niv": 96531.25,
+      "notre_ask_avg": 488181.06,
+      "ext_ask_5niv": 19907.37,
+      "note": "ratio hors [0.05x-20.0x] — carnet déséquilibré ou donnée à surveiller"
+    },
+    {
+      "type": "murs",
+      "pair": "CHIPUSDT",
+      "notre_bid_avg": 30766.68,
+      "ext_bid_5niv": 2254.13,
+      "notre_ask_avg": 27298.12,
+      "ext_ask_5niv": 746.4,
+      "note": "ratio hors [0.05x-20.0x] — carnet déséquilibré ou donnée à surveiller"
+    },
+    {
+      "type": "murs",
       "pair": "ZBCNUSDT",
       "notre_bid_avg": 593.13,
-      "ext_bid_5niv": 155.31,
+      "ext_bid_5niv": 107.35,
       "notre_ask_avg": 707.19,
-      "ext_ask_5niv": 24.59,
+      "ext_ask_5niv": 31.25,
       "note": "ratio hors [0.05x-20.0x] — carnet déséquilibré ou donnée à surveiller"
     }
   ],
   "persistance_ticks": 3,
   "regle": "écart > 5.0% entre notre prix et une source externe = data_quality_fail (bloquant après 3 ticks consécutifs) · murs = warning informatif",
-  "lecture": "⚠️ 1 warning(s) murs (carnet déséquilibré) — prix OK"
+  "lecture": "⚠️ 3 warning(s) murs (carnet déséquilibré) — prix OK"
 }
