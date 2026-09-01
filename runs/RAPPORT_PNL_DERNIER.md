@@ -5,7 +5,7 @@
 **Frais Binance:** `UNMATCHED_BINANCE_FEES` (aucune commission/funding externe n'est ajoutée sans correspondance explicite)
 **Période:** 2026-09-01T14:10:40Z → 2026-09-01T14:25:42Z (0h15m)
 **Setup:** `?` v`?` | BETA `?` USDT | ALPHA `?` USDT | LLM gate `?` fail_closed=`?`
-**Généré:** 2026-09-01T19:26:30Z UTC
+**Généré:** 2026-09-01T19:27:17Z UTC
 **Filtre session:** `ts >= 2026-09-01T14:10:33Z` (lignes CSV antérieures exclues)
 
 ---

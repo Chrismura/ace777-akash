@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-01T19:26:25.824122+00:00",
+  "generated_at": "2026-09-01T19:27:26.391414+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 190
+      "calls_24h": 191
     },
     {
       "id": "openrouter-free",
@@ -247,10 +247,18 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 194,
-    "remaining": 430
+    "consumed": 195,
+    "remaining": 429
   },
   "queue": [
+    {
+      "ts": "2026-09-01T19:26:49.607234+00:00",
+      "task": "supervise.decision",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 2.38
+    },
     {
       "ts": "2026-09-01T19:24:35.290919+00:00",
       "task": "analyste.strategie",
@@ -362,17 +370,15 @@
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
       "duration_s": 4.05
-    },
-    {
-      "ts": "2026-09-01T18:27:33.695605+00:00",
-      "task": "supervise.decision",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 0.76
     }
   ],
   "events": [
+    {
+      "ts": "2026-09-01T19:26:49.605875+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
     {
       "ts": "2026-09-01T19:24:35.290276+00:00",
       "kind": "message",
@@ -423,12 +429,6 @@
     },
     {
       "ts": "2026-09-01T18:37:23.117237+00:00",
-      "kind": "message",
-      "title": "« Google Gemini » a repondu",
-      "detail": ""
-    },
-    {
-      "ts": "2026-09-01T18:30:12.871503+00:00",
       "kind": "message",
       "title": "« Google Gemini » a repondu",
       "detail": ""
