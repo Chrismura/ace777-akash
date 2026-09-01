@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-01T11:23:35.988141+00:00",
+  "generated_at": "2026-09-01T11:24:06.259665+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 196
+      "calls_24h": 197
     },
     {
       "id": "openrouter-free",
@@ -247,10 +247,18 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 104,
-    "remaining": 520
+    "consumed": 105,
+    "remaining": 519
   },
   "queue": [
+    {
+      "ts": "2026-09-01T11:23:38.004150+00:00",
+      "task": "analyste.strategie",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 3.72
+    },
     {
       "ts": "2026-09-01T11:21:54.381595+00:00",
       "task": "analyste.strategie",
@@ -362,17 +370,15 @@
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
       "duration_s": 1.01
-    },
-    {
-      "ts": "2026-09-01T09:54:12.647016+00:00",
-      "task": "analyse.profonde",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 1.24
     }
   ],
   "events": [
+    {
+      "ts": "2026-09-01T11:23:38.003753+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
     {
       "ts": "2026-09-01T11:21:54.380799+00:00",
       "kind": "message",
@@ -426,12 +432,6 @@
       "kind": "message",
       "title": "« OrcaRouter (routeur gratuit, modele orcarouter/free) » a repondu",
       "detail": "bascule"
-    },
-    {
-      "ts": "2026-09-01T10:24:21.126773+00:00",
-      "kind": "filet-universel",
-      "title": "[FILET UNIVERSEL] « OrcaRouter (routeur gratuit, modele orcarouter/free) » a repondu hors chaine",
-      "detail": "supervise.decision"
     }
   ],
   "tasks_quotas": {
