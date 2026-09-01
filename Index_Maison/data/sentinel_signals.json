@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "whale_usd",
-      "zscore": 6.382632093890514,
-      "value": 9102296.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (Z-score 6.38, ~9.1M USD) totalement ignorée par les médias (silence radio). Divergence classique d'accumulation furtive par les baleines loin du bruit médiatique.\"\n}\n```",
-      "ts": "2026-09-01T05:13:37.313557+00:00"
-    },
-    {
-      "metric": "liquidations",
-      "zscore": -2.179323315128614,
-      "value": 23649953.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le z-score ultra-négatif (-2.18) indique une absence totale de liquidations sur les marchés crypto, contredisant le narratif médiatique alarmiste qui mélange faussement des faillites d'entreprises traditionnelles (Quimper) et de vieux scénarios cataclysmiques sur le Bitcoin. Calme plat onchain = accumulation silencieuse des baleines avant un squeeze.\"\n}\n```",
-      "ts": "2026-09-01T05:42:56.046316+00:00"
-    },
-    {
       "metric": "fear_greed",
       "zscore": 3.1091263510296048,
       "value": 69,
@@ -349,6 +335,20 @@
       "value": 1.248,
       "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Z-score élevé (2.25) sur le ratio long/short indiquant un positionnement acheteur excessif de la foule, alors que les médias grand public font diversion en discutant de stratégies traditionnelles sans lien avec l'accumulation réelle des baleines.\"\n}\n```",
       "ts": "2026-09-01T19:13:05.462092+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": 2.0979860120782403,
+      "value": 1.248,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Le ratio long/short élevé (z-score 2.10) indique un posicionnement acheteur excessif et saturé. Pendant ce temps, le narratif médiatique est totalement déconnecté, focalisé sur des généralités macro et des stratégies traditionnelles, ignorant le risque imminent d'une purge des positions longues par les baleines.\"\n}\n```",
+      "ts": "2026-09-01T19:43:21.015403+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.379749969118818,
+      "value": 1.215,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit de fond médiatique sans rapport avec la crypto (homonymie avec des instituts, actualités universitaires et graphiques boursiers traditionnels). Aucune baleine détectée.\"\n}\n```",
+      "ts": "2026-09-01T20:18:35.060633+00:00"
     }
   ]
 }

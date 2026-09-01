@@ -1,13 +1,13 @@
-# RAPPORT ERREURS SESSION — ACE_DUO_CLEAN_V4_15M
+# RAPPORT ERREURS SESSION — ACE_RADAR_ALIGNED_V1_15M
 
 ## WHY_ARRET (ligne obligatoire)
 
-`WHY_ARRET=timer_normal | stop_class=normal_timer_window | ran_min=15.2 | vs_planned_min=-0.1 | timing=near_timer`
+`WHY_ARRET=timer_normal | stop_class=normal_timer_window | ran_min=15.1 | vs_planned_min=-0.1 | timing=near_timer`
 
-- Généré : `2026-09-01T16:17:19Z`
-- Fenêtre depuis : `2026-09-01T16:02:10Z`
-- Fin process : `2026-09-01T16:17:19Z`
-- Meta start/end : `2026-09-01T16:02:10Z` → `2026-09-01T16:17:10Z`
+- Généré : `2026-09-01T19:56:25Z`
+- Fenêtre depuis : `2026-09-01T19:41:19Z`
+- Fin process : `2026-09-01T19:56:24Z`
+- Meta start/end : `2026-09-01T19:41:19Z` → `2026-09-01T19:56:19Z`
 - Watchdog meta : stale=?s max_relaunch=?
 - NET_RETRY (fenêtre) : 0
 
@@ -17,7 +17,7 @@ Alpage · groupe électrogène · 2 lignes (téléphone + surf) · WiFi. Le bot 
 
 ## Verdict court
 
-- **WHY_ARRET=timer_normal | stop_class=normal_timer_window | ran_min=15.2 | vs_planned_min=-0.1 | timing=near_timer**
+- **WHY_ARRET=timer_normal | stop_class=normal_timer_window | ran_min=15.1 | vs_planned_min=-0.1 | timing=near_timer**
 - Morts process journalisées (PROCESS_DIE/EXIT) — lire `last_cmd` / `how=signal`.
 
 ## Compteurs
@@ -33,16 +33,16 @@ Alpage · groupe électrogène · 2 lignes (téléphone + surf) · WiFi. Le bot 
 
 ## PnL fills (fenêtre)
 
-- ALPHA : fills=1 gross=+0.6228 fees=+1.0772 net=-0.4544 exits={'trailing_stop': 1}
-- BETA : fills=2 gross=-4.6029 fees=+1.1962 net=-5.7991 exits={'stop_loss': 2}
-- **TOTAL** : gross=-3.9801 fees=+2.2734 net=-6.2535
+- ALPHA : fills=4 gross=+2.4125 fees=+3.7719 net=-1.3595 exits={'trailing_stop': 4}
+- BETA : fills=5 gross=-0.5983 fees=+2.6283 net=-3.2266 exits={'timeout': 3, 'stop_loss': 1, 'kill_switch': 1}
+- **TOTAL** : gross=+1.8142 fees=+6.4003 net=-4.5861
 
 ## Derniers PROCESS_DIE / EXIT
 
-- `[ALPHA_X13_BURST13] 2026-09-01T16:17:12Z PROCESS_EXIT unit=ALPHA_X13_BURST13 how=pipe_run_unit why=rc_0 rc=0`
-- `[BETA_X5] 2026-09-01T16:17:19Z PROCESS_EXIT unit=BETA_X5 how=pipe_run_unit why=rc_0 rc=0`
-- `2026-09-01T16:17:12Z PROCESS_EXIT unit=ALPHA_X13_BURST13 how=pipe_run_unit why=rc_0 rc=0`
-- `2026-09-01T16:17:19Z PROCESS_EXIT unit=BETA_X5 how=pipe_run_unit why=rc_0 rc=0`
+- `[ALPHA_X13_BURST13] 2026-09-01T19:56:22Z PROCESS_EXIT unit=ALPHA_X13_BURST13 how=pipe_run_unit why=rc_0 rc=0`
+- `[BETA_X5] 2026-09-01T19:56:24Z PROCESS_EXIT unit=BETA_X5 how=pipe_run_unit why=rc_0 rc=0`
+- `2026-09-01T19:56:22Z PROCESS_EXIT unit=ALPHA_X13_BURST13 how=pipe_run_unit why=rc_0 rc=0`
+- `2026-09-01T19:56:24Z PROCESS_EXIT unit=BETA_X5 how=pipe_run_unit why=rc_0 rc=0`
 
 ## Derniers WATCHDOG
 

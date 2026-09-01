@@ -1,7 +1,7 @@
 # ACE777 — STATE
 
 > Généré automatiquement — ne pas éditer à la main
-> Phase: `unknown` | Statut: `IDLE` | MAJ: `2026-09-01T19:27:16Z`
+> Phase: `unknown` | Statut: `IDLE` | MAJ: `2026-09-01T20:20:38Z`
 
 ## Config active
 
@@ -25,9 +25,9 @@
 
 ## Duo session (`duo_session.json`)
 
-- SCOUT PnL: `-5.79907226` USDT
-- HUNTER PnL: `-0.45438242` USDT
-- Total session: `-6.25345468` USDT
+- SCOUT PnL: `-3.2266249` USDT
+- HUNTER PnL: `-1.3594556800000002` USDT
+- Total session: `-4.58608058` USDT
 
 ## Duo live (`duo_state.json`)
 
@@ -36,11 +36,11 @@
 | role | `SCOUT` |
 | status | `CLOSED` |
 | side | `SELL` |
-| bps | `-20.51942356` |
-| pnl_usdt | `-1.42323149` |
-| reason | `stop_loss` |
-| cycle | `29` |
-| hold_sec | `84` |
+| bps | `-0.0` |
+| pnl_usdt | `-0.3956864` |
+| reason | `kill_switch` |
+| cycle | `47` |
+| hold_sec | `11` |
 
 ## Top SKIP — BETA
 

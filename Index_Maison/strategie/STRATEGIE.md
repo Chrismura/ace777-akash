@@ -1,19 +1,19 @@
-# STRATEGIE — 2026-09-01T19:24:35.312615Z
+# STRATEGIE — 2026-09-01T20:24:34.755350Z
 
-## COURT TERME — 2026-09-01T19:24:35.312615Z
+## COURT TERME — 2026-09-01T20:24:34.755350Z
 
 [UNDERSTAND] La maison ACE777 maintient son alerte rouge et sa rigueur opérationnelle face à une pression globale sur le portefeuille, tandis que l'essaim consolide ses positions sous haute surveillance des carnets.
 
 [ANALYZE]
-- Tendance : Le marché évolue en régime de "Bitcoin season" avec un BTC aux alentours de 77 391 $ et une activité persistante signalée par l'alerte de volume x3 sur le BTCUSDT.
-- Momentum : Alpha maintient sa discipline de sniper (125 skips, 0 fill) dans l'attente d'une rupture du carnet, tandis que Beta assure ses reconnaissances tactiques (106 skips) et Hulk gère activement ses positions avec une attention portée sur CCUSDT en zone critique.
-- Risque : L'exposition globale sous pression (-21,86 $) et les positions seeds en infraction pèsent sur l'équilibre général de la session malgré la stabilité d'exécution.
-- Contexte : Alerte rouge active, PnL combiné neutre (0,00 $), saison "CALME 🧊" avec des alertes de volume répétées sur les majeures signalant la nervosité des carnets.
+- Tendance : Le marché évolue en régime de "Bitcoin season" (score 42) avec un BTC autour de 77 395 $ et des alertes de volume signalant la nervosité des carnets sur fond d'actualités macroéconomiques de la Fed (maintien des taux et impact de la guerre en Iran).
+- Momentum : Alpha maintient sa discipline de sniper (52 skips, 4 fills, +2,41 $) en embuscade, Beta assure ses reconnaissances tactiques (41 skips, 6 fills, -0,60 $) pour alimenter l'essaim, et Hulk gère ses positions seeds sous haute attention.
+- Risque : L'exposition globale sous pression (PnL combiné +1,81 $, portefeuille global -26,45 $) et les positions seeds en tension pèsent sur l'équilibre général de la session malgré la stabilité d'exécution.
+- Contexte : Alerte rouge active, Fear & Greed à 69 (Greed), et activité onchain modérée (indice 27.9/100) avec des signaux de volume répétés sur les majeures.
 
 [STRATEGIZE]
 1. Maintenir la stricte discipline d'embuscade d'Alpha en refusant tout tir non confirmé par les volumes et la rupture effective du carnet.
 2. Exploiter les flux de reconnaissance de Beta pour cartographier les carnets sans anticipation prématurée suite aux alertes de volume.
-3. Appliquer rigoureusement les stop-loss de Hulk sur les positions seeds en zone critique, notamment CCUSDT.
+3. Appliquer rigoureusement les stop-loss de Hulk sur les positions seeds en zone critique.
 
 [EXECUTE]
 - Verdict : Maintien de l'alerte rouge et de la rigueur opérationnelle, validée par la patience d'Alpha, les sondages de Beta et l'encadrement resserré des positions seeds de Hulk.
