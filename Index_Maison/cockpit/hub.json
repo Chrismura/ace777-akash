@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-01T08:23:19.436450+00:00",
+  "generated_at": "2026-09-01T08:23:49.755281+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 222
+      "calls_24h": 223
     },
     {
       "id": "openrouter-free",
@@ -256,10 +256,18 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 69,
-    "remaining": 555
+    "consumed": 70,
+    "remaining": 554
   },
   "queue": [
+    {
+      "ts": "2026-09-01T08:23:31.660605+00:00",
+      "task": "analyste.strategie",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 3.75
+    },
     {
       "ts": "2026-09-01T08:20:03.151107+00:00",
       "task": "analyste.strategie",
@@ -371,17 +379,21 @@
       "model": "nvidia/nemotron-3-super-120b-a12b:free",
       "kind": "cloud",
       "duration_s": 41.93
-    },
-    {
-      "ts": "2026-09-01T07:38:01.960324+00:00",
-      "task": "analyste.strategie",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 3.7
     }
   ],
   "events": [
+    {
+      "ts": "2026-09-01T08:23:31.660261+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
+    {
+      "ts": "2026-09-01T08:23:27.915367+00:00",
+      "kind": "blacklist",
+      "title": "Fin de pause Google Gemini",
+      "detail": "re-essai automatique"
+    },
     {
       "ts": "2026-09-01T08:20:03.150958+00:00",
       "kind": "message",
@@ -428,18 +440,6 @@
       "ts": "2026-09-01T08:18:57.797673+00:00",
       "kind": "failover",
       "title": "Bascule depuis Groq (LLM ultra-rapide, gratuit)",
-      "detail": "HTTP Error 400: Bad Request"
-    },
-    {
-      "ts": "2026-09-01T08:18:57.796878+00:00",
-      "kind": "blacklist",
-      "title": "Pause Groq (LLM ultra-rapide, gratuit) (3 echecs) 15min",
-      "detail": "backoff x1 -> re-essai auto"
-    },
-    {
-      "ts": "2026-09-01T08:18:53.919012+00:00",
-      "kind": "timeout",
-      "title": "Patience Groq (LLM ultra-rapide, gratuit) (HTTP 400)",
       "detail": "HTTP Error 400: Bad Request"
     }
   ],
