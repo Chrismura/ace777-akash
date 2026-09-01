@@ -1,19 +1,19 @@
 {
-  "timestamp": 1788243656,
+  "timestamp": 1788247099,
   "sdi": {
-    "sdi": 0.004,
+    "sdi": 0.008,
     "divergence_score": 0,
-    "fee_score": 0.01,
+    "fee_score": 0.02,
     "dormant_pct": 69,
     "dormant_avg_30d": 47.33,
     "dormant_source": "alternative.me (FG proxy — les données dormant sont indisponibles)",
-    "fee_fastest_sat": 1
+    "fee_fastest_sat": 2
   },
   "ipt": {
-    "ipt": 0.162,
+    "ipt": 0.504,
     "micro_tx_ratio": 0.0,
-    "z_fee": 0.0,
-    "entropy": 0.54
+    "z_fee": 1.0,
+    "entropy": 0.68
   },
   "rbf": {
     "rbf_score": 0.0,
@@ -24,29 +24,29 @@
     "rbf_detail": []
   },
   "fee_pressure": {
-    "fastest": 1,
-    "halfHour": 1,
+    "fastest": 2,
+    "halfHour": 2,
     "hour": 1,
     "economy": 1,
     "source": "mempool.space"
   },
   "alerts": [],
   "sapi": {
-    "score": 0.3,
+    "score": 0.333,
     "alerte": false,
     "persistance": false,
     "scores_recents": [
-      0.5,
-      0.0,
-      0.3
+      0.312,
+      0.522,
+      0.333
     ],
     "composantes": {
-      "z_fee": 0.0,
-      "taux_fantome": 4.059,
+      "z_fee": 1.0,
+      "taux_fantome": 72.701,
       "micro_tx_ratio": 0.0,
       "spot_proxy": 0.0,
       "coef_heure_creuse": 1.0,
-      "entropie_tempo": 0.0
+      "entropie_tempo": 0.337
     },
     "note": "Score d'Alerte Poussière Institutionnelle (Cortana tour 1, validé 29/08 — corr RBF plat −0.275). Proxy carnet spot = spread_avg_bps normalisé σ1h (FIX famille). FIX 4 : proxy réduit ×0.35 en heures creuses UTC (02-06) + bonus entropie temporelle (rythme robotique du carnet) si base fantôme. Alerte = persistance 3 ticks ≥ 0.75 + volume ≥ 500 BTC."
   }

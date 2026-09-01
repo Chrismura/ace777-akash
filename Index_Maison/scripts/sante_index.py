@@ -22,6 +22,116 @@ import time
 import tempfile
 import subprocess
 from pathlib import Path
+
+
+def config_env(nom: str, defaut: str = "") -> str:
+    """Lit une valeur simple de hulk-mexc/config/defaults.env sans charger de secrets."""
+    chemin = HULK / "config" / "defaults.env"
+    try:
+        for ligne in chemin.read_text(encoding="utf-8").splitlines():
+            ligne = ligne.strip()
+            if not ligne or ligne.startswith("#") or "=" not in ligne:
+                continue
+            cle, valeur = ligne.split("=", 1)
+            if cle.strip() == nom:
+                return valeur.strip().strip('"').strip("'")
+    except Exception:
+        pass
+    return defaut
+
+
+def verifier_aspiration_runtime() -> tuple[bool, str]:
+    """Valide le contrat runtime réellement consommé par Hulk.
+
+    En mode fichier, le JSON satellite est la source de vie. En mode inline,
+    l'ancien CSV reste la preuve du chemin utilisé. Les CSV ne sont donc jamais
+    consultés pour le runtime en mode fichier.
+    """
+    source = config_env("ASPIRATION_SRC", "fichier").lower()
+    if source == "inline":
+        csvs = sorted(RACINE.glob("hulk-mexc/runs/ASPIRATION_CALIB_*.csv"))
+        dernier = csvs[-1] if csvs else None
+        if dernier is None:
+            return False, "mode inline · aucun CSV aspiration"
+        age = age_min(dernier)
+        ok = age is not None and age <= 15
+        return ok, (f"mode inline · {dernier.name} · âge {age:.0f} min"
+                    if age is not None else "mode inline · CSV illisible")
+    if source != "fichier":
+        return False, f"source aspiration inconnue: {source or 'vide'}"
+
+    chemin = HULK / "runs" / "aspiration_live.json"
+    if not chemin.exists():
+        return False, "mode fichier · aspiration_live.json absent"
+    try:
+        data = json.loads(chemin.read_text(encoding="utf-8"))
+    except Exception:
+        return False, "mode fichier · aspiration_live.json invalide"
+
+    age_mtime = age_min(chemin)
+    ts = data.get("ts")
+    try:
+        ts = float(ts)
+    except (TypeError, ValueError):
+        return False, "mode fichier · timestamp interne invalide"
+    now = time.time()
+    age_ts = (now - ts) / 60.0
+    try:
+        mtime_ts_ecart = abs(chemin.stat().st_mtime - ts)
+    except OSError:
+        mtime_ts_ecart = float("inf")
+    frais_ok = (
+        0 <= age_ts <= 0.75
+        and age_mtime is not None
+        and age_mtime <= 0.75
+        and mtime_ts_ecart <= 5.0
+    )
+    paires = data.get("paires")
+    prix_btc = data.get("btc_price")
+    structure_ok = (
+        data.get("source") == "satellite_aspiration"
+        and data.get("sat_ok") is True
+        and data.get("frais") is True
+        and isinstance(paires, dict)
+        and len(paires) > 0
+    )
+    try:
+        prix_ok = float(prix_btc) > 0
+    except (TypeError, ValueError):
+        prix_ok = False
+    monotone_ok = True
+    previous_ts = None
+    try:
+        precedent = json.loads(ASPIRATION_RUNTIME_STATE.read_text(encoding="utf-8"))
+        previous_ts = float(precedent.get("last_ts"))
+        monotone_ok = ts > previous_ts
+    except (FileNotFoundError, TypeError, ValueError, json.JSONDecodeError, OSError):
+        # Premier contrôle ou état historique illisible : on établit une nouvelle
+        # référence seulement si le JSON courant est autrement valide.
+        pass
+
+    ok = frais_ok and structure_ok and prix_ok and monotone_ok
+    if ok:
+        try:
+            ecriture_atomique(
+                ASPIRATION_RUNTIME_STATE,
+                json.dumps({
+                    "last_ts": ts,
+                    "checked_at": datetime.now(timezone.utc).isoformat(),
+                    "source": "sante_index",
+                }, ensure_ascii=False, indent=2),
+            )
+        except Exception:
+            # L'état de contrôle est un filet complémentaire : son échec ne doit
+            # pas faire tomber la supervision ni le moteur surveillé.
+            pass
+    detail = (f"mode fichier · JSON · âge ts {age_ts:.1f} min · "
+              f"écart mtime/ts {mtime_ts_ecart:.1f}s · "
+              f"{len(paires) if isinstance(paires, dict) else 0} paire(s) · "
+              f"btc={'OK' if prix_ok else 'INVALIDE'} · "
+              f"ts={'croissant' if monotone_ok else 'figé'}")
+    return ok, detail
+
 from datetime import datetime, timezone
 
 RACINE = Path(__file__).resolve().parent.parent.parent
@@ -34,6 +144,7 @@ ALERTES_DIR = IM / "data" / "alertes"
 HISTORIQUE_LOG = ALERTES_DIR / "sante_index.log"
 MAINTENANCE_PATH = IM / "strategie" / "MAINTENANCE_PREVUE"
 ALERTE_VOCALE = IM / "scripts" / "alerte_vocale.py"
+ASPIRATION_RUNTIME_STATE = IM / "etat" / "aspiration_runtime.json"
 
 # Âges maximum (minutes) par fichier — au-delà = chaîne figée
 SEUILS = {
@@ -312,23 +423,15 @@ def verifier_chaines():
     })
 
     # ============================================================
-    # 2. HULK — sonde aspiration (paper MEXC) → CSV calibration
+    # 2. HULK — sonde aspiration selon la source réellement configurée
     # ============================================================
     maillons = []
     hulk_proc = proc_vivant("paper_diprip.py")
     maillons.append(maillon("process paper_diprip", hulk_proc,
                            "vivant" if hulk_proc else "PAS LANCÉ"))
 
-    csvs = sorted(RACINE.glob("hulk-mexc/runs/ASPIRATION_CALIB_*.csv"))
-    csv_recent = csvs[-1] if csvs else None
-    if csv_recent is not None:
-        a_csv = age_min(csv_recent)
-        csv_frais = a_csv is not None and a_csv <= 15
-        maillons.append(maillon("CSV aspiration", csv_frais,
-                                f"{csv_recent.name} · âge {a_csv:.0f} min" if a_csv is not None else "ABSENT"))
-    else:
-        csv_frais = False
-        maillons.append(maillon("CSV aspiration", False, "aucun CSV trouvé"))
+    aspiration_ok, aspiration_detail = verifier_aspiration_runtime()
+    maillons.append(maillon("aspiration runtime", aspiration_ok, aspiration_detail))
     maillons.append(maillon("corrélation BTC", True, "colonne btc_price (si run actif)"))
 
     # 2bis. Contrat Hulk ↔ Cortana (ajout 27/08 : le pilot était figé depuis le 15/08
@@ -345,12 +448,12 @@ def verifier_chaines():
     maillons.append(maillon("cortana_analysis.json", analysis_frais,
                             f"âge {age_min(analysis):.0f} min" if age_min(analysis) is not None else "ABSENT"))
 
-    ok_hulk = hulk_proc and csv_frais and analyzer_proc and pilot_frais and analysis_frais
+    ok_hulk = hulk_proc and aspiration_ok and analyzer_proc and pilot_frais and analysis_frais
     if not ok_hulk:
-        anomalies.append("HULK : sonde, CSV, contrat Cortana ou analyses figés")
+        anomalies.append("HULK : sonde runtime, contrat Cortana ou analyses figés")
     chaines.append({
         "id": "hulk", "nom": "HULK",
-        "chemin": "paper_diprip → CSV aspiration + cortana_analyzer → cortana_analysis.json → pilot (contrat)",
+        "chemin": "paper_diprip → aspiration selon ASPIRATION_SRC → cortana_analyzer → cortana_analysis.json → pilot (contrat)",
         "ok": ok_hulk, "maillons": maillons,
     })
 
