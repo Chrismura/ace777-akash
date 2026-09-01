@@ -1,15 +1,15 @@
 {
-  "timestamp": 1788239843,
-  "date": "2026-09-01T05:17:23.186620+00:00",
-  "n_analyses": 4,
+  "timestamp": 1788243771,
+  "date": "2026-09-01T06:22:51.638404+00:00",
+  "n_analyses": 3,
   "analyses": [
     {
       "signal": {
-        "metric": "long_short",
-        "zscore": -2.2267594439148053,
-        "value": 0.994,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Z-score extrêmement bas (-2.23) sur le ratio long/short indiquant un positionnement vendeur massif et capitulant de la foule. Les médias traditionnels parlent de stratégies long/short en général sans voir le piège tactique en cours sur la crypto. Configuration classique de 'short squeeze' imminent initié par les baleines.\"\n}\n```",
-        "ts": 1788239010.654577
+        "metric": "taker_ratio",
+        "zscore": 2.2456504686494543,
+        "value": 1.358,
+        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Divergence critique : les médias grand public célèbrent une baisse de la pression vendeuse (0.86), mais le taker_ratio à 1.358 (z-score 2.25) prouve une agressivité acheteuse anormale des acheteurs sur le carnet d'ordres, souvent caractéristique d'une distribution agressive des baleines (piège à liquidité) ou d'un épuisement imminent.\"\n}\n```",
+        "ts": 1788242883.110299
       },
       "fiche": null,
       "interpretation": {
@@ -21,10 +21,10 @@
     {
       "signal": {
         "metric": "liquidations",
-        "zscore": -2.050302191016575,
-        "value": 25524948.0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le z-score ultra-négatif (-2.05) montre une absence totale de liquidations sur les marchés crypto, contredisant le narratif médiatique alarmiste qui confond actualités macro/faillites d'entreprises locales et marché crypto. Les baleines accumulent dans le calme.\"\n}\n```",
-        "ts": 1788239313.216919
+        "zscore": -2.0984135185477957,
+        "value": 24002510.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le z-score négatif (-2.10) des liquidations crypto montre un assèchement des positions vendeuses, contredisant totalement le narratif médiatique alarmiste qui mélange faillites d'entreprises traditionnelles et vieux clichés baissiers sur Bitcoin. Piège à liquidité classique : les baleines nettoient le carnet d'ordres avant une impulsion haussière.\"\n}\n```",
+        "ts": 1788243187.360586
       },
       "fiche": null,
       "interpretation": {
@@ -38,23 +38,8 @@
         "metric": "fear_greed",
         "zscore": 3.1091263510296048,
         "value": 69,
-        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrême (3.11) combiné à une cupidité élevée (69) sans couverture médiatique majeure : signal classique de 'bull trap' où les baleines distribuent silencieusement aux particuliers avant une correction.\"\n}\n```",
-        "ts": 1788239314.831733
-      },
-      "fiche": null,
-      "interpretation": {
-        "lecture": "Pas de fiche disponible",
-        "niveau": "inconnu"
-      },
-      "action": "Observer"
-    },
-    {
-      "signal": {
-        "metric": "whale_usd",
-        "zscore": 6.382632093890514,
-        "value": 9102296.0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (Z-score 6.38, ~9.1M USD) totalement ignorée par les médias (silence radio). Divergence classique d'accumulation furtive par les baleines loin du bruit médiatique.\"\n}\n```",
-        "ts": 1788239617.313557
+        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrême (3.11) à 69 (Greed) sans couverture médiatique majeure : asymétrie classique de distribution par les baleines (retail absent, smart money liquide discrètement).\"\n}\n```",
+        "ts": 1788243189.241055
       },
       "fiche": null,
       "interpretation": {

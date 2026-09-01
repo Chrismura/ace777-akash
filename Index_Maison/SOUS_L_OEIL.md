@@ -2,25 +2,26 @@
 
 > Mis à jour auto · **ne lance rien** · lit seulement.
 
-**🟡 Machine : **OK avec alertes**** · `PULSE=WARN` · mode **FROID**
+**🟡 Machine : **OK avec alertes**** · `PULSE=WARN` · mode **VOL**
 
 | | Check | Détail |
 |---|--------|--------|
-| ✅ | Mode | FROID (auto) |
-| ✅ | Horodatage | 2026-09-01T07:22 local · 2026-09-01T05:22Z UTC |
+| ✅ | Mode | VOL (auto) |
+| ✅ | Horodatage | 2026-09-01T08:23 local · 2026-09-01T06:23Z UTC |
 | ✅ | Champion | md5 `14bcf868…` |
-| ✅ | ACE | OFF (attendu froid) |
-| ✅ | Hulk | OFF (attendu froid) |
-| ⚠️ | Ollama | ON — OK si veille |
-| ✅ | RAM | ~2943 Mo libre |
+| ⚠️ | ACE process | attendu si GO ACE — OFF |
+| ✅ | Hulk paper | ON |
+| ✅ | Hulk state | PAPER_V1_20260901_052301_state.json · 15 pos · pnl=-6.242184257711824 |
+| ✅ | RAM | ~1313 Mo libre |
 
 ## Que faire
 
-- Mode froid : avant un GO → `bash Index_Maison/scripts/checkup_garage.sh`
-- Hygiène RAM : `bash scripts/hygiene_mac_ram.sh`
+- Vol en cours : **ne pas** lancer un 2ᵉ GO, **ne pas** tuer sans raison.
+- Si ❌ Ollama / LIVE muet / heartbeat mort → ouvrir le terminal ACE, coller le log.
+- Commande manuelle : `bash Index_Maison/scripts/pulse_sous_loeil.sh`
 
 ## Registre automations
 Voir [[AUTO_PROCESSUS]] — ce pulse = couche **veille machine**, pas trading.
 
 ---
-_généré 2026-09-01T05:22Z · script `pulse_sous_loeil.sh`_
+_généré 2026-09-01T06:23Z · script `pulse_sous_loeil.sh`_

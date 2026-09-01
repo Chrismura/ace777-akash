@@ -1,11 +1,10 @@
 {
-  "ts": "2026-09-01T05:23+00:00",
-  "updated": "2026-09-01T05:23Z",
+  "ts": "2026-09-01T06:23+00:00",
+  "updated": "2026-09-01T06:23Z",
   "etat": "ALERTE",
-  "chaines_ok": "13/15",
+  "chaines_ok": "14/15",
   "anomalies": [
-    "HULK : sonde, CSV, contrat Cortana ou analyses figés",
-    "ESSAIM : essaim_etat.json figé — la veille de coordination inter-paires ne tourne plus"
+    "HULK : sonde, CSV, contrat Cortana ou analyses figés"
   ],
   "degradees": [],
   "chaines": [
@@ -28,12 +27,12 @@
         {
           "nom": "scan file",
           "ok": true,
-          "detail": "âge 10 min"
+          "detail": "âge 4 min"
         },
         {
           "nom": "mouvements (events)",
           "ok": true,
-          "detail": "dernier événement il y a 10 min"
+          "detail": "dernier événement il y a 4 min"
         },
         {
           "nom": "→ live.json.onchain",
@@ -48,7 +47,7 @@
         {
           "nom": "→ Cortana feed",
           "ok": true,
-          "detail": "âge 5 min"
+          "detail": "âge 2 min"
         }
       ]
     },
@@ -66,7 +65,7 @@
         {
           "nom": "deriv_corr.json",
           "ok": true,
-          "detail": "âge 2 min"
+          "detail": "âge 15 min"
         }
       ]
     },
@@ -84,7 +83,7 @@
         {
           "nom": "CSV aspiration",
           "ok": false,
-          "detail": "ASPIRATION_CALIB_20260831_103808.csv · âge 23 min"
+          "detail": "ASPIRATION_CALIB_20260901_052301.csv · âge 60 min"
         },
         {
           "nom": "corrélation BTC",
@@ -99,12 +98,12 @@
         {
           "nom": "cortana_pilot.json",
           "ok": true,
-          "detail": "âge 1418 min"
+          "detail": "âge 38 min"
         },
         {
           "nom": "cortana_analysis.json",
           "ok": true,
-          "detail": "âge 6 min"
+          "detail": "âge 0 min"
         }
       ]
     },
@@ -117,17 +116,17 @@
         {
           "nom": "live.json",
           "ok": true,
-          "detail": "âge 5 min"
+          "detail": "âge 2 min"
         },
         {
           "nom": "mission.json → cockpit",
           "ok": true,
-          "detail": "âge 2 min"
+          "detail": "âge 0 min"
         },
         {
           "nom": "hub.json (one-shot)",
           "ok": true,
-          "detail": "âge 2 min"
+          "detail": "âge 0 min"
         }
       ]
     },
@@ -145,7 +144,7 @@
         {
           "nom": "cpfp_detect.json",
           "ok": true,
-          "detail": "âge 2 min"
+          "detail": "âge 9 min"
         },
         {
           "nom": "mode",
@@ -168,7 +167,7 @@
         {
           "nom": "sentinel_history.json",
           "ok": true,
-          "detail": "âge 4 min"
+          "detail": "âge 5 min"
         },
         {
           "nom": "signaux",
@@ -186,7 +185,7 @@
         {
           "nom": "geopol.ts frais",
           "ok": true,
-          "detail": "âge 0.1h"
+          "detail": "âge 0.0h"
         },
         {
           "nom": "modules OK",
@@ -250,7 +249,7 @@
         {
           "nom": "journal_radar.log",
           "ok": true,
-          "detail": "âge 2 min"
+          "detail": "âge 0 min"
         },
         {
           "nom": "relance (superviseur-process)",
@@ -283,7 +282,7 @@
         {
           "nom": "rapport veille_degradation_etat.json",
           "ok": true,
-          "detail": "SAIN · âge 0 min"
+          "detail": "SAIN · âge 1 min"
         },
         {
           "nom": "Dead Man's Switch (dms-veille)",
@@ -311,7 +310,7 @@
         {
           "nom": "macro_tempete.json",
           "ok": true,
-          "detail": "âge 0 min"
+          "detail": "âge 1 min"
         },
         {
           "nom": "état courant",
@@ -334,7 +333,7 @@
         {
           "nom": "croisement_externe_etat.json",
           "ok": true,
-          "detail": "âge 21 min"
+          "detail": "âge 29 min"
         },
         {
           "nom": "fails prix (> 5 % vs externe)",
@@ -344,7 +343,7 @@
         {
           "nom": "warns murs (info)",
           "ok": true,
-          "detail": "3 warn(s) carnet déséquilibré (info)"
+          "detail": "aucun"
         }
       ]
     },
@@ -357,12 +356,12 @@
         {
           "nom": "sdi_latest.json (SAPI dedans)",
           "ok": true,
-          "detail": "âge 5 min"
+          "detail": "âge 2 min"
         },
         {
           "nom": "SAPI calculé",
           "ok": true,
-          "detail": "score 0.0"
+          "detail": "score 0.3"
         },
         {
           "nom": "alerte poussière (≥ 0.75 + volume)",
@@ -375,12 +374,12 @@
       "id": "essaim",
       "nom": "ESSAIM (OBS)",
       "chemin": "veille_essaim_observation.py (launchd 30 min) → CV spread par paire → paires régulières simultanées (observation 48h, aucune décision)",
-      "ok": false,
+      "ok": true,
       "maillons": [
         {
           "nom": "essaim_etat.json",
-          "ok": false,
-          "detail": "âge 457 min"
+          "ok": true,
+          "detail": "âge 30 min"
         },
         {
           "nom": "veille d'essaim active",

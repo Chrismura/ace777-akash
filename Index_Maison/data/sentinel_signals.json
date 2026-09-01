@@ -1,41 +1,6 @@
 {
   "signals": [
     {
-      "metric": "liquidations",
-      "zscore": 3.293186094541926,
-      "value": 53539360.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le z-score élevé (3.29) des liquidations massives (53.5M$) couplé à un narratif médiatique ultra-pessimiste ('Bitcoin à 10 000$', 'échec à 80k$') indique un 'flush' classique des positions acheteuses par les baleines. Ce capitulation retail alimente une divergence de sentiment extrême, signalant un plancher de marché imminent.\"\n}\n```",
-      "ts": "2026-08-31T00:46:49.550320+00:00"
-    },
-    {
-      "metric": "whale_usd",
-      "zscore": 5.878179672058813,
-      "value": 5311326.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie on-chain majeure (z-score 5.88, ~5.3M USD) totalement ignorée par les médias (silence radio). Accumulation furtive classique de baleines avant un mouvement directionnel.\"\n}\n```",
-      "ts": "2026-08-31T00:56:51.675715+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": -4.774968373805272,
-      "value": 62,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement négatif (-4.77) pour un Fear & Greed modéré (62) : le marché grandit dans l'indifférence totale des médias. Divergence classique d'accumulation silencieuse par les baleines.\"\n}\n```",
-      "ts": "2026-08-31T01:06:53.894249+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": 2.973540927238891,
-      "value": 7668348693.0,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.97) combiné à un volume net preneur massivement négatif sur les dérivés (-96M$ sur Binance). Les médias traduisent une pression vendeuse agressive, confirmant une distribution agressive par les baleines en dépit du bruit médiatique sans rapport.\"\n}\n```",
-      "ts": "2026-08-31T01:11:56.247510+00:00"
-    },
-    {
-      "metric": "liquidations",
-      "zscore": 2.9030405848658623,
-      "value": 53299694.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le z-score élevé des liquidations (2.90) combiné à un narratif médiatique extrêmement alarmiste et panique (échec des 80k, chute à 10k, liquidations) indique un classique 'flush' de levier. Les baleines profitent de la capitulation de la foule pour accumuler en silence.\"\n}\n```",
-      "ts": "2026-08-31T01:16:58.351832+00:00"
-    },
-    {
       "metric": "fear_greed",
       "zscore": -3.872983346207417,
       "value": 62,
@@ -349,6 +314,41 @@
       "value": 9102296.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (Z-score 6.38, ~9.1M USD) totalement ignorée par les médias (silence radio). Divergence classique d'accumulation furtive par les baleines loin du bruit médiatique.\"\n}\n```",
       "ts": "2026-09-01T05:13:37.313557+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": -2.179323315128614,
+      "value": 23649953.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le z-score ultra-négatif (-2.18) indique une absence totale de liquidations sur les marchés crypto, contredisant le narratif médiatique alarmiste qui mélange faussement des faillites d'entreprises traditionnelles (Quimper) et de vieux scénarios cataclysmiques sur le Bitcoin. Calme plat onchain = accumulation silencieuse des baleines avant un squeeze.\"\n}\n```",
+      "ts": "2026-09-01T05:42:56.046316+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 3.1091263510296048,
+      "value": 69,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrême (3.11) à 69 (Greed) sans couverture médiatique majeure : asymétrie classique de distribution par les baleines (retail absent, smart money liquide discrètement).\"\n}\n```",
+      "ts": "2026-09-01T05:42:57.446909+00:00"
+    },
+    {
+      "metric": "taker_ratio",
+      "zscore": 2.2456504686494543,
+      "value": 1.358,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Divergence critique : les médias grand public célèbrent une baisse de la pression vendeuse (0.86), mais le taker_ratio à 1.358 (z-score 2.25) prouve une agressivité acheteuse anormale des acheteurs sur le carnet d'ordres, souvent caractéristique d'une distribution agressive des baleines (piège à liquidité) ou d'un épuisement imminent.\"\n}\n```",
+      "ts": "2026-09-01T06:08:03.110299+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": -2.0984135185477957,
+      "value": 24002510.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le z-score négatif (-2.10) des liquidations crypto montre un assèchement des positions vendeuses, contredisant totalement le narratif médiatique alarmiste qui mélange faillites d'entreprises traditionnelles et vieux clichés baissiers sur Bitcoin. Piège à liquidité classique : les baleines nettoient le carnet d'ordres avant une impulsion haussière.\"\n}\n```",
+      "ts": "2026-09-01T06:13:07.360586+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 3.1091263510296048,
+      "value": 69,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrême (3.11) à 69 (Greed) sans couverture médiatique majeure : asymétrie classique de distribution par les baleines (retail absent, smart money liquide discrètement).\"\n}\n```",
+      "ts": "2026-09-01T06:13:09.241055+00:00"
     }
   ]
 }
