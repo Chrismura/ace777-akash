@@ -1,13 +1,29 @@
 {
-  "ts": "2026-09-01T05:22:59.934787+00:00",
+  "ts": "2026-09-01T11:23:27.851152+00:00",
   "statut": "FRAIS",
-  "age_rapport_h": 10.5,
-  "bascules": [],
+  "age_rapport_h": 0.0,
+  "bascules": [
+    {
+      "pair": "CCUSDT",
+      "avant": "POMPE_PIEGE",
+      "maintenant": "neutre",
+      "corr_avant": -0.168,
+      "corr_maintenant": -0.125
+    },
+    {
+      "pair": "RWAUSDT",
+      "avant": "neutre",
+      "maintenant": "LEADER",
+      "corr_avant": 0.097,
+      "corr_maintenant": 0.264
+    }
+  ],
   "principe": "RIEN N'EST STATIQUE — signal suivi tant que les chiffres le confirment, abandonné dès inversion",
   "message": "🟢 Pattern divergence suivi et à jour.",
-  "leaders": [],
+  "leaders": [
+    "RWAUSDT"
+  ],
   "pompes_pieges": [
-    "CCUSDT",
     "EDELUSDT",
     "FLUIDUSDT",
     "HBARUSDT",
@@ -21,22 +37,22 @@
   "stabilite": {
     "BIOUSDT": 0,
     "BTCUSDT": 0,
-    "CCUSDT": 4,
+    "CCUSDT": 0,
     "CHIPUSDT": 0,
-    "EDELUSDT": 15,
+    "EDELUSDT": 16,
     "ETHUSDT": 0,
-    "FLUIDUSDT": 4,
-    "HBARUSDT": 4,
-    "KITEUSDT": 9,
-    "MNSRYUSDT": 6,
+    "FLUIDUSDT": 5,
+    "HBARUSDT": 5,
+    "KITEUSDT": 10,
+    "MNSRYUSDT": 7,
     "PYTHUSDT": 0,
-    "QAITUSDT": 15,
-    "QNTUSDT": 4,
+    "QAITUSDT": 16,
+    "QNTUSDT": 5,
     "REDUSDT": 0,
-    "RIZEUSDT": 10,
+    "RIZEUSDT": 11,
     "RWAINCUSDT": 0,
-    "RWAUSDT": 0,
-    "TELUSDT": 15,
+    "RWAUSDT": 1,
+    "TELUSDT": 16,
     "WUSDT": 0,
     "XRPUSDT": 0,
     "ZBCNUSDT": 0
