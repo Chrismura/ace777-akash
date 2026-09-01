@@ -5,7 +5,7 @@
 
 ## Meta
 - statut: IDLE
-- ts: 20260901T1103Z
+- ts: 20260901T1204Z
 - pertinence: SOFT
 - sentiment: INFO
 - compte: thermo-free
