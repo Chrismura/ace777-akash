@@ -1,15 +1,55 @@
 {
-  "timestamp": 1788283382,
-  "date": "2026-09-01T17:23:02.832505+00:00",
-  "n_analyses": 1,
+  "timestamp": 1788286983,
+  "date": "2026-09-01T18:23:03.922020+00:00",
+  "n_analyses": 2,
   "analyses": [
     {
       "signal": {
+        "metric": "sdi",
+        "zscore": 2.3382289227609787,
+        "value": 0.02,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Anomalie de faux positif due à l'ambiguïté du ticker 'SDI' (confusion entre l'actif crypto, SDI Limited, et le système d'échange 'Sistema di Interscambio' en Italie). Aucune activité de baleine crypto détectée.\"\n}\n```",
+        "ts": 1788286364.658672
+      },
+      "fiche": "rbf_eleve",
+      "questions": {
+        "prix": {
+          "value": -0.24,
+          "seuil": 1,
+          "depasse": false
+        },
+        "paires": {
+          "value": null,
+          "seuil": 3,
+          "depasse": false
+        },
+        "funding": {
+          "value": 5.1e-05,
+          "seuil": 0.001,
+          "depasse": false
+        },
+        "whales": {
+          "value": 0,
+          "seuil": 5,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "sdi > 0.3",
+        "lecture": "Drainage silencieux — les vieux BTC bougent en douce",
+        "niveau": "dangereux",
+        "action": "Réduire taille de 50%, sortir des positions fragiles"
+      },
+      "action": "Réduire taille de 50%, sortir des positions fragiles",
+      "niveau": "dangereux"
+    },
+    {
+      "signal": {
         "metric": "long_short",
-        "zscore": 2.4966488439290457,
-        "value": 1.22,
-        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Le z-score élevé du long/short (2.50) indique un posicionnement acheteur excessif de la foule. Pendant ce temps, le narratif médiatique est totalement déconnecté, focalisé sur la finance traditionnelle et les stratégies long/short en actions européennes, ignorant le risque de liquidation imminente sur les dérivés crypto.\"\n}\n```",
-        "ts": 1788282754.774203
+        "zscore": 2.2950501830377434,
+        "value": 1.229,
+        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Le ratio long/short atteint un z-score élevé de 2.30 (1.229), indiquant un positionnement acheteur excessif de la foule. Pendant que les médias grand public banalisent et vulgarisent les stratégies long/short (BFM, presse financière), les baleines s'apprêtent à piéger les traders particuliers surexposés à l'achat. Divergence classique de fin de cycle.\"\n}\n```",
+        "ts": 1788286372.719395
       },
       "fiche": null,
       "interpretation": {
@@ -19,5 +59,5 @@
       "action": "Observer"
     }
   ],
-  "resume": "🔵 CALME — pas de signal alarmant"
+  "resume": "🔴 DANGER détecté — réduire les expositions"
 }
