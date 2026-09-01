@@ -1,4 +1,4 @@
-# ARCHITECTURE VIVANTE — ACE777 (2026-09-01 20:24 UTC)
+# ARCHITECTURE VIVANTE — ACE777 (2026-09-01 21:24 UTC)
 
 > Document GÉNÉRÉ AUTOMATIQUEMENT à l'instant. La famille valide
 > en s'appuyant sur CE contexte, pas sur des documents figés.
@@ -22,10 +22,10 @@
 
 ## État de la mission (bots + PnL)
 
-- mission.json : 2026-09-01 20:24Z · run `ACE_RADAR_ALIGNED_V1_15M` · alerte `red`
-- PnL combiné : **1.81 $** 📉 (combo 1.8142)
-- ALPHA (sniper (embuscade, ×13, revenge si claque)) : **+2.41 $** · 4 fills · 52 skips
-- BETA (éclaireur (chatouille le marché, alimente Alpha)) : **-0.60 $** · 6 fills · 41 skips
+- mission.json : 2026-09-01 21:24Z · run `ACE_RADAR_ALIGNED_V2_15M` · alerte `red`
+- PnL combiné : **0.00 $** 📉 (combo 0)
+- ALPHA (sniper (embuscade, ×13, revenge si claque)) : **+0.00 $** · 0 fills · 2 skips
+- BETA (éclaireur (chatouille le marché, alimente Alpha)) : **+0.00 $** · 0 fills · 2 skips
 - HULK (gestionnaire de portefeuille (bag, escalier, courreur)) : **-6.24 $** · 0 fills
 - Saison : CALME 🧊 · 
 
@@ -67,11 +67,11 @@
 ## Mémoire chaude (journal + résumés)
 
 - Radar (dernières alertes) :
-  · 2026-09-01T20:24:15.840961Z BTCUSDT 77395.36 0.0001 0.8 declenche=non
-  · 2026-09-01T20:24:16.037791Z ETHUSDT 2419.15 0.0000 4.0 declenche=non
-  · 2026-09-01T20:24:16.065744Z BTCUSDT 77395.35 0.0001 0.8 declenche=non
-  · 2026-09-01T20:24:17.511413Z BTCUSDT 77395.36 0.0001 0.8 declenche=non
-- Intention en cours : BETA a sonde le marche (5 sondes, 2 long / 3 court, conf moy | ALPHA a frappe 4 fois en embuscade (13x) (dont 2 en mode rev
+  · 2026-09-01T21:24:19.837811Z BTCUSDT 77148.01 0.0003 1.1 declenche=non
+  · 2026-09-01T21:24:20.293497Z ETHUSDT 2413.33 0.0006 25.7 declenche=non
+  · 2026-09-01T21:24:20.389071Z BTCUSDT 77148.01 0.0003 1.1 declenche=non
+  · 2026-09-01T21:24:22.310402Z BTCUSDT 77148.01 0.0003 1.1 declenche=non
+- Intention en cours : BETA veille — pas encore de sonde sur la session en cours. | ALPHA attend son signal — aucun tir sur la session en cours.
 - 816 signets X résumés (quota aujourd'hui : 5/50)
 - 79 fiches IA d'offres en cache (quota 8/jour)
 

@@ -1,95 +1,20 @@
 {
-  "ts": "2026-09-01T20:27:44.019504+00:00",
-  "since": "2026-09-01T19:41:00Z",
+  "ts": "2026-09-01T21:27:10.973851+00:00",
+  "since": "2026-09-01T21:11:00Z",
   "bots": {
     "alpha": {
       "role": "sniper",
       "surnom": "Le Sniper",
-      "fills": 4,
-      "skips": 43,
-      "pnl": 2.41248,
-      "best": 2.01144,
-      "conf_moy": 0.8569,
+      "fills": 0,
+      "skips": 2,
+      "pnl": 0.0,
+      "best": 0.0,
+      "conf_moy": 0.0,
       "events": [
         {
-          "ts": "2026-09-01T19:52:33Z",
+          "ts": "2026-09-01T21:11:45Z",
           "bot": "alpha",
-          "cycle": 37,
-          "action": "wait",
-          "intention": "attente de l'etat du duo (Beta)",
-          "direction": null,
-          "conf": null,
-          "exit": "duo_wait",
-          "meta": {
-            "size_note": null,
-            "tension": null
-          },
-          "file": "ACE_RADAR_ALIGNED_V1_15M_ALPHA_X13_BURST13.csv"
-        },
-        {
-          "ts": "2026-09-01T19:52:41Z",
-          "bot": "alpha",
-          "cycle": 38,
-          "action": "wait",
-          "intention": "attente — mur du carnet intact",
-          "direction": null,
-          "conf": null,
-          "exit": "impulse_resonance_wait",
-          "meta": {
-            "size_note": null,
-            "tension": 0.6729316
-          },
-          "file": "ACE_RADAR_ALIGNED_V1_15M_ALPHA_X13_BURST13.csv"
-        },
-        {
-          "ts": "2026-09-01T19:52:46Z",
-          "bot": "alpha",
-          "cycle": 39,
-          "action": "skip",
-          "intention": "skip — regime_gate",
-          "direction": null,
-          "conf": null,
-          "exit": "regime_gate",
-          "meta": {
-            "size_note": null,
-            "tension": 0.00069234
-          },
-          "file": "ACE_RADAR_ALIGNED_V1_15M_ALPHA_X13_BURST13.csv"
-        },
-        {
-          "ts": "2026-09-01T19:52:54Z",
-          "bot": "alpha",
-          "cycle": 40,
-          "action": "wait",
-          "intention": "attente de l'etat du duo (Beta)",
-          "direction": null,
-          "conf": null,
-          "exit": "duo_wait",
-          "meta": {
-            "size_note": null,
-            "tension": null
-          },
-          "file": "ACE_RADAR_ALIGNED_V1_15M_ALPHA_X13_BURST13.csv"
-        },
-        {
-          "ts": "2026-09-01T19:53:04Z",
-          "bot": "alpha",
-          "cycle": 41,
-          "action": "wait",
-          "intention": "attente de l'etat du duo (Beta)",
-          "direction": null,
-          "conf": null,
-          "exit": "duo_wait",
-          "meta": {
-            "size_note": null,
-            "tension": null
-          },
-          "file": "ACE_RADAR_ALIGNED_V1_15M_ALPHA_X13_BURST13.csv"
-        },
-        {
-          "ts": "2026-09-01T19:53:09Z",
-          "bot": "alpha",
-          "cycle": 42,
+          "cycle": 1,
           "action": "skip",
           "intention": "skip — regime_gate",
           "direction": null,
@@ -99,57 +24,12 @@
             "size_note": null,
             "tension": 0.0
           },
-          "file": "ACE_RADAR_ALIGNED_V1_15M_ALPHA_X13_BURST13.csv"
+          "file": "ACE_RADAR_ALIGNED_V2_15M_ALPHA_X13_BURST13.csv"
         },
         {
-          "ts": "2026-09-01T19:53:17Z",
+          "ts": "2026-09-01T21:11:51Z",
           "bot": "alpha",
-          "cycle": 43,
-          "action": "skip",
-          "intention": "pas d'opportunite — discipline (radar bloque)",
-          "direction": null,
-          "conf": 0.5,
-          "exit": "radar_block",
-          "meta": {
-            "size_note": null,
-            "tension": 1.53225066
-          },
-          "file": "ACE_RADAR_ALIGNED_V1_15M_ALPHA_X13_BURST13.csv"
-        },
-        {
-          "ts": "2026-09-01T19:53:22Z",
-          "bot": "alpha",
-          "cycle": 44,
-          "action": "skip",
-          "intention": "skip — regime_gate",
-          "direction": null,
-          "conf": null,
-          "exit": "regime_gate",
-          "meta": {
-            "size_note": null,
-            "tension": 1.802e-05
-          },
-          "file": "ACE_RADAR_ALIGNED_V1_15M_ALPHA_X13_BURST13.csv"
-        },
-        {
-          "ts": "2026-09-01T19:53:30Z",
-          "bot": "alpha",
-          "cycle": 45,
-          "action": "wait",
-          "intention": "attente de l'etat du duo (Beta)",
-          "direction": null,
-          "conf": null,
-          "exit": "duo_wait",
-          "meta": {
-            "size_note": null,
-            "tension": null
-          },
-          "file": "ACE_RADAR_ALIGNED_V1_15M_ALPHA_X13_BURST13.csv"
-        },
-        {
-          "ts": "2026-09-01T19:53:36Z",
-          "bot": "alpha",
-          "cycle": 46,
+          "cycle": 2,
           "action": "skip",
           "intention": "skip — regime_gate",
           "direction": null,
@@ -159,199 +39,49 @@
             "size_note": null,
             "tension": 0.0
           },
-          "file": "ACE_RADAR_ALIGNED_V1_15M_ALPHA_X13_BURST13.csv"
-        },
-        {
-          "ts": "2026-09-01T19:55:30Z",
-          "bot": "alpha",
-          "cycle": 47,
-          "action": "fire",
-          "intention": "a frappe en embuscade (13x)",
-          "direction": "long",
-          "conf": 0.7461,
-          "exit": "1.07593387",
-          "meta": {
-            "size_note": "strong_conf_full",
-            "tension": 1.712445
-          },
-          "file": "ACE_RADAR_ALIGNED_V1_15M_ALPHA_X13_BURST13.csv"
-        },
-        {
-          "ts": "2026-09-01T19:55:36Z",
-          "bot": "alpha",
-          "cycle": 48,
-          "action": "skip",
-          "intention": "skip — regime_gate",
-          "direction": null,
-          "conf": null,
-          "exit": "regime_gate",
-          "meta": {
-            "size_note": null,
-            "tension": 0.0
-          },
-          "file": "ACE_RADAR_ALIGNED_V1_15M_ALPHA_X13_BURST13.csv"
-        },
-        {
-          "ts": "2026-09-01T19:55:44Z",
-          "bot": "alpha",
-          "cycle": 49,
-          "action": "wait",
-          "intention": "attente — mur du carnet intact",
-          "direction": null,
-          "conf": null,
-          "exit": "impulse_resonance_wait",
-          "meta": {
-            "size_note": null,
-            "tension": 0.91458406
-          },
-          "file": "ACE_RADAR_ALIGNED_V1_15M_ALPHA_X13_BURST13.csv"
-        },
-        {
-          "ts": "2026-09-01T19:55:49Z",
-          "bot": "alpha",
-          "cycle": 50,
-          "action": "skip",
-          "intention": "skip — regime_gate",
-          "direction": null,
-          "conf": null,
-          "exit": "regime_gate",
-          "meta": {
-            "size_note": null,
-            "tension": 0.00011663
-          },
-          "file": "ACE_RADAR_ALIGNED_V1_15M_ALPHA_X13_BURST13.csv"
-        },
-        {
-          "ts": "2026-09-01T19:55:54Z",
-          "bot": "alpha",
-          "cycle": 51,
-          "action": "skip",
-          "intention": "skip — regime_gate",
-          "direction": null,
-          "conf": null,
-          "exit": "regime_gate",
-          "meta": {
-            "size_note": null,
-            "tension": 0.0
-          },
-          "file": "ACE_RADAR_ALIGNED_V1_15M_ALPHA_X13_BURST13.csv"
-        },
-        {
-          "ts": "2026-09-01T19:55:59Z",
-          "bot": "alpha",
-          "cycle": 52,
-          "action": "skip",
-          "intention": "skip — regime_gate",
-          "direction": null,
-          "conf": null,
-          "exit": "regime_gate",
-          "meta": {
-            "size_note": null,
-            "tension": 0.0
-          },
-          "file": "ACE_RADAR_ALIGNED_V1_15M_ALPHA_X13_BURST13.csv"
-        },
-        {
-          "ts": "2026-09-01T19:56:05Z",
-          "bot": "alpha",
-          "cycle": 53,
-          "action": "skip",
-          "intention": "skip — regime_gate",
-          "direction": null,
-          "conf": null,
-          "exit": "regime_gate",
-          "meta": {
-            "size_note": null,
-            "tension": 0.0
-          },
-          "file": "ACE_RADAR_ALIGNED_V1_15M_ALPHA_X13_BURST13.csv"
-        },
-        {
-          "ts": "2026-09-01T19:56:10Z",
-          "bot": "alpha",
-          "cycle": 54,
-          "action": "skip",
-          "intention": "skip — regime_gate",
-          "direction": null,
-          "conf": null,
-          "exit": "regime_gate",
-          "meta": {
-            "size_note": null,
-            "tension": 0.0
-          },
-          "file": "ACE_RADAR_ALIGNED_V1_15M_ALPHA_X13_BURST13.csv"
-        },
-        {
-          "ts": "2026-09-01T19:56:15Z",
-          "bot": "alpha",
-          "cycle": 55,
-          "action": "skip",
-          "intention": "skip — regime_gate",
-          "direction": null,
-          "conf": null,
-          "exit": "regime_gate",
-          "meta": {
-            "size_note": null,
-            "tension": 0.0
-          },
-          "file": "ACE_RADAR_ALIGNED_V1_15M_ALPHA_X13_BURST13.csv"
-        },
-        {
-          "ts": "2026-09-01T19:56:21Z",
-          "bot": "alpha",
-          "cycle": 56,
-          "action": "skip",
-          "intention": "skip — regime_gate",
-          "direction": null,
-          "conf": null,
-          "exit": "regime_gate",
-          "meta": {
-            "size_note": null,
-            "tension": 0.0
-          },
-          "file": "ACE_RADAR_ALIGNED_V1_15M_ALPHA_X13_BURST13.csv"
+          "file": "ACE_RADAR_ALIGNED_V2_15M_ALPHA_X13_BURST13.csv"
         }
       ],
       "counts": {
-        "wait": 9,
-        "fire": 4,
+        "wait": 0,
+        "fire": 0,
         "probe": 0,
-        "skip": 43
+        "skip": 2
       },
       "direction": {
-        "long": 1,
-        "short": 3
+        "long": 0,
+        "short": 0
       },
-      "revenge": 2
+      "revenge": 0
     },
     "beta": {
       "role": "eclaireur",
       "surnom": "L'Eclaireur",
-      "fills": 5,
-      "skips": 41,
-      "pnl": -0.59829,
-      "best": 0.1792,
-      "conf_moy": 0.75344,
+      "fills": 0,
+      "skips": 2,
+      "pnl": 0.0,
+      "best": 0.0,
+      "conf_moy": 0.0,
       "events": [
         {
-          "ts": "2026-09-01T19:48:06Z",
+          "ts": "2026-09-01T21:11:45Z",
           "bot": "beta",
-          "cycle": 28,
+          "cycle": 1,
           "action": "skip",
           "intention": "pas d'opportunite — discipline (radar bloque)",
           "direction": null,
-          "conf": 0.5,
+          "conf": 0.4277,
           "exit": "radar_block",
           "meta": {
             "size_note": null,
-            "tension": 1.37937052
+            "tension": 0.51322974
           },
-          "file": "ACE_RADAR_ALIGNED_V1_15M_BETA_X5.csv"
+          "file": "ACE_RADAR_ALIGNED_V2_15M_BETA_X5.csv"
         },
         {
-          "ts": "2026-09-01T19:48:11Z",
+          "ts": "2026-09-01T21:11:51Z",
           "bot": "beta",
-          "cycle": 29,
+          "cycle": 2,
           "action": "skip",
           "intention": "skip — regime_gate",
           "direction": null,
@@ -361,294 +91,24 @@
             "size_note": null,
             "tension": 0.0
           },
-          "file": "ACE_RADAR_ALIGNED_V1_15M_BETA_X5.csv"
-        },
-        {
-          "ts": "2026-09-01T19:48:16Z",
-          "bot": "beta",
-          "cycle": 30,
-          "action": "skip",
-          "intention": "skip — regime_gate",
-          "direction": null,
-          "conf": null,
-          "exit": "regime_gate",
-          "meta": {
-            "size_note": null,
-            "tension": 0.0
-          },
-          "file": "ACE_RADAR_ALIGNED_V1_15M_BETA_X5.csv"
-        },
-        {
-          "ts": "2026-09-01T19:51:44Z",
-          "bot": "beta",
-          "cycle": 31,
-          "action": "probe",
-          "intention": "a sonde le marche",
-          "direction": "short",
-          "conf": 0.8666,
-          "exit": "0.39568179",
-          "meta": {
-            "size_note": "strong_conf_full",
-            "tension": 1.35266061
-          },
-          "file": "ACE_RADAR_ALIGNED_V1_15M_BETA_X5.csv"
-        },
-        {
-          "ts": "2026-09-01T19:51:49Z",
-          "bot": "beta",
-          "cycle": 32,
-          "action": "skip",
-          "intention": "skip — regime_gate",
-          "direction": null,
-          "conf": null,
-          "exit": "regime_gate",
-          "meta": {
-            "size_note": null,
-            "tension": 0.0
-          },
-          "file": "ACE_RADAR_ALIGNED_V1_15M_BETA_X5.csv"
-        },
-        {
-          "ts": "2026-09-01T19:51:54Z",
-          "bot": "beta",
-          "cycle": 33,
-          "action": "skip",
-          "intention": "skip — regime_gate",
-          "direction": null,
-          "conf": null,
-          "exit": "regime_gate",
-          "meta": {
-            "size_note": null,
-            "tension": 0.0
-          },
-          "file": "ACE_RADAR_ALIGNED_V1_15M_BETA_X5.csv"
-        },
-        {
-          "ts": "2026-09-01T19:52:00Z",
-          "bot": "beta",
-          "cycle": 34,
-          "action": "skip",
-          "intention": "skip — regime_gate",
-          "direction": null,
-          "conf": null,
-          "exit": "regime_gate",
-          "meta": {
-            "size_note": null,
-            "tension": 0.0001695
-          },
-          "file": "ACE_RADAR_ALIGNED_V1_15M_BETA_X5.csv"
-        },
-        {
-          "ts": "2026-09-01T19:52:07Z",
-          "bot": "beta",
-          "cycle": 35,
-          "action": "skip",
-          "intention": "pas d'opportunite — discipline (radar bloque)",
-          "direction": null,
-          "conf": 0.0568,
-          "exit": "radar_block",
-          "meta": {
-            "size_note": null,
-            "tension": 0.0681907
-          },
-          "file": "ACE_RADAR_ALIGNED_V1_15M_BETA_X5.csv"
-        },
-        {
-          "ts": "2026-09-01T19:52:13Z",
-          "bot": "beta",
-          "cycle": 36,
-          "action": "skip",
-          "intention": "skip — regime_gate",
-          "direction": null,
-          "conf": null,
-          "exit": "regime_gate",
-          "meta": {
-            "size_note": null,
-            "tension": 0.00819816
-          },
-          "file": "ACE_RADAR_ALIGNED_V1_15M_BETA_X5.csv"
-        },
-        {
-          "ts": "2026-09-01T19:52:19Z",
-          "bot": "beta",
-          "cycle": 37,
-          "action": "skip",
-          "intention": "skip — regime_gate",
-          "direction": null,
-          "conf": null,
-          "exit": "regime_gate",
-          "meta": {
-            "size_note": null,
-            "tension": 0.0
-          },
-          "file": "ACE_RADAR_ALIGNED_V1_15M_BETA_X5.csv"
-        },
-        {
-          "ts": "2026-09-01T19:52:24Z",
-          "bot": "beta",
-          "cycle": 38,
-          "action": "skip",
-          "intention": "skip — regime_gate",
-          "direction": null,
-          "conf": null,
-          "exit": "regime_gate",
-          "meta": {
-            "size_note": null,
-            "tension": 0.0
-          },
-          "file": "ACE_RADAR_ALIGNED_V1_15M_BETA_X5.csv"
-        },
-        {
-          "ts": "2026-09-01T19:55:18Z",
-          "bot": "beta",
-          "cycle": 39,
-          "action": "probe",
-          "intention": "a sonde le marche",
-          "direction": "short",
-          "conf": 0.9523,
-          "exit": "0.39561523",
-          "meta": {
-            "size_note": "strong_conf_full",
-            "tension": 2.96049607
-          },
-          "file": "ACE_RADAR_ALIGNED_V1_15M_BETA_X5.csv"
-        },
-        {
-          "ts": "2026-09-01T19:55:24Z",
-          "bot": "beta",
-          "cycle": 40,
-          "action": "skip",
-          "intention": "skip — regime_gate",
-          "direction": null,
-          "conf": null,
-          "exit": "regime_gate",
-          "meta": {
-            "size_note": null,
-            "tension": 0.0
-          },
-          "file": "ACE_RADAR_ALIGNED_V1_15M_BETA_X5.csv"
-        },
-        {
-          "ts": "2026-09-01T19:55:29Z",
-          "bot": "beta",
-          "cycle": 41,
-          "action": "skip",
-          "intention": "skip — regime_gate",
-          "direction": null,
-          "conf": null,
-          "exit": "regime_gate",
-          "meta": {
-            "size_note": null,
-            "tension": 0.0
-          },
-          "file": "ACE_RADAR_ALIGNED_V1_15M_BETA_X5.csv"
-        },
-        {
-          "ts": "2026-09-01T19:55:34Z",
-          "bot": "beta",
-          "cycle": 42,
-          "action": "skip",
-          "intention": "skip — regime_gate",
-          "direction": null,
-          "conf": null,
-          "exit": "regime_gate",
-          "meta": {
-            "size_note": null,
-            "tension": 0.00022518
-          },
-          "file": "ACE_RADAR_ALIGNED_V1_15M_BETA_X5.csv"
-        },
-        {
-          "ts": "2026-09-01T19:55:39Z",
-          "bot": "beta",
-          "cycle": 43,
-          "action": "skip",
-          "intention": "skip — regime_gate",
-          "direction": null,
-          "conf": null,
-          "exit": "regime_gate",
-          "meta": {
-            "size_note": null,
-            "tension": 0.0
-          },
-          "file": "ACE_RADAR_ALIGNED_V1_15M_BETA_X5.csv"
-        },
-        {
-          "ts": "2026-09-01T19:55:48Z",
-          "bot": "beta",
-          "cycle": 44,
-          "action": "skip",
-          "intention": "statut inconnu",
-          "direction": null,
-          "conf": null,
-          "exit": "entry_error",
-          "meta": {
-            "size_note": null,
-            "tension": null
-          },
-          "file": "ACE_RADAR_ALIGNED_V1_15M_BETA_X5.csv"
-        },
-        {
-          "ts": "2026-09-01T19:55:55Z",
-          "bot": "beta",
-          "cycle": 45,
-          "action": "skip",
-          "intention": "pas d'opportunite — discipline (radar bloque)",
-          "direction": null,
-          "conf": 0.5,
-          "exit": "radar_block",
-          "meta": {
-            "size_note": null,
-            "tension": 0.96163558
-          },
-          "file": "ACE_RADAR_ALIGNED_V1_15M_BETA_X5.csv"
-        },
-        {
-          "ts": "2026-09-01T19:56:01Z",
-          "bot": "beta",
-          "cycle": 46,
-          "action": "skip",
-          "intention": "skip — regime_gate",
-          "direction": null,
-          "conf": null,
-          "exit": "regime_gate",
-          "meta": {
-            "size_note": null,
-            "tension": 0.0
-          },
-          "file": "ACE_RADAR_ALIGNED_V1_15M_BETA_X5.csv"
-        },
-        {
-          "ts": "2026-09-01T19:56:21Z",
-          "bot": "beta",
-          "cycle": 47,
-          "action": "probe",
-          "intention": "a sonde le marche",
-          "direction": "long",
-          "conf": 0.5584,
-          "exit": "0.39568640",
-          "meta": {
-            "size_note": "strong_conf_full",
-            "tension": 1.38826958
-          },
-          "file": "ACE_RADAR_ALIGNED_V1_15M_BETA_X5.csv"
+          "file": "ACE_RADAR_ALIGNED_V2_15M_BETA_X5.csv"
         }
       ],
       "counts": {
-        "wait": 1,
+        "wait": 0,
         "fire": 0,
-        "probe": 5,
-        "skip": 41
+        "probe": 0,
+        "skip": 2
       },
       "direction": {
-        "long": 2,
-        "short": 3
+        "long": 0,
+        "short": 0
       },
       "revenge": 0
     }
   },
   "story": [
-    "BETA a sonde le marche (5 sondes, 2 long / 3 court, conf moyenne 0.75) — il renseigne Alpha.",
-    "ALPHA a frappe 4 fois en embuscade (13x) (dont 2 en mode revenge 1.5x) : +2.41 $, meilleur trade +2.01 $."
+    "BETA veille — pas encore de sonde sur la session en cours.",
+    "ALPHA attend son signal — aucun tir sur la session en cours."
   ]
 }
