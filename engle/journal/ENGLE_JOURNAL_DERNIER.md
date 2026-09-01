@@ -1,9 +1,9 @@
-# JOURNAL ENGLE — ACE_RADAR_ALIGNED_V2_15M
+# JOURNAL ENGLE — ACE_RADAR_ALIGNED_V3_15M
 
-- Généré: `2026-09-01T21:11:39Z` (UTC)
+- Généré: `2026-09-01T23:10:52Z` (UTC)
 - Couche: **B1** (lecture seule) · `ENGLE_ADAPT=0`
-- Session start (filtre): `2026-09-01T21:11:36Z`
-- CSV: `ACE_RADAR_ALIGNED_V2_15M_BETA_X5.csv` · `ACE_RADAR_ALIGNED_V2_15M_ALPHA_X13_BURST13.csv`
+- Session start (filtre): `2026-09-01T23:10:50Z`
+- CSV: `ACE_RADAR_ALIGNED_V3_15M_BETA_X5.csv` · `ACE_RADAR_ALIGNED_V3_15M_ALPHA_X13_BURST13.csv`
 - Base: usine V2.2.1 + champion 37fca367 — **non modifié**
 
 ## Régime IRM (proxy)

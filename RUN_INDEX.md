@@ -17007,3 +17007,95 @@ Ce fichier sert de table des runs ACE777 pour retrouver vite les tests.
 - Rapport: `RAPPORT_PNL_AUTO_20260901_211139.md`
 - Verdict: `NEUTRE`
 
+
+---
+
+## 2026-09-01 — ACE_RADAR_ALIGNED_V3_15M (auto)
+
+- Profil: `?` v`?`
+- Tag: `ACE_RADAR_ALIGNED_V3_15M`
+- Période: `` → ``
+- Logs:
+  - `ACE_RADAR_ALIGNED_V3_15M_BETA_X5.csv`
+  - `ACE_RADAR_ALIGNED_V3_15M_ALPHA_X13_BURST13.csv`
+- Paramètres clé:
+  - `BUY_USDT_BETA=200`
+  - `BUY_USDT_ALPHA=800`
+  - `LLM_GATE_ENABLED=TRUE`
+  - `LLM_GATE_FAIL_CLOSED=TRUE`
+- Résultat:
+  - BETA: `+0.0000 USDT` (0 trades)
+  - ALPHA: `+0.0000 USDT` (0 trades)
+  - Total: `+0.0000 USDT`
+- Rapport: `RAPPORT_PNL_AUTO_20260901_225959.md`
+- Verdict: `NEUTRE`
+
+
+---
+
+## 2026-09-01 — ACE_RADAR_ALIGNED_V3_15M (auto)
+
+- Profil: `?` v`?`
+- Tag: `ACE_RADAR_ALIGNED_V3_15M`
+- Période: `2026-09-01T23:00:04Z` → `2026-09-01T23:09:02Z`
+- Logs:
+  - `ACE_RADAR_ALIGNED_V3_15M_BETA_X5.csv`
+  - `ACE_RADAR_ALIGNED_V3_15M_ALPHA_X13_BURST13.csv`
+- Paramètres clé:
+  - `BUY_USDT_BETA=200`
+  - `BUY_USDT_ALPHA=800`
+  - `LLM_GATE_ENABLED=TRUE`
+  - `LLM_GATE_FAIL_CLOSED=TRUE`
+- Résultat:
+  - BETA: `-1.7406 USDT` (2 trades)
+  - ALPHA: `-0.6494 USDT` (1 trades)
+  - Total: `-2.3901 USDT`
+- Rapport: `RAPPORT_PNL_AUTO_20260901_230906.md`
+- Verdict: `NEGATIF`
+
+
+---
+
+## 2026-09-01 — ACE_RADAR_ALIGNED_V3_15M (auto)
+
+- Profil: `?` v`?`
+- Tag: `ACE_RADAR_ALIGNED_V3_15M`
+- Période: `2026-09-01T23:00:04Z` → `2026-09-01T23:09:02Z`
+- Logs:
+  - `ACE_RADAR_ALIGNED_V3_15M_BETA_X5.csv`
+  - `ACE_RADAR_ALIGNED_V3_15M_ALPHA_X13_BURST13.csv`
+- Paramètres clé:
+  - `BUY_USDT_BETA=?`
+  - `BUY_USDT_ALPHA=?`
+  - `LLM_GATE_ENABLED=?`
+  - `LLM_GATE_FAIL_CLOSED=?`
+- Résultat:
+  - BETA: `-1.7406 USDT` (2 trades)
+  - ALPHA: `-0.6494 USDT` (1 trades)
+  - Total: `-2.3901 USDT`
+- Rapport: `RAPPORT_PNL_AUTO_20260901_230907.md`
+- Verdict: `NEGATIF`
+
+
+---
+
+## 2026-09-01 — ACE_RADAR_ALIGNED_V3_15M (auto)
+
+- Profil: `?` v`?`
+- Tag: `ACE_RADAR_ALIGNED_V3_15M`
+- Période: `` → ``
+- Logs:
+  - `ACE_RADAR_ALIGNED_V3_15M_BETA_X5.csv`
+  - `ACE_RADAR_ALIGNED_V3_15M_ALPHA_X13_BURST13.csv`
+- Paramètres clé:
+  - `BUY_USDT_BETA=200`
+  - `BUY_USDT_ALPHA=800`
+  - `LLM_GATE_ENABLED=TRUE`
+  - `LLM_GATE_FAIL_CLOSED=TRUE`
+- Résultat:
+  - BETA: `+0.0000 USDT` (0 trades)
+  - ALPHA: `+0.0000 USDT` (0 trades)
+  - Total: `+0.0000 USDT`
+- Rapport: `RAPPORT_PNL_AUTO_20260901_231052.md`
+- Verdict: `NEUTRE`
+

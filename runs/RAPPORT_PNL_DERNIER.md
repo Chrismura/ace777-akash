@@ -1,12 +1,12 @@
-# RAPPORT PNL AUTO — ACE_RADAR_ALIGNED_V2_15M
+# RAPPORT PNL AUTO — ACE_RADAR_ALIGNED_V3_15M
 
-**Session:** `ACE_RADAR_ALIGNED_V2_15M`
-**run_id:** `ACE_RADAR_ALIGNED_V2_15M_20260901T211135Z_72797`
+**Session:** `ACE_RADAR_ALIGNED_V3_15M`
+**run_id:** `ACE_RADAR_ALIGNED_V3_15M_20260901T231047Z_50145`
 **Frais Binance:** `UNMATCHED_BINANCE_FEES` (aucune commission/funding externe n'est ajoutée sans correspondance explicite)
 **Période:** — → — (—)
 **Setup:** `?` v`?` | BETA `200` USDT | ALPHA `800` USDT | LLM gate `TRUE` fail_closed=`TRUE`
-**Généré:** 2026-09-01T21:11:39Z UTC
-**Filtre session:** `ts >= 2026-09-01T21:11:36Z` (lignes CSV antérieures exclues)
+**Généré:** 2026-09-01T23:10:52Z UTC
+**Filtre session:** `ts >= 2026-09-01T23:10:50Z` (lignes CSV antérieures exclues)
 
 ---
 
@@ -101,5 +101,5 @@
 
 ---
 
-*Rapport auto — CSV: `ACE_RADAR_ALIGNED_V2_15M_BETA_X5.csv` | `ACE_RADAR_ALIGNED_V2_15M_ALPHA_X13_BURST13.csv`*
+*Rapport auto — CSV: `ACE_RADAR_ALIGNED_V3_15M_BETA_X5.csv` | `ACE_RADAR_ALIGNED_V3_15M_ALPHA_X13_BURST13.csv`*
 *STATE: `runs/STATE.md`*

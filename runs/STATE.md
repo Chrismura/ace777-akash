@@ -1,7 +1,7 @@
 # ACE777 — STATE
 
 > Généré automatiquement — ne pas éditer à la main
-> Phase: `running` | Statut: `RUNNING` | MAJ: `2026-09-01T21:11:39Z`
+> Phase: `running` | Statut: `RUNNING` | MAJ: `2026-09-01T23:10:52Z`
 
 ## Config active
 
@@ -11,8 +11,8 @@
 | Masse BETA / ALPHA | `200` / `800` USDT |
 | LLM gate | enabled=`TRUE` fail_closed=`TRUE` |
 | Modèle LLM | `qwen2.5-coder:1.5b` |
-| Tag session | `ACE_RADAR_ALIGNED_V2_15M` |
-| run_id | `ACE_RADAR_ALIGNED_V2_15M_20260901T211135Z_72797` |
+| Tag session | `ACE_RADAR_ALIGNED_V3_15M` |
+| run_id | `ACE_RADAR_ALIGNED_V3_15M_20260901T231047Z_50145` |
 | Frais Binance | `UNMATCHED_BINANCE_FEES` |
 
 ## PnL session
@@ -51,8 +51,8 @@ _Aucun SKIP ou CSV absent._
 
 ## Fichiers
 
-- BETA CSV: `ACE_RADAR_ALIGNED_V2_15M_BETA_X5.csv` (ok)
-- ALPHA CSV: `ACE_RADAR_ALIGNED_V2_15M_ALPHA_X13_BURST13.csv` (absent)
+- BETA CSV: `ACE_RADAR_ALIGNED_V3_15M_BETA_X5.csv` (ok)
+- ALPHA CSV: `ACE_RADAR_ALIGNED_V3_15M_ALPHA_X13_BURST13.csv` (ok)
 
 ## Dernière leçon ERREURS_AI
 
