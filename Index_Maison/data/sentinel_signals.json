@@ -1,27 +1,6 @@
 {
   "signals": [
     {
-      "metric": "liquidations",
-      "zscore": 2.068812694379025,
-      "value": 53189483.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 82,\n  \"reason\": \"Le z-score des liquidations (2.07) indique un flush agressif des positions à effet de levier par les mains faibles. Le narratif médiatique est ultra-alarmiste et populiste (chute à 10k, faillites immobilières locales), ce qui caractérise un pic de capitulation de détail. Les baleines absorbent la liquidité en silence pendant que la messe médiatique enterre le marché.\"\n}\n```",
-      "ts": "2026-08-31T03:17:44.735766+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": -2.420153478013919,
-      "value": 62,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Z-score négatif prononcé (-2.42) malgré un indice de cupidité modéré (62). Absence totale de narratif médiatique (Google Actualités vide). Indique un marché apathique ou des mouvements discrets en coulisses sans consensus public, nécessitant confirmation des flux d'exchange.\"\n}\n```",
-      "ts": "2026-08-31T03:37:49.005251+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": 2.2201945508477796,
-      "value": 8141083534.0,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Forte anomalie de volume (Z-score 2.22) couplée à un sommet de ventes sur dérivés XRP et un volume net preneur massivement négatif sur Binance (-96 M). Le narratif médiatique confirme une pression vendeuse institutionnelle/dérivés en décalage total avec l'optimisme retail.\"\n}\n```",
-      "ts": "2026-08-31T03:42:51.085489+00:00"
-    },
-    {
       "metric": "whale_usd",
       "zscore": 9.860373239695736,
       "value": 8665384.0,
@@ -349,6 +328,27 @@
       "value": 2048868.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-2.95) sur les liquidations crypto, couplé à un bruit médiatique totalement hors sujet (faillites d'entreprises locales à Quimper et confusion avec la finance traditionnelle). Absence totale de pression vendeuse onchain : l'asymétrie signale un piège à baissiers et une accumulation silencieuse des baleines.\"\n}\n```",
       "ts": "2026-09-01T09:24:05.069203+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 2.0816659994661326,
+      "value": 69,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 82,\n  \"reason\": \"Z-score de 2.08 (Greed excessif) couplé à un vide médiatique (Google Actualités plat) : classic trap de FOMO de détail. Les baleines accumulent des liquidités en silence pendant que le marché sous-estime le risque de correction.\"\n}\n```",
+      "ts": "2026-09-01T09:44:09.476411+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": -2.6632135564708386,
+      "value": 2048868.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le z-score très bas (-2.66) indique une absence totale de liquidations sur les marchés crypto, contredisant le narratif médiatique saturé de mots-clés alarmistes ('liquidations judiciaires' et 'thèse baissière BTC'). Calme plat onchain : les baleines n'essuient aucune vente forcée, préparant un mouvement furtif en contrarien.\"\n}\n```",
+      "ts": "2026-09-01T09:54:12.647689+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.04087016192957,
+      "value": 1.048,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Anomalie non pertinente : les données font référence à des actualités institutionnelles et académiques (Tournoi International des Physiciens, partenariats universitaires) sans aucun lien avec les flux de cryptomonnaies ou l'activité onchain de baleines.\"\n}\n```",
+      "ts": "2026-09-01T09:54:14.505396+00:00"
     }
   ]
 }
