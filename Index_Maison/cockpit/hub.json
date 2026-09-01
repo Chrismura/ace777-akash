@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-01T11:24:06.259665+00:00",
+  "generated_at": "2026-09-01T11:24:36.607811+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 197
+      "calls_24h": 198
     },
     {
       "id": "openrouter-free",
@@ -35,7 +35,7 @@
       "model": "groq/compound",
       "enabled": true,
       "timeout": 120,
-      "calls_24h": 2
+      "calls_24h": 3
     },
     {
       "id": "nvidia",
@@ -247,10 +247,26 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 105,
-    "remaining": 519
+    "consumed": 107,
+    "remaining": 517
   },
   "queue": [
+    {
+      "ts": "2026-09-01T11:24:34.425074+00:00",
+      "task": "supervise.decision",
+      "provider": "groq",
+      "model": "groq/compound",
+      "kind": "cloud",
+      "duration_s": 2.08
+    },
+    {
+      "ts": "2026-09-01T11:24:30.958527+00:00",
+      "task": "supervise.decision",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 0.85
+    },
     {
       "ts": "2026-09-01T11:23:38.004150+00:00",
       "task": "analyste.strategie",
@@ -354,25 +370,39 @@
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
       "duration_s": 5.53
-    },
-    {
-      "ts": "2026-09-01T09:58:04.327634+00:00",
-      "task": "analyste.strategie",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 6.42
-    },
-    {
-      "ts": "2026-09-01T09:54:14.504642+00:00",
-      "task": "analyse.profonde",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 1.01
     }
   ],
   "events": [
+    {
+      "ts": "2026-09-01T11:24:34.424744+00:00",
+      "kind": "message",
+      "title": "« Groq (LLM ultra-rapide, gratuit) » a repondu",
+      "detail": "bascule"
+    },
+    {
+      "ts": "2026-09-01T11:24:32.347626+00:00",
+      "kind": "blacklist",
+      "title": "Fin de pause Groq (LLM ultra-rapide, gratuit)",
+      "detail": "re-essai automatique"
+    },
+    {
+      "ts": "2026-09-01T11:24:32.346180+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis Google Gemini",
+      "detail": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "ts": "2026-09-01T11:24:32.345864+00:00",
+      "kind": "ratelimit",
+      "title": "429 Google Gemini -> pause 60s + bascule",
+      "detail": ""
+    },
+    {
+      "ts": "2026-09-01T11:24:30.958127+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
     {
       "ts": "2026-09-01T11:23:38.003753+00:00",
       "kind": "message",
@@ -402,36 +432,6 @@
       "kind": "message",
       "title": "« Google Gemini » a repondu",
       "detail": ""
-    },
-    {
-      "ts": "2026-09-01T10:54:31.884918+00:00",
-      "kind": "message",
-      "title": "« Google Gemini » a repondu",
-      "detail": ""
-    },
-    {
-      "ts": "2026-09-01T10:53:57.661018+00:00",
-      "kind": "message",
-      "title": "« Google Gemini » a repondu",
-      "detail": ""
-    },
-    {
-      "ts": "2026-09-01T10:53:44.219583+00:00",
-      "kind": "blacklist",
-      "title": "Fin de pause Google Gemini",
-      "detail": "re-essai automatique"
-    },
-    {
-      "ts": "2026-09-01T10:24:21.741764+00:00",
-      "kind": "message",
-      "title": "« HuggingFace (136+ modeles, dont DeepSeek-V4) » a repondu",
-      "detail": "bascule"
-    },
-    {
-      "ts": "2026-09-01T10:24:21.127175+00:00",
-      "kind": "message",
-      "title": "« OrcaRouter (routeur gratuit, modele orcarouter/free) » a repondu",
-      "detail": "bascule"
     }
   ],
   "tasks_quotas": {
