@@ -1,12 +1,12 @@
-# RAPPORT PNL AUTO — ACE_DUO_CLEAN_V4_15M
+# RAPPORT PNL AUTO — ACE_DUO_CLEAN_V1_15M
 
-**Session:** `ACE_DUO_CLEAN_V4_15M`
-**run_id:** `ACE_DUO_CLEAN_V4_15M_20260901T160208Z_34195`
+**Session:** `ACE_DUO_CLEAN_V1_15M`
+**run_id:** `ACE_DUO_CLEAN_V1_15M_20260901T141030Z_60190`
 **Frais Binance:** `UNMATCHED_BINANCE_FEES` (aucune commission/funding externe n'est ajoutée sans correspondance explicite)
-**Période:** 2026-09-01T16:02:18Z → 2026-09-01T16:17:17Z (0h14m)
+**Période:** 2026-09-01T14:10:40Z → 2026-09-01T14:25:42Z (0h15m)
 **Setup:** `?` v`?` | BETA `?` USDT | ALPHA `?` USDT | LLM gate `?` fail_closed=`?`
-**Généré:** 2026-09-01T16:17:19Z UTC
-**Filtre session:** `ts >= 2026-09-01T16:02:10Z` (lignes CSV antérieures exclues)
+**Généré:** 2026-09-01T19:26:30Z UTC
+**Filtre session:** `ts >= 2026-09-01T14:10:33Z` (lignes CSV antérieures exclues)
 
 ---
 
@@ -14,13 +14,13 @@
 
 | Métrique | Valeur |
 |----------|--------|
-| PNL brut BETA | -4.6029 USDT |
-| Frais BETA | +1.1962 USDT |
-| **PNL net BETA** | **-5.7991 USDT** |
-| PNL brut ALPHA | +0.6228 USDT |
-| Frais ALPHA | +1.0772 USDT |
-| **PNL net ALPHA** | **-0.4544 USDT** |
-| **PNL SESSION TOTAL** | **-6.2535 USDT** |
+| PNL brut BETA | -2.9614 USDT |
+| Frais BETA | +1.1910 USDT |
+| **PNL net BETA** | **-4.1524 USDT** |
+| PNL brut ALPHA | +0.0000 USDT |
+| Frais ALPHA | +0.0000 USDT |
+| **PNL net ALPHA** | **+0.0000 USDT** |
+| **PNL SESSION TOTAL** | **-4.1524 USDT** |
 | Statut | `NEGATIF` |
 
 ---
@@ -35,30 +35,31 @@
 | Flat (0) | 0 |
 | Win rate | **0.0%** |
 | Gains totaux | +0.0000 USDT |
-| Pertes totales | -5.7991 USDT |
-| PNL brut | -4.6029 USDT |
-| Frais | +1.1962 USDT |
-| **PNL net** | **-5.7991 USDT** |
-| BPS moyen | -28.22 |
+| Pertes totales | -4.1524 USDT |
+| PNL brut | -2.9614 USDT |
+| Frais | +1.1910 USDT |
+| **PNL net** | **-4.1524 USDT** |
+| BPS moyen | -13.80 |
 
-**Meilleur trade:** -1.4232 USDT
-**Pire trade:** -4.3758 USDT
+**Meilleur trade:** -0.1828 USDT
+**Pire trade:** -3.9696 USDT
 
 **Direction:** SELL (2)
 
 **Raisons de sortie (exitReason):**
 | Raison | Nb |
 |--------|-----|
-| stop_loss | 2 |
+| stop_loss | 1 |
+| trailing_stop | 1 |
 
 **Cycles SKIP:** 104
 | Raison | Nb |
 |--------|-----|
-| reason=COMPRESSE tension=0.00000000 threshold=0.05 | 34 |
-| reason=spread_too_wide conf=0.5 mom_sig=1.06849918 raw_mom_bps=0.00000000 spread_bps=41.50140000 tension=1.06849918 bid_drop=6.94524466 ask_drop=0.26761617 swarm=0 | 1 |
-| mom=long structure=short | 1 |
-| reason=spread_too_wide conf=0.5 mom_sig=2.84403454 raw_mom_bps=0.00000000 spread_bps=10.40030000 tension=2.84403454 bid_drop=18.48622452 ask_drop=0.16780662 swarm=0 | 1 |
-| reason=spread_too_wide conf=0.5 mom_sig=2.13510629 raw_mom_bps=0.00000000 spread_bps=40.96460000 tension=2.13510629 bid_drop=13.87819090 ask_drop=0.00000000 swarm=0 | 1 |
+| reason=COMPRESSE tension=0.00000000 threshold=0.05 | 33 |
+| mom=long structure=short | 2 |
+| reason=COMPRESSE tension=0.00000669 threshold=0.05 | 2 |
+| reason=COMPRESSE tension=0.01396506 threshold=0.05 | 1 |
+| reason=low_confidence conf=0.2574 mom_sig=0.21095842 raw_mom_bps=19.45105096 spread_bps=4.28570000 tension=0.21095842 bid_drop=1.37122974 ask_drop=0.12078468 swarm=0 | 1 |
 
 ---
 
@@ -66,36 +67,19 @@
 
 | Métrique | Valeur |
 |----------|--------|
-| Trades FILLED | 1 |
-| Gagnants | 0 |
-| Perdants | 1 |
-| Flat (0) | 0 |
-| Win rate | **0.0%** |
-| Gains totaux | +0.0000 USDT |
-| Pertes totales | -0.4544 USDT |
-| PNL brut | +0.6228 USDT |
-| Frais | +1.0772 USDT |
-| **PNL net** | **-0.4544 USDT** |
-| BPS moyen | 4.63 |
+| Trades FILLED | 0 |
+| **PNL net** | **0.0000 USDT** |
 
-**Meilleur trade:** -0.4544 USDT
-**Pire trade:** -0.4544 USDT
+*ALPHA n'a pas exécuté de trade — vérifier duo_wait, radar, stase, llm_gate dans les SKIP.*
 
-**Direction:** BUY (1)
-
-**Raisons de sortie (exitReason):**
+**Cycles SKIP:** 121
 | Raison | Nb |
 |--------|-----|
-| trailing_stop | 1 |
-
-**Cycles SKIP:** 124
-| Raison | Nb |
-|--------|-----|
-| reason=COMPRESSE tension=0.00000000 threshold=0.05 | 40 |
-| reason=no_state mode=none | 2 |
-| reason=COMPRESSE tension=0.00092633 threshold=0.05 | 1 |
-| reason=COMPRESSE tension=0.00000083 threshold=0.05 | 1 |
-| reason=COMPRESSE tension=0.01041051 threshold=0.05 | 1 |
+| reason=COMPRESSE tension=0.00000000 threshold=0.05 | 39 |
+| reason=no_trigger mode=none | 4 |
+| reason=spread_too_wide conf=0.5 mom_sig=3.08238450 raw_mom_bps=0.00000000 spread_bps=35.50470000 tension=3.08238450 bid_drop=20.03549927 ask_drop=0.00000000 swarm=0 | 1 |
+| reason=COMPRESSE tension=0.00128574 threshold=0.05 | 1 |
+| reason=low_confidence conf=0.2082 mom_sig=0.24238380 raw_mom_bps=0.00000000 spread_bps=7.75510000 tension=0.24238380 bid_drop=1.57549471 ask_drop=0.00000000 swarm=0 | 1 |
 
 ---
 
@@ -103,9 +87,9 @@
 
 | Indicateur | BETA | ALPHA | TOTAL |
 |------------|------|-------|-------|
-| Trades | 2 | 1 | 3 |
-| PnL | -5.7991 | -0.4544 | **-6.2535** |
-| Win rate | 0.0% | 0.0% | 0.0% |
+| Trades | 2 | 0 | 2 |
+| PnL | -4.1524 | +0.0000 | **-4.1524** |
+| Win rate | 0.0% | — | 0.0% |
 
 ## IRM — régimes de tension (proxy, lecture seule)
 
@@ -113,12 +97,12 @@
 
 | Régime | Cycles | % temps | Fills | PnL fills (USDT) |
 |--------|--------|---------|-------|------------------|
-| COMPRESSÉ (attente à froid) | 63 | 59.4% | 2 | -4.6029 |
-| TRANSITOIRE (bruit retail) | 19 | 17.9% | 0 | +0.0000 |
-| CLUSTER (tension haute — proxy) | 24 | 22.6% | 0 | +0.0000 |
+| COMPRESSÉ (attente à froid) | 65 | 61.3% | 2 | -2.9614 |
+| TRANSITOIRE (bruit retail) | 23 | 21.7% | 0 | +0.0000 |
+| CLUSTER (tension haute — proxy) | 18 | 17.0% | 0 | +0.0000 |
 
-- Fenêtre: `2026-09-01T16:02:18Z` → `2026-09-01T16:17:17Z` (106 cycles) · μ(tension)=0.6318 · σ=1.3688 · courant(proxy)=**COMPRESSÉ (attente à froid)**
-- Source: `ACE_DUO_CLEAN_V4_15M_BETA_X5.csv`
+- Fenêtre: `2026-09-01T14:10:40Z` → `2026-09-01T14:25:31Z` (106 cycles) · μ(tension)=1.1291 · σ=2.9647 · courant(proxy)=**COMPRESSÉ (attente à froid)**
+- Source: `ACE_DUO_CLEAN_V1_15M_BETA_X5.csv`
 
 ## Engle — couches évolutives (hors moteur)
 
@@ -137,5 +121,5 @@
 
 ---
 
-*Rapport auto — CSV: `ACE_DUO_CLEAN_V4_15M_BETA_X5.csv` | `ACE_DUO_CLEAN_V4_15M_ALPHA_X13_BURST13.csv`*
+*Rapport auto — CSV: `ACE_DUO_CLEAN_V1_15M_BETA_X5.csv` | `ACE_DUO_CLEAN_V1_15M_ALPHA_X13_BURST13.csv`*
 *STATE: `runs/STATE.md`*

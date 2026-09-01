@@ -237,7 +237,10 @@ launch_beta() {
     export LEVERAGE="5"
     export BUY_USDT="${BUY_USDT_BETA:-200}"
     export ENTRY_25_75_INITIAL_FRACTION="${ENTRY_25_75_INITIAL_FRACTION_BETA:-0.70}"
-    export FORCE_ENTRY_SIDE="SELL"
+    # RADAR-ALIGNED (2026-09-01): Beta follows the radar signal instead of a fixed
+    # short bias. The genesis body reads FORCE_ENTRY_SIDE when present; when unset
+    # or empty the engine derives direction from its own radar decision.
+    export FORCE_ENTRY_SIDE="${FORCE_ENTRY_SIDE_BETA:-}"
     export POSITION_SIDE="SHORT"
     export DUO_MODE="TRUE"
     export DUO_ROLE="SCOUT"

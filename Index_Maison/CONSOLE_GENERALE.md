@@ -1,14 +1,14 @@
 # Console générale — clin d’œil
 
-Auto-refresh : 2026-09-01 05:23 UTC · jour local **2026-09-01**
+Auto-refresh : 2026-09-01 18:53 UTC · jour local **2026-09-01**
 
 ## Feu tricolore
 
 | Jambe | État | Détail |
 |-------|------|--------|
-| **ACE** | 🔴 STOP | Dernier tag `MASTER_VORTEX_V2_COLLAB_4H` · combo ≈ **+318.58 $** |
-| **Hulk paper** | 🟢 RUN | pnl_total ≈ **—** · pos **—** |
-| **Hulk digest** | 🔴 STOP | mtime 2026-09-01T05:21Z |
+| **ACE** | 🔴 STOP | Dernier tag `ACE_DUO_CLEAN_V4_15M` · combo ≈ **-3.98 $** |
+| **Hulk paper** | 🟢 RUN | pnl_total ≈ **-6.2422** · pos **18** |
+| **Hulk digest** | 🟢 RUN | mtime 2026-09-01T18:52Z |
 | **Punk** | 🔴 STOP | — · idle |
 | **Ollama** | 🟢 RUN | |
 | **Obsidian** | 🟢 | vault `Obsidian_ACE777` |
@@ -17,6 +17,11 @@ Auto-refresh : 2026-09-01 05:23 UTC · jour local **2026-09-01**
 
 | Run | Alpha | Beta | Combo |
 |-----|-------|------|-------|
+| `ACE_DUO_CLEAN_V4_15M` | +0.62 (n=1) | -4.60 (n=2) | **-3.98** |
+| `ACE_DUO_CLEAN_V3_15M` | -1.80 (n=3) | -2.06 (n=3) | **-3.87** |
+| `ACE_DUO_CLEAN_V2_15M` | +3.04 (n=3) | -2.31 (n=4) | **+0.73** |
+| `ACE_DUO_CLEAN_V1_15M` | +0.00 (n=0) | -2.96 (n=2) | **-2.96** |
+| `ACE_DUO_PREFLIGHT_10M` | -0.19 (n=1) | +0.07 (n=2) | **-0.12** |
 | `MASTER_VORTEX_V2_COLLAB_4H` | +292.01 (n=1406) | +26.56 (n=4511) | **+318.58** |
 | `MASTER_BASE_V8_5_IMPACT_4H` | +3.60 (n=7) | +0.91 (n=162) | **+4.51** |
 | `NUAGE_HUB_V1` | +0.00 (n=0) | +0.00 (n=0) | **+0.00** |
@@ -60,8 +65,8 @@ Auto-refresh : 2026-09-01 05:23 UTC · jour local **2026-09-01**
 | `TEST_DUO_HARMONIC_5813_30M_V63` | +0.00 (n=0) | -0.42 (n=45) | **-0.42** |
 
 ## Hulk
-- Events : —
-- Pairs ouvertes (state) : —
+- Events : {'BUY': 37, 'SELL_PARTIAL': 22, 'SELL': 19, 'SKIP': 20615}
+- Pairs ouvertes (state) : ZBCNUSDT, CCUSDT, TELUSDT, EDELUSDT, PYTHUSDT, CHIPUSDT, HBARUSDT, QNTUSDT, FLUIDUSDT, RWAUSDT, MNSRYUSDT, ETHUSDT, BTCUSDT, XRPUSDT, KITEUSDT, WUSDT, RWAINCUSDT, REDUSDT
 
 ## Liens
 [[PLAN_DE_VOL]] · [[AUTO_PROCESSUS]] · [[AGORA]] · [[Cahier/Journal_2026-09-01]] · [[OSSATURE]]

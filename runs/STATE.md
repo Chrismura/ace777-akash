@@ -1,27 +1,27 @@
 # ACE777 — STATE
 
 > Généré automatiquement — ne pas éditer à la main
-> Phase: `ended` | Statut: `ENDED` | MAJ: `2026-09-01T16:17:19Z`
+> Phase: `unknown` | Statut: `IDLE` | MAJ: `2026-09-01T19:26:30Z`
 
 ## Config active
 
 | Paramètre | Valeur |
 |-----------|--------|
-| Profil | `vide_froid_binance` v`2026-07-08-setup-ready` |
-| Masse BETA / ALPHA | `200` / `800` USDT |
-| LLM gate | enabled=`TRUE` fail_closed=`TRUE` |
-| Modèle LLM | `qwen2.5-coder:1.5b` |
-| Tag session | `ACE_DUO_CLEAN_V4_15M` |
-| run_id | `ACE_DUO_CLEAN_V4_15M_20260901T160208Z_34195` |
+| Profil | `non_charge` v`?` |
+| Masse BETA / ALPHA | `?` / `?` USDT |
+| LLM gate | enabled=`?` fail_closed=`?` |
+| Modèle LLM | `?` |
+| Tag session | `ACE_DUO_CLEAN_V1_15M` |
+| run_id | `ACE_DUO_CLEAN_V1_15M_20260901T141030Z_60190` |
 | Frais Binance | `UNMATCHED_BINANCE_FEES` |
 
 ## PnL session
 
 | Unité | FILLED | Win | Loss | Win% | Brut | Frais | Net USDT | SKIP |
 |-------|--------|-----|------|------|------|------|----------|------|
-| BETA | 2 | 0 | 2 | 0.0% | -4.6029 | 1.1962 | -5.7991 | 104 |
-| ALPHA | 1 | 0 | 1 | 0.0% | 0.6228 | 1.0772 | -0.4544 | 124 |
-| **TOTAL** | **3** | — | — | — | **-3.9801** | **2.2734** | **-6.2535** | **228** |
+| BETA | 2 | 0 | 2 | 0.0% | -2.9614 | 1.1910 | -4.1524 | 104 |
+| ALPHA | 0 | 0 | 0 | 0.00% | 0.0000 | 0.0000 | 0.0000 | 121 |
+| **TOTAL** | **2** | — | — | — | **-2.9614** | **1.1910** | **-4.1524** | **225** |
 
 ## Duo session (`duo_session.json`)
 
@@ -44,19 +44,19 @@
 
 ## Top SKIP — BETA
 
-1. `reason=COMPRESSE tension=0.00000000 threshold=0.05` — 34
-2. `reason=spread_too_wide conf=0.5 mom_sig=1.06849918 raw_mom_bps=0.00000000 spread_bps=41.50140000 tension=1.06849918 bid_drop=6.94524466 ask_drop=0.26761617 swarm=0` — 1
-3. `mom=long structure=short` — 1
-4. `reason=spread_too_wide conf=0.5 mom_sig=2.84403454 raw_mom_bps=0.00000000 spread_bps=10.40030000 tension=2.84403454 bid_drop=18.48622452 ask_drop=0.16780662 swarm=0` — 1
-5. `reason=spread_too_wide conf=0.5 mom_sig=2.13510629 raw_mom_bps=0.00000000 spread_bps=40.96460000 tension=2.13510629 bid_drop=13.87819090 ask_drop=0.00000000 swarm=0` — 1
+1. `reason=COMPRESSE tension=0.00000000 threshold=0.05` — 33
+2. `mom=long structure=short` — 2
+3. `reason=COMPRESSE tension=0.00000669 threshold=0.05` — 2
+4. `reason=COMPRESSE tension=0.01396506 threshold=0.05` — 1
+5. `reason=low_confidence conf=0.2574 mom_sig=0.21095842 raw_mom_bps=19.45105096 spread_bps=4.28570000 tension=0.21095842 bid_drop=1.37122974 ask_drop=0.12078468 swarm=0` — 1
 
 ## Top SKIP — ALPHA
 
-1. `reason=COMPRESSE tension=0.00000000 threshold=0.05` — 40
-2. `reason=no_state mode=none` — 2
-3. `reason=COMPRESSE tension=0.00092633 threshold=0.05` — 1
-4. `reason=COMPRESSE tension=0.00000083 threshold=0.05` — 1
-5. `reason=COMPRESSE tension=0.01041051 threshold=0.05` — 1
+1. `reason=COMPRESSE tension=0.00000000 threshold=0.05` — 39
+2. `reason=no_trigger mode=none` — 4
+3. `reason=spread_too_wide conf=0.5 mom_sig=3.08238450 raw_mom_bps=0.00000000 spread_bps=35.50470000 tension=3.08238450 bid_drop=20.03549927 ask_drop=0.00000000 swarm=0` — 1
+4. `reason=COMPRESSE tension=0.00128574 threshold=0.05` — 1
+5. `reason=low_confidence conf=0.2082 mom_sig=0.24238380 raw_mom_bps=0.00000000 spread_bps=7.75510000 tension=0.24238380 bid_drop=1.57549471 ask_drop=0.00000000 swarm=0` — 1
 
 ## Vortex (`vortex_control.json`)
 
@@ -72,8 +72,8 @@
 
 ## Fichiers
 
-- BETA CSV: `ACE_DUO_CLEAN_V4_15M_BETA_X5.csv` (ok)
-- ALPHA CSV: `ACE_DUO_CLEAN_V4_15M_ALPHA_X13_BURST13.csv` (ok)
+- BETA CSV: `ACE_DUO_CLEAN_V1_15M_BETA_X5.csv` (ok)
+- ALPHA CSV: `ACE_DUO_CLEAN_V1_15M_ALPHA_X13_BURST13.csv` (ok)
 
 ## Dernière leçon ERREURS_AI
 
