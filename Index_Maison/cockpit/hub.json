@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-01T14:24:04.791942+00:00",
+  "generated_at": "2026-09-01T14:25:05.301500+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 182
+      "calls_24h": 183
     },
     {
       "id": "openrouter-free",
@@ -247,10 +247,18 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 134,
-    "remaining": 490
+    "consumed": 135,
+    "remaining": 489
   },
   "queue": [
+    {
+      "ts": "2026-09-01T14:24:07.462450+00:00",
+      "task": "analyste.strategie",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 4.62
+    },
     {
       "ts": "2026-09-01T14:02:22.832386+00:00",
       "task": "analyste.strategie",
@@ -362,17 +370,15 @@
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
       "duration_s": 5.51
-    },
-    {
-      "ts": "2026-09-01T12:53:53.832220+00:00",
-      "task": "analyste.strategie",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 3.74
     }
   ],
   "events": [
+    {
+      "ts": "2026-09-01T14:24:07.462211+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
     {
       "ts": "2026-09-01T14:02:22.831211+00:00",
       "kind": "message",
@@ -426,12 +432,6 @@
       "kind": "failover",
       "title": "Saute (blacklist) depuis Google Gemini",
       "detail": "0 attente"
-    },
-    {
-      "ts": "2026-09-01T13:25:02.238052+00:00",
-      "kind": "message",
-      "title": "« HuggingFace (136+ modeles, dont DeepSeek-V4) » a repondu",
-      "detail": "bascule"
     }
   ],
   "tasks_quotas": {
