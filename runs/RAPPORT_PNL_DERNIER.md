@@ -1,12 +1,12 @@
-# RAPPORT PNL AUTO — ACE_DUO_CLEAN_V1_15M
+# RAPPORT PNL AUTO — ACE_DUO_CLEAN_V2_15M
 
-**Session:** `ACE_DUO_CLEAN_V1_15M`
-**run_id:** ``
+**Session:** `ACE_DUO_CLEAN_V2_15M`
+**run_id:** `ACE_DUO_CLEAN_V2_15M_20260901T151230Z_48122`
 **Frais Binance:** `UNMATCHED_BINANCE_FEES` (aucune commission/funding externe n'est ajoutée sans correspondance explicite)
 **Période:** — → — (—)
 **Setup:** `?` v`?` | BETA `200` USDT | ALPHA `800` USDT | LLM gate `TRUE` fail_closed=`TRUE`
-**Généré:** 2026-09-01T14:10:35Z UTC
-**Filtre session:** `ts >= 2026-09-01T14:10:33Z` (lignes CSV antérieures exclues)
+**Généré:** 2026-09-01T15:12:35Z UTC
+**Filtre session:** `ts >= 2026-09-01T15:12:33Z` (lignes CSV antérieures exclues)
 
 ---
 
@@ -101,5 +101,5 @@
 
 ---
 
-*Rapport auto — CSV: `ACE_DUO_CLEAN_V1_15M_BETA_X5.csv` | `ACE_DUO_CLEAN_V1_15M_ALPHA_X13_BURST13.csv`*
+*Rapport auto — CSV: `ACE_DUO_CLEAN_V2_15M_BETA_X5.csv` | `ACE_DUO_CLEAN_V2_15M_ALPHA_X13_BURST13.csv`*
 *STATE: `runs/STATE.md`*

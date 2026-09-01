@@ -31,6 +31,9 @@ run_meta = begin
 rescue StandardError
   {}
 end
+sidecars = Dir.glob(File.join(run_dir, "#{tag}_*_session.json")).sort_by { |path| File.mtime(path) }
+sidecar = sidecars.empty? ? {} : (JSON.parse(File.read(sidecars.last)) rescue {})
+run_meta = sidecar.merge(run_meta) { |_key, side_value, meta_value| side_value.nil? || side_value == "" ? meta_value : side_value }
 
 beta_csv = ENV["BETA_CSV"] || File.join(run_dir, "#{tag}_BETA_X5.csv")
 alpha_csv = ENV["ALPHA_CSV"] || File.join(run_dir, "#{tag}_ALPHA_X13_BURST13.csv")
@@ -67,7 +70,7 @@ def analyze_csv(path, unit_label, min_ts: nil)
     cols = line.strip.split(",", -1)
     next if cols.size < 10
 
-    ts, _cycle, side, status, _entry, _exit_px, _qty, bps, pnl, reason, fee_usdt, pnl_net = cols
+    ts, _cycle, side, status, _entry, _exit_px, _qty, bps, pnl, fee_usdt, pnl_net, reason = cols
     next if min_ts && ts && !ts.empty? && ts < min_ts
 
     stats[:first_ts] ||= ts
@@ -83,8 +86,11 @@ def analyze_csv(path, unit_label, min_ts: nil)
     next unless status == "FILLED"
 
     pnl_f = pnl.to_f
-    fee_f = fee_usdt.to_s.empty? ? 0.0 : fee_usdt.to_f
-    net_f = pnl_net.to_s.empty? ? pnl_f - fee_f : pnl_net.to_f
+    # feeUsdt/pnlNet are per-fill in the current CSV contract. Legacy rows
+    # without them remain gross-only and are explicitly not assigned fees.
+    has_net_fields = !fee_usdt.to_s.empty? && !pnl_net.to_s.empty?
+    fee_f = has_net_fields ? fee_usdt.to_f : 0.0
+    net_f = has_net_fields ? pnl_net.to_f : pnl_f
     bps_f = bps.to_f
     stats[:filled] += 1
     stats[:gross] += pnl_f

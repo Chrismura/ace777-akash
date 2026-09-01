@@ -74,7 +74,7 @@ def csv_stats(path, min_ts: nil)
     cols = line.strip.split(",", -1)
     next if cols.size < 10
 
-    ts, _cycle, side, status, entry, exit_px, _qty, _bps, pnl, reason, fee_usdt, pnl_net = cols
+    ts, _cycle, side, status, entry, exit_px, _qty, _bps, pnl, fee_usdt, pnl_net, reason = cols
     next if min_ts && ts && !ts.empty? && ts < min_ts
 
     stats[:last_ts] = ts if ts && !ts.empty?
@@ -89,8 +89,11 @@ def csv_stats(path, min_ts: nil)
     next unless status == "FILLED"
 
     pnl_f = pnl.to_f
-    fee_f = fee_usdt.to_s.empty? ? 0.0 : fee_usdt.to_f
-    net_f = pnl_net.to_s.empty? ? pnl_f - fee_f : pnl_net.to_f
+    # feeUsdt and pnlNet are per-fill only when both fields are present.
+    # Missing fields mean legacy gross-only data; do not invent fees.
+    has_net_fields = !fee_usdt.to_s.empty? && !pnl_net.to_s.empty?
+    fee_f = has_net_fields ? fee_usdt.to_f : 0.0
+    net_f = has_net_fields ? pnl_net.to_f : pnl_f
     stats[:filled] += 1
     stats[:gross] += pnl_f
     stats[:fees] += fee_f

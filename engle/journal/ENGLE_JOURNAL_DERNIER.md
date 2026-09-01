@@ -1,9 +1,9 @@
-# JOURNAL ENGLE — ACE_DUO_CLEAN_V1_15M
+# JOURNAL ENGLE — ACE_DUO_CLEAN_V2_15M
 
-- Généré: `2026-09-01T14:10:35Z` (UTC)
+- Généré: `2026-09-01T15:12:35Z` (UTC)
 - Couche: **B1** (lecture seule) · `ENGLE_ADAPT=0`
-- Session start (filtre): `2026-09-01T14:10:33Z`
-- CSV: `ACE_DUO_CLEAN_V1_15M_BETA_X5.csv` · `ACE_DUO_CLEAN_V1_15M_ALPHA_X13_BURST13.csv`
+- Session start (filtre): `2026-09-01T15:12:33Z`
+- CSV: `ACE_DUO_CLEAN_V2_15M_BETA_X5.csv` · `ACE_DUO_CLEAN_V2_15M_ALPHA_X13_BURST13.csv`
 - Base: usine V2.2.1 + champion 37fca367 — **non modifié**
 
 ## Régime IRM (proxy)

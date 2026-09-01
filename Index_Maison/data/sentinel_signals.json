@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "sdi",
-      "zscore": 2.9974092999274853,
-      "value": 0.016,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Bruit médiatique non pertinent : les articles font référence à SDI Limited (médical), au SDI (Système d'Interchange fiscal) et à la norme vidéo SDI, sans aucun rapport avec la crypto-monnaie ou une baleine.\"\n}\n```",
-      "ts": "2026-08-31T12:14:26.758996+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.0734646795922624,
-      "value": 1.034,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique non pertinent (liens avec l'Institut Protestant de Théologie ou homonymie boursière TSXV:IPT). Absence totale de signal crypto valide malgré le z-score onchain.\"\n}\n```",
-      "ts": "2026-08-31T12:14:28.213210+00:00"
-    },
-    {
       "metric": "price_1h",
       "zscore": 3.2510955887273876,
       "value": 0.8730718480600919,
@@ -349,6 +335,20 @@
       "value": 1.152,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Anomalie technique (ipt) et titres médiatiques totalement hors sujet (Tournoi de Physique, biographie religieuse, biotechnologies académiques). Aucun rapport avec les mouvements de baleines crypto.\"\n}\n```",
       "ts": "2026-09-01T14:00:27.566189+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 9.118465520593059,
+      "value": 11769502.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (Z-score 9.12, accumulation de 11.7M$) dans un silence médiatique absolu. Les baleines accumulent discrètement avant que le narratif ne s'emballe.\"\n}\n```",
+      "ts": "2026-09-01T14:50:44.371230+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": 2.0083878533818926,
+      "value": 1.169,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Le ratio long/short élevé (z-score 2.01) indique un positionnement excessivement haussier des traders particuliers et des baleines, créant un risque élevé de 'long squeeze'. Pendant ce temps, le narratif médiatique est totalement déconnecté, focalisé sur la macroéconomie traditionnelle et les stratégies long/short en actions européennes, ignorant le danger imminent d'une correction imminente sur les cryptos.\"\n}\n```",
+      "ts": "2026-09-01T15:05:56.426422+00:00"
     }
   ]
 }

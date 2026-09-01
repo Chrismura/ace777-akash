@@ -1,4 +1,4 @@
-# ARCHITECTURE VIVANTE — ACE777 (2026-09-01 14:23 UTC)
+# ARCHITECTURE VIVANTE — ACE777 (2026-09-01 15:23 UTC)
 
 > Document GÉNÉRÉ AUTOMATIQUEMENT à l'instant. La famille valide
 > en s'appuyant sur CE contexte, pas sur des documents figés.
@@ -22,10 +22,10 @@
 
 ## État de la mission (bots + PnL)
 
-- mission.json : 2026-09-01 14:23Z · run `ACE_DUO_CLEAN_V1_15M` · alerte `red`
-- PnL combiné : **-2.96 $** 📉 (combo -2.9614)
-- ALPHA (sniper (embuscade, ×13, revenge si claque)) : **+0.00 $** · 0 fills · 102 skips
-- BETA (éclaireur (chatouille le marché, alimente Alpha)) : **-2.96 $** · 2 fills · 86 skips
+- mission.json : 2026-09-01 15:23Z · run `ACE_DUO_CLEAN_V2_15M` · alerte `red`
+- PnL combiné : **-0.39 $** 📉 (combo -0.3884)
+- ALPHA (sniper (embuscade, ×13, revenge si claque)) : **+1.49 $** · 2 fills · 68 skips
+- BETA (éclaireur (chatouille le marché, alimente Alpha)) : **-1.88 $** · 3 fills · 29 skips
 - HULK (gestionnaire de portefeuille (bag, escalier, courreur)) : **-6.24 $** · 0 fills
 - Saison : CALME 🧊 · 
 
@@ -67,11 +67,11 @@
 ## Mémoire chaude (journal + résumés)
 
 - Radar (dernières alertes) :
-  · 2026-09-01T14:23:46.904865Z BTCUSDT 78157.4 0.0000 1.3 declenche=non
-  · 2026-09-01T14:23:46.910870Z ETHUSDT 2447.0 0.0000 32.0 declenche=non
-  · 2026-09-01T14:23:47.179729Z BTCUSDT 78157.4 0.0000 1.3 declenche=non
-  · 2026-09-01T14:23:48.827228Z BTCUSDT 78157.39 0.0000 1.3 declenche=non
-- Intention en cours : BETA a sonde le marche (2 sondes, 1 long / 1 court, conf moy | ALPHA attend son moment : 95 skips (discipline), le mur du c | ALPHA attend son signal — aucun tir sur la session en cours.
+  · 2026-09-01T15:23:52.111582Z BTCUSDT 77832.4 0.0003 2.7 declenche=non
+  · 2026-09-01T15:23:52.220827Z BTCUSDT 77832.41 0.0003 2.7 declenche=non
+  · 2026-09-01T15:23:52.715773Z BTCUSDT 77832.4 0.0003 2.7 declenche=non
+  · 2026-09-01T15:23:54.499827Z BTCUSDT 77832.41 0.0003 2.7 declenche=non
+- Intention en cours : BETA a sonde le marche (3 sondes, 2 long / 1 court, conf moy | ALPHA attend son moment : 67 skips (discipline), le mur du c | ALPHA a frappe 2 fois en embuscade (13x) : +1.49 $, meilleur
 - 816 signets X résumés (quota aujourd'hui : 5/50)
 - 79 fiches IA d'offres en cache (quota 8/jour)
 
