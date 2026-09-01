@@ -17099,3 +17099,49 @@ Ce fichier sert de table des runs ACE777 pour retrouver vite les tests.
 - Rapport: `RAPPORT_PNL_AUTO_20260901_231052.md`
 - Verdict: `NEUTRE`
 
+
+---
+
+## 2026-09-01 — ACE_RADAR_ALIGNED_V3_15M (auto)
+
+- Profil: `?` v`?`
+- Tag: `ACE_RADAR_ALIGNED_V3_15M`
+- Période: `2026-09-01T23:10:59Z` → `2026-09-01T23:25:52Z`
+- Logs:
+  - `ACE_RADAR_ALIGNED_V3_15M_BETA_X5.csv`
+  - `ACE_RADAR_ALIGNED_V3_15M_ALPHA_X13_BURST13.csv`
+- Paramètres clé:
+  - `BUY_USDT_BETA=200`
+  - `BUY_USDT_ALPHA=800`
+  - `LLM_GATE_ENABLED=TRUE`
+  - `LLM_GATE_FAIL_CLOSED=TRUE`
+- Résultat:
+  - BETA: `-2.0696 USDT` (4 trades)
+  - ALPHA: `-3.2247 USDT` (2 trades)
+  - Total: `-5.2944 USDT`
+- Rapport: `RAPPORT_PNL_AUTO_20260901_232555.md`
+- Verdict: `NEGATIF`
+
+
+---
+
+## 2026-09-01 — ACE_RADAR_ALIGNED_V3_15M (auto)
+
+- Profil: `?` v`?`
+- Tag: `ACE_RADAR_ALIGNED_V3_15M`
+- Période: `2026-09-01T23:10:59Z` → `2026-09-01T23:25:52Z`
+- Logs:
+  - `ACE_RADAR_ALIGNED_V3_15M_BETA_X5.csv`
+  - `ACE_RADAR_ALIGNED_V3_15M_ALPHA_X13_BURST13.csv`
+- Paramètres clé:
+  - `BUY_USDT_BETA=?`
+  - `BUY_USDT_ALPHA=?`
+  - `LLM_GATE_ENABLED=?`
+  - `LLM_GATE_FAIL_CLOSED=?`
+- Résultat:
+  - BETA: `-2.0696 USDT` (4 trades)
+  - ALPHA: `-3.2247 USDT` (2 trades)
+  - Total: `-5.2944 USDT`
+- Rapport: `RAPPORT_PNL_AUTO_20260901_232555.md`
+- Verdict: `NEGATIF`
+

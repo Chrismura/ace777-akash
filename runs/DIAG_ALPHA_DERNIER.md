@@ -1,28 +1,29 @@
 # DIAGNOSTIC ALPHA — ACE_RADAR_ALIGNED_V3_15M
 
-> Généré: `2026-09-01T23:09:07Z` | Verdict: **OK — ALPHA active (1 fills, ratio BETA=50%)**
+> Généré: `2026-09-01T23:25:55Z` | Verdict: **OK — ALPHA active (2 fills, ratio BETA=50%)**
 
 ## Résumé
 
 | Métrique | ALPHA | BETA (référence) |
 |----------|-------|------------------|
-| FILLED | 1 | 2 |
-| PnL net | 0.4263 USDT | -0.5472 USDT |
-| SKIP total | 21 | 7 |
-| duo_wait | 5 (23.8% des SKIP ALPHA) | 0 |
+| FILLED | 2 | 4 |
+| PnL net | -1.0718 USDT | 0.7205 USDT |
+| SKIP total | 57 | 25 |
+| duo_wait | 3 (5.3% des SKIP ALPHA) | 0 |
 
 ## Entonnoir des gates — ALPHA
 
 Ordre dans `genesis_manifest.txt` : radar → tension/vacuum → tactic → stase → **duo** → qty → llm_gate → execute
 
-- `regime_gate` — **13**
-- `duo_wait` — **5**
-- `impulse_resonance_wait` — **2**
-- `radar_block` — **1**
+- `regime_gate` — **42**
+- `radar_block` — **6**
+- `impulse_resonance_wait` — **5**
+- `duo_wait` — **3**
+- `tactic_mismatch` — **1**
 
 ## duo_wait — sous-raisons (cause #2 après radar)
 
-- `unknown` — **5** (100.0% des duo_wait)
+- `unknown` — **3** (100.0% des duo_wait)
 
 ### Lecture technique
 
@@ -40,8 +41,9 @@ Ordre dans `genesis_manifest.txt` : radar → tension/vacuum → tactic → stas
 Revenge autorisé au-delà de `stop_loss` (shock / fluid / sentinel).
 Sorties BETA observées :
 
-- `0.79753786` — 1 trades
-- `0.39592448` — 1 trades
+- `0.79805902` — 2 trades
+- `0.79805489` — 1 trades
+- `0.39593267` — 1 trades
 
 - Sorties `shock_inversion_stop` : **0**
 - Sorties `stop_loss` : **0**
@@ -52,9 +54,9 @@ Sorties BETA observées :
 Quand le SCOUT ne rafraîchit pas `duo_state.json` dans les 60s, le HUNTER skip avec `stale_state`.
 Observé : **0** fois (0.0% des duo_wait).
 
-### 3. radar_block en amont (1 SKIP)
+### 3. radar_block en amont (6 SKIP)
 
-Même si le duo était parfait, 4.8% des cycles ALPHA meurent au radar avant d'atteindre le HUNTER.
+Même si le duo était parfait, 10.5% des cycles ALPHA meurent au radar avant d'atteindre le HUNTER.
 
 ## Paramètres duo actifs (config)
 
