@@ -36653,3 +36653,69 @@ Traceback (most recent call last):
   File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/urllib/request.py", line 1349, in do_open
     raise URLError(err)
 urllib.error.URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+Traceback (most recent call last):
+  File "/Users/christophe/ace777-test-day1/Index_Maison/scripts/fees_platforme.py", line 136, in <module>
+    raise SystemExit(main())
+  File "/Users/christophe/ace777-test-day1/Index_Maison/scripts/fees_platforme.py", line 100, in main
+    rt = aggregate_since(today_start_ms())
+  File "/Users/christophe/ace777-test-day1/Index_Maison/scripts/fees_platforme.py", line 78, in aggregate_since
+    inc = signed("/fapi/v1/income", params)
+  File "/Users/christophe/ace777-test-day1/Index_Maison/scripts/fees_platforme.py", line 58, in signed
+    with urllib.request.urlopen(req, timeout=25) as r:
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/urllib/request.py", line 214, in urlopen
+    return opener.open(url, data, timeout)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/urllib/request.py", line 523, in open
+    response = meth(req, response)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/urllib/request.py", line 632, in http_response
+    response = self.parent.error(
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/urllib/request.py", line 561, in error
+    return self._call_chain(*args)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/urllib/request.py", line 494, in _call_chain
+    result = func(*args)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/urllib/request.py", line 641, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 400: Bad Request
+Traceback (most recent call last):
+  File "/Users/christophe/ace777-test-day1/Index_Maison/scripts/fees_platforme.py", line 136, in <module>
+    raise SystemExit(main())
+  File "/Users/christophe/ace777-test-day1/Index_Maison/scripts/fees_platforme.py", line 100, in main
+    rt = aggregate_since(today_start_ms())
+  File "/Users/christophe/ace777-test-day1/Index_Maison/scripts/fees_platforme.py", line 78, in aggregate_since
+    inc = signed("/fapi/v1/income", params)
+  File "/Users/christophe/ace777-test-day1/Index_Maison/scripts/fees_platforme.py", line 58, in signed
+    with urllib.request.urlopen(req, timeout=25) as r:
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/urllib/request.py", line 214, in urlopen
+    return opener.open(url, data, timeout)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/urllib/request.py", line 523, in open
+    response = meth(req, response)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/urllib/request.py", line 632, in http_response
+    response = self.parent.error(
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/urllib/request.py", line 561, in error
+    return self._call_chain(*args)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/urllib/request.py", line 494, in _call_chain
+    result = func(*args)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/urllib/request.py", line 641, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 400: Bad Request
+Traceback (most recent call last):
+  File "/Users/christophe/ace777-test-day1/Index_Maison/scripts/fees_platforme.py", line 136, in <module>
+    raise SystemExit(main())
+  File "/Users/christophe/ace777-test-day1/Index_Maison/scripts/fees_platforme.py", line 100, in main
+    rt = aggregate_since(today_start_ms())
+  File "/Users/christophe/ace777-test-day1/Index_Maison/scripts/fees_platforme.py", line 78, in aggregate_since
+    inc = signed("/fapi/v1/income", params)
+  File "/Users/christophe/ace777-test-day1/Index_Maison/scripts/fees_platforme.py", line 58, in signed
+    with urllib.request.urlopen(req, timeout=25) as r:
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/urllib/request.py", line 214, in urlopen
+    return opener.open(url, data, timeout)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/urllib/request.py", line 523, in open
+    response = meth(req, response)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/urllib/request.py", line 632, in http_response
+    response = self.parent.error(
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/urllib/request.py", line 561, in error
+    return self._call_chain(*args)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/urllib/request.py", line 494, in _call_chain
+    result = func(*args)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/urllib/request.py", line 641, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 400: Bad Request

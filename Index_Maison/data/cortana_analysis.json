@@ -1,15 +1,60 @@
 {
-  "timestamp": 1788210910,
-  "date": "2026-08-31T21:15:10.591785+00:00",
-  "n_analyses": 1,
+  "timestamp": 1788239843,
+  "date": "2026-09-01T05:17:23.186620+00:00",
+  "n_analyses": 4,
   "analyses": [
     {
       "signal": {
         "metric": "long_short",
-        "zscore": -2.105443992541151,
-        "value": 1.006,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le z-score très bas (-2.11) indique un positionnement court anormalement saturé des 'dumb money' et de la foule, totalement aveuglée par les discussions médiatiques traditionnelles sur les stratégies long/short en finance classique. Les baleines accumulent discrètement en contre-tendance, préparant un violent 'short squeeze'.\"\n}\n```",
-        "ts": 1788210065.463213
+        "zscore": -2.2267594439148053,
+        "value": 0.994,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Z-score extrêmement bas (-2.23) sur le ratio long/short indiquant un positionnement vendeur massif et capitulant de la foule. Les médias traditionnels parlent de stratégies long/short en général sans voir le piège tactique en cours sur la crypto. Configuration classique de 'short squeeze' imminent initié par les baleines.\"\n}\n```",
+        "ts": 1788239010.654577
+      },
+      "fiche": null,
+      "interpretation": {
+        "lecture": "Pas de fiche disponible",
+        "niveau": "inconnu"
+      },
+      "action": "Observer"
+    },
+    {
+      "signal": {
+        "metric": "liquidations",
+        "zscore": -2.050302191016575,
+        "value": 25524948.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le z-score ultra-négatif (-2.05) montre une absence totale de liquidations sur les marchés crypto, contredisant le narratif médiatique alarmiste qui confond actualités macro/faillites d'entreprises locales et marché crypto. Les baleines accumulent dans le calme.\"\n}\n```",
+        "ts": 1788239313.216919
+      },
+      "fiche": null,
+      "interpretation": {
+        "lecture": "Pas de fiche disponible",
+        "niveau": "inconnu"
+      },
+      "action": "Observer"
+    },
+    {
+      "signal": {
+        "metric": "fear_greed",
+        "zscore": 3.1091263510296048,
+        "value": 69,
+        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrême (3.11) combiné à une cupidité élevée (69) sans couverture médiatique majeure : signal classique de 'bull trap' où les baleines distribuent silencieusement aux particuliers avant une correction.\"\n}\n```",
+        "ts": 1788239314.831733
+      },
+      "fiche": null,
+      "interpretation": {
+        "lecture": "Pas de fiche disponible",
+        "niveau": "inconnu"
+      },
+      "action": "Observer"
+    },
+    {
+      "signal": {
+        "metric": "whale_usd",
+        "zscore": 6.382632093890514,
+        "value": 9102296.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (Z-score 6.38, ~9.1M USD) totalement ignorée par les médias (silence radio). Divergence classique d'accumulation furtive par les baleines loin du bruit médiatique.\"\n}\n```",
+        "ts": 1788239617.313557
       },
       "fiche": null,
       "interpretation": {

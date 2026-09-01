@@ -2972,3 +2972,7 @@
 - 2026-08-31T20:59:37.182532Z | alerte | Maintien de l'alerte rouge et de la rigueur opérationnelle de l'essaim, combinant l'application stricte des stop-loss sur les positions seeds de Hulk en zone critique et la patience disciplinée d'Alpha. | conf=82%
 - 2026-08-31T21:03:43.444735Z | alerte | Maintien de l'alerte rouge et de la rigueur opérationnelle de l'essaim, combinant l'application stricte des stop-loss sur les positions seeds de Hulk en zone critique et la patience disciplinée d'Alpha. | conf=82%
 - 2026-08-31T21:04:46.292541Z | alerte | <une phrase claire> | conf=<0-100%>
+- 2026-08-31T21:20:53.995219Z | alerte | Maintien de la vigilance nominale de l'essaim, combinant la patience disciplinée d'Alpha, les reconnaissances ciblées de Beta et la gestion prudente des positions seeds de Hulk. | conf=88%
+- 2026-08-31T21:29:17.034124Z | alerte | Maintien de la vigilance nominale de l'essaim, combinant la patience disciplinée d'Alpha, les reconnaissances ciblées de Beta et la gestion prudente des positions seeds de Hulk. | conf=88%
+- 2026-08-31T21:32:02.990280Z | alerte | Maintien de la vigilance nominale de l'essaim, combinant la patience disciplinée d'Alpha, les reconnaissances ciblées de Beta et la gestion prudente des positions de Hulk. | conf=88%
+- 2026-09-01T05:00:27.384920Z | alerte | Maintien de la vigilance nominale de l'essaim, combinant la patience disciplinée d'Alpha, les sondages de Beta et la gestion prudente des positions de Hulk. | conf=88%

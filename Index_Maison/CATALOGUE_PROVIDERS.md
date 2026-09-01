@@ -1,8 +1,8 @@
 # CATALOGUE DES PROVIDERS — ACE777
 
-*Genere le 2026-08-31 par catalog_providers.py (gagnant A/B codeurs 09/08). Rafraichi a chaque veille du matin.*
+*Genere le 2026-09-01 par catalog_providers.py (gagnant A/B codeurs 09/08). Rafraichi a chaque veille du matin.*
 
-**Actifs : 12 · En observation : 1 · En attente : 13 · De cote (payant) : 2**
+**Actifs : 11 · En observation : 1 · En attente : 14 · De cote (payant) : 2**
 
 ## ACTIFS
 
@@ -19,13 +19,12 @@
 | - | `Devstral-2-123B-Instruct-2512-int4-AutoRound` | inferx-devstral | INTEGRE 16/08 (GO Christophe) - Devstral 123B, 2e codeur (file d'attente). | quota journal |
 | - | `deepseek-ai/DeepSeek-V3-0324` | huggingface | ACTIVE 17/08 - token HF avec permission Inference - DeepSeek-V3 teste reellement OK |
 | - | `orcarouter/free` | orca | INTEGRE 23/08 - cle OK, orcarouter/free teste OK (1.2s). Routeur meta (191 modeles). Signe |
-| - | `minimax/minimax-m3:free` | obs-1787724924 | RÉACTIVÉ 27/08 après re-test direct 3/3 OK (0.4-5s) — verdict famille 18/08 « observation  |
 
 ## EN OBSERVATION (48h avant activation, jamais route)
 
 | Role | Modele | Statut | Note |
 |------|--------|--------|------|
-| - | `dots-studio/dots-3-note-preview:free` | dots-studio-dots-3-note-preview-free | INTEGRE AUTO 2026-08-29 EN OBSERVATION (preuve A/B + juge: MIEUX - Reponse A tronquee.) |
+| - | `dots-studio/dots-3-note-preview:free` | dots-studio-dots-3-note-preview-free | INTEGRE AUTO 2026-09-01 EN OBSERVATION (preuve A/B + juge: MIEUX - réponse B plus complète |
 
 ## EN ATTENTE (cle manquante ou desactive)
 
@@ -44,6 +43,7 @@
 | - | `nvidia/nemotron-3.5-content-safety:free` | obs-1786795252 | TESTÉ 27/08 : répond 3/3 mais modèle de MODÉRATION (classification sécurité), pas un LLM d |
 | - | `google/diffusiongemma-26b-a4b-it` | obs-1787033767 | TESTÉ 27/08 : PAS DE CLÉ NVIDIA_API_KEY dans .env — impossible à activer. Ajouter la clé p |
 | - | `google/gemma-4-26b-a4b-it:free` | obs-1787206650 | TESTÉ 27/08 : instable (1/3, 429 intermittent) — reste désactivé (l'observatoire avait rai |
+| - | `minimax/minimax-m3:free` | obs-1787724924 | RÉACTIVÉ 27/08 après re-test direct 3/3 OK (0.4-5s) — verdict famille 18/08 « observation  |
 
 ## DE COTE (payant / obsolète)
 

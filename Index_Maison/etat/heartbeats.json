@@ -1,33 +1,35 @@
 {
-  "timestamp": 1788211178,
-  "date": "2026-08-31 23:19:38",
+  "timestamp": 1788240180,
+  "date": "2026-09-01 07:23:01",
   "source": "heartbeats (PAA-ACE777 ajout 1, 20/08)",
   "services": {
     "vigie": {
       "ok": true,
-      "detail": "OK (vie 0s)"
+      "detail": "OK (vie 90s)"
     },
     "veille": {
       "ok": true,
-      "detail": "OK (vie 8s)"
+      "detail": "OK (vie 132s)"
     },
     "dms": {
       "ok": true,
-      "detail": "OK (vie 38s)"
+      "detail": "OK (vie 0s)"
     },
     "sante": {
       "ok": true,
-      "detail": "OK (vie 158s)"
+      "detail": "OK (vie 210s)"
     },
     "superviseur_core": {
-      "ok": true,
-      "detail": "OK (vie 360s)"
+      "ok": false,
+      "detail": "process vivant mais fichier de vie ABSENT (superviseur-core.log)"
     },
     "whales": {
       "ok": true,
-      "detail": "OK (vie 481s)"
+      "detail": "OK (vie 621s)"
     }
   },
-  "zombies_fonctionnels": [],
-  "statut": "SAIN"
+  "zombies_fonctionnels": [
+    "superviseur_core: process vivant mais fichier de vie ABSENT (superviseur-core.log)"
+  ],
+  "statut": "ALERTE"
 }
