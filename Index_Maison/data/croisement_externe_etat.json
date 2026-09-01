@@ -1,23 +1,32 @@
 {
-  "ts": "2026-09-01T17:57:15Z",
+  "ts": "2026-09-01T18:27:22Z",
   "n_verifications": 25,
   "n_fails": 0,
   "n_fails_pendants": 0,
-  "n_warns": 1,
+  "n_warns": 2,
   "fails": [],
   "fails_pendants": [],
   "warns": [
     {
       "type": "murs",
-      "pair": "ZBCNUSDT",
-      "notre_bid_avg": 593.13,
-      "ext_bid_5niv": 88.57,
-      "notre_ask_avg": 707.19,
-      "ext_ask_5niv": 26.05,
+      "pair": "BTCUSDT",
+      "notre_bid_avg": 419926.18,
+      "ext_bid_5niv": 90920.35,
+      "notre_ask_avg": 488181.06,
+      "ext_ask_5niv": 13298.05,
+      "note": "ratio hors [0.05x-20.0x] — carnet déséquilibré ou donnée à surveiller"
+    },
+    {
+      "type": "murs",
+      "pair": "CHIPUSDT",
+      "notre_bid_avg": 30766.68,
+      "ext_bid_5niv": 1495.48,
+      "notre_ask_avg": 27298.12,
+      "ext_ask_5niv": 20021.63,
       "note": "ratio hors [0.05x-20.0x] — carnet déséquilibré ou donnée à surveiller"
     }
   ],
   "persistance_ticks": 3,
   "regle": "écart > 5.0% entre notre prix et une source externe = data_quality_fail (bloquant après 3 ticks consécutifs) · murs = warning informatif",
-  "lecture": "⚠️ 1 warning(s) murs (carnet déséquilibré) — prix OK"
+  "lecture": "⚠️ 2 warning(s) murs (carnet déséquilibré) — prix OK"
 }
