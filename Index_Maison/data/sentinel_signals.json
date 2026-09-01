@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "whale_usd",
-      "zscore": 9.860373239695736,
-      "value": 8665384.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (Z-score 9.86, ~8.6M USD) dans le silence total des médias (couverture nulle). Accumulation furtive classique de baleines loin du radar grand public.\"\n}\n```",
-      "ts": "2026-08-31T03:42:52.160471+00:00"
-    },
-    {
       "metric": "fear_greed",
       "zscore": -2.236067977499786,
       "value": 62,
@@ -349,6 +342,13 @@
       "value": 1.048,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Anomalie non pertinente : les données font référence à des actualités institutionnelles et académiques (Tournoi International des Physiciens, partenariats universitaires) sans aucun lien avec les flux de cryptomonnaies ou l'activité onchain de baleines.\"\n}\n```",
       "ts": "2026-09-01T09:54:14.505396+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": -2.42872234397822,
+      "value": 2166596.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Divergence forte entre les liquidations onchain (anomalie bullish avec z-score -2.43) et le narratif médiatique focalisé sur des liquidations judiciaires locales ou baisses Bitcoin. Les baleines pourraient accumuler silencieusement pendant la distraction médiatique.\"\n}\n```",
+      "ts": "2026-09-01T10:24:21.743316+00:00"
     }
   ]
 }
