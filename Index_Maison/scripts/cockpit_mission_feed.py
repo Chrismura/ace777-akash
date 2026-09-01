@@ -278,7 +278,9 @@ def load_hulk_conseils() -> dict:
 
 
 def load_hulk():
-    state = freshest("*_state.json", HULK)
+    # Ne sélectionner que l'état canonique Hulk. D'autres jobs (ex. short_btc)
+    # écrivent aussi dans runs/ mais ne décrivent ni le portefeuille ni le moteur Hulk.
+    state = freshest("PAPER_V1_*_state.json", HULK)
     # CSV apparié au state (même stem) — sinon freshest PAPER*
     csv_p = None
     if state and state.exists():
@@ -288,6 +290,7 @@ def load_hulk():
             csv_p = cand
     if not csv_p:
         csv_p = freshest("PAPER*.csv", HULK)
+    state_data = None
     out = {
         "file": None, "stateFile": None, "pnl": 0.0, "trades": 0,
         "notional": None, "base": None, "cash": None, "equity": None, "engaged": None,
@@ -296,6 +299,7 @@ def load_hulk():
     }
     if state and state.exists():
         s = json.loads(state.read_text(encoding="utf-8"))
+        state_data = s
         out["stateFile"] = state.name
         out["pnl"] = round(float(s.get("pnl_total") or 0), 4)
         out["trades"] = int(s.get("trades") or 0)
@@ -356,7 +360,10 @@ def load_hulk():
             return {
                 "pair": pair,
                 "crypto": _crypto_from_pair(pair),
-                "status": kind,  # TRADE | BAG | FLAT | CASH
+                "status": kind,  # TRADE | BAG | FLAT | CASH (rétrocompatibilité)
+                # Contrat canonique consommé par le cockpit : ne jamais déduire
+                # la nature financière depuis status ou la présence d'une ligne.
+                "category": "house_bag" if kind == "BAG" else ("seed_holding" if info.get("seed") else ("trade_position" if kind == "TRADE" else kind.lower())),
                 "dir": "LONG" if kind in ("TRADE", "BAG") else "FLAT",
                 "entry": entry,
                 "qty": qty,
@@ -407,6 +414,7 @@ def load_hulk():
                     "pair": pair,
                     "crypto": _crypto_from_pair(pair),
                     "status": "CASH" if cash > 0 else "FLAT",
+                    "category": "cash" if cash > 0 else "flat",
                     "dir": "FLAT",
                     "entry": None,
                     "qty": None,
@@ -436,6 +444,13 @@ def load_hulk():
         out["universe"] = len(universe)
         out["bagsMaison"] = len(bag_set)
         out["openTrades"] = len(open_set)
+        out["categoryCounts"] = {
+            "trade_position": sum(1 for p in portfolio if p.get("category") == "trade_position"),
+            "seed_holding": sum(1 for p in portfolio if p.get("category") == "seed_holding"),
+            "house_bag": sum(1 for p in portfolio if p.get("category") == "house_bag"),
+            "cash": sum(1 for p in portfolio if p.get("category") == "cash"),
+            "flat": sum(1 for p in portfolio if p.get("category") == "flat"),
+        }
     if csv_p and csv_p.exists():
         out["file"] = csv_p.name
         rows = []
@@ -510,9 +525,34 @@ def load_hulk():
                     pass
         out["fees"] = round(fee_total, 4)
         out["feeTrades"] = fee_trades
+        # P2 : comptabilité paper séparée, sans altérer le PnL décisionnel du moteur.
+        # Les frais et le slippage sont des estimations d'audit, jamais des fills réels.
+        out["pnlGross"] = round(float(out.get("pnl") or 0.0), 4)
+        slip_bps = 0.0
+        try:
+            slip_bps = float((state_data or {}).get("PAPER_SLIPPAGE_BPS") or 0.0)
+        except Exception:
+            slip_bps = 0.0
+        out["slippageBpsEstimated"] = slip_bps
+        out["slippageEstimated"] = round(sum(
+            abs(float(r.get("price") or 0.0) * float(r.get("qty") or 0.0)) * slip_bps / 10000.0
+            for r in rows if r.get("price") is not None and r.get("qty") is not None
+        ), 4)
+        out["pnlNetEstimated"] = round(
+            out["pnlGross"] - float(out["fees"] or 0.0) - float(out["slippageEstimated"] or 0.0), 4
+        )
+        out["accountingNote"] = "PnL moteur brut; frais/slippage estimés séparément par le feed"
 
     # ——— WALLET : origine → réel vs statique (buy & hold) ———
     # Origine (point zéro Christophe 19/08) : 10 $ crypto + 20 $ cash = 30 $.
+    # Invariants P2 de restitution : le feed ne doit jamais fabriquer de cash
+    # ou mélanger une position avec un house bag.
+    out["stateInvariants"] = {
+        "positions_are_dict": isinstance((state_data.get("positions") if state_data else {}) or {}, dict),
+        "bags_are_dict": isinstance((state_data.get("bags") if state_data else {}) or {}, dict),
+        "cash_non_negative": all(float(v or 0.0) >= 0 for v in ((state_data.get("pair_cash") if state_data else {}) or {}).values()),
+        "categories_explicit": all("category" in p for p in (out.get("portfolio") or [])),
+    }
     out["walletOrigine"] = 30.0
     out["walletOrigineCrypto"] = 10.0
     out["walletOrigineCash"] = 20.0

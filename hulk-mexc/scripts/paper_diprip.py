@@ -549,6 +549,17 @@ class PaperBot:
         self.inv = inv
         self.poll = int(float(cfg.get("POLL_SEC", "20")))
         self.score_every = int(float(cfg.get("SCORE_EVERY", "3")))
+        # Instrumentation P0 : mesure passive des phases, sans effet sur les gates.
+        self.eval_metrics = {
+            "cycles": 0,
+            "phase_seconds": {},
+            "last_cycle_seconds": 0.0,
+        }
+        # Observabilité P1 : les refus identiques ne doivent pas saturer le CSV.
+        # Les transitions, erreurs et opérations réelles restent toujours écrites.
+        self.skip_dedupe_ttl = float(cfg.get("SKIP_DEDUPE_TTL_SEC", "60"))
+        self.skip_dedupe: dict[tuple[str, str, str], tuple[float, int]] = {}
+        self.skip_dedupe_counts: dict[str, int] = {}
         # v1.4 : plus de bag 15% — pleine mise, puis 2× → moitié bag
         self.double_mult = float(cfg.get("STAKE_DOUBLE_MULT", "2.0"))
         self.stake_sell_frac = float(cfg.get("STAKE_SELL_FRAC", "0.50"))
@@ -650,6 +661,11 @@ class PaperBot:
         # comportement historique (probe fait ses propres appels). Réversible à chaud
         # via ASPIRATION_SRC dans defaults.env (relu au démarrage).
         self.aspiration_src = (cfg.get("ASPIRATION_SRC", "fichier") or "fichier").strip().lower()
+        # En mode fichier, une panne du satellite ne doit pas augmenter la charge
+        # réseau ni laisser passer une nouvelle entrée sur une source dégradée.
+        # Les sorties restent toujours gérées par manage_open/manage_bag.
+        self.aspiration_degraded = False
+        self.aspiration_degraded_reason = ""
         self.aspiration_delay_s = float(cfg.get("ASPIRATION_DELAY_S", "0.5"))
         self.aspiration_min_notional = float(cfg.get("ASPIRATION_MIN_NOTIONAL_USDT", "500"))
         # Probe toutes les N cycles (rate-limit MEXC ~200 req/min) + max paires actives par probe
@@ -1127,10 +1143,12 @@ class PaperBot:
         # cœur + isolation des pannes réseau. RÉVERSIBLE via ASPIRATION_SRC (fichier|inline).
         # Si le fichier est absent / stale (>45s), on retombe en inline (fallback sûr).
         if self.aspiration_src == "fichier":
+            self.aspiration_degraded = False
+            self.aspiration_degraded_reason = ""
             try:
                 live = json.loads((RUNS / "aspiration_live.json").read_text(encoding="utf-8"))
-                frais = (int(live.get("ts") or 0) and
-                         (time.time() - int(live.get("ts") or 0)) <= 45)
+                ts_live = int(live.get("ts") or 0)
+                frais = bool(ts_live and (time.time() - ts_live) <= 45)
                 if frais:
                     for pair, a in (live.get("paires") or {}).items():
                         if a.get("ok"):
@@ -1141,14 +1159,24 @@ class PaperBot:
                         self.btc_price = btc_p
                         try:
                             self.cb_btc.validate(
-                                {"timestamp": int(live.get("ts") or 0), "price": btc_p},
+                                {"timestamp": ts_live, "price": btc_p},
                                 source="btc",
                             )
                         except CircuitOpenException:
                             say("warn", "[CB] BTC stale (satellite) — entrées bloquées")
                     return
-            except Exception:
-                pass
+                self.aspiration_degraded_reason = "ASPIRATION_STALE"
+            except FileNotFoundError:
+                self.aspiration_degraded_reason = "ASPIRATION_MISSING"
+            except (ValueError, TypeError, json.JSONDecodeError):
+                self.aspiration_degraded_reason = "ASPIRATION_INVALID"
+            except Exception as e:
+                self.aspiration_degraded_reason = f"ASPIRATION_ERROR:{type(e).__name__}"
+            # P0 fail-safe : aucune sonde inline de secours en mode fichier.
+            # Les positions existantes restent gérées par tick_pair/manage_open.
+            self.aspiration_degraded = True
+            say("warn", f"[{utc_now()}] {self.aspiration_degraded_reason} — NO_NEW_ENTRIES (sorties maintenues)")
+            return
         # paires actives : COOLING / IMPULSE (prêtes à trader) — pas les WATCH/QUIET
         active = [
             p
@@ -1393,6 +1421,20 @@ class PaperBot:
         return True
 
     def log(self, pair, event, regime, price, entry, qty, pnl, cadence, reason):
+        # Déduplication bornée des SKIP : le motif et le régime doivent rester
+        # identiques. Toute opération, erreur ou transition continue d'être tracée.
+        if str(event).upper() == "SKIP":
+            now = time.time()
+            key = (str(pair), str(regime), str(reason))
+            previous = self.skip_dedupe.get(key)
+            if previous and now - previous[0] < self.skip_dedupe_ttl:
+                self.skip_dedupe[key] = (previous[0], previous[1] + 1)
+                self.skip_dedupe_counts[str(reason).split(":", 1)[0]] = self.skip_dedupe_counts.get(str(reason).split(":", 1)[0], 0) + 1
+                return
+            self.skip_dedupe[key] = (now, 1)
+            # Purge bornée : aucun état de refus ne vit au-delà de 2× le TTL.
+            cutoff = now - (self.skip_dedupe_ttl * 2)
+            self.skip_dedupe = {k: v for k, v in self.skip_dedupe.items() if v[0] >= cutoff}
         with self.csv_path.open("a", newline="") as f:
             csv.writer(f).writerow(
                 [
@@ -1429,6 +1471,7 @@ class PaperBot:
                 "scores": self.scores,
                 "pairs": self.pairs,
                 "wall_melt_events": self.wall_melt_events[-50:],  # garder les 50 derniers
+                "eval_metrics": self.eval_metrics,
             },
             indent=2,
         )
@@ -1658,7 +1701,19 @@ class PaperBot:
         return float(int(qty / step + 1e-9) * step)
 
     def buy(self, pair: str, price: float, sc: dict, reason: str, notion: Optional[float] = None):
-        """Pleine mise (100%). Pas de bag 15% à l'entrée."""
+        """Pleine mise (100%). Pas de bag 15% à l'entrée.
+
+        Toute nouvelle allocation passe ici (entrée normale, re-entry et cash
+        redeploy), ce qui évite qu'un chemin secondaire contourne le mode P0.
+        Les sorties n'appellent jamais buy().
+        """
+        if self.aspiration_src == "fichier" and self.aspiration_degraded:
+            regime = sc.get("regime") or "QUIET"
+            self.log(
+                pair, "SKIP", regime, price, price, 0.0, 0.0,
+                sc.get("cadence_pct"), f"{self.aspiration_degraded_reason}:NO_NEW_ENTRIES",
+            )
+            return
         if pair in self.pos or pair in self.bags:
             return
         regime = sc.get("regime", "")
@@ -2523,10 +2578,14 @@ class PaperBot:
             # cycle → le cache alimente last_price (0 appel réseau ensuite). Si le
             # batch échoue, last_price fait le fallback unitaire/dernier prix connu.
             loop_start = time.time()
+            cycle_perf = time.perf_counter()
+            phase_start = cycle_perf
             try:
                 fetch_all_prices(self.pairs)
             except Exception:
                 pass
+            self.eval_metrics["phase_seconds"]["fetch_prices"] = self.eval_metrics["phase_seconds"].get("fetch_prices", 0.0) + (time.perf_counter() - phase_start)
+            phase_start = time.perf_counter()
             # Croisement indices × murs : config relue à chaque cycle → on peut
             # couper/rallumer à chaud (croisement_config.json) sans redémarrer.
             self._load_croisement_config()
@@ -2539,8 +2598,12 @@ class PaperBot:
             if n > 0 and n % self.score_every == 0:
                 self.refresh_scores()
                 self.refresh_cortana_pilot()
+            self.eval_metrics["phase_seconds"]["scores"] = self.eval_metrics["phase_seconds"].get("scores", 0.0) + (time.perf_counter() - phase_start)
+            phase_start = time.perf_counter()
             # Sonde aspiration (mode observation) : paires actives, toutes les N cycles
             self.probe_aspiration(n)
+            self.eval_metrics["phase_seconds"]["aspiration"] = self.eval_metrics["phase_seconds"].get("aspiration", 0.0) + (time.perf_counter() - phase_start)
+            phase_start = time.perf_counter()
             # === MURS: détection post-choc + GEX wall (25/08) ===
             try:
                 for pair in self.pairs:
@@ -2553,7 +2616,10 @@ class PaperBot:
                     self.tick_pair(pair)
                 except Exception as e:
                     say("err", f"[{utc_now()}] ERR {pair}: {e}")
+            self.eval_metrics["phase_seconds"]["pairs"] = self.eval_metrics["phase_seconds"].get("pairs", 0.0) + (time.perf_counter() - phase_start)
             n += 1
+            self.eval_metrics["cycles"] = n
+            self.eval_metrics["last_cycle_seconds"] = round(time.perf_counter() - cycle_perf, 6)
             if n % 3 == 0:
                 open_n = len(self.pos)
                 bags_n = len(self.bags)
@@ -2574,6 +2640,8 @@ class PaperBot:
                 _health_note = f" health={_health:.2f}" if _health < 1.0 else ""
                 _cortana_rec = self.get_cortana_recommendation()
                 _cortana_note = f" | Cortana: {_cortana_rec.get('action', '?')}" if _cortana_rec.get('niveau') not in ('inconnu', None) else ""
+                phase_totals = self.eval_metrics.get("phase_seconds", {})
+                phase_note = " ".join(f"{k}={v:.2f}s" for k, v in phase_totals.items())
                 say(
                     "heart",
                     f"[{utc_now()}] heartbeat open={open_n} bags={bags_n} "
@@ -2581,9 +2649,14 @@ class PaperBot:
                     f"mise={notion:.2f}$ trades={self.trades} "
                     f"pnl={self.pnl_total:+.4f}$ | {regimes}{standby} "
                     f"cortana={len(self.cortana_pending)} bag={_bag_open}/{self.bag_max_positions}"
-                    f" melts={_melt}{_gex_note}{_cb}{_health_note}{_cortana_note}",
+                    f" melts={_melt}{_gex_note}{_cb}{_health_note}{_cortana_note}"
+                    f" eval_cycle={self.eval_metrics['last_cycle_seconds']:.3f}s totals[{phase_note}]",
                 )
                 self.save_state()
+                if self.skip_dedupe_counts:
+                    summary = ", ".join(f"{k}×{v}" for k, v in sorted(self.skip_dedupe_counts.items(), key=lambda x: -x[1])[:8])
+                    say("heart", f"[{utc_now()}] SKIP_DEDUP résumé: {summary}")
+                    self.skip_dedupe_counts.clear()
             # Phase 1 (31/08) : anti-drift — on dort jusqu'au prochain tick absolu,
             # pas 20s fixes (sinon temps de calcul cumulé qui décale toute la boucle).
             elapsed = time.time() - loop_start

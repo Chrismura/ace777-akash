@@ -2,34 +2,6 @@
   "signals": [
     {
       "metric": "volume",
-      "zscore": 2.527159834519557,
-      "value": 7774965662.0,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.53) combiné à un volume massif de dérivés et un flux net preneur fortement négatif (-96 M$ sur Binance) confirme une distribution agressive par les baleines, en phase avec le narratif médiatique de capitulation sur les positions acheteuses.\"\n}\n```",
-      "ts": "2026-08-31T02:12:13.185227+00:00"
-    },
-    {
-      "metric": "liquidations",
-      "zscore": 2.4124939636810447,
-      "value": 53399299.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.41) sur les liquidations combiné à un narratif médiatique ultra-pessimiste (appels à la baisse, 'Bitcoin à $10k', échecs techniques) and un bruit externe sans rapport (immobilier). Classic flush de retail orchestré par les baleines pour accumuler dans la peur.\"\n}\n```",
-      "ts": "2026-08-31T02:17:16.331852+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.648982381898596,
-      "value": 1.226,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique sans rapport avec la crypto (actualités académiques et religieuses). Le z-score élevé reflète probablement une faible liquidité ou une anomalie technique du ticker plutôt qu'une accumulation réelle de baleines.\"\n}\n```",
-      "ts": "2026-08-31T02:17:17.775193+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": -2.9325756597230344,
-      "value": 62,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie statistique majeure : un z-score de -2.93 sur le Fear & Greed (couplé à un vide médiatique total) indique une indifférence publique extrême en zone de cupidité modérée. Comportement typique d'accumulation silencieuse par les baleines avant un mouvement haussier de rupture.\"\n}\n```",
-      "ts": "2026-08-31T02:37:22.273450+00:00"
-    },
-    {
-      "metric": "volume",
       "zscore": -3.5428418007390827,
       "value": 0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain extrême (volume nul, z-score -3.54) couplée à un narratif médiatique saturé de panique sur les dérivés XRP et de bruit hors-sujet (cognac, maïs). Classic 'washout' de détail pendant que les baleines accumulent en silence.\"\n}\n```",
@@ -349,6 +321,34 @@
       "value": 69,
       "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrême (3.11) combiné à une cupidité élevée (69) sans couverture médiatique majeure : signal classique de 'bull trap' et de distribution silencieuse par les baleines avant un retournement.\"\n}\n```",
       "ts": "2026-09-01T07:13:25.833402+00:00"
+    },
+    {
+      "metric": "taker_ratio",
+      "zscore": -2.004683902746357,
+      "value": 0.58,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Le ratio des preneurs (taker_ratio à 0.58, z-score -2.00) indique une domination massive et anormale des acheteurs aggetSignificative, contredisant le narratif public qui minimise simplement la pression vendeuse. Les baleines accumulent agressivement dans le silence médiatique.\"\n}\n```",
+      "ts": "2026-09-01T07:43:32.823616+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 2.932575659723037,
+      "value": 69,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Le score Z extrême (2.93) indique une euphorie retail maximale (Greed 69) complètement déconnectée ou ignorée par les flux médiatiques traditionnels (absence de couverture Google Actualités). Historiquement, cette divergence signale une complaisance dangereuse et une distribution silencieuse des baleines avant un retournement.\"\n}\n```",
+      "ts": "2026-09-01T07:43:34.292683+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 2.6457513110645903,
+      "value": 69,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Indice de Peur & Greed à 69 (z-score 2.65) en zone de surchauffe euphorique, combiné à un vide médiatique total (Google Actualités silencieux). Divergence classique de piège à liquidité : le marché retail est aveuglément gourmand tandis que les gros porteurs préparent discrètement une distribution.\"\n}\n```",
+      "ts": "2026-09-01T08:13:42.706501+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 3.7728835115716266,
+      "value": 6056546.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 3.77, ~6M USD) en absence totale de couverture médiatique. Accumulation furtive des baleines sous le radar du retail.\"\n}\n```",
+      "ts": "2026-09-01T08:18:45.265408+00:00"
     }
   ]
 }

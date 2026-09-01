@@ -4,7 +4,7 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<meta name="version" content="1075062533">
+<meta name="version" content="227835137">
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate" />
@@ -13,13 +13,13 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Share+Tech+Mono&family=Caveat:wght@600;700&display=swap" rel="stylesheet" />
-<script src="mission.js?v=1788247398"></script>
+<script src="mission.js?v=1788250983"></script>
 <!-- COSMOS HUB feed -->
-<script src="hub.js?v=1788247398"></script>
-<script src="../thermo/live.js?v=1788247398"></script>
-<script src="../thermo/cortana_feed.js?v=1788247398"></script>
-<script src="sante_live.js?v=1788247398"></script>
-<script src="veille_institutionnelle.js?v=1788247398"></script>
+<script src="hub.js?v=1788250983"></script>
+<script src="../thermo/live.js?v=1788250983"></script>
+<script src="../thermo/cortana_feed.js?v=1788250983"></script>
+<script src="sante_live.js?v=1788250983"></script>
+<script src="veille_institutionnelle.js?v=1788250983"></script>
 <style>
 :root{
   --ink:#050804; --panel:#0a100c; --line:#3a2e14;
@@ -1461,6 +1461,7 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
         <div class="hg" title="Capital engagé dans les positions ouvertes"><span class="hg-lab">ENGAGÉ</span><span class="hg-val" id="h-engaged">—</span></div>
         <div class="hg" title="Capital de départ paper"><span class="hg-lab">BASE</span><span class="hg-val" id="h-base">—</span></div>
         <div class="hg" title="Frais plateforme estimés (0.05% taker MEXC) — non déduits"><span class="hg-lab">FRAIS</span><span class="hg-val" id="h-fees">—</span></div>
+        <div class="hg" title="PnL net estimé = PnL brut − frais − slippage estimé"><span class="hg-lab">NET ESTIMÉ</span><span class="hg-val" id="h-net-est">—</span></div>
         <div class="hg hg-ia" title="Conseil ADA (gardienne)"><span class="hg-lab">IA · ADA</span><span class="hg-val" id="h-ia">—</span></div>
       </div>
 
@@ -2025,6 +2026,7 @@ window.addEventListener('unhandledrejection', function(e) {
     set('h-engaged', usd(h.engaged!=null? h.engaged : h.notional));
     set('h-base', usd(h.base));
     set('h-fees', h.fees!=null ? ('$'+Number(h.fees).toFixed(3)) : '—');
+    set('h-net-est', h.pnlNetEstimated!=null ? ('$'+Number(h.pnlNetEstimated).toFixed(3)) : '—');
     // IA · ADA (gardienne) : zone + voilure
     const gd=M.gardienne||{};
     const ia=document.getElementById('h-ia');
@@ -2034,10 +2036,12 @@ window.addEventListener('unhandledrejection', function(e) {
       ia.textContent = (zone+' '+voil).trim() || '—';
     }
     const rows=(h.portfolio&&h.portfolio.length)? h.portfolio : (h.positions||[]);
-    const openRows=rows.filter(p=>(p.status||'').toUpperCase()==='TRADE'||(p.status||'').toUpperCase()==='BAG'||p.open===true);
+    const categoryOf=p=>p.category||(((p.status||'').toUpperCase()==='BAG')?'house_bag':(((p.status||'').toUpperCase()==='TRADE'||p.open===true)?(p.seed?'seed_holding':'trade_position'):(((p.status||'').toUpperCase()==='CASH')?'cash':'flat')));
+    const openRows=rows.filter(p=>categoryOf(p)==='trade_position'||categoryOf(p)==='house_bag');
+    const counts=h.categoryCounts||{};
     const univN=h.universe!=null? h.universe : rows.length;
     const note=document.getElementById('h-bags-note');
-    if(note) note.textContent = openRows.length+' ouverte(s) · '+univN+' suivies · '+(h.tradesClosed||0)+' clôture(s)';
+    if(note) note.textContent = (counts.trade_position!=null?counts.trade_position:openRows.filter(p=>categoryOf(p)==='trade_position').length)+' trade(s) · '+(counts.seed_holding!=null?counts.seed_holding:openRows.filter(p=>categoryOf(p)==='seed_holding').length)+' seed · '+(counts.house_bag!=null?counts.house_bag:openRows.filter(p=>categoryOf(p)==='house_bag').length)+' house bag(s) · '+(counts.cash!=null?counts.cash:rows.filter(p=>categoryOf(p)==='cash').length)+' cash · '+univN+' suivies · '+(h.tradesClosed||0)+' clôture(s)';
     // SCORE HULK vs HOLD : le vrai compas (au lieu du rouge instantané).
     // hulkVsHold = calculé par le feed (walletReel vs walletStatique, cash inclus).
     const vsH=h.hulkVsHold||null;
@@ -3297,13 +3301,14 @@ window.addEventListener('unhandledrejection', function(e) {
   // ——— HULK détails : frais plateforme + hold % ———
   function renderHulkDetails(){
     const h=M.hulk||{};
+    const categoryOf=p=>p.category||(((p.status||'').toUpperCase()==='BAG')?'house_bag':(((p.status||'').toUpperCase()==='TRADE'||p.open===true)?(p.seed?'seed_holding':'trade_position'):(((p.status||'').toUpperCase()==='CASH')?'cash':'flat')));
     const feeEl=document.getElementById('hm-fees');
     if(feeEl) feeEl.textContent = h.fees!=null ? ('$'+Number(h.fees).toFixed(4)) : '—';
     const rate=h.feeRate!=null?h.feeRate:0.0005;
     const fn=document.getElementById('hm-fees-note');
     if(fn) fn.textContent = 'Taux taker MEXC spot '+(rate*100).toFixed(2)+'% · '+(h.feeTrades||0)+' opération(s) · estimé — le moteur paper ne déduit pas encore les frais.';
     const rows=(h.portfolio&&h.portfolio.length)? h.portfolio : (h.positions||[]);
-    const isOpen=p=>((p.status||'').toUpperCase()==='TRADE'||(p.status||'').toUpperCase()==='BAG'||p.open===true);
+    const isOpen=p=>categoryOf(p)==='trade_position'||categoryOf(p)==='house_bag';
     const openRows=rows.filter(isOpen);
     const tbody=document.getElementById('hm-hold');
     let uSum=0;
