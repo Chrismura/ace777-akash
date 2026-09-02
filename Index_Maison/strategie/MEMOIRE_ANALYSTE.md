@@ -3152,3 +3152,9 @@
 - 2026-09-02T09:24:08.803090Z | alerte | Maintien de l'alerte rouge, exécution immédiate des stop-loss sur les positions seeds en infraction critique et stricte préservation de la discipline d'embuscade d'Alpha. | conf=85%
 - 2026-09-02T09:26:00.363814Z | alerte | Maintien de l'alerte rouge, exécution immédiate des stop-loss sur les positions seeds en infraction critique et stricte préservation de la discipline d'embuscade d'Alpha. | conf=85%
 - 2026-09-02T09:31:51.695775Z | alerte | Maintien de l'alerte rouge, exécution immédiate des stop-loss sur les positions seeds de Hulk en infraction critique et stricte préservation de la discipline d'embuscade d'Alpha. | conf=85%
+- 2026-09-02T09:46:41.530664Z | alerte | Maintien de l'alerte rouge avec une stricte discipline d'embuscade d'Alpha et un arbitrage resserré des positions seeds de Hulk. | conf=85%
+- 2026-09-02T09:56:04.847142Z | alerte | Maintien de l'alerte rouge avec une stricte discipline d'embuscade d'Alpha et un arbitrage resserré des positions seeds de Hulk. | conf=85%
+- 2026-09-02T10:23:29.160488Z | alerte | Maintien de l'alerte rouge avec une stricte discipline d'embuscade d'Alpha et un arbitrage resserré des positions seeds de Hulk. | conf=85%
+- 2026-09-02T10:26:12.868315Z | alerte | Maintien de l'alerte rouge avec une stricte discipline d'embuscade d'Alpha, un éclairage mesuré de Beta et un arbitrage resserré des positions seeds de Hulk. | conf=85%
+- 2026-09-02T10:27:09.762941Z | alerte | Maintien de l'alerte rouge avec une stricte discipline d'embuscade d'Alpha, un éclairage mesuré de Beta et un arbitrage resserré des positions seeds de Hulk. | conf=85%
+- 2026-09-02T10:32:22.156003Z | alerte | Maintien de l'alerte rouge avec une stricte discipline d'embuscade d'Alpha, un éclairage mesuré de Beta et un arbitrage resserré des positions seeds de Hulk. | conf=85%
