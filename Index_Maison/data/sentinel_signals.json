@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "fear_greed",
-      "zscore": 3.1091263510296048,
-      "value": 69,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrême (3.11) à 69 (Greed) sans couverture médiatique majeure : asymétrie classique de distribution par les baleines (retail absent, smart money liquide discrètement).\"\n}\n```",
-      "ts": "2026-09-01T06:13:09.241055+00:00"
-    },
-    {
       "metric": "taker_ratio",
       "zscore": 2.0913217399316335,
       "value": 1.358,
@@ -349,6 +342,13 @@
       "value": 1.283,
       "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Divergence critique : les médias grand public célèbrent une baisse de la pression vendeuse, mais le taker_ratio on-chain à 1.283 (z-score 2.09) révèle une agression acheteuse agressive des acheteurs de détail piégés, pendant que les baleines distribuent silencieusement.\"\n}\n```",
       "ts": "2026-09-02T04:10:04.290300+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 3.918983621408543,
+      "value": 5391574.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (3.92) pour un flux de 5.39M$ de baleines malgré un silence médiatique absolu (Google Actualités vide). Accumulation furtive classique hors des radars.\"\n}\n```",
+      "ts": "2026-09-02T05:55:54.161460+00:00"
     }
   ]
 }
