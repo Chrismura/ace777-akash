@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-02T07:34:18.539928+00:00",
+  "generated_at": "2026-09-02T07:34:50.025879+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 235
+      "calls_24h": 236
     },
     {
       "id": "openrouter-free",
@@ -256,10 +256,18 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 72,
-    "remaining": 552
+    "consumed": 73,
+    "remaining": 551
   },
   "queue": [
+    {
+      "ts": "2026-09-02T07:34:37.794705+00:00",
+      "task": "supervise.decision",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 0.87
+    },
     {
       "ts": "2026-09-02T07:25:51.357592+00:00",
       "task": "analyste.strategie",
@@ -371,17 +379,15 @@
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
       "duration_s": 0.84
-    },
-    {
-      "ts": "2026-09-02T06:33:27.668887+00:00",
-      "task": "supervise.decision",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 0.86
     }
   ],
   "events": [
+    {
+      "ts": "2026-09-02T07:34:37.793932+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
     {
       "ts": "2026-09-02T07:25:51.357209+00:00",
       "kind": "message",
@@ -435,12 +441,6 @@
       "kind": "blacklist",
       "title": "Fin de pause Google Gemini",
       "detail": "re-essai automatique"
-    },
-    {
-      "ts": "2026-09-02T06:57:49.771107+00:00",
-      "kind": "message",
-      "title": "« OpenRouter Nemotron 3 Ultra 550B (free) - analyse forte » a repondu",
-      "detail": "bascule"
     }
   ],
   "tasks_quotas": {
