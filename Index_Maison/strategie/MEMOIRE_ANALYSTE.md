@@ -3220,3 +3220,10 @@
 - 2026-09-02T20:32:27.305594Z | alerte | Maintenir l'alerte rouge, exécuter immédiatement les stop-loss de coupe-circuit sur CCUSDT et préserver la patience tactique d'Alpha. | conf=85%
 - 2026-09-02T20:45:04.030800Z | alerte | Maintenir l'alerte rouge, exécuter immédiatement les stop-loss de coupe-circuit sur CCUSDT et préserver la patience tactique d'Alpha. | conf=85%
 - 2026-09-02T20:57:09.052074Z | alerte | Maintenir l'alerte rouge, exécuter immédiatement les stop-loss de coupe-circuit sur CCUSDT et préserver la patience tactique d'Alpha. | conf=85%
+- 2026-09-02T21:09:24.833879Z | alerte | Maintenir l'alerte rouge, exécuter immédiatement les stop-loss de coupe-circuit sur CCUSDT et préserver la patience tactique d'Alpha. | conf=85%
+- 2026-09-02T21:26:51.280205Z | alerte | Maintenir l'alerte rouge, exécuter immédiatement les stop-loss de coupe-circuit sur CCUSDT et préserver la patience tactique d'Alpha. | conf=85%
+- 2026-09-02T21:28:00.936280Z | alerte | Maintenir l'alerte rouge, exécuter immédiatement les stop-loss de coupe-circuit sur CCUSDT et préserver la patience tactique d'Alpha. | conf=85%
+- 2026-09-02T21:30:54.331728Z | alerte | Maintenir l'alerte rouge, exécuter immédiatement les stop-loss de coupe-circuit sur CCUSDT et préserver la patience tactique d'Alpha. | conf=85%
+- 2026-09-02T21:36:16.081576Z | alerte | Maintenir l'alerte rouge, exécuter immédiatement les stop-loss de coupe-circuit sur CCUSDT et préserver la patience tactique d'Alpha. | conf=85%
+- 2026-09-02T21:45:25.237419Z | alerte | Maintenir l'alerte rouge, exécuter immédiatement les stop-loss de coupe-circuit sur CCUSDT et préserver la patience tactique d'Alpha. | conf=85%
+- 2026-09-02T21:57:14.189711Z | alerte | Maintenir l'alerte rouge, exécuter immédiatement les stop-loss de coupe-circuit sur CCUSDT et préserver la patience tactique d'Alpha. | conf=85%

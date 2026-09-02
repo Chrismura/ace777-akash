@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "liquidations",
-      "zscore": -2.42872234397822,
-      "value": 2166596.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Divergence forte entre les liquidations onchain (anomalie bullish avec z-score -2.43) et le narratif médiatique focalisé sur des liquidations judiciaires locales ou baisses Bitcoin. Les baleines pourraient accumuler silencieusement pendant la distraction médiatique.\"\n}\n```",
-      "ts": "2026-09-01T10:24:21.743316+00:00"
-    },
-    {
-      "metric": "liquidations",
-      "zscore": -2.2023073088140204,
-      "value": 2943419.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le z-score ultra-faible (-2.20) montre un theorama d'absence totale de liquidations de positions sur dérivés, tandis que les médias s'affolent sur des liquidations judiciaires traditionnelles sans rapport avec la crypto et brandissent de vieux scénarios catastrophes (BTC à 10k$). Divergence classique de capitulation médiatique alors que les baleines n'ont plus de pression vendeuse par effet de levier.\"\n}\n```",
-      "ts": "2026-09-01T10:54:31.886631+00:00"
-    },
-    {
       "metric": "long_short",
       "zscore": 2.0914766501835493,
       "value": 1.146,
@@ -349,6 +335,20 @@
       "value": 4202139.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score on-chain élevé (3.03) pour un flux significatif (4.2M$) en absence totale de couverture médiatique (Google Actualités vide). Accumulation furtive classique de baleines loin du bruit de détail.\"\n}\n```",
       "ts": "2026-09-02T19:20:12.070297+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": -2.000361149050003,
+      "value": 11104430799.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique sans rapport avec la crypto (coïncidences sur le mot 'volume' et actualités musicales/lifestyle). Volume onchain anormalement bas (z-score -2.00) indiquant une absence totale d'activité significative des baleines.\"\n}\n```",
+      "ts": "2026-09-02T21:25:36.596684+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 2.606718819932277,
+      "value": 3762506.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Activité anormale des baleines (z-score 2.61, ~3.76M USD) totalement ignorée par les médias généralistes (silence radio). Accumulation furtive en cours sous le radar.\"\n}\n```",
+      "ts": "2026-09-02T21:40:39.452118+00:00"
     }
   ]
 }
