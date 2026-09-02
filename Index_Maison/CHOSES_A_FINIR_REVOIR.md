@@ -45,6 +45,7 @@ Réf : [[CERVEAU_GALACTIQUE]] · [[COCKPIT_LOOK_FIGE]]
 | E-12 | **Deux briefs (doublon chaîne)** | brief complet/opinion + brief court « perroquet » · identifier les générateurs et n'en garder qu'un (brief 4/j) | 🟡 |
 | E-13 | **Fenêtre info IA graph** | S'ouvre sur le bouton rafraîchissement (signalé 14/08) — non vérifié | 🟡 |
 | E-14 | Budget cloud / baromètre conso / brief 4j / schéma architecture | Chantiers notés (tableau) — pas traités | 🟡 |
+| E-15 | **Shadow Mode Scénario C — run 14 jours** | Lancé 02/09 17:26Z (pid 51855) · verdict 16/09 · GEL total : aucune modif avant J+14 · J+1 : stats 24h brut → Gemini, analyse séparée puis confrontation famille · Détail complet : [[CHANTIER_SHADOW_MODE_SC_20260902]] | 🟢 EN COURS |
 
 ---
 

@@ -1,9 +1,12 @@
 
-## 30/08 — Analyse croisée approfondie EDEL (réponse : nouveau pattern ? corrélations ?)
-- **LA découverte** : la signature d'EDEL = régime IMPULSE (15% du temps, m6 médian 70.4% vs 4.2% hors = 17× plus de mouvement). 3 rafales en 3 jours, toutes en fin de journée. Après chaque rafale : +0.2 à +0.5% à 30min (n=3).
-- Creux horaire instable : 23h → 21h → 11h → 00h selon les jours → aucune fenêtre horaire fiable. Le régime compte, pas l'heure.
-- Corrélations : AUCUNE exploitable (max RWAINC +0.146, MNSRY −0.287 sur 25 pts = bruit). EDEL = actif le plus découplé du portefeuille.
-- Conséquence set-up : entrer/sortir sur l'allumage du régime IMPULSE, pas sur une heure. Fiche EDEL mise à jour.
+## 02/09 — SHADOW MODE SCÉNARIO C LANCÉ (14 jours) + validation croisée 24 rounds
+- Validation croisée v2 (protocole figé R18) : +892,93 USDT net, 4/4 fenêtres positives, bat le témoin.
+- 4 étapes Gemini validées : robustesse 9/9 · asymétrie miroir (ALPHA long / BETA short) · shorts +689 · 6 fenêtres mortes = casse-circuit de survie confirmé (gate saigne 2,5× moins que le hasard).
+- Champion JAMAIS touché. Shadow zéro ordre construit (selftest 9/9 + smoke test live) : `shadow_mode_sc.py` + vision moteur + guides.
+- Lancé 02/09 17:26Z par Christophe (pid 51855). R25 : 2 divergences approuvées sans réserve (gate hybride + bootstrap 90 min).
+- R26 télémétrie J0 : micro-gains vs frais 1,76 en chop = danger structurel identifié par Gemini ; biais H auto-entretenu noté ; 3 seuils d'alerte pour J+1.
+- **DÉCISION COMMUNE : gel total jusqu'au 16/09. J+1/J+7 : données brutes → Gemini, analyses séparées, confrontation famille, PUIS décision.** Détail : [[CHANTIER_SHADOW_MODE_SC_20260902]]
+- Section sismographe ajoutée à la fiche : les DEUX héritages de l'audit (le capteur de rupture de liquidité ET le champion réarmé par le gate H) + définition opérationnelle de l'état harmonique (R16) + les 5 applications validées par les réponses indépendantes R15.
 
 ## 30/08 — Analyse croisée approfondie EDEL (réponse : nouveau pattern ? corrélations ?)
 - **LA découverte** : la signature d'EDEL = régime IMPULSE (15% du temps, m6 médian 70.4% vs 4.2% hors = 17× plus de mouvement). 3 rafales en 3 jours, toutes en fin de journée. Après chaque rafale : +0.2 à +0.5% à 30min (n=3).

@@ -2,20 +2,6 @@
   "signals": [
     {
       "metric": "liquidations",
-      "zscore": -2.6632135564708386,
-      "value": 2048868.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le z-score très bas (-2.66) indique une absence totale de liquidations sur les marchés crypto, contredisant le narratif médiatique saturé de mots-clés alarmistes ('liquidations judiciaires' et 'thèse baissière BTC'). Calme plat onchain : les baleines n'essuient aucune vente forcée, préparant un mouvement furtif en contrarien.\"\n}\n```",
-      "ts": "2026-09-01T09:54:12.647689+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.04087016192957,
-      "value": 1.048,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Anomalie non pertinente : les données font référence à des actualités institutionnelles et académiques (Tournoi International des Physiciens, partenariats universitaires) sans aucun lien avec les flux de cryptomonnaies ou l'activité onchain de baleines.\"\n}\n```",
-      "ts": "2026-09-01T09:54:14.505396+00:00"
-    },
-    {
-      "metric": "liquidations",
       "zscore": -2.42872234397822,
       "value": 2166596.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Divergence forte entre les liquidations onchain (anomalie bullish avec z-score -2.43) et le narratif médiatique focalisé sur des liquidations judiciaires locales ou baisses Bitcoin. Les baleines pourraient accumuler silencieusement pendant la distraction médiatique.\"\n}\n```",
@@ -349,6 +335,20 @@
       "value": 1.483,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 3.60) entièrement due à un télescopage sémantique : le ticker crypto 'ipt' est confondu par les algorithmes avec l'Institut Protestant de Théologie (IPT) et des actualités agricoles/sportives. Bruit de fond médiatique sans lien avec une baleine crypto.\"\n}\n```",
       "ts": "2026-09-02T18:14:50.475521+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": -2.073321692546931,
+      "value": 11176573739.0,
+      "analysis": "{\"signal\": \"bearish\", \"confidence\": 70, \"reason\": \"Volume brut élevé",
+      "ts": "2026-09-02T19:15:09.883501+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 3.02752453798888,
+      "value": 4202139.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score on-chain élevé (3.03) pour un flux significatif (4.2M$) en absence totale de couverture médiatique (Google Actualités vide). Accumulation furtive classique de baleines loin du bruit de détail.\"\n}\n```",
+      "ts": "2026-09-02T19:20:12.070297+00:00"
     }
   ]
 }
