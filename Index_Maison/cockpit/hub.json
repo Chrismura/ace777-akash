@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-02T13:43:11.795916+00:00",
+  "generated_at": "2026-09-02T13:44:15.164810+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 243
+      "calls_24h": 242
     },
     {
       "id": "openrouter-free",
@@ -35,7 +35,7 @@
       "model": "groq/compound",
       "enabled": true,
       "timeout": 120,
-      "calls_24h": 4
+      "calls_24h": 5
     },
     {
       "id": "nvidia",
@@ -247,10 +247,18 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 147,
-    "remaining": 477
+    "consumed": 148,
+    "remaining": 476
   },
   "queue": [
+    {
+      "ts": "2026-09-02T13:44:00.374859+00:00",
+      "task": "supervise.decision",
+      "provider": "groq",
+      "model": "groq/compound",
+      "kind": "cloud",
+      "duration_s": 3.77
+    },
     {
       "ts": "2026-09-02T13:43:09.281939+00:00",
       "task": "analyste.strategie",
@@ -362,75 +370,67 @@
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
       "duration_s": 0.98
-    },
-    {
-      "ts": "2026-09-02T12:42:31.410486+00:00",
-      "task": "supervise.decision",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 0.92
     }
   ],
   "events": [
     {
-      "ts": "2026-09-02T13:43:09.274549+00:00",
+      "ts": "2026-09-02T13:44:00.374308+00:00",
       "kind": "message",
-      "title": "« Google Gemini » a repondu",
-      "detail": ""
+      "title": "« Groq (LLM ultra-rapide, gratuit) » a repondu",
+      "detail": "bascule"
     },
     {
-      "ts": "2026-09-02T13:42:42.820028+00:00",
-      "kind": "message",
-      "title": "« Google Gemini » a repondu",
-      "detail": ""
+      "ts": "2026-09-02T13:43:56.605322+00:00",
+      "kind": "failover",
+      "title": "Saute (blacklist) depuis Google Gemini",
+      "detail": "0 attente"
     },
     {
-      "ts": "2026-09-02T13:37:55.539247+00:00",
-      "kind": "message",
-      "title": "« Google Gemini » a repondu",
-      "detail": ""
+      "ts": "2026-09-02T13:43:42.168918+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis OpenRouter (modeles gratuits)",
+      "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-09-02T13:29:11.864405+00:00",
-      "kind": "message",
-      "title": "« Google Gemini » a repondu",
-      "detail": ""
+      "ts": "2026-09-02T13:43:39.874108+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis OrcaRouter (routeur gratuit, modele orcarouter/free)",
+      "detail": "HTTP Error 400: Bad Request"
     },
     {
-      "ts": "2026-09-02T13:26:29.127778+00:00",
-      "kind": "message",
-      "title": "« Google Gemini » a repondu",
-      "detail": ""
+      "ts": "2026-09-02T13:43:37.944105+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis HuggingFace (136+ modeles, dont DeepSeek-V4)",
+      "detail": "HTTP Error 400: Bad Request"
     },
     {
-      "ts": "2026-09-02T13:18:22.960503+00:00",
-      "kind": "message",
-      "title": "« Google Gemini » a repondu",
-      "detail": ""
+      "ts": "2026-09-02T13:43:33.317696+00:00",
+      "kind": "timeout",
+      "title": "Patience HuggingFace (136+ modeles, dont DeepSeek-V4) (HTTP 400)",
+      "detail": "HTTP Error 400: Bad Request"
     },
     {
-      "ts": "2026-09-02T13:02:50.450904+00:00",
-      "kind": "message",
-      "title": "« Google Gemini » a repondu",
-      "detail": ""
+      "ts": "2026-09-02T13:43:31.915242+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis Groq (LLM ultra-rapide, gratuit)",
+      "detail": "HTTP Error 400: Bad Request"
     },
     {
-      "ts": "2026-09-02T13:00:47.670781+00:00",
-      "kind": "message",
-      "title": "« Google Gemini » a repondu",
-      "detail": ""
+      "ts": "2026-09-02T13:43:28.207832+00:00",
+      "kind": "timeout",
+      "title": "Patience Groq (LLM ultra-rapide, gratuit) (HTTP 400)",
+      "detail": "HTTP Error 400: Bad Request"
     },
     {
-      "ts": "2026-09-02T12:57:30.525574+00:00",
-      "kind": "message",
-      "title": "« Google Gemini » a repondu",
-      "detail": ""
+      "ts": "2026-09-02T13:43:27.444066+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis Google Gemini",
+      "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-09-02T12:56:18.707921+00:00",
-      "kind": "message",
-      "title": "« Google Gemini » a repondu",
+      "ts": "2026-09-02T13:43:27.442828+00:00",
+      "kind": "ratelimit",
+      "title": "429 Google Gemini -> pause 60s + bascule",
       "detail": ""
     }
   ],
