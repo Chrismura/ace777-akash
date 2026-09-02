@@ -1,15 +1,15 @@
 {
-  "timestamp": 1788389921,
-  "date": "2026-09-02T22:58:41.276159+00:00",
-  "n_analyses": 2,
+  "timestamp": 1788392022,
+  "date": "2026-09-02T23:33:42.252364+00:00",
+  "n_analyses": 1,
   "analyses": [
     {
       "signal": {
-        "metric": "whale_usd",
-        "zscore": 4.97464121846142,
-        "value": 6821353.0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (Z-score 4.97, accumulation de ~6.8M USD) dans un silence médiatique absolu (Google Actualités vide). Divergence classique de phase d'accumulation discrète par les baleines avant le réveil du narratif public.\"\n}\n```",
-        "ts": 1788388257.382856
+        "metric": "taker_ratio",
+        "zscore": -2.051498576428891,
+        "value": 0.654,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Le taker_ratio à 0.654 (z-score -2.05) indique une domination massive des acheteurs agritifs (Taker Buys) que les médias ignorent, qualifiant faussement la situation de simple 'baisse de la pression vendeuse'. Accumulation silencieuse des baleines.\"\n}\n```",
+        "ts": 1788390665.668238
       },
       "fiche": null,
       "interpretation": {
@@ -17,47 +17,7 @@
         "niveau": "inconnu"
       },
       "action": "Observer"
-    },
-    {
-      "signal": {
-        "metric": "ipt",
-        "zscore": 2.5189451168620973,
-        "value": 1.212,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.52) due à une homonymie totale. Les titres médiatiques font référence à l'Institut Protestant de Théologie (IPT) et à l'entreprise Premier Tech, sans aucun rapport avec la crypto ou une baleine.\"\n}\n```",
-        "ts": 1788388559.362824
-      },
-      "fiche": "rbf_eleve",
-      "questions": {
-        "prix": {
-          "value": -0.31,
-          "seuil": 1,
-          "depasse": false
-        },
-        "paires": {
-          "value": null,
-          "seuil": 3,
-          "depasse": false
-        },
-        "funding": {
-          "value": 5.6e-05,
-          "seuil": 0.001,
-          "depasse": false
-        },
-        "whales": {
-          "value": 0,
-          "seuil": 5,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "sdi > 0.3",
-        "lecture": "Drainage silencieux — les vieux BTC bougent en douce",
-        "niveau": "dangereux",
-        "action": "Réduire taille de 50%, sortir des positions fragiles"
-      },
-      "action": "Réduire taille de 50%, sortir des positions fragiles",
-      "niveau": "dangereux"
     }
   ],
-  "resume": "🔴 DANGER détecté — réduire les expositions"
+  "resume": "🔵 CALME — pas de signal alarmant"
 }

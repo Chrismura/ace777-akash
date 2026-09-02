@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "long_short",
-      "zscore": 2.053495603175927,
-      "value": 1.153,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.05) sur le ratio long/short couplé à un optimisme médiatique mainstream déconnecté (focus actions tradfi) : signal classique de sur-levier acheteur des foules, propice à une purge imminente orchestrée par les baleines.\"\n}\n```",
-      "ts": "2026-09-01T12:14:57.753028+00:00"
-    },
-    {
       "metric": "sdi",
       "zscore": 2.0460141548154938,
       "value": 0.016,
@@ -349,6 +342,13 @@
       "value": 1.212,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.52) due à une homonymie totale. Les titres médiatiques font référence à l'Institut Protestant de Théologie (IPT) et à l'entreprise Premier Tech, sans aucun rapport avec la crypto ou une baleine.\"\n}\n```",
       "ts": "2026-09-02T22:35:59.362824+00:00"
+    },
+    {
+      "metric": "taker_ratio",
+      "zscore": -2.051498576428891,
+      "value": 0.654,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Le taker_ratio à 0.654 (z-score -2.05) indique une domination massive des acheteurs agritifs (Taker Buys) que les médias ignorent, qualifiant faussement la situation de simple 'baisse de la pression vendeuse'. Accumulation silencieuse des baleines.\"\n}\n```",
+      "ts": "2026-09-02T23:11:05.668238+00:00"
     }
   ]
 }
