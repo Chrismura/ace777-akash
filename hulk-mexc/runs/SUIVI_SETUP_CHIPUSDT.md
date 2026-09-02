@@ -8,5 +8,6 @@ Métriques : maison (poussière/mur/régime) + pro (Amihud/Parkinson/Trade Sign 
 | 1 | 2026-08-30T15:08:21Z | 15h | AUTRE | 0.04089 | IMPULSE_WAIT | 1.8617 | 61779.48 | 7.33e-07 | -0.03 | 0.23 | -0.02 | LEADER (stab 3) | prix 0.04089 · poussière 1.9% <15 ✓ · Amihud 7.33e-07 · delta -0.03 · mur 61,779$ |
 | 2 | 2026-08-31T14:35:00Z | 14h | AUTRE | 0.0397 | IMPULSE_WAIT | 38.2611 | 61779.48 | 8.17e-07 | -0.20 | 0.60 | 0.42 | neutre (stab 0) | prix 0.0397 · poussière 38.3% ≥15 ✗ · Amihud 8.17e-07 · delta -0.20 · mur 61,779$ |
 | 3 | 2026-09-01T14:35:03Z | 14h | AUTRE | 0.04284 | IMPULSE_WAIT | 14.4541 | 61779.48 | 8.51e-07 | 0.76 | -0.45 | -0.59 | neutre (stab 0) | prix 0.04284 · poussière 14.5% <15 ✓ · Amihud 8.51e-07 · delta +0.76 · mur 61,779$ |
+| 4 | 2026-09-02T14:34:51Z | 14h | AUTRE | 0.04135 | IMPULSE | 13.5773 | 61779.48 | 6.75e-07 | 0.02 | -0.12 | -0.15 | neutre (stab 0) | prix 0.04135 · poussière 13.6% <15 ✓ · Amihud 6.75e-07 · delta +0.02 · mur 61,779$ |
 
 _Règle : on compare les lignes entre elles (même heure de mesure = comparable). On ne supprime rien._
