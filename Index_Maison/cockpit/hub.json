@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-02T16:49:15.992841+00:00",
+  "generated_at": "2026-09-02T16:50:49.876720+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 245
+      "calls_24h": 247
     },
     {
       "id": "openrouter-free",
@@ -247,10 +247,26 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 180,
-    "remaining": 444
+    "consumed": 182,
+    "remaining": 442
   },
   "queue": [
+    {
+      "ts": "2026-09-02T16:50:36.672504+00:00",
+      "task": "supervise.decision",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 0.75
+    },
+    {
+      "ts": "2026-09-02T16:49:23.533094+00:00",
+      "task": "supervise.decision",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 0.81
+    },
     {
       "ts": "2026-09-02T16:37:57.422192+00:00",
       "task": "analyste.strategie",
@@ -354,25 +370,21 @@
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
       "duration_s": 6.16
-    },
-    {
-      "ts": "2026-09-02T15:49:00.196926+00:00",
-      "task": "analyse.profonde",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 0.91
-    },
-    {
-      "ts": "2026-09-02T15:48:56.305605+00:00",
-      "task": "analyse.profonde",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 52.06
     }
   ],
   "events": [
+    {
+      "ts": "2026-09-02T16:50:36.667602+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
+    {
+      "ts": "2026-09-02T16:49:23.531726+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
     {
       "ts": "2026-09-02T16:37:57.421840+00:00",
       "kind": "message",
@@ -419,18 +431,6 @@
       "ts": "2026-09-02T16:26:59.661368+00:00",
       "kind": "timeout",
       "title": "Patience HuggingFace (136+ modeles, dont DeepSeek-V4) (HTTP 400)",
-      "detail": "HTTP Error 400: Bad Request"
-    },
-    {
-      "ts": "2026-09-02T16:26:58.152621+00:00",
-      "kind": "blacklist",
-      "title": "Fin de pause HuggingFace (136+ modeles, dont DeepSeek-V4)",
-      "detail": "re-essai automatique"
-    },
-    {
-      "ts": "2026-09-02T16:26:58.149367+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis Groq (LLM ultra-rapide, gratuit)",
       "detail": "HTTP Error 400: Bad Request"
     }
   ],
