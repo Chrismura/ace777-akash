@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-02T17:30:59.647062+00:00",
+  "generated_at": "2026-09-02T17:51:15.270865+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 246
+      "calls_24h": 243
     },
     {
       "id": "openrouter-free",
@@ -247,10 +247,18 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 190,
-    "remaining": 434
+    "consumed": 191,
+    "remaining": 433
   },
   "queue": [
+    {
+      "ts": "2026-09-02T17:42:57.032988+00:00",
+      "task": "analyste.strategie",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 4.06
+    },
     {
       "ts": "2026-09-02T17:26:49.688436+00:00",
       "task": "analyste.strategie",
@@ -362,17 +370,15 @@
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
       "duration_s": 20.24
-    },
-    {
-      "ts": "2026-09-02T16:23:38.218854+00:00",
-      "task": "gemini.analyse",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 6.95
     }
   ],
   "events": [
+    {
+      "ts": "2026-09-02T17:42:57.015172+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
     {
       "ts": "2026-09-02T17:26:49.687857+00:00",
       "kind": "message",
@@ -425,12 +431,6 @@
       "ts": "2026-09-02T17:00:44.951498+00:00",
       "kind": "failover",
       "title": "Bascule depuis OrcaRouter (routeur gratuit, modele orcarouter/free)",
-      "detail": "HTTP Error 400: Bad Request"
-    },
-    {
-      "ts": "2026-09-02T17:00:43.254632+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis HuggingFace (136+ modeles, dont DeepSeek-V4)",
       "detail": "HTTP Error 400: Bad Request"
     }
   ],

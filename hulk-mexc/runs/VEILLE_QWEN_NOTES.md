@@ -3202,3 +3202,7 @@ Pas d’ordre — confrontation plus tard.
 ### 2026-09-02T16:58:45Z — ALERT auto
 - PYTHUSDT: IMPULSE_WAIT — spike en cours, pas chase
 (compléter: confirmé ? risque ?)
+
+### 2026-09-02T17:31:28Z — ALERT auto
+- RIZEUSDT: IMPULSE_WAIT — spike en cours, pas chase
+(compléter: confirmé ? risque ?)
