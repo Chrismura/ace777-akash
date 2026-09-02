@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "taker_ratio",
-      "zscore": 2.0913217399316335,
-      "value": 1.358,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Divergence critique : les médias grand public chantent la fin de la pression vendeuse (ratio à 0.86), mais le taker_ratio onchain à 1.358 (z-score 2.09) prouve une agressivité acheteuse anormale des preneurs de liquidité, typique d'une distribution agressive des baleines (piège à liquidité).\"\n}\n```",
-      "ts": "2026-09-01T06:38:14.807238+00:00"
-    },
-    {
       "metric": "liquidations",
       "zscore": -2.0543554773842168,
       "value": 23968239.0,
@@ -349,6 +342,13 @@
       "value": 5391574.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (3.92) pour un flux de 5.39M$ de baleines malgré un silence médiatique absolu (Google Actualités vide). Accumulation furtive classique hors des radars.\"\n}\n```",
       "ts": "2026-09-02T05:55:54.161460+00:00"
+    },
+    {
+      "metric": "price_1h",
+      "zscore": 3.713103523752688,
+      "value": 0.8429348953489235,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie statistique majeure (Z-score 3.71) avec un silence médiatique absolu (Google Actualités vide). C'est la signature classique d'accumulation furtive par des baleines avant la découverte par le retail.\"\n}\n```",
+      "ts": "2026-09-02T08:51:18.844522+00:00"
     }
   ]
 }

@@ -3144,3 +3144,11 @@
 - 2026-09-02T08:25:55.695845Z | alerte | Maintien de l'alerte rouge avec exécution immédiate des stop-loss sur les positions seeds de Hulk en infraction critique et stricte préservation de la discipline d'embuscade d'Alpha. | conf=85%
 - 2026-09-02T08:31:16.415102Z | alerte | Maintien de l'alerte rouge avec exécution immédiate des stop-loss sur les positions seeds de Hulk en infraction critique et stricte préservation de la discipline d'embuscade d'Alpha. | conf=85%
 - 2026-09-02T08:32:29.541632Z | alerte | ? | conf=?
+- 2026-09-02T08:42:48.472333Z | alerte | Maintien de l'alerte rouge avec exécution immédiate des stop-loss sur les positions seeds de Hulk en infraction critique et stricte préservation de la discipline d'embuscade d'Alpha. | conf=85%
+- 2026-09-02T08:43:28.770969Z | alerte | Maintien de l'alerte rouge avec exécution immédiate des stop-loss sur les positions seeds de Hulk en infraction critique et stricte préservation de la discipline d'embuscade d'Alpha. | conf=85%
+- 2026-09-02T08:55:50.387576Z | alerte | Maintien de l'alerte rouge, exécution immédiate des stop-loss critiques sur les positions seeds de Hulk et stricte préservation de la discipline d'embuscade d'Alpha. | conf=85%
+- 2026-09-02T09:16:15.495000Z | alerte | Maintien de l'alerte rouge, exécution immédiate des stop-loss sur les positions seeds en infraction critique et stricte préservation de la discipline d'embuscade d'Alpha. | conf=85%
+- 2026-09-02T09:23:05.082489Z | alerte | Maintien de l'alerte rouge, exécution immédiate des stop-loss sur les positions seeds en infraction critique et stricte préservation de la discipline d'embuscade d'Alpha. | conf=85%
+- 2026-09-02T09:24:08.803090Z | alerte | Maintien de l'alerte rouge, exécution immédiate des stop-loss sur les positions seeds en infraction critique et stricte préservation de la discipline d'embuscade d'Alpha. | conf=85%
+- 2026-09-02T09:26:00.363814Z | alerte | Maintien de l'alerte rouge, exécution immédiate des stop-loss sur les positions seeds en infraction critique et stricte préservation de la discipline d'embuscade d'Alpha. | conf=85%
+- 2026-09-02T09:31:51.695775Z | alerte | Maintien de l'alerte rouge, exécution immédiate des stop-loss sur les positions seeds de Hulk en infraction critique et stricte préservation de la discipline d'embuscade d'Alpha. | conf=85%
