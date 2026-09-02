@@ -3165,3 +3165,11 @@ Pas d’ordre — confrontation plus tard.
 ### 2026-09-02T10:53:01Z — ALERT auto
 - RWAINCUSDT: IMPULSE_WAIT — spike en cours, pas chase
 (compléter: confirmé ? risque ?)
+
+### 2026-09-02T11:57:17Z — ALERT auto
+- EDELUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
+
+### 2026-09-02T11:58:42Z — ALERT auto
+- RWAINCUSDT: IMPULSE_WAIT — spike en cours, pas chase
+(compléter: confirmé ? risque ?)

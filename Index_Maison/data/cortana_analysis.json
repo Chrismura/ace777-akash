@@ -1,23 +1,48 @@
 {
-  "timestamp": 1788349104,
-  "date": "2026-09-02T11:38:24.838884+00:00",
+  "timestamp": 1788352705,
+  "date": "2026-09-02T12:38:25.951996+00:00",
   "n_analyses": 1,
   "analyses": [
     {
       "signal": {
-        "metric": "whale_usd",
-        "zscore": 4.735470303286246,
-        "value": 6105977.0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (z-score 4.74, accumulation de 6.1M USD) en l'absence totale de couverture médiatique (Google Actualités vide). C'est la définition classique d'une accumulation silencieuse de baleines loin du radar du grand public.\"\n}\n```",
-        "ts": 1788348712.627081
+        "metric": "ipt",
+        "zscore": 2.5448434077142625,
+        "value": 1.171,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (IPT) liée à un bruit médiatique sans rapport avec la crypto (Institut Protestant de Théologie et actualités agricoles/sportives). Aucune baleine détectée.\"\n}\n```",
+        "ts": 1788352634.996279
       },
-      "fiche": null,
+      "fiche": "rbf_eleve",
+      "questions": {
+        "prix": {
+          "value": 0.07,
+          "seuil": 1,
+          "depasse": false
+        },
+        "paires": {
+          "value": null,
+          "seuil": 3,
+          "depasse": false
+        },
+        "funding": {
+          "value": 5.6e-05,
+          "seuil": 0.001,
+          "depasse": false
+        },
+        "whales": {
+          "value": 1,
+          "seuil": 5,
+          "depasse": false
+        }
+      },
       "interpretation": {
-        "lecture": "Pas de fiche disponible",
-        "niveau": "inconnu"
+        "condition": "sdi > 0.3",
+        "lecture": "Drainage silencieux — les vieux BTC bougent en douce",
+        "niveau": "dangereux",
+        "action": "Réduire taille de 50%, sortir des positions fragiles"
       },
-      "action": "Observer"
+      "action": "Réduire taille de 50%, sortir des positions fragiles",
+      "niveau": "dangereux"
     }
   ],
-  "resume": "🔵 CALME — pas de signal alarmant"
+  "resume": "🔴 DANGER détecté — réduire les expositions"
 }
