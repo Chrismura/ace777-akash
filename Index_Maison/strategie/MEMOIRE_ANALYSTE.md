@@ -3227,3 +3227,11 @@
 - 2026-09-02T21:36:16.081576Z | alerte | Maintenir l'alerte rouge, exécuter immédiatement les stop-loss de coupe-circuit sur CCUSDT et préserver la patience tactique d'Alpha. | conf=85%
 - 2026-09-02T21:45:25.237419Z | alerte | Maintenir l'alerte rouge, exécuter immédiatement les stop-loss de coupe-circuit sur CCUSDT et préserver la patience tactique d'Alpha. | conf=85%
 - 2026-09-02T21:57:14.189711Z | alerte | Maintenir l'alerte rouge, exécuter immédiatement les stop-loss de coupe-circuit sur CCUSDT et préserver la patience tactique d'Alpha. | conf=85%
+- 2026-09-02T22:01:48.373203Z | alerte | Maintenir l'alerte rouge, exécuter immédiatement les stop-loss de coupe-circuit sur CCUSDT et préserver la patience tactique d'Alpha. | conf=85%
+- 2026-09-02T22:05:44.659812Z | alerte | Maintenir l'alerte rouge, exécuter immédiatement les stop-loss de coupe-circuit sur CCUSDT et préserver la patience tactique d'Alpha. | conf=85%
+- 2026-09-02T22:12:38.449893Z | alerte | Maintenir l'alerte rouge, exécuter sans délai les stop-loss de coupe-circuit sur CCUSDT et préserver la patience tactique d'Alpha. | conf=85%
+- 2026-09-02T22:25:56.748815Z | alerte | Maintenir l'alerte rouge, exécuter sans délai les stop-loss de coupe-circuit sur CCUSDT et préserver la patience tactique d'Alpha. | conf=85%
+- 2026-09-02T22:27:16.392362Z | alerte | Maintenir l'alerte rouge, exécuter sans délai les stop-loss de coupe-circuit sur CCUSDT et préserver la patience tactique d'Alpha. | conf=85%
+- 2026-09-02T22:29:43.761560Z | alerte | Maintenir l'alerte rouge, exécuter sans délai les stop-loss de coupe-circuit sur CCUSDT et préserver la patience tactique d'Alpha. | conf=85%
+- 2026-09-02T22:30:55.420435Z | alerte | Maintenir l'alerte rouge, exécuter sans délai les stop-loss de coupe-circuit sur CCUSDT et préserver la patience tactique d'Alpha. | conf=85%
+- 2026-09-02T22:57:17.468936Z | alerte | Maintenir l'alerte rouge, exécuter sans délai les stop-loss de coupe-circuit sur CCUSDT et préserver la patience tactique d'Alpha. | conf=85%

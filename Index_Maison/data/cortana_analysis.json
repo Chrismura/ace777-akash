@@ -1,15 +1,15 @@
 {
-  "timestamp": 1788386320,
-  "date": "2026-09-02T21:58:40.169776+00:00",
-  "n_analyses": 1,
+  "timestamp": 1788389921,
+  "date": "2026-09-02T22:58:41.276159+00:00",
+  "n_analyses": 2,
   "analyses": [
     {
       "signal": {
         "metric": "whale_usd",
-        "zscore": 2.606718819932277,
-        "value": 3762506.0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Activité anormale des baleines (z-score 2.61, ~3.76M USD) totalement ignorée par les médias généralistes (silence radio). Accumulation furtive en cours sous le radar.\"\n}\n```",
-        "ts": 1788385239.452118
+        "zscore": 4.97464121846142,
+        "value": 6821353.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (Z-score 4.97, accumulation de ~6.8M USD) dans un silence médiatique absolu (Google Actualités vide). Divergence classique de phase d'accumulation discrète par les baleines avant le réveil du narratif public.\"\n}\n```",
+        "ts": 1788388257.382856
       },
       "fiche": null,
       "interpretation": {
@@ -17,7 +17,47 @@
         "niveau": "inconnu"
       },
       "action": "Observer"
+    },
+    {
+      "signal": {
+        "metric": "ipt",
+        "zscore": 2.5189451168620973,
+        "value": 1.212,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.52) due à une homonymie totale. Les titres médiatiques font référence à l'Institut Protestant de Théologie (IPT) et à l'entreprise Premier Tech, sans aucun rapport avec la crypto ou une baleine.\"\n}\n```",
+        "ts": 1788388559.362824
+      },
+      "fiche": "rbf_eleve",
+      "questions": {
+        "prix": {
+          "value": -0.31,
+          "seuil": 1,
+          "depasse": false
+        },
+        "paires": {
+          "value": null,
+          "seuil": 3,
+          "depasse": false
+        },
+        "funding": {
+          "value": 5.6e-05,
+          "seuil": 0.001,
+          "depasse": false
+        },
+        "whales": {
+          "value": 0,
+          "seuil": 5,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "sdi > 0.3",
+        "lecture": "Drainage silencieux — les vieux BTC bougent en douce",
+        "niveau": "dangereux",
+        "action": "Réduire taille de 50%, sortir des positions fragiles"
+      },
+      "action": "Réduire taille de 50%, sortir des positions fragiles",
+      "niveau": "dangereux"
     }
   ],
-  "resume": "🔵 CALME — pas de signal alarmant"
+  "resume": "🔴 DANGER détecté — réduire les expositions"
 }

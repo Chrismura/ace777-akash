@@ -2,20 +2,6 @@
   "signals": [
     {
       "metric": "long_short",
-      "zscore": 2.0914766501835493,
-      "value": 1.146,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Le ratio long/short élevé (z-score 2.09) indique un positionnement acheteur excessif de la foule. Pendant ce temps, le narratif médiatique est totalement déconnecté de la crypto, focalisé sur la macro/tradfi européenne. Dette de liquidité imminente : les baleines préparent un 'long squeeze'.\"\n}\n```",
-      "ts": "2026-09-01T11:14:36.162344+00:00"
-    },
-    {
-      "metric": "liquidations",
-      "zscore": -2.054194141420262,
-      "value": 2940864.0,
-      "analysis": "### **Analyse de la divergence entre l'alerte onchain et le narratif médiatique**  \n\n#### **1. Constat de divergence**  \n- **Données onchain** : Une alerte Sentinel signale **2,94M de liquidations** avec un z-score de **-2,05** (écart significatif par rapport à la moyenne, indiquant une activité anormale).  \n- **Narratif médiatique** : Les titres évoquent principalement des **liquidations judiciaires d'entreprises locales** (Quimper) ou des liquidations de dépôts bancaires (Liban) – **rien sur les marchés crypto ou les mouvements de fonds institutionnels**.  \n\n→ **Le discours médiatique est déconnecté de l’alerte onchain**, qui suggère plutôt des liquidations massives sur les marchés financiers (Crypto ? Actions ? Dérivés ?).  \n\n#### **2. Hypothèses explicatives**  \n- **Mouvement silencieux des \"baleines\"** :  \n  - Les gros acteurs (hedge funds, fonds institutionnels) pourraient liquider discrètement des positions sans faire de bruit médiatique.  \n  - Exemple : Fermeture de positions short/long sur Bitcoin (mention du weekend de Pâques, souvent volatile).  \n- **Décalage temporel** :  \n  - Les médias grand public rapportent des liquidations \"classiques\" (entreprises, banques), tandis que l’alerte onchain anticipe un mouvement financier plus large.  \n- **Manipulation de l'information** :  \n  - Les médias mainstream pourraient éviter de couvrir une crise financière naissante pour ne pas paniquer les marchés.  \n\n#### **3. Indices d’un narratif biaisé**  \n- **Médias locaux vs. données macro** :  \n  - Les articles cités (Ouest-France, LorientLeJour) sont hyperlocaux ou sectoriels (banques libanaises), tandis que l’alerte onchain pointe vers une tendance systémique.  \n- **Crypto évoquée en arrière-plan** :  \n  - Seul \"Bitcoin à $10k\" fait le lien, mais le focus est mis sur Pâques plutôt que sur les liquidations massives.  \n\n#### **4. Scénarios probables**  \n- **Crypto** :  \n  - Liquidations de positions leverage (futures BTC/ETH) avant un krach ou un rebond.  \n- **Marchés traditionnels** :  \n  - Dérisquage avant un événement macro (tensions géopolitiques, attente des taux de la Fed).  \n- **Opacité intentionnelle** :  \n  - Les acteurs influents (banques, gouvernements) minimisent les risques pour éviter la contagion.  \n\n### **Conclusion**  \n**Oui, le narratif médiatique est déconnecté** – soit par ignorance, soit par volonté de ne pas alerter. Les baleines pourraient effectivement liquider en silence, tandis que les médias se concentrent sur des sujets moins sensibles. **Surveiller les prochaines données onchain (flux stablecoins, open interest) et les annonces macroéconomiques** sera crucial pour comprendre la dynamique réelle.  \n\n**Confiance : 85%** (les médias ignorent souvent les signaux onchain jusqu’à ce qu’il soit trop tard).",
-      "ts": "2026-09-01T11:24:48.370638+00:00"
-    },
-    {
-      "metric": "long_short",
       "zscore": 2.053495603175927,
       "value": 1.153,
       "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.05) sur le ratio long/short couplé à un optimisme médiatique mainstream déconnecté (focus actions tradfi) : signal classique de sur-levier acheteur des foules, propice à une purge imminente orchestrée par les baleines.\"\n}\n```",
@@ -349,6 +335,20 @@
       "value": 3762506.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Activité anormale des baleines (z-score 2.61, ~3.76M USD) totalement ignorée par les médias généralistes (silence radio). Accumulation furtive en cours sous le radar.\"\n}\n```",
       "ts": "2026-09-02T21:40:39.452118+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 4.97464121846142,
+      "value": 6821353.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (Z-score 4.97, accumulation de ~6.8M USD) dans un silence médiatique absolu (Google Actualités vide). Divergence classique de phase d'accumulation discrète par les baleines avant le réveil du narratif public.\"\n}\n```",
+      "ts": "2026-09-02T22:30:57.382856+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.5189451168620973,
+      "value": 1.212,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.52) due à une homonymie totale. Les titres médiatiques font référence à l'Institut Protestant de Théologie (IPT) et à l'entreprise Premier Tech, sans aucun rapport avec la crypto ou une baleine.\"\n}\n```",
+      "ts": "2026-09-02T22:35:59.362824+00:00"
     }
   ]
 }
