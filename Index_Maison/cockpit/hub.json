@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-02T11:27:46.403460+00:00",
+  "generated_at": "2026-09-02T11:40:27.049445+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 232
+      "calls_24h": 234
     },
     {
       "id": "openrouter-free",
@@ -247,10 +247,26 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 119,
-    "remaining": 505
+    "consumed": 121,
+    "remaining": 503
   },
   "queue": [
+    {
+      "ts": "2026-09-02T11:40:04.782333+00:00",
+      "task": "analyste.strategie",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 3.27
+    },
+    {
+      "ts": "2026-09-02T11:31:52.626294+00:00",
+      "task": "analyse.profonde",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 9.65
+    },
     {
       "ts": "2026-09-02T11:26:11.464265+00:00",
       "task": "analyste.strategie",
@@ -354,25 +370,21 @@
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
       "duration_s": 5.46
-    },
-    {
-      "ts": "2026-09-02T10:20:51.103347+00:00",
-      "task": "gemini.analyse",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 6.78
-    },
-    {
-      "ts": "2026-09-02T09:56:04.824101+00:00",
-      "task": "analyste.strategie",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 5.3
     }
   ],
   "events": [
+    {
+      "ts": "2026-09-02T11:40:04.781656+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
+    {
+      "ts": "2026-09-02T11:31:52.625900+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
     {
       "ts": "2026-09-02T11:26:11.463718+00:00",
       "kind": "message",
@@ -417,18 +429,6 @@
     },
     {
       "ts": "2026-09-02T10:38:35.082440+00:00",
-      "kind": "message",
-      "title": "« Google Gemini » a repondu",
-      "detail": ""
-    },
-    {
-      "ts": "2026-09-02T10:34:22.688658+00:00",
-      "kind": "message",
-      "title": "« Google Gemini » a repondu",
-      "detail": ""
-    },
-    {
-      "ts": "2026-09-02T10:32:22.134709+00:00",
       "kind": "message",
       "title": "« Google Gemini » a repondu",
       "detail": ""
