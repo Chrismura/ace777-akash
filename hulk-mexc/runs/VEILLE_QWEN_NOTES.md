@@ -3226,3 +3226,7 @@ Pas d’ordre — confrontation plus tard.
 ### 2026-09-02T20:18:05Z — ALERT auto
 - RIZEUSDT: IMPULSE_WAIT — spike en cours, pas chase
 (compléter: confirmé ? risque ?)
+
+### 2026-09-02T20:34:07Z — ALERT auto
+- RIZEUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
