@@ -3101,3 +3101,6 @@
 - 2026-09-02T01:25:06.268836Z | alerte | Maintenir l'alerte rouge et la rigueur tactique de l'essaim, en capitalisant sur l'éclairage de Beta et la patience d'Alpha tout en appliquant les stop-loss de Hulk sur les positions en infraction. | conf=88%
 - 2026-09-02T01:25:53.093614Z | alerte | ? | conf=?
 - 2026-09-02T01:27:55.369311Z | alerte | Maintien de l'alerte rouge avec un encadrement strict de la discipline d'Alpha, l'exploitation prudente des sondages de Beta et la surveillance rapprochée des positions seeds de Hulk en zone critique. | conf=82%
+- 2026-09-02T01:40:32.636310Z | alerte | Maintien de l'alerte rouge avec un encadrement strict de la discipline d'Alpha, l'exploitation prudente des sondages de Beta et la surveillance rapprochée des positions seeds de Hulk en zone critique. | conf=82%
+- 2026-09-02T01:55:11.155266Z | alerte | Maintien de l'alerte rouge avec un encadrement strict de la discipline d'Alpha, l'exploitation prudente des sondages de Beta et la surveillance rapprochée des positions seeds de Hulk en zone critique. | conf=82%
+- 2026-09-02T02:25:10.403497Z | alerte | Maintien de l'alerte rouge avec un encadrement strict de la discipline d'Alpha, l'exploitation prudente des sondages de Beta et la surveillance rapprochée des positions seeds de Hulk en zone critique. | conf=82%

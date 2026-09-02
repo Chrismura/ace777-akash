@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-02T01:29:44.771740+00:00",
+  "generated_at": "2026-09-02T02:25:18.771833+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 231
+      "calls_24h": 236
     },
     {
       "id": "openrouter-free",
@@ -247,10 +247,50 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 10,
-    "remaining": 614
+    "consumed": 15,
+    "remaining": 609
   },
   "queue": [
+    {
+      "ts": "2026-09-02T02:25:10.381767+00:00",
+      "task": "analyste.strategie",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 3.31
+    },
+    {
+      "ts": "2026-09-02T01:55:11.129778+00:00",
+      "task": "analyste.strategie",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 3.86
+    },
+    {
+      "ts": "2026-09-02T01:44:28.353913+00:00",
+      "task": "analyse.profonde",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 0.8
+    },
+    {
+      "ts": "2026-09-02T01:40:32.613781+00:00",
+      "task": "analyste.strategie",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 2.96
+    },
+    {
+      "ts": "2026-09-02T01:30:04.951945+00:00",
+      "task": "supervise.decision",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 0.99
+    },
     {
       "ts": "2026-09-02T01:29:11.165884+00:00",
       "task": "supervise.decision",
@@ -330,49 +370,39 @@
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
       "duration_s": 3.48
-    },
-    {
-      "ts": "2026-09-01T23:54:58.457178+00:00",
-      "task": "analyste.strategie",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 3.62
-    },
-    {
-      "ts": "2026-09-01T23:51:24.884510+00:00",
-      "task": "analyste.strategie",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 3.62
-    },
-    {
-      "ts": "2026-09-01T23:36:31.869982+00:00",
-      "task": "analyste.strategie",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 2.44
-    },
-    {
-      "ts": "2026-09-01T23:29:44.393923+00:00",
-      "task": "analyste.strategie",
-      "provider": "openrouter-juge",
-      "model": "nvidia/nemotron-3-super-120b-a12b:free",
-      "kind": "cloud",
-      "duration_s": 31.8
-    },
-    {
-      "ts": "2026-09-01T23:28:57.042873+00:00",
-      "task": "supervise.decision",
-      "provider": "groq",
-      "model": "groq/compound",
-      "kind": "cloud",
-      "duration_s": 1.78
     }
   ],
   "events": [
+    {
+      "ts": "2026-09-02T02:25:10.380546+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
+    {
+      "ts": "2026-09-02T01:55:11.129245+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
+    {
+      "ts": "2026-09-02T01:44:28.353522+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
+    {
+      "ts": "2026-09-02T01:40:32.612176+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
+    {
+      "ts": "2026-09-02T01:30:04.951576+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
     {
       "ts": "2026-09-02T01:29:11.165529+00:00",
       "kind": "message",
@@ -402,36 +432,6 @@
       "kind": "filet-universel",
       "title": "[FILET UNIVERSEL] « OpenRouter (modeles gratuits) » a repondu hors chaine",
       "detail": "analyste.strategie"
-    },
-    {
-      "ts": "2026-09-02T01:25:19.132911+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis OrcaRouter (routeur gratuit, modele orcarouter/free)",
-      "detail": "HTTP Error 400: Bad Request"
-    },
-    {
-      "ts": "2026-09-02T01:25:17.912835+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis HuggingFace (136+ modeles, dont DeepSeek-V4)",
-      "detail": "HTTP Error 400: Bad Request"
-    },
-    {
-      "ts": "2026-09-02T01:25:13.611365+00:00",
-      "kind": "timeout",
-      "title": "Patience HuggingFace (136+ modeles, dont DeepSeek-V4) (HTTP 400)",
-      "detail": "HTTP Error 400: Bad Request"
-    },
-    {
-      "ts": "2026-09-02T01:25:12.379131+00:00",
-      "kind": "blacklist",
-      "title": "Fin de pause HuggingFace (136+ modeles, dont DeepSeek-V4)",
-      "detail": "re-essai automatique"
-    },
-    {
-      "ts": "2026-09-02T01:25:12.375360+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis Groq (LLM ultra-rapide, gratuit)",
-      "detail": "HTTP Error 400: Bad Request"
     }
   ],
   "tasks_quotas": {

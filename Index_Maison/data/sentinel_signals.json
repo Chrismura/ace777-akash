@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "fear_greed",
-      "zscore": 3.1091263510296048,
-      "value": 69,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrême (3.11) à 69 (Greed) sans couverture médiatique majeure : asymétrie classique de distribution par les baleines (retail absent, smart money liquide discrètement).\"\n}\n```",
-      "ts": "2026-09-01T05:42:57.446909+00:00"
-    },
-    {
       "metric": "taker_ratio",
       "zscore": 2.2456504686494543,
       "value": 1.358,
@@ -349,6 +342,13 @@
       "value": 1.215,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit de fond médiatique sans rapport avec la crypto (homonymie avec des instituts, actualités universitaires et graphiques boursiers traditionnels). Aucune baleine détectée.\"\n}\n```",
       "ts": "2026-09-01T20:18:35.060633+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 4.947883664641244,
+      "value": 6572077.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (z-score 4.95, ~6.5M USD) couplée à un silence total des médias mainstream. Comportement typique d'accumulation furtive par les baleines avant un mouvement directionnel non pricé.\"\n}\n```",
+      "ts": "2026-09-02T01:44:28.356670+00:00"
     }
   ]
 }

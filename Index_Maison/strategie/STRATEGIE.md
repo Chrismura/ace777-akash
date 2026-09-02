@@ -1,14 +1,14 @@
-# STRATEGIE — 2026-09-02T01:27:55.369311Z
+# STRATEGIE — 2026-09-02T02:25:10.403497Z
 
-## COURT TERME — 2026-09-02T01:27:55.369311Z
+## COURT TERME — 2026-09-02T02:25:10.403497Z
 
-[UNDERSTAND] La maison ACE777 maintient son alerte rouge avec un PnL combiné sous pression (-9.12 $) tandis que Beta éclaire activement le marché, qu'Alpha patiente en embuscade (366 skips) et que Hulk gère un portefeuille sous surveillance stricte.
+[UNDERSTAND] La maison ACE777 maintient son alerte rouge face à un PnL combiné sous pression (-9.12 $) tout en s'appuyant sur la discipline d'embuscade d'Alpha, l'éclairage de Beta et la surveillance rapprochée de la position seed CCUSDT en zone critique.
 
 [ANALYZE]
-- **Tendance :** Phase de consolidation dans une configuration "Bitcoin season" (score 42, dominance BTC 59.09%) sous un climat de cupidité (Fear & Greed à 63) et une activité onchain modérée (33.2/100).
-- **Momentum :** Alpha fait preuve de discipline chirurgicale avec 366 skips et 5 fills (-3.31 $), tandis que Beta maintient ses reconnaissances (9 sondes, PnL -5.81 $) pour alimenter l'intel de l'essaim. L'alerte volume x3 sur ETHUSDT à 01:27 est un signal de reconnaissance à surveiller et non un ordre d'engagement.
-- **Risque :** Le portefeuille global est sous la ligne d'équilibre (-32.37 $ total), avec une vigilance critique requise sur **CCUSDT à -8.30%**, qui frôle le seuil d'alerte de -10% de stop-loss, ainsi que sur RIZEUSDT, HBARUSDT et XRPUSDT en territoire négatif.
-- **Contexte :** Les flux ETF BTC restent positifs (+59.43 M$) mais l'attentisme macroéconomique et les tensions sur les positions seeds de Hulk exigent un maintien strict des garde-fous.
+- **Tendance :** Phase de consolidation dans une configuration "Bitcoin season" (score 42, dominance BTC 59.09%) sous un climat de cupidité (Fear & Greed à 63) et une activité onchain faible (19.7/100).
+- **Momentum :** Alpha maintient une discipline rigoureuse (366 skips, 5 fills, PnL -3.31 $), tandis que Beta assure ses reconnaissances tactiques (9 sondes, PnL -5.81 $) pour alimenter l'essaim.
+- **Risque :** Le portefeuille global est sous pression (-30.60 $ total), avec une vigilance critique requise sur **CCUSDT à -8.07%**, qui frôle le seuil d'alerte de -10% de stop-loss, ainsi que sur d'autres positions en territoire négatif.
+- **Contexte :** Les flux ETF BTC restent positifs (+59.30 M$) mais l'attentisme macroéconomique et les tensions sur les positions seeds de Hulk exigent un maintien strict des garde-fous.
 
 [STRATEGIZE]
 1. Maintenir la discipline d'attente d'Alpha et l'éclairage de Beta sans forcer l'engagement tant que les carnets ne confirment pas une rupture nette.
