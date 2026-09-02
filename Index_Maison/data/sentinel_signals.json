@@ -1,34 +1,6 @@
 {
   "signals": [
     {
-      "metric": "whale_usd",
-      "zscore": 3.7728835115716266,
-      "value": 6056546.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 3.77, ~6M USD) en absence totale de couverture médiatique. Accumulation furtive des baleines sous le radar du retail.\"\n}\n```",
-      "ts": "2026-09-01T08:18:45.265408+00:00"
-    },
-    {
-      "metric": "price_1h",
-      "zscore": 4.087196104724826,
-      "value": 0.8745960458400592,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie statistique majeure (z-score 4.09) totalement ignorée par les médias (silence radio). Divergence classique de accumulation furtive par les baleines avant un mouvement de prix asymétrique.\"\n}\n```",
-      "ts": "2026-09-01T08:28:47.767304+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": 2.4201534780139142,
-      "value": 69,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.42) et indice de peur/greed à 69 (Avidité) combinés à un vide médiatique (Google Actualités muet) : classic setup de 'retail FOMO' tardif. Les baleines profitent de cette liquidité aveugle pour distribuer en silence avant une correction.\"\n}\n```",
-      "ts": "2026-09-01T08:43:52.109946+00:00"
-    },
-    {
-      "metric": "liquidations",
-      "zscore": -3.329253015697746,
-      "value": 2192321.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Z-score extrêmement bas (-3.33) sur les liquidations crypto, montrant un assèchement total de la pression vendeuse par effet de levier. En contraste total, les médias saturant le mot 'liquidations' parlent de faillites d'entreprises traditionnelles et de bruits de couloir macro, créant un 'noise' médiatique qui masque l'accumulation silencieuse des baleines.\"\n}\n```",
-      "ts": "2026-09-01T08:53:56.592806+00:00"
-    },
-    {
       "metric": "price_1h",
       "zscore": 3.8242948296947104,
       "value": 0.9419196196714164,
@@ -349,6 +321,34 @@
       "value": 1.06,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit de fond médiatique sans rapport avec la crypto (homonymes 'IPT'). Aucune baleine détectée, simple collision lexicale.\"\n}\n```",
       "ts": "2026-09-02T14:37:49.622159+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 2.685380346549406,
+      "value": 0.02,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Bruit médiatique parasité par des homonymes (SDI Limited, Système d'Interchangeabilité/Facturation, Samsung SDI) sans rapport avec la crypto. Aucune baleine détectée.\"\n}\n```",
+      "ts": "2026-09-02T15:48:56.308020+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 3.788201459579627,
+      "value": 1.56,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Bruit de fond non-pertinent. L'indicateur (ipt) et les titres médiatiques font référence au Tournoi International des Physiciens (IPT) et à des actualités religieuses ou agricoles sans aucun rapport avec la crypto ou des mouvements de baleines.\"\n}\n```",
+      "ts": "2026-09-02T15:49:00.197712+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 9.888979311239002,
+      "value": 11042537.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (z-score 9.89, ~11M USD) en absence totale de couverture médiatique (Google Actualités vide). Accumulation furtive des baleines sous le radar du retail.\"\n}\n```",
+      "ts": "2026-09-02T16:14:06.341458+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 5.006438528591075,
+      "value": 0.032,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Bruit médiatique hors-sujet : les articles concernent une entreprise traditionnelle (SDI Limited), le système d'échange fiscal italien (SDI), du matériel vidéo (Blackmagic SDI) et une coentreprise automobile (Samsung SDI), sans aucun lien avec la crypto-sphère ou une baleine.\"\n}\n```",
+      "ts": "2026-09-02T16:19:08.797764+00:00"
     }
   ]
 }

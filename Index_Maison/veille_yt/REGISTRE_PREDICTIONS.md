@@ -1,11 +1,16 @@
 ---
-date: 2026-08-31T1616Z
+date: 2026-09-02T1615Z
 type: registre_predictions
 ---
 
 # 📓 Registre des prédictions — la vérification du banc d'essai
 
 Chaque prédiction est notée avec sa date limite. Le script `verifier_predictions.py` re-vérifie les échues (statut VRAIE/FAUSSE/NON VÉRIFIABLE).
+
+### 2026-09-02T1615Z — Crypto Crew University : WARNING: BITCOIN PUMP JUST GOT WORSE
+Lien : https://www.youtube.com/watch?v=vnEEad6Jt3U
+
+- _(aucune prédiction vérifiable extraite)_
 
 ### 2026-08-31T1616Z — Crypto Crew University : 3-Min Recap: Bitcoin Bloodbath? Watch Before It's Too Late 🩸👀 #shorts
 Lien : https://www.youtube.com/watch?v=NDhEjWq8org

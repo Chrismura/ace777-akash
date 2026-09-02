@@ -3185,3 +3185,12 @@ Pas d’ordre — confrontation plus tard.
 ### 2026-09-02T14:24:42Z — ALERT auto
 - CHIPUSDT: WATCH_PULLBACK — tension haute + reflux
 (compléter: confirmé ? risque ?)
+
+### 2026-09-02T15:49:50Z — ALERT auto
+- CHIPUSDT: WATCH_PULLBACK — tension haute + reflux
+- PYTHUSDT: IMPULSE_WAIT — spike en cours, pas chase
+(compléter: confirmé ? risque ?)
+
+### 2026-09-02T16:20:06Z — ALERT auto
+- RIZEUSDT: IMPULSE_WAIT — spike en cours, pas chase
+(compléter: confirmé ? risque ?)
