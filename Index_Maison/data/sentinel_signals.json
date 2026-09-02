@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "taker_ratio",
-      "zscore": 2.2456504686494543,
-      "value": 1.358,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Divergence critique : les médias grand public célèbrent une baisse de la pression vendeuse (0.86), mais le taker_ratio à 1.358 (z-score 2.25) prouve une agressivité acheteuse anormale des acheteurs sur le carnet d'ordres, souvent caractéristique d'une distribution agressive des baleines (piège à liquidité) ou d'un épuisement imminent.\"\n}\n```",
-      "ts": "2026-09-01T06:08:03.110299+00:00"
-    },
-    {
       "metric": "liquidations",
       "zscore": -2.0984135185477957,
       "value": 24002510.0,
@@ -349,6 +342,13 @@
       "value": 6572077.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (z-score 4.95, ~6.5M USD) couplée à un silence total des médias mainstream. Comportement typique d'accumulation furtive par les baleines avant un mouvement directionnel non pricé.\"\n}\n```",
       "ts": "2026-09-02T01:44:28.356670+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 4.969487225595067,
+      "value": 6812214.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (z-score 4.97) pour un afflux de 6.8M$ en USDC/USDT non relayé par les médias (silence radio). Accumulation furtive classique avant un mouvement directionnel.\"\n}\n```",
+      "ts": "2026-09-02T02:34:44.013169+00:00"
     }
   ]
 }
