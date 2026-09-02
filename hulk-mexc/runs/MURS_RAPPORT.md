@@ -1,25 +1,25 @@
 # OBSERVATOIRE DES MURS DE LIQUIDITÉ
-> 2026-09-02T04:10Z — 73715 mesures sur 27 paires · CSVs ASPIRATION_CALIB + OBSERVATION_MURS · sonde observation OBSERVATION_MURS_20260902_041016.csv
+> 2026-09-02T05:11Z — 73733 mesures sur 27 paires · CSVs ASPIRATION_CALIB + OBSERVATION_MURS · sonde observation OBSERVATION_MURS_20260902_051052.csv
 
 ## Les VRAIS murs (top 12 par mur bid moyen)
 
 | Paire | Mesures | Mur BID moy ($) | Mur BID max ($) | Mur ASK moy ($) | Spoof | Drop ≥15%/s |
 |---|---|---|---|---|---|---|
-| SOLUSDT | 231 | 492246.42 | 1131378.99 | 468132.78 | 0 (0.0%) | 6 |
+| SOLUSDT | 233 | 493159.33 | 1131378.99 | 468109.18 | 0 (0.0%) | 6 |
 | BTCUSDT | 1481 | 419926.18 | 1924444.32 | 488181.06 | 49 (3.31%) | 124 |
 | ETHUSDT | 1264 | 177592.18 | 1966688.05 | 173455.49 | 14 (1.11%) | 63 |
 | ADAUSDT | 36 | 102875.08 | 154143.34 | 92656.51 | 0 (0.0%) | 1 |
 | XRPUSDT | 8737 | 91589.68 | 606419.6 | 94098.68 | 376 (4.3%) | 1137 |
-| XLMUSDT | 223 | 71014.33 | 210677.64 | 67017.68 | 0 (0.0%) | 1 |
-| ALGOUSDT | 223 | 53061.75 | 92198.5 | 49879.8 | 0 (0.0%) | 6 |
+| XLMUSDT | 225 | 70971.07 | 210677.64 | 67015.28 | 0 (0.0%) | 1 |
+| ALGOUSDT | 225 | 53033.62 | 92198.5 | 49873.53 | 0 (0.0%) | 6 |
 | CHIPUSDT | 828 | 30766.68 | 61779.48 | 27298.12 | 32 (3.86%) | 53 |
 | HBARUSDT | 7426 | 30739.91 | 63738.72 | 26144.54 | 268 (3.61%) | 682 |
 | KITEUSDT | 391 | 28494.55 | 49707.9 | 26254.61 | 10 (2.56%) | 17 |
-| JASMYUSDT | 224 | 27177.45 | 239378.61 | 10562.08 | 0 (0.0%) | 1 |
-| GOLD(PAXG)USDT | 224 | 26756.57 | 87814.07 | 28169.07 | 0 (0.0%) | 11 |
+| JASMYUSDT | 226 | 27143.7 | 239378.61 | 10542.44 | 0 (0.0%) | 1 |
+| GOLD(PAXG)USDT | 226 | 26788.84 | 87814.07 | 28140.23 | 0 (0.0%) | 11 |
 
 ## Synthèse
-- **Total mesures** : 73715 (16-24/08, sonde aspiration)
+- **Total mesures** : 73733 (16-24/08, sonde aspiration)
 - **Spoofs détectés** : 1845 (2.5% des mesures) — murs de façade (fond puis se reconstruit)
 - **Chutes brutales de mur** (≥ 15%/s) : 3843 — le signal ACE « le mur s'effondre »
 

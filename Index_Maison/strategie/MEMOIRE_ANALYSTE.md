@@ -3114,3 +3114,10 @@
 - 2026-09-02T03:50:46.251236Z | alerte | Maintenir l'alerte rouge, exécuter les stop-loss critiques sur les positions seeds de Hulk et préserver la discipline d'embuscade d'Alpha. | conf=82%
 - 2026-09-02T03:55:26.482679Z | alerte | Maintenir l'alerte rouge, exécuter sans délai les stop-loss critiques sur les positions seeds de Hulk et préserver la discipline d'embuscade d'Alpha. | conf=82%
 - 2026-09-02T04:25:24.865138Z | alerte | Maintenir l'alerte rouge, exécuter sans délai les stop-loss critiques sur les positions seeds de Hulk et préserver la discipline d'embuscade d'Alpha. | conf=82%
+- 2026-09-02T04:44:40.498596Z | alerte | Maintenir l'alerte rouge, exécuter sans délai les stop-loss critiques sur les positions seeds de Hulk et préserver la discipline d'embuscade d'Alpha. | conf=82%
+- 2026-09-02T04:55:32.545025Z | alerte | Maintenir l'alerte rouge, exécuter sans délai les stop-loss critiques sur les positions seeds de Hulk et préserver la discipline d'embuscade d'Alpha. | conf=82%
+- 2026-09-02T05:03:03.425237Z | alerte | Maintenir l'alerte rouge, exécuter sans délai les stop-loss critiques sur les positions seeds de Hulk et préserver la discipline d'embuscade d'Alpha. | conf=82%
+- 2026-09-02T05:04:44.343575Z | alerte | Maintenir l'alerte rouge, exécuter sans délai les stop-loss critiques sur les positions seeds de Hulk et préserver la discipline d'embuscade d'Alpha. | conf=82%
+- 2026-09-02T05:16:48.820405Z | alerte | Maintenir l'alerte rouge, exécuter sans délai les stop-loss critiques sur les positions seeds de Hulk et préserver la discipline d'embuscade d'Alpha. | conf=82%
+- 2026-09-02T05:17:56.119276Z | alerte | Maintenir l'alerte rouge, exécuter immédiatement les stop‑loss critiques sur les positions seeds de Hulk et préserver la discipline d'embuscade d'Alpha. | conf=82%
+- 2026-09-02T05:25:35.775642Z | alerte | Maintenir l'alerte rouge, exécuter immédiatement les stop-loss critiques sur les positions seeds de Hulk et préserver la discipline d'embuscade d'Alpha. | conf=82%
