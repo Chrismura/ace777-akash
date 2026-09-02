@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-02T02:29:21.127205+00:00",
+  "generated_at": "2026-09-02T02:30:21.692103+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 236
+      "calls_24h": 237
     },
     {
       "id": "openrouter-free",
@@ -247,10 +247,18 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 15,
-    "remaining": 609
+    "consumed": 16,
+    "remaining": 608
   },
   "queue": [
+    {
+      "ts": "2026-09-02T02:29:47.068409+00:00",
+      "task": "supervise.decision",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 0.86
+    },
     {
       "ts": "2026-09-02T02:25:10.381767+00:00",
       "task": "analyste.strategie",
@@ -362,17 +370,15 @@
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
       "duration_s": 0.95
-    },
-    {
-      "ts": "2026-09-02T00:25:01.108628+00:00",
-      "task": "analyste.strategie",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 3.48
     }
   ],
   "events": [
+    {
+      "ts": "2026-09-02T02:29:47.067943+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
     {
       "ts": "2026-09-02T02:25:10.380546+00:00",
       "kind": "message",
@@ -426,12 +432,6 @@
       "kind": "message",
       "title": "« OpenRouter (modeles gratuits) » a repondu",
       "detail": "bascule"
-    },
-    {
-      "ts": "2026-09-02T01:25:53.091940+00:00",
-      "kind": "filet-universel",
-      "title": "[FILET UNIVERSEL] « OpenRouter (modeles gratuits) » a repondu hors chaine",
-      "detail": "analyste.strategie"
     }
   ],
   "tasks_quotas": {
