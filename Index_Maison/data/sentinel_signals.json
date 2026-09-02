@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "price_1h",
-      "zscore": 3.8242948296947104,
-      "value": 0.9419196196714164,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (3.82) avec un silence médiatique total (0 actualités) : mouvement furtif typique d'accumulation agressive par des baleines sous le radar.\"\n}\n```",
-      "ts": "2026-09-01T08:58:58.706823+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": 2.2360679774997902,
-      "value": 69,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Indice de peur et de cupidité à 69 (z-score 2.24) indique une euphorie retail excessive, tandis que l'absence de narratif médiatique fort (Google Actualités plat) montre un décalage : les baleines distribuent silencieusement aux suiveurs de tendance tardifs.\"\n}\n```",
-      "ts": "2026-09-01T09:14:02.171757+00:00"
-    },
-    {
       "metric": "liquidations",
       "zscore": -2.952740524491499,
       "value": 2048868.0,
@@ -349,6 +335,20 @@
       "value": 0.032,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Bruit médiatique hors-sujet : les articles concernent une entreprise traditionnelle (SDI Limited), le système d'échange fiscal italien (SDI), du matériel vidéo (Blackmagic SDI) et une coentreprise automobile (Samsung SDI), sans aucun lien avec la crypto-sphère ou une baleine.\"\n}\n```",
       "ts": "2026-09-02T16:19:08.797764+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.67173047868371,
+      "value": 1.23,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique (ipt = 1.23, z-score 2.67) sans lien avec la crypto. Les titres médiatiques font référence à l'Institut Protestant de Théologie (IPT) et à l'entreprise Premier Tech, démontrant un bruit sémantique total et une absence de mouvement de baleine avéré.\"\n}\n```",
+      "ts": "2026-09-02T16:59:20.595487+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 2.028479773031149,
+      "value": 0.02,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Anomalie de faux positif due à une confusion sémantique : le sigle 'SDI' dans les médias fait référence à des entreprises traditionnelles (médical, électronique, audiovisuel) et non à un token crypto. Aucune baleine crypto en mouvement.\"\n}\n```",
+      "ts": "2026-09-02T17:04:23.040134+00:00"
     }
   ]
 }
