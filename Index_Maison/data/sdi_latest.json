@@ -1,55 +1,51 @@
 {
-  "timestamp": 1788356564,
+  "timestamp": 1788359008,
   "sdi": {
-    "sdi": 0.008,
+    "sdi": 0.012,
     "divergence_score": 0,
-    "fee_score": 0.02,
+    "fee_score": 0.03,
     "dormant_pct": 63,
     "dormant_avg_30d": 48.5,
     "dormant_source": "alternative.me (FG proxy — les données dormant sont indisponibles)",
-    "fee_fastest_sat": 2
+    "fee_fastest_sat": 3
   },
   "ipt": {
-    "ipt": 0.75,
-    "micro_tx_ratio": 0.7,
-    "z_fee": 1.0,
-    "entropy": 0.568
+    "ipt": 0.713,
+    "micro_tx_ratio": 0.2,
+    "z_fee": 2.0,
+    "entropy": 0.111
   },
   "rbf": {
-    "rbf_score": 0.167,
-    "rbf_ratio": 0.167,
-    "rbf_pairs": 1,
+    "rbf_score": 0.0,
+    "rbf_ratio": 0.0,
+    "rbf_pairs": 0,
     "n_txs": 6,
     "rbf_method": "outspends-double-depense",
-    "rbf_detail": [
-      {
-        "tx": "76df8904765395a8",
-        "remplacee_par": "8647c4aed30e4419",
-        "input": "25c6b8cd4388bde7:0"
-      }
-    ]
+    "rbf_detail": []
   },
   "fee_pressure": {
-    "fastest": 2,
+    "fastest": 3,
     "halfHour": 1,
     "hour": 1,
     "economy": 1,
     "source": "mempool.space"
   },
-  "alerts": [],
+  "alerts": [
+    "ENTROPIE BASSE: mempool anormalement homogène"
+  ],
   "sapi": {
-    "score": 0.5,
+    "score": 0.3,
     "alerte": false,
     "persistance": false,
     "scores_recents": [
       0.5,
       0.3,
-      0.5
+      0.3
     ],
     "composantes": {
-      "z_fee": 1.0,
-      "taux_fantome": 2.052,
-      "micro_tx_ratio": 0.7,
+      "z_fee": 2.0,
+      "taux_fantome": 0.692,
+      "micro_tx_ratio": 0.2,
       "spot_proxy": 0.0,
       "coef_heure_creuse": 1.0,
       "entropie_tempo": 0.0
