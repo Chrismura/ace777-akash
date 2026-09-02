@@ -1,47 +1,46 @@
 {
-  "timestamp": "2026-09-02T12:42:33Z",
+  "timestamp": "2026-09-02T13:42:51Z",
   "generation_source": "system_state_generator.py v2.1",
   "status": "STALE",
-  "feed_hash": "3d6860ee88a03b6cbe98e7cf0afdafe5abeb339110fe65e8794bd375f574c929",
+  "feed_hash": "1604bd1c4b174d512947f06d3e03442799e504ab7288b614575d89c6fc749d3c",
   "feeds": {
     "mission": {
       "present": true,
-      "age_seconds": 12,
+      "age_seconds": 37,
       "fresh_limit_s": 120
     },
     "cortana_feed": {
       "present": true,
-      "age_seconds": 103,
+      "age_seconds": 334,
       "fresh_limit_s": 120
     },
     "live": {
       "present": true,
-      "age_seconds": 103,
+      "age_seconds": 176,
       "fresh_limit_s": 15
     },
     "routing": {
       "present": true,
-      "age_seconds": 781336,
+      "age_seconds": 784954,
       "fresh_limit_s": 120
     }
   },
   "services": {
     "total": 74,
-    "running": 12,
-    "planned": 62,
+    "running": 11,
+    "planned": 63,
     "running_list": [
       "com.ace777.cockpit-http",
       "com.ace777.cockpit-pont",
-      "com.ace777.cortana.urgent",
       "com.ace777.llm-gate-hub",
       "com.ace777.prise-ia",
       "com.ace777.satellite-aspiration",
       "com.ace777.state-generator",
-      "com.ace777.superviseur-auto",
+      "com.ace777.superviseur",
       "com.ace777.superviseur-core",
       "com.ace777.superviseur-process",
-      "com.ace777.vigie-live",
-      "com.ace777.whales"
+      "com.ace777.thermo-quotidien",
+      "com.ace777.vigie-live"
     ],
     "planned_list": [
       "com.ace777.analyste-cadence",
@@ -53,6 +52,7 @@
       "com.ace777.cortana-analyzer",
       "com.ace777.cortana-feed",
       "com.ace777.cortana-propose-params",
+      "com.ace777.cortana.urgent",
       "com.ace777.couleur-regime",
       "com.ace777.couleur-regime-score",
       "com.ace777.cpfp",
@@ -92,8 +92,7 @@
       "com.ace777.sniffer-ny",
       "com.ace777.sonde-volume-panier",
       "com.ace777.suivi-setup-red",
-      "com.ace777.superviseur",
-      "com.ace777.thermo-quotidien",
+      "com.ace777.superviseur-auto",
       "com.ace777.veille-degradation",
       "com.ace777.veille-essaim-observation",
       "com.ace777.veille-hub",
@@ -105,7 +104,8 @@
       "com.ace777.veilleuse-confrontation",
       "com.ace777.veilleuse-sizing-monte-carlo",
       "com.ace777.verif-setup",
-      "com.ace777.watchdog"
+      "com.ace777.watchdog",
+      "com.ace777.whales"
     ]
   },
   "hub": {
@@ -145,7 +145,7 @@
       "Assistant_Vocal_HORS_VAULT": 697372,
       "Obsidian_BACKUPS_HORS_VAULT": 14936872
     },
-    "presence_at": "2026-09-02T12:24:35Z",
+    "presence_at": "2026-09-02T13:24:36Z",
     "sizes_at": "2026-09-02T11:24:32Z"
   }
 }
