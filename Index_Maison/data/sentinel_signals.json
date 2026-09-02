@@ -2,20 +2,6 @@
   "signals": [
     {
       "metric": "liquidations",
-      "zscore": -2.952740524491499,
-      "value": 2048868.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-2.95) sur les liquidations crypto, couplé à un bruit médiatique totalement hors sujet (faillites d'entreprises locales à Quimper et confusion avec la finance traditionnelle). Absence totale de pression vendeuse onchain : l'asymétrie signale un piège à baissiers et une accumulation silencieuse des baleines.\"\n}\n```",
-      "ts": "2026-09-01T09:24:05.069203+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": 2.0816659994661326,
-      "value": 69,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 82,\n  \"reason\": \"Z-score de 2.08 (Greed excessif) couplé à un vide médiatique (Google Actualités plat) : classic trap de FOMO de détail. Les baleines accumulent des liquidités en silence pendant que le marché sous-estime le risque de correction.\"\n}\n```",
-      "ts": "2026-09-01T09:44:09.476411+00:00"
-    },
-    {
-      "metric": "liquidations",
       "zscore": -2.6632135564708386,
       "value": 2048868.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le z-score très bas (-2.66) indique une absence totale de liquidations sur les marchés crypto, contredisant le narratif médiatique saturé de mots-clés alarmistes ('liquidations judiciaires' et 'thèse baissière BTC'). Calme plat onchain : les baleines n'essuient aucune vente forcée, préparant un mouvement furtif en contrarien.\"\n}\n```",
@@ -349,6 +335,20 @@
       "value": 0.02,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Anomalie de faux positif due à une confusion sémantique : le sigle 'SDI' dans les médias fait référence à des entreprises traditionnelles (médical, électronique, audiovisuel) et non à un token crypto. Aucune baleine crypto en mouvement.\"\n}\n```",
       "ts": "2026-09-02T17:04:23.040134+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 2.067095979632977,
+      "value": 0.02,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Bruit médiatique absolu. Le sigle 'SDI' dans les actualités fait référence à des entreprises traditionnelles (Samsung SDI, matériel vidéo Blackmagic SDI, facturation italienne) et n'a aucun rapport avec la crypto-baleine ou le token ciblé. Anomalie onchain non corrélée.\"\n}\n```",
+      "ts": "2026-09-02T18:14:48.658036+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 3.602616117706542,
+      "value": 1.483,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 3.60) entièrement due à un télescopage sémantique : le ticker crypto 'ipt' est confondu par les algorithmes avec l'Institut Protestant de Théologie (IPT) et des actualités agricoles/sportives. Bruit de fond médiatique sans lien avec une baleine crypto.\"\n}\n```",
+      "ts": "2026-09-02T18:14:50.475521+00:00"
     }
   ]
 }
