@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "liquidations",
-      "zscore": -2.0984135185477957,
-      "value": 24002510.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le z-score négatif (-2.10) des liquidations crypto montre un assèchement des positions vendeuses, contredisant totalement le narratif médiatique alarmiste qui mélange faillites d'entreprises traditionnelles et vieux clichés baissiers sur Bitcoin. Piège à liquidité classique : les baleines nettoient le carnet d'ordres avant une impulsion haussière.\"\n}\n```",
-      "ts": "2026-09-01T06:13:07.360586+00:00"
-    },
-    {
       "metric": "fear_greed",
       "zscore": 3.1091263510296048,
       "value": 69,
@@ -349,6 +342,13 @@
       "value": 6812214.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (z-score 4.97) pour un afflux de 6.8M$ en USDC/USDT non relayé par les médias (silence radio). Accumulation furtive classique avant un mouvement directionnel.\"\n}\n```",
       "ts": "2026-09-02T02:34:44.013169+00:00"
+    },
+    {
+      "metric": "taker_ratio",
+      "zscore": 2.0939331065827873,
+      "value": 1.283,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Divergence critique : les médias grand public célèbrent une baisse de la pression vendeuse, mais le taker_ratio on-chain à 1.283 (z-score 2.09) révèle une agression acheteuse agressive des acheteurs de détail piégés, pendant que les baleines distribuent silencieusement.\"\n}\n```",
+      "ts": "2026-09-02T04:10:04.290300+00:00"
     }
   ]
 }
