@@ -1,11 +1,11 @@
 # Attention vocale — Cortana
 
 ## Dernier résumé
-> Info Fill Bêta. Bêta : SELL, -0.58 dollars. Provenance cortana_watch_fill.
+> Info Changement de tendance. Structure hausse, signe une heure -.. Provenance cortana_watch_trend.
 
 ## Meta
 - statut: IDLE
-- ts: 20260901T2303Z
+- ts: 20260902T0023Z
 - pertinence: SOFT
 - sentiment: INFO
 - compte: thermo-free
