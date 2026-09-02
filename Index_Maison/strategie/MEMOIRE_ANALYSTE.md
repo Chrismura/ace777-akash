@@ -3213,3 +3213,8 @@
 - 2026-09-02T19:27:30.438002Z | alerte | Maintenir l'alerte rouge, exécuter immédiatement les stop‑loss sur les positions seeds en infraction critique comme CCUSDT et préserver la discipline d'embuscade d'Alpha. | conf=85 %
 - 2026-09-02T19:30:25.927956Z | alerte | Maintenir l'alerte rouge, exécuter immédiatement les stop-loss sur les positions seeds en infraction critique comme CCUSDT et préserver la discipline d'embuscade d'Alpha. | conf=85%
 - 2026-09-02T19:34:12.322227Z | alerte | Maintenir l'alerte rouge, exécuter immédiatement les stop-loss sur les positions seeds en infraction critique comme CCUSDT et préserver la discipline d'embuscade d'Alpha. | conf=85%
+- 2026-09-02T19:57:03.704185Z | alerte | Maintenir l'alerte rouge, exécuter immédiatement les stop-loss sur les positions seeds en infraction critique comme CCUSDT et préserver la discipline d'embuscade d'Alpha. | conf=85%
+- 2026-09-02T19:59:47.212087Z | alerte | Maintenir l'alerte rouge, exécuter immédiatement les stop-loss sur les positions seeds en infraction critique comme CCUSDT et préserver la discipline d'embuscade d'Alpha. | conf=85%
+- 2026-09-02T20:19:17.277471Z | alerte | Maintenir l'alerte rouge, exécuter immédiatement les stop-loss sur les positions seeds en infraction critique comme CCUSDT et préserver la discipline d'embuscade d'Alpha. | conf=85%
+- 2026-09-02T20:27:06.861652Z | alerte | Maintenir l'alerte rouge, exécuter immédiatement les stop-loss sur les positions seeds en infraction critique comme CCUSDT et préserver la discipline d'embuscade d'Alpha. | conf=85%
+- 2026-09-02T20:32:27.305594Z | alerte | Maintenir l'alerte rouge, exécuter immédiatement les stop-loss de coupe-circuit sur CCUSDT et préserver la patience tactique d'Alpha. | conf=85%
