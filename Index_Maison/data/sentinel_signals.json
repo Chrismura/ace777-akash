@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "sdi",
-      "zscore": 2.0460141548154938,
-      "value": 0.016,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Anomalie de faux positif due au bruit sémantique. Le ticker 'SDI' capturé par les flux fait référence à des équipements médicaux, de la facturation et du matériel vidéo (Blackmagic), et non à un actif crypto ou à des mouvements de baleines.\"\n}\n```",
-      "ts": "2026-09-01T12:20:01.280058+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.9735521918998638,
-      "value": 1.297,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Anomalie de données non pertinente. L'indice 'ipt' fait référence à un acronyme académique et institutionnel (Tournoi International des Physiciens, Institut Protestant de Théologie, etc.) et non à un actif crypto ou à des mouvements de baleines.\"\n}\n```",
-      "ts": "2026-09-01T12:20:03.119248+00:00"
-    },
-    {
       "metric": "ipt",
       "zscore": 2.2290357479995726,
       "value": 1.127,
@@ -349,6 +335,20 @@
       "value": 0.654,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Le taker_ratio à 0.654 (z-score -2.05) indique une domination massive des acheteurs agritifs (Taker Buys) que les médias ignorent, qualifiant faussement la situation de simple 'baisse de la pression vendeuse'. Accumulation silencieuse des baleines.\"\n}\n```",
       "ts": "2026-09-02T23:11:05.668238+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 5.607672692959053,
+      "value": 65,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 40,\n  \"reason\": \"Données Google Actualités insuffisantes pour mesurer une divergence significative malgré un z-score élevé de l'indice Fear & Greed.\"\n}\n```",
+      "ts": "2026-09-03T00:06:26.102290+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 6.855654600401052,
+      "value": 65,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 40,\n  \"reason\": \"Données médiatiques insuffisantes pour établir une divergence claire, malgré une avidité de marché modérée (Z-score 6.86).\"\n}\n```",
+      "ts": "2026-09-03T00:36:32.804005+00:00"
     }
   ]
 }
