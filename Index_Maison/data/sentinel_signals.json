@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "ipt",
-      "zscore": 2.2290357479995726,
-      "value": 1.127,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie technique (z-score 2.23) entièrement corrélée à du bruit médiatique sans rapport avec la crypto (tournoi de physique de l'X, actualités protestantes et partenariats universitaires). Aucune activité de baleine détectée.\"\n}\n```",
-      "ts": "2026-09-01T13:15:11.284133+00:00"
-    },
-    {
       "metric": "sdi",
       "zscore": 2.8752338805795996,
       "value": 0.02,
@@ -349,6 +342,13 @@
       "value": 65,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 40,\n  \"reason\": \"Données médiatiques insuffisantes pour établir une divergence claire, malgré une avidité de marché modérée (Z-score 6.86).\"\n}\n```",
       "ts": "2026-09-03T00:36:32.804005+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 4.795831523312714,
+      "value": 65,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrême (4.80) combiné à un vide médiatique (Google Actualités muet) : c'est la signature classique d'une accumulation ou d'une distribution silencieuse par les baleines loin du radar grand public. Le marché est en surchauffe locale sans couverture médiatique pour soutenir une tendance organique saine, annonçant un risque élevé de retournement.\"\n}\n```",
+      "ts": "2026-09-03T01:06:45.768116+00:00"
     }
   ]
 }
