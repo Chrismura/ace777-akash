@@ -3252,3 +3252,10 @@
 - 2026-09-03T00:57:30.872851Z | alerte | Maintenir l'alerte ambre, exécuter sans délai le coupe-circuit sur la position seed CCUSDT en infraction profonde et préserver la patience tactique d'Alpha. | conf=85%
 - 2026-09-03T00:58:35.824298Z | alerte | Maintenir l'alerte ambre, exécuter immédiatement le coupe-circuit sur la position seed CCUSDT en infraction profonde et préserver la patience tactique d'Alpha. | conf=85%
 - 2026-09-03T00:58:36.947151Z | alerte | Maintenir l'alerte ambre, exécuter immédiatement le coupe-circuit sur la position seed CCUSDT en infraction profonde et préserver la patience tactique d'Alpha. | conf=85%
+- 2026-09-03T01:11:39.729785Z | alerte | Maintenir l'alerte ambre, exécuter immédiatement le coupe-circuit sur la position seed CCUSDT en infraction profonde et préserver la patience tactique d'Alpha. | conf=85%
+- 2026-09-03T01:25:47.110986Z | alerte | Maintenir l'alerte ambre, exécuter immédiatement le coupe-circuit sur la position seed CCUSDT en infraction profonde et préserver la patience tactique d'Alpha. | conf=85%
+- 2026-09-03T01:27:30.346791Z | alerte | Maintenir l'alerte ambre, exécuter immédiatement le coupe-circuit sur la position seed CCUSDT en infraction profonde et préserver la patience tactique d'Alpha. | conf=85%
+- 2026-09-03T01:31:04.927181Z | alerte | Maintenir l'alerte ambre, exécuter immédiatement le coupe-circuit sur la position seed CCUSDT en infraction profonde et préserver la patience tactique d'Alpha. | conf=85%
+- 2026-09-03T01:31:48.675931Z | alerte | Maintenir l'alerte ambre, exécuter immédiatement le coupe-circuit sur la position seed CCUSDT en infraction profonde et préserver la patience tactique d'Alpha. | conf=85%
+- 2026-09-03T01:37:50.089058Z | alerte | Maintenir l'alerte ambre, exécuter immédiatement le coupe-circuit sur la position seed CCUSDT en infraction profonde et préserver la patience tactique d'Alpha. | conf=85%
+- 2026-09-03T01:57:37.019936Z | alerte | Maintenir l'alerte ambre, exécuter immédiatement le coupe-circuit sur la position seed CCUSDT en infraction profonde et préserver la patience tactique d'Alpha. | conf=85%
