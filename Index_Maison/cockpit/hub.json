@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-02T23:36:04.804146+00:00",
+  "generated_at": "2026-09-03T00:03:24.142417+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -247,10 +247,34 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 281,
-    "remaining": 343
+    "consumed": 1,
+    "remaining": 623
   },
   "queue": [
+    {
+      "ts": "2026-09-03T00:01:07.543670+00:00",
+      "task": "analyste.strategie",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 3.53
+    },
+    {
+      "ts": "2026-09-02T23:57:23.290480+00:00",
+      "task": "analyste.strategie",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 3.37
+    },
+    {
+      "ts": "2026-09-02T23:50:49.250848+00:00",
+      "task": "analyste.strategie",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 4.42
+    },
     {
       "ts": "2026-09-02T23:32:15.797242+00:00",
       "task": "analyste.strategie",
@@ -346,33 +370,27 @@
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
       "duration_s": 0.9
-    },
-    {
-      "ts": "2026-09-02T22:30:57.382234+00:00",
-      "task": "analyse.profonde",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 0.88
-    },
-    {
-      "ts": "2026-09-02T22:30:55.398624+00:00",
-      "task": "analyste.strategie",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 3.08
-    },
-    {
-      "ts": "2026-09-02T22:29:43.734535+00:00",
-      "task": "analyste.strategie",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 3.43
     }
   ],
   "events": [
+    {
+      "ts": "2026-09-03T00:01:07.543013+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
+    {
+      "ts": "2026-09-02T23:57:23.290151+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
+    {
+      "ts": "2026-09-02T23:50:49.250057+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
     {
       "ts": "2026-09-02T23:32:15.795718+00:00",
       "kind": "message",
@@ -414,24 +432,6 @@
       "kind": "message",
       "title": "« OpenRouter Juge (nemotron-3-super-120b free) - verificateur independant » a repondu",
       "detail": "bascule"
-    },
-    {
-      "ts": "2026-09-02T23:04:28.371585+00:00",
-      "kind": "filet-universel",
-      "title": "[FILET UNIVERSEL] « OpenRouter Juge (nemotron-3-super-120b free) - verificateur independant » a repondu hors chaine",
-      "detail": "analyste.strategie"
-    },
-    {
-      "ts": "2026-09-02T23:03:55.895605+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis OpenRouter (modeles gratuits)",
-      "detail": "HTTP Error 429: Too Many Requests"
-    },
-    {
-      "ts": "2026-09-02T23:03:53.861616+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis OrcaRouter (routeur gratuit, modele orcarouter/free)",
-      "detail": "HTTP Error 400: Bad Request"
     }
   ],
   "tasks_quotas": {
