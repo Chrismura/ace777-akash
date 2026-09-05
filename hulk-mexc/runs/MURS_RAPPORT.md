@@ -1,25 +1,25 @@
 # OBSERVATOIRE DES MURS DE LIQUIDITÉ
-> 2026-09-05T21:12Z — 75269 mesures sur 27 paires · CSVs ASPIRATION_CALIB + OBSERVATION_MURS · sonde observation OBSERVATION_MURS_20260905_211153.csv
+> 2026-09-05T22:13Z — 75287 mesures sur 27 paires · CSVs ASPIRATION_CALIB + OBSERVATION_MURS · sonde observation OBSERVATION_MURS_20260905_221236.csv
 
 ## Les VRAIS murs (top 12 par mur bid moyen)
 
 | Paire | Mesures | Mur BID moy ($) | Mur BID max ($) | Mur ASK moy ($) | Spoof | Drop ≥15%/s |
 |---|---|---|---|---|---|---|
-| SOLUSDT | 404 | 500148.24 | 1131378.99 | 487572.61 | 0 (0.0%) | 8 |
+| SOLUSDT | 406 | 500344.03 | 1131378.99 | 487646.09 | 0 (0.0%) | 8 |
 | BTCUSDT | 1481 | 419926.18 | 1924444.32 | 488181.06 | 49 (3.31%) | 124 |
 | ETHUSDT | 1264 | 177592.18 | 1966688.05 | 173455.49 | 14 (1.11%) | 63 |
 | ADAUSDT | 36 | 102875.08 | 154143.34 | 92656.51 | 0 (0.0%) | 1 |
 | XRPUSDT | 8737 | 91589.68 | 606419.6 | 94098.68 | 376 (4.3%) | 1137 |
-| XLMUSDT | 396 | 72976.7 | 312328.07 | 66075.85 | 0 (0.0%) | 7 |
-| ALGOUSDT | 396 | 55026.88 | 93941.7 | 50673.73 | 0 (0.0%) | 11 |
+| XLMUSDT | 398 | 72984.51 | 312328.07 | 66050.03 | 0 (0.0%) | 7 |
+| ALGOUSDT | 398 | 55055.97 | 93941.7 | 50659.34 | 0 (0.0%) | 11 |
 | CHIPUSDT | 828 | 30766.68 | 61779.48 | 27298.12 | 32 (3.86%) | 53 |
 | HBARUSDT | 7426 | 30739.91 | 63738.72 | 26144.54 | 268 (3.61%) | 682 |
 | KITEUSDT | 391 | 28494.55 | 49707.9 | 26254.61 | 10 (2.56%) | 17 |
-| GOLD(PAXG)USDT | 397 | 27655.06 | 87814.07 | 29491.52 | 0 (0.0%) | 25 |
-| JASMYUSDT | 396 | 24762.79 | 239378.61 | 10888.7 | 0 (0.0%) | 2 |
+| GOLD(PAXG)USDT | 399 | 27692.21 | 87814.07 | 29675.31 | 0 (0.0%) | 25 |
+| JASMYUSDT | 398 | 24714.96 | 239378.61 | 10948.72 | 0 (0.0%) | 2 |
 
 ## Synthèse
-- **Total mesures** : 75269 (16-24/08, sonde aspiration)
+- **Total mesures** : 75287 (16-24/08, sonde aspiration)
 - **Spoofs détectés** : 1845 (2.5% des mesures) — murs de façade (fond puis se reconstruit)
 - **Chutes brutales de mur** (≥ 15%/s) : 3893 — le signal ACE « le mur s'effondre »
 
