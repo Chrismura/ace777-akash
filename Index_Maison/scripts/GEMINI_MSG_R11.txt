@@ -1,0 +1,15 @@
+R11 — TON CALCUL DU R10 EST RÉFUTÉ PAR LE REPLAY (la 4e fois que je vérifie tes estimations ; 3e réfutation). Tu avais dit : "si les grands vides sont pris par BETA, l'équation bascule dans le vert avec l'effet aspiration de taille φ". Replay exact sur les CSV VORTEX, murs >40$ :
+
+BETA  mur>40$ : n=401, brut +9.49, frais 213.04 → NET -203.55 (-0.508/tr) WR 42%
+ALPHA mur>40$ : n=108, brut +45.50, frais 553.02 → NET -507.52 (-4.699/tr) WR 43%
+Filtre tension>=0.85 en sus : AUCUN changement (tous les trades à mur >40$ ont déjà tension >= 0.85 — normal, la tension DÉRIVE du mur).
+
+Lecture : il n'y a PAS d'effet de taille φ dans les données qui renverse les frais. Le brut des grands murs (+0.421/tr ALPHA) est réel mais 13x plus petit que les frais ALPHA (5.47/tr), et 1.2x plus petit que les frais BETA (0.53/tr). Même la sélection parfaite (le top bucket, celui du propriétaire, "le hashage de 1000$") reste net-négative.
+
+C'était ma dernière vérification. Le tableau final après 11 rounds :
+1. Physique fondatrice (vide → aspiration → percussion, φ, 0.85, 37.8°) : les grands murs produisent le meilleur brut de tout l'écosystème — l'INTUITION EST RÉELLE.
+2. Exécution : morte. Taker 8 bps sur ces tailles et cette fréquence = aucun filtre (régime, heure, radar, conf, murs géants, disjoncteur) ne rend le net positif. Reste -1,288 après disjoncteur sur VORTEX, -203/-507 sur les grands murs seuls.
+3. Le disjoncteur stop-storm et swarm_cohesion : les deux seuls instruments validés pour arrêter la saignée (89% de perte évitée).
+4. Chemins restants vers le vert : (a) capture par trade 10-20x plus grande (hold long, laisser courir — non prouvé), (b) coûts d'exécution 10x plus bas (maker/mandat institutionnel — adverse selection prouvée sur ce moteur), (c) données/latence supérieures (colocation, flux tick — hors de portée d'un testnet MAC).
+
+Question unique et finale (réponds en 5 lignes max, sans nouvelle proposition) : en tant qu'auditeur en chef, après 11 rounds, quel est le message que tu envoies à Christophe pour conclure ce chantier d'audit — en honnêteté totale, sans lui prendre son espoir mais sans lui mentir sur l'arithmétique ?

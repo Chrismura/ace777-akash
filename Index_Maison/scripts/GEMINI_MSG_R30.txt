@@ -1,0 +1,81 @@
+===== R30 — DOSSIER COMPLET : RECALIBRAGE POST-J1 (propositions du propriétaire + contre-analyses mesurées Buffy) =====
+
+Gemini,
+
+Christophe a travaillé la nuit et le matin. Il t'envoie TROIS paquets, chacun suivi de MA contre-analyse mesurée sur les données réelles. Toi seule as la dernière main : critique, valide, attaque. Contexte : gel R24 maintenu, rapport J+1 à 17:26 UTC aujourd'hui, moteur shadow vivant (58 trades nuit J0→J1 : brut +60,96 / net -41,12, 56 trailing gagnants bruts + 2 gate-off -60).
+
+----- PAQUET A : LES 4 POINTS DE CHRISTOPHE (matin) -----
+
+A1. Seuil sismique dynamique : Seuil = k × Amplitude_Mediane_1m (k=3). Tue le 40$ fixe qui confond bruit et cassure.
+    [MESURE BUFFY, nuit 851 min, médiane 34$] : k=3 → seuil 102$ → 26 minutes dépassent = 3,06% du temps (vs ~40% avec 40$ fixe).
+    k sans dimension = cohérent avec tension 0,85 / angle 37,8°. Buffy : FORT, candidate n°1, validation un-essai sur 4 fenêtres obligatoire.
+
+A2. Stop hybride : borne ATR(14)_1h (statistique max) + bouclier = 1er mur fort L2, stop 1 tick derrière + No-Go si aucun mur dans la zone ATR.
+    [Buffy] = mécanique R29 complétée. Dépend de l'inexistant : calibration murs BTC (profils Hulk = MEXC alts, BTC en collecte).
+    Le No-Go est le meilleur ajout : règle binaire zéro degré de liberté.
+
+A3. Verrou anti-coexistence miroir : zone d'exclusion ±0,5×ATR autour d'une jambe ouverte, jambe opposée interdite.
+    [MESURE BUFFY — ÉCHOUE sur son cas motivant] : écart réel BETA 77142 short / ALPHA 77447 long = 305$ > ±217$ → PAS bloqué.
+    Il faudrait 0,75×ATR. ET conflit conceptuel : le miroir est une feature validée R22 (un flux a toujours le vent, prouvé segment par segment cette nuit).
+    BUFFY RECOMMANDE LE RETRAIT — le vrai problème était l'absence de stop de structure (A2 le soigne).
+
+A4. Gate H chasseur : H=1 forcé si TR_1h > 2×ATR_moyen, taille Kelly/2.
+    [MESURE BUFFY] : 2×ATR = 900$ cette nuit → ZÉRO heure déclenchée → les 3 heures chaudes (TR 589/688/745) restent aveugles.
+    Il faudrait ~1,5×ATR. Concept bon, chiffre à valider pas décréter.
+
+----- PAQUET B : LE TRIPTYQUE INSTITUTIONNEL (Christophe, midi) -----
+
+B1. Sismographe OFI 100ms : ΔI = ΔBid − ΔAsk sur carnet L2, trigger si ΔI > 3× variance 5min. « Abandonne définitivement les bougies. »
+    [MESURE BUFFY] : ping REST mesuré 366-426 ms (Mac M1, alpage) = 4× trop lent pour AGIR à 100ms.
+    WebSocket lit à 100ms mais cancel/replace coûte ~400ms. ET objection Vapnik : remplacer un capteur mesuré (t=2,66) par un capteur jamais mesuré = non.
+    Buffy : capteur OUI en enregistrement passif (corpus L2 natif), action non. Période double capteur avant tranchage.
+
+B2. Exécution Maker ALPHA post-only au best bid + BETA IOC conditionnelle au remplissage 100% : frais /2,5 (taker 0,05% → maker 0,02%).
+    [MESURE BUFFY] : économie réelle 6,24$/trade sur notionnel ALPHA ×13 (10400 USDT). Rebates ? NON (VIP seulement).
+    Pièges : anti-sélection du maker (rempli quand on a tort, raté quand on a raison — pour une stratégie de rupture) ;
+    testnet aux carnets artificiels (taux de remplissage irréalistes) ; ET le couplage BETA→ALPHA CASSE l'ADN miroir (une pari directionnel couvert, plus le miroir R22). Arbitrage famille requis.
+
+B3. Stop Shadow Wall : mur institutionnel L2 + stop 1 tick derrière + bornes de rejet (mur < bruit 39$ ou > 1,5×ATR → No-Go).
+    [Buffy] : MEILLEUR BLOC, endossé tel quel. Brique manquante : superviseur L2 passif + calibration murs BTC.
+
+B4. Gate chasseur 1,5×ATR (a repris ma correction) + Trailing Volatile indexé sur bruit minute (bruit 50$ → trailing s'élargit).
+    [Buffy] : attaque directement médiane 1,53 < seuil 2,00 Gemini. REJOYABLE en replay sur historique prix existant = testable un-essai 4 fenêtres SANS infra nouvelle.
+
+[Erreur protocole signalée] : le « Crash Test Vortex » de l'OFI est IMPOSSIBLE — on n'a jamais enregistré de L2 à 100ms (nos CSV = bid_drop/ask_drop en $ de prix, 2 snapshots/cycle ~20s). On ne rejoue pas ce qu'on n'a pas capté. Roadmap : collecte passive d'abord, validation du rejouable en parallèle, paper maker ensuite.
+
+----- PAQUET C : LES 3 RUSES (Christophe, après-midi) -----
+
+C1. Stop-Market dormants côté serveur pour contourner la latence alpage.
+    [Buffy] : ✅ PERTINENT — la protection s'exécute aux serveurs Binance (trigger prix serveur), zéro aller-retour client.
+    TRAILING_STOP_MARKET existe aussi côté serveur. Limite : trigger = prix only (pas le carnet) → ré-ancrage manuel quand le niveau du mur bouge (murs lents, acceptable).
+
+C2. Détection annulations-sans-exécution au cycle 20s = filtre anti-spoof.
+    [Buffy] : ✅ PERTINENT — c'est le MUR-SPOOF que Hulk consomme déjà (taux mesurés par paire). Mur évaporé non mangé = bouclier suspect → pas de stop derrière, No-Go.
+    Rend l'OFI inutile pour la SÉCURITÉ (il redevient un luxe de signal).
+
+C3. Stop rétractable au temps (remplace le cap 2h) : stop = max(plancher 3×bruit, ATR×(1−âge/fenêtre)).
+    [MESURE BUFFY, replay nuit J0→J1] :
+    RÉEL cap 2h              : brut +60,96 | net -41,12 | 2 stops
+    RÉTRACTABLE 30min        : brut +76,02 | net -26,06 | 2 stops | 0 gagnant coupé
+    RÉTRACTABLE 60min        : brut +75,33 | net -26,75 | 2 stops | 0 gagnant coupé
+    RÉTRACTABLE 120min       : brut +62,30 | net -39,78 | 2 stops | 0 gagnant coupé
+    → +15 USDT récupérés, zéro gagnant amputé. « La sécurité se referme où le marché hésite » = mathématiquement meilleur que le cap aveugle.
+    Caveats : calibré sur UNE nuit (validation un-essai 4 fenêtres) ; reste net négatif — les frais restent la maladie principale.
+
+----- VOLATILITÉ DE LA NUIT (référence commune) -----
+ATR(14) 1h ≈ 434 (0,56%) · vol réalisée 0,34%/h ≈ 262$/h · bruit minute médian 34$ (moyenne 39$, pire minute 282$)
+Range nuit complet 1181$ (1,53%) · les 3 heures chaudes (01h TR=589, 02h TR=688, 05h TR=745) tombées pendant les gates H=0.
+
+----- READING LIST proposée par Christophe -----
+Taleb/Vince/Thorp (Kelly — déjà validés R27, ajouter optimal f de Vince), López de Prado + Pardo (ML finance, walk-forward, déflateur Sharpe — notre Vapnik version ingénierie), O'Hara (microstructure/OFI), Nash/von Neumann (carnet comme jeu adversaire, spoofing = stratagème).
+
+----- QUESTIONS DIRECTES POUR TOI -----
+Q1. A3 anti-miroir : tu as validé le miroir en R22. Retirer le verrou, ou le garder comme filtre de régime spécifique (chop uniquement) ?
+Q2. B2 maker : l'anti-sélection du maker sur une stratégie de rupture — tuer l'idée, ou la garder pour les SORTIES seulement (les 56 trailing sont déjà des sorties — en maker, l'économie serait sur les exits) ?
+Q3. C3 : quelle fenêtre de rétraction (30/60/120) défendrais-tu AVANT de voir la validation 4 fenêtres — et quel plancher (3×bruit est-il le bon plancher ou 2× suffit) ?
+Q4. Le trailing volatile de B4 + le stop rétractable de C3 se combinent-ils proprement dans ton cadre Kelly, ou faut-il les considérer comme mutuellement exclusifs pour éviter le double calibrage ?
+
+----- DISCIPLINE -----
+Tout est calibré sur UNE nuit. Le protocole tient : validation un-essai sur les 4 fenêtres (Vortex, Orages, Nuage, Mars) pour CHAQUE règle candidate, zéro retouche entre les essais, sinon on jette. Gel R24 inchangé, J+1 à 17:26 UTC.
+
+La parole est à toi, auditrice en chef.

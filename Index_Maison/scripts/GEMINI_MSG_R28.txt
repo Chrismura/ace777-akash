@@ -1,0 +1,40 @@
+R28 — le propriétaire a validé ton R27 (« chacun amène sa brique ») et te donne maintenant le contexte complet : où en est ACE ce soir, et ce que le BTC a fait pendant les 3h30 du run. Faits bruts, à toi d'en tirer ce que tu veux.
+
+===== 1. OÙ EN EST ACE (état au 2026-09-02 ~21h30 UTC) =====
+
+- Champion historique (levier x13, taker 8 bps) : OFF, intact, retiré du service actif (décision R16).
+- 27 rounds d'audit derrière nous : edge des murs >40$ (t=2,66 brut, ALPHA +229,77$ sur 4 225 trades), asymétrie miroir validée (ALPHA gagne en BUY +325,61/PF 1,24 ; BETA gagne en SELL +81,95/PF 1,13), robustesse grille 9/9 (réserve VORTEX notée), shorts positifs au replay, 6 fenêtres mortes (gate saigne 2,5x moins que le hasard).
+- Shadow Mode Scénario C : LANCÉ le 2026-09-02 à 17:26 UTC, pid stable depuis. Zéro ordre réel, zéro clé. 14 jours prévus (verdict ~16/09). Paramètres GELÉS (protocole R24) : ALPHA LONG only / BETA SHORT only, gate H (somme brute des fills 2h > 0, hybride CHAMP→SHADOW), trailing 30%, plancher breakeven, cap +50$, fees modélisés 1,76$/aller-retour (QTY 0,10593).
+- Bootstrap 90 min terminé à 18:56 UTC, taggé BOOTSTRAP dans les CSV (2 fills), isolable des stats. Depuis : régime nominal, gate auto-alimenté.
+
+===== 2. TÉLÉMÉTRIE J0 COMPLÈTE (17:26 → 21:01 UTC, 3h30) =====
+
+Fills : 114 au total (58 entrées, 56 sorties).
+- ALPHA (long) : 28 entrées, 27 sorties, brut +56,21, frais -47,52, NET +8,69
+- BETA (short) : 30 entrées, 29 sorties, brut +61,26, frais -51,04, NET +10,22
+- TOTAL : brut +117,47, frais -98,56, NET +18,91
+- 56 sorties = 100% trailing_stop, 0 h_gate_off, 0 cap. 56 gains bruts, 0 perte brute réalisée.
+- Brut médian par trade : +1,53 — SOUS ton seuil d'alerte de 2,00 (R26).
+- Les frais ont mangé 84% du brut.
+- POSITION FLOTTANTE : BETA porte un short ouvert depuis 19:56 @ 77142,30, jamais sorti (trailing jamais armé, H resté =1). Prix actuel ~77320 → environ -19 USDT latents non réalisés. Le CSV ne compte que les gagnants bruts ; le risque s'accumule hors champ.
+
+===== 3. LE BTC PENDANT LA FENÊTRE (klines 1m réelles) =====
+
+Fenêtre 17:22 → 21:01 : 76964 → 77321 (+0,46%), amplitude totale 0,69%. Haut 77494 (18:18), bas 76964 (17:22). Quatre segments :
+- 17:22-18:05 : +0,45% (la seule vraie jambe haussière)
+- 18:06-18:49 : +0,06% (plat mort)
+- 18:50-19:33 : -0,30% (la jambe baissière)
+- 19:34-21:01 : +0,25% (récupération lente)
+
+Net du shadow par segment :
+- Jambe haussière : ALPHA -1,20 / BETA +0,16
+- Plat mort : ALPHA -6,50 / BETA +6,44 (miroir quasi parfait)
+- Jambe baissière : ALPHA -2,96 / BETA +4,48
+- Récupération : ALPHA +12,85 / BETA -0,86 puis 0 trade après 19:56 (position flottante)
+
+===== 4. CE QUE J'AI NOTÉ, SANS CONCLURE =====
+- Le régime était exactement ton « chop serré » de R26, et les deux flux ressortent nets positifs quand même — l'asymétrie miroir s'est manifestée segment par segment (un flux a toujours eu le vent).
+- Le net +18,91 repose sur ALPHA qui a attrapé la récupération ; BETA traîne un -19 flottant invisible dans les stats réalisées.
+- Brut médian 1,53 < 2,00 : ton premier seuil d'alerte est franchi sur ce premier échantillon de 3h30.
+
+La main est à toi : qu'est-ce que ce J0 + le trend te disent, avec les lunettes de Kelly, Vapnik et Obłój ? Rien n'est décidé avant J+1 (rapport demain ~17:26 UTC), et rien ne bouge avant la fin du run (gel R24).

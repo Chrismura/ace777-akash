@@ -1,0 +1,37 @@
+R24 — TU AVIS EXIGÉ (R23) : "tester 5 fenêtres mortes supplémentaires pour scier définitivement l'hypothèse du hasard sur le range mort." C'est fait. DONNÉES BRUTES, zéro interprétation de Buffy. Réponds en français, intégral. Analyse seul.
+
+===== PROTOCOLE =====
+Détection AUTOMATIQUE : klines 4h BTCUSDT sur 12 mois (2191 bougies), amplitude high-low glissante 5 jours, les 5 fenêtres les plus plates retenues avec anti-chevauchement. Aucune fenêtre choisie à la main.
+Replay : Scénario C identique aux tests précédents (gate H causal 2h, entrée open barre 1m suivante, trailing 30% plancher breakeven, cap +50 USDT, frais 1,760/trade, qty 0,10593, pire cas intra-barre, funding).
+Candidats d'entrée : pas de 5 min. Témoin : 400 instants aléatoires par fenêtre (seed 42).
+NOTE D'HONNÊTETÉ : 4 fenêtres sur 5 précèdent l'existence de l'historique du champion (sept 2025 et 5-10 août 2026) → H=0 partout → 0 trade. Une seule fenêtre (12-17 août 2026) chevauche l'historique.
+
+===== LES 5 FENÊTRES =====
+1) 2025-09-05 → 09 | amplitude 3,18% | LONG 0 tr +0,00 | SHORT 0 tr +0,00 | TÉMOIN 380 tr +66,24 (+0,174/tr)
+2) 2025-09-12 → 16 | amplitude 2,25% | LONG 0 tr +0,00 | SHORT 0 tr +0,00 | TÉMOIN 380 tr -26,89 (-0,071/tr)
+3) 2025-09-17 → 21 | amplitude 2,84% | LONG 0 tr +0,00 | SHORT 0 tr +0,00 | TÉMOIN 387 tr -33,86 (-0,087/tr)
+4) 2026-08-05 → 10 | amplitude 2,14% | LONG 0 tr +0,00 | SHORT 0 tr +0,00 | TÉMOIN 378 tr -316,14 (-0,836/tr)
+5) 2026-08-12 → 17 | amplitude 2,75% | 669 slots H=1 (39% du temps) :
+   LONG  H=1 : 346 tr | NET -148,07 | -0,428/tr
+   SHORT H=1 : 353 tr | NET -254,39 | -0,721/tr
+   TÉMOIN    : 346 tr | NET -385,55 | -1,114/tr
+
+===== CUMUL 5 FENÊTRES =====
+LONG  H=1 :  346 tr | NET -148,07
+SHORT H=1 :  353 tr | NET -254,39
+TÉMOIN    : 1871 tr | NET -696,19
+
+===== RAPPEL DU 1er RANGE MORT (2-8 août, test précédent) =====
+LONG 0 tr / SHORT 0 tr / TÉMOIN -172 → donc sur 6 fenêtres mortes au total :
+gate H cumulé -148,07 à -254,39 selon le sens | témoin cumulé ≈ -868
+
+===== FAITS BRUTS SANS COMMENTAIRE =====
+- Sur la seule fenêtre morte où H pouvait être =1, le gate a perdu 5 fois moins que le témoin en LONG (-0,428 vs -1,114/tr) et 1,5 fois moins en SHORT (-0,721 vs -1,114/tr).
+- Sur 4 fenêtres, le gate n'a tout simplement pas pu trader (historique inexistant → H=0).
+- Le témoin a gagné sur la fenêtre 1 (+66,24), perdu sur les 5 autres.
+
+QUESTIONS :
+1) L'hypothèse du hasard est-elle maintenant sciamée ou la preuve reste-t-elle insuffisante vu le biais déclaré (4 fenêtres hors historique) ?
+2) Que conclus-tu de la survie relative du gate sur la fenêtre 5 (-0,43/tr vs -1,11/tr) ?
+3) Le cumul global de toutes nos validations (4 fenêtres vivantes +892,93 / 6 fenêtres mortes -148 à -254) suffit-il à déclarer le filtre H "casse-circuit de survie" validé ? Oui/non et pourquoi.
+4) Tes instructions pour la suite avant Shadow Mode, en connaissance de tout le dossier.

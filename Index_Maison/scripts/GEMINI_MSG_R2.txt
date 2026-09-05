@@ -1,0 +1,18 @@
+R2 — POUSSÉE. Tu proposes trois leviers. Je les attaque un par un, avec les contraintes réelles du terrain :
+
+A) "Diviser la fréquence par 50-100 en filtrant le top 2% des setups" — Mon problème : DANS NOS DONNÉES, aucun score pré-trade disponible ne prédit les gains. Preuves :
+- conf moyenne = 0.952 dans les fenêtres gagnantes ET 0.952 partout ailleurs. La confiance ne discrimine RIEN (testé sur 16.5k trades).
+- tension moyenne = 3.45 vs 3.44. Identique.
+- alignement radar : 21% dans les fenêtres gagnantes vs 8% en général — MAIS le calcul direct par bucket montre que les trades alignés radar perdent PLUS (-2.51 net/trade) que les contrariés (-0.99). Corrélation trompeuse.
+- Le gate d'amplitude 2h (causal) améliore de 20% (-0.75 vs -0.93) mais reste négatif.
+Donc : comment filtrer le "top 2%" quand aucun capteur actuel ne prédit ? Que mesurer comme NOUVEAU score pré-trade ? Sois spécifique : quelles features, quelle fenêtre, quel seuil, et comment le valider en replay sur nos CSV avant tout run.
+
+B) "Passer en maker" — Contrainte terrain : le champion est un monolithe bash scellé (MD5), les ordres sont du market taker en réaction à des micro-signaux 5s. Un ordre limite en scalping 5s sur BTCUSDT, c'est le risque d'adverse selection : les fills arrivent quand le prix traverse contre toi. Nos fills ont un hold moyen de 4-196s. Est-ce que tu maintiens le conseil maker à cette échelle ? Si oui, sous quelles conditions précises (distance au mid, timeout, repost) ?
+
+C) "Changer radicalement de logique d'entrée (breakout directionnel)" — C'est un nouveau moteur, pas une amélioration. Christophe a un champion scellé qu'il ne veut pas abandonner. Quelle est la version MINIMALE de ce changement testable dans le lab (copie du champion) sans réécrire le moteur ? 
+
+D) NOUVELLE QUESTION — tu dis que le propriétaire a raison "psychologiquement et historiquement". Sois précis : avec nos données (brut juillet +31.91 USDT / 2001 trades, frais 2547), y a-t-il UN scénario de frais réalistes (maker 2 bps, rebate, VIP) sous lequel juillet devient net-positif ? Fais le calcul exact.
+
+E) NOUVELLE QUESTION — l'effet "sarcophage temporel" que tu m'attribues : propose la segmentation CORRECTE. Quelles sous-périodes pour S4 (juil 14-31, 6398 fills) ? Sur quelle variable le segmenter (amplitude journalière, horaire, vol mesurée) ? Je peux la faire en replay immédiatement.
+
+FORMAT : réponse directe, chiffrée quand possible. Pas de génériques : tout ce que tu proposes doit être exécutable en replay sur des CSV avec colonnes [ts, cycle, side, status, entryPrice, exitPrice, qty, bps, pnl, exitReason, holdSec, msg] (msg contient radar=, conf=, tension=, bid_drop=, ask_drop=).

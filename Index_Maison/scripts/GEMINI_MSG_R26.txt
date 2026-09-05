@@ -1,0 +1,45 @@
+R26 — SHADOW MODE LANCÉ (comme tu l'as approuvé en R25). Télémétrie brute J0, zéro interprétation de Buffy. Réponds en français, intégral : analyse seul, dis ce que tu vois, ce qui te préoccupe, et ce qu'il faut surveiller.
+
+===== CONTEXTE D'EXÉCUTION =====
+Lancement officiel : 2026-09-02T17:26:00 UTC (pid 51855, tournant depuis ~1h25 au moment de l'échantillon).
+Porte BOOTSTRAP 90 min (approuvée R25) : fermait à 18:56 UTC — l'échantillon ci-dessous est pris à 18:49-18:51, donc en fin de bootstrap.
+Paramètres gelés : ALPHA=LONG only, BETA=SHORT only | H fenêtre 2h causal | entrée open barre 1m suivant slot 5-min | trailing 30% plancher breakeven | cap ±50 USDT | qty 0,10593 | frais 1,760 USDT/trade | klines 1m fapi publiques | zéro ordre.
+
+===== STATS À 18:51 UTC (J0, ~85 min de run) =====
+ALPHA : 13 sorties · 13 bruts positifs · frais payés 22.88 · NET VIRTUEL -7.7012 USDT
+BETA  : 15 sorties · 15 bruts positifs · frais payés 26.40 · NET VIRTUEL +7.3609 USDT
+Toutes les sorties à ce stade : trailing_stop. Aucun cap, aucun h_gate_off, aucun kill pour l'instant.
+BTC ~77 270-77 400 sur la fenêtre (marché en chop serré).
+
+===== FLUX DE DÉCISION BRUT (vision moteur, échantillon 18:49-18:51) =====
+Format des lignes : [flux] heure | position/à plat | ext (meilleur prix atteint) | armement du trailing |
+cap | H(2h): n=nombre de fills dans fenêtre [4 derniers pnl bruts] = somme → H=1/H=0 | action de slot.
+
+[BETA_SHORT] 18:49:00 à plat | H(2h): n=16 [+1.64 +0.40 +7.27 +0.99] = +34.75 → H=1 | prochain slot :50 (dans 1min)
+[ALPHA_LONG] 18:50:00 pos @ 77384.00 | ext=77384.00 | non ARMÉ — le stop n'existe pas tant que le prix n'a pas dépassé l'entry | cap 77856.01 (entry±50$) | H(2h): n=13 [+0.23 +1.17 +2.10 +0.24] = +15.18 → H=1
+[BETA_SHORT] 18:50:00 à plat | H(2h): n=16 [+1.64 +0.40 +7.27 +0.99] = +34.75 → H=1 | SLOT :5m → H=1 → ENTRY programmé sur open barre suivante
+[ALPHA_LONG] 18:51:00 pos @ 77384.00 | ext=77384.00 | non ARMÉ — le stop n'existe pas tant que le prix n'a pas dépassé l'entry | cap 77856.01 (entry±50$) | H(2h): n=13 [+0.23 +1.17 +2.10 +0.24] = +15.18 → H=1
+[BETA_SHORT] 18:51:00 à plat | H(2h): n=16 [+1.64 +0.40 +7.27 +0.99] = +34.75 → H=1 | prochain slot :55 (dans 4min)
+
+===== ÉCHANTILLON DE SORTIES (FILLS BRUTS, extrait) =====
+ts,stream,side,kind,px,pnlGross,msg
+2026-09-02T17:26:00,ALPHA,LONG,ENTRY,77034.20,0.0000,BOOTSTRAP(H=0→entrée forcée)
+2026-09-02T17:27:00,ALPHA,LONG,EXIT,77037.84,0.3856,trailing_stop net=-1.3744 hold=60s
+2026-09-02T18:27:00,ALPHA,LONG,EXIT,77441.41,2.0985,trailing_stop net=+0.3385 hold=60s
+2026-09-02T18:32:00,ALPHA,LONG,EXIT,77418.81,0.2447,trailing_stop net=-1.5153 hold=60s
+2026-09-02T18:32:00,BETA,SHORT,EXIT,77412.72,0.4004,trailing_stop net=-1.3596 hold=60s
+2026-09-02T18:37:00,ALPHA,LONG,ENTRY,77384.00,0.0000,H=1(SHADOW)
+2026-09-02T18:42:00,BETA,SHORT,ENTRY,77266.50,0.0000,H=1(SHADOW)
+
+===== FAITS BRUTS À NOTER (sans conclusion) =====
+- 28 sorties en 85 min, TOUTES trailing_stop, TOUTES bruts positifs (+0.24 à +7.27), mais net divisé : ALPHA -7.70 / BETA +7.36.
+- Les holds sont de 60-120s ; gains bruts typiques 0.2-3 USDT pour des frais de 1.76/trade.
+- ALPHA a une position ouverte depuis 18:37 avec ext=entry (jamais armé) : le prix n'a pas redépassé l'entrée depuis.
+- BETA (SHORT) ré-entre à chaque slot ; ALPHA (LONG) aussi dès que H=1.
+- Le gate H (fenêtre 2h, somme > 0) est resté =1 en continu pendant tout le bootstrap (les gains bruts successifs l'alimentent).
+
+QUESTIONS :
+1) Analyse de cette télémétrie J0 : que vois-tu de sain, de pathologique, de marginal ?
+2) Le profil "micro-gains bruts vs frais 1.76" en chop serré : danger structurel ou attendu du trailing 30%/hold 60s ?
+3) Que faut-il surveiller en priorité au rapport J+1 (métriques, seuils d'alerte, signaux d'abandon) ?
+4) Le gate H alimenté par ses propres micro-gains en boucle (H=1 auto-entretenu en chop) : biais ou conforme au design du disjoncteur ?

@@ -1,0 +1,17 @@
+R5 — TA SPEC V2 CONTIENT UNE INCOHÉRENCE MATHÉMATIQUE. Je la corrige avec toi avant de conclure. Vérifie chaque point, accepte ou réfute avec calculs.
+
+INCOHÉRENCE 1 — TA FRÉQUENCE EST IMPOSSIBLE AVEC TON CANAL DONCHIAN.
+Ton pseudocode : donchian_high = rolling(60).max().shift(1) sur bougies 1m = plus haut des 60 DERNIÈRES MINUTES. Un close qui casse le plus haut de l'heure passée arrive PLUSIEURS FOIS PAR HEURE sur BTC (c'est un breakout 1h sur données 1m, pas un breakout journalier). Avec ce réglage tu auras des milliers de signaux en 90 jours, pas 150-300. Et ATR(14) non spécifié sur quel timeframe : si c'est ATR(14) sur 1m, TP 4xATR ≈ quelques dizaines de dollars de mouvement, ton trailing 2xATR coupera en quelques minutes → re-devenir un scalpeur haute fréquence, exactement la classe morte. POUR OBTENIR 3-5 trades/jour il faut un canal structurel (ex: Donchian 24h sur barres 1h = lookback 24, ou cassure des extrêmes 4h) ET un ATR sur barres 1h (ATR(14) hourly), ET probablement un filtre de confirmation (clôture de bougie hors canal, pas juste un touch). Corrige ta spec : timeframe du canal, période du canal, période du signal de confirmation, timeframe et période de l'ATR, TP/SL en multiples de CET ATR-là.
+
+INCOHÉRENCE 2 — 90 JOURS vs TES 3 ANNÉES.
+En R4 (Trou 2) tu spécifiais in-sample 2021-2022 / out-of-sample 2023-2024 (3 ans de klines). En R4 (Expérience finale) tu dis "90 derniers jours". Les deux ne sont pas compatibles : 90 jours c'est trop court pour valider 150-300 trades avec une significativité quelconque (et c'est la même période que nos échecs testnet, donc le régime est comparable — c'est un argument POUR, mais il affaiblit la prétention statistique). Tranche : l'expérience de lundi est-elle un PILOTAGE (décision go/no-go pour une campagne complète in-sample/out-of-sample) ou la VALIDATION FINALE ? Si pilotage, dis-le : son critère de succès (PF>1.35) est un seuil d'exploration, pas une preuve.
+
+ERREUR MINEURE À CORRIGER — LE TICK.
+"Slippage fixe de 1 tick (0.5 USDT sur BTC)" : le tick size de BTCUSDT futures Binance est 0.10 USDT. Tu voulais probablement dire un slippage de 0.5 USDT absolu (≈ 5 ticks) ou 1 bps. Précise.
+
+QUESTION STRUCTURELLE — QUE FAIT LE CHAMPION PENDANT CE TEMPS ?
+Ta proposition 1 du R3 = kill switch immédiat de BETA+ALPHA. Conséquence : entre l'arrêt d'ACE et la maturité de la V2 (semaines, avec ta roadmap : 90j replay + 25j testnet), Christophe n'a AUCUN système qui tourne, et son cockpit ACE777 entier (sonde CSV, indices, instrumentation qu'on a construite) devient un observatoire d'un moteur à l'arrêt. Assumes-tu cette recommandation telle quelle — ACE OFF indéfiniment jusqu'à preuve de vie de la V2 ? Ou proposes-tu un mode "observation only" (le moteur tourne, zéro ordre, il ne fait qu'alimenter les CSV pour continuer à mesurer l'edge brut en live) ? Cette dernière option ne coûte QUE le temps CPU (pas de frais — pas d'ordres), préserve l'instrumentation, et teste ton hypothèse "l'edge brut est réel" en continu. Tranche.
+
+DERNIÈRE DEMANDE — LA CARTE D'EXPÉRIENCE FINALE.
+Écris maintenant, en un seul bloc copiable, la CARTE D'EXPÉRIENCE V2-REPLAY-01 corrigée (avec tes réponses aux incohérences ci-dessus) au format suivant, pour soumission au JUGE de la famille :
+[V2-REPLAY-01] Objectif : ... | Données : ... | Règle d'entrée : ... (pseudo-code corrigé) | Règle de sortie : ... | Modèle de coûts : ... | Critères de succès : ... | Critères d'abandon : ... | Ce que cette expérience NE prouve PAS : ... | Durée estimée : ...

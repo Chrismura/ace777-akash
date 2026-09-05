@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "taker_ratio",
-      "zscore": 2.613924609275489,
-      "value": 1.55,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio à 1.55 (z-score 2.61) indique une domination massive des acheteurs sur le marché dérivé, révélant une accumulation agressive et silencieuse des baleines. En l'absence de couverture médiatique notable (Google Actualités vide), ce silence médiatique confirme un mouvement furtif de smart money loin du radar du grand public.\"\n}\n```",
-      "ts": "2026-09-04T04:40:02.478376+00:00"
-    },
-    {
       "metric": "fear_greed",
       "zscore": 2.0816659994661326,
       "value": 74,
@@ -349,6 +342,13 @@
       "value": 4214542.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 75,\n  \"reason\": \"Z-score élevé (2.61) indiquant une accumulation discrète de baleines (4.2M USD) totalement ignorée par les médias (silence radio sur Google Actualités), typique d'une phase de pré-accumulation avant un mouvement haussier.\"\n}\n```",
       "ts": "2026-09-05T08:01:51.742043+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": -2.0106308937373427,
+      "value": 8343230056.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit médiatique sans rapport avec la crypto (musique, pétrole, déchets, champagne) et volume on-chain statistiquement faible (z-score -2.01). Aucune activité de baleine détectée.\"\n}\n```",
+      "ts": "2026-09-05T12:48:29.007881+00:00"
     }
   ]
 }

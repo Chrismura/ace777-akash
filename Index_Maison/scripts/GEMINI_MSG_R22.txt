@@ -1,0 +1,66 @@
+R22 — DONNÉES BRUTES COMPLÈTES de toutes les évaluations exécutées suite à tes protocoles (R18 : actions 1-2 + validation croisée ; R20 : ta demande de tests supplémentaires). Aucune interprétation de Buffy. Analyse TOUT, seul. Réponds en français, intégral.
+
+===== ACTION 1 : INDEX D'HARMONIE (ALPHA, tout l'historique) =====
+4 225 fills ALPHA, brut total +229,77 USDT.
+H=1 ssi PnL brut ALPHA sur (t-120min, t] > 0 (causal).
+- EN HARMONIE (H=1)   : 2 295 fills (54%) | brut +228,30 | +0,099/trade
+- HORS HARMONIE (H=0) : 1 930 fills (46%) | brut   +1,47 | +0,001/trade
+Gros wins par état :
+- Wins >10$ : 17 en H (somme +279,05) | 13 hors H (somme +282,47)
+- Wins >19$ :  5 en H (somme +127,43) |  5 hors H (somme +175,69)
+- Wins >40$ :  0 en H                 |  1 hors H (+51,56)
+Top 12 wins ALPHA : +51,56 / +37,33 / +34,05 / +32,07 / +29,60 / +28,48 /
++24,28 / +23,34 / +22,86 / +19,54 / +17,34 / +16,85 (total +337,31 = 147% du brut total)
+
+===== ACTION 2 : MFE 15min + GROUPE TÉMOIN (VORTEX 15-19 août, klines 1m réelles) =====
+1 751 fills, TOUS BUY, brut réel +292,01 | témoin = 5 000 instants aléatoires de la même semaine.
+MFE (excursion max favorable en 15 min, direction BUY) :
+- TÉMOIN aléatoire      : moyenne 63,42$ | médiane 24,60$ | >10$ : 69,7% | >30$ : 44,3%
+- Entrées ALPHA (tous)  : moyenne 54,30$ | médiane 24,10$ | >10$ : 75,1% | >30$ : 22,0%
+- Entrées ALPHA H=1     : moyenne 65,37$ | médiane 24,10$ | >10$ : 74,2% | >30$ : 25,3%
+Simulation trailing (rend 30% du pic, cap 50$) :
+- TÉMOIN       : +22,120/trade brut
+- ALPHA tous   : +18,325/trade brut
+- ALPHA H=1    : +19,120/trade brut
+
+===== LES 4 SCÉNARIOS (replay, avant validation croisée) =====
+A — statu quo (sorties réelles)              : +0,167/trade brut → net négatif
+B — gate H seul (sorties réelles)            : +0,269/trade brut → net négatif
+C — H=1 + long + trailing (MFE)              : +19,120/trade brut
+D — sans gate + trailing (MFE)               : +18,325/trade brut
+
+===== VALIDATION CROISÉE v2 (ton protocole figé R18, replay causal) =====
+Calibration : qty 0,10593 BTC | frais taker mesurés 1,760 USDT/trade |
+cap +50 USDT = +472$ prix | trailing 30% avec plancher breakeven |
+entrée long à l'open de la barre 1m suivante si H=1 | pire cas intra-barre |
+funding 8h réel | sortie au close si H→0 (check 5 min).
+Résultats (net USDT après frais et funding) :
+- VORTEX (15-19 août)  : C  225 tr, +18,60 (+0,083/tr) | TÉMOIN 151 tr, -103,85 (-0,688/tr) | à plat 58%
+- ORAGES (19-23 août)  : C  186 tr, +318,71 (+1,713/tr) | TÉMOIN 117 tr, +290,27 (+2,481/tr) | à plat 59%
+- NUAGE (14-31 juil)   : C  629 tr, +62,95 (+0,100/tr) | TÉMOIN 298 tr, -201,81 (-0,677/tr) | à plat 72%
+- MARS (1-7 mars)      : C  221 tr, +492,67 (+2,229/tr) | TÉMOIN 114 tr, +241,19 (+2,116/tr) | à plat 74%
+CUMUL : C = +892,93 (4/4 fenêtres positives) | TÉMOIN = +225,81 (2/4 négatives)
+
+===== VÉRIFICATION DES FRAIS (à la source, CSV) =====
+ALPHA VORTEX          : 244 fills | moyen 1,760 | médian 1,306 | max 8,314 | total 429,51
+ALPHA tout historique : 264 fills | moyen 1,703
+BETA tout historique  : 406 fills | moyen 0,481
+
+===== BUG v1 → v2 (transparence) =====
+v1 : stop déclenché dès la 1re barre (low d'une barre < open = entrée) → tous les trades
+mouraient instantanément, témoin identique partout (-704,11) → replay invalide.
+v2 : barre d'entrée sans stop, trailing armé après 1er pic > entrée, plancher breakeven,
+pire cas conservé → les résultats ci-dessus.
+
+===== NON ENCORE EXÉCUTÉ (tes demandes R20) =====
+- Cinquième fenêtre d'adversité pure (range strict ou crash baissier sans rebond)
+- Shadow mode
+
+===== MESSAGE DU PROPRIÉTAIRE (à prendre en compte dans ton analyse) =====
+« Fin août identifiée comme la cassure : c'est justement APRÈS mes alertes, et donc modifications de set-up et tests variés. Mais je suis d'accord avec ton avis, car après observation : ACE, de par sa conception, n'a pas la même prestation dans les DEUX SENS du marché. Ce que je veux dire : une fois ce modèle validé, je voulais justement AMPLIFIER l'autre partie. Tout est à faire et évaluer. N'oublie pas, Gemini : ce moteur, nous l'avons construit ensemble — toi Gemini et moi, propriétaire-architecte comme tu m'appelais. »
+
+QUESTIONS :
+1) Analyse critique de TOUTES ces données, défauts et biais compris.
+2) L'asymétrie directionnelle que le propriétaire décrit (le moteur ne se comporte pas pareil dans les deux sens) : comment la mesurer rigoureusement sur nos données, et comment « amplifier l'autre partie » une fois ce modèle validé ?
+3) Que dois-je corriger ou tester avant la 5e fenêtre ?
+4) Tes conseils pour la suite, en connaissance de TOUT le dossier.

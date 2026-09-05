@@ -1,0 +1,42 @@
+R25 — Le Shadow Mode est CONSTRUIT et validé par selftest 9/9 + smoke test live réussi. Avant de lancer les 14 jours, je dois te soumettre DEUX divergences par rapport au replay v2 (règle famille : divulgation avant exécution). Réponds en français, intégral : approuves-tu, ajustes-tu, ou refuses-tu ?
+
+===== CE QUI EST GELÉ (identique au replay v2, zéro divergence) =====
+- ALPHA = LONG only, BETA = SHORT only (flux séparés, instances virtuelles indépendantes)
+- Gate H : PnL brut (t-120min, t] > 0, causal, fenêtre 2h
+- Entrée : open barre 1m suivant un slot 5-min, cadence 5-min, reprise après sortie uniquement
+- Sorties : trailing 30% plancher breakeven (armé après 1er dépassement), cap +50 USDT,
+  pire cas intra-barre (stop avant cap, convention v2), sortie au close si H→0 (bornes 5-min relatives à l'entrée)
+- Calibration : qty 0,10593 BTC | frais 1,760 USDT/trade (testnet mesuré)
+- Zéro ordre réel, zéro clé API, klines publiques uniquement. Arrêt : runs/STOP_SHADOW (convention famille).
+
+===== DIVERGENCE 1 : SOURCE DU GATE H (hybride CHAMP→SHADOW) =====
+Le replay v2 calculait H sur l'historique réel du champion. En live, le champion est À L'ARRÊT :
+ses fills vieillissent, sortent de la fenêtre 2h → H=0 permanent → le shadow ne traderait JAMAIS
+(interrupteur débranché). Solution implémentée :
+- Amorçage : H calc sur fills réels du champion (causaux, déjà passés) + fills virtuels du shadow
+- Bascule naturelle : dès que le shadow produit ses propres fills, ils dominent la fenêtre 2h
+- PREUVE LIVE (smoke test 6 min, 17:01-17:07 UTC) :
+  17:01 entrées BOOTSTRAP (H=0, champion muet)
+  17:02 BETA SHORT exit trailing +5,92 brut → H_beta passe à 1
+  17:06 ALPHA exit par disjoncteur (h_gate_off) ; BETA RÉ-ENTRE avec H=1(SHADOW) ← bascule complétée
+- Le disjoncteur reste ACTIF dès la première minute : un flux perdant est coupé même en bootstrap.
+
+===== DIVERGENCE 2 : PORTE D'AMORÇAGE (BOOTSTRAP_MIN) =====
+Sans elle, le shadow reste muet pour toujours (cercle vicieux H=0 → 0 trade → pas de fills → H=0).
+- SHADOW_BOOTSTRAP_MIN=90 par défaut pour les 14 jours : pendant 90 min, les ENTRÉES sont
+  autorisées même si H=0 (journalisées "BOOTSTRAP", donc séparables a posteriori)
+- Les SORTIES restent TOUJOURS gouvernées par H (disjoncteur actif immédiatement)
+- Les trades BOOTSTRAP sont identifiables dans les CSV → analyse séparée possible, biais quantifiable
+
+===== PREUVES D'EXÉCUTION =====
+- SELFTEST 9/9 PASS (barres synthétiques) : trailing 30%, plancher breakeven, non-armé sans stop,
+  cap +50$, miroir SHORT, exit H→0 à la borne 5-min, gate H bloque entrée, source CHAMP/SHADOW,
+  bascule hybride, pire cas stop-avant-cap
+- SMOKE TEST LIVE 6 min : cycle complet entrée→trailing→exit→ré-entrée H=1(SHADOW), journalisation
+  TICKS (H, sources, positions, pnl virtuel) et FILLS (entries/exits avec raisons) conforme
+- Artéfacts conservés : runs/SHADOW_SC_20260902_SMOKE_TEST_* (FILLS, TICKS, log)
+
+===== QUESTION UNIQUE =====
+Approuves-tu le lancement des 14 jours avec ces deux divergences (bootstrap 90 min, gate hybride),
+ou exiges-tu des modifications avant ? Après ton accord : lancement, et premier rapport de télémétrie
+à J+1 puis J+7 (brut, sans interprétation, comme d'habitude).

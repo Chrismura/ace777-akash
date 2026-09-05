@@ -1,0 +1,24 @@
+R33 — RÉSULTATS BRUTS ESSAI 4 BRAS × 4 FENÊTRES (ton feu orange R32 → exécuté, cap 45 min en bras D comparatif, arbitrage Buffy validé par le propriétaire)
+
+Protocole exact : replay honnête (aucune donnée future), klines 1m en cache local, entrées slot 5 min + gate H 2h (bootstrap 90 min), frais taker 8 bps AR, notionnel 200 USDT, trailing 30 %, cap gain +50 USDT. Plancher anti-frais k=3 × amplitude médiane 1m glissante (120 min), borné [60 ; 300], statistique de la fenêtre elle-même (paramètre invariant, ton garde-fou R31). Durées de vie : A/B/C = 2h, D = 45 min.
+
+=== TABLEAU NET (USDT) — bras × fenêtre ===
+fenêtre | A témoin | B variance | C volume | D cap45
+VORTEX  |    −3.30 |      −3.30 |    −7.51 |   −3.63
+NUAGE   |    −4.56 |      −4.56 |   −32.68 |   −3.84
+ORAGES  |    −2.85 |      −2.85 |   −12.29 |   −3.17
+MARS    |    −0.86 |      −0.86 |   −10.55 |   −1.97
+TOTAL   |   −11.56 |     −11.56 |   −63.03 |  −12.62
+
+=== TROIS FAITS BRUTS (sans interprétation) ===
+1. B = A au centime sur les 4 fenêtres : le plancher anti-frais n'a jamais été touché (MAE simulés << bornes). Il aurait servi uniquement contre les 2 flottantes de J+1 (−35/−48), toutes deux sous le cap 2h.
+2. C (volume) est le pire partout, jusqu'à −32.68 sur NUAGE : l'horloge volume prolonge les trades perdants.
+3. D (cap 45 min) ≈ A : ±1 USDT d'écart. Aucun bras ne sort du rouge.
+
+=== QUESTIONS R33 ===
+Q1. Tes verdicts R30-R32 (C3 rétractable + plancher) survivent-ils à ce replay, ou le diagnostic change-t-il ?
+Q2. Aucun bras ne bat le témoin de façon décisive → la priorité se déplace-t-elle vers l'ENTRÉE (réduction de fréquence k=3) et les FRAIS (sorties maker côté serveur, votées R30) plutôt que la mécanique de sortie ?
+Q3. Le shadow J+1 (58 trades, net −41.12) et ce replay (A témoin −11.56 sur 4 fenêtres) divergent surtout par la fréquence (2.4/h réel vs ~0.2/h simulé) — le gate H du replay est-il trop strict, ou le shadow J+1 était-il dans un régime exceptionnellement actif ?
+Q4. Le superviseur L2 passif (1 snapshot/s, seuil mur relatif 8× médiane borné [50k ; 2M]) démarre ce soir côté propriétaire. Tes métriques prioritaires à extraire du corpus dès J+7 ?
+
+— Buffy, R33. Réponse intégrale attendue en français, avis strict + améliorations (clause permanente).

@@ -1,0 +1,38 @@
+R19 — LE PROPRIÉTAIRE EXIGE : uniquement les DONNÉES BRUTES ci-dessous. Aucune interprétation de Buffy ne t'est transmise. Analyse seul, conclut seul. Réponds en français, intégral.
+
+===== DONNÉES BRUTES — VALIDATION CROISÉE SCÉNARIO C (protocole figé R18) =====
+
+CALIBRATION (mesurée dans les CSV) :
+- qty moyenne ALPHA VORTEX : 0,10593 BTC | frais taker aller-retour mesurés : 1,760 USDT/trade (médian 1,306, max 8,314)
+- cap +50 USDT = +472$ de prix | trailing rend 30% du pic, plancher breakeven | entrée long à l'open de la barre 1m suivante si H=1 (H = somme PnL brut ALPHA sur (t-120min, t] > 0, causal)
+- barre d'entrée sans stop ; trailing armé dès premier pic > entrée ; pire cas intra-barre (stop d'abord) ; sortie au close si H retombe à 0 (check 5 min) ; funding 8h réel appliqué
+
+RÉSULTATS PAR FENÊTRE (net USDT, après frais et funding) :
+
+VORTEX (15-19 août, 7201 bougies 1m) :
+  C : 225 trades | NET +18,60 | +0,083/trade | tenue moyenne 7 min | à plat 58%
+  TÉMOIN : 151 trades | NET -103,85 | -0,688/trade | tenue 4 min
+
+ORAGES (19-23 août, 5761 bougies) :
+  C : 186 trades | NET +318,71 | +1,713/trade | tenue 5 min | à plat 59%
+  TÉMOIN : 117 trades | NET +290,27 | +2,481/trade | tenue 3 min
+
+NUAGE (14-31 juillet, 25921 bougies) :
+  C : 629 trades | NET +62,95 | +0,100/trade | tenue 4 min | à plat 72%
+  TÉMOIN : 298 trades | NET -201,81 | -0,677/trade | tenue 4 min
+
+MARS (1-7 mars, 8641 bougies) :
+  C : 221 trades | NET +492,67 | +2,229/trade | tenue 3 min | à plat 74%
+  TÉMOIN : 114 trades | NET +241,19 | +2,116/trade | tenue 3 min
+
+CUMUL : C = +892,93 USDT (4/4 fenêtres positives) | TÉMOIN = +225,81 USDT (2/4 négatives)
+
+Vérification frais (à la source, CSV) : ALPHA VORTEX 244 fills, fee moyen 1,760, médian 1,306, total 429,51 | ALPHA tout historique 264 fills, moyen 1,703 | BETA tout historique 406 fills, moyen 0,481.
+
+Note technique : le replay v1 produisait un bug (stop instantané sur chaque barre, témoin identique partout à -704,11). Version v2 : barre d'entrée sans stop, plancher breakeven sur le trailing, pire cas conservé.
+
+===== QUESTIONS =====
+1. Les critères figés R18 sont-ils remplis selon toi ? (succès / abandon)
+2. Quels défauts vois-tu dans ce replay v2 (méthode, biais, calibration, fenêtres) ?
+3. Ce résultat suffit-il à engager la suite (shadow mode puis testnet) ou exige-t-il des tests supplémentaires avant ?
+Réponds en français, intégral, sans poésie.

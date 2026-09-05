@@ -1,0 +1,85 @@
+{
+  "ts": "2026-09-02T01:04:32Z",
+  "tag": "ACE_RADAR_ALIGNED_V4_60M",
+  "session_start": "2026-09-02T00:04:23Z",
+  "meta": {
+    "start_utc": "2026-09-02T00:04:23Z",
+    "planned_end_utc": "2026-09-02T01:04:23Z",
+    "run_id": "",
+    "fee_reconciliation": "UNMATCHED_BINANCE_FEES",
+    "venue": "binance_futures_testnet",
+    "engine": "ACE_DUO",
+    "roles": {
+      "alpha": "HUNTER",
+      "beta": "SCOUT"
+    },
+    "schema_version": "ace_csv_v1_legacy",
+    "fee_model": "binance_futures_round_trip_bps",
+    "fee_round_trip_bps": 8,
+    "tag": "ACE_RADAR_ALIGNED_V4_60M",
+    "config": "?",
+    "version": "?"
+  },
+  "counts": {
+    "E-PROC": 4
+  },
+  "buckets": {
+    "E-WATCHDOG": [],
+    "E-PROC": [
+      "[BETA_X5] 2026-09-02T01:04:27Z PROCESS_EXIT unit=BETA_X5 how=pipe_run_unit why=rc_0 rc=0",
+      "[ALPHA_X13_BURST13] 2026-09-02T01:04:31Z PROCESS_EXIT unit=ALPHA_X13_BURST13 how=pipe_run_unit why=rc_0 rc=0",
+      "2026-09-02T01:04:27Z PROCESS_EXIT unit=BETA_X5 how=pipe_run_unit why=rc_0 rc=0",
+      "2026-09-02T01:04:31Z PROCESS_EXIT unit=ALPHA_X13_BURST13 how=pipe_run_unit why=rc_0 rc=0"
+    ],
+    "E-STALE": [],
+    "E-DUO": [],
+    "E-SPREAD": [],
+    "I-HUNTER": []
+  },
+  "last_die": [
+    "[BETA_X5] 2026-09-02T01:04:27Z PROCESS_EXIT unit=BETA_X5 how=pipe_run_unit why=rc_0 rc=0",
+    "[ALPHA_X13_BURST13] 2026-09-02T01:04:31Z PROCESS_EXIT unit=ALPHA_X13_BURST13 how=pipe_run_unit why=rc_0 rc=0",
+    "2026-09-02T01:04:27Z PROCESS_EXIT unit=BETA_X5 how=pipe_run_unit why=rc_0 rc=0",
+    "2026-09-02T01:04:31Z PROCESS_EXIT unit=ALPHA_X13_BURST13 how=pipe_run_unit why=rc_0 rc=0"
+  ],
+  "last_watch": [],
+  "alpha": {
+    "fills": 5,
+    "gross": -3.3130699999999997,
+    "fees": 4.977637959999999,
+    "net": -8.290707959999999,
+    "pnl": -8.290707959999999,
+    "exits": {
+      "timeout": 2,
+      "trailing_stop": 1,
+      "stop_loss": 1,
+      "kill_switch": 1
+    }
+  },
+  "beta": {
+    "fills": 9,
+    "gross": -5.8093200000000005,
+    "fees": 4.705595449999998,
+    "net": -10.514915449999998,
+    "pnl": -10.514915449999998,
+    "exits": {
+      "stop_loss": 5,
+      "timeout": 3,
+      "trailing_stop": 1
+    }
+  },
+  "verdict": [
+    "**WHY_ARRET=timer_normal | stop_class=normal_timer_window | ran_min=60.1 | vs_planned_min=-0.1 | timing=near_timer**",
+    "Morts process journalis\u00e9es (PROCESS_DIE/EXIT) \u2014 lire `last_cmd` / `how=signal`."
+  ],
+  "why": {
+    "why_line": "WHY_ARRET=timer_normal | stop_class=normal_timer_window | ran_min=60.1 | vs_planned_min=-0.1 | timing=near_timer",
+    "cause": "timer_normal",
+    "timing": "near_timer",
+    "stop_reason_file": "2026-08-17T21:50:53Z arr\u00eat manuel par Buffy (demande utilisateur)",
+    "ran_min": 60.13333333333333,
+    "early_min": -0.13333333333333333,
+    "end_ts": "2026-09-02T01:04:31Z"
+  },
+  "net_retries": 0
+}

@@ -1,0 +1,51 @@
+R23 — RÉSULTATS BRUTS des 4 étapes de ton plan (R22), exécutées intégralement. Aucune interprétation de Buffy. Analyse seul, réponds en français intégral.
+
+===== ÉTAPE 1 : GRILLE DE ROBUSTESSE DU TRAILING (replay causal, 4 fenêtres) =====
+Calibration : qty 0,10593 BTC | frais 1,760 USDT/trade | gate H_ALPHA causal | même moteur que v2 (différence mineure de re-prise de position : ~2 000 trades cumulés vs ~1 260 au R19 — règle de re-prise après sortie légèrement différente, à noter).
+
+CUMUL 4 FENÊTRES (net USDT) :
+ret=20% cap= 20$ | 2042 tr | +1633,02 | +0,800/tr | OK
+ret=20% cap= 50$ | 2040 tr | +1729,09 | +0,848/tr | OK
+ret=20% cap=100$ | 2040 tr | +1731,64 | +0,849/tr | OK
+ret=30% cap= 20$ | 2008 tr | +1227,02 | +0,611/tr | OK
+ret=30% cap= 50$ | 1997 tr | +1376,94 | +0,690/tr | OK
+ret=30% cap=100$ | 1996 tr | +1545,17 | +0,774/tr | OK
+ret=40% cap= 20$ | 1975 tr |  +972,18 | +0,492/tr | OK
+ret=40% cap= 50$ | 1944 tr | +1073,36 | +0,552/tr | OK
+ret=40% cap=100$ | 1938 tr | +1261,56 | +0,651/tr | OK
+=> 9/9 cellules positives. Le réglage d'origine (30%/50$) n'est PAS l'optimum (20%/50-100$ fait mieux).
+Détail par fenêtre (anomalies) : VORTEX est négatif dans 8/9 cellules (de -0,7 à -68,76 ; seule ret=30%/cap=100$ est positive +49,30). Toute la rentabilité vient d'ORAGES et de MARS. NUAGE : positif en ret=20% (+1,56 à +32,83), négatif en ret=30-40%.
+
+===== ÉTAPE 2 : CARTOGRAPHIE LONG/SHORT (tout l'historique, CSV réels) =====
+ALPHA BUY   : 2 339 tr | WR 46,1% | brut +325,61 | PF 1,24
+ALPHA SELL  : 1 886 tr | WR 44,5% | brut  -95,83 | PF 0,89
+BETA  BUY   : 5 284 tr | WR 45,1% | brut  -84,23 | PF 0,86
+BETA  SELL  : 14 847 tr | WR 40,9% | brut  +81,95 | PF 1,13
+Détail par époque (extraits) :
+ALPHA BUY VORTEX 1751 tr +292,01 PF 1,38 | ALPHA BUY NUAGE 291 tr +162,17 PF 1,50 | ALPHA BUY MARS 188 tr -122,47 PF 0,23
+BETA SELL MARS 2847 tr +43,54 PF 1,36 | BETA SELL NUAGE 5374 tr +33,90 PF 1,15 | BETA SELL VORTEX 5969 tr +26,56 PF 1,11
+=> ALPHA gagne en BUY, BETA gagne en SELL. Les trades contre-nature (ALPHA SELL, BETA BUY) cumulent -180 de brut.
+
+===== ÉTAPE 3 : REPLAY SHORTS (ret 30%, cap 50$, trailing miroir) =====
+Gate v1 = H_ALPHA (mécanique, 4 225 events) | Gate v2 = H_BETA_SELL (PnL récent des SELL de BETA > 0, 14 847 events)
+VORTEX  : SHORT+H_ALPHA 344 tr -414,81 (-1,206/tr) | SHORT+H_BETASELL 426 tr -244,71 | TEMOIN 345 tr -616,62
+ORAGES  : SHORT+H_ALPHA 366 tr +339,73 (+0,928/tr) | SHORT+H_BETASELL 319 tr +398,68 | TEMOIN 389 tr +516,68
+NUAGE   : SHORT+H_ALPHA 982 tr  +91,26 (+0,093/tr) | SHORT+H_BETASELL 1398 tr -360,28 | TEMOIN 389 tr -226,70
+MARS    : SHORT+H_ALPHA 414 tr +672,79 (+1,625/tr) | SHORT+H_BETASELL 256 tr +516,65 | TEMOIN 394 tr +702,77
+CUMUL   : SHORT+H_ALPHA +688,97 | SHORT+H_BETASELL +310,35 | TEMOIN +376,12
+(rappel : LONG+H_ALPHA validé à +1376,94 avec les mêmes params sur la même grille)
+Surprises à analyser : (1) le gate direction-aware H_BETA_SELL fait MOINS BIEN que le gate mécanique H_ALPHA en cumul ; (2) le témoin SHORT bat les deux gates sur ORAGES et MARS ; (3) VORTEX (forte tendance haussière) tue les shorts même avec gate.
+
+===== ÉTAPE 4 : FENÊTRE DE RANGE MORT (2-8 août 2026, amplitude 2,14% — la plus plate de l'année, détectée par balayage 4h) =====
+8 641 bougies 1m réelles.
+LONG  H=1 :    0 trades | NET +0,00   (le gate H=0 a bloqué TOUTES les entrées : 100% à plat)
+SHORT H=1 :    0 trades | NET +0,00   (idem)
+TEMOIN    :  382 trades | NET -172,35 (-0,451/tr) — le hasard y a saigné, le gate est resté à la maison.
+=> Verdict survie : ENCAISSE. Le gate H=1 s'est révélé être un détecteur de range mort au moins aussi efficace que lors des tempêtes.
+
+===== QUESTIONS =====
+1) La grille 9/9 : overfitting écarté ou pas, compte tenu de l'anomalie VORTEX (négatif dans 8/9 cellules) et de la divergence de règle de re-prise (~2 000 vs ~1 260 trades) ?
+2) L'image miroir ALPHA-Long/BETA-Short (PF 1,24 vs 0,89 / 1,13 vs 0,86) : que fait-on des trades contre-nature — filtration pure, recalibrage asymétrique de la physique (seuils/angles par côté du carnet), ou autre ?
+3) SHORTS : comment interpréter la supériorité du gate mécanique sur le gate direction-aware, et la victoire du témoin sur 2 fenêtres ? Quel protocole pour décider si l'essaim doit trader les deux sens ou un seul ?
+4) RANGE MORT : 0 trade = succès du gate ou effet du hasard de la fenêtre ? Que faut-il pour le prouver (nombre de fenêtres plates, échantillon) ?
+5) Verdict global : va-t-on vers le Shadow Mode, et avec quelle règle exacte (long only H=1 ? long+short avec gates séparés ?) ?

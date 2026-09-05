@@ -1,0 +1,29 @@
+R8 — LE PROPRIÉTAIRE AVAIT RAISON, PREUVES À L'APPUI. Tu as radié le duo en R7. Mais il insistait : "quand alpha-beta sont en harmonie, il y a des plus-values, puis ça casse." J'ai extrait les lignes de cycles. Regarde les données, puis réponds.
+
+PREUVE 1 — LES PAIRES OPPOSÉES GÉNÈRENT DU BRUT POSITIF. Sur VORTEX (aout 17-22), paires co-incidentes |delta|<=3min : 7570 paires, TOUTES opposées (BETA SELL / ALPHA BUY), pnl BRUT cumulé +1486.66 USDT (+0.196/paire en brut). La co-présence opposée n'est pas neutre : elle GAGNE en brut pendant le vortex. Ton R7 disait "exposition nette zéro" — faux en pratique : les deux jambes n'ont ni la même taille, ni le même timing, ni les mêmes sorties. Le hedge est imparfait ET c'est précisément cette imperfection qui capte le mouvement.
+
+PREUVE 2 — LA TIMELINE HORAIRE (pnl brut des paires opposées, extraits) :
+07-08 22h +0.26 → 07-09 08h +18.87 → 09h +38.11 (cum +51.6)
+07-10 08h +105.68 → 16h +78.97 → 20h +207.48 (cum +537 en un jour)
+07-11 → 07-12 : progression régulière → cum +652 le 07-12 20h
+07-13 13h : -49.99 (première entaille)
+08-14 08h +42.76, 14h +48.55, 15h +100.49 → reprise
+08-18 11h +117.48, 14h +100.26 → cum +1291
+08-19 03h +52.36, 14h +47.08 → PIC +1507.28 à 17h
+08-19 15h -52.52, 18h -39.06, 19h -35.60, 20h -71.72 → LA CASSURE : -146 en 3h
+08-20 → 08-22 : plateau mort, plus jamais au-dessus de +1495, fin à +1486.
+C'est EXACTEMENT le récit du propriétaire : harmonie → escalade de plus-values → cassure brutale → plus rien.
+
+PREUVE 3 — ANATOMIE DE LA CASSURE (19 août 18h-21h UTC) :
+BETA : 99 shock_inversion_stop en 3h (+4 trailing, +3 shock_exit) → pnl -3.35 (petites tailles, stoppe vite)
+ALPHA : 46 shock_inversion_stop en 3h → pnl -88.06 (grosses tailles, stoppe LARGEMENT)
+BTC sur la fenêtre : 68511 -> 68774 = +0.38% UNIQUEMENT. Ce n'est pas un crash directionnel : c'est un CHOP de reprise qui hache le carnet. Le vortex est retombé, la machine n'a pas vu la transition.
+Pendant ce temps, le mode revenge : 544 trades hunter_revenge_1 sur le run (+0.041/tr, quasi nul), 85 revenge_ttl_expired (revanche armée mais expirée avant tir), hunter_burst_1 : 5 trades -6.28/tr (désastre). La machine de revanche tourne à vide et paie des frais.
+
+PREUVE 4 — L'ÉCONOMIE GLOBALE reste tuée par les frais : brut total VORTEX +318 USDT, frais ~12300 USDT (ALPHA 5.47/tr × 1751 + BETA 0.456/tr × 5969). Le +1486 des paires est le plus gros agrégat brut jamais mesuré dans cet écosystème, mais il est englouti.
+
+MES QUESTIONS :
+Q1. Ta radiation du duo en R7 (option 2, single-unit) était prise AVANT de connaître l'edge de paire brut (+0.196/paire). Révise : le duo en sens opposé pendant VORTEX est-il une CLASSE DE STRATÉGIE valide (pair-trading asymétrique captant le mouvement avec un hedge imparfait) ou confirmes-tu la radiation malgré ce chiffre ?
+Q2. Si le duo a une valeur : la vraie garde-fou n'est-il pas un DISJONCTEUR DE TEMPÊTE DE STOPS (circuit breaker) — ex: N shock_inversion_stop en 30 min → flat + cooldown, qui aurait coupé le 19 août à 18h30 et sauvé ~120 des -146 ? Chiffre ce que ce disjoncteur (N=10, 30min, cooldown 2h) aurait sauvé sur la timeline fournie.
+Q3. Réconcilie tes deux positions : R7 "le duo est une abomination" vs R8 "les paires font +1486 brut". Quelle est la version finale : (a) single-unit pur (ta carte V2-REPLAY-02), (b) duo régulé par disjoncteur + gate de régime vortex-only, (c) les deux en parallèle en replay et on compare ?
+Q4. Le propriétaire dit "l'harmonie génère, puis ça casse". En langage technique : le régime de marché change et la structure duo (hedge imparfait + revenge) est exactement la bonne en trend et exactement la pire en chop. Si c'est vrai, le problème d'ACE n'a jamais été sa structure de duo mais l'ABSENCE de détection de transition de régime en temps réel. Es-tu d'accord, et quel signal de transition utiliser (les shock_inversion_stops eux-mêmes en sont-ils un) ?

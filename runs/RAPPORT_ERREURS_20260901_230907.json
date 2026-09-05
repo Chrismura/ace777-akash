@@ -1,0 +1,76 @@
+{
+  "ts": "2026-09-01T23:09:07Z",
+  "tag": "ACE_RADAR_ALIGNED_V3_15M",
+  "session_start": "2026-09-01T22:59:57Z",
+  "meta": {
+    "start_utc": "2026-09-01T22:59:57Z",
+    "planned_end_utc": "2026-09-01T23:14:57Z",
+    "run_id": "",
+    "fee_reconciliation": "UNMATCHED_BINANCE_FEES",
+    "venue": "binance_futures_testnet",
+    "engine": "ACE_DUO",
+    "roles": {
+      "alpha": "HUNTER",
+      "beta": "SCOUT"
+    },
+    "schema_version": "ace_csv_v1_legacy",
+    "fee_model": "binance_futures_round_trip_bps",
+    "fee_round_trip_bps": 8,
+    "tag": "ACE_RADAR_ALIGNED_V3_15M",
+    "config": "?",
+    "version": "?"
+  },
+  "counts": {
+    "E-DUO": 5
+  },
+  "buckets": {
+    "E-WATCHDOG": [],
+    "E-PROC": [],
+    "E-STALE": [],
+    "E-DUO": [
+      "[ALPHA_X13_BURST13] 23:00:10 x5 #1 SKIP tension=1.20276169 | duo no_state",
+      "[ALPHA_X13_BURST13] 23:06:16 x5 #3 SKIP tension=3.31668832 | duo no_trigger",
+      "[ALPHA_X13_BURST13] 23:06:42 x5 #5 SKIP tension=1.05938231 | duo no_trigger",
+      "[ALPHA_X13_BURST13] 23:07:31 x5 #10 SKIP tension=2.19805543 | duo no_trigger",
+      "[ALPHA_X13_BURST13] 23:07:57 x5 #12 SKIP tension=1.33696591 | duo no_trigger"
+    ],
+    "E-SPREAD": [],
+    "I-HUNTER": []
+  },
+  "last_die": [],
+  "last_watch": [],
+  "alpha": {
+    "fills": 1,
+    "gross": 0.4263,
+    "fees": 1.0757487399999999,
+    "net": -0.64944874,
+    "pnl": -0.64944874,
+    "exits": {
+      "timeout": 1
+    }
+  },
+  "beta": {
+    "fills": 2,
+    "gross": -0.54718,
+    "fees": 1.19346234,
+    "net": -1.74064234,
+    "pnl": -1.74064234,
+    "exits": {
+      "timeout": 2
+    }
+  },
+  "verdict": [
+    "**WHY_ARRET=no_process_exit_logged**",
+    "Issues duo (5) \u2014 scout/hunter d\u00e9synchro."
+  ],
+  "why": {
+    "why_line": "WHY_ARRET=no_process_exit_logged",
+    "cause": "no_process_exit_logged",
+    "timing": "unknown",
+    "stop_reason_file": "2026-08-17T21:50:53Z arr\u00eat manuel par Buffy (demande utilisateur)",
+    "ran_min": null,
+    "early_min": null,
+    "end_ts": ""
+  },
+  "net_retries": 0
+}

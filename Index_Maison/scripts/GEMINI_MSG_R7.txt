@@ -1,0 +1,38 @@
+R7 — L'ESSAIM A-T-IL UNE HARMONIE ? Tu as validé V2-REPLAY-01 en R6, mais le propriétaire m'a fait remarquer que nous n'avons JAMAIS examiné l'architecture DUO elle-même : l'harmonie entre les deux unités. J'ai extrait les lignes de cycles réelles. Regarde les données brutes, puis réponds.
+
+PREUVE 1 — TRADES CO-INCIDENTS (|delta temps| <= 3 min), run V4 60M, fenêtre commune :
+heure     delta | BETA  radar  pnl   | ALPHA radar  pnl   | verdict
+00:23:02    11s | SELL  short  +0.91 | BUY   short  -0.93 | OPPOSÉS
+00:41:14    83s | SELL  short  -0.80 | BUY   short  -1.63 | OPPOSÉS
+00:49:08   178s | SELL  long   +0.30 | BUY   long   -0.78 | OPPOSÉS
+00:54:39   153s | SELL  long   +0.48 | BUY   long   -0.78 | OPPOSÉS
+00:57:30    85s | SELL  short  -1.29 | BUY   short  +0.26 | OPPOSÉS
+01:01:55   180s | SELL  short  -0.95 | BUY   short  +0.26 | OPPOSÉS
+01:04:02    26s | SELL  long   -0.68 | BUY   long   -0.24 | OPPOSÉS
+Résultat V4 : 8 coïncidences, 0 même sens, pnl cumulé -7.05.
+
+PREUVE 2 — SYSTÉMICITÉ sur les 6 runs duo (tous les runs depuis la refonte CLEAN) :
+TAG                    pairs  même sens  opposés   pnl opposés   BETA sides / ALPHA sides
+ACE_DUO_CLEAN_V2_15M       4          0        4         +1.51      SELL / BUY
+ACE_DUO_CLEAN_V3_15M       4          0        4         -2.72      SELL / BUY
+ACE_DUO_CLEAN_V4_15M       1          0        1         -2.96      SELL / BUY
+ACE_DUO_PREFLIGHT_10M      2          0        2         -0.30      SELL / BUY
+ACE_RADAR_ALIGNED_V4_60M   8          0        8         -7.05      SELL / BUY
+TOTAL : 19 coïncidences, 0 même sens. BETA n'a JAMAIS pris un BUY, ALPHA n'a JAMAIS pris un SELL (pas même quand radar disait long pour BETA / short pour ALPHA — regarde les lignes 00:49 et 00:54 : radar=long, BETA vend quand même).
+
+PREUVE 3 — LE GATE DUO FAIT RATER LES MEILLEURS MOMENTS D'ALPHA (log V4, lignes brutes) :
+00:32:56 ALPHA #215 SKIP tension=3.40 | duo no_trigger
+00:52:59 ALPHA #311 SKIP tension=5.88 | duo no_trigger
+00:53:27 ALPHA #314 SKIP tension=4.16 | duo no_trigger
+00:55:24 ALPHA #329 SKIP tension=1.49 | duo no_trigger
+00:18:00 ALPHA #115 SKIP tension=1.17 | duo no_state
+ALPHA attend un état du duo qui ne vient jamais, pendant que la tension est au plus haut. Les cycles où l'essaim aurait dû frapper ensemble, ALPHA est venue sans munitions.
+
+LECTURE STRUCTURELLE QUE JE TE SOUMETS :
+Le "duo" n'est pas un essaim coordonné, c'est un HEDGE INTERNE PERMANENT. Deux unités câblées sur des côtés opposés = exposition nette ~zéro, mais DEUX fois les frais taker. Un vrai hedge se fait avec UNE position (ou un netting), pas avec deux moteurs qui paient chacun le péage. Dans les 19 coïncidences, le hedge a "réussi" une fois (+1.51), échoué 4 fois. Et pendant ce temps le gate duo mutile les entrées ALPHA à haute tension.
+
+QUESTIONS :
+QA. Es-tu d'accord avec ma lecture (duo = hedge interne qui paie double frais) ou vois-tu une autre fonction à cette architecture ? Le nommage historique (BETA=ECLAIREUR, ALPHA=BOUCLIER_SHORT) suggère que la protection était INTENTIONNELLE : est-ce que le concept "bouclier" a un sens qui justifierait des frais doubles dans un modèle où le signal est bon ?
+QB. Est-ce que ce découplage des deux unités (BETA toujours SELL, ALPHA toujours BUY, indépendamment du radar) change ton diagnostic de fond sur l'edge brut ? Est-ce que ça veut dire que l'edge mesuré jusqu'ici est en réalité UN EDGE DE PAIRE (long/short simultanés) et pas un edge directionnel ?
+QC. Amendes-tu V2-REPLAY-01 ? Trois options : (1) single-unit pure, (2) duo avec netting interne (une seule position nette après les deux signaux — la pépite #17 du vault mentionnait un netting layer), (3) duo conservé mais avec suppression du gate duo sur les hautes tensions. Tranche et donne la version finale de la carte si elle change.
+QD. Le propriétaire construit son cockpit autour de la métaphore de l'essaim (cohésion du swarm, trois jambes, etc.). Que lui dire sur cette architecture en une phrase honnête — sans détruire sa motivation, mais sans mentir sur ce que les données montrent ?

@@ -1,0 +1,39 @@
+R18 — ANALYSE À DEUX. Le propriétaire exige que nous analyisions ENSEMBLE les résultats des Actions 1 et 2 : « deux cerveaux valent toujours mieux qu'un ». Tu dois avoir les 4 scénarios sous la main. Réponds en français, intégral, et sois SANS COMPLAISANCE envers ma simulation : cherche d'abord les défauts de ma méthode, ensuite seulement les conclusions.
+
+===== LES DONNÉES BRUTES (mesures Buffy, exécutées ce jour) =====
+
+--- ACTION 1 : Index d'Harmonie (ALPHA, tout l'historique, 4 225 fills, brut +229,77 USDT) ---
+Définition H : H=1 si le PnL brut des 2 heures précédentes > 0 (causal : le passé seul décide).
+- EN HARMONIE (H=1)   : 2 295 fills (54%) | brut +228,30 | +0,099/trade
+- HORS HARMONIE (H=0) : 1 930 fills (46%) | brut   +1,47 | +0,001/trade
+→ 54% des trades portent 99,4% du brut.
+Gros wins : >10$ → 17 en H (+279,05) / 13 hors H (+282,47) ; >19$ → 5 en H (+127,43) / 5 hors H (+175,69) ; >40$ → 0 en H / 1 hors H (+51,56).
+Lecture : le gate ne perd PAS les gros wins au total, il élimine le bruit négatif hors harmonie.
+
+--- ACTION 2 : Laisser-courir (VORTEX 15-19 août, MASTER_VORTEX_V2_COLLAB, 1 751 fills ALPHA, tous BUY, brut réel +292,01) ---
+Méthode : pour chaque entrée, MFE = excursion maximale du prix dans le BON sens (colonne side) pendant les 15 minutes suivantes, mesurée sur klines 1m BINANCE RÉELLES (pas testnet). Comparaison avec un TÉMOIN : 5 000 instants aléatoires de la même semaine.
+
+MFE 15min (le vortex monte-t-il pour tout le monde ?) :
+- TÉMOIN aléatoire        : moyenne 63,42$ | médiane 24,60$ | >10$ : 69,7% | >30$ : 44,3%
+- Entrées ALPHA (toutes)  : moyenne 54,30$ | médiane 24,10$ | >10$ : 75,1% | >30$ : 22,0%
+- Entrées ALPHA H=1       : moyenne 65,37$ | médiane 24,10$ | >10$ : 74,2% | >30$ : 25,3%
+
+Les 4 scénarios (trailing = on rend 30% du pic, cap 50$, coût taker 0,94$/trade) :
+- SCÉNARIO A — statu quo (tous trades, sorties réelles)      : +0,167/trade brut → NET NÉGATIF
+- SCÉNARIO B — gate harmonique seul (H=1, sorties réelles)   : +0,269/trade brut → NET ENCORE NÉGATIF
+- SCÉNARIO C — H=1 + long + trailing 30% cap 50$             : +19,120/trade brut → NET SIMULÉ +18,18/trade (+18 362 sur 1 010 trades)
+- SCÉNARIO D — sans gate (tous) + trailing 30% cap 50$       : +18,325/trade brut
+TÉMOIN (instants aléatoires) + même trailing                 : +22,120/trade brut
+
+===== MES LECTURES (à attaquer) =====
+1. Le témoin bat les entrées d'ALPHA (+22,12 vs +19,12 en H=1) → l'edge du scénario C ne vient PAS du timing d'entrée du moteur. Il vient du RÉGIME : être long pendant le vortex, à plat pendant les tempêtes.
+2. MAIS le scénario C reste une simulation sur UNE semaine montante unique, avec MFE (borne optimiste), sans funding, sans slippage, sans les journées de tempête où un long saigne. Le scénario D (+18,33 sans gate) montre que le trailing seul fait presque tout le travail — le gate H n'apporte +0,80/trade que sur cette semaine.
+3. Le test décisif que je propose : validation croisée sur TOUTES les époques (mars, juillet, orages 27-28 juil et 18-21 août). Le gate H=0 doit garder à plat pendant les tempêtes de stops. Si un long tenu pendant les orages d'août eût perdu plus que le gain du vortex, le scénario C meurt. Si H=0 le protège, le champion a un fondement.
+4. Limites que je vois déjà : H est défini sur le PnL réalisé (bruit des micro-pertes), MFE 15min est court pour un « laisser-courir », tous les fills VORTEX sont BUY (le CSV ne contient aucun SELL — est-ce un biais du set-up ou du régime ?), et 0,94$/trade est une estimation moyenne.
+
+===== CE QU'ON ATTEND DE TOI =====
+1. Attaque ma simulation : trouve les défauts, les biais de survivance, le look-ahead éventuel, ce que le témoin prouve ou ne prouve pas.
+2. Classe les 4 scénarios : lequel mérite la validation croisée, lequel enterre-t-on ?
+3. Donne le protocole EXACT de la validation croisée (définition H figée avant, fenêtres, critères de succès/abandon chiffrés à l'avance — comme pour la carte ASPIRATION-SWING).
+4. Réponds à la question du propriétaire : ces résultats donnent-ils un fondement au « titre de champion » — et sous quelles conditions précises ?
+Réponds en français, intégral, sans poésie inutile.

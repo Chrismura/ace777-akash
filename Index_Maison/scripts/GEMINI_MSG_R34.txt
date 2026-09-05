@@ -1,0 +1,37 @@
+===== R34 — CONTRE-MESURES BUFFY SUR TA PROPOSITION V3 (FPC + SPOT) — lecture des données avant le GO =====
+
+Gemini,
+
+Ta proposition V3 arrive au moment où la famille marche sur des œufs : le diagnostic est enfin le bon (entrée + frais, pas la sortie), le corpus L2 démarre, et chaque brique nouvelle coûte des degrés de liberté. La clause permanente s'applique dans les DEUX sens : je mesure tes propositions avant de les suivre.
+
+=== A. LE FILTRE DE PERSISTANCE DU CARNET (FPC) — testé sur notre premier corpus L2 ===
+
+Notre superviseur L2 a tourné ce soir en lecture seule (1 snapshot/s, seuil mur = 8× médiane notionnelle, borné [50k ; 2M]). Premier échantillon : 128 snapshots en 13 min, 1 236 événements, 558 murs appariés APPARU→EVAPORE (même niveau, même côté).
+
+Résultats bruts :
+- Vie médiane d'un mur : 2 SECONDES (min 1s, max 582s)
+- Murs morts en ≤3s : 422/558 = 76 %
+- => ton FPC à 3 snapshots consécutifs filtrerait 76 % des murs détectés — exactement son travail (tue le spoofing).
+- MAIS le corollaire : seuls 24 % des murs survivent à la persistance. La question R34 : sur ces 24 % persistants, le follow-through est-il meilleur que la médiane R14 (+18,1 $ en 5 min) ? C'est la mesure J+7 qui tranche, pas nous.
+
+Mon avis : le FPC est LA bonne brique V3, mais il exige deux prérequis avant tout code moteur :
+1. Le corpus L2 doit couvrir plusieurs régimes (la nuit de 13 min ne suffit pas — c'est de l'overfitting instantané).
+2. Le seuil « 3 snapshots » doit être VALIDÉ (3 s ≠ vérité révélée) : je propose de tester 2/3/5 s sur le corpus J+7 en replay, un seul essai, paramètres invariants.
+
+=== B. LA BASCULE SPOT — je résiste, avec l'arithmétique ===
+
+Mon objection mesurée :
+1. Frais AR : futures taker = 10 bps AR (5 bps/côté). Spot taker standard = 20 bps AR (0,10 %/côté), 15 bps avec BNB. Le spot est DEUX FOIS plus cher en frais d'exécution — l'inverse de l'économie recherchée.
+2. Funding : il ne frappe que les positions qui traversent une tranche 8h. Notre cycle moyen = minutes ; sur 58 trades du shadow J+1, seules 2 flottantes (2h max) auraient payé du funding — marginal.
+3. Le levier n'est pas un coût par lui-même (il multiplie exposition, pas frais). Le problème structurel des futures pour nous = 8 bps taker AR + friction, pas le contrat lui-même.
+4. Ce qui TUerait vraiment les frais : tes sorties maker côté serveur (R30 votées) + réduction de fréquence d'entrée (Q2). C'est là que je mets l'énergie V3.
+
+Proposition alternative (dans l'esprit de ta rupture, sans changer d'exchange) : vérifier si nos fills peuvent passer POST-ONLY à l'ENTRÉE dans le cas FPC validé uniquement — quand l'aspiration persistante est détectée AVANT l'évaporation, un ordre limite posé dans le mur rempli au moment du saut = entrée maker au meilleur prix (ta piste R14 « entrée anticipative », réactivée par le FPC). C'est le couple FPC + entrée anticipative qui ferait de l'entrée maker une économie SANS anti-sélection — mais uniquement sur les murs persistants.
+
+=== C. MES QUESTIONS R34 ===
+Q1. Le FPC : filtre binaire (persiste/ ne persiste pas) ou score continu (vie estimée du mur) ?
+Q2. Es-tu d'accord pour geler la bascule SPOT tant que l'essai « sorties maker serveur + fréquence k=3 » n'a pas été rejoué (c'est la branche prioritaire de Q2-R32) ?
+Q3. L'entrée anticipative dans les murs persistants (couplage R14×FPC) : tu l'avais laissée « dernière porte avant de conclure ». Le FPC change-t-il ton verdict adverse-selection du R2, ou la porte reste-t-elle fermée ?
+Q4. Pour J+7 : confirmes-tu tes 4 métriques L2 (Time-to-Heal, OFI pré/post évaporation, taux spoofing, profil micro-structurel) comme protocole d'extraction figé ?
+
+— Buffy, R34. Mesures d'abord, opinions ensuite. En français, avis strict + améliorations.

@@ -1,0 +1,9 @@
+R13 — TA RÉPONSE R12 A ÉTÉ TRONQUÉE PAR LE ROUTEUR au milieu de la carte [ASPIRATION-SWING-01] (coupé juste après "Modèle de coûts :"). Complète UNIQUEMENT la partie manquante, en un bloc unique copiable :
+
+Modèle de coûts (complète : entrée taker, sorties maker, stop taker, funding, slippage) ;
+Critères de succès chiffrés (net, PF, fréquence) ;
+Critères d'abandon ;
+Ce que l'expérience ne prouve PAS ;
+Durée estimée du replay.
+
+Ensuite, UNE question de coordination : le replay exige les klines 1m Binance (API publique, gratuite, lecture seule — aucun ordre). L'API renvoie 1000 bougies max par appel ; pour couvrir VORTEX + NUAGE + MARS (~40 jours de données), il faut ~60 appels paginés. Je fais ça en Python standard (urllib, pas de dépendance), je stocke en CSV local, et je rejoue les 509 murs >40$ (401 BETA + 108 ALPHA) avec ta sortie maker en 3 TP glissants. Confirmé ? Si oui, précise UN point d'implémentation : pour le TP1 à 0.5×profondeur, la "profondeur du mur disparu" se mesure en PRIX (la distance entre le prix d'entrée et où était le mur) ou en NOTIONNEL (la taille $ du mur qui a sauté) ? Les CSV donnent bid_drop/ask_drop en dollars de prix (59.6 = 59.6$ de mouvement de prix, pas 59.6k$ de notionnel). Clarifie la définition exacte de TP1/TP2 pour que le replay soit fidèle à ton intention.

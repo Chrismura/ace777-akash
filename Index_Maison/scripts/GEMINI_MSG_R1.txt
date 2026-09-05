@@ -1,0 +1,38 @@
+[CONTEXTE COMPLET — analyse forensique ACE777, ~18k trades testnet Binance futures]
+
+Projet : ACE777, moteur de trading futures BTCUSDT (testnet), deux unités : BETA (SCOUT x5, levier 5) et ALPHA (HUNTER x13, levier 13). Frais modélisés : 8 bps aller-retour taker. Le propriétaire conteste ma conclusion : il affirme qu'avant il y avait des plus-values reelles, et que mes analyses melangent des SETUPS DIFFERENTS. Il a probablement raison sur le melange — j'ai donc regroupe par setup. Voici les donnees PROPRES par setup (WR, brut/trade, frais/trade, net/trade en USDT) :
+
+SETUP | UNIT | FILLS | WR | BRUT/TR | FRAIS/TR | NET/TR
+S1 MASTER_BASE_7H30 (mars) | BETA | 3543 | 43.8% | +0.0003 | 0.4945 | -0.4942
+S1 (mars) | ALPHA | 276 | 39.1% | -0.0429 | 2.2866 | -2.3295
+S2 MASTER_BASE_C2_HYBRID (juil 8) | BETA | 309 | 42.1% | +0.0069 | 0.3476 | -0.3408
+S2 (juil 8) | ALPHA | 87 | 41.4% | -0.2705 | 8.1431 | -8.4136
+S3 NUAGE_SMOKE (juil 14) | BETA | 67 | 43.3% | -0.0147 | 0.4759 | -0.4907
+S4 NUAGE_PROD (juil 14-31) | BETA | 6398 | 41.2% | +0.0075 | 0.4865 | -0.4790
+S4 (juil 14-31) | ALPHA | 417 | 42.2% | +0.2876 | 9.0082 | -8.7206
+S5 VOIE_A_PACKS (juil 29-30) | BETA | 565 | 35.4% | +0.0056 | 0.5059 | -0.5002
+S5 (juil 29-30) | ALPHA | 51 | 39.2% | -0.0347 | 6.1834 | -6.2182
+S6 VORTEX_V2 (aout 17-22) | BETA | 5969 | 41.0% | +0.0045 | 0.4562 | -0.4517
+S6 (aout 17-22) | ALPHA | 1751 | 47.4% | +0.1668 | 5.4729 | -5.3061
+S7 RADAR_ALIGNED (sept 1-2) | BETA | 21 | 38.1% | -0.2969 | 0.5579 | -0.8548
+S7 (sept 1-2) | ALPHA | 12 | 41.7% | -0.1288 | 0.9981 | -1.1270
+S8 DUO_CLEAN (sept 1) | BETA | 11 | 18.2% | -1.0852 | 0.5657 | -1.6509
+
+Faits complementaires etablis :
+1. Les CSV d'avant (mars-juillet-aout) n'ont PAS de colonnes feeUsdt/pnlNet : le cockpit affichait le BRUT. Le brut de juillet etait legalement positif (+31.91 USDT sur 2001 trades) — c'est la plus-value que le proprio a vue.
+2. Le WR affiche en temps reel sur le cockpit a atteint 62-80% (voire 90%) pendant des FENETRES de ~20 trades — confirme par fenetres glissantes. Mais sur run complet, WR retombe toujours a 41-47%.
+3. Les fenetres WR>=70% se regroupent PAR JOUR (0% certains jours, 45% le 20 aout) — signature de regime de marche, pas de setup.
+4. Gate causal teste (amplitude BTC des 2h avant chaque trade) : bucket vortex = -0.75 net/trade vs -0.93 moyenne. Reel mais insuffisant : meme le meilleur regime reste negatif.
+5. Edge brut global : +0.00 a +0.29 USDT/trade selon setup. Frais : 0.35-0.50/trade (BETA), 2-9/trade (ALPHA). Ratio edge/frais = 0.01x a 0.06x pour BETA.
+6. ALPHA a un brut/trade 30-60x superieur a BETA (S4: +0.29 vs +0.007) — mais des frais enormes (notionnel x13 levier). Net toujours negatif.
+7. Le proprio insiste : les setups de juillet etaient DIFFERENTS et donnaient des plus-values. Mes donnees montrent que le brut de juillet etait positif (+31.91) mais 80x plus petit que les frais (2547).
+
+MANDAT D'EXAMEN STRICT : ne te contente pas de corriger ou valider. Donne un avis STRICT, identifie mes erreurs de methode eventuelles (moi = autre IA), et propose des ameliorations concretes.
+
+QUESTIONS :
+Q1. Le proprio dit que mes groupements par setup sont encore faux (ex: S4 NUAGE_PROD melange peut-etre plusieurs sous-setups juil 14-31). Quelles failles vois-tu dans mon groupement et dans ma conclusion jamais-rentable-net ?
+Q2. Avec un edge brut de +0.005 USDT/trade (S4 BETA), quelle transformation serait mathematiquement necessaire pour devenir net-positif a 8 bps ?
+Q3. L'unite ALPHA a un brut/trade 30-60x superieur a BETA (S4: +0.29 vs +0.007). Est-ce une piste serieuse (trader plus gros, moins souvent) ou un artefact ?
+Q4. Le proprio se souvient de win rates 62-80% en juillet. Les fenetres glissantes confirment des pics a 80-90%. Y a-t-il une lecture ou il a raison ET ou le systeme etait reellement exploitable ?
+
+FORMAT : reponds question par question (Q1-Q4) avec ton niveau de confiance, puis une section ERREURS DE METHODE que tu m'attribues, puis TOP 3 AMELIORATIONS concretes.

@@ -1,0 +1,5 @@
+- 05:08Z 🟥 MORTS (échec >2j) : nara
+- 05:08Z 🟡 ÉPUISÉS TEMPORAIRES (gardés, 429/quota) : openrouter-free, inferx, inferx-coder, puter-grok, nvidia-coder, inferx-devstral, huggingface
+- 05:08Z ✅ ACTIFS OK : openrouter-free, groq, openrouter-juge, openrouter-ultra, inferx, inferx-coder, puter-grok, nvidia-coder, inferx-devstral, huggingface, orca, obs-1787724924
+- 05:09Z Candidat deepseek-ai/deepseek-v4-pro-0813 inaccessible (timeout) -> suivant
+- 05:09Z Aucun candidat ne répond -> mort désactivé, remplacement différé.

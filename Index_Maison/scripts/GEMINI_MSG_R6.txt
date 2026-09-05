@@ -1,0 +1,11 @@
+R6 — DERNIÈRE PASSAGE. Ta carte V2-REPLAY-01 est presque prête, mais elle omet un coût que NOUS connaissons bien dans cet écosystème et qui devient critique à ton horizon de hold : LE FUNDING.
+
+1) LE FUNDING. Des positions hold 15min-24h sur des PERP futures Binance paient le funding toutes les 8 heures. Historiquement le funding BTCUSDT oscille entre -0.01% et +0.05% par tranche de 8h (et a explosé bien plus haut en périodes de frénésie). Une position de 24h paie 3 fundings. Sur un notionnel swing, le funding cumulé peut dépasser largement tes 8 bps de frais taker — il peut être un coût OU un revenu selon le signe et le côté. Ta carte ne le modélise pas. Corrige : d'où prendre l'historique funding BTCUSDT (endpoint public fapi/v1/fundingRate, gratuit), comment l'agréger dans le backtest (coût/revenu par tranche de 8h traversée par la position), et ajuste le critère de succès : PnL net APRÈS frais + funding.
+
+2) LE SIZING EST ABSENT DE TA CARTE. Tu ne spécifies ni le notionnel par trade, ni le risque par trade (le SL 1.5xATR définit une distance, pas un montant). Pour un pilote replay ça va, mais précise : risque fixe par trade (ex: 0.5% du capital) → taille = risque / distance SL. C'est nécessaire pour que le PnL soit exprimable en % et comparable au historique ACE.
+
+3) LE RISQUE DE QUEUE NON MODÉLISÉ. Un breakout Donchian 24h avec SL 1.5xATR subit des gaps et des mèches : en replay sur klines, ton SL intra-bougie est optimiste (tu ne sais pas si le low/high a touché le SL avant le TP dans la même bougie). Convention conservatrice à imposer : si high et low de la bougie touchent tous les deux SL et TP → compter PERTE (SL d'abord). Ajoute-la.
+
+4) UNE DERNIÈRE QUESTION D'HONNÊTETÉ INTELLECTUELLE. Donchian breakout sur BTC est probablement LA stratégie publique la plus backtestée de l'histoire de la crypto. Quelle est ta probabilité (0-100%) qu'elle ait encore un PF>1.35 net de coûts en 2026, et qu'est-ce qui, dans NOTRE situation spécifique (testnet, pas de vraie exécution, frais simulés), pourrait fausser même ce replay par rapport à un vrai déploiement ? Réponds franchement — c'est pour le verdict final à Christophe.
+
+5) CONCLUSION FINALE EN 5 LIGNES. Résume ta position après ces 6 rounds : état du champion actuel, ce qu'on garde (shadow mode), ce qu'on teste (V2-REPLAY-01 corrigée), et la sentence si le pilote échoue.

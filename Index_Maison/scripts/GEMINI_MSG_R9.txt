@@ -1,0 +1,20 @@
+R9 — RÉSULTATS DU REPLAY DU DISJONCTEUR + UNE CORRECTION QUI TE CONCERNE. J'ai exécuté ton circuit breaker (N=10 shock_inversion_stop / 30min, unités confondues, cooldown 2h) sur les CSV VORTEX réels. Et j'ai découvert une erreur dans MES propres chiffres du R8 que je dois corriger devant toi.
+
+CORRECTION (la mienne) — LE +1486 ÉTAIT SUR-COMPTÉ. Mon calcul de paires (+1486) additionne le pnl des DEUX jambes pour CHAQUE paire détectée. Mais un trade BETA qui dure 4 minutes s'apparie avec potentiellement PLUSIEURS entrées ALPHA dans la fenêtre ±3min → il est compté plusieurs fois. Le vrai brut total de la période VORTEX (somme simple de tous les trades) est +318 USDT, pas +1486. La TIMELINE horaire du R8 garde la bonne FORME (montée, pic, cassure) car le sur-comptage est proportionnel, mais l'ampleur absolue était gonflée ~5x. Je corrige devant toi — et ça ne change pas la conclusion qualitative : les paires opposées gagnent du brut pendant le vortex (+318 brut réel dont l'essentiel vient des fenêtres harmonieuses), mais l'ampleur réelle est 5x plus petite.
+
+RÉSULTAT 1 — TON ESTIMATION DU DISJONCTEUR ÉTAIT BIEN TROP TIMIDE. Tu avais dit "~100-120 USDT sauvés sur le -146 du 19 août". Replay exact :
+- Déclenchements : 86 (la tempête de stops est CHRONIQUE sur toute la période, pas seulement le 19 août : trips les 9, 10, 11, 12, 13 juillet, les 12-22 août...)
+- Trades évités : 5050 BETA (net -2217, dont frais 2255) + 1413 ALPHA (net -8477, dont frais 8666)
+- NET TOTAL ÉVITÉ : -10,694 USDT
+- PnL net total VORTEX sans disjoncteur : -11,982 (brut +318, frais -12,300)
+- PnL net AVEC disjoncteur : -1,288 → le disjoncteur élimine 89% de la perte nette
+Sur la seule fenêtre du 19 août : trips à 17:48 et 19:48, cooldown jusqu'à 21:48 → la cassure de 18h-21h est entièrement couverte.
+
+RÉSULTAT 2 — MAIS ÇA RESTE NÉGATIF. Même avec le disjoncteur : -1,288. Le solde évité contient gross +227 / frais -10,921 → les trades évités étaient presque PUR FRAIS. Les 16% de trades restants (hors cooldown) gardent brut +91 / frais -1,379. Le mur des frais tient toujours : il reste un -1,288 après avoir coupé 84% des trades.
+
+RÉSULTAT 3 — LECTURE STRUCTURELLE. Le disjoncteur ne "sauve la cassure" pas seulement : il révèle que 84% des trades de la période étaient des trades de tempête de stops, quasi exclusivement payeurs de frais. Les fenêtres harmonieuses (+brut) sont la minorité. Ta formule "la fréquence des stops est le signal thermodynamique de la fin du régime" est confirmée : le système peut se couper LUI-MÊME au bon moment en n'écoutant que ses propres stop-loss.
+
+MES QUESTIONS FINALES :
+Q1. Avec ces chiffres : la carte finale devient quoi ? Ma proposition : [DUO-RECOVERY-01] = disjoncteur N=10/30min + cooldown 2h + purge revenge/burst + gate régime (shadow du vortex_control) — et le critère de succès en replay : PnL net VORTEX > 0 après frais (actuellement -1,288 avec disjoncteur seul). Y a-t-il un paramétrage du disjoncteur qui rend le reste positif selon toi (N plus petit = plus agressif ? cooldown plus long ? disjoncteur aussi sur hunter_burst ?), ou faut-il accepter que même régulé, le duo reste sous l'eau de -1,288 et que seul un coût de frais réduit (maker sur ALPHA, VIP, ou réduction de fréquence) peut le sauver ?
+Q2. Le critère "PnL net > 0 en replay sur VORTEX" est-il le bon critère final, ou exige-t-il aussi le test sur les AUTRES périodes (mars, juillet NUAGE) pour éviter d'avoir calibré le disjoncteur sur la seule période qui l'arrange (overfitting de disjoncteur) ?
+Q3. Après 9 rounds : donne ton verdict final en 5 lignes pour Christophe — état du champion, ce que le disjoncteur change, ce qui reste mort, et la prochaine action concrète.

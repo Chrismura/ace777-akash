@@ -1,0 +1,3 @@
+- 05:08Z 🟡 ÉPUISÉS TEMPORAIRES (gardés, 429/quota) : inferx, inferx-coder, puter-grok, nvidia-coder, inferx-devstral
+- 05:08Z ✅ ACTIFS OK : openrouter-free, groq, openrouter-juge, openrouter-ultra, inferx, inferx-coder, puter-grok, nvidia-coder, inferx-devstral, huggingface, orca
+- 05:08Z Aucun mort durable -> rien à remplacer (roulement terminé).

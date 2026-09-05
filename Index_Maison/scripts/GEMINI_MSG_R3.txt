@@ -1,0 +1,27 @@
+R3 — RÉSULTATS DE REPLAY. J'ai exécuté TES protocoles sur les CSV réels. Voici les résultats bruts. Tu dois te positionner dessus, même quand ils te contredisent.
+
+1) TA SEGMENTATION (E) — VOL RÉALISÉE 1h, percentiles par fichier, S4 NUAGE (6815 fills BETA+ALPHA) :
+S4-A plat (P0-25)      : 1411 trades, net/trade -0.5286
+S4-B normal (P25-75)   : 2838 trades, net/trade -0.4791
+S4-C impulsion (P75-99): 1359 trades, net/trade -0.4746
+S4-D panique (>P99)    :   80 trades, net/trade -1.6133
+Ta prédiction : "le brut positif est concentré à 95% dans S4-C ou S4-D, les pertes de frais en continu pendant S4-A". RÉSULTAT RÉEL : S4-C ≈ S4-B ≈ S4-A (tous ~-0.48/-0.53), et S4-D (panique) est le PIRE. Ta prédiction est réfutée. Commentes-tu ?
+
+2) TON FILTRE VRIC (A) — exclusion du bruit mort (amplitude fenêtre récente), CAUSAL :
+seuil 0.0005 : garde 76% des trades, net gardé -1.08/tr, évité -0.54/tr (skippés)
+seuil 0.0020 : garde 22%, net gardé -2.39/tr, évité -0.56/tr
+Lecture arithmétique : les trades GARDÉS sont les PIRES (-2.39/tr) et les skippés les moins mauvais (-0.54/tr). Ton filtre sélectionne des trades de moindre qualité ; il réduit la perte totale (-6470 -> -3483) UNIQUEMENT parce qu'il fait trader moins. CONTRÔLE : un filtre ALÉATOIRE gardant 22% des trades donnerait -6470*0.22 = -1423, soit 2.4x MIEUX que ton filtre. Un filtre battu par le hasard ne porte aucune information. Concess-tu que l'amplitude de prix récente ne peut pas servir de filtre de qualité ici ?
+
+3) NOUVEAU RÉSULTAT QUE TU N'AS PAS DEMANDÉ — SIGNIFICATION STATISTIQUE DE L'EDGE BRUT (t-stat, H0: moyenne=0) :
+S4 BETA  : n=6398, brut +0.0075/tr, t=2.66 -> SIGNIFICATIF (edge réel)
+S6 ALPHA : n=1751, brut +0.1668/tr, t=2.17 -> SIGNIFICATIF (edge réel)
+Tous les autres (S1, S2, S3, S5 BETA ; tous ALPHA sauf S6) : t entre -1.25 et +1.49 -> NON significatifs, edge indistinguishable de zéro.
+Donc : DEUX combinaisons ont un edge brut RÉEL mais MICROSCOPIQUE (0.0075 USDT/tr vs frais 0.49 ; 0.167 vs frais 5.47). Le moteur n'est pas aveugle : il a un vrai signal, 65x trop petit pour ses frais.
+
+4) RAPPEL DE TON PROPRE CALCUL (D) : même à frais VIP taker 1.5 bps, juillet reste négatif. Tu as donc fermé la porte des frais. Le maker est abandonné (tu l'as concédé en R2). La segmentation par volatilité vient d'être réfutée. Le filtre d'amplitude est battu par le hasard.
+
+QUESTIONS DIRECTES (réponds sans détour) :
+QA. Après ces réfutations, quelle est TA position : (i) "ACE dans sa forme actuelle NE PEUT PAS être net-positif, il faut changer de classe de stratégie" ou (ii) "il reste un chemin à l'intérieur du champion" ? Une seule réponse, avec confiance 0-100%.
+QB. Si (i) : quelle classe de stratégie minimaliste tester à la place, avec quel avantage structurel face aux 8 bps ? Sois concret : fréquence cible, hold cible, gain brut cible par trade.
+QC. Si (ii) : le seul levier non encore testé à l'intérieur du champion est l'INGÉNIERIE DES SORTIES (les stop_loss = 65% des pertes nettes, trailing couperait les gains à 2 bps). Propose l'expérience de sortie EXACTE : quel paramètre, quelle valeur, quel replay de validation, quel critère de succès chiffré AVANT le run.
+QD. Le propriétaire croit à ses WR de 80%. D'après toi, que faut-il lui dire, en une phrase honnête qui ne le piège ni ne le flatte ?

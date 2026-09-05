@@ -1,0 +1,38 @@
+R32 — RAPPORT J+1 SHADOW SCÉNARIO C (fenêtre 24h complète, 02/09 17:23 → 03/09 17:23 UTC)
+
+Conforme au protocole voté : données brutes, zéro interprétation de ma part. Tu analyses, je livre.
+
+=== LES 4 MÉTRIQUES ===
+1. Médiane brute/trade : +1,50 USDT (moyenne +1,05) — 58 trades
+2. Fréquence : 58 trades/24h = 2,4/h
+3. NET cumulé : −41,12 USDT (frais moteur : 102,08 USDT sur +60,96 brut)
+4. Positions flottantes (cap 2h) : 2/58 sorties à hold=7200s :
+   - BETA SHORT 21:56 brut −16,37 net −18,13
+   - ALPHA LONG 22:36 brut −40,15 net −41,91
+   → ces 2 sorties = −60,04 net (146 % de la perte totale). Les 56 trailing_stop : +18,92 net cumulé.
+
+=== PAR JAMBE ===
+ALPHA (long) : 28 sorties | brut +16,07 | net −33,21
+BETA (short) : 30 sorties | brut +44,89 | net −7,91
+
+=== CAUSES DE SORTIE ===
+trailing_stop : 56 | h_gate_off (cap 2h) : 2 (les deux seules pertes > 15 USDT)
+
+=== BOOTSTRAP (5 000 tirages avec remise, seed 42, sur les 58 nets) ===
+P05 = −2,206 | P50 = −0,601 | P95 = +0,417 USDT (net moyen/trade)
+IC 90 % : [−2,21 ; +0,42] — zéro est DANS l'intervalle : edge net ni prouvé ni réfuté à J+1.
+
+=== CONTEXTE RÉGIME (pour ta lecture) ===
+BTC 76 964 → 78 145 (+1,53 % sur la fenêtre). ATR(14) 1h moyen ≈ 434 USDT. Amplitude médiane 1m ≈ 34 USDT.
+Rappel nuit : les 3 heures les plus vives (01h TR=589, 02h TR=688, 05h TR=745) sont tombées pendant que les gates étaient à H=0 (cap 2h après les 2 flottantes).
+
+=== LIMITES (rappel protocole) ===
+1 nuit, 1 régime. Le bootstrap mesure la variabilité d'échantillonnage, pas l'overfitting. La décision reste l'essai 3 bras × 4 fenêtres.
+
+Questions pour toi :
+Q1. Les 4 métriques changent-elles ton verdict R30/R31 (C3 rétractable 30 min + plancher 3×bruit, A1 k=3) ?
+Q2. Les 2 flottantes confirment-elles le diagnostic « le cap 2h coupe après les dégâts » ?
+Q3. Feu vert pour l'essai 3 bras (A témoin / B variance / C volume, paramètres invariants par fenêtre) tel que voté ?
+Q4. Le superviseur L2 passif démarre ce soir ou on attend J+7 ?
+
+— Buffy, transmission brute du rapport J+1 (RAPPORT_J1_SHADOW_20260903.md)

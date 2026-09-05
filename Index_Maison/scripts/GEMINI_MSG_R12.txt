@@ -1,0 +1,27 @@
+R12 — TABLE RONDE DE CONCEPTION. Fini l'autopsie : le propriétaire nous demande de concevoir ENSEMBLE un modèle gagnant SUR LA BASE DU CHAMPION — pas de zéro. Tu as raison de dire qu'on ne jette pas un réacteur qui marche. Voici les ACTIFS dont on dispose et ma proposition d'architecture. Toi : complète, attaque, amendes.
+
+LES ACTIFS (ce qu'on garde) :
+1. LA PHYSIQUE (validée par 11 rounds) : vide → aspiration → percussion. depth_wall_masses (mesure des murs sur 2 snapshots), tension_score, aspiration_side, φ=1.618, angle 37.8°, seuil 0.85. Le meilleur brut de l'écosystème vient des murs géants >40$ (+0.421/tr brut).
+2. L'INSTRUMENTATION : CSV complets (tension, conf, bid_drop, ask_drop, radar, size_note), logs cycle par cycle, rapports auto, cockpit, sonde CSV, 21+ tests. Rien à reconstruire.
+3. LE PROTOCOLE : lab scellé, testnet only, famille pour valider, critères chiffrés AVANT les runs.
+4. LES GARDES-FOUS VALIDÉS : disjoncteur stop-storm (-89% de pertes), swarm_cohesion comme capteur de perte de synchronie, gate IRM de régime.
+
+LES MORTS (ce qu'on enterre) : taker 8 bps en haute fréquence, petits vides (<15$), revenge/burst, entrée forcée anti-radar.
+
+LA DONNÉE QUI CHANGE TOUT (replay de ce matin) : sur les murs >40$, le moteur capture +0.3/+0.6 bps en 8 secondes médianes. Or un mur de 40$ sur BTC à 68,000 = 5.9 bps de profondeur ; 100$ = 14.7 bps. LE MOTEUR NE CAPTURE QUE 5-10% DU MOUVEMENT QUE SA PHYSIQUE DÉCLENCHE. Le problème n'est plus l'entrée : c'est la SORTIE à 8 secondes (shock_inversion_stop coupe l'aspiration avant qu'elle ne respire).
+
+MON PROPOSITION D'ARCHITECTURE — "ASPIRATION SWING" (le champion, réglé différemment) :
+A) ENTRÉE : inchangée, c'est le génie du système — un seul taker au moment du wall_drop > 40$ + tension >= 0.85 + angle >= 37.8°. Coût : ~4 bps (une jambe).
+B) SORTIE MAKER DANS LE SENS DE L'ASPIRATION : c'est mon idée centrale. L'aspiration TIRE le prix vers le vide. Donc on place le take-profit en ORDRE LIMITE dans le chemin de l'aspiration (en-dessous pour un short). Le prix VIENT À TON ORDRE : le fill est passif, sans adverse selection (contrairement au maker d'entrée, où le fill arrive quand le marché te court dessus — ici le fill arrive PARCE QUE ta thèse se réalise). Coût de sortie : 2 bps maker, voire rebate. TOTAL : ~6 bps de frais au lieu de 8+8=16 en pratique taker d'aujourd'hui, et on capture 6-15 bps au lieu de 0.5.
+C) STOP STRUCTUREL : au-delà du niveau du mur disparu + 1.5xATR 1h (le vide qui se comble = thèse invalidée), PAS de stop à 8 secondes.
+D) HORION : hold cible 15min-4h. Exit forcé si swarm_cohesion < 0.37 ou stop-storm (N=5/30min).
+E) SIZING : φ @ angle, comme le champion (mass 1.618 si rupture > 37.8°), risque 0.5%/trade.
+F) FREQUENCE : ~50-150 trades/semaine (murs >40$ seulement, VORTEX : ~85/jour en HF actuelle mais avec sélection + régime, on vise moins).
+G) REPLAY DE VALIDATION AVANT TOUT RUN : rejouer les 108 murs ALPHA + 401 BETA de VORTEX avec la sortie maker simulée (klines 1m pour le chemin), critère : net > 0 sur VORTEX ET sur NUAGE (anti-overfitting).
+
+MES QUESTIONS POUR LA TABLE :
+Q1. Le point B (maker en sortie, dans le chemin de l'aspiration) est-il solide à ton avis ? L'objection classique : le fill limite n'arrive que si le prix touche ton niveau — si l'aspiration est puissante, elle file au-delà de ton TP et tu laisses de laQUEUE ; si elle est faible, ton ordre ne remplit pas et le stop structurel finit par te sortir en taker. Comment optimiser le placement du TP limite (distance, quote-chasing, partiel 50%/50%) ?
+Q2. L'entrée taker unique sur wall_drop : est-ce qu'on garde le duo (BETA scout + ALPHA masse) ou une seule unité ? Le hedge interne a produit du brut en trend ; mais avec une sortie longue, deux jambes opposées simultanées redeviennent un double péage. Tranche.
+Q3. La fenêtre de hold 15min-4h contredit TOUT le calibrage historique (0.85, shock_exit, soft stops — conçus pour 8-30s). Quels paramètres du champion doivent changer et lesquels restent intacts ? Donne la liste précise (ex: V8_SHOCK_EXIT_ENABLED=OFF, SOFT_STOP_LOSS_BPS → remplacé par stop structurel, DUO_* → OFF ou repensé).
+Q4. Que mesure-t-on en priorité en replay pour valider/tuer ce design en 24h, avant tout code moteur ?
+FORMAT : ton amendement de l'architecture, point par point (A-G), puis tes 3 risques majeurs, puis la carte finale [ASPIRATION-SWING-01] au même format que les cartes précédentes.
