@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "taker_ratio",
-      "zscore": -2.599884091985244,
-      "value": 0.5,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio à 0.5 (z-score -2.60) indique une domination massive des ordres d'achat passifs (limite) par rapport aux ventes agressives (taker sell), suggérant une accumulation silencieuse des baleines dans l'indifférence totale des médias (absence de narratif).\"\n}\n```",
-      "ts": "2026-09-04T15:24:06.663407+00:00"
-    },
-    {
-      "metric": "long_short",
-      "zscore": 2.8004145434929364,
-      "value": 1.006,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.80) sur le ratio long/short avec un biais acheteur saturé (1.006), alors que les médias grand public banalisent et font la promotion des stratégies long/short traditionnelles. Divergence classique d'excès d'optimisme retail prêt à être liquidé par les baleines.\"\n}\n```",
-      "ts": "2026-09-04T15:35:38.227904+00:00"
-    },
-    {
       "metric": "sdi",
       "zscore": 2.7075441884213736,
       "value": 0.02,
@@ -349,6 +335,20 @@
       "value": 4495191215.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Bruit de fond macroéconomique et culturel sans aucun rapport avec les marchés crypto ou une activité de baleine.\"\n}\n```",
       "ts": "2026-09-05T15:19:26.198483+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": -2.358861636961641,
+      "value": 4189390711.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Bruit statistique non pertinent. Les titres médiatiques fournis concernent l'actualité générale, militaire, scientifique et musicale, sans aucun rapport avec la blockchain ou le marché des cryptomonnaies.\"\n}\n```",
+      "ts": "2026-09-05T15:49:33.159442+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": -2.2416443993330786,
+      "value": 4087526778.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique sans rapport avec la crypto (actualités générales et divertissement) couplé à un volume on-chain anormalement bas (z-score -2.24). Aucune baleine détectée, simple anomalie statistique non pertinente.\"\n}\n```",
+      "ts": "2026-09-05T16:19:40.485546+00:00"
     }
   ]
 }
