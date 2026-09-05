@@ -9,6 +9,7 @@ corrélations BTC/ETH, signal divergence. Sort un rapport markdown par actif.
 Usage : python3 analyse_pattern_actif.py [PAIRE1 PAIRE2 ...]   (défaut : toutes les paires du state)
 Ne modifie RIEN dans Hulk : lecture seule de croisement_contexte.jsonl + DIVERGENCE_ETAT.
 """
+import gzip
 import json
 import os
 import statistics
@@ -17,21 +18,45 @@ from collections import Counter, defaultdict
 
 RUNS = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "runs")
 CROIS = os.path.join(RUNS, "croisement_contexte.jsonl")
+CROIS_GZ = CROIS + ".1.gz"  # archives de rotation (historique complet)
 ETAT = os.path.join(RUNS, "DIVERGENCE_ETAT.json")
 OUT = os.path.join(RUNS, "profils_actifs")
 os.makedirs(OUT, exist_ok=True)
 
+# Portefeuille CORE (20 paires) — même liste que suivi_setup_actif.py (correctif 06/09)
+CORE_PAIRS = [
+    "BTCUSDT", "ETHUSDT", "XRPUSDT", "HBARUSDT", "RIZEUSDT", "ZBCNUSDT",
+    "WUSDT", "REDUSDT", "CCUSDT", "PYTHUSDT", "BIOUSDT", "KITEUSDT",
+    "TELUSDT", "CHIPUSDT", "RWAINCUSDT", "EDELUSDT", "QNTUSDT", "FLUIDUSDT",
+    "RWAUSDT", "MNSRYUSDT",
+]
+
 
 def load_all():
+    """Charge l'historique COMPLET : archives .gz de rotation + fichier live."""
     dat = defaultdict(list)
-    for line in open(CROIS, encoding="utf-8"):
-        try:
-            d = json.loads(line)
-        except Exception:
+    for path in [CROIS_GZ, CROIS]:
+        if not os.path.exists(path):
             continue
-        dat[d["pair"]].append(d)
+        op = gzip.open if path.endswith(".gz") else open
+        with op(path, "rt", encoding="utf-8") as fh:
+            for line in fh:
+                try:
+                    d = json.loads(line)
+                except Exception:
+                    continue
+                dat[d["pair"]].append(d)
     for p in dat:
+        # tri + dédoublonnage (chevauchement possible live/archive après rotation)
         dat[p].sort(key=lambda x: x["ts"])
+        seen, out = set(), []
+        for d in dat[p]:
+            k = (d.get("ts"), d.get("pair"))
+            if k in seen:
+                continue
+            seen.add(k)
+            out.append(d)
+        dat[p] = out
     return dat
 
 
@@ -44,7 +69,8 @@ def resolve_pairs():
     pairs = set((d.get("positions") or {}).keys())
     pairs |= set((d.get("bags") or {}).keys())
     pairs |= set((d.get("pair_cash") or {}).keys())
-    return sorted(pairs)
+    # CORE toujours profilé, même si sorti du state (correctif 06/09)
+    return sorted(pairs | set(CORE_PAIRS))
 
 
 def signal_div(pair):
@@ -72,8 +98,36 @@ def corr_pair(a_list, b_list):
     return num / den if den else None
 
 
+def nettoyer_spikes(pts):
+    """Retire les bad ticks isolés (correctif 06/09 : un point à 0.52 falsifiait le range XRP).
+    Un point est un bad tick si |Δ|>50% avec le point précédent ET le suivant,
+    tandis que précédent/suivant sont quasi identiques (<10%) — prix revenu immédiatement.
+    Les vrais mouvements (pompes/crashs) persistent sur plusieurs points → conservés."""
+    if len(pts) < 3:
+        return pts
+    keep = [True] * len(pts)
+    n = len(pts)
+    for i in range(n):
+        # voisins de référence : prev+next au milieu, next+i+2 au début, prev+n-2 à la fin
+        if 0 < i < n - 1:
+            a, b = pts[i - 1], pts[i + 1]
+        elif i == 0:
+            a, b = pts[1], pts[2]
+        else:
+            a, b = pts[n - 3], pts[n - 2]
+        p, pa, pb = pts[i]["price"], a["price"], b["price"]
+        if p <= 0 or pa <= 0 or pb <= 0:
+            continue
+        d_a = abs(p - pa) / pa
+        d_b = abs(p - pb) / pb
+        d_wrap = abs(pa - pb) / pa
+        if d_a > 0.5 and d_b > 0.5 and d_wrap < 0.1:
+            keep[i] = False
+    return [d for d, k in zip(pts, keep) if k]
+
+
 def analyse(pair, dat):
-    pts = dat.get(pair, [])
+    pts = nettoyer_spikes(dat.get(pair, []))
     if len(pts) < 30:
         return None  # pas assez de données (paires fraîches)
     prices = [d["price"] for d in pts]

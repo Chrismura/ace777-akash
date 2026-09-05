@@ -33,6 +33,15 @@ FENETRES = {
 }
 POUSSIERE_SEUIL = 15.0
 
+# Portefeuille CORE (20 paires) — suivi systématique, indépendant du state paper.
+# Correctif 06/09 : BTC/RIZE/CHIP/FLUID avaient cessé d'être mesurées en sortant du state.
+CORE_PAIRS = [
+    "BTCUSDT", "ETHUSDT", "XRPUSDT", "HBARUSDT", "RIZEUSDT", "ZBCNUSDT",
+    "WUSDT", "REDUSDT", "CCUSDT", "PYTHUSDT", "BIOUSDT", "KITEUSDT",
+    "TELUSDT", "CHIPUSDT", "RWAINCUSDT", "EDELUSDT", "QNTUSDT", "FLUIDUSDT",
+    "RWAUSDT", "MNSRYUSDT",
+]
+
 
 def gj(url):
     req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
@@ -165,7 +174,7 @@ def signal_divergence(pair):
 
 
 def main():
-    pairs = sys.argv[1:] or resolve_state_pairs()
+    pairs = sys.argv[1:] or sorted(set(CORE_PAIRS) | set(resolve_state_pairs()))
     if not pairs:
         print("[ERR] aucune paire (donner en argument ou state introuvable)")
         sys.exit(1)
@@ -193,7 +202,8 @@ def measure(pair, dat):
             fen = "NUIT 21-05h"
 
     prix = now["price"] if now else None
-    poussiere = now.get("poussiere_taux_fantome") if now else None
+    poussiere = now.get("poussiere_taux_fantome") if now else None  # indicateur PANIER (global, pas par paire)
+    mur_moy = now.get("mur_bid_moy_usd") if now else None
     mur_max = now.get("mur_bid_max_usd") if now else None
     spoof = now.get("mur_spoof_pct") if now else None
     regime = now.get("regime") if now else None
@@ -214,17 +224,20 @@ def measure(pair, dat):
 
     verdict = f"prix {prix if prix is not None else '?'}"
     if poussiere is not None:
-        verdict += f" · poussière {poussiere:.1f}% {'<15 ✓' if poussiere < POUSSIERE_SEUIL else '≥15 ✗'}"
+        verdict += f" · poussière(panier) {poussiere:.1f}%"
     if ami is not None:
         verdict += f" · Amihud {ami:.2e}"
     if tsd is not None:
         verdict += f" · delta {tsd:+.2f}"
+    if mur_moy is not None:
+        verdict += f" · mur moy {mur_moy:,.0f}$"
     if mur_max is not None:
-        verdict += f" · mur {mur_max:,.0f}$"
+        verdict += f" · mur max (run) {mur_max:,.0f}$"
 
     rec = {
         "ts": utc, "pair": pair, "prix": prix, "heure_utc": h, "fenetre": fen,
-        "regime": regime, "poussiere": poussiere, "mur_bid_max_usd": mur_max,
+        "regime": regime, "poussiere_panier": poussiere, "mur_bid_moy_usd": mur_moy,
+        "mur_bid_max_usd": mur_max,
         "spoof_pct": spoof, "dd15_pct": dd15,
         "amihud": ami, "trade_sign_delta": tsd,
         "corr_btc_24h": corr_btc, "corr_eth_24h": corr_eth,
@@ -241,10 +254,10 @@ def measure(pair, dat):
         f"# 📈 SUIVI SET-UP — {pair} — historique (démarrage 30/08/2026)",
         "",
         "Consigne Christophe : mesurer aujourd'hui, mesurer demain, voir la différence.",
-        "Métriques : maison (poussière/mur/régime) + pro (Amihud/Parkinson/Trade Sign Delta).",
+        "Métriques : maison (mur moy/max + régime ; poussière = indicateur PANIER) + pro (Amihud/Trade Sign Delta).",
         "",
-        "| # | Date (UTC) | Heure | Fenêtre | Prix | Régime | Pouss % | Mur $ | Amihud | Δtaker | corr BTC | corr ETH | Sig div | Verdict |",
-        "|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|",
+        "| # | Date (UTC) | Heure | Fenêtre | Prix | Régime | Pouss% (panier) | Mur moy $ | Mur max $ | Amihud | Δtaker | corr BTC | corr ETH | Sig div | Verdict |",
+        "|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|",
     ]
     for i, r in enumerate(rows, 1):
         sig = r.get("signal_divergence") or {}
@@ -255,8 +268,8 @@ def measure(pair, dat):
         ceth = f"{r['corr_eth_24h']:.2f}" if r.get("corr_eth_24h") is not None else "—"
         lines.append(
             f"| {i} | {r['ts']} | {r.get('heure_utc','?')}h | {r.get('fenetre','?')} | "
-            f"{r.get('prix','?')} | {r.get('regime','?')} | {r.get('poussiere','?')} | "
-            f"{r.get('mur_bid_max_usd','?')} | {fmt(r.get('amihud'))} | "
+            f"{r.get('prix','?')} | {r.get('regime','?')} | {r.get('poussiere_panier', r.get('poussiere','?'))} | "
+            f"{r.get('mur_bid_moy_usd','?')} | {r.get('mur_bid_max_usd','?')} | {fmt(r.get('amihud'))} | "
             f"{fmt(r.get('trade_sign_delta'))} | {cbtc} | {ceth} | {sig_txt} | {r.get('verdict','?')} |"
         )
     lines.append("")
