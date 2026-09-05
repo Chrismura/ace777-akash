@@ -1,39 +1,39 @@
 {
- "ts": "2026-09-03T01:55Z",
- "mark": 77410.1,
+ "ts": "2026-09-05T10:31Z",
+ "mark": 79638.0,
  "correlations": {
   "prix_oi": {
-   "r": -0.338,
-   "lecture": "corrélation faible (-0.338) — les deux évoluent en sens opposé",
+   "r": -0.219,
+   "lecture": "corrélation faible (-0.219) — les deux évoluent en sens opposé",
    "label": "Open interest vs prix"
   },
   "prix_funding": {
-   "r": 0.541,
-   "lecture": "corrélation modérée (+0.541) — les deux évoluent dans le même sens",
+   "r": 0.394,
+   "lecture": "corrélation faible (+0.394) — les deux évoluent dans le même sens",
    "label": "Funding vs prix"
   },
   "prix_longshort": {
-   "r": -0.711,
-   "lecture": "corrélation forte (-0.711) — les deux évoluent en sens opposé",
+   "r": -0.762,
+   "lecture": "corrélation forte (-0.762) — les deux évoluent en sens opposé",
    "label": "Ratio long/short vs prix"
   },
   "prix_taker": {
-   "r": -0.122,
-   "lecture": "corrélation quasi nulle (-0.122) — les deux évoluent en sens opposé",
+   "r": -0.085,
+   "lecture": "corrélation quasi nulle (-0.085) — les deux évoluent en sens opposé",
    "label": "Achats/ventes agressifs vs prix"
   }
  },
  "liquidations": {
   "clusters_2000usd": {
-   "76000": {
-    "long": 292185.0,
-    "short": 767764.0
+   "78000": {
+    "long": 58151.0,
+    "short": 270428.0
    }
   },
-  "longs_below_usd": 292185.0,
+  "longs_below_usd": 58151.0,
   "longs_above_usd": 0,
-  "shorts_below_usd": 767764.0,
+  "shorts_below_usd": 270428.0,
   "shorts_above_usd": 0,
-  "lecture": "Le gros de la liquidité est EN DESSOUS du prix : 0.3 M$ de LONGS liquidés à 76-78k (contre 0.0 M$ de shorts au-dessus, à 80k) — si le prix casse ces supports, les liquidations long forcées peuvent accélérer la baisse (cascade)."
+  "lecture": "Le gros de la liquidité est EN DESSOUS du prix : 0.1 M$ de LONGS liquidés à 76-78k (contre 0.0 M$ de shorts au-dessus, à 80k) — si le prix casse ces supports, les liquidations long forcées peuvent accélérer la baisse (cascade)."
  }
 }

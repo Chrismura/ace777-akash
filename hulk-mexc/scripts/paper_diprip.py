@@ -729,17 +729,11 @@ class PaperBot:
         self.cb_gex = TradeCircuitBreaker(ttl_seconds=7200.0, failure_threshold=2, cooldown_seconds=60.0)
         ts = datetime.now(timezone.utc).strftime("%Y%m%d_%H%M%S")
         self.aspiration_csv = RUNS / f"ASPIRATION_CALIB_{ts}.csv"
-        if self.aspiration_on:
-            with self.aspiration_csv.open("w", newline="") as f:
-                csv.writer(f).writerow(
-                    [
-                        "ts", "pair", "regime", "asp_side", "drop_bid_pct_per_s",
-                        "drop_ask_pct_per_s", "max_drop_pct_per_s", "spread_bps",
-                        "spread_delta_bps", "wall_bid_usdt", "wall_ask_usdt",
-                        "notional_ok", "spoof", "price_delta_pct", "btc_price",
-                        "btc_delta_pct", "delay_s", "price",
-                    ]
-                )
+        # FIX 05/09 (GO Christophe) : CSV créé en LAZY — seulement à la 1re ligne de
+        # données (header écrit à ce moment-là). Avant : une coquille vide (header
+        # seul) créée à chaque boot même sans mesure → 2 890 fichiers vides qui
+        # imitaient une collecte morte.
+        self._asp_header_needed = bool(self.aspiration_on)
         # Seed inventaire au boot (réalisme vente / marché baissier)
         self.seed_on = cfg.get("SEED_ON", "0").strip() not in ("0", "false", "False")
         self.seed_usdt = float(cfg.get("SEED_USDT", "20"))
@@ -1283,6 +1277,17 @@ class PaperBot:
             # calibration CSV — try/except + flush (check-up : ne pas mourir en silence
             # si le fichier est verrouillé, et ne pas perdre les dernières lignes au crash)
             try:
+                # FIX 05/09 : création LAZY — le fichier naît à la 1re vraie mesure
+                if getattr(self, "_asp_header_needed", False):
+                    with self.aspiration_csv.open("w", newline="") as f:
+                        csv.writer(f).writerow(
+                            ["ts", "pair", "regime", "asp_side", "drop_bid_pct_per_s",
+                             "drop_ask_pct_per_s", "max_drop_pct_per_s", "spread_bps",
+                             "spread_delta_bps", "wall_bid_usdt", "wall_ask_usdt",
+                             "notional_ok", "spoof", "price_delta_pct", "btc_price",
+                             "btc_delta_pct", "delay_s", "price"]
+                        )
+                    self._asp_header_needed = False
                 with self.aspiration_csv.open("a", newline="") as f:
                     w = csv.writer(f)
                     w.writerow(

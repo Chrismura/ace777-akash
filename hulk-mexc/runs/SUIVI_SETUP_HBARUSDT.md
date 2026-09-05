@@ -9,5 +9,7 @@ Métriques : maison (poussière/mur/régime) + pro (Amihud/Parkinson/Trade Sign 
 | 2 | 2026-08-31T14:35:00Z | 14h | AUTRE | 0.07362 | COOLING | 38.2611 | 63738.72 | 6.25e-07 | 0.11 | 0.93 | 0.95 | POMPE_PIEGE (stab 2) | prix 0.07362 · poussière 38.3% ≥15 ✗ · Amihud 6.25e-07 · delta +0.11 · mur 63,739$ |
 | 3 | 2026-09-01T14:35:03Z | 14h | AUTRE | 0.0749 | COOLING | 14.4541 | 63738.72 | 6.41e-07 | 0.01 | -0.47 | -0.47 | POMPE_PIEGE (stab 5) | prix 0.0749 · poussière 14.5% <15 ✓ · Amihud 6.41e-07 · delta +0.01 · mur 63,739$ |
 | 4 | 2026-09-02T14:34:51Z | 14h | AUTRE | 0.07389 | COOLING | 13.5773 | 63738.72 | 5.50e-07 | 0.14 | 0.85 | 0.91 | POMPE_PIEGE (stab 1) | prix 0.07389 · poussière 13.6% <15 ✓ · Amihud 5.50e-07 · delta +0.14 · mur 63,739$ |
+| 5 | 2026-09-03T14:34:45Z | 14h | AUTRE | 0.07826 | COOLING | 45.4739 | 63738.72 | 4.85e-07 | 0.17 | 0.86 | 0.78 | neutre (stab 0) | prix 0.07826 · poussière 45.5% ≥15 ✗ · Amihud 4.85e-07 · delta +0.17 · mur 63,739$ |
+| 6 | 2026-09-04T14:35:02Z | 14h | AUTRE | 0.07714 | WATCH | 44.2736 | 63738.72 | 3.83e-07 | -0.05 | 0.70 | 0.43 | POMPE_PIEGE (stab 3) | prix 0.07714 · poussière 44.3% ≥15 ✗ · Amihud 3.83e-07 · delta -0.05 · mur 63,739$ |
 
 _Règle : on compare les lignes entre elles (même heure de mesure = comparable). On ne supprime rien._

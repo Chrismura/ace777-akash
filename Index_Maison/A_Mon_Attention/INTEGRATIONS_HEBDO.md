@@ -1,4 +1,4 @@
-# INTEGRATIONS HEBDOMADAIRES — 2026-09-02
+# INTEGRATIONS HEBDOMADAIRES — 2026-09-05
 
 > Genere par observatoire.py (correction famille 09/08).
 > Regle : un provider integre auto n'est JAMAIS actif directement.
@@ -9,8 +9,8 @@
 
 | Provider | Modele | Detail | Etat |
 |----------|--------|--------|------|
-| obs-1786774667 | nvidia/nemotron-3.5-lightning:free | 5/5 | actif + sain (sondes OK) |
-| obs-1787724924 | minimax/minimax-m3:free | 5/5 | actif + sain (sondes OK) |
+| obs-1786774667 | nvidia/nemotron-3.5-lightning:free | 10/10 | actif + sain (sondes OK) |
+| obs-1787724924 | minimax/minimax-m3:free | 10/10 | actif + sain (sondes OK) |
 
 ## RETIRÉS (rollback auto > 5% erreurs)
 
@@ -18,9 +18,10 @@
 |----------|--------|--------|------|
 | obs-1786688184 | cohere/north-mini-code:free | 100% | ROLLBACK auto (désactivé) |
 | obs-1786774646 | nvidia/nemotron-3-nano-30b-a3b:free | 100% | ROLLBACK auto (désactivé) |
-| obs-1786774656 | nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free | 60% | ROLLBACK auto (désactivé) |
+| obs-1786774656 | nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free | 30% | ROLLBACK auto (désactivé) |
 | obs-1786795252 | nvidia/nemotron-3.5-content-safety:free | 100% | ROLLBACK auto (désactivé) |
 | obs-1787033767 | google/diffusiongemma-26b-a4b-it | 100% | ROLLBACK auto (désactivé) |
 | obs-1787206650 | google/gemma-4-26b-a4b-it:free | 100% | ROLLBACK auto (désactivé) |
 | obs-1787248844 | nvidia/nemotron-nano-9b-v2:free | 100% | ROLLBACK auto (désactivé) |
+| obs-1788416175 | deepseek-ai/deepseek-v4-pro-0813 | 100% | ROLLBACK auto (désactivé) |
 | dots-studio-dots-3-note-preview-free | dots-studio/dots-3-note-preview:free | 100% | RETIRE (rollback auto) |

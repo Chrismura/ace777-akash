@@ -9,5 +9,7 @@ Métriques : maison (poussière/mur/régime) + pro (Amihud/Parkinson/Trade Sign 
 | 2 | 2026-08-31T14:35:00Z | 14h | AUTRE | 0.001739 | COOLING | 38.2611 | 1594.47 | 0.00 | -0.34 | 0.65 | 0.71 | neutre (stab 0) | prix 0.001739 · poussière 38.3% ≥15 ✗ · Amihud 1.03e-03 · delta -0.34 · mur 1,594$ |
 | 3 | 2026-09-01T14:35:03Z | 14h | AUTRE | 0.001729 | COOLING | 14.4541 | 1594.47 | 2.10e-04 | 0.09 | 0.34 | 0.28 | neutre (stab 0) | prix 0.001729 · poussière 14.5% <15 ✓ · Amihud 2.10e-04 · delta +0.09 · mur 1,594$ |
 | 4 | 2026-09-02T14:34:51Z | 14h | AUTRE | 0.0018 | IMPULSE | 13.5773 | 1594.47 | 3.47e-05 | 0.24 | -0.52 | -0.67 | neutre (stab 0) | prix 0.0018 · poussière 13.6% <15 ✓ · Amihud 3.47e-05 · delta +0.24 · mur 1,594$ |
+| 5 | 2026-09-03T14:34:45Z | 14h | AUTRE | 0.001863 | COOLING | 45.4739 | 1594.47 | 3.55e-05 | -0.15 | 0.27 | 0.17 | neutre (stab 0) | prix 0.001863 · poussière 45.5% ≥15 ✗ · Amihud 3.55e-05 · delta -0.15 · mur 1,594$ |
+| 6 | 2026-09-04T14:35:02Z | 14h | AUTRE | 0.001876 | COOLING | 44.2736 | 1594.47 | 3.99e-05 | -0.13 | -0.11 | 0.02 | neutre (stab 0) | prix 0.001876 · poussière 44.3% ≥15 ✗ · Amihud 3.99e-05 · delta -0.13 · mur 1,594$ |
 
 _Règle : on compare les lignes entre elles (même heure de mesure = comparable). On ne supprime rien._

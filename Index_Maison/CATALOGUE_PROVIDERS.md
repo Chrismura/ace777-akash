@@ -1,8 +1,8 @@
 # CATALOGUE DES PROVIDERS — ACE777
 
-*Genere le 2026-09-02 par catalog_providers.py (gagnant A/B codeurs 09/08). Rafraichi a chaque veille du matin.*
+*Genere le 2026-09-05 par catalog_providers.py (gagnant A/B codeurs 09/08). Rafraichi a chaque veille du matin.*
 
-**Actifs : 11 · En observation : 1 · En attente : 14 · De cote (payant) : 2**
+**Actifs : 11 · En observation : 2 · En attente : 14 · De cote (payant) : 2**
 
 ## ACTIFS
 
@@ -24,7 +24,8 @@
 
 | Role | Modele | Statut | Note |
 |------|--------|--------|------|
-| - | `dots-studio/dots-3-note-preview:free` | dots-studio-dots-3-note-preview-free | INTEGRE AUTO 2026-09-02 EN OBSERVATION (preuve A/B + juge: MIEUX - réponse B plus précise. |
+| - | `deepseek-ai/deepseek-v4-pro-0813` | obs-1788416175 | auto queue_offres | VERDICT FAMILLE 18/08 : observation 48h avant activation |
+| - | `dots-studio/dots-3-note-preview:free` | dots-studio-dots-3-note-preview-free | INTEGRE AUTO 2026-09-05 EN OBSERVATION (preuve A/B + juge: MIEUX - deux risques.) |
 
 ## EN ATTENTE (cle manquante ou desactive)
 

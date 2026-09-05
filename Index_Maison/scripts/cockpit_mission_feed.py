@@ -751,7 +751,22 @@ def load_hulk():
     # 09:54Z, annulé à 0 PnL ensuite). Rejouer ces lignes débiterait le cash
     # de la paire → écart faux (−19,55$). Pour une observe, le budget reste
     # intact : cash 20$ des deux côtés, écart 0. On les exclut donc du rejeu.
-    _observe_pairs = _all_pairs - set(seed_qty.keys()) - set(pos_all.keys())
+    # FIX 04/09 (Buffy, GO Christophe) : « observe » = ni seed NI position NI opérations.
+    # BTC a été ajouté à l'univers APRÈS le départ (comme ETH, seedé plus tard) : il
+    # n'a pas de ligne SEED_START dans CE run, mais il a un HISTORIQUE RÉEL (4 opérations,
+    # +0,92 USDT réalisés, cash pair_cash=23,87). L'ancienne règle le classait « observe »
+    # → rejeu exclu → ligne figée à 20$ avec écart 0 et plus-value invisible.
+    # Nouvelle règle : une paire sans seed ni position est « observe » SEULEMENT si le CSV
+    # ne contient AUCUNE opération pour elle. Sinon on rejoue ses opérations réelles.
+    _pairs_with_ops: set[str] = set()
+    if csv_p and csv_p.exists():
+        with csv_p.open(newline="", encoding="utf-8", errors="ignore") as f:
+            for row in csv.DictReader(f):
+                _p2 = row.get("pair") or ""
+                _e2 = (row.get("event") or "").upper()
+                if (_e2 in ("BUY", "DCA")) or _e2.startswith(("SELL", "STOP", "BAG")):
+                    _pairs_with_ops.add(_p2)
+    _observe_pairs = _all_pairs - set(seed_qty.keys()) - set(pos_all.keys()) - _pairs_with_ops
     # rejeu par paire : cash initial = budget (seed + marge)
     cash_par_paire: dict[str, float] = {}
     nadir_par_paire: dict[str, float] = {}

@@ -1,6 +1,6 @@
 {
-  "version": "1.4.6",
-  "updated": "2026-08-29T23:05Z",
+  "version": "1.4.7",
+  "updated": "2026-09-03T17:25Z",
   "fichier": [
     {
       "nom": "hulk-mexc/scripts/paper_diprip.py",
@@ -8,9 +8,9 @@
       "origine": "chantier hulk",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "eecefd7a1723c2489d0b29a944f09c98",
-      "note": "FIX 27/08 : circuits breaker + fraîcheur Cortana + FILTRE LOTS MEXC (lot_filter depuis exchangeInfo, baseSizePrecision/quoteAmountPrecision, arrondi stepSize au buy ET au sell, dust close, fail-open) ",
-      "maj": "30/08 v2 : + mode OBSERVE_ONLY (paires PAPER_OBSERVE_PAIRS journalisées dans croisement_contexte.jsonl mais tout trade bloqué dans tick_pair + seed_inventory) — fix de l'erreur 30/08 (les watch étaient devenues tradables via PAPER_PAIRS)"
+      "md5": "3839360c9bf53c3d86c363f27c0b191c",
+      "note": "FIX 27/08 : circuits breaker + fraîcheur Cortana + FILTRE LOTS MEXC (lot_filter depuis exchangeInfo, baseSizePrecision/quoteAmountPrecision, arrondi stepSize au buy ET au sell, dust close, fail-open)  | RE-SCELLÉ 2026-09-03T17:22Z (GO Christophe 03/09)",
+      "maj": "BATCH PRIX Phase 1 (31/08-01/09, famille 7/7 + codeur) : 1 appel GET global + cache au lieu de 21 GET/cycle (~200-270 req/min → sous la limite MEXC). Mode SELLFULL + mode_entree() du 29-31/08. Aucune logique métier touchée."
     },
     {
       "nom": "hulk-mexc/scripts/ace_sense_mexc.py",
@@ -29,8 +29,8 @@
       "verif": "md5",
       "auto_modifiable": false,
       "md5": "ed04e1e921a7549ea7adc30cb5aafc18",
-      "note": "déclaré manuel 2026-08-21T17:11Z (fix baleines/couleur 21/08)",
-      "maj": "25/08 00h : MD5 mis à jour (auto-correction veilleuse — modifs 24/08 non déclarées)"
+      "note": "déclaré manuel 2026-08-21T17:11Z (fix baleines/couleur 21/08) | RE-SCELLÉ 2026-09-03T17:22Z (GO Christophe 03/09)",
+      "maj": "Correctif 24/08 déclaré tard — re-scellement post-audit 03/09."
     },
     {
       "nom": "Index_Maison/scripts/discipline_quotidienne.py",
@@ -47,9 +47,9 @@
       "origine": "fondation F2 + chantiers 15/08",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "abe1a72db65f06c81434dafe23bef3f3",
-      "note": "ENSEIGNEMENT 25/08 vérifié : la base CONNAISSANCE ne contenait RIEN du pipeline unifié → LEXIQUE étendu + build_facts (lectures live.json) → Cortana analyse les nouveaux indices. Testé : analyse SDI r",
-      "maj": "27/08 17:49Z : 6 indices enseignés (sdi/ipt/rbf/indice_onchain/pipeline_health/geopol)"
+      "md5": "ff91f8b65510915badb22cef098620d0",
+      "note": "ENSEIGNEMENT 25/08 vérifié : la base CONNAISSANCE ne contenait RIEN du pipeline unifié → LEXIQUE étendu + build_facts (lectures live.json) → Cortana analyse les nouveaux indices. Testé : analyse SDI r | RE-SCELLÉ 2026-09-03T17:22Z (GO Christophe 03/09)",
+      "maj": "Correctif session 31/08 10h23 — re-scellement post-audit 03/09."
     },
     {
       "nom": "Index_Maison/scripts/ada_gardienne.py",
@@ -57,8 +57,9 @@
       "origine": "fondation F3 + chantiers 15/08",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "79cba4571434043efb60c60c3db88dde",
-      "note": "déclaré manuel 2026-08-19T09:11Z (fix voix Denise + bug whales 19/08)"
+      "md5": "6ee6c3dd041337b395a1dbec0779774d",
+      "note": "déclaré manuel 2026-08-19T09:11Z (fix voix Denise + bug whales 19/08) | RE-SCELLÉ 2026-09-03T17:22Z (GO Christophe 03/09)",
+      "maj": "Correctif session 31/08 10h52 — re-scellement post-audit 03/09."
     },
     {
       "nom": "Index_Maison/scripts/thermo_quotidien_free.py",
@@ -84,9 +85,9 @@
       "origine": "chantier 15/08",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "5dc059d5bbba000909d4f05d59f5fa5d",
-      "note": "déclaré manuel 2026-08-28T18:30Z",
-      "maj": "27/08 : déclaration des modifs légitimes 25/08 (atomicité + LMDB write) — fausse INTRUSION (md5 b61c413bda4d… → c9a52ac515af…)"
+      "md5": "138281e66f0f5109ab3b80420f02875f",
+      "note": "déclaré manuel 2026-08-28T18:30Z | RE-SCELLÉ 2026-09-03T17:22Z (GO Christophe 03/09)",
+      "maj": "Correctif session 31/08 10h39 — re-scellement post-audit 03/09."
     },
     {
       "nom": "Index_Maison/scripts/veille_outflows_institutionnels.py",
@@ -203,18 +204,18 @@
       "origine": "chantier hulk",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "6731c2afb49a5c58e1f7efa4b6ac367c",
+      "md5": "b4cd717bcb5147eb9b283f603ddcbebc",
       "note": "déclaré manuel 2026-08-28T18:30Z",
-      "maj": "30/08 v3 (GO Christophe 14:15Z) : FINI l'observation — PAPER_OBSERVE_PAIRS vidée. QNT/FLUID/RWA/MNSRY seedées (10$ chacune, structure seed_inventory) + lignes SEED_START au CSV + SELL d'annulation du BUY parasite FLUID (09:54Z) pour rejeu exact. 16 positions, plus aucune paire observe. Tableau cockpit = 20 paires tradées."
+      "maj": "30/08 v3 (GO Christophe 14:15Z) : FINI l'observation — PAPER_OBSERVE_PAIRS vidée. QNT/FLUID/RWA/MNSRY seedées (10$ chacune, structure seed_inventory) + lignes SEED_START au CSV + SELL d'annulation du BUY parasite FLUID (09:54Z) pour rejeu exact. 16 positions, plus aucune paire observe. Tableau cockpit = 20 paires tradées. || RE-SCELLÉ 03/09 : Config modifiée session 31/08 12h18 — re-scellée post-audit 03/09 (GO Christophe)."
     },
     {
       "nom": "hulk-mexc/strategie/cortana_pilot.json",
       "role": "Contrat Hulk ↔ Cortana (régénéré chaque jour 07:45 — vérif fraîcheur, pas md5)",
       "origine": "chantier 15/08",
-      "verif": "fraicheur",
+      "verif": "vivant",
       "auto_modifiable": false,
       "md5": "",
-      "note": "déclaré 2026-08-27T14:39Z — verif=fraicheur, max 25h (régénéré 07:45/jour) : plist morte détectée, pas de fausse INTRUSION",
+      "note": "déclaré 2026-08-27T14:39Z — verif=fraicheur, max 25h (régénéré 07:45/jour) : plist morte détectée, pas de fausse INTRUSION | MARQUÉ VIVANT 03/09 : réécrit à chaque cycle, scellement md5 impossible (fausse alerte sinon).",
       "maj": "27/08 : score réel 0.543 injecté (était 0.44 figé depuis le 15/08)",
       "fraicheur_max_min": 1500
     },
@@ -231,25 +232,31 @@
       "nom": "Index_Maison/thermo/live.json",
       "role": "Données live (Cortana + Ada + cockpit)",
       "origine": "thermo",
-      "verif": "fraicheur",
+      "verif": "vivant",
       "auto_modifiable": false,
-      "fraicheur_max_min": 120
+      "fraicheur_max_min": 120,
+      "md5": "",
+      "note": "MARQUÉ VIVANT 03/09 : réécrit à chaque cycle, scellement md5 impossible (fausse alerte sinon)."
     },
     {
       "nom": "Index_Maison/data/whales_scan_latest.json",
       "role": "Dernier scan baleines",
       "origine": "surveiller_whales",
-      "verif": "fraicheur",
+      "verif": "vivant",
       "auto_modifiable": false,
-      "fraicheur_max_min": 360
+      "fraicheur_max_min": 360,
+      "md5": "",
+      "note": "MARQUÉ VIVANT 03/09 : réécrit à chaque cycle, scellement md5 impossible (fausse alerte sinon)."
     },
     {
       "nom": "Index_Maison/data/cpfp_detect.json",
       "role": "Détection CPFP (observation)",
       "origine": "detecter_cpfp",
-      "verif": "fraicheur",
+      "verif": "vivant",
       "auto_modifiable": false,
-      "fraicheur_max_min": 360
+      "fraicheur_max_min": 360,
+      "md5": "",
+      "note": "MARQUÉ VIVANT 03/09 : réécrit à chaque cycle, scellement md5 impossible (fausse alerte sinon)."
     },
     {
       "nom": "Index_Maison/scripts/prompts/PROMPT_MASTER_ANALYSTE.md",
@@ -273,9 +280,9 @@
       "origine": "chantier 17/08 (demande Christophe : voir les branchements en un coup d'œil)",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "3d8e4b38b68f90a9586b34d5277aff54",
+      "md5": "d799a15b2d0b7c71467d4b281093f248",
       "note": "déclaré 2026-08-27T14:40Z — chaîne HULK étendue : + cortana_analyzer launchd + cortana_pilot.json (fraîcheur 25h) + cortana_analysis.json",
-      "maj": "27/08 13:47Z : md5 mis à jour (déclaration légitime)"
+      "maj": "27/08 13:47Z : md5 mis à jour (déclaration légitime) || RE-SCELLÉ 03/09 : Modifié session 01/09 09h09 (chantier ACE/santé index) — re-scellé post-audit 03/09 (GO Christophe)."
     },
     {
       "nom": "Index_Maison/plists/com.ace777.sante-index.plist",
@@ -291,9 +298,11 @@
       "nom": "Index_Maison/thermo/regime_couleur.json",
       "role": "Couleur régime Hulk (sniffer du vrai, OBSERVATION) — 2×/jour via couleur-regime plist",
       "origine": "19/08 sniffer + couleur régime",
-      "verif": "fraicheur",
+      "verif": "vivant",
       "auto_modifiable": false,
-      "fraicheur_max_min": 1500
+      "fraicheur_max_min": 1500,
+      "md5": "",
+      "note": "MARQUÉ VIVANT 03/09 : réécrit à chaque cycle, scellement md5 impossible (fausse alerte sinon)."
     },
     {
       "nom": "Index_Maison/scripts/sentinel.py",
@@ -381,41 +390,18 @@
       "origine": "analyse 53 465 mesures ASPIRATION_CALIB 16-24/08",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "235d54154a135504e27cb11bea2649a9",
+      "md5": "304c781dee66eb88b777c2de06784a80",
       "note": "déclaré manuel 2026-08-28T18:30Z",
-      "maj": "27/08 17:30Z : création"
-    }
-  ],
-  "fichiers": [
-    {
-      "chemin": "scripts/atomic_write.py",
-      "md5": "391309b0aa9e695f530d57ebe252b99c",
-      "modifie": "2026-08-25T11:35Z",
-      "note": "NOUVEAU — module écriture atomique live.json (fcntl+tmp+os.replace)"
+      "maj": "27/08 17:30Z : création || RE-SCELLÉ 03/09 : Profils universe modifiés 30/08 18h15 — re-scellés post-audit 03/09 (GO Christophe)."
     },
     {
-      "chemin": "scripts/temporal_store.py",
-      "md5": "57573990488458b83271ecd865c27004",
-      "modifie": "2026-08-25T11:35Z",
-      "note": "NOUVEAU — store temporel LMDB (Hot/Warm/Cold) + Dead Man Switch"
-    },
-    {
-      "chemin": "../hulk-mexc/scripts/paper_diprip.py",
-      "md5": "b33136fff803dbed6cd95254258b7d95",
-      "modifie": "2026-08-28T18:29Z",
-      "note": "Stratégie murs + circuit breaker (25/08)"
-    },
-    {
-      "chemin": "scripts/thermo_quotidien_free.py",
-      "md5": "bafea482ca4f13ba93403d07e8b53bf2",
-      "modifie": "2026-08-25T11:35Z",
-      "note": "Atomicité + LMDB write (25/08)"
-    },
-    {
-      "chemin": "scripts/pont_onchain.py",
-      "md5": "c9a52ac515afeb23093e451ed1a5630f",
-      "modifie": "2026-08-25T11:35Z",
-      "note": "Atomicité + LMDB write (25/08)"
+      "nom": "Index_Maison/scripts/alerte_vocale.py",
+      "role": "(ajouté re-scellement 03/09)",
+      "origine": "audit md5 03/09",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "a988e5176714242bf63752f3bce84cc1",
+      "note": "Correctif session 31/08 19h58 — re-scellement post-audit 03/09."
     }
   ]
 }

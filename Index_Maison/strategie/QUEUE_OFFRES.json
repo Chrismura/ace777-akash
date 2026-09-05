@@ -1154,12 +1154,14 @@
       "api_key_env": "NVIDIA_NIM_API_KEY",
       "role": "gros cerveau",
       "arrivee": "2026-08-28T07:02:05.847107",
-      "statut": "teste_ok",
+      "statut": "integre",
       "essais": 1,
       "test_reel": {
         "ok": true,
         "erreur": ""
-      }
+      },
+      "evaluation": "MIEUX",
+      "preuve_eval": "MIEUX - réponse B concise"
     },
     {
       "id": "567d87dbf73a",
@@ -1222,8 +1224,76 @@
         "ok": false,
         "erreur": "HTTP 429 service failure: tenant tn-59004cfrvs quota exceeded"
       }
+    },
+    {
+      "id": "d34af37402b2",
+      "type": "offre",
+      "source": "veille_hub",
+      "source_detail": "gemma-4-31B-it-fp8",
+      "model": "gemma-4-31B-it-fp8",
+      "base_url": "https://model.inferx.net/endpoints/v1",
+      "api_key_env": "INFERX_API_KEY",
+      "role": "gros cerveau",
+      "arrivee": "2026-09-04T07:02:01.292182",
+      "statut": "poubelle",
+      "essais": 3,
+      "test_reel": {
+        "ok": false,
+        "erreur": "HTTP 429 service failure: tenant tn-59004cfrvs quota exceeded"
+      }
+    },
+    {
+      "id": "dbfaafba790b",
+      "type": "offre",
+      "source": "veille_hub",
+      "source_detail": "gpt-oss-20b",
+      "model": "gpt-oss-20b",
+      "base_url": "https://model.inferx.net/endpoints/v1",
+      "api_key_env": "INFERX_API_KEY",
+      "role": "gros cerveau",
+      "arrivee": "2026-09-04T07:02:01.292190",
+      "statut": "poubelle",
+      "essais": 3,
+      "test_reel": {
+        "ok": false,
+        "erreur": "HTTP 429 service failure: tenant tn-59004cfrvs quota exceeded"
+      }
+    },
+    {
+      "id": "f93340056b96",
+      "type": "offre",
+      "source": "veille_hub",
+      "source_detail": "inclusionai/ling-3.0-flash-sante:free",
+      "model": "inclusionai/ling-3.0-flash-sante:free",
+      "base_url": "https://openrouter.ai/api/v1",
+      "api_key_env": "OPENROUTER_API_KEY",
+      "role": "gros cerveau",
+      "arrivee": "2026-09-05T07:02:04.296658",
+      "statut": "nouveau",
+      "essais": 2,
+      "test_reel": {
+        "ok": false,
+        "erreur": "'NoneType' object has no attribute 'strip'"
+      }
+    },
+    {
+      "id": "61184c7294f8",
+      "type": "offre",
+      "source": "veille_hub",
+      "source_detail": "qwen38-flash-next",
+      "model": "qwen38-flash-next",
+      "base_url": "https://model.inferx.net/endpoints/v1",
+      "api_key_env": "INFERX_API_KEY",
+      "role": "gros cerveau",
+      "arrivee": "2026-09-05T07:02:04.296810",
+      "statut": "nouveau",
+      "essais": 2,
+      "test_reel": {
+        "ok": false,
+        "erreur": "HTTP 429 service failure: tenant tn-59004cfrvs quota exceeded"
+      }
     }
   ],
   "traites_jour": 0,
-  "date": "2026-09-02"
+  "date": "2026-09-05"
 }

@@ -138,13 +138,23 @@ def _protected(path: Path) -> bool:
     return path.stem in PROTECTED_STEMS or path.name.startswith(".")
 
 
-def _already_in_vault(path: Path) -> bool:
-    """Idempotence (Day Zero) : si le fichier existe déjà dans le vault au même
-    chemin relatif (la synchro manuelle cp l'a déjà copié), on NE le réécrit
-    PAS — éviter les doublons et ne pas toucher aux notes existantes."""
+def _already_in_vault(path: Path):
+    """Idempotence (Day Zero) CORRIGÉE 05/09 : le nom identique ne suffit pas.
+    - fichier absent        → False (nouveau, à livrer)
+    - contenu identique     → True  (déjà synchronisé → archive)
+    - contenu différent     → False (MISE À JOUR → le pont doit livrer le neuf)
+    L'ancienne version (nom seul) avalait les mises à jour sans jamais les
+    écrire : incident fiches QNT/FLUID/RWA/MNSRY du 05/09 (profils 18903
+    points jamais arrivés dans le vault, archivés silencieusement)."""
     try:
         rel = path.relative_to(OUTBOX)
-        return (VAULT / rel).exists()
+        v = VAULT / rel
+        if not v.exists():
+            return False
+        try:
+            return v.read_text(encoding="utf-8") == path.read_text(encoding="utf-8")
+        except Exception:
+            return True  # illisible : comportement prudent historique (ne pas écraser)
     except Exception:
         return False
 
@@ -167,11 +177,46 @@ def scan(dry_run: bool = False, age_heures: float = 0):
             continue
         if age_heures > 0 and (now - p.stat().st_mtime) > age_heures * 3600:
             continue
-        if _already_in_vault(p):
-            results.append({"file": str(p), "status": "DEJA_DANS_VAULT"})
+        deja = _already_in_vault(p)
+        if deja is True:
+            results.append({"file": str(p), "status": "DEJA_DANS_VAULT",
+                            "note": "contenu identique"})
             if not dry_run:
                 archive(p, results[-1])  # la copie existe déjà : on archive la source
             continue
+        # MISE À JOUR : le fichier existe dans le vault mais son contenu diffère
+        # (ex : fiche régénérée avec un corpus plus riche). On écrase proprement
+        # le fichier au MÊME nom (pas de doublon), en conservant le frontmatter
+        # existant du vault si le neuf n'en a pas (cohérence gatekeeper).
+        try:
+            rel = p.relative_to(OUTBOX)
+            v = VAULT / rel
+        except Exception:
+            v = None
+        if v is not None and v.exists():
+            if dry_run:
+                results.append({"file": str(p), "status": "DRYRUN_UPDATE"})
+                print(f"  DRYRUN_UPDATE    {p.relative_to(OUTBOX)}")
+                continue
+            try:
+                new_text = p.read_text(encoding="utf-8")
+                old_text = v.read_text(encoding="utf-8")
+                if old_text.startswith("---\n") and not new_text.startswith("---\n"):
+                    fm = old_text.split("---\n", 2)[:2]
+                    new_text = "---\n" + fm[1] + "---\n\n" + new_text
+                v.parent.mkdir(parents=True, exist_ok=True)
+                v.write_text(new_text, encoding="utf-8")
+                results.append({"file": str(p), "status": "UPDATED", "path": str(v)})
+                print(f"  UPDATED          {p.relative_to(OUTBOX)} → {v.name}")
+                ObsidianBridge._audit({
+                    "ts": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
+                    "action": "update", "path": str(v),
+                    "status": "SUCCESS_UPDATE"})
+                archive(p, results[-1])
+            except Exception as e:
+                results.append({"file": str(p), "status": "ERROR_UPDATE", "error": str(e)})
+            continue
+        # sinon : fichier absent du vault → process_one (livraison normale)
         r = process_one(p, dry_run=dry_run)
         results.append(r)
         print(f"  {r.get('status', '?'):<18} {p.relative_to(OUTBOX)}"
@@ -179,7 +224,7 @@ def scan(dry_run: bool = False, age_heures: float = 0):
         if not dry_run and r.get("status") not in ("ERROR_LECTURE", "REJECTED"):
             archive(p, r)
 
-    n_ok = sum(1 for r in results if r.get("status") in ("SUCCESS", "SUCCESS_CLI", "SUCCESS_FALLBACK"))
+    n_ok = sum(1 for r in results if r.get("status") in ("SUCCESS", "SUCCESS_CLI", "SUCCESS_FALLBACK", "UPDATED"))
     n_rej = sum(1 for r in results if r.get("status") == "REJECTED")
     n_err = sum(1 for r in results if r.get("status") == "ERROR_LECTURE")
     n_deja = sum(1 for r in results if r.get("status") == "DEJA_DANS_VAULT")

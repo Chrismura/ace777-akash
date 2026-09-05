@@ -33,6 +33,7 @@ si pas de state, on ne fait rien.
 """
 from __future__ import annotations
 
+import csv
 import json
 import os
 import sys
@@ -44,6 +45,11 @@ RUNS = ROOT / "runs"
 LIVE = RUNS / "aspiration_live.json"
 LOOP_SEC = 20.0          # cadence d'écriture (le moteur a une boucle 20s aussi)
 MAX_PAIRS = 5            # max paires sondées par passe (rate-limit MEXC)
+# GO Christophe 05/09 : calibration des derniers actifs — ces paires n'ont AUCUN
+# corpus (n_mesures=0, profil pré-calibré à la main) → elles sont sondées À CHAQUE
+# passe, priorité sur les actives, jusqu'à constitution du corpus (méthodologie
+# d'origine : mesurer PUIS calibrer). Retirées de cette liste une fois calibrées.
+FORCE_PROBE = ("BTCUSDT", "ETHUSDT", "QNTUSDT", "FLUIDUSDT", "RWAUSDT", "MNSRYUSDT")
 STALE_STATE_MAX = 120.0  # un state moteur + vieux que ça = on abandonne la passe
 HTTP_TIMEOUT = 12.0
 
@@ -112,6 +118,43 @@ def gex_local():
         return {"ok": False, "callWall": 0, "putWall": 0}
 
 
+def corpus_write(radar: dict, btc: float):
+    """Accumule chaque mesure ok dans un CSV quotidien (GO Christophe 05/09).
+    Sans ça, aspiration_live.json est écrasé à chaque passe et RIEN ne s'accumule :
+    impossible de calibrer les profils selon la méthodologie (mesurer puis calibrer).
+    Même schéma que les ASPIRATION_CALIB du moteur → pipeline d'analyse compatible."""
+    try:
+        day = time.strftime("%Y%m%d", time.gmtime())
+        path = RUNS / f"CORPUS_ASP_{day}.csv"
+        new = not path.exists()
+        with path.open("a", newline="") as f:
+            w = csv.writer(f)
+            if new:
+                w.writerow(
+                    ["ts", "pair", "regime", "asp_side", "drop_bid_pct_per_s",
+                     "drop_ask_pct_per_s", "max_drop_pct_per_s", "spread_bps",
+                     "spread_delta_bps", "wall_bid_usdt", "wall_ask_usdt",
+                     "notional_ok", "spoof", "price_delta_pct", "btc_price",
+                     "btc_delta_pct", "delay_s", "price"]
+                )
+            ts_utc = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
+            for pair, v in radar.items():
+                if not v.get("ok"):
+                    continue
+                w.writerow(
+                    [ts_utc, pair, v.get("regime", "?"), v.get("aspiration_side"),
+                     v.get("drop_bid_pct_per_s"), v.get("drop_ask_pct_per_s"),
+                     v.get("max_drop_pct_per_s"), v.get("spread_bps"),
+                     v.get("spread_delta_bps"), v.get("wall_bid_usdt"),
+                     v.get("wall_ask_usdt"), v.get("notional_drop_ok"),
+                     "", v.get("price_delta_pct"),
+                     round(btc, 2), "", v.get("delay_s"), v.get("prix") or 0.0]
+                )
+            f.flush()
+    except Exception as e:
+        print(f"[sat-asp] CORPUS_ERR {e}")
+
+
 def atomic_write(path: Path, data: dict):
     tmp = path.with_suffix(path.suffix + ".tmp")
     with open(tmp, "w", encoding="utf-8") as f:
@@ -143,6 +186,11 @@ def run_once() -> int:
         # pas de state frais → ne rien écrire (on ne cache pas l'absente)
         return 0
     actives = [p for p, r in paires.items() if r in ("COOLING", "IMPULSE")][: MAX_PAIRS]
+    # Calibration forcée (GO 05/09) : les paires FORCE_PROBE sont ajoutées en tête,
+    # même si leur régime ne les rend pas « actives ». Rate-limit : ≤5 actives
+    # + ≤5 forcées par passe, launchd ne chevauche pas les passes.
+    force = [p for p in FORCE_PROBE if p in paires and p not in actives]
+    actives = force + actives
     prix = saisir_prix(list(paires.keys()))
     btc = prix.get("BTCUSDT", 0.0)
     radar = {}
@@ -178,6 +226,7 @@ def run_once() -> int:
     }
     try:
         atomic_write(LIVE, LIVE_DATA)
+        corpus_write(radar, btc)
         print(f"[sat-asp] ts={LIVE_DATA['ts']} actives={len(actives)} "
               f"écrites->{LIVE.name} btc={btc:.0f}")
     except Exception as e:

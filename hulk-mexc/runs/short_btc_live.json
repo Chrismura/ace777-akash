@@ -1,53 +1,89 @@
 {
  "ok": true,
- "ts": "2026-09-03T02:04:16+00:00",
+ "ts": "2026-09-05T10:39:27+00:00",
  "frais": true,
  "signal": {
-  "score": 4,
-  "corr_dir_btc": -0.124,
-  "pct_pompe": 40.0,
-  "m6_btc": 0.73,
-  "move24_btc": 0.41,
-  "session_ok": false,
-  "session_utc": 2,
-  "prix_btc": 77312.92,
-  "detail": "score 4 = contexte 2 (corr_dir -0.12) + surchauffe 2 (40% paires >3.0%) + btc 0 (m6 0.73%) + momentum 0 (24h +0.41%)"
+  "score": 3,
+  "corr_dir_btc": -0.307,
+  "pct_pompe": 20.0,
+  "m6_btc": 0.4,
+  "move24_btc": -1.8,
+  "session_ok": true,
+  "session_utc": 10,
+  "prix_btc": 79623.18,
+  "detail": "score 3 = contexte 3 (corr_dir -0.31) + surchauffe 0 (20% paires >3.0%) + btc 0 (m6 0.4%) + momentum 0 (24h -1.80%)"
  },
  "position": {
-  "ts_entree": "2026-09-02T09:36:09+00:00",
-  "ts_entree_epoch": 1788341769.378687,
-  "prix_entree": 76706.0,
+  "ts_entree": "2026-09-04T14:53:52+00:00",
+  "ts_entree_epoch": 1788533632.812462,
+  "prix_entree": 78905.91,
   "notional": 5.0,
-  "score_entree": 5,
-  "detail_signal": "score 5 = contexte 2 (corr_dir -0.14) + surchauffe 2 (45% paires >3.0%) + btc 1 (m6 1.48%) + momentum 0 (24h -1.58%)"
+  "score_entree": 8,
+  "detail_signal": "score 8 = contexte 3 (corr_dir -0.21) + surchauffe 3 (90% paires >3.0%) + btc 2 (m6 3.47%) + momentum 0 (24h -1.58%)"
  },
- "pnl_total": 0.124,
- "capital": 100.124,
- "n_trades": 2,
+ "pnl_total": -0.076,
+ "capital": 99.924,
+ "n_trades": 7,
  "dernieres_trades": [
   {
-   "ts_entree": "2026-08-31T09:19:52+00:00",
-   "prix_entree": 78690.31,
-   "ts_sortie": "2026-09-01T09:24:40+00:00",
-   "prix_sortie": 77951.53,
+   "ts_entree": "2026-09-02T09:36:09+00:00",
+   "prix_entree": 76706.0,
+   "ts_sortie": "2026-09-03T02:54:55+00:00",
+   "prix_sortie": 77872.12,
    "notional": 5.0,
-   "pnl_usd": 0.04694224739996569,
-   "pnl_pct": 0.9388449479993138,
-   "raison_sortie": "TIME_OUT",
+   "pnl_usd": -0.07601230672959061,
+   "pnl_pct": -1.5202461345918121,
+   "raison_sortie": "SL",
    "score_entree": 5,
-   "detail_signal": "score 5 = contexte 2 (corr_dir -0.12) + surchauffe 2 (40% paires >3.0%) + btc 1 (m6 1.7%) + momentum 0 (24h +0.77%)"
+   "detail_signal": "score 5 = contexte 2 (corr_dir -0.14) + surchauffe 2 (45% paires >3.0%) + btc 1 (m6 1.48%) + momentum 0 (24h -1.58%)"
   },
   {
-   "ts_entree": "2026-09-01T09:29:42+00:00",
-   "prix_entree": 77956.67,
-   "ts_sortie": "2026-09-02T09:31:06+00:00",
-   "prix_sortie": 76755.01,
+   "ts_entree": "2026-09-03T08:03:47+00:00",
+   "prix_entree": 77728.48,
+   "ts_sortie": "2026-09-03T14:13:45+00:00",
+   "prix_sortie": 78926.27,
    "notional": 5.0,
-   "pnl_usd": 0.0770723018312611,
-   "pnl_pct": 1.541446036625222,
-   "raison_sortie": "TIME_OUT",
+   "pnl_usd": -0.07704962196610614,
+   "pnl_pct": -1.5409924393221226,
+   "raison_sortie": "SL",
    "score_entree": 5,
-   "detail_signal": "score 5 = contexte 2 (corr_dir -0.12) + surchauffe 2 (40% paires >3.0%) + btc 1 (m6 1.83%) + momentum 0 (24h -0.91%)"
+   "detail_signal": "score 5 = contexte 2 (corr_dir -0.13) + surchauffe 2 (40% paires >3.0%) + btc 1 (m6 1.38%) + momentum 0 (24h +0.39%)"
+  },
+  {
+   "ts_entree": "2026-09-03T14:18:50+00:00",
+   "prix_entree": 79115.24,
+   "ts_sortie": "2026-09-03T14:49:27+00:00",
+   "prix_sortie": 80371.07,
+   "notional": 5.0,
+   "pnl_usd": -0.07936713583880942,
+   "pnl_pct": -1.5873427167761884,
+   "raison_sortie": "SL",
+   "score_entree": 7,
+   "detail_signal": "score 7 = contexte 2 (corr_dir -0.13) + surchauffe 2 (45% paires >3.0%) + btc 2 (m6 2.04%) + momentum 1 (24h +2.42%)"
+  },
+  {
+   "ts_entree": "2026-09-03T14:54:34+00:00",
+   "prix_entree": 80244.78,
+   "ts_sortie": "2026-09-03T19:24:19+00:00",
+   "prix_sortie": 81546.54,
+   "notional": 5.0,
+   "pnl_usd": -0.08111181811452375,
+   "pnl_pct": -1.6222363622904752,
+   "raison_sortie": "SL",
+   "score_entree": 9,
+   "detail_signal": "score 9 = contexte 2 (corr_dir -0.13) + surchauffe 3 (60% paires >3.0%) + btc 2 (m6 3.86%) + momentum 2 (24h +4.07%)"
+  },
+  {
+   "ts_entree": "2026-09-04T08:02:03+00:00",
+   "prix_entree": 80655.0,
+   "ts_sortie": "2026-09-04T14:48:47+00:00",
+   "prix_sortie": 78824.49,
+   "notional": 5.0,
+   "pnl_usd": 0.11347777571136289,
+   "pnl_pct": 2.2695555142272577,
+   "raison_sortie": "TP",
+   "score_entree": 6,
+   "detail_signal": "score 6 = contexte 3 (corr_dir -0.2) + surchauffe 1 (30% paires >3.0%) + btc 0 (m6 0.86%) + momentum 2 (24h +3.77%)"
   }
  ]
 }

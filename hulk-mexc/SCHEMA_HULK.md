@@ -138,7 +138,20 @@ launchctl list | grep hulk
 - **State** : `runs/PAPER_V1_*_state.json` → positions ouvertes, pnl_total, bags
 - **Veille** : `runs/DIGEST_LATEST.md` (paires classées par tension/spread)
 
-## 9. État au 16/08 (historique des fixes)
+## 9. CANAUX DE COLLECTE — LA CARTE (gravée 05/09 après incident)
+
+> **Leçon du 05/09 (Christophe) : 3 jours de collecte crue perdue car la vieille voie était surveillée au lieu de la nouvelle.**
+
+| Canal | Fichier | Depuis | Rôle |
+|---|---|---|---|
+| 🟢 **Satellite aspiration** | `runs/aspiration_live.json` (instantané, écrasé) | 31/08 Phase 3 | Radar temps réel, launchd `com.ace777.satellite-aspiration` (--once toutes ~20-30s) |
+| 🟢 **CORPUS ASP** (accumulateur) | `runs/CORPUS_ASP_YYYYMMDD.csv` | **05/09** | Toutes les mesures ok, un CSV/jour — C'EST LA COLLECTE DE CALIBRATION |
+| 🟢 Observateur murs | `runs/OBSERVATION_MURS_*` + `MURS_RAPPORT.md` | 24/08 | Agrégat multi-paires, launchd `observer-murs` |
+| ⚰️ ASPIRATION_CALIB (moteur) | créé LAZY depuis 05/09 (1re vraie mesure) | — | **Plus de coquilles vides** — si un CSV existe, il contient des données |
+
+**FORCE_PROBE** (satellite, GO 05/09) : BTCUSDT, ETHUSDT, QNTUSDT, FLUIDUSDT, RWAUSDT — sondées à CHAQUE passe priorité calibration (n_mesures=0, profils à la main). À retirer de la liste une fois calibrées (méthodologie : mesurer PUIS calibrer).
+
+## 10. État au 16/08 (historique des fixes)
 
 | Date | Chantier | Statut |
 |---|---|---|

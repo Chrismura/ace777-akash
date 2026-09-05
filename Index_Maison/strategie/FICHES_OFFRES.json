@@ -9,7 +9,8 @@
     "2026-08-21": 8,
     "2026-08-25": 7,
     "2026-08-26": 8,
-    "2026-08-28": 8
+    "2026-08-28": 8,
+    "2026-09-05": 8
   },
   "fiches": {
     "32f5f333ea5d": {
@@ -1500,6 +1501,158 @@
       "usage": "chat",
       "avis_pour": "Idéal pour débuter et tester rapidement des agents ou des flux de discussion sans consommer de budget cloud.",
       "avis_attention": "Attention aux changements soudains de modèles en arrière-plan qui peuvent altérer le comportement de vos scripts."
+    },
+    "bbe486c1e407": {
+      "section": "openrouter (:free)",
+      "item": "inclusionai/ling-3.0-flash-sante:free",
+      "generated": "2026-09-05T07:08:45.052311+00:00",
+      "type": "Modèle linguistique gratuit hébergé sur OpenRouter",
+      "forts": [
+        "Gratuit d'utilisation via OpenRouter",
+        "Accès simple via API standardisée",
+        "Adapté aux tâches textuelles légères"
+      ],
+      "faibles": [
+        "Spécificité santé pouvant limiter les usages généraux",
+        "Disponibilité et limites de taux inhérentes aux modèles gratuits",
+        "Non testé pour la logique complexe ou le code critique"
+      ],
+      "usage": "chat",
+      "avis_pour": "Une option intéressante et gratuite à tester pour du dialogue simple ou des tâches exploratoires à moindre coût.",
+      "avis_attention": "Attention à sa spécialisation thématique (santé) qui peut impoter la pertinence sur des scripts ou des jugements purement techniques."
+    },
+    "bbf27d8af71a": {
+      "section": "inferx",
+      "item": "gemma-4-31B-it-fp8",
+      "generated": "2026-09-05T07:09:07.167340+00:00",
+      "type": "Modèle open-weights optimisé pour l'inférence rapide sur plateforme tierce",
+      "forts": [
+        "Format fp8 réduisant l'empreinte mémoire",
+        "Bonne réactivité pour les tâches textuelles courantes",
+        "Gratuité de base sur l'infrastructure d'inférence"
+      ],
+      "faibles": [
+        "Précision potentiellement affectée par la quantification fp8",
+        "Fiabilité inégale sur la logique complexe ou le code critique en production",
+        "Dépendance à la disponibilité du fournisseur d'inférence"
+      ],
+      "usage": "chat",
+      "avis_pour": "À essayer pour décharger les tâches textuelles simples et le prototypage rapide sans consommer les quotas premium.",
+      "avis_attention": "Attention aux hallucinations sur le code Python complexe ou les jugements nuancés, nécessite une validation stricte."
+    },
+    "59326f4fde1e": {
+      "section": "inferx",
+      "item": "gpt-oss-20b",
+      "generated": "2026-09-05T07:09:28.907692+00:00",
+      "type": "Modèle open-source de taille moyenne orienté code et logique générale",
+      "forts": [
+        "Gratuit et accessible pour les tests",
+        "Bonne réactivité sur les requêtes textuelles",
+        "Adapté aux structures de scripts simples"
+      ],
+      "faibles": [
+        "Capacité de raisonnement complexe limitée face aux modèles de pointe",
+        "Contexte parfois restreint pour de gros projets"
+      ],
+      "usage": "chat",
+      "avis_pour": "À essayer pour décharger des tâches textuelles simples sans imputer les quotas des modèles principaux.",
+      "avis_attention": "Attention à bien vérifier le code produit et les analyses fines générées par ce modèle."
+    },
+    "fd34ddd403cc": {
+      "section": "inferx",
+      "item": "deepseek-v4-flash-vision-exp",
+      "generated": "2026-09-05T07:09:51.178605+00:00",
+      "type": "Modèle multimodal expérimental gratuit pour le traitement rapide d'images et de code",
+      "forts": [
+        "Gratuit sur inferx",
+        "Capacités vision et texte combinées",
+        "Réponses rapides (flash)"
+      ],
+      "faibles": [
+        "Caractère expérimental (suffixe -exp)",
+        "Stabilité potentiellement variable",
+        "Documentation limitée"
+      ],
+      "usage": "analyste",
+      "avis_pour": "À tester pour enrichir l'analyse visuelle et textuelle à bas coût.",
+      "avis_attention": "Attention au statut expérimental qui peut impacter la fiabilité en production."
+    },
+    "413eab4441de": {
+      "section": "inferx",
+      "item": "qwen38-flash-next",
+      "generated": "2026-09-05T07:10:13.583723+00:00",
+      "type": "Modèle d'IA flash et léger pour tests rapides",
+      "forts": [
+        "Gratuit et accessible",
+        "Idéal pour les tests de base",
+        "Réponses rapides"
+      ],
+      "faibles": [
+        "Capacités de raisonnement avancées limitées pour la stratégie",
+        "Moins robuste que les modèles principaux pour le code complexe",
+        "Fiabilité incertaine sur les tâches critiques"
+      ],
+      "usage": "chat",
+      "avis_pour": "À essayer pour explorer de nouvelles sources gratuites sans impacter les budgets.",
+      "avis_attention": "Ne pas l'utiliser pour les décisions critiques ou le routage de stratégie sans validation préalable."
+    },
+    "73d252785e1b": {
+      "section": "free-ai-stuff (offres VERIFIEES)",
+      "item": "Google AI Studio — Gemini API free tier (API,Chatbot, Model-specific quotas)",
+      "generated": "2026-09-05T07:10:47.410000+00:00",
+      "type": "Accès gratuit à Google AI Studio et à l'API Gemini",
+      "forts": [
+        "Interface web intuitive pour créer des scripts Python",
+        "Quota gratuit suffisant pour des prototypes et tests",
+        "Support chatbot intégré pour des assistants simples"
+      ],
+      "faibles": [
+        "Limites de quota (requêtes et tokens) restrictives pour des charges lourdes",
+        "Fonctionnalités avancées réservées aux plans payants"
+      ],
+      "usage": "Codeur et analyste chez ACE777 pour prototyper des scripts Python, analyser des données ou créer des chatbots simples",
+      "avis_pour": "Idéal pour découvrir et expérimenter les modèles Gemini sans frais initiaux",
+      "avis_attention": "Surveillez les limites de quota pour éviter toute interruption ou facturation inattendue"
+    },
+    "4acd4e9fb94f": {
+      "section": "free-ai-stuff (offres VERIFIEES)",
+      "item": "Cloudflare — Workers AI free allocation (API, 10,000 neurons daily)",
+      "generated": "2026-09-05T07:11:11.167334+00:00",
+      "type": "Free AI Service for Developers",
+      "forts": [
+        "Free of charge",
+        "Daily allocation of 10,000 neurons",
+        "API access for integration",
+        "Provided by Cloudflare, a reputable company"
+      ],
+      "faibles": [
+        "Limited to 10,000 neurons daily",
+        "Details on available model types are sparse"
+      ],
+      "usage": "Développeur ou analyste chez ACE777 pour tester des scripts Python, intégrer de l'IA dans des outils ou réaliser des analyses légères.",
+      "avis_pour": "Idéal pour expérimenter l'IA sans frais et valider rapidement des prototypes.",
+      "avis_attention": "Ne pas dépasser la limite quotidienne de 10 000 neurones, sinon le service sera bloqué."
+    },
+    "3c3e136f50d3": {
+      "section": "free-ai-stuff (offres VERIFIEES)",
+      "item": "Groq — GroqCloud free plan (API, Limits vary by model)",
+      "generated": "2026-09-05T07:11:53.256375+00:00",
+      "type": "Fournisseur d'API IA haute performance avec plan gratuit",
+      "forts": [
+        "Latence ultra-faible grâce aux processeurs LPU",
+        "Accès gratuit à des modèles comme Mixtral ou Llama3",
+        "Intégration simple avec API REST",
+        "Performances stables pour l'analyse de texte"
+      ],
+      "faibles": [
+        "Quotas variables selon le modèle",
+        "Documentation technique parfois légère",
+        "Pas de fine-tuning possible en gratuit",
+        "Limites de débit en heures chargées"
+      ],
+      "usage": "Analyste stratégique (gemini repli), juge de signets (nara repli), synthèses rapides",
+      "avis_pour": "Essentiel pour des requêtes rapides quand Groq est prioritaire dans notre routage.",
+      "avis_attention": "Surveiller les quotas réels qui peuvent changer silencieusement."
     }
   }
 }
