@@ -2,20 +2,6 @@
   "signals": [
     {
       "metric": "sdi",
-      "zscore": 2.28920947860302,
-      "value": 0.02,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Anomalie de faux positif due à une homonymie. Les titres médiatiques font référence à 'SDI' (Syndicat des Indépendants, Samsung SDI, ou entreprise médicale) et non à un actif crypto. Aucune activité de baleine détectée.\"\n}\n```",
-      "ts": "2026-09-04T20:16:39.024736+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 3.663237415522144,
-      "value": 1.405,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Anomalie de données non pertinente. Le ticker 'ipt' fait référence à des actualités académiques (Tournoi International des Physiciens) et médiatiques sans lien avec l'écosystème crypto ou une activité de baleine.\"\n}\n```",
-      "ts": "2026-09-04T20:17:06.065515+00:00"
-    },
-    {
-      "metric": "sdi",
       "zscore": 2.0436283209936876,
       "value": 0.02,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Anomalie statistique (SDI) totalement non liée à la crypto : collision de homonymie avec le syndicat SDI (TPE), Samsung SDI (batteries) et SDI Limited (médical). Aucune baleine crypto active sur ce ticker.\"\n}\n```",
@@ -349,6 +335,20 @@
       "value": 2796325.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique parasité par des liquidations judiciaires locales sans rapport avec la crypto. Le z-score élevé reflète une anomalie technique mineure ou un bruit de carnet d'ordres, sans corrélation avec une accumulation ou distribution majeure de baleines.\"\n}\n```",
       "ts": "2026-09-05T20:26:16.591154+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 6.5500063822141374,
+      "value": 7697212.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (z-score 6.55, ~7.7M USD) en absence totale de couverture médiatique (Google Actualités vide). Discrétion typique d'accumulation institutionnelle avant un mouvement de marché.\"\n}\n```",
+      "ts": "2026-09-05T20:31:18.774416+00:00"
+    },
+    {
+      "metric": "taker_ratio",
+      "zscore": -2.011719544093326,
+      "value": 0.49,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio à 0.49 (z-score -2.01) indique une domination massive des acheteurs passifs (limites) par rapport aux vendeurs agressifs (market). Les médias sont silencieux (vide informationnel), ce qui caractérise une accumulation discrète des baleines loin du bruit de fond retail.\"\n}\n```",
+      "ts": "2026-09-05T20:41:21.626631+00:00"
     }
   ]
 }
