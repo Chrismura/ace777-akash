@@ -1,23 +1,8 @@
 {
-  "timestamp": 1788618299,
-  "date": "2026-09-05T14:24:59.938167+00:00",
+  "timestamp": 1788619500,
+  "date": "2026-09-05T14:45:00.424736+00:00",
   "n_analyses": 2,
   "analyses": [
-    {
-      "signal": {
-        "metric": "long_short",
-        "zscore": 2.102605592477684,
-        "value": 1.055,
-        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.10) sur le ratio long/short couplé à un narratif médiatique axé sur l'optimisme des fonds long/short traditionnels. Divergence classique : surchauffe des positions acheteuses par les smart money avant un possible flush de liquidité.\"\n}\n```",
-        "ts": 1788617648.368933
-      },
-      "fiche": null,
-      "interpretation": {
-        "lecture": "Pas de fiche disponible",
-        "niveau": "inconnu"
-      },
-      "action": "Observer"
-    },
     {
       "signal": {
         "metric": "volume",
@@ -29,7 +14,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": 0.08,
+          "value": 0.15,
           "seuil": 1,
           "depasse": false
         },
@@ -39,12 +24,12 @@
           "depasse": false
         },
         "funding": {
-          "value": 1.8e-05,
+          "value": 2e-05,
           "seuil": 0.001,
           "depasse": false
         },
         "whales": {
-          "value": 0,
+          "value": 1,
           "seuil": 5,
           "depasse": false
         }
@@ -57,6 +42,21 @@
       },
       "action": "Réduire taille de 50%, sortir des positions fragiles",
       "niveau": "dangereux"
+    },
+    {
+      "signal": {
+        "metric": "long_short",
+        "zscore": 2.487220550041955,
+        "value": 1.055,
+        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Le Z-score élevé (2.49) indique une surconcentration agressive des positions longues par les traders particuliers et les baleines, tandis que les médias grand public banalisent les stratégies 'long-short' sans lien avec l'activité on-chain réelle. Cette euphorie excessive est un signal classique de retournement baissier imminent (piège à acheteurs).\"\n}\n```",
+        "ts": 1788619458.536382
+      },
+      "fiche": null,
+      "interpretation": {
+        "lecture": "Pas de fiche disponible",
+        "niveau": "inconnu"
+      },
+      "action": "Observer"
     }
   ],
   "resume": "🔴 DANGER détecté — réduire les expositions"

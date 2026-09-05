@@ -3647,3 +3647,6 @@
 - 2026-09-05T14:06:10.188627Z | alerte | Maintenir l'alerte ambre, exécuter le stop-loss sur CCUSDT pour stopper l'érosion du portefeuille, tout en préservant l'embuscade d'Alpha et l'éclairage de Beta. | conf=85%
 - 2026-09-05T14:15:08.010107Z | alerte | Maintenir l'alerte ambre, exécuter le stop-loss sur CCUSDT pour stopper l'érosion du portefeuille, tout en préservant l'embuscade d'Alpha et l'éclairage de Beta. | conf=85%
 - 2026-09-05T14:27:25.309937Z | alerte | Maintenir l'alerte ambre, exécuter le stop-loss sur CCUSDT pour stopper l'érosion du portefeuille, tout en préservant l'embuscade d'Alpha et l'éclairage de Beta. | conf=85%
+- 2026-09-05T14:36:15.800324Z | alerte | Maintenir l'alerte ambre, exécuter le stop-loss sur CCUSDT pour stopper l'érosion du portefeuille, tout en préservant l'embuscade d'Alpha et l'éclairage de Beta. | conf=85%
+- 2026-09-05T14:42:27.284759Z | alerte | Maintenir l'alerte ambre, exécuter le stop-loss sur CCUSDT pour stopper l'érosion du portefeuille, tout en préservant l'embuscade d'Alpha et l'éclairage de Beta. | conf=85%
+- 2026-09-05T14:45:06.675807Z | alerte | Maintenir l'alerte ambre, exécuter le stop-loss sur CCUSDT pour stopper l'érosion du portefeuille, tout en préservant l'embuscade d'Alpha et l'éclairage de Beta. | conf=85%
