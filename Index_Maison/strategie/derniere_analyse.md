@@ -1,6 +1,6 @@
-# ANALYSE — 2026-09-05T12:23:09.515616Z (alerte)
+# ANALYSE — 2026-09-05T12:26:34.125117Z (alerte)
 
-[UNDERSTAND] La maison ACE777 maintient son alerte ambre face à un PnL combiné de -9,12 $, plombé par la position CCUSDT en infraction profonde, tandis que l'essaim applique rigoureusement son design tactique.
+[UNDERSTAND] La maison ACE777 maintient son alerte ambre face à un PnL combiné de -9,12 $ plombé par CCUSDT en infraction profonde, tandis que l'essaim applique rigoureusement son design tactique.
 [ANALYZE] 
 - Tendance : Marché en "Bitcoin season" (score 42) avec un climat de cupidité modéré (Fear & Greed à 73) et une domination du BTC à 59,01 %.
 - Momentum : Alpha observe une stricte discipline d'embuscade (366 skips), Beta assure les sondages et l'éclairage malgré un volume x3 sur l'ETHUSDT, et Hulk gère ses positions seeds malgré la dégradation de CCUSDT (-12,24 %).
