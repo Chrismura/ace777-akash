@@ -116,6 +116,9 @@ Intégration cockpit (2 lignes dans index.html) · passage au réel · cumul des
 
 | ts | Qui | Action | Où | Quoi |
 |----|-----|--------|-----|------|
+| 2026-09-05T2025Z | Buffy | ★ | SNIFF_GITHUB_OBSIDIAN_20260905 | Sniff GitHub soumis à la famille (hub, Gemini) : pépites pour Obsidian/cockpit/apprentissage. Verdict GO-AVEC-RÉSERVES (90%) — TOP 3 : (1) pre-commit hook check-added-large-files (>50 Mo) pour empêcher la répétition du blocage GitHub de 3 jours, (2) rotation automatique des JSONL à croissance illimitée (journal_intention 29 Mo → trajectoire du monstre 286 Mo), (3) promptfoo CLI locale pour auditer le score_justesse stagnant de Cortana. Rejetés : obsidian-git (2e consommateur = dette), broken-links-cleaner auto (casse l'Index), RAG/agents mémoire (règle OSSATURE). |
+| 2026-09-05T1854Z | journal_soir | ★ | journal | snapshot soir auto |
+| 2026-09-05T1853Z | journal_auto | ★ | CONSOLE+Journal_2026-09-05 | Snapshot auto hygiène soir |
 | 2026-09-04T1853Z | journal_soir | ★ | journal | snapshot soir auto |
 | 2026-09-04T1853Z | journal_auto | ★ | CONSOLE+Journal_2026-09-04 | Snapshot auto hygiène soir |
 | 2026-09-03T1853Z | journal_soir | ★ | journal | snapshot soir auto |

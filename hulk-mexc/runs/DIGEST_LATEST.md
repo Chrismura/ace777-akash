@@ -1,4 +1,6 @@
-# Hulk DIGEST — 2026-09-05T18:29:42Z
+# Hulk DIGEST — 2026-09-05T19:27:33Z
+
+> ⚠️ **SCAN DÉGRADÉ (réseau)** — données partielles, veille hors délai.
 
 - **Piste :** VEILLE (séparée du paper Hulk)
 - Source trading : **MEXC spot**
@@ -12,26 +14,26 @@
 
 | pair | hint | tension | move6% | dd6% | chg24% | vol USDT | spread bps | DefiLlama |
 |------|------|---------|--------|------|--------|----------|------------|-----------|
-| BTCUSDT | ERR | — | — | — | — | — | — | circuit-open api.mexc.com (réseau dégrad |
-| ETHUSDT | ERR | — | — | — | — | — | — | circuit-open api.mexc.com (réseau dégrad |
-| XRPUSDT | ERR | — | — | — | — | — | — | circuit-open api.mexc.com (réseau dégrad |
-| HBARUSDT | ERR | — | — | — | — | — | — | circuit-open api.mexc.com (réseau dégrad |
-| RIZEUSDT | ERR | — | — | — | — | — | — | circuit-open api.mexc.com (réseau dégrad |
-| ZBCNUSDT | ERR | — | — | — | — | — | — | circuit-open api.mexc.com (réseau dégrad |
-| WUSDT | ERR | — | — | — | — | — | — | circuit-open api.mexc.com (réseau dégrad |
-| REDUSDT | ERR | — | — | — | — | — | — | circuit-open api.mexc.com (réseau dégrad |
-| CCUSDT | ERR | — | — | — | — | — | — | circuit-open api.mexc.com (réseau dégrad |
-| PYTHUSDT | ERR | — | — | — | — | — | — | circuit-open api.mexc.com (réseau dégrad |
-| BIOUSDT | ERR | — | — | — | — | — | — | circuit-open api.mexc.com (réseau dégrad |
-| KITEUSDT | ERR | — | — | — | — | — | — | circuit-open api.mexc.com (réseau dégrad |
-| TELUSDT | ERR | — | — | — | — | — | — | circuit-open api.mexc.com (réseau dégrad |
-| CHIPUSDT | ERR | — | — | — | — | — | — | circuit-open api.mexc.com (réseau dégrad |
-| RWAINCUSDT | ERR | — | — | — | — | — | — | circuit-open api.mexc.com (réseau dégrad |
-| EDELUSDT | ERR | — | — | — | — | — | — | circuit-open api.mexc.com (réseau dégrad |
-| QNTUSDT | ERR | — | — | — | — | — | — | circuit-open api.mexc.com (réseau dégrad |
-| FLUIDUSDT | ERR | — | — | — | — | — | — | circuit-open api.mexc.com (réseau dégrad |
-| RWAUSDT | ERR | — | — | — | — | — | — | circuit-open api.mexc.com (réseau dégrad |
-| MNSRYUSDT | ERR | — | — | — | — | — | — | circuit-open api.mexc.com (réseau dégrad |
+| XRPUSDT | IDLE | 0.67 | 1.25 | 0.66 | 0.01 | 22493517.5 | 2.11 | skipped_fast |
+| ETHUSDT | IDLE | 0.63 | 1.24 | 0.11 | 0.01 | 162321146.73 | 0.04 | skipped_fast |
+| BTCUSDT | IDLE | 0.39 | 0.74 | 0.29 | 0.0 | 355717320.04 | 0.07 | skipped_fast |
+| HBARUSDT | ERR | — | — | — | — | — | — | scan_deadline |
+| RIZEUSDT | ERR | — | — | — | — | — | — | scan_deadline |
+| ZBCNUSDT | ERR | — | — | — | — | — | — | scan_deadline |
+| WUSDT | ERR | — | — | — | — | — | — | scan_deadline |
+| REDUSDT | ERR | — | — | — | — | — | — | scan_deadline |
+| CCUSDT | ERR | — | — | — | — | — | — | scan_deadline |
+| PYTHUSDT | ERR | — | — | — | — | — | — | scan_deadline |
+| BIOUSDT | ERR | — | — | — | — | — | — | scan_deadline |
+| KITEUSDT | ERR | — | — | — | — | — | — | scan_deadline |
+| TELUSDT | ERR | — | — | — | — | — | — | scan_deadline |
+| CHIPUSDT | ERR | — | — | — | — | — | — | scan_deadline |
+| RWAINCUSDT | ERR | — | — | — | — | — | — | scan_deadline |
+| EDELUSDT | ERR | — | — | — | — | — | — | scan_deadline |
+| QNTUSDT | ERR | — | — | — | — | — | — | scan_deadline |
+| FLUIDUSDT | ERR | — | — | — | — | — | — | scan_deadline |
+| RWAUSDT | ERR | — | — | — | — | — | — | scan_deadline |
+| MNSRYUSDT | ERR | — | — | — | — | — | — | scan_deadline |
 
 ## Consignes Qwen (manuel — ne pilote pas le paper)
 1. Résumer en 5 lignes : qui spike, qui dump, illiquide (spread/vol).

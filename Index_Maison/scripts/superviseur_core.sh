@@ -593,6 +593,12 @@ PY
     mark_done "rotation"
     core_log "ROTATION: fin (rc=$rc)"
     [ "$rc" -eq 0 ] && echo "OK" || echo "NOK"
+
+    # Rotation des JSONL à croissance illimitée (leçon : croisement_contexte 301 Mo
+    # a bloqué le push GitHub 3 jours). COPYTRUNCATE+gzip, hors git, seuils par fichier.
+    core_log "ROTATION_JSONL: début"
+    python3 "$INDEX/scripts/rotation_jsonl.py" || core_log "ROTATION_JSONL: erreur (rc=$?)"
+    core_log "ROTATION_JSONL: fin"
 }
 
 # ============================================================

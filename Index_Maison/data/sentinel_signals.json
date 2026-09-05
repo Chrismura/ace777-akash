@@ -1,27 +1,6 @@
 {
   "signals": [
     {
-      "metric": "long_short",
-      "zscore": 2.1344825605519855,
-      "value": 1.019,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie onchain non pertinente : le ratio long/short s'applique au marché crypto (z-score modéré de 2.13), tandis que le narratif médiatique traite exclusivement de fonds et stratégies boursières traditionnelles (actions européennes, ETF, UCITS). Aucune corrélation exploitable.\"\n}\n```",
-      "ts": "2026-09-04T18:13:55.307836+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": 2.3399753431635673,
-      "value": 0.02,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Bruit de fond médiatique sans rapport avec la crypto (homonymie avec 'SDI' pour Samsung SDI, fiscalité, et actualités professionnelles). Aucune donnée onchain pertinente pour une analyse baleine.\"\n}\n```",
-      "ts": "2026-09-04T18:19:19.763612+00:00"
-    },
-    {
-      "metric": "whale_usd",
-      "zscore": 3.5897440361901447,
-      "value": 7933760.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (3.59) couplé à une absence totale de couverture médiatique (Google Actualités muet). C'accumulation furtive typique des baleines loin du radar retail.\"\n}\n```",
-      "ts": "2026-09-04T18:34:42.753070+00:00"
-    },
-    {
       "metric": "ipt",
       "zscore": -2.0185059660267504,
       "value": 0.021,
@@ -349,6 +328,27 @@
       "value": 1.08,
       "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Z-score extrême (3.67) sur le ratio long/short couplé à un narratif médiatique traditionnel hors-sujet (fonds actions/ETF) : surchauffe spéculative silencieuse des baleines en position 'long' extrême, signalant un piège à liquidité imminent.\"\n}\n```",
       "ts": "2026-09-05T17:40:06.265978+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 5.341832692163361,
+      "value": 2756438.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le pic de liquidations (z-score 5.34) coïncide avec un mouvement haussier majeur sur certains actifs de privacy (Zcash > 1000$), tandis que les médias grand public confondent l'euphorie crypto avec des liquidations d'entreprises traditionnelles. Divergence classique de capitulation des suiveurs pendant que les baleines nettoient le carnet d'ordres.\"\n}\n```",
+      "ts": "2026-09-05T18:55:23.118744+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": 2.8423523431976006,
+      "value": 1.075,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Le Z-score élevé (2.84) indique un déséquilibre massif vers les positions acheteuses, saturant le marché en levier long. Pendant ce temps, le narratif médiatique traditionnel se focalise sur des ETF et des stratégies macro (fonds long-short européens), totalement déconnecté de la surchauffe spéculative crypto en cours. Situation classique de 'bull trap' où les baleines se positionnent pour une chasse aux liquidités inversée.\"\n}\n```",
+      "ts": "2026-09-05T18:55:26.319884+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 4.349807053331827,
+      "value": 2861152.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de liquidation isolée (z-score 4.35) sur un actif de niche (Zcash repassé à 1000$), alors que le bruit médiatique est saturé de liquidations d'entreprises traditionnelles sans rapport avec la crypto. Divergence totale : les baleines nettoient le carnet d'ordres dans l'indifférence générale des médias grand public.\"\n}\n```",
+      "ts": "2026-09-05T19:25:37.859934+00:00"
     }
   ]
 }
