@@ -1,9 +1,10 @@
 {
-  "ts": "2026-09-05T18:24+00:00",
-  "updated": "2026-09-05T18:24Z",
+  "ts": "2026-09-05T18:29+00:00",
+  "updated": "2026-09-05T18:29Z",
   "etat": "ALERTE",
-  "chaines_ok": "10/15",
+  "chaines_ok": "9/15",
   "anomalies": [
+    "BALEINES coupée : scan file",
     "HULK : sonde runtime, contrat Cortana ou analyses figés",
     "GEOPOL : score figé ou modules en erreur",
     "VIGIE MARCHÉ : radar mort ou journal figé (le trou du 19/08)",
@@ -11,15 +12,13 @@
     "VEILLE DÉGRADATION : Dead Man's Switch ALERTE ou figé — la surveillance elle-même est en panne",
     "SAPI : sdi_latest.json figé — la pépite poussière institutionnelle ne tourne plus"
   ],
-  "degradees": [
-    "BALEINES"
-  ],
+  "degradees": [],
   "chaines": [
     {
       "id": "baleines",
       "nom": "BALEINES",
       "chemin": "scan → pont → live.json.onchain → Ada + Cortana",
-      "ok": true,
+      "ok": false,
       "maillons": [
         {
           "nom": "scan (launchd whales)",
@@ -33,13 +32,13 @@
         },
         {
           "nom": "scan file",
-          "ok": true,
-          "detail": "DÉGRADÉ : âge 29 min (> 15 min)"
+          "ok": false,
+          "detail": "âge 34 min"
         },
         {
           "nom": "mouvements (events)",
           "ok": true,
-          "detail": "dernier événement il y a 29 min"
+          "detail": "dernier événement il y a 34 min"
         },
         {
           "nom": "→ live.json.onchain",
@@ -72,7 +71,7 @@
         {
           "nom": "deriv_corr.json",
           "ok": true,
-          "detail": "âge 34 min"
+          "detail": "âge 39 min"
         }
       ]
     },
@@ -90,7 +89,7 @@
         {
           "nom": "aspiration runtime",
           "ok": false,
-          "detail": "mode fichier · JSON · âge ts 0.1 min · écart mtime/ts 0.4s · 11 paire(s) · btc=INVALIDE · ts=croissant"
+          "detail": "mode fichier · JSON · âge ts 0.1 min · écart mtime/ts 0.6s · 10 paire(s) · btc=INVALIDE · ts=croissant"
         },
         {
           "nom": "corrélation BTC",
@@ -105,7 +104,7 @@
         {
           "nom": "cortana_pilot.json",
           "ok": true,
-          "detail": "âge 759 min"
+          "detail": "âge 764 min"
         },
         {
           "nom": "cortana_analysis.json",
@@ -128,7 +127,7 @@
         {
           "nom": "mission.json → cockpit",
           "ok": true,
-          "detail": "âge 0 min"
+          "detail": "âge 1 min"
         },
         {
           "nom": "hub.json (one-shot)",
@@ -151,7 +150,7 @@
         {
           "nom": "cpfp_detect.json",
           "ok": true,
-          "detail": "âge 3 min"
+          "detail": "âge 8 min"
         },
         {
           "nom": "mode",
@@ -256,7 +255,7 @@
         {
           "nom": "journal_radar.log",
           "ok": false,
-          "detail": "âge 24 min"
+          "detail": "âge 29 min"
         },
         {
           "nom": "relance (superviseur-process)",
@@ -340,7 +339,7 @@
         {
           "nom": "croisement_externe_etat.json",
           "ok": true,
-          "detail": "âge 17 min"
+          "detail": "âge 22 min"
         },
         {
           "nom": "fails prix (> 5 % vs externe)",
@@ -363,7 +362,7 @@
         {
           "nom": "sdi_latest.json (SAPI dedans)",
           "ok": false,
-          "detail": "âge 29 min"
+          "detail": "âge 34 min"
         },
         {
           "nom": "SAPI calculé",
@@ -386,7 +385,7 @@
         {
           "nom": "essaim_etat.json",
           "ok": true,
-          "detail": "âge 25 min"
+          "detail": "âge 30 min"
         },
         {
           "nom": "veille d'essaim active",
