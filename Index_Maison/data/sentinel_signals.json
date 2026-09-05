@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "long_short",
-      "zscore": 2.268992251608495,
-      "value": 0.988,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 75,\n  \"reason\": \"La divergence entre l'anomalie onchain (z-score élevé) et le narratif médiatique axé sur les stratégies long/short suggère une accumulation silencieuse par les baleines. Les médias restent neutres/théoriques, tandis que les données brutes indiquent un déséquilibre acheteur significatif.\"\n}\n```",
-      "ts": "2026-09-04T14:59:22.047177+00:00"
-    },
-    {
-      "metric": "liquidations",
-      "zscore": -2.1399749927034972,
-      "value": 0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Divergence totale : les médias locaux crient à la faillite (bruit macro/tradFi), tandis que l'on-chain montre un assèchement absolu des liquidations crypto (z-score -2.14). Les baleines n'ont plus de pression vendeuse forcée, accumulant en silence loin du bruit médiatique alarmiste.\"\n}\n```",
-      "ts": "2026-09-04T15:23:13.993554+00:00"
-    },
-    {
       "metric": "taker_ratio",
       "zscore": -2.599884091985244,
       "value": 0.5,
@@ -349,6 +335,20 @@
       "value": 1.055,
       "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Le Z-score élevé (2.49) indique une surconcentration agressive des positions longues par les traders particuliers et les baleines, tandis que les médias grand public banalisent les stratégies 'long-short' sans lien avec l'activité on-chain réelle. Cette euphorie excessive est un signal classique de retournement baissier imminent (piège à acheteurs).\"\n}\n```",
       "ts": "2026-09-05T14:44:18.536382+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": -2.3503804091276166,
+      "value": 5102089589.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Données non pertinentes. Le volume on-chain analysé fait référence à du bruit ou à un contexte totalement étranger aux actualités fournies (qui concernent l'industrie, la science et la musique grand public). Aucune baleine crypto détectée.\"\n}\n```",
+      "ts": "2026-09-05T14:49:20.774374+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": -2.3730112391145872,
+      "value": 4495191215.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Bruit de fond macroéconomique et culturel sans aucun rapport avec les marchés crypto ou une activité de baleine.\"\n}\n```",
+      "ts": "2026-09-05T15:19:26.198483+00:00"
     }
   ]
 }

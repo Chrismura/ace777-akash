@@ -1,20 +1,20 @@
 {
-  "timestamp": 1788619500,
-  "date": "2026-09-05T14:45:00.424736+00:00",
-  "n_analyses": 2,
+  "timestamp": 1788621901,
+  "date": "2026-09-05T15:25:01.496654+00:00",
+  "n_analyses": 1,
   "analyses": [
     {
       "signal": {
         "metric": "volume",
-        "zscore": -2.3055464462038846,
-        "value": 5735011503.0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (z-score -2.31) détectée sur des données de volume sans rapport avec la crypto (bruit médiatique sur l'aéronautique, la science et la musique). Aucune activité de baleine pertinente identifiée.\"\n}\n```",
-        "ts": 1788617951.540922
+        "zscore": -2.3730112391145872,
+        "value": 4495191215.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Bruit de fond macroéconomique et culturel sans aucun rapport avec les marchés crypto ou une activité de baleine.\"\n}\n```",
+        "ts": 1788621566.198483
       },
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": 0.15,
+          "value": 0.05,
           "seuil": 1,
           "depasse": false
         },
@@ -24,12 +24,12 @@
           "depasse": false
         },
         "funding": {
-          "value": 2e-05,
+          "value": 1.9e-05,
           "seuil": 0.001,
           "depasse": false
         },
         "whales": {
-          "value": 1,
+          "value": 0,
           "seuil": 5,
           "depasse": false
         }
@@ -42,21 +42,6 @@
       },
       "action": "Réduire taille de 50%, sortir des positions fragiles",
       "niveau": "dangereux"
-    },
-    {
-      "signal": {
-        "metric": "long_short",
-        "zscore": 2.487220550041955,
-        "value": 1.055,
-        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Le Z-score élevé (2.49) indique une surconcentration agressive des positions longues par les traders particuliers et les baleines, tandis que les médias grand public banalisent les stratégies 'long-short' sans lien avec l'activité on-chain réelle. Cette euphorie excessive est un signal classique de retournement baissier imminent (piège à acheteurs).\"\n}\n```",
-        "ts": 1788619458.536382
-      },
-      "fiche": null,
-      "interpretation": {
-        "lecture": "Pas de fiche disponible",
-        "niveau": "inconnu"
-      },
-      "action": "Observer"
     }
   ],
   "resume": "🔴 DANGER détecté — réduire les expositions"
