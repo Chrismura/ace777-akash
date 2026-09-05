@@ -1,41 +1,6 @@
 {
   "signals": [
     {
-      "metric": "sdi",
-      "zscore": 2.7075441884213736,
-      "value": 0.02,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 2.71) non reflétée dans les médias. Les titres couvrent des sujets sans rapport avec la finance (coentreprises, rappels produits, équipements broadcast), suggérant une activité silencieuse des baleines.\"\n}\n```",
-      "ts": "2026-09-04T15:41:29.181323+00:00"
-    },
-    {
-      "metric": "long_short",
-      "zscore": 2.740458750675007,
-      "value": 1.006,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie onchain non pertinente : le ratio long/short et les titres médiatiques concernent la finance traditionnelle (actions européennes, ETF, stratégies equity) et non le marché crypto.\"\n}\n```",
-      "ts": "2026-09-04T16:07:37.194958+00:00"
-    },
-    {
-      "metric": "long_short",
-      "zscore": 2.9004942069339434,
-      "value": 1.027,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le z-score élevé (2.90) indique une anomalie significative en faveur des positions long, tandis que les médias se concentrent sur des stratégies long/short équilibrées ou éducatives, suggérant une accumulation discrète par les baleines.\"\n}\n```",
-      "ts": "2026-09-04T16:38:04.116146+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": 2.9342678594641347,
-      "value": 0.02,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Anomalie sémantique et bruit médiatique : le ticker 'SDI' dans les actualités fait référence à des entreprises traditionnelles (Samsung SDI, syndicats, matériel médical) et non à un actif crypto. Aucune divergence onchain significative avec les mouvements de baleines.\"\n}\n```",
-      "ts": "2026-09-04T17:10:38.822180+00:00"
-    },
-    {
-      "metric": "long_short",
-      "zscore": 2.748985097092778,
-      "value": 1.034,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.75) sur le ratio long/short indiquant un positionnement acheteur excessif de la foule. Total déconnexion avec les médias traditionnels qui parlent de finance classique/ETF, signalant un piège à liquidité imminent (excès d'optimisme retail).\"\n}\n```",
-      "ts": "2026-09-04T17:10:59.082004+00:00"
-    },
-    {
       "metric": "long_short",
       "zscore": 2.5195033761187755,
       "value": 1.034,
@@ -349,6 +314,41 @@
       "value": 4087526778.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique sans rapport avec la crypto (actualités générales et divertissement) couplé à un volume on-chain anormalement bas (z-score -2.24). Aucune baleine détectée, simple anomalie statistique non pertinente.\"\n}\n```",
       "ts": "2026-09-05T16:19:40.485546+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": -2.1503721056992275,
+      "value": 3907388966.0,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 75,\n  \"reason\": \"Divergence significative entre l'alerte onchain (volume anormalement bas, z-score -2.15) et les titres médiatiques banals (contrats militaires, culture, pétrole). Absence totale de sujets crypto/financiers dans l'actualité malgré le mouvement détecté. Les baleines pourraient profiter du calme médiatique pour repositionner leurs actifs.\"\n}\n```",
+      "ts": "2026-09-05T16:49:49.907413+00:00"
+    },
+    {
+      "metric": "price_1h",
+      "zscore": 3.130910714515488,
+      "value": 0.32962001792253837,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (+3.13) détectant un mouvement de prix atypique et isolé, sans aucune couverture médiatique correspondante sur Google Actualités. C'est la signature classique d'accumulation silencieuse par des baleines avant que le narratif public ne se forme.\"\n}\n```",
+      "ts": "2026-09-05T16:54:51.872275+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 5.931548797527935,
+      "value": 1697234.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (5.93) sur les liquidations crypto ignoré par les médias, dont l'actualité est polluée par des liquidations judiciaires traditionnelles hors-sujet. Divergence totale : accumulation ou purge silencieuse des positions par les baleines pendant que la presse mainstream regarde ailleurs.\"\n}\n```",
+      "ts": "2026-09-05T16:59:54.425079+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": 4.430476366132754,
+      "value": 1.08,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 92,\n  \"reason\": \"Z-score extrême de 4.43 sur le ratio long/short indiquant un positionnement acheteur excessif de la foule. Les médias grand public banalisent les stratégies long/short sans voir la surchauffe spéculative imminente. Divergence classique de piégeage de liquidité par les baleines.\"\n}\n```",
+      "ts": "2026-09-05T17:09:57.333971+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": -2.010490522338407,
+      "value": 4000368708.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit médiatique sans rapport avec la crypto (actualités générales sur l'urine, le pétrole et la musique). Le z-score négatif indique un volume on-chain anormalement bas, mais les titres n'offrent aucun contexte pertinent pour interpréter une accumulation ou une distribution de baleines.\"\n}\n```",
+      "ts": "2026-09-05T17:20:00.486186+00:00"
     }
   ]
 }
