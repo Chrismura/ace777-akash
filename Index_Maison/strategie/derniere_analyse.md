@@ -1,10 +1,10 @@
-# ANALYSE — 2026-09-05T17:06:30.928187Z (alerte)
+# ANALYSE — 2026-09-05T17:28:58.065749Z (alerte)
 
-[UNDERSTAND] La maison ACE777 maintient son alerte ambre face à un PnL combiné négatif (-9,12 $), exigeant l'application immédiate du stop-loss sur CCUSDT tout en capitalisant sur l'éclairage de Beta et la patience d'Alpha.
+[UNDERSTAND] La maison ACE777 maintient son alerte ambre face à un PnL combiné négatif (-9,12 $), exigeant l'application rigoureuse du stop-loss sur CCUSDT tout en capitalisant sur l'éclairage de Beta et la patience d'Alpha.
 [ANALYZE]
-- Tendance : Bitcoin season (score 43) avec un Fear & Greed à 73 (Greed) et une domination BTC à 58,94 %.
-- Momentum : Sursaut de volume x3 sur ETHUSDT à 2480,00 $, Alpha cumule 366 skips dans le respect de sa discipline d'embuscade, Beta maintient ses sondages tactiques (9 sondes), et Hulk gère ses positions seeds malgré la position critique de CCUSDT en infraction profonde (-10,89 %).
-- Risque : L'exposition prolongée de CCUSDT en zone d'infraction pèse sur le portefeuille seeds de Hulk, couplée aux tensions géopolitiques et macroéconomiques exogènes (nouvelle news Fed/Trump).
+- Tendance : Bitcoin season (score 43) avec un Fear & Greed à 73 (Greed) et une domination BTC à 58,91 %.
+- Momentum : Sursaut de volume sur BTCUSDT à 79987,65 $, Alpha cumule 366 skips dans le respect de sa discipline d'embuscade, Beta maintient ses sondages tactiques (9 sondes), et Hulk gère ses positions seeds malgré la position critique de CCUSDT en infraction profonde (-11,17 %).
+- Risque : L'exposition prolongée de CCUSDT en zone d'infraction pèse sur le portefeuille seeds de Hulk, couplée aux tensions exogènes et aux flux ETF BTC négatifs (-16,81 M$).
 - Contexte : PnL combiné à -9,12 $, application rigoureuse des garde-fous de l'essaim et maintien de l'alerte ambre.
 [STRATEGIZE]
 1. Appliquer sans délai le stop-loss sur CCUSDT pour stopper l'érosion du portefeuille seeds de Hulk.
