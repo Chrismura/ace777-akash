@@ -1,15 +1,15 @@
 {
-  "timestamp": 1788636307,
-  "date": "2026-09-05T19:25:07.220155+00:00",
+  "timestamp": 1788639913,
+  "date": "2026-09-05T20:25:13.908701+00:00",
   "n_analyses": 2,
   "analyses": [
     {
       "signal": {
         "metric": "liquidations",
-        "zscore": 5.341832692163361,
-        "value": 2756438.0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le pic de liquidations (z-score 5.34) coïncide avec un mouvement haussier majeur sur certains actifs de privacy (Zcash > 1000$), tandis que les médias grand public confondent l'euphorie crypto avec des liquidations d'entreprises traditionnelles. Divergence classique de capitulation des suiveurs pendant que les baleines nettoient le carnet d'ordres.\"\n}\n```",
-        "ts": 1788634523.118744
+        "zscore": 3.6257608557427643,
+        "value": 2865378.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de liquidations onchain (z-score 3.63) sur fond de percée historique de Zcash (>1000$). Les médias grand public noient le signal crypto dans des liquidations judiciaires traditionnelles non pertinentes, masquant une accumulation agressive des baleines.\"\n}\n```",
+        "ts": 1788638169.513741
       },
       "fiche": null,
       "interpretation": {
@@ -20,11 +20,11 @@
     },
     {
       "signal": {
-        "metric": "long_short",
-        "zscore": 2.8423523431976006,
-        "value": 1.075,
-        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Le Z-score élevé (2.84) indique un déséquilibre massif vers les positions acheteuses, saturant le marché en levier long. Pendant ce temps, le narratif médiatique traditionnel se focalise sur des ETF et des stratégies macro (fonds long-short européens), totalement déconnecté de la surchauffe spéculative crypto en cours. Situation classique de 'bull trap' où les baleines se positionnent pour une chasse aux liquidités inversée.\"\n}\n```",
-        "ts": 1788634526.319884
+        "metric": "taker_ratio",
+        "zscore": -2.120916174008357,
+        "value": 0.49,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio à 0.49 (z-score -2.12) indique une domination massive des acheteurs passifs (limites) face aux vendeurs agressifs, couplé à un silence médiatique total. C'est la signature classique de l'accumulation discrète par les baleines loin du bruit de fond de détail.\"\n}\n```",
+        "ts": 1788639072.783949
       },
       "fiche": null,
       "interpretation": {
