@@ -2,20 +2,6 @@
   "signals": [
     {
       "metric": "long_short",
-      "zscore": 2.5195033761187755,
-      "value": 1.034,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Le z-score élevé (2.52) du ratio long/short montre un positionnement excessivement haussier des traders particuliers, totalement déconnecté des actualités traditionnelles (centrées sur la finance classique et l'éducation boursière). Ce déséquilibre onchain signale un risque imminent de 'long squeeze' orchestré par les baleines.\"\n}\n```",
-      "ts": "2026-09-04T17:41:58.579757+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": 2.778180841020956,
-      "value": 0.02,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Bruit médiatique non pertinent : les articles font référence à des homonymes (Syndicat des Indépendants, Samsung SDI, SDI Limited) et non à un actif crypto. Aucune baleine détectée.\"\n}\n```",
-      "ts": "2026-09-04T17:48:31.471220+00:00"
-    },
-    {
-      "metric": "long_short",
       "zscore": 2.1344825605519855,
       "value": 1.019,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie onchain non pertinente : le ratio long/short s'applique au marché crypto (z-score modéré de 2.13), tandis que le narratif médiatique traite exclusivement de fonds et stratégies boursières traditionnelles (actions européennes, ETF, UCITS). Aucune corrélation exploitable.\"\n}\n```",
@@ -349,6 +335,20 @@
       "value": 4000368708.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit médiatique sans rapport avec la crypto (actualités générales sur l'urine, le pétrole et la musique). Le z-score négatif indique un volume on-chain anormalement bas, mais les titres n'offrent aucun contexte pertinent pour interpréter une accumulation ou une distribution de baleines.\"\n}\n```",
       "ts": "2026-09-05T17:20:00.486186+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 6.423557100292387,
+      "value": 1938067.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrême (6.42) sur les liquidations crypto ignoré par les médias généralistes focalisés sur des faits divers et des liquidations d'entreprises traditionnelles. Divergence classique d'accumulation de baleines.\"\n}\n```",
+      "ts": "2026-09-05T17:30:03.595767+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": 3.6730743950295617,
+      "value": 1.08,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Z-score extrême (3.67) sur le ratio long/short couplé à un narratif médiatique traditionnel hors-sujet (fonds actions/ETF) : surchauffe spéculative silencieuse des baleines en position 'long' extrême, signalant un piège à liquidité imminent.\"\n}\n```",
+      "ts": "2026-09-05T17:40:06.265978+00:00"
     }
   ]
 }

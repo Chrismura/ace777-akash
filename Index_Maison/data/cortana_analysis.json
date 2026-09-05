@@ -1,38 +1,8 @@
 {
-  "timestamp": 1788629104,
-  "date": "2026-09-05T17:25:04.361017+00:00",
+  "timestamp": 1788630304,
+  "date": "2026-09-05T17:45:04.803177+00:00",
   "n_analyses": 3,
   "analyses": [
-    {
-      "signal": {
-        "metric": "liquidations",
-        "zscore": 5.931548797527935,
-        "value": 1697234.0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (5.93) sur les liquidations crypto ignoré par les médias, dont l'actualité est polluée par des liquidations judiciaires traditionnelles hors-sujet. Divergence totale : accumulation ou purge silencieuse des positions par les baleines pendant que la presse mainstream regarde ailleurs.\"\n}\n```",
-        "ts": 1788627594.425079
-      },
-      "fiche": null,
-      "interpretation": {
-        "lecture": "Pas de fiche disponible",
-        "niveau": "inconnu"
-      },
-      "action": "Observer"
-    },
-    {
-      "signal": {
-        "metric": "long_short",
-        "zscore": 4.430476366132754,
-        "value": 1.08,
-        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 92,\n  \"reason\": \"Z-score extrême de 4.43 sur le ratio long/short indiquant un positionnement acheteur excessif de la foule. Les médias grand public banalisent les stratégies long/short sans voir la surchauffe spéculative imminente. Divergence classique de piégeage de liquidité par les baleines.\"\n}\n```",
-        "ts": 1788628197.333971
-      },
-      "fiche": null,
-      "interpretation": {
-        "lecture": "Pas de fiche disponible",
-        "niveau": "inconnu"
-      },
-      "action": "Observer"
-    },
     {
       "signal": {
         "metric": "volume",
@@ -44,7 +14,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": 0.02,
+          "value": -0.02,
           "seuil": 1,
           "depasse": false
         },
@@ -59,7 +29,7 @@
           "depasse": false
         },
         "whales": {
-          "value": 1,
+          "value": 2,
           "seuil": 5,
           "depasse": false
         }
@@ -72,6 +42,36 @@
       },
       "action": "Réduire taille de 50%, sortir des positions fragiles",
       "niveau": "dangereux"
+    },
+    {
+      "signal": {
+        "metric": "liquidations",
+        "zscore": 6.423557100292387,
+        "value": 1938067.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrême (6.42) sur les liquidations crypto ignoré par les médias généralistes focalisés sur des faits divers et des liquidations d'entreprises traditionnelles. Divergence classique d'accumulation de baleines.\"\n}\n```",
+        "ts": 1788629403.595767
+      },
+      "fiche": null,
+      "interpretation": {
+        "lecture": "Pas de fiche disponible",
+        "niveau": "inconnu"
+      },
+      "action": "Observer"
+    },
+    {
+      "signal": {
+        "metric": "long_short",
+        "zscore": 3.6730743950295617,
+        "value": 1.08,
+        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Z-score extrême (3.67) sur le ratio long/short couplé à un narratif médiatique traditionnel hors-sujet (fonds actions/ETF) : surchauffe spéculative silencieuse des baleines en position 'long' extrême, signalant un piège à liquidité imminent.\"\n}\n```",
+        "ts": 1788630006.265978
+      },
+      "fiche": null,
+      "interpretation": {
+        "lecture": "Pas de fiche disponible",
+        "niveau": "inconnu"
+      },
+      "action": "Observer"
     }
   ],
   "resume": "🔴 DANGER détecté — réduire les expositions"
