@@ -1,27 +1,6 @@
 {
   "signals": [
     {
-      "metric": "whale_usd",
-      "zscore": 3.2893945036952403,
-      "value": 7128990.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 3.29, volume ~7.13M USD) dans un silence médiatique absolu. Les baleines accumulent discrètement hors du radar public, préparant un mouvement de marché inattendu.\"\n}\n```",
-      "ts": "2026-09-04T05:50:39.127588+00:00"
-    },
-    {
-      "metric": "price_1h",
-      "zscore": 5.457761362914913,
-      "value": 1.587239054984102,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 5.46) non reflétée dans les médias, suggérant une accumulation discrète par les baleines.\"\n}\n```",
-      "ts": "2026-09-04T12:32:04.364811+00:00"
-    },
-    {
-      "metric": "liquidations",
-      "zscore": 3.308866701916641,
-      "value": 6686994.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Divergence significative entre l'alerte onchain (z-score 3.31) et le narratif médiatique focalisé sur des liquidations locales. Les baleines pourraient orchestrer des mouvements masqués par des faits anecdotiques.\"\n}\n```",
-      "ts": "2026-09-04T12:32:15.595529+00:00"
-    },
-    {
       "metric": "long_short",
       "zscore": 2.0208830576552295,
       "value": 0.988,
@@ -349,6 +328,27 @@
       "value": 1.193,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit de fond absolu. L'indicateur 'IPT' capte ici le tournoi académique de physique (IPT) et des actualités religieuses ou agricoles, sans aucun rapport avec un token crypto ou une baleine.\"\n}\n```",
       "ts": "2026-09-05T13:28:54.085461+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": -2.2579600842548384,
+      "value": 6409498315.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score -2.26) sur des données sans rapport avec la crypto (bruit médiatique sur la musique, le pétrole et les déchets). Aucune baleine détectée.\"\n}\n```",
+      "ts": "2026-09-05T13:49:01.083532+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": 2.102605592477684,
+      "value": 1.055,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.10) sur le ratio long/short couplé à un narratif médiatique axé sur l'optimisme des fonds long/short traditionnels. Divergence classique : surchauffe des positions acheteuses par les smart money avant un possible flush de liquidité.\"\n}\n```",
+      "ts": "2026-09-05T14:14:08.368933+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": -2.3055464462038846,
+      "value": 5735011503.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (z-score -2.31) détectée sur des données de volume sans rapport avec la crypto (bruit médiatique sur l'aéronautique, la science et la musique). Aucune activité de baleine pertinente identifiée.\"\n}\n```",
+      "ts": "2026-09-05T14:19:11.540922+00:00"
     }
   ]
 }

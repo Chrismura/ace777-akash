@@ -131,6 +131,10 @@ def archive(path: Path, result: dict):
 PROTECTED_STEMS = {
     "THERMO_DERNIER", "SUPERVISEUR_LOG", "CHECKUP_DERNIER", "ETAT_SYSTEME",
     "CHECKUP_20260730T1511Z", "HEARTBEAT", "JOURNAL_COCKPIT", "POINT_REPRISE_DERNIER",
+    # 05/09 (audit graph view) : SOUS_L_OEIL est régénéré en continu par
+    # pulse_sous_loeil.sh — l'absenter d'ici le faisait archiver (et re-copier
+    # par _sync_now) à CHAQUE passe → spam _traites + points fantômes.
+    "SOUS_L_OEIL",
 }
 
 

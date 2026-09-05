@@ -1,20 +1,35 @@
 {
-  "timestamp": 1788614698,
-  "date": "2026-09-05T13:24:58.439019+00:00",
-  "n_analyses": 1,
+  "timestamp": 1788618299,
+  "date": "2026-09-05T14:24:59.938167+00:00",
+  "n_analyses": 2,
   "analyses": [
     {
       "signal": {
+        "metric": "long_short",
+        "zscore": 2.102605592477684,
+        "value": 1.055,
+        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.10) sur le ratio long/short couplé à un narratif médiatique axé sur l'optimisme des fonds long/short traditionnels. Divergence classique : surchauffe des positions acheteuses par les smart money avant un possible flush de liquidité.\"\n}\n```",
+        "ts": 1788617648.368933
+      },
+      "fiche": null,
+      "interpretation": {
+        "lecture": "Pas de fiche disponible",
+        "niveau": "inconnu"
+      },
+      "action": "Observer"
+    },
+    {
+      "signal": {
         "metric": "volume",
-        "zscore": -2.201727563234475,
-        "value": 7094526805.0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique sur volume global sans rapport avec la crypto (bruit médiatique sur la musique, le pétrole et les déchets).\"\n}\n```",
-        "ts": 1788614328.111296
+        "zscore": -2.3055464462038846,
+        "value": 5735011503.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (z-score -2.31) détectée sur des données de volume sans rapport avec la crypto (bruit médiatique sur l'aéronautique, la science et la musique). Aucune activité de baleine pertinente identifiée.\"\n}\n```",
+        "ts": 1788617951.540922
       },
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.01,
+          "value": 0.08,
           "seuil": 1,
           "depasse": false
         },
@@ -24,12 +39,12 @@
           "depasse": false
         },
         "funding": {
-          "value": 2.1e-05,
+          "value": 1.8e-05,
           "seuil": 0.001,
           "depasse": false
         },
         "whales": {
-          "value": 2,
+          "value": 0,
           "seuil": 5,
           "depasse": false
         }
