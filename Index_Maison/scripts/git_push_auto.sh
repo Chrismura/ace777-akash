@@ -19,7 +19,19 @@ if [ -f "$REPO_DIR/Index_Maison/OUTBOX_OBSIDIAN/_sync_now.sh" ]; then
 fi
 
 # 2) Ne committer que les fichiers DÉJÀ SUIVIS (modifiés/supprimés) + les canoniques
-git add -u 2>/dev/null
+# Garde-fou 05/09 (incident index.lock orphelin du 03/09 : 2,5 jours de push mort
+# en silence, le 2>/dev/null avalait le rc=128 et le script disait « aucun changement ») :
+# si un index.lock traîne, on vérifie qu'aucun git ne tourne, puis on le retire.
+if [ -f "$REPO_DIR/.git/index.lock" ]; then
+  if ! pgrep -f "git (add|commit|push|rebase|merge)" >/dev/null 2>&1; then
+    rm -f "$REPO_DIR/.git/index.lock"
+    echo "[$TS] GARDE-FOU : index.lock orphelin retiré" >> "$LOG_FILE"
+  else
+    echo "[$TS] INFO : git actif détecté, passage sans commit" >> "$LOG_FILE"
+    exit 0
+  fi
+fi
+git add -u 2>/dev/null || { echo "[$TS] ERREUR : git add a échoué (rc=$?)" >> "$LOG_FILE"; }
 # canoniques OUTBOX (s'ils existent, suivis ou non)
 for f in \
   Index_Maison/OUTBOX_OBSIDIAN/MEMOIRE_COLLAB.md \
@@ -33,13 +45,16 @@ done
 
 # 3) Commit + push
 if git diff --cached --quiet 2>/dev/null; then
-  MSG="[$TS] INFO : aucun changement à pousser"
+  MSG="${MSG:-[$TS] INFO : aucun changement à pousser}"
 else
-  git commit -m "auto-sync: pont OUTBOX + états [${TS}]" >> "$LOG_FILE" 2>&1
-  if git push origin main >> "$LOG_FILE" 2>&1; then
-    MSG="[$TS] SUCCÈS : push effectué (ace777-akash)"
+  if git commit -m "auto-sync: pont OUTBOX + états [${TS}]" >> "$LOG_FILE" 2>&1; then
+    if git push origin main >> "$LOG_FILE" 2>&1; then
+      MSG="[$TS] SUCCÈS : push effectué (ace777-akash)"
+    else
+      MSG="[$TS] ERREUR : push échoué (réseau/auth ?) — commit local conservé"
+    fi
   else
-    MSG="[$TS] ERREUR : push échoué (réseau/auth ?)"
+    MSG="[$TS] ERREUR : commit échoué (voir $LOG_FILE)"
   fi
 fi
 
