@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-06T12:31:25.546575+00:00",
+  "generated_at": "2026-09-06T12:31:55.818634+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -256,10 +256,18 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 158,
-    "remaining": 466
+    "consumed": 159,
+    "remaining": 465
   },
   "queue": [
+    {
+      "ts": "2026-09-06T12:31:29.239354+00:00",
+      "task": "supervise.decision",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 1.23
+    },
     {
       "ts": "2026-09-06T12:27:54.819274+00:00",
       "task": "analyste.strategie",
@@ -371,17 +379,21 @@
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
       "duration_s": 4.8
-    },
-    {
-      "ts": "2026-09-06T11:20:49.784783+00:00",
-      "task": "analyste.strategie",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 5.74
     }
   ],
   "events": [
+    {
+      "ts": "2026-09-06T12:31:29.239025+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
+    {
+      "ts": "2026-09-06T12:31:28.012370+00:00",
+      "kind": "blacklist",
+      "title": "Fin de pause Google Gemini",
+      "detail": "re-essai automatique"
+    },
     {
       "ts": "2026-09-06T12:27:54.819142+00:00",
       "kind": "message",
@@ -429,18 +441,6 @@
       "kind": "timeout",
       "title": "Patience Groq (LLM ultra-rapide, gratuit) (HTTP 400)",
       "detail": "HTTP Error 400: Bad Request"
-    },
-    {
-      "ts": "2026-09-06T12:26:51.593149+00:00",
-      "kind": "blacklist",
-      "title": "Fin de pause Groq (LLM ultra-rapide, gratuit)",
-      "detail": "re-essai automatique"
-    },
-    {
-      "ts": "2026-09-06T12:26:51.589746+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis Google Gemini",
-      "detail": "HTTP Error 429: Too Many Requests"
     }
   ],
   "tasks_quotas": {
