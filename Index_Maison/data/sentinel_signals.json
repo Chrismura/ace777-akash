@@ -1,27 +1,6 @@
 {
   "signals": [
     {
-      "metric": "whale_usd",
-      "zscore": 2.6131928440603502,
-      "value": 4214542.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 75,\n  \"reason\": \"Z-score élevé (2.61) indiquant une accumulation discrète de baleines (4.2M USD) totalement ignorée par les médias (silence radio sur Google Actualités), typique d'une phase de pré-accumulation avant un mouvement haussier.\"\n}\n```",
-      "ts": "2026-09-05T08:01:51.742043+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": -2.0106308937373427,
-      "value": 8343230056.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit médiatique sans rapport avec la crypto (musique, pétrole, déchets, champagne) et volume on-chain statistiquement faible (z-score -2.01). Aucune activité de baleine détectée.\"\n}\n```",
-      "ts": "2026-09-05T12:48:29.007881+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": -2.201727563234475,
-      "value": 7094526805.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique sur volume global sans rapport avec la crypto (bruit médiatique sur la musique, le pétrole et les déchets).\"\n}\n```",
-      "ts": "2026-09-05T13:18:48.111296+00:00"
-    },
-    {
       "metric": "ipt",
       "zscore": 2.2202421469612887,
       "value": 1.193,
@@ -349,6 +328,27 @@
       "value": 7678693.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (3.03) sur les liquidations combiné à des flux nets positifs et un achat massif institutionnel (Strive 1,800 BTC), alors que les médias généralistes diluent l'attention avec des bruits de liquidations judiciaires locales sans rapport. Classique 'shakeout' de baleines avant une reprise.\"\n}\n```",
       "ts": "2026-09-06T09:25:18.978136+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.5447333152757468,
+      "value": 1.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique (ipt = 1.0) due à un bruit lexical sans rapport avec la crypto (Tournoi International des Physiciens / Institut Protestant de Théologie). Aucune baleine détectée.\"\n}\n```",
+      "ts": "2026-09-06T09:50:32.663118+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 2.7040118243646085,
+      "value": 7600750.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Bruit médiatique parasité par des faits divers locaux de liquidations judiciaires d'entreprises traditionnelles. Le z-score on-chain (2.70) indique une secousse de liquidations crypto mineure, mais noyée dans le bruit sémantique.\"\n}\n```",
+      "ts": "2026-09-06T09:55:35.710608+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 2.470484594281627,
+      "value": 7595398.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Forte divergence : les médias grand public se focalisent sur des bruits de liquidations judiciaires locales sans rapport, tandis que l'anomalie on-chain (z-score 2.47, $7.6M de liquidations ciblées) coïncide avec une absorption institutionnelle massive ($504M de liquidations globales et 1,800 BTC accumulés par Strive). Les baleines nettoient le Leverage avant une impulsion haussière.\"\n}\n```",
+      "ts": "2026-09-06T10:25:45.807765+00:00"
     }
   ]
 }
