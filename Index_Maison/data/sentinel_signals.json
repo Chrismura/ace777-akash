@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "price_1h",
-      "zscore": 3.130910714515488,
-      "value": 0.32962001792253837,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (+3.13) détectant un mouvement de prix atypique et isolé, sans aucune couverture médiatique correspondante sur Google Actualités. C'est la signature classique d'accumulation silencieuse par des baleines avant que le narratif public ne se forme.\"\n}\n```",
-      "ts": "2026-09-05T16:54:51.872275+00:00"
-    },
-    {
       "metric": "liquidations",
       "zscore": 5.931548797527935,
       "value": 1697234.0,
@@ -349,6 +342,13 @@
       "value": 4462215.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Activité anormale des baleines (Z-score 3.60, ~4.46M USD) totalement ignorée par les médias traditionnels (silence médiatique). Cette divergence classique indique une accumulation ou un positionnement discret avant une rupture de prix.\"\n}\n```",
       "ts": "2026-09-06T19:04:17.266630+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.1082185046558797,
+      "value": 0.882,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (z-score 2.11) liée à un bruit médiatique sur l'acronyme 'IPT' (tournois de physique et institutions), totalement déconnecté de la crypto. Aucune activité de baleine.\"\n}\n```",
+      "ts": "2026-09-06T20:34:47.088399+00:00"
     }
   ]
 }
