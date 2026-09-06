@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "long_short",
-      "zscore": 4.430476366132754,
-      "value": 1.08,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 92,\n  \"reason\": \"Z-score extrême de 4.43 sur le ratio long/short indiquant un positionnement acheteur excessif de la foule. Les médias grand public banalisent les stratégies long/short sans voir la surchauffe spéculative imminente. Divergence classique de piégeage de liquidité par les baleines.\"\n}\n```",
-      "ts": "2026-09-05T17:09:57.333971+00:00"
-    },
-    {
       "metric": "volume",
       "zscore": -2.010490522338407,
       "value": 4000368708.0,
@@ -349,6 +342,13 @@
       "value": 0.312520131367533,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de prix significative (z-score 2.98) en l'absence totale de couverture médiatique (silence radio sur Google Actualités), caractéristique classique d'accumulation furtive par des baleines avant un mouvement de marché.\"\n}\n```",
       "ts": "2026-09-06T22:10:01.395401+00:00"
+    },
+    {
+      "metric": "price_1h",
+      "zscore": 4.084872657834503,
+      "value": 0.41681861812317145,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de prix majeure (Z-score 4.08) totalement absente des flux médiatiques de Google Actualités. C'est la signature classique d'une accumulation furtive de baleines avant que le bruit public ne se forme.\"\n}\n```",
+      "ts": "2026-09-06T23:40:33.592783+00:00"
     }
   ]
 }
