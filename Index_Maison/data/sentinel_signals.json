@@ -2,20 +2,6 @@
   "signals": [
     {
       "metric": "volume",
-      "zscore": -2.3503804091276166,
-      "value": 5102089589.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Données non pertinentes. Le volume on-chain analysé fait référence à du bruit ou à un contexte totalement étranger aux actualités fournies (qui concernent l'industrie, la science et la musique grand public). Aucune baleine crypto détectée.\"\n}\n```",
-      "ts": "2026-09-05T14:49:20.774374+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": -2.3730112391145872,
-      "value": 4495191215.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Bruit de fond macroéconomique et culturel sans aucun rapport avec les marchés crypto ou une activité de baleine.\"\n}\n```",
-      "ts": "2026-09-05T15:19:26.198483+00:00"
-    },
-    {
-      "metric": "volume",
       "zscore": -2.358861636961641,
       "value": 4189390711.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Bruit statistique non pertinent. Les titres médiatiques fournis concernent l'actualité générale, militaire, scientifique et musicale, sans aucun rapport avec la blockchain ou le marché des cryptomonnaies.\"\n}\n```",
@@ -349,6 +335,20 @@
       "value": 0.96,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.63) sur l'indice 'ipt' totalement non corrélée à la crypto. Les titres médiatiques font référence à un tournoi de physique (X), à de la recherche en biotechnologie (INSA) et à de l'actualité religieuse/protestante. Bruit de fond absolu, aucune baleine détectée.\"\n}\n```",
       "ts": "2026-09-06T17:08:06.087287+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 2.1318784463667684,
+      "value": 0.012,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Anomalie de données non pertinente : le signal 'SDI' captassé correspond à des homonymes médiatiques (fiscalité TPE, matériel vidéo Blackmagic, Samsung SDI) sans lien avec l'activité on-chain des baleines crypto.\"\n}\n```",
+      "ts": "2026-09-06T17:53:58.607712+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.3117288064077193,
+      "value": 0.882,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (IPT) confondue avec l'acronyme institutionnel du Tournoi International des Physiciens et de divers communiqués universitaires. Bruit médiatique sans rapport avec une activité de baleines crypto.\"\n}\n```",
+      "ts": "2026-09-06T17:59:00.697875+00:00"
     }
   ]
 }
