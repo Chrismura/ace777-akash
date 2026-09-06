@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-06T11:46:25.028768+00:00",
+  "generated_at": "2026-09-06T12:31:25.546575+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 285
+      "calls_24h": 281
     },
     {
       "id": "openrouter-free",
@@ -71,7 +71,7 @@
       "model": "nvidia/nemotron-3-super-120b-a12b:free",
       "enabled": true,
       "timeout": 120,
-      "calls_24h": 10
+      "calls_24h": 11
     },
     {
       "id": "grok",
@@ -256,10 +256,58 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 152,
-    "remaining": 472
+    "consumed": 158,
+    "remaining": 466
   },
   "queue": [
+    {
+      "ts": "2026-09-06T12:27:54.819274+00:00",
+      "task": "analyste.strategie",
+      "provider": "openrouter-juge",
+      "model": "nvidia/nemotron-3-super-120b-a12b:free",
+      "kind": "cloud",
+      "duration_s": 41.01
+    },
+    {
+      "ts": "2026-09-06T12:25:57.759340+00:00",
+      "task": "analyste.strategie",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 5.21
+    },
+    {
+      "ts": "2026-09-06T12:15:19.284061+00:00",
+      "task": "analyste.strategie",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 4.93
+    },
+    {
+      "ts": "2026-09-06T12:11:54.948669+00:00",
+      "task": "analyste.strategie",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 5.09
+    },
+    {
+      "ts": "2026-09-06T12:06:14.880882+00:00",
+      "task": "analyste.strategie",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 5.68
+    },
+    {
+      "ts": "2026-09-06T11:55:58.611887+00:00",
+      "task": "analyste.strategie",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 9.48
+    },
     {
       "ts": "2026-09-06T11:45:19.304631+00:00",
       "task": "analyste.strategie",
@@ -331,113 +379,65 @@
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
       "duration_s": 5.74
-    },
-    {
-      "ts": "2026-09-06T11:19:08.632744+00:00",
-      "task": "analyste.strategie",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 4.28
-    },
-    {
-      "ts": "2026-09-06T11:14:21.397408+00:00",
-      "task": "analyste.strategie",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 9.38
-    },
-    {
-      "ts": "2026-09-06T10:57:29.506548+00:00",
-      "task": "analyste.strategie",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 4.54
-    },
-    {
-      "ts": "2026-09-06T10:55:54.070389+00:00",
-      "task": "analyse.profonde",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 1.31
-    },
-    {
-      "ts": "2026-09-06T10:55:38.698667+00:00",
-      "task": "analyste.strategie",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 8.46
-    },
-    {
-      "ts": "2026-09-06T10:51:42.821181+00:00",
-      "task": "analyste.strategie",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 4.45
     }
   ],
   "events": [
     {
-      "ts": "2026-09-06T11:45:19.304498+00:00",
+      "ts": "2026-09-06T12:27:54.819142+00:00",
       "kind": "message",
       "title": "« OpenRouter Juge (nemotron-3-super-120b free) - verificateur independant » a repondu",
       "detail": "bascule"
     },
     {
-      "ts": "2026-09-06T11:45:19.304108+00:00",
+      "ts": "2026-09-06T12:27:54.818795+00:00",
       "kind": "filet-universel",
       "title": "[FILET UNIVERSEL] « OpenRouter Juge (nemotron-3-super-120b free) - verificateur independant » a repondu hors chaine",
       "detail": "analyste.strategie"
     },
     {
-      "ts": "2026-09-06T11:44:49.150971+00:00",
+      "ts": "2026-09-06T12:27:13.806277+00:00",
       "kind": "failover",
       "title": "Bascule depuis OpenRouter (modeles gratuits)",
       "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-09-06T11:44:45.027183+00:00",
+      "ts": "2026-09-06T12:27:10.645825+00:00",
       "kind": "failover",
       "title": "Bascule depuis OrcaRouter (routeur gratuit, modele orcarouter/free)",
       "detail": "HTTP Error 400: Bad Request"
     },
     {
-      "ts": "2026-09-06T11:44:41.606042+00:00",
+      "ts": "2026-09-06T12:27:08.479319+00:00",
       "kind": "failover",
       "title": "Bascule depuis HuggingFace (136+ modeles, dont DeepSeek-V4)",
       "detail": "HTTP Error 400: Bad Request"
     },
     {
-      "ts": "2026-09-06T11:44:36.205913+00:00",
+      "ts": "2026-09-06T12:27:02.858699+00:00",
       "kind": "timeout",
       "title": "Patience HuggingFace (136+ modeles, dont DeepSeek-V4) (HTTP 400)",
       "detail": "HTTP Error 400: Bad Request"
     },
     {
-      "ts": "2026-09-06T11:44:32.849614+00:00",
+      "ts": "2026-09-06T12:26:59.897058+00:00",
       "kind": "failover",
       "title": "Bascule depuis Groq (LLM ultra-rapide, gratuit)",
       "detail": "HTTP Error 400: Bad Request"
     },
     {
-      "ts": "2026-09-06T11:44:32.849202+00:00",
-      "kind": "blacklist",
-      "title": "Pause Groq (LLM ultra-rapide, gratuit) (3 echecs) 15min",
-      "detail": "backoff x1 -> re-essai auto"
-    },
-    {
-      "ts": "2026-09-06T11:44:28.128924+00:00",
+      "ts": "2026-09-06T12:26:54.152731+00:00",
       "kind": "timeout",
       "title": "Patience Groq (LLM ultra-rapide, gratuit) (HTTP 400)",
       "detail": "HTTP Error 400: Bad Request"
     },
     {
-      "ts": "2026-09-06T11:44:26.479004+00:00",
+      "ts": "2026-09-06T12:26:51.593149+00:00",
+      "kind": "blacklist",
+      "title": "Fin de pause Groq (LLM ultra-rapide, gratuit)",
+      "detail": "re-essai automatique"
+    },
+    {
+      "ts": "2026-09-06T12:26:51.589746+00:00",
       "kind": "failover",
       "title": "Bascule depuis Google Gemini",
       "detail": "HTTP Error 429: Too Many Requests"

@@ -1,11 +1,11 @@
 # Attention vocale — Cortana
 
 ## Dernier résumé
-> Info Changement de tendance. Structure hausse, signe une heure -.. Provenance cortana_watch_trend.
+> Info Changement de tendance. Structure hausse, signe une heure +.. Provenance cortana_watch_trend.
 
 ## Meta
 - statut: IDLE
-- ts: 20260906T1109Z
+- ts: 20260906T1220Z
 - pertinence: SOFT
 - sentiment: INFO
 - compte: thermo-free
