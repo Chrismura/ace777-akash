@@ -1,4 +1,4 @@
-# ARCHITECTURE VIVANTE — ACE777 (2026-09-05 05:00 UTC)
+# ARCHITECTURE VIVANTE — ACE777 (2026-09-06 05:00 UTC)
 
 > Document GÉNÉRÉ AUTOMATIQUEMENT à l'instant. La famille valide
 > en s'appuyant sur CE contexte, pas sur des documents figés.
@@ -22,11 +22,11 @@
 
 ## État de la mission (bots + PnL)
 
-- mission.json : 2026-09-05 04:59Z · run `ACE_RADAR_ALIGNED_V4_60M` · alerte `amber`
+- mission.json : 2026-09-06 04:59Z · run `ACE_RADAR_ALIGNED_V4_60M` · alerte `amber`
 - PnL combiné : **-9.12 $** 📉 (combo -9.1224)
 - ALPHA (sniper (embuscade, ×13, revenge si claque)) : **-3.31 $** · 5 fills · 366 skips
 - BETA (éclaireur (chatouille le marché, alimente Alpha)) : **-5.81 $** · 9 fills · 339 skips
-- HULK (gestionnaire de portefeuille (bag, escalier, courreur)) : **+8.30 $** · 0 fills
+- HULK (gestionnaire de portefeuille (bag, escalier, courreur)) : **+9.90 $** · 0 fills
 - Saison : CALME 🧊 · 
 
 ## Veille du jour
@@ -36,13 +36,13 @@
 ## Mémoire chaude (journal + résumés)
 
 - Radar (dernières alertes) :
-  · 2026-09-05T05:00:04.460819Z BTCUSDT 79502.02 0.0000 0.4 declenche=non
-  · 2026-09-05T05:00:04.461122Z BTCUSDT 79502.55 0.0000 0.4 declenche=non
-  · 2026-09-05T05:00:04.879624Z BTCUSDT 79502.56 0.0000 0.4 declenche=non
-  · 2026-09-05T05:00:06.352677Z BTCUSDT 79502.55 0.0000 0.4 declenche=non
+  · 2026-09-06T05:00:00.894600Z BTCUSDT 79866.01 0.0000 0.0 declenche=non
+  · 2026-09-06T05:00:01.085188Z ETHUSDT 2504.56 0.0001 13.6 declenche=non
+  · 2026-09-06T05:00:01.108577Z ETHUSDT 2504.55 0.0001 13.7 declenche=non
+  · 2026-09-06T05:00:02.510746Z ETHUSDT 2504.56 0.0001 13.7 declenche=non
 - Intention en cours : BETA a sonde le marche (9 sondes, 4 long / 5 court, conf moy | ALPHA attend son moment : 352 skips (discipline), le mur du  | ALPHA a frappe 5 fois en embuscade (13x) (dont 2 en mode rev
-- 851 signets X résumés (quota aujourd'hui : 8/50)
-- 79 fiches IA d'offres en cache (quota 8/jour)
+- 852 signets X résumés (quota aujourd'hui : 0/50)
+- 87 fiches IA d'offres en cache (quota 8/jour)
 
 ---
 Généré par archi_vivante.py — relancé à chaque validation.

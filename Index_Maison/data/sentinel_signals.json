@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "sdi",
-      "zscore": 2.43747151530933,
-      "value": 0.024,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie de faux positif : l'indicateur capte le ticker 'SDI' qui correspond ici à des actualités fiscales, professionnelles ou d'entreprises traditionnelles (Samsung SDI), totalement déconnectées de la crypto-sphère et de mouvements de baleines.\"\n}\n```",
-      "ts": "2026-09-04T23:13:29.604002+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 3.132274793023267,
-      "value": 1.435,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Fausse alerte. L'Indicateur de Pression Temporelle (IPT) capte ici du bruit sémantique sans rapport avec la crypto (le Tournoi International des Physiciens et des actualités protestantes/agricoles). Aucune baleine détectée.\"\n}\n```",
-      "ts": "2026-09-05T00:03:40.064225+00:00"
-    },
-    {
       "metric": "fear_greed",
       "zscore": -7.523297149521587,
       "value": 73,
@@ -349,6 +335,20 @@
       "value": 9653304.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (Z-score 8.76, ~9.65M USD) sans aucune couverture médiatique significative (Google Actualités vide). Divergence totale : accumulation silencieuse des baleines loin des radars du retail.\"\n}\n```",
       "ts": "2026-09-06T03:52:37.394146+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 2.577772454054937,
+      "value": 3883047.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Bruit médiatique parasité par des faits divers locaux de liquidations judiciaires d'entreprises traditionnelles. Pendant ce temps, les données on-chain montrent une anomalie de liquidations crypto ($504M BTC) couplée à des flux institutionnels massifs (achats de Strive), trahissant un shakeout violent orchestré par les baleines.\"\n}\n```",
+      "ts": "2026-09-06T04:52:50.249109+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 2.395570484531644,
+      "value": 3909004.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Bruit médiatique parasité par des faits divers locaux de liquidations judiciaires d'entreprises traditionnelles, masquant une dynamique on-chain saine (achats institutionnels massifs de Strive et flux nets positifs).\"\n}\n```",
+      "ts": "2026-09-06T05:22:55.497468+00:00"
     }
   ]
 }
