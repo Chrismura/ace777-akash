@@ -1,7 +1,7 @@
 {
-  "timestamp": 1788705034,
-  "date": "2026-09-06T14:30:34.304471+00:00",
-  "n_analyses": 1,
+  "timestamp": 1788705934,
+  "date": "2026-09-06T14:45:34.635960+00:00",
+  "n_analyses": 2,
   "analyses": [
     {
       "signal": {
@@ -14,7 +14,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.21,
+          "value": -0.18,
           "seuil": 1,
           "depasse": false
         },
@@ -24,12 +24,12 @@
           "depasse": false
         },
         "funding": {
-          "value": 3.3e-05,
+          "value": 3.2e-05,
           "seuil": 0.001,
           "depasse": false
         },
         "whales": {
-          "value": 0,
+          "value": 1,
           "seuil": 5,
           "depasse": false
         }
@@ -42,6 +42,21 @@
       },
       "action": "Réduire taille de 50%, sortir des positions fragiles",
       "niveau": "dangereux"
+    },
+    {
+      "signal": {
+        "metric": "price_1h",
+        "zscore": 6.696911723464725,
+        "value": 0.5465712938276357,
+        "analysis": "{\n  \"signal\": \"bullish\",\n  \"confidence\": 65,\n  \"reason\": \"Le z-score de prix extrêmement élevé (6.70) indique une anomalie haussière marquée, tandis que l'absence de titres médiatiques spécifiques suggère que ce mouvement n'est pas encore relayé, typique d'une accumulation silencieuse par les baleines. Le narratif semble donc déconnecté de la réalité on-chain.\"\n}",
+        "ts": 1788705152.071101
+      },
+      "fiche": null,
+      "interpretation": {
+        "lecture": "Pas de fiche disponible",
+        "niveau": "inconnu"
+      },
+      "action": "Observer"
     }
   ],
   "resume": "🔴 DANGER détecté — réduire les expositions"
