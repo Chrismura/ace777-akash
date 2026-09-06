@@ -1,43 +1,43 @@
 {
- "ts": "2026-09-05T23:39Z",
- "mark": 79728.9,
+ "ts": "2026-09-06T00:24Z",
+ "mark": 79834.6,
  "correlations": {
   "prix_oi": {
-   "r": -0.246,
-   "lecture": "corrélation faible (-0.246) — les deux évoluent en sens opposé",
+   "r": -0.258,
+   "lecture": "corrélation faible (-0.258) — les deux évoluent en sens opposé",
    "label": "Open interest vs prix"
   },
   "prix_funding": {
-   "r": 0.36,
-   "lecture": "corrélation faible (+0.36) — les deux évoluent dans le même sens",
+   "r": 0.326,
+   "lecture": "corrélation faible (+0.326) — les deux évoluent dans le même sens",
    "label": "Funding vs prix"
   },
   "prix_longshort": {
-   "r": -0.777,
-   "lecture": "corrélation forte (-0.777) — les deux évoluent en sens opposé",
+   "r": -0.781,
+   "lecture": "corrélation forte (-0.781) — les deux évoluent en sens opposé",
    "label": "Ratio long/short vs prix"
   },
   "prix_taker": {
-   "r": -0.077,
-   "lecture": "corrélation quasi nulle (-0.077) — les deux évoluent en sens opposé",
+   "r": -0.072,
+   "lecture": "corrélation quasi nulle (-0.072) — les deux évoluent en sens opposé",
    "label": "Achats/ventes agressifs vs prix"
   }
  },
  "liquidations": {
   "clusters_2000usd": {
    "78000": {
-    "long": 162881.0,
-    "short": 15993.0
+    "long": 162929.0,
+    "short": 28151.0
    },
    "80000": {
     "long": 0.0,
-    "short": 854054.0
+    "short": 843230.0
    }
   },
-  "longs_below_usd": 162881.0,
+  "longs_below_usd": 162929.0,
   "longs_above_usd": 0.0,
-  "shorts_below_usd": 15993.0,
-  "shorts_above_usd": 854054.0,
-  "lecture": "Le gros de la liquidité est AU-DESSUS du prix : 0.9 M$ de SHORTS liquidés au-dessus (contre 0.2 M$ de longs en dessous) — une remontée peut forcer les shorts à racheter et amplifier la hausse (short squeeze)."
+  "shorts_below_usd": 28151.0,
+  "shorts_above_usd": 843230.0,
+  "lecture": "Le gros de la liquidité est AU-DESSUS du prix : 0.8 M$ de SHORTS liquidés au-dessus (contre 0.2 M$ de longs en dessous) — une remontée peut forcer les shorts à racheter et amplifier la hausse (short squeeze)."
  }
 }
