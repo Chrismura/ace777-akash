@@ -1,6 +1,6 @@
-# STRATEGIE — 2026-09-06T17:28:47.807297Z
+# STRATEGIE — 2026-09-06T17:45:24.183222Z
 
-## COURT TERME — 2026-09-06T17:28:47.807297Z
+## COURT TERME — 2026-09-06T17:45:24.183222Z
 
 [UNDERSTAND] La maison ACE777 maintient son alerte ambre face à un PnL combiné légèrement négatif (-9,12 $), pénalisé par la position CCUSDT en infraction profonde, tandis que l'activité onchain élevée et les signaux macroéconomiques exigent une discipline accrue.
 [ANALYZE]
