@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-06T04:29:47.031610+00:00",
+  "generated_at": "2026-09-06T04:30:47.693638+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 269
+      "calls_24h": 270
     },
     {
       "id": "openrouter-free",
@@ -256,10 +256,18 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 46,
-    "remaining": 578
+    "consumed": 47,
+    "remaining": 577
   },
   "queue": [
+    {
+      "ts": "2026-09-06T04:29:50.631901+00:00",
+      "task": "supervise.decision",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 0.96
+    },
     {
       "ts": "2026-09-06T04:24:48.786817+00:00",
       "task": "analyste.strategie",
@@ -371,17 +379,15 @@
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
       "duration_s": 3.23
-    },
-    {
-      "ts": "2026-09-06T02:59:17.238639+00:00",
-      "task": "analyste.strategie",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 4.11
     }
   ],
   "events": [
+    {
+      "ts": "2026-09-06T04:29:50.631117+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
     {
       "ts": "2026-09-06T04:24:48.786230+00:00",
       "kind": "message",
@@ -434,12 +440,6 @@
       "ts": "2026-09-06T04:01:43.204694+00:00",
       "kind": "failover",
       "title": "Bascule depuis HuggingFace (136+ modeles, dont DeepSeek-V4)",
-      "detail": "HTTP Error 400: Bad Request"
-    },
-    {
-      "ts": "2026-09-06T04:01:38.834924+00:00",
-      "kind": "timeout",
-      "title": "Patience HuggingFace (136+ modeles, dont DeepSeek-V4) (HTTP 400)",
       "detail": "HTTP Error 400: Bad Request"
     }
   ],
