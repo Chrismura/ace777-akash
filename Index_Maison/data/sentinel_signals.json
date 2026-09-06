@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "long_short",
-      "zscore": 2.102605592477684,
-      "value": 1.055,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.10) sur le ratio long/short couplé à un narratif médiatique axé sur l'optimisme des fonds long/short traditionnels. Divergence classique : surchauffe des positions acheteuses par les smart money avant un possible flush de liquidité.\"\n}\n```",
-      "ts": "2026-09-05T14:14:08.368933+00:00"
-    },
-    {
       "metric": "volume",
       "zscore": -2.3055464462038846,
       "value": 5735011503.0,
@@ -349,6 +342,13 @@
       "value": 7592414.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 75,\n  \"reason\": \"Divergence significative entre les liquidations onchain (anomalie + z-score élevé) et le narratif médiatique focalisé sur des liquidations judiciaires locales sans lien avec les crypto. Suggestif d'activité silencieuse des baleines.\"\n}\n```",
       "ts": "2026-09-06T11:26:05.498785+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": -2.000716352996669,
+      "value": 0.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Anomalie technique liée à une homonymie (IPT = Tournoi de Physique / Institut Protestant de Théologie). Aucun lien avec la crypto, bruit médiatique sans substance pour les baleines.\"\n}\n```",
+      "ts": "2026-09-06T14:27:20.594809+00:00"
     }
   ]
 }

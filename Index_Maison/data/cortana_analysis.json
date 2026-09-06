@@ -1,7 +1,48 @@
 {
-  "timestamp": 1788701433,
-  "date": "2026-09-06T13:30:33.091898+00:00",
-  "n_analyses": 0,
-  "analyses": [],
-  "resume": "Aucune analyse en cours"
+  "timestamp": 1788705034,
+  "date": "2026-09-06T14:30:34.304471+00:00",
+  "n_analyses": 1,
+  "analyses": [
+    {
+      "signal": {
+        "metric": "ipt",
+        "zscore": -2.000716352996669,
+        "value": 0.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Anomalie technique liée à une homonymie (IPT = Tournoi de Physique / Institut Protestant de Théologie). Aucun lien avec la crypto, bruit médiatique sans substance pour les baleines.\"\n}\n```",
+        "ts": 1788704840.594809
+      },
+      "fiche": "rbf_eleve",
+      "questions": {
+        "prix": {
+          "value": -0.21,
+          "seuil": 1,
+          "depasse": false
+        },
+        "paires": {
+          "value": null,
+          "seuil": 3,
+          "depasse": false
+        },
+        "funding": {
+          "value": 3.3e-05,
+          "seuil": 0.001,
+          "depasse": false
+        },
+        "whales": {
+          "value": 0,
+          "seuil": 5,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "sdi > 0.3",
+        "lecture": "Drainage silencieux — les vieux BTC bougent en douce",
+        "niveau": "dangereux",
+        "action": "Réduire taille de 50%, sortir des positions fragiles"
+      },
+      "action": "Réduire taille de 50%, sortir des positions fragiles",
+      "niveau": "dangereux"
+    }
+  ],
+  "resume": "🔴 DANGER détecté — réduire les expositions"
 }
