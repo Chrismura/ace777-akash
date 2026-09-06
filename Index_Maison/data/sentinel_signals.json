@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "sdi",
-      "zscore": 2.2930840594953876,
-      "value": 0.024,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Faux positif complet : le signal 'SDI' détecté on-chain fait référence à de l'homonymie médiatique (syndicats, entreprises industrielles traditionnelles, matériel médical) sans aucun rapport avec un actif crypto ou une baleine.\"\n}\n```",
-      "ts": "2026-09-05T00:43:49.604727+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": -5.0181488799973115,
-      "value": 73,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrême de -5.02 sur l'indice Fear & Greed malgré une euphorie apparente (73). Divergence majeure : les données indiquent un choc d'offre caché ou une structure de marché atypique que les médias traditionnels ignorent totalement. Accumulation furtive des baleines en cours.\"\n}\n```",
-      "ts": "2026-09-05T01:03:54.224325+00:00"
-    },
-    {
       "metric": "ipt",
       "zscore": 2.0601048667521984,
       "value": 1.17,
@@ -349,6 +335,20 @@
       "value": 0.23438967283107015,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (+2.65) sur 1h combiné à un silence médiatique total (Google Actualités vide). C'est la signature classique d'accumulation furtive par des baleines avant le réveil du retail.\"\n}\n```",
       "ts": "2026-09-06T05:43:00.117903+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 2.542515036754701,
+      "value": 4187258.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.54) et liquidations massives ($504M BTC) contrastent fortement avec le bruit médiatique local et généraliste. Les baleines nettoient le carnet d'ordres (flush) pendant que les institutionnels accumulent discrètement (ex: Strive, flux nets positifs), préparant une continuation haussière silencieuse.\"\n}\n```",
+      "ts": "2026-09-06T05:53:03.098329+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 2.3727906366838747,
+      "value": 4219556.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Divergence massive : les médias généralistes confondent des liquidations judiciaires locales avec la macro-dynamique crypto, masquant un afflux institutionnel massif (101M$ net, achat de 1800 BTC par Strive) et un flush des positions à effet de levier (4,2M$ liquidés avec un z-score de 2.37) qui purge le marché pour un rebond.\"\n}\n```",
+      "ts": "2026-09-06T06:23:10.296697+00:00"
     }
   ]
 }
