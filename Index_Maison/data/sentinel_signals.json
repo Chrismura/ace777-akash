@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "ipt",
-      "zscore": 2.1147277170024568,
-      "value": 1.06,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Anomalie non pertinente : les données textuelles font référence à des sujets académiques (Tournoi International des Physiciens) et divers sans aucun rapport avec l'activité on-chain ou crypto.\"\n}\n```",
-      "ts": "2026-09-04T21:42:53.668716+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 3.8298098512703747,
-      "value": 1.519,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique sans rapport avec la crypto (Tournoi de Physique IPT). Aucune activité significative de baleines.\"\n}\n```",
-      "ts": "2026-09-04T23:08:27.068485+00:00"
-    },
-    {
       "metric": "sdi",
       "zscore": 2.43747151530933,
       "value": 0.024,
@@ -349,6 +335,20 @@
       "value": 4282834.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 3.73, volume >4.2M$) en absence totale de couverture médiatique (silence radio de Google Actualités). C'est la signature classique d'accumulation furtive par des institutionnels cherchant à éviter le FOMO retail.\"\n}\n```",
       "ts": "2026-09-05T23:01:56.299372+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 2.0081584498901726,
+      "value": 3179964.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique parasité par des homonymes (liquidations judiciaires locales d'entreprises traditionnelles sans rapport avec la crypto). Aucune baleine détectée, simple anomalie statistique mineure sur les dérivés.\"\n}\n```",
+      "ts": "2026-09-06T03:42:33.886331+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 8.761401485737247,
+      "value": 9653304.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (Z-score 8.76, ~9.65M USD) sans aucune couverture médiatique significative (Google Actualités vide). Divergence totale : accumulation silencieuse des baleines loin des radars du retail.\"\n}\n```",
+      "ts": "2026-09-06T03:52:37.394146+00:00"
     }
   ]
 }
