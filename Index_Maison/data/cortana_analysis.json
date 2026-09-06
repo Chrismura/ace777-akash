@@ -1,55 +1,15 @@
 {
-  "timestamp": 1788684327,
-  "date": "2026-09-06T08:45:27.742828+00:00",
-  "n_analyses": 2,
+  "timestamp": 1788687028,
+  "date": "2026-09-06T09:30:28.474127+00:00",
+  "n_analyses": 1,
   "analyses": [
     {
       "signal": {
-        "metric": "ipt",
-        "zscore": 2.0805143560975696,
-        "value": 0.888,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (IPT) confondue avec l'acronyme institutionnel du Tournoi International des Physiciens et partenariats académiques. Aucun mouvement de baleine crypto pertinent détecté.\"\n}\n```",
-        "ts": 1788682778.803918
-      },
-      "fiche": "rbf_eleve",
-      "questions": {
-        "prix": {
-          "value": -0.02,
-          "seuil": 1,
-          "depasse": false
-        },
-        "paires": {
-          "value": null,
-          "seuil": 3,
-          "depasse": false
-        },
-        "funding": {
-          "value": 9e-06,
-          "seuil": 0.001,
-          "depasse": false
-        },
-        "whales": {
-          "value": 0,
-          "seuil": 5,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "sdi > 0.3",
-        "lecture": "Drainage silencieux — les vieux BTC bougent en douce",
-        "niveau": "dangereux",
-        "action": "Réduire taille de 50%, sortir des positions fragiles"
-      },
-      "action": "Réduire taille de 50%, sortir des positions fragiles",
-      "niveau": "dangereux"
-    },
-    {
-      "signal": {
         "metric": "liquidations",
-        "zscore": 3.167653319296723,
-        "value": 6836873.0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Bruit médiatique parasité par des faits divers locaux de liquidations judiciaires traditionnelles. En réalité, le z-score on-chain (3.17) couplé à des achats institutionnels massifs (Strive 1,800 BTC) révèle un nettoyage brutal des positions à effet de levier. Les baleines accumulent agressivement dans l'ombre pendant que les médias grand public s'égarent.\"\n}\n```",
-        "ts": 1788683082.624993
+        "zscore": 3.0340748696186215,
+        "value": 7678693.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (3.03) sur les liquidations combiné à des flux nets positifs et un achat massif institutionnel (Strive 1,800 BTC), alors que les médias généralistes diluent l'attention avec des bruits de liquidations judiciaires locales sans rapport. Classique 'shakeout' de baleines avant une reprise.\"\n}\n```",
+        "ts": 1788686718.978136
       },
       "fiche": null,
       "interpretation": {
@@ -59,5 +19,5 @@
       "action": "Observer"
     }
   ],
-  "resume": "🔴 DANGER détecté — réduire les expositions"
+  "resume": "🔵 CALME — pas de signal alarmant"
 }

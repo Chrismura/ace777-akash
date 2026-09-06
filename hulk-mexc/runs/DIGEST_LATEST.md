@@ -1,4 +1,4 @@
-# Hulk DIGEST — 2026-09-06T08:46:00Z
+# Hulk DIGEST — 2026-09-06T09:30:12Z
 
 > ⚠️ **SCAN DÉGRADÉ (réseau)** — données partielles, veille hors délai.
 
@@ -14,17 +14,17 @@
 
 | pair | hint | tension | move6% | dd6% | chg24% | vol USDT | spread bps | DefiLlama |
 |------|------|---------|--------|------|--------|----------|------------|-----------|
-| XRPUSDT | IDLE | 0.92 | 1.65 | 1.23 | 0.01 | 25224141.18 | 1.41 | n/a |
-| ETHUSDT | IDLE | 0.89 | 1.61 | 1.16 | 0.02 | 225910865.47 | 0.04 | no_map |
-| BTCUSDT | IDLE | 0.35 | 0.65 | 0.4 | 0.0 | 397843572.1 | 0.0 | no_map |
-| PYTHUSDT | IDLE | 2.72 | 4.86 | 3.85 | 0.03 | 426766.0 | 1.82 | tvl≈123,301,040 |
-| ZBCNUSDT | IDLE | 2.1 | 4.19 | 0.03 | 0.02 | 229150.26 | 37.09 | n/a |
-| CCUSDT | IDLE | 0.95 | 1.72 | 1.26 | 0.01 | 294830.89 | 9.13 | no_map |
-| BIOUSDT | IDLE | 1.54 | 2.76 | 2.12 | 0.0 | 93959.24 | 3.62 | n/a |
-| WUSDT | IDLE | 1.17 | 2.13 | 1.43 | 0.02 | 174603.8 | 9.95 | tvl≈1,663,427,099 |
-| HBARUSDT | IDLE | 1.17 | 2.1 | 1.59 | 0.02 | 454323.97 | 1.24 | empty_tvl |
-| RIZEUSDT | IDLE | 1.39 | 7.62 | 6.44 | 0.03 | 95148.46 | 60.59 | no_map |
-| REDUSDT | IDLE | 1.28 | 2.55 | 0.13 | 0.01 | 63968.06 | 10.92 | tvl≈2,329,432 |
+| ETHUSDT | IDLE | 0.87 | 1.61 | 0.85 | 0.02 | 228412209.68 | 0.04 | skipped_fast |
+| XRPUSDT | IDLE | 0.74 | 1.41 | 0.48 | 0.01 | 25369218.59 | 1.41 | skipped_fast |
+| BTCUSDT | IDLE | 0.34 | 0.65 | 0.14 | 0.0 | 394111699.17 | 0.0 | skipped_fast |
+| PYTHUSDT | IDLE | 2.67 | 4.86 | 3.15 | 0.03 | 424784.25 | 3.62 | skipped_fast |
+| ZBCNUSDT | IDLE | 1.5 | 2.9 | 0.62 | 0.02 | 229575.05 | 14.67 | skipped_fast |
+| CCUSDT | IDLE | 0.96 | 1.93 | 0.0 | 0.02 | 302676.85 | 9.9 | skipped_fast |
+| RIZEUSDT | IDLE | 1.41 | 7.67 | 6.82 | 0.05 | 91728.14 | 48.74 | skipped_fast |
+| BIOUSDT | IDLE | 1.51 | 2.76 | 1.7 | 0.01 | 93633.56 | 3.6 | skipped_fast |
+| WUSDT | IDLE | 1.16 | 2.13 | 1.25 | 0.01 | 174629.38 | 13.91 | skipped_fast |
+| HBARUSDT | IDLE | 1.08 | 2.02 | 0.89 | 0.01 | 439090.86 | 1.23 | skipped_fast |
+| REDUSDT | IDLE | 1.39 | 2.75 | 0.26 | 0.02 | 62502.36 | 10.16 | skipped_fast |
 | KITEUSDT | ERR | — | — | — | — | — | — | scan_deadline |
 | TELUSDT | ERR | — | — | — | — | — | — | scan_deadline |
 | CHIPUSDT | ERR | — | — | — | — | — | — | scan_deadline |
