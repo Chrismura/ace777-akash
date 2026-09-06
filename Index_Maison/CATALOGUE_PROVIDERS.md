@@ -1,8 +1,8 @@
 # CATALOGUE DES PROVIDERS — ACE777
 
-*Genere le 2026-09-05 par catalog_providers.py (gagnant A/B codeurs 09/08). Rafraichi a chaque veille du matin.*
+*Genere le 2026-09-06 par catalog_providers.py (gagnant A/B codeurs 09/08). Rafraichi a chaque veille du matin.*
 
-**Actifs : 11 · En observation : 2 · En attente : 14 · De cote (payant) : 2**
+**Actifs : 11 · En observation : 1 · En attente : 15 · De cote (payant) : 2**
 
 ## ACTIFS
 
@@ -24,8 +24,7 @@
 
 | Role | Modele | Statut | Note |
 |------|--------|--------|------|
-| - | `deepseek-ai/deepseek-v4-pro-0813` | obs-1788416175 | auto queue_offres | VERDICT FAMILLE 18/08 : observation 48h avant activation |
-| - | `dots-studio/dots-3-note-preview:free` | dots-studio-dots-3-note-preview-free | INTEGRE AUTO 2026-09-05 EN OBSERVATION (preuve A/B + juge: MIEUX - deux risques.) |
+| - | `dots-studio/dots-3-note-preview:free` | dots-studio-dots-3-note-preview-free | INTEGRE AUTO 2026-09-06 EN OBSERVATION (preuve A/B + juge: MIEUX - réponse A) |
 
 ## EN ATTENTE (cle manquante ou desactive)
 
@@ -45,6 +44,7 @@
 | - | `google/diffusiongemma-26b-a4b-it` | obs-1787033767 | TESTÉ 27/08 : PAS DE CLÉ NVIDIA_API_KEY dans .env — impossible à activer. Ajouter la clé p |
 | - | `google/gemma-4-26b-a4b-it:free` | obs-1787206650 | TESTÉ 27/08 : instable (1/3, 429 intermittent) — reste désactivé (l'observatoire avait rai |
 | - | `minimax/minimax-m3:free` | obs-1787724924 | RÉACTIVÉ 27/08 après re-test direct 3/3 OK (0.4-5s) — verdict famille 18/08 « observation  |
+| - | `deepseek-ai/deepseek-v4-pro-0813` | obs-1788416175 | auto queue_offres | VERDICT FAMILLE 18/08 : observation 48h avant activation | ROLLBACK au |
 
 ## DE COTE (payant / obsolète)
 

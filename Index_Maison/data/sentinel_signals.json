@@ -1,27 +1,6 @@
 {
   "signals": [
     {
-      "metric": "fear_greed",
-      "zscore": -2.4544633311382746,
-      "value": 73,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Le score Z négatif (-2.45) couplé à une avidité élevée (73) sans relais médiatique (Google Actualités muet) indique un épuisement de la demande de détail. Les baleines profitent de cette eforie silencieuse pour distribuer leurs sacs.\"\n}\n```",
-      "ts": "2026-09-05T03:36:08.564331+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": -2.264433610081802,
-      "value": 73,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Le score z de -2.26 sur l'indice Fear & Greed (73) indique un excès d'euphorie retail aveugle, totalement déconnecté du vide informationnel actuel dans les médias généralistes (Google Actualités). Divergence classique de fin de cycle : les baleines distribuent dans le silence pendant que le marché surchauffe.\"\n}\n```",
-      "ts": "2026-09-05T04:06:13.521835+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": -2.1056975718633035,
-      "value": 73,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement négatif (-2.11) pour un indice de Peur & Avarice à 73, combiné à un vide médiatique total (Google Actualités sans relais). Divergence classique de piégeage : retail euphorique sans couverture média de masse, typique d'une distribution silencieuse par les baleines.\"\n}\n```",
-      "ts": "2026-09-05T04:36:20.270043+00:00"
-    },
-    {
       "metric": "taker_ratio",
       "zscore": 2.7561099314520123,
       "value": 1.525,
@@ -349,6 +328,27 @@
       "value": 6837419.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique parasité par des faits divers locaux (liquidations judiciaires d'entreprises) et des données macro de marché standard. Aucune divergence onchain significative de baleines détectée.\"\n}\n```",
       "ts": "2026-09-06T07:24:24.413352+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 3.6383371248670517,
+      "value": 6837465.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Bruit médiatique parasité par des liquidations judiciaires locales (fausses alertes sémantiques), masquant une accumulation institutionnelle réelle (Strive 1,800 BTC et entrées nettes de 101M$) combinée à une anomalie de liquidation crypto (Z-score 3.64) signalant un 'flush' de levier sain.\"\n}\n```",
+      "ts": "2026-09-06T07:54:31.817399+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.0805143560975696,
+      "value": 0.888,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (IPT) confondue avec l'acronyme institutionnel du Tournoi International des Physiciens et partenariats académiques. Aucun mouvement de baleine crypto pertinent détecté.\"\n}\n```",
+      "ts": "2026-09-06T08:19:38.803918+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 3.167653319296723,
+      "value": 6836873.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Bruit médiatique parasité par des faits divers locaux de liquidations judiciaires traditionnelles. En réalité, le z-score on-chain (3.17) couplé à des achats institutionnels massifs (Strive 1,800 BTC) révèle un nettoyage brutal des positions à effet de levier. Les baleines accumulent agressivement dans l'ombre pendant que les médias grand public s'égarent.\"\n}\n```",
+      "ts": "2026-09-06T08:24:42.624993+00:00"
     }
   ]
 }

@@ -1,9 +1,11 @@
 {
-  "ts": "2026-09-06T07:30+00:00",
-  "updated": "2026-09-06T07:30Z",
-  "etat": "OK",
-  "chaines_ok": "15/15",
-  "anomalies": [],
+  "ts": "2026-09-06T08:30+00:00",
+  "updated": "2026-09-06T08:30Z",
+  "etat": "ALERTE",
+  "chaines_ok": "14/15",
+  "anomalies": [
+    "HULK : sonde runtime, contrat Cortana ou analyses figés"
+  ],
   "degradees": [],
   "chaines": [
     {
@@ -25,12 +27,12 @@
         {
           "nom": "scan file",
           "ok": true,
-          "detail": "âge 1 min"
+          "detail": "âge 3 min"
         },
         {
           "nom": "mouvements (events)",
           "ok": true,
-          "detail": "dernier événement il y a 1 min"
+          "detail": "dernier événement il y a 3 min"
         },
         {
           "nom": "→ live.json.onchain",
@@ -40,12 +42,12 @@
         {
           "nom": "→ Ada gardienne",
           "ok": true,
-          "detail": "voilure 90.8 · zone VERT"
+          "detail": "voilure 86.0 · zone VERT"
         },
         {
           "nom": "→ Cortana feed",
           "ok": true,
-          "detail": "âge 3 min"
+          "detail": "âge 6 min"
         }
       ]
     },
@@ -63,7 +65,7 @@
         {
           "nom": "deriv_corr.json",
           "ok": true,
-          "detail": "âge 2 min"
+          "detail": "âge 1 min"
         }
       ]
     },
@@ -71,7 +73,7 @@
       "id": "hulk",
       "nom": "HULK",
       "chemin": "paper_diprip → aspiration selon ASPIRATION_SRC → cortana_analyzer → cortana_analysis.json → pilot (contrat)",
-      "ok": true,
+      "ok": false,
       "maillons": [
         {
           "nom": "process paper_diprip",
@@ -80,8 +82,8 @@
         },
         {
           "nom": "aspiration runtime",
-          "ok": true,
-          "detail": "mode fichier · JSON · âge ts 0.4 min · écart mtime/ts 0.8s · 10 paire(s) · btc=OK · ts=croissant"
+          "ok": false,
+          "detail": "mode fichier · JSON · âge ts 1.0 min · écart mtime/ts 0.7s · 10 paire(s) · btc=OK · ts=croissant"
         },
         {
           "nom": "corrélation BTC",
@@ -96,7 +98,7 @@
         {
           "nom": "cortana_pilot.json",
           "ok": true,
-          "detail": "âge 105 min"
+          "detail": "âge 165 min"
         },
         {
           "nom": "cortana_analysis.json",
@@ -114,12 +116,12 @@
         {
           "nom": "live.json",
           "ok": true,
-          "detail": "âge 3 min"
+          "detail": "âge 4 min"
         },
         {
           "nom": "mission.json → cockpit",
           "ok": true,
-          "detail": "âge 1 min"
+          "detail": "âge 0 min"
         },
         {
           "nom": "hub.json (one-shot)",
@@ -165,7 +167,7 @@
         {
           "nom": "sentinel_history.json",
           "ok": true,
-          "detail": "âge 1 min"
+          "detail": "âge 0 min"
         },
         {
           "nom": "signaux",
@@ -224,7 +226,7 @@
         {
           "nom": "ada_saison_live.json",
           "ok": true,
-          "detail": "saison CALME"
+          "detail": "saison ACCUMULATION"
         },
         {
           "nom": "6 indices calculés",
@@ -280,7 +282,7 @@
         {
           "nom": "rapport veille_degradation_etat.json",
           "ok": true,
-          "detail": "SAIN · âge 0 min"
+          "detail": "SAIN · âge 1 min"
         },
         {
           "nom": "Dead Man's Switch (dms-veille)",
@@ -341,7 +343,7 @@
         {
           "nom": "warns murs (info)",
           "ok": true,
-          "detail": "3 warn(s) carnet déséquilibré (info)"
+          "detail": "2 warn(s) carnet déséquilibré (info)"
         }
       ]
     },
@@ -354,12 +356,12 @@
         {
           "nom": "sdi_latest.json (SAPI dedans)",
           "ok": true,
-          "detail": "âge 3 min"
+          "detail": "âge 6 min"
         },
         {
           "nom": "SAPI calculé",
           "ok": true,
-          "detail": "score 0.4"
+          "detail": "score 0.544"
         },
         {
           "nom": "alerte poussière (≥ 0.75 + volume)",

@@ -1,20 +1,20 @@
 {
-  "timestamp": 1788679826,
-  "date": "2026-09-06T07:30:26.464985+00:00",
+  "timestamp": 1788683427,
+  "date": "2026-09-06T08:30:27.503460+00:00",
   "n_analyses": 2,
   "analyses": [
     {
       "signal": {
-        "metric": "sdi",
-        "zscore": 3.2719685134588996,
-        "value": 0.016,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Bruit médiatique parasité par des homonymes (Samsung SDI, syndicat patronal SDI, matériel vidéo). Aucune corrélation avec une baleine crypto.\"\n}\n```",
-        "ts": 1788678559.702639
+        "metric": "ipt",
+        "zscore": 2.0805143560975696,
+        "value": 0.888,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (IPT) confondue avec l'acronyme institutionnel du Tournoi International des Physiciens et partenariats académiques. Aucun mouvement de baleine crypto pertinent détecté.\"\n}\n```",
+        "ts": 1788682778.803918
       },
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": 0.04,
+          "value": -0.0,
           "seuil": 1,
           "depasse": false
         },
@@ -24,7 +24,7 @@
           "depasse": false
         },
         "funding": {
-          "value": 2.9e-05,
+          "value": 9e-06,
           "seuil": 0.001,
           "depasse": false
         },
@@ -46,10 +46,10 @@
     {
       "signal": {
         "metric": "liquidations",
-        "zscore": 4.366753566191188,
-        "value": 6837419.0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique parasité par des faits divers locaux (liquidations judiciaires d'entreprises) et des données macro de marché standard. Aucune divergence onchain significative de baleines détectée.\"\n}\n```",
-        "ts": 1788679464.413352
+        "zscore": 3.167653319296723,
+        "value": 6836873.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Bruit médiatique parasité par des faits divers locaux de liquidations judiciaires traditionnelles. En réalité, le z-score on-chain (3.17) couplé à des achats institutionnels massifs (Strive 1,800 BTC) révèle un nettoyage brutal des positions à effet de levier. Les baleines accumulent agressivement dans l'ombre pendant que les médias grand public s'égarent.\"\n}\n```",
+        "ts": 1788683082.624993
       },
       "fiche": null,
       "interpretation": {
