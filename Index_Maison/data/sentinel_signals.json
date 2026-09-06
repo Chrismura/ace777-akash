@@ -1,27 +1,6 @@
 {
   "signals": [
     {
-      "metric": "volume",
-      "zscore": -2.358861636961641,
-      "value": 4189390711.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Bruit statistique non pertinent. Les titres médiatiques fournis concernent l'actualité générale, militaire, scientifique et musicale, sans aucun rapport avec la blockchain ou le marché des cryptomonnaies.\"\n}\n```",
-      "ts": "2026-09-05T15:49:33.159442+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": -2.2416443993330786,
-      "value": 4087526778.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique sans rapport avec la crypto (actualités générales et divertissement) couplé à un volume on-chain anormalement bas (z-score -2.24). Aucune baleine détectée, simple anomalie statistique non pertinente.\"\n}\n```",
-      "ts": "2026-09-05T16:19:40.485546+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": -2.1503721056992275,
-      "value": 3907388966.0,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 75,\n  \"reason\": \"Divergence significative entre l'alerte onchain (volume anormalement bas, z-score -2.15) et les titres médiatiques banals (contrats militaires, culture, pétrole). Absence totale de sujets crypto/financiers dans l'actualité malgré le mouvement détecté. Les baleines pourraient profiter du calme médiatique pour repositionner leurs actifs.\"\n}\n```",
-      "ts": "2026-09-05T16:49:49.907413+00:00"
-    },
-    {
       "metric": "price_1h",
       "zscore": 3.130910714515488,
       "value": 0.32962001792253837,
@@ -349,6 +328,27 @@
       "value": 0.882,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (IPT) confondue avec l'acronyme institutionnel du Tournoi International des Physiciens et de divers communiqués universitaires. Bruit médiatique sans rapport avec une activité de baleines crypto.\"\n}\n```",
       "ts": "2026-09-06T17:59:00.697875+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 2.0442691186179958,
+      "value": 0.012,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Fausse alerte due à l'ambiguïté du ticker 'SDI'. Les médias parlent du syndicat SDI (Fiscalité TPE), de matériel vidéo (Blackmagic) et de Samsung SDI (batteries auto), tandis que les données onchain captent un bruit statistique sans rapport avec une baleine crypto.\"\n}\n```",
+      "ts": "2026-09-06T18:49:10.829338+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.215337491530164,
+      "value": 0.88,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (ipt=0.88) liée à un bruit médiatique sur des sujets académiques sans aucun lien avec la crypto (Tournoi de Physique, Institut Protestant de Théologie, biotechnologies). Aucune activité de baleine détectée.\"\n}\n```",
+      "ts": "2026-09-06T18:54:13.143701+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 3.602468736727087,
+      "value": 4462215.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Activité anormale des baleines (Z-score 3.60, ~4.46M USD) totalement ignorée par les médias traditionnels (silence médiatique). Cette divergence classique indique une accumulation ou un positionnement discret avant une rupture de prix.\"\n}\n```",
+      "ts": "2026-09-06T19:04:17.266630+00:00"
     }
   ]
 }

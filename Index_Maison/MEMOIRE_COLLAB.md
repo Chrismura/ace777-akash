@@ -116,6 +116,8 @@ Intégration cockpit (2 lignes dans index.html) · passage au réel · cumul des
 
 | ts | Qui | Action | Où | Quoi |
 |----|-----|--------|-----|------|
+| 2026-09-06T1853Z | journal_soir | ★ | journal | snapshot soir auto |
+| 2026-09-06T1853Z | journal_auto | ★ | CONSOLE+Journal_2026-09-06 | Snapshot auto hygiène soir |
 | 2026-09-05T2145Z | Buffy | ★ | SNIFF_GITHUB_OBSIDIAN_20260905 + 3 pièces | Sniff GitHub soumis à la famille (hub, Gemini) : pépites pour Obsidian/cockpit/apprentissage. Verdict GO-AVEC-RÉSERVES (90%). EXÉCUTION : (1) pre-commit hook >50 Mo (`scripts/git_precommit_large_files.sh`, symlink coffre+projet, testé : 60 Mo refusé rc=1 — bug sous-shell corrigé via process substitution) ; (2) rotation JSONL (`scripts/rotation_jsonl.py`, COPYTRUNCATE+gzip, croisement_contexte 315 Mo → 0 + .1.gz 4,8 Mo, branché superviseur_core check 6 h) ; (3) éval prompts Cortana : promptfoo REJETÉ terrain (npm 1,7 Go en 17 min sans finir, ligne alpage) → harnais maison stdlib `scripts/eval_cortana_prompt.py` (Ollama local ou hub, assertions AVIS STRICT/HORIZON/CONFIANCE/pas d'ordre/score<60%→faible ; testé : local 1,5b ÉCHEC, hub Gemini PASS). Rejetés famille : obsidian-git (2e consommateur), broken-links-cleaner auto, RAG mémoire (OSSATURE). |
 | 2026-09-05T1854Z | journal_soir | ★ | journal | snapshot soir auto |
 | 2026-09-05T1853Z | journal_auto | ★ | CONSOLE+Journal_2026-09-05 | Snapshot auto hygiène soir |
