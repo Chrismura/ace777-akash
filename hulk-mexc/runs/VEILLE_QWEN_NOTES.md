@@ -3516,3 +3516,8 @@ Pas d’ordre — confrontation plus tard.
 ### 2026-09-06T12:46:24Z — ALERT auto
 - CHIPUSDT: WATCH_PULLBACK — tension haute + reflux
 (compléter: confirmé ? risque ?)
+
+### 2026-09-06T15:27:13Z — ALERT auto
+- CHIPUSDT: WATCH_PULLBACK — tension haute + reflux
+- EDELUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
