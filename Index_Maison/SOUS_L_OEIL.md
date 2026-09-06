@@ -1,27 +1,21 @@
-# Sous l'œil — pulse machine
+# 👁️ SOUS L'ŒIL — Pulse machine
 
-> Mis à jour auto · **ne lance rien** · lit seulement.
+**Date** : 2026-09-06T15:26:50+0200
+**Mode** : VOL
+**Verdict** : OK
 
-**🟡 Machine : **OK avec alertes**** · `PULSE=WARN` · mode **VOL**
+## Processus
+- ACE (lanceur) : ❌ inactif
+- HULK (paper_diprip) : ✅ actif
+- OLLAMA (serve) : ✅ actif
 
-| | Check | Détail |
-|---|--------|--------|
-| ✅ | Mode | VOL (auto) |
-| ✅ | Horodatage | 2026-09-06T14:26 local · 2026-09-06T12:26Z UTC |
-| ✅ | Champion | md5 `14bcf868…` |
-| ⚠️ | ACE process | attendu si GO ACE — OFF |
-| ✅ | Hulk paper | ON |
-| ✅ | Hulk state | PAPER_V1_20260901_080116_state.json · 13 pos · pnl=9.898169021922037 |
-| ✅ | RAM | ~1284 Mo libre |
+## Ressources
+- RAM libre : 0 Mo (OK)
+- Champion (genesis_manifest) : OK
 
-## Que faire
-
-- Vol en cours : **ne pas** lancer un 2ᵉ GO, **ne pas** tuer sans raison.
-- Si ❌ Ollama / LIVE muet / heartbeat mort → ouvrir le terminal ACE, coller le log.
-- Commande manuelle : `bash Index_Maison/scripts/pulse_sous_loeil.sh`
-
-## Registre automations
-Voir [[AUTO_PROCESSUS]] — ce pulse = couche **veille machine**, pas trading.
+## Fraîcheur
+- Heartbeat : 2505s
+- LIVE : —
 
 ---
-_généré 2026-09-06T12:26Z · script `pulse_sous_loeil.sh`_
+*Généré par superviseur_core.sh — lecture seule, jamais de GO*

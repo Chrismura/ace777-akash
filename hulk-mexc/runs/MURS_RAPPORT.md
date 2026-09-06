@@ -1,25 +1,25 @@
 # OBSERVATOIRE DES MURS DE LIQUIDITÉ
-> 2026-09-06T12:24Z — 75539 mesures sur 27 paires · CSVs ASPIRATION_CALIB + OBSERVATION_MURS · sonde observation OBSERVATION_MURS_20260906_122352.csv
+> 2026-09-06T13:25Z — 75557 mesures sur 27 paires · CSVs ASPIRATION_CALIB + OBSERVATION_MURS · sonde observation OBSERVATION_MURS_20260906_132517.csv
 
 ## Les VRAIS murs (top 12 par mur bid moyen)
 
 | Paire | Mesures | Mur BID moy ($) | Mur BID max ($) | Mur ASK moy ($) | Spoof | Drop ≥15%/s |
 |---|---|---|---|---|---|---|
-| SOLUSDT | 434 | 500562.39 | 1131378.99 | 487096.58 | 0 (0.0%) | 9 |
+| SOLUSDT | 436 | 500625.65 | 1131378.99 | 487209.05 | 0 (0.0%) | 9 |
 | BTCUSDT | 1481 | 419926.18 | 1924444.32 | 488181.06 | 49 (3.31%) | 124 |
 | ETHUSDT | 1264 | 177592.18 | 1966688.05 | 173455.49 | 14 (1.11%) | 63 |
 | ADAUSDT | 36 | 102875.08 | 154143.34 | 92656.51 | 0 (0.0%) | 1 |
 | XRPUSDT | 8737 | 91589.68 | 606419.6 | 94098.68 | 376 (4.3%) | 1137 |
-| XLMUSDT | 426 | 73496.86 | 312328.07 | 66113.86 | 0 (0.0%) | 7 |
-| ALGOUSDT | 426 | 55004.97 | 93941.7 | 50828.69 | 0 (0.0%) | 11 |
+| XLMUSDT | 428 | 73473.95 | 312328.07 | 66155.38 | 0 (0.0%) | 7 |
+| ALGOUSDT | 428 | 55017.72 | 93941.7 | 50836.1 | 0 (0.0%) | 11 |
 | CHIPUSDT | 828 | 30766.68 | 61779.48 | 27298.12 | 32 (3.86%) | 53 |
 | HBARUSDT | 7426 | 30739.91 | 63738.72 | 26144.54 | 268 (3.61%) | 682 |
 | KITEUSDT | 391 | 28494.55 | 49707.9 | 26254.61 | 10 (2.56%) | 17 |
-| GOLD(PAXG)USDT | 427 | 28018.68 | 87814.07 | 29780.44 | 0 (0.0%) | 25 |
-| JASMYUSDT | 426 | 24387.83 | 239378.61 | 10886.92 | 0 (0.0%) | 2 |
+| GOLD(PAXG)USDT | 429 | 28041.65 | 87814.07 | 29740.06 | 0 (0.0%) | 25 |
+| JASMYUSDT | 428 | 24424.43 | 239378.61 | 10882.26 | 0 (0.0%) | 2 |
 
 ## Synthèse
-- **Total mesures** : 75539 (16-24/08, sonde aspiration)
+- **Total mesures** : 75557 (16-24/08, sonde aspiration)
 - **Spoofs détectés** : 1845 (2.4% des mesures) — murs de façade (fond puis se reconstruit)
 - **Chutes brutales de mur** (≥ 15%/s) : 3896 — le signal ACE « le mur s'effondre »
 
