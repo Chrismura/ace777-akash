@@ -1,6 +1,6 @@
-# STRATEGIE — 2026-09-06T14:26:14.978072Z
+# STRATEGIE — 2026-09-06T14:32:27.113782Z
 
-## COURT TERME — 2026-09-06T14:26:14.978072Z
+## COURT TERME — 2026-09-06T14:32:27.113782Z
 
 [UNDERSTAND] La maison ACE777 maintient son alerte ambre face à un PnL combiné légèrement négatif (-9,12 $), pénalisé par l'érosion persistante de la position CCUSDT, tandis que Beta assure ses reconnaissances tactiques et qu'Alpha respecte sa stricte discipline d'embuscade.
 [ANALYZE] 

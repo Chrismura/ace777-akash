@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "volume",
-      "zscore": -2.3055464462038846,
-      "value": 5735011503.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (z-score -2.31) détectée sur des données de volume sans rapport avec la crypto (bruit médiatique sur l'aéronautique, la science et la musique). Aucune activité de baleine pertinente identifiée.\"\n}\n```",
-      "ts": "2026-09-05T14:19:11.540922+00:00"
-    },
-    {
       "metric": "long_short",
       "zscore": 2.487220550041955,
       "value": 1.055,
@@ -349,6 +342,13 @@
       "value": 0.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Anomalie technique liée à une homonymie (IPT = Tournoi de Physique / Institut Protestant de Théologie). Aucun lien avec la crypto, bruit médiatique sans substance pour les baleines.\"\n}\n```",
       "ts": "2026-09-06T14:27:20.594809+00:00"
+    },
+    {
+      "metric": "price_1h",
+      "zscore": 6.696911723464725,
+      "value": 0.5465712938276357,
+      "analysis": "{\n  \"signal\": \"bullish\",\n  \"confidence\": 65,\n  \"reason\": \"Le z-score de prix extrêmement élevé (6.70) indique une anomalie haussière marquée, tandis que l'absence de titres médiatiques spécifiques suggère que ce mouvement n'est pas encore relayé, typique d'une accumulation silencieuse par les baleines. Le narratif semble donc déconnecté de la réalité on-chain.\"\n}",
+      "ts": "2026-09-06T14:32:32.071101+00:00"
     }
   ]
 }
