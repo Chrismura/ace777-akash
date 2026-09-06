@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "ipt",
-      "zscore": 2.2202421469612887,
-      "value": 1.193,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit de fond absolu. L'indicateur 'IPT' capte ici le tournoi académique de physique (IPT) et des actualités religieuses ou agricoles, sans aucun rapport avec un token crypto ou une baleine.\"\n}\n```",
-      "ts": "2026-09-05T13:28:54.085461+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": -2.2579600842548384,
-      "value": 6409498315.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score -2.26) sur des données sans rapport avec la crypto (bruit médiatique sur la musique, le pétrole et les déchets). Aucune baleine détectée.\"\n}\n```",
-      "ts": "2026-09-05T13:49:01.083532+00:00"
-    },
-    {
       "metric": "long_short",
       "zscore": 2.102605592477684,
       "value": 1.055,
@@ -349,6 +335,20 @@
       "value": 7595398.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Forte divergence : les médias grand public se focalisent sur des bruits de liquidations judiciaires locales sans rapport, tandis que l'anomalie on-chain (z-score 2.47, $7.6M de liquidations ciblées) coïncide avec une absorption institutionnelle massive ($504M de liquidations globales et 1,800 BTC accumulés par Strive). Les baleines nettoient le Leverage avant une impulsion haussière.\"\n}\n```",
       "ts": "2026-09-06T10:25:45.807765+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 2.2819974618897403,
+      "value": 7592414.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Bruit médiatique parasité par des faits divers locaux de faillites d'entreprises traditionnelles, masquant complètement les flux massifs institutionnels (180M$ d'achats BTC par Strive, 101M$ d'entrées nettes) et un flush de liquidations saines (z-score 2.28) qui nettoie l'excès de levier pour une continuation haussière.\"\n}\n```",
+      "ts": "2026-09-06T10:55:54.071333+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 2.1257019291996753,
+      "value": 7592414.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 75,\n  \"reason\": \"Divergence significative entre les liquidations onchain (anomalie + z-score élevé) et le narratif médiatique focalisé sur des liquidations judiciaires locales sans lien avec les crypto. Suggestif d'activité silencieuse des baleines.\"\n}\n```",
+      "ts": "2026-09-06T11:26:05.498785+00:00"
     }
   ]
 }
