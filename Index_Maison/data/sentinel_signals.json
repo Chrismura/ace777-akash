@@ -1,48 +1,6 @@
 {
   "signals": [
     {
-      "metric": "ipt",
-      "zscore": 2.0601048667521984,
-      "value": 1.17,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit de fond médiatique sans rapport avec la crypto. Les occurrences 'IPT' renvoient au Tournoi de Physique et à des actualités religieuses ou agricoles. Aucune activité de baleine détectée sur ce ticker fantôme.\"\n}\n```",
-      "ts": "2026-09-05T01:29:09.604614+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": -3.99264028815375,
-      "value": 73,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-3.99) malgré une avidité élevée (73). Silence total dans les médias (Google Actualités vide/neutre). Divergence classique de piège à liquidité : les baleines distribuent en silence pendant que le retail FOMO sur un narratif absent.\"\n}\n```",
-      "ts": "2026-09-05T01:34:12.552543+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": -3.394368738135958,
-      "value": 73,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Le score z extrêmement négatif (-3.39) pour un indice de Greed à 73 révèle une anomalie statistique majeure : le marché de détail est aveuglé par l'euphorie (Greed) tandis que l'activité réelle onchain s'effondre. Cette divergence crevasse indique une distribution silencieuse des baleines sous couvert d'un narratif médiatique vide.\"\n}\n```",
-      "ts": "2026-09-05T02:04:42.588323+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": -2.988483642712245,
-      "value": 73,
-      "analysis": "{\n  \"signal\": \"bearish\",\n  \"confidence\": 72,\n  \"reason\": \"The Fear & Greed index reads 73 (strong greed) but its z‑score of –2.99 flags it as a severe statistical outlier, suggesting the current euphoria is detached from underlying on‑chain conditions. Media headlines (Google Actualités) are likely echoing the greedy narrative, creating a divergence where silent whale activity may be accumulating or distributing ahead of a potential correction.\"\n}",
-      "ts": "2026-09-05T02:35:39.732645+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.3674504627139306,
-      "value": 1.259,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique sans rapport avec la crypto (tournoi de physique IPT et actualités protestantes). Aucune baleine détectée.\"\n}\n```",
-      "ts": "2026-09-05T02:55:59.569139+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": -2.688600273110811,
-      "value": 73,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Le Z-score de -2.69 indique une anomalie statistique majeure dans l'indice Fear & Greed malgré une zone de cupidité (73). Le vide médiatique suggère une absence de FOMO public, tandis que les baleines profitent de cette surévaluation psychologique locale pour distribuer silencieusement aux derniers acheteurs.\"\n}\n```",
-      "ts": "2026-09-05T03:06:02.097083+00:00"
-    },
-    {
       "metric": "fear_greed",
       "zscore": -2.4544633311382746,
       "value": 73,
@@ -349,6 +307,48 @@
       "value": 4219556.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Divergence massive : les médias généralistes confondent des liquidations judiciaires locales avec la macro-dynamique crypto, masquant un afflux institutionnel massif (101M$ net, achat de 1800 BTC par Strive) et un flush des positions à effet de levier (4,2M$ liquidés avec un z-score de 2.37) qui purge le marché pour un rebond.\"\n}\n```",
       "ts": "2026-09-06T06:23:10.296697+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 2.071949075863829,
+      "value": 0.012,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Bruit médiatique parasité par des homonymes non-crypto (Samsung SDI, syndicat SDI, matériel vidéo). Aucune baleine crypto active sur ce ticker.\"\n}\n```",
+      "ts": "2026-09-06T06:38:28.504657+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.173557656708519,
+      "value": 0.917,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.17) totalement non corrélée aux flux crypto. Les médias parlent du Tournoi International des Physiciens (IPT) et d'accords universitaires. Bruit pur, pas de mouvement de baleine.\"\n}\n```",
+      "ts": "2026-09-06T06:38:36.759885+00:00"
+    },
+    {
+      "metric": "price_1h",
+      "zscore": 2.5918522711933374,
+      "value": 0.23925128861516098,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Forte anomalie de prix à la hausse (z-score 2.59) totalement ignorée par les médias (silence radio). C'est la signature classique d'accumulation furtive par des baleines avant le réveil du narratif public.\"\n}\n```",
+      "ts": "2026-09-06T06:43:39.903930+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 2.176247107049654,
+      "value": 4194989.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 78,\n  \"reason\": \"Forte divergence : les médias grand public se focalisent sur des liquidations judiciaires locales sans rapport, tandis que les données on-chain montrent un z-score de 2.18 sur des liquidations crypto ($4.19M) combinées à des entrées nettes institutionnelles massives ($101M) et des achats de baleines (Strive). Accumulation cachée sous le bruit médiatique.\"\n}\n```",
+      "ts": "2026-09-06T06:53:43.993327+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 3.2719685134588996,
+      "value": 0.016,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Bruit médiatique parasité par des homonymes (Samsung SDI, syndicat patronal SDI, matériel vidéo). Aucune corrélation avec une baleine crypto.\"\n}\n```",
+      "ts": "2026-09-06T07:09:19.702639+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 4.366753566191188,
+      "value": 6837419.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique parasité par des faits divers locaux (liquidations judiciaires d'entreprises) et des données macro de marché standard. Aucune divergence onchain significative de baleines détectée.\"\n}\n```",
+      "ts": "2026-09-06T07:24:24.413352+00:00"
     }
   ]
 }

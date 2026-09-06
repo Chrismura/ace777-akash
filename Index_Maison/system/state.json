@@ -1,27 +1,27 @@
 {
-  "timestamp": "2026-09-06T06:30:08Z",
+  "timestamp": "2026-09-06T07:28:26Z",
   "generation_source": "system_state_generator.py v2.1",
   "status": "STALE",
-  "feed_hash": "947e14b1054bf36113bf3a444a5a24461912842d217fd221acf80cc9a5872a98",
+  "feed_hash": "7a389b9cf78f124707c9cbeabddfc389499df025dae428220350d867b6e5b433",
   "feeds": {
     "mission": {
       "present": true,
-      "age_seconds": 34,
+      "age_seconds": 10,
       "fresh_limit_s": 120
     },
     "cortana_feed": {
       "present": true,
-      "age_seconds": 95,
+      "age_seconds": 101,
       "fresh_limit_s": 120
     },
     "live": {
       "present": true,
-      "age_seconds": 95,
+      "age_seconds": 101,
       "fresh_limit_s": 15
     },
     "routing": {
       "present": true,
-      "age_seconds": 1104592,
+      "age_seconds": 1108089,
       "fresh_limit_s": 120
     }
   },
@@ -30,7 +30,6 @@
     "running": 9,
     "planned": 65,
     "running_list": [
-      "com.ace777.analyste-cadence",
       "com.ace777.cockpit-http",
       "com.ace777.cockpit-pont",
       "com.ace777.llm-gate-hub",
@@ -38,9 +37,11 @@
       "com.ace777.state-generator",
       "com.ace777.superviseur-core",
       "com.ace777.superviseur-process",
-      "com.ace777.vigie-live"
+      "com.ace777.vigie-live",
+      "com.ace777.whales"
     ],
     "planned_list": [
+      "com.ace777.analyste-cadence",
       "com.ace777.archi-vivante",
       "com.ace777.autopilote",
       "com.ace777.backup-check",
@@ -104,8 +105,7 @@
       "com.ace777.veilleuse-confrontation",
       "com.ace777.veilleuse-sizing-monte-carlo",
       "com.ace777.verif-setup",
-      "com.ace777.watchdog",
-      "com.ace777.whales"
+      "com.ace777.watchdog"
     ]
   },
   "hub": {
@@ -145,7 +145,7 @@
       "Assistant_Vocal_HORS_VAULT": 697372,
       "Obsidian_BACKUPS_HORS_VAULT": 14936872
     },
-    "presence_at": "2026-09-06T06:25:56Z",
+    "presence_at": "2026-09-06T07:25:56Z",
     "sizes_at": "2026-09-06T05:25:53Z"
   }
 }

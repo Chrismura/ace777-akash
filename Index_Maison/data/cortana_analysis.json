@@ -1,15 +1,55 @@
 {
-  "timestamp": 1788676225,
-  "date": "2026-09-06T06:30:25.349729+00:00",
-  "n_analyses": 1,
+  "timestamp": 1788679526,
+  "date": "2026-09-06T07:25:26.383252+00:00",
+  "n_analyses": 2,
   "analyses": [
     {
       "signal": {
+        "metric": "sdi",
+        "zscore": 3.2719685134588996,
+        "value": 0.016,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Bruit médiatique parasité par des homonymes (Samsung SDI, syndicat patronal SDI, matériel vidéo). Aucune corrélation avec une baleine crypto.\"\n}\n```",
+        "ts": 1788678559.702639
+      },
+      "fiche": "rbf_eleve",
+      "questions": {
+        "prix": {
+          "value": 0.02,
+          "seuil": 1,
+          "depasse": false
+        },
+        "paires": {
+          "value": null,
+          "seuil": 3,
+          "depasse": false
+        },
+        "funding": {
+          "value": 2.9e-05,
+          "seuil": 0.001,
+          "depasse": false
+        },
+        "whales": {
+          "value": 1,
+          "seuil": 5,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "sdi > 0.3",
+        "lecture": "Drainage silencieux — les vieux BTC bougent en douce",
+        "niveau": "dangereux",
+        "action": "Réduire taille de 50%, sortir des positions fragiles"
+      },
+      "action": "Réduire taille de 50%, sortir des positions fragiles",
+      "niveau": "dangereux"
+    },
+    {
+      "signal": {
         "metric": "liquidations",
-        "zscore": 2.3727906366838747,
-        "value": 4219556.0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Divergence massive : les médias généralistes confondent des liquidations judiciaires locales avec la macro-dynamique crypto, masquant un afflux institutionnel massif (101M$ net, achat de 1800 BTC par Strive) et un flush des positions à effet de levier (4,2M$ liquidés avec un z-score de 2.37) qui purge le marché pour un rebond.\"\n}\n```",
-        "ts": 1788675790.296697
+        "zscore": 4.366753566191188,
+        "value": 6837419.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique parasité par des faits divers locaux (liquidations judiciaires d'entreprises) et des données macro de marché standard. Aucune divergence onchain significative de baleines détectée.\"\n}\n```",
+        "ts": 1788679464.413352
       },
       "fiche": null,
       "interpretation": {
@@ -19,5 +59,5 @@
       "action": "Observer"
     }
   ],
-  "resume": "🔵 CALME — pas de signal alarmant"
+  "resume": "🔴 DANGER détecté — réduire les expositions"
 }
