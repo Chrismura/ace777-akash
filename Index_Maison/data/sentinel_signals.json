@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "long_short",
-      "zscore": 2.487220550041955,
-      "value": 1.055,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Le Z-score élevé (2.49) indique une surconcentration agressive des positions longues par les traders particuliers et les baleines, tandis que les médias grand public banalisent les stratégies 'long-short' sans lien avec l'activité on-chain réelle. Cette euphorie excessive est un signal classique de retournement baissier imminent (piège à acheteurs).\"\n}\n```",
-      "ts": "2026-09-05T14:44:18.536382+00:00"
-    },
-    {
       "metric": "volume",
       "zscore": -2.3503804091276166,
       "value": 5102089589.0,
@@ -349,6 +342,13 @@
       "value": 0.5465712938276357,
       "analysis": "{\n  \"signal\": \"bullish\",\n  \"confidence\": 65,\n  \"reason\": \"Le z-score de prix extrêmement élevé (6.70) indique une anomalie haussière marquée, tandis que l'absence de titres médiatiques spécifiques suggère que ce mouvement n'est pas encore relayé, typique d'une accumulation silencieuse par les baleines. Le narratif semble donc déconnecté de la réalité on-chain.\"\n}",
       "ts": "2026-09-06T14:32:32.071101+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.6273036807345718,
+      "value": 0.96,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.63) sur l'indice 'ipt' totalement non corrélée à la crypto. Les titres médiatiques font référence à un tournoi de physique (X), à de la recherche en biotechnologie (INSA) et à de l'actualité religieuse/protestante. Bruit de fond absolu, aucune baleine détectée.\"\n}\n```",
+      "ts": "2026-09-06T17:08:06.087287+00:00"
     }
   ]
 }

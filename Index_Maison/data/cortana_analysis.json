@@ -1,7 +1,48 @@
 {
-  "timestamp": 1788712236,
-  "date": "2026-09-06T16:30:36.868782+00:00",
-  "n_analyses": 0,
-  "analyses": [],
-  "resume": "Aucune analyse en cours"
+  "timestamp": 1788715838,
+  "date": "2026-09-06T17:30:38.132511+00:00",
+  "n_analyses": 1,
+  "analyses": [
+    {
+      "signal": {
+        "metric": "ipt",
+        "zscore": 2.6273036807345718,
+        "value": 0.96,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.63) sur l'indice 'ipt' totalement non corrélée à la crypto. Les titres médiatiques font référence à un tournoi de physique (X), à de la recherche en biotechnologie (INSA) et à de l'actualité religieuse/protestante. Bruit de fond absolu, aucune baleine détectée.\"\n}\n```",
+        "ts": 1788714486.087287
+      },
+      "fiche": "rbf_eleve",
+      "questions": {
+        "prix": {
+          "value": 0.06,
+          "seuil": 1,
+          "depasse": false
+        },
+        "paires": {
+          "value": null,
+          "seuil": 3,
+          "depasse": false
+        },
+        "funding": {
+          "value": 4.5e-05,
+          "seuil": 0.001,
+          "depasse": false
+        },
+        "whales": {
+          "value": 2,
+          "seuil": 5,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "sdi > 0.3",
+        "lecture": "Drainage silencieux — les vieux BTC bougent en douce",
+        "niveau": "dangereux",
+        "action": "Réduire taille de 50%, sortir des positions fragiles"
+      },
+      "action": "Réduire taille de 50%, sortir des positions fragiles",
+      "niveau": "dangereux"
+    }
+  ],
+  "resume": "🔴 DANGER détecté — réduire les expositions"
 }
