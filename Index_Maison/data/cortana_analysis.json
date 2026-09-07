@@ -1,95 +1,15 @@
 {
-  "timestamp": 1788781559,
-  "date": "2026-09-07T11:45:59.667341+00:00",
-  "n_analyses": 3,
+  "timestamp": 1788784260,
+  "date": "2026-09-07T12:31:00.339715+00:00",
+  "n_analyses": 1,
   "analyses": [
     {
       "signal": {
-        "metric": "sdi",
-        "zscore": 2.4527622756289755,
-        "value": 0.012,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Fausse alerte liée à l'ambiguïté de l'acronyme SDI. Les flux on-chain et les gros volumes médiatiques font référence à des homonymes non-crypto (Samsung SDI, matériel vidéo Blackmagic SDI, fiscalité des TPE), aucune activité de baleine crypto détectée.\"\n}\n```",
-        "ts": 1788780003.855026
-      },
-      "fiche": "rbf_eleve",
-      "questions": {
-        "prix": {
-          "value": 0.07,
-          "seuil": 1,
-          "depasse": false
-        },
-        "paires": {
-          "value": null,
-          "seuil": 3,
-          "depasse": false
-        },
-        "funding": {
-          "value": 3e-05,
-          "seuil": 0.001,
-          "depasse": false
-        },
-        "whales": {
-          "value": 2,
-          "seuil": 5,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "sdi > 0.3",
-        "lecture": "Drainage silencieux — les vieux BTC bougent en douce",
-        "niveau": "dangereux",
-        "action": "Réduire taille de 50%, sortir des positions fragiles"
-      },
-      "action": "Réduire taille de 50%, sortir des positions fragiles",
-      "niveau": "dangereux"
-    },
-    {
-      "signal": {
-        "metric": "ipt",
-        "zscore": 2.8812427019003506,
-        "value": 0.985,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Le signal 'ipt' détecté et les actualités médiatiques font référence au Tournoi International des Physiciens (IPT), à un Institut Protestant de Théologie ou à des accords universitaires. Aucune corrélation avec une crypto-monnaie ou un mouvement de baleines on-chain. Fausse alerte due à une homonymie lexicale.\"\n}\n```",
-        "ts": 1788780006.641485
-      },
-      "fiche": "rbf_eleve",
-      "questions": {
-        "prix": {
-          "value": 0.07,
-          "seuil": 1,
-          "depasse": false
-        },
-        "paires": {
-          "value": null,
-          "seuil": 3,
-          "depasse": false
-        },
-        "funding": {
-          "value": 3e-05,
-          "seuil": 0.001,
-          "depasse": false
-        },
-        "whales": {
-          "value": 2,
-          "seuil": 5,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "sdi > 0.3",
-        "lecture": "Drainage silencieux — les vieux BTC bougent en douce",
-        "niveau": "dangereux",
-        "action": "Réduire taille de 50%, sortir des positions fragiles"
-      },
-      "action": "Réduire taille de 50%, sortir des positions fragiles",
-      "niveau": "dangereux"
-    },
-    {
-      "signal": {
         "metric": "long_short",
-        "zscore": 2.446072316699622,
-        "value": 1.083,
-        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Le ratio long/short atteint un z-score extrême de 2.45 (surconfiance haussière des baleines), tandis que les médias grand public banalisent et font la promotion massive des stratégies long/short. Historiquement, un consensus aussi unilatéral des 'smart money' couplé à un battage médiatique classique précède un violent 'long squeeze'.\"\n}\n```",
-        "ts": 1788781211.025944
+        "zscore": 3.29704111385052,
+        "value": 1.094,
+        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 92,\n  \"reason\": \"Z-score extrême (3.30) sur le ratio long/short indiquant un posicionnement acheteur ultra-excessif de la foule. Pendant que les médias grand public font la promotion générale des stratégies 'long/short', le marché est mûr pour une chasse aux liquidités baissière (long squeeze) initiée par les baleines.\"\n}\n```",
+        "ts": 1788783016.63997
       },
       "fiche": null,
       "interpretation": {
@@ -99,5 +19,5 @@
       "action": "Observer"
     }
   ],
-  "resume": "🔴 DANGER détecté — réduire les expositions"
+  "resume": "🔵 CALME — pas de signal alarmant"
 }

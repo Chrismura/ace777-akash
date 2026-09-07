@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-07T11:47:35.205311+00:00",
+  "generated_at": "2026-09-07T12:35:39.383294+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 250
+      "calls_24h": 247
     },
     {
       "id": "openrouter-free",
@@ -71,7 +71,7 @@
       "model": "nvidia/nemotron-3-super-120b-a12b:free",
       "enabled": true,
       "timeout": 120,
-      "calls_24h": 12
+      "calls_24h": 11
     },
     {
       "id": "grok",
@@ -256,10 +256,42 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 148,
-    "remaining": 476
+    "consumed": 152,
+    "remaining": 472
   },
   "queue": [
+    {
+      "ts": "2026-09-07T12:30:50.907249+00:00",
+      "task": "analyste.strategie",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 4.35
+    },
+    {
+      "ts": "2026-09-07T12:10:16.639161+00:00",
+      "task": "analyse.profonde",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 1.13
+    },
+    {
+      "ts": "2026-09-07T12:00:51.597585+00:00",
+      "task": "analyste.strategie",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 8.18
+    },
+    {
+      "ts": "2026-09-07T11:52:51.159989+00:00",
+      "task": "analyste.strategie",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 5.05
+    },
     {
       "ts": "2026-09-07T11:40:11.025061+00:00",
       "task": "analyse.profonde",
@@ -347,41 +379,33 @@
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
       "duration_s": 4.45
-    },
-    {
-      "ts": "2026-09-07T10:49:51.735341+00:00",
-      "task": "analyse.profonde",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 1.01
-    },
-    {
-      "ts": "2026-09-07T10:47:37.934828+00:00",
-      "task": "analyste.strategie",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 4.23
-    },
-    {
-      "ts": "2026-09-07T10:39:48.840181+00:00",
-      "task": "analyse.profonde",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 1.45
-    },
-    {
-      "ts": "2026-09-07T10:38:13.949127+00:00",
-      "task": "analyste.strategie",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 4.43
     }
   ],
   "events": [
+    {
+      "ts": "2026-09-07T12:30:50.904677+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
+    {
+      "ts": "2026-09-07T12:10:16.638708+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
+    {
+      "ts": "2026-09-07T12:00:51.597178+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
+    {
+      "ts": "2026-09-07T11:52:51.159483+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
     {
       "ts": "2026-09-07T11:40:11.024611+00:00",
       "kind": "message",
@@ -414,30 +438,6 @@
     },
     {
       "ts": "2026-09-07T11:20:03.853790+00:00",
-      "kind": "message",
-      "title": "« Google Gemini » a repondu",
-      "detail": ""
-    },
-    {
-      "ts": "2026-09-07T11:10:24.142508+00:00",
-      "kind": "message",
-      "title": "« Google Gemini » a repondu",
-      "detail": ""
-    },
-    {
-      "ts": "2026-09-07T11:09:59.502299+00:00",
-      "kind": "message",
-      "title": "« Google Gemini » a repondu",
-      "detail": ""
-    },
-    {
-      "ts": "2026-09-07T11:04:56.951558+00:00",
-      "kind": "message",
-      "title": "« Google Gemini » a repondu",
-      "detail": ""
-    },
-    {
-      "ts": "2026-09-07T11:00:41.469879+00:00",
       "kind": "message",
       "title": "« Google Gemini » a repondu",
       "detail": ""

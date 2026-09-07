@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "fear_greed",
-      "zscore": -16.94107434609743,
-      "value": 71,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement négatif (-16.94) malgré un indice de cupidité élevé (71). Indique une anomalie statistique majeure : les flux de liquidité institutionnels/baleines divergent totalement du bruit médiatique neutre, préparant un mouvement de squeeze.\"\n}\n```",
-      "ts": "2026-09-07T00:10:57.930979+00:00"
-    },
-    {
       "metric": "volume",
       "zscore": 2.2322023436103127,
       "value": 5071368025.0,
@@ -349,6 +342,13 @@
       "value": 1.083,
       "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Le ratio long/short atteint un z-score extrême de 2.45 (surconfiance haussière des baleines), tandis que les médias grand public banalisent et font la promotion massive des stratégies long/short. Historiquement, un consensus aussi unilatéral des 'smart money' couplé à un battage médiatique classique précède un violent 'long squeeze'.\"\n}\n```",
       "ts": "2026-09-07T11:40:11.025944+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": 3.29704111385052,
+      "value": 1.094,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 92,\n  \"reason\": \"Z-score extrême (3.30) sur le ratio long/short indiquant un posicionnement acheteur ultra-excessif de la foule. Pendant que les médias grand public font la promotion générale des stratégies 'long/short', le marché est mûr pour une chasse aux liquidités baissière (long squeeze) initiée par les baleines.\"\n}\n```",
+      "ts": "2026-09-07T12:10:16.639970+00:00"
     }
   ]
 }
