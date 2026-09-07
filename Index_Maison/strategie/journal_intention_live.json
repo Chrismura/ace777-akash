@@ -1,65 +1,50 @@
 {
-  "ts": "2026-09-07T20:37:20.232232+00:00",
-  "since": "2026-09-02T00:04:00Z",
+  "ts": "2026-09-07T20:48:03.715370+00:00",
+  "since": "2026-09-07T20:45:00Z",
   "bots": {
     "alpha": {
       "role": "sniper",
       "surnom": "Le Sniper",
-      "fills": 5,
-      "skips": 352,
-      "pnl": -3.3130699999999997,
-      "best": 0.25752,
-      "conf_moy": 0.72354,
+      "fills": 0,
+      "skips": 3,
+      "pnl": 0.0,
+      "best": 0.0,
+      "conf_moy": 0.0,
       "events": [
         {
-          "ts": "2026-09-02T01:01:12Z",
+          "ts": "2026-09-07T20:45:38Z",
           "bot": "alpha",
-          "cycle": 352,
-          "action": "skip",
-          "intention": "skip — regime_gate",
+          "cycle": 1,
+          "action": "wait",
+          "intention": "attente de l'etat du duo (Beta)",
           "direction": null,
           "conf": null,
-          "exit": "regime_gate",
-          "meta": {
-            "size_note": null,
-            "tension": 0.0
-          },
-          "file": "ACE_RADAR_ALIGNED_V4_60M_ALPHA_X13_BURST13.csv"
-        },
-        {
-          "ts": "2026-09-02T01:01:18Z",
-          "bot": "alpha",
-          "cycle": 353,
-          "action": "skip",
-          "intention": "skip — regime_gate",
-          "direction": null,
-          "conf": null,
-          "exit": "regime_gate",
-          "meta": {
-            "size_note": null,
-            "tension": 0.0
-          },
-          "file": "ACE_RADAR_ALIGNED_V4_60M_ALPHA_X13_BURST13.csv"
-        },
-        {
-          "ts": "2026-09-02T01:01:27Z",
-          "bot": "alpha",
-          "cycle": 354,
-          "action": "skip",
-          "intention": "skip — tactic_mismatch",
-          "direction": null,
-          "conf": null,
-          "exit": "tactic_mismatch",
+          "exit": "duo_wait",
           "meta": {
             "size_note": null,
             "tension": null
           },
-          "file": "ACE_RADAR_ALIGNED_V4_60M_ALPHA_X13_BURST13.csv"
+          "file": "MASTER_BASE_V8_6_FORTRESS_1H30_ALPHA_X13_BURST13.csv"
         },
         {
-          "ts": "2026-09-02T01:01:34Z",
+          "ts": "2026-09-07T20:45:44Z",
           "bot": "alpha",
-          "cycle": 355,
+          "cycle": 2,
+          "action": "skip",
+          "intention": "skip — regime_gate",
+          "direction": null,
+          "conf": null,
+          "exit": "regime_gate",
+          "meta": {
+            "size_note": null,
+            "tension": 2.576e-05
+          },
+          "file": "MASTER_BASE_V8_6_FORTRESS_1H30_ALPHA_X13_BURST13.csv"
+        },
+        {
+          "ts": "2026-09-07T20:45:50Z",
+          "bot": "alpha",
+          "cycle": 3,
           "action": "skip",
           "intention": "skip — regime_gate",
           "direction": null,
@@ -69,12 +54,12 @@
             "size_note": null,
             "tension": 0.0
           },
-          "file": "ACE_RADAR_ALIGNED_V4_60M_ALPHA_X13_BURST13.csv"
+          "file": "MASTER_BASE_V8_6_FORTRESS_1H30_ALPHA_X13_BURST13.csv"
         },
         {
-          "ts": "2026-09-02T01:01:40Z",
+          "ts": "2026-09-07T20:45:56Z",
           "bot": "alpha",
-          "cycle": 356,
+          "cycle": 4,
           "action": "skip",
           "intention": "skip — regime_gate",
           "direction": null,
@@ -84,274 +69,94 @@
             "size_note": null,
             "tension": 0.0
           },
-          "file": "ACE_RADAR_ALIGNED_V4_60M_ALPHA_X13_BURST13.csv"
-        },
-        {
-          "ts": "2026-09-02T01:01:46Z",
-          "bot": "alpha",
-          "cycle": 357,
-          "action": "skip",
-          "intention": "skip — regime_gate",
-          "direction": null,
-          "conf": null,
-          "exit": "regime_gate",
-          "meta": {
-            "size_note": null,
-            "tension": 0.00065325
-          },
-          "file": "ACE_RADAR_ALIGNED_V4_60M_ALPHA_X13_BURST13.csv"
-        },
-        {
-          "ts": "2026-09-02T01:01:53Z",
-          "bot": "alpha",
-          "cycle": 358,
-          "action": "skip",
-          "intention": "skip — regime_gate",
-          "direction": null,
-          "conf": null,
-          "exit": "regime_gate",
-          "meta": {
-            "size_note": null,
-            "tension": 0.0341138
-          },
-          "file": "ACE_RADAR_ALIGNED_V4_60M_ALPHA_X13_BURST13.csv"
-        },
-        {
-          "ts": "2026-09-02T01:01:59Z",
-          "bot": "alpha",
-          "cycle": 359,
-          "action": "skip",
-          "intention": "skip — regime_gate",
-          "direction": null,
-          "conf": null,
-          "exit": "regime_gate",
-          "meta": {
-            "size_note": null,
-            "tension": 0.0003298
-          },
-          "file": "ACE_RADAR_ALIGNED_V4_60M_ALPHA_X13_BURST13.csv"
-        },
-        {
-          "ts": "2026-09-02T01:02:08Z",
-          "bot": "alpha",
-          "cycle": 360,
-          "action": "skip",
-          "intention": "pas d'opportunite — discipline (radar bloque)",
-          "direction": null,
-          "conf": 0.4227,
-          "exit": "radar_block",
-          "meta": {
-            "size_note": null,
-            "tension": 0.50719722
-          },
-          "file": "ACE_RADAR_ALIGNED_V4_60M_ALPHA_X13_BURST13.csv"
-        },
-        {
-          "ts": "2026-09-02T01:02:15Z",
-          "bot": "alpha",
-          "cycle": 361,
-          "action": "skip",
-          "intention": "skip — regime_gate",
-          "direction": null,
-          "conf": null,
-          "exit": "regime_gate",
-          "meta": {
-            "size_note": null,
-            "tension": 0.00021227
-          },
-          "file": "ACE_RADAR_ALIGNED_V4_60M_ALPHA_X13_BURST13.csv"
-        },
-        {
-          "ts": "2026-09-02T01:02:21Z",
-          "bot": "alpha",
-          "cycle": 362,
-          "action": "skip",
-          "intention": "skip — regime_gate",
-          "direction": null,
-          "conf": null,
-          "exit": "regime_gate",
-          "meta": {
-            "size_note": null,
-            "tension": 0.00021228
-          },
-          "file": "ACE_RADAR_ALIGNED_V4_60M_ALPHA_X13_BURST13.csv"
-        },
-        {
-          "ts": "2026-09-02T01:02:27Z",
-          "bot": "alpha",
-          "cycle": 363,
-          "action": "skip",
-          "intention": "skip — regime_gate",
-          "direction": null,
-          "conf": null,
-          "exit": "regime_gate",
-          "meta": {
-            "size_note": null,
-            "tension": 6.13e-06
-          },
-          "file": "ACE_RADAR_ALIGNED_V4_60M_ALPHA_X13_BURST13.csv"
-        },
-        {
-          "ts": "2026-09-02T01:02:34Z",
-          "bot": "alpha",
-          "cycle": 364,
-          "action": "skip",
-          "intention": "skip — regime_gate",
-          "direction": null,
-          "conf": null,
-          "exit": "regime_gate",
-          "meta": {
-            "size_note": null,
-            "tension": 0.00387313
-          },
-          "file": "ACE_RADAR_ALIGNED_V4_60M_ALPHA_X13_BURST13.csv"
-        },
-        {
-          "ts": "2026-09-02T01:02:40Z",
-          "bot": "alpha",
-          "cycle": 365,
-          "action": "skip",
-          "intention": "skip — regime_gate",
-          "direction": null,
-          "conf": null,
-          "exit": "regime_gate",
-          "meta": {
-            "size_note": null,
-            "tension": 0.0
-          },
-          "file": "ACE_RADAR_ALIGNED_V4_60M_ALPHA_X13_BURST13.csv"
-        },
-        {
-          "ts": "2026-09-02T01:02:46Z",
-          "bot": "alpha",
-          "cycle": 366,
-          "action": "skip",
-          "intention": "skip — regime_gate",
-          "direction": null,
-          "conf": null,
-          "exit": "regime_gate",
-          "meta": {
-            "size_note": null,
-            "tension": 0.0
-          },
-          "file": "ACE_RADAR_ALIGNED_V4_60M_ALPHA_X13_BURST13.csv"
-        },
-        {
-          "ts": "2026-09-02T01:02:54Z",
-          "bot": "alpha",
-          "cycle": 367,
-          "action": "skip",
-          "intention": "skip — regime_gate",
-          "direction": null,
-          "conf": null,
-          "exit": "regime_gate",
-          "meta": {
-            "size_note": null,
-            "tension": 0.0002123
-          },
-          "file": "ACE_RADAR_ALIGNED_V4_60M_ALPHA_X13_BURST13.csv"
-        },
-        {
-          "ts": "2026-09-02T01:03:11Z",
-          "bot": "alpha",
-          "cycle": 368,
-          "action": "skip",
-          "intention": "pas d'opportunite — discipline (radar bloque)",
-          "direction": null,
-          "conf": 0.5,
-          "exit": "radar_block",
-          "meta": {
-            "size_note": null,
-            "tension": 7.52618149
-          },
-          "file": "ACE_RADAR_ALIGNED_V4_60M_ALPHA_X13_BURST13.csv"
-        },
-        {
-          "ts": "2026-09-02T01:03:17Z",
-          "bot": "alpha",
-          "cycle": 369,
-          "action": "skip",
-          "intention": "skip — regime_gate",
-          "direction": null,
-          "conf": null,
-          "exit": "regime_gate",
-          "meta": {
-            "size_note": null,
-            "tension": 0.0
-          },
-          "file": "ACE_RADAR_ALIGNED_V4_60M_ALPHA_X13_BURST13.csv"
-        },
-        {
-          "ts": "2026-09-02T01:03:23Z",
-          "bot": "alpha",
-          "cycle": 370,
-          "action": "skip",
-          "intention": "skip — regime_gate",
-          "direction": null,
-          "conf": null,
-          "exit": "regime_gate",
-          "meta": {
-            "size_note": null,
-            "tension": 0.0
-          },
-          "file": "ACE_RADAR_ALIGNED_V4_60M_ALPHA_X13_BURST13.csv"
-        },
-        {
-          "ts": "2026-09-02T01:04:28Z",
-          "bot": "alpha",
-          "cycle": 371,
-          "action": "fire",
-          "intention": "a frappe en embuscade (13x)",
-          "direction": "long",
-          "conf": 0.6281,
-          "exit": "0.53768714",
-          "meta": {
-            "size_note": "strong_conf_full",
-            "tension": 7.18516954
-          },
-          "file": "ACE_RADAR_ALIGNED_V4_60M_ALPHA_X13_BURST13.csv"
+          "file": "MASTER_BASE_V8_6_FORTRESS_1H30_ALPHA_X13_BURST13.csv"
         }
       ],
       "counts": {
-        "wait": 14,
-        "fire": 5,
+        "wait": 1,
+        "fire": 0,
         "probe": 0,
-        "skip": 352
+        "skip": 3
       },
       "direction": {
-        "long": 2,
-        "short": 3
+        "long": 0,
+        "short": 0
       },
-      "revenge": 2
+      "revenge": 0
     },
     "beta": {
       "role": "eclaireur",
       "surnom": "L'Eclaireur",
-      "fills": 9,
-      "skips": 333,
-      "pnl": -5.8093200000000005,
-      "best": 0.91328,
-      "conf_moy": 0.7331222222222221,
+      "fills": 0,
+      "skips": 5,
+      "pnl": 0.0,
+      "best": 0.0,
+      "conf_moy": 0.0,
       "events": [
         {
-          "ts": "2026-09-02T01:00:32Z",
+          "ts": "2026-09-07T20:45:33Z",
           "bot": "beta",
-          "cycle": 329,
+          "cycle": 1,
           "action": "skip",
-          "intention": "pas d'opportunite — discipline (radar bloque)",
+          "intention": "skip — regime_gate",
           "direction": null,
-          "conf": 0.3085,
-          "exit": "radar_block",
+          "conf": null,
+          "exit": "regime_gate",
           "meta": {
             "size_note": null,
-            "tension": 0.37018799
+            "tension": 1.943e-05
           },
-          "file": "ACE_RADAR_ALIGNED_V4_60M_BETA_X5.csv"
+          "file": "MASTER_BASE_V8_6_FORTRESS_1H30_BETA_X5.csv"
         },
         {
-          "ts": "2026-09-02T01:00:41Z",
+          "ts": "2026-09-07T20:45:38Z",
           "bot": "beta",
-          "cycle": 330,
+          "cycle": 2,
+          "action": "skip",
+          "intention": "skip — regime_gate",
+          "direction": null,
+          "conf": null,
+          "exit": "regime_gate",
+          "meta": {
+            "size_note": null,
+            "tension": 9.3e-06
+          },
+          "file": "MASTER_BASE_V8_6_FORTRESS_1H30_BETA_X5.csv"
+        },
+        {
+          "ts": "2026-09-07T20:45:44Z",
+          "bot": "beta",
+          "cycle": 3,
+          "action": "skip",
+          "intention": "skip — regime_gate",
+          "direction": null,
+          "conf": null,
+          "exit": "regime_gate",
+          "meta": {
+            "size_note": null,
+            "tension": 2.576e-05
+          },
+          "file": "MASTER_BASE_V8_6_FORTRESS_1H30_BETA_X5.csv"
+        },
+        {
+          "ts": "2026-09-07T20:45:50Z",
+          "bot": "beta",
+          "cycle": 4,
+          "action": "skip",
+          "intention": "skip — regime_gate",
+          "direction": null,
+          "conf": null,
+          "exit": "regime_gate",
+          "meta": {
+            "size_note": null,
+            "tension": 0.00019632
+          },
+          "file": "MASTER_BASE_V8_6_FORTRESS_1H30_BETA_X5.csv"
+        },
+        {
+          "ts": "2026-09-07T20:45:55Z",
+          "bot": "beta",
+          "cycle": 5,
           "action": "skip",
           "intention": "skip — regime_gate",
           "direction": null,
@@ -361,295 +166,24 @@
             "size_note": null,
             "tension": 0.0
           },
-          "file": "ACE_RADAR_ALIGNED_V4_60M_BETA_X5.csv"
-        },
-        {
-          "ts": "2026-09-02T01:00:50Z",
-          "bot": "beta",
-          "cycle": 331,
-          "action": "skip",
-          "intention": "pas d'opportunite — discipline (radar bloque)",
-          "direction": null,
-          "conf": 0.5,
-          "exit": "radar_block",
-          "meta": {
-            "size_note": null,
-            "tension": 0.61690469
-          },
-          "file": "ACE_RADAR_ALIGNED_V4_60M_BETA_X5.csv"
-        },
-        {
-          "ts": "2026-09-02T01:01:01Z",
-          "bot": "beta",
-          "cycle": 332,
-          "action": "skip",
-          "intention": "skip — regime_gate",
-          "direction": null,
-          "conf": null,
-          "exit": "regime_gate",
-          "meta": {
-            "size_note": null,
-            "tension": 0.0
-          },
-          "file": "ACE_RADAR_ALIGNED_V4_60M_BETA_X5.csv"
-        },
-        {
-          "ts": "2026-09-02T01:01:07Z",
-          "bot": "beta",
-          "cycle": 333,
-          "action": "skip",
-          "intention": "skip — regime_gate",
-          "direction": null,
-          "conf": null,
-          "exit": "regime_gate",
-          "meta": {
-            "size_note": null,
-            "tension": 0.0
-          },
-          "file": "ACE_RADAR_ALIGNED_V4_60M_BETA_X5.csv"
-        },
-        {
-          "ts": "2026-09-02T01:01:13Z",
-          "bot": "beta",
-          "cycle": 334,
-          "action": "skip",
-          "intention": "skip — regime_gate",
-          "direction": null,
-          "conf": null,
-          "exit": "regime_gate",
-          "meta": {
-            "size_note": null,
-            "tension": 5.33e-06
-          },
-          "file": "ACE_RADAR_ALIGNED_V4_60M_BETA_X5.csv"
-        },
-        {
-          "ts": "2026-09-02T01:01:22Z",
-          "bot": "beta",
-          "cycle": 335,
-          "action": "skip",
-          "intention": "pas d'opportunite — discipline (radar bloque)",
-          "direction": null,
-          "conf": 0.5,
-          "exit": "radar_block",
-          "meta": {
-            "size_note": null,
-            "tension": 2.46798722
-          },
-          "file": "ACE_RADAR_ALIGNED_V4_60M_BETA_X5.csv"
-        },
-        {
-          "ts": "2026-09-02T01:01:55Z",
-          "bot": "beta",
-          "cycle": 336,
-          "action": "probe",
-          "intention": "a sonde le marche",
-          "direction": "short",
-          "conf": 0.8988,
-          "exit": "0.64237555",
-          "meta": {
-            "size_note": "strong_conf_full+aspiration_1.618x",
-            "tension": 3.63631219
-          },
-          "file": "ACE_RADAR_ALIGNED_V4_60M_BETA_X5.csv"
-        },
-        {
-          "ts": "2026-09-02T01:02:06Z",
-          "bot": "beta",
-          "cycle": 337,
-          "action": "skip",
-          "intention": "pas d'opportunite — discipline (radar bloque)",
-          "direction": null,
-          "conf": 0.2368,
-          "exit": "radar_block",
-          "meta": {
-            "size_note": null,
-            "tension": 0.28416062
-          },
-          "file": "ACE_RADAR_ALIGNED_V4_60M_BETA_X5.csv"
-        },
-        {
-          "ts": "2026-09-02T01:02:15Z",
-          "bot": "beta",
-          "cycle": 338,
-          "action": "skip",
-          "intention": "pas d'opportunite — discipline (radar bloque)",
-          "direction": null,
-          "conf": 0.5,
-          "exit": "radar_block",
-          "meta": {
-            "size_note": null,
-            "tension": 0.71362286
-          },
-          "file": "ACE_RADAR_ALIGNED_V4_60M_BETA_X5.csv"
-        },
-        {
-          "ts": "2026-09-02T01:02:24Z",
-          "bot": "beta",
-          "cycle": 339,
-          "action": "skip",
-          "intention": "pas d'opportunite — discipline (radar bloque)",
-          "direction": null,
-          "conf": 0.5,
-          "exit": "radar_block",
-          "meta": {
-            "size_note": null,
-            "tension": 1.7932525
-          },
-          "file": "ACE_RADAR_ALIGNED_V4_60M_BETA_X5.csv"
-        },
-        {
-          "ts": "2026-09-02T01:02:30Z",
-          "bot": "beta",
-          "cycle": 340,
-          "action": "skip",
-          "intention": "skip — regime_gate",
-          "direction": null,
-          "conf": null,
-          "exit": "regime_gate",
-          "meta": {
-            "size_note": null,
-            "tension": 6.13e-06
-          },
-          "file": "ACE_RADAR_ALIGNED_V4_60M_BETA_X5.csv"
-        },
-        {
-          "ts": "2026-09-02T01:02:36Z",
-          "bot": "beta",
-          "cycle": 341,
-          "action": "skip",
-          "intention": "skip — regime_gate",
-          "direction": null,
-          "conf": null,
-          "exit": "regime_gate",
-          "meta": {
-            "size_note": null,
-            "tension": 0.00021228
-          },
-          "file": "ACE_RADAR_ALIGNED_V4_60M_BETA_X5.csv"
-        },
-        {
-          "ts": "2026-09-02T01:02:50Z",
-          "bot": "beta",
-          "cycle": 342,
-          "action": "skip",
-          "intention": "pas d'opportunite — discipline (radar bloque)",
-          "direction": null,
-          "conf": 0.5,
-          "exit": "radar_block",
-          "meta": {
-            "size_note": null,
-            "tension": 5.00084053
-          },
-          "file": "ACE_RADAR_ALIGNED_V4_60M_BETA_X5.csv"
-        },
-        {
-          "ts": "2026-09-02T01:02:56Z",
-          "bot": "beta",
-          "cycle": 343,
-          "action": "skip",
-          "intention": "skip — regime_gate",
-          "direction": null,
-          "conf": null,
-          "exit": "regime_gate",
-          "meta": {
-            "size_note": null,
-            "tension": 6.13e-06
-          },
-          "file": "ACE_RADAR_ALIGNED_V4_60M_BETA_X5.csv"
-        },
-        {
-          "ts": "2026-09-02T01:03:04Z",
-          "bot": "beta",
-          "cycle": 344,
-          "action": "skip",
-          "intention": "pas d'opportunite — discipline (radar bloque)",
-          "direction": null,
-          "conf": 0.5,
-          "exit": "radar_block",
-          "meta": {
-            "size_note": null,
-            "tension": 7.52618098
-          },
-          "file": "ACE_RADAR_ALIGNED_V4_60M_BETA_X5.csv"
-        },
-        {
-          "ts": "2026-09-02T01:04:02Z",
-          "bot": "beta",
-          "cycle": 345,
-          "action": "probe",
-          "intention": "a sonde le marche",
-          "direction": "long",
-          "conf": 0.6281,
-          "exit": "0.39523328",
-          "meta": {
-            "size_note": "strong_conf_full",
-            "tension": 4.3779753
-          },
-          "file": "ACE_RADAR_ALIGNED_V4_60M_BETA_X5.csv"
-        },
-        {
-          "ts": "2026-09-02T01:04:09Z",
-          "bot": "beta",
-          "cycle": 346,
-          "action": "skip",
-          "intention": "skip — regime_gate",
-          "direction": null,
-          "conf": null,
-          "exit": "regime_gate",
-          "meta": {
-            "size_note": null,
-            "tension": 0.00017691
-          },
-          "file": "ACE_RADAR_ALIGNED_V4_60M_BETA_X5.csv"
-        },
-        {
-          "ts": "2026-09-02T01:04:18Z",
-          "bot": "beta",
-          "cycle": 347,
-          "action": "skip",
-          "intention": "pas d'opportunite — discipline (radar bloque)",
-          "direction": null,
-          "conf": 0.5,
-          "exit": "radar_block",
-          "meta": {
-            "size_note": null,
-            "tension": 4.62009491
-          },
-          "file": "ACE_RADAR_ALIGNED_V4_60M_BETA_X5.csv"
-        },
-        {
-          "ts": "2026-09-02T01:04:25Z",
-          "bot": "beta",
-          "cycle": 348,
-          "action": "skip",
-          "intention": "skip — regime_gate",
-          "direction": null,
-          "conf": null,
-          "exit": "regime_gate",
-          "meta": {
-            "size_note": null,
-            "tension": 0.00071997
-          },
-          "file": "ACE_RADAR_ALIGNED_V4_60M_BETA_X5.csv"
+          "file": "MASTER_BASE_V8_6_FORTRESS_1H30_BETA_X5.csv"
         }
       ],
       "counts": {
-        "wait": 6,
+        "wait": 0,
         "fire": 0,
-        "probe": 9,
-        "skip": 333
+        "probe": 0,
+        "skip": 5
       },
       "direction": {
-        "long": 4,
-        "short": 5
+        "long": 0,
+        "short": 0
       },
       "revenge": 0
     }
   },
   "story": [
-    "BETA a sonde le marche (9 sondes, 4 long / 5 court, conf moyenne 0.73) — il renseigne Alpha.",
-    "ALPHA attend son moment : 352 skips (discipline), le mur du carnet ne s'effondre pas.",
-    "ALPHA a frappe 5 fois en embuscade (13x) (dont 2 en mode revenge 1.5x) : -3.31 $, meilleur trade +0.26 $."
+    "BETA veille — pas encore de sonde sur la session en cours.",
+    "ALPHA attend son signal — aucun tir sur la session en cours."
   ]
 }

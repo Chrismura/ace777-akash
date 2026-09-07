@@ -1,7 +1,7 @@
 # ACE777 — STATE
 
 > Généré automatiquement — ne pas éditer à la main
-> Phase: `ended` | Statut: `ENDED` | MAJ: `2026-09-02T01:04:31Z`
+> Phase: `running` | Statut: `RUNNING` | MAJ: `2026-09-07T20:45:26Z`
 
 ## Config active
 
@@ -11,52 +11,31 @@
 | Masse BETA / ALPHA | `200` / `800` USDT |
 | LLM gate | enabled=`TRUE` fail_closed=`TRUE` |
 | Modèle LLM | `qwen2.5-coder:1.5b` |
-| Tag session | `ACE_RADAR_ALIGNED_V4_60M` |
-| run_id | `ACE_RADAR_ALIGNED_V4_60M_20260902T000420Z_41201` |
+| Tag session | `MASTER_BASE_V8_6_FORTRESS_1H30` |
+| run_id | `MASTER_BASE_V8_6_FORTRESS_1H30_20260907T204521Z_3541` |
 | Frais Binance | `UNMATCHED_BINANCE_FEES` |
 
 ## PnL session
 
 | Unité | FILLED | Win | Loss | Win% | Brut | Frais | Net USDT | SKIP |
 |-------|--------|-----|------|------|------|------|----------|------|
-| BETA | 9 | 2 | 7 | 22.2% | -5.8093 | 4.7056 | -10.5149 | 339 |
-| ALPHA | 5 | 0 | 5 | 0.0% | -3.3131 | 4.9776 | -8.2907 | 366 |
-| **TOTAL** | **14** | — | — | — | **-9.1224** | **9.6832** | **-18.8056** | **705** |
+| BETA | 0 | 0 | 0 | 0.00% | 0.0000 | 0.0000 | 0.0000 | 0 |
+| ALPHA | 0 | 0 | 0 | 0.00% | 0.0000 | 0.0000 | 0.0000 | 0 |
+| **TOTAL** | **0** | — | — | — | **0.0000** | **0.0000** | **0.0000** | **0** |
 
 ## Duo session (`duo_session.json`)
 
-- SCOUT PnL: `-10.514915449999998` USDT
-- HUNTER PnL: `-8.290707959999999` USDT
-- Total session: `-18.805623409999995` USDT
-
-## Duo live (`duo_state.json`)
-
-| Champ | Valeur |
-|-------|--------|
-| role | `SCOUT` |
-| status | `CLOSED` |
-| side | `SELL` |
-| bps | `-13.73163717` |
-| pnl_usdt | `-1.07363328` |
-| reason | `stop_loss` |
-| cycle | `345` |
-| hold_sec | `36` |
+- SCOUT PnL: `` USDT
+- HUNTER PnL: `` USDT
+- Total session: `` USDT
 
 ## Top SKIP — BETA
 
-1. `reason=COMPRESSE tension=0.00000000 threshold=0.05` — 152
-2. `reason=COMPRESSE tension=0.00000613 threshold=0.05` — 2
-3. `reason=COMPRESSE tension=0.01680238 threshold=0.05` — 1
-4. `reason=COMPRESSE tension=0.00101623 threshold=0.05` — 1
-5. `reason=COMPRESSE tension=0.00001931 threshold=0.05` — 1
+_Aucun SKIP ou CSV absent._
 
 ## Top SKIP — ALPHA
 
-1. `reason=COMPRESSE tension=0.00000000 threshold=0.05` — 176
-2. `reason=no_trigger mode=none` — 5
-3. `reason=no_state mode=none` — 4
-4. `reason=COMPRESSE tension=0.00057525 threshold=0.05` — 1
-5. `reason=COMPRESSE tension=0.00000855 threshold=0.05` — 1
+_Aucun SKIP ou CSV absent._
 
 ## Vortex (`vortex_control.json`)
 
@@ -66,14 +45,14 @@
 
 ## Processus
 
-- master.pid: `stopped`
-- beta.pid: `stopped`
-- alpha.pid: `stopped`
+- master.pid: `RUNNING`
+- beta.pid: `RUNNING`
+- alpha.pid: `RUNNING`
 
 ## Fichiers
 
-- BETA CSV: `ACE_RADAR_ALIGNED_V4_60M_BETA_X5.csv` (ok)
-- ALPHA CSV: `ACE_RADAR_ALIGNED_V4_60M_ALPHA_X13_BURST13.csv` (ok)
+- BETA CSV: `MASTER_BASE_V8_6_FORTRESS_1H30_BETA_X5.csv` (ok)
+- ALPHA CSV: `MASTER_BASE_V8_6_FORTRESS_1H30_ALPHA_X13_BURST13.csv` (absent)
 
 ## Dernière leçon ERREURS_AI
 

@@ -17214,3 +17214,26 @@ Ce fichier sert de table des runs ACE777 pour retrouver vite les tests.
 - Rapport: `RAPPORT_PNL_AUTO_20260902_010432.md`
 - Verdict: `NEGATIF`
 
+
+---
+
+## 2026-09-07 — MASTER_BASE_V8_6_FORTRESS_1H30 (auto)
+
+- Profil: `?` v`?`
+- Tag: `MASTER_BASE_V8_6_FORTRESS_1H30`
+- Période: `` → ``
+- Logs:
+  - `MASTER_BASE_V8_6_FORTRESS_1H30_BETA_X5.csv`
+  - `MASTER_BASE_V8_6_FORTRESS_1H30_ALPHA_X13_BURST13.csv`
+- Paramètres clé:
+  - `BUY_USDT_BETA=200`
+  - `BUY_USDT_ALPHA=800`
+  - `LLM_GATE_ENABLED=TRUE`
+  - `LLM_GATE_FAIL_CLOSED=TRUE`
+- Résultat:
+  - BETA: `+0.0000 USDT` (0 trades)
+  - ALPHA: `+0.0000 USDT` (0 trades)
+  - Total: `+0.0000 USDT`
+- Rapport: `RAPPORT_PNL_AUTO_20260907_204526.md`
+- Verdict: `NEUTRE`
+

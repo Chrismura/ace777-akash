@@ -1,15 +1,55 @@
 {
-  "timestamp": 1788813369,
-  "date": "2026-09-07T20:36:09.021614+00:00",
-  "n_analyses": 1,
+  "timestamp": 1788813969,
+  "date": "2026-09-07T20:46:09.230161+00:00",
+  "n_analyses": 2,
   "analyses": [
     {
       "signal": {
+        "metric": "ipt",
+        "zscore": 2.1067988229694548,
+        "value": 0.912,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique non pertinent. Les occurrences 'IPT' font référence au Tournoi International des Physiciens et à des instituts/accords académiques, sans aucun rapport avec l'actif crypto associé (IPT). L'anomalie on-chain (z-score 2.11) reflète une micro-activité isolée sans validation fondamentale par les flux réels.\"\n}\n```",
+        "ts": 1788813543.904374
+      },
+      "fiche": "rbf_eleve",
+      "questions": {
+        "prix": {
+          "value": -0.2,
+          "seuil": 1,
+          "depasse": false
+        },
+        "paires": {
+          "value": null,
+          "seuil": 3,
+          "depasse": false
+        },
+        "funding": {
+          "value": 3e-05,
+          "seuil": 0.001,
+          "depasse": false
+        },
+        "whales": {
+          "value": 1,
+          "seuil": 5,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "sdi > 0.3",
+        "lecture": "Drainage silencieux — les vieux BTC bougent en douce",
+        "niveau": "dangereux",
+        "action": "Réduire taille de 50%, sortir des positions fragiles"
+      },
+      "action": "Réduire taille de 50%, sortir des positions fragiles",
+      "niveau": "dangereux"
+    },
+    {
+      "signal": {
         "metric": "taker_ratio",
-        "zscore": 2.7875192343474864,
+        "zscore": 2.5629673207098955,
         "value": 1.531,
-        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 92,\n  \"reason\": \"Divergence critique : les médias grand public célèbrent une baisse de la pression vendeuse, mais le taker_ratio onchain à 1.531 (z-score 2.79) prouve une agressivité massive des acheteurs/vendeurs à découvert. Les baleines profitent de l'optimisme médiatique de surface pour distribuer silencieusement.\"\n}\n```",
-        "ts": 1788812038.514028
+        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 92,\n  \"reason\": \"Divergence critique : les médias grand public chantent la fin de la pression vendeuse (ratio à 0.86), mais l'anomalie on-chain (taker_ratio à 1.531, z-score 2.56) prouve une agressivité acheteuse anormale des preneurs de liquidité, typique d'une distribution agressive de baleines piégeant les retardataires (exit liquidity).\"\n}\n```",
+        "ts": 1788813846.856161
       },
       "fiche": null,
       "interpretation": {
@@ -19,5 +59,5 @@
       "action": "Observer"
     }
   ],
-  "resume": "🔵 CALME — pas de signal alarmant"
+  "resume": "🔴 DANGER détecté — réduire les expositions"
 }

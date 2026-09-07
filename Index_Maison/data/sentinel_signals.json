@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "volume",
-      "zscore": 2.3178924033337833,
-      "value": 6577691388.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Volume on-chain massif (z-score 2.32, ~6.5B$) totalement ignoré par les médias grand public qui parlent de broutilles (tour Eiffel, NBA) ou de l'essoufflement du BTC à 82k$. Accumulation silencieuse majeure en cours.\"\n}\n```",
-      "ts": "2026-09-07T08:39:08.680549+00:00"
-    },
-    {
-      "metric": "long_short",
-      "zscore": 2.312049276711217,
-      "value": 1.073,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Le ratio long/short atteint un z-score élevé de 2.31 (excès d'optimisme spéculatif), tandis que les médias grand public font l'éloge unanime des stratégies long/short. Cette surchauffe du consensus et le positionnement excessivement acheteur des détailleurs précèdent historiquement une purge violente orchestrée par les baleines.\"\n}\n```",
-      "ts": "2026-09-07T08:39:10.181560+00:00"
-    },
-    {
       "metric": "whale_usd",
       "zscore": 11.608904551459583,
       "value": 11171202.0,
@@ -349,6 +335,20 @@
       "value": 1.531,
       "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 92,\n  \"reason\": \"Divergence critique : les médias grand public célèbrent une baisse de la pression vendeuse, mais le taker_ratio onchain à 1.531 (z-score 2.79) prouve une agressivité massive des acheteurs/vendeurs à découvert. Les baleines profitent de l'optimisme médiatique de surface pour distribuer silencieusement.\"\n}\n```",
       "ts": "2026-09-07T20:13:58.514028+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.1067988229694548,
+      "value": 0.912,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique non pertinent. Les occurrences 'IPT' font référence au Tournoi International des Physiciens et à des instituts/accords académiques, sans aucun rapport avec l'actif crypto associé (IPT). L'anomalie on-chain (z-score 2.11) reflète une micro-activité isolée sans validation fondamentale par les flux réels.\"\n}\n```",
+      "ts": "2026-09-07T20:39:03.904374+00:00"
+    },
+    {
+      "metric": "taker_ratio",
+      "zscore": 2.5629673207098955,
+      "value": 1.531,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 92,\n  \"reason\": \"Divergence critique : les médias grand public chantent la fin de la pression vendeuse (ratio à 0.86), mais l'anomalie on-chain (taker_ratio à 1.531, z-score 2.56) prouve une agressivité acheteuse anormale des preneurs de liquidité, typique d'une distribution agressive de baleines piégeant les retardataires (exit liquidity).\"\n}\n```",
+      "ts": "2026-09-07T20:44:06.856161+00:00"
     }
   ]
 }

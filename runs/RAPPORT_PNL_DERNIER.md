@@ -1,12 +1,12 @@
-# RAPPORT PNL AUTO — ACE_RADAR_ALIGNED_V4_60M
+# RAPPORT PNL AUTO — MASTER_BASE_V8_6_FORTRESS_1H30
 
-**Session:** `ACE_RADAR_ALIGNED_V4_60M`
-**run_id:** `ACE_RADAR_ALIGNED_V4_60M_20260902T000420Z_41201`
+**Session:** `MASTER_BASE_V8_6_FORTRESS_1H30`
+**run_id:** `MASTER_BASE_V8_6_FORTRESS_1H30_20260907T204521Z_3541`
 **Frais Binance:** `UNMATCHED_BINANCE_FEES` (aucune commission/funding externe n'est ajoutée sans correspondance explicite)
-**Période:** 2026-09-02T00:04:30Z → 2026-09-02T01:04:28Z (0h59m)
-**Setup:** `?` v`?` | BETA `?` USDT | ALPHA `?` USDT | LLM gate `?` fail_closed=`?`
-**Généré:** 2026-09-02T01:04:32Z UTC
-**Filtre session:** `ts >= 2026-09-02T00:04:23Z` (lignes CSV antérieures exclues)
+**Période:** — → — (—)
+**Setup:** `?` v`?` | BETA `200` USDT | ALPHA `800` USDT | LLM gate `TRUE` fail_closed=`TRUE`
+**Généré:** 2026-09-07T20:45:26Z UTC
+**Filtre session:** `ts >= 2026-09-07T20:45:24Z` (lignes CSV antérieures exclues)
 
 ---
 
@@ -14,14 +14,14 @@
 
 | Métrique | Valeur |
 |----------|--------|
-| PNL brut BETA | -5.8093 USDT |
-| Frais BETA | +4.7056 USDT |
-| **PNL net BETA** | **-10.5149 USDT** |
-| PNL brut ALPHA | -3.3131 USDT |
-| Frais ALPHA | +4.9776 USDT |
-| **PNL net ALPHA** | **-8.2907 USDT** |
-| **PNL SESSION TOTAL** | **-18.8056 USDT** |
-| Statut | `NEGATIF` |
+| PNL brut BETA | +0.0000 USDT |
+| Frais BETA | +0.0000 USDT |
+| **PNL net BETA** | **+0.0000 USDT** |
+| PNL brut ALPHA | +0.0000 USDT |
+| Frais ALPHA | +0.0000 USDT |
+| **PNL net ALPHA** | **+0.0000 USDT** |
+| **PNL SESSION TOTAL** | **+0.0000 USDT** |
+| Statut | `NEUTRE` |
 
 ---
 
@@ -29,38 +29,29 @@
 
 | Métrique | Valeur |
 |----------|--------|
-| Trades FILLED | 9 |
-| Gagnants | 2 |
-| Perdants | 7 |
+| Trades FILLED | 0 |
+| Gagnants | 0 |
+| Perdants | 0 |
 | Flat (0) | 0 |
-| Win rate | **22.2%** |
-| Gains totaux | +0.5980 USDT |
-| Pertes totales | -11.1129 USDT |
-| PNL brut | -5.8093 USDT |
-| Frais | +4.7056 USDT |
-| **PNL net** | **-10.5149 USDT** |
-| BPS moyen | -6.89 |
+| Win rate | **—** |
+| Gains totaux | +0.0000 USDT |
+| Pertes totales | +0.0000 USDT |
+| PNL brut | +0.0000 USDT |
+| Frais | +0.0000 USDT |
+| **PNL net** | **+0.0000 USDT** |
+| BPS moyen | — |
 
-**Meilleur trade:** +0.5161 USDT
-**Pire trade:** -4.4158 USDT
-
-**Direction:** SELL (9)
+**Direction:** —
 
 **Raisons de sortie (exitReason):**
 | Raison | Nb |
 |--------|-----|
-| stop_loss | 5 |
-| timeout | 3 |
-| trailing_stop | 1 |
+| _aucun trade_ | 0 |
 
-**Cycles SKIP:** 339
+**Cycles SKIP:** 0
 | Raison | Nb |
 |--------|-----|
-| reason=COMPRESSE tension=0.00000000 threshold=0.05 | 152 |
-| reason=COMPRESSE tension=0.00000613 threshold=0.05 | 2 |
-| reason=COMPRESSE tension=0.01680238 threshold=0.05 | 1 |
-| reason=COMPRESSE tension=0.00101623 threshold=0.05 | 1 |
-| reason=COMPRESSE tension=0.00001931 threshold=0.05 | 1 |
+| _aucun_ | 0 |
 
 ---
 
@@ -68,39 +59,14 @@
 
 | Métrique | Valeur |
 |----------|--------|
-| Trades FILLED | 5 |
-| Gagnants | 0 |
-| Perdants | 5 |
-| Flat (0) | 0 |
-| Win rate | **0.0%** |
-| Gains totaux | +0.0000 USDT |
-| Pertes totales | -8.2907 USDT |
-| PNL brut | -3.3131 USDT |
-| Frais | +4.9776 USDT |
-| **PNL net** | **-8.2907 USDT** |
-| BPS moyen | -5.93 |
+| Trades FILLED | 0 |
+| **PNL net** | **0.0000 USDT** |
 
-**Meilleur trade:** -0.7743 USDT
-**Pire trade:** -2.6799 USDT
+*ALPHA n'a pas exécuté de trade — vérifier duo_wait, radar, stase, llm_gate dans les SKIP.*
 
-**Direction:** BUY (5)
-
-**Raisons de sortie (exitReason):**
+**Cycles SKIP:** 0
 | Raison | Nb |
 |--------|-----|
-| timeout | 2 |
-| trailing_stop | 1 |
-| stop_loss | 1 |
-| kill_switch | 1 |
-
-**Cycles SKIP:** 366
-| Raison | Nb |
-|--------|-----|
-| reason=COMPRESSE tension=0.00000000 threshold=0.05 | 176 |
-| reason=no_trigger mode=none | 5 |
-| reason=no_state mode=none | 4 |
-| reason=COMPRESSE tension=0.00057525 threshold=0.05 | 1 |
-| reason=COMPRESSE tension=0.00000855 threshold=0.05 | 1 |
 
 ---
 
@@ -108,22 +74,15 @@
 
 | Indicateur | BETA | ALPHA | TOTAL |
 |------------|------|-------|-------|
-| Trades | 9 | 5 | 14 |
-| PnL | -10.5149 | -8.2907 | **-18.8056** |
-| Win rate | 22.2% | 0.0% | 14.3% |
+| Trades | 0 | 0 | 0 |
+| PnL | +0.0000 | +0.0000 | **+0.0000** |
+| Win rate | — | — | — |
 
 ## IRM — régimes de tension (proxy, lecture seule)
 
 > Pas un modèle ARCH Engle. Classification sur `tension=` des cycles BETA. N'influence pas le moteur. Seuils: COMPRESSÉ `< 0.05` · CLUSTER `≥ 1.0` · sinon TRANSITOIRE.
 
-| Régime | Cycles | % temps | Fills | PnL fills (USDT) |
-|--------|--------|---------|-------|------------------|
-| COMPRESSÉ (attente à froid) | 261 | 75.0% | 9 | -5.8093 |
-| TRANSITOIRE (bruit retail) | 50 | 14.4% | 0 | +0.0000 |
-| CLUSTER (tension haute — proxy) | 37 | 10.6% | 0 | +0.0000 |
-
-- Fenêtre: `2026-09-02T00:04:30Z` → `2026-09-02T01:04:25Z` (348 cycles) · μ(tension)=0.4222 · σ=1.2265 · courant(proxy)=**COMPRESSÉ (attente à froid)**
-- Source: `ACE_RADAR_ALIGNED_V4_60M_BETA_X5.csv`
+*Aucun cycle dans la fenêtre session — IRM indisponible.*
 
 ## Engle — couches évolutives (hors moteur)
 
@@ -134,13 +93,13 @@
 
 ## CONFIG ACTIVE (snapshot)
 
-- ENTRY_25_75 BETA: `?` | ALPHA: `?`
-- SHOCK_EXIT: `?` bps
-- VOLATILITY_FILTER: `—`
-- STASE: spread=`?` vol=`?`
-- POLL_SEC: `?`
+- ENTRY_25_75 BETA: `0.70` | ALPHA: `0.50`
+- SHOCK_EXIT: `16` bps
+- VOLATILITY_FILTER: `16`
+- STASE: spread=`16` vol=`16`
+- POLL_SEC: `0.064`
 
 ---
 
-*Rapport auto — CSV: `ACE_RADAR_ALIGNED_V4_60M_BETA_X5.csv` | `ACE_RADAR_ALIGNED_V4_60M_ALPHA_X13_BURST13.csv`*
+*Rapport auto — CSV: `MASTER_BASE_V8_6_FORTRESS_1H30_BETA_X5.csv` | `MASTER_BASE_V8_6_FORTRESS_1H30_ALPHA_X13_BURST13.csv`*
 *STATE: `runs/STATE.md`*
