@@ -1,38 +1,8 @@
 {
-  "timestamp": 1788780659,
-  "date": "2026-09-07T11:30:59.373940+00:00",
-  "n_analyses": 4,
+  "timestamp": 1788781559,
+  "date": "2026-09-07T11:45:59.667341+00:00",
+  "n_analyses": 3,
   "analyses": [
-    {
-      "signal": {
-        "metric": "whale_usd",
-        "zscore": 12.996743253880283,
-        "value": 14877154.0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 90,\n  \"reason\": \"Anomalie onchain extrême (z-score 13, ~14.8M USD) dans le silence médiatique total. Accumulation invisible des baleines loin du bruit de détail.\"\n}\n```",
-        "ts": 1788779096.952805
-      },
-      "fiche": null,
-      "interpretation": {
-        "lecture": "Pas de fiche disponible",
-        "niveau": "inconnu"
-      },
-      "action": "Observer"
-    },
-    {
-      "signal": {
-        "metric": "long_short",
-        "zscore": 2.65821494180192,
-        "value": 1.083,
-        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Z-score élevé (2.66) sur le ratio long/short indiquant un posicionnement excessivement haussier des gros porteurs, en totale contradiction avec le narratif médiatique traditionnel qui promeut la prudence via des fonds hedge 'Long/Short'. Excès de confiance retail/baleines souvent précurseur d'une purge de liquidité (long squeeze).\"\n}\n```",
-        "ts": 1788779399.504333
-      },
-      "fiche": null,
-      "interpretation": {
-        "lecture": "Pas de fiche disponible",
-        "niveau": "inconnu"
-      },
-      "action": "Observer"
-    },
     {
       "signal": {
         "metric": "sdi",
@@ -44,7 +14,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": 0.1,
+          "value": 0.07,
           "seuil": 1,
           "depasse": false
         },
@@ -54,12 +24,12 @@
           "depasse": false
         },
         "funding": {
-          "value": 2.9e-05,
+          "value": 3e-05,
           "seuil": 0.001,
           "depasse": false
         },
         "whales": {
-          "value": 3,
+          "value": 2,
           "seuil": 5,
           "depasse": false
         }
@@ -84,7 +54,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": 0.1,
+          "value": 0.07,
           "seuil": 1,
           "depasse": false
         },
@@ -94,12 +64,12 @@
           "depasse": false
         },
         "funding": {
-          "value": 2.9e-05,
+          "value": 3e-05,
           "seuil": 0.001,
           "depasse": false
         },
         "whales": {
-          "value": 3,
+          "value": 2,
           "seuil": 5,
           "depasse": false
         }
@@ -112,6 +82,21 @@
       },
       "action": "Réduire taille de 50%, sortir des positions fragiles",
       "niveau": "dangereux"
+    },
+    {
+      "signal": {
+        "metric": "long_short",
+        "zscore": 2.446072316699622,
+        "value": 1.083,
+        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Le ratio long/short atteint un z-score extrême de 2.45 (surconfiance haussière des baleines), tandis que les médias grand public banalisent et font la promotion massive des stratégies long/short. Historiquement, un consensus aussi unilatéral des 'smart money' couplé à un battage médiatique classique précède un violent 'long squeeze'.\"\n}\n```",
+        "ts": 1788781211.025944
+      },
+      "fiche": null,
+      "interpretation": {
+        "lecture": "Pas de fiche disponible",
+        "niveau": "inconnu"
+      },
+      "action": "Observer"
     }
   ],
   "resume": "🔴 DANGER détecté — réduire les expositions"

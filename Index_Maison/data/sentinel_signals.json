@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "volume",
-      "zscore": 2.0219738846700714,
-      "value": 4960499642.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de volume on-chain massive (z-score 2.02, ~5B) totalement ignorée par les gros titres généralistes (bruit médiatique sur le pétrole, les déchets et un objectif mineur à 2,55$). Accumulation discrète des baleines en cours loin du radar retail.\"\n}\n```",
-      "ts": "2026-09-07T00:10:56.596114+00:00"
-    },
-    {
       "metric": "fear_greed",
       "zscore": -16.94107434609743,
       "value": 71,
@@ -349,6 +342,13 @@
       "value": 0.985,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Le signal 'ipt' détecté et les actualités médiatiques font référence au Tournoi International des Physiciens (IPT), à un Institut Protestant de Théologie ou à des accords universitaires. Aucune corrélation avec une crypto-monnaie ou un mouvement de baleines on-chain. Fausse alerte due à une homonymie lexicale.\"\n}\n```",
       "ts": "2026-09-07T11:20:06.641485+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": 2.446072316699622,
+      "value": 1.083,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Le ratio long/short atteint un z-score extrême de 2.45 (surconfiance haussière des baleines), tandis que les médias grand public banalisent et font la promotion massive des stratégies long/short. Historiquement, un consensus aussi unilatéral des 'smart money' couplé à un battage médiatique classique précède un violent 'long squeeze'.\"\n}\n```",
+      "ts": "2026-09-07T11:40:11.025944+00:00"
     }
   ]
 }
