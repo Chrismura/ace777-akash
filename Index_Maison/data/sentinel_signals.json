@@ -1,34 +1,6 @@
 {
   "signals": [
     {
-      "metric": "ipt",
-      "zscore": 2.173557656708519,
-      "value": 0.917,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.17) totalement non corrélée aux flux crypto. Les médias parlent du Tournoi International des Physiciens (IPT) et d'accords universitaires. Bruit pur, pas de mouvement de baleine.\"\n}\n```",
-      "ts": "2026-09-06T06:38:36.759885+00:00"
-    },
-    {
-      "metric": "price_1h",
-      "zscore": 2.5918522711933374,
-      "value": 0.23925128861516098,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Forte anomalie de prix à la hausse (z-score 2.59) totalement ignorée par les médias (silence radio). C'est la signature classique d'accumulation furtive par des baleines avant le réveil du narratif public.\"\n}\n```",
-      "ts": "2026-09-06T06:43:39.903930+00:00"
-    },
-    {
-      "metric": "liquidations",
-      "zscore": 2.176247107049654,
-      "value": 4194989.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 78,\n  \"reason\": \"Forte divergence : les médias grand public se focalisent sur des liquidations judiciaires locales sans rapport, tandis que les données on-chain montrent un z-score de 2.18 sur des liquidations crypto ($4.19M) combinées à des entrées nettes institutionnelles massives ($101M) et des achats de baleines (Strive). Accumulation cachée sous le bruit médiatique.\"\n}\n```",
-      "ts": "2026-09-06T06:53:43.993327+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": 3.2719685134588996,
-      "value": 0.016,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Bruit médiatique parasité par des homonymes (Samsung SDI, syndicat patronal SDI, matériel vidéo). Aucune corrélation avec une baleine crypto.\"\n}\n```",
-      "ts": "2026-09-06T07:09:19.702639+00:00"
-    },
-    {
       "metric": "liquidations",
       "zscore": 4.366753566191188,
       "value": 6837419.0,
@@ -349,6 +321,34 @@
       "value": 71,
       "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-2.21) malgré une cupidité élevée (71) et un vide médiatique total. Divergence classique de piégeage : distribution silencieuse des baleines dans l'indifférence des médias.\"\n}\n```",
       "ts": "2026-09-07T04:12:22.274925+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.98605036220807,
+      "value": 6068613962.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie statistique majeure sur le volume de NEAR (z-score 2.99) coïncidant avec un doublement des volumes à 609M$ et un test de résistance, ignorée par les médias généralistes qui se dispersent sur des sujets macro/divers.\"\n}\n```",
+      "ts": "2026-09-07T04:42:35.391918+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -2.058242851648863,
+      "value": 71,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-2.06) malgré une avidité élevée (71). Absence totale de couverture médiatique (Google Actualités vide), ce qui indique un manque de FOMO retail. Les baleines profitent de cette euphorie silencieuse pour distribuer discrètement aux suiveurs de tendance avant un retournement.\"\n}\n```",
+      "ts": "2026-09-07T04:42:36.748043+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.729505739945995,
+      "value": 6075768727.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le volume on-chain de NEAR explose (z-score 2.73, volume à 6,07 Mrd$) alors que les grands médias généralistes et boursiers grand public se focalisent sur le Bitcoin et des faits divers sans rapport, prouvant une accumulation silencieuse des baleines loin des radars médiatiques.\"\n}\n```",
+      "ts": "2026-09-07T05:12:50.921735+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 6.569675257336446,
+      "value": 6128207.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score massif de 6.57 sur les flux baleines avec un silence total des médias (Google Actualités muet). Divergence classique d'accumulation furtive en sous-marin.\"\n}\n```",
+      "ts": "2026-09-07T05:18:01.093449+00:00"
     }
   ]
 }

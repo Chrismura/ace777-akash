@@ -1,25 +1,25 @@
 # OBSERVATOIRE DES MURS DE LIQUIDITÉ
-> 2026-09-07T04:14Z — 75816 mesures sur 27 paires · CSVs ASPIRATION_CALIB + OBSERVATION_MURS · sonde observation OBSERVATION_MURS_20260907_041414.csv
+> 2026-09-07T05:15Z — 75834 mesures sur 27 paires · CSVs ASPIRATION_CALIB + OBSERVATION_MURS · sonde observation OBSERVATION_MURS_20260907_051531.csv
 
 ## Les VRAIS murs (top 12 par mur bid moyen)
 
 | Paire | Mesures | Mur BID moy ($) | Mur BID max ($) | Mur ASK moy ($) | Spoof | Drop ≥15%/s |
 |---|---|---|---|---|---|---|
-| SOLUSDT | 465 | 502306.23 | 1131378.99 | 488369.19 | 0 (0.0%) | 10 |
+| SOLUSDT | 467 | 503005.36 | 1131378.99 | 488409.0 | 0 (0.0%) | 10 |
 | BTCUSDT | 1481 | 419926.18 | 1924444.32 | 488181.06 | 49 (3.31%) | 124 |
 | ETHUSDT | 1264 | 177592.18 | 1966688.05 | 173455.49 | 14 (1.11%) | 63 |
 | ADAUSDT | 36 | 102875.08 | 154143.34 | 92656.51 | 0 (0.0%) | 1 |
 | XRPUSDT | 8737 | 91589.68 | 606419.6 | 94098.68 | 376 (4.3%) | 1137 |
-| XLMUSDT | 457 | 72855.03 | 312328.07 | 66033.55 | 0 (0.0%) | 7 |
-| ALGOUSDT | 457 | 55052.46 | 93941.7 | 50793.01 | 0 (0.0%) | 11 |
+| XLMUSDT | 459 | 72820.5 | 312328.07 | 66197.66 | 0 (0.0%) | 7 |
+| ALGOUSDT | 459 | 55088.22 | 93941.7 | 50810.71 | 0 (0.0%) | 11 |
 | CHIPUSDT | 828 | 30766.68 | 61779.48 | 27298.12 | 32 (3.86%) | 53 |
 | HBARUSDT | 7426 | 30739.91 | 63738.72 | 26144.54 | 268 (3.61%) | 682 |
 | KITEUSDT | 391 | 28494.55 | 49707.9 | 26254.61 | 10 (2.56%) | 17 |
-| GOLD(PAXG)USDT | 458 | 27945.43 | 87814.07 | 29453.43 | 0 (0.0%) | 28 |
-| JASMYUSDT | 456 | 24317.46 | 239378.61 | 10840.03 | 0 (0.0%) | 2 |
+| GOLD(PAXG)USDT | 460 | 28025.12 | 87814.07 | 29442.99 | 0 (0.0%) | 28 |
+| JASMYUSDT | 458 | 24273.99 | 239378.61 | 10874.84 | 0 (0.0%) | 2 |
 
 ## Synthèse
-- **Total mesures** : 75816 (16-24/08, sonde aspiration)
+- **Total mesures** : 75834 (16-24/08, sonde aspiration)
 - **Spoofs détectés** : 1845 (2.4% des mesures) — murs de façade (fond puis se reconstruit)
 - **Chutes brutales de mur** (≥ 15%/s) : 3905 — le signal ACE « le mur s'effondre »
 
