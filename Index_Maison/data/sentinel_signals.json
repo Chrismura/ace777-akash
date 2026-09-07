@@ -1,27 +1,6 @@
 {
   "signals": [
     {
-      "metric": "ipt",
-      "zscore": 2.6273036807345718,
-      "value": 0.96,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.63) sur l'indice 'ipt' totalement non corrélée à la crypto. Les titres médiatiques font référence à un tournoi de physique (X), à de la recherche en biotechnologie (INSA) et à de l'actualité religieuse/protestante. Bruit de fond absolu, aucune baleine détectée.\"\n}\n```",
-      "ts": "2026-09-06T17:08:06.087287+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": 2.1318784463667684,
-      "value": 0.012,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Anomalie de données non pertinente : le signal 'SDI' captassé correspond à des homonymes médiatiques (fiscalité TPE, matériel vidéo Blackmagic, Samsung SDI) sans lien avec l'activité on-chain des baleines crypto.\"\n}\n```",
-      "ts": "2026-09-06T17:53:58.607712+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.3117288064077193,
-      "value": 0.882,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (IPT) confondue avec l'acronyme institutionnel du Tournoi International des Physiciens et de divers communiqués universitaires. Bruit médiatique sans rapport avec une activité de baleines crypto.\"\n}\n```",
-      "ts": "2026-09-06T17:59:00.697875+00:00"
-    },
-    {
       "metric": "sdi",
       "zscore": 2.0442691186179958,
       "value": 0.012,
@@ -349,6 +328,27 @@
       "value": 1.079,
       "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 92,\n  \"reason\": \"Z-score extrême à 3.00 sur le ratio long/short couplé à un narratif médiatique unanime vantant les stratégies long/short grand public : piège classique de liquidité, signalant un positionnement excessivement haussier des suiveurs de tendance juste avant une purge imminente des baleines.\"\n}\n```",
       "ts": "2026-09-07T09:09:19.947600+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.0877863460356103,
+      "value": 6639332793.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique sans rapport avec la crypto (actualités musicales, sportives et insolites). Le z-score élevé reflète probablement du bruit statistique ou un événement sans incidence majeure.\"\n}\n```",
+      "ts": "2026-09-07T09:39:26.062306+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": 2.735566523858901,
+      "value": 1.079,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Z-score élevé (2.74) sur le ratio long/short combiné à une obsession médiatique soudaine pour les stratégies long/short. C'est un signal classique d'euphorie retail excessive et de positionnement unilatéral des suiveurs de tendance juste avant un 'long squeeze' orchestré par les baleines.\"\n}\n```",
+      "ts": "2026-09-07T09:39:27.539490+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": 2.1602203483823033,
+      "value": 1.076,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Sur-optimisation retail massive (z-score 2.16) couplée à un narratif médiatique unanime vantant les stratégies long/short. Classique piège à liquidité où le consensus public signale un retournement imminent des baleines.\"\n}\n```",
+      "ts": "2026-09-07T10:09:41.183571+00:00"
     }
   ]
 }
