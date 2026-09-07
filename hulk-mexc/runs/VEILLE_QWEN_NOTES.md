@@ -3525,3 +3525,7 @@ Pas d’ordre — confrontation plus tard.
 ### 2026-09-06T23:21:09Z — ALERT auto
 - RWAINCUSDT: IMPULSE_WAIT — spike en cours, pas chase
 (compléter: confirmé ? risque ?)
+
+### 2026-09-07T00:36:17Z — ALERT auto
+- RWAINCUSDT: IMPULSE_WAIT — spike en cours, pas chase
+(compléter: confirmé ? risque ?)

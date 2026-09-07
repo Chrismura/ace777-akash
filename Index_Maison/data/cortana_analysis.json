@@ -1,20 +1,20 @@
 {
-  "timestamp": 1788741046,
-  "date": "2026-09-07T00:30:46.425242+00:00",
-  "n_analyses": 2,
+  "timestamp": 1788744647,
+  "date": "2026-09-07T01:30:47.653317+00:00",
+  "n_analyses": 3,
   "analyses": [
     {
       "signal": {
         "metric": "volume",
-        "zscore": 2.0219738846700714,
-        "value": 4960499642.0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de volume on-chain massive (z-score 2.02, ~5B) totalement ignorée par les gros titres généralistes (bruit médiatique sur le pétrole, les déchets et un objectif mineur à 2,55$). Accumulation discrète des baleines en cours loin du radar retail.\"\n}\n```",
-        "ts": 1788739856.596114
+        "zscore": 2.33683183197798,
+        "value": 5155706464.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de volume massive (z-score 2.34) ignorée ou diluée par les médias généralistes et des actualités sans rapport (pétrole, déchets). Divergence classique de accumulation furtive par les baleines avant une cassure technique.\"\n}\n```",
+        "ts": 1788743476.435582
       },
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.21,
+          "value": -0.27,
           "seuil": 1,
           "depasse": false
         },
@@ -46,10 +46,25 @@
     {
       "signal": {
         "metric": "fear_greed",
-        "zscore": -16.94107434609743,
+        "zscore": -4.599331055039013,
         "value": 71,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement négatif (-16.94) malgré un indice de cupidité élevé (71). Indique une anomalie statistique majeure : les flux de liquidité institutionnels/baleines divergent totalement du bruit médiatique neutre, préparant un mouvement de squeeze.\"\n}\n```",
-        "ts": 1788739857.930979
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 50,\n  \"reason\": \"Données médiatiques insuffisantes pour établir une divergence claire, malgré une forte cupidité (Greed 71).\"\n}\n```",
+        "ts": 1788743477.544253
+      },
+      "fiche": null,
+      "interpretation": {
+        "lecture": "Pas de fiche disponible",
+        "niveau": "inconnu"
+      },
+      "action": "Observer"
+    },
+    {
+      "signal": {
+        "metric": "price_1h",
+        "zscore": 2.5515765110072524,
+        "value": 0.33885225602525715,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de prix positive (z-score 2.55) totalement ignorée par les médias (silence radio absolu). Signal classique d'accumulation discrète par des baleines loin du radar public.\"\n}\n```",
+        "ts": 1788743779.397078
       },
       "fiche": null,
       "interpretation": {

@@ -1,41 +1,6 @@
 {
   "signals": [
     {
-      "metric": "long_short",
-      "zscore": 3.6730743950295617,
-      "value": 1.08,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Z-score extrême (3.67) sur le ratio long/short couplé à un narratif médiatique traditionnel hors-sujet (fonds actions/ETF) : surchauffe spéculative silencieuse des baleines en position 'long' extrême, signalant un piège à liquidité imminent.\"\n}\n```",
-      "ts": "2026-09-05T17:40:06.265978+00:00"
-    },
-    {
-      "metric": "liquidations",
-      "zscore": 5.341832692163361,
-      "value": 2756438.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le pic de liquidations (z-score 5.34) coïncide avec un mouvement haussier majeur sur certains actifs de privacy (Zcash > 1000$), tandis que les médias grand public confondent l'euphorie crypto avec des liquidations d'entreprises traditionnelles. Divergence classique de capitulation des suiveurs pendant que les baleines nettoient le carnet d'ordres.\"\n}\n```",
-      "ts": "2026-09-05T18:55:23.118744+00:00"
-    },
-    {
-      "metric": "long_short",
-      "zscore": 2.8423523431976006,
-      "value": 1.075,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Le Z-score élevé (2.84) indique un déséquilibre massif vers les positions acheteuses, saturant le marché en levier long. Pendant ce temps, le narratif médiatique traditionnel se focalise sur des ETF et des stratégies macro (fonds long-short européens), totalement déconnecté de la surchauffe spéculative crypto en cours. Situation classique de 'bull trap' où les baleines se positionnent pour une chasse aux liquidités inversée.\"\n}\n```",
-      "ts": "2026-09-05T18:55:26.319884+00:00"
-    },
-    {
-      "metric": "liquidations",
-      "zscore": 4.349807053331827,
-      "value": 2861152.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de liquidation isolée (z-score 4.35) sur un actif de niche (Zcash repassé à 1000$), alors que le bruit médiatique est saturé de liquidations d'entreprises traditionnelles sans rapport avec la crypto. Divergence totale : les baleines nettoient le carnet d'ordres dans l'indifférence générale des médias grand public.\"\n}\n```",
-      "ts": "2026-09-05T19:25:37.859934+00:00"
-    },
-    {
-      "metric": "price_1h",
-      "zscore": 3.100671730864354,
-      "value": 0.21896196079711494,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie statistique haussière majeure (z-score 3.10) sans aucune couverture médiatique (silence radio sur Google Actualités). C'accumulation furtive typique des baleines avant un mouvement de marché déconnecté du bruit public.\"\n}\n```",
-      "ts": "2026-09-05T19:40:48.982272+00:00"
-    },
-    {
       "metric": "liquidations",
       "zscore": 3.6257608557427643,
       "value": 2865378.0,
@@ -349,6 +314,41 @@
       "value": 71,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement négatif (-16.94) malgré un indice de cupidité élevé (71). Indique une anomalie statistique majeure : les flux de liquidité institutionnels/baleines divergent totalement du bruit médiatique neutre, préparant un mouvement de squeeze.\"\n}\n```",
       "ts": "2026-09-07T00:10:57.930979+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.2322023436103127,
+      "value": 5071368025.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de volume on-chain massive (z-score 2.23, ~5B) totalement ignorée par les grands médias généralistes et crypto, qui se focalisent sur des résistances mineures (NEAR) ou la stagnation du BTC. Divergence classique d'accumulation silencieuse par les baleines.\"\n}\n```",
+      "ts": "2026-09-07T00:41:06.953931+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -6.335839103296187,
+      "value": 71,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie statistique extrême (Z-score -6.34) sur un indice de Peur/Greed à 71 dans un vide informationnel médiatique (Google Actualités muet). Divergence classique de distribution silencieuse par les baleines profitant d'une euphorie de détail non relayée.\"\n}\n```",
+      "ts": "2026-09-07T00:41:08.243567+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.33683183197798,
+      "value": 5155706464.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de volume massive (z-score 2.34) ignorée ou diluée par les médias généralistes et des actualités sans rapport (pétrole, déchets). Divergence classique de accumulation furtive par les baleines avant une cassure technique.\"\n}\n```",
+      "ts": "2026-09-07T01:11:16.435582+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -4.599331055039013,
+      "value": 71,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 50,\n  \"reason\": \"Données médiatiques insuffisantes pour établir une divergence claire, malgré une forte cupidité (Greed 71).\"\n}\n```",
+      "ts": "2026-09-07T01:11:17.544253+00:00"
+    },
+    {
+      "metric": "price_1h",
+      "zscore": 2.5515765110072524,
+      "value": 0.33885225602525715,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de prix positive (z-score 2.55) totalement ignorée par les médias (silence radio absolu). Signal classique d'accumulation discrète par des baleines loin du radar public.\"\n}\n```",
+      "ts": "2026-09-07T01:16:19.397078+00:00"
     }
   ]
 }
