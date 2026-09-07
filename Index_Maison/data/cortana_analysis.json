@@ -1,15 +1,15 @@
 {
-  "timestamp": 1788788161,
-  "date": "2026-09-07T13:36:01.448516+00:00",
-  "n_analyses": 3,
+  "timestamp": 1788791762,
+  "date": "2026-09-07T14:36:02.467094+00:00",
+  "n_analyses": 2,
   "analyses": [
     {
       "signal": {
         "metric": "long_short",
-        "zscore": 3.9760049345397657,
-        "value": 1.112,
-        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Z-score extrême à 3.98 (excès de positions acheteuses) combiné à un narratif médiatique grand public unanime sur les stratégies long/short. Classique piège à liquidité haussière : le retail FOMO pendant que les baleines s'apprêtent à purger les excès de levier.\"\n}\n```",
-        "ts": 1788786639.047062
+        "zscore": 2.6919935557725014,
+        "value": 1.107,
+        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Le ratio long/short atteint un z-score élevé de 2.69 (1.107), signalant un optimisme excessif et un positionnement acheteur sur-le-champ. Pendant que les médias grand public font la promotion des stratégies long/short et de la résilience de marché, les données onchain révèlent une surconcentration de positions longues vulnérable à une purge imminente.\"\n}\n```",
+        "ts": 1788790256.052741
       },
       "fiche": null,
       "interpretation": {
@@ -21,15 +21,15 @@
     {
       "signal": {
         "metric": "sdi",
-        "zscore": 2.4118374051912372,
+        "zscore": 2.335419291461876,
         "value": 0.012,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Bruit médiatique externe : les résultats font référence au syndicat professionnel 'SDI' (TPE), à du matériel vidéo (Blackmagic SDI) et à l'industriel Samsung SDI. Aucune connexion avec une baleine crypto ou un actif numérique.\"\n}\n```",
-        "ts": 1788788145.175726
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique hors-sujet (fiscalité, matériel vidéo, syndicat SDI et Samsung SDI). Aucune corrélation avec une dynamique de baleine crypto.\"\n}\n```",
+        "ts": 1788791162.004225
       },
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.13,
+          "value": -0.37,
           "seuil": 1,
           "depasse": false
         },
@@ -44,7 +44,7 @@
           "depasse": false
         },
         "whales": {
-          "value": 2,
+          "value": 0,
           "seuil": 5,
           "depasse": false
         }
@@ -57,21 +57,6 @@
       },
       "action": "Réduire taille de 50%, sortir des positions fragiles",
       "niveau": "dangereux"
-    },
-    {
-      "signal": {
-        "metric": "taker_ratio",
-        "zscore": 2.596111378296176,
-        "value": 1.432,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio élevé (z-score 2.60) indique une forte agression acheteuse sur le marché dérivé, non reflétée ou ignorée par les médias traditionnels (silence médiatique). C'est un classique positionnement silencieux de baleines avant une cassure haussière.\"\n}\n```",
-        "ts": 1788788146.672927
-      },
-      "fiche": null,
-      "interpretation": {
-        "lecture": "Pas de fiche disponible",
-        "niveau": "inconnu"
-      },
-      "action": "Observer"
     }
   ],
   "resume": "🔴 DANGER détecté — réduire les expositions"

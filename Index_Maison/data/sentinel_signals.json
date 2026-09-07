@@ -1,41 +1,6 @@
 {
   "signals": [
     {
-      "metric": "volume",
-      "zscore": 2.5530242947573476,
-      "value": 5293942038.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de volume on-chain massive (Z-score 2.55) sur NEAR, totalement occultée par un narratif médiatique généraliste et sans rapport (Bitcoin, déchets, pétrole). Divergence classique de accumulation silencieuse par les baleines avant cassure de résistance.\"\n}\n```",
-      "ts": "2026-09-07T01:41:25.794973+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": -3.7626978003610825,
-      "value": 71,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Le score z de -3.76 sur l'indice Fear & Greed (71) indique une euphorie de détail extrême déconnectée de la réalité onchain, suggérant une distribution silencieuse imminente par les baleines.\"\n}\n```",
-      "ts": "2026-09-07T01:41:27.072158+00:00"
-    },
-    {
-      "metric": "price_1h",
-      "zscore": 2.631849805052672,
-      "value": 0.3664838779777635,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de prix significative (z-score 2.63) couplée à un silence médiatique total (Google Actualités vide). C'est la signature classique d'accumulation furtive par des baleines avant que le narratif public ne se mette en place.\"\n}\n```",
-      "ts": "2026-09-07T01:46:29.829342+00:00"
-    },
-    {
-      "metric": "long_short",
-      "zscore": -3.514638265286809,
-      "value": 1.037,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Z-score extrêmement bas (-3.51) sur le ratio long/short indiquant un positionnement contrarien massif des institutionnels, tandis que les médias grand public font l'éloge générale des stratégies long/short traditionnelles, masquant une accumulation agressive en bas de range par les baleines crypto.\"\n}\n```",
-      "ts": "2026-09-07T02:06:34.647658+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": 2.3574456057822175,
-      "value": 5285755291.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie on-chain massive (z-score 2.36, volume 5.2B) totalement ignorée par les grands médias généralistes et noyée dans du bruit sans rapport. Cette cécité médiatique caractérise l'accumulation silencieuse des baleines avant une cassure haussière.\"\n}\n```",
-      "ts": "2026-09-07T02:11:37.037719+00:00"
-    },
-    {
       "metric": "fear_greed",
       "zscore": -3.2434549480453643,
       "value": 71,
@@ -349,6 +314,41 @@
       "value": 1.432,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio élevé (z-score 2.60) indique une forte agression acheteuse sur le marché dérivé, non reflétée ou ignorée par les médias traditionnels (silence médiatique). C'est un classique positionnement silencieux de baleines avant une cassure haussière.\"\n}\n```",
       "ts": "2026-09-07T13:35:46.672927+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": 3.3852432316914403,
+      "value": 1.112,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Z-score extrême (3.39) sur le ratio long/short indiquant un positionnement acheteur excessif de la foule, stimulé par des narratifs médiatiques grand public glorifiant les stratégies long/short. Classique piège à liquidité avant une chasse aux stops baissière.\"\n}\n```",
+      "ts": "2026-09-07T13:40:48.939728+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": 2.6919935557725014,
+      "value": 1.107,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Le ratio long/short atteint un z-score élevé de 2.69 (1.107), signalant un optimisme excessif et un positionnement acheteur sur-le-champ. Pendant que les médias grand public font la promotion des stratégies long/short et de la résilience de marché, les données onchain révèlent une surconcentration de positions longues vulnérable à une purge imminente.\"\n}\n```",
+      "ts": "2026-09-07T14:10:56.052741+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 2.335419291461876,
+      "value": 0.012,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique hors-sujet (fiscalité, matériel vidéo, syndicat SDI et Samsung SDI). Aucune corrélation avec une dynamique de baleine crypto.\"\n}\n```",
+      "ts": "2026-09-07T14:26:02.004225+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": -2.135507406332528,
+      "value": 1033669.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le z-score ultra-négatif des liquidations (-2.14) prouve une absence totale de pression vendeuse forcée, tandis que les médias s'affolent à tort sur des 'liquidations' juridiques/traditionnelles et ignorent les achats massifs institutionnels (Strive 1.8k BTC, +101M$ net).\"\n}\n```",
+      "ts": "2026-09-07T14:36:06.334643+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.977274566541067,
+      "value": 1.037,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Le signal 'ipt' détecté correspond à un acronyme homonyme (Tournoi International des Physiciens / Institut Protestant de Théologie / MoU biotech) et non à un actif crypto. Bruit médiatique sans lien avec des mouvements de baleines onchain.\"\n}\n```",
+      "ts": "2026-09-07T14:36:09.579069+00:00"
     }
   ]
 }
