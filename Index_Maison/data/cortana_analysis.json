@@ -1,55 +1,15 @@
 {
-  "timestamp": 1788798964,
-  "date": "2026-09-07T16:36:04.590357+00:00",
+  "timestamp": 1788802565,
+  "date": "2026-09-07T17:36:05.791882+00:00",
   "n_analyses": 3,
   "analyses": [
     {
       "signal": {
-        "metric": "sdi",
-        "zscore": 3.083186821060284,
-        "value": 0.016,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Bruit médiatique externe : les gros titres font référence à l'acronyme 'SDI' appliqué à des actualités fiscales, professionnelles (Syndicat des Indépendants) ou industrielles (Samsung SDI), totalement déconnectées de la crypto.\"\n}\n```",
-        "ts": 1788797197.807964
-      },
-      "fiche": "rbf_eleve",
-      "questions": {
-        "prix": {
-          "value": 0.1,
-          "seuil": 1,
-          "depasse": false
-        },
-        "paires": {
-          "value": null,
-          "seuil": 3,
-          "depasse": false
-        },
-        "funding": {
-          "value": 2e-05,
-          "seuil": 0.001,
-          "depasse": false
-        },
-        "whales": {
-          "value": 5,
-          "seuil": 5,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "sdi > 0.3",
-        "lecture": "Drainage silencieux — les vieux BTC bougent en douce",
-        "niveau": "dangereux",
-        "action": "Réduire taille de 50%, sortir des positions fragiles"
-      },
-      "action": "Réduire taille de 50%, sortir des positions fragiles",
-      "niveau": "dangereux"
-    },
-    {
-      "signal": {
-        "metric": "long_short",
-        "zscore": 3.611217155183098,
-        "value": 1.158,
-        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 92,\n  \"reason\": \"Z-score extrême à 3.61 sur le ratio long/short (excès de positions acheteuses de détail). Pendant que la masse et les médias s'enflamment pour les stratégies 'long/short' traditionnelles, l'accumulation unilatérale des traders particuliers sur dérivés signale un risque imminent de chasse aux liquidités (long squeeze) par les baleines.\"\n}\n```",
-        "ts": 1788797500.339582
+        "metric": "taker_ratio",
+        "zscore": 2.0014506949895927,
+        "value": 1.332,
+        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Divergence critique : les médias grand public chantent la fin de la pression vendeuse (ratio à 0,86), tandis que l'anomalie on-chain détecte un taker_buy/sell ratio de 1.332 (Z-score 2.00). Les acheteurs agissant agressivement sur le marché (Takers) face à un narratif optimiste suggèrent une sortie de position (exit liquidity) orchestrée par les baleines.\"\n}\n```",
+        "ts": 1788800816.906239
       },
       "fiche": null,
       "interpretation": {
@@ -60,16 +20,31 @@
     },
     {
       "signal": {
-        "metric": "ipt",
-        "zscore": 2.1711008141144035,
-        "value": 0.921,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.17) totalement non liée à la crypto. Les titres médiatiques font référence au Tournoi International des Physiciens (IPT), à l'Institut Protestant de Théologie ou à des accords académiques. Bruit de fond lexical, aucune activité de baleine détectée.\"\n}\n```",
-        "ts": 1788798403.994436
+        "metric": "long_short",
+        "zscore": 3.443338006968121,
+        "value": 1.178,
+        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Z-score élevé (3.44) sur le ratio long/short couplé à un narratif médiatique grand public ultra-favorable aux stratégies long/short. Classique piège à liquidité : les institutionnels saturent le marché en positions acheteuses pendant que la foule s'entasse, signalant un sommet local imminent avant une purge.\"\n}\n```",
+        "ts": 1788801119.37489
+      },
+      "fiche": null,
+      "interpretation": {
+        "lecture": "Pas de fiche disponible",
+        "niveau": "inconnu"
+      },
+      "action": "Observer"
+    },
+    {
+      "signal": {
+        "metric": "sdi",
+        "zscore": 2.4460873544356514,
+        "value": 0.016,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Faux positif absolu. Le signal onchain 'SDI' et les flux médiatiques font référence à des homonymes non cryptographiques (le Syndicat des Indépendants, du matériel vidéo SDI, et Samsung SDI). Aucune baleine crypto détectée.\"\n}\n```",
+        "ts": 1788801421.968349
       },
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": 0.1,
+          "value": 0.09,
           "seuil": 1,
           "depasse": false
         },
@@ -79,12 +54,12 @@
           "depasse": false
         },
         "funding": {
-          "value": 2e-05,
+          "value": 2.3e-05,
           "seuil": 0.001,
           "depasse": false
         },
         "whales": {
-          "value": 5,
+          "value": 3,
           "seuil": 5,
           "depasse": false
         }

@@ -1,34 +1,6 @@
 {
   "signals": [
     {
-      "metric": "fear_greed",
-      "zscore": -2.2085178333914812,
-      "value": 71,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-2.21) malgré une cupidité élevée (71) et un vide médiatique total. Divergence classique de piégeage : distribution silencieuse des baleines dans l'indifférence des médias.\"\n}\n```",
-      "ts": "2026-09-07T04:12:22.274925+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": 2.98605036220807,
-      "value": 6068613962.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie statistique majeure sur le volume de NEAR (z-score 2.99) coïncidant avec un doublement des volumes à 609M$ et un test de résistance, ignorée par les médias généralistes qui se dispersent sur des sujets macro/divers.\"\n}\n```",
-      "ts": "2026-09-07T04:42:35.391918+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": -2.058242851648863,
-      "value": 71,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-2.06) malgré une avidité élevée (71). Absence totale de couverture médiatique (Google Actualités vide), ce qui indique un manque de FOMO retail. Les baleines profitent de cette euphorie silencieuse pour distribuer discrètement aux suiveurs de tendance avant un retournement.\"\n}\n```",
-      "ts": "2026-09-07T04:42:36.748043+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": 2.729505739945995,
-      "value": 6075768727.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le volume on-chain de NEAR explose (z-score 2.73, volume à 6,07 Mrd$) alors que les grands médias généralistes et boursiers grand public se focalisent sur le Bitcoin et des faits divers sans rapport, prouvant une accumulation silencieuse des baleines loin des radars médiatiques.\"\n}\n```",
-      "ts": "2026-09-07T05:12:50.921735+00:00"
-    },
-    {
       "metric": "whale_usd",
       "zscore": 6.569675257336446,
       "value": 6128207.0,
@@ -349,6 +321,34 @@
       "value": 0.016,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique parasité par des homonymes (SDI = syndicat, matériel vidéo, Samsung SDI). Aucune corrélation avec des mouvements crypto ou des baleines.\"\n}\n```",
       "ts": "2026-09-07T16:36:47.718321+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": 3.1446526754613955,
+      "value": 1.158,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Z-score extrême (3.14) sur le ratio long/short indiquant un positionnement acheteur excessif de la foule, stimulé par des narratifs médiatiques grand public prônant les stratégies long/short. Classique piège à liquidité des baleines avant une purge.\"\n}\n```",
+      "ts": "2026-09-07T16:41:51.576536+00:00"
+    },
+    {
+      "metric": "taker_ratio",
+      "zscore": 2.0014506949895927,
+      "value": 1.332,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Divergence critique : les médias grand public chantent la fin de la pression vendeuse (ratio à 0,86), tandis que l'anomalie on-chain détecte un taker_buy/sell ratio de 1.332 (Z-score 2.00). Les acheteurs agissant agressivement sur le marché (Takers) face à un narratif optimiste suggèrent une sortie de position (exit liquidity) orchestrée par les baleines.\"\n}\n```",
+      "ts": "2026-09-07T17:06:56.906239+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": 3.443338006968121,
+      "value": 1.178,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Z-score élevé (3.44) sur le ratio long/short couplé à un narratif médiatique grand public ultra-favorable aux stratégies long/short. Classique piège à liquidité : les institutionnels saturent le marché en positions acheteuses pendant que la foule s'entasse, signalant un sommet local imminent avant une purge.\"\n}\n```",
+      "ts": "2026-09-07T17:11:59.374890+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 2.4460873544356514,
+      "value": 0.016,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Faux positif absolu. Le signal onchain 'SDI' et les flux médiatiques font référence à des homonymes non cryptographiques (le Syndicat des Indépendants, du matériel vidéo SDI, et Samsung SDI). Aucune baleine crypto détectée.\"\n}\n```",
+      "ts": "2026-09-07T17:17:01.968349+00:00"
     }
   ]
 }
