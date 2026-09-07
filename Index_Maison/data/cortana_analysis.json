@@ -1,50 +1,20 @@
 {
-  "timestamp": 1788749149,
-  "date": "2026-09-07T02:45:49.198549+00:00",
-  "n_analyses": 4,
+  "timestamp": 1788751850,
+  "date": "2026-09-07T03:30:50.114835+00:00",
+  "n_analyses": 2,
   "analyses": [
     {
       "signal": {
-        "metric": "long_short",
-        "zscore": -3.0859196350355624,
-        "value": 1.037,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Z-score extrêmement bas (-3.09) sur le ratio long/short indiquant un positionnement contrarien massif des institutionnels, tandis que les médias grand public font l'éloge des stratégies prudentes long/short. Classique piège à liquidité baissière avant un squeeze.\"\n}\n```",
-        "ts": 1788748603.993534
-      },
-      "fiche": null,
-      "interpretation": {
-        "lecture": "Pas de fiche disponible",
-        "niveau": "inconnu"
-      },
-      "action": "Observer"
-    },
-    {
-      "signal": {
-        "metric": "price_1h",
-        "zscore": 3.9547044601790673,
-        "value": 0.5047001096842418,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie statistique majeure (Z-score 3.95) avec un silence médiatique absolu sur Google Actualités. Les baleines accumulent ou positionnent des mouvements sans éveiller l'attention de la foule de détail.\"\n}\n```",
-        "ts": 1788748905.977936
-      },
-      "fiche": null,
-      "interpretation": {
-        "lecture": "Pas de fiche disponible",
-        "niveau": "inconnu"
-      },
-      "action": "Observer"
-    },
-    {
-      "signal": {
         "metric": "volume",
-        "zscore": 2.476394434744949,
-        "value": 5386081478.0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de volume massive (z-score 2.48) sur NEAR non capturée par les médias généralistes (bruit médiatique sur le pétrole et les déchets). Les baleines accumulent en silence sous la résistance des 2,55 $.\"\n}\n```",
-        "ts": 1788748907.500912
+        "zscore": 3.020210886557311,
+        "value": 5685374704.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de volume massive (Z-score 3.02) sur NEAR/crypto alors que les médias grand public se focalisent sur des sujets macro sans rapport et un faux sentiment de blocage du Bitcoin. Divergence classique d'accumulation silencieuse par les baleines.\"\n}\n```",
+        "ts": 1788750717.614483
       },
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": 0.51,
+          "value": -0.16,
           "seuil": 1,
           "depasse": false
         },
@@ -54,12 +24,12 @@
           "depasse": false
         },
         "funding": {
-          "value": 3.5e-05,
+          "value": 4.2e-05,
           "seuil": 0.001,
           "depasse": false
         },
         "whales": {
-          "value": 2,
+          "value": 1,
           "seuil": 5,
           "depasse": false
         }
@@ -76,10 +46,10 @@
     {
       "signal": {
         "metric": "fear_greed",
-        "zscore": -2.879292027677155,
+        "zscore": -2.604569788618419,
         "value": 71,
-        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement négatif (-2.88) malgré une cupidité élevée (71) et un vide médiatique total : divergence classique de 'bull trap' où les baleines distribuent silencieusement face à un retail aveuglé par l'euphorie.\"\n}\n```",
-        "ts": 1788748908.912883
+        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-2.60) malgré une cupidité élevée (71). Absence totale de couverture médiatique (Google Actualités vide), ce qui indique un désintérêt retail combiné à une distribution silencieuse des baleines en zone de surchauffe.\"\n}\n```",
+        "ts": 1788750719.112447
       },
       "fiche": null,
       "interpretation": {
