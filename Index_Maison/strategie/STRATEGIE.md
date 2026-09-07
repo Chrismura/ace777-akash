@@ -1,13 +1,13 @@
-# STRATEGIE — 2026-09-07T23:32:06.741772Z
+# STRATEGIE — 2026-09-07T23:43:29.547429Z
 
-## COURT TERME — 2026-09-07T23:32:06.741772Z
+## COURT TERME — 2026-09-07T23:43:29.547429Z
 
-[UNDERSTAND] La maison ACE777 maintient son alerte ambre face à un PnL combiné légèrement déficitaire (-5,92 $), combinant la discipline d'embuscade d'Alpha, l'éclairage de Beta et la gestion prudente des positions de Hulk sous l'influence de tensions exogènes sur les taux.
+[UNDERSTAND] La maison ACE777 maintient son alerte ambre face à un PnL combiné légèrement déficitaire (-5,01 $), s'appuyant sur la discipline d'embuscade d'Alpha, l'éclairage de Beta et la gestion prudente des positions de Hulk sous l'influence des tensions exogènes.
 [ANALYZE]
 - Tendance : Marché global en phase d'accumulation, marqué par une configuration Bitcoin season (score 42) et un climat de cupidité (Fear & Greed à 71).
-- Momentum : Alpha patiente avec 731 skips et 6 fills (-3,07 $), tandis que Beta éclaire activement le marché (18 sondes pour +2,16 $). Hulk gère ses positions seeds avec une vigilance accrue sur les stop-loss, notamment sur CCUSDT en infraction profonde (-15,35 %).
-- Risque : Érosion contenue sur le portefeuille global, avec des positions seeds en tension sous surveillance stricte et un bruit macroéconomique lié aux déclarations sur la Fed.
-- Contexte : PnL combiné à -5,92 $, open interest en baisse, et flux ETF BTC positifs (+122,65 M$).
+- Momentum : Alpha patiente avec 51 skips et 0 fill (discipline stricte), tandis que Beta assure ses reconnaissances et que Hulk pilote ses positions seeds avec une vigilance accrue, notamment sur CCUSDT en infraction profonde sous son stop-loss.
+- Risque : Érosion contenue sur le portefeuille global, avec des positions seeds en tension sous surveillance stricte et un bruit macroéconomique lié aux taux.
+- Contexte : PnL combiné à -5,01 $, open interest en hausse, et flux ETF BTC positifs (+122,67 M$).
 [STRATEGIZE]
 1. Maintenir l'alerte ambre et la stricte discipline d'embuscade d'Alpha en attendant une cassure nette des carnets validée par Beta.
 2. Appliquer rigoureusement les stop-loss sur les positions seeds de Hulk en infraction profonde (comme CCUSDT) pour contenir le risque baissier.
