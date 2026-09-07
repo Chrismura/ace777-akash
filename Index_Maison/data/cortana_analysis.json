@@ -1,20 +1,35 @@
 {
-  "timestamp": 1788759052,
-  "date": "2026-09-07T05:30:52.559437+00:00",
+  "timestamp": 1788759952,
+  "date": "2026-09-07T05:45:52.864938+00:00",
   "n_analyses": 2,
   "analyses": [
     {
       "signal": {
+        "metric": "whale_usd",
+        "zscore": 6.569675257336446,
+        "value": 6128207.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score massif de 6.57 sur les flux baleines avec un silence total des médias (Google Actualités muet). Divergence classique d'accumulation furtive en sous-marin.\"\n}\n```",
+        "ts": 1788758281.093449
+      },
+      "fiche": null,
+      "interpretation": {
+        "lecture": "Pas de fiche disponible",
+        "niveau": "inconnu"
+      },
+      "action": "Observer"
+    },
+    {
+      "signal": {
         "metric": "volume",
-        "zscore": 2.729505739945995,
-        "value": 6075768727.0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le volume on-chain de NEAR explose (z-score 2.73, volume à 6,07 Mrd$) alors que les grands médias généralistes et boursiers grand public se focalisent sur le Bitcoin et des faits divers sans rapport, prouvant une accumulation silencieuse des baleines loin des radars médiatiques.\"\n}\n```",
-        "ts": 1788757970.921735
+        "zscore": 2.6286099593166274,
+        "value": 6153743960.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de volume extrême sur NEAR (z-score 2.63, 6,15 milliards) couplée à un doublement du volume à 609 M$ ciblant une résistance clé. Les médias grand public banalisent le mouvement en le noyant dans des faits divers, signalant une accumulation silencieuse des baleines sous le radar.\"\n}\n```",
+        "ts": 1788759785.87774
       },
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": 0.13,
+          "value": 0.17,
           "seuil": 1,
           "depasse": false
         },
@@ -24,7 +39,7 @@
           "depasse": false
         },
         "funding": {
-          "value": 6.1e-05,
+          "value": 6.3e-05,
           "seuil": 0.001,
           "depasse": false
         },
@@ -42,21 +57,6 @@
       },
       "action": "Réduire taille de 50%, sortir des positions fragiles",
       "niveau": "dangereux"
-    },
-    {
-      "signal": {
-        "metric": "whale_usd",
-        "zscore": 6.569675257336446,
-        "value": 6128207.0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score massif de 6.57 sur les flux baleines avec un silence total des médias (Google Actualités muet). Divergence classique d'accumulation furtive en sous-marin.\"\n}\n```",
-        "ts": 1788758281.093449
-      },
-      "fiche": null,
-      "interpretation": {
-        "lecture": "Pas de fiche disponible",
-        "niveau": "inconnu"
-      },
-      "action": "Observer"
     }
   ],
   "resume": "🔴 DANGER détecté — réduire les expositions"
