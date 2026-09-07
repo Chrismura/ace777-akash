@@ -2,41 +2,6 @@
   "signals": [
     {
       "metric": "volume",
-      "zscore": 2.2322023436103127,
-      "value": 5071368025.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de volume on-chain massive (z-score 2.23, ~5B) totalement ignorée par les grands médias généralistes et crypto, qui se focalisent sur des résistances mineures (NEAR) ou la stagnation du BTC. Divergence classique d'accumulation silencieuse par les baleines.\"\n}\n```",
-      "ts": "2026-09-07T00:41:06.953931+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": -6.335839103296187,
-      "value": 71,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie statistique extrême (Z-score -6.34) sur un indice de Peur/Greed à 71 dans un vide informationnel médiatique (Google Actualités muet). Divergence classique de distribution silencieuse par les baleines profitant d'une euphorie de détail non relayée.\"\n}\n```",
-      "ts": "2026-09-07T00:41:08.243567+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": 2.33683183197798,
-      "value": 5155706464.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de volume massive (z-score 2.34) ignorée ou diluée par les médias généralistes et des actualités sans rapport (pétrole, déchets). Divergence classique de accumulation furtive par les baleines avant une cassure technique.\"\n}\n```",
-      "ts": "2026-09-07T01:11:16.435582+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": -4.599331055039013,
-      "value": 71,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 50,\n  \"reason\": \"Données médiatiques insuffisantes pour établir une divergence claire, malgré une forte cupidité (Greed 71).\"\n}\n```",
-      "ts": "2026-09-07T01:11:17.544253+00:00"
-    },
-    {
-      "metric": "price_1h",
-      "zscore": 2.5515765110072524,
-      "value": 0.33885225602525715,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de prix positive (z-score 2.55) totalement ignorée par les médias (silence radio absolu). Signal classique d'accumulation discrète par des baleines loin du radar public.\"\n}\n```",
-      "ts": "2026-09-07T01:16:19.397078+00:00"
-    },
-    {
-      "metric": "volume",
       "zscore": 2.5530242947573476,
       "value": 5293942038.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de volume on-chain massive (Z-score 2.55) sur NEAR, totalement occultée par un narratif médiatique généraliste et sans rapport (Bitcoin, déchets, pétrole). Divergence classique de accumulation silencieuse par les baleines avant cassure de résistance.\"\n}\n```",
@@ -349,6 +314,41 @@
       "value": 1.094,
       "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 92,\n  \"reason\": \"Z-score extrême (3.30) sur le ratio long/short indiquant un posicionnement acheteur ultra-excessif de la foule. Pendant que les médias grand public font la promotion générale des stratégies 'long/short', le marché est mûr pour une chasse aux liquidités baissière (long squeeze) initiée par les baleines.\"\n}\n```",
       "ts": "2026-09-07T12:10:16.639970+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": 2.9238537062545706,
+      "value": 1.094,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Le Z-score extrême (2.92) indique un déséquilibre massif vers les positions acheteuses, contredisant le narratif médiatique traditionnel sur la prudence des fonds long-short. C'est un signal classique de surchauffe spéculative propice à une chasse aux stops par les baleines.\"\n}\n```",
+      "ts": "2026-09-07T12:40:22.704220+00:00"
+    },
+    {
+      "metric": "taker_ratio",
+      "zscore": 2.8551720505453035,
+      "value": 1.432,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Taker ratio élevé (1.432, Z-score 2.86) indique une agression massive des acheteurs sur le marché dérivé/spot. Le silence médiatique (Google Actualités vide) prouve une accumulation furtive des baleines loin du radar retail, configuration classique avant une cassure haussière.\"\n}\n```",
+      "ts": "2026-09-07T13:05:30.039767+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": 3.9760049345397657,
+      "value": 1.112,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Z-score extrême à 3.98 (excès de positions acheteuses) combiné à un narratif médiatique grand public unanime sur les stratégies long/short. Classique piège à liquidité haussière : le retail FOMO pendant que les baleines s'apprêtent à purger les excès de levier.\"\n}\n```",
+      "ts": "2026-09-07T13:10:39.047062+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 2.4118374051912372,
+      "value": 0.012,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Bruit médiatique externe : les résultats font référence au syndicat professionnel 'SDI' (TPE), à du matériel vidéo (Blackmagic SDI) et à l'industriel Samsung SDI. Aucune connexion avec une baleine crypto ou un actif numérique.\"\n}\n```",
+      "ts": "2026-09-07T13:35:45.175726+00:00"
+    },
+    {
+      "metric": "taker_ratio",
+      "zscore": 2.596111378296176,
+      "value": 1.432,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio élevé (z-score 2.60) indique une forte agression acheteuse sur le marché dérivé, non reflétée ou ignorée par les médias traditionnels (silence médiatique). C'est un classique positionnement silencieux de baleines avant une cassure haussière.\"\n}\n```",
+      "ts": "2026-09-07T13:35:46.672927+00:00"
     }
   ]
 }
