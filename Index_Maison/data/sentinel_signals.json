@@ -1,27 +1,6 @@
 {
   "signals": [
     {
-      "metric": "liquidations",
-      "zscore": 2.1257019291996753,
-      "value": 7592414.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 75,\n  \"reason\": \"Divergence significative entre les liquidations onchain (anomalie + z-score élevé) et le narratif médiatique focalisé sur des liquidations judiciaires locales sans lien avec les crypto. Suggestif d'activité silencieuse des baleines.\"\n}\n```",
-      "ts": "2026-09-06T11:26:05.498785+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": -2.000716352996669,
-      "value": 0.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Anomalie technique liée à une homonymie (IPT = Tournoi de Physique / Institut Protestant de Théologie). Aucun lien avec la crypto, bruit médiatique sans substance pour les baleines.\"\n}\n```",
-      "ts": "2026-09-06T14:27:20.594809+00:00"
-    },
-    {
-      "metric": "price_1h",
-      "zscore": 6.696911723464725,
-      "value": 0.5465712938276357,
-      "analysis": "{\n  \"signal\": \"bullish\",\n  \"confidence\": 65,\n  \"reason\": \"Le z-score de prix extrêmement élevé (6.70) indique une anomalie haussière marquée, tandis que l'absence de titres médiatiques spécifiques suggère que ce mouvement n'est pas encore relayé, typique d'une accumulation silencieuse par les baleines. Le narratif semble donc déconnecté de la réalité on-chain.\"\n}",
-      "ts": "2026-09-06T14:32:32.071101+00:00"
-    },
-    {
       "metric": "ipt",
       "zscore": 2.6273036807345718,
       "value": 0.96,
@@ -349,6 +328,27 @@
       "value": 1.073,
       "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Le ratio long/short atteint un z-score élevé de 2.31 (excès d'optimisme spéculatif), tandis que les médias grand public font l'éloge unanime des stratégies long/short. Cette surchauffe du consensus et le positionnement excessivement acheteur des détailleurs précèdent historiquement une purge violente orchestrée par les baleines.\"\n}\n```",
       "ts": "2026-09-07T08:39:10.181560+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 11.608904551459583,
+      "value": 11171202.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie massive onchain (z-score 11.61, ~11.17M USD) dans le silence total des médias généralistes (Google Actualités vide). Divergence classique d'accumulation furtive par les baleines avant un mouvement haussier.\"\n}\n```",
+      "ts": "2026-09-07T08:59:15.030495+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.1996935674913773,
+      "value": 6612065705.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique de volume (z-score 2.20) totalement décorriélée de toute baleine crypto ; les actualités mentionnent de la musique, du sport, des futilités et un altcoin sans rapport (NEAR). Bruit absolu.\"\n}\n```",
+      "ts": "2026-09-07T09:09:18.298696+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": 3.004105553703773,
+      "value": 1.079,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 92,\n  \"reason\": \"Z-score extrême à 3.00 sur le ratio long/short couplé à un narratif médiatique unanime vantant les stratégies long/short grand public : piège classique de liquidité, signalant un positionnement excessivement haussier des suiveurs de tendance juste avant une purge imminente des baleines.\"\n}\n```",
+      "ts": "2026-09-07T09:09:19.947600+00:00"
     }
   ]
 }
