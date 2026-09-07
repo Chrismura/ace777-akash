@@ -261,3 +261,18 @@ Applications indiquées par la famille, hors le trading perpétuel qui paye le t
 - Bug corrigé au passage : W (largeur) écrasait la constante ANSI W (blanc) → prix affiché "7877…"
 - Liens : [[GEMINI_SESSION_EDGE_JUILLET]] (26 rounds) · [[AUDIT ACE DUO ALPHABETA  2026-09-01]]
   (dans le coffre ; projet : `AUDIT_ACE_DUO_ALPHA_BETA_20260901.md`) · [[JOURNAL_ACE777]] · [[PLAN_DE_VOL]]
+
+## 🧩 NOTE SEGMENTS (07/09, Buffy — cause des redémarrages déclarée par le propriétaire)
+
+**Pourquoi 3 segments** : coupure batterie de l'ordi + runs de test (~90 min, fenêtre bootstrap). Aucune faute du moteur. Prévention : garder le Mac sur secteur pendant le run.
+
+| Segment | Fenêtre | Fills | Brut | Net | Note |
+|---|---|---|---|---|---|
+| 20260902 | 02/09 17:26 → 04/09 (arrêts) | 116 (58 trades) | +60,96 | **−41,12** | analysé au rapport J+1 |
+| 20260904 | 04/09 05:46 → 14:52 | 5 | +7,20 | **+5,44** | 1 trade complet (BETA +5,44) ; 2 entrées BOOTSTRAP 14:51 restées flottantes à l'arrêt (non résolues) |
+| 20260905 | 05/09 07:12 → (en cours) | 54 (27 trades) | +15,26 | **≈ −28,7** | 2 cap-2h = −14,95 = 52 % de la perte ; H=0, aucun fill depuis 05/09 11:36Z |
+
+- **Totaux cumulés** : brut +83,42 / net **≈ −64,4** (frais simulés ~148) — cohérent avec le diagnostic J+1 : le péage reste la maladie.
+- **Pathologie confirmée sur le segment 3** : brut médian < 2,00 (seuil d'alerte R26) + cap-2h guillotine. Levier inchangé : **entrée (k=3) + économie de frais**.
+- **Horloge live — PROPOSITION (à valider Christophe)** : verdict live = **19/09** (14 jours depuis la relance du 05/09 07:12Z). Les segments 02/09 et 04/09 comptent comme données antérieures, analysés séparément, jamais mélangés au segment courant. Rappel : la validation DÉCISIVE reste le replay un-essai sur les 4 fenêtres — elle ne dépend pas de l'horloge live.
+- **Rappel économique** : les frais du shadow sont VIRTUELS (1,76 $/trade simulé, zéro ordre réel) — laisser tourner ne coûte pas d'argent, seulement de l'attention et de la machine. Le vrai risque frais = un passage live prématuré.

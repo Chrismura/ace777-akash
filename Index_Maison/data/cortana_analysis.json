@@ -1,7 +1,63 @@
 {
-  "timestamp": 1788766254,
-  "date": "2026-09-07T07:30:54.891549+00:00",
-  "n_analyses": 0,
-  "analyses": [],
-  "resume": "Aucune analyse en cours"
+  "timestamp": 1788769856,
+  "date": "2026-09-07T08:30:56.041558+00:00",
+  "n_analyses": 2,
+  "analyses": [
+    {
+      "signal": {
+        "metric": "volume",
+        "zscore": 2.382710086233494,
+        "value": 6497190917.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de volume massive (z-score 2.38) sur NEAR ignorée par les grands médias généralistes, focalisés sur le bruit macro du Bitcoin et des faits divers. Accumulation silencieuse des baleines en cours sous la résistance.\"\n}\n```",
+        "ts": 1788768522.159684
+      },
+      "fiche": "rbf_eleve",
+      "questions": {
+        "prix": {
+          "value": 0.15,
+          "seuil": 1,
+          "depasse": false
+        },
+        "paires": {
+          "value": null,
+          "seuil": 3,
+          "depasse": false
+        },
+        "funding": {
+          "value": 2.9e-05,
+          "seuil": 0.001,
+          "depasse": false
+        },
+        "whales": {
+          "value": 1,
+          "seuil": 5,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "sdi > 0.3",
+        "lecture": "Drainage silencieux — les vieux BTC bougent en douce",
+        "niveau": "dangereux",
+        "action": "Réduire taille de 50%, sortir des positions fragiles"
+      },
+      "action": "Réduire taille de 50%, sortir des positions fragiles",
+      "niveau": "dangereux"
+    },
+    {
+      "signal": {
+        "metric": "long_short",
+        "zscore": 2.3897790120511657,
+        "value": 1.073,
+        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Le ratio long/short atteint un z-score élevé de 2.39, indiquant un positionnement excessivement haussier de la foule. En parallèle, les médias grand public font l'éloge des stratégies long-short, signalant un FOMO tardif et un consensus naïf. Divergence classique : les baleines distribuent aux suiveurs avant un retournement baissier.\"\n}\n```",
+        "ts": 1788768523.712017
+      },
+      "fiche": null,
+      "interpretation": {
+        "lecture": "Pas de fiche disponible",
+        "niveau": "inconnu"
+      },
+      "action": "Observer"
+    }
+  ],
+  "resume": "🔴 DANGER détecté — réduire les expositions"
 }

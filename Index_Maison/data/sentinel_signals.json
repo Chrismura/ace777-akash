@@ -2,27 +2,6 @@
   "signals": [
     {
       "metric": "liquidations",
-      "zscore": 3.0340748696186215,
-      "value": 7678693.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (3.03) sur les liquidations combiné à des flux nets positifs et un achat massif institutionnel (Strive 1,800 BTC), alors que les médias généralistes diluent l'attention avec des bruits de liquidations judiciaires locales sans rapport. Classique 'shakeout' de baleines avant une reprise.\"\n}\n```",
-      "ts": "2026-09-06T09:25:18.978136+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.5447333152757468,
-      "value": 1.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique (ipt = 1.0) due à un bruit lexical sans rapport avec la crypto (Tournoi International des Physiciens / Institut Protestant de Théologie). Aucune baleine détectée.\"\n}\n```",
-      "ts": "2026-09-06T09:50:32.663118+00:00"
-    },
-    {
-      "metric": "liquidations",
-      "zscore": 2.7040118243646085,
-      "value": 7600750.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Bruit médiatique parasité par des faits divers locaux de liquidations judiciaires d'entreprises traditionnelles. Le z-score on-chain (2.70) indique une secousse de liquidations crypto mineure, mais noyée dans le bruit sémantique.\"\n}\n```",
-      "ts": "2026-09-06T09:55:35.710608+00:00"
-    },
-    {
-      "metric": "liquidations",
       "zscore": 2.470484594281627,
       "value": 7595398.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Forte divergence : les médias grand public se focalisent sur des bruits de liquidations judiciaires locales sans rapport, tandis que l'anomalie on-chain (z-score 2.47, $7.6M de liquidations ciblées) coïncide avec une absorption institutionnelle massive ($504M de liquidations globales et 1,800 BTC accumulés par Strive). Les baleines nettoient le Leverage avant une impulsion haussière.\"\n}\n```",
@@ -349,6 +328,27 @@
       "value": 0.5245696199481009,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (3.90) couplé à un silence médiatique total (Google Actualités vide). C'accumulation furtive typique des baleines avant le FOMO public.\"\n}\n```",
       "ts": "2026-09-07T07:33:33.706408+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.038571364687535,
+      "value": 6161665967.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le z-score on-chain élevé (2.04) et l'explosion du volume de NEAR à 600M$+ contrastent avec un narratif médiatique généraliste distrait par des faits divers et du bruit. Accumulation silencieuse des baleines sous la résistance.\"\n}\n```",
+      "ts": "2026-09-07T07:38:36.127977+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.382710086233494,
+      "value": 6497190917.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de volume massive (z-score 2.38) sur NEAR ignorée par les grands médias généralistes, focalisés sur le bruit macro du Bitcoin et des faits divers. Accumulation silencieuse des baleines en cours sous la résistance.\"\n}\n```",
+      "ts": "2026-09-07T08:08:42.159684+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": 2.3897790120511657,
+      "value": 1.073,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Le ratio long/short atteint un z-score élevé de 2.39, indiquant un positionnement excessivement haussier de la foule. En parallèle, les médias grand public font l'éloge des stratégies long-short, signalant un FOMO tardif et un consensus naïf. Divergence classique : les baleines distribuent aux suiveurs avant un retournement baissier.\"\n}\n```",
+      "ts": "2026-09-07T08:08:43.712017+00:00"
     }
   ]
 }
