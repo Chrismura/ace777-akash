@@ -1,15 +1,15 @@
 {
-  "timestamp": 1788806167,
-  "date": "2026-09-07T18:36:07.146357+00:00",
-  "n_analyses": 1,
+  "timestamp": 1788809768,
+  "date": "2026-09-07T19:36:08.146891+00:00",
+  "n_analyses": 3,
   "analyses": [
     {
       "signal": {
         "metric": "long_short",
-        "zscore": 2.693366504671876,
-        "value": 1.177,
-        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Z-score excessif (2.69) sur le ratio long/short indiquant un positionnement acheteur ultra-hypertrophié des institutionnels, déconnecté des médias qui découvrent tardivement la stratégie Long/Short. Comportement classique de 'l'excès de confiance' avant un mouvement de purge (chasse aux liquidités longues).\"\n}\n```",
-        "ts": 1788804754.843998
+        "zscore": 2.014005517293963,
+        "value": 1.166,
+        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.01) sur le ratio long/short indiquant un posicionnement excessivement haussier de la foule, coïncidant curieusement avec un narratif médiatique généraliste sur les stratégies 'long-short' traditionnelles. Divergence classique de piégeage de liquidité : les baleines distribuent discrètement pendant que le retail sur-alloue en positions acheteuses.\"\n}\n```",
+        "ts": 1788808404.7029
       },
       "fiche": null,
       "interpretation": {
@@ -17,7 +17,87 @@
         "niveau": "inconnu"
       },
       "action": "Observer"
+    },
+    {
+      "signal": {
+        "metric": "sdi",
+        "zscore": 2.2163354340555688,
+        "value": 0.016,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Bruit médiatique non pertinent : les articles font référence au Syndicat des Indépendants (SDI), à du matériel vidéo (Blackmagic SDI) et à Samsung SDI (batteries), sans aucun rapport avec la crypto ou des mouvements de baleines on-chain.\"\n}\n```",
+        "ts": 1788808707.075305
+      },
+      "fiche": "rbf_eleve",
+      "questions": {
+        "prix": {
+          "value": 0.14,
+          "seuil": 1,
+          "depasse": false
+        },
+        "paires": {
+          "value": null,
+          "seuil": 3,
+          "depasse": false
+        },
+        "funding": {
+          "value": 2.6e-05,
+          "seuil": 0.001,
+          "depasse": false
+        },
+        "whales": {
+          "value": 2,
+          "seuil": 5,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "sdi > 0.3",
+        "lecture": "Drainage silencieux — les vieux BTC bougent en douce",
+        "niveau": "dangereux",
+        "action": "Réduire taille de 50%, sortir des positions fragiles"
+      },
+      "action": "Réduire taille de 50%, sortir des positions fragiles",
+      "niveau": "dangereux"
+    },
+    {
+      "signal": {
+        "metric": "ipt",
+        "zscore": 3.1089659605584417,
+        "value": 1.111,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 3.11) sur un ticker 'ipt' sans lien avec la crypto. Les actualités font référence à l'École Polytechnique (IPT) et des partenariats académiques. Bruit de fond médiatique sans mouvement de baleine avéré.\"\n}\n```",
+        "ts": 1788808708.74415
+      },
+      "fiche": "rbf_eleve",
+      "questions": {
+        "prix": {
+          "value": 0.14,
+          "seuil": 1,
+          "depasse": false
+        },
+        "paires": {
+          "value": null,
+          "seuil": 3,
+          "depasse": false
+        },
+        "funding": {
+          "value": 2.6e-05,
+          "seuil": 0.001,
+          "depasse": false
+        },
+        "whales": {
+          "value": 2,
+          "seuil": 5,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "sdi > 0.3",
+        "lecture": "Drainage silencieux — les vieux BTC bougent en douce",
+        "niveau": "dangereux",
+        "action": "Réduire taille de 50%, sortir des positions fragiles"
+      },
+      "action": "Réduire taille de 50%, sortir des positions fragiles",
+      "niveau": "dangereux"
     }
   ],
-  "resume": "🔵 CALME — pas de signal alarmant"
+  "resume": "🔴 DANGER détecté — réduire les expositions"
 }
