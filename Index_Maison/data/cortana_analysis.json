@@ -1,15 +1,15 @@
 {
-  "timestamp": 1788777058,
-  "date": "2026-09-07T10:30:58.249497+00:00",
-  "n_analyses": 1,
+  "timestamp": 1788780659,
+  "date": "2026-09-07T11:30:59.373940+00:00",
+  "n_analyses": 4,
   "analyses": [
     {
       "signal": {
-        "metric": "long_short",
-        "zscore": 2.1602203483823033,
-        "value": 1.076,
-        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Sur-optimisation retail massive (z-score 2.16) couplée à un narratif médiatique unanime vantant les stratégies long/short. Classique piège à liquidité où le consensus public signale un retournement imminent des baleines.\"\n}\n```",
-        "ts": 1788775781.183571
+        "metric": "whale_usd",
+        "zscore": 12.996743253880283,
+        "value": 14877154.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 90,\n  \"reason\": \"Anomalie onchain extrême (z-score 13, ~14.8M USD) dans le silence médiatique total. Accumulation invisible des baleines loin du bruit de détail.\"\n}\n```",
+        "ts": 1788779096.952805
       },
       "fiche": null,
       "interpretation": {
@@ -17,7 +17,102 @@
         "niveau": "inconnu"
       },
       "action": "Observer"
+    },
+    {
+      "signal": {
+        "metric": "long_short",
+        "zscore": 2.65821494180192,
+        "value": 1.083,
+        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Z-score élevé (2.66) sur le ratio long/short indiquant un posicionnement excessivement haussier des gros porteurs, en totale contradiction avec le narratif médiatique traditionnel qui promeut la prudence via des fonds hedge 'Long/Short'. Excès de confiance retail/baleines souvent précurseur d'une purge de liquidité (long squeeze).\"\n}\n```",
+        "ts": 1788779399.504333
+      },
+      "fiche": null,
+      "interpretation": {
+        "lecture": "Pas de fiche disponible",
+        "niveau": "inconnu"
+      },
+      "action": "Observer"
+    },
+    {
+      "signal": {
+        "metric": "sdi",
+        "zscore": 2.4527622756289755,
+        "value": 0.012,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Fausse alerte liée à l'ambiguïté de l'acronyme SDI. Les flux on-chain et les gros volumes médiatiques font référence à des homonymes non-crypto (Samsung SDI, matériel vidéo Blackmagic SDI, fiscalité des TPE), aucune activité de baleine crypto détectée.\"\n}\n```",
+        "ts": 1788780003.855026
+      },
+      "fiche": "rbf_eleve",
+      "questions": {
+        "prix": {
+          "value": 0.1,
+          "seuil": 1,
+          "depasse": false
+        },
+        "paires": {
+          "value": null,
+          "seuil": 3,
+          "depasse": false
+        },
+        "funding": {
+          "value": 2.9e-05,
+          "seuil": 0.001,
+          "depasse": false
+        },
+        "whales": {
+          "value": 3,
+          "seuil": 5,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "sdi > 0.3",
+        "lecture": "Drainage silencieux — les vieux BTC bougent en douce",
+        "niveau": "dangereux",
+        "action": "Réduire taille de 50%, sortir des positions fragiles"
+      },
+      "action": "Réduire taille de 50%, sortir des positions fragiles",
+      "niveau": "dangereux"
+    },
+    {
+      "signal": {
+        "metric": "ipt",
+        "zscore": 2.8812427019003506,
+        "value": 0.985,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Le signal 'ipt' détecté et les actualités médiatiques font référence au Tournoi International des Physiciens (IPT), à un Institut Protestant de Théologie ou à des accords universitaires. Aucune corrélation avec une crypto-monnaie ou un mouvement de baleines on-chain. Fausse alerte due à une homonymie lexicale.\"\n}\n```",
+        "ts": 1788780006.641485
+      },
+      "fiche": "rbf_eleve",
+      "questions": {
+        "prix": {
+          "value": 0.1,
+          "seuil": 1,
+          "depasse": false
+        },
+        "paires": {
+          "value": null,
+          "seuil": 3,
+          "depasse": false
+        },
+        "funding": {
+          "value": 2.9e-05,
+          "seuil": 0.001,
+          "depasse": false
+        },
+        "whales": {
+          "value": 3,
+          "seuil": 5,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "sdi > 0.3",
+        "lecture": "Drainage silencieux — les vieux BTC bougent en douce",
+        "niveau": "dangereux",
+        "action": "Réduire taille de 50%, sortir des positions fragiles"
+      },
+      "action": "Réduire taille de 50%, sortir des positions fragiles",
+      "niveau": "dangereux"
     }
   ],
-  "resume": "🔵 CALME — pas de signal alarmant"
+  "resume": "🔴 DANGER détecté — réduire les expositions"
 }
