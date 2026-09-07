@@ -3589,3 +3589,7 @@ Pas d’ordre — confrontation plus tard.
 ### 2026-09-07T16:54:47Z — ALERT auto
 - ZBCNUSDT: WATCH_PULLBACK — tension haute + reflux
 (compléter: confirmé ? risque ?)
+
+### 2026-09-07T18:08:38Z — ALERT auto
+- ZBCNUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)

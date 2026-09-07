@@ -1,55 +1,15 @@
 {
-  "timestamp": 1788803165,
-  "date": "2026-09-07T17:46:05.974944+00:00",
-  "n_analyses": 2,
+  "timestamp": 1788806167,
+  "date": "2026-09-07T18:36:07.146357+00:00",
+  "n_analyses": 1,
   "analyses": [
     {
       "signal": {
-        "metric": "sdi",
-        "zscore": 2.4460873544356514,
-        "value": 0.016,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Faux positif absolu. Le signal onchain 'SDI' et les flux médiatiques font référence à des homonymes non cryptographiques (le Syndicat des Indépendants, du matériel vidéo SDI, et Samsung SDI). Aucune baleine crypto détectée.\"\n}\n```",
-        "ts": 1788801421.968349
-      },
-      "fiche": "rbf_eleve",
-      "questions": {
-        "prix": {
-          "value": 0.14,
-          "seuil": 1,
-          "depasse": false
-        },
-        "paires": {
-          "value": null,
-          "seuil": 3,
-          "depasse": false
-        },
-        "funding": {
-          "value": 2.4e-05,
-          "seuil": 0.001,
-          "depasse": false
-        },
-        "whales": {
-          "value": 0,
-          "seuil": 5,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "sdi > 0.3",
-        "lecture": "Drainage silencieux — les vieux BTC bougent en douce",
-        "niveau": "dangereux",
-        "action": "Réduire taille de 50%, sortir des positions fragiles"
-      },
-      "action": "Réduire taille de 50%, sortir des positions fragiles",
-      "niveau": "dangereux"
-    },
-    {
-      "signal": {
         "metric": "long_short",
-        "zscore": 3.0264519537294894,
-        "value": 1.178,
-        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Z-score extrême (3.03) sur le ratio long/short indiquant un posicionnement acheteur sur-le-champ de la foule, stimulé par des narratifs médiatiques grand public prônant les stratégies long/short. Classique piège à liquidité des baleines avant une purge.\"\n}\n```",
-        "ts": 1788802928.110423
+        "zscore": 2.693366504671876,
+        "value": 1.177,
+        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Z-score excessif (2.69) sur le ratio long/short indiquant un positionnement acheteur ultra-hypertrophié des institutionnels, déconnecté des médias qui découvrent tardivement la stratégie Long/Short. Comportement classique de 'l'excès de confiance' avant un mouvement de purge (chasse aux liquidités longues).\"\n}\n```",
+        "ts": 1788804754.843998
       },
       "fiche": null,
       "interpretation": {
@@ -59,5 +19,5 @@
       "action": "Observer"
     }
   ],
-  "resume": "🔴 DANGER détecté — réduire les expositions"
+  "resume": "🔵 CALME — pas de signal alarmant"
 }
