@@ -3611,3 +3611,7 @@ Pas d’ordre — confrontation plus tard.
 - RWAINCUSDT: WATCH_PULLBACK — tension haute + reflux
 - EDELUSDT: IMPULSE_WAIT — spike en cours, pas chase
 (compléter: confirmé ? risque ?)
+
+### 2026-09-07T22:53:44Z — ALERT auto
+- EDELUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
