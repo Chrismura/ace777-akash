@@ -1,12 +1,12 @@
 # RAPPORT PNL AUTO — MASTER_BASE_V8_6_FORTRESS_1H30
 
 **Session:** `MASTER_BASE_V8_6_FORTRESS_1H30`
-**run_id:** `MASTER_BASE_V8_6_FORTRESS_1H30_20260907T204521Z_3541`
+**run_id:** `MASTER_BASE_V8_6_FORTRESS_1H30_20260907T210011Z_9797`
 **Frais Binance:** `UNMATCHED_BINANCE_FEES` (aucune commission/funding externe n'est ajoutée sans correspondance explicite)
 **Période:** — → — (—)
 **Setup:** `?` v`?` | BETA `200` USDT | ALPHA `800` USDT | LLM gate `TRUE` fail_closed=`TRUE`
-**Généré:** 2026-09-07T20:45:26Z UTC
-**Filtre session:** `ts >= 2026-09-07T20:45:24Z` (lignes CSV antérieures exclues)
+**Généré:** 2026-09-07T21:00:16Z UTC
+**Filtre session:** `ts >= 2026-09-07T21:00:13Z` (lignes CSV antérieures exclues)
 
 ---
 

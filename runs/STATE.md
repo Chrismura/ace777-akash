@@ -1,7 +1,7 @@
 # ACE777 — STATE
 
 > Généré automatiquement — ne pas éditer à la main
-> Phase: `running` | Statut: `RUNNING` | MAJ: `2026-09-07T20:45:26Z`
+> Phase: `running` | Statut: `RUNNING` | MAJ: `2026-09-07T21:00:16Z`
 
 ## Config active
 
@@ -12,7 +12,7 @@
 | LLM gate | enabled=`TRUE` fail_closed=`TRUE` |
 | Modèle LLM | `qwen2.5-coder:1.5b` |
 | Tag session | `MASTER_BASE_V8_6_FORTRESS_1H30` |
-| run_id | `MASTER_BASE_V8_6_FORTRESS_1H30_20260907T204521Z_3541` |
+| run_id | `MASTER_BASE_V8_6_FORTRESS_1H30_20260907T210011Z_9797` |
 | Frais Binance | `UNMATCHED_BINANCE_FEES` |
 
 ## PnL session
@@ -52,7 +52,7 @@ _Aucun SKIP ou CSV absent._
 ## Fichiers
 
 - BETA CSV: `MASTER_BASE_V8_6_FORTRESS_1H30_BETA_X5.csv` (ok)
-- ALPHA CSV: `MASTER_BASE_V8_6_FORTRESS_1H30_ALPHA_X13_BURST13.csv` (absent)
+- ALPHA CSV: `MASTER_BASE_V8_6_FORTRESS_1H30_ALPHA_X13_BURST13.csv` (ok)
 
 ## Dernière leçon ERREURS_AI
 

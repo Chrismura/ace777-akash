@@ -1,8 +1,8 @@
 # JOURNAL ENGLE — MASTER_BASE_V8_6_FORTRESS_1H30
 
-- Généré: `2026-09-07T20:45:27Z` (UTC)
+- Généré: `2026-09-07T21:00:16Z` (UTC)
 - Couche: **B1** (lecture seule) · `ENGLE_ADAPT=0`
-- Session start (filtre): `2026-09-07T20:45:24Z`
+- Session start (filtre): `2026-09-07T21:00:13Z`
 - CSV: `MASTER_BASE_V8_6_FORTRESS_1H30_BETA_X5.csv` · `MASTER_BASE_V8_6_FORTRESS_1H30_ALPHA_X13_BURST13.csv`
 - Base: usine V2.2.1 + champion 37fca367 — **non modifié**
 
