@@ -1,55 +1,15 @@
 {
-  "timestamp": 1788792362,
-  "date": "2026-09-07T14:46:02.603024+00:00",
-  "n_analyses": 4,
+  "timestamp": 1788795363,
+  "date": "2026-09-07T15:36:03.507128+00:00",
+  "n_analyses": 2,
   "analyses": [
     {
       "signal": {
-        "metric": "sdi",
-        "zscore": 2.335419291461876,
-        "value": 0.012,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique hors-sujet (fiscalité, matériel vidéo, syndicat SDI et Samsung SDI). Aucune corrélation avec une dynamique de baleine crypto.\"\n}\n```",
-        "ts": 1788791162.004225
-      },
-      "fiche": "rbf_eleve",
-      "questions": {
-        "prix": {
-          "value": -0.45,
-          "seuil": 1,
-          "depasse": false
-        },
-        "paires": {
-          "value": null,
-          "seuil": 3,
-          "depasse": false
-        },
-        "funding": {
-          "value": 3.6e-05,
-          "seuil": 0.001,
-          "depasse": false
-        },
-        "whales": {
-          "value": 1,
-          "seuil": 5,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "sdi > 0.3",
-        "lecture": "Drainage silencieux — les vieux BTC bougent en douce",
-        "niveau": "dangereux",
-        "action": "Réduire taille de 50%, sortir des positions fragiles"
-      },
-      "action": "Réduire taille de 50%, sortir des positions fragiles",
-      "niveau": "dangereux"
-    },
-    {
-      "signal": {
         "metric": "liquidations",
-        "zscore": -2.135507406332528,
-        "value": 1033669.0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le z-score ultra-négatif des liquidations (-2.14) prouve une absence totale de pression vendeuse forcée, tandis que les médias s'affolent à tort sur des 'liquidations' juridiques/traditionnelles et ignorent les achats massifs institutionnels (Strive 1.8k BTC, +101M$ net).\"\n}\n```",
-        "ts": 1788791766.334643
+        "zscore": -2.0343069180723488,
+        "value": 1000991.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Bruit médiatique parasité par des faits divers juridiques de liquidation d'entreprises traditionnelles, masquant des flux institutionnels massifs (achats de 1800 BTC par Strive, entrées nettes de 101M$) et un assèchement drastique des liquidations crypto (z-score -2.03) préparant un squeeze.\"\n}\n```",
+        "ts": 1788793579.983103
       },
       "fiche": null,
       "interpretation": {
@@ -60,51 +20,11 @@
     },
     {
       "signal": {
-        "metric": "ipt",
-        "zscore": 2.977274566541067,
-        "value": 1.037,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Le signal 'ipt' détecté correspond à un acronyme homonyme (Tournoi International des Physiciens / Institut Protestant de Théologie / MoU biotech) et non à un actif crypto. Bruit médiatique sans lien avec des mouvements de baleines onchain.\"\n}\n```",
-        "ts": 1788791769.579069
-      },
-      "fiche": "rbf_eleve",
-      "questions": {
-        "prix": {
-          "value": -0.45,
-          "seuil": 1,
-          "depasse": false
-        },
-        "paires": {
-          "value": null,
-          "seuil": 3,
-          "depasse": false
-        },
-        "funding": {
-          "value": 3.6e-05,
-          "seuil": 0.001,
-          "depasse": false
-        },
-        "whales": {
-          "value": 1,
-          "seuil": 5,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "sdi > 0.3",
-        "lecture": "Drainage silencieux — les vieux BTC bougent en douce",
-        "niveau": "dangereux",
-        "action": "Réduire taille de 50%, sortir des positions fragiles"
-      },
-      "action": "Réduire taille de 50%, sortir des positions fragiles",
-      "niveau": "dangereux"
-    },
-    {
-      "signal": {
         "metric": "long_short",
-        "zscore": 2.4573764696562823,
-        "value": 1.107,
-        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Z-score élevé (2.46) sur le ratio long/short indiquant un optimisme excessif des traders de détail, amplifié par un narratif médiatique unanime vantant les stratégies long/short. Classique piège de liquidité avant une chasse aux longs par les baleines.\"\n}\n```",
-        "ts": 1788792071.954869
+        "zscore": 4.1379417826120495,
+        "value": 1.144,
+        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 92,\n  \"reason\": \"Z-score extrême de 4.14 sur le ratio long/short (1.144) indiquant un posicionnement acheteur excessif de la foule. Pendant que les médias grand public font la promotion naïve des stratégies long/short et des ETF associés, les baleines s'apprêtent à piéger cette liquidité excédentaire par un mouvement de purge imminent.\"\n}\n```",
+        "ts": 1788793882.509629
       },
       "fiche": null,
       "interpretation": {
@@ -114,5 +34,5 @@
       "action": "Observer"
     }
   ],
-  "resume": "🔴 DANGER détecté — réduire les expositions"
+  "resume": "🔵 CALME — pas de signal alarmant"
 }

@@ -1,34 +1,6 @@
 {
   "signals": [
     {
-      "metric": "long_short",
-      "zscore": -3.0859196350355624,
-      "value": 1.037,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Z-score extrêmement bas (-3.09) sur le ratio long/short indiquant un positionnement contrarien massif des institutionnels, tandis que les médias grand public font l'éloge des stratégies prudentes long/short. Classique piège à liquidité baissière avant un squeeze.\"\n}\n```",
-      "ts": "2026-09-07T02:36:43.993534+00:00"
-    },
-    {
-      "metric": "price_1h",
-      "zscore": 3.9547044601790673,
-      "value": 0.5047001096842418,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie statistique majeure (Z-score 3.95) avec un silence médiatique absolu sur Google Actualités. Les baleines accumulent ou positionnent des mouvements sans éveiller l'attention de la foule de détail.\"\n}\n```",
-      "ts": "2026-09-07T02:41:45.977936+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": 2.476394434744949,
-      "value": 5386081478.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de volume massive (z-score 2.48) sur NEAR non capturée par les médias généralistes (bruit médiatique sur le pétrole et les déchets). Les baleines accumulent en silence sous la résistance des 2,55 $.\"\n}\n```",
-      "ts": "2026-09-07T02:41:47.500912+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": -2.879292027677155,
-      "value": 71,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement négatif (-2.88) malgré une cupidité élevée (71) et un vide médiatique total : divergence classique de 'bull trap' où les baleines distribuent silencieusement face à un retail aveuglé par l'euphorie.\"\n}\n```",
-      "ts": "2026-09-07T02:41:48.912883+00:00"
-    },
-    {
       "metric": "whale_usd",
       "zscore": 2.985374239364966,
       "value": 3382029.0,
@@ -349,6 +321,34 @@
       "value": 1.107,
       "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Z-score élevé (2.46) sur le ratio long/short indiquant un optimisme excessif des traders de détail, amplifié par un narratif médiatique unanime vantant les stratégies long/short. Classique piège de liquidité avant une chasse aux longs par les baleines.\"\n}\n```",
       "ts": "2026-09-07T14:41:11.954869+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 4.741885052691098,
+      "value": 0.02,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Anomalie statistique (z-score 4.74) due à une collision lexicale : le sigle 'SDI' fait référence au syndicat des TPE, au matériel vidéo Blackmagic et à Samsung SDI dans l'actualité financière traditionnelle, et non à un mouvement de baleines crypto. Bruit médiatique sans pertinence onchain.\"\n}\n```",
+      "ts": "2026-09-07T14:56:16.914029+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": -2.0343069180723488,
+      "value": 1000991.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Bruit médiatique parasité par des faits divers juridiques de liquidation d'entreprises traditionnelles, masquant des flux institutionnels massifs (achats de 1800 BTC par Strive, entrées nettes de 101M$) et un assèchement drastique des liquidations crypto (z-score -2.03) préparant un squeeze.\"\n}\n```",
+      "ts": "2026-09-07T15:06:19.983103+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": 4.1379417826120495,
+      "value": 1.144,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 92,\n  \"reason\": \"Z-score extrême de 4.14 sur le ratio long/short (1.144) indiquant un posicionnement acheteur excessif de la foule. Pendant que les médias grand public font la promotion naïve des stratégies long/short et des ETF associés, les baleines s'apprêtent à piéger cette liquidité excédentaire par un mouvement de purge imminent.\"\n}\n```",
+      "ts": "2026-09-07T15:11:22.509629+00:00"
+    },
+    {
+      "metric": "price_1h",
+      "zscore": 2.5011199636896806,
+      "value": 0.42849752231859384,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score on-chain élevé (+2.50) couplé à un silence médiatique total (Google Actualités vide). C'est la signature classique d'accumulation furtive par des baleines avant un mouvement de marché non anticipé par le retail.\"\n}\n```",
+      "ts": "2026-09-07T15:36:28.073921+00:00"
     }
   ]
 }
