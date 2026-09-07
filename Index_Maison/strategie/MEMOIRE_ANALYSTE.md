@@ -4015,3 +4015,13 @@
 - 2026-09-07T21:15:35.563826Z | alerte | Maintenir l'alerte ambre, préserver la discipline d'embuscade d'Alpha, capitaliser sur l'éclairage de Beta et appliquer les stop-loss sur les positions seeds de Hulk en infraction. | conf=88%
 - 2026-09-07T21:31:56.902209Z | alerte | Maintenir l'alerte ambre, préserver la discipline d'embuscade d'Alpha, capitaliser sur l'éclairage de Beta et appliquer le stop-loss sur CCUSDT. | conf=88%
 - 2026-09-07T21:36:38.530581Z | alerte | Maintenir l'alerte ambre, préserver la discipline d'embuscade d'Alpha, capitaliser sur les reconnaissances de Beta et appliquer le stop-loss sur la position seed CCUSDT. | conf=88%
+- 2026-09-07T21:45:17.052182Z | alerte | Maintenir l'alerte ambre, préserver la discipline d'embuscade d'Alpha, capitaliser sur les reconnaissances de Beta et appliquer le stop-loss sur la position seed CCUSDT. | conf=88%
+- 2026-09-07T21:46:29.191010Z | alerte | Maintenir l'alerte ambre, préserver la discipline d'embuscade d'Alpha, capitaliser sur les reconnaissances de Beta et appliquer le stop-loss sur la position seed CCUSDT. | conf=88%
+- 2026-09-07T22:00:37.599558Z | alerte | Maintenir l'alerte ambre, préserver la discipline d'embuscade d'Alpha, capitaliser sur les reconnaissances de Beta et exécuter le stop-loss sur la position seed CCUSDT. | conf=88%
+- 2026-09-07T22:01:57.050238Z | alerte | Maintenir l'alerte ambre, préserver la discipline d'embuscade d'Alpha, capitaliser sur les reconnaissances de Beta et exécuter le stop-loss sur la position seed CCUSDT. | conf=88%
+- 2026-09-07T22:04:04.338332Z | alerte | Maintenir l'alerte ambre, préserver la discipline d'embuscade d'Alpha, capitaliser sur les reconnaissances de Beta et exécuter le stop-loss sur la position seed CCUSDT. | conf=88%
+- 2026-09-07T22:17:40.134675Z | alerte | Maintenir l'alerte ambre, préserver la discipline d'embuscade d'Alpha, capitaliser sur les reconnaissances de Beta et exécuter le stop-loss sur la position seed CCUSDT. | conf=88%
+- 2026-09-07T22:18:46.421325Z | alerte | Maintenir l'alerte ambre, préserver la discipline d'embuscade d'Alpha, capitaliser sur les reconnaissances de Beta et exécuter le stop‑loss sur la position seed CCUSDT. | conf=88%
+- 2026-09-07T22:28:30.459263Z | alerte | Maintenir l'alerte ambre, préserver la discipline d'embuscade d'Alpha, capitaliser sur les reconnaissances de Beta et exécuter le stop‑loss sur la position seed CCUSDT. | conf=88%
+- 2026-09-07T22:29:17.637161Z | alerte | ? | conf=?
+- 2026-09-07T22:32:00.068061Z | alerte | Maintien de l'alerte ambre et de la rigueur tactique de l'essaim, combinant la patience d'Alpha, les reconnaissances de Beta et l'encadrement resserré des positions seeds de Hulk face au bruit macroéconomique. | conf=88%

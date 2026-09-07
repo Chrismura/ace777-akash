@@ -1,7 +1,7 @@
 # ACE777 — STATE
 
 > Généré automatiquement — ne pas éditer à la main
-> Phase: `running` | Statut: `RUNNING` | MAJ: `2026-09-07T21:00:16Z`
+> Phase: `ended` | Statut: `ENDED` | MAJ: `2026-09-07T22:30:18Z`
 
 ## Config active
 
@@ -19,23 +19,44 @@
 
 | Unité | FILLED | Win | Loss | Win% | Brut | Frais | Net USDT | SKIP |
 |-------|--------|-----|------|------|------|------|----------|------|
-| BETA | 0 | 0 | 0 | 0.00% | 0.0000 | 0.0000 | 0.0000 | 0 |
-| ALPHA | 0 | 0 | 0 | 0.00% | 0.0000 | 0.0000 | 0.0000 | 0 |
-| **TOTAL** | **0** | — | — | — | **0.0000** | **0.0000** | **0.0000** | **0** |
+| BETA | 18 | 2 | 16 | 11.1% | 2.1619 | 9.5209 | -7.3590 | 499 |
+| ALPHA | 6 | 0 | 6 | 0.0% | -3.0685 | 6.4615 | -9.5300 | 831 |
+| **TOTAL** | **24** | — | — | — | **-0.9066** | **15.9824** | **-16.8890** | **1330** |
 
 ## Duo session (`duo_session.json`)
 
-- SCOUT PnL: `` USDT
-- HUNTER PnL: `` USDT
-- Total session: `` USDT
+- SCOUT PnL: `-7.359033050000001` USDT
+- HUNTER PnL: `-9.52997152` USDT
+- Total session: `-16.88900457` USDT
+
+## Duo live (`duo_state.json`)
+
+| Champ | Valeur |
+|-------|--------|
+| role | `SCOUT` |
+| status | `CLOSED` |
+| side | `SELL` |
+| bps | `0.25270297` |
+| pnl_usdt | `-0.38628727` |
+| reason | `kill_switch` |
+| cycle | `524` |
+| hold_sec | `86` |
 
 ## Top SKIP — BETA
 
-_Aucun SKIP ou CSV absent._
+1. `reason=COMPRESSE tension=0.00000000 threshold=0.05` — 170
+2. `reason=COMPRESSE tension=0.00001169 threshold=0.05` — 4
+3. `reason=COMPRESSE tension=0.00001998 threshold=0.05` — 4
+4. `reason=COMPRESSE tension=0.00001608 threshold=0.05` — 3
+5. `reason=COMPRESSE tension=0.00002095 threshold=0.05` — 3
 
 ## Top SKIP — ALPHA
 
-_Aucun SKIP ou CSV absent._
+1. `reason=COMPRESSE tension=0.00000000 threshold=0.05` — 309
+2. `reason=no_trigger mode=none` — 38
+3. `reason=COMPRESSE tension=0.00001608 threshold=0.05` — 3
+4. `reason=COMPRESSE tension=0.00001391 threshold=0.05` — 2
+5. `reason=COMPRESSE tension=0.00002143 threshold=0.05` — 2
 
 ## Vortex (`vortex_control.json`)
 
@@ -45,9 +66,9 @@ _Aucun SKIP ou CSV absent._
 
 ## Processus
 
-- master.pid: `RUNNING`
-- beta.pid: `RUNNING`
-- alpha.pid: `RUNNING`
+- master.pid: `stopped`
+- beta.pid: `stopped`
+- alpha.pid: `stopped`
 
 ## Fichiers
 

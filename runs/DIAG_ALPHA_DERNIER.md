@@ -1,29 +1,29 @@
-# DIAGNOSTIC ALPHA — ACE_RADAR_ALIGNED_V4_60M
+# DIAGNOSTIC ALPHA — MASTER_BASE_V8_6_FORTRESS_1H30
 
-> Généré: `2026-09-02T01:04:32Z` | Verdict: **OK — ALPHA active (5 fills, ratio BETA=56%)**
+> Généré: `2026-09-07T22:30:18Z` | Verdict: **OK — ALPHA active (6 fills, ratio BETA=33%)**
 
 ## Résumé
 
 | Métrique | ALPHA | BETA (référence) |
 |----------|-------|------------------|
-| FILLED | 5 | 9 |
-| PnL net | -3.3131 USDT | -5.8093 USDT |
-| SKIP total | 366 | 339 |
-| duo_wait | 9 (2.5% des SKIP ALPHA) | 0 |
+| FILLED | 6 | 18 |
+| PnL net | -3.0685 USDT | 2.1619 USDT |
+| SKIP total | 831 | 499 |
+| duo_wait | 39 (4.7% des SKIP ALPHA) | 0 |
 
 ## Entonnoir des gates — ALPHA
 
 Ordre dans `genesis_manifest.txt` : radar → tension/vacuum → tactic → stase → **duo** → qty → llm_gate → execute
 
-- `regime_gate` — **266**
-- `radar_block` — **85**
-- `duo_wait` — **9**
-- `impulse_resonance_wait` — **5**
+- `regime_gate` — **702**
+- `impulse_resonance_wait` — **64**
+- `duo_wait` — **39**
+- `radar_block` — **25**
 - `tactic_mismatch` — **1**
 
 ## duo_wait — sous-raisons (cause #2 après radar)
 
-- `unknown` — **9** (100.0% des duo_wait)
+- `unknown` — **39** (100.0% des duo_wait)
 
 ### Lecture technique
 
@@ -41,11 +41,11 @@ Ordre dans `genesis_manifest.txt` : radar → tension/vacuum → tactic → stas
 Revenge autorisé au-delà de `stop_loss` (shock / fluid / sentinel).
 Sorties BETA observées :
 
-- `0.39523328` — 1 trades
-- `0.39713894` — 1 trades
-- `0.64313600` — 1 trades
-- `0.39564083` — 1 trades
-- `0.39577600` — 1 trades
+- `0.39922798` — 3 trades
+- `0.39931416` — 1 trades
+- `0.64639358` — 1 trades
+- `0.39930710` — 1 trades
+- `0.39929904` — 1 trades
 
 - Sorties `shock_inversion_stop` : **0**
 - Sorties `stop_loss` : **0**
@@ -56,9 +56,9 @@ Sorties BETA observées :
 Quand le SCOUT ne rafraîchit pas `duo_state.json` dans les 60s, le HUNTER skip avec `stale_state`.
 Observé : **0** fois (0.0% des duo_wait).
 
-### 3. radar_block en amont (85 SKIP)
+### 3. radar_block en amont (25 SKIP)
 
-Même si le duo était parfait, 23.2% des cycles ALPHA meurent au radar avant d'atteindre le HUNTER.
+Même si le duo était parfait, 3.0% des cycles ALPHA meurent au radar avant d'atteindre le HUNTER.
 
 ## Paramètres duo actifs (config)
 
@@ -81,8 +81,8 @@ Même si le duo était parfait, 23.2% des cycles ALPHA meurent au radar avant d'
 
 ## Fichiers analysés
 
-- `ACE_RADAR_ALIGNED_V4_60M_ALPHA_X13_BURST13.csv`
-- `ACE_RADAR_ALIGNED_V4_60M_BETA_X5.csv`
+- `MASTER_BASE_V8_6_FORTRESS_1H30_ALPHA_X13_BURST13.csv`
+- `MASTER_BASE_V8_6_FORTRESS_1H30_BETA_X5.csv`
 - `runs/duo_state.json` (état live au moment du diag)
 
 ---

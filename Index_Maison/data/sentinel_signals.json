@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "whale_usd",
-      "zscore": 11.608904551459583,
-      "value": 11171202.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie massive onchain (z-score 11.61, ~11.17M USD) dans le silence total des médias généralistes (Google Actualités vide). Divergence classique d'accumulation furtive par les baleines avant un mouvement haussier.\"\n}\n```",
-      "ts": "2026-09-07T08:59:15.030495+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": 2.1996935674913773,
-      "value": 6612065705.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique de volume (z-score 2.20) totalement décorriélée de toute baleine crypto ; les actualités mentionnent de la musique, du sport, des futilités et un altcoin sans rapport (NEAR). Bruit absolu.\"\n}\n```",
-      "ts": "2026-09-07T09:09:18.298696+00:00"
-    },
-    {
       "metric": "long_short",
       "zscore": 3.004105553703773,
       "value": 1.079,
@@ -349,6 +335,20 @@
       "value": 1.531,
       "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 92,\n  \"reason\": \"Divergence critique : les médias grand public chantent la fin de la pression vendeuse (ratio à 0.86), mais l'anomalie on-chain (taker_ratio à 1.531, z-score 2.56) prouve une agressivité acheteuse anormale des preneurs de liquidité, typique d'une distribution agressive de baleines piégeant les retardataires (exit liquidity).\"\n}\n```",
       "ts": "2026-09-07T20:44:06.856161+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 4.6579712043628385,
+      "value": 8609651.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (z-score 4.66, accumulation de ~8.6M USD) dans un silence médiatique absolu (Google Actualités vide). Divergence classique de 'Smart Money' : accumulation furtive avant le réveil du narratif.\"\n}\n```",
+      "ts": "2026-09-07T21:39:32.056243+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.2242658004170477,
+      "value": 0.956,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (z-score 2.22) sur un ticker (IPT) pollué par des homonymes institutionnels et académiques (Tournoi International des Physiciens, Institut Protestant de Théologie, etc.). Aucun mouvement de baleine crypto détecté, le 'bruit' médiatique n'a aucun rapport avec la区块链.\"\n}\n```",
+      "ts": "2026-09-07T21:49:35.812782+00:00"
     }
   ]
 }
