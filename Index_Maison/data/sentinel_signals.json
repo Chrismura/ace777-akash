@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "volume",
-      "zscore": -2.010490522338407,
-      "value": 4000368708.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit médiatique sans rapport avec la crypto (actualités générales sur l'urine, le pétrole et la musique). Le z-score négatif indique un volume on-chain anormalement bas, mais les titres n'offrent aucun contexte pertinent pour interpréter une accumulation ou une distribution de baleines.\"\n}\n```",
-      "ts": "2026-09-05T17:20:00.486186+00:00"
-    },
-    {
-      "metric": "liquidations",
-      "zscore": 6.423557100292387,
-      "value": 1938067.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrême (6.42) sur les liquidations crypto ignoré par les médias généralistes focalisés sur des faits divers et des liquidations d'entreprises traditionnelles. Divergence classique d'accumulation de baleines.\"\n}\n```",
-      "ts": "2026-09-05T17:30:03.595767+00:00"
-    },
-    {
       "metric": "long_short",
       "zscore": 3.6730743950295617,
       "value": 1.08,
@@ -349,6 +335,20 @@
       "value": 0.41681861812317145,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de prix majeure (Z-score 4.08) totalement absente des flux médiatiques de Google Actualités. C'est la signature classique d'une accumulation furtive de baleines avant que le bruit public ne se forme.\"\n}\n```",
       "ts": "2026-09-06T23:40:33.592783+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.0219738846700714,
+      "value": 4960499642.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de volume on-chain massive (z-score 2.02, ~5B) totalement ignorée par les gros titres généralistes (bruit médiatique sur le pétrole, les déchets et un objectif mineur à 2,55$). Accumulation discrète des baleines en cours loin du radar retail.\"\n}\n```",
+      "ts": "2026-09-07T00:10:56.596114+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -16.94107434609743,
+      "value": 71,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement négatif (-16.94) malgré un indice de cupidité élevé (71). Indique une anomalie statistique majeure : les flux de liquidité institutionnels/baleines divergent totalement du bruit médiatique neutre, préparant un mouvement de squeeze.\"\n}\n```",
+      "ts": "2026-09-07T00:10:57.930979+00:00"
     }
   ]
 }
