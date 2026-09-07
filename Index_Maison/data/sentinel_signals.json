@@ -2,20 +2,6 @@
   "signals": [
     {
       "metric": "liquidations",
-      "zscore": 2.470484594281627,
-      "value": 7595398.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Forte divergence : les médias grand public se focalisent sur des bruits de liquidations judiciaires locales sans rapport, tandis que l'anomalie on-chain (z-score 2.47, $7.6M de liquidations ciblées) coïncide avec une absorption institutionnelle massive ($504M de liquidations globales et 1,800 BTC accumulés par Strive). Les baleines nettoient le Leverage avant une impulsion haussière.\"\n}\n```",
-      "ts": "2026-09-06T10:25:45.807765+00:00"
-    },
-    {
-      "metric": "liquidations",
-      "zscore": 2.2819974618897403,
-      "value": 7592414.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Bruit médiatique parasité par des faits divers locaux de faillites d'entreprises traditionnelles, masquant complètement les flux massifs institutionnels (180M$ d'achats BTC par Strive, 101M$ d'entrées nettes) et un flush de liquidations saines (z-score 2.28) qui nettoie l'excès de levier pour une continuation haussière.\"\n}\n```",
-      "ts": "2026-09-06T10:55:54.071333+00:00"
-    },
-    {
-      "metric": "liquidations",
       "zscore": 2.1257019291996753,
       "value": 7592414.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 75,\n  \"reason\": \"Divergence significative entre les liquidations onchain (anomalie + z-score élevé) et le narratif médiatique focalisé sur des liquidations judiciaires locales sans lien avec les crypto. Suggestif d'activité silencieuse des baleines.\"\n}\n```",
@@ -349,6 +335,20 @@
       "value": 1.073,
       "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Le ratio long/short atteint un z-score élevé de 2.39, indiquant un positionnement excessivement haussier de la foule. En parallèle, les médias grand public font l'éloge des stratégies long-short, signalant un FOMO tardif et un consensus naïf. Divergence classique : les baleines distribuent aux suiveurs avant un retournement baissier.\"\n}\n```",
       "ts": "2026-09-07T08:08:43.712017+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.3178924033337833,
+      "value": 6577691388.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Volume on-chain massif (z-score 2.32, ~6.5B$) totalement ignoré par les médias grand public qui parlent de broutilles (tour Eiffel, NBA) ou de l'essoufflement du BTC à 82k$. Accumulation silencieuse majeure en cours.\"\n}\n```",
+      "ts": "2026-09-07T08:39:08.680549+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": 2.312049276711217,
+      "value": 1.073,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Le ratio long/short atteint un z-score élevé de 2.31 (excès d'optimisme spéculatif), tandis que les médias grand public font l'éloge unanime des stratégies long/short. Cette surchauffe du consensus et le positionnement excessivement acheteur des détailleurs précèdent historiquement une purge violente orchestrée par les baleines.\"\n}\n```",
+      "ts": "2026-09-07T08:39:10.181560+00:00"
     }
   ]
 }
