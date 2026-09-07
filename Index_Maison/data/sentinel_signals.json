@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "whale_usd",
-      "zscore": 6.569675257336446,
-      "value": 6128207.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score massif de 6.57 sur les flux baleines avec un silence total des médias (Google Actualités muet). Divergence classique d'accumulation furtive en sous-marin.\"\n}\n```",
-      "ts": "2026-09-07T05:18:01.093449+00:00"
-    },
-    {
       "metric": "volume",
       "zscore": 2.6286099593166274,
       "value": 6153743960.0,
@@ -349,6 +342,13 @@
       "value": 0.016,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Faux positif absolu. Le signal onchain 'SDI' et les flux médiatiques font référence à des homonymes non cryptographiques (le Syndicat des Indépendants, du matériel vidéo SDI, et Samsung SDI). Aucune baleine crypto détectée.\"\n}\n```",
       "ts": "2026-09-07T17:17:01.968349+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": 3.0264519537294894,
+      "value": 1.178,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Z-score extrême (3.03) sur le ratio long/short indiquant un posicionnement acheteur sur-le-champ de la foule, stimulé par des narratifs médiatiques grand public prônant les stratégies long/short. Classique piège à liquidité des baleines avant une purge.\"\n}\n```",
+      "ts": "2026-09-07T17:42:08.110423+00:00"
     }
   ]
 }
