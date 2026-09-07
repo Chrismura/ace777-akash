@@ -1,23 +1,8 @@
 {
-  "timestamp": 1788791762,
-  "date": "2026-09-07T14:36:02.467094+00:00",
-  "n_analyses": 2,
+  "timestamp": 1788792362,
+  "date": "2026-09-07T14:46:02.603024+00:00",
+  "n_analyses": 4,
   "analyses": [
-    {
-      "signal": {
-        "metric": "long_short",
-        "zscore": 2.6919935557725014,
-        "value": 1.107,
-        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Le ratio long/short atteint un z-score élevé de 2.69 (1.107), signalant un optimisme excessif et un positionnement acheteur sur-le-champ. Pendant que les médias grand public font la promotion des stratégies long/short et de la résilience de marché, les données onchain révèlent une surconcentration de positions longues vulnérable à une purge imminente.\"\n}\n```",
-        "ts": 1788790256.052741
-      },
-      "fiche": null,
-      "interpretation": {
-        "lecture": "Pas de fiche disponible",
-        "niveau": "inconnu"
-      },
-      "action": "Observer"
-    },
     {
       "signal": {
         "metric": "sdi",
@@ -29,7 +14,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.37,
+          "value": -0.45,
           "seuil": 1,
           "depasse": false
         },
@@ -39,12 +24,12 @@
           "depasse": false
         },
         "funding": {
-          "value": 4e-05,
+          "value": 3.6e-05,
           "seuil": 0.001,
           "depasse": false
         },
         "whales": {
-          "value": 0,
+          "value": 1,
           "seuil": 5,
           "depasse": false
         }
@@ -57,6 +42,76 @@
       },
       "action": "Réduire taille de 50%, sortir des positions fragiles",
       "niveau": "dangereux"
+    },
+    {
+      "signal": {
+        "metric": "liquidations",
+        "zscore": -2.135507406332528,
+        "value": 1033669.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le z-score ultra-négatif des liquidations (-2.14) prouve une absence totale de pression vendeuse forcée, tandis que les médias s'affolent à tort sur des 'liquidations' juridiques/traditionnelles et ignorent les achats massifs institutionnels (Strive 1.8k BTC, +101M$ net).\"\n}\n```",
+        "ts": 1788791766.334643
+      },
+      "fiche": null,
+      "interpretation": {
+        "lecture": "Pas de fiche disponible",
+        "niveau": "inconnu"
+      },
+      "action": "Observer"
+    },
+    {
+      "signal": {
+        "metric": "ipt",
+        "zscore": 2.977274566541067,
+        "value": 1.037,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Le signal 'ipt' détecté correspond à un acronyme homonyme (Tournoi International des Physiciens / Institut Protestant de Théologie / MoU biotech) et non à un actif crypto. Bruit médiatique sans lien avec des mouvements de baleines onchain.\"\n}\n```",
+        "ts": 1788791769.579069
+      },
+      "fiche": "rbf_eleve",
+      "questions": {
+        "prix": {
+          "value": -0.45,
+          "seuil": 1,
+          "depasse": false
+        },
+        "paires": {
+          "value": null,
+          "seuil": 3,
+          "depasse": false
+        },
+        "funding": {
+          "value": 3.6e-05,
+          "seuil": 0.001,
+          "depasse": false
+        },
+        "whales": {
+          "value": 1,
+          "seuil": 5,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "sdi > 0.3",
+        "lecture": "Drainage silencieux — les vieux BTC bougent en douce",
+        "niveau": "dangereux",
+        "action": "Réduire taille de 50%, sortir des positions fragiles"
+      },
+      "action": "Réduire taille de 50%, sortir des positions fragiles",
+      "niveau": "dangereux"
+    },
+    {
+      "signal": {
+        "metric": "long_short",
+        "zscore": 2.4573764696562823,
+        "value": 1.107,
+        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Z-score élevé (2.46) sur le ratio long/short indiquant un optimisme excessif des traders de détail, amplifié par un narratif médiatique unanime vantant les stratégies long/short. Classique piège de liquidité avant une chasse aux longs par les baleines.\"\n}\n```",
+        "ts": 1788792071.954869
+      },
+      "fiche": null,
+      "interpretation": {
+        "lecture": "Pas de fiche disponible",
+        "niveau": "inconnu"
+      },
+      "action": "Observer"
     }
   ],
   "resume": "🔴 DANGER détecté — réduire les expositions"
