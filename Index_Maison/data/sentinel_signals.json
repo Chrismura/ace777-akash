@@ -1,34 +1,6 @@
 {
   "signals": [
     {
-      "metric": "price_1h",
-      "zscore": 2.6488004662871303,
-      "value": 0.23438967283107015,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (+2.65) sur 1h combiné à un silence médiatique total (Google Actualités vide). C'est la signature classique d'accumulation furtive par des baleines avant le réveil du retail.\"\n}\n```",
-      "ts": "2026-09-06T05:43:00.117903+00:00"
-    },
-    {
-      "metric": "liquidations",
-      "zscore": 2.542515036754701,
-      "value": 4187258.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.54) et liquidations massives ($504M BTC) contrastent fortement avec le bruit médiatique local et généraliste. Les baleines nettoient le carnet d'ordres (flush) pendant que les institutionnels accumulent discrètement (ex: Strive, flux nets positifs), préparant une continuation haussière silencieuse.\"\n}\n```",
-      "ts": "2026-09-06T05:53:03.098329+00:00"
-    },
-    {
-      "metric": "liquidations",
-      "zscore": 2.3727906366838747,
-      "value": 4219556.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Divergence massive : les médias généralistes confondent des liquidations judiciaires locales avec la macro-dynamique crypto, masquant un afflux institutionnel massif (101M$ net, achat de 1800 BTC par Strive) et un flush des positions à effet de levier (4,2M$ liquidés avec un z-score de 2.37) qui purge le marché pour un rebond.\"\n}\n```",
-      "ts": "2026-09-06T06:23:10.296697+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": 2.071949075863829,
-      "value": 0.012,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Bruit médiatique parasité par des homonymes non-crypto (Samsung SDI, syndicat SDI, matériel vidéo). Aucune baleine crypto active sur ce ticker.\"\n}\n```",
-      "ts": "2026-09-06T06:38:28.504657+00:00"
-    },
-    {
       "metric": "ipt",
       "zscore": 2.173557656708519,
       "value": 0.917,
@@ -349,6 +321,34 @@
       "value": 71,
       "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-2.60) malgré une cupidité élevée (71). Absence totale de couverture médiatique (Google Actualités vide), ce qui indique un désintérêt retail combiné à une distribution silencieuse des baleines en zone de surchauffe.\"\n}\n```",
       "ts": "2026-09-07T03:11:59.112447+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 3.091573230041602,
+      "value": 5839942914.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de volume massive (z-score 3.09) totalement ignorée par les grands médias généralistes et crypto, focalisés sur des seuils psychologiques du Bitcoin et des actualités macro. Cette cécité médiatique couplée à une explosion des volumes onchain trahit une accumulation silencieuse des baleines avant une cassure technique.\"\n}\n```",
+      "ts": "2026-09-07T03:42:05.650827+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -2.3869801881466537,
+      "value": 71,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Le score Z extrême (-2.39) du Fear & Greed (71) indique une euphorie de détail non soutenue par l'activité des baleines, illustrée par le vide médiatique total. Divergence classique de piégeage haussier : distribution silencieuse en cours.\"\n}\n```",
+      "ts": "2026-09-07T03:42:06.924843+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.993818095821467,
+      "value": 5929191571.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de volume massive (z-score 2.99) sur NEAR couplée à une cassure de résistance technique. Les médias grand public banalisent le mouvement en le qualifiant de simple 'doublement de volume', ignorant l'accumulation agressive des baleines onchain sous le seuil.\"\n}\n```",
+      "ts": "2026-09-07T04:12:21.003876+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -2.2085178333914812,
+      "value": 71,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-2.21) malgré une cupidité élevée (71) et un vide médiatique total. Divergence classique de piégeage : distribution silencieuse des baleines dans l'indifférence des médias.\"\n}\n```",
+      "ts": "2026-09-07T04:12:22.274925+00:00"
     }
   ]
 }
