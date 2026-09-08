@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "long_short",
-      "zscore": 2.037726575896092,
-      "value": 1.076,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Le ratio long/short atteint un z-score critique de 2.04, indiquant un positionnement excessivement haussier des gros porteurs. Pendant que les médias grand public banalisent la stratégie 'Long/Short' comme solution miracle, le marché atteint un paroxysme de complaisance propice à une purge imminente des positions acheteuses.\"\n}\n```",
-      "ts": "2026-09-07T10:39:48.841025+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": 2.5020705797892844,
-      "value": 0.012,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Bruit médiatique externe : les titres font référence au syndicat SDI (patronat TPE), à du matériel vidéo (Blackmagic SDI) et à Samsung SDI (batteries), sans aucun rapport avec la crypto-monnaie ou des mouvements de baleines.\"\n}\n```",
-      "ts": "2026-09-07T10:49:51.736242+00:00"
-    },
-    {
       "metric": "whale_usd",
       "zscore": 12.996743253880283,
       "value": 14877154.0,
@@ -349,6 +335,20 @@
       "value": 69,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-3.87) malgré une cupidité modérée (69) et un vide médiatique total. Les baleines accumulent dans l'angle mort des médias avant un mouvement de rupture.\"\n}\n```",
       "ts": "2026-09-08T01:35:39.582708+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -3.31662479035539,
+      "value": 69,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie statistique majeure (Z-score -3.32) malgré une avidité apparente (69). Le vide médiatique suggère une absence de FOMO retail, typique d'une phase de distribution silencieuse par les baleines avant un retournement.\"\n}\n```",
+      "ts": "2026-09-08T02:05:52.969880+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -2.9325756597230446,
+      "value": 69,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement négatif (-2.93) malgré une cupidité apparente (69) et un vide médiatique total (Google Actualités). Divergence classique de distribution silencieuse : le marché retail est aveuglé par l'euphorie résiduelle pendant que les baleines vident leurs positions en silence.\"\n}\n```",
+      "ts": "2026-09-08T02:35:57.553467+00:00"
     }
   ]
 }
