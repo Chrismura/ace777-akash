@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "long_short",
-      "zscore": 2.9238537062545706,
-      "value": 1.094,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Le Z-score extrême (2.92) indique un déséquilibre massif vers les positions acheteuses, contredisant le narratif médiatique traditionnel sur la prudence des fonds long-short. C'est un signal classique de surchauffe spéculative propice à une chasse aux stops par les baleines.\"\n}\n```",
-      "ts": "2026-09-07T12:40:22.704220+00:00"
-    },
-    {
       "metric": "taker_ratio",
       "zscore": 2.8551720505453035,
       "value": 1.432,
@@ -349,6 +342,13 @@
       "value": 69,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le z-score du Fear & Greed à -2.08 malgré un indice à 69 révèle une anomalie statistique : la peur persiste sous la surface malgré l'euphorie apparente des prix. Les baleines accumulent dans l'angle mort médiatique.\"\n}\n```",
       "ts": "2026-09-08T04:36:24.514717+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 6.613964222139032,
+      "value": 12494254.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (z-score 6.61, ~12.5M USD) complètement ignorée par les médias traditionnels. Accumulation furtive de baleines sous le radar médiatique.\"\n}\n```",
+      "ts": "2026-09-08T06:21:42.606423+00:00"
     }
   ]
 }
