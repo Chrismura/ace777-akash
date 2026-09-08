@@ -1,34 +1,6 @@
 {
   "signals": [
     {
-      "metric": "whale_usd",
-      "zscore": 12.996743253880283,
-      "value": 14877154.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 90,\n  \"reason\": \"Anomalie onchain extrême (z-score 13, ~14.8M USD) dans le silence médiatique total. Accumulation invisible des baleines loin du bruit de détail.\"\n}\n```",
-      "ts": "2026-09-07T11:04:56.952805+00:00"
-    },
-    {
-      "metric": "long_short",
-      "zscore": 2.65821494180192,
-      "value": 1.083,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Z-score élevé (2.66) sur le ratio long/short indiquant un posicionnement excessivement haussier des gros porteurs, en totale contradiction avec le narratif médiatique traditionnel qui promeut la prudence via des fonds hedge 'Long/Short'. Excès de confiance retail/baleines souvent précurseur d'une purge de liquidité (long squeeze).\"\n}\n```",
-      "ts": "2026-09-07T11:09:59.504333+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": 2.4527622756289755,
-      "value": 0.012,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Fausse alerte liée à l'ambiguïté de l'acronyme SDI. Les flux on-chain et les gros volumes médiatiques font référence à des homonymes non-crypto (Samsung SDI, matériel vidéo Blackmagic SDI, fiscalité des TPE), aucune activité de baleine crypto détectée.\"\n}\n```",
-      "ts": "2026-09-07T11:20:03.855026+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.8812427019003506,
-      "value": 0.985,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Le signal 'ipt' détecté et les actualités médiatiques font référence au Tournoi International des Physiciens (IPT), à un Institut Protestant de Théologie ou à des accords universitaires. Aucune corrélation avec une crypto-monnaie ou un mouvement de baleines on-chain. Fausse alerte due à une homonymie lexicale.\"\n}\n```",
-      "ts": "2026-09-07T11:20:06.641485+00:00"
-    },
-    {
       "metric": "long_short",
       "zscore": 2.446072316699622,
       "value": 1.083,
@@ -349,6 +321,34 @@
       "value": 69,
       "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement négatif (-2.93) malgré une cupidité apparente (69) et un vide médiatique total (Google Actualités). Divergence classique de distribution silencieuse : le marché retail est aveuglé par l'euphorie résiduelle pendant que les baleines vident leurs positions en silence.\"\n}\n```",
       "ts": "2026-09-08T02:35:57.553467+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 3.9290255947714936,
+      "value": 7728307.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 3.93, ~7.7M USD) en absence totale de couverture médiatique (Google Actualités vide). C'est la définition classique d'accumulation silencieuse par des institutionnels hors du radar public.\"\n}\n```",
+      "ts": "2026-09-08T02:51:00.496959+00:00"
+    },
+    {
+      "metric": "price_1h",
+      "zscore": 3.438275046131039,
+      "value": 0.5404310983401661,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de prix significative (z-score 3.44) sur 1h sans aucune couverture médiatique (silence radio sur Google Actualités). C'est la signature classique d'accumulation furtive par des baleines avant que le retail ne remarque le mouvement.\"\n}\n```",
+      "ts": "2026-09-08T02:56:02.307871+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -2.6457513110645903,
+      "value": 69,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Indice de peur et de cupidité à 69 (avidité) avec un z-score fortement négatif (-2.65), combiné à un vide médiatique total (Google Actualités muet). C'est le piège à liquidité classique : les baleines distribuent dans l'indifférence générale pendant que les derniers particuliers achètent l'euphorie.\"\n}\n```",
+      "ts": "2026-09-08T03:06:04.776720+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -2.4201534780139107,
+      "value": 69,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement négatif (-2.42) malgré une avidité élevée (69) et l'absence totale de couverture médiatique (silence radio). Divergence classique de distribution : les baleines liquident discrètement dans l'indifférence publique.\"\n}\n```",
+      "ts": "2026-09-08T03:36:11.165045+00:00"
     }
   ]
 }

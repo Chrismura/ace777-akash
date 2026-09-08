@@ -17329,3 +17329,49 @@ Ce fichier sert de table des runs ACE777 pour retrouver vite les tests.
 - Rapport: `RAPPORT_PNL_AUTO_20260907_233641.md`
 - Verdict: `NEUTRE`
 
+
+---
+
+## 2026-09-08 — MASTER_BASE_V8_6_FORTRESS_6H00 (auto)
+
+- Profil: `?` v`?`
+- Tag: `MASTER_BASE_V8_6_FORTRESS_6H00`
+- Période: `2026-09-07T23:36:47Z` → `2026-09-08T03:13:56Z`
+- Logs:
+  - `MASTER_BASE_V8_6_FORTRESS_6H00_BETA_X5.csv`
+  - `MASTER_BASE_V8_6_FORTRESS_6H00_ALPHA_X13_BURST13.csv`
+- Paramètres clé:
+  - `BUY_USDT_BETA=200`
+  - `BUY_USDT_ALPHA=800`
+  - `LLM_GATE_ENABLED=TRUE`
+  - `LLM_GATE_FAIL_CLOSED=TRUE`
+- Résultat:
+  - BETA: `-23.3921 USDT` (46 trades)
+  - ALPHA: `-21.8208 USDT` (17 trades)
+  - Total: `-45.2129 USDT`
+- Rapport: `RAPPORT_PNL_AUTO_20260908_031358.md`
+- Verdict: `NEGATIF`
+
+
+---
+
+## 2026-09-08 — MASTER_BASE_V8_6_FORTRESS_6H00 (auto)
+
+- Profil: `?` v`?`
+- Tag: `MASTER_BASE_V8_6_FORTRESS_6H00`
+- Période: `2026-09-07T23:36:47Z` → `2026-09-08T03:13:56Z`
+- Logs:
+  - `MASTER_BASE_V8_6_FORTRESS_6H00_BETA_X5.csv`
+  - `MASTER_BASE_V8_6_FORTRESS_6H00_ALPHA_X13_BURST13.csv`
+- Paramètres clé:
+  - `BUY_USDT_BETA=200`
+  - `BUY_USDT_ALPHA=800`
+  - `LLM_GATE_ENABLED=?`
+  - `LLM_GATE_FAIL_CLOSED=?`
+- Résultat:
+  - BETA: `-23.3921 USDT` (46 trades)
+  - ALPHA: `-21.8208 USDT` (17 trades)
+  - Total: `-45.2129 USDT`
+- Rapport: `RAPPORT_PNL_AUTO_20260908_031358.md`
+- Verdict: `NEGATIF`
+
