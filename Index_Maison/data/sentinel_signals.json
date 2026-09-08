@@ -2,20 +2,6 @@
   "signals": [
     {
       "metric": "long_short",
-      "zscore": 3.004105553703773,
-      "value": 1.079,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 92,\n  \"reason\": \"Z-score extrême à 3.00 sur le ratio long/short couplé à un narratif médiatique unanime vantant les stratégies long/short grand public : piège classique de liquidité, signalant un positionnement excessivement haussier des suiveurs de tendance juste avant une purge imminente des baleines.\"\n}\n```",
-      "ts": "2026-09-07T09:09:19.947600+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": 2.0877863460356103,
-      "value": 6639332793.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique sans rapport avec la crypto (actualités musicales, sportives et insolites). Le z-score élevé reflète probablement du bruit statistique ou un événement sans incidence majeure.\"\n}\n```",
-      "ts": "2026-09-07T09:39:26.062306+00:00"
-    },
-    {
-      "metric": "long_short",
       "zscore": 2.735566523858901,
       "value": 1.079,
       "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Z-score élevé (2.74) sur le ratio long/short combiné à une obsession médiatique soudaine pour les stratégies long/short. C'est un signal classique d'euphorie retail excessive et de positionnement unilatéral des suiveurs de tendance juste avant un 'long squeeze' orchestré par les baleines.\"\n}\n```",
@@ -349,6 +335,20 @@
       "value": 0.956,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (z-score 2.22) sur un ticker (IPT) pollué par des homonymes institutionnels et académiques (Tournoi International des Physiciens, Institut Protestant de Théologie, etc.). Aucun mouvement de baleine crypto détecté, le 'bruit' médiatique n'a aucun rapport avec la区块链.\"\n}\n```",
       "ts": "2026-09-07T21:49:35.812782+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -12.125509145102745,
+      "value": 69,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Anomalie statistique extrême (z-score -12.13) avec un indice de peur/avidité à 69 en période de silence médiatique absolu (Google Actualités vide). C'est la signature classique d'accumulation furtive par les baleines avant un découplage haussier du narratif public.\"\n}\n```",
+      "ts": "2026-09-08T00:05:07.178283+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -6.855654600401028,
+      "value": 69,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement négatif (-6.86) malgré un indice de cupidité élevé (69) et un vide médiatique total (Google Actualités). Divergence classique de distribution silencieuse : les baleines liquident dans l'indifférence des médias pendant que le retail achète le haut du panier.\"\n}\n```",
+      "ts": "2026-09-08T00:35:28.831221+00:00"
     }
   ]
 }
