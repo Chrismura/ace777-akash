@@ -1,8 +1,8 @@
 # CATALOGUE DES PROVIDERS — ACE777
 
-*Genere le 2026-09-07 par catalog_providers.py (gagnant A/B codeurs 09/08). Rafraichi a chaque veille du matin.*
+*Genere le 2026-09-08 par catalog_providers.py (gagnant A/B codeurs 09/08). Rafraichi a chaque veille du matin.*
 
-**Actifs : 10 · En observation : 1 · En attente : 16 · De cote (payant) : 2**
+**Actifs : 10 · En observation : 0 · En attente : 16 · De cote (payant) : 2**
 
 ## ACTIFS
 
@@ -21,9 +21,7 @@
 
 ## EN OBSERVATION (48h avant activation, jamais route)
 
-| Role | Modele | Statut | Note |
-|------|--------|--------|------|
-| - | `dots-studio/dots-3-note-preview:free` | dots-studio-dots-3-note-preview-free | INTEGRE AUTO 2026-09-07 EN OBSERVATION (preuve A/B + juge: MIEUX - réponse plus structurée |
+*aucun*
 
 ## EN ATTENTE (cle manquante ou desactive)
 

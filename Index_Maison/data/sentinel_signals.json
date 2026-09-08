@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "taker_ratio",
-      "zscore": 2.8551720505453035,
-      "value": 1.432,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Taker ratio élevé (1.432, Z-score 2.86) indique une agression massive des acheteurs sur le marché dérivé/spot. Le silence médiatique (Google Actualités vide) prouve une accumulation furtive des baleines loin du radar retail, configuration classique avant une cassure haussière.\"\n}\n```",
-      "ts": "2026-09-07T13:05:30.039767+00:00"
-    },
-    {
-      "metric": "long_short",
-      "zscore": 3.9760049345397657,
-      "value": 1.112,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Z-score extrême à 3.98 (excès de positions acheteuses) combiné à un narratif médiatique grand public unanime sur les stratégies long/short. Classique piège à liquidité haussière : le retail FOMO pendant que les baleines s'apprêtent à purger les excès de levier.\"\n}\n```",
-      "ts": "2026-09-07T13:10:39.047062+00:00"
-    },
-    {
       "metric": "sdi",
       "zscore": 2.4118374051912372,
       "value": 0.012,
@@ -349,6 +335,20 @@
       "value": 12494254.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (z-score 6.61, ~12.5M USD) complètement ignorée par les médias traditionnels. Accumulation furtive de baleines sous le radar médiatique.\"\n}\n```",
       "ts": "2026-09-08T06:21:42.606423+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": 2.5518218050158534,
+      "value": 1.255,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Le Z-score élevé (2.55) indique une surconcentration agressive des positions acheteuses par les baleines, tandis que le narratif médiatique grand public s'emballe tardivement sur les stratégies long/short. Classique piège à liquidité avant un mouvement de purge baissière.\"\n}\n```",
+      "ts": "2026-09-08T08:07:07.811756+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": 2.3956414289919077,
+      "value": 1.255,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Le ratio long/short atteint un z-score élevé de 2.40, indiquant un posicionnement excessivement haussier des gros porteurs. Pendant ce temps, le narratif médiatique grand public discute abstraitement des stratégies long/short traditionnelles sans voir l'accumulation agressive de levier. Classique piège à liquidité avant une purge baissière.\"\n}\n```",
+      "ts": "2026-09-08T08:37:14.814805+00:00"
     }
   ]
 }
