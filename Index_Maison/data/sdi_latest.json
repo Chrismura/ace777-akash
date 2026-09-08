@@ -1,31 +1,37 @@
 {
-  "timestamp": 1788842128,
+  "timestamp": 1788845908,
   "sdi": {
-    "sdi": 0.012,
+    "sdi": 0.008,
     "divergence_score": 0,
-    "fee_score": 0.03,
+    "fee_score": 0.02,
     "dormant_pct": 69,
     "dormant_avg_30d": 57.1,
     "dormant_source": "alternative.me (FG proxy — les données dormant sont indisponibles)",
-    "fee_fastest_sat": 3
+    "fee_fastest_sat": 2
   },
   "ipt": {
-    "ipt": 0.645,
-    "micro_tx_ratio": 0.1,
-    "z_fee": 2.0,
-    "entropy": 0.016
+    "ipt": 0.626,
+    "micro_tx_ratio": 0.7,
+    "z_fee": 1.0,
+    "entropy": 0.155
   },
   "rbf": {
-    "rbf_score": 0.0,
-    "rbf_ratio": 0.0,
-    "rbf_pairs": 0,
-    "n_txs": 5,
+    "rbf_score": 0.25,
+    "rbf_ratio": 0.25,
+    "rbf_pairs": 1,
+    "n_txs": 4,
     "rbf_method": "outspends-double-depense",
-    "rbf_detail": []
+    "rbf_detail": [
+      {
+        "tx": "a21e95c7dad8f378",
+        "remplacee_par": "dfc23c033627237d",
+        "input": "5d1518d1c074a9a0:0"
+      }
+    ]
   },
   "fee_pressure": {
-    "fastest": 3,
-    "halfHour": 1,
+    "fastest": 2,
+    "halfHour": 2,
     "hour": 1,
     "economy": 1,
     "source": "mempool.space"
@@ -34,21 +40,21 @@
     "ENTROPIE BASSE: mempool anormalement homogène"
   ],
   "sapi": {
-    "score": 0.4,
+    "score": 0.503,
     "alerte": false,
     "persistance": false,
     "scores_recents": [
-      0.4,
-      0.4,
-      0.4
+      0.326,
+      0.314,
+      0.503
     ],
     "composantes": {
-      "z_fee": 2.0,
-      "taux_fantome": 9.161,
-      "micro_tx_ratio": 0.1,
+      "z_fee": 1.0,
+      "taux_fantome": 2.034,
+      "micro_tx_ratio": 0.7,
       "spot_proxy": 0.0,
       "coef_heure_creuse": 0.35,
-      "entropie_tempo": 1.0
+      "entropie_tempo": 0.034
     },
     "note": "Score d'Alerte Poussière Institutionnelle (Cortana tour 1, validé 29/08 — corr RBF plat −0.275). Proxy carnet spot = spread_avg_bps normalisé σ1h (FIX famille). FIX 4 : proxy réduit ×0.35 en heures creuses UTC (02-06) + bonus entropie temporelle (rythme robotique du carnet) si base fantôme. Alerte = persistance 3 ticks ≥ 0.75 + volume ≥ 500 BTC."
   }
