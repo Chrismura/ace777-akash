@@ -1,41 +1,6 @@
 {
   "signals": [
     {
-      "metric": "sdi",
-      "zscore": 2.4118374051912372,
-      "value": 0.012,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Bruit médiatique externe : les résultats font référence au syndicat professionnel 'SDI' (TPE), à du matériel vidéo (Blackmagic SDI) et à l'industriel Samsung SDI. Aucune connexion avec une baleine crypto ou un actif numérique.\"\n}\n```",
-      "ts": "2026-09-07T13:35:45.175726+00:00"
-    },
-    {
-      "metric": "taker_ratio",
-      "zscore": 2.596111378296176,
-      "value": 1.432,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio élevé (z-score 2.60) indique une forte agression acheteuse sur le marché dérivé, non reflétée ou ignorée par les médias traditionnels (silence médiatique). C'est un classique positionnement silencieux de baleines avant une cassure haussière.\"\n}\n```",
-      "ts": "2026-09-07T13:35:46.672927+00:00"
-    },
-    {
-      "metric": "long_short",
-      "zscore": 3.3852432316914403,
-      "value": 1.112,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Z-score extrême (3.39) sur le ratio long/short indiquant un positionnement acheteur excessif de la foule, stimulé par des narratifs médiatiques grand public glorifiant les stratégies long/short. Classique piège à liquidité avant une chasse aux stops baissière.\"\n}\n```",
-      "ts": "2026-09-07T13:40:48.939728+00:00"
-    },
-    {
-      "metric": "long_short",
-      "zscore": 2.6919935557725014,
-      "value": 1.107,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Le ratio long/short atteint un z-score élevé de 2.69 (1.107), signalant un optimisme excessif et un positionnement acheteur sur-le-champ. Pendant que les médias grand public font la promotion des stratégies long/short et de la résilience de marché, les données onchain révèlent une surconcentration de positions longues vulnérable à une purge imminente.\"\n}\n```",
-      "ts": "2026-09-07T14:10:56.052741+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": 2.335419291461876,
-      "value": 0.012,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique hors-sujet (fiscalité, matériel vidéo, syndicat SDI et Samsung SDI). Aucune corrélation avec une dynamique de baleine crypto.\"\n}\n```",
-      "ts": "2026-09-07T14:26:02.004225+00:00"
-    },
-    {
       "metric": "liquidations",
       "zscore": -2.135507406332528,
       "value": 1033669.0,
@@ -349,6 +314,41 @@
       "value": 1.255,
       "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Le ratio long/short atteint un z-score élevé de 2.40, indiquant un posicionnement excessivement haussier des gros porteurs. Pendant ce temps, le narratif médiatique grand public discute abstraitement des stratégies long/short traditionnelles sans voir l'accumulation agressive de levier. Classique piège à liquidité avant une purge baissière.\"\n}\n```",
       "ts": "2026-09-08T08:37:14.814805+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": -16.062858424588935,
+      "value": 0,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 95,\n  \"reason\": \"Divergence extrême : le volume on-chain est totalement atone (z-score -16.06, volume nul) tandis que les médias s'enflamment sur des métriques de DEX secondaires (Robinhood Chain) et la tokenisation. Les baleines désertent et le marché est dans le 'piège du silence' avant une purge de liquidité.\"\n}\n```",
+      "ts": "2026-09-08T08:57:21.250983+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": -2.395106792471838,
+      "value": 0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Anomalie onchain majeure : z-score des liquidations à -2.40 (zéro liquidation). Les médias grand public confondent panique des liquidations crypto et faillites d'entreprises locales (Blois, Quimper). Absence totale de levier spéculatif, signant une accumulation saine par les baleines hors des radars.\"\n}\n```",
+      "ts": "2026-09-08T08:57:23.213236+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": -2.1199419600929734,
+      "value": 0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Le jeton 'ipt' ne correspond à aucune crypto-actif majeur. Les données font référence à des institutions académiques (Institut Polytechnique de Paris, Théologie) et le z-score traduit simplement un bruit statistique sans lien avec une baleine crypto.\"\n}\n```",
+      "ts": "2026-09-08T08:57:24.902331+00:00"
+    },
+    {
+      "metric": "taker_ratio",
+      "zscore": -2.083002561704268,
+      "value": 0.5,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Taker ratio extrêmement bas (0.5, z-score -2.08) indique une domination massive des acheteurs passifs (ordres limit). Silence médiatique total (Google Actualités vide) combiné à une accumulation discrète des baleines sous le radar.\"\n}\n```",
+      "ts": "2026-09-08T08:57:26.385463+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": -3.202920880406262,
+      "value": 1,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Le z-score extrêmement bas (-3.20) indique une sous-exposition massive au ratio long/short, contredisant le narratif médiatique généraliste qui discute théoriquement de la stratégie sans voir le positionnement contrarien extrême des baleines, signalant un potentiel 'short squeeze' imminent.\"\n}\n```",
+      "ts": "2026-09-08T09:22:30.883103+00:00"
     }
   ]
 }
