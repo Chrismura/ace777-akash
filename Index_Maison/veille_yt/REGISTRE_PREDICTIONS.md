@@ -1,11 +1,16 @@
 ---
-date: 2026-09-04T1617Z
+date: 2026-09-08T0716Z
 type: registre_predictions
 ---
 
 # 📓 Registre des prédictions — la vérification du banc d'essai
 
 Chaque prédiction est notée avec sa date limite. Le script `verifier_predictions.py` re-vérifie les échues (statut VRAIE/FAUSSE/NON VÉRIFIABLE).
+
+### 2026-09-08T0716Z — Crypto Crew University : Why 99% Lose With RSI: The Secret Fix 🔐#shorts
+Lien : https://www.youtube.com/watch?v=GBw1cOXj3Qg
+
+- _(aucune prédiction vérifiable extraite)_
 
 ### 2026-09-04T1617Z — Crypto Crew University : WARNING: THE CALM B4 THE STORM CHAOS COMING
 Lien : https://www.youtube.com/watch?v=xgS5i38jAGU
