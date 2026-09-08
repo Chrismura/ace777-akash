@@ -1,41 +1,41 @@
 # Thermo dernier — gratuit (Binance public)
 
-> Auto · **sans clé** · sans ordre · 2026-09-08T08:38Z UTC  
+> Auto · **sans clé** · sans ordre · 2026-09-08T08:47Z UTC  
 > Script : `Index_Maison/scripts/thermo_quotidien_free.py`
 
 ## Clin d'œil
-**Climat :** `ok` · **Score :** `80/100`
+**Climat :** `ok` · **Score :** `79/100`
 
 ## Snapshot `BTCUSDT`
 
 | Champ | Valeur | ID |
 |-------|--------|-----|
-| Mark | 78510.0 | prix |
-| OI | 108881.36 | C13 |
-| Funding | 8.9e-05 | C14 |
+| Mark | 78509.7 | prix |
+| OI | 109021.734 | C13 |
+| Funding | 9.2e-05 | C14 |
 | Funding moy. ~30j | 6.737e-05 (n=90) | Cortana |
 | Funding mois préc. | 6.769e-05 (n=93) | Cortana |
 | L/S 1h | 1.255 | crowd |
-| BTC 1h/4h/24h | 0.08 / -0.18 / -1.12 % | B7 |
-| Dominance BTC | 58.92% | A3 |
+| BTC 1h/4h/24h | 0.07 / -0.19 / -1.19 % | B7 |
+| Dominance BTC | 58.91% | A3 |
 | Alts ↓ 24h | 55.0% | B9 |
 
 ## Lecture
-- Climat CALME (score 80/100).
-- Funding maintenant 8.9e-05. Moyenne ~30j 6.737e-05 (90 pts). Mois précédent 6.769e-05 (93 pts).
+- Climat CALME (score 79/100).
+- Funding maintenant 9.2e-05. Moyenne ~30j 6.737e-05 (90 pts). Mois précédent 6.769e-05 (93 pts).
 - Long/Short 1.255.
-- BTC 24h -1.12% · 1h 0.08% · 4h -0.18%.
+- BTC 24h -1.19% · 1h 0.07% · 4h -0.19%.
 - Panier alts : 55.0% en baisse (11/20).
 - Whales proxy : aucun print ≥500k$ sur les ~500 derniers trades.
-- Dark/OTC proxy : taker buy/sell 1.157 · OI 108881.36 (pas de dark pool free temps réel).
+- Dark/OTC proxy : taker buy/sell 1.157 · OI 109021.734 (pas de dark pool free temps réel).
 - Top traders L/S 1.345.
 - Fear & Greed 69 (Greed).
 - Market cap crypto ≈ 2.67 T$.
-- Alt season proxy : Bitcoin season (BTC.D 58.92%).
+- Alt season proxy : Bitcoin season (BTC.D 58.91%).
 - Liquidations 24h proxy ≈ 0.00 B$.
 - ETF net inflow : BTC 81.9 M$ (bitbo-public (moy 7j), BTC only).
 - GEX proxy (Deribit) : P/C 0.517 · murC 81000 (+3.2%) · murP 70000 (-10.8%).
-- Volumes cachés proxy : taker buy 0.473 · vol perp/spot 12.59×.
+- Volumes cachés proxy : taker buy 0.473 · vol perp/spot 12.58×.
 - ACE soft: LIVE=MASTER_BASE_V8_6_FORTRESS_6H00_LIVE_COLOR.log · SKIP=888 · heat=2.9 · PnL sess=-0.9802 · RED=0.
 - C15/C23 = proxies free. D26–D34 = F&G / MC / alt / liq / ETF / GEX / volumes cachés. Soft ops lecture seule.
 
