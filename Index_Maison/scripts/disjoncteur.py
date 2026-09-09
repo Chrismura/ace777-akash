@@ -30,7 +30,12 @@ STRATEGIE_DIR = BASE_DIR / "strategie"
 CONFIG_PATH = STRATEGIE_DIR / "disjoncteur_config.json"
 STATE_PATH = STRATEGIE_DIR / "disjoncteur_state.json"
 HISTORY_PATH = STRATEGIE_DIR / "disjoncteur_history.jsonl"
+# FIX 09/09 : DEUX conventions STOP_ALL coexistaient dans la maison — le disjoncteur
+# écrivait dans strategie/ alors que HULK (paper_diprip.py:83) et sante_index lisent
+# la RACINE Index_Maison/. Résultat : même branché le 16/08, le Mur de Fer ne couvrait
+# pas HULK. Désormais : pose + lecture + réarmement sur LES DEUX chemins.
 STOP_ALL_PATH = STRATEGIE_DIR / "STOP_ALL"
+STOP_ALL_ROOT_PATH = BASE_DIR / "STOP_ALL"
 STOP_PATH = STRATEGIE_DIR / "STOP"
 REARMER_FILE = STRATEGIE_DIR / "REARMER_DISJONCTEUR"
 
@@ -83,7 +88,7 @@ def get_config():
 
 def is_stopped():
     """Vrai si un verrou global est présent (STOP_ALL / STOP) ou si déjà déclenché."""
-    if STOP_ALL_PATH.exists() or STOP_PATH.exists():
+    if STOP_ALL_PATH.exists() or STOP_ALL_ROOT_PATH.exists() or STOP_PATH.exists():
         return True
     etat = load_json(STATE_PATH, {})
     return bool(etat.get("declenche", False))
@@ -95,6 +100,7 @@ def declencher_mur_de_fer(raison, perte_pct):
     config = get_config()
     STRATEGIE_DIR.mkdir(parents=True, exist_ok=True)
     STOP_ALL_PATH.touch(exist_ok=True)
+    STOP_ALL_ROOT_PATH.touch(exist_ok=True)  # convention HULK + sante_index
     if REARMER_FILE.exists():
         REARMER_FILE.unlink()
     etat = {
@@ -161,7 +167,7 @@ def verifier_et_brigader(taille_proposee, capital_total, perte_journaliere_pct):
 def rearmer():
     """Réarmement MANUEL exclusif (jamais auto)."""
     now = datetime.now(timezone.utc).isoformat()
-    for p in [STOP_ALL_PATH, STOP_PATH, REARMER_FILE]:
+    for p in [STOP_ALL_PATH, STOP_ALL_ROOT_PATH, STOP_PATH, REARMER_FILE]:
         if p.exists():
             p.unlink()
     atomic_write(STATE_PATH, {

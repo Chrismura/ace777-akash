@@ -1,6 +1,6 @@
 {
   "version": "1.4.7",
-  "updated": "2026-09-03T17:25Z",
+  "updated": "2026-09-09T21:38Z",
   "fichier": [
     {
       "nom": "hulk-mexc/scripts/paper_diprip.py",
@@ -402,6 +402,36 @@
       "auto_modifiable": false,
       "md5": "a988e5176714242bf63752f3bce84cc1",
       "note": "Correctif session 31/08 19h58 — re-scellement post-audit 03/09."
+    },
+    {
+      "nom": "Index_Maison/scripts/disjoncteur.py",
+      "role": "Disjoncteur C7 — Juge & Risk Guardian (kill switch perte journalière 11,67% / global 25%, Mur de Fer STOP_ALL, réarmement manuel)",
+      "origine": "chantier disjoncteur 16/08 · rebranché 09/09 (GO Christophe)",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "f86146817c5c2c03b44282620ac0bcaa",
+      "note": "REBRANCHEMENT 09/09 : plist retrouvé dans Index_Maison/plists/ après disparition silencieuse de LaunchAgents. FIX dual STOP_ALL (strategie/ + racine) : les deux conventions de kill-switch jamais raccordées — le Mur de Fer ne couvrait pas HULK. Recalibration 1,5%→11,67%/j, global 8→25% (config.bak-avant-recalibration-20260909). LANCÉ launchd check/60s.",
+      "maj": "Rebranchement + recalibration 2026-09-09 (GO Christophe, 5 tests hors vol OK)"
+    },
+    {
+      "nom": "Index_Maison/scripts/nourrir_disjoncteur.py",
+      "role": "Capteur du disjoncteur : mesure la perte journalière HULK (pnl_total du state live via .hulk_resume_pointer, pivot 00:00 UTC) et déclenche le Mur de Fer au seuil. Le disjoncteur est sourd par design — ce module lui donne des oreilles.",
+      "origine": "créé 09/09 (rebranchement disjoncteur)",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "8f4c217d33ddcf7b27b797da2117281e",
+      "note": "Fail-safe : HULK muet >180s = MESURE_IMPOSSIBLE, jamais d'invention (C3). Ne crée jamais d'ordre. Pivot du jour persisté atomiquement (disjoncteur_pivot.json). LANCÉ launchd 60s (seconde 30, décalé du disjoncteur).",
+      "maj": "Création 2026-09-09, en vol"
+    },
+    {
+      "nom": "hulk-mexc/scripts/watchdog_hulk_ghost.sh",
+      "role": "Watchdog paper+veille : relance si mort",
+      "origine": "chantier hulk",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "fba35b1b01f340e4b9031918bd1bc2d7",
+      "note": "FIX 09/09 : garde STOP_ALL en tête de script — sans lui, le watchdog relançait en boucle ce que le Mur de Fer coupait (HULK documentait la sémantique mais le watchdog l'ignorait).",
+      "maj": "Fix intégration disjoncteur 2026-09-09"
     }
   ]
 }

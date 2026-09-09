@@ -8,6 +8,16 @@ mkdir -p "$ROOT/runs"
 ts() { date -u +%Y-%m-%dT%H:%M:%SZ; }
 log() { echo "$(ts) $*" | tee -a "$LOG"; }
 
+# FIX 09/09 (intégration Disjoncteur C7) : STOP_ALL = ordre du Mur de Fer (disjoncteur
+# perte journalière). Sémantique commentée par HULK lui-même (paper_diprip.py:83) :
+# « touch → tous les bots s'arrêtent ». Sans ce garde, le watchdog relance en boucle
+# ce que le Mur de Fer vient de couper. Réarmement MANUEL uniquement (--rearmer).
+STOP_ALL_FILE="$HOME/ace777-test-day1/Index_Maison/STOP_ALL"
+if [ -f "$STOP_ALL_FILE" ]; then
+  log "STOP_ALL présent (Mur de Fer disjoncteur) — aucune relance, sortie."
+  exit 0
+fi
+
 # --- PAPER ---
 # FIX 28/08 : lire le PID du lock file au lieu de pgrep (anti auto-match —
 # pgrep -f 'scripts/paper_diprip.py' matchait les commandes bash contenant

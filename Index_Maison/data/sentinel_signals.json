@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "ipt",
-      "zscore": 2.637293689374786,
-      "value": 1.14,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.64) entièrement due à une collision lexicale entre le ticker crypto et des actualités institutionnelles et académiques (Institut Polytechnique de Paris, Tournoi International des Physiciens, Institut Protestant de Théologie). Aucun mouvement de baleine crypto détecté.\"\n}\n```",
-      "ts": "2026-09-08T15:04:25.855984+00:00"
-    },
-    {
       "metric": "long_short",
       "zscore": 2.2056374634544755,
       "value": 1.334,
@@ -349,6 +342,13 @@
       "value": 4392828.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Forte anomalie on-chain (z-score 3.93, mouvements de 4.39M$) en l'absence totale de couverture médiatique (silence radio sur Google Actualités). Accumulation furtive classique de baleines loin du radar public.\"\n}\n```",
       "ts": "2026-09-09T20:34:16.274582+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.069616889523062,
+      "value": 11532614021.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit de fond médiatique sans rapport avec les cryptos (actualités vélos, écouteurs, marchés traditionnels). L'anomalie de volume onchain (z-score 2.07) est probablement liée à NEAR ou à du bruit de marché général, mais aucune corrélation intentionnelle de baleine crypto n'est détectable dans les gros titres actuels.\"\n}\n```",
+      "ts": "2026-09-09T21:29:23.691240+00:00"
     }
   ]
 }

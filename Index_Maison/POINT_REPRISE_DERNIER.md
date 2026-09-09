@@ -44,10 +44,11 @@
 - + 2 correctifs famille : filet restreint aux GRATUITS si budget cloud atteint · log `[FILET UNIVERSEL]` distinct.
 - Méthode : `Index_Maison/METHODE_HUB_POINT_FINAL_2026-08-16.md` · backups `hub_prise_ia.py.bak-failover-20260816`.
 
-**DISJONCTEUR UNIQUE — créé, testé, branché (16/08 soir, URGENCE famille) :**
+**DISJONCTEUR UNIQUE — créé le 16/08 ; CORRIGÉ 09/09 (lire la note ⚠ ci-dessous) :**
 - Famille : « L'IA propose, le code dispose » ratifié sans réserve · −1,5% journalier / −8% global (C7).
 - `Index_Maison/scripts/disjoncteur.py` : bridage à la volée (10% du capital max/trade) + Mur de Fer (coupe flux, STOP_ALL, alerte cockpit) + réarmement MANUEL uniquement.
 - Testé 5 cas ✓ · branché launchd (`com.ace777.disjoncteur`, check/60s) · inséré dans HULK (`paper_diprip.py`, fail-closed, md5 déclaré au registre) · carte 🛡 au cockpit.
+- ⚠ **CORRECTION FACTUELLE 09/09 (enquête Buffy, preuves disque)** : ce que ce point affirmait était **deux fois faux** — (1) le plist a **disparu silencieusement** de LaunchAgents un jour entre le 16/08 et le 23/08 (aucune trace dans les journaux) ; (2) l'insertion dans HULK **n'a jamais eu lieu** (elle était en attente de verdict, cf. `REPONSE_CODEUR_DISJONCTEUR_2026-08-16.md` ; le champion et ses backups ne contiennent jamais le mot disjoncteur). Les 2 lignes de l'historique = un test manuel. Le disjoncteur est **sourd par design** (il ne mesure rien lui-même, il exécute) : sans capteur, il ne peut rien détecter. **RÉPARÉ 09/09 (GO Christophe)** : rebranché launchd (check/60s) + capteur `nourrir_disjoncteur.py` créé et en vol (mesure la perte journalière HULK depuis le pivot 00:00 UTC, fail-safe anti-invention, launchd 60s) + recalibration **11,67 %/jour** / global **25 %** (GO Christophe : 1,5 % non soutenable en crypto) + fix dual STOP_ALL (le Mur de Fer couvre désormais HULK — avant, il ne l'aurait pas couvert) + garde STOP_ALL au watchdog. 5 tests hors vol OK. md5 déclarés au registre.
 - Spec : `SPEC_DISJONCTEUR_2026-08-16.md` · réponse codeur `REPONSE_CODEUR_DISJONCTEUR_2026-08-16.md`.
 
 **PÉPITE MEMPOOL (bloc privatisé / tx fantômes) — branchée :**
