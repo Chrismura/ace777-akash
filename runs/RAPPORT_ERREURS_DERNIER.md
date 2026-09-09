@@ -1,13 +1,13 @@
-# RAPPORT ERREURS SESSION — MASTER_BASE_V8_6_FORTRESS_0H00
+# RAPPORT ERREURS SESSION — MASTER_BASE_V8_6_FORTRESS_8H20
 
 ## WHY_ARRET (ligne obligatoire)
 
-`WHY_ARRET=timer_normal | stop_class=normal_timer_window | ran_min=0.2 | vs_planned_min=-0.0 | timing=near_timer`
+`WHY_ARRET=timer_normal | stop_class=normal_timer_window | ran_min=500.1 | vs_planned_min=-0.1 | timing=near_timer`
 
-- Généré : `2026-09-09T08:38:37Z`
-- Fenêtre depuis : `2026-09-09T08:38:26Z`
-- Fin process : `2026-09-09T08:38:36Z`
-- Meta start/end : `2026-09-09T08:38:26Z` → `2026-09-09T08:38:34Z`
+- Généré : `2026-09-09T17:19:16Z`
+- Fenêtre depuis : `2026-09-09T08:59:11Z`
+- Fin process : `2026-09-09T17:19:15Z`
+- Meta start/end : `2026-09-09T08:59:11Z` → `2026-09-09T17:19:11Z`
 - Watchdog meta : stale=?s max_relaunch=?
 - NET_RETRY (fenêtre) : 0
 
@@ -17,8 +17,9 @@ Alpage · groupe électrogène · 2 lignes (téléphone + surf) · WiFi. Le bot 
 
 ## Verdict court
 
-- **WHY_ARRET=timer_normal | stop_class=normal_timer_window | ran_min=0.2 | vs_planned_min=-0.0 | timing=near_timer**
+- **WHY_ARRET=timer_normal | stop_class=normal_timer_window | ran_min=500.1 | vs_planned_min=-0.1 | timing=near_timer**
 - Morts process journalisées (PROCESS_DIE/EXIT) — lire `last_cmd` / `how=signal`.
+- Issues duo (486) — scout/hunter désynchro.
 
 ## Compteurs
 
@@ -27,8 +28,8 @@ Alpage · groupe électrogène · 2 lignes (téléphone + surf) · WiFi. Le bot 
 | E-WATCHDOG | 0 | heartbeat / max relaunch |
 | E-PROC | 2 | mort process / signal |
 | E-STALE | 0 | tension/NUAGE age (signal latence) |
-| E-DUO | 0 | no_trigger / stale duo |
-| E-SPREAD | 0 | spread trop large |
+| E-DUO | 486 | no_trigger / stale duo |
+| E-SPREAD | 224 | spread trop large |
 | I-HUNTER | 0 | STORM_HUNTER arm (info) |
 
 ## PnL fills (fenêtre)
@@ -39,8 +40,8 @@ Alpage · groupe électrogène · 2 lignes (téléphone + surf) · WiFi. Le bot 
 
 ## Derniers PROCESS_DIE / EXIT
 
-- `[ALPHA_X13_BURST13] 2026-09-09T08:38:36Z PROCESS_EXIT unit=ALPHA_X13_BURST13 how=pipe_run_unit why=rc_0 rc=0`
-- `2026-09-09T08:38:36Z PROCESS_EXIT unit=ALPHA_X13_BURST13 how=pipe_run_unit why=rc_0 rc=0`
+- `[ALPHA_X13_BURST13] 2026-09-09T17:19:15Z PROCESS_EXIT unit=ALPHA_X13_BURST13 how=pipe_run_unit why=rc_0 rc=0`
+- `2026-09-09T17:19:15Z PROCESS_EXIT unit=ALPHA_X13_BURST13 how=pipe_run_unit why=rc_0 rc=0`
 
 ## Derniers WATCHDOG
 

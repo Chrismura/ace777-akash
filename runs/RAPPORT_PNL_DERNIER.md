@@ -3,9 +3,9 @@
 **Session:** `MASTER_BASE_V8_6_FORTRESS_8H20`
 **run_id:** `MASTER_BASE_V8_6_FORTRESS_8H20_20260909T085909Z_25898`
 **Frais Binance:** `UNMATCHED_BINANCE_FEES` (aucune commission/funding externe n'est ajoutée sans correspondance explicite)
-**Période:** — → — (—)
-**Setup:** `?` v`?` | BETA `200` USDT | ALPHA `800` USDT | LLM gate `TRUE` fail_closed=`TRUE`
-**Généré:** 2026-09-09T08:59:12Z UTC
+**Période:** 2026-09-09T08:59:18Z → 2026-09-09T17:19:14Z (8h19m)
+**Setup:** `?` v`?` | BETA `200` USDT | ALPHA `800` USDT | LLM gate `?` fail_closed=`?`
+**Généré:** 2026-09-09T17:19:16Z UTC
 **Filtre session:** `ts >= 2026-09-09T08:59:11Z` (lignes CSV antérieures exclues)
 
 ---
@@ -64,9 +64,14 @@
 
 *ALPHA n'a pas exécuté de trade — vérifier duo_wait, radar, stase, llm_gate dans les SKIP.*
 
-**Cycles SKIP:** 0
+**Cycles SKIP:** 5612
 | Raison | Nb |
 |--------|-----|
+| reason=COMPRESSE tension=0.00000000 threshold=0.05 | 1444 |
+| reason=no_state mode=none | 539 |
+| mom=long structure=short | 25 |
+| mom=short structure=long | 19 |
+| reason=COMPRESSE tension=0.00001454 threshold=0.05 | 4 |
 
 ---
 
@@ -93,11 +98,11 @@
 
 ## CONFIG ACTIVE (snapshot)
 
-- ENTRY_25_75 BETA: `0.70` | ALPHA: `0.50`
-- SHOCK_EXIT: `16` bps
-- VOLATILITY_FILTER: `16`
-- STASE: spread=`16` vol=`16`
-- POLL_SEC: `0.064`
+- ENTRY_25_75 BETA: `?` | ALPHA: `?`
+- SHOCK_EXIT: `?` bps
+- VOLATILITY_FILTER: `—`
+- STASE: spread=`?` vol=`?`
+- POLL_SEC: `?`
 
 ---
 

@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "long_short",
-      "zscore": 2.3569217678220635,
-      "value": 1.334,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Le ratio long/short atteint un z-score élevé de 2.36 (excès d'optimisme spéculatif), tandis que les médias grand public banalisent et romanticent les stratégies long/short. Divergence classique de sommet : la foule surexposée en positions acheteuses alors que les baleines se préparent traditionnellement à piéger le retail.\"\n}\n```",
-      "ts": "2026-09-08T14:34:12.210758+00:00"
-    },
-    {
       "metric": "price_1h",
       "zscore": 3.66359548020155,
       "value": 0.7129926322726687,
@@ -349,6 +342,13 @@
       "value": 1.342,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio à 1.342 (z-score 2.18) indique une forte agression acheteuse cachée sur le marché dérivé/spot, tandis que les médias traditionnels (Google Actualités) affichent un vide informationnel total. Classique accumulation silencieuse de baleines avant un re-pricing haussier.\"\n}\n```",
       "ts": "2026-09-09T17:03:47.104489+00:00"
+    },
+    {
+      "metric": "taker_ratio",
+      "zscore": 2.036472313379881,
+      "value": 1.342,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio élevé (z-score 2.04) indique une forte agression acheteuse cachée sur les carnets d'ordres, totalement ignorée par le vide médiatique actuel. Accumulation silencieuse des baleines avant un mouvement de rupture haussier.\"\n}\n```",
+      "ts": "2026-09-09T17:33:53.254108+00:00"
     }
   ]
 }

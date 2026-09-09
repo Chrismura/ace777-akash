@@ -29,7 +29,10 @@ lieu de +2 à +28. **Cible : %revenge ALPHA 30–60%.**
 ```
 LE_VRAI_CHAMPION_CERTIFIE_37FCA367.txt   ← le code moteur (bash + ruby)
   └─ symlink : genesis_manifest.txt
-md5 actuel : 8bce77b17a3c2f8f40a0b6b92ce0b4bc (préfixe 8bce77b1)
+md5 actuel : 14bcf868d46effba010cac577cbb004c (vérifié 09/09, inclut patch filet 21/08)
+généalogie : 37fca367 (genesis C1) → 8bce77b1 (fixes 16/08) → 14bcf868 (patch filet 21/08)
+⚠ Vérifié 09/09 par Buffy : 37fca367 = md5 de la GENESIS ORIGINALE (C1 intangible),
+  pas du fichier courant — C1 protège la lignée, chaque re-scellage crée un nouveau md5.
 ```
 
 **Règle d'or** : on ne le modifie JAMAIS sans protocole complet :

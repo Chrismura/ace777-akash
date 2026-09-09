@@ -1,7 +1,7 @@
 # ACE777 — STATE
 
 > Généré automatiquement — ne pas éditer à la main
-> Phase: `running` | Statut: `RUNNING` | MAJ: `2026-09-09T08:59:12Z`
+> Phase: `ended` | Statut: `ENDED` | MAJ: `2026-09-09T17:19:15Z`
 
 ## Config active
 
@@ -20,8 +20,14 @@
 | Unité | FILLED | Win | Loss | Win% | Brut | Frais | Net USDT | SKIP |
 |-------|--------|-----|------|------|------|------|----------|------|
 | BETA | 0 | 0 | 0 | 0.00% | 0.0000 | 0.0000 | 0.0000 | 0 |
-| ALPHA | 0 | 0 | 0 | 0.00% | 0.0000 | 0.0000 | 0.0000 | 0 |
-| **TOTAL** | **0** | — | — | — | **0.0000** | **0.0000** | **0.0000** | **0** |
+| ALPHA | 0 | 0 | 0 | 0.00% | 0.0000 | 0.0000 | 0.0000 | 5612 |
+| **TOTAL** | **0** | — | — | — | **0.0000** | **0.0000** | **0.0000** | **5612** |
+
+## Duo session (`duo_session.json`)
+
+- SCOUT PnL: `` USDT
+- HUNTER PnL: `` USDT
+- Total session: `` USDT
 
 ## Top SKIP — BETA
 
@@ -29,7 +35,11 @@ _Aucun SKIP ou CSV absent._
 
 ## Top SKIP — ALPHA
 
-_Aucun SKIP ou CSV absent._
+1. `reason=COMPRESSE tension=0.00000000 threshold=0.05` — 1444
+2. `reason=no_state mode=none` — 539
+3. `mom=long structure=short` — 25
+4. `mom=short structure=long` — 19
+5. `reason=COMPRESSE tension=0.00001454 threshold=0.05` — 4
 
 ## Vortex (`vortex_control.json`)
 
@@ -39,9 +49,9 @@ _Aucun SKIP ou CSV absent._
 
 ## Processus
 
-- master.pid: `RUNNING`
+- master.pid: `stopped`
 - beta.pid: `stopped`
-- alpha.pid: `RUNNING`
+- alpha.pid: `stopped`
 
 ## Fichiers
 

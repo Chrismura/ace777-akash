@@ -1,6 +1,6 @@
 # JOURNAL ENGLE — MASTER_BASE_V8_6_FORTRESS_8H20
 
-- Généré: `2026-09-09T08:59:12Z` (UTC)
+- Généré: `2026-09-09T17:19:16Z` (UTC)
 - Couche: **B1** (lecture seule) · `ENGLE_ADAPT=0`
 - Session start (filtre): `2026-09-09T08:59:11Z`
 - CSV: `MASTER_BASE_V8_6_FORTRESS_8H20_BETA_X5.csv` · `MASTER_BASE_V8_6_FORTRESS_8H20_ALPHA_X13_BURST13.csv`
@@ -21,7 +21,7 @@
 | Unité | Cycles | Fills | Skips | PnL fills (USDT) | Fenêtre |
 |-------|--------|-------|-------|------------------|---------|
 | BETA | 0 | 0 | 0 | +0.0000 | — |
-| ALPHA | 0 | 0 | 0 | +0.0000 | — |
+| ALPHA | 5612 | 0 | 5612 | +0.0000 | `2026-09-09T08:59:18Z` → `2026-09-09T17:19:14Z` |
 | **TOTAL** | | 0 | | **+0.0000** | |
 
 ## SKIP BETA (top)
@@ -30,7 +30,13 @@
 
 ## SKIP ALPHA (top)
 
-*Aucun SKIP classé.*
+| Raison | Nb | % skips |
+|--------|-----|---------|
+| `regime_gate` | 4242 | 75.6% |
+| `duo_wait` | 539 | 9.6% |
+| `wall_not_collapsed` | 415 | 7.4% |
+| `radar_block` | 372 | 6.6% |
+| `tactic_mismatch` | 44 | 0.8% |
 
 ## Lecture courte (marché calme)
 

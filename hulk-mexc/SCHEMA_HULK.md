@@ -78,6 +78,12 @@ toutes les 20s, par paire :
  1. SCORE     → régime (WATCH/COOLING/IMPULSE/IMPULSE_WAIT) + dip/rip/stop (cadence×mult)
  2. GATES     → veille fraîche (<6h) · tier (B = ×0.25) · spread ≤100 bps · cooldown 4h post-stop
                 · REENTRY_MAX=1 · sense (carnet) · bag max 5
+                · GATE ANTI-GLISSEMENT (09/09, OFF par défaut `SLIP_GATE_ON=0`) : chaque stop mesure
+                  le glissement nominal→réalisé (log SLIP) ; paire à >1 pp de slip moyen sur ≥3 stops
+                  → taille ×0.5. Audit 09/09 : 12/19 stops glissent >0,5 pp (RIZE +3,1 pp pire).
+                · GATE MUR L2 (09/09, OFF par défaut `WALL_GATE_ON=0`) : avant de payer le spread,
+                  lit le mur bid live du satellite (`wall_bid_usdt`) ; skip si mur <800$ ou <10%
+                  de la médiane de la paire (`universe_profils.json`). Fail-open si data absente/stale >120 s.
  1b. ASPIRATION (16/08, MODE OBSERVATION 48h) → double lecture du carnet sur paires
                 actives (COOLING/IMPULSE) : chute des murs → side BUY/SELL + drop %/s (temps réel)
                 + spread_delta + notional ≥500$ + spoof « rétractable » (mur reconstruit).
@@ -112,6 +118,14 @@ toutes les 20s, par paire :
 | `SEED_ON` / `COMPOUND_ON` | 1 / 1 | réalisme baissier / compound |
 | `ASPIRATION_ON` / `ASPIRATION_DELAY_S` | 1 / 0.5 | sonde aspiration OBSERVATION (16/08) — délai double lecture |
 | `ASPIRATION_MIN_NOTIONAL_USDT` / `ASPIRATION_PROBE_EVERY` / `ASPIRATION_MAX_PAIRS` | 500 / 3 / 5 | mur ≥500$ (JUGE) · probe toutes les 3 cycles, 5 paires max (rate-limit MEXC) |
+| `SLIP_GATE_ON` / `WALL_GATE_ON` | 0 / 0 | gates 09/09 : OFF = observation 48 h · 1 = armé (voir §5 GATES) |
+| `SLIP_GATE_MIN_STOPS` / `SLIP_GATE_PP` / `SLIP_GATE_MULT` | 3 / 1.0 / 0.5 | anti-glissement : ≥3 stops, >1 pp de slip moyen → taille ×0,5 |
+| `WALL_GATE_MIN_USDT` / `WALL_GATE_MIN_RATIO` / `WALL_GATE_MAX_AGE_S` | 800 / 0.10 / 120 | mur L2 : <800$ ou <10% médiane → skip · data >120s = fail-open |
+
+> **Chaîne Cortana enrichie (09/09)** : `hulk_stats.py` (lecture seule, fail-open) injecte dans le
+> prompt de `cortana_propose_params.py` les stats mesurées — PnL par régime, glissement stop par
+> paire, familles de sorties (trailing/paliers/stops). Contrat inchangé : ADVISORY, bornes dures,
+> justesse ≥ 60 % = AUTO. Test end-to-end 09/09 11:52Z : 0 propositions (50 % < 60 % = prudent ✅).
 
 ## 7. Commandes
 

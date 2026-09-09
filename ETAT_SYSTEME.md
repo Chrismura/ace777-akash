@@ -1,5 +1,12 @@
 # 🧬 ETAT_SYSTEME — carte organique ACE777 (mise à jour 16/08/2026 ~11:40 locale)
 
+> **⚡ Δ 09/09/2026 (Buffy, audit des 77 agents)** : la structure ci-dessous reste la carte
+> organique valide. Ce qui a changé depuis le 16/08 : **77 LaunchAgents** (9 démons + 68
+> planifiés, audit complet dans `architecture/tech.html` §11) · gates Hulk anti-glissement +
+> mur L2 posés OFF (48 h observation) · le pont `:11439` est un **traducteur Ollama→hub cloud**
+> (C9 intact : zéro inférence locale, la réponse vient du hub) · sante_index, veilleuse,
+> gitpush, veille-insti réparés (détails `MEMOIRE_COLLAB.md` 09/09).
+
 > **ACE777 est un organisme** : plusieurs organes qui battent à des rythmes différents, reliés
 > par des fichiers-ponts. Cette page = la vue d'ensemble. Détails : `SCHEMA_ACE.md` (cœur),
 > `hulk-mexc/SCHEMA_HULK.md` (2ᵉ organe). À relire en début de session.
@@ -19,7 +26,7 @@
         │  HUB LLM     │   │  HULK (paper)     │   ┌──────┴───────┐
         │ (11435, 13   │   │  MEXC dip&rip     │   │  PRISE-IA    │
         │  providers)  │   │  PID 99387 +      │   │  (obs, hub   │
-        │  + OLLAMA    │   │  veille 99573     │   │  cockpit)    │
+        │  (0 local C9)│   │  veille 99573     │   │  cockpit)    │
         └──────▲───────┘   └─────────▲─────────┘   └──────────────┘
                │ llm_gate          │ SCHEMA_HULK.md
         ┌──────┴───────────────────┴───────────────┐
@@ -52,7 +59,7 @@
 | `cortana_cockpit_bridge.py` | 38709 | pont Cortana ↔ cockpit (17777) + boutons (ALARME, DÉCLARER MODIFS) |
 | `cockpit_http_server.py` | 38714 | tableau de bord (17800) |
 | `open_cockpit_app.py` | 52062 | app cockpit |
-| OLLAMA (11439) | — | llm_gate du champion (qwen2.5-coder:1.5b) |
+| `llm_gate_hub_bridge.py` (:11439) | traducteur Ollama→hub cloud : le champion parle « Ollama », le hub répond (C9 : zéro IA locale) |
 
 ## 4. 🛡️ Les veilleuses (immunité)
 
