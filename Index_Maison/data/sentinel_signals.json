@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "sdi",
-      "zscore": 2.079424085465667,
-      "value": 0.016,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Anomalie statistique (z-score 2.08) entièrement due à un 'bruit' sémantique. Le sigle SDI dans les médias fait référence à des syndicats patronaux (TPE), du matériel vidéo (Blackmagic), et à l'industriel Samsung SDI, sans aucun rapport avec la crypto.\"\n}\n```",
-      "ts": "2026-09-08T15:04:24.162733+00:00"
-    },
-    {
       "metric": "ipt",
       "zscore": 2.637293689374786,
       "value": 1.14,
@@ -349,6 +342,13 @@
       "value": 3421621.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Activité anormale des baleines (z-score 2.98, ~3.4M USD) totalement ignorée par les médias grand public (Google Actualités vide). C'est le signal classique d'accumulation furtive loin du bruit médiatique.\"\n}\n```",
       "ts": "2026-09-09T19:44:08.577705+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 3.9322294488755447,
+      "value": 4392828.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Forte anomalie on-chain (z-score 3.93, mouvements de 4.39M$) en l'absence totale de couverture médiatique (silence radio sur Google Actualités). Accumulation furtive classique de baleines loin du radar public.\"\n}\n```",
+      "ts": "2026-09-09T20:34:16.274582+00:00"
     }
   ]
 }

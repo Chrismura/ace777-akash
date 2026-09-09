@@ -482,12 +482,12 @@ ANTI-PATTERNS REJECTED: …</pre>
     </table>
   </div>
 
-  <h2>10 · NOTE STRICTE &amp; SINCÈRE (pour la famille — 12/08)</h2>
+  <h2>10 · NOTE STRICTE &amp; SINCÈRE (pour la famille — 12/08 · relue 09/09)</h2>
   <div class="box">
-    <p style="color:var(--text);margin-bottom:8px;"><strong>Destinataire : famille (gemini / deepseek / juge) avant toute évaluation.</strong> Lire aussi <code>POINT_REPRISE_DERNIER.md</code> + <code>SYNTHESE_24H_CHANTIER_HUB_2026-08-12.md</code>.</p>
+    <p style="color:var(--text);margin-bottom:8px;"><strong>Destinataire : famille (gemini / deepseek / juge) avant toute évaluation.</strong> Lire aussi <code>POINT_REPRISE_DERNIER.md</code> + <code>SYNTHESE_24H_CHANTIER_HUB_2026-08-12.md</code>.<br /><span style="color:var(--muted);">⏳ Relue le 09/09 : les faits ci-dessous parlent au présent du 12/08 — les preuves citées ont été re-vérifiées sur le disque, l'alerte Risk Guardian a changé de nature (voir ⚠). État du jour : §11 + changelog.</span></p>
     <p style="color:var(--acid);margin:8px 0 4px;">✓ Ce qui est vrai et solide</p>
     <ul style="margin-left:16px;">
-      <li>Hub cloud = <strong>seule passerelle LLM</strong> (C9 respectée, zéro local) — preuve en vol : <code>llm_wind</code> écouté en continu sur le gate (12/08)</li>
+      <li>Hub cloud = <strong>seule passerelle LLM</strong> (C9 respectée, zéro local) — preuve du 12/08 : <code>llm_wind</code> sur le gate · <strong>re-vérifié 09/09 : toujours vrai</strong> (Ollama serveur présent pour le protocole du pont :11435, mais 0 % CPU, 0 modèle chargé, 0 connexion)</li>
       <li>Contexte vivant injecté à chaque appel → changer d'IA ne casse rien</li>
       <li>Chaîne événementielle RADAR → ADA → Cockpit réelle (le changement déclenche, pas le polling)</li>
     </ul>
@@ -495,7 +495,7 @@ ANTI-PATTERNS REJECTED: …</pre>
     <ul style="margin-left:16px;">
       <li>Le <strong>run 4h de comparaison (12/08 soir)</strong> décidera si le hub améliore vs Ollama (réf −12,26 USDT le 11/08) — <strong>un seul run ne prouve rien</strong>, il faudra répéter</li>
       <li>ADA est un <strong>reflet</strong> (lit + alerte, ne trade pas) — pas un Risk Guardian en vol</li>
-      <li>Risk Guardian <strong>toujours pas en vol</strong> (kill switch = GO futur)</li>
+      <li>Risk Guardian <strong>toujours pas en vol</strong> (kill switch = GO futur) · <span style="color:var(--danger);"><strong>alerte 09/09 :</strong> le Disjoncteur C7 (−1,5 %/jour) a perdu son plist de LaunchAgents sans trace dans les journaux — code, config et historique intacts dans le repo, arbitrage famille requis avant rebranchement</span></li>
       <li><code>journal_intention</code> + fiches offres : jeunes, formats à stabiliser</li>
       <li>Budget cloud peut être dépassé (compteurs 522/480) — bascule gemini tient, mais cadence à surveiller</li>
       <li>JSON vivants <code>strategie/*.json</code> bougent en continu → impression de « toujours pareil » si les feeds cockpit ne sont pas rafraîchis</li>

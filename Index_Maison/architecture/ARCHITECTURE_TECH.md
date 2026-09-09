@@ -127,6 +127,7 @@ Buffy (superviseur) construit le brief (faits + code + questions)
 
 | When | Landed | Reviewer note |
 |------|--------|---------------|
+| **2026-09-09 (2)** | **Relue de la note §10 (12/08)** : chaque fait re-vérifié sur le disque — C9 toujours vrai (Ollama 0 modèle, 0 connexion), Risk Guardian : le **Disjoncteur C7 a perdu son plist** de `~/Library/LaunchAgents` sans trace dans les journaux (2 déclenchements au 16/08 dont un Mur de Fer, code/config/historique intacts dans `Index_Maison/plists/`) · le POINT_REPRISE du 16/08 disait « branché launchd + inséré HULK fail-closed » : **les deux affirmations étaient fausses** (jamais inséré : `envoyer_insertion_hulk.py` = demande de verdict restée sans suite) · `run-setupA-4h` (GO_VORTEX_V2) absent de LaunchAgents, cohérent avec la purge vortex du 24/08 | Un POINT_REPRISE est une promesse du passé — il se relit avec le disque en main, jamais sur parole · un kill switch absent du scheduler = un kill switch inexistant |
 | **2026-09-09** | **Audit source+boucle des 77 agents** (77/77 sources OK, 9 démons + 68 planifiés) · carte tech.html §11 complétée (+28 agents, fantômes vortex marqués OFF) · Hulk : gates anti-glissement `SLIP_GATE_ON` + mur L2 `WALL_GATE_ON` posés OFF (observation 48 h) · `hulk_stats.py` alimente le contrat Cortana (PnL régimes, slip stops) · `sante_index` réparé : seuil fraîcheur aspiration 75 s + anti-figage `ts ≥ previous` (1 214 fausses ALERTE HULK / 7,4 % des runs) · veilleuse : 4 md5 déclarés au REGISTRE (fausses INTRUSION toutes les 10 min stoppées) · gitpush débloqué après ~29 h (L2_*_MURS.csv 64 Mo sorti du suivi) · veille-insti : parse ts unix+ISO (S2 vivant après 6 jours aveugles) · audit blocs privatisés 7/10 (243 alertes dormantes, artefact 100 %-bloc-plein) | Un filet qui crie au loup 7 % du temps est ignoré — la précision d'un capteur fait partie de sa santé · tout fix doit déclarer son md5 au registre dans la même passe |
 | **2026-08-18** | **Décision Cortana unique (chief scientist)** : la Cortana officielle = chat cockpit (bridge :17777, voix Vivienne, contexte ACE+HULK injecté 18/08). L'app Rust vocale `crypto-voice-assistant-core` passe en **VEILLE** (doublon sans contexte, voix non utilisable sur le bureau, LLM direct hors hub = C9). Rien ne se supprime. | C9 respecté · un seul canal voix/chat |
 | **2026-08-16** | **Guide personnages IA §1b** (tasks officiels hub, clause permanente, circuit famille, scripts de référence) · sonde aspiration Hulk (observation 48h, corrélation BTC) · boucle baleines complétée (plist pont-onchain) · carte ONCHAIN cockpit · chantier schéma des index · check-up codeur+famille 7/7 GO-RÉSERVES | C9/C10 appliqués · clause permanente dans tous les prompts |
@@ -262,19 +263,20 @@ Risk Guardian **pas encore en vol** (WARM kill = GO futur).
 
 ---
 
-## 10. NOTE STRICTE & SINCÈRE (pour la famille — 2026-08-12)
+## 10. NOTE STRICTE & SINCÈRE (pour la famille — 2026-08-12 · relue 2026-09-09)
 
 > Destinataire : famille (gemini / deepseek / juge) avant toute évaluation. Lire aussi `POINT_REPRISE_DERNIER.md` + `SYNTHESE_24H_CHANTIER_HUB_2026-08-12.md`.
+> ⏳ **Relue le 09/09** : les faits ci-dessous parlent au présent du 12/08 — preuves re-vérifiées sur le disque, l'alerte Risk Guardian a changé de nature (voir ⚠). État du jour : tableaux agents + changelog.
 
 **Ce qui est vrai et solide :**
-- Le hub cloud est devenu **la seule passerelle LLM** (C9 respectée, zéro local). Preuve en vol : `llm_wind` écouté en continu sur le gate trades (12/08).
+- Le hub cloud est devenu **la seule passerelle LLM** (C9 respectée, zéro local). Preuve du 12/08 : `llm_wind` écouté en continu sur le gate trades · **re-vérifié 09/09 : toujours vrai** (Ollama serveur présent pour le protocole du pont `:11435`, mais 0 % CPU, 0 modèle chargé, 0 connexion).
 - Le contexte vivant (`ARCHITECTURE_VIVANTE.md`) est injecté à chaque appel → une IA qui change ne casse rien.
 - La chaîne événementielle RADAR → ADA → Cockpit est réelle (pas de polling, le changement déclenche).
 
 **Ce qui est encore fragile / à ne pas surévaluer :**
 - **Le run 4h de comparaison (12/08 soir)** décidera si le hub améliore réellement la sélection vs Ollama (référence −12,26 USDT le 11/08). **Un seul run ne prouve rien** — il faudra répéter.
 - ADA est un **reflet** (elle lit et alerte, elle ne trade pas) — ne pas la confondre avec un Risk Guardian en vol.
-- Le Risk Guardian lui-même **n'est toujours pas en vol** (kill switch = GO futur).
+- Le Risk Guardian lui-même **n'est toujours pas en vol** (kill switch = GO futur). ⚠ **Alerte 09/09** : le **Disjoncteur C7** (−1,5 %/jour) a **perdu son plist de LaunchAgents** sans trace dans les journaux — code, config et historique intacts dans le repo (`Index_Maison/plists/com.ace777.disjoncteur.plist`), arbitrage famille requis avant rebranchement.
 - `journal_intention` et les fiches offres sont jeunes : formats à stabiliser.
 - Le budget cloud peut être dépassé (les compteurs ont montré 522/480) — la bascule gemini tient, mais c'est un signal de cadence à surveiller.
 - Les JSON vivants (`strategie/*.json`) bougent en continu et peuvent créer des impressions de "toujours pareil" dans le cockpit si les feeds ne sont pas rafraîchis.
