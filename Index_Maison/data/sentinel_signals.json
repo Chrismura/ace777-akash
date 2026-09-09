@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "ipt",
-      "zscore": 2.883799787004139,
-      "value": 1.206,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (z-score 2.88) totalement déconnectée des cryptos : 'IPT' fait référence à l'Institut Protestant de Théologie ou au Tournoi International des Physiciens, et non à un actif numérique. Aucun mouvement de baleine crypto détecté.\"\n}\n```",
-      "ts": "2026-09-08T16:24:44.620463+00:00"
-    },
-    {
       "metric": "sdi",
       "zscore": 2.3283074533905017,
       "value": 0.016,
@@ -349,6 +342,13 @@
       "value": 5447761.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (z-score 4.90, ~5.4M USD) sans aucune couverture médiatique correspondante (Google Actualités vide). Divergence classique de accumulation furtive par les baleines loin des radars du grand public.\"\n}\n```",
       "ts": "2026-09-09T22:14:36.974012+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.2539954796915973,
+      "value": 11839451069.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie de volume non corrélée au marché crypto. Les résultats médiatiques renvoient à du matériel de vélo, de la télévision, des écouteurs et de la prédiction généraliste (Kalshi), démontrant un bruit de fond sans lien avec une baleine crypto.\"\n}\n```",
+      "ts": "2026-09-09T22:44:41.702297+00:00"
     }
   ]
 }

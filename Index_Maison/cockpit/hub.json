@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-09T22:14:37.520823+00:00",
+  "generated_at": "2026-09-09T23:14:13.453157+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 225
+      "calls_24h": 218
     },
     {
       "id": "openrouter-free",
@@ -71,7 +71,7 @@
       "model": "nvidia/nemotron-3-super-120b-a12b:free",
       "enabled": true,
       "timeout": 120,
-      "calls_24h": 23
+      "calls_24h": 20
     },
     {
       "id": "grok",
@@ -256,10 +256,50 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 237,
-    "remaining": 387
+    "consumed": 242,
+    "remaining": 382
   },
   "queue": [
+    {
+      "ts": "2026-09-09T23:14:01.983858+00:00",
+      "task": "analyste.strategie",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 25.33
+    },
+    {
+      "ts": "2026-09-09T23:05:12.447302+00:00",
+      "task": "analyste.strategie",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 7.18
+    },
+    {
+      "ts": "2026-09-09T22:55:28.083205+00:00",
+      "task": "analyste.strategie",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 4.93
+    },
+    {
+      "ts": "2026-09-09T22:44:41.701523+00:00",
+      "task": "analyse.profonde",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 0.95
+    },
+    {
+      "ts": "2026-09-09T22:43:40.576769+00:00",
+      "task": "analyste.strategie",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 6.15
+    },
     {
       "ts": "2026-09-09T22:14:36.973225+00:00",
       "task": "analyse.profonde",
@@ -339,49 +379,39 @@
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
       "duration_s": 4.19
-    },
-    {
-      "ts": "2026-09-09T21:43:34.176267+00:00",
-      "task": "analyste.strategie",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 4.16
-    },
-    {
-      "ts": "2026-09-09T21:39:18.510972+00:00",
-      "task": "analyste.strategie",
-      "provider": "openrouter-juge",
-      "model": "nvidia/nemotron-3-super-120b-a12b:free",
-      "kind": "cloud",
-      "duration_s": 23.64
-    },
-    {
-      "ts": "2026-09-09T21:38:42.050489+00:00",
-      "task": "analyste.strategie",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 7.89
-    },
-    {
-      "ts": "2026-09-09T21:29:23.689766+00:00",
-      "task": "analyse.profonde",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 1.02
-    },
-    {
-      "ts": "2026-09-09T21:19:03.059030+00:00",
-      "task": "analyste.strategie",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 10.22
     }
   ],
   "events": [
+    {
+      "ts": "2026-09-09T23:14:01.983542+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
+    {
+      "ts": "2026-09-09T23:05:12.446936+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
+    {
+      "ts": "2026-09-09T22:55:28.081371+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
+    {
+      "ts": "2026-09-09T22:44:41.701127+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
+    {
+      "ts": "2026-09-09T22:43:40.575523+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
     {
       "ts": "2026-09-09T22:14:36.972921+00:00",
       "kind": "message",
@@ -410,36 +440,6 @@
       "ts": "2026-09-09T22:14:28.867495+00:00",
       "kind": "failover",
       "title": "Saute (blacklist) depuis HuggingFace (136+ modeles, dont DeepSeek-V4)",
-      "detail": "0 attente"
-    },
-    {
-      "ts": "2026-09-09T22:14:28.867209+00:00",
-      "kind": "failover",
-      "title": "Saute (blacklist) depuis Google Gemini",
-      "detail": "0 attente"
-    },
-    {
-      "ts": "2026-09-09T22:14:27.607641+00:00",
-      "kind": "message",
-      "title": "« Groq (LLM ultra-rapide, gratuit) » a repondu",
-      "detail": "bascule"
-    },
-    {
-      "ts": "2026-09-09T22:14:25.605957+00:00",
-      "kind": "failover",
-      "title": "Saute (blacklist) depuis Google Gemini",
-      "detail": "0 attente"
-    },
-    {
-      "ts": "2026-09-09T22:14:24.856054+00:00",
-      "kind": "message",
-      "title": "« Groq (LLM ultra-rapide, gratuit) » a repondu",
-      "detail": "bascule"
-    },
-    {
-      "ts": "2026-09-09T22:14:22.642593+00:00",
-      "kind": "failover",
-      "title": "Saute (blacklist) depuis Google Gemini",
       "detail": "0 attente"
     }
   ],

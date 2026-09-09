@@ -1,7 +1,48 @@
 {
-  "timestamp": 1788991906,
-  "date": "2026-09-09T22:11:46.730197+00:00",
-  "n_analyses": 0,
-  "analyses": [],
-  "resume": "Aucune analyse en cours"
+  "timestamp": 1788995507,
+  "date": "2026-09-09T23:11:47.787879+00:00",
+  "n_analyses": 1,
+  "analyses": [
+    {
+      "signal": {
+        "metric": "volume",
+        "zscore": 2.2539954796915973,
+        "value": 11839451069.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie de volume non corrélée au marché crypto. Les résultats médiatiques renvoient à du matériel de vélo, de la télévision, des écouteurs et de la prédiction généraliste (Kalshi), démontrant un bruit de fond sans lien avec une baleine crypto.\"\n}\n```",
+        "ts": 1788993881.702297
+      },
+      "fiche": "rbf_eleve",
+      "questions": {
+        "prix": {
+          "value": 0.27,
+          "seuil": 1,
+          "depasse": false
+        },
+        "paires": {
+          "value": null,
+          "seuil": 3,
+          "depasse": false
+        },
+        "funding": {
+          "value": 4.2e-05,
+          "seuil": 0.001,
+          "depasse": false
+        },
+        "whales": {
+          "value": 0,
+          "seuil": 5,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "sdi > 0.3",
+        "lecture": "Drainage silencieux — les vieux BTC bougent en douce",
+        "niveau": "dangereux",
+        "action": "Réduire taille de 50%, sortir des positions fragiles"
+      },
+      "action": "Réduire taille de 50%, sortir des positions fragiles",
+      "niveau": "dangereux"
+    }
+  ],
+  "resume": "🔴 DANGER détecté — réduire les expositions"
 }
