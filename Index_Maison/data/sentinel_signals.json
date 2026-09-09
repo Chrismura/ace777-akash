@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "price_1h",
-      "zscore": 3.66359548020155,
-      "value": 0.7129926322726687,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de prix majeure (z-score 3.66) totalement ignorée par les médias (silence radio). C'est la signature classique d'accumulation silencieuse par des baleines avant un réveil médiatique.\"\n}\n```",
-      "ts": "2026-09-08T14:54:18.251856+00:00"
-    },
-    {
       "metric": "sdi",
       "zscore": 2.079424085465667,
       "value": 0.016,
@@ -349,6 +342,13 @@
       "value": 1.342,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio élevé (z-score 2.04) indique une forte agression acheteuse cachée sur les carnets d'ordres, totalement ignorée par le vide médiatique actuel. Accumulation silencieuse des baleines avant un mouvement de rupture haussier.\"\n}\n```",
       "ts": "2026-09-09T17:33:53.254108+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 2.979602995967145,
+      "value": 3421621.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Activité anormale des baleines (z-score 2.98, ~3.4M USD) totalement ignorée par les médias grand public (Google Actualités vide). C'est le signal classique d'accumulation furtive loin du bruit médiatique.\"\n}\n```",
+      "ts": "2026-09-09T19:44:08.577705+00:00"
     }
   ]
 }
