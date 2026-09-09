@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-09T19:13:43.807647+00:00",
+  "generated_at": "2026-09-09T19:14:44.401674+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -35,7 +35,7 @@
       "model": "groq/compound",
       "enabled": true,
       "timeout": 120,
-      "calls_24h": 0
+      "calls_24h": 2
     },
     {
       "id": "nvidia",
@@ -256,10 +256,26 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 183,
-    "remaining": 441
+    "consumed": 185,
+    "remaining": 439
   },
   "queue": [
+    {
+      "ts": "2026-09-09T19:14:12.365401+00:00",
+      "task": "supervise.decision",
+      "provider": "groq",
+      "model": "groq/compound",
+      "kind": "cloud",
+      "duration_s": 1.75
+    },
+    {
+      "ts": "2026-09-09T19:13:54.760412+00:00",
+      "task": "supervise.decision",
+      "provider": "groq",
+      "model": "groq/compound",
+      "kind": "cloud",
+      "duration_s": 2.03
+    },
     {
       "ts": "2026-09-09T19:13:36.202025+00:00",
       "task": "analyste.strategie",
@@ -363,25 +379,45 @@
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
       "duration_s": 2.66
-    },
-    {
-      "ts": "2026-09-09T18:27:06.817661+00:00",
-      "task": "analyste.strategie",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 10.26
-    },
-    {
-      "ts": "2026-09-09T18:14:07.186196+00:00",
-      "task": "supervise.decision",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 11.78
     }
   ],
   "events": [
+    {
+      "ts": "2026-09-09T19:14:12.364559+00:00",
+      "kind": "message",
+      "title": "« Groq (LLM ultra-rapide, gratuit) » a repondu",
+      "detail": "bascule"
+    },
+    {
+      "ts": "2026-09-09T19:14:10.619078+00:00",
+      "kind": "failover",
+      "title": "Saute (blacklist) depuis Google Gemini",
+      "detail": "0 attente"
+    },
+    {
+      "ts": "2026-09-09T19:13:54.760066+00:00",
+      "kind": "message",
+      "title": "« Groq (LLM ultra-rapide, gratuit) » a repondu",
+      "detail": "bascule"
+    },
+    {
+      "ts": "2026-09-09T19:13:52.728089+00:00",
+      "kind": "blacklist",
+      "title": "Fin de pause Groq (LLM ultra-rapide, gratuit)",
+      "detail": "re-essai automatique"
+    },
+    {
+      "ts": "2026-09-09T19:13:52.726718+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis Google Gemini",
+      "detail": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "ts": "2026-09-09T19:13:52.726353+00:00",
+      "kind": "ratelimit",
+      "title": "429 Google Gemini -> pause 60s + bascule",
+      "detail": ""
+    },
     {
       "ts": "2026-09-09T19:13:36.201498+00:00",
       "kind": "message",
@@ -405,42 +441,6 @@
       "kind": "blacklist",
       "title": "Fin de pause Google Gemini",
       "detail": "re-essai automatique"
-    },
-    {
-      "ts": "2026-09-09T18:56:26.860242+00:00",
-      "kind": "message",
-      "title": "« OpenRouter Juge (nemotron-3-super-120b free) - verificateur independant » a repondu",
-      "detail": "bascule"
-    },
-    {
-      "ts": "2026-09-09T18:56:26.859795+00:00",
-      "kind": "filet-universel",
-      "title": "[FILET UNIVERSEL] « OpenRouter Juge (nemotron-3-super-120b free) - verificateur independant » a repondu hors chaine",
-      "detail": "analyste.strategie"
-    },
-    {
-      "ts": "2026-09-09T18:55:45.038411+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis OrcaRouter (routeur gratuit, modele orcarouter/free)",
-      "detail": "HTTP Error 400: Bad Request"
-    },
-    {
-      "ts": "2026-09-09T18:55:43.518866+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis HuggingFace (136+ modeles, dont DeepSeek-V4)",
-      "detail": "HTTP Error 400: Bad Request"
-    },
-    {
-      "ts": "2026-09-09T18:55:43.518546+00:00",
-      "kind": "blacklist",
-      "title": "Pause HuggingFace (136+ modeles, dont DeepSeek-V4) (3 echecs) 15min",
-      "detail": "backoff x1 -> re-essai auto"
-    },
-    {
-      "ts": "2026-09-09T18:55:38.378911+00:00",
-      "kind": "timeout",
-      "title": "Patience HuggingFace (136+ modeles, dont DeepSeek-V4) (HTTP 400)",
-      "detail": "HTTP Error 400: Bad Request"
     }
   ],
   "tasks_quotas": {
