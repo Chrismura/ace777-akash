@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "long_short",
-      "zscore": 2.2056374634544755,
-      "value": 1.334,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Le ratio Long/Short global atteint un z-score élevé de 2.21 (1.334), montrant une surconcentration agressive des investisseurs particuliers sur les positions acheteuses, totalement déconnectée des narratifs médiatiques dispersés et incertains. Historiquement, un tel déséquilibre précède un mouvement de 'long squeeze' orchestré par les baleines.\"\n}\n```",
-      "ts": "2026-09-08T15:04:27.516121+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": 2.1480179652837714,
-      "value": 0.016,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Fausse alerte on-chain : le ticker 'SDI' capté par la sentinelle correspond à de l'homonymie médiatique (fiscalité, matériel vidéo, Samsung SDI) et non à un mouvement de baleine crypto.\"\n}\n```",
-      "ts": "2026-09-08T16:24:43.007870+00:00"
-    },
-    {
       "metric": "ipt",
       "zscore": 2.883799787004139,
       "value": 1.206,
@@ -349,6 +335,20 @@
       "value": 11532614021.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit de fond médiatique sans rapport avec les cryptos (actualités vélos, écouteurs, marchés traditionnels). L'anomalie de volume onchain (z-score 2.07) est probablement liée à NEAR ou à du bruit de marché général, mais aucune corrélation intentionnelle de baleine crypto n'est détectable dans les gros titres actuels.\"\n}\n```",
       "ts": "2026-09-09T21:29:23.691240+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.1788692922731756,
+      "value": 11699095672.0,
+      "analysis": "{\n  \"signal\": \"neutral\",\n  \"confidence\": 60,\n  \"reason\": \"Le volume onchain est élevé (z-score 2.18) mais les médias n'en parlent pas du tout, indiquant un mouvement silencieux de baleines. Cette divergence peut signaler une accumulation ou distribution discrète, sans direction claire. En l'absence d'autres données, le signal reste neutre avec un biais légèrement haussier si l'on considère l'accumulation typique avant un mouvement de prix.\"\n}",
+      "ts": "2026-09-09T22:14:35.670310+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 4.897107023960158,
+      "value": 5447761.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (z-score 4.90, ~5.4M USD) sans aucune couverture médiatique correspondante (Google Actualités vide). Divergence classique de accumulation furtive par les baleines loin des radars du grand public.\"\n}\n```",
+      "ts": "2026-09-09T22:14:36.974012+00:00"
     }
   ]
 }
