@@ -52,7 +52,7 @@ open ~/ace777-test-day1/Index_Maison/architecture/tech.html
 | **Cockpit** | `Index_Maison/cockpit/` · `open_cockpit_app.sh` · `:17777` / `:17800` | HTML+JS · bridge · LaunchAgents | WARM ops | zone test → v2 | Read-only + STOP · onglets : graph, stratégie (résumé + offres + exploration), thermo (ADA + voilure), offres (fiches IA), signets, hub · architecture servie `:17800/architecture/` |
 | **Obsidian** | `Documents/Obsidian_ACE777/` via `_sync_now.sh` | Markdown · TCC | COFFRE | human memory | **no hot auto** · Cursor cannot write Documents |
 
-**No single `main.py`.**
+**No single `main.py`.** · **77 LaunchAgents** (audit complet 09/09 : 9 démons KeepAlive + 68 planifiés, 77/77 sources présentes, boucles vérées par fraîcheur réelle — carte complète en `tech.html` §11).
 
 ---
 

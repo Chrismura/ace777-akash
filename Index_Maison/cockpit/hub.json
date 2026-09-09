@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-09T17:13:01.700457+00:00",
+  "generated_at": "2026-09-09T17:13:34.382496+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 214
+      "calls_24h": 216
     },
     {
       "id": "openrouter-free",
@@ -256,10 +256,26 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 156,
-    "remaining": 468
+    "consumed": 158,
+    "remaining": 466
   },
   "queue": [
+    {
+      "ts": "2026-09-09T17:13:25.279241+00:00",
+      "task": "supervise.decision",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 0.95
+    },
+    {
+      "ts": "2026-09-09T17:13:10.812965+00:00",
+      "task": "analyste.strategie",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 12.1
+    },
     {
       "ts": "2026-09-09T17:09:35.483064+00:00",
       "task": "analyste.strategie",
@@ -363,25 +379,21 @@
       "model": "deepseek-ai/DeepSeek-V3-0324",
       "kind": "cloud",
       "duration_s": 16.41
-    },
-    {
-      "ts": "2026-09-09T15:42:57.006515+00:00",
-      "task": "analyste.strategie",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 7.15
-    },
-    {
-      "ts": "2026-09-09T15:38:18.119029+00:00",
-      "task": "analyse.profonde",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 1.1
     }
   ],
   "events": [
+    {
+      "ts": "2026-09-09T17:13:25.278923+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
+    {
+      "ts": "2026-09-09T17:13:10.812684+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
     {
       "ts": "2026-09-09T17:09:35.482716+00:00",
       "kind": "message",
@@ -428,18 +440,6 @@
       "ts": "2026-09-09T16:34:49.088349+00:00",
       "kind": "failover",
       "title": "Bascule depuis OrcaRouter (routeur gratuit, modele orcarouter/free)",
-      "detail": "HTTP Error 400: Bad Request"
-    },
-    {
-      "ts": "2026-09-09T16:34:46.968364+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis HuggingFace (136+ modeles, dont DeepSeek-V4)",
-      "detail": "HTTP Error 400: Bad Request"
-    },
-    {
-      "ts": "2026-09-09T16:34:40.707891+00:00",
-      "kind": "timeout",
-      "title": "Patience HuggingFace (136+ modeles, dont DeepSeek-V4) (HTTP 400)",
       "detail": "HTTP Error 400: Bad Request"
     }
   ],
