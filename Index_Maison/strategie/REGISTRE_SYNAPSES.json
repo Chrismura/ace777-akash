@@ -8,7 +8,7 @@
       "origine": "chantier hulk",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "3839360c9bf53c3d86c363f27c0b191c",
+      "md5": "89908f2ec61d8c39e05db7d58c0b9402",
       "note": "FIX 27/08 : circuits breaker + fraîcheur Cortana + FILTRE LOTS MEXC (lot_filter depuis exchangeInfo, baseSizePrecision/quoteAmountPrecision, arrondi stepSize au buy ET au sell, dust close, fail-open)  | RE-SCELLÉ 2026-09-03T17:22Z (GO Christophe 03/09)",
       "maj": "BATCH PRIX Phase 1 (31/08-01/09, famille 7/7 + codeur) : 1 appel GET global + cache au lieu de 21 GET/cycle (~200-270 req/min → sous la limite MEXC). Mode SELLFULL + mode_entree() du 29-31/08. Aucune logique métier touchée."
     },
@@ -95,7 +95,7 @@
       "origine": "consultation famille pattern institutions 30/08 (GO Christophe)",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "c1ffed99ccbb56cb790d497c329cfd93",
+      "md5": "961dd1de694e39036fd10aef8cfcbcfc",
       "note": "déclaré 2026-08-30 — lit cpfp_detect/bloc_privatise/whales_mouvements existants, écrit veille_institutionnelle_etat.json + alertes",
       "maj": ""
     },
@@ -204,7 +204,7 @@
       "origine": "chantier hulk",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "b4cd717bcb5147eb9b283f603ddcbebc",
+      "md5": "8be9ad1b83bb814620ff4fe1ebd540c4",
       "note": "déclaré manuel 2026-08-28T18:30Z",
       "maj": "30/08 v3 (GO Christophe 14:15Z) : FINI l'observation — PAPER_OBSERVE_PAIRS vidée. QNT/FLUID/RWA/MNSRY seedées (10$ chacune, structure seed_inventory) + lignes SEED_START au CSV + SELL d'annulation du BUY parasite FLUID (09:54Z) pour rejeu exact. 16 positions, plus aucune paire observe. Tableau cockpit = 20 paires tradées. || RE-SCELLÉ 03/09 : Config modifiée session 31/08 12h18 — re-scellée post-audit 03/09 (GO Christophe)."
     },
@@ -280,7 +280,7 @@
       "origine": "chantier 17/08 (demande Christophe : voir les branchements en un coup d'œil)",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "d799a15b2d0b7c71467d4b281093f248",
+      "md5": "d7982d04e40a1c48d0c78540f4f1babc",
       "note": "déclaré 2026-08-27T14:40Z — chaîne HULK étendue : + cortana_analyzer launchd + cortana_pilot.json (fraîcheur 25h) + cortana_analysis.json",
       "maj": "27/08 13:47Z : md5 mis à jour (déclaration légitime) || RE-SCELLÉ 03/09 : Modifié session 01/09 09h09 (chantier ACE/santé index) — re-scellé post-audit 03/09 (GO Christophe)."
     },

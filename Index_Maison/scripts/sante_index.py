@@ -80,10 +80,14 @@ def verifier_aspiration_runtime() -> tuple[bool, str]:
         mtime_ts_ecart = abs(chemin.stat().st_mtime - ts)
     except OSError:
         mtime_ts_ecart = float("inf")
+    # FIX 09/09 (fausse ALERTE observée 15:36Z) : le satellite écrit toutes ~35 s
+    # (mesuré). Le seuil 0.75 min = 45 s ne laissait que 10 s de marge → chaque
+    # micro-ralentissement API déclenchait une fausse ALERTE HULK. Marge = 2× la
+    # cadence réelle → 75 s. Détail conservé pour le diagnostic.
     frais_ok = (
-        0 <= age_ts <= 0.75
+        0 <= age_ts <= 1.25
         and age_mtime is not None
-        and age_mtime <= 0.75
+        and age_mtime <= 1.25
         and mtime_ts_ecart <= 5.0
     )
     paires = data.get("paires")
@@ -104,7 +108,12 @@ def verifier_aspiration_runtime() -> tuple[bool, str]:
     try:
         precedent = json.loads(ASPIRATION_RUNTIME_STATE.read_text(encoding="utf-8"))
         previous_ts = float(precedent.get("last_ts"))
-        monotone_ok = ts > previous_ts
+        # FIX 09/09 (1 214 fausses ALERTE HULK / 16 436 runs = 7,4 %) : deux contrôles
+        # à < ~35 s d'intervalle (cadence d'écriture du satellite) voient le MÊME ts
+        # → l'ancien test strict ts > previous_ts les déclarait « figés » à tort.
+        # ts == previous_ts = pas de nouvelle écriture depuis le dernier contrôle :
+        # acceptable, car un VRAI figage est attrapé par frais_ok (âge > 75 s).
+        monotone_ok = ts >= previous_ts
     except (FileNotFoundError, TypeError, ValueError, json.JSONDecodeError, OSError):
         # Premier contrôle ou état historique illisible : on établit une nouvelle
         # référence seulement si le JSON courant est autrement valide.

@@ -137,12 +137,12 @@
     </tr>
     <tr>
       <td><strong>Cortana</strong></td>
-      <td><code>~/crypto-voice-assistant-core/</code> + Index<br />
+      <td><code>~/crypto-voice-assistant-core/</code> <span class="tag warn">⏸ VEILLE 18/08</span> + bridge cockpit <code>:17777</code><br />
         <code>cortana_thermo.py resume|horaire</code> (hourly)</td>
-      <td>Rust app · Python thermo feed · macOS <code>say</code></td>
+      <td>Rust app (hors circuit) · Python bridge + thermo feed · voix Vivienne (edge-tts)</td>
       <td><span class="tag cold">VOICE</span> · feed <span class="tag warn">WARM</span></td>
-      <td><span class="tag warn">app OK · not orchestrator</span></td>
-      <td>Reads Attention / thermo · hourly résumé + sentiment · must NOT become silent GO</td>
+      <td><span class="tag warn">V2 bridge = canal unique · app Rust en veille (C9)</span></td>
+      <td>Reads Attention / thermo · brief matin + consultations + <code>.urgent_alert.json</code> · must NOT become silent GO</td>
     </tr>
     <tr>
       <td><strong>Punk</strong></td>
@@ -296,6 +296,19 @@
   <h2>1b · CHANGELOG (honest — avoid stale review)</h2>
   <table>
     <tr><th>When</th><th>What landed</th><th>Reviewer note</th></tr>
+    <tr>
+      <td>2026-09-09</td>
+      <td>
+        <strong>Audit source+boucle des 77 agents</strong> (77/77 sources OK) · carte §11 complétée (+28 agents, fantômes vortex marqués OFF) ·
+        Hulk : gates anti-glissement (<code>SLIP_GATE_ON</code>) + mur L2 (<code>WALL_GATE_ON</code>) posés OFF (48 h observation) · <code>hulk_stats.py</code> alimente le contrat Cortana ·
+        <code>sante_index</code> : seuil fraîcheur aspiration 75 s + anti-figage <code>ts ≥ previous</code> (1 214 fausses ALERTE HULK / 7,4 % réparées) ·
+        veilleuse : 4 md5 déclarés au REGISTRE (fausses INTRUSION stoppées) ·
+        gitpush débloqué (L2_*_MURS.csv sorti du suivi, pre-commit ne bloque plus) ·
+        veille-insti : parse ts unix+ISO (S2 vivant après 6 jours aveugles) ·
+        blocs privatisés audit (7/10 : 243 alertes dormantes, artefact 100 %-bloc-plein, coinbase)
+      </td>
+      <td>La précision d'un capteur fait partie de sa santé — un filet qui crie au loup 7 % du temps est ignoré</td>
+    </tr>
     <tr>
       <td>2026-08-12</td>
       <td>
@@ -490,8 +503,8 @@ ANTI-PATTERNS REJECTED: …</pre>
     <p style="margin-top:8px;"><strong>Demande :</strong> évaluer la Δ 12 août avec les yeux neufs, signaler toute contradiction entre cette spec et les fichiers, proposer les 3 corrections GO-sized les plus urgentes.</p>
   </div>
 
-  <h2>11 · CARTE DES 56 AGENTS + LEURS BOUCLES <span class="tag ok">MAJ 23/08</span></h2>
-  <p style="color:var(--muted);font-size:11px;">Scan réel <code>~/Library/LaunchAgents/com.ace777.*.plist</code> · 57 chargés (dont dialogue-gemini 23/08).<br />Boucle : 🔁 [Ns] = toutes les N s · ☀ HH:MM = 1×/jour · 🔴 = démon permanent (KeepAlive + boucle interne).</p>
+  <h2>11 · CARTE DES 77 AGENTS + LEURS BOUCLES <span class="tag ok">MAJ 09/09</span></h2>
+  <p style="color:var(--muted);font-size:11px;">Scan réel <code>~/Library/LaunchAgents/com.ace777.*.plist</code> · 77 chargés (audit complet 09/09 : 77/77 sources présentes · 9 démons KeepAlive · 68 planifiés · boucles vérées par fraîcheur réelle).<br />Boucle : 🔁 [Ns] = toutes les N s · ☀ HH:MM = 1×/jour · 🔴 = démon permanent (KeepAlive + boucle interne). Les 2 plists vortex (96h/72h) sont OFF-20260824 (hors service).</p>
   <table>
     <tr><th>Famille</th><th>Agent (plist)</th><th>Script</th><th>Boucle</th><th>Rôle</th></tr>
     <tr><td rowspan="7"><strong>A · CŒUR</strong><br/>(démons vivants)</td><td><code>prise-ia</code></td><td><code>hub_prise_ia.py</code></td><td>🔴 alive</td><td>LE HUB IA : route toutes les IA, budgets, bascules</td></tr>
@@ -510,6 +523,18 @@ ANTI-PATTERNS REJECTED: …</pre>
     <tr><td><code>hulk-watchdog</code></td><td><code>watchdog_hulk_ghost.sh</code></td><td>🔁 [120 s]</td><td>Gardien du bot HULK (MEXC)</td></tr>
     <tr><td><code>cortana.urgent</code></td><td><code>cortana_urgent_poll.sh</code></td><td>🔁 [10 s]</td><td>Poll alertes urgentes → vocal/feed</td></tr>
     <tr><td><code>hub-cockpit-feed</code></td><td><code>hub_cockpit_feed.py</code></td><td>🔁 [30 s]</td><td>Pousse événements hub → cockpit</td></tr>
+    <tr><td><code>satellite-aspiration</code></td><td><code>hulk-mexc/scripts/satellite_aspiration.py</code></td><td>🔁 [20 s]</td><td>Sonde L2 MEXC (murs bid/ask) → <code>aspiration_live.json</code> (le carburant Hulk) — cadence réelle ~35 s</td></tr>
+    <tr><td><code>verdicteur-micro</code></td><td><code>verdicteur_micro.py</code></td><td>🔁 [15 s]</td><td>Verdict micro-structure + <code>cortana_micro_score.json</code> (consommé par veille-signal)</td></tr>
+    <tr><td><code>ofi-calc</code></td><td><code>ofi_calc.py</code></td><td>🔁 [60 s]</td><td>Order Flow Imbalance → <code>ofi_latest.json</code></td></tr>
+    <tr><td><code>deriv-corr</code></td><td><code>gen_deriv_corr.py</code></td><td>🔁 [900 s]</td><td>Corrélations 30j dérivés + carte liquidité → <code>deriv_corr.json</code></td></tr>
+    <tr><td><code>croisement-externe</code></td><td><code>path_registry.py</code></td><td>🔁 [1800 s]</td><td>Croisement profondeur interne vs externe → <code>croisement_externe.jsonl</code> (25 000+ lignes)</td></tr>
+    <tr><td><code>flux-nets</code></td><td><code>flux_nets_exchanges.py</code></td><td>🔁 [1800 s]</td><td>Flux nets exchanges (agrégation ledger baleines dédup txid) → <code>flux_nets_latest.json</code></td></tr>
+    <tr><td><code>veille-insti</code></td><td><code>veille_outflows_institutionnels.py</code></td><td>🔁 [900 s]</td><td>Signaux institutionnels (S1/S2) — lit blocs privatisés + poussière + flux (FIX 09/09 : parse ts unix+ISO)</td></tr>
+    <tr><td><code>veille-signal</code></td><td><code>veille_signal.py</code></td><td>🔁 [300 s]</td><td>Les sirènes : poussière CPFP · liquidité · baleines → <code>alarme.json</code> + voix (cooldown 2 h)</td></tr>
+    <tr><td><code>sentinel</code></td><td><code>sentinel.py</code></td><td>🔁 [300 s]</td><td>Sentinelle thermo/live + <code>sentinel_signals.json</code></td></tr>
+    <tr><td><code>short-btc</code></td><td><code>hulk-mexc/scripts/short_btc.py</code></td><td>🔁 [300 s]</td><td>Coté short BTC → <code>short_btc_live.json</code> + signaux</td></tr>
+    <tr><td><code>jackson-hole-alarmes</code></td><td><code>alarme_jackson_hole.py</code></td><td>🔁 [600 s]</td><td>Alarmes calendrier macro (Fed/Trésor) → thermo</td></tr>
+    <tr><td><code>observer-murs</code></td><td><code>hulk-mexc/scripts/observer_murs.py</code></td><td>🔁 [1800 s]</td><td>Observation des murs du carnet → <code>murs_observations.json</code> (alimente <code>poussiere_paires.json</code>)</td></tr>
     <tr><td rowspan="12"><strong>C · MÉTA-ÉTAT</strong><br/>santé + garde-fous</td></tr>
     <tr><td><code>sante-index</code></td><td><code>sante_index.py</code></td><td>🔁 [300 s]</td><td><strong>LA SANTÉ GLOBALE</strong> : 9 chaînes → sante_index.json + ALERTE</td></tr>
     <tr><td><code>veille-degradation</code></td><td><code>veille_degradation.py</code></td><td>🔁 [60 s]</td><td><strong>MÉTA-ANALYSE</strong> : plists 14/14 + heartbeats + indicateurs + pattern boucle (fix 23/08)</td></tr>
@@ -521,7 +546,10 @@ ANTI-PATTERNS REJECTED: …</pre>
     <tr><td><code>autopilote</code></td><td><code>autopilote.sh</code></td><td>🔁 [900 s]</td><td>Démarreur ACE777 (relance services manquants)</td></tr>
     <tr><td><code>backup-check</code></td><td><code>backup_light_check.sh</code></td><td>🔁 [1800 s]</td><td>Vérifie les backups / points de restauration</td></tr>
     <tr><td><code>state-generator</code></td><td><code>system_state_generator.py</code></td><td>🔁 [120 s]</td><td>Génère l'état système global (pastilles cockpit)</td></tr>
+    <tr><td><code>thermo-quotidien</code> <span class="tag ok">NEW 09/09</span></td><td><code>path_registry.py --heartbeat</code></td><td>🔁 [300 s]</td><td>Heartbeat du registre de chemins → <code>thermo/live.json</code> (le thermo cockpit)</td></tr>
     <tr><td><code>veille-hub</code></td><td><code>veille_hub.py</code></td><td>☀ 07:00</td><td>Checkup quotidien du hub (providers, budgets)</td></tr>
+    <tr><td><code>superviseur-auto</code> <span class="tag ok">NEW 09/09</span></td><td><code>superviseur_auto.py</code></td><td>🔁 [3600 s]</td><td>Supervision auto horaire → <code>.superviseur_state.json</code></td></tr>
+    <tr><td><code>superviseur</code> <span class="tag ok">NEW 09/09</span></td><td><code>superviseur_auto.py</code></td><td>🔁 [3600 s]</td><td>Alias plist du même script (2 déclencheurs, 1 écriture)</td></tr>
     <tr><td rowspan="14"><strong>D · ANALYSES IA</strong><br/>décision + professeur</td></tr>
     <tr><td><code>sniffer-matin</code></td><td><code>sniffer_vrai.py</code></td><td>☀ 08:00</td><td>Sniff matinal (onchain + F&G)</td></tr>
     <tr><td><code>sniffer-ny</code></td><td><code>sniffer_vrai.py</code></td><td>☀ 15:50</td><td>Sniff après-midi (NY)</td></tr>
@@ -535,7 +563,14 @@ ANTI-PATTERNS REJECTED: …</pre>
     <tr><td><code>queueoffres</code></td><td><code>queue_offres.py</code></td><td>☀ 07:02/08:15/14:00/20:00</td><td>File d'attente des offres IA gratuites</td></tr>
     <tr><td><code>catalogue</code></td><td><code>catalog_providers.py</code></td><td>☀ 10:00</td><td>Génère CATALOGUE_PROVIDERS.md</td></tr>
     <tr><td><code>observatoire</code></td><td><code>observatoire.py</code></td><td>☀ 11:00</td><td>Observation 48 h + rollback auto des IA</td></tr>
-    <tr><td><code>routeur-auto</code></td><td><code>routeur_auto.py</code></td><td>🔁 [6 h]</td><td>Routeur intelligent : meilleur LLM (score)</td></tr>
+    <tr><td><code>routeur-auto</code></td><td><code>routeur_auto.py</code></td><td>🔁 [6 h]</td><td>Routeur intelligent : meilleur LLM (score) · réécrit <code>routing.json</code> SEULEMENT sur changement (≠ contrat fraîcheur state-generator — conflit de contrat connu)</td></tr>
+    <tr><td><code>cortana-analyzer</code> <span class="tag ok">NEW 09/09</span></td><td><code>cortana_analyzer.py</code></td><td>🔁 [300 s]</td><td>Analyse l'état ACE/HULK → <code>cortana_analysis.json</code> (chaîne Hulk↔Cortana)</td></tr>
+    <tr><td><code>cortana-feed</code> <span class="tag ok">NEW 09/09</span></td><td><code>cortana_horaire.sh</code></td><td>🔁 [3600 s]</td><td>Feed horaire Cortana → <code>thermo/cortana_feed.json</code></td></tr>
+    <tr><td><code>cortana-propose-params</code> <span class="tag ok">NEW 09/09</span></td><td><code>hulk-mexc/scripts/cortana_propose_params.py</code></td><td>☀ 07:45</td><td>Contrat Hulk↔Cortana : propositions ADVISORY (enrichi 09/09 : stats hulk_stats.py — PnL régimes, slip stops, familles sorties)</td></tr>
+    <tr><td><code>divergence</code> <span class="tag ok">NEW 09/09</span></td><td><code>hulk-mexc/scripts/journal_divergence.py</code></td><td>🔁 [6 h]</td><td>Journal de divergence (intentions vs résultats)</td></tr>
+    <tr><td><code>cycle-edel</code> <span class="tag ok">NEW 09/09</span></td><td><code>hulk-mexc/scripts/analyse_cycle_edel.py</code></td><td>🔁 [6 h]</td><td>Analyse cycle EDEL (découverte mode_entree)</td></tr>
+    <tr><td><code>suivi-setup-red</code> <span class="tag ok">NEW 09/09</span></td><td><code>hulk-mexc/scripts/suivi_setup_actif.py</code></td><td>☀ 16:35</td><td>Suivi du setup actif du jour</td></tr>
+    <tr><td><code>verif-setup</code> <span class="tag ok">NEW 09/09</span></td><td><code>verifier_setup.py</code></td><td>☀ 12:00</td><td>Vérification du setup en cours</td></tr>
     <tr><td rowspan="7"><strong>E · VEILLE</strong><br/>contenu + projet</td></tr>
     <tr><td><code>veille-yt</code></td><td><code>watch_chaines.py</code></td><td>☀ 09:15 + 18:15</td><td>Veille YouTube (chaines)</td></tr>
     <tr><td><code>veilleuse-chantiers</code></td><td><code>veilleuse_chantiers.py</code></td><td>☀ 09:00</td><td>Veille chantiers/alertes projet</td></tr>
@@ -543,10 +578,16 @@ ANTI-PATTERNS REJECTED: …</pre>
     <tr><td><code>veilleuse-sizing-monte-carlo</code></td><td><code>veilleuse_sizing_monte_carlo.sh</code></td><td>🔁 [6 h]</td><td>Sizing Monte-Carlo (risques)</td></tr>
     <tr><td><code>graph-cerveau</code></td><td><code>rebuild_graph.sh</code></td><td>☀ 11:30</td><td>Reconstruit le graphe du cerveau (Obsidian)</td></tr>
     <tr><td><code>archi-vivante</code></td><td><code>archi_vivante.py</code></td><td>☀ 07:00</td><td>Réactualise l'architecture vivante</td></tr>
+    <tr><td><code>journal-soir</code> <span class="tag ok">NEW 09/09</span></td><td><code>journal_soir_launchd.sh</code></td><td>☀ 20:53</td><td>Journal du soir (récap quotidien)</td></tr>
+    <tr><td><code>obsidian-writer</code> <span class="tag ok">NEW 09/09</span></td><td><code>obsidian_writer.py</code></td><td>🔁 [300 s]</td><td>Écriture automatisée OUTBOX → Obsidian</td></tr>
+    <tr><td><code>presence-paires</code> <span class="tag ok">NEW 09/09</span></td><td><code>veille_presence_paires.py</code></td><td>🔁 [6 h]</td><td>Veille présence des paires (univers)</td></tr>
+    <tr><td><code>veille-essaim-observation</code> <span class="tag ok">NEW 09/09</span></td><td><code>path_registry.py</code></td><td>🔁 [1800 s]</td><td>Veille observation de l'essaim</td></tr>
+    <tr><td><code>signal3-livre-ecorche</code> <span class="tag ok">NEW 09/09</span></td><td><code>path_registry.py</code></td><td>🔁 [1800 s]</td><td>Signal 3 : livre écorché (analyses post-mortem)</td></tr>
+    <tr><td><code>sonde-volume-panier</code> <span class="tag ok">NEW 09/09</span></td><td><code>path_registry.py</code></td><td>🔁 [1800 s]</td><td>Sonde volume du panier</td></tr>
     <tr><td rowspan="4"><strong>F · VORTEX</strong><br/>le moteur (testnet)</td></tr>
     <tr><td><code>run-setupA-4h</code></td><td><code>GO_VORTEX_V2.sh --duration 04:00:00</code></td><td>🔴 alive</td><td>Run 4 h : duo BETA/ALPHA (SCOUT/HUNTER)</td></tr>
-    <tr><td><code>run-vortex-96h</code></td><td><code>GO_VORTEX_V2.sh 96:00:00</code></td><td>🔴 alive</td><td>Run 96 h : moteur long (champion certifié)</td></tr>
-    <tr><td><code>run72h</code></td><td><code>GO_VORTEX_V2.sh 72:00:00</code></td><td>🔴 alive</td><td>Run 72 h : moteur (leçon 6 : verrou md5)</td></tr>
+    <tr><td><code>run-vortex-96h</code></td><td><code>GO_VORTEX_V2.sh 96:00:00</code></td><td>⛔ OFF 24/08</td><td>Run 96 h : moteur long (plists renommées .OFF-20260824)</td></tr>
+    <tr><td><code>run72h</code></td><td><code>GO_VORTEX_V2.sh 72:00:00</code></td><td>⛔ OFF 24/08</td><td>Run 72 h : moteur (leçon 6 : verrou md5) (plists renommées .OFF-20260824)</td></tr>
     <tr><td rowspan="4"><strong>G · SYNC</strong><br/>+ divers</td></tr>
     <tr><td><code>gitpush-vault</code></td><td><code>git_push_vault.sh</code></td><td>🔁 [3 h]</td><td>Commit/push du vault Obsidian</td></tr>
     <tr><td><code>gitpush</code></td><td><code>git_push_auto.sh</code></td><td>🔁 [3 h]</td><td>Push du workspace</td></tr>

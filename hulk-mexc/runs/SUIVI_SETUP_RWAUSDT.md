@@ -15,5 +15,7 @@ Métriques : maison (mur moy/max + régime ; poussière = indicateur PANIER) + p
 | 8 | 2026-09-05T22:40:55Z | 22h | AUTRE | 0.001427 | WATCH | 4.119 | None | None | 1.11e-06 | 0.04 | — | — | neutre (stab 0) | prix 0.001427 · poussière(panier) 4.1% · Amihud 1.11e-06 · delta +0.04 |
 | 9 | 2026-09-06T14:34:54Z | 14h | AUTRE | 0.00139 | WATCH | 36.5283 | None | None | 1.37e-06 | -0.10 | -0.20 | -0.63 | LEADER (stab 2) | prix 0.00139 · poussière(panier) 36.5% · Amihud 1.37e-06 · delta -0.10 |
 | 10 | 2026-09-07T14:34:56Z | 14h | AUTRE | 0.001384 | WATCH | 6.9936 | None | None | 9.70e-07 | -0.18 | 0.80 | 0.27 | neutre (stab 0) | prix 0.001384 · poussière(panier) 7.0% · Amihud 9.70e-07 · delta -0.18 |
+| 11 | 2026-09-08T14:33:46Z | 14h | AUTRE | 0.001383 | WATCH | 10.2273 | None | None | 6.28e-07 | 0.15 | -0.82 | -0.64 | neutre (stab 0) | prix 0.001383 · poussière(panier) 10.2% · Amihud 6.28e-07 · delta +0.15 |
+| 12 | 2026-09-09T14:35:03Z | 14h | AUTRE | 0.001376 | WATCH | 32.6399 | None | None | 6.02e-07 | 0.02 | 0.12 | 0.37 | neutre (stab 0) | prix 0.001376 · poussière(panier) 32.6% · Amihud 6.02e-07 · delta +0.02 |
 
 _Règle : on compare les lignes entre elles (même heure de mesure = comparable). On ne supprime rien._

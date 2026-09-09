@@ -21,6 +21,7 @@ IDENT = WS / "identity" / "prompts" / "cortana.md"
 
 sys.path.insert(0, str(HULK / "scripts"))
 from cortana_contract import BOUNDS, validate_proposals  # noqa: E402
+from hulk_stats import build_stats_block  # noqa: E402
 
 
 def latest_state() -> str:
@@ -43,6 +44,10 @@ def main() -> int:
     except Exception:
         pass
     ident = open(IDENT, encoding="utf-8").read() if IDENT.exists() else ""
+    # 09/09/2026 : Cortana reçoit maintenant les stats MESURÉES (PnL par régime,
+    # glissement des stops par paire, familles de sorties) au lieu de l'état nu.
+    # Fail-open : bloc vide → le prompt part quand même (comportement d'avant).
+    stats_block = build_stats_block(HULK / "runs")
     user = (
         "Tu es le pilote de paramètres de Hulk (paper MEXC spot, dip&rip + bags). "
         f"État Hulk : {latest_state()}. Ton score de justesse : {score:.0%}. Ta discipline F1 : "
@@ -52,8 +57,10 @@ def main() -> int:
         '{"proposals": [{"param": "DIP_FLOOR_MULT", "param_class": "threshold_multiplier", '
         '"value": 0.9, "confidence": "faible|moyenne|haute", "reason": "...", '
         '"expiry": "2026-08-17T00:00:00Z"}]}\n'
-        "Règle : ne propose que si TU as une raison fondée (données Hulk, régimes, cadences) ; "
-        "sinon proposals vides. Tu n'exécutes rien."
+        "Règle : ne propose que si TU as une raison fondée dans les stats ci-dessous "
+        "(régime hémorragique, glissement de stops, famille dominante) ; sinon proposals vides. "
+        "Tu n'exécutes rien.\n"
+        + (f"\nSTATS MESURÉES Hulk (CSV live) :\n{stats_block}\n" if stats_block else "\n(Aucune stat disponible)\n")
     )
     payload = {
         "task": "cortana.analyse",

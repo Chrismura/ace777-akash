@@ -1,7 +1,7 @@
 # ACE777 — Architecture TECH (revue IA)
 
 **Statut :** 🟢 canon technique · twin de `architecture/tech.html`  
-**Date :** 2026-08-12 (Δ 12 août : hub cloud + pont gate + radar + ADA + Cortana V2)  
+**Date :** 2026-09-09 (Δ 09 sept : audit complet des 77 agents + boucles réparées + gates Hulk) · précédentes Δ 12 août, 18 août, 23 août  
 **Public :** IA / expert externe qui doit **évaluer** (pas seulement s'orienter)  
 **Vue humaine :** `architecture/index.html` · [[ARCHITECTURE_AGORA]]
 
@@ -34,7 +34,7 @@ open ~/ace777-test-day1/Index_Maison/architecture/tech.html
 | Component | Path / entry | Stack | Lane | Maturity | Contracts |
 |-----------|--------------|-------|------|----------|-----------|
 | **ACE777** | `~/ace777-test-day1/` · `./GO_USINE_NUAGE.sh [DUR] [TAG]` | Bash + Ruby + HMAC Binance Futures | HOT | lab-prod testnet | `runs/*fills*.csv` · LIVE · STATE · WHY_ARRET · BETA↔ALPHA |
-| **Hulk** | `hulk-mexc/scripts/paper_diprip.py` · `digest_watch.py --live` | Python 3.9 stdlib · MEXC public | HOT paper | early paper | seed **20$ / 2 pairs** · universe **15** · soft RED · veille JSON |
+| **Hulk** | `hulk-mexc/scripts/paper_diprip.py` · `digest_watch.py --live` | Python 3.9 stdlib · MEXC public | HOT paper | paper confirmé (16 j live, +11,58 $) | seed **150 $ / 17 pairs max** · universe **20** · gates WARM : anti-glissement `SLIP_GATE_ON` + mur L2 `WALL_GATE_ON` (OFF, observation 48 h au 09/09) · satellite-aspiration 20 s · contrat Cortana `cortana_pilot.json` ADVISORY (justesse ≥ 60 % = AUTO) |
 | **HUB CLOUD (prise-ia)** | `~/prise-ia/hub_prise_ia.py` · `:11435` | Python stdlib HTTP · routing.json · providers.json | WARM/COLD | prod quotidien | Tâches : `supervise.decision`, `analyste.strategie`, `code.ia`, `cortana.yeux`, `signets.*`, `veille.youtube`, `audit.protocol`… · contexte vivant injecté (6000 car) · compteur budget/jour |
 | **PONT GATE (llm_gate_hub_bridge)** | `Index_Maison/scripts/llm_gate_hub_bridge.py` · `:11439` · LaunchAgent `com.ace777.llm-gate-hub` | Python stdlib · cache 90s (réglable `LLM_GATE_PONT_CACHE_SEC`) | WARM | prod (preuve `llm_wind` 12/08) | Gate trades → hub (grok→gemini) · fail-closed 503 → règles, jamais local · redémarrage auto |
 | **BUFFY (superviseur)** | session chat (Freebuff) · `MEMOIRE_COLLAB.md` · `POINT_REPRISE_DERNIER.md` | IA superviseur / chef d'orchestre | ORCHESTRATION | toutes sessions | Pilote la flotille (codeur · famille · juge) · specs · run tests · valide avant action · **session — renaît à chaque ouverture, mémoires dans le coffre** · jamais dans le hot path |

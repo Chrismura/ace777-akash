@@ -17375,3 +17375,348 @@ Ce fichier sert de table des runs ACE777 pour retrouver vite les tests.
 - Rapport: `RAPPORT_PNL_AUTO_20260908_031358.md`
 - Verdict: `NEGATIF`
 
+
+---
+
+## 2026-09-08 — MASTER_BASE_V8_6_FORTRESS_1H30 (auto)
+
+- Profil: `?` v`?`
+- Tag: `MASTER_BASE_V8_6_FORTRESS_1H30`
+- Période: `` → ``
+- Logs:
+  - `MASTER_BASE_V8_6_FORTRESS_1H30_BETA_X5.csv`
+  - `MASTER_BASE_V8_6_FORTRESS_1H30_ALPHA_X13_BURST13.csv`
+- Paramètres clé:
+  - `BUY_USDT_BETA=200`
+  - `BUY_USDT_ALPHA=800`
+  - `LLM_GATE_ENABLED=TRUE`
+  - `LLM_GATE_FAIL_CLOSED=TRUE`
+- Résultat:
+  - BETA: `+0.0000 USDT` (0 trades)
+  - ALPHA: `+0.0000 USDT` (0 trades)
+  - Total: `+0.0000 USDT`
+- Rapport: `RAPPORT_PNL_AUTO_20260908_142428.md`
+- Verdict: `NEUTRE`
+
+
+---
+
+## 2026-09-08 — MASTER_BASE_V8_6_FORTRESS_1H30 (auto)
+
+- Profil: `?` v`?`
+- Tag: `MASTER_BASE_V8_6_FORTRESS_1H30`
+- Période: `` → ``
+- Logs:
+  - `MASTER_BASE_V8_6_FORTRESS_1H30_BETA_X5.csv`
+  - `MASTER_BASE_V8_6_FORTRESS_1H30_ALPHA_X13_BURST13.csv`
+- Paramètres clé:
+  - `BUY_USDT_BETA=200`
+  - `BUY_USDT_ALPHA=800`
+  - `LLM_GATE_ENABLED=TRUE`
+  - `LLM_GATE_FAIL_CLOSED=TRUE`
+- Résultat:
+  - BETA: `+0.0000 USDT` (0 trades)
+  - ALPHA: `+0.0000 USDT` (0 trades)
+  - Total: `+0.0000 USDT`
+- Rapport: `RAPPORT_PNL_AUTO_20260908_143712.md`
+- Verdict: `NEUTRE`
+
+
+---
+
+## 2026-09-08 — MASTER_BASE_V8_6_FORTRESS_1H30 (auto)
+
+- Profil: `?` v`?`
+- Tag: `MASTER_BASE_V8_6_FORTRESS_1H30`
+- Période: `2026-09-08T14:37:18Z` → `2026-09-08T16:07:14Z`
+- Logs:
+  - `MASTER_BASE_V8_6_FORTRESS_1H30_BETA_X5.csv`
+  - `MASTER_BASE_V8_6_FORTRESS_1H30_ALPHA_X13_BURST13.csv`
+- Paramètres clé:
+  - `BUY_USDT_BETA=200`
+  - `BUY_USDT_ALPHA=800`
+  - `LLM_GATE_ENABLED=TRUE`
+  - `LLM_GATE_FAIL_CLOSED=TRUE`
+- Résultat:
+  - BETA: `-11.9584 USDT` (18 trades)
+  - ALPHA: `-5.6280 USDT` (8 trades)
+  - Total: `-17.5864 USDT`
+- Rapport: `RAPPORT_PNL_AUTO_20260908_160717.md`
+- Verdict: `NEGATIF`
+
+
+---
+
+## 2026-09-08 — MASTER_BASE_V8_6_FORTRESS_1H30 (auto)
+
+- Profil: `?` v`?`
+- Tag: `MASTER_BASE_V8_6_FORTRESS_1H30`
+- Période: `2026-09-08T14:37:18Z` → `2026-09-08T16:07:14Z`
+- Logs:
+  - `MASTER_BASE_V8_6_FORTRESS_1H30_BETA_X5.csv`
+  - `MASTER_BASE_V8_6_FORTRESS_1H30_ALPHA_X13_BURST13.csv`
+- Paramètres clé:
+  - `BUY_USDT_BETA=200`
+  - `BUY_USDT_ALPHA=800`
+  - `LLM_GATE_ENABLED=?`
+  - `LLM_GATE_FAIL_CLOSED=?`
+- Résultat:
+  - BETA: `-11.9584 USDT` (18 trades)
+  - ALPHA: `-5.6280 USDT` (8 trades)
+  - Total: `-17.5864 USDT`
+- Rapport: `RAPPORT_PNL_AUTO_20260908_160717.md`
+- Verdict: `NEGATIF`
+
+
+---
+
+## 2026-09-08 — MASTER_BASE_V8_6_FORTRESS_1H30 (auto)
+
+- Profil: `?` v`?`
+- Tag: `MASTER_BASE_V8_6_FORTRESS_1H30`
+- Période: `` → ``
+- Logs:
+  - `MASTER_BASE_V8_6_FORTRESS_1H30_BETA_X5.csv`
+  - `MASTER_BASE_V8_6_FORTRESS_1H30_ALPHA_X13_BURST13.csv`
+- Paramètres clé:
+  - `BUY_USDT_BETA=200`
+  - `BUY_USDT_ALPHA=800`
+  - `LLM_GATE_ENABLED=TRUE`
+  - `LLM_GATE_FAIL_CLOSED=TRUE`
+- Résultat:
+  - BETA: `+0.0000 USDT` (0 trades)
+  - ALPHA: `+0.0000 USDT` (0 trades)
+  - Total: `+0.0000 USDT`
+- Rapport: `RAPPORT_PNL_AUTO_20260908_182706.md`
+- Verdict: `NEUTRE`
+
+
+---
+
+## 2026-09-08 — MASTER_BASE_V8_6_FORTRESS_1H30 (auto)
+
+- Profil: `?` v`?`
+- Tag: `MASTER_BASE_V8_6_FORTRESS_1H30`
+- Période: `2026-09-08T18:27:13Z` → `2026-09-08T19:09:59Z`
+- Logs:
+  - `MASTER_BASE_V8_6_FORTRESS_1H30_BETA_X5.csv`
+  - `MASTER_BASE_V8_6_FORTRESS_1H30_ALPHA_X13_BURST13.csv`
+- Paramètres clé:
+  - `BUY_USDT_BETA=200`
+  - `BUY_USDT_ALPHA=800`
+  - `LLM_GATE_ENABLED=TRUE`
+  - `LLM_GATE_FAIL_CLOSED=TRUE`
+- Résultat:
+  - BETA: `-2.6223 USDT` (11 trades)
+  - ALPHA: `-6.8596 USDT` (4 trades)
+  - Total: `-9.4819 USDT`
+- Rapport: `RAPPORT_PNL_AUTO_20260908_191001.md`
+- Verdict: `NEGATIF`
+
+
+---
+
+## 2026-09-08 — MASTER_BASE_V8_6_FORTRESS_1H30 (auto)
+
+- Profil: `?` v`?`
+- Tag: `MASTER_BASE_V8_6_FORTRESS_1H30`
+- Période: `2026-09-08T18:27:13Z` → `2026-09-08T19:09:59Z`
+- Logs:
+  - `MASTER_BASE_V8_6_FORTRESS_1H30_BETA_X5.csv`
+  - `MASTER_BASE_V8_6_FORTRESS_1H30_ALPHA_X13_BURST13.csv`
+- Paramètres clé:
+  - `BUY_USDT_BETA=200`
+  - `BUY_USDT_ALPHA=800`
+  - `LLM_GATE_ENABLED=?`
+  - `LLM_GATE_FAIL_CLOSED=?`
+- Résultat:
+  - BETA: `-2.6223 USDT` (11 trades)
+  - ALPHA: `-6.8596 USDT` (4 trades)
+  - Total: `-9.4819 USDT`
+- Rapport: `RAPPORT_PNL_AUTO_20260908_191001.md`
+- Verdict: `NEGATIF`
+
+
+---
+
+## 2026-09-08 — MASTER_BASE_V8_6_FORTRESS_8H20 (auto)
+
+- Profil: `?` v`?`
+- Tag: `MASTER_BASE_V8_6_FORTRESS_8H20`
+- Période: `` → ``
+- Logs:
+  - `MASTER_BASE_V8_6_FORTRESS_8H20_BETA_X5.csv`
+  - `MASTER_BASE_V8_6_FORTRESS_8H20_ALPHA_X13_BURST13.csv`
+- Paramètres clé:
+  - `BUY_USDT_BETA=200`
+  - `BUY_USDT_ALPHA=800`
+  - `LLM_GATE_ENABLED=TRUE`
+  - `LLM_GATE_FAIL_CLOSED=TRUE`
+- Résultat:
+  - BETA: `+0.0000 USDT` (0 trades)
+  - ALPHA: `+0.0000 USDT` (0 trades)
+  - Total: `+0.0000 USDT`
+- Rapport: `RAPPORT_PNL_AUTO_20260908_210935.md`
+- Verdict: `NEUTRE`
+
+
+---
+
+## 2026-09-09 — MASTER_BASE_V8_6_FORTRESS_8H20 (auto)
+
+- Profil: `?` v`?`
+- Tag: `MASTER_BASE_V8_6_FORTRESS_8H20`
+- Période: `2026-09-08T21:09:39Z` → `2026-09-09T02:24:09Z`
+- Logs:
+  - `MASTER_BASE_V8_6_FORTRESS_8H20_BETA_X5.csv`
+  - `MASTER_BASE_V8_6_FORTRESS_8H20_ALPHA_X13_BURST13.csv`
+- Paramètres clé:
+  - `BUY_USDT_BETA=200`
+  - `BUY_USDT_ALPHA=800`
+  - `LLM_GATE_ENABLED=TRUE`
+  - `LLM_GATE_FAIL_CLOSED=TRUE`
+- Résultat:
+  - BETA: `-28.4715 USDT` (71 trades)
+  - ALPHA: `-18.0631 USDT` (14 trades)
+  - Total: `-46.5347 USDT`
+- Rapport: `RAPPORT_PNL_AUTO_20260909_022410.md`
+- Verdict: `NEGATIF`
+
+
+---
+
+## 2026-09-09 — MASTER_BASE_V8_6_FORTRESS_8H20 (auto)
+
+- Profil: `?` v`?`
+- Tag: `MASTER_BASE_V8_6_FORTRESS_8H20`
+- Période: `2026-09-08T21:09:39Z` → `2026-09-09T02:24:09Z`
+- Logs:
+  - `MASTER_BASE_V8_6_FORTRESS_8H20_BETA_X5.csv`
+  - `MASTER_BASE_V8_6_FORTRESS_8H20_ALPHA_X13_BURST13.csv`
+- Paramètres clé:
+  - `BUY_USDT_BETA=200`
+  - `BUY_USDT_ALPHA=800`
+  - `LLM_GATE_ENABLED=?`
+  - `LLM_GATE_FAIL_CLOSED=?`
+- Résultat:
+  - BETA: `-28.4715 USDT` (71 trades)
+  - ALPHA: `-18.0631 USDT` (14 trades)
+  - Total: `-46.5347 USDT`
+- Rapport: `RAPPORT_PNL_AUTO_20260909_022410.md`
+- Verdict: `NEGATIF`
+
+
+---
+
+## 2026-09-09 — MASTER_BASE_V8_6_FORTRESS_0H00 (auto)
+
+- Profil: `?` v`?`
+- Tag: `MASTER_BASE_V8_6_FORTRESS_0H00`
+- Période: `` → ``
+- Logs:
+  - `MASTER_BASE_V8_6_FORTRESS_0H00_BETA_X5.csv`
+  - `MASTER_BASE_V8_6_FORTRESS_0H00_ALPHA_X13_BURST13.csv`
+- Paramètres clé:
+  - `BUY_USDT_BETA=200`
+  - `BUY_USDT_ALPHA=800`
+  - `LLM_GATE_ENABLED=TRUE`
+  - `LLM_GATE_FAIL_CLOSED=TRUE`
+- Résultat:
+  - BETA: `+0.0000 USDT` (0 trades)
+  - ALPHA: `+0.0000 USDT` (0 trades)
+  - Total: `+0.0000 USDT`
+- Rapport: `RAPPORT_PNL_AUTO_20260909_083827.md`
+- Verdict: `NEUTRE`
+
+
+---
+
+## 2026-09-09 — MASTER_BASE_V8_6_FORTRESS_0H00 (auto)
+
+- Profil: `?` v`?`
+- Tag: `MASTER_BASE_V8_6_FORTRESS_0H00`
+- Période: `2026-09-09T08:38:34Z` → `2026-09-09T08:38:34Z`
+- Logs:
+  - `MASTER_BASE_V8_6_FORTRESS_0H00_BETA_X5.csv`
+  - `MASTER_BASE_V8_6_FORTRESS_0H00_ALPHA_X13_BURST13.csv`
+- Paramètres clé:
+  - `BUY_USDT_BETA=200`
+  - `BUY_USDT_ALPHA=800`
+  - `LLM_GATE_ENABLED=TRUE`
+  - `LLM_GATE_FAIL_CLOSED=TRUE`
+- Résultat:
+  - BETA: `+0.0000 USDT` (0 trades)
+  - ALPHA: `+0.0000 USDT` (0 trades)
+  - Total: `+0.0000 USDT`
+- Rapport: `RAPPORT_PNL_AUTO_20260909_083836.md`
+- Verdict: `NEUTRE`
+
+
+---
+
+## 2026-09-09 — MASTER_BASE_V8_6_FORTRESS_0H00 (auto)
+
+- Profil: `?` v`?`
+- Tag: `MASTER_BASE_V8_6_FORTRESS_0H00`
+- Période: `2026-09-09T08:38:34Z` → `2026-09-09T08:38:34Z`
+- Logs:
+  - `MASTER_BASE_V8_6_FORTRESS_0H00_BETA_X5.csv`
+  - `MASTER_BASE_V8_6_FORTRESS_0H00_ALPHA_X13_BURST13.csv`
+- Paramètres clé:
+  - `BUY_USDT_BETA=200`
+  - `BUY_USDT_ALPHA=800`
+  - `LLM_GATE_ENABLED=?`
+  - `LLM_GATE_FAIL_CLOSED=?`
+- Résultat:
+  - BETA: `+0.0000 USDT` (0 trades)
+  - ALPHA: `+0.0000 USDT` (0 trades)
+  - Total: `+0.0000 USDT`
+- Rapport: `RAPPORT_PNL_AUTO_20260909_083836.md`
+- Verdict: `NEUTRE`
+
+
+---
+
+## 2026-09-09 — MASTER_BASE_V8_6_FORTRESS_8H20 (auto)
+
+- Profil: `?` v`?`
+- Tag: `MASTER_BASE_V8_6_FORTRESS_8H20`
+- Période: `` → ``
+- Logs:
+  - `MASTER_BASE_V8_6_FORTRESS_8H20_BETA_X5.csv`
+  - `MASTER_BASE_V8_6_FORTRESS_8H20_ALPHA_X13_BURST13.csv`
+- Paramètres clé:
+  - `BUY_USDT_BETA=200`
+  - `BUY_USDT_ALPHA=800`
+  - `LLM_GATE_ENABLED=TRUE`
+  - `LLM_GATE_FAIL_CLOSED=TRUE`
+- Résultat:
+  - BETA: `+0.0000 USDT` (0 trades)
+  - ALPHA: `+0.0000 USDT` (0 trades)
+  - Total: `+0.0000 USDT`
+- Rapport: `RAPPORT_PNL_AUTO_20260909_084043.md`
+- Verdict: `NEUTRE`
+
+
+---
+
+## 2026-09-09 — MASTER_BASE_V8_6_FORTRESS_8H20 (auto)
+
+- Profil: `?` v`?`
+- Tag: `MASTER_BASE_V8_6_FORTRESS_8H20`
+- Période: `` → ``
+- Logs:
+  - `MASTER_BASE_V8_6_FORTRESS_8H20_BETA_X5.csv`
+  - `MASTER_BASE_V8_6_FORTRESS_8H20_ALPHA_X13_BURST13.csv`
+- Paramètres clé:
+  - `BUY_USDT_BETA=200`
+  - `BUY_USDT_ALPHA=800`
+  - `LLM_GATE_ENABLED=TRUE`
+  - `LLM_GATE_FAIL_CLOSED=TRUE`
+- Résultat:
+  - BETA: `+0.0000 USDT` (0 trades)
+  - ALPHA: `+0.0000 USDT` (0 trades)
+  - Total: `+0.0000 USDT`
+- Rapport: `RAPPORT_PNL_AUTO_20260909_085912.md`
+- Verdict: `NEUTRE`
+

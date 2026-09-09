@@ -35,6 +35,8 @@ from ace_sense_mexc import aspiration_sense, book_sense, entry_gate, tension_sco
 from veille_gates import entry_gate_check, record_stop, veille_stale  # noqa: E402
 from cortana_contract import process_pilot  # noqa: E402
 from circuit_breaker import TradeCircuitBreaker, CircuitOpenException  # noqa: E402
+import re as _re_mod
+_STOP_SLIP_RE = _re_mod.compile(r"stop-([\d.]+)%")  # nominal dans la raison (gate anti-glissement 09/09)
 
 ROOT = Path(__file__).resolve().parents[1]
 CFG = ROOT / "config" / "defaults.env"
@@ -582,8 +584,25 @@ class PaperBot:
         self.reentry_on = cfg.get("REENTRY_ON", "1").strip() not in ("0", "false", "False")
         self.reentry_dd = float(cfg.get("REENTRY_DD_PCT", "6"))
         self.reentry_ttl = float(cfg.get("REENTRY_TTL_SEC", "7200"))
+        # GATE MURS L2 (09/09, audit edge HULK) : mur vivant minuscule = exécution
+        # glissée garantie. Voir bloc __init__. OFF par défaut (obs 48h).
+        self.wall_gate_on = cfg.get("WALL_GATE_ON", "0").strip() not in ("0", "false", "False")
+        self.wall_gate_min_wall = float(cfg.get("WALL_GATE_MIN_WALL_USDT", "800"))
+        self.wall_gate_rel_min = float(cfg.get("WALL_GATE_REL_MIN", "0.10"))
+        self.wall_stale_sec = float(cfg.get("WALL_STALE_SEC", "120"))
         # v1.5 gates
         self.stop_cooldown_h = float(cfg.get("STOP_COOLDOWN_HOURS", "2"))
+        # === GATE ANTI-GLISSEMENT (09/09/2026, audit edge HULK — GO Christophe) ===
+        # 16 jours de CSV : les stops glissent STRUCTURELLEMENT (RIZE +3.1pp, RWAINC +1.2pp
+        # en moyenne au-delà du nominal — 12/19 stops glissés). On MÈSE le glissement par
+        # paire et on réduit la taille des ré-entrées sur les paires qui font traverser
+        # leurs stops. OFF par défaut dans defaults.env (obs 48h), fail-open sans données.
+        self.slip_gate_on = cfg.get("SLIP_GATE_ON", "0").strip() not in ("0", "false", "False")
+        self.slip_gate_min_stops = max(1, int(float(cfg.get("SLIP_GATE_MIN_STOPS", "3"))))
+        self.slip_gate_slip_pp = float(cfg.get("SLIP_GATE_SLIP_PP", "1.0"))
+        self.slip_gate_mult = float(cfg.get("SLIP_GATE_MULT", "0.5"))
+        # pair -> [n_stops, somme_glissement_pp] (mémoire de vie du process ; resume re-mèse seul)
+        self.slip_stats: dict[str, list[float]] = {}
         self.veille_skip_red = cfg.get("VEILLE_SKIP_RED_ON", "1").strip() not in (
             "0",
             "false",
@@ -1031,6 +1050,21 @@ class PaperBot:
             return 1.0
         else:
             return 0.6
+
+    def slip_mult(self, pair: str) -> float:
+        """GATE ANTI-GLISSEMENT (09/09, audit edge HULK) : multiplicateur de taille
+        basé sur le glissement MESURÉ des stops de la paire (nominal → réalisé).
+        Une paire dont les stops traversent régulièrement (moyenne > SLIP_GATE_SLIP_PP
+        sur >= SLIP_GATE_MIN_STOPS stops) voit ses ré-entrées réduites (×0.5 défaut).
+        Fail-open : pas assez de stops → ×1.0. OFF via SLIP_GATE_ON=0 (obs 48h)."""
+        if not self.slip_gate_on:
+            return 1.0
+        s = self.slip_stats.get(pair)
+        if not s or s[0] < self.slip_gate_min_stops:
+            return 1.0
+        if (s[1] / s[0]) > self.slip_gate_slip_pp:
+            return self.slip_gate_mult
+        return 1.0
 
     def check_wall_melt(self, pair: str):
         """Détection post-choc : si BTC a chuté >$150 et que le mur bid fond >20% →
@@ -1779,6 +1813,12 @@ class PaperBot:
         # TAILLE ADAPTATIVE MURS (25/08, GO Christophe) : mur solide → ×1.2, mur fragile → ×0.6
         if notion is None:  # pas de cash_redeploy (déjà calibré)
             trade_n = trade_n * self.wall_mult(pair)
+        # GATE ANTI-GLISSEMENT (09/09, audit edge HULK) : la paire fait traverser ses
+        # stops → on réduit la mise (×0.5 défaut), jamais au-delà du premier gate.
+        _sm = self.slip_mult(pair)
+        if _sm < 1.0:
+            say("warn", f"[{utc_now()}] SLIPGATE | {pair} | mise ×{_sm:.2f} (stops glissants, cf. SLIP logs)")
+            trade_n = trade_n * _sm
         # PLAFOND PAR PROFONDEUR DE MUR (27/08, GO Christophe) : jamais plus de X%
         # du mur médian de la paire — EDEL 909$ ne peut pas absorber 20$ sans
         # slippage, XRP 84k$ oui. Chaque crypto a SA capacité (profil).
@@ -1789,6 +1829,33 @@ class PaperBot:
             if cap > 0 and trade_n > cap:
                 say("heart", f"[{utc_now()}] {pair} mise {trade_n:.2f}$ → plafonnée {cap:.2f}$ (mur médian {med:,.0f}$)")
                 trade_n = cap
+        # GATE MURS L2 (09/09, audit edge HULK — GO Christophe) : avant de payer le
+        # spread, on regarde GRATUITEMENT le carnet L2 que la maison mesure déjà
+        # (aspiration_live.json, satellite). Mur bid vivant < seuil OU évanescence
+        # > seuil → skip. Si le mur s'évapore, le stop glissera (leçon RIZE/RWAINC :
+        # +3.1pp/+1.2pp de glissement moyen, 16 jours). Fail-open : données absentes/
+        # vieilles (> WALL_STALE_SEC) → on ne bloque pas. OFF par défaut (obs 48h).
+        if self.wall_gate_on and notion is None:
+            l2 = self.aspiration.get(pair) or {}
+            wb = float(l2.get("wall_bid_usdt") or 0)
+            if wb <= 0:
+                sats = (RUNS / "aspiration_live.json")
+                try:
+                    sd = json.loads(sats.read_text(encoding="utf-8"))
+                    if (time.time() - float(sd.get("ts") or 0)) <= self.wall_stale_sec:
+                        wb = float(((sd.get("paires") or {}).get(pair) or {}).get("wall_bid_usdt") or 0)
+                except Exception:
+                    wb = 0.0
+            prof = self.profils.get(pair) or {}
+            rel_ok = True
+            med_w = prof.get("mur_bid_med")
+            if med_w and med_w > 0:
+                rel_ok = wb >= self.wall_gate_rel_min * med_w  # relatif à SA médiane
+            if wb > 0 and (wb < self.wall_gate_min_wall or not rel_ok):
+                why = f"mur {wb:,.0f}$ < {self.wall_gate_min_wall:,.0f}$" if wb < self.wall_gate_min_wall else f"mur {wb:,.0f}$ < {self.wall_gate_rel_min:.0%} de sa médiane ({med_w:,.0f}$)"
+                say("warn", f"[{utc_now()}] BUY skip {pair} WALLGATE: {why}")
+                self.log(pair, "SKIP", regime, price, price, 0.0, 0.0, sc.get("cadence_pct"), f"WALLGATE:{wb:.0f}USD")
+                return
         if trade_n < 1.0:
             return
         # famille 16/08 : garde spread au buy (même tier A) — paires mal classées (ex. QAIT 327 bps)
@@ -1912,6 +1979,20 @@ class PaperBot:
                 "warn",
                 f"[{utc_now()}] STOP_CACHE | {pair} | cooldown={self.stop_cooldown_h:.0f}h",
             )
+        # GATE ANTI-GLISSEMENT (09/09) : mèse le glissement nominal → réalisé de CHAQUE
+        # stop (la raison porte le nominal `stop-X%`, le PnL/nomnionnel donne le réalisé).
+        m_slip = _STOP_SLIP_RE.search(str(reason))
+        if event == "SELL" and m_slip and full_qty > 0:
+            real_pct = abs(pnl) / (price * sell_qty) * 100.0
+            slip_pp = real_pct - float(m_slip.group(1))
+            s = self.slip_stats.setdefault(pair, [0.0, 0.0])
+            s[0] += 1
+            s[1] += slip_pp
+            if slip_pp > 0.5:
+                say(
+                    "warn",
+                    f"[{utc_now()}] SLIP | {pair} | stop nominal -{m_slip.group(1)}% réalisé -{real_pct:.1f}% (glisse +{slip_pp:.1f}pp) | moy={s[1]/s[0]:+.1f}pp sur {int(s[0])} stops",
+                )
         left = full_qty - sell_qty
         high = float(p.get("high") or price)
         if left <= full_qty * 0.001:

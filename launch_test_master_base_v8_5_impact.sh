@@ -11,6 +11,20 @@ else
   cd "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 fi
 
+# ============================================================
+# PATCH ANTI-2022 (09/09) : fichier moteur surchargeable.
+# Defaut = genesis_manifest.txt (comportement historique, scellé 14bcf868).
+# Pour tourner sur la copie patchée anti-2022 (md5 090dc9d8) :
+#   ENGINE_FILE=ACE777_CHAMPION_ANTI2022.sh ./launch_test_master_base_v8_6_fortress.sh
+# Le preflight continue de vérifier l'intégrité du scellé ; le md5 du
+# moteur RÉELLEMENT exécuté est consigné dans le sidecar de session.
+# ============================================================
+ENGINE_FILE="${ENGINE_FILE:-genesis_manifest.txt}"
+if [ ! -f "$ENGINE_FILE" ]; then
+  echo "PREFLIGHT_ERR: ENGINE_FILE introuvable: $ENGINE_FILE"
+  exit 1
+fi
+
 _binance_mode="${BINANCE_MODE:-testnet}"
 if [ "$_binance_mode" != "testnet" ]; then
   echo "PREFLIGHT_ERR: this clean launcher only permits BINANCE_MODE=testnet"
@@ -84,7 +98,8 @@ echo "Pour arrêter: kill -9 -$$  (ou ./stop_ace777.sh)"
 
 start_utc="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
 # Métadonnées sidecar : écriture atomique, aucune donnée secrète.
-champion_md5="$(md5 -q genesis_manifest.txt 2>/dev/null || printf 'unknown')"
+champion_md5="$(md5 -q "$ENGINE_FILE" 2>/dev/null || printf 'unknown')"
+echo "INFO_MOTEUR: ENGINE_FILE=$ENGINE_FILE md5=$(md5 -q "$ENGINE_FILE" 2>/dev/null || printf 'unknown')"
 ruby -rjson -e '
   path, run_id, tag, start, planned, config, version, md5 = ARGV
   meta = {
@@ -211,7 +226,7 @@ trap 'printf "%s\n" "$BASH_COMMAND" >&9' DEBUG
 trap 'rc=$?; trap - DEBUG; _last="$(tail -n 3 "$_TRACE_FILE" 2>/dev/null | head -n 1)"; printf "[EXIT_DUMP] %s rc=%s last=[%s] unit=%s\n" "$(date -u +%FT%TZ)" "$rc" "${_last:-N/A}" "${ACE777_UNIT:-?}" >> "$_DUMP_FILE" 2>/dev/null || true' EXIT
 ACE777_INST
 )
-  { printf '%s\n' "$_inst_prefix"; tail -n +85 ./genesis_manifest.txt; } | bash -s 2>&1 | while IFS= read -r line; do
+  { printf '%s\n' "$_inst_prefix"; tail -n +85 "./$ENGINE_FILE"; } | bash -s 2>&1 | while IFS= read -r line; do
     formatted="[${unit}] ${line}"
     printf '%s\n' "$formatted"
     printf '%s\n' "$formatted" >> "$live_log"
@@ -307,17 +322,22 @@ launch_alpha() {
   echo "$PID_ALPHA" > "${RUN_DIR}/alpha.pid"
 }
 
-launch_beta
-sleep 2
+# ACE_BCAPTEUR (09/09) : BETA désactivable sans toucher au moteur (scellé 14bcf868).
+# ACE_BETA_MODE="capteur" → BETA ne tourne pas ; le superviseur L2 (gratuit) mesure les murs à sa place.
+if [ "${ACE_BETA_MODE:-actif}" = "capteur" ]; then
+  echo "BETA en mode CAPTEUR (désactivé) — mesure L2 gratuite, zéro péage."
+  PID_BETA=""
+else
+  launch_beta
+  sleep 2
+fi
 launch_alpha
-
-echo "Duo en marche. Logs: ${LOG_BETA} | ${LOG_ALPHA}"
 
 export STATE_TAG="$tag"
 export STATE_PHASE="running"
 ./scripts/update_state_md.sh 2>/dev/null || true
 
-wait "$PID_BETA" 2>/dev/null || true
+[ -n "${PID_BETA:-}" ] && wait "$PID_BETA" 2>/dev/null || true
 wait "$PID_ALPHA" 2>/dev/null || true
 
 echo "Mission terminée."
@@ -336,10 +356,17 @@ if [ -f "$beta_csv" ] && [ -f "$alpha_csv" ]; then
   total_pnl="$(awk -v b="$beta_pnl" -v a="$alpha_pnl" 'BEGIN {printf "%.4f", b+0+a+0}')"
   beta_count="$(awk -F',' 'NR>1 && $4=="FILLED" {c++} END {print c+0}' "$beta_csv")"
   alpha_count="$(awk -F',' 'NR>1 && $4=="FILLED" {c++} END {print c+0}' "$alpha_csv")"
+  if [ "${ACE_BETA_MODE:-actif}" = "capteur" ]; then
+    echo
+    echo "=== RAPPORT PNL 2 PARTIES (BETA capteur) ==="
+    echo "Partie 2 ALPHA: $alpha_count trades | pnl=$alpha_pnl USDT"
+    echo "============================="
+  else
   echo
   echo "=== RAPPORT PNL 3 PARTIES ==="
   echo "Partie 1 BETA:  $beta_count trades | pnl=$beta_pnl USDT"
   echo "Partie 2 ALPHA: $alpha_count trades | pnl=$alpha_pnl USDT"
   echo "Partie 3 TOTAL: pnl=$total_pnl USDT"
   echo "============================="
+  fi
 fi

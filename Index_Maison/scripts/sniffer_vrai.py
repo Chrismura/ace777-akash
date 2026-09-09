@@ -28,8 +28,26 @@ from recherche_web import chercher_coin, donnees_coin, chercher_web, normaliser
 INDEX = Path.home() / "ace777-test-day1" / "Index_Maison"
 DIVERGENCE = INDEX / "identity" / "prompts" / "divergence.json"
 LIVE = INDEX / "thermo" / "live.json"
+FLUX_NETS = INDEX / "data" / "flux_nets_latest.json"
 DERIV_CORR = INDEX / "data" / "deriv_corr.json"
 HUB = "http://127.0.0.1:11435/v1/chat/completions"
+
+
+def brut_flux_nets():
+    """Flux nets exchanges (08/09) : verdict accum/distribution, donne manquante des SNIFF précédents."""
+    try:
+        d = json.loads(FLUX_NETS.read_text(encoding="utf-8"))
+        w = d.get("fenetre_48h", {})
+        return {"verdict": d.get("verdict"),
+                "detail": d.get("detail_verdict"),
+                "net_48h_btc": w.get("net_btc"),
+                "sortant_btc": w.get("btc_sortant"),
+                "entrant_btc": w.get("btc_entrant"),
+                "net_7j_prec_btc": (d.get("fenetre_7j_precedente") or {}).get("net_btc"),
+                "ts": d.get("ts"),
+                "biais": d.get("biais")}
+    except Exception as e:
+        return {"erreur": str(e)}
 
 
 def brut_onchain():
@@ -225,7 +243,8 @@ def main():
 
     print(f"[sniffer] brut marché + onchain poussière pour « {q} »…", flush=True)
     coin = donnees_coin(chercher_coin(q))
-    brut = {"marche": brut_marche(q), "source_native": brut_chaine(q)}
+    brut = {"marche": brut_marche(q), "source_native": brut_chaine(q),
+            "flux_nets_exchanges": brut_flux_nets()}
     nar = narratif(q, coin)
     brut_txt = json.dumps(brut, ensure_ascii=False, indent=1)
     nar_txt = json.dumps(nar, ensure_ascii=False, indent=1)

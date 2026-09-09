@@ -43,7 +43,7 @@ COOLDOWN = {
     "dual": int(os.environ.get("CORTANA_CD_DUAL", "60")),
     "whale": int(os.environ.get("CORTANA_CD_WHALE", "120")),
     "move": int(os.environ.get("CORTANA_CD_MOVE", "180")),
-    "trend": int(os.environ.get("CORTANA_CD_TREND", "300")),
+    "trend": int(os.environ.get("CORTANA_CD_TREND", "3600")),  # 2026-09-08 fix spam : 300s = jusqu'à 12 alertes/h en flip-flop (23/jour constaté en sept) → 3600s (1h), surchargeable par env
     "tweet": int(os.environ.get("CORTANA_CD_TWEET", "60")),
 }
 

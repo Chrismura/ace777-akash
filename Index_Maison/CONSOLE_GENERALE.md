@@ -1,14 +1,14 @@
 # Console générale — clin d’œil
 
-Auto-refresh : 2026-09-07 18:53 UTC · jour local **2026-09-07**
+Auto-refresh : 2026-09-09 07:12 UTC · jour local **2026-09-09**
 
 ## Feu tricolore
 
 | Jambe | État | Détail |
 |-------|------|--------|
-| **ACE** | 🔴 STOP | Dernier tag `ACE_RADAR_ALIGNED_V4_60M` · combo ≈ **-9.12 $** |
-| **Hulk paper** | 🟢 RUN | pnl_total ≈ **10.9676** · pos **12** |
-| **Hulk digest** | 🟢 RUN | mtime 2026-09-07T18:52Z |
+| **ACE** | 🔴 STOP | Dernier tag `MASTER_BASE_V8_6_FORTRESS_8H20` · combo ≈ **+0.90 $** |
+| **Hulk paper** | 🟢 RUN | pnl_total ≈ **—** · pos **—** |
+| **Hulk digest** | 🟢 RUN | mtime 2026-09-09T03:49Z |
 | **Punk** | 🔴 STOP | — · idle |
 | **Ollama** | 🟢 RUN | |
 | **Obsidian** | 🟢 | vault `Obsidian_ACE777` |
@@ -17,6 +17,9 @@ Auto-refresh : 2026-09-07 18:53 UTC · jour local **2026-09-07**
 
 | Run | Alpha | Beta | Combo |
 |-----|-------|------|-------|
+| `MASTER_BASE_V8_6_FORTRESS_8H20` | -1.78 (n=11) | +2.68 (n=64) | **+0.90** |
+| `MASTER_BASE_V8_6_FORTRESS_1H30` | -3.06 (n=18) | +2.86 (n=42) | **-0.20** |
+| `MASTER_BASE_V8_6_FORTRESS_6H00` | -1.25 (n=15) | +0.27 (n=43) | **-0.98** |
 | `ACE_RADAR_ALIGNED_V4_60M` | -3.31 (n=5) | -5.81 (n=9) | **-9.12** |
 | `ACE_RADAR_ALIGNED_V3_15M` | -0.65 (n=3) | +0.17 (n=6) | **-0.47** |
 | `ACE_RADAR_ALIGNED_V2_15M` | +0.00 (n=0) | +0.00 (n=0) | **+0.00** |
@@ -69,8 +72,8 @@ Auto-refresh : 2026-09-07 18:53 UTC · jour local **2026-09-07**
 | `TEST_DUO_HARMONIC_5813_30M_V63` | +0.00 (n=0) | -0.42 (n=45) | **-0.42** |
 
 ## Hulk
-- Events : {'BUY': 47, 'SELL_PARTIAL': 32, 'SELL': 34, 'SKIP': 39363, 'BAG_ARM': 1, 'BAG_CRASH': 1, 'BAG_SELL': 1}
-- Pairs ouvertes (state) : ZBCNUSDT, CCUSDT, TELUSDT, QNTUSDT, RWAUSDT, MNSRYUSDT, ETHUSDT, WUSDT, RWAINCUSDT, XRPUSDT, PYTHUSDT, BIOUSDT
+- Events : —
+- Pairs ouvertes (state) : —
 
 ## Liens
-[[PLAN_DE_VOL]] · [[AUTO_PROCESSUS]] · [[AGORA]] · [[Cahier/Journal_2026-09-07]] · [[OSSATURE]]
+[[PLAN_DE_VOL]] · [[AUTO_PROCESSUS]] · [[AGORA]] · [[Cahier/Journal_2026-09-09]] · [[OSSATURE]]

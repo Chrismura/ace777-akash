@@ -109,7 +109,9 @@ def derniere_paires():
 def gex_local():
     """Lit la GEX wall depuis thermo/live.json (fichier local, pas réseau)."""
     try:
-        live = json.loads((ROOT / "Index_Maison" / "thermo" / "live.json").read_text())
+        # 2026-09-08 fix GEX path : ROOT pointe hulk-mexc/ mais Index_Maison vit à la racine ace777-test-day1/ (parents[2]) — le gex était ok:false depuis toujours
+        _thermo_live = ROOT.parent / "Index_Maison" / "thermo" / "live.json"
+        live = json.loads(_thermo_live.read_text())
         gex = live.get("gex") or {}
         return {"ok": bool(gex.get("ok")),
                 "callWall": float(gex.get("callWall") or 0),

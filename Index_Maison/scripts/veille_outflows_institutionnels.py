@@ -131,7 +131,15 @@ def age_min(chemin: Path):
 
 
 def lire_jsonl(chemin: Path, heures=72):
-    """Retourne les événements récents d'un jsonl (append-only)."""
+    """Retourne les événements récents d'un jsonl (append-only).
+
+    FIX 09/09 (audit profond filet blocs privatisés, GO Christophe) : le champ `ts`
+    de bloc_privatise_hist.jsonl est un INT UNIX (pas un ISO) → fromisoformat
+    levait sur CHAQUE ligne → S2 voyait 0/0 blocs depuis sa création et ne
+    pouvait JAMAIS déclencher (alerte dormante, comme les 243 du détecteur).
+    On parse maintenant les deux formats : int/float unix ET chaîne ISO.
+    (cpfp_observations et whales_mouvements utilisent déjà des ISO → non affectés,
+    vérifié par reproduction 09/09 : 262 et 4 829 lignes lues.)"""
     lignes = []
     if not chemin.exists():
         return lignes
@@ -146,7 +154,11 @@ def lire_jsonl(chemin: Path, heures=72):
                     evt = json.loads(line)
                     ts = evt.get("ts") or evt.get("utc") or ""
                     if ts:
-                        dt = datetime.fromisoformat(str(ts).replace("Z", "+00:00"))
+                        # ts peut être un unix int/float OU une chaîne ISO (les deux formats maison)
+                        if isinstance(ts, (int, float)):
+                            dt = datetime.fromtimestamp(float(ts), tz=timezone.utc)
+                        else:
+                            dt = datetime.fromisoformat(str(ts).replace("Z", "+00:00"))
                         if dt >= limite:
                             lignes.append(evt)
                 except Exception:
