@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-10T17:16:15.676900+00:00",
+  "generated_at": "2026-09-10T17:16:45.967164+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 282
+      "calls_24h": 283
     },
     {
       "id": "openrouter-free",
@@ -265,10 +265,18 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 250,
-    "remaining": 374
+    "consumed": 251,
+    "remaining": 373
   },
   "queue": [
+    {
+      "ts": "2026-09-10T17:16:19.943450+00:00",
+      "task": "supervise.decision",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 3.4
+    },
     {
       "ts": "2026-09-10T17:06:49.001050+00:00",
       "task": "analyste.strategie",
@@ -380,17 +388,21 @@
       "model": "deepseek-ai/DeepSeek-V3-0324",
       "kind": "cloud",
       "duration_s": 2.16
-    },
-    {
-      "ts": "2026-09-10T15:16:29.113203+00:00",
-      "task": "analyste.strategie",
-      "provider": "huggingface",
-      "model": "deepseek-ai/DeepSeek-V3-0324",
-      "kind": "cloud",
-      "duration_s": 1.83
     }
   ],
   "events": [
+    {
+      "ts": "2026-09-10T17:16:19.942838+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
+    {
+      "ts": "2026-09-10T17:16:16.538588+00:00",
+      "kind": "blacklist",
+      "title": "Fin de pause Google Gemini",
+      "detail": "re-essai automatique"
+    },
     {
       "ts": "2026-09-10T17:15:39.351384+00:00",
       "kind": "http",
@@ -438,18 +450,6 @@
       "kind": "failover",
       "title": "Bascule depuis OpenRouter Nemotron 3 Ultra 550B (free) - analyse forte",
       "detail": "HTTP Error 429: Too Many Requests"
-    },
-    {
-      "ts": "2026-09-10T17:15:24.709762+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis OpenRouter Juge (nemotron-3-super-120b free) - verificateur independant",
-      "detail": "HTTP Error 429: Too Many Requests"
-    },
-    {
-      "ts": "2026-09-10T17:15:23.272970+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis OrcaRouter (routeur gratuit, modele orcarouter/free)",
-      "detail": "HTTP Error 400: Bad Request"
     }
   ],
   "tasks_quotas": {
