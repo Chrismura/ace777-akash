@@ -1,7 +1,7 @@
 {
  "version": "1.0",
- "updated": "2026-08-27T22:40Z",
- "note": "Profils comportementaux par paire — calculés depuis les CSVs ASPIRATION_CALIB (16-24/08, 53 465 mesures). Objectif (Christophe 27/08) : chaque crypto a SON caractère, Hulk calibre murs/spoof/drop/spread/mise/fenêtres par paire. BTC/ETH = banc de preuve des indices onchain (poussière, CPFP, baleines, SDI), profils en collecte. | 27/08 22:40 : ajout dip_pct/rip_pct/stop_pct par paire (volatilité réelle 30j MEXC) — chaque crypto a SON setup.\n[30/08] EDEL : mode_entree=IMPULSE (set-up régime, GO Christophe).",
+ "updated": "2026-09-10T16:50Z",
+ "note": "Profils comportementaux par paire — calculés depuis les CSVs ASPIRATION_CALIB (16-24/08, 53 465 mesures). Objectif (Christophe 27/08) : chaque crypto a SON caractère, Hulk calibre murs/spoof/drop/spread/mise/fenêtres par paire. BTC/ETH = banc de preuve des indices onchain (poussière, CPFP, baleines, SDI), profils en collecte. | 27/08 22:40 : ajout dip_pct/rip_pct/stop_pct par paire (volatilité réelle 30j MEXC) — chaque crypto a SON setup.\n[30/08] EDEL : mode_entree=IMPULSE (set-up régime, GO Christophe). | [10/09] V4 Option A (GO Christophe) : trailing σ filet secondaire posé sur 8 paires sans trail (arm=σ_jour mesuré, gb=σ×0.4 ; source Index_Maison/data/volatilite_paires.json ; convention déjà en vigueur CHIP 7.7=σ 7.67, gb/arm≈0.41 ; zéro ligne moteur).",
  "BIOUSDT": {
   "archetype": "calme_propre",
   "n_mesures": 4835,
@@ -25,7 +25,9 @@
    "interdit_heures": [],
    "dip_pct": 4.0,
    "rip_pct": 3.0,
-   "stop_pct": 6.0
+   "stop_pct": 6.0,
+   "trail_arm_pct": 4.5,
+   "trail_giveback_pct": 1.8
   },
   "lecture": ""
  },
@@ -52,7 +54,9 @@
    "interdit_heures": [],
    "dip_pct": 4.0,
    "rip_pct": 3.0,
-   "stop_pct": 6.0
+   "stop_pct": 6.0,
+   "trail_arm_pct": 4.4,
+   "trail_giveback_pct": 1.76
   },
   "lecture": ""
  },
@@ -114,7 +118,9 @@
    "dip_pct": 5.5,
    "rip_pct": 5.2,
    "stop_pct": 10.3,
-   "mode_entree": "IMPULSE"
+   "mode_entree": "IMPULSE",
+   "trail_arm_pct": 10.0,
+   "trail_giveback_pct": 4.0
   },
   "lecture": "Set-up régime (30/08) : entrée UNIQUEMENT en régime IMPULSE (découverte : EDEL ne bouge que par rafales IMPULSE, m6 70% vs 4%). Plus de fenêtre horaire. À valider par l'accumulation des allumages (~7 jours)."
  },
@@ -314,7 +320,9 @@
    "interdit_heures": [],
    "dip_pct": 4.2,
    "rip_pct": 4.0,
-   "stop_pct": 8.0
+   "stop_pct": 8.0,
+   "trail_arm_pct": 11.4,
+   "trail_giveback_pct": 4.55
   },
   "lecture": ""
  },
@@ -341,7 +349,9 @@
    "interdit_heures": [],
    "dip_pct": 4.0,
    "rip_pct": 3.2,
-   "stop_pct": 6.5
+   "stop_pct": 6.5,
+   "trail_arm_pct": 5.3,
+   "trail_giveback_pct": 2.14
   },
   "lecture": ""
  },
@@ -372,7 +382,9 @@
    "interdit_heures": [],
    "dip_pct": 4.0,
    "rip_pct": 3.2,
-   "stop_pct": 6.4
+   "stop_pct": 6.4,
+   "trail_arm_pct": 5.1,
+   "trail_giveback_pct": 2.04
   },
   "lecture": ""
  },
@@ -399,7 +411,9 @@
    "interdit_heures": [],
    "dip_pct": 4.0,
    "rip_pct": 3.0,
-   "stop_pct": 6.0
+   "stop_pct": 6.0,
+   "trail_arm_pct": 3.3,
+   "trail_giveback_pct": 1.33
   },
   "lecture": ""
  },
@@ -466,7 +480,9 @@
    "interdit_heures": [],
    "dip_pct": 4.0,
    "rip_pct": 3.0,
-   "stop_pct": 6.0
+   "stop_pct": 6.0,
+   "trail_arm_pct": 4.7,
+   "trail_giveback_pct": 1.87
   },
   "lecture": ""
  },

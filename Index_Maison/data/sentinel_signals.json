@@ -1,48 +1,6 @@
 {
   "signals": [
     {
-      "metric": "volume",
-      "zscore": 2.2733568592300433,
-      "value": 11955072247.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (z-score 2.27) provoquée par du bruit lexical dans les flux RSS (homonymie sur le mot 'volume' : pneus, TV, AirPods, matières premières). Aucune corrélation avec une baleine crypto.\"\n}\n```",
-      "ts": "2026-09-09T23:14:46.050466+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": 2.1910878005894263,
-      "value": 12007698164.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique due à l'ambiguïté du mot 'volume' (actualités sur la TV, le pneu, l'audio et la finance traditionnelle). Aucune corrélation avec une baleine crypto.\"\n}\n```",
-      "ts": "2026-09-09T23:44:50.649951+00:00"
-    },
-    {
-      "metric": "taker_ratio",
-      "zscore": 4.886009590522524,
-      "value": 1.906,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Taker ratio à 1.906 (Z-score 4.89) indique une agression massive des acheteurs (Taker Buy) totalement ignorée par les médias traditionnels (silence radio). Accumulation furtive des baleines avant un re-pricing.\"\n}\n```",
-      "ts": "2026-09-10T00:04:54.021712+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": 2.4201534780139164,
-      "value": 69,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.42) et Fear & Greed à 69 (Avidité) combinés à un vide médiatique (Google Actualités sans écho majeur) signalent une euphorie retail isolée. Divergence classique de piégeage : distribution silencieuse des baleines sur la liquidité de détail.\"\n}\n```",
-      "ts": "2026-09-10T00:04:55.387647+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": 2.1305168837522723,
-      "value": 12069709715.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie de volume purement parasite : les actualités détectées concernent de l'audio grand public, de la comédie TV, du matériel cycliste et des bruits de couloir exchange sans lien avec un mouvement onchain significatif de baleines.\"\n}\n```",
-      "ts": "2026-09-10T00:14:58.998699+00:00"
-    },
-    {
-      "metric": "taker_ratio",
-      "zscore": 3.9222615337599933,
-      "value": 1.906,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Le taker_ratio à 1.906 (z-score 3.92) indique une domination massive et anormale des acheteurs agressifs (Taker Buy) que les médias traditionnels ignorent totalement (silence radio). Cette accumulation silencieuse des baleines présage d'un mouvement haussier imminent non pricé par le marché de détail.\"\n}\n```",
-      "ts": "2026-09-10T00:35:03.468741+00:00"
-    },
-    {
       "metric": "fear_greed",
       "zscore": 2.4201534780139164,
       "value": 69,
@@ -349,6 +307,48 @@
       "value": 7370453.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit de fond : les titres médiatiques font référence à des liquidations d'entreprises traditionnelles (faillites locales) sans aucun rapport avec les marchés crypto ou les flux de baleines.\"\n}\n```",
       "ts": "2026-09-10T14:00:39.824731+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.3141796051377064,
+      "value": 13388090403.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique sans rapport avec la crypto (bruit de fond médiatique sur l'agriculture et l'économie macro).\"\n}\n```",
+      "ts": "2026-09-10T14:16:00.324505+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 2.533932756179588,
+      "value": 3528015.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Significant whale activity (z-score 2.53) contrasts with lack of media coverage, suggesting stealth accumulation. High divergence indicates potential upcoming market move not yet reflected in mainstream narrative.\"\n}\n```",
+      "ts": "2026-09-10T14:31:13.081749+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 2.1357070812659336,
+      "value": 0.016,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 75,\n  \"reason\": \"Anomalie onchain significative (z-score 2.14) contrastant avec des titres médiatiques génériques/superficiels. Les baleines pourraient accumuler silencieusement pendant que l'attention médiatique est détournée sur des sujets non corrélés (transparence salariale, broadcast technique). Divergence classique avant un mouvement important.\"\n}\n```",
+      "ts": "2026-09-10T14:31:23.926380+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.4668840371535654,
+      "value": 1.1,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 2.47) contrastant avec un narratif médiatique institutionnel (éducation, recherche, ESG). Divergence suggère une accumulation silencieuse ou un repositionnement stratégique non couvert par les médias traditionnels.\"\n}\n```",
+      "ts": "2026-09-10T14:31:30.835010+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.0067008343826287,
+      "value": 13194504000.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Anomalie de faux positif : les données textuelles ne concernent aucune crypto-monnaie mais de l'agriculture, de la télévision, du commerce arménien et du PIB macroéconomique de l'UE.\"\n}\n```",
+      "ts": "2026-09-10T14:46:38.159388+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.68313020961874,
+      "value": 1.187,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie de données due à une confusion sémantique. L'indicateur 'ipt' capte des flux institutionnels ou des bruits de marché, mais le narratif médiatique fait référence à des acronymes homonymes sans rapport avec la crypto (Tournoi International des Physiciens, luttes sociales, Institut Protestant de Théologie ou partenariats universitaires). Aucune baleine crypto détectée derrière ce bruit.\"\n}\n```",
+      "ts": "2026-09-10T15:01:42.750148+00:00"
     }
   ]
 }
