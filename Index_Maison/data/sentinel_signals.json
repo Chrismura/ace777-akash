@@ -2,27 +2,6 @@
   "signals": [
     {
       "metric": "volume",
-      "zscore": 2.1788692922731756,
-      "value": 11699095672.0,
-      "analysis": "{\n  \"signal\": \"neutral\",\n  \"confidence\": 60,\n  \"reason\": \"Le volume onchain est élevé (z-score 2.18) mais les médias n'en parlent pas du tout, indiquant un mouvement silencieux de baleines. Cette divergence peut signaler une accumulation ou distribution discrète, sans direction claire. En l'absence d'autres données, le signal reste neutre avec un biais légèrement haussier si l'on considère l'accumulation typique avant un mouvement de prix.\"\n}",
-      "ts": "2026-09-09T22:14:35.670310+00:00"
-    },
-    {
-      "metric": "whale_usd",
-      "zscore": 4.897107023960158,
-      "value": 5447761.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (z-score 4.90, ~5.4M USD) sans aucune couverture médiatique correspondante (Google Actualités vide). Divergence classique de accumulation furtive par les baleines loin des radars du grand public.\"\n}\n```",
-      "ts": "2026-09-09T22:14:36.974012+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": 2.2539954796915973,
-      "value": 11839451069.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie de volume non corrélée au marché crypto. Les résultats médiatiques renvoient à du matériel de vélo, de la télévision, des écouteurs et de la prédiction généraliste (Kalshi), démontrant un bruit de fond sans lien avec une baleine crypto.\"\n}\n```",
-      "ts": "2026-09-09T22:44:41.702297+00:00"
-    },
-    {
-      "metric": "volume",
       "zscore": 2.2733568592300433,
       "value": 11955072247.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (z-score 2.27) provoquée par du bruit lexical dans les flux RSS (homonymie sur le mot 'volume' : pneus, TV, AirPods, matières premières). Aucune corrélation avec une baleine crypto.\"\n}\n```",
@@ -349,6 +328,27 @@
       "value": 13147587518.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (z-score 2.21) complètement déconnectée : les actualités font référence à l'agriculture, la télévision, le commerce arménien et le cyclisme. Aucun signal crypto valide détecté.\"\n}\n```",
       "ts": "2026-09-10T13:14:59.694112+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 2.9461748574278026,
+      "value": 7427046.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique parasité par des faits divers de liquidations judiciaires d'entreprises traditionnelles locales (Poitiers, Quimper). Aucune corrélation avec des mouvements de baleines crypto ou des liquidations majeures sur derivatives.\"\n}\n```",
+      "ts": "2026-09-10T13:30:03.349882+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.4136212976088,
+      "value": 13380945907.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Significant on-chain volume anomaly (z-score 2.41) contrasts with irrelevant media narratives, suggesting stealth whale accumulation.\"\n}\n```",
+      "ts": "2026-09-10T13:45:10.304597+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 2.6270923302487,
+      "value": 7370453.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit de fond : les titres médiatiques font référence à des liquidations d'entreprises traditionnelles (faillites locales) sans aucun rapport avec les marchés crypto ou les flux de baleines.\"\n}\n```",
+      "ts": "2026-09-10T14:00:39.824731+00:00"
     }
   ]
 }

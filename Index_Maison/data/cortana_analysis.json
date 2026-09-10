@@ -1,15 +1,55 @@
 {
-  "timestamp": 1789046055,
-  "date": "2026-09-10T13:14:15.412264+00:00",
-  "n_analyses": 1,
+  "timestamp": 1789049656,
+  "date": "2026-09-10T14:14:16.471761+00:00",
+  "n_analyses": 2,
   "analyses": [
     {
       "signal": {
+        "metric": "volume",
+        "zscore": 2.4136212976088,
+        "value": 13380945907.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Significant on-chain volume anomaly (z-score 2.41) contrasts with irrelevant media narratives, suggesting stealth whale accumulation.\"\n}\n```",
+        "ts": 1789047910.304597
+      },
+      "fiche": "rbf_eleve",
+      "questions": {
+        "prix": {
+          "value": 0.02,
+          "seuil": 1,
+          "depasse": false
+        },
+        "paires": {
+          "value": null,
+          "seuil": 3,
+          "depasse": false
+        },
+        "funding": {
+          "value": 7.3e-05,
+          "seuil": 0.001,
+          "depasse": false
+        },
+        "whales": {
+          "value": 0,
+          "seuil": 5,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "sdi > 0.3",
+        "lecture": "Drainage silencieux — les vieux BTC bougent en douce",
+        "niveau": "dangereux",
+        "action": "Réduire taille de 50%, sortir des positions fragiles"
+      },
+      "action": "Réduire taille de 50%, sortir des positions fragiles",
+      "niveau": "dangereux"
+    },
+    {
+      "signal": {
         "metric": "liquidations",
-        "zscore": 4.13510070503275,
-        "value": 8287274.0,
-        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Faux positif massif : les 'liquidations' détectées par l'algorithme on-chain confondent des faillites d'entreprises traditionnelles locales relayées par les médias français avec de la capitulation crypto. Aucune vraie baleine en mouvement, simple bruit sémantique.\"\n}\n```",
-        "ts": 1789045164.640334
+        "zscore": 2.6270923302487,
+        "value": 7370453.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit de fond : les titres médiatiques font référence à des liquidations d'entreprises traditionnelles (faillites locales) sans aucun rapport avec les marchés crypto ou les flux de baleines.\"\n}\n```",
+        "ts": 1789048839.824731
       },
       "fiche": null,
       "interpretation": {
@@ -19,5 +59,5 @@
       "action": "Observer"
     }
   ],
-  "resume": "🔵 CALME — pas de signal alarmant"
+  "resume": "🔴 DANGER détecté — réduire les expositions"
 }
