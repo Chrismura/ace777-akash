@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-10T12:12:22.102106+00:00",
+  "generated_at": "2026-09-10T12:15:08.965762+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 278
+      "calls_24h": 277
     },
     {
       "id": "openrouter-free",
@@ -265,10 +265,26 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 184,
-    "remaining": 440
+    "consumed": 186,
+    "remaining": 438
   },
   "queue": [
+    {
+      "ts": "2026-09-10T12:15:00.079506+00:00",
+      "task": "analyste.strategie",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 9.82
+    },
+    {
+      "ts": "2026-09-10T12:14:34.881609+00:00",
+      "task": "supervise.decision",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 5.35
+    },
     {
       "ts": "2026-09-10T12:11:23.878305+00:00",
       "task": "ada.sanity",
@@ -372,25 +388,27 @@
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
       "duration_s": 0.91
-    },
-    {
-      "ts": "2026-09-10T11:15:54.569248+00:00",
-      "task": "analyste.strategie",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 9.36
-    },
-    {
-      "ts": "2026-09-10T11:04:43.989531+00:00",
-      "task": "analyste.strategie",
-      "provider": "openrouter-juge",
-      "model": "nvidia/nemotron-3-super-120b-a12b:free",
-      "kind": "cloud",
-      "duration_s": 91.17
     }
   ],
   "events": [
+    {
+      "ts": "2026-09-10T12:15:08.713849+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
+    {
+      "ts": "2026-09-10T12:15:00.073616+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
+    {
+      "ts": "2026-09-10T12:14:34.861962+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
     {
       "ts": "2026-09-10T12:11:23.877883+00:00",
       "kind": "message",
@@ -432,24 +450,6 @@
       "kind": "message",
       "title": "« Google Gemini » a repondu",
       "detail": ""
-    },
-    {
-      "ts": "2026-09-10T12:05:00.026678+00:00",
-      "kind": "message",
-      "title": "« Google Gemini » a repondu",
-      "detail": ""
-    },
-    {
-      "ts": "2026-09-10T11:57:51.386968+00:00",
-      "kind": "http",
-      "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
-      "detail": ""
-    },
-    {
-      "ts": "2026-09-10T11:57:51.386426+00:00",
-      "kind": "error",
-      "title": "Toutes les IA ont echoue",
-      "detail": "Google Gemini: The read operation timed out | budget: Budget temps requete depasse"
     }
   ],
   "tasks_quotas": {
