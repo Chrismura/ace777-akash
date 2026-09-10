@@ -38,6 +38,14 @@ from circuit_breaker import TradeCircuitBreaker, CircuitOpenException  # noqa: E
 import re as _re_mod
 _STOP_SLIP_RE = _re_mod.compile(r"stop-([\d.]+)%")  # nominal dans la raison (gate anti-glissement 09/09)
 
+# FUSIBLES PAR PAIRE (10/09, GO Christophe) : budget de perte journalier calé sur
+# LA volatilité MESURÉE de chaque actif (la plus folle bouge 7,8× plus que la plus
+# sage — une règle unique est mathématiquement fausse). Étage 1 : budget consommé
+# → entrées gelées pour CETTE paire (sorties toujours libres) ; dégel SUR DONNÉES
+# (prix > MM24h ET dd6 > −3 %, jamais sur horloge). Étage 2 : détarage linéaire
+# entre 0 et 100 % du budget. Fail-open : le module survit à ses fichiers perdus.
+from fusibles_paires import mult_mise as _fusible_mult, note_scan_csv as _fusible_rescan  # noqa: E402
+
 ROOT = Path(__file__).resolve().parents[1]
 CFG = ROOT / "config" / "defaults.env"
 INV = ROOT / "data" / "universe_mexc_inventory.csv"
@@ -1788,6 +1796,17 @@ class PaperBot:
                 f"{code}:{detail}",
             )
             return
+        # FUSIBLE PAR PAIRE (10/09, GO Christophe) : AVANT tout dimensionnement —
+        # on refuse (gel) ou on déclare la mise rabotée, jamais d'ordre créé puis corrigé (C3).
+        _fm, _fr = _fusible_mult(pair)
+        if _fm <= 0.0:
+            say("warn", f"[{utc_now()}] FUSIBLE | {pair} | {_fr} — entrées gelées (sorties libres)")
+            self.log(
+                pair, "SKIP", regime, price, price, 0.0, 0.0,
+                sc.get("cadence_pct"), f"FUSIBLE:{_fr}",
+            )
+            return
+        _fusible_rescan()
         ok, why = self.sense_ok(pair, sc, regime)
         if not ok:
             say("warn", f"[{utc_now()}] BUY skip {pair} sense={why}")
@@ -1813,6 +1832,19 @@ class PaperBot:
         # TAILLE ADAPTATIVE MURS (25/08, GO Christophe) : mur solide → ×1.2, mur fragile → ×0.6
         if notion is None:  # pas de cash_redeploy (déjà calibré)
             trade_n = trade_n * self.wall_mult(pair)
+        # FUSIBLE ÉTAGE 2 (10/09, GO Christophe) : détarage linéaire — entre 0 et
+        # 100 % du budget de perte de la paire, la mise est rabotée progressivement
+        # (on freine avant le mur). Ne s'applique que sur mise STANDARD (pas de
+        # re-détarage d'un cash_redeploy déjà calibré).
+        if notion is None:
+            _fmult2, _fraison2 = _fusible_mult(pair)
+            if _fmult2 <= 0.0:  # défense : ne jamais créer une mise nulle
+                self.log(pair, "SKIP", regime, price, price, 0.0, 0.0,
+                         sc.get("cadence_pct"), f"FUSIBLE:{_fraison2}")
+                return
+            if _fmult2 < 1.0:
+                trade_n = trade_n * _fmult2
+                say("warn", f"[{utc_now()}] FUSIBLE2 | {pair} | mise ×{_fmult2:.2f} ({_fraison2})")
         # GATE ANTI-GLISSEMENT (09/09, audit edge HULK) : la paire fait traverser ses
         # stops → on réduit la mise (×0.5 défaut), jamais au-delà du premier gate.
         _sm = self.slip_mult(pair)

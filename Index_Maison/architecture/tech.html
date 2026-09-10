@@ -495,7 +495,7 @@ ANTI-PATTERNS REJECTED: …</pre>
     <ul style="margin-left:16px;">
       <li>Le <strong>run 4h de comparaison (12/08 soir)</strong> décidera si le hub améliore vs Ollama (réf −12,26 USDT le 11/08) — <strong>un seul run ne prouve rien</strong>, il faudra répéter</li>
       <li>ADA est un <strong>reflet</strong> (lit + alerte, ne trade pas) — pas un Risk Guardian en vol</li>
-      <li>Risk Guardian <strong>toujours pas en vol</strong> (kill switch = GO futur) · <span style="color:var(--danger);"><strong>alerte 09/09 — résolue le jour même :</strong> le Disjoncteur C7 avait <strong>perdu son plist</strong> de LaunchAgents sans trace (code/config/historique intacts dans le repo) · <strong>RÉPARÉ 09/09 (GO Christophe)</strong> : rebranché launchd check/60s + capteur <code>nourrir_disjoncteur.py</code> créé et en vol (le disjoncteur est sourd par design — le capteur mesure la perte journalière HULK depuis le pivot 00:00 UTC, launchd 60s) + recalibration <strong>11,67 %/jour</strong> / global <strong>25 %</strong> + fix dual STOP_ALL (le Mur de Fer couvre désormais HULK réellement) + garde STOP_ALL au watchdog · 5 tests hors vol OK</span></li>
+      <li>Risk Guardian <strong>toujours pas en vol</strong> (kill switch = GO futur) · <span style="color:var(--danger);"><strong>alerte 09/09 — résolue le jour même :</strong> le Disjoncteur C7 avait <strong>perdu son plist</strong> de LaunchAgents sans trace (code/config/historique intacts dans le repo) · <strong>RÉPARÉ 09/09 (GO Christophe)</strong> : rebranché launchd check/60s + capteur <code>nourrir_disjoncteur.py</code> créé et en vol (le disjoncteur est sourd par design — le capteur mesure la perte journalière HULK depuis le pivot 00:00 UTC, launchd 60s) + recalibration <strong>11,67 %/jour</strong> / global <strong>25 %</strong> + fix dual STOP_ALL (le Mur de Fer couvre désormais HULK réellement) + garde STOP_ALL au watchdog · 5 tests hors vol OK</span> · <span style="color:var(--ok);"><strong>10/09 — étage fusibles par paire branché (GO Christophe)</strong> : budget de perte par actif = 1,5 × σ mesurée (le fusible épouse la nature de chaque actif, folle/sage = 7,8×) · gate dans HULK <code>buy()</code> + détarage linéaire · dégel SUR DONNÉES uniquement · veilleuse ✅ STABLE, registre 49 entrées</span></li>
       <li><code>journal_intention</code> + fiches offres : jeunes, formats à stabiliser</li>
       <li>Budget cloud peut être dépassé (compteurs 522/480) — bascule gemini tient, mais cadence à surveiller</li>
       <li>JSON vivants <code>strategie/*.json</code> bougent en continu → impression de « toujours pareil » si les feeds cockpit ne sont pas rafraîchis</li>
@@ -503,8 +503,8 @@ ANTI-PATTERNS REJECTED: …</pre>
     <p style="margin-top:8px;"><strong>Demande :</strong> évaluer la Δ 12 août avec les yeux neufs, signaler toute contradiction entre cette spec et les fichiers, proposer les 3 corrections GO-sized les plus urgentes.</p>
   </div>
 
-  <h2>11 · CARTE DES 77 AGENTS + LEURS BOUCLES <span class="tag ok">MAJ 09/09</span></h2>
-  <p style="color:var(--muted);font-size:11px;">Scan réel <code>~/Library/LaunchAgents/com.ace777.*.plist</code> · 77 chargés (audit complet 09/09 : 77/77 sources présentes · 9 démons KeepAlive · 68 planifiés · boucles vérées par fraîcheur réelle).<br />Boucle : 🔁 [Ns] = toutes les N s · ☀ HH:MM = 1×/jour · 🔴 = démon permanent (KeepAlive + boucle interne). Les 2 plists vortex (96h/72h) sont OFF-20260824 (hors service).</p>
+  <h2>11 · CARTE DES 78 AGENTS + LEURS BOUCLES <span class="tag ok">MAJ 10/09</span></h2>
+  <p style="color:var(--muted);font-size:11px;">Scan réel <code>~/Library/LaunchAgents/com.ace777.*.plist</code> · 78 chargés (audit 09/09 : 77/77 sources présentes · +1 agent 10/09 = fusibles-mesure · 9 démons KeepAlive · planifiés) · boucles vérées par fraîcheur réelle).<br />Boucle : 🔁 [Ns] = toutes les N s · ☀ HH:MM = 1×/jour · 🔴 = démon permanent (KeepAlive + boucle interne). Les 2 plists vortex (96h/72h) sont OFF-20260824 (hors service).</p>
   <table>
     <tr><th>Famille</th><th>Agent (plist)</th><th>Script</th><th>Boucle</th><th>Rôle</th></tr>
     <tr><td rowspan="7"><strong>A · CŒUR</strong><br/>(démons vivants)</td><td><code>prise-ia</code></td><td><code>hub_prise_ia.py</code></td><td>🔴 alive</td><td>LE HUB IA : route toutes les IA, budgets, bascules</td></tr>
@@ -514,7 +514,7 @@ ANTI-PATTERNS REJECTED: …</pre>
     <tr><td><code>llm-gate-hub</code></td><td><code>llm_gate_hub_bridge.py</code></td><td>🔴 alive</td><td>Point d'entrée LLM → hub</td></tr>
     <tr><td><code>superviseur-process</code></td><td><code>superviseur.sh</code></td><td>🔴 alive + 1 min</td><td>Niveau 1 : relance process vitaux</td></tr>
     <tr><td><code>superviseur-core</code></td><td><code>superviseur_core.sh</code></td><td>🔴 alive + 15 min</td><td>Niveau 1 bis : relance plists cœur</td></tr>
-    <tr><td rowspan="9"><strong>B · CAPTEURS</strong><br/>marché</td><td><code>bloc-privatise</code></td><td><code>detecter_bloc_privatise.py</code></td><td>🔁 [120 s]</td><td><strong>LA PÉPITE</strong> : tx jamais vues dans la mempool = OTC baleine</td></tr>
+    <tr><td rowspan="10"><strong>B · CAPTEURS</strong><br/>marché</td><td><code>bloc-privatise</code></td><td><code>detecter_bloc_privatise.py</code></td><td>🔁 [120 s]</td><td><strong>LA PÉPITE</strong> : tx jamais vues dans la mempool = OTC baleine</td></tr>
     <tr><td><code>cpfp</code></td><td><code>detecter_cpfp.py</code></td><td>🔁 [600 s]</td><td>La poussière : CPFP/dust → 3 cartes indice</td></tr>
     <tr><td><code>whales</code></td><td><code>surveiller_whales.py</code></td><td>🔁 [300 s]</td><td>Baleines (4 adresses) → whaleDir</td></tr>
     <tr><td><code>pont-onchain</code></td><td><code>pont_onchain.py</code></td><td>🔁 [300 s]</td><td>Ponte onchain → live.json.onchain (indiceOnchain, whaleDir, dust)</td></tr>
@@ -524,6 +524,7 @@ ANTI-PATTERNS REJECTED: …</pre>
     <tr><td><code>cortana.urgent</code></td><td><code>cortana_urgent_poll.sh</code></td><td>🔁 [10 s]</td><td>Poll alertes urgentes → vocal/feed</td></tr>
     <tr><td><code>hub-cockpit-feed</code></td><td><code>hub_cockpit_feed.py</code></td><td>🔁 [30 s]</td><td>Pousse événements hub → cockpit</td></tr>
     <tr><td><code>satellite-aspiration</code></td><td><code>hulk-mexc/scripts/satellite_aspiration.py</code></td><td>🔁 [20 s]</td><td>Sonde L2 MEXC (murs bid/ask) → <code>aspiration_live.json</code> (le carburant Hulk) — cadence réelle ~35 s</td></tr>
+    <tr><td><code>fusibles-mesure</code></td><td><code>rafraichir_fusibles_mesures.py</code></td><td>🔁 [300 s]</td><td>Thermomètre des fusibles : rafraîchit σ/prix/MM24h/dd6 des 20 paires → <code>volatilite_paires.json</code> (conditions de DÉGEL vivantes ; si mort → dégel impossible, jamais l'inverse)</td></tr>
     <tr><td><code>verdicteur-micro</code></td><td><code>verdicteur_micro.py</code></td><td>🔁 [15 s]</td><td>Verdict micro-structure + <code>cortana_micro_score.json</code> (consommé par veille-signal)</td></tr>
     <tr><td><code>ofi-calc</code></td><td><code>ofi_calc.py</code></td><td>🔁 [60 s]</td><td>Order Flow Imbalance → <code>ofi_latest.json</code></td></tr>
     <tr><td><code>deriv-corr</code></td><td><code>gen_deriv_corr.py</code></td><td>🔁 [900 s]</td><td>Corrélations 30j dérivés + carte liquidité → <code>deriv_corr.json</code></td></tr>

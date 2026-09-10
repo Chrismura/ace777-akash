@@ -1,34 +1,6 @@
 {
   "signals": [
     {
-      "metric": "sdi",
-      "zscore": 2.3283074533905017,
-      "value": 0.016,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Bruit médiatique parasité par des homonymes (Samsung SDI, matériel vidéo, syndicat patronal TPE). Aucune corrélation on-chain pertinente avec le secteur crypto détectée.\"\n}\n```",
-      "ts": "2026-09-08T18:11:06.683835+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": 4.440261579469327,
-      "value": 0.024,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 4.44) sur le token SDI totalement décorélée des actualités. Le narratif médiatique fait référence à de l'homonymie (fiscalité, matériel vidéo, Samsung SDI) et non à la crypto. Bruit de fond, pas de mouvement significatif de baleines.\"\n}\n```",
-      "ts": "2026-09-08T18:41:13.060628+00:00"
-    },
-    {
-      "metric": "liquidations",
-      "zscore": 4.2850037312347355,
-      "value": 5576305.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de liquidations on-chain (Z-score 4.29) absorbée en silence par les baleines, tandis que les médias grand public et spécialisés font diversion en confondant liquidations crypto et faillites d'entreprises locales (Blois, Quimper). Nettoyage classique du levier avant la prochaine impulsion haussière.\"\n}\n```",
-      "ts": "2026-09-08T18:56:17.279861+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": 2.019604251296152,
-      "value": 0.016,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Fausse alerte due à une collision lexicale. L'indicateur on-chain réagit à l'acronyme 'SDI' qui est massivement utilisé dans l'actualité généraliste (fiscalité, matériel vidéo, Samsung SDI) sans aucun rapport avec les flux de baleines crypto.\"\n}\n```",
-      "ts": "2026-09-08T19:11:24.336958+00:00"
-    },
-    {
       "metric": "liquidations",
       "zscore": 3.578049073036081,
       "value": 5576305.0,
@@ -349,6 +321,34 @@
       "value": 11839451069.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie de volume non corrélée au marché crypto. Les résultats médiatiques renvoient à du matériel de vélo, de la télévision, des écouteurs et de la prédiction généraliste (Kalshi), démontrant un bruit de fond sans lien avec une baleine crypto.\"\n}\n```",
       "ts": "2026-09-09T22:44:41.702297+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.2733568592300433,
+      "value": 11955072247.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (z-score 2.27) provoquée par du bruit lexical dans les flux RSS (homonymie sur le mot 'volume' : pneus, TV, AirPods, matières premières). Aucune corrélation avec une baleine crypto.\"\n}\n```",
+      "ts": "2026-09-09T23:14:46.050466+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.1910878005894263,
+      "value": 12007698164.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique due à l'ambiguïté du mot 'volume' (actualités sur la TV, le pneu, l'audio et la finance traditionnelle). Aucune corrélation avec une baleine crypto.\"\n}\n```",
+      "ts": "2026-09-09T23:44:50.649951+00:00"
+    },
+    {
+      "metric": "taker_ratio",
+      "zscore": 4.886009590522524,
+      "value": 1.906,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Taker ratio à 1.906 (Z-score 4.89) indique une agression massive des acheteurs (Taker Buy) totalement ignorée par les médias traditionnels (silence radio). Accumulation furtive des baleines avant un re-pricing.\"\n}\n```",
+      "ts": "2026-09-10T00:04:54.021712+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 2.4201534780139164,
+      "value": 69,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.42) et Fear & Greed à 69 (Avidité) combinés à un vide médiatique (Google Actualités sans écho majeur) signalent une euphorie retail isolée. Divergence classique de piégeage : distribution silencieuse des baleines sur la liquidité de détail.\"\n}\n```",
+      "ts": "2026-09-10T00:04:55.387647+00:00"
     }
   ]
 }
