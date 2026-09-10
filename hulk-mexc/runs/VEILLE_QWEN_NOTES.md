@@ -3810,3 +3810,19 @@ Pas d’ordre — confrontation plus tard.
 - WUSDT: WATCH_PULLBACK — tension haute + reflux
 - BIOUSDT: WATCH_PULLBACK — tension haute + reflux
 (compléter: confirmé ? risque ?)
+
+### 2026-09-10T01:17:45Z — ALERT auto
+- CHIPUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
+
+### 2026-09-10T01:20:01Z — ALERT auto
+- EDELUSDT: IMPULSE_WAIT — spike en cours, pas chase
+(compléter: confirmé ? risque ?)
+
+### 2026-09-10T01:35:37Z — ALERT auto
+- BIOUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
+
+### 2026-09-10T01:38:58Z — ALERT auto
+- PYTHUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
