@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-10T01:14:20.505505+00:00",
+  "generated_at": "2026-09-10T01:14:50.769664+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 223
+      "calls_24h": 224
     },
     {
       "id": "openrouter-free",
@@ -256,10 +256,18 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 23,
-    "remaining": 601
+    "consumed": 24,
+    "remaining": 600
   },
   "queue": [
+    {
+      "ts": "2026-09-10T01:14:46.176851+00:00",
+      "task": "supervise.decision",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 0.73
+    },
     {
       "ts": "2026-09-10T01:14:03.421234+00:00",
       "task": "analyste.strategie",
@@ -371,17 +379,15 @@
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
       "duration_s": 9.33
-    },
-    {
-      "ts": "2026-09-10T00:29:04.666734+00:00",
-      "task": "analyste.strategie",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 3.46
     }
   ],
   "events": [
+    {
+      "ts": "2026-09-10T01:14:46.176451+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
     {
       "ts": "2026-09-10T01:14:03.420827+00:00",
       "kind": "message",
@@ -435,12 +441,6 @@
       "kind": "message",
       "title": "« OpenRouter Juge (nemotron-3-super-120b free) - verificateur independant » a repondu",
       "detail": "bascule"
-    },
-    {
-      "ts": "2026-09-10T00:47:45.388246+00:00",
-      "kind": "filet-universel",
-      "title": "[FILET UNIVERSEL] « OpenRouter Juge (nemotron-3-super-120b free) - verificateur independant » a repondu hors chaine",
-      "detail": "analyste.strategie"
     }
   ],
   "tasks_quotas": {
