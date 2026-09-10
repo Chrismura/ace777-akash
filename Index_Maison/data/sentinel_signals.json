@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "fear_greed",
-      "zscore": 2.4201534780139164,
-      "value": 69,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.42) et indice de peur et de cupidité à 69 (avidité extrême) couplés à un vide médiatique total (Google Actualités sans relais notable) : signal classique d'euphorie locale de détail. Les baleines profitent de cette liquidité aveugle pour distribuer en silence avant une correction.\"\n}\n```",
-      "ts": "2026-09-10T00:35:04.792815+00:00"
-    },
-    {
       "metric": "volume",
       "zscore": 2.124445409362041,
       "value": 12170871700.0,
@@ -349,6 +342,13 @@
       "value": 1.187,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie de données due à une confusion sémantique. L'indicateur 'ipt' capte des flux institutionnels ou des bruits de marché, mais le narratif médiatique fait référence à des acronymes homonymes sans rapport avec la crypto (Tournoi International des Physiciens, luttes sociales, Institut Protestant de Théologie ou partenariats universitaires). Aucune baleine crypto détectée derrière ce bruit.\"\n}\n```",
       "ts": "2026-09-10T15:01:42.750148+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 2.6703740857359057,
+      "value": 0.02,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Bruit médiatique parasité par des homonymes (Syndicat des Indépendants / interfaces SDI broadcast). Aucune baleine crypto détectée, le z-score élevé est un artefact sémantique.\"\n}\n```",
+      "ts": "2026-09-10T15:52:04.826095+00:00"
     }
   ]
 }

@@ -1,20 +1,20 @@
 {
-  "timestamp": 1789053257,
-  "date": "2026-09-10T15:14:17.633339+00:00",
-  "n_analyses": 2,
+  "timestamp": 1789056858,
+  "date": "2026-09-10T16:14:18.793108+00:00",
+  "n_analyses": 1,
   "analyses": [
     {
       "signal": {
-        "metric": "volume",
-        "zscore": 2.0067008343826287,
-        "value": 13194504000.0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Anomalie de faux positif : les données textuelles ne concernent aucune crypto-monnaie mais de l'agriculture, de la télévision, du commerce arménien et du PIB macroéconomique de l'UE.\"\n}\n```",
-        "ts": 1789051598.159388
+        "metric": "sdi",
+        "zscore": 2.6703740857359057,
+        "value": 0.02,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Bruit médiatique parasité par des homonymes (Syndicat des Indépendants / interfaces SDI broadcast). Aucune baleine crypto détectée, le z-score élevé est un artefact sémantique.\"\n}\n```",
+        "ts": 1789055524.826095
       },
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.11,
+          "value": -0.42,
           "seuil": 1,
           "depasse": false
         },
@@ -24,47 +24,7 @@
           "depasse": false
         },
         "funding": {
-          "value": 6.8e-05,
-          "seuil": 0.001,
-          "depasse": false
-        },
-        "whales": {
-          "value": 0,
-          "seuil": 5,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "sdi > 0.3",
-        "lecture": "Drainage silencieux — les vieux BTC bougent en douce",
-        "niveau": "dangereux",
-        "action": "Réduire taille de 50%, sortir des positions fragiles"
-      },
-      "action": "Réduire taille de 50%, sortir des positions fragiles",
-      "niveau": "dangereux"
-    },
-    {
-      "signal": {
-        "metric": "ipt",
-        "zscore": 2.68313020961874,
-        "value": 1.187,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie de données due à une confusion sémantique. L'indicateur 'ipt' capte des flux institutionnels ou des bruits de marché, mais le narratif médiatique fait référence à des acronymes homonymes sans rapport avec la crypto (Tournoi International des Physiciens, luttes sociales, Institut Protestant de Théologie ou partenariats universitaires). Aucune baleine crypto détectée derrière ce bruit.\"\n}\n```",
-        "ts": 1789052502.750148
-      },
-      "fiche": "rbf_eleve",
-      "questions": {
-        "prix": {
-          "value": -0.11,
-          "seuil": 1,
-          "depasse": false
-        },
-        "paires": {
-          "value": null,
-          "seuil": 3,
-          "depasse": false
-        },
-        "funding": {
-          "value": 6.8e-05,
+          "value": 6.4e-05,
           "seuil": 0.001,
           "depasse": false
         },
