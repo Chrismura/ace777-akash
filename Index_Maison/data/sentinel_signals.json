@@ -2,27 +2,6 @@
   "signals": [
     {
       "metric": "volume",
-      "zscore": 2.00969554000478,
-      "value": 12297716216.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique de volume (z-score 2.01) totalement polluée par du bruit lexical grand public (AirPods, pneus, spectacle). Aucune baleine crypto détectée, le 'volume' mentionné par les médias n'a aucun rapport avec une accumulation onchain pertinente.\"\n}\n```",
-      "ts": "2026-09-10T01:45:29.133385+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": 2.4201534780139164,
-      "value": 69,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.42) et Fear & Greed à 69 (Avidité) combinés à un vide médiatique (Google Actualités sans écho majeur) signalent une euphorie de retail isolée. Divergence classique de piège à liquidité : distribution silencieuse des baleines.\"\n}\n```",
-      "ts": "2026-09-10T02:05:40.579085+00:00"
-    },
-    {
-      "metric": "long_short",
-      "zscore": 2.0773039669478512,
-      "value": 1.347,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Le z-score élevé (2.08) indique une concentration extrême de positions acheteuses chez les traders particuliers et institutionnels suivis, coïncidant étrangement avec un narratif médiatique grand public qui encense les stratégies 'long-short'. Classiquement, un consensus aussi fort sur le levier long précède une purge des baleines.\"\n}\n```",
-      "ts": "2026-09-10T02:10:42.544525+00:00"
-    },
-    {
-      "metric": "volume",
       "zscore": 2.0030045351528325,
       "value": 12403236289.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Volume onchain élevé (z-score 2.00) mais aucun titre médiatique lié aux cryptos ne reflète cette activité. Divergence forte entre données brutes (signaux baleines) et narratif grand public (focus sur produits tech/culture).\"\n}\n```",
@@ -349,6 +328,27 @@
       "value": 1.044,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (z-score 2.01) liée au ticker 'ipt' totalement non pertinente : les médias parlent d'un tournoi de physique (IPT), d'une institution théologique/sociale et de biotechnologies. Aucun mouvement de baleine crypto détecté, confusion totale de sémantique.\"\n}\n```",
       "ts": "2026-09-10T19:18:38.192619+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.2442108980815836,
+      "value": 1.14,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.24) entièrement attribuable à un 'bruit' de homonymie médiatique (Tournoi International des Physiciens, instituts protestants, biotechnologies). Aucune corrélation avec une activité de baleine crypto.\"\n}\n```",
+      "ts": "2026-09-10T20:18:54.701786+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 4.37156599495636,
+      "value": 5820235.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 4.37, ~5.8M USD) dans un silence médiatique absolu (Google Actualités vide). Accumulation furtive des baleines loin du radar grand public.\"\n}\n```",
+      "ts": "2026-09-10T20:23:56.635799+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 2.5631626552609394,
+      "value": 0.02,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Bruit médiatique parasité par l'homonymie (SDI = Syndicat des Indépendants et interfaces vidéo broadcast). Aucune corrélation avec la crypto.\"\n}\n```",
+      "ts": "2026-09-10T20:23:58.301234+00:00"
     }
   ]
 }
