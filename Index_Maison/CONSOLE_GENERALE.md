@@ -1,14 +1,14 @@
 # Console générale — clin d’œil
 
-Auto-refresh : 2026-09-10 12:14 UTC · jour local **2026-09-10**
+Auto-refresh : 2026-09-10 18:53 UTC · jour local **2026-09-10**
 
 ## Feu tricolore
 
 | Jambe | État | Détail |
 |-------|------|--------|
 | **ACE** | 🔴 STOP | Dernier tag `MASTER_BASE_V8_6_FORTRESS_8H20` · combo ≈ **+0.90 $** |
-| **Hulk paper** | 🟢 RUN | pnl_total ≈ **—** · pos **—** |
-| **Hulk digest** | 🔴 STOP | mtime 2026-09-10T12:12Z |
+| **Hulk paper** | 🟢 RUN | pnl_total ≈ **6.4124** · pos **7** |
+| **Hulk digest** | 🟢 RUN | mtime 2026-09-10T18:51Z |
 | **Punk** | 🔴 STOP | — · idle |
 | **Ollama** | 🟢 RUN | |
 | **Obsidian** | 🟢 | vault `Obsidian_ACE777` |
@@ -72,8 +72,8 @@ Auto-refresh : 2026-09-10 12:14 UTC · jour local **2026-09-10**
 | `TEST_DUO_HARMONIC_5813_30M_V63` | +0.00 (n=0) | -0.42 (n=45) | **-0.42** |
 
 ## Hulk
-- Events : —
-- Pairs ouvertes (state) : —
+- Events : {'BUY': 53, 'SELL_PARTIAL': 39, 'SELL': 45, 'SKIP': 50013, 'BAG_ARM': 1, 'BAG_CRASH': 1, 'BAG_SELL': 1}
+- Pairs ouvertes (state) : QNTUSDT, RWAUSDT, MNSRYUSDT, ETHUSDT, PYTHUSDT, ZBCNUSDT, EDELUSDT
 
 ## Liens
 [[PLAN_DE_VOL]] · [[AUTO_PROCESSUS]] · [[AGORA]] · [[Cahier/Journal_2026-09-10]] · [[OSSATURE]]

@@ -4,20 +4,6 @@
       "metric": "fear_greed",
       "zscore": 2.4201534780139164,
       "value": 69,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.42) combiné à une cupidité extrême (69) sans couverture médiatique majeure suggère une bulle de détail alimentée en silence. Divergence classique de distribution par les baleines.\"\n}\n```",
-      "ts": "2026-09-10T01:05:20.741634+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": 2.174338660077869,
-      "value": 12316530793.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique sans rapport avec la crypto (AirPods, spectacles, pneus). Le pic de volume on-chain est un artefact sémantique ou un bruit de fond sans corrélation avec une accumulation ou distribution réelle de baleines.\"\n}\n```",
-      "ts": "2026-09-10T01:15:23.237594+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": 2.4201534780139164,
-      "value": 69,
       "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.42) et Fear & Greed à 69 (Avidité) couplés à un vide médiatique total (Google Actualités muet). Divergence classique de piège à liquidité : le retail entre en FOMO tardif sans couverture médiatique de masse, ce qui précède souvent une distribution silencieuse des baleines.\"\n}\n```",
       "ts": "2026-09-10T01:35:26.567569+00:00"
     },
@@ -349,6 +335,20 @@
       "value": 1.008,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.02) due à une confusion de ticker. Les actualités concernent l'Institut Protestant de Théologie (IPT) et le Tournoi International des Physiciens (IPT), sans lien avec l'activité on-chain des cryptomonnaies.\"\n}\n```",
       "ts": "2026-09-10T17:53:05.628029+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.276082251250938,
+      "value": 1.092,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit sémantique : l'anomalie 'ipt' détectée par les capteurs onchain correspond à des homonymes institutionnels et académiques (Tournoi de Physique, thématiques sociales, partenariats biotech) sans lien avec un actif crypto ou des mouvements de baleines.\"\n}\n```",
+      "ts": "2026-09-10T18:23:12.372748+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 4.872952677618805,
+      "value": 6286488.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score on-chain extrêmement élevé (4.87) pour un mouvement de 6.28M$ dans un silence médiatique absolu (Google Actualités muet). Divergence classique d'accumulation furtive par des baleines loin des radars de la foule.\"\n}\n```",
+      "ts": "2026-09-10T18:28:14.286398+00:00"
     }
   ]
 }
