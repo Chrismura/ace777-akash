@@ -7,7 +7,7 @@
 | | Check | Détail |
 |---|--------|--------|
 | ✅ | Mode | VOL (auto) |
-| ✅ | Horodatage | 2026-09-10T12:15 local · 2026-09-10T10:15Z UTC |
+| ✅ | Horodatage | 2026-09-10T13:15 local · 2026-09-10T11:15Z UTC |
 | ✅ | Champion | md5 `14bcf868…` |
 | ⚠️ | ACE process | attendu si GO ACE — OFF |
 | ✅ | Hulk paper | ON |
@@ -24,4 +24,4 @@
 Voir [[AUTO_PROCESSUS]] — ce pulse = couche **veille machine**, pas trading.
 
 ---
-_généré 2026-09-10T10:15Z · script `pulse_sous_loeil.sh`_
+_généré 2026-09-10T11:15Z · script `pulse_sous_loeil.sh`_
