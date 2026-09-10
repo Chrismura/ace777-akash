@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-10T15:14:37.664629+00:00",
+  "generated_at": "2026-09-10T15:15:38.276722+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 283
+      "calls_24h": 284
     },
     {
       "id": "openrouter-free",
@@ -265,10 +265,18 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 230,
-    "remaining": 394
+    "consumed": 231,
+    "remaining": 393
   },
   "queue": [
+    {
+      "ts": "2026-09-10T15:15:04.582536+00:00",
+      "task": "analyste.strategie",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 5.12
+    },
     {
       "ts": "2026-09-10T15:01:42.749377+00:00",
       "task": "analyse.profonde",
@@ -380,17 +388,15 @@
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
       "duration_s": 29.61
-    },
-    {
-      "ts": "2026-09-10T13:45:10.303901+00:00",
-      "task": "analyse.profonde",
-      "provider": "huggingface",
-      "model": "deepseek-ai/DeepSeek-V3-0324",
-      "kind": "cloud",
-      "duration_s": 3.78
     }
   ],
   "events": [
+    {
+      "ts": "2026-09-10T15:15:04.580493+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
     {
       "ts": "2026-09-10T15:01:42.749018+00:00",
       "kind": "message",
@@ -443,12 +449,6 @@
       "ts": "2026-09-10T14:47:58.191367+00:00",
       "kind": "failover",
       "title": "Bascule depuis InferX Qwen3-Coder-Next (code, gratuit jusqu'au 12/08)",
-      "detail": "HTTP Error 429: Too Many Requests"
-    },
-    {
-      "ts": "2026-09-10T14:47:53.513020+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis InferX DeepSeek V4 Flash (API gratuite jusqu'au 12/08)",
       "detail": "HTTP Error 429: Too Many Requests"
     }
   ],
