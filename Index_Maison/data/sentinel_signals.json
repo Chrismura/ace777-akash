@@ -1,48 +1,6 @@
 {
   "signals": [
     {
-      "metric": "fear_greed",
-      "zscore": -3.872983346207417,
-      "value": 66,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le z-score extrême de -3.87 sur l'indice Fear & Greed (à 66) indique un « silence médiatique » ou une indifférence du grand public malgré une dynamique de marché positive. Cette divergence classique signale une accumulation discrète des baleines loin du bruit médiatique.\"\n}\n```",
-      "ts": "2026-09-09T01:38:43.440611+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": -3.3166247903554,
-      "value": 66,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le z-score de -3.32 indique un sentiment de peur cachée ou d'indifférence extrême malgré un indice Fear & Greed à 66. Les baleines accumulent dans l'angle mort des médias, totalement absents des gros titres.\"\n}\n```",
-      "ts": "2026-09-09T02:08:56.006406+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": -2.932575659723036,
-      "value": 66,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-2.93) malgré un indice de cupidité modéré (66) et un vide médiatique total sur Google Actualités. Absence de battage médiatique combinée à une anomalie statistique on-chain : accumulation silencieuse des baleines hors du radar public.\"\n}\n```",
-      "ts": "2026-09-09T02:39:00.378359+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": -2.6457513110645903,
-      "value": 66,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le Z-score extrêmement bas (-2.65) pour un indice de cupidité à 66 révèle une anomalie statistique : le marché est sous-évalué et le narratif médiatique est totalement absent (silence radio). C'est le moment classique où les baleines accumulent dans l'ombre avant le réveil de la foule.\"\n}\n```",
-      "ts": "2026-09-09T03:09:04.910580+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": -2.4201534780139164,
-      "value": 66,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-2.42) malgré une cupidité modérée (66). Absence totale de couverture médiatique de masse (Google Actualités vide). C'est la signature classique d'accumulation silencieuse par les baleines loin du bruit de retail.\"\n}\n```",
-      "ts": "2026-09-09T03:39:09.199980+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": -2.32379000772445,
-      "value": 66,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Données incomplètes (absence de titres Google Actualités exploitables). Le Z-score négatif (-2.32) indique une forte anomalie statistique du Fear & Greed par rapport à la moyenne, mais sans données médiatiques ou flux de baleines confirmés, aucun mouvement silencieux net ne peut être validé.\"\n}\n```",
-      "ts": "2026-09-09T07:16:32.583741+00:00"
-    },
-    {
       "metric": "ipt",
       "zscore": 2.3139103451562604,
       "value": 1.129,
@@ -349,6 +307,48 @@
       "value": 1.369,
       "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Z-score élevé (2.29) sur le ratio long/short indiquant un posicionnement massivement acheteur des baleines, alors que les médias grand public font la promotion générale des stratégies long/short de couverture. Excès d'optimisme contrarien typique d'un piégeage de liquidité avant une purge.\"\n}\n```",
       "ts": "2026-09-10T03:11:04.882022+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 2.245336098378833,
+      "value": 0.02,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Bruit médiatique parasité par des homonymies (Syndicat des Indépendants 'SDI', matériel vidéo Blackmagic SDI). Aucune corrélation avec une baleine crypto.\"\n}\n```",
+      "ts": "2026-09-10T03:36:09.564665+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.6366817942334464,
+      "value": 1.32,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (IPT z-score 2.64) entièrement corrélée à du bruit sémantique médiatique sans rapport avec la crypto (tournois de physique, faits divers, instituts protestants). Aucune baleine détectée.\"\n}\n```",
+      "ts": "2026-09-10T03:36:11.274282+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 2.4201534780139164,
+      "value": 69,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.42) combiné à une cupidité extrême (69) sans couverture médiatique majeure. Divergence classique de distribution : les baleines liquident silencieusement dans l'euphorie locale pendant que les médias grand public ignorent ou retardent l'information.\"\n}\n```",
+      "ts": "2026-09-10T03:36:14.416380+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": 2.176820666464073,
+      "value": 1.369,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Le ratio long/short atteint un z-score élevé de 2.18 (1.369), indiquant une concentration excessive de positions acheteuses par les traders particuliers. Pendant ce temps, le narratif médiatique grand public glorifie les stratégies long/short traditionnelles sans lien avec la dynamique spéculative crypto actuelle. Cet excès de optimisme retail est un signal contrarien classique de capitulation imminente orchestrée par les baleines.\"\n}\n```",
+      "ts": "2026-09-10T03:41:16.987067+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 2.23606797749979,
+      "value": 69,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Euphorie excessive (Fear & Greed à 69 avec un z-score élevé de 2.24) combinée à un vide médiatique total ('Google Actualités' sans relais majeur). Divergence classique de fin de cycle : les baleines distribuent silencieusement aux retards pendant que le marché particulier s'emballe sur un narratif stagnant.\"\n}\n```",
+      "ts": "2026-09-10T04:06:20.977627+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": 3.4236032147193347,
+      "value": 1.459,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 92,\n  \"reason\": \"Z-score critique (3.42) sur le ratio long/short indicating une surconcentration extrême des positions acheteuses par les baleines. Le narratif médiatique grand public banalise les stratégies long/short comme un outil de couverture, masquant une accumulation agressive de levier haussier prête à être purgée par les teneurs de marché.\"\n}\n```",
+      "ts": "2026-09-10T04:11:22.921830+00:00"
     }
   ]
 }

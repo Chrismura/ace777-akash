@@ -4362,3 +4362,12 @@
 - 2026-09-10T03:02:47.454866Z | alerte | Maintenir l'alerte rouge, appliquer immédiatement le stop-loss sur CCUSDT, laisser Alpha en embuscade et exploiter les reconnaissances de Beta. | conf=88%
 - 2026-09-10T03:07:34.761263Z | alerte | Maintenir l'alerte rouge, appliquer immédiatement le stop-loss sur CCUSDT, laisser Alpha en embuscade et exploiter les reconnaissances de Beta. | conf=88%
 - 2026-09-10T03:14:18.761721Z | alerte | Maintenir l'alerte rouge, appliquer immédiatement le stop-loss sur CCUSDT, laisser Alpha en embuscade et exploiter les reconnaissances de Beta. | conf=88%
+- 2026-09-10T03:29:02.409977Z | alerte | Maintenir l'alerte rouge, appliquer immédiatement le stop-loss sur CCUSDT, laisser Alpha en embuscade et exploiter les reconnaissances de Beta. | conf=88%
+- 2026-09-10T03:35:23.842009Z | alerte | Maintenir l'alerte rouge, appliquer immédiatement le stop-loss sur CCUSDT, laisser Alpha en embuscade et exploiter les reconnaissances de Beta. | conf=88%
+- 2026-09-10T03:42:40.637355Z | alerte | Maintenir l'alerte rouge, appliquer immédiatement le stop-loss sur CCUSDT, laisser Alpha en embuscade et exploiter les reconnaissances de Beta. | conf=88%
+- 2026-09-10T03:43:40.445131Z | alerte | Maintenir l'alerte rouge, appliquer immédiatement le stop‑loss sur CCUSDT, laisser Alpha en embuscade et exploiter les reconnaissances de Beta. | conf=88%
+- 2026-09-10T03:44:13.552136Z | alerte | Maintenir l'alerte rouge, appliquer immédiatement le stop-loss sur CCUSDT, laisser Alpha en embuscade et exploiter les reconnaissances de Beta. | conf=88%
+- 2026-09-10T03:51:29.907859Z | alerte | Maintenir l'alerte rouge, appliquer immédiatement le stop-loss sur CCUSDT, laisser Alpha en embuscade et exploiter les reconnaissances de Beta. | conf=88%
+- 2026-09-10T04:00:02.942678Z | alerte | Maintenir l'alerte rouge, appliquer immédiatement le stop-loss sur CCUSDT, laisser Alpha en embuscade et exploiter les reconnaissances de Beta. | conf=88%
+- 2026-09-10T04:01:39.606135Z | alerte | Maintenir l’alerte nominale, garder le stop‑loss d’urgence sur CCUSDT actif, laisser Alpha en embuscade en attendant un signal clair de Beta et poursuivre la gestion prudente des positions seeds de Hulk. | conf=90 %
+- 2026-09-10T04:14:18.138166Z | alerte | Maintenir la vigilance nominale, garder le stop-loss d’urgence sur CCUSDT actif, laisser Alpha en embuscade en attendant un signal clair de Beta et poursuivre la gestion prudente des positions seeds de Hulk. | conf=90%

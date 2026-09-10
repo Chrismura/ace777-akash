@@ -1,55 +1,15 @@
 {
-  "timestamp": 1789009912,
-  "date": "2026-09-10T03:11:52.075144+00:00",
-  "n_analyses": 3,
+  "timestamp": 1789013513,
+  "date": "2026-09-10T04:11:53.070990+00:00",
+  "n_analyses": 2,
   "analyses": [
     {
       "signal": {
-        "metric": "volume",
-        "zscore": 2.035225069591394,
-        "value": 12604917581.0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie de volume purement parasite. Les titres médiatiques détectés concernent de l'actualité tech grand public (Apple), des programmes TV, du matériel cycliste et un fait divers d'exchange sans lien avec un mouvement massif de baleines crypto.\"\n}\n```",
-        "ts": 1789009561.591706
-      },
-      "fiche": "rbf_eleve",
-      "questions": {
-        "prix": {
-          "value": 0.08,
-          "seuil": 1,
-          "depasse": false
-        },
-        "paires": {
-          "value": null,
-          "seuil": 3,
-          "depasse": false
-        },
-        "funding": {
-          "value": 6.1e-05,
-          "seuil": 0.001,
-          "depasse": false
-        },
-        "whales": {
-          "value": 1,
-          "seuil": 5,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "sdi > 0.3",
-        "lecture": "Drainage silencieux — les vieux BTC bougent en douce",
-        "niveau": "dangereux",
-        "action": "Réduire taille de 50%, sortir des positions fragiles"
-      },
-      "action": "Réduire taille de 50%, sortir des positions fragiles",
-      "niveau": "dangereux"
-    },
-    {
-      "signal": {
         "metric": "fear_greed",
-        "zscore": 2.4201534780139164,
+        "zscore": 2.23606797749979,
         "value": 69,
-        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.42) et indice de peur/greed à 69 (Avidité) combinés à un vide médiatique (Google Actualités sans écho majeur) signalent une euphorie de retail isolée. Les baleines profitent traditionnellement de cette complaisance pour distribuer silencieusement leurs bags avant un retournement.\"\n}\n```",
-        "ts": 1789009562.88024
+        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Euphorie excessive (Fear & Greed à 69 avec un z-score élevé de 2.24) combinée à un vide médiatique total ('Google Actualités' sans relais majeur). Divergence classique de fin de cycle : les baleines distribuent silencieusement aux retards pendant que le marché particulier s'emballe sur un narratif stagnant.\"\n}\n```",
+        "ts": 1789013180.977627
       },
       "fiche": null,
       "interpretation": {
@@ -61,10 +21,10 @@
     {
       "signal": {
         "metric": "long_short",
-        "zscore": 2.292641597168686,
-        "value": 1.369,
-        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Z-score élevé (2.29) sur le ratio long/short indiquant un posicionnement massivement acheteur des baleines, alors que les médias grand public font la promotion générale des stratégies long/short de couverture. Excès d'optimisme contrarien typique d'un piégeage de liquidité avant une purge.\"\n}\n```",
-        "ts": 1789009864.882022
+        "zscore": 3.4236032147193347,
+        "value": 1.459,
+        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 92,\n  \"reason\": \"Z-score critique (3.42) sur le ratio long/short indicating une surconcentration extrême des positions acheteuses par les baleines. Le narratif médiatique grand public banalise les stratégies long/short comme un outil de couverture, masquant une accumulation agressive de levier haussier prête à être purgée par les teneurs de marché.\"\n}\n```",
+        "ts": 1789013482.92183
       },
       "fiche": null,
       "interpretation": {
@@ -74,5 +34,5 @@
       "action": "Observer"
     }
   ],
-  "resume": "🔴 DANGER détecté — réduire les expositions"
+  "resume": "🔵 CALME — pas de signal alarmant"
 }
