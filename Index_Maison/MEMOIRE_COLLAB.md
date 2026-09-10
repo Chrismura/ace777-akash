@@ -4087,3 +4087,9 @@ Christophe a finalement vu le nouveau tableau SCORE : le contenu était bon, c'�
 | 2026-09-10 21:30:48Z | CHIEN | ALERTE | disjoncteur : Age réel infini (produit/pouls introuvable ou illisible) dépasse le seuil 120.0s |
 | 2026-09-10 21:30:48Z | CHIEN | ALERTE | vigie-live : Age réel infini (produit/pouls introuvable ou illisible) dépasse le seuil 600.0s |
 | 2026-09-10 21:30:48Z | CHIEN | ALERTE | nourrisseur-disjoncteur : Age réel infini (produit/pouls introuvable ou illisible) dépasse le seuil 120.0s |
+| 2026-09-10 22:50:35Z | CHIEN | ALERTE | vigie-live : Age réel 1024s dépasse le seuil 600.0s |
+| 2026-09-10 22:50:35Z | CHIEN | ALERTE | veille-hub : Age réel 49499s dépasse le seuil 600.0s |
+| 2026-09-10 22:50:35Z | CHIEN | ALERTE | llm-gate-hub : Age réel 1349s dépasse le seuil 600.0s |
+| 2026-09-10 22:50:35Z | CHIEN | ALERTE | observer-murs : Age réel 38269s dépasse le seuil 5400.0s |
+| 2026-09-10 22:50:35Z | CHIEN | ALERTE | cortana.urgent : Age réel 67s dépasse le seuil 20.0s |
+| 2026-09-10 22:55Z | Buffy | ORGANE | Config chien de garde complétée À LA SOURCE (demande Christophe) : 14 organes uniques, doublon llm-gate-hub corrigé en pont-onchain, chemins produits vérifiés par script+plist+mtime (mission.json=lecture bridge, alarme.json=événementiel→cooldown, state disjoncteur=événementiel→log launchd), 3 correctifs : fréquences humaines priment sur plists (llm-gate-hub 1h, veille-hub 1j, vigie-live 1h), jeton <date> pour produits quotidiens, 4e seau non_surveilles (70 MINEUR sans produit ≠ morts). Vol d'essai final : 12/13 critiques vivants, 1 vraie maladie détectée (observer-murs : dernier L2 14h12 VEILLE), grisaille=1 (chien lui-même), tests 9/9 OK. Chien NON activé — activation launchd = prochain GO. Backups : /tmp/*.bak-avant-*-20260911 |

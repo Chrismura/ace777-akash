@@ -1,7 +1,7 @@
-# VEILLE ALERT — 2026-09-10T21:00:33Z
+# VEILLE ALERT — 2026-09-10T22:44:02Z
 
 Signal détecté (piste B, sync paper). **Pas un ordre.**
 
-- **CHIPUSDT** — IMPULSE_WAIT — spike en cours, pas chase  (t=3.16 m6=8.58 dd6=1.83 chg24=-0.1%)
+- **CHIPUSDT** — WATCH_PULLBACK — tension haute + reflux  (t=3.59 m6=10.01 dd6=9.1 chg24=-0.11%)
 
 → Lire `DIGEST_LATEST.md` et noter dans `VEILLE_QWEN_NOTES.md` si tu confirmes.

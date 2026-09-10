@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "volume",
-      "zscore": 2.0030045351528325,
-      "value": 12403236289.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Volume onchain élevé (z-score 2.00) mais aucun titre médiatique lié aux cryptos ne reflète cette activité. Divergence forte entre données brutes (signaux baleines) et narratif grand public (focus sur produits tech/culture).\"\n}\n```",
-      "ts": "2026-09-10T02:15:45.883821+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": 2.4201534780139164,
-      "value": 69,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.42) et F&G à 69 (Avidité) combinés à un vide médiatique (Google Actualités muet) signalent une euphorie retail isolée. Divergence classique de piégeage : les baleines distribuent silencieusement sur la liquidité de détail avant correction.\"\n}\n```",
-      "ts": "2026-09-10T02:35:49.209607+00:00"
-    },
-    {
       "metric": "long_short",
       "zscore": 2.0002278677100547,
       "value": 1.347,
@@ -349,6 +335,20 @@
       "value": 0.02,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Bruit médiatique parasité par l'homonymie (SDI = Syndicat des Indépendants et interfaces vidéo broadcast). Aucune corrélation avec la crypto.\"\n}\n```",
       "ts": "2026-09-10T20:23:58.301234+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": -2.0536048247806584,
+      "value": 10727896356.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique sans rapport avec la crypto (actualité macroéconomique et divertissement). Volume on-chain anormalement bas mais non significatif d'une manipulation de baleine.\"\n}\n```",
+      "ts": "2026-09-10T22:24:19.652401+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.742159604713421,
+      "value": 1.303,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (z-score 2.74) sur un ticker partagé avec des institutions académiques (Tournoi International des Physiciens, Institut Protestant de Théologie). Aucun lien avec la crypto, bruit de fond médiatique sans substance financière.\"\n}\n```",
+      "ts": "2026-09-10T23:14:35.307114+00:00"
     }
   ]
 }
