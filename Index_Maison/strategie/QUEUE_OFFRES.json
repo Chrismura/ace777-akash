@@ -1292,8 +1292,42 @@
         "ok": false,
         "erreur": "HTTP 429 service failure: tenant tn-59004cfrvs quota exceeded"
       }
+    },
+    {
+      "id": "8e20e7de1167",
+      "type": "offre",
+      "source": "veille_hub",
+      "source_detail": "nex-agi/nex-n2.5-mini:free",
+      "model": "nex-agi/nex-n2.5-mini:free",
+      "base_url": "https://openrouter.ai/api/v1",
+      "api_key_env": "OPENROUTER_API_KEY",
+      "role": "gros cerveau",
+      "arrivee": "2026-09-10T07:02:05.193211",
+      "statut": "nouveau",
+      "essais": 1,
+      "test_reel": {
+        "ok": false,
+        "erreur": "'NoneType' object has no attribute 'strip'"
+      }
+    },
+    {
+      "id": "a2d60c77a417",
+      "type": "offre",
+      "source": "veille_hub",
+      "source_detail": "nex-agi/nex-n2.5-pro:free",
+      "model": "nex-agi/nex-n2.5-pro:free",
+      "base_url": "https://openrouter.ai/api/v1",
+      "api_key_env": "OPENROUTER_API_KEY",
+      "role": "gros cerveau",
+      "arrivee": "2026-09-10T07:02:05.193242",
+      "statut": "teste_ok",
+      "essais": 0,
+      "test_reel": {
+        "ok": true,
+        "erreur": ""
+      }
     }
   ],
   "traites_jour": 0,
-  "date": "2026-09-09"
+  "date": "2026-09-10"
 }
