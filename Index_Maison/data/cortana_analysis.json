@@ -1,15 +1,30 @@
 {
-  "timestamp": 1789020715,
-  "date": "2026-09-10T06:11:55.253732+00:00",
-  "n_analyses": 1,
+  "timestamp": 1789024316,
+  "date": "2026-09-10T07:11:56.237570+00:00",
+  "n_analyses": 2,
   "analyses": [
     {
       "signal": {
         "metric": "long_short",
-        "zscore": 2.5539661403967475,
+        "zscore": 2.3693568747040756,
         "value": 1.478,
-        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Z-score élevé (2.55) et ratio long/short à 1.478 indiquant un posicionnement massivement acheteur de la foule et des baleines, totalement déconnecté du narratif médiatique généraliste axé sur la prudence et la diversification neutre (fonds long/short traditionnels). Risque imminent de 'long squeeze'.\"\n}\n```",
-        "ts": 1789020706.041999
+        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Le ratio long/short atteint un z-score élevé de 2.37 (1.478), révélant une surconcentration agressive des positions acheteuses par les baleines. Pendant ce temps, le narratif médiatique grand public se focalise abstraitement sur les ETF et stratégies long/short traditionnelles, ignorant totalement l'excès de levier spéculatif en cours. Divergence classique de fin de cycle : un 'long squeeze' imminent est en préparation.\"\n}\n```",
+        "ts": 1789022520.427009
+      },
+      "fiche": null,
+      "interpretation": {
+        "lecture": "Pas de fiche disponible",
+        "niveau": "inconnu"
+      },
+      "action": "Observer"
+    },
+    {
+      "signal": {
+        "metric": "whale_usd",
+        "zscore": 5.613501846366491,
+        "value": 6574170.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (z-score 5.61, ~6.57M USD) dans le silence médiatique total (Google Actualités vide). Accumulation furtive des baleines sans FOMO public.\"\n}\n```",
+        "ts": 1789023123.266841
       },
       "fiche": null,
       "interpretation": {

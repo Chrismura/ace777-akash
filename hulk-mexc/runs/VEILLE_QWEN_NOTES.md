@@ -3838,3 +3838,11 @@ Pas d’ordre — confrontation plus tard.
 ### 2026-09-10T04:09:59Z — ALERT auto
 - EDELUSDT: IMPULSE_WAIT — spike en cours, pas chase
 (compléter: confirmé ? risque ?)
+
+### 2026-09-10T06:16:22Z — ALERT auto
+- REDUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
+
+### 2026-09-10T06:40:34Z — ALERT auto
+- RIZEUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)

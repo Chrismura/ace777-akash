@@ -1,27 +1,6 @@
 {
   "signals": [
     {
-      "metric": "taker_ratio",
-      "zscore": -2.1174495844691545,
-      "value": 0.602,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio à 0.602 (z-score -2.12) indique une domination massive des acheteurs passifs (limites) face aux vendeurs agressifs (market), couplé à un silence médiatique total. C'est la signature classique d'accumulation invisible par les baleines loin du bruit de détail.\"\n}\n```",
-      "ts": "2026-09-09T10:12:20.546335+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.1494519360684827,
-      "value": 1.1,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.15) due à une confusion lexicale : les données on-chain/médias font référence au sigle 'IPT' (Tournoi de Physique, théologie, biotechnologies) et non à un actif crypto. Aucune baleine détectée.\"\n}\n```",
-      "ts": "2026-09-09T12:17:36.830332+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": 2.4510027253056337,
-      "value": 0.024,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique hors-sujet : les articles concernent le syndicat patronal SDI (Syndicat des Indépendants) et la norme vidéo SDI, sans aucun rapport avec la crypto-sphère ou des mouvements de baleines on-chain.\"\n}\n```",
-      "ts": "2026-09-09T13:17:51.691988+00:00"
-    },
-    {
       "metric": "ipt",
       "zscore": 4.378586555511401,
       "value": 1.788,
@@ -349,6 +328,27 @@
       "value": 1.478,
       "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Z-score élevé (2.55) et ratio long/short à 1.478 indiquant un posicionnement massivement acheteur de la foule et des baleines, totalement déconnecté du narratif médiatique généraliste axé sur la prudence et la diversification neutre (fonds long/short traditionnels). Risque imminent de 'long squeeze'.\"\n}\n```",
       "ts": "2026-09-10T06:11:46.041999+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": 2.3693568747040756,
+      "value": 1.478,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Le ratio long/short atteint un z-score élevé de 2.37 (1.478), révélant une surconcentration agressive des positions acheteuses par les baleines. Pendant ce temps, le narratif médiatique grand public se focalise abstraitement sur les ETF et stratégies long/short traditionnelles, ignorant totalement l'excès de levier spéculatif en cours. Divergence classique de fin de cycle : un 'long squeeze' imminent est en préparation.\"\n}\n```",
+      "ts": "2026-09-10T06:42:00.427009+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 5.613501846366491,
+      "value": 6574170.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (z-score 5.61, ~6.57M USD) dans le silence médiatique total (Google Actualités vide). Accumulation furtive des baleines sans FOMO public.\"\n}\n```",
+      "ts": "2026-09-10T06:52:03.266841+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": 2.1914435558660648,
+      "value": 1.476,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Le ratio long/short atteint un z-score critique de 2.19 (1.476), révélant un positionnement excessivement haussier des détaillants et des baleines, alors que les médias grand public banalisent la stratégie 'Long/Short' comme simple couverture. Ce consensus acheteur unilatéral crée un déséquilibre parfait pour une liquidation massive imminente (piège à liquidité).\"\n}\n```",
+      "ts": "2026-09-10T07:12:07.918916+00:00"
     }
   ]
 }
