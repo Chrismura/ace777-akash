@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "fear_greed",
-      "zscore": 2.4201534780139164,
-      "value": 69,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.42) et Fear & Greed à 69 (Avidité) couplés à un vide médiatique total (Google Actualités muet). Divergence classique de piège à liquidité : le retail entre en FOMO tardif sans couverture médiatique de masse, ce qui précède souvent une distribution silencieuse des baleines.\"\n}\n```",
-      "ts": "2026-09-10T01:35:26.567569+00:00"
-    },
-    {
       "metric": "volume",
       "zscore": 2.00969554000478,
       "value": 12297716216.0,
@@ -349,6 +342,13 @@
       "value": 6286488.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score on-chain extrêmement élevé (4.87) pour un mouvement de 6.28M$ dans un silence médiatique absolu (Google Actualités muet). Divergence classique d'accumulation furtive par des baleines loin des radars de la foule.\"\n}\n```",
       "ts": "2026-09-10T18:28:14.286398+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.007477188369184,
+      "value": 1.044,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (z-score 2.01) liée au ticker 'ipt' totalement non pertinente : les médias parlent d'un tournoi de physique (IPT), d'une institution théologique/sociale et de biotechnologies. Aucun mouvement de baleine crypto détecté, confusion totale de sémantique.\"\n}\n```",
+      "ts": "2026-09-10T19:18:38.192619+00:00"
     }
   ]
 }
