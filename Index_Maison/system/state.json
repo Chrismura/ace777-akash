@@ -1,44 +1,47 @@
 {
-  "timestamp": "2026-09-10T15:13:56Z",
+  "timestamp": "2026-09-10T15:15:58Z",
   "generation_source": "system_state_generator.py v2.1",
   "status": "STALE",
-  "feed_hash": "1da455f301a9fd80e862386b7de3182308bf6d449655ca3e46333092889004ed",
+  "feed_hash": "98fa4fafe630a353f8112930a9c99be9987ad4955f61e50e2c80f5ce904ae1dc",
   "feeds": {
     "mission": {
       "present": true,
-      "age_seconds": 19,
+      "age_seconds": 17,
       "fresh_limit_s": 120
     },
     "cortana_feed": {
       "present": true,
-      "age_seconds": 312,
+      "age_seconds": 95,
       "fresh_limit_s": 120
     },
     "live": {
       "present": true,
-      "age_seconds": 251,
+      "age_seconds": 72,
       "fresh_limit_s": 15
     },
     "routing": {
       "present": true,
-      "age_seconds": 1481619,
+      "age_seconds": 1481741,
       "fresh_limit_s": 120
     }
   },
   "services": {
     "total": 80,
-    "running": 10,
-    "planned": 70,
+    "running": 13,
+    "planned": 67,
     "running_list": [
       "com.ace777.cockpit-http",
       "com.ace777.cockpit-pont",
+      "com.ace777.cortana.urgent",
+      "com.ace777.heartbeats",
       "com.ace777.llm-gate-hub",
       "com.ace777.prise-ia",
       "com.ace777.satellite-aspiration",
       "com.ace777.state-generator",
+      "com.ace777.superviseur",
+      "com.ace777.superviseur-auto",
       "com.ace777.superviseur-core",
       "com.ace777.superviseur-process",
-      "com.ace777.thermo-quotidien",
       "com.ace777.vigie-live"
     ],
     "planned_list": [
@@ -51,7 +54,6 @@
       "com.ace777.cortana-analyzer",
       "com.ace777.cortana-feed",
       "com.ace777.cortana-propose-params",
-      "com.ace777.cortana.urgent",
       "com.ace777.couleur-regime",
       "com.ace777.couleur-regime-score",
       "com.ace777.cpfp",
@@ -70,7 +72,6 @@
       "com.ace777.gitpush",
       "com.ace777.gitpush-vault",
       "com.ace777.graph-cerveau",
-      "com.ace777.heartbeats",
       "com.ace777.hub-cockpit-feed",
       "com.ace777.hulk-watchdog",
       "com.ace777.jackson-hole-alarmes",
@@ -96,8 +97,7 @@
       "com.ace777.sniffer-ny",
       "com.ace777.sonde-volume-panier",
       "com.ace777.suivi-setup-red",
-      "com.ace777.superviseur",
-      "com.ace777.superviseur-auto",
+      "com.ace777.thermo-quotidien",
       "com.ace777.veille-degradation",
       "com.ace777.veille-essaim-observation",
       "com.ace777.veille-hub",
@@ -151,7 +151,7 @@
       "Assistant_Vocal_HORS_VAULT": 697372,
       "Obsidian_BACKUPS_HORS_VAULT": 14936872
     },
-    "presence_at": "2026-09-10T14:45:07Z",
+    "presence_at": "2026-09-10T15:15:08Z",
     "sizes_at": "2026-09-10T13:15:04Z"
   }
 }
