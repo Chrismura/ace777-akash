@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "taker_ratio",
-      "zscore": 2.1764178586662184,
-      "value": 1.342,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio à 1.342 (z-score 2.18) indique une forte agression acheteuse cachée sur le marché dérivé/spot, tandis que les médias traditionnels (Google Actualités) affichent un vide informationnel total. Classique accumulation silencieuse de baleines avant un re-pricing haussier.\"\n}\n```",
-      "ts": "2026-09-09T17:03:47.104489+00:00"
-    },
-    {
-      "metric": "taker_ratio",
-      "zscore": 2.036472313379881,
-      "value": 1.342,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio élevé (z-score 2.04) indique une forte agression acheteuse cachée sur les carnets d'ordres, totalement ignorée par le vide médiatique actuel. Accumulation silencieuse des baleines avant un mouvement de rupture haussier.\"\n}\n```",
-      "ts": "2026-09-09T17:33:53.254108+00:00"
-    },
-    {
       "metric": "whale_usd",
       "zscore": 2.979602995967145,
       "value": 3421621.0,
@@ -349,6 +335,20 @@
       "value": 1.494,
       "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Z-score élevé (2.09) avec un ratio long/short à 1.494 indiquant une surconcentration excessive d'acheteurs. Le narratif médiatique grand public glorifie les stratégies long/short de manière superficielle, créant une diversion parfaite pendant que la foule accumule du levier haussier, condition classique d'un piège à liquidité (long squeeze imminent).\"\n}\n```",
       "ts": "2026-09-10T08:15:25.733538+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": -2.1276654403239785,
+      "value": 1309146.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Bruit médiatique parasité par des homonymes juridiques locaux (faillites d'entreprises traditionnelles). Les données onchain montrent des liquidations crypto anormalement basses (z-score -2.13), indiquant l'absence de mouvements majeurs de baleines ou de purge par le levier.\"\n}\n```",
+      "ts": "2026-09-10T08:45:32.554667+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": -2.0421575250838186,
+      "value": 1309146.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique parasité par des homonymes juridiques locaux (faillites d'entreprises traditionnelles). Absence totale de mouvement macro de baleines ou de signal de liquidations crypto significatif.\"\n}\n```",
+      "ts": "2026-09-10T09:15:38.795263+00:00"
     }
   ]
 }
