@@ -1,48 +1,6 @@
 {
   "signals": [
     {
-      "metric": "liquidations",
-      "zscore": 2.0165875843836076,
-      "value": 5582476.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le 'bruit' médiatique est trompeur : les termes 'liquidations' dans la presse concernent des faillites d'entreprises locales (Blois, Quimper) et non la crypto. Le z-score onchain (2.02) indique un shakeout sain des positions à effet de levier, éliminant les mains faibles sans perturber l'accumulation silencieuse des baleines.\"\n}\n```",
-      "ts": "2026-09-08T22:28:02.464003+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.6005227858496527,
-      "value": 1.127,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Fausse alerte liée à une homonymie : l'anomalie 'ipt' (z-score 2.60) concerne un actif crypto, tandis que les actualités traitent du Tournoi International des Physiciens (IPT), d'instituts théologiques et d'accords universitaires (INSA). Aucune baleine crypto identifiée.\"\n}\n```",
-      "ts": "2026-09-09T00:03:17.498107+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": -8.383007822010276,
-      "value": 66,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-8.38) malgré une cupidité modérée (66). Le silence absolu des médias couplé à une anomalie statistique on-chain indique une accumulation invisible des baleines loin du radar public.\"\n}\n```",
-      "ts": "2026-09-09T00:08:19.190974+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.9039772040676364,
-      "value": 1.252,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.90) entièrement due à une confusion lexicale : le ticker 'IPT' est ici parasité par des actualités institutionnelles et académiques sans rapport avec la crypto.\"\n}\n```",
-      "ts": "2026-09-09T00:33:23.292003+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": -6.029654203233217,
-      "value": 66,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement négatif (-6.03) pour un Fear & Greed à 66 (Cupidité modérée). Les médias ne rapportent aucune euphorie notable (Google Actualités vide/neutre), ce qui indique une accumulation silencieuse des baleines sous le radar public, loin de la surchauffe médiatique habituelle.\"\n}\n```",
-      "ts": "2026-09-09T00:38:33.042428+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": -4.79583152331272,
-      "value": 66,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-4.80) malgré une cupidité modérée (66). Les médias traditionnels (Google Actualités) font un black-out total sur le sujet, prouvant une accumulation discrète des baleines loin du radar public.\"\n}\n```",
-      "ts": "2026-09-09T01:08:37.706186+00:00"
-    },
-    {
       "metric": "fear_greed",
       "zscore": -3.872983346207417,
       "value": 66,
@@ -349,6 +307,48 @@
       "value": 1.347,
       "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Le z-score élevé (2.08) indique une concentration extrême de positions acheteuses chez les traders particuliers et institutionnels suivis, coïncidant étrangement avec un narratif médiatique grand public qui encense les stratégies 'long-short'. Classiquement, un consensus aussi fort sur le levier long précède une purge des baleines.\"\n}\n```",
       "ts": "2026-09-10T02:10:42.544525+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.0030045351528325,
+      "value": 12403236289.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Volume onchain élevé (z-score 2.00) mais aucun titre médiatique lié aux cryptos ne reflète cette activité. Divergence forte entre données brutes (signaux baleines) et narratif grand public (focus sur produits tech/culture).\"\n}\n```",
+      "ts": "2026-09-10T02:15:45.883821+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 2.4201534780139164,
+      "value": 69,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.42) et F&G à 69 (Avidité) combinés à un vide médiatique (Google Actualités muet) signalent une euphorie retail isolée. Divergence classique de piégeage : les baleines distribuent silencieusement sur la liquidité de détail avant correction.\"\n}\n```",
+      "ts": "2026-09-10T02:35:49.209607+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": 2.0002278677100547,
+      "value": 1.347,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Le ratio long/short atteint un z-score élevé de 2.00, indiquant une surconcentration excessive de positions acheteuses par les baleines. Pendant ce temps, le narratif médiatique grand public banalise et glorifie les stratégies long/short comme un produit financier classique et rassurant, créant une euphorie de surface propice à un 'long squeeze' imminent.\"\n}\n```",
+      "ts": "2026-09-10T02:40:57.248579+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.035225069591394,
+      "value": 12604917581.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie de volume purement parasite. Les titres médiatiques détectés concernent de l'actualité tech grand public (Apple), des programmes TV, du matériel cycliste et un fait divers d'exchange sans lien avec un mouvement massif de baleines crypto.\"\n}\n```",
+      "ts": "2026-09-10T03:06:01.591706+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 2.4201534780139164,
+      "value": 69,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.42) et indice de peur/greed à 69 (Avidité) combinés à un vide médiatique (Google Actualités sans écho majeur) signalent une euphorie de retail isolée. Les baleines profitent traditionnellement de cette complaisance pour distribuer silencieusement leurs bags avant un retournement.\"\n}\n```",
+      "ts": "2026-09-10T03:06:02.880240+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": 2.292641597168686,
+      "value": 1.369,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Z-score élevé (2.29) sur le ratio long/short indiquant un posicionnement massivement acheteur des baleines, alors que les médias grand public font la promotion générale des stratégies long/short de couverture. Excès d'optimisme contrarien typique d'un piégeage de liquidité avant une purge.\"\n}\n```",
+      "ts": "2026-09-10T03:11:04.882022+00:00"
     }
   ]
 }

@@ -1,20 +1,20 @@
 {
-  "timestamp": 1789006311,
-  "date": "2026-09-10T02:11:51.066366+00:00",
+  "timestamp": 1789009912,
+  "date": "2026-09-10T03:11:52.075144+00:00",
   "n_analyses": 3,
   "analyses": [
     {
       "signal": {
         "metric": "volume",
-        "zscore": 2.00969554000478,
-        "value": 12297716216.0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique de volume (z-score 2.01) totalement polluée par du bruit lexical grand public (AirPods, pneus, spectacle). Aucune baleine crypto détectée, le 'volume' mentionné par les médias n'a aucun rapport avec une accumulation onchain pertinente.\"\n}\n```",
-        "ts": 1789004729.133385
+        "zscore": 2.035225069591394,
+        "value": 12604917581.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie de volume purement parasite. Les titres médiatiques détectés concernent de l'actualité tech grand public (Apple), des programmes TV, du matériel cycliste et un fait divers d'exchange sans lien avec un mouvement massif de baleines crypto.\"\n}\n```",
+        "ts": 1789009561.591706
       },
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.01,
+          "value": 0.08,
           "seuil": 1,
           "depasse": false
         },
@@ -24,12 +24,12 @@
           "depasse": false
         },
         "funding": {
-          "value": 3.6e-05,
+          "value": 6.1e-05,
           "seuil": 0.001,
           "depasse": false
         },
         "whales": {
-          "value": 0,
+          "value": 1,
           "seuil": 5,
           "depasse": false
         }
@@ -48,8 +48,8 @@
         "metric": "fear_greed",
         "zscore": 2.4201534780139164,
         "value": 69,
-        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.42) et Fear & Greed à 69 (Avidité) combinés à un vide médiatique (Google Actualités sans écho majeur) signalent une euphorie de retail isolée. Divergence classique de piège à liquidité : distribution silencieuse des baleines.\"\n}\n```",
-        "ts": 1789005940.579085
+        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.42) et indice de peur/greed à 69 (Avidité) combinés à un vide médiatique (Google Actualités sans écho majeur) signalent une euphorie de retail isolée. Les baleines profitent traditionnellement de cette complaisance pour distribuer silencieusement leurs bags avant un retournement.\"\n}\n```",
+        "ts": 1789009562.88024
       },
       "fiche": null,
       "interpretation": {
@@ -61,10 +61,10 @@
     {
       "signal": {
         "metric": "long_short",
-        "zscore": 2.0773039669478512,
-        "value": 1.347,
-        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Le z-score élevé (2.08) indique une concentration extrême de positions acheteuses chez les traders particuliers et institutionnels suivis, coïncidant étrangement avec un narratif médiatique grand public qui encense les stratégies 'long-short'. Classiquement, un consensus aussi fort sur le levier long précède une purge des baleines.\"\n}\n```",
-        "ts": 1789006242.544525
+        "zscore": 2.292641597168686,
+        "value": 1.369,
+        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Z-score élevé (2.29) sur le ratio long/short indiquant un posicionnement massivement acheteur des baleines, alors que les médias grand public font la promotion générale des stratégies long/short de couverture. Excès d'optimisme contrarien typique d'un piégeage de liquidité avant une purge.\"\n}\n```",
+        "ts": 1789009864.882022
       },
       "fiche": null,
       "interpretation": {
