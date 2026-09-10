@@ -10,7 +10,8 @@
     "2026-08-25": 7,
     "2026-08-26": 8,
     "2026-08-28": 8,
-    "2026-09-05": 8
+    "2026-09-05": 8,
+    "2026-09-10": 7
   },
   "fiches": {
     "32f5f333ea5d": {
@@ -1653,6 +1654,130 @@
       "usage": "Analyste stratégique (gemini repli), juge de signets (nara repli), synthèses rapides",
       "avis_pour": "Essentiel pour des requêtes rapides quand Groq est prioritaire dans notre routage.",
       "avis_attention": "Surveiller les quotas réels qui peuvent changer silencieusement."
+    },
+    "19cde743091c": {
+      "section": "openrouter (:free)",
+      "item": "nex-agi/nex-n2.5-pro:free",
+      "generated": "2026-09-10T12:31:44.922815+00:00",
+      "type": "Modèle d'intelligence artificielle avancé gratuit via OpenRouter",
+      "forts": [
+        "Intégré récemment et testé avec succès (validation A/B + juge)",
+        "Bonnes performances globales sur les tâches textuelles et logiques",
+        "Gratuit (:free)"
+      ],
+      "faibles": [
+        "En observation 48h (jamais routé en production pour l'instant)",
+        "Stabilité à long terme encore incertaine"
+      ],
+      "usage": "observatoire",
+      "avis_pour": "À tenter pour profiter de ses capacités de pointe validées par notre juge, une fois la période d'observation passée.",
+      "avis_attention": "Attention, il est actuellement en phase d'observation stricte et ne doit pas être routé en production avant le GO hebdo."
+    },
+    "842aabf5c2db": {
+      "section": "rss (simonwillison/latent/batch)",
+      "item": "simonwillison.net: llm-openrouter 0.7.1",
+      "generated": "2026-09-10T12:32:35.132350+00:00",
+      "type": "Outil CLI et bibliothèque Python pour interagir avec les LLM via OpenRouter",
+      "forts": [
+        "Intégration transparente avec l'écosystème Python de Simon Willison",
+        "Idéal pour automatiser des requêtes LLM en batch ou par script",
+        "Permet de centraliser l'accès aux modèles via OpenRouter"
+      ],
+      "faibles": [
+        "Ce n'est pas un modèle brut mais un utilitaire/passerelle d'appel",
+        "Dépend de la disponibilité des clés et des quotas OpenRouter"
+      ],
+      "usage": "codeur",
+      "avis_pour": "Parfait pour scripter rapidement des tâches d'analyse ou automatiser des flux en Python sans réinventer la roue.",
+      "avis_attention": "Attention à bien configurer vos clés API et à surveiller les limites de taux d'OpenRouter lors des traitements en batch."
+    },
+    "cca687e13b9b": {
+      "section": "rss (simonwillison/latent/batch)",
+      "item": "obs-1786774646 (nvidia/nemotron-3-nano-30b-a3b:free) : 100% erreurs > 5% (observatoire)",
+      "generated": "2026-09-10T12:33:17.136448+00:00",
+      "type": "Modèle linguistique gratuit de la gamme Nvidia Nemotron",
+      "forts": [
+        "Intégration native dans certains flux de batch",
+        "Gratuité initiale sur le papier"
+      ],
+      "faibles": [
+        "Taux d'erreur critique de 100% selon l'observatoire actuel",
+        "Rollback automatique effectué suite aux pannes répétées",
+        "Inutilisable en production pour le moment"
+      ],
+      "usage": "Aucun usage actuel chez ACE777 (hors service)",
+      "avis_pour": "À surveiller uniquement si un correctif de stabilité est publié par le fournisseur.",
+      "avis_attention": "Attention, l'offre subit actuellement un taux d'échec total et a été désactivée par l'observatoire."
+    },
+    "77d31263db67": {
+      "section": "rss (simonwillison/latent/batch)",
+      "item": "obs-1786774656 (nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free) : 60% erreurs > 5% (observatoire)",
+      "generated": "2026-09-10T12:33:38.928182+00:00",
+      "type": "Modèle de raisonnement open-source (actuellement en échec dans l'observatoire ACE777)",
+      "forts": [
+        "Architecture orientée raisonnement",
+        "Format compact 30B adapté aux tâches logiques"
+      ],
+      "faibles": [
+        "Taux d'erreur élevé (> 5% détecté par l'observatoire ACE777)",
+        "不稳定 (instable) en production d'après les derniers rollbacks automatiques"
+      ],
+      "usage": "Réservé exclusivement aux tests hors-production (observatoire)",
+      "avis_pour": "À observer uniquement si l'infrastructure corrige ses instabilités de routage",
+      "avis_attention": "Attention : actuellement sous le coup d'un rollback automatique en raison de taux d'erreur inacceptables pour nos scripts"
+    },
+    "088a48b398a5": {
+      "section": "rss (simonwillison/latent/batch)",
+      "item": "obs-1786774667 (nvidia/nemotron-3.5-lightning:free) : 100% erreurs > 5% (observatoire)",
+      "generated": "2026-09-10T12:34:25.312053+00:00",
+      "type": "Modèle de langage (actuellement en échec technique selon l'observatoire)",
+      "forts": [
+        "Intégré initialement pour sa vitesse potentielle (Lightning)",
+        "Référencé dans les flux de test de l'infrastructure"
+      ],
+      "faibles": [
+        "100% d'erreurs enregistrées dans l'observatoire (> 5% de seuil critique)",
+        "Actuellement en cours de rollback automatique par la famille",
+        "Inutilisable en production en l'état actuel"
+      ],
+      "usage": "Aucun usage recommandé chez ACE777 (bloqué / en observation d'incident)",
+      "avis_pour": "À observer uniquement de loin pour voir si le fournisseur résout ses pannes de route",
+      "avis_attention": "Attention, l'offre subit un taux d'erreur total et a été retirée automatiquement des routages actifs."
+    },
+    "7f567924fdec": {
+      "section": "rss (simonwillison/latent/batch)",
+      "item": "obs-1786795252 (nvidia/nemotron-3.5-content-safety:free) : 100% erreurs > 5% (observatoire)",
+      "generated": "2026-09-10T12:35:09.472684+00:00",
+      "type": "Modèle de sécurité et de filtrage de contenu",
+      "forts": [
+        "Conçu pour la modération et l'analyse de sécurité des flux textuels",
+        "Intégration potentielle pour valider la conformité des prompts"
+      ],
+      "faibles": [
+        "Taux d'erreur critique de 100% constaté dans l'observatoire (rollback actif)",
+        "Inadapté pour le codage, l'analyse stratégique ou le jugement général"
+      ],
+      "usage": "Non routé (en observatoire / hors service suite à des erreurs répétées)",
+      "avis_pour": "Intéressant sur le papier pour auditer la sécurité des contenus si le fournisseur corrige ses pannes",
+      "avis_attention": "Actuellement totalement instable avec 100% d'erreurs, à fuir en production chez ACE777"
+    },
+    "631e39900dd5": {
+      "section": "rss (simonwillison/latent/batch)",
+      "item": "obs-1787248844 (nvidia/nemotron-nano-9b-v2:free) : 100% erreurs > 5% (observatoire)",
+      "generated": "2026-09-10T12:35:48.300019+00:00",
+      "type": "Modèle léger de type Nemotron de NVIDIA actuellement en échec technique majeur",
+      "forts": [
+        "Nom de modèle orienté performance edge (nano 9b)",
+        "Intégration potentielle future si stabilisation"
+      ],
+      "faibles": [
+        "Taux d'erreur de 100% enregistré dans l'observatoire ACE777",
+        "Actuellement placé en rollback automatique",
+        "Inadapté à la production"
+      ],
+      "usage": "Aucun (en observation après échec)",
+      "avis_pour": "À surveiller uniquement si le fournisseur corrige ses problèmes de disponibilité ou d'API.",
+      "avis_attention": "Attention, l'offre a échoué aux tests de fiabilité avec 100% d'erreurs et est actuellement bloquée par les protocoles de sécurité ACE777."
     }
   }
 }
