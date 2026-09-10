@@ -1,48 +1,6 @@
 {
   "signals": [
     {
-      "metric": "ipt",
-      "zscore": 4.378586555511401,
-      "value": 1.788,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 4.38) sur un ticker ambigu. Les titres médiatiques font référence à l'Institut Polytechnique de Toulouse (IPT) et non à un actif crypto. Bruit de fond institutionnel, absence de mouvement de baleine avéré.\"\n}\n```",
-      "ts": "2026-09-09T13:17:53.377848+00:00"
-    },
-    {
-      "metric": "long_short",
-      "zscore": -2.8372960980576676,
-      "value": 1.121,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Z-score extrêmement bas (-2.84) sur le ratio long/short indiquant un posicionnement baissier extrême des suiveurs (retail), alors que les médias grand public banalisent les stratégies défensives long/short. Classique divergence de capitulation : les baleines accumulent dans l'ombre pendant que la foule cède à la peur.\"\n}\n```",
-      "ts": "2026-09-09T15:08:08.505578+00:00"
-    },
-    {
-      "metric": "price_1h",
-      "zscore": 2.8284858071735295,
-      "value": 0.6883178460129535,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie statistique haussière (z-score 2.83) totalement ignorée par les médias (silence radio). Comportement typique d'accumulation discrète par des baleines avant un mouvement de rupture.\"\n}\n```",
-      "ts": "2026-09-09T15:13:13.915962+00:00"
-    },
-    {
-      "metric": "long_short",
-      "zscore": -2.5733367169724453,
-      "value": 1.121,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Le Z-score extrêmement bas (-2.57) indique une sous-pondération historique des positions longues par la foule (capitulation ou pessimisme excessif), tandis que les médias grand public banalisent abstraitement les stratégies long/short. C'est un signal contrarien classique de accumulation silencieuse par les baleines.\"\n}\n```",
-      "ts": "2026-09-09T15:38:18.119768+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.1790476875790206,
-      "value": 1.183,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 75,\n  \"reason\": \"Divergence significative entre l'activité onchain (z-score élevé) et un narratif médiatique institutionnel/universitaire. Les baleines pourraient anticiper un développement non médiatisé (ex: partenariat tech/bio caché, valorisation IP).\"\n}\n```",
-      "ts": "2026-09-09T16:03:37.725806+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": 2.131015034283599,
-      "value": 0.024,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Anomalie statistique (z-score 2.13) totalement decorrelee de la crypto. Les donnees 'SDI' proviennent d'homonymes institutionnels et industriels (Marc Sanchez, SDI Expander) et non d'une activite de baleine blockchain.\"\n}\n```",
-      "ts": "2026-09-09T16:23:41.433981+00:00"
-    },
-    {
       "metric": "taker_ratio",
       "zscore": 2.1764178586662184,
       "value": 1.342,
@@ -349,6 +307,48 @@
       "value": 1.476,
       "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Le ratio long/short atteint un z-score critique de 2.19 (1.476), révélant un positionnement excessivement haussier des détaillants et des baleines, alors que les médias grand public banalisent la stratégie 'Long/Short' comme simple couverture. Ce consensus acheteur unilatéral crée un déséquilibre parfait pour une liquidation massive imminente (piège à liquidité).\"\n}\n```",
       "ts": "2026-09-10T07:12:07.918916+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 4.297797045242764,
+      "value": 5437851.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (z-score 4.30) en l'absence totale de couverture médiatique. Signal typique d'accumulation furtive par des baleines avant un mouvement de marché inattendu.\"\n}\n```",
+      "ts": "2026-09-10T07:27:22.134137+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": -2.2772113447285944,
+      "value": 1303512.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Bruit médiatique parasité par des faits divers locaux (liquidations judiciaires d'entreprises traditionnelles). Sur le plan crypto, un z-score des liquidations à -2.28 indique une sécheresse extrême des ventes forcées, créant un vide vendeur propice à une accumulation silencieuse des baleines.\"\n}\n```",
+      "ts": "2026-09-10T07:42:25.716293+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": 2.0552171570015076,
+      "value": 1.476,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Z-score élevé (2.06) avec un ratio long/short à 1.476 indiquant une surconcentration excessive des positions acheteuses par les baleines. Le narratif médiatique généraliste banalise et encourage les stratégies long/short sans voir l'excès de levier haussier imminent, créant un risque majeur de 'long squeeze'.\"\n}\n```",
+      "ts": "2026-09-10T07:42:27.240714+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 5.378621262417963,
+      "value": 7069800.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (z-score 5.38, ~7M USD) totalement ignorée par les médias traditionnels (silence radio). Accumulation furtive classique de baleines en amont d'un mouvement de marché.\"\n}\n```",
+      "ts": "2026-09-10T08:00:19.844802+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": -2.1870333374011564,
+      "value": 1329892.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Bruit médiatique parasité par des fausses alertes sémantiques (liquidations judiciaires locales). En réalité, les liquidations crypto sont anormalement basses (z-score -2.19), indiquant un marché sans effet de levier excessif, propice à une accumulation silencieuse des baleines.\"\n}\n```",
+      "ts": "2026-09-10T08:15:23.786675+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": 2.094204667504393,
+      "value": 1.494,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Z-score élevé (2.09) avec un ratio long/short à 1.494 indiquant une surconcentration excessive d'acheteurs. Le narratif médiatique grand public glorifie les stratégies long/short de manière superficielle, créant une diversion parfaite pendant que la foule accumule du levier haussier, condition classique d'un piège à liquidité (long squeeze imminent).\"\n}\n```",
+      "ts": "2026-09-10T08:15:25.733538+00:00"
     }
   ]
 }

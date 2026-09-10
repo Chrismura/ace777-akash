@@ -1,15 +1,15 @@
-# STRATEGIE — 2026-09-10T07:14:37.295727Z
+# STRATEGIE — 2026-09-10T08:15:38.016393Z
 
-## COURT TERME — 2026-09-10T07:14:37.295727Z
+## COURT TERME — 2026-09-10T08:15:38.016393Z
 
-[UNDERSTAND] La maison ACE777 maintient sa vigilance nominale, portée par le PnL combiné positif de +0,70 $, la patience disciplinée d'Alpha et les reconnaissances continues de Beta, malgré l'application stricte du stop-loss sur la position seed CCUSDT.
+[UNDERSTAND] La maison ACE777 maintient sa vigilance nominale, avec Alpha en embuscade disciplinée, Beta actif à l'éclairage tactique et Hulk sous surveillance rapprochée de ses positions seeds.
 [ANALYZE]
-- Tendance : Configuration de marché en "Bitcoin season" (score 44) avec une cupidité modérée (Fear & Greed à 69) et des flux ETF BTC négatifs (-138,83 M$).
-- Momentum : Stabilité opérationnelle avec Beta actif (34 fills, +2,67 $) qui guide l'attente d'Alpha, tandis que Hulk gère son portefeuille seed globalement positif (+10,62 $) sous contrôle rigoureux.
-- Risque : Persistance de l'érosion sur certaines positions seeds, notamment CCUSDT maintenue sous arrêt d'urgence.
-- Contexte : Portefeuille combiné positif (+0,70 $), Open Interest en hausse (+421,65 $) et activité baleines modérée (indice onchain 32,7/100).
+- Tendance : Marché orienté en Bitcoin season (score 44) avec un score de cupidité modéré à 69 (Greed) et un BTC oscillant autour de 78,1K$.
+- Momentum : Stabilité opérationnelle de l'essaim avec un PnL combiné positif de +0,70 $, soutenu par les 34 sondes rentables de Beta (+2,67 $) tandis qu'Alpha maintient son attente calculée (0 tir sur la session).
+- Risque : Persistance de l'érosion sur certaines positions seeds de Hulk, en particulier CCUSDT maintenue sous arrêt d'urgence strict (-15,54 %).
+- Contexte : Open Interest en légère baisse, flux ETF BTC négatifs (-138,7 M$) et activité baleines sous surveillance nominale.
 [STRATEGIZE]
-1. Maintenir Alpha en embuscade stricte en attendant une cassure nette des carnets d'ordres validée par les sondes de Beta.
+1. Maintenir Alpha en embuscade stricte en attendant une cassure nette des carnets d'ordres validée par les flux d'intelligence de Beta.
 2. Préserver la discipline de gestion des risques en maintenant le stop-loss actif sur CCUSDT pour contenir l'érosion du portefeuille seeds de Hulk.
 3. Exploiter l'éclairage de Beta pour identifier les opportunités de volume sans forcer l'exposition globale de l'essaim.
 [EXECUTE]

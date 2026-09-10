@@ -1,11 +1,22 @@
 ---
-date: 2026-09-08T1615Z
+date: 2026-09-10T0715Z
 type: registre_predictions
 ---
 
 # 📓 Registre des prédictions — la vérification du banc d'essai
 
 Chaque prédiction est notée avec sa date limite. Le script `verifier_predictions.py` re-vérifie les échues (statut VRAIE/FAUSSE/NON VÉRIFIABLE).
+
+### 2026-09-10T0715Z — Crypto Crew University : The One Breakout Candle Pro Traders Never Ignore 📈🔥 #shorts
+Lien : https://www.youtube.com/watch?v=tCwlFix0ilI
+
+- _(aucune prédiction vérifiable extraite)_
+
+### 2026-09-10T0715Z — Crypto Crew University : WARNING: HIDDEN PUMP OR DEATH SIGNAL - HUGE MOVE COMING 🚨
+Lien : https://www.youtube.com/watch?v=bRMgigjxoRU
+
+- ⏳ EN ATTENTE | [2025-12-31] Le Super Guppy 5 jours du Bitcoin sortira définitivement de sa zone rouge actuelle pour passer au gris/vert (source : youtuber)
+- ⏳ EN ATTENTE | [2025-06-30] Le Bitcoin connaîtra une volatilité extrême avec un mouvement directionnel supérieur à 30% par rapport au cours de février 2025 (source : youtuber)
 
 ### 2026-09-08T1615Z — Crypto Crew University : THIS LEGENDARY CROSS JUST HAPPENED – IS IT A FAKEOUT OR CAN WE REALLY PUMP FROM HERE
 Lien : https://www.youtube.com/watch?v=4zu-C6b23-4
