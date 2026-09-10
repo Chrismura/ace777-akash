@@ -1,188 +1,108 @@
 {
-  "ts": "2026-09-09T19:12:40.335403+00:00",
-  "statut": "FRAIS",
-  "age_rapport_h": 6.0,
+  "ts": "2026-09-10T01:12:40.398577+00:00",
+  "statut": "STALE",
+  "age_rapport_h": 12.0,
   "bascules": [
     {
       "pair": "BIOUSDT",
-      "avant": "neutre",
-      "maintenant": "POMPE_PIEGE",
-      "corr_avant": 0.0,
-      "corr_maintenant": -0.461
-    },
-    {
-      "pair": "BTCUSDT",
-      "avant": "neutre",
-      "maintenant": "POMPE_PIEGE",
-      "corr_avant": 0.0,
-      "corr_maintenant": -0.564
-    },
-    {
-      "pair": "CCUSDT",
-      "avant": "neutre",
-      "maintenant": "POMPE_PIEGE",
-      "corr_avant": 0.0,
-      "corr_maintenant": -0.38
-    },
-    {
-      "pair": "CHIPUSDT",
-      "avant": "neutre",
-      "maintenant": "POMPE_PIEGE",
-      "corr_avant": 0.0,
-      "corr_maintenant": -0.326
+      "avant": "POMPE_PIEGE",
+      "maintenant": "neutre",
+      "corr_avant": -0.461,
+      "corr_maintenant": -0.126
     },
     {
       "pair": "EDELUSDT",
-      "avant": "neutre",
-      "maintenant": "POMPE_PIEGE",
-      "corr_avant": 0.0,
-      "corr_maintenant": -0.373
+      "avant": "POMPE_PIEGE",
+      "maintenant": "neutre",
+      "corr_avant": -0.373,
+      "corr_maintenant": -0.148
     },
     {
       "pair": "ETHUSDT",
+      "avant": "POMPE_PIEGE",
+      "maintenant": "neutre",
+      "corr_avant": -0.762,
+      "corr_maintenant": -0.097
+    },
+    {
+      "pair": "FLUIDUSDT",
       "avant": "neutre",
-      "maintenant": "POMPE_PIEGE",
-      "corr_avant": 0.0,
-      "corr_maintenant": -0.762
+      "maintenant": "LEADER",
+      "corr_avant": 0.035,
+      "corr_maintenant": 0.365
     },
     {
       "pair": "HBARUSDT",
-      "avant": "neutre",
-      "maintenant": "POMPE_PIEGE",
-      "corr_avant": 0.0,
-      "corr_maintenant": -0.338
-    },
-    {
-      "pair": "KITEUSDT",
-      "avant": "neutre",
-      "maintenant": "POMPE_PIEGE",
-      "corr_avant": 0.0,
-      "corr_maintenant": -0.706
-    },
-    {
-      "pair": "MNSRYUSDT",
-      "avant": "neutre",
-      "maintenant": "LEADER",
-      "corr_avant": 0.0,
-      "corr_maintenant": 0.796
-    },
-    {
-      "pair": "PYTHUSDT",
-      "avant": "neutre",
-      "maintenant": "LEADER",
-      "corr_avant": 0.0,
-      "corr_maintenant": 0.278
+      "avant": "POMPE_PIEGE",
+      "maintenant": "neutre",
+      "corr_avant": -0.338,
+      "corr_maintenant": -0.127
     },
     {
       "pair": "QNTUSDT",
-      "avant": "neutre",
-      "maintenant": "LEADER",
-      "corr_avant": 0.0,
-      "corr_maintenant": 0.551
-    },
-    {
-      "pair": "REDUSDT",
-      "avant": "neutre",
+      "avant": "LEADER",
       "maintenant": "POMPE_PIEGE",
-      "corr_avant": 0.0,
-      "corr_maintenant": -0.301
-    },
-    {
-      "pair": "RIZEUSDT",
-      "avant": "neutre",
-      "maintenant": "POMPE_PIEGE",
-      "corr_avant": 0.0,
-      "corr_maintenant": -0.737
-    },
-    {
-      "pair": "RWAINCUSDT",
-      "avant": "neutre",
-      "maintenant": "POMPE_PIEGE",
-      "corr_avant": 0.0,
-      "corr_maintenant": -0.802
+      "corr_avant": 0.551,
+      "corr_maintenant": -0.27
     },
     {
       "pair": "RWAUSDT",
-      "avant": "neutre",
-      "maintenant": "POMPE_PIEGE",
-      "corr_avant": 0.0,
-      "corr_maintenant": -0.278
-    },
-    {
-      "pair": "TELUSDT",
-      "avant": "neutre",
-      "maintenant": "POMPE_PIEGE",
-      "corr_avant": 0.0,
-      "corr_maintenant": -0.154
+      "avant": "POMPE_PIEGE",
+      "maintenant": "LEADER",
+      "corr_avant": -0.278,
+      "corr_maintenant": 0.453
     },
     {
       "pair": "WUSDT",
-      "avant": "neutre",
-      "maintenant": "POMPE_PIEGE",
-      "corr_avant": 0.0,
-      "corr_maintenant": -0.368
-    },
-    {
-      "pair": "XRPUSDT",
-      "avant": "neutre",
-      "maintenant": "POMPE_PIEGE",
-      "corr_avant": 0.0,
-      "corr_maintenant": -0.353
-    },
-    {
-      "pair": "ZBCNUSDT",
-      "avant": "neutre",
-      "maintenant": "POMPE_PIEGE",
-      "corr_avant": 0.0,
-      "corr_maintenant": -0.928
+      "avant": "POMPE_PIEGE",
+      "maintenant": "LEADER",
+      "corr_avant": -0.368,
+      "corr_maintenant": 0.423
     }
   ],
   "principe": "RIEN N'EST STATIQUE — signal suivi tant que les chiffres le confirment, abandonné dès inversion",
-  "message": "🟢 Pattern divergence suivi et à jour.",
+  "message": "🟡 Pattern suivi mais rapport vieux de 12h — vérifier le moteur (croisement_contexte.jsonl)",
   "leaders": [
+    "FLUIDUSDT",
     "MNSRYUSDT",
     "PYTHUSDT",
-    "QNTUSDT"
+    "RWAUSDT",
+    "WUSDT"
   ],
   "pompes_pieges": [
-    "BIOUSDT",
     "BTCUSDT",
     "CCUSDT",
     "CHIPUSDT",
-    "EDELUSDT",
-    "ETHUSDT",
-    "HBARUSDT",
     "KITEUSDT",
+    "QNTUSDT",
     "REDUSDT",
     "RIZEUSDT",
     "RWAINCUSDT",
-    "RWAUSDT",
     "TELUSDT",
-    "WUSDT",
     "XRPUSDT",
     "ZBCNUSDT"
   ],
   "stabilite": {
-    "BIOUSDT": 1,
-    "BTCUSDT": 1,
-    "CCUSDT": 1,
-    "CHIPUSDT": 1,
-    "EDELUSDT": 1,
-    "ETHUSDT": 1,
-    "FLUIDUSDT": 0,
-    "HBARUSDT": 1,
-    "KITEUSDT": 1,
-    "MNSRYUSDT": 1,
-    "PYTHUSDT": 1,
+    "BIOUSDT": 0,
+    "BTCUSDT": 2,
+    "CCUSDT": 2,
+    "CHIPUSDT": 2,
+    "EDELUSDT": 0,
+    "ETHUSDT": 0,
+    "FLUIDUSDT": 1,
+    "HBARUSDT": 0,
+    "KITEUSDT": 2,
+    "MNSRYUSDT": 2,
+    "PYTHUSDT": 2,
     "QNTUSDT": 1,
-    "REDUSDT": 1,
-    "RIZEUSDT": 1,
-    "RWAINCUSDT": 1,
+    "REDUSDT": 2,
+    "RIZEUSDT": 2,
+    "RWAINCUSDT": 2,
     "RWAUSDT": 1,
-    "TELUSDT": 1,
+    "TELUSDT": 2,
     "WUSDT": 1,
-    "XRPUSDT": 1,
-    "ZBCNUSDT": 1
+    "XRPUSDT": 2,
+    "ZBCNUSDT": 2
   },
-  "recommande": "OBSERVER"
+  "recommande": "CONFRONTER AVEC CORTANA/FAMILLE"
 }

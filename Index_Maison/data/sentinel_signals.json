@@ -1,48 +1,6 @@
 {
   "signals": [
     {
-      "metric": "liquidations",
-      "zscore": 3.578049073036081,
-      "value": 5576305.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (3.58) sur les liquidations crypto alors que le bruit médiatique se focalise absurdement sur des faits divers de tribunaux de commerce locaux (Blois, Quimper). Cette diversion totale des médias grand public indique un mouvement de 'shakeout' silencieux des positions à effet de levier par les baleines, loin du radar de la foule.\"\n}\n```",
-      "ts": "2026-09-08T19:26:30.031914+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": 2.8220601962590726,
-      "value": 0.02,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Fausse alerte liée à l'homonymie. Le signal 'SDI' capté par la sentinelle concerne un bruit de fond macro/médiatique sans rapport avec la crypto (Syndicat des Indépendants, matériel vidéo Blackmagic, ou Samsung SDI). Aucune activité de baleine crypto détectée.\"\n}\n```",
-      "ts": "2026-09-08T19:41:38.758540+00:00"
-    },
-    {
-      "metric": "liquidations",
-      "zscore": 3.1822466701605716,
-      "value": 5621538.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (3.18) sur les liquidations crypto alors que le bruit médiatique fait diversion avec des faillites d'entreprises traditionnelles locales sans rapport. Classique 'shakeout' de baleines pour nettoyer le levier avant une reprise.\"\n}\n```",
-      "ts": "2026-09-08T19:56:52.459447+00:00"
-    },
-    {
-      "metric": "liquidations",
-      "zscore": 2.8351056690189207,
-      "value": 5621485.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de liquidations onchain (z-score 2.84) absorbée en silence par les baleines, tandis que les médias grand public s'égarent sur des faits divers judiciaires locaux sans rapport avec la crypto.\"\n}\n```",
-      "ts": "2026-09-08T20:27:01.259219+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": 2.5055397541714113,
-      "value": 0.02,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Anomalie de faux positif due à l'homonymie. Le 'SDI' onchain n'a aucun rapport avec les actualités médiatiques (fiscalité, matériel vidéo, Samsung SDI ou syndicats professionnels). Aucune baleine crypto détectée.\"\n}\n```",
-      "ts": "2026-09-08T20:32:03.656419+00:00"
-    },
-    {
-      "metric": "liquidations",
-      "zscore": 2.570521389219793,
-      "value": 5621485.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Divergence totale : les médias grand public paniquent sur des liquidations judiciaires d'entreprises locales (bruit de fond sans rapport), tandis que l'anomalie on-chain (z-score 2.57) montre un flush sain des positions à levier excédentaires, typique d'une accumulation silencieuse par les baleines avant une reprise.\"\n}\n```",
-      "ts": "2026-09-08T20:57:10.093263+00:00"
-    },
-    {
       "metric": "sdi",
       "zscore": 2.198092889181004,
       "value": 0.02,
@@ -349,6 +307,48 @@
       "value": 69,
       "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.42) et Fear & Greed à 69 (Avidité) combinés à un vide médiatique (Google Actualités sans écho majeur) signalent une euphorie retail isolée. Divergence classique de piégeage : distribution silencieuse des baleines sur la liquidité de détail.\"\n}\n```",
       "ts": "2026-09-10T00:04:55.387647+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.1305168837522723,
+      "value": 12069709715.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie de volume purement parasite : les actualités détectées concernent de l'audio grand public, de la comédie TV, du matériel cycliste et des bruits de couloir exchange sans lien avec un mouvement onchain significatif de baleines.\"\n}\n```",
+      "ts": "2026-09-10T00:14:58.998699+00:00"
+    },
+    {
+      "metric": "taker_ratio",
+      "zscore": 3.9222615337599933,
+      "value": 1.906,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Le taker_ratio à 1.906 (z-score 3.92) indique une domination massive et anormale des acheteurs agressifs (Taker Buy) que les médias traditionnels ignorent totalement (silence radio). Cette accumulation silencieuse des baleines présage d'un mouvement haussier imminent non pricé par le marché de détail.\"\n}\n```",
+      "ts": "2026-09-10T00:35:03.468741+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 2.4201534780139164,
+      "value": 69,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.42) et indice de peur et de cupidité à 69 (avidité extrême) couplés à un vide médiatique total (Google Actualités sans relais notable) : signal classique d'euphorie locale de détail. Les baleines profitent de cette liquidité aveugle pour distribuer en silence avant une correction.\"\n}\n```",
+      "ts": "2026-09-10T00:35:04.792815+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.124445409362041,
+      "value": 12170871700.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie de volume purement technique (z-score 2.12) sans corrélation avec les actualités crypto. Le bruit médiatique concerne des gadgets grand public, de l'humour et du matériel de vélo, indiquant une absence totale de narratif financier pertinent.\"\n}\n```",
+      "ts": "2026-09-10T00:45:07.322418+00:00"
+    },
+    {
+      "metric": "taker_ratio",
+      "zscore": 3.3489131639215177,
+      "value": 1.906,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Taker ratio à 1.906 (Z-score 3.35) indique une domination massive et anormale des acheteurs agressifs (Taker Buy), contredisant un silence médiatique total (vacuité des titres). Divergence classique d'accumulation furtive par les baleines avant un re-pricing violent.\"\n}\n```",
+      "ts": "2026-09-10T01:05:19.540779+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 2.4201534780139164,
+      "value": 69,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.42) combiné à une cupidité extrême (69) sans couverture médiatique majeure suggère une bulle de détail alimentée en silence. Divergence classique de distribution par les baleines.\"\n}\n```",
+      "ts": "2026-09-10T01:05:20.741634+00:00"
     }
   ]
 }

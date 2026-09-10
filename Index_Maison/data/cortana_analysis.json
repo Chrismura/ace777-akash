@@ -1,20 +1,20 @@
 {
-  "timestamp": 1788999108,
-  "date": "2026-09-10T00:11:48.869883+00:00",
+  "timestamp": 1789002709,
+  "date": "2026-09-10T01:11:49.942018+00:00",
   "n_analyses": 3,
   "analyses": [
     {
       "signal": {
         "metric": "volume",
-        "zscore": 2.1910878005894263,
-        "value": 12007698164.0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique due à l'ambiguïté du mot 'volume' (actualités sur la TV, le pneu, l'audio et la finance traditionnelle). Aucune corrélation avec une baleine crypto.\"\n}\n```",
-        "ts": 1788997490.649951
+        "zscore": 2.124445409362041,
+        "value": 12170871700.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie de volume purement technique (z-score 2.12) sans corrélation avec les actualités crypto. Le bruit médiatique concerne des gadgets grand public, de l'humour et du matériel de vélo, indiquant une absence totale de narratif financier pertinent.\"\n}\n```",
+        "ts": 1789001107.322418
       },
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": 0.02,
+          "value": 0.29,
           "seuil": 1,
           "depasse": false
         },
@@ -24,12 +24,12 @@
           "depasse": false
         },
         "funding": {
-          "value": 3.4e-05,
+          "value": 3.1e-05,
           "seuil": 0.001,
           "depasse": false
         },
         "whales": {
-          "value": 2,
+          "value": 0,
           "seuil": 5,
           "depasse": false
         }
@@ -46,10 +46,10 @@
     {
       "signal": {
         "metric": "taker_ratio",
-        "zscore": 4.886009590522524,
+        "zscore": 3.3489131639215177,
         "value": 1.906,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Taker ratio à 1.906 (Z-score 4.89) indique une agression massive des acheteurs (Taker Buy) totalement ignorée par les médias traditionnels (silence radio). Accumulation furtive des baleines avant un re-pricing.\"\n}\n```",
-        "ts": 1788998694.021712
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Taker ratio à 1.906 (Z-score 3.35) indique une domination massive et anormale des acheteurs agressifs (Taker Buy), contredisant un silence médiatique total (vacuité des titres). Divergence classique d'accumulation furtive par les baleines avant un re-pricing violent.\"\n}\n```",
+        "ts": 1789002319.540779
       },
       "fiche": null,
       "interpretation": {
@@ -63,8 +63,8 @@
         "metric": "fear_greed",
         "zscore": 2.4201534780139164,
         "value": 69,
-        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.42) et Fear & Greed à 69 (Avidité) combinés à un vide médiatique (Google Actualités sans écho majeur) signalent une euphorie retail isolée. Divergence classique de piégeage : distribution silencieuse des baleines sur la liquidité de détail.\"\n}\n```",
-        "ts": 1788998695.387647
+        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.42) combiné à une cupidité extrême (69) sans couverture médiatique majeure suggère une bulle de détail alimentée en silence. Divergence classique de distribution par les baleines.\"\n}\n```",
+        "ts": 1789002320.741634
       },
       "fiche": null,
       "interpretation": {
