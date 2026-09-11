@@ -1,20 +1,20 @@
 {
-  "timestamp": 1789096473,
-  "date": "2026-09-11T03:14:33.369686+00:00",
+  "timestamp": 1789100074,
+  "date": "2026-09-11T04:14:34.765683+00:00",
   "n_analyses": 2,
   "analyses": [
     {
       "signal": {
         "metric": "sdi",
-        "zscore": 2.6771434726370247,
-        "value": 0.612,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.68) entièrement imputable à un 'bruit' de homonymie médiatique (SDI = Syndicat des Indépendants / Blackmagic SDI Expander) sans aucun rapport avec l'actif crypto. Aucune baleine détectée.\"\n}\n```",
-        "ts": 1789095987.09913
+        "zscore": 2.2292702434859955,
+        "value": 0.604,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit médiatique provoqué par des homonymes (Syndicat des Indépendants - SDI, et matériel vidéo SDI) totalement déconnecté de la blockchain. Aucune baleine crypto active.\"\n}\n```",
+        "ts": 1789099602.813918
       },
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.17,
+          "value": 0.07,
           "seuil": 1,
           "depasse": false
         },
@@ -24,12 +24,12 @@
           "depasse": false
         },
         "funding": {
-          "value": 6.7e-05,
+          "value": 7.9e-05,
           "seuil": 0.001,
           "depasse": false
         },
         "whales": {
-          "value": 1,
+          "value": 0,
           "seuil": 5,
           "depasse": false
         }
@@ -46,10 +46,10 @@
     {
       "signal": {
         "metric": "fear_greed",
-        "zscore": -2.6457513110645907,
+        "zscore": -2.236067977499788,
         "value": 56,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-2.65) pour un indice de peur/greed neutre (56) combiné à un silence médiatique absolu. Absence totale de bruit de fond : les baleines accumulent dans l'angle mort des médias avant un mouvement directionnel.\"\n}\n```",
-        "ts": 1789095988.331201
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Données médiatiques insuffisantes pour établir une divergence significative, malgré un z-score onchain marquant une légère anomalie de refroidissement.\"\n}\n```",
+        "ts": 1789099604.082938
       },
       "fiche": null,
       "interpretation": {

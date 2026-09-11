@@ -1,34 +1,6 @@
 {
   "signals": [
     {
-      "metric": "long_short",
-      "zscore": 2.3693568747040756,
-      "value": 1.478,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Le ratio long/short atteint un z-score élevé de 2.37 (1.478), révélant une surconcentration agressive des positions acheteuses par les baleines. Pendant ce temps, le narratif médiatique grand public se focalise abstraitement sur les ETF et stratégies long/short traditionnelles, ignorant totalement l'excès de levier spéculatif en cours. Divergence classique de fin de cycle : un 'long squeeze' imminent est en préparation.\"\n}\n```",
-      "ts": "2026-09-10T06:42:00.427009+00:00"
-    },
-    {
-      "metric": "whale_usd",
-      "zscore": 5.613501846366491,
-      "value": 6574170.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (z-score 5.61, ~6.57M USD) dans le silence médiatique total (Google Actualités vide). Accumulation furtive des baleines sans FOMO public.\"\n}\n```",
-      "ts": "2026-09-10T06:52:03.266841+00:00"
-    },
-    {
-      "metric": "long_short",
-      "zscore": 2.1914435558660648,
-      "value": 1.476,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Le ratio long/short atteint un z-score critique de 2.19 (1.476), révélant un positionnement excessivement haussier des détaillants et des baleines, alors que les médias grand public banalisent la stratégie 'Long/Short' comme simple couverture. Ce consensus acheteur unilatéral crée un déséquilibre parfait pour une liquidation massive imminente (piège à liquidité).\"\n}\n```",
-      "ts": "2026-09-10T07:12:07.918916+00:00"
-    },
-    {
-      "metric": "whale_usd",
-      "zscore": 4.297797045242764,
-      "value": 5437851.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (z-score 4.30) en l'absence totale de couverture médiatique. Signal typique d'accumulation furtive par des baleines avant un mouvement de marché inattendu.\"\n}\n```",
-      "ts": "2026-09-10T07:27:22.134137+00:00"
-    },
-    {
       "metric": "liquidations",
       "zscore": -2.2772113447285944,
       "value": 1303512.0,
@@ -349,6 +321,34 @@
       "value": 56,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-2.65) pour un indice de peur/greed neutre (56) combiné à un silence médiatique absolu. Absence totale de bruit de fond : les baleines accumulent dans l'angle mort des médias avant un mouvement directionnel.\"\n}\n```",
       "ts": "2026-09-11T03:06:28.331201+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 2.411906917640264,
+      "value": 0.604,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Faux positif manifeste. L'anomalie on-chain (z-score 2.41) est provoquée par du bruit médiatique concernant le syndicat patronal français SDI (Syndicat des Indépendants) et du matériel vidéo (Blackmagic SDI), sans aucun rapport avec un actif crypto.\"\n}\n```",
+      "ts": "2026-09-11T03:36:34.246239+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -2.420153478013918,
+      "value": 56,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie statistique majeure (z-score -2.42) malgré un indice Fear & Greed neutre (56) et un silence médiatique total (Google Actualités vide). Historiquement, l'accumulation silencieuse des baleines précède les hausses lorsque le bruit médiatique est absent.\"\n}\n```",
+      "ts": "2026-09-11T03:36:35.567493+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 2.2292702434859955,
+      "value": 0.604,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit médiatique provoqué par des homonymes (Syndicat des Indépendants - SDI, et matériel vidéo SDI) totalement déconnecté de la blockchain. Aucune baleine crypto active.\"\n}\n```",
+      "ts": "2026-09-11T04:06:42.813918+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -2.236067977499788,
+      "value": 56,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Données médiatiques insuffisantes pour établir une divergence significative, malgré un z-score onchain marquant une légère anomalie de refroidissement.\"\n}\n```",
+      "ts": "2026-09-11T04:06:44.082938+00:00"
     }
   ]
 }
