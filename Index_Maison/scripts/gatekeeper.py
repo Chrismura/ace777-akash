@@ -11,7 +11,11 @@ from typing import Optional, Tuple
 
 HOME = Path("/Users/christophe")
 VAULT = HOME / "Documents" / "Obsidian_ACE777"
-MEMOIRE_PATH = VAULT / "MEMOIRE_COLLAB.md"
+# FIX autopsie V7 (11/09) : le journal réel de la maison vit dans le repo
+# (~/ace777-test-day1/Index_Maison/MEMOIRE_COLLAB.md). Le fichier racine du coffre
+# a disparu au réco du 05/09 (le coffre n'a plus qu'un stub pointeur dans
+# Index_Maison/) → chemin mort depuis, verif-setup bloquait à chaque run.
+MEMOIRE_PATH = HOME / "ace777-test-day1" / "Index_Maison" / "MEMOIRE_COLLAB.md"
 INVENTAIRE_PATH = VAULT / "INVENTAIRE_COMPLET.md"
 TAG_CHERCHE = "[LECTURE_COMPLETE_OK]"
 SEUIL_HEURES = 24.0
@@ -34,13 +38,15 @@ def extraire_derniere_preuve(contenu_memoire: str) -> Optional[datetime]:
     plus_recent = None
     
     # Format recherché au début de ligne : | YYYY-MM-DDTHH:MMZ | ou similaire
-    motif_ligne = re.compile(r"^\s*\|\s*(\d{4}-\d{2}-\d{2}T\d{2}:\d{2}Z)\s*\|")
+    # FIX autopsie V7 (11/09) : accepte aussi le séparateur espace (| 2026-09-11 08:20Z |)
+    # utilisé par les gravures récentes de MEMOIRE_COLLAB (Buffy/Codebuff).
+    motif_ligne = re.compile(r"^\s*\|\s*(\d{4}-\d{2}-\d{2})[T ](\d{2}:\d{2})Z\s*\|")
 
     for ligne in lignes:
         if TAG_CHERCHE in ligne:
             match = motif_ligne.search(ligne)
             if match:
-                ts_str = match.group(1)
+                ts_str = f"{match.group(1)}T{match.group(2)}Z"
                 try:
                     dt = datetime.strptime(ts_str, "%Y-%m-%dT%H:%MZ")
                     dt = dt.replace(tzinfo=timezone.utc)

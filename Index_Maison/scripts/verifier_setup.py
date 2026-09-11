@@ -161,7 +161,10 @@ def main():
     loaded = []
     try:
         out = subprocess.check_output(['launchctl', 'list'], text=True)
-        for lbl in ('veille-hub', 'eval-offres', 'catalogue', 'propose-ameliorations', 'observatoire'):
+        for lbl in ('veille-hub', 'eval-offres', 'catalogue', 'observatoire'):
+            # FIX V7 (11/09) : 'propose-ameliorations' retiré — plist désactivée le 19/08
+            # (décision Christophe : briefs inutiles, cf. desactivees_briefs/ + MEMOIRE 21/08).
+            # La fonction 'proposer' vit depuis dans cortana-propose-params (07h45, chargée).
             loaded.append(lbl if lbl in out else None)
     except Exception as e:
         rec('launchd', False, str(e)[:60])
