@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "liquidations",
-      "zscore": -2.1870333374011564,
-      "value": 1329892.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Bruit médiatique parasité par des fausses alertes sémantiques (liquidations judiciaires locales). En réalité, les liquidations crypto sont anormalement basses (z-score -2.19), indiquant un marché sans effet de levier excessif, propice à une accumulation silencieuse des baleines.\"\n}\n```",
-      "ts": "2026-09-10T08:15:23.786675+00:00"
-    },
-    {
       "metric": "long_short",
       "zscore": 2.094204667504393,
       "value": 1.494,
@@ -349,6 +342,13 @@
       "value": 1.728,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Taker ratio à 1.728 (Z-score 3.39) indique une agression massive à l'achat par les acheteurs (agressifs), totalement ignorée par les médias (absence de couverture). Accumulation furtive des baleines avant un re-pricing haussier.\"\n}\n```",
       "ts": "2026-09-11T05:06:59.158977+00:00"
+    },
+    {
+      "metric": "taker_ratio",
+      "zscore": 3.049977258293102,
+      "value": 1.728,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Le taker_ratio à 1.728 (z-score 3.05) indique une agression massive des acheteurs sur le carnet d'ordres, totalement ignorée par l'absence de couverture médiatique (silence radio). C'est la signature classique d'accumulation furtive par des baleines avant un re-pricing.\"\n}\n```",
+      "ts": "2026-09-11T05:37:03.845353+00:00"
     }
   ]
 }
