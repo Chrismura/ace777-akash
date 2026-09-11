@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-11T05:17:20.669881+00:00",
+  "generated_at": "2026-09-11T05:17:50.973974+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 199
+      "calls_24h": 200
     },
     {
       "id": "openrouter-free",
@@ -274,10 +274,18 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 70,
-    "remaining": 554
+    "consumed": 71,
+    "remaining": 553
   },
   "queue": [
+    {
+      "ts": "2026-09-11T05:17:43.560346+00:00",
+      "task": "supervise.decision",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 1.01
+    },
     {
       "ts": "2026-09-11T05:16:33.763818+00:00",
       "task": "analyste.strategie",
@@ -389,17 +397,21 @@
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
       "duration_s": 0.85
-    },
-    {
-      "ts": "2026-09-11T04:06:42.813066+00:00",
-      "task": "analyse.profonde",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 1.0
     }
   ],
   "events": [
+    {
+      "ts": "2026-09-11T05:17:43.559761+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
+    {
+      "ts": "2026-09-11T05:17:42.551998+00:00",
+      "kind": "blacklist",
+      "title": "Fin de pause Google Gemini",
+      "detail": "re-essai automatique"
+    },
     {
       "ts": "2026-09-11T05:16:33.763677+00:00",
       "kind": "message",
@@ -447,18 +459,6 @@
       "kind": "blacklist",
       "title": "Fin de pause Google Gemini",
       "detail": "re-essai automatique"
-    },
-    {
-      "ts": "2026-09-11T05:13:35.203132+00:00",
-      "kind": "message",
-      "title": "« OpenRouter Juge (nemotron-3-super-120b free) - verificateur independant » a repondu",
-      "detail": "bascule"
-    },
-    {
-      "ts": "2026-09-11T05:13:35.202620+00:00",
-      "kind": "filet-universel",
-      "title": "[FILET UNIVERSEL] « OpenRouter Juge (nemotron-3-super-120b free) - verificateur independant » a repondu hors chaine",
-      "detail": "analyste.strategie"
     }
   ],
   "tasks_quotas": {
