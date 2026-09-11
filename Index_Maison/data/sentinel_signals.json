@@ -2,34 +2,6 @@
   "signals": [
     {
       "metric": "fear_greed",
-      "zscore": -42.578101611533896,
-      "value": 56,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement négatif (-42.58) malgré un indice de peur/avidité neutre (56) et un vide médiatique total. C'est la signature classique d'accumulation silencieuse par les baleines loin des radars du grand public.\"\n}\n```",
-      "ts": "2026-09-11T00:04:45.193329+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": 6.884760646115098,
-      "value": 0.608,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 6.88) contrastant avec un narratif médiatique neutre/technique. Les baleines pourraient accumuler silencieusement pendant que l'attention médiatique reste superficielle.\"\n}\n```",
-      "ts": "2026-09-11T00:35:01.270579+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": -6.8556546004010475,
-      "value": 56,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 75,\n  \"reason\": \"Fear-greed score neutre (56) avec z-score négatif significatif (-6.86) suggère une accumulation discrète malgré l'absence de couverture médiatique bullish. Divergence classique baleines vs retail.\"\n}\n```",
-      "ts": "2026-09-11T00:35:08.312839+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": 4.781076688449947,
-      "value": 0.604,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 4.78) entièrement imputable à un 'noise' lexical : le sigle SDI est ici massivement repris dans les médias pour désigner le syndicat patronal français (Syndicat des Indépendants) et du matériel audiovisuel, sans aucun rapport avec la crypto ou le mouvement de baleines.\"\n}\n```",
-      "ts": "2026-09-11T01:05:13.118676+00:00"
-    },
-    {
-      "metric": "fear_greed",
       "zscore": -4.795831523312717,
       "value": 56,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement négatif (-4.80) malgré un sentiment neutre (56). Indique une indifférence médiatique totale alors que les baleines accumulent en silence sous le radar.\"\n}\n```",
@@ -349,6 +321,34 @@
       "value": 6181880.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le z-score des liquidations indique une anomalie technique (shorts pris au piège), tandis que les médias alternent entre un FOMO tardif sur la hausse et des bruits de fond macro sans rapport. Divergence classique de purge de liquidité avant continuation haussière par les baleines.\"\n}\n```",
       "ts": "2026-09-11T18:14:06.108362+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.389695971905176,
+      "value": 15838083819.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Z-score modéré (2.39) sur un volume global, mais le bruit médiatique macro/tech est totalement déconnecté de l'on-chain crypto spécifique. Pas de signal clair d'accumulation ou de distribution silencieuse de baleines détectable dans ce flux.\"\n}\n```",
+      "ts": "2026-09-11T18:44:11.704293+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 3.9324261321462592,
+      "value": 6181880.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (3.93) sur des liquidations modestes et contraste médiatique extrême (entre panique macro et euphorie des shorts liquidés) : les baleines nettoient le carnet d'ordres des vendeurs à découvert pour initier une reprise en silence.\"\n}\n```",
+      "ts": "2026-09-11T18:44:13.503128+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.2568919764552455,
+      "value": 15920693354.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Le z-score élevé (2.26) indique une anomalie de volume, mais les titres médiatiques sont hétérogènes (CAC 40, Apple, macroéconomie) et manquent de focus spécifique sur l'actif analysé. Pas de divergence claire entre accumulation silencieuse et narratif grand public.\"\n}\n```",
+      "ts": "2026-09-11T19:14:19.609826+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 3.3273849571344103,
+      "value": 6121952.0,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Divergence majeure : les médias grand public crient au 'rebond' et à la 'hausse' suite au short squeeze, mais l'anomalie on-chain montre des liquidations de seulement 6,1M$ (z-score 3.33 sur un pic local trompeur). Le narratif est surestimé par rapport au volume réel, masquant une distribution silencieuse des baleines.\"\n}\n```",
+      "ts": "2026-09-11T19:14:21.476981+00:00"
     }
   ]
 }

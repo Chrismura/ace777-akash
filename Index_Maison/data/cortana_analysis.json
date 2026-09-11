@@ -1,20 +1,20 @@
 {
-  "timestamp": 1789150792,
-  "date": "2026-09-11T18:19:52.225130+00:00",
+  "timestamp": 1789154393,
+  "date": "2026-09-11T19:19:53.435643+00:00",
   "n_analyses": 2,
   "analyses": [
     {
       "signal": {
         "metric": "volume",
-        "zscore": 2.536981686180579,
-        "value": 15737916771.0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Le z-score élevé indique une anomalie statistique de volume, mais les actualités médiatiques sont extrêmement hétérogènes (CAC 40, crypto spot globale, Apple, BTP) et ne reflètent aucun narratif macroéconomique ou crypto unifié. Données insuffisantes pour confirmer une accumulation ou distribution silencieuse de baleines.\"\n}\n```",
-        "ts": 1789150444.197646
+        "zscore": 2.2568919764552455,
+        "value": 15920693354.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Le z-score élevé (2.26) indique une anomalie de volume, mais les titres médiatiques sont hétérogènes (CAC 40, Apple, macroéconomie) et manquent de focus spécifique sur l'actif analysé. Pas de divergence claire entre accumulation silencieuse et narratif grand public.\"\n}\n```",
+        "ts": 1789154059.609826
       },
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.53,
+          "value": 0.16,
           "seuil": 1,
           "depasse": false
         },
@@ -24,12 +24,12 @@
           "depasse": false
         },
         "funding": {
-          "value": 2e-05,
+          "value": 9e-06,
           "seuil": 0.001,
           "depasse": false
         },
         "whales": {
-          "value": 1,
+          "value": 0,
           "seuil": 5,
           "depasse": false
         }
@@ -46,10 +46,10 @@
     {
       "signal": {
         "metric": "liquidations",
-        "zscore": 4.747617943197604,
-        "value": 6181880.0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le z-score des liquidations indique une anomalie technique (shorts pris au piège), tandis que les médias alternent entre un FOMO tardif sur la hausse et des bruits de fond macro sans rapport. Divergence classique de purge de liquidité avant continuation haussière par les baleines.\"\n}\n```",
-        "ts": 1789150446.108362
+        "zscore": 3.3273849571344103,
+        "value": 6121952.0,
+        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Divergence majeure : les médias grand public crient au 'rebond' et à la 'hausse' suite au short squeeze, mais l'anomalie on-chain montre des liquidations de seulement 6,1M$ (z-score 3.33 sur un pic local trompeur). Le narratif est surestimé par rapport au volume réel, masquant une distribution silencieuse des baleines.\"\n}\n```",
+        "ts": 1789154061.476981
       },
       "fiche": null,
       "interpretation": {
