@@ -1,4 +1,4 @@
-# Hulk DIGEST — 2026-09-11T08:17:48Z
+# Hulk DIGEST — 2026-09-11T09:15:57Z
 
 - **Piste :** VEILLE (séparée du paper Hulk)
 - Source trading : **MEXC spot**
@@ -12,26 +12,26 @@
 
 | pair | hint | tension | move6% | dd6% | chg24% | vol USDT | spread bps | DefiLlama |
 |------|------|---------|--------|------|--------|----------|------------|-----------|
-| XRPUSDT | IDLE | 0.89 | 1.67 | 0.68 | -0.02 | 39844384.63 | 0.74 | skipped_fast |
-| ETHUSDT | IDLE | 0.68 | 1.33 | 0.24 | -0.0 | 456104288.42 | 0.04 | skipped_fast |
-| BTCUSDT | IDLE | 0.49 | 0.93 | 0.27 | -0.01 | 540493996.47 | 0.0 | skipped_fast |
-| RIZEUSDT | IDLE | 1.4 | 35.33 | 23.23 | 0.13 | 143738.68 | 171.43 | skipped_fast |
-| CHIPUSDT | IDLE | 2.31 | 6.92 | 4.28 | -0.07 | 124322.08 | 13.18 | skipped_fast |
-| CCUSDT | IDLE | 1.11 | 2.1 | 0.78 | -0.05 | 449041.3 | 8.1 | skipped_fast |
-| PYTHUSDT | IDLE | 1.17 | 2.27 | 0.5 | -0.0 | 342419.45 | 1.94 | skipped_fast |
-| WUSDT | IDLE | 1.49 | 2.72 | 1.7 | -0.01 | 144009.62 | 14.61 | skipped_fast |
-| ZBCNUSDT | IDLE | 1.28 | 2.54 | 0.2 | -0.04 | 200261.88 | 15.94 | skipped_fast |
-| EDELUSDT | IDLE | 0.82 | 3.53 | 2.95 | -0.07 | 199232.03 | 18.98 | skipped_fast |
-| REDUSDT | IDLE | 1.17 | 2.19 | 1.03 | -0.01 | 59651.25 | 10.68 | skipped_fast |
-| BIOUSDT | IDLE | 0.86 | 1.57 | 0.95 | -0.02 | 72647.88 | 4.0 | skipped_fast |
-| KITEUSDT | IDLE | 0.95 | 1.71 | 1.32 | -0.04 | 58937.27 | 12.99 | skipped_fast |
-| RWAINCUSDT | IDLE | 0.96 | 1.85 | 0.44 | 0.02 | 3171.51 | 16.6 | skipped_fast |
-| HBARUSDT | IDLE | 1.01 | 1.79 | 1.48 | -0.02 | 186478.66 | 2.68 | skipped_fast |
-| TELUSDT | IDLE | 1.24 | 2.26 | 1.47 | -0.04 | 96052.17 | 34.56 | skipped_fast |
-| FLUIDUSDT | IDLE | 1.28 | 2.26 | 2.04 | -0.03 | 2138.71 | 21.83 | skipped_fast |
-| QNTUSDT | IDLE | 0.78 | 1.46 | 0.69 | -0.03 | 36106.12 | 3.09 | skipped_fast |
-| RWAUSDT | IDLE | 0.39 | 0.77 | 0.08 | -0.02 | 49994.95 | 15.21 | skipped_fast |
-| MNSRYUSDT | IDLE | 0.3 | 0.6 | 0.01 | -0.01 | 35786.06 | 4.18 | skipped_fast |
+| ETHUSDT | IDLE | 0.8 | 1.54 | 0.4 | -0.0 | 466700990.19 | 0.04 | skipped_fast |
+| XRPUSDT | IDLE | 0.74 | 1.38 | 0.66 | -0.02 | 39373911.17 | 0.74 | skipped_fast |
+| BTCUSDT | IDLE | 0.41 | 0.78 | 0.28 | -0.01 | 541034243.04 | 0.0 | skipped_fast |
+| RIZEUSDT | IDLE | 1.68 | 42.67 | 26.89 | 0.08 | 139137.52 | 156.17 | skipped_fast |
+| CHIPUSDT | IDLE | 2.21 | 6.62 | 4.0 | -0.06 | 125224.69 | 10.97 | skipped_fast |
+| CCUSDT | IDLE | 0.9 | 1.7 | 0.7 | -0.04 | 451588.9 | 6.07 | skipped_fast |
+| PYTHUSDT | IDLE | 1.19 | 2.24 | 0.92 | -0.01 | 345088.27 | 1.94 | skipped_fast |
+| WUSDT | IDLE | 1.25 | 2.18 | 2.07 | -0.01 | 139633.16 | 3.14 | skipped_fast |
+| ZBCNUSDT | IDLE | 1.01 | 1.92 | 0.65 | -0.03 | 199107.9 | 7.72 | skipped_fast |
+| EDELUSDT | IDLE | 0.77 | 3.53 | 1.2 | -0.06 | 198481.34 | 46.79 | skipped_fast |
+| RWAINCUSDT | IDLE | 1.04 | 1.85 | 1.49 | 0.0 | 3093.7 | 5.6 | skipped_fast |
+| KITEUSDT | IDLE | 0.9 | 1.8 | 0.01 | 0.02 | 58548.22 | 11.91 | skipped_fast |
+| REDUSDT | IDLE | 0.88 | 1.55 | 1.38 | -0.02 | 59584.11 | 18.99 | skipped_fast |
+| BIOUSDT | IDLE | 0.67 | 1.17 | 1.07 | -0.02 | 72102.03 | 4.02 | skipped_fast |
+| HBARUSDT | IDLE | 1.02 | 1.79 | 1.69 | -0.03 | 189313.97 | 1.34 | skipped_fast |
+| TELUSDT | IDLE | 1.24 | 2.26 | 1.47 | -0.04 | 96008.61 | 40.33 | skipped_fast |
+| FLUIDUSDT | IDLE | 1.28 | 2.26 | 2.04 | -0.03 | 2138.71 | 16.57 | skipped_fast |
+| QNTUSDT | IDLE | 0.55 | 0.99 | 0.8 | -0.03 | 36219.6 | 1.55 | skipped_fast |
+| RWAUSDT | IDLE | 0.47 | 0.92 | 0.15 | -0.02 | 50404.72 | 7.6 | skipped_fast |
+| MNSRYUSDT | IDLE | 0.3 | 0.6 | 0.03 | -0.01 | 36183.27 | 4.18 | skipped_fast |
 
 ## Consignes Qwen (manuel — ne pilote pas le paper)
 1. Résumer en 5 lignes : qui spike, qui dump, illiquide (spread/vol).
