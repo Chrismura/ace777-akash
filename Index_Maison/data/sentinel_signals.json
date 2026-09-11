@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "fear_greed",
-      "zscore": -2.6457513110645907,
-      "value": 56,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-2.65) pour un indice de peur/greed neutre (56) combiné à un silence médiatique absolu. Absence totale de bruit de fond : les baleines accumulent dans l'angle mort des médias avant un mouvement directionnel.\"\n}\n```",
-      "ts": "2026-09-11T03:06:28.331201+00:00"
-    },
-    {
       "metric": "sdi",
       "zscore": 2.411906917640264,
       "value": 0.604,
@@ -349,6 +342,13 @@
       "value": 1.02,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Le ticker 'IPT' dans les données onchain est parasité par des homonymes médiatiques institutionnels et académiques (Tournoi de Physique, Institut Protestant de Théologie, biotechnologies). Aucune activité de baleine crypto détectée, simple bruit sémantique.\"\n}\n```",
       "ts": "2026-09-11T21:50:15.742761+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 3.538297087759345,
+      "value": 3161108.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Activité anormale des baleines (Z-score 3.54, +3.16M USD) totalement ignorée par les médias (silence radio). Cette divergence classique indique une accumulation furtive en sous-marin avant une rupture de prix.\"\n}\n```",
+      "ts": "2026-09-11T23:10:38.312959+00:00"
     }
   ]
 }

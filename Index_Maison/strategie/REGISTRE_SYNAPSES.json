@@ -1,6 +1,6 @@
 {
  "version": "1.4.7",
- "updated": "2026-09-11T22:05Z",
+ "updated": "2026-09-11T23:35Z",
  "fichier": [
   {
    "nom": "hulk-mexc/scripts/paper_diprip.py",
@@ -485,9 +485,9 @@
    "origine": "leçon GitHub 3 jours (croisement_contexte 300 Mo)",
    "verif": "md5",
    "auto_modifiable": false,
-   "md5": "0393a707e68ce549fb8e89c4fab9eb97",
+   "md5": "672fbb274169d9f032b189db2f77cd08",
    "note": "Premier scellement 2026-09-11 2026-09-11T13:45Z — ajout entrée rwa_yields_hist.jsonl (correctif C5 chantier RWA). N'était pas scellé avant.",
-   "maj": "re-scellé 2026-09-11T20:42Z — ajout ligne plancher_confirme_hist.jsonl (shadow GO direct 11/09)"
+   "maj": "re-scellé 23:2xZ — [C5] paternes_btc_hist.jsonl ajouté (P1) ; note précédente 23:20 corrigée (md5 n'avait pas changé, erreur d'ancre, fichier resté intact)"
   },
   {
    "nom": "Index_Maison/plists/com.ace777.rwa-yields.plist",
@@ -538,6 +538,36 @@
    "md5": "9b9176551d0c594c0eef68e456aa704a",
    "note": "généré par simulateur_plancher_confirme.py ; carte visible dans index.html",
    "maj": "scellé 2026-09-11T22:05Z — boucle coupée de Buffy, reprise et vérifiée"
+  },
+  {
+   "nom": "Index_Maison/scripts/verifier_lecons_analyste.py",
+   "role": "Vérificateur du corpus de leçons analyste (34 fiches, intégrité JSONL)",
+   "origine": "P0 CORTANA_ANALYSTE — GO Christophe 11/09",
+   "verif": "md5",
+   "auto_modifiable": false,
+   "md5": "9a04beb009e3d7acb6e2b46b8e5f472b",
+   "note": "corpus: Index_Maison/data/lecons_analyste.jsonl — état: lecons_analyste_etat.json",
+   "maj": "scellé 2026-09-11T22:4xZ"
+  },
+  {
+   "nom": "Index_Maison/scripts/moteur_paternes_btc.py",
+   "role": "Moteur de paterne BTC P1 (50w×200w, RSIw, MACD filtre, cycle, lunaire-nul)",
+   "origine": "P1 CORTANA_ANALYSTE — GO Christophe 11/09",
+   "verif": "md5",
+   "auto_modifiable": false,
+   "md5": "97c4a2ea1b886e3199ce6a3755875bb0",
+   "note": "produits: paternes_btc_hist.jsonl + paternes_btc_etat.json — zéro alarme [C4]",
+   "maj": "scellé 2026-09-11T23:2xZ"
+  },
+  {
+   "nom": "Index_Maison/plists/com.ace777.paternes-btc.plist",
+   "role": "Plist quotidienne moteur paterne BTC (24h, RunAtLoad)",
+   "origine": "P1 CORTANA_ANALYSTE — GO Christophe 11/09",
+   "verif": "md5",
+   "auto_modifiable": false,
+   "md5": "b17b6de30134cede31fd61f2530efd6e",
+   "note": "chargée launchd + copiée ~/Library/LaunchAgents",
+   "maj": "scellé 2026-09-11T23:3xZ"
   }
  ]
 }
