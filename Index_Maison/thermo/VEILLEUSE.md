@@ -1,3 +1,4 @@
-# Rapport Veilleuse — 2026-09-11T21:14:58.377400+00:00
+# Rapport Veilleuse — 2026-09-11T22:14:59.150809+00:00
 
-## État : ✅ STABLE — tout est en ordre
+## État : ⚠️ ANOMALIES DÉTECTÉES
+- **INTRUSION** : Modification non déclarée : Index_Maison/cockpit/plancher_live.js (md5 diffère du registre)

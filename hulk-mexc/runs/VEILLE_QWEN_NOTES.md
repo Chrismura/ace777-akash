@@ -4049,3 +4049,15 @@ Pas d’ordre — confrontation plus tard.
 ### 2026-09-11T21:12:48Z — ALERT auto
 - EDELUSDT: IMPULSE_WAIT — spike en cours, pas chase
 (compléter: confirmé ? risque ?)
+
+### 2026-09-11T21:54:31Z — ALERT auto
+- CHIPUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
+
+### 2026-09-11T21:58:37Z — ALERT auto
+- EDELUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
+
+### 2026-09-11T22:01:01Z — ALERT auto
+- PYTHUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
