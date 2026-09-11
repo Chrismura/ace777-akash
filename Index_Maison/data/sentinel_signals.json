@@ -1,41 +1,6 @@
 {
   "signals": [
     {
-      "metric": "volume",
-      "zscore": 2.3141796051377064,
-      "value": 13388090403.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique sans rapport avec la crypto (bruit de fond médiatique sur l'agriculture et l'économie macro).\"\n}\n```",
-      "ts": "2026-09-10T14:16:00.324505+00:00"
-    },
-    {
-      "metric": "whale_usd",
-      "zscore": 2.533932756179588,
-      "value": 3528015.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Significant whale activity (z-score 2.53) contrasts with lack of media coverage, suggesting stealth accumulation. High divergence indicates potential upcoming market move not yet reflected in mainstream narrative.\"\n}\n```",
-      "ts": "2026-09-10T14:31:13.081749+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": 2.1357070812659336,
-      "value": 0.016,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 75,\n  \"reason\": \"Anomalie onchain significative (z-score 2.14) contrastant avec des titres médiatiques génériques/superficiels. Les baleines pourraient accumuler silencieusement pendant que l'attention médiatique est détournée sur des sujets non corrélés (transparence salariale, broadcast technique). Divergence classique avant un mouvement important.\"\n}\n```",
-      "ts": "2026-09-10T14:31:23.926380+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.4668840371535654,
-      "value": 1.1,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 2.47) contrastant avec un narratif médiatique institutionnel (éducation, recherche, ESG). Divergence suggère une accumulation silencieuse ou un repositionnement stratégique non couvert par les médias traditionnels.\"\n}\n```",
-      "ts": "2026-09-10T14:31:30.835010+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": 2.0067008343826287,
-      "value": 13194504000.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Anomalie de faux positif : les données textuelles ne concernent aucune crypto-monnaie mais de l'agriculture, de la télévision, du commerce arménien et du PIB macroéconomique de l'UE.\"\n}\n```",
-      "ts": "2026-09-10T14:46:38.159388+00:00"
-    },
-    {
       "metric": "ipt",
       "zscore": 2.68313020961874,
       "value": 1.187,
@@ -349,6 +314,41 @@
       "value": 13041096940.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 78,\n  \"reason\": \"Z-score élevé (2.07) sur les flux on-chain traduisant une accumulation cachée, alors que les médias grand public se focalisent sur la baisse des marchés traditionnels et des volumes annuels en trompe-l'œil.\"\n}\n```",
       "ts": "2026-09-11T14:12:10.923498+00:00"
+    },
+    {
+      "metric": "price_1h",
+      "zscore": 3.1000553254381855,
+      "value": 0.7408917615573052,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (3.10) couplé à un silence médiatique total (Google Actualités vide) : signature classique d'accumulation furtive par des baleines avant le réveil du narratif public.\"\n}\n```",
+      "ts": "2026-09-11T14:37:17.589693+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": -2.4298276276480597,
+      "value": 1.486,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Z-score extrême (-2.43) indiquant une survente massive des positions long par la foule, contredisant le narratif généraliste sur les stratégies prudentes. Situation classique de 'short squeeze' imminent où les baleines accumulent en silence face à la capitulation retail.\"\n}\n```",
+      "ts": "2026-09-11T14:37:19.252538+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.607534406929722,
+      "value": 13572277279.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Le z-score élevé (2.61) indique une anomalie de volume, mais les titres médiatiques brassent des sujets macro et tech sans lien direct avec un mouvement massif de baleines crypto. Divergence faible, bruit de fond.\"\n}\n```",
+      "ts": "2026-09-11T14:42:22.402567+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": -2.253261104313469,
+      "value": 1.486,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Divergence extrême : les médias généralistes crient à la baisse et la panique des 'ours' (ratio 0.82 cité), tandis que le z-score on-chain à -2.25 révèle un positionnement contrarien massif des baleines (long/short réel à 1.486). Accumulation silencieuse en sous-marin.\"\n}\n```",
+      "ts": "2026-09-11T15:07:29.298381+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.9391073259945735,
+      "value": 14008932833.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 82,\n  \"reason\": \"Anomalie de volume on-chain massive (Z-score 2.94) couplée à une hausse de 19% du volume spot en août 2026, totalement ignorée par les médias traditionnels focalisés sur la macroéconomie et la tech grand public. Accumulation silencieuse des baleines en cours.\"\n}\n```",
+      "ts": "2026-09-11T15:12:33.018191+00:00"
     }
   ]
 }
