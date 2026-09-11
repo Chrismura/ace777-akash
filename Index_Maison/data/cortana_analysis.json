@@ -1,20 +1,20 @@
 {
-  "timestamp": 1789085670,
-  "date": "2026-09-11T00:14:30.002996+00:00",
-  "n_analyses": 2,
+  "timestamp": 1789089270,
+  "date": "2026-09-11T01:14:30.969488+00:00",
+  "n_analyses": 3,
   "analyses": [
     {
       "signal": {
         "metric": "sdi",
-        "zscore": 129.1254281761425,
+        "zscore": 4.781076688449947,
         "value": 0.604,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Anomalie statistique (z-score 129) liée à une collision sémantique totale. Le ticker 'SDI' des médias fait référence au syndicat professionnel 'Syndicat des Indépendants' et à du matériel vidéo (Blackmagic SDI), sans aucun rapport avec la crypto-sphère ou une baleine.\"\n}\n```",
-        "ts": 1789085083.885646
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 4.78) entièrement imputable à un 'noise' lexical : le sigle SDI est ici massivement repris dans les médias pour désigner le syndicat patronal français (Syndicat des Indépendants) et du matériel audiovisuel, sans aucun rapport avec la crypto ou le mouvement de baleines.\"\n}\n```",
+        "ts": 1789088713.118676
       },
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": 0.29,
+          "value": 0.07,
           "seuil": 1,
           "depasse": false
         },
@@ -24,7 +24,7 @@
           "depasse": false
         },
         "funding": {
-          "value": 3.4e-05,
+          "value": 5.9e-05,
           "seuil": 0.001,
           "depasse": false
         },
@@ -46,10 +46,25 @@
     {
       "signal": {
         "metric": "fear_greed",
-        "zscore": -42.578101611533896,
+        "zscore": -4.795831523312717,
         "value": 56,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement négatif (-42.58) malgré un indice de peur/avidité neutre (56) et un vide médiatique total. C'est la signature classique d'accumulation silencieuse par les baleines loin des radars du grand public.\"\n}\n```",
-        "ts": 1789085085.193329
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement négatif (-4.80) malgré un sentiment neutre (56). Indique une indifférence médiatique totale alors que les baleines accumulent en silence sous le radar.\"\n}\n```",
+        "ts": 1789088714.299869
+      },
+      "fiche": null,
+      "interpretation": {
+        "lecture": "Pas de fiche disponible",
+        "niveau": "inconnu"
+      },
+      "action": "Observer"
+    },
+    {
+      "signal": {
+        "metric": "taker_ratio",
+        "zscore": 2.920419747546816,
+        "value": 1.653,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Taker ratio à 1.65 (z-score 2.92) indique une agression massive des acheteurs à découvert non reflétée par les médias (silence radio médiatique), classique accumulation stealth des baleines avant un squeeze.\"\n}\n```",
+        "ts": 1789089017.148887
       },
       "fiche": null,
       "interpretation": {
