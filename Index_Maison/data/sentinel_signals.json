@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "long_short",
-      "zscore": 2.094204667504393,
-      "value": 1.494,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Z-score élevé (2.09) avec un ratio long/short à 1.494 indiquant une surconcentration excessive d'acheteurs. Le narratif médiatique grand public glorifie les stratégies long/short de manière superficielle, créant une diversion parfaite pendant que la foule accumule du levier haussier, condition classique d'un piège à liquidité (long squeeze imminent).\"\n}\n```",
-      "ts": "2026-09-10T08:15:25.733538+00:00"
-    },
-    {
       "metric": "liquidations",
       "zscore": -2.1276654403239785,
       "value": 1309146.0,
@@ -349,6 +342,13 @@
       "value": 1.728,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Le taker_ratio à 1.728 (z-score 3.05) indique une agression massive des acheteurs sur le carnet d'ordres, totalement ignorée par l'absence de couverture médiatique (silence radio). C'est la signature classique d'accumulation furtive par des baleines avant un re-pricing.\"\n}\n```",
       "ts": "2026-09-11T05:37:03.845353+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 3.325305677330302,
+      "value": 4188178.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (3.33) couplé à une absence totale de couverture médiatique (silence radio). C'accumulation furtive typique des baleines loin du bruit de fond.\"\n}\n```",
+      "ts": "2026-09-11T06:52:30.207714+00:00"
     }
   ]
 }
