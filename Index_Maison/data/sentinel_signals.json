@@ -1,27 +1,6 @@
 {
   "signals": [
     {
-      "metric": "fear_greed",
-      "zscore": -3.316624790355402,
-      "value": 56,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 40,\n  \"reason\": \"Données incomplètes (absence de flux de gros portefeuilles et de titres médiatiques concrets). Le z-score négatif de l'indice Fear & Greed (-3.32) signale une anomalie de peur excessive par rapport au niveau neutre (56), mais l'absence de données on-chain spécifiques ne permet pas de confirmer une accumulation ou une distribution silencieuse des baleines.\"\n}\n```",
-      "ts": "2026-09-11T02:06:03.458822+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": 2.9455567435405006,
-      "value": 0.608,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.95) entièrement due à un 'bruit' sémantique : le sigle SDI dans les médias fait référence au syndicat patronal SDI (Syndicat des Indépendants) et à du matériel vidéo (Blackmagic), et non à un actif crypto ou une baleine.\"\n}\n```",
-      "ts": "2026-09-11T02:36:18.496472+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": -2.932575659723034,
-      "value": 56,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 40,\n  \"reason\": \"Données incomplètes. Le z-score négatif profond (-2.93) indique une anomalie statistique de volatilité ou de sentiment, mais l'absence de titres médiatiques concrets empêche de confirmer une divergence claire. Les baleines observent probablement une phase de transition sans impulsion directionnelle majeure.\"\n}\n```",
-      "ts": "2026-09-11T02:36:19.799794+00:00"
-    },
-    {
       "metric": "sdi",
       "zscore": 2.6771434726370247,
       "value": 0.612,
@@ -349,6 +328,27 @@
       "value": 6087662.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Divergence massive : les médias généralistes et certains sites crypto paniquent sur l'inflation ou confondent des liquidations judiciaires locales, tandis que le z-score onchain (2.66) et les données brutes montrent un 'short squeeze' imminent de 6M$ purgé rapidement, piégeant les baissiers.\"\n}\n```",
       "ts": "2026-09-11T20:14:39.652334+00:00"
+    },
+    {
+      "metric": "cpfp",
+      "zscore": 2.04352628556186,
+      "value": 50.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie technique liée au ticker 'CPFP' (Child-Pays-For-Parent Bitcoin ou homonyme d'institutions éducatives locales) sans aucun rapport avec une activité de baleine crypto ou un narratif financier pertinent.\"\n}\n```",
+      "ts": "2026-09-11T20:34:52.414209+00:00"
+    },
+    {
+      "metric": "dust",
+      "zscore": 2.04352628556186,
+      "value": 50.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique parasité par des homonymes culturels (cinéma, littérature). L'anomalie onchain (z-score 2.04) sur le token DUST est trop faible pour confirmer une accumulation ou distribution significative de baleines.\"\n}\n```",
+      "ts": "2026-09-11T20:34:53.894214+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 2.3101047482488903,
+      "value": 5899416.0,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Divergence majeure : les médias grand public crient au 'short squeeze' massif (266M$-427M$ de liquidations haussières), mais l'anomalie on-chain montre un z-score modéré (2.31) et un volume réel de liquidations de seulement 5,8M$. Le narratif médiatique exagère la force du rebond pour piégé les investisseurs particuliers, tandis que les baleines profitent de cet optimisme artificiel pour distribuer.\"\n}\n```",
+      "ts": "2026-09-11T20:45:04.824340+00:00"
     }
   ]
 }

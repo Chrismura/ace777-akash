@@ -1,6 +1,6 @@
 {
  "version": "1.4.7",
- "updated": "2026-09-09T23:53:11Z",
+ "updated": "2026-09-11T20:42Z",
  "fichier": [
   {
    "nom": "hulk-mexc/scripts/paper_diprip.py",
@@ -485,9 +485,9 @@
    "origine": "leçon GitHub 3 jours (croisement_contexte 300 Mo)",
    "verif": "md5",
    "auto_modifiable": false,
-   "md5": "90b1c930a3a843e6bfa8676bc37e7ba2",
+   "md5": "0393a707e68ce549fb8e89c4fab9eb97",
    "note": "Premier scellement 2026-09-11 2026-09-11T13:45Z — ajout entrée rwa_yields_hist.jsonl (correctif C5 chantier RWA). N'était pas scellé avant.",
-   "maj": ""
+   "maj": "re-scellé 2026-09-11T20:42Z — ajout ligne plancher_confirme_hist.jsonl (shadow GO direct 11/09)"
   },
   {
    "nom": "Index_Maison/plists/com.ace777.rwa-yields.plist",
@@ -497,6 +497,26 @@
    "auto_modifiable": false,
    "md5": "b70a1060a9f225fe7bbe1e455b340c18",
    "note": "déclaré 2026-09-11 2026-09-11T13:50Z — chargé launchd + copié ~/Library/LaunchAgents",
+   "maj": ""
+  },
+  {
+   "nom": "Index_Maison/scripts/simulateur_plancher_confirme.py",
+   "role": "Simulateur SHADOW plancher confirmé (papier, RIZE+ZBCN, 3 confirmations puis 3 paliers)",
+   "origine": "chantier plancher confirmé — GO direct Christophe 11/09",
+   "verif": "md5",
+   "auto_modifiable": false,
+   "md5": "74404e7f06f632a2c46456865bde2f03",
+   "note": "déclaré 2026-09-11T20:42Z — lecture seule du moteur; produit JSONL + feed cockpit; 5 min launchd",
+   "maj": ""
+  },
+  {
+   "nom": "Index_Maison/plists/com.ace777.plancher-shadow.plist",
+   "role": "Plist shadow plancher (5 min, RunAtLoad) — PAPIER, aucun ordre",
+   "origine": "chantier plancher confirmé — GO direct Christophe 11/09",
+   "verif": "md5",
+   "auto_modifiable": false,
+   "md5": "41bd889f7e17fb318999faf55411ea77",
+   "note": "déclaré 2026-09-11T20:42Z — chargée launchd + copiée ~/Library/LaunchAgents",
    "maj": ""
   }
  ]

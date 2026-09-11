@@ -32,6 +32,8 @@ DEFAUTS = [
     ("/Users/christophe/ace777-test-day1/Index_Maison/data/whales_mouvements.jsonl", 50),
     # [C5] collecteur RWA (GO Christophe 11/09) — rotation dès la création (leçon journal_radar.log)
     ("/Users/christophe/ace777-test-day1/Index_Maison/data/rwa_yields_hist.jsonl", 50),
+    # Shadow plancher confirmé (GO direct Christophe 11/09, papier) — même leçon
+    ("/Users/christophe/ace777-test-day1/Index_Maison/data/plancher_confirme_hist.jsonl", 50),
 ]
 
 BACKUP_COUNT = 2

@@ -1,70 +1,15 @@
 {
-  "timestamp": 1789157994,
-  "date": "2026-09-11T20:19:54.615998+00:00",
-  "n_analyses": 3,
+  "timestamp": 1789161295,
+  "date": "2026-09-11T21:14:55.761855+00:00",
+  "n_analyses": 1,
   "analyses": [
     {
       "signal": {
-        "metric": "volume",
-        "zscore": 2.024374407887186,
-        "value": 16042530661.0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 78,\n  \"reason\": \"Z-score significatif (2.02) pour un volume de 16B+, contrastant avec un narratif médiatique généraliste focalisé sur la baisse des marchés traditionnels et les volumes annuels en baisse de Robinhood. Accumulation silencieuse des institutionnels en décalage avec le pessimisme ambiant.\"\n}\n```",
-        "ts": 1789157676.856376
-      },
-      "fiche": "rbf_eleve",
-      "questions": {
-        "prix": {
-          "value": 0.17,
-          "seuil": 1,
-          "depasse": false
-        },
-        "paires": {
-          "value": null,
-          "seuil": 3,
-          "depasse": false
-        },
-        "funding": {
-          "value": 1.2e-05,
-          "seuil": 0.001,
-          "depasse": false
-        },
-        "whales": {
-          "value": 1,
-          "seuil": 5,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "sdi > 0.3",
-        "lecture": "Drainage silencieux — les vieux BTC bougent en douce",
-        "niveau": "dangereux",
-        "action": "Réduire taille de 50%, sortir des positions fragiles"
-      },
-      "action": "Réduire taille de 50%, sortir des positions fragiles",
-      "niveau": "dangereux"
-    },
-    {
-      "signal": {
-        "metric": "whale_usd",
-        "zscore": 2.836853523666981,
-        "value": 2848689.0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 2.84, ~2.85M USD) en absence totale de couverture médiatique (silence radio sur Google Actualités). Accumulation furtive classique des baleines loin du bruit de fond.\"\n}\n```",
-        "ts": 1789157678.134161
-      },
-      "fiche": null,
-      "interpretation": {
-        "lecture": "Pas de fiche disponible",
-        "niveau": "inconnu"
-      },
-      "action": "Observer"
-    },
-    {
-      "signal": {
         "metric": "liquidations",
-        "zscore": 2.658653985566401,
-        "value": 6087662.0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Divergence massive : les médias généralistes et certains sites crypto paniquent sur l'inflation ou confondent des liquidations judiciaires locales, tandis que le z-score onchain (2.66) et les données brutes montrent un 'short squeeze' imminent de 6M$ purgé rapidement, piégeant les baissiers.\"\n}\n```",
-        "ts": 1789157679.652334
+        "zscore": 2.3101047482488903,
+        "value": 5899416.0,
+        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Divergence majeure : les médias grand public crient au 'short squeeze' massif (266M$-427M$ de liquidations haussières), mais l'anomalie on-chain montre un z-score modéré (2.31) et un volume réel de liquidations de seulement 5,8M$. Le narratif médiatique exagère la force du rebond pour piégé les investisseurs particuliers, tandis que les baleines profitent de cet optimisme artificiel pour distribuer.\"\n}\n```",
+        "ts": 1789159504.82434
       },
       "fiche": null,
       "interpretation": {
@@ -74,5 +19,5 @@
       "action": "Observer"
     }
   ],
-  "resume": "🔴 DANGER détecté — réduire les expositions"
+  "resume": "🔵 CALME — pas de signal alarmant"
 }

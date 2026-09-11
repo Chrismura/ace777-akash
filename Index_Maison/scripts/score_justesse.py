@@ -59,6 +59,12 @@ OUT_COCKPIT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "justesse
 HORIZONS = {"24h": 24 * 3600, "1 semaine": 7 * 24 * 3600, "1sem": 7 * 24 * 3600,
             "semaine": 7 * 24 * 3600, "48h": 48 * 3600, "1h": 3600, "4h": 4 * 3600}
 
+# [V8-C] 11/09/2026 — horizon imposé par indice (autopsie du radar, GO direct
+# Christophe). Le radar est un instrument INTRADAY (WebSocket Binance,
+# variations 60 s, volume x3) : le noter sur 24h le condamnait (38 % de
+# réussite = hasard). Le scoreur mesure désormais l'horizon auquel il vit.
+HORIZON_FORCE = {"radar": "4h"}
+
 # === MAPPING indice -> clé de sa propre série dans history.jsonl (self-vérification) ===
 # Un indice ABSENT de ce mapping = pas de série propre traçable -> self_move = None.
 INDICE_SELF_KEY = {
@@ -142,11 +148,14 @@ def parse_avis(analyse):
     avis = re.search(r"AVIS\s*STRICT\s*:\s*(\w+)", txt)
     horizon = re.search(r"HORIZON\s*:\s*([0-9]+h|1\s*semaine|semaine|48h|24h|1h|4h)", txt)
     confiance = re.search(r"CONFIANCE\s*:\s*(\w+)", txt)
-    return {
+    out = {
         "avis": avis.group(1).upper() if avis else None,
         "horizon": horizon.group(1).strip().lower() if horizon else None,
         "confiance": confiance.group(1).lower() if confiance else None,
     }
+    # [V8-C] horizon imposé pour certains indices (voir HORIZON_FORCE)
+    out["horizon"] = HORIZON_FORCE.get(analyse.get("indice"), out["horizon"])
+    return out
 
 
 def ts_of(analyse):
