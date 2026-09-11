@@ -162,6 +162,13 @@ def calculer_signal(rows) -> dict:
     age_min = (time.time() - last[0]) / 60.0
     out["frais"] = age_min <= FRAIS_MAX_AGE_MIN
     out["age_min"] = round(age_min, 1)
+    # FIX 11/09 (crash-loop None<=float) : exposer le PRIX BRUT du dernier point
+    # BTC dès qu'il existe, même si le score est incomplet (ok=False après
+    # rotation du JSONL). Ce n'est PAS un prix inventé : c'est le dernier prix
+    # observé. ok/score restent incomplets → aucune ENTRÉE ni SIGNAL_ETEINT,
+    # mais les sorties horaires (TIME_OUT) et TP/SL sur données fraîches restent
+    # décidables au lieu de crasher sur None<=float à chaque cycle.
+    out["prix_btc"] = last[1]
 
     hb = hourly_m6(rows)
     hours = sorted(set().union(*[set(v.keys()) for v in hb.values()]))
@@ -297,21 +304,33 @@ def gerer(sig: dict, st: dict) -> None:
         entree = pos["prix_entree"]
         ts0 = pos["ts_entree_epoch"]
         raison = None
-        if frais:
+        # FIX 11/09 (crash-loop None<=float, défense en profondeur) : prix None
+        # (aucun point BTC du tout) → aucune décision basée prix. Le TIME_OUT
+        # reste possible sans prix (sortie horaire, ne dépend PAS de prix).
+        # Cas nominal post-rotation : prix_btc = dernier prix BRUT observé
+        # (exposé par calculer_signal même si ok=False) → TP/SL restent vivants.
+        prix_ok = isinstance(prix, (int, float))
+        if not prix_ok:
+            if (time.time() - ts0) / 3600 >= TTL_H:
+                raison = "TIME_OUT"
+        elif frais:
             if prix <= entree * (1 - TP_PCT / 100):
                 raison = "TP"
             elif prix >= entree * (1 + SL_PCT / 100):
                 raison = "SL"
-            elif score < SCORE_SORTIE:
+            elif score is not None and score < SCORE_SORTIE:
                 raison = "SIGNAL_ETEINT"
             elif (time.time() - ts0) / 3600 >= TTL_H:
                 raison = "TIME_OUT"
         if raison:
-            pnl_usd = (entree - prix) / entree * pos["notional"]
-            pnl_pct = 100.0 * (entree - prix) / entree
+            # FIX 11/09 : sortie TIME_OUT sans prix exploitable → réglée au prix
+            # d'entrée (pnl 0, honnête : aucun prix inventé, sortie comptable).
+            prix_sortie = prix if prix_ok else entree
+            pnl_usd = (entree - prix_sortie) / entree * pos["notional"]
+            pnl_pct = 100.0 * (entree - prix_sortie) / entree
             trade = {
                 "ts_entree": pos["ts_entree"], "prix_entree": entree,
-                "ts_sortie": utc(), "prix_sortie": prix,
+                "ts_sortie": utc(), "prix_sortie": prix_sortie,
                 "notional": pos["notional"], "pnl_usd": pnl_usd, "pnl_pct": pnl_pct,
                 "raison_sortie": raison, "score_entree": pos.get("score_entree"),
                 "detail_signal": pos.get("detail_signal"),
@@ -321,11 +340,14 @@ def gerer(sig: dict, st: dict) -> None:
             st["n_trades"] = st.get("n_trades", 0) + 1
             st["position"] = None
             journaliser_trade(st, trade)
-            print(f"[SHORT-BTC] SORTIE {raison} @ {prix} — pnl {pnl_usd:+.2f}$ ({pnl_pct:+.2f}%)")
+            print(f"[SHORT-BTC] SORTIE {raison} @ {prix_sortie} — pnl {pnl_usd:+.2f}$ ({pnl_pct:+.2f}%)")
         return
 
     # ---- ENTRÉE ----
-    if score >= SCORE_ENTREE and frais and sig.get("session_ok"):
+    # FIX 11/09 : entrée EXIGE un prix exploitable + signal complet (ok=True,
+    # sinon score incomplet après rotation). score>=5 avec ok=False est impossible
+    # (score=None) mais le garde reste explicite.
+    if prix is not None and sig.get("ok") and score >= SCORE_ENTREE and frais and sig.get("session_ok"):
         st["position"] = {
             "ts_entree": utc(), "ts_entree_epoch": time.time(),
             "prix_entree": prix, "notional": NOTIONAL_USDT,

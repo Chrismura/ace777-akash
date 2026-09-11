@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "price_1h",
-      "zscore": 5.159897611282082,
-      "value": 0.9538403943473828,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Absence totale de données factuelles ou de titres médiatiques dans le flux pour contraster avec l'anomalie statistique (Z-score 5.16).\"\n}\n```",
-      "ts": "2026-09-10T12:39:20.004632+00:00"
-    },
-    {
       "metric": "liquidations",
       "zscore": 4.13510070503275,
       "value": 8287274.0,
@@ -349,6 +342,13 @@
       "value": 1,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 98,\n  \"reason\": \"Z-score extrêmement bas (-13.01) sur le ratio long/short indiquant un positionnement contrarien massif des baleines (short squeeze imminent), totalement absent des narratifs médiatiques actuels.\"\n}\n```",
       "ts": "2026-09-11T10:10:10.021034+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 3.123662795976024,
+      "value": 3358037.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Activité anormale des baleines (z-score 3.12, ~3.36M USD) totalement ignorée par les médias (silence radio). Accumulation furtive en cours sous le radar.\"\n}\n```",
+      "ts": "2026-09-11T10:46:16.714277+00:00"
     }
   ]
 }
