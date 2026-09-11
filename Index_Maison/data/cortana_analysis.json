@@ -1,20 +1,20 @@
 {
-  "timestamp": 1789092872,
-  "date": "2026-09-11T02:14:32.029886+00:00",
+  "timestamp": 1789096473,
+  "date": "2026-09-11T03:14:33.369686+00:00",
   "n_analyses": 2,
   "analyses": [
     {
       "signal": {
         "metric": "sdi",
-        "zscore": 3.3062487663229736,
-        "value": 0.604,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique externe : les gros titres font référence à un syndicat patronal (SDI - Syndicat des Indépendants) et à du matériel vidéo, sans aucun rapport avec la crypto-monnaie SDI.\"\n}\n```",
-        "ts": 1789092362.099475
+        "zscore": 2.6771434726370247,
+        "value": 0.612,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.68) entièrement imputable à un 'bruit' de homonymie médiatique (SDI = Syndicat des Indépendants / Blackmagic SDI Expander) sans aucun rapport avec l'actif crypto. Aucune baleine détectée.\"\n}\n```",
+        "ts": 1789095987.09913
       },
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.08,
+          "value": -0.17,
           "seuil": 1,
           "depasse": false
         },
@@ -24,12 +24,12 @@
           "depasse": false
         },
         "funding": {
-          "value": 6.4e-05,
+          "value": 6.7e-05,
           "seuil": 0.001,
           "depasse": false
         },
         "whales": {
-          "value": 0,
+          "value": 1,
           "seuil": 5,
           "depasse": false
         }
@@ -46,10 +46,10 @@
     {
       "signal": {
         "metric": "fear_greed",
-        "zscore": -3.316624790355402,
+        "zscore": -2.6457513110645907,
         "value": 56,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 40,\n  \"reason\": \"Données incomplètes (absence de flux de gros portefeuilles et de titres médiatiques concrets). Le z-score négatif de l'indice Fear & Greed (-3.32) signale une anomalie de peur excessive par rapport au niveau neutre (56), mais l'absence de données on-chain spécifiques ne permet pas de confirmer une accumulation ou une distribution silencieuse des baleines.\"\n}\n```",
-        "ts": 1789092363.458822
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-2.65) pour un indice de peur/greed neutre (56) combiné à un silence médiatique absolu. Absence totale de bruit de fond : les baleines accumulent dans l'angle mort des médias avant un mouvement directionnel.\"\n}\n```",
+        "ts": 1789095988.331201
       },
       "fiche": null,
       "interpretation": {

@@ -2,34 +2,6 @@
   "signals": [
     {
       "metric": "long_short",
-      "zscore": 3.048207159148614,
-      "value": 1.459,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 92,\n  \"reason\": \"Z-score extrême de 1.459 (3.05) sur le ratio long/short indiquant un positionnement acheteur excessivement surpeuplé par la foule. Pendant que les médias grand public banalisent et romanticent les stratégies long/short, les baleines accumulent silencieusement des positions inversées, préparant un piège à liquidité (squeeze) imminent.\"\n}\n```",
-      "ts": "2026-09-10T04:41:30.674221+00:00"
-    },
-    {
-      "metric": "long_short",
-      "zscore": 2.899870207299121,
-      "value": 1.469,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Z-score extrêmement élevé à 2.90 (long/short à 1.469) indiquant un posicionnement massivement haussier des baleines, totalement déconnecté du narratif médiatique institutionnel généraliste. Ce déséquilibre extrême précède historiquement des chasses aux 'longs' (long squeeze) brutales.\"\n}\n```",
-      "ts": "2026-09-10T05:11:35.154642+00:00"
-    },
-    {
-      "metric": "long_short",
-      "zscore": 2.652097755610684,
-      "value": 1.469,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Le ratio long/short atteint un z-score critique de 2.65 (1.469), indiquant un positionnement excessivement haussier de la foule. Pendant que les médias grand public banalisent les stratégies long/short et maintiennent un narratif abstrait, les baleines saturent le marché de positions acheteuses, créant un déséquilibre classique propice à une chasse aux 'longs' (long squeeze) imminente.\"\n}\n```",
-      "ts": "2026-09-10T05:41:41.008704+00:00"
-    },
-    {
-      "metric": "long_short",
-      "zscore": 2.5539661403967475,
-      "value": 1.478,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Z-score élevé (2.55) et ratio long/short à 1.478 indiquant un posicionnement massivement acheteur de la foule et des baleines, totalement déconnecté du narratif médiatique généraliste axé sur la prudence et la diversification neutre (fonds long/short traditionnels). Risque imminent de 'long squeeze'.\"\n}\n```",
-      "ts": "2026-09-10T06:11:46.041999+00:00"
-    },
-    {
-      "metric": "long_short",
       "zscore": 2.3693568747040756,
       "value": 1.478,
       "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Le ratio long/short atteint un z-score élevé de 2.37 (1.478), révélant une surconcentration agressive des positions acheteuses par les baleines. Pendant ce temps, le narratif médiatique grand public se focalise abstraitement sur les ETF et stratégies long/short traditionnelles, ignorant totalement l'excès de levier spéculatif en cours. Divergence classique de fin de cycle : un 'long squeeze' imminent est en préparation.\"\n}\n```",
@@ -349,6 +321,34 @@
       "value": 56,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 40,\n  \"reason\": \"Données incomplètes (absence de flux de gros portefeuilles et de titres médiatiques concrets). Le z-score négatif de l'indice Fear & Greed (-3.32) signale une anomalie de peur excessive par rapport au niveau neutre (56), mais l'absence de données on-chain spécifiques ne permet pas de confirmer une accumulation ou une distribution silencieuse des baleines.\"\n}\n```",
       "ts": "2026-09-11T02:06:03.458822+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 2.9455567435405006,
+      "value": 0.608,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.95) entièrement due à un 'bruit' sémantique : le sigle SDI dans les médias fait référence au syndicat patronal SDI (Syndicat des Indépendants) et à du matériel vidéo (Blackmagic), et non à un actif crypto ou une baleine.\"\n}\n```",
+      "ts": "2026-09-11T02:36:18.496472+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -2.932575659723034,
+      "value": 56,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 40,\n  \"reason\": \"Données incomplètes. Le z-score négatif profond (-2.93) indique une anomalie statistique de volatilité ou de sentiment, mais l'absence de titres médiatiques concrets empêche de confirmer une divergence claire. Les baleines observent probablement une phase de transition sans impulsion directionnelle majeure.\"\n}\n```",
+      "ts": "2026-09-11T02:36:19.799794+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 2.6771434726370247,
+      "value": 0.612,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.68) entièrement imputable à un 'bruit' de homonymie médiatique (SDI = Syndicat des Indépendants / Blackmagic SDI Expander) sans aucun rapport avec l'actif crypto. Aucune baleine détectée.\"\n}\n```",
+      "ts": "2026-09-11T03:06:27.099130+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -2.6457513110645907,
+      "value": 56,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-2.65) pour un indice de peur/greed neutre (56) combiné à un silence médiatique absolu. Absence totale de bruit de fond : les baleines accumulent dans l'angle mort des médias avant un mouvement directionnel.\"\n}\n```",
+      "ts": "2026-09-11T03:06:28.331201+00:00"
     }
   ]
 }
