@@ -1,7 +1,63 @@
 {
-  "timestamp": 1789082068,
-  "date": "2026-09-10T23:14:28.887150+00:00",
-  "n_analyses": 0,
-  "analyses": [],
-  "resume": "Aucune analyse en cours"
+  "timestamp": 1789085670,
+  "date": "2026-09-11T00:14:30.002996+00:00",
+  "n_analyses": 2,
+  "analyses": [
+    {
+      "signal": {
+        "metric": "sdi",
+        "zscore": 129.1254281761425,
+        "value": 0.604,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Anomalie statistique (z-score 129) liée à une collision sémantique totale. Le ticker 'SDI' des médias fait référence au syndicat professionnel 'Syndicat des Indépendants' et à du matériel vidéo (Blackmagic SDI), sans aucun rapport avec la crypto-sphère ou une baleine.\"\n}\n```",
+        "ts": 1789085083.885646
+      },
+      "fiche": "rbf_eleve",
+      "questions": {
+        "prix": {
+          "value": 0.29,
+          "seuil": 1,
+          "depasse": false
+        },
+        "paires": {
+          "value": null,
+          "seuil": 3,
+          "depasse": false
+        },
+        "funding": {
+          "value": 3.4e-05,
+          "seuil": 0.001,
+          "depasse": false
+        },
+        "whales": {
+          "value": 0,
+          "seuil": 5,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "sdi > 0.3",
+        "lecture": "Drainage silencieux — les vieux BTC bougent en douce",
+        "niveau": "dangereux",
+        "action": "Réduire taille de 50%, sortir des positions fragiles"
+      },
+      "action": "Réduire taille de 50%, sortir des positions fragiles",
+      "niveau": "dangereux"
+    },
+    {
+      "signal": {
+        "metric": "fear_greed",
+        "zscore": -42.578101611533896,
+        "value": 56,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement négatif (-42.58) malgré un indice de peur/avidité neutre (56) et un vide médiatique total. C'est la signature classique d'accumulation silencieuse par les baleines loin des radars du grand public.\"\n}\n```",
+        "ts": 1789085085.193329
+      },
+      "fiche": null,
+      "interpretation": {
+        "lecture": "Pas de fiche disponible",
+        "niveau": "inconnu"
+      },
+      "action": "Observer"
+    }
+  ],
+  "resume": "🔴 DANGER détecté — réduire les expositions"
 }
