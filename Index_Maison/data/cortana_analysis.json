@@ -1,15 +1,45 @@
 {
-  "timestamp": 1789139988,
-  "date": "2026-09-11T15:19:48.486814+00:00",
-  "n_analyses": 2,
+  "timestamp": 1789143589,
+  "date": "2026-09-11T16:19:49.782618+00:00",
+  "n_analyses": 4,
   "analyses": [
     {
       "signal": {
+        "metric": "price_1h",
+        "zscore": 3.628526232406274,
+        "value": 0.8738000715486915,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de prix significative (Z-score 3.63) couplée à un silence médiatique absolu. Les baleines accumulent ou provoquent un mouvement brusque sans éveiller l'attention du retail, signalant une rupture imminente du statu quo.\"\n}\n```",
+        "ts": 1789141964.142425
+      },
+      "fiche": null,
+      "interpretation": {
+        "lecture": "Pas de fiche disponible",
+        "niveau": "inconnu"
+      },
+      "action": "Observer"
+    },
+    {
+      "signal": {
+        "metric": "liquidations",
+        "zscore": 3.2627031060993876,
+        "value": 4992270.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Forte divergence : le narratif médiatique grand public confond des liquidations d'entreprises traditionnelles locales avec le marché crypto, tandis que le z-score onchain (3.26) indique un flush des positions dérivées. Les baleines profitent de cette panique médiatique artificielle pour accumuler en silence.\"\n}\n```",
+        "ts": 1789142570.497688
+      },
+      "fiche": null,
+      "interpretation": {
+        "lecture": "Pas de fiche disponible",
+        "niveau": "inconnu"
+      },
+      "action": "Observer"
+    },
+    {
+      "signal": {
         "metric": "long_short",
-        "zscore": -2.253261104313469,
-        "value": 1.486,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Divergence extrême : les médias généralistes crient à la baisse et la panique des 'ours' (ratio 0.82 cité), tandis que le z-score on-chain à -2.25 révèle un positionnement contrarien massif des baleines (long/short réel à 1.486). Accumulation silencieuse en sous-marin.\"\n}\n```",
-        "ts": 1789139249.298381
+        "zscore": -2.585985813095135,
+        "value": 1.419,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Z-score extrêmement bas (-2.59) indiquant une capitulation des positions short ou un positionnement contrarien massif des baleines (Long/Short à 1.419), totalement ignoré par les médias généralistes qui relayent un narratif baissier obsolète ou externe (Cardano, fiscalité).\"\n}\n```",
+        "ts": 1789142906.459525
       },
       "fiche": null,
       "interpretation": {
@@ -21,15 +51,15 @@
     {
       "signal": {
         "metric": "volume",
-        "zscore": 2.9391073259945735,
-        "value": 14008932833.0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 82,\n  \"reason\": \"Anomalie de volume on-chain massive (Z-score 2.94) couplée à une hausse de 19% du volume spot en août 2026, totalement ignorée par les médias traditionnels focalisés sur la macroéconomie et la tech grand public. Accumulation silencieuse des baleines en cours.\"\n}\n```",
-        "ts": 1789139553.018191
+        "zscore": 3.5196503590226684,
+        "value": 15270468789.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de volume on-chain massive (z-score 3.52) totalement ignorée par les médias traditionnels qui se focalisent sur la macroéconomie et des variations mensuelles mineures. Accumulation silencieuse des baleines en cours.\"\n}\n```",
+        "ts": 1789143208.899047
       },
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.29,
+          "value": 0.14,
           "seuil": 1,
           "depasse": false
         },
@@ -39,12 +69,12 @@
           "depasse": false
         },
         "funding": {
-          "value": 5.5e-05,
+          "value": 3.6e-05,
           "seuil": 0.001,
           "depasse": false
         },
         "whales": {
-          "value": 1,
+          "value": 0,
           "seuil": 5,
           "depasse": false
         }

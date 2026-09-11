@@ -3956,3 +3956,20 @@ Pas d’ordre — confrontation plus tard.
 - ETHUSDT: IMPULSE_WAIT — spike en cours, pas chase
 - RWAINCUSDT: WATCH_PULLBACK — tension haute + reflux
 (compléter: confirmé ? risque ?)
+
+### 2026-09-11T15:23:29Z — ALERT auto
+- RIZEUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
+
+### 2026-09-11T15:40:10Z — ALERT auto
+- PYTHUSDT: IMPULSE_WAIT — spike en cours, pas chase
+(compléter: confirmé ? risque ?)
+
+### 2026-09-11T15:41:06Z — ALERT auto
+- XRPUSDT: IMPULSE_WAIT — spike en cours, pas chase
+(compléter: confirmé ? risque ?)
+
+### 2026-09-11T16:10:28Z — ALERT auto
+- WUSDT: IMPULSE_WAIT — spike en cours, pas chase
+- CHIPUSDT: IMPULSE_WAIT — spike en cours, pas chase
+(compléter: confirmé ? risque ?)
