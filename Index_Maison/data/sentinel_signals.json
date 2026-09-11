@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "liquidations",
-      "zscore": -2.1276654403239785,
-      "value": 1309146.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Bruit médiatique parasité par des homonymes juridiques locaux (faillites d'entreprises traditionnelles). Les données onchain montrent des liquidations crypto anormalement basses (z-score -2.13), indiquant l'absence de mouvements majeurs de baleines ou de purge par le levier.\"\n}\n```",
-      "ts": "2026-09-10T08:45:32.554667+00:00"
-    },
-    {
-      "metric": "liquidations",
-      "zscore": -2.0421575250838186,
-      "value": 1309146.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique parasité par des homonymes juridiques locaux (faillites d'entreprises traditionnelles). Absence totale de mouvement macro de baleines ou de signal de liquidations crypto significatif.\"\n}\n```",
-      "ts": "2026-09-10T09:15:38.795263+00:00"
-    },
-    {
       "metric": "price_1h",
       "zscore": 5.159897611282082,
       "value": 0.9538403943473828,
@@ -349,6 +335,20 @@
       "value": 4188178.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (3.33) couplé à une absence totale de couverture médiatique (silence radio). C'accumulation furtive typique des baleines loin du bruit de fond.\"\n}\n```",
       "ts": "2026-09-11T06:52:30.207714+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 3.4609252686546474,
+      "value": 3564979.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Activité anormale des baleines (Z-score 3.46, ~3.5M USD) sans aucune couverture médiatique correspondante, indiquant une accumulation silencieuse sous le radar du retail.\"\n}\n```",
+      "ts": "2026-09-11T09:43:10.739522+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": -13.005992159211587,
+      "value": 1,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 98,\n  \"reason\": \"Z-score extrêmement bas (-13.01) sur le ratio long/short indiquant un positionnement contrarien massif des baleines (short squeeze imminent), totalement absent des narratifs médiatiques actuels.\"\n}\n```",
+      "ts": "2026-09-11T10:10:10.021034+00:00"
     }
   ]
 }
