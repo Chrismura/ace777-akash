@@ -1,20 +1,20 @@
 {
-  "timestamp": 1789089270,
-  "date": "2026-09-11T01:14:30.969488+00:00",
-  "n_analyses": 3,
+  "timestamp": 1789092872,
+  "date": "2026-09-11T02:14:32.029886+00:00",
+  "n_analyses": 2,
   "analyses": [
     {
       "signal": {
         "metric": "sdi",
-        "zscore": 4.781076688449947,
+        "zscore": 3.3062487663229736,
         "value": 0.604,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 4.78) entièrement imputable à un 'noise' lexical : le sigle SDI est ici massivement repris dans les médias pour désigner le syndicat patronal français (Syndicat des Indépendants) et du matériel audiovisuel, sans aucun rapport avec la crypto ou le mouvement de baleines.\"\n}\n```",
-        "ts": 1789088713.118676
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique externe : les gros titres font référence à un syndicat patronal (SDI - Syndicat des Indépendants) et à du matériel vidéo, sans aucun rapport avec la crypto-monnaie SDI.\"\n}\n```",
+        "ts": 1789092362.099475
       },
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": 0.07,
+          "value": -0.08,
           "seuil": 1,
           "depasse": false
         },
@@ -24,7 +24,7 @@
           "depasse": false
         },
         "funding": {
-          "value": 5.9e-05,
+          "value": 6.4e-05,
           "seuil": 0.001,
           "depasse": false
         },
@@ -46,25 +46,10 @@
     {
       "signal": {
         "metric": "fear_greed",
-        "zscore": -4.795831523312717,
+        "zscore": -3.316624790355402,
         "value": 56,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement négatif (-4.80) malgré un sentiment neutre (56). Indique une indifférence médiatique totale alors que les baleines accumulent en silence sous le radar.\"\n}\n```",
-        "ts": 1789088714.299869
-      },
-      "fiche": null,
-      "interpretation": {
-        "lecture": "Pas de fiche disponible",
-        "niveau": "inconnu"
-      },
-      "action": "Observer"
-    },
-    {
-      "signal": {
-        "metric": "taker_ratio",
-        "zscore": 2.920419747546816,
-        "value": 1.653,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Taker ratio à 1.65 (z-score 2.92) indique une agression massive des acheteurs à découvert non reflétée par les médias (silence radio médiatique), classique accumulation stealth des baleines avant un squeeze.\"\n}\n```",
-        "ts": 1789089017.148887
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 40,\n  \"reason\": \"Données incomplètes (absence de flux de gros portefeuilles et de titres médiatiques concrets). Le z-score négatif de l'indice Fear & Greed (-3.32) signale une anomalie de peur excessive par rapport au niveau neutre (56), mais l'absence de données on-chain spécifiques ne permet pas de confirmer une accumulation ou une distribution silencieuse des baleines.\"\n}\n```",
+        "ts": 1789092363.458822
       },
       "fiche": null,
       "interpretation": {

@@ -4470,3 +4470,12 @@
 - 2026-09-11T00:56:16.372186Z | alerte | Maintenir la vigilance nominale, laisser le stop-loss d'urgence actif sur CCUSDT, conserver Alpha en embuscade stricte et poursuivre la gestion prudente de Hulk. | conf=90%
 - 2026-09-11T01:11:13.763708Z | alerte | Maintenir la vigilance nominale, laisser le stop-loss d'urgence actif sur CCUSDT, conserver Alpha en embuscade stricte et poursuivre la gestion prudente de Hulk. | conf=90%
 - 2026-09-11T01:16:20.391444Z | alerte | Maintenir la vigilance nominale, laisser le stop-loss d'urgence actif sur CCUSDT, conserver Alpha en embuscade stricte et poursuivre la gestion prudente de Hulk. | conf=90%
+- 2026-09-11T01:22:20.008550Z | alerte | Maintenir la vigilance nominale, laisser le stop-loss d'urgence actif sur CCUSDT, conserver Alpha en embuscade stricte et poursuivre la gestion prudente de Hulk. | conf=90%
+- 2026-09-11T01:22:36.511466Z | alerte | Maintenir la vigilance nominale, laisser le stop-loss d'urgence actif sur CCUSDT, conserver Alpha en embuscade stricte et poursuivre la gestion prudente de Hulk. | conf=90%
+- 2026-09-11T01:35:50.419978Z | alerte | Maintenir la vigilance nominale, laisser le stop-loss d'urgence actif sur CCUSDT, conserver Alpha en | conf=?
+- 2026-09-11T01:35:51.826667Z | alerte | Maintenir la vigilance nominale, laisser le stop-loss d'urgence actif sur CCUSDT, conserver Alpha en embuscade stricte et poursuivre la gestion prudente de Hulk. | conf=90%
+- 2026-09-11T01:44:17.110617Z | alerte | Maintenir la vigilance nominale, laisser le stop-loss d'urgence actif sur CCUSDT, conserver Alpha en embuscade stricte et poursuivre la gestion prudente de Hulk. | conf=90%
+- 2026-09-11T01:46:25.954973Z | alerte | Maintenir la vigilance nominale, laisser le stop-loss d'urgence actif sur CCUSDT, conserver Alpha en embuscade stricte et poursuivre la gestion prudente de Hulk. | conf=90%
+- 2026-09-11T01:55:03.689761Z | alerte | Maintenir la vigilance nominale, laisser le stop-loss d'urgence actif sur CCUSDT, conserver Alpha en embuscade stricte et poursuivre la gestion prudente de Hulk. | conf=90%
+- 2026-09-11T02:14:37.604229Z | alerte | Maintenir la vigilance nominale, laisser le stop‑loss d'urgence actif sur CCUSDT, conserver Alpha en embuscade stricte et poursuivre la gestion prudente de Hulk. | conf=90%
+- 2026-09-11T02:16:18.202341Z | alerte | Maintenir la vigilance nominale, laisser le stop‑loss d'urgence actif sur CCUSDT, conserver Alpha en embuscade stricte et poursuivre la gestion prudente de Hulk. | conf=90%

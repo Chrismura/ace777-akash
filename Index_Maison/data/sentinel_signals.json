@@ -2,41 +2,6 @@
   "signals": [
     {
       "metric": "long_short",
-      "zscore": 2.176820666464073,
-      "value": 1.369,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Le ratio long/short atteint un z-score élevé de 2.18 (1.369), indiquant une concentration excessive de positions acheteuses par les traders particuliers. Pendant ce temps, le narratif médiatique grand public glorifie les stratégies long/short traditionnelles sans lien avec la dynamique spéculative crypto actuelle. Cet excès de optimisme retail est un signal contrarien classique de capitulation imminente orchestrée par les baleines.\"\n}\n```",
-      "ts": "2026-09-10T03:41:16.987067+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": 2.23606797749979,
-      "value": 69,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Euphorie excessive (Fear & Greed à 69 avec un z-score élevé de 2.24) combinée à un vide médiatique total ('Google Actualités' sans relais majeur). Divergence classique de fin de cycle : les baleines distribuent silencieusement aux retards pendant que le marché particulier s'emballe sur un narratif stagnant.\"\n}\n```",
-      "ts": "2026-09-10T04:06:20.977627+00:00"
-    },
-    {
-      "metric": "long_short",
-      "zscore": 3.4236032147193347,
-      "value": 1.459,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 92,\n  \"reason\": \"Z-score critique (3.42) sur le ratio long/short indicating une surconcentration extrême des positions acheteuses par les baleines. Le narratif médiatique grand public banalise les stratégies long/short comme un outil de couverture, masquant une accumulation agressive de levier haussier prête à être purgée par les teneurs de marché.\"\n}\n```",
-      "ts": "2026-09-10T04:11:22.921830+00:00"
-    },
-    {
-      "metric": "whale_usd",
-      "zscore": 3.9226199301628775,
-      "value": 4611036.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Activité anormale des baleines (z-score 3.92, +4.6M USD) dans un silence médiatique absolu (Google Actualités vide). Accumulation furtive classique avant une rupture de prix.\"\n}\n```",
-      "ts": "2026-09-10T04:16:24.714758+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": 2.081665999466133,
-      "value": 69,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Indice Fear & Greed à 69 (z-score 2.08) en zone de cupidité élevée, couplé à un vide médiatique total (Google Actualités sans relais notable). C'est le piège classique : le marché retail s'excite en silence tandis que les baleines profitent de cette surchauffe non médiatisée pour distribuer leurs sacs.\"\n}\n```",
-      "ts": "2026-09-10T04:36:28.843277+00:00"
-    },
-    {
-      "metric": "long_short",
       "zscore": 3.048207159148614,
       "value": 1.459,
       "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 92,\n  \"reason\": \"Z-score extrême de 1.459 (3.05) sur le ratio long/short indiquant un positionnement acheteur excessivement surpeuplé par la foule. Pendant que les médias grand public banalisent et romanticent les stratégies long/short, les baleines accumulent silencieusement des positions inversées, préparant un piège à liquidité (squeeze) imminent.\"\n}\n```",
@@ -349,6 +314,41 @@
       "value": 1.653,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Taker ratio à 1.65 (z-score 2.92) indique une agression massive des acheteurs à découvert non reflétée par les médias (silence radio médiatique), classique accumulation stealth des baleines avant un squeeze.\"\n}\n```",
       "ts": "2026-09-11T01:10:17.148887+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 3.8617855136831705,
+      "value": 0.604,
+      "analysis": "**Analyse de la divergence**\n\n1. **Anomalie on‑chain**  \n   - **SDI = 0.604** avec un **z‑score de 3.86**.  \n   - Un z‑score > 3 indique que la valeur observée s’écarte fortement de la moyenne historique ; c’est donc une activité anormale et très significative.  \n   - Dans le contexte des « baleines », un tel pic est souvent interprété comme une accumulation ou une redistribution importante d’actifs, ce qui, lorsqu’il n’est pas accompagné d’un sentiment négatif, tend à être perçu comme **bullish**.\n\n2. **Narratif médiatique**  \n   - Les titres sont centrés sur des sujets **institutionnels et opérationnels** (transparence salariale, gouvernance, budget, lancement de produit).  \n   - Aucun titre ne mentionne directement une dynamique de marché, une hausse de volume ou une activité inhabituelle liée à la cryptomonnaie.  \n   - Le ton est plutôt **prudent** (« appelle à la prudence », « budget », « gouvernance reconduite ») ou **neutre** (annonce de produit).  \n   - Ainsi, le discours médiatique ne reflète pas l’intensité de l’activité on‑chain détectée.\n\n3. **Divergence**  \n   - **On‑chain** : forte activité, potentiellement indicative d’un mouvement de baleines (accumulation ou repositionnement).  \n   - **Média** : silence ou couverture très neutre/prudente, sans mise en avant de la dynamique de marché.  \n   - Cette déconnexion suggère que les acteurs majeurs (baleines) pourraient opérer **silencieusement**, tandis que le public et les médias restent focalisés sur des sujets plus « institutionnels » et ne perçoivent pas le signal réel du marché.\n\n**Conclusion**  \nLe signal est **bullish** avec une confiance élevée, car l’anomalie on‑chain indique une activité forte alors que le narratif médiatique reste détaché de cette réalité.\n\n```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 80,\n  \"reason\": \"L'anomalie on-chain (SDI = 0.604, z-score 3.86) suggère une activité élevée, tandis que les titres médiatiques ne reflètent pas cette confiance, indiquant potentiellement une déconnexion entre les données brutes et le narratif médiatique.\"\n}\n```",
+      "ts": "2026-09-11T01:35:37.006979+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -3.872983346207417,
+      "value": 56,
+      "analysis": "{\n  \"signal\": \"neutral\",\n  \"confidence\": 30,\n  \"reason\": \"L'absence de titres médiatiques concrets (source 'Google Actualités' vide) ne permet pas de comparer le narratif. Le z-score de -3.87 sur le fear_greed à 56 indique une anomalie onchain forte (chute brutale de sentiment par rapport à la tendance récente), mais sans contenu médiatique, on ne peut pas établir de divergence claire. La prudence s'impose.\"\n}",
+      "ts": "2026-09-11T01:35:45.637937+00:00"
+    },
+    {
+      "metric": "taker_ratio",
+      "zscore": 2.903024084049769,
+      "value": 1.653,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio à 1.653 (z-score 2.90) indique une forte agression acheteuse onchain de la part des acheteurs (takers), signalant une accumulation agressive par les baleines. L'absence de couverture médiatique (silence radio) prouve une décorrélation totale, typique d'une phase d'accumulation discrète avant un mouvement de hausse soudain.\"\n}\n```",
+      "ts": "2026-09-11T01:40:48.727653+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 3.3062487663229736,
+      "value": 0.604,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique externe : les gros titres font référence à un syndicat patronal (SDI - Syndicat des Indépendants) et à du matériel vidéo, sans aucun rapport avec la crypto-monnaie SDI.\"\n}\n```",
+      "ts": "2026-09-11T02:06:02.099475+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -3.316624790355402,
+      "value": 56,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 40,\n  \"reason\": \"Données incomplètes (absence de flux de gros portefeuilles et de titres médiatiques concrets). Le z-score négatif de l'indice Fear & Greed (-3.32) signale une anomalie de peur excessive par rapport au niveau neutre (56), mais l'absence de données on-chain spécifiques ne permet pas de confirmer une accumulation ou une distribution silencieuse des baleines.\"\n}\n```",
+      "ts": "2026-09-11T02:06:03.458822+00:00"
     }
   ]
 }
