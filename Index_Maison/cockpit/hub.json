@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-11T10:18:26.722778+00:00",
+  "generated_at": "2026-09-11T10:19:27.312779+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 164
+      "calls_24h": 163
     },
     {
       "id": "openrouter-free",
@@ -274,10 +274,18 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 109,
-    "remaining": 515
+    "consumed": 110,
+    "remaining": 514
   },
   "queue": [
+    {
+      "ts": "2026-09-11T10:18:34.639688+00:00",
+      "task": "supervise.decision",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 9.9
+    },
     {
       "ts": "2026-09-11T10:10:10.020282+00:00",
       "task": "analyse.profonde",
@@ -389,17 +397,33 @@
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
       "duration_s": 1.31
-    },
-    {
-      "ts": "2026-09-11T07:50:50.704764+00:00",
-      "task": "analyste.strategie",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 1.57
     }
   ],
   "events": [
+    {
+      "ts": "2026-09-11T10:19:15.565777+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis HuggingFace (136+ modeles, dont DeepSeek-V4)",
+      "detail": "HTTP Error 400: Bad Request"
+    },
+    {
+      "ts": "2026-09-11T10:19:12.547234+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis Google Gemini",
+      "detail": "<urlopen error EOF occurred in violation of protocol (_ssl.c:1129)>"
+    },
+    {
+      "ts": "2026-09-11T10:18:59.609624+00:00",
+      "kind": "timeout",
+      "title": "Patience Google Gemini (lenteur)",
+      "detail": "<urlopen error EOF occurred in violation of protocol (_ssl.c:1129)>"
+    },
+    {
+      "ts": "2026-09-11T10:18:34.639453+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
     {
       "ts": "2026-09-11T10:18:17.969655+00:00",
       "kind": "timeout",
@@ -435,30 +459,6 @@
       "kind": "failover",
       "title": "Bascule depuis Groq (LLM ultra-rapide, gratuit)",
       "detail": "HTTP Error 400: Bad Request"
-    },
-    {
-      "ts": "2026-09-11T10:16:47.980969+00:00",
-      "kind": "timeout",
-      "title": "Patience Google Gemini (lenteur)",
-      "detail": "<urlopen error EOF occurred in violation of protocol (_ssl.c:1129)>"
-    },
-    {
-      "ts": "2026-09-11T10:16:37.087157+00:00",
-      "kind": "blacklist",
-      "title": "Fin de pause Google Gemini",
-      "detail": "re-essai automatique"
-    },
-    {
-      "ts": "2026-09-11T10:16:10.069397+00:00",
-      "kind": "timeout",
-      "title": "Patience Groq (LLM ultra-rapide, gratuit) (HTTP 400)",
-      "detail": "HTTP Error 400: Bad Request"
-    },
-    {
-      "ts": "2026-09-11T10:15:16.831273+00:00",
-      "kind": "blacklist",
-      "title": "Fin de pause Groq (LLM ultra-rapide, gratuit)",
-      "detail": "re-essai automatique"
     }
   ],
   "tasks_quotas": {
