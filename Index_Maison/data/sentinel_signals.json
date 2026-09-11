@@ -1,27 +1,6 @@
 {
   "signals": [
     {
-      "metric": "volume",
-      "zscore": -2.0536048247806584,
-      "value": 10727896356.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique sans rapport avec la crypto (actualité macroéconomique et divertissement). Volume on-chain anormalement bas mais non significatif d'une manipulation de baleine.\"\n}\n```",
-      "ts": "2026-09-10T22:24:19.652401+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.742159604713421,
-      "value": 1.303,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (z-score 2.74) sur un ticker partagé avec des institutions académiques (Tournoi International des Physiciens, Institut Protestant de Théologie). Aucun lien avec la crypto, bruit de fond médiatique sans substance financière.\"\n}\n```",
-      "ts": "2026-09-10T23:14:35.307114+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": 129.1254281761425,
-      "value": 0.604,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Anomalie statistique (z-score 129) liée à une collision sémantique totale. Le ticker 'SDI' des médias fait référence au syndicat professionnel 'Syndicat des Indépendants' et à du matériel vidéo (Blackmagic SDI), sans aucun rapport avec la crypto-sphère ou une baleine.\"\n}\n```",
-      "ts": "2026-09-11T00:04:43.885646+00:00"
-    },
-    {
       "metric": "fear_greed",
       "zscore": -42.578101611533896,
       "value": 56,
@@ -349,6 +328,27 @@
       "value": 15622238907.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Anomalie statistique détectée sur le volume global, mais le bruit médiatique est ultra-fragmenté (CAC 40, Apple, BTP) et sans lien direct avec un mouvement massif de baleines crypto spécifiques. Pas de signal directionnel clair.\"\n}\n```",
       "ts": "2026-09-11T17:13:50.975406+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.589062212404509,
+      "value": 15476872211.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Z-score élevé (2.59) indiquant une anomalie de volume, mais le bruit médiatique est ultra-dispersé (macro, actions, Apple, BTP) sans focalisation crypto spécifique. Pas de signal directionnel clair de baleine.\"\n}\n```",
+      "ts": "2026-09-11T17:43:57.468266+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.536981686180579,
+      "value": 15737916771.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Le z-score élevé indique une anomalie statistique de volume, mais les actualités médiatiques sont extrêmement hétérogènes (CAC 40, crypto spot globale, Apple, BTP) et ne reflètent aucun narratif macroéconomique ou crypto unifié. Données insuffisantes pour confirmer une accumulation ou distribution silencieuse de baleines.\"\n}\n```",
+      "ts": "2026-09-11T18:14:04.197646+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 4.747617943197604,
+      "value": 6181880.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le z-score des liquidations indique une anomalie technique (shorts pris au piège), tandis que les médias alternent entre un FOMO tardif sur la hausse et des bruits de fond macro sans rapport. Divergence classique de purge de liquidité avant continuation haussière par les baleines.\"\n}\n```",
+      "ts": "2026-09-11T18:14:06.108362+00:00"
     }
   ]
 }
