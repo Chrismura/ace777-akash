@@ -138,7 +138,10 @@ def main():
     # 4) ROUTING
     routing = load(os.path.join(PRISE, 'routing.json'))
     tasks = routing.get('tasks', {})
-    known = set(ids) | set(p.get('model') for p in prov)
+    # FIX V7 (11/09) : le hub résout les refs de routing par le CHAMP 'name' des
+    # providers (ex. 'NVIDIA DeepSeek-Coder 6.7B (code, via NIM)' = nvidia-coder).
+    # Le checker ne collectait que ids+models → faux négatif type V1.
+    known = set(ids) | set(p.get('model') for p in prov) | set(p.get('name') for p in prov)
     bad_refs = []
     for t, rule in tasks.items():
         for fld in ('provider', 'fallback'):
