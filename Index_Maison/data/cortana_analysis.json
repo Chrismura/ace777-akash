@@ -1,7 +1,63 @@
 {
-  "timestamp": 1789132786,
-  "date": "2026-09-11T13:19:46.004882+00:00",
-  "n_analyses": 0,
-  "analyses": [],
-  "resume": "Aucune analyse en cours"
+  "timestamp": 1789136387,
+  "date": "2026-09-11T14:19:47.197170+00:00",
+  "n_analyses": 2,
+  "analyses": [
+    {
+      "signal": {
+        "metric": "long_short",
+        "zscore": -2.519008349185006,
+        "value": 1.486,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Z-score extrêmement bas (-2.52) couplé à un ratio L/S global de 1.486 mais masqué par un narratif médiatique focalisé sur la peur et la baisse (Cardano bears, marchés agités). Les baleines accumulent agressivement dans l'ombre pendant que la foule est sous-positionnée à l'achat.\"\n}\n```",
+        "ts": 1789135627.724535
+      },
+      "fiche": null,
+      "interpretation": {
+        "lecture": "Pas de fiche disponible",
+        "niveau": "inconnu"
+      },
+      "action": "Observer"
+    },
+    {
+      "signal": {
+        "metric": "volume",
+        "zscore": 2.0689234925692337,
+        "value": 13041096940.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 78,\n  \"reason\": \"Z-score élevé (2.07) sur les flux on-chain traduisant une accumulation cachée, alors que les médias grand public se focalisent sur la baisse des marchés traditionnels et des volumes annuels en trompe-l'œil.\"\n}\n```",
+        "ts": 1789135930.923498
+      },
+      "fiche": "rbf_eleve",
+      "questions": {
+        "prix": {
+          "value": -0.19,
+          "seuil": 1,
+          "depasse": false
+        },
+        "paires": {
+          "value": null,
+          "seuil": 3,
+          "depasse": false
+        },
+        "funding": {
+          "value": 6.8e-05,
+          "seuil": 0.001,
+          "depasse": false
+        },
+        "whales": {
+          "value": 0,
+          "seuil": 5,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "sdi > 0.3",
+        "lecture": "Drainage silencieux — les vieux BTC bougent en douce",
+        "niveau": "dangereux",
+        "action": "Réduire taille de 50%, sortir des positions fragiles"
+      },
+      "action": "Réduire taille de 50%, sortir des positions fragiles",
+      "niveau": "dangereux"
+    }
+  ],
+  "resume": "🔴 DANGER détecté — réduire les expositions"
 }

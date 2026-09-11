@@ -468,6 +468,36 @@
    "auto_modifiable": false,
    "md5": "803d378f7be0e287570f0b8c27b84c00",
    "note": ""
+  },
+  {
+   "nom": "Index_Maison/scripts/collecter_rwa_yields.py",
+   "role": "Collecteur passif RWA (prototype 7 jours, GO Christophe 11/09) — yields.llama.fi/pools -> rwa_yields_hist.jsonl, zéro alarme phase 1",
+   "origine": "chantier RADAR RWA v2 (correctifs C1-C6 validés)",
+   "verif": "md5",
+   "auto_modifiable": false,
+   "md5": "8ebefa61800cd0a37c26f40e6ebc9a6d",
+   "note": "Créé 2026-09-11 (GO prototype 7 jours, critère pré-enregistré >=3 pools top20 >=50bps). Première collecte 13:42Z : 355/17209 pools.",
+   "maj": ""
+  },
+  {
+   "nom": "Index_Maison/scripts/rotation_jsonl.py",
+   "role": "Rotation COPYTRUNCATE + gzip des JSONL à croissance illimitée (appelé superviseur_core 6 h)",
+   "origine": "leçon GitHub 3 jours (croisement_contexte 300 Mo)",
+   "verif": "md5",
+   "auto_modifiable": false,
+   "md5": "90b1c930a3a843e6bfa8676bc37e7ba2",
+   "note": "Premier scellement 2026-09-11 2026-09-11T13:45Z — ajout entrée rwa_yields_hist.jsonl (correctif C5 chantier RWA). N'était pas scellé avant.",
+   "maj": ""
+  },
+  {
+   "nom": "Index_Maison/plists/com.ace777.rwa-yields.plist",
+   "role": "Plist collecteur RWA (6 h, RunAtLoad) — prototype 7 jours GO Christophe 11/09",
+   "origine": "chantier RADAR RWA v2",
+   "verif": "md5",
+   "auto_modifiable": false,
+   "md5": "b70a1060a9f225fe7bbe1e455b340c18",
+   "note": "déclaré 2026-09-11 2026-09-11T13:50Z — chargé launchd + copié ~/Library/LaunchAgents",
+   "maj": ""
   }
  ]
 }

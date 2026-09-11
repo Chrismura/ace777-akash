@@ -1,27 +1,6 @@
 {
   "signals": [
     {
-      "metric": "liquidations",
-      "zscore": 2.9461748574278026,
-      "value": 7427046.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique parasité par des faits divers de liquidations judiciaires d'entreprises traditionnelles locales (Poitiers, Quimper). Aucune corrélation avec des mouvements de baleines crypto ou des liquidations majeures sur derivatives.\"\n}\n```",
-      "ts": "2026-09-10T13:30:03.349882+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": 2.4136212976088,
-      "value": 13380945907.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Significant on-chain volume anomaly (z-score 2.41) contrasts with irrelevant media narratives, suggesting stealth whale accumulation.\"\n}\n```",
-      "ts": "2026-09-10T13:45:10.304597+00:00"
-    },
-    {
-      "metric": "liquidations",
-      "zscore": 2.6270923302487,
-      "value": 7370453.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit de fond : les titres médiatiques font référence à des liquidations d'entreprises traditionnelles (faillites locales) sans aucun rapport avec les marchés crypto ou les flux de baleines.\"\n}\n```",
-      "ts": "2026-09-10T14:00:39.824731+00:00"
-    },
-    {
       "metric": "volume",
       "zscore": 2.3141796051377064,
       "value": 13388090403.0,
@@ -349,6 +328,27 @@
       "value": 1.1,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique non pertinent. Le ticker 'ipt' fait référence à des actualités institutionnelles et académiques sans lien avec un actif crypto ou une baleine.\"\n}\n```",
       "ts": "2026-09-11T12:46:44.392347+00:00"
+    },
+    {
+      "metric": "price_1h",
+      "zscore": 2.832546436088592,
+      "value": 0.6296446093696839,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (+2.83) sur 1h sans couverture médiatique (silence radio sur Google Actualités). Comportement typique d'accumulation furtive par des baleines avant un mouvement de rupture.\"\n}\n```",
+      "ts": "2026-09-11T13:31:59.359085+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": -2.519008349185006,
+      "value": 1.486,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Z-score extrêmement bas (-2.52) couplé à un ratio L/S global de 1.486 mais masqué par un narratif médiatique focalisé sur la peur et la baisse (Cardano bears, marchés agités). Les baleines accumulent agressivement dans l'ombre pendant que la foule est sous-positionnée à l'achat.\"\n}\n```",
+      "ts": "2026-09-11T14:07:07.724535+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.0689234925692337,
+      "value": 13041096940.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 78,\n  \"reason\": \"Z-score élevé (2.07) sur les flux on-chain traduisant une accumulation cachée, alors que les médias grand public se focalisent sur la baisse des marchés traditionnels et des volumes annuels en trompe-l'œil.\"\n}\n```",
+      "ts": "2026-09-11T14:12:10.923498+00:00"
     }
   ]
 }

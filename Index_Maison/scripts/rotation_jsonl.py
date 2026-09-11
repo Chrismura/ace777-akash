@@ -30,6 +30,8 @@ DEFAUTS = [
     ("/Users/christophe/ace777-test-day1/Index_Maison/thermo/regime_couleur.jsonl", 50),
     ("/Users/christophe/ace777-test-day1/Index_Maison/data/mempool_vus.jsonl", 50),
     ("/Users/christophe/ace777-test-day1/Index_Maison/data/whales_mouvements.jsonl", 50),
+    # [C5] collecteur RWA (GO Christophe 11/09) — rotation dès la création (leçon journal_radar.log)
+    ("/Users/christophe/ace777-test-day1/Index_Maison/data/rwa_yields_hist.jsonl", 50),
 ]
 
 BACKUP_COUNT = 2
