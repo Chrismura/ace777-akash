@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-11T16:20:33.201525+00:00",
+  "generated_at": "2026-09-11T16:21:33.823164+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -274,10 +274,18 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 148,
-    "remaining": 476
+    "consumed": 149,
+    "remaining": 475
   },
   "queue": [
+    {
+      "ts": "2026-09-11T16:20:44.501619+00:00",
+      "task": "supervise.decision",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 15.04
+    },
     {
       "ts": "2026-09-11T16:13:28.898245+00:00",
       "task": "analyse.profonde",
@@ -389,17 +397,15 @@
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
       "duration_s": 1.13
-    },
-    {
-      "ts": "2026-09-11T14:20:14.283110+00:00",
-      "task": "supervise.decision",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 1.06
     }
   ],
   "events": [
+    {
+      "ts": "2026-09-11T16:20:44.501224+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
     {
       "ts": "2026-09-11T16:20:29.458711+00:00",
       "kind": "blacklist",
@@ -453,12 +459,6 @@
       "kind": "failover",
       "title": "Bascule depuis Puter Grok (gratuit)",
       "detail": "HTTP Error 402: Payment Required"
-    },
-    {
-      "ts": "2026-09-11T16:19:07.644908+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis NVIDIA DeepSeek-Coder 6.7B (code, via NIM)",
-      "detail": "HTTP Error 404: Not Found"
     }
   ],
   "tasks_quotas": {
