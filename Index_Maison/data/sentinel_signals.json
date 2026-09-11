@@ -2,27 +2,6 @@
   "signals": [
     {
       "metric": "liquidations",
-      "zscore": -2.2772113447285944,
-      "value": 1303512.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Bruit médiatique parasité par des faits divers locaux (liquidations judiciaires d'entreprises traditionnelles). Sur le plan crypto, un z-score des liquidations à -2.28 indique une sécheresse extrême des ventes forcées, créant un vide vendeur propice à une accumulation silencieuse des baleines.\"\n}\n```",
-      "ts": "2026-09-10T07:42:25.716293+00:00"
-    },
-    {
-      "metric": "long_short",
-      "zscore": 2.0552171570015076,
-      "value": 1.476,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Z-score élevé (2.06) avec un ratio long/short à 1.476 indiquant une surconcentration excessive des positions acheteuses par les baleines. Le narratif médiatique généraliste banalise et encourage les stratégies long/short sans voir l'excès de levier haussier imminent, créant un risque majeur de 'long squeeze'.\"\n}\n```",
-      "ts": "2026-09-10T07:42:27.240714+00:00"
-    },
-    {
-      "metric": "whale_usd",
-      "zscore": 5.378621262417963,
-      "value": 7069800.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (z-score 5.38, ~7M USD) totalement ignorée par les médias traditionnels (silence radio). Accumulation furtive classique de baleines en amont d'un mouvement de marché.\"\n}\n```",
-      "ts": "2026-09-10T08:00:19.844802+00:00"
-    },
-    {
-      "metric": "liquidations",
       "zscore": -2.1870333374011564,
       "value": 1329892.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Bruit médiatique parasité par des fausses alertes sémantiques (liquidations judiciaires locales). En réalité, les liquidations crypto sont anormalement basses (z-score -2.19), indiquant un marché sans effet de levier excessif, propice à une accumulation silencieuse des baleines.\"\n}\n```",
@@ -349,6 +328,27 @@
       "value": 56,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Données médiatiques insuffisantes pour établir une divergence significative, malgré un z-score onchain marquant une légère anomalie de refroidissement.\"\n}\n```",
       "ts": "2026-09-11T04:06:44.082938+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 2.075576471042128,
+      "value": 0.604,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique provoqué par des homonymes (syndicat SDI, matériel vidéo Blackmagic SDI) sans lien avec la crypto.\"\n}\n```",
+      "ts": "2026-09-11T04:36:49.844831+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -2.0816659994661326,
+      "value": 56,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le Fear & Greed est neutre (56) malgré un z-score fortement négatif (-2.08) et un vide médiatique total. Cette apatie publique couplée à une décote statistique signale une accumulation discrète des baleines loin des radars.\"\n}\n```",
+      "ts": "2026-09-11T04:36:51.119815+00:00"
+    },
+    {
+      "metric": "taker_ratio",
+      "zscore": 3.3938301673074527,
+      "value": 1.728,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Taker ratio à 1.728 (Z-score 3.39) indique une agression massive à l'achat par les acheteurs (agressifs), totalement ignorée par les médias (absence de couverture). Accumulation furtive des baleines avant un re-pricing haussier.\"\n}\n```",
+      "ts": "2026-09-11T05:06:59.158977+00:00"
     }
   ]
 }

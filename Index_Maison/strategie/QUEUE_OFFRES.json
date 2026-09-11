@@ -1303,12 +1303,14 @@
       "api_key_env": "OPENROUTER_API_KEY",
       "role": "gros cerveau",
       "arrivee": "2026-09-10T07:02:05.193211",
-      "statut": "teste_ok",
+      "statut": "integre",
       "essais": 1,
       "test_reel": {
         "ok": true,
         "erreur": ""
-      }
+      },
+      "evaluation": "MIEUX",
+      "preuve_eval": "MIEUX - REPONSE B détaillée."
     },
     {
       "id": "a2d60c77a417",
@@ -1325,9 +1327,45 @@
       "test_reel": {
         "ok": true,
         "erreur": ""
+      },
+      "evaluation": "MIEUX",
+      "preuve_eval": "MIEUX - réponse plus complète"
+    },
+    {
+      "id": "0fbddb7aba4b",
+      "type": "offre",
+      "source": "veille_hub",
+      "source_detail": "inclusionai/ling-3.0-flash-vl:free",
+      "model": "inclusionai/ling-3.0-flash-vl:free",
+      "base_url": "https://openrouter.ai/api/v1",
+      "api_key_env": "OPENROUTER_API_KEY",
+      "role": "gros cerveau",
+      "arrivee": "2026-09-11T07:02:05.341550",
+      "statut": "nouveau",
+      "essais": 1,
+      "test_reel": {
+        "ok": false,
+        "erreur": "'NoneType' object has no attribute 'strip'"
+      }
+    },
+    {
+      "id": "67478d0ce7ed",
+      "type": "offre",
+      "source": "veille_hub",
+      "source_detail": "deepseek-v4.1-flash",
+      "model": "deepseek-v4.1-flash",
+      "base_url": "https://model.inferx.net/endpoints/v1",
+      "api_key_env": "INFERX_API_KEY",
+      "role": "gros cerveau",
+      "arrivee": "2026-09-11T07:02:05.341709",
+      "statut": "nouveau",
+      "essais": 1,
+      "test_reel": {
+        "ok": false,
+        "erreur": "HTTP 429 service failure: tenant tn-59004cfrvs quota exceeded"
       }
     }
   ],
-  "traites_jour": 0,
-  "date": "2026-09-10"
+  "traites_jour": 1,
+  "date": "2026-09-11"
 }

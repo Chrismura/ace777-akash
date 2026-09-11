@@ -4490,3 +4490,8 @@
 - 2026-09-11T03:46:35.589133Z | alerte | <une phrase claire> | conf=<0-100%>
 - 2026-09-11T03:57:02.840272Z | alerte | <une phrase claire> | conf=<0-100%>
 - 2026-09-11T04:16:53.283577Z | alerte | <une phrase claire> | conf=<0-100%>
+- 2026-09-11T04:20:59.282488Z | alerte | ? | conf=?
+- 2026-09-11T04:46:50.613785Z | alerte | ? | conf=?
+- 2026-09-11T05:05:09.043592Z | alerte | Maintenir la vigilance nominale, garder le stop‑loss d'urgence actif sur CCUSDT, laisser Alpha en embuscade stricte en attendant un signal clair de Beta et poursuivre la gestion prudente des positions seeds de Hulk. | conf=90%
+- 2026-09-11T05:13:35.226582Z | alerte | Maintenir la vigilance nominale, garder le stop‑loss d'urgence actif sur CCUSDT, laisser Alpha en embuscade stricte en attendant un signal clair de Beta et poursuivre la gestion prudente des positions seeds de Hulk. | conf=90%
+- 2026-09-11T05:16:33.793790Z | alerte | Maintenir la vigilance nominale, garder le stop‑loss d'urgence actif sur CCUSDT, laisser Alpha en embuscade stricte en attendant un signal clair de Beta et poursuivre la gestion prudente des positions seeds de Hulk. | conf=90%
