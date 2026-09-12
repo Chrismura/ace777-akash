@@ -1,27 +1,6 @@
 {
   "signals": [
     {
-      "metric": "volume",
-      "zscore": 2.2568919764552455,
-      "value": 15920693354.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Le z-score élevé (2.26) indique une anomalie de volume, mais les titres médiatiques sont hétérogènes (CAC 40, Apple, macroéconomie) et manquent de focus spécifique sur l'actif analysé. Pas de divergence claire entre accumulation silencieuse et narratif grand public.\"\n}\n```",
-      "ts": "2026-09-11T19:14:19.609826+00:00"
-    },
-    {
-      "metric": "liquidations",
-      "zscore": 3.3273849571344103,
-      "value": 6121952.0,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Divergence majeure : les médias grand public crient au 'rebond' et à la 'hausse' suite au short squeeze, mais l'anomalie on-chain montre des liquidations de seulement 6,1M$ (z-score 3.33 sur un pic local trompeur). Le narratif est surestimé par rapport au volume réel, masquant une distribution silencieuse des baleines.\"\n}\n```",
-      "ts": "2026-09-11T19:14:21.476981+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": 2.1220319662149603,
-      "value": 15961447489.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 78,\n  \"reason\": \"Anomalie de volume on-chain (z-score 2.12) couplée à une hausse des volumes spot et institutionnels (Robinhood/août), contrastant avec la morosité des marchés traditionnels et un narratif médiatique généraliste dispersé. Accumulation silencieuse détectée.\"\n}\n```",
-      "ts": "2026-09-11T19:44:26.414597+00:00"
-    },
-    {
       "metric": "liquidations",
       "zscore": 2.9590175779838344,
       "value": 6121451.0,
@@ -349,6 +328,27 @@
       "value": 3527907.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 2.89) sur fond de silence médiatique complet (Google Actualités vide). Les baleines accumulent ou repositionnent des fonds en 'stealth mode' loin du radar retail.\"\n}\n```",
       "ts": "2026-09-12T12:17:55.039976+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": -2.1150410397766906,
+      "value": 12317452994.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score négatif profond (-2.12) couplé à une absence totale d'intérêt médiatique crypto sur ce token. Le narratif public se focalise sur les marchés traditionnels et les volumes macro, masquant une accumulation silencieuse des baleines en zone de sous-liquidité.\"\n}\n```",
+      "ts": "2026-09-12T12:43:01.332636+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": -3.403296296998431,
+      "value": 10846522768.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-3.40) sur les volumes bruts malgré la hausse médiatique du spot. Asymétrie classique : les baleines assèchent la liquidité publique avant un mouvement directionnel majeur.\"\n}\n```",
+      "ts": "2026-09-12T13:13:08.741071+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 3.297630813794802,
+      "value": 4167341.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 3.30) avec un volume de $4.1M sans couverture médiatique (Google Actualités vide). C'est un mouvement furtif classique de baleines accumulant en silence avant que le narratif public ne se forme.\"\n}\n```",
+      "ts": "2026-09-12T13:28:11.792756+00:00"
     }
   ]
 }

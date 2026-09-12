@@ -1,15 +1,55 @@
 {
-  "timestamp": 1789216450,
-  "date": "2026-09-12T12:34:10.905362+00:00",
-  "n_analyses": 1,
+  "timestamp": 1789220052,
+  "date": "2026-09-12T13:34:12.169040+00:00",
+  "n_analyses": 2,
   "analyses": [
     {
       "signal": {
+        "metric": "volume",
+        "zscore": -3.403296296998431,
+        "value": 10846522768.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-3.40) sur les volumes bruts malgré la hausse médiatique du spot. Asymétrie classique : les baleines assèchent la liquidité publique avant un mouvement directionnel majeur.\"\n}\n```",
+        "ts": 1789218788.741071
+      },
+      "fiche": "rbf_eleve",
+      "questions": {
+        "prix": {
+          "value": -0.07,
+          "seuil": 1,
+          "depasse": false
+        },
+        "paires": {
+          "value": null,
+          "seuil": 3,
+          "depasse": false
+        },
+        "funding": {
+          "value": 4.1e-05,
+          "seuil": 0.001,
+          "depasse": false
+        },
+        "whales": {
+          "value": 3,
+          "seuil": 5,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "sdi > 0.3",
+        "lecture": "Drainage silencieux — les vieux BTC bougent en douce",
+        "niveau": "dangereux",
+        "action": "Réduire taille de 50%, sortir des positions fragiles"
+      },
+      "action": "Réduire taille de 50%, sortir des positions fragiles",
+      "niveau": "dangereux"
+    },
+    {
+      "signal": {
         "metric": "whale_usd",
-        "zscore": 2.892985290896289,
-        "value": 3527907.0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 2.89) sur fond de silence médiatique complet (Google Actualités vide). Les baleines accumulent ou repositionnent des fonds en 'stealth mode' loin du radar retail.\"\n}\n```",
-        "ts": 1789215475.039976
+        "zscore": 3.297630813794802,
+        "value": 4167341.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 3.30) avec un volume de $4.1M sans couverture médiatique (Google Actualités vide). C'est un mouvement furtif classique de baleines accumulant en silence avant que le narratif public ne se forme.\"\n}\n```",
+        "ts": 1789219691.792756
       },
       "fiche": null,
       "interpretation": {
@@ -19,5 +59,5 @@
       "action": "Observer"
     }
   ],
-  "resume": "🔵 CALME — pas de signal alarmant"
+  "resume": "🔴 DANGER détecté — réduire les expositions"
 }
