@@ -1,27 +1,6 @@
 {
   "signals": [
     {
-      "metric": "sdi",
-      "zscore": -2.880137114286463,
-      "value": 0.004,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Faux positif absolu. Le signal 'SDI' détecté par les sentinelles correspond à un acronyme homonyme dans l'actualité institutionnelle française (Syndicat des Indépendants) et technique (technologie vidéo SDI de Blackmagic), et non à un actif crypto ou à un mouvement de baleine.\"\n}\n```",
-      "ts": "2026-09-12T02:11:39.536926+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": 3.3166247903553985,
-      "value": 63,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Données incomplètes sur le narratif (Google Actualités sans titre spécifique). Le z-score élevé (3.32) indique une euphorie notable, mais sans contexte textuel précis, impossible de confirmer une divergence claire avec l'activité des baleines.\"\n}\n```",
-      "ts": "2026-09-12T02:11:40.840028+00:00"
-    },
-    {
-      "metric": "cpfp",
-      "zscore": 2.062675345312193,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Fausse alerte liée à une collision de termes. Le ticker 'cpfp' fait ici référence à des homonymes institutionnels et éducatifs sans rapport avec la crypto (Centre de Promotion de la Formation Professionnelle ou similar), et non à une activité de baleine.\"\n}\n```",
-      "ts": "2026-09-12T02:36:45.358567+00:00"
-    },
-    {
       "metric": "dust",
       "zscore": 2.062675345312193,
       "value": 50.0,
@@ -349,6 +328,27 @@
       "value": 1585838.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Les médias se concentrent sur les liquidations court-termistes (bullish squeeze) et les faits divers locaux, ignorant l'anomalie onchain significative (z-score -3.48). Divergence flagrante entre l'activité réelle des baleines (liquidations massives silencieuses) et le narratif superficiel.\"\n}\n```",
       "ts": "2026-09-12T20:18:57.113458+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": -3.0037534652779967,
+      "value": 1587915.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Divergence extrême : les médias amplifient un 'short squeeze' massif (266M$-427M$ de liquidations vendeuses), alors que les données onchain montrent un volume réel minime (1.58M$, z-score -3.00). Piège à acheteurs orchestré par les baleines.\"\n}\n```",
+      "ts": "2026-09-12T20:59:12.502305+00:00"
+    },
+    {
+      "metric": "taker_ratio",
+      "zscore": 2.6321262029307015,
+      "value": 1.474,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio élevé (z-score 2.63) indique une forte agression acheteuse sur les carnets d'ordres, totalement ignorée par le vide médiatique actuel. Accumulation silencieuse des baleines hors des radars.\"\n}\n```",
+      "ts": "2026-09-12T21:14:16.375017+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": -2.726894720258003,
+      "value": 1587729.0,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Divergence majeure : les médias parlent de 'centaines de millions de liquidations de shorts' et de hausse euphorique, tandis que le z-score onchain (-2.73) révèle un volume de liquidation quasi nul (1.5M$). C'est un piège à liquidité orchestré ; les baleines ne soutiennent pas la hausse et distribuent silencieusement face au narratif retail surexcité.\"\n}\n```",
+      "ts": "2026-09-12T21:29:27.790573+00:00"
     }
   ]
 }

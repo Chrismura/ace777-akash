@@ -1,15 +1,30 @@
 {
-  "timestamp": 1789245313,
-  "date": "2026-09-12T20:35:13.039821+00:00",
-  "n_analyses": 1,
+  "timestamp": 1789248614,
+  "date": "2026-09-12T21:30:14.465940+00:00",
+  "n_analyses": 2,
   "analyses": [
     {
       "signal": {
+        "metric": "taker_ratio",
+        "zscore": 2.6321262029307015,
+        "value": 1.474,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio élevé (z-score 2.63) indique une forte agression acheteuse sur les carnets d'ordres, totalement ignorée par le vide médiatique actuel. Accumulation silencieuse des baleines hors des radars.\"\n}\n```",
+        "ts": 1789247656.375017
+      },
+      "fiche": null,
+      "interpretation": {
+        "lecture": "Pas de fiche disponible",
+        "niveau": "inconnu"
+      },
+      "action": "Observer"
+    },
+    {
+      "signal": {
         "metric": "liquidations",
-        "zscore": -3.475731729512932,
-        "value": 1585838.0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Les médias se concentrent sur les liquidations court-termistes (bullish squeeze) et les faits divers locaux, ignorant l'anomalie onchain significative (z-score -3.48). Divergence flagrante entre l'activité réelle des baleines (liquidations massives silencieuses) et le narratif superficiel.\"\n}\n```",
-        "ts": 1789244337.113458
+        "zscore": -2.726894720258003,
+        "value": 1587729.0,
+        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Divergence majeure : les médias parlent de 'centaines de millions de liquidations de shorts' et de hausse euphorique, tandis que le z-score onchain (-2.73) révèle un volume de liquidation quasi nul (1.5M$). C'est un piège à liquidité orchestré ; les baleines ne soutiennent pas la hausse et distribuent silencieusement face au narratif retail surexcité.\"\n}\n```",
+        "ts": 1789248567.790573
       },
       "fiche": null,
       "interpretation": {

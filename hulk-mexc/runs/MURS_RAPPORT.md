@@ -1,25 +1,25 @@
 # OBSERVATOIRE DES MURS DE LIQUIDITÉ
-> 2026-09-12T20:08Z — 78135 mesures sur 27 paires · CSVs ASPIRATION_CALIB + OBSERVATION_MURS · sonde observation OBSERVATION_MURS_20260912_200749.csv
+> 2026-09-12T21:09Z — 78153 mesures sur 27 paires · CSVs ASPIRATION_CALIB + OBSERVATION_MURS · sonde observation OBSERVATION_MURS_20260912_210854.csv
 
 ## Les VRAIS murs (top 12 par mur bid moyen)
 
 | Paire | Mesures | Mur BID moy ($) | Mur BID max ($) | Mur ASK moy ($) | Spoof | Drop ≥15%/s |
 |---|---|---|---|---|---|---|
-| SOLUSDT | 722 | 530297.63 | 2078362.86 | 512531.69 | 0 (0.0%) | 14 |
+| SOLUSDT | 724 | 530368.53 | 2078362.86 | 512717.05 | 0 (0.0%) | 14 |
 | BTCUSDT | 1481 | 419926.18 | 1924444.32 | 488181.06 | 49 (3.31%) | 124 |
 | ETHUSDT | 1264 | 177592.18 | 1966688.05 | 173455.49 | 14 (1.11%) | 63 |
 | ADAUSDT | 36 | 102875.08 | 154143.34 | 92656.51 | 0 (0.0%) | 1 |
 | XRPUSDT | 8737 | 91589.68 | 606419.6 | 94098.68 | 376 (4.3%) | 1137 |
-| XLMUSDT | 715 | 72099.69 | 312328.07 | 66488.39 | 0 (0.0%) | 15 |
-| ALGOUSDT | 715 | 55236.98 | 102465.26 | 51286.71 | 0 (0.0%) | 19 |
+| XLMUSDT | 717 | 72103.0 | 312328.07 | 66529.56 | 0 (0.0%) | 15 |
+| ALGOUSDT | 717 | 55254.52 | 102465.26 | 51274.94 | 0 (0.0%) | 19 |
 | CHIPUSDT | 828 | 30766.68 | 61779.48 | 27298.12 | 32 (3.86%) | 53 |
 | HBARUSDT | 7426 | 30739.91 | 63738.72 | 26144.54 | 268 (3.61%) | 682 |
 | KITEUSDT | 391 | 28494.55 | 49707.9 | 26254.61 | 10 (2.56%) | 17 |
-| GOLD(PAXG)USDT | 715 | 27834.51 | 98905.04 | 28618.65 | 0 (0.0%) | 57 |
-| JASMYUSDT | 714 | 20483.52 | 239378.61 | 10862.84 | 0 (0.0%) | 3 |
+| GOLD(PAXG)USDT | 717 | 27833.1 | 98905.04 | 28578.01 | 0 (0.0%) | 57 |
+| JASMYUSDT | 716 | 20453.36 | 239378.61 | 10866.69 | 0 (0.0%) | 3 |
 
 ## Synthèse
-- **Total mesures** : 78135 (16-24/08, sonde aspiration)
+- **Total mesures** : 78153 (16-24/08, sonde aspiration)
 - **Spoofs détectés** : 1845 (2.4% des mesures) — murs de façade (fond puis se reconstruit)
 - **Chutes brutales de mur** (≥ 15%/s) : 3979 — le signal ACE « le mur s'effondre »
 
