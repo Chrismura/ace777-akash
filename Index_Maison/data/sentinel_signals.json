@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "liquidations",
-      "zscore": 4.747617943197604,
-      "value": 6181880.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le z-score des liquidations indique une anomalie technique (shorts pris au piège), tandis que les médias alternent entre un FOMO tardif sur la hausse et des bruits de fond macro sans rapport. Divergence classique de purge de liquidité avant continuation haussière par les baleines.\"\n}\n```",
-      "ts": "2026-09-11T18:14:06.108362+00:00"
-    },
-    {
       "metric": "volume",
       "zscore": 2.389695971905176,
       "value": 15838083819.0,
@@ -349,6 +342,13 @@
       "value": 3134988.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 75,\n  \"reason\": \"Activité anormale des baleines (z-score 2.50) sans aucune couverture médiatique correspondante, indiquant une accumulation silencieuse hors du radar public.\"\n}\n```",
       "ts": "2026-09-12T08:03:06.243675+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": -3.1641734970766726,
+      "value": 0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 90,\n  \"reason\": \"Anomalie onchain majeure : z-score des liquidations à -3.16 (zéro liquidation) malgré un narratif médiatique qui crie au massacre des positions short (266M$ à 427M$). Les médias grand public dramatisent un 'short squeeze' standard pour attirer le retail, alors que la volatilité est étouffée et que les smart money accumulent en silence sans secouer l'arbre.\"\n}\n```",
+      "ts": "2026-09-12T11:12:43.219810+00:00"
     }
   ]
 }
