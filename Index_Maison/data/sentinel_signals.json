@@ -1,27 +1,6 @@
 {
   "signals": [
     {
-      "metric": "whale_usd",
-      "zscore": 4.01780717978251,
-      "value": 4468244.0,
-      "analysis": "{\"signal\": \"bullish\", \"confidence\": 65, \"reason\": \"Anomalie onchain marquée (z-score 4.02, ~4.47M USD) sans couverture médiatique visible : les mouvements de baleines restent sous les radars, suggérant une accumulation/transfert silencieux pendant que le narratif public est absent ou déconnecté. Toutefois, l'absence de titres concrets limite la certitude.\"}",
-      "ts": "2026-09-12T01:51:24.809187+00:00"
-    },
-    {
-      "metric": "cpfp",
-      "zscore": 2.1077704873481253,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Bruit médiatique non pertinent. Les occurrences de 'CPFP' dans les médias font référence à des centres de formation professionnelle et des finances publiques en milieu rural (La Rouatière, Congo, Guinée), sans aucun rapport avec la crypto-sphère ou une baleine.\"\n}\n```",
-      "ts": "2026-09-12T02:06:35.738111+00:00"
-    },
-    {
-      "metric": "dust",
-      "zscore": 2.1077704873481253,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique parasité par des homonymes culturels (cinéma, littérature). L'anomalie onchain (z-score 2.11) sur DUST est mineure et noyée dans le bruit sémantique, sans signal clair d'accumulation ou de distribution institutionnelle.\"\n}\n```",
-      "ts": "2026-09-12T02:06:37.352133+00:00"
-    },
-    {
       "metric": "sdi",
       "zscore": -2.880137114286463,
       "value": 0.004,
@@ -349,6 +328,27 @@
       "value": 25962944.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 95,\n  \"reason\": \"Anomalie onchain extrême (z-score 21.26, ~26M USD) totalement ignorée par les médias (silence radio de Google Actualités). Accumulation furtive classique des baleines loin du radar public.\"\n}\n```",
       "ts": "2026-09-12T19:28:44.672699+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": -3.5788259251819188,
+      "value": 1852052.0,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 92,\n  \"reason\": \"Divergence extrême : les médias crient au 'short squeeze' massif et à la hausse euphorique (centaines de millions liquidés), mais l'anomalie on-chain montre un volume de liquidation réel quasi nul (Z-score -3.58). Piège à liquidité haussier orchestré par les baleines.\"\n}\n```",
+      "ts": "2026-09-12T19:48:48.395753+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": -2.025560809013666,
+      "value": 3952756262.0,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 82,\n  \"reason\": \"Z-score négatif prononcé (-2.03) confirmant une absence totale d'intérêt institutionnel malgré le bruit médiatique superficiel sur les volumes d'août. Les baleines désertent le carnet d'ordres en silence.\"\n}\n```",
+      "ts": "2026-09-12T19:53:51.537018+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": -3.475731729512932,
+      "value": 1585838.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Les médias se concentrent sur les liquidations court-termistes (bullish squeeze) et les faits divers locaux, ignorant l'anomalie onchain significative (z-score -3.48). Divergence flagrante entre l'activité réelle des baleines (liquidations massives silencieuses) et le narratif superficiel.\"\n}\n```",
+      "ts": "2026-09-12T20:18:57.113458+00:00"
     }
   ]
 }
