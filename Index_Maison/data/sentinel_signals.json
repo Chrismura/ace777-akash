@@ -1,34 +1,6 @@
 {
   "signals": [
     {
-      "metric": "whale_usd",
-      "zscore": 2.8130439032724364,
-      "value": 3023676.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Activité anormale des baleines (z-score 2.81, ~$3M) dans un silence médiatique total (Google Actualités vide). Accumulation discrète hors radar avant une éventuelle impulsion.\"\n}\n```",
-      "ts": "2026-09-11T16:58:43.290205+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": 2.9630162495727346,
-      "value": 15622238907.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Anomalie statistique détectée sur le volume global, mais le bruit médiatique est ultra-fragmenté (CAC 40, Apple, BTP) et sans lien direct avec un mouvement massif de baleines crypto spécifiques. Pas de signal directionnel clair.\"\n}\n```",
-      "ts": "2026-09-11T17:13:50.975406+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": 2.589062212404509,
-      "value": 15476872211.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Z-score élevé (2.59) indiquant une anomalie de volume, mais le bruit médiatique est ultra-dispersé (macro, actions, Apple, BTP) sans focalisation crypto spécifique. Pas de signal directionnel clair de baleine.\"\n}\n```",
-      "ts": "2026-09-11T17:43:57.468266+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": 2.536981686180579,
-      "value": 15737916771.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Le z-score élevé indique une anomalie statistique de volume, mais les actualités médiatiques sont extrêmement hétérogènes (CAC 40, crypto spot globale, Apple, BTP) et ne reflètent aucun narratif macroéconomique ou crypto unifié. Données insuffisantes pour confirmer une accumulation ou distribution silencieuse de baleines.\"\n}\n```",
-      "ts": "2026-09-11T18:14:04.197646+00:00"
-    },
-    {
       "metric": "liquidations",
       "zscore": 4.747617943197604,
       "value": 6181880.0,
@@ -349,6 +321,34 @@
       "value": 1.402,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio élevé (1.402, z-score 2.66) indique une domination agressive des acheteurs (Taker Buys) sur les carnets d'ordres, signalant une accumulation agressive par les baleines. Le silence médiatique total (Google Actualités vide) confirme l'absence de FOMO de détail, ce qui est typique d'une phase d'accumulation institutionnelle cachée avant un mouvement haussier.\"\n}\n```",
       "ts": "2026-09-12T07:07:54.525567+00:00"
+    },
+    {
+      "metric": "taker_ratio",
+      "zscore": 2.5160461804550662,
+      "value": 1.402,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio élevé (z-score 2.52) indique une forte agression acheteuse sur les carnets d'ordres, signalant une accumulation agressive par les baleines. Le silence médiatique total (Google Actualités vide) prouve l'absence de FOMO de retail, créant une divergence classique de bas de marché ou de pré-breakout haussier orchestré en silence.\"\n}\n```",
+      "ts": "2026-09-12T07:37:59.206521+00:00"
+    },
+    {
+      "metric": "cpfp",
+      "zscore": 2.0184086125567116,
+      "value": 50.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.02) sur le ticker 'cpfp' entièrement polluée par du bruit médiatique sans rapport avec la crypto (homonymie avec des centres de formation professionnelle). Aucune baleine détectée, simple artefact sémantique.\"\n}\n```",
+      "ts": "2026-09-12T07:43:01.246153+00:00"
+    },
+    {
+      "metric": "dust",
+      "zscore": 2.0184086125567116,
+      "value": 50.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique parasité par des homonymes cinématographiques et littéraires. L'anomalie onchain (z-score 2.02) sur le token DUST est statistiquement faible et noyée dans le bruit sémantique, ne montrant aucune accumulation baleine significative.\"\n}\n```",
+      "ts": "2026-09-12T07:43:02.871881+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 2.5042626694337566,
+      "value": 3134988.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 75,\n  \"reason\": \"Activité anormale des baleines (z-score 2.50) sans aucune couverture médiatique correspondante, indiquant une accumulation silencieuse hors du radar public.\"\n}\n```",
+      "ts": "2026-09-12T08:03:06.243675+00:00"
     }
   ]
 }

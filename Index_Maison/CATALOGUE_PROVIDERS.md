@@ -1,8 +1,8 @@
 # CATALOGUE DES PROVIDERS — ACE777
 
-*Genere le 2026-09-11 par catalog_providers.py (gagnant A/B codeurs 09/08). Rafraichi a chaque veille du matin.*
+*Genere le 2026-09-12 par catalog_providers.py (gagnant A/B codeurs 09/08). Rafraichi a chaque veille du matin.*
 
-**Actifs : 10 · En observation : 2 · En attente : 16 · De cote (payant) : 2**
+**Actifs : 10 · En observation : 3 · En attente : 16 · De cote (payant) : 2**
 
 ## ACTIFS
 
@@ -25,6 +25,7 @@
 |------|--------|--------|------|
 | - | `nex-agi/nex-n2.5-pro:free` | nex-agi-nex-n2-5-pro-free | INTEGRE AUTO 2026-09-10 EN OBSERVATION (preuve A/B + juge: MIEUX - mitigation incluse) |
 | - | `nex-agi/nex-n2.5-mini:free` | obs-1789103007 | auto queue_offres | VERDICT FAMILLE 18/08 : observation 48h avant activation |
+| - | `dots-studio/dots-3-note-preview:free` | dots-studio-dots-3-note-preview-free | INTEGRE AUTO 2026-09-12 EN OBSERVATION (preuve A/B + juge: MIEUX - deux risques) |
 
 ## EN ATTENTE (cle manquante ou desactive)
 

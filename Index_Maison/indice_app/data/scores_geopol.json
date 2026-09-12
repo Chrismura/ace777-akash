@@ -1,19 +1,19 @@
 {
   "geopol": {
-    "score": 0.3384,
-    "ml_score": 0.1911,
-    "niveau": "attention",
-    "emoji": "🟡",
+    "score": 0.3591,
+    "ml_score": 0.1908,
+    "niveau": "calme",
+    "emoji": "🟢",
     "ml": {
-      "label": 1,
-      "label_nom": "attention",
-      "label_emoji": "🟡",
-      "probability": 0.4765,
-      "confidence": 0.4765,
-      "risk_score": 0.1911,
+      "label": 0,
+      "label_nom": "calme",
+      "label_emoji": "🟢",
+      "probability": 0.476,
+      "confidence": 0.476,
+      "risk_score": 0.1908,
       "probas": {
-        "calme": 0.4752,
-        "attention": 0.4765,
+        "calme": 0.476,
+        "attention": 0.4757,
         "alerte": 0.0483,
         "critique": 0.0
       },
@@ -78,36 +78,38 @@
         }
       },
       "defense_stocks": {
-        "score": 0.4044,
+        "score": 0.4052,
         "categorie": "geopol",
         "source": "Yahoo Finance",
         "interpretation": "🟡 ATTENTION — Légère hausse du secteur défense. À surveiller.",
         "features": {
-          "sector_avg_change": 0.3979,
+          "sector_avg_change": 0.3862,
           "sector_breadth": 0.6667,
-          "max_stock_move": 0.168,
+          "max_stock_move": 0.195,
           "sector_correlation": 0.3
         }
       },
       "news_sentiment": {
-        "score": 0.7444,
+        "score": 0.8475,
         "categorie": "geopol",
         "source": "Google News RSS",
-        "interpretation": "🔴 ALERTE — Sentiment très négatif. Risque de crash imminent. Surveiller de près.",
+        "interpretation": "🚨 KILL SWITCH — Sentiment extrêmement négatif. 8 mots-clés de crise détectés. Réduire les positions. Ne pas trader.",
         "features": {
-          "negative_ratio": 0.8611,
-          "keyword_hits": 1.0,
+          "negative_ratio": 0.9792,
+          "keyword_hits": 0.8,
           "source_diversity": 1.0,
-          "abstract_negativity": 0.0
+          "abstract_negativity": 0.0,
+          "neg_geo_raw": 0.65,
+          "neg_neutre_raw": 0.062
         }
       }
     },
-    "alerte": null,
+    "alerte": "🟢 news_sentiment: 🚨 KILL SWITCH — Sentiment extrêmement négatif. 8 mots-clés de crise détectés. Réduire les positions. Ne pas trader.",
     "nb_modules": 5,
     "nb_ok": 5,
     "scores_par_categorie": {
-      "geopol": 0.3384
+      "geopol": 0.3591
     },
-    "ts": "2026-08-28T07:48:36.202943+00:00"
+    "ts": "2026-09-12T07:32:46.152272+00:00"
   }
 }

@@ -492,6 +492,36 @@ def contexte_systeme() -> str:
     except Exception:
         pass
 
+    # 8) CONTEXTE GÉOPOLITIQUE (GEOPOL→Cortana — GO Christophe 12/09) :
+    #    score frais recalculé chaque heure par le thermo (live.json.geopol),
+    #    + alerte capteur éventuelle (ex. KILL SWITCH news_sentiment).
+    #    Contexte de mise en relation : pas encore noté par le scoreur (GEOPOL-C2 au vote).
+    try:
+        _geo_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "thermo", "live.json")
+        _geo = json.load(open(_geo_path, encoding="utf-8")).get("geopol") or {}
+        if _geo:
+            _geo_ts = str(_geo.get("ts") or "")
+            try:
+                _age_h = (datetime.now(timezone.utc) - datetime.fromisoformat(_geo_ts.replace("Z", "+00:00"))).total_seconds() / 3600.0
+            except Exception:
+                _age_h = None
+            lignes.append(
+                "### Contexte géopolitique (recalculé chaque heure) : score %s%s (%s) · %d/%d modules OK · fraîcheur %s"
+                % (_geo.get("score", "?"), _geo.get("emoji", ""), _geo.get("niveau", "?"),
+                   int(_geo.get("nb_ok") or 0), int(_geo.get("nb_modules") or 0),
+                   ("%.1f h" % _age_h) if _age_h is not None else "inconnue")
+            )
+            _geo_alerte = str(_geo.get("alerte") or "").strip()
+            if _geo_alerte:
+                lignes.append("- ALERTE capteur : " + _geo_alerte[:250])
+            lignes.append(
+                "- Lecture : utilise-le comme CONTEXTE de tes analyses (risque de crise, sentiment news) "
+                "et cite-le si ton avis s'appuie dessus. Ce signal n'est pas encore noté par le scoreur : "
+                "il vaut pour la mise en relation, pas comme preuve chiffrée."
+            )
+    except Exception:
+        pass
+
     return "\n".join(lignes)
 
 
