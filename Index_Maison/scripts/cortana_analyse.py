@@ -437,6 +437,61 @@ def contexte_systeme() -> str:
     except Exception:
         pass
 
+    # 7) BIBLIOTHÈQUE ANALYSTE (P3 CORTANA_ANALYSTE — GO Christophe 12/09) :
+    #    leçons vérifiées P0 (lecons_analyste.jsonl) + régime de fond P1 + croisements P2.
+    #    Lecture seule, tout en try/except silencieux (l'analyse ne doit jamais casser).
+    #    Règle de citation : Cortana cite les fiches PAR ID (LECON-xxx) quand elle les utilise.
+    try:
+        lecons_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "data", "lecons_analyste.jsonl")
+        lecons = []
+        if os.path.exists(lecons_path):
+            with open(lecons_path, encoding="utf-8") as _f:
+                for _l in _f:
+                    _l = _l.strip()
+                    if _l:
+                        try:
+                            lecons.append(json.loads(_l))
+                        except Exception:
+                            continue
+        if lecons:
+            _titres = ["%s : %s" % (l.get("id"), str(l.get("titre", ""))[:90]) for l in lecons]
+            lignes.append("### Bibliothèque analyste (%d leçons vérifiées — cite l'ID quand tu t'appuies sur une fiche)" % len(lecons))
+            lignes.extend("- " + t for t in _titres)
+    except Exception:
+        pass
+    try:
+        _p1_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "data", "paternes_btc_etat.json")
+        _p1 = json.load(open(_p1_path, encoding="utf-8")) if os.path.exists(_p1_path) else None
+        _p1h_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "data", "paternes_btc_hist.jsonl")
+        if _p1 is None or not os.path.exists(_p1h_path):
+            raise FileNotFoundError
+        with open(_p1h_path, encoding="utf-8") as _f:
+            _pl = [json.loads(x) for x in _f.read().splitlines() if x.strip()]
+        _rf = (_pl[-1].get("regime_fond") or {}) if _pl else {}
+        _mf = (_pl[-1].get("macd_filtre") or {}) if _pl else {}
+        lignes.append(
+            "### Régime de fond (moteur paterne BTC, P1) : %s (50w %+.1f%% vs 200w, RSIw %.0f) · "
+            "MACD %s depuis %s j → filtre %s. Une analyse de tendance de fond DOIT s'aligner sur ce régime ou justifier sa divergence."
+            % (_rf.get("regime", "?"), _rf.get("ecart_pct", 0) or 0, _rf.get("rsi_w", 0) or 0,
+               (_mf.get("dernier_croisement") or {}).get("type", "?"), (_mf.get("dernier_croisement") or {}).get("jours_depuis", "?"),
+               "ACTIF" if _mf.get("filtre_actif") else "inactif")
+        )
+    except Exception:
+        pass
+    try:
+        _p2_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "data", "croisements_indices_etat.json")
+        _p2 = json.load(open(_p2_path, encoding="utf-8")) if os.path.exists(_p2_path) else None
+        if _p2:
+            _av = _p2.get("avis_emis")
+            lignes.append(
+                "### Croisements multi-indices (P2, règle des 2 sources) : dernier cycle %s — "
+                "avis émis : %s (%d croisement(s) confirmé(s)). Un avis de croisement vaut plus qu'un indice isolé : "
+                "deux familles d'instruments indépendantes s'accordent."
+                % (_p2.get("ts", "?"), _av or "AUCUN (silence voulu — zone morte ou sources non accordées)", _p2.get("nb_actifs", 0) or 0)
+            )
+    except Exception:
+        pass
+
     return "\n".join(lignes)
 
 

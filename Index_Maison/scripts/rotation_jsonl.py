@@ -35,6 +35,7 @@ DEFAUTS = [
     # Shadow plancher confirmé (GO direct Christophe 11/09, papier) — même leçon
     ("/Users/christophe/ace777-test-day1/Index_Maison/data/plancher_confirme_hist.jsonl", 50),
     ("/Users/christophe/ace777-test-day1/Index_Maison/data/paternes_btc_hist.jsonl", 50),
+    ("/Users/christophe/ace777-test-day1/Index_Maison/data/croisements_indices_hist.jsonl", 50),
 ]
 
 BACKUP_COUNT = 2
