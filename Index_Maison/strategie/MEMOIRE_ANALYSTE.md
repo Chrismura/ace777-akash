@@ -4503,3 +4503,4 @@
 - 2026-09-11T05:40:28.868573Z | alerte | Maintenir la vigilance nominale, garder le stop‑loss d'urgence actif sur CCUSDT, laisser Alpha en embus | conf=?
 - 2026-09-11T05:47:13.589695Z | alerte | <une phrase claire> | conf=<0-100%>
 - 2026-09-11T05:53:03.065425Z | alerte | Maintenir la vigilance nominale, garder le stop‑loss d'urgence actif sur CCUSDT et laisser Alpha en embuscade en attendant le signal clair de Beta. | conf=88%
+- 2026-09-12T00:11:42.329490Z | alerte | Maintenir la vigilance nominale, garder le stop‑loss d'urgence actif sur CCUSDT et laisser Alpha en embuscade en attendant le signal clair de Beta. | conf=88%

@@ -1,27 +1,6 @@
 {
   "signals": [
     {
-      "metric": "sdi",
-      "zscore": 2.411906917640264,
-      "value": 0.604,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Faux positif manifeste. L'anomalie on-chain (z-score 2.41) est provoquée par du bruit médiatique concernant le syndicat patronal français SDI (Syndicat des Indépendants) et du matériel vidéo (Blackmagic SDI), sans aucun rapport avec un actif crypto.\"\n}\n```",
-      "ts": "2026-09-11T03:36:34.246239+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": -2.420153478013918,
-      "value": 56,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie statistique majeure (z-score -2.42) malgré un indice Fear & Greed neutre (56) et un silence médiatique total (Google Actualités vide). Historiquement, l'accumulation silencieuse des baleines précède les hausses lorsque le bruit médiatique est absent.\"\n}\n```",
-      "ts": "2026-09-11T03:36:35.567493+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": 2.2292702434859955,
-      "value": 0.604,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit médiatique provoqué par des homonymes (Syndicat des Indépendants - SDI, et matériel vidéo SDI) totalement déconnecté de la blockchain. Aucune baleine crypto active.\"\n}\n```",
-      "ts": "2026-09-11T04:06:42.813918+00:00"
-    },
-    {
       "metric": "fear_greed",
       "zscore": -2.236067977499788,
       "value": 56,
@@ -349,6 +328,27 @@
       "value": 3161108.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Activité anormale des baleines (Z-score 3.54, +3.16M USD) totalement ignorée par les médias (silence radio). Cette divergence classique indique une accumulation furtive en sous-marin avant une rupture de prix.\"\n}\n```",
       "ts": "2026-09-11T23:10:38.312959+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 2.675383756942365,
+      "value": 2865515.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Activité anormale des baleines (z-score 2.68, ~2.86M USD) totalement ignorée par les médias (silence radio de Google Actualités). Accumulation furtive typique en bas de canal ou avant cassure.\"\n}\n```",
+      "ts": "2026-09-12T00:00:46.233464+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": -5.471613897523356,
+      "value": 0.012,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Fausse alerte. Le signal 'SDI' capté ici fait référence à une organisation patronale française (Syndicat des Indépendants) et à du matériel vidéo (Blackmagic SDI), sans aucun rapport avec la blockchain ou des mouvements de baleines crypto.\"\n}\n```",
+      "ts": "2026-09-12T00:10:48.901717+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 6.400467691977311,
+      "value": 63,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Données Google Actualités vides ou non significatives pour mesurer le narratif. Le Z-score élevé (6.40) indique une anomalie de sentiment (Greed 63), mais l'absence de contexte médiatique empêche de confirmer une divergence claire avec les mouvements des baleines.\"\n}\n```",
+      "ts": "2026-09-12T00:10:50.246636+00:00"
     }
   ]
 }

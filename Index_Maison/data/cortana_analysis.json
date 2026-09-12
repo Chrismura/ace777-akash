@@ -1,15 +1,70 @@
 {
-  "timestamp": 1789168798,
-  "date": "2026-09-11T23:19:58.243045+00:00",
-  "n_analyses": 1,
+  "timestamp": 1789172099,
+  "date": "2026-09-12T00:14:59.170109+00:00",
+  "n_analyses": 3,
   "analyses": [
     {
       "signal": {
         "metric": "whale_usd",
-        "zscore": 3.538297087759345,
-        "value": 3161108.0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Activité anormale des baleines (Z-score 3.54, +3.16M USD) totalement ignorée par les médias (silence radio). Cette divergence classique indique une accumulation furtive en sous-marin avant une rupture de prix.\"\n}\n```",
-        "ts": 1789168238.312959
+        "zscore": 2.675383756942365,
+        "value": 2865515.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Activité anormale des baleines (z-score 2.68, ~2.86M USD) totalement ignorée par les médias (silence radio de Google Actualités). Accumulation furtive typique en bas de canal ou avant cassure.\"\n}\n```",
+        "ts": 1789171246.233464
+      },
+      "fiche": null,
+      "interpretation": {
+        "lecture": "Pas de fiche disponible",
+        "niveau": "inconnu"
+      },
+      "action": "Observer"
+    },
+    {
+      "signal": {
+        "metric": "sdi",
+        "zscore": -5.471613897523356,
+        "value": 0.012,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Fausse alerte. Le signal 'SDI' capté ici fait référence à une organisation patronale française (Syndicat des Indépendants) et à du matériel vidéo (Blackmagic SDI), sans aucun rapport avec la blockchain ou des mouvements de baleines crypto.\"\n}\n```",
+        "ts": 1789171848.901717
+      },
+      "fiche": "rbf_eleve",
+      "questions": {
+        "prix": {
+          "value": 0.06,
+          "seuil": 1,
+          "depasse": false
+        },
+        "paires": {
+          "value": null,
+          "seuil": 3,
+          "depasse": false
+        },
+        "funding": {
+          "value": 6.2e-05,
+          "seuil": 0.001,
+          "depasse": false
+        },
+        "whales": {
+          "value": 1,
+          "seuil": 5,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "sdi > 0.3",
+        "lecture": "Drainage silencieux — les vieux BTC bougent en douce",
+        "niveau": "dangereux",
+        "action": "Réduire taille de 50%, sortir des positions fragiles"
+      },
+      "action": "Réduire taille de 50%, sortir des positions fragiles",
+      "niveau": "dangereux"
+    },
+    {
+      "signal": {
+        "metric": "fear_greed",
+        "zscore": 6.400467691977311,
+        "value": 63,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Données Google Actualités vides ou non significatives pour mesurer le narratif. Le Z-score élevé (6.40) indique une anomalie de sentiment (Greed 63), mais l'absence de contexte médiatique empêche de confirmer une divergence claire avec les mouvements des baleines.\"\n}\n```",
+        "ts": 1789171850.246636
       },
       "fiche": null,
       "interpretation": {
@@ -19,5 +74,5 @@
       "action": "Observer"
     }
   ],
-  "resume": "🔵 CALME — pas de signal alarmant"
+  "resume": "🔴 DANGER détecté — réduire les expositions"
 }
