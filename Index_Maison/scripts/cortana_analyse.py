@@ -329,37 +329,27 @@ def contexte_systeme() -> str:
             )
         if ace_info:
             lignes.append("- ÉTAT ACE (dernier jour de run) : " + " | ".join(ace_info))
-        # --- HULK : paper (positions, rip/stops, PnL) ---
-        hulk_state = os.path.join(ROOT_DIR, "hulk-mexc", "runs", "PAPER_V1_20260816_214411_state.json")
-        if os.path.exists(hulk_state):
+        # --- HULK : DIGEST vivant (recâblé 12/09 — GO Christophe « câbler les digests » ;
+        #     les PAPER_V1_* du 16/08 étaient gelés et présentés comme l'état actuel : LECON-002) ---
+        import glob as _glob
+        _digests = [d for d in _glob.glob(os.path.join(ROOT_DIR, "hulk-mexc", "runs", "DIGEST_*.json"))
+                    if not d.endswith(".bak")]
+        if _digests:
             try:
-                hs = json.load(open(hulk_state))
-                pnl = hs.get("pnl_total")
-                trades = hs.get("trades")
-                pos = hs.get("positions") or {}
-                pos_txt = ", ".join("%s(entrée %.4f)" % (k, float(v.get("entry") or 0)) for k, v in list(pos.items())[:6])
-                lignes.append(
-                    "- ÉTAT HULK (paper) : PnL %s$ · %s trades · positions: %s"
-                    % ("n/d" if pnl is None else round(float(pnl), 2),
-                       trades if trades is not None else "?", pos_txt or "aucune")
+                _dpath = max(_digests, key=os.path.getmtime)
+                _dg = json.load(open(_dpath))
+                _pairs = _dg.get("pairs") or []
+                _top = sorted(_pairs, key=lambda x: -(x.get("tension") or 0))[:3]
+                _top_txt = ", ".join(
+                    "%s(%s %.2f)" % (pp.get("pair", "?"), pp.get("hint", "?"), pp.get("tension") or 0)
+                    for pp in _top
                 )
-            except Exception:
-                pass
-        hulk_csv = os.path.join(ROOT_DIR, "hulk-mexc", "runs", "PAPER_V1_20260816_214411.csv")
-        if os.path.exists(hulk_csv):
-            try:
-                last_sells = []
-                with open(hulk_csv) as f:
-                    reader = csv.reader(f)
-                    next(reader, None)
-                    for row in reader:
-                        if len(row) >= 11 and row[2] in ("SELL", "SELL_PARTIAL"):
-                            last_sells.append((row[0], row[1], row[2], row[8], row[10]))
-                if last_sells:
-                    recent_sells = last_sells[-4:]
-                    lignes.append("- HULK dernières sorties : " + " · ".join(
-                        "%s %s %s (%s$ %s)" % (t, p, ev, pnl_v, reason_v)
-                        for t, p, ev, pnl_v, reason_v in recent_sells))
+                _age_h = (datetime.now(timezone.utc).timestamp() - os.path.getmtime(_dpath)) / 3600.0
+                lignes.append(
+                    "- ÉTAT HULK (digest %s, fraîcheur %.1f h) : %d paires suivies · degraded=%s · tensions max: %s"
+                    % (str(_dg.get("ts") or "?"), _age_h, len(_pairs),
+                       "OUI" if _dg.get("degraded") else "non", _top_txt or "n/d")
+                )
             except Exception:
                 pass
         # --- HULK : sonde aspiration (alerte en cours) ---
