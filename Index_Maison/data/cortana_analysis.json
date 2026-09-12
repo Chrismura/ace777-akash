@@ -1,20 +1,125 @@
 {
-  "timestamp": 1789176000,
-  "date": "2026-09-12T01:20:00.890846+00:00",
-  "n_analyses": 2,
+  "timestamp": 1789179602,
+  "date": "2026-09-12T02:20:02.170968+00:00",
+  "n_analyses": 5,
   "analyses": [
     {
       "signal": {
+        "metric": "whale_usd",
+        "zscore": 4.01780717978251,
+        "value": 4468244.0,
+        "analysis": "{\"signal\": \"bullish\", \"confidence\": 65, \"reason\": \"Anomalie onchain marquée (z-score 4.02, ~4.47M USD) sans couverture médiatique visible : les mouvements de baleines restent sous les radars, suggérant une accumulation/transfert silencieux pendant que le narratif public est absent ou déconnecté. Toutefois, l'absence de titres concrets limite la certitude.\"}",
+        "ts": 1789177884.809187
+      },
+      "fiche": null,
+      "interpretation": {
+        "lecture": "Pas de fiche disponible",
+        "niveau": "inconnu"
+      },
+      "action": "Observer"
+    },
+    {
+      "signal": {
+        "metric": "cpfp",
+        "zscore": 2.1077704873481253,
+        "value": 50.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Bruit médiatique non pertinent. Les occurrences de 'CPFP' dans les médias font référence à des centres de formation professionnelle et des finances publiques en milieu rural (La Rouatière, Congo, Guinée), sans aucun rapport avec la crypto-sphère ou une baleine.\"\n}\n```",
+        "ts": 1789178795.738111
+      },
+      "fiche": "blocs_privilises",
+      "questions": {
+        "duree": {
+          "value": 0,
+          "seuil": 0,
+          "depasse": false
+        },
+        "volume": {
+          "value": 2210,
+          "seuil": 0,
+          "depasse": true
+        },
+        "prix": {
+          "value": 0.04,
+          "seuil": 0,
+          "depasse": true
+        },
+        "sdi": {
+          "value": 0.004,
+          "seuil": 0,
+          "depasse": true
+        },
+        "rbf": {
+          "value": 0.0,
+          "seuil": 0,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "duree < 5min ET volume > 100",
+        "lecture": "Consolidation exchange — probablement un transfert hot→cold",
+        "niveau": "neutre",
+        "action": "Garder les positions"
+      },
+      "action": "Garder les positions",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "dust",
+        "zscore": 2.1077704873481253,
+        "value": 50.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique parasité par des homonymes culturels (cinéma, littérature). L'anomalie onchain (z-score 2.11) sur DUST est mineure et noyée dans le bruit sémantique, sans signal clair d'accumulation ou de distribution institutionnelle.\"\n}\n```",
+        "ts": 1789178797.352133
+      },
+      "fiche": "blocs_privilises",
+      "questions": {
+        "duree": {
+          "value": 0,
+          "seuil": 0,
+          "depasse": false
+        },
+        "volume": {
+          "value": 2210,
+          "seuil": 0,
+          "depasse": true
+        },
+        "prix": {
+          "value": 0.04,
+          "seuil": 0,
+          "depasse": true
+        },
+        "sdi": {
+          "value": 0.004,
+          "seuil": 0,
+          "depasse": true
+        },
+        "rbf": {
+          "value": 0.0,
+          "seuil": 0,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "duree < 5min ET volume > 100",
+        "lecture": "Consolidation exchange — probablement un transfert hot→cold",
+        "niveau": "neutre",
+        "action": "Garder les positions"
+      },
+      "action": "Garder les positions",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
         "metric": "sdi",
-        "zscore": -3.7601899811815485,
+        "zscore": -2.880137114286463,
         "value": 0.004,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Fausse alerte liée à une homonymie. Le 'SDI' des médias fait référence au 'Syndicat des Indépendants' (Marc Sanchez) et à du matériel vidéo (Blackmagic), sans aucun rapport avec la crypto ou des mouvements de baleines on-chain.\"\n}\n```",
-        "ts": 1789175462.568715
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Faux positif absolu. Le signal 'SDI' détecté par les sentinelles correspond à un acronyme homonyme dans l'actualité institutionnelle française (Syndicat des Indépendants) et technique (technologie vidéo SDI de Blackmagic), et non à un actif crypto ou à un mouvement de baleine.\"\n}\n```",
+        "ts": 1789179099.536926
       },
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": 0.09,
+          "value": 0.04,
           "seuil": 1,
           "depasse": false
         },
@@ -24,12 +129,12 @@
           "depasse": false
         },
         "funding": {
-          "value": 6.6e-05,
+          "value": 7e-05,
           "seuil": 0.001,
           "depasse": false
         },
         "whales": {
-          "value": 0,
+          "value": 1,
           "seuil": 5,
           "depasse": false
         }
@@ -46,10 +151,10 @@
     {
       "signal": {
         "metric": "fear_greed",
-        "zscore": 4.795831523312722,
+        "zscore": 3.3166247903553985,
         "value": 63,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Z-score élevé (4.80) couplé à un Fear & Greed à 63 montrant une surchauffe locale du sentiment, mais absence de données de Google Actualités fournies pour confirmer la divergence.\"\n}\n```",
-        "ts": 1789175464.400392
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Données incomplètes sur le narratif (Google Actualités sans titre spécifique). Le z-score élevé (3.32) indique une euphorie notable, mais sans contexte textuel précis, impossible de confirmer une divergence claire avec l'activité des baleines.\"\n}\n```",
+        "ts": 1789179100.840028
       },
       "fiche": null,
       "interpretation": {

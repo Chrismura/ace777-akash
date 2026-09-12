@@ -1,55 +1,6 @@
 {
   "signals": [
     {
-      "metric": "taker_ratio",
-      "zscore": 3.049977258293102,
-      "value": 1.728,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Le taker_ratio à 1.728 (z-score 3.05) indique une agression massive des acheteurs sur le carnet d'ordres, totalement ignorée par l'absence de couverture médiatique (silence radio). C'est la signature classique d'accumulation furtive par des baleines avant un re-pricing.\"\n}\n```",
-      "ts": "2026-09-11T05:37:03.845353+00:00"
-    },
-    {
-      "metric": "whale_usd",
-      "zscore": 3.325305677330302,
-      "value": 4188178.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (3.33) couplé à une absence totale de couverture médiatique (silence radio). C'accumulation furtive typique des baleines loin du bruit de fond.\"\n}\n```",
-      "ts": "2026-09-11T06:52:30.207714+00:00"
-    },
-    {
-      "metric": "whale_usd",
-      "zscore": 3.4609252686546474,
-      "value": 3564979.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Activité anormale des baleines (Z-score 3.46, ~3.5M USD) sans aucune couverture médiatique correspondante, indiquant une accumulation silencieuse sous le radar du retail.\"\n}\n```",
-      "ts": "2026-09-11T09:43:10.739522+00:00"
-    },
-    {
-      "metric": "long_short",
-      "zscore": -13.005992159211587,
-      "value": 1,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 98,\n  \"reason\": \"Z-score extrêmement bas (-13.01) sur le ratio long/short indiquant un positionnement contrarien massif des baleines (short squeeze imminent), totalement absent des narratifs médiatiques actuels.\"\n}\n```",
-      "ts": "2026-09-11T10:10:10.021034+00:00"
-    },
-    {
-      "metric": "whale_usd",
-      "zscore": 3.123662795976024,
-      "value": 3358037.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Activité anormale des baleines (z-score 3.12, ~3.36M USD) totalement ignorée par les médias (silence radio). Accumulation furtive en cours sous le radar.\"\n}\n```",
-      "ts": "2026-09-11T10:46:16.714277+00:00"
-    },
-    {
-      "metric": "price_1h",
-      "zscore": 3.693951087752996,
-      "value": 0.7954309449636598,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de prix significative (z-score 3.69) en l'absence totale de couverture médiatique (silence radio sur Google Actualités). C'est la signature classique d'accumulation furtive par des baleines avant l'emballement du narratif public.\"\n}\n```",
-      "ts": "2026-09-11T12:31:40.385176+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.0216779879989497,
-      "value": 1.1,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique non pertinent. Le ticker 'ipt' fait référence à des actualités institutionnelles et académiques sans lien avec un actif crypto ou une baleine.\"\n}\n```",
-      "ts": "2026-09-11T12:46:44.392347+00:00"
-    },
-    {
       "metric": "price_1h",
       "zscore": 2.832546436088592,
       "value": 0.6296446093696839,
@@ -349,6 +300,55 @@
       "value": 63,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Z-score élevé (4.80) couplé à un Fear & Greed à 63 montrant une surchauffe locale du sentiment, mais absence de données de Google Actualités fournies pour confirmer la divergence.\"\n}\n```",
       "ts": "2026-09-12T01:11:04.400392+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": -3.2445987923639943,
+      "value": 0.004,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Fausse alerte liée à une homonymie : le ticker SDI analysé on-chain n'a aucun rapport avec les actualités médiatiques concernant le 'Syndicat des Indépendants (SDI)' ou du matériel vidéo (Blackmagic SDI).\"\n}\n```",
+      "ts": "2026-09-12T01:41:18.126057+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 3.872983346207417,
+      "value": 63,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (3.87) combiné à un indice de peur et de cupidité modéré (63) sous un narratif médiatique vide. Signifie une accumulation silencieuse des baleines hors du radar médiatique.\"\n}\n```",
+      "ts": "2026-09-12T01:41:19.401465+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 4.01780717978251,
+      "value": 4468244.0,
+      "analysis": "{\"signal\": \"bullish\", \"confidence\": 65, \"reason\": \"Anomalie onchain marquée (z-score 4.02, ~4.47M USD) sans couverture médiatique visible : les mouvements de baleines restent sous les radars, suggérant une accumulation/transfert silencieux pendant que le narratif public est absent ou déconnecté. Toutefois, l'absence de titres concrets limite la certitude.\"}",
+      "ts": "2026-09-12T01:51:24.809187+00:00"
+    },
+    {
+      "metric": "cpfp",
+      "zscore": 2.1077704873481253,
+      "value": 50.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Bruit médiatique non pertinent. Les occurrences de 'CPFP' dans les médias font référence à des centres de formation professionnelle et des finances publiques en milieu rural (La Rouatière, Congo, Guinée), sans aucun rapport avec la crypto-sphère ou une baleine.\"\n}\n```",
+      "ts": "2026-09-12T02:06:35.738111+00:00"
+    },
+    {
+      "metric": "dust",
+      "zscore": 2.1077704873481253,
+      "value": 50.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique parasité par des homonymes culturels (cinéma, littérature). L'anomalie onchain (z-score 2.11) sur DUST est mineure et noyée dans le bruit sémantique, sans signal clair d'accumulation ou de distribution institutionnelle.\"\n}\n```",
+      "ts": "2026-09-12T02:06:37.352133+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": -2.880137114286463,
+      "value": 0.004,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Faux positif absolu. Le signal 'SDI' détecté par les sentinelles correspond à un acronyme homonyme dans l'actualité institutionnelle française (Syndicat des Indépendants) et technique (technologie vidéo SDI de Blackmagic), et non à un actif crypto ou à un mouvement de baleine.\"\n}\n```",
+      "ts": "2026-09-12T02:11:39.536926+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 3.3166247903553985,
+      "value": 63,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Données incomplètes sur le narratif (Google Actualités sans titre spécifique). Le z-score élevé (3.32) indique une euphorie notable, mais sans contexte textuel précis, impossible de confirmer une divergence claire avec l'activité des baleines.\"\n}\n```",
+      "ts": "2026-09-12T02:11:40.840028+00:00"
     }
   ]
 }
