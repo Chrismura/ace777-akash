@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-12T08:22:45.823864+00:00",
+  "generated_at": "2026-09-12T09:18:28.697718+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 125
+      "calls_24h": 127
     },
     {
       "id": "openrouter-free",
@@ -254,15 +254,6 @@
       "calls_24h": 0
     },
     {
-      "id": "nex-agi-nex-n2-5-pro-free",
-      "name": "Auto nex-agi/nex-n2.5-pro:free",
-      "kind": "cloud",
-      "model": "nex-agi/nex-n2.5-pro:free",
-      "enabled": false,
-      "timeout": 60,
-      "calls_24h": 0
-    },
-    {
       "id": "obs-1789103007",
       "name": "nex-agi/nex-n2.5-mini:free",
       "kind": "llm",
@@ -270,23 +261,38 @@
       "enabled": false,
       "timeout": 30,
       "calls_24h": 0
-    },
-    {
-      "id": "dots-studio-dots-3-note-preview-free",
-      "name": "Auto dots-studio/dots-3-note-preview:free",
-      "kind": "cloud",
-      "model": "dots-studio/dots-3-note-preview:free",
-      "enabled": false,
-      "timeout": 60,
-      "calls_24h": 0
     }
   ],
   "budget": {
     "daily": 624,
-    "consumed": 99,
-    "remaining": 525
+    "consumed": 102,
+    "remaining": 522
   },
   "queue": [
+    {
+      "ts": "2026-09-12T08:29:54.931732+00:00",
+      "task": "cortana.analyse",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 3.19
+    },
+    {
+      "ts": "2026-09-12T08:23:10.117661+00:00",
+      "task": "supervise.decision",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 0.84
+    },
+    {
+      "ts": "2026-09-12T08:23:09.169774+00:00",
+      "task": "supervise.decision",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 0.93
+    },
     {
       "ts": "2026-09-12T08:03:06.242813+00:00",
       "task": "analyse.profonde",
@@ -382,89 +388,65 @@
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
       "duration_s": 2.74
-    },
-    {
-      "ts": "2026-09-12T06:22:58.259027+00:00",
-      "task": "supervise.decision",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 0.85
-    },
-    {
-      "ts": "2026-09-12T06:22:58.252087+00:00",
-      "task": "supervise.decision",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 0.9
-    },
-    {
-      "ts": "2026-09-12T06:17:40.251310+00:00",
-      "task": "analyse.profonde",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 1.01
     }
   ],
   "events": [
     {
-      "ts": "2026-09-12T08:19:17.648952+00:00",
+      "ts": "2026-09-12T09:12:37.388875+00:00",
       "kind": "http",
       "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
       "detail": ""
     },
     {
-      "ts": "2026-09-12T08:19:17.648453+00:00",
+      "ts": "2026-09-12T09:12:37.388665+00:00",
       "kind": "error",
       "title": "Toutes les IA ont echoue",
-      "detail": "Google Gemini: HTTP Error 429: Too Many Requests | Groq (LLM ultra-rapide, gratuit): HTTP Error 400: Bad Request | HuggingFace (136+ modeles, dont DeepSeek-V4): HTTP Error 400: Bad Request | OrcaRouter (routeur gratuit, modele orcarouter/free): HTTP Error 429: Too Many Requests | OpenRouter Juge (nemotron-3-super-120b free) - verificateur independant: HTTP Error 429: Too Many Requests | OpenRouter Nemotron 3 Ultra 550B (free) - analyse forte: HTTP Error 429: Too Many Requests | InferX DeepSeek V"
+      "detail": "Google Gemini: blacklist du jour (saute) | Groq (LLM ultra-rapide, gratuit): HTTP Error 400: Bad Request | HuggingFace (136+ modeles, dont DeepSeek-V4): HTTP Error 400: Bad Request | OrcaRouter (routeur gratuit, modele orcarouter/free): HTTP Error 429: Too Many Requests | OpenRouter Juge (nemotron-3-super-120b free) - verificateur independant: HTTP Error 429: Too Many Requests | OpenRouter Nemotron 3 Ultra 550B (free) - analyse forte: HTTP Error 429: Too Many Requests | InferX DeepSeek V4 Flash "
     },
     {
-      "ts": "2026-09-12T08:19:17.645829+00:00",
+      "ts": "2026-09-12T09:12:37.388239+00:00",
       "kind": "failover",
       "title": "Bascule depuis InferX Devstral-2-123B (code)",
-      "detail": "HTTP Error 429: Too Many Requests"
+      "detail": "<urlopen error timed out>"
     },
     {
-      "ts": "2026-09-12T08:19:13.373209+00:00",
+      "ts": "2026-09-12T09:12:27.362977+00:00",
       "kind": "failover",
       "title": "Bascule depuis NVIDIA DeepSeek-Coder 6.7B (code, via NIM)",
       "detail": "HTTP Error 404: Not Found"
     },
     {
-      "ts": "2026-09-12T08:19:11.510448+00:00",
+      "ts": "2026-09-12T09:12:25.251109+00:00",
       "kind": "failover",
       "title": "Bascule depuis Puter Grok (gratuit)",
       "detail": "HTTP Error 402: Payment Required"
     },
     {
-      "ts": "2026-09-12T08:19:10.851981+00:00",
+      "ts": "2026-09-12T09:12:24.318362+00:00",
       "kind": "failover",
       "title": "Bascule depuis InferX Qwen3-Coder-Next (code, gratuit jusqu'au 12/08)",
       "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-09-12T08:19:06.598473+00:00",
+      "ts": "2026-09-12T09:12:19.561519+00:00",
       "kind": "failover",
       "title": "Bascule depuis InferX DeepSeek V4 Flash (API gratuite jusqu'au 12/08)",
       "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-09-12T08:19:02.571558+00:00",
+      "ts": "2026-09-12T09:12:14.738923+00:00",
       "kind": "failover",
       "title": "Bascule depuis OpenRouter Nemotron 3 Ultra 550B (free) - analyse forte",
       "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-09-12T08:19:01.987236+00:00",
+      "ts": "2026-09-12T09:12:13.774253+00:00",
       "kind": "failover",
       "title": "Bascule depuis OpenRouter Juge (nemotron-3-super-120b free) - verificateur independant",
       "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-09-12T08:19:00.219573+00:00",
+      "ts": "2026-09-12T09:12:12.883184+00:00",
       "kind": "failover",
       "title": "Bascule depuis OrcaRouter (routeur gratuit, modele orcarouter/free)",
       "detail": "HTTP Error 429: Too Many Requests"

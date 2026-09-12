@@ -1,4 +1,4 @@
-# INTEGRATIONS HEBDOMADAIRES — 2026-09-11
+# INTEGRATIONS HEBDOMADAIRES — 2026-09-12
 
 > Genere par observatoire.py (correction famille 09/08).
 > Regle : un provider integre auto n'est JAMAIS actif directement.
@@ -9,8 +9,7 @@
 
 | Provider | Modele | Detail | Etat |
 |----------|--------|--------|------|
-| nex-agi-nex-n2-5-pro-free | nex-agi/nex-n2.5-pro:free | 2026-09-10 | 28h/48h | 0/5 | en observation |
-| obs-1789103007 | nex-agi/nex-n2.5-mini:free | 2026-09-11 | 0h/48h | 0/5 | actif (sonde en cours) |
+| obs-1789103007 | nex-agi/nex-n2.5-mini:free | 2026-09-11 | 24h/48h | 0/5 | actif (sonde en cours) |
 
 ## RETIRÉS (rollback auto > 5% erreurs)
 
@@ -18,11 +17,13 @@
 |----------|--------|--------|------|
 | obs-1786688184 | cohere/north-mini-code:free | 100% | ROLLBACK auto (désactivé) |
 | obs-1786774646 | nvidia/nemotron-3-nano-30b-a3b:free | 100% | ROLLBACK auto (désactivé) |
-| obs-1786774656 | nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free | 80% | ROLLBACK auto (désactivé) |
+| obs-1786774656 | nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free | 100% | ROLLBACK auto (désactivé) |
 | obs-1786774667 | nvidia/nemotron-3.5-lightning:free | 100% | ROLLBACK auto (désactivé) |
 | obs-1786795252 | nvidia/nemotron-3.5-content-safety:free | 100% | ROLLBACK auto (désactivé) |
 | obs-1787033767 | google/diffusiongemma-26b-a4b-it | 100% | ROLLBACK auto (désactivé) |
-| obs-1787206650 | google/gemma-4-26b-a4b-it:free | 80% | ROLLBACK auto (désactivé) |
+| obs-1787206650 | google/gemma-4-26b-a4b-it:free | 100% | ROLLBACK auto (désactivé) |
 | obs-1787248844 | nvidia/nemotron-nano-9b-v2:free | 100% | ROLLBACK auto (désactivé) |
 | obs-1787724924 | minimax/minimax-m3:free | 100% | ROLLBACK auto (désactivé) |
 | obs-1788416175 | deepseek-ai/deepseek-v4-pro-0813 | 100% | ROLLBACK auto (désactivé) |
+| nex-agi-nex-n2-5-pro-free | nex-agi/nex-n2.5-pro:free | 100% | RETIRE (rollback auto) |
+| dots-studio-dots-3-note-preview-free | dots-studio/dots-3-note-preview:free | 100% | RETIRE (rollback auto) |

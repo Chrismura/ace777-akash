@@ -5,7 +5,7 @@ set -uo pipefail
 LOG=/tmp/analyste_cadence.log
 echo "=== $(date -u +%FT%TZ) ===" >> "$LOG"
 cd ~/ace777-test-day1/Index_Maison/scripts || exit 1
-for indice in radar funding fearGreed; do
+for indice in radar funding fearGreed geopol; do  # GEOPOL-C2 (GO Christophe 12/09) : avis noté par le scoreur
   echo "-- $indice" >> "$LOG"
   python3 cortana_analyse.py "$indice" >> "$LOG" 2>&1 || echo "[$indice] ECHEC" >> "$LOG"
 done
