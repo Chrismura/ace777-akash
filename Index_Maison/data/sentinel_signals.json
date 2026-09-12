@@ -1,34 +1,6 @@
 {
   "signals": [
     {
-      "metric": "whale_usd",
-      "zscore": 3.538297087759345,
-      "value": 3161108.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Activité anormale des baleines (Z-score 3.54, +3.16M USD) totalement ignorée par les médias (silence radio). Cette divergence classique indique une accumulation furtive en sous-marin avant une rupture de prix.\"\n}\n```",
-      "ts": "2026-09-11T23:10:38.312959+00:00"
-    },
-    {
-      "metric": "whale_usd",
-      "zscore": 2.675383756942365,
-      "value": 2865515.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Activité anormale des baleines (z-score 2.68, ~2.86M USD) totalement ignorée par les médias (silence radio de Google Actualités). Accumulation furtive typique en bas de canal ou avant cassure.\"\n}\n```",
-      "ts": "2026-09-12T00:00:46.233464+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": -5.471613897523356,
-      "value": 0.012,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Fausse alerte. Le signal 'SDI' capté ici fait référence à une organisation patronale française (Syndicat des Indépendants) et à du matériel vidéo (Blackmagic SDI), sans aucun rapport avec la blockchain ou des mouvements de baleines crypto.\"\n}\n```",
-      "ts": "2026-09-12T00:10:48.901717+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": 6.400467691977311,
-      "value": 63,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Données Google Actualités vides ou non significatives pour mesurer le narratif. Le Z-score élevé (6.40) indique une anomalie de sentiment (Greed 63), mais l'absence de contexte médiatique empêche de confirmer une divergence claire avec les mouvements des baleines.\"\n}\n```",
-      "ts": "2026-09-12T00:10:50.246636+00:00"
-    },
-    {
       "metric": "sdi",
       "zscore": -4.5949227565921476,
       "value": 0.004,
@@ -349,6 +321,34 @@
       "value": 5217247.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Significant whale activity (z-score 3.86) contrasts with neutral media narrative, suggesting accumulation phase.\"\n}\n```",
       "ts": "2026-09-12T17:22:52.573097+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": -2.64049972007116,
+      "value": 4553760984.0,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain caractérisée par un effondrement sévère du volume (z-score -2.64), contrastant fortement avec le narratif médiatique généraliste orienté sur la hausse ou sans lien direct avec la liquidité réelle des actifs.\"\n}\n```",
+      "ts": "2026-09-12T17:47:57.085844+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": -2.3759970312177083,
+      "value": 3029271.0,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Divergence massive : les médias grand public crient au 'short squeeze' et à la hausse portée par des centaines de millions de liquidations spéculatives, alors que le z-score on-chain (-2.38) prouve un volume de liquidation réel anémiqué. Piège à liquidité haussier orchestré.\"\n}\n```",
+      "ts": "2026-09-12T18:13:03.649261+00:00"
+    },
+    {
+      "metric": "taker_ratio",
+      "zscore": -3.0693260354413243,
+      "value": 0.492,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Taker ratio extrêmement bas (z-score -3.07) indique une domination massive des acheteurs passifs (ordres limite), absorbant la pression vendeuse dans un silence médiatique total. Divergence classique d'accumulation discrète par les baleines avant un retournement haussier.\"\n}\n```",
+      "ts": "2026-09-12T18:13:04.821638+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": -2.488987428211483,
+      "value": 4138801160.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score -2.49) sur un bruit de fond non pertinent : les titres médiatiques mélangent actualité boursière traditionnelle, sport et tech, sans lien direct avec un mouvement massif de baleines crypto.\"\n}\n```",
+      "ts": "2026-09-12T18:23:12.105780+00:00"
     }
   ]
 }

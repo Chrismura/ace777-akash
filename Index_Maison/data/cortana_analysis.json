@@ -1,20 +1,50 @@
 {
-  "timestamp": 1789234509,
-  "date": "2026-09-12T17:35:09.533278+00:00",
-  "n_analyses": 2,
+  "timestamp": 1789237810,
+  "date": "2026-09-12T18:30:10.592748+00:00",
+  "n_analyses": 3,
   "analyses": [
     {
       "signal": {
+        "metric": "liquidations",
+        "zscore": -2.3759970312177083,
+        "value": 3029271.0,
+        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Divergence massive : les médias grand public crient au 'short squeeze' et à la hausse portée par des centaines de millions de liquidations spéculatives, alors que le z-score on-chain (-2.38) prouve un volume de liquidation réel anémiqué. Piège à liquidité haussier orchestré.\"\n}\n```",
+        "ts": 1789236783.649261
+      },
+      "fiche": null,
+      "interpretation": {
+        "lecture": "Pas de fiche disponible",
+        "niveau": "inconnu"
+      },
+      "action": "Observer"
+    },
+    {
+      "signal": {
+        "metric": "taker_ratio",
+        "zscore": -3.0693260354413243,
+        "value": 0.492,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Taker ratio extrêmement bas (z-score -3.07) indique une domination massive des acheteurs passifs (ordres limite), absorbant la pression vendeuse dans un silence médiatique total. Divergence classique d'accumulation discrète par les baleines avant un retournement haussier.\"\n}\n```",
+        "ts": 1789236784.821638
+      },
+      "fiche": null,
+      "interpretation": {
+        "lecture": "Pas de fiche disponible",
+        "niveau": "inconnu"
+      },
+      "action": "Observer"
+    },
+    {
+      "signal": {
         "metric": "volume",
-        "zscore": -2.9110866363826013,
-        "value": 4595289359.0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Volume spot crypto en forte hausse (+19%) mais z-score négatif (-2.91) suggère une accumulation discrète. Les médias focalisent sur des sujets périphériques (OL, CAC40, Afrique) plutôt que sur le rebond crypto, indiquant un décalage suspect.\"\n}\n```",
-        "ts": 1789233469.702837
+        "zscore": -2.488987428211483,
+        "value": 4138801160.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score -2.49) sur un bruit de fond non pertinent : les titres médiatiques mélangent actualité boursière traditionnelle, sport et tech, sans lien direct avec un mouvement massif de baleines crypto.\"\n}\n```",
+        "ts": 1789237392.10578
       },
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.08,
+          "value": 0.0,
           "seuil": 1,
           "depasse": false
         },
@@ -24,12 +54,12 @@
           "depasse": false
         },
         "funding": {
-          "value": 6.1e-05,
+          "value": 6.2e-05,
           "seuil": 0.001,
           "depasse": false
         },
         "whales": {
-          "value": 0,
+          "value": 1,
           "seuil": 5,
           "depasse": false
         }
@@ -42,21 +72,6 @@
       },
       "action": "Réduire taille de 50%, sortir des positions fragiles",
       "niveau": "dangereux"
-    },
-    {
-      "signal": {
-        "metric": "whale_usd",
-        "zscore": 3.8573426239020963,
-        "value": 5217247.0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Significant whale activity (z-score 3.86) contrasts with neutral media narrative, suggesting accumulation phase.\"\n}\n```",
-        "ts": 1789233772.573097
-      },
-      "fiche": null,
-      "interpretation": {
-        "lecture": "Pas de fiche disponible",
-        "niveau": "inconnu"
-      },
-      "action": "Observer"
     }
   ],
   "resume": "🔴 DANGER détecté — réduire les expositions"
