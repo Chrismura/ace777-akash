@@ -1,35 +1,20 @@
 {
-  "timestamp": 1789172399,
-  "date": "2026-09-12T00:19:59.275459+00:00",
-  "n_analyses": 3,
+  "timestamp": 1789176000,
+  "date": "2026-09-12T01:20:00.890846+00:00",
+  "n_analyses": 2,
   "analyses": [
     {
       "signal": {
-        "metric": "whale_usd",
-        "zscore": 2.675383756942365,
-        "value": 2865515.0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Activité anormale des baleines (z-score 2.68, ~2.86M USD) totalement ignorée par les médias (silence radio de Google Actualités). Accumulation furtive typique en bas de canal ou avant cassure.\"\n}\n```",
-        "ts": 1789171246.233464
-      },
-      "fiche": null,
-      "interpretation": {
-        "lecture": "Pas de fiche disponible",
-        "niveau": "inconnu"
-      },
-      "action": "Observer"
-    },
-    {
-      "signal": {
         "metric": "sdi",
-        "zscore": -5.471613897523356,
-        "value": 0.012,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Fausse alerte. Le signal 'SDI' capté ici fait référence à une organisation patronale française (Syndicat des Indépendants) et à du matériel vidéo (Blackmagic SDI), sans aucun rapport avec la blockchain ou des mouvements de baleines crypto.\"\n}\n```",
-        "ts": 1789171848.901717
+        "zscore": -3.7601899811815485,
+        "value": 0.004,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Fausse alerte liée à une homonymie. Le 'SDI' des médias fait référence au 'Syndicat des Indépendants' (Marc Sanchez) et à du matériel vidéo (Blackmagic), sans aucun rapport avec la crypto ou des mouvements de baleines on-chain.\"\n}\n```",
+        "ts": 1789175462.568715
       },
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": 0.08,
+          "value": 0.09,
           "seuil": 1,
           "depasse": false
         },
@@ -39,12 +24,12 @@
           "depasse": false
         },
         "funding": {
-          "value": 6.2e-05,
+          "value": 6.6e-05,
           "seuil": 0.001,
           "depasse": false
         },
         "whales": {
-          "value": 2,
+          "value": 0,
           "seuil": 5,
           "depasse": false
         }
@@ -61,10 +46,10 @@
     {
       "signal": {
         "metric": "fear_greed",
-        "zscore": 6.400467691977311,
+        "zscore": 4.795831523312722,
         "value": 63,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Données Google Actualités vides ou non significatives pour mesurer le narratif. Le Z-score élevé (6.40) indique une anomalie de sentiment (Greed 63), mais l'absence de contexte médiatique empêche de confirmer une divergence claire avec les mouvements des baleines.\"\n}\n```",
-        "ts": 1789171850.246636
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Z-score élevé (4.80) couplé à un Fear & Greed à 63 montrant une surchauffe locale du sentiment, mais absence de données de Google Actualités fournies pour confirmer la divergence.\"\n}\n```",
+        "ts": 1789175464.400392
       },
       "fiche": null,
       "interpretation": {
