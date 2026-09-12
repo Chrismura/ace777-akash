@@ -1,6 +1,6 @@
 {
   "version": "1.4.7",
-  "updated": "2026-09-12T22:18:05Z",
+  "updated": "2026-09-12T22:44:56Z",
   "fichier": [
     {
       "nom": "hulk-mexc/scripts/paper_diprip.py",
@@ -639,6 +639,14 @@
       "verif": "COMPILE OK + spec figée en docstring, scellé AVANT tout run",
       "auto_modifiable": false,
       "md5": "d76c2c179e4ac078be8f3efaf24cb3e2"
+    },
+    {
+      "nom": "Index_Maison/scripts/v2_confirmation_live.py",
+      "role": "Moteur LIVE papier V2-CONFIRMATION (GO Christophe 13/09 : « un vrai run testé, en live ») — spec = scellé replay d76c2c17, boucle 5 min, entrée décision 00h00 UTC, sorties mesurées, zéro ordre, produits v2conf_etat.json / v2conf_log.jsonl / v2conf_trades.jsonl",
+      "origine": "Buffy (dossier DOSSIER_DE_VOTE_V2_CONFIRMATION_20260912.md §3, inchangé)",
+      "verif": "Re-scellé : fix acquisition n°2 (pagination 2×1000 bougies 1d — plafond API) — règles spec d76c2c17 inchangées, 0 trade à ce jour",
+      "auto_modifiable": false,
+      "md5": "5aff1f84bb4aa5066d7f8e9e736b73b1"
     }
   ]
 }
