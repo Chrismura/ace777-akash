@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "price_1h",
-      "zscore": 3.628526232406274,
-      "value": 0.8738000715486915,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de prix significative (Z-score 3.63) couplée à un silence médiatique absolu. Les baleines accumulent ou provoquent un mouvement brusque sans éveiller l'attention du retail, signalant une rupture imminente du statu quo.\"\n}\n```",
-      "ts": "2026-09-11T15:52:44.142425+00:00"
-    },
-    {
       "metric": "liquidations",
       "zscore": 3.2627031060993876,
       "value": 4992270.0,
@@ -349,6 +342,13 @@
       "value": 63,
       "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 78,\n  \"reason\": \"Le score Z élevé (2.24) et la cupidité (63) contrastent fortement avec l'absence totale de couverture médiatique notable (Google Actualités vide). Ce silence médiatique combiné à une euphorie locale suggère une phase de distribution discrète par les baleines avant un retournement de tendance.\"\n}\n```",
       "ts": "2026-09-12T04:12:16.176427+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 2.0816659994661326,
+      "value": 63,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 75,\n  \"reason\": \"Fear_greed z-score élevé (2.08) indique une accumulation discrète malgré un narratif médiatique neutre (Google Actualités). Divergence classique baleines vs retail.\"\n}\n```",
+      "ts": "2026-09-12T04:42:24.657117+00:00"
     }
   ]
 }
