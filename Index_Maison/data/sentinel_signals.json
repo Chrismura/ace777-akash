@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "volume",
-      "zscore": 2.024374407887186,
-      "value": 16042530661.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 78,\n  \"reason\": \"Z-score significatif (2.02) pour un volume de 16B+, contrastant avec un narratif médiatique généraliste focalisé sur la baisse des marchés traditionnels et les volumes annuels en baisse de Robinhood. Accumulation silencieuse des institutionnels en décalage avec le pessimisme ambiant.\"\n}\n```",
-      "ts": "2026-09-11T20:14:36.856376+00:00"
-    },
-    {
-      "metric": "whale_usd",
-      "zscore": 2.836853523666981,
-      "value": 2848689.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 2.84, ~2.85M USD) en absence totale de couverture médiatique (silence radio sur Google Actualités). Accumulation furtive classique des baleines loin du bruit de fond.\"\n}\n```",
-      "ts": "2026-09-11T20:14:38.134161+00:00"
-    },
-    {
       "metric": "liquidations",
       "zscore": 2.658653985566401,
       "value": 6087662.0,
@@ -349,6 +335,20 @@
       "value": 8316976072.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-4.82) combiné à un effondrement des volumes traditionnels et un narratif généraliste apathique. Les baleines accumulent dans le silence absolu pendant que le marché de détail ignore l'actif, configuration classique de pré-cassure haussière.\"\n}\n```",
       "ts": "2026-09-12T14:13:21.247837+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": -4.545870189543214,
+      "value": 7156879174.0,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 92,\n  \"reason\": \"Anomalie onchain critique : effondrement massif du volume (z-score -4.55). Le narratif médiatique généraliste est totalement déconnecté et évoque des hausses de volume hors-sujet (macro, sport, Afrique). Silence radio des baleines, assèchement de la liquidité présageant un piège baissier (bull trap) ou une forte volatilité imminente.\"\n}\n```",
+      "ts": "2026-09-12T14:44:00.578394+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": -3.918767156476185,
+      "value": 6763510890.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique non pertinente : les gros volumes mentionnés dans l'actualité concernent la macroéconomie (conteneurs US) et les marchés traditionnels (CAC 40, OL), sans lien direct avec un actif crypto spécifique malgré le z-score onchain négatif.\"\n}\n```",
+      "ts": "2026-09-12T15:14:06.808577+00:00"
     }
   ]
 }
