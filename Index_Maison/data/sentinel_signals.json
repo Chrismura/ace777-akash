@@ -1,34 +1,6 @@
 {
   "signals": [
     {
-      "metric": "dust",
-      "zscore": 2.062675345312193,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit de fond médiatique dominé par la culture et le cinéma, sans corrélation on-chain significative avec l'activité réelle des baleines sur le token DUST.\"\n}\n```",
-      "ts": "2026-09-12T02:36:46.906190+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": -2.605230211947558,
-      "value": 0.004,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Anomalie technique liée à une homonymie lexicale ('SDI' : protocole crypto vs Syndicat des Indépendants et matériel vidéo). Aucune activité de baleine détectée.\"\n}\n```",
-      "ts": "2026-09-12T02:41:49.049658+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": 2.932575659723037,
-      "value": 63,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Données incomplètes : l'absence de titres médiatiques concrets dans le flux Google Actualités empêche de valider une divergence claire malgré un z-score de sentiment élevé (2.93).\"\n}\n```",
-      "ts": "2026-09-12T02:41:50.262988+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": -2.388813219368326,
-      "value": 0.004,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Fausse alerte liée à une homonymie. L'indicateur on-chain 'SDI' est confondu avec le syndicat patronal français 'SDI' (Syndicat des Indépendants) et du matériel vidéo (SDI Expander). Aucune baleine crypto active.\"\n}\n```",
-      "ts": "2026-09-12T03:12:03.107099+00:00"
-    },
-    {
       "metric": "fear_greed",
       "zscore": 2.6457513110645903,
       "value": 63,
@@ -349,6 +321,34 @@
       "value": 1587729.0,
       "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Divergence majeure : les médias parlent de 'centaines de millions de liquidations de shorts' et de hausse euphorique, tandis que le z-score onchain (-2.73) révèle un volume de liquidation quasi nul (1.5M$). C'est un piège à liquidité orchestré ; les baleines ne soutiennent pas la hausse et distribuent silencieusement face au narratif retail surexcité.\"\n}\n```",
       "ts": "2026-09-12T21:29:27.790573+00:00"
+    },
+    {
+      "metric": "taker_ratio",
+      "zscore": 2.4272382265532633,
+      "value": 1.474,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio élevé (z-score 2.43) indique une domination agressive des acheteurs (Taker Buy) sur le marché des dérivés. L'absence totale de couverture médiatique (Google Actualités muet) prouve une accumulation silencieuse des baleines sous le radar, loin de l'euphorie du retail.\"\n}\n```",
+      "ts": "2026-09-12T21:44:34.508746+00:00"
+    },
+    {
+      "metric": "price_1h",
+      "zscore": 2.594757902698606,
+      "value": 0.14797948397919924,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.59) couplé à un silence médiatique total (Google Actualités vide). C'est la signature classique d'accumulation furtive par les baleines avant que le retail ne découvre le mouvement.\"\n}\n```",
+      "ts": "2026-09-12T21:54:44.825582+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": -2.47823389682944,
+      "value": 1595604.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-2.48) sur les liquidations onchain montrant un calme absolu, contredisant totalement le narratif médiatique de vent de panique/liquidations massives (266M$-427M$). Les baleines nettoient les shorts en silence sans volatilité excessive réelle.\"\n}\n```",
+      "ts": "2026-09-12T21:59:47.233713+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": -2.639699312367279,
+      "value": 1125247.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Divergence extrême : les médias crient au massacre des shorts (centaines de millions de liquidations globales), mais l'anomalie on-chain montre un volume de liquidations réel quasi nul (Z-score -2.64, ~1.1M$). Piège à liquidité haussier orchestré par les baleines pour piéger les acheteurs tardifs avant un mouvement inverse.\"\n}\n```",
+      "ts": "2026-09-12T22:29:54.150467+00:00"
     }
   ]
 }
