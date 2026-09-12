@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-12T00:17:28.704028+00:00",
+  "generated_at": "2026-09-12T00:22:01.477615+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -71,7 +71,7 @@
       "model": "nvidia/nemotron-3-super-120b-a12b:free",
       "enabled": true,
       "timeout": 120,
-      "calls_24h": 40
+      "calls_24h": 41
     },
     {
       "id": "grok",
@@ -274,10 +274,18 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 4,
-    "remaining": 620
+    "consumed": 5,
+    "remaining": 619
   },
   "queue": [
+    {
+      "ts": "2026-09-12T00:18:31.037275+00:00",
+      "task": "analyste.strategie",
+      "provider": "openrouter-juge",
+      "model": "nvidia/nemotron-3-super-120b-a12b:free",
+      "kind": "cloud",
+      "duration_s": 29.9
+    },
     {
       "ts": "2026-09-12T00:11:42.305017+00:00",
       "task": "analyste.strategie",
@@ -389,76 +397,68 @@
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
       "duration_s": 0.85
-    },
-    {
-      "ts": "2026-09-11T20:34:52.412870+00:00",
-      "task": "analyse.profonde",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 0.85
     }
   ],
   "events": [
     {
-      "ts": "2026-09-12T00:11:42.304434+00:00",
+      "ts": "2026-09-12T00:18:31.036986+00:00",
       "kind": "message",
       "title": "« OpenRouter Juge (nemotron-3-super-120b free) - verificateur independant » a repondu",
       "detail": "bascule"
     },
     {
-      "ts": "2026-09-12T00:11:42.303609+00:00",
+      "ts": "2026-09-12T00:18:31.036621+00:00",
       "kind": "filet-universel",
       "title": "[FILET UNIVERSEL] « OpenRouter Juge (nemotron-3-super-120b free) - verificateur independant » a repondu hors chaine",
       "detail": "analyste.strategie"
     },
     {
-      "ts": "2026-09-12T00:11:08.719471+00:00",
+      "ts": "2026-09-12T00:18:01.136047+00:00",
       "kind": "failover",
       "title": "Bascule depuis OrcaRouter (routeur gratuit, modele orcarouter/free)",
       "detail": "HTTP Error 400: Bad Request"
     },
     {
-      "ts": "2026-09-12T00:11:07.318782+00:00",
+      "ts": "2026-09-12T00:17:59.933493+00:00",
       "kind": "failover",
       "title": "Bascule depuis HuggingFace (136+ modeles, dont DeepSeek-V4)",
       "detail": "HTTP Error 400: Bad Request"
     },
     {
-      "ts": "2026-09-12T00:11:02.042350+00:00",
+      "ts": "2026-09-12T00:17:55.521167+00:00",
       "kind": "timeout",
       "title": "Patience HuggingFace (136+ modeles, dont DeepSeek-V4) (HTTP 400)",
       "detail": "HTTP Error 400: Bad Request"
     },
     {
-      "ts": "2026-09-12T00:11:00.775983+00:00",
-      "kind": "blacklist",
-      "title": "Fin de pause HuggingFace (136+ modeles, dont DeepSeek-V4)",
-      "detail": "re-essai automatique"
-    },
-    {
-      "ts": "2026-09-12T00:11:00.770572+00:00",
+      "ts": "2026-09-12T00:17:54.205587+00:00",
       "kind": "failover",
       "title": "Bascule depuis Groq (LLM ultra-rapide, gratuit)",
       "detail": "HTTP Error 400: Bad Request"
     },
     {
-      "ts": "2026-09-12T00:10:57.037965+00:00",
+      "ts": "2026-09-12T00:17:50.510561+00:00",
       "kind": "timeout",
       "title": "Patience Groq (LLM ultra-rapide, gratuit) (HTTP 400)",
       "detail": "HTTP Error 400: Bad Request"
     },
     {
-      "ts": "2026-09-12T00:10:56.380721+00:00",
-      "kind": "blacklist",
-      "title": "Fin de pause Groq (LLM ultra-rapide, gratuit)",
-      "detail": "re-essai automatique"
-    },
-    {
-      "ts": "2026-09-12T00:10:56.379124+00:00",
+      "ts": "2026-09-12T00:17:49.955682+00:00",
       "kind": "failover",
       "title": "Bascule depuis Google Gemini",
       "detail": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "ts": "2026-09-12T00:17:49.955347+00:00",
+      "kind": "ratelimit",
+      "title": "429 Google Gemini -> pause 60s + bascule",
+      "detail": ""
+    },
+    {
+      "ts": "2026-09-12T00:17:49.111003+00:00",
+      "kind": "blacklist",
+      "title": "Fin de pause Google Gemini",
+      "detail": "re-essai automatique"
     }
   ],
   "tasks_quotas": {
