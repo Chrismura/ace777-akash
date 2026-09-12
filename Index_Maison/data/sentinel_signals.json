@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "liquidations",
-      "zscore": 3.2627031060993876,
-      "value": 4992270.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Forte divergence : le narratif médiatique grand public confond des liquidations d'entreprises traditionnelles locales avec le marché crypto, tandis que le z-score onchain (3.26) indique un flush des positions dérivées. Les baleines profitent de cette panique médiatique artificielle pour accumuler en silence.\"\n}\n```",
-      "ts": "2026-09-11T16:02:50.497688+00:00"
-    },
-    {
-      "metric": "long_short",
-      "zscore": -2.585985813095135,
-      "value": 1.419,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Z-score extrêmement bas (-2.59) indiquant une capitulation des positions short ou un positionnement contrarien massif des baleines (Long/Short à 1.419), totalement ignoré par les médias généralistes qui relayent un narratif baissier obsolète ou externe (Cardano, fiscalité).\"\n}\n```",
-      "ts": "2026-09-11T16:08:26.459525+00:00"
-    },
-    {
       "metric": "volume",
       "zscore": 3.5196503590226684,
       "value": 15270468789.0,
@@ -349,6 +335,20 @@
       "value": 63,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 75,\n  \"reason\": \"Fear_greed z-score élevé (2.08) indique une accumulation discrète malgré un narratif médiatique neutre (Google Actualités). Divergence classique baleines vs retail.\"\n}\n```",
       "ts": "2026-09-12T04:42:24.657117+00:00"
+    },
+    {
+      "metric": "cpfp",
+      "zscore": 2.242325288383928,
+      "value": 50.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Bruit de fond absolu. L'anomalie 'cpfp' détectée correspond à des homonymes institutionnels et éducatifs sans aucun rapport avec la crypto ou l'activité de baleines.\"\n}\n```",
+      "ts": "2026-09-12T06:17:38.542837+00:00"
+    },
+    {
+      "metric": "dust",
+      "zscore": 2.242325288383928,
+      "value": 50.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique parasité par du cinéma et de la littérature sans lien avec la crypto. L'anomalie 'dust' (z-score 2.24) reflète un nettoyage mineur de wallets ou du bruit de fond on-chain, sans accumulation significative de baleines.\"\n}\n```",
+      "ts": "2026-09-12T06:17:40.252220+00:00"
     }
   ]
 }
