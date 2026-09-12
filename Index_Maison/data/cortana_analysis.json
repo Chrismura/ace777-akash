@@ -1,20 +1,20 @@
 {
-  "timestamp": 1789220052,
-  "date": "2026-09-12T13:34:12.169040+00:00",
-  "n_analyses": 2,
+  "timestamp": 1789223653,
+  "date": "2026-09-12T14:34:13.436853+00:00",
+  "n_analyses": 1,
   "analyses": [
     {
       "signal": {
         "metric": "volume",
-        "zscore": -3.403296296998431,
-        "value": 10846522768.0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-3.40) sur les volumes bruts malgré la hausse médiatique du spot. Asymétrie classique : les baleines assèchent la liquidité publique avant un mouvement directionnel majeur.\"\n}\n```",
-        "ts": 1789218788.741071
+        "zscore": -4.821854348626637,
+        "value": 8316976072.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-4.82) combiné à un effondrement des volumes traditionnels et un narratif généraliste apathique. Les baleines accumulent dans le silence absolu pendant que le marché de détail ignore l'actif, configuration classique de pré-cassure haussière.\"\n}\n```",
+        "ts": 1789222401.247837
       },
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.07,
+          "value": 0.08,
           "seuil": 1,
           "depasse": false
         },
@@ -24,12 +24,12 @@
           "depasse": false
         },
         "funding": {
-          "value": 4.1e-05,
+          "value": 4.4e-05,
           "seuil": 0.001,
           "depasse": false
         },
         "whales": {
-          "value": 3,
+          "value": 2,
           "seuil": 5,
           "depasse": false
         }
@@ -42,21 +42,6 @@
       },
       "action": "Réduire taille de 50%, sortir des positions fragiles",
       "niveau": "dangereux"
-    },
-    {
-      "signal": {
-        "metric": "whale_usd",
-        "zscore": 3.297630813794802,
-        "value": 4167341.0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 3.30) avec un volume de $4.1M sans couverture médiatique (Google Actualités vide). C'est un mouvement furtif classique de baleines accumulant en silence avant que le narratif public ne se forme.\"\n}\n```",
-        "ts": 1789219691.792756
-      },
-      "fiche": null,
-      "interpretation": {
-        "lecture": "Pas de fiche disponible",
-        "niveau": "inconnu"
-      },
-      "action": "Observer"
     }
   ],
   "resume": "🔴 DANGER détecté — réduire les expositions"
