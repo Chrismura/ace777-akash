@@ -1,30 +1,15 @@
 {
-  "timestamp": 1789238110,
-  "date": "2026-09-12T18:35:10.701518+00:00",
+  "timestamp": 1789241711,
+  "date": "2026-09-12T19:35:11.852516+00:00",
   "n_analyses": 3,
   "analyses": [
     {
       "signal": {
         "metric": "liquidations",
-        "zscore": -2.3759970312177083,
-        "value": 3029271.0,
-        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Divergence massive : les médias grand public crient au 'short squeeze' et à la hausse portée par des centaines de millions de liquidations spéculatives, alors que le z-score on-chain (-2.38) prouve un volume de liquidation réel anémiqué. Piège à liquidité haussier orchestré.\"\n}\n```",
-        "ts": 1789236783.649261
-      },
-      "fiche": null,
-      "interpretation": {
-        "lecture": "Pas de fiche disponible",
-        "niveau": "inconnu"
-      },
-      "action": "Observer"
-    },
-    {
-      "signal": {
-        "metric": "taker_ratio",
-        "zscore": -3.0693260354413243,
-        "value": 0.492,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Taker ratio extrêmement bas (z-score -3.07) indique une domination massive des acheteurs passifs (ordres limite), absorbant la pression vendeuse dans un silence médiatique total. Divergence classique d'accumulation discrète par les baleines avant un retournement haussier.\"\n}\n```",
-        "ts": 1789236784.821638
+        "zscore": -2.3360782367225186,
+        "value": 3001466.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Divergence extrême : les médias hurlent des liquidations massives de 'short' (panique acheteuse de surface), mais l'anomalie on-chain montre un volume de liquidation quasi nul (z-score -2.34). Piège à liquidité haussier orchestré par les baleines pour piéger les acheteurs tardifs avant un mouvement inverse.\"\n}\n```",
+        "ts": 1789240712.041645
       },
       "fiche": null,
       "interpretation": {
@@ -36,15 +21,15 @@
     {
       "signal": {
         "metric": "volume",
-        "zscore": -2.488987428211483,
-        "value": 4138801160.0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score -2.49) sur un bruit de fond non pertinent : les titres médiatiques mélangent actualité boursière traditionnelle, sport et tech, sans lien direct avec un mouvement massif de baleines crypto.\"\n}\n```",
-        "ts": 1789237392.10578
+        "zscore": -2.173872199307523,
+        "value": 3932367361.0,
+        "analysis": "**Analyse de la divergence**\n\n- **Données on‑chain** : volume = 3 932 367 361 (z‑score = ‑2,17).  \n  Un z‑score négatif important indique que le volume observé est bien en dessous de la moyenne historique ; cela peut refléter une réduction d’activité ou un déplacement de liquidités hors du marché visible (ex. : baleines qui retirent ou déplacent des fonds de façon discrète).\n\n- **Narratif médiatique** : parmi les titres, seul le dernier (« Le volume spot crypto bondit de 19 % à 510 milliards de dollars en août ») parle de crypto et décrit une hausse massive du volume. Les autres titres portent sur le CAC 40, le sport ou la culture et ne sont pas pertinents pour l’on‑chain crypto.\n\n- **Divergence** : le marché réel montre un **déclin du volume** (z‑score négatif), alors que les médias mettent en avant une **hausse spectaculaire du volume spot**. Cette contradiction suggère que les acteurs institutionnels ou les « baleines » pourraient opérer en silence, retirant ou redistribuant des fonds sans que cela ne soit reflété dans le discours public.\n\n- **Interprétation** : le narratif médiatique est **déconnecté de la réalité on‑chain**. La perception d’un marché haussier est donc probablement biaisée, tandis que les données indiquent une pression baissière ou une consolidation orchestrée par de gros acteurs.\n\n---\n\n```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 80,\n  \"reason\": \"Divergence entre l'anomalie on‑chain (volume nettement en dessous de la moyenne, z‑score -2,17) suggérant un retrait ou un déplacement discret de liquidités, et le narratif médiatique qui met en avant une forte hausse du volume crypto. Le décalage indique que les baleines pourraient agir silencieusement tandis que les médias restent optimistes.\"\n}\n```",
+        "ts": 1789241022.870778
       },
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.06,
+          "value": -0.02,
           "seuil": 1,
           "depasse": false
         },
@@ -54,12 +39,12 @@
           "depasse": false
         },
         "funding": {
-          "value": 6.3e-05,
+          "value": 5.9e-05,
           "seuil": 0.001,
           "depasse": false
         },
         "whales": {
-          "value": 0,
+          "value": 4,
           "seuil": 5,
           "depasse": false
         }
@@ -72,6 +57,21 @@
       },
       "action": "Réduire taille de 50%, sortir des positions fragiles",
       "niveau": "dangereux"
+    },
+    {
+      "signal": {
+        "metric": "whale_usd",
+        "zscore": 21.255268769517563,
+        "value": 25962944.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 95,\n  \"reason\": \"Anomalie onchain extrême (z-score 21.26, ~26M USD) totalement ignorée par les médias (silence radio de Google Actualités). Accumulation furtive classique des baleines loin du radar public.\"\n}\n```",
+        "ts": 1789241324.672699
+      },
+      "fiche": null,
+      "interpretation": {
+        "lecture": "Pas de fiche disponible",
+        "niveau": "inconnu"
+      },
+      "action": "Observer"
     }
   ],
   "resume": "🔴 DANGER détecté — réduire les expositions"

@@ -1,10 +1,11 @@
 {
-  "ts": "2026-09-12T18:35+00:00",
-  "updated": "2026-09-12T18:35Z",
+  "ts": "2026-09-12T19:35+00:00",
+  "updated": "2026-09-12T19:35Z",
   "etat": "ALERTE",
-  "chaines_ok": "14/15",
+  "chaines_ok": "13/15",
   "anomalies": [
-    "BALEINES coupée : scan file"
+    "BALEINES coupée : scan file",
+    "SAPI : sdi_latest.json figé — la pépite poussière institutionnelle ne tourne plus"
   ],
   "degradees": [],
   "chaines": [
@@ -27,12 +28,12 @@
         {
           "nom": "scan file",
           "ok": false,
-          "detail": "âge 314 min"
+          "detail": "âge 374 min"
         },
         {
           "nom": "mouvements (events)",
           "ok": true,
-          "detail": "dernier événement il y a 314 min"
+          "detail": "dernier événement il y a 374 min"
         },
         {
           "nom": "→ live.json.onchain",
@@ -42,12 +43,12 @@
         {
           "nom": "→ Ada gardienne",
           "ok": true,
-          "detail": "voilure 88.7 · zone VERT"
+          "detail": "voilure 90.8 · zone VERT"
         },
         {
           "nom": "→ Cortana feed",
           "ok": true,
-          "detail": "âge 2 min"
+          "detail": "âge 4 min"
         }
       ]
     },
@@ -83,7 +84,7 @@
         {
           "nom": "aspiration runtime",
           "ok": true,
-          "detail": "mode fichier · JSON · âge ts 0.9 min · écart mtime/ts 0.2s · 11 paire(s) · btc=OK · ts=croissant"
+          "detail": "mode fichier · JSON · âge ts 0.5 min · écart mtime/ts 0.4s · 11 paire(s) · btc=OK · ts=croissant"
         },
         {
           "nom": "corrélation BTC",
@@ -98,7 +99,7 @@
         {
           "nom": "cortana_pilot.json",
           "ok": true,
-          "detail": "âge 770 min"
+          "detail": "âge 831 min"
         },
         {
           "nom": "cortana_analysis.json",
@@ -116,7 +117,7 @@
         {
           "nom": "live.json",
           "ok": true,
-          "detail": "âge 2 min"
+          "detail": "âge 4 min"
         },
         {
           "nom": "mission.json → cockpit",
@@ -144,7 +145,7 @@
         {
           "nom": "cpfp_detect.json",
           "ok": true,
-          "detail": "âge 9 min"
+          "detail": "âge 1 min"
         },
         {
           "nom": "mode",
@@ -185,7 +186,7 @@
         {
           "nom": "geopol.ts frais",
           "ok": true,
-          "detail": "âge 0.0h"
+          "detail": "âge 0.1h"
         },
         {
           "nom": "modules OK",
@@ -226,7 +227,7 @@
         {
           "nom": "ada_saison_live.json",
           "ok": true,
-          "detail": "saison ACCUMULATION"
+          "detail": "saison CALME"
         },
         {
           "nom": "6 indices calculés",
@@ -351,12 +352,12 @@
       "id": "sapi",
       "nom": "SAPI POUSSIÈRE",
       "chemin": "silent_drain_index.compute_sdi (SAPI) → sdi_latest.json → thermo_quotidien → live.json.sapi → Cortana + cockpit",
-      "ok": true,
+      "ok": false,
       "maillons": [
         {
           "nom": "sdi_latest.json (SAPI dedans)",
-          "ok": true,
-          "detail": "âge 8 min"
+          "ok": false,
+          "detail": "âge 68 min"
         },
         {
           "nom": "SAPI calculé",
