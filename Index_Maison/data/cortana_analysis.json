@@ -1,20 +1,20 @@
 {
-  "timestamp": 1789230886,
-  "date": "2026-09-12T16:34:46.040222+00:00",
-  "n_analyses": 1,
+  "timestamp": 1789234509,
+  "date": "2026-09-12T17:35:09.533278+00:00",
+  "n_analyses": 2,
   "analyses": [
     {
       "signal": {
         "metric": "volume",
-        "zscore": -3.4075257642668806,
-        "value": 5477979944.0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score -3.41) sur un volume global, mais les titres médiatiques parlent du sport (OL), de la macroéconomie traditionnelle (CAC 40, importations) et de données sans rapport direct avec une baleine crypto spécifique. Absence de signal on-chain exploitable.\"\n}\n```",
-        "ts": 1789229680.662223
+        "zscore": -2.9110866363826013,
+        "value": 4595289359.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Volume spot crypto en forte hausse (+19%) mais z-score négatif (-2.91) suggère une accumulation discrète. Les médias focalisent sur des sujets périphériques (OL, CAC40, Afrique) plutôt que sur le rebond crypto, indiquant un décalage suspect.\"\n}\n```",
+        "ts": 1789233469.702837
       },
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": 0.0,
+          "value": -0.08,
           "seuil": 1,
           "depasse": false
         },
@@ -24,12 +24,12 @@
           "depasse": false
         },
         "funding": {
-          "value": 5.4e-05,
+          "value": 6.1e-05,
           "seuil": 0.001,
           "depasse": false
         },
         "whales": {
-          "value": 1,
+          "value": 0,
           "seuil": 5,
           "depasse": false
         }
@@ -42,6 +42,21 @@
       },
       "action": "Réduire taille de 50%, sortir des positions fragiles",
       "niveau": "dangereux"
+    },
+    {
+      "signal": {
+        "metric": "whale_usd",
+        "zscore": 3.8573426239020963,
+        "value": 5217247.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Significant whale activity (z-score 3.86) contrasts with neutral media narrative, suggesting accumulation phase.\"\n}\n```",
+        "ts": 1789233772.573097
+      },
+      "fiche": null,
+      "interpretation": {
+        "lecture": "Pas de fiche disponible",
+        "niveau": "inconnu"
+      },
+      "action": "Observer"
     }
   ],
   "resume": "🔴 DANGER détecté — réduire les expositions"
