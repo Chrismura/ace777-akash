@@ -101,10 +101,11 @@ INDICE_SELF_KEY = {
     "pipeline_health": "global_score",
     # GEOPOL-C2 (GO Christophe 12/09) : PAS de self-key pour geopol —
     # l'ancien "geopol": "score" pointait la série du score CLIMAT (autre instrument !)
-    # et history.jsonl ne porte aucune série numérique geopol.
-    # → avis geopol noté vs BTC (mouvement 24h) tant qu'aucune série dédiée n'existe,
-    # comme sdi/ipt/onchain avant leur série. Auto-vérif à activer le jour où le thermo
-    # écrira une clé numérique geopol dans history.jsonl.
+    # → avis geopol noté vs BTC (mouvement 24h), comme sdi/ipt/onchain avant leur série.
+    # GEOPOL-C3 (GO Christophe 12/09) : le thermo écrit désormais geopolScore (scalaire 0-1)
+    # dans history.jsonl (backpatch « CORRECTION 29/08 » complété) → self-key réactivée
+    # sur CETTE clé dédiée (auto-vérification du score géopolitique, pas du climat).
+    "geopol": "geopolScore",
 }
 
 

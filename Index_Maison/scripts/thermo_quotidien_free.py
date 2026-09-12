@@ -1116,6 +1116,14 @@ def main() -> int:
                 try:
                     last = json.loads(bpt[-1])
                     last["geopol"] = payload["geopol"]
+                    # GEOPOL-C3 (GO Christophe 12/09) : série SCALAIRE pour le scoreur.
+                    # value_at() du scoreur n'accepte qu'un nombre (float(v)) — le dict
+                    # ci-dessus est muet pour lui depuis le 29/08. geopolScore = le chiffre
+                    # brut du score (0-1). Clé dédiée : ne chevauche PAS "score" (le score
+                    # climat, autre instrument — cf. bug C2 corrigé ce matin).
+                    _gs = payload["geopol"].get("score")
+                    if isinstance(_gs, (int, float)):
+                        last["geopolScore"] = float(_gs)
                     bpt[-1] = json.dumps(last, ensure_ascii=False)
                     hist_path.write_text("\n".join(bpt) + "\n", encoding="utf-8")
                 except Exception:

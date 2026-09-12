@@ -2,20 +2,6 @@
   "signals": [
     {
       "metric": "volume",
-      "zscore": 2.389695971905176,
-      "value": 15838083819.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Z-score modéré (2.39) sur un volume global, mais le bruit médiatique macro/tech est totalement déconnecté de l'on-chain crypto spécifique. Pas de signal clair d'accumulation ou de distribution silencieuse de baleines détectable dans ce flux.\"\n}\n```",
-      "ts": "2026-09-11T18:44:11.704293+00:00"
-    },
-    {
-      "metric": "liquidations",
-      "zscore": 3.9324261321462592,
-      "value": 6181880.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (3.93) sur des liquidations modestes et contraste médiatique extrême (entre panique macro et euphorie des shorts liquidés) : les baleines nettoient le carnet d'ordres des vendeurs à découvert pour initier une reprise en silence.\"\n}\n```",
-      "ts": "2026-09-11T18:44:13.503128+00:00"
-    },
-    {
-      "metric": "volume",
       "zscore": 2.2568919764552455,
       "value": 15920693354.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Le z-score élevé (2.26) indique une anomalie de volume, mais les titres médiatiques sont hétérogènes (CAC 40, Apple, macroéconomie) et manquent de focus spécifique sur l'actif analysé. Pas de divergence claire entre accumulation silencieuse et narratif grand public.\"\n}\n```",
@@ -349,6 +335,20 @@
       "value": 0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 90,\n  \"reason\": \"Anomalie onchain majeure : z-score des liquidations à -3.16 (zéro liquidation) malgré un narratif médiatique qui crie au massacre des positions short (266M$ à 427M$). Les médias grand public dramatisent un 'short squeeze' standard pour attirer le retail, alors que la volatilité est étouffée et que les smart money accumulent en silence sans secouer l'arbre.\"\n}\n```",
       "ts": "2026-09-12T11:12:43.219810+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 3.849849929559235,
+      "value": 4376151.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 3.85, flux de ~4.38M USD) dans un silence médiatique absolu (Google Actualités vide). Classique accumulation furtive de baleines loin du radar grand public.\"\n}\n```",
+      "ts": "2026-09-12T11:37:47.788199+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 2.892985290896289,
+      "value": 3527907.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 2.89) sur fond de silence médiatique complet (Google Actualités vide). Les baleines accumulent ou repositionnent des fonds en 'stealth mode' loin du radar retail.\"\n}\n```",
+      "ts": "2026-09-12T12:17:55.039976+00:00"
     }
   ]
 }
