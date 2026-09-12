@@ -1,20 +1,20 @@
 {
-  "timestamp": 1789183203,
-  "date": "2026-09-12T03:20:03.549971+00:00",
+  "timestamp": 1789186804,
+  "date": "2026-09-12T04:20:04.746662+00:00",
   "n_analyses": 2,
   "analyses": [
     {
       "signal": {
         "metric": "sdi",
-        "zscore": -2.388813219368326,
-        "value": 0.004,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Fausse alerte liée à une homonymie. L'indicateur on-chain 'SDI' est confondu avec le syndicat patronal français 'SDI' (Syndicat des Indépendants) et du matériel vidéo (SDI Expander). Aucune baleine crypto active.\"\n}\n```",
-        "ts": 1789182723.107099
+        "zscore": -2.044501234524879,
+        "value": 0.008,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Fausse alerte due à une homonymie : le 'SDI' des actualités fait référence au 'Syndicat des Indépendants' (Marc Sanchez) et à du matériel vidéo (Blackmagic), sans aucun rapport avec la crypto ou des mouvements de baleines on-chain.\"\n}\n```",
+        "ts": 1789186334.922575
       },
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.02,
+          "value": -0.0,
           "seuil": 1,
           "depasse": false
         },
@@ -24,7 +24,7 @@
           "depasse": false
         },
         "funding": {
-          "value": 6.6e-05,
+          "value": 5e-05,
           "seuil": 0.001,
           "depasse": false
         },
@@ -46,10 +46,10 @@
     {
       "signal": {
         "metric": "fear_greed",
-        "zscore": 2.6457513110645903,
+        "zscore": 2.2360679774997902,
         "value": 63,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Données incomplètes sur le narratif médiatique spécifique (Google Actualités sans gros titre saillant). L'indice de peur et de cupidité à 63 (cupidité modérée) avec un z-score élevé (2.65) montre une tension statistique, mais sans l'angle d'attaque des médias, impossible de confirmer une divergence claire avec les mouvements des baleines.\"\n}\n```",
-        "ts": 1789182724.46216
+        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 78,\n  \"reason\": \"Le score Z élevé (2.24) et la cupidité (63) contrastent fortement avec l'absence totale de couverture médiatique notable (Google Actualités vide). Ce silence médiatique combiné à une euphorie locale suggère une phase de distribution discrète par les baleines avant un retournement de tendance.\"\n}\n```",
+        "ts": 1789186336.176427
       },
       "fiche": null,
       "interpretation": {

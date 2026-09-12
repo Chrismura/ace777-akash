@@ -4530,3 +4530,13 @@
 - 2026-09-12T03:16:56.007588Z | alerte | ? | conf=?
 - 2026-09-12T03:18:57.215046Z | alerte | <une phrase claire> | conf=<0-100%>
 - 2026-09-12T03:21:06.948617Z | alerte | Autoriser le tir d'Alpha (engagement immédiat) tout en maintenant le stop-loss d'urgence sur CCUSDT, car Beta a fourni un signal technique clair (volume x3 confirmé sur BTCUSDT). | conf=90%
+- 2026-09-12T03:29:43.108621Z | alerte | ? | conf=?
+- 2026-09-12T03:45:41.906646Z | alerte | Maintenir la vigilance nominale, garder le stop‑loss d'urgence sur CCUSDT actif, laisser Alpha en embuscade en attendant un signal clair de Beta et poursuivre la gestion prudente des positions seeds de Hulk. | conf=90 %
+- 2026-09-12T03:50:17.910840Z | alerte | Maintenir la vigilance nominale, garder le stop‑loss d'urgence sur CCUSDT actif, laisser Alpha en embuscade en attendant un signal clair de Beta et poursuivre la gestion prudente des positions seeds de Hulk. | conf=90 %
+- 2026-09-12T03:50:53.473303Z | alerte | Maintenir la vigilance nominale, garder le stop‑loss d'urgence sur CCUSDT actif, laisser Alpha en embuscade en attendant un signal clair de Beta et poursuivre la gestion prudente des positions seeds de Hulk. | conf=90 %
+- 2026-09-12T04:01:46.848889Z | alerte | Maintenir la vigilance nominale, garder le stop‑loss d'urgence sur CCUSDT actif, laisser Alpha en embuscade en attendant un signal clair de Beta et poursuivre la gestion prudente des positions seeds de Hulk. | conf=90 %
+- 2026-09-12T04:01:47.101985Z | alerte | Maintenir la vigilance nominale, garder le stop‑loss d'urgence sur CCUSDT actif, laisser Alpha en embuscade en attendant un signal clair de Beta et poursuivre la gestion prudente des positions seeds de Hulk. | conf=90 %
+- 2026-09-12T04:17:20.749611Z | alerte | Maintenir la vigilance nominale, garder le stop‑loss d'urgence sur CCUSDT actif, laisser Alpha en embuscade en attendant un signal clair de Beta et poursuivre la gestion prudente des positions seeds de Hulk. | conf=90%
+- 2026-09-12T04:18:12.440990Z | alerte | Maintenir la vigilance nominale, garder le stop‑loss d'urgence actif sur CCUSDT, laisser Alpha en embuscade en attendant un signal clair de Beta et poursuivre la gestion prudente des positions seeds de Hulk. | conf=90%
+- 2026-09-12T04:19:06.942104Z | alerte | Maintenir la vigilance nominale, garder le stop‑loss d'urgence sur CCUSDT actif, laisser Alpha en embuscade en attendant un signal clair de Beta et poursuivre la gestion prudente des positions seeds de Hulk. | conf=90%
+- 2026-09-12T04:22:02.980176Z | alerte | Maintenir la vigilance nominale, garder le stop‑loss d'urgence sur CCUSDT actif, laisser Alpha en embuscade en attendant un signal clair de Beta et poursuivre la gestion prudente des positions seeds de Hulk. | conf=90%
