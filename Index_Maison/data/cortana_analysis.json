@@ -1,20 +1,20 @@
 {
-  "timestamp": 1789227254,
-  "date": "2026-09-12T15:34:14.918731+00:00",
+  "timestamp": 1789230886,
+  "date": "2026-09-12T16:34:46.040222+00:00",
   "n_analyses": 1,
   "analyses": [
     {
       "signal": {
         "metric": "volume",
-        "zscore": -3.918767156476185,
-        "value": 6763510890.0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique non pertinente : les gros volumes mentionnés dans l'actualité concernent la macroéconomie (conteneurs US) et les marchés traditionnels (CAC 40, OL), sans lien direct avec un actif crypto spécifique malgré le z-score onchain négatif.\"\n}\n```",
-        "ts": 1789226046.808577
+        "zscore": -3.4075257642668806,
+        "value": 5477979944.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score -3.41) sur un volume global, mais les titres médiatiques parlent du sport (OL), de la macroéconomie traditionnelle (CAC 40, importations) et de données sans rapport direct avec une baleine crypto spécifique. Absence de signal on-chain exploitable.\"\n}\n```",
+        "ts": 1789229680.662223
       },
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": 0.01,
+          "value": 0.0,
           "seuil": 1,
           "depasse": false
         },
@@ -24,7 +24,7 @@
           "depasse": false
         },
         "funding": {
-          "value": 5.1e-05,
+          "value": 5.4e-05,
           "seuil": 0.001,
           "depasse": false
         },

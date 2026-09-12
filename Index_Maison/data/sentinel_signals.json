@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "liquidations",
-      "zscore": 2.658653985566401,
-      "value": 6087662.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Divergence massive : les médias généralistes et certains sites crypto paniquent sur l'inflation ou confondent des liquidations judiciaires locales, tandis que le z-score onchain (2.66) et les données brutes montrent un 'short squeeze' imminent de 6M$ purgé rapidement, piégeant les baissiers.\"\n}\n```",
-      "ts": "2026-09-11T20:14:39.652334+00:00"
-    },
-    {
-      "metric": "cpfp",
-      "zscore": 2.04352628556186,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie technique liée au ticker 'CPFP' (Child-Pays-For-Parent Bitcoin ou homonyme d'institutions éducatives locales) sans aucun rapport avec une activité de baleine crypto ou un narratif financier pertinent.\"\n}\n```",
-      "ts": "2026-09-11T20:34:52.414209+00:00"
-    },
-    {
       "metric": "dust",
       "zscore": 2.04352628556186,
       "value": 50.0,
@@ -349,6 +335,20 @@
       "value": 6763510890.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique non pertinente : les gros volumes mentionnés dans l'actualité concernent la macroéconomie (conteneurs US) et les marchés traditionnels (CAC 40, OL), sans lien direct avec un actif crypto spécifique malgré le z-score onchain négatif.\"\n}\n```",
       "ts": "2026-09-12T15:14:06.808577+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": -3.437832527822147,
+      "value": 6552225686.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le z-score extrêmement bas (-3.44) indique une sécheresse anormale du volume onchain, couplée à un narratif médiatique grand public distrait par la macroéconomie traditionnelle et le football. Les baleines accumulent en silence dans l'indifférence totale.\"\n}\n```",
+      "ts": "2026-09-12T15:44:11.783615+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": -3.4075257642668806,
+      "value": 5477979944.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score -3.41) sur un volume global, mais les titres médiatiques parlent du sport (OL), de la macroéconomie traditionnelle (CAC 40, importations) et de données sans rapport direct avec une baleine crypto spécifique. Absence de signal on-chain exploitable.\"\n}\n```",
+      "ts": "2026-09-12T16:14:40.662223+00:00"
     }
   ]
 }
