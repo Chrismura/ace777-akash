@@ -1,20 +1,20 @@
 {
-  "timestamp": 1789288528,
-  "date": "2026-09-13T08:35:28.098988+00:00",
-  "n_analyses": 2,
+  "timestamp": 1789291829,
+  "date": "2026-09-13T09:30:29.173715+00:00",
+  "n_analyses": 1,
   "analyses": [
     {
       "signal": {
         "metric": "ipt",
-        "zscore": 3.345222918701061,
-        "value": 0.822,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (IPT) entièrement corrélée à un acronyme académique et religieux sans rapport avec la crypto (Tournoi International des Physiciens / protestantisme). Bruit médiatique pur, aucune baleine détectée.\"\n}\n```",
-        "ts": 1789286870.864503
+        "zscore": 2.953664046187886,
+        "value": 0.781,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (z-score 2.95) liée à une confusion lexicale : le ticker 'IPT' est parasité par des actualités académiques et religieuses sans rapport avec une cryptomonnaie ou une activité de baleine.\"\n}\n```",
+        "ts": 1789291089.182532
       },
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.13,
+          "value": -0.1,
           "seuil": 1,
           "depasse": false
         },
@@ -24,12 +24,12 @@
           "depasse": false
         },
         "funding": {
-          "value": 4.4e-05,
+          "value": 2.9e-05,
           "seuil": 0.001,
           "depasse": false
         },
         "whales": {
-          "value": 1,
+          "value": 2,
           "seuil": 5,
           "depasse": false
         }
@@ -42,21 +42,6 @@
       },
       "action": "Réduire taille de 50%, sortir des positions fragiles",
       "niveau": "dangereux"
-    },
-    {
-      "signal": {
-        "metric": "price_1h",
-        "zscore": 4.0343669972088305,
-        "value": 0.21278328103210287,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (+4.03) sur le prix à court terme sans aucune couverture médiatique correspondante (silence radio). Indique une accumulation agressive ou un mouvement furtif de baleines avant que le marché de masse ne s'en aperçoive.\"\n}\n```",
-        "ts": 1789288376.002184
-      },
-      "fiche": null,
-      "interpretation": {
-        "lecture": "Pas de fiche disponible",
-        "niveau": "inconnu"
-      },
-      "action": "Observer"
     }
   ],
   "resume": "🔴 DANGER détecté — réduire les expositions"

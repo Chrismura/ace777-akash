@@ -1,7 +1,7 @@
-# VEILLE ALERT — 2026-09-13T08:14:29Z
+# VEILLE ALERT — 2026-09-13T09:24:46Z
 
 Signal détecté (piste B, sync paper). **Pas un ordre.**
 
-- **QNTUSDT** — WATCH_PULLBACK — tension haute + reflux  (t=3.02 m6=5.3 dd6=5.0 chg24=0.0%)
+- **EDELUSDT** — WATCH_PULLBACK — tension haute + reflux  (t=2.65 m6=13.41 dd6=5.11 chg24=0.19%)
 
 → Lire `DIGEST_LATEST.md` et noter dans `VEILLE_QWEN_NOTES.md` si tu confirmes.

@@ -1,48 +1,49 @@
 {
-  "timestamp": "2026-09-13T08:37:57Z",
+  "timestamp": "2026-09-13T09:32:13Z",
   "generation_source": "system_state_generator.py v2.1",
   "status": "STALE",
-  "feed_hash": "4ec01329aa730d42c36a6eff55c2628fc5146a6de76de5c3de966fcad89d2770",
+  "feed_hash": "0465aacfeca6863dfb5ca18c843529b8a70b1603c2d74536c48de32d8ab50715",
   "feeds": {
     "mission": {
       "present": true,
-      "age_seconds": 12,
+      "age_seconds": 16,
       "fresh_limit_s": 120
     },
     "cortana_feed": {
       "present": true,
-      "age_seconds": 85,
+      "age_seconds": 274,
       "fresh_limit_s": 120
     },
     "live": {
       "present": true,
-      "age_seconds": 85,
+      "age_seconds": 228,
       "fresh_limit_s": 15
     },
     "routing": {
       "present": true,
-      "age_seconds": 1717060,
+      "age_seconds": 1720316,
       "fresh_limit_s": 120
     }
   },
   "services": {
     "total": 88,
-    "running": 13,
-    "planned": 75,
+    "running": 14,
+    "planned": 74,
     "running_list": [
       "com.ace777.bloc-privatise",
       "com.ace777.cockpit-http",
       "com.ace777.cockpit-pont",
-      "com.ace777.deriv-corr",
+      "com.ace777.cortana.urgent",
+      "com.ace777.fusibles-mesure",
       "com.ace777.llm-gate-hub",
       "com.ace777.prise-ia",
-      "com.ace777.sentinel",
-      "com.ace777.sniffer-vieux-btc",
+      "com.ace777.satellite-aspiration",
       "com.ace777.state-generator",
       "com.ace777.superviseur-core",
       "com.ace777.superviseur-l2",
       "com.ace777.superviseur-process",
-      "com.ace777.vigie-live"
+      "com.ace777.vigie-live",
+      "com.ace777.whales"
     ],
     "planned_list": [
       "com.ace777.analyste-cadence",
@@ -54,13 +55,13 @@
       "com.ace777.cortana-analyzer",
       "com.ace777.cortana-feed",
       "com.ace777.cortana-propose-params",
-      "com.ace777.cortana.urgent",
       "com.ace777.couleur-regime",
       "com.ace777.couleur-regime-score",
       "com.ace777.cpfp",
       "com.ace777.croisement-externe",
       "com.ace777.croisements-indices",
       "com.ace777.cycle-edel",
+      "com.ace777.deriv-corr",
       "com.ace777.dialogue-gemini",
       "com.ace777.discipline-quotidienne",
       "com.ace777.disjoncteur",
@@ -69,7 +70,6 @@
       "com.ace777.eval-offres",
       "com.ace777.fees",
       "com.ace777.flux-nets",
-      "com.ace777.fusibles-mesure",
       "com.ace777.geopol",
       "com.ace777.gitpush",
       "com.ace777.gitpush-vault",
@@ -95,12 +95,13 @@
       "com.ace777.routeur-auto",
       "com.ace777.rwa-yields",
       "com.ace777.sante-index",
-      "com.ace777.satellite-aspiration",
       "com.ace777.scoreur-registre",
+      "com.ace777.sentinel",
       "com.ace777.short-btc",
       "com.ace777.signal3-livre-ecorche",
       "com.ace777.sniffer-matin",
       "com.ace777.sniffer-ny",
+      "com.ace777.sniffer-vieux-btc",
       "com.ace777.sonde-volume-panier",
       "com.ace777.suivi-setup-red",
       "com.ace777.superviseur",
@@ -118,8 +119,7 @@
       "com.ace777.veilleuse-sizing-monte-carlo",
       "com.ace777.verdicteur-micro",
       "com.ace777.verif-setup",
-      "com.ace777.watchdog",
-      "com.ace777.whales"
+      "com.ace777.watchdog"
     ]
   },
   "hub": {
@@ -159,7 +159,7 @@
       "Assistant_Vocal_HORS_VAULT": 697372,
       "Obsidian_BACKUPS_HORS_VAULT": 14936872
     },
-    "presence_at": "2026-09-13T08:30:57Z",
+    "presence_at": "2026-09-13T09:30:57Z",
     "sizes_at": "2026-09-13T07:30:53Z"
   }
 }
