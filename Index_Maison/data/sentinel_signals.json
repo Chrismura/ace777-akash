@@ -2,27 +2,6 @@
   "signals": [
     {
       "metric": "liquidations",
-      "zscore": -2.726894720258003,
-      "value": 1587729.0,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Divergence majeure : les médias parlent de 'centaines de millions de liquidations de shorts' et de hausse euphorique, tandis que le z-score onchain (-2.73) révèle un volume de liquidation quasi nul (1.5M$). C'est un piège à liquidité orchestré ; les baleines ne soutiennent pas la hausse et distribuent silencieusement face au narratif retail surexcité.\"\n}\n```",
-      "ts": "2026-09-12T21:29:27.790573+00:00"
-    },
-    {
-      "metric": "taker_ratio",
-      "zscore": 2.4272382265532633,
-      "value": 1.474,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio élevé (z-score 2.43) indique une domination agressive des acheteurs (Taker Buy) sur le marché des dérivés. L'absence totale de couverture médiatique (Google Actualités muet) prouve une accumulation silencieuse des baleines sous le radar, loin de l'euphorie du retail.\"\n}\n```",
-      "ts": "2026-09-12T21:44:34.508746+00:00"
-    },
-    {
-      "metric": "price_1h",
-      "zscore": 2.594757902698606,
-      "value": 0.14797948397919924,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.59) couplé à un silence médiatique total (Google Actualités vide). C'est la signature classique d'accumulation furtive par les baleines avant que le retail ne découvre le mouvement.\"\n}\n```",
-      "ts": "2026-09-12T21:54:44.825582+00:00"
-    },
-    {
-      "metric": "liquidations",
       "zscore": -2.47823389682944,
       "value": 1595604.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-2.48) sur les liquidations onchain montrant un calme absolu, contredisant totalement le narratif médiatique de vent de panique/liquidations massives (266M$-427M$). Les baleines nettoient les shorts en silence sans volatilité excessive réelle.\"\n}\n```",
@@ -349,6 +328,27 @@
       "value": 35.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 2.19) sur le token DUST, alors que le bruit médiatique est totalement parasité par du hors-sujet culturel (cinéma, littérature).经典的 accumulation furtive de baleines sous le radar public.\"\n}\n```",
       "ts": "2026-09-13T10:33:32.951284+00:00"
+    },
+    {
+      "metric": "cpfp",
+      "zscore": 3.549111261559198,
+      "value": 50.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (z-score 3.55) liée à une collision de noms (homonymie avec 'CPFP' - centre de formation/politique). Aucun mouvement de baleine crypto réel détecté, le bruit médiatique concerne des institutions éducatives et publiques.\"\n}\n```",
+      "ts": "2026-09-13T11:28:41.741803+00:00"
+    },
+    {
+      "metric": "dust",
+      "zscore": 3.549111261559198,
+      "value": 50.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 3.55) liée à du bruit médiatique insignifiant (cinéma et homonymes crypto de faible envergure). Aucune accumulation baleinière détectée.\"\n}\n```",
+      "ts": "2026-09-13T11:28:43.517735+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.537814278632857,
+      "value": 0.693,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie technique de l'indicateur (IPT) captant des homonymies sémantiques (Tournoi International des Physiciens / Institut Protestant de Théologie) sans lien avec l'activité crypto.\"\n}\n```",
+      "ts": "2026-09-13T11:33:46.066077+00:00"
     }
   ]
 }
