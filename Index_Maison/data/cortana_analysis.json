@@ -1,7 +1,7 @@
 {
-  "timestamp": 1789291829,
-  "date": "2026-09-13T09:30:29.173715+00:00",
-  "n_analyses": 1,
+  "timestamp": 1789292129,
+  "date": "2026-09-13T09:35:29.282650+00:00",
+  "n_analyses": 2,
   "analyses": [
     {
       "signal": {
@@ -14,7 +14,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.1,
+          "value": -0.24,
           "seuil": 1,
           "depasse": false
         },
@@ -24,12 +24,12 @@
           "depasse": false
         },
         "funding": {
-          "value": 2.9e-05,
+          "value": 2.7e-05,
           "seuil": 0.001,
           "depasse": false
         },
         "whales": {
-          "value": 2,
+          "value": 3,
           "seuil": 5,
           "depasse": false
         }
@@ -42,6 +42,21 @@
       },
       "action": "Réduire taille de 50%, sortir des positions fragiles",
       "niveau": "dangereux"
+    },
+    {
+      "signal": {
+        "metric": "price_1h",
+        "zscore": 3.8396921643307147,
+        "value": 0.2798749961110403,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (3.84) détectant une volatilité de prix anormale non couverte par les médias (silence radio médiatique), signature typique d'une accumulation ou d'un mouvement furtif de baleines.\"\n}\n```",
+        "ts": 1789291992.186385
+      },
+      "fiche": null,
+      "interpretation": {
+        "lecture": "Pas de fiche disponible",
+        "niveau": "inconnu"
+      },
+      "action": "Observer"
     }
   ],
   "resume": "🔴 DANGER détecté — réduire les expositions"
