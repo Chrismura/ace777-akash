@@ -1,37 +1,29 @@
 {
-  "timestamp": 1789277814,
-  "global_score": 0.63,
-  "mode": "degrade",
-  "mode_label": "\u26a0\ufe0f D\u00c9GRAD\u00c9",
-  "position_multiplier": 0.5,
+  "timestamp": 1789280966,
+  "global_score": 0.9,
+  "mode": "nominal",
+  "mode_label": "\u2705 NOMINAL",
+  "position_multiplier": 1.0,
   "sources": {
     "binance": {
-      "score": 0.8,
-      "issues": [
-        "chg1h=None"
-      ]
+      "score": 1,
+      "issues": []
     },
     "mempool": {
       "score": 1,
       "issues": []
     },
     "deribit": {
-      "score": 0.19999999999999996,
-      "issues": [
-        "gex.ok=False (timeout Deribit)",
-        "putCall=None",
-        "walls=None"
-      ]
+      "score": 1,
+      "issues": []
     },
     "alternative": {
       "score": 1,
       "issues": []
     },
     "blockchain": {
-      "score": 0.7,
-      "issues": [
-        "sdi=absent"
-      ]
+      "score": 1,
+      "issues": []
     },
     "google_news": {
       "score": 0.0,
@@ -40,22 +32,12 @@
       ]
     },
     "sdi_ipt": {
-      "score": 0.3,
-      "issues": [
-        "sdi=absent",
-        "ipt=absent"
-      ]
+      "score": 1,
+      "issues": []
     }
   },
   "all_issues": [
-    "binance: chg1h=None",
-    "deribit: gex.ok=False (timeout Deribit)",
-    "deribit: putCall=None",
-    "deribit: walls=None",
-    "blockchain: sdi=absent",
-    "google_news: source non v\u00e9rifiable en direct (aliment\u00e9e par sniffer) \u2192 DOWN",
-    "sdi_ipt: sdi=absent",
-    "sdi_ipt: ipt=absent"
+    "google_news: source non v\u00e9rifiable en direct (aliment\u00e9e par sniffer) \u2192 DOWN"
   ],
-  "n_issues": 8
+  "n_issues": 1
 }

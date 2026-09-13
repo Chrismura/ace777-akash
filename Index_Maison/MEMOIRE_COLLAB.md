@@ -4159,3 +4159,4 @@ Christophe a finalement vu le nouveau tableau SCORE : le contenu était bon, c'�
 
 | 2026-09-13 05:09:42Z | CHIEN | ALERTE | superviseur-l2 : Age réel 212s dépasse le seuil 120.0s |
 | 2026-09-13 05:19:42Z | CHIEN | ALERTE | verdicteur-micro : Age réel 804s dépasse le seuil 600.0s |
+| 2026-09-13 06:09:43Z | CHIEN | ALERTE | superviseur-l2 : Age réel 3813s dépasse le seuil 120.0s || 2026-09-13 08:2xZ | Coupure batterie signalée par Christophe — vérif Buffy : machine jamais redémarrée (uptime 2j18h), moteur V2-CONFIRMATION live survécu (fenêtre d'erreurs réseau 05:47→06:07Z, reprise auto 06:12Z, 0 trade impacté), chien de garde 39 organes au vert 06:19Z, JSONL intègre. Aucune réparation nécessaire. |
