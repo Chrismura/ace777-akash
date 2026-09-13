@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-13T00:33:03.918268+00:00",
+  "generated_at": "2026-09-13T00:38:37.275130+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 113
+      "calls_24h": 114
     },
     {
       "id": "openrouter-free",
@@ -71,7 +71,7 @@
       "model": "nvidia/nemotron-3-super-120b-a12b:free",
       "enabled": true,
       "timeout": 120,
-      "calls_24h": 45
+      "calls_24h": 46
     },
     {
       "id": "grok",
@@ -265,10 +265,26 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 9,
-    "remaining": 615
+    "consumed": 11,
+    "remaining": 613
   },
   "queue": [
+    {
+      "ts": "2026-09-13T00:36:38.664998+00:00",
+      "task": "analyste.strategie",
+      "provider": "openrouter-juge",
+      "model": "nvidia/nemotron-3-super-120b-a12b:free",
+      "kind": "cloud",
+      "duration_s": 29.9
+    },
+    {
+      "ts": "2026-09-13T00:35:19.433534+00:00",
+      "task": "analyse.profonde",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 0.91
+    },
     {
       "ts": "2026-09-13T00:32:38.223181+00:00",
       "task": "analyste.strategie",
@@ -372,81 +388,65 @@
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
       "duration_s": 1.0
-    },
-    {
-      "ts": "2026-09-12T22:38:42.315484+00:00",
-      "task": "supervise.decision",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 0.86
-    },
-    {
-      "ts": "2026-09-12T22:38:40.401907+00:00",
-      "task": "supervise.decision",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 0.77
     }
   ],
   "events": [
     {
-      "ts": "2026-09-13T00:32:38.222891+00:00",
+      "ts": "2026-09-13T00:36:38.664883+00:00",
       "kind": "message",
       "title": "« OpenRouter Juge (nemotron-3-super-120b free) - verificateur independant » a repondu",
       "detail": "bascule"
     },
     {
-      "ts": "2026-09-13T00:32:38.222468+00:00",
+      "ts": "2026-09-13T00:36:38.664495+00:00",
       "kind": "filet-universel",
       "title": "[FILET UNIVERSEL] « OpenRouter Juge (nemotron-3-super-120b free) - verificateur independant » a repondu hors chaine",
       "detail": "analyste.strategie"
     },
     {
-      "ts": "2026-09-13T00:32:08.291953+00:00",
+      "ts": "2026-09-13T00:36:08.759462+00:00",
       "kind": "failover",
       "title": "Bascule depuis OrcaRouter (routeur gratuit, modele orcarouter/free)",
       "detail": "HTTP Error 400: Bad Request"
     },
     {
-      "ts": "2026-09-13T00:32:07.101738+00:00",
+      "ts": "2026-09-13T00:36:07.226300+00:00",
       "kind": "failover",
       "title": "Saute (blacklist) depuis HuggingFace (136+ modeles, dont DeepSeek-V4)",
       "detail": "0 attente"
     },
     {
-      "ts": "2026-09-13T00:32:07.096338+00:00",
+      "ts": "2026-09-13T00:36:07.223456+00:00",
       "kind": "failover",
       "title": "Bascule depuis Groq (LLM ultra-rapide, gratuit)",
       "detail": "HTTP Error 400: Bad Request"
     },
     {
-      "ts": "2026-09-13T00:32:03.435744+00:00",
+      "ts": "2026-09-13T00:36:03.556752+00:00",
       "kind": "timeout",
       "title": "Patience Groq (LLM ultra-rapide, gratuit) (HTTP 400)",
       "detail": "HTTP Error 400: Bad Request"
     },
     {
-      "ts": "2026-09-13T00:32:02.920132+00:00",
-      "kind": "blacklist",
-      "title": "Fin de pause Groq (LLM ultra-rapide, gratuit)",
-      "detail": "re-essai automatique"
-    },
-    {
-      "ts": "2026-09-13T00:32:02.918707+00:00",
+      "ts": "2026-09-13T00:36:02.961866+00:00",
       "kind": "failover",
       "title": "Bascule depuis Google Gemini",
       "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-09-13T00:32:02.918307+00:00",
+      "ts": "2026-09-13T00:36:02.960997+00:00",
       "kind": "ratelimit",
       "title": "429 Google Gemini -> pause 60s + bascule",
       "detail": ""
     },
     {
-      "ts": "2026-09-13T00:32:00.986860+00:00",
+      "ts": "2026-09-13T00:35:19.432935+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
+    {
+      "ts": "2026-09-13T00:35:18.521242+00:00",
       "kind": "blacklist",
       "title": "Fin de pause Google Gemini",
       "detail": "re-essai automatique"
