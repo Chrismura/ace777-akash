@@ -8,6 +8,7 @@ Lecture seule (Cortana ne passe aucun ordre). Utilisation :
 import json
 import os
 import sys
+import time
 import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
@@ -35,6 +36,26 @@ def latest_state() -> str:
                 f"· bags={len(st.get('bags') or {})}")
     except Exception:
         return "state indisponible"
+
+
+def appeler_hub(payload, tentatives=3, delais=(0, 10, 30)):
+    """Appelle le hub avec reprise (backoff ×3, GO C. 13/09) : un 502 passager
+    du hub ne tue plus le contrat du jour. Les 502 de nuit (l. 07h45 ou
+    spontanés) sont avérés deux fois le 13/09. Dernier essai échoué → relève.
+    """
+    last = None
+    for i in range(tentatives):
+        if delais[i]:
+            time.sleep(delais[i])
+        try:
+            req = urllib.request.Request(HUB, data=json.dumps(payload).encode("utf-8"),
+                                         headers={"Content-Type": "application/json"})
+            with urllib.request.urlopen(req, timeout=None) as r:
+                return json.loads(r.read().decode())
+        except Exception as e:
+            last = e
+            print(f"cortana: essai {i + 1}/{tentatives} échoué ({e})", file=sys.stderr)
+    raise last
 
 
 def main() -> int:
@@ -68,10 +89,7 @@ def main() -> int:
         "temperature": 0.3,
         "max_tokens": 700,
     }
-    req = urllib.request.Request(HUB, data=json.dumps(payload).encode("utf-8"),
-                                 headers={"Content-Type": "application/json"})
-    with urllib.request.urlopen(req, timeout=None) as r:
-        d = json.loads(r.read().decode())
+    d = appeler_hub(payload)
     raw = d["choices"][0]["message"]["content"].strip()
     start, end = raw.find("{"), raw.rfind("}")
     if start == -1 or end == -1:

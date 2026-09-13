@@ -1,7 +1,98 @@
 {
-  "timestamp": 1789332042,
-  "date": "2026-09-13T20:40:42.105236+00:00",
-  "n_analyses": 0,
-  "analyses": [],
-  "resume": "Aucune analyse en cours"
+  "timestamp": 1789335043,
+  "date": "2026-09-13T21:30:43.120198+00:00",
+  "n_analyses": 2,
+  "analyses": [
+    {
+      "signal": {
+        "metric": "cpfp",
+        "zscore": 2.179717192382072,
+        "value": 45.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Le z-score élevé sur le CPFP (Child-Pays-For-Parent) reflète simplement des congestions réseau ou des utilisateurs de Bitcoin optimisant leurs frais de transaction bloquées, amplifié par du bruit médiatique sans rapport (actualités locales et politiques). Aucune accumulation ou mouvement significatif de baleines détecté.\"\n}\n```",
+        "ts": 1789334449.731822
+      },
+      "fiche": "blocs_privilises",
+      "questions": {
+        "duree": {
+          "value": 0,
+          "seuil": 0,
+          "depasse": false
+        },
+        "volume": {
+          "value": 2003,
+          "seuil": 0,
+          "depasse": true
+        },
+        "prix": {
+          "value": 0.09,
+          "seuil": 0,
+          "depasse": true
+        },
+        "sdi": {
+          "value": 0.393,
+          "seuil": 0,
+          "depasse": true
+        },
+        "rbf": {
+          "value": 0.0,
+          "seuil": 0,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "duree < 5min ET volume > 100",
+        "lecture": "Consolidation exchange — probablement un transfert hot→cold",
+        "niveau": "neutre",
+        "action": "Garder les positions"
+      },
+      "action": "Garder les positions",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "dust",
+        "zscore": 2.179717192382072,
+        "value": 45.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique parasité par du cinéma, des actualités littéraires et des homonymes d'entreprises IA. Aucune accumulation significative de baleines crypto malgré le z-score.\"\n}\n```",
+        "ts": 1789334451.328063
+      },
+      "fiche": "blocs_privilises",
+      "questions": {
+        "duree": {
+          "value": 0,
+          "seuil": 0,
+          "depasse": false
+        },
+        "volume": {
+          "value": 2003,
+          "seuil": 0,
+          "depasse": true
+        },
+        "prix": {
+          "value": 0.09,
+          "seuil": 0,
+          "depasse": true
+        },
+        "sdi": {
+          "value": 0.393,
+          "seuil": 0,
+          "depasse": true
+        },
+        "rbf": {
+          "value": 0.0,
+          "seuil": 0,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "duree < 5min ET volume > 100",
+        "lecture": "Consolidation exchange — probablement un transfert hot→cold",
+        "niveau": "neutre",
+        "action": "Garder les positions"
+      },
+      "action": "Garder les positions",
+      "niveau": "neutre"
+    }
+  ],
+  "resume": "🔵 CALME — pas de signal alarmant"
 }

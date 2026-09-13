@@ -1,6 +1,6 @@
 {
   "version": "1.4.7",
-  "updated": "2026-09-13T20:23:12.863288+00:00",
+  "updated": "2026-09-13T21:29:06.987600+00:00",
   "fichier": [
     {
       "nom": "hulk-mexc/scripts/paper_diprip.py",
@@ -672,6 +672,24 @@
       "auto_modifiable": false,
       "md5": "62dd5fe6ac0830dc05fab828a79a9c07",
       "note": "Spec figee AVANT 1er cycle (20:15Z). Poids fixes 0.30/0.20/0.20/0.15/0.15. Verdict 11/10: >=52% sur 200+ bougies. Un seul essai, lecture seule sur la maison."
+    },
+    {
+      "nom": "Index_Maison/PHASE_B_SPEC_EDGE_EXECUTABLE_20260913.md",
+      "role": "Phase B boucle Dan1ro0 — spec de l'edge exécutable, FIGÉE avant son GO (3 critères de verdict pré-enregistrés)",
+      "origine": "GO rédaction C. 13/09/2026",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "4ee7a87552e7fac0d48dca167fa1d6dc",
+      "note": "Verdict pré-écrit §5 (3 conditions, échec = Phase C jamais exécutée). Déclenchement: verdict A du 11/10 PASSÉ + GO famille. Toute retouche post-GO = essai annulé."
+    },
+    {
+      "nom": "hulk-mexc/scripts/cortana_propose_params.py",
+      "role": "Contrat Cortana quotidien (07h45) — propose des ajustements Hulk, écrit cortana_pilot.json (ADVISORY)",
+      "origine": "chantier contrat-cortana",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "146bcdafe37a715f89e929c3e026cd2c",
+      "note": "13/09: retry backoff x3 (GO C.) ajouté — les 502 passagers du hub ne tuent plus le contrat du jour."
     }
   ]
 }

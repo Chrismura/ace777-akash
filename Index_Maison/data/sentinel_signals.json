@@ -2,20 +2,6 @@
   "signals": [
     {
       "metric": "sdi",
-      "zscore": 2.4198880975390358,
-      "value": 0.393,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique sans rapport avec la crypto (homonymie avec le syndicat patronal SDI et le matériel vidéo Blackmagic). Aucune baleine détectée.\"\n}\n```",
-      "ts": "2026-09-13T03:36:26.212251+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": -2.420153478013921,
-      "value": 61,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-2.42) malgré un indice de cupidité modéré (61) et une absence totale de couverture médiatique (silence radio sur Google Actualités). C'est le profil typique d'accumulation furtive par les baleines loin du bruit de fond retail.\"\n}\n```",
-      "ts": "2026-09-13T03:46:28.650012+00:00"
-    },
-    {
-      "metric": "sdi",
       "zscore": 2.235854574322382,
       "value": 0.393,
       "analysis": "{\n  \"signal\": \"bullish\",\n  \"confidence\": 72,\n  \"reason\": \"On-chain SDI shows a strong anomaly (z-score 2.24), indicative of significant whale accumulation or movement. Media coverage focuses on macroeconomic concerns, Blackmagic hardware announcements, and governance updates unrelated to crypto price action, creating a disconnect between the bullish on-chain signal and the prevailing bearish/neutral narrative.\"\n}",
@@ -349,6 +335,20 @@
       "value": 0.816,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 75,\n  \"reason\": \"Anomalie onchain significative (z-score 2.21) contrastant avec un narratif médiatique banal centré sur des événements institutionnels. Divergence suggérant une activité silencieuse de baleines crypto sous couvert d'actualités neutres.\"\n}\n```",
       "ts": "2026-09-13T18:45:22.818880+00:00"
+    },
+    {
+      "metric": "cpfp",
+      "zscore": 2.179717192382072,
+      "value": 45.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Le z-score élevé sur le CPFP (Child-Pays-For-Parent) reflète simplement des congestions réseau ou des utilisateurs de Bitcoin optimisant leurs frais de transaction bloquées, amplifié par du bruit médiatique sans rapport (actualités locales et politiques). Aucune accumulation ou mouvement significatif de baleines détecté.\"\n}\n```",
+      "ts": "2026-09-13T21:20:49.731822+00:00"
+    },
+    {
+      "metric": "dust",
+      "zscore": 2.179717192382072,
+      "value": 45.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique parasité par du cinéma, des actualités littéraires et des homonymes d'entreprises IA. Aucune accumulation significative de baleines crypto malgré le z-score.\"\n}\n```",
+      "ts": "2026-09-13T21:20:51.328063+00:00"
     }
   ]
 }
