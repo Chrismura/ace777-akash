@@ -1,20 +1,20 @@
 {
-  "timestamp": 1789270522,
-  "date": "2026-09-13T03:35:22.072080+00:00",
-  "n_analyses": 2,
+  "timestamp": 1789274123,
+  "date": "2026-09-13T04:35:23.310840+00:00",
+  "n_analyses": 3,
   "analyses": [
     {
       "signal": {
         "metric": "sdi",
-        "zscore": 2.6454112708360267,
+        "zscore": 2.235854574322382,
         "value": 0.393,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.65) totalement déconnectée des cryptos. Les actualités font référence au 'Syndicat des Indépendants' (SDI) français et à du matériel vidéo (Blackmagic SDI). Aucun mouvement de baleine crypto détecté.\"\n}\n```",
-        "ts": 1789268769.693638
+        "analysis": "{\n  \"signal\": \"bullish\",\n  \"confidence\": 72,\n  \"reason\": \"On-chain SDI shows a strong anomaly (z-score 2.24), indicative of significant whale accumulation or movement. Media coverage focuses on macroeconomic concerns, Blackmagic hardware announcements, and governance updates unrelated to crypto price action, creating a disconnect between the bullish on-chain signal and the prevailing bearish/neutral narrative.\"\n}",
+        "ts": 1789272405.831535
       },
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.06,
+          "value": 0.04,
           "seuil": 1,
           "depasse": false
         },
@@ -24,7 +24,7 @@
           "depasse": false
         },
         "funding": {
-          "value": 8.2e-05,
+          "value": 8.3e-05,
           "seuil": 0.001,
           "depasse": false
         },
@@ -45,11 +45,26 @@
     },
     {
       "signal": {
+        "metric": "long_short",
+        "zscore": 2.1640695440492665,
+        "value": 1.669,
+        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Le ratio long/short anormalement élevé (1.669, z-score 2.16) couplé à un narratif médiatique généraliste orienté sur des produits traditionnels et des baisses de marché (Cardano) indique un piège à liquidité. Les baleines accumulent massivement des positions acheteuses sur endettement excessif, créant un déséquilibre propice à une purge imminente des 'longs'.\"\n}\n```",
+        "ts": 1789272708.123029
+      },
+      "fiche": null,
+      "interpretation": {
+        "lecture": "Pas de fiche disponible",
+        "niveau": "inconnu"
+      },
+      "action": "Observer"
+    },
+    {
+      "signal": {
         "metric": "fear_greed",
-        "zscore": -2.6457513110645903,
+        "zscore": -2.2360679774997854,
         "value": 61,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-2.65) pour un indice de peur et de grest à 61 indique une accumulation cachée sous le radar des médias (silence radio médiatique malgré une dynamique de marché positive).\"\n}\n```",
-        "ts": 1789269374.175773
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le z-score négatif prononcé (-2.24) pour un indice de peur/gourmandise à 61 indique une anomalie statistique : le marché est en zone de complaisance modérée mais sous-évalué par rapport à l'historique récent. L'absence de bruit médiatique (Google Actualités vide) confirme l'accumulation silencieuse des baleines loin des radars grand public.\"\n}\n```",
+        "ts": 1789273018.174621
       },
       "fiche": null,
       "interpretation": {
