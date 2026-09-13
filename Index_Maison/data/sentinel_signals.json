@@ -2,27 +2,6 @@
   "signals": [
     {
       "metric": "volume",
-      "zscore": -4.821854348626637,
-      "value": 8316976072.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-4.82) combiné à un effondrement des volumes traditionnels et un narratif généraliste apathique. Les baleines accumulent dans le silence absolu pendant que le marché de détail ignore l'actif, configuration classique de pré-cassure haussière.\"\n}\n```",
-      "ts": "2026-09-12T14:13:21.247837+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": -4.545870189543214,
-      "value": 7156879174.0,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 92,\n  \"reason\": \"Anomalie onchain critique : effondrement massif du volume (z-score -4.55). Le narratif médiatique généraliste est totalement déconnecté et évoque des hausses de volume hors-sujet (macro, sport, Afrique). Silence radio des baleines, assèchement de la liquidité présageant un piège baissier (bull trap) ou une forte volatilité imminente.\"\n}\n```",
-      "ts": "2026-09-12T14:44:00.578394+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": -3.918767156476185,
-      "value": 6763510890.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique non pertinente : les gros volumes mentionnés dans l'actualité concernent la macroéconomie (conteneurs US) et les marchés traditionnels (CAC 40, OL), sans lien direct avec un actif crypto spécifique malgré le z-score onchain négatif.\"\n}\n```",
-      "ts": "2026-09-12T15:14:06.808577+00:00"
-    },
-    {
-      "metric": "volume",
       "zscore": -3.437832527822147,
       "value": 6552225686.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le z-score extrêmement bas (-3.44) indique une sécheresse anormale du volume onchain, couplée à un narratif médiatique grand public distrait par la macroéconomie traditionnelle et le football. Les baleines accumulent en silence dans l'indifférence totale.\"\n}\n```",
@@ -349,6 +328,27 @@
       "value": 61,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le z-score négatif prononcé (-2.24) pour un indice de peur/gourmandise à 61 indique une anomalie statistique : le marché est en zone de complaisance modérée mais sous-évalué par rapport à l'historique récent. L'absence de bruit médiatique (Google Actualités vide) confirme l'accumulation silencieuse des baleines loin des radars grand public.\"\n}\n```",
       "ts": "2026-09-13T04:16:58.174621+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 2.0580735332640714,
+      "value": 0.393,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique provoqué par des homonymes (Syndicat des Indépendants) et du matériel vidéo (SDI Expander), sans rapport avec l'activité on-chain des baleines crypto.\"\n}\n```",
+      "ts": "2026-09-13T04:42:06.873055+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": 2.052915386789456,
+      "value": 1.669,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Le Z-score élevé du ratio long/short (2.05) indique une surconcentration extrême des positions acheteuses par les acteurs majeurs. Historiquement, un déséquilibre aussi prononcé signale un piège à acheteurs imminent (long squeeze), totalement ignoré par les médias généralistes qui se focalisent sur des produits traditionnels ou des narratifs altcoins isolés.\"\n}\n```",
+      "ts": "2026-09-13T04:42:08.237394+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -2.0816659994661326,
+      "value": 61,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement négatif (-2.08) pour un indice Fear & Greed à 61. Indique une panique ou un scepticisme persistant des petits porteurs malgré un marché neutre/haussier, combiné à un vide médiatique total (Google Actualités). Classique accumulation silencieuse de baleines avant une cassure haussière.\"\n}\n```",
+      "ts": "2026-09-13T04:47:10.162582+00:00"
     }
   ]
 }
