@@ -77,6 +77,11 @@ VOIX = "fr-FR-DeniseNeural"  # français pur (Vivienne multilingue → accent es
 INTERVALLE_SEC = 30  # répétition du message
 PAUSE_SEC = 5        # tranches de pause (réactivité à l'arrêt)
 
+# AUTO-EXTINCTION (GO Christophe 13/09) : la boucle vérifie si sa CAUSE a guéri
+# (contrat Cortana re-frais, analyse redevenue calme) et se TAIT SEULE —
+# fini les alarmes « pour toujours » même après réparation (cas du 13/09 matin).
+GUERISON_MAX_AGE_MIN = 60   # la cause guérit si le fichier-cause a < 60 min
+
 
 def ecriture_atomique(chemin: Path, contenu: str):
     chemin.parent.mkdir(parents=True, exist_ok=True)
@@ -101,6 +106,24 @@ def fichiers_arret(id_alerte: str):
         ALERTES_DIR / f"STOP_ALERTE_{id_alerte}",
         ALERTES_DIR / "STOP_ALERTE",
     ]
+
+
+def cause_guerie() -> bool:
+    """Vrai si les DEUX fichiers-cause sont frais (< GUERISON_MAX_AGE_MIN).
+    Contrat Cortana (hulk-mexc/strategie/cortana_pilot.json) + analyse
+    (Index_Maison/data/cortana_analysis.json). Best-effort : absence de
+    fichier = pas de preuve de guérison (on ne se tait pas)."""
+    try:
+        now = time.time()
+        contrat = Path(os.path.expanduser(
+            "~/ace777-test-day1/hulk-mexc/strategie/cortana_pilot.json"))
+        analyse = IM / "data" / "cortana_analysis.json"
+        for f in (contrat, analyse):
+            if not f.exists() or (now - f.stat().st_mtime) > GUERISON_MAX_AGE_MIN * 60:
+                return False
+        return True
+    except Exception:
+        return False
 
 
 def verifier_arret(id_alerte: str) -> bool:
@@ -176,6 +199,7 @@ def main():
     # "Rappels. " pour qu'on sache que c'est la MÊME alerte qui se répète,
     # pas un nouvel événement. Plus de confusion "est-ce nouveau ?".
     iteration = 0
+    _guerison_streak = 0
     while True:
         if verifier_arret(args.id):
             try:
@@ -184,6 +208,22 @@ def main():
             except Exception:
                 pass
             print(f"Arrêt de l'alerte vocale {args.id}.", file=sys.stderr)
+            sys.exit(0)
+
+        # AUTO-EXTINCTION : jamais avant la 3e répétition (l'alarme doit
+        # se faire entendre), puis cause guérie 2 contrôles de suite → silence.
+        if iteration >= 2 and cause_guerie():
+            _guerison_streak += 1
+        else:
+            _guerison_streak = 0
+        if _guerison_streak >= 2:
+            ecriture_atomique(
+                ALERTES_DIR / f"ALERTE_{args.id}.json",
+                json.dumps({"id": args.id, "message": args.message,
+                            "ts": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
+                            "status": "auto-etinte-cause-guerie"},
+                           ensure_ascii=False, indent=2))
+            print(f"AUTO-EXTINCTION {args.id} : cause guérie → silence.", file=sys.stderr)
             sys.exit(0)
 
         if iteration == 0:
@@ -204,6 +244,7 @@ def main():
 def _liberer_si_remplace(pid_file_dedup) -> bool:
     """Vrai si notre pid_file a été repris par un AUTRE process (la boucle
     a été remplacée par une nouvelle instance du même message) → on s'arrête."""
+
     try:
         if not pid_file_dedup.exists():
             return False

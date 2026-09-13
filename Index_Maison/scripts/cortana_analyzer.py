@@ -281,14 +281,49 @@ def generate_resume(analyses):
 
 
 def annoncer_analyse(analyses):
-    """Annonce l'analyse à voix haute si niveau critique ou dangereux"""
+    """Annonce l'analyse à voix haute si niveau critique ou dangereux.
+
+    ARBITRAGE LLM-vs-RÈGLE (GO Christophe 13/09, critère 27/09) : une analyse
+    LLM « neutral/haussier » à confiance ≥ 60 désamorce le niveau mécanique
+    « dangereux » (fiche biomécanique) du MÊME signal. « critique » n'est
+    JAMAIS désamorcé. Mesuré 14 jours : si un vrai danger passe inaperçu,
+    la politique est retirée sans discussion.
+    """
     if not analyses:
         return
-    
+
+    # Lecture du verdict LLM de la même fenêtre (sentinel_signals) — best-effort
+    llm_confiance = {}
+    try:
+        ss = json.loads((DATA_DIR.parent / "data" / "sentinel_signals.json").read_text())
+        for sig in ss.get("signals", []):
+            m = sig.get("metric")
+            if not m or m in llm_confiance:
+                continue
+            import re as _re
+            mm = _re.search(r'"signal"\s*:\s*"(\w+)"', sig.get("analysis") or "")
+            mc = _re.search(r'"confidence"\s*:\s*(\d+)', sig.get("analysis") or "")
+            if mm and mc:
+                llm_confiance[m] = (mm.group(1).lower(), int(mc.group(1)))
+    except Exception:
+        pass
+
     # Vérifier si une analyse mérite une annonce vocale
     niveaux_requierts = ["critique", "dangereux", "haussier"]
     analyses_importantes = [a for a in analyses if a.get("niveau") in niveaux_requierts]
-    
+
+    gardées = []
+    for a in analyses_importantes:
+        metric = a.get("signal", {}).get("metric", "")
+        llm_sig, llm_conf = llm_confiance.get(metric, (None, 0))
+        if (a.get("niveau") == "dangereux" and llm_sig == "neutral"
+                and llm_conf >= 60):
+            print(f"  ⚖️ ARBITRAGE : {metric} mécanique=dangereux mais LLM={llm_sig} "
+                  f"(conf {llm_conf}) → pas d'annonce vocale (observé, tracé)")
+            continue
+        gardées.append(a)
+    analyses_importantes = gardées
+
     if not analyses_importantes:
         return  # Pas d'annonce pour neutre/surveiller
     

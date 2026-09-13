@@ -1,55 +1,6 @@
 {
   "signals": [
     {
-      "metric": "sdi",
-      "zscore": 2.235854574322382,
-      "value": 0.393,
-      "analysis": "{\n  \"signal\": \"bullish\",\n  \"confidence\": 72,\n  \"reason\": \"On-chain SDI shows a strong anomaly (z-score 2.24), indicative of significant whale accumulation or movement. Media coverage focuses on macroeconomic concerns, Blackmagic hardware announcements, and governance updates unrelated to crypto price action, creating a disconnect between the bullish on-chain signal and the prevailing bearish/neutral narrative.\"\n}",
-      "ts": "2026-09-13T04:06:45.831535+00:00"
-    },
-    {
-      "metric": "long_short",
-      "zscore": 2.1640695440492665,
-      "value": 1.669,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Le ratio long/short anormalement élevé (1.669, z-score 2.16) couplé à un narratif médiatique généraliste orienté sur des produits traditionnels et des baisses de marché (Cardano) indique un piège à liquidité. Les baleines accumulent massivement des positions acheteuses sur endettement excessif, créant un déséquilibre propice à une purge imminente des 'longs'.\"\n}\n```",
-      "ts": "2026-09-13T04:11:48.123029+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": -2.2360679774997854,
-      "value": 61,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le z-score négatif prononcé (-2.24) pour un indice de peur/gourmandise à 61 indique une anomalie statistique : le marché est en zone de complaisance modérée mais sous-évalué par rapport à l'historique récent. L'absence de bruit médiatique (Google Actualités vide) confirme l'accumulation silencieuse des baleines loin des radars grand public.\"\n}\n```",
-      "ts": "2026-09-13T04:16:58.174621+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": 2.0580735332640714,
-      "value": 0.393,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique provoqué par des homonymes (Syndicat des Indépendants) et du matériel vidéo (SDI Expander), sans rapport avec l'activité on-chain des baleines crypto.\"\n}\n```",
-      "ts": "2026-09-13T04:42:06.873055+00:00"
-    },
-    {
-      "metric": "long_short",
-      "zscore": 2.052915386789456,
-      "value": 1.669,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Le Z-score élevé du ratio long/short (2.05) indique une surconcentration extrême des positions acheteuses par les acteurs majeurs. Historiquement, un déséquilibre aussi prononcé signale un piège à acheteurs imminent (long squeeze), totalement ignoré par les médias généralistes qui se focalisent sur des produits traditionnels ou des narratifs altcoins isolés.\"\n}\n```",
-      "ts": "2026-09-13T04:42:08.237394+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": -2.0816659994661326,
-      "value": 61,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement négatif (-2.08) pour un indice Fear & Greed à 61. Indique une panique ou un scepticisme persistant des petits porteurs malgré un marché neutre/haussier, combiné à un vide médiatique total (Google Actualités). Classique accumulation silencieuse de baleines avant une cassure haussière.\"\n}\n```",
-      "ts": "2026-09-13T04:47:10.162582+00:00"
-    },
-    {
-      "metric": "long_short",
-      "zscore": -4.563913551134433,
-      "value": 1,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 95,\n  \"reason\": \"Z-score extrême à -4.56 indiquant un positionnement massif des traders particuliers en position courte (short), tandis que le narratif médiatique se focalise sur des bruits macroéconomiques traditionnels sans lien avec la dynamique réelle des baleines sur cet actif.\"\n}\n```",
-      "ts": "2026-09-13T06:12:16.197127+00:00"
-    },
-    {
       "metric": "cpfp",
       "zscore": 2.0158444092960086,
       "value": 40.0,
@@ -349,6 +300,55 @@
       "value": 45.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique parasité par du cinéma, des actualités littéraires et des homonymes d'entreprises IA. Aucune accumulation significative de baleines crypto malgré le z-score.\"\n}\n```",
       "ts": "2026-09-13T21:20:51.328063+00:00"
+    },
+    {
+      "metric": "cpfp",
+      "zscore": 2.0792946897952436,
+      "value": 45.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 75,\n  \"reason\": \"Anomalie onchain significative (CPFP z-score 2.08) indiquant une activité silencieuse des baleines, tandis que le narratif médiatique est totalement déconnecté (articles hors-sujet sur politique locale ou formations). Divergence forte entre données techniques et couverture médiatique.\"\n}\n```",
+      "ts": "2026-09-13T22:00:59.511101+00:00"
+    },
+    {
+      "metric": "dust",
+      "zscore": 2.0792946897952436,
+      "value": 45.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 75,\n  \"reason\": \"Anomalie onchain significative (z-score 2.08) couplée à des levées de fonds récentes (40M$) et couverture médiatique positive, suggérant une accumulation discrète malgré un narratif centré sur des sujets non-financiers (cinéma, littérature). Divergence entre l'activité crypto et la focalisation médiatique sur des aspects culturels.\"\n}\n```",
+      "ts": "2026-09-13T22:01:02.787417+00:00"
+    },
+    {
+      "metric": "price_1h",
+      "zscore": 2.953425717624693,
+      "value": 0.34144782310682187,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de prix significative (Z-score 2.95) détectée sans couverture médiatique (Google Actualités vide). Cette asymétrie d'information indique une accumulation silencieuse par les baleines avant que le narratif public ne se forme.\"\n}\n```",
+      "ts": "2026-09-13T22:06:05.898181+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 3.252461082854975,
+      "value": 5474483.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 3.25, accumulation de ~5.47M USD) dans un silence médiatique absolu (Google Actualités vide). Divergence classique de 'smart money' accumulant discrètement avant le bruit médiatique.\"\n}\n```",
+      "ts": "2026-09-13T22:06:07.683776+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 3.1986687843873067,
+      "value": 4595268.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Divergence majeure : les médias mainstream amplifient un 'short squeeze' massif (266M$-427M$ de liquidations de shorts), alors que l'anomalie on-chain montre des liquidations globales paradoxalement faibles (4.5M$) mais anormalement concentrées (z-score 3.20). Les baleines piègent les spéculateurs haissiens/baissiers dans un mouvement de liquidité isolé tout en préparant un retournement discret.\"\n}\n```",
+      "ts": "2026-09-13T22:11:10.205744+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.053681245141933,
+      "value": 0.901,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"L'anomalie 'ipt' détectée et les titres médiatiques font référence au Tournoi International des Physiciens (IPT) et à des sujets académiques/sociaux sans aucun rapport avec la crypto-sphère ou l'activité de baleines financières.\"\n}\n```",
+      "ts": "2026-09-13T22:26:13.785131+00:00"
+    },
+    {
+      "metric": "price_1h",
+      "zscore": 4.4650779999753585,
+      "value": 0.6052979839483164,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie statistique majeure (Z-score 4.47) sans aucune couverture médiatique correspondante, révélant une accumulation silencieuse par des baleines loin des radars du retail.\"\n}\n```",
+      "ts": "2026-09-13T22:36:17.276920+00:00"
     }
   ]
 }
