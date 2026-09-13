@@ -1,78 +1,98 @@
 {
-  "timestamp": 1789339244,
-  "date": "2026-09-13T22:40:44.462382+00:00",
-  "n_analyses": 3,
+  "timestamp": 1789342845,
+  "date": "2026-09-13T23:40:45.711285+00:00",
+  "n_analyses": 2,
   "analyses": [
     {
       "signal": {
-        "metric": "liquidations",
-        "zscore": 3.1986687843873067,
-        "value": 4595268.0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Divergence majeure : les médias mainstream amplifient un 'short squeeze' massif (266M$-427M$ de liquidations de shorts), alors que l'anomalie on-chain montre des liquidations globales paradoxalement faibles (4.5M$) mais anormalement concentrées (z-score 3.20). Les baleines piègent les spéculateurs haissiens/baissiers dans un mouvement de liquidité isolé tout en préparant un retournement discret.\"\n}\n```",
-        "ts": 1789337470.205744
+        "metric": "cpfp",
+        "zscore": 2.010969157449982,
+        "value": 45.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique mineure (CPFP/RBF) noyée dans du bruit médiatique local sans rapport avec l'activité des baleines crypto.\"\n}\n```",
+        "ts": 1789341087.022072
       },
-      "fiche": null,
-      "interpretation": {
-        "lecture": "Pas de fiche disponible",
-        "niveau": "inconnu"
-      },
-      "action": "Observer"
-    },
-    {
-      "signal": {
-        "metric": "ipt",
-        "zscore": 2.053681245141933,
-        "value": 0.901,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"L'anomalie 'ipt' détectée et les titres médiatiques font référence au Tournoi International des Physiciens (IPT) et à des sujets académiques/sociaux sans aucun rapport avec la crypto-sphère ou l'activité de baleines financières.\"\n}\n```",
-        "ts": 1789338373.785131
-      },
-      "fiche": "rbf_eleve",
+      "fiche": "blocs_privilises",
       "questions": {
+        "duree": {
+          "value": 0,
+          "seuil": 0,
+          "depasse": false
+        },
+        "volume": {
+          "value": 370,
+          "seuil": 0,
+          "depasse": true
+        },
         "prix": {
-          "value": -0.6,
-          "seuil": 1,
-          "depasse": false
+          "value": 0.11,
+          "seuil": 0,
+          "depasse": true
         },
-        "paires": {
-          "value": null,
-          "seuil": 3,
-          "depasse": false
+        "sdi": {
+          "value": 0.393,
+          "seuil": 0,
+          "depasse": true
         },
-        "funding": {
-          "value": 6.5e-05,
-          "seuil": 0.001,
-          "depasse": false
-        },
-        "whales": {
-          "value": 2,
-          "seuil": 5,
+        "rbf": {
+          "value": 0.0,
+          "seuil": 0,
           "depasse": false
         }
       },
       "interpretation": {
-        "condition": "sdi > 0.3",
-        "lecture": "Drainage silencieux — les vieux BTC bougent en douce",
-        "niveau": "dangereux",
-        "action": "Réduire taille de 50%, sortir des positions fragiles"
+        "condition": "duree < 5min ET volume > 100",
+        "lecture": "Consolidation exchange — probablement un transfert hot→cold",
+        "niveau": "neutre",
+        "action": "Garder les positions"
       },
-      "action": "Réduire taille de 50%, sortir des positions fragiles",
-      "niveau": "dangereux"
+      "action": "Garder les positions",
+      "niveau": "neutre"
     },
     {
       "signal": {
-        "metric": "price_1h",
-        "zscore": 4.4650779999753585,
-        "value": 0.6052979839483164,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie statistique majeure (Z-score 4.47) sans aucune couverture médiatique correspondante, révélant une accumulation silencieuse par des baleines loin des radars du retail.\"\n}\n```",
-        "ts": 1789338977.27692
+        "metric": "dust",
+        "zscore": 2.010969157449982,
+        "value": 45.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique parasité par le cinéma, la littérature et de l'homonymie pure. L'anomalie onchain (z-score 2.01) est trop faible pour confirmer un mouvement de baleine significatif et se noie dans le bruit lexical.\"\n}\n```",
+        "ts": 1789341089.0483
       },
-      "fiche": null,
+      "fiche": "blocs_privilises",
+      "questions": {
+        "duree": {
+          "value": 0,
+          "seuil": 0,
+          "depasse": false
+        },
+        "volume": {
+          "value": 370,
+          "seuil": 0,
+          "depasse": true
+        },
+        "prix": {
+          "value": 0.11,
+          "seuil": 0,
+          "depasse": true
+        },
+        "sdi": {
+          "value": 0.393,
+          "seuil": 0,
+          "depasse": true
+        },
+        "rbf": {
+          "value": 0.0,
+          "seuil": 0,
+          "depasse": false
+        }
+      },
       "interpretation": {
-        "lecture": "Pas de fiche disponible",
-        "niveau": "inconnu"
+        "condition": "duree < 5min ET volume > 100",
+        "lecture": "Consolidation exchange — probablement un transfert hot→cold",
+        "niveau": "neutre",
+        "action": "Garder les positions"
       },
-      "action": "Observer"
+      "action": "Garder les positions",
+      "niveau": "neutre"
     }
   ],
-  "resume": "🔴 DANGER détecté — réduire les expositions"
+  "resume": "🔵 CALME — pas de signal alarmant"
 }
