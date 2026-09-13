@@ -1,113 +1,48 @@
 {
-  "timestamp": 1789281325,
-  "date": "2026-09-13T06:35:25.642205+00:00",
-  "n_analyses": 3,
+  "timestamp": 1789284926,
+  "date": "2026-09-13T07:35:26.790041+00:00",
+  "n_analyses": 1,
   "analyses": [
     {
       "signal": {
-        "metric": "long_short",
-        "zscore": -4.563913551134433,
-        "value": 1,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 95,\n  \"reason\": \"Z-score extrême à -4.56 indiquant un positionnement massif des traders particuliers en position courte (short), tandis que le narratif médiatique se focalise sur des bruits macroéconomiques traditionnels sans lien avec la dynamique réelle des baleines sur cet actif.\"\n}\n```",
-        "ts": 1789279936.197127
+        "metric": "ipt",
+        "zscore": 2.935920810512993,
+        "value": 0.707,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (IPT z-score 2.94) causée par une collision sémantique : le ticker 'IPT' est massivement confondu dans l'actualité avec des instituts de physique et théologiques (Tournoi de Physique, facultés protestantes). Bruit médiatique sans lien avec des mouvements de baleines crypto.\"\n}\n```",
+        "ts": 1789284151.163945
       },
-      "fiche": null,
-      "interpretation": {
-        "lecture": "Pas de fiche disponible",
-        "niveau": "inconnu"
-      },
-      "action": "Observer"
-    },
-    {
-      "signal": {
-        "metric": "cpfp",
-        "zscore": 2.0158444092960086,
-        "value": 40.0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie technique 'cpfp' (Child-Pays-For-Parent) totalement non corrélée avec le narratif médiatique, lequel fait référence à un acronyme homonyme (Centre Pédagogique de Formation Professionnelle) dans l'actualité locale et institutionnelle. Aucun mouvement de baleine crypto détecté.\"\n}\n```",
-        "ts": 1789281139.521781
-      },
-      "fiche": "blocs_privilises",
+      "fiche": "rbf_eleve",
       "questions": {
-        "duree": {
-          "value": 0,
-          "seuil": 0,
+        "prix": {
+          "value": 0.02,
+          "seuil": 1,
           "depasse": false
         },
-        "volume": {
-          "value": 694,
-          "seuil": 0,
-          "depasse": true
+        "paires": {
+          "value": null,
+          "seuil": 3,
+          "depasse": false
         },
-        "prix": {
-          "value": -0.02,
-          "seuil": 0,
-          "depasse": true
+        "funding": {
+          "value": 6.3e-05,
+          "seuil": 0.001,
+          "depasse": false
         },
-        "sdi": {
-          "value": 0.393,
-          "seuil": 0,
-          "depasse": true
-        },
-        "rbf": {
-          "value": 0.0,
-          "seuil": 0,
+        "whales": {
+          "value": 1,
+          "seuil": 5,
           "depasse": false
         }
       },
       "interpretation": {
-        "condition": "duree < 5min ET volume > 100",
-        "lecture": "Consolidation exchange — probablement un transfert hot→cold",
-        "niveau": "neutre",
-        "action": "Garder les positions"
+        "condition": "sdi > 0.3",
+        "lecture": "Drainage silencieux — les vieux BTC bougent en douce",
+        "niveau": "dangereux",
+        "action": "Réduire taille de 50%, sortir des positions fragiles"
       },
-      "action": "Garder les positions",
-      "niveau": "neutre"
-    },
-    {
-      "signal": {
-        "metric": "dust",
-        "zscore": 2.0158444092960086,
-        "value": 40.0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Le z-score de 2.02 indique une légère anomalie onchain (dust), mais les résultats médiatiques renvoient majoritairement à du bruit hors crypto (cinéma, culture). Aucune convergence narrative ou accumulation significative de baleines détectée.\"\n}\n```",
-        "ts": 1789281141.001714
-      },
-      "fiche": "blocs_privilises",
-      "questions": {
-        "duree": {
-          "value": 0,
-          "seuil": 0,
-          "depasse": false
-        },
-        "volume": {
-          "value": 694,
-          "seuil": 0,
-          "depasse": true
-        },
-        "prix": {
-          "value": -0.02,
-          "seuil": 0,
-          "depasse": true
-        },
-        "sdi": {
-          "value": 0.393,
-          "seuil": 0,
-          "depasse": true
-        },
-        "rbf": {
-          "value": 0.0,
-          "seuil": 0,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "duree < 5min ET volume > 100",
-        "lecture": "Consolidation exchange — probablement un transfert hot→cold",
-        "niveau": "neutre",
-        "action": "Garder les positions"
-      },
-      "action": "Garder les positions",
-      "niveau": "neutre"
+      "action": "Réduire taille de 50%, sortir des positions fragiles",
+      "niveau": "dangereux"
     }
   ],
-  "resume": "🔵 CALME — pas de signal alarmant"
+  "resume": "🔴 DANGER détecté — réduire les expositions"
 }

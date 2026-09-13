@@ -2,20 +2,6 @@
   "signals": [
     {
       "metric": "volume",
-      "zscore": -2.9110866363826013,
-      "value": 4595289359.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Volume spot crypto en forte hausse (+19%) mais z-score négatif (-2.91) suggère une accumulation discrète. Les médias focalisent sur des sujets périphériques (OL, CAC40, Afrique) plutôt que sur le rebond crypto, indiquant un décalage suspect.\"\n}\n```",
-      "ts": "2026-09-12T17:17:49.702837+00:00"
-    },
-    {
-      "metric": "whale_usd",
-      "zscore": 3.8573426239020963,
-      "value": 5217247.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Significant whale activity (z-score 3.86) contrasts with neutral media narrative, suggesting accumulation phase.\"\n}\n```",
-      "ts": "2026-09-12T17:22:52.573097+00:00"
-    },
-    {
-      "metric": "volume",
       "zscore": -2.64049972007116,
       "value": 4553760984.0,
       "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain caractérisée par un effondrement sévère du volume (z-score -2.64), contrastant fortement avec le narratif médiatique généraliste orienté sur la hausse ou sans lien direct avec la liquidité réelle des actifs.\"\n}\n```",
@@ -349,6 +335,20 @@
       "value": 40.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Le z-score de 2.02 indique une légère anomalie onchain (dust), mais les résultats médiatiques renvoient majoritairement à du bruit hors crypto (cinéma, culture). Aucune convergence narrative ou accumulation significative de baleines détectée.\"\n}\n```",
       "ts": "2026-09-13T06:32:21.001714+00:00"
+    },
+    {
+      "metric": "price_1h",
+      "zscore": 5.440590455537974,
+      "value": 0.2615980683023378,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrême (5.44) sur 1h sans couverture médiatique (Google Actualités vide). Divergence classique de accumulation furtive par les baleines loin du radar retail.\"\n}\n```",
+      "ts": "2026-09-13T06:57:26.987130+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.935920810512993,
+      "value": 0.707,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (IPT z-score 2.94) causée par une collision sémantique : le ticker 'IPT' est massivement confondu dans l'actualité avec des instituts de physique et théologiques (Tournoi de Physique, facultés protestantes). Bruit médiatique sans lien avec des mouvements de baleines crypto.\"\n}\n```",
+      "ts": "2026-09-13T07:22:31.163945+00:00"
     }
   ]
 }

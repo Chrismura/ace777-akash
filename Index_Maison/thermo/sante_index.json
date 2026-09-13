@@ -1,9 +1,12 @@
 {
-  "ts": "2026-09-13T06:36+00:00",
-  "updated": "2026-09-13T06:36Z",
-  "etat": "OK",
-  "chaines_ok": "15/15",
-  "anomalies": [],
+  "ts": "2026-09-13T07:36+00:00",
+  "updated": "2026-09-13T07:36Z",
+  "etat": "ALERTE",
+  "chaines_ok": "13/15",
+  "anomalies": [
+    "HULK : sonde runtime, contrat Cortana ou analyses figés",
+    "SÉCURITÉ : veilleuse ou rapport figé"
+  ],
   "degradees": [],
   "chaines": [
     {
@@ -25,12 +28,12 @@
         {
           "nom": "scan file",
           "ok": true,
-          "detail": "âge 7 min"
+          "detail": "âge 9 min"
         },
         {
           "nom": "mouvements (events)",
           "ok": true,
-          "detail": "dernier événement il y a 7 min"
+          "detail": "dernier événement il y a 9 min"
         },
         {
           "nom": "→ live.json.onchain",
@@ -40,7 +43,7 @@
         {
           "nom": "→ Ada gardienne",
           "ok": true,
-          "detail": "voilure 97.1 · zone VERT"
+          "detail": "voilure 90.1 · zone VERT"
         },
         {
           "nom": "→ Cortana feed",
@@ -71,7 +74,7 @@
       "id": "hulk",
       "nom": "HULK",
       "chemin": "paper_diprip → aspiration selon ASPIRATION_SRC → cortana_analyzer → cortana_analysis.json → pilot (contrat)",
-      "ok": true,
+      "ok": false,
       "maillons": [
         {
           "nom": "process paper_diprip",
@@ -81,7 +84,7 @@
         {
           "nom": "aspiration runtime",
           "ok": true,
-          "detail": "mode fichier · JSON · âge ts 0.8 min · écart mtime/ts 0.5s · 11 paire(s) · btc=OK · ts=croissant"
+          "detail": "mode fichier · JSON · âge ts 0.5 min · écart mtime/ts 0.3s · 11 paire(s) · btc=OK · ts=croissant"
         },
         {
           "nom": "corrélation BTC",
@@ -95,8 +98,8 @@
         },
         {
           "nom": "cortana_pilot.json",
-          "ok": true,
-          "detail": "âge 1491 min"
+          "ok": false,
+          "detail": "âge 1551 min"
         },
         {
           "nom": "cortana_analysis.json",
@@ -196,7 +199,7 @@
       "id": "securite",
       "nom": "SÉCURITÉ",
       "chemin": "veilleuse synapses (md5 + pannes) + kill-switches",
-      "ok": true,
+      "ok": false,
       "maillons": [
         {
           "nom": "veilleuse launchd",
@@ -224,7 +227,7 @@
         {
           "nom": "ada_saison_live.json",
           "ok": true,
-          "detail": "saison CALME"
+          "detail": "saison ACCUMULATION"
         },
         {
           "nom": "6 indices calculés",
@@ -359,7 +362,7 @@
         {
           "nom": "SAPI calculé",
           "ok": true,
-          "detail": "score 0.533"
+          "detail": "score 0.578"
         },
         {
           "nom": "alerte poussière (≥ 0.75 + volume)",
