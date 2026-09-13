@@ -2,34 +2,6 @@
   "signals": [
     {
       "metric": "fear_greed",
-      "zscore": -2.3227012453222646,
-      "value": 61,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Z-score extrêmement bas (-2.32) malgré un indice de cupidité modéré (61) et un vide total d'actualités. Asymétrie classique : accumulation silencieuse des baleines sous le radar médiatique avant une cassure haussière.\"\n}\n```",
-      "ts": "2026-09-13T00:15:14.662196+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": 6.85027048742291,
-      "value": 0.393,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Fausse alerte liée à une collision sémantique : le sigle 'SDI' désigne ici le Syndicat des Indépendants et des TPE ainsi que du matériel vidéo professionnel, et non une entité ou un actif crypto.\"\n}\n```",
-      "ts": "2026-09-13T00:35:19.434973+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": -6.855654600401052,
-      "value": 61,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement négatif (-6.86) pour un Indice de Peur & Greed à 61 révélant une anomalie statistique majeure. L'absence totale de couverture médiatique notable (Google Actualités vide) combinée à un optimisme modéré des marchés indique une accumulation silencieuse des baleines loin du radar public.\"\n}\n```",
-      "ts": "2026-09-13T00:45:21.910775+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": 4.7940846999866,
-      "value": 0.393,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique lié au Syndicat des Indépendants (SDI) français et à du matériel vidéo (Blackmagic SDI). Aucune donnée crypto pertinente détectée.\"\n}\n```",
-      "ts": "2026-09-13T01:05:25.433592+00:00"
-    },
-    {
-      "metric": "fear_greed",
       "zscore": -4.795831523312714,
       "value": 61,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-4.80) malgré un indice de cupidité modéré (61) et un vide total dans les médias. Dislocation classique : accumulation silencieuse des baleines sous le radar médiatique avant une cassure haussière.\"\n}\n```",
@@ -349,6 +321,34 @@
       "value": 0.2357952295398258,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.78) couplé à un silence médiatique total (zéro couverture Google Actualités) : c'est la signature classique d'une accumulation furtive par des baleines avant que le grand public ne s'en aperçoive.\"\n}\n```",
       "ts": "2026-09-13T13:29:15.332545+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.541614169698,
+      "value": 0.711,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (IPT) entièrement due à une collision de sémantique linguistique : le ticker crypto est confondu avec le Tournoi International des Physiciens (IPT) et des actualités institutionnelles. Aucun mouvement de baleine réel.\"\n}\n```",
+      "ts": "2026-09-13T13:54:20.795781+00:00"
+    },
+    {
+      "metric": "cpfp",
+      "zscore": 2.416768946492769,
+      "value": 40.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie technique sans rapport avec la crypto (sigle CPFP partagé avec des institutions locales et éducatives). Bruit statistique pur.\"\n}\n```",
+      "ts": "2026-09-13T14:09:23.867807+00:00"
+    },
+    {
+      "metric": "dust",
+      "zscore": 2.416768946492769,
+      "value": 40.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie onchain non pertinente. Le z-score élevé (2.42) et le volume de 'dust' détecté correspondent à du bruit de fond (micro-transactions ou nettoyage de portefeuille) noyé dans un homonyme médiatique culturel (films, livres, crypto 'Dust'). Aucune accumulation institutionnelle ou mouvement significatif de baleine détecté.\"\n}\n```",
+      "ts": "2026-09-13T14:09:25.802030+00:00"
+    },
+    {
+      "metric": "price_1h",
+      "zscore": 3.13784674921494,
+      "value": 0.2649329606401407,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique pure (z-score 3.14) sans couverture médiatique ni signal directionnel clair. Bruit statistique, pas de mouvement de baleine avéré.\"\n}\n```",
+      "ts": "2026-09-13T14:19:28.736008+00:00"
     }
   ]
 }
