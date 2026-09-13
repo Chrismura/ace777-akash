@@ -1,34 +1,6 @@
 {
   "signals": [
     {
-      "metric": "taker_ratio",
-      "zscore": 2.663587321934302,
-      "value": 1.402,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio élevé (1.402, z-score 2.66) indique une domination agressive des acheteurs (Taker Buys) sur les carnets d'ordres, signalant une accumulation agressive par les baleines. Le silence médiatique total (Google Actualités vide) confirme l'absence de FOMO de détail, ce qui est typique d'une phase d'accumulation institutionnelle cachée avant un mouvement haussier.\"\n}\n```",
-      "ts": "2026-09-12T07:07:54.525567+00:00"
-    },
-    {
-      "metric": "taker_ratio",
-      "zscore": 2.5160461804550662,
-      "value": 1.402,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio élevé (z-score 2.52) indique une forte agression acheteuse sur les carnets d'ordres, signalant une accumulation agressive par les baleines. Le silence médiatique total (Google Actualités vide) prouve l'absence de FOMO de retail, créant une divergence classique de bas de marché ou de pré-breakout haussier orchestré en silence.\"\n}\n```",
-      "ts": "2026-09-12T07:37:59.206521+00:00"
-    },
-    {
-      "metric": "cpfp",
-      "zscore": 2.0184086125567116,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.02) sur le ticker 'cpfp' entièrement polluée par du bruit médiatique sans rapport avec la crypto (homonymie avec des centres de formation professionnelle). Aucune baleine détectée, simple artefact sémantique.\"\n}\n```",
-      "ts": "2026-09-12T07:43:01.246153+00:00"
-    },
-    {
-      "metric": "dust",
-      "zscore": 2.0184086125567116,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique parasité par des homonymes cinématographiques et littéraires. L'anomalie onchain (z-score 2.02) sur le token DUST est statistiquement faible et noyée dans le bruit sémantique, ne montrant aucune accumulation baleine significative.\"\n}\n```",
-      "ts": "2026-09-12T07:43:02.871881+00:00"
-    },
-    {
       "metric": "whale_usd",
       "zscore": 2.5042626694337566,
       "value": 3134988.0,
@@ -349,6 +321,34 @@
       "value": 0.393,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie sémantique purement lexicale : le sigle 'SDI' dans les médias désigne un syndicat patronal français (Syndicat des Indépendants) et du matériel vidéo, sans aucun rapport avec des flux onchain de baleines crypto.\"\n}\n```",
       "ts": "2026-09-13T01:35:31.455893+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -3.8729833462074166,
+      "value": 61,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie statistique majeure : un z-score de -3.87 sur le Fear & Greed malgré un indice à 61 (avidité modérée) révèle une profonde sous-évaluation du sentiment réel par rapport aux flux cachés. Les médias institutionnels (Google Actualités) font silence radio ou sous-estiment la dynamique, ce qui trahit une accumulation furtive des baleines loin des feux de la rampe.\"\n}\n```",
+      "ts": "2026-09-13T01:45:33.902711+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 3.3160118185800096,
+      "value": 0.393,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 3.32) dictée par un bruit médiatique homonyme ('Syndicat des Indépendants' / matériel vidéo SDI) sans aucun rapport avec l'activité on-chain des baleines crypto.\"\n}\n```",
+      "ts": "2026-09-13T02:05:37.769432+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -3.316624790355405,
+      "value": 61,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrême à -3.32 malgré un indice de cupidité modéré (61) et l'absence totale de couverture médiatique. Indique une accumulation discrète des baleines sous le radar du retail.\"\n}\n```",
+      "ts": "2026-09-13T02:15:40.136685+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 2.9321329111740484,
+      "value": 0.393,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Fausse alerte sémantique : l'anomalie 'SDI' détectée concerne ici un syndicat patronal français (Syndicat des Indépendants) et du matériel vidéo (Blackmagic SDI), sans aucun rapport avec les flux on-chain crypto.\"\n}\n```",
+      "ts": "2026-09-13T02:35:45.657643+00:00"
     }
   ]
 }

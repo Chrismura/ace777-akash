@@ -1,20 +1,20 @@
 {
-  "timestamp": 1789263319,
-  "date": "2026-09-13T01:35:19.737442+00:00",
+  "timestamp": 1789266921,
+  "date": "2026-09-13T02:35:21.007506+00:00",
   "n_analyses": 2,
   "analyses": [
     {
       "signal": {
         "metric": "sdi",
-        "zscore": 4.7940846999866,
+        "zscore": 3.3160118185800096,
         "value": 0.393,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique lié au Syndicat des Indépendants (SDI) français et à du matériel vidéo (Blackmagic SDI). Aucune donnée crypto pertinente détectée.\"\n}\n```",
-        "ts": 1789261525.433592
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 3.32) dictée par un bruit médiatique homonyme ('Syndicat des Indépendants' / matériel vidéo SDI) sans aucun rapport avec l'activité on-chain des baleines crypto.\"\n}\n```",
+        "ts": 1789265137.769432
       },
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.03,
+          "value": -0.07,
           "seuil": 1,
           "depasse": false
         },
@@ -24,12 +24,12 @@
           "depasse": false
         },
         "funding": {
-          "value": 5.5e-05,
+          "value": 6.8e-05,
           "seuil": 0.001,
           "depasse": false
         },
         "whales": {
-          "value": 3,
+          "value": 0,
           "seuil": 5,
           "depasse": false
         }
@@ -46,10 +46,10 @@
     {
       "signal": {
         "metric": "fear_greed",
-        "zscore": -4.795831523312714,
+        "zscore": -3.316624790355405,
         "value": 61,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-4.80) malgré un indice de cupidité modéré (61) et un vide total dans les médias. Dislocation classique : accumulation silencieuse des baleines sous le radar médiatique avant une cassure haussière.\"\n}\n```",
-        "ts": 1789262127.821948
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrême à -3.32 malgré un indice de cupidité modéré (61) et l'absence totale de couverture médiatique. Indique une accumulation discrète des baleines sous le radar du retail.\"\n}\n```",
+        "ts": 1789265740.136685
       },
       "fiche": null,
       "interpretation": {
