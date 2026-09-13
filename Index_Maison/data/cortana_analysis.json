@@ -1,7 +1,63 @@
 {
-  "timestamp": 1789321238,
-  "date": "2026-09-13T17:40:38.557945+00:00",
-  "n_analyses": 0,
-  "analyses": [],
-  "resume": "Aucune analyse en cours"
+  "timestamp": 1789324239,
+  "date": "2026-09-13T18:30:39.601896+00:00",
+  "n_analyses": 2,
+  "analyses": [
+    {
+      "signal": {
+        "metric": "ipt",
+        "zscore": 2.4707104636792625,
+        "value": 0.859,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (IPT z-score 2.47) générée par un bruit médiatique totalement déconnecté de la crypto (Tournoi International de Physique et actualités institutionnelles/religieuses). Aucune baleine détectée.\"\n}\n```",
+        "ts": 1789323011.268708
+      },
+      "fiche": "rbf_eleve",
+      "questions": {
+        "prix": {
+          "value": 0.04,
+          "seuil": 1,
+          "depasse": false
+        },
+        "paires": {
+          "value": null,
+          "seuil": 3,
+          "depasse": false
+        },
+        "funding": {
+          "value": 7.2e-05,
+          "seuil": 0.001,
+          "depasse": false
+        },
+        "whales": {
+          "value": 2,
+          "seuil": 5,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "sdi > 0.3",
+        "lecture": "Drainage silencieux — les vieux BTC bougent en douce",
+        "niveau": "dangereux",
+        "action": "Réduire taille de 50%, sortir des positions fragiles"
+      },
+      "action": "Réduire taille de 50%, sortir des positions fragiles",
+      "niveau": "dangereux"
+    },
+    {
+      "signal": {
+        "metric": "whale_usd",
+        "zscore": 2.812167249993961,
+        "value": 6964468.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Activité anormale des baleines (z-score 2.81, ~6.9M USD) en l'absence totale de couverture médiatique (silence radio). C'est la signature classique d'accumulation furtive avant une rupture de marché.\"\n}\n```",
+        "ts": 1789323613.936924
+      },
+      "fiche": null,
+      "interpretation": {
+        "lecture": "Pas de fiche disponible",
+        "niveau": "inconnu"
+      },
+      "action": "Observer"
+    }
+  ],
+  "resume": "🔴 DANGER détecté — réduire les expositions"
 }
