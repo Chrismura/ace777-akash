@@ -1,15 +1,55 @@
 {
-  "timestamp": 1789259718,
-  "date": "2026-09-13T00:35:18.541224+00:00",
-  "n_analyses": 1,
+  "timestamp": 1789263319,
+  "date": "2026-09-13T01:35:19.737442+00:00",
+  "n_analyses": 2,
   "analyses": [
     {
       "signal": {
+        "metric": "sdi",
+        "zscore": 4.7940846999866,
+        "value": 0.393,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique lié au Syndicat des Indépendants (SDI) français et à du matériel vidéo (Blackmagic SDI). Aucune donnée crypto pertinente détectée.\"\n}\n```",
+        "ts": 1789261525.433592
+      },
+      "fiche": "rbf_eleve",
+      "questions": {
+        "prix": {
+          "value": -0.03,
+          "seuil": 1,
+          "depasse": false
+        },
+        "paires": {
+          "value": null,
+          "seuil": 3,
+          "depasse": false
+        },
+        "funding": {
+          "value": 5.5e-05,
+          "seuil": 0.001,
+          "depasse": false
+        },
+        "whales": {
+          "value": 3,
+          "seuil": 5,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "sdi > 0.3",
+        "lecture": "Drainage silencieux — les vieux BTC bougent en douce",
+        "niveau": "dangereux",
+        "action": "Réduire taille de 50%, sortir des positions fragiles"
+      },
+      "action": "Réduire taille de 50%, sortir des positions fragiles",
+      "niveau": "dangereux"
+    },
+    {
+      "signal": {
         "metric": "fear_greed",
-        "zscore": -2.3227012453222646,
+        "zscore": -4.795831523312714,
         "value": 61,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Z-score extrêmement bas (-2.32) malgré un indice de cupidité modéré (61) et un vide total d'actualités. Asymétrie classique : accumulation silencieuse des baleines sous le radar médiatique avant une cassure haussière.\"\n}\n```",
-        "ts": 1789258514.662196
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-4.80) malgré un indice de cupidité modéré (61) et un vide total dans les médias. Dislocation classique : accumulation silencieuse des baleines sous le radar médiatique avant une cassure haussière.\"\n}\n```",
+        "ts": 1789262127.821948
       },
       "fiche": null,
       "interpretation": {
@@ -19,5 +59,5 @@
       "action": "Observer"
     }
   ],
-  "resume": "🔵 CALME — pas de signal alarmant"
+  "resume": "🔴 DANGER détecté — réduire les expositions"
 }

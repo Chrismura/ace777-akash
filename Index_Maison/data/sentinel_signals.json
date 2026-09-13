@@ -1,34 +1,6 @@
 {
   "signals": [
     {
-      "metric": "cpfp",
-      "zscore": 2.242325288383928,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Bruit de fond absolu. L'anomalie 'cpfp' détectée correspond à des homonymes institutionnels et éducatifs sans aucun rapport avec la crypto ou l'activité de baleines.\"\n}\n```",
-      "ts": "2026-09-12T06:17:38.542837+00:00"
-    },
-    {
-      "metric": "dust",
-      "zscore": 2.242325288383928,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique parasité par du cinéma et de la littérature sans lien avec la crypto. L'anomalie 'dust' (z-score 2.24) reflète un nettoyage mineur de wallets ou du bruit de fond on-chain, sans accumulation significative de baleines.\"\n}\n```",
-      "ts": "2026-09-12T06:17:40.252220+00:00"
-    },
-    {
-      "metric": "cpfp",
-      "zscore": 2.1202783963310297,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Anomalie technique sans rapport avec la crypto. Le sigle CPFP fait référence à des établissements éducatifs et politiques (La Rouatière, Adiac Congo), créant un bruit sémantique total sans lien avec une activité de baleine sur les marchés.\"\n}\n```",
-      "ts": "2026-09-12T06:47:45.199761+00:00"
-    },
-    {
-      "metric": "dust",
-      "zscore": 2.1202783963310297,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit de fond médiatique sans rapport avec l'on-chain (cinéma, littérature). Le z-score de 2.12 sur le 'dust' reflète une dispersion de poussière de portefeuille insignifiante, pas une accumulation de baleines.\"\n}\n```",
-      "ts": "2026-09-12T06:47:46.928206+00:00"
-    },
-    {
       "metric": "taker_ratio",
       "zscore": 2.663587321934302,
       "value": 1.402,
@@ -349,6 +321,34 @@
       "value": 0.393,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Fausse alerte liée à une collision sémantique : le sigle 'SDI' désigne ici le Syndicat des Indépendants et des TPE ainsi que du matériel vidéo professionnel, et non une entité ou un actif crypto.\"\n}\n```",
       "ts": "2026-09-13T00:35:19.434973+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -6.855654600401052,
+      "value": 61,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement négatif (-6.86) pour un Indice de Peur & Greed à 61 révélant une anomalie statistique majeure. L'absence totale de couverture médiatique notable (Google Actualités vide) combinée à un optimisme modéré des marchés indique une accumulation silencieuse des baleines loin du radar public.\"\n}\n```",
+      "ts": "2026-09-13T00:45:21.910775+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 4.7940846999866,
+      "value": 0.393,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique lié au Syndicat des Indépendants (SDI) français et à du matériel vidéo (Blackmagic SDI). Aucune donnée crypto pertinente détectée.\"\n}\n```",
+      "ts": "2026-09-13T01:05:25.433592+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -4.795831523312714,
+      "value": 61,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-4.80) malgré un indice de cupidité modéré (61) et un vide total dans les médias. Dislocation classique : accumulation silencieuse des baleines sous le radar médiatique avant une cassure haussière.\"\n}\n```",
+      "ts": "2026-09-13T01:15:27.821948+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 3.8720239110361647,
+      "value": 0.393,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie sémantique purement lexicale : le sigle 'SDI' dans les médias désigne un syndicat patronal français (Syndicat des Indépendants) et du matériel vidéo, sans aucun rapport avec des flux onchain de baleines crypto.\"\n}\n```",
+      "ts": "2026-09-13T01:35:31.455893+00:00"
     }
   ]
 }

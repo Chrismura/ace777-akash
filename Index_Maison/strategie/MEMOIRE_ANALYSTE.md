@@ -4553,3 +4553,15 @@
 - 2026-09-13T00:27:38.780358Z | alerte | Maintenir la vigilance nominale, garder le stop‑loss d'urgence sur CCUSDT actif et laisser Alpha en embuscade en attendant le signal de Beta. | conf=90%
 - 2026-09-13T00:32:38.250680Z | alerte | <une phrase claire> | conf=<0-100%>
 - 2026-09-13T00:36:38.692427Z | alerte | one clear sentence | conf=<0-100%>
+- 2026-09-13T00:41:07.575760Z | alerte | Maintenir la vigilance nominale, conserver le stop‑loss d'urgence sur CCUSDT actif et laisser Alpha en embuscade en attendant le signal de Beta. | conf=90%
+- 2026-09-13T00:41:16.683725Z | alerte | Maintenir la vigilance nominale, conserver le stop‑loss d'urgence sur CCUSDT actif et laisser Alpha en embuscade en attendant le signal de Beta. | conf=90%
+- 2026-09-13T00:52:28.473883Z | alerte | Maintenir la vigilance nominale, conserver le stop‑loss d'urgence sur CCUSDT actif et laisser Alpha en embuscade en attendant le signal de Beta. | conf=90%
+- 2026-09-13T00:54:19.991241Z | alerte | Maintenir la vigilance nominale, garder le stop‑loss d'urgence sur CCUSDT actif et laisser Alpha en embuscade en attendant le signal de Beta. | conf=90%
+- 2026-09-13T01:02:46.019737Z | alerte | Maintenir la vigilance nominale, garder le stop‑loss d'urgence sur CCUSDT actif et laisser Alpha en embuscade en attendant le signal de Beta. | conf=90%
+- 2026-09-13T01:08:26.617398Z | alerte | Maintenir la vigilance nominale, garder le stop‑loss d'urgence sur CCUSDT actif et laisser Alpha en embuscade en attendant le signal de Beta. | conf=90%
+- 2026-09-13T01:08:42.220018Z | alerte | Maintenir la vigilance nominale, garder le stop‑loss d'urgence sur CCUSDT actif et laisser Alpha en embuscade en attendant le signal de Beta. | conf=90%
+- 2026-09-13T01:14:08.391909Z | alerte | Maintenir la vigilance nominale, garder le stop‑loss d'urgence sur CCUSDT actif et laisser Alpha en embuscade en attendant le signal de Beta. | conf=90%
+- 2026-09-13T01:14:13.802837Z | alerte | Maintenir la vigilance nominale, garder le stop‑loss d'urgence sur CCUSDT actif et laisser Alpha en embuscade en attendant le signal de Beta. | conf=90%
+- 2026-09-13T01:21:06.884812Z | alerte | Maintenir la vigilance nominale, garder le stop‑loss d'urgence sur CCUSDT actif et laisser Alpha en embuscade en attendant le signal de Beta. | conf=90%
+- 2026-09-13T01:22:02.440054Z | alerte | Maintenir la vigilance nominale, garder le stop‑loss d'urgence sur CCUSDT actif et laisser Alpha en embuscade en attendant le signal de Beta. | conf=90%
+- 2026-09-13T01:29:39.976817Z | alerte | Maintenir la vigilance nominale, garder le stop‑loss d'urgence sur CCUSDT actif et laisser Alpha en embuscade, prêt à tirer dès confirmation du signal Beta (volume x3 observé). | conf=90%
