@@ -2,20 +2,6 @@
   "signals": [
     {
       "metric": "liquidations",
-      "zscore": -2.47823389682944,
-      "value": 1595604.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-2.48) sur les liquidations onchain montrant un calme absolu, contredisant totalement le narratif médiatique de vent de panique/liquidations massives (266M$-427M$). Les baleines nettoient les shorts en silence sans volatilité excessive réelle.\"\n}\n```",
-      "ts": "2026-09-12T21:59:47.233713+00:00"
-    },
-    {
-      "metric": "liquidations",
-      "zscore": -2.639699312367279,
-      "value": 1125247.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Divergence extrême : les médias crient au massacre des shorts (centaines de millions de liquidations globales), mais l'anomalie on-chain montre un volume de liquidations réel quasi nul (Z-score -2.64, ~1.1M$). Piège à liquidité haussier orchestré par les baleines pour piéger les acheteurs tardifs avant un mouvement inverse.\"\n}\n```",
-      "ts": "2026-09-12T22:29:54.150467+00:00"
-    },
-    {
-      "metric": "liquidations",
       "zscore": -2.466399415774585,
       "value": 1057056.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Divergence massive : les médias hurlent des liquidations massives (short squeeze) et de la volatilité, tandis que l'anomalie on-chain montre un volume de liquidation dérisoire (1.05M$, z-score -2.47). Les baleines absorbent le choc en silence sans secouer l'arbre.\"\n}\n```",
@@ -349,6 +335,20 @@
       "value": 0.693,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie technique de l'indicateur (IPT) captant des homonymies sémantiques (Tournoi International des Physiciens / Institut Protestant de Théologie) sans lien avec l'activité crypto.\"\n}\n```",
       "ts": "2026-09-13T11:33:46.066077+00:00"
+    },
+    {
+      "metric": "cpfp",
+      "zscore": 2.323303835343735,
+      "value": 35.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Anomalie technique externe liée à de l'homonymie (CPFP = Centre de Formation Professionnelle / Finances Publiques). Aucun lien avec une baleine crypto ou un actif numérique.\"\n}\n```",
+      "ts": "2026-09-13T12:08:55.746043+00:00"
+    },
+    {
+      "metric": "dust",
+      "zscore": 2.323303835343735,
+      "value": 35.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.32) couplé à une 'poussière' médiatique (bruit de fond culturel sans rapport avec la tech) : les baleines accumulent discrètement $DUST sous le radar des médias généralistes.\"\n}\n```",
+      "ts": "2026-09-13T12:08:57.583031+00:00"
     }
   ]
 }
