@@ -4546,3 +4546,9 @@
 - 2026-09-12T05:00:25.621278Z | alerte | a single clear sentence. | conf=90%
 - 2026-09-12T05:01:54.978208Z | alerte | Maintenir la vigilance nominale, garder le stop‑loss d'urgence sur CCUSDT actif, laisser Alpha en embuscade en attendant un signal clair de Beta (volume x3 confirmé sur BTCUSDT) et poursuivre la gestion prudente des positions seeds de Hulk. | conf=90%
 - 2026-09-12T05:04:51.821944Z | alerte | Maintenir la vigilance nominale, garder le stop‑loss d'urgence sur CCUSDT actif, laisser Alpha en embuscade en attendant un signal clair de Beta (volume x3 confirmé sur BTCUSDT) et poursuivre la gestion prudente des positions seeds de Hulk. | conf=90%
+- 2026-09-13T00:01:04.568518Z | alerte | <une phrase claire> | conf=<0-100%>
+- 2026-09-13T00:16:14.150914Z | alerte | Maintenir la vigilance nominale, garder le stop‑loss d'urgence sur CCUSDT actif, laisser Alpha en embuscade en attendant un signal clair de Beta (volume x3 confirmé sur BTCUSDT) et poursuivre la gestion prudente des positions seeds | conf=?
+- 2026-09-13T00:18:44.266134Z | alerte | Maintenir la vigilance nominale, garder le stop‑loss d'urgence sur CCUSDT actif | conf=?
+- 2026-09-13T00:22:09.863921Z | alerte | Maintenir la vigilance nominale, garder le stop‑loss d'urgence sur CCUSDT actif, laisser Alpha en embus | conf=?
+- 2026-09-13T00:27:38.780358Z | alerte | Maintenir la vigilance nominale, garder le stop‑loss d'urgence sur CCUSDT actif et laisser Alpha en embuscade en attendant le signal de Beta. | conf=90%
+- 2026-09-13T00:32:38.250680Z | alerte | <une phrase claire> | conf=<0-100%>

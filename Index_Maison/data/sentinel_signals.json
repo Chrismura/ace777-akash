@@ -2,27 +2,6 @@
   "signals": [
     {
       "metric": "fear_greed",
-      "zscore": 2.4201534780139142,
-      "value": 63,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 40,\n  \"reason\": \"Données Google Actualités vides ou non significatives. Le z-score élevé (2.42) indique une greed modérée mais sans confirmation d'un narratif médiatique externe pour valider une divergence exploitable.\"\n}\n```",
-      "ts": "2026-09-12T03:42:10.224394+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": -2.044501234524879,
-      "value": 0.008,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Fausse alerte due à une homonymie : le 'SDI' des actualités fait référence au 'Syndicat des Indépendants' (Marc Sanchez) et à du matériel vidéo (Blackmagic), sans aucun rapport avec la crypto ou des mouvements de baleines on-chain.\"\n}\n```",
-      "ts": "2026-09-12T04:12:14.922575+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": 2.2360679774997902,
-      "value": 63,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 78,\n  \"reason\": \"Le score Z élevé (2.24) et la cupidité (63) contrastent fortement avec l'absence totale de couverture médiatique notable (Google Actualités vide). Ce silence médiatique combiné à une euphorie locale suggère une phase de distribution discrète par les baleines avant un retournement de tendance.\"\n}\n```",
-      "ts": "2026-09-12T04:12:16.176427+00:00"
-    },
-    {
-      "metric": "fear_greed",
       "zscore": 2.0816659994661326,
       "value": 63,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 75,\n  \"reason\": \"Fear_greed z-score élevé (2.08) indique une accumulation discrète malgré un narratif médiatique neutre (Google Actualités). Divergence classique baleines vs retail.\"\n}\n```",
@@ -349,6 +328,27 @@
       "value": 1057056.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Divergence massive : les médias généralisent un 'bain de sang' de shorts (centaines de millions), alors que l'anomalie onchain (z-score -2.28) montre un volume de liquidation microscopique (~1M$). Les baleines nettoient le carnet d'ordres sans volatilité réelle, piégeant les derniers haussiers dans un faux narratif de squeeze.\"\n}\n```",
       "ts": "2026-09-12T23:30:05.099786+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": -2.1165669668093092,
+      "value": 1057243.0,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Divergence extrême : les médias crient au 'short squeeze' massif et à l'euphorie haussière, mais l'anomalie on-chain montre des liquidations minimes (1,05M$ / Z-score -2.12). Piège à liquidité institutionnel : le narratif public sert d'exit liquidity pendant que les baleines se positionnent discrètement à la baisse.\"\n}\n```",
+      "ts": "2026-09-13T00:00:10.089743+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 4.378833266435236,
+      "value": 0.393,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 4.38) sur un acronyme homonyme ('SDI' : Syndicat des Indépendants / Blackmagic SDI). Aucun rapport avec les mouvements de baleines crypto ou la blockchain. Bruit médiatique pur sans fondement on-chain.\"\n}\n```",
+      "ts": "2026-09-13T00:05:12.219126+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -2.3227012453222646,
+      "value": 61,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Z-score extrêmement bas (-2.32) malgré un indice de cupidité modéré (61) et un vide total d'actualités. Asymétrie classique : accumulation silencieuse des baleines sous le radar médiatique avant une cassure haussière.\"\n}\n```",
+      "ts": "2026-09-13T00:15:14.662196+00:00"
     }
   ]
 }
