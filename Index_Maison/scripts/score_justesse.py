@@ -26,9 +26,16 @@ Usage :
   python3 score_justesse.py --jour 2026-08-06
   python3 score_justesse.py --detail   # détail ligne par ligne
   python3 score_justesse.py --test     # auto-tests hermétiques (sans fichiers réels)
+
+  P1 (13/09, GO Christophe « go p1,p2 ») : le JSON gagne `directionnel` (2 carnets —
+  LECON-041 : le score global mélange NEUTRE et paris directionnels), `par_ere`
+  (LECON-040 : le régime change sous la boucle, la date d'émission compte) et le
+  t-stat par indice + global (LECON-042 : pas de verdict sans n suffisant).
+  Aucune clé existante n'est retirée — le cockpit lit tout, rétro-compatible.
 """
 import argparse
 import json
+import math
 import os
 import re
 import sys
@@ -49,6 +56,9 @@ FUNDING_DEAD_ZONE = 0.0002
 # Compteur anti-fuite : si l'analyste répond NEUTRE sur plus de 60% des analyses
 # où le signal EXISTE, c'est de l'évitement → alarme (elle esquive le verdict).
 NEUTRE_FUITE_MAX = 0.60
+# P1 (13/09, GO Christophe) : nombre minimal de paris notés pour qu'un indice
+# ait un verdict affiché (LECON-042 : 4 croisements à 0 % ne prouvent rien).
+N_MIN_VERDICT = 20
 
 THERMO_DIR = os.path.expanduser("~/ace777-test-day1/Index_Maison/thermo")
 ANALYSES_DIR = os.path.join(THERMO_DIR, "analyses")
@@ -282,6 +292,8 @@ def juger(analyse, history):
 def build_resume(analyses, history):
     """Construit le résumé v2 complet (pour justesse_v2.json + cockpit)."""
     total_hit = total_scored = 0
+    dir_hit = dir_scored = 0          # P1 : carnet directionnel (LONG/SHORT seuls)
+    era_stats = {}                    # P1 : carnet par ère (régimes du marché)
     par_indice = {}
     neutre_par_indice = {}
     derniere = None
@@ -316,16 +328,45 @@ def build_resume(analyses, history):
             if v["statut"] == "HIT ✅":
                 total_hit += 1
                 par_indice[indice]["hit"] += 1
+            # P1 (13/09) : carnet directionnel — LONG/SHORT seuls (LECON-041 :
+            # le score global mélange 2 populations qui n'ont pas le même sens)
+            if v.get("avis") in ("LONG", "SHORT"):
+                dir_scored += 1
+                if v["statut"] == "HIT ✅":
+                    dir_hit += 1
+            # P1 : carnet par ère — la date d'émission séparée (LECON-040 :
+            # LONG 68 % avant le 19/08, 25 % après = le régime, pas l'analyste)
+            ts_an = str(an.get("ts") or "")
+            era = ("avant_1908" if ts_an < "2026-08-19"
+                   else ("entre_1908_0309" if ts_an < "2026-09-03" else "depuis_0309"))
+            era_stats.setdefault(era, {"hit": 0, "n": 0})
+            era_stats[era]["n"] += 1
+            if v["statut"] == "HIT ✅":
+                era_stats[era]["hit"] += 1
         if v.get("avis") == "NEUTRE":
             neutre_par_indice[indice] = neutre_par_indice.get(indice, 0) + 1
 
     # enrichir par_indice du compteur NEUTRE (biais par indice)
     for indice in par_indice:
         par_indice[indice]["neutre"] = neutre_par_indice.get(indice, 0)
+    # P1 (13/09, GO Christophe) : t-stat + honnêteté du n par indice — LECON-042 :
+    # un indice ne se juge qu'avec >= 20 paris ; en dessous, verdict = None.
+    for indice, st in par_indice.items():
+        n_i, h_i = st["n"], st["hit"]
+        st["t_stat"] = round((h_i / n_i - 0.5) / math.sqrt(0.25 / n_i), 2) if n_i else None
+        if n_i >= N_MIN_VERDICT:
+            p_i = h_i / n_i
+            st["verdict"] = "OK ≥55 %" if p_i >= 0.55 else ("SOUS LE HASARD <45 %" if p_i < 0.45 else "zone grise")
+        else:
+            st["verdict"] = None
+        st["n_min_verdict"] = N_MIN_VERDICT
 
     # Alarme anti-fuite : NEUTRE avec signal présent > 60% des avis = elle esquive.
     neutre_taux = (n_neutre_signal / n_avis * 100.0) if n_avis else None
     alerte_fuite = bool(n_avis and (n_neutre_signal / n_avis) > NEUTRE_FUITE_MAX)
+    # P1 : t-stat global (l'edge existe-t-il vs le hasard — signets X #112)
+    t_global = (round((total_hit / total_scored - 0.5) / math.sqrt(0.25 / total_scored), 2)
+                if total_scored else None)
 
     return {
         "version": "v2",
@@ -333,6 +374,13 @@ def build_resume(analyses, history):
         "total_hit": total_hit,
         "total_scored": total_scored,
         "pct": round(total_hit / total_scored * 100, 1) if total_scored else None,
+        # P1 (13/09, GO Christophe) : les 2 carnets + les ères + le t-stat global
+        "directionnel": {
+            "hit": dir_hit, "n": dir_scored,
+            "pct": round(dir_hit / dir_scored * 100, 1) if dir_scored else None,
+        },
+        "t_stat_global": t_global,
+        "par_ere": era_stats,
         "seuil_move_pct": SEUIL_MOVE_PCT,
         "par_indice": {k: par_indice[k] for k in sorted(par_indice)},
         "derniere": derniere,

@@ -196,15 +196,29 @@ def contexte_systeme() -> str:
         sc = json.load(open(JUSTESSE))
         pct = sc.get("pct")
         if pct is not None:
+            # P2 (13/09, GO Christophe) : les chiffres honnêtes entrent dans le
+            # prompt — NEUTRE-refuge est le PIRE des trois avis (41,9 % mesurés
+            # vs LONG 53,8 % / SHORT 50,0 %) et l'ère P3 (surcharge de consignes)
+            # a fini SOUS le hasard (29 %, t = -2,33). La prudence s'exprime par
+            # la CONFIANCE, jamais par le refuge NEUTRE quand les instruments
+            # parlent. Règle de décision unique, sans jargon :
             lignes.append(
-                "- Ton score de justesse global : %s%% (%s/%s avis notés). "
-                "Ta note ne doit PAS te pousser vers NEUTRE : NEUTRE n'est pas un refuge, "
-                "il est noté MISS dès que le marché bouge de ±0,3%% (il ne gagne que sur un "
-                "marché réellement plat). Si tu es sous 60 pour cent, sois prudente sur tes "
-                "CONFIANCES (préfère faible/moyenne) mais garde ta lecture : LONG/SHORT/NEUTRE "
-                "selon les signaux, jamais par évitement. Au-dessus de 65 pour cent, tu peux "
-                "être plus affirmée."
-                % (pct, sc.get("total_hit"), sc.get("total_scored"))
+                "- Ton score de justesse global : %s%% (%s/%s avis notés) ; tes vrais "
+                "paris directionnels (LONG/SHORT) : %s ; tes NEUTRE : %s du volume."
+                % (pct, sc.get("total_hit"), sc.get("total_scored"),
+                   (lambda d: (str(d.get("pct")) + "% (" + str(d.get("hit")) + "/" + str(d.get("n")) + ")"))
+                   (sc.get("directionnel") or {}),
+                   (lambda e: (str(e.get("taux_pct")) + "%") if e.get("taux_pct") is not None else "n/d")
+                   (sc.get("evitement") or {}))
+            )
+            lignes.append(
+                "- RÈGLE P2 (mesurée, non négociable) : NEUTRE est ton PIRE avis "
+                "(41,9 % de réussite contre LONG 53,8 % et SHORT 50,0 %) — quand les "
+                "instruments montrent quelque chose, NEUTRE est noté MISS dans 58 % des "
+                "cas. Si tu doutes de la FORCE du mouvement, garde LONG ou SHORT avec "
+                "CONFIANCE faible — c'est ainsi qu'une analyste prudente est honnête. "
+                "Réserve NEUTRE aux cas où AUCUN instrument ne dit rien (zone morte "
+                "réelle, données vides). Ta note ne doit PAS te pousser vers NEUTRE."
             )
         par = sc.get("par_indice") or {}
         if par:

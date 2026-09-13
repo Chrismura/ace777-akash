@@ -1,63 +1,98 @@
 {
-  "timestamp": 1789292129,
-  "date": "2026-09-13T09:35:29.282650+00:00",
+  "timestamp": 1789295730,
+  "date": "2026-09-13T10:35:30.573763+00:00",
   "n_analyses": 2,
   "analyses": [
     {
       "signal": {
-        "metric": "ipt",
-        "zscore": 2.953664046187886,
-        "value": 0.781,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (z-score 2.95) liée à une confusion lexicale : le ticker 'IPT' est parasité par des actualités académiques et religieuses sans rapport avec une cryptomonnaie ou une activité de baleine.\"\n}\n```",
-        "ts": 1789291089.182532
+        "metric": "cpfp",
+        "zscore": 2.1871078419636127,
+        "value": 35.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie technique fausse positive : l'indicateur on-chain 'cpfp' détecte du bruit sémantique sans rapport avec la crypto (homonymie avec des centres de formation professionnelle et institutions publiques).\"\n}\n```",
+        "ts": 1789295611.343334
       },
-      "fiche": "rbf_eleve",
+      "fiche": "blocs_privilises",
       "questions": {
+        "duree": {
+          "value": 0,
+          "seuil": 0,
+          "depasse": false
+        },
+        "volume": {
+          "value": 838,
+          "seuil": 0,
+          "depasse": true
+        },
         "prix": {
-          "value": -0.24,
-          "seuil": 1,
-          "depasse": false
+          "value": -0.05,
+          "seuil": 0,
+          "depasse": true
         },
-        "paires": {
-          "value": null,
-          "seuil": 3,
-          "depasse": false
+        "sdi": {
+          "value": 0.393,
+          "seuil": 0,
+          "depasse": true
         },
-        "funding": {
-          "value": 2.7e-05,
-          "seuil": 0.001,
-          "depasse": false
-        },
-        "whales": {
-          "value": 3,
-          "seuil": 5,
+        "rbf": {
+          "value": 0.0,
+          "seuil": 0,
           "depasse": false
         }
       },
       "interpretation": {
-        "condition": "sdi > 0.3",
-        "lecture": "Drainage silencieux — les vieux BTC bougent en douce",
-        "niveau": "dangereux",
-        "action": "Réduire taille de 50%, sortir des positions fragiles"
+        "condition": "duree < 5min ET volume > 100",
+        "lecture": "Consolidation exchange — probablement un transfert hot→cold",
+        "niveau": "neutre",
+        "action": "Garder les positions"
       },
-      "action": "Réduire taille de 50%, sortir des positions fragiles",
-      "niveau": "dangereux"
+      "action": "Garder les positions",
+      "niveau": "neutre"
     },
     {
       "signal": {
-        "metric": "price_1h",
-        "zscore": 3.8396921643307147,
-        "value": 0.2798749961110403,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (3.84) détectant une volatilité de prix anormale non couverte par les médias (silence radio médiatique), signature typique d'une accumulation ou d'un mouvement furtif de baleines.\"\n}\n```",
-        "ts": 1789291992.186385
+        "metric": "dust",
+        "zscore": 2.1871078419636127,
+        "value": 35.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 2.19) sur le token DUST, alors que le bruit médiatique est totalement parasité par du hors-sujet culturel (cinéma, littérature).经典的 accumulation furtive de baleines sous le radar public.\"\n}\n```",
+        "ts": 1789295612.951284
       },
-      "fiche": null,
+      "fiche": "blocs_privilises",
+      "questions": {
+        "duree": {
+          "value": 0,
+          "seuil": 0,
+          "depasse": false
+        },
+        "volume": {
+          "value": 838,
+          "seuil": 0,
+          "depasse": true
+        },
+        "prix": {
+          "value": -0.05,
+          "seuil": 0,
+          "depasse": true
+        },
+        "sdi": {
+          "value": 0.393,
+          "seuil": 0,
+          "depasse": true
+        },
+        "rbf": {
+          "value": 0.0,
+          "seuil": 0,
+          "depasse": false
+        }
+      },
       "interpretation": {
-        "lecture": "Pas de fiche disponible",
-        "niveau": "inconnu"
+        "condition": "duree < 5min ET volume > 100",
+        "lecture": "Consolidation exchange — probablement un transfert hot→cold",
+        "niveau": "neutre",
+        "action": "Garder les positions"
       },
-      "action": "Observer"
+      "action": "Garder les positions",
+      "niveau": "neutre"
     }
   ],
-  "resume": "🔴 DANGER détecté — réduire les expositions"
+  "resume": "🔵 CALME — pas de signal alarmant"
 }
