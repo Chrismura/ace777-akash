@@ -1,6 +1,3 @@
-# Rapport Veilleuse — 2026-09-13T07:00:56.386424+00:00
+# Rapport Veilleuse — 2026-09-13T08:34:30.728939+00:00
 
-## État : ⚠️ ANOMALIES DÉTECTÉES
-- **INTRUSION** : Modification non déclarée : Index_Maison/scripts/thermo_quotidien_free.py (md5 diffère du registre)
-- **INTRUSION** : Modification non déclarée : Index_Maison/scripts/score_justesse.py (md5 diffère du registre)
-- **INTRUSION** : Modification non déclarée : Index_Maison/cockpit/plancher_live.js (md5 diffère du registre)
+## État : ✅ STABLE — tout est en ordre

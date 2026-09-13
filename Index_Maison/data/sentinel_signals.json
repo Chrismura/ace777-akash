@@ -1,41 +1,6 @@
 {
   "signals": [
     {
-      "metric": "volume",
-      "zscore": -2.64049972007116,
-      "value": 4553760984.0,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain caractérisée par un effondrement sévère du volume (z-score -2.64), contrastant fortement avec le narratif médiatique généraliste orienté sur la hausse ou sans lien direct avec la liquidité réelle des actifs.\"\n}\n```",
-      "ts": "2026-09-12T17:47:57.085844+00:00"
-    },
-    {
-      "metric": "liquidations",
-      "zscore": -2.3759970312177083,
-      "value": 3029271.0,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Divergence massive : les médias grand public crient au 'short squeeze' et à la hausse portée par des centaines de millions de liquidations spéculatives, alors que le z-score on-chain (-2.38) prouve un volume de liquidation réel anémiqué. Piège à liquidité haussier orchestré.\"\n}\n```",
-      "ts": "2026-09-12T18:13:03.649261+00:00"
-    },
-    {
-      "metric": "taker_ratio",
-      "zscore": -3.0693260354413243,
-      "value": 0.492,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Taker ratio extrêmement bas (z-score -3.07) indique une domination massive des acheteurs passifs (ordres limite), absorbant la pression vendeuse dans un silence médiatique total. Divergence classique d'accumulation discrète par les baleines avant un retournement haussier.\"\n}\n```",
-      "ts": "2026-09-12T18:13:04.821638+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": -2.488987428211483,
-      "value": 4138801160.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score -2.49) sur un bruit de fond non pertinent : les titres médiatiques mélangent actualité boursière traditionnelle, sport et tech, sans lien direct avec un mouvement massif de baleines crypto.\"\n}\n```",
-      "ts": "2026-09-12T18:23:12.105780+00:00"
-    },
-    {
-      "metric": "liquidations",
-      "zscore": -2.430747450115705,
-      "value": 3056677.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Divergence massive : les médias hurlent au massacre des short-sellers (centaines de millions liquidés), mais l'anomalie on-chain montre un volume de liquidation dérisoire (3M$, z-score -2.43). Les baleines nettoient le carnet d'ordres sans friction majeure, piégeant la foule dans un faux narratif de volatilité extrême.\"\n}\n```",
-      "ts": "2026-09-12T18:43:18.037969+00:00"
-    },
-    {
       "metric": "taker_ratio",
       "zscore": -2.761728494552511,
       "value": 0.492,
@@ -349,6 +314,41 @@
       "value": 0.707,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (IPT z-score 2.94) causée par une collision sémantique : le ticker 'IPT' est massivement confondu dans l'actualité avec des instituts de physique et théologiques (Tournoi de Physique, facultés protestantes). Bruit médiatique sans lien avec des mouvements de baleines crypto.\"\n}\n```",
       "ts": "2026-09-13T07:22:31.163945+00:00"
+    },
+    {
+      "metric": "cpfp",
+      "zscore": 2.988182571907229,
+      "value": 50.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (z-score 2.99) liée à un acronyme homonyme ('CPFP') sans rapport avec la crypto. Bruit médiatique local et institutionnel (éducation/politique). Aucune activité de baleine.\"\n}\n```",
+      "ts": "2026-09-13T07:47:43.247900+00:00"
+    },
+    {
+      "metric": "dust",
+      "zscore": 2.988182571907229,
+      "value": 50.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Forte anomalie onchain (z-score 2.99) sur le token DUST, alors que le narratif médiatique est totalement pollué par du bruit culturel (cinéma, littérature, jeux). Cette asymétrie totale prouve une accumulation silencieuse des baleines à l'abri des radars de la foule.\"\n}\n```",
+      "ts": "2026-09-13T07:47:44.874971+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 3.345222918701061,
+      "value": 0.822,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (IPT) entièrement corrélée à un acronyme académique et religieux sans rapport avec la crypto (Tournoi International des Physiciens / protestantisme). Bruit médiatique pur, aucune baleine détectée.\"\n}\n```",
+      "ts": "2026-09-13T08:07:50.864503+00:00"
+    },
+    {
+      "metric": "price_1h",
+      "zscore": 4.0343669972088305,
+      "value": 0.21278328103210287,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (+4.03) sur le prix à court terme sans aucune couverture médiatique correspondante (silence radio). Indique une accumulation agressive ou un mouvement furtif de baleines avant que le marché de masse ne s'en aperçoive.\"\n}\n```",
+      "ts": "2026-09-13T08:32:56.002184+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.1567719508878973,
+      "value": 0.595,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Anomalie statistique (z-score 2.16) due à une collision lexicale : les médias parlent du tournoi académique 'IPT' (International Physicists' Tournament) et d'institutions religieuses, totalement déconnectés du token crypto 'IPT'.\"\n}\n```",
+      "ts": "2026-09-13T08:37:58.170666+00:00"
     }
   ]
 }

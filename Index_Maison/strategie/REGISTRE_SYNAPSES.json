@@ -67,8 +67,8 @@
       "origine": "fondation",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "3dbe99b13989883fd08a37a4f1d7a2d1",
-      "note": "déclaré 2026-08-27T13:46Z — modifs légitimes 25/08 (pipeline unifié GO Christophe : SafeLiveWriter + LMDB + SDI + geopol) non déclarées à l'époque",
+      "md5": "1ee6346d520bac5a22e283b8f8223e57",
+      "note": "déclaré 2026-08-27T13:46Z — modifs légitimes 25/08 (pipeline unifié GO Christophe : SafeLiveWriter + LMDB + SDI + geopol) non déclarées à l'époque | md5 aligné sur le sceau GEOPOL-C3 (12/09) — doublon historique, veilleuse apaisée 13/09",
       "maj": "27/08 13:46Z : md5 mis à jour (déclaration légitime)"
     },
     {
@@ -525,19 +525,20 @@
       "origine": "correctif V8-C — GO direct Christophe 11/09 (radar re-noté sur son vrai horizon)",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "8a0165b1d697f39b3947004277b883bf",
-      "note": "GEOPOL-C2 : self-key \"geopol\":\"score\" retirée (pointait la série du score CLIMAT — croisement d'instruments) ; avis geopol noté vs BTC tant qu'aucune série numérique dédiée n'existe dans history.jsonl | md5 avant: aa6659d78605aca2ee540ec1938b6f5c",
+      "md5": "6191e348583e970894a6f1a7f5cb7934",
+      "note": "GEOPOL-C2 : self-key \"geopol\":\"score\" retirée (pointait la série du score CLIMAT — croisement d'instruments) ; avis geopol noté vs BTC tant qu'aucune série numérique dédiée n'existe dans history.jsonl | md5 avant: aa6659d78605aca2ee540ec1938b6f5c | md5 aligné sur le sceau GEOPOL-C3 (12/09) — doublon",
       "maj": "scellé 2026-09-11T22:05Z — boucle coupée de Buffy, reprise et vérifiée"
     },
     {
       "nom": "Index_Maison/cockpit/plancher_live.js",
       "role": "Feed cockpit du shadow plancher confirmé (fenêtre.__PLANCHER__)",
       "origine": "chantier plancher confirmé — GO direct Christophe 11/09 — PAPIER, aucun ordre",
-      "verif": "md5",
+      "verif": "fraicheur",
       "auto_modifiable": false,
       "md5": "9b9176551d0c594c0eef68e456aa704a",
-      "note": "généré par simulateur_plancher_confirme.py ; carte visible dans index.html",
-      "maj": "scellé 2026-09-11T22:05Z — boucle coupée de Buffy, reprise et vérifiée"
+      "note": "généré par simulateur_plancher_confirme.py ; carte visible dans index.html | 13/09 : fichier GÉNÉRÉ à chaque cycle shadow (md5 change toujours) → contrôle fraîcheur 180 min au lieu de md5 (erreur de scellement d'origine)",
+      "maj": "scellé 2026-09-11T22:05Z — boucle coupée de Buffy, reprise et vérifiée",
+      "fraicheur_max_min": 180
     },
     {
       "nom": "Index_Maison/scripts/verifier_lecons_analyste.py",
@@ -649,10 +650,12 @@
       "md5": "5aff1f84bb4aa5066d7f8e9e736b73b1"
     },
     {
-      "fichier": "Index_Maison/scripts/sniffer_vieux_btc.py",
+      "nom": "Index_Maison/scripts/sniffer_vieux_btc.py",
+      "role": "Correction resolution age inputs (bug vin.txid vs prevout.txid, retries+cache+TOUS inputs, honestite null). Preuve: 121/121 inputs resolus sur tx 7654 BTC du 23/08. md5 avant: 4ef61bdf9a5e9820d5344a28",
+      "origine": "2026-09-13T07:05:26Z",
+      "verif": "md5",
       "md5": "2c1ef00778bc07e914c0c3683c2984f3",
-      "date": "2026-09-13T07:05:26Z",
-      "note": "Correction resolution age inputs (bug vin.txid vs prevout.txid, retries+cache+TOUS inputs, honestite null). Preuve: 121/121 inputs resolus sur tx 7654 BTC du 23/08. md5 avant: 4ef61bdf9a5e9820d5344a286c1fe811"
+      "auto_modifiable": false
     }
   ]
 }

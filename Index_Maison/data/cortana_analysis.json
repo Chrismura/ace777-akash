@@ -1,20 +1,20 @@
 {
-  "timestamp": 1789284926,
-  "date": "2026-09-13T07:35:26.790041+00:00",
-  "n_analyses": 1,
+  "timestamp": 1789288528,
+  "date": "2026-09-13T08:35:28.098988+00:00",
+  "n_analyses": 2,
   "analyses": [
     {
       "signal": {
         "metric": "ipt",
-        "zscore": 2.935920810512993,
-        "value": 0.707,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (IPT z-score 2.94) causée par une collision sémantique : le ticker 'IPT' est massivement confondu dans l'actualité avec des instituts de physique et théologiques (Tournoi de Physique, facultés protestantes). Bruit médiatique sans lien avec des mouvements de baleines crypto.\"\n}\n```",
-        "ts": 1789284151.163945
+        "zscore": 3.345222918701061,
+        "value": 0.822,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (IPT) entièrement corrélée à un acronyme académique et religieux sans rapport avec la crypto (Tournoi International des Physiciens / protestantisme). Bruit médiatique pur, aucune baleine détectée.\"\n}\n```",
+        "ts": 1789286870.864503
       },
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": 0.02,
+          "value": -0.13,
           "seuil": 1,
           "depasse": false
         },
@@ -24,7 +24,7 @@
           "depasse": false
         },
         "funding": {
-          "value": 6.3e-05,
+          "value": 4.4e-05,
           "seuil": 0.001,
           "depasse": false
         },
@@ -42,6 +42,21 @@
       },
       "action": "Réduire taille de 50%, sortir des positions fragiles",
       "niveau": "dangereux"
+    },
+    {
+      "signal": {
+        "metric": "price_1h",
+        "zscore": 4.0343669972088305,
+        "value": 0.21278328103210287,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (+4.03) sur le prix à court terme sans aucune couverture médiatique correspondante (silence radio). Indique une accumulation agressive ou un mouvement furtif de baleines avant que le marché de masse ne s'en aperçoive.\"\n}\n```",
+        "ts": 1789288376.002184
+      },
+      "fiche": null,
+      "interpretation": {
+        "lecture": "Pas de fiche disponible",
+        "niveau": "inconnu"
+      },
+      "action": "Observer"
     }
   ],
   "resume": "🔴 DANGER détecté — réduire les expositions"
