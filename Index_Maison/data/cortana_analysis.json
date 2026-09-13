@@ -1,7 +1,7 @@
 {
-  "timestamp": 1789281025,
-  "date": "2026-09-13T06:30:25.568389+00:00",
-  "n_analyses": 1,
+  "timestamp": 1789281325,
+  "date": "2026-09-13T06:35:25.642205+00:00",
+  "n_analyses": 3,
   "analyses": [
     {
       "signal": {
@@ -17,6 +17,96 @@
         "niveau": "inconnu"
       },
       "action": "Observer"
+    },
+    {
+      "signal": {
+        "metric": "cpfp",
+        "zscore": 2.0158444092960086,
+        "value": 40.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie technique 'cpfp' (Child-Pays-For-Parent) totalement non corrélée avec le narratif médiatique, lequel fait référence à un acronyme homonyme (Centre Pédagogique de Formation Professionnelle) dans l'actualité locale et institutionnelle. Aucun mouvement de baleine crypto détecté.\"\n}\n```",
+        "ts": 1789281139.521781
+      },
+      "fiche": "blocs_privilises",
+      "questions": {
+        "duree": {
+          "value": 0,
+          "seuil": 0,
+          "depasse": false
+        },
+        "volume": {
+          "value": 694,
+          "seuil": 0,
+          "depasse": true
+        },
+        "prix": {
+          "value": -0.02,
+          "seuil": 0,
+          "depasse": true
+        },
+        "sdi": {
+          "value": 0.393,
+          "seuil": 0,
+          "depasse": true
+        },
+        "rbf": {
+          "value": 0.0,
+          "seuil": 0,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "duree < 5min ET volume > 100",
+        "lecture": "Consolidation exchange — probablement un transfert hot→cold",
+        "niveau": "neutre",
+        "action": "Garder les positions"
+      },
+      "action": "Garder les positions",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "dust",
+        "zscore": 2.0158444092960086,
+        "value": 40.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Le z-score de 2.02 indique une légère anomalie onchain (dust), mais les résultats médiatiques renvoient majoritairement à du bruit hors crypto (cinéma, culture). Aucune convergence narrative ou accumulation significative de baleines détectée.\"\n}\n```",
+        "ts": 1789281141.001714
+      },
+      "fiche": "blocs_privilises",
+      "questions": {
+        "duree": {
+          "value": 0,
+          "seuil": 0,
+          "depasse": false
+        },
+        "volume": {
+          "value": 694,
+          "seuil": 0,
+          "depasse": true
+        },
+        "prix": {
+          "value": -0.02,
+          "seuil": 0,
+          "depasse": true
+        },
+        "sdi": {
+          "value": 0.393,
+          "seuil": 0,
+          "depasse": true
+        },
+        "rbf": {
+          "value": 0.0,
+          "seuil": 0,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "duree < 5min ET volume > 100",
+        "lecture": "Consolidation exchange — probablement un transfert hot→cold",
+        "niveau": "neutre",
+        "action": "Garder les positions"
+      },
+      "action": "Garder les positions",
+      "niveau": "neutre"
     }
   ],
   "resume": "🔵 CALME — pas de signal alarmant"

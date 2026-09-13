@@ -1,6 +1,6 @@
 # Thermo dernier — gratuit (Binance public)
 
-> Auto · **sans clé** · sans ordre · 2026-09-13T06:28Z UTC  
+> Auto · **sans clé** · sans ordre · 2026-09-13T06:34Z UTC  
 > Script : `Index_Maison/scripts/thermo_quotidien_free.py`
 
 ## Clin d'œil
@@ -10,24 +10,24 @@
 
 | Champ | Valeur | ID |
 |-------|--------|-----|
-| Mark | 77255.6 | prix |
-| OI | 103650.353 | C13 |
-| Funding | 9.1e-05 | C14 |
+| Mark | 77262.9 | prix |
+| OI | 103670.421 | C13 |
+| Funding | 9e-05 | C14 |
 | Funding moy. ~30j | 6.56e-05 (n=90) | Cortana |
 | Funding mois préc. | 6.695e-05 (n=93) | Cortana |
 | L/S 1h | 1.662 | crowd |
-| BTC 1h/4h/24h | -0.03 / -0.01 / 0.07 % | B7 |
+| BTC 1h/4h/24h | -0.02 / -0.0 / 0.02 % | B7 |
 | Dominance BTC | 58.76% | A3 |
 | Alts ↓ 24h | 35.0% | B9 |
 
 ## Lecture
 - Climat CALME (score 77/100).
-- Funding maintenant 9.1e-05. Moyenne ~30j 6.56e-05 (90 pts). Mois précédent 6.695e-05 (93 pts).
+- Funding maintenant 9e-05. Moyenne ~30j 6.56e-05 (90 pts). Mois précédent 6.695e-05 (93 pts).
 - Long/Short 1.662.
-- BTC 24h 0.07% · 1h -0.03% · 4h -0.01%.
+- BTC 24h 0.02% · 1h -0.02% · 4h -0.0%.
 - Panier alts : 35.0% en baisse (7/20).
-- Whales proxy : aucun print ≥500k$ sur les ~500 derniers trades.
-- Dark/OTC proxy : taker buy/sell 1.381 · OI 103650.353 (pas de dark pool free temps réel).
+- Whales proxy : 5 gros print(s) ≥500k$ (max 999969$) — source aggTrades Binance.
+- Dark/OTC proxy : taker buy/sell 1.381 · OI 103670.421 (pas de dark pool free temps réel).
 - Top traders L/S 1.746.
 - Fear & Greed 61 (Greed).
 - Market cap crypto ≈ 2.64 T$.
