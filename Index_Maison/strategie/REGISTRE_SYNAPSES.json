@@ -1,6 +1,6 @@
 {
   "version": "1.4.7",
-  "updated": "2026-09-14T11:33:54Z",
+  "updated": "2026-09-14T12:40:57Z",
   "fichier": [
     {
       "nom": "hulk-mexc/scripts/paper_diprip.py",
@@ -733,8 +733,8 @@
       "origine": "GO Christophe 14/09 (onglet cockpit vol)",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "a993ca4e5ec7c6848c2bad4eccfc7180",
-      "note": "GO Christophe 14/09. Plist com.ace777.gen-cockpit-vol (5 min). Page /cockpit/vol.html. Par Buffy."
+      "md5": "1175a8ad929ee01936efc8491ec8d055",
+      "note": "Re-scellé 14/09T12:41Z après modification déclarée : suppression de la réécriture de vol.html (cache-buster déplacé côté client) — le générateur n'écrit plus que vol_live.js (non scellé, donnée vivante). Par Buffy."
     },
     {
       "nom": "Index_Maison/cockpit/vol.html",
@@ -742,8 +742,17 @@
       "origine": "GO Christophe 14/09 (onglet cockpit vol)",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "8c6096cbe432484c4a8609e7255abac6",
-      "note": "GO Christophe 14/09. Servie par cockpit_http_server (:17800/cockpit/vol.html). Par Buffy."
+      "md5": "9c6af579fea7a3afc2f1d0465409354e",
+      "note": "Re-scellé 14/09T12:40Z : le générateur ne réécrit PLUS ce fichier (cache-buster côté client, Date.now()). Defaut de conception du matin corrigé : on ne scelle pas un fichier qu'on réécrit toutes les 5 min. Par Buffy."
+    },
+    {
+      "nom": "/Users/christophe/prise-ia/hub_prise_ia.py",
+      "role": "Hub LLM Prise-IA (port 11435) — routage multi-providers, filet universel, budget/tempête.",
+      "origine": "GO Christophe 14/09 : transparence substitution de modèle",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "ce5f8c180c49b839583c3fb68e44332b",
+      "note": "Scellé 14/09T12:45Z après ajout TRANSPARENCE SUBSTITUTION : événement 'substitution' au journal + champs model/model_demande/substitue dans chaque réponse HTTP. Backup /tmp/hub_prise_ia.py.bak-avant-20260914-123457. Par Buffy."
     }
   ]
 }
