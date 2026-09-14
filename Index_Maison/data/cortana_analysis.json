@@ -1,20 +1,20 @@
 {
-  "timestamp": 1789364452,
-  "date": "2026-09-14T05:40:52.488751+00:00",
-  "n_analyses": 1,
+  "timestamp": 1789367453,
+  "date": "2026-09-14T06:30:53.339327+00:00",
+  "n_analyses": 3,
   "analyses": [
     {
       "signal": {
         "metric": "volume",
-        "zscore": 2.1695202593340452,
-        "value": 7740688054.0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 78,\n  \"reason\": \"Anomalie statistique de volume (z-score 2.17) totalement ignorée par les gros titres généralistes et tech, alors que le volume spot crypto global accélère (+19%). Accumulation silencieuse des baleines en marge du bruit médiatique.\"\n}\n```",
-        "ts": 1789364387.634161
+        "zscore": 2.2480677875448274,
+        "value": 7831607341.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 82,\n  \"reason\": \"Anomalie de volume on-chain significative (z-score 2.25) combinée à une hausse réelle de 19% du volume spot en août 2026. Les médias grand public se focalisent sur des sujets macroéconomiques ou non pertinents (carburant, design), ignorant l'accélération silencieuse des flux crypto institutionnels.\"\n}\n```",
+        "ts": 1789366193.345074
       },
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.09,
+          "value": 0.06,
           "seuil": 1,
           "depasse": false
         },
@@ -29,7 +29,7 @@
           "depasse": false
         },
         "whales": {
-          "value": 1,
+          "value": 0,
           "seuil": 5,
           "depasse": false
         }
@@ -42,6 +42,36 @@
       },
       "action": "Réduire taille de 50%, sortir des positions fragiles",
       "niveau": "dangereux"
+    },
+    {
+      "signal": {
+        "metric": "whale_usd",
+        "zscore": 4.037761113146372,
+        "value": 9517425.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement élevé (4.04) indiquant une accumulation massive et anormale de baleines (9.5M USD), totalement ignorée par les médias (silence radio). Cette divergence classique précède souvent un mouvement de marché impulsif.\"\n}\n```",
+        "ts": 1789366195.104874
+      },
+      "fiche": null,
+      "interpretation": {
+        "lecture": "Pas de fiche disponible",
+        "niveau": "inconnu"
+      },
+      "action": "Observer"
+    },
+    {
+      "signal": {
+        "metric": "long_short",
+        "zscore": -2.032098455398335,
+        "value": 1.535,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Le z-score extrêmement bas (-2.03) indique une sous-évaluation anormale du ratio Long/Short par rapport à l'historique, contredisant le narratif médiatique généraliste axé sur la peur ou la prudence. C'est un signal classique d'accumulation silencieuse par les baleines en prévision d'un short squeeze.\"\n}\n```",
+        "ts": 1789367098.564998
+      },
+      "fiche": null,
+      "interpretation": {
+        "lecture": "Pas de fiche disponible",
+        "niveau": "inconnu"
+      },
+      "action": "Observer"
     }
   ],
   "resume": "🔴 DANGER détecté — réduire les expositions"

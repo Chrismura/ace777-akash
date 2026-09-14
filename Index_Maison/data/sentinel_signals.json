@@ -1,27 +1,6 @@
 {
   "signals": [
     {
-      "metric": "ipt",
-      "zscore": 2.5369492895830565,
-      "value": 0.819,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (IPT) entièrement due à une confusion sémantique entre le token crypto et le tournoi académique 'IPT' (International Physicists' Tournament) couvrant l'actualité des médias. Aucun mouvement de baleine pertinent.\"\n}\n```",
-      "ts": "2026-09-13T16:09:47.943979+00:00"
-    },
-    {
-      "metric": "cpfp",
-      "zscore": 2.8761926883378948,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique liée au bruit sémantique (homonymie du sigle CPFP avec un centre de formation) et à des transactions Bitcoin standard (RBF/CPFP). Aucune accumulation ou mouvement significatif de baleines détecté.\"\n}\n```",
-      "ts": "2026-09-13T16:39:53.258202+00:00"
-    },
-    {
-      "metric": "dust",
-      "zscore": 2.8761926883378948,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Le pic de bruit on-chain (z-score 2.88) coïncide avec une pollution médiatique totale liée à des homonymes (films, documentaires, actualités littéraires). Aucune accumulation significative de baleines détectée, simple bruit de fond sémantique.\"\n}\n```",
-      "ts": "2026-09-13T16:39:55.064060+00:00"
-    },
-    {
       "metric": "whale_usd",
       "zscore": 2.59372995641831,
       "value": 6477468.0,
@@ -349,6 +328,27 @@
       "value": 7740688054.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 78,\n  \"reason\": \"Anomalie statistique de volume (z-score 2.17) totalement ignorée par les gros titres généralistes et tech, alors que le volume spot crypto global accélère (+19%). Accumulation silencieuse des baleines en marge du bruit médiatique.\"\n}\n```",
       "ts": "2026-09-14T05:39:47.634161+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.2480677875448274,
+      "value": 7831607341.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 82,\n  \"reason\": \"Anomalie de volume on-chain significative (z-score 2.25) combinée à une hausse réelle de 19% du volume spot en août 2026. Les médias grand public se focalisent sur des sujets macroéconomiques ou non pertinents (carburant, design), ignorant l'accélération silencieuse des flux crypto institutionnels.\"\n}\n```",
+      "ts": "2026-09-14T06:09:53.345074+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 4.037761113146372,
+      "value": 9517425.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement élevé (4.04) indiquant une accumulation massive et anormale de baleines (9.5M USD), totalement ignorée par les médias (silence radio). Cette divergence classique précède souvent un mouvement de marché impulsif.\"\n}\n```",
+      "ts": "2026-09-14T06:09:55.104874+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": -2.032098455398335,
+      "value": 1.535,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Le z-score extrêmement bas (-2.03) indique une sous-évaluation anormale du ratio Long/Short par rapport à l'historique, contredisant le narratif médiatique généraliste axé sur la peur ou la prudence. C'est un signal classique d'accumulation silencieuse par les baleines en prévision d'un short squeeze.\"\n}\n```",
+      "ts": "2026-09-14T06:24:58.564998+00:00"
     }
   ]
 }
