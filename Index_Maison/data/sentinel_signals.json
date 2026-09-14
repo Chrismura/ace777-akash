@@ -2,55 +2,6 @@
   "signals": [
     {
       "metric": "volume",
-      "zscore": 2.2480677875448274,
-      "value": 7831607341.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 82,\n  \"reason\": \"Anomalie de volume on-chain significative (z-score 2.25) combinée à une hausse réelle de 19% du volume spot en août 2026. Les médias grand public se focalisent sur des sujets macroéconomiques ou non pertinents (carburant, design), ignorant l'accélération silencieuse des flux crypto institutionnels.\"\n}\n```",
-      "ts": "2026-09-14T06:09:53.345074+00:00"
-    },
-    {
-      "metric": "whale_usd",
-      "zscore": 4.037761113146372,
-      "value": 9517425.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement élevé (4.04) indiquant une accumulation massive et anormale de baleines (9.5M USD), totalement ignorée par les médias (silence radio). Cette divergence classique précède souvent un mouvement de marché impulsif.\"\n}\n```",
-      "ts": "2026-09-14T06:09:55.104874+00:00"
-    },
-    {
-      "metric": "long_short",
-      "zscore": -2.032098455398335,
-      "value": 1.535,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Le z-score extrêmement bas (-2.03) indique une sous-évaluation anormale du ratio Long/Short par rapport à l'historique, contredisant le narratif médiatique généraliste axé sur la peur ou la prudence. C'est un signal classique d'accumulation silencieuse par les baleines en prévision d'un short squeeze.\"\n}\n```",
-      "ts": "2026-09-14T06:24:58.564998+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": 2.339675914813892,
-      "value": 7984648769.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.34) détectée sur le volume global, mais les titres médiatiques sont complètement hors-sujet (carburants, football, CAC 40, gadgets IKEA). Absence totale de corrélation ou de mouvement significatif de baleines crypto dans le narratif actuel.\"\n}\n```",
-      "ts": "2026-09-14T06:40:03.079457+00:00"
-    },
-    {
-      "metric": "long_short",
-      "zscore": -2.7346255338134466,
-      "value": 1.535,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Le z-score extrêmement bas (-2.73) indique une sous-évaluation extrême du ratio long/short par rapport à l'historique, contredisant la morosité médiatique ambiante. Historiquement, un tel pessimisme de la foule (capitulation des shorts ou sous-exposition) précède un 'short squeeze' violent orchestré par les baleines.\"\n}\n```",
-      "ts": "2026-09-14T06:55:08.142857+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": 2.1785925327805598,
-      "value": 7970849103.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique détectée (z-score 2.18), mais les actualités médiatiques font référence à des sujets totalement étrangers à la crypto (carburants, football, CAC 40, IKEA). Bruit de fond non pertinent, aucune divergence exploitable.\"\n}\n```",
-      "ts": "2026-09-14T07:10:11.686361+00:00"
-    },
-    {
-      "metric": "long_short",
-      "zscore": -2.5138482400707702,
-      "value": 1.534,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Le z-score extrême à -2.51 indique une capitulation des positions vendeuses (trop de shorts), contredisant le narratif médiatique généraliste sur les 'fonds traditionnels' et signalant un piège à ours classique propice à un short squeeze imminent.\"\n}\n```",
-      "ts": "2026-09-14T07:25:15.015014+00:00"
-    },
-    {
-      "metric": "volume",
       "zscore": 2.065194164704892,
       "value": 7993309850.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.07) sur un volume global, mais les titres médiatiques n'ont aucun rapport avec la crypto (carburants, football, CAC 40, IKEA). Bruit de fond macro/généraliste, pas de mouvement silencieux de baleines détecté.\"\n}\n```",
@@ -349,6 +300,55 @@
       "value": 1.212,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Le z-score extrêmement bas (-2.21) indique un positionnement court massif de la foule, totalement obnubilée par le narratif médiatique baissier. Historiquement, un tel déséquilibre contrarien signale une accumulation silencieuse des baleines en prévision d'une correction violente des shorts (short squeeze).\"\n}\n```",
       "ts": "2026-09-14T19:40:29.842002+00:00"
+    },
+    {
+      "metric": "taker_ratio",
+      "zscore": -2.552218855648515,
+      "value": 0.627,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio à 0.627 (z-score -2.55) indique une domination massive des acheteurs passifs (limite) et un épuisement des vendeurs au marché, contredisant le silence ou la peur des médias grand public. Accumulation cachée par les baleines.\"\n}\n```",
+      "ts": "2026-09-14T20:05:34.116933+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": -2.2555218784339277,
+      "value": 1.186,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Z-score extrêmement bas (-2.26) indiquant une sous-exposition extrême des positions longues, contredisant le bruit médiatique généraliste sur les stratégies long-short. Positionnement contrarien typique d'accumulation silencieuse par les baleines avant un short squeeze.\"\n}\n```",
+      "ts": "2026-09-14T20:10:36.404754+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 4.536748120883611,
+      "value": 5224810.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Bruit médiatique parasité par des fausses alertes sur l'économie traditionnelle (faillites d'entreprises locales) alors que l'onchain montre une liquidation massive des positions short (266M$ sur les cryptos), créant un squeeze haussier opportuniste pour les baleines.\"\n}\n```",
+      "ts": "2026-09-14T20:15:38.789289+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 2.936155429213199,
+      "value": 7042330.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Activité anormale des baleines (z-score 2.94, ~7M$) dans un silence médiatique total (Google Actualités vide). Accumulation furtive hors radar avant un mouvement de prix.\"\n}\n```",
+      "ts": "2026-09-14T20:20:40.603128+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.018597715053349,
+      "value": 12405674416.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.02) provoquée par du bruit textuel sans rapport avec la crypto (homonymie du mot 'volume' dans la presse généraliste française).\"\n}\n```",
+      "ts": "2026-09-14T20:25:42.833488+00:00"
+    },
+    {
+      "metric": "taker_ratio",
+      "zscore": -2.3763594864667277,
+      "value": 0.627,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 75,\n  \"reason\": \"Taker ratio élevé (0.627) avec z-score négatif (-2.38) indique une accumulation silencieuse par les baleines, tandis que les médias grand public restent neutres (Google Actualités). Divergence classique avant un mouvement haussier.\"\n}\n```",
+      "ts": "2026-09-14T20:35:53.844292+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": -2.10516210576991,
+      "value": 1.186,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Z-score extrêmement bas (-2.11) indiquant une capitulation des positions vendeuses ou un positionnement massivement short par le retail (piège à ours). Les médias généralistes font l'éloge des stratégies long-short traditionnelles, créant un décalage complet avec l'opportunité d'un 'short squeeze' imminent sur les baleines crypto.\"\n}\n```",
+      "ts": "2026-09-14T20:40:55.958072+00:00"
     }
   ]
 }

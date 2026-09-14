@@ -1,20 +1,50 @@
 {
-  "timestamp": 1789414870,
-  "date": "2026-09-14T19:41:10.909833+00:00",
-  "n_analyses": 3,
+  "timestamp": 1789418471,
+  "date": "2026-09-14T20:41:11.939158+00:00",
+  "n_analyses": 5,
   "analyses": [
     {
       "signal": {
-        "metric": "ipt",
-        "zscore": 2.306951083474985,
-        "value": 1.06,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique purement homonyme. Les données 'IPT' capturées par la sentinelle font référence à un bruit médiatique sur l'Institut Protestant de Théologie ou le Tournoi International des Physiciens, sans aucun lien on-chain avec un actif crypto ou une accumulation de baleines.\"\n}\n```",
-        "ts": 1789414525.839507
+        "metric": "liquidations",
+        "zscore": 4.536748120883611,
+        "value": 5224810.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Bruit médiatique parasité par des fausses alertes sur l'économie traditionnelle (faillites d'entreprises locales) alors que l'onchain montre une liquidation massive des positions short (266M$ sur les cryptos), créant un squeeze haussier opportuniste pour les baleines.\"\n}\n```",
+        "ts": 1789416938.789289
+      },
+      "fiche": null,
+      "interpretation": {
+        "lecture": "Pas de fiche disponible",
+        "niveau": "inconnu"
+      },
+      "action": "Observer"
+    },
+    {
+      "signal": {
+        "metric": "whale_usd",
+        "zscore": 2.936155429213199,
+        "value": 7042330.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Activité anormale des baleines (z-score 2.94, ~7M$) dans un silence médiatique total (Google Actualités vide). Accumulation furtive hors radar avant un mouvement de prix.\"\n}\n```",
+        "ts": 1789417240.603128
+      },
+      "fiche": null,
+      "interpretation": {
+        "lecture": "Pas de fiche disponible",
+        "niveau": "inconnu"
+      },
+      "action": "Observer"
+    },
+    {
+      "signal": {
+        "metric": "volume",
+        "zscore": 2.018597715053349,
+        "value": 12405674416.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.02) provoquée par du bruit textuel sans rapport avec la crypto (homonymie du mot 'volume' dans la presse généraliste française).\"\n}\n```",
+        "ts": 1789417542.833488
       },
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.24,
+          "value": 0.52,
           "seuil": 1,
           "depasse": false
         },
@@ -24,7 +54,7 @@
           "depasse": false
         },
         "funding": {
-          "value": 2.7e-05,
+          "value": 2.8e-05,
           "seuil": 0.001,
           "depasse": false
         },
@@ -46,10 +76,10 @@
     {
       "signal": {
         "metric": "taker_ratio",
-        "zscore": 2.5254792123192193,
-        "value": 1.378,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio élevé (z-score 2.53) indique une forte agression acheteuse sur les carnets d'ordres, signalant une accumulation agressive par les baleines. En l'absence de couverture médiatique notable (silence radio), cela démontre un mouvement de 'smart money' discret avant le réveil du retail.\"\n}\n```",
-        "ts": 1789414527.385324
+        "zscore": -2.3763594864667277,
+        "value": 0.627,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 75,\n  \"reason\": \"Taker ratio élevé (0.627) avec z-score négatif (-2.38) indique une accumulation silencieuse par les baleines, tandis que les médias grand public restent neutres (Google Actualités). Divergence classique avant un mouvement haussier.\"\n}\n```",
+        "ts": 1789418153.844292
       },
       "fiche": null,
       "interpretation": {
@@ -61,10 +91,10 @@
     {
       "signal": {
         "metric": "long_short",
-        "zscore": -2.214998275497231,
-        "value": 1.212,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Le z-score extrêmement bas (-2.21) indique un positionnement court massif de la foule, totalement obnubilée par le narratif médiatique baissier. Historiquement, un tel déséquilibre contrarien signale une accumulation silencieuse des baleines en prévision d'une correction violente des shorts (short squeeze).\"\n}\n```",
-        "ts": 1789414829.842002
+        "zscore": -2.10516210576991,
+        "value": 1.186,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Z-score extrêmement bas (-2.11) indiquant une capitulation des positions vendeuses ou un positionnement massivement short par le retail (piège à ours). Les médias généralistes font l'éloge des stratégies long-short traditionnelles, créant un décalage complet avec l'opportunité d'un 'short squeeze' imminent sur les baleines crypto.\"\n}\n```",
+        "ts": 1789418455.958072
       },
       "fiche": null,
       "interpretation": {
