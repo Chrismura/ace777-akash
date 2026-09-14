@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "fear_greed",
-      "zscore": -3.316624790355397,
-      "value": 57,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 40,\n  \"reason\": \"Données médiatiques insuffisantes pour établir une divergence claire, malgré une anomalie statistique du z-score de peur/cupidité.\"\n}\n```",
-      "ts": "2026-09-14T02:07:22.915229+00:00"
-    },
-    {
       "metric": "price_1h",
       "zscore": 3.6174444407540807,
       "value": 0.6265006060775846,
@@ -349,6 +342,13 @@
       "value": 10228139670.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique de volume détectée sur la blockchain, mais le narratif médiatique est totalement parasité par du bruit non-crypto (actualité locale, bourse traditionnelle, football). Aucune corrélation exploitable.\"\n}\n```",
       "ts": "2026-09-14T15:29:20.716957+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": -3.1645855211758014,
+      "value": 1.324,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Z-score extrêmement bas (-3.16) pour un ratio long/short à 1.32, indiquant une capitulation excessive des positions longues et un positionnement contrarien massif des baleines. Les médias grand public relayent un narratif baissier ou superficiel (fonds traditionnels), créant un blindage parfait pour une accumulation silencieuse avant un short squeeze.\"\n}\n```",
+      "ts": "2026-09-14T15:39:24.918247+00:00"
     }
   ]
 }
