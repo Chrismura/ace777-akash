@@ -1,25 +1,25 @@
 # OBSERVATOIRE DES MURS DE LIQUIDITÉ
-> 2026-09-14T09:39Z — 78782 mesures sur 27 paires · CSVs ASPIRATION_CALIB + OBSERVATION_MURS · sonde observation OBSERVATION_MURS_20260914_093922.csv
+> 2026-09-14T10:40Z — 78800 mesures sur 27 paires · CSVs ASPIRATION_CALIB + OBSERVATION_MURS · sonde observation OBSERVATION_MURS_20260914_104006.csv
 
 ## Les VRAIS murs (top 12 par mur bid moyen)
 
 | Paire | Mesures | Mur BID moy ($) | Mur BID max ($) | Mur ASK moy ($) | Spoof | Drop ≥15%/s |
 |---|---|---|---|---|---|---|
-| SOLUSDT | 794 | 523914.23 | 2078362.86 | 506001.44 | 0 (0.0%) | 15 |
+| SOLUSDT | 796 | 523709.51 | 2078362.86 | 505862.29 | 0 (0.0%) | 15 |
 | BTCUSDT | 1481 | 419926.18 | 1924444.32 | 488181.06 | 49 (3.31%) | 124 |
 | ETHUSDT | 1264 | 177592.18 | 1966688.05 | 173455.49 | 14 (1.11%) | 63 |
 | ADAUSDT | 36 | 102875.08 | 154143.34 | 92656.51 | 0 (0.0%) | 1 |
 | XRPUSDT | 8737 | 91589.68 | 606419.6 | 94098.68 | 376 (4.3%) | 1137 |
-| XLMUSDT | 787 | 71961.52 | 312328.07 | 66554.75 | 0 (0.0%) | 18 |
-| ALGOUSDT | 786 | 55327.33 | 102465.26 | 51291.4 | 0 (0.0%) | 20 |
+| XLMUSDT | 789 | 71965.16 | 312328.07 | 66553.09 | 0 (0.0%) | 18 |
+| ALGOUSDT | 788 | 55329.29 | 102465.26 | 51280.36 | 0 (0.0%) | 20 |
 | CHIPUSDT | 828 | 30766.68 | 61779.48 | 27298.12 | 32 (3.86%) | 53 |
 | HBARUSDT | 7426 | 30739.91 | 63738.72 | 26144.54 | 268 (3.61%) | 682 |
 | KITEUSDT | 391 | 28494.55 | 49707.9 | 26254.61 | 10 (2.56%) | 17 |
-| GOLD(PAXG)USDT | 787 | 27373.11 | 98905.04 | 28258.67 | 0 (0.0%) | 60 |
-| JASMYUSDT | 786 | 19737.33 | 239378.61 | 10640.25 | 0 (0.0%) | 4 |
+| GOLD(PAXG)USDT | 789 | 27335.79 | 98905.04 | 28226.85 | 0 (0.0%) | 60 |
+| JASMYUSDT | 788 | 19712.86 | 239378.61 | 10639.86 | 0 (0.0%) | 4 |
 
 ## Synthèse
-- **Total mesures** : 78782 (16-24/08, sonde aspiration)
+- **Total mesures** : 78800 (16-24/08, sonde aspiration)
 - **Spoofs détectés** : 1845 (2.3% des mesures) — murs de façade (fond puis se reconstruit)
 - **Chutes brutales de mur** (≥ 15%/s) : 3993 — le signal ACE « le mur s'effondre »
 
