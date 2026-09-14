@@ -1,34 +1,6 @@
 {
   "signals": [
     {
-      "metric": "ipt",
-      "zscore": 3.4422654714485645,
-      "value": 0.887,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (IPT) entièrement due à un bruit médiatique homonyme sans rapport avec la crypto (Tournoi International de Physiciens).\"\n}\n```",
-      "ts": "2026-09-13T10:03:24.388445+00:00"
-    },
-    {
-      "metric": "cpfp",
-      "zscore": 2.1871078419636127,
-      "value": 35.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie technique fausse positive : l'indicateur on-chain 'cpfp' détecte du bruit sémantique sans rapport avec la crypto (homonymie avec des centres de formation professionnelle et institutions publiques).\"\n}\n```",
-      "ts": "2026-09-13T10:33:31.343334+00:00"
-    },
-    {
-      "metric": "dust",
-      "zscore": 2.1871078419636127,
-      "value": 35.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 2.19) sur le token DUST, alors que le bruit médiatique est totalement parasité par du hors-sujet culturel (cinéma, littérature).经典的 accumulation furtive de baleines sous le radar public.\"\n}\n```",
-      "ts": "2026-09-13T10:33:32.951284+00:00"
-    },
-    {
-      "metric": "cpfp",
-      "zscore": 3.549111261559198,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (z-score 3.55) liée à une collision de noms (homonymie avec 'CPFP' - centre de formation/politique). Aucun mouvement de baleine crypto réel détecté, le bruit médiatique concerne des institutions éducatives et publiques.\"\n}\n```",
-      "ts": "2026-09-13T11:28:41.741803+00:00"
-    },
-    {
       "metric": "dust",
       "zscore": 3.549111261559198,
       "value": 50.0,
@@ -349,6 +321,34 @@
       "value": 57,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-3.87) malgré un indice de peur et de cupidité neutre (57) et un vide total dans les médias. Absence totale de bruit médiatique combinée à une anomalie statistique onchain : accumulation furtive classique des baleines sous le radar.\"\n}\n```",
       "ts": "2026-09-14T01:37:18.199691+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -3.316624790355397,
+      "value": 57,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 40,\n  \"reason\": \"Données médiatiques insuffisantes pour établir une divergence claire, malgré une anomalie statistique du z-score de peur/cupidité.\"\n}\n```",
+      "ts": "2026-09-14T02:07:22.915229+00:00"
+    },
+    {
+      "metric": "price_1h",
+      "zscore": 3.6174444407540807,
+      "value": 0.6265006060775846,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de prix majeure (z-score 3.62) avec un silence médiatique absolu (0 couverture). Les baleines accumulent en sous-marin sans alerter le retail.\"\n}\n```",
+      "ts": "2026-09-14T02:27:28.034971+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.033180014021877,
+      "value": 6478617728.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de volume onchain massive (z-score 2.03) contrastant avec un narratif médiatique généraliste sans rapport (IKEA, Apple, CAC40) ou axé sur une reprise macro du spot en août 2026. Accumulation silencieuse des baleines hors des radars.\"\n}\n```",
+      "ts": "2026-09-14T02:37:32.623602+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -2.932575659723039,
+      "value": 57,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-2.93) malgré un indice Fear & Greed neutre (57) et l'absence totale de couverture médiatique (silence radio). Cette asymétrie signale une accumulation furtive des baleines loin du radar public.\"\n}\n```",
+      "ts": "2026-09-14T02:37:34.280053+00:00"
     }
   ]
 }

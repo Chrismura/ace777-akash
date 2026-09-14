@@ -1,60 +1,35 @@
 {
-  "timestamp": 1789350048,
-  "date": "2026-09-14T01:40:48.113880+00:00",
+  "timestamp": 1789353649,
+  "date": "2026-09-14T02:40:49.162805+00:00",
   "n_analyses": 3,
   "analyses": [
     {
       "signal": {
-        "metric": "ipt",
-        "zscore": 2.3793017408798898,
-        "value": 1.06,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Bruit sémantique détecté. L'anomalie 'ipt' (z-score 2.38) capte des actualités académiques et institutionnelles (Tournoi International des Physiciens, luttes sociales, église protestante) sans aucun rapport avec un actif crypto ou un mouvement de baleines.\"\n}\n```",
-        "ts": 1789348632.570348
+        "metric": "price_1h",
+        "zscore": 3.6174444407540807,
+        "value": 0.6265006060775846,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de prix majeure (z-score 3.62) avec un silence médiatique absolu (0 couverture). Les baleines accumulent en sous-marin sans alerter le retail.\"\n}\n```",
+        "ts": 1789352848.034971
       },
-      "fiche": "rbf_eleve",
-      "questions": {
-        "prix": {
-          "value": -0.05,
-          "seuil": 1,
-          "depasse": false
-        },
-        "paires": {
-          "value": null,
-          "seuil": 3,
-          "depasse": false
-        },
-        "funding": {
-          "value": 8.4e-05,
-          "seuil": 0.001,
-          "depasse": false
-        },
-        "whales": {
-          "value": 0,
-          "seuil": 5,
-          "depasse": false
-        }
-      },
+      "fiche": null,
       "interpretation": {
-        "condition": "sdi > 0.3",
-        "lecture": "Drainage silencieux — les vieux BTC bougent en douce",
-        "niveau": "dangereux",
-        "action": "Réduire taille de 50%, sortir des positions fragiles"
+        "lecture": "Pas de fiche disponible",
+        "niveau": "inconnu"
       },
-      "action": "Réduire taille de 50%, sortir des positions fragiles",
-      "niveau": "dangereux"
+      "action": "Observer"
     },
     {
       "signal": {
-        "metric": "sdi",
-        "zscore": 2.0388225390863,
-        "value": 0.612,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique sans rapport avec la crypto (homonymie 'SDI' liée à l'économie, la vidéo et la gouvernance). Aucune baleine on-chain détectée, le z-score reflète une métrique macro/traditionnelle non-pertinente pour les marchés cryptos.\"\n}\n```",
-        "ts": 1789349836.720951
+        "metric": "volume",
+        "zscore": 2.033180014021877,
+        "value": 6478617728.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de volume onchain massive (z-score 2.03) contrastant avec un narratif médiatique généraliste sans rapport (IKEA, Apple, CAC40) ou axé sur une reprise macro du spot en août 2026. Accumulation silencieuse des baleines hors des radars.\"\n}\n```",
+        "ts": 1789353452.623602
       },
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.05,
+          "value": 0.46,
           "seuil": 1,
           "depasse": false
         },
@@ -64,12 +39,12 @@
           "depasse": false
         },
         "funding": {
-          "value": 8.4e-05,
+          "value": 0.0001,
           "seuil": 0.001,
           "depasse": false
         },
         "whales": {
-          "value": 0,
+          "value": 1,
           "seuil": 5,
           "depasse": false
         }
@@ -86,10 +61,10 @@
     {
       "signal": {
         "metric": "fear_greed",
-        "zscore": -3.8729833462074166,
+        "zscore": -2.932575659723039,
         "value": 57,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-3.87) malgré un indice de peur et de cupidité neutre (57) et un vide total dans les médias. Absence totale de bruit médiatique combinée à une anomalie statistique onchain : accumulation furtive classique des baleines sous le radar.\"\n}\n```",
-        "ts": 1789349838.199691
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-2.93) malgré un indice Fear & Greed neutre (57) et l'absence totale de couverture médiatique (silence radio). Cette asymétrie signale une accumulation furtive des baleines loin du radar public.\"\n}\n```",
+        "ts": 1789353454.280053
       },
       "fiche": null,
       "interpretation": {
