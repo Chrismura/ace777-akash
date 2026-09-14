@@ -1,41 +1,6 @@
 {
   "signals": [
     {
-      "metric": "volume",
-      "zscore": 2.065194164704892,
-      "value": 7993309850.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.07) sur un volume global, mais les titres médiatiques n'ont aucun rapport avec la crypto (carburants, football, CAC 40, IKEA). Bruit de fond macro/généraliste, pas de mouvement silencieux de baleines détecté.\"\n}\n```",
-      "ts": "2026-09-14T07:40:18.481739+00:00"
-    },
-    {
-      "metric": "long_short",
-      "zscore": -2.313264699143349,
-      "value": 1.534,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le z-score extrêmement bas (-2.31) indique une capitulation des positions short par le retail ou un positionnement contrarien extrême. Les médias grand public banalisent les stratégies long-short traditionnelles tandis que les baleines accumulent discrètement dans le creux de la psychose.\"\n}\n```",
-      "ts": "2026-09-14T07:55:21.976337+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": 2.0098691080211735,
-      "value": 8080300541.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Volume onchain élevé (z-score 2.01) contrastant avec des titres médiatiques anodins ou négatifs, suggérant une accumulation discrète par les baleines.\"\n}\n```",
-      "ts": "2026-09-14T08:10:27.953442+00:00"
-    },
-    {
-      "metric": "long_short",
-      "zscore": -2.3075129114334643,
-      "value": 1.526,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 75,\n  \"reason\": \"Le ratio long-short élevé (1.526) avec un z-score négatif (-2.31) suggère une accumulation silencieuse par les baleines, tandis que les médias se concentrent sur des sujets généraux ou des cas spécifiques (Cardano, fonds institutionnels). Divergence entre l'activité onchain et le narratif médiatique.\"\n}\n```",
-      "ts": "2026-09-14T08:25:34.403100+00:00"
-    },
-    {
-      "metric": "long_short",
-      "zscore": -2.142145758957867,
-      "value": 1.526,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Le z-score extrêmement bas (-2.14) indique une survente historique du ratio long/short par la foule, contredisant le narratif médiatique généraliste sur les stratégies long-short et révélant un positionnement contrarien massif des baleines en accumulation silencieuse.\"\n}\n```",
-      "ts": "2026-09-14T08:55:39.797224+00:00"
-    },
-    {
       "metric": "ipt",
       "zscore": -2.0675030984300236,
       "value": 0.003,
@@ -349,6 +314,41 @@
       "value": 1.186,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Z-score extrêmement bas (-2.11) indiquant une capitulation des positions vendeuses ou un positionnement massivement short par le retail (piège à ours). Les médias généralistes font l'éloge des stratégies long-short traditionnelles, créant un décalage complet avec l'opportunité d'un 'short squeeze' imminent sur les baleines crypto.\"\n}\n```",
       "ts": "2026-09-14T20:40:55.958072+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 5.588085078555148,
+      "value": 7728141.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Forte divergence sémantique : les médias généralistes focalisent sur des faillites d'entreprises traditionnelles (bruit macro), tandis que le on-chain détecte une purge massive des positions short (266M$ de liquidations spéculatives). Les baleines nettoient les vendeurs à découvert pour initier une impulsion haussière.\"\n}\n```",
+      "ts": "2026-09-14T20:45:59.029599+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.001051063473599,
+      "value": 12600231918.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie de volume non pertinente : les données textuelles font référence à de l'actualité locale (faune, vendanges, Bourse traditionnelle) sans lien avec l'activité on-chain des baleines crypto.\"\n}\n```",
+      "ts": "2026-09-14T20:56:02.484399+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": -2.114219990275712,
+      "value": 1.165,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-2.11) sur le ratio long/short indiquant un positionnement vendeur surextendu de la foule, contredisant le narratif médiatique généraliste sur les stratégies prudentes et créant un déséquilibre propice à une purge imminente des shorts par les baleines.\"\n}\n```",
+      "ts": "2026-09-14T21:11:05.825772+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 2.130115641730218,
+      "value": 4926667.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Bruit médiatique macro/local confondu avec la réalité crypto. Les 266M$ de shorts liquidés en 1h montrent un piège à baissiers massif, tandis que les baleines nettoient le carnet d'ordres (z-score 2.13) pour initier une accumulation agressive sous le radar.\"\n}\n```",
+      "ts": "2026-09-14T21:16:08.262371+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.0285596213227115,
+      "value": 12893156057.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 12,\n  \"reason\": \"Anomalie statistique (z-score 2.03) sur des données sans contexte crypto pertinent. Les titres médiatiques traitent de faits divers locaux (fauniculture, vendanges, Bourse traditionnelle). Aucune corrélation onchain ni mouvement de baleine détecté.\"\n}\n```",
+      "ts": "2026-09-14T21:26:11.448334+00:00"
     }
   ]
 }
