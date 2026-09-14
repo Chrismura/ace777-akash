@@ -1,34 +1,6 @@
 {
   "signals": [
     {
-      "metric": "ipt",
-      "zscore": 2.4707104636792625,
-      "value": 0.859,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (IPT z-score 2.47) générée par un bruit médiatique totalement déconnecté de la crypto (Tournoi International de Physique et actualités institutionnelles/religieuses). Aucune baleine détectée.\"\n}\n```",
-      "ts": "2026-09-13T18:10:11.268708+00:00"
-    },
-    {
-      "metric": "whale_usd",
-      "zscore": 2.812167249993961,
-      "value": 6964468.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Activité anormale des baleines (z-score 2.81, ~6.9M USD) en l'absence totale de couverture médiatique (silence radio). C'est la signature classique d'accumulation furtive avant une rupture de marché.\"\n}\n```",
-      "ts": "2026-09-13T18:20:13.936924+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.2057646452838764,
-      "value": 0.816,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 75,\n  \"reason\": \"Anomalie onchain significative (z-score 2.21) contrastant avec un narratif médiatique banal centré sur des événements institutionnels. Divergence suggérant une activité silencieuse de baleines crypto sous couvert d'actualités neutres.\"\n}\n```",
-      "ts": "2026-09-13T18:45:22.818880+00:00"
-    },
-    {
-      "metric": "cpfp",
-      "zscore": 2.179717192382072,
-      "value": 45.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Le z-score élevé sur le CPFP (Child-Pays-For-Parent) reflète simplement des congestions réseau ou des utilisateurs de Bitcoin optimisant leurs frais de transaction bloquées, amplifié par du bruit médiatique sans rapport (actualités locales et politiques). Aucune accumulation ou mouvement significatif de baleines détecté.\"\n}\n```",
-      "ts": "2026-09-13T21:20:49.731822+00:00"
-    },
-    {
       "metric": "dust",
       "zscore": 2.179717192382072,
       "value": 45.0,
@@ -349,6 +321,34 @@
       "value": 7984648769.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.34) détectée sur le volume global, mais les titres médiatiques sont complètement hors-sujet (carburants, football, CAC 40, gadgets IKEA). Absence totale de corrélation ou de mouvement significatif de baleines crypto dans le narratif actuel.\"\n}\n```",
       "ts": "2026-09-14T06:40:03.079457+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": -2.7346255338134466,
+      "value": 1.535,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Le z-score extrêmement bas (-2.73) indique une sous-évaluation extrême du ratio long/short par rapport à l'historique, contredisant la morosité médiatique ambiante. Historiquement, un tel pessimisme de la foule (capitulation des shorts ou sous-exposition) précède un 'short squeeze' violent orchestré par les baleines.\"\n}\n```",
+      "ts": "2026-09-14T06:55:08.142857+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.1785925327805598,
+      "value": 7970849103.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique détectée (z-score 2.18), mais les actualités médiatiques font référence à des sujets totalement étrangers à la crypto (carburants, football, CAC 40, IKEA). Bruit de fond non pertinent, aucune divergence exploitable.\"\n}\n```",
+      "ts": "2026-09-14T07:10:11.686361+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": -2.5138482400707702,
+      "value": 1.534,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Le z-score extrême à -2.51 indique une capitulation des positions vendeuses (trop de shorts), contredisant le narratif médiatique généraliste sur les 'fonds traditionnels' et signalant un piège à ours classique propice à un short squeeze imminent.\"\n}\n```",
+      "ts": "2026-09-14T07:25:15.015014+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.065194164704892,
+      "value": 7993309850.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.07) sur un volume global, mais les titres médiatiques n'ont aucun rapport avec la crypto (carburants, football, CAC 40, IKEA). Bruit de fond macro/généraliste, pas de mouvement silencieux de baleines détecté.\"\n}\n```",
+      "ts": "2026-09-14T07:40:18.481739+00:00"
     }
   ]
 }

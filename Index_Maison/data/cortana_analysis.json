@@ -1,15 +1,15 @@
 {
-  "timestamp": 1789368053,
-  "date": "2026-09-14T06:40:53.491987+00:00",
+  "timestamp": 1789371655,
+  "date": "2026-09-14T07:40:55.323792+00:00",
   "n_analyses": 2,
   "analyses": [
     {
       "signal": {
         "metric": "long_short",
-        "zscore": -2.032098455398335,
-        "value": 1.535,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Le z-score extrêmement bas (-2.03) indique une sous-évaluation anormale du ratio Long/Short par rapport à l'historique, contredisant le narratif médiatique généraliste axé sur la peur ou la prudence. C'est un signal classique d'accumulation silencieuse par les baleines en prévision d'un short squeeze.\"\n}\n```",
-        "ts": 1789367098.564998
+        "zscore": -2.5138482400707702,
+        "value": 1.534,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Le z-score extrême à -2.51 indique une capitulation des positions vendeuses (trop de shorts), contredisant le narratif médiatique généraliste sur les 'fonds traditionnels' et signalant un piège à ours classique propice à un short squeeze imminent.\"\n}\n```",
+        "ts": 1789370715.015014
       },
       "fiche": null,
       "interpretation": {
@@ -21,15 +21,15 @@
     {
       "signal": {
         "metric": "volume",
-        "zscore": 2.339675914813892,
-        "value": 7984648769.0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.34) détectée sur le volume global, mais les titres médiatiques sont complètement hors-sujet (carburants, football, CAC 40, gadgets IKEA). Absence totale de corrélation ou de mouvement significatif de baleines crypto dans le narratif actuel.\"\n}\n```",
-        "ts": 1789368003.079457
+        "zscore": 2.065194164704892,
+        "value": 7993309850.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.07) sur un volume global, mais les titres médiatiques n'ont aucun rapport avec la crypto (carburants, football, CAC 40, IKEA). Bruit de fond macro/généraliste, pas de mouvement silencieux de baleines détecté.\"\n}\n```",
+        "ts": 1789371618.481739
       },
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.18,
+          "value": 0.22,
           "seuil": 1,
           "depasse": false
         },
@@ -39,12 +39,12 @@
           "depasse": false
         },
         "funding": {
-          "value": 0.0001,
+          "value": 8.6e-05,
           "seuil": 0.001,
           "depasse": false
         },
         "whales": {
-          "value": 1,
+          "value": 2,
           "seuil": 5,
           "depasse": false
         }
