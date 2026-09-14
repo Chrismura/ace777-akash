@@ -1,27 +1,6 @@
 {
   "signals": [
     {
-      "metric": "price_1h",
-      "zscore": 3.13784674921494,
-      "value": 0.2649329606401407,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique pure (z-score 3.14) sans couverture médiatique ni signal directionnel clair. Bruit statistique, pas de mouvement de baleine avéré.\"\n}\n```",
-      "ts": "2026-09-13T14:19:28.736008+00:00"
-    },
-    {
-      "metric": "price_1h",
-      "zscore": 5.154647712634647,
-      "value": 0.47455010518593355,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie statistique majeure (z-score 5.15) sans aucune couverture médiatique correspondante (silence radio sur Google Actualités). C'accumulation invisible typique des baleines avant un mouvement de rupture.\"\n}\n```",
-      "ts": "2026-09-13T14:49:33.898962+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.209757550649905,
-      "value": 0.719,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie technique bruitée par des homonymes (Tournoi International des Physiciens / Institut Protestant de Théologie). Aucune baleine crypto identifiée.\"\n}\n```",
-      "ts": "2026-09-13T15:09:37.563109+00:00"
-    },
-    {
       "metric": "ipt",
       "zscore": 2.5369492895830565,
       "value": 0.819,
@@ -349,6 +328,27 @@
       "value": 57,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score négatif profond (-2.08) pour un Fear & Greed neutre (57) combiné à un silence médiatique total : les baleines accumulent dans l'ombre sans susciter de FOMO retail.\"\n}\n```",
       "ts": "2026-09-14T04:39:19.244198+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": -2.985722490108822,
+      "value": 0,
+      "analysis": "{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"The on‑chain SDI metric is sharply negative (z‑score -2.99), signaling a strong underlying weakness. Media headlines, however, focus on unrelated or mildly positive topics (product launch, governance continuity, salary‑transparency debate) and do not reflect this stress, suggesting a disconnect that may hide silent whale movement.\"\n}",
+      "ts": "2026-09-14T04:59:38.020015+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.1713141242739997,
+      "value": 7689473321.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de volume on-chain significative (z-score 2.17) totalement ignorée par les médias généralistes focalisés sur des bruits macro et tech. Divergence classique de accumulation silencieuse par les baleines avant une expansion de volatilité.\"\n}\n```",
+      "ts": "2026-09-14T05:09:42.028895+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.1695202593340452,
+      "value": 7740688054.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 78,\n  \"reason\": \"Anomalie statistique de volume (z-score 2.17) totalement ignorée par les gros titres généralistes et tech, alors que le volume spot crypto global accélère (+19%). Accumulation silencieuse des baleines en marge du bruit médiatique.\"\n}\n```",
+      "ts": "2026-09-14T05:39:47.634161+00:00"
     }
   ]
 }

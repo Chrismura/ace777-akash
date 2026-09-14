@@ -1,20 +1,20 @@
 {
-  "timestamp": 1789360851,
-  "date": "2026-09-14T04:40:51.387938+00:00",
-  "n_analyses": 2,
+  "timestamp": 1789364452,
+  "date": "2026-09-14T05:40:52.488751+00:00",
+  "n_analyses": 1,
   "analyses": [
     {
       "signal": {
         "metric": "volume",
-        "zscore": 2.124037208491831,
-        "value": 7402946641.0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de volume on-chain significative (z-score 2.12) couplée à une hausse générale du volume spot de 19% en août. Les médias traditionnels se focalisent sur des sujets macroéconomiques ou tech sans rapport, confirmant une accumulation silencieuse des baleines à l'écart du bruit médiatique.\"\n}\n```",
-        "ts": 1789360757.911982
+        "zscore": 2.1695202593340452,
+        "value": 7740688054.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 78,\n  \"reason\": \"Anomalie statistique de volume (z-score 2.17) totalement ignorée par les gros titres généralistes et tech, alors que le volume spot crypto global accélère (+19%). Accumulation silencieuse des baleines en marge du bruit médiatique.\"\n}\n```",
+        "ts": 1789364387.634161
       },
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": 0.01,
+          "value": -0.09,
           "seuil": 1,
           "depasse": false
         },
@@ -29,7 +29,7 @@
           "depasse": false
         },
         "whales": {
-          "value": 0,
+          "value": 1,
           "seuil": 5,
           "depasse": false
         }
@@ -42,21 +42,6 @@
       },
       "action": "Réduire taille de 50%, sortir des positions fragiles",
       "niveau": "dangereux"
-    },
-    {
-      "signal": {
-        "metric": "fear_greed",
-        "zscore": -2.0816659994661326,
-        "value": 57,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score négatif profond (-2.08) pour un Fear & Greed neutre (57) combiné à un silence médiatique total : les baleines accumulent dans l'ombre sans susciter de FOMO retail.\"\n}\n```",
-        "ts": 1789360759.244198
-      },
-      "fiche": null,
-      "interpretation": {
-        "lecture": "Pas de fiche disponible",
-        "niveau": "inconnu"
-      },
-      "action": "Observer"
     }
   ],
   "resume": "🔴 DANGER détecté — réduire les expositions"

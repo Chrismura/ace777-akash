@@ -4631,3 +4631,9 @@
 - 2026-09-14T04:17:25.444950Z | alerte | ? | conf=?
 - 2026-09-14T04:23:57.744209Z | alerte | ? | conf=?
 - 2026-09-14T04:35:18.101891Z | alerte | Autoriser le tir d'Alpha (engagement immédiat) tout en maintenant le stop‑loss d'urgence sur CCUSDT, car Beta a fourni un signal technique clair (volume x3 confirmé sur BTCUSDT). | conf=90
+- 2026-09-14T04:45:09.403788Z | alerte | Autoriser le tir d'Alpha (engagement immédiat) tout en maintenant le stop‑loss d'urgence sur CCUSDT, car Beta a fourni un signal technique clair (volume x3 confirmé sur BTCUSDT). | conf=90
+- 2026-09-14T04:46:12.734084Z | alerte | ? | conf=?
+- 2026-09-14T04:51:32.088119Z | alerte | Autoriser le tir d'Alpha (engagement immédiat) tout en maintenant le stop‑loss d'urgence sur CCUSDT, car Beta a fourni un signal technique clair (volume x3 confirmé sur BTCUSDT). | conf=90
+- 2026-09-14T04:57:51.184366Z | alerte | Autoriser le tir d'Alpha (engagement immédiat) tout en maintenant le stop‑loss d'urgence sur CCUSDT, car Beta a fourni un signal technique clair (volume x3 confirmé sur BTCUSDT). | conf=90
+- 2026-09-14T04:59:51.077689Z | alerte | Autoriser le tir d'Alpha (engagement immédiat) tout en maintenant le stop‑loss d'urgence sur CCUSDT, car Beta a fourni un signal technique clair (volume x3 confirmé sur BTCUSDT). | conf=90
+- 2026-09-14T05:03:43.395643Z | alerte | Autoriser le tir d'Alpha (engagement immédiat) tout en maintenant le stop‑loss d'urgence sur CCUSDT, car Beta a fourni un signal technique clair (volume x3 confirmé sur BTCUSDT). | conf=90
