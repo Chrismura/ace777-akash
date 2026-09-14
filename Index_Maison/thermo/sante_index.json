@@ -1,9 +1,11 @@
 {
-  "ts": "2026-09-14T08:42+00:00",
-  "updated": "2026-09-14T08:42Z",
-  "etat": "OK",
-  "chaines_ok": "15/15",
-  "anomalies": [],
+  "ts": "2026-09-14T09:32+00:00",
+  "updated": "2026-09-14T09:32Z",
+  "etat": "ALERTE",
+  "chaines_ok": "14/15",
+  "anomalies": [
+    "SÉCURITÉ : veilleuse ou rapport figé"
+  ],
   "degradees": [],
   "chaines": [
     {
@@ -25,12 +27,12 @@
         {
           "nom": "scan file",
           "ok": true,
-          "detail": "âge 4 min"
+          "detail": "âge 5 min"
         },
         {
           "nom": "mouvements (events)",
           "ok": true,
-          "detail": "dernier événement il y a 4 min"
+          "detail": "dernier événement il y a 5 min"
         },
         {
           "nom": "→ live.json.onchain",
@@ -40,12 +42,12 @@
         {
           "nom": "→ Ada gardienne",
           "ok": true,
-          "detail": "voilure 89.2 · zone VERT"
+          "detail": "voilure 91.1 · zone VERT"
         },
         {
           "nom": "→ Cortana feed",
           "ok": true,
-          "detail": "âge 4 min"
+          "detail": "âge 2 min"
         }
       ]
     },
@@ -63,7 +65,7 @@
         {
           "nom": "deriv_corr.json",
           "ok": true,
-          "detail": "âge 10 min"
+          "detail": "âge 14 min"
         }
       ]
     },
@@ -81,7 +83,7 @@
         {
           "nom": "aspiration runtime",
           "ok": true,
-          "detail": "mode fichier · JSON · âge ts 0.5 min · écart mtime/ts 1.0s · 9 paire(s) · btc=OK · ts=croissant"
+          "detail": "mode fichier · JSON · âge ts 0.4 min · écart mtime/ts 0.5s · 10 paire(s) · btc=OK · ts=croissant"
         },
         {
           "nom": "corrélation BTC",
@@ -96,7 +98,7 @@
         {
           "nom": "cortana_pilot.json",
           "ok": true,
-          "detail": "âge 178 min"
+          "detail": "âge 228 min"
         },
         {
           "nom": "cortana_analysis.json",
@@ -165,7 +167,7 @@
         {
           "nom": "sentinel_history.json",
           "ok": true,
-          "detail": "âge 2 min"
+          "detail": "âge 1 min"
         },
         {
           "nom": "signaux",
@@ -183,7 +185,7 @@
         {
           "nom": "geopol.ts frais",
           "ok": true,
-          "detail": "âge 0.1h"
+          "detail": "âge 0.0h"
         },
         {
           "nom": "modules OK",
@@ -196,7 +198,7 @@
       "id": "securite",
       "nom": "SÉCURITÉ",
       "chemin": "veilleuse synapses (md5 + pannes) + kill-switches",
-      "ok": true,
+      "ok": false,
       "maillons": [
         {
           "nom": "veilleuse launchd",
@@ -205,7 +207,7 @@
         },
         {
           "nom": "rapport VEILLEUSE.md",
-          "ok": true,
+          "ok": false,
           "detail": "STABLE"
         },
         {
@@ -280,7 +282,7 @@
         {
           "nom": "rapport veille_degradation_etat.json",
           "ok": true,
-          "detail": "SAIN · âge 1 min"
+          "detail": "SAIN · âge 0 min"
         },
         {
           "nom": "Dead Man's Switch (dms-veille)",
@@ -331,7 +333,7 @@
         {
           "nom": "croisement_externe_etat.json",
           "ok": true,
-          "detail": "âge 2 min"
+          "detail": "âge 22 min"
         },
         {
           "nom": "fails prix (> 5 % vs externe)",
@@ -341,7 +343,7 @@
         {
           "nom": "warns murs (info)",
           "ok": true,
-          "detail": "1 warn(s) carnet déséquilibré (info)"
+          "detail": "2 warn(s) carnet déséquilibré (info)"
         }
       ]
     },
@@ -354,12 +356,12 @@
         {
           "nom": "sdi_latest.json (SAPI dedans)",
           "ok": true,
-          "detail": "âge 4 min"
+          "detail": "âge 2 min"
         },
         {
           "nom": "SAPI calculé",
           "ok": true,
-          "detail": "score 0.335"
+          "detail": "score 0.6"
         },
         {
           "nom": "alerte poussière (≥ 0.75 + volume)",
@@ -377,7 +379,7 @@
         {
           "nom": "essaim_etat.json",
           "ok": true,
-          "detail": "âge 8 min"
+          "detail": "âge 28 min"
         },
         {
           "nom": "veille d'essaim active",

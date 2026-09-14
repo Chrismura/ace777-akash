@@ -36,6 +36,10 @@ DEFAUTS = [
     ("/Users/christophe/ace777-test-day1/Index_Maison/data/plancher_confirme_hist.jsonl", 50),
     ("/Users/christophe/ace777-test-day1/Index_Maison/data/paternes_btc_hist.jsonl", 50),
     ("/Users/christophe/ace777-test-day1/Index_Maison/data/croisements_indices_hist.jsonl", 50),
+    # [C5] collecteur TROUPEAU-INV (GO Christophe 13/09) — rotation dès la création
+    ("/Users/christophe/ace777-test-day1/Index_Maison/data/troupeau_inv_hist.jsonl", 50),
+    # [C5] collecteur ONCHAIN XRPL (GO Christophe 14/09) — rotation dès la création
+    ("/Users/christophe/ace777-test-day1/Index_Maison/data/xrpl_onchain_hist.jsonl", 50),
 ]
 
 BACKUP_COUNT = 2

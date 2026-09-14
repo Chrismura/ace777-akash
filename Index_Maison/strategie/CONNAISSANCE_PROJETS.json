@@ -1,128 +1,452 @@
 {
-  "version": "1.0",
-  "updated": "2026-09-14T05:15:06.979860+00:00",
-  "projets": {
-    "CCUSDT": {
-      "nom": "Canton Network",
-      "these": "Institutionnel sous-radar : accumuler les dumps en bag. Adoption institutionnelle lourde vérifiée, tokenomics anti-spéculation, pas de VC unlock. La valeur ne monte que si l'utilité du token natif est réellement utilisée pour les règlements.",
-      "classe_hulk": "B_bag",
-      "horizon_bag": "long",
-      "capital_alloue_max": "5-10% du portefeuille · max 3-5 bags simultanés · max 20% du portefeuille total",
-      "statut_verification": {
-        "date": "2026-08-15",
-        "verdict": "GO-AVEC-RÉSERVE",
-        "score": 71,
-        "reserve": "Thèse NON généralisable : ne vaut que pour adoption institutionnelle VÉRIFIABLE (≥3 participants réels via communiqués officiels). 2 classes de paires + stop fondamental obligatoires."
-      },
-      "faits": [
-        {
-          "id": "fait_ccusdt_001",
-          "texte": "Participants institutionnels vérifiés : Goldman Sachs, BNY Mellon, CBOE, Microsoft, Moody's, Deutsche Börse",
-          "source": "audit_famille",
-          "fiabilite": 0.7,
-          "score": 0.7,
-          "etat": "verifie",
-          "date": "2026-08-15",
-          "expires_at": "2026-11-13"
-        },
-        {
-          "id": "fait_ccusdt_002",
-          "texte": "Tokenomics anti-spéculation : no pre-mine, no VC unlock, modèle burn-and-mint",
-          "source": "audit_famille",
-          "fiabilite": 0.7,
-          "score": 0.7,
-          "etat": "verifie",
-          "date": "2026-08-15",
-          "expires_at": "2026-11-13"
-        },
-        {
-          "id": "fait_ccusdt_003",
-          "texte": "Risque : piège à liquidité (bag invendable des mois, spread >50%, volume nul) + sous-radar prolongé 5-10 ans + capture de valeur incertaine (consortiums peuvent régler en fiat/stablecoin) + risque réglementaire (requalification security)",
-          "source": "audit_famille",
-          "fiabilite": 0.7,
-          "score": 0.7,
-          "etat": "verifie",
-          "date": "2026-08-15",
-          "expires_at": "2026-11-13"
-        },
-        {
-          "id": "fait_ccusdt_audit_ed7ae466c34a",
-          "texte": "Audit famille 2026-08-15 : GO-AVEC-RÉSERVE",
-          "source": "audit_famille",
-          "fiabilite": 0.7,
-          "score": 0.7,
-          "etat": "verifie",
-          "date": "2026-08-15",
-          "expires_at": "2026-11-13"
-        }
-      ],
-      "lecons": [
-        {
-          "id": "lecon_ccusdt_001",
-          "texte": "PAS de stop technique (illiquide → chassé par le carnet mince) → stop FONDAMENTAL : départ d'un participant majeur / volume <1k$/j pendant 3 mois / delist / 18 mois sans nouvelle adoption majeure",
-          "source": "audit_famille",
-          "date": "2026-08-15",
-          "etat": "verifie"
-        },
-        {
-          "id": "lecon_ccusdt_002",
-          "texte": "Bag ≥ 12 mois, réévaluation trimestrielle obligatoire (sortie auto si 2 critères/3 se dégradent)",
-          "source": "audit_famille",
-          "date": "2026-08-15",
-          "etat": "verifie"
-        },
-        {
-          "id": "lecon_ccusdt_003",
-          "texte": "Filtres assouplis : volume >10k$/j, spread toléré 10-15%, pas de filtre DEAD/DRY (on accepte les périodes sèches)",
-          "source": "audit_famille",
-          "date": "2026-08-15",
-          "etat": "verifie"
-        },
-        {
-          "id": "lecon_ccusdt_004",
-          "texte": "Watchlist institutionnelle : ne bagger QUE ≥3 participants institutionnels vérifiés (communiqués officiels, pas des partenariats marketing)",
-          "source": "audit_famille",
-          "date": "2026-08-15",
-          "etat": "verifie"
-        }
-      ],
-      "signets_cles": [],
-      "updated": "2026-08-15T19:04:46.244247+00:00"
+ "version": "1.0",
+ "updated": "2026-09-14T08:50:01.709539+00:00",
+ "projets": {
+  "CCUSDT": {
+   "nom": "Canton Network",
+   "these": "Institutionnel sous-radar : accumuler les dumps en bag. Adoption institutionnelle lourde vérifiée, tokenomics anti-spéculation, pas de VC unlock. La valeur ne monte que si l'utilité du token natif est réellement utilisée pour les règlements.",
+   "classe_hulk": "B_bag",
+   "horizon_bag": "long",
+   "capital_alloue_max": "5-10% du portefeuille · max 3-5 bags simultanés · max 20% du portefeuille total",
+   "statut_verification": {
+    "date": "2026-08-15",
+    "verdict": "GO-AVEC-RÉSERVE",
+    "score": 71,
+    "reserve": "Thèse NON généralisable : ne vaut que pour adoption institutionnelle VÉRIFIABLE (≥3 participants réels via communiqués officiels). 2 classes de paires + stop fondamental obligatoires."
+   },
+   "faits": [
+    {
+     "id": "fait_ccusdt_001",
+     "texte": "Participants institutionnels vérifiés : Goldman Sachs, BNY Mellon, CBOE, Microsoft, Moody's, Deutsche Börse",
+     "source": "audit_famille",
+     "fiabilite": 0.7,
+     "score": 0.7,
+     "etat": "verifie",
+     "date": "2026-08-15",
+     "expires_at": "2026-11-13"
+    },
+    {
+     "id": "fait_ccusdt_002",
+     "texte": "Tokenomics anti-spéculation : no pre-mine, no VC unlock, modèle burn-and-mint",
+     "source": "audit_famille",
+     "fiabilite": 0.7,
+     "score": 0.7,
+     "etat": "verifie",
+     "date": "2026-08-15",
+     "expires_at": "2026-11-13"
+    },
+    {
+     "id": "fait_ccusdt_003",
+     "texte": "Risque : piège à liquidité (bag invendable des mois, spread >50%, volume nul) + sous-radar prolongé 5-10 ans + capture de valeur incertaine (consortiums peuvent régler en fiat/stablecoin) + risque réglementaire (requalification security)",
+     "source": "audit_famille",
+     "fiabilite": 0.7,
+     "score": 0.7,
+     "etat": "verifie",
+     "date": "2026-08-15",
+     "expires_at": "2026-11-13"
+    },
+    {
+     "id": "fait_ccusdt_audit_ed7ae466c34a",
+     "texte": "Audit famille 2026-08-15 : GO-AVEC-RÉSERVE",
+     "source": "audit_famille",
+     "fiabilite": 0.7,
+     "score": 0.7,
+     "etat": "verifie",
+     "date": "2026-08-15",
+     "expires_at": "2026-11-13"
     }
+   ],
+   "lecons": [
+    {
+     "id": "lecon_ccusdt_001",
+     "texte": "PAS de stop technique (illiquide → chassé par le carnet mince) → stop FONDAMENTAL : départ d'un participant majeur / volume <1k$/j pendant 3 mois / delist / 18 mois sans nouvelle adoption majeure",
+     "source": "audit_famille",
+     "date": "2026-08-15",
+     "etat": "verifie"
+    },
+    {
+     "id": "lecon_ccusdt_002",
+     "texte": "Bag ≥ 12 mois, réévaluation trimestrielle obligatoire (sortie auto si 2 critères/3 se dégradent)",
+     "source": "audit_famille",
+     "date": "2026-08-15",
+     "etat": "verifie"
+    },
+    {
+     "id": "lecon_ccusdt_003",
+     "texte": "Filtres assouplis : volume >10k$/j, spread toléré 10-15%, pas de filtre DEAD/DRY (on accepte les périodes sèches)",
+     "source": "audit_famille",
+     "date": "2026-08-15",
+     "etat": "verifie"
+    },
+    {
+     "id": "lecon_ccusdt_004",
+     "texte": "Watchlist institutionnelle : ne bagger QUE ≥3 participants institutionnels vérifiés (communiqués officiels, pas des partenariats marketing)",
+     "source": "audit_famille",
+     "date": "2026-08-15",
+     "etat": "verifie"
+    }
+   ],
+   "signets_cles": [],
+   "updated": "2026-08-15T19:04:46.244247+00:00"
   },
-  "archives": [],
-  "lecons_agora": [
-    {
-      "id": "lecon_btc_1788758108",
-      "namespace": "cortana",
-      "axiome": "[btc] → [Taux de réussite insuffisant] → [corroborer avec un autre indice avant de te positionner]",
-      "ttl_expire": "2026-09-14T05:15:08.312936+00:00",
-      "source": "HIT/MISS",
-      "cree_le": "2026-09-07T05:15:08.312936+00:00"
-    },
-    {
-      "id": "lecon_radar_1788758108",
-      "namespace": "cortana",
-      "axiome": "[radar] → [Taux de réussite insuffisant] → [corroborer avec un autre indice avant de te positionner]",
-      "ttl_expire": "2026-09-14T05:15:08.312936+00:00",
-      "source": "HIT/MISS",
-      "cree_le": "2026-09-07T05:15:08.312936+00:00"
-    },
-    {
-      "id": "lecon_fearGreed_1788758108",
-      "namespace": "cortana",
-      "axiome": "[fearGreed] → [Taux de réussite insuffisant] → [corroborer avec un autre indice avant de te positionner]",
-      "ttl_expire": "2026-09-14T05:15:08.312936+00:00",
-      "source": "HIT/MISS",
-      "cree_le": "2026-09-07T05:15:08.312936+00:00"
-    },
-    {
-      "id": "lecon_croisements_1789362906",
-      "namespace": "cortana",
-      "axiome": "[croisements] → [Taux de réussite insuffisant] → [corroborer avec un autre indice avant de te positionner]",
-      "ttl_expire": "2026-09-21T05:15:06.979860+00:00",
-      "source": "HIT/MISS",
-      "cree_le": "2026-09-14T05:15:06.979860+00:00"
-    }
-  ]
+  "BIOUSDT": {
+   "nom": " BIOUSDT BIO Bioprotocol  06092026.md",
+   "source_fiche": "Obsidian_ACE777/Crypto_Projet/FICHE ÉTUDE PROJET  BIOUSDT BIO Bioprotocol  06092026.md",
+   "categorie": "DeSci / biotech",
+   "statut_famille": "EXCLUE (prudence)",
+   "these": "(migration 14/09 — voir fiche source pour la thèse complète)",
+   "statut_verification": {
+    "date": "2026-09-06",
+    "verdict": "EXCLUE (prudence)",
+    "score": null,
+    "reserve": "Voir fiche étude source"
+   },
+   "faits": [],
+   "lecons": [],
+   "signets_cles": [],
+   "updated": "2026-09-14T08:50:01.709539+00:00"
+  },
+  "BTCUSDT": {
+   "nom": " BTCUSDT Bitcoin  06092026.md",
+   "source_fiche": "Obsidian_ACE777/Crypto_Projet/FICHE ÉTUDE PROJET  BTCUSDT Bitcoin  06092026.md",
+   "categorie": "Socle / réserve de valeur",
+   "statut_famille": "DEEPDIVE VALIDÉE",
+   "these": "(migration 14/09 — voir fiche source pour la thèse complète)",
+   "statut_verification": {
+    "date": "2026-09-06",
+    "verdict": "DEEPDIVE VALIDÉE",
+    "score": null,
+    "reserve": "Voir fiche étude source"
+   },
+   "faits": [],
+   "lecons": [],
+   "signets_cles": [],
+   "updated": "2026-09-14T08:50:01.709539+00:00"
+  },
+  "CHIPUSDT": {
+   "nom": " CHIPUSDT CHIP USDAI compute  06092026.md",
+   "source_fiche": "Obsidian_ACE777/Crypto_Projet/FICHE ÉTUDE PROJET  CHIPUSDT CHIP USDAI compute  06092026.md",
+   "categorie": "RWA compute (USD.AI)",
+   "statut_famille": "DEEPDIVE VALIDÉE",
+   "these": "(migration 14/09 — voir fiche source pour la thèse complète)",
+   "statut_verification": {
+    "date": "2026-09-06",
+    "verdict": "DEEPDIVE VALIDÉE",
+    "score": null,
+    "reserve": "Voir fiche étude source"
+   },
+   "faits": [],
+   "lecons": [],
+   "signets_cles": [],
+   "updated": "2026-09-14T08:50:01.709539+00:00"
+  },
+  "EDELUSDT": {
+   "nom": " EDELUSDT EDEL  06092026.md",
+   "source_fiche": "Obsidian_ACE777/Crypto_Projet/FICHE ÉTUDE PROJET  EDELUSDT EDEL  06092026.md",
+   "categorie": "Agent IA (loterie)",
+   "statut_famille": "DEEPDIVE VALIDÉE",
+   "these": "(migration 14/09 — voir fiche source pour la thèse complète)",
+   "statut_verification": {
+    "date": "2026-09-06",
+    "verdict": "DEEPDIVE VALIDÉE",
+    "score": null,
+    "reserve": "Voir fiche étude source"
+   },
+   "faits": [],
+   "lecons": [],
+   "signets_cles": [],
+   "updated": "2026-09-14T08:50:01.709539+00:00"
+  },
+  "ETHUSDT": {
+   "nom": " ETHUSDT Ethereum  06092026.md",
+   "source_fiche": "Obsidian_ACE777/Crypto_Projet/FICHE ÉTUDE PROJET  ETHUSDT Ethereum  06092026.md",
+   "categorie": "Socle / smart contracts",
+   "statut_famille": "DEEPDIVE VALIDÉE",
+   "these": "(migration 14/09 — voir fiche source pour la thèse complète)",
+   "statut_verification": {
+    "date": "2026-09-06",
+    "verdict": "DEEPDIVE VALIDÉE",
+    "score": null,
+    "reserve": "Voir fiche étude source"
+   },
+   "faits": [],
+   "lecons": [],
+   "signets_cles": [],
+   "updated": "2026-09-14T08:50:01.709539+00:00"
+  },
+  "FLUIDUSDT": {
+   "nom": " FLUIDUSDT Fluid Instadapp  06092026.md",
+   "source_fiche": "Obsidian_ACE777/Crypto_Projet/FICHE ÉTUDE PROJET  FLUIDUSDT Fluid Instadapp  06092026.md",
+   "categorie": "DeFi (hub unifié Instadapp)",
+   "statut_famille": "DEEPDIVE VALIDÉE",
+   "these": "(migration 14/09 — voir fiche source pour la thèse complète)",
+   "statut_verification": {
+    "date": "2026-09-06",
+    "verdict": "DEEPDIVE VALIDÉE",
+    "score": null,
+    "reserve": "Voir fiche étude source"
+   },
+   "faits": [],
+   "lecons": [],
+   "signets_cles": [],
+   "updated": "2026-09-14T08:50:01.709539+00:00"
+  },
+  "HBARUSDT": {
+   "nom": " HBARUSDT Hedera  06092026.md",
+   "source_fiche": "Obsidian_ACE777/Crypto_Projet/FICHE ÉTUDE PROJET  HBARUSDT Hedera  06092026.md",
+   "categorie": "Socle institutionnel L1",
+   "statut_famille": "DEEPDIVE VALIDÉE",
+   "these": "(migration 14/09 — voir fiche source pour la thèse complète)",
+   "statut_verification": {
+    "date": "2026-09-06",
+    "verdict": "DEEPDIVE VALIDÉE",
+    "score": null,
+    "reserve": "Voir fiche étude source"
+   },
+   "faits": [],
+   "lecons": [],
+   "signets_cles": [],
+   "updated": "2026-09-14T08:50:01.709539+00:00"
+  },
+  "KITEUSDT": {
+   "nom": " KITEUSDT KITE  06092026.md",
+   "source_fiche": "Obsidian_ACE777/Crypto_Projet/FICHE ÉTUDE PROJET  KITEUSDT KITE  06092026.md",
+   "categorie": "à vérifier (exclue prudence)",
+   "statut_famille": "EXCLUE (prudence)",
+   "these": "(migration 14/09 — voir fiche source pour la thèse complète)",
+   "statut_verification": {
+    "date": "2026-09-06",
+    "verdict": "EXCLUE (prudence)",
+    "score": null,
+    "reserve": "Voir fiche étude source"
+   },
+   "faits": [],
+   "lecons": [],
+   "signets_cles": [],
+   "updated": "2026-09-14T08:50:01.709539+00:00"
+  },
+  "MNSRYUSDT": {
+   "nom": " MNSRYUSDT Mansory Token  06092026.md",
+   "source_fiche": "Obsidian_ACE777/Crypto_Projet/FICHE ÉTUDE PROJET  MNSRYUSDT Mansory Token  06092026.md",
+   "categorie": "Memecoin (usurpation — NON famille)",
+   "statut_famille": "OBSERVATION",
+   "these": "(migration 14/09 — voir fiche source pour la thèse complète)",
+   "statut_verification": {
+    "date": "2026-09-06",
+    "verdict": "OBSERVATION",
+    "score": null,
+    "reserve": "Voir fiche étude source"
+   },
+   "faits": [],
+   "lecons": [],
+   "signets_cles": [],
+   "updated": "2026-09-14T08:50:01.709539+00:00"
+  },
+  "PYTHUSDT": {
+   "nom": " PYTHUSDT Pyth oracle  06092026.md",
+   "source_fiche": "Obsidian_ACE777/Crypto_Projet/FICHE ÉTUDE PROJET  PYTHUSDT Pyth oracle  06092026.md",
+   "categorie": "Oracle (moteur portefeuille)",
+   "statut_famille": "DEEPDIVE VALIDÉE",
+   "these": "(migration 14/09 — voir fiche source pour la thèse complète)",
+   "statut_verification": {
+    "date": "2026-09-06",
+    "verdict": "DEEPDIVE VALIDÉE",
+    "score": null,
+    "reserve": "Voir fiche étude source"
+   },
+   "faits": [],
+   "lecons": [],
+   "signets_cles": [],
+   "updated": "2026-09-14T08:50:01.709539+00:00"
+  },
+  "QNTUSDT": {
+   "nom": " QNTUSDT Quant  06092026.md",
+   "source_fiche": "Obsidian_ACE777/Crypto_Projet/FICHE ÉTUDE PROJET  QNTUSDT Quant  06092026.md",
+   "categorie": "Interoperabilité institutionnelle (CBDC/ISO 20022)",
+   "statut_famille": "DEEPDIVE VALIDÉE",
+   "these": "(migration 14/09 — voir fiche source pour la thèse complète)",
+   "statut_verification": {
+    "date": "2026-09-06",
+    "verdict": "DEEPDIVE VALIDÉE",
+    "score": null,
+    "reserve": "Voir fiche étude source"
+   },
+   "faits": [],
+   "lecons": [],
+   "signets_cles": [],
+   "updated": "2026-09-14T08:50:01.709539+00:00"
+  },
+  "REDUSDT": {
+   "nom": " REDUSDT RedStone oracle  06092026.md",
+   "source_fiche": "Obsidian_ACE777/Crypto_Projet/FICHE ÉTUDE PROJET  REDUSDT RedStone oracle  06092026.md",
+   "categorie": "Oracle",
+   "statut_famille": "DEEPDIVE VALIDÉE",
+   "these": "(migration 14/09 — voir fiche source pour la thèse complète)",
+   "statut_verification": {
+    "date": "2026-09-06",
+    "verdict": "DEEPDIVE VALIDÉE",
+    "score": null,
+    "reserve": "Voir fiche étude source"
+   },
+   "faits": [],
+   "lecons": [],
+   "signets_cles": [],
+   "updated": "2026-09-14T08:50:01.709539+00:00"
+  },
+  "RIZEUSDT": {
+   "nom": " RIZEUSDT RIZE T-RIZE RWA  06092026.md",
+   "source_fiche": "Obsidian_ACE777/Crypto_Projet/FICHE ÉTUDE PROJET  RIZEUSDT RIZE T-RIZE RWA  06092026.md",
+   "categorie": "RWA institutionnel (T-RIZE)",
+   "statut_famille": "OBSERVATION",
+   "these": "(migration 14/09 — voir fiche source pour la thèse complète)",
+   "statut_verification": {
+    "date": "2026-09-06",
+    "verdict": "OBSERVATION",
+    "score": null,
+    "reserve": "Voir fiche étude source"
+   },
+   "faits": [],
+   "lecons": [],
+   "signets_cles": [],
+   "updated": "2026-09-14T08:50:01.709539+00:00"
+  },
+  "RWAINCUSDT": {
+   "nom": " RWAINCUSDT RWA Inc  06092026.md",
+   "source_fiche": "Obsidian_ACE777/Crypto_Projet/FICHE ÉTUDE PROJET  RWAINCUSDT RWA Inc  06092026.md",
+   "categorie": "RWA Inc. (exclue prudence)",
+   "statut_famille": "EXCLUE (prudence)",
+   "these": "(migration 14/09 — voir fiche source pour la thèse complète)",
+   "statut_verification": {
+    "date": "2026-09-06",
+    "verdict": "EXCLUE (prudence)",
+    "score": null,
+    "reserve": "Voir fiche étude source"
+   },
+   "faits": [],
+   "lecons": [],
+   "signets_cles": [],
+   "updated": "2026-09-14T08:50:01.709539+00:00"
+  },
+  "RWAUSDT": {
+   "nom": " RWAUSDT Allo RWA ex-Xend  06092026.md",
+   "source_fiche": "Obsidian_ACE777/Crypto_Projet/FICHE ÉTUDE PROJET  RWAUSDT Allo RWA ex-Xend  06092026.md",
+   "categorie": "RWA (Xend rebrand — NON famille)",
+   "statut_famille": "OBSERVATION",
+   "these": "(migration 14/09 — voir fiche source pour la thèse complète)",
+   "statut_verification": {
+    "date": "2026-09-06",
+    "verdict": "OBSERVATION",
+    "score": null,
+    "reserve": "Voir fiche étude source"
+   },
+   "faits": [],
+   "lecons": [],
+   "signets_cles": [],
+   "updated": "2026-09-14T08:50:01.709539+00:00"
+  },
+  "TELUSDT": {
+   "nom": " TELUSDT Telos  06092026.md",
+   "source_fiche": "Obsidian_ACE777/Crypto_Projet/FICHE ÉTUDE PROJET  TELUSDT Telos  06092026.md",
+   "categorie": "L1 (exclue prudence)",
+   "statut_famille": "EXCLUE (prudence)",
+   "these": "(migration 14/09 — voir fiche source pour la thèse complète)",
+   "statut_verification": {
+    "date": "2026-09-06",
+    "verdict": "EXCLUE (prudence)",
+    "score": null,
+    "reserve": "Voir fiche étude source"
+   },
+   "faits": [],
+   "lecons": [],
+   "signets_cles": [],
+   "updated": "2026-09-14T08:50:01.709539+00:00"
+  },
+  "WUSDT": {
+   "nom": " WUSDT W Wormhole  06092026.md",
+   "source_fiche": "Obsidian_ACE777/Crypto_Projet/FICHE ÉTUDE PROJET  WUSDT W Wormhole  06092026.md",
+   "categorie": "Interoperabilité (bridge)",
+   "statut_famille": "EXCLUE (prudence)",
+   "these": "(migration 14/09 — voir fiche source pour la thèse complète)",
+   "statut_verification": {
+    "date": "2026-09-06",
+    "verdict": "EXCLUE (prudence)",
+    "score": null,
+    "reserve": "Voir fiche étude source"
+   },
+   "faits": [],
+   "lecons": [],
+   "signets_cles": [],
+   "updated": "2026-09-14T08:50:01.709539+00:00"
+  },
+  "XRPUSDT": {
+   "nom": " XRPUSDT XRP Ripple  06092026.md",
+   "source_fiche": "Obsidian_ACE777/Crypto_Projet/FICHE ÉTUDE PROJET  XRPUSDT XRP Ripple  06092026.md",
+   "categorie": "Paiements / majeure manipulée",
+   "statut_famille": "DEEPDIVE VALIDÉE",
+   "these": "(migration 14/09 — voir fiche source pour la thèse complète)",
+   "statut_verification": {
+    "date": "2026-09-06",
+    "verdict": "DEEPDIVE VALIDÉE",
+    "score": null,
+    "reserve": "Voir fiche étude source"
+   },
+   "faits": [],
+   "lecons": [],
+   "signets_cles": [],
+   "updated": "2026-09-14T08:50:01.709539+00:00"
+  },
+  "ZBCNUSDT": {
+   "nom": " ZBCNUSDT Zebec  06092026.md",
+   "source_fiche": "Obsidian_ACE777/Crypto_Projet/FICHE ÉTUDE PROJET  ZBCNUSDT Zebec  06092026.md",
+   "categorie": "Paiements / streaming",
+   "statut_famille": "DEEPDIVE VALIDÉE",
+   "these": "(migration 14/09 — voir fiche source pour la thèse complète)",
+   "statut_verification": {
+    "date": "2026-09-06",
+    "verdict": "DEEPDIVE VALIDÉE",
+    "score": null,
+    "reserve": "Voir fiche étude source"
+   },
+   "faits": [],
+   "lecons": [],
+   "signets_cles": [],
+   "updated": "2026-09-14T08:50:01.709539+00:00"
+  }
+ },
+ "archives": [],
+ "lecons_agora": [
+  {
+   "id": "lecon_btc_1788758108",
+   "namespace": "cortana",
+   "axiome": "[btc] → [Taux de réussite insuffisant] → [corroborer avec un autre indice avant de te positionner]",
+   "ttl_expire": "2026-09-14T05:15:08.312936+00:00",
+   "source": "HIT/MISS",
+   "cree_le": "2026-09-07T05:15:08.312936+00:00"
+  },
+  {
+   "id": "lecon_radar_1788758108",
+   "namespace": "cortana",
+   "axiome": "[radar] → [Taux de réussite insuffisant] → [corroborer avec un autre indice avant de te positionner]",
+   "ttl_expire": "2026-09-14T05:15:08.312936+00:00",
+   "source": "HIT/MISS",
+   "cree_le": "2026-09-07T05:15:08.312936+00:00"
+  },
+  {
+   "id": "lecon_fearGreed_1788758108",
+   "namespace": "cortana",
+   "axiome": "[fearGreed] → [Taux de réussite insuffisant] → [corroborer avec un autre indice avant de te positionner]",
+   "ttl_expire": "2026-09-14T05:15:08.312936+00:00",
+   "source": "HIT/MISS",
+   "cree_le": "2026-09-07T05:15:08.312936+00:00"
+  },
+  {
+   "id": "lecon_croisements_1789362906",
+   "namespace": "cortana",
+   "axiome": "[croisements] → [Taux de réussite insuffisant] → [corroborer avec un autre indice avant de te positionner]",
+   "ttl_expire": "2026-09-21T05:15:06.979860+00:00",
+   "source": "HIT/MISS",
+   "cree_le": "2026-09-14T05:15:06.979860+00:00"
+  }
+ ],
+ "migration_20260914": "20 fiches étude du 06/09 indexées (statut famille + catégorie) — enrichissement au fil des GO"
 }

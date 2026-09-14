@@ -1,15 +1,55 @@
 {
-  "timestamp": 1789375256,
-  "date": "2026-09-14T08:40:56.304335+00:00",
-  "n_analyses": 1,
+  "timestamp": 1789378258,
+  "date": "2026-09-14T09:30:58.139455+00:00",
+  "n_analyses": 2,
   "analyses": [
     {
       "signal": {
+        "metric": "ipt",
+        "zscore": -2.0675030984300236,
+        "value": 0.003,
+        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 75,\n  \"reason\": \"Narratif médiatique axé sur des événements institutionnels (concours, initiatives sociales) sans lien avec l'activité on-chain. Divergence flagrante avec l'alerte sentinelle (z-score -2.07) suggérant une manipulation ou accumulation discrète.\"\n}\n```",
+        "ts": 1789377085.901509
+      },
+      "fiche": "rbf_eleve",
+      "questions": {
+        "prix": {
+          "value": 0.06,
+          "seuil": 1,
+          "depasse": false
+        },
+        "paires": {
+          "value": null,
+          "seuil": 3,
+          "depasse": false
+        },
+        "funding": {
+          "value": 5.2e-05,
+          "seuil": 0.001,
+          "depasse": false
+        },
+        "whales": {
+          "value": 0,
+          "seuil": 5,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "sdi > 0.3",
+        "lecture": "Drainage silencieux — les vieux BTC bougent en douce",
+        "niveau": "dangereux",
+        "action": "Réduire taille de 50%, sortir des positions fragiles"
+      },
+      "action": "Réduire taille de 50%, sortir des positions fragiles",
+      "niveau": "dangereux"
+    },
+    {
+      "signal": {
         "metric": "long_short",
-        "zscore": -2.3075129114334643,
-        "value": 1.526,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 75,\n  \"reason\": \"Le ratio long-short élevé (1.526) avec un z-score négatif (-2.31) suggère une accumulation silencieuse par les baleines, tandis que les médias se concentrent sur des sujets généraux ou des cas spécifiques (Cardano, fonds institutionnels). Divergence entre l'activité onchain et le narratif médiatique.\"\n}\n```",
-        "ts": 1789374334.4031
+        "zscore": -2.575397086630362,
+        "value": 1.495,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Le z-score extrêmement bas (-2.58) indique une sous-évaluation anormale du ratio Long/Short par rapport à l'historique, contredisant le narratif médiatique dispersé sur la finance traditionnelle et le pessimisme d'altcoins (Cardano). C'est un signal classique de capitulation des suiveurs, souvent exploité par les baleines pour initier un mouvement haussier furtif.\"\n}\n```",
+        "ts": 1789377991.559209
       },
       "fiche": null,
       "interpretation": {
@@ -19,5 +59,5 @@
       "action": "Observer"
     }
   ],
-  "resume": "🔵 CALME — pas de signal alarmant"
+  "resume": "🔴 DANGER détecté — réduire les expositions"
 }
