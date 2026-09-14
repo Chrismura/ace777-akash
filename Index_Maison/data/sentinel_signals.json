@@ -1,27 +1,6 @@
 {
   "signals": [
     {
-      "metric": "cpfp",
-      "zscore": 2.2518981914856195,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit médiatique non pertinent (terme homonyme 'CPFP' lié à l'actualité locale française et africaine). Aucune baleine crypto détectée derrière cette 'anomalie' onchain.\"\n}\n```",
-      "ts": "2026-09-13T23:51:38.333638+00:00"
-    },
-    {
-      "metric": "dust",
-      "zscore": 2.2518981914856195,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique parasité par du cinéma et de la littérature ('Dust'/'Dust to Dust'). Aucune accumulation ou mouvement significatif de baleines crypto détecté derrière cette hausse du z-score.\"\n}\n```",
-      "ts": "2026-09-13T23:51:39.895746+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": 2.442776334143463,
-      "value": 0.608,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit de fond macroéconomique et professionnel sans rapport avec les flux de baleines crypto. Le SDI analysé ici correspond à des indices économiques traditionnels et du matériel audiovisuel, créant un faux positif onchain.\"\n}\n```",
-      "ts": "2026-09-14T00:06:43.296036+00:00"
-    },
-    {
       "metric": "fear_greed",
       "zscore": -19.80138219524332,
       "value": 57,
@@ -349,6 +328,27 @@
       "value": 1.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (z-score 2.17) totalement non corrélée aux flux crypto. Les 'baleines' ne bougent pas ; le bruit médiatique concerne l'Institut Polytechnique de Paris (IPT) et des tournois de physique. Bruit pur, absence de signal financier.\"\n}\n```",
       "ts": "2026-09-14T11:42:04.541591+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.1781020065112,
+      "value": 1.02,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Anomalie technique sans rapport avec la crypto. Les titres médiatiques font référence au Tournoi International des Physiciens (IPT) et à des institutions, démontrant un bruit sémantique total sans lien avec une baleine ou un actif financier.\"\n}\n```",
+      "ts": "2026-09-14T13:03:05.879661+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 4.857244700837724,
+      "value": 4291496.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Anomalie massive des liquidations courtes (short squeeze) de 429M$ couplée à un rebond des prix (BTC/ETH). Les médias traditionnels confondent l'événement avec des faillites macroéconomiques locales, tandis que la presse crypto rate l'ampleur exacte des liquidations on-chain, masquant un piège à baissiers orchestré par les baleines.\"\n}\n```",
+      "ts": "2026-09-14T13:13:09.011961+00:00"
+    },
+    {
+      "metric": "price_1h",
+      "zscore": 2.607326048085954,
+      "value": 0.5610424740391196,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (+2.61) détectant une forte impulsion de prix à court terme, totalement ignorée par les médias (silence radio). Divergence classique d'accumulation discrète par les baleines avant le réveil du narratif public.\"\n}\n```",
+      "ts": "2026-09-14T13:38:14.347581+00:00"
     }
   ]
 }
