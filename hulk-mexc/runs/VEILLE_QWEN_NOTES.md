@@ -4236,3 +4236,7 @@ Pas d’ordre — confrontation plus tard.
 ### 2026-09-14T20:16:23Z — ALERT auto
 - TELUSDT: IMPULSE_WAIT — spike en cours, pas chase
 (compléter: confirmé ? risque ?)
+
+### 2026-09-14T22:02:45Z — ALERT auto
+- EDELUSDT: IMPULSE_WAIT — spike en cours, pas chase
+(compléter: confirmé ? risque ?)

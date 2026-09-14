@@ -1,11 +1,77 @@
 {
-  "ts": "2026-09-14T21:17:55Z",
-  "hauteur_tip": 967023,
+  "ts": "2026-09-14T22:30:14Z",
+  "hauteur_tip": 967032,
   "nb_blocs": 8,
   "seuil_btc": 50.0,
   "min_age_ans": 2.0,
-  "nb_grosses_tx": 207,
-  "nb_vieux_mouvements": 0,
-  "vieux_mouvements": [],
+  "nb_grosses_tx": 82,
+  "nb_vieux_mouvements": 3,
+  "vieux_mouvements": [
+    {
+      "txid": "05fc44308499ba4e9335eac978c9c36f0b6dda23c5d8fe78a98c893418f381da",
+      "hauteur_bloc": 967032,
+      "ts_bloc": 1789424941,
+      "btc": 77.87,
+      "inputs_ages": [
+        {
+          "age_jours": 950.1,
+          "btc": 10.2002
+        },
+        {
+          "age_jours": 1089.4,
+          "btc": 67.6704
+        }
+      ],
+      "age_max_jours": 1089.4,
+      "age_max_ans": 3.0,
+      "inputs_non_resolus": 0
+    },
+    {
+      "txid": "e6ee68c8297797ec11e23b5163c11c19661eae0925dc3b0fc15bc68014664db2",
+      "hauteur_bloc": 967028,
+      "ts_bloc": 1789423672,
+      "btc": 66.33,
+      "inputs_ages": [
+        {
+          "age_jours": 1089.4,
+          "btc": 46.1604
+        },
+        {
+          "age_jours": 633.4,
+          "btc": 1.5522
+        },
+        {
+          "age_jours": 620.2,
+          "btc": 1.102
+        },
+        {
+          "age_jours": 758.4,
+          "btc": 3.5162
+        },
+        {
+          "age_jours": 1022.1,
+          "btc": 14.0
+        }
+      ],
+      "age_max_jours": 1089.4,
+      "age_max_ans": 3.0,
+      "inputs_non_resolus": 0
+    },
+    {
+      "txid": "99d5aad804289ae4e2410e8813a928ed2c40d5bcdbfe78dafb70cd41207606d0",
+      "hauteur_bloc": 967025,
+      "ts_bloc": 1789422365,
+      "btc": 60.0,
+      "inputs_ages": [
+        {
+          "age_jours": 1089.4,
+          "btc": 60.0
+        }
+      ],
+      "age_max_jours": 1089.4,
+      "age_max_ans": 3.0,
+      "inputs_non_resolus": 0
+    }
+  ],
   "note": "age_max = âge du plus vieil input (TOUS inputs, retry+cache, correction 13/09). inputs_ages=null = inputs non résolus — jamais comptés comme 0.0"
 }

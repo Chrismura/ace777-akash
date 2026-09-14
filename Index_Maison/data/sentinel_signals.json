@@ -2,27 +2,6 @@
   "signals": [
     {
       "metric": "ipt",
-      "zscore": -2.0675030984300236,
-      "value": 0.003,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 75,\n  \"reason\": \"Narratif médiatique axé sur des événements institutionnels (concours, initiatives sociales) sans lien avec l'activité on-chain. Divergence flagrante avec l'alerte sentinelle (z-score -2.07) suggérant une manipulation ou accumulation discrète.\"\n}\n```",
-      "ts": "2026-09-14T09:11:25.901509+00:00"
-    },
-    {
-      "metric": "long_short",
-      "zscore": -2.575397086630362,
-      "value": 1.495,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Le z-score extrêmement bas (-2.58) indique une sous-évaluation anormale du ratio Long/Short par rapport à l'historique, contredisant le narratif médiatique dispersé sur la finance traditionnelle et le pessimisme d'altcoins (Cardano). C'est un signal classique de capitulation des suiveurs, souvent exploité par les baleines pour initier un mouvement haussier furtif.\"\n}\n```",
-      "ts": "2026-09-14T09:26:31.559209+00:00"
-    },
-    {
-      "metric": "price_1h",
-      "zscore": 2.825277598896797,
-      "value": 0.5759234239391731,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.83) sur 1h sans couverture médiatique (Google Actualités vide). Divergence classique : accumulation silencieuse des baleines sous le radar du retail.\"\n}\n```",
-      "ts": "2026-09-14T09:56:38.518073+00:00"
-    },
-    {
-      "metric": "ipt",
       "zscore": 2.5219162611283266,
       "value": 1.077,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (IPT z-score 2.52) totalement non corrélée au bruit médiatique. Les titres font référence au Tournoi International des Physiciens (IPT) et à des institutions, aucun lien avec un actif crypto ou une baleine.\"\n}\n```",
@@ -349,6 +328,27 @@
       "value": 12893156057.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 12,\n  \"reason\": \"Anomalie statistique (z-score 2.03) sur des données sans contexte crypto pertinent. Les titres médiatiques traitent de faits divers locaux (fauniculture, vendanges, Bourse traditionnelle). Aucune corrélation onchain ni mouvement de baleine détecté.\"\n}\n```",
       "ts": "2026-09-14T21:26:11.448334+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 2.325566307152883,
+      "value": 5329718.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Forte divergence entre la morosité de la presse généraliste (faillites d'entreprises) et la réalité on-chain/crypto : 266M$ de shorts liquidés en 1h. Les baleines piégent agressivement les vendeurs à découvert pendant que les médias traditionnels focalisent l'attention sur l'économie réelle.\"\n}\n```",
+      "ts": "2026-09-14T21:46:15.708978+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": -2.0357203153014383,
+      "value": 1.142,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le z-score extrêmement bas (-2.04) indique une sous-exposition anormale des positions longues (capitulation des suiveurs de tendance), tandis que le narratif médiatique grand public pousse massivement les stratégies long-short traditionnelles. Classic setup de contrarian : les baleines accumulent discrètement dans la zone de désintérêt.\"\n}\n```",
+      "ts": "2026-09-14T22:06:20.682966+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 2.0968374702038286,
+      "value": 5248839.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Divergence massive : les médias généralistes paniquent sur des liquidations d'entreprises traditionnelles, tandis que la crypto encaisse une purge de shorts de 266M$ (z-score 2.10). Les baleines piochent dans la liquidité des vendeurs à découvert pour propulser les cours.\"\n}\n```",
+      "ts": "2026-09-14T22:16:24.591750+00:00"
     }
   ]
 }
