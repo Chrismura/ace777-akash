@@ -1,110 +1,20 @@
 {
-  "timestamp": 1789346446,
-  "date": "2026-09-14T00:40:46.954341+00:00",
-  "n_analyses": 4,
+  "timestamp": 1789350048,
+  "date": "2026-09-14T01:40:48.113880+00:00",
+  "n_analyses": 3,
   "analyses": [
     {
       "signal": {
-        "metric": "cpfp",
-        "zscore": 2.177448351469849,
-        "value": 50.0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.18) entièrement liée au bruit sémantique médiatique sur le protocole Bitcoin CPFP (Child-Pays-For-Parent) et des homonymes institutionnels locaux sans lien avec une accumulation ou distribution de baleines.\"\n}\n```",
-        "ts": 1789345909.00651
-      },
-      "fiche": "blocs_privilises",
-      "questions": {
-        "duree": {
-          "value": 0,
-          "seuil": 0,
-          "depasse": false
-        },
-        "volume": {
-          "value": 8,
-          "seuil": 0,
-          "depasse": true
-        },
-        "prix": {
-          "value": -0.15,
-          "seuil": 0,
-          "depasse": true
-        },
-        "sdi": {
-          "value": 0.608,
-          "seuil": 0,
-          "depasse": true
-        },
-        "rbf": {
-          "value": 0.0,
-          "seuil": 0,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "duree < 5min ET volume > 100",
-        "lecture": "Consolidation exchange — probablement un transfert hot→cold",
-        "niveau": "neutre",
-        "action": "Garder les positions"
-      },
-      "action": "Garder les positions",
-      "niveau": "neutre"
-    },
-    {
-      "signal": {
-        "metric": "dust",
-        "zscore": 2.177448351469849,
-        "value": 50.0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique parasité par du cinéma et de la littérature ('Dust to Dust'). L'anomalie onchain (z-score 2.18) est insignifiante et ne démontre aucune accumulation significative de baleines.\"\n}\n```",
-        "ts": 1789345910.71444
-      },
-      "fiche": "blocs_privilises",
-      "questions": {
-        "duree": {
-          "value": 0,
-          "seuil": 0,
-          "depasse": false
-        },
-        "volume": {
-          "value": 8,
-          "seuil": 0,
-          "depasse": true
-        },
-        "prix": {
-          "value": -0.15,
-          "seuil": 0,
-          "depasse": true
-        },
-        "sdi": {
-          "value": 0.608,
-          "seuil": 0,
-          "depasse": true
-        },
-        "rbf": {
-          "value": 0.0,
-          "seuil": 0,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "duree < 5min ET volume > 100",
-        "lecture": "Consolidation exchange — probablement un transfert hot→cold",
-        "niveau": "neutre",
-        "action": "Garder les positions"
-      },
-      "action": "Garder les positions",
-      "niveau": "neutre"
-    },
-    {
-      "signal": {
-        "metric": "sdi",
-        "zscore": 2.2988171663532624,
-        "value": 0.608,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique non pertinente pour la crypto : les données et titres médiatiques font référence à un indicateur macroéconomique traditionnel (SDI) et à du matériel vidéo (Blackmagic SDI), sans aucun lien avec l'activité on-chain ou les baleines de cryptomonnaies.\"\n}\n```",
-        "ts": 1789346213.32611
+        "metric": "ipt",
+        "zscore": 2.3793017408798898,
+        "value": 1.06,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Bruit sémantique détecté. L'anomalie 'ipt' (z-score 2.38) capte des actualités académiques et institutionnelles (Tournoi International des Physiciens, luttes sociales, église protestante) sans aucun rapport avec un actif crypto ou un mouvement de baleines.\"\n}\n```",
+        "ts": 1789348632.570348
       },
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.15,
+          "value": -0.05,
           "seuil": 1,
           "depasse": false
         },
@@ -114,7 +24,47 @@
           "depasse": false
         },
         "funding": {
-          "value": 7.3e-05,
+          "value": 8.4e-05,
+          "seuil": 0.001,
+          "depasse": false
+        },
+        "whales": {
+          "value": 0,
+          "seuil": 5,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "sdi > 0.3",
+        "lecture": "Drainage silencieux — les vieux BTC bougent en douce",
+        "niveau": "dangereux",
+        "action": "Réduire taille de 50%, sortir des positions fragiles"
+      },
+      "action": "Réduire taille de 50%, sortir des positions fragiles",
+      "niveau": "dangereux"
+    },
+    {
+      "signal": {
+        "metric": "sdi",
+        "zscore": 2.0388225390863,
+        "value": 0.612,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique sans rapport avec la crypto (homonymie 'SDI' liée à l'économie, la vidéo et la gouvernance). Aucune baleine on-chain détectée, le z-score reflète une métrique macro/traditionnelle non-pertinente pour les marchés cryptos.\"\n}\n```",
+        "ts": 1789349836.720951
+      },
+      "fiche": "rbf_eleve",
+      "questions": {
+        "prix": {
+          "value": -0.05,
+          "seuil": 1,
+          "depasse": false
+        },
+        "paires": {
+          "value": null,
+          "seuil": 3,
+          "depasse": false
+        },
+        "funding": {
+          "value": 8.4e-05,
           "seuil": 0.001,
           "depasse": false
         },
@@ -136,10 +86,10 @@
     {
       "signal": {
         "metric": "fear_greed",
-        "zscore": -6.8556546004010395,
+        "zscore": -3.8729833462074166,
         "value": 57,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-6.86) pour un Indice de Peur et de Greffe à 57 : le marché grand public est anormalement apathique ou aveugle face à une dynamique de prix neutre/positive, ce qui indique une accumulation silencieuse des baleines hors des radars médiatiques.\"\n}\n```",
-        "ts": 1789346214.685069
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-3.87) malgré un indice de peur et de cupidité neutre (57) et un vide total dans les médias. Absence totale de bruit médiatique combinée à une anomalie statistique onchain : accumulation furtive classique des baleines sous le radar.\"\n}\n```",
+        "ts": 1789349838.199691
       },
       "fiche": null,
       "interpretation": {
