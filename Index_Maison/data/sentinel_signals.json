@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "dust",
-      "zscore": 3.416066136340395,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique de faible ampleur (z-score 3.42) noyée dans un bruit médiatique non pertinent (cinéma, littérature, culture). Aucun signal clair d'accumulation ou de distribution institutionnelle.\"\n}\n```",
-      "ts": "2026-09-13T12:39:05.446313+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.2293844213506473,
-      "value": 0.619,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (ipt) totalement non corrélée aux actualités, lesquelles font référence à des tournois de physique (IPT) et à des institutions académiques ou religieuses. Aucun mouvement crypto détecté.\"\n}\n```",
-      "ts": "2026-09-13T13:19:12.773750+00:00"
-    },
-    {
       "metric": "price_1h",
       "zscore": 2.7807467767466143,
       "value": 0.2357952295398258,
@@ -349,6 +335,20 @@
       "value": 0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 75,\n  \"reason\": \"Anomalie onchain significative (z-score -3.18) contrastant avec un narratif médiatique focalisé sur des sujets périphériques (gouvernance, matériel technique). Divergence suggérant une accumulation silencieuse malgré les discours économiques négatifs.\"\n}\n```",
       "ts": "2026-09-14T03:13:56.358749+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.266459784458717,
+      "value": 7163617885.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 78,\n  \"reason\": \"Anomalie de volume on-chain significative (z-score 2.27) couplée à une hausse générale du volume spot de 19% en août. Les médias traditionnels se focalisent sur des bruits macroéconomiques et tech (CAC 40 sans volume, Apple) alors que la liquidité crypto s'accumule silencieusement en arrière-plan.\"\n}\n```",
+      "ts": "2026-09-14T03:39:02.256522+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -2.420153478013915,
+      "value": 57,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-2.42) malgré un indice de peur et de cupidité neutre (57) et un vide total dans les médias. Classic setup de silence médiatique pré-accumulation institutionnelle.\"\n}\n```",
+      "ts": "2026-09-14T03:39:03.728594+00:00"
     }
   ]
 }

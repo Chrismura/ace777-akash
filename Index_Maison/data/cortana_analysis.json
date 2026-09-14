@@ -1,20 +1,20 @@
 {
-  "timestamp": 1789356650,
-  "date": "2026-09-14T03:30:50.074064+00:00",
+  "timestamp": 1789357250,
+  "date": "2026-09-14T03:40:50.273933+00:00",
   "n_analyses": 3,
   "analyses": [
     {
       "signal": {
-        "metric": "volume",
-        "zscore": 2.1517123173516115,
-        "value": 6803751356.0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Volume crypto en forte hausse (19% en août) malgré un narratif médiatique focalisé sur des sujets non-crypto (CAC 40, IKEA, Apple). Divergence suggère une accumulation silencieuse par les baleines.\"\n}\n```",
-        "ts": 1789355294.58204
+        "metric": "sdi",
+        "zscore": -3.1830197979282406,
+        "value": 0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 75,\n  \"reason\": \"Anomalie onchain significative (z-score -3.18) contrastant avec un narratif médiatique focalisé sur des sujets périphériques (gouvernance, matériel technique). Divergence suggérant une accumulation silencieuse malgré les discours économiques négatifs.\"\n}\n```",
+        "ts": 1789355636.358749
       },
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": 0.18,
+          "value": 0.07,
           "seuil": 1,
           "depasse": false
         },
@@ -29,7 +29,47 @@
           "depasse": false
         },
         "whales": {
-          "value": 2,
+          "value": 1,
+          "seuil": 5,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "sdi > 0.3",
+        "lecture": "Drainage silencieux — les vieux BTC bougent en douce",
+        "niveau": "dangereux",
+        "action": "Réduire taille de 50%, sortir des positions fragiles"
+      },
+      "action": "Réduire taille de 50%, sortir des positions fragiles",
+      "niveau": "dangereux"
+    },
+    {
+      "signal": {
+        "metric": "volume",
+        "zscore": 2.266459784458717,
+        "value": 7163617885.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 78,\n  \"reason\": \"Anomalie de volume on-chain significative (z-score 2.27) couplée à une hausse générale du volume spot de 19% en août. Les médias traditionnels se focalisent sur des bruits macroéconomiques et tech (CAC 40 sans volume, Apple) alors que la liquidité crypto s'accumule silencieusement en arrière-plan.\"\n}\n```",
+        "ts": 1789357142.256522
+      },
+      "fiche": "rbf_eleve",
+      "questions": {
+        "prix": {
+          "value": 0.07,
+          "seuil": 1,
+          "depasse": false
+        },
+        "paires": {
+          "value": null,
+          "seuil": 3,
+          "depasse": false
+        },
+        "funding": {
+          "value": 0.0001,
+          "seuil": 0.001,
+          "depasse": false
+        },
+        "whales": {
+          "value": 1,
           "seuil": 5,
           "depasse": false
         }
@@ -46,10 +86,10 @@
     {
       "signal": {
         "metric": "fear_greed",
-        "zscore": -2.6457513110645903,
+        "zscore": -2.420153478013915,
         "value": 57,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 75,\n  \"reason\": \"Le z-score négatif (-2.65) suggère une activité onchain inhabituellement basse malgré un indice fear_greed neutre (57), indiquant une possible accumulation silencieuse par les baleines. Les médias grand public ne captent pas cette divergence.\"\n}\n```",
-        "ts": 1789355321.500663
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-2.42) malgré un indice de peur et de cupidité neutre (57) et un vide total dans les médias. Classic setup de silence médiatique pré-accumulation institutionnelle.\"\n}\n```",
+        "ts": 1789357143.728594
       },
       "fiche": null,
       "interpretation": {
@@ -57,46 +97,6 @@
         "niveau": "inconnu"
       },
       "action": "Observer"
-    },
-    {
-      "signal": {
-        "metric": "sdi",
-        "zscore": -3.1830197979282406,
-        "value": 0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 75,\n  \"reason\": \"Anomalie onchain significative (z-score -3.18) contrastant avec un narratif médiatique focalisé sur des sujets périphériques (gouvernance, matériel technique). Divergence suggérant une accumulation silencieuse malgré les discours économiques négatifs.\"\n}\n```",
-        "ts": 1789355636.358749
-      },
-      "fiche": "rbf_eleve",
-      "questions": {
-        "prix": {
-          "value": 0.18,
-          "seuil": 1,
-          "depasse": false
-        },
-        "paires": {
-          "value": null,
-          "seuil": 3,
-          "depasse": false
-        },
-        "funding": {
-          "value": 0.0001,
-          "seuil": 0.001,
-          "depasse": false
-        },
-        "whales": {
-          "value": 2,
-          "seuil": 5,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "sdi > 0.3",
-        "lecture": "Drainage silencieux — les vieux BTC bougent en douce",
-        "niveau": "dangereux",
-        "action": "Réduire taille de 50%, sortir des positions fragiles"
-      },
-      "action": "Réduire taille de 50%, sortir des positions fragiles",
-      "niveau": "dangereux"
     }
   ],
   "resume": "🔴 DANGER détecté — réduire les expositions"
