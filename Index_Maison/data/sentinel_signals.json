@@ -2,34 +2,6 @@
   "signals": [
     {
       "metric": "price_1h",
-      "zscore": 2.7807467767466143,
-      "value": 0.2357952295398258,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.78) couplé à un silence médiatique total (zéro couverture Google Actualités) : c'est la signature classique d'une accumulation furtive par des baleines avant que le grand public ne s'en aperçoive.\"\n}\n```",
-      "ts": "2026-09-13T13:29:15.332545+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.541614169698,
-      "value": 0.711,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (IPT) entièrement due à une collision de sémantique linguistique : le ticker crypto est confondu avec le Tournoi International des Physiciens (IPT) et des actualités institutionnelles. Aucun mouvement de baleine réel.\"\n}\n```",
-      "ts": "2026-09-13T13:54:20.795781+00:00"
-    },
-    {
-      "metric": "cpfp",
-      "zscore": 2.416768946492769,
-      "value": 40.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie technique sans rapport avec la crypto (sigle CPFP partagé avec des institutions locales et éducatives). Bruit statistique pur.\"\n}\n```",
-      "ts": "2026-09-13T14:09:23.867807+00:00"
-    },
-    {
-      "metric": "dust",
-      "zscore": 2.416768946492769,
-      "value": 40.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie onchain non pertinente. Le z-score élevé (2.42) et le volume de 'dust' détecté correspondent à du bruit de fond (micro-transactions ou nettoyage de portefeuille) noyé dans un homonyme médiatique culturel (films, livres, crypto 'Dust'). Aucune accumulation institutionnelle ou mouvement significatif de baleine détecté.\"\n}\n```",
-      "ts": "2026-09-13T14:09:25.802030+00:00"
-    },
-    {
-      "metric": "price_1h",
       "zscore": 3.13784674921494,
       "value": 0.2649329606401407,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique pure (z-score 3.14) sans couverture médiatique ni signal directionnel clair. Bruit statistique, pas de mouvement de baleine avéré.\"\n}\n```",
@@ -349,6 +321,34 @@
       "value": 57,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-2.42) malgré un indice de peur et de cupidité neutre (57) et un vide total dans les médias. Classic setup de silence médiatique pré-accumulation institutionnelle.\"\n}\n```",
       "ts": "2026-09-14T03:39:03.728594+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.1982933176869937,
+      "value": 7294839954.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 82,\n  \"reason\": \"Anomalie de volume on-chain significative (z-score 2.20) contrastant avec un narratif médiatique généraliste sans rapport direct (macro boursière, tech grand public). Disjonction classique traduisant une accumulation silencieuse des baleines sur le marché crypto.\"\n}\n```",
+      "ts": "2026-09-14T04:09:10.133405+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -2.236067977499791,
+      "value": 57,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le z-score extrêmement bas (-2.24) pour un indice de peur/greed à 57 (neutre/légèrement avide) révèle une anomalie statistique majeure : le marché réel est sous-estimé par la volatilité perçue. Les médias traditionnels n'ont aucune couverture notable (Google Actualités vide/silencieux), ce qui indique une accumulation silencieuse des baleines hors des radars de la foule.\"\n}\n```",
+      "ts": "2026-09-14T04:09:11.678624+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.124037208491831,
+      "value": 7402946641.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de volume on-chain significative (z-score 2.12) couplée à une hausse générale du volume spot de 19% en août. Les médias traditionnels se focalisent sur des sujets macroéconomiques ou tech sans rapport, confirmant une accumulation silencieuse des baleines à l'écart du bruit médiatique.\"\n}\n```",
+      "ts": "2026-09-14T04:39:17.911982+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -2.0816659994661326,
+      "value": 57,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score négatif profond (-2.08) pour un Fear & Greed neutre (57) combiné à un silence médiatique total : les baleines accumulent dans l'ombre sans susciter de FOMO retail.\"\n}\n```",
+      "ts": "2026-09-14T04:39:19.244198+00:00"
     }
   ]
 }
