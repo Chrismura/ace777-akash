@@ -1,48 +1,6 @@
 {
   "signals": [
     {
-      "metric": "ipt",
-      "zscore": 2.935920810512993,
-      "value": 0.707,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (IPT z-score 2.94) causée par une collision sémantique : le ticker 'IPT' est massivement confondu dans l'actualité avec des instituts de physique et théologiques (Tournoi de Physique, facultés protestantes). Bruit médiatique sans lien avec des mouvements de baleines crypto.\"\n}\n```",
-      "ts": "2026-09-13T07:22:31.163945+00:00"
-    },
-    {
-      "metric": "cpfp",
-      "zscore": 2.988182571907229,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (z-score 2.99) liée à un acronyme homonyme ('CPFP') sans rapport avec la crypto. Bruit médiatique local et institutionnel (éducation/politique). Aucune activité de baleine.\"\n}\n```",
-      "ts": "2026-09-13T07:47:43.247900+00:00"
-    },
-    {
-      "metric": "dust",
-      "zscore": 2.988182571907229,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Forte anomalie onchain (z-score 2.99) sur le token DUST, alors que le narratif médiatique est totalement pollué par du bruit culturel (cinéma, littérature, jeux). Cette asymétrie totale prouve une accumulation silencieuse des baleines à l'abri des radars de la foule.\"\n}\n```",
-      "ts": "2026-09-13T07:47:44.874971+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 3.345222918701061,
-      "value": 0.822,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (IPT) entièrement corrélée à un acronyme académique et religieux sans rapport avec la crypto (Tournoi International des Physiciens / protestantisme). Bruit médiatique pur, aucune baleine détectée.\"\n}\n```",
-      "ts": "2026-09-13T08:07:50.864503+00:00"
-    },
-    {
-      "metric": "price_1h",
-      "zscore": 4.0343669972088305,
-      "value": 0.21278328103210287,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (+4.03) sur le prix à court terme sans aucune couverture médiatique correspondante (silence radio). Indique une accumulation agressive ou un mouvement furtif de baleines avant que le marché de masse ne s'en aperçoive.\"\n}\n```",
-      "ts": "2026-09-13T08:32:56.002184+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.1567719508878973,
-      "value": 0.595,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Anomalie statistique (z-score 2.16) due à une collision lexicale : les médias parlent du tournoi académique 'IPT' (International Physicists' Tournament) et d'institutions religieuses, totalement déconnectés du token crypto 'IPT'.\"\n}\n```",
-      "ts": "2026-09-13T08:37:58.170666+00:00"
-    },
-    {
       "metric": "whale_usd",
       "zscore": 3.6970700214854273,
       "value": 8353996.0,
@@ -349,6 +307,48 @@
       "value": 45.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique parasité par le cinéma, la littérature et de l'homonymie pure. L'anomalie onchain (z-score 2.01) est trop faible pour confirmer un mouvement de baleine significatif et se noie dans le bruit lexical.\"\n}\n```",
       "ts": "2026-09-13T23:11:29.048300+00:00"
+    },
+    {
+      "metric": "cpfp",
+      "zscore": 2.2518981914856195,
+      "value": 50.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit médiatique non pertinent (terme homonyme 'CPFP' lié à l'actualité locale française et africaine). Aucune baleine crypto détectée derrière cette 'anomalie' onchain.\"\n}\n```",
+      "ts": "2026-09-13T23:51:38.333638+00:00"
+    },
+    {
+      "metric": "dust",
+      "zscore": 2.2518981914856195,
+      "value": 50.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique parasité par du cinéma et de la littérature ('Dust'/'Dust to Dust'). Aucune accumulation ou mouvement significatif de baleines crypto détecté derrière cette hausse du z-score.\"\n}\n```",
+      "ts": "2026-09-13T23:51:39.895746+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 2.442776334143463,
+      "value": 0.608,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit de fond macroéconomique et professionnel sans rapport avec les flux de baleines crypto. Le SDI analysé ici correspond à des indices économiques traditionnels et du matériel audiovisuel, créant un faux positif onchain.\"\n}\n```",
+      "ts": "2026-09-14T00:06:43.296036+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -19.80138219524332,
+      "value": 57,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-19.80) malgré un sentiment neutre/tiède (57) et l'absence totale de couverture médiatique. Indique une accumulation massive et silencieuse des baleines sous le radar du retail.\"\n}\n```",
+      "ts": "2026-09-14T00:06:44.522792+00:00"
+    },
+    {
+      "metric": "cpfp",
+      "zscore": 2.177448351469849,
+      "value": 50.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.18) entièrement liée au bruit sémantique médiatique sur le protocole Bitcoin CPFP (Child-Pays-For-Parent) et des homonymes institutionnels locaux sans lien avec une accumulation ou distribution de baleines.\"\n}\n```",
+      "ts": "2026-09-14T00:31:49.006510+00:00"
+    },
+    {
+      "metric": "dust",
+      "zscore": 2.177448351469849,
+      "value": 50.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique parasité par du cinéma et de la littérature ('Dust to Dust'). L'anomalie onchain (z-score 2.18) est insignifiante et ne démontre aucune accumulation significative de baleines.\"\n}\n```",
+      "ts": "2026-09-14T00:31:50.714440+00:00"
     }
   ]
 }
