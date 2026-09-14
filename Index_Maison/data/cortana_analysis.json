@@ -1,15 +1,15 @@
 {
-  "timestamp": 1789371655,
-  "date": "2026-09-14T07:40:55.323792+00:00",
-  "n_analyses": 2,
+  "timestamp": 1789375256,
+  "date": "2026-09-14T08:40:56.304335+00:00",
+  "n_analyses": 1,
   "analyses": [
     {
       "signal": {
         "metric": "long_short",
-        "zscore": -2.5138482400707702,
-        "value": 1.534,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Le z-score extrême à -2.51 indique une capitulation des positions vendeuses (trop de shorts), contredisant le narratif médiatique généraliste sur les 'fonds traditionnels' et signalant un piège à ours classique propice à un short squeeze imminent.\"\n}\n```",
-        "ts": 1789370715.015014
+        "zscore": -2.3075129114334643,
+        "value": 1.526,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 75,\n  \"reason\": \"Le ratio long-short élevé (1.526) avec un z-score négatif (-2.31) suggère une accumulation silencieuse par les baleines, tandis que les médias se concentrent sur des sujets généraux ou des cas spécifiques (Cardano, fonds institutionnels). Divergence entre l'activité onchain et le narratif médiatique.\"\n}\n```",
+        "ts": 1789374334.4031
       },
       "fiche": null,
       "interpretation": {
@@ -17,47 +17,7 @@
         "niveau": "inconnu"
       },
       "action": "Observer"
-    },
-    {
-      "signal": {
-        "metric": "volume",
-        "zscore": 2.065194164704892,
-        "value": 7993309850.0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.07) sur un volume global, mais les titres médiatiques n'ont aucun rapport avec la crypto (carburants, football, CAC 40, IKEA). Bruit de fond macro/généraliste, pas de mouvement silencieux de baleines détecté.\"\n}\n```",
-        "ts": 1789371618.481739
-      },
-      "fiche": "rbf_eleve",
-      "questions": {
-        "prix": {
-          "value": 0.22,
-          "seuil": 1,
-          "depasse": false
-        },
-        "paires": {
-          "value": null,
-          "seuil": 3,
-          "depasse": false
-        },
-        "funding": {
-          "value": 8.6e-05,
-          "seuil": 0.001,
-          "depasse": false
-        },
-        "whales": {
-          "value": 2,
-          "seuil": 5,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "sdi > 0.3",
-        "lecture": "Drainage silencieux — les vieux BTC bougent en douce",
-        "niveau": "dangereux",
-        "action": "Réduire taille de 50%, sortir des positions fragiles"
-      },
-      "action": "Réduire taille de 50%, sortir des positions fragiles",
-      "niveau": "dangereux"
     }
   ],
-  "resume": "🔴 DANGER détecté — réduire les expositions"
+  "resume": "🔵 CALME — pas de signal alarmant"
 }
