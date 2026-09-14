@@ -1,20 +1,50 @@
 {
-  "timestamp": 1789396864,
-  "date": "2026-09-14T14:41:04.367402+00:00",
-  "n_analyses": 4,
+  "timestamp": 1789399866,
+  "date": "2026-09-14T15:31:06.223864+00:00",
+  "n_analyses": 3,
   "analyses": [
     {
       "signal": {
+        "metric": "liquidations",
+        "zscore": 2.1964710966242533,
+        "value": 3374009.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Forte divergence : les médias grand public se focalisent sur des faillites locales hors-sujet et des liquidations massives de positions short crypto (266M$-427M$ de short squeeze), pendant que le z-score on-chain (2.20) signale une pression d'accumulation silencieuse des baleines profitant du shakeout des baissiers.\"\n}\n```",
+        "ts": 1789398253.627179
+      },
+      "fiche": null,
+      "interpretation": {
+        "lecture": "Pas de fiche disponible",
+        "niveau": "inconnu"
+      },
+      "action": "Observer"
+    },
+    {
+      "signal": {
+        "metric": "long_short",
+        "zscore": -3.5950249023062866,
+        "value": 1.324,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Z-score extrêmement bas (-3.60) indiquant une capitulation des positions short de détail, contredisant le bruit médiatique ambiant sur les fonds long-short et actant un positionnement contrarien massif des baleines.\"\n}\n```",
+        "ts": 1789398556.071237
+      },
+      "fiche": null,
+      "interpretation": {
+        "lecture": "Pas de fiche disponible",
+        "niveau": "inconnu"
+      },
+      "action": "Observer"
+    },
+    {
+      "signal": {
         "metric": "volume",
-        "zscore": 2.002577972159721,
-        "value": 9713834787.0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (Z-score 2.0) sur un volume global, mais les gros titres médiatiques font référence à des sujets sans rapport (football, CAC 40, carburants, épargne traditionnelle). Aucune corrélation onchain pertinente ou mouvement silencieux identifiable de baleines crypto dans ce bruit.\"\n}\n```",
-        "ts": 1789396105.653447
+        "zscore": 2.0507904936258385,
+        "value": 10228139670.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique de volume détectée sur la blockchain, mais le narratif médiatique est totalement parasité par du bruit non-crypto (actualité locale, bourse traditionnelle, football). Aucune corrélation exploitable.\"\n}\n```",
+        "ts": 1789399760.716957
       },
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": 0.34,
+          "value": -0.15,
           "seuil": 1,
           "depasse": false
         },
@@ -24,7 +54,7 @@
           "depasse": false
         },
         "funding": {
-          "value": 6.2e-05,
+          "value": 5e-05,
           "seuil": 0.001,
           "depasse": false
         },
@@ -42,51 +72,6 @@
       },
       "action": "Réduire taille de 50%, sortir des positions fragiles",
       "niveau": "dangereux"
-    },
-    {
-      "signal": {
-        "metric": "liquidations",
-        "zscore": 2.328922678692168,
-        "value": 3353611.0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Bruit médiatique confondu avec des faillites traditionnelles, masquant un short squeeze massif de 427M$ sur les cryptos. Les baleines piégent les baissiers silencieusement.\"\n}\n```",
-        "ts": 1789396408.061151
-      },
-      "fiche": null,
-      "interpretation": {
-        "lecture": "Pas de fiche disponible",
-        "niveau": "inconnu"
-      },
-      "action": "Observer"
-    },
-    {
-      "signal": {
-        "metric": "whale_usd",
-        "zscore": 7.213170626257757,
-        "value": 15372738.0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (z-score 7.21, ~15.3M USD) dans un silence médiatique absolu (Google Actualités vide). Les baleines accumulent sans éveiller le retail, ce qui précède généralement une cassure haussière par surprise.\"\n}\n```",
-        "ts": 1789396710.221331
-      },
-      "fiche": null,
-      "interpretation": {
-        "lecture": "Pas de fiche disponible",
-        "niveau": "inconnu"
-      },
-      "action": "Observer"
-    },
-    {
-      "signal": {
-        "metric": "long_short",
-        "zscore": -2.118203334500959,
-        "value": 1.439,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le Z-score de -2.12 indique un positionnement court anormalement bas et survendu par la foule, alors que les médias grand public banalisent les stratégies macro et que les données onchain révèlent une accumulation cachée prête pour un short squeeze.\"\n}\n```",
-        "ts": 1789396711.970493
-      },
-      "fiche": null,
-      "interpretation": {
-        "lecture": "Pas de fiche disponible",
-        "niveau": "inconnu"
-      },
-      "action": "Observer"
     }
   ],
   "resume": "🔴 DANGER détecté — réduire les expositions"
