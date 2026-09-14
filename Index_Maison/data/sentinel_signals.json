@@ -2,41 +2,6 @@
   "signals": [
     {
       "metric": "dust",
-      "zscore": 3.549111261559198,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 3.55) liée à du bruit médiatique insignifiant (cinéma et homonymes crypto de faible envergure). Aucune accumulation baleinière détectée.\"\n}\n```",
-      "ts": "2026-09-13T11:28:43.517735+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.537814278632857,
-      "value": 0.693,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie technique de l'indicateur (IPT) captant des homonymies sémantiques (Tournoi International des Physiciens / Institut Protestant de Théologie) sans lien avec l'activité crypto.\"\n}\n```",
-      "ts": "2026-09-13T11:33:46.066077+00:00"
-    },
-    {
-      "metric": "cpfp",
-      "zscore": 2.323303835343735,
-      "value": 35.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Anomalie technique externe liée à de l'homonymie (CPFP = Centre de Formation Professionnelle / Finances Publiques). Aucun lien avec une baleine crypto ou un actif numérique.\"\n}\n```",
-      "ts": "2026-09-13T12:08:55.746043+00:00"
-    },
-    {
-      "metric": "dust",
-      "zscore": 2.323303835343735,
-      "value": 35.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.32) couplé à une 'poussière' médiatique (bruit de fond culturel sans rapport avec la tech) : les baleines accumulent discrètement $DUST sous le radar des médias généralistes.\"\n}\n```",
-      "ts": "2026-09-13T12:08:57.583031+00:00"
-    },
-    {
-      "metric": "cpfp",
-      "zscore": 3.416066136340395,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (z-score 3.42) entièrement due à un bruit médiatique sans rapport avec la crypto (homonymie avec le 'Centre Professionnel et de Promotion' / CPFP). Aucune activité de baleine détectée.\"\n}\n```",
-      "ts": "2026-09-13T12:39:03.673677+00:00"
-    },
-    {
-      "metric": "dust",
       "zscore": 3.416066136340395,
       "value": 50.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique de faible ampleur (z-score 3.42) noyée dans un bruit médiatique non pertinent (cinéma, littérature, culture). Aucun signal clair d'accumulation ou de distribution institutionnelle.\"\n}\n```",
@@ -349,6 +314,41 @@
       "value": 57,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-2.93) malgré un indice Fear & Greed neutre (57) et l'absence totale de couverture médiatique (silence radio). Cette asymétrie signale une accumulation furtive des baleines loin du radar public.\"\n}\n```",
       "ts": "2026-09-14T02:37:34.280053+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 7.7266672198255675,
+      "value": 15605942.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (z-score 7.73, ~15.6M USD) dans un silence médiatique absolu (Google Actualités vide). Les baleines accumulent discrètement sous le radar du retail.\"\n}\n```",
+      "ts": "2026-09-14T02:47:38.523164+00:00"
+    },
+    {
+      "metric": "price_1h",
+      "zscore": 2.8608475411173586,
+      "value": 0.5682398749773832,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (+2.86) sur le prix avec un silence médiatique total (zéro couverture Google Actualités). C'est la signature classique d'accumulation furtive par des baleines avant la pompe publique.\"\n}\n```",
+      "ts": "2026-09-14T02:57:42.211950+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.1517123173516115,
+      "value": 6803751356.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Volume crypto en forte hausse (19% en août) malgré un narratif médiatique focalisé sur des sujets non-crypto (CAC 40, IKEA, Apple). Divergence suggère une accumulation silencieuse par les baleines.\"\n}\n```",
+      "ts": "2026-09-14T03:08:14.582040+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -2.6457513110645903,
+      "value": 57,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 75,\n  \"reason\": \"Le z-score négatif (-2.65) suggère une activité onchain inhabituellement basse malgré un indice fear_greed neutre (57), indiquant une possible accumulation silencieuse par les baleines. Les médias grand public ne captent pas cette divergence.\"\n}\n```",
+      "ts": "2026-09-14T03:08:41.500663+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": -3.1830197979282406,
+      "value": 0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 75,\n  \"reason\": \"Anomalie onchain significative (z-score -3.18) contrastant avec un narratif médiatique focalisé sur des sujets périphériques (gouvernance, matériel technique). Divergence suggérant une accumulation silencieuse malgré les discours économiques négatifs.\"\n}\n```",
+      "ts": "2026-09-14T03:13:56.358749+00:00"
     }
   ]
 }
