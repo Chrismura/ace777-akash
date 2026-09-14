@@ -1,15 +1,70 @@
 {
-  "timestamp": 1789410669,
-  "date": "2026-09-14T18:31:09.390387+00:00",
-  "n_analyses": 1,
+  "timestamp": 1789411269,
+  "date": "2026-09-14T18:41:09.545893+00:00",
+  "n_analyses": 3,
   "analyses": [
     {
       "signal": {
+        "metric": "volume",
+        "zscore": 2.0019533041895885,
+        "value": 11520804437.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit médiatique non pertinent (actualités locales et généralistes sans rapport avec la crypto). Volume on-chain anormal (z-score 2.0) sans contre-partie narrative exploitable pour un mouvement de baleine.\"\n}\n```",
+        "ts": 1789410905.543979
+      },
+      "fiche": "rbf_eleve",
+      "questions": {
+        "prix": {
+          "value": 0.25,
+          "seuil": 1,
+          "depasse": false
+        },
+        "paires": {
+          "value": null,
+          "seuil": 3,
+          "depasse": false
+        },
+        "funding": {
+          "value": 2.9e-05,
+          "seuil": 0.001,
+          "depasse": false
+        },
+        "whales": {
+          "value": 0,
+          "seuil": 5,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "sdi > 0.3",
+        "lecture": "Drainage silencieux — les vieux BTC bougent en douce",
+        "niveau": "dangereux",
+        "action": "Réduire taille de 50%, sortir des positions fragiles"
+      },
+      "action": "Réduire taille de 50%, sortir des positions fragiles",
+      "niveau": "dangereux"
+    },
+    {
+      "signal": {
+        "metric": "liquidations",
+        "zscore": 3.0983290451931165,
+        "value": 4055236.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Bruit médiatique saturé par les fausses pistes macroéconomiques traditionnelles (faillites d'entreprises locales) alors que l'onchain capture une purge massive des positions short sur les cryptos (266M$ liquidés). Divergence classique de capitulation des baissiers avant une impulsion haussière menée par les baleines.\"\n}\n```",
+        "ts": 1789411208.274765
+      },
+      "fiche": null,
+      "interpretation": {
+        "lecture": "Pas de fiche disponible",
+        "niveau": "inconnu"
+      },
+      "action": "Observer"
+    },
+    {
+      "signal": {
         "metric": "long_short",
-        "zscore": -2.5018929286196587,
+        "zscore": -2.312735714321413,
         "value": 1.242,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Le z-score extrême à -2.50 indique une capitulation des positions acheteuses par la foule, amplifiée par un narratif médiatique purement baissier ou orienté sur la macro. Historiquement, un tel désespoir retail couplé à un ratio bas est le terreau parfait pour un short squeeze orchestré par les baleines.\"\n}\n```",
-        "ts": 1789409400.119789
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Z-score extrêmement bas (-2.31) indiquant une capitulation des positions acheteuses et un pessimisme extrême du retail, alors que le narratif médiatique grand public s'oriente tardivement vers des stratégies prudentes. Situation classique de 'washout' propice à un short squeeze orchestré par les baleines.\"\n}\n```",
+        "ts": 1789411209.822012
       },
       "fiche": null,
       "interpretation": {
@@ -19,5 +74,5 @@
       "action": "Observer"
     }
   ],
-  "resume": "🔵 CALME — pas de signal alarmant"
+  "resume": "🔴 DANGER détecté — réduire les expositions"
 }

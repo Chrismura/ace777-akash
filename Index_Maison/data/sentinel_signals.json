@@ -2,20 +2,6 @@
   "signals": [
     {
       "metric": "volume",
-      "zscore": 2.266459784458717,
-      "value": 7163617885.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 78,\n  \"reason\": \"Anomalie de volume on-chain significative (z-score 2.27) couplée à une hausse générale du volume spot de 19% en août. Les médias traditionnels se focalisent sur des bruits macroéconomiques et tech (CAC 40 sans volume, Apple) alors que la liquidité crypto s'accumule silencieusement en arrière-plan.\"\n}\n```",
-      "ts": "2026-09-14T03:39:02.256522+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": -2.420153478013915,
-      "value": 57,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-2.42) malgré un indice de peur et de cupidité neutre (57) et un vide total dans les médias. Classic setup de silence médiatique pré-accumulation institutionnelle.\"\n}\n```",
-      "ts": "2026-09-14T03:39:03.728594+00:00"
-    },
-    {
-      "metric": "volume",
       "zscore": 2.1982933176869937,
       "value": 7294839954.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 82,\n  \"reason\": \"Anomalie de volume on-chain significative (z-score 2.20) contrastant avec un narratif médiatique généraliste sans rapport direct (macro boursière, tech grand public). Disjonction classique traduisant une accumulation silencieuse des baleines sur le marché crypto.\"\n}\n```",
@@ -349,6 +335,20 @@
       "value": 11520804437.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit médiatique non pertinent (actualités locales et généralistes sans rapport avec la crypto). Volume on-chain anormal (z-score 2.0) sans contre-partie narrative exploitable pour un mouvement de baleine.\"\n}\n```",
       "ts": "2026-09-14T18:35:05.543979+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 3.0983290451931165,
+      "value": 4055236.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Bruit médiatique saturé par les fausses pistes macroéconomiques traditionnelles (faillites d'entreprises locales) alors que l'onchain capture une purge massive des positions short sur les cryptos (266M$ liquidés). Divergence classique de capitulation des baissiers avant une impulsion haussière menée par les baleines.\"\n}\n```",
+      "ts": "2026-09-14T18:40:08.274765+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": -2.312735714321413,
+      "value": 1.242,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Z-score extrêmement bas (-2.31) indiquant une capitulation des positions acheteuses et un pessimisme extrême du retail, alors que le narratif médiatique grand public s'oriente tardivement vers des stratégies prudentes. Situation classique de 'washout' propice à un short squeeze orchestré par les baleines.\"\n}\n```",
+      "ts": "2026-09-14T18:40:09.822012+00:00"
     }
   ]
 }
