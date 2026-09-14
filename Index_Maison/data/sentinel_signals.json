@@ -2,55 +2,6 @@
   "signals": [
     {
       "metric": "volume",
-      "zscore": 2.1982933176869937,
-      "value": 7294839954.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 82,\n  \"reason\": \"Anomalie de volume on-chain significative (z-score 2.20) contrastant avec un narratif médiatique généraliste sans rapport direct (macro boursière, tech grand public). Disjonction classique traduisant une accumulation silencieuse des baleines sur le marché crypto.\"\n}\n```",
-      "ts": "2026-09-14T04:09:10.133405+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": -2.236067977499791,
-      "value": 57,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le z-score extrêmement bas (-2.24) pour un indice de peur/greed à 57 (neutre/légèrement avide) révèle une anomalie statistique majeure : le marché réel est sous-estimé par la volatilité perçue. Les médias traditionnels n'ont aucune couverture notable (Google Actualités vide/silencieux), ce qui indique une accumulation silencieuse des baleines hors des radars de la foule.\"\n}\n```",
-      "ts": "2026-09-14T04:09:11.678624+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": 2.124037208491831,
-      "value": 7402946641.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de volume on-chain significative (z-score 2.12) couplée à une hausse générale du volume spot de 19% en août. Les médias traditionnels se focalisent sur des sujets macroéconomiques ou tech sans rapport, confirmant une accumulation silencieuse des baleines à l'écart du bruit médiatique.\"\n}\n```",
-      "ts": "2026-09-14T04:39:17.911982+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": -2.0816659994661326,
-      "value": 57,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score négatif profond (-2.08) pour un Fear & Greed neutre (57) combiné à un silence médiatique total : les baleines accumulent dans l'ombre sans susciter de FOMO retail.\"\n}\n```",
-      "ts": "2026-09-14T04:39:19.244198+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": -2.985722490108822,
-      "value": 0,
-      "analysis": "{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"The on‑chain SDI metric is sharply negative (z‑score -2.99), signaling a strong underlying weakness. Media headlines, however, focus on unrelated or mildly positive topics (product launch, governance continuity, salary‑transparency debate) and do not reflect this stress, suggesting a disconnect that may hide silent whale movement.\"\n}",
-      "ts": "2026-09-14T04:59:38.020015+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": 2.1713141242739997,
-      "value": 7689473321.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de volume on-chain significative (z-score 2.17) totalement ignorée par les médias généralistes focalisés sur des bruits macro et tech. Divergence classique de accumulation silencieuse par les baleines avant une expansion de volatilité.\"\n}\n```",
-      "ts": "2026-09-14T05:09:42.028895+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": 2.1695202593340452,
-      "value": 7740688054.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 78,\n  \"reason\": \"Anomalie statistique de volume (z-score 2.17) totalement ignorée par les gros titres généralistes et tech, alors que le volume spot crypto global accélère (+19%). Accumulation silencieuse des baleines en marge du bruit médiatique.\"\n}\n```",
-      "ts": "2026-09-14T05:39:47.634161+00:00"
-    },
-    {
-      "metric": "volume",
       "zscore": 2.2480677875448274,
       "value": 7831607341.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 82,\n  \"reason\": \"Anomalie de volume on-chain significative (z-score 2.25) combinée à une hausse réelle de 19% du volume spot en août 2026. Les médias grand public se focalisent sur des sujets macroéconomiques ou non pertinents (carburant, design), ignorant l'accélération silencieuse des flux crypto institutionnels.\"\n}\n```",
@@ -349,6 +300,55 @@
       "value": 1.242,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Z-score extrêmement bas (-2.31) indiquant une capitulation des positions acheteuses et un pessimisme extrême du retail, alors que le narratif médiatique grand public s'oriente tardivement vers des stratégies prudentes. Situation classique de 'washout' propice à un short squeeze orchestré par les baleines.\"\n}\n```",
       "ts": "2026-09-14T18:40:09.822012+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.0403845404682945,
+      "value": 11839968347.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (z-score 2.04) générée par un bruit médiatique totalement déconnecté de la crypto (actualités locales sur les vendanges, la métropole et le CAC 40). Aucun mouvement de baleine détecté.\"\n}\n```",
+      "ts": "2026-09-14T19:05:15.001337+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.2645409699809824,
+      "value": 1.06,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Fausse alerte onchain : l'actif 'ipt' détecté correspond à de l'homonymie médiatique (Tournoi International des Physiciens / Institut Protestant de Théologie) et non à une activité de baleines crypto.\"\n}\n```",
+      "ts": "2026-09-14T19:05:17.025485+00:00"
+    },
+    {
+      "metric": "taker_ratio",
+      "zscore": 2.74715141748906,
+      "value": 1.378,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio à 1.378 (z-score 2.75) indique une domination agressive des acheteurs sur les carnets d'ordres, signalant une accumulation massive et silencieuse des baleines, totalement ignorée ou sous-estimée par le vide médiatique actuel.\"\n}\n```",
+      "ts": "2026-09-14T19:05:18.694691+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": -2.3839429825183767,
+      "value": 1.212,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Le z-score extrêmement bas (-2.38) indique une capitulation des positions acheteuses par la foule, un sentiment partagé par des médias orientés sur la baisse. Historiquement, un tel désespoir contrarien signale une sous-évaluation profonde et un 'short squeeze' imminent orchestré par l'accumulation silencieuse des baleines.\"\n}\n```",
+      "ts": "2026-09-14T19:10:21.517122+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.306951083474985,
+      "value": 1.06,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique purement homonyme. Les données 'IPT' capturées par la sentinelle font référence à un bruit médiatique sur l'Institut Protestant de Théologie ou le Tournoi International des Physiciens, sans aucun lien on-chain avec un actif crypto ou une accumulation de baleines.\"\n}\n```",
+      "ts": "2026-09-14T19:35:25.839507+00:00"
+    },
+    {
+      "metric": "taker_ratio",
+      "zscore": 2.5254792123192193,
+      "value": 1.378,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio élevé (z-score 2.53) indique une forte agression acheteuse sur les carnets d'ordres, signalant une accumulation agressive par les baleines. En l'absence de couverture médiatique notable (silence radio), cela démontre un mouvement de 'smart money' discret avant le réveil du retail.\"\n}\n```",
+      "ts": "2026-09-14T19:35:27.385324+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": -2.214998275497231,
+      "value": 1.212,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Le z-score extrêmement bas (-2.21) indique un positionnement court massif de la foule, totalement obnubilée par le narratif médiatique baissier. Historiquement, un tel déséquilibre contrarien signale une accumulation silencieuse des baleines en prévision d'une correction violente des shorts (short squeeze).\"\n}\n```",
+      "ts": "2026-09-14T19:40:29.842002+00:00"
     }
   ]
 }
