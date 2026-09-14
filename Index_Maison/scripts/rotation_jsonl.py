@@ -40,6 +40,8 @@ DEFAUTS = [
     ("/Users/christophe/ace777-test-day1/Index_Maison/data/troupeau_inv_hist.jsonl", 50),
     # [C5] collecteur ONCHAIN XRPL (GO Christophe 14/09) — rotation dès la création
     ("/Users/christophe/ace777-test-day1/Index_Maison/data/xrpl_onchain_hist.jsonl", 50),
+    # [C5] RADAR AGENTIQUE x402 (GO Christophe 14/09) — rotation dès la création
+    ("/Users/christophe/ace777-test-day1/Index_Maison/data/x402_agentic_hist.jsonl", 50),
 ]
 
 BACKUP_COUNT = 2
