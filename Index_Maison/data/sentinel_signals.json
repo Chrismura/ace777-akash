@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "price_1h",
-      "zscore": 2.8608475411173586,
-      "value": 0.5682398749773832,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (+2.86) sur le prix avec un silence médiatique total (zéro couverture Google Actualités). C'est la signature classique d'accumulation furtive par des baleines avant la pompe publique.\"\n}\n```",
-      "ts": "2026-09-14T02:57:42.211950+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": 2.1517123173516115,
-      "value": 6803751356.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Volume crypto en forte hausse (19% en août) malgré un narratif médiatique focalisé sur des sujets non-crypto (CAC 40, IKEA, Apple). Divergence suggère une accumulation silencieuse par les baleines.\"\n}\n```",
-      "ts": "2026-09-14T03:08:14.582040+00:00"
-    },
-    {
       "metric": "fear_greed",
       "zscore": -2.6457513110645903,
       "value": 57,
@@ -349,6 +335,20 @@
       "value": 1.262,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Le Z-score extrêmement bas (-3.10) indique une capitulation des positions acheteuses par la foule, contredisant le bruit médiatique générique sur les fonds long-short. Historiquement, un tel désengagement des 'faibles mains' coïncide avec une accumulation silencieuse des baleines avant un retournement haussier.\"\n}\n```",
       "ts": "2026-09-14T16:39:41.349990+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": -2.8334003061027198,
+      "value": 1.257,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Le z-score extrêmement bas (-2.83) indique une capitulation des positions acheteuses par la foule, historiquement synonyme de 'pessimisme maximal' et de plancher de prix. Les médias grand public relayent un narratif neutre/générique (fonds traditionnels) sans voir le squeeze imminent préparé par les baleines.\"\n}\n```",
+      "ts": "2026-09-14T17:09:48.170154+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": -2.5795203510949194,
+      "value": 1.257,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Le Z-score extrême (-2.58) indique une sous-évaluation statistique des positions longues, contredisant le narratif médiatique généraliste qui panique ou s'oriente vers des produits traditionnels. Les baleines accumulent en silence dans la zone de capitulation de la foule.\"\n}\n```",
+      "ts": "2026-09-14T17:39:54.023012+00:00"
     }
   ]
 }

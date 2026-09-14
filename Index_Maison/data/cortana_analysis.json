@@ -1,55 +1,15 @@
 {
-  "timestamp": 1789404067,
-  "date": "2026-09-14T16:41:07.406653+00:00",
-  "n_analyses": 2,
+  "timestamp": 1789407668,
+  "date": "2026-09-14T17:41:08.492749+00:00",
+  "n_analyses": 1,
   "analyses": [
     {
       "signal": {
-        "metric": "volume",
-        "zscore": 2.084830026407802,
-        "value": 10737607891.0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit médiatique non pertinent (actualités locales sans rapport avec la crypto).\"\n}\n```",
-        "ts": 1789403378.252798
-      },
-      "fiche": "rbf_eleve",
-      "questions": {
-        "prix": {
-          "value": 0.1,
-          "seuil": 1,
-          "depasse": false
-        },
-        "paires": {
-          "value": null,
-          "seuil": 3,
-          "depasse": false
-        },
-        "funding": {
-          "value": 3.7e-05,
-          "seuil": 0.001,
-          "depasse": false
-        },
-        "whales": {
-          "value": 0,
-          "seuil": 5,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "sdi > 0.3",
-        "lecture": "Drainage silencieux — les vieux BTC bougent en douce",
-        "niveau": "dangereux",
-        "action": "Réduire taille de 50%, sortir des positions fragiles"
-      },
-      "action": "Réduire taille de 50%, sortir des positions fragiles",
-      "niveau": "dangereux"
-    },
-    {
-      "signal": {
         "metric": "long_short",
-        "zscore": -3.1049633672388226,
-        "value": 1.262,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Le Z-score extrêmement bas (-3.10) indique une capitulation des positions acheteuses par la foule, contredisant le bruit médiatique générique sur les fonds long-short. Historiquement, un tel désengagement des 'faibles mains' coïncide avec une accumulation silencieuse des baleines avant un retournement haussier.\"\n}\n```",
-        "ts": 1789403981.34999
+        "zscore": -2.5795203510949194,
+        "value": 1.257,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Le Z-score extrême (-2.58) indique une sous-évaluation statistique des positions longues, contredisant le narratif médiatique généraliste qui panique ou s'oriente vers des produits traditionnels. Les baleines accumulent en silence dans la zone de capitulation de la foule.\"\n}\n```",
+        "ts": 1789407594.023012
       },
       "fiche": null,
       "interpretation": {
@@ -59,5 +19,5 @@
       "action": "Observer"
     }
   ],
-  "resume": "🔴 DANGER détecté — réduire les expositions"
+  "resume": "🔵 CALME — pas de signal alarmant"
 }
