@@ -1,8 +1,8 @@
 {
- "ts": 1789422223,
- "ts_utc": "2026-09-14T21:43:43Z",
+ "ts": 1789422259,
+ "ts_utc": "2026-09-14T21:44:19Z",
  "frais": true,
- "btc_price": 78829.35,
+ "btc_price": 78850.05,
  "gex": {
   "ok": true,
   "callWall": 85000.0,
@@ -12,19 +12,19 @@
  "paires": {
   "BTCUSDT": {
    "regime": "IMPULSE_WAIT",
-   "prix": 78829.35,
+   "prix": 78850.05,
    "ok": true,
-   "aspiration_side": "NONE",
-   "drop_bid_pct_per_s": 0.0,
-   "drop_ask_pct_per_s": 0.0,
-   "max_drop_pct_per_s": 0.0,
+   "aspiration_side": "BUY",
+   "drop_bid_pct_per_s": 5.36,
+   "drop_ask_pct_per_s": 10.67,
+   "max_drop_pct_per_s": 10.67,
    "spread_bps": 0.0,
-   "spread_delta_bps": 0.0,
-   "wall_bid_usdt": 456598.48,
-   "wall_ask_usdt": 125741.27,
+   "spread_delta_bps": -0.2,
+   "wall_bid_usdt": 511011.35,
+   "wall_ask_usdt": 407638.39,
    "notional_drop_ok": true,
-   "price_delta_pct": 0.0,
-   "delay_s": 1.111
+   "price_delta_pct": -0.0027,
+   "delay_s": 1.023
   },
   "QNTUSDT": {
    "regime": "WATCH",
@@ -37,10 +37,10 @@
    "spread_bps": 6.25,
    "spread_delta_bps": 0.0,
    "wall_bid_usdt": 2339.83,
-   "wall_ask_usdt": 1116.74,
+   "wall_ask_usdt": 1440.04,
    "notional_drop_ok": true,
    "price_delta_pct": 0.0,
-   "delay_s": 0.987
+   "delay_s": 0.953
   },
   "FLUIDUSDT": {
    "regime": "WATCH",
@@ -56,7 +56,7 @@
    "wall_ask_usdt": 333.7,
    "notional_drop_ok": false,
    "price_delta_pct": 0.0,
-   "delay_s": 1.099
+   "delay_s": 0.916
   },
   "RWAUSDT": {
    "regime": "WATCH",
@@ -72,11 +72,11 @@
    "wall_ask_usdt": 214.87,
    "notional_drop_ok": false,
    "price_delta_pct": 0.0,
-   "delay_s": 0.947
+   "delay_s": 0.925
   },
   "MNSRYUSDT": {
    "regime": "QUIET",
-   "prix": 0.007264,
+   "prix": 0.007265,
    "ok": true,
    "aspiration_side": "NONE",
    "drop_bid_pct_per_s": 0.0,
@@ -88,39 +88,39 @@
    "wall_ask_usdt": 253.44,
    "notional_drop_ok": false,
    "price_delta_pct": 0.0,
-   "delay_s": 1.023
+   "delay_s": 1.047
   },
-  "CCUSDT": {
-   "regime": "COOLING",
-   "prix": 0.09803,
-   "ok": true,
-   "aspiration_side": "NONE",
-   "drop_bid_pct_per_s": 0.0,
-   "drop_ask_pct_per_s": 0.0,
-   "max_drop_pct_per_s": 0.0,
-   "spread_bps": 6.12,
-   "spread_delta_bps": 0.0,
-   "wall_bid_usdt": 1311.32,
-   "wall_ask_usdt": 13002.53,
-   "notional_drop_ok": true,
-   "price_delta_pct": 0.0,
-   "delay_s": 0.942
-  },
-  "TELUSDT": {
+  "ETHUSDT": {
    "regime": "IMPULSE",
-   "prix": 0.001658,
+   "prix": 2549.88,
    "ok": true,
-   "aspiration_side": "NONE",
-   "drop_bid_pct_per_s": 0.0,
+   "aspiration_side": "SELL",
+   "drop_bid_pct_per_s": 13.83,
    "drop_ask_pct_per_s": 0.0,
-   "max_drop_pct_per_s": 0.0,
-   "spread_bps": 36.23,
+   "max_drop_pct_per_s": 13.83,
+   "spread_bps": 0.04,
    "spread_delta_bps": 0.0,
-   "wall_bid_usdt": 2618.75,
-   "wall_ask_usdt": 1091.85,
+   "wall_bid_usdt": 143198.77,
+   "wall_ask_usdt": 150088.51,
    "notional_drop_ok": true,
    "price_delta_pct": 0.0,
-   "delay_s": 0.919
+   "delay_s": 0.929
+  },
+  "KITEUSDT": {
+   "regime": "COOLING",
+   "prix": 0.10806,
+   "ok": true,
+   "aspiration_side": "SELL",
+   "drop_bid_pct_per_s": 10.43,
+   "drop_ask_pct_per_s": 0.0,
+   "max_drop_pct_per_s": 10.43,
+   "spread_bps": 13.86,
+   "spread_delta_bps": 0.0,
+   "wall_bid_usdt": 5152.03,
+   "wall_ask_usdt": 7713.94,
+   "notional_drop_ok": true,
+   "price_delta_pct": 0.0,
+   "delay_s": 1.011
   },
   "RWAINCUSDT": {
    "regime": "COOLING",
@@ -136,39 +136,39 @@
    "wall_ask_usdt": 349.22,
    "notional_drop_ok": false,
    "price_delta_pct": 0.0,
-   "delay_s": 1.885
+   "delay_s": 0.978
   },
-  "CHIPUSDT": {
+  "CCUSDT": {
    "regime": "COOLING",
-   "prix": 0.04146,
+   "prix": 0.09803,
    "ok": true,
    "aspiration_side": "NONE",
    "drop_bid_pct_per_s": 0.0,
    "drop_ask_pct_per_s": 0.0,
    "max_drop_pct_per_s": 0.0,
-   "spread_bps": 16.88,
+   "spread_bps": 5.1,
    "spread_delta_bps": 0.0,
-   "wall_bid_usdt": 13507.65,
-   "wall_ask_usdt": 53257.11,
+   "wall_bid_usdt": 1679.52,
+   "wall_ask_usdt": 13002.53,
    "notional_drop_ok": true,
    "price_delta_pct": 0.0,
-   "delay_s": 1.012
+   "delay_s": 1.05
   },
-  "ETHUSDT": {
+  "TELUSDT": {
    "regime": "IMPULSE",
-   "prix": 2549.4,
+   "prix": 0.001657,
    "ok": true,
    "aspiration_side": "NONE",
    "drop_bid_pct_per_s": 0.0,
    "drop_ask_pct_per_s": 0.0,
    "max_drop_pct_per_s": 0.0,
-   "spread_bps": 0.27,
-   "spread_delta_bps": -0.04,
-   "wall_bid_usdt": 177020.47,
-   "wall_ask_usdt": 130986.15,
+   "spread_bps": 36.23,
+   "spread_delta_bps": 12.09,
+   "wall_bid_usdt": 2618.75,
+   "wall_ask_usdt": 1080.75,
    "notional_drop_ok": true,
-   "price_delta_pct": -0.0002,
-   "delay_s": 0.932
+   "price_delta_pct": -0.0604,
+   "delay_s": 1.063
   }
  },
  "source": "satellite_aspiration",
