@@ -4228,3 +4228,4 @@ Christophe a finalement vu le nouveau tableau SCORE : le contenu était bon, c'�
 | 2026-09-15 | Comparatif standards finance + industrialisation | Recherche web (observabilité HFT, risk controls, data contracts, alert-fatigue) + flotille (Gemini/DeepSeek/Grok, verbatim /tmp/reponses_usines.json). U3 lib_dialectes.py INSTALLÉE et scellée (md5 63886f66, self-test vert dont pagination Binance réelle — assertion du codeur corrigée par Buffy). INCIDENTS.md créé (RCA obligatoire 5 lignes). U4 seuils dynamiques COUPÉE (unanime). Sentinelle indépendante (kill-switch + shadow ledger) = prochaine priorité unanime. Dossier : COMPARATIF_STANDARDS_FINANCE_20260915.md. 0 € · 0 ordre. |
 
 | 2026-09-15 07:55:54Z | CHIEN | ALERTE | hulk-watchdog : Age réel 7617s dépasse le seuil 240.0s |
+| 2026-09-15 08:55:55Z | CHIEN | ALERTE | hulk-watchdog : Age réel 11218s dépasse le seuil 240.0s |
