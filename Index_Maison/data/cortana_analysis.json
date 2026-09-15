@@ -1,15 +1,15 @@
 {
-  "timestamp": 1789432275,
-  "date": "2026-09-15T00:31:15.944804+00:00",
+  "timestamp": 1789432876,
+  "date": "2026-09-15T00:41:16.137332+00:00",
   "n_analyses": 2,
   "analyses": [
     {
       "signal": {
         "metric": "sdi",
-        "zscore": -8.11058999413382,
+        "zscore": -5.255058785106382,
         "value": 0.004,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Anomalie technique liée à une confusion lexicale : le 'SDI' médiatique fait référence au Syndicat des Indépendants et de TPE ou à du matériel vidéo (Blackmagic), sans aucun rapport avec la crypto ou des mouvements de baleines.\"\n}\n```",
-        "ts": 1789430800.512321
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Fausse alerte liée à une ambiguïté sémantique. Le sigle 'SDI' dans les médias fait référence au Syndicat des Indépendants et TPE ou à du matériel vidéo (Blackmagic), et non à un actif crypto ou une métrique de baleines on-chain. Aucune donnée crypto pertinente à analyser.\"\n}\n```",
+        "ts": 1789432608.314618
       },
       "fiche": "rbf_eleve",
       "questions": {
@@ -24,7 +24,7 @@
           "depasse": false
         },
         "funding": {
-          "value": 3.6e-05,
+          "value": 3.7e-05,
           "seuil": 0.001,
           "depasse": false
         },
@@ -46,10 +46,10 @@
     {
       "signal": {
         "metric": "fear_greed",
-        "zscore": 36.042030631305515,
+        "zscore": 6.855654600401044,
         "value": 69,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Indice de peur et de cupidité élevé (69) sans titres médiatiques significatifs rapportés. Données insuffisantes pour confirmer une accumulation ou une distribution silencieuse des baleines.\"\n}\n```",
-        "ts": 1789430801.771286
+        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrême (6.86) sur un Fear & Greed à 69 combiné à un vide médiatique total (Google Actualités muet) : classic signal de FOMO de détail isolé. Les smart money distribuent dans le silence pendant que le marché surchauffe artificiellement.\"\n}\n```",
+        "ts": 1789432609.680083
       },
       "fiche": null,
       "interpretation": {

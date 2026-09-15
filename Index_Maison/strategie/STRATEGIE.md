@@ -1,12 +1,16 @@
-# STRATEGIE — 2026-09-15T00:21:56.999510Z
+# STRATEGIE — 2026-09-15T00:37:23.497552Z
 
-## COURT TERME — 2026-09-15T00:21:56.999510Z
+## COURT TERME — 2026-09-15T00:37:23.497552Z
 
-[UNDERSTAND] Le système ACE777 opère nominalement : Beta (éclaireur) vient de détecter un signal volume x3 sur BTCUSDT à 78 016 $, Alpha (sniper) reste en embuscade disciplinée (0 fill, 1 skip cette session, 6 973 skips lifetime), Hulk gère 9 positions pour +13,12 $, PnL combiné +0,70 $.
-
-[ANALYZE] 
-- **Tendance** : « Bitcoin season » (score 44), Fear & Greed 69 (Greed), market cap 2,68 T$. BTC dominant à 58,45 %. Flux ETF BTC négatifs (-60,5 M$ sur 7j) mais onchain baleines neutre.
-- **Momentum** : Beta actif (34 fills, 25 long / 9 short, conf 0,87) — il renseigne Alpha. Alpha patient (1 skip session, 0 fill) attend la confirmation carnet. Hulk résilient (+9,10 $ session, positions seeds sous surveillance dont CCUSDT en stop‑loss
+- Verdict : Maintenir l'alerte nominale, laisser Alpha en embuscade en attendant la confirmation du carnet, tout en surveillant le signal volume x3 de Beta.  
+- Confiance : 88 %  
+- Hypothèses clés :  
+  • Le signal volume x3 détecté par Beta est un indicateur fiable d'un imminent breakout du BTC.  
+  • La discipline d'embuscade d'Alpha évite une entrée prématurée et préserve le capital.  
+  • Le stop‑loss d'urgence sur CCUSDT protège les positions seeds de Hulk contre un retournement défavorable.  
+- Ce qui changerait la réponse : Une confirmation technique nette du breakout (prix > 78 500 $ avec volume x3 confirmé et déséquilibre du carnet d'ordres) déclencherait l'engagement immédiat d'Alpha.  
+- Prédictions vérifiables :  
+  [2026-09-15] BTCUSDT >= 78500.0
 
 
 ## TENDANCE — 2026-08-11T23:48:41.075042Z
