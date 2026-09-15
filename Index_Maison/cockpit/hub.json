@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-15T04:44:38.590916+00:00",
+  "generated_at": "2026-09-15T05:44:41.558389+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 161
+      "calls_24h": 160
     },
     {
       "id": "openrouter-free",
@@ -71,7 +71,7 @@
       "model": "nvidia/nemotron-3-super-120b-a12b:free",
       "enabled": true,
       "timeout": 120,
-      "calls_24h": 17
+      "calls_24h": 10
     },
     {
       "id": "grok",
@@ -265,10 +265,34 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 52,
-    "remaining": 572
+    "consumed": 55,
+    "remaining": 569
   },
   "queue": [
+    {
+      "ts": "2026-09-15T05:13:36.471036+00:00",
+      "task": "analyse.profonde",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 0.93
+    },
+    {
+      "ts": "2026-09-15T04:45:03.246390+00:00",
+      "task": "supervise.decision",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 0.98
+    },
+    {
+      "ts": "2026-09-15T04:45:03.246037+00:00",
+      "task": "supervise.decision",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 0.95
+    },
     {
       "ts": "2026-09-15T04:38:14.350219+00:00",
       "task": "analyse.profonde",
@@ -364,92 +388,68 @@
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
       "duration_s": 0.91
-    },
-    {
-      "ts": "2026-09-15T03:03:37.420132+00:00",
-      "task": "analyste.strategie",
-      "provider": "openrouter-ultra",
-      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
-      "kind": "cloud",
-      "duration_s": 50.96
-    },
-    {
-      "ts": "2026-09-15T02:57:33.037433+00:00",
-      "task": "analyste.strategie",
-      "provider": "openrouter-ultra",
-      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
-      "kind": "cloud",
-      "duration_s": 43.09
-    },
-    {
-      "ts": "2026-09-15T02:51:32.994827+00:00",
-      "task": "analyste.strategie",
-      "provider": "openrouter-ultra",
-      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
-      "kind": "cloud",
-      "duration_s": 47.97
     }
   ],
   "events": [
     {
-      "ts": "2026-09-15T04:38:14.349669+00:00",
-      "kind": "message",
-      "title": "« Google Gemini » a repondu",
-      "detail": ""
-    },
-    {
-      "ts": "2026-09-15T04:38:13.087183+00:00",
-      "kind": "message",
-      "title": "« Google Gemini » a repondu",
-      "detail": ""
-    },
-    {
-      "ts": "2026-09-15T04:38:12.147624+00:00",
-      "kind": "blacklist",
-      "title": "Fin de pause Google Gemini",
-      "detail": "re-essai automatique"
-    },
-    {
-      "ts": "2026-09-15T04:34:01.227109+00:00",
+      "ts": "2026-09-15T05:43:26.274729+00:00",
       "kind": "http",
       "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
       "detail": ""
     },
     {
-      "ts": "2026-09-15T04:34:01.226468+00:00",
+      "ts": "2026-09-15T05:43:26.274120+00:00",
       "kind": "error",
       "title": "Toutes les IA ont echoue",
-      "detail": "Google Gemini: HTTP Error 429: Too Many Requests | Groq (LLM ultra-rapide, gratuit): blacklist du jour (saute) | HuggingFace (136+ modeles, dont DeepSeek-V4): blacklist du jour (saute) | OrcaRouter (routeur gratuit, modele orcarouter/free): HTTP Error 400: Bad Request | OpenRouter Juge (nemotron-3-super-120b free) - verificateur independant: HTTP Error 400: Bad Request | OpenRouter Nemotron 3 Ultra 550B (free) - analyse forte: The read operation timed out | InferX DeepSeek V4 Flash (API gratuite"
+      "detail": "Google Gemini: blacklist du jour (saute) | Groq (LLM ultra-rapide, gratuit): HTTP Error 400: Bad Request | HuggingFace (136+ modeles, dont DeepSeek-V4): HTTP Error 400: Bad Request | OrcaRouter (routeur gratuit, modele orcarouter/free): HTTP Error 400: Bad Request | OpenRouter Juge (nemotron-3-super-120b free) - verificateur independant: HTTP Error 400: Bad Request | OpenRouter Nemotron 3 Ultra 550B (free) - analyse forte: The read operation timed out | InferX DeepSeek V4 Flash (API gratuite jus"
     },
     {
-      "ts": "2026-09-15T04:34:01.223659+00:00",
+      "ts": "2026-09-15T05:43:26.271372+00:00",
       "kind": "failover",
       "title": "Bascule depuis InferX Devstral-2-123B (code)",
       "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-09-15T04:33:56.882391+00:00",
+      "ts": "2026-09-15T05:43:22.334124+00:00",
       "kind": "failover",
       "title": "Bascule depuis NVIDIA DeepSeek-Coder 6.7B (code, via NIM)",
       "detail": "HTTP Error 404: Not Found"
     },
     {
-      "ts": "2026-09-15T04:33:54.940282+00:00",
+      "ts": "2026-09-15T05:43:20.399896+00:00",
       "kind": "failover",
       "title": "Bascule depuis Puter Grok (gratuit)",
       "detail": "HTTP Error 402: Payment Required"
     },
     {
-      "ts": "2026-09-15T04:33:54.318854+00:00",
+      "ts": "2026-09-15T05:43:19.839792+00:00",
       "kind": "failover",
       "title": "Bascule depuis InferX Qwen3-Coder-Next (code, gratuit jusqu'au 12/08)",
       "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-09-15T04:33:49.688894+00:00",
+      "ts": "2026-09-15T05:43:15.398316+00:00",
       "kind": "failover",
       "title": "Bascule depuis InferX DeepSeek V4 Flash (API gratuite jusqu'au 12/08)",
       "detail": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "ts": "2026-09-15T05:43:11.576844+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis OpenRouter Nemotron 3 Ultra 550B (free) - analyse forte",
+      "detail": "The read operation timed out"
+    },
+    {
+      "ts": "2026-09-15T05:43:01.206950+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis OpenRouter Juge (nemotron-3-super-120b free) - verificateur independant",
+      "detail": "HTTP Error 400: Bad Request"
+    },
+    {
+      "ts": "2026-09-15T05:43:00.701827+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis OrcaRouter (routeur gratuit, modele orcarouter/free)",
+      "detail": "HTTP Error 400: Bad Request"
     }
   ],
   "tasks_quotas": {

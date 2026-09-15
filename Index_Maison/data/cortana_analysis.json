@@ -1,20 +1,20 @@
 {
-  "timestamp": 1789447280,
-  "date": "2026-09-15T04:41:20.285352+00:00",
-  "n_analyses": 2,
+  "timestamp": 1789450881,
+  "date": "2026-09-15T05:41:21.434444+00:00",
+  "n_analyses": 1,
   "analyses": [
     {
       "signal": {
-        "metric": "sdi",
-        "zscore": -2.014347896753798,
-        "value": 0.004,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Anomalie non-pertinente. Le 'SDI' mentionné dans les médias fait référence au Syndicat des Indépendants et des TPE ou à du matériel vidéo (Blackmagic), et non à un actif crypto. Aucune baleine crypto détectée.\"\n}\n```",
-        "ts": 1789447093.088531
+        "metric": "ipt",
+        "zscore": 2.0963410638543176,
+        "value": 0.997,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique (ipt = 0.997) totalement polluée par du bruit homonyme (Tournoi International des Physiciens / Institut Protestant de Théologie). Aucune baleine crypto détectée, simple collision de mots-clés.\"\n}\n```",
+        "ts": 1789449216.47209
       },
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.18,
+          "value": -0.21,
           "seuil": 1,
           "depasse": false
         },
@@ -24,7 +24,7 @@
           "depasse": false
         },
         "funding": {
-          "value": 7.6e-05,
+          "value": 8.1e-05,
           "seuil": 0.001,
           "depasse": false
         },
@@ -42,21 +42,6 @@
       },
       "action": "Réduire taille de 50%, sortir des positions fragiles",
       "niveau": "dangereux"
-    },
-    {
-      "signal": {
-        "metric": "fear_greed",
-        "zscore": 2.081665999466133,
-        "value": 69,
-        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.08) et Greed prononcé (69) sans couverture médiatique notable de masse : classic 'Greed in the dark'. Les baleines profitent de cette eufphorie discrète pour distribuer aux suiveurs tardifs.\"\n}\n```",
-        "ts": 1789447094.351375
-      },
-      "fiche": null,
-      "interpretation": {
-        "lecture": "Pas de fiche disponible",
-        "niveau": "inconnu"
-      },
-      "action": "Observer"
     }
   ],
   "resume": "🔴 DANGER détecté — réduire les expositions"
