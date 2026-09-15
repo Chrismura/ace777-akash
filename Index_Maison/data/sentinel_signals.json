@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "taker_ratio",
-      "zscore": 2.74715141748906,
-      "value": 1.378,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio à 1.378 (z-score 2.75) indique une domination agressive des acheteurs sur les carnets d'ordres, signalant une accumulation massive et silencieuse des baleines, totalement ignorée ou sous-estimée par le vide médiatique actuel.\"\n}\n```",
-      "ts": "2026-09-14T19:05:18.694691+00:00"
-    },
-    {
       "metric": "long_short",
       "zscore": -2.3839429825183767,
       "value": 1.212,
@@ -349,6 +342,13 @@
       "value": 1.634,
       "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Z-score élevé (2.25) du ratio long/short couplé à une surchauffe retail/médiatique sur les stratégies directionnelles. Divergence classique de fin de cycle : les baleines s'apprêtent à piéger la foule surexposée à l'achat.\"\n}\n```",
       "ts": "2026-09-15T11:44:53.147362+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": 2.20910212539128,
+      "value": 1.643,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Le z-score du long/short ratio à 2.21 indique une surchauffe spéculative extrême des particuliers (effet 'XRP bondit de 6%'). Les baleines profitent de cette euphorie médiatique pour distribuer leurs sacs en positionnant massivement des shorts contrariens.\"\n}\n```",
+      "ts": "2026-09-15T12:14:59.285895+00:00"
     }
   ]
 }
