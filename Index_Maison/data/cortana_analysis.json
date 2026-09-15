@@ -1,20 +1,35 @@
 {
-  "timestamp": 1789432876,
-  "date": "2026-09-15T00:41:16.137332+00:00",
-  "n_analyses": 2,
+  "timestamp": 1789436477,
+  "date": "2026-09-15T01:41:17.139677+00:00",
+  "n_analyses": 3,
   "analyses": [
     {
       "signal": {
+        "metric": "whale_usd",
+        "zscore": 2.835208380409567,
+        "value": 5552342.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Activité anormale des baleines (z-score 2.84, ~5.5M USD) sans aucune couverture médiatique correspondante (silence radio sur Google Actualités). Accumulation furtive classique avant un mouvement de marché.\"\n}\n```",
+        "ts": 1789435620.76966
+      },
+      "fiche": null,
+      "interpretation": {
+        "lecture": "Pas de fiche disponible",
+        "niveau": "inconnu"
+      },
+      "action": "Observer"
+    },
+    {
+      "signal": {
         "metric": "sdi",
-        "zscore": -5.255058785106382,
+        "zscore": -3.4728623707333046,
         "value": 0.004,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Fausse alerte liée à une ambiguïté sémantique. Le sigle 'SDI' dans les médias fait référence au Syndicat des Indépendants et TPE ou à du matériel vidéo (Blackmagic), et non à un actif crypto ou une métrique de baleines on-chain. Aucune donnée crypto pertinente à analyser.\"\n}\n```",
-        "ts": 1789432608.314618
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Anomalie non pertinente : les données font référence au Syndicat des Indépendants (SDI) français et à la norme vidéo SDI, sans aucun rapport avec les mouvements onchain ou une crypto-monnaie.\"\n}\n```",
+        "ts": 1789436223.469008
       },
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.22,
+          "value": 0.01,
           "seuil": 1,
           "depasse": false
         },
@@ -24,12 +39,12 @@
           "depasse": false
         },
         "funding": {
-          "value": 3.7e-05,
+          "value": 4.4e-05,
           "seuil": 0.001,
           "depasse": false
         },
         "whales": {
-          "value": 0,
+          "value": 1,
           "seuil": 5,
           "depasse": false
         }
@@ -46,10 +61,10 @@
     {
       "signal": {
         "metric": "fear_greed",
-        "zscore": 6.855654600401044,
+        "zscore": 3.872983346207417,
         "value": 69,
-        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrême (6.86) sur un Fear & Greed à 69 combiné à un vide médiatique total (Google Actualités muet) : classic signal de FOMO de détail isolé. Les smart money distribuent dans le silence pendant que le marché surchauffe artificiellement.\"\n}\n```",
-        "ts": 1789432609.680083
+        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrême (3.87) combiné à un Greed élevé (69) sans couverture médiatique majeure : signal classique de 'Piège à détail'. Les baleines profitent de l'euphorie silencieuse pour distribuer aux suiveurs de tendance avant un retournement.\"\n}\n```",
+        "ts": 1789436224.718115
       },
       "fiche": null,
       "interpretation": {

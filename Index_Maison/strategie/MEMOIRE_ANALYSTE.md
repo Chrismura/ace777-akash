@@ -4642,3 +4642,8 @@
 - 2026-09-15T00:21:56.999510Z | alerte | ? | conf=?
 - 2026-09-15T00:36:38.233818Z | alerte | Le système ACE777 opère nominalement selon son design — Beta éclaire efficacement (34 sondes, conf 0,87), Alpha maintient sa discipline d'embuscade (6 973 skips lifetime, 0 fill session), Hulk gère 9 positions résilientes (+13,12 $) sous surveillance stricte des stops — le PnL combiné positif (+0,70 $) valide la coordination actuelle malgré | conf=?
 - 2026-09-15T00:37:23.497552Z | alerte | Maintenir l'alerte nominale, laisser Alpha en embuscade en attendant la confirmation du carnet, tout en surveillant le signal volume x3 de Beta. | conf=88 %
+- 2026-09-15T00:48:08.581116Z | alerte | ? | conf=?
+- 2026-09-15T01:09:27.920967Z | alerte | ? | conf=?
+- 2026-09-15T01:18:27.129782Z | alerte | Maintenir l'alerte nominale, laisser Alpha en embuscade en attendant la confirmation du carnet, tout en surveillant le signal volume x3 de Beta. | conf=88 %
+- 2026-09-15T01:25:50.161175Z | alerte | Maintenir l'alerte nominale, laisser Alpha en embuscade en attendant la confirmation du carnet, tout en surveillant le signal volume x3 de Beta. | conf=88 %
+- 2026-09-15T01:27:39.184661Z | alerte | Maintenir l'alerte nominale, laisser Alpha en embuscade en attendant la confirmation du carnet, tout en surveillant le signal volume x3 de Beta. | conf=88%
