@@ -1,3 +1,4 @@
-# Rapport Veilleuse — 2026-09-15T05:41:37.863585+00:00
+# Rapport Veilleuse — 2026-09-15T06:31:38.541294+00:00
 
-## État : ✅ STABLE — tout est en ordre
+## État : ⚠️ ANOMALIES DÉTECTÉES
+- **INTRUSION** : Modification non déclarée : hulk-mexc/config/defaults.env (md5 diffère du registre)

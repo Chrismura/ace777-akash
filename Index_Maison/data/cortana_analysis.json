@@ -1,48 +1,23 @@
 {
-  "timestamp": 1789450881,
-  "date": "2026-09-15T05:41:21.434444+00:00",
+  "timestamp": 1789453882,
+  "date": "2026-09-15T06:31:22.184527+00:00",
   "n_analyses": 1,
   "analyses": [
     {
       "signal": {
-        "metric": "ipt",
-        "zscore": 2.0963410638543176,
-        "value": 0.997,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique (ipt = 0.997) totalement polluée par du bruit homonyme (Tournoi International des Physiciens / Institut Protestant de Théologie). Aucune baleine crypto détectée, simple collision de mots-clés.\"\n}\n```",
-        "ts": 1789449216.47209
+        "metric": "whale_usd",
+        "zscore": 3.1486775968386937,
+        "value": 4948551.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (3.15) couplé à une absence totale de couverture médiatique (silence radio sur Google Actualités). C'accumulation furtive typique des baleines loin du bruit de fond retail.\"\n}\n```",
+        "ts": 1789453729.54614
       },
-      "fiche": "rbf_eleve",
-      "questions": {
-        "prix": {
-          "value": -0.21,
-          "seuil": 1,
-          "depasse": false
-        },
-        "paires": {
-          "value": null,
-          "seuil": 3,
-          "depasse": false
-        },
-        "funding": {
-          "value": 8.1e-05,
-          "seuil": 0.001,
-          "depasse": false
-        },
-        "whales": {
-          "value": 1,
-          "seuil": 5,
-          "depasse": false
-        }
-      },
+      "fiche": null,
       "interpretation": {
-        "condition": "sdi > 0.3",
-        "lecture": "Drainage silencieux — les vieux BTC bougent en douce",
-        "niveau": "dangereux",
-        "action": "Réduire taille de 50%, sortir des positions fragiles"
+        "lecture": "Pas de fiche disponible",
+        "niveau": "inconnu"
       },
-      "action": "Réduire taille de 50%, sortir des positions fragiles",
-      "niveau": "dangereux"
+      "action": "Observer"
     }
   ],
-  "resume": "🔴 DANGER détecté — réduire les expositions"
+  "resume": "🔵 CALME — pas de signal alarmant"
 }
