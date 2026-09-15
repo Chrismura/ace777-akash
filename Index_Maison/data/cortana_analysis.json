@@ -1,20 +1,20 @@
 {
-  "timestamp": 1789443679,
-  "date": "2026-09-15T03:41:19.271331+00:00",
+  "timestamp": 1789447280,
+  "date": "2026-09-15T04:41:20.285352+00:00",
   "n_analyses": 2,
   "analyses": [
     {
       "signal": {
         "metric": "sdi",
-        "zscore": -2.3246836345208233,
+        "zscore": -2.014347896753798,
         "value": 0.004,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Bruit médiatique sans rapport avec la crypto. Les occurrences de 'SDI' concernent le Syndicat des Indépendants et du matériel vidéo (Blackmagic), créant un faux positif onchain. Aucune baleine crypto détectée.\"\n}\n```",
-        "ts": 1789443479.491636
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Anomalie non-pertinente. Le 'SDI' mentionné dans les médias fait référence au Syndicat des Indépendants et des TPE ou à du matériel vidéo (Blackmagic), et non à un actif crypto. Aucune baleine crypto détectée.\"\n}\n```",
+        "ts": 1789447093.088531
       },
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.09,
+          "value": -0.18,
           "seuil": 1,
           "depasse": false
         },
@@ -24,12 +24,12 @@
           "depasse": false
         },
         "funding": {
-          "value": 6.6e-05,
+          "value": 7.6e-05,
           "seuil": 0.001,
           "depasse": false
         },
         "whales": {
-          "value": 0,
+          "value": 1,
           "seuil": 5,
           "depasse": false
         }
@@ -46,10 +46,10 @@
     {
       "signal": {
         "metric": "fear_greed",
-        "zscore": 2.4201534780139164,
+        "zscore": 2.081665999466133,
         "value": 69,
-        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.42) et Fear & Greed à 69 (Avidité) combinés à un vide médiatique (Google Actualités sans écho majeur) indiquent une surchauffe locale. Divergence classique de piège à liquidité : les baleines distribuent silencieusement sur leoptimisme de détail avant un retournement.\"\n}\n```",
-        "ts": 1789443480.866117
+        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.08) et Greed prononcé (69) sans couverture médiatique notable de masse : classic 'Greed in the dark'. Les baleines profitent de cette eufphorie discrète pour distribuer aux suiveurs tardifs.\"\n}\n```",
+        "ts": 1789447094.351375
       },
       "fiche": null,
       "interpretation": {
