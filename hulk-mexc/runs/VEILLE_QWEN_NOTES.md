@@ -4340,3 +4340,7 @@ Pas d’ordre — confrontation plus tard.
 ### 2026-09-15T14:41:21Z — ALERT auto
 - XRPUSDT: WATCH_PULLBACK — tension haute + reflux
 (compléter: confirmé ? risque ?)
+
+### 2026-09-15T15:37:10Z — ALERT auto
+- CHIPUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
