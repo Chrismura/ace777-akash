@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "volume",
-      "zscore": 2.084460016777633,
-      "value": 10062648560.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.08) détectée sur le volume brut, mais les titres médiatiques sont complètement hors sujet (actualité locale, CAC 40, carburants, épargne traditionnelle). Absence totale de corrélation crypto : bruit de fond, pas de mouvement silencieux de baleine identifiable.\"\n}\n```",
-      "ts": "2026-09-14T14:59:08.324021+00:00"
-    },
-    {
-      "metric": "liquidations",
-      "zscore": 2.1964710966242533,
-      "value": 3374009.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Forte divergence : les médias grand public se focalisent sur des faillites locales hors-sujet et des liquidations massives de positions short crypto (266M$-427M$ de short squeeze), pendant que le z-score on-chain (2.20) signale une pression d'accumulation silencieuse des baleines profitant du shakeout des baissiers.\"\n}\n```",
-      "ts": "2026-09-14T15:04:13.627179+00:00"
-    },
-    {
       "metric": "long_short",
       "zscore": -3.5950249023062866,
       "value": 1.324,
@@ -349,6 +335,20 @@
       "value": 69,
       "analysis": "{\"signal\": \"bullish\", \"confidence\": 65, \"reason\": \"L'indice fear_greed à 69 (z-score 2.93) indique une voracité marquée sur la chaîne. L'absence de couverture médiatique (aucun titre significatif) crée une divergence nette : les baleines semblent agir silencieusement, tandis que le narratif public est inexistant. C'est typiquement un signal d'accumulation discrète précédant un mouvement haussier, mais la surchauffe onchain invite à la prudence.\"}",
       "ts": "2026-09-15T02:37:47.974064+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": -2.4900700176622075,
+      "value": 0.004,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Le bruit médiatique fait référence au 'Syndicat des Indépendants' (SDI) français et à du matériel vidéo (Blackmagic SDI), totalement déconnecté de la métrique on-chain. Aucune activité de baleine crypto détectée.\"\n}\n```",
+      "ts": "2026-09-15T03:07:53.726748+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 2.6457513110645903,
+      "value": 69,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Indice de Peur & Greed à 69 (z-score 2.65) en zone de surchauffe euphorique, combiné à un vide médiatique total (Google Actualités silencieux). Divergence classique de piège à liquidité : les baleines distribuent discrètement aux suiveurs aveugles avant une correction.\"\n}\n```",
+      "ts": "2026-09-15T03:07:54.994715+00:00"
     }
   ]
 }

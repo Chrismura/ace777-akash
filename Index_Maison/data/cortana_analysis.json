@@ -1,20 +1,20 @@
 {
-  "timestamp": 1789440078,
-  "date": "2026-09-15T02:41:18.196050+00:00",
+  "timestamp": 1789443079,
+  "date": "2026-09-15T03:31:19.091206+00:00",
   "n_analyses": 2,
   "analyses": [
     {
       "signal": {
         "metric": "sdi",
-        "zscore": -2.7333425741574753,
+        "zscore": -2.4900700176622075,
         "value": 0.004,
-        "analysis": "{\n  \"signal\": \"bearish\",\n  \"confidence\": 78,\n  \"reason\": \"The sdi metric shows a strong negative deviation (z‑score -2.73), indicating unusually low on‑chain activity that often precedes whale‑driven sell pressure. Meanwhile, media headlines discuss unrelated SDI‑named topics (budget, transparency, Blackmagic hardware, governance) and do not reflect the on‑chain anomaly, suggesting a narrative disconnect that typically accompanies silent bearish moves.\"\n}",
-        "ts": 1789439857.627877
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Le bruit médiatique fait référence au 'Syndicat des Indépendants' (SDI) français et à du matériel vidéo (Blackmagic SDI), totalement déconnecté de la métrique on-chain. Aucune activité de baleine crypto détectée.\"\n}\n```",
+        "ts": 1789441673.726748
       },
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.05,
+          "value": -0.12,
           "seuil": 1,
           "depasse": false
         },
@@ -24,12 +24,12 @@
           "depasse": false
         },
         "funding": {
-          "value": 4.4e-05,
+          "value": 6e-05,
           "seuil": 0.001,
           "depasse": false
         },
         "whales": {
-          "value": 0,
+          "value": 3,
           "seuil": 5,
           "depasse": false
         }
@@ -46,10 +46,10 @@
     {
       "signal": {
         "metric": "fear_greed",
-        "zscore": 2.932575659723036,
+        "zscore": 2.6457513110645903,
         "value": 69,
-        "analysis": "{\"signal\": \"bullish\", \"confidence\": 65, \"reason\": \"L'indice fear_greed à 69 (z-score 2.93) indique une voracité marquée sur la chaîne. L'absence de couverture médiatique (aucun titre significatif) crée une divergence nette : les baleines semblent agir silencieusement, tandis que le narratif public est inexistant. C'est typiquement un signal d'accumulation discrète précédant un mouvement haussier, mais la surchauffe onchain invite à la prudence.\"}",
-        "ts": 1789439867.974064
+        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Indice de Peur & Greed à 69 (z-score 2.65) en zone de surchauffe euphorique, combiné à un vide médiatique total (Google Actualités silencieux). Divergence classique de piège à liquidité : les baleines distribuent discrètement aux suiveurs aveugles avant une correction.\"\n}\n```",
+        "ts": 1789441674.994715
       },
       "fiche": null,
       "interpretation": {
