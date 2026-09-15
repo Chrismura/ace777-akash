@@ -1,35 +1,20 @@
 {
-  "timestamp": 1789494393,
-  "date": "2026-09-15T17:46:33.691111+00:00",
+  "timestamp": 1789497394,
+  "date": "2026-09-15T18:36:34.705727+00:00",
   "n_analyses": 2,
   "analyses": [
     {
       "signal": {
-        "metric": "price_1h",
-        "zscore": 4.166453167408493,
-        "value": 1.0116571885166792,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie statistique majeure (Z-score 4.17) sur le prix avec un silence total des médias (Google Actualités vide). C'est la signature classique d'accumulation furtive par des baleines avant toute couverture médiatique.\"\n}\n```",
-        "ts": 1789493872.237728
-      },
-      "fiche": null,
-      "interpretation": {
-        "lecture": "Pas de fiche disponible",
-        "niveau": "inconnu"
-      },
-      "action": "Observer"
-    },
-    {
-      "signal": {
         "metric": "volume",
-        "zscore": 2.0821935256029502,
-        "value": 14835643440.0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 82,\n  \"reason\": \"Z-score élevé (2.08) couplé à des volumes significatifs, alors que les médias grand public banalisent ou associent le mouvement à une 'faiblesse' ou une absence de direction. Divergence classique d'accumulation silencieuse par les baleines.\"\n}\n```",
-        "ts": 1789493874.081994
+        "zscore": 2.4605976715044573,
+        "value": 15264343466.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 82,\n  \"reason\": \"Anomalie de volume on-chain massive (z-score 2.46) alors que les médias grand public banalisent la baisse ou parlent d'autres marchés, confirmant l'accumulation silencieuse des baleines signalée par CryptoQuant.\"\n}\n```",
+        "ts": 1789495679.675549
       },
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": 0.63,
+          "value": -0.15,
           "seuil": 1,
           "depasse": false
         },
@@ -39,12 +24,52 @@
           "depasse": false
         },
         "funding": {
-          "value": 9e-05,
+          "value": 8.4e-05,
           "seuil": 0.001,
           "depasse": false
         },
         "whales": {
-          "value": 0,
+          "value": 1,
+          "seuil": 5,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "sdi > 0.3",
+        "lecture": "Drainage silencieux — les vieux BTC bougent en douce",
+        "niveau": "dangereux",
+        "action": "Réduire taille de 50%, sortir des positions fragiles"
+      },
+      "action": "Réduire taille de 50%, sortir des positions fragiles",
+      "niveau": "dangereux"
+    },
+    {
+      "signal": {
+        "metric": "ipt",
+        "zscore": 2.4940160138996714,
+        "value": 1.103,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.49) purement liée à un bruit sémantique médiatique : l'acronyme 'IPT' renvoie à un tournoi de physique et des actualités institutionnelles sans aucun lien avec la crypto.\"\n}\n```",
+        "ts": 1789496583.437911
+      },
+      "fiche": "rbf_eleve",
+      "questions": {
+        "prix": {
+          "value": -0.15,
+          "seuil": 1,
+          "depasse": false
+        },
+        "paires": {
+          "value": null,
+          "seuil": 3,
+          "depasse": false
+        },
+        "funding": {
+          "value": 8.4e-05,
+          "seuil": 0.001,
+          "depasse": false
+        },
+        "whales": {
+          "value": 1,
           "seuil": 5,
           "depasse": false
         }

@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "sdi",
-      "zscore": -4.11614625896126,
-      "value": 0.004,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Bruit médiatique parasité par des homonymies (Syndicat Des Indépendants, matériel vidéo SDI). Aucune baleine crypto identifiée ; le signal onchain/données est insignifiant (z-score -4.12 sur un indicateur non pertinent pour la crypto).\"\n}\n```",
-      "ts": "2026-09-15T01:06:55.267517+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": 4.79583152331272,
-      "value": 69,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrême (4.80) combiné à une euphorie médiatique silencieuse : signal classique de 'bull trap' où les baleines distribuent aux liquidités de détail avant correction.\"\n}\n```",
-      "ts": "2026-09-15T01:06:56.568227+00:00"
-    },
-    {
       "metric": "whale_usd",
       "zscore": 2.835208380409567,
       "value": 5552342.0,
@@ -349,6 +335,20 @@
       "value": 14835643440.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 82,\n  \"reason\": \"Z-score élevé (2.08) couplé à des volumes significatifs, alors que les médias grand public banalisent ou associent le mouvement à une 'faiblesse' ou une absence de direction. Divergence classique d'accumulation silencieuse par les baleines.\"\n}\n```",
       "ts": "2026-09-15T17:37:54.081994+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.4605976715044573,
+      "value": 15264343466.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 82,\n  \"reason\": \"Anomalie de volume on-chain massive (z-score 2.46) alors que les médias grand public banalisent la baisse ou parlent d'autres marchés, confirmant l'accumulation silencieuse des baleines signalée par CryptoQuant.\"\n}\n```",
+      "ts": "2026-09-15T18:07:59.675549+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.4940160138996714,
+      "value": 1.103,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.49) purement liée à un bruit sémantique médiatique : l'acronyme 'IPT' renvoie à un tournoi de physique et des actualités institutionnelles sans aucun lien avec la crypto.\"\n}\n```",
+      "ts": "2026-09-15T18:23:03.437911+00:00"
     }
   ]
 }
