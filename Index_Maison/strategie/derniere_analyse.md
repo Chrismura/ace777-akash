@@ -1,10 +1,7 @@
-# ANALYSE — 2026-09-14T05:03:43.395643Z (alerte)
+# ANALYSE — 2026-09-15T00:21:56.999510Z (alerte)
 
-- Verdict : Autoriser le tir d'Alpha (engagement immédiat) tout en maintenant le stop‑loss d'urgence sur CCUSDT, car Beta a fourni un signal technique clair (volume x3 confirmé sur BTCUSDT).
-- Confiance : 90
-- Hypothèses clés : Le signal volume x3 de Beta est fiable pour déclencher Alpha. Le stop‑loss sur CCUSDT limite les pertes en cas de baisse soudaine. Le portefeuille global reste positif grâce aux gains de Hulk et aux performances de Beta.
-- Ce qui changerait la réponse : Une détérioration du signal de Beta (perte du volume x3) ou le déclenchement du stop‑loss sur CCUSDT.
-- Alternative si confiance < 80% : Maintenir la vigilance ambre et attendre une confirmation plus robuste du signal de Beta avant d'engager Alpha.
-- Prédictions vérifiables :
-  [2026-09-14] BTCUSDT >= 77500.0
-  [2026-09-14] ETHUSDT >= 2520.0
+[UNDERSTAND] Le système ACE777 opère nominalement : Beta (éclaireur) vient de détecter un signal volume x3 sur BTCUSDT à 78 016 $, Alpha (sniper) reste en embuscade disciplinée (0 fill, 1 skip cette session, 6 973 skips lifetime), Hulk gère 9 positions pour +13,12 $, PnL combiné +0,70 $.
+
+[ANALYZE] 
+- **Tendance** : « Bitcoin season » (score 44), Fear & Greed 69 (Greed), market cap 2,68 T$. BTC dominant à 58,45 %. Flux ETF BTC négatifs (-60,5 M$ sur 7j) mais onchain baleines neutre.
+- **Momentum** : Beta actif (34 fills, 25 long / 9 short, conf 0,87) — il renseigne Alpha. Alpha patient (1 skip session, 0 fill) attend la confirmation carnet. Hulk résilient (+9,10 $ session, positions seeds sous surveillance dont CCUSDT en stop‑loss

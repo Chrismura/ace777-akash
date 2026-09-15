@@ -1,7 +1,63 @@
 {
-  "timestamp": 1789429275,
-  "date": "2026-09-14T23:41:15.071012+00:00",
-  "n_analyses": 0,
-  "analyses": [],
-  "resume": "Aucune analyse en cours"
+  "timestamp": 1789432275,
+  "date": "2026-09-15T00:31:15.944804+00:00",
+  "n_analyses": 2,
+  "analyses": [
+    {
+      "signal": {
+        "metric": "sdi",
+        "zscore": -8.11058999413382,
+        "value": 0.004,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Anomalie technique liée à une confusion lexicale : le 'SDI' médiatique fait référence au Syndicat des Indépendants et de TPE ou à du matériel vidéo (Blackmagic), sans aucun rapport avec la crypto ou des mouvements de baleines.\"\n}\n```",
+        "ts": 1789430800.512321
+      },
+      "fiche": "rbf_eleve",
+      "questions": {
+        "prix": {
+          "value": -0.22,
+          "seuil": 1,
+          "depasse": false
+        },
+        "paires": {
+          "value": null,
+          "seuil": 3,
+          "depasse": false
+        },
+        "funding": {
+          "value": 3.6e-05,
+          "seuil": 0.001,
+          "depasse": false
+        },
+        "whales": {
+          "value": 0,
+          "seuil": 5,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "sdi > 0.3",
+        "lecture": "Drainage silencieux — les vieux BTC bougent en douce",
+        "niveau": "dangereux",
+        "action": "Réduire taille de 50%, sortir des positions fragiles"
+      },
+      "action": "Réduire taille de 50%, sortir des positions fragiles",
+      "niveau": "dangereux"
+    },
+    {
+      "signal": {
+        "metric": "fear_greed",
+        "zscore": 36.042030631305515,
+        "value": 69,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Indice de peur et de cupidité élevé (69) sans titres médiatiques significatifs rapportés. Données insuffisantes pour confirmer une accumulation ou une distribution silencieuse des baleines.\"\n}\n```",
+        "ts": 1789430801.771286
+      },
+      "fiche": null,
+      "interpretation": {
+        "lecture": "Pas de fiche disponible",
+        "niveau": "inconnu"
+      },
+      "action": "Observer"
+    }
+  ],
+  "resume": "🔴 DANGER détecté — réduire les expositions"
 }

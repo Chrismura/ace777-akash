@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "ipt",
-      "zscore": 2.5219162611283266,
-      "value": 1.077,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (IPT z-score 2.52) totalement non corrélée au bruit médiatique. Les titres font référence au Tournoi International des Physiciens (IPT) et à des institutions, aucun lien avec un actif crypto ou une baleine.\"\n}\n```",
-      "ts": "2026-09-14T09:56:40.087926+00:00"
-    },
-    {
-      "metric": "long_short",
-      "zscore": -2.363660450289266,
-      "value": 1.495,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Le z-score extrêmement bas (-2.36) indique un positionnement court anormalement saturé par la foule, tandis que le ratio global reste à 1.495. Les médias grand public banalisent les stratégies long-short sans voir l'excès de pessimisme actuel, créant un déséquilibre classique propice à une 'short squeeze' imminente.\"\n}\n```",
-      "ts": "2026-09-14T09:56:41.639523+00:00"
-    },
-    {
       "metric": "long_short",
       "zscore": -2.130955518566118,
       "value": 1.489,
@@ -349,6 +335,20 @@
       "value": 5248839.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Divergence massive : les médias généralistes paniquent sur des liquidations d'entreprises traditionnelles, tandis que la crypto encaisse une purge de shorts de 266M$ (z-score 2.10). Les baleines piochent dans la liquidité des vendeurs à découvert pour propulser les cours.\"\n}\n```",
       "ts": "2026-09-14T22:16:24.591750+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": -8.11058999413382,
+      "value": 0.004,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Anomalie technique liée à une confusion lexicale : le 'SDI' médiatique fait référence au Syndicat des Indépendants et de TPE ou à du matériel vidéo (Blackmagic), sans aucun rapport avec la crypto ou des mouvements de baleines.\"\n}\n```",
+      "ts": "2026-09-15T00:06:40.512321+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 36.042030631305515,
+      "value": 69,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Indice de peur et de cupidité élevé (69) sans titres médiatiques significatifs rapportés. Données insuffisantes pour confirmer une accumulation ou une distribution silencieuse des baleines.\"\n}\n```",
+      "ts": "2026-09-15T00:06:41.771286+00:00"
     }
   ]
 }
