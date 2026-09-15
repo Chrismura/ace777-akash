@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "volume",
-      "zscore": 2.0019533041895885,
-      "value": 11520804437.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit médiatique non pertinent (actualités locales et généralistes sans rapport avec la crypto). Volume on-chain anormal (z-score 2.0) sans contre-partie narrative exploitable pour un mouvement de baleine.\"\n}\n```",
-      "ts": "2026-09-14T18:35:05.543979+00:00"
-    },
-    {
-      "metric": "liquidations",
-      "zscore": 3.0983290451931165,
-      "value": 4055236.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Bruit médiatique saturé par les fausses pistes macroéconomiques traditionnelles (faillites d'entreprises locales) alors que l'onchain capture une purge massive des positions short sur les cryptos (266M$ liquidés). Divergence classique de capitulation des baissiers avant une impulsion haussière menée par les baleines.\"\n}\n```",
-      "ts": "2026-09-14T18:40:08.274765+00:00"
-    },
-    {
       "metric": "long_short",
       "zscore": -2.312735714321413,
       "value": 1.242,
@@ -349,6 +335,20 @@
       "value": 4628949.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Significant whale activity (z-score 2.57) suggests accumulation or strategic positioning not reflected in current media narratives, indicating potential bullish divergence.\"\n}\n```",
       "ts": "2026-09-15T09:19:18.598160+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": 2.054498859623956,
+      "value": 1.577,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Le ratio long/short atteint un z-score élevé de 2.05 (excès d'optimisme spéculatif), tandis que le narratif médiatique fait diversion en vantant des produits financiers traditionnels (fonds long-short, fiscalité). Les baleines se positionnent massivement à l'achat avec un déséquilibre dangereux, préfigurant une purge imminente des positions longues.\"\n}\n```",
+      "ts": "2026-09-15T10:04:26.016481+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": 2.0012280720512807,
+      "value": 1.577,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Le z-score du ratio long/short à 2.00 indique un posicionnement excessivement haussier des traders particuliers (FOMO), tandis que le narratif médiatique pousse massivement vers des produits structurés traditionnels. Cette sur-concentration de positions acheteuses sans soutien on-chain institutionnel est un signal classique de piège à liquidité (squeeze potentiel).\"\n}\n```",
+      "ts": "2026-09-15T10:34:31.157939+00:00"
     }
   ]
 }
