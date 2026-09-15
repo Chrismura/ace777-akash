@@ -139,6 +139,8 @@ Intégration cockpit (2 lignes dans index.html) · passage au réel · cumul des
 
 | ts | Qui | Action | Où | Quoi |
 |----|-----|--------|-----|------|
+| 2026-09-15T1853Z | journal_soir | ★ | journal | snapshot soir auto |
+| 2026-09-15T1853Z | journal_auto | ★ | CONSOLE+Journal_2026-09-15 | Snapshot auto hygiène soir |
 | 2026-09-14T1853Z | journal_soir | ★ | journal | snapshot soir auto |
 | 2026-09-14T1853Z | journal_auto | ★ | CONSOLE+Journal_2026-09-14 | Snapshot auto hygiène soir |
 | 2026-09-13T1853Z | journal_soir | ★ | journal | snapshot soir auto |
@@ -4238,3 +4240,6 @@ Christophe a finalement vu le nouveau tableau SCORE : le contenu était bon, c'�
 | 2026-09-15 15:56:03Z | CHIEN | ALERTE | hulk-watchdog : Age réel 36426s dépasse le seuil 240.0s |
 | 2026-09-15 16:56:04Z | CHIEN | ALERTE | hulk-watchdog : Age réel 40027s dépasse le seuil 240.0s |
 | 2026-09-15 17:56:05Z | CHIEN | ALERTE | hulk-watchdog : Age réel 43628s dépasse le seuil 240.0s |
+| 2026-09-15 18:56:07Z | CHIEN | ALERTE | hulk-watchdog : Age réel 47230s dépasse le seuil 240.0s |
+| 2026-09-15 19:26:07Z | CHIEN | ALERTE | superviseur-l2 : Age réel 328s dépasse le seuil 120.0s |
+| 2026-09-15 19:31:07Z | CHIEN | ALERTE | verdicteur-micro : Age réel 636s dépasse le seuil 600.0s |

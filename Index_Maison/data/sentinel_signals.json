@@ -2,20 +2,6 @@
   "signals": [
     {
       "metric": "sdi",
-      "zscore": -3.0442030604933947,
-      "value": 0.004,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Anomalie technique liée au bruit sémantique (confusion entre le token/terme SDI et le Syndicat des Indépendants ou le protocole vidéo Blackmagic SDI). Aucune activité onchain de baleine crypto détectée.\"\n}\n```",
-      "ts": "2026-09-15T02:07:17.525814+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": 3.3166247903554,
-      "value": 69,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement élevé (3.32) pour un Indice de Peur et de Greffe à 69 (Greed prononcé). Absence totale de couverture médiatique majeure ('Google Actualités' vide/neutre), créant une divergence classique de 'silence médiatique au sommet'. Les baleines profitent de l'euphorie discrète des particuliers pour distribuer leurs sacs sans éveiller de panique.\"\n}\n```",
-      "ts": "2026-09-15T02:07:18.916594+00:00"
-    },
-    {
-      "metric": "sdi",
       "zscore": -2.7333425741574753,
       "value": 0.004,
       "analysis": "{\n  \"signal\": \"bearish\",\n  \"confidence\": 78,\n  \"reason\": \"The sdi metric shows a strong negative deviation (z‑score -2.73), indicating unusually low on‑chain activity that often precedes whale‑driven sell pressure. Meanwhile, media headlines discuss unrelated SDI‑named topics (budget, transparency, Blackmagic hardware, governance) and do not reflect the on‑chain anomaly, suggesting a narrative disconnect that typically accompanies silent bearish moves.\"\n}",
@@ -349,6 +335,20 @@
       "value": 6371195.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Divergence forte entre liquidations massives onchain (z-score 2.83) et couverture médiatique focalisée sur des liquidations traditionnelles locales. Les baleines crypto pourraient profiter du bruit médiatique pour accumuler pendant que l'attention est ailleurs.\"\n}\n```",
       "ts": "2026-09-15T18:43:14.301521+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.857969490904264,
+      "value": 1.201,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Le ticker 'ipt' fait référence à des actualités académiques et institutionnelles (Tournoi International des Physiciens, violences sexistes), sans aucun rapport avec l'activité onchain de baleines crypto. Anomalie de données ou bruit de fond.\"\n}\n```",
+      "ts": "2026-09-15T18:53:17.397092+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 4.988342777395543,
+      "value": 18368185437.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Z-score extrême (4.99) couplé à un volume massif de 18.3B on-chain, alors que les médias grand public et CryptoQuant crient au 'faible rebond' ou à la 'faiblesse baissière'. Divergence classique d'accumulation furtive par les baleines sous le radar du retail.\"\n}\n```",
+      "ts": "2026-09-15T19:08:21.265731+00:00"
     }
   ]
 }
