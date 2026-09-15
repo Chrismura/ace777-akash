@@ -1,8 +1,8 @@
 # CATALOGUE DES PROVIDERS — ACE777
 
-*Genere le 2026-09-14 par catalog_providers.py (gagnant A/B codeurs 09/08). Rafraichi a chaque veille du matin.*
+*Genere le 2026-09-15 par catalog_providers.py (gagnant A/B codeurs 09/08). Rafraichi a chaque veille du matin.*
 
-**Actifs : 10 · En observation : 1 · En attente : 16 · De cote (payant) : 2**
+**Actifs : 10 · En observation : 0 · En attente : 17 · De cote (payant) : 2**
 
 ## ACTIFS
 
@@ -21,9 +21,7 @@
 
 ## EN OBSERVATION (48h avant activation, jamais route)
 
-| Role | Modele | Statut | Note |
-|------|--------|--------|------|
-| - | `nex-agi/nex-n2.5-mini:free` | obs-1789103007 | auto queue_offres | VERDICT FAMILLE 18/08 : observation 48h avant activation |
+*aucun*
 
 ## EN ATTENTE (cle manquante ou desactive)
 
@@ -45,6 +43,7 @@
 | - | `google/gemma-4-26b-a4b-it:free` | obs-1787206650 | TESTÉ 27/08 : instable (1/3, 429 intermittent) — reste désactivé (l'observatoire avait rai |
 | - | `minimax/minimax-m3:free` | obs-1787724924 | RÉACTIVÉ 27/08 après re-test direct 3/3 OK (0.4-5s) — verdict famille 18/08 « observation  |
 | - | `deepseek-ai/deepseek-v4-pro-0813` | obs-1788416175 | auto queue_offres | VERDICT FAMILLE 18/08 : observation 48h avant activation | ROLLBACK au |
+| - | `nex-agi/nex-n2.5-mini:free` | obs-1789103007 | auto queue_offres | VERDICT FAMILLE 18/08 : observation 48h avant activation | ROLLBACK au |
 
 ## DE COTE (payant / obsolète)
 
