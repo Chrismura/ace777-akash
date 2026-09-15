@@ -1,20 +1,20 @@
 {
-  "timestamp": 1789443079,
-  "date": "2026-09-15T03:31:19.091206+00:00",
+  "timestamp": 1789443679,
+  "date": "2026-09-15T03:41:19.271331+00:00",
   "n_analyses": 2,
   "analyses": [
     {
       "signal": {
         "metric": "sdi",
-        "zscore": -2.4900700176622075,
+        "zscore": -2.3246836345208233,
         "value": 0.004,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Le bruit médiatique fait référence au 'Syndicat des Indépendants' (SDI) français et à du matériel vidéo (Blackmagic SDI), totalement déconnecté de la métrique on-chain. Aucune activité de baleine crypto détectée.\"\n}\n```",
-        "ts": 1789441673.726748
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Bruit médiatique sans rapport avec la crypto. Les occurrences de 'SDI' concernent le Syndicat des Indépendants et du matériel vidéo (Blackmagic), créant un faux positif onchain. Aucune baleine crypto détectée.\"\n}\n```",
+        "ts": 1789443479.491636
       },
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.12,
+          "value": -0.09,
           "seuil": 1,
           "depasse": false
         },
@@ -24,12 +24,12 @@
           "depasse": false
         },
         "funding": {
-          "value": 6e-05,
+          "value": 6.6e-05,
           "seuil": 0.001,
           "depasse": false
         },
         "whales": {
-          "value": 3,
+          "value": 0,
           "seuil": 5,
           "depasse": false
         }
@@ -46,10 +46,10 @@
     {
       "signal": {
         "metric": "fear_greed",
-        "zscore": 2.6457513110645903,
+        "zscore": 2.4201534780139164,
         "value": 69,
-        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Indice de Peur & Greed à 69 (z-score 2.65) en zone de surchauffe euphorique, combiné à un vide médiatique total (Google Actualités silencieux). Divergence classique de piège à liquidité : les baleines distribuent discrètement aux suiveurs aveugles avant une correction.\"\n}\n```",
-        "ts": 1789441674.994715
+        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.42) et Fear & Greed à 69 (Avidité) combinés à un vide médiatique (Google Actualités sans écho majeur) indiquent une surchauffe locale. Divergence classique de piège à liquidité : les baleines distribuent silencieusement sur leoptimisme de détail avant un retournement.\"\n}\n```",
+        "ts": 1789443480.866117
       },
       "fiche": null,
       "interpretation": {

@@ -2,20 +2,6 @@
   "signals": [
     {
       "metric": "long_short",
-      "zscore": -3.5950249023062866,
-      "value": 1.324,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Z-score extrêmement bas (-3.60) indiquant une capitulation des positions short de détail, contredisant le bruit médiatique ambiant sur les fonds long-short et actant un positionnement contrarien massif des baleines.\"\n}\n```",
-      "ts": "2026-09-14T15:09:16.071237+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": 2.0507904936258385,
-      "value": 10228139670.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique de volume détectée sur la blockchain, mais le narratif médiatique est totalement parasité par du bruit non-crypto (actualité locale, bourse traditionnelle, football). Aucune corrélation exploitable.\"\n}\n```",
-      "ts": "2026-09-14T15:29:20.716957+00:00"
-    },
-    {
-      "metric": "long_short",
       "zscore": -3.1645855211758014,
       "value": 1.324,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Z-score extrêmement bas (-3.16) pour un ratio long/short à 1.32, indiquant une capitulation excessive des positions longues et un positionnement contrarien massif des baleines. Les médias grand public relayent un narratif baissier ou superficiel (fonds traditionnels), créant un blindage parfait pour une accumulation silencieuse avant un short squeeze.\"\n}\n```",
@@ -349,6 +335,20 @@
       "value": 69,
       "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Indice de Peur & Greed à 69 (z-score 2.65) en zone de surchauffe euphorique, combiné à un vide médiatique total (Google Actualités silencieux). Divergence classique de piège à liquidité : les baleines distribuent discrètement aux suiveurs aveugles avant une correction.\"\n}\n```",
       "ts": "2026-09-15T03:07:54.994715+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": -2.3246836345208233,
+      "value": 0.004,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Bruit médiatique sans rapport avec la crypto. Les occurrences de 'SDI' concernent le Syndicat des Indépendants et du matériel vidéo (Blackmagic), créant un faux positif onchain. Aucune baleine crypto détectée.\"\n}\n```",
+      "ts": "2026-09-15T03:37:59.491636+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 2.4201534780139164,
+      "value": 69,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.42) et Fear & Greed à 69 (Avidité) combinés à un vide médiatique (Google Actualités sans écho majeur) indiquent une surchauffe locale. Divergence classique de piège à liquidité : les baleines distribuent silencieusement sur leoptimisme de détail avant un retournement.\"\n}\n```",
+      "ts": "2026-09-15T03:38:00.866117+00:00"
     }
   ]
 }
