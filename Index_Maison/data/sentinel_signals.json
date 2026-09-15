@@ -1,27 +1,6 @@
 {
   "signals": [
     {
-      "metric": "long_short",
-      "zscore": -2.312735714321413,
-      "value": 1.242,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Z-score extrêmement bas (-2.31) indiquant une capitulation des positions acheteuses et un pessimisme extrême du retail, alors que le narratif médiatique grand public s'oriente tardivement vers des stratégies prudentes. Situation classique de 'washout' propice à un short squeeze orchestré par les baleines.\"\n}\n```",
-      "ts": "2026-09-14T18:40:09.822012+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": 2.0403845404682945,
-      "value": 11839968347.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (z-score 2.04) générée par un bruit médiatique totalement déconnecté de la crypto (actualités locales sur les vendanges, la métropole et le CAC 40). Aucun mouvement de baleine détecté.\"\n}\n```",
-      "ts": "2026-09-14T19:05:15.001337+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.2645409699809824,
-      "value": 1.06,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Fausse alerte onchain : l'actif 'ipt' détecté correspond à de l'homonymie médiatique (Tournoi International des Physiciens / Institut Protestant de Théologie) et non à une activité de baleines crypto.\"\n}\n```",
-      "ts": "2026-09-14T19:05:17.025485+00:00"
-    },
-    {
       "metric": "taker_ratio",
       "zscore": 2.74715141748906,
       "value": 1.378,
@@ -349,6 +328,27 @@
       "value": 1.577,
       "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Le z-score du ratio long/short à 2.00 indique un posicionnement excessivement haussier des traders particuliers (FOMO), tandis que le narratif médiatique pousse massivement vers des produits structurés traditionnels. Cette sur-concentration de positions acheteuses sans soutien on-chain institutionnel est un signal classique de piège à liquidité (squeeze potentiel).\"\n}\n```",
       "ts": "2026-09-15T10:34:31.157939+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": 2.3789515500032983,
+      "value": 1.634,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Le ratio long/short atteint un z-score critique de 2.38 (excès d'optimisme spéculatif), tandis que les médias grand public font l'éloge unanime des stratégies long-short traditionnelles. Cette euphorie de détail combinée à une surconcentration des positions acheteuses signale un piégeage imminent des investisseurs par les baleines.\"\n}\n```",
+      "ts": "2026-09-15T11:09:38.145232+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.0115617606730747,
+      "value": 0.981,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Anomalie technique (IPT) entièrement due à une collision lexicale avec des actualités institutionnelles et académiques françaises (Tournoi International des Physiciens), sans aucun lien avec des mouvements de baleines crypto.\"\n}\n```",
+      "ts": "2026-09-15T11:44:51.475226+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": 2.2497846508338104,
+      "value": 1.634,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Z-score élevé (2.25) du ratio long/short couplé à une surchauffe retail/médiatique sur les stratégies directionnelles. Divergence classique de fin de cycle : les baleines s'apprêtent à piéger la foule surexposée à l'achat.\"\n}\n```",
+      "ts": "2026-09-15T11:44:53.147362+00:00"
     }
   ]
 }
