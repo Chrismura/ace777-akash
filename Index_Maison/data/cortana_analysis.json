@@ -1,15 +1,15 @@
 {
-  "timestamp": 1789483290,
-  "date": "2026-09-15T14:41:30.586687+00:00",
-  "n_analyses": 2,
+  "timestamp": 1789486591,
+  "date": "2026-09-15T15:36:31.453489+00:00",
+  "n_analyses": 4,
   "analyses": [
     {
       "signal": {
         "metric": "long_short",
-        "zscore": 2.4357676053670416,
-        "value": 1.747,
-        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Z-score élevé (2.44) sur le ratio long/short (1.747) indiquant un positionnement excessivement haussier de la foule. Cette euphorie retail coïncide avec des gros titres médiatiques sur l'explosion du XRP, agissant comme un signal classique de surchauffe et un piège à acheteurs parfait pour les baleines.\"\n}\n```",
-        "ts": 1789481745.439055
+        "zscore": 2.008963331322376,
+        "value": 1.724,
+        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Le ratio long/short extrêmement élevé (z-score 2.01) indique un posicionnement excessivement haussier de la foule et des retail, totalement déconnecté du narratif médiatique traditionnel axé sur la prudence des fonds long-short. Cette sur-concentration de positions acheteuses en période de turbulences crée une vulnérabilité critique, propice à une purge imminente par les baleines.\"\n}\n```",
+        "ts": 1789485408.643135
       },
       "fiche": null,
       "interpretation": {
@@ -20,11 +20,51 @@
     },
     {
       "signal": {
+        "metric": "ipt",
+        "zscore": 2.176191932249842,
+        "value": 1.02,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique (ipt = 1.02) entièrement corrélée à du bruit médiatique académique sans lien avec la crypto (Tournoi International des Physiciens). Aucune baleine détectée.\"\n}\n```",
+        "ts": 1789485731.504612
+      },
+      "fiche": "rbf_eleve",
+      "questions": {
+        "prix": {
+          "value": 0.5,
+          "seuil": 1,
+          "depasse": false
+        },
+        "paires": {
+          "value": null,
+          "seuil": 3,
+          "depasse": false
+        },
+        "funding": {
+          "value": 9.9e-05,
+          "seuil": 0.001,
+          "depasse": false
+        },
+        "whales": {
+          "value": 0,
+          "seuil": 5,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "sdi > 0.3",
+        "lecture": "Drainage silencieux — les vieux BTC bougent en douce",
+        "niveau": "dangereux",
+        "action": "Réduire taille de 50%, sortir des positions fragiles"
+      },
+      "action": "Réduire taille de 50%, sortir des positions fragiles",
+      "niveau": "dangereux"
+    },
+    {
+      "signal": {
         "metric": "price_1h",
-        "zscore": 3.198312972553253,
-        "value": 0.6470438759620945,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Significant on-chain price anomaly (z-score 3.20) suggests whale activity, while media narrative remains silent or disconnected, indicating potential accumulation phase.\"\n}\n```",
-        "ts": 1789482952.957702
+        "zscore": 2.5908432766274903,
+        "value": 0.6485064323257905,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de prix significative à la hausse (z-score 2.59) en silence total des médias (Google Actualités vide). C'est la signature classique d'accumulation furtive par des baleines avant toute couverture médiatique.\"\n}\n```",
+        "ts": 1789486034.537641
       },
       "fiche": null,
       "interpretation": {
@@ -32,7 +72,47 @@
         "niveau": "inconnu"
       },
       "action": "Observer"
+    },
+    {
+      "signal": {
+        "metric": "volume",
+        "zscore": 2.3930657029424705,
+        "value": 14858683569.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 78,\n  \"reason\": \"Anomalie de volume on-chain significative (Z-score 2.39) coïncidant avec des signaux médiatiques de 'faiblesse baissière' et d'institutionnalisation (fonds Pictet). Les baleines accumulent discrètement pendant que les médias grand public et crypto banalisent la reprise.\"\n}\n```",
+        "ts": 1789486338.382796
+      },
+      "fiche": "rbf_eleve",
+      "questions": {
+        "prix": {
+          "value": 0.5,
+          "seuil": 1,
+          "depasse": false
+        },
+        "paires": {
+          "value": null,
+          "seuil": 3,
+          "depasse": false
+        },
+        "funding": {
+          "value": 9.9e-05,
+          "seuil": 0.001,
+          "depasse": false
+        },
+        "whales": {
+          "value": 0,
+          "seuil": 5,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "sdi > 0.3",
+        "lecture": "Drainage silencieux — les vieux BTC bougent en douce",
+        "niveau": "dangereux",
+        "action": "Réduire taille de 50%, sortir des positions fragiles"
+      },
+      "action": "Réduire taille de 50%, sortir des positions fragiles",
+      "niveau": "dangereux"
     }
   ],
-  "resume": "🔵 CALME — pas de signal alarmant"
+  "resume": "🔴 DANGER détecté — réduire les expositions"
 }
