@@ -4243,3 +4243,6 @@ Christophe a finalement vu le nouveau tableau SCORE : le contenu était bon, c'�
 | 2026-09-15 18:56:07Z | CHIEN | ALERTE | hulk-watchdog : Age réel 47230s dépasse le seuil 240.0s |
 | 2026-09-15 19:26:07Z | CHIEN | ALERTE | superviseur-l2 : Age réel 328s dépasse le seuil 120.0s |
 | 2026-09-15 19:31:07Z | CHIEN | ALERTE | verdicteur-micro : Age réel 636s dépasse le seuil 600.0s |
+| 2026-09-15 19:56:08Z | CHIEN | ALERTE | hulk-watchdog : Age réel 50831s dépasse le seuil 240.0s |
+| 2026-09-15 20:26:08Z | CHIEN | ALERTE | superviseur-l2 : Age réel 3929s dépasse le seuil 120.0s |
+| 2026-09-15 20:31:08Z | CHIEN | ALERTE | verdicteur-micro : Age réel 4237s dépasse le seuil 600.0s |
