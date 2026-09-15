@@ -1,35 +1,20 @@
 {
-  "timestamp": 1789436477,
-  "date": "2026-09-15T01:41:17.139677+00:00",
-  "n_analyses": 3,
+  "timestamp": 1789440078,
+  "date": "2026-09-15T02:41:18.196050+00:00",
+  "n_analyses": 2,
   "analyses": [
     {
       "signal": {
-        "metric": "whale_usd",
-        "zscore": 2.835208380409567,
-        "value": 5552342.0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Activité anormale des baleines (z-score 2.84, ~5.5M USD) sans aucune couverture médiatique correspondante (silence radio sur Google Actualités). Accumulation furtive classique avant un mouvement de marché.\"\n}\n```",
-        "ts": 1789435620.76966
-      },
-      "fiche": null,
-      "interpretation": {
-        "lecture": "Pas de fiche disponible",
-        "niveau": "inconnu"
-      },
-      "action": "Observer"
-    },
-    {
-      "signal": {
         "metric": "sdi",
-        "zscore": -3.4728623707333046,
+        "zscore": -2.7333425741574753,
         "value": 0.004,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Anomalie non pertinente : les données font référence au Syndicat des Indépendants (SDI) français et à la norme vidéo SDI, sans aucun rapport avec les mouvements onchain ou une crypto-monnaie.\"\n}\n```",
-        "ts": 1789436223.469008
+        "analysis": "{\n  \"signal\": \"bearish\",\n  \"confidence\": 78,\n  \"reason\": \"The sdi metric shows a strong negative deviation (z‑score -2.73), indicating unusually low on‑chain activity that often precedes whale‑driven sell pressure. Meanwhile, media headlines discuss unrelated SDI‑named topics (budget, transparency, Blackmagic hardware, governance) and do not reflect the on‑chain anomaly, suggesting a narrative disconnect that typically accompanies silent bearish moves.\"\n}",
+        "ts": 1789439857.627877
       },
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": 0.01,
+          "value": -0.05,
           "seuil": 1,
           "depasse": false
         },
@@ -44,7 +29,7 @@
           "depasse": false
         },
         "whales": {
-          "value": 1,
+          "value": 0,
           "seuil": 5,
           "depasse": false
         }
@@ -61,10 +46,10 @@
     {
       "signal": {
         "metric": "fear_greed",
-        "zscore": 3.872983346207417,
+        "zscore": 2.932575659723036,
         "value": 69,
-        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrême (3.87) combiné à un Greed élevé (69) sans couverture médiatique majeure : signal classique de 'Piège à détail'. Les baleines profitent de l'euphorie silencieuse pour distribuer aux suiveurs de tendance avant un retournement.\"\n}\n```",
-        "ts": 1789436224.718115
+        "analysis": "{\"signal\": \"bullish\", \"confidence\": 65, \"reason\": \"L'indice fear_greed à 69 (z-score 2.93) indique une voracité marquée sur la chaîne. L'absence de couverture médiatique (aucun titre significatif) crée une divergence nette : les baleines semblent agir silencieusement, tandis que le narratif public est inexistant. C'est typiquement un signal d'accumulation discrète précédant un mouvement haussier, mais la surchauffe onchain invite à la prudence.\"}",
+        "ts": 1789439867.974064
       },
       "fiche": null,
       "interpretation": {

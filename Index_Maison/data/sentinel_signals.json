@@ -1,34 +1,6 @@
 {
   "signals": [
     {
-      "metric": "liquidations",
-      "zscore": 2.328922678692168,
-      "value": 3353611.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Bruit médiatique confondu avec des faillites traditionnelles, masquant un short squeeze massif de 427M$ sur les cryptos. Les baleines piégent les baissiers silencieusement.\"\n}\n```",
-      "ts": "2026-09-14T14:33:28.061151+00:00"
-    },
-    {
-      "metric": "whale_usd",
-      "zscore": 7.213170626257757,
-      "value": 15372738.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (z-score 7.21, ~15.3M USD) dans un silence médiatique absolu (Google Actualités vide). Les baleines accumulent sans éveiller le retail, ce qui précède généralement une cassure haussière par surprise.\"\n}\n```",
-      "ts": "2026-09-14T14:38:30.221331+00:00"
-    },
-    {
-      "metric": "long_short",
-      "zscore": -2.118203334500959,
-      "value": 1.439,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le Z-score de -2.12 indique un positionnement court anormalement bas et survendu par la foule, alors que les médias grand public banalisent les stratégies macro et que les données onchain révèlent une accumulation cachée prête pour un short squeeze.\"\n}\n```",
-      "ts": "2026-09-14T14:38:31.970493+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.489586992121604,
-      "value": 1.106,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Fausse alerte liée à une collision lexicale. L'indicateur onchain capte du bruit ou un ticker sans rapport, tandis que les médias traitent du Tournoi International des Physiciens (IPT) et d'actualités institutionnelles, sans lien avec l'écosystème crypto.\"\n}\n```",
-      "ts": "2026-09-14T14:48:35.007255+00:00"
-    },
-    {
       "metric": "volume",
       "zscore": 2.084460016777633,
       "value": 10062648560.0,
@@ -349,6 +321,34 @@
       "value": 69,
       "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrême (3.87) combiné à un Greed élevé (69) sans couverture médiatique majeure : signal classique de 'Piège à détail'. Les baleines profitent de l'euphorie silencieuse pour distribuer aux suiveurs de tendance avant un retournement.\"\n}\n```",
       "ts": "2026-09-15T01:37:04.718115+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": -3.0442030604933947,
+      "value": 0.004,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Anomalie technique liée au bruit sémantique (confusion entre le token/terme SDI et le Syndicat des Indépendants ou le protocole vidéo Blackmagic SDI). Aucune activité onchain de baleine crypto détectée.\"\n}\n```",
+      "ts": "2026-09-15T02:07:17.525814+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 3.3166247903554,
+      "value": 69,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement élevé (3.32) pour un Indice de Peur et de Greffe à 69 (Greed prononcé). Absence totale de couverture médiatique majeure ('Google Actualités' vide/neutre), créant une divergence classique de 'silence médiatique au sommet'. Les baleines profitent de l'euphorie discrète des particuliers pour distribuer leurs sacs sans éveiller de panique.\"\n}\n```",
+      "ts": "2026-09-15T02:07:18.916594+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": -2.7333425741574753,
+      "value": 0.004,
+      "analysis": "{\n  \"signal\": \"bearish\",\n  \"confidence\": 78,\n  \"reason\": \"The sdi metric shows a strong negative deviation (z‑score -2.73), indicating unusually low on‑chain activity that often precedes whale‑driven sell pressure. Meanwhile, media headlines discuss unrelated SDI‑named topics (budget, transparency, Blackmagic hardware, governance) and do not reflect the on‑chain anomaly, suggesting a narrative disconnect that typically accompanies silent bearish moves.\"\n}",
+      "ts": "2026-09-15T02:37:37.627877+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 2.932575659723036,
+      "value": 69,
+      "analysis": "{\"signal\": \"bullish\", \"confidence\": 65, \"reason\": \"L'indice fear_greed à 69 (z-score 2.93) indique une voracité marquée sur la chaîne. L'absence de couverture médiatique (aucun titre significatif) crée une divergence nette : les baleines semblent agir silencieusement, tandis que le narratif public est inexistant. C'est typiquement un signal d'accumulation discrète précédant un mouvement haussier, mais la surchauffe onchain invite à la prudence.\"}",
+      "ts": "2026-09-15T02:37:47.974064+00:00"
     }
   ]
 }
