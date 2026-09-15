@@ -4250,3 +4250,8 @@ Christophe a finalement vu le nouveau tableau SCORE : le contenu était bon, c'�
 | 2026-09-15 21:21:09Z | CHIEN | ALERTE | vigie-live : Age réel 7281s dépasse le seuil 7200.0s |
 | 2026-09-15 21:26:09Z | CHIEN | ALERTE | superviseur-l2 : Age réel 7530s dépasse le seuil 120.0s |
 | 2026-09-15 21:31:09Z | CHIEN | ALERTE | verdicteur-micro : Age réel 7838s dépasse le seuil 600.0s |
+| 2026-09-15 21:51:10Z | CHIEN | ALERTE | gitpush : Age réel infini (produit/pouls introuvable ou illisible) dépasse le seuil 32400.0s |
+| 2026-09-15 21:56:10Z | CHIEN | ALERTE | hulk-watchdog : Age réel 58033s dépasse le seuil 240.0s |
+| 2026-09-15 22:21:10Z | CHIEN | ALERTE | vigie-live : Age réel 10882s dépasse le seuil 7200.0s |
+| 2026-09-15 22:26:10Z | CHIEN | ALERTE | superviseur-l2 : Age réel 11131s dépasse le seuil 120.0s |
+| 2026-09-15 22:31:11Z | CHIEN | ALERTE | verdicteur-micro : Age réel 11439s dépasse le seuil 600.0s |
