@@ -1,34 +1,6 @@
 {
   "signals": [
     {
-      "metric": "ipt",
-      "zscore": 2.306951083474985,
-      "value": 1.06,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique purement homonyme. Les données 'IPT' capturées par la sentinelle font référence à un bruit médiatique sur l'Institut Protestant de Théologie ou le Tournoi International des Physiciens, sans aucun lien on-chain avec un actif crypto ou une accumulation de baleines.\"\n}\n```",
-      "ts": "2026-09-14T19:35:25.839507+00:00"
-    },
-    {
-      "metric": "taker_ratio",
-      "zscore": 2.5254792123192193,
-      "value": 1.378,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio élevé (z-score 2.53) indique une forte agression acheteuse sur les carnets d'ordres, signalant une accumulation agressive par les baleines. En l'absence de couverture médiatique notable (silence radio), cela démontre un mouvement de 'smart money' discret avant le réveil du retail.\"\n}\n```",
-      "ts": "2026-09-14T19:35:27.385324+00:00"
-    },
-    {
-      "metric": "long_short",
-      "zscore": -2.214998275497231,
-      "value": 1.212,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Le z-score extrêmement bas (-2.21) indique un positionnement court massif de la foule, totalement obnubilée par le narratif médiatique baissier. Historiquement, un tel déséquilibre contrarien signale une accumulation silencieuse des baleines en prévision d'une correction violente des shorts (short squeeze).\"\n}\n```",
-      "ts": "2026-09-14T19:40:29.842002+00:00"
-    },
-    {
-      "metric": "taker_ratio",
-      "zscore": -2.552218855648515,
-      "value": 0.627,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio à 0.627 (z-score -2.55) indique une domination massive des acheteurs passifs (limite) et un épuisement des vendeurs au marché, contredisant le silence ou la peur des médias grand public. Accumulation cachée par les baleines.\"\n}\n```",
-      "ts": "2026-09-14T20:05:34.116933+00:00"
-    },
-    {
       "metric": "long_short",
       "zscore": -2.2555218784339277,
       "value": 1.186,
@@ -349,6 +321,34 @@
       "value": 1.643,
       "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Le z-score du ratio long/short atteint 2.11 (excès haussier des particuliers), coïncidant avec un narratif médiatique euphorique ('XRP bondit'). Cette surchauffe unilatérale est le signal classique d'un piège à acheteurs tendu par les baleines pour distribuer leurs liquidités.\"\n}\n```",
       "ts": "2026-09-15T12:45:04.735244+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.498561431210899,
+      "value": 1.101,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (z-score 2.50) entièrement due à une collision lexicale : le token 'IPT' est noyé dans l'actualité institutionnelle et académique française (Tournoi International des Physiciens). Aucune activité de baleine crypto détectée.\"\n}\n```",
+      "ts": "2026-09-15T12:55:08.115656+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": 2.2099752388700695,
+      "value": 1.672,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Z-score élevé (2.21) du ratio long/short couplé à un narratif médiatique unanime sur le 'pump' et l'euphorie. Classic setup de piège à liquidité (long squeeze imminent) orchestré par les smart money.\"\n}\n```",
+      "ts": "2026-09-15T13:15:14.185916+00:00"
+    },
+    {
+      "metric": "price_1h",
+      "zscore": 4.042945139378878,
+      "value": 0.7497284345878152,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie statistique majeure (Z-score 4.04) sur les flux on-chain sans aucune couverture médiatique (vide total Google Actualités). Les baleines accumulent ou positionnent des fonds en silence total, avant que le narratif public ne rattrape le mouvement.\"\n}\n```",
+      "ts": "2026-09-15T13:40:20.684032+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": 2.1004247631259685,
+      "value": 1.672,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Z-score élevé (2.10) et ratio long/short excessif (1.672) couplé à une euphorie médiatique sur une hausse de 6%.经典的 Piège à haussiers (Long Squeeze imminent) : les investisseurs particuliers s'empilent en position longue pendant que les smart money distribuent.\"\n}\n```",
+      "ts": "2026-09-15T13:45:23.250775+00:00"
     }
   ]
 }
