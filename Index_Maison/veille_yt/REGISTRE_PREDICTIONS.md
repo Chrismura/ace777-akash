@@ -1,11 +1,16 @@
 ---
-date: 2026-09-10T0715Z
+date: 2026-09-15T0715Z
 type: registre_predictions
 ---
 
 # 📓 Registre des prédictions — la vérification du banc d'essai
 
 Chaque prédiction est notée avec sa date limite. Le script `verifier_predictions.py` re-vérifie les échues (statut VRAIE/FAUSSE/NON VÉRIFIABLE).
+
+### 2026-09-15T0715Z — Crypto Crew University : 3-Min Recap: Pump Signal or Total Collapse? 🚨💀#shorts
+Lien : https://www.youtube.com/watch?v=-qr3-7kJ5YI
+
+- _(aucune prédiction vérifiable extraite)_
 
 ### 2026-09-10T0715Z — Crypto Crew University : The One Breakout Candle Pro Traders Never Ignore 📈🔥 #shorts
 Lien : https://www.youtube.com/watch?v=tCwlFix0ilI
