@@ -1,34 +1,6 @@
 {
   "signals": [
     {
-      "metric": "long_short",
-      "zscore": -2.2555218784339277,
-      "value": 1.186,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Z-score extrêmement bas (-2.26) indiquant une sous-exposition extrême des positions longues, contredisant le bruit médiatique généraliste sur les stratégies long-short. Positionnement contrarien typique d'accumulation silencieuse par les baleines avant un short squeeze.\"\n}\n```",
-      "ts": "2026-09-14T20:10:36.404754+00:00"
-    },
-    {
-      "metric": "liquidations",
-      "zscore": 4.536748120883611,
-      "value": 5224810.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Bruit médiatique parasité par des fausses alertes sur l'économie traditionnelle (faillites d'entreprises locales) alors que l'onchain montre une liquidation massive des positions short (266M$ sur les cryptos), créant un squeeze haussier opportuniste pour les baleines.\"\n}\n```",
-      "ts": "2026-09-14T20:15:38.789289+00:00"
-    },
-    {
-      "metric": "whale_usd",
-      "zscore": 2.936155429213199,
-      "value": 7042330.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Activité anormale des baleines (z-score 2.94, ~7M$) dans un silence médiatique total (Google Actualités vide). Accumulation furtive hors radar avant un mouvement de prix.\"\n}\n```",
-      "ts": "2026-09-14T20:20:40.603128+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": 2.018597715053349,
-      "value": 12405674416.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.02) provoquée par du bruit textuel sans rapport avec la crypto (homonymie du mot 'volume' dans la presse généraliste française).\"\n}\n```",
-      "ts": "2026-09-14T20:25:42.833488+00:00"
-    },
-    {
       "metric": "taker_ratio",
       "zscore": -2.3763594864667277,
       "value": 0.627,
@@ -349,6 +321,34 @@
       "value": 1.672,
       "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Z-score élevé (2.10) et ratio long/short excessif (1.672) couplé à une euphorie médiatique sur une hausse de 6%.经典的 Piège à haussiers (Long Squeeze imminent) : les investisseurs particuliers s'empilent en position longue pendant que les smart money distribuent.\"\n}\n```",
       "ts": "2026-09-15T13:45:23.250775+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.065811168026644,
+      "value": 1.006,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (z-score 2.07) due à une collision de ticker avec le tournoi de physique de l'X (IPT) et des actualités institutionnelles. Aucun mouvement de baleine crypto détecté, le 'bruit' médiatique n'a aucun lien avec la blockchain.\"\n}\n```",
+      "ts": "2026-09-15T14:05:41.185563+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": 2.4357676053670416,
+      "value": 1.747,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Z-score élevé (2.44) sur le ratio long/short (1.747) indiquant un positionnement excessivement haussier de la foule. Cette euphorie retail coïncide avec des gros titres médiatiques sur l'explosion du XRP, agissant comme un signal classique de surchauffe et un piège à acheteurs parfait pour les baleines.\"\n}\n```",
+      "ts": "2026-09-15T14:15:45.439055+00:00"
+    },
+    {
+      "metric": "price_1h",
+      "zscore": 3.198312972553253,
+      "value": 0.6470438759620945,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Significant on-chain price anomaly (z-score 3.20) suggests whale activity, while media narrative remains silent or disconnected, indicating potential accumulation phase.\"\n}\n```",
+      "ts": "2026-09-15T14:35:52.957702+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": 2.2702184450612837,
+      "value": 1.747,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Z-score élevé (2.27) sur le ratio long/short (1.747) couplé à une euphorie médiatique générale sur les stratégies long-short traditionnelles. Divergence classique de sommet : surexposition des acheteurs particuliers pendant que l'Smart Money s'apprête à purger l'excès de levier.\"\n}\n```",
+      "ts": "2026-09-15T14:45:56.042624+00:00"
     }
   ]
 }
