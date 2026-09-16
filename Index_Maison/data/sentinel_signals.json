@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "price_1h",
-      "zscore": 2.5908432766274903,
-      "value": 0.6485064323257905,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de prix significative à la hausse (z-score 2.59) en silence total des médias (Google Actualités vide). C'est la signature classique d'accumulation furtive par des baleines avant toute couverture médiatique.\"\n}\n```",
-      "ts": "2026-09-15T15:27:14.537641+00:00"
-    },
-    {
       "metric": "volume",
       "zscore": 2.3930657029424705,
       "value": 14858683569.0,
@@ -349,6 +342,13 @@
       "value": 1.194,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Bruit de fond : les données et les titres font référence à des homonymes (Tournoi International des Physiciens, institutions religieuses, cyclisme) et non à un actif crypto.\"\n}\n```",
       "ts": "2026-09-16T17:12:28.499458+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.0952780098941415,
+      "value": 1.183,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (IPT z-score 2.10) totalement non corrélée avec des flux crypto. Les titres médiatiques font référence à l'Institut Polytechnique de Paris (IPT), au Tournoi International des Physiciens ou à des sujets institutionnels, démontrant un bruit sémantique sans rapport avec l'activité des baleines.\"\n}\n```",
+      "ts": "2026-09-16T17:52:37.985449+00:00"
     }
   ]
 }
