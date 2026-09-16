@@ -354,6 +354,50 @@ def run_analysis():
         emoji = {"neutre": "🔵", "surveiller": "🟡", "dangereux": "🔴", "critique": "🚨", "haussier": "🟢"}.get(niveau, "⚪")
         print(f"  {emoji} {signal.get('metric', '?')}: {analysis.get('interpretation', {}).get('lecture', '?')[:60]}")
     
+    # 2bis. MÉTA-FICHE ÉTAT DU LEVIER — DÉSACTIVÉE le 16/09 après revue codeur (voir AVIS_codeur_verification_meta.md)
+    # Motifs du rejet codeur (validés) :
+    #   ① liq24Usd est un volume CUMULATIF 24h — le seuil 5 M$ se déclenche en CONTINU sur un marché
+    #     actif (spam de la méta-fiche à chaque cycle, pas un événement) ;
+    #   ② liq_signal_recent vérifie le TYPE de métrique, pas son NIVEAU — un vieux signal
+    #     liquidations fait re-déclencher la méta à chaque cycle pendant 30 min ;
+    #   ③ comparer l'OI INSTANTANÉ à un seuil fixe (100k) ne mesure pas une PURGE (un delta) ;
+    #   ④ try/except silencieux = risk management aveugle.
+    # RÉACTIVATION quand : le sentinel logge la VARIATION d'OI (delta par cycle) + un flux
+    # de liquidations INSTANTANÉ (par fenêtre, pas cumulatif 24h) — chantier sentinel.
+    META_LEVIER_ACTIVEE = False
+    try:
+        liq_live = live.get("liq24Usd")
+        liq_signal_recent = any(
+            a.get("signal", {}).get("metric") == "liquidations" for a in analyses
+        )
+        declencheur = (isinstance(liq_live, (int, float)) and liq_live > 5_000_000) or liq_signal_recent
+        if META_LEVIER_ACTIVEE and declencheur and "etat_levier" in fiches:
+            meta_signal = {"metric": "etat_levier", "value": liq_live, "zscore": None,
+                           "ts": now, "meta": "croisement liquidations×OI×taker"}
+            # La fiche est FORCÉE ici : match_fiche re-filtrerait par le trigger z>999
+            # (verrou du chemin sentinel). Le vrai garde-fou méta = le seuil 5 M$ ci-dessus.
+            fiche_meta = fiches["etat_levier"]
+            q_meta = evaluate_questions(fiche_meta, live)
+            i_meta = find_interpretation(fiche_meta, q_meta)
+            an_meta = {
+                "signal": meta_signal,
+                "fiche": fiche_meta["type"],
+                "questions": q_meta,
+                "interpretation": i_meta,
+                "action": i_meta.get("action", "Observer"),
+                "niveau": i_meta.get("niveau", "inconnu"),
+            }
+            analyses.append(an_meta)
+            analyses.append(an_meta)
+            n_meta = an_meta.get("niveau", "inconnu")
+            em = {"neutre": "🔵", "surveiller": "🟡", "dangereux": "🔴", "critique": "🚨"}.get(n_meta, "⚪")
+            print(f"  {em} etat_levier (méta): {an_meta.get('interpretation', {}).get('lecture', '?')[:60]}")
+    except Exception as e:
+        # FIX revue codeur : plus d'avalage silencieux — traceback complet en log d'erreur
+        import traceback
+        print(f"  [ANALYZER] méta-fiche levier: ERREUR")
+        traceback.print_exc()
+    
     # 3. Assemblage du résultat
     result = {
         "timestamp": int(time.time()),

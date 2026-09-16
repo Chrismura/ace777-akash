@@ -1,6 +1,6 @@
 {
   "version": "1.4.7",
-  "updated": "2026-09-16T14:15Z",
+  "updated": "2026-09-16T15:58Z",
   "fichier": [
     {
       "nom": "hulk-mexc/scripts/paper_diprip.py",
@@ -371,10 +371,10 @@
       "origine": "25/08 PIPELINE UNIFIÉ — branché 27/08",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "d3bfc79346c295688aea1a34f5e93a90",
-      "note": "FIX 27/08 : crash TypeError ts str (sentinelle écrit ts ISO, l'analyzer faisait now - str) → normalisation _to_epoch (les 2 formats). Plist com.ace777.cortana-analyzer (300s). | 13/09: ARBITRAGE LLM-vs-RÈGLE (GO C.) — LLM neutral conf>=60 désamorce le 'dangereux' mécanique (jamais 'critique'); politique mesurée 14 j (critère 27/09: si un vrai danger passe inaperçu → retrait). | 16/09 : fix NoneType prix + mapping sdi_eleve (matin) puis C1/C2/C3 (après-midi). | GO 16/09 6 fiches : trigger z (absolu) lit le ZSCORE (avant : valeur brute → jamais ouvert), source générique live.json → chemin.doté, ",
+      "md5": "96cc8224d138afd7e77d4fdaa8fabdde",
+      "note": "FIX 27/08 : crash TypeError ts str (sentinelle écrit ts ISO, l'analyzer faisait now - str) → normalisation _to_epoch (les 2 formats). Plist com.ace777.cortana-analyzer (300s). | 13/09: ARBITRAGE LLM-vs-RÈGLE (GO C.) — LLM neutral conf>=60 désamorce le 'dangereux' mécanique (jamais 'critique'); politique mesurée 14 j (critère 27/09: si un vrai danger passe inaperçu → retrait). | 16/09 : fix NoneType prix + mapping sdi_eleve (matin) puis C1/C2/C3 (après-midi). | GO 16/09 6 fiches : trigger z (absolu) lit le ZSCORE (avant : valeur brute → jamais ouvert), source générique live.json → chemin.doté,  | REVUE CODEUR 16/09 : méta-fiche REJETÉE pour la production (4 motifs validés : liq24Usd cumulatif",
       "maj": "16/09 après-midi (GO C. « go » C1+C2+C3) : C1 triggers réellement vérifiés contre la valeur du signal (_evaluer_trigger, alias rbf_score/sdi/global_score/taux_fantome) — le champ trigger n'était DÉCORATIF depuis le 27/08 ; C2 défaut neutre explicite (avant : 1re interprétation = sdi_eleve dangereux / binance_timeout critique) ; C3 health_degrade câblé (questions sources/mode + conditions source == évaluées contre pipeline_health.sources — KILL SWITCH critique UNIQUEMENT si binance <0,5). 8 tests dont négatifs verts. Par Buffy.",
-      "date": "2026-09-16T14:15Z"
+      "date": "2026-09-16T15:58Z"
     },
     {
       "nom": "hulk-mexc/strategie/universe_profils.json",
@@ -849,9 +849,9 @@
       "origine": "GO Christophe 16/09 : couverture des métriques sentinel sans fiche",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "0f2b3360c709b3266147215d4d632f65",
-      "note": "Trigger z>2 (valeur absolue, deux sens). Questions câblées sur live.json (liq24Usd/liqLongUsd/liqShortUsd/takerRatio/longShort/fearGreed/oi/chg1h/onchain.whaleProxy*). Défaut neutre explicite (C2).",
-      "date": "2026-09-16T14:15Z"
+      "md5": "9f04838502580cb7faa43efb863305a9",
+      "note": "V1.1 16/09 (GO C., avis famille) : seuil equilibre 1 → 2,0 (le L/S retail est structurellement > 1 — faux positif permanent corrigé) + lectures étiquetées HYPOTHÈSE. Testé : 1,79 → fermée, 2,35 → surveiller, 0,85 → shorts.",
+      "date": "2026-09-16T15:42Z"
     },
     {
       "nom": "Index_Maison/data/fiches_analyse/taker_ratio.json",
@@ -872,6 +872,16 @@
       "md5": "a4efafcfac7b7872408e09e9ae4aae20",
       "note": "Trigger z>2 (valeur absolue, deux sens). Questions câblées sur live.json (liq24Usd/liqLongUsd/liqShortUsd/takerRatio/longShort/fearGreed/oi/chg1h/onchain.whaleProxy*). Défaut neutre explicite (C2).",
       "date": "2026-09-16T14:15Z"
+    },
+    {
+      "nom": "Index_Maison/data/fiches_analyse/etat_levier.json",
+      "role": "MÉTA-FICHE État du levier (Liquidations × OI × taker) — avis famille 16/09, croisement manquant n°1. DESACTIVÉE : trigger z>999 impossible, métrique 'etat_levier' jamais émise par le sentinel → injoig",
+      "origine": "GO Christophe 16/09 (3 suggestions : V1.1 + méta-fiche + cours)",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "4a359ee7ed3285080b71218ebfeb29ac",
+      "note": "MÉTA-FICHE État du levier (Liquidations × OI × taker) — avis famille 16/09, croisement manquant n°1. DESACTIVÉE : trigger z>999 impossible, métrique 'etat_levier' jamais émise par le sentinel → injoignable (testé : z 3,5/10/999/5000 → jamais ouverte). Spec figée avant son GO. | ACTIVÉE 16/09 par le chemin méta de run_analysis (GO C.). LIMITE honnête documentée : live.json n'a que l'OI instantané (pas sa variation) — conditions purge/piège approchées par le niveau 100k jusqu'à ce que le sentinel logge la direction d'OI.",
+      "date": "2026-09-16T15:54Z"
     }
   ]
 }

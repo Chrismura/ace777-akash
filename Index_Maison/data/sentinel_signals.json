@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "long_short",
-      "zscore": 2.008963331322376,
-      "value": 1.724,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Le ratio long/short extrêmement élevé (z-score 2.01) indique un posicionnement excessivement haussier de la foule et des retail, totalement déconnecté du narratif médiatique traditionnel axé sur la prudence des fonds long-short. Cette sur-concentration de positions acheteuses en période de turbulences crée une vulnérabilité critique, propice à une purge imminente par les baleines.\"\n}\n```",
-      "ts": "2026-09-15T15:16:48.643135+00:00"
-    },
-    {
       "metric": "ipt",
       "zscore": 2.176191932249842,
       "value": 1.02,
@@ -349,6 +342,13 @@
       "value": 50.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit de fond : Les articles médiatiques font référence à 'Dust', une startup française d'Intelligence Artificielle (fondée par Stanislas Polu), et non à un actif crypto ou on-chain. Le z-score élevé reflète une recrudescence de mentions Web2 sans lien avec des mouvements de baleines cryptographiques.\"\n}\n```",
       "ts": "2026-09-16T15:12:05.982626+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.323711883022296,
+      "value": 1.188,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.32) sur un ticker partagé avec l'Institut Protestant de Théologie (IPT) et des tournois de physique. Bruit médiatique sans rapport avec l'activité crypto. Aucune accumulation de baleine détectée.\"\n}\n```",
+      "ts": "2026-09-16T15:47:11.327319+00:00"
     }
   ]
 }
