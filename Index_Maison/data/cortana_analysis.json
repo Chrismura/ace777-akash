@@ -1,7 +1,7 @@
 {
-  "timestamp": 1789596599,
-  "date": "2026-09-16T22:09:59.695997+00:00",
-  "n_analyses": 1,
+  "timestamp": 1789596899,
+  "date": "2026-09-16T22:14:59.789923+00:00",
+  "n_analyses": 2,
   "analyses": [
     {
       "signal": {
@@ -14,12 +14,12 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.29,
+          "value": -0.24,
           "seuil": 1,
           "depasse": false
         },
         "paires": {
-          "value": 1,
+          "value": 0,
           "seuil": 3,
           "depasse": false
         },
@@ -41,7 +41,42 @@
       },
       "action": "Observer",
       "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "whale_usd",
+        "zscore": 3.7657141448018607,
+        "value": 3241870.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 3.77, accumulation de ~3.24M USD) en absence totale de couverture médiatique (silence radio sur Google Actualités). Comportement typique d'accumulation furtive par des baleines avant un mouvement de marché.\"\n}\n```",
+        "ts": 1789596808.350042
+      },
+      "fiche": "whale_usd",
+      "questions": {
+        "ventes": {
+          "value": 611550.0,
+          "seuil": 0,
+          "depasse": true
+        },
+        "achats": {
+          "value": 0.0,
+          "seuil": 0,
+          "depasse": false
+        },
+        "prix": {
+          "value": -0.24,
+          "seuil": 1,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "ventes > achats",
+        "lecture": "Flux baleines VENDEUR dominant — distribution possible vers les exchanges (proxy : bearish aujourd'hui)",
+        "niveau": "surveiller",
+        "action": "Croiser avec le sniffer vieux BTC et l'IPT avant de réduire"
+      },
+      "action": "Croiser avec le sniffer vieux BTC et l'IPT avant de réduire",
+      "niveau": "surveiller"
     }
   ],
-  "resume": "🔵 CALME — pas de signal alarmant"
+  "resume": "🟡 SURVEILLANCE — des signaux sont à observer"
 }
