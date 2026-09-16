@@ -5,7 +5,7 @@
 
 ## Meta
 - statut: READY
-- ts: 20260915T2321Z
+- ts: 20260916T0021Z
 - pertinence: SOFT
 - sentiment: NEUTRE
 - compte: thermo-free
