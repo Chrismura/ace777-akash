@@ -1,27 +1,6 @@
 {
   "signals": [
     {
-      "metric": "long_short",
-      "zscore": 2.2099752388700695,
-      "value": 1.672,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Z-score élevé (2.21) du ratio long/short couplé à un narratif médiatique unanime sur le 'pump' et l'euphorie. Classic setup de piège à liquidité (long squeeze imminent) orchestré par les smart money.\"\n}\n```",
-      "ts": "2026-09-15T13:15:14.185916+00:00"
-    },
-    {
-      "metric": "price_1h",
-      "zscore": 4.042945139378878,
-      "value": 0.7497284345878152,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie statistique majeure (Z-score 4.04) sur les flux on-chain sans aucune couverture médiatique (vide total Google Actualités). Les baleines accumulent ou positionnent des fonds en silence total, avant que le narratif public ne rattrape le mouvement.\"\n}\n```",
-      "ts": "2026-09-15T13:40:20.684032+00:00"
-    },
-    {
-      "metric": "long_short",
-      "zscore": 2.1004247631259685,
-      "value": 1.672,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Z-score élevé (2.10) et ratio long/short excessif (1.672) couplé à une euphorie médiatique sur une hausse de 6%.经典的 Piège à haussiers (Long Squeeze imminent) : les investisseurs particuliers s'empilent en position longue pendant que les smart money distribuent.\"\n}\n```",
-      "ts": "2026-09-15T13:45:23.250775+00:00"
-    },
-    {
       "metric": "ipt",
       "zscore": 2.065811168026644,
       "value": 1.006,
@@ -349,6 +328,27 @@
       "value": 51,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Indice de peur et d'avidité neutre (51) avec un z-score fortement négatif (-2.21) indiquant une anomalie statistique de volatilité ou de volume, mais le manque de titres médiatiques significatifs montre un vide informationnel. Pas de mouvement de baleine détectable sans données de flux net des exchanges.\"\n}\n```",
       "ts": "2026-09-16T11:05:43.118192+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 2.1034080831448065,
+      "value": 0.612,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Anomalie sémantique totale. Le sigle 'SDI' dans les médias fait référence à l'industrie audiovisuelle (Serial Digital Interface) et au Syndicat des Indépendants, sans aucun rapport avec la crypto ou des mouvements on-chain de baleines.\"\n}\n```",
+      "ts": "2026-09-16T11:30:49.752755+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -2.058242851648861,
+      "value": 51,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Le sentiment est neutre (Fear & Greed à 51) avec une volatilité statistique faible (z-score -2.06). Absence de données significatives dans les titres Google Actualités pour détecter une divergence majeure. Les baleines restent en observation.\"\n}\n```",
+      "ts": "2026-09-16T11:35:51.796796+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.4211746754994086,
+      "value": 1.184,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit de fond absolu. L'indicateur capte le ticker 'IPT' qui est ici totalement parasité par des homonymes institutionnels et académiques (Tournoi International des Physiciens, Institut Protestant de Théologie). Aucune baleine crypto détectée, simple collision de mots-clés dans les flux RSS.\"\n}\n```",
+      "ts": "2026-09-16T11:50:55.006052+00:00"
     }
   ]
 }

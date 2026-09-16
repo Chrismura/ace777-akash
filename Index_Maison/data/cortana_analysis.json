@@ -1,15 +1,15 @@
 {
-  "timestamp": 1789557144,
-  "date": "2026-09-16T11:12:24.949800+00:00",
+  "timestamp": 1789560145,
+  "date": "2026-09-16T12:02:25.868926+00:00",
   "n_analyses": 2,
   "analyses": [
     {
       "signal": {
-        "metric": "sdi",
-        "zscore": 2.2225471829769012,
-        "value": 0.604,
-        "analysis": "{\n  \"signal\": \"bullish\",\n  \"confidence\": 62,\n  \"reason\": \"Anomalie onchain SDI avec z-score 2.22 suggère une activité inhabituelle de baleines, tandis que les médias mentionnent SDI dans des contextes non-crypto, révélant une déconnexion. Le silence médiatique sur le mouvement onchain indique une accumulation ou distribution discrète, mais la direction haussière reste modérée.\"\n}",
-        "ts": 1789556441.109981
+        "metric": "fear_greed",
+        "zscore": -2.058242851648861,
+        "value": 51,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Le sentiment est neutre (Fear & Greed à 51) avec une volatilité statistique faible (z-score -2.06). Absence de données significatives dans les titres Google Actualités pour détecter une divergence majeure. Les baleines restent en observation.\"\n}\n```",
+        "ts": 1789558551.796796
       },
       "fiche": null,
       "interpretation": {
@@ -20,18 +20,42 @@
     },
     {
       "signal": {
-        "metric": "fear_greed",
-        "zscore": -2.2085178333914723,
-        "value": 51,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Indice de peur et d'avidité neutre (51) avec un z-score fortement négatif (-2.21) indiquant une anomalie statistique de volatilité ou de volume, mais le manque de titres médiatiques significatifs montre un vide informationnel. Pas de mouvement de baleine détectable sans données de flux net des exchanges.\"\n}\n```",
-        "ts": 1789556743.118192
+        "metric": "ipt",
+        "zscore": 2.4211746754994086,
+        "value": 1.184,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit de fond absolu. L'indicateur capte le ticker 'IPT' qui est ici totalement parasité par des homonymes institutionnels et académiques (Tournoi International des Physiciens, Institut Protestant de Théologie). Aucune baleine crypto détectée, simple collision de mots-clés dans les flux RSS.\"\n}\n```",
+        "ts": 1789559455.006052
       },
-      "fiche": null,
+      "fiche": "rbf_eleve",
+      "questions": {
+        "prix": {
+          "value": 0.33,
+          "seuil": 1,
+          "depasse": false
+        },
+        "paires": {
+          "value": null,
+          "seuil": 3,
+          "depasse": false
+        },
+        "funding": {
+          "value": 4.9e-05,
+          "seuil": 0.001,
+          "depasse": false
+        },
+        "whales": {
+          "value": 1,
+          "seuil": 5,
+          "depasse": false
+        }
+      },
       "interpretation": {
-        "lecture": "Pas de fiche disponible",
-        "niveau": "inconnu"
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
       },
-      "action": "Observer"
+      "action": "Observer",
+      "niveau": "neutre"
     }
   ],
   "resume": "🔵 CALME — pas de signal alarmant"
