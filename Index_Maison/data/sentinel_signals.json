@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "long_short",
-      "zscore": 2.002331443404355,
-      "value": 1.788,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Le ratio Long/Short atteint un z-score extrême de 2.00 (1.788), indiquant une surconcentration massive de positions acheteuses par les traders particuliers. Pendant ce temps, le narratif médiatique fait écho à des produits financiers traditionnels 'long-short', créant une distorsion psychologique. Historiquement, un déséquilibre aussi prononcé des positions longues précède des 'long squeezes' brutaux orchestrés par les baleines.\"\n}\n```",
-      "ts": "2026-09-15T16:37:38.629030+00:00"
-    },
-    {
       "metric": "volume",
       "zscore": 2.002684530570746,
       "value": 14712552301.0,
@@ -349,6 +342,13 @@
       "value": 1.302,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Bruit médiatique sans rapport avec la crypto. 'IPT' fait référence à des tournois de physique, des institutions ou des actualités religieuses/sportives, et non à un actif numérique ou à un mouvement de baleines.\"\n}\n```",
       "ts": "2026-09-16T19:07:55.128129+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.028055073991926,
+      "value": 1.24,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.03) due à une collision de noms (sigle 'IPT' partagé avec des actualités académiques et religieuses sans lien avec la crypto). Aucune baleine détectée.\"\n}\n```",
+      "ts": "2026-09-16T19:48:02.546818+00:00"
     }
   ]
 }

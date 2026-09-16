@@ -1,5 +1,5 @@
 {
-  "ts": "2026-09-16T19:12:31.423836+00:00",
+  "ts": "2026-09-16T20:12:53.543932+00:00",
   "mode": "actif",
   "tip": "mempool.space + scan local",
   "zscores": 100.0,
@@ -7,17 +7,17 @@
     "carte1_zscore": {
       "declenche": true,
       "score": 100.0,
-      "detail": "z=11.36 (seuil 3.0) | max aujourd'hui 21334 BTC (plancher 500) | normale 7j 4363.7 ± 1494.1"
+      "detail": "z=11.36 (seuil 3.0) | max aujourd'hui 21334 BTC (plancher 500) | normale 7j 4363.6 ± 1494.1"
     },
     "carte2_cpfp": {
       "declenche": false,
       "score": 0.0,
-      "detail": "frais 3 sat/vB > 1.5× médiane 7j — creusage (signature CPFP enfant ≥20×) — aucun enfant suspect"
+      "detail": "frais 5 sat/vB > 1.5× médiane 7j — creusage (signature CPFP enfant ≥20×) — aucun enfant suspect"
     },
     "carte3_poussiere": {
       "declenche": true,
-      "score": 30.0,
-      "detail": "poussière <4.5 sat/vB (normalisé minFee 3×1.5) : 6/10 vues ce run, 1015 cumulées 48h (seuil 1000) — max 0.0033 BTC"
+      "score": 50.0,
+      "detail": "poussière <7.5 sat/vB (normalisé minFee 5×1.5) : 10/10 vues ce run, 1019 cumulées 48h (seuil 1000) — max 0.0021 BTC"
     }
   },
   "declenche_global": false,
@@ -27,9 +27,9 @@
   },
   "confirmation": 0,
   "calibration": {
-    "mediane_frais": 3.0,
-    "moyenne_7j": 4363.66,
-    "sigma": 1494.08,
+    "mediane_frais": 5.0,
+    "moyenne_7j": 4363.63,
+    "sigma": 1494.09,
     "max_dust": 0.0
   }
 }
