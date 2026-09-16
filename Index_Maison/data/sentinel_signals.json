@@ -2,20 +2,6 @@
   "signals": [
     {
       "metric": "long_short",
-      "zscore": 2.4357676053670416,
-      "value": 1.747,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Z-score élevé (2.44) sur le ratio long/short (1.747) indiquant un positionnement excessivement haussier de la foule. Cette euphorie retail coïncide avec des gros titres médiatiques sur l'explosion du XRP, agissant comme un signal classique de surchauffe et un piège à acheteurs parfait pour les baleines.\"\n}\n```",
-      "ts": "2026-09-15T14:15:45.439055+00:00"
-    },
-    {
-      "metric": "price_1h",
-      "zscore": 3.198312972553253,
-      "value": 0.6470438759620945,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Significant on-chain price anomaly (z-score 3.20) suggests whale activity, while media narrative remains silent or disconnected, indicating potential accumulation phase.\"\n}\n```",
-      "ts": "2026-09-15T14:35:52.957702+00:00"
-    },
-    {
-      "metric": "long_short",
       "zscore": 2.2702184450612837,
       "value": 1.747,
       "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Z-score élevé (2.27) sur le ratio long/short (1.747) couplé à une euphorie médiatique générale sur les stratégies long-short traditionnelles. Divergence classique de sommet : surexposition des acheteurs particuliers pendant que l'Smart Money s'apprête à purger l'excès de levier.\"\n}\n```",
@@ -349,6 +335,20 @@
       "value": 1.364,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio élevé (z-score 2.13) indique une forte agression acheteuse sur les carnets d'ordres, signalant une accumulation agressive par les \"smart money\". En l'absence de narratif médiatique majeur (silence radio de Google Actualités), cette pression d'achat reste invisible pour le grand public, confirmant une entrée silencieuse des baleines avant un potentiel mouvement de hausse.\"\n}\n```",
       "ts": "2026-09-16T12:05:59.100690+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 2.5029546177207624,
+      "value": 2986503.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Significant whale activity (z-score 2.5) contrasts with neutral media narrative, suggesting accumulation phase.\"\n}\n```",
+      "ts": "2026-09-16T12:26:03.570143+00:00"
+    },
+    {
+      "metric": "taker_ratio",
+      "zscore": 2.0303073151424518,
+      "value": 1.364,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio élevé (z-score 2.03) indique une forte agression acheteuse sur les carnets d'ordres, prouvant une accumulation agressive et silencieuse des baleines, totalement ignorée ou absente des grands flux médiatiques actuels.\"\n}\n```",
+      "ts": "2026-09-16T12:36:07.167901+00:00"
     }
   ]
 }

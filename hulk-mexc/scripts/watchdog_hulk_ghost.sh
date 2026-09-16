@@ -78,4 +78,14 @@ if [ -n "$st" ]; then
   log "PAPER_STATE $(basename "$st") age=${age}s"
 fi
 
+# FIX 16/09 (F1, GO C.) : pouls à chemin FIXE pour le chien de garde.
+# Avant : le registre organes pointait sur le CSV du run daté (PAPER_V1_20260910_145101.csv),
+# périmé à chaque nouveau run → le chien criait "30 h" sur un watchdog VIVANT (R1+R3).
+# Le pouls vit désormais à chemin fixe, dialecte ISO "dernier_battement" (le chien
+# lit pouls_direct : datetime.fromisoformat sur ce champ). Écriture atomique.
+POULS="$HOME/ace777-test-day1/Index_Maison/pouls/hulk-watchdog.json"
+POULS_TMP="$POULS.tmp$$"
+printf '{"organe": "hulk-watchdog", "dernier_battement": "%s", "ok": true}\n' \
+  "$(date -u +%Y-%m-%dT%H:%M:%S+00:00)" > "$POULS_TMP" && mv "$POULS_TMP" "$POULS"
+
 log "CHECK_DONE"
