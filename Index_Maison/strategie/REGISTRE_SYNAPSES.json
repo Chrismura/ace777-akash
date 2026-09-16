@@ -1,6 +1,6 @@
 {
  "version": "1.4.7",
- "updated": "2026-09-16T08:43:18Z",
+ "updated": "2026-09-16T09:22:23Z",
  "fichier": [
   {
    "nom": "hulk-mexc/scripts/paper_diprip.py",
@@ -370,9 +370,9 @@
    "origine": "25/08 PIPELINE UNIFIÉ — branché 27/08",
    "verif": "md5",
    "auto_modifiable": false,
-   "md5": "f6810687dbe7d0f26fd7877d977b9aaf",
-   "note": "FIX 27/08 : crash TypeError ts str (sentinelle écrit ts ISO, l'analyzer faisait now - str) → normalisation _to_epoch (les 2 formats). Plist com.ace777.cortana-analyzer (300s). | 13/09: ARBITRAGE LLM-vs-RÈGLE (GO C.) — LLM neutral conf>=60 désamorce le 'dangereux' mécanique (jamais 'critique'); politique mesurée 14 j (critère 27/09: si un vrai danger passe inaperçu → retrait).",
-   "maj": "16/09 (GO C. « go » protocole SDI) : mapping sdi→fiche dédiée sdi_eleve (avant rbf_eleve, faux 🔴 sur divergence sentiment) + source sdi.fee_fastest_sat évaluée + guards None prix. Fiche sdi_eleve.json créée (seuil d'origine 0,7 du 25/08). Par Buffy."
+   "md5": "e69834ec305b6406be78e6a22dff4008",
+   "note": "FIX 27/08 : crash TypeError ts str (sentinelle écrit ts ISO, l'analyzer faisait now - str) → normalisation _to_epoch (les 2 formats). Plist com.ace777.cortana-analyzer (300s). | 13/09: ARBITRAGE LLM-vs-RÈGLE (GO C.) — LLM neutral conf>=60 désamorce le 'dangereux' mécanique (jamais 'critique'); politique mesurée 14 j (critère 27/09: si un vrai danger passe inaperçu → retrait). | 16/09 : fix NoneType prix + mapping sdi_eleve (matin) puis C1/C2/C3 (après-midi).",
+   "maj": "16/09 après-midi (GO C. « go » C1+C2+C3) : C1 triggers réellement vérifiés contre la valeur du signal (_evaluer_trigger, alias rbf_score/sdi/global_score/taux_fantome) — le champ trigger n'était DÉCORATIF depuis le 27/08 ; C2 défaut neutre explicite (avant : 1re interprétation = sdi_eleve dangereux / binance_timeout critique) ; C3 health_degrade câblé (questions sources/mode + conditions source == évaluées contre pipeline_health.sources — KILL SWITCH critique UNIQUEMENT si binance <0,5). 8 tests dont négatifs verts. Par Buffy."
   },
   {
    "nom": "hulk-mexc/strategie/universe_profils.json",

@@ -1,31 +1,31 @@
 {
-  "timestamp": 1789549042,
-  "date": "2026-09-16T08:57:22.388978+00:00",
-  "n_analyses": 2,
+  "timestamp": 1789553543,
+  "date": "2026-09-16T10:12:23.838722+00:00",
+  "n_analyses": 3,
   "analyses": [
     {
       "signal": {
-        "metric": "sdi",
-        "zscore": 3.866551128875062,
-        "value": 0.604,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Anomalie statistique (z-score 3.87) due à une collision lexicale : le token 'SDI' (crypto) est totalement confondu dans les flux médiatiques avec le syndicat français 'SDI' (Syndicat des Indépendants) et la norme vidéo 'SDI'. Aucune activité de baleine crypto détectée.\"\n}\n```",
-        "ts": 1789547378.134002
+        "metric": "ipt",
+        "zscore": 2.4982205538441744,
+        "value": 1.186,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Fausse alerte liée à une collision de sémantique (homonymie) : l'anomalie onchain concerne un token/actif nommé 'IPT', tandis que les actualités font référence au Tournoi International des Physiciens et à des institutions. Aucune baleine crypto active détectée, le bruit médiatique est totalement déconnecté du domaine crypto.\"\n}\n```",
+        "ts": 1789552515.810337
       },
-      "fiche": "sdi_eleve",
+      "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.07,
+          "value": -0.01,
           "seuil": 1,
           "depasse": false
         },
-        "rbf": {
-          "value": 0.0,
-          "seuil": 0.6,
+        "paires": {
+          "value": null,
+          "seuil": 3,
           "depasse": false
         },
-        "fees": {
-          "value": 2,
-          "seuil": 20,
+        "funding": {
+          "value": 2.1e-05,
+          "seuil": 0.001,
           "depasse": false
         },
         "whales": {
@@ -35,21 +35,35 @@
         }
       },
       "interpretation": {
-        "condition": "prix < 2%",
-        "lecture": "Mouvement froid — divergence élevée mais frais au plancher : redistribution patiente (OID/ETF), pas de panique. À croiser avec le sniffer vieux BTC",
-        "niveau": "surveiller",
-        "action": "Surveiller le sniffer vieux BTC, ne pas surréagir"
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
       },
-      "action": "Surveiller le sniffer vieux BTC, ne pas surréagir",
-      "niveau": "surveiller"
+      "action": "Observer",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "sdi",
+        "zscore": 2.7151440555931625,
+        "value": 0.62,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Anomalie de données non pertinente : le signal fait référence au Syndicat des Indépendants (SDI) français et à l'industrie audiovisuelle, sans aucun rapport avec la crypto-monnaie ou la blockchain.\"\n}\n```",
+        "ts": 1789552818.267949
+      },
+      "fiche": null,
+      "interpretation": {
+        "lecture": "Pas de fiche disponible",
+        "niveau": "inconnu"
+      },
+      "action": "Observer"
     },
     {
       "signal": {
         "metric": "fear_greed",
-        "zscore": -3.7626978003610794,
+        "zscore": -2.604569788618417,
         "value": 51,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Données incomplètes : absence de titres médiatiques concrets dans le flux Google Actualités pour valider une divergence exploitable, malgré une anomalie statistique significative du z-score.\"\n}\n```",
-        "ts": 1789547680.112818
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Indifférence médiatique totale (Google Actualités vide) couplée à une anomalie statistique majeure du z-score (-2.60) pour un Fear & Greed neutre (51). Les baleines accumulent dans l'angle mort du marché avant un réveil brutal de la volatilité.\"\n}\n```",
+        "ts": 1789553121.169961
       },
       "fiche": null,
       "interpretation": {
@@ -59,5 +73,5 @@
       "action": "Observer"
     }
   ],
-  "resume": "🟡 SURVEILLANCE — des signaux sont à observer"
+  "resume": "🔵 CALME — pas de signal alarmant"
 }

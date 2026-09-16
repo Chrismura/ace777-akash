@@ -94,7 +94,7 @@ def _evaluer_trigger(trigger, valeur_signal, live):
     m = re.match(r"^\s*([a-z_]+)\s*(>=|<=|>|<)\s*([0-9.]+)\s*(%?)\s*$", str(trigger))
     if not m:
         return False
-    champ, op, seuil_txt, pct = m.group(1), m.group(2), float(m.group(3)), m.group(4)
+    champ, op, seuil, pct = m.group(1), m.group(2), float(m.group(3)), m.group(4)
     # alias : champ du trigger → valeur mesurable
     if champ == "rbf_score":
         val = valeur_signal
@@ -240,21 +240,25 @@ def find_interpretation(fiche, question_results):
         elif "whales > 5" in condition:
             if question_results.get("whales", {}).get("value", 0) > 5:
                 return interp
-        elif "google_news" in condition:
-            # FIX 16/09 C3 : la condition google_news de health_degrade était jamais évaluée (pass)
-            if "source == google_news" in condition:
-                return interp
-        elif "source == binance" in condition:
-            # FIX 16/09 C3 : conditions health_degrade réellement évaluées
-            # (avant : pass — la fiche tombait toujours au défaut = binance_timeout critique !)
-            if "source == binance" in condition:
-                return interp
-        elif "source == deribit" in condition:
-            if "source == deribit" in condition:
-                return interp
-        elif "source == mempool" in condition:
-            if "source == mempool" in condition:
-                return interp
+        elif "source == " in condition:
+            # FIX 16/09 C3 : conditions health_degrade réellement évaluées contre pipeline_health.sources
+            # (avant : pass — binance_timeout CRITIQUE sortait pour N'IMPORTE quelle panne)
+            msrc = re.search(r"source == (\w+)", condition)
+            if msrc:
+                nom_source = msrc.group(1)
+                ph = (_LIVE_COURANT or {}).get("pipeline_health", {}) or {}
+                info = (ph.get("sources", {}) or {}).get(nom_source, {})
+                score_src = info.get("score") if isinstance(info, dict) else None
+                en_panne = isinstance(score_src, (int, float)) and score_src < 0.5
+                if "score < 0.5" in condition:
+                    # critique/degrade exige une VRAIE panne de CETTE source
+                    if en_panne:
+                        return interp
+                else:
+                    # conditions sans seuil (google_news) : panne = score < 0,8 OU issues
+                    issues = info.get("issues") if isinstance(info, dict) else None
+                    if en_panne or issues:
+                        return interp
     
     # FIX 16/09 C2 (GO C.) : le défaut « 1re interprétation du JSON » était la porte d'entrée du rouge
     # (rbf_eleve → sdi_eleve dangereux · health_degrade → binance_timeout CRITIQUE KILL SWITCH).

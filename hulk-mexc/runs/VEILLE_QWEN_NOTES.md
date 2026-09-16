@@ -4401,3 +4401,11 @@ Pas d’ordre — confrontation plus tard.
 ### 2026-09-16T08:13:38Z — ALERT auto
 - RIZEUSDT: IMPULSE_WAIT — spike en cours, pas chase
 (compléter: confirmé ? risque ?)
+
+### 2026-09-16T09:21:26Z — ALERT auto
+- RIZEUSDT: IMPULSE_WAIT — spike en cours, pas chase
+(compléter: confirmé ? risque ?)
+
+### 2026-09-16T09:39:10Z — ALERT auto
+- REDUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)

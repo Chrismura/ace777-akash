@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-16T09:12:55.283972+00:00",
+  "generated_at": "2026-09-16T10:12:47.959182+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 61
+      "calls_24h": 94
     },
     {
       "id": "openrouter-free",
@@ -197,7 +197,7 @@
       "model": "deepseek-ai/DeepSeek-V3-0324",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 12
+      "calls_24h": 9
     },
     {
       "id": "obs-1787033767",
@@ -233,7 +233,7 @@
       "model": "orcarouter/free",
       "enabled": true,
       "timeout": 60,
-      "calls_24h": 0
+      "calls_24h": 2
     },
     {
       "id": "obs-1787724924",
@@ -265,36 +265,12 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 16,
-    "remaining": 608
+    "consumed": 52,
+    "remaining": 572
   },
   "queue": [
     {
-      "ts": "2026-09-16T09:04:53.786753+00:00",
-      "task": "analyse.profonde",
-      "provider": "huggingface",
-      "model": "deepseek-ai/DeepSeek-V3-0324",
-      "kind": "cloud",
-      "duration_s": 2.94
-    },
-    {
-      "ts": "2026-09-16T09:04:50.521630+00:00",
-      "task": "analyse.profonde",
-      "provider": "huggingface",
-      "model": "deepseek-ai/DeepSeek-V3-0324",
-      "kind": "cloud",
-      "duration_s": 3.26
-    },
-    {
-      "ts": "2026-09-16T08:59:46.127159+00:00",
-      "task": "analyse.profonde",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 1.2
-    },
-    {
-      "ts": "2026-09-16T08:34:40.111700+00:00",
+      "ts": "2026-09-16T10:05:21.169036+00:00",
       "task": "analyse.profonde",
       "provider": "gemini",
       "model": "gemini-flash-lite-latest",
@@ -302,7 +278,47 @@
       "duration_s": 0.97
     },
     {
-      "ts": "2026-09-16T08:29:38.133142+00:00",
+      "ts": "2026-09-16T10:00:18.267177+00:00",
+      "task": "analyse.profonde",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 1.25
+    },
+    {
+      "ts": "2026-09-16T09:55:15.809179+00:00",
+      "task": "analyse.profonde",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 1.32
+    },
+    {
+      "ts": "2026-09-16T09:36:13.484778+00:00",
+      "task": "analyste.strategie",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 0.88
+    },
+    {
+      "ts": "2026-09-16T09:35:52.311512+00:00",
+      "task": "analyste.strategie",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 0.91
+    },
+    {
+      "ts": "2026-09-16T09:35:31.120535+00:00",
+      "task": "analyste.strategie",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 0.92
+    },
+    {
+      "ts": "2026-09-16T09:35:11.505841+00:00",
       "task": "analyse.profonde",
       "provider": "gemini",
       "model": "gemini-flash-lite-latest",
@@ -310,146 +326,130 @@
       "duration_s": 0.99
     },
     {
-      "ts": "2026-09-16T08:13:05.661665+00:00",
-      "task": "supervise.decision",
+      "ts": "2026-09-16T09:35:09.889342+00:00",
+      "task": "analyste.strategie",
       "provider": "gemini",
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
-      "duration_s": 0.78
+      "duration_s": 0.81
     },
     {
-      "ts": "2026-09-16T08:12:52.170930+00:00",
-      "task": "supervise.decision",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 0.8
-    },
-    {
-      "ts": "2026-09-16T08:04:32.883224+00:00",
-      "task": "analyse.profonde",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 1.07
-    },
-    {
-      "ts": "2026-09-16T07:59:30.989376+00:00",
-      "task": "analyse.profonde",
+      "ts": "2026-09-16T09:34:48.687505+00:00",
+      "task": "analyste.strategie",
       "provider": "gemini",
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
       "duration_s": 0.96
     },
     {
-      "ts": "2026-09-16T07:34:26.327514+00:00",
-      "task": "analyse.profonde",
+      "ts": "2026-09-16T09:34:27.418107+00:00",
+      "task": "analyste.strategie",
       "provider": "gemini",
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
-      "duration_s": 1.04
+      "duration_s": 0.86
     },
     {
-      "ts": "2026-09-16T07:29:24.465193+00:00",
-      "task": "analyse.profonde",
+      "ts": "2026-09-16T09:34:06.132107+00:00",
+      "task": "analyste.strategie",
       "provider": "gemini",
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
-      "duration_s": 0.84
+      "duration_s": 0.8
     },
     {
-      "ts": "2026-09-16T07:19:31.455337+00:00",
-      "task": "cortana.analyse",
+      "ts": "2026-09-16T09:33:45.025178+00:00",
+      "task": "analyste.strategie",
       "provider": "gemini",
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
-      "duration_s": 3.12
+      "duration_s": 0.88
     },
     {
-      "ts": "2026-09-16T07:12:50.847229+00:00",
-      "task": "supervise.decision",
+      "ts": "2026-09-16T09:33:23.789622+00:00",
+      "task": "analyste.strategie",
       "provider": "gemini",
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
-      "duration_s": 1.16
+      "duration_s": 0.79
     },
     {
-      "ts": "2026-09-16T07:12:49.983762+00:00",
-      "task": "supervise.decision",
+      "ts": "2026-09-16T09:33:02.732406+00:00",
+      "task": "analyste.strategie",
       "provider": "gemini",
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
-      "duration_s": 1.23
+      "duration_s": 0.96
     },
     {
-      "ts": "2026-09-16T07:04:17.307558+00:00",
-      "task": "analyse.profonde",
+      "ts": "2026-09-16T09:32:41.380623+00:00",
+      "task": "analyste.strategie",
       "provider": "gemini",
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
-      "duration_s": 1.08
+      "duration_s": 0.91
     }
   ],
   "events": [
     {
-      "ts": "2026-09-16T09:12:53.899319+00:00",
+      "ts": "2026-09-16T10:05:21.168480+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
+    {
+      "ts": "2026-09-16T10:05:20.197840+00:00",
+      "kind": "blacklist",
+      "title": "Fin de pause Google Gemini",
+      "detail": "re-essai automatique"
+    },
+    {
+      "ts": "2026-09-16T10:01:32.981037+00:00",
       "kind": "http",
       "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
       "detail": ""
     },
     {
-      "ts": "2026-09-16T09:12:53.898545+00:00",
+      "ts": "2026-09-16T10:01:32.980281+00:00",
       "kind": "error",
       "title": "Toutes les IA ont echoue",
-      "detail": "Google Gemini: HTTP Error 429: Too Many Requests | Groq (LLM ultra-rapide, gratuit): blacklist du jour (saute) | HuggingFace (136+ modeles, dont DeepSeek-V4): HTTP Error 402: Payment Required | OrcaRouter (routeur gratuit, modele orcarouter/free): HTTP Error 400: Bad Request | OpenRouter Juge (nemotron-3-super-120b free) - verificateur independant: HTTP Error 400: Bad Request | InferX DeepSeek V4 Flash (API gratuite jusqu'au 12/08): HTTP Error 429: Too Many Requests | InferX Qwen3-Coder-Next (co"
+      "detail": "Google Gemini: HTTP Error 429: Too Many Requests | Groq (LLM ultra-rapide, gratuit): blacklist du jour (saute) | HuggingFace (136+ modeles, dont DeepSeek-V4): HTTP Error 400: Bad Request | OrcaRouter (routeur gratuit, modele orcarouter/free): HTTP Error 400: Bad Request | OpenRouter Juge (nemotron-3-super-120b free) - verificateur independant: HTTP Error 400: Bad Request | InferX DeepSeek V4 Flash (API gratuite jusqu'au 12/08): HTTP Error 429: Too Many Requests | InferX Qwen3-Coder-Next (code, g"
     },
     {
-      "ts": "2026-09-16T09:12:53.895398+00:00",
+      "ts": "2026-09-16T10:01:32.976869+00:00",
       "kind": "failover",
       "title": "Bascule depuis InferX Devstral-2-123B (code)",
       "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-09-16T09:12:49.387397+00:00",
+      "ts": "2026-09-16T10:01:28.674048+00:00",
       "kind": "failover",
       "title": "Bascule depuis NVIDIA DeepSeek-Coder 6.7B (code, via NIM)",
       "detail": "HTTP Error 404: Not Found"
     },
     {
-      "ts": "2026-09-16T09:12:47.269635+00:00",
+      "ts": "2026-09-16T10:01:26.572901+00:00",
       "kind": "failover",
       "title": "Bascule depuis Puter Grok (gratuit)",
       "detail": "HTTP Error 402: Payment Required"
     },
     {
-      "ts": "2026-09-16T09:12:46.610118+00:00",
+      "ts": "2026-09-16T10:01:25.935872+00:00",
       "kind": "failover",
       "title": "Bascule depuis InferX Qwen3-Coder-Next (code, gratuit jusqu'au 12/08)",
       "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-09-16T09:12:42.269157+00:00",
+      "ts": "2026-09-16T10:01:24.810772+00:00",
       "kind": "failover",
       "title": "Bascule depuis InferX DeepSeek V4 Flash (API gratuite jusqu'au 12/08)",
       "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-09-16T09:12:37.638956+00:00",
+      "ts": "2026-09-16T10:01:20.752248+00:00",
       "kind": "failover",
       "title": "Bascule depuis OpenRouter Juge (nemotron-3-super-120b free) - verificateur independant",
       "detail": "HTTP Error 400: Bad Request"
-    },
-    {
-      "ts": "2026-09-16T09:12:36.849236+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis OrcaRouter (routeur gratuit, modele orcarouter/free)",
-      "detail": "HTTP Error 400: Bad Request"
-    },
-    {
-      "ts": "2026-09-16T09:12:35.528213+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis HuggingFace (136+ modeles, dont DeepSeek-V4)",
-      "detail": "HTTP Error 402: Payment Required"
     }
   ],
   "tasks_quotas": {

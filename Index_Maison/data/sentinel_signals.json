@@ -1,41 +1,6 @@
 {
   "signals": [
     {
-      "metric": "whale_usd",
-      "zscore": 3.1486775968386937,
-      "value": 4948551.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (3.15) couplé à une absence totale de couverture médiatique (silence radio sur Google Actualités). C'accumulation furtive typique des baleines loin du bruit de fond retail.\"\n}\n```",
-      "ts": "2026-09-15T06:28:49.546140+00:00"
-    },
-    {
-      "metric": "price_1h",
-      "zscore": 2.626309944089912,
-      "value": 0.5410748981974689,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique mineure (z-score 2.63) sur une base de données sans couverture médiatique significative pour corroborer un mouvement de baleines.\"\n}\n```",
-      "ts": "2026-09-15T06:53:53.268986+00:00"
-    },
-    {
-      "metric": "whale_usd",
-      "zscore": 2.5741130953211107,
-      "value": 4628949.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Significant whale activity (z-score 2.57) suggests accumulation or strategic positioning not reflected in current media narratives, indicating potential bullish divergence.\"\n}\n```",
-      "ts": "2026-09-15T09:19:18.598160+00:00"
-    },
-    {
-      "metric": "long_short",
-      "zscore": 2.054498859623956,
-      "value": 1.577,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Le ratio long/short atteint un z-score élevé de 2.05 (excès d'optimisme spéculatif), tandis que le narratif médiatique fait diversion en vantant des produits financiers traditionnels (fonds long-short, fiscalité). Les baleines se positionnent massivement à l'achat avec un déséquilibre dangereux, préfigurant une purge imminente des positions longues.\"\n}\n```",
-      "ts": "2026-09-15T10:04:26.016481+00:00"
-    },
-    {
-      "metric": "long_short",
-      "zscore": 2.0012280720512807,
-      "value": 1.577,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Le z-score du ratio long/short à 2.00 indique un posicionnement excessivement haussier des traders particuliers (FOMO), tandis que le narratif médiatique pousse massivement vers des produits structurés traditionnels. Cette sur-concentration de positions acheteuses sans soutien on-chain institutionnel est un signal classique de piège à liquidité (squeeze potentiel).\"\n}\n```",
-      "ts": "2026-09-15T10:34:31.157939+00:00"
-    },
-    {
       "metric": "long_short",
       "zscore": 2.3789515500032983,
       "value": 1.634,
@@ -349,6 +314,41 @@
       "value": 51,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 75,\n  \"reason\": \"La peur médiatique (z-score -3.24) contraste avec un indice fear_greed neutre (51), suggérant une accumulation silencieuse par les baleines pendant que le retail panique.\"\n}\n```",
       "ts": "2026-09-16T09:04:53.788058+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 2.924420058697559,
+      "value": 0.604,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (SDI) confondue avec un acronyme homonyme dans l'actualité (Syndicat des Indépendants en France). Aucune donnée on-chain ou crypto pertinente à analyser.\"\n}\n```",
+      "ts": "2026-09-16T09:30:09.633297+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -2.8792920276771445,
+      "value": 51,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-2.88) pour un Indice de Peur et de Greffe neutre (51). Les médias n'en parlent pas ('Google Actualités' vide), ce qui indique une accumulation silencieuse des baleines sous le radar public avant une rupture de volatilité.\"\n}\n```",
+      "ts": "2026-09-16T09:35:11.507296+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.4982205538441744,
+      "value": 1.186,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Fausse alerte liée à une collision de sémantique (homonymie) : l'anomalie onchain concerne un token/actif nommé 'IPT', tandis que les actualités font référence au Tournoi International des Physiciens et à des institutions. Aucune baleine crypto active détectée, le bruit médiatique est totalement déconnecté du domaine crypto.\"\n}\n```",
+      "ts": "2026-09-16T09:55:15.810337+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 2.7151440555931625,
+      "value": 0.62,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Anomalie de données non pertinente : le signal fait référence au Syndicat des Indépendants (SDI) français et à l'industrie audiovisuelle, sans aucun rapport avec la crypto-monnaie ou la blockchain.\"\n}\n```",
+      "ts": "2026-09-16T10:00:18.267949+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -2.604569788618417,
+      "value": 51,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Indifférence médiatique totale (Google Actualités vide) couplée à une anomalie statistique majeure du z-score (-2.60) pour un Fear & Greed neutre (51). Les baleines accumulent dans l'angle mort du marché avant un réveil brutal de la volatilité.\"\n}\n```",
+      "ts": "2026-09-16T10:05:21.169961+00:00"
     }
   ]
 }

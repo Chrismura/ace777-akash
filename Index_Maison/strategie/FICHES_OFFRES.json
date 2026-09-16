@@ -12,7 +12,8 @@
     "2026-08-28": 8,
     "2026-09-05": 8,
     "2026-09-10": 8,
-    "2026-09-11": 8
+    "2026-09-11": 8,
+    "2026-09-16": 8
   },
   "fiches": {
     "32f5f333ea5d": {
@@ -1947,6 +1948,149 @@
       "usage": "analyste.strategie ou audit.protocol en tant que fournisseur de repli",
       "avis_pour": "Parfait pour intégrer rapidement un moteur de secours ultra-rapide compatible OpenAI sans modifier la structure du code.",
       "avis_attention": "Attention aux limites de taux (rate limits) de la formule gratuite lors de pics d'activité des bots."
+    },
+    "8be54f461bfc": {
+      "section": "openrouter (:free)",
+      "item": "ERR: <urlopen error [Errno 8] nodename nor servname provided, or",
+      "generated": "2026-09-16T09:29:10.276126+00:00",
+      "type": "Passerelle multi-fournisseurs avec accès à des modèles gratuits pour le développement et les tests",
+      "forts": [
+        "Accès unifié à plusieurs modèles gratuits via une seule API",
+        "Idéal pour prototyper sans frais",
+        "Permet de tester des modèles alternatifs facilement"
+      ],
+      "faibles": [
+        "Disponibilité des modèles gratuits parfois fluctuante",
+        "Limites de taux (rate limits) possibles sur les versions gratuites",
+        "Erreurs réseau potentielles signalées lors de la veille"
+      ],
+      "usage": "chatur ou tests exploratoires pour la veille et le prototypage",
+      "avis_pour": "C'est un excellent moyen d'expérimenter une grande variété de modèles sans impacter le budget cloud.",
+      "avis_attention": "Attention à la stabilité des endpoints gratuits pour des tâches critiques de production comme les scripts autonomes."
+    },
+    "1e16c6326ff4": {
+      "section": "nvidia",
+      "item": "ERR: <urlopen error [Errno 8] nodename nor servname provided, or",
+      "generated": "2026-09-16T09:29:31.919196+00:00",
+      "type": "Fournisseur d'infrastructure et de modèles d'IA",
+      "forts": [
+        "Calcul haute performance",
+        "Outils de développement reconnus",
+        "Modèles puissants"
+      ],
+      "faibles": [
+        "Erreur de résolution réseau détectée dans le contexte actuel",
+        "Documentation parfois technique pour débutant"
+      ],
+      "usage": "analyste",
+      "avis_pour": "À explorer pour sa puissance de calcul et ses modèles de pointe dès que l'accès réseau sera rétabli.",
+      "avis_attention": "Attention aux erreurs de connexion temporaires et à la complexité de prise en main initiale."
+    },
+    "d201c4ff230e": {
+      "section": "inferx",
+      "item": "ERR: <urlopen error [Errno 8] nodename nor servname provided, or",
+      "generated": "2026-09-16T09:29:53.606054+00:00",
+      "type": "Fournisseur d'infrastructure ou modèle IA non joignable pour le moment",
+      "forts": [
+        "Nom repéré dans les flux de veille",
+        "Potentielle alternative cloud"
+      ],
+      "faibles": [
+        "Erreur de résolution réseau (DNS/URL injoignable)",
+        "Aucune spécificité technique vérifiable"
+      ],
+      "usage": "Inutilisable en l'état (aucun routage possible)",
+      "avis_pour": "À garder sous le coude si l'URL redevient active pour tester de nouveaux endpoints.",
+      "avis_attention": "L'API est actuellement injoignable, ne pas l'intégrer dans les routes critiques."
+    },
+    "720fa628ad53": {
+      "section": "rss (simonwillison/latent/batch)",
+      "item": "obs-1786774656 (nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free) : 40% erreurs > 5% (observatoire)",
+      "generated": "2026-09-16T09:30:15.170232+00:00",
+      "type": "Modèle de raisonnement expérimental gratuit via OpenRouter",
+      "forts": [
+        "Gratuit sur l'infrastructure OpenRouter",
+        "Pensé pour le raisonnement et les tâches logiques"
+      ],
+      "faibles": [
+        "Taux d'erreur élevé mesuré à 40%",
+        "Fiabilité insuffisante pour des scripts critiques en production"
+      ],
+      "usage": "analyste",
+      "avis_pour": "À tester pour des analyses exploratoires légères sans enjeu critique grâce à son accès gratuit.",
+      "avis_attention": "Attention au taux d'erreur élevé (>5%) qui nécessite une vérification systématique des résultats par un autre modèle."
+    },
+    "f2e5a28f5807": {
+      "section": "omniroute-free-tiers (43 pools)",
+      "item": "ERR: fetch (<urlopen error [Errno 8] nodename nor servname pro)",
+      "generated": "2026-09-16T09:30:36.695370+00:00",
+      "type": "Routeur d'API multi-fournisseurs avec offres gratuites (pools)",
+      "forts": [
+        "Permet de basculer entre plusieurs pools gratuits",
+        "Utile pour diversifier les sources d'inférence"
+      ],
+      "faibles": [
+        "Erreur réseau actuelle lors de la récupération (problème DNS/connexion)",
+        "Disponibilité et stabilité des pools tiers imprévisibles"
+      ],
+      "usage": "analyste",
+      "avis_pour": "À garder sous le coude pour tester des routages alternatifs si le réseau se rétablit.",
+      "avis_attention": "Attention aux erreurs de résolution réseau et à la fiabilité des pools gratuits."
+    },
+    "31c427867a78": {
+      "section": "free-ai-stuff (offres VERIFIEES)",
+      "item": "ERR: free-ai-stuff <urlopen error [Errno 8] nodename nor servname pro",
+      "generated": "2026-09-16T09:30:58.451245+00:00",
+      "type": "Répertoire communautaire de ressources et offres IA gratuites vérifiées",
+      "forts": [
+        "Liste d'outils et de modèles testés",
+        "Approche orientée vers la gratuité",
+        "Mises à jour régulières par la communauté"
+      ],
+      "faibles": [
+        "Problèmes temporaires de résolution réseau ou d'accès",
+        "Nécessite un tri manuel pour nos scripts Python",
+        "Informations parfois éparses"
+      ],
+      "usage": "analyste",
+      "avis_pour": "Utile pour découvrir de nouvelles pépites et modèles gratuits pour enrichir nos outils.",
+      "avis_attention": "Attention aux erreurs de connexion réseau et à la stabilité des services listés."
+    },
+    "168492c00650": {
+      "section": "github awesome lists",
+      "item": "awesome-freellm-apis: ERR: github <urlopen error [Errno 8] nodename nor servname provided, or",
+      "generated": "2026-09-16T09:31:20.545026+00:00",
+      "type": "Collection collaborative de listes de ressources et d'API de LLM gratuits",
+      "forts": [
+        "Répertorie de nombreuses ressources pour les développeurs",
+        "Axé sur les alternatives gratuites et l'accès aux LLM"
+      ],
+      "faibles": [
+        "Contenu potentiellement instable en raison des erreurs de récupération",
+        "Nécessite un tri manuel des liens valides"
+      ],
+      "usage": "lecteur signets",
+      "avis_pour": "Utile pour découvrir de nouvelles pistes d'API gratuites à intégrer dans l'écosystème.",
+      "avis_attention": "Attention aux liens morts ou aux offres obsolètes inhérentes à ce type de répertoire public."
+    },
+    "6c7df336d833": {
+      "section": "github awesome lists",
+      "item": "Free-LLM: ERR: github <urlopen error [Errno 8] nodename nor servname provided, or",
+      "generated": "2026-09-16T09:31:42.293189+00:00",
+      "type": "Ressource communautaire de listes de LLM gratuits",
+      "forts": [
+        "Recense de nombreuses ressources et modèles gratuits",
+        "Mis à jour par la communauté GitHub",
+        "Utile pour découvrir de nouvelles alternatives"
+      ],
+      "faibles": [
+        "Accès instable ou temporairement injoignable (erreur réseau)",
+        "Pas une API directe mais une liste de liens",
+        "Nécessite un tri manuel des offres valides"
+      ],
+      "usage": "analyste",
+      "avis_pour": "À explorer pour dénicher de nouvelles pistes gratuites et enrichir la veille technologique d'ACE777.",
+      "avis_attention": "Attention aux liens obsolètes et aux pannes d'accès réseau fréquentes sur ce type de dépôt communautaire."
     }
   }
 }
