@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "long_short",
-      "zscore": 2.2702184450612837,
-      "value": 1.747,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Z-score élevé (2.27) sur le ratio long/short (1.747) couplé à une euphorie médiatique générale sur les stratégies long-short traditionnelles. Divergence classique de sommet : surexposition des acheteurs particuliers pendant que l'Smart Money s'apprête à purger l'excès de levier.\"\n}\n```",
-      "ts": "2026-09-15T14:45:56.042624+00:00"
-    },
-    {
       "metric": "liquidations",
       "zscore": 2.43966272311447,
       "value": 5780159.0,
@@ -349,6 +342,13 @@
       "value": 1.364,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio élevé (z-score 2.03) indique une forte agression acheteuse sur les carnets d'ordres, prouvant une accumulation agressive et silencieuse des baleines, totalement ignorée ou absente des grands flux médiatiques actuels.\"\n}\n```",
       "ts": "2026-09-16T12:36:07.167901+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.1716013925243334,
+      "value": 1.114,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.17) sur le ticker 'ipt' totalement polluée par du bruit médiatique sans rapport avec la crypto (Institut Polytechnique de Paris, Premier Tech, etc.). Aucun mouvement de baleine avéré, simple collision lexicale.\"\n}\n```",
+      "ts": "2026-09-16T14:01:45.697877+00:00"
     }
   ]
 }

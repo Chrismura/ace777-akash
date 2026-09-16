@@ -1,7 +1,47 @@
 {
-  "timestamp": 1789564347,
-  "date": "2026-09-16T13:12:27.181617+00:00",
-  "n_analyses": 0,
-  "analyses": [],
-  "resume": "Aucune analyse en cours"
+  "timestamp": 1789567948,
+  "date": "2026-09-16T14:12:28.101557+00:00",
+  "n_analyses": 1,
+  "analyses": [
+    {
+      "signal": {
+        "metric": "ipt",
+        "zscore": 2.1716013925243334,
+        "value": 1.114,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.17) sur le ticker 'ipt' totalement polluée par du bruit médiatique sans rapport avec la crypto (Institut Polytechnique de Paris, Premier Tech, etc.). Aucun mouvement de baleine avéré, simple collision lexicale.\"\n}\n```",
+        "ts": 1789567305.697877
+      },
+      "fiche": "rbf_eleve",
+      "questions": {
+        "prix": {
+          "value": -0.14,
+          "seuil": 1,
+          "depasse": false
+        },
+        "paires": {
+          "value": null,
+          "seuil": 3,
+          "depasse": false
+        },
+        "funding": {
+          "value": 3.7e-05,
+          "seuil": 0.001,
+          "depasse": false
+        },
+        "whales": {
+          "value": 1,
+          "seuil": 5,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
+      },
+      "action": "Observer",
+      "niveau": "neutre"
+    }
+  ],
+  "resume": "🔵 CALME — pas de signal alarmant"
 }

@@ -91,7 +91,7 @@ def _evaluer_trigger(trigger, valeur_signal, live):
     """
     if not trigger:
         return False
-    m = re.match(r"^\s*([a-z_]+)\s*(>=|<=|>|<)\s*([0-9.]+)\s*(%?)\s*$", str(trigger))
+    m = re.match(r"^\s*([a-z_0-9]+)\s*(>=|<=|>|<)\s*(-?[0-9.]+)\s*(%?)\s*$", str(trigger))
     if not m:
         return False
     champ, op, seuil, pct = m.group(1), m.group(2), float(m.group(3)), m.group(4)
@@ -100,6 +100,10 @@ def _evaluer_trigger(trigger, valeur_signal, live):
         val = valeur_signal
     elif champ == "sdi":
         val = valeur_signal
+    elif champ == "z":
+        # FIX 16/09 (GO C., 6 fiches) : trigger z > 2 = ANOMALIE dans les DEUX sens
+        # (le z du fear_greed était négatif → un trigger z > 2 brut ne matchait jamais)
+        val = abs(valeur_signal) if isinstance(valeur_signal, (int, float)) else None
     elif champ == "global_score":
         val = (live.get("pipeline_health", {}) or {}).get("global_score")
     elif champ == "taux_fantome":
@@ -176,6 +180,17 @@ def evaluate_questions(fiche, live):
             value = live.get("funding", 0)
         elif source == "live.json → whaleN":
             value = live.get("whaleN", 0)
+        elif source.startswith("live.json → "):
+            # FIX 16/09 (GO C., 6 fiches) : source GÉNÉRIQUE en notation pointée
+            # (ex : 'live.json → liq24Usd', 'live.json → onchain.whaleDir', 'live.json → takerRatio')
+            chemin = source[len("live.json → "):].strip()
+            value = live
+            for part in chemin.split("."):
+                if isinstance(value, dict):
+                    value = value.get(part)
+                else:
+                    value = None
+                    break
         elif source == "bloc_privatise.json → volume_btc":
             value = oc.get("blocPrivatiseNbCachees", 0)
         elif "duree" in qid:
@@ -259,7 +274,22 @@ def find_interpretation(fiche, question_results):
                     issues = info.get("issues") if isinstance(info, dict) else None
                     if en_panne or issues:
                         return interp
-    
+        else:
+            # FIX 16/09 (GO C., 6 fiches) : évaluateur GÉNÉRIQUE 'qid op nombre' —
+            # couvre les conditions des nouvelles fiches (liq > 5000000, sens < -1,
+            # equilibre > 1, actuel < 1, cote > 0, cupidite > 75…) sans cas par cas.
+            mc = re.match(r"^\s*([a-z_0-9]+)\s*(>=|<=|>|<)\s*(-?[0-9.]+)\s*$", str(condition))
+            if mc:
+                qid_c, op_c, seuil_c = mc.group(1), mc.group(2), float(mc.group(3))
+                v_c = question_results.get(qid_c, {}).get("value")
+                if isinstance(v_c, (int, float)):
+                    ok_c = {
+                        ">": v_c > seuil_c, "<": v_c < seuil_c,
+                        ">=": v_c >= seuil_c, "<=": v_c <= seuil_c,
+                    }[op_c]
+                    if ok_c:
+                        return interp
+
     # FIX 16/09 C2 (GO C.) : le défaut « 1re interprétation du JSON » était la porte d'entrée du rouge
     # (rbf_eleve → sdi_eleve dangereux · health_degrade → binance_timeout CRITIQUE KILL SWITCH).
     # Si RIEN ne matche : neutre explicite, jamais de cri par défaut.
