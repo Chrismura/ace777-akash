@@ -1,7 +1,47 @@
 {
-  "timestamp": 1789592998,
-  "date": "2026-09-16T21:09:58.719799+00:00",
-  "n_analyses": 0,
-  "analyses": [],
-  "resume": "Aucune analyse en cours"
+  "timestamp": 1789596599,
+  "date": "2026-09-16T22:09:59.695997+00:00",
+  "n_analyses": 1,
+  "analyses": [
+    {
+      "signal": {
+        "metric": "ipt",
+        "zscore": 2.2499342527102875,
+        "value": 1.367,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (z-score 2.25) causée par une collision de mots-clés homonymes (IPT = Tournoi de Physique / Institut Protestant de Théologie) dans les médias, et non par une baleine crypto. Bruit de fond, aucune activité onchain pertinente.\"\n}\n```",
+        "ts": 1789596505.91561
+      },
+      "fiche": "rbf_eleve",
+      "questions": {
+        "prix": {
+          "value": -0.29,
+          "seuil": 1,
+          "depasse": false
+        },
+        "paires": {
+          "value": 1,
+          "seuil": 3,
+          "depasse": false
+        },
+        "funding": {
+          "value": 8.2e-05,
+          "seuil": 0.001,
+          "depasse": false
+        },
+        "whales": {
+          "value": 1,
+          "seuil": 5,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
+      },
+      "action": "Observer",
+      "niveau": "neutre"
+    }
+  ],
+  "resume": "🔵 CALME — pas de signal alarmant"
 }

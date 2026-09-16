@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "volume",
-      "zscore": 2.0821935256029502,
-      "value": 14835643440.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 82,\n  \"reason\": \"Z-score élevé (2.08) couplé à des volumes significatifs, alors que les médias grand public banalisent ou associent le mouvement à une 'faiblesse' ou une absence de direction. Divergence classique d'accumulation silencieuse par les baleines.\"\n}\n```",
-      "ts": "2026-09-15T17:37:54.081994+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": 2.4605976715044573,
-      "value": 15264343466.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 82,\n  \"reason\": \"Anomalie de volume on-chain massive (z-score 2.46) alors que les médias grand public banalisent la baisse ou parlent d'autres marchés, confirmant l'accumulation silencieuse des baleines signalée par CryptoQuant.\"\n}\n```",
-      "ts": "2026-09-15T18:07:59.675549+00:00"
-    },
-    {
       "metric": "ipt",
       "zscore": 2.4940160138996714,
       "value": 1.103,
@@ -349,6 +335,20 @@
       "value": 1.249,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.03) uniquement liée à une collision lexicale entre le ticker 'IPT' et des actualités institutionnelles sans rapport (Tournoi de Physique, faits divers, cyclisme). Aucun mouvement de baleine crypto détecté.\"\n}\n```",
       "ts": "2026-09-16T20:33:10.599161+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.2499342527102875,
+      "value": 1.367,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (z-score 2.25) causée par une collision de mots-clés homonymes (IPT = Tournoi de Physique / Institut Protestant de Théologie) dans les médias, et non par une baleine crypto. Bruit de fond, aucune activité onchain pertinente.\"\n}\n```",
+      "ts": "2026-09-16T22:08:25.915610+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 3.7657141448018607,
+      "value": 3241870.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 3.77, accumulation de ~3.24M USD) en absence totale de couverture médiatique (silence radio sur Google Actualités). Comportement typique d'accumulation furtive par des baleines avant un mouvement de marché.\"\n}\n```",
+      "ts": "2026-09-16T22:13:28.350042+00:00"
     }
   ]
 }
