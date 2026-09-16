@@ -154,7 +154,8 @@ def find_interpretation(fiche, question_results):
             if question_results.get("duree", {}).get("value", 0) > 10:
                 return interp
         elif "prix < 2%" in condition:
-            if abs(question_results.get("prix", {}).get("value", 0)) < 2:
+            _v = question_results.get("prix", {}).get("value")
+            if _v is not None and abs(_v) < 2:
                 return interp
         elif "sdi > 0.3" in condition:
             if question_results.get("sdi", {}).get("value", 0) > 0.3:
@@ -163,10 +164,14 @@ def find_interpretation(fiche, question_results):
             if question_results.get("rbf", {}).get("value", 0) > 0.6:
                 return interp
         elif "prix < -1%" in condition:
-            if question_results.get("prix", {}).get("value", 0) < -1:
+            # FIX 16/09 : value=None (question non répondue) rendait None < -1 → TypeError
+            # avalé plus haut, l'interprétation prix mourait en silence à chaque cycle.
+            _v = question_results.get("prix", {}).get("value")
+            if _v is not None and _v < -1:
                 return interp
         elif "prix > 1%" in condition:
-            if question_results.get("prix", {}).get("value", 0) > 1:
+            _v = question_results.get("prix", {}).get("value")
+            if _v is not None and _v > 1:
                 return interp
         elif "whales > 5" in condition:
             if question_results.get("whales", {}).get("value", 0) > 5:

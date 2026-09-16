@@ -1,20 +1,20 @@
 {
-  "timestamp": 1789542740,
-  "date": "2026-09-16T07:12:20.483687+00:00",
+  "timestamp": 1789546341,
+  "date": "2026-09-16T08:12:21.545384+00:00",
   "n_analyses": 2,
   "analyses": [
     {
       "signal": {
         "metric": "sdi",
-        "zscore": 133.4421581903519,
+        "zscore": 4.784134834708841,
         "value": 0.604,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Anomalie de faux positif : l'indicateur 'SDI' capte ici un acronyme journalistique et syndical (Syndicat des Indépendants en France / Serial Digital Interface) et non l'actif crypto ou une métrique de baleine on-chain. Aucune donnée crypto pertinente à analyser.\"\n}\n```",
-        "ts": 1789541955.368318
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Anomalie technique hors sujet : les données médiatiques font référence au 'Syndicat des Indépendants' (SDI) et à la technologie broadcast SDI, sans aucun rapport avec les cryptomonnaies ou des mouvements de baleines on-chain.\"\n}\n```",
+        "ts": 1789545570.990276
       },
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": 0.0,
+          "value": -0.27,
           "seuil": 1,
           "depasse": false
         },
@@ -24,7 +24,7 @@
           "depasse": false
         },
         "funding": {
-          "value": 4.8e-05,
+          "value": 2.2e-05,
           "seuil": 0.001,
           "depasse": false
         },
@@ -46,10 +46,10 @@
     {
       "signal": {
         "metric": "fear_greed",
-        "zscore": -16.941074346097416,
+        "zscore": -4.599331055038999,
         "value": 51,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-16.94) pour un Fear & Greed neutre (51). Indique une distorsion majeure : le marché grand public est anesthésié ou indifférent (absence de narratif médiatique), tandis que les données onchain signalent une accumulation furtive sous le radar.\"\n}\n```",
-        "ts": 1789542257.308774
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le score z extrêmement bas (-4.60) pour un indice Fear & Greed neutre (51) révèle une anomalie statistique majeure. Les médias traditionnels (Google Actualités) sont totalement apathiques et indifférents, créant un vide informationnel parfait que les baleines accumulent en silence avant un réveil brutal du marché.\"\n}\n```",
+        "ts": 1789545872.884804
       },
       "fiche": null,
       "interpretation": {
