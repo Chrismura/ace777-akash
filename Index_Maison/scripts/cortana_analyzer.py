@@ -13,6 +13,7 @@ Date : 2026-08-25
 """
 
 import json
+import re
 import time
 from pathlib import Path
 from datetime import datetime, timezone
@@ -41,10 +42,14 @@ def load_fiches():
 # ─── Load live data ──────────────────────────────────────────
 
 def load_live():
-    """Charge les données live"""
+    """Charge les données live (et expose au module pour _evaluer_trigger — C1)"""
     try:
-        return json.loads(LIVE.read_text(encoding="utf-8"))
+        global _LIVE_COURANT
+        data = json.loads(LIVE.read_text(encoding="utf-8"))
+        _LIVE_COURANT = data
+        return data
     except Exception:
+        _LIVE_COURANT = {}
         return {}
 
 # ─── Load signals ────────────────────────────────────────────
@@ -73,8 +78,45 @@ def load_signals():
 
 # ─── Match signal to fiche ──────────────────────────────────
 
+def _evaluer_trigger(trigger, valeur_signal, live):
+    """FIX 16/09 C1 (GO C.) — le champ 'trigger' des fiches était DÉCORATIF : jamais lu.
+    Toute métrique mappée ouvrait sa fiche quel que soit le niveau (ipt 0,196 → rbf_eleve → 🔴).
+    Évalue le trigger contre la VALEUR du signal, avec alias de nommage par métrique :
+      rbf_score  ← métriques rbf/ipt/volume/funding (toutes tiennent le rôle 'pression tx')
+      sdi        ← métrique sdi
+      global_score ← pipeline_health.global_score (C3)
+      taux_fantome ← signal cpfp/dust % (inconnu → False = pas d'ouverture)
+    Unknown/inconnu → False (fiche non ouverte : C2 exige qu'un défaut explicite existe).
+    """
+    if not trigger:
+        return False
+    m = re.match(r"^\s*([a-z_]+)\s*(>=|<=|>|<)\s*([0-9.]+)\s*(%?)\s*$", str(trigger))
+    if not m:
+        return False
+    champ, op, seuil_txt, pct = m.group(1), m.group(2), float(m.group(3)), m.group(4)
+    # alias : champ du trigger → valeur mesurable
+    if champ == "rbf_score":
+        val = valeur_signal
+    elif champ == "sdi":
+        val = valeur_signal
+    elif champ == "global_score":
+        val = (live.get("pipeline_health", {}) or {}).get("global_score")
+    elif champ == "taux_fantome":
+        val = valeur_signal  # cpfp/dust : score 0-1 du sentinel, le trigger 25% ne matche jamais → fiche fermée sauf vrai pic
+    else:
+        return False
+    if val is None or not isinstance(val, (int, float)):
+        return False
+    if pct:
+        val = val * 100  # 'taux_fantome > 25%' : valeur fractionnaire → %
+    return {
+        ">": val > seuil, "<": val < seuil,
+        ">=": val >= seuil, "<=": val <= seuil,
+    }[op]
+
+
 def match_fiche(signal, fiches):
-    """Trouve la fiche correspondant à un signal"""
+    """Trouve la fiche correspondant à un signal — en VÉRIFIANT le trigger (C1)"""
     metric = signal.get("metric", "")
     
     # Mapping metric → fiche type
@@ -82,14 +124,20 @@ def match_fiche(signal, fiches):
         "cpfp": "blocs_privilises",
         "dust": "blocs_privilises",
         "rbf": "rbf_eleve",
-        "sdi": "rbf_eleve",
+        "sdi": "sdi_eleve",  # FIX 16/09 (GO C. : fiche dédiée sdi_eleve.json) — avant : le SDI tombait dans la fiche rbf_eleve et héritait de son seuil croisé 0,3 → faux 🔴 sur divergence sentiment
         "ipt": "rbf_eleve",
         "volume": "rbf_eleve",
         "funding": "rbf_eleve",
     }
     
     fiche_type = mapping.get(metric, metric)
-    return fiches.get(fiche_type)
+    fiche = fiches.get(fiche_type)
+    if not fiche:
+        return None
+    # C1 : la fiche ne s'ouvre que si son trigger est SATISFAIT par la valeur du signal
+    if not _evaluer_trigger(fiche.get("trigger"), signal.get("value"), _LIVE_COURANT):
+        return None
+    return fiche
 
 # ─── Evaluate questions ─────────────────────────────────────
 
@@ -109,6 +157,8 @@ def evaluate_questions(fiche, live):
             value = live.get("chg1h", 0)
         elif source == "live.json → sdi.sdi":
             value = live.get("sdi", {}).get("sdi", 0)
+        elif source == "live.json → sdi.fee_fastest_sat":
+            value = live.get("sdi", {}).get("fee_fastest_sat", 0)
         elif source == "live.json → rbf.rbf_score":
             value = live.get("rbf", {}).get("rbf_score", 0)
         elif source == "live.json → funding":
@@ -159,6 +209,9 @@ def find_interpretation(fiche, question_results):
                 return interp
         elif "sdi > 0.3" in condition:
             if question_results.get("sdi", {}).get("value", 0) > 0.3:
+                return interp
+        elif "sdi > 0.7" in condition:
+            if question_results.get("sdi", {}).get("value", 0) > 0.7:
                 return interp
         elif "rbf > 0.6" in condition:
             if question_results.get("rbf", {}).get("value", 0) > 0.6:

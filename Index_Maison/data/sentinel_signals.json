@@ -1,27 +1,6 @@
 {
   "signals": [
     {
-      "metric": "sdi",
-      "zscore": -2.156457891302923,
-      "value": 0.004,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Fausse alerte liée à une homonymie : le 'SDI' des médias fait référence au Syndicat des Indépendants (TPE) et à du matériel vidéo (Blackmagic), sans aucun rapport avec les flux on-chain ou les baleines crypto.\"\n}\n```",
-      "ts": "2026-09-15T04:08:06.556419+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": 2.23606797749979,
-      "value": 69,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Indice de Peur & Greed à 69 (z-score élevé de 2.24) combiné à un vide médiatique (« Google Actualités » sans relais marquant) : le marché entre en zone d'euphorie de détail isolée. Divergence classique de distribution silencieuse où les baleines profitent de la complaisance pour alléger leurs positions.\"\n}\n```",
-      "ts": "2026-09-15T04:08:07.855226+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": -2.014347896753798,
-      "value": 0.004,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Anomalie non-pertinente. Le 'SDI' mentionné dans les médias fait référence au Syndicat des Indépendants et des TPE ou à du matériel vidéo (Blackmagic), et non à un actif crypto. Aucune baleine crypto détectée.\"\n}\n```",
-      "ts": "2026-09-15T04:38:13.088531+00:00"
-    },
-    {
       "metric": "fear_greed",
       "zscore": 2.081665999466133,
       "value": 69,
@@ -349,6 +328,27 @@
       "value": 51,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le score z extrêmement bas (-4.60) pour un indice Fear & Greed neutre (51) révèle une anomalie statistique majeure. Les médias traditionnels (Google Actualités) sont totalement apathiques et indifférents, créant un vide informationnel parfait que les baleines accumulent en silence avant un réveil brutal du marché.\"\n}\n```",
       "ts": "2026-09-16T08:04:32.884804+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 3.866551128875062,
+      "value": 0.604,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Anomalie statistique (z-score 3.87) due à une collision lexicale : le token 'SDI' (crypto) est totalement confondu dans les flux médiatiques avec le syndicat français 'SDI' (Syndicat des Indépendants) et la norme vidéo 'SDI'. Aucune activité de baleine crypto détectée.\"\n}\n```",
+      "ts": "2026-09-16T08:29:38.134002+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -3.7626978003610794,
+      "value": 51,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Données incomplètes : absence de titres médiatiques concrets dans le flux Google Actualités pour valider une divergence exploitable, malgré une anomalie statistique significative du z-score.\"\n}\n```",
+      "ts": "2026-09-16T08:34:40.112818+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 3.331542782527155,
+      "value": 0.608,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Anomalie statistique (SDI z-score 3.33) causée par une homonymie : les données on-chain/crypto captent un jeton ou un protocole obscur nommé 'SDI', tandis que les actualités font référence au 'Syndicat des Indépendants' (SDI) et à l'industrie audiovisuelle. Aucune baleine crypto active, simple bruit sémantique.\"\n}\n```",
+      "ts": "2026-09-16T08:59:46.128767+00:00"
     }
   ]
 }

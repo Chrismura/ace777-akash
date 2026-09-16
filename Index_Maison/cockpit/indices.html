@@ -138,19 +138,23 @@ function render() {
   // SDI
   const sdi = T.sdi || {};
   const sdiScore = sdi.sdi;
-  const sdiColor = scoreColor(sdiScore, [0.1, 0.3, 0.5]);
-  const sdiPct = Math.min(100, (sdiScore || 0) * 1000);
+  // FIX 16/09 (GO C. — retour au seuil d'origine du 25/08) : bandes 0,1/0,7/0,9 au lieu de 0,1/0,3/0,5.
+  // 0,7 = seuil machine (silent_drain_index.py) et seuil créateur. Avant, l'app criait « Alerte baleines »
+  // dès 0,3 — contradiction visible avec la machine (le faux 🔴 du 16/09 matin).
+  const sdiColor = scoreColor(sdiScore, [0.1, 0.7, 0.9]);
+  const sdiPct = Math.min(100, (sdiScore || 0) * 100);
+  const srcProxy = (sdi.dormant_source || '').includes('proxy') || (sdi.dormant_source || '').includes('FG');
   const sdiSummary = sdiScore < 0.1 
     ? '<b>Calme total.</b> Les BTC dormants ne bougent pas. Pas de mouvement suspect des baleines. Le marché dort.'
-    : sdiScore < 0.3 
-    ? '<b>Légère activité.</b> Quelques BTC dormants commencent à bouger. Pas alarmant mais à surveiller.'
-    : '<b>Alerte baleines!</b> Gros mouvement de BTC qui dormaient depuis longtemps. Les gros détenteurs repositionnent. Possible changement de tendance.';
+    : sdiScore < 0.7 
+    ? '<b>Activité modérée.</b> Sous le seuil d\'alerte (0,7). ' + (srcProxy ? '⚠️ Source en PROXY sentiment depuis le 28/08 (blockchain.com 404) — la divergence reflète l\'humeur, pas les dormants. Croiser avec le sniffer vieux BTC.' : 'À surveiller.')
+    : '<b>Alerte drainage.</b> Seuil d\'origine dépassé (0,7). ' + (srcProxy ? '⚠️ Source en PROXY — vérifier le sniffer vieux BTC avant d\'agir.' : 'Gros mouvement de BTC dormants. Les gros détenteurs repositionnent.');
   cards.push(`
     <div class="card" data-peda="sdi">
       <div class="card-head">📉 SDI — Silent Drain Index</div>
       <div class="card-score" style="color:${sdiColor}">${sdiScore != null ? sdiScore.toFixed(4) : '—'}</div>
       <div class="card-sub">Dormant: ${sdi.dormant_pct || '—'}% · Fees: ${sdi.fee_fastest_sat || '—'} sat/vB</div>
-      <div class="gauge"><div class="gauge-fill ${barClass(sdiScore, [0.1, 0.3, 0.5])}" style="width:${sdiPct}%"></div></div>
+      <div class="gauge"><div class="gauge-fill ${barClass(sdiScore, [0.1, 0.7, 0.9])}" style="width:${sdiPct}%"></div></div>
       <div class="card-detail">
         Divergence: ${sdi.divergence_score || 0} · Fee score: ${sdi.fee_score || 0}<br>
         Source: ${sdi.dormant_source || '—'}

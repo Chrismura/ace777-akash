@@ -1,6 +1,6 @@
 {
  "version": "1.4.7",
- "updated": "2026-09-15T07:59:29Z",
+ "updated": "2026-09-16T08:43:18Z",
  "fichier": [
   {
    "nom": "hulk-mexc/scripts/paper_diprip.py",
@@ -370,9 +370,9 @@
    "origine": "25/08 PIPELINE UNIFIÉ — branché 27/08",
    "verif": "md5",
    "auto_modifiable": false,
-   "md5": "4a50b624fd3e0147d77e80d97206e5c3",
+   "md5": "f6810687dbe7d0f26fd7877d977b9aaf",
    "note": "FIX 27/08 : crash TypeError ts str (sentinelle écrit ts ISO, l'analyzer faisait now - str) → normalisation _to_epoch (les 2 formats). Plist com.ace777.cortana-analyzer (300s). | 13/09: ARBITRAGE LLM-vs-RÈGLE (GO C.) — LLM neutral conf>=60 désamorce le 'dangereux' mécanique (jamais 'critique'); politique mesurée 14 j (critère 27/09: si un vrai danger passe inaperçu → retrait).",
-   "maj": "27/08 16:34Z : fix ts str → epoch (analyzer crashait depuis 15:12Z, analyse figée)"
+   "maj": "16/09 (GO C. « go » protocole SDI) : mapping sdi→fiche dédiée sdi_eleve (avant rbf_eleve, faux 🔴 sur divergence sentiment) + source sdi.fee_fastest_sat évaluée + guards None prix. Fiche sdi_eleve.json créée (seuil d'origine 0,7 du 25/08). Par Buffy."
   },
   {
    "nom": "hulk-mexc/strategie/universe_profils.json",
@@ -733,8 +733,9 @@
    "origine": "GO Christophe 14/09 (onglet cockpit vol)",
    "verif": "md5",
    "auto_modifiable": false,
-   "md5": "1175a8ad929ee01936efc8491ec8d055",
-   "note": "Re-scellé 14/09T12:41Z après modification déclarée : suppression de la réécriture de vol.html (cache-buster déplacé côté client) — le générateur n'écrit plus que vol_live.js (non scellé, donnée vivante). Par Buffy."
+   "md5": "a91b382fa2de52a1a20d988f42337a49",
+   "note": "Re-scellé 14/09T12:41Z après modification déclarée : suppression de la réécriture de vol.html (cache-buster déplacé côté client) — le générateur n'écrit plus que vol_live.js (non scellé, donnée vivante). Par Buffy.",
+   "maj": "16/09 (fix panneau) : lire_marche() lit mark/fearGreed (clés vivantes) au lieu de btc_price/fear_greed (morts depuis toujours) — « BTC ?/F&G ? » réparé. Backup /tmp. Par Buffy."
   },
   {
    "nom": "Index_Maison/cockpit/vol.html",
@@ -798,6 +799,15 @@
    "auto_modifiable": false,
    "md5": "a53719ba33764fc7ba651118921ff59a",
    "date": "2026-09-15T07:59:29Z"
+  },
+  {
+   "nom": "Index_Maison/data/fiches_analyse/sdi_eleve.json",
+   "role": "Fiche d'analyse dédiée SDI (seuil d'origine 0,7 du 25/08) — drainage confirmé (RBF haut) / drainage froid (frais plancher) / proxy seul",
+   "origine": "GO Christophe 16/09 (« go » protocole SDI après boucle complète). Buffy.",
+   "verif": "md5",
+   "auto_modifiable": false,
+   "md5": "f97e258af8b263b443f5adb861720e78",
+   "note": "Sépare le SDI de la fiche rbf_eleve (0,3 croisé) — le faux 🔴 du 16/09 matin devient impossible. Tests : 0,604→surveiller · 0,75+RBF0,8→dangereux."
   }
  ]
 }
