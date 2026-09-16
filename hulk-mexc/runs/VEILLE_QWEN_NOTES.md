@@ -4413,3 +4413,7 @@ Pas d’ordre — confrontation plus tard.
 ### 2026-09-16T14:07:33Z — ALERT auto
 - CHIPUSDT: WATCH_PULLBACK — tension haute + reflux
 (compléter: confirmé ? risque ?)
+
+### 2026-09-16T14:15:15Z — ALERT auto
+- REDUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)

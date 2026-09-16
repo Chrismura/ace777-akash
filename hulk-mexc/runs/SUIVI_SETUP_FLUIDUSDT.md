@@ -20,5 +20,6 @@ Métriques : maison (mur moy/max + régime ; poussière = indicateur PANIER) + p
 | 13 | 2026-09-13T14:34:57Z | 14h | AUTRE | 1.1853 | WATCH | 2.7887 | None | None | 6.70e-04 | 0.49 | 0.02 | 0.05 | neutre (stab 0) | prix 1.1853 · poussière(panier) 2.8% · Amihud 6.70e-04 · delta +0.49 |
 | 14 | 2026-09-14T14:34:53Z | 14h | AUTRE | 1.1813 | WATCH | 8.4881 | None | None | 4.10e-04 | 0.28 | 0.77 | 0.85 | POMPE_PIEGE (stab 1) | prix 1.1813 · poussière(panier) 8.5% · Amihud 4.10e-04 · delta +0.28 |
 | 15 | 2026-09-15T14:34:58Z | 14h | AUTRE | 1.1372 | WATCH | 19.5154 | None | None | 4.16e-04 | 0.47 | 0.86 | 0.87 | POMPE_PIEGE (stab 5) | prix 1.1372 · poussière(panier) 19.5% · Amihud 4.16e-04 · delta +0.47 |
+| 16 | 2026-09-16T14:34:55Z | 14h | AUTRE | 1.0656 | COOLING | 6.0788 | None | None | 4.29e-04 | -0.36 | 0.76 | 0.60 | LEADER (stab 1) | prix 1.0656 · poussière(panier) 6.1% · Amihud 4.29e-04 · delta -0.36 |
 
 _Règle : on compare les lignes entre elles (même heure de mesure = comparable). On ne supprime rien._

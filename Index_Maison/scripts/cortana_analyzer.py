@@ -140,7 +140,10 @@ def match_fiche(signal, fiches):
     if not fiche:
         return None
     # C1 : la fiche ne s'ouvre que si son trigger est SATISFAIT par la valeur du signal
-    if not _evaluer_trigger(fiche.get("trigger"), signal.get("value"), _LIVE_COURANT):
+    # FIX 16/09 (GO C., 6 fiches) : le trigger 'z > 2' doit lire le Z-SCORE du signal,
+    # pas sa valeur brute (2,94 était comparé au prix 0,83 → fiche jamais ouverte)
+    trigger_val = signal.get("zscore") if "z" in str(fiche.get("trigger", "")) else signal.get("value")
+    if not _evaluer_trigger(fiche.get("trigger"), trigger_val, _LIVE_COURANT):
         return None
     return fiche
 
