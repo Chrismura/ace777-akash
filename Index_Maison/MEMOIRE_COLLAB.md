@@ -4265,3 +4265,19 @@ Christophe a finalement vu le nouveau tableau SCORE : le contenu était bon, c'�
 | 2026-09-16 00:21:12Z | CHIEN | ALERTE | vigie-live : Age réel 18084s dépasse le seuil 7200.0s |
 | 2026-09-16 00:26:13Z | CHIEN | ALERTE | superviseur-l2 : Age réel 1569s dépasse le seuil 120.0s |
 | 2026-09-16 00:31:13Z | CHIEN | ALERTE | verdicteur-micro : Age réel 18641s dépasse le seuil 600.0s |
+| 2026-09-16 00:51:13Z | CHIEN | ALERTE | gitpush : Age réel infini (produit/pouls introuvable ou illisible) dépasse le seuil 32400.0s |
+| 2026-09-16 00:56:13Z | CHIEN | ALERTE | hulk-watchdog : Age réel 68836s dépasse le seuil 240.0s |
+| 2026-09-16 01:21:13Z | CHIEN | ALERTE | vigie-live : Age réel 21685s dépasse le seuil 7200.0s |
+| 2026-09-16 06:51:52Z | CHIEN | ALERTE | sentinelle-independante : Age réel 21350s dépasse le seuil 5400.0s |
+| 2026-09-16 06:51:52Z | CHIEN | ALERTE | rwa-yields : Age réel 60659s dépasse le seuil 43200.0s |
+| 2026-09-16 06:51:52Z | CHIEN | ALERTE | backup-check : Age réel 20998s dépasse le seuil 3600.0s |
+| 2026-09-16 06:51:52Z | CHIEN | ALERTE | vigie-live : Age réel 41524s dépasse le seuil 7200.0s |
+| 2026-09-16 06:51:52Z | CHIEN | ALERTE | gitpush : Age réel infini (produit/pouls introuvable ou illisible) dépasse le seuil 32400.0s |
+| 2026-09-16 06:51:52Z | CHIEN | ALERTE | gitpush-vault : Age réel 42381s dépasse le seuil 32400.0s |
+| 2026-09-16 06:51:52Z | CHIEN | ALERTE | superviseur-l2 : Age réel 24709s dépasse le seuil 120.0s |
+| 2026-09-16 06:51:52Z | CHIEN | ALERTE | observer-murs : Age réel 20555s dépasse le seuil 3600.0s |
+| 2026-09-16 06:51:52Z | CHIEN | ALERTE | cortana.urgent : Age réel 19812s dépasse le seuil 7200.0s |
+| 2026-09-16 06:51:52Z | CHIEN | ALERTE | hulk-watchdog : Age réel 90176s dépasse le seuil 240.0s |
+| 2026-09-16 06:51:52Z | CHIEN | ALERTE | verdicteur-micro : Age réel 41481s dépasse le seuil 600.0s |
+| 2026-09-16 06:51:52Z | CHIEN | ALERTE | superviseur : Age réel 21884s dépasse le seuil 7200.0s |
+| 2026-09-16 06:51:52Z | CHIEN | ALERTE | veilleuse : Age réel 19797s dépasse le seuil 1200.0s |

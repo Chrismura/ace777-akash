@@ -1,7 +1,63 @@
 {
-  "timestamp": 1789519600,
-  "date": "2026-09-16T00:46:40.695349+00:00",
-  "n_analyses": 0,
-  "analyses": [],
-  "resume": "Aucune analyse en cours"
+  "timestamp": 1789542740,
+  "date": "2026-09-16T07:12:20.483687+00:00",
+  "n_analyses": 2,
+  "analyses": [
+    {
+      "signal": {
+        "metric": "sdi",
+        "zscore": 133.4421581903519,
+        "value": 0.604,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Anomalie de faux positif : l'indicateur 'SDI' capte ici un acronyme journalistique et syndical (Syndicat des Indépendants en France / Serial Digital Interface) et non l'actif crypto ou une métrique de baleine on-chain. Aucune donnée crypto pertinente à analyser.\"\n}\n```",
+        "ts": 1789541955.368318
+      },
+      "fiche": "rbf_eleve",
+      "questions": {
+        "prix": {
+          "value": 0.0,
+          "seuil": 1,
+          "depasse": false
+        },
+        "paires": {
+          "value": null,
+          "seuil": 3,
+          "depasse": false
+        },
+        "funding": {
+          "value": 4.8e-05,
+          "seuil": 0.001,
+          "depasse": false
+        },
+        "whales": {
+          "value": 0,
+          "seuil": 5,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "sdi > 0.3",
+        "lecture": "Drainage silencieux — les vieux BTC bougent en douce",
+        "niveau": "dangereux",
+        "action": "Réduire taille de 50%, sortir des positions fragiles"
+      },
+      "action": "Réduire taille de 50%, sortir des positions fragiles",
+      "niveau": "dangereux"
+    },
+    {
+      "signal": {
+        "metric": "fear_greed",
+        "zscore": -16.941074346097416,
+        "value": 51,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-16.94) pour un Fear & Greed neutre (51). Indique une distorsion majeure : le marché grand public est anesthésié ou indifférent (absence de narratif médiatique), tandis que les données onchain signalent une accumulation furtive sous le radar.\"\n}\n```",
+        "ts": 1789542257.308774
+      },
+      "fiche": null,
+      "interpretation": {
+        "lecture": "Pas de fiche disponible",
+        "niveau": "inconnu"
+      },
+      "action": "Observer"
+    }
+  ],
+  "resume": "🔴 DANGER détecté — réduire les expositions"
 }

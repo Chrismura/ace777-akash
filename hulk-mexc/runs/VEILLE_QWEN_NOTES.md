@@ -4393,3 +4393,7 @@ Pas d’ordre — confrontation plus tard.
 ### 2026-09-15T19:12:27Z — ALERT auto
 - EDELUSDT: IMPULSE_WAIT — spike en cours, pas chase
 (compléter: confirmé ? risque ?)
+
+### 2026-09-16T06:56:14Z — ALERT auto
+- RIZEUSDT: IMPULSE_WAIT — spike en cours, pas chase
+(compléter: confirmé ? risque ?)

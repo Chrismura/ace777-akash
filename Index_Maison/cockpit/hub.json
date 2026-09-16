@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-16T00:46:55.750486+00:00",
+  "generated_at": "2026-09-16T07:12:24.635672+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 92
+      "calls_24h": 58
     },
     {
       "id": "openrouter-free",
@@ -71,7 +71,7 @@
       "model": "nvidia/nemotron-3-super-120b-a12b:free",
       "enabled": true,
       "timeout": 120,
-      "calls_24h": 8
+      "calls_24h": 0
     },
     {
       "id": "grok",
@@ -87,9 +87,9 @@
       "name": "OpenRouter Nemotron 3 Ultra 550B (free) - analyse forte",
       "kind": "cloud",
       "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
-      "enabled": true,
+      "enabled": false,
       "timeout": 120,
-      "calls_24h": 11
+      "calls_24h": 0
     },
     {
       "id": "inferx",
@@ -233,7 +233,7 @@
       "model": "orcarouter/free",
       "enabled": true,
       "timeout": 60,
-      "calls_24h": 1
+      "calls_24h": 0
     },
     {
       "id": "obs-1787724924",
@@ -265,10 +265,26 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 0,
-    "remaining": 624
+    "consumed": 2,
+    "remaining": 622
   },
   "queue": [
+    {
+      "ts": "2026-09-16T07:04:17.307558+00:00",
+      "task": "analyse.profonde",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 1.08
+    },
+    {
+      "ts": "2026-09-16T06:59:15.367606+00:00",
+      "task": "analyse.profonde",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 1.01
+    },
     {
       "ts": "2026-09-15T19:08:21.264933+00:00",
       "task": "analyse.profonde",
@@ -372,84 +388,68 @@
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
       "duration_s": 1.22
-    },
-    {
-      "ts": "2026-09-15T17:46:45.920625+00:00",
-      "task": "supervise.decision",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 1.07
-    },
-    {
-      "ts": "2026-09-15T17:46:43.429864+00:00",
-      "task": "supervise.decision",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 0.94
     }
   ],
   "events": [
     {
-      "ts": "2026-09-16T00:03:31.883733+00:00",
+      "ts": "2026-09-16T07:11:14.835790+00:00",
       "kind": "http",
       "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
       "detail": ""
     },
     {
-      "ts": "2026-09-16T00:03:31.883675+00:00",
+      "ts": "2026-09-16T07:11:14.835353+00:00",
       "kind": "error",
       "title": "Toutes les IA ont echoue",
-      "detail": "Google Gemini: reseau KO [Errno 8] nodename nor servname provided, or not known"
+      "detail": "Google Gemini: HTTP Error 429: Too Many Requests | Groq (LLM ultra-rapide, gratuit): HTTP Error 400: Bad Request | HuggingFace (136+ modeles, dont DeepSeek-V4): HTTP Error 500: Internal Server Error | OrcaRouter (routeur gratuit, modele orcarouter/free): HTTP Error 400: Bad Request | OpenRouter Juge (nemotron-3-super-120b free) - verificateur independant: HTTP Error 400: Bad Request | InferX DeepSeek V4 Flash (API gratuite jusqu'au 12/08): HTTP Error 429: Too Many Requests | InferX Qwen3-Coder-N"
     },
     {
-      "ts": "2026-09-16T00:03:31.883631+00:00",
+      "ts": "2026-09-16T07:11:14.833499+00:00",
       "kind": "failover",
-      "title": "Reseau KO (bascule immediate) depuis Google Gemini",
-      "detail": "[Errno 8] nodename nor servname provided, or not known"
+      "title": "Bascule depuis InferX Devstral-2-123B (code)",
+      "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-09-16T00:03:31.883551+00:00",
-      "kind": "network",
-      "title": "Reseau indisponible: Google Gemini",
-      "detail": "[Errno 8] nodename nor servname provided, or not known"
-    },
-    {
-      "ts": "2026-09-16T00:03:31.858554+00:00",
-      "kind": "network",
-      "title": "Reseau pas pret — mode degrade (timeout court)",
-      "detail": ""
-    },
-    {
-      "ts": "2026-09-15T23:58:31.745597+00:00",
-      "kind": "http",
-      "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
-      "detail": ""
-    },
-    {
-      "ts": "2026-09-15T23:58:31.745533+00:00",
-      "kind": "error",
-      "title": "Toutes les IA ont echoue",
-      "detail": "Google Gemini: reseau KO [Errno 8] nodename nor servname provided, or not known"
-    },
-    {
-      "ts": "2026-09-15T23:58:31.745486+00:00",
+      "ts": "2026-09-16T07:11:10.847972+00:00",
       "kind": "failover",
-      "title": "Reseau KO (bascule immediate) depuis Google Gemini",
-      "detail": "[Errno 8] nodename nor servname provided, or not known"
+      "title": "Bascule depuis NVIDIA DeepSeek-Coder 6.7B (code, via NIM)",
+      "detail": "HTTP Error 404: Not Found"
     },
     {
-      "ts": "2026-09-15T23:58:31.745405+00:00",
-      "kind": "network",
-      "title": "Reseau indisponible: Google Gemini",
-      "detail": "[Errno 8] nodename nor servname provided, or not known"
+      "ts": "2026-09-16T07:11:08.831004+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis Puter Grok (gratuit)",
+      "detail": "HTTP Error 402: Payment Required"
     },
     {
-      "ts": "2026-09-15T23:58:31.718486+00:00",
-      "kind": "network",
-      "title": "Reseau pas pret — mode degrade (timeout court)",
-      "detail": ""
+      "ts": "2026-09-16T07:11:08.084112+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis InferX Qwen3-Coder-Next (code, gratuit jusqu'au 12/08)",
+      "detail": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "ts": "2026-09-16T07:11:03.787607+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis InferX DeepSeek V4 Flash (API gratuite jusqu'au 12/08)",
+      "detail": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "ts": "2026-09-16T07:10:59.189596+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis OpenRouter Juge (nemotron-3-super-120b free) - verificateur independant",
+      "detail": "HTTP Error 400: Bad Request"
+    },
+    {
+      "ts": "2026-09-16T07:10:58.484796+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis OrcaRouter (routeur gratuit, modele orcarouter/free)",
+      "detail": "HTTP Error 400: Bad Request"
+    },
+    {
+      "ts": "2026-09-16T07:10:57.189514+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis HuggingFace (136+ modeles, dont DeepSeek-V4)",
+      "detail": "HTTP Error 500: Internal Server Error"
     }
   ],
   "tasks_quotas": {
@@ -582,6 +582,6 @@
   },
   "health": {
     "status": "ok",
-    "providers": 11
+    "providers": 10
   }
 }

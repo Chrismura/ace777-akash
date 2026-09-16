@@ -2,20 +2,6 @@
   "signals": [
     {
       "metric": "sdi",
-      "zscore": -2.7333425741574753,
-      "value": 0.004,
-      "analysis": "{\n  \"signal\": \"bearish\",\n  \"confidence\": 78,\n  \"reason\": \"The sdi metric shows a strong negative deviation (z‑score -2.73), indicating unusually low on‑chain activity that often precedes whale‑driven sell pressure. Meanwhile, media headlines discuss unrelated SDI‑named topics (budget, transparency, Blackmagic hardware, governance) and do not reflect the on‑chain anomaly, suggesting a narrative disconnect that typically accompanies silent bearish moves.\"\n}",
-      "ts": "2026-09-15T02:37:37.627877+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": 2.932575659723036,
-      "value": 69,
-      "analysis": "{\"signal\": \"bullish\", \"confidence\": 65, \"reason\": \"L'indice fear_greed à 69 (z-score 2.93) indique une voracité marquée sur la chaîne. L'absence de couverture médiatique (aucun titre significatif) crée une divergence nette : les baleines semblent agir silencieusement, tandis que le narratif public est inexistant. C'est typiquement un signal d'accumulation discrète précédant un mouvement haussier, mais la surchauffe onchain invite à la prudence.\"}",
-      "ts": "2026-09-15T02:37:47.974064+00:00"
-    },
-    {
-      "metric": "sdi",
       "zscore": -2.4900700176622075,
       "value": 0.004,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Le bruit médiatique fait référence au 'Syndicat des Indépendants' (SDI) français et à du matériel vidéo (Blackmagic SDI), totalement déconnecté de la métrique on-chain. Aucune activité de baleine crypto détectée.\"\n}\n```",
@@ -349,6 +335,20 @@
       "value": 18368185437.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Z-score extrême (4.99) couplé à un volume massif de 18.3B on-chain, alors que les médias grand public et CryptoQuant crient au 'faible rebond' ou à la 'faiblesse baissière'. Divergence classique d'accumulation furtive par les baleines sous le radar du retail.\"\n}\n```",
       "ts": "2026-09-15T19:08:21.265731+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 133.4421581903519,
+      "value": 0.604,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Anomalie de faux positif : l'indicateur 'SDI' capte ici un acronyme journalistique et syndical (Syndicat des Indépendants en France / Serial Digital Interface) et non l'actif crypto ou une métrique de baleine on-chain. Aucune donnée crypto pertinente à analyser.\"\n}\n```",
+      "ts": "2026-09-16T06:59:15.368318+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -16.941074346097416,
+      "value": 51,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-16.94) pour un Fear & Greed neutre (51). Indique une distorsion majeure : le marché grand public est anesthésié ou indifférent (absence de narratif médiatique), tandis que les données onchain signalent une accumulation furtive sous le radar.\"\n}\n```",
+      "ts": "2026-09-16T07:04:17.308774+00:00"
     }
   ]
 }
