@@ -1,4 +1,4 @@
-# Hulk DIGEST — 2026-09-16T00:37:13Z
+# Hulk DIGEST — 2026-09-16T00:47:09Z
 
 - **Piste :** VEILLE (séparée du paper Hulk)
 - Source trading : **MEXC spot**
