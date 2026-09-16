@@ -142,7 +142,12 @@ def match_fiche(signal, fiches):
     # C1 : la fiche ne s'ouvre que si son trigger est SATISFAIT par la valeur du signal
     # FIX 16/09 (GO C., 6 fiches) : le trigger 'z > 2' doit lire le Z-SCORE du signal,
     # pas sa valeur brute (2,94 était comparé au prix 0,83 → fiche jamais ouverte)
-    trigger_val = signal.get("zscore") if "z" in str(fiche.get("trigger", "")) else signal.get("value")
+    # FIX 16/09 revue codeur (avis général, motif A) : détection du champ 'z' par REGEX
+    # du champ du trigger, plus par sous-chaîne — un futur champ contenant la lettre 'z'
+    # (ex : 'zeta > 1') ne lirait plus le zscore par erreur. Comportement identique
+    # pour les 11 fiches actuelles (vérifié au disque : seules les fiches z utilisent 'z > N').
+    m_trig = re.match(r"^\s*([a-z_0-9]+)\s*(?:>=|<=|>|<)", str(fiche.get("trigger", "")))
+    trigger_val = signal.get("zscore") if (m_trig and m_trig.group(1) == "z") else signal.get("value")
     if not _evaluer_trigger(fiche.get("trigger"), trigger_val, _LIVE_COURANT):
         return None
     return fiche
@@ -291,6 +296,22 @@ def find_interpretation(fiche, question_results):
                         ">=": v_c >= seuil_c, "<=": v_c <= seuil_c,
                     }[op_c]
                     if ok_c:
+                        return interp
+            # FIX 16/09 revue codeur (motif F) : comparaison directe entre DEUX questions
+            # 'qid1 > qid2' — sinon 'cote > 0' OU 'shorts > 0' sont vrais ENSEMBLE dans une
+            # cascade mixte et la 1re interprétation du dict gagne toujours, même si les
+            # shorts liquidés sont 10x plus gros (mauvaise lecture garantie).
+            mc2 = re.match(r"^\s*([a-z_0-9]+)\s*(>=|<=|>|<)\s*([a-z_0-9]+)\s*$", str(condition))
+            if mc2:
+                qa, op2, qb = mc2.group(1), mc2.group(2), mc2.group(3)
+                va = question_results.get(qa, {}).get("value")
+                vb = question_results.get(qb, {}).get("value")
+                if isinstance(va, (int, float)) and isinstance(vb, (int, float)):
+                    ok2 = {
+                        ">": va > vb, "<": va < vb,
+                        ">=": va >= vb, "<=": va <= vb,
+                    }[op2]
+                    if ok2:
                         return interp
 
     # FIX 16/09 C2 (GO C.) : le défaut « 1re interprétation du JSON » était la porte d'entrée du rouge

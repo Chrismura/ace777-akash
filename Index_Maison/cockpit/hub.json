@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-16T16:13:50.754959+00:00",
+  "generated_at": "2026-09-16T17:14:05.398891+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 105
+      "calls_24h": 104
     },
     {
       "id": "openrouter-free",
@@ -265,10 +265,42 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 113,
-    "remaining": 511
+    "consumed": 117,
+    "remaining": 507
   },
   "queue": [
+    {
+      "ts": "2026-09-16T17:12:28.498091+00:00",
+      "task": "analyse.profonde",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 0.81
+    },
+    {
+      "ts": "2026-09-16T16:41:06.846047+00:00",
+      "task": "juge",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 2.91
+    },
+    {
+      "ts": "2026-09-16T16:14:06.420821+00:00",
+      "task": "supervise.decision",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 1.03
+    },
+    {
+      "ts": "2026-09-16T16:14:02.021568+00:00",
+      "task": "supervise.decision",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 1.0
+    },
     {
       "ts": "2026-09-16T16:02:37.700382+00:00",
       "task": "openrouter-juge",
@@ -356,97 +388,65 @@
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
       "duration_s": 4.52
-    },
-    {
-      "ts": "2026-09-16T14:30:05.240471+00:00",
-      "task": "openrouter-juge",
-      "provider": "openrouter-juge",
-      "model": "nvidia/nemotron-3-super-120b-a12b:free",
-      "kind": "cloud",
-      "duration_s": 20.0
-    },
-    {
-      "ts": "2026-09-16T14:29:42.210762+00:00",
-      "task": "openrouter-juge",
-      "provider": "openrouter-juge",
-      "model": "nvidia/nemotron-3-super-120b-a12b:free",
-      "kind": "cloud",
-      "duration_s": 11.25
-    },
-    {
-      "ts": "2026-09-16T14:29:27.927614+00:00",
-      "task": "openrouter-juge",
-      "provider": "openrouter-juge",
-      "model": "nvidia/nemotron-3-super-120b-a12b:free",
-      "kind": "cloud",
-      "duration_s": 16.99
-    },
-    {
-      "ts": "2026-09-16T14:26:12.084159+00:00",
-      "task": "orca",
-      "provider": "openrouter-juge",
-      "model": "nvidia/nemotron-3-super-120b-a12b:free",
-      "kind": "cloud",
-      "duration_s": 0.82
     }
   ],
   "events": [
     {
-      "ts": "2026-09-16T16:02:37.700283+00:00",
+      "ts": "2026-09-16T17:14:03.317412+00:00",
+      "kind": "blacklist",
+      "title": "Fin de pause HuggingFace (136+ modeles, dont DeepSeek-V4)",
+      "detail": "re-essai automatique"
+    },
+    {
+      "ts": "2026-09-16T17:14:03.311916+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis Groq (LLM ultra-rapide, gratuit)",
+      "detail": "HTTP Error 400: Bad Request"
+    },
+    {
+      "ts": "2026-09-16T17:13:59.266962+00:00",
+      "kind": "timeout",
+      "title": "Patience Groq (LLM ultra-rapide, gratuit) (HTTP 400)",
+      "detail": "HTTP Error 400: Bad Request"
+    },
+    {
+      "ts": "2026-09-16T17:13:58.234822+00:00",
+      "kind": "blacklist",
+      "title": "Fin de pause Groq (LLM ultra-rapide, gratuit)",
+      "detail": "re-essai automatique"
+    },
+    {
+      "ts": "2026-09-16T17:13:58.233063+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis Google Gemini",
+      "detail": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "ts": "2026-09-16T17:13:58.229163+00:00",
+      "kind": "ratelimit",
+      "title": "429 Google Gemini -> pause 60s + bascule",
+      "detail": ""
+    },
+    {
+      "ts": "2026-09-16T17:12:28.497800+00:00",
       "kind": "message",
       "title": "« Google Gemini » a repondu",
-      "detail": "bascule"
+      "detail": ""
     },
     {
-      "ts": "2026-09-16T16:02:37.700173+00:00",
-      "kind": "substitution",
-      "title": "MODELE SUBSTITUE : demandé « openrouter-juge » → servi « gemini-flash-lite-latest » (Google Gemini)",
-      "detail": "?"
-    },
-    {
-      "ts": "2026-09-16T16:02:37.699849+00:00",
-      "kind": "filet-universel",
-      "title": "[FILET UNIVERSEL] « Google Gemini » a repondu hors chaine",
-      "detail": "?"
-    },
-    {
-      "ts": "2026-09-16T16:02:35.264091+00:00",
+      "ts": "2026-09-16T17:12:27.684311+00:00",
       "kind": "blacklist",
       "title": "Fin de pause Google Gemini",
       "detail": "re-essai automatique"
     },
     {
-      "ts": "2026-09-16T16:02:35.262509+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis OpenRouter Juge (nemotron-3-super-120b free) - verificateur independant",
-      "detail": "Reponse vide"
-    },
-    {
-      "ts": "2026-09-16T16:02:21.289026+00:00",
-      "kind": "timeout",
-      "title": "Patience OpenRouter Juge (nemotron-3-super-120b free) - verificateur independant (reponse vide)",
-      "detail": "Reponse vide"
-    },
-    {
-      "ts": "2026-09-16T16:01:41.063814+00:00",
-      "kind": "message",
-      "title": "« OpenRouter Juge (nemotron-3-super-120b free) - verificateur independant » a repondu",
-      "detail": ""
-    },
-    {
-      "ts": "2026-09-16T16:01:05.986603+00:00",
-      "kind": "timeout",
-      "title": "Patience OpenRouter Juge (nemotron-3-super-120b free) - verificateur independant (reponse vide)",
-      "detail": "Reponse vide"
-    },
-    {
-      "ts": "2026-09-16T15:58:57.614683+00:00",
+      "ts": "2026-09-16T17:06:21.839778+00:00",
       "kind": "http",
       "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
       "detail": ""
     },
     {
-      "ts": "2026-09-16T15:58:57.614067+00:00",
+      "ts": "2026-09-16T17:06:21.839347+00:00",
       "kind": "error",
       "title": "Toutes les IA ont echoue",
       "detail": "Google Gemini: HTTP Error 429: Too Many Requests | Groq (LLM ultra-rapide, gratuit): blacklist du jour (saute) | HuggingFace (136+ modeles, dont DeepSeek-V4): blacklist du jour (saute) | OrcaRouter (routeur gratuit, modele orcarouter/free): HTTP Error 429: Too Many Requests | OpenRouter Juge (nemotron-3-super-120b free) - verificateur independant: HTTP Error 400: Bad Request | InferX DeepSeek V4 Flash (API gratuite jusqu'au 12/08): HTTP Error 429: Too Many Requests | InferX Qwen3-Coder-Next (cod"

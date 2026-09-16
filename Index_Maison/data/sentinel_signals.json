@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "ipt",
-      "zscore": 2.176191932249842,
-      "value": 1.02,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique (ipt = 1.02) entièrement corrélée à du bruit médiatique académique sans lien avec la crypto (Tournoi International des Physiciens). Aucune baleine détectée.\"\n}\n```",
-      "ts": "2026-09-15T15:22:11.504612+00:00"
-    },
-    {
       "metric": "price_1h",
       "zscore": 2.5908432766274903,
       "value": 0.6485064323257905,
@@ -349,6 +342,13 @@
       "value": 1.188,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.32) sur un ticker partagé avec l'Institut Protestant de Théologie (IPT) et des tournois de physique. Bruit médiatique sans rapport avec l'activité crypto. Aucune accumulation de baleine détectée.\"\n}\n```",
       "ts": "2026-09-16T15:47:11.327319+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.246532697916735,
+      "value": 1.194,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Bruit de fond : les données et les titres font référence à des homonymes (Tournoi International des Physiciens, institutions religieuses, cyclisme) et non à un actif crypto.\"\n}\n```",
+      "ts": "2026-09-16T17:12:28.499458+00:00"
     }
   ]
 }
