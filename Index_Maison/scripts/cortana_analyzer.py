@@ -22,6 +22,7 @@ DATA_DIR = Path(__file__).parent.parent / "data"
 SIGNALS = DATA_DIR / "sentinel_signals.json"
 FICHES_DIR = DATA_DIR / "fiches_analyse"
 LIVE = Path(__file__).parent.parent / "thermo" / "live.json"
+_LIVE_COURANT = {}  # rempli par load_live() — lu par _evaluer_trigger (C1)
 OUTPUT = DATA_DIR / "cortana_analysis.json"
 
 # ─── Load fiches ──────────────────────────────────────────────
@@ -159,6 +160,16 @@ def evaluate_questions(fiche, live):
             value = live.get("sdi", {}).get("sdi", 0)
         elif source == "live.json → sdi.fee_fastest_sat":
             value = live.get("sdi", {}).get("fee_fastest_sat", 0)
+        elif source == "live.json → pipeline_health.sources":
+            # FIX 16/09 C3 : question morte (None) de health_degrade — on renvoie la pire
+            # source défaillante (score le plus bas), None si tout est sain
+            ph = live.get("pipeline_health", {}) or {}
+            scores = {k: v.get("score") for k, v in (ph.get("sources", {}) or {}).items()
+                      if isinstance(v, dict) and isinstance(v.get("score"), (int, float))}
+            value = min(scores.values()) if scores else None
+        elif source == "pipeline_health.mode":
+            # FIX 16/09 C3 : 2e question morte — le mode réel (nominal/degrade/kill_switch)
+            value = (live.get("pipeline_health", {}) or {}).get("mode")
         elif source == "live.json → rbf.rbf_score":
             value = live.get("rbf", {}).get("rbf_score", 0)
         elif source == "live.json → funding":
@@ -229,19 +240,26 @@ def find_interpretation(fiche, question_results):
         elif "whales > 5" in condition:
             if question_results.get("whales", {}).get("value", 0) > 5:
                 return interp
+        elif "google_news" in condition:
+            # FIX 16/09 C3 : la condition google_news de health_degrade était jamais évaluée (pass)
+            if "source == google_news" in condition:
+                return interp
         elif "source == binance" in condition:
-            # TODO: vérifier la source spécifique
-            pass
+            # FIX 16/09 C3 : conditions health_degrade réellement évaluées
+            # (avant : pass — la fiche tombait toujours au défaut = binance_timeout critique !)
+            if "source == binance" in condition:
+                return interp
         elif "source == deribit" in condition:
-            pass
+            if "source == deribit" in condition:
+                return interp
         elif "source == mempool" in condition:
-            pass
+            if "source == mempool" in condition:
+                return interp
     
-    # Par défaut, retourner la première interprétation
-    if interpretations:
-        return list(interpretations.values())[0]
-    
-    return {"lecture": "Pas d'interprétation disponible", "niveau": "inconnu", "action": "Observer"}
+    # FIX 16/09 C2 (GO C.) : le défaut « 1re interprétation du JSON » était la porte d'entrée du rouge
+    # (rbf_eleve → sdi_eleve dangereux · health_degrade → binance_timeout CRITIQUE KILL SWITCH).
+    # Si RIEN ne matche : neutre explicite, jamais de cri par défaut.
+    return {"lecture": "Aucune lecture ne correspond — observer, ne pas surréagir", "niveau": "neutre", "action": "Observer"}
 
 # ─── Generate analysis ──────────────────────────────────────
 

@@ -1,49 +1,50 @@
 {
-  "timestamp": "2026-09-16T09:02:16Z",
+  "timestamp": "2026-09-16T09:12:23Z",
   "generation_source": "system_state_generator.py v2.1",
   "status": "STALE",
-  "feed_hash": "d16e52ea01cc32de25d1a72c9dcb2fb3fcaa259c0c86a9f0b0e8b74217f2f895",
+  "feed_hash": "80b4ed60e627f686c9a38bb847d380973cdf050ed775ef40e0c6d6fb478d6a7c",
   "feeds": {
     "mission": {
       "present": true,
-      "age_seconds": 14,
+      "age_seconds": 17,
       "fresh_limit_s": 120
     },
     "cortana_feed": {
       "present": true,
-      "age_seconds": 307,
+      "age_seconds": 229,
       "fresh_limit_s": 120
     },
     "live": {
       "present": true,
-      "age_seconds": 80,
+      "age_seconds": 87,
       "fresh_limit_s": 15
     },
     "routing": {
       "present": true,
-      "age_seconds": 1977719,
+      "age_seconds": 1978327,
       "fresh_limit_s": 120
     }
   },
   "services": {
     "total": 99,
-    "running": 14,
-    "planned": 85,
+    "running": 15,
+    "planned": 84,
     "running_list": [
       "com.ace777.cockpit-http",
       "com.ace777.cockpit-pont",
+      "com.ace777.cortana.urgent",
+      "com.ace777.hub-cockpit-feed",
       "com.ace777.llm-gate-hub",
       "com.ace777.mirofish",
       "com.ace777.mirofish-front",
-      "com.ace777.observatoire",
       "com.ace777.prise-ia",
       "com.ace777.satellite-aspiration",
       "com.ace777.state-generator",
       "com.ace777.superviseur-core",
       "com.ace777.superviseur-l2",
       "com.ace777.superviseur-process",
-      "com.ace777.thermo-quotidien",
-      "com.ace777.vigie-live"
+      "com.ace777.vigie-live",
+      "com.ace777.xrpl-arbitrage"
     ],
     "planned_list": [
       "com.ace777.analyste-cadence",
@@ -56,7 +57,6 @@
       "com.ace777.cortana-analyzer",
       "com.ace777.cortana-feed",
       "com.ace777.cortana-propose-params",
-      "com.ace777.cortana.urgent",
       "com.ace777.couleur-regime",
       "com.ace777.couleur-regime-score",
       "com.ace777.cpfp",
@@ -79,7 +79,6 @@
       "com.ace777.gitpush-vault",
       "com.ace777.graph-cerveau",
       "com.ace777.heartbeats",
-      "com.ace777.hub-cockpit-feed",
       "com.ace777.hulk-watchdog",
       "com.ace777.jackson-hole-alarmes",
       "com.ace777.journal-soir",
@@ -87,6 +86,7 @@
       "com.ace777.kronos-ombre",
       "com.ace777.macro-tempete",
       "com.ace777.nourrisseur-disjoncteur",
+      "com.ace777.observatoire",
       "com.ace777.observer-murs",
       "com.ace777.obsidian-writer",
       "com.ace777.ofi-calc",
@@ -112,6 +112,7 @@
       "com.ace777.suivi-setup-red",
       "com.ace777.superviseur",
       "com.ace777.superviseur-auto",
+      "com.ace777.thermo-quotidien",
       "com.ace777.troupeau-inv",
       "com.ace777.veille-degradation",
       "com.ace777.veille-essaim-observation",
@@ -128,7 +129,6 @@
       "com.ace777.watchdog",
       "com.ace777.whales",
       "com.ace777.x402-agentic",
-      "com.ace777.xrpl-arbitrage",
       "com.ace777.xrpl-gouvernance",
       "com.ace777.xrpl-onchain"
     ]
