@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "liquidations",
-      "zscore": 2.43966272311447,
-      "value": 5780159.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Divergence massive : les médias généralistes paniquent sur des liquidations d'entreprises traditionnelles, tandis que la crypto encaisse 266M$ de liquidations de shorts (z-score 2.44). Les baleines piégent les baissiers par un mouvement haussier brutal que la presse grand public confond avec la macroéconomie.\"\n}\n```",
-      "ts": "2026-09-15T14:56:00.716224+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": 2.1104096250122732,
-      "value": 14550332485.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 78,\n  \"reason\": \"Le z-score élevé (2.11) indique une accumulation anormale de volume on-chain, tandis que les médias grand public restent focalisés sur des analyses prudentes ('faiblesse de la tendance baissière') ou du bruit hors-sujet. Cette divergence classique traduit une entrée silencieuse des baleines avant un retournement haussier.\"\n}\n```",
-      "ts": "2026-09-15T15:01:29.577776+00:00"
-    },
-    {
       "metric": "long_short",
       "zscore": 2.008963331322376,
       "value": 1.724,
@@ -349,6 +335,20 @@
       "value": 1.114,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.17) sur le ticker 'ipt' totalement polluée par du bruit médiatique sans rapport avec la crypto (Institut Polytechnique de Paris, Premier Tech, etc.). Aucun mouvement de baleine avéré, simple collision lexicale.\"\n}\n```",
       "ts": "2026-09-16T14:01:45.697877+00:00"
+    },
+    {
+      "metric": "cpfp",
+      "zscore": 2.108039542839407,
+      "value": 50.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique de mempool (CPFP) liée à des congestions de transactions, sans lien avec une accumulation ou distribution de baleines. Le bruit médiatique concerne des homonymes locaux sans pertinence financière.\"\n}\n```",
+      "ts": "2026-09-16T15:12:01.349148+00:00"
+    },
+    {
+      "metric": "dust",
+      "zscore": 2.108039542839407,
+      "value": 50.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit de fond : Les articles médiatiques font référence à 'Dust', une startup française d'Intelligence Artificielle (fondée par Stanislas Polu), et non à un actif crypto ou on-chain. Le z-score élevé reflète une recrudescence de mentions Web2 sans lien avec des mouvements de baleines cryptographiques.\"\n}\n```",
+      "ts": "2026-09-16T15:12:05.982626+00:00"
     }
   ]
 }
