@@ -2,20 +2,6 @@
   "signals": [
     {
       "metric": "volume",
-      "zscore": 2.002684530570746,
-      "value": 14712552301.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie on-chain significative (z-score 2.00) ignorée par les médias grand public qui parlent de vinyle et de fruits, tandis que CryptoQuant confirme une faiblesse de la tendance baissière. Accumulation silencieuse des baleines en cours.\"\n}\n```",
-      "ts": "2026-09-15T17:02:45.003794+00:00"
-    },
-    {
-      "metric": "price_1h",
-      "zscore": 4.166453167408493,
-      "value": 1.0116571885166792,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie statistique majeure (Z-score 4.17) sur le prix avec un silence total des médias (Google Actualités vide). C'est la signature classique d'accumulation furtive par des baleines avant toute couverture médiatique.\"\n}\n```",
-      "ts": "2026-09-15T17:37:52.237728+00:00"
-    },
-    {
-      "metric": "volume",
       "zscore": 2.0821935256029502,
       "value": 14835643440.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 82,\n  \"reason\": \"Z-score élevé (2.08) couplé à des volumes significatifs, alors que les médias grand public banalisent ou associent le mouvement à une 'faiblesse' ou une absence de direction. Divergence classique d'accumulation silencieuse par les baleines.\"\n}\n```",
@@ -349,6 +335,20 @@
       "value": 1.24,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.03) due à une collision de noms (sigle 'IPT' partagé avec des actualités académiques et religieuses sans lien avec la crypto). Aucune baleine détectée.\"\n}\n```",
       "ts": "2026-09-16T19:48:02.546818+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 4.358296063422595,
+      "value": 3557588.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 4.36) pour un volume de 3.55M$ sans couverture médiatique (Google Actualités vide). Divergence classique de accumulation furtive par les baleines loin du bruit de retail.\"\n}\n```",
+      "ts": "2026-09-16T20:33:09.090066+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.0254874802410407,
+      "value": 1.249,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.03) uniquement liée à une collision lexicale entre le ticker 'IPT' et des actualités institutionnelles sans rapport (Tournoi de Physique, faits divers, cyclisme). Aucun mouvement de baleine crypto détecté.\"\n}\n```",
+      "ts": "2026-09-16T20:33:10.599161+00:00"
     }
   ]
 }

@@ -4442,3 +4442,8 @@ Pas d’ordre — confrontation plus tard.
 - CCUSDT: IMPULSE_WAIT — spike en cours, pas chase
 - KITEUSDT: WATCH_PULLBACK — tension haute + reflux
 (compléter: confirmé ? risque ?)
+
+### 2026-09-16T21:00:11Z — ALERT auto
+- CCUSDT: IMPULSE_WAIT — spike en cours, pas chase
+- KITEUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
