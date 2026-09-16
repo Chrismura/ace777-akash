@@ -1,54 +1,15 @@
 {
-  "timestamp": 1789553543,
-  "date": "2026-09-16T10:12:23.838722+00:00",
-  "n_analyses": 3,
+  "timestamp": 1789557144,
+  "date": "2026-09-16T11:12:24.949800+00:00",
+  "n_analyses": 2,
   "analyses": [
     {
       "signal": {
-        "metric": "ipt",
-        "zscore": 2.4982205538441744,
-        "value": 1.186,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Fausse alerte liée à une collision de sémantique (homonymie) : l'anomalie onchain concerne un token/actif nommé 'IPT', tandis que les actualités font référence au Tournoi International des Physiciens et à des institutions. Aucune baleine crypto active détectée, le bruit médiatique est totalement déconnecté du domaine crypto.\"\n}\n```",
-        "ts": 1789552515.810337
-      },
-      "fiche": "rbf_eleve",
-      "questions": {
-        "prix": {
-          "value": -0.01,
-          "seuil": 1,
-          "depasse": false
-        },
-        "paires": {
-          "value": null,
-          "seuil": 3,
-          "depasse": false
-        },
-        "funding": {
-          "value": 2.1e-05,
-          "seuil": 0.001,
-          "depasse": false
-        },
-        "whales": {
-          "value": 0,
-          "seuil": 5,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
-      },
-      "action": "Observer",
-      "niveau": "neutre"
-    },
-    {
-      "signal": {
         "metric": "sdi",
-        "zscore": 2.7151440555931625,
-        "value": 0.62,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Anomalie de données non pertinente : le signal fait référence au Syndicat des Indépendants (SDI) français et à l'industrie audiovisuelle, sans aucun rapport avec la crypto-monnaie ou la blockchain.\"\n}\n```",
-        "ts": 1789552818.267949
+        "zscore": 2.2225471829769012,
+        "value": 0.604,
+        "analysis": "{\n  \"signal\": \"bullish\",\n  \"confidence\": 62,\n  \"reason\": \"Anomalie onchain SDI avec z-score 2.22 suggère une activité inhabituelle de baleines, tandis que les médias mentionnent SDI dans des contextes non-crypto, révélant une déconnexion. Le silence médiatique sur le mouvement onchain indique une accumulation ou distribution discrète, mais la direction haussière reste modérée.\"\n}",
+        "ts": 1789556441.109981
       },
       "fiche": null,
       "interpretation": {
@@ -60,10 +21,10 @@
     {
       "signal": {
         "metric": "fear_greed",
-        "zscore": -2.604569788618417,
+        "zscore": -2.2085178333914723,
         "value": 51,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Indifférence médiatique totale (Google Actualités vide) couplée à une anomalie statistique majeure du z-score (-2.60) pour un Fear & Greed neutre (51). Les baleines accumulent dans l'angle mort du marché avant un réveil brutal de la volatilité.\"\n}\n```",
-        "ts": 1789553121.169961
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Indice de peur et d'avidité neutre (51) avec un z-score fortement négatif (-2.21) indiquant une anomalie statistique de volatilité ou de volume, mais le manque de titres médiatiques significatifs montre un vide informationnel. Pas de mouvement de baleine détectable sans données de flux net des exchanges.\"\n}\n```",
+        "ts": 1789556743.118192
       },
       "fiche": null,
       "interpretation": {
