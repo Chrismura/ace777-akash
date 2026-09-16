@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "ipt",
-      "zscore": 2.065811168026644,
-      "value": 1.006,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (z-score 2.07) due à une collision de ticker avec le tournoi de physique de l'X (IPT) et des actualités institutionnelles. Aucun mouvement de baleine crypto détecté, le 'bruit' médiatique n'a aucun lien avec la blockchain.\"\n}\n```",
-      "ts": "2026-09-15T14:05:41.185563+00:00"
-    },
-    {
       "metric": "long_short",
       "zscore": 2.4357676053670416,
       "value": 1.747,
@@ -349,6 +342,13 @@
       "value": 1.184,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit de fond absolu. L'indicateur capte le ticker 'IPT' qui est ici totalement parasité par des homonymes institutionnels et académiques (Tournoi International des Physiciens, Institut Protestant de Théologie). Aucune baleine crypto détectée, simple collision de mots-clés dans les flux RSS.\"\n}\n```",
       "ts": "2026-09-16T11:50:55.006052+00:00"
+    },
+    {
+      "metric": "taker_ratio",
+      "zscore": 2.133576934953367,
+      "value": 1.364,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio élevé (z-score 2.13) indique une forte agression acheteuse sur les carnets d'ordres, signalant une accumulation agressive par les \"smart money\". En l'absence de narratif médiatique majeur (silence radio de Google Actualités), cette pression d'achat reste invisible pour le grand public, confirmant une entrée silencieuse des baleines avant un potentiel mouvement de hausse.\"\n}\n```",
+      "ts": "2026-09-16T12:05:59.100690+00:00"
     }
   ]
 }

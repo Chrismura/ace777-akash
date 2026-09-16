@@ -1,23 +1,8 @@
 {
-  "timestamp": 1789560145,
-  "date": "2026-09-16T12:02:25.868926+00:00",
+  "timestamp": 1789560746,
+  "date": "2026-09-16T12:12:26.044606+00:00",
   "n_analyses": 2,
   "analyses": [
-    {
-      "signal": {
-        "metric": "fear_greed",
-        "zscore": -2.058242851648861,
-        "value": 51,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Le sentiment est neutre (Fear & Greed à 51) avec une volatilité statistique faible (z-score -2.06). Absence de données significatives dans les titres Google Actualités pour détecter une divergence majeure. Les baleines restent en observation.\"\n}\n```",
-        "ts": 1789558551.796796
-      },
-      "fiche": null,
-      "interpretation": {
-        "lecture": "Pas de fiche disponible",
-        "niveau": "inconnu"
-      },
-      "action": "Observer"
-    },
     {
       "signal": {
         "metric": "ipt",
@@ -29,7 +14,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": 0.33,
+          "value": -0.15,
           "seuil": 1,
           "depasse": false
         },
@@ -39,12 +24,12 @@
           "depasse": false
         },
         "funding": {
-          "value": 4.9e-05,
+          "value": 4.8e-05,
           "seuil": 0.001,
           "depasse": false
         },
         "whales": {
-          "value": 1,
+          "value": 0,
           "seuil": 5,
           "depasse": false
         }
@@ -56,6 +41,21 @@
       },
       "action": "Observer",
       "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "taker_ratio",
+        "zscore": 2.133576934953367,
+        "value": 1.364,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio élevé (z-score 2.13) indique une forte agression acheteuse sur les carnets d'ordres, signalant une accumulation agressive par les \"smart money\". En l'absence de narratif médiatique majeur (silence radio de Google Actualités), cette pression d'achat reste invisible pour le grand public, confirmant une entrée silencieuse des baleines avant un potentiel mouvement de hausse.\"\n}\n```",
+        "ts": 1789560359.10069
+      },
+      "fiche": null,
+      "interpretation": {
+        "lecture": "Pas de fiche disponible",
+        "niveau": "inconnu"
+      },
+      "action": "Observer"
     }
   ],
   "resume": "🔵 CALME — pas de signal alarmant"
