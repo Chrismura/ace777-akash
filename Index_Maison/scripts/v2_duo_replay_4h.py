@@ -240,7 +240,12 @@ def run():
         giveback = 1 bp EN ARIÈRE depuis le meilleur prix (fill dans la bougie)."""
         k = kl4h[i]
         d = -s["dir"]
-        dur = (1 + d * HARD_STOP_MULT * SL_SCOUT_BPS / 10000.0)      # hard stop
+        # BUG CORRIGÉ (20:27Z) : le hard stop se déclenche quand le prix va CONTRE
+        # la position → prix de stop = p0 × (1 − d×32bps) : en DESSOUS pour un LONG,
+        # AU-DESSUS pour un SHORT. L'ancien signe (+) déclenchait le stop dans le
+        # sens FAVORABLE et fabriquait un gain garanti de 32 bps par trade
+        # (artefact : brut = 47 × 2,56 $ exactement, WR 1.0). Tableau précédent INVALIDE.
+        dur = (1 - d * HARD_STOP_MULT * SL_SCOUT_BPS / 10000.0)      # hard stop (contre)
         arm = (1 + d * TRAIL_ARM_BPS / 10000.0)                      # arm trail
         gvb = (1 - d * TRAIL_GIVE_BPS / 10000.0)                     # giveback (ARRIÈRE)
         if d < 0:   # SHORT (sortie = rachat, giveback AU-DESSUS du plus bas)
