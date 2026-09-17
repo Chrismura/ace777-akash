@@ -12,7 +12,9 @@ EDEL a fait +156 % (11→16/09). Réalisé moteur : **+0,98 $**. Autopsie : `Ind
 | Klines 1h/4h MEXC EDEL | `hulk-mexc/runs/EDELUSDT_1h_klines_20260917.json` + `_4h_` | **500 bougies max = 20 jours. La paire n'existe sur MEXC que depuis le 28/08.** |
 | Profil/fiche EDEL | `hulk-mexc/strategie/universe_profils.json` | calibrée 30/08, trail 10/4 posé 10/09 |
 | Microstructure (murs/spoof/spread) | `runs/CORPUS_ASP_20260917.csv` (2,1 Mo) + `murs_observations.json` | 16/08 → 17/09 |
-| Contexte riche (régime, tension, murs live) | `runs/croisement_contexte.jsonl` (EDELUSDT) | **2 jours seulement (15→17/09) — trop court** |
+| Contexte riche (régime, tension, murs live) | `runs/croisement_contexte.jsonl` (EDELUSDT) | **2 jours seulement (15→17/09) — et les MURS y sont GELÉS** (1 088 $ / 2 263 $ identiques 3 jours de suite, E35) |
+| Murs EDEL réels — 2 fenêtres | `ASPIRATION_CALIB_*` (16→30/08, 1 686 mesures, mur médian ~908 $) + `CORPUS_ASP_20260917.csv` (17/09, 358 mesures, mur bid ~2 272 $) | **TROU 31/08→14/09 : aucune mesure de murs pendant la 1re jambe du pump** |
+| L2 SNAPS (carnet d'ordres 1 s) | `runs/L2_*_SNAPS.csv` | **BTC UNIQUEMENT — EDEL jamais couverte par le L2 (trou structurel, E35)** |
 | Volatilité mesurée | `Index_Maison/data/volatilite_paires.json` | 10/09, σ EDEL ≈ 10 %/j |
 
 ## Le backtest du 17/09 (`runs/EDEL_SETUP_BACKTEST_20260917.json`) — et ses limites
@@ -28,6 +30,9 @@ Stake 30 $ réel, frais 0,05 %/côté, entrée dip≥X % en tendance haussière 
 4. **Cooldown 2 h après un stop** — interdiction du reentry dans la mèche (le crime du 15/09 02:40→05:57)
 5. **Reentry_dump interdit au-delà de dd6 > 15 %** (le crime du 16/09 @ 0,02669)
 6. **Forward test papier 7 jours AVANT tout verdict** — critères figés maintenant : net > 0 sur ≥ 5 trades, WR > 55 %, aucune sortie dans une mèche > 8 %/h
+
+## Conséquence directe pour la spec (donnée neuve du 17/09 soir)
+Les murs bid EDEL ont **×2,5 entre la calibration (908 $) et aujourd'hui (2 272 $)** — la liquidité réelle a suivi le pump. Le plafond « 2 % du mur » calé sur l'ancien mur = 18 $ est **obsolète** ; lu sur les murs actuels = ~45 $. La spec V2 doit lire le plafond **sur le flux de murs du jour** (CORPUS_ASP), jamais sur un cache figé — et le retour d'expérience du fusible 3 $ est cohérent : taille min 30 $, plafond live, stop 12 % = risque max −3,60 $.
 
 ## Les 3 questions à Antigravity (conteste, chiffre à l'appui)
 1. Le backtest 20 jours/1 régime : quel test additionnel exigerait un quant rigoureux AVANT d'activer cette spec en papier ?
