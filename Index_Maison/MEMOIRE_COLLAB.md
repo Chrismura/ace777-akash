@@ -4388,3 +4388,6 @@ Christophe avait raison : la mémoire de Cortana est construite et branchée dep
 - **Suspect : flux48 figé à 1063,3 BTC ×3 jours** — fenêtre glissante qui ne glisse pas (à auditer).
 - **92 cycles en erreur (7,1 %)** avec message générique sans localisation de l'API fautive.
 - Décision en attente GO : retrancher le veto (relatif) + corriger fenêtre + journaliser les erreurs nommément, puis relancer le run papier propre.
+
+## 17/09 · 18:25Z — E26 : le replay ÉCHEC du 12/09 a été ignoré. Le propriétaire avait raison.
+Replay 90 j (12/09 15:03Z) : 17 trades · WR 58,8 % · net +68,33 $ · 4/5 critères PASS · verdict « ECHEC » (n<30). Live lancé le soir même avec veto infranchissable, sans nouveau GO. Mécaniquement : le prototype ne peut pas prouver ses gains. Ordres du propriétaire : plus aucun daemon nouveau — tout se fait VISIBLE dans son terminal ; seule action possible : replay avec la variante veto relatif, verdict tranchant, ou stop. Buffy ne propose plus rien de neuf sans avoir greppé l'existant.
