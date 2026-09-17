@@ -110,3 +110,6 @@ La réponse du codeur (task code.ia, Nemotron) proposait des réécritures compl
 
 ## E24 — 2026-09-17T13:20Z — Buffy — duplicata de corps de fonction après double str_replace
 L'intégration C2 dans score_justesse.py via 2 remplacements liés a laissé un corps orphelin de juger() (code mort après un return, indétectable au py_compile). Détecté au grep de vérification (ligne 367), excisé, 19/19 tests verts. Leçon : après des remplacements structurés, toujours py_compile + grep des marques de fonction + tests.
+
+## E23 — 17/09 15:40Z · Audit « 6 hypothèses » : faux manque, vrais trous
+L'opérateur a demandé rétrograde/seuils/fractal/hippocampe/patterns/distribué en croyant tout ajouter. Audit source : le fractal (prompt), le z-score adaptatif (anti-baleines), la section PATTERN, les tendances 24h/7j et la réinjection de justesse EXISTAIENT déjà — les annoncer comme « à construire » aurait été une erreur de cadrage. Les vrais trous : consolidation (aucune) et encadrement du rétrograde. Leçon : avant de proposer un concept, grep le code — la maison a souvent déjà l'idée sous une autre forme.

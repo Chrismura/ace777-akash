@@ -4311,3 +4311,19 @@ Christophe a finalement vu le nouveau tableau SCORE : le contenu était bon, c'�
 **Incidents gérés :** (1) mon test `--help` du moteur de croisements a déclenché son main() (pas de garde argparse) → 3 lignes au journal analyses ; nettoyage immédiat avec erreur de filtre (2 lignes légitimes Buffy-P2 avalées puis restaurées depuis backup, vérifié). (2) duplicata de corps juger() laissé par double str_replace → excisé au py_compile, 19/19 verts. Consignés JOURNAL_ERREURS.
 **Re-scellement** : REGISTRE_SYNAPSES ×3 (PROMPT_MASTER, score_justesse, cortana_analyse) atomique + revalidé ; veilleuse SAIN 14/14 après.
 **Règle maison confirmée** : le JUGE tranche sur les faits chiffrés même contre la famille (O6). L'Ombre-Scoreur V3 tourne 7 jours sans impact production ; GO Christophe requis pour basculer le cockpit sur V3 ou câbler un filtre régime.
+
+---
+
+## 17/09 · 15:55Z — Les 6 hypothèses d'architecture Cortana : consultation faite, 1 GO
+
+**Demande opérateur** : rétrograde (H1), seuils invisibles/points de bascule (H2), information fractale (H3), hippocampe mémoire (H4), entraînement patterns (H5), intelligence distribuée (H6).
+
+**Audit source d'abord** (leçon E23) : fractal, z-score adaptatif, section PATTERN, tendances 24h/7j, réinjection de justesse = **déjà en place**. Vrai trou : aucune consolidation du corpus.
+
+**Consultation 3 IA** (brief + avis dans CONSULTATION_FAMILLE_CORTANA_PRESTIGE_20260917/) : Nemotron ×2 + Gemini Juge. Convergence :
+- **H4 hippocampe = GO unanime, chantier n°1** : consolidation hebdomadaire des analyses en « leçons » (5 réussites + 5 erreurs récurrentes, compteur + fraîcheur anti-fossile), injectée au prompt. Test A/B 30 j, seuil ≥ +0,2 pt sinon coupure.
+- H2 points de bascule : plafonné à 30 j, preuve via Ombre-Scoreur V3 (n≥50).
+- H1, H5, H6 : PAS NOW (biais de confirmation / récits fossilisés / déjà distribué).
+- H3 : rejeté (Cortana lit du texte, pas des séries — Hurst inutilisable par un LLM).
+
+**Décision en attente du GO opérateur** : construction de l'hippocampe (leçons hebdo). Rien codé, 0 € · 0 ordre.
