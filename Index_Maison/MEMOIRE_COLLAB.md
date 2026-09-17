@@ -4379,3 +4379,5 @@ Christophe avait raison : la mémoire de Cortana est construite et branchée dep
 **B. Les 99 réveils — tri** : 97 sains (exit 0) · 2 rouges connus : discipline-quotidienne (exit 3 = klaxon volontaire, alertes 13 indices au vote) · troupeau-inv (exit 1 = 502 du 16/09, verdict reporté) · ~10 .bak/.BAK inoffensifs dans LaunchAgents (launchd les ignore, purge possible avec les VORTEX) · 5 processus permanents (superviseur_l2 67931, cockpit 851, pont 904, superviseurs, mirofish) · hub 11435 = 10 providers · mirofish:3000.
 
 **C. Rappels** : vend 19/09 06:00 run troupeau · ~24/09 contrôle J+7 Ombre V3 · ~début oct. n=50 → verdict Cortana + filtre régime · au vote : VORTEX (archiver + relancer ?), notation C, geopol-indice (désaccord nom/plist du 14/09, jamais tranché).
+
+| 2026-09-17 15:02:38Z | CHIEN | ALERTE | superviseur-l2 : Age réel 306s dépasse le seuil 120.0s |
