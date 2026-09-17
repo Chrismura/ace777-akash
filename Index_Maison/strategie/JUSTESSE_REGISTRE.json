@@ -1,5 +1,5 @@
 {
-  "ts": "2026-09-16T06:50:50.320880+00:00",
+  "ts": "2026-09-17T05:31:47.214572+00:00",
   "source": "scoreur_registre_mecanique.py (23/08, convention TOUCH + fin de journée)",
   "convention": "échéance = fin de la journée indiquée (23:59:59Z) · vraie si le prix a ATTEINT la cible dans la fenêtre [création → échéance] · ⚪ DÉJÀ VRAIE = cible déjà atteinte à la création (zéro information, exclue de la justesse)",
   "registre": "/Users/christophe/ace777-test-day1/Index_Maison/strategie/REGISTRE_PREDICTIONS.md",
@@ -7,14 +7,105 @@
   "predictions_uniques": 150,
   "dedupliquees": 0,
   "echues": 150,
-  "scorrees": 0,
-  "vraies": 0,
-  "fausses": 0,
-  "deja_vraies_creation": 0,
-  "pct_vraies": null,
+  "scorrees": 27,
+  "vraies": 20,
+  "fausses": 7,
+  "deja_vraies_creation": 123,
+  "pct_vraies": 74.1,
   "en_attente": 0,
   "non_verifiables": 0,
-  "erreur_prix": 150,
-  "par_paire": {},
-  "par_jour": {}
+  "erreur_prix": 0,
+  "par_paire": {
+    "BTCUSDT": {
+      "n": 85,
+      "hit": 9,
+      "deja_vraies": 70,
+      "paris": 15,
+      "pct": 60.0
+    },
+    "ETHUSDT": {
+      "n": 65,
+      "hit": 11,
+      "deja_vraies": 53,
+      "paris": 12,
+      "pct": 91.7
+    }
+  },
+  "par_jour": {
+    "2026-08-13": {
+      "n": 1,
+      "hit": 1,
+      "pct": 100.0
+    },
+    "2026-08-17": {
+      "n": 3,
+      "hit": 3,
+      "pct": 100.0
+    },
+    "2026-08-18": {
+      "n": 1,
+      "hit": 1,
+      "pct": 100.0
+    },
+    "2026-08-19": {
+      "n": 2,
+      "hit": 0,
+      "pct": 0.0
+    },
+    "2026-08-22": {
+      "n": 1,
+      "hit": 1,
+      "pct": 100.0
+    },
+    "2026-08-23": {
+      "n": 2,
+      "hit": 2,
+      "pct": 100.0
+    },
+    "2026-08-26": {
+      "n": 3,
+      "hit": 1,
+      "pct": 33.3
+    },
+    "2026-08-31": {
+      "n": 1,
+      "hit": 0,
+      "pct": 0.0
+    },
+    "2026-09-03": {
+      "n": 1,
+      "hit": 1,
+      "pct": 100.0
+    },
+    "2026-09-04": {
+      "n": 1,
+      "hit": 1,
+      "pct": 100.0
+    },
+    "2026-09-10": {
+      "n": 1,
+      "hit": 0,
+      "pct": 0.0
+    },
+    "2026-09-12": {
+      "n": 3,
+      "hit": 3,
+      "pct": 100.0
+    },
+    "2026-09-13": {
+      "n": 3,
+      "hit": 3,
+      "pct": 100.0
+    },
+    "2026-09-14": {
+      "n": 3,
+      "hit": 3,
+      "pct": 100.0
+    },
+    "2026-09-15": {
+      "n": 1,
+      "hit": 0,
+      "pct": 0.0
+    }
+  }
 }
