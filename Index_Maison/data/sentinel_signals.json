@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "price_1h",
-      "zscore": 2.943215388290557,
-      "value": 0.8339145338944642,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 2.94) non reflétée dans les médias, suggérant une accumulation discrète par les baleines.\"\n}\n```",
-      "ts": "2026-09-15T18:38:07.062649+00:00"
-    },
-    {
       "metric": "volume",
       "zscore": 2.5909653249712914,
       "value": 15501487250.0,
@@ -349,6 +342,13 @@
       "value": 3582039.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain majeure (z-score 4.35) avec un afflux net de capitaux de baleines (3.58M USD) dans un silence médiatique total (Google Actualités vide). Divergence classique d'accumulation furtive avant une cassure haussière.\"\n}\n```",
       "ts": "2026-09-16T23:23:40.828035+00:00"
+    },
+    {
+      "metric": "taker_ratio",
+      "zscore": 2.4277008390213815,
+      "value": 1.415,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio élevé (z-score 2.43) indique une domination agressive des acheteurs sur les carnets d'ordres, signalant une accumulation agressive par les baleines. En l'absence de couverture médiatique notable (Google Actualités vide), ce mouvement de liquidité se fait en silence, loin du radar de la foule, ce qui précède souvent une forte impulsion haussière.\"\n}\n```",
+      "ts": "2026-09-17T00:08:48.453622+00:00"
     }
   ]
 }
