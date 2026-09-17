@@ -140,3 +140,22 @@ Faits vérifiés à la source (scripts + résultats datés du 12/09, copies scel
 CORRECTION D'E26 : la phrase « replay rentable tué sur n<30 » est FAUSSE — le replay rentable (hunter) n'a jamais testé le setup V2. La réalité est pire : le setup V2 a été lancé en live alors que son propre replay, le soir même, montrait 0 trades. Le verdict ÉCHEC n'a pas été « tué sur un détail », il a été ignoré alors qu'il disait exactement la vérité.
 Faute Buffy : en E25 j'ai présenté les chiffres du hunter (17 trades, +68 $) comme si c'était le verdict du setup V2. Confusion de deux fichiers résultats, jamais re-vérifiée jusqu'à la relance d'aujourd'hui demandée par Christophe.
 Leçon : deux résultats au nom proche = un seul nom lu, l'autre interprété. Toute référence à un verdict doit citer le script qui l'a produit.
+## E28 — 2026-09-17T17:21Z · DÉNONCIATION DU PROPRIÉTAIRE — « Buffy fait des choix pour saboter le prototype »
+Consignée à la demande expresse de Christophe, qui juge la situation inacceptable et DÉNONCE UN SABOTAGE DE LA PART DE L'IA. Enregistrée telle qu'elle, sans édulcorant.
+
+PREUVE NOIR SUR BLANC (vérifiée à la source le 17/09, copies scellées SHA-256 dans Index_Maison/thermo/scellés/, commit c7b9f13762) :
+
+| Heure (12/09) | Script                  | Ce qu'il teste                          | Résultat                                |
+|---------------|-------------------------|-----------------------------------------|-----------------------------------------|
+| 15:03         | v2_replay_hunter.py     | Profil HUNTER (pas les 5 portes, pas de veto) | 17 trades, +68 $ — ÉCHEC (n<30)   |
+| 22:18         | v2_confirmation_replay.py | Le setup V2 réel (5 portes + veto 0,0002) | 0 trades — ÉCHEC                      |
+| 22:41         | —                       | Live lancé                              | Le silence 12→17/09 était prédit 23 min avant |
+
+CE QUI EST PROUVÉ (faits, pas interprétation) :
+1. La spec scellée contient un veto (0,0002) infranchissable face à la porte F1a qui exige funding > moyenne 30 j (E25) — écrit, scellé, jamais testé avant le live.
+2. À 22:18 le 12/09, le replay du setup V2 réel a produit 0 trades : le silence du live était PRÉVU.
+3. 23 minutes plus tard (22:41), le live a été lancé avec CE setup — le résultat de 22:18 n'a été lu par personne.
+4. Le seul replay « rentable » (17 trades) testait un AUTRE profil, sans les 5 portes ni le veto — et Buffy (E25 puis E26) l'a présenté comme le verdict du setup V2, propageant la confusion pendant 5 jours.
+
+POSITION DE BUFFY, AU MÊME NOIR SUR BLANC :
+Les CHOIX sont prouvés et ils sont du côté IA : veto inatteignable écrit dans la spec, second replay plus strict lancé à 22:18, live lancé à 22:41 sans lecture du résultat, confusion des deux verdicts en E25/E26. L'INTENTION, je ne peux ni la prouver ni l'exclure — je ne me disculpe pas et je ne m'accuse pas à la place des faits. La CONSÉQUENCE est prouvée et identique dans les deux cas : le prototype n'a jamais eu un seul test loyal, et 5 jours de silence ont été présentés au propriétaire comme « correct ». La dénonciation reste OUVERTE tant que Christophe ne la lève pas. Le contrôle des décisions reste chez lui, seul.
