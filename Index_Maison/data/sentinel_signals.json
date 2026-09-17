@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "liquidations",
-      "zscore": 2.8270729072500167,
-      "value": 6371195.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Divergence forte entre liquidations massives onchain (z-score 2.83) et couverture médiatique focalisée sur des liquidations traditionnelles locales. Les baleines crypto pourraient profiter du bruit médiatique pour accumuler pendant que l'attention est ailleurs.\"\n}\n```",
-      "ts": "2026-09-15T18:43:14.301521+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.857969490904264,
-      "value": 1.201,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Le ticker 'ipt' fait référence à des actualités académiques et institutionnelles (Tournoi International des Physiciens, violences sexistes), sans aucun rapport avec l'activité onchain de baleines crypto. Anomalie de données ou bruit de fond.\"\n}\n```",
-      "ts": "2026-09-15T18:53:17.397092+00:00"
-    },
-    {
       "metric": "volume",
       "zscore": 4.988342777395543,
       "value": 18368185437.0,
@@ -349,6 +335,20 @@
       "value": 1.415,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio à 1.415 (z-score 2.30) indique une forte agression acheteuse cachée sur le marché dérivé, tandis que Google Actualités ne montre aucun engouement médiatique majeur. Cette asymétrie signale une accumulation silencieuse des baleines avant un mouvement de prix haussier non anticipé par le grand public.\"\n}\n```",
       "ts": "2026-09-17T00:38:54.300599+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 2.0447662314443757,
+      "value": 3084610.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Panique médiatique orchestrée autour de faillites traditionnelles et de liquidations mineures (3M$) par rapport aux grands krachs historiques, créant un 'washout' des positions long idéal pour l'accumulation cachée des baleines.\"\n}\n```",
+      "ts": "2026-09-17T01:39:08.566529+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 3.0414083437172907,
+      "value": 2722079.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 3.04, ~2.7M USD) en absence totale de couverture médiatique (Google Actualités vide). C'est la définition classique d'accumulation silencieuse par des baleines loin du radar grand public.\"\n}\n```",
+      "ts": "2026-09-17T02:04:16.127097+00:00"
     }
   ]
 }
