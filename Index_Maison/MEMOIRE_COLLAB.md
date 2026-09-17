@@ -4381,3 +4381,10 @@ Christophe avait raison : la mémoire de Cortana est construite et branchée dep
 **C. Rappels** : vend 19/09 06:00 run troupeau · ~24/09 contrôle J+7 Ombre V3 · ~début oct. n=50 → verdict Cortana + filtre régime · au vote : VORTEX (archiver + relancer ?), notation C, geopol-indice (désaccord nom/plist du 14/09, jamais tranché).
 
 | 2026-09-17 15:02:38Z | CHIEN | ALERTE | superviseur-l2 : Age réel 306s dépasse le seuil 120.0s |
+## 17/09 · 17:50Z — E25 : confrontation totale du run V2. Le doute de Christophe était fondé.
+5 jours, 1288 cycles, 0 trade — VÉRIFIÉ contre Binance direct :
+- **Le 15/09, les 4 portes d'entrée étaient TOUTES vertes** (régime ✅ · flux 1063 BTC ✅ · chg24 −3,25 % ✅ · F1a funding > moy30 ✅) → trade refusé UNIQUEMENT par le veto zone morte (0,0002 > max réel 0,000098). Le trade papier aurait gagné ~+1 %.
+- **Le veto est incohérent avec son propre F1a** : il exige funding > 0,0002 alors que la moyenne 30 j est 0,000068 — le seuil guarantee le silence absolu tant que le marché reste calme. Pas un sabotage (spec scellée d76c2c17, veto explicite) mais un paramètre à retrancher : seuil relatif (moy30 × facteur) au lieu d'absolu.
+- **Suspect : flux48 figé à 1063,3 BTC ×3 jours** — fenêtre glissante qui ne glisse pas (à auditer).
+- **92 cycles en erreur (7,1 %)** avec message générique sans localisation de l'API fautive.
+- Décision en attente GO : retrancher le veto (relatif) + corriger fenêtre + journaliser les erreurs nommément, puis relancer le run papier propre.
