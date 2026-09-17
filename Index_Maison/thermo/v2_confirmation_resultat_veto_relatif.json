@@ -1,0 +1,40 @@
+{
+  "ts": "2026-09-17T19:29:11Z",
+  "spec": "VARIANTE GO 17/09 : spec scellée 12/09 (§3), SEULE variable = veto relatif avg30×1.2 (remplace 0.0002 statique)",
+  "masques": {
+    "r1_ofi": "masqué sur toute la fenêtre",
+    "r2_flux_avant_14_08": 139,
+    "r3_c2_purge": "masquée (branche trigger)"
+  },
+  "trades": [
+    {
+      "entree_j": "2026-08-25",
+      "sortie_j": "2026-08-28",
+      "side": "SHORT",
+      "entree": 78992.76,
+      "sortie": 80249.59,
+      "brut": -17.9,
+      "frais": 1.8,
+      "net": -19.7,
+      "raison": "filet_72h"
+    }
+  ],
+  "stats": {
+    "n": 1,
+    "wins": 0,
+    "wr": 0.0,
+    "brut": -17.9,
+    "frais": 1.8,
+    "net": -19.7,
+    "net_par_trade": -19.7,
+    "part_pire_raison": 1.0
+  },
+  "criteres": {
+    "C1_n30": false,
+    "C2_net_gt_frais": false,
+    "C3_wr50": false,
+    "C4_pertes": false
+  },
+  "verdict": "ÉCHEC",
+  "clause_pre_enregistree": "hypothèse fenêtrée jamais mise à l'épreuve : tous les trades viennent de la fenêtre non masquée (≥ 14/08) et n < 30 — données trop courtes, constaté par la machine avant toute lecture humaine (règle pré-enregistrée)."
+}
