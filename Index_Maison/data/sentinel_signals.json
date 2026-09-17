@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "volume",
-      "zscore": 4.988342777395543,
-      "value": 18368185437.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Z-score extrême (4.99) couplé à un volume massif de 18.3B on-chain, alors que les médias grand public et CryptoQuant crient au 'faible rebond' ou à la 'faiblesse baissière'. Divergence classique d'accumulation furtive par les baleines sous le radar du retail.\"\n}\n```",
-      "ts": "2026-09-15T19:08:21.265731+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": 133.4421581903519,
-      "value": 0.604,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Anomalie de faux positif : l'indicateur 'SDI' capte ici un acronyme journalistique et syndical (Syndicat des Indépendants en France / Serial Digital Interface) et non l'actif crypto ou une métrique de baleine on-chain. Aucune donnée crypto pertinente à analyser.\"\n}\n```",
-      "ts": "2026-09-16T06:59:15.368318+00:00"
-    },
-    {
       "metric": "fear_greed",
       "zscore": -16.941074346097416,
       "value": 51,
@@ -349,6 +335,20 @@
       "value": 2722079.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 3.04, ~2.7M USD) en absence totale de couverture médiatique (Google Actualités vide). C'est la définition classique d'accumulation silencieuse par des baleines loin du radar grand public.\"\n}\n```",
       "ts": "2026-09-17T02:04:16.127097+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.3403203381996796,
+      "value": 1.429,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Le ticker 'IPT' dans les données on-chain est parasité par des homonymes médiatiques sans rapport avec la crypto (Tournoi International des Physiciens, Institut Protestant de Théologie). Aucun mouvement de baleine pertinent détecté.\"\n}\n```",
+      "ts": "2026-09-17T03:19:43.478899+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 4.0038457241517404,
+      "value": 3580236.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 4.00, ~3.58M USD) dans un silence médiatique absolu (Google Actualités vide). Divergence classique traduisant accumulation furtive loin du radar retail.\"\n}\n```",
+      "ts": "2026-09-17T03:34:49.127652+00:00"
     }
   ]
 }
