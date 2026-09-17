@@ -4355,3 +4355,27 @@ Christophe avait raison : la mémoire de Cortana est construite et branchée dep
 - Cause des 11 « violations » : baseline du 09/08 plus vieille que les modifications légitimes du 23/08→14/09 (gatekeeper, superviseur_auto, verifier_setup, hub, plist). Aucune anomalie réelle.
 - `integrite.py init` exécuté (trace WORM automatique) → check : **OK 17 · Traces 0 · Violations 0**. Base re-vérouillée 444.
 - État terminal inventorié : 99 réveils launchd ace777 · Hulk L2 en vol · V2-CONFIRMATION papier silencieuse (funding zone morte, veto) · hub 11435 OK (10 providers) · cockpit 17800 OK.
+
+## 17/09 · 17:35Z — Tableau mémoire du jour (3 GO exécutés) : V2 expliqué · 99 réveils triés · rappels
+
+**TABLEAU DE MÉMOIRE — 17/09 v2 (état 17:30Z)**
+
+| Chantier | État | Preuve |
+|---|---|---|
+| V1.2 fiches Cortana | ✅ Fait 08:30Z | 6 fiches + scellées, 8/8 tests |
+| Boucle prestige (C1 portier, C2 Ombre V3, C3 backtest) | ✅ Fait midi | 19/19 tests, re-scellement ×3 |
+| 6 hypothèses (rétrograde…distribué) | ✅ Tranché 15:55Z | 1 GO (hippocampe) → annulé E24 : déjà en prod depuis 15/08 |
+| Hippocampe vérifié + fusion axiomes | ✅ Fait 17:00Z | 5 leçons → 1, scellé a296dce1, veilleuse STABLE |
+| Baseline integrite | ✅ Fait 17:20Z | OK 17 · Violations 0 (commit 05a44efc) |
+| Plists VORTEX (archivage) | 🗳️ AU VOTE | 1 doublon + 1 divergente + 1 dernière copie (96h) |
+| Re-run VORTEX 4h | 🗳️ AU VOTE | setup identique prouvé · conflit Hulk (17 positions même compte) |
+| Couverture notation (13 indices) | 🗳️ AU VOTE | reco Buffy : option C hybride |
+| Filtre régime LONG/NOIR-ROUGE | ⏳ Physique | re-mesure à n=50 (~3 sem., backtest +5/n=13) |
+| Troupeau paire-009 | ⏳ | ANNULEE_MIROIR_INSTABLE → re-run vendredi 06:00 (lun+mer 06:00 aussi) |
+| Ombre-Scoreur V3 | ⏳ J+7 | contrôle ~24/09 |
+
+**A. V2-CONFIRMATION (moteur papier) — expliqué** : démo live scellée (spec d76c2c17, moteur 5aff1f84). Il ne peut ouvrir un LONG papier que si TOUT : régime HAUSSIER + F1a (funding > moyenne 30 j) + F1b (|flux 48h| ≥ 5 BTC × chg24) + funding > 0,0002 (ZONE MORTE = signal trop faible, veto) + CHG24_MIN 1,0 %. Sortie : trailing σ (arm 1,0σ, giveback 0,4σ) ou shock 2σ. Aujourd'hui : funding 3,31e-05 → ZONE MORTE → veto → silence, 0 trade papier = comportement CORRECT (la règle des 2 sources protège le capital-test).
+
+**B. Les 99 réveils — tri** : 97 sains (exit 0) · 2 rouges connus : discipline-quotidienne (exit 3 = klaxon volontaire, alertes 13 indices au vote) · troupeau-inv (exit 1 = 502 du 16/09, verdict reporté) · ~10 .bak/.BAK inoffensifs dans LaunchAgents (launchd les ignore, purge possible avec les VORTEX) · 5 processus permanents (superviseur_l2 67931, cockpit 851, pont 904, superviseurs, mirofish) · hub 11435 = 10 providers · mirofish:3000.
+
+**C. Rappels** : vend 19/09 06:00 run troupeau · ~24/09 contrôle J+7 Ombre V3 · ~début oct. n=50 → verdict Cortana + filtre régime · au vote : VORTEX (archiver + relancer ?), notation C, geopol-indice (désaccord nom/plist du 14/09, jamais tranché).
