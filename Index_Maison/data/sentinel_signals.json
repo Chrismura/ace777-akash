@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "sdi",
-      "zscore": 2.1034080831448065,
-      "value": 0.612,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Anomalie sémantique totale. Le sigle 'SDI' dans les médias fait référence à l'industrie audiovisuelle (Serial Digital Interface) et au Syndicat des Indépendants, sans aucun rapport avec la crypto ou des mouvements on-chain de baleines.\"\n}\n```",
-      "ts": "2026-09-16T11:30:49.752755+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": -2.058242851648861,
-      "value": 51,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Le sentiment est neutre (Fear & Greed à 51) avec une volatilité statistique faible (z-score -2.06). Absence de données significatives dans les titres Google Actualités pour détecter une divergence majeure. Les baleines restent en observation.\"\n}\n```",
-      "ts": "2026-09-16T11:35:51.796796+00:00"
-    },
-    {
       "metric": "ipt",
       "zscore": 2.4211746754994086,
       "value": 1.184,
@@ -349,6 +335,20 @@
       "value": 9439723350.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique sans rapport avec la crypto (actualités locales et généralistes). Le z-score négatif indique une anomalie statistique de volume faible, mais l'absence de narratif crypto pertinent ne permet pas de confirmer une accumulation ou distribution silencieuse de baleines.\"\n}\n```",
       "ts": "2026-09-17T20:25:17.703652+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 9.004200854582411,
+      "value": 10367540.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (Z-score 9.0) avec un flux de plus de 10M$ non rapporté par les médias (silence radio). Cette accumulation discrète loin du bruit médiatique indique une phase d'accumulation silencieuse par des institutionnels/baleines.\"\n}\n```",
+      "ts": "2026-09-17T22:25:40.170600+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.165909494558407,
+      "value": 1.166,
+      "analysis": "{\n  \"signal\": \"bullish\",\n  \"confidence\": 72,\n  \"reason\": \"The on‑chain metric ipt shows a significant outlier (z‑score 2.17), suggesting unusual accumulation or whale activity. Media headlines are entirely unrelated to crypto markets, indicating the current narrative is disconnected from the on‑chain reality and likely masking silent whale movement.\"\n}",
+      "ts": "2026-09-17T23:05:56.251262+00:00"
     }
   ]
 }
