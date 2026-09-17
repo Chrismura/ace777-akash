@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "sdi",
-      "zscore": 2.2225471829769012,
-      "value": 0.604,
-      "analysis": "{\n  \"signal\": \"bullish\",\n  \"confidence\": 62,\n  \"reason\": \"Anomalie onchain SDI avec z-score 2.22 suggère une activité inhabituelle de baleines, tandis que les médias mentionnent SDI dans des contextes non-crypto, révélant une déconnexion. Le silence médiatique sur le mouvement onchain indique une accumulation ou distribution discrète, mais la direction haussière reste modérée.\"\n}",
-      "ts": "2026-09-16T11:00:41.109981+00:00"
-    },
-    {
       "metric": "fear_greed",
       "zscore": -2.2085178333914723,
       "value": 51,
@@ -349,6 +342,13 @@
       "value": 3724159.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.91) couplé à une absence totale de couverture médiatique (Google Actualités muet) : accumulation furtive typique des baleines loin du radar retail.\"\n}\n```",
       "ts": "2026-09-17T17:29:43.665356+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": -2.0294204762800576,
+      "value": 9671982201.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit de fond médiatique non pertinent (articles sur l'eau, l'automobile et la finance trad. sans lien avec la crypto). Absence de signal whale avéré.\"\n}\n```",
+      "ts": "2026-09-17T19:55:11.586529+00:00"
     }
   ]
 }

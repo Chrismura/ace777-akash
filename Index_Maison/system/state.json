@@ -1,49 +1,47 @@
 {
-  "timestamp": "2026-09-17T19:16:21Z",
+  "timestamp": "2026-09-17T20:16:39Z",
   "generation_source": "system_state_generator.py v2.1",
   "status": "STALE",
-  "feed_hash": "166b4ecc03223d235cd463c9ac566b7bcd2e0132170345d003af33548db882cd",
+  "feed_hash": "369f1b4c5a1fa4d6b78a0fe5b5f6c4046e08dfbc570d148b8787d5fc8110e696",
   "feeds": {
     "mission": {
       "present": true,
-      "age_seconds": 31,
+      "age_seconds": 10,
       "fresh_limit_s": 120
     },
     "cortana_feed": {
       "present": true,
-      "age_seconds": 70,
+      "age_seconds": 42,
       "fresh_limit_s": 120
     },
     "live": {
       "present": true,
-      "age_seconds": 75,
+      "age_seconds": 46,
       "fresh_limit_s": 15
     },
     "routing": {
       "present": true,
-      "age_seconds": 2100965,
+      "age_seconds": 2104582,
       "fresh_limit_s": 120
     }
   },
   "services": {
     "total": 99,
-    "running": 14,
-    "planned": 85,
+    "running": 12,
+    "planned": 87,
     "running_list": [
       "com.ace777.cockpit-http",
       "com.ace777.cockpit-pont",
-      "com.ace777.deriv-corr",
-      "com.ace777.fusibles-mesure",
       "com.ace777.llm-gate-hub",
       "com.ace777.mirofish",
       "com.ace777.mirofish-front",
       "com.ace777.prise-ia",
-      "com.ace777.sniffer-vieux-btc",
       "com.ace777.state-generator",
       "com.ace777.superviseur-core",
       "com.ace777.superviseur-l2",
       "com.ace777.superviseur-process",
-      "com.ace777.vigie-live"
+      "com.ace777.vigie-live",
+      "com.ace777.xrpl-arbitrage"
     ],
     "planned_list": [
       "com.ace777.analyste-cadence",
@@ -63,6 +61,7 @@
       "com.ace777.croisement-externe",
       "com.ace777.croisements-indices",
       "com.ace777.cycle-edel",
+      "com.ace777.deriv-corr",
       "com.ace777.dialogue-gemini",
       "com.ace777.discipline-quotidienne",
       "com.ace777.disjoncteur",
@@ -71,6 +70,7 @@
       "com.ace777.eval-offres",
       "com.ace777.fees",
       "com.ace777.flux-nets",
+      "com.ace777.fusibles-mesure",
       "com.ace777.gen-cockpit-vol",
       "com.ace777.geopol",
       "com.ace777.gitpush",
@@ -107,6 +107,7 @@
       "com.ace777.signal3-livre-ecorche",
       "com.ace777.sniffer-matin",
       "com.ace777.sniffer-ny",
+      "com.ace777.sniffer-vieux-btc",
       "com.ace777.sonde-volume-panier",
       "com.ace777.suivi-setup-red",
       "com.ace777.superviseur",
@@ -128,7 +129,6 @@
       "com.ace777.watchdog",
       "com.ace777.whales",
       "com.ace777.x402-agentic",
-      "com.ace777.xrpl-arbitrage",
       "com.ace777.xrpl-gouvernance",
       "com.ace777.xrpl-onchain"
     ]
@@ -170,7 +170,7 @@
       "Assistant_Vocal_HORS_VAULT": 697372,
       "Obsidian_BACKUPS_HORS_VAULT": 14936872
     },
-    "presence_at": "2026-09-17T18:58:11Z",
+    "presence_at": "2026-09-17T19:58:15Z",
     "sizes_at": "2026-09-17T18:58:11Z"
   }
 }
