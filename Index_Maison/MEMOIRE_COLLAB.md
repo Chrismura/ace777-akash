@@ -4340,3 +4340,13 @@ Christophe avait raison : la mémoire de Cortana est construite et branchée dep
 **Ce que j'avais écrit à 15:55Z (« aucune consolidation », « chantier n°1 à construire ») est FAUX — annulé.** La consultation de 13:40Z reste valable sur le fond (les 3 IA ont confirmé le concept), mais le chantier n°1 est DÉJÀ EN PRODUCTION.
 
 **Optimisation réelle restante (petite, trouvée en vérifiant)** : les 5 axiomes actifs sont identiques à la formulation près (« taux insuffisant → corroborer » ×5 indices) = redondance dans le prompt. Micro-correctif possible au --valider : fusionner les axiomes identiques en un seul avec liste d'indices. En attente GO.
+
+---
+
+## 17/09 · 17:00Z — GO exécuté : fusion des axiomes redondants (hippocampe optimisé)
+
+- **lecons_auto.py --valider modifié** (GO Christophe 17:00) : les constats identiques sur plusieurs indices sont fusionnés en UNE leçon « [i1, i2, …] → [constat] → [action] » (fallback sans perte si l'axiome dépasse 20 mots).
+- **Preuve live** : 5 leçons « taux insuffisant → corroborer » ×5 → **1 leçon** `[croisements, geopol, btc, radar, fearGreed] → [Taux de réussite insuffisant] → [corroborer…]` · 1 ajoutée, 1 active, 0 doublon.
+- **Cortana le voit déjà** : contexte_systeme() contient la leçon fusionnée (vérifié).
+- **Re-scellement** registre synapses md5 a296dce10218 · veilleuse STABLE · corpus 51 fiches 0 erreur.
+- Note honnête : `integrite.py check` (2e registre, distinct) remonte 11 violations PRÉ-EXISTANTES (gatekeeper, superviseur_auto, verifier_setup, hub…) — aucune de mes modifications du jour ; baseline de ce 2e registre à rafraîchir (candidat micro-chantier).

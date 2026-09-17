@@ -146,17 +146,40 @@ def action_valider():
         else:
             continue  # zone neutre 70-75% : pas d'axiome strict (spec §3.3)
 
-        axiome = f"[{indice}] → [{constat_desc}] → [{action_rec}]"
-        if len(axiome.split()) > MAX_MOTS:
-            continue
         nouveaux.append({
-            "id": f"lecon_{indice}_{int(now.timestamp())}",
-            "namespace": "cortana",      # cloisonnement strict (famille Q3)
-            "axiome": axiome,
-            "ttl_expire": ttl_expire,
-            "source": "HIT/MISS",
-            "cree_le": now.isoformat(),
+            "indice": indice,
+            "n": n,
+            "constat_desc": constat_desc,
+            "action_rec": action_rec,
         })
+
+    # FUSION (GO Christophe 17/09) : les constats identiques sur plusieurs indices
+    # deviennent UNE leçon « [i1, i2, …] → [constat] → [action] » au lieu de N copies.
+    groupes = {}
+    for c in nouveaux:
+        cle = (c["constat_desc"], c["action_rec"])
+        groupes.setdefault(cle, []).append(c)
+
+    lecons_fusion = []   # axiomes fusionnés (multi-indices)
+    absorbs = set()      # axiomes mono-indice remplacés par une fusion
+    for (constat_desc, action_rec), items in groupes.items():
+        indices = [c["indice"] for c in items]
+        n_total = sum(c["n"] for c in items)
+        if len(indices) > 1:
+            axiome = f"[{', '.join(indices)}] → [{constat_desc}] → [{action_rec}]"
+            if len(axiome.split()) > MAX_MOTS:
+                # fusion trop longue → on garde les leçons individuelles (aucune perte)
+                for c in items:
+                    lecons_fusion.append((f"[{c['indice']}] → [{constat_desc}] → [{action_rec}]", c["indice"], c["n"]))
+                continue
+            for i in indices:
+                absorbs.add(f"[{i}] → [{constat_desc}] → [{action_rec}]")
+            lecons_fusion.append((axiome, "multi", n_total))
+        else:
+            axiome = f"[{indices[0]}] → [{constat_desc}] → [{action_rec}]"
+            if len(axiome.split()) > MAX_MOTS:
+                continue
+            lecons_fusion.append((axiome, indices[0], items[0]["n"]))
 
     # Fusion idempotente dans la base
     connaissance = charger_json(CONNAISSANCE_PATH, {"projets": {}, "lecons_agora": []})
@@ -176,16 +199,26 @@ def action_valider():
             except Exception:
                 pass
         ax = item.get("axiome")
+        if ax and ax in absorbs:
+            continue  # axiome mono-indice absorbé par une leçon fusionnée
         if ax and ax not in vus:
             vus.add(ax)
             gardes.append(item)
 
-    # 2) Ajout des nouveaux (idempotent : pas de doublon d'axiome)
+    # 2) Ajout des leçons fusionnées (idempotent : pas de doublon d'axiome)
     ajoutes = 0
-    for na in nouveaux:
-        if na["axiome"] not in vus:
-            vus.add(na["axiome"])
-            gardes.append(na)
+    for axiome, label, n in lecons_fusion:
+        if axiome not in vus:
+            vus.add(axiome)
+            gardes.append({
+                "id": f"lecon_{label}_{int(now.timestamp())}" if label != "multi" else f"lecon_multi_{int(now.timestamp())}",
+                "namespace": "cortana",      # cloisonnement strict (famille Q3)
+                "axiome": axiome,
+                "ttl_expire": ttl_expire,
+                "source": "HIT/MISS",
+                "n": n,
+                "cree_le": now.isoformat(),
+            })
             ajoutes += 1
 
     connaissance["lecons_agora"] = gardes
