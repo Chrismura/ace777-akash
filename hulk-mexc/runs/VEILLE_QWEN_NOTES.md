@@ -4460,3 +4460,7 @@ Pas d’ordre — confrontation plus tard.
 - CCUSDT: IMPULSE_WAIT — spike en cours, pas chase
 - RWAINCUSDT: WATCH_PULLBACK — tension haute + reflux
 (compléter: confirmé ? risque ?)
+
+### 2026-09-17T00:39:38Z — ALERT auto
+- CCUSDT: IMPULSE_WAIT — spike en cours, pas chase
+(compléter: confirmé ? risque ?)

@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "volume",
-      "zscore": 2.5909653249712914,
-      "value": 15501487250.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Volume spike (z-score 2.59) contrasts with mixed/neutral media narratives. CryptoQuant's 'weakness' framing contradicts raw data strength, suggesting stealth whale accumulation.\"\n}\n```",
-      "ts": "2026-09-15T18:38:09.956572+00:00"
-    },
-    {
       "metric": "liquidations",
       "zscore": 2.8270729072500167,
       "value": 6371195.0,
@@ -349,6 +342,13 @@
       "value": 1.415,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio élevé (z-score 2.43) indique une domination agressive des acheteurs sur les carnets d'ordres, signalant une accumulation agressive par les baleines. En l'absence de couverture médiatique notable (Google Actualités vide), ce mouvement de liquidité se fait en silence, loin du radar de la foule, ce qui précède souvent une forte impulsion haussière.\"\n}\n```",
       "ts": "2026-09-17T00:08:48.453622+00:00"
+    },
+    {
+      "metric": "taker_ratio",
+      "zscore": 2.29949009522697,
+      "value": 1.415,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio à 1.415 (z-score 2.30) indique une forte agression acheteuse cachée sur le marché dérivé, tandis que Google Actualités ne montre aucun engouement médiatique majeur. Cette asymétrie signale une accumulation silencieuse des baleines avant un mouvement de prix haussier non anticipé par le grand public.\"\n}\n```",
+      "ts": "2026-09-17T00:38:54.300599+00:00"
     }
   ]
 }
