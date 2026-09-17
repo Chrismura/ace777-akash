@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "fear_greed",
-      "zscore": -2.2085178333914723,
-      "value": 51,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Indice de peur et d'avidité neutre (51) avec un z-score fortement négatif (-2.21) indiquant une anomalie statistique de volatilité ou de volume, mais le manque de titres médiatiques significatifs montre un vide informationnel. Pas de mouvement de baleine détectable sans données de flux net des exchanges.\"\n}\n```",
-      "ts": "2026-09-16T11:05:43.118192+00:00"
-    },
-    {
       "metric": "sdi",
       "zscore": 2.1034080831448065,
       "value": 0.612,
@@ -349,6 +342,13 @@
       "value": 9671982201.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit de fond médiatique non pertinent (articles sur l'eau, l'automobile et la finance trad. sans lien avec la crypto). Absence de signal whale avéré.\"\n}\n```",
       "ts": "2026-09-17T19:55:11.586529+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": -2.072585409260864,
+      "value": 9439723350.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique sans rapport avec la crypto (actualités locales et généralistes). Le z-score négatif indique une anomalie statistique de volume faible, mais l'absence de narratif crypto pertinent ne permet pas de confirmer une accumulation ou distribution silencieuse de baleines.\"\n}\n```",
+      "ts": "2026-09-17T20:25:17.703652+00:00"
     }
   ]
 }
