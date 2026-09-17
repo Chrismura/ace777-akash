@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "ipt",
-      "zscore": 2.4940160138996714,
-      "value": 1.103,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.49) purement liée à un bruit sémantique médiatique : l'acronyme 'IPT' renvoie à un tournoi de physique et des actualités institutionnelles sans aucun lien avec la crypto.\"\n}\n```",
-      "ts": "2026-09-15T18:23:03.437911+00:00"
-    },
-    {
       "metric": "price_1h",
       "zscore": 2.943215388290557,
       "value": 0.8339145338944642,
@@ -349,6 +342,13 @@
       "value": 3241870.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 3.77, accumulation de ~3.24M USD) en absence totale de couverture médiatique (silence radio sur Google Actualités). Comportement typique d'accumulation furtive par des baleines avant un mouvement de marché.\"\n}\n```",
       "ts": "2026-09-16T22:13:28.350042+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 4.34996067385192,
+      "value": 3582039.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain majeure (z-score 4.35) avec un afflux net de capitaux de baleines (3.58M USD) dans un silence médiatique total (Google Actualités vide). Divergence classique d'accumulation furtive avant une cassure haussière.\"\n}\n```",
+      "ts": "2026-09-16T23:23:40.828035+00:00"
     }
   ]
 }
