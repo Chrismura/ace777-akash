@@ -1,6 +1,6 @@
 # CATALOGUE DES PROVIDERS — ACE777
 
-*Genere le 2026-09-16 par catalog_providers.py (gagnant A/B codeurs 09/08). Rafraichi a chaque veille du matin.*
+*Genere le 2026-09-17 par catalog_providers.py (gagnant A/B codeurs 09/08). Rafraichi a chaque veille du matin.*
 
 **Actifs : 9 · En observation : 0 · En attente : 18 · De cote (payant) : 2**
 

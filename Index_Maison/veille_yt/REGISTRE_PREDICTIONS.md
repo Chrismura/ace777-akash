@@ -1,11 +1,21 @@
 ---
-date: 2026-09-15T0715Z
+date: 2026-09-17T0717Z
 type: registre_predictions
 ---
 
 # 📓 Registre des prédictions — la vérification du banc d'essai
 
 Chaque prédiction est notée avec sa date limite. Le script `verifier_predictions.py` re-vérifie les échues (statut VRAIE/FAUSSE/NON VÉRIFIABLE).
+
+### 2026-09-17T0716Z — Crypto Crew University : Steve’s Trading Wisdom: Words That Hit Different ✅🎤 #shorts
+Lien : https://www.youtube.com/watch?v=wA7-yxwxqeI
+
+- _(aucune prédiction vérifiable extraite)_
+
+### 2026-09-17T0717Z — Crypto Crew University : BREAKING: BITCOIN GOLDEN CROSS QUICKLY APPROACHES
+Lien : https://www.youtube.com/watch?v=KZO05qek-Xo
+
+- ⏳ EN ATTENTE | [2026-12-31] Une croix d'or se produira sur le graphique à 2 jours du Bitcoin (source : youtuber)
 
 ### 2026-09-15T0715Z — Crypto Crew University : 3-Min Recap: Pump Signal or Total Collapse? 🚨💀#shorts
 Lien : https://www.youtube.com/watch?v=-qr3-7kJ5YI
