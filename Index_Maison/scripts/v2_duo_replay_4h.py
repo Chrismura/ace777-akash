@@ -236,26 +236,25 @@ def run():
             hunter(s, i, px)
 
     def hunter(s, i, p0):
-        """ALPHA : sens opposé, 800 $, dans la bougie du stop (règles originelles)."""
+        """ALPHA : sens opposé, 800 $, dans la bougie du stop (règles originelles).
+        giveback = 1 bp EN ARIÈRE depuis le meilleur prix (fill dans la bougie)."""
         k = kl4h[i]
         d = -s["dir"]
         dur = (1 + d * HARD_STOP_MULT * SL_SCOUT_BPS / 10000.0)      # hard stop
         arm = (1 + d * TRAIL_ARM_BPS / 10000.0)                      # arm trail
-        gvb = (1 + d * TRAIL_GIVE_BPS / 10000.0)                     # giveback
-        if d < 0:   # SHORT
+        gvb = (1 - d * TRAIL_GIVE_BPS / 10000.0)                     # giveback (ARRIÈRE)
+        if d < 0:   # SHORT (sortie = rachat, giveback AU-DESSUS du plus bas)
             if k["h"] >= p0 * dur:
                 px = p0 * dur
             elif k["l"] <= p0 * arm:
-                best = min(k["l"], p0 * arm)
-                px = best * gvb if best * gvb <= k["h"] else k["c"]
+                px = k["l"] * gvb if k["l"] * gvb <= k["h"] else k["c"]
             else:
                 px = k["c"]
-        else:       # LONG
+        else:       # LONG (sortie = vente, giveback EN DESSOUS du plus haut)
             if k["l"] <= p0 * dur:
                 px = p0 * dur
             elif k["h"] >= p0 * arm:
-                best = max(k["h"], p0 * arm)
-                px = best * gvb if best * gvb >= k["l"] else k["c"]
+                px = k["h"] * gvb if k["h"] * gvb >= k["l"] else k["c"]
             else:
                 px = k["c"]
         brut = d * (px - p0) / p0 * NOTIONNEL_HUNTER
