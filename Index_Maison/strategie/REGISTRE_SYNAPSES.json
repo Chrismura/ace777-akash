@@ -1,6 +1,6 @@
 {
  "version": "1.4.7",
- "updated": "2026-09-16T16:23:50Z",
+ "updated": "2026-09-17T11:55:44Z",
  "fichier": [
   {
    "nom": "hulk-mexc/scripts/paper_diprip.py",
@@ -251,11 +251,12 @@
   },
   {
    "nom": "Index_Maison/scripts/prompts/PROMPT_MASTER_ANALYSTE.md",
-   "role": "Prompt canon Cortana (identité + connaissance onchain v1)",
+   "role": "PROMPT C1 (17/09, verdict JUGE O4, consultation CORTANA_PRESTIGE) : section CROISEMENT OBLIGATOIRE (règle des 2 sources) — >=2 indices nommés dans MISE EN RELATION, divergence=NEUTRE, CONFIANCE recalculée maison, style préservé",
    "origine": "chantier graver la pépite",
    "verif": "md5",
    "auto_modifiable": false,
-   "md5": "9a4470a6f4f9fd85c87a36590d621ae8"
+   "md5": "b49ac95c9e66dc0b382bd95000e570bc",
+   "ts": "2026-09-17T11:55:44Z"
   },
   {
    "nom": "Index_Maison/scripts/lecons_auto.py",
@@ -633,21 +634,21 @@
   },
   {
    "nom": "Index_Maison/scripts/score_justesse.py",
-   "role": "PROFESSEUR v2+P1 (GO Christophe 13/09 « go p1,p2 ») : note les analyses, + 2 carnets (directionnel 31/59=52,5 % vs global 47,1 % — LECON-041), + par_ere (régimes — LECON-040), + t-stat par indice et global (LECON-042, N_MIN_VERDICT=20). Rétro-compatible, aucune clé retirée",
+   "role": "C2 OMBRE-SCOREUR (17/09, verdict JUGE O3) : juger_v3 stop réel (GLOBAL_STOP/ALPHA=5,625%, env STOP_PCT_ANALYSTE) + build_v3_ombre + fenetre_extremes ; V2 production inchangée, 19/19 tests verts",
    "origine": "Buffy (P1 du dossier BOUCLE_APPRENTISSAGE_DIAGNOSTIC_ET_PLAN_20260913.md)",
    "verif": "COMPILE OK + tests --test verts + run réel : directionnel/t_stat_global/par_ere/verdicts écrits",
    "auto_modifiable": false,
-   "md5": "cd48c930f6c9ec22b0fe60b229049f09",
-   "ts": "2026-09-13T10:08:22Z"
+   "md5": "8d15eae78b3ac2d09dffb6617ca4fc91",
+   "ts": "2026-09-17T11:55:44Z"
   },
   {
    "nom": "Index_Maison/scripts/cortana_analyse.py",
-   "role": "ANALYSTE + P2 (GO Christophe 13/09 « go p1,p2 ») : règle unique dans le contexte — NEUTRE réservé aux instruments muets, prudence par CONFIANCE faible (NEUTRE = pire avis 41,9 % mesuré ; LECON-039). UNE variable, verdict J+14",
+   "role": "C1 (17/09, verdict JUGE O4) : contexte enrichi (regime_couleur + verdict moteur croisements), parser bloquant _valider_croisement (R1 >=2 indices, R2 non-contradiction), retry unique, défaut neutre forcé, méta C1 au journal (croisement_ok/regime/confiance_auto)",
    "origine": "Buffy (P2 du dossier BOUCLE_APPRENTISSAGE_DIAGNOSTIC_ET_PLAN_20260913.md)",
    "verif": "COMPILE OK + bloc prouvé dans contexte_systeme() réel (2 lignes avec chiffres honnêtes)",
    "auto_modifiable": false,
-   "md5": "105eb82a70736af928513205a8683d4b",
-   "ts": "2026-09-13T10:08:22Z"
+   "md5": "608e3de51a3603a8953c1aa4145ea745",
+   "ts": "2026-09-17T11:55:44Z"
   },
   {
    "nom": "Index_Maison/scripts/kronos_ombre.py",

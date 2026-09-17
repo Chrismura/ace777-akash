@@ -707,7 +707,7 @@ def build_facts(indice):
     return facts, raw
 
 
-def call_hub(facts, indice, correction=None):
+def call_hub(facts, indice, correction=None, contexte_sup=""):
     system = load_system_prompt()
     payload = {
         "task": "cortana.analyse",  # routage : Gemini prioritaire, repli Qwen
@@ -718,7 +718,7 @@ def call_hub(facts, indice, correction=None):
                 f"Données :\n{json.dumps(facts, ensure_ascii=False, indent=1)}\n\n"
                 "Donne ton analyse selon ta structure (FAITS, LECTURE PHYSIQUE, "
                 "INTERPRÉTATION, MISE EN RELATION, PATTERN, OPINION)."
-                + (correction or "")
+                + contexte_sup + (correction or "")
             )},
         ],
         "temperature": 0.4,
@@ -734,7 +734,152 @@ def call_hub(facts, indice, correction=None):
     return content, data.get("provider", "?")
 
 
-def journalise(indice, facts, facts_bruts, content, provider, avis_ok=True):
+# ---------------------------------------------------------------------------
+# C1 — CROISEMENT OBLIGATOIRE (17/09, verdict JUGE : objection O4 retenue)
+# La faute dominante de l'analyste : 12/17 avis contradictoires, 15/17 sans
+# croisement réel. On encadre la conclusion (on garde la plume) :
+#   * contexte enrichi (couleur régime + verdict moteur de croisements 2 sources)
+#   * parser bloquant : >= 2 indices cités dans MISE EN RELATION (R1) et avis
+#     STRICT qui ne contredit pas la majorité des indices cités (R2)
+#   * UN SEUL retry, sinon avis forcé NEUTRE (jamais de crash)
+# ---------------------------------------------------------------------------
+INDICES_C1 = ("funding", "fundingAvg30", "oi", "longShort", "takerRatio",
+              "taker", "topTrader", "fearGreed", "liq", "liquidation",
+              "whale", "baleine", "etf", "altseason", "dominance", "gex",
+              "onchain", "radar", "btc", "prix", "chg24", "volume", "geopol",
+              "sdi", "ipt", "rbf")
+_SECTIONS_A1 = ("FAITS", "LECTURE PHYSIQUE", "INTERPRÉTATION", "MISE EN RELATION",
+                "PATTERN", "OPINION", "AVIS STRICT")
+_HAUSSIER_W = ("haussier", "haussière", "haussiers", "bullish", "acheteur",
+               "achats", "achat", "accumulation", "hausse")
+_BAISSIER_W = ("baissier", "baissière", "baissiers", "bearish", "vendeur",
+               "vendeurs", "ventes", "distribution", "purge", "baisse", "chute")
+
+
+def _regime_couleur():
+    """Couleur régime du jour (thermo/regime_couleur.json) ou REGIME_INCONNU."""
+    try:
+        with open(os.path.join(THERMO_DIR, "regime_couleur.json"), encoding="utf-8") as f:
+            d = json.load(f)
+        c = str(d.get("couleur") or "").strip().upper()
+        return c or "REGIME_INCONNU"
+    except Exception:
+        return "REGIME_INCONNU"
+
+
+def _verdict_croisements():
+    """Verdict du moteur de croisements (fonctions pures importées ; les effets
+    de bord du moteur vivent dans son main(), jamais à l'import)."""
+    try:
+        import moteur_croisements_indices as mci
+        live = mci.charger_json(mci.LIVE) or {}
+        p1 = mci.charger_p1()
+        flux = mci.charger_json(mci.FLUX_NETS) or {}
+        jm = mci.charger_json(mci.JUSTESSE) or {}
+        seuil = mci.val_num((jm.get("zone_morte") or {}).get("seuil_funding")) or 0.0002
+        crois = mci.croisements(live, p1, flux, seuil)
+        return {c["id"]: {"sens": c["sens"], "preuve": c["preuve"], "sources": c["sources"]}
+                for c in crois}
+    except Exception as e:
+        return {"erreur": str(e)}
+
+
+def _contexte_c1(indice):
+    """Bloc de contexte maison injecté dans le prompt user (régime + croisements)."""
+    return ("\n\n--- CONTEXTE MAISON (sers-t'en, ne l'invente pas) ---\n"
+            f"RÉGIME DU JOUR (couleur_regime) : {_regime_couleur()}\n"
+            "VERDICT MOTEUR DE CROISEMENTS (règle des 2 sources) : "
+            f"{json.dumps(_verdict_croisements(), ensure_ascii=False)}\n"
+            "Si une donnée est REGIME_INCONNU ou absente, dis-le explicitement.\n")
+
+
+def _section(content, nom):
+    """Texte de la section `nom :` jusqu'à la section suivante (ou fin)."""
+    pat = re.compile(
+        r"(?:^|\n)\s*\**" + re.escape(nom) + r"\**\s*:?\s*(.*?)(?=\n\s*\**(?:"
+        + "|".join(re.escape(s) for s in _SECTIONS_A1) + r")\**\s*:?\s*|\Z)",
+        re.S | re.I)
+    m = pat.search(content)
+    return m.group(1) if m else ""
+
+
+def _indices_cites(texte):
+    """Indices DISTINCTS cités (mots entiers, insensible à la casse)."""
+    t = texte.lower()
+    return sorted({i for i in INDICES_C1 if re.search(r"\b" + re.escape(i) + r"\b", t)})
+
+
+def _direction_indice(content, idx):
+    """Direction associée à un indice : mot directionnel dans les 60 caractères
+    qui suivent sa mention (même phrase/ligne). None si non déterminable."""
+    mots = "|".join(re.escape(w) for w in _HAUSSIER_W + _BAISSIER_W)
+    m = re.search(r"\b" + re.escape(idx) + r"\b[^\n.]{0,60}?\b(" + mots + r")\b",
+                  content, re.I)
+    if not m:
+        return None
+    return "LONG" if m.group(1).lower() in _HAUSSIER_W else "SHORT"
+
+
+def _valider_croisement(content):
+    """Parser bloquant C1. Retourne (ok, problemes).
+    R1 : MISE EN RELATION cite >= 2 indices distincts.
+    R2 : un AVIS STRICT directionnel ne contredit pas >= 2 indices cités.
+    Volontairement pas d'autre règle : trop de règles = faux positifs sur la plume.
+    """
+    problemes = []
+    cites = _indices_cites(_section(content, "MISE EN RELATION"))
+    if len(cites) < 2:
+        problemes.append("MISE EN RELATION sans croisement : %d indice(s) cité(s) (>= 2 requis)"
+                         % len(cites))
+    m = re.search(r"AVIS STRICT\s*:\s*(LONG|SHORT|NEUTRE)", content, re.I)
+    avis = m.group(1).upper() if m else None
+    if avis in ("LONG", "SHORT") and cites:
+        oppose = sum(1 for i in cites
+                     if (_direction_indice(content, i) or avis) != avis)
+        if oppose >= 2:
+            problemes.append("AVIS %s contredit %d indices cités (croisement incohérent)"
+                             % (avis, oppose))
+    return (len(problemes) == 0, problemes)
+
+
+def _confiance_auto(cites, dirs, avis):
+    """CONFIANCE recalculée par la maison (elle n'est plus déclarée par le LLM)."""
+    if avis in ("LONG", "SHORT"):
+        alignes = sum(1 for i in cites if dirs.get(i) == avis)
+        if alignes >= 3:
+            return "haute"
+        if alignes == 2:
+            return "moyenne"
+        return "faible"
+    if avis == "NEUTRE":
+        return "moyenne" if len(cites) >= 2 else "faible"
+    return "faible"
+
+
+def _message_correctif_c1(problemes):
+    """Message de retry unique (même mécanisme que la correction AVIS STRICT)."""
+    return ("\n\nTa réponse précédente a été REJETÉE par le garde-fou croisement :\n"
+            + "\n".join("- " + p for p in problemes)
+            + "\nRends l'analyse À NOUVEAU en respectant la règle des 2 sources :\n"
+            "1) la section MISE EN RELATION doit nommer au moins DEUX indices distincts "
+            "et dire dans quel sens pointe chacun ;\n"
+            "2) si les indices se contredisent, l'AVIS STRICT doit être NEUTRE ;\n"
+            "3) termine EXACTEMENT par :\n"
+            "AVIS STRICT : LONG|SHORT|NEUTRE\nHORIZON : 24h|1 semaine\n"
+            "CONFIANCE : haute|moyenne|faible")
+
+
+def _forcer_neutre(content):
+    """Dernier recours (rejet après retry) : avis forcé NEUTRE, jamais de crash.
+    La plume est conservée, seule la conclusion est bridée."""
+    content = re.sub(r"AVIS STRICT\s*:\s*(LONG|SHORT)", "AVIS STRICT : NEUTRE",
+                     content, count=1, flags=re.I)
+    content = re.sub(r"CONFIANCE\s*:\s*(haute|moyenne)", "CONFIANCE : faible",
+                     content, count=1, flags=re.I)
+    return content
+
+
+def journalise(indice, facts, facts_bruts, content, provider, avis_ok=True, c1=None):
     """Enregistre l'analyse (exigence Christophe : comparer avec le marché)."""
     os.makedirs(ANALYSES_DIR, exist_ok=True)
     day = datetime.now(timezone.utc).strftime("%Y-%m-%d")
@@ -748,6 +893,8 @@ def journalise(indice, facts, facts_bruts, content, provider, avis_ok=True):
         "analyse": content,
         "avis_ok": avis_ok,
     }
+    if c1:
+        entry.update(c1)  # C1 (17/09) : croisement_ok, regime, confiance_auto...
     with open(path, "a") as f:
         f.write(json.dumps(entry, ensure_ascii=False) + "\n")
     return path
@@ -806,10 +953,11 @@ def main():
         return 2
 
     facts, facts_bruts = build_facts(indice)
+    contexte_c1 = _contexte_c1(indice)  # C1 : régime + croisements injectés au prompt
     print(f"[analyse] {LEXIQUE[indice][0]} — envoi au hub (cortana.analyse)...", file=sys.stderr)
 
     try:
-        content, provider = call_hub(facts, indice)
+        content, provider = call_hub(facts, indice, contexte_sup=contexte_c1)
         import re as _re
         def _has_avis(t):
             return _re.search(r"AVIS STRICT\s*:\s*(LONG|SHORT|NEUTRE)", t, _re.IGNORECASE) is not None
@@ -834,7 +982,40 @@ def main():
         print(json.dumps(facts, ensure_ascii=False, indent=1))
         return 1
 
-    journal = journalise(indice, facts, facts_bruts, content, provider, avis_ok=_has_avis(content))
+    # ─── C1 — croisement obligatoire (17/09, verdict JUGE, objection O4) ───
+    crois_ok, crois_problemes = _valider_croisement(content)
+    if not crois_ok:
+        print("[C1] rejet croisement : " + " | ".join(crois_problemes), file=sys.stderr)
+        correctif_c1 = _message_correctif_c1(crois_problemes)
+        try:
+            content2, provider2 = call_hub(facts, indice, correctif_c1, contexte_c1)
+            if _valider_croisement(content2)[0]:
+                content, provider = content2, provider2
+            else:
+                print("[C1] rejet après retry -> avis forcé NEUTRE", file=sys.stderr)
+                content = _forcer_neutre(content2)
+        except Exception as e2:
+            print(f"✘ retry C1 échoué : {e2}", file=sys.stderr)
+            content = _forcer_neutre(content)
+    crois_ok, crois_problemes = _valider_croisement(content)
+
+    cites_c1 = _indices_cites(content)
+    avis_m_c1 = re.search(r"AVIS STRICT\s*:\s*(LONG|SHORT|NEUTRE)", content, re.I)
+    avis_c1 = avis_m_c1.group(1).upper() if avis_m_c1 else None
+    dirs_c1 = {i: _direction_indice(content, i) for i in cites_c1}
+    c1_meta = {
+        "croisement_ok": crois_ok,
+        "regime_couleur": _regime_couleur(),
+        "confiance_auto": _confiance_auto(cites_c1, dirs_c1, avis_c1),
+        "indices_cites": cites_c1,
+        "avis_parse": avis_c1,
+    }
+    if not crois_ok:
+        c1_meta["motif_rejet_c1"] = crois_problemes
+        c1_meta["avis_force_neutre"] = True
+
+    journal = journalise(indice, facts, facts_bruts, content, provider,
+                         avis_ok=_has_avis(content), c1=c1_meta)
     print(f"[provider: {provider}]", file=sys.stderr)
     print(f"[journal: {journal}]", file=sys.stderr)
 

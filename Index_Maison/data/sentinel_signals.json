@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "fear_greed",
-      "zscore": -3.7626978003610794,
-      "value": 51,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Données incomplètes : absence de titres médiatiques concrets dans le flux Google Actualités pour valider une divergence exploitable, malgré une anomalie statistique significative du z-score.\"\n}\n```",
-      "ts": "2026-09-16T08:34:40.112818+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": 3.331542782527155,
-      "value": 0.608,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Anomalie statistique (SDI z-score 3.33) causée par une homonymie : les données on-chain/crypto captent un jeton ou un protocole obscur nommé 'SDI', tandis que les actualités font référence au 'Syndicat des Indépendants' (SDI) et à l'industrie audiovisuelle. Aucune baleine crypto active, simple bruit sémantique.\"\n}\n```",
-      "ts": "2026-09-16T08:59:46.128767+00:00"
-    },
-    {
       "metric": "whale_usd",
       "zscore": 7.048111419958553,
       "value": 8152972.0,
@@ -349,6 +335,20 @@
       "value": 6154979.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement élevé (6.02) pour des flux de baleines ($6.15M) couplé à un silence médiatique total (Google Actualités vide). C'est la signature classique d'accumulation furtive hors des radars grand public.\"\n}\n```",
       "ts": "2026-09-17T11:01:26.230156+00:00"
+    },
+    {
+      "metric": "cpfp",
+      "zscore": 2.0011160085076374,
+      "value": 50.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie technique purement on-chain (frais de transactions Bitcoin/CPFP) polluée par du bruit médiatique sans rapport (actualité locale française et politique africaine). Aucune activité de baleine détectée.\"\n}\n```",
+      "ts": "2026-09-17T11:21:32.185343+00:00"
+    },
+    {
+      "metric": "dust",
+      "zscore": 2.0011160085076374,
+      "value": 50.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique parasité par homonymie (projet tech 'Dust AI' et culture générale). Aucune corrélation avec un mouvement significatif de baleines crypto.\"\n}\n```",
+      "ts": "2026-09-17T11:21:33.869299+00:00"
     }
   ]
 }

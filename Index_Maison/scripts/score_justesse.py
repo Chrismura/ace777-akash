@@ -289,6 +289,83 @@ def juger(analyse, history):
             "detail": f"{p0:.0f} -> {p1:.0f} ({move:+.2f}%)"}
 
 
+# ===========================================================================
+# V3 « OMBRE-SCOREUR » STOP RÉEL (17/09, verdict JUGE O3, mode ombre 7 jours)
+# Idée JUGE : un avis LONG validé alors que le marché a d'abord touché le STOP
+# du moteur (GLOBAL_STOP -45 $ sur ALPHA 800 ≈ -5,625 %) n'est pas un vrai HIT :
+# en réel, la position aurait été liquidée avant le rebond. La V2 (production)
+# reste inchangée ; la V3 vit à côté, jamais lue par le cockpit tant que pas GO.
+# STOP_PCT_ANALYSTE (env) surcharge le défaut GLOBAL_STOP/ALPHA.
+# ===========================================================================
+_stop_env = os.getenv("STOP_PCT_ANALYSTE")
+try:
+    STOP_PCT = float(_stop_env) if _stop_env else 45.0 / 800.0   # 5,625 %
+except ValueError:
+    STOP_PCT = 45.0 / 800.0
+
+
+def fenetre_extremes(history, t0, t1):
+    """Min/max du mark sur la fenêtre [t0, t1] (scan des lignes d'historique)."""
+    lo = hi = None
+    for row in history:
+        try:
+            ts = row.get("tsUnix")
+            mark = row.get("mark")
+        except AttributeError:
+            continue
+        if ts is None or mark is None or not (t0 <= ts <= t1):
+            continue
+        mark = float(mark)
+        lo = mark if lo is None else min(lo, mark)
+        hi = mark if hi is None else max(hi, mark)
+    return lo, hi
+
+
+def juger_v3(analyse, history, stop_pct=None):
+    """Verdict V3 = verdict V2, sauf : un LONG/SHORT dont le stop réel a été
+    touché pendant la fenêtre est MISS (stop sauté), quel que soit le move final.
+    Retourne le dict V2 + clé `stop_saute` (bool)."""
+    v = juger(analyse, history)
+    if stop_pct is None:
+        stop_pct = STOP_PCT
+    if v.get("statut") not in ("HIT ✅", "MISS ❌", "FLAT ➖") or v.get("p0") is None:
+        return {**v, "stop_saute": False}
+    t0 = ts_of(analyse)
+    seconds = HORIZONS.get(v.get("horizon") or "24h", 24 * 3600)
+    lo, hi = fenetre_extremes(history, t0, t0 + seconds)
+    avis = v.get("avis")
+    saute = ((avis == "LONG" and lo is not None and lo <= v["p0"] * (1 - stop_pct)) or
+             (avis == "SHORT" and hi is not None and hi >= v["p0"] * (1 + stop_pct)))
+    if saute and v["statut"] == "HIT ✅":
+        v = {**v, "statut": "MISS ❌", "stop_saute": True,
+             "detail": v.get("detail", "") + " [V3: stop sauté avant rebond — MISS réel]"}
+        return {**v, "stop_saute": True}
+    return {**v, "stop_saute": bool(saute)}
+
+
+def build_v3_ombre(analyses, history):
+    """Résumé V3 (ombre) : même comptage que V2 mais avec le stop réel.
+    N'écrit AUCUN fichier — c'est l'appelant qui décide où le poser."""
+    hit = scored = n_stop = 0
+    par_indice = {}
+    for an in analyses:
+        v = juger_v3(an, history)
+        if v["statut"] in ("HIT ✅", "MISS ❌"):
+            scored += 1
+            ind = an.get("indice", "?")
+            par_indice.setdefault(ind, {"hit": 0, "n": 0})
+            par_indice[ind]["n"] += 1
+            if v["statut"] == "HIT ✅":
+                hit += 1
+                par_indice[ind]["hit"] += 1
+            if v.get("stop_saute"):
+                n_stop += 1
+    pct = round(hit / scored * 100, 1) if scored else None
+    return {"mode": "ombre", "stop_pct": round(STOP_PCT * 100, 3),
+            "hit": hit, "scored": scored, "justesse_pct": pct,
+            "n_stop_sautes": n_stop, "par_indice": par_indice}
+
+
 def build_resume(analyses, history):
     """Construit le résumé v2 complet (pour justesse_v2.json + cockpit)."""
     total_hit = total_scored = 0
@@ -599,6 +676,32 @@ def run_tests():
     an0["analyse"] = "pas d'avis ici"
     v = juger(an0, hist)
     check("analyse sans AVIS -> sans_verdict", v["statut"] == "sans_verdict")
+
+    # ─── V3 OMBRE (17/09, verdict JUGE O3) : le stop réel décide ───
+    # LONG à 100000, plongée à 93000 (sous stop 5,625 % = 94375), rebond à 101000 :
+    # la V2 dit HIT (+1 % final), la V3 dit MISS (la position était liquidée avant).
+    hist_stop = [
+        {"tsUnix": base, "mark": 100000.0, "funding": 0.0005},
+        {"tsUnix": base + 12 * 3600, "mark": 93000.0, "funding": 0.0005},
+        {"tsUnix": base + 24 * 3600, "mark": 101000.0, "funding": 0.0005},
+    ]
+    v2s = juger(mk_analyse(base, "funding", "LONG"), hist_stop)
+    v3s = juger_v3(mk_analyse(base, "funding", "LONG"), hist_stop)
+    check("V2 : LONG avec rebond final -> HIT", v2s["statut"] == "HIT ✅")
+    check("V3 : même analyse -> MISS (stop sauté)",
+          v3s["statut"] == "MISS ❌" and v3s["stop_saute"] is True)
+    v3b = juger_v3(mk_analyse(base, "funding", "LONG"), hist2)
+    check("V3 sans stop touché = verdict V2 (HIT)",
+          v3b["statut"] == "HIT ✅" and v3b["stop_saute"] is False)
+    v3c = juger_v3(mk_analyse(base, "funding", "NEUTRE"), hist_stop)
+    check("V3 : NEUTRE jamais affecté par le stop",
+          v3c["statut"] == "MISS ❌" and v3c["stop_saute"] is False)
+    res3 = build_v3_ombre([
+        mk_analyse(base, "funding", "LONG"),
+        mk_analyse(base, "funding", "LONG"),
+    ], hist_stop)
+    check("build_v3_ombre : 2 scored, 0 hit, 2 stop sautés",
+          res3["scored"] == 2 and res3["hit"] == 0 and res3["n_stop_sautes"] == 2)
 
     shutil.rmtree(tmp, ignore_errors=True)
     restore()
