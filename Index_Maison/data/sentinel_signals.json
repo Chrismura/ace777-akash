@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "sdi",
-      "zscore": 4.784134834708841,
-      "value": 0.604,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Anomalie technique hors sujet : les données médiatiques font référence au 'Syndicat des Indépendants' (SDI) et à la technologie broadcast SDI, sans aucun rapport avec les cryptomonnaies ou des mouvements de baleines on-chain.\"\n}\n```",
-      "ts": "2026-09-16T07:59:30.990276+00:00"
-    },
-    {
       "metric": "fear_greed",
       "zscore": -4.599331055038999,
       "value": 51,
@@ -349,6 +342,13 @@
       "value": 50.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit de fond : le signal on-chain concerne un jeton homonyme sans lien avec la startup d'IA 'Dust' mentionnée dans les médias. Aucune baleine pertinente détectée.\"\n}\n```",
       "ts": "2026-09-17T09:00:59.260079+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 3.1266791135890353,
+      "value": 3215416.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 3.13) avec un afflux de capitaux de baleines (~3.2M USD), contrastant avec un silence total des médias mainstream. Accumulation discrète en cours avant le réveil du narratif public.\"\n}\n```",
+      "ts": "2026-09-17T09:06:01.048821+00:00"
     }
   ]
 }
