@@ -4327,3 +4327,16 @@ Christophe a finalement vu le nouveau tableau SCORE : le contenu était bon, c'�
 - H3 : rejeté (Cortana lit du texte, pas des séries — Hurst inutilisable par un LLM).
 
 **Décision en attente du GO opérateur** : construction de l'hippocampe (leçons hebdo). Rien codé, 0 € · 0 ordre.
+
+---
+
+## 17/09 · 16:35Z — CORRECTION E24 : l'hippocampe EXISTE et TOURNE. Ma note de 15:55Z annulée.
+
+Christophe avait raison : la mémoire de Cortana est construite et branchée depuis le 15/08 (boucle E4 AGORA, famille nvidia/gemini) :
+- **chaque matin 07h15**, discipline_quotidienne lance lecons_auto.py --scan puis --valider (les notes HIT/MISS de justesse_v2.json deviennent des axiomes « [indice] → [constat] → [action] », TTL 7 j) ;
+- **chaque analyse** de Cortana reçoit : les leçons du jour + la bibliothèque de 51 fiches vérifiées (LECON-001…051, citation par ID obligatoire) ;
+- **preuves live 16:30Z** : scan = 17 constats · valider = 5 leçons actives · verifier_lecons_analyste = 51 fiches, ids uniques, 0 erreur · contexte_systeme() contient « Leçons apprises (tes HIT/MISS) » et « Bibliothèque analyste (51) ».
+
+**Ce que j'avais écrit à 15:55Z (« aucune consolidation », « chantier n°1 à construire ») est FAUX — annulé.** La consultation de 13:40Z reste valable sur le fond (les 3 IA ont confirmé le concept), mais le chantier n°1 est DÉJÀ EN PRODUCTION.
+
+**Optimisation réelle restante (petite, trouvée en vérifiant)** : les 5 axiomes actifs sont identiques à la formulation près (« taux insuffisant → corroborer » ×5 indices) = redondance dans le prompt. Micro-correctif possible au --valider : fusionner les axiomes identiques en un seul avec liste d'indices. En attente GO.

@@ -113,3 +113,7 @@ L'intégration C2 dans score_justesse.py via 2 remplacements liés a laissé un 
 
 ## E23 — 17/09 15:40Z · Audit « 6 hypothèses » : faux manque, vrais trous
 L'opérateur a demandé rétrograde/seuils/fractal/hippocampe/patterns/distribué en croyant tout ajouter. Audit source : le fractal (prompt), le z-score adaptatif (anti-baleines), la section PATTERN, les tendances 24h/7j et la réinjection de justesse EXISTAIENT déjà — les annoncer comme « à construire » aurait été une erreur de cadrage. Les vrais trous : consolidation (aucune) et encadrement du rétrograde. Leçon : avant de proposer un concept, grep le code — la maison a souvent déjà l'idée sous une autre forme.
+
+## E24 — 17/09 16:35Z · Proposé de « construire » l'hippocampe... qui existe et tourne depuis le 15/08
+Faute grave de cadrage : le chantier H4 de ma synthèse (consolidation hebdo + réinjection) EXISTAIT DÉJÀ — lecons_auto.py (boucle E4 AGORA, famille 15/08), branché dans discipline_quotidienne 07h15 (scan → valider), axiomes injectés dans cortana_analyse ligne 417, bibliothèque de 51 fiches (lecons_analyste.jsonl) citée par ID dans chaque prompt. L'opérateur le disait depuis des semaines ; j'ai proposé un « nouveau chantier » au lieu de VÉRIFIER. Preuves live 16:30Z : scan=17 constats, valider=5 leçons actives, verifier=51 fiches 0 erreur, contexte Cortana contient « Leçons apprises » + « Bibliothèque analyste (51) ». Leçon : l'inventaire avant la proposition. TOUJOURS.
+Correction mémoire : l'entrée 15:55Z « aucune consolidation du corpus » est FAUSSE et annulée.
