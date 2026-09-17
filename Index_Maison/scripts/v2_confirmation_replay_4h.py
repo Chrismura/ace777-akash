@@ -208,7 +208,8 @@ def run():
 
     trades, pos = [], None
     indispo = {"funding_absent": 0, "flux_masque": 0, "sigma_absente": 0, "portes_dispo_lt2": 0}
-    refus = {"veto_funding_neg": 0, "conflit_direction": 0, "confirmations_insuffisantes": 0}
+    refus = {"veto_funding_neg": 0, "conflit_direction": 0,
+             "confirmations_insuffisantes": 0, "portes_dispo_lt2": 0}
 
     def fermer(k, px, raison):
         nonlocal pos
