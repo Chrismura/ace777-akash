@@ -1,0 +1,28 @@
+{
+  "ts": "2026-09-12T22:18:41Z",
+  "spec": "DOSSIER_DE_VOTE_V2_CONFIRMATION_20260912.md §3 — figée avant run, essai unique",
+  "masques": {
+    "r1_ofi": "masqué sur toute la fenêtre",
+    "r2_flux_avant_14_08": 139,
+    "r3_c2_purge": "masquée (branche trigger)"
+  },
+  "trades": [],
+  "stats": {
+    "n": 0,
+    "wins": 0,
+    "wr": null,
+    "brut": 0,
+    "frais": 0,
+    "net": 0,
+    "net_par_trade": 0.0,
+    "part_pire_raison": 0.0
+  },
+  "criteres": {
+    "C1_n30": false,
+    "C2_net_gt_frais": 0,
+    "C3_wr50": 0,
+    "C4_pertes": true
+  },
+  "verdict": "ÉCHEC",
+  "clause_pre_enregistree": "hypothèse fenêtrée jamais mise à l'épreuve : tous les trades viennent de la fenêtre non masquée (≥ 14/08) et n < 30 — données trop courtes, constaté par la machine avant toute lecture humaine (règle pré-enregistrée)."
+}

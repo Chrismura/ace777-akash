@@ -1,0 +1,33 @@
+{
+ "ts": "2026-09-12T15:03:02.045258+00:00",
+ "spec": "v1 figée avant run (voir docstring)",
+ "periode": "2026-07-15 -> 2026-09-12",
+ "jours": 90,
+ "trades": 17,
+ "refus": {
+  "orage": 0,
+  "volume_mort": 11,
+  "deja_en_position": 16
+ },
+ "wr_net_pct": 58.8,
+ "brut_total": 98.96,
+ "frais_total": 30.62,
+ "net_total": 68.33,
+ "avg_brut": 5.821,
+ "avg_fee": 1.801,
+ "avg_net": 4.02,
+ "perte_max_part_pct": 24.9,
+ "exit_counts": {
+  "timeout": 16,
+  "fin_periode": 1
+ },
+ "criteres": {
+  "C1_n>=30": false,
+  "C2_net>frais": true,
+  "C3_WR>50%": true,
+  "C4_pertes<=40%": true,
+  "C5_brut>=3x_frais": true
+ },
+ "verdict": "ECHEC",
+ "seuil_verdict": "les 5 critères — pas de 3e verdict"
+}
