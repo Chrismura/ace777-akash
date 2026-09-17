@@ -260,14 +260,14 @@ def main():
 
             # ---------- Scout : entrée (régime HAUSSIER strict + 2/3 confirmations) ----------
             if pos_scout is None and pos_hunter is None and pending_revenge is None:
-                confirmations, portes_dispo = [], 0
-                # C1 funding > avg30 (None-safe)
+                confirmations, indispo_msgs, portes_dispo = [], [], 0
+                # C1 funding > avg30 (None-safe : indisponible ≠ confirmation)
                 if last_f is not None and avg30_f is not None:
                     portes_dispo += 1
                     if last_f > avg30_f:
                         confirmations.append(f"funding {last_f:.2e} > avg30 {avg30_f:.2e}")
                 else:
-                    confirmations.append("funding INDISPONIBLE")
+                    indispo_msgs.append("funding INDISPONIBLE")
                 # C2 flux baleines 48 h ≥ +5 BTC (None-safe)
                 net48 = flux_net_48h()
                 if net48 is not None:
@@ -275,7 +275,7 @@ def main():
                     if net48 >= SEUIL_FLUX_BTC:
                         confirmations.append(f"flux {net48:+.1f} BTC ≥ +5")
                 else:
-                    confirmations.append("flux INDISPONIBLE")
+                    indispo_msgs.append("flux INDISPONIBLE")
                 # C3 panique 4H ≤ −0,5 %
                 portes_dispo += 1
                 if chg4h <= -CHG4H_PANIQUE_PCT:
@@ -287,11 +287,11 @@ def main():
                 elif regime == "HAUSSIER" and len(confirmations) >= 2:
                     pos_scout = {"side": "BETA LONG", "entree": current_px,
                                  "mfp": current_px, "ts": z().strftime("%H:%M:%S"),
-                                 "t_entree": z()}
+                                 "t_entree": z(), "confirmations": list(confirmations)}
                     log(f"SCOUT ENTRE -> LONG 200 $ à {current_px:.2f} $",
                         confirmations=confirmations)
                 else:
-                    log("aucune entrée", detail=f"{len(confirmations)}/3 confirmations, portes dispo {portes_dispo}",
+                    log("aucune entrée", detail=f"{len(confirmations)}/3 confirmations (+ {len(indispo_msgs)} indispo), portes dispo {portes_dispo}",
                         regime=regime, funding=last_f, flux48=net48, prix_ref=current_px)
 
             # ---------- état pour v2conf_live.sh ----------
