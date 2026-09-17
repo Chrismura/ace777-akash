@@ -4350,3 +4350,8 @@ Christophe avait raison : la mémoire de Cortana est construite et branchée dep
 - **Cortana le voit déjà** : contexte_systeme() contient la leçon fusionnée (vérifié).
 - **Re-scellement** registre synapses md5 a296dce10218 · veilleuse STABLE · corpus 51 fiches 0 erreur.
 - Note honnête : `integrite.py check` (2e registre, distinct) remonte 11 violations PRÉ-EXISTANTES (gatekeeper, superviseur_auto, verifier_setup, hub…) — aucune de mes modifications du jour ; baseline de ce 2e registre à rafraîchir (candidat micro-chantier).
+
+## 17/09 · 17:20Z — GO baseline integrite : exécuté
+- Cause des 11 « violations » : baseline du 09/08 plus vieille que les modifications légitimes du 23/08→14/09 (gatekeeper, superviseur_auto, verifier_setup, hub, plist). Aucune anomalie réelle.
+- `integrite.py init` exécuté (trace WORM automatique) → check : **OK 17 · Traces 0 · Violations 0**. Base re-vérouillée 444.
+- État terminal inventorié : 99 réveils launchd ace777 · Hulk L2 en vol · V2-CONFIRMATION papier silencieuse (funding zone morte, veto) · hub 11435 OK (10 providers) · cockpit 17800 OK.
