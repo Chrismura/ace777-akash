@@ -4407,3 +4407,5 @@ La réactivité 4H + souplesse 2/3 démultiplie les signaux (x12) sans créer de
 Deux bugs d implementation detects et corriges en vol avant consignation (signe du hard stop fabrique des gains garantis - invalide par controle de coherence interne : brut = exactement 47x2,56 dollars). Resultat corrige : combine 104 trades, WR 16,3 pct, net -64,19 dollars, frais 78,40 dollars. Le Duo ne tient pas sur 4H. 6 replays V2 : 6 ECHECS. Zero ordre reel.
 
 ## 17/09 - 21:35Z - E34 AUTOPSIE EDEL : lamplitude +156% a produit +0,98$ de realise. Mecanismes prouves : empilement sans recolte (16 positions, 250$ coinces), sorties en poussieres, stops dans la mache + rachat 16 min apres, classificateur inverse (POMPE_PIEGE pendant la montee). Panorama : Index_Maison/PANORAMA_EDEL_SCANDALE_20260917.md - correctifs C1-C5 en attente de GO.
+
+## 17/09 - 22:50Z - E34bis - LA FICHE EDEL CONFRONTEE AU CARNET (demande Christophe) : fiche en partie vindiquee (IMPULSE juste, trailing conforme), coupables identifies = fusible 3.00$ (miettes) + stop-guard dans les meches + reentry sur le top. Panorama corrige section 7.
