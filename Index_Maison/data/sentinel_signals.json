@@ -2,20 +2,6 @@
   "signals": [
     {
       "metric": "sdi",
-      "zscore": 6.838512342448466,
-      "value": 0.604,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (z-score 6.84) liée à une confusion lexicale entre l'indicateur crypto SDI et le syndicat français 'Syndicat des Indépendants (SDI)' dans l'actualité médiatique. Aucun mouvement de baleine crypto détecté.\"\n}\n```",
-      "ts": "2026-09-16T07:29:24.466328+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": -6.335839103296196,
-      "value": 51,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Indice de peur et d'avidité totalement neutre (51) combiné à un z-score extrêmement bas (-6.34) indiquant une anomalie statistique de volatilité ou de volume, mais le vide absolu dans le narratif médiatique suggère une absence de catalyseur clair. Les baleines accumulent ou distribuent en silence dans l'indifférence totale des médias.\"\n}\n```",
-      "ts": "2026-09-16T07:34:26.328356+00:00"
-    },
-    {
-      "metric": "sdi",
       "zscore": 4.784134834708841,
       "value": 0.604,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Anomalie technique hors sujet : les données médiatiques font référence au 'Syndicat des Indépendants' (SDI) et à la technologie broadcast SDI, sans aucun rapport avec les cryptomonnaies ou des mouvements de baleines on-chain.\"\n}\n```",
@@ -349,6 +335,20 @@
       "value": 3606149.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Activité anormale des baleines (z-score 3.73, ~3.6M USD) dans un silence médiatique total sur Google Actualités. Accumulation discrète hors du radar public.\"\n}\n```",
       "ts": "2026-09-17T08:00:28.719459+00:00"
+    },
+    {
+      "metric": "cpfp",
+      "zscore": 2.0346878078113106,
+      "value": 50.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique purement syntaxique liée au protocole Bitcoin (CPFP/RBF). Bruit médiatique parasité par des homonymes institutionnels locaux (centre de formation). Aucune accumulation ou mouvement macro de baleine détecté.\"\n}\n```",
+      "ts": "2026-09-17T09:00:44.371307+00:00"
+    },
+    {
+      "metric": "dust",
+      "zscore": 2.0346878078113106,
+      "value": 50.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit de fond : le signal on-chain concerne un jeton homonyme sans lien avec la startup d'IA 'Dust' mentionnée dans les médias. Aucune baleine pertinente détectée.\"\n}\n```",
+      "ts": "2026-09-17T09:00:59.260079+00:00"
     }
   ]
 }

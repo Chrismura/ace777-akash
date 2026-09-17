@@ -819,9 +819,10 @@
    "origine": "GO Christophe 16/09 : couverture des métriques sentinel sans fiche",
    "verif": "md5",
    "auto_modifiable": false,
-   "md5": "c53c27600c5cb66c9cc6d39427c2eae2",
-   "note": "Trigger z>2 (valeur absolue, deux sens). Questions câblées sur live.json (liq24Usd/liqLongUsd/liqShortUsd/takerRatio/longShort/fearGreed/oi/chg1h/onchain.whaleProxy*). Défaut neutre explicite (C2).",
-   "date": "2026-09-16T14:15Z"
+   "md5": "0744a86a68d38a666dfd0a33344975b3",
+   "note": "Trigger z>2 (valeur absolue, deux sens). Questions câblées sur live.json (liq24Usd/liqLongUsd/liqShortUsd/takerRatio/longShort/fearGreed/oi/chg1h/onchain.whaleProxy*). Défaut neutre explicite (C2). | RE-SCELLÉ V1.2 2026-09-17T08:06Z (GO C.) : qids explicites snake_case (contrainte regex [a-z_0-9]+ de l'évaluateur — le camelCase famille aurait cassé le matching) + champ trigger_mode:'absolu' déclaré. Zéro ligne de code, 8/8 tests sémantiques verts (scénarios V1.1/F rejoués identiques). Backups /tmp ×7.",
+   "date": "2026-09-17T08:06Z",
+   "maj": "V1.2 2026-09-17T08:06Z"
   },
   {
    "nom": "Index_Maison/data/fiches_analyse/whale_usd.json",
@@ -829,9 +830,10 @@
    "origine": "GO Christophe 16/09 : couverture des métriques sentinel sans fiche",
    "verif": "md5",
    "auto_modifiable": false,
-   "md5": "22954f896357fa0fc49cb05e796536af",
-   "note": "Trigger z>2 (valeur absolue, deux sens). Questions câblées sur live.json (liq24Usd/liqLongUsd/liqShortUsd/takerRatio/longShort/fearGreed/oi/chg1h/onchain.whaleProxy*). Défaut neutre explicite (C2). | RE-SCELLÉ 2026-09-16T16:23:50Z : FIX F analogue 16/09 : 'ventes > 0'/'achats > 0' → 'ventes > achats'/'achats > ventes' (flux mixte annonçait toujours distribution) + lectures DOMINANT.",
-   "date": "2026-09-16T14:15Z"
+   "md5": "f885decc16d734023317c06c6eeb70c8",
+   "note": "Trigger z>2 (valeur absolue, deux sens). Questions câblées sur live.json (liq24Usd/liqLongUsd/liqShortUsd/takerRatio/longShort/fearGreed/oi/chg1h/onchain.whaleProxy*). Défaut neutre explicite (C2). | RE-SCELLÉ 2026-09-16T16:23:50Z : FIX F analogue 16/09 : 'ventes > 0'/'achats > 0' → 'ventes > achats'/'achats > ventes' (flux mixte annonçait toujours distribution) + lectures DOMINANT. | RE-SCELLÉ V1.2 2026-09-17T08:06Z (GO C.) : qids explicites snake_case (contrainte regex [a-z_0-9]+ de l'évaluateur — le camelCase famille aurait cassé le matching) + champ trigger_mode:'absolu' déclaré. Zéro ligne de code, 8/8 tests sémantiques verts (scénarios V1.1/F rejoués identiques). Backups /tmp ×7.",
+   "date": "2026-09-17T08:06Z",
+   "maj": "V1.2 2026-09-17T08:06Z"
   },
   {
    "nom": "Index_Maison/data/fiches_analyse/fear_greed.json",
@@ -839,9 +841,10 @@
    "origine": "GO Christophe 16/09 : couverture des métriques sentinel sans fiche",
    "verif": "md5",
    "auto_modifiable": false,
-   "md5": "f4f353a253d001cf9a307bf051aa3d60",
-   "note": "Trigger z>2 (valeur absolue, deux sens). Questions câblées sur live.json (liq24Usd/liqLongUsd/liqShortUsd/takerRatio/longShort/fearGreed/oi/chg1h/onchain.whaleProxy*). Défaut neutre explicite (C2).",
-   "date": "2026-09-16T14:15Z"
+   "md5": "0a993a18a84b1109814c257e7d853fae",
+   "note": "Trigger z>2 (valeur absolue, deux sens). Questions câblées sur live.json (liq24Usd/liqLongUsd/liqShortUsd/takerRatio/longShort/fearGreed/oi/chg1h/onchain.whaleProxy*). Défaut neutre explicite (C2). | RE-SCELLÉ V1.2 2026-09-17T08:06Z (GO C.) : qids explicites snake_case (contrainte regex [a-z_0-9]+ de l'évaluateur — le camelCase famille aurait cassé le matching) + champ trigger_mode:'absolu' déclaré. Zéro ligne de code, 8/8 tests sémantiques verts (scénarios V1.1/F rejoués identiques). Backups /tmp ×7.",
+   "date": "2026-09-17T08:06Z",
+   "maj": "V1.2 2026-09-17T08:06Z"
   },
   {
    "nom": "Index_Maison/data/fiches_analyse/long_short.json",
@@ -849,9 +852,10 @@
    "origine": "GO Christophe 16/09 : couverture des métriques sentinel sans fiche",
    "verif": "md5",
    "auto_modifiable": false,
-   "md5": "9f04838502580cb7faa43efb863305a9",
-   "note": "V1.1 16/09 (GO C., avis famille) : seuil equilibre 1 → 2,0 (le L/S retail est structurellement > 1 — faux positif permanent corrigé) + lectures étiquetées HYPOTHÈSE. Testé : 1,79 → fermée, 2,35 → surveiller, 0,85 → shorts.",
-   "date": "2026-09-16T15:42Z"
+   "md5": "05caf3d39e8d06e77e0f0e01e9f503c3",
+   "note": "V1.1 16/09 (GO C., avis famille) : seuil equilibre 1 → 2,0 (le L/S retail est structurellement > 1 — faux positif permanent corrigé) + lectures étiquetées HYPOTHÈSE. Testé : 1,79 → fermée, 2,35 → surveiller, 0,85 → shorts. | RE-SCELLÉ V1.2 2026-09-17T08:06Z (GO C.) : qids explicites snake_case (contrainte regex [a-z_0-9]+ de l'évaluateur — le camelCase famille aurait cassé le matching) + champ trigger_mode:'absolu' déclaré. Zéro ligne de code, 8/8 tests sémantiques verts (scénarios V1.1/F rejoués identiques). Backups /tmp ×7.",
+   "date": "2026-09-17T08:06Z",
+   "maj": "V1.2 2026-09-17T08:06Z"
   },
   {
    "nom": "Index_Maison/data/fiches_analyse/taker_ratio.json",
@@ -859,9 +863,10 @@
    "origine": "GO Christophe 16/09 : couverture des métriques sentinel sans fiche",
    "verif": "md5",
    "auto_modifiable": false,
-   "md5": "0d8f75b172d7f2b394b1c07d484a2d9f",
-   "note": "Trigger z>2 (valeur absolue, deux sens). Questions câblées sur live.json (liq24Usd/liqLongUsd/liqShortUsd/takerRatio/longShort/fearGreed/oi/chg1h/onchain.whaleProxy*). Défaut neutre explicite (C2).",
-   "date": "2026-09-16T14:15Z"
+   "md5": "2d9da15ce91824a5c91f2ea96302832e",
+   "note": "Trigger z>2 (valeur absolue, deux sens). Questions câblées sur live.json (liq24Usd/liqLongUsd/liqShortUsd/takerRatio/longShort/fearGreed/oi/chg1h/onchain.whaleProxy*). Défaut neutre explicite (C2). | RE-SCELLÉ V1.2 2026-09-17T08:06Z (GO C.) : qids explicites snake_case (contrainte regex [a-z_0-9]+ de l'évaluateur — le camelCase famille aurait cassé le matching) + champ trigger_mode:'absolu' déclaré. Zéro ligne de code, 8/8 tests sémantiques verts (scénarios V1.1/F rejoués identiques). Backups /tmp ×7.",
+   "date": "2026-09-17T08:06Z",
+   "maj": "V1.2 2026-09-17T08:06Z"
   },
   {
    "nom": "Index_Maison/data/fiches_analyse/liquidations.json",
@@ -869,9 +874,10 @@
    "origine": "GO Christophe 16/09 : couverture des métriques sentinel sans fiche",
    "verif": "md5",
    "auto_modifiable": false,
-   "md5": "79cbf78c35485b21ad568b06888f8989",
-   "note": "Trigger z>2 (valeur absolue, deux sens). Questions câblées sur live.json (liq24Usd/liqLongUsd/liqShortUsd/takerRatio/longShort/fearGreed/oi/chg1h/onchain.whaleProxy*). Défaut neutre explicite (C2). | RE-SCELLÉ 2026-09-16T16:23:50Z : FIX F revue codeur 16/09 : conditions 'cote > 0'/'shorts > 0' → 'cote > shorts'/'shorts > cote' (preuve : cascade mixte longs 2 M$/shorts 8 M$ annonçait toujours LONGS éteints) + lecture étiquetée HYPOTHÈSE.",
-   "date": "2026-09-16T14:15Z"
+   "md5": "8bd60a56383e70d677da5d1265d50c8b",
+   "note": "Trigger z>2 (valeur absolue, deux sens). Questions câblées sur live.json (liq24Usd/liqLongUsd/liqShortUsd/takerRatio/longShort/fearGreed/oi/chg1h/onchain.whaleProxy*). Défaut neutre explicite (C2). | RE-SCELLÉ 2026-09-16T16:23:50Z : FIX F revue codeur 16/09 : conditions 'cote > 0'/'shorts > 0' → 'cote > shorts'/'shorts > cote' (preuve : cascade mixte longs 2 M$/shorts 8 M$ annonçait toujours LONGS éteints) + lecture étiquetée HYPOTHÈSE. | RE-SCELLÉ V1.2 2026-09-17T08:06Z (GO C.) : qids explicites snake_case (contrainte regex [a-z_0-9]+ de l'évaluateur — le camelCase famille aurait cassé le matching) + champ trigger_mode:'absolu' déclaré. Zéro ligne de code, 8/8 tests sémantiques verts (scénarios V1.1/F rejoués identiques). Backups /tmp ×7.",
+   "date": "2026-09-17T08:06Z",
+   "maj": "V1.2 2026-09-17T08:06Z"
   },
   {
    "nom": "Index_Maison/data/fiches_analyse/etat_levier.json",
