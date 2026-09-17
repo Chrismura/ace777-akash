@@ -1,0 +1,75 @@
+{
+ "ts": "2026-09-18T00:25Z",
+ "source": "klines 1h MEXC EDELUSDT (20 jours, contient le pump +156%)",
+ "stake_usd": 30,
+ "fee_side": 0.0005,
+ "spec_antigravity": {
+  "regles": "mise 30$ ; entrée dip>=5% depuis sommet 48h ET prix>SMA24h ; 50% vendus à +6% ; reste trailing 10/4 ; stop 15% SUR CLÔTURE 1H ; cooldown 2h post-stop",
+  "resultat": {
+   "net": 12.15,
+   "n_complet": 16,
+   "wins": 12,
+   "wr": 75,
+   "causes": {
+    "rip50": 8,
+    "trail": 15,
+    "stop": 1
+   },
+   "stops": [
+    {
+     "ts": "09/17 18h",
+     "entree": 0.02649,
+     "cloture": 0.02044,
+     "pct_vs_entree": -22.8
+    }
+   ]
+  }
+ },
+ "variante_stop_meches": {
+  "resultat": {
+   "net": 12.15,
+   "n_complet": 16,
+   "wins": 12,
+   "wr": 75,
+   "causes": {
+    "rip50": 8,
+    "trail": 15,
+    "stop": 1
+   },
+   "stops": [
+    {
+     "ts": "09/17 18h",
+     "entree": 0.02649,
+     "cloture": 0.02044,
+     "pct_vs_entree": -22.8
+    }
+   ]
+  }
+ },
+ "variante_stop_12": {
+  "resultat": {
+   "net": 12.15,
+   "n_complet": 16,
+   "wins": 12,
+   "wr": 75,
+   "causes": {
+    "rip50": 8,
+    "trail": 15,
+    "stop": 1
+   },
+   "stops": [
+    {
+     "ts": "09/17 18h",
+     "entree": 0.02649,
+     "cloture": 0.02044,
+     "pct_vs_entree": -22.8
+    }
+   ]
+  }
+ },
+ "limites": [
+  "20 jours, 1 régime (contient le pump)",
+  "n=16 rond-trips",
+  "hypothèse à forward-tester 7 jours avant verdict"
+ ]
+}
