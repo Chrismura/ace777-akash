@@ -1,0 +1,173 @@
+{
+  "ts": "2026-09-17T20:09:37Z",
+  "spec": "VARIANTE 4H GO superviseur 17/09 : bougies 4H, entrée 2/3 confirmations (C1 funding>avg30 · C3 flux±5×chg4h±0.5% · C4 chg4h vs ±σ4h), veto négatif seul (funding<=0), garde-fous None, masque R2 conservé",
+  "fenetre": "2026-01-15 -> 2026-09-12 (bougies 4H)",
+  "indispo_gardes_fous": {
+    "funding_absent": 0,
+    "flux_masque": 46,
+    "sigma_absente": 0,
+    "portes_dispo_lt2": 0
+  },
+  "refus": {
+    "veto_funding_neg": 2,
+    "conflit_direction": 11,
+    "confirmations_insuffisantes": 85,
+    "portes_dispo_lt2": 57
+  },
+  "raisons_sortie": {
+    "filet_72h": 1,
+    "trailing": 6,
+    "shock": 5
+  },
+  "trades": [
+    {
+      "entree_t": 1785772800000,
+      "sortie_t": 1786046400000,
+      "side": "SHORT",
+      "entree": 63694.9,
+      "sortie": 64446.01,
+      "brut": -13.27,
+      "frais": 1.8,
+      "net": -15.07,
+      "raison": "filet_72h"
+    },
+    {
+      "entree_t": 1786536000000,
+      "sortie_t": 1786550400000,
+      "side": "SHORT",
+      "entree": 64240.04,
+      "sortie": 63466.15763653314,
+      "brut": 13.55,
+      "frais": 1.8,
+      "net": 11.75,
+      "raison": "trailing"
+    },
+    {
+      "entree_t": 1786982400000,
+      "sortie_t": 1787155200000,
+      "side": "SHORT",
+      "entree": 64200.0,
+      "sortie": 68554.0,
+      "brut": -76.3,
+      "frais": 1.8,
+      "net": -78.1,
+      "raison": "shock"
+    },
+    {
+      "entree_t": 1787184000000,
+      "sortie_t": 1787227200000,
+      "side": "SHORT",
+      "entree": 69334.78,
+      "sortie": 71927.07,
+      "brut": -42.06,
+      "frais": 1.8,
+      "net": -43.86,
+      "raison": "shock"
+    },
+    {
+      "entree_t": 1787241600000,
+      "sortie_t": 1787284800000,
+      "side": "SHORT",
+      "entree": 72470.84,
+      "sortie": 74510.77,
+      "brut": -31.67,
+      "frais": 1.8,
+      "net": -33.47,
+      "raison": "shock"
+    },
+    {
+      "entree_t": 1787356800000,
+      "sortie_t": 1787371200000,
+      "side": "SHORT",
+      "entree": 78338.03,
+      "sortie": 77921.49068818893,
+      "brut": 5.98,
+      "frais": 1.8,
+      "net": 4.18,
+      "raison": "trailing"
+    },
+    {
+      "entree_t": 1787486400000,
+      "sortie_t": 1787558400000,
+      "side": "SHORT",
+      "entree": 77311.02,
+      "sortie": 76910.23858043544,
+      "brut": 5.83,
+      "frais": 1.8,
+      "net": 4.03,
+      "raison": "trailing"
+    },
+    {
+      "entree_t": 1787572800000,
+      "sortie_t": 1787630400000,
+      "side": "SHORT",
+      "entree": 78443.65,
+      "sortie": 80488.01,
+      "brut": -29.32,
+      "frais": 1.8,
+      "net": -31.12,
+      "raison": "shock"
+    },
+    {
+      "entree_t": 1787846400000,
+      "sortie_t": 1787904000000,
+      "side": "SHORT",
+      "entree": 80302.32,
+      "sortie": 79811.05581489702,
+      "brut": 6.88,
+      "frais": 1.8,
+      "net": 5.08,
+      "raison": "trailing"
+    },
+    {
+      "entree_t": 1788105600000,
+      "sortie_t": 1788134400000,
+      "side": "SHORT",
+      "entree": 78823.62,
+      "sortie": 77245.07960361766,
+      "brut": 22.53,
+      "frais": 1.8,
+      "net": 20.73,
+      "raison": "trailing"
+    },
+    {
+      "entree_t": 1788364800000,
+      "sortie_t": 1788451200000,
+      "side": "SHORT",
+      "entree": 77288.97,
+      "sortie": 81348.0,
+      "brut": -59.08,
+      "frais": 1.8,
+      "net": -60.88,
+      "raison": "shock"
+    },
+    {
+      "entree_t": 1788969600000,
+      "sortie_t": 1789142400000,
+      "side": "LONG",
+      "entree": 78596.7,
+      "sortie": 79620.6902256749,
+      "brut": 14.66,
+      "frais": 1.8,
+      "net": 12.86,
+      "raison": "trailing"
+    }
+  ],
+  "stats": {
+    "n": 12,
+    "wins": 6,
+    "wr": 0.5,
+    "brut": -182.27,
+    "frais": 21.6,
+    "net": -203.87,
+    "net_par_trade": -16.99,
+    "part_pire_raison": 0.943
+  },
+  "criteres": {
+    "C1_n30": false,
+    "C2_net_gt_frais": false,
+    "C3_wr50": false,
+    "C4_pertes": false
+  },
+  "verdict": "ÉCHEC"
+}
