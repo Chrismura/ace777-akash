@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-17T13:16:33.584294+00:00",
+  "generated_at": "2026-09-17T14:16:49.302235+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 116
+      "calls_24h": 118
     },
     {
       "id": "openrouter-free",
@@ -71,7 +71,7 @@
       "model": "nvidia/nemotron-3-super-120b-a12b:free",
       "enabled": true,
       "timeout": 120,
-      "calls_24h": 15
+      "calls_24h": 17
     },
     {
       "id": "grok",
@@ -265,10 +265,74 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 74,
-    "remaining": 550
+    "consumed": 82,
+    "remaining": 542
   },
   "queue": [
+    {
+      "ts": "2026-09-17T13:50:12.015778+00:00",
+      "task": "analyse.profonde",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 4.94
+    },
+    {
+      "ts": "2026-09-17T13:41:24.301962+00:00",
+      "task": "juge.tranche",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 2.32
+    },
+    {
+      "ts": "2026-09-17T13:41:01.704327+00:00",
+      "task": "deepseek.analyse",
+      "provider": "openrouter-juge",
+      "model": "nvidia/nemotron-3-super-120b-a12b:free",
+      "kind": "cloud",
+      "duration_s": 20.35
+    },
+    {
+      "ts": "2026-09-17T13:40:54.479113+00:00",
+      "task": "gemini.analyse",
+      "provider": "openrouter-juge",
+      "model": "nvidia/nemotron-3-super-120b-a12b:free",
+      "kind": "cloud",
+      "duration_s": 13.18
+    },
+    {
+      "ts": "2026-09-17T13:37:01.872312+00:00",
+      "task": "analyse.profonde",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 1.16
+    },
+    {
+      "ts": "2026-09-17T13:37:00.393378+00:00",
+      "task": "analyse.profonde",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 1.0
+    },
+    {
+      "ts": "2026-09-17T13:16:53.558576+00:00",
+      "task": "supervise.decision",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 0.88
+    },
+    {
+      "ts": "2026-09-17T13:16:52.206098+00:00",
+      "task": "supervise.decision",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 0.85
+    },
     {
       "ts": "2026-09-17T12:21:49.352749+00:00",
       "task": "analyse.profonde",
@@ -324,129 +388,65 @@
       "model": "groq/compound",
       "kind": "cloud",
       "duration_s": 2.06
-    },
-    {
-      "ts": "2026-09-17T11:07:20.251302+00:00",
-      "task": "code.ia",
-      "provider": "openrouter-juge",
-      "model": "nvidia/nemotron-3-super-120b-a12b:free",
-      "kind": "cloud",
-      "duration_s": 279.45
-    },
-    {
-      "ts": "2026-09-17T11:01:26.228765+00:00",
-      "task": "analyse.profonde",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 1.66
-    },
-    {
-      "ts": "2026-09-17T10:52:53.248317+00:00",
-      "task": "juge.tranche",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 6.3
-    },
-    {
-      "ts": "2026-09-17T10:52:26.641377+00:00",
-      "task": "deepseek.analyse",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 7.51
-    },
-    {
-      "ts": "2026-09-17T10:52:25.756420+00:00",
-      "task": "gemini.analyse",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 6.62
-    },
-    {
-      "ts": "2026-09-17T10:46:58.957122+00:00",
-      "task": "juge.tranche",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 2.6
-    },
-    {
-      "ts": "2026-09-17T10:46:36.129102+00:00",
-      "task": "gemini.analyse",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 3.85
-    },
-    {
-      "ts": "2026-09-17T10:46:36.051671+00:00",
-      "task": "inferx.analyse",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 3.79
     }
   ],
   "events": [
     {
-      "ts": "2026-09-17T13:03:24.454102+00:00",
+      "ts": "2026-09-17T14:15:47.562190+00:00",
       "kind": "http",
       "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
       "detail": ""
     },
     {
-      "ts": "2026-09-17T13:03:24.453685+00:00",
+      "ts": "2026-09-17T14:15:47.561426+00:00",
       "kind": "error",
       "title": "Toutes les IA ont echoue",
-      "detail": "Google Gemini: blacklist du jour (saute) | Groq (LLM ultra-rapide, gratuit): HTTP Error 400: Bad Request | HuggingFace (136+ modeles, dont DeepSeek-V4): HTTP Error 400: Bad Request | OrcaRouter (routeur gratuit, modele orcarouter/free): HTTP Error 429: Too Many Requests | OpenRouter Juge (nemotron-3-super-120b free) - verificateur independant: HTTP Error 400: Bad Request | InferX DeepSeek V4 Flash (API gratuite jusqu'au 12/08): HTTP Error 429: Too Many Requests | InferX Qwen3-Coder-Next (code, g"
+      "detail": "Google Gemini: HTTP Error 429: Too Many Requests | Groq (LLM ultra-rapide, gratuit): HTTP Error 400: Bad Request | HuggingFace (136+ modeles, dont DeepSeek-V4): HTTP Error 400: Bad Request | OrcaRouter (routeur gratuit, modele orcarouter/free): HTTP Error 429: Too Many Requests | OpenRouter Juge (nemotron-3-super-120b free) - verificateur independant: HTTP Error 400: Bad Request | InferX DeepSeek V4 Flash (API gratuite jusqu'au 12/08): HTTP Error 429: Too Many Requests | InferX Qwen3-Coder-Next "
     },
     {
-      "ts": "2026-09-17T13:03:24.451483+00:00",
+      "ts": "2026-09-17T14:15:47.558982+00:00",
       "kind": "failover",
       "title": "Bascule depuis InferX Devstral-2-123B (code)",
       "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-09-17T13:03:20.616051+00:00",
+      "ts": "2026-09-17T14:15:43.166896+00:00",
       "kind": "failover",
       "title": "Bascule depuis NVIDIA DeepSeek-Coder 6.7B (code, via NIM)",
       "detail": "HTTP Error 404: Not Found"
     },
     {
-      "ts": "2026-09-17T13:03:18.760245+00:00",
+      "ts": "2026-09-17T14:15:41.037011+00:00",
       "kind": "failover",
       "title": "Bascule depuis Puter Grok (gratuit)",
       "detail": "HTTP Error 402: Payment Required"
     },
     {
-      "ts": "2026-09-17T13:03:18.257199+00:00",
+      "ts": "2026-09-17T14:15:39.720799+00:00",
       "kind": "failover",
       "title": "Bascule depuis InferX Qwen3-Coder-Next (code, gratuit jusqu'au 12/08)",
       "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-09-17T13:03:13.887487+00:00",
+      "ts": "2026-09-17T14:15:35.046891+00:00",
       "kind": "failover",
       "title": "Bascule depuis InferX DeepSeek V4 Flash (API gratuite jusqu'au 12/08)",
       "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-09-17T13:03:09.526372+00:00",
+      "ts": "2026-09-17T14:15:30.581206+00:00",
       "kind": "failover",
       "title": "Bascule depuis OpenRouter Juge (nemotron-3-super-120b free) - verificateur independant",
       "detail": "HTTP Error 400: Bad Request"
     },
     {
-      "ts": "2026-09-17T13:03:08.996819+00:00",
+      "ts": "2026-09-17T14:15:29.744253+00:00",
       "kind": "failover",
       "title": "Bascule depuis OrcaRouter (routeur gratuit, modele orcarouter/free)",
       "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-09-17T13:03:07.852446+00:00",
+      "ts": "2026-09-17T14:15:28.400553+00:00",
       "kind": "failover",
       "title": "Bascule depuis HuggingFace (136+ modeles, dont DeepSeek-V4)",
       "detail": "HTTP Error 400: Bad Request"
