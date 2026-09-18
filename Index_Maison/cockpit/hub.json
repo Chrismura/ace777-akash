@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-18T08:27:30.431477+00:00",
+  "generated_at": "2026-09-18T08:28:00.731512+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 108
+      "calls_24h": 109
     },
     {
       "id": "openrouter-free",
@@ -265,10 +265,18 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 49,
-    "remaining": 575
+    "consumed": 50,
+    "remaining": 574
   },
   "queue": [
+    {
+      "ts": "2026-09-18T08:27:54.299822+00:00",
+      "task": "supervise.decision",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 0.87
+    },
     {
       "ts": "2026-09-18T08:07:42.322645+00:00",
       "task": "analyse.profonde",
@@ -380,17 +388,21 @@
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
       "duration_s": 3.4
-    },
-    {
-      "ts": "2026-09-18T07:05:50.946874+00:00",
-      "task": "cortana.analyse",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 3.36
     }
   ],
   "events": [
+    {
+      "ts": "2026-09-18T08:27:54.299407+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
+    {
+      "ts": "2026-09-18T08:27:53.430595+00:00",
+      "kind": "blacklist",
+      "title": "Fin de pause Google Gemini",
+      "detail": "re-essai automatique"
+    },
     {
       "ts": "2026-09-18T08:21:25.532040+00:00",
       "kind": "http",
@@ -437,18 +449,6 @@
       "ts": "2026-09-18T08:21:10.719896+00:00",
       "kind": "failover",
       "title": "Bascule depuis OpenRouter Juge (nemotron-3-super-120b free) - verificateur independant",
-      "detail": "HTTP Error 400: Bad Request"
-    },
-    {
-      "ts": "2026-09-18T08:21:10.047176+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis OrcaRouter (routeur gratuit, modele orcarouter/free)",
-      "detail": "HTTP Error 429: Too Many Requests"
-    },
-    {
-      "ts": "2026-09-18T08:21:07.356847+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis HuggingFace (136+ modeles, dont DeepSeek-V4)",
       "detail": "HTTP Error 400: Bad Request"
     }
   ],
