@@ -1,6 +1,6 @@
 {
-  "timestamp": 1789733679,
-  "date": "2026-09-18T12:14:39.536763+00:00",
+  "timestamp": 1789734279,
+  "date": "2026-09-18T12:24:39.728011+00:00",
   "n_analyses": 4,
   "analyses": [
     {
@@ -14,29 +14,29 @@
       "fiche": "whale_usd",
       "questions": {
         "ventes": {
+          "value": 1410102.0,
+          "seuil": 0,
+          "depasse": true
+        },
+        "achats": {
           "value": 0.0,
           "seuil": 0,
           "depasse": false
         },
-        "achats": {
-          "value": 1255059.0,
-          "seuil": 0,
-          "depasse": true
-        },
         "prix": {
-          "value": -0.05,
+          "value": -0.01,
           "seuil": 1,
           "depasse": false
         }
       },
       "interpretation": {
-        "condition": "achats > ventes",
-        "lecture": "Flux baleines ACHETEUR dominant — accumulation possible, à confirmer sur plusieurs scans",
-        "niveau": "info",
-        "action": "Observer, ne pas acheter sur un seul signal"
+        "condition": "ventes > achats",
+        "lecture": "Flux baleines VENDEUR dominant — distribution possible vers les exchanges (proxy : bearish aujourd'hui)",
+        "niveau": "surveiller",
+        "action": "Croiser avec le sniffer vieux BTC et l'IPT avant de réduire"
       },
-      "action": "Observer, ne pas acheter sur un seul signal",
-      "niveau": "info"
+      "action": "Croiser avec le sniffer vieux BTC et l'IPT avant de réduire",
+      "niveau": "surveiller"
     },
     {
       "signal": {
@@ -54,7 +54,7 @@
           "depasse": false
         },
         "oi": {
-          "value": 107812.094,
+          "value": 107777.477,
           "seuil": 120000,
           "depasse": false
         }
@@ -88,7 +88,7 @@
           "depasse": true
         },
         "prix": {
-          "value": -0.05,
+          "value": -0.01,
           "seuil": 0,
           "depasse": true
         },
@@ -98,9 +98,9 @@
           "depasse": true
         },
         "rbf": {
-          "value": 0.2,
+          "value": 0.0,
           "seuil": 0,
-          "depasse": true
+          "depasse": false
         }
       },
       "interpretation": {
@@ -133,7 +133,7 @@
           "depasse": true
         },
         "prix": {
-          "value": -0.05,
+          "value": -0.01,
           "seuil": 0,
           "depasse": true
         },
@@ -143,9 +143,9 @@
           "depasse": true
         },
         "rbf": {
-          "value": 0.2,
+          "value": 0.0,
           "seuil": 0,
-          "depasse": true
+          "depasse": false
         }
       },
       "interpretation": {
@@ -158,5 +158,5 @@
       "niveau": "neutre"
     }
   ],
-  "resume": "🔵 CALME — pas de signal alarmant"
+  "resume": "🟡 SURVEILLANCE — des signaux sont à observer"
 }
