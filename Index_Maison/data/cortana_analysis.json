@@ -1,50 +1,15 @@
 {
-  "timestamp": 1789700733,
-  "date": "2026-09-18T03:05:33.020813+00:00",
-  "n_analyses": 2,
+  "timestamp": 1789701333,
+  "date": "2026-09-18T03:15:33.193714+00:00",
+  "n_analyses": 3,
   "analyses": [
     {
       "signal": {
-        "metric": "liquidations",
-        "zscore": 2.1729746646921937,
-        "value": 2525898.0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique parasité par des faits divers juridiques locaux et des actualités macro sans rapport avec une dynamique de baleines crypto.\"\n}\n```",
-        "ts": 1789699023.390832
-      },
-      "fiche": "liquidations",
-      "questions": {
-        "longs": {
-          "value": 287938.0,
-          "seuil": 0,
-          "depasse": true
-        },
-        "shorts": {
-          "value": 2194800.0,
-          "seuil": 0,
-          "depasse": true
-        },
-        "prix": {
-          "value": 0.01,
-          "seuil": 1,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "shorts > longs",
-        "lecture": "Liquidations massives de SHORTS — squeeze haussier mécanique. Les paliers RIP profitent de ces mouvements",
-        "niveau": "info",
-        "action": "Laisser courir les paliers RIP, ne pas rentrer après la cascade"
-      },
-      "action": "Laisser courir les paliers RIP, ne pas rentrer après la cascade",
-      "niveau": "info"
-    },
-    {
-      "signal": {
         "metric": "fear_greed",
-        "zscore": 2.932575659723036,
+        "zscore": 2.6457513110645903,
         "value": 56,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Indice de peur et d'avarice neutre (56) avec un z-score élevé, mais absence de titres médiatiques significatifs pour contraster. Données insuffisantes pour confirmer une divergence claire des baleines.\"\n}\n```",
-        "ts": 1789699024.670164
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 78,\n  \"reason\": \"Le z-score de 2.65 indique une anomalie statistique significative du Fear & Greed, tandis que le silence médiatique total (Google Actualités vide/neutre) prouve l'absence de FOMO retail. Les baleines accumulent dans l'ombre sans éveiller l'attention du grand public.\"\n}\n```",
+        "ts": 1789700832.066808
       },
       "fiche": "fear_greed",
       "questions": {
@@ -65,6 +30,96 @@
         "action": "Observer"
       },
       "action": "Observer",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "cpfp",
+        "zscore": 2.107664406936922,
+        "value": 50.0,
+        "analysis": "{\"signal\": \"bullish\", \"confidence\": 62, \"reason\": \"L'anomalie CPFP (z-score 2.11) signale une activité on-chain inhabituelle, mais les gros titres médiatiques concernent un CPFP totalement étranger à la crypto (association/formation). Ce décalage indique que les mouvements de baleines ne sont pas encore repérés par le narratif mainstream, typique d'une accumulation silencieuse. Le z-score reste modéré, donc pas d'exubérance, mais la divergence joue en faveur d'une poursuite haussière discrète.\"}",
+        "ts": 1789701143.063351
+      },
+      "fiche": "blocs_privilises",
+      "questions": {
+        "duree": {
+          "value": 0,
+          "seuil": 0,
+          "depasse": false
+        },
+        "volume": {
+          "value": 65,
+          "seuil": 0,
+          "depasse": true
+        },
+        "prix": {
+          "value": 0.11,
+          "seuil": 0,
+          "depasse": true
+        },
+        "sdi": {
+          "value": 0.604,
+          "seuil": 0,
+          "depasse": true
+        },
+        "rbf": {
+          "value": 0.0,
+          "seuil": 0,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "duree < 5min ET volume > 100",
+        "lecture": "Consolidation exchange — probablement un transfert hot→cold",
+        "niveau": "neutre",
+        "action": "Garder les positions"
+      },
+      "action": "Garder les positions",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "dust",
+        "zscore": 2.107664406936922,
+        "value": 50.0,
+        "analysis": "{\"signal\": \"bullish\", \"confidence\": 55, \"reason\": \"Pic de dust (z-score 2.11) indique une activité onchain inhabituelle et concentrée, souvent associée à des tests ou accumulations silencieuses. Le narratif médiatique est totalement déconnecté (aucune mention crypto), ce qui suggère que les mouvements ne sont pas encore détectés par le grand public. Divergence positive typique d'une accumulation discrète.\"}",
+        "ts": 1789701153.99423
+      },
+      "fiche": "blocs_privilises",
+      "questions": {
+        "duree": {
+          "value": 0,
+          "seuil": 0,
+          "depasse": false
+        },
+        "volume": {
+          "value": 65,
+          "seuil": 0,
+          "depasse": true
+        },
+        "prix": {
+          "value": 0.11,
+          "seuil": 0,
+          "depasse": true
+        },
+        "sdi": {
+          "value": 0.604,
+          "seuil": 0,
+          "depasse": true
+        },
+        "rbf": {
+          "value": 0.0,
+          "seuil": 0,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "duree < 5min ET volume > 100",
+        "lecture": "Consolidation exchange — probablement un transfert hot→cold",
+        "niveau": "neutre",
+        "action": "Garder les positions"
+      },
+      "action": "Garder les positions",
       "niveau": "neutre"
     }
   ],

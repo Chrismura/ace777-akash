@@ -1,41 +1,6 @@
 {
   "signals": [
     {
-      "metric": "dust",
-      "zscore": 2.031352264627077,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit de fond : le z-score élevé concerne une homonymie avec la startup SaaS 'Dust' (IA/Stanislas Polu) et non un token crypto ou une baleine onchain.\"\n}\n```",
-      "ts": "2026-09-16T18:17:43.999165+00:00"
-    },
-    {
-      "metric": "liquidations",
-      "zscore": 2.024728080918029,
-      "value": 4414490.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 78,\n  \"reason\": \"Le bruit médiatique se focalise sur des liquidations macro/tradfi locales et des secousses mineures de shorts (266M$), tandis que l'anomalie on-chain montre un volume de liquidations très faible (4,4M$) malgré un z-score élevé. Les baleines nettoient les derniers spéculateurs baissiers dans l'ombre sans capitulation majeure, préparant un mouvement haussier contrarien.\"\n}\n```",
-      "ts": "2026-09-16T18:37:48.243615+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.19733830460537,
-      "value": 1.235,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique (IPT) entièrement polluée par du bruit homonyme (Tournoi de Physique, articles de presse générale). Aucun signal baleine valide détecté.\"\n}\n```",
-      "ts": "2026-09-16T18:37:49.821489+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.3476614635977255,
-      "value": 1.302,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Bruit médiatique sans rapport avec la crypto. 'IPT' fait référence à des tournois de physique, des institutions ou des actualités religieuses/sportives, et non à un actif numérique ou à un mouvement de baleines.\"\n}\n```",
-      "ts": "2026-09-16T19:07:55.128129+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.028055073991926,
-      "value": 1.24,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.03) due à une collision de noms (sigle 'IPT' partagé avec des actualités académiques et religieuses sans lien avec la crypto). Aucune baleine détectée.\"\n}\n```",
-      "ts": "2026-09-16T19:48:02.546818+00:00"
-    },
-    {
       "metric": "whale_usd",
       "zscore": 4.358296063422595,
       "value": 3557588.0,
@@ -349,6 +314,41 @@
       "value": 56,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Indice de peur et d'avarice neutre (56) avec un z-score élevé, mais absence de titres médiatiques significatifs pour contraster. Données insuffisantes pour confirmer une divergence claire des baleines.\"\n}\n```",
       "ts": "2026-09-18T02:37:04.670164+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 2.6457513110645903,
+      "value": 56,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 78,\n  \"reason\": \"Le z-score de 2.65 indique une anomalie statistique significative du Fear & Greed, tandis que le silence médiatique total (Google Actualités vide/neutre) prouve l'absence de FOMO retail. Les baleines accumulent dans l'ombre sans éveiller l'attention du grand public.\"\n}\n```",
+      "ts": "2026-09-18T03:07:12.066808+00:00"
+    },
+    {
+      "metric": "cpfp",
+      "zscore": 2.107664406936922,
+      "value": 50.0,
+      "analysis": "{\"signal\": \"bullish\", \"confidence\": 62, \"reason\": \"L'anomalie CPFP (z-score 2.11) signale une activité on-chain inhabituelle, mais les gros titres médiatiques concernent un CPFP totalement étranger à la crypto (association/formation). Ce décalage indique que les mouvements de baleines ne sont pas encore repérés par le narratif mainstream, typique d'une accumulation silencieuse. Le z-score reste modéré, donc pas d'exubérance, mais la divergence joue en faveur d'une poursuite haussière discrète.\"}",
+      "ts": "2026-09-18T03:12:23.063351+00:00"
+    },
+    {
+      "metric": "dust",
+      "zscore": 2.107664406936922,
+      "value": 50.0,
+      "analysis": "{\"signal\": \"bullish\", \"confidence\": 55, \"reason\": \"Pic de dust (z-score 2.11) indique une activité onchain inhabituelle et concentrée, souvent associée à des tests ou accumulations silencieuses. Le narratif médiatique est totalement déconnecté (aucune mention crypto), ce qui suggère que les mouvements ne sont pas encore détectés par le grand public. Divergence positive typique d'une accumulation discrète.\"}",
+      "ts": "2026-09-18T03:12:33.994230+00:00"
+    },
+    {
+      "metric": "price_1h",
+      "zscore": 4.288740879090427,
+      "value": 0.6971968716031229,
+      "analysis": "{\n  \"signal\": \"bullish\",\n  \"confidence\": 78,\n  \"reason\": \"Le prix montre une anomalie forte (z‑score 4.29) suggérant un mouvement soudain à la hausse, tandis que les titres médiatiques (Google Actualités) ne rapportent aucun événement notable. Cette déconnexion indique probablement une activité discrète de baleines qui accumulent ou poussent le prix sans couverture médiatique, ce qui est interprété comme un signal haussier.\"\n}",
+      "ts": "2026-09-18T03:17:49.565772+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 8.506017652406754,
+      "value": 5112932.0,
+      "analysis": "{\n  \"signal\": \"bearish\",\n  \"confidence\": 75,\n  \"reason\": \"Pic de liquidations onchain (z-score 8.51) indique une pression de vente inhabituelle, divergent d'un narratif médiatique focalisé sur des affaires juridiques et non sur un choc de marché; possible mouvement silencieux de baleines forçant des positions.\"\n}",
+      "ts": "2026-09-18T03:17:58.044531+00:00"
     }
   ]
 }
