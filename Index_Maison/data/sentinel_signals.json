@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "whale_usd",
-      "zscore": 4.00923461336759,
-      "value": 4607711.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (z-score 4.01, accumulation de ~4.6M USD) dans un silence médiatique total. Dette technique du narratif : les médias traditionnels ignorent le mouvement, ce qui indique une accumulation furtive avant un réveil du marché.\"\n}\n```",
-      "ts": "2026-09-17T15:39:20.632391+00:00"
-    },
-    {
-      "metric": "whale_usd",
-      "zscore": 2.908980303681445,
-      "value": 3724159.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.91) couplé à une absence totale de couverture médiatique (Google Actualités muet) : accumulation furtive typique des baleines loin du radar retail.\"\n}\n```",
-      "ts": "2026-09-17T17:29:43.665356+00:00"
-    },
-    {
       "metric": "volume",
       "zscore": -2.0294204762800576,
       "value": 9671982201.0,
@@ -349,6 +335,20 @@
       "value": 1.083,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (z-score 2.20) sur le ticker IPT déconnectée de tout contexte crypto. Les résultats médiatiques font référence à l'Institut Protestant de Théologie et au Tournoi International des Physiciens (IPT), révélant un bruit de fond sémantique et non une accumulation de baleines.\"\n}\n```",
       "ts": "2026-09-18T13:25:17.918652+00:00"
+    },
+    {
+      "metric": "price_1h",
+      "zscore": 6.779402254218795,
+      "value": 1.193237445473594,
+      "analysis": "{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Le prix montre une anomalie extrême (z‑score ≈ 6.78) indiquant un mouvement soudain et significatif, tandis que les titres médiatiques sont absents ou génériques (« Google Actualités »). Cette déconnexion suggère une activité de baleine silencieuse qui pousse le prix à la hausse sans couverture médiatique, renforçant un biais haussier.\"\n}",
+      "ts": "2026-09-18T13:40:25.832812+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": -2.1709587782512156,
+      "value": 1.243,
+      "analysis": "{\n  \"signal\": \"bearish\",\n  \"confidence\": 78,\n  \"reason\": \"The on‑chain long_short metric is 1.243 with a z‑score of –2.17, indicating a statistically significant shift toward higher short exposure (lower long/short ratio) relative to its historical norm. Meanwhile, media headlines uniformly frame long‑short strategies as attractive, ideal for volatile markets, and highlight fund launches and awards, creating a bullish narrative that diverges from the underlying on‑chain bias toward shorts. This disconnect suggests whales may be quietly increasing short positions while the public discourse remains optimistic.\"\n}",
+      "ts": "2026-09-18T13:40:35.461491+00:00"
     }
   ]
 }

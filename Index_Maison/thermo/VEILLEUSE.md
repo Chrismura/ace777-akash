@@ -1,3 +1,4 @@
-# Rapport Veilleuse — 2026-09-18T13:24:00.760593+00:00
+# Rapport Veilleuse — 2026-09-18T16:55:22.672226+00:00
 
-## État : ✅ STABLE — tout est en ordre
+## État : ⚠️ ANOMALIES DÉTECTÉES
+- **PANNE** : Données figées : Index_Maison/cockpit/plancher_live.js (âge 190 min > 180 min)

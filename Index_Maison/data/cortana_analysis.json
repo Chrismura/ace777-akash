@@ -1,15 +1,125 @@
 {
-  "timestamp": 1789737880,
-  "date": "2026-09-18T13:24:40.803077+00:00",
-  "n_analyses": 1,
+  "timestamp": 1789739081,
+  "date": "2026-09-18T13:44:41.062124+00:00",
+  "n_analyses": 4,
   "analyses": [
     {
       "signal": {
+        "metric": "whale_usd",
+        "zscore": 2.7273098889077936,
+        "value": 4469158.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Accumulation significative de baleines (z-score 2.73, ~4.47M USD) dans un silence médiatique absolu (Google Actualités vide). Divergence classique d'accumulation furtive avant une rupture de prix.\"\n}\n```",
+        "ts": 1789737915.770676
+      },
+      "fiche": "whale_usd",
+      "questions": {
+        "ventes": {
+          "value": 3445362.0,
+          "seuil": 0,
+          "depasse": true
+        },
+        "achats": {
+          "value": 660950.0,
+          "seuil": 0,
+          "depasse": true
+        },
+        "prix": {
+          "value": 1.36,
+          "seuil": 1,
+          "depasse": true
+        }
+      },
+      "interpretation": {
+        "condition": "ventes > achats",
+        "lecture": "Flux baleines VENDEUR dominant — distribution possible vers les exchanges (proxy : bearish aujourd'hui)",
+        "niveau": "surveiller",
+        "action": "Croiser avec le sniffer vieux BTC et l'IPT avant de réduire"
+      },
+      "action": "Croiser avec le sniffer vieux BTC et l'IPT avant de réduire",
+      "niveau": "surveiller"
+    },
+    {
+      "signal": {
+        "metric": "ipt",
+        "zscore": 2.195461159211212,
+        "value": 1.083,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (z-score 2.20) sur le ticker IPT déconnectée de tout contexte crypto. Les résultats médiatiques font référence à l'Institut Protestant de Théologie et au Tournoi International des Physiciens (IPT), révélant un bruit de fond sémantique et non une accumulation de baleines.\"\n}\n```",
+        "ts": 1789737917.918652
+      },
+      "fiche": "rbf_eleve",
+      "questions": {
+        "prix": {
+          "value": 1.36,
+          "seuil": 1,
+          "depasse": true
+        },
+        "paires": {
+          "value": 0,
+          "seuil": 3,
+          "depasse": false
+        },
+        "funding": {
+          "value": 4.1e-05,
+          "seuil": 0.001,
+          "depasse": false
+        },
+        "whales": {
+          "value": 1,
+          "seuil": 5,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "prix > 1%",
+        "lecture": "Momentum haussier — les acteurs accélèrent pour acheter",
+        "niveau": "haussier",
+        "action": "Garder les positions, profiter du momentum"
+      },
+      "action": "Garder les positions, profiter du momentum",
+      "niveau": "haussier"
+    },
+    {
+      "signal": {
+        "metric": "price_1h",
+        "zscore": 6.779402254218795,
+        "value": 1.193237445473594,
+        "analysis": "{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Le prix montre une anomalie extrême (z‑score ≈ 6.78) indiquant un mouvement soudain et significatif, tandis que les titres médiatiques sont absents ou génériques (« Google Actualités »). Cette déconnexion suggère une activité de baleine silencieuse qui pousse le prix à la hausse sans couverture médiatique, renforçant un biais haussier.\"\n}",
+        "ts": 1789738825.832812
+      },
+      "fiche": "price_1h",
+      "questions": {
+        "pct_1h": {
+          "value": 1.36,
+          "seuil": -1,
+          "depasse": true
+        },
+        "liq": {
+          "value": 8269571.0,
+          "seuil": 5000000,
+          "depasse": true
+        },
+        "funding": {
+          "value": 4.1e-05,
+          "seuil": 0,
+          "depasse": true
+        }
+      },
+      "interpretation": {
+        "condition": "liq > 5000000",
+        "lecture": "Chute avec liquidations massives — éjection de leviers en chaîne. Souvent un creux mécanique, pas une tendance",
+        "niveau": "surveiller",
+        "action": "Ne pas vendre dans la panique, attendre la fin des cascades (liq qui retombe)"
+      },
+      "action": "Ne pas vendre dans la panique, attendre la fin des cascades (liq qui retombe)",
+      "niveau": "surveiller"
+    },
+    {
+      "signal": {
         "metric": "long_short",
-        "zscore": -2.335223830798635,
+        "zscore": -2.1709587782512156,
         "value": 1.243,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Z-score extrêmement bas (-2.34) sur le ratio long/short indiquant un positionnement contrarien massif des baleines, totalement ignoré par les médias généralistes obnubilés par des produits financiers traditionnels.\"\n}\n```",
-        "ts": 1789737011.295714
+        "analysis": "{\n  \"signal\": \"bearish\",\n  \"confidence\": 78,\n  \"reason\": \"The on‑chain long_short metric is 1.243 with a z‑score of –2.17, indicating a statistically significant shift toward higher short exposure (lower long/short ratio) relative to its historical norm. Meanwhile, media headlines uniformly frame long‑short strategies as attractive, ideal for volatile markets, and highlight fund launches and awards, creating a bullish narrative that diverges from the underlying on‑chain bias toward shorts. This disconnect suggests whales may be quietly increasing short positions while the public discourse remains optimistic.\"\n}",
+        "ts": 1789738835.461491
       },
       "fiche": "long_short",
       "questions": {
@@ -19,7 +129,7 @@
           "depasse": false
         },
         "oi": {
-          "value": 107693.621,
+          "value": 107347.523,
           "seuil": 120000,
           "depasse": false
         }
@@ -33,5 +143,5 @@
       "niveau": "neutre"
     }
   ],
-  "resume": "🔵 CALME — pas de signal alarmant"
+  "resume": "🟡 SURVEILLANCE — des signaux sont à observer"
 }
