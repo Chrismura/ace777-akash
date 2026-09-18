@@ -1,34 +1,6 @@
 {
   "signals": [
     {
-      "metric": "price_1h",
-      "zscore": 2.7904362131067817,
-      "value": 0.6152614812268808,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de prix positive (z-score 2.79) sans couverture médiatique (Google Actualités vide). C'est la signature classique d'accumulation furtive par des baleines avant que le narratif public ne se forme.\"\n}\n```",
-      "ts": "2026-09-17T12:21:49.353953+00:00"
-    },
-    {
-      "metric": "price_1h",
-      "zscore": 2.9364885131444454,
-      "value": 0.6785672308645352,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie statistique forte (z-score 2.94) avec un silence médiatique total (Google Actualités vide). C'accumulation furtive classique par les baleines loin du radar public.\"\n}\n```",
-      "ts": "2026-09-17T13:37:00.394376+00:00"
-    },
-    {
-      "metric": "whale_usd",
-      "zscore": 4.345707411789454,
-      "value": 4787009.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (z-score 4.35, ~4.78M USD) dans le silence total des médias généralistes (Google Actualités vide de toute hype). Divergence classique d'accumulation furtive par les institutionnels avant un réveil du narratif.\"\n}\n```",
-      "ts": "2026-09-17T13:37:01.873820+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": 2.1781963599355416,
-      "value": 13567255439.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie de volume on-chain non corrélée aux flux crypto pertinents (bruit médiatique pollué par l'actualité automobile et financière traditionnelle).\"\n}\n```",
-      "ts": "2026-09-17T14:32:09.488099+00:00"
-    },
-    {
       "metric": "volume",
       "zscore": -14.354322326929879,
       "value": 0,
@@ -349,6 +321,34 @@
       "value": 4569806.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 2.94, ~4.57M USD) en l'absence totale de couverture médiatique (silence radio). C'est le pattern classique d'accumulation furtive par les baleines loin du radar public.\"\n}\n```",
       "ts": "2026-09-18T11:08:37.983253+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 3.1099805905452693,
+      "value": 4913359.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 3.11, ~4.9M USD) sans couverture médiatique correspondante (Google Actualités muet). Classic accumulation furtive de baleines en 'blind spot' médiatique.\"\n}\n```",
+      "ts": "2026-09-18T11:58:46.273824+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": -2.462906484699979,
+      "value": 1.258,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Le z-score extrêmement bas (-2.46) indique une sous-exposition massive des traders particuliers et un pessimisme excessif, tandis que les médias grand public se focalisent sur des produits financiers traditionnels. C'est un signal classique de capitulation locale et d'accumulation silencieuse par les baleines avant un retournement haussier.\"\n}\n```",
+      "ts": "2026-09-18T12:08:49.386226+00:00"
+    },
+    {
+      "metric": "cpfp",
+      "zscore": 2.2028759728073535,
+      "value": 50.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique purement locale (frais d'urgence CPFP pour débloquer des transactions Bitcoin) noyée dans du bruit médiatique sans lien avec l'activité des baleines.\"\n}\n```",
+      "ts": "2026-09-18T12:13:53.045994+00:00"
+    },
+    {
+      "metric": "dust",
+      "zscore": 2.2028759728073535,
+      "value": 50.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Fausse alerte liée à une homonymie : le 'dust' onchain est confondu dans le narratif médiatique avec l'entreprise SaaS française d'IA 'Dust' (fondée par Stanislas Polu).\"\n}\n```",
+      "ts": "2026-09-18T12:13:55.037343+00:00"
     }
   ]
 }

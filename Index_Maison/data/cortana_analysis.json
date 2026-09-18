@@ -1,43 +1,162 @@
 {
-  "timestamp": 1789730678,
-  "date": "2026-09-18T11:24:38.688147+00:00",
-  "n_analyses": 1,
+  "timestamp": 1789733679,
+  "date": "2026-09-18T12:14:39.536763+00:00",
+  "n_analyses": 4,
   "analyses": [
     {
       "signal": {
         "metric": "whale_usd",
-        "zscore": 2.940209743244529,
-        "value": 4569806.0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 2.94, ~4.57M USD) en l'absence totale de couverture médiatique (silence radio). C'est le pattern classique d'accumulation furtive par les baleines loin du radar public.\"\n}\n```",
-        "ts": 1789729717.983253
+        "zscore": 3.1099805905452693,
+        "value": 4913359.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 3.11, ~4.9M USD) sans couverture médiatique correspondante (Google Actualités muet). Classic accumulation furtive de baleines en 'blind spot' médiatique.\"\n}\n```",
+        "ts": 1789732726.273824
       },
       "fiche": "whale_usd",
       "questions": {
         "ventes": {
-          "value": 719157.0,
-          "seuil": 0,
-          "depasse": true
-        },
-        "achats": {
           "value": 0.0,
           "seuil": 0,
           "depasse": false
         },
+        "achats": {
+          "value": 1255059.0,
+          "seuil": 0,
+          "depasse": true
+        },
         "prix": {
-          "value": -0.22,
+          "value": -0.05,
           "seuil": 1,
           "depasse": false
         }
       },
       "interpretation": {
-        "condition": "ventes > achats",
-        "lecture": "Flux baleines VENDEUR dominant — distribution possible vers les exchanges (proxy : bearish aujourd'hui)",
-        "niveau": "surveiller",
-        "action": "Croiser avec le sniffer vieux BTC et l'IPT avant de réduire"
+        "condition": "achats > ventes",
+        "lecture": "Flux baleines ACHETEUR dominant — accumulation possible, à confirmer sur plusieurs scans",
+        "niveau": "info",
+        "action": "Observer, ne pas acheter sur un seul signal"
       },
-      "action": "Croiser avec le sniffer vieux BTC et l'IPT avant de réduire",
-      "niveau": "surveiller"
+      "action": "Observer, ne pas acheter sur un seul signal",
+      "niveau": "info"
+    },
+    {
+      "signal": {
+        "metric": "long_short",
+        "zscore": -2.462906484699979,
+        "value": 1.258,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Le z-score extrêmement bas (-2.46) indique une sous-exposition massive des traders particuliers et un pessimisme excessif, tandis que les médias grand public se focalisent sur des produits financiers traditionnels. C'est un signal classique de capitulation locale et d'accumulation silencieuse par les baleines avant un retournement haussier.\"\n}\n```",
+        "ts": 1789733329.386226
+      },
+      "fiche": "long_short",
+      "questions": {
+        "ratio_long_short": {
+          "value": 1.258,
+          "seuil": 2,
+          "depasse": false
+        },
+        "oi": {
+          "value": 107812.094,
+          "seuil": 120000,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
+      },
+      "action": "Observer",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "cpfp",
+        "zscore": 2.2028759728073535,
+        "value": 50.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique purement locale (frais d'urgence CPFP pour débloquer des transactions Bitcoin) noyée dans du bruit médiatique sans lien avec l'activité des baleines.\"\n}\n```",
+        "ts": 1789733633.045994
+      },
+      "fiche": "blocs_privilises",
+      "questions": {
+        "duree": {
+          "value": 0,
+          "seuil": 0,
+          "depasse": false
+        },
+        "volume": {
+          "value": 916,
+          "seuil": 0,
+          "depasse": true
+        },
+        "prix": {
+          "value": -0.05,
+          "seuil": 0,
+          "depasse": true
+        },
+        "sdi": {
+          "value": 0.604,
+          "seuil": 0,
+          "depasse": true
+        },
+        "rbf": {
+          "value": 0.2,
+          "seuil": 0,
+          "depasse": true
+        }
+      },
+      "interpretation": {
+        "condition": "duree < 5min ET volume > 100",
+        "lecture": "Consolidation exchange — probablement un transfert hot→cold",
+        "niveau": "neutre",
+        "action": "Garder les positions"
+      },
+      "action": "Garder les positions",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "dust",
+        "zscore": 2.2028759728073535,
+        "value": 50.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Fausse alerte liée à une homonymie : le 'dust' onchain est confondu dans le narratif médiatique avec l'entreprise SaaS française d'IA 'Dust' (fondée par Stanislas Polu).\"\n}\n```",
+        "ts": 1789733635.037343
+      },
+      "fiche": "blocs_privilises",
+      "questions": {
+        "duree": {
+          "value": 0,
+          "seuil": 0,
+          "depasse": false
+        },
+        "volume": {
+          "value": 916,
+          "seuil": 0,
+          "depasse": true
+        },
+        "prix": {
+          "value": -0.05,
+          "seuil": 0,
+          "depasse": true
+        },
+        "sdi": {
+          "value": 0.604,
+          "seuil": 0,
+          "depasse": true
+        },
+        "rbf": {
+          "value": 0.2,
+          "seuil": 0,
+          "depasse": true
+        }
+      },
+      "interpretation": {
+        "condition": "duree < 5min ET volume > 100",
+        "lecture": "Consolidation exchange — probablement un transfert hot→cold",
+        "niveau": "neutre",
+        "action": "Garder les positions"
+      },
+      "action": "Garder les positions",
+      "niveau": "neutre"
     }
   ],
-  "resume": "🟡 SURVEILLANCE — des signaux sont à observer"
+  "resume": "🔵 CALME — pas de signal alarmant"
 }
