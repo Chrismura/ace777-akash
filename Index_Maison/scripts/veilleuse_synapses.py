@@ -178,7 +178,7 @@ def main():
     mon_chemin = Path(__file__).resolve()
     mon_md5 = calculer_md5(mon_chemin)
     for item in reg_data.get("fichier", []):
-        if item["nom"].endswith("veilleuse_synapses.py") and item.get("verif") == "md5":
+        if str(item.get("nom", "")).endswith("veilleuse_synapses.py") and item.get("verif") == "md5":
             attendu = item.get("md5", "")
             if attendu and attendu != mon_md5:
                 anomalies.append(("INTRUSION",
@@ -187,8 +187,13 @@ def main():
 
     # a) + c) Fichiers du registre
     for item in reg_data.get("fichier", []):
-        nom = item["nom"]
+        # Robustesse : une entrée de registre malformée ne doit pas tuer la veilleuse
+        # (crash observé le 14/09 : KeyError 'nom'). On la signale et on continue.
+        nom = item.get("nom")
         verif = item.get("verif")
+        if not nom:
+            anomalies.append(("REGISTRE", "Entrée sans clé 'nom' — ignorée (registre à corriger)"))
+            continue
         cible = RACINE / nom
         if not cible.exists():
             anomalies.append(("PANNE", f"Fichier manquant : {nom}"))

@@ -1,30 +1,30 @@
 {
-  "timestamp": 1789723476,
-  "date": "2026-09-18T09:24:36.502882+00:00",
-  "n_analyses": 1,
+  "timestamp": 1789727077,
+  "date": "2026-09-18T10:24:37.551739+00:00",
+  "n_analyses": 2,
   "analyses": [
     {
       "signal": {
         "metric": "liquidations",
-        "zscore": 2.8492740974648365,
-        "value": 8487265.0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique parasité par des faits divers juridiques locaux sans rapport avec la crypto et des contentieux historiques (Celsius/BitMEX 2020). Aucune divergence onchain significative.\"\n}\n```",
-        "ts": 1789722480.741293
+        "zscore": 2.560183308570351,
+        "value": 9203556.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique parasité par des faits divers juridiques locaux ('liquidations judiciaires' à Quimper) et des contentieux historiques (Celsius/BitMEX 2020). Aucune baleine crypto active détectée en lien avec le z-score onchain.\"\n}\n```",
+        "ts": 1789726093.720484
       },
       "fiche": "liquidations",
       "questions": {
         "longs": {
-          "value": 183000.0,
+          "value": 298686.0,
           "seuil": 0,
           "depasse": true
         },
         "shorts": {
-          "value": 9117272.0,
+          "value": 8051634.0,
           "seuil": 0,
           "depasse": true
         },
         "prix": {
-          "value": 0.15,
+          "value": 0.03,
           "seuil": 1,
           "depasse": false
         }
@@ -37,6 +37,35 @@
       },
       "action": "Laisser courir les paliers RIP, ne pas rentrer après la cascade",
       "niveau": "info"
+    },
+    {
+      "signal": {
+        "metric": "long_short",
+        "zscore": -2.020012177660779,
+        "value": 1.315,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Le Z-score de -2.02 indique un positionnement court anormalement bas et une capitulation des suiveurs de tendance. Pendant que les médias généralistes parlent de stratégies traditionnelles long/short, les baleines accumulent dans l'ombre en position contrariante, créant un potentiel de short squeeze imminent.\"\n}\n```",
+        "ts": 1789726095.855092
+      },
+      "fiche": "long_short",
+      "questions": {
+        "ratio_long_short": {
+          "value": 1.315,
+          "seuil": 2,
+          "depasse": false
+        },
+        "oi": {
+          "value": 107330.118,
+          "seuil": 120000,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
+      },
+      "action": "Observer",
+      "niveau": "neutre"
     }
   ],
   "resume": "🔵 CALME — pas de signal alarmant"

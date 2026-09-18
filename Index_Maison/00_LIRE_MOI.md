@@ -24,3 +24,4 @@ Miroir Obsidian : OUTBOX → `Documents/Obsidian_ACE777/` (sync Terminal).
 | [`PROTOCOLE_SESSION_RECHERCHE.md`](PROTOCOLE_SESSION_RECHERCHE.md) | Checklist ACTIF |
 | [`AUTO_PROCESSUS.md`](AUTO_PROCESSUS.md) | Ce qui est automatisé |
 | [`ARCHITECTURE_AGORA.md`](ARCHITECTURE_AGORA.md) | Schéma prototype ensemble |
+| [`HULK_SETUP_ET_DECISIONS_20260918.md`](HULK_SETUP_ET_DECISIONS_20260918.md) | **MAÎTRE — setup Hulk + toutes les décisions du 18/09** (socle, banc 20 actifs, Plancher, verdicts) |

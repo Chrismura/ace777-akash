@@ -1,14 +1,37 @@
 {
   "version": "1.4.7",
-  "updated": "2026-09-17T16:55:00Z",
+  "updated": "2026-09-18T10:35:00Z",
   "fichier": [
+    {
+      "nom": "Index_Maison/scripts/v2_duo_replay_4h.py",
+      "role": "Replay ACE duo ALPHA/BETA sur signaux V2 4H (spec E32, recherche pure)",
+      "origine": "GO superviseur Christophe 17/09 · scellé au registre 18/09 (rituel : l'instrument de mesure aussi)",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "e526247c1b4820c317299b710770ab58",
+      "date": "2026-09-18T10:15Z",
+      "note": "REFACTOR 18/09 (P1 plan ACE) : extraction du cœur pur simuler_duo(kl4h, fund, evts, i_debut, i_fin) — AUCUN changement de comportement, PROUVÉ par diff du JSON de sortie contre E32 (identique hors champ ts). Le refactor permet le walk-forward et la mesure de drawdown. Le Hunter n'influence pas la position du Scout.",
+      "maj": "E32 17/09 : deux bugs d'implémentation corrigés avant consignation (giveback calculé devant au lieu de derrière ; signe du hard stop inversé qui fabriquait un gain garanti). Verdict E32 : ÉCHEC net -64,19 $."
+    },
+    {
+      "nom": "engle/bench_duo.py",
+      "role": "BANC du duo ACE : net + DD max + net/DD + walk-forward (P1 plan ACE)",
+      "origine": "GO Christophe 18/09 (plan d'attaque ACE validé « go »)",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "f68dcc4f21b0d2ef36aa39542f69af40",
+      "date": "2026-09-18T10:15Z",
+      "note": "Recherche pure, 0 ordre. Réutilise v2_duo_replay_4h.simuler_duo() = source unique des signaux/mécanique (aucune règle dupliquée). Ajoute les critères PRÉ-ENREGISTRÉS C5 (net/DD ≥ 1) et C6 (≥ 60 % de fenêtres positives). Le critère 'scout_seul' est une agrégation, pas une variante de code.",
+      "maj": ""
+    },
     {
       "nom": "hulk-mexc/scripts/paper_diprip.py",
       "role": "Moteur Hulk (paper MEXC dip&rip + bags)",
       "origine": "chantier hulk",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "cb9241fc20ae76fcc5667fc40a0120e8",
+      "md5": "19275addb98bc864ad3b0535d3f10471",
+      "_rescel_20260918": "gate Plancher PLANCHER_GATE_ON + plancher_veto()/plancher_veto_decision() + mise plafonnée sur le MUR LIVE (aspiration_live.json, repli profil).",
       "note": "FIX 27/08 : circuits breaker + fraîcheur Cortana + FILTRE LOTS MEXC (lot_filter depuis exchangeInfo, baseSizePrecision/quoteAmountPrecision, arrondi stepSize au buy ET au sell, dust close, fail-open)  | RE-SCELLÉ 2026-09-03T17:22Z (GO Christophe 03/09) · 10/09: patch fusibles par paire (gate tête de buy() + détarage sizing, GO Christophe) — md5 mis à jour",
       "maj": "BATCH PRIX Phase 1 (31/08-01/09, famille 7/7 + codeur) : 1 appel GET global + cache au lieu de 21 GET/cycle (~200-270 req/min → sous la limite MEXC). Mode SELLFULL + mode_entree() du 29-31/08. Aucune logique métier touchée."
     },
@@ -67,7 +90,7 @@
       "origine": "chantier 15/08",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "e51beb08cc0bb99008847fa5689679c0"
+      "md5": "543aee2356a8178be11492d41a2d433f"
     },
     {
       "nom": "Index_Maison/scripts/pont_onchain.py",
@@ -194,7 +217,8 @@
       "origine": "chantier hulk",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "52037e3e5ce99f58ff28cd6843ef1d60",
+      "md5": "5074bf04bad08b23df418c1db8615da0",
+      "_rescel_20260918": "NOTIONAL_USDT 20→30 + PLANCHER_GATE_ON=1.",
       "note": "Re-scellé 2026-09-16T13:10Z (GO C., après audit R3 complet : 73/74 OK, seule dérive = ce fichier). La dérive = 2 GO votés du 15/09 jamais re-déclarés (R3) : ① 06:36Z REENTRY_MAX 1→3 + STOP_COOLDOWN_HOURS 4→1 + VOL_SPIKE_MIN_SMALL 1,5→1,2 + VEILLE_SKIP_RED_ON 1→0 (chantier anti-timing/anti-figage) ; ② 08:45Z SLIP_GATE_ON 0→1 (armement du gate anti-glissement après ses 48 h d'observation prévues le 09/09). Sentinelle indépendante : PnL cohérent (divergence 0,0005 $). Prochain changement de config = re-scellement immédiat.",
       "maj": "30/08 v3 (GO Christophe 14:15Z) : FINI l'observation — PAPER_OBSERVE_PAIRS vidée. QNT/FLUID/RWA/MNSRY seedées (10$ chacune, structure seed_inventory) + lignes SEED_START au CSV + SELL d'annulation du BUY parasite FLUID (09:54Z) pour rejeu exact. 16 positions, plus aucune paire observe. Tableau cockpit = 20 paires tradées. || RE-SCELLÉ 03/09 : Config modifiée session 31/08 12h18 — re-scellée post-audit 03/09 (GO Christophe).",
       "date": "2026-09-16T13:24Z"
@@ -499,7 +523,8 @@
       "origine": "chantier plancher confirmé — GO direct Christophe 11/09",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "969ae887619bfc4cb1eb63a2a55ad1e7",
+      "md5": "d92d68cfadaaf4feeee7774dd49deae9",
+      "_rescel_20260918": "expose le champ `veto` par paire dans le feed cockpit (badge VETO anti-couteau) — aucun ordre, lecture seule.",
       "note": "déclaré 2026-09-11T20:42Z — lecture seule du moteur; produit JSONL + feed cockpit; 5 min launchd | évolution 2026-09-15T05:37Z GO direct Christophe (« regarde le plancher pour tout le monde ») : PAIRES 2→12 (toutes les paires couvertes par la sonde L2) + C2 sans profil = garde absolue 100 bps sur le spread live",
       "maj": ""
     },
@@ -738,7 +763,8 @@
       "origine": "GO Christophe 14/09 (onglet cockpit vol)",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "a91b382fa2de52a1a20d988f42337a49",
+      "md5": "73bedaec78ddcbab75064848407aafff",
+      "_rescel_20260918": "panneau « Banc 20 actifs — risque » (net / DD / net-DD, base vs notrend) + contrat de sortie des LaunchAgents (distingue alerte métier d'échec réel).",
       "note": "Re-scellé 14/09T12:41Z après modification déclarée : suppression de la réécriture de vol.html (cache-buster déplacé côté client) — le générateur n'écrit plus que vol_live.js (non scellé, donnée vivante). Par Buffy.",
       "maj": "16/09 (fix panneau) : lire_marche() lit mark/fearGreed (clés vivantes) au lieu de btc_price/fear_greed (morts depuis toujours) — « BTC ?/F&G ? » réparé. Backup /tmp. Par Buffy."
     },
@@ -748,7 +774,8 @@
       "origine": "GO Christophe 14/09 (onglet cockpit vol)",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "9c6af579fea7a3afc2f1d0465409354e",
+      "md5": "e2371d1a49e2dc9190b7925c6ee4df00",
+      "_rescel_20260918": "rendu du panneau banc/risque + badges tri-état (🟢 en vol/ok · 🟠 alerte métier · 🔴 échec réel).",
       "note": "Re-scellé 14/09T12:40Z : le générateur ne réécrit PLUS ce fichier (cache-buster côté client, Date.now()). Defaut de conception du matin corrigé : on ne scelle pas un fichier qu'on réécrit toutes les 5 min. Par Buffy."
     },
     {

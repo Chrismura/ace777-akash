@@ -195,11 +195,16 @@ def jour_de(ts_ms):
     return datetime.fromtimestamp(ts_ms / 1000, timezone.utc).strftime("%Y-%m-%d")
 
 # ------------------------- simulation -------------------------------
-def run():
-    kl4h = fetch_4h()
-    fund = fetch_funding()
-    evts = charger_flux()
+def simuler_duo(kl4h, fund, evts, i_debut=1, i_fin=None):
+    """Cœur PUR de la simulation duo (aucune E/S). Les indicateurs restent
+    CAUSAUX (calculés sur le passé seul) ; seule la boucle de trading est bornée
+    à [i_debut, i_fin). i_fin=None => fin de série.
 
+    Extrait de run() le 18/09 (P1 du plan ACE) pour permettre le walk-forward et
+    la mesure de drawdown. REFACTOR SANS CHANGEMENT DE COMPORTEMENT : la sortie
+    sur la série complète est identique au JSON scellé E32 (vérifié par diff)."""
+    if i_fin is None:
+        i_fin = len(kl4h)
     clos_par_jour = {}
     for k in kl4h:
         clos_par_jour[jour_de(k["t"])] = k["c"]
@@ -270,7 +275,7 @@ def run():
                                   ("trail_agressif" if px != k["c"] else "close_bougie"),
                         "scout_stop_t": s["t_entree"]})
 
-    for i in range(1, len(kl4h)):
+    for i in range(i_debut, i_fin):
         k = kl4h[i]
         jour = jour_de(k["t"])
         # ---- gestion du Scout ouvert (sorties dès la bougie d'entrée) ----
@@ -336,7 +341,7 @@ def run():
                 continue
             if sens == "SHORT" and regime != "BAISSIER":
                 continue
-            e = kl4h[i + 1] if i + 1 < len(kl4h) else None
+            e = kl4h[i + 1] if i + 1 < i_fin else None
             if e is None:
                 break
             d = 1 if sens == "LONG" else -1
@@ -345,8 +350,20 @@ def run():
                    "entree": e["o"], "sig_px": sig_px, "mfp": e["o"],
                    "arm": e["o"] + d * SIGMA_ARM * sig_px}
     if pos:
-        k = kl4h[-1]
-        cloture_scout(len(kl4h) - 1, k["c"], "fin_fenetre")
+        k = kl4h[i_fin - 1]
+        cloture_scout(i_fin - 1, k["c"], "fin_fenetre")
+
+    return {"scouts": scouts, "hunters": hunters, "indispo": indispo,
+            "refus": refus, "chasseur": chasseur_tirs}
+
+
+def run():
+    kl4h = fetch_4h()
+    fund = fetch_funding()
+    evts = charger_flux()
+    sim = simuler_duo(kl4h, fund, evts)
+    scouts, hunters = sim["scouts"], sim["hunters"]
+    indispo, refus, chasseur_tirs = sim["indispo"], sim["refus"], sim["chasseur"]
 
     # ------------------------- verdict mécanique -------------------------
     def resume(trades):

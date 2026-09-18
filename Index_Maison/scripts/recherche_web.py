@@ -51,6 +51,8 @@ def normaliser(q):
 
 def chercher_coin(q):
     """CoinGecko : renvoie l'id du coin le mieux classé (market_cap_rank le plus petit)."""
+    if not q or not isinstance(q, str):
+        return None
     d = _get(CG_SEARCH.format(q=urllib.parse.quote(q)))
     if not d or not isinstance(d, dict):
         return None
@@ -66,6 +68,11 @@ def chercher_coin(q):
 
 
 def donnees_coin(cid):
+    # Robustesse : chercher_coin() renvoie None quand CoinGecko ne trouve rien
+    # (rate-limit, réseau, sujet inconnu) -> sans ce garde, urllib.parse.quote(None)
+    # levait « quote_from_bytes() expected bytes » (bug observé 18/09 sur le sniffer).
+    if not cid or not isinstance(cid, str):
+        return None
     d = _get(CG_COIN.format(cid=urllib.parse.quote(cid)))
     if not d or not isinstance(d, dict):
         return None

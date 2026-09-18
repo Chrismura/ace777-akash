@@ -1,27 +1,6 @@
 {
   "signals": [
     {
-      "metric": "whale_usd",
-      "zscore": 11.918898409025564,
-      "value": 9640463.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (z-score 11.92, ~9.6M USD) dans le silence médiatique total de Google Actualités. Accumulation furtive des baleines sans FOMO public.\"\n}\n```",
-      "ts": "2026-09-17T10:26:20.725631+00:00"
-    },
-    {
-      "metric": "whale_usd",
-      "zscore": 6.022086644084194,
-      "value": 6154979.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement élevé (6.02) pour des flux de baleines ($6.15M) couplé à un silence médiatique total (Google Actualités vide). C'est la signature classique d'accumulation furtive hors des radars grand public.\"\n}\n```",
-      "ts": "2026-09-17T11:01:26.230156+00:00"
-    },
-    {
-      "metric": "cpfp",
-      "zscore": 2.0011160085076374,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie technique purement on-chain (frais de transactions Bitcoin/CPFP) polluée par du bruit médiatique sans rapport (actualité locale française et politique africaine). Aucune activité de baleine détectée.\"\n}\n```",
-      "ts": "2026-09-17T11:21:32.185343+00:00"
-    },
-    {
       "metric": "dust",
       "zscore": 2.0011160085076374,
       "value": 50.0,
@@ -349,6 +328,27 @@
       "value": 8487265.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique parasité par des faits divers juridiques locaux sans rapport avec la crypto et des contentieux historiques (Celsius/BitMEX 2020). Aucune divergence onchain significative.\"\n}\n```",
       "ts": "2026-09-18T09:08:00.741293+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 2.846456583767452,
+      "value": 9245548.0,
+      "analysis": "{\n  \"signal\": \"bearish\",\n  \"confidence\": 72,\n  \"reason\": \"The on‑chain liquidation metric shows a strong anomaly (z‑score 2.85, ~9.2M units), indicating a sudden spike in forced crypto position closures that typically precedes or accompanies downward price pressure. In contrast, the media headlines focus exclusively on unrelated judicial liquidations in France, creating a narrative disconnect that masks the underlying market stress. This divergence suggests whales may be silently unwinding leveraged positions while public attention is diverted, supporting a bearish outlook.\"\n}",
+      "ts": "2026-09-18T09:38:07.810773+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 2.560183308570351,
+      "value": 9203556.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique parasité par des faits divers juridiques locaux ('liquidations judiciaires' à Quimper) et des contentieux historiques (Celsius/BitMEX 2020). Aucune baleine crypto active détectée en lien avec le z-score onchain.\"\n}\n```",
+      "ts": "2026-09-18T10:08:13.720484+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": -2.020012177660779,
+      "value": 1.315,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Le Z-score de -2.02 indique un positionnement court anormalement bas et une capitulation des suiveurs de tendance. Pendant que les médias généralistes parlent de stratégies traditionnelles long/short, les baleines accumulent dans l'ombre en position contrariante, créant un potentiel de short squeeze imminent.\"\n}\n```",
+      "ts": "2026-09-18T10:08:15.855092+00:00"
     }
   ]
 }
