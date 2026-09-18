@@ -1,41 +1,6 @@
 {
   "signals": [
     {
-      "metric": "volume",
-      "zscore": -14.354322326929879,
-      "value": 0,
-      "analysis": "{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"On‑chain volume is virtually zero (z‑score -14.35), indicating a severe lack of trading activity, while media headlines hype meme‑coin launchpads capturing a large share of Arc’s volume. This divergence suggests the narrative is disconnected from reality and that whales are not actively moving assets, pointing to weakening market interest and a bearish outlook.\"\n}",
-      "ts": "2026-09-17T15:07:20.146839+00:00"
-    },
-    {
-      "metric": "liquidations",
-      "zscore": -3.1963510322822657,
-      "value": 0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Anomalie onchain extrême (z-score -3.20, liquidations nulles) couplée à un bruit médiatique rétrospectif (Celsius/BitMEX) et des liquidations de shorts. Les baleines absorbent l'offre dans un calme absolu, préparant une cassure haussière hors du radar des détaillants.\"\n}\n```",
-      "ts": "2026-09-17T15:07:56.743010+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": -16.792229445309335,
-      "value": 0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Anomalie technique hors sujet : les données font référence à un protocole ou ticker obsolète/inconnu, tandis que le narratif médiatique traite du Syndicat des Indépendants (SDI) français et de l'audiovisuel. Aucune activité de baleine crypto détectée.\"\n}\n```",
-      "ts": "2026-09-17T15:07:58.488640+00:00"
-    },
-    {
-      "metric": "long_short",
-      "zscore": -4.694060282189683,
-      "value": 1,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 95,\n  \"reason\": \"Z-score extrêmement bas (-4.69) indiquant une position vendeuse massive et anormale de la foule, totalement ignorée par les médias traditionnels focalisés sur des fonds traditionnels. Configuration classique de 'short squeeze' imminent initié par les baleines.\"\n}\n```",
-      "ts": "2026-09-17T15:08:50.081350+00:00"
-    },
-    {
-      "metric": "taker_ratio",
-      "zscore": -2.664914853355944,
-      "value": 0.5,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Taker ratio extrêmement bas (z-score -2.66) indiquant une domination massive des acheteurs passifs (limites) tandis que les médias traditionnels affichent un vide informationnel total. Classique accumulation silencieuse de baleines loin du radar public.\"\n}\n```",
-      "ts": "2026-09-17T15:09:10.048118+00:00"
-    },
-    {
       "metric": "whale_usd",
       "zscore": 4.00923461336759,
       "value": 4607711.0,
@@ -349,6 +314,41 @@
       "value": 50.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Fausse alerte liée à une homonymie : le 'dust' onchain est confondu dans le narratif médiatique avec l'entreprise SaaS française d'IA 'Dust' (fondée par Stanislas Polu).\"\n}\n```",
       "ts": "2026-09-18T12:13:55.037343+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 2.7213734196313184,
+      "value": 4422032.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 2.72) traduisant une accumulation discrète de 4.4M$ par les baleines, totalement ignorée par les médias traditionnels (silence médiatique). Classic setup de divergence avant un mouvement impulsif.\"\n}\n```",
+      "ts": "2026-09-18T12:39:03.379094+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": -2.2794184387012018,
+      "value": 1.258,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Le Z-score fortement négatif (-2.28) indique une capitulation massive des positions longues et un positionnement court excessif de la foule. Pendant que les médias généralistes parlent de stratégies macro traditionnelles, les baleines accumulent discrètement en contrarien, préparant un violent short squeeze.\"\n}\n```",
+      "ts": "2026-09-18T12:39:05.110805+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": -2.335223830798635,
+      "value": 1.243,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Z-score extrêmement bas (-2.34) sur le ratio long/short indiquant un positionnement contrarien massif des baleines, totalement ignoré par les médias généralistes obnubilés par des produits financiers traditionnels.\"\n}\n```",
+      "ts": "2026-09-18T13:10:11.295714+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 2.7273098889077936,
+      "value": 4469158.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Accumulation significative de baleines (z-score 2.73, ~4.47M USD) dans un silence médiatique absolu (Google Actualités vide). Divergence classique d'accumulation furtive avant une rupture de prix.\"\n}\n```",
+      "ts": "2026-09-18T13:25:15.770676+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.195461159211212,
+      "value": 1.083,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (z-score 2.20) sur le ticker IPT déconnectée de tout contexte crypto. Les résultats médiatiques font référence à l'Institut Protestant de Théologie et au Tournoi International des Physiciens (IPT), révélant un bruit de fond sémantique et non une accumulation de baleines.\"\n}\n```",
+      "ts": "2026-09-18T13:25:17.918652+00:00"
     }
   ]
 }

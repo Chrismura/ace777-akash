@@ -1,60 +1,25 @@
 {
-  "timestamp": 1789734279,
-  "date": "2026-09-18T12:24:39.728011+00:00",
-  "n_analyses": 4,
+  "timestamp": 1789737880,
+  "date": "2026-09-18T13:24:40.803077+00:00",
+  "n_analyses": 1,
   "analyses": [
     {
       "signal": {
-        "metric": "whale_usd",
-        "zscore": 3.1099805905452693,
-        "value": 4913359.0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 3.11, ~4.9M USD) sans couverture médiatique correspondante (Google Actualités muet). Classic accumulation furtive de baleines en 'blind spot' médiatique.\"\n}\n```",
-        "ts": 1789732726.273824
-      },
-      "fiche": "whale_usd",
-      "questions": {
-        "ventes": {
-          "value": 1410102.0,
-          "seuil": 0,
-          "depasse": true
-        },
-        "achats": {
-          "value": 0.0,
-          "seuil": 0,
-          "depasse": false
-        },
-        "prix": {
-          "value": -0.01,
-          "seuil": 1,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "ventes > achats",
-        "lecture": "Flux baleines VENDEUR dominant — distribution possible vers les exchanges (proxy : bearish aujourd'hui)",
-        "niveau": "surveiller",
-        "action": "Croiser avec le sniffer vieux BTC et l'IPT avant de réduire"
-      },
-      "action": "Croiser avec le sniffer vieux BTC et l'IPT avant de réduire",
-      "niveau": "surveiller"
-    },
-    {
-      "signal": {
         "metric": "long_short",
-        "zscore": -2.462906484699979,
-        "value": 1.258,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Le z-score extrêmement bas (-2.46) indique une sous-exposition massive des traders particuliers et un pessimisme excessif, tandis que les médias grand public se focalisent sur des produits financiers traditionnels. C'est un signal classique de capitulation locale et d'accumulation silencieuse par les baleines avant un retournement haussier.\"\n}\n```",
-        "ts": 1789733329.386226
+        "zscore": -2.335223830798635,
+        "value": 1.243,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Z-score extrêmement bas (-2.34) sur le ratio long/short indiquant un positionnement contrarien massif des baleines, totalement ignoré par les médias généralistes obnubilés par des produits financiers traditionnels.\"\n}\n```",
+        "ts": 1789737011.295714
       },
       "fiche": "long_short",
       "questions": {
         "ratio_long_short": {
-          "value": 1.258,
+          "value": 1.243,
           "seuil": 2,
           "depasse": false
         },
         "oi": {
-          "value": 107777.477,
+          "value": 107693.621,
           "seuil": 120000,
           "depasse": false
         }
@@ -66,97 +31,7 @@
       },
       "action": "Observer",
       "niveau": "neutre"
-    },
-    {
-      "signal": {
-        "metric": "cpfp",
-        "zscore": 2.2028759728073535,
-        "value": 50.0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique purement locale (frais d'urgence CPFP pour débloquer des transactions Bitcoin) noyée dans du bruit médiatique sans lien avec l'activité des baleines.\"\n}\n```",
-        "ts": 1789733633.045994
-      },
-      "fiche": "blocs_privilises",
-      "questions": {
-        "duree": {
-          "value": 0,
-          "seuil": 0,
-          "depasse": false
-        },
-        "volume": {
-          "value": 916,
-          "seuil": 0,
-          "depasse": true
-        },
-        "prix": {
-          "value": -0.01,
-          "seuil": 0,
-          "depasse": true
-        },
-        "sdi": {
-          "value": 0.604,
-          "seuil": 0,
-          "depasse": true
-        },
-        "rbf": {
-          "value": 0.0,
-          "seuil": 0,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "duree < 5min ET volume > 100",
-        "lecture": "Consolidation exchange — probablement un transfert hot→cold",
-        "niveau": "neutre",
-        "action": "Garder les positions"
-      },
-      "action": "Garder les positions",
-      "niveau": "neutre"
-    },
-    {
-      "signal": {
-        "metric": "dust",
-        "zscore": 2.2028759728073535,
-        "value": 50.0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Fausse alerte liée à une homonymie : le 'dust' onchain est confondu dans le narratif médiatique avec l'entreprise SaaS française d'IA 'Dust' (fondée par Stanislas Polu).\"\n}\n```",
-        "ts": 1789733635.037343
-      },
-      "fiche": "blocs_privilises",
-      "questions": {
-        "duree": {
-          "value": 0,
-          "seuil": 0,
-          "depasse": false
-        },
-        "volume": {
-          "value": 916,
-          "seuil": 0,
-          "depasse": true
-        },
-        "prix": {
-          "value": -0.01,
-          "seuil": 0,
-          "depasse": true
-        },
-        "sdi": {
-          "value": 0.604,
-          "seuil": 0,
-          "depasse": true
-        },
-        "rbf": {
-          "value": 0.0,
-          "seuil": 0,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "duree < 5min ET volume > 100",
-        "lecture": "Consolidation exchange — probablement un transfert hot→cold",
-        "niveau": "neutre",
-        "action": "Garder les positions"
-      },
-      "action": "Garder les positions",
-      "niveau": "neutre"
     }
   ],
-  "resume": "🟡 SURVEILLANCE — des signaux sont à observer"
+  "resume": "🔵 CALME — pas de signal alarmant"
 }
