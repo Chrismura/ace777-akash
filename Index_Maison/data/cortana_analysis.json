@@ -1,64 +1,25 @@
 {
-  "timestamp": 1789761613,
-  "date": "2026-09-18T20:00:13.338192+00:00",
-  "n_analyses": 5,
+  "timestamp": 1789764914,
+  "date": "2026-09-18T20:55:14.430361+00:00",
+  "n_analyses": 1,
   "analyses": [
     {
       "signal": {
-        "metric": "volume",
-        "zscore": 2.0635434960534873,
-        "value": 16885841449.0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique non pertinent (actualités médicales, IA et presse locale). Aucune corrélation onchain exploitable malgré le z-score élevé.\"\n}\n```",
-        "ts": 1789759940.235951
-      },
-      "fiche": "rbf_eleve",
-      "questions": {
-        "prix": {
-          "value": 0.32,
-          "seuil": 1,
-          "depasse": false
-        },
-        "paires": {
-          "value": 0,
-          "seuil": 3,
-          "depasse": false
-        },
-        "funding": {
-          "value": 6.1e-05,
-          "seuil": 0.001,
-          "depasse": false
-        },
-        "whales": {
-          "value": 0,
-          "seuil": 5,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
-      },
-      "action": "Observer",
-      "niveau": "neutre"
-    },
-    {
-      "signal": {
         "metric": "long_short",
-        "zscore": -2.698291644643233,
-        "value": 0.929,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le z-score extrêmement bas (-2.70) indique une capitulation des positions long par rapport aux short (contrarian setup classique). Pendant que les médias grand public parlent de stratégies financières traditionnelles et de fonds long-short, les baleines crypto prennent une position agressive à contre-courant, préfigurant un potentiel short squeeze massif.\"\n}\n```",
-        "ts": 1789759941.954914
+        "zscore": -2.2206792358890546,
+        "value": 0.939,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Z-score extrêmement bas (-2.22) sur le ratio long/short indiquant un positionnement massif de vente à découvert par la foule. Pendant que les médias généralistes discutent de stratégies traditionnelles de couverture, les baleines accumulent en silence face à une sur-spéculation baissière prête à être liquidée (short squeeze imminent).\"\n}\n```",
+        "ts": 1789763561.299022
       },
       "fiche": "long_short",
       "questions": {
         "ratio_long_short": {
-          "value": 0.929,
+          "value": 0.939,
           "seuil": 2,
           "depasse": false
         },
         "oi": {
-          "value": 108954.369,
+          "value": 108675.117,
           "seuil": 120000,
           "depasse": false
         }
@@ -71,130 +32,6 @@
       },
       "action": "Ne pas vendre les paliers RIP trop tôt si le prix repart",
       "niveau": "surveiller"
-    },
-    {
-      "signal": {
-        "metric": "whale_usd",
-        "zscore": 3.437775347500481,
-        "value": 5079756.0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 3.44, ~5.1M USD) en l'absence totale de couverture médiatique (silence radio sur Google Actualités). Accumulation furtive classique des baleines loin du radar de retail.\"\n}\n```",
-        "ts": 1789761145.743661
-      },
-      "fiche": "whale_usd",
-      "questions": {
-        "ventes": {
-          "value": 0.0,
-          "seuil": 0,
-          "depasse": false
-        },
-        "achats": {
-          "value": 0.0,
-          "seuil": 0,
-          "depasse": false
-        },
-        "prix": {
-          "value": 0.32,
-          "seuil": 1,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
-      },
-      "action": "Observer",
-      "niveau": "neutre"
-    },
-    {
-      "signal": {
-        "metric": "cpfp",
-        "zscore": 2.4753857072720233,
-        "value": 50.0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique non pertinent (articles sur un établissement scolaire et des actualités locales sans rapport avec la crypto). L'anomalie onchain (CPFP z-score 2.48) reflète simplement une congestion technique isolée du réseau Bitcoin, sans accumulation ni manipulation majeure de baleines.\"\n}\n```",
-        "ts": 1789761147.418471
-      },
-      "fiche": "blocs_privilises",
-      "questions": {
-        "duree": {
-          "value": 0,
-          "seuil": 0,
-          "depasse": false
-        },
-        "volume": {
-          "value": 315,
-          "seuil": 0,
-          "depasse": true
-        },
-        "prix": {
-          "value": 0.32,
-          "seuil": 0,
-          "depasse": true
-        },
-        "sdi": {
-          "value": 0.604,
-          "seuil": 0,
-          "depasse": true
-        },
-        "rbf": {
-          "value": 0.0,
-          "seuil": 0,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "duree < 5min ET volume > 100",
-        "lecture": "Consolidation exchange — probablement un transfert hot→cold",
-        "niveau": "neutre",
-        "action": "Garder les positions"
-      },
-      "action": "Garder les positions",
-      "niveau": "neutre"
-    },
-    {
-      "signal": {
-        "metric": "dust",
-        "zscore": 2.4753857072720233,
-        "value": 50.0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Faux positif manifeste : l'anomalie 'dust' détectée correspond au bruit homonyme d'une startup tech française (Dust) et d'événements météorologiques, sans lien avec des flux on-chain de baleines crypto.\"\n}\n```",
-        "ts": 1789761149.127328
-      },
-      "fiche": "blocs_privilises",
-      "questions": {
-        "duree": {
-          "value": 0,
-          "seuil": 0,
-          "depasse": false
-        },
-        "volume": {
-          "value": 315,
-          "seuil": 0,
-          "depasse": true
-        },
-        "prix": {
-          "value": 0.32,
-          "seuil": 0,
-          "depasse": true
-        },
-        "sdi": {
-          "value": 0.604,
-          "seuil": 0,
-          "depasse": true
-        },
-        "rbf": {
-          "value": 0.0,
-          "seuil": 0,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "duree < 5min ET volume > 100",
-        "lecture": "Consolidation exchange — probablement un transfert hot→cold",
-        "niveau": "neutre",
-        "action": "Garder les positions"
-      },
-      "action": "Garder les positions",
-      "niveau": "neutre"
     }
   ],
   "resume": "🟡 SURVEILLANCE — des signaux sont à observer"

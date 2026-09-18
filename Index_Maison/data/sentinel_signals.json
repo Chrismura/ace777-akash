@@ -1,34 +1,6 @@
 {
   "signals": [
     {
-      "metric": "liquidations",
-      "zscore": 8.506017652406754,
-      "value": 5112932.0,
-      "analysis": "{\n  \"signal\": \"bearish\",\n  \"confidence\": 75,\n  \"reason\": \"Pic de liquidations onchain (z-score 8.51) indique une pression de vente inhabituelle, divergent d'un narratif médiatique focalisé sur des affaires juridiques et non sur un choc de marché; possible mouvement silencieux de baleines forçant des positions.\"\n}",
-      "ts": "2026-09-18T03:17:58.044531+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": 2.4201534780139164,
-      "value": 56,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 65,\n  \"reason\": \"Indice de peur et d'avidité neutre (56) avec un z-score élevé (2.42) indiquant une anomalie statistique de volatilité imminente, mais absence de données médiatiques significatives (Google Actualités vide) pour confirmer une divergence claire. Les baleines observent une pause stratégique.\"\n}\n```",
-      "ts": "2026-09-18T03:38:03.412085+00:00"
-    },
-    {
-      "metric": "price_1h",
-      "zscore": 2.836345844313035,
-      "value": 0.5503714087970124,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de prix significative (z-score 2.84) sans aucune couverture médiatique (Google Actualités vide). C'est la signature classique d'accumulation furtive par des baleines sous le radar du retail.\"\n}\n```",
-      "ts": "2026-09-18T03:48:05.688630+00:00"
-    },
-    {
-      "metric": "liquidations",
-      "zscore": 4.774040052247168,
-      "value": 4572728.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie statistique de liquidations (z-score 4.77) isolée sur un volume faible de 4.57M$, totalement ignorée ou diluée par les médias traditionnels qui confondent faillites d'entreprises (Quimper, Sarthe) et bruits juridiques passés (Celsius). Les baleines nettoient le carnet d'ordres par un flush rapide sans éveiller l'attention publique, classic setup de purge avant rebond.\"\n}\n```",
-      "ts": "2026-09-18T03:48:07.918257+00:00"
-    },
-    {
       "metric": "volume",
       "zscore": -5.615562502573712,
       "value": 0,
@@ -349,6 +321,34 @@
       "value": 50.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Faux positif manifeste : l'anomalie 'dust' détectée correspond au bruit homonyme d'une startup tech française (Dust) et d'événements météorologiques, sans lien avec des flux on-chain de baleines crypto.\"\n}\n```",
       "ts": "2026-09-18T19:52:29.127328+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.0099224663010156,
+      "value": 17051753392.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit de fond médiatique sans rapport avec la crypto (actualités médicales, IA, Bourse traditionnelle). Z-score on-chain modéré (2.01) mais contexte textuel totalement hors sujet. Absence de signal baleine avéré.\"\n}\n```",
+      "ts": "2026-09-18T20:02:32.339989+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": -2.4630262193972015,
+      "value": 0.929,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Z-score extrêmement bas (-2.46) sur le ratio long/short indiquant une sous-exposition massive des retails, tandis que les médias traditionnels font l'éloge des stratégies prudentes long/short. Classique piège à ours : les baleines accumulent dans l'ombre pendant que la foule panique ou shorte.\"\n}\n```",
+      "ts": "2026-09-18T20:02:34.095729+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.126991112225462,
+      "value": 1.147,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.13) totalement déconnectée des flux crypto : les titres médiatiques font référence à l'Institut Protestant de Théologie (IPT) et au Tournoi International des Physiciens. Bruit sémantique pur, aucune baleine active sur ce ticker.\"\n}\n```",
+      "ts": "2026-09-18T20:12:36.870090+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": -2.2206792358890546,
+      "value": 0.939,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Z-score extrêmement bas (-2.22) sur le ratio long/short indiquant un positionnement massif de vente à découvert par la foule. Pendant que les médias généralistes discutent de stratégies traditionnelles de couverture, les baleines accumulent en silence face à une sur-spéculation baissière prête à être liquidée (short squeeze imminent).\"\n}\n```",
+      "ts": "2026-09-18T20:32:41.299022+00:00"
     }
   ]
 }

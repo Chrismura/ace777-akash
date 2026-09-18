@@ -1,30 +1,36 @@
 {
-  "timestamp": 1789761565,
+  "timestamp": 1789764686,
   "sdi": {
-    "sdi": 0.604,
+    "sdi": 0.608,
     "divergence_score": 1.0,
-    "fee_score": 0.01,
+    "fee_score": 0.02,
     "dormant_pct": 56,
     "dormant_avg_30d": 66.03,
     "dormant_source": "alternative.me (FG proxy — les données dormant sont indisponibles)",
-    "fee_fastest_sat": 1
+    "fee_fastest_sat": 2
   },
   "ipt": {
-    "ipt": 0.41,
+    "ipt": 0.709,
     "micro_tx_ratio": 0.6,
-    "z_fee": 0.0,
-    "entropy": 0.566
+    "z_fee": 1.0,
+    "entropy": 0.562
   },
   "rbf": {
-    "rbf_score": 0.0,
-    "rbf_ratio": 0.0,
-    "rbf_pairs": 0,
+    "rbf_score": 0.2,
+    "rbf_ratio": 0.2,
+    "rbf_pairs": 1,
     "n_txs": 5,
     "rbf_method": "outspends-double-depense",
-    "rbf_detail": []
+    "rbf_detail": [
+      {
+        "tx": "8227928c05aa4563",
+        "remplacee_par": "f06d6d2c2b599fd0",
+        "input": "ebfaa7db60dc7ef1:0"
+      }
+    ]
   },
   "fee_pressure": {
-    "fastest": 1,
+    "fastest": 2,
     "halfHour": 1,
     "hour": 1,
     "economy": 1,
@@ -36,13 +42,13 @@
     "alerte": false,
     "persistance": false,
     "scores_recents": [
-      0.5,
+      0.3,
       0.3,
       0.5
     ],
     "composantes": {
-      "z_fee": 0.0,
-      "taux_fantome": 3.709,
+      "z_fee": 1.0,
+      "taux_fantome": 1.383,
       "micro_tx_ratio": 0.6,
       "spot_proxy": 0.0,
       "coef_heure_creuse": 1.0,
