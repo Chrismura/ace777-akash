@@ -1,20 +1,20 @@
 {
-  "timestamp": 1789754110,
-  "date": "2026-09-18T17:55:10.947174+00:00",
-  "n_analyses": 3,
+  "timestamp": 1789757712,
+  "date": "2026-09-18T18:55:12.106857+00:00",
+  "n_analyses": 2,
   "analyses": [
     {
       "signal": {
         "metric": "volume",
-        "zscore": 2.361959875933601,
-        "value": 16268093963.0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique de volume (z-score 2.36) sans lien avec la crypto. Les titres médiatiques traitent de sujets sans rapport (médecine, IA, bourse traditionnelle, culture). Bruit de fond, pas de mouvement silencieux de baleine détecté.\"\n}\n```",
-        "ts": 1789752693.939388
+        "zscore": 2.1297424964702834,
+        "value": 16421946145.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit médiatique sans rapport avec la crypto (actualités médicales, IA et bourse traditionnelle). Aucune corrélation onchain significative malgré le z-score.\"\n}\n```",
+        "ts": 1789756321.00617
       },
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": 0.06,
+          "value": 0.01,
           "seuil": 1,
           "depasse": false
         },
@@ -24,12 +24,12 @@
           "depasse": false
         },
         "funding": {
-          "value": 6.1e-05,
+          "value": 6.7e-05,
           "seuil": 0.001,
           "depasse": false
         },
         "whales": {
-          "value": 1,
+          "value": 0,
           "seuil": 5,
           "depasse": false
         }
@@ -45,20 +45,20 @@
     {
       "signal": {
         "metric": "long_short",
-        "zscore": -4.504423659420018,
-        "value": 0.951,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Z-score extrême de -4.50 sur le ratio long/short indiquant une sous-exposition massive des traders particuliers, tandis que les médias grand public parlent de stratégies macro traditionnelles sans voir le positionnement contrarien imminent des baleines.\"\n}\n```",
-        "ts": 1789752699.632738
+        "zscore": -3.2812115272463367,
+        "value": 0.941,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Le z-score extrêmement bas (-3.28) indique une position vendeuse massive et anormale des 'smart money' (pessimisme extrême des baleines), tandis que les médias grand public banalisent les stratégies long-short traditionnelles. Classic setup de capitulation des shorts imminente menant à un short squeeze.\"\n}\n```",
+        "ts": 1789756322.702076
       },
       "fiche": "long_short",
       "questions": {
         "ratio_long_short": {
-          "value": 0.951,
+          "value": 0.941,
           "seuil": 2,
           "depasse": false
         },
         "oi": {
-          "value": 109938.489,
+          "value": 109225.926,
           "seuil": 120000,
           "depasse": false
         }
@@ -71,45 +71,6 @@
       },
       "action": "Ne pas vendre les paliers RIP trop tôt si le prix repart",
       "niveau": "surveiller"
-    },
-    {
-      "signal": {
-        "metric": "ipt",
-        "zscore": 2.3659075135093595,
-        "value": 1.156,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique (ipt = 1.156) totalement déconnectée des actualités, lesquelles font référence à l'Institut Protestant de Théologie et au Tournoi International des Physiciens. Bruit de fond sans lien avec une baleine crypto.\"\n}\n```",
-        "ts": 1789753905.075623
-      },
-      "fiche": "rbf_eleve",
-      "questions": {
-        "prix": {
-          "value": 0.06,
-          "seuil": 1,
-          "depasse": false
-        },
-        "paires": {
-          "value": 0,
-          "seuil": 3,
-          "depasse": false
-        },
-        "funding": {
-          "value": 6.1e-05,
-          "seuil": 0.001,
-          "depasse": false
-        },
-        "whales": {
-          "value": 1,
-          "seuil": 5,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
-      },
-      "action": "Observer",
-      "niveau": "neutre"
     }
   ],
   "resume": "🟡 SURVEILLANCE — des signaux sont à observer"

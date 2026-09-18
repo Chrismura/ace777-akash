@@ -2,34 +2,6 @@
   "signals": [
     {
       "metric": "whale_usd",
-      "zscore": 3.729906144881101,
-      "value": 5257887.0,
-      "analysis": "{\n  \"signal\": \"bullish\",\n  \"confidence\": 65,\n  \"reason\": \"Mouvement de baleine de 5.26M USD avec z-score 3.73 largement supérieur au seuil, tandis que le narratif médiatique est silencieux (Google Actualités). Cette divergence suggère une accumulation discrète, non encore reflétée dans le sentiment public.\"\n}",
-      "ts": "2026-09-18T01:01:44.099226+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": 4.79583152331272,
-      "value": 56,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Le z-score de 4.80 indique une volatilité statistique anormale de l'indice Fear & Greed, mais l'absence de titres médiatiques majeurs suggère un mouvement technique ou un bruit de marché plutôt qu'une accumulation agressive ou une distribution silencieuse des baleines.\"\n}\n```",
-      "ts": "2026-09-18T01:06:45.981432+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": 3.872983346207417,
-      "value": 56,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (3.87) malgré un Fear & Greed neutre (56) et un vide médiatique total. Les baleines accumulent dans l'angle mort des médias avant la rupture de volatilité.\"\n}\n```",
-      "ts": "2026-09-18T01:36:52.625915+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": 3.3166247903554,
-      "value": 56,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Indice de peur et d'avarice neutre (56) avec un z-score élevé, mais absence de données textuelles significatives dans les titres Google Actualités pour contraster. Le silence médiatique empêche de confirmer une accumulation ou une distribution cachée des baleines.\"\n}\n```",
-      "ts": "2026-09-18T02:06:57.434041+00:00"
-    },
-    {
-      "metric": "whale_usd",
       "zscore": 3.687104988904127,
       "value": 5306450.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Activité anormale des baleines (z-score 3.69, +5.3M$) dans un silence médiatique absolu (Google Actualités vide). Accumulation furtive classique hors des radars grand public.\"\n}\n```",
@@ -349,6 +321,34 @@
       "value": 1.156,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique (ipt = 1.156) totalement déconnectée des actualités, lesquelles font référence à l'Institut Protestant de Théologie et au Tournoi International des Physiciens. Bruit de fond sans lien avec une baleine crypto.\"\n}\n```",
       "ts": "2026-09-18T17:51:45.075623+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.2129590078660497,
+      "value": 16284537257.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique non pertinent (actualités médicales et financières traditionnelles sans rapport avec la crypto). Aucune corrélation avec un mouvement de baleine onchain malgré le z-score.\"\n}\n```",
+      "ts": "2026-09-18T18:01:49.657733+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": -3.717443743877397,
+      "value": 0.951,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Z-score extrêmement bas (-3.72) indiquant une capitulation massive des positions longues par le retail, tandis que les médias traditionnels parlent de stratégies long-short généralistes sans lien avec la crypto. Classic setup de 'washout' des traders particuliers avant un retournement haussier dicté par les gros porteurs.\"\n}\n```",
+      "ts": "2026-09-18T18:01:52.991359+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.1297424964702834,
+      "value": 16421946145.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit médiatique sans rapport avec la crypto (actualités médicales, IA et bourse traditionnelle). Aucune corrélation onchain significative malgré le z-score.\"\n}\n```",
+      "ts": "2026-09-18T18:32:01.006170+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": -3.2812115272463367,
+      "value": 0.941,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Le z-score extrêmement bas (-3.28) indique une position vendeuse massive et anormale des 'smart money' (pessimisme extrême des baleines), tandis que les médias grand public banalisent les stratégies long-short traditionnelles. Classic setup de capitulation des shorts imminente menant à un short squeeze.\"\n}\n```",
+      "ts": "2026-09-18T18:32:02.702076+00:00"
     }
   ]
 }
