@@ -1,7 +1,71 @@
 {
-  "timestamp": 1789689628,
-  "date": "2026-09-18T00:00:28.922272+00:00",
-  "n_analyses": 0,
-  "analyses": [],
-  "resume": "Aucune analyse en cours"
+  "timestamp": 1789690529,
+  "date": "2026-09-18T00:15:29.205645+00:00",
+  "n_analyses": 2,
+  "analyses": [
+    {
+      "signal": {
+        "metric": "fear_greed",
+        "zscore": 101.94158674463476,
+        "value": 56,
+        "analysis": "{\n  \"signal\": \"bullish\",\n  \"confidence\": 70,\n  \"reason\": \"Le fear/greed index montre une anomalie on‑chain extrêmement élevée (z‑score ≈ 102) alors que les titres médiatiques restent neutres et ne reflètent aucune peur ou euphorie marquée. Cette divergence suggère que de gros acteurs pourraient accumuler discrètement des positions, ce qui est généralement interprété comme un signal haussier latent.\"\n}",
+        "ts": 1789689979.531554
+      },
+      "fiche": "fear_greed",
+      "questions": {
+        "peur": {
+          "value": 56,
+          "seuil": 25,
+          "depasse": true
+        },
+        "cupidite": {
+          "value": 56,
+          "seuil": 75,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
+      },
+      "action": "Observer",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "whale_usd",
+        "zscore": 2.744733134376251,
+        "value": 3990433.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 2.74, ~4M$) couplée à un silence médiatique absolu (Google Actualités vide). Les baleines accumulent discrètement hors du radar public avant le prochain mouvement de marché.\"\n}\n```",
+        "ts": 1789690281.688115
+      },
+      "fiche": "whale_usd",
+      "questions": {
+        "ventes": {
+          "value": 0.0,
+          "seuil": 0,
+          "depasse": false
+        },
+        "achats": {
+          "value": 0.0,
+          "seuil": 0,
+          "depasse": false
+        },
+        "prix": {
+          "value": -0.03,
+          "seuil": 1,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
+      },
+      "action": "Observer",
+      "niveau": "neutre"
+    }
+  ],
+  "resume": "🔵 CALME — pas de signal alarmant"
 }
