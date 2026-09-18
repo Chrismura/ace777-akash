@@ -4419,3 +4419,13 @@ Deux bugs d implementation detects et corriges en vol avant consignation (signe 
 ## 18/09 - 00:30Z - SIMU SPEC ANTIGRAVITY EDEL V2 (GO Christophe : simule) - resultats sur klines 1h MEXC (20 jours, stake 30$, frais 0.05%/cote) : NET +12,15$ - 16 round-trips - WR 75% (12/16) - causes : 8 rip50 + 15 trail + 1 stop. Le seul stop = crash du 17/09 18h (entree 0.02649, cloture 0.02044 = -22,8% -> -6,87$). Les 3 variantes de stop (15% cloture / 15% meche / 12% cloture) donnent IDENTIQUE +12,15$ : le crash a traverse les deux seuils ENTRE deux clotures horaires, aucune bougie na dippe -15% en meche sans fermer au-dessus. Verifie a la source (detail des stops dans EDEL_SPEC_V2_SIMU_20260918.json). Limite : fenetre contenant le pump = hypothese, forward 7 jours requis avant verdict.
 
 ## 18/09 - 01:00Z - TEST DU SETUP V2 SUR LES 20 ACTIFS (GO Christophe : on teste c tout, fini les cachotteries) - VERDICT BRUT : V2 base (dip 5%) PERD -31,63$ sur 61 trades. AMELIORATION testee sur les memes klines : + filtre tendance (SMA24 montante + prix>SMA7j) = -1,29$ (34 tr) ; + dip 8% = +14,18$ POSITIF sur 25 trades (EDEL +11,14, RIZE +3,98 - RIZE bascule de -9 a +4 grace au filtre tendance). Mecanisme : dip 5% achete du bruit, dip 8% en tendance montante achete de vraies corrections. Limites honestes : calage sur la fenetre (risque surapprentissage), fenetre contenant le pump, gros pairs liquides ne tradent plus (le setup devient small-cap pur = conforme a la philosophie Hulk). Prochaine etape : ce setup-la en forward 7 jours si GO.
+
+| 2026-09-18 07:06:55Z | CHIEN | ALERTE | pont-onchain : Age réel 11505s dépasse le seuil 3600.0s |
+| 2026-09-18 07:06:55Z | CHIEN | ALERTE | short-btc : Age réel 11629s dépasse le seuil 600.0s |
+| 2026-09-18 07:06:55Z | CHIEN | ALERTE | sentinelle-independante : Age réel 13506s dépasse le seuil 5400.0s |
+| 2026-09-18 07:06:55Z | CHIEN | ALERTE | backup-check : Age réel 13115s dépasse le seuil 3600.0s |
+| 2026-09-18 07:06:55Z | CHIEN | ALERTE | vigie-live : Age réel 12332s dépasse le seuil 7200.0s |
+| 2026-09-18 07:06:56Z | CHIEN | ALERTE | observer-murs : Age réel 12083s dépasse le seuil 3600.0s |
+| 2026-09-18 07:06:56Z | CHIEN | ALERTE | cortana.urgent : Age réel 11482s dépasse le seuil 7200.0s |
+| 2026-09-18 07:06:56Z | CHIEN | ALERTE | superviseur : Age réel 13689s dépasse le seuil 7200.0s |
+| 2026-09-18 07:06:56Z | CHIEN | ALERTE | veilleuse : Age réel 11917s dépasse le seuil 1200.0s |
