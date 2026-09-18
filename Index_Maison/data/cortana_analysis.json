@@ -1,50 +1,15 @@
 {
-  "timestamp": 1789694130,
-  "date": "2026-09-18T01:15:30.426850+00:00",
-  "n_analyses": 2,
+  "timestamp": 1789697731,
+  "date": "2026-09-18T02:15:31.622232+00:00",
+  "n_analyses": 1,
   "analyses": [
     {
       "signal": {
-        "metric": "whale_usd",
-        "zscore": 3.729906144881101,
-        "value": 5257887.0,
-        "analysis": "{\n  \"signal\": \"bullish\",\n  \"confidence\": 65,\n  \"reason\": \"Mouvement de baleine de 5.26M USD avec z-score 3.73 largement supérieur au seuil, tandis que le narratif médiatique est silencieux (Google Actualités). Cette divergence suggère une accumulation discrète, non encore reflétée dans le sentiment public.\"\n}",
-        "ts": 1789693304.099226
-      },
-      "fiche": "whale_usd",
-      "questions": {
-        "ventes": {
-          "value": 720821.0,
-          "seuil": 0,
-          "depasse": true
-        },
-        "achats": {
-          "value": 0.0,
-          "seuil": 0,
-          "depasse": false
-        },
-        "prix": {
-          "value": 0.06,
-          "seuil": 1,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "ventes > achats",
-        "lecture": "Flux baleines VENDEUR dominant — distribution possible vers les exchanges (proxy : bearish aujourd'hui)",
-        "niveau": "surveiller",
-        "action": "Croiser avec le sniffer vieux BTC et l'IPT avant de réduire"
-      },
-      "action": "Croiser avec le sniffer vieux BTC et l'IPT avant de réduire",
-      "niveau": "surveiller"
-    },
-    {
-      "signal": {
         "metric": "fear_greed",
-        "zscore": 4.79583152331272,
+        "zscore": 3.3166247903554,
         "value": 56,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Le z-score de 4.80 indique une volatilité statistique anormale de l'indice Fear & Greed, mais l'absence de titres médiatiques majeurs suggère un mouvement technique ou un bruit de marché plutôt qu'une accumulation agressive ou une distribution silencieuse des baleines.\"\n}\n```",
-        "ts": 1789693605.981432
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Indice de peur et d'avarice neutre (56) avec un z-score élevé, mais absence de données textuelles significatives dans les titres Google Actualités pour contraster. Le silence médiatique empêche de confirmer une accumulation ou une distribution cachée des baleines.\"\n}\n```",
+        "ts": 1789697217.434041
       },
       "fiche": "fear_greed",
       "questions": {
@@ -68,5 +33,5 @@
       "niveau": "neutre"
     }
   ],
-  "resume": "🟡 SURVEILLANCE — des signaux sont à observer"
+  "resume": "🔵 CALME — pas de signal alarmant"
 }

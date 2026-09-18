@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "dust",
-      "zscore": 2.108039542839407,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit de fond : Les articles médiatiques font référence à 'Dust', une startup française d'Intelligence Artificielle (fondée par Stanislas Polu), et non à un actif crypto ou on-chain. Le z-score élevé reflète une recrudescence de mentions Web2 sans lien avec des mouvements de baleines cryptographiques.\"\n}\n```",
-      "ts": "2026-09-16T15:12:05.982626+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.323711883022296,
-      "value": 1.188,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.32) sur un ticker partagé avec l'Institut Protestant de Théologie (IPT) et des tournois de physique. Bruit médiatique sans rapport avec l'activité crypto. Aucune accumulation de baleine détectée.\"\n}\n```",
-      "ts": "2026-09-16T15:47:11.327319+00:00"
-    },
-    {
       "metric": "ipt",
       "zscore": 2.246532697916735,
       "value": 1.194,
@@ -349,6 +335,20 @@
       "value": 56,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Le z-score de 4.80 indique une volatilité statistique anormale de l'indice Fear & Greed, mais l'absence de titres médiatiques majeurs suggère un mouvement technique ou un bruit de marché plutôt qu'une accumulation agressive ou une distribution silencieuse des baleines.\"\n}\n```",
       "ts": "2026-09-18T01:06:45.981432+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 3.872983346207417,
+      "value": 56,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (3.87) malgré un Fear & Greed neutre (56) et un vide médiatique total. Les baleines accumulent dans l'angle mort des médias avant la rupture de volatilité.\"\n}\n```",
+      "ts": "2026-09-18T01:36:52.625915+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 3.3166247903554,
+      "value": 56,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Indice de peur et d'avarice neutre (56) avec un z-score élevé, mais absence de données textuelles significatives dans les titres Google Actualités pour contraster. Le silence médiatique empêche de confirmer une accumulation ou une distribution cachée des baleines.\"\n}\n```",
+      "ts": "2026-09-18T02:06:57.434041+00:00"
     }
   ]
 }
