@@ -30,6 +30,12 @@ INV = ROOT / "data" / "universe_mexc_inventory.csv"
 RUNS = ROOT / "runs"
 MEXC_ENV = Path.home() / ".mexc.env"
 
+# --- Filets anti-dérive (18/09) : le mode --live enchaînait les scans sans pause.
+#     Un scan instantané (0 s) faisait tourner la boucle à vide (log qui gonfle, CPU 100 %).
+LOG_STDOUT = RUNS / "DIGEST_WATCHDOG_STDOUT.log"
+LOG_CAP_OCTETS = 500 * 1024 * 1024   # plafond du log stdout : 500 Mo (au-delà, tronqué)
+MIN_CYCLE_SEC = 30.0                 # filet anti-boucle : durée minimale d'un cycle --live
+
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from ace_sense_mexc import book_sense, tension_score  # noqa: E402
 from veille_gates import (  # noqa: E402
@@ -40,6 +46,16 @@ from veille_gates import (  # noqa: E402
 
 def utc_now() -> str:
     return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+
+
+def plafonner_log() -> None:
+    """Tronque le log stdout du digest s'il dépasse le plafond (append sûr)."""
+    try:
+        if LOG_STDOUT.exists() and LOG_STDOUT.stat().st_size > LOG_CAP_OCTETS:
+            LOG_STDOUT.open("w").close()
+            print(f"[{utc_now()}] log plafonné (> {LOG_CAP_OCTETS // (1024 * 1024)} Mo) — tronqué")
+    except Exception:
+        pass
 
 
 def load_env(path: Path) -> dict:
@@ -620,6 +636,12 @@ def main() -> int:
                 f"[{utc_now()}] scan {elapsed:.0f}s — relance directe "
                 f"(touch STOP_DIGEST)"
             )
+            # Filet anti-boucle : garantit une durée de cycle minimale même si le
+            # scan est instantané (sinon boucle à vide -> log géant + CPU 100 %).
+            restant = MIN_CYCLE_SEC - elapsed
+            if restant > 0:
+                time.sleep(restant)
+        plafonner_log()
     return 0
 
 

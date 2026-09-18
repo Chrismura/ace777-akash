@@ -1,45 +1,30 @@
 {
-  "timestamp": 1789716273,
-  "date": "2026-09-18T07:24:33.176604+00:00",
-  "n_analyses": 7,
+  "timestamp": 1789719875,
+  "date": "2026-09-18T08:24:35.488188+00:00",
+  "n_analyses": 1,
   "analyses": [
     {
       "signal": {
-        "metric": "volume",
-        "zscore": -5.615562502573712,
-        "value": 0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique pure (z-score -5.62 sur volume nul). Les gros titres médiatiques parlent d'eau, d'automobile et de meme coins hors contexte crypto pertinent. Absence totale de signal baleine valide, bruit de fond médiatique.\"\n}\n```",
-        "ts": 1789715231.013699
-      },
-      "fiche": null,
-      "interpretation": {
-        "lecture": "Pas de fiche disponible",
-        "niveau": "inconnu"
-      },
-      "action": "Observer"
-    },
-    {
-      "signal": {
         "metric": "liquidations",
-        "zscore": -2.869302368668416,
-        "value": 0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain extrême (z-score -2.87, liquidations quasi-nulles) montrant un assèchement total du levier toxique. Le narratif médiatique est totalement pollué par des faits divers macro/tradfi (faillites d'entreprises, vieux contentieux Celsius) et du bruit marketing, créant une cécité totale sur le calme plat avant impulsion haussière.\"\n}\n```",
-        "ts": 1789715233.352583
+        "zscore": 9.613484246610387,
+        "value": 10893248.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrême (9.61) sur les liquidations onchain contrastant avec un bruit médiatique obsolète (affaires judiciaires de 2020, faillites locales). Effacement massif des positions excessives par les baleines, signifiant un 'flush' de levier sain avant une reprise.\"\n}\n```",
+        "ts": 1789718862.323343
       },
       "fiche": "liquidations",
       "questions": {
         "longs": {
-          "value": 32800.0,
+          "value": 182906.0,
           "seuil": 0,
           "depasse": true
         },
         "shorts": {
-          "value": 5192429.0,
+          "value": 10229655.0,
           "seuil": 0,
           "depasse": true
         },
         "prix": {
-          "value": 0.19,
+          "value": 0.23,
           "seuil": 1,
           "depasse": false
         }
@@ -52,125 +37,7 @@
       },
       "action": "Laisser courir les paliers RIP, ne pas rentrer après la cascade",
       "niveau": "info"
-    },
-    {
-      "signal": {
-        "metric": "sdi",
-        "zscore": -11.929857871711457,
-        "value": 0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Anomalie technique purement homonyme. L'indice 'SDI' on-chain (z-score -11.93) ne concerne pas la crypto mais des flux de données externes ou un bruit statistique sans rapport avec les actualités médiatiques (qui traitent de politique, d'audiovisuel et de syndicalisme). Aucune baleine crypto identifiée.\"\n}\n```",
-        "ts": 1789715235.20751
-      },
-      "fiche": null,
-      "interpretation": {
-        "lecture": "Pas de fiche disponible",
-        "niveau": "inconnu"
-      },
-      "action": "Observer"
-    },
-    {
-      "signal": {
-        "metric": "ipt",
-        "zscore": -2.068327658059346,
-        "value": 0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Anomalie technique purement lexicale : le ticker 'ipt' est entièrement pollué par des actualités académiques et religieuses françaises (Institut Protestant de Théologie, Tournoi des Physiciens). Aucune activité de baleine crypto détectée, bruit médiatique sans rapport avec la blockchain.\"\n}\n```",
-        "ts": 1789715236.909523
-      },
-      "fiche": null,
-      "interpretation": {
-        "lecture": "Pas de fiche disponible",
-        "niveau": "inconnu"
-      },
-      "action": "Observer"
-    },
-    {
-      "signal": {
-        "metric": "long_short",
-        "zscore": -9.631709859504749,
-        "value": 1,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Z-score extrême (-9.63) sur le ratio long/short indiquant un positionnement contrarien massif des baleines, totalement ignoré par les médias généralistes qui ne parlent que de produits financiers traditionnels.\"\n}\n```",
-        "ts": 1789715238.430265
-      },
-      "fiche": "long_short",
-      "questions": {
-        "ratio_long_short": {
-          "value": 1.358,
-          "seuil": 2,
-          "depasse": false
-        },
-        "oi": {
-          "value": 108315.421,
-          "seuil": 120000,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
-      },
-      "action": "Observer",
-      "niveau": "neutre"
-    },
-    {
-      "signal": {
-        "metric": "taker_ratio",
-        "zscore": -2.9542208308111655,
-        "value": 0.5,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio à 0.5 (z-score -2.95) indique une domination massive des acheteurs (Taker Buy), contredisant l'absence totale de couverture médiatique (Google Actualités vide). Les baleines accumulent agressivement dans le silence radio, loin du FOMO public.\"\n}\n```",
-        "ts": 1789715240.008174
-      },
-      "fiche": "taker_ratio",
-      "questions": {
-        "taker": {
-          "value": 0.66,
-          "seuil": 1,
-          "depasse": false
-        },
-        "prix": {
-          "value": 0.19,
-          "seuil": 1,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "taker < 1",
-        "lecture": "Takers vendeurs agressifs — la vente se fait AU MARCHE (pression réelle), pas passive",
-        "niveau": "surveiller",
-        "action": "Resserrer les stops des positions tier A corrélées, attendre l'apaisement pour entrer"
-      },
-      "action": "Resserrer les stops des positions tier A corrélées, attendre l'apaisement pour entrer",
-      "niveau": "surveiller"
-    },
-    {
-      "signal": {
-        "metric": "fear_greed",
-        "zscore": 2.2936585546278216,
-        "value": 56,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Données médiatiques insuffisantes pour établir une divergence significative, malgré un z-score onchain élevé (2.29).\"\n}\n```",
-        "ts": 1789715244.540877
-      },
-      "fiche": "fear_greed",
-      "questions": {
-        "peur": {
-          "value": 56,
-          "seuil": 25,
-          "depasse": true
-        },
-        "cupidite": {
-          "value": 56,
-          "seuil": 75,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
-      },
-      "action": "Observer",
-      "niveau": "neutre"
     }
   ],
-  "resume": "🟡 SURVEILLANCE — des signaux sont à observer"
+  "resume": "🔵 CALME — pas de signal alarmant"
 }
