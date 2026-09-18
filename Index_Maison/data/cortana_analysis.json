@@ -1,15 +1,50 @@
 {
-  "timestamp": 1789697731,
-  "date": "2026-09-18T02:15:31.622232+00:00",
-  "n_analyses": 1,
+  "timestamp": 1789700733,
+  "date": "2026-09-18T03:05:33.020813+00:00",
+  "n_analyses": 2,
   "analyses": [
     {
       "signal": {
+        "metric": "liquidations",
+        "zscore": 2.1729746646921937,
+        "value": 2525898.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique parasité par des faits divers juridiques locaux et des actualités macro sans rapport avec une dynamique de baleines crypto.\"\n}\n```",
+        "ts": 1789699023.390832
+      },
+      "fiche": "liquidations",
+      "questions": {
+        "longs": {
+          "value": 287938.0,
+          "seuil": 0,
+          "depasse": true
+        },
+        "shorts": {
+          "value": 2194800.0,
+          "seuil": 0,
+          "depasse": true
+        },
+        "prix": {
+          "value": 0.01,
+          "seuil": 1,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "shorts > longs",
+        "lecture": "Liquidations massives de SHORTS — squeeze haussier mécanique. Les paliers RIP profitent de ces mouvements",
+        "niveau": "info",
+        "action": "Laisser courir les paliers RIP, ne pas rentrer après la cascade"
+      },
+      "action": "Laisser courir les paliers RIP, ne pas rentrer après la cascade",
+      "niveau": "info"
+    },
+    {
+      "signal": {
         "metric": "fear_greed",
-        "zscore": 3.3166247903554,
+        "zscore": 2.932575659723036,
         "value": 56,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Indice de peur et d'avarice neutre (56) avec un z-score élevé, mais absence de données textuelles significatives dans les titres Google Actualités pour contraster. Le silence médiatique empêche de confirmer une accumulation ou une distribution cachée des baleines.\"\n}\n```",
-        "ts": 1789697217.434041
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Indice de peur et d'avarice neutre (56) avec un z-score élevé, mais absence de titres médiatiques significatifs pour contraster. Données insuffisantes pour confirmer une divergence claire des baleines.\"\n}\n```",
+        "ts": 1789699024.670164
       },
       "fiche": "fear_greed",
       "questions": {

@@ -1,27 +1,6 @@
 {
   "signals": [
     {
-      "metric": "ipt",
-      "zscore": 2.246532697916735,
-      "value": 1.194,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Bruit de fond : les données et les titres font référence à des homonymes (Tournoi International des Physiciens, institutions religieuses, cyclisme) et non à un actif crypto.\"\n}\n```",
-      "ts": "2026-09-16T17:12:28.499458+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.0952780098941415,
-      "value": 1.183,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (IPT z-score 2.10) totalement non corrélée avec des flux crypto. Les titres médiatiques font référence à l'Institut Polytechnique de Paris (IPT), au Tournoi International des Physiciens ou à des sujets institutionnels, démontrant un bruit sémantique sans rapport avec l'activité des baleines.\"\n}\n```",
-      "ts": "2026-09-16T17:52:37.985449+00:00"
-    },
-    {
-      "metric": "cpfp",
-      "zscore": 2.031352264627077,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique purement syntaxique liée au protocole Bitcoin (Child-Pays-For-Parent) et à des homonymies locales/politiques dans l'actualité. Aucune accumulation ou mouvement significatif de baleines détecté.\"\n}\n```",
-      "ts": "2026-09-16T18:17:42.393537+00:00"
-    },
-    {
       "metric": "dust",
       "zscore": 2.031352264627077,
       "value": 50.0,
@@ -349,6 +328,27 @@
       "value": 56,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Indice de peur et d'avarice neutre (56) avec un z-score élevé, mais absence de données textuelles significatives dans les titres Google Actualités pour contraster. Le silence médiatique empêche de confirmer une accumulation ou une distribution cachée des baleines.\"\n}\n```",
       "ts": "2026-09-18T02:06:57.434041+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 3.687104988904127,
+      "value": 5306450.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Activité anormale des baleines (z-score 3.69, +5.3M$) dans un silence médiatique absolu (Google Actualités vide). Accumulation furtive classique hors des radars grand public.\"\n}\n```",
+      "ts": "2026-09-18T02:27:00.938889+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 2.1729746646921937,
+      "value": 2525898.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique parasité par des faits divers juridiques locaux et des actualités macro sans rapport avec une dynamique de baleines crypto.\"\n}\n```",
+      "ts": "2026-09-18T02:37:03.390832+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 2.932575659723036,
+      "value": 56,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Indice de peur et d'avarice neutre (56) avec un z-score élevé, mais absence de titres médiatiques significatifs pour contraster. Données insuffisantes pour confirmer une divergence claire des baleines.\"\n}\n```",
+      "ts": "2026-09-18T02:37:04.670164+00:00"
     }
   ]
 }
