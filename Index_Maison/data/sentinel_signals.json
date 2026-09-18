@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "volume",
-      "zscore": -5.615562502573712,
-      "value": 0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique pure (z-score -5.62 sur volume nul). Les gros titres médiatiques parlent d'eau, d'automobile et de meme coins hors contexte crypto pertinent. Absence totale de signal baleine valide, bruit de fond médiatique.\"\n}\n```",
-      "ts": "2026-09-18T07:07:11.013699+00:00"
-    },
-    {
-      "metric": "liquidations",
-      "zscore": -2.869302368668416,
-      "value": 0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain extrême (z-score -2.87, liquidations quasi-nulles) montrant un assèchement total du levier toxique. Le narratif médiatique est totalement pollué par des faits divers macro/tradfi (faillites d'entreprises, vieux contentieux Celsius) et du bruit marketing, créant une cécité totale sur le calme plat avant impulsion haussière.\"\n}\n```",
-      "ts": "2026-09-18T07:07:13.352583+00:00"
-    },
-    {
       "metric": "sdi",
       "zscore": -11.929857871711457,
       "value": 0,
@@ -349,6 +335,20 @@
       "value": 0.939,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Z-score extrêmement bas (-2.22) sur le ratio long/short indiquant un positionnement massif de vente à découvert par la foule. Pendant que les médias généralistes discutent de stratégies traditionnelles de couverture, les baleines accumulent en silence face à une sur-spéculation baissière prête à être liquidée (short squeeze imminent).\"\n}\n```",
       "ts": "2026-09-18T20:32:41.299022+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": -2.0710791450373702,
+      "value": 0.939,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Le z-score extrêmement bas (-2.07) indique une position vendeuse nette anormale des traders particuliers, tandis que les médias traditionnels se focalisent sur des produits financiers classiques (fonds long-short). C'est un signal contrarien classique de capitulation des shorts, propice à un 'short squeeze' imminent orchestré par les baleines.\"\n}\n```",
+      "ts": "2026-09-18T21:02:48.309393+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": -2.030620364557491,
+      "value": 0.921,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Le z-score extrêmement bas (-2.03) sur le ratio long/short indique une position vendeuse massive des suiveurs de tendance, contredisant totalement le narratif médiatique institutionnel généraliste. C'est un signal classique de capitulation des shorts et de 'short squeeze' imminent provoqué par l'accumulation silencieuse des baleines.\"\n}\n```",
+      "ts": "2026-09-18T21:32:54.628598+00:00"
     }
   ]
 }
