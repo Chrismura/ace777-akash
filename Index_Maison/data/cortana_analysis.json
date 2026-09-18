@@ -1,38 +1,98 @@
 {
-  "timestamp": 1789768515,
-  "date": "2026-09-18T21:55:15.510359+00:00",
-  "n_analyses": 1,
+  "timestamp": 1789772117,
+  "date": "2026-09-18T22:55:17.144871+00:00",
+  "n_analyses": 2,
   "analyses": [
     {
       "signal": {
-        "metric": "long_short",
-        "zscore": -2.030620364557491,
-        "value": 0.921,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Le z-score extrêmement bas (-2.03) sur le ratio long/short indique une position vendeuse massive des suiveurs de tendance, contredisant totalement le narratif médiatique institutionnel généraliste. C'est un signal classique de capitulation des shorts et de 'short squeeze' imminent provoqué par l'accumulation silencieuse des baleines.\"\n}\n```",
-        "ts": 1789767174.628598
+        "metric": "cpfp",
+        "zscore": 2.3411664046684386,
+        "value": 50.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique liée au mécanisme Bitcoin (CPFP/RBF) et pollution sémantique de Google Actualités (homonymie avec un établissement scolaire et politique). Aucune accumulation ou mouvement institutionnel significatif de baleines.\"\n}\n```",
+        "ts": 1789772013.261779
       },
-      "fiche": "long_short",
+      "fiche": "blocs_privilises",
       "questions": {
-        "ratio_long_short": {
-          "value": 0.921,
-          "seuil": 2,
+        "duree": {
+          "value": 0,
+          "seuil": 0,
           "depasse": false
         },
-        "oi": {
-          "value": 108356.783,
-          "seuil": 120000,
+        "volume": {
+          "value": 429,
+          "seuil": 0,
+          "depasse": true
+        },
+        "prix": {
+          "value": -0.16,
+          "seuil": 0,
+          "depasse": true
+        },
+        "sdi": {
+          "value": 0.604,
+          "seuil": 0,
+          "depasse": true
+        },
+        "rbf": {
+          "value": 0.0,
+          "seuil": 0,
           "depasse": false
         }
       },
       "interpretation": {
-        "condition": "ratio_long_short < 1",
-        "lecture": "HYPOTHÈSE (heuristique) : foule en short sous la norme structurelle — carburant haussier (risque de squeeze à la hausse)",
-        "niveau": "surveiller",
-        "action": "Ne pas vendre les paliers RIP trop tôt si le prix repart"
+        "condition": "duree < 5min ET volume > 100",
+        "lecture": "Consolidation exchange — probablement un transfert hot→cold",
+        "niveau": "neutre",
+        "action": "Garder les positions"
       },
-      "action": "Ne pas vendre les paliers RIP trop tôt si le prix repart",
-      "niveau": "surveiller"
+      "action": "Garder les positions",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "dust",
+        "zscore": 2.3411664046684386,
+        "value": 50.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 2.34) ignorée par les médias généralistes et la tech (bruit autour de startups AI homonymes). Accumulation silencieuse de 'dust' (micro-transactions) typique d'une phase de préparation de vagues de distribution ou de wash trading coordonné par des baleines avant un mouvement de prix.\"\n}\n```",
+        "ts": 1789772015.110018
+      },
+      "fiche": "blocs_privilises",
+      "questions": {
+        "duree": {
+          "value": 0,
+          "seuil": 0,
+          "depasse": false
+        },
+        "volume": {
+          "value": 429,
+          "seuil": 0,
+          "depasse": true
+        },
+        "prix": {
+          "value": -0.16,
+          "seuil": 0,
+          "depasse": true
+        },
+        "sdi": {
+          "value": 0.604,
+          "seuil": 0,
+          "depasse": true
+        },
+        "rbf": {
+          "value": 0.0,
+          "seuil": 0,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "duree < 5min ET volume > 100",
+        "lecture": "Consolidation exchange — probablement un transfert hot→cold",
+        "niveau": "neutre",
+        "action": "Garder les positions"
+      },
+      "action": "Garder les positions",
+      "niveau": "neutre"
     }
   ],
-  "resume": "🟡 SURVEILLANCE — des signaux sont à observer"
+  "resume": "🔵 CALME — pas de signal alarmant"
 }
