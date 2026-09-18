@@ -38,6 +38,24 @@ from circuit_breaker import TradeCircuitBreaker, CircuitOpenException  # noqa: E
 import re as _re_mod
 _STOP_SLIP_RE = _re_mod.compile(r"stop-([\d.]+)%")  # nominal dans la raison (gate anti-glissement 09/09)
 
+
+def plancher_veto_decision(d: dict | None) -> tuple[bool, str]:
+    """Décision PURE du veto Plancher (testable sans instancier le moteur).
+
+    Veto UNIQUEMENT si : la paire est en chute (>=25% du pic, `chute_seuil`) ET
+    la phase est OBSERVATION (murs qui cassent encore / pas de rebond) = couteau.
+    Dès CONFIRME/ACHETE, l'entrée redevient libre. Fail-open si données absentes.
+    """
+    if not d:
+        return False, "hors_couverture"
+    phase = d.get("phase")
+    if bool(d.get("chute_seuil")) and phase == "OBSERVATION":
+        return True, (
+            f"couteau non confirme (chute {d.get('drop_depuis_pic_pct')}% "
+            f"C1={d.get('C1_murs_stables')} C2={d.get('C2_spread_ok')} C3={d.get('C3_rebond_ok')})"
+        )
+    return False, str(phase or "ok")
+
 # FUSIBLES PAR PAIRE (10/09, GO Christophe) : budget de perte journalier calé sur
 # LA volatilité MESURÉE de chaque actif (la plus folle bouge 7,8× plus que la plus
 # sage — une règle unique est mathématiquement fausse). Étage 1 : budget consommé
@@ -619,6 +637,19 @@ class PaperBot:
         self.veille_window_min = int(float(cfg.get("VEILLE_STATUS_MAX_AGE_MIN", "30")))
         self.veille_refresh_sec = float(cfg.get("VEILLE_STATUS_REFRESH_SEC", "60"))
         self.veille_stale_h = float(cfg.get("VEILLE_STALE_HOURS", "6"))
+        # === PLANCHER CONFIRMÉ (18/09/2026, GO Christophe) — garde anti-couteau ===
+        # Le Plancher (shadow Index_Maison) ne parle que sur une chute >=25% du pic :
+        # tant que C1+C2+C3 ne sont pas réunies (murs qui cassent encore), on REFUSE
+        # d'acheter le couteau ; dès CONFIRME/ACHETE, l'entrée redevient libre.
+        # ON par défaut (appliqué) ; PLANCHER_GATE_ON=0 le désactive en 1 ligne.
+        self.plancher_gate_on = cfg.get("PLANCHER_GATE_ON", "1").strip() not in ("0", "false", "False")
+        self._plancher_hist = (
+            Path(__file__).resolve().parents[1].parent
+            / "Index_Maison" / "data" / "plancher_confirme_hist.jsonl"
+        )
+        self._plancher_ttl = float(cfg.get("PLANCHER_GATE_TTL_SEC", "60"))
+        self._plancher_cache: dict = {}
+        self._plancher_cache_ts = 0.0
         # === 2 classes de paires (famille 15/08) ===
         self.bag_pairs = {
             p.strip().upper() for p in (cfg.get("BAG_PAIRS") or "").split(",") if p.strip()
@@ -1125,6 +1156,32 @@ class PaperBot:
     def is_bag(self, pair: str) -> bool:
         """Classe B (small caps bag) : règles d'exception."""
         return pair in self.bag_pairs
+
+    def plancher_veto(self, pair: str) -> tuple[bool, str]:
+        """Garde anti-couteau (Plancher). Retourne (veto, raison).
+
+        Fail-open : toute erreur/donnée absente -> pas de veto (ne bloque jamais le moteur).
+        Veto UNIQUEMENT si la paire est en chute (>=25% du pic) ET non confirmée
+        (phase OBSERVATION = murs qui cassent encore / pas de rebond).
+        """
+        now = time.time()
+        if not self._plancher_cache or (now - self._plancher_cache_ts) > self._plancher_ttl:
+            cache: dict = {}
+            try:
+                with open(self._plancher_hist) as f:
+                    lignes = f.readlines()[-800:]
+                for l in lignes:
+                    try:
+                        d = json.loads(l)
+                    except Exception:
+                        continue
+                    if isinstance(d, dict) and d.get("paire"):
+                        cache[d["paire"]] = d  # la dernière ligne gagne
+            except Exception:
+                cache = {}
+            self._plancher_cache = cache
+            self._plancher_cache_ts = now
+        return plancher_veto_decision(self._plancher_cache.get(pair))
 
     def sense_ok(self, pair: str, sc: dict, regime: str) -> tuple[bool, str]:
         if not self.sense_on:
@@ -1807,6 +1864,17 @@ class PaperBot:
             )
             return
         _fusible_rescan()
+        # PLANCHER CONFIRMÉ (18/09, GO Christophe) : garde anti-couteau — on n'achète pas
+        # un couteau (chute >=25% du pic) tant que C1+C2+C3 ne sont pas réunies.
+        if self.plancher_gate_on:
+            _veto, _pwhy = self.plancher_veto(pair)
+            if _veto:
+                say("warn", f"[{utc_now()}] PLANCHER | {pair} | {_pwhy}")
+                self.log(
+                    pair, "SKIP", regime, price, price, 0.0, 0.0,
+                    sc.get("cadence_pct"), f"PLANCHER:{_pwhy}",
+                )
+                return
         ok, why = self.sense_ok(pair, sc, regime)
         if not ok:
             say("warn", f"[{utc_now()}] BUY skip {pair} sense={why}")
@@ -1855,11 +1923,18 @@ class PaperBot:
         # du mur médian de la paire — EDEL 909$ ne peut pas absorber 20$ sans
         # slippage, XRP 84k$ oui. Chaque crypto a SA capacité (profil).
         prof = self.profils.get(pair) or {}
-        med = prof.get("mur_bid_med")
+        med_fige = prof.get("mur_bid_med")
+        # 18/09/2026 (GO Christophe) : le plafond se lit sur le MUR LIVE (sonde vivante),
+        # jamais sur un cache figé (le mur EDEL a ×2,5 -> un cache gelé étrangle la mise).
+        # Repli sur le mur médian du profil si le live est absent/périmé.
+        _asp = self.aspiration.get(pair) or {}
+        med_live = float(_asp.get("wall_bid_usdt") or 0)
+        med = med_live if med_live > 0 else med_fige
         if med:
             cap = med * float((prof.get("calib") or {}).get("mise_max_pct_mur", 0.02))
             if cap > 0 and trade_n > cap:
-                say("heart", f"[{utc_now()}] {pair} mise {trade_n:.2f}$ → plafonnée {cap:.2f}$ (mur médian {med:,.0f}$)")
+                _src = "live" if med_live > 0 else "profil"
+                say("heart", f"[{utc_now()}] {pair} mise {trade_n:.2f}$ → plafonnée {cap:.2f}$ (mur {_src} {med:,.0f}$)")
                 trade_n = cap
         # GATE MURS L2 (09/09, audit edge HULK — GO Christophe) : avant de payer le
         # spread, on regarde GRATUITEMENT le carnet L2 que la maison mesure déjà
