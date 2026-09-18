@@ -1,62 +1,6 @@
 {
   "signals": [
     {
-      "metric": "volume",
-      "zscore": -2.0294204762800576,
-      "value": 9671982201.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit de fond médiatique non pertinent (articles sur l'eau, l'automobile et la finance trad. sans lien avec la crypto). Absence de signal whale avéré.\"\n}\n```",
-      "ts": "2026-09-17T19:55:11.586529+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": -2.072585409260864,
-      "value": 9439723350.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique sans rapport avec la crypto (actualités locales et généralistes). Le z-score négatif indique une anomalie statistique de volume faible, mais l'absence de narratif crypto pertinent ne permet pas de confirmer une accumulation ou distribution silencieuse de baleines.\"\n}\n```",
-      "ts": "2026-09-17T20:25:17.703652+00:00"
-    },
-    {
-      "metric": "whale_usd",
-      "zscore": 9.004200854582411,
-      "value": 10367540.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (Z-score 9.0) avec un flux de plus de 10M$ non rapporté par les médias (silence radio). Cette accumulation discrète loin du bruit médiatique indique une phase d'accumulation silencieuse par des institutionnels/baleines.\"\n}\n```",
-      "ts": "2026-09-17T22:25:40.170600+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.165909494558407,
-      "value": 1.166,
-      "analysis": "{\n  \"signal\": \"bullish\",\n  \"confidence\": 72,\n  \"reason\": \"The on‑chain metric ipt shows a significant outlier (z‑score 2.17), suggesting unusual accumulation or whale activity. Media headlines are entirely unrelated to crypto markets, indicating the current narrative is disconnected from the on‑chain reality and likely masking silent whale movement.\"\n}",
-      "ts": "2026-09-17T23:05:56.251262+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": 101.94158674463476,
-      "value": 56,
-      "analysis": "{\n  \"signal\": \"bullish\",\n  \"confidence\": 70,\n  \"reason\": \"Le fear/greed index montre une anomalie on‑chain extrêmement élevée (z‑score ≈ 102) alors que les titres médiatiques restent neutres et ne reflètent aucune peur ou euphorie marquée. Cette divergence suggère que de gros acteurs pourraient accumuler discrètement des positions, ce qui est généralement interprété comme un signal haussier latent.\"\n}",
-      "ts": "2026-09-18T00:06:19.531554+00:00"
-    },
-    {
-      "metric": "whale_usd",
-      "zscore": 2.744733134376251,
-      "value": 3990433.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 2.74, ~4M$) couplée à un silence médiatique absolu (Google Actualités vide). Les baleines accumulent discrètement hors du radar public avant le prochain mouvement de marché.\"\n}\n```",
-      "ts": "2026-09-18T00:11:21.688115+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": 6.855654600401044,
-      "value": 56,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 75,\n  \"reason\": \"Le z-score élevé (6.86) indique une anomalie onchain significative malgré un narratif médiatique neutre (fear_greed = 56). Divergence typique des accumulations silencieuses par les baleines avant un mouvement haussier.\"\n}\n```",
-      "ts": "2026-09-18T00:36:28.923723+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": -2.002771646335815,
-      "value": 0.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Bruit médiatique non pertinent. Les résultats Google actualités font référence à l'Institut Protestant de Théologie (IPT) et au Tournoi International des Physiciens, totalement déconnectés des marchés crypto.\"\n}\n```",
-      "ts": "2026-09-18T00:41:31.035001+00:00"
-    },
-    {
       "metric": "whale_usd",
       "zscore": 3.729906144881101,
       "value": 5257887.0,
@@ -349,6 +293,62 @@
       "value": 1.243,
       "analysis": "{\n  \"signal\": \"bearish\",\n  \"confidence\": 78,\n  \"reason\": \"The on‑chain long_short metric is 1.243 with a z‑score of –2.17, indicating a statistically significant shift toward higher short exposure (lower long/short ratio) relative to its historical norm. Meanwhile, media headlines uniformly frame long‑short strategies as attractive, ideal for volatile markets, and highlight fund launches and awards, creating a bullish narrative that diverges from the underlying on‑chain bias toward shorts. This disconnect suggests whales may be quietly increasing short positions while the public discourse remains optimistic.\"\n}",
       "ts": "2026-09-18T13:40:35.461491+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": -5.332683972969524,
+      "value": 0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique (volume à zéro / z-score -5.33) totalement déconnectée des actualités médias grand public qui traitent de sujets sans rapport (médecine, IA, bourses traditionnelles). Aucun signal de mouvement de baleine crypto détecté, simple bruit de fond ou panne de flux.\"\n}\n```",
+      "ts": "2026-09-18T17:00:26.710833+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": -9.728937993367108,
+      "value": 0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Anomalie technique purement sémantique : le z-score extrême (-9.73) et le SDI à 0 captent des termes homonymes ('SDI' lié à l'audiovisuel et aux flux d'énergie) dans les médias, totalement déconnectés des flux de baleines crypto.\"\n}\n```",
+      "ts": "2026-09-18T17:00:28.827374+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": -2.0475660621136,
+      "value": 0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Absence totale de données crypto. L'indice 'ipt' renvoie ici au Tournoi International des Physiciens (IPT) et à des institutions académiques ou religieuses. Bruit médiatique sans aucun lien avec l'onchain ou l'activité des baleines.\"\n}\n```",
+      "ts": "2026-09-18T17:00:34.033082+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": -5.339923322642653,
+      "value": 1,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Le z-score extrême (-5.34) indique un positionnement vendeur totalement asymétrique des institutionnels, tandis que les médias grand public banalisent la stratégie long/short. Classique piège à liquidité : le marché s'apprête à purger les shorts massifs par un short squeeze violent.\"\n}\n```",
+      "ts": "2026-09-18T17:00:51.021110+00:00"
+    },
+    {
+      "metric": "taker_ratio",
+      "zscore": -2.663825259709432,
+      "value": 0.5,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio à 0.5 (z-score -2.66) indique une domination massive des acheteurs passifs (limites) tandis que les médias affichent un vide informationnel total. C'est la signature classique d'accumulation silencieuse par les baleines loin du bruit médiatique.\"\n}\n```",
+      "ts": "2026-09-18T17:00:57.679770+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.361959875933601,
+      "value": 16268093963.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique de volume (z-score 2.36) sans lien avec la crypto. Les titres médiatiques traitent de sujets sans rapport (médecine, IA, bourse traditionnelle, culture). Bruit de fond, pas de mouvement silencieux de baleine détecté.\"\n}\n```",
+      "ts": "2026-09-18T17:31:33.939388+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": -4.504423659420018,
+      "value": 0.951,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Z-score extrême de -4.50 sur le ratio long/short indiquant une sous-exposition massive des traders particuliers, tandis que les médias grand public parlent de stratégies macro traditionnelles sans voir le positionnement contrarien imminent des baleines.\"\n}\n```",
+      "ts": "2026-09-18T17:31:39.632738+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.3659075135093595,
+      "value": 1.156,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique (ipt = 1.156) totalement déconnectée des actualités, lesquelles font référence à l'Institut Protestant de Théologie et au Tournoi International des Physiciens. Bruit de fond sans lien avec une baleine crypto.\"\n}\n```",
+      "ts": "2026-09-18T17:51:45.075623+00:00"
     }
   ]
 }
