@@ -4535,3 +4535,7 @@ Pas d’ordre — confrontation plus tard.
 ### 2026-09-18T00:00:49Z — ALERT auto
 - EDELUSDT: IMPULSE_WAIT — spike en cours, pas chase
 (compléter: confirmé ? risque ?)
+
+### 2026-09-18T01:09:20Z — ALERT auto
+- EDELUSDT: IMPULSE_WAIT — spike en cours, pas chase
+(compléter: confirmé ? risque ?)

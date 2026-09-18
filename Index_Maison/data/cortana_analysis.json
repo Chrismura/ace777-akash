@@ -1,15 +1,50 @@
 {
-  "timestamp": 1789690529,
-  "date": "2026-09-18T00:15:29.205645+00:00",
+  "timestamp": 1789694130,
+  "date": "2026-09-18T01:15:30.426850+00:00",
   "n_analyses": 2,
   "analyses": [
     {
       "signal": {
+        "metric": "whale_usd",
+        "zscore": 3.729906144881101,
+        "value": 5257887.0,
+        "analysis": "{\n  \"signal\": \"bullish\",\n  \"confidence\": 65,\n  \"reason\": \"Mouvement de baleine de 5.26M USD avec z-score 3.73 largement supérieur au seuil, tandis que le narratif médiatique est silencieux (Google Actualités). Cette divergence suggère une accumulation discrète, non encore reflétée dans le sentiment public.\"\n}",
+        "ts": 1789693304.099226
+      },
+      "fiche": "whale_usd",
+      "questions": {
+        "ventes": {
+          "value": 720821.0,
+          "seuil": 0,
+          "depasse": true
+        },
+        "achats": {
+          "value": 0.0,
+          "seuil": 0,
+          "depasse": false
+        },
+        "prix": {
+          "value": 0.06,
+          "seuil": 1,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "ventes > achats",
+        "lecture": "Flux baleines VENDEUR dominant — distribution possible vers les exchanges (proxy : bearish aujourd'hui)",
+        "niveau": "surveiller",
+        "action": "Croiser avec le sniffer vieux BTC et l'IPT avant de réduire"
+      },
+      "action": "Croiser avec le sniffer vieux BTC et l'IPT avant de réduire",
+      "niveau": "surveiller"
+    },
+    {
+      "signal": {
         "metric": "fear_greed",
-        "zscore": 101.94158674463476,
+        "zscore": 4.79583152331272,
         "value": 56,
-        "analysis": "{\n  \"signal\": \"bullish\",\n  \"confidence\": 70,\n  \"reason\": \"Le fear/greed index montre une anomalie on‑chain extrêmement élevée (z‑score ≈ 102) alors que les titres médiatiques restent neutres et ne reflètent aucune peur ou euphorie marquée. Cette divergence suggère que de gros acteurs pourraient accumuler discrètement des positions, ce qui est généralement interprété comme un signal haussier latent.\"\n}",
-        "ts": 1789689979.531554
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Le z-score de 4.80 indique une volatilité statistique anormale de l'indice Fear & Greed, mais l'absence de titres médiatiques majeurs suggère un mouvement technique ou un bruit de marché plutôt qu'une accumulation agressive ou une distribution silencieuse des baleines.\"\n}\n```",
+        "ts": 1789693605.981432
       },
       "fiche": "fear_greed",
       "questions": {
@@ -31,41 +66,7 @@
       },
       "action": "Observer",
       "niveau": "neutre"
-    },
-    {
-      "signal": {
-        "metric": "whale_usd",
-        "zscore": 2.744733134376251,
-        "value": 3990433.0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 2.74, ~4M$) couplée à un silence médiatique absolu (Google Actualités vide). Les baleines accumulent discrètement hors du radar public avant le prochain mouvement de marché.\"\n}\n```",
-        "ts": 1789690281.688115
-      },
-      "fiche": "whale_usd",
-      "questions": {
-        "ventes": {
-          "value": 0.0,
-          "seuil": 0,
-          "depasse": false
-        },
-        "achats": {
-          "value": 0.0,
-          "seuil": 0,
-          "depasse": false
-        },
-        "prix": {
-          "value": -0.03,
-          "seuil": 1,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
-      },
-      "action": "Observer",
-      "niveau": "neutre"
     }
   ],
-  "resume": "🔵 CALME — pas de signal alarmant"
+  "resume": "🟡 SURVEILLANCE — des signaux sont à observer"
 }

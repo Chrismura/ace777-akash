@@ -1,34 +1,6 @@
 {
   "signals": [
     {
-      "metric": "whale_usd",
-      "zscore": 2.5029546177207624,
-      "value": 2986503.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Significant whale activity (z-score 2.5) contrasts with neutral media narrative, suggesting accumulation phase.\"\n}\n```",
-      "ts": "2026-09-16T12:26:03.570143+00:00"
-    },
-    {
-      "metric": "taker_ratio",
-      "zscore": 2.0303073151424518,
-      "value": 1.364,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio élevé (z-score 2.03) indique une forte agression acheteuse sur les carnets d'ordres, prouvant une accumulation agressive et silencieuse des baleines, totalement ignorée ou absente des grands flux médiatiques actuels.\"\n}\n```",
-      "ts": "2026-09-16T12:36:07.167901+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.1716013925243334,
-      "value": 1.114,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.17) sur le ticker 'ipt' totalement polluée par du bruit médiatique sans rapport avec la crypto (Institut Polytechnique de Paris, Premier Tech, etc.). Aucun mouvement de baleine avéré, simple collision lexicale.\"\n}\n```",
-      "ts": "2026-09-16T14:01:45.697877+00:00"
-    },
-    {
-      "metric": "cpfp",
-      "zscore": 2.108039542839407,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique de mempool (CPFP) liée à des congestions de transactions, sans lien avec une accumulation ou distribution de baleines. Le bruit médiatique concerne des homonymes locaux sans pertinence financière.\"\n}\n```",
-      "ts": "2026-09-16T15:12:01.349148+00:00"
-    },
-    {
       "metric": "dust",
       "zscore": 2.108039542839407,
       "value": 50.0,
@@ -349,6 +321,34 @@
       "value": 3990433.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 2.74, ~4M$) couplée à un silence médiatique absolu (Google Actualités vide). Les baleines accumulent discrètement hors du radar public avant le prochain mouvement de marché.\"\n}\n```",
       "ts": "2026-09-18T00:11:21.688115+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 6.855654600401044,
+      "value": 56,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 75,\n  \"reason\": \"Le z-score élevé (6.86) indique une anomalie onchain significative malgré un narratif médiatique neutre (fear_greed = 56). Divergence typique des accumulations silencieuses par les baleines avant un mouvement haussier.\"\n}\n```",
+      "ts": "2026-09-18T00:36:28.923723+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": -2.002771646335815,
+      "value": 0.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Bruit médiatique non pertinent. Les résultats Google actualités font référence à l'Institut Protestant de Théologie (IPT) et au Tournoi International des Physiciens, totalement déconnectés des marchés crypto.\"\n}\n```",
+      "ts": "2026-09-18T00:41:31.035001+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 3.729906144881101,
+      "value": 5257887.0,
+      "analysis": "{\n  \"signal\": \"bullish\",\n  \"confidence\": 65,\n  \"reason\": \"Mouvement de baleine de 5.26M USD avec z-score 3.73 largement supérieur au seuil, tandis que le narratif médiatique est silencieux (Google Actualités). Cette divergence suggère une accumulation discrète, non encore reflétée dans le sentiment public.\"\n}",
+      "ts": "2026-09-18T01:01:44.099226+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 4.79583152331272,
+      "value": 56,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Le z-score de 4.80 indique une volatilité statistique anormale de l'indice Fear & Greed, mais l'absence de titres médiatiques majeurs suggère un mouvement technique ou un bruit de marché plutôt qu'une accumulation agressive ou une distribution silencieuse des baleines.\"\n}\n```",
+      "ts": "2026-09-18T01:06:45.981432+00:00"
     }
   ]
 }
