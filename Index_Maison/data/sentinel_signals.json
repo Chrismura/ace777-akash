@@ -1,55 +1,6 @@
 {
   "signals": [
     {
-      "metric": "whale_usd",
-      "zscore": 3.687104988904127,
-      "value": 5306450.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Activité anormale des baleines (z-score 3.69, +5.3M$) dans un silence médiatique absolu (Google Actualités vide). Accumulation furtive classique hors des radars grand public.\"\n}\n```",
-      "ts": "2026-09-18T02:27:00.938889+00:00"
-    },
-    {
-      "metric": "liquidations",
-      "zscore": 2.1729746646921937,
-      "value": 2525898.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique parasité par des faits divers juridiques locaux et des actualités macro sans rapport avec une dynamique de baleines crypto.\"\n}\n```",
-      "ts": "2026-09-18T02:37:03.390832+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": 2.932575659723036,
-      "value": 56,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Indice de peur et d'avarice neutre (56) avec un z-score élevé, mais absence de titres médiatiques significatifs pour contraster. Données insuffisantes pour confirmer une divergence claire des baleines.\"\n}\n```",
-      "ts": "2026-09-18T02:37:04.670164+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": 2.6457513110645903,
-      "value": 56,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 78,\n  \"reason\": \"Le z-score de 2.65 indique une anomalie statistique significative du Fear & Greed, tandis que le silence médiatique total (Google Actualités vide/neutre) prouve l'absence de FOMO retail. Les baleines accumulent dans l'ombre sans éveiller l'attention du grand public.\"\n}\n```",
-      "ts": "2026-09-18T03:07:12.066808+00:00"
-    },
-    {
-      "metric": "cpfp",
-      "zscore": 2.107664406936922,
-      "value": 50.0,
-      "analysis": "{\"signal\": \"bullish\", \"confidence\": 62, \"reason\": \"L'anomalie CPFP (z-score 2.11) signale une activité on-chain inhabituelle, mais les gros titres médiatiques concernent un CPFP totalement étranger à la crypto (association/formation). Ce décalage indique que les mouvements de baleines ne sont pas encore repérés par le narratif mainstream, typique d'une accumulation silencieuse. Le z-score reste modéré, donc pas d'exubérance, mais la divergence joue en faveur d'une poursuite haussière discrète.\"}",
-      "ts": "2026-09-18T03:12:23.063351+00:00"
-    },
-    {
-      "metric": "dust",
-      "zscore": 2.107664406936922,
-      "value": 50.0,
-      "analysis": "{\"signal\": \"bullish\", \"confidence\": 55, \"reason\": \"Pic de dust (z-score 2.11) indique une activité onchain inhabituelle et concentrée, souvent associée à des tests ou accumulations silencieuses. Le narratif médiatique est totalement déconnecté (aucune mention crypto), ce qui suggère que les mouvements ne sont pas encore détectés par le grand public. Divergence positive typique d'une accumulation discrète.\"}",
-      "ts": "2026-09-18T03:12:33.994230+00:00"
-    },
-    {
-      "metric": "price_1h",
-      "zscore": 4.288740879090427,
-      "value": 0.6971968716031229,
-      "analysis": "{\n  \"signal\": \"bullish\",\n  \"confidence\": 78,\n  \"reason\": \"Le prix montre une anomalie forte (z‑score 4.29) suggérant un mouvement soudain à la hausse, tandis que les titres médiatiques (Google Actualités) ne rapportent aucun événement notable. Cette déconnexion indique probablement une activité discrète de baleines qui accumulent ou poussent le prix sans couverture médiatique, ce qui est interprété comme un signal haussier.\"\n}",
-      "ts": "2026-09-18T03:17:49.565772+00:00"
-    },
-    {
       "metric": "liquidations",
       "zscore": 8.506017652406754,
       "value": 5112932.0,
@@ -349,6 +300,55 @@
       "value": 0.941,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Le z-score extrêmement bas (-3.28) indique une position vendeuse massive et anormale des 'smart money' (pessimisme extrême des baleines), tandis que les médias grand public banalisent les stratégies long-short traditionnelles. Classic setup de capitulation des shorts imminente menant à un short squeeze.\"\n}\n```",
       "ts": "2026-09-18T18:32:02.702076+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.0506204392825937,
+      "value": 16545095661.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique non pertinent (actualités médicales, IA et actions traditionnelles). Absence totale de signal crypto onchain malgré un z-score statistique trompeur.\"\n}\n```",
+      "ts": "2026-09-18T19:02:10.187846+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": -2.9955158485697218,
+      "value": 0.929,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Z-score extrêmement bas (-3.00) indiquant une capitulation massive des positions longues par la foule. Les médias grand public parlent de stratégies financières traditionnelles sans lien avec la panique crypto en cours. Contre-signal classique d'accumulation silencieuse par les baleines.\"\n}\n```",
+      "ts": "2026-09-18T19:02:13.758695+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.0635434960534873,
+      "value": 16885841449.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique non pertinent (actualités médicales, IA et presse locale). Aucune corrélation onchain exploitable malgré le z-score élevé.\"\n}\n```",
+      "ts": "2026-09-18T19:32:20.235951+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": -2.698291644643233,
+      "value": 0.929,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le z-score extrêmement bas (-2.70) indique une capitulation des positions long par rapport aux short (contrarian setup classique). Pendant que les médias grand public parlent de stratégies financières traditionnelles et de fonds long-short, les baleines crypto prennent une position agressive à contre-courant, préfigurant un potentiel short squeeze massif.\"\n}\n```",
+      "ts": "2026-09-18T19:32:21.954914+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 3.437775347500481,
+      "value": 5079756.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 3.44, ~5.1M USD) en l'absence totale de couverture médiatique (silence radio sur Google Actualités). Accumulation furtive classique des baleines loin du radar de retail.\"\n}\n```",
+      "ts": "2026-09-18T19:52:25.743661+00:00"
+    },
+    {
+      "metric": "cpfp",
+      "zscore": 2.4753857072720233,
+      "value": 50.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique non pertinent (articles sur un établissement scolaire et des actualités locales sans rapport avec la crypto). L'anomalie onchain (CPFP z-score 2.48) reflète simplement une congestion technique isolée du réseau Bitcoin, sans accumulation ni manipulation majeure de baleines.\"\n}\n```",
+      "ts": "2026-09-18T19:52:27.418471+00:00"
+    },
+    {
+      "metric": "dust",
+      "zscore": 2.4753857072720233,
+      "value": 50.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Faux positif manifeste : l'anomalie 'dust' détectée correspond au bruit homonyme d'une startup tech française (Dust) et d'événements météorologiques, sans lien avec des flux on-chain de baleines crypto.\"\n}\n```",
+      "ts": "2026-09-18T19:52:29.127328+00:00"
     }
   ]
 }
