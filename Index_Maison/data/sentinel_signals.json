@@ -1,27 +1,6 @@
 {
   "signals": [
     {
-      "metric": "volume",
-      "zscore": 2.0635434960534873,
-      "value": 16885841449.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique non pertinent (actualités médicales, IA et presse locale). Aucune corrélation onchain exploitable malgré le z-score élevé.\"\n}\n```",
-      "ts": "2026-09-18T19:32:20.235951+00:00"
-    },
-    {
-      "metric": "long_short",
-      "zscore": -2.698291644643233,
-      "value": 0.929,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le z-score extrêmement bas (-2.70) indique une capitulation des positions long par rapport aux short (contrarian setup classique). Pendant que les médias grand public parlent de stratégies financières traditionnelles et de fonds long-short, les baleines crypto prennent une position agressive à contre-courant, préfigurant un potentiel short squeeze massif.\"\n}\n```",
-      "ts": "2026-09-18T19:32:21.954914+00:00"
-    },
-    {
-      "metric": "whale_usd",
-      "zscore": 3.437775347500481,
-      "value": 5079756.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 3.44, ~5.1M USD) en l'absence totale de couverture médiatique (silence radio sur Google Actualités). Accumulation furtive classique des baleines loin du radar de retail.\"\n}\n```",
-      "ts": "2026-09-18T19:52:25.743661+00:00"
-    },
-    {
       "metric": "cpfp",
       "zscore": 2.4753857072720233,
       "value": 50.0,
@@ -349,6 +328,27 @@
       "value": 9412957583.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique de volume (z-score -2.66) noyée dans un bruit médiatique totalement hors sujet (actualités locales et lifestyle sans rapport avec la crypto). Absence de signal baleine avéré.\"\n}\n```",
       "ts": "2026-09-19T14:38:46.784948+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": -2.7727598885444924,
+      "value": 8811895104.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique de volume (z-score -2.77) totalement aberrante due à un bruit médiatique non pertinent (articles sans rapport avec la crypto). Aucun mouvement significatif de baleine détecté.\"\n}\n```",
+      "ts": "2026-09-19T15:08:51.908161+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": -2.8124573846663106,
+      "value": 8272289181.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Anomalie technique due à un bruit de fond sémantique (fausse alerte sur le mot 'volume' dans des actualités sans rapport avec la crypto). Aucune activité de baleine détectée.\"\n}\n```",
+      "ts": "2026-09-19T15:38:58.162758+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 3.001653818861317,
+      "value": 1.335,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"False positive technique. Le ticker 'IPT' dans les données onchain correspond ici à un homonyme lexical (Tournoi International des Physiciens, Institut Protestant de Théologie) dans les médias, sans lien avec une baleine crypto ou un actif financier.\"\n}\n```",
+      "ts": "2026-09-19T15:38:59.798785+00:00"
     }
   ]
 }
