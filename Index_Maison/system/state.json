@@ -1,37 +1,39 @@
 {
-  "timestamp": "2026-09-18T23:55:30Z",
+  "timestamp": "2026-09-19T00:55:44Z",
   "generation_source": "system_state_generator.py v2.1",
   "status": "STALE",
-  "feed_hash": "42dd9525f0eb2341065265620d8f8d9c6b5457c40643f6f145a1ba06c40cab4b",
+  "feed_hash": "c53b5320bcd67089efd7509774b807e4f97635886cf5b70a6cfabf832d51c8a1",
   "feeds": {
     "mission": {
       "present": true,
-      "age_seconds": 3,
+      "age_seconds": 1,
       "fresh_limit_s": 120
     },
     "cortana_feed": {
       "present": true,
-      "age_seconds": 180,
+      "age_seconds": 240,
       "fresh_limit_s": 120
     },
     "live": {
       "present": true,
-      "age_seconds": 180,
+      "age_seconds": 240,
       "fresh_limit_s": 15
     },
     "routing": {
       "present": true,
-      "age_seconds": 2204113,
+      "age_seconds": 2207727,
       "fresh_limit_s": 120
     }
   },
   "services": {
     "total": 97,
-    "running": 12,
-    "planned": 85,
+    "running": 14,
+    "planned": 83,
     "running_list": [
       "com.ace777.cockpit-http",
       "com.ace777.cockpit-pont",
+      "com.ace777.cortana.urgent",
+      "com.ace777.fusibles-mesure",
       "com.ace777.llm-gate-hub",
       "com.ace777.mirofish",
       "com.ace777.mirofish-front",
@@ -40,7 +42,7 @@
       "com.ace777.superviseur-core",
       "com.ace777.superviseur-l2",
       "com.ace777.superviseur-process",
-      "com.ace777.veilleuse",
+      "com.ace777.veille-insti",
       "com.ace777.vigie-live"
     ],
     "planned_list": [
@@ -54,7 +56,6 @@
       "com.ace777.cortana-analyzer",
       "com.ace777.cortana-feed",
       "com.ace777.cortana-propose-params",
-      "com.ace777.cortana.urgent",
       "com.ace777.couleur-regime",
       "com.ace777.couleur-regime-score",
       "com.ace777.cpfp",
@@ -69,7 +70,6 @@
       "com.ace777.eval-offres",
       "com.ace777.fees",
       "com.ace777.flux-nets",
-      "com.ace777.fusibles-mesure",
       "com.ace777.gen-cockpit-vol",
       "com.ace777.gitpush",
       "com.ace777.gitpush-vault",
@@ -115,9 +115,9 @@
       "com.ace777.veille-degradation",
       "com.ace777.veille-essaim-observation",
       "com.ace777.veille-hub",
-      "com.ace777.veille-insti",
       "com.ace777.veille-signal",
       "com.ace777.veille-yt",
+      "com.ace777.veilleuse",
       "com.ace777.veilleuse-chantiers",
       "com.ace777.veilleuse-confrontation",
       "com.ace777.veilleuse-sizing-monte-carlo",
@@ -168,7 +168,7 @@
       "Assistant_Vocal_HORS_VAULT": 697372,
       "Obsidian_BACKUPS_HORS_VAULT": 14936872
     },
-    "presence_at": "2026-09-18T23:25:50Z",
+    "presence_at": "2026-09-19T00:25:51Z",
     "sizes_at": "2026-09-18T19:25:46Z"
   }
 }

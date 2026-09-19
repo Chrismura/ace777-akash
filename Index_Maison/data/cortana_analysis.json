@@ -1,7 +1,86 @@
 {
-  "timestamp": 1789775718,
-  "date": "2026-09-18T23:55:18.421510+00:00",
-  "n_analyses": 0,
-  "analyses": [],
-  "resume": "Aucune analyse en cours"
+  "timestamp": 1789779319,
+  "date": "2026-09-19T00:55:19.533461+00:00",
+  "n_analyses": 3,
+  "analyses": [
+    {
+      "signal": {
+        "metric": "sdi",
+        "zscore": -5.828882866933605,
+        "value": 0.012,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Anomalie technique liée à une homonymie lexicale totale. Le 'SDI' on-chain (z-score -5.83) n'a aucun rapport avec les actualités médiatiques qui traitent de matériel vidéo (Blackmagic, AJA) et de syndicats professionnels (TPE). Bruit absolu, absence de mouvement de baleine crypto.\"\n}\n```",
+        "ts": 1789778044.842186
+      },
+      "fiche": null,
+      "interpretation": {
+        "lecture": "Pas de fiche disponible",
+        "niveau": "inconnu"
+      },
+      "action": "Observer"
+    },
+    {
+      "signal": {
+        "metric": "fear_greed",
+        "zscore": 4.619846795057121,
+        "value": 71,
+        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrême (4.62) indiquant une euphorie retail maximale (Greed 71) alors que les flux médiatiques sont absents ou apathiques. Divergence classique de fin de cycle : les baleines distribuent silencieusement sur la liquidité de détail.\"\n}\n```",
+        "ts": 1789778046.067717
+      },
+      "fiche": "fear_greed",
+      "questions": {
+        "peur": {
+          "value": 71,
+          "seuil": 25,
+          "depasse": true
+        },
+        "cupidite": {
+          "value": 71,
+          "seuil": 75,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
+      },
+      "action": "Observer",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "price_1h",
+        "zscore": 3.036843372908225,
+        "value": 0.6454359350864802,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 3.04) non reflétée dans les médias, suggérant une accumulation discrète par les baleines.\"\n}\n```",
+        "ts": 1789779263.013293
+      },
+      "fiche": "price_1h",
+      "questions": {
+        "pct_1h": {
+          "value": 0.57,
+          "seuil": -1,
+          "depasse": true
+        },
+        "liq": {
+          "value": 2404484.0,
+          "seuil": 5000000,
+          "depasse": false
+        },
+        "funding": {
+          "value": 9e-05,
+          "seuil": 0,
+          "depasse": true
+        }
+      },
+      "interpretation": {
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
+      },
+      "action": "Observer",
+      "niveau": "neutre"
+    }
+  ],
+  "resume": "🔵 CALME — pas de signal alarmant"
 }
