@@ -4623,3 +4623,12 @@ Pas d’ordre — confrontation plus tard.
 ### 2026-09-19T02:14:25Z — ALERT auto
 - REDUSDT: WATCH_PULLBACK — tension haute + reflux
 (compléter: confirmé ? risque ?)
+
+### 2026-09-19T03:13:08Z — ALERT auto
+- TELUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
+
+### 2026-09-19T03:16:06Z — ALERT auto
+- REDUSDT: WATCH_PULLBACK — tension haute + reflux
+- EDELUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
