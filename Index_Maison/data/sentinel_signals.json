@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "ipt",
-      "zscore": 2.126991112225462,
-      "value": 1.147,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.13) totalement déconnectée des flux crypto : les titres médiatiques font référence à l'Institut Protestant de Théologie (IPT) et au Tournoi International des Physiciens. Bruit sémantique pur, aucune baleine active sur ce ticker.\"\n}\n```",
-      "ts": "2026-09-18T20:12:36.870090+00:00"
-    },
-    {
-      "metric": "long_short",
-      "zscore": -2.2206792358890546,
-      "value": 0.939,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Z-score extrêmement bas (-2.22) sur le ratio long/short indiquant un positionnement massif de vente à découvert par la foule. Pendant que les médias généralistes discutent de stratégies traditionnelles de couverture, les baleines accumulent en silence face à une sur-spéculation baissière prête à être liquidée (short squeeze imminent).\"\n}\n```",
-      "ts": "2026-09-18T20:32:41.299022+00:00"
-    },
-    {
       "metric": "long_short",
       "zscore": -2.0710791450373702,
       "value": 0.939,
@@ -349,6 +335,20 @@
       "value": 4039113.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Activité anormale des baleines (Z-score 3.66, ~4M$) dans un silence médiatique total (Google Actualités vide). Accumulation furtive hors radar.\"\n}\n```",
       "ts": "2026-09-19T16:39:16.745667+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": -2.6825873609277844,
+      "value": 7383446338.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie technique due à un mot-clé ambigu ('volume') polluant les flux RSS généralistes. Aucun signal de baleine crypto détecté, bruit médiatique sans rapport avec la blockchain.\"\n}\n```",
+      "ts": "2026-09-19T17:09:21.884006+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": -2.6109629290600314,
+      "value": 7251295159.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique de volume détectée (z-score -2.61) mais les résultats médiatiques sont complètement pollués par du bruit sémantique hors-sujet. Absence de corrélation exploitable pour tracker une baleine.\"\n}\n```",
+      "ts": "2026-09-19T17:39:28.556611+00:00"
     }
   ]
 }
