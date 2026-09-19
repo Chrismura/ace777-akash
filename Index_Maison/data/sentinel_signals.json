@@ -2,27 +2,6 @@
   "signals": [
     {
       "metric": "fear_greed",
-      "zscore": 4.619846795057121,
-      "value": 71,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrême (4.62) indiquant une euphorie retail maximale (Greed 71) alors que les flux médiatiques sont absents ou apathiques. Divergence classique de fin de cycle : les baleines distribuent silencieusement sur la liquidité de détail.\"\n}\n```",
-      "ts": "2026-09-19T00:34:06.067717+00:00"
-    },
-    {
-      "metric": "price_1h",
-      "zscore": 3.036843372908225,
-      "value": 0.6454359350864802,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 3.04) non reflétée dans les médias, suggérant une accumulation discrète par les baleines.\"\n}\n```",
-      "ts": "2026-09-19T00:54:23.013293+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": -4.403330912884543,
-      "value": 0.008,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Anomalie statistique (z-score -4.40) sur un token obscur/homonyme ('SDI'). Les médias parlent de matériel vidéo (Serial Digital Interface) et de syndicats. Absence totale de mouvement crypto pertinent.\"\n}\n```",
-      "ts": "2026-09-19T01:04:25.926870+00:00"
-    },
-    {
-      "metric": "fear_greed",
       "zscore": 3.8129334558134556,
       "value": 71,
       "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrême (3.81) couplé à une cupidité élevée (71) sans couverture médiatique significative : classic setup de 'retail trap' où les baleines distribuent silencieusement dans l'indifférence des médias grand public.\"\n}\n```",
@@ -349,6 +328,27 @@
       "value": 1.06,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Le pic d'anomalie onchain (IPT = 1.06, z-score 2.09) ne correspond à aucun actif crypto majeur. Les titres médiatiques renvoient à des institutions académiques, religieuses ou des tournois de physique (École Polytechnique). Il s'agit d'un bruit de fond ou d'un télescopage de ticker sans lien avec une baleine crypto.\"\n}\n```",
       "ts": "2026-09-19T18:49:53.436663+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": -2.1023453786869197,
+      "value": 6857639150.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit médiatique sans rapport avec la crypto (actualités locales et lifestyle). Le volume onchain anormalement bas (z-score -2.10) reflète simplement une absence totale d'intérêt et de mouvement, pas une accumulation cachée.\"\n}\n```",
+      "ts": "2026-09-19T19:09:59.362037+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.521289472369275,
+      "value": 1.168,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Anomalie non pertinente : l'indicateur 'ipt' fait référence à des actualités académiques et institutionnelles (Tournoi de Physique, biotechnologies) et non à un token crypto ou un mouvement de baleines.\"\n}\n```",
+      "ts": "2026-09-19T19:20:01.755797+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": -2.0522536238687525,
+      "value": 6511653988.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit médiatique sans rapport avec la crypto (actualités locales et lifestyle). Anomalie de volume on-chain non corrélée à une baleine mais à une inattention des flux.\"\n}\n```",
+      "ts": "2026-09-19T19:40:07.820038+00:00"
     }
   ]
 }
