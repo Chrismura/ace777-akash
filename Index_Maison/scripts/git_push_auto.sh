@@ -34,6 +34,13 @@ if [ -f "$REPO_DIR/Index_Maison/scripts/drill_restauration.py" ]; then
   python3 "$REPO_DIR/Index_Maison/scripts/drill_restauration.py" >> "$LOG_FILE" 2>&1
 fi
 
+# 1quater) ORGANES HORS REPO (19/09) — ~/prise-ia (le HUB) n'était versionné NULLE PART.
+# Miroir des SOURCES (jamais .env ni logs) → Index_Maison/organes_hors_repo/ → part sur GitHub.
+# ~/mirofis, lui, est déjà versionné sur son git amont : on se contente de le déclarer.
+if [ -f "$REPO_DIR/Index_Maison/scripts/sync_organes_hors_repo.sh" ]; then
+  bash "$REPO_DIR/Index_Maison/scripts/sync_organes_hors_repo.sh" >> "$LOG_FILE" 2>&1
+fi
+
 # 2) Ne committer que les fichiers DÉJÀ SUIVIS (modifiés/supprimés) + les canoniques
 # Garde-fou 05/09 (incident index.lock orphelin du 03/09 : 2,5 jours de push mort
 # en silence, le 2>/dev/null avalait le rc=128 et le script disait « aucun changement ») :
@@ -50,6 +57,8 @@ fi
 git add -u 2>/dev/null || { echo "[$TS] ERREUR : git add a échoué (rc=$?)" >> "$LOG_FILE"; }
 # agents launchd versionnés (nouveaux fichiers → git add -u ne les prend pas)
 [ -d "$REPO_DIR/Index_Maison/plists" ] && git add Index_Maison/plists 2>/dev/null
+# organes hors repo mirés (nouveaux fichiers → git add -u ne les prend pas)
+[ -d "$REPO_DIR/Index_Maison/organes_hors_repo" ] && git add Index_Maison/organes_hors_repo 2>/dev/null
 # canoniques OUTBOX (s'ils existent, suivis ou non)
 for f in \
   Index_Maison/OUTBOX_OBSIDIAN/MEMOIRE_COLLAB.md \

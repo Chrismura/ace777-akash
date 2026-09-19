@@ -38,6 +38,7 @@ RACINE = Path(__file__).resolve().parent.parent.parent          # ~/ace777-test-
 IM = RACINE / "Index_Maison"
 REPO_PLISTS = IM / "plists"
 REGISTRE = IM / "strategie" / "REGISTRE_SYNAPSES.json"
+MANIFEST_ORGANES = IM / "thermo" / "organes_hors_repo.json"
 AGENTS = Path.home() / "Library" / "LaunchAgents"
 RAPPORT_MD = IM / "thermo" / "DRILL_RESTAURATION.md"
 RAPPORT_JSON = IM / "thermo" / "drill_restauration.json"
@@ -172,6 +173,56 @@ def chemins_invoques(plist_path: Path):
     return uniq
 
 
+# ── 4bis. ORGANES HORS REPO : restaurables AUTREMENT ? ──────────────────────
+# Leçon du 19/09 : le drill criait « trou » pour ~/mirofis (déjà versionné sur son
+# git amont) et pour ~/prise-ia (le hub, lui VRAIMENT non versionné). On distingue
+# désormais : versionné ailleurs (git amont) · miroir de sauvegarde frais · sinon TROU.
+def _charger_organes_hors_repo():
+    """Manifeste écrit par sync_organes_hors_repo.sh."""
+    if not MANIFEST_ORGANES.exists():
+        return [], None
+    try:
+        d = json.loads(MANIFEST_ORGANES.read_text(encoding="utf-8"))
+        return d.get("organes", []), d.get("ts")
+    except Exception:
+        return [], None
+
+
+def _git_amont(chemin, cache):
+    """URL du dépôt git qui contient `chemin` (plus proche ancêtre), ou None."""
+    p = Path(chemin)
+    if p.is_file():
+        p = p.parent
+    cle = str(p)
+    if cle in cache:
+        return cache[cle]
+    trouve = None
+    for anc in [p, *p.parents]:
+        if (anc / ".git").exists():
+            code, out, _ = run(["git", "-C", str(anc), "remote", "get-url", "origin"])
+            if code == 0 and out.strip():
+                trouve = out.strip()
+            break
+    cache[cle] = trouve
+    return trouve
+
+
+def _couvrir_hors_repo(chemin, manifeste, cache_git):
+    """Un organe hors repo est-il restaurable autrement ? → (couvert, comment)."""
+    url = _git_amont(chemin, cache_git)
+    if url:
+        return True, f"déjà versionné (git amont {url})"
+    for o in manifeste:
+        if o.get("mode") != "miroir-source":
+            continue
+        viv = o.get("chemin_vivant", "")
+        miroir = Path(o.get("chemin_miroir", "") or "")
+        if viv and (chemin == viv or chemin.startswith(viv + os.sep)) \
+                and miroir.is_dir() and any(miroir.rglob("*")):
+            return True, f"miroir de sauvegarde (organes_hors_repo/{miroir.name})"
+    return False, ""
+
+
 def etape_organes():
     """Pour chaque agent versionné : les chemins invoqués survivraient-ils ?"""
     dedans, dehors, absents, non_exec = {}, {}, [], []
@@ -212,11 +263,23 @@ def etape_organes():
         tete = "/".join(rel.parts[:2]) if rel.parts else chemin
         familles[tete] = familles.get(tete, 0) + 1
     organes_hors = [d for d in detail_dehors if not d["outil_systeme"]]
+    # Couverture : versionné ailleurs / miré / sinon TROU
+    manifeste, ts_manifeste = _charger_organes_hors_repo()
+    cache_git = {}
+    non_couverts = []
+    for d in organes_hors:
+        couvert, comment = _couvrir_hors_repo(d["chemin"], manifeste, cache_git)
+        d["couvert"] = couvert
+        d["couverture"] = comment
+        if not couvert:
+            non_couverts.append(d)
     return {
         "dedans": len(dedans), "dehors": len(dehors),
         "familles_dehors": dict(sorted(familles.items(), key=lambda x: -x[1])),
         "detail_dehors": detail_dehors,
         "organes_hors_repo": organes_hors,
+        "organes_hors_repo_non_couverts": non_couverts,
+        "manifeste_organes_ts": ts_manifeste,
         "absents": absents, "non_executables": non_exec,
     }
 
@@ -271,9 +334,9 @@ def main():
         trous.append(f"{len(rc['invalides'])} plist(s) versionné(s) invalide(s) (plutil -lint)")
     if absents_graves:
         trous.append(f"{len(absents_graves)} chemin(s) invoqué(s) par un agent n'existe(nt) plus")
-    if org["organes_hors_repo"]:
-        noms = sorted({d["chemin"] for d in org["organes_hors_repo"]})
-        trous.append(f"{len(noms)} organe(s) du projet vivent HORS git → non restaurables depuis le repo "
+    if org["organes_hors_repo_non_couverts"]:
+        noms = sorted({d["chemin"] for d in org["organes_hors_repo_non_couverts"]})
+        trous.append(f"{len(noms)} organe(s) du projet vivent HORS git SANS sauvegarde → non restaurables "
                      f"({', '.join(noms[:4])}{'…' if len(noms) > 4 else ''})")
     if src["supprimes"]:
         trous.append(f"{len(src['supprimes'])} fichier(s) SUIVI(s) supprimé(s) sur le disque")
@@ -325,13 +388,16 @@ def main():
     L.append(f"- Chemins **hors repo** (à sauvegarder autrement, git ne les ramène PAS) : **{org['dehors']}**")
     if org["organes_hors_repo"]:
         L.append("")
-        L.append("  **Organes du projet hors git** (git ne les ramène PAS → à sauvegarder à part) :")
+        L.append("  **Organes du projet hors git** (git ne les ramène PAS → il faut une autre source) :")
         L.append("")
-        L.append("  | Chemin | agent | rôle |")
-        L.append("  |---|---|---|")
+        L.append("  | Chemin | agent | rôle | restaurable ? |")
+        L.append("  |---|---|---|---|")
         for d in org["organes_hors_repo"][:20]:
             ch = d["chemin"].replace(str(Path.home()), "~", 1)
-            L.append(f"  | `{ch}` | `{d['agent'].replace('com.ace777.', '').replace('.plist', '')}` | {d['role']} |")
+            etat = ("✅ " + d["couverture"]) if d["couvert"] else "🔴 aucune sauvegarde"
+            L.append(f"  | `{ch}` | `{d['agent'].replace('com.ace777.', '').replace('.plist', '')}` | {d['role']} | {etat} |")
+        if org.get("manifeste_organes_ts"):
+            L.append(f"\n  Manifeste des organes hors repo : `thermo/organes_hors_repo.json` (mis à jour {org['manifeste_organes_ts']}).")
     outils = [d for d in org["detail_dehors"] if d["outil_systeme"]]
     if outils:
         noms = sorted({d["chemin"] for d in outils})
