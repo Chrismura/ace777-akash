@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "long_short",
-      "zscore": -3.717443743877397,
-      "value": 0.951,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Z-score extrêmement bas (-3.72) indiquant une capitulation massive des positions longues par le retail, tandis que les médias traditionnels parlent de stratégies long-short généralistes sans lien avec la crypto. Classic setup de 'washout' des traders particuliers avant un retournement haussier dicté par les gros porteurs.\"\n}\n```",
-      "ts": "2026-09-18T18:01:52.991359+00:00"
-    },
-    {
       "metric": "volume",
       "zscore": 2.1297424964702834,
       "value": 16421946145.0,
@@ -349,6 +342,13 @@
       "value": 50.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit de fond médiatique sans lien avec la crypto. Les occurrences du mot 'dust' concernent de l'IA (startup Dust), de la météo (dust devil) et de la culture. Aucune baleine détectée.\"\n}\n```",
       "ts": "2026-09-19T07:12:33.769068+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.2070247126577884,
+      "value": 1.06,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (IPT z-score 2.21) entièrement corrélée au bruit médiatique institutionnel et universitaire (Institut Protestant de Théologie, Tournoi de Physique). Aucune activité de baleine crypto détectée, le ticker 'IPT' étant pollué par des homonymes non-financiers.\"\n}\n```",
+      "ts": "2026-09-19T10:13:03.709316+00:00"
     }
   ]
 }

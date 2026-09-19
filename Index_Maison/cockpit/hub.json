@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-19T09:58:08.844754+00:00",
+  "generated_at": "2026-09-19T10:58:13.147948+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 106
+      "calls_24h": 107
     },
     {
       "id": "openrouter-free",
@@ -35,7 +35,7 @@
       "model": "groq/compound",
       "enabled": true,
       "timeout": 120,
-      "calls_24h": 11
+      "calls_24h": 13
     },
     {
       "id": "nvidia",
@@ -265,10 +265,34 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 63,
-    "remaining": 561
+    "consumed": 66,
+    "remaining": 558
   },
   "queue": [
+    {
+      "ts": "2026-09-19T10:13:03.708055+00:00",
+      "task": "analyse.profonde",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 1.14
+    },
+    {
+      "ts": "2026-09-19T09:58:12.026230+00:00",
+      "task": "supervise.decision",
+      "provider": "groq",
+      "model": "groq/compound",
+      "kind": "cloud",
+      "duration_s": 2.13
+    },
+    {
+      "ts": "2026-09-19T09:58:10.603618+00:00",
+      "task": "supervise.decision",
+      "provider": "groq",
+      "model": "groq/compound",
+      "kind": "cloud",
+      "duration_s": 2.5
+    },
     {
       "ts": "2026-09-19T08:58:00.754688+00:00",
       "task": "supervise.decision",
@@ -364,89 +388,65 @@
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
       "duration_s": 21.13
-    },
-    {
-      "ts": "2026-09-19T06:36:56.927124+00:00",
-      "task": "analyse.profonde",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 18.42
-    },
-    {
-      "ts": "2026-09-19T06:30:37.754165+00:00",
-      "task": "cortana.analyse",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 3.19
-    },
-    {
-      "ts": "2026-09-19T06:30:33.707957+00:00",
-      "task": "cortana.analyse",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 2.76
     }
   ],
   "events": [
     {
-      "ts": "2026-09-19T09:58:08.106177+00:00",
-      "kind": "failover",
-      "title": "Saute (blacklist) depuis Google Gemini",
-      "detail": "0 attente"
-    },
-    {
-      "ts": "2026-09-19T09:58:06.748498+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis InferX DeepSeek V4 Flash (API gratuite jusqu'au 12/08)",
-      "detail": "HTTP Error 429: Too Many Requests"
-    },
-    {
-      "ts": "2026-09-19T09:58:05.539703+00:00",
+      "ts": "2026-09-19T10:58:08.805944+00:00",
       "kind": "failover",
       "title": "Bascule depuis OpenRouter Juge (nemotron-3-super-120b free) - verificateur independant",
       "detail": "HTTP Error 400: Bad Request"
     },
     {
-      "ts": "2026-09-19T09:58:04.243813+00:00",
+      "ts": "2026-09-19T10:58:07.444496+00:00",
       "kind": "failover",
       "title": "Bascule depuis OrcaRouter (routeur gratuit, modele orcarouter/free)",
       "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-09-19T09:58:02.097450+00:00",
+      "ts": "2026-09-19T10:58:05.755518+00:00",
       "kind": "failover",
       "title": "Bascule depuis HuggingFace (136+ modeles, dont DeepSeek-V4)",
       "detail": "HTTP Error 400: Bad Request"
     },
     {
-      "ts": "2026-09-19T09:57:57.350146+00:00",
+      "ts": "2026-09-19T10:58:05.754583+00:00",
+      "kind": "blacklist",
+      "title": "Pause HuggingFace (136+ modeles, dont DeepSeek-V4) (3 echecs) 15min",
+      "detail": "backoff x1 -> re-essai auto"
+    },
+    {
+      "ts": "2026-09-19T10:58:01.208167+00:00",
       "kind": "timeout",
       "title": "Patience HuggingFace (136+ modeles, dont DeepSeek-V4) (HTTP 400)",
       "detail": "HTTP Error 400: Bad Request"
     },
     {
-      "ts": "2026-09-19T09:57:55.373751+00:00",
+      "ts": "2026-09-19T10:57:59.529932+00:00",
       "kind": "failover",
       "title": "Bascule depuis Groq (LLM ultra-rapide, gratuit)",
       "detail": "HTTP Error 400: Bad Request"
     },
     {
-      "ts": "2026-09-19T09:57:51.299840+00:00",
+      "ts": "2026-09-19T10:57:59.529269+00:00",
+      "kind": "blacklist",
+      "title": "Pause Groq (LLM ultra-rapide, gratuit) (3 echecs) 15min",
+      "detail": "backoff x1 -> re-essai auto"
+    },
+    {
+      "ts": "2026-09-19T10:57:55.472350+00:00",
       "kind": "timeout",
       "title": "Patience Groq (LLM ultra-rapide, gratuit) (HTTP 400)",
       "detail": "HTTP Error 400: Bad Request"
     },
     {
-      "ts": "2026-09-19T09:57:50.551115+00:00",
+      "ts": "2026-09-19T10:57:54.407864+00:00",
       "kind": "failover",
       "title": "Bascule depuis Google Gemini",
       "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-09-19T09:57:50.550360+00:00",
+      "ts": "2026-09-19T10:57:54.407121+00:00",
       "kind": "ratelimit",
       "title": "429 Google Gemini -> pause 60s + bascule",
       "detail": ""
