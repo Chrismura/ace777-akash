@@ -1,34 +1,6 @@
 {
   "signals": [
     {
-      "metric": "long_short",
-      "zscore": -5.339923322642653,
-      "value": 1,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Le z-score extrême (-5.34) indique un positionnement vendeur totalement asymétrique des institutionnels, tandis que les médias grand public banalisent la stratégie long/short. Classique piège à liquidité : le marché s'apprête à purger les shorts massifs par un short squeeze violent.\"\n}\n```",
-      "ts": "2026-09-18T17:00:51.021110+00:00"
-    },
-    {
-      "metric": "taker_ratio",
-      "zscore": -2.663825259709432,
-      "value": 0.5,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio à 0.5 (z-score -2.66) indique une domination massive des acheteurs passifs (limites) tandis que les médias affichent un vide informationnel total. C'est la signature classique d'accumulation silencieuse par les baleines loin du bruit médiatique.\"\n}\n```",
-      "ts": "2026-09-18T17:00:57.679770+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": 2.361959875933601,
-      "value": 16268093963.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique de volume (z-score 2.36) sans lien avec la crypto. Les titres médiatiques traitent de sujets sans rapport (médecine, IA, bourse traditionnelle, culture). Bruit de fond, pas de mouvement silencieux de baleine détecté.\"\n}\n```",
-      "ts": "2026-09-18T17:31:33.939388+00:00"
-    },
-    {
-      "metric": "long_short",
-      "zscore": -4.504423659420018,
-      "value": 0.951,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Z-score extrême de -4.50 sur le ratio long/short indiquant une sous-exposition massive des traders particuliers, tandis que les médias grand public parlent de stratégies macro traditionnelles sans voir le positionnement contrarien imminent des baleines.\"\n}\n```",
-      "ts": "2026-09-18T17:31:39.632738+00:00"
-    },
-    {
       "metric": "ipt",
       "zscore": 2.3659075135093595,
       "value": 1.156,
@@ -349,6 +321,34 @@
       "value": 71,
       "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Euphorie extrême (Fear & Greed à 71 avec un z-score de 2.01) combinée à un vide médiatique total (Google Actualités muet). Divergence classique de sommet : les baleines distribuent dans l'indifférence publique avant un retournement.\"\n}\n```",
       "ts": "2026-09-19T04:36:11.007642+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 3.565898617424424,
+      "value": 4607770.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (3.57) combiné à une absence totale de couverture médiatique (Google Actualités muet) : accumulation silencieuse classique par des institutionnels hors du radar public.\"\n}\n```",
+      "ts": "2026-09-19T06:06:33.859854+00:00"
+    },
+    {
+      "metric": "taker_ratio",
+      "zscore": 2.214463850692651,
+      "value": 1.488,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio élevé (z-score 2.21) indique une forte agression acheteuse sur les carnets d'ordres, signalant une accumulation agressive et silencieuse des baleines, totalement ignorée par le vide médiatique actuel.\"\n}\n```",
+      "ts": "2026-09-19T06:06:35.083097+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 4.706142982401969,
+      "value": 5987824.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (z-score 4.71) combinée à un silence médiatique absolu (Google Actualités vide). Les baleines accumulent dans l'ombre sans attirer la foule.\"\n}\n```",
+      "ts": "2026-09-19T06:36:56.928072+00:00"
+    },
+    {
+      "metric": "taker_ratio",
+      "zscore": 2.074587380590989,
+      "value": 1.488,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Un taker_ratio de 1.488 (z-score 2.07) indique une forte dominance des acheteurs agressifs (Taker Buy), absorbant l'offre de manière anormale. Le vide médiatique (Google Actualités silencieux) prouve que cette accumulation agressive se fait sous le radar institutionnel, loin du FOMO public.\"\n}\n```",
+      "ts": "2026-09-19T06:37:18.380786+00:00"
     }
   ]
 }
