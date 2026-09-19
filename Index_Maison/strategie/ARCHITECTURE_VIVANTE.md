@@ -1,4 +1,4 @@
-# ARCHITECTURE VIVANTE — ACE777 (2026-09-19 13:50 UTC)
+# ARCHITECTURE VIVANTE — ACE777 (2026-09-19 14:55 UTC)
 
 > Document GÉNÉRÉ AUTOMATIQUEMENT à l'instant. La famille valide
 > en s'appuyant sur CE contexte, pas sur des documents figés.
@@ -9,7 +9,7 @@
 - ✅ radar
 - ⛔ lecteur signets
 - ⛔ générateur fiches
-- ⛔ feed mission
+- ✅ feed mission
 - ✅ serveur cockpit
 
 ## Routage des tâches de décision
@@ -22,11 +22,11 @@
 
 ## État de la mission (bots + PnL)
 
-- mission.json : 2026-09-19 13:50Z · run `MASTER_BASE_V8_6_FORTRESS_8H20` · alerte `nominal`
+- mission.json : 2026-09-19 14:55Z · run `MASTER_BASE_V8_6_FORTRESS_8H20` · alerte `nominal`
 - PnL combiné : **0.70 $** 📈 (combo 0.7028)
 - ALPHA (sniper (embuscade, ×13, revenge si claque)) : **-1.97 $** · 7 fills · 6973 skips
 - BETA (éclaireur (chatouille le marché, alimente Alpha)) : **+2.67 $** · 34 fills · 604 skips
-- HULK (gestionnaire de portefeuille (bag, escalier, courreur)) : **+17.31 $** · 0 fills
+- HULK (gestionnaire de portefeuille (bag, escalier, courreur)) : **+17.07 $** · 0 fills
 - Saison : CALME 🧊 · 
 
 ## Veille du jour
@@ -66,10 +66,10 @@
 ## Mémoire chaude (journal + résumés)
 
 - Radar (dernières alertes) :
-  · 2026-09-19T13:50:49.268837Z BTCUSDT 81228.37 0.0005 10.8 declenche=non
-  · 2026-09-19T13:50:49.462021Z BTCUSDT 81228.36 0.0005 10.8 declenche=non
-  · 2026-09-19T13:50:49.685729Z BTCUSDT 81228.37 0.0005 10.9 declenche=oui
-  · 2026-09-19T13:50:49.765026Z BTCUSDT 81228.36 0.0005 10.9 declenche=oui
+  · 2026-09-19T14:55:18.934089Z ETHUSDT 2638.76 0.0007 356.4 declenche=oui
+  · 2026-09-19T14:55:18.934215Z BTCUSDT 81539.37 0.0002 10.2 declenche=non
+  · 2026-09-19T14:55:18.934343Z ETHUSDT 2638.77 0.0007 357.3 declenche=oui
+  · 2026-09-19T14:55:18.934467Z ETHUSDT 2638.76 0.0007 359.1 declenche=oui
 - Intention en cours : BETA a sonde le marche (34 sondes, 25 long / 9 court, conf m | ALPHA attend son signal — aucun tir sur la session en cours.
 - 935 signets X résumés (quota aujourd'hui : 0/50)
 - 119 fiches IA d'offres en cache (quota 8/jour)

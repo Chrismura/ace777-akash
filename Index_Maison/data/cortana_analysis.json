@@ -1,20 +1,20 @@
 {
-  "timestamp": 1789826442,
-  "date": "2026-09-19T14:00:42.649713+00:00",
+  "timestamp": 1789829743,
+  "date": "2026-09-19T14:55:43.738513+00:00",
   "n_analyses": 1,
   "analyses": [
     {
       "signal": {
-        "metric": "ipt",
-        "zscore": 2.000539097205273,
-        "value": 1.02,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique non pertinent. Les occurrences 'IPT' font référence à des institutions académiques et des faits divers, totalement déconnectées de la crypto-sphère ou de mouvements de baleines.\"\n}\n```",
-        "ts": 1789825414.646907
+        "metric": "volume",
+        "zscore": -2.661867134751349,
+        "value": 9412957583.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique de volume (z-score -2.66) noyée dans un bruit médiatique totalement hors sujet (actualités locales et lifestyle sans rapport avec la crypto). Absence de signal baleine avéré.\"\n}\n```",
+        "ts": 1789828726.784948
       },
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.05,
+          "value": 0.19,
           "seuil": 1,
           "depasse": false
         },
@@ -29,7 +29,7 @@
           "depasse": false
         },
         "whales": {
-          "value": 1,
+          "value": 0,
           "seuil": 5,
           "depasse": false
         }

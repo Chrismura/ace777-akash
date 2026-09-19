@@ -1,15 +1,15 @@
 {
   "version": "v2",
   "n": 317,
-  "total_hit": 95,
-  "total_scored": 181,
-  "pct": 52.5,
+  "total_hit": 91,
+  "total_scored": 182,
+  "pct": 50.0,
   "directionnel": {
     "hit": 47,
-    "n": 83,
-    "pct": 56.6
+    "n": 84,
+    "pct": 56.0
   },
-  "t_stat_global": 0.67,
+  "t_stat_global": 0.0,
   "par_ere": {
     "avant_1908": {
       "hit": 34,
@@ -20,8 +20,8 @@
       "n": 31
     },
     "depuis_0309": {
-      "hit": 47,
-      "n": 91
+      "hit": 43,
+      "n": 92
     }
   },
   "seuil_move_pct": 0.3,
@@ -69,6 +69,15 @@
       "dir_hit": 7,
       "neutre": 7,
       "t_stat": -0.24,
+      "verdict": null,
+      "n_min_verdict": 20
+    },
+    "etfBtcM": {
+      "hit": 0,
+      "n": 1,
+      "dir_n": 1,
+      "neutre": 0,
+      "t_stat": -1.0,
       "verdict": null,
       "n_min_verdict": 20
     },
@@ -138,10 +147,10 @@
       "n_min_verdict": 20
     },
     "longShort": {
-      "hit": 1,
+      "hit": 0,
       "n": 1,
       "neutre": 1,
-      "t_stat": 1.0,
+      "t_stat": -1.0,
       "verdict": null,
       "n_min_verdict": 20
     },
@@ -162,10 +171,10 @@
       "n_min_verdict": 20
     },
     "pipeline_health": {
-      "hit": 1,
+      "hit": 0,
       "n": 1,
       "neutre": 1,
-      "t_stat": 1.0,
+      "t_stat": -1.0,
       "verdict": null,
       "n_min_verdict": 20
     },
@@ -180,18 +189,18 @@
       "n_min_verdict": 20
     },
     "rbf": {
-      "hit": 1,
+      "hit": 0,
       "n": 1,
       "neutre": 1,
-      "t_stat": 1.0,
+      "t_stat": -1.0,
       "verdict": null,
       "n_min_verdict": 20
     },
     "score": {
-      "hit": 1,
+      "hit": 0,
       "n": 1,
       "neutre": 1,
-      "t_stat": 1.0,
+      "t_stat": -1.0,
       "verdict": null,
       "n_min_verdict": 20
     },
@@ -222,10 +231,10 @@
     "avis": "NEUTRE",
     "horizon": "24h",
     "confiance": "faible",
-    "statut": "HIT ✅",
-    "detail": "81195 -> 81223 (+0.03%)",
-    "move_pct": 0.03,
-    "indice_move_pct": 4.48
+    "statut": "MISS ❌",
+    "detail": "81195 -> 81467 (+0.34%)",
+    "move_pct": 0.34,
+    "indice_move_pct": 25.37
   },
   "zone_morte": {
     "seuil_funding": 0.0002
@@ -238,5 +247,5 @@
     "seuil_pct": 60.0,
     "note": "NEUTRE émis alors que le signal existe — si >60% des avis, alarme évitement"
   },
-  "ts": "2026-09-19T13:44:15.979259+00:00"
+  "ts": "2026-09-19T14:44:35.647975+00:00"
 }
