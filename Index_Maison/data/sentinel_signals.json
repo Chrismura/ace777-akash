@@ -2,34 +2,6 @@
   "signals": [
     {
       "metric": "whale_usd",
-      "zscore": 3.1099805905452693,
-      "value": 4913359.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 3.11, ~4.9M USD) sans couverture médiatique correspondante (Google Actualités muet). Classic accumulation furtive de baleines en 'blind spot' médiatique.\"\n}\n```",
-      "ts": "2026-09-18T11:58:46.273824+00:00"
-    },
-    {
-      "metric": "long_short",
-      "zscore": -2.462906484699979,
-      "value": 1.258,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Le z-score extrêmement bas (-2.46) indique une sous-exposition massive des traders particuliers et un pessimisme excessif, tandis que les médias grand public se focalisent sur des produits financiers traditionnels. C'est un signal classique de capitulation locale et d'accumulation silencieuse par les baleines avant un retournement haussier.\"\n}\n```",
-      "ts": "2026-09-18T12:08:49.386226+00:00"
-    },
-    {
-      "metric": "cpfp",
-      "zscore": 2.2028759728073535,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique purement locale (frais d'urgence CPFP pour débloquer des transactions Bitcoin) noyée dans du bruit médiatique sans lien avec l'activité des baleines.\"\n}\n```",
-      "ts": "2026-09-18T12:13:53.045994+00:00"
-    },
-    {
-      "metric": "dust",
-      "zscore": 2.2028759728073535,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Fausse alerte liée à une homonymie : le 'dust' onchain est confondu dans le narratif médiatique avec l'entreprise SaaS française d'IA 'Dust' (fondée par Stanislas Polu).\"\n}\n```",
-      "ts": "2026-09-18T12:13:55.037343+00:00"
-    },
-    {
-      "metric": "whale_usd",
       "zscore": 2.7213734196313184,
       "value": 4422032.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 2.72) traduisant une accumulation discrète de 4.4M$ par les baleines, totalement ignorée par les médias traditionnels (silence médiatique). Classic setup de divergence avant un mouvement impulsif.\"\n}\n```",
@@ -349,6 +321,34 @@
       "value": 1.64,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Taker ratio à 1.64 (Z-score 3.05) indique une agression massive des acheteurs (Taker Buys) sur le marché des dérivés, totalement ignorée par le vide médiatique actuel. C'est la signature classique d'accumulation silencieuse par les baleines avant un re-pricing.\"\n}\n```",
       "ts": "2026-09-19T01:39:41.988981+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": -3.1812336117572277,
+      "value": 0.004,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Anomalie technique due à une confusion sémantique. Le 'SDI' onchain (indice de mouvement) est totalement déconnecté des articles médiatiques qui font référence à la norme vidéo SDI (Serial Digital Interface) et à des syndicats professionnels. Aucun mouvement de baleine crypto détecté.\"\n}\n```",
+      "ts": "2026-09-19T02:04:48.457754+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 2.9465918335386045,
+      "value": 71,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrême (2.95) combiné à une cupidité élevée (71) sans couverture médiatique majeure : classique 'bull trap' de distribution par les baleines dans le silence.\"\n}\n```",
+      "ts": "2026-09-19T02:04:49.705318+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": -2.8124097708074425,
+      "value": 0.008,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Anomalie statistique (z-score -2.81) liée à un bruit médiatique homonyme ('SDI' pour matériel vidéo et politique) et non à une activité de baleines crypto.\"\n}\n```",
+      "ts": "2026-09-19T02:34:57.966732+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 2.6753965087203877,
+      "value": 71,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.68) et Fear & Greed à 71 (euphorie) couplé à un vide médiatique total suggèrent une surchauffe locale. Les smart money/baleines profitent de cette complaisance de détail pour distribuer silencieusement avant un retournement.\"\n}\n```",
+      "ts": "2026-09-19T02:34:59.174659+00:00"
     }
   ]
 }

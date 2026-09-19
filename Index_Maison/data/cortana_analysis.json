@@ -1,49 +1,15 @@
 {
-  "timestamp": 1789783220,
-  "date": "2026-09-19T02:00:20.656041+00:00",
-  "n_analyses": 4,
+  "timestamp": 1789786521,
+  "date": "2026-09-19T02:55:21.660518+00:00",
+  "n_analyses": 2,
   "analyses": [
     {
       "signal": {
-        "metric": "price_1h",
-        "zscore": 2.735793325689073,
-        "value": 0.6430426261636368,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie de prix à court terme (z-score 2.74) détectée, mais absence totale de couverture médiatique ou de narratif associé. Données insuffisantes pour confirmer une accumulation ou une distribution silencieuse par des baleines.\"\n}\n```",
-        "ts": 1789781675.644204
-      },
-      "fiche": "price_1h",
-      "questions": {
-        "pct_1h": {
-          "value": -0.46,
-          "seuil": -1,
-          "depasse": true
-        },
-        "liq": {
-          "value": 2837876.0,
-          "seuil": 5000000,
-          "depasse": false
-        },
-        "funding": {
-          "value": 8.9e-05,
-          "seuil": 0,
-          "depasse": true
-        }
-      },
-      "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
-      },
-      "action": "Observer",
-      "niveau": "neutre"
-    },
-    {
-      "signal": {
         "metric": "sdi",
-        "zscore": -3.669265185956175,
-        "value": 0.004,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le score SDI onchain extrêmement bas (z-score -3.67) indique une compression anormale de la volatilité et une absence totale d'activité publique, tandis que le bruit médiatique est totalement saturé par des homonymes hors-sujets (technologie vidéo SDI, actualités politiques). Classic 'silent accumulation' : les baleines ramassent dans le silence radio le plus complet, loin du radar de la foule.\"\n}\n```",
-        "ts": 1789781678.70399
+        "zscore": -2.8124097708074425,
+        "value": 0.008,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Anomalie statistique (z-score -2.81) liée à un bruit médiatique homonyme ('SDI' pour matériel vidéo et politique) et non à une activité de baleines crypto.\"\n}\n```",
+        "ts": 1789785297.966732
       },
       "fiche": null,
       "interpretation": {
@@ -55,10 +21,10 @@
     {
       "signal": {
         "metric": "fear_greed",
-        "zscore": 3.3050819776491007,
+        "zscore": 2.6753965087203877,
         "value": 71,
-        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrême (3.31) couplé à une euphorie médiatique et un Fear & Greed à 71. Divergence classique de surchauffe : le retail achète le narratif public pendant que les baleines initient la distribution silencieuse.\"\n}\n```",
-        "ts": 1789781679.926214
+        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.68) et Fear & Greed à 71 (euphorie) couplé à un vide médiatique total suggèrent une surchauffe locale. Les smart money/baleines profitent de cette complaisance de détail pour distribuer silencieusement avant un retournement.\"\n}\n```",
+        "ts": 1789785299.174659
       },
       "fiche": "fear_greed",
       "questions": {
@@ -80,36 +46,6 @@
       },
       "action": "Observer",
       "niveau": "neutre"
-    },
-    {
-      "signal": {
-        "metric": "taker_ratio",
-        "zscore": 3.047466737862918,
-        "value": 1.64,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Taker ratio à 1.64 (Z-score 3.05) indique une agression massive des acheteurs (Taker Buys) sur le marché des dérivés, totalement ignorée par le vide médiatique actuel. C'est la signature classique d'accumulation silencieuse par les baleines avant un re-pricing.\"\n}\n```",
-        "ts": 1789781981.988981
-      },
-      "fiche": "taker_ratio",
-      "questions": {
-        "taker": {
-          "value": 1.64,
-          "seuil": 1,
-          "depasse": true
-        },
-        "prix": {
-          "value": -0.46,
-          "seuil": 1,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "taker > 1",
-        "lecture": "Takers acheteurs agressifs — la demande mange le carnet, à confirmer avec le volume",
-        "niveau": "info",
-        "action": "Observer si le prix suit (vraie demande) ou diverge (absorption)"
-      },
-      "action": "Observer si le prix suit (vraie demande) ou diverge (absorption)",
-      "niveau": "info"
     }
   ],
   "resume": "🔵 CALME — pas de signal alarmant"
