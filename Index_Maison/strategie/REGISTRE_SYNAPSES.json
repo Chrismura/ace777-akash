@@ -1,6 +1,6 @@
 {
   "version": "1.4.7",
-  "updated": "2026-09-19T12:56Z",
+  "updated": "2026-09-19T13:21Z",
   "fichier": [
     {
       "nom": "Index_Maison/scripts/v2_duo_replay_4h.py",
@@ -614,8 +614,9 @@
       "origine": "GEOPOL-C2 — GO Christophe 12/09",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "fc7261bf886fa8c1029c9582a4261004",
-      "note": "GEOPOL-C2 : geopol ajouté à la rotation notée (radar/funding/fearGreed/geopol) — plist 08h30/20h30 inchangée"
+      "md5": "a46c8a39a4fc16cda5c8669df96c3d6b",
+      "note": "GEOPOL-C2 : geopol ajouté à la rotation notée (radar/funding/fearGreed/geopol) — plist 08h30/20h30 inchangée | RÉACTIVATION 19/09 : les 4 cœurs gardent leur cadence ; 2 indices « réactivés » par passage en ROTATION (tick 12 h) → les 13 indices morts sont rafraîchis ≈ tous les 3,2 j (seuil 14 j). +2 appels/passage, aucune capacité retirée, réversible. | R15 « TOUJOURS BRANCHER » 19/09 : +5 indices (rbf, pipeline_health, longShort, etfBtcM, score) → les 15 bulles de l'app Indices sont couvertes. Rotation 3/passage sur 18 réactivés (cycle 3 j), cœurs inchangés.",
+      "date": "2026-09-19T13:21Z"
     },
     {
       "nom": "Index_Maison/scripts/thermo_quotidien_free.py",
@@ -665,8 +666,10 @@
       "origine": "Buffy (P1 du dossier BOUCLE_APPRENTISSAGE_DIAGNOSTIC_ET_PLAN_20260913.md)",
       "verif": "COMPILE OK + tests --test verts + run réel : directionnel/t_stat_global/par_ere/verdicts écrits",
       "auto_modifiable": false,
-      "md5": "8d15eae78b3ac2d09dffb6617ca4fc91",
-      "ts": "2026-09-17T11:55:44Z"
+      "md5": "cab88dd8c04069246c9ffc4a359540a5",
+      "ts": "2026-09-17T11:55:44Z",
+      "date": "2026-09-19T13:14Z",
+      "note": "R14 19/09 : carnet DIRECTIONNEL par indice (dir_hit/dir_n) — LECON-041 appliquée au niveau de l'indice (le hit/n par indice mélangeait NEUTRE et paris directionnels, d'où le faux « geopol CRITIQUE »)."
     },
     {
       "nom": "Index_Maison/scripts/cortana_analyse.py",
@@ -674,8 +677,10 @@
       "origine": "Buffy (P2 du dossier BOUCLE_APPRENTISSAGE_DIAGNOSTIC_ET_PLAN_20260913.md)",
       "verif": "COMPILE OK + bloc prouvé dans contexte_systeme() réel (2 lignes avec chiffres honnêtes)",
       "auto_modifiable": false,
-      "md5": "608e3de51a3603a8953c1aa4145ea745",
-      "ts": "2026-09-17T11:55:44Z"
+      "md5": "90d01465ff3c29f3acde8f5e9199da90",
+      "ts": "2026-09-17T11:55:44Z",
+      "date": "2026-09-19T13:07Z",
+      "note": "RÉACTIVATION 19/09 (GO Christophe « réactiver indices ») : ajout de l'indice cœur « btc » au LEXIQUE + branche build_facts (lit live.mark) — il n'était plus analysable depuis le 10/08."
     },
     {
       "nom": "Index_Maison/scripts/kronos_ombre.py",
@@ -926,9 +931,9 @@
       "origine": "recensement RÈGLE D'OR 19/09",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "1445d0aede52cbfd81f229f7df779e5b",
-      "date": "2026-09-19T12:56Z",
-      "note": "Scellé 19/09 : l'instrument qui mesure les règles est lui-même scellé (rituel maison). R10 ajouté 19/09 soir : SATURATION DE L'HÔTE (RAM réelle via memory_pressure, swap, disque, charge) — signal SRE, distinct de R2. Appelé par git_push_auto.sh. | v3 19/09 soir : + R11 (fail-safe), R12 (sauvegarde prouvée par restauration), R13 (auto-réparation bornée), R14 (anti cry-wolf), + R7 gère les DÉROGATIONS déclarées (strategie/derogations_regles.json)."
+      "md5": "35aaae76475282dc47a965faba4149b0",
+      "date": "2026-09-19T13:21Z",
+      "note": "Scellé 19/09 : l'instrument qui mesure les règles est lui-même scellé (rituel maison). R10 ajouté 19/09 soir : SATURATION DE L'HÔTE (RAM réelle via memory_pressure, swap, disque, charge) — signal SRE, distinct de R2. Appelé par git_push_auto.sh. | v3 19/09 soir : + R11 (fail-safe), R12 (sauvegarde prouvée par restauration), R13 (auto-réparation bornée), R14 (anti cry-wolf), + R7 gère les DÉROGATIONS déclarées (strategie/derogations_regles.json). | R15 19/09 : mesure « ce qui est affiché est analysé ou déclaré » (15 bulles app Indices vs rotation analyste + affichage-seul déclaré). 11 règles mesurables."
     },
     {
       "nom": "Index_Maison/scripts/consulter_famille_hub.py",
@@ -966,8 +971,9 @@
       "origine": "R14 règles d'or 19/09 (GO Christophe « applique au mieux ces observations »)",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "d004c9435eab7ae4cc523335ba5c159a",
-      "date": "2026-09-19T12:56Z"
+      "md5": "0050900b2808199fcdff82a87f5599e6",
+      "date": "2026-09-19T13:14Z",
+      "note": "R14 19/09 (suite) : garde-fou d'échantillon sur la calibration (n >= 10 pour juger CRITIQUE/INSTABLE) — sans lui, réactiver les indices fabriquait 7 faux CRITIQUE (n=2). | R14 19/09 (diagnostic geopol) : la calibration se juge désormais sur les paris DIRECTIONNELS et seulement à partir de n >= n_min_verdict (20, règle du scoreur LECON-042). En dessous : nouveau statut EN OBSERVATION (ni bon ni mauvais). Corrige le faux CRITIQUE de geopol (4 paris directionnels seulement)."
     },
     {
       "nom": "Index_Maison/strategie/derogations_regles.json",
@@ -978,6 +984,16 @@
       "md5": "5625a509df3ae88a56740d40c60273eb",
       "date": "2026-09-19T12:56Z",
       "note": "Contient la dérogation R7 : provider inferx (payant marqué, utilisé sans facturation) toléré jusqu'à retour gratuit ou facturation."
+    },
+    {
+      "nom": "Index_Maison/strategie/branchements_declares.json",
+      "role": "R15 — déclarations « affichage seul » (ce qu'on affiche mais qu'on n'analyse pas volontairement, avec la raison)",
+      "origine": "GO Christophe 19/09 (règle d'or « toujours brancher »)",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "e16040f514ef7aad57f53584781396cc",
+      "date": "2026-09-19T13:21Z",
+      "note": "2 cas : justesse (le score lui-même) et ace (statut du bot). Toute nouvelle bulle doit être branchée ou déclarée ici."
     }
   ]
 }

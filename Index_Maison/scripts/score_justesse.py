@@ -411,6 +411,13 @@ def build_resume(analyses, history):
                 dir_scored += 1
                 if v["statut"] == "HIT ✅":
                     dir_hit += 1
+                # R14 (19/09) : carnet DIRECTIONNEL par indice. LECON-041 s'applique
+                # aussi au niveau de l'indice : le `hit/n` par indice MÉLANGE les
+                # NEUTRE et les paris directionnels (c'est ce mélange qui déclarait
+                # « geopol CRITIQUE » alors que le scoreur lui-même n'a pas de verdict).
+                par_indice[indice]["dir_n"] = par_indice[indice].get("dir_n", 0) + 1
+                if v["statut"] == "HIT ✅":
+                    par_indice[indice]["dir_hit"] = par_indice[indice].get("dir_hit", 0) + 1
             # P1 : carnet par ère — la date d'émission séparée (LECON-040 :
             # LONG 68 % avant le 19/08, 25 % après = le régime, pas l'analyste)
             ts_an = str(an.get("ts") or "")

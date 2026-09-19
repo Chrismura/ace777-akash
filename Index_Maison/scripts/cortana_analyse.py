@@ -78,6 +78,9 @@ LEXIQUE = {
     "score": ("Score composite", "/100"),
     "climate": ("Climat", "label"),
     "mark": ("Prix mark BTC", "USD"),
+    # RÉACTIVÉ 19/09 (GO Christophe « réactiver indices ») : l'indice cœur « btc »,
+    # mort depuis le 10/08/2026. Il lit le champ live « mark » (il n'existe pas de clé « btc »).
+    "btc": ("Bitcoin BTC (prix mark)", "USD"),
     "radar": ("Radar climat (global)", "climat"),
     "bassine": ("Bassine / mur (score thermo)", "/100"),
     "verre": ("Verre d'eau (chaleur activite)", "%"),
@@ -656,6 +659,13 @@ def build_facts(indice):
         g = live.get("geopol") or {}
         vval = g.get("score")
         vnote = f"niveau {g.get('niveau')} · ml {g.get('ml_score')} · modules {g.get('nb_modules')}"
+    elif indice == "btc":
+        # RÉACTIVÉ 19/09 (GO Christophe « réactiver indices ») : indice cœur, mort depuis le
+        # 10/08. Il n'y a pas de clé « btc » dans live.json → on lit « mark » (prix BTC).
+        base_key, name, unit = "mark", LEXIQUE["btc"][0], LEXIQUE["btc"][1]
+        vval = live.get("mark")
+        vnote = (f"chg24 {live.get('chg24')}% · chg1h {live.get('chg1h')}% · "
+                 f"dominance {live.get('btcDominance')}%")
     else:
         base_key, vval, vnote = indice, live.get(indice), None
         name, unit = LEXIQUE.get(indice, (indice, ""))

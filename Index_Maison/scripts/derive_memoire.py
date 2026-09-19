@@ -230,10 +230,24 @@ def main():
             elif h is False:
                 misses_texte += 1
 
+        # ── R14 (19/09) — DEUX corrections pour ne plus crier à tort sur la calibration ──
+        # ① POPULATION : on juge sur les paris DIRECTIONNELS (LONG/SHORT), pas sur le
+        #    `hit/n` brut qui MÉLANGE les NEUTRE (LECON-041). C'est ce mélange qui
+        #    déclarait « geopol CRITIQUE » alors que le scoreur lui-même n'a pas de verdict.
+        #    Le scoreur expose désormais `dir_hit`/`dir_n` par indice.
+        # ② ÉCHANTILLON : on ne rend un verdict qu'à partir de `n_min_verdict` (20, la
+        #    règle du scoreur, LECON-042). En dessous : EN OBSERVATION (ni bon ni mauvais).
+        n_min = justesse_info.get("n_min_verdict") or 20
+        dir_n, dir_hit = justesse_info.get("dir_n"), justesse_info.get("dir_hit")
+        if isinstance(dir_n, (int, float)) and dir_n and isinstance(dir_hit, (int, float)):
+            pct_calib, n_calib = dir_hit / dir_n * 100.0, dir_n
+        else:
+            pct_calib, n_calib = pct_indice, justesse_info.get("n")
+
         # Calibration : écart entre justesse de l'indice et 50% (pile-ou-face), borné [-1, 1]
-        if pct_indice is not None:
+        if pct_calib is not None:
             # calibration = (pct - 50) / 50 → positif = meilleur que pile-ou-face
-            score_calibration = (pct_indice - 50.0) / 50.0
+            score_calibration = (pct_calib - 50.0) / 50.0
         elif hits_texte + misses_texte > 0:
             pct_texte = hits_texte / (hits_texte + misses_texte) * 100.0
             score_calibration = (pct_texte - 50.0) / 50.0
@@ -241,11 +255,15 @@ def main():
             score_calibration = 0.0  # inconnu → neutre
 
         i4_statut = "STABLE"
-        # Confiance déconnectée : justesse de l'indice <= 40% (nettement sous pile-ou-face)
-        if pct_indice is not None and pct_indice <= 40:
-            i4_statut = "CRITIQUE"
-        elif pct_indice is not None and pct_indice < 50:
-            i4_statut = "INSTABLE"
+        if pct_calib is not None and isinstance(n_calib, (int, float)) and n_calib >= n_min:
+            # Confiance déconnectée : justesse directionnelle <= 40% (nettement sous pile-ou-face)
+            if pct_calib <= 40:
+                i4_statut = "CRITIQUE"
+            elif pct_calib < 50:
+                i4_statut = "INSTABLE"
+        elif pct_calib is not None:
+            # Pas assez de paris pour juger (règle du scoreur LECON-042) → on ne tranche pas.
+            i4_statut = "EN OBSERVATION"
 
         # ----------------------------------------------------
         # Synthèse du statut de l'indice (le pire des 4)
@@ -258,7 +276,7 @@ def main():
                 pire_statut = "INSTABLE"
             elif s == "PÉRIMÉ" and pire_statut not in ["CRITIQUE", "INSTABLE"]:
                 pire_statut = "PÉRIMÉ"
-            elif s in ["FROID", "SOUS-UTILISE"] and pire_statut not in ["CRITIQUE", "INSTABLE", "PÉRIMÉ"]:
+            elif s in ["FROID", "SOUS-UTILISE", "EN OBSERVATION"] and pire_statut not in ["CRITIQUE", "INSTABLE", "PÉRIMÉ"]:
                 pire_statut = s
 
         # ----------------------------------------------------
@@ -290,6 +308,9 @@ def main():
             "i3_age_jours": age_derniere_analyse,
             "i3_statut": i3_statut,
             "i4_calibration": f"{score_calibration*100:+.1f} ({i4_statut})",
+            "i4_pct": (round(pct_calib, 1) if pct_calib is not None else None),
+            "i4_paris": (n_calib if isinstance(n_calib, (int, float)) else None),
+            "i4_population": ("directionnels" if justesse_info.get("dir_n") else "bruts"),
             "source_tariee": source_tariee,
             "statut": pire_statut
         }

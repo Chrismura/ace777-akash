@@ -1,33 +1,38 @@
 # Rapport — Dérive Mémoire (Santé ACE777)
 
-- **Date** : `2026-09-19T12:55:37.911421+00:00`
-- **Indices Instables** : `2`
-- **Indices Critiques** : `1`
-- **Indices RETIRÉS (source tarie)** : `13` — à réactiver ou archiver, **hors alarme** (R14)
+- **Date** : `2026-09-19T13:21:26.119825+00:00`
+- **Indices Instables** : `1`
+- **Indices Critiques** : `0`
+- **Indices RETIRÉS (source tarie)** : `0` — à réactiver ou archiver, **hors alarme** (R14)
 - **Mémoire Globale Saine** : **NON (Attention requise)**
 
 ## Tableau par Indice
 
 | Indice | N Analyses | I1 Fréquence | I2 Contradiction | I3 Âge (J) | I4 Calibration | Statut |
 |---|---|---|---|---|---|---|
-| `altSeason` | 1 | FROID | 0.0% (STABLE) | 43j (CRITIQUE) | -100.0 (CRITIQUE) | **RETIRÉ** |
-| `bassine` | 3 | FROID | 0.0% (STABLE) | 43j (CRITIQUE) | +100.0 (STABLE) | **RETIRÉ** |
-| `btc` | 8 | FROID | 0.0% (STABLE) | 40j (CRITIQUE) | -14.3 (INSTABLE) | **RETIRÉ** |
-| `chg24` | 1 | FROID | 0.0% (STABLE) | 21j (CRITIQUE) | -100.0 (CRITIQUE) | **RETIRÉ** |
-| `croisements` | 20 | STABLE | 0.0% (STABLE) | 1j (STABLE) | -5.9 (INSTABLE) | **INSTABLE** |
-| `etfEthM` | 1 | FROID | 0.0% (STABLE) | 36j (CRITIQUE) | -100.0 (CRITIQUE) | **RETIRÉ** |
-| `etfXrpM` | 1 | FROID | 0.0% (STABLE) | 36j (CRITIQUE) | -100.0 (CRITIQUE) | **RETIRÉ** |
-| `fearGreed` | 74 | STABLE | 9.6% (STABLE) | 0j (STABLE) | +3.6 (STABLE) | **STABLE** |
-| `funding` | 80 | STABLE | 17.7% (STABLE) | 0j (STABLE) | +100.0 (STABLE) | **STABLE** |
-| `geopol` | 13 | STABLE | 8.3% (STABLE) | 0j (STABLE) | -69.2 (CRITIQUE) | **CRITIQUE** |
-| `gexPutCall` | 1 | FROID | 0.0% (STABLE) | 43j (CRITIQUE) | +100.0 (STABLE) | **RETIRÉ** |
-| `indice_onchain` | 1 | FROID | 0.0% (STABLE) | 21j (CRITIQUE) | -100.0 (CRITIQUE) | **RETIRÉ** |
-| `liq24Usd` | 3 | FROID | 0.0% (STABLE) | 43j (CRITIQUE) | +100.0 (STABLE) | **RETIRÉ** |
-| `oi` | 1 | FROID | 0.0% (STABLE) | 43j (CRITIQUE) | -100.0 (CRITIQUE) | **RETIRÉ** |
-| `onchain` | 1 | FROID | 0.0% (STABLE) | 34j (CRITIQUE) | +100.0 (STABLE) | **RETIRÉ** |
-| `radar` | 79 | STABLE | 17.9% (STABLE) | 0j (STABLE) | -9.8 (INSTABLE) | **INSTABLE** |
-| `sdi` | 1 | FROID | 0.0% (STABLE) | 22j (CRITIQUE) | +100.0 (STABLE) | **RETIRÉ** |
-| `verre` | 4 | FROID | 33.3% (STABLE) | 37j (CRITIQUE) | +33.3 (STABLE) | **RETIRÉ** |
+| `altSeason` | 2 | SOUS-UTILISE | 0.0% (STABLE) | 0j (STABLE) | +0.0 (EN OBSERVATION) | **EN OBSERVATION** |
+| `bassine` | 4 | STABLE | 0.0% (STABLE) | 0j (STABLE) | +100.0 (EN OBSERVATION) | **EN OBSERVATION** |
+| `btc` | 10 | STABLE | 0.0% (STABLE) | 0j (STABLE) | +0.0 (EN OBSERVATION) | **EN OBSERVATION** |
+| `chg24` | 2 | SOUS-UTILISE | 0.0% (STABLE) | 0j (STABLE) | +0.0 (EN OBSERVATION) | **EN OBSERVATION** |
+| `croisements` | 20 | STABLE | 0.0% (STABLE) | 1j (STABLE) | +40.0 (EN OBSERVATION) | **EN OBSERVATION** |
+| `etfBtcM` | 1 | SOUS-UTILISE | 0.0% (STABLE) | 0j (STABLE) | +0.0 (STABLE) | **SOUS-UTILISE** |
+| `etfEthM` | 2 | SOUS-UTILISE | 0.0% (STABLE) | 0j (STABLE) | +0.0 (EN OBSERVATION) | **EN OBSERVATION** |
+| `etfXrpM` | 2 | SOUS-UTILISE | 0.0% (STABLE) | 0j (STABLE) | +0.0 (EN OBSERVATION) | **EN OBSERVATION** |
+| `fearGreed` | 75 | STABLE | 9.5% (STABLE) | 0j (STABLE) | +20.0 (STABLE) | **STABLE** |
+| `funding` | 81 | STABLE | 17.5% (STABLE) | 0j (STABLE) | +100.0 (STABLE) | **STABLE** |
+| `geopol` | 14 | STABLE | 7.7% (STABLE) | 0j (STABLE) | -50.0 (EN OBSERVATION) | **EN OBSERVATION** |
+| `gexPutCall` | 2 | SOUS-UTILISE | 0.0% (STABLE) | 0j (STABLE) | +100.0 (EN OBSERVATION) | **EN OBSERVATION** |
+| `indice_onchain` | 2 | SOUS-UTILISE | 0.0% (STABLE) | 0j (STABLE) | +0.0 (EN OBSERVATION) | **EN OBSERVATION** |
+| `liq24Usd` | 4 | STABLE | 0.0% (STABLE) | 0j (STABLE) | +100.0 (EN OBSERVATION) | **EN OBSERVATION** |
+| `longShort` | 1 | SOUS-UTILISE | 0.0% (STABLE) | 0j (STABLE) | +0.0 (STABLE) | **SOUS-UTILISE** |
+| `oi` | 3 | STABLE | 0.0% (STABLE) | 0j (STABLE) | +33.3 (EN OBSERVATION) | **EN OBSERVATION** |
+| `onchain` | 2 | SOUS-UTILISE | 0.0% (STABLE) | 0j (STABLE) | +100.0 (EN OBSERVATION) | **EN OBSERVATION** |
+| `pipeline_health` | 1 | SOUS-UTILISE | 0.0% (STABLE) | 0j (STABLE) | +0.0 (STABLE) | **SOUS-UTILISE** |
+| `radar` | 80 | STABLE | 17.7% (STABLE) | 0j (STABLE) | -14.3 (INSTABLE) | **INSTABLE** |
+| `rbf` | 1 | SOUS-UTILISE | 0.0% (STABLE) | 0j (STABLE) | +0.0 (STABLE) | **SOUS-UTILISE** |
+| `score` | 1 | SOUS-UTILISE | 0.0% (STABLE) | 0j (STABLE) | +0.0 (STABLE) | **SOUS-UTILISE** |
+| `sdi` | 2 | SOUS-UTILISE | 100.0% (STABLE) | 0j (STABLE) | +100.0 (EN OBSERVATION) | **EN OBSERVATION** |
+| `verre` | 5 | STABLE | 25.0% (STABLE) | 0j (STABLE) | +33.3 (EN OBSERVATION) | **EN OBSERVATION** |
 
 ## Alertes & Synthèse
 1. **Stabilité globale** : Des dérives ont été détectées sur certains indices nécessitant une revue de Cortana.

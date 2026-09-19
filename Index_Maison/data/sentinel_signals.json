@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "volume",
-      "zscore": 2.1297424964702834,
-      "value": 16421946145.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit médiatique sans rapport avec la crypto (actualités médicales, IA et bourse traditionnelle). Aucune corrélation onchain significative malgré le z-score.\"\n}\n```",
-      "ts": "2026-09-18T18:32:01.006170+00:00"
-    },
-    {
       "metric": "long_short",
       "zscore": -3.2812115272463367,
       "value": 0.941,
@@ -349,6 +342,13 @@
       "value": 1.06,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (IPT z-score 2.21) entièrement corrélée au bruit médiatique institutionnel et universitaire (Institut Protestant de Théologie, Tournoi de Physique). Aucune activité de baleine crypto détectée, le ticker 'IPT' étant pollué par des homonymes non-financiers.\"\n}\n```",
       "ts": "2026-09-19T10:13:03.709316+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.000539097205273,
+      "value": 1.02,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique non pertinent. Les occurrences 'IPT' font référence à des institutions académiques et des faits divers, totalement déconnectées de la crypto-sphère ou de mouvements de baleines.\"\n}\n```",
+      "ts": "2026-09-19T13:43:34.646907+00:00"
     }
   ]
 }
