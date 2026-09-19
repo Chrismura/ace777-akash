@@ -4636,3 +4636,8 @@ Pas d’ordre — confrontation plus tard.
 ### 2026-09-19T12:56:27Z — ALERT auto
 - RWAINCUSDT: WATCH_PULLBACK — tension haute + reflux
 (compléter: confirmé ? risque ?)
+
+### 2026-09-19T16:18:23Z — ALERT auto
+- ZBCNUSDT: IMPULSE_WAIT — spike en cours, pas chase
+- RWAINCUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)

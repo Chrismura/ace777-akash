@@ -1,20 +1,20 @@
 {
-  "timestamp": 1789833344,
-  "date": "2026-09-19T15:55:44.851284+00:00",
+  "timestamp": 1789836946,
+  "date": "2026-09-19T16:55:46.011358+00:00",
   "n_analyses": 2,
   "analyses": [
     {
       "signal": {
         "metric": "volume",
-        "zscore": -2.8124573846663106,
-        "value": 8272289181.0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Anomalie technique due à un bruit de fond sémantique (fausse alerte sur le mot 'volume' dans des actualités sans rapport avec la crypto). Aucune activité de baleine détectée.\"\n}\n```",
-        "ts": 1789832338.162758
+        "zscore": -2.703915925555606,
+        "value": 7765592850.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique de volume (z-score -2.70) mais le bruit médiatique est totalement déconnecté (faits divers, culture, mascaras). Aucun signal clair de mouvement de baleine crypto, bruit de fond non pertinent.\"\n}\n```",
+        "ts": 1789835955.27991
       },
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": 0.16,
+          "value": 0.23,
           "seuil": 1,
           "depasse": false
         },
@@ -44,32 +44,27 @@
     },
     {
       "signal": {
-        "metric": "ipt",
-        "zscore": 3.001653818861317,
-        "value": 1.335,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"False positive technique. Le ticker 'IPT' dans les données onchain correspond ici à un homonyme lexical (Tournoi International des Physiciens, Institut Protestant de Théologie) dans les médias, sans lien avec une baleine crypto ou un actif financier.\"\n}\n```",
-        "ts": 1789832339.798785
+        "metric": "whale_usd",
+        "zscore": 3.655094701048757,
+        "value": 4039113.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Activité anormale des baleines (Z-score 3.66, ~4M$) dans un silence médiatique total (Google Actualités vide). Accumulation furtive hors radar.\"\n}\n```",
+        "ts": 1789835956.745667
       },
-      "fiche": "rbf_eleve",
+      "fiche": "whale_usd",
       "questions": {
+        "ventes": {
+          "value": 0.0,
+          "seuil": 0,
+          "depasse": false
+        },
+        "achats": {
+          "value": 0.0,
+          "seuil": 0,
+          "depasse": false
+        },
         "prix": {
-          "value": 0.16,
+          "value": 0.23,
           "seuil": 1,
-          "depasse": false
-        },
-        "paires": {
-          "value": 0,
-          "seuil": 3,
-          "depasse": false
-        },
-        "funding": {
-          "value": 0.0001,
-          "seuil": 0.001,
-          "depasse": false
-        },
-        "whales": {
-          "value": 0,
-          "seuil": 5,
           "depasse": false
         }
       },

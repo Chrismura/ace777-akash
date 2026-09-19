@@ -1,34 +1,6 @@
 {
   "signals": [
     {
-      "metric": "cpfp",
-      "zscore": 2.4753857072720233,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique non pertinent (articles sur un établissement scolaire et des actualités locales sans rapport avec la crypto). L'anomalie onchain (CPFP z-score 2.48) reflète simplement une congestion technique isolée du réseau Bitcoin, sans accumulation ni manipulation majeure de baleines.\"\n}\n```",
-      "ts": "2026-09-18T19:52:27.418471+00:00"
-    },
-    {
-      "metric": "dust",
-      "zscore": 2.4753857072720233,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Faux positif manifeste : l'anomalie 'dust' détectée correspond au bruit homonyme d'une startup tech française (Dust) et d'événements météorologiques, sans lien avec des flux on-chain de baleines crypto.\"\n}\n```",
-      "ts": "2026-09-18T19:52:29.127328+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": 2.0099224663010156,
-      "value": 17051753392.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit de fond médiatique sans rapport avec la crypto (actualités médicales, IA, Bourse traditionnelle). Z-score on-chain modéré (2.01) mais contexte textuel totalement hors sujet. Absence de signal baleine avéré.\"\n}\n```",
-      "ts": "2026-09-18T20:02:32.339989+00:00"
-    },
-    {
-      "metric": "long_short",
-      "zscore": -2.4630262193972015,
-      "value": 0.929,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Z-score extrêmement bas (-2.46) sur le ratio long/short indiquant une sous-exposition massive des retails, tandis que les médias traditionnels font l'éloge des stratégies prudentes long/short. Classique piège à ours : les baleines accumulent dans l'ombre pendant que la foule panique ou shorte.\"\n}\n```",
-      "ts": "2026-09-18T20:02:34.095729+00:00"
-    },
-    {
       "metric": "ipt",
       "zscore": 2.126991112225462,
       "value": 1.147,
@@ -349,6 +321,34 @@
       "value": 1.335,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"False positive technique. Le ticker 'IPT' dans les données onchain correspond ici à un homonyme lexical (Tournoi International des Physiciens, Institut Protestant de Théologie) dans les médias, sans lien avec une baleine crypto ou un actif financier.\"\n}\n```",
       "ts": "2026-09-19T15:38:59.798785+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": -2.673386749813661,
+      "value": 8222802636.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit médiatique sans rapport avec la crypto (divers faits divers et culture) combiné à un volume anormalement bas (z-score -2.67). Aucune baleine détectée, simple inactivité du marché.\"\n}\n```",
+      "ts": "2026-09-19T16:09:08.295042+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.124629701083109,
+      "value": 1.1,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"False positive technique. Le ticker 'ipt' fait référence à des institutions physiques et académiques (Tournoi International des Physiciens, Institut Protestant de Théologie) et non à un actif crypto. Aucune baleine crypto détectée.\"\n}\n```",
+      "ts": "2026-09-19T16:19:11.111505+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": -2.703915925555606,
+      "value": 7765592850.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique de volume (z-score -2.70) mais le bruit médiatique est totalement déconnecté (faits divers, culture, mascaras). Aucun signal clair de mouvement de baleine crypto, bruit de fond non pertinent.\"\n}\n```",
+      "ts": "2026-09-19T16:39:15.279910+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 3.655094701048757,
+      "value": 4039113.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Activité anormale des baleines (Z-score 3.66, ~4M$) dans un silence médiatique total (Google Actualités vide). Accumulation furtive hors radar.\"\n}\n```",
+      "ts": "2026-09-19T16:39:16.745667+00:00"
     }
   ]
 }
