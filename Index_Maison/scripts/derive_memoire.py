@@ -119,14 +119,15 @@ def main():
 
     global_instables = 0
     global_critiques = 0
+    global_retires = 0        # R14 (19/09) : indices à SOURCE TARIE (hors alarme de dérive)
     max_exit_code = 0
 
     indices_tous = sorted(list(set(list(analyses_dict.keys()) + list(par_indice_justesse.keys()))))
 
     if not indices_tous:
         # Aucun indice trouvé, on écrit un rapport vide et exit 0
-        ecrire_rapport({}, 0, 0, main_ts)
-        ecrire_json({}, 0, 0, main_ts)
+        ecrire_rapport({}, 0, 0, 0, main_ts)
+        ecrire_json({}, 0, 0, 0, main_ts)
         sys.exit(0)
 
     for indice in indices_tous:
@@ -260,7 +261,21 @@ def main():
             elif s in ["FROID", "SOUS-UTILISE"] and pire_statut not in ["CRITIQUE", "INSTABLE", "PÉRIMÉ"]:
                 pire_statut = s
 
-        if pire_statut in ["INSTABLE", "PÉRIMÉ"]:
+        # ----------------------------------------------------
+        # R14 (19/09) — « une alarme qui ne peut plus dire vrai est une fausse alarme ».
+        # Un indice dont la SOURCE est TARIE (plus aucune analyse récente : âge > 14 j)
+        # n'est PAS une dérive active : il hurlait CRITIQUE À VIE (14 indices sur 18 le
+        # 19/09) → plus personne ne croyait l'alarme, et la vraie dérive passait inaperçue.
+        # On le classe RETIRÉ (visible, mais HORS de l'alarme) : à réactiver ou à archiver.
+        # Décision Buffy, GO Christophe 19/09. Le nombre de RETIRÉS reste affiché.
+        # ----------------------------------------------------
+        source_tariee = (n_analyses == 0) or (i3_statut == "CRITIQUE")
+        if source_tariee:
+            pire_statut = "RETIRÉ"
+
+        if pire_statut == "RETIRÉ":
+            global_retires += 1
+        elif pire_statut in ["INSTABLE", "PÉRIMÉ"]:
             global_instables += 1
             if max_exit_code < 1:
                 max_exit_code = 1
@@ -275,16 +290,17 @@ def main():
             "i3_age_jours": age_derniere_analyse,
             "i3_statut": i3_statut,
             "i4_calibration": f"{score_calibration*100:+.1f} ({i4_statut})",
+            "source_tariee": source_tariee,
             "statut": pire_statut
         }
 
-    ecrire_rapport(resultats_indices, global_instables, global_critiques, main_ts)
-    ecrire_json(resultats_indices, global_instables, global_critiques, main_ts)
+    ecrire_rapport(resultats_indices, global_instables, global_critiques, global_retires, main_ts)
+    ecrire_json(resultats_indices, global_instables, global_critiques, global_retires, main_ts)
 
     sys.exit(max_exit_code)
 
 
-def ecrire_rapport(resultats, n_instables, n_critiques, ts):
+def ecrire_rapport(resultats, n_instables, n_critiques, n_retires, ts):
     """Écrit le rapport Markdown DERIVE_MEMOIRE.md"""
     os.makedirs(os.path.dirname(RAPPORT_MD_PATH), exist_ok=True)
 
@@ -296,6 +312,7 @@ def ecrire_rapport(resultats, n_instables, n_critiques, ts):
         f"- **Date** : `{ts}`",
         f"- **Indices Instables** : `{n_instables}`",
         f"- **Indices Critiques** : `{n_critiques}`",
+        f"- **Indices RETIRÉS (source tarie)** : `{n_retires}` — à réactiver ou archiver, **hors alarme** (R14)",
         f"- **Mémoire Globale Saine** : **{saine}**",
         f"",
         f"## Tableau par Indice",
@@ -325,7 +342,7 @@ def ecrire_rapport(resultats, n_instables, n_critiques, ts):
         pass
 
 
-def ecrire_json(resultats, n_instables, n_critiques, ts):
+def ecrire_json(resultats, n_instables, n_critiques, n_retires, ts):
     """Écrit le fichier JSON de traçabilité"""
     os.makedirs(os.path.dirname(RAPPORT_JSON_PATH), exist_ok=True)
     payload = {
@@ -333,6 +350,7 @@ def ecrire_json(resultats, n_instables, n_critiques, ts):
         "global": {
             "indices_instables": n_instables,
             "indices_critiques": n_critiques,
+            "indices_retires": n_retires,
             "note": "Saine" if (n_instables == 0 and n_critiques == 0) else "Attention requise"
         },
         "par_indice": resultats

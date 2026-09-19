@@ -24,16 +24,24 @@ for f in PROTOCOLE_DELEGATION.md REVEIL_BUFFY.md MEMOIRE_COLLAB.md CHANTIERS.md 
   [ -f "$REPO_DIR/$f" ] && git add "$f" 2>/dev/null
 done
 
-# 4) Commit + push
-if git diff --cached --quiet 2>/dev/null; then
-  MSG="[$TS] INFO vault : aucun changement à pousser"
-else
-  git commit -m "auto-sync vault: états [${TS}]" >> "$LOG_FILE" 2>&1
+# 4) Commit puis — TOUJOURS — pousser s'il reste des commits locaux.
+# ⚠️ BUG CORRIGÉ le 19/09/2026 : avant, on ne poussait QUE si l'on venait de commiter.
+# Un unique push raté (réseau/auth) laissait donc la sauvegarde en arrière POUR DE BON.
+# Constaté en direct : vault bloqué 22 h avec 1 commit non poussé + 36 fichiers modifiés,
+# alors que le script disait « aucun changement à pousser ». On RE-TENTE désormais à
+# chaque passage tant qu'il reste des commits en avance sur origin/main.
+if ! git diff --cached --quiet 2>/dev/null; then
+  git commit -m "auto-sync vault: états [${TS}]" >> "$LOG_FILE" 2>&1 \
+    || MSG="[$TS] ERREUR vault : commit échoué (voir $LOG_FILE)"
+fi
+EN_AVANCE=$(git rev-list --count origin/main..HEAD 2>/dev/null || echo 0)
+if [ "${EN_AVANCE:-0}" -gt 0 ] 2>/dev/null; then
   if git push origin main >> "$LOG_FILE" 2>&1; then
-    MSG="[$TS] SUCCÈS vault : push effectué (obsidian-vault)"
+    MSG="[$TS] SUCCÈS vault : push effectué (obsidian-vault) — ${EN_AVANCE} commit(s)"
   else
-    MSG="[$TS] ERREUR vault : push échoué (réseau/auth ?)"
+    MSG="[$TS] ERREUR vault : push échoué (réseau/auth ?) — ${EN_AVANCE} commit(s) EN ATTENTE"
   fi
 fi
+: "${MSG:=[$TS] INFO vault : à jour}"
 echo "- $MSG" >> "$LOG_FILE"
 echo "$MSG"

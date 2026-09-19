@@ -41,6 +41,14 @@ if [ -f "$REPO_DIR/Index_Maison/scripts/sync_organes_hors_repo.sh" ]; then
   bash "$REPO_DIR/Index_Maison/scripts/sync_organes_hors_repo.sh" >> "$LOG_FILE" 2>&1
 fi
 
+# 1quinquies) VÉRIFICATEUR DES RÈGLES D'OR (19/09) — les règles d'or vivaient éparpillées
+# dans 6 documents et personne ne vérifiait qu'elles étaient tenues. Lecture seule :
+# rejoue les règles mesurables par la machine (RAM/cloud, scellés, 0 hors repo, 0 €, preuve
+# datée) → thermo/REGLES_OR.md. Canon : Index_Maison/REGLE_D_OR.md.
+if [ -f "$REPO_DIR/Index_Maison/scripts/verifier_regles_or.py" ]; then
+  python3 "$REPO_DIR/Index_Maison/scripts/verifier_regles_or.py" >> "$LOG_FILE" 2>&1
+fi
+
 # 2) Ne committer que les fichiers DÉJÀ SUIVIS (modifiés/supprimés) + les canoniques
 # Garde-fou 05/09 (incident index.lock orphelin du 03/09 : 2,5 jours de push mort
 # en silence, le 2>/dev/null avalait le rc=128 et le script disait « aucun changement ») :
@@ -70,20 +78,23 @@ for f in \
   [ -f "$REPO_DIR/$f" ] && git add "$f" 2>/dev/null
 done
 
-# 3) Commit + push
-if git diff --cached --quiet 2>/dev/null; then
-  MSG="${MSG:-[$TS] INFO : aucun changement à pousser}"
-else
-  if git commit -m "auto-sync: pont OUTBOX + états [${TS}]" >> "$LOG_FILE" 2>&1; then
-    if git push origin main >> "$LOG_FILE" 2>&1; then
-      MSG="[$TS] SUCCÈS : push effectué (ace777-akash)"
-    else
-      MSG="[$TS] ERREUR : push échoué (réseau/auth ?) — commit local conservé"
-    fi
+# 3) Commit puis — TOUJOURS — pousser s'il reste des commits locaux.
+# ⚠️ BUG CORRIGÉ le 19/09/2026 : avant, on ne poussait QUE si l'on venait de commiter →
+# un unique push raté (réseau/auth) laissait la sauvegarde en arrière POUR DE BON.
+# (même bug constaté côté vault : bloqué 22 h avec 1 commit non poussé.) On re-tente à chaque passage.
+if ! git diff --cached --quiet 2>/dev/null; then
+  git commit -m "auto-sync: pont OUTBOX + états [${TS}]" >> "$LOG_FILE" 2>&1 \
+    || MSG="[$TS] ERREUR : commit échoué (voir $LOG_FILE)"
+fi
+EN_AVANCE=$(git rev-list --count origin/main..HEAD 2>/dev/null || echo 0)
+if [ "${EN_AVANCE:-0}" -gt 0 ] 2>/dev/null; then
+  if git push origin main >> "$LOG_FILE" 2>&1; then
+    MSG="[$TS] SUCCÈS : push effectué (ace777-akash) — ${EN_AVANCE} commit(s)"
   else
-    MSG="[$TS] ERREUR : commit échoué (voir $LOG_FILE)"
+    MSG="[$TS] ERREUR : push échoué (réseau/auth ?) — ${EN_AVANCE} commit(s) EN ATTENTE"
   fi
 fi
+MSG="${MSG:-[$TS] INFO : aucun changement à pousser}"
 
 echo "- $MSG" >> "$LOG_FILE"
 echo "$MSG"

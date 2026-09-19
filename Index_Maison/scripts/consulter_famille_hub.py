@@ -44,6 +44,12 @@ ANGLES = [
     ("SIMPLE", "Propose une version PLUS SIMPLE du plan ci-dessus qui atteint le même but avec MOINS de "
                "mouvement (moins d'agents, moins de fichiers, moins de vigilance humaine). "
                "Termine par : VERSION MINIMALE = ..."),
+    ("CONTESTE", "Tu CONTESTES formellement le document ci-dessus (règles d'or / plan). Pour CHACUNE des "
+                 "règles : tiens-tu ou non, et pourquoi ? Appuie-toi sur une pratique d'ingénierie "
+                 "RECONNUE et NOMMÉE (SRE Google, GitOps, chaos engineering, Release It!, FDIR spatial, "
+                 "two-person rule, défense en profondeur) — cite-la. Puis propose LA règle manquante, "
+                 "formulée en UNE phrase impérative et VÉRIFIABLE (on doit pouvoir la mesurer). "
+                 "Termine par : LA RÈGLE MANQUANTE = ..."),
 ]
 
 

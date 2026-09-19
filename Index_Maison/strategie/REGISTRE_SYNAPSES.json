@@ -1,6 +1,6 @@
 {
   "version": "1.4.7",
-  "updated": "2026-09-19T11:46Z",
+  "updated": "2026-09-19T12:56Z",
   "fichier": [
     {
       "nom": "Index_Maison/scripts/v2_duo_replay_4h.py",
@@ -765,10 +765,11 @@
       "origine": "GO Christophe 14/09 (onglet cockpit vol)",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "0d04038aa6d85f4f5c52de720b6951ef",
+      "md5": "1b854a2b1cb820c87aeb176604634a53",
       "_rescel_20260918": "panneau « Banc 20 actifs — risque » (net / DD / net-DD, base vs notrend) + contrat de sortie des LaunchAgents (distingue alerte métier d'échec réel).",
-      "note": "Re-scellé 14/09T12:41Z après modification déclarée : suppression de la réécriture de vol.html (cache-buster déplacé côté client) — le générateur n'écrit plus que vol_live.js (non scellé, donnée vivante). Par Buffy.",
-      "maj": "19/09 (solidité) : gardien « Agents launchd versionnés » lit hors_repo (danger : organe perdu à la restauration) + a_declarer (dérive installé/repo, preuve dans plists/_derive/). Ajout du gardien « Drill de restauration » (lit thermo/drill_restauration.json : verdict READY/TROU + organes hors git). Tous deux alimentés via git_push_auto.sh (3 h). Par Buffy."
+      "note": "Re-scellé 14/09T12:41Z après modification déclarée : suppression de la réécriture de vol.html (cache-buster déplacé côté client) — le générateur n'écrit plus que vol_live.js (non scellé, donnée vivante). Par Buffy. | 19/09 soir : + gardien « Règles d'or » (lit thermo/regles_or.json écrit par verifier_regles_or.py) — les règles d'or sont désormais VISIBLES dans la page vol. Declaré par Buffy.",
+      "maj": "19/09 (solidité) : gardien « Agents launchd versionnés » lit hors_repo (danger : organe perdu à la restauration) + a_declarer (dérive installé/repo, preuve dans plists/_derive/). Ajout du gardien « Drill de restauration » (lit thermo/drill_restauration.json : verdict READY/TROU + organes hors git). Tous deux alimentés via git_push_auto.sh (3 h). Par Buffy.",
+      "date": "2026-09-19T12:44Z"
     },
     {
       "nom": "Index_Maison/cockpit/vol.html",
@@ -918,6 +919,65 @@
       "md5": "4a359ee7ed3285080b71218ebfeb29ac",
       "note": "MÉTA-FICHE État du levier (Liquidations × OI × taker) — avis famille 16/09, croisement manquant n°1. DESACTIVÉE : trigger z>999 impossible, métrique 'etat_levier' jamais émise par le sentinel → injoignable (testé : z 3,5/10/999/5000 → jamais ouverte). Spec figée avant son GO. | ACTIVÉE 16/09 par le chemin méta de run_analysis (GO C.). LIMITE honnête documentée : live.json n'a que l'OI instantané (pas sa variation) — conditions purge/piège approchées par le niveau 100k jusqu'à ce que le sentinel logge la direction d'OI.",
       "date": "2026-09-16T15:54Z"
+    },
+    {
+      "nom": "Index_Maison/scripts/verifier_regles_or.py",
+      "role": "VÉRIFICATEUR DES RÈGLES D'OR (lecture seule) — 10 règles mesurables (R2,5,6,7,8,10,11,12,13,14) → thermo/REGLES_OR.md + regles_or.json",
+      "origine": "recensement RÈGLE D'OR 19/09",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "1445d0aede52cbfd81f229f7df779e5b",
+      "date": "2026-09-19T12:56Z",
+      "note": "Scellé 19/09 : l'instrument qui mesure les règles est lui-même scellé (rituel maison). R10 ajouté 19/09 soir : SATURATION DE L'HÔTE (RAM réelle via memory_pressure, swap, disque, charge) — signal SRE, distinct de R2. Appelé par git_push_auto.sh. | v3 19/09 soir : + R11 (fail-safe), R12 (sauvegarde prouvée par restauration), R13 (auto-réparation bornée), R14 (anti cry-wolf), + R7 gère les DÉROGATIONS déclarées (strategie/derogations_regles.json)."
+    },
+    {
+      "nom": "Index_Maison/scripts/consulter_famille_hub.py",
+      "role": "Consultation de la FAMILLE via le hub (0 €) sous plusieurs angles — critique, contre, simple, CONTESTE. Un seul outil au lieu de 30 scripts jetables.",
+      "origine": "Buffy 19/09 (remplace les consulter_famille_<sujet>_<date>.py)",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "59094f52b85145aedecc9a5d189bb552",
+      "date": "2026-09-19T12:43Z",
+      "note": "Scellé 19/09. Ajout de l'angle CONTESTE (19/09) : contester chaque règle + citer une pratique d'ingénierie reconnue + proposer la règle manquante."
+    },
+    {
+      "nom": "Index_Maison/scripts/drill_restauration.py",
+      "role": "DRILL DE RESTAURATION (lecture seule) — rebâtit les agents dans un dossier neuf, valide les plists, vérifie les scellés et les organes hors git → thermo/drill_restauration.json",
+      "origine": "solidité 19/09 (GO Christophe « go 1,2,3 »)",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "145df5b76a1b485ff631771f96ad8797",
+      "date": "2026-09-19T12:43Z",
+      "note": "Scellé 19/09 : le drill (instrument de preuve) est scellé. Verdict READY/TROU affiché dans la page vol par gen_cockpit_vol.py."
+    },
+    {
+      "nom": "Index_Maison/scripts/sync_plists.sh",
+      "role": "VERSIONNE les agents launchd installés → repo. AJOUTE les manquants, N'ÉCRASE JAMAIS un plist versionné (archive la dérive en preuve plists/_derive/, --declarer pour trancher).",
+      "origine": "solidité 19/09 (GO Christophe « go 1,2,3 »)",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "237706de40e244f2b55adbfa603a75f4",
+      "date": "2026-09-19T12:43Z",
+      "note": "Scellé 19/09. v2 (19/09) : ne peut plus clobberer un scellé (la v1 avait écrasé 4 fichiers scellés → 4 INTRUSIONS, corrigé le jour même)."
+    },
+    {
+      "nom": "Index_Maison/scripts/derive_memoire.py",
+      "role": "DÉRIVE MÉMOIRE par indice (I1 fréquence · I2 contradiction · I3 âge · I4 calibration) → statut RETIRÉ si source tarie (R14)",
+      "origine": "R14 règles d'or 19/09 (GO Christophe « applique au mieux ces observations »)",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "d004c9435eab7ae4cc523335ba5c159a",
+      "date": "2026-09-19T12:56Z"
+    },
+    {
+      "nom": "Index_Maison/strategie/derogations_regles.json",
+      "role": "REGISTRE DES DÉROGATIONS DÉCLARÉES aux règles d'or (une dérogation est écrite, datée, motivée et VISIBLE — jamais cachée)",
+      "origine": "GO Christophe 19/09 (« mettre de côté inferx »)",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "5625a509df3ae88a56740d40c60273eb",
+      "date": "2026-09-19T12:56Z",
+      "note": "Contient la dérogation R7 : provider inferx (payant marqué, utilisé sans facturation) toléré jusqu'à retour gratuit ou facturation."
     }
   ]
 }
