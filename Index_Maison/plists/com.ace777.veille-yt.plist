@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Label</key>
+	<string>com.ace777.veille-yt</string>
+	<key>ProgramArguments</key>
+	<array>
+		<string>/usr/bin/python3</string>
+		<string>/Users/christophe/ace777-test-day1/Index_Maison/scripts/watch_chaines.py</string>
+		<string>--max</string>
+		<string>3</string>
+	</array>
+	<key>RunAtLoad</key>
+	<true/>
+	<key>StandardErrorPath</key>
+	<string>/tmp/veille_yt_launchd.err</string>
+	<key>StandardOutPath</key>
+	<string>/tmp/veille_yt_launchd.log</string>
+	<key>StartCalendarInterval</key>
+	<array>
+		<dict>
+			<key>Hour</key>
+			<integer>9</integer>
+			<key>KeepAlive</key>
+			<true/>
+			<key>Minute</key>
+			<integer>15</integer>
+			<key>RunAtLoad</key>
+			<true/>
+		</dict>
+		<dict>
+			<key>Hour</key>
+			<integer>18</integer>
+			<key>KeepAlive</key>
+			<true/>
+			<key>Minute</key>
+			<integer>15</integer>
+			<key>RunAtLoad</key>
+			<true/>
+		</dict>
+	</array>
+</dict>
+</plist>

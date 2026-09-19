@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  ALARMES VOCALES PROTOCOLE JACKSON HOLE (27-29/08/2026)
+  Branché le 27/08 15:11 — le protocole existait (alarme_jackson_hole.py) mais
+  AUCUNE plist ne le lançait → les alarmes (relance famille 27/08 22h, ne pas
+  toucher 28/08 00h, Warsh 17h, bilan 29/09h) ne sonnaient jamais.
+  Poll toutes les 10 min (StartInterval) — one-shot, pas de KeepAlive parasite.
+-->
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.ace777.jackson-hole-alarmes</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/usr/bin/python3</string>
+    <string>/Users/christophe/ace777-test-day1/Index_Maison/scripts/alarme_jackson_hole.py</string>
+  </array>
+  <key>StartInterval</key>
+  <integer>600</integer>
+  <key>RunAtLoad</key>
+  <true/>
+  <key>StandardOutPath</key>
+  <string>/tmp/jackson_hole_alarmes.log</string>
+  <key>StandardErrorPath</key>
+  <string>/tmp/jackson_hole_alarmes.err.log</string>
+</dict>
+</plist>

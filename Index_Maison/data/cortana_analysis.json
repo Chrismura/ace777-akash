@@ -1,73 +1,7 @@
 {
-  "timestamp": 1789800925,
-  "date": "2026-09-19T06:55:25.995717+00:00",
-  "n_analyses": 2,
-  "analyses": [
-    {
-      "signal": {
-        "metric": "whale_usd",
-        "zscore": 4.706142982401969,
-        "value": 5987824.0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (z-score 4.71) combinée à un silence médiatique absolu (Google Actualités vide). Les baleines accumulent dans l'ombre sans attirer la foule.\"\n}\n```",
-        "ts": 1789799816.928072
-      },
-      "fiche": "whale_usd",
-      "questions": {
-        "ventes": {
-          "value": 1508794.0,
-          "seuil": 0,
-          "depasse": true
-        },
-        "achats": {
-          "value": 642865.0,
-          "seuil": 0,
-          "depasse": true
-        },
-        "prix": {
-          "value": 0.04,
-          "seuil": 1,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "ventes > achats",
-        "lecture": "Flux baleines VENDEUR dominant — distribution possible vers les exchanges (proxy : bearish aujourd'hui)",
-        "niveau": "surveiller",
-        "action": "Croiser avec le sniffer vieux BTC et l'IPT avant de réduire"
-      },
-      "action": "Croiser avec le sniffer vieux BTC et l'IPT avant de réduire",
-      "niveau": "surveiller"
-    },
-    {
-      "signal": {
-        "metric": "taker_ratio",
-        "zscore": 2.074587380590989,
-        "value": 1.488,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Un taker_ratio de 1.488 (z-score 2.07) indique une forte dominance des acheteurs agressifs (Taker Buy), absorbant l'offre de manière anormale. Le vide médiatique (Google Actualités silencieux) prouve que cette accumulation agressive se fait sous le radar institutionnel, loin du FOMO public.\"\n}\n```",
-        "ts": 1789799838.380786
-      },
-      "fiche": "taker_ratio",
-      "questions": {
-        "taker": {
-          "value": 1.488,
-          "seuil": 1,
-          "depasse": true
-        },
-        "prix": {
-          "value": 0.04,
-          "seuil": 1,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "taker > 1",
-        "lecture": "Takers acheteurs agressifs — la demande mange le carnet, à confirmer avec le volume",
-        "niveau": "info",
-        "action": "Observer si le prix suit (vraie demande) ou diverge (absorption)"
-      },
-      "action": "Observer si le prix suit (vraie demande) ou diverge (absorption)",
-      "niveau": "info"
-    }
-  ],
-  "resume": "🟡 SURVEILLANCE — des signaux sont à observer"
+  "timestamp": 1789804536,
+  "date": "2026-09-19T07:55:36.757988+00:00",
+  "n_analyses": 0,
+  "analyses": [],
+  "resume": "Aucune analyse en cours"
 }

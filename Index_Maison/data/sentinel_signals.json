@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "ipt",
-      "zscore": 2.3659075135093595,
-      "value": 1.156,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique (ipt = 1.156) totalement déconnectée des actualités, lesquelles font référence à l'Institut Protestant de Théologie et au Tournoi International des Physiciens. Bruit de fond sans lien avec une baleine crypto.\"\n}\n```",
-      "ts": "2026-09-18T17:51:45.075623+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": 2.2129590078660497,
-      "value": 16284537257.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique non pertinent (actualités médicales et financières traditionnelles sans rapport avec la crypto). Aucune corrélation avec un mouvement de baleine onchain malgré le z-score.\"\n}\n```",
-      "ts": "2026-09-18T18:01:49.657733+00:00"
-    },
-    {
       "metric": "long_short",
       "zscore": -3.717443743877397,
       "value": 0.951,
@@ -349,6 +335,20 @@
       "value": 1.488,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Un taker_ratio de 1.488 (z-score 2.07) indique une forte dominance des acheteurs agressifs (Taker Buy), absorbant l'offre de manière anormale. Le vide médiatique (Google Actualités silencieux) prouve que cette accumulation agressive se fait sous le radar institutionnel, loin du FOMO public.\"\n}\n```",
       "ts": "2026-09-19T06:37:18.380786+00:00"
+    },
+    {
+      "metric": "cpfp",
+      "zscore": 2.0209124086119097,
+      "value": 50.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Le pic de CPFP (Child-Pays-For-Parent) reflète une congestion du réseau Bitcoin et des utilisateurs qui débloquent des transactions bloquées avec des frais élevés, pollué par du bruit médiatique sans rapport (actualités locales et politiques). Aucune accumulation ou mouvement massif de baleines détecté.\"\n}\n```",
+      "ts": "2026-09-19T07:12:32.001440+00:00"
+    },
+    {
+      "metric": "dust",
+      "zscore": 2.0209124086119097,
+      "value": 50.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit de fond médiatique sans lien avec la crypto. Les occurrences du mot 'dust' concernent de l'IA (startup Dust), de la météo (dust devil) et de la culture. Aucune baleine détectée.\"\n}\n```",
+      "ts": "2026-09-19T07:12:33.769068+00:00"
     }
   ]
 }

@@ -42,6 +42,10 @@ DEFAUTS = [
     ("/Users/christophe/ace777-test-day1/Index_Maison/data/xrpl_onchain_hist.jsonl", 50),
     # [C5] RADAR AGENTIQUE x402 (GO Christophe 14/09) — rotation dès la création
     ("/Users/christophe/ace777-test-day1/Index_Maison/data/x402_agentic_hist.jsonl", 50),
+    # VIGIE marché (19/09) — la leçon « journal_radar.log 3,3 Go » (citée en tête de
+    # ce fichier) n'avait jamais été appliquée À CE LOG : la vigie y écrit à chaque
+    # tick (append) et il était passé à 3,7 Go. Ajouté à la rotation (seuil 100 Mo).
+    ("/Users/christophe/ace777-test-day1/Index_Maison/strategie/journal_radar.log", 100),
 ]
 
 BACKUP_COUNT = 2

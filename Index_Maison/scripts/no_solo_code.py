@@ -23,7 +23,9 @@ HOME = Path("/Users/christophe")
 VAULT = HOME / "Documents" / "Obsidian_ACE777"
 MAISON = HOME / "ace777-test-day1"
 OUTBOX = MAISON / "Index_Maison" / "OUTBOX_OBSIDIAN"
-MEMOIRE_COLLAB = VAULT / "MEMOIRE_COLLAB.md"
+# v2 19/09 — mémoire canonique dans le WORKSPACE (le vault racine n'existe plus,
+# le coffre a été réorganisé) : sinon la règle 1septies sortait en erreur à vide.
+MEMOIRE_COLLAB = MAISON / "Index_Maison" / "MEMOIRE_COLLAB.md"
 CODE_AUTHORS = MAISON / "Index_Maison" / "CODE_AUTHORS.md"
 SCRIPTS_DIR = MAISON / "Index_Maison" / "scripts"
 

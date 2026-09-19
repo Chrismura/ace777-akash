@@ -31,6 +31,6 @@ mkdir -p "$HOME/prise-ia/reports"
   python3 "$HOME/ace777-test-day1/Index_Maison/scripts/arbitrage_analystes.py" 2>/dev/null || echo "(arbitrage indisponible)"
   echo
   echo "## Mémoire récente (coffre)"
-  grep -E '^\| 2026' "$HOME/Documents/Obsidian_ACE777/MEMOIRE_COLLAB.md" 2>/dev/null | head -3 || echo "(coffre illisible en launchd — lire dans Obsidian)"
+  grep -E '^\| 2026' "$HOME/ace777-test-day1/Index_Maison/MEMOIRE_COLLAB.md" 2>/dev/null | head -3 || echo "(mémoire illisible)"
 } > "$OUT"
 echo "BRIEF_MATIN -> $OUT"

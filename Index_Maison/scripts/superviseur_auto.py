@@ -186,8 +186,13 @@ def age_preuve_lecture():  # -> float ou None (Python 3.9 : pas de | dans les an
     preuve → rappel fantôme écrit à tort. Désormais on lit LES DEUX sources et on
     prend la preuve la PLUS RÉCENTE trouvée dans l'une ou l'autre."""
     from datetime import datetime, timezone
-    ts_vault = _dernier_ts_preuve(lire_fichier(VAULT / "MEMOIRE_COLLAB.md", 2_000_000))
-    ts_outbox = _dernier_ts_preuve(lire_fichier(OUTBOX / "MEMOIRE_COLLAB.md", 2_000_000))
+    # v2 19/09 — la mémoire canonique vit dans le WORKSPACE (Index_Maison), plus au
+    # vault racine (déplacée à la réorg du coffre). On lit la source qui EXISTE
+    # toujours : sinon le rappel 1septies tournait à vide (preuve écrite, jamais vue).
+    _mem_canon = SYSTEME / "Index_Maison" / "MEMOIRE_COLLAB.md"
+    _mem_vault_bis = VAULT / "Index_Maison" / "MEMOIRE_COLLAB.md"
+    ts_vault = _dernier_ts_preuve(lire_fichier(_mem_canon if _mem_canon.exists() else _mem_vault_bis, 2_000_000))
+    ts_outbox = None
     if ts_vault is None and ts_outbox is None:
         return None
     dernier_ts = ts_outbox if (ts_outbox is not None and (ts_vault is None or ts_outbox > ts_vault)) else ts_vault
@@ -212,7 +217,7 @@ def etape_lire() -> dict:
         "etat_consolide": lire_fichier(etat_file, 1500),
         "top_demain": lire_fichier(outbox_top if outbox_top.exists() else VAULT / "AUTO_EVOL" / "TOP_DEMAIN.md", 1500),
         "reveil_buffy": lire_fichier(outbox_reveil if outbox_reveil.exists() else VAULT / "REVEIL_BUFFY.md", 800),
-        "memoire_collab": lire_fichier(outbox_mem if outbox_mem.exists() else VAULT / "MEMOIRE_COLLAB.md", 800),
+        "memoire_collab": lire_fichier(outbox_mem if outbox_mem.exists() else (SYSTEME / "Index_Maison" / "MEMOIRE_COLLAB.md"), 800),
     }
     return contexte
 

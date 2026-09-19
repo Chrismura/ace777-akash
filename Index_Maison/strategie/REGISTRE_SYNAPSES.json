@@ -503,9 +503,9 @@
       "origine": "leçon GitHub 3 jours (croisement_contexte 300 Mo)",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "626826fe0b89367fb173285df185ca7e",
-      "note": "Évolution déclarée 14/09 18:35 : +x402_agentic_hist à la rotation [C5] (GO radar agentique). Buffy.",
-      "maj": "re-scellé 23:2xZ — [C5] paternes_btc_hist.jsonl ajouté (P1) ; note précédente 23:20 corrigée (md5 n'avait pas changé, erreur d'ancre, fichier resté intact)"
+      "md5": "2c3603ef465b0d07fa8bede5ebff4915",
+      "note": "Évolution déclarée 19/09 : +journal_radar.log à la rotation (vigie, leçon 3,7 Go enfin appliquée, seuil 100 Mo). Préc. 14/09 18:35 : +x402_agentic_hist [C5].",
+      "maj": "re-scellé 19/09 07:00Z — +journal_radar.log à la rotation (vigie à 3,7 Go, leçon jamais appliquée ; seuil 100 Mo). Préc. : re-scellé 23:2xZ — [C5] paternes_btc_hist.jsonl ajouté (P1)."
     },
     {
       "nom": "Index_Maison/plists/com.ace777.rwa-yields.plist",
@@ -754,8 +754,8 @@
       "origine": "GO Christophe 14/09 (rotation +troupeau_inv +xrpl_onchain)",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "626826fe0b89367fb173285df185ca7e",
-      "note": "Évolution déclarée 14/09 18:35 : +x402_agentic_hist à la rotation [C5] (GO radar agentique). Buffy."
+      "md5": "2c3603ef465b0d07fa8bede5ebff4915",
+      "note": "Évolution déclarée 19/09 : +journal_radar.log à la rotation (vigie, leçon 3,7 Go enfin appliquée, seuil 100 Mo). Préc. 14/09 18:35 : +x402_agentic_hist [C5]."
     },
     {
       "nom": "Index_Maison/scripts/gen_cockpit_vol.py",
@@ -763,10 +763,10 @@
       "origine": "GO Christophe 14/09 (onglet cockpit vol)",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "73bedaec78ddcbab75064848407aafff",
+      "md5": "c078e74ae9494132ad31726b810a6661",
       "_rescel_20260918": "panneau « Banc 20 actifs — risque » (net / DD / net-DD, base vs notrend) + contrat de sortie des LaunchAgents (distingue alerte métier d'échec réel).",
       "note": "Re-scellé 14/09T12:41Z après modification déclarée : suppression de la réécriture de vol.html (cache-buster déplacé côté client) — le générateur n'écrit plus que vol_live.js (non scellé, donnée vivante). Par Buffy.",
-      "maj": "16/09 (fix panneau) : lire_marche() lit mark/fearGreed (clés vivantes) au lieu de btc_price/fear_greed (morts depuis toujours) — « BTC ?/F&G ? » réparé. Backup /tmp. Par Buffy."
+      "maj": "19/09 (solidité) : gardien « Agents launchd versionnés » lit hors_repo (danger : organe perdu à la restauration) + a_declarer (dérive installé/repo, preuve dans plists/_derive/). Alimenté par sync_plists.sh via git_push_auto.sh (3 h). Par Buffy."
     },
     {
       "nom": "Index_Maison/cockpit/vol.html",

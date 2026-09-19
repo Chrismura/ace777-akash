@@ -185,8 +185,8 @@ def _trace_agora(quoi: str):
     def _travail():
         ts = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H%MZ")
         ligne = f"| {ts} | auto_reparer | ~ | Index_Maison/thermo | {quoi} |"
-        cibles = [Path.home() / "Documents/Obsidian_ACE777/Swarm_Bus/09_MEMOIRE_COLLAB.md",
-                  IM / "MEMOIRE_COLLAB.md"]
+        # v2 19/09 — chemin canonique unique (le Swarm_Bus/09 n'existe plus).
+        cibles = [IM / "MEMOIRE_COLLAB.md"]
         for cible in cibles:
             try:
                 if not cible.exists():

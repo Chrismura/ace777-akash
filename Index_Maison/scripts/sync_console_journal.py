@@ -45,10 +45,13 @@ if agora.exists():
             t = t.rstrip() + "\n- " + L + "\n"
     agora.write_text(t, encoding="utf-8")
 
-# mémoire
+# mémoire — 19/09 : on écrit dans le CANON du WORKSPACE, plus dans le miroir du
+# vault : la ligne écrite dans le miroir était écrasée au miroir suivant (copie
+# intégrale depuis le canon) = entrée silencieusement perdue. Le chemin mort
+# Swarm_Bus/09_MEMOIRE_COLLAB.md (supprimé) est retiré.
 ts = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H%MZ")
 line = f"| {ts} | Cursor | ★ | CONSOLE+journal | Journal 28 + console + plan vol + auto_processus |"
-for mem in [VAULT / "Swarm_Bus" / "09_MEMOIRE_COLLAB.md", im / "MEMOIRE_COLLAB.md"]:
+for mem in [WS / "MEMOIRE_COLLAB.md"]:
     if not mem.exists():
         continue
     t = mem.read_text(encoding="utf-8")

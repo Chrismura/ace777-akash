@@ -11,6 +11,7 @@ Ne touche PAS au trading.
 from __future__ import annotations
 
 import argparse
+import shutil
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
@@ -19,6 +20,12 @@ WS = Path(__file__).resolve().parents[1]
 MEM = WS / "MEMOIRE_COLLAB.md"
 OUT = WS / "OUTBOX_OBSIDIAN" / "MEMOIRE_COLLAB.md"
 OUT2 = WS / "OUTBOX_OBSIDIAN" / "Index_Maison" / "MEMOIRE_COLLAB.md"
+# 3e miroir : le COFFRE Obsidian lui-même. obsidian_writer protège désormais ce
+# stem (cf. son PROTECTED_STEMS) → il ne le consomme plus (sans ça, la copie
+# racine de l'OUTBOX était prise pour une note brute → write_note dans 00_Inbox
+# = doublon + archivage en boucle). La livraison au coffre est donc faite ICI,
+# en direct, sans dépendre du daemon.
+VAULT_MEM = Path.home() / "Documents" / "Obsidian_ACE777" / "Index_Maison" / "MEMOIRE_COLLAB.md"
 
 
 def _ts() -> str:
@@ -65,9 +72,21 @@ def log_touch(qui: str, action: str, ou: str, quoi: str) -> str:
     if len(action) > 3:
         action = "★"
     row = f"| {_ts()} | {qui} | {action} | {ou} | {quoi} |"
-    for p in (MEM, OUT, OUT2):
+    # 1) la vérité = le workspace (canon, append-only)
+    try:
+        _append(MEM, row)
+    except OSError as e:
+        print(f"[memoire_log] {MEM.name}: {e}", file=sys.stderr)
+    # 2) miroirs = COPIE INTÉGRALE (v2 19/09) : OUTBOX racine (poussé par
+    #    git_push_auto.sh = sauvegarde versionnée du repo système) + OUTBOX/
+    #    Index_Maison (mapping coffre) + le COFFRE en direct. Avant : on n'écrivait
+    #    qu'UNE ligne dans l'OUTBOX → le coffre ne recevait qu'un stub de 462 o, et
+    #    les lecteurs qui pointaient dessus (superviseur 1septies, brief) ne
+    #    voyaient RIEN. Un miroir doit porter la mémoire ENTIÈRE, pas un extrait.
+    for p in (OUT, OUT2, VAULT_MEM):
         try:
-            _append(p, row)
+            p.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copyfile(MEM, p)
         except OSError as e:
             print(f"[memoire_log] {p.name}: {e}", file=sys.stderr)
     return row

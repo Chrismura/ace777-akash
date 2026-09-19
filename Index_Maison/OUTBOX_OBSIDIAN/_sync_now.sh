@@ -21,12 +21,31 @@ OB="/Users/christophe/ace777-test-day1/Index_Maison/OUTBOX_OBSIDIAN"
 
 # Stems VIVANTS — DOIT rester aligné sur PROTECTED_STEMS de obsidian_writer.py
 LIVE_STEMS="THERMO_DERNIER SOUS_L_OEIL SUPERVISEUR_LOG CHECKUP_DERNIER ETAT_SYSTEME CHECKUP_20260730T1511Z HEARTBEAT JOURNAL_COCKPIT POINT_REPRISE_DERNIER"
+# NOTE 19/09 — MEMOIRE_COLLAB est VOLONTAIREMENT absente de cette liste : elle est
+# livrée au coffre par memoire_log.py directement (copie intégrale, à son chemin
+# relatif Index_Maison/). L'ajouter ici créerait un 2e exemplaire à la racine du
+# vault → wikilink [[MEMOIRE_COLLAB]] ambigu. (Elle est bien dans
+# PROTECTED_STEMS de obsidian_writer.py : les deux fichiers sont donc "alignés"
+# par destination finale, pas par mécanisme.)
 
 echo "=== SYNC VIVANTS OUTBOX → VAULT ($(date -u +%H:%M:%SZ)) ==="
 count=0
+# 19/09 — LE PLUS FRAIS GAGNE. Ces docs « vivants » sont poussés dans l'OUTBOX par
+# les organes (thermo, pulse, superviseur), MAIS certains sont rédigés à la main
+# dans Index_Maison (ex. POINT_REPRISE_DERNIER) : ils n'existent QUE là → l'OUTBOX
+# restait figé (16/08) et le vault affichait un point de reprise périmé d'un mois,
+# pendant que le workspace était à jour (09/09). On ne copie plus « l'OUTBOX » : on
+# copie la version la plus récente des deux.
+WS="/Users/christophe/ace777-test-day1/Index_Maison"
 for stem in $LIVE_STEMS; do
-    src="$OB/$stem.md"
-    [ -f "$src" ] || continue
+    src=""
+    a="$OB/$stem.md"; b="$WS/$stem.md"
+    if [ -f "$a" ] && [ -f "$b" ]; then
+        if [ "$b" -nt "$a" ]; then src="$b"; else src="$a"; fi
+    elif [ -f "$a" ]; then src="$a"
+    elif [ -f "$b" ]; then src="$b"
+    fi
+    [ -n "$src" ] || continue
     cp "$src" "$VAULT/$stem.md"
     count=$((count+1))
 done

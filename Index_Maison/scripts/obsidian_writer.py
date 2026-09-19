@@ -135,6 +135,11 @@ PROTECTED_STEMS = {
     # pulse_sous_loeil.sh — l'absenter d'ici le faisait archiver (et re-copier
     # par _sync_now) à CHAQUE passe → spam _traites + points fantômes.
     "SOUS_L_OEIL",
+    # 19/09 (boucle mémoire) : la mémoire collaborative est livrée au coffre
+    # directement par memoire_log.py (copie intégrale). Sans cette protection, la
+    # copie racine de l'OUTBOX était prise pour une note brute → write_note dans
+    # 00_Inbox = doublon de la mémoire + archivage en boucle dans _traites/.
+    "MEMOIRE_COLLAB",
 }
 
 

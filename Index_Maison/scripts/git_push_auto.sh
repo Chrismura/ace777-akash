@@ -18,6 +18,13 @@ if [ -f "$REPO_DIR/Index_Maison/OUTBOX_OBSIDIAN/_sync_now.sh" ]; then
   bash "$REPO_DIR/Index_Maison/OUTBOX_OBSIDIAN/_sync_now.sh" >> "$LOG_FILE" 2>&1
 fi
 
+# 1bis) Versionner les agents launchd (anti-dérive, 19/09). Au 19/09 : 97 agents
+# installés pour 44 versionnés → une restauration perdait 53 organes en silence.
+# Ce passage les recopie dans Index_Maison/plists/ à chaque push (toutes les 3 h).
+if [ -f "$REPO_DIR/Index_Maison/scripts/sync_plists.sh" ]; then
+  bash "$REPO_DIR/Index_Maison/scripts/sync_plists.sh" >> "$LOG_FILE" 2>&1
+fi
+
 # 2) Ne committer que les fichiers DÉJÀ SUIVIS (modifiés/supprimés) + les canoniques
 # Garde-fou 05/09 (incident index.lock orphelin du 03/09 : 2,5 jours de push mort
 # en silence, le 2>/dev/null avalait le rc=128 et le script disait « aucun changement ») :
@@ -32,6 +39,8 @@ if [ -f "$REPO_DIR/.git/index.lock" ]; then
   fi
 fi
 git add -u 2>/dev/null || { echo "[$TS] ERREUR : git add a échoué (rc=$?)" >> "$LOG_FILE"; }
+# agents launchd versionnés (nouveaux fichiers → git add -u ne les prend pas)
+[ -d "$REPO_DIR/Index_Maison/plists" ] && git add Index_Maison/plists 2>/dev/null
 # canoniques OUTBOX (s'ils existent, suivis ou non)
 for f in \
   Index_Maison/OUTBOX_OBSIDIAN/MEMOIRE_COLLAB.md \
