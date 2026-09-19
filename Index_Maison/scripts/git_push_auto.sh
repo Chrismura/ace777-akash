@@ -25,6 +25,15 @@ if [ -f "$REPO_DIR/Index_Maison/scripts/sync_plists.sh" ]; then
   bash "$REPO_DIR/Index_Maison/scripts/sync_plists.sh" >> "$LOG_FILE" 2>&1
 fi
 
+# 1ter) DRILL DE RESTAURATION (19/09) — « si le Mac mourrait ce soir, ACE777
+# reviendrait-il ? ». Lecture seule : rebâtit les agents dans un dossier neuf en
+# /tmp, valide chaque plist, vérifie que chaque organe invoqué existe, compare les
+# scellés. Écrit thermo/DRILL_RESTAURATION.md (verdict lu par la page « vol »).
+# Une sauvegarde jamais testée n'est pas une sauvegarde : c'est une hypothèse.
+if [ -f "$REPO_DIR/Index_Maison/scripts/drill_restauration.py" ]; then
+  python3 "$REPO_DIR/Index_Maison/scripts/drill_restauration.py" >> "$LOG_FILE" 2>&1
+fi
+
 # 2) Ne committer que les fichiers DÉJÀ SUIVIS (modifiés/supprimés) + les canoniques
 # Garde-fou 05/09 (incident index.lock orphelin du 03/09 : 2,5 jours de push mort
 # en silence, le 2>/dev/null avalait le rc=128 et le script disait « aucun changement ») :

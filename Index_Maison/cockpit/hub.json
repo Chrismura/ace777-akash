@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-19T08:02:03.925538+00:00",
+  "generated_at": "2026-09-19T08:57:34.113291+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 103
+      "calls_24h": 106
     },
     {
       "id": "openrouter-free",
@@ -265,10 +265,34 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 58,
-    "remaining": 566
+    "consumed": 61,
+    "remaining": 563
   },
   "queue": [
+    {
+      "ts": "2026-09-19T08:28:51.980116+00:00",
+      "task": "analyse.profonde",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 2.59
+    },
+    {
+      "ts": "2026-09-19T08:28:49.381966+00:00",
+      "task": "analyse.profonde",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 2.19
+    },
+    {
+      "ts": "2026-09-19T08:28:47.183045+00:00",
+      "task": "analyse.profonde",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 2.72
+    },
     {
       "ts": "2026-09-19T07:57:49.938014+00:00",
       "task": "supervise.decision",
@@ -364,92 +388,68 @@
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
       "duration_s": 2.39
-    },
-    {
-      "ts": "2026-09-19T06:30:24.023041+00:00",
-      "task": "cortana.analyse",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 10.86
-    },
-    {
-      "ts": "2026-09-19T06:30:12.267665+00:00",
-      "task": "cortana.analyse",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 2.66
-    },
-    {
-      "ts": "2026-09-19T06:30:09.062663+00:00",
-      "task": "cortana.analyse",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 2.58
     }
   ],
   "events": [
     {
-      "ts": "2026-09-19T07:58:06.846220+00:00",
+      "ts": "2026-09-19T08:51:53.922261+00:00",
       "kind": "http",
       "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
       "detail": ""
     },
     {
-      "ts": "2026-09-19T07:58:06.845594+00:00",
+      "ts": "2026-09-19T08:51:53.921486+00:00",
       "kind": "error",
       "title": "Toutes les IA ont echoue",
       "detail": "Google Gemini: HTTP Error 429: Too Many Requests | Groq (LLM ultra-rapide, gratuit): HTTP Error 400: Bad Request | HuggingFace (136+ modeles, dont DeepSeek-V4): HTTP Error 400: Bad Request | OrcaRouter (routeur gratuit, modele orcarouter/free): HTTP Error 429: Too Many Requests | OpenRouter Juge (nemotron-3-super-120b free) - verificateur independant: HTTP Error 400: Bad Request | InferX DeepSeek V4 Flash (API gratuite jusqu'au 12/08): HTTP Error 429: Too Many Requests | InferX Qwen3-Coder-Next "
     },
     {
-      "ts": "2026-09-19T07:58:06.843343+00:00",
+      "ts": "2026-09-19T08:51:53.918473+00:00",
       "kind": "failover",
       "title": "Bascule depuis InferX Devstral-2-123B (code)",
       "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-09-19T07:58:02.836754+00:00",
+      "ts": "2026-09-19T08:51:49.456886+00:00",
       "kind": "failover",
       "title": "Bascule depuis NVIDIA DeepSeek-Coder 6.7B (code, via NIM)",
       "detail": "HTTP Error 404: Not Found"
     },
     {
-      "ts": "2026-09-19T07:58:00.852008+00:00",
+      "ts": "2026-09-19T08:51:47.487471+00:00",
       "kind": "failover",
       "title": "Bascule depuis Puter Grok (gratuit)",
       "detail": "HTTP Error 402: Payment Required"
     },
     {
-      "ts": "2026-09-19T07:58:00.162155+00:00",
+      "ts": "2026-09-19T08:51:46.759128+00:00",
       "kind": "failover",
       "title": "Bascule depuis InferX Qwen3-Coder-Next (code, gratuit jusqu'au 12/08)",
       "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-09-19T07:57:55.779573+00:00",
+      "ts": "2026-09-19T08:51:42.418190+00:00",
       "kind": "failover",
       "title": "Bascule depuis InferX DeepSeek V4 Flash (API gratuite jusqu'au 12/08)",
       "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-09-19T07:57:51.750126+00:00",
+      "ts": "2026-09-19T08:51:38.067331+00:00",
       "kind": "failover",
       "title": "Bascule depuis OpenRouter Juge (nemotron-3-super-120b free) - verificateur independant",
       "detail": "HTTP Error 400: Bad Request"
     },
     {
-      "ts": "2026-09-19T07:57:50.947765+00:00",
+      "ts": "2026-09-19T08:51:37.188340+00:00",
       "kind": "failover",
       "title": "Bascule depuis OrcaRouter (routeur gratuit, modele orcarouter/free)",
       "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-09-19T07:57:49.937616+00:00",
-      "kind": "message",
-      "title": "« Groq (LLM ultra-rapide, gratuit) » a repondu",
-      "detail": "bascule"
+      "ts": "2026-09-19T08:51:35.828752+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis HuggingFace (136+ modeles, dont DeepSeek-V4)",
+      "detail": "HTTP Error 400: Bad Request"
     }
   ],
   "tasks_quotas": {

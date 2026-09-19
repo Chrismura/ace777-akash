@@ -46,10 +46,29 @@ DEFAUTS = [
     # ce fichier) n'avait jamais été appliquée À CE LOG : la vigie y écrit à chaque
     # tick (append) et il était passé à 3,7 Go. Ajouté à la rotation (seuil 100 Mo).
     ("/Users/christophe/ace777-test-day1/Index_Maison/strategie/journal_radar.log", 100),
+    # WATCHDOGS HULK (19/09) — MÊME CANCER, 3e occurrence : watchdog_hulk_ghost.sh lance
+    # `nohup python3 … >> runs/*_STDOUT.log 2>&1` (append) pour des process de plusieurs
+    # jours. PAPER = 95 Mo, DIGEST = 26 Mo, écrits EN DIRECT, hors rotation. Truncature
+    # sans risque (redirection O_APPEND), seuil 50 Mo.
+    ("/Users/christophe/ace777-test-day1/hulk-mexc/runs/PAPER_WATCHDOG_STDOUT.log", 50),
+    ("/Users/christophe/ace777-test-day1/hulk-mexc/runs/DIGEST_WATCHDOG_STDOUT.log", 50),
 ]
 
 BACKUP_COUNT = 2
 LOG = "/Users/christophe/ace777-test-day1/Index_Maison/scripts/rotation_jsonl.log"
+
+# ── AUDIT DE DÉCOUVERTE (19/09) ─────────────────────────────────────────────
+# Le trou de fond n'était pas un fichier précis : c'était d'AVOIR UNE LISTE.
+# Une liste ne protège que ce dont on s'est souvenu. Donc on cherche AUSSI tout
+# seul les fichiers qui gonflent : > 200 Mo et NON listés ci-dessus = cancer en
+# formation, signalé dans thermo/GROS_FICHIERS.json (même si personne n'y pense).
+AUDIT_SEUIL_MO = 200
+AUDIT_JSON = "/Users/christophe/ace777-test-day1/Index_Maison/thermo/GROS_FICHIERS.json"
+AUDIT_RACINE = "/Users/christophe/ace777-test-day1"
+AUDIT_EXCLUS = (
+    "/.git/", "/.venv", "/venv/", "/site-packages/", "/node_modules/",
+    "/_ARCHIVE", "/_archives", "/.Trash",
+)
 
 
 def rotate_file(filepath, seuil_mo, dry_run=False):
@@ -90,6 +109,32 @@ def rotate_file(filepath, seuil_mo, dry_run=False):
         return None
 
 
+def auditer_gros_fichiers():
+    """Découvre les fichiers > AUDIT_SEUIL_MO. Retourne la liste + les non couverts."""
+    seuil = AUDIT_SEUIL_MO * 1024 * 1024
+    couverts = {p for p, _ in DEFAUTS}
+    trouves = []
+    for racine, dirs, fichiers in os.walk(AUDIT_RACINE):
+        dirs[:] = [d for d in dirs if not any(e in os.path.join(racine, d) + "/" for e in AUDIT_EXCLUS)]
+        for nom in fichiers:
+            if nom.endswith(".gz"):
+                continue
+            chemin = os.path.join(racine, nom)
+            try:
+                taille = os.path.getsize(chemin)
+            except OSError:
+                continue
+            if taille > seuil:
+                trouves.append({
+                    "chemin": chemin,
+                    "mo": round(taille / 1024 / 1024, 1),
+                    "couvert": chemin in couverts,
+                })
+    trouves.sort(key=lambda x: -x["mo"])
+    non_couverts = [t for t in trouves if not t["couvert"]]
+    return trouves, non_couverts
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--seuil", type=int, default=None, help="seuil Mo (défaut : par fichier)")
@@ -115,6 +160,36 @@ def main():
         print(f"[{now}] ROTATION_JSONL: rien à roter (tous sous seuil)")
     else:
         print(f"[{now}] ROTATION_JSONL: {rotate_ok} fichier(s) roté(s)")
+
+    # ── Audit de découverte : ce qui gonfle SANS être dans la liste ──────────
+    trouves, non_couverts = auditer_gros_fichiers()
+    etat = {
+        "ts": now,
+        "seuil_mo": AUDIT_SEUIL_MO,
+        "fichiers": trouves,
+        "non_couverts": [t["chemin"] for t in non_couverts],
+    }
+    try:
+        import json as _json
+        tmp = AUDIT_JSON + ".tmp"
+        with open(tmp, "w", encoding="utf-8") as f:
+            _json.dump(etat, f, ensure_ascii=False, indent=2)
+        os.replace(tmp, AUDIT_JSON)
+    except OSError:
+        pass
+    if non_couverts:
+        line = (f"[{now}] AUDIT_GROS_FICHIERS: {len(non_couverts)} fichier(s) > {AUDIT_SEUIL_MO} Mo "
+                f"HORS ROTATION -> " + ", ".join(f"{t['chemin']} ({t['mo']} Mo)" for t in non_couverts[:5]))
+        print(line)
+        if not args.dry_run:
+            try:
+                with open(LOG, "a", encoding="utf-8") as f:
+                    f.write(line + "\n")
+            except OSError:
+                pass
+    else:
+        print(f"[{now}] AUDIT_GROS_FICHIERS: 0 fichier > {AUDIT_SEUIL_MO} Mo hors rotation "
+              f"({len(trouves)} gros fichier(s) vu(s), tous expliqués)")
 
 
 if __name__ == "__main__":
