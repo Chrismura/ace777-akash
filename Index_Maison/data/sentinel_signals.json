@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "fear_greed",
-      "zscore": 3.8129334558134556,
-      "value": 71,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrême (3.81) couplé à une cupidité élevée (71) sans couverture médiatique significative : classic setup de 'retail trap' où les baleines distribuent silencieusement dans l'indifférence des médias grand public.\"\n}\n```",
-      "ts": "2026-09-19T01:04:27.112857+00:00"
-    },
-    {
       "metric": "taker_ratio",
       "zscore": 3.4751775597725088,
       "value": 1.64,
@@ -349,6 +342,13 @@
       "value": 6511653988.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit médiatique sans rapport avec la crypto (actualités locales et lifestyle). Anomalie de volume on-chain non corrélée à une baleine mais à une inattention des flux.\"\n}\n```",
       "ts": "2026-09-19T19:40:07.820038+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.3268096562099867,
+      "value": 1.14,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.33) entièrement liée à l'ambiguïté du ticker 'IPT' dans l'actualité institutionnelle et académique (Tournoi de Physique, biotechnologies), et non à une accumulation de baleines crypto. Bruit médiatique sans substance onchain.\"\n}\n```",
+      "ts": "2026-09-19T20:05:21.082670+00:00"
     }
   ]
 }
