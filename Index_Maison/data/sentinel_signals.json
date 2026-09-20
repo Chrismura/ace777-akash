@@ -1,34 +1,6 @@
 {
   "signals": [
     {
-      "metric": "volume",
-      "zscore": -2.446039486036183,
-      "value": 7064825813.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique sans rapport avec la crypto (actualités locales et lifestyle). Volume on-chain anormalement bas (z-score -2.45) mais absence totale de corrélation avec un narratif pertinent. Fausse alerte due à du bruit sémantique.\"\n}\n```",
-      "ts": "2026-09-19T18:09:36.011479+00:00"
-    },
-    {
-      "metric": "liquidations",
-      "zscore": -3.69024576503127,
-      "value": 0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain majeure (liquidations à zéro, z-score -3.69) indiquant une absence totale de pression vendeuse par liquidation forcée. Les médias grand public confondent le signal crypto avec des faits divers judiciaires locaux sans rapport, créant une cécité narrative parfaite pour une accumulation silencieuse des baleines avant la cassure haussière.\"\n}\n```",
-      "ts": "2026-09-19T18:14:38.562422+00:00"
-    },
-    {
-      "metric": "long_short",
-      "zscore": 5.174333132851725,
-      "value": 1,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 92,\n  \"reason\": \"Z-score extrême (5.17) sur le ratio long/short couplé à un narratif médiatique purement macro/institutionnel (fonds hedge traditionnels). Divergence totale : saturation excessive des positions longues par les 'smart money' ou effet de levier aveugle en amont d'une purge imminente.\"\n}\n```",
-      "ts": "2026-09-19T18:14:40.530660+00:00"
-    },
-    {
-      "metric": "taker_ratio",
-      "zscore": -2.2566440635750697,
-      "value": 0.5,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio à 0.5 (z-score -2.26) indique une domination massive des ordres d'achat (Taker Buys), révélant une accumulation agressive et silencieuse des baleines. Le silence médiatique total confirme l'absence de FOMO public, ce qui est historiquement le point d'inflexion idéal avant une hausse impulsée par les 'smart money'.\"\n}\n```",
-      "ts": "2026-09-19T18:14:43.404847+00:00"
-    },
-    {
       "metric": "ipt",
       "zscore": 2.3023711273395358,
       "value": 1.093,
@@ -349,6 +321,34 @@
       "value": 50.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique totalement déconnecté de la blockchain : les articles parlent de 'Dust' (la startup SaaS d'IA de Stanislas Polu) et de météo ('dust devil'). Aucune baleine crypto en mouvement, simple confusion de mots-clés.\"\n}\n```",
       "ts": "2026-09-20T17:00:33.490740+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": 3.1012898396920905,
+      "value": 1.006,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Le ratio Long/Short atteint un z-score extrême de 3.10 (excès de positions acheteuses), tandis que les médias grand public banalisent la stratégie long-short ou rapportent un pessimisme sélectif (Cardano). Dette excessive des 'longs' face à un marché agité : signal classique de 'long squeeze' imminent orchestré par les baleines.\"\n}\n```",
+      "ts": "2026-09-20T17:05:36.449436+00:00"
+    },
+    {
+      "metric": "cpfp",
+      "zscore": 3.364452120746239,
+      "value": 50.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie statistique majeure sur le CPFP (Child-Pays-For-Parent) onchain (z-score 3.36) ignorée par les médias grand public qui se limitent à des tutoriels de base. Cette surcharge de transactions prioritaires révèle une accumulation agressive ou un repositionnement discret de gros portefeuilles.\"\n}\n```",
+      "ts": "2026-09-20T17:35:41.763367+00:00"
+    },
+    {
+      "metric": "dust",
+      "zscore": 3.364452120746239,
+      "value": 50.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie de dust onchain sans rapport avec les actualités. Les 'médias' cités traitent de la météo, d'une entreprise SaaS française nommée Dust (IA/audit) et de jeux vidéo, révélant un bruit sémantique total sans lien avec une baleine crypto.\"\n}\n```",
+      "ts": "2026-09-20T17:35:43.576658+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": 2.7906760803669797,
+      "value": 1.006,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Le ratio Long/Short atteint un z-score extrême de 2.79 (excès de positions acheteuses), signalant une complaisance dangereuse des particuliers. Les médias généralistes banalisent les stratégies long/short sans voir la surchauffe spéculative imminente, contredisant la réalité d'un marché mûr pour une purge des longs.\"\n}\n```",
+      "ts": "2026-09-20T17:35:45.570160+00:00"
     }
   ]
 }

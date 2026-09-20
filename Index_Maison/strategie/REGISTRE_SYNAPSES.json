@@ -1,6 +1,6 @@
 {
   "version": "1.4.7",
-  "updated": "2026-09-19T13:21Z",
+  "updated": "2026-09-20T17:50Z",
   "fichier": [
     {
       "nom": "Index_Maison/scripts/v2_duo_replay_4h.py",
@@ -770,11 +770,12 @@
       "origine": "GO Christophe 14/09 (onglet cockpit vol)",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "1b854a2b1cb820c87aeb176604634a53",
+      "md5": "0402336d4df5e86434955238f655a028",
       "_rescel_20260918": "panneau « Banc 20 actifs — risque » (net / DD / net-DD, base vs notrend) + contrat de sortie des LaunchAgents (distingue alerte métier d'échec réel).",
       "note": "Re-scellé 14/09T12:41Z après modification déclarée : suppression de la réécriture de vol.html (cache-buster déplacé côté client) — le générateur n'écrit plus que vol_live.js (non scellé, donnée vivante). Par Buffy. | 19/09 soir : + gardien « Règles d'or » (lit thermo/regles_or.json écrit par verifier_regles_or.py) — les règles d'or sont désormais VISIBLES dans la page vol. Declaré par Buffy.",
       "maj": "19/09 (solidité) : gardien « Agents launchd versionnés » lit hors_repo (danger : organe perdu à la restauration) + a_declarer (dérive installé/repo, preuve dans plists/_derive/). Ajout du gardien « Drill de restauration » (lit thermo/drill_restauration.json : verdict READY/TROU + organes hors git). Tous deux alimentés via git_push_auto.sh (3 h). Par Buffy.",
-      "date": "2026-09-19T12:44Z"
+      "date": "2026-09-20T17:55Z",
+      "_rescel_20260920": "DÉCLARÉ 20/09/2026 (Buffy, GO Christophe — boucle d'alerte) : CONTRAT_SORTIE += com.ace777.verif-setup exit 1 = « preuve de lecture du coffre à refaire (gatekeeper, par conception) ». Avant, ce garde-fou légitime était affiché comme un ÉCHEC (organe cassé) alors qu'il dit « relis la carte du coffre ». md5 1b854a2b1cb820c87aeb176604634a53 → efcec0aad782deb9e01f77300007290d. Aucune autre logique modifiée. | + gardien « Repo = installation » (lit thermo/installation_repo.json écrit par installer_depuis_repo.sh) : rend visible que le fichier installé est un LIEN vers le repo (dérive impossible par construction). md5 efcec0aad782deb9e01f77300007290d → 0402336d4df5e86434955238f655a028."
     },
     {
       "nom": "Index_Maison/cockpit/vol.html",

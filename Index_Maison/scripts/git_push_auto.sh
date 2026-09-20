@@ -11,11 +11,40 @@ LOG_FILE="$LOG_DIR/SYNC_LOG.md"
 TS=$(date -u +%Y-%m-%dT%H:%MZ)
 
 mkdir -p "$LOG_DIR"
+
+# ── 0) SÉRIALISATION (ajout 20/09/2026) ──────────────────────────────────────
+# Deux passages simultanés (plist 3 h + superviseur_auto qui l'appelle aussi) ont
+# produit « cannot lock ref 'refs/heads/main': is at X but expected Y » = push perdu
+# et bruit dans le journal. Un seul passage à la fois ; un verrou de plus de 30 min
+# est considéré orphelin (passage tué en cours de route).
+LOCK_DIR="$REPO_DIR/.git/.push_auto.lock"
+if ! mkdir "$LOCK_DIR" 2>/dev/null; then
+    if [ -n "$(find "$LOCK_DIR" -maxdepth 0 -mmin +30 2>/dev/null)" ]; then
+        echo "[$TS] GARDE-FOU : verrou de push orphelin (>30 min) retiré" >> "$LOG_FILE"
+        rm -rf "$LOCK_DIR"
+        mkdir "$LOCK_DIR" 2>/dev/null || { echo "[$TS] INFO : passage concurrent en cours — sauté"; exit 0; }
+    else
+        echo "[$TS] INFO : passage concurrent en cours — sauté"
+        exit 0
+    fi
+fi
+trap 'rmdir "$LOCK_DIR" 2>/dev/null' EXIT
+
 cd "$REPO_DIR" || exit 1
 
 # 1) Étendre l'OUTBOX depuis le système (pont machine → outbox)
 if [ -f "$REPO_DIR/Index_Maison/OUTBOX_OBSIDIAN/_sync_now.sh" ]; then
   bash "$REPO_DIR/Index_Maison/OUTBOX_OBSIDIAN/_sync_now.sh" >> "$LOG_FILE" 2>&1
+fi
+
+# 1bis-bis) LE REPO EST L'INSTALLATION (20/09) — contrôle de conformité, LECTURE SEULE.
+# Synchro inverse de sync_plists.sh : vérifie que chaque agent installé est bien un
+# LIEN vers Index_Maison/plists/ (donc qu'aucune dérive installé/repo n'est possible).
+# N'écrit jamais rien dans LaunchAgents (`--lier` est un acte délibéré, sur GO).
+# Sortie 2 = un agent installé n'est pas conforme au repo : la dérive devient VISIBLE.
+if [ -f "$REPO_DIR/Index_Maison/scripts/installer_depuis_repo.sh" ]; then
+  bash "$REPO_DIR/Index_Maison/scripts/installer_depuis_repo.sh" --verifier >> "$LOG_FILE" 2>&1 || \
+    echo "[$(date -u +%Y-%m-%dT%H:%MZ)] ALERTE : installation non conforme au repo (voir ci-dessus)" >> "$LOG_FILE"
 fi
 
 # 1bis) Versionner les agents launchd (anti-dérive, 19/09). Au 19/09 : 97 agents

@@ -386,6 +386,21 @@ def rappel_lecture(dry_run: bool, tracker: dict) -> str:
     C'est le rappel de Qwen (le superviseur tourne en Qwen local) — Ada le voit
     au réveil, c'est plus léger que de m'en remettre à ma mémoire."""
     age_h = tracker.get("preuve_lecture_age_h")
+    # 20/09/2026 — LA DÉCISION N'EST PLUS PRISE ICI. Elle vit dans preuve_lecture.py
+    # (règle d'or #6 « une seule vérité ») : elle était écrite deux fois (ici ET dans
+    # gatekeeper.py) et exigeait une RE-LECTURE toutes les 24 h même quand
+    # INVENTAIRE_COMPLET.md n'avait pas changé d'un fichier — 2 127 lignes,
+    # ~35 000 tokens par jour, pour rien. Désormais : la preuve tient tant que la
+    # carte du coffre n'a pas bougé.
+    try:
+        import sys as _sys
+        _sys.path.insert(0, str(SCRIPTS))
+        from preuve_lecture import verifier as _verifier_preuve
+        _ok_preuve, _raison_preuve, _, _ = _verifier_preuve()
+    except Exception:
+        _ok_preuve, _raison_preuve = False, "juge de preuve indisponible"  # fail-closed
+    if _ok_preuve:
+        return f"preuve lecture OK ({_raison_preuve})"
     if age_h is None or age_h > MAX_AGE_PREUVE_H:
         jour = datetime.now().strftime("%Y-%m-%d")
         if tracker.get("dernier_rappel_lecture") == jour:

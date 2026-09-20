@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Label</key>
+	<string>com.ace777.routeur-auto</string>
+	<key>ProgramArguments</key>
+	<array>
+		<string>/usr/bin/python3</string>
+		<string>/Users/christophe/prise-ia/routeur_auto.py</string>
+	</array>
+	<key>StartInterval</key>
+	<integer>21600</integer>
+	<key>StandardOutPath</key>
+	<string>/tmp/routeur-auto.log</string>
+	<key>StandardErrorPath</key>
+	<string>/tmp/routeur-auto.err.log</string>
+	<key>LowPriorityIO</key>
+	<true/>
+	<key>ProcessType</key>
+	<string>Background</string>
+</dict>
+</plist>
