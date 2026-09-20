@@ -1,7 +1,42 @@
 {
-  "timestamp": 1789894862,
-  "date": "2026-09-20T09:01:02.725249+00:00",
-  "n_analyses": 0,
-  "analyses": [],
-  "resume": "Aucune analyse en cours"
+  "timestamp": 1789898463,
+  "date": "2026-09-20T10:01:03.763850+00:00",
+  "n_analyses": 1,
+  "analyses": [
+    {
+      "signal": {
+        "metric": "price_1h",
+        "zscore": 2.619624060193937,
+        "value": 0.39637182094163226,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de prix positive (z-score 2.62) totalement ignorée par les médias (silence radio). Divergence classique d'accumulation silencieuse par les baleines avant une percée narrative.\"\n}\n```",
+        "ts": 1789897380.849939
+      },
+      "fiche": "price_1h",
+      "questions": {
+        "pct_1h": {
+          "value": 0.25,
+          "seuil": -1,
+          "depasse": true
+        },
+        "liq": {
+          "value": 2953604.0,
+          "seuil": 5000000,
+          "depasse": false
+        },
+        "funding": {
+          "value": 0.0001,
+          "seuil": 0,
+          "depasse": true
+        }
+      },
+      "interpretation": {
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
+      },
+      "action": "Observer",
+      "niveau": "neutre"
+    }
+  ],
+  "resume": "🔵 CALME — pas de signal alarmant"
 }

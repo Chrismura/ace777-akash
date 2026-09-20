@@ -1,4 +1,4 @@
-# INTEGRATIONS HEBDOMADAIRES — 2026-09-19
+# INTEGRATIONS HEBDOMADAIRES — 2026-09-20
 
 > Genere par observatoire.py (correction famille 09/08).
 > Regle : un provider integre auto n'est JAMAIS actif directement.
@@ -9,7 +9,7 @@
 
 | Provider | Modele | Detail | Etat |
 |----------|--------|--------|------|
-| obs-1789103007 | nex-agi/nex-n2.5-mini:free | 10/10 | actif + sain (sondes OK) |
+| obs-1789103007 | nex-agi/nex-n2.5-mini:free | 5/5 | actif + sain (sondes OK) |
 
 ## RETIRÉS (rollback auto > 5% erreurs)
 
