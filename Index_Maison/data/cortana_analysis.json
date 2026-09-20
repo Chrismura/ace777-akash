@@ -1,25 +1,25 @@
 {
-  "timestamp": 1789920070,
-  "date": "2026-09-20T16:01:10.556270+00:00",
-  "n_analyses": 4,
+  "timestamp": 1789923671,
+  "date": "2026-09-20T17:01:11.643625+00:00",
+  "n_analyses": 5,
   "analyses": [
     {
       "signal": {
         "metric": "long_short",
-        "zscore": 2.3975272049920826,
-        "value": 0.98,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le z-score à 2.40 indique une concentration anormale de positions vendeuses (short) par la foule, amplifiée par un narratif médiatique purement bäissier. Les baleines prennent traditionnellement le contre-pied de ce consensus excessif pour initier un short squeeze massif.\"\n}\n```",
-        "ts": 1789918500.638897
+        "zscore": 2.689378811828937,
+        "value": 0.993,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Le ratio Long/Short atteint un z-score extrême de 2.69 (0.993), indiquant un positionnement massif des institutionnels à contre-courant du narratif médiatique généraliste qui panique sur les baisses (ex: Cardano) ou disserte sur des stratégies macro traditionnelles. Divergence classique d'accumulation silencieuse de baleines avant un short squeeze.\"\n}\n```",
+        "ts": 1789922118.955179
       },
       "fiche": "long_short",
       "questions": {
         "ratio_long_short": {
-          "value": 0.98,
+          "value": 0.993,
           "seuil": 2,
           "depasse": false
         },
         "oi": {
-          "value": 108774.044,
+          "value": 107086.818,
           "seuil": 120000,
           "depasse": false
         }
@@ -35,31 +35,65 @@
     },
     {
       "signal": {
+        "metric": "price_1h",
+        "zscore": 3.124334230632521,
+        "value": 0.4746903297509597,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de prix significative (z-score 3.12) sans aucune couverture médiatique (silence total sur Google Actualités). C'est la signature classique d'une accumulation furtive par des baleines avant l'emballement du narratif public.\"\n}\n```",
+        "ts": 1789922421.326492
+      },
+      "fiche": "price_1h",
+      "questions": {
+        "pct_1h": {
+          "value": 0.5,
+          "seuil": -1,
+          "depasse": true
+        },
+        "liq": {
+          "value": 3511681.0,
+          "seuil": 5000000,
+          "depasse": false
+        },
+        "funding": {
+          "value": 5.8e-05,
+          "seuil": 0,
+          "depasse": true
+        }
+      },
+      "interpretation": {
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
+      },
+      "action": "Observer",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
         "metric": "ipt",
-        "zscore": 2.437189933070844,
-        "value": 0.981,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit sémantique pur. L'anomalie 'ipt' (Indice de Pression Temporelle ou similaire) et le z-score on-chain captent un acronyme homonyme (Institut Protestant de Théologie, Tournoi des Physiciens) sans aucun lien avec un actif crypto ou une baleine.\"\n}\n```",
-        "ts": 1789919103.85655
+        "zscore": 2.3251896448824163,
+        "value": 0.899,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Anomalie statistique (z-score 2.33) entièrement due à une collision de sémantique. Le ticker 'IPT' dans les données on-chain n'a aucun rapport avec les actualités médiatiques (Tournoi de Physique, biotechnologies ou institutions religieuses). Faux positif absolu, pas de mouvement de baleine crypto.\"\n}\n```",
+        "ts": 1789922724.856806
       },
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.02,
+          "value": 0.5,
           "seuil": 1,
           "depasse": false
         },
         "paires": {
-          "value": 0,
+          "value": 1,
           "seuil": 3,
           "depasse": false
         },
         "funding": {
-          "value": 7.5e-05,
+          "value": 5.8e-05,
           "seuil": 0.001,
           "depasse": false
         },
         "whales": {
-          "value": 0,
+          "value": 1,
           "seuil": 5,
           "depasse": false
         }
@@ -75,10 +109,10 @@
     {
       "signal": {
         "metric": "cpfp",
-        "zscore": 2.8149332406919263,
-        "value": 45.0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 75,\n  \"reason\": \"Forte anomalie on-chain sur le CPFP (Child-Pays-For-Parent à z-score 2.81), indiquant une congestion intentionnelle ou un déplacement massif de fonds avec frais accélérés par des acteurs majeurs. Les médias grand public relayent des actualités locales ou des tutoriels basiques, totalement aveugles à cette activité on-chain hautement stratégique.\"\n}\n```",
-        "ts": 1789920007.942842
+        "zscore": 3.252388504288385,
+        "value": 50.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Faux positif statistique. Le z-score élevé (3.25) sur le CPFP (Child-Pays-For-Parent) reflète simplement des congestions mineures du réseau Bitcoin ou des tutoriels médiatiques sur le RBF/CPFP, sans lien avec une accumulation ou distribution massive par des baleines.\"\n}\n```",
+        "ts": 1789923628.610052
       },
       "fiche": "blocs_privilises",
       "questions": {
@@ -88,12 +122,12 @@
           "depasse": false
         },
         "volume": {
-          "value": 132,
+          "value": 405,
           "seuil": 0,
           "depasse": true
         },
         "prix": {
-          "value": -0.02,
+          "value": 0.5,
           "seuil": 0,
           "depasse": true
         },
@@ -103,9 +137,9 @@
           "depasse": true
         },
         "rbf": {
-          "value": 0.0,
+          "value": 0.2,
           "seuil": 0,
-          "depasse": false
+          "depasse": true
         }
       },
       "interpretation": {
@@ -120,10 +154,10 @@
     {
       "signal": {
         "metric": "dust",
-        "zscore": 2.8149332406919263,
-        "value": 45.0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie onchain sans lien avec la crypto : le bruit médiatique concerne des entreprises SaaS traditionnelles (Dust, IA, audit) et de la météo, totalement déconnectées des mouvements de baleines.\"\n}\n```",
-        "ts": 1789920009.871214
+        "zscore": 3.252388504288385,
+        "value": 50.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique totalement déconnecté de la blockchain : les articles parlent de 'Dust' (la startup SaaS d'IA de Stanislas Polu) et de météo ('dust devil'). Aucune baleine crypto en mouvement, simple confusion de mots-clés.\"\n}\n```",
+        "ts": 1789923633.49074
       },
       "fiche": "blocs_privilises",
       "questions": {
@@ -133,12 +167,12 @@
           "depasse": false
         },
         "volume": {
-          "value": 132,
+          "value": 405,
           "seuil": 0,
           "depasse": true
         },
         "prix": {
-          "value": -0.02,
+          "value": 0.5,
           "seuil": 0,
           "depasse": true
         },
@@ -148,9 +182,9 @@
           "depasse": true
         },
         "rbf": {
-          "value": 0.0,
+          "value": 0.2,
           "seuil": 0,
-          "depasse": false
+          "depasse": true
         }
       },
       "interpretation": {
