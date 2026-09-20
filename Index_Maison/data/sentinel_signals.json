@@ -1,34 +1,6 @@
 {
   "signals": [
     {
-      "metric": "whale_usd",
-      "zscore": 4.706142982401969,
-      "value": 5987824.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (z-score 4.71) combinée à un silence médiatique absolu (Google Actualités vide). Les baleines accumulent dans l'ombre sans attirer la foule.\"\n}\n```",
-      "ts": "2026-09-19T06:36:56.928072+00:00"
-    },
-    {
-      "metric": "taker_ratio",
-      "zscore": 2.074587380590989,
-      "value": 1.488,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Un taker_ratio de 1.488 (z-score 2.07) indique une forte dominance des acheteurs agressifs (Taker Buy), absorbant l'offre de manière anormale. Le vide médiatique (Google Actualités silencieux) prouve que cette accumulation agressive se fait sous le radar institutionnel, loin du FOMO public.\"\n}\n```",
-      "ts": "2026-09-19T06:37:18.380786+00:00"
-    },
-    {
-      "metric": "cpfp",
-      "zscore": 2.0209124086119097,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Le pic de CPFP (Child-Pays-For-Parent) reflète une congestion du réseau Bitcoin et des utilisateurs qui débloquent des transactions bloquées avec des frais élevés, pollué par du bruit médiatique sans rapport (actualités locales et politiques). Aucune accumulation ou mouvement massif de baleines détecté.\"\n}\n```",
-      "ts": "2026-09-19T07:12:32.001440+00:00"
-    },
-    {
-      "metric": "dust",
-      "zscore": 2.0209124086119097,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit de fond médiatique sans lien avec la crypto. Les occurrences du mot 'dust' concernent de l'IA (startup Dust), de la météo (dust devil) et de la culture. Aucune baleine détectée.\"\n}\n```",
-      "ts": "2026-09-19T07:12:33.769068+00:00"
-    },
-    {
       "metric": "ipt",
       "zscore": 2.2070247126577884,
       "value": 1.06,
@@ -349,6 +321,34 @@
       "value": 1.424,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Un taker_ratio de 1.424 (z-score 2.41) indique une forte dominance agressive des acheteurs (Taker Buy) sur les carnets d'ordres, signalant une accumulation agressive par les baleines. L'absence totale de couverture médiatique (Google Actualités vide) prouve un aveuglement public total : c'est le timing classique d'un mouvement de grande envergure initié en silence avant la FOMO retail.\"\n}\n```",
       "ts": "2026-09-20T13:48:51.088659+00:00"
+    },
+    {
+      "metric": "taker_ratio",
+      "zscore": 2.2436195718408767,
+      "value": 1.425,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Taker ratio élevé (1.425, Z-score 2.24) indique une agression acheteuse agressive des baleines (Taker Buy dominant) alors que Google Actualités montre un silence médiatique total. Déconnexion classique précendant un mouvement haussier.\"\n}\n```",
+      "ts": "2026-09-20T14:18:57.785853+00:00"
+    },
+    {
+      "metric": "cpfp",
+      "zscore": 2.8311996131318415,
+      "value": 45.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique purement syntaxique (bruit de fond). Le z-score élevé sur le CPFP ('Child-Pays-For-Parent') reflète des congestions mineures de mempool ou des actualités sans rapport (politique/éducation), aucune accumulation ou mouvement massif de baleines détecté.\"\n}\n```",
+      "ts": "2026-09-20T14:29:00.904692+00:00"
+    },
+    {
+      "metric": "dust",
+      "zscore": 2.8311996131318415,
+      "value": 45.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.83) sur un bruit de fond sans lien avec la crypto. Les occurrences médiatiques concernent la météo, la pop culture et des logiciels SaaS traditionnels (Dust). Aucune activité de baleine détectée, simple bruit de fond on-chain interprété à tort.\"\n}\n```",
+      "ts": "2026-09-20T14:29:31.832188+00:00"
+    },
+    {
+      "metric": "taker_ratio",
+      "zscore": 2.0950599974998423,
+      "value": 1.425,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio à 1.425 (z-score 2.10) indique une forte agression acheteuse cachée sur le marché dérivé/spot, tandis que les médias traditionnels (Google Actualités) affichent un silence radio total. C'est la signature classique d'une accumulation furtive par les baleines avant une cassure haussière non pricée par le retail.\"\n}\n```",
+      "ts": "2026-09-20T14:49:36.124505+00:00"
     }
   ]
 }
