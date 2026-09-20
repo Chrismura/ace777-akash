@@ -26,6 +26,7 @@ USAGE : python3 scripts/drill_restauration.py [--sandbox <dir>]
 import json
 import os
 import plistlib
+import re
 import shutil
 import stat
 import subprocess
@@ -104,6 +105,92 @@ def etape_source():
 
 
 # ── 2. AGENTS : chaque agent installé est-il reconstructible ? ────────────────
+# ── 2bis. INSTRUMENTS DE LA BOUCLE : ce que la boucle EXÉCUTE est-il versionné ? ─
+# AJOUT 20/09/2026 (GO « incassable auto-réparant »). Le drill CALCULAIT déjà
+# `non_suivis_critiques` (fichiers non suivis sous Index_Maison/) mais ne le comptait
+# PAS dans les trous → il pouvait annoncer **READY** alors que 22 instruments que la
+# boucle EXÉCUTE réellement (le chien de garde lui-même, le générateur de la page vol,
+# la sentinelle indépendante, les moteurs de croisements/paternes, ofi_calc, le
+# simulateur du plancher…) n'étaient PAS dans git. Un Mac mort aurait rendu un ACE777
+# AMPUTÉ — exactement la question que ce drill prétend trancher.
+# Critère PROUVÉ, sans liste à maintenir : tout script invoqué par un agent launchd ou
+# par git_push_auto.sh (l'orchestrateur du tour) doit être suivi par git. Un instrument
+# absent de git est un trou, même si le disque va bien aujourd'hui.
+def _refs_scripts(txt: str):
+    """Références de scripts dans un texte shell.
+
+    PIÈGE (mesuré le 20/09/2026) : les appels s'écrivent `"$REPO_DIR/Index_Maison/…"`.
+    Un `\$` n'étant pas dans la classe de caractères, le regex renvoyait
+    `REPO_DIR/Index_Maison/scripts/x.py` — un chemin qui n'existe pas → l'instrument
+    était SILENCIEUSEMENT écarté du contrôle (verifier_regles_or.py et
+    installer_depuis_repo.sh passaient ainsi au travers du détecteur de trous).
+    On normalise donc les variables AVANT d'extraire les références.
+    """
+    for var in ("${REPO_DIR}/", "$REPO_DIR/", "$REPO/"):
+        txt = txt.replace(var, "")
+    return set(re.findall(r'([A-Za-z0-9_./-]+\.(?:py|sh))', txt))
+
+
+def etape_instruments():
+    invoques = set()
+    for pl in sorted(AGENTS.glob("com.ace777.*.plist")):
+        for chemin, role in chemins_invoques(pl):
+            if role in ("programme", "argument") and chemin.endswith((".py", ".sh")):
+                invoques.add(chemin)
+    # + les scripts appelés par l'orchestrateur et par les orchestrateurs enfants
+    #   (superviseur_core.sh appelle rotation_jsonl.py, git_push_auto appelle les
+    #   vérificateurs…) : sinon un instrument appelé en profondeur resterait invisible
+    #   alors que c'est LUI qui travaille. Deux passes suffisent (le tour → ses enfants).
+    orche = IM / "scripts" / "git_push_auto.sh"
+    if orche.exists():
+        try:
+            invoques.update(_refs_scripts(orche.read_text(encoding="utf-8", errors="ignore")))
+        except Exception:
+            pass
+    enfants = set()
+    for a in list(invoques):
+        p = Path(a) if os.path.isabs(a) else RACINE / a
+        if p.suffix not in (".sh", ".py") or not p.exists():
+            continue
+        try:
+            refs = _refs_scripts(p.read_text(encoding="utf-8", errors="ignore"))
+        except Exception:
+            continue
+        for r in refs:
+            rp = Path(r) if os.path.isabs(r) else RACINE / r
+            if rp.exists() and rp != p:
+                enfants.add(str(rp) if os.path.isabs(r) else r)
+        # Bibliothèques LOCALES importées (« from preuve_lecture import verifier ») :
+        # un instrument n'est pas restaurable sans sa bibliothèque. On ne retient que
+        # les modules qui EXISTENT en .py à côté → aucun faux positif stdlib.
+        if p.suffix == ".py":
+            try:
+                txt = p.read_text(encoding="utf-8", errors="ignore")
+            except Exception:
+                txt = ""
+            for mod in set(re.findall(r'^\s*(?:from|import)\s+([a-z_][a-z0-9_]*)', txt, re.M)):
+                local = p.parent / (mod + ".py")
+                if local.exists() and local != p:
+                    enfants.add(str(local.relative_to(RACINE)))
+    invoques.update(enfants)
+    code, suivis, _ = run(["git", "ls-files"], cwd=RACINE)
+    suivis = set(suivis.splitlines())
+    non_versionnes, hors_repo, total = [], [], 0
+    for a in sorted(invoques):
+        p = Path(a) if os.path.isabs(a) else RACINE / a
+        if not p.exists():
+            continue        # chemin absent : déjà couvert par l'étape « organes »
+        total += 1
+        try:
+            rel = str(p.relative_to(RACINE))
+        except ValueError:
+            hors_repo.append(a)     # vit hors du repo : volet « organes hors repo »
+            continue
+        if rel not in suivis:
+            non_versionnes.append(rel)
+    return {"invoques": total, "non_versionnes": non_versionnes, "hors_repo": hors_repo}
+
+
 def etape_agents():
     installes = sorted(p.name for p in AGENTS.glob("com.ace777.*.plist"))
     repo = sorted(p.name for p in REPO_PLISTS.glob("com.ace777.*.plist"))
@@ -325,6 +412,7 @@ def main():
     rc = etape_reconstruire(sandbox)
     org = etape_organes()
     sc = etape_scelles()
+    ins = etape_instruments()
 
     trous = []
     absents_graves = [a for a in org["absents"] if a["role"] != "env"]
@@ -340,6 +428,11 @@ def main():
                      f"({', '.join(noms[:4])}{'…' if len(noms) > 4 else ''})")
     if src["supprimes"]:
         trous.append(f"{len(src['supprimes'])} fichier(s) SUIVI(s) supprimé(s) sur le disque")
+    if ins["non_versionnes"]:
+        noms = ", ".join(ins["non_versionnes"][:3])
+        trous.append(f"{len(ins['non_versionnes'])} instrument(s) que la boucle EXÉCUTE et qui ne sont PAS "
+                     f"dans git → perdus à la restauration ({noms}"
+                     f"{'…' if len(ins['non_versionnes']) > 3 else ''})")
     if sc["ecarts"]:
         trous.append(f"{len(sc['ecarts'])} scellé(s) dont le md5 ne correspond plus")
     if sc["manquants"]:
@@ -364,6 +457,18 @@ def main():
     if src["non_suivis_critiques"]:
         for c in src["non_suivis_critiques"][:15]:
             L.append(f"  - `{c}`")
+    L.append("")
+    L.append("### 1bis. Instruments de la boucle — ce que la boucle EXÉCUTE est-il versionné ?")
+    L.append(f"- Scripts/exécutables invoqués par un agent ou par `git_push_auto.sh` : **{ins['invoques']}**")
+    if ins["non_versionnes"]:
+        L.append(f"- 🔴 **{len(ins['non_versionnes'])} NON versionnés** → un Mac mort les perdrait, "
+                 f"et la boucle ne redémarrerait pas :")
+        for c in ins["non_versionnes"]:
+            L.append(f"  - `{c}`")
+    else:
+        L.append("- ✅ **0 instrument hors git** — tout ce que la boucle exécute revient avec git.")
+    if ins["hors_repo"]:
+        L.append(f"- Hors repo (volet « organes hors repo » ci-dessous) : {len(ins['hors_repo'])}")
     L.append("")
     L.append("## 2. Agents launchd — reconstructibles ?")
     L.append(f"- Installés : **{ag['installes']}** · versionnés : **{ag['versionnes']}**")
@@ -445,7 +550,7 @@ def main():
     ecrire_atomique(RAPPORT_MD, rapport)
     ecrire_atomique(RAPPORT_JSON, json.dumps({
         "ts": started, "verdict": verdict, "trous": trous,
-        "source": src, "agents": ag, "reconstruction": rc, "organes": org, "scelles": sc,
+        "source": src, "instruments": ins, "agents": ag, "reconstruction": rc, "organes": org, "scelles": sc,
     }, ensure_ascii=False, indent=2))
 
     print(rapport)

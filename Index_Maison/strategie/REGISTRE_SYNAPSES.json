@@ -1,6 +1,6 @@
 {
-  "version": "1.4.7",
-  "updated": "2026-09-20T17:50Z",
+  "version": "1.5.0",
+  "updated": "2026-09-20T18:59Z",
   "fichier": [
     {
       "nom": "Index_Maison/scripts/v2_duo_replay_4h.py",
@@ -505,9 +505,9 @@
       "origine": "leçon GitHub 3 jours (croisement_contexte 300 Mo)",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "f81c2e2d4b9fc0cfc76ef2187911c50d",
+      "md5": "ed985a67f93a9fd0e9e3841705f1e572",
       "note": "Évolution déclarée 19/09 : +journal_radar.log (vigie 3,7 Go), +PAPER/DIGEST_WATCHDOG_STDOUT.log (95 Mo / 26 Mo, écrits en direct par watchdog_hulk_ghost.sh — même cancer, 3e occurrence), ET mode AUDIT DE DÉCOUVERTE (tout fichier > 200 Mo hors rotation est signalé tout seul dans thermo/GROS_FICHIERS.json : une liste ne protège que ce dont on se souvient). Préc. 14/09 18:35 : +x402_agentic_hist [C5].",
-      "maj": "re-scellé 19/09 08:31Z — +AUDIT DE DÉCOUVERTE (>200 Mo hors rotation = signalé sans qu'aucune liste n'ait à le prévoir ; sortie thermo/GROS_FICHIERS.json). Préc. 08:26Z : +PAPER/DIGEST watchdog (seuil 50 Mo). Préc. 07:00Z : +journal_radar.log (100 Mo). Leçon commune : toute écriture APPEND non rotatée finit en cancer de disque."
+      "maj": "re-scellé 20/09 — FENÊTRE GARDÉE : la rotation ne gardait AUCUN historique récent. Prouvé le 20/09 : rotation de croisement_contexte.jsonl à 13:12:21Z (113,7 Mo) → plus que 5 heures dans le fichier vivant ; or hulk-mexc/scripts/short_btc.py exige ≥ 10 heures distinctes → score null, « historique insuffisant » : le signal short BTC était AVEUGLE ~10 h, sans que le plist (exit 0), le chien (« short-btc vivant ») ni la veilleuse ne le voient. Désormais : GARDER_HEURES (24 h) → on n'archive QUE ce qui sort de la fenêtre, et GARDER_MAX_MO (60) borne le fichier vivant — le plus contraignant des deux gagne (on ne recrée pas le JSONL de 300 Mo qui bloquait le push). Clés ajoutées : GARDER_HEURES, GARDER_MAX_MO, _offset_fenetre(), _decaler_archives() ; rotate_file(..., garder_heures=0) = comportement historique INCHANGÉ pour les logs sans lecteur. 6 cas testés hors vol sur copie (fenêtre / plafond / tout-dans-fenêtre / historique / dry-run / lignes sans ts). Réécriture EN PLACE (même inode : les écrivains gardent leur fd — leçon COPYTRUNCATE)."
     },
     {
       "nom": "Index_Maison/plists/com.ace777.rwa-yields.plist",
@@ -525,10 +525,11 @@
       "origine": "chantier plancher confirmé — GO direct Christophe 11/09",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "d92d68cfadaaf4feeee7774dd49deae9",
+      "md5": "4917af9846a62a1010ee52311f193a91",
       "_rescel_20260918": "expose le champ `veto` par paire dans le feed cockpit (badge VETO anti-couteau) — aucun ordre, lecture seule.",
       "note": "déclaré 2026-09-11T20:42Z — lecture seule du moteur; produit JSONL + feed cockpit; 5 min launchd | évolution 2026-09-15T05:37Z GO direct Christophe (« regarde le plancher pour tout le monde ») : PAIRES 2→12 (toutes les paires couvertes par la sonde L2) + C2 sans profil = garde absolue 100 bps sur le spread live",
-      "maj": ""
+      "maj": "Feed cockpit RÉPARÉ 20/09/2026 : plancher_live.js est chargé en TÊTE de page (avant la carte #plancher-body) → l'IIFE ne trouvait pas l'élément, sortait, et la carte restait À VIE sur « Chargement du shadow plancher… ». Le rendu attend maintenant le DOM (DOMContentLoaded, ou immédiat si déjà prêt) : insensible à l'ordre des balises. Testé hors navigateur (node, DOM simulé) : les deux ordres remplissent le bloc.",
+      "date": "2026-09-20T18:14Z"
     },
     {
       "nom": "Index_Maison/plists/com.ace777.plancher-shadow.plist",
@@ -742,9 +743,10 @@
       "origine": "chantier troupeau-inv (GO Christophe 13/09)",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "a9ec30667809a9348caca3d14467e389",
+      "md5": "2d5554bdad1b5c8d644b754e7e8b471e",
       "note": "Re-scellé 2026-09-14T00:29Z. INI v5 (suffixes kmb, ±5%, ancres rondes). Calibration paire 0 : INI A = 0.0. Graine stockée en clair. | FIX 16/09 F2 (GO C.) : backoff ×3 (0,10,30) sur les appels hub — un 502 passager ne tue plus le cycle (16/09 : cycle 04:00Z mort sur un 502 unique). État dédié thermo/troupeau_inv_hub_etat.json (ok/echecs_consecutifs) — hors circuit sirène [C4]. Testé en vol : paire-009 créée, tentative 1 OK.",
-      "date": "2026-09-16T12:22Z"
+      "date": "2026-09-20T18:59Z",
+      "_rescel_20260920": " || 20/09 (Buffy) : le plist ne lance QUE --cycle → `--juger` n'était JAMAIS exécuté, donc AUCUNE paire divergente n'était jugée : paire-008 (graine 14/09 04:00Z) attendait son verdict T+72h du 17/09 depuis 3 jours, sans que rien ne le signale. Le cycle juge désormais ce qui est dû (idempotent). Verdict récupéré : paire-008 = MISS (B disait up, le marché a fait down). md5 a9ec3066 → 2d5554bd."
     },
     {
       "nom": "Index_Maison/scripts/collecter_xrpl_onchain.py",
@@ -761,8 +763,8 @@
       "origine": "GO Christophe 14/09 (rotation +troupeau_inv +xrpl_onchain)",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "f81c2e2d4b9fc0cfc76ef2187911c50d",
-      "note": "Évolution déclarée 19/09 : +journal_radar.log à la rotation (vigie, leçon 3,7 Go enfin appliquée, seuil 100 Mo). Préc. 14/09 18:35 : +x402_agentic_hist [C5]."
+      "md5": "ed985a67f93a9fd0e9e3841705f1e572",
+      "note": "Évolution déclarée 19/09 : +journal_radar.log à la rotation (vigie, leçon 3,7 Go enfin appliquée, seuil 100 Mo). Préc. 14/09 18:35 : +x402_agentic_hist [C5]. · re-scellé 20/09 — FENÊTRE GARDÉE : la rotation ne gardait AUCUN historique récent. Prouvé le 20/09 : rotation de croisement_contexte.jsonl à 13:12:21Z (113,7 Mo) → plus que 5 heures dans le fichier vivant ; or hulk-mexc/scripts/short_btc.py exige ≥ 10 heures distinctes → score null, « historique insuffisant » : le signal short BTC était AVEUGLE ~10 h, sans que le plist (exit 0), le chien (« short-btc vivant ») ni la veilleuse ne le voient. Désormais : GARDER_HEURES (24 h) → on n'archive QUE ce qui sort de la fenêtre, et GARDER_MAX_MO (60) borne le fichier vivant — le plus contraignant des deux gagne (on ne recrée pas le JSONL de 300 Mo qui bloquait le push). Clés ajoutées : GARDER_HEURES, GARDER_MAX_MO, _offset_fenetre(), _decaler_archives() ; rotate_file(..., garder_heures=0) = comportement historique INCHANGÉ pour les logs sans lecteur. 6 cas testés hors vol sur copie (fenêtre / plafond / tout-dans-fenêtre / historique / dry-run / lignes sans ts). Réécriture EN PLACE (même inode : les écrivains gardent leur fd — leçon COPYTRUNCATE)."
     },
     {
       "nom": "Index_Maison/scripts/gen_cockpit_vol.py",
@@ -770,12 +772,12 @@
       "origine": "GO Christophe 14/09 (onglet cockpit vol)",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "0402336d4df5e86434955238f655a028",
+      "md5": "0e7ff6fd7d03c090865dd856c8200f36",
       "_rescel_20260918": "panneau « Banc 20 actifs — risque » (net / DD / net-DD, base vs notrend) + contrat de sortie des LaunchAgents (distingue alerte métier d'échec réel).",
       "note": "Re-scellé 14/09T12:41Z après modification déclarée : suppression de la réécriture de vol.html (cache-buster déplacé côté client) — le générateur n'écrit plus que vol_live.js (non scellé, donnée vivante). Par Buffy. | 19/09 soir : + gardien « Règles d'or » (lit thermo/regles_or.json écrit par verifier_regles_or.py) — les règles d'or sont désormais VISIBLES dans la page vol. Declaré par Buffy.",
-      "maj": "19/09 (solidité) : gardien « Agents launchd versionnés » lit hors_repo (danger : organe perdu à la restauration) + a_declarer (dérive installé/repo, preuve dans plists/_derive/). Ajout du gardien « Drill de restauration » (lit thermo/drill_restauration.json : verdict READY/TROU + organes hors git). Tous deux alimentés via git_push_auto.sh (3 h). Par Buffy.",
-      "date": "2026-09-20T17:55Z",
-      "_rescel_20260920": "DÉCLARÉ 20/09/2026 (Buffy, GO Christophe — boucle d'alerte) : CONTRAT_SORTIE += com.ace777.verif-setup exit 1 = « preuve de lecture du coffre à refaire (gatekeeper, par conception) ». Avant, ce garde-fou légitime était affiché comme un ÉCHEC (organe cassé) alors qu'il dit « relis la carte du coffre ». md5 1b854a2b1cb820c87aeb176604634a53 → efcec0aad782deb9e01f77300007290d. Aucune autre logique modifiée. | + gardien « Repo = installation » (lit thermo/installation_repo.json écrit par installer_depuis_repo.sh) : rend visible que le fichier installé est un LIEN vers le repo (dérive impossible par construction). md5 efcec0aad782deb9e01f77300007290d → 0402336d4df5e86434955238f655a028."
+      "maj": "Gardien « Chien de garde » RÉPARÉ 20/09/2026 : il lisait `tail -1 thermo/chien_rapport.txt`, fichier QUE PERSONNE N'ÉCRIT → stdout vide → la page affichait « rapport présent » en VERT quoi qu'il arrive (faux vert permanent sur le gardien le plus important). Il lit désormais thermo/CHIEN_RAPPORT.json : « N vivants · N hors délai · N aveugle(s) » + l'organe et son champ muet, et un rapport figé > 15 min = rouge (le chien lui-même peut mourir). · 2e passe 20/09 : la table CONTRAT_SORTIE (codes de sortie launchd voulus) est désormais LUE dans strategie/contrat_sortie.json — une seule vérité, partagée avec le chien de garde (qui juge les 44 organes sans produit sur leur sortie launchd). Repli local conservé si le fichier manque.",
+      "date": "2026-09-20T18:59Z",
+      "_rescel_20260920": "DÉCLARÉ 20/09/2026 (Buffy, GO Christophe — boucle d'alerte) : CONTRAT_SORTIE += com.ace777.verif-setup exit 1 = « preuve de lecture du coffre à refaire (gatekeeper, par conception) ». Avant, ce garde-fou légitime était affiché comme un ÉCHEC (organe cassé) alors qu'il dit « relis la carte du coffre ». md5 1b854a2b1cb820c87aeb176604634a53 → efcec0aad782deb9e01f77300007290d. Aucune autre logique modifiée. | + gardien « Repo = installation » (lit thermo/installation_repo.json écrit par installer_depuis_repo.sh) : rend visible que le fichier installé est un LIEN vers le repo (dérive impossible par construction). md5 efcec0aad782deb9e01f77300007290d → 0402336d4df5e86434955238f655a028. || 20/09 (Buffy, GO « cri vivant + revue des organes ») : + gardien « Cris en cours » (lit thermo/cris.json écrit par le chien : les cris ACTIFS à l'instant, auto-effacés, avec le fait que la voix a VRAIMENT été lancée — un cri muet est un faux cri) et + gardien « Revue des organes » (lit thermo/revue_organes.json). md5 1b7a6a40 → 1a698b3c. || 20/09 (Buffy, GO « verdicts des protocoles ») : le tableau « Protocoles en test » ne recopie plus le document du 14/09 — il lit thermo/PROTOCOLES_VERDICTS.json (verdicts MESURÉS par scripts/verdicts_protocoles.py, avec le critère pré-enregistré à côté du résultat et une ligne ⚠ quand un verdict ne peut pas être rendu). Le tableau documentaire ne sert que de repli. md5 1a698b3c → 0e7ff6fd."
     },
     {
       "nom": "Index_Maison/cockpit/vol.html",
@@ -829,8 +831,9 @@
       "origine": "GO Christophe 15/09 (« go » sur le comparatif). Unanime flotille Gemini/DeepSeek/Grok. Buffy.",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "e2ca163d352dd3f1fe92be3627b64cf4",
-      "date": "2026-09-15T07:59:29Z"
+      "md5": "639b1f9cd16220531b291c823d863385",
+      "date": "2026-09-15T07:59:29Z",
+      "note": " · C2 AMENDÉE 20/09/2026 (Buffy, GO Christophe « trancher la sentinelle ») — la sentinelle criait CRITIQUE à une résolution que la déclaration du moteur n'a pas. Mesuré : CSV exact (seed 80.69722402 − sorties = 19.92722402) vs état déclaré 19.92 (position TRONQUÉE au pas du marché) → écart 0,0072 (0,036 %), sans trou de position. Tolérance C2 = max(1e-4×qty, pas de la valeur DÉCLARÉE, 1e-6) ; sous la tolérance mais non nul = tracé dans « c2_resolution » (explication, jamais alarme). MORDANT VÉRIFIÉ (une sortie retirée du CSV → écart 80,7 vs tolérance 0,01 → CRITIQUE). Aucune touche au moteur (scellé), lecture seule."
     },
     {
       "nom": "Index_Maison/plists/com.ace777.sentinelle-independante.plist",
@@ -952,9 +955,10 @@
       "origine": "solidité 19/09 (GO Christophe « go 1,2,3 »)",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "145df5b76a1b485ff631771f96ad8797",
-      "date": "2026-09-19T12:43Z",
-      "note": "Scellé 19/09 : le drill (instrument de preuve) est scellé. Verdict READY/TROU affiché dans la page vol par gen_cockpit_vol.py."
+      "md5": "d7307891e8e32b26dbf68519f5a1100c",
+      "date": "2026-09-20T18:45Z",
+      "note": "Scellé 19/09 : le drill (instrument de preuve) est scellé. Verdict READY/TROU affiché dans la page vol par gen_cockpit_vol.py.",
+      "_rescel_20260920": " || 20/09 (Buffy, GO « incassable ») : RÉPARATION D'UN FAUX VERT — le drill calculait `non_suivis_critiques` (fichiers non suivis sous Index_Maison/) mais ne le comptait PAS dans les trous : il pouvait annoncer READY alors que 27 instruments que la boucle EXÉCUTE (le chien de garde, le générateur de la page vol, la sentinelle indépendante, les moteurs croisements/paternes, preuve_lecture, verifier_regles_or, installer_depuis_repo…) n'étaient PAS dans git. Nouvelle étape `etape_instruments()` : tout script invoqué par un agent launchd, par git_push_auto.sh ou importé localement doit être suivi par git, sinon TROU. Piège corrigé au passage : les appels écrits `\"$REPO_DIR/…\"` étaient mal extraits (le $ cassait le motif) → verifier_regles_or.py et installer_depuis_repo.sh passaient au travers du détecteur. md5 145df5b7 → d7307891."
     },
     {
       "nom": "Index_Maison/scripts/sync_plists.sh",
@@ -995,6 +999,46 @@
       "md5": "e16040f514ef7aad57f53584781396cc",
       "date": "2026-09-19T13:21Z",
       "note": "2 cas : justesse (le score lui-même) et ace (statut du bot). Toute nouvelle bulle doit être branchée ou déclarée ici."
+    },
+    {
+      "nom": "Index_Maison/strategie/sens_declares.json",
+      "role": "SENS DÉCLARÉS — pour chaque organe sensible, LE champ qui prouve qu'il peut encore décider (et la fenêtre tolérée). Lu par chien_de_garde.py.",
+      "origine": "Buffy 20/09/2026 (GO Christophe « doit tout être incassable auto-réparant »)",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "750b2c9948fec548e4fcfdfed9344193",
+      "date": "2026-09-20T18:14Z",
+      "note": "Déclaré 20/09. Découvre la famille de panne « organe VIVANT mais AVEUGLE » : process OK, produit frais, launchd exit 0 — et la décision ne sort plus. Prouvée ce jour par le signal short BTC (score nul ~5 h après la rotation de croisement_contexte.jsonl, sans un cri). 3 sens déclarés, chacun justifié : short-btc (score, jsonl 45 min), verdicteur-micro (pct, exiger_si n_alertes>=1, 120 min), kronos-ombre (derniere.ts_emission, 150 min). Un organe absent d'ici n'est PAS jugé aveugle : on ne devine pas."
+    },
+    {
+      "nom": "Index_Maison/strategie/contrat_sortie.json",
+      "role": "CONTRAT DE SORTIE — codes de sortie launchd non nuls DÉCLARÉS par conception (canal d'alerte). Lu par le chien de garde ET la page vol.",
+      "origine": "Buffy 20/09/2026 (GO Christophe « incassable ») — extrait de gen_cockpit_vol.py en UNE SEULE VÉRITÉ",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "5d68e1dcf77e7b8c792c1df3cda1551b",
+      "date": "2026-09-20T18:16Z",
+      "note": "Déclaré 20/09 : 3 cas voulus (veilleuse=1 anomalies détectées, discipline-quotidienne=3 alertes de discipline, verif-setup=1 preuve de lecture à refaire). Sert au chien pour ne plus classer 46 organes chargés en « non surveillés » : il lit la dernière sortie launchd et distingue un code VOULU d'un échec réel."
+    },
+    {
+      "nom": "Index_Maison/scripts/revue_organes.py",
+      "role": "Revue des 99 organes : compare ce que le registre DÉCLARE (cadence, produit) à ce que le disque PROUVE (déclencheur réel du plist, résolution du produit, contenu qui avance). Lecture seule sur la maison : n'écrit que thermo/revue_organes.json + REVUE_ORGANES.md.",
+      "origine": "GO Christophe 20/09/2026 « passer les autres organes en revue » (boucle incassable auto-réparante)",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "301784718b629a9c693b70c4da57fb27",
+      "date": "2026-09-20T18:43Z",
+      "note": "Une seule vérité : la résolution des produits est celle du chien de garde (chien_de_garde.resoudre_chemin_produit) — deux résolutions divergentes jugeraient deux choses différentes. Un écart n'est pas une panne, c'est une déclaration à faire (strategie/revue_declares.json). Lancée par git_push_auto.sh toutes les 3 h."
+    },
+    {
+      "nom": "Index_Maison/scripts/verdicts_protocoles.py",
+      "role": "Rend les verdicts des protocoles en test depuis leurs critères PRÉ-ENREGISTRÉS (troupeau-inv T+72h/≥20 cas, RWA J+8 ≥3 pools ≥50 bps, XRPL J8, arbitrage LLM-vs-règle, geopol 4 semaines, paternes-btc n≥30, MiroFish). Lecture seule sur la maison.",
+      "origine": "GO Christophe 20/09/2026 « me donner les résultats en profondeur des protocoles en test — verdicts »",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "4fb835ecd3b09a063e6e7a41af1e9973",
+      "date": "2026-09-20T18:59Z",
+      "note": "Un protocole dont le verdict ne peut pas être rendu est signalé (IMPOSSIBLE/⚠), jamais présenté comme « ça suit son cours ». Lancé par git_push_auto.sh toutes les 3 h."
     }
   ]
 }

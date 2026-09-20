@@ -78,6 +78,26 @@ if [ -f "$REPO_DIR/Index_Maison/scripts/verifier_regles_or.py" ]; then
   python3 "$REPO_DIR/Index_Maison/scripts/verifier_regles_or.py" >> "$LOG_FILE" 2>&1
 fi
 
+# 1sexies) REVUE DES ORGANES (20/09) — les 99 organes comparés à ce que le registre
+# DÉCLARE : cadence déclarée vs déclencheur RÉEL du plist, produit déclaré que plus rien
+# ne résout, produit frais dont le CONTENU n'avance plus. Le chien ne pouvait pas voir
+# ces écarts STRUCTURELS : il mesure la fraîcheur, pas la cohérence des déclarations.
+# Lecture seule sur la maison (n'écrit que thermo/revue_organes.json + REVUE_ORGANES.md).
+# Un écart n'est pas une panne : c'est une déclaration à faire (strategie/revue_declares.json).
+if [ -f "$REPO_DIR/Index_Maison/scripts/revue_organes.py" ]; then
+  python3 "$REPO_DIR/Index_Maison/scripts/revue_organes.py" >> "$LOG_FILE" 2>&1
+fi
+
+# 1septies) VERDICTS DES PROTOCOLES EN TEST (20/09) — leurs critères sont PRÉ-ENREGISTRÉS
+# (on fixe le critère AVANT de voir les données) donc les verdicts sont CALCULABLES.
+# La page vol recopiait à la main un tableau du 14/09 : elle pouvait afficher un verdict
+# périmé, et personne ne voyait qu'un protocole dont le verdict ne peut pas être rendu
+# (0 cas à juger, matériel absent, seuil hors d'échelle) n'était pas une patience mais
+# une panne de conception. Lecture seule (écrit thermo/PROTOCOLES_VERDICTS.json).
+if [ -f "$REPO_DIR/Index_Maison/scripts/verdicts_protocoles.py" ]; then
+  python3 "$REPO_DIR/Index_Maison/scripts/verdicts_protocoles.py" >> "$LOG_FILE" 2>&1
+fi
+
 # 2) Ne committer que les fichiers DÉJÀ SUIVIS (modifiés/supprimés) + les canoniques
 # Garde-fou 05/09 (incident index.lock orphelin du 03/09 : 2,5 jours de push mort
 # en silence, le 2>/dev/null avalait le rc=128 et le script disait « aucun changement ») :

@@ -1,0 +1,19 @@
+{
+  "version": "1.0.0",
+  "updated": "2026-09-20T19:05Z",
+  "note": "DÉCLARATIONS DE LA REVUE DES ORGANES (20/09/2026, GO Christophe « doit tout être incassable auto-réparant »). La revue (scripts/revue_organes.py) compare ce que le registre DÉCLARE avec ce que le disque PROUVE. Un écart n'est PAS une panne : c'est une déclaration à faire. Tant qu'une ligne n'est pas déclarée ici, le chien la crie (une seule fois par heure, sous l'organe « revue-organes ») et elle reste en tête de thermo/REVUE_ORGANES.md. Déclarer = dire POURQUOI l'écart est voulu, avec la date — jamais pour faire taire une alarme (R14 : une alarme qui ment est pire que pas d'alarme).",
+  "champs": {
+    "cadences": "{organe: \"raison + date\"} — cadence déclarée ≠ déclencheur réel du plist, divergence VOULUE (ex. le produit ne s'écrit que sur événement alors que le job tourne toutes les 10 s). Préférable : la mettre dans criticite_organes.json (frequence_attendue_sec_critique), qui est LA vérité humaine déjà lue par le générateur du registre.",
+    "produits_non_resolus": "liste d'organes dont le produit déclaré ne se résout pas et dont on assume l'absence (ex. produit à la demande).",
+    "contenu_surveille": "[{organe, champ}] — les seuls organes dont le CONTENU doit avancer : le champ est donné explicitement (aucune devinette). Un produit frais dont ce champ n'avance plus = organe vivant à vide → cri du chien."
+  },
+  "cadences": {},
+  "produits_non_resolus": [],
+  "contenu_surveille": [
+    {
+      "organe": "juste-prix",
+      "champ": "ts_iso",
+      "pourquoi": "Phase A boucle Dan1ro0 : une prédiction EST écrite à chaque cycle (5 min). Le fichier peut être réécrit alors que la dernière prédiction est vieille — le mtime ne le voit pas, ce champ si. Précaution mesurée : juste_prix_hist.jsonl écrit « ts » en MILLISECONDES sur les lignes récentes et pas du tout sur les anciennes (piège d'unité) — on lit donc « ts_iso », non ambigu."
+    }
+  ]
+}

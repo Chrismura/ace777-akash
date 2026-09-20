@@ -1,0 +1,504 @@
+{
+  "description": "Organes critiques ACE777 - config complétée le 2026-09-11 00h50. Chaque chemin produit a été VÉRIFIÉ À LA SOURCE : script réel du plist + grep des écritures + mtime du fichier. Fréquences = StartInterval réel des plists (vérité machine), sauf noté. NOTE : les produits /tmp/*launchd*.log sont rémanents (non tronqués) ; à terme, passer disjoncteur / nourrisseur-disjoncteur / pont-onchain en pouls_direct pour un vrai battement par organe.",
+  "organes": [
+    {
+      "organe": "llm-gate-hub",
+      "criticite": "CRITIQUE",
+      "tolerance_mult": 2.0,
+      "frequence_attendue_sec_critique": 3600,
+      "mode": "produit",
+      "chemin_pouls_ou_produit": "/Users/christophe/prise-ia/heartbeat.json",
+      "commentaire": "Hub LLM (port 11435, KeepAlive daemon, PAS de StartInterval) · heartbeat résolu à la source (hors BASE_DIR, d'où chemin absolu) · battement observé ~1/h (23h26, 00h28) · seuil 2h"
+    },
+    {
+      "organe": "cockpit-pont",
+      "criticite": "CRITIQUE",
+      "tolerance_mult": 2.0,
+      "frequence_attendue_sec": 300,
+      "mode": "produit",
+      "chemin_pouls_ou_produit": "Index_Maison/cockpit/mission.json",
+      "commentaire": "cortana_cockpit_bridge.py (KeepAlive) · mission.json vérifié FRAIS (00h26) · attention : le bridge n'en est que le LECTEUR/veilleur, l'écrivain est un autre organe cockpit — le produit couvre la chaîne, pas seulement le script"
+    },
+    {
+      "organe": "veilleuse",
+      "criticite": "CRITIQUE",
+      "tolerance_mult": 2.0,
+      "frequence_attendue_sec": 300,
+      "mode": "produit",
+      "chemin_pouls_ou_produit": "Index_Maison/thermo/VEILLEUSE.md",
+      "commentaire": "veilleuse_synapses.py · VEILLEUSE.md vérifié FRAIS (00h14)"
+    },
+    {
+      "organe": "superviseur",
+      "criticite": "CRITIQUE",
+      "tolerance_mult": 2.0,
+      "frequence_attendue_sec": 3600,
+      "mode": "produit",
+      "chemin_pouls_ou_produit": "Index_Maison/OUTBOX_OBSIDIAN/.superviseur_state.json",
+      "commentaire": "superviseur_auto.py (StartInterval 3600) · state cache vérifié (23h17) · CORRECTIF : l'ancien squelette n'avait AUCUN chemin → âge infini = fausse alerte garantie"
+    },
+    {
+      "organe": "hulk-watchdog",
+      "criticite": "CRITIQUE",
+      "tolerance_mult": 2.0,
+      "frequence_attendue_sec": 120,
+      "mode": "pouls_direct",
+      "commentaire": "Watchdog Ghost (paper+veille) : relance si mort. FIX 16/09 F1 : pouls à chemin fixe pouls/hulk-watchdog.json (avant : CSV de run daté, périmé à chaque nouveau run — R1+R3). GO Christophe 16/09."
+    },
+    {
+      "organe": "thermo-quotidien",
+      "criticite": "CRITIQUE",
+      "tolerance_mult": 2.0,
+      "frequence_attendue_sec": 300,
+      "mode": "produit",
+      "chemin_pouls_ou_produit": "Index_Maison/thermo/live.json",
+      "commentaire": "Thermomètre général · live.json vérifié FRAIS (00h20)"
+    },
+    {
+      "organe": "observer-murs",
+      "criticite": "CRITIQUE",
+      "tolerance_mult": 2.0,
+      "frequence_attendue_sec": 1800,
+      "mode": "produit",
+      "chemin_pouls_ou_produit": "hulk-mexc/runs/murs_observations.json",
+      "commentaire": "observer_murs.py (StartInterval 1800) · CORRECTIF ENQUÊTE 11/09 : l'ancien câblage pointait runs/L2_20260909_SNAPS.csv qui n'est PAS le produit de cet organe (c'est superviseur_l2.py, session manuelle sans plist, arrêtée le 10/09 12:12Z) · le vrai produit, écrit à CHAQUE run, est murs_observations.json (nom stable, vérifié frais) · Faux cri du chien expliqué : mauvais produit, l'organe était vivant"
+    },
+    {
+      "organe": "cortana.urgent",
+      "criticite": "CRITIQUE",
+      "tolerance_mult": 2.0,
+      "frequence_attendue_sec_critique": 3600,
+      "mode": "produit",
+      "chemin_pouls_ou_produit": "Index_Maison/data/cortana_analysis.json",
+      "commentaire": "com.ace777.cortana.urgent.plist existe (nom vérifié) · écrivain réel du produit : cortana_analyzer.py (vérifié par grep) · produit frais (00h44)"
+    },
+    {
+      "organe": "veille-hub",
+      "criticite": "CRITIQUE",
+      "tolerance_mult": 2.0,
+      "frequence_attendue_sec_critique": 43200,
+      "mode": "produit",
+      "chemin_pouls_ou_produit": "dernier:Index_Maison/VEILLE_HUB_*.md",
+      "commentaire": "veille_hub.py · StartCalendarInterval 07h00 quotidien · jeton dernier: = rapport le plus récent · seuil 24h (freq 12h × tol 2) : un run quotidien manqué est crié dès l'après-midi suivant"
+    },
+    {
+      "organe": "disjoncteur",
+      "criticite": "CRITIQUE",
+      "tolerance_mult": 2.0,
+      "frequence_attendue_sec": 60,
+      "mode": "produit",
+      "chemin_pouls_ou_produit": "/tmp/disjoncteur_launchd.out.log",
+      "commentaire": "disjoncteur.py (StartInterval 60) · PIÈGE : n'écrit state/history QUE sur événement (state du 09/09 = dernier Mur de Fer, pas une panne) · produit = log launchd (vérifié frais 00h09) MAIS rémanent → fausse sécurité possible · RECO : le passer en pouls_direct à la prochaine session"
+    },
+    {
+      "organe": "nourrisseur-disjoncteur",
+      "criticite": "CRITIQUE",
+      "tolerance_mult": 2.0,
+      "frequence_attendue_sec": 60,
+      "mode": "produit",
+      "chemin_pouls_ou_produit": "/tmp/nourrisseur_disjoncteur.out.log",
+      "commentaire": "nourrir_disjoncteur.py (StartInterval 60) · pivot écrit seulement sur changement (02h00) · produit = log launchd (vérifié frais 00h12) mais rémanent · RECO : pouls_direct à terme"
+    },
+    {
+      "organe": "vigie-live",
+      "criticite": "CRITIQUE",
+      "tolerance_mult": 2.0,
+      "frequence_attendue_sec_critique": 3600,
+      "mode": "produit",
+      "chemin_pouls_ou_produit": "Index_Maison/strategie/vigie_cooldown.json",
+      "commentaire": "vigie_live.py (KeepAlive, boucle 5 s) · alarme.json = uniquement sur ÉVÉNEMENT (piège évité) · vigie_cooldown.json écrit à CHAQUE cycle (vérifié frais 00h03) = bon produit"
+    },
+    {
+      "organe": "pont-onchain",
+      "criticite": "CRITIQUE",
+      "tolerance_mult": 2.0,
+      "frequence_attendue_sec_critique": 1800,
+      "mode": "produit",
+      "chemin_pouls_ou_produit": "/tmp/pont_onchain_launchd.out.log",
+      "commentaire": "pont_onchain.py (StartInterval 300) · CORRECTIF DU DOUBLON : l'ancien squelette avait 'llm-gate-hub' en double (hub + pont mélangés) ; le 2e organe est en réalité com.ace777.pont-onchain · il NE produit PAS sdi_latest.json (il le LIT) · produit = log launchd (frais 00h10) mais rémanent · RECO : pouls_direct à terme"
+    },
+    {
+      "organe": "superviseur-l2",
+      "criticite": "CRITIQUE",
+      "tolerance_mult": 2.0,
+      "frequence_attendue_sec_critique": 60,
+      "mode": "produit",
+      "chemin_pouls_ou_produit": "runs/L2_<date_compact>_SNAPS.csv",
+      "commentaire": "RESSUSCITÉ le 11/09 (GO famille, choix 1) : murs = fondamentaux de la stratégie · sonde carnet 1×/s via lanceur_superviseur_l2.sh (relance à minuit UTC car le script fige day au démarrage) · plist com.ace777.superviseur-l2 KeepAlive · jeton <date_compact> = format du script (L2_20260910) · arrêt propre : touch runs/STOP_L2"
+    },
+    {
+      "organe": "chien-de-garde",
+      "criticite": "CRITIQUE",
+      "tolerance_mult": 2.0,
+      "mode": "pouls_direct",
+      "commentaire": "Le chien lui-même (nom au format du plist com.ace777.chien-de-garde) — écrit son pouls au DÉBUT de chaque cycle, puis surveillé par son propre rapport daté (l'âge du rapport est affiché au cockpit, vérifié à l'œil par Christophe 1x/jour : récursion stoppée à 2 étages + œil humain)"
+    },
+    {
+      "organe": "prise-ia",
+      "criticite": "CRITIQUE",
+      "tolerance_mult": 2.0,
+      "frequence_attendue_sec": 3600,
+      "mode": "produit",
+      "chemin_pouls_ou_produit": "/Users/christophe/prise-ia/heartbeat.json",
+      "commentaire": "V6-A (11/09, GO famille) : le serveur hub (port 11435) n'etait surveille par PERSONNE — le chien ne suivait que son pont (llm-gate-hub). Le heartbeat ecrit dans le hub lui-meme (superviseur_core.sh absorbe 5 services, horodatage interne verifie = mtime). Seuil 2h vs cadence 1h. · CORRECTIF 11/09 : la clé frequence_attendue_sec_critique est celle qui PRIME au générateur (le plist n'a pas de StartInterval) — sans elle le seuil héritait de 600s = faux vieillissant.",
+      "frequence_attendue_sec_critique": 3600
+    },
+    {
+      "organe": "gitpush",
+      "criticite": "CRITIQUE",
+      "tolerance_mult": 3.0,
+      "frequence_attendue_sec": 10800,
+      "mode": "produit",
+      "chemin_pouls_ou_produit": ".git/refs/remotes/origin/main",
+      "commentaire": "V6-A (11/09) : sauvegarde GitHub du repo systeme (ace777-akash, plist 3h). Verite machine = mtime du ref distant (.git/refs/remotes/origin/main) : ne bouge QUE sur un push reussi — capte le lecon gitpush mort 29h du 09/09 (le log SYNC_LOG ne bougeait pas non plus, mais le ref est la preuve du push, pas du log). Precedent historique : 42 commits perdus 29h sans alarme."
+    },
+    {
+      "organe": "gitpush-vault",
+      "criticite": "CRITIQUE",
+      "tolerance_mult": 3.0,
+      "frequence_attendue_sec": 10800,
+      "mode": "pouls_direct",
+      "commentaire": "RÉPARATION 20/09/2026 : la vérité machine était le mtime du ref distant du vault (.git/refs/remotes/origin/main) — or ce ref ne bouge QUE sur un push réussi : quand le coffre n'avait rien à pousser pendant >9 h, le chien criait CRITIQUE à tort (27 h d'alertes horaires observées le 20/09 = faux positif permanent). Le pouls est désormais écrit par git_push_vault.sh UNIQUEMENT quand le coffre est PROUVÉ à jour (rien à commiter ET rien en avance sur origin). Script cassé, index.lock orphelin, push en attente -> aucun pouls -> le chien crie, et cette fois c'est vrai. Vrai défaut trouvé le 20/09 : la sauvegarde du coffre était MORTE depuis 2 jours sur un index.lock orphelin, et l'alarme désignait la mauvaise chose."
+    },
+    {
+      "organe": "cockpit-http",
+      "criticite": "CRITIQUE",
+      "tolerance_mult": 2.0,
+      "frequence_attendue_sec_critique": 3600,
+      "mode": "produit",
+      "chemin_pouls_ou_produit": "/tmp/cockpit_http_17800.log",
+      "commentaire": "V6-A (11/09) : serveur HTTP cockpit port 17800 (KeepAlive daemon, ThreadingTCPServer serve_forever, PAS de StartInterval). Produit = son log launchd : chaque requete HTTP (polling cockpit) append → mtime frais tant que le serveur ET le client vivent. Note honnete : si le cockpit arrete de sonder, le mtime vieillit sans que le serveur soit mort (cri = chaine serveur+client, comme cockpit-pont/mission.json)."
+    },
+    {
+      "organe": "hub-cockpit-feed",
+      "criticite": "CRITIQUE",
+      "tolerance_mult": 2.0,
+      "frequence_attendue_sec": 30,
+      "mode": "produit",
+      "chemin_pouls_ou_produit": "Index_Maison/cockpit/hub.json",
+      "commentaire": "V6-A (11/09) : hub_cockpit_feed.py (StartInterval 30) ecrit hub.json a CHAQUE run (ecriture atomique verifiee au code ligne 141). Produit frais (11h49). Seuil 1 min vs cadence 30 s."
+    },
+    {
+      "organe": "state-generator",
+      "criticite": "CRITIQUE",
+      "tolerance_mult": 2.0,
+      "frequence_attendue_sec": 120,
+      "mode": "produit",
+      "chemin_pouls_ou_produit": "Index_Maison/system/state.json",
+      "commentaire": "V6-A (11/09) : system_state_generator.py (StartInterval 120) ecrit state.json (write_atomic). DEJA MORT EN SILENCE UNE FOIS (STATE.md gele 10/09 19h19, decouvert le 11/09) — c'est exactement le trou que ce cblage ferme. Produit frais (11h49)."
+    },
+    {
+      "organe": "ofi-calc",
+      "criticite": "CRITIQUE",
+      "tolerance_mult": 2.0,
+      "frequence_attendue_sec": 60,
+      "mode": "produit",
+      "chemin_pouls_ou_produit": "Index_Maison/data/ofi_latest.json",
+      "commentaire": "V6-A (11/09) : ofi_calc.py (StartInterval 60) ecrit ofi_latest.json a chaque run. Entree du cerveau strategie (OFI = order flow imbalance). Produit frais (11h49)."
+    },
+    {
+      "organe": "short-btc",
+      "criticite": "CRITIQUE",
+      "tolerance_mult": 2.0,
+      "frequence_attendue_sec": 300,
+      "mode": "produit",
+      "chemin_pouls_ou_produit": "hulk-mexc/runs/short_btc_state.json",
+      "commentaire": "V6-A (11/09) : short_btc.py (StartInterval 300) ecrit short_btc_state.json a chaque run. MALADIE DECOUVERTE AU CBLAGE : le script CRASHE a chaque cycle (TypeError None<=float ligne 301, exit 1 launchd) depuis ~09h16 avec position paper OUVERTE non geree — etait donc deja mort en silence : le chien va crier VRAI des le premier cycle. FIX du crash = chantier separe (GO requis)."
+    },
+    {
+      "organe": "superviseur-process",
+      "criticite": "CRITIQUE",
+      "tolerance_mult": 2.0,
+      "frequence_attendue_sec_critique": 600,
+      "mode": "produit",
+      "chemin_pouls_ou_produit": "Index_Maison/scripts/superviseur.log",
+      "commentaire": "V6-A (11/09) : superviseur.sh (KeepAlive daemon, boucle sleep ~60s) = LE relanceur des processus vitaux (hub, vigie, cockpit-http). Log 'verif' a CHAQUE cycle (verifie frais 11h17). Sa mort = plus aucune relance en silence. Seuil 10 min vs cadence 1 min."
+    },
+    {
+      "organe": "watchdog",
+      "criticite": "CRITIQUE",
+      "tolerance_mult": 2.0,
+      "frequence_attendue_sec": 120,
+      "mode": "produit",
+      "chemin_pouls_ou_produit": "/tmp/watchdog-superviseur.out.log",
+      "commentaire": "V6-A (11/09) : watchdog_superviseur.sh (StartInterval 120) relance superviseur-core. ATTENTION SOURCE : son log d'evenements (~/.superviseur_core/watchdog.log) ne bouge QUE sur relance (dernier 26/08) — le battement reel est son stdout 'WATCHDOG=OK' a chaque cycle (/tmp/watchdog-superviseur.out.log, frais 11h42). Note : /tmp purge au reboot = apres reboot 1er cycle peut crier faux si le chien passe avant le 1er watchdog (tolerable, autocorrigé 2 min plus tard)."
+    },
+    {
+      "organe": "backup-check",
+      "criticite": "CRITIQUE",
+      "tolerance_mult": 2.0,
+      "frequence_attendue_sec": 1800,
+      "mode": "produit",
+      "chemin_pouls_ou_produit": "Index_Maison/system/backup_presence.json",
+      "commentaire": "V6-A (11/09) : backup_light_check.sh (StartInterval 1800) ecrit backup_presence.json a chaque run (sizes.json espacé 6h, PAS retenu). Verifie frais (11h45)."
+    },
+    {
+      "organe": "verdicteur-micro",
+      "criticite": "CRITIQUE",
+      "tolerance_mult": 2.0,
+      "frequence_attendue_sec_critique": 300,
+      "mode": "produit",
+      "chemin_pouls_ou_produit": "Index_Maison/data/cortana_micro_score.json",
+      "commentaire": "V6-D (11/09, GO famille 'vital') : verdicteur_micro.py (StartInterval 15) = LE juge qui note la justesse de Cortana (<60% = confiance faible + 1 alerte/h max). Sans lui, Cortana peut delirer sans controle. Ecrit le score a chaque run avec prix OK (sinon passage neutre) — score gele = verdicteur OU source prix mort = cri merite. GO V6-D : Christophe a vote VITAL apres explication (le prof qui note Cortana)."
+    },
+    {
+      "organe": "archi-vivante",
+      "criticite": "MINEUR",
+      "tolerance_mult": 2.0,
+      "mode": "produit",
+      "chemin_pouls_ou_produit": "Index_Maison/strategie/ARCHITECTURE_VIVANTE.md",
+      "commentaire": "V6-C (11/09, GO famille) : officialisé MINEUR hors chien — archi_vivante.py daemon KeepAlive — régénère la fiche d'architecture vivante (mtime frais 07h01) · CORRECTIF 11/09 : StartCalendarInterval 07h00 → freq 24h (depuis la veille du protocole, l'écriture est 1×/j, mtime 07h01).",
+      "frequence_attendue_sec_critique": 86400
+    },
+    {
+      "organe": "cortana-feed",
+      "criticite": "MINEUR",
+      "tolerance_mult": 2.0,
+      "mode": "produit",
+      "chemin_pouls_ou_produit": "Index_Maison/thermo/cortana_horaire_run.log",
+      "commentaire": "V6-C (11/09, GO famille) : officialisé MINEUR hors chien — cortana_horaire.sh 1/h — log du digest horaire de Cortana (app Rust en VEILLE depuis 18/08, le feed tourne à vide assumé)"
+    },
+    {
+      "organe": "cortana-propose-params",
+      "criticite": "MINEUR",
+      "tolerance_mult": 2.0,
+      "mode": "produit",
+      "chemin_pouls_ou_produit": "hulk-mexc/strategie/cortana_pilot.json",
+      "commentaire": "V6-C (11/09, GO famille) : officialisé MINEUR hors chien — cortana_propose_params.py job 07h45 — propositions de params HULK (fail-safe : 0 prop si justesse <60%), produit frais 07h45 · CORRECTIF 11/09 : StartCalendarInterval 07h45 → freq 24h (le plist n'a PAS de StartInterval lisible par le générateur).",
+      "frequence_attendue_sec_critique": 86400
+    },
+    {
+      "organe": "cycle-edel",
+      "criticite": "MINEUR",
+      "tolerance_mult": 2.0,
+      "mode": "produit",
+      "chemin_pouls_ou_produit": "hulk-mexc/runs/CYCLE_EDEL_SUIVI.jsonl",
+      "commentaire": "V6-C (11/09, GO famille) : officialisé MINEUR hors chien — analyse_cycle_edel.py 6h — suivi du cycle EDEL, jsonl frais 08h14"
+    },
+    {
+      "organe": "divergence",
+      "criticite": "MINEUR",
+      "tolerance_mult": 2.0,
+      "mode": "produit",
+      "chemin_pouls_ou_produit": "hulk-mexc/runs/DIVERGENCE_SUIVI.jsonl",
+      "commentaire": "V6-C (11/09, GO famille) : officialisé MINEUR hors chien — journal_divergence.py 6h — un point par jour sur la divergence, jsonl frais 08h15"
+    },
+    {
+      "organe": "jackson-hole-alarmes",
+      "criticite": "MINEUR",
+      "tolerance_mult": 2.0,
+      "mode": "produit",
+      "chemin_pouls_ou_produit": "",
+      "commentaire": "V6-C (11/09, GO famille) : officialisé MINEUR hors chien — alarme_jackson_hole.py 10 min — SAISONNIER : protocole 28/08/2026 passé, alarmes calendaires éteintes d'elles-mêmes ; réactiver la vigilance pour le prochain macro-événement · CORRECTIF 11/09 : produit retiré du câblage (state gelé depuis 29/08 = SAISONNIER assumé, protocole 28/08 passé) → 4e seau non_surveillés, sans cri. Réarmer au prochain macro-événement."
+    },
+    {
+      "organe": "sentinel",
+      "criticite": "MINEUR",
+      "tolerance_mult": 2.0,
+      "mode": "produit",
+      "chemin_pouls_ou_produit": "Index_Maison/data/sentinel_history.json",
+      "commentaire": "V6-C (11/09, GO famille) : officialisé MINEUR hors chien — sentinel.py 5 min — signaux + history frais (12h46) · CORRECTIF 11/09 : produit = sentinel_history.json (écrit À CHAQUE cycle) ; sentinel_signals.json n'est écrit QUE si alertes → faux vieillissant. Age 244s vérifié = sain."
+    },
+    {
+      "organe": "signal3-livre-ecorche",
+      "criticite": "MINEUR",
+      "tolerance_mult": 2.0,
+      "mode": "produit",
+      "chemin_pouls_ou_produit": "Index_Maison/data/heartbeat_signal3.json",
+      "commentaire": "V6-C (11/09, GO famille) : officialisé MINEUR hors chien — path_registry.py wrapper --heartbeat 30 min — heartbeat dédié frais 12h46"
+    },
+    {
+      "organe": "suivi-setup-red",
+      "criticite": "MINEUR",
+      "tolerance_mult": 2.0,
+      "mode": "produit",
+      "chemin_pouls_ou_produit": "hulk-mexc/runs/SUIVI_SETUP_*.jsonl",
+      "commentaire": "V6-C (11/09, GO famille) : officialisé MINEUR hors chien — suivi_setup_actif.py StartCalendarInterval 16h35 (quotidien, PAS KeepAlive) — dernier run 10/09 16h35 normal (créneau hier passé, prochain aujourd'hui 16h35)"
+    },
+    {
+      "organe": "superviseur-auto",
+      "criticite": "MINEUR",
+      "tolerance_mult": 2.0,
+      "mode": "produit",
+      "chemin_pouls_ou_produit": "Index_Maison/OUTBOX_OBSIDIAN/.superviseur_state.json",
+      "commentaire": "V6-C (11/09, GO famille) : officialisé MINEUR hors chien — superviseur_auto.py 1/h — état OUTBOX frais (déjà au chien sous le nom 'superviseur' : le doublon de nom est documenté, PAS re-câblé)"
+    },
+    {
+      "organe": "veille-signal",
+      "criticite": "MINEUR",
+      "tolerance_mult": 2.0,
+      "mode": "produit",
+      "chemin_pouls_ou_produit": "/tmp/veille_signal_launchd.out.log",
+      "commentaire": "V6-C (11/09, GO famille) : officialisé MINEUR hors chien — veille_signal.py 5 min · CORRECTIF V7 (11/09) : alarme.json est un produit ÉVÉNEMENTIEL (écrit seulement quand une alarme sonne, cooldown 2h — maladie sentinel) → vrai battement = log stdout launchd (ligne horodatée à chaque cycle, même silencieux)."
+    },
+    {
+      "organe": "veilleuse-confrontation",
+      "criticite": "MINEUR",
+      "tolerance_mult": 2.0,
+      "mode": "produit",
+      "chemin_pouls_ou_produit": "Index_Maison/VEILLE_CONFRONTATION_ACE_HULK.md",
+      "commentaire": "V6-C (11/09, GO famille) : officialisé MINEUR hors chien — veilleuse_confrontation_ace_hulk.sh 6h — veilleuse de protocole (rappel date d'analyse, un-shot logique)"
+    },
+    {
+      "organe": "dialogue-gemini",
+      "criticite": "MINEUR",
+      "tolerance_mult": 2.0,
+      "mode": "produit",
+      "chemin_pouls_ou_produit": "",
+      "commentaire": "RE-CÂBLAGE V7 (11/09, GO Christophe — vital V6-D) : canal API Gemini DIRECT prouvé vivant le 11/09 ~12:25Z (requête réelle gemini-flash-lite-latest → « CANAL OK », clé GEMINI_API_KEY de ~/prise-ia/.env) · outil dialogue_gemini_direct.py relançable à tout moment (python3, reprise sans perte via etat.json) · dernier dialogue archivé complet : CONSULTATION_GEMINI_DIALOGUE_20260823/ (4 tours, close « ON NE PEUT PLUS FAIRE MIEUX ») · PAS de chien : outil one-shot sur demande, aucun produit périodique — un chien de fraîcheur crierait pour rien en permanence (règle apprise le 11/09 au premier câblage). Surveillance = preuve de canal au moment des consultations."
+    },
+    {
+      "organe": "rwa-yields",
+      "criticite": "CRITIQUE",
+      "tolerance_mult": 2.0,
+      "mode": "produit",
+      "chemin_pouls_ou_produit": "Index_Maison/data/rwa_yields_etat.json",
+      "commentaire": "Prototype RADAR RWA (GO Christophe 11/09, dossier de vote du jour) : collecteur passif yields.llama.fi/pools -> rwa_yields_hist.jsonl, 4 cycles/jour (plist 21600 s), anti-figage 3 cycles dans rwa_yields_etat.json, rotation [C5] déjà câblée, ZÉRO alarme.json en phase 1 [C4]. CRITIQUE pendant les 7 jours car le verdict J+8 dépend de la continuité de collecte — DÉCLASSER EN MINEUR au verdict J+8."
+    },
+    {
+      "organe": "plancher-shadow",
+      "criticite": "MINEUR",
+      "tolerance_mult": 2.0,
+      "mode": "produit",
+      "chemin_pouls_ou_produit": "/Users/christophe/ace777-test-day1/Index_Maison/data/plancher_confirme_etat.json",
+      "frequence_attendue_sec_critique": 300,
+      "commentaire": "Shadow PAPIER plancher confirmé (GO direct Christophe 11/09) — simulateur 5 min, plist com.ace777.plancher-shadow. Ne touche jamais au moteur."
+    },
+    {
+      "organe": "paternes-btc",
+      "criticite": "MINEUR",
+      "tolerance_mult": 2.0,
+      "mode": "produit",
+      "chemin_pouls_ou_produit": "/Users/christophe/ace777-test-day1/Index_Maison/data/paternes_btc_etat.json",
+      "frequence_attendue_sec_critique": 86400,
+      "commentaire": "Moteur de paterne BTC P1 CORTANA_ANALYSTE (GO Christophe 11/09) — quotidien 24h, JSONL lecture seule, zéro alarme [C4]. MINEUR: contexte d'analyse, rien de critique n'en dépend."
+    },
+    {
+      "organe": "croisements-indices",
+      "criticite": "MINEUR",
+      "tolerance_mult": 2.0,
+      "mode": "produit",
+      "chemin_pouls_ou_produit": "/Users/christophe/ace777-test-day1/Index_Maison/data/croisements_indices_etat.json",
+      "frequence_attendue_sec_critique": 21600,
+      "commentaire": "Moteur croisements multi-indices P2 CORTANA_ANALYSTE (GO Christophe 12/09) — cycles 6h, règle des 2 sources, JSONL lecture seule, zéro alarme [C4]. MINEUR: avis notés par le scoreur, rien de critique n'en dépend. · RÉINSTALLÉ 20/09/2026 (GO Christophe, R15 « TOUJOURS BRANCHER ») : le plist versionné n'était plus CHARGÉ — le produit était figé (dernier état 18/09 11:18, cadence attendue 6 h). Le marquage « dormant » du 19/09 avait arrêté le faux positif du chien en cachant un vrai mort : on rebranche, on ne cache pas."
+    },
+    {
+      "organe": "geopol",
+      "criticite": "MINEUR",
+      "tolerance_mult": 2.0,
+      "mode": "produit",
+      "chemin_pouls_ou_produit": "/Users/christophe/ace777-test-day1/Index_Maison/indice_app/data/scores_geopol.json",
+      "frequence_attendue_sec_critique": 86400,
+      "commentaire": "Indice géopolitique indice_app (réanimation GEOPOL-R1, GO Christophe 12/09) — quotidien 24h, 5 modules (pizza/jets/pétrole/défense/news) + ML. MINEUR: contexte d'analyse, rien de critique n'en dépend. Restait éteint du 28/08 au 12/09 sans que personne ne le voie — LECON-002. · Fix 14/09 : alias plist com.ace777.geopol ajouté (le collecteur vit, la grisaille était un désaccord de nom, pas une panne). · Fix 15/09 : renommé geopol-indice→geopol pour matcher le stem plist com.ace777.geopol (la grisaille venait du nom, pas d'une panne — le produit vit, 23h<24h) · RÉINSTALLÉ 20/09/2026 (GO Christophe, R15) : le plist versionné n'était plus CHARGE — le score était fige (dernier 17/09 15:13, cadence attendue 24 h). Le marquage « dormant » du 19/09 avait arrêté le faux positif du chien en cachant un vrai mort.",
+      "alias_plists": [
+        "com.ace777.geopol"
+      ],
+      "frequence_attendue_sec": 86400
+    },
+    {
+      "organe": "whales",
+      "criticite": "MINEUR",
+      "tolerance_mult": 2.0,
+      "mode": "produit",
+      "chemin_pouls_ou_produit": "/Users/christophe/ace777-test-day1/Index_Maison/data/whales_mouvements.jsonl",
+      "frequence_attendue_sec_critique": 600,
+      "commentaire": "Surveillance gros mouvements BTC (surveiller_whales.py --once, 10 min) — ledger append-only, amont de flux-nets (P2 C3) et veille_insti. whales.json = RÉFÉRENTIEL statique (portefeuilles étiquetés 14/08), PAS un produit : sa fraîcheur ne compte pas. Déclaré 12/09 (GEOPOL-C2 suite bilan — GO Christophe « à toi de voir »). MINEUR."
+    },
+    {
+      "organe": "sniffer-vieux-btc",
+      "criticite": "MINEUR",
+      "tolerance_mult": 2.0,
+      "mode": "produit",
+      "chemin_pouls_ou_produit": "Index_Maison/data/vieux_btc_scan.json",
+      "commentaire": "Réveil de baleines dormantes (GO Christophe 13/09 « GO rotation sniffer »). Script réparé le 13/09 (bug vin.txid, md5 2c1ef007, registre synapses 69) : âges réels des inputs maintenant résolus. Scan 8 blocs/h, seuil 50 BTC, vieux coins >= 2 ans -> vieux_btc_scan.json + vieux_btc_mouvements.jsonl. MINEUR : sonde d'observation, ne déclenche rien. NB : un scan complet (8 blocs + âges de tous les inputs) peut dépasser la période ; le chien juge sur la fraîcheur du produit.",
+      "frequence_attendue_sec": 3600,
+      "plist": "com.ace777.sniffer-vieux-btc.plist"
+    },
+    {
+      "organe": "kronos-ombre",
+      "criticite": "MINEUR",
+      "tolerance_mult": 2.0,
+      "frequence_attendue_sec_critique": 3600,
+      "mode": "produit",
+      "chemin_pouls_ou_produit": "/Users/christophe/ace777-test-day1/Index_Maison/thermo/kronos_ombre_etat.json",
+      "commentaire": "Capteur ombre Kronos (P4 GO 13/09, plist com.ace777.kronos-ombre 1h) — prédit la bougie 1h BTC en silence, noté mécaniquement. AUCUN branchement, AUCUNE alerte. Verdict critère pré-enregistré le 27/09 (pct>=55 & t>=2 sur n>=100, sinon dossier fermé)."
+    },
+    {
+      "organe": "xrpl-gouvernance",
+      "criticite": "MINEUR",
+      "tolerance_mult": 2.0,
+      "frequence_attendue_sec_critique": 3600,
+      "mode": "produit",
+      "chemin_pouls_ou_produit": "/Users/christophe/ace777-test-day1/Index_Maison/thermo/xrpl_gouv_etat.json",
+      "commentaire": "Radar passif gouvernance XRPL (P-XRPL-1 GO 13/09, plist com.ace777.xrpl-gouvernance 1h) : snapshots append-only des 110 amendements, watchlist institutionnelle 13, cimetière des features tuées après bug (Batch→BatchV1_1, PermissionDelegation→V1_1, NFT→V1_1, CryptoConditionsSuite) + détection nouveaux remplacements V1x. AUCUNE alerte. Verdict critère pré-enregistré J+8 (20/09) : ≥5 deltas |Δ|≥2 OU ≥1 activation OU ≥1 mort nouvelle, sinon arrêt."
+    },
+    {
+      "organe": "juste-prix",
+      "criticite": "MINEUR",
+      "tolerance_mult": 2.0,
+      "mode": "produit",
+      "chemin_pouls_ou_produit": "Index_Maison/data/juste_prix_hist.jsonl",
+      "commentaire": "Phase A boucle Dan1ro0 (GO C. 13/09) : prediction 5m chaque cycle. Spec figee, verdict 11/10 >=52% sur 200+. Lecture seule sur la maison."
+    },
+    {
+      "organe": "troupeau-inv",
+      "criticite": "MINEUR",
+      "tolerance_mult": 2.0,
+      "mode": "produit",
+      "chemin_pouls_ou_produit": "Index_Maison/troupeau_inv_hist.jsonl",
+      "commentaire": "Monde ombre retourné en instrument (GO C. 13/09). Paires témoin/bousculée, verdict 08/11 >=55% sur >=20 cas. Spec scellée df6f4bc4, script d64e7fb2. Lecture seule sur la maison. FIX 16/09 : fréquence attendue 72h (plist Lun/Mer/Ven 06:00, avant 300s — le chien le criait vieux en permanence, R5). Backoff ×3 câblé sur le hub (F2). · 19/09 : fréquence humaine 3 j (259200 s) figée ici — le générateur retombait sinon sur le StartInterval du plist (300 s) = faux « vieillissant ».",
+      "frequence_attendue_sec": 259200,
+      "frequence_attendue_sec_critique": 259200
+    },
+    {
+      "organe": "xrpl-onchain",
+      "criticite": "MINEUR",
+      "tolerance_mult": 2.0,
+      "mode": "produit",
+      "chemin_pouls_ou_produit": "/Users/christophe/ace777-test-day1/Index_Maison/thermo/xrpl_onchain_etat.json",
+      "frequence_attendue_sec_critique": 3600,
+      "commentaire": "Radar passif onchain XRPL (GO Christophe 14/09, P-XRPL-2) : tx/ledger, burn, offre, frais/réserves, tokens/AMM watchlist projets. Verdict J+8 figé au 22/09. plist com.ace777.xrpl-onchain, 0 €."
+    },
+    {
+      "organe": "gen-cockpit-vol",
+      "criticite": "MINEUR",
+      "tolerance_mult": 2.0,
+      "mode": "produit",
+      "chemin_pouls_ou_produit": "/Users/christophe/ace777-test-day1/Index_Maison/cockpit/vol_live.js",
+      "frequence_attendue_sec_critique": 300,
+      "commentaire": "Onglet cockpit « vol » (GO Christophe 14/09) : snapshot santé+gardiens+marché+protocoles+plists, lecture seule. gen_cockpit_vol.py via plist com.ace777.gen-cockpit-vol (5 min), page http://127.0.0.1:17800/cockpit/vol.html. · Fix 15/09 : renommé cockpit-vol→gen-cockpit-vol pour matcher le stem plist (même cause que geopol : désaccord de nom → grisaille à tort)",
+      "alias_plists": [
+        "com.ace777.gen-cockpit-vol"
+      ],
+      "frequence_attendue_sec": 600
+    },
+    {
+      "organe": "x402-agentic",
+      "criticite": "MINEUR",
+      "tolerance_mult": 2.0,
+      "frequence_attendue_sec_critique": 3600,
+      "mode": "produit",
+      "chemin_pouls_ou_produit": "/Users/christophe/ace777-test-day1/Index_Maison/thermo/x402_agentic_etat.json",
+      "commentaire": "RADAR AGENTIQUE x402 (GO C. 14/09) : paiements machine-a-machine XRPL, SourceTag t54. Verdict fige J+8 = 22/09 (>=50 paiements, >=5 marchands, ledgers avancent). Spec figee en docstring avant le 1er run."
+    },
+    {
+      "organe": "xrpl-arbitrage",
+      "criticite": "MINEUR",
+      "tolerance_mult": 2.0,
+      "frequence_attendue_sec_critique": 600,
+      "mode": "produit",
+      "chemin_pouls_ou_produit": "/Users/christophe/ace777-test-day1/Index_Maison/thermo/xrpl_arbitrage_etat.json",
+      "commentaire": "TEST PAPIER 24h arbitrage DEX XRPL (RLUSD) vs Binance — consensus famille 14/09 (Cortana+Grok: D). Verdict 15/09 soir : criteres figes Cortana >=5 opp/j nettes >0,5% ; Grok >=10/j brut >=1,5%. Sanction commune si comblement <1s."
+    },
+    {
+      "organe": "sentinelle-independante",
+      "criticite": "CRITIQUE",
+      "tolerance_mult": 1.5,
+      "frequence_attendue_sec_critique": 3600,
+      "mode": "produit",
+      "chemin_pouls_ou_produit": "/Users/christophe/ace777-test-day1/Index_Maison/thermo/sentinelle_independante_etat.json",
+      "commentaire": "Réconciliation PnL/positions depuis CSV brut. CRITIQUE : c'est l'organe de vérité du moteur."
+    }
+  ],
+  "updated": "2026-09-20 (boucle d'alerte : gitpush-vault pouls honnête + réinstallation geopol/croisements-indices)"
+}

@@ -1,0 +1,52 @@
+{
+  "version": "1.0.0",
+  "updated": "2026-09-20T18:15Z",
+  "note": "SENS DÉCLARÉS (20/09/2026, GO Christophe « doit tout être incassable auto-réparant »). Le chien de garde mesure la FRAÎCHEUR ; ce fichier ajoute la seule mesure qui manquait : un organe peut être VIVANT (process OK, produit frais, launchd exit 0) et AVEUGLE (il ne peut plus décider). Prouvé le 20/09 : le signal short BTC (CRITIQUE) a eu `score` nul ~5 h après la rotation de croisement_contexte.jsonl — le chien disait « short-btc vivant », la veilleuse était verte, la page affichait un bloc vide. Chaque entrée déclare LE champ qui prouve que l'organe peut encore décider, la fenêtre tolérée et POURQUOI. Un organe absent d'ici n'est PAS jugé aveugle (on ne devine pas : pour beaucoup d'organes, « décision nulle » est un état normal).",
+  "champs": {
+    "organe": "nom (clé du cri et de l'état interne)",
+    "produit": "chemin relatif à la racine du repo",
+    "type": "json | jsonl",
+    "mode": "nul (défaut) = la décision est nulle ; age = la décision porte un horodatage trop vieux",
+    "champ_decision": "champ (chemin pointé accepté) dont la valeur Prouve que l'organe peut décider",
+    "fenetre_min": "durée tolérée sans décision avant AVEUGLE",
+    "exiger_si": "optionnel — la décision n'est exigée que si la condition est vraie (ex. {champ: n_alertes, min: 1})",
+    "criticite": "rappel de la criticité au chien",
+    "pourquoi": "ce que signifie la panne, en français, pour le rapport"
+  },
+  "sens": [
+    {
+      "organe": "short-btc",
+      "produit": "hulk-mexc/runs/short_btc_signaux.jsonl",
+      "type": "jsonl",
+      "mode": "nul",
+      "champ_decision": "score",
+      "fenetre_min": 45,
+      "criticite": "CRITIQUE",
+      "pourquoi": "score nul = le signal ne peut plus calculer (il exige ≥ 10 heures distinctes dans croisement_contexte.jsonl ; la rotation détruisait l'historique récent → aveugle ~10 h, et aucune entrée possible pendant ce temps)."
+    },
+    {
+      "organe": "verdicteur-micro",
+      "produit": "Index_Maison/data/cortana_micro_score.json",
+      "type": "json",
+      "mode": "nul",
+      "champ_decision": "pct",
+      "exiger_si": {
+        "champ": "n_alertes",
+        "min": 1
+      },
+      "fenetre_min": 120,
+      "criticite": "CRITIQUE",
+      "pourquoi": "pct nul alors qu'il y a des alertes à juger = le prof de Cortana ne note plus (score gelé). Rien à décider (0 alerte) n'est PAS une panne : d'où exiger_si."
+    },
+    {
+      "organe": "kronos-ombre",
+      "produit": "Index_Maison/thermo/kronos_ombre_etat.json",
+      "type": "json",
+      "mode": "age",
+      "champ_decision": "derniere.ts_emission",
+      "fenetre_min": 150,
+      "criticite": "MINEUR",
+      "pourquoi": "capteur ombre : s'il n'émet plus de prédiction, le produit reste frais (réécrit) mais le verdict du 27/09 ne se jugera jamais sur des données absentes."
+    }
+  ]
+}

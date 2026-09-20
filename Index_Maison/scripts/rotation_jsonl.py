@@ -19,7 +19,9 @@
 import argparse
 import gzip
 import os
+import re
 import shutil
+import time
 from datetime import datetime, timezone
 
 # ── Cibles : fichiers à croissance illimitée (hors git par décision famille) ──
@@ -57,6 +59,30 @@ DEFAUTS = [
 BACKUP_COUNT = 2
 LOG = "/Users/christophe/ace777-test-day1/Index_Maison/scripts/rotation_jsonl.log"
 
+# ── FENÊTRE GARDÉE (réparation 20/09/2026) ──────────────────────────────────
+# POURQUOI : la rotation détruisait l'HISTORIQUE RÉCENT, et un consommateur vit de
+# cet historique. Prouvé le 20/09 : rotation de croisement_contexte.jsonl à
+# 13:12:21Z (113,7 Mo) → le fichier ne contenait plus que 5 heures ; or le signal
+# short BTC (hulk-mexc/scripts/short_btc.py) exige ≥ 10 heures distinctes pour
+# calculer son score → score nul, détail « historique insuffisant », donc AVEUGLE
+# pendant ~10 h — sans que le plist (exit 0), le chien (« short-btc vivant ») ou la
+# veilleuse (verte) ne le voient. Un organe qui tourne mais ne peut plus décider
+# est un mort qui ne dit pas son nom (famille R14).
+#
+# RÈGLE : sur un fichier dont un lecteur a besoin d'une fenêtre, on GARDE les
+# dernières <heures> et on n'archive QUE ce qui SORT de la fenêtre. 0 = comportement
+# historique (tout archiver, tout tronquer) — inchangé pour les logs sans lecteur
+# (les .log texte n'ont pas d'horodatage machine-lisible : on ne devine pas).
+GARDER_HEURES = {
+    "/Users/christophe/ace777-test-day1/hulk-mexc/runs/croisement_contexte.jsonl": 24,
+}
+# Plafond du fichier VIVANT après rotation (Mo) : la fenêtre gardée ne doit jamais
+# recréer le problème d'origine (un JSONL de 286-301 Mo qui bloquait le push GitHub).
+# On garde « les 24 dernières heures, MAIS pas plus de X Mo » : le plus contraignant gagne.
+GARDER_MAX_MO = 60
+
+_RE_TS = re.compile(rb'"ts"\s*:\s*(\d+(?:\.\d+)?)')
+
 # ── AUDIT DE DÉCOUVERTE (19/09) ─────────────────────────────────────────────
 # Le trou de fond n'était pas un fichier précis : c'était d'AVOIR UNE LISTE.
 # Une liste ne protège que ce dont on s'est souvenu. Donc on cherche AUSSI tout
@@ -71,8 +97,67 @@ AUDIT_EXCLUS = (
 )
 
 
-def rotate_file(filepath, seuil_mo, dry_run=False):
-    """COPYTRUNCATE + gzip. Retourne la taille rotée ou None."""
+def _decaler_archives(filepath):
+    """Décale les archives existantes (.1.gz -> .2.gz, etc.)."""
+    for i in range(BACKUP_COUNT, 1, -1):
+        src = f"{filepath}.{i-1}.gz"
+        dst = f"{filepath}.{i}.gz"
+        if os.path.exists(src):
+            if os.path.exists(dst):
+                os.remove(dst)
+            os.rename(src, dst)
+    extra = f"{filepath}.{BACKUP_COUNT+1}.gz"
+    if os.path.exists(extra):
+        os.remove(extra)
+
+
+def _offset_fenetre(filepath, heures, max_mo=None):
+    """Offset (en octets) du premier octet à GARDER.
+
+    Fenêtre = les <heures> dernières heures, BORNÉE à max_mo Mo (le plus contraignant
+    gagne). Les lignes sans ts exploitable comptent comme HORS fenêtre : on archive
+    plutôt que de deviner. Retourne 0 si tout le fichier est dans la fenêtre.
+    """
+    limite = time.time() - heures * 3600
+    try:
+        taille = os.path.getsize(filepath)
+    except OSError:
+        return 0
+
+    offset_temps = None
+    pos = 0
+    with open(filepath, "rb") as f:
+        for ligne in f:
+            if offset_temps is None:
+                m = _RE_TS.search(ligne[:400])
+                if m:
+                    try:
+                        if float(m.group(1)) >= limite:
+                            offset_temps = pos
+                    except ValueError:
+                        pass
+            pos += len(ligne)
+    offset = offset_temps if offset_temps is not None else taille
+
+    if max_mo:
+        offset_cap = max(0, taille - int(max_mo * 1024 * 1024))
+        if offset_cap > offset:
+            # Aligne sur le début de la ligne suivante (on ne coupe jamais une ligne).
+            with open(filepath, "rb") as f:
+                f.seek(offset_cap)
+                bloc = f.read(65536)
+            nl = bloc.find(b"\n")
+            offset = offset_cap + nl + 1 if nl >= 0 else taille
+    return offset
+
+
+def rotate_file(filepath, seuil_mo, dry_run=False, garder_heures=0):
+    """COPYTRUNCATE + gzip. Retourne la taille rotée, ou None.
+
+    garder_heures > 0 → on n'archive QUE la partie ancienne et on GARDE la fenêtre
+    récente dans le fichier vivant (voir GARDER_HEURES). garder_heures = 0 →
+    comportement historique (tout archiver, tout tronquer).
+    """
     try:
         size = os.path.getsize(filepath)
     except OSError:
@@ -81,19 +166,38 @@ def rotate_file(filepath, seuil_mo, dry_run=False):
         return None
 
     try:
-        # Décale les archives existantes (.1.gz -> .2.gz, etc.)
-        for i in range(BACKUP_COUNT, 0, -1):
-            src = f"{filepath}.{i-1}.gz" if i > 1 else f"{filepath}.1.gz"
-            dst = f"{filepath}.{i}.gz"
-            if i == 1:
-                continue  # .1.gz sera créé par la compression ci-dessous
-            if os.path.exists(src):
-                if os.path.exists(dst):
-                    os.remove(dst)
-                os.rename(src, dst)
-        extra = f"{filepath}.{BACKUP_COUNT+1}.gz"
-        if os.path.exists(extra):
-            os.remove(extra)
+        if garder_heures > 0 and not dry_run:
+            offset = _offset_fenetre(filepath, garder_heures, GARDER_MAX_MO)
+            if offset <= 0:
+                # Tout le fichier est encore dans la fenêtre : rien à archiver.
+                # (Le plafond GARDER_MAX_MO garantit que ça ne dure pas : dès que la
+                #  fenêtre dépasse le plafond, l'offset devient > 0.)
+                return None
+            _decaler_archives(filepath)
+            # 1) L'ANCIEN (hors fenêtre) part en archive gzipée
+            with open(filepath, "rb") as fin, gzip.open(f"{filepath}.1.gz", "wb") as fout:
+                restant = offset
+                while restant > 0:
+                    bloc = fin.read(min(1024 * 1024, restant))
+                    if not bloc:
+                        break
+                    fout.write(bloc)
+                    restant -= len(bloc)
+            # 2) La QUEUE (dans la fenêtre) est réécrite EN PLACE, dans le MÊME inode :
+            #    les écrivains gardent leur descripteur ouvert et continuent à la fin
+            #    (leçon COPYTRUNCATE : un rename les ferait écrire dans l'inode perdu).
+            with open(filepath, "rb") as fin:
+                fin.seek(offset)
+                queue = fin.read()
+            with open(filepath, "r+b") as f:
+                f.seek(0)
+                f.write(queue)
+                f.truncate()
+                f.flush()
+                os.fsync(f.fileno())
+            return size
+
+        _decaler_archives(filepath)
 
         if dry_run:
             return size
@@ -145,10 +249,12 @@ def main():
     rotate_ok = 0
     for path, seuil_defaut in DEFAUTS:
         seuil = args.seuil if args.seuil else seuil_defaut
-        size = rotate_file(path, seuil, dry_run=args.dry_run)
+        garder = GARDER_HEURES.get(path, 0)
+        size = rotate_file(path, seuil, dry_run=args.dry_run, garder_heures=garder)
         if size is not None:
             rotate_ok += 1
-            line = f"[{now}] rotation: {path} ({size} octets -> .1.gz, backups={BACKUP_COUNT})"
+            fenetre = f", fenêtre={garder} h GARDÉE (max {GARDER_MAX_MO} Mo)" if garder else ""
+            line = f"[{now}] rotation: {path} ({size} octets -> .1.gz, backups={BACKUP_COUNT}{fenetre})"
             print(line)
             if not args.dry_run:
                 try:

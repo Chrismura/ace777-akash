@@ -80,6 +80,14 @@ check_heartbeat() {
         hub_ok="true"
     fi
 
+    # RÉPARÉ 20/09/2026 (Buffy, GO Christophe « incassable ») : le python imprimait
+    # « RAM_FREE=<n> » (MAJUSCULES) alors que TOUT le script lit $ram_free
+    # (minuscules). L'eval posait donc RAM_FREE, et ram_free restait à son 0
+    # d'initialisation : le heartbeat annonçait « 0 Mo de RAM libre » EN PERMANENCE
+    # (mesure réelle au moment du fix : ~2016 Mo libres, 51 %). Un zéro qui a l'air
+    # d'un fait est pire qu'une absence de mesure — 3e occurrence de la famille
+    # « une mesure nommée autrement que son usage ». On imprime désormais EXACTEMENT
+    # le nom utilisé en aval, et on vérifie que la valeur est bien un nombre.
     local ram_free=0
     eval "$(python3 - <<'PY'
 import subprocess
@@ -95,9 +103,13 @@ for line in out.splitlines()[1:]:
     try: d[k.strip()] = int(v.strip().rstrip("."))
     except Exception: pass
 free = (d.get("Pages free", 0) + d.get("Pages speculative", 0) + d.get("Pages inactive", 0)) * ps / 1024 / 1024
-print(f"RAM_FREE={free:.0f}")
+print(f"ram_free={free:.0f}")
 PY
 )"
+
+    case "$ram_free" in
+        *[!0-9]*|"") ram_free=0 ;;
+    esac
 
     local git_status="clean"
     if [ -d "$MAISON/.git" ]; then

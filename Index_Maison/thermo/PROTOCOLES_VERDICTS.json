@@ -1,0 +1,353 @@
+{
+  "ts": "2026-09-20T20:03:30+00:00",
+  "note": "Verdicts MESURÉS à la source (scripts/verdicts_protocoles.py). Chaque protocole porte son critère pré-enregistré : c'est lui qui décide, pas l'impression du moment. Un verdict « IMPOSSIBLE » ou une ligne « alerte » signale un protocole dont le verdict ne peut pas être rendu — c'est une panne de conception, pas une patience.",
+  "protocoles": [
+    {
+      "protocole": "TROUPEAU-INV",
+      "critere": "R4 : juger à T+72h la direction réelle du BTC · R6 : verdict 08/11/2026 si ≥ 55 % de HIT sur ≥ 20 cas",
+      "faits": "11 paires enregistrées · 1 divergente(s) · 1 jugée(s) · 0 HIT",
+      "verdict": "EN ATTENTE (1 cas jugé(s) sur 20 requis)",
+      "alerte": "le verdict du 08/11 demandera 20 cas ; la cadence mesurée est de 1.0 divergence(s)/semaine → environ 8.0 cas au 08/11",
+      "detail": [
+        {
+          "paire": "paire-008",
+          "graine": "2026-09-14T04:00Z",
+          "dirA": "down",
+          "dirB": "up",
+          "reel": "down",
+          "verdict": "MISS"
+        }
+      ]
+    },
+    {
+      "protocole": "Radar RWA (DefiLlama)",
+      "critere": "pré-enregistré J+8 : ≥ 3 pools du top 20 TVL (au 1er relevé du 11/09) bougent de ≥ 50 bps en 7 jours",
+      "faits": "12041 relevés · 369 pools suivis · top 20 TVL : 0 pool(s) ont bougé de ≥ 50 bps",
+      "verdict": "ECHEC (critère non atteint)",
+      "alerte": "critère MAL CIBLÉ : 9 des 20 plus gros pools ont un rendement quasi nul (< 0,5 % — lending Solana : DSOL/JITOSOL/JLP…) → le top 20 TVL n'est PAS la liste des rendements de crédit privé que le prototype visait ; sur les pools qui portent un vrai rendement, 0 bouge(nt) de ≥ 50 bps",
+      "detail": [
+        {
+          "pool": "maple USDC (Ethereum)",
+          "tvl_musd": 2649,
+          "apy_j0": 4.96283,
+          "apy_j7": 4.9713,
+          "delta_bps": 1
+        },
+        {
+          "pool": "maple USDT (Ethereum)",
+          "tvl_musd": 874,
+          "apy_j0": 4.66192,
+          "apy_j7": 4.74577,
+          "delta_bps": 8
+        },
+        {
+          "pool": "centrifuge-protocol USDS (Ethereum)",
+          "tvl_musd": 750,
+          "apy_j0": 2.72725,
+          "apy_j7": 2.86259,
+          "delta_bps": 14
+        },
+        {
+          "pool": "centrifuge-protocol USAT (Ethereum)",
+          "tvl_musd": 399,
+          "apy_j0": 4.16902,
+          "apy_j7": 3.82381,
+          "delta_bps": -35
+        },
+        {
+          "pool": "maple USDG (Ethereum)",
+          "tvl_musd": 366,
+          "apy_j0": 4.98095,
+          "apy_j7": 5.08903,
+          "delta_bps": 11
+        },
+        {
+          "pool": "kamino-lend USDE (Solana)",
+          "tvl_musd": 268,
+          "apy_j0": 0,
+          "apy_j7": 0,
+          "delta_bps": 0
+        },
+        {
+          "pool": "centrifuge-protocol USDC (Avalanche)",
+          "tvl_musd": 262,
+          "apy_j0": 4.16902,
+          "apy_j7": 3.82381,
+          "delta_bps": -35
+        },
+        {
+          "pool": "kamino-lend DSOL (Solana)",
+          "tvl_musd": 230,
+          "apy_j0": 0,
+          "apy_j7": 0,
+          "delta_bps": 0
+        },
+        {
+          "pool": "kamino-lend ONYC (Solana)",
+          "tvl_musd": 189,
+          "apy_j0": 0,
+          "apy_j7": 0,
+          "delta_bps": 0
+        },
+        {
+          "pool": "pareto-credit USDC (Ethereum)",
+          "tvl_musd": 149,
+          "apy_j0": 7.81568,
+          "apy_j7": 7.81568,
+          "delta_bps": 0
+        },
+        {
+          "pool": "kamino-lend PRIME (Solana)",
+          "tvl_musd": 112,
+          "apy_j0": 0,
+          "apy_j7": 0,
+          "delta_bps": 0
+        },
+        {
+          "pool": "kamino-lend JITOSOL (Solana)",
+          "tvl_musd": 95,
+          "apy_j0": 0.00035,
+          "apy_j7": 0.00036,
+          "delta_bps": 0
+        },
+        {
+          "pool": "kamino-lend SYRUPUSDC (Solana)",
+          "tvl_musd": 74,
+          "apy_j0": 0,
+          "apy_j7": 0,
+          "delta_bps": 0
+        },
+        {
+          "pool": "midas-rwa USDC (Ethereum)",
+          "tvl_musd": 73,
+          "apy_j0": 3.29,
+          "apy_j7": 3.41,
+          "delta_bps": 12
+        },
+        {
+          "pool": "midas-rwa USDC (Ethereum)",
+          "tvl_musd": 67,
+          "apy_j0": 7.13,
+          "apy_j7": 7.13,
+          "delta_bps": 0
+        },
+        {
+          "pool": "midas-rwa USDC (Ethereum)",
+          "tvl_musd": 65,
+          "apy_j0": 7.55,
+          "apy_j7": 7.51,
+          "delta_bps": -4
+        },
+        {
+          "pool": "kamino-lend CBBTC (Solana)",
+          "tvl_musd": 57,
+          "apy_j0": 0.00206,
+          "apy_j7": 0.00513,
+          "delta_bps": 0
+        },
+        {
+          "pool": "centrifuge-protocol USDC (Base)",
+          "tvl_musd": 51,
+          "apy_j0": 4.16902,
+          "apy_j7": 3.82381,
+          "delta_bps": -35
+        },
+        {
+          "pool": "kamino-lend JUPSOL (Solana)",
+          "tvl_musd": 50,
+          "apy_j0": 0.00083,
+          "apy_j7": 0.00097,
+          "delta_bps": 0
+        },
+        {
+          "pool": "kamino-lend JLP (Solana)",
+          "tvl_musd": 45,
+          "apy_j0": 0,
+          "apy_j7": 0,
+          "delta_bps": 0
+        }
+      ]
+    },
+    {
+      "protocole": "Radar XRPL gouvernance",
+      "critere": "J8 pré-enregistré : (a) ≥ 5 amendements dont le compteur bouge de ≥ 2 votes, OU (b) ≥ 1 activation, OU (c) ≥ 1 amendement mort ; sinon échec",
+      "faits": "161 snapshots · 112 amendements suivis · (a) 4 bougent de ≥ 2 (il en fallait 5) · (b) 0 activation · (c) 0 mort · 2 nouveau(x)",
+      "verdict": "ECHEC (critère non atteint)",
+      "alerte": "le radar VOIT (les 4 plus gros mouvements : PermissionDelegationV1_1 +8, DynamicMPT +4, ConfidentialTransfer +4, BatchV1_1 +4) — c'est le seuil du critère qui est hors d'échelle : sur XRPL un amendement vit des mois, pas 8 jours",
+      "detail": [
+        {
+          "amendement": "PermissionDelegationV1_1",
+          "delta_votes": 8
+        },
+        {
+          "amendement": "DynamicMPT",
+          "delta_votes": 4
+        },
+        {
+          "amendement": "ConfidentialTransfer",
+          "delta_votes": 4
+        },
+        {
+          "amendement": "BatchV1_1",
+          "delta_votes": 4
+        },
+        {
+          "amendement": "fixXChainRewardRounding",
+          "delta_votes": 1
+        },
+        {
+          "amendement": "LendingProtocol",
+          "delta_votes": 1
+        },
+        {
+          "amendement": "SingleAssetVault",
+          "delta_votes": 1
+        },
+        {
+          "amendement": "fixBatchInnerSigs",
+          "delta_votes": 0
+        }
+      ]
+    },
+    {
+      "protocole": "Arbitrage LLM-vs-règle (Cortana)",
+      "critere": "la règle maison : < 60 % de justesse micro → confiance faible + 1 alerte/h max. Verdict annoncé 27/09",
+      "faits": "0 alerte(s) microstructure au journal · 0 notée(s) par le juge indépendant · justesse n/d · avis directionnels de Cortana (toutes matières) : 47/87 = 54.0 %",
+      "verdict": "IMPOSSIBLE (0 cas à juger)",
+      "alerte": "le verdict du 27/09 ne pourra PAS être rendu : 0 alerte(s) en 7 jours → 0 cas. Le producteur d'alertes (module microstructure) n'a rien écrit depuis le 09/09 (data/micro_alerts.jsonl = 0 octet) — il faut trancher : module mort, ou rien à alerter ?",
+      "detail": [
+        {
+          "indice": "altSeason",
+          "directionnels": 1,
+          "corect": null,
+          "n": 3
+        },
+        {
+          "indice": "bassine",
+          "directionnels": 3,
+          "corect": 3,
+          "n": 5
+        },
+        {
+          "indice": "btc",
+          "directionnels": 1,
+          "corect": null,
+          "n": 9
+        },
+        {
+          "indice": "chg24",
+          "directionnels": 1,
+          "corect": null,
+          "n": 2
+        },
+        {
+          "indice": "croisements",
+          "directionnels": 10,
+          "corect": 7,
+          "n": 17
+        },
+        {
+          "indice": "etfBtcM",
+          "directionnels": 1,
+          "corect": 1,
+          "n": 1
+        },
+        {
+          "indice": "fearGreed",
+          "directionnels": 36,
+          "corect": 20,
+          "n": 60
+        },
+        {
+          "indice": "geopol",
+          "directionnels": 4,
+          "corect": 1,
+          "n": 17
+        },
+        {
+          "indice": "gexPutCall",
+          "directionnels": 1,
+          "corect": 1,
+          "n": 3
+        },
+        {
+          "indice": "indice_onchain",
+          "directionnels": 1,
+          "corect": null,
+          "n": 3
+        }
+      ]
+    },
+    {
+      "protocole": "Geopol (réanimé)",
+      "critere": "GEOPOL-C2/C3 : avis geopol noté vs BTC 2×/jour, fenêtre 4 semaines (→ ~10/10), critère P3 ≥ 56 %",
+      "faits": "score actuel 0.3495 « calme » (ML 0.1648) · 17 avis enregistrés dont 4 directionnels (1 correct(s)) · 13 NEUTRE",
+      "verdict": "EN ATTENTE (fenêtre jusqu'au ~10/10)",
+      "alerte": "1 avis correct sur 4 directionnels : à cette cadence le critère ne sera pas tranchable dans la fenêtre",
+      "detail": [
+        {
+          "indice": "geopol",
+          "n": 17,
+          "directionnels": 4,
+          "corrects": 1,
+          "neutres": 13,
+          "t_stat": -2.18
+        }
+      ]
+    },
+    {
+      "protocole": "paternes-btc (Kronos)",
+      "critere": "mesure en continu des paternes validés (50w×200w + RSI hebdo, MACD daily = filtre, cycle) — verdict à n ≥ 30 cycles",
+      "faits": "9 cycles · régime HAUSSIER (écart 50w/200w 19.8 %, RSI hebdo 68) · MACD histogramme -167 · BTC 76540 → 81256 (+6.2 %)",
+      "verdict": "EN ATTENTE (il manque 21 cycle(s) — cadence quotidienne → ~21 jour(s))",
+      "alerte": "",
+      "detail": [
+        {
+          "ts": "2026-09-14T23:32:40Z",
+          "prix": 76829.51,
+          "regime": "HAUSSIER",
+          "rsi_w": 68.5
+        },
+        {
+          "ts": "2026-09-17T04:58:12Z",
+          "prix": 75609.19,
+          "regime": "HAUSSIER",
+          "rsi_w": 66.5
+        },
+        {
+          "ts": "2026-09-18T08:07:08Z",
+          "prix": 76141.53,
+          "regime": "HAUSSIER",
+          "rsi_w": 63.5
+        },
+        {
+          "ts": "2026-09-19T16:55:23Z",
+          "prix": 80872.23,
+          "regime": "HAUSSIER",
+          "rsi_w": 67.5
+        },
+        {
+          "ts": "2026-09-20T16:55:20Z",
+          "prix": 81256.73,
+          "regime": "HAUSSIER",
+          "rsi_w": 67.8
+        }
+      ]
+    },
+    {
+      "protocole": "MiroFish",
+      "critere": "simulateur multi-agents, à la demande — verdict « après TROUPEAU » · 08/08 : sim jugée MISS",
+      "faits": "2 simulation(s) (sim_90e46609293d, sim_e39c6ebbe6e2) · 1 rapport(s) (report_fed_btc) · dernier run le 10/08",
+      "verdict": "EN ATTENTE (aucun nouveau run depuis le 10/08 — protocole à la demande, donc rien à juger)",
+      "alerte": "« réveillé le 13/09 » n'a produit aucune simulation : le réveil n'a pas été jusqu'au run",
+      "detail": []
+    }
+  ],
+  "compte": {
+    "total": 7,
+    "verdicts_rendus": 2,
+    "en_attente": 4,
+    "impossibles": 1,
+    "avec_alerte": 6
+  }
+}
