@@ -1,41 +1,37 @@
 {
-  "timestamp": 1789898463,
-  "date": "2026-09-20T10:01:03.763850+00:00",
+  "timestamp": 1789902064,
+  "date": "2026-09-20T11:01:04.869092+00:00",
   "n_analyses": 1,
   "analyses": [
     {
       "signal": {
-        "metric": "price_1h",
-        "zscore": 2.619624060193937,
-        "value": 0.39637182094163226,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de prix positive (z-score 2.62) totalement ignorée par les médias (silence radio). Divergence classique d'accumulation silencieuse par les baleines avant une percée narrative.\"\n}\n```",
-        "ts": 1789897380.849939
+        "metric": "taker_ratio",
+        "zscore": 2.7577208485858358,
+        "value": 1.431,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio élevé (z-score 2.76) indique une forte agression acheteuse sur le marché dérivé, non reflétée par les médias traditionnels (vide médiatique sur Google Actualités). C'accumulation silencieuse classique par les baleines avant un mouvement haussier.\"\n}\n```",
+        "ts": 1789900993.091068
       },
-      "fiche": "price_1h",
+      "fiche": "taker_ratio",
       "questions": {
-        "pct_1h": {
-          "value": 0.25,
-          "seuil": -1,
+        "taker": {
+          "value": 1.431,
+          "seuil": 1,
           "depasse": true
         },
-        "liq": {
-          "value": 2953604.0,
-          "seuil": 5000000,
+        "prix": {
+          "value": -0.17,
+          "seuil": 1,
           "depasse": false
-        },
-        "funding": {
-          "value": 0.0001,
-          "seuil": 0,
-          "depasse": true
         }
       },
       "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
+        "condition": "taker > 1",
+        "lecture": "Takers acheteurs agressifs — la demande mange le carnet, à confirmer avec le volume",
+        "niveau": "info",
+        "action": "Observer si le prix suit (vraie demande) ou diverge (absorption)"
       },
-      "action": "Observer",
-      "niveau": "neutre"
+      "action": "Observer si le prix suit (vraie demande) ou diverge (absorption)",
+      "niveau": "info"
     }
   ],
   "resume": "🔵 CALME — pas de signal alarmant"
