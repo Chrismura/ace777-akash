@@ -1,7 +1,38 @@
 {
-  "timestamp": 1789909267,
-  "date": "2026-09-20T13:01:07.108810+00:00",
-  "n_analyses": 0,
-  "analyses": [],
-  "resume": "Aucune analyse en cours"
+  "timestamp": 1789912868,
+  "date": "2026-09-20T14:01:08.306836+00:00",
+  "n_analyses": 1,
+  "analyses": [
+    {
+      "signal": {
+        "metric": "taker_ratio",
+        "zscore": 2.412771421259866,
+        "value": 1.424,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Un taker_ratio de 1.424 (z-score 2.41) indique une forte dominance agressive des acheteurs (Taker Buy) sur les carnets d'ordres, signalant une accumulation agressive par les baleines. L'absence totale de couverture médiatique (Google Actualités vide) prouve un aveuglement public total : c'est le timing classique d'un mouvement de grande envergure initié en silence avant la FOMO retail.\"\n}\n```",
+        "ts": 1789912131.088659
+      },
+      "fiche": "taker_ratio",
+      "questions": {
+        "taker": {
+          "value": 1.424,
+          "seuil": 1,
+          "depasse": true
+        },
+        "prix": {
+          "value": 0.08,
+          "seuil": 1,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "taker > 1",
+        "lecture": "Takers acheteurs agressifs — la demande mange le carnet, à confirmer avec le volume",
+        "niveau": "info",
+        "action": "Observer si le prix suit (vraie demande) ou diverge (absorption)"
+      },
+      "action": "Observer si le prix suit (vraie demande) ou diverge (absorption)",
+      "niveau": "info"
+    }
+  ],
+  "resume": "🔵 CALME — pas de signal alarmant"
 }
