@@ -1,27 +1,6 @@
 {
   "signals": [
     {
-      "metric": "fear_greed",
-      "zscore": 2.9465918335386045,
-      "value": 71,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrême (2.95) combiné à une cupidité élevée (71) sans couverture médiatique majeure : classique 'bull trap' de distribution par les baleines dans le silence.\"\n}\n```",
-      "ts": "2026-09-19T02:04:49.705318+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": -2.8124097708074425,
-      "value": 0.008,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Anomalie statistique (z-score -2.81) liée à un bruit médiatique homonyme ('SDI' pour matériel vidéo et politique) et non à une activité de baleines crypto.\"\n}\n```",
-      "ts": "2026-09-19T02:34:57.966732+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": 2.6753965087203877,
-      "value": 71,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.68) et Fear & Greed à 71 (euphorie) couplé à un vide médiatique total suggèrent une surchauffe locale. Les smart money/baleines profitent de cette complaisance de détail pour distribuer silencieusement avant un retournement.\"\n}\n```",
-      "ts": "2026-09-19T02:34:59.174659+00:00"
-    },
-    {
       "metric": "sdi",
       "zscore": -2.5694278995594826,
       "value": 0.004,
@@ -349,6 +328,27 @@
       "value": 0.5672552542599019,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de prix majeure (Z-score 4.93) en l'absence totale de couverture médiatique (Google Actualités vide). Signal classique d'accumulation silencieuse par les baleines loin du radar public.\"\n}\n```",
       "ts": "2026-09-20T02:46:28.984048+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 3.046496356146489,
+      "value": 5301841.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Divergence totale due à une confusion sémantique. L'anomalie onchain concerne des liquidations de positions crypto (dérivés), tandis que le narratif médiatique traite de liquidations judiciaires d'entreprises traditionnelles. Aucun mouvement furtif de baleine crypto détecté, bruit médiatique non pertinent.\"\n}\n```",
+      "ts": "2026-09-20T03:06:33.224738+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": -7.66361770925023,
+      "value": 0.892,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Le Z-score extrême (-7.66) indique un posicionnement massivement short de la foule, créant une condition idéale pour un 'short squeeze' imminent. Pendant ce temps, les médias grand public banalisent le terme 'long/short' via de la gestion traditionnelle, masquant l'accumulation agressive et silencieuse des baleines à contre-courant.\"\n}\n```",
+      "ts": "2026-09-20T03:11:35.464805+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": -5.064071565252238,
+      "value": 0.892,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 95,\n  \"reason\": \"Le z-score extrêmement bas (-5.06) indique un positionnement massivement court des suiveurs de tendance, alors que les médias grand public banalisent la stratégie long-short de manière neutre/traditionnelle. C'est le setup classique d'un 'short squeeze' imminent provoqué par une accumulation silencieuse des baleines.\"\n}\n```",
+      "ts": "2026-09-20T03:41:40.468705+00:00"
     }
   ]
 }

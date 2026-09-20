@@ -1,76 +1,37 @@
 {
-  "timestamp": 1789873256,
-  "date": "2026-09-20T03:00:56.411758+00:00",
-  "n_analyses": 2,
+  "timestamp": 1789876857,
+  "date": "2026-09-20T04:00:57.447022+00:00",
+  "n_analyses": 1,
   "analyses": [
     {
       "signal": {
-        "metric": "liquidations",
-        "zscore": 2.9165531390734536,
-        "value": 5119030.0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Bruit médiatique parasité par des homonymes juridiques locaux (faillites d'entreprises traditionnelles). Aucune baleine crypto en mouvement, l'anomalie on-chain est un faux signal contextuel.\"\n}\n```",
-        "ts": 1789871785.416105
+        "metric": "long_short",
+        "zscore": -5.064071565252238,
+        "value": 0.892,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 95,\n  \"reason\": \"Le z-score extrêmement bas (-5.06) indique un positionnement massivement court des suiveurs de tendance, alors que les médias grand public banalisent la stratégie long-short de manière neutre/traditionnelle. C'est le setup classique d'un 'short squeeze' imminent provoqué par une accumulation silencieuse des baleines.\"\n}\n```",
+        "ts": 1789875700.468705
       },
-      "fiche": "liquidations",
+      "fiche": "long_short",
       "questions": {
-        "longs": {
-          "value": 3382291.0,
-          "seuil": 0,
-          "depasse": true
-        },
-        "shorts": {
-          "value": 0.0,
-          "seuil": 0,
+        "ratio_long_short": {
+          "value": 0.892,
+          "seuil": 2,
           "depasse": false
         },
-        "prix": {
-          "value": -0.59,
-          "seuil": 1,
+        "oi": {
+          "value": 109150.835,
+          "seuil": 120000,
           "depasse": false
         }
       },
       "interpretation": {
-        "condition": "longs > shorts",
-        "lecture": "Liquidations massives de LONGS — cascade baissière mécanique. Historiquement suit un creux proche quand le volume liq retombe (HYPOTHÈSE, pas une loi : une cascade peut en cacher une autre)",
+        "condition": "ratio_long_short < 1",
+        "lecture": "HYPOTHÈSE (heuristique) : foule en short sous la norme structurelle — carburant haussier (risque de squeeze à la hausse)",
         "niveau": "surveiller",
-        "action": "Ne pas vendre dans la cascade ; préparer les paliers plancher si la paire est sur watchlist"
+        "action": "Ne pas vendre les paliers RIP trop tôt si le prix repart"
       },
-      "action": "Ne pas vendre dans la cascade ; préparer les paliers plancher si la paire est sur watchlist",
+      "action": "Ne pas vendre les paliers RIP trop tôt si le prix repart",
       "niveau": "surveiller"
-    },
-    {
-      "signal": {
-        "metric": "price_1h",
-        "zscore": 4.926984838772741,
-        "value": 0.5672552542599019,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de prix majeure (Z-score 4.93) en l'absence totale de couverture médiatique (Google Actualités vide). Signal classique d'accumulation silencieuse par les baleines loin du radar public.\"\n}\n```",
-        "ts": 1789872388.984048
-      },
-      "fiche": "price_1h",
-      "questions": {
-        "pct_1h": {
-          "value": -0.59,
-          "seuil": -1,
-          "depasse": true
-        },
-        "liq": {
-          "value": 3382291.0,
-          "seuil": 5000000,
-          "depasse": false
-        },
-        "funding": {
-          "value": 0.0001,
-          "seuil": 0,
-          "depasse": true
-        }
-      },
-      "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
-      },
-      "action": "Observer",
-      "niveau": "neutre"
     }
   ],
   "resume": "🟡 SURVEILLANCE — des signaux sont à observer"
