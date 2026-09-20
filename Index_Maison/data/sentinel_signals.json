@@ -2,27 +2,6 @@
   "signals": [
     {
       "metric": "fear_greed",
-      "zscore": 3.3050819776491007,
-      "value": 71,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrême (3.31) couplé à une euphorie médiatique et un Fear & Greed à 71. Divergence classique de surchauffe : le retail achète le narratif public pendant que les baleines initient la distribution silencieuse.\"\n}\n```",
-      "ts": "2026-09-19T01:34:39.926214+00:00"
-    },
-    {
-      "metric": "taker_ratio",
-      "zscore": 3.047466737862918,
-      "value": 1.64,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Taker ratio à 1.64 (Z-score 3.05) indique une agression massive des acheteurs (Taker Buys) sur le marché des dérivés, totalement ignorée par le vide médiatique actuel. C'est la signature classique d'accumulation silencieuse par les baleines avant un re-pricing.\"\n}\n```",
-      "ts": "2026-09-19T01:39:41.988981+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": -3.1812336117572277,
-      "value": 0.004,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Anomalie technique due à une confusion sémantique. Le 'SDI' onchain (indice de mouvement) est totalement déconnecté des articles médiatiques qui font référence à la norme vidéo SDI (Serial Digital Interface) et à des syndicats professionnels. Aucun mouvement de baleine crypto détecté.\"\n}\n```",
-      "ts": "2026-09-19T02:04:48.457754+00:00"
-    },
-    {
-      "metric": "fear_greed",
       "zscore": 2.9465918335386045,
       "value": 71,
       "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrême (2.95) combiné à une cupidité élevée (71) sans couverture médiatique majeure : classique 'bull trap' de distribution par les baleines dans le silence.\"\n}\n```",
@@ -349,6 +328,27 @@
       "value": 4446589.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 4.05, accumulation de ~4.45M USD) dans un silence médiatique absolu (Google Actualités vide). Divergence classique : les baleines accumulent en amont du bruit médiatique.\"\n}\n```",
       "ts": "2026-09-20T01:26:10.981883+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 5.5974396756666795,
+      "value": 6240095.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (Z-score 5.60, ~6.24M USD) dans le silence médiatique total (Google Actualités vide). Classique accumulation furtive de baleines avant un mouvement directionnel.\"\n}\n```",
+      "ts": "2026-09-20T02:26:21.592784+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 2.9165531390734536,
+      "value": 5119030.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Bruit médiatique parasité par des homonymes juridiques locaux (faillites d'entreprises traditionnelles). Aucune baleine crypto en mouvement, l'anomalie on-chain est un faux signal contextuel.\"\n}\n```",
+      "ts": "2026-09-20T02:36:25.416105+00:00"
+    },
+    {
+      "metric": "price_1h",
+      "zscore": 4.926984838772741,
+      "value": 0.5672552542599019,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de prix majeure (Z-score 4.93) en l'absence totale de couverture médiatique (Google Actualités vide). Signal classique d'accumulation silencieuse par les baleines loin du radar public.\"\n}\n```",
+      "ts": "2026-09-20T02:46:28.984048+00:00"
     }
   ]
 }

@@ -1,11 +1,10 @@
 {
-  "ts": "2026-09-20T02:02+00:00",
-  "updated": "2026-09-20T02:02Z",
+  "ts": "2026-09-20T02:57+00:00",
+  "updated": "2026-09-20T02:57Z",
   "etat": "ALERTE",
-  "chaines_ok": "13/15",
+  "chaines_ok": "14/15",
   "anomalies": [
-    "BALEINES coupée : scan file",
-    "SAPI : sdi_latest.json figé — la pépite poussière institutionnelle ne tourne plus"
+    "BALEINES coupée : scan file"
   ],
   "degradees": [],
   "chaines": [
@@ -28,12 +27,12 @@
         {
           "nom": "scan file",
           "ok": false,
-          "detail": "âge 306 min"
+          "detail": "âge 361 min"
         },
         {
           "nom": "mouvements (events)",
           "ok": true,
-          "detail": "dernier événement il y a 306 min"
+          "detail": "dernier événement il y a 361 min"
         },
         {
           "nom": "→ live.json.onchain",
@@ -43,12 +42,12 @@
         {
           "nom": "→ Ada gardienne",
           "ok": true,
-          "detail": "voilure 86.4 · zone VERT"
+          "detail": "voilure 91.1 · zone VERT"
         },
         {
           "nom": "→ Cortana feed",
           "ok": true,
-          "detail": "âge 2 min"
+          "detail": "âge 3 min"
         }
       ]
     },
@@ -66,7 +65,7 @@
         {
           "nom": "deriv_corr.json",
           "ok": true,
-          "detail": "âge 6 min"
+          "detail": "âge 0 min"
         }
       ]
     },
@@ -84,7 +83,7 @@
         {
           "nom": "aspiration runtime",
           "ok": true,
-          "detail": "mode fichier · JSON · âge ts 0.4 min · écart mtime/ts 1.0s · 10 paire(s) · btc=OK · ts=croissant"
+          "detail": "mode fichier · JSON · âge ts 0.1 min · écart mtime/ts 0.6s · 11 paire(s) · btc=OK · ts=croissant"
         },
         {
           "nom": "corrélation BTC",
@@ -99,7 +98,7 @@
         {
           "nom": "cortana_pilot.json",
           "ok": true,
-          "detail": "âge 1217 min"
+          "detail": "âge 1272 min"
         },
         {
           "nom": "cortana_analysis.json",
@@ -117,12 +116,12 @@
         {
           "nom": "live.json",
           "ok": true,
-          "detail": "âge 2 min"
+          "detail": "âge 3 min"
         },
         {
           "nom": "mission.json → cockpit",
           "ok": true,
-          "detail": "âge 0 min"
+          "detail": "âge 1 min"
         },
         {
           "nom": "hub.json (one-shot)",
@@ -145,7 +144,7 @@
         {
           "nom": "cpfp_detect.json",
           "ok": true,
-          "detail": "âge 3 min"
+          "detail": "âge 1 min"
         },
         {
           "nom": "mode",
@@ -227,7 +226,7 @@
         {
           "nom": "ada_saison_live.json",
           "ok": true,
-          "detail": "saison ACCUMULATION"
+          "detail": "saison CALME"
         },
         {
           "nom": "6 indices calculés",
@@ -334,7 +333,7 @@
         {
           "nom": "croisement_externe_etat.json",
           "ok": true,
-          "detail": "âge 27 min"
+          "detail": "âge 21 min"
         },
         {
           "nom": "fails prix (> 5 % vs externe)",
@@ -344,7 +343,7 @@
         {
           "nom": "warns murs (info)",
           "ok": true,
-          "detail": "1 warn(s) carnet déséquilibré (info)"
+          "detail": "2 warn(s) carnet déséquilibré (info)"
         }
       ]
     },
@@ -352,17 +351,17 @@
       "id": "sapi",
       "nom": "SAPI POUSSIÈRE",
       "chemin": "silent_drain_index.compute_sdi (SAPI) → sdi_latest.json → thermo_quotidien → live.json.sapi → Cortana + cockpit",
-      "ok": false,
+      "ok": true,
       "maillons": [
         {
           "nom": "sdi_latest.json (SAPI dedans)",
-          "ok": false,
-          "detail": "âge 28 min"
+          "ok": true,
+          "detail": "âge 3 min"
         },
         {
           "nom": "SAPI calculé",
           "ok": true,
-          "detail": "score 0.321"
+          "detail": "score 0.3"
         },
         {
           "nom": "alerte poussière (≥ 0.75 + volume)",
@@ -380,7 +379,7 @@
         {
           "nom": "essaim_etat.json",
           "ok": true,
-          "detail": "âge 5 min"
+          "detail": "âge 0 min"
         },
         {
           "nom": "veille d'essaim active",
