@@ -1,38 +1,167 @@
 {
-  "timestamp": 1789916469,
-  "date": "2026-09-20T15:01:09.436448+00:00",
-  "n_analyses": 1,
+  "timestamp": 1789920070,
+  "date": "2026-09-20T16:01:10.556270+00:00",
+  "n_analyses": 4,
   "analyses": [
     {
       "signal": {
-        "metric": "taker_ratio",
-        "zscore": 2.0950599974998423,
-        "value": 1.425,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio à 1.425 (z-score 2.10) indique une forte agression acheteuse cachée sur le marché dérivé/spot, tandis que les médias traditionnels (Google Actualités) affichent un silence radio total. C'est la signature classique d'une accumulation furtive par les baleines avant une cassure haussière non pricée par le retail.\"\n}\n```",
-        "ts": 1789915776.124505
+        "metric": "long_short",
+        "zscore": 2.3975272049920826,
+        "value": 0.98,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le z-score à 2.40 indique une concentration anormale de positions vendeuses (short) par la foule, amplifiée par un narratif médiatique purement bäissier. Les baleines prennent traditionnellement le contre-pied de ce consensus excessif pour initier un short squeeze massif.\"\n}\n```",
+        "ts": 1789918500.638897
       },
-      "fiche": "taker_ratio",
+      "fiche": "long_short",
       "questions": {
-        "taker": {
-          "value": 1.425,
-          "seuil": 1,
-          "depasse": true
+        "ratio_long_short": {
+          "value": 0.98,
+          "seuil": 2,
+          "depasse": false
         },
-        "prix": {
-          "value": 0.12,
-          "seuil": 1,
+        "oi": {
+          "value": 108774.044,
+          "seuil": 120000,
           "depasse": false
         }
       },
       "interpretation": {
-        "condition": "taker > 1",
-        "lecture": "Takers acheteurs agressifs — la demande mange le carnet, à confirmer avec le volume",
-        "niveau": "info",
-        "action": "Observer si le prix suit (vraie demande) ou diverge (absorption)"
+        "condition": "ratio_long_short < 1",
+        "lecture": "HYPOTHÈSE (heuristique) : foule en short sous la norme structurelle — carburant haussier (risque de squeeze à la hausse)",
+        "niveau": "surveiller",
+        "action": "Ne pas vendre les paliers RIP trop tôt si le prix repart"
       },
-      "action": "Observer si le prix suit (vraie demande) ou diverge (absorption)",
-      "niveau": "info"
+      "action": "Ne pas vendre les paliers RIP trop tôt si le prix repart",
+      "niveau": "surveiller"
+    },
+    {
+      "signal": {
+        "metric": "ipt",
+        "zscore": 2.437189933070844,
+        "value": 0.981,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit sémantique pur. L'anomalie 'ipt' (Indice de Pression Temporelle ou similaire) et le z-score on-chain captent un acronyme homonyme (Institut Protestant de Théologie, Tournoi des Physiciens) sans aucun lien avec un actif crypto ou une baleine.\"\n}\n```",
+        "ts": 1789919103.85655
+      },
+      "fiche": "rbf_eleve",
+      "questions": {
+        "prix": {
+          "value": -0.02,
+          "seuil": 1,
+          "depasse": false
+        },
+        "paires": {
+          "value": 0,
+          "seuil": 3,
+          "depasse": false
+        },
+        "funding": {
+          "value": 7.5e-05,
+          "seuil": 0.001,
+          "depasse": false
+        },
+        "whales": {
+          "value": 0,
+          "seuil": 5,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
+      },
+      "action": "Observer",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "cpfp",
+        "zscore": 2.8149332406919263,
+        "value": 45.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 75,\n  \"reason\": \"Forte anomalie on-chain sur le CPFP (Child-Pays-For-Parent à z-score 2.81), indiquant une congestion intentionnelle ou un déplacement massif de fonds avec frais accélérés par des acteurs majeurs. Les médias grand public relayent des actualités locales ou des tutoriels basiques, totalement aveugles à cette activité on-chain hautement stratégique.\"\n}\n```",
+        "ts": 1789920007.942842
+      },
+      "fiche": "blocs_privilises",
+      "questions": {
+        "duree": {
+          "value": 0,
+          "seuil": 0,
+          "depasse": false
+        },
+        "volume": {
+          "value": 132,
+          "seuil": 0,
+          "depasse": true
+        },
+        "prix": {
+          "value": -0.02,
+          "seuil": 0,
+          "depasse": true
+        },
+        "sdi": {
+          "value": 0.004,
+          "seuil": 0,
+          "depasse": true
+        },
+        "rbf": {
+          "value": 0.0,
+          "seuil": 0,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "duree < 5min ET volume > 100",
+        "lecture": "Consolidation exchange — probablement un transfert hot→cold",
+        "niveau": "neutre",
+        "action": "Garder les positions"
+      },
+      "action": "Garder les positions",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "dust",
+        "zscore": 2.8149332406919263,
+        "value": 45.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie onchain sans lien avec la crypto : le bruit médiatique concerne des entreprises SaaS traditionnelles (Dust, IA, audit) et de la météo, totalement déconnectées des mouvements de baleines.\"\n}\n```",
+        "ts": 1789920009.871214
+      },
+      "fiche": "blocs_privilises",
+      "questions": {
+        "duree": {
+          "value": 0,
+          "seuil": 0,
+          "depasse": false
+        },
+        "volume": {
+          "value": 132,
+          "seuil": 0,
+          "depasse": true
+        },
+        "prix": {
+          "value": -0.02,
+          "seuil": 0,
+          "depasse": true
+        },
+        "sdi": {
+          "value": 0.004,
+          "seuil": 0,
+          "depasse": true
+        },
+        "rbf": {
+          "value": 0.0,
+          "seuil": 0,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "duree < 5min ET volume > 100",
+        "lecture": "Consolidation exchange — probablement un transfert hot→cold",
+        "niveau": "neutre",
+        "action": "Garder les positions"
+      },
+      "action": "Garder les positions",
+      "niveau": "neutre"
     }
   ],
-  "resume": "🔵 CALME — pas de signal alarmant"
+  "resume": "🟡 SURVEILLANCE — des signaux sont à observer"
 }

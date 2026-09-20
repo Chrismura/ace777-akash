@@ -4703,3 +4703,7 @@ Pas d’ordre — confrontation plus tard.
 ### 2026-09-20T15:02:57Z — ALERT auto
 - HBARUSDT: IMPULSE_WAIT — spike en cours, pas chase
 (compléter: confirmé ? risque ?)
+
+### 2026-09-20T15:38:07Z — ALERT auto
+- EDELUSDT: IMPULSE_WAIT — spike en cours, pas chase
+(compléter: confirmé ? risque ?)
