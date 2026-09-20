@@ -14,7 +14,8 @@
     "2026-09-10": 8,
     "2026-09-11": 8,
     "2026-09-16": 8,
-    "2026-09-18": 8
+    "2026-09-18": 8,
+    "2026-09-20": 8
   },
   "fiches": {
     "32f5f333ea5d": {
@@ -2240,6 +2241,154 @@
       "usage": "lecteur signets",
       "avis_pour": "Une excellente source pour suivre les tendances et l'actualité des modèles de langage.",
       "avis_attention": "Nécessite une connexion stable et un traitement du flux pour éviter les erreurs de résolution réseau."
+    },
+    "83349a27497e": {
+      "section": "openrouter (:free)",
+      "item": "qwen/qwen3.8-27b:free",
+      "generated": "2026-09-20T05:38:24.813831+00:00",
+      "type": "Modèle conversationnel gratuit de taille moyenne",
+      "forts": [
+        "Capacité de raisonnement décent pour un modèle gratuit",
+        "Supporte le contexte long (27B paramètres)",
+        "Bonne polyvalence (code, analyse, discussion)"
+      ],
+      "faibles": [
+        "Moins puissant que les leaders payants",
+        "Latence variable selon la charge OpenRouter",
+        "Peu de fine-tuning spécifique"
+      ],
+      "usage": "Analyse rapide, génération de code simple, jugement secondaire",
+      "avis_pour": "Essayer pour des tâches intermédiaires quand les gros modèles sont surchargés",
+      "avis_attention": "Ne pas s'attendre à des performances de niveau GPT-4 ou Claude 3"
+    },
+    "fa95b231ba17": {
+      "section": "github awesome lists",
+      "item": "awesome-freellm-apis: Base URL: https://api.groq.com/openai/v1",
+      "generated": "2026-09-20T05:38:43.171361+00:00",
+      "type": "API gratuite de modèles de langage",
+      "forts": [
+        "Accès à des modèles de langage avancés",
+        "Utilisation simple via API"
+      ],
+      "faibles": [
+        "Limitations sur le nombre de requêtes",
+        "Qualité variable des réponses"
+      ],
+      "usage": "Développeur, analyste, juge (pour des tâches automatisées)",
+      "avis_pour": "Essayer pour automatiser des tâches de traitement de texte",
+      "avis_attention": "Attention aux limitations d'utilisation gratuite"
+    },
+    "a539242dbf79": {
+      "section": "github awesome lists",
+      "item": "awesome-freellm-apis: | ModelScope | `https://api-inference.modelscope.cn/v1` | Get Key → | Registration |",
+      "generated": "2026-09-20T05:38:50.687970+00:00",
+      "type": "Fournisseur d'API pour accéder à divers modèles gratuits via ModelScope",
+      "forts": [
+        "Accès gratuit via une plateforme reconnue",
+        "Compatible avec les intégrations OpenAI/API standard",
+        "Utile pour diversifier les sources d'inférence"
+      ],
+      "faibles": [
+        "Nécessite une inscription sur une plateforme externe",
+        "Stabilité et latence variables hors de l'écosystème principal",
+        "Documentation potentiellement en chinois ou limitée"
+      ],
+      "usage": "analyste",
+      "avis_pour": "À essayer pour diversifier nos sources d'appel cloud sans surcoût.",
+      "avis_attention": "Attention aux quotas d'utilisation et à la stabilité de la passerelle ModelScope."
+    },
+    "b7f5a41b3f4b": {
+      "section": "github awesome lists",
+      "item": "awesome-freellm-apis: | Cloudflare Workers AI | `https://api.cloudflare.com/client/v4/accounts/{account_id}/ai/run` | Get Key → | No |",
+      "generated": "2026-09-20T05:38:52.177099+00:00",
+      "type": "Passerelle Cloudflare Workers AI pour exécuter des modèles d'IA sans serveur",
+      "forts": [
+        "Infrastructure edge rapide et fiable",
+        "Intégration directe via l'API Cloudflare",
+        "Idéal pour automatiser de petits scripts et des requêtes légères"
+      ],
+      "faibles": [
+        "Nécessite un compte Cloudflare et la configuration des identifiants (Account ID / API Key)",
+        "Offre gratuite limitée par les quotas Cloudflare Workers",
+        "Modèles disponibles dépendants du catalogue Cloudflare"
+      ],
+      "usage": "codeur",
+      "avis_pour": "À essayer pour exploiter l'infrastructure edge de Cloudflare et exécuter des requêtes IA rapides sans gérer de serveur.",
+      "avis_attention": "Attention à bien configurer votre compte et à surveiller les quotas de l'offre gratuite pour éviter toute interruption."
+    },
+    "66335ddcebc0": {
+      "section": "github awesome lists",
+      "item": "awesome-freellm-apis: | LLM7.io | `https://api.llm7.io/v1` | Get Key → | No |",
+      "generated": "2026-09-20T05:38:53.875365+00:00",
+      "type": "Fournisseur d'API compatible OpenAI agrégant divers modèles gratuits",
+      "forts": [
+        "Point d'entrée unique pour plusieurs modèles",
+        "Obtention de clé simplifiée (Get Key)",
+        "Format de requête standardisé OpenAI"
+      ],
+      "faibles": [
+        "Stabilité et uptime variables selon les backends",
+        "Documentation parfois sommaire sur les modèles exacts servis",
+        "Pas de garantie de pérennité sur la gratuité"
+      ],
+      "usage": "chatur",
+      "avis_pour": "Idéal pour tester rapidement un nouveau canal d'API sans friction et diversifier les sources de secours.",
+      "avis_attention": "Restez prudent sur la confidentialité des données et prévoyez un mécanisme de repli en cas de coupure de l'API."
+    },
+    "cfcb261ed6b3": {
+      "section": "github awesome lists",
+      "item": "awesome-freellm-apis: | Google Gemini | `https://generativelanguage.googleapis.com/v1beta` | Get Key → | No |",
+      "generated": "2026-09-20T05:38:55.364851+00:00",
+      "type": "Fournisseur officiel des API Google Gemini gratuites",
+      "forts": [
+        "Gratuit via clé API directe",
+        "Excellentes capacités multimodales et textuelles",
+        "Très haut quota sur les modèles Flash (utilisé par notre routeur)"
+      ],
+      "faibles": [
+        "Nécessite une clé Google AI Studio",
+        "Limites de taux (rate limits) sur le plan gratuit"
+      ],
+      "usage": "analyste.strategie, audit.protocol et routage principal (gemini)",
+      "avis_pour": "Essentiel pour alimenter notre routeur avec un fournisseur robuste et performant.",
+      "avis_attention": "Attention à bien surveiller les quotas et les règles d'utilisation de Google AI Studio."
+    },
+    "c08b23790735": {
+      "section": "github awesome lists",
+      "item": "awesome-freellm-apis: | Ollama Cloud | `https://ollama.com/api` | Get Key → | Registration |",
+      "generated": "2026-09-20T05:38:56.932053+00:00",
+      "type": "Point d'accès cloud pour les modèles Ollama et les API compatibles",
+      "forts": [
+        "Permet d'utiliser l'écosystème Ollama via une API cloud",
+        "Gratuit ou accessible selon configuration d'hébergement",
+        "Idéal pour tester des modèles locaux à distance"
+      ],
+      "faibles": [
+        "Dépendance à la disponibilité du service cloud Ollama",
+        "Moins documenté pour le routage de production massif",
+        "Nécessite une clé d'API valide"
+      ],
+      "usage": "chat",
+      "avis_pour": "À essayer pour étendre les capacités de test avec l'écosystème Ollama sans saturer le matériel local.",
+      "avis_attention": "Attention à la stabilité du service cloud et aux limites d'utilisation gratuite par rapport à un vrai hébergement dédié."
+    },
+    "250283625248": {
+      "section": "github awesome lists",
+      "item": "awesome-freellm-apis: | GitHub Models | `https://models.github.ai/inference` | Get Key → | No |",
+      "generated": "2026-09-20T05:38:58.586615+00:00",
+      "type": "Accès gratuit aux modèles phares via la plateforme GitHub Models pour le développement",
+      "forts": [
+        "Permet d'utiliser de grands modèles directement depuis l'écosystème GitHub",
+        "Idéal pour prototyper des scripts d'automatisation et du code Python",
+        "Interface et gestion des clés simplifiées pour les développeurs"
+      ],
+      "faibles": [
+        "Soumis aux quotas et limites d'utilisation de la plateforme GitHub Models",
+        "Peut nécessiter un compte GitHub vérifié avec un accès aux fonctionnalités de test"
+      ],
+      "usage": "codeur",
+      "avis_pour": "Une excellente opportunité d'intégrer des modèles de premier plan sans frais pour vos scripts et votre automatisation.",
+      "avis_attention": "Gardez un œil sur les quotas de la plateforme pour éviter les interruptions inopinées lors de vos runs."
     }
   }
 }

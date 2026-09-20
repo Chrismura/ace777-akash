@@ -1,36 +1,41 @@
 {
-  "timestamp": 1789880458,
-  "date": "2026-09-20T05:00:58.525431+00:00",
+  "timestamp": 1789884059,
+  "date": "2026-09-20T06:00:59.569438+00:00",
   "n_analyses": 1,
   "analyses": [
     {
       "signal": {
-        "metric": "long_short",
-        "zscore": -2.0898693180586623,
-        "value": 0.913,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Le ratio long/short s'effondre (z-score -2.09, niveau extrêmement bas), indiquant un positionnement massif des acteurs institutionnels en faveur de la baisse, tandis que les médias grand public banalisent la stratégie 'Long/Short' sans urgence directionnelle. Cette sur-représentation des positions short par les traders crée un déséquilibre classique propice à un 'short squeeze' imminent orchestré par les baleines.\"\n}\n```",
-        "ts": 1789879312.54939
+        "metric": "whale_usd",
+        "zscore": 2.7615853493543217,
+        "value": 3735397.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 2.76, ~3.7M USD) en absence totale de couverture médiatique (silence radio sur Google Actualités). Comportement typique d'accumulation furtive par les baleines avant un mouvement de marché.\"\n}\n```",
+        "ts": 1789883234.047195
       },
-      "fiche": "long_short",
+      "fiche": "whale_usd",
       "questions": {
-        "ratio_long_short": {
-          "value": 0.913,
-          "seuil": 2,
+        "ventes": {
+          "value": 1247107.0,
+          "seuil": 0,
+          "depasse": true
+        },
+        "achats": {
+          "value": 0.0,
+          "seuil": 0,
           "depasse": false
         },
-        "oi": {
-          "value": 109249.216,
-          "seuil": 120000,
+        "prix": {
+          "value": 0.09,
+          "seuil": 1,
           "depasse": false
         }
       },
       "interpretation": {
-        "condition": "ratio_long_short < 1",
-        "lecture": "HYPOTHÈSE (heuristique) : foule en short sous la norme structurelle — carburant haussier (risque de squeeze à la hausse)",
+        "condition": "ventes > achats",
+        "lecture": "Flux baleines VENDEUR dominant — distribution possible vers les exchanges (proxy : bearish aujourd'hui)",
         "niveau": "surveiller",
-        "action": "Ne pas vendre les paliers RIP trop tôt si le prix repart"
+        "action": "Croiser avec le sniffer vieux BTC et l'IPT avant de réduire"
       },
-      "action": "Ne pas vendre les paliers RIP trop tôt si le prix repart",
+      "action": "Croiser avec le sniffer vieux BTC et l'IPT avant de réduire",
       "niveau": "surveiller"
     }
   ],
