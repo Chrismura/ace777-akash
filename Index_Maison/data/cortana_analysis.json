@@ -1,31 +1,71 @@
 {
-  "timestamp": 1789934474,
-  "date": "2026-09-20T20:01:14.844998+00:00",
-  "n_analyses": 3,
+  "timestamp": 1789943777,
+  "date": "2026-09-20T22:36:17.521027+00:00",
+  "n_analyses": 4,
   "analyses": [
     {
       "signal": {
-        "metric": "whale_usd",
-        "zscore": 5.4611752889244585,
-        "value": 8263479.0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (z-score 5.46, accumulation de ~8.26M USD) totalement ignorée par les médias traditionnels (Google Actualités). Silence médiatique typique d'une accumulation furtive par des baleines avant un mouvement directionnel.\"\n}\n```",
-        "ts": 1789932982.4941
+        "metric": "liquidations",
+        "zscore": 2.6281280316883526,
+        "value": 4764278.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie onchain de liquidations crypto de 4.7M$ totalement éclipsée par un bruit médiatique macroéconomique et judiciaire traditionnel sans rapport avec les marchés crypto.\"\n}\n```",
+        "ts": 1789942062.451065
       },
-      "fiche": "whale_usd",
+      "fiche": "liquidations",
       "questions": {
-        "ventes": {
-          "value": 0.0,
+        "longs": {
+          "value": 1787098.0,
           "seuil": 0,
-          "depasse": false
+          "depasse": true
         },
-        "achats": {
-          "value": 0.0,
+        "shorts": {
+          "value": 1575005.0,
           "seuil": 0,
-          "depasse": false
+          "depasse": true
         },
         "prix": {
-          "value": 0.23,
+          "value": 0.29,
           "seuil": 1,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "longs > shorts",
+        "lecture": "Liquidations massives de LONGS — cascade baissière mécanique. Historiquement suit un creux proche quand le volume liq retombe (HYPOTHÈSE, pas une loi : une cascade peut en cacher une autre)",
+        "niveau": "surveiller",
+        "action": "Ne pas vendre dans la cascade ; préparer les paliers plancher si la paire est sur watchlist"
+      },
+      "action": "Ne pas vendre dans la cascade ; préparer les paliers plancher si la paire est sur watchlist",
+      "niveau": "surveiller"
+    },
+    {
+      "signal": {
+        "metric": "ipt",
+        "zscore": 2.137260737000339,
+        "value": 0.765,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.14) liée à une collision sémantique de l'acronyme 'IPT' (Tournoi de Physique, violences, institut protestant) et non à une baleine crypto. Bruit médiatique sans substance financière.\"\n}\n```",
+        "ts": 1789942665.29604
+      },
+      "fiche": "rbf_eleve",
+      "questions": {
+        "prix": {
+          "value": 0.29,
+          "seuil": 1,
+          "depasse": false
+        },
+        "paires": {
+          "value": 0,
+          "seuil": 3,
+          "depasse": false
+        },
+        "funding": {
+          "value": 3.8e-05,
+          "seuil": 0.001,
+          "depasse": false
+        },
+        "whales": {
+          "value": 0,
+          "seuil": 5,
           "depasse": false
         }
       },
@@ -40,10 +80,10 @@
     {
       "signal": {
         "metric": "cpfp",
-        "zscore": 2.737470790808227,
-        "value": 40.0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 75,\n  \"reason\": \"Forte divergence onchain (z-score 2.74 sur CPFP) indiquant une congestion et une optimisation agressive des frais par des acteurs majeurs (baleines/miners), totalement masquée dans les médias par des bruits sans rapport (politique, actualité locale) ou des tutoriels grand public.\"\n}\n```",
-        "ts": 1789934186.643036
+        "zscore": 2.0807839185966492,
+        "value": 35.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Le pic de CPFP (Child-Pays-For-Parent) on-chain est un artéfact technique lié à la congestion du réseau Bitcoin (utilisateurs déboguant des transactions bloquées), et non à une accumulation ou distribution massive de baleines. Le bruit médiatique (éducation, politique locale) n'a aucun lien avec un mouvement macro de smart money.\"\n}\n```",
+        "ts": 1789943569.818085
       },
       "fiche": "blocs_privilises",
       "questions": {
@@ -53,12 +93,12 @@
           "depasse": false
         },
         "volume": {
-          "value": 101,
+          "value": 375,
           "seuil": 0,
           "depasse": true
         },
         "prix": {
-          "value": 0.23,
+          "value": 0.29,
           "seuil": 0,
           "depasse": true
         },
@@ -85,10 +125,10 @@
     {
       "signal": {
         "metric": "dust",
-        "zscore": 2.737470790808227,
-        "value": 40.0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie onchain sans rapport avec la crypto : le pic de 'dust' correspond à des actualités sur la startup SaaS 'Dust' et des phénomènes météo, pas à des mouvements de baleines.\"\n}\n```",
-        "ts": 1789934188.446518
+        "zscore": 2.0807839185966492,
+        "value": 35.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Faux positif absolu. Le z-score élevé est déclenché par une homonymie pure entre la terminologie crypto 'dust' et une entreprise SaaS française homonyme ('Dust') ainsi que des phénomènes météorologiques, sans aucun lien onchain avec des mouvements de baleines.\"\n}\n```",
+        "ts": 1789943571.538865
       },
       "fiche": "blocs_privilises",
       "questions": {
@@ -98,12 +138,12 @@
           "depasse": false
         },
         "volume": {
-          "value": 101,
+          "value": 375,
           "seuil": 0,
           "depasse": true
         },
         "prix": {
-          "value": 0.23,
+          "value": 0.29,
           "seuil": 0,
           "depasse": true
         },
@@ -128,5 +168,5 @@
       "niveau": "neutre"
     }
   ],
-  "resume": "🔵 CALME — pas de signal alarmant"
+  "resume": "🟡 SURVEILLANCE — des signaux sont à observer"
 }
