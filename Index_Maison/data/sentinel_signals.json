@@ -2,20 +2,6 @@
   "signals": [
     {
       "metric": "sdi",
-      "zscore": -2.5694278995594826,
-      "value": 0.004,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 89,\n  \"reason\": \"Le score z extrêmement bas (-2.57) indique une compression anormale de l'activité on-chain, totalement ignorée par les médias grand public dont les flux RSS sont pollués par du bruit hors-sujet (matériel vidéo, actualités syndicales). Classic silence des baleines avant une accumulation agressive.\"\n}\n```",
-      "ts": "2026-09-19T03:05:06.884660+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": 2.460498740916982,
-      "value": 71,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Un indice de Peur et Avarice à 71 (z-score 2.46) indique une euphorie retail extrême, tandis que le vide médiatique (aucun relais d'actualité majeur) suggère une absence de nouveaux entrants. C'est la configuration classique d'une distribution silencieuse : les baleines prennent leurs bénéfices dans l'ombre pendant que le marché surchauffe sans couverture médiatique de soutien.\"\n}\n```",
-      "ts": "2026-09-19T03:05:08.135206+00:00"
-    },
-    {
-      "metric": "sdi",
       "zscore": -2.3401217023451184,
       "value": 0.008,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le score SDI extrêmement bas (z-score -2.34) indique une compression anormale de l'activité on-chain, totalement ignorée par les médias traditionnels dont le narratif est pollué par des homonymes (matériel vidéo SDI). C'est le calme plat classique avant une accumulation agressive de baleines.\"\n}\n```",
@@ -349,6 +335,20 @@
       "value": 0.892,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 95,\n  \"reason\": \"Le z-score extrêmement bas (-5.06) indique un positionnement massivement court des suiveurs de tendance, alors que les médias grand public banalisent la stratégie long-short de manière neutre/traditionnelle. C'est le setup classique d'un 'short squeeze' imminent provoqué par une accumulation silencieuse des baleines.\"\n}\n```",
       "ts": "2026-09-20T03:41:40.468705+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": -2.2401423174280923,
+      "value": 0.913,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Le ratio long/short extrêmement bas (z-score -2.24) indique un positionnement massivement vendeur des 'retail', tandis que les médias grand public banalisent la stratégie long/short sans urgence crypto. Classic setup de capitulation des ours avant un short squeeze.\"\n}\n```",
+      "ts": "2026-09-20T04:11:46.101994+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": -2.0898693180586623,
+      "value": 0.913,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Le ratio long/short s'effondre (z-score -2.09, niveau extrêmement bas), indiquant un positionnement massif des acteurs institutionnels en faveur de la baisse, tandis que les médias grand public banalisent la stratégie 'Long/Short' sans urgence directionnelle. Cette sur-représentation des positions short par les traders crée un déséquilibre classique propice à un 'short squeeze' imminent orchestré par les baleines.\"\n}\n```",
+      "ts": "2026-09-20T04:41:52.549390+00:00"
     }
   ]
 }
