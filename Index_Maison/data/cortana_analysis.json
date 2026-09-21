@@ -1,20 +1,20 @@
 {
-  "timestamp": 1789999294,
-  "date": "2026-09-21T14:01:34.233259+00:00",
-  "n_analyses": 3,
+  "timestamp": 1790010097,
+  "date": "2026-09-21T17:01:37.630458+00:00",
+  "n_analyses": 2,
   "analyses": [
     {
       "signal": {
         "metric": "volume",
-        "zscore": 2.5746882661104955,
-        "value": 17852826683.0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique sans rapport avec la crypto (mangas, montres, jardinage). Seule une brève mention sur NEAR n'explique pas l'anomalie on-chain massive (z-score 2.57). Données insuffisantes pour confirmer une accumulation ou une distribution silencieuse de baleines.\"\n}\n```",
-        "ts": 1789997675.731853
+        "zscore": 2.1931597468410517,
+        "value": 21900040764.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit de fond médiatique sans rapport avec la crypto (mangas, montres, bourse traditionnelle). Le z-score onchain élevé (2.19) est un signal faible, noyé dans du bruit sémantique. Aucune divergence exploitable.\"\n}\n```",
+        "ts": 1790008886.216079
       },
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": 0.39,
+          "value": 0.11,
           "seuil": 1,
           "depasse": false
         },
@@ -24,114 +24,60 @@
           "depasse": false
         },
         "funding": {
-          "value": 0.0001,
+          "value": 3.7e-05,
           "seuil": 0.001,
           "depasse": false
         },
         "whales": {
-          "value": 0,
+          "value": 9,
           "seuil": 5,
-          "depasse": false
+          "depasse": true
         }
       },
       "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
+        "condition": "whales > 5",
+        "lecture": "Activité institutionnelle intense — les gros bougent en douce",
+        "niveau": "surveiller",
+        "action": "Surveiller les prochaines heures, prêt à réagir"
       },
-      "action": "Observer",
-      "niveau": "neutre"
+      "action": "Surveiller les prochaines heures, prêt à réagir",
+      "niveau": "surveiller"
     },
     {
       "signal": {
-        "metric": "cpfp",
-        "zscore": 2.342926177090545,
-        "value": 45.0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique purement liée au bruit sémantique. Le z-score élevé sur 'cpfp' capte des actualités locales non financières et des tutoriels techniques génériques Bitcoin (RBF/CPFP) plutôt qu'une accumulation ou distribution significative de baleines.\"\n}\n```",
-        "ts": 1789998579.115445
+        "metric": "whale_usd",
+        "zscore": 4.402033506707382,
+        "value": 7120996.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 4.40) avec un volume de transferts de baleines de ~7.12M USD, totalement ignorée par les médias (silence radio de Google Actualités). Cette divergence classique indique une accumulation ou un positionnement silencieux loin du bruit de fond de la foule.\"\n}\n```",
+        "ts": 1790009793.350309
       },
-      "fiche": "blocs_privilises",
+      "fiche": "whale_usd",
       "questions": {
-        "duree": {
-          "value": 0,
+        "ventes": {
+          "value": 3587968.0,
           "seuil": 0,
-          "depasse": false
+          "depasse": true
         },
-        "volume": {
-          "value": 671,
+        "achats": {
+          "value": 3533029.0,
           "seuil": 0,
           "depasse": true
         },
         "prix": {
-          "value": 0.39,
-          "seuil": 0,
-          "depasse": true
-        },
-        "sdi": {
-          "value": 0.008,
-          "seuil": 0,
-          "depasse": true
-        },
-        "rbf": {
-          "value": 0.0,
-          "seuil": 0,
+          "value": 0.11,
+          "seuil": 1,
           "depasse": false
         }
       },
       "interpretation": {
-        "condition": "duree < 5min ET volume > 100",
-        "lecture": "Consolidation exchange — probablement un transfert hot→cold",
-        "niveau": "neutre",
-        "action": "Garder les positions"
+        "condition": "ventes > achats",
+        "lecture": "Flux baleines VENDEUR dominant — distribution possible vers les exchanges (proxy : bearish aujourd'hui)",
+        "niveau": "surveiller",
+        "action": "Croiser avec le sniffer vieux BTC et l'IPT avant de réduire"
       },
-      "action": "Garder les positions",
-      "niveau": "neutre"
-    },
-    {
-      "signal": {
-        "metric": "dust",
-        "zscore": 2.342926177090545,
-        "value": 45.0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique non pertinent. Les occurrences de 'dust' font référence à des actualités météo (trombes d'air) et à des levées de fonds de startups tech (Dust IA), sans aucun lien avec des mouvements onchain ou du whale tracking.\"\n}\n```",
-        "ts": 1789998658.836122
-      },
-      "fiche": "blocs_privilises",
-      "questions": {
-        "duree": {
-          "value": 0,
-          "seuil": 0,
-          "depasse": false
-        },
-        "volume": {
-          "value": 671,
-          "seuil": 0,
-          "depasse": true
-        },
-        "prix": {
-          "value": 0.39,
-          "seuil": 0,
-          "depasse": true
-        },
-        "sdi": {
-          "value": 0.008,
-          "seuil": 0,
-          "depasse": true
-        },
-        "rbf": {
-          "value": 0.0,
-          "seuil": 0,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "duree < 5min ET volume > 100",
-        "lecture": "Consolidation exchange — probablement un transfert hot→cold",
-        "niveau": "neutre",
-        "action": "Garder les positions"
-      },
-      "action": "Garder les positions",
-      "niveau": "neutre"
+      "action": "Croiser avec le sniffer vieux BTC et l'IPT avant de réduire",
+      "niveau": "surveiller"
     }
   ],
-  "resume": "🔵 CALME — pas de signal alarmant"
+  "resume": "🟡 SURVEILLANCE — des signaux sont à observer"
 }

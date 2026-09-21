@@ -27,10 +27,11 @@ Métriques : maison (mur moy/max + régime ; poussière = indicateur PANIER) + p
 | 20 | 2026-09-20T14:34:35Z | 14h | AUTRE | 0.002797 | IMPULSE_WAIT | 10.065 | 361.81 | 4200.0 | 1.02e-05 | 0.08 | — | — | POMPE_PIEGE (stab 7) | prix 0.002797 · poussière(panier) 10.1% · Amihud 1.02e-05 · delta +0.08 · mur moy 362$ · mur max (run) 4,200$ |
 | 21 | 2026-09-21T12:50:34Z | 12h | AUTRE | 0.002432 | IMPULSE_WAIT | 4.4514 | 361.81 | 4200.0 | 6.83e-06 | 0.01 | -0.63 | -0.64 | POMPE_PIEGE (stab 1) | prix 0.002432 · poussière(panier) 4.5% · Amihud 6.83e-06 · delta +0.01 · mur moy 362$ · mur max (run) 4,200$ |
 | 22 | 2026-09-21T12:50:54Z | 12h | AUTRE | 0.002432 | IMPULSE_WAIT | 4.4514 | 361.81 | 4200.0 | 6.82e-06 | 0.01 | -0.63 | -0.64 | POMPE_PIEGE (stab 1) | prix 0.002432 · poussière(panier) 4.5% · Amihud 6.82e-06 · delta +0.01 · mur moy 362$ · mur max (run) 4,200$ |
+| 23 | 2026-09-21T14:35:07Z | 14h | AUTRE | 0.002433 | IMPULSE_WAIT | 6.8309 | 361.81 | 4200.0 | 6.81e-06 | 0.38 | -0.67 | -0.71 | POMPE_PIEGE (stab 1) | prix 0.002433 · poussière(panier) 6.8% · Amihud 6.81e-06 · delta +0.38 · mur moy 362$ · mur max (run) 4,200$ |
 
 ## 🔁 HISTORIQUE DES CYCLES DE L'ACTIF (zigzag ≥ 15 %, log continu du moteur)
 
-_Fenêtre mesurée : du 2026-09-15T19:28:42Z au 2026-09-21T12:50:54Z (19720 points) — archives de rotation incluses._
+_Fenêtre mesurée : du 2026-09-15T19:28:42Z au 2026-09-21T14:35:07Z (19995 points) — archives de rotation incluses._
 
 | # | De | prix | Vers | prix | Amplitude | Durée |
 |---|---|---|---|---|---|---|
@@ -39,7 +40,7 @@ _Fenêtre mesurée : du 2026-09-15T19:28:42Z au 2026-09-21T12:50:54Z (19720 poin
 | 3 | pic 2026-09-18T03:41:10Z | 0.004126 | creux 2026-09-18T18:53:10Z | 0.00277 | 🔻 -32.9 % | 15 h (0.6 j) |
 | 4 | creux 2026-09-18T18:53:10Z | 0.00277 | pic 2026-09-19T05:37:35Z | 0.003206 | 🔺 +15.7 % | 11 h (0.4 j) |
 
-**Cycle EN COURS : BAISSE depuis le pic du 2026-09-19T05:37:35Z à 0.003206 → 0.002432 = **-24.1 %**** (extrême courant 0.002248)
+**Cycle EN COURS : BAISSE depuis le pic du 2026-09-19T05:37:35Z à 0.003206 → 0.002433 = **-24.1 %**** (extrême courant 0.002248)
 
 ## 💰 CE QUE LE MOTEUR A CAPTÉ SUR CET ACTIF
 

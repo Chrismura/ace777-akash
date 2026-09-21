@@ -29,10 +29,11 @@ Métriques : maison (mur moy/max + régime ; poussière = indicateur PANIER) + p
 | 22 | 2026-09-20T14:34:35Z | 14h | AUTRE | 0.02022 | IMPULSE_WAIT | 10.065 | 1087.52 | 2263.24 | 6.52e-06 | -0.07 | — | — | neutre (stab 0) | prix 0.02022 · poussière(panier) 10.1% · Amihud 6.52e-06 · delta -0.07 · mur moy 1,088$ · mur max (run) 2,263$ |
 | 23 | 2026-09-21T12:48:11Z | 12h | AUTRE | 0.02958 | IMPULSE_WAIT | 17.6432 | 1087.52 | 2263.24 | 6.61e-06 | 0.16 | 0.58 | 0.85 | POMPE_PIEGE (stab 3) | prix 0.02958 · poussière(panier) 17.6% · Amihud 6.61e-06 · delta +0.16 · mur moy 1,088$ · mur max (run) 2,263$ |
 | 24 | 2026-09-21T12:50:54Z | 12h | AUTRE | 0.02954 | IMPULSE_WAIT | 4.4514 | 1087.52 | 2263.24 | 6.61e-06 | 0.16 | 0.58 | 0.85 | POMPE_PIEGE (stab 3) | prix 0.02954 · poussière(panier) 4.5% · Amihud 6.61e-06 · delta +0.16 · mur moy 1,088$ · mur max (run) 2,263$ |
+| 25 | 2026-09-21T14:35:07Z | 14h | AUTRE | 0.02979 | IMPULSE_WAIT | 6.8309 | 1087.52 | 2263.24 | 6.45e-06 | -0.27 | 0.58 | 0.81 | POMPE_PIEGE (stab 3) | prix 0.02979 · poussière(panier) 6.8% · Amihud 6.45e-06 · delta -0.27 · mur moy 1,088$ · mur max (run) 2,263$ |
 
 ## 🔁 HISTORIQUE DES CYCLES DE L'ACTIF (zigzag ≥ 15 %, log continu du moteur)
 
-_Fenêtre mesurée : du 2026-09-15T19:28:42Z au 2026-09-21T12:50:54Z (19675 points) — archives de rotation incluses._
+_Fenêtre mesurée : du 2026-09-15T19:28:42Z au 2026-09-21T14:35:07Z (19952 points) — archives de rotation incluses._
 
 | # | De | prix | Vers | prix | Amplitude | Durée |
 |---|---|---|---|---|---|---|
@@ -40,11 +41,11 @@ _Fenêtre mesurée : du 2026-09-15T19:28:42Z au 2026-09-21T12:50:54Z (19675 poin
 | 2 | creux 2026-09-17T19:06:47Z | 0.01806 | pic 2026-09-18T19:03:42Z | 0.02495 | 🔺 +38.2 % | 24 h (1.0 j) |
 | 3 | pic 2026-09-18T19:03:42Z | 0.02495 | creux 2026-09-20T06:56:52Z | 0.01905 | 🔻 -23.6 % | 36 h (1.5 j) |
 
-**Cycle EN COURS : HAUSSE depuis le creux du 2026-09-20T06:56:52Z à 0.01905 → 0.02954 = **+55.1 %**** (extrême courant 0.03038)
+**Cycle EN COURS : HAUSSE depuis le creux du 2026-09-20T06:56:52Z à 0.01905 → 0.02979 = **+56.4 %**** (extrême courant 0.03038)
 
 ## 💰 CE QUE LE MOTEUR A CAPTÉ SUR CET ACTIF
 
-- **Réalisé : +1.85 $** sur 12 entrée(s) / 13 sortie(s) — dernier événement 2026-09-20T00:13:28Z
+- **Réalisé : +1.85 $** sur 13 entrée(s) / 13 sortie(s) — dernier événement 2026-09-21T13:23:28Z
 - **MFE donné en moyenne : +6.2 pts** par tour (pire tour : +18.2) — le meilleur prix atteint pendant la détention, jamais encaissé
 
 ## 🧪 SETUPS DÉCLARÉS (écrits pour CET actif — la fiche les branche)

@@ -28,10 +28,11 @@ Métriques : maison (mur moy/max + régime ; poussière = indicateur PANIER) + p
 | 21 | 2026-09-19T14:34:53Z | 14h | AUTRE | 0.00187 | WATCH | 4.3089 | 593.13 | 6505.46 | 6.08e-07 | 0.21 | 0.65 | 0.69 | POMPE_PIEGE (stab 3) | prix 0.00187 · poussière(panier) 4.3% · Amihud 6.08e-07 · delta +0.21 · mur moy 593$ · mur max (run) 6,505$ |
 | 22 | 2026-09-20T14:34:35Z | 14h | AUTRE | 0.001924 | IMPULSE_WAIT | 10.065 | 593.13 | 6505.46 | 1.10e-06 | 0.10 | — | — | POMPE_PIEGE (stab 7) | prix 0.001924 · poussière(panier) 10.1% · Amihud 1.10e-06 · delta +0.10 · mur moy 593$ · mur max (run) 6,505$ |
 | 23 | 2026-09-21T12:50:54Z | 12h | AUTRE | 0.002076 | IMPULSE_WAIT | 4.4514 | 593.13 | 6505.46 | 1.39e-06 | 0.01 | 0.85 | 0.84 | POMPE_PIEGE (stab 3) | prix 0.002076 · poussière(panier) 4.5% · Amihud 1.39e-06 · delta +0.01 · mur moy 593$ · mur max (run) 6,505$ |
+| 24 | 2026-09-21T14:35:07Z | 14h | AUTRE | 0.002076 | IMPULSE_WAIT | 6.8309 | 593.13 | 6505.46 | 1.47e-06 | 0.50 | 0.88 | 0.86 | POMPE_PIEGE (stab 3) | prix 0.002076 · poussière(panier) 6.8% · Amihud 1.47e-06 · delta +0.50 · mur moy 593$ · mur max (run) 6,505$ |
 
 ## 🔁 HISTORIQUE DES CYCLES DE L'ACTIF (zigzag ≥ 15 %, log continu du moteur)
 
-_Fenêtre mesurée : du 2026-09-15T19:28:42Z au 2026-09-21T12:50:54Z (19719 points) — archives de rotation incluses._
+_Fenêtre mesurée : du 2026-09-15T19:28:42Z au 2026-09-21T14:35:07Z (20000 points) — archives de rotation incluses._
 
 _Pas encore deux retournements ≥ 15 % dans l'historique mesuré._
 
@@ -39,7 +40,7 @@ _Pas encore deux retournements ≥ 15 % dans l'historique mesuré._
 
 ## 💰 CE QUE LE MOTEUR A CAPTÉ SUR CET ACTIF
 
-- **Réalisé : -0.12 $** sur 6 entrée(s) / 5 sortie(s) — dernier événement 2026-09-19T17:19:42Z
-- **MFE donné en moyenne : +3.0 pts** par tour (pire tour : +7.3) — le meilleur prix atteint pendant la détention, jamais encaissé
+- **Réalisé : +0.04 $** sur 6 entrée(s) / 6 sortie(s) — dernier événement 2026-09-21T13:39:37Z
+- **MFE donné en moyenne : +2.9 pts** par tour (pire tour : +7.3) — le meilleur prix atteint pendant la détention, jamais encaissé
 
 _Règle : on compare les lignes entre elles (même heure de mesure = comparable). On ne supprime rien._

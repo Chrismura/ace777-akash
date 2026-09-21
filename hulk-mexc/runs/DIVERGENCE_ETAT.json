@@ -1,14 +1,28 @@
 {
-  "ts": "2026-09-21T10:55:46.275394+00:00",
+  "ts": "2026-09-21T16:55:46.524460+00:00",
   "statut": "FRAIS",
-  "age_rapport_h": 6.0,
+  "age_rapport_h": 0.0,
   "bascules": [
     {
-      "pair": "RIZEUSDT",
+      "pair": "CCUSDT",
       "avant": "neutre",
       "maintenant": "POMPE_PIEGE",
-      "corr_avant": -0.108,
-      "corr_maintenant": -0.234
+      "corr_avant": -0.134,
+      "corr_maintenant": -0.366
+    },
+    {
+      "pair": "MNSRYUSDT",
+      "avant": "neutre",
+      "maintenant": "POMPE_PIEGE",
+      "corr_avant": -0.115,
+      "corr_maintenant": -0.311
+    },
+    {
+      "pair": "RIZEUSDT",
+      "avant": "POMPE_PIEGE",
+      "maintenant": "neutre",
+      "corr_avant": -0.234,
+      "corr_maintenant": -0.07
     }
   ],
   "principe": "RIEN N'EST STATIQUE — signal suivi tant que les chiffres le confirment, abandonné dès inversion",
@@ -20,14 +34,15 @@
   "pompes_pieges": [
     "BIOUSDT",
     "BTCUSDT",
+    "CCUSDT",
     "CHIPUSDT",
     "EDELUSDT",
     "ETHUSDT",
     "FLUIDUSDT",
     "KITEUSDT",
+    "MNSRYUSDT",
     "PYTHUSDT",
     "QNTUSDT",
-    "RIZEUSDT",
     "RWAINCUSDT",
     "RWAUSDT",
     "TELUSDT",
@@ -36,26 +51,26 @@
     "ZBCNUSDT"
   ],
   "stabilite": {
-    "BIOUSDT": 3,
-    "BTCUSDT": 3,
-    "CCUSDT": 0,
-    "CHIPUSDT": 3,
-    "EDELUSDT": 3,
-    "ETHUSDT": 3,
-    "FLUIDUSDT": 3,
-    "HBARUSDT": 2,
-    "KITEUSDT": 3,
-    "MNSRYUSDT": 0,
-    "PYTHUSDT": 3,
-    "QNTUSDT": 3,
-    "REDUSDT": 3,
-    "RIZEUSDT": 1,
-    "RWAINCUSDT": 3,
-    "RWAUSDT": 3,
-    "TELUSDT": 3,
-    "WUSDT": 3,
-    "XRPUSDT": 3,
-    "ZBCNUSDT": 3
+    "BIOUSDT": 4,
+    "BTCUSDT": 4,
+    "CCUSDT": 1,
+    "CHIPUSDT": 4,
+    "EDELUSDT": 4,
+    "ETHUSDT": 4,
+    "FLUIDUSDT": 4,
+    "HBARUSDT": 3,
+    "KITEUSDT": 4,
+    "MNSRYUSDT": 1,
+    "PYTHUSDT": 4,
+    "QNTUSDT": 4,
+    "REDUSDT": 4,
+    "RIZEUSDT": 0,
+    "RWAINCUSDT": 4,
+    "RWAUSDT": 4,
+    "TELUSDT": 4,
+    "WUSDT": 4,
+    "XRPUSDT": 4,
+    "ZBCNUSDT": 4
   },
   "recommande": "OBSERVER"
 }
