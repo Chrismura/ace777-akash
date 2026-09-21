@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-21T20:07:44.385952+00:00",
+  "generated_at": "2026-09-21T20:08:14.678097+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 154
+      "calls_24h": 156
     },
     {
       "id": "openrouter-free",
@@ -265,10 +265,26 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 143,
-    "remaining": 481
+    "consumed": 145,
+    "remaining": 479
   },
   "queue": [
+    {
+      "ts": "2026-09-21T20:08:12.009420+00:00",
+      "task": "supervise.decision",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 1.21
+    },
+    {
+      "ts": "2026-09-21T20:07:56.008298+00:00",
+      "task": "supervise.decision",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 1.23
+    },
     {
       "ts": "2026-09-21T19:08:03.907235+00:00",
       "task": "supervise.decision",
@@ -372,25 +388,27 @@
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
       "duration_s": 2.35
-    },
-    {
-      "ts": "2026-09-21T18:07:50.957709+00:00",
-      "task": "supervise.decision",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 7.46
-    },
-    {
-      "ts": "2026-09-21T18:07:18.525609+00:00",
-      "task": "supervise.decision",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 3.04
     }
   ],
   "events": [
+    {
+      "ts": "2026-09-21T20:08:12.008950+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
+    {
+      "ts": "2026-09-21T20:07:56.007831+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
+    {
+      "ts": "2026-09-21T20:07:54.776724+00:00",
+      "kind": "blacklist",
+      "title": "Fin de pause Google Gemini",
+      "detail": "re-essai automatique"
+    },
     {
       "ts": "2026-09-21T20:02:55.813212+00:00",
       "kind": "http",
@@ -432,24 +450,6 @@
       "kind": "failover",
       "title": "Bascule depuis InferX DeepSeek V4 Flash (API gratuite jusqu'au 12/08)",
       "detail": "HTTP Error 429: Too Many Requests"
-    },
-    {
-      "ts": "2026-09-21T20:02:39.669894+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis OpenRouter Juge (nemotron-3-super-120b free) - verificateur independant",
-      "detail": "HTTP Error 400: Bad Request"
-    },
-    {
-      "ts": "2026-09-21T20:02:38.949688+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis OrcaRouter (routeur gratuit, modele orcarouter/free)",
-      "detail": "HTTP Error 429: Too Many Requests"
-    },
-    {
-      "ts": "2026-09-21T20:02:37.313813+00:00",
-      "kind": "failover",
-      "title": "Saute (blacklist) depuis HuggingFace (136+ modeles, dont DeepSeek-V4)",
-      "detail": "0 attente"
     }
   ],
   "tasks_quotas": {
