@@ -1,34 +1,6 @@
 {
   "signals": [
     {
-      "metric": "long_short",
-      "zscore": -3.265054688167939,
-      "value": 0.873,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Le ratio Long/Short atteint un z-score extrêmement bas (-3.27), signalant un positionnement excessivement vendeur de la foule (retail) et une peur panique médiatique ('les ours prennent le contrôle'). Historiquement, un tel capitulation des shorts par les baleines crée un déséquilibre parfait pour un 'short squeeze' imminent.\"\n}\n```",
-      "ts": "2026-09-21T07:37:21.909266+00:00"
-    },
-    {
-      "metric": "liquidations",
-      "zscore": -2.1058656645422715,
-      "value": 1198996.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Bruit médiatique externe : les gros titres font référence à des liquidations judiciaires d'entreprises traditionnelles et à des fonds turcs, sans aucun rapport avec les marchés crypto ou l'activité onchain des baleines.\"\n}\n```",
-      "ts": "2026-09-21T08:07:30.098074+00:00"
-    },
-    {
-      "metric": "long_short",
-      "zscore": -2.952519306698782,
-      "value": 0.873,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Le ratio Long/Short atteint un z-score extrême de -2.95 (capitulation des positions longues de la foule), tandis que les médias grand public banalisent la baisse (Cardano aux mains des ours). Cette ultra-dominance de shorts positionne le marché pour un 'short squeeze' violent et imminent.\"\n}\n```",
-      "ts": "2026-09-21T08:07:31.512602+00:00"
-    },
-    {
-      "metric": "whale_usd",
-      "zscore": 4.535348135883097,
-      "value": 7166299.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (4.54) couplé à une absence totale de couverture médiatique (silence radio). Accumulation furtive institutionnelle typique avant un mouvement de marché.\"\n}\n```",
-      "ts": "2026-09-21T08:17:33.812848+00:00"
-    },
-    {
       "metric": "price_1h",
       "zscore": 4.774137420113118,
       "value": 0.8990383879919239,
@@ -349,6 +321,34 @@
       "value": 5020769.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Activité anormale des baleines (z-score 2.82, ~$5M) détectée dans un silence médiatique absolu (Google Actualités vide). Accumulation discrète typique hors radar retail avant un mouvement directionnel.\"\n}\n```",
       "ts": "2026-09-21T18:31:54.672004+00:00"
+    },
+    {
+      "metric": "taker_ratio",
+      "zscore": 2.1121158457700924,
+      "value": 1.436,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Taker ratio à 1.436 (z-score 2.11) indique une forte agression acheteuse cachée, tandis que les médias traditionnels affichent un silence radio (Google Actualités vide). Divergence classique d'accumulation silencieuse par les baleines avant un mouvement haussier.\"\n}\n```",
+      "ts": "2026-09-21T20:12:07.864547+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 2.2434484247393605,
+      "value": 5906022.0,
+      "analysis": "{\n  \"signal\": \"bullish\",\n  \"confidence\": 72,\n  \"reason\": \"The on-chain liquidation spike (z‑score 2.24) points to significant crypto‑market activity, yet media coverage focuses exclusively on traditional‑court and fund liquidations, ignoring the crypto whale movement. This disconnect suggests large holders may be quietly reallocating assets (potentially accumulating) without public attention, indicating a bullish bias despite the raw liquidation numbers.\"\n}",
+      "ts": "2026-09-21T20:27:20.826711+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 3.585522543668294,
+      "value": 8831722.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 75,\n  \"reason\": \"Bruit médiatique parasité par des faits divers juridiques locaux en France sans rapport avec la crypto. L'anomalie on-chain (z-score 3.59) reflète des liquidations macro sur les dérivés (altcoins/BTC), mais les médias grand public mélangent tout. Pas de mouvement furtif de baleine caractérisé ici, simple volatilité de marché standard.\"\n}\n```",
+      "ts": "2026-09-21T20:57:27.658964+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.3519450683023373,
+      "value": 0.9,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Anomalie statistique (z-score 2.35) causée par une confusion homonymique : les flux 'ipt' détectés n'ont aucun lien avec la crypto mais font référence à l'Institut Pasteur de Tunis (IPT) ou au Tournoi International des Physiciens dans les médias. Bruit de fond, pas de mouvement de baleine.\"\n}\n```",
+      "ts": "2026-09-21T20:57:29.165633+00:00"
     }
   ]
 }

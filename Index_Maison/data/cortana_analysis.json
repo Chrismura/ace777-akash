@@ -1,7 +1,82 @@
 {
-  "timestamp": 1790021200,
-  "date": "2026-09-21T20:06:40.962663+00:00",
-  "n_analyses": 0,
-  "analyses": [],
-  "resume": "Aucune analyse en cours"
+  "timestamp": 1790024801,
+  "date": "2026-09-21T21:06:41.939983+00:00",
+  "n_analyses": 2,
+  "analyses": [
+    {
+      "signal": {
+        "metric": "liquidations",
+        "zscore": 3.585522543668294,
+        "value": 8831722.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 75,\n  \"reason\": \"Bruit médiatique parasité par des faits divers juridiques locaux en France sans rapport avec la crypto. L'anomalie on-chain (z-score 3.59) reflète des liquidations macro sur les dérivés (altcoins/BTC), mais les médias grand public mélangent tout. Pas de mouvement furtif de baleine caractérisé ici, simple volatilité de marché standard.\"\n}\n```",
+        "ts": 1790024247.658964
+      },
+      "fiche": "liquidations",
+      "questions": {
+        "longs": {
+          "value": 335388.0,
+          "seuil": 0,
+          "depasse": true
+        },
+        "shorts": {
+          "value": 7666104.0,
+          "seuil": 0,
+          "depasse": true
+        },
+        "prix": {
+          "value": -0.19,
+          "seuil": 1,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "shorts > longs",
+        "lecture": "Liquidations massives de SHORTS — squeeze haussier mécanique. Les paliers RIP profitent de ces mouvements",
+        "niveau": "info",
+        "action": "Laisser courir les paliers RIP, ne pas rentrer après la cascade"
+      },
+      "action": "Laisser courir les paliers RIP, ne pas rentrer après la cascade",
+      "niveau": "info"
+    },
+    {
+      "signal": {
+        "metric": "ipt",
+        "zscore": 2.3519450683023373,
+        "value": 0.9,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Anomalie statistique (z-score 2.35) causée par une confusion homonymique : les flux 'ipt' détectés n'ont aucun lien avec la crypto mais font référence à l'Institut Pasteur de Tunis (IPT) ou au Tournoi International des Physiciens dans les médias. Bruit de fond, pas de mouvement de baleine.\"\n}\n```",
+        "ts": 1790024249.165633
+      },
+      "fiche": "rbf_eleve",
+      "questions": {
+        "prix": {
+          "value": -0.19,
+          "seuil": 1,
+          "depasse": false
+        },
+        "paires": {
+          "value": 0,
+          "seuil": 3,
+          "depasse": false
+        },
+        "funding": {
+          "value": 4.7e-05,
+          "seuil": 0.001,
+          "depasse": false
+        },
+        "whales": {
+          "value": 0,
+          "seuil": 5,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
+      },
+      "action": "Observer",
+      "niveau": "neutre"
+    }
+  ],
+  "resume": "🔵 CALME — pas de signal alarmant"
 }
