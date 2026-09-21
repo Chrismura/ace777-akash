@@ -1,5 +1,5 @@
 {
-  "ts": "2026-09-21T19:07:46+00:00",
+  "ts": "2026-09-21T19:08:06+00:00",
   "note": "Verdicts MESURÉS à la source (scripts/verdicts_protocoles.py). Chaque protocole porte son critère pré-enregistré : c'est lui qui décide, pas l'impression du moment. Un verdict « IMPOSSIBLE » ou une ligne « alerte » signale un protocole dont le verdict ne peut pas être rendu — c'est une panne de conception, pas une patience.",
   "protocoles": [
     {
@@ -173,14 +173,14 @@
       "critere": "J8 pré-enregistré : (a) ≥ 5 amendements dont le compteur bouge de ≥ 2 votes, OU (b) ≥ 1 activation, OU (c) ≥ 1 amendement mort ; sinon échec",
       "faits": "182 snapshots · 112 amendements suivis · (a) 4 bougent de ≥ 2 (il en fallait 5) · (b) 0 activation · (c) 0 mort · 2 nouveau(x)",
       "verdict": "ECHEC (critère non atteint)",
-      "alerte": "le radar VOIT (les 4 plus gros mouvements : PermissionDelegationV1_1 +10, BatchV1_1 +4, ConfidentialTransfer +4, DynamicMPT +4) — c'est le seuil du critère qui est hors d'échelle : sur XRPL un amendement vit des mois, pas 8 jours",
+      "alerte": "le radar VOIT (les 4 plus gros mouvements : PermissionDelegationV1_1 +10, DynamicMPT +4, ConfidentialTransfer +4, BatchV1_1 +4) — c'est le seuil du critère qui est hors d'échelle : sur XRPL un amendement vit des mois, pas 8 jours",
       "detail": [
         {
           "amendement": "PermissionDelegationV1_1",
           "delta_votes": 10
         },
         {
-          "amendement": "BatchV1_1",
+          "amendement": "DynamicMPT",
           "delta_votes": 4
         },
         {
@@ -188,15 +188,15 @@
           "delta_votes": 4
         },
         {
-          "amendement": "DynamicMPT",
+          "amendement": "BatchV1_1",
           "delta_votes": 4
         },
         {
-          "amendement": "SingleAssetVault",
+          "amendement": "fixXChainRewardRounding",
           "delta_votes": 1
         },
         {
-          "amendement": "fixXChainRewardRounding",
+          "amendement": "SingleAssetVault",
           "delta_votes": 1
         },
         {
@@ -204,7 +204,7 @@
           "delta_votes": 1
         },
         {
-          "amendement": "PermissionDelegation",
+          "amendement": "fixBatchInnerSigs",
           "delta_votes": 0
         }
       ]
