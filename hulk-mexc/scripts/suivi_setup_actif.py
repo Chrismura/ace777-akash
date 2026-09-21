@@ -13,6 +13,8 @@ méthode V2 (DEEPSEEK/ULTRA/codeur) :
 Usage : python3 suivi_setup_actif.py [PAIRE1 PAIRE2 ...]   (défaut : paires du state)
 Ne modifie RIEN dans Hulk : pure mesure d'observation.
 """
+import datetime
+import glob
 import json
 import math
 import os
@@ -112,20 +114,206 @@ def trade_sign_delta(tr):
     return (buy - sell) / total if total > 0 else 0.0
 
 
-def load_points(pairs):
-    dat = defaultdict(list)
-    if not os.path.exists(CROIS):
-        return dat
-    for line in open(CROIS, encoding="utf-8"):
+# ============================================================================
+# HISTORIQUE DES CYCLES PAR ACTIF (21/09, consigne Christophe : « chaque actif a
+# sa fiche et tout doit être écrit »). Le log continu du moteur
+# (croisement_contexte.jsonl) porte le prix de CHAQUE paire à CHAQUE cycle :
+# c'est l'histoire de l'actif, écrite par le moteur lui-même. On n'invente rien.
+# ============================================================================
+SEUIL_SWING_PCT = 15.0   # en dessous, c'est le bruit du carnet, pas un cycle
+EVENTS_VENTE = ("SELL", "SELL_PARTIAL", "BAG_SELL", "BAG_CRASH", "STOP", "STOP_ALL")
+
+
+def swings(serie, seuil=SEUIL_SWING_PCT):
+    """Zigzag : ne garde que les retournements >= seuil %. Retourne (pivots,
+    état), pivots alternés creux/pic du plus ancien au plus récent, état =
+    (direction, ts, prix) de l'extrême courant (le cycle EN COURS)."""
+    out = []
+    if len(serie) < 2:
+        return out, None
+    direction = 0
+    piv_t, piv_p = serie[0]
+    for ts, px in serie[1:]:
+        if direction >= 0:
+            if px > piv_p:
+                piv_t, piv_p = ts, px
+            elif px <= piv_p * (1 - seuil / 100.0):
+                out.append(("pic", piv_t, piv_p))
+                direction, piv_t, piv_p = -1, ts, px
+        else:
+            if px < piv_p:
+                piv_t, piv_p = ts, px
+            elif px >= piv_p * (1 + seuil / 100.0):
+                out.append(("creux", piv_t, piv_p))
+                direction, piv_t, piv_p = 1, ts, px
+    return out, (direction, piv_t, piv_p)
+
+
+def journal_moteur():
+    """Journal du moteur, 2 fichiers les plus récents, DÉDOUBLONNÉS.
+    Le moteur COPIE son journal à chaque --resume : sans dédoublonnage on compte
+    l'histoire deux fois (incident mesuré le 21/09 : +46 $ au lieu de +25 $)."""
+    import csv
+    rows, seen = [], set()
+    fichiers = sorted(glob.glob(os.path.join(RUNS, "PAPER_V1_*.csv")),
+                      key=os.path.getmtime)[-2:]
+    for f in fichiers:
         try:
-            d = json.loads(line)
-        except Exception:
+            with open(f, newline="", encoding="utf-8", errors="ignore") as fh:
+                for r in csv.DictReader(fh):
+                    k = tuple(r.items())
+                    if k in seen:
+                        continue
+                    seen.add(k)
+                    rows.append(r)
+        except OSError:
             continue
-        if d.get("pair") in pairs:
-            dat[d["pair"]].append(d)
+    return rows
+
+
+_JOURNAL = None
+
+
+def journal():
+    """Journal du moteur chargé UNE fois pour toutes les paires de la passe."""
+    global _JOURNAL
+    if _JOURNAL is None:
+        _JOURNAL = journal_moteur()
+    return _JOURNAL
+
+
+def bilan_moteur(pair, rows, serie):
+    """Ce que le moteur a RÉELLEMENT capté sur cet actif, et l'angle mort mesuré.
+    MFE = meilleur prix atteint pendant la détention : ce qu'on a vu sans le prendre."""
+    import datetime as _dt
+    ev = [r for r in rows if r.get("pair") == pair]
+    if not ev:
+        return None
+    ev.sort(key=lambda r: r.get("ts") or "")
+
+    def T(s):
+        return _dt.datetime.strptime(s, "%Y-%m-%dT%H:%M:%SZ")
+    path = [(T(s), p) for s, p in serie]
+    realized = 0.0
+    buys = sum(1 for r in ev if r.get("event") == "BUY")
+    ventes = 0
+    donnes = []
+    ouverts = []
+    for r in ev:
+        e = r.get("event")
+        if e == "BUY":
+            ouverts.append(r)
+        if e in EVENTS_VENTE:
+            realized += float(r.get("pnl_usdt") or 0)
+            if e == "SELL_PARTIAL":
+                continue
+            ventes += 1
+            if ouverts:
+                o = ouverts.pop(0)
+                try:
+                    t0, t1 = T(o["ts"]), T(r["ts"])
+                    pi, po = float(o["price"]), float(r["price"])
+                    seg = [p for (t, p) in path if t0 <= t <= t1]
+                    mfe = max(seg) if seg else max(pi, po)
+                    donnes.append((mfe / pi - 1) * 100 - (po / pi - 1) * 100)
+                except Exception:
+                    pass
+    return {
+        "realise_usd": round(realized, 2),
+        "entrees": buys,
+        "sorties": ventes,
+        "mfe_donne_moy_pct": round(sum(donnes) / len(donnes), 1) if donnes else None,
+        "mfe_donne_max_pct": round(max(donnes), 1) if donnes else None,
+        "dernier_evt": ev[-1]["ts"],
+    }
+
+
+def specs_actif(pair):
+    """Setups DÉCLARÉS pour cet actif (backtest/spec écrits, ex. EDEL_SPEC_V2).
+    Ils existaient sur le disque et AUCUN code ne les lisait : orphelins. La fiche
+    les porte désormais — le travail d'un actif ne peut plus se perdre."""
+    import datetime as _dt
+    base = pair.replace("USDT", "")
+    out = []
+    for pat in (f"*{base}*SETUP_BACKTEST*.json", f"*{base}*SPEC*.json", f"*{base}*SIMU*.json"):
+        for f in sorted(glob.glob(os.path.join(RUNS, pat))):
+            info = {"fichier": os.path.basename(f),
+                    "date": _dt.datetime.fromtimestamp(
+                        os.path.getmtime(f)).strftime("%Y-%m-%d %H:%M")}
+            try:
+                d = json.load(open(f, encoding="utf-8"))
+                for cherche in (("spec_antigravity", "resultat"), ("resultat",)):
+                    noeud = d
+                    for k in cherche:
+                        noeud = (noeud or {}).get(k) if isinstance(noeud, dict) else None
+                    if isinstance(noeud, dict) and noeud.get("net") is not None:
+                        info["net"] = noeud.get("net")
+                        info["n"] = noeud.get("n_complet")
+                        info["wr"] = noeud.get("wr")
+                        break
+            except Exception:
+                pass
+            if info not in out:
+                out.append(info)
+    return out
+
+
+def sources_contexte():
+    """Le log continu + ses archives tournées, du plus ANCIEN au plus récent.
+    La rotation ne garde que ~24 h dans le fichier vivant : lire le seul fichier
+    vivant, c'est perdre l'histoire de l'actif (leçon 20/09 : après une rotation,
+    le signal short BTC est resté aveugle ~10 h sans qu'aucun organe ne crie).
+    Ici l'archive est lue, donc les cycles (pump/repli) survivent à la rotation.
+    """
+    archives = sorted(glob.glob(CROIS + ".*.gz"), reverse=True)  # .2.gz puis .1.gz
+    for f in archives:
+        yield f, True
+    if os.path.exists(CROIS):
+        yield CROIS, False
+
+
+def _lignes(fichier, gz):
+    if gz:
+        import gzip
+        with gzip.open(fichier, "rt", encoding="utf-8", errors="ignore") as fh:
+            for line in fh:
+                yield line
+    else:
+        with open(fichier, encoding="utf-8", errors="ignore") as fh:
+            for line in fh:
+                yield line
+
+
+_PAIRES_VOULUES = set()
+
+
+def load_points(pairs):
+    global _PAIRES_VOULUES
+    _PAIRES_VOULUES = set(pairs)
+    dat = defaultdict(list)
+    vus = set()
+    for fichier, gz in sources_contexte():
+        try:
+            for line in _lignes(fichier, gz):
+                _ingere(dat, vus, line)
+        except (OSError, EOFError, ValueError):
+            continue
     for p in dat:
         dat[p].sort(key=lambda x: x["ts"])
     return dat
+
+
+def _ingere(dat, vus, line):
+    try:
+        d = json.loads(line)
+    except Exception:
+        return
+    if d.get("pair") in _PAIRES_VOULUES:
+        cle = (d.get("pair"), d.get("ts"), d.get("price"))
+        if cle in vus:
+            return
+        vus.add(cle)
+        dat[d["pair"]].append(d)
 
 
 def resolve_state_pairs():
@@ -272,6 +460,84 @@ def measure(pair, dat):
             f"{r.get('mur_bid_moy_usd','?')} | {r.get('mur_bid_max_usd','?')} | {fmt(r.get('amihud'))} | "
             f"{fmt(r.get('trade_sign_delta'))} | {cbtc} | {ceth} | {sig_txt} | {r.get('verdict','?')} |"
         )
+    # ── HISTORIQUE DES CYCLES DE L'ACTIF (21/09 : la fiche doit TOUT porter) ──
+    serie = [(d["utc"], float(d["price"])) for d in (dat.get(pair) or []) if d.get("price")]
+    pivots, courant = swings(serie)
+    lines.append("")
+    lines.append("## 🔁 HISTORIQUE DES CYCLES DE L'ACTIF (zigzag ≥ %.0f %%, log continu du moteur)"
+                 % SEUIL_SWING_PCT)
+    if serie:
+        lines.append("")
+        lines.append(f"_Fenêtre mesurée : du {serie[0][0]} au {serie[-1][0]} "
+                     f"({len(serie)} points) — archives de rotation incluses._")
+    if len(pivots) < 2:
+        lines.append("")
+        lines.append("_Pas encore deux retournements ≥ %.0f %% dans l'historique mesuré._"
+                     % SEUIL_SWING_PCT)
+    else:
+        lines.append("")
+        lines.append("| # | De | prix | Vers | prix | Amplitude | Durée |")
+        lines.append("|---|---|---|---|---|---|---|")
+        for i in range(len(pivots) - 1):
+            k0, t0, p0 = pivots[i]
+            k1, t1, p1 = pivots[i + 1]
+            amp = (p1 / p0 - 1) * 100 if p0 else 0.0
+            try:
+                h = (datetime.datetime.strptime(t1, "%Y-%m-%dT%H:%M:%SZ")
+                     - datetime.datetime.strptime(t0, "%Y-%m-%dT%H:%M:%SZ")).total_seconds() / 3600
+                duree = f"{h:.0f} h ({h / 24:.1f} j)"
+            except Exception:
+                duree = "—"
+            lines.append(f"| {i + 1} | {k0} {t0} | {p0} | {k1} {t1} | {p1} | "
+                         f"{'🔺' if k1 == 'pic' else '🔻'} {amp:+.1f} % | {duree} |")
+    if courant and serie:
+        sens, c_t, c_p = courant
+        px_now = serie[-1][1]
+        lines.append("")
+        if sens == 0:
+            # Pas encore de retournement ≥ seuil dans la fenêtre : on DECRIT la
+            # fenêtre telle qu'elle est (bas → maintenant) au lieu d'inventer un sens.
+            t_min, p_min = min(serie, key=lambda x: x[1])
+            amp = (px_now / p_min - 1) * 100 if p_min else 0.0
+            lines.append(f"**Cycle en cours : pas encore de retournement ≥ {SEUIL_SWING_PCT:.0f} % "
+                         f"dans la fenêtre** — du plus bas {t_min} à {p_min} → {px_now} "
+                         f"= **{amp:+.1f} %**")
+        else:
+            # Le cycle en cours part du DERNIER pivot confirmé (pas de l'extrême
+            # courant, sinon on comparerait le prix à lui-même).
+            k_last, t_last, p_last = pivots[-1]
+            amp = (px_now / p_last - 1) * 100 if p_last else 0.0
+            lines.append(f"**Cycle EN COURS : {'HAUSSE' if sens > 0 else 'BAISSE'} depuis le "
+                         f"{k_last} du {t_last} à {p_last} → {px_now} = **{amp:+.1f} %**** "
+                         f"(extrême courant {c_p})")
+
+    # ── CE QUE LE MOTEUR A CAPTÉ (et l'angle mort mesuré) ──
+    bilan = bilan_moteur(pair, journal(), serie)
+    lines.append("")
+    lines.append("## 💰 CE QUE LE MOTEUR A CAPTÉ SUR CET ACTIF")
+    lines.append("")
+    if bilan:
+        lines.append(f"- **Réalisé : {bilan['realise_usd']:+.2f} $** sur {bilan['entrees']} entrée(s) / "
+                     f"{bilan['sorties']} sortie(s) — dernier événement {bilan['dernier_evt']}")
+        if bilan["mfe_donne_moy_pct"] is not None:
+            lines.append(f"- **MFE donné en moyenne : {bilan['mfe_donne_moy_pct']:+.1f} pts** par tour "
+                         f"(pire tour : {bilan['mfe_donne_max_pct']:+.1f}) — le meilleur prix atteint "
+                         f"pendant la détention, jamais encaissé")
+    else:
+        lines.append("_Aucun événement du moteur sur cet actif dans le journal._")
+
+    # ── SETUPS DÉCLARÉS POUR CET ACTIF (orphelins branchés à la fiche) ──
+    specs = specs_actif(pair)
+    if specs:
+        lines.append("")
+        lines.append("## 🧪 SETUPS DÉCLARÉS (écrits pour CET actif — la fiche les branche)")
+        lines.append("")
+        for s in specs:
+            extra = ""
+            if s.get("net") is not None:
+                extra = f" — backtest **{s['net']:+.2f} $** · n={s.get('n')} · WR={s.get('wr')} %"
+            lines.append(f"- `{s['fichier']}` ({s['date']}){extra}")
+
     lines.append("")
     lines.append("_Règle : on compare les lignes entre elles (même heure de mesure = comparable). On ne supprime rien._")
     with open(md, "w", encoding="utf-8") as fh:

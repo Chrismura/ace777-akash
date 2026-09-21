@@ -1,4 +1,4 @@
-# ARCHITECTURE VIVANTE — ACE777 (2026-09-21 11:01 UTC)
+# ARCHITECTURE VIVANTE — ACE777 (2026-09-21 14:02 UTC)
 
 > Document GÉNÉRÉ AUTOMATIQUEMENT à l'instant. La famille valide
 > en s'appuyant sur CE contexte, pas sur des documents figés.
@@ -10,7 +10,7 @@
 - ⛔ lecteur signets
 - ⛔ générateur fiches
 - ⛔ feed mission
-- ⛔ serveur cockpit
+- ✅ serveur cockpit
 
 ## Routage des tâches de décision
 
@@ -22,11 +22,11 @@
 
 ## État de la mission (bots + PnL)
 
-- mission.json : 2026-09-21 11:01Z · run `MASTER_BASE_V8_6_FORTRESS_8H20` · alerte `nominal`
+- mission.json : 2026-09-21 14:01Z · run `MASTER_BASE_V8_6_FORTRESS_8H20` · alerte `nominal`
 - PnL combiné : **0.70 $** 📈 (combo 0.7028)
 - ALPHA (sniper (embuscade, ×13, revenge si claque)) : **-1.97 $** · 7 fills · 6973 skips
 - BETA (éclaireur (chatouille le marché, alimente Alpha)) : **+2.67 $** · 34 fills · 604 skips
-- HULK (gestionnaire de portefeuille (bag, escalier, courreur)) : **+21.03 $** · 0 fills
+- HULK (gestionnaire de portefeuille (bag, escalier, courreur)) : **+27.26 $** · 0 fills
 - Saison : CALME 🧊 · 
 
 ## Veille du jour
@@ -66,12 +66,12 @@
 ## Mémoire chaude (journal + résumés)
 
 - Radar (dernières alertes) :
-  · 2026-09-21T11:01:49.721797Z ETHUSDT 2716.31 0.0001 142.9 declenche=non
-  · 2026-09-21T11:01:49.786424Z ETHUSDT 2716.31 0.0001 144.7 declenche=non
-  · 2026-09-21T11:01:49.799217Z BTCUSDT 84480.01 0.0002 19.3 declenche=non
-  · 2026-09-21T11:01:49.848464Z BTCUSDT 84480.0 0.0002 19.3 declenche=non
+  · 2026-09-21T14:02:03.152119Z ETHUSDT 2733.89 0.0003 266.6 declenche=non
+  · 2026-09-21T14:02:03.152194Z ETHUSDT 2733.85 0.0003 266.6 declenche=non
+  · 2026-09-21T14:02:03.152261Z ETHUSDT 2733.84 0.0003 266.6 declenche=non
+  · 2026-09-21T14:02:03.163179Z BTCUSDT 85474.49 0.0002 10.3 declenche=non
 - Intention en cours : BETA a sonde le marche (34 sondes, 25 long / 9 court, conf m | ALPHA attend son signal — aucun tir sur la session en cours.
-- 945 signets X résumés (quota aujourd'hui : 0/50)
+- 946 signets X résumés (quota aujourd'hui : 1/50)
 - 127 fiches IA d'offres en cache (quota 8/jour)
 
 ---

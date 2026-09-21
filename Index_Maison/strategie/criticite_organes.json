@@ -507,6 +507,15 @@
       "mode": "produit",
       "chemin_pouls_ou_produit": "hulk-mexc/strategie/carte_fenetres_entree.json",
       "commentaire": "carte_paires.py (Calendrier quotidien 04:20) · produit = la carte des fenêtres creux/pic lue par la porte d'entrée du moteur (paper_diprip) · la porte est fail-open au-delà de 7 j, le chien crie dès > 2 j."
+    },
+    {
+      "organe": "controle-config",
+      "criticite": "CRITIQUE",
+      "tolerance_mult": 2.0,
+      "frequence_attendue_sec": 3600,
+      "mode": "produit",
+      "chemin_pouls_ou_produit": "hulk-mexc/runs/CONTROLE_CONFIG.json",
+      "commentaire": "controle_config.py (StartInterval 3600) · PROUVE la config HULK : doublon de clé (la dernière écrase en silence — bug réel du 21/09 sur STOP_COOLDOWN_HOURS), valeur vide lue sans défaut, flag illisible. Le produit n'est écrit QUE si la config est prouvée conforme → si ce fichier vieillit, la config n'est plus prouvée (et non « le script a planté ») : c'est voulu. Les paramètres que personne ne lit sont listés en avertissement dans le rapport d'alerte, jamais criés (une alarme qui sonne pour un état normal tue la confiance dans l'alarme)."
     }
   ],
   "updated": "2026-09-20 (boucle d'alerte : gitpush-vault pouls honnête + réinstallation geopol/croisements-indices)"

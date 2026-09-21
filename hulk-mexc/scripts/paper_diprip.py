@@ -770,6 +770,30 @@ class PaperBot:
         # Consensus codeur 4/4 + famille 6/6 + Cortana : double lecture du carnet (pattern V8 ACE),
         # log + radar + calibration CSV, SANS agir sur le moteur. Fail-open sur timeout MEXC.
         self.aspiration_on = cfg.get("ASPIRATION_ON", "1").strip() not in ("0", "false", "False")
+        # R15 « TOUJOURS BRANCHER » (21/09, contrôle_config.py l'a prouvé : le flag
+        # était déclaré dans defaults.env et LU PAR PERSONNE — un flag qui ment).
+        # Ce qu'il pilote : la CORRÉLATION BTC enregistrée dans le CSV d'observation.
+        # Ce qu'il NE pilote PAS, volontairement : la lecture brute du prix BTC.
+        # Elle alimente cb_btc (circuit breaker validé avant chaque entrée) — la
+        # couper ne « libérerait » pas le moteur, elle le BLOQUERAIT. Un flag ne
+        # doit jamais pouvoir couper un organe dont il ne parle pas.
+        self.aspiration_btc_on = cfg.get("ASPIRATION_BTC_ON", "1").strip() not in ("0", "false", "False")
+        # === SET-UP IMPULSE — ENTRÉE SANS REPLI + HORS FENÊTRE (21/09, GO Christophe) ===
+        # MESURÉ AVANT DE CÂBLER (chiffrage_entree_sortie_replay.py, 90 j × 20 paires,
+        # critères pré-enregistrés, klines 1 h, mise fixe 30 $, frais 5 bps/côté) :
+        #   · 66 % des rafales (m6 ≥ 8 %) sont STRUCTURELLEMENT inaccessibles à la règle
+        #     de repli `impulse_entry = max(dip, 5 %, 0,30 × move6)` : le prix monte droit,
+        #     dd6 ne l'atteint jamais. L'état IMPULSE_WAIT du moteur = « le pump est là,
+        #     on attend un repli qui n'arrive pas ».
+        #   · ET la porte de fenêtre de creux visait un AUTRE pari (acheter le bas du jour)
+        #     qu'un actif IMPULSE (trader la rafale) : les deux portes se combinent en
+        #     ZÉRO entrée — mesuré, EDEL = 0 trade sur 90 jours avec les deux règles.
+        #   · EFFET MESURÉ sur EDEL (X4 = sortie réelle inchangée : stop + trailing) :
+        #     entrée actuelle +0,45 $  →  entrée sans repli +18,58 $  (+18,13 $ / 90 j).
+        # PORTÉE : UNIQUEMENT les paires dont mode_entree == "IMPULSE" (aujourd'hui EDEL).
+        # Aucune autre paire, aucune sortie, aucun risque modifié. Réversible en 1 ligne.
+        self.impulse_sans_repli_on = cfg.get("IMPULSE_SANS_REPLI_ON", "1").strip() not in ("0", "false", "False")
+        self.impulse_hors_fenetre_on = cfg.get("IMPULSE_HORS_FENETRE_ON", "1").strip() not in ("0", "false", "False")
         # Phase 3 (31/08) : source de l'aspiration/murs. "fichier" = le satellite
         # écrit runs/aspiration_live.json (le cœur LIT, 0 appel depth) ; "inline" =
         # comportement historique (probe fait ses propres appels). Réversible à chaud
@@ -1355,6 +1379,10 @@ class PaperBot:
         btc_delta_pct = 0.0
         if self.btc_prev > 0 and self.btc_price > 0:
             btc_delta_pct = (self.btc_price - self.btc_prev) / self.btc_prev * 100.0
+        # R15 : ASPIRATION_BTC_ON pilote maintenant la mesure réellement enregistrée
+        # (colonnes btc_price/btc_delta_pct du CSV aspiration). À 0 → colonnes VIDES,
+        # pas de corrélation BTC journalisée ; le moteur trade exactement pareil.
+        btc_corr_on = self.aspiration_btc_on
         # GEX refresh (1× par probe) — call/put wall Deribit
         try:
             live_path = Path(__file__).resolve().parents[2] / "Index_Maison" / "thermo" / "live.json"
@@ -1453,7 +1481,8 @@ class PaperBot:
                             a.get("spread_delta_bps"), a.get("wall_bid_usdt"),
                             a.get("wall_ask_usdt"), a.get("notional_drop_ok"),
                             spoof, a.get("price_delta_pct"),
-                            round(self.btc_price, 2), round(btc_delta_pct, 4),
+                            round(self.btc_price, 2) if btc_corr_on else "",
+                            round(btc_delta_pct, 4) if btc_corr_on else "",
                             a.get("delay_s"), price,
                         ]
                     )
@@ -2519,14 +2548,22 @@ class PaperBot:
             return
         if self.maybe_redeploy_cash(pair, price, sc):
             return
-        if regime in ("QUIET", "WATCH", "IMPULSE_WAIT"):
-            return
         # SET-UP RÉGIME (30/08, GO Christophe) : mode_entree="IMPULSE" → n'entrer
         # QUE si le moteur voit la paire en régime IMPULSE (allumage de rafale).
         # EDEL : ne bouge que par rafales IMPULSE (découverte m6 70% vs 4%) —
         # entrer hors rafale = acheter un actif mort (fenêtre horaire abandonnée).
+        # `_mode` est calculé ICI (avant les sorties anticipées) : le 21/09 la règle
+        # « sans repli » a besoin de savoir qu'on est sur une paire IMPULSE pour
+        # autoriser l'état IMPULSE_WAIT (rafale en cours, repli pas encore venu).
         _mode = mode_entree(pair)
-        if _mode == "IMPULSE" and regime != "IMPULSE":
+        # IMPULSE_WAIT = rafale détectée mais repli encore trop faible : c'est
+        # PRÉCISÉMENT l'instant d'un pump en ligne droite. Pour une paire IMPULSE
+        # et avec le set-up activé, on le trade au lieu de l'attendre (mesuré).
+        _burst_ok = (_mode == "IMPULSE" and self.impulse_sans_repli_on
+                     and regime == "IMPULSE_WAIT")
+        if regime in ("QUIET", "WATCH", "IMPULSE_WAIT") and not _burst_ok:
+            return
+        if _mode == "IMPULSE" and regime != "IMPULSE" and not _burst_ok:
             self.log(
                 pair, "SKIP", regime, price, price, 0.0, 0.0,
                 sc.get("cadence_pct"), f"MODE_REGIME:IMPULSE_ONLY({regime})",
@@ -2535,7 +2572,10 @@ class PaperBot:
         # FENÊTRE D'ENTRÉE AU CREUX (21/09/2026, GO Christophe) : n'entrer QUE dans la
         # fenêtre de creux recalculée de CETTE paire (+32 % mesuré, sortie inchangée).
         # Fail-open : carte absente/périmée/paire inconnue → on le log et on continue.
-        if self.entree_fenetre_on:
+        # SET-UP 21/09 : une RAFALE n'a pas d'heure — la fenêtre de creux vise un autre
+        # pari (le bas du jour). Pour les paires IMPULSE, la porte de fenêtre est levée
+        # (mesuré : garder les deux portes = 0 entrée sur 90 j). Réversible 1 ligne.
+        if self.entree_fenetre_on and not (_mode == "IMPULSE" and self.impulse_hors_fenetre_on):
             _fok, _fwhy = fenetre_entree_ok(pair)
             if not _fok:
                 self.log(
@@ -2602,7 +2642,16 @@ class PaperBot:
                 self.buy(pair, price, sc,
                     f"cooling_dd15={dd:.1f}>={need:.1f}{wall_note}")
             return
-        if regime == "IMPULSE":
+        if regime == "IMPULSE" or _burst_ok:
+            # SET-UP 21/09 (mesuré, cf. __init__) : sur une paire IMPULSE, on entre sur
+            # la RAFALE elle-même au lieu d'attendre un repli qui n'arrive pas dans un
+            # pump en ligne droite. Le seuil de mouvement (IMPULSE_PCT) est conservé,
+            # ainsi que TOUTES les autres portes (volume, murs, aspiration, circuits).
+            if _mode == "IMPULSE" and self.impulse_sans_repli_on:
+                if sc["move6_pct"] >= float(self.cfg.get("IMPULSE_PCT", "8")):
+                    self.buy(pair, price, sc,
+                             f"impulse_sans_repli_m6={sc['move6_pct']:.1f}{wall_note}")
+                return
             need = sc.get("impulse_entry_pct", max(sc["dip_pct"], 5.0))
             if sc["dd6_pct"] >= need and sc["move6_pct"] >= float(
                 self.cfg.get("IMPULSE_PCT", "8")

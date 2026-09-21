@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Label</key>
+	<string>com.ace777.controle-config</string>
+	<key>ProgramArguments</key>
+	<array>
+		<string>/usr/bin/python3</string>
+		<string>/Users/christophe/ace777-test-day1/Index_Maison/scripts/controle_config.py</string>
+	</array>
+	<key>RunAtLoad</key>
+	<true/>
+	<!-- Toutes les heures : la config est STATIQUE, mais une régression silencieuse
+	     (doublon qui écrase, valeur vidée) doit être vue en < 2 h, pas en 2 jours.
+	     Le contrôle est de la lecture pure et dure ~2 s. -->
+	<key>StartInterval</key>
+	<integer>3600</integer>
+	<key>StandardErrorPath</key>
+	<string>/tmp/controle_config_launchd.err.log</string>
+	<key>StandardOutPath</key>
+	<string>/tmp/controle_config_launchd.out.log</string>
+</dict>
+</plist>

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-21 08:15:16 UTC",
+  "generated_at": "2026-09-21 12:13:49 UTC",
   "md5_plists": {
     "com.ace777.veilleuse-chantiers.plist": "262c920e46d03823b9110ea50544b2b9",
     "com.ace777.cockpit-pont.plist": "256a0cef699c414269896e46018f72b6",
@@ -89,6 +89,7 @@
     "com.ace777.flux-nets.plist": "3ab4738ab4accc90427add817e23c847",
     "com.ace777.nourrisseur-disjoncteur.plist": "380bd1dd1fada0316064804824841b04",
     "com.ace777.prise-ia.plist": "cf118f4d85f4f37139ee0f50680e3270",
+    "com.ace777.controle-config.plist": "e2e3f03be24b5d67e5db1e67a196ada2",
     "com.ace777.kronos-ombre.plist": "4d5836c0f1ffc7d311780e27e49a421a",
     "com.ace777.sentinel.plist": "00c13a77d4591aa1d537812eff31df42",
     "com.ace777.veilleuse-sizing-monte-carlo.plist": "b97a4a1bcfbcd8129ca7b1564718c1fc",
@@ -1229,6 +1230,19 @@
       "plist": "com.ace777.prise-ia.plist",
       "declencheur": "KeepAlive (\u00e9v\u00e9nementiel)",
       "cadence_plist_sec": null,
+      "zone_grise": false
+    },
+    {
+      "organe": "controle-config",
+      "criticite": "CRITIQUE",
+      "tolerance_mult": 2.0,
+      "frequence_attendue_sec": 3600,
+      "mode": "produit",
+      "chemin_pouls_ou_produit": "hulk-mexc/runs/CONTROLE_CONFIG.json",
+      "commentaire": "controle_config.py (StartInterval 3600) \u00b7 PROUVE la config HULK : doublon de cl\u00e9 (la derni\u00e8re \u00e9crase en silence \u2014 bug r\u00e9el du 21/09 sur STOP_COOLDOWN_HOURS), valeur vide lue sans d\u00e9faut, flag illisible. Le produit n'est \u00e9crit QUE si la config est prouv\u00e9e conforme \u2192 si ce fichier vieillit, la config n'est plus prouv\u00e9e (et non \u00ab le script a plant\u00e9 \u00bb) : c'est voulu. Les param\u00e8tres que personne ne lit sont list\u00e9s en avertissement dans le rapport d'alerte, jamais cri\u00e9s (une alarme qui sonne pour un \u00e9tat normal tue la confiance dans l'alarme).",
+      "plist": "com.ace777.controle-config.plist",
+      "declencheur": "StartInterval 3600s",
+      "cadence_plist_sec": 3600,
       "zone_grise": false
     },
     {

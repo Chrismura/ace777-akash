@@ -4800,3 +4800,8 @@ Pas d’ordre — confrontation plus tard.
 - CHIPUSDT: IMPULSE_WAIT — spike en cours, pas chase
 - TELUSDT: IMPULSE_WAIT — spike en cours, pas chase
 (compléter: confirmé ? risque ?)
+
+### 2026-09-21T12:31:45Z — ALERT auto
+- CHIPUSDT: WATCH_PULLBACK — tension haute + reflux
+- TELUSDT: IMPULSE_WAIT — spike en cours, pas chase
+(compléter: confirmé ? risque ?)

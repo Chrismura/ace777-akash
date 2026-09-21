@@ -1,7 +1,137 @@
 {
-  "timestamp": 1789988490,
-  "date": "2026-09-21T11:01:30.990579+00:00",
-  "n_analyses": 0,
-  "analyses": [],
-  "resume": "Aucune analyse en cours"
+  "timestamp": 1789999294,
+  "date": "2026-09-21T14:01:34.233259+00:00",
+  "n_analyses": 3,
+  "analyses": [
+    {
+      "signal": {
+        "metric": "volume",
+        "zscore": 2.5746882661104955,
+        "value": 17852826683.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique sans rapport avec la crypto (mangas, montres, jardinage). Seule une brève mention sur NEAR n'explique pas l'anomalie on-chain massive (z-score 2.57). Données insuffisantes pour confirmer une accumulation ou une distribution silencieuse de baleines.\"\n}\n```",
+        "ts": 1789997675.731853
+      },
+      "fiche": "rbf_eleve",
+      "questions": {
+        "prix": {
+          "value": 0.39,
+          "seuil": 1,
+          "depasse": false
+        },
+        "paires": {
+          "value": 0,
+          "seuil": 3,
+          "depasse": false
+        },
+        "funding": {
+          "value": 0.0001,
+          "seuil": 0.001,
+          "depasse": false
+        },
+        "whales": {
+          "value": 0,
+          "seuil": 5,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
+      },
+      "action": "Observer",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "cpfp",
+        "zscore": 2.342926177090545,
+        "value": 45.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique purement liée au bruit sémantique. Le z-score élevé sur 'cpfp' capte des actualités locales non financières et des tutoriels techniques génériques Bitcoin (RBF/CPFP) plutôt qu'une accumulation ou distribution significative de baleines.\"\n}\n```",
+        "ts": 1789998579.115445
+      },
+      "fiche": "blocs_privilises",
+      "questions": {
+        "duree": {
+          "value": 0,
+          "seuil": 0,
+          "depasse": false
+        },
+        "volume": {
+          "value": 671,
+          "seuil": 0,
+          "depasse": true
+        },
+        "prix": {
+          "value": 0.39,
+          "seuil": 0,
+          "depasse": true
+        },
+        "sdi": {
+          "value": 0.008,
+          "seuil": 0,
+          "depasse": true
+        },
+        "rbf": {
+          "value": 0.0,
+          "seuil": 0,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "duree < 5min ET volume > 100",
+        "lecture": "Consolidation exchange — probablement un transfert hot→cold",
+        "niveau": "neutre",
+        "action": "Garder les positions"
+      },
+      "action": "Garder les positions",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "dust",
+        "zscore": 2.342926177090545,
+        "value": 45.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique non pertinent. Les occurrences de 'dust' font référence à des actualités météo (trombes d'air) et à des levées de fonds de startups tech (Dust IA), sans aucun lien avec des mouvements onchain ou du whale tracking.\"\n}\n```",
+        "ts": 1789998658.836122
+      },
+      "fiche": "blocs_privilises",
+      "questions": {
+        "duree": {
+          "value": 0,
+          "seuil": 0,
+          "depasse": false
+        },
+        "volume": {
+          "value": 671,
+          "seuil": 0,
+          "depasse": true
+        },
+        "prix": {
+          "value": 0.39,
+          "seuil": 0,
+          "depasse": true
+        },
+        "sdi": {
+          "value": 0.008,
+          "seuil": 0,
+          "depasse": true
+        },
+        "rbf": {
+          "value": 0.0,
+          "seuil": 0,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "duree < 5min ET volume > 100",
+        "lecture": "Consolidation exchange — probablement un transfert hot→cold",
+        "niveau": "neutre",
+        "action": "Garder les positions"
+      },
+      "action": "Garder les positions",
+      "niveau": "neutre"
+    }
+  ],
+  "resume": "🔵 CALME — pas de signal alarmant"
 }
