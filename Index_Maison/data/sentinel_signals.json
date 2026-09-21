@@ -2,34 +2,6 @@
   "signals": [
     {
       "metric": "liquidations",
-      "zscore": -3.093257650853722,
-      "value": 1078865.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Faux positif absolu. Le z-score des liquidations crypto (-3.09) est une anomalie statistique locale, mais les gros titres médiatiques font référence à des faillites d'entreprises traditionnelles et à des liquidations de fonds en Turquie (finance classique). Aucune baleine crypto active ici, simple bruit sémantique.\"\n}\n```",
-      "ts": "2026-09-21T06:06:41.894651+00:00"
-    },
-    {
-      "metric": "liquidations",
-      "zscore": -2.9383839236808327,
-      "value": 958689.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Bruit médiatique externe polluant la métrique onchain. Les articles font référence à des faillites d'entreprises traditionnelles et à des liquidations boursières en Turquie, sans lien avec le marché crypto. Le z-score négatif indique simplement une absence anormale de liquidations crypto, confirmant le calme plat des baleines.\"\n}\n```",
-      "ts": "2026-09-21T06:36:54.791733+00:00"
-    },
-    {
-      "metric": "liquidations",
-      "zscore": -2.4046519939610347,
-      "value": 1189317.0,
-      "analysis": "{\n  \"signal\": \"bullish\",\n  \"confidence\": 78,\n  \"reason\": \"On-chain liquidation metric shows an unusually low value (z‑score -2.40), indicating far fewer crypto liquidations than expected. Media headlines, however, emphasize widespread judicial and fund liquidations across regions, creating a narrative of high liquidation pressure. This divergence suggests that the selling pressure implied by the news is not reflected in on-chain activity, possibly signaling silent accumulation by whales and reduced immediate downside risk.\"\n}",
-      "ts": "2026-09-21T07:07:07.151845+00:00"
-    },
-    {
-      "metric": "long_short",
-      "zscore": -3.6860817037058027,
-      "value": 0.873,
-      "analysis": "{\n  \"signal\": \"bearish\",\n  \"confidence\": 78,\n  \"reason\": \"The on‑chain long/short ratio of 0.873 (z‑score –3.69) shows a pronounced excess of short positions, implying silent whale accumulation of shorts. Media coverage emphasizes long‑short fund suitability, distributions and awards—a generic, upbeat narrative that does not capture the extreme short bias detected onchain, indicating a disconnect between the narrative and the underlying market activity.\"\n}",
-      "ts": "2026-09-21T07:07:15.468077+00:00"
-    },
-    {
-      "metric": "liquidations",
       "zscore": -2.2983706248430233,
       "value": 1150460.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Divergence totale : le z-score des liquidations crypto (-2.30) montre un calme plat absolu sur la blockchain, tandis que le bruit médiatique concerne des faillites d'entreprises traditionnelles et des fonds en Turquie. Les baleines ne subissent aucune pression vendeuse.\"\n}\n```",
@@ -349,6 +321,34 @@
       "value": 7120996.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 4.40) avec un volume de transferts de baleines de ~7.12M USD, totalement ignorée par les médias (silence radio de Google Actualités). Cette divergence classique indique une accumulation ou un positionnement silencieux loin du bruit de fond de la foule.\"\n}\n```",
       "ts": "2026-09-21T16:56:33.350309+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 2.4393419820322357,
+      "value": 0.016,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique parasité par des homonymes (matériel vidéo, automobile Samsung SDI, politique). Aucune corrélation avec une accumulation ou distribution on-chain significative de baleines crypto.\"\n}\n```",
+      "ts": "2026-09-21T17:06:36.365353+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.028838087502571,
+      "value": 0.9,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Anomalie de données non pertinente : le ticker 'ipt' fait référence à l'Institut Pasteur de Tunis, des tournois de physique (IPT) et des actualités institutionnelles sans aucun rapport avec un actif crypto ou des mouvements de baleines.\"\n}\n```",
+      "ts": "2026-09-21T17:06:38.060218+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.0564565800224965,
+      "value": 21953655767.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique non pertinent (actualités mangas, montres et bourses traditionnelles sans lien crypto). L'anomalie de volume on-chain (z-score 2.06) n'est corroborée par aucun narratif crypto cohérent.\"\n}\n```",
+      "ts": "2026-09-21T17:11:40.424767+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": -2.0928121527907315,
+      "value": 0.851,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Le z-score extrême (-2.09) du ratio long/short indique une capitulation des positions acheteuses par la foule, historiquement synonyme de 'short squeeze' imminent. Les médias grand public relaient la panique ('les ours prennent le contrôle'), créant le désaccord parfait avec l'accumulation silencieuse des baleines.\"\n}\n```",
+      "ts": "2026-09-21T18:06:50.617980+00:00"
     }
   ]
 }

@@ -1,10 +1,12 @@
 {
-  "ts": "2026-09-21T17:04+00:00",
-  "updated": "2026-09-21T17:04Z",
-  "etat": "OK",
+  "ts": "2026-09-21T18:04+00:00",
+  "updated": "2026-09-21T18:04Z",
+  "etat": "DÉGRADÉ",
   "chaines_ok": "15/15",
   "anomalies": [],
-  "degradees": [],
+  "degradees": [
+    "BALEINES"
+  ],
   "chaines": [
     {
       "id": "baleines",
@@ -25,12 +27,12 @@
         {
           "nom": "scan file",
           "ok": true,
-          "detail": "âge 6 min"
+          "detail": "DÉGRADÉ : âge 30 min (> 15 min)"
         },
         {
           "nom": "mouvements (events)",
           "ok": true,
-          "detail": "dernier événement il y a 6 min"
+          "detail": "dernier événement il y a 30 min"
         },
         {
           "nom": "→ live.json.onchain",
@@ -40,12 +42,12 @@
         {
           "nom": "→ Ada gardienne",
           "ok": true,
-          "detail": "voilure 80.9 · zone VERT"
+          "detail": "voilure 91.1 · zone VERT"
         },
         {
           "nom": "→ Cortana feed",
           "ok": true,
-          "detail": "âge 2 min"
+          "detail": "âge 6 min"
         }
       ]
     },
@@ -81,7 +83,7 @@
         {
           "nom": "aspiration runtime",
           "ok": true,
-          "detail": "mode fichier · JSON · âge ts 0.3 min · écart mtime/ts 0.3s · 7 paire(s) · btc=OK · ts=croissant"
+          "detail": "mode fichier · JSON · âge ts 0.3 min · écart mtime/ts 0.1s · 9 paire(s) · btc=OK · ts=croissant"
         },
         {
           "nom": "corrélation BTC",
@@ -96,7 +98,7 @@
         {
           "nom": "cortana_pilot.json",
           "ok": true,
-          "detail": "âge 679 min"
+          "detail": "âge 739 min"
         },
         {
           "nom": "cortana_analysis.json",
@@ -142,7 +144,7 @@
         {
           "nom": "cpfp_detect.json",
           "ok": true,
-          "detail": "âge 8 min"
+          "detail": "âge 5 min"
         },
         {
           "nom": "mode",
@@ -165,7 +167,7 @@
         {
           "nom": "sentinel_history.json",
           "ok": true,
-          "detail": "âge 3 min"
+          "detail": "âge 2 min"
         },
         {
           "nom": "signaux",
@@ -183,7 +185,7 @@
         {
           "nom": "geopol.ts frais",
           "ok": true,
-          "detail": "âge 0.0h"
+          "detail": "âge 0.1h"
         },
         {
           "nom": "modules OK",
@@ -224,7 +226,7 @@
         {
           "nom": "ada_saison_live.json",
           "ok": true,
-          "detail": "saison CHAUFFE"
+          "detail": "saison CALME"
         },
         {
           "nom": "6 indices calculés",
@@ -354,12 +356,12 @@
         {
           "nom": "sdi_latest.json (SAPI dedans)",
           "ok": true,
-          "detail": "âge 3 min"
+          "detail": "âge 7 min"
         },
         {
           "nom": "SAPI calculé",
           "ok": true,
-          "detail": "score 0.65"
+          "detail": "score 0.39"
         },
         {
           "nom": "alerte poussière (≥ 0.75 + volume)",
