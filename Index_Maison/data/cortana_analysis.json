@@ -1,15 +1,15 @@
 {
-  "timestamp": 1790028403,
-  "date": "2026-09-21T22:06:43.064783+00:00",
-  "n_analyses": 1,
+  "timestamp": 1790031704,
+  "date": "2026-09-21T23:01:44.091943+00:00",
+  "n_analyses": 4,
   "analyses": [
     {
       "signal": {
         "metric": "sdi",
-        "zscore": 2.1542232860364545,
+        "zscore": 2.0369062052911855,
         "value": 0.016,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Le SDI mentionné dans les médias correspond au Syndicat des Indépendants (TPE en France) et non à un indicateur on-chain ou à une baleine crypto. Anomalie de sémantique, aucune donnée crypto pertinente.\"\n}\n```",
-        "ts": 1790027267.299158
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 75,\n  \"reason\": \"Les médias focalisent sur des sujets réglementaires (factures, TPE, transparence salariale) sans lien direct avec l'anomalie onchain (SDI élevé). Divergence suggestive d'une accumulation silencieuse par les baleines pendant que l'attention médiatique est ailleurs.\"\n}\n```",
+        "ts": 1790029984.389492
       },
       "fiche": null,
       "interpretation": {
@@ -17,6 +17,135 @@
         "niveau": "inconnu"
       },
       "action": "Observer"
+    },
+    {
+      "signal": {
+        "metric": "ipt",
+        "zscore": 2.358963381609483,
+        "value": 1.008,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Bruit de fond : le ticker onchain 'ipt' subit une collision lexicale avec des acronymes institutionnels et académiques (Institut Pasteur de Tunis, Tournoi des Physiciens). Aucune baleine crypto détectée, simple confusion sémantique des flux.\"\n}\n```",
+        "ts": 1790031496.870314
+      },
+      "fiche": "rbf_eleve",
+      "questions": {
+        "prix": {
+          "value": -0.22,
+          "seuil": 1,
+          "depasse": false
+        },
+        "paires": {
+          "value": 0,
+          "seuil": 3,
+          "depasse": false
+        },
+        "funding": {
+          "value": 6.6e-05,
+          "seuil": 0.001,
+          "depasse": false
+        },
+        "whales": {
+          "value": 2,
+          "seuil": 5,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
+      },
+      "action": "Observer",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "cpfp",
+        "zscore": 2.6868627417301547,
+        "value": 45.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Faux positif statistique. Le pic de CPFP (Child-Pays-For-Parent) détecté correspond à des articles de presse généralistes et locaux sans rapport avec une accumulation ou un mouvement massif de baleines crypto.\"\n}\n```",
+        "ts": 1790031498.857716
+      },
+      "fiche": "blocs_privilises",
+      "questions": {
+        "duree": {
+          "value": 0,
+          "seuil": 0,
+          "depasse": false
+        },
+        "volume": {
+          "value": 186,
+          "seuil": 0,
+          "depasse": true
+        },
+        "prix": {
+          "value": -0.22,
+          "seuil": 0,
+          "depasse": true
+        },
+        "sdi": {
+          "value": 0.016,
+          "seuil": 0,
+          "depasse": true
+        },
+        "rbf": {
+          "value": 0.0,
+          "seuil": 0,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "duree < 5min ET volume > 100",
+        "lecture": "Consolidation exchange — probablement un transfert hot→cold",
+        "niveau": "neutre",
+        "action": "Garder les positions"
+      },
+      "action": "Garder les positions",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "dust",
+        "zscore": 2.6868627417301547,
+        "value": 45.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie onchain insignifiante (bruit de fond). Les mentions médiatiques font référence à un jeu vidéo, des actualités locales et de l'IA (Dust), totalement déconnectées de la crypto. Aucune activité de baleine détectée.\"\n}\n```",
+        "ts": 1790031500.99172
+      },
+      "fiche": "blocs_privilises",
+      "questions": {
+        "duree": {
+          "value": 0,
+          "seuil": 0,
+          "depasse": false
+        },
+        "volume": {
+          "value": 186,
+          "seuil": 0,
+          "depasse": true
+        },
+        "prix": {
+          "value": -0.22,
+          "seuil": 0,
+          "depasse": true
+        },
+        "sdi": {
+          "value": 0.016,
+          "seuil": 0,
+          "depasse": true
+        },
+        "rbf": {
+          "value": 0.0,
+          "seuil": 0,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "duree < 5min ET volume > 100",
+        "lecture": "Consolidation exchange — probablement un transfert hot→cold",
+        "niveau": "neutre",
+        "action": "Garder les positions"
+      },
+      "action": "Garder les positions",
+      "niveau": "neutre"
     }
   ],
   "resume": "🔵 CALME — pas de signal alarmant"

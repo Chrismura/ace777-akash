@@ -1,55 +1,6 @@
 {
   "signals": [
     {
-      "metric": "liquidations",
-      "zscore": 2.552389930207427,
-      "value": 5378322.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Bruit médiatique externe : les gros titres font référence à des liquidations judiciaires d'entreprises traditionnelles et des fonds turcs (BIST 100), sans aucun rapport avec les marchés crypto ou une anomalie on-chain.\"\n}\n```",
-      "ts": "2026-09-21T08:42:46.270720+00:00"
-    },
-    {
-      "metric": "long_short",
-      "zscore": -2.66848556827723,
-      "value": 0.866,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Le ratio Long/Short atteint un z-score extrêmement bas (-2.67), indiquant une surconcentration massive de positions vendeuses (excès de pessimisme retail amplifié par les médias). Historiquement, un tel capitulation des acheteurs précède un 'short squeeze' violent orchestré par les baleines.\"\n}\n```",
-      "ts": "2026-09-21T09:07:52.245516+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": 4.315347300177447,
-      "value": 12402563449.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique de volume (z-score 4.32) totalement déconnectée d'un bruit médiatique non pertinent (caravanes, jardinage, horlogerie). Aucun signal on-chain valide ou intention de baleine détectée, simple bruit de fond algorithmique.\"\n}\n```",
-      "ts": "2026-09-21T09:12:54.370284+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": -3.4779675775063965,
-      "value": 0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Anomalie technique pure (z-score -3.48, volume nul) couplée à un bruit médiatique totalement hors sujet (caravanes, jardinage, horlogerie). Absence totale de corrélation crypto : le signal reflète une inactivité blockchain locale ou un glitch de capteur, pas une accumulation de baleines.\"\n}\n```",
-      "ts": "2026-09-21T11:03:18.503012+00:00"
-    },
-    {
-      "metric": "liquidations",
-      "zscore": -2.270703013388982,
-      "value": 0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique parasité par des homonymes (faillites d'entreprises locales et fonds turcs). Aucune divergence onchain pertinente détectée sur les baleines crypto.\"\n}\n```",
-      "ts": "2026-09-21T11:03:20.583516+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": 6.406578085687301,
-      "value": 0.02,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Anomalie statistique (z-score 6.41) sur l'altcoin SDI totalement non pertinente. Les médias parlent de politique énergétique, de matériel vidéo (Blackmagic), de cinéma et de batteries auto (Samsung SDI). Faux positif absolu lié à l'homonymie de l'actif, aucune activité de baleine crypto détectée.\"\n}\n```",
-      "ts": "2026-09-21T11:08:23.181612+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 4.392114181942023,
-      "value": 1.421,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Anomalie statistique (z-score 4.39) due à une confusion lexicale : l'indicateur onchain 'ipt' capte du bruit sémantique lié à des actualités institutionnelles et académiques (Institut Pasteur de Tunis, Tournoi des Physiciens) et non à une accumulation de baleines crypto.\"\n}\n```",
-      "ts": "2026-09-21T11:08:25.271646+00:00"
-    },
-    {
       "metric": "cpfp",
       "zscore": 2.3002590300414005,
       "value": 40.0,
@@ -349,6 +300,55 @@
       "value": 1.183,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Anomalie statistique (z-score 3.11) entièrement due à un bruit médiatique sur des homonymes (Institut Pasteur de Tunis, Tournoi International des Physiciens) et non à une activité onchain de baleines crypto sur le ticker IPT.\"\n}\n```",
       "ts": "2026-09-21T22:07:51.221539+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 2.708074229151782,
+      "value": 3515432.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Activité anormale des baleines (z-score 2.71, +3.5M USD) dans un silence médiatique absolu. Accumulation furtive classique avant une rupture de prix.\"\n}\n```",
+      "ts": "2026-09-21T22:22:53.957260+00:00"
+    },
+    {
+      "metric": "cpfp",
+      "zscore": 2.3979157616563587,
+      "value": 40.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique mineure (Z-score 2.40 sur CPFP) sans corrélation avec les crypto-baleines. Les résultats médiatiques traitent majoritairement de sujets locaux sans rapport avec le marché des cryptomonnaies (établissements scolaires, politique au Congo, finances publiques en Guinée). Bruit on-chain, pas de mouvement majeur.\"\n}\n```",
+      "ts": "2026-09-21T22:27:56.313801+00:00"
+    },
+    {
+      "metric": "dust",
+      "zscore": 2.3979157616563587,
+      "value": 40.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit de fond médiatique sans lien avec la crypto (jeux vidéo, actualités locales, IA). L'anomalie onchain (z-score 2.40) est trop faible pour signaler un mouvement significatif de baleines.\"\n}\n```",
+      "ts": "2026-09-21T22:27:57.942068+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 2.0369062052911855,
+      "value": 0.016,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 75,\n  \"reason\": \"Les médias focalisent sur des sujets réglementaires (factures, TPE, transparence salariale) sans lien direct avec l'anomalie onchain (SDI élevé). Divergence suggestive d'une accumulation silencieuse par les baleines pendant que l'attention médiatique est ailleurs.\"\n}\n```",
+      "ts": "2026-09-21T22:33:04.389492+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.358963381609483,
+      "value": 1.008,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Bruit de fond : le ticker onchain 'ipt' subit une collision lexicale avec des acronymes institutionnels et académiques (Institut Pasteur de Tunis, Tournoi des Physiciens). Aucune baleine crypto détectée, simple confusion sémantique des flux.\"\n}\n```",
+      "ts": "2026-09-21T22:58:16.870314+00:00"
+    },
+    {
+      "metric": "cpfp",
+      "zscore": 2.6868627417301547,
+      "value": 45.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Faux positif statistique. Le pic de CPFP (Child-Pays-For-Parent) détecté correspond à des articles de presse généralistes et locaux sans rapport avec une accumulation ou un mouvement massif de baleines crypto.\"\n}\n```",
+      "ts": "2026-09-21T22:58:18.857716+00:00"
+    },
+    {
+      "metric": "dust",
+      "zscore": 2.6868627417301547,
+      "value": 45.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie onchain insignifiante (bruit de fond). Les mentions médiatiques font référence à un jeu vidéo, des actualités locales et de l'IA (Dust), totalement déconnectées de la crypto. Aucune activité de baleine détectée.\"\n}\n```",
+      "ts": "2026-09-21T22:58:20.991720+00:00"
     }
   ]
 }
