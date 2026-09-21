@@ -1,69 +1,6 @@
 {
   "signals": [
     {
-      "metric": "long_short",
-      "zscore": 2.3975272049920826,
-      "value": 0.98,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le z-score à 2.40 indique une concentration anormale de positions vendeuses (short) par la foule, amplifiée par un narratif médiatique purement bäissier. Les baleines prennent traditionnellement le contre-pied de ce consensus excessif pour initier un short squeeze massif.\"\n}\n```",
-      "ts": "2026-09-20T15:35:00.638897+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.437189933070844,
-      "value": 0.981,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit sémantique pur. L'anomalie 'ipt' (Indice de Pression Temporelle ou similaire) et le z-score on-chain captent un acronyme homonyme (Institut Protestant de Théologie, Tournoi des Physiciens) sans aucun lien avec un actif crypto ou une baleine.\"\n}\n```",
-      "ts": "2026-09-20T15:45:03.856550+00:00"
-    },
-    {
-      "metric": "cpfp",
-      "zscore": 2.8149332406919263,
-      "value": 45.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 75,\n  \"reason\": \"Forte anomalie on-chain sur le CPFP (Child-Pays-For-Parent à z-score 2.81), indiquant une congestion intentionnelle ou un déplacement massif de fonds avec frais accélérés par des acteurs majeurs. Les médias grand public relayent des actualités locales ou des tutoriels basiques, totalement aveugles à cette activité on-chain hautement stratégique.\"\n}\n```",
-      "ts": "2026-09-20T16:00:07.942842+00:00"
-    },
-    {
-      "metric": "dust",
-      "zscore": 2.8149332406919263,
-      "value": 45.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie onchain sans lien avec la crypto : le bruit médiatique concerne des entreprises SaaS traditionnelles (Dust, IA, audit) et de la météo, totalement déconnectées des mouvements de baleines.\"\n}\n```",
-      "ts": "2026-09-20T16:00:09.871214+00:00"
-    },
-    {
-      "metric": "long_short",
-      "zscore": 2.22269421899147,
-      "value": 0.98,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le z-score élevé (2.22) du ratio long/short à 0.98 montre un positionnement de détail massivement vendeur ou craintif, tandis que les médias grand public banalisent la baisse ou parlent d'autres actifs (Cardano, actions). Cette capitulation de la foule combinée à l'accumulation discrète des baleines crée un déséquilibre classique de minage de liquidité haussière (short squeeze imminent).\"\n}\n```",
-      "ts": "2026-09-20T16:05:12.429138+00:00"
-    },
-    {
-      "metric": "long_short",
-      "zscore": 2.689378811828937,
-      "value": 0.993,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Le ratio Long/Short atteint un z-score extrême de 2.69 (0.993), indiquant un positionnement massif des institutionnels à contre-courant du narratif médiatique généraliste qui panique sur les baisses (ex: Cardano) ou disserte sur des stratégies macro traditionnelles. Divergence classique d'accumulation silencieuse de baleines avant un short squeeze.\"\n}\n```",
-      "ts": "2026-09-20T16:35:18.955179+00:00"
-    },
-    {
-      "metric": "price_1h",
-      "zscore": 3.124334230632521,
-      "value": 0.4746903297509597,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de prix significative (z-score 3.12) sans aucune couverture médiatique (silence total sur Google Actualités). C'est la signature classique d'une accumulation furtive par des baleines avant l'emballement du narratif public.\"\n}\n```",
-      "ts": "2026-09-20T16:40:21.326492+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.3251896448824163,
-      "value": 0.899,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Anomalie statistique (z-score 2.33) entièrement due à une collision de sémantique. Le ticker 'IPT' dans les données on-chain n'a aucun rapport avec les actualités médiatiques (Tournoi de Physique, biotechnologies ou institutions religieuses). Faux positif absolu, pas de mouvement de baleine crypto.\"\n}\n```",
-      "ts": "2026-09-20T16:45:24.856806+00:00"
-    },
-    {
-      "metric": "cpfp",
-      "zscore": 3.252388504288385,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Faux positif statistique. Le z-score élevé (3.25) sur le CPFP (Child-Pays-For-Parent) reflète simplement des congestions mineures du réseau Bitcoin ou des tutoriels médiatiques sur le RBF/CPFP, sans lien avec une accumulation ou distribution massive par des baleines.\"\n}\n```",
-      "ts": "2026-09-20T17:00:28.610052+00:00"
-    },
-    {
       "metric": "dust",
       "zscore": 3.252388504288385,
       "value": 50.0,
@@ -349,6 +286,69 @@
       "value": 9600105075.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 3.73) entièrement due à du bruit sémantique hors-sujet dans les médias (caravanes, football, foires-expos). Aucune corrélation avec une activité de baleine crypto.\"\n}\n```",
       "ts": "2026-09-21T02:00:43.707355+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -3.2434549480453643,
+      "value": 70,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement négatif (-3.24) malgré une avidité élevée (70). Le silence médiatique combiné à cette anomalie statistique indique une distribution silencieuse par les baleines.\"\n}\n```",
+      "ts": "2026-09-21T02:15:46.396489+00:00"
+    },
+    {
+      "metric": "price_1h",
+      "zscore": 2.787625366823818,
+      "value": 0.591811811226095,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de prix positive significative (z-score 2.79) totalement ignorée par les médias (silence radio). C'est la signature classique d'accumulation silencieuse par les baleines avant que le narratif public ne rattrape la réalité.\"\n}\n```",
+      "ts": "2026-09-21T02:25:48.858230+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 3.8072827939973113,
+      "value": 9929406618.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique de volume isolée sur fond de bruit médiatique non pertinent (automobile, sport, foire locale). Aucune corrélation macroéconomique ou crypto valide détectée.\"\n}\n```",
+      "ts": "2026-09-21T02:30:50.810058+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -2.879292027677155,
+      "value": 70,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement négatif (-2.88) malgré une cupidité élevée (70) et un vide médiatique total : les baleines distribuent silencieusement en profitant d'un optimisme de détail non relayé.\"\n}\n```",
+      "ts": "2026-09-21T02:45:53.509677+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.8866631098888207,
+      "value": 9505629629.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie de volume détectée sur une crypto non identifiée (ou bruit statistique), totalement déconnectée des actualités médias grand public qui traitent de sujets sans rapport (caravanes, football, foire-expo).\"\n}\n```",
+      "ts": "2026-09-21T03:00:57.612928+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -2.604569788618397,
+      "value": 70,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-2.60) malgré une cupidité élevée (70). Le silence total des médias couplé à cette anomalie statistique indique une divergence majeure : distribution silencieuse des baleines sous un vernis de complacency retail.\"\n}\n```",
+      "ts": "2026-09-21T03:16:02.469336+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -2.3869801881466537,
+      "value": 70,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Le z-score extrêmement bas (-2.39) malgré un indice de cupidité élevé (70) révèle une divergence critique : le marché retail est aveuglé par l'euphorie médiatique pendant que les flux on-chain stagnent ou se retirent. C'est un piège classique de distribution silencieuse par les baleines.\"\n}\n```",
+      "ts": "2026-09-21T03:46:07.975408+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -2.2085178333914812,
+      "value": 70,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement négatif (-2.21) couplé à une absence totale de couverture médiatique (silence radio sur Google Actualités) malgré une cupidité élevée (70). Divergence classique de piège à hausses : les baleines distribuent discrètement dans l'indifférence des médias avant un retournement.\"\n}\n```",
+      "ts": "2026-09-21T04:16:14.458255+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -2.058242851648846,
+      "value": 70,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score négatif profond (-2.06) malgré une avidité élevée (70) et un vide médiatique total. Divergence classique de distribution silencieuse par les baleines.\"\n}\n```",
+      "ts": "2026-09-21T04:46:27.878466+00:00"
     }
   ]
 }
