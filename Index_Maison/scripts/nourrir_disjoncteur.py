@@ -90,6 +90,14 @@ def lire_state_live():
         st = json.loads(chemin.read_text(encoding="utf-8"))
     except Exception:
         return None
+    # GARDE 21/09/2026 (défaut réel, révélé par un redémarrage volontaire) : au boot, le
+    # moteur écrit un state NEUF (nouveau nom de run) avec pnl_total=0 et positions
+    # vides AVANT que son --resume ait repris les positions. Lu tel quel, il donnait
+    # « perte (pivot 20,89 − 0)/150 = 13,93 % » → Mur de Fer → STOP_ALL, pendant que le
+    # moteur redémarrait. Un state non encore repris n'est PAS une mesure : on ne le lit
+    # JAMAIS comme une perte (fail-safe, comme l'âge muet).
+    if float(st.get("pnl_total") or 0.0) == 0.0 and not (st.get("positions") or {}):
+        return None
     return {
         "path": chemin.name,
         "pnl_total": float(st.get("pnl_total") or 0.0),

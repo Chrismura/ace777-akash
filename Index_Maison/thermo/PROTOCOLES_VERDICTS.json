@@ -1,5 +1,5 @@
 {
-  "ts": "2026-09-21T05:04:06+00:00",
+  "ts": "2026-09-21T08:04:17+00:00",
   "note": "Verdicts MESURÉS à la source (scripts/verdicts_protocoles.py). Chaque protocole porte son critère pré-enregistré : c'est lui qui décide, pas l'impression du moment. Un verdict « IMPOSSIBLE » ou une ligne « alerte » signale un protocole dont le verdict ne peut pas être rendu — c'est une panne de conception, pas une patience.",
   "protocoles": [
     {
@@ -7,7 +7,7 @@
       "critere": "R4 : juger à T+72h la direction réelle du BTC · R6 : verdict 08/11/2026 si ≥ 55 % de HIT sur ≥ 20 cas",
       "faits": "12 paires enregistrées · 1 divergente(s) · 1 jugée(s) · 0 HIT",
       "verdict": "EN ATTENTE (1 cas jugé(s) sur 20 requis)",
-      "alerte": "le verdict du 08/11 demandera 20 cas ; la cadence mesurée est de 1.0 divergence(s)/semaine → environ 7.6 cas au 08/11",
+      "alerte": "le verdict du 08/11 demandera 20 cas ; la cadence mesurée est de 1.0 divergence(s)/semaine → environ 7.5 cas au 08/11",
       "detail": [
         {
           "paire": "paire-008",
@@ -171,20 +171,20 @@
     {
       "protocole": "Radar XRPL gouvernance",
       "critere": "J8 pré-enregistré : (a) ≥ 5 amendements dont le compteur bouge de ≥ 2 votes, OU (b) ≥ 1 activation, OU (c) ≥ 1 amendement mort ; sinon échec",
-      "faits": "170 snapshots · 112 amendements suivis · (a) 4 bougent de ≥ 2 (il en fallait 5) · (b) 0 activation · (c) 0 mort · 2 nouveau(x)",
+      "faits": "173 snapshots · 112 amendements suivis · (a) 4 bougent de ≥ 2 (il en fallait 5) · (b) 0 activation · (c) 0 mort · 2 nouveau(x)",
       "verdict": "ECHEC (critère non atteint)",
-      "alerte": "le radar VOIT (les 4 plus gros mouvements : PermissionDelegationV1_1 +8, DynamicMPT +4, BatchV1_1 +4, ConfidentialTransfer +4) — c'est le seuil du critère qui est hors d'échelle : sur XRPL un amendement vit des mois, pas 8 jours",
+      "alerte": "le radar VOIT (les 4 plus gros mouvements : PermissionDelegationV1_1 +8, BatchV1_1 +4, DynamicMPT +4, ConfidentialTransfer +4) — c'est le seuil du critère qui est hors d'échelle : sur XRPL un amendement vit des mois, pas 8 jours",
       "detail": [
         {
           "amendement": "PermissionDelegationV1_1",
           "delta_votes": 8
         },
         {
-          "amendement": "DynamicMPT",
+          "amendement": "BatchV1_1",
           "delta_votes": 4
         },
         {
-          "amendement": "BatchV1_1",
+          "amendement": "DynamicMPT",
           "delta_votes": 4
         },
         {
@@ -192,7 +192,7 @@
           "delta_votes": 4
         },
         {
-          "amendement": "LendingProtocol",
+          "amendement": "fixXChainRewardRounding",
           "delta_votes": 1
         },
         {
@@ -200,11 +200,11 @@
           "delta_votes": 1
         },
         {
-          "amendement": "fixXChainRewardRounding",
+          "amendement": "LendingProtocol",
           "delta_votes": 1
         },
         {
-          "amendement": "XChainBridge",
+          "amendement": "Batch",
           "delta_votes": 0
         }
       ]
@@ -262,7 +262,7 @@
           "indice": "geopol",
           "directionnels": 4,
           "corect": 1,
-          "n": 17
+          "n": 18
         },
         {
           "indice": "gexPutCall",
@@ -281,17 +281,17 @@
     {
       "protocole": "Geopol (réanimé)",
       "critere": "GEOPOL-C2/C3 : avis geopol noté vs BTC 2×/jour, fenêtre 4 semaines (→ ~10/10), critère P3 ≥ 56 %",
-      "faits": "score actuel 0.3495 « calme » (ML 0.1648) · 17 avis enregistrés dont 4 directionnels (1 correct(s)) · 13 NEUTRE",
+      "faits": "score actuel 0.3495 « calme » (ML 0.1648) · 18 avis enregistrés dont 4 directionnels (1 correct(s)) · 14 NEUTRE",
       "verdict": "EN ATTENTE (fenêtre jusqu'au ~10/10)",
       "alerte": "1 avis correct sur 4 directionnels : à cette cadence le critère ne sera pas tranchable dans la fenêtre",
       "detail": [
         {
           "indice": "geopol",
-          "n": 17,
+          "n": 18,
           "directionnels": 4,
           "corrects": 1,
-          "neutres": 13,
-          "t_stat": -2.67
+          "neutres": 14,
+          "t_stat": -2.36
         }
       ]
     },

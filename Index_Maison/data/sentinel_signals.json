@@ -2,55 +2,6 @@
   "signals": [
     {
       "metric": "dust",
-      "zscore": 3.252388504288385,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique totalement déconnecté de la blockchain : les articles parlent de 'Dust' (la startup SaaS d'IA de Stanislas Polu) et de météo ('dust devil'). Aucune baleine crypto en mouvement, simple confusion de mots-clés.\"\n}\n```",
-      "ts": "2026-09-20T17:00:33.490740+00:00"
-    },
-    {
-      "metric": "long_short",
-      "zscore": 3.1012898396920905,
-      "value": 1.006,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Le ratio Long/Short atteint un z-score extrême de 3.10 (excès de positions acheteuses), tandis que les médias grand public banalisent la stratégie long-short ou rapportent un pessimisme sélectif (Cardano). Dette excessive des 'longs' face à un marché agité : signal classique de 'long squeeze' imminent orchestré par les baleines.\"\n}\n```",
-      "ts": "2026-09-20T17:05:36.449436+00:00"
-    },
-    {
-      "metric": "cpfp",
-      "zscore": 3.364452120746239,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie statistique majeure sur le CPFP (Child-Pays-For-Parent) onchain (z-score 3.36) ignorée par les médias grand public qui se limitent à des tutoriels de base. Cette surcharge de transactions prioritaires révèle une accumulation agressive ou un repositionnement discret de gros portefeuilles.\"\n}\n```",
-      "ts": "2026-09-20T17:35:41.763367+00:00"
-    },
-    {
-      "metric": "dust",
-      "zscore": 3.364452120746239,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie de dust onchain sans rapport avec les actualités. Les 'médias' cités traitent de la météo, d'une entreprise SaaS française nommée Dust (IA/audit) et de jeux vidéo, révélant un bruit sémantique total sans lien avec une baleine crypto.\"\n}\n```",
-      "ts": "2026-09-20T17:35:43.576658+00:00"
-    },
-    {
-      "metric": "long_short",
-      "zscore": 2.7906760803669797,
-      "value": 1.006,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Le ratio Long/Short atteint un z-score extrême de 2.79 (excès de positions acheteuses), signalant une complaisance dangereuse des particuliers. Les médias généralistes banalisent les stratégies long/short sans voir la surchauffe spéculative imminente, contredisant la réalité d'un marché mûr pour une purge des longs.\"\n}\n```",
-      "ts": "2026-09-20T17:35:45.570160+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.6566829816103295,
-      "value": 0.997,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.66) totalement non-pertinente. Les actualités font référence à l'Institut Polytechnique de Toulouse (IPT), au Tournoi International des Physiciens et à des accords universitaires. Aucun lien avec la crypto ou des mouvements de baleines.\"\n}\n```",
-      "ts": "2026-09-20T18:00:50.360576+00:00"
-    },
-    {
-      "metric": "cpfp",
-      "zscore": 3.369519833474888,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Le pic de l'indicateur CPFP (Child-Pays-For-Parent) est un artefact technique lié à la congestion du réseau Bitcoin et aux tutoriels génériques des médias, et non à une accumulation ou distribution silencieuse de baleines.\"\n}\n```",
-      "ts": "2026-09-20T18:05:52.855186+00:00"
-    },
-    {
-      "metric": "dust",
       "zscore": 3.369519833474888,
       "value": 50.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit de fond absolu. L'anomalie 'dust' on-chain coïncide avec des homonymes lexicaux dans l'actualité française (météo, actualité tech/SaaS 'Dust'). Aucune corrélation avec une baleine crypto.\"\n}\n```",
@@ -349,6 +300,55 @@
       "value": 70,
       "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score négatif profond (-2.06) malgré une avidité élevée (70) et un vide médiatique total. Divergence classique de distribution silencieuse par les baleines.\"\n}\n```",
       "ts": "2026-09-21T04:46:27.878466+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": -2.1711882528996553,
+      "value": 1878797.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain de liquidations quasi-nuls (z-score -2.17) combinée à un bruit médiatique totalement hors-sujet (faillites d'entreprises locales et fonds turcs traditionnels). Absence totale de capitulation crypto : les baleines n'écrasent pas le marché, le narratif public est un écran de fumée.\"\n}\n```",
+      "ts": "2026-09-21T05:36:35.777832+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": -3.093257650853722,
+      "value": 1078865.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Faux positif absolu. Le z-score des liquidations crypto (-3.09) est une anomalie statistique locale, mais les gros titres médiatiques font référence à des faillites d'entreprises traditionnelles et à des liquidations de fonds en Turquie (finance classique). Aucune baleine crypto active ici, simple bruit sémantique.\"\n}\n```",
+      "ts": "2026-09-21T06:06:41.894651+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": -2.9383839236808327,
+      "value": 958689.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Bruit médiatique externe polluant la métrique onchain. Les articles font référence à des faillites d'entreprises traditionnelles et à des liquidations boursières en Turquie, sans lien avec le marché crypto. Le z-score négatif indique simplement une absence anormale de liquidations crypto, confirmant le calme plat des baleines.\"\n}\n```",
+      "ts": "2026-09-21T06:36:54.791733+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": -2.4046519939610347,
+      "value": 1189317.0,
+      "analysis": "{\n  \"signal\": \"bullish\",\n  \"confidence\": 78,\n  \"reason\": \"On-chain liquidation metric shows an unusually low value (z‑score -2.40), indicating far fewer crypto liquidations than expected. Media headlines, however, emphasize widespread judicial and fund liquidations across regions, creating a narrative of high liquidation pressure. This divergence suggests that the selling pressure implied by the news is not reflected in on-chain activity, possibly signaling silent accumulation by whales and reduced immediate downside risk.\"\n}",
+      "ts": "2026-09-21T07:07:07.151845+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": -3.6860817037058027,
+      "value": 0.873,
+      "analysis": "{\n  \"signal\": \"bearish\",\n  \"confidence\": 78,\n  \"reason\": \"The on‑chain long/short ratio of 0.873 (z‑score –3.69) shows a pronounced excess of short positions, implying silent whale accumulation of shorts. Media coverage emphasizes long‑short fund suitability, distributions and awards—a generic, upbeat narrative that does not capture the extreme short bias detected onchain, indicating a disconnect between the narrative and the underlying market activity.\"\n}",
+      "ts": "2026-09-21T07:07:15.468077+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": -2.2983706248430233,
+      "value": 1150460.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Divergence totale : le z-score des liquidations crypto (-2.30) montre un calme plat absolu sur la blockchain, tandis que le bruit médiatique concerne des faillites d'entreprises traditionnelles et des fonds en Turquie. Les baleines ne subissent aucune pression vendeuse.\"\n}\n```",
+      "ts": "2026-09-21T07:37:20.452977+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": -3.265054688167939,
+      "value": 0.873,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Le ratio Long/Short atteint un z-score extrêmement bas (-3.27), signalant un positionnement excessivement vendeur de la foule (retail) et une peur panique médiatique ('les ours prennent le contrôle'). Historiquement, un tel capitulation des shorts par les baleines crée un déséquilibre parfait pour un 'short squeeze' imminent.\"\n}\n```",
+      "ts": "2026-09-21T07:37:21.909266+00:00"
     }
   ]
 }

@@ -1,13 +1,13 @@
 # 🩺 DRILL DE RESTAURATION — ✅ **READY**
 
-> Testé le **2026-09-21T05:04Z** · mode **lecture seule** (rien installé, rien modifié).
+> Testé le **2026-09-21T08:04Z** · mode **lecture seule** (rien installé, rien modifié).
 > Question posée : *« si le Mac mourait ce soir, ACE777 reviendrait-il ? »*
 
 ## 1. Source — le repo (git) contient-il tout ?
-- Branche `main` · HEAD `e7ffbbabd3` du 2026-09-21T04:03:56+02:00
-- Fichiers suivis modifiés sur disque : **108**
+- Branche `main` · HEAD `0580560307` du 2026-09-21T07:04:07+02:00
+- Fichiers suivis modifiés sur disque : **128**
 - Fichiers suivis **supprimés** (perdus) : **0**
-- Nouveaux fichiers non versionnés : 26432 au total, dont **39 sensibles** (scripts/plists/règles)
+- Nouveaux fichiers non versionnés : 26503 au total, dont **39 sensibles** (scripts/plists/règles)
   - `Index_Maison/scripts/CONSULTATION_FAMILLE_CORTANA_JUGE_CONTRE/AVIS_DEEPSEEK.md`
   - `Index_Maison/scripts/CONSULTATION_FAMILLE_CORTANA_JUGE_CONTRE/AVIS_GEMINI.md`
   - `Index_Maison/scripts/CONSULTATION_FAMILLE_CORTANA_JUGE_CONTRE/AVIS_JUGE.md`
@@ -34,7 +34,7 @@
 - ✅ **0 agent hors repo** — tous reconstructibles.
 
 ## 3. Reconstruction dans un dossier neuf
-- Dossier : `/var/folders/y7/571v2gy574z72zvsgqd46wd40000gn/T/drill_restauration_xwk0xeom/LaunchAgents`
+- Dossier : `/var/folders/y7/571v2gy574z72zvsgqd46wd40000gn/T/drill_restauration_8co3enoi/LaunchAgents`
 - Plists rebâtis + validés (`plutil -lint`) : **99/99**
 
 ## 4. Organes invoqués par les agents
@@ -51,13 +51,13 @@
   | `~/prise-ia` | `prise-ia` | surveille | ✅ miroir de sauvegarde (organes_hors_repo/prise-ia) |
   | `~/prise-ia/routeur_auto.py` | `routeur-auto` | argument | ✅ miroir de sauvegarde (organes_hors_repo/prise-ia) |
 
-  Manifeste des organes hors repo : `thermo/organes_hors_repo.json` (mis à jour 2026-09-21T02:03Z).
+  Manifeste des organes hors repo : `thermo/organes_hors_repo.json` (mis à jour 2026-09-21T05:04Z).
 
   Outillage système hors repo (4) — réinstallable (Homebrew/Xcode CLT), non bloquant : `/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/Resources/Python.app/Contents/MacOS/Python`, `/Library/Developer/CommandLineTools/usr/bin/python3`, `/opt/homebrew/bin/npm`, `/opt/homebrew/bin/uv`
 - ✅ Aucun chemin invoqué introuvable.
 
 ## 5. Scellés (registre des synapses ↔ repo)
-- Entrées md5 vérifiées : **94** · écarts : **0** · absents : **0**
+- Entrées md5 vérifiées : **96** · écarts : **0** · absents : **0**
 
 ## 6. Verdict
 - ✅ **READY** — le prototype est reconstructible depuis le repo.

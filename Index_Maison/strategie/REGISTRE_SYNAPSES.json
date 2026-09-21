@@ -1,1044 +1,1071 @@
 {
-  "version": "1.5.0",
-  "updated": "2026-09-20T18:59Z",
-  "fichier": [
-    {
-      "nom": "Index_Maison/scripts/v2_duo_replay_4h.py",
-      "role": "Replay ACE duo ALPHA/BETA sur signaux V2 4H (spec E32, recherche pure)",
-      "origine": "GO superviseur Christophe 17/09 · scellé au registre 18/09 (rituel : l'instrument de mesure aussi)",
-      "verif": "md5",
-      "auto_modifiable": false,
-      "md5": "e526247c1b4820c317299b710770ab58",
-      "date": "2026-09-18T10:15Z",
-      "note": "REFACTOR 18/09 (P1 plan ACE) : extraction du cœur pur simuler_duo(kl4h, fund, evts, i_debut, i_fin) — AUCUN changement de comportement, PROUVÉ par diff du JSON de sortie contre E32 (identique hors champ ts). Le refactor permet le walk-forward et la mesure de drawdown. Le Hunter n'influence pas la position du Scout.",
-      "maj": "E32 17/09 : deux bugs d'implémentation corrigés avant consignation (giveback calculé devant au lieu de derrière ; signe du hard stop inversé qui fabriquait un gain garanti). Verdict E32 : ÉCHEC net -64,19 $."
-    },
-    {
-      "nom": "engle/bench_duo.py",
-      "role": "BANC du duo ACE : net + DD max + net/DD + walk-forward (P1 plan ACE)",
-      "origine": "GO Christophe 18/09 (plan d'attaque ACE validé « go »)",
-      "verif": "md5",
-      "auto_modifiable": false,
-      "md5": "f68dcc4f21b0d2ef36aa39542f69af40",
-      "date": "2026-09-18T10:15Z",
-      "note": "Recherche pure, 0 ordre. Réutilise v2_duo_replay_4h.simuler_duo() = source unique des signaux/mécanique (aucune règle dupliquée). Ajoute les critères PRÉ-ENREGISTRÉS C5 (net/DD ≥ 1) et C6 (≥ 60 % de fenêtres positives). Le critère 'scout_seul' est une agrégation, pas une variante de code.",
-      "maj": ""
-    },
-    {
-      "nom": "hulk-mexc/scripts/paper_diprip.py",
-      "role": "Moteur Hulk (paper MEXC dip&rip + bags)",
-      "origine": "chantier hulk",
-      "verif": "md5",
-      "auto_modifiable": false,
-      "md5": "19275addb98bc864ad3b0535d3f10471",
-      "_rescel_20260918": "gate Plancher PLANCHER_GATE_ON + plancher_veto()/plancher_veto_decision() + mise plafonnée sur le MUR LIVE (aspiration_live.json, repli profil).",
-      "note": "FIX 27/08 : circuits breaker + fraîcheur Cortana + FILTRE LOTS MEXC (lot_filter depuis exchangeInfo, baseSizePrecision/quoteAmountPrecision, arrondi stepSize au buy ET au sell, dust close, fail-open)  | RE-SCELLÉ 2026-09-03T17:22Z (GO Christophe 03/09) · 10/09: patch fusibles par paire (gate tête de buy() + détarage sizing, GO Christophe) — md5 mis à jour",
-      "maj": "BATCH PRIX Phase 1 (31/08-01/09, famille 7/7 + codeur) : 1 appel GET global + cache au lieu de 21 GET/cycle (~200-270 req/min → sous la limite MEXC). Mode SELLFULL + mode_entree() du 29-31/08. Aucune logique métier touchée."
-    },
-    {
-      "nom": "hulk-mexc/scripts/ace_sense_mexc.py",
-      "role": "Capteurs style ACE (book_sense + aspiration_sense double lecture)",
-      "origine": "chantier hulk 16/08",
-      "verif": "md5",
-      "auto_modifiable": false,
-      "md5": "a07b852becbb6d155db211586d73f861",
-      "note": "déclaré manuel 2026-08-16T22:35Z (GO Christophe)",
-      "maj": "16/08 soir : aspiration_sense() double lecture fail-open + corrections check-up (drop max(0), price_delta_pct)"
-    },
-    {
-      "nom": "Index_Maison/scripts/surveiller_whales.py",
-      "role": "Scan baleines BTC (mempool 5 min)",
-      "origine": "chantier 14/08",
-      "verif": "md5",
-      "auto_modifiable": false,
-      "md5": "ed04e1e921a7549ea7adc30cb5aafc18",
-      "note": "déclaré manuel 2026-08-21T17:11Z (fix baleines/couleur 21/08) | RE-SCELLÉ 2026-09-03T17:22Z (GO Christophe 03/09)",
-      "maj": "Correctif 24/08 déclaré tard — re-scellement post-audit 03/09."
-    },
-    {
-      "nom": "Index_Maison/scripts/discipline_quotidienne.py",
-      "role": "Discipline quotidienne 07h15 (note + dérive + Kelly)",
-      "origine": "chantier 15/08",
-      "verif": "md5",
-      "auto_modifiable": false,
-      "md5": "6ee99092399646bf4318828c8830112b",
-      "modifié_par": "chantier AGORA (15/08 soir)"
-    },
-    {
-      "nom": "Index_Maison/scripts/ada_gardienne.py",
-      "role": "Gardienne Ada (voilure + zone + onchain + CPFP)",
-      "origine": "fondation F3 + chantiers 15/08",
-      "verif": "md5",
-      "auto_modifiable": false,
-      "md5": "6ee6c3dd041337b395a1dbec0779774d",
-      "note": "déclaré manuel 2026-08-19T09:11Z (fix voix Denise + bug whales 19/08) | RE-SCELLÉ 2026-09-03T17:22Z (GO Christophe 03/09)",
-      "maj": "Correctif session 31/08 10h52 — re-scellement post-audit 03/09."
-    },
-    {
-      "nom": "Index_Maison/scripts/thermo_quotidien_free.py",
-      "role": "Thermo quotidien free (live.json + feed)",
-      "origine": "fondation",
-      "verif": "md5",
-      "auto_modifiable": false,
-      "md5": "1ee6346d520bac5a22e283b8f8223e57",
-      "note": "déclaré 2026-08-27T13:46Z — modifs légitimes 25/08 (pipeline unifié GO Christophe : SafeLiveWriter + LMDB + SDI + geopol) non déclarées à l'époque | md5 aligné sur le sceau GEOPOL-C3 (12/09) — doublon historique, veilleuse apaisée 13/09",
-      "maj": "27/08 13:46Z : md5 mis à jour (déclaration légitime)"
-    },
-    {
-      "nom": "Index_Maison/scripts/veilleuse_synapses.py",
-      "role": "Veilleuse (intégrité + pannes + intrusions)",
-      "origine": "chantier 15/08",
-      "verif": "md5",
-      "auto_modifiable": false,
-      "md5": "543aee2356a8178be11492d41a2d433f"
-    },
-    {
-      "nom": "Index_Maison/scripts/pont_onchain.py",
-      "role": "Pont onchain → live.json (baleines + CPFP)",
-      "origine": "chantier 15/08",
-      "verif": "md5",
-      "auto_modifiable": false,
-      "md5": "138281e66f0f5109ab3b80420f02875f",
-      "note": "déclaré manuel 2026-08-28T18:30Z | RE-SCELLÉ 2026-09-03T17:22Z (GO Christophe 03/09)",
-      "maj": "Correctif session 31/08 10h39 — re-scellement post-audit 03/09."
-    },
-    {
-      "nom": "Index_Maison/scripts/veille_outflows_institutionnels.py",
-      "role": "Sonde des 3 signaux institutionnels (sorties CEX / blocs privatisés / déséquilibre poussière) — 3 seuils famille 30/08",
-      "origine": "consultation famille pattern institutions 30/08 (GO Christophe)",
-      "verif": "md5",
-      "auto_modifiable": false,
-      "md5": "961dd1de694e39036fd10aef8cfcbcfc",
-      "note": "déclaré 2026-08-30 — lit cpfp_detect/bloc_privatise/whales_mouvements existants, écrit veille_institutionnelle_etat.json + alertes",
-      "maj": ""
-    },
-    {
-      "nom": "Index_Maison/plists/com.ace777.veille-insti.plist",
-      "role": "Plist sonde 3 signaux institutionnels (15 min)",
-      "origine": "consultation famille pattern institutions 30/08",
-      "verif": "md5",
-      "auto_modifiable": false,
-      "md5": "22a935169f098ca8e94cabffc5a095f4",
-      "note": "déclaré 2026-08-30 — loaded launchctl + copié ~/Library/LaunchAgents"
-    },
-    {
-      "nom": "Index_Maison/scripts/veille_presence_paires.py",
-      "role": "Sonde présence des paires MEXC (détecte les delistings — leçon QAIT 29/08)",
-      "origine": "delisting QAIT 29/08 14:03Z (GO Christophe 30/08)",
-      "verif": "md5",
-      "auto_modifiable": false,
-      "md5": "d717f38f58048a1b74c3d2f4e7d14c14",
-      "note": "déclaré 2026-08-30 — lit defaults.env, vérifie exchangeInfo MEXC, alerte vocale si paire disparue. Run toutes les 6h.",
-      "maj": ""
-    },
-    {
-      "nom": "Index_Maison/plists/com.ace777.presence-paires.plist",
-      "role": "Plist sonde présence paires MEXC (6h)",
-      "origine": "delisting QAIT 29/08 (GO Christophe 30/08)",
-      "verif": "md5",
-      "auto_modifiable": false,
-      "md5": "8bb2ee2b78fa8e828edd6ee6c5bc0200",
-      "note": "déclaré 2026-08-30 — loaded launchctl + copié ~/Library/LaunchAgents",
-      "maj": ""
-    },
-    {
-      "nom": "hulk-mexc/scripts/analyse_cycle_edel.py",
-      "role": "Observateur cycle jour/nuit EDEL (successeur du pattern QAIT — paper, pas de quarantaine)",
-      "origine": "bilan cycles portefeuille 30/08 (GO Christophe)",
-      "verif": "md5",
-      "auto_modifiable": false,
-      "md5": "8e77ce5539daab2be84670f7a3e5d0ad",
-      "note": "déclaré 2026-08-30 — fix pondération horaire (moyenne simple par heure UTC, pas moyenne de moyennes) + fenêtre pic/creux complète. Écrit runs/CYCLE_EDEL_*.md + CYCLE_EDEL_SUIVI.jsonl",
-      "maj": ""
-    },
-    {
-      "nom": "hulk-mexc/config/com.ace777.cycle-edel.plist",
-      "role": "Plist observateur cycle EDEL (6h)",
-      "origine": "bilan cycles portefeuille 30/08",
-      "verif": "md5",
-      "auto_modifiable": false,
-      "md5": "b7ced749f84ef34b0026fcf20ef73599",
-      "note": "déclaré 2026-08-30 — loaded launchctl + copié ~/Library/LaunchAgents",
-      "maj": ""
-    },
-    {
-      "nom": "Index_Maison/scripts/detecter_cpfp.py",
-      "role": "Détecteur CPFP/dust/z-score (observation 7j)",
-      "origine": "chantier 15/08 onchain v2",
-      "verif": "md5",
-      "auto_modifiable": false,
-      "md5": "85ad51e302c0adfb378bce6db7ea3aaa",
-      "note": "déclaré 2026-08-24 (fix poussière/CPFP 24/08)"
-    },
-    {
-      "nom": "Index_Maison/plists/com.ace777.whales.plist",
-      "role": "Plist scan whales (5 min)",
-      "origine": "chantier 15/08",
-      "verif": "md5",
-      "auto_modifiable": false,
-      "md5": "08d0f3f715b7a8e6822569b8f9d435c8"
-    },
-    {
-      "nom": "Index_Maison/plists/com.ace777.pont-onchain.plist",
-      "role": "Plist pont onchain (5 min) — scan baleines → live.json.onchain → Ada + Cortana",
-      "origine": "chantier 16/08 (boucle baleines complétée)",
-      "verif": "md5",
-      "auto_modifiable": false,
-      "md5": "f84d6acfcf839832ec91c31ef341e7fe",
-      "note": "déclaré manuel 2026-08-16T23:XXZ — le pont n'était lancé par aucune plist, boucle coupée · re-scellé 2026-09-19T1150Z (déclaration groupe A : diff XML uniquement)"
-    },
-    {
-      "nom": "Index_Maison/plists/com.ace777.cpfp.plist",
-      "role": "Plist détecteur CPFP (10 min)",
-      "origine": "chantier 15/08 onchain v2",
-      "verif": "md5",
-      "auto_modifiable": false,
-      "md5": "aac1edf22657284d986666ecc295e98c",
-      "note": "re-scellé 2026-09-19T1150Z (déclaration groupe A : diff XML uniquement)"
-    },
-    {
-      "nom": "Index_Maison/plists/com.ace777.discipline-quotidienne.plist",
-      "role": "Plist discipline (07h15)",
-      "origine": "chantier 15/08",
-      "verif": "md5",
-      "auto_modifiable": false,
-      "md5": "836421bec8aebb82b1e1ef11aed8b7e1"
-    },
-    {
-      "nom": "Index_Maison/plists/com.ace777.veilleuse.plist",
-      "role": "Plist veilleuse (10 min)",
-      "origine": "chantier 15/08",
-      "verif": "md5",
-      "auto_modifiable": false,
-      "md5": "63ba1bdbe4f852d89d82adc7ebbaeb6e",
-      "note": "re-scellé 2026-09-19T1150Z (déclaration groupe A : diff XML uniquement)"
-    },
-    {
-      "nom": "hulk-mexc/config/defaults.env",
-      "role": "Config Hulk (BAG_PAIRS, seeds)",
-      "origine": "chantier hulk",
-      "verif": "md5",
-      "auto_modifiable": false,
-      "md5": "5074bf04bad08b23df418c1db8615da0",
-      "_rescel_20260918": "NOTIONAL_USDT 20→30 + PLANCHER_GATE_ON=1.",
-      "note": "Re-scellé 2026-09-16T13:10Z (GO C., après audit R3 complet : 73/74 OK, seule dérive = ce fichier). La dérive = 2 GO votés du 15/09 jamais re-déclarés (R3) : ① 06:36Z REENTRY_MAX 1→3 + STOP_COOLDOWN_HOURS 4→1 + VOL_SPIKE_MIN_SMALL 1,5→1,2 + VEILLE_SKIP_RED_ON 1→0 (chantier anti-timing/anti-figage) ; ② 08:45Z SLIP_GATE_ON 0→1 (armement du gate anti-glissement après ses 48 h d'observation prévues le 09/09). Sentinelle indépendante : PnL cohérent (divergence 0,0005 $). Prochain changement de config = re-scellement immédiat.",
-      "maj": "30/08 v3 (GO Christophe 14:15Z) : FINI l'observation — PAPER_OBSERVE_PAIRS vidée. QNT/FLUID/RWA/MNSRY seedées (10$ chacune, structure seed_inventory) + lignes SEED_START au CSV + SELL d'annulation du BUY parasite FLUID (09:54Z) pour rejeu exact. 16 positions, plus aucune paire observe. Tableau cockpit = 20 paires tradées. || RE-SCELLÉ 03/09 : Config modifiée session 31/08 12h18 — re-scellée post-audit 03/09 (GO Christophe).",
-      "date": "2026-09-16T13:24Z"
-    },
-    {
-      "nom": "hulk-mexc/strategie/cortana_pilot.json",
-      "role": "Contrat Hulk ↔ Cortana (régénéré chaque jour 07:45 — vérif fraîcheur, pas md5)",
-      "origine": "chantier 15/08",
-      "verif": "vivant",
-      "auto_modifiable": false,
-      "md5": "",
-      "note": "déclaré 2026-08-27T14:39Z — verif=fraicheur, max 25h (régénéré 07:45/jour) : plist morte détectée, pas de fausse INTRUSION | MARQUÉ VIVANT 03/09 : réécrit à chaque cycle, scellement md5 impossible (fausse alerte sinon).",
-      "maj": "27/08 : score réel 0.543 injecté (était 0.44 figé depuis le 15/08)",
-      "fraicheur_max_min": 1500
-    },
-    {
-      "nom": "genesis_manifest.txt",
-      "role": "Manifeste moteur (scellé md5)",
-      "origine": "moteur",
-      "verif": "md5",
-      "auto_modifiable": false,
-      "md5": "14bcf868d46effba010cac577cbb004c",
-      "note": "déclaré manuel 2026-08-21T17:11Z (fix baleines/couleur 21/08)"
-    },
-    {
-      "nom": "Index_Maison/thermo/live.json",
-      "role": "Données live (Cortana + Ada + cockpit)",
-      "origine": "thermo",
-      "verif": "vivant",
-      "auto_modifiable": false,
-      "fraicheur_max_min": 120,
-      "md5": "",
-      "note": "MARQUÉ VIVANT 03/09 : réécrit à chaque cycle, scellement md5 impossible (fausse alerte sinon)."
-    },
-    {
-      "nom": "Index_Maison/data/whales_scan_latest.json",
-      "role": "Dernier scan baleines",
-      "origine": "surveiller_whales",
-      "verif": "vivant",
-      "auto_modifiable": false,
-      "fraicheur_max_min": 360,
-      "md5": "",
-      "note": "MARQUÉ VIVANT 03/09 : réécrit à chaque cycle, scellement md5 impossible (fausse alerte sinon)."
-    },
-    {
-      "nom": "Index_Maison/data/cpfp_detect.json",
-      "role": "Détection CPFP (observation)",
-      "origine": "detecter_cpfp",
-      "verif": "vivant",
-      "auto_modifiable": false,
-      "fraicheur_max_min": 360,
-      "md5": "",
-      "note": "MARQUÉ VIVANT 03/09 : réécrit à chaque cycle, scellement md5 impossible (fausse alerte sinon)."
-    },
-    {
-      "nom": "Index_Maison/scripts/prompts/PROMPT_MASTER_ANALYSTE.md",
-      "role": "PROMPT C1 (17/09, verdict JUGE O4, consultation CORTANA_PRESTIGE) : section CROISEMENT OBLIGATOIRE (règle des 2 sources) — >=2 indices nommés dans MISE EN RELATION, divergence=NEUTRE, CONFIANCE recalculée maison, style préservé",
-      "origine": "chantier graver la pépite",
-      "verif": "md5",
-      "auto_modifiable": false,
-      "md5": "b49ac95c9e66dc0b382bd95000e570bc",
-      "ts": "2026-09-17T11:55:44Z"
-    },
-    {
-      "nom": "Index_Maison/scripts/lecons_auto.py",
-      "role": "Boucle E4 AGORA (leçons HIT/MISS → axiomes FUSIONNÉS multi-indices, GO 17/09)",
-      "origine": "chantier AGORA · fusion axiomes GO Christophe 17/09",
-      "verif": "md5",
-      "auto_modifiable": false,
-      "md5": "a296dce10218e3793ac7beddc40e2b26"
-    },
-    {
-      "nom": "Index_Maison/scripts/sante_index.py",
-      "role": "Pré-vol des index (chaînes complètes → thermo/sante_index.json + cockpit/sante_live.js)",
-      "origine": "chantier 17/08 (demande Christophe : voir les branchements en un coup d'œil)",
-      "verif": "md5",
-      "auto_modifiable": false,
-      "md5": "d7982d04e40a1c48d0c78540f4f1babc",
-      "note": "déclaré 2026-08-27T14:40Z — chaîne HULK étendue : + cortana_analyzer launchd + cortana_pilot.json (fraîcheur 25h) + cortana_analysis.json",
-      "maj": "27/08 13:47Z : md5 mis à jour (déclaration légitime) || RE-SCELLÉ 03/09 : Modifié session 01/09 09h09 (chantier ACE/santé index) — re-scellé post-audit 03/09 (GO Christophe)."
-    },
-    {
-      "nom": "Index_Maison/plists/com.ace777.sante-index.plist",
-      "role": "Plist pré-vol index (5 min)",
-      "origine": "chantier 17/08",
-      "verif": "md5",
-      "auto_modifiable": false,
-      "md5": "4c8905f82b9bb99dd46eb5583c2f479d",
-      "note": "déclaré manuel 2026-08-20T19:06Z",
-      "maj": "27/08 : déclaration plist modifiée 26/08 — fausse INTRUSION (md5 294e109d3bf8… → 4c8905f82b9b…)"
-    },
-    {
-      "nom": "Index_Maison/thermo/regime_couleur.json",
-      "role": "Couleur régime Hulk (sniffer du vrai, OBSERVATION) — 2×/jour via couleur-regime plist",
-      "origine": "19/08 sniffer + couleur régime",
-      "verif": "vivant",
-      "auto_modifiable": false,
-      "fraicheur_max_min": 1500,
-      "md5": "",
-      "note": "MARQUÉ VIVANT 03/09 : réécrit à chaque cycle, scellement md5 impossible (fausse alerte sinon)."
-    },
-    {
-      "nom": "Index_Maison/scripts/sentinel.py",
-      "role": "Sentinelle z-score (12 métriques → sniffer DeepSeek sur anomalie)",
-      "origine": "pipeline unifié 25/08 — ressuscitée 27/08 (plist com.ace777.sentinel + fix variance)",
-      "verif": "md5",
-      "auto_modifiable": false,
-      "md5": "f8948eed95801cac23f4d050637198a7",
-      "note": "déclaré manuel 2026-08-28T18:30Z",
-      "maj": "30/08 : fix crash abs(None) quand live.json contient chg1h:null (clé présente à None) — fail-open durci sur toutes les métriques extract_metrics"
-    },
-    {
-      "nom": "Index_Maison/scripts/silent_drain_index.py",
-      "role": "SDI + IPT + RBF (mouvements silencieux baleines)",
-      "origine": "pipeline unifié 25/08",
-      "verif": "md5",
-      "auto_modifiable": false,
-      "md5": "a8f1525c1d984ad794c9798565d034b7",
-      "note": "déclaré manuel 2026-08-28T18:30Z",
-      "maj": ""
-    },
-    {
-      "nom": "Index_Maison/scripts/pipeline_health.py",
-      "role": "Pipeline Health — score confiance 7 sources (Nominal/Dégradé/Kill)",
-      "origine": "pipeline unifié 25/08",
-      "verif": "md5",
-      "auto_modifiable": false,
-      "md5": "5316720e17380aeff2f572d35dcf5fad",
-      "note": "déclaré manuel 2026-08-28T18:30Z",
-      "maj": "27/08 13:49Z : fix abs(None) sur chg1h (crash 12:12Z observé dans pipeline_health_erreur.log)"
-    },
-    {
-      "nom": "Index_Maison/scripts/atomic_write.py",
-      "role": "Écriture atomique JSON (flock + tmp + fsync + replace)",
-      "origine": "pipeline unifié 25/08",
-      "verif": "md5",
-      "auto_modifiable": false,
-      "md5": "391309b0aa9e695f530d57ebe252b99c",
-      "note": "déclaré 2026-08-27T13:45Z (non déclaré depuis le 25/08)",
-      "maj": ""
-    },
-    {
-      "nom": "Index_Maison/scripts/temporal_store.py",
-      "role": "Store temporel LMDB Hot/Warm/Cold + Dead Man's Switch",
-      "origine": "pipeline unifié 25/08",
-      "verif": "md5",
-      "auto_modifiable": false,
-      "md5": "57573990488458b83271ecd865c27004",
-      "note": "déclaré 2026-08-27T13:45Z (non déclaré depuis le 25/08)",
-      "maj": ""
-    },
-    {
-      "nom": "Index_Maison/indice_app/orchestrator.py",
-      "role": "Indice GEOPOL — 5 modules (pizza/jets/oil/defense/news) + ML",
-      "origine": "indice app 25/08 soir (GO Christophe, consultation famille)",
-      "verif": "md5",
-      "auto_modifiable": false,
-      "md5": "ac9d1e53e08b393e79be98362f6f0d5f",
-      "note": "déclaré 2026-08-27T13:45Z (non déclaré depuis le 25/08 soir)",
-      "maj": ""
-    },
-    {
-      "nom": "hulk-mexc/scripts/circuit_breaker.py",
-      "role": "Circuit breaker Hulk (hystérésis CLOSED→OPEN→HALF-OPEN)",
-      "origine": "pipeline unifié 25/08",
-      "verif": "md5",
-      "auto_modifiable": false,
-      "md5": "3240aa4902cbed25634d14b3689ceee7",
-      "note": "déclaré 2026-08-27T13:45Z (non déclaré depuis le 25/08)",
-      "maj": ""
-    },
-    {
-      "nom": "Index_Maison/scripts/cortana_analyzer.py",
-      "role": "Analyse autonome Cortana (sentinel → signals → fiches → cortana_analysis.json → Hulk)",
-      "origine": "25/08 PIPELINE UNIFIÉ — branché 27/08",
-      "verif": "md5",
-      "auto_modifiable": false,
-      "md5": "9d9b01c621fc084a8269eae449ecaba2",
-      "note": "FIX 27/08 : crash TypeError ts str (sentinelle écrit ts ISO, l'analyzer faisait now - str) → normalisation _to_epoch (les 2 formats). Plist com.ace777.cortana-analyzer (300s). | 13/09: ARBITRAGE LLM-vs-RÈGLE (GO C.) — LLM neutral conf>=60 désamorce le 'dangereux' mécanique (jamais 'critique'); politique mesurée 14 j (critère 27/09: si un vrai danger passe inaperçu → retrait). | 16/09 : fix NoneType prix + mapping sdi_eleve (matin) puis C1/C2/C3 (après-midi). | GO 16/09 6 fiches : trigger z (absolu) lit le ZSCORE (avant : valeur brute → jamais ouvert), source générique live.json → chemin.doté, ",
-      "maj": "16/09 après-midi (GO C. « go » C1+C2+C3) : C1 triggers réellement vérifiés contre la valeur du signal (_evaluer_trigger, alias rbf_score/sdi/global_score/taux_fantome) — le champ trigger n'était DÉCORATIF depuis le 27/08 ; C2 défaut neutre explicite (avant : 1re interprétation = sdi_eleve dangereux / binance_timeout critique) ; C3 health_degrade câblé (questions sources/mode + conditions source == évaluées contre pipeline_health.sources — KILL SWITCH critique UNIQUEMENT si binance <0,5). 8 tests dont négatifs verts. Par Buffy.",
-      "date": "2026-09-16T15:58Z"
-    },
-    {
-      "nom": "hulk-mexc/strategie/universe_profils.json",
-      "role": "Profils comportementaux par paire (murs/spoof/drop/spread/fenêtres) — 27/08 GO Christophe",
-      "origine": "analyse 53 465 mesures ASPIRATION_CALIB 16-24/08",
-      "verif": "md5",
-      "auto_modifiable": false,
-      "md5": "0441f23ab6b0b0591442baaef4ab4fd7",
-      "note": "déclaré manuel 2026-08-28T18:30Z | DÉCLARÉ 2026-09-11 (autopsie V7, GO Christophe « recabler + autopsie v7 ») : modif V4 Option A du 10/09 16h50 (trailing σ filet secondaire sur 8 paires — trail_arm_pct/trail_giveback_pct, source volatilite_paires.json, note in-file « GO Christophe ») committée par auto-sync 15h14Z mais md5 oublié au re-scellement → fausse INTRUSION veilleuse en boucle depuis le 11/09 11h34Z (alerte vocale éteinte manuellement 14h00 par Christophe).",
-      "maj": "27/08 17:30Z : création || RE-SCELLÉ 03/09 : Profils universe modifiés 30/08 18h15 — re-scellés post-audit 03/09 (GO Christophe). || 11/09 : md5 mis à jour 304c781d…→0441f23a… (déclaration légitime V4 Option A, autopsie V7)"
-    },
-    {
-      "nom": "Index_Maison/scripts/alerte_vocale.py",
-      "role": "(ajouté re-scellement 03/09)",
-      "origine": "audit md5 03/09",
-      "verif": "md5",
-      "auto_modifiable": false,
-      "md5": "d99629725a2ee86cd8f19e886ef682a2",
-      "note": "Correctif session 31/08 19h58 — re-scellement post-audit 03/09. | 13/09: AUTO-EXTINCTION (GO C.) — cause guérie (contrat+analyse <60min) 2 contrôles de suite après la 3e répétition → silence propre + statut auto-etinte-cause-guerie."
-    },
-    {
-      "nom": "Index_Maison/scripts/disjoncteur.py",
-      "role": "Disjoncteur C7 — Juge & Risk Guardian (kill switch perte journalière 11,67% / global 25%, Mur de Fer STOP_ALL, réarmement manuel)",
-      "origine": "chantier disjoncteur 16/08 · rebranché 09/09 (GO Christophe)",
-      "verif": "md5",
-      "auto_modifiable": false,
-      "md5": "f86146817c5c2c03b44282620ac0bcaa",
-      "note": "REBRANCHEMENT 09/09 : plist retrouvé dans Index_Maison/plists/ après disparition silencieuse de LaunchAgents. FIX dual STOP_ALL (strategie/ + racine) : les deux conventions de kill-switch jamais raccordées — le Mur de Fer ne couvrait pas HULK. Recalibration 1,5%→11,67%/j, global 8→25% (config.bak-avant-recalibration-20260909). LANCÉ launchd check/60s.",
-      "maj": "Rebranchement + recalibration 2026-09-09 (GO Christophe, 5 tests hors vol OK)"
-    },
-    {
-      "nom": "Index_Maison/scripts/nourrir_disjoncteur.py",
-      "role": "Capteur du disjoncteur : mesure la perte journalière HULK (pnl_total du state live via .hulk_resume_pointer, pivot 00:00 UTC) et déclenche le Mur de Fer au seuil. Le disjoncteur est sourd par design — ce module lui donne des oreilles.",
-      "origine": "créé 09/09 (rebranchement disjoncteur)",
-      "verif": "md5",
-      "auto_modifiable": false,
-      "md5": "8f4c217d33ddcf7b27b797da2117281e",
-      "note": "Fail-safe : HULK muet >180s = MESURE_IMPOSSIBLE, jamais d'invention (C3). Ne crée jamais d'ordre. Pivot du jour persisté atomiquement (disjoncteur_pivot.json). LANCÉ launchd 60s (seconde 30, décalé du disjoncteur).",
-      "maj": "Création 2026-09-09, en vol"
-    },
-    {
-      "nom": "hulk-mexc/scripts/watchdog_hulk_ghost.sh",
-      "role": "Watchdog paper+veille : relance si mort",
-      "origine": "chantier hulk",
-      "verif": "md5",
-      "auto_modifiable": false,
-      "md5": "87ee46a609ff86342277022c1dba4357",
-      "note": "FIX 09/09 : garde STOP_ALL en tête de script — sans lui, le watchdog relançait en boucle ce que le Mur de Fer coupait (HULK documentait la sémantique mais le watchdog l'ignorait). | FIX 16/09 F1 (GO C.) : pouls à chemin fixe Index_Maison/pouls/hulk-watchdog.json (dialecte ISO dernier_battement) écrit en fin de chaque check — le registre organes est passé en mode pouls_direct, plus jamais de chemin de run daté périmable (avant : PAPER_V1_20260910_145101.csv → fausse alerte 30 h).",
-      "maj": "Fix intégration disjoncteur 2026-09-09",
-      "date": "2026-09-16T12:22Z"
-    },
-    {
-      "nom": "hulk-mexc/scripts/fusibles_paires.py",
-      "role": "Fusibles par paire (budget perte = 1.5×σ mesurée, gel sur données + détarage linéaire, dégel sur rebond prouvé — jamais horloge)",
-      "origine": "chantier fusibles 10/09 GO Christophe",
-      "verif": "md5",
-      "auto_modifiable": false,
-      "md5": "5137aff17f049af9f42390036d20bff8",
-      "note": "fail-open interne, fail-closed dégel (mesures >15 min neutralisées)"
-    },
-    {
-      "nom": "Index_Maison/scripts/rafraichir_fusibles_mesures.py",
-      "role": "Capteur launchd (5 min) : rafraîchit volatilite_paires.json (conditions de dégel vivantes)",
-      "origine": "chantier fusibles 10/09 GO Christophe",
-      "verif": "md5",
-      "auto_modifiable": false,
-      "md5": "944c60063f980586011b50fe62aa37bf",
-      "note": "fail-open : échec → jamais de dégel provoqué"
-    },
-    {
-      "nom": "Index_Maison/scripts/mesurer_volatilite_paires.py",
-      "role": "Outil mesure : σ journalière + ADR + p90 des 20 paires → budgets fusibles (base 45 j daily MEXC)",
-      "origine": "chantier fusibles 10/09 GO Christophe",
-      "verif": "md5",
-      "auto_modifiable": false,
-      "md5": "cae2b37c1b6ad58b1c8341ae6855734d",
-      "note": "ré-rançable à tout moment pour recalibrer les budgets"
-    },
-    {
-      "nom": "Index_Maison/plists/com.ace777.fusibles-mesure.plist",
-      "role": "Agent launchd du capteur fusibles-mesure (300 s, RunAtLoad)",
-      "origine": "chantier fusibles 10/09 GO Christophe",
-      "verif": "md5",
-      "auto_modifiable": false,
-      "md5": "803d378f7be0e287570f0b8c27b84c00",
-      "note": ""
-    },
-    {
-      "nom": "Index_Maison/scripts/collecter_rwa_yields.py",
-      "role": "Collecteur passif RWA (prototype 7 jours, GO Christophe 11/09) — yields.llama.fi/pools -> rwa_yields_hist.jsonl, zéro alarme phase 1",
-      "origine": "chantier RADAR RWA v2 (correctifs C1-C6 validés)",
-      "verif": "md5",
-      "auto_modifiable": false,
-      "md5": "8ebefa61800cd0a37c26f40e6ebc9a6d",
-      "note": "Créé 2026-09-11 (GO prototype 7 jours, critère pré-enregistré >=3 pools top20 >=50bps). Première collecte 13:42Z : 355/17209 pools.",
-      "maj": ""
-    },
-    {
-      "nom": "Index_Maison/scripts/rotation_jsonl.py",
-      "role": "Rotation COPYTRUNCATE + gzip des JSONL à croissance illimitée (appelé superviseur_core 6 h)",
-      "origine": "leçon GitHub 3 jours (croisement_contexte 300 Mo)",
-      "verif": "md5",
-      "auto_modifiable": false,
-      "md5": "ed985a67f93a9fd0e9e3841705f1e572",
-      "note": "Évolution déclarée 19/09 : +journal_radar.log (vigie 3,7 Go), +PAPER/DIGEST_WATCHDOG_STDOUT.log (95 Mo / 26 Mo, écrits en direct par watchdog_hulk_ghost.sh — même cancer, 3e occurrence), ET mode AUDIT DE DÉCOUVERTE (tout fichier > 200 Mo hors rotation est signalé tout seul dans thermo/GROS_FICHIERS.json : une liste ne protège que ce dont on se souvient). Préc. 14/09 18:35 : +x402_agentic_hist [C5].",
-      "maj": "re-scellé 20/09 — FENÊTRE GARDÉE : la rotation ne gardait AUCUN historique récent. Prouvé le 20/09 : rotation de croisement_contexte.jsonl à 13:12:21Z (113,7 Mo) → plus que 5 heures dans le fichier vivant ; or hulk-mexc/scripts/short_btc.py exige ≥ 10 heures distinctes → score null, « historique insuffisant » : le signal short BTC était AVEUGLE ~10 h, sans que le plist (exit 0), le chien (« short-btc vivant ») ni la veilleuse ne le voient. Désormais : GARDER_HEURES (24 h) → on n'archive QUE ce qui sort de la fenêtre, et GARDER_MAX_MO (60) borne le fichier vivant — le plus contraignant des deux gagne (on ne recrée pas le JSONL de 300 Mo qui bloquait le push). Clés ajoutées : GARDER_HEURES, GARDER_MAX_MO, _offset_fenetre(), _decaler_archives() ; rotate_file(..., garder_heures=0) = comportement historique INCHANGÉ pour les logs sans lecteur. 6 cas testés hors vol sur copie (fenêtre / plafond / tout-dans-fenêtre / historique / dry-run / lignes sans ts). Réécriture EN PLACE (même inode : les écrivains gardent leur fd — leçon COPYTRUNCATE)."
-    },
-    {
-      "nom": "Index_Maison/plists/com.ace777.rwa-yields.plist",
-      "role": "Plist collecteur RWA (6 h, RunAtLoad) — prototype 7 jours GO Christophe 11/09",
-      "origine": "chantier RADAR RWA v2",
-      "verif": "md5",
-      "auto_modifiable": false,
-      "md5": "b70a1060a9f225fe7bbe1e455b340c18",
-      "note": "déclaré 2026-09-11 2026-09-11T13:50Z — chargé launchd + copié ~/Library/LaunchAgents",
-      "maj": ""
-    },
-    {
-      "nom": "Index_Maison/scripts/simulateur_plancher_confirme.py",
-      "role": "Simulateur SHADOW plancher confirmé (papier, RIZE+ZBCN, 3 confirmations puis 3 paliers)",
-      "origine": "chantier plancher confirmé — GO direct Christophe 11/09",
-      "verif": "md5",
-      "auto_modifiable": false,
-      "md5": "4917af9846a62a1010ee52311f193a91",
-      "_rescel_20260918": "expose le champ `veto` par paire dans le feed cockpit (badge VETO anti-couteau) — aucun ordre, lecture seule.",
-      "note": "déclaré 2026-09-11T20:42Z — lecture seule du moteur; produit JSONL + feed cockpit; 5 min launchd | évolution 2026-09-15T05:37Z GO direct Christophe (« regarde le plancher pour tout le monde ») : PAIRES 2→12 (toutes les paires couvertes par la sonde L2) + C2 sans profil = garde absolue 100 bps sur le spread live",
-      "maj": "Feed cockpit RÉPARÉ 20/09/2026 : plancher_live.js est chargé en TÊTE de page (avant la carte #plancher-body) → l'IIFE ne trouvait pas l'élément, sortait, et la carte restait À VIE sur « Chargement du shadow plancher… ». Le rendu attend maintenant le DOM (DOMContentLoaded, ou immédiat si déjà prêt) : insensible à l'ordre des balises. Testé hors navigateur (node, DOM simulé) : les deux ordres remplissent le bloc.",
-      "date": "2026-09-20T18:14Z"
-    },
-    {
-      "nom": "Index_Maison/plists/com.ace777.plancher-shadow.plist",
-      "role": "Plist shadow plancher (5 min, RunAtLoad) — PAPIER, aucun ordre",
-      "origine": "chantier plancher confirmé — GO direct Christophe 11/09",
-      "verif": "md5",
-      "auto_modifiable": false,
-      "md5": "41bd889f7e17fb318999faf55411ea77",
-      "note": "déclaré 2026-09-11T20:42Z — chargée launchd + copiée ~/Library/LaunchAgents",
-      "maj": ""
-    },
-    {
-      "nom": "Index_Maison/cockpit/plancher_live.js",
-      "role": "Feed cockpit du shadow plancher confirmé (fenêtre.__PLANCHER__)",
-      "origine": "chantier plancher confirmé — GO direct Christophe 11/09 — PAPIER, aucun ordre",
-      "verif": "fraicheur",
-      "auto_modifiable": false,
-      "md5": "9b9176551d0c594c0eef68e456aa704a",
-      "note": "généré par simulateur_plancher_confirme.py ; carte visible dans index.html | 13/09 : fichier GÉNÉRÉ à chaque cycle shadow (md5 change toujours) → contrôle fraîcheur 180 min au lieu de md5 (erreur de scellement d'origine)",
-      "maj": "scellé 2026-09-11T22:05Z — boucle coupée de Buffy, reprise et vérifiée",
-      "fraicheur_max_min": 180
-    },
-    {
-      "nom": "Index_Maison/scripts/verifier_lecons_analyste.py",
-      "role": "Vérificateur du corpus de leçons analyste (34 fiches, intégrité JSONL)",
-      "origine": "P0 CORTANA_ANALYSTE — GO Christophe 11/09",
-      "verif": "md5",
-      "auto_modifiable": false,
-      "md5": "9a04beb009e3d7acb6e2b46b8e5f472b",
-      "note": "corpus: Index_Maison/data/lecons_analyste.jsonl — état: lecons_analyste_etat.json",
-      "maj": "scellé 2026-09-11T22:4xZ"
-    },
-    {
-      "nom": "Index_Maison/scripts/moteur_paternes_btc.py",
-      "role": "Moteur de paterne BTC P1 (50w×200w, RSIw, MACD filtre, cycle, lunaire-nul)",
-      "origine": "P1 CORTANA_ANALYSTE — GO Christophe 11/09",
-      "verif": "md5",
-      "auto_modifiable": false,
-      "md5": "97c4a2ea1b886e3199ce6a3755875bb0",
-      "note": "produits: paternes_btc_hist.jsonl + paternes_btc_etat.json — zéro alarme [C4]",
-      "maj": "scellé 2026-09-11T23:2xZ"
-    },
-    {
-      "nom": "Index_Maison/plists/com.ace777.paternes-btc.plist",
-      "role": "Plist quotidienne moteur paterne BTC (24h, RunAtLoad)",
-      "origine": "P1 CORTANA_ANALYSTE — GO Christophe 11/09",
-      "verif": "md5",
-      "auto_modifiable": false,
-      "md5": "b17b6de30134cede31fd61f2530efd6e",
-      "note": "chargée launchd + copiée ~/Library/LaunchAgents",
-      "maj": "scellé 2026-09-11T23:3xZ"
-    },
-    {
-      "nom": "Index_Maison/scripts/moteur_croisements_indices.py",
-      "role": "Moteur P2 croisements multi-indices (règle 2 sources, JSONL, avis canal scoreur, zéro alerte)",
-      "origine": "P2 CORTANA_ANALYSTE — GO Christophe 12/09",
-      "verif": "md5",
-      "auto_modifiable": false,
-      "md5": "36d88bce635a9aa1e68d11a8c46c14a8",
-      "note": "C1 régime×levier (LECON-032) · C2 levier×purge (zone morte 31/08) · C3 onchain×prix (biais observable)"
-    },
-    {
-      "nom": "Index_Maison/plists/com.ace777.croisements-indices.plist",
-      "role": "Plist 6h moteur P2 croisements (RunAtLoad)",
-      "origine": "P2 CORTANA_ANALYSTE — GO Christophe 12/09",
-      "verif": "md5",
-      "auto_modifiable": false,
-      "md5": "407fc44910930fb9c6669d32270da411",
-      "note": "chargée launchd, RunAtLoad tiré 06:30:15Z exit 0"
-    },
-    {
-      "nom": "Index_Maison/plists/com.ace777.geopol.plist",
-      "role": "Plist quotidienne indice géopolitique (24h, RunAtLoad)",
-      "origine": "GEOPOL-R1 — GO Christophe 12/09 (réanimation d'un organe éteint depuis le 28/08)",
-      "verif": "md5",
-      "auto_modifiable": false,
-      "md5": "9229d4fdd655726fcc199d00a4645585",
-      "note": "chargée launchd, RunAtLoad tiré — 2e cycle du jour après le test manuel 07:31Z"
-    },
-    {
-      "nom": "Index_Maison/scripts/analyste_cadence.sh",
-      "role": "Script maison",
-      "origine": "GEOPOL-C2 — GO Christophe 12/09",
-      "verif": "md5",
-      "auto_modifiable": false,
-      "md5": "a46c8a39a4fc16cda5c8669df96c3d6b",
-      "note": "GEOPOL-C2 : geopol ajouté à la rotation notée (radar/funding/fearGreed/geopol) — plist 08h30/20h30 inchangée | RÉACTIVATION 19/09 : les 4 cœurs gardent leur cadence ; 2 indices « réactivés » par passage en ROTATION (tick 12 h) → les 13 indices morts sont rafraîchis ≈ tous les 3,2 j (seuil 14 j). +2 appels/passage, aucune capacité retirée, réversible. | R15 « TOUJOURS BRANCHER » 19/09 : +5 indices (rbf, pipeline_health, longShort, etfBtcM, score) → les 15 bulles de l'app Indices sont couvertes. Rotation 3/passage sur 18 réactivés (cycle 3 j), cœurs inchangés.",
-      "date": "2026-09-19T13:21Z"
-    },
-    {
-      "nom": "Index_Maison/scripts/thermo_quotidien_free.py",
-      "role": "Thermo quotidien free (live.json + feed)",
-      "origine": "GEOPOL-C3 — GO Christophe 12/09",
-      "verif": "md5",
-      "auto_modifiable": false,
-      "md5": "1ee6346d520bac5a22e283b8f8223e57",
-      "note": "GEOPOL-C3 : clé scalaire geopolScore ajoutée au backpatch writer (le dict geopol seul était muet pour value_at du scoreur). Backup /tmp avant."
-    },
-    {
-      "nom": "Index_Maison/scripts/v2_replay_hunter.py",
-      "role": "Replay V2-REPLAY profil HUNTER à l'échelle (90 j, zéro ordre, critères figés)",
-      "origine": "V2-REPLAY — GO Christophe 12/09 (GO V2-REPLAY)",
-      "verif": "md5",
-      "auto_modifiable": false,
-      "md5": "277f2a61b74299e223c43ac60a84e8f3",
-      "note": "Run 1 INVALIDÉ (fuite de futur : direction lue sur le close du jour — corrigé, consigné au rapport). Run 2 causal = essai valable : 17 trades, WR 58,8%, net +68,33$, 4/5 critères OK — verdict formel ÉCHEC sur C1 (n<30). Rapport : Index_Maison/RAPPORT_V2_REPLAY_HUNTER_20260912.md"
-    },
-    {
-      "nom": "Index_Maison/scripts/v2_confirmation_replay.py",
-      "role": "Replay V2-CONFIRMATION (essai unique, GO Christophe 12/09) — entrée G+2 confirmations (F1a funding×régime, F1b flux×prix), sorties par mesures (trailing σ, shock-inversion, invalidation), masques R1-R3 pré-enregistrés, verdict mécanique check_edge_criteria",
-      "origine": "Buffy (dossier DOSSIER_DE_VOTE_V2_CONFIRMATION_20260912.md)",
-      "verif": "COMPILE OK + spec figée en docstring, scellé AVANT tout run",
-      "auto_modifiable": false,
-      "md5": "d76c2c179e4ac078be8f3efaf24cb3e2"
-    },
-    {
-      "nom": "Index_Maison/scripts/v2_confirmation_live.py",
-      "role": "Moteur LIVE papier V2-CONFIRMATION (GO Christophe 13/09 : « un vrai run testé, en live ») — spec = scellé replay d76c2c17, boucle 5 min, entrée décision 00h00 UTC, sorties mesurées, zéro ordre, produits v2conf_etat.json / v2conf_log.jsonl / v2conf_trades.jsonl",
-      "origine": "Buffy (dossier DOSSIER_DE_VOTE_V2_CONFIRMATION_20260912.md §3, inchangé)",
-      "verif": "Re-scellé : fix acquisition n°2 (pagination 2×1000 bougies 1d — plafond API) — règles spec d76c2c17 inchangées, 0 trade à ce jour",
-      "auto_modifiable": false,
-      "md5": "5aff1f84bb4aa5066d7f8e9e736b73b1"
-    },
-    {
-      "nom": "Index_Maison/scripts/sniffer_vieux_btc.py",
-      "role": "Correction resolution age inputs (bug vin.txid vs prevout.txid, retries+cache+TOUS inputs, honestite null). Preuve: 121/121 inputs resolus sur tx 7654 BTC du 23/08. md5 avant: 4ef61bdf9a5e9820d5344a28",
-      "origine": "2026-09-13T07:05:26Z",
-      "verif": "md5",
-      "md5": "2c1ef00778bc07e914c0c3683c2984f3",
-      "auto_modifiable": false
-    },
-    {
-      "nom": "Index_Maison/scripts/score_justesse.py",
-      "role": "C2 OMBRE-SCOREUR (17/09, verdict JUGE O3) : juger_v3 stop réel (GLOBAL_STOP/ALPHA=5,625%, env STOP_PCT_ANALYSTE) + build_v3_ombre + fenetre_extremes ; V2 production inchangée, 19/19 tests verts",
-      "origine": "Buffy (P1 du dossier BOUCLE_APPRENTISSAGE_DIAGNOSTIC_ET_PLAN_20260913.md)",
-      "verif": "COMPILE OK + tests --test verts + run réel : directionnel/t_stat_global/par_ere/verdicts écrits",
-      "auto_modifiable": false,
-      "md5": "cab88dd8c04069246c9ffc4a359540a5",
-      "ts": "2026-09-17T11:55:44Z",
-      "date": "2026-09-19T13:14Z",
-      "note": "R14 19/09 : carnet DIRECTIONNEL par indice (dir_hit/dir_n) — LECON-041 appliquée au niveau de l'indice (le hit/n par indice mélangeait NEUTRE et paris directionnels, d'où le faux « geopol CRITIQUE »)."
-    },
-    {
-      "nom": "Index_Maison/scripts/cortana_analyse.py",
-      "role": "C1 (17/09, verdict JUGE O4) : contexte enrichi (regime_couleur + verdict moteur croisements), parser bloquant _valider_croisement (R1 >=2 indices, R2 non-contradiction), retry unique, défaut neutre forcé, méta C1 au journal (croisement_ok/regime/confiance_auto)",
-      "origine": "Buffy (P2 du dossier BOUCLE_APPRENTISSAGE_DIAGNOSTIC_ET_PLAN_20260913.md)",
-      "verif": "COMPILE OK + bloc prouvé dans contexte_systeme() réel (2 lignes avec chiffres honnêtes)",
-      "auto_modifiable": false,
-      "md5": "90d01465ff3c29f3acde8f5e9199da90",
-      "ts": "2026-09-17T11:55:44Z",
-      "date": "2026-09-19T13:07Z",
-      "note": "RÉACTIVATION 19/09 (GO Christophe « réactiver indices ») : ajout de l'indice cœur « btc » au LEXIQUE + branche build_facts (lit live.mark) — il n'était plus analysable depuis le 10/08."
-    },
-    {
-      "nom": "Index_Maison/scripts/kronos_ombre.py",
-      "role": "CAPTEUR OMBRE Kronos (P4, GO Christophe 13/09 « go p4 ») : prédit la direction de la bougie 1h BTC (Kronos-base local 409 Mo, venv isolé, 0 €), noté mécaniquement. SPÉC FIGÉE en docstring AVANT le premier cycle (lookback 400, T=1.0, top_p=0.9, samples=1, pred_len=1) · critère pré-enregistré verdict 27/09 : pct>=55 % ET t>=2.0 sur n>=100 jugées, sinon dossier FERMÉ sans deuxième essai · AUCUN branchement, AUCUNE alerte, 0 ordre",
-      "origine": "Buffy (P4 du dossier BOUCLE_APPRENTISSAGE_DIAGNOSTIC_ET_PLAN_20260913.md §4-D)",
-      "verif": "COMPILE OK · premier cycle réel : prédiction émise (HAUSSE, close prédite 77126 $, inférence 5 s CPU) · fix pointeur open_time (close_time+1 ms) corrigé PRÉ-VERDICT (0 jugée à ce moment, aucune donnée faussée) · bouclage de notation prouvé en mémoire · plist com.ace777.kronos-ombre chargée (venv python), criticité MINEUR, registre organes découvert (90 entrées)",
-      "auto_modifiable": false,
-      "md5": "f8b11e47d3d5ae40563bf08a0d1ad9da",
-      "ts": "2026-09-13T10:39:57Z"
-    },
-    {
-      "nom": "Index_Maison/scripts/collecter_gouvernance_xrpl.py",
-      "role": "RADAR GOUVERNANCE XRPL — collecteur passif (P-XRPL-1, GO Christophe 13/09 : 7 jours, verdict J+8, 0 € + suivi des features désactivées après bug demandé le même jour) : snapshot horaire append-only des amendements xrpScan (110), watchlist institutionnelle 13, mouvements + bascules enabled, CIMETIÈRE (4 paires mort→V1_1 tracées + détection auto des nouveaux remplacements). Spéc figée en docstring AVANT le premier cycle · critère J+8 pré-enregistré (20/09) : ≥5 deltas |Δ|≥2 OU ≥1 activation OU ≥1 mort nouvelle, sinon arrêt sans 2e essai · AUCUNE alerte, 0 ordre",
-      "origine": "Buffy (cahier des charges §6ter du dossier FAITS_RETABLIS_ACE_ET_SETUP_GAGNANT_V2_20260912.md)",
-      "verif": "COMPILE OK (fix compat py3.9 Optional) · premier cycle réel 11:09Z : snapshot #1 (110 amendements, 13 watchlist, 5 déjà ACTIVÉS) · cycle launchd RunAtLoad OK · plist chargée · criticité MINEUR (49 organes) · registre organes 91 entrées",
-      "auto_modifiable": false,
-      "md5": "ed4c5b37f6bfd2131964a3299cd8da0b",
-      "ts": "2026-09-13T11:11:10Z"
-    },
-    {
-      "nom": "Index_Maison/scripts/juste_prix_btc.py",
-      "role": "Phase A boucle Dan1ro0 — capteur du juste prix BTC (prédiction 5m jugée mécaniquement)",
-      "origine": "chantier boucle-dan1ro0 (GO C. 13/09)",
-      "verif": "md5",
-      "auto_modifiable": false,
-      "md5": "62dd5fe6ac0830dc05fab828a79a9c07",
-      "note": "Spec figee AVANT 1er cycle (20:15Z). Poids fixes 0.30/0.20/0.20/0.15/0.15. Verdict 11/10: >=52% sur 200+ bougies. Un seul essai, lecture seule sur la maison."
-    },
-    {
-      "nom": "Index_Maison/PHASE_B_SPEC_EDGE_EXECUTABLE_20260913.md",
-      "role": "Phase B boucle Dan1ro0 — spec de l'edge exécutable, FIGÉE avant son GO (3 critères de verdict pré-enregistrés)",
-      "origine": "GO rédaction C. 13/09/2026",
-      "verif": "md5",
-      "auto_modifiable": false,
-      "md5": "4ee7a87552e7fac0d48dca167fa1d6dc",
-      "note": "Verdict pré-écrit §5 (3 conditions, échec = Phase C jamais exécutée). Déclenchement: verdict A du 11/10 PASSÉ + GO famille. Toute retouche post-GO = essai annulé."
-    },
-    {
-      "nom": "hulk-mexc/scripts/cortana_propose_params.py",
-      "role": "Contrat Cortana quotidien (07h45) — propose des ajustements Hulk, écrit cortana_pilot.json (ADVISORY)",
-      "origine": "chantier contrat-cortana",
-      "verif": "md5",
-      "auto_modifiable": false,
-      "md5": "146bcdafe37a715f89e929c3e026cd2c",
-      "note": "13/09: retry backoff x3 (GO C.) ajouté — les 502 passagers du hub ne tuent plus le contrat du jour."
-    },
-    {
-      "nom": "Index_Maison/TROUPEAU_INV_SPEC_20260913.md",
-      "role": "Spec figée TROUPEAU-INV (R1-R10) — monde ombre retourné en instrument. Scellée avant le premier run.",
-      "origine": "chantier troupeau-inv (GO Christophe 13/09)",
-      "verif": "md5",
-      "auto_modifiable": false,
-      "md5": "f7bd00f6615154276771b9968b9de103",
-      "note": "Re-scellée 2026-09-14T00:29Z avec amendement d'instrumentation (métrique INI v5, calibrée sur paire 0). Avant premier cycle R5."
-    },
-    {
-      "nom": "Index_Maison/scripts/troupeau_inv.py",
-      "role": "TROUPEAU-INV : paires témoin/bousculée (hub local), INI, divergence, jugement T+72h mécanique. Plist Mon/Wed/Fri 06:00.",
-      "origine": "chantier troupeau-inv (GO Christophe 13/09)",
-      "verif": "md5",
-      "auto_modifiable": false,
-      "md5": "2d5554bdad1b5c8d644b754e7e8b471e",
-      "note": "Re-scellé 2026-09-14T00:29Z. INI v5 (suffixes kmb, ±5%, ancres rondes). Calibration paire 0 : INI A = 0.0. Graine stockée en clair. | FIX 16/09 F2 (GO C.) : backoff ×3 (0,10,30) sur les appels hub — un 502 passager ne tue plus le cycle (16/09 : cycle 04:00Z mort sur un 502 unique). État dédié thermo/troupeau_inv_hub_etat.json (ok/echecs_consecutifs) — hors circuit sirène [C4]. Testé en vol : paire-009 créée, tentative 1 OK.",
-      "date": "2026-09-20T18:59Z",
-      "_rescel_20260920": " || 20/09 (Buffy) : le plist ne lance QUE --cycle → `--juger` n'était JAMAIS exécuté, donc AUCUNE paire divergente n'était jugée : paire-008 (graine 14/09 04:00Z) attendait son verdict T+72h du 17/09 depuis 3 jours, sans que rien ne le signale. Le cycle juge désormais ce qui est dû (idempotent). Verdict récupéré : paire-008 = MISS (B disait up, le marché a fait down). md5 a9ec3066 → 2d5554bd."
-    },
-    {
-      "nom": "Index_Maison/scripts/collecter_xrpl_onchain.py",
-      "role": "Collecteur passif onchain XRPL (tx/ledger, burn, offre, frais/réserves, 200 tokens) — 4e radar.",
-      "origine": "GO Christophe 14/09 (trou XRPL onchain)",
-      "verif": "md5",
-      "auto_modifiable": false,
-      "md5": "6cfb612d60cedd27fe22dab9eca137d2",
-      "note": "Réparé 2026-09-14T10:30Z : sceau initial en mauvais dialecte (ts/fichier/md5) crashait la veilleuse (KeyError 'nom'). Rescellé au dialecte maison. Par Buffy."
-    },
-    {
-      "nom": "Index_Maison/scripts/rotation_jsonl.py",
-      "role": "Rotation JSONL maison (50 Mo) — couvre rwa_yields, troupeau_inv, xrpl onchain.",
-      "origine": "GO Christophe 14/09 (rotation +troupeau_inv +xrpl_onchain)",
-      "verif": "md5",
-      "auto_modifiable": false,
-      "md5": "ed985a67f93a9fd0e9e3841705f1e572",
-      "note": "Évolution déclarée 19/09 : +journal_radar.log à la rotation (vigie, leçon 3,7 Go enfin appliquée, seuil 100 Mo). Préc. 14/09 18:35 : +x402_agentic_hist [C5]. · re-scellé 20/09 — FENÊTRE GARDÉE : la rotation ne gardait AUCUN historique récent. Prouvé le 20/09 : rotation de croisement_contexte.jsonl à 13:12:21Z (113,7 Mo) → plus que 5 heures dans le fichier vivant ; or hulk-mexc/scripts/short_btc.py exige ≥ 10 heures distinctes → score null, « historique insuffisant » : le signal short BTC était AVEUGLE ~10 h, sans que le plist (exit 0), le chien (« short-btc vivant ») ni la veilleuse ne le voient. Désormais : GARDER_HEURES (24 h) → on n'archive QUE ce qui sort de la fenêtre, et GARDER_MAX_MO (60) borne le fichier vivant — le plus contraignant des deux gagne (on ne recrée pas le JSONL de 300 Mo qui bloquait le push). Clés ajoutées : GARDER_HEURES, GARDER_MAX_MO, _offset_fenetre(), _decaler_archives() ; rotate_file(..., garder_heures=0) = comportement historique INCHANGÉ pour les logs sans lecteur. 6 cas testés hors vol sur copie (fenêtre / plafond / tout-dans-fenêtre / historique / dry-run / lignes sans ts). Réécriture EN PLACE (même inode : les écrivains gardent leur fd — leçon COPYTRUNCATE)."
-    },
-    {
-      "nom": "Index_Maison/scripts/gen_cockpit_vol.py",
-      "role": "Générateur onglet cockpit « vol » : snapshot santé/gardiens/marché/protocoles/plists → vol_live.js. Lecture seule.",
-      "origine": "GO Christophe 14/09 (onglet cockpit vol)",
-      "verif": "md5",
-      "auto_modifiable": false,
-      "md5": "0e7ff6fd7d03c090865dd856c8200f36",
-      "_rescel_20260918": "panneau « Banc 20 actifs — risque » (net / DD / net-DD, base vs notrend) + contrat de sortie des LaunchAgents (distingue alerte métier d'échec réel).",
-      "note": "Re-scellé 14/09T12:41Z après modification déclarée : suppression de la réécriture de vol.html (cache-buster déplacé côté client) — le générateur n'écrit plus que vol_live.js (non scellé, donnée vivante). Par Buffy. | 19/09 soir : + gardien « Règles d'or » (lit thermo/regles_or.json écrit par verifier_regles_or.py) — les règles d'or sont désormais VISIBLES dans la page vol. Declaré par Buffy.",
-      "maj": "Gardien « Chien de garde » RÉPARÉ 20/09/2026 : il lisait `tail -1 thermo/chien_rapport.txt`, fichier QUE PERSONNE N'ÉCRIT → stdout vide → la page affichait « rapport présent » en VERT quoi qu'il arrive (faux vert permanent sur le gardien le plus important). Il lit désormais thermo/CHIEN_RAPPORT.json : « N vivants · N hors délai · N aveugle(s) » + l'organe et son champ muet, et un rapport figé > 15 min = rouge (le chien lui-même peut mourir). · 2e passe 20/09 : la table CONTRAT_SORTIE (codes de sortie launchd voulus) est désormais LUE dans strategie/contrat_sortie.json — une seule vérité, partagée avec le chien de garde (qui juge les 44 organes sans produit sur leur sortie launchd). Repli local conservé si le fichier manque.",
-      "date": "2026-09-20T18:59Z",
-      "_rescel_20260920": "DÉCLARÉ 20/09/2026 (Buffy, GO Christophe — boucle d'alerte) : CONTRAT_SORTIE += com.ace777.verif-setup exit 1 = « preuve de lecture du coffre à refaire (gatekeeper, par conception) ». Avant, ce garde-fou légitime était affiché comme un ÉCHEC (organe cassé) alors qu'il dit « relis la carte du coffre ». md5 1b854a2b1cb820c87aeb176604634a53 → efcec0aad782deb9e01f77300007290d. Aucune autre logique modifiée. | + gardien « Repo = installation » (lit thermo/installation_repo.json écrit par installer_depuis_repo.sh) : rend visible que le fichier installé est un LIEN vers le repo (dérive impossible par construction). md5 efcec0aad782deb9e01f77300007290d → 0402336d4df5e86434955238f655a028. || 20/09 (Buffy, GO « cri vivant + revue des organes ») : + gardien « Cris en cours » (lit thermo/cris.json écrit par le chien : les cris ACTIFS à l'instant, auto-effacés, avec le fait que la voix a VRAIMENT été lancée — un cri muet est un faux cri) et + gardien « Revue des organes » (lit thermo/revue_organes.json). md5 1b7a6a40 → 1a698b3c. || 20/09 (Buffy, GO « verdicts des protocoles ») : le tableau « Protocoles en test » ne recopie plus le document du 14/09 — il lit thermo/PROTOCOLES_VERDICTS.json (verdicts MESURÉS par scripts/verdicts_protocoles.py, avec le critère pré-enregistré à côté du résultat et une ligne ⚠ quand un verdict ne peut pas être rendu). Le tableau documentaire ne sert que de repli. md5 1a698b3c → 0e7ff6fd."
-    },
-    {
-      "nom": "Index_Maison/cockpit/vol.html",
-      "role": "Page cockpit « vol » — organes en vol sous les yeux, lecture seule.",
-      "origine": "GO Christophe 14/09 (onglet cockpit vol)",
-      "verif": "md5",
-      "auto_modifiable": false,
-      "md5": "e2371d1a49e2dc9190b7925c6ee4df00",
-      "_rescel_20260918": "rendu du panneau banc/risque + badges tri-état (🟢 en vol/ok · 🟠 alerte métier · 🔴 échec réel).",
-      "note": "Re-scellé 14/09T12:40Z : le générateur ne réécrit PLUS ce fichier (cache-buster côté client, Date.now()). Defaut de conception du matin corrigé : on ne scelle pas un fichier qu'on réécrit toutes les 5 min. Par Buffy."
-    },
-    {
-      "nom": "/Users/christophe/prise-ia/hub_prise_ia.py",
-      "role": "Hub LLM Prise-IA (port 11435) — routage multi-providers, filet universel, budget/tempête.",
-      "origine": "GO Christophe 14/09 : transparence substitution de modèle",
-      "verif": "md5",
-      "auto_modifiable": false,
-      "md5": "ce5f8c180c49b839583c3fb68e44332b",
-      "note": "Scellé 14/09T12:45Z après ajout TRANSPARENCE SUBSTITUTION : événement 'substitution' au journal + champs model/model_demande/substitue dans chaque réponse HTTP. Backup /tmp/hub_prise_ia.py.bak-avant-20260914-123457. Par Buffy."
-    },
-    {
-      "nom": "Index_Maison/scripts/collecter_x402_agentic.py",
-      "role": "RADAR AGENTIQUE x402 : capte les paiements machine-a-machine XRPL (SourceTag facilitateur t54 804681468) en double capture (WebSocket live 60s + scan dernier ledger). Spec J+8 figee en docstring.",
-      "origine": "GO Christophe 14/09 (radar agentique, deep dive agentic). Buffy.",
-      "verif": "md5",
-      "auto_modifiable": false,
-      "md5": "d5c1ad846f89e2b893577c012363a50b",
-      "note": "Critere fige AVANT le 1er run : verdict 22/09 (>=50 paiements, >=5 marchands, ledgers avancent)."
-    },
-    {
-      "nom": "Index_Maison/plists/com.ace777.x402-agentic.plist",
-      "role": "Cadence horaire du radar agentique (StartInterval 3600, RunAtLoad).",
-      "origine": "GO Christophe 14/09. Buffy.",
-      "verif": "md5",
-      "auto_modifiable": false,
-      "md5": "c217c741b93f72304726d18d30891493",
-      "note": "Double depot Index_Maison/plists + LaunchAgents. Chien : organe MINEUR x402-agentic."
-    },
-    {
-      "nom": "Index_Maison/scripts/lib_dialectes.py",
-      "role": "Usine anti-R4 : bibliothèque unique des dialectes externes (décimal/hex, s/ms, pagination bougies, fetch retries). Self-test intégré.",
-      "origine": "GO Christophe 15/09 (« industrialiser »). Code rédigé par le codeur hub (Qwen3-Coder), assertion hex corrigée par Buffy, self-test vert dont pagination réelle Binance.",
-      "verif": "md5",
-      "auto_modifiable": false,
-      "md5": "63886f6682ed3e25c1124e7ec3046c06",
-      "date": "2026-09-15T07:37:06Z"
-    },
-    {
-      "nom": "Index_Maison/scripts/sentinelle_independante.py",
-      "role": "SENTINELLE INDÉPENDANTE (organe de vérité du moteur) : réconciliation PnL + positions depuis le CSV brut vs état déclaré (C1 div > 1 $, C2 qty, C3 heartbeat 30 min, C4 plancher -20 $). Test négatif passé : crie sur état falsifié. Écrit thermo/sentinelle_independante_etat.json + écrase alarme.json UNIQUEMENT sur CRITIQUE. kill_switch dans l'état (physique quand des ordres réels existeront).",
-      "origine": "GO Christophe 15/09 (« go » sur le comparatif). Unanime flotille Gemini/DeepSeek/Grok. Buffy.",
-      "verif": "md5",
-      "auto_modifiable": false,
-      "md5": "639b1f9cd16220531b291c823d863385",
-      "date": "2026-09-15T07:59:29Z",
-      "note": " · C2 AMENDÉE 20/09/2026 (Buffy, GO Christophe « trancher la sentinelle ») — la sentinelle criait CRITIQUE à une résolution que la déclaration du moteur n'a pas. Mesuré : CSV exact (seed 80.69722402 − sorties = 19.92722402) vs état déclaré 19.92 (position TRONQUÉE au pas du marché) → écart 0,0072 (0,036 %), sans trou de position. Tolérance C2 = max(1e-4×qty, pas de la valeur DÉCLARÉE, 1e-6) ; sous la tolérance mais non nul = tracé dans « c2_resolution » (explication, jamais alarme). MORDANT VÉRIFIÉ (une sortie retirée du CSV → écart 80,7 vs tolérance 0,01 → CRITIQUE). Aucune touche au moteur (scellé), lecture seule."
-    },
-    {
-      "nom": "Index_Maison/plists/com.ace777.sentinelle-independante.plist",
-      "role": "Cadence horaire de la sentinelle (StartInterval 3600, RunAtLoad). launchctl exit 0. Criticité CRITIQUE au chien (organe = stem plist, 51 vivants, grisaille vide).",
-      "origine": "GO Christophe 15/09. Buffy.",
-      "verif": "md5",
-      "auto_modifiable": false,
-      "md5": "a53719ba33764fc7ba651118921ff59a",
-      "date": "2026-09-15T07:59:29Z"
-    },
-    {
-      "nom": "Index_Maison/data/fiches_analyse/sdi_eleve.json",
-      "role": "Fiche d'analyse dédiée SDI (seuil d'origine 0,7 du 25/08) — drainage confirmé (RBF haut) / drainage froid (frais plancher) / proxy seul",
-      "origine": "GO Christophe 16/09 (« go » protocole SDI après boucle complète). Buffy.",
-      "verif": "md5",
-      "auto_modifiable": false,
-      "md5": "f97e258af8b263b443f5adb861720e78",
-      "note": "Sépare le SDI de la fiche rbf_eleve (0,3 croisé) — le faux 🔴 du 16/09 matin devient impossible. Tests : 0,604→surveiller · 0,75+RBF0,8→dangereux."
-    },
-    {
-      "nom": "Index_Maison/data/fiches_analyse/price_1h.json",
-      "role": "Fiche d'analyse price_1h (sentinel z>2, défaut neutre) — GO Christophe 16/09 (6 fiches manquantes)",
-      "origine": "GO Christophe 16/09 : couverture des métriques sentinel sans fiche",
-      "verif": "md5",
-      "auto_modifiable": false,
-      "md5": "0744a86a68d38a666dfd0a33344975b3",
-      "note": "Trigger z>2 (valeur absolue, deux sens). Questions câblées sur live.json (liq24Usd/liqLongUsd/liqShortUsd/takerRatio/longShort/fearGreed/oi/chg1h/onchain.whaleProxy*). Défaut neutre explicite (C2). | RE-SCELLÉ V1.2 2026-09-17T08:06Z (GO C.) : qids explicites snake_case (contrainte regex [a-z_0-9]+ de l'évaluateur — le camelCase famille aurait cassé le matching) + champ trigger_mode:'absolu' déclaré. Zéro ligne de code, 8/8 tests sémantiques verts (scénarios V1.1/F rejoués identiques). Backups /tmp ×7.",
-      "date": "2026-09-17T08:06Z",
-      "maj": "V1.2 2026-09-17T08:06Z"
-    },
-    {
-      "nom": "Index_Maison/data/fiches_analyse/whale_usd.json",
-      "role": "Fiche d'analyse whale_usd (sentinel z>2, défaut neutre) — GO Christophe 16/09 (6 fiches manquantes)",
-      "origine": "GO Christophe 16/09 : couverture des métriques sentinel sans fiche",
-      "verif": "md5",
-      "auto_modifiable": false,
-      "md5": "f885decc16d734023317c06c6eeb70c8",
-      "note": "Trigger z>2 (valeur absolue, deux sens). Questions câblées sur live.json (liq24Usd/liqLongUsd/liqShortUsd/takerRatio/longShort/fearGreed/oi/chg1h/onchain.whaleProxy*). Défaut neutre explicite (C2). | RE-SCELLÉ 2026-09-16T16:23:50Z : FIX F analogue 16/09 : 'ventes > 0'/'achats > 0' → 'ventes > achats'/'achats > ventes' (flux mixte annonçait toujours distribution) + lectures DOMINANT. | RE-SCELLÉ V1.2 2026-09-17T08:06Z (GO C.) : qids explicites snake_case (contrainte regex [a-z_0-9]+ de l'évaluateur — le camelCase famille aurait cassé le matching) + champ trigger_mode:'absolu' déclaré. Zéro ligne de code, 8/8 tests sémantiques verts (scénarios V1.1/F rejoués identiques). Backups /tmp ×7.",
-      "date": "2026-09-17T08:06Z",
-      "maj": "V1.2 2026-09-17T08:06Z"
-    },
-    {
-      "nom": "Index_Maison/data/fiches_analyse/fear_greed.json",
-      "role": "Fiche d'analyse fear_greed (sentinel z>2, défaut neutre) — GO Christophe 16/09 (6 fiches manquantes)",
-      "origine": "GO Christophe 16/09 : couverture des métriques sentinel sans fiche",
-      "verif": "md5",
-      "auto_modifiable": false,
-      "md5": "0a993a18a84b1109814c257e7d853fae",
-      "note": "Trigger z>2 (valeur absolue, deux sens). Questions câblées sur live.json (liq24Usd/liqLongUsd/liqShortUsd/takerRatio/longShort/fearGreed/oi/chg1h/onchain.whaleProxy*). Défaut neutre explicite (C2). | RE-SCELLÉ V1.2 2026-09-17T08:06Z (GO C.) : qids explicites snake_case (contrainte regex [a-z_0-9]+ de l'évaluateur — le camelCase famille aurait cassé le matching) + champ trigger_mode:'absolu' déclaré. Zéro ligne de code, 8/8 tests sémantiques verts (scénarios V1.1/F rejoués identiques). Backups /tmp ×7.",
-      "date": "2026-09-17T08:06Z",
-      "maj": "V1.2 2026-09-17T08:06Z"
-    },
-    {
-      "nom": "Index_Maison/data/fiches_analyse/long_short.json",
-      "role": "Fiche d'analyse long_short (sentinel z>2, défaut neutre) — GO Christophe 16/09 (6 fiches manquantes)",
-      "origine": "GO Christophe 16/09 : couverture des métriques sentinel sans fiche",
-      "verif": "md5",
-      "auto_modifiable": false,
-      "md5": "05caf3d39e8d06e77e0f0e01e9f503c3",
-      "note": "V1.1 16/09 (GO C., avis famille) : seuil equilibre 1 → 2,0 (le L/S retail est structurellement > 1 — faux positif permanent corrigé) + lectures étiquetées HYPOTHÈSE. Testé : 1,79 → fermée, 2,35 → surveiller, 0,85 → shorts. | RE-SCELLÉ V1.2 2026-09-17T08:06Z (GO C.) : qids explicites snake_case (contrainte regex [a-z_0-9]+ de l'évaluateur — le camelCase famille aurait cassé le matching) + champ trigger_mode:'absolu' déclaré. Zéro ligne de code, 8/8 tests sémantiques verts (scénarios V1.1/F rejoués identiques). Backups /tmp ×7.",
-      "date": "2026-09-17T08:06Z",
-      "maj": "V1.2 2026-09-17T08:06Z"
-    },
-    {
-      "nom": "Index_Maison/data/fiches_analyse/taker_ratio.json",
-      "role": "Fiche d'analyse taker_ratio (sentinel z>2, défaut neutre) — GO Christophe 16/09 (6 fiches manquantes)",
-      "origine": "GO Christophe 16/09 : couverture des métriques sentinel sans fiche",
-      "verif": "md5",
-      "auto_modifiable": false,
-      "md5": "2d9da15ce91824a5c91f2ea96302832e",
-      "note": "Trigger z>2 (valeur absolue, deux sens). Questions câblées sur live.json (liq24Usd/liqLongUsd/liqShortUsd/takerRatio/longShort/fearGreed/oi/chg1h/onchain.whaleProxy*). Défaut neutre explicite (C2). | RE-SCELLÉ V1.2 2026-09-17T08:06Z (GO C.) : qids explicites snake_case (contrainte regex [a-z_0-9]+ de l'évaluateur — le camelCase famille aurait cassé le matching) + champ trigger_mode:'absolu' déclaré. Zéro ligne de code, 8/8 tests sémantiques verts (scénarios V1.1/F rejoués identiques). Backups /tmp ×7.",
-      "date": "2026-09-17T08:06Z",
-      "maj": "V1.2 2026-09-17T08:06Z"
-    },
-    {
-      "nom": "Index_Maison/data/fiches_analyse/liquidations.json",
-      "role": "Fiche d'analyse liquidations (sentinel z>2, défaut neutre) — GO Christophe 16/09 (6 fiches manquantes)",
-      "origine": "GO Christophe 16/09 : couverture des métriques sentinel sans fiche",
-      "verif": "md5",
-      "auto_modifiable": false,
-      "md5": "8bd60a56383e70d677da5d1265d50c8b",
-      "note": "Trigger z>2 (valeur absolue, deux sens). Questions câblées sur live.json (liq24Usd/liqLongUsd/liqShortUsd/takerRatio/longShort/fearGreed/oi/chg1h/onchain.whaleProxy*). Défaut neutre explicite (C2). | RE-SCELLÉ 2026-09-16T16:23:50Z : FIX F revue codeur 16/09 : conditions 'cote > 0'/'shorts > 0' → 'cote > shorts'/'shorts > cote' (preuve : cascade mixte longs 2 M$/shorts 8 M$ annonçait toujours LONGS éteints) + lecture étiquetée HYPOTHÈSE. | RE-SCELLÉ V1.2 2026-09-17T08:06Z (GO C.) : qids explicites snake_case (contrainte regex [a-z_0-9]+ de l'évaluateur — le camelCase famille aurait cassé le matching) + champ trigger_mode:'absolu' déclaré. Zéro ligne de code, 8/8 tests sémantiques verts (scénarios V1.1/F rejoués identiques). Backups /tmp ×7.",
-      "date": "2026-09-17T08:06Z",
-      "maj": "V1.2 2026-09-17T08:06Z"
-    },
-    {
-      "nom": "Index_Maison/data/fiches_analyse/etat_levier.json",
-      "role": "MÉTA-FICHE État du levier (Liquidations × OI × taker) — avis famille 16/09, croisement manquant n°1. DESACTIVÉE : trigger z>999 impossible, métrique 'etat_levier' jamais émise par le sentinel → injoig",
-      "origine": "GO Christophe 16/09 (3 suggestions : V1.1 + méta-fiche + cours)",
-      "verif": "md5",
-      "auto_modifiable": false,
-      "md5": "4a359ee7ed3285080b71218ebfeb29ac",
-      "note": "MÉTA-FICHE État du levier (Liquidations × OI × taker) — avis famille 16/09, croisement manquant n°1. DESACTIVÉE : trigger z>999 impossible, métrique 'etat_levier' jamais émise par le sentinel → injoignable (testé : z 3,5/10/999/5000 → jamais ouverte). Spec figée avant son GO. | ACTIVÉE 16/09 par le chemin méta de run_analysis (GO C.). LIMITE honnête documentée : live.json n'a que l'OI instantané (pas sa variation) — conditions purge/piège approchées par le niveau 100k jusqu'à ce que le sentinel logge la direction d'OI.",
-      "date": "2026-09-16T15:54Z"
-    },
-    {
-      "nom": "Index_Maison/scripts/verifier_regles_or.py",
-      "role": "VÉRIFICATEUR DES RÈGLES D'OR (lecture seule) — 10 règles mesurables (R2,5,6,7,8,10,11,12,13,14) → thermo/REGLES_OR.md + regles_or.json",
-      "origine": "recensement RÈGLE D'OR 19/09",
-      "verif": "md5",
-      "auto_modifiable": false,
-      "md5": "35aaae76475282dc47a965faba4149b0",
-      "date": "2026-09-19T13:21Z",
-      "note": "Scellé 19/09 : l'instrument qui mesure les règles est lui-même scellé (rituel maison). R10 ajouté 19/09 soir : SATURATION DE L'HÔTE (RAM réelle via memory_pressure, swap, disque, charge) — signal SRE, distinct de R2. Appelé par git_push_auto.sh. | v3 19/09 soir : + R11 (fail-safe), R12 (sauvegarde prouvée par restauration), R13 (auto-réparation bornée), R14 (anti cry-wolf), + R7 gère les DÉROGATIONS déclarées (strategie/derogations_regles.json). | R15 19/09 : mesure « ce qui est affiché est analysé ou déclaré » (15 bulles app Indices vs rotation analyste + affichage-seul déclaré). 11 règles mesurables."
-    },
-    {
-      "nom": "Index_Maison/scripts/consulter_famille_hub.py",
-      "role": "Consultation de la FAMILLE via le hub (0 €) sous plusieurs angles — critique, contre, simple, CONTESTE. Un seul outil au lieu de 30 scripts jetables.",
-      "origine": "Buffy 19/09 (remplace les consulter_famille_<sujet>_<date>.py)",
-      "verif": "md5",
-      "auto_modifiable": false,
-      "md5": "59094f52b85145aedecc9a5d189bb552",
-      "date": "2026-09-19T12:43Z",
-      "note": "Scellé 19/09. Ajout de l'angle CONTESTE (19/09) : contester chaque règle + citer une pratique d'ingénierie reconnue + proposer la règle manquante."
-    },
-    {
-      "nom": "Index_Maison/scripts/drill_restauration.py",
-      "role": "DRILL DE RESTAURATION (lecture seule) — rebâtit les agents dans un dossier neuf, valide les plists, vérifie les scellés et les organes hors git → thermo/drill_restauration.json",
-      "origine": "solidité 19/09 (GO Christophe « go 1,2,3 »)",
-      "verif": "md5",
-      "auto_modifiable": false,
-      "md5": "d7307891e8e32b26dbf68519f5a1100c",
-      "date": "2026-09-20T18:45Z",
-      "note": "Scellé 19/09 : le drill (instrument de preuve) est scellé. Verdict READY/TROU affiché dans la page vol par gen_cockpit_vol.py.",
-      "_rescel_20260920": " || 20/09 (Buffy, GO « incassable ») : RÉPARATION D'UN FAUX VERT — le drill calculait `non_suivis_critiques` (fichiers non suivis sous Index_Maison/) mais ne le comptait PAS dans les trous : il pouvait annoncer READY alors que 27 instruments que la boucle EXÉCUTE (le chien de garde, le générateur de la page vol, la sentinelle indépendante, les moteurs croisements/paternes, preuve_lecture, verifier_regles_or, installer_depuis_repo…) n'étaient PAS dans git. Nouvelle étape `etape_instruments()` : tout script invoqué par un agent launchd, par git_push_auto.sh ou importé localement doit être suivi par git, sinon TROU. Piège corrigé au passage : les appels écrits `\"$REPO_DIR/…\"` étaient mal extraits (le $ cassait le motif) → verifier_regles_or.py et installer_depuis_repo.sh passaient au travers du détecteur. md5 145df5b7 → d7307891."
-    },
-    {
-      "nom": "Index_Maison/scripts/sync_plists.sh",
-      "role": "VERSIONNE les agents launchd installés → repo. AJOUTE les manquants, N'ÉCRASE JAMAIS un plist versionné (archive la dérive en preuve plists/_derive/, --declarer pour trancher).",
-      "origine": "solidité 19/09 (GO Christophe « go 1,2,3 »)",
-      "verif": "md5",
-      "auto_modifiable": false,
-      "md5": "237706de40e244f2b55adbfa603a75f4",
-      "date": "2026-09-19T12:43Z",
-      "note": "Scellé 19/09. v2 (19/09) : ne peut plus clobberer un scellé (la v1 avait écrasé 4 fichiers scellés → 4 INTRUSIONS, corrigé le jour même)."
-    },
-    {
-      "nom": "Index_Maison/scripts/derive_memoire.py",
-      "role": "DÉRIVE MÉMOIRE par indice (I1 fréquence · I2 contradiction · I3 âge · I4 calibration) → statut RETIRÉ si source tarie (R14)",
-      "origine": "R14 règles d'or 19/09 (GO Christophe « applique au mieux ces observations »)",
-      "verif": "md5",
-      "auto_modifiable": false,
-      "md5": "0050900b2808199fcdff82a87f5599e6",
-      "date": "2026-09-19T13:14Z",
-      "note": "R14 19/09 (suite) : garde-fou d'échantillon sur la calibration (n >= 10 pour juger CRITIQUE/INSTABLE) — sans lui, réactiver les indices fabriquait 7 faux CRITIQUE (n=2). | R14 19/09 (diagnostic geopol) : la calibration se juge désormais sur les paris DIRECTIONNELS et seulement à partir de n >= n_min_verdict (20, règle du scoreur LECON-042). En dessous : nouveau statut EN OBSERVATION (ni bon ni mauvais). Corrige le faux CRITIQUE de geopol (4 paris directionnels seulement)."
-    },
-    {
-      "nom": "Index_Maison/strategie/derogations_regles.json",
-      "role": "REGISTRE DES DÉROGATIONS DÉCLARÉES aux règles d'or (une dérogation est écrite, datée, motivée et VISIBLE — jamais cachée)",
-      "origine": "GO Christophe 19/09 (« mettre de côté inferx »)",
-      "verif": "md5",
-      "auto_modifiable": false,
-      "md5": "5625a509df3ae88a56740d40c60273eb",
-      "date": "2026-09-19T12:56Z",
-      "note": "Contient la dérogation R7 : provider inferx (payant marqué, utilisé sans facturation) toléré jusqu'à retour gratuit ou facturation."
-    },
-    {
-      "nom": "Index_Maison/strategie/branchements_declares.json",
-      "role": "R15 — déclarations « affichage seul » (ce qu'on affiche mais qu'on n'analyse pas volontairement, avec la raison)",
-      "origine": "GO Christophe 19/09 (règle d'or « toujours brancher »)",
-      "verif": "md5",
-      "auto_modifiable": false,
-      "md5": "e16040f514ef7aad57f53584781396cc",
-      "date": "2026-09-19T13:21Z",
-      "note": "2 cas : justesse (le score lui-même) et ace (statut du bot). Toute nouvelle bulle doit être branchée ou déclarée ici."
-    },
-    {
-      "nom": "Index_Maison/strategie/sens_declares.json",
-      "role": "SENS DÉCLARÉS — pour chaque organe sensible, LE champ qui prouve qu'il peut encore décider (et la fenêtre tolérée). Lu par chien_de_garde.py.",
-      "origine": "Buffy 20/09/2026 (GO Christophe « doit tout être incassable auto-réparant »)",
-      "verif": "md5",
-      "auto_modifiable": false,
-      "md5": "750b2c9948fec548e4fcfdfed9344193",
-      "date": "2026-09-20T18:14Z",
-      "note": "Déclaré 20/09. Découvre la famille de panne « organe VIVANT mais AVEUGLE » : process OK, produit frais, launchd exit 0 — et la décision ne sort plus. Prouvée ce jour par le signal short BTC (score nul ~5 h après la rotation de croisement_contexte.jsonl, sans un cri). 3 sens déclarés, chacun justifié : short-btc (score, jsonl 45 min), verdicteur-micro (pct, exiger_si n_alertes>=1, 120 min), kronos-ombre (derniere.ts_emission, 150 min). Un organe absent d'ici n'est PAS jugé aveugle : on ne devine pas."
-    },
-    {
-      "nom": "Index_Maison/strategie/contrat_sortie.json",
-      "role": "CONTRAT DE SORTIE — codes de sortie launchd non nuls DÉCLARÉS par conception (canal d'alerte). Lu par le chien de garde ET la page vol.",
-      "origine": "Buffy 20/09/2026 (GO Christophe « incassable ») — extrait de gen_cockpit_vol.py en UNE SEULE VÉRITÉ",
-      "verif": "md5",
-      "auto_modifiable": false,
-      "md5": "5d68e1dcf77e7b8c792c1df3cda1551b",
-      "date": "2026-09-20T18:16Z",
-      "note": "Déclaré 20/09 : 3 cas voulus (veilleuse=1 anomalies détectées, discipline-quotidienne=3 alertes de discipline, verif-setup=1 preuve de lecture à refaire). Sert au chien pour ne plus classer 46 organes chargés en « non surveillés » : il lit la dernière sortie launchd et distingue un code VOULU d'un échec réel."
-    },
-    {
-      "nom": "Index_Maison/scripts/revue_organes.py",
-      "role": "Revue des 99 organes : compare ce que le registre DÉCLARE (cadence, produit) à ce que le disque PROUVE (déclencheur réel du plist, résolution du produit, contenu qui avance). Lecture seule sur la maison : n'écrit que thermo/revue_organes.json + REVUE_ORGANES.md.",
-      "origine": "GO Christophe 20/09/2026 « passer les autres organes en revue » (boucle incassable auto-réparante)",
-      "verif": "md5",
-      "auto_modifiable": false,
-      "md5": "301784718b629a9c693b70c4da57fb27",
-      "date": "2026-09-20T18:43Z",
-      "note": "Une seule vérité : la résolution des produits est celle du chien de garde (chien_de_garde.resoudre_chemin_produit) — deux résolutions divergentes jugeraient deux choses différentes. Un écart n'est pas une panne, c'est une déclaration à faire (strategie/revue_declares.json). Lancée par git_push_auto.sh toutes les 3 h."
-    },
-    {
-      "nom": "Index_Maison/scripts/verdicts_protocoles.py",
-      "role": "Rend les verdicts des protocoles en test depuis leurs critères PRÉ-ENREGISTRÉS (troupeau-inv T+72h/≥20 cas, RWA J+8 ≥3 pools ≥50 bps, XRPL J8, arbitrage LLM-vs-règle, geopol 4 semaines, paternes-btc n≥30, MiroFish). Lecture seule sur la maison.",
-      "origine": "GO Christophe 20/09/2026 « me donner les résultats en profondeur des protocoles en test — verdicts »",
-      "verif": "md5",
-      "auto_modifiable": false,
-      "md5": "4fb835ecd3b09a063e6e7a41af1e9973",
-      "date": "2026-09-20T18:59Z",
-      "note": "Un protocole dont le verdict ne peut pas être rendu est signalé (IMPOSSIBLE/⚠), jamais présenté comme « ça suit son cours ». Lancé par git_push_auto.sh toutes les 3 h."
-    }
-  ]
+ "version": "1.5.0",
+ "updated": "2026-09-21T08:03Z",
+ "fichier": [
+  {
+   "nom": "Index_Maison/scripts/v2_duo_replay_4h.py",
+   "role": "Replay ACE duo ALPHA/BETA sur signaux V2 4H (spec E32, recherche pure)",
+   "origine": "GO superviseur Christophe 17/09 · scellé au registre 18/09 (rituel : l'instrument de mesure aussi)",
+   "verif": "md5",
+   "auto_modifiable": false,
+   "md5": "e526247c1b4820c317299b710770ab58",
+   "date": "2026-09-18T10:15Z",
+   "note": "REFACTOR 18/09 (P1 plan ACE) : extraction du cœur pur simuler_duo(kl4h, fund, evts, i_debut, i_fin) — AUCUN changement de comportement, PROUVÉ par diff du JSON de sortie contre E32 (identique hors champ ts). Le refactor permet le walk-forward et la mesure de drawdown. Le Hunter n'influence pas la position du Scout.",
+   "maj": "E32 17/09 : deux bugs d'implémentation corrigés avant consignation (giveback calculé devant au lieu de derrière ; signe du hard stop inversé qui fabriquait un gain garanti). Verdict E32 : ÉCHEC net -64,19 $."
+  },
+  {
+   "nom": "engle/bench_duo.py",
+   "role": "BANC du duo ACE : net + DD max + net/DD + walk-forward (P1 plan ACE)",
+   "origine": "GO Christophe 18/09 (plan d'attaque ACE validé « go »)",
+   "verif": "md5",
+   "auto_modifiable": false,
+   "md5": "f68dcc4f21b0d2ef36aa39542f69af40",
+   "date": "2026-09-18T10:15Z",
+   "note": "Recherche pure, 0 ordre. Réutilise v2_duo_replay_4h.simuler_duo() = source unique des signaux/mécanique (aucune règle dupliquée). Ajoute les critères PRÉ-ENREGISTRÉS C5 (net/DD ≥ 1) et C6 (≥ 60 % de fenêtres positives). Le critère 'scout_seul' est une agrégation, pas une variante de code.",
+   "maj": ""
+  },
+  {
+   "nom": "hulk-mexc/scripts/paper_diprip.py",
+   "role": "Moteur Hulk (paper MEXC dip&rip + bags)",
+   "origine": "chantier hulk",
+   "verif": "md5",
+   "auto_modifiable": false,
+   "md5": "9fe39bc5de561b39acc2bad1d2187241",
+   "_rescel_20260918": "gate Plancher PLANCHER_GATE_ON + plancher_veto()/plancher_veto_decision() + mise plafonnée sur le MUR LIVE (aspiration_live.json, repli profil).",
+   "note": "FIX 27/08 : circuits breaker + fraîcheur Cortana + FILTRE LOTS MEXC (lot_filter depuis exchangeInfo, baseSizePrecision/quoteAmountPrecision, arrondi stepSize au buy ET au sell, dust close, fail-open)  | RE-SCELLÉ 2026-09-03T17:22Z (GO Christophe 03/09) · 10/09: patch fusibles par paire (gate tête de buy() + détarage sizing, GO Christophe) — md5 mis à jour",
+   "maj": "BATCH PRIX Phase 1 (31/08-01/09, famille 7/7 + codeur) : 1 appel GET global + cache au lieu de 21 GET/cycle (~200-270 req/min → sous la limite MEXC). Mode SELLFULL + mode_entree() du 29-31/08. Aucune logique métier touchée.",
+   "date": "2026-09-21T08:02Z",
+   "_rescel_20260921": "FENÊTRE D'ENTRÉE AU CREUX (GO Christophe 21/09) : garde entree_fenetre_on + fenetre_entree_ok() (carte datée strategie/carte_fenetres_entree.json, TTL 1h, périmée>7j, fail-open déclaré). Mesuré +32 % à notionnels identiques (chiffrage_sortie_calibree.py). Sortie +2 % INCHANGÉE. Désactivable ENTREE_FENETRE_ON=0."
+  },
+  {
+   "nom": "hulk-mexc/scripts/ace_sense_mexc.py",
+   "role": "Capteurs style ACE (book_sense + aspiration_sense double lecture)",
+   "origine": "chantier hulk 16/08",
+   "verif": "md5",
+   "auto_modifiable": false,
+   "md5": "a07b852becbb6d155db211586d73f861",
+   "note": "déclaré manuel 2026-08-16T22:35Z (GO Christophe)",
+   "maj": "16/08 soir : aspiration_sense() double lecture fail-open + corrections check-up (drop max(0), price_delta_pct)"
+  },
+  {
+   "nom": "Index_Maison/scripts/surveiller_whales.py",
+   "role": "Scan baleines BTC (mempool 5 min)",
+   "origine": "chantier 14/08",
+   "verif": "md5",
+   "auto_modifiable": false,
+   "md5": "ed04e1e921a7549ea7adc30cb5aafc18",
+   "note": "déclaré manuel 2026-08-21T17:11Z (fix baleines/couleur 21/08) | RE-SCELLÉ 2026-09-03T17:22Z (GO Christophe 03/09)",
+   "maj": "Correctif 24/08 déclaré tard — re-scellement post-audit 03/09."
+  },
+  {
+   "nom": "Index_Maison/scripts/discipline_quotidienne.py",
+   "role": "Discipline quotidienne 07h15 (note + dérive + Kelly)",
+   "origine": "chantier 15/08",
+   "verif": "md5",
+   "auto_modifiable": false,
+   "md5": "6ee99092399646bf4318828c8830112b",
+   "modifié_par": "chantier AGORA (15/08 soir)"
+  },
+  {
+   "nom": "Index_Maison/scripts/ada_gardienne.py",
+   "role": "Gardienne Ada (voilure + zone + onchain + CPFP)",
+   "origine": "fondation F3 + chantiers 15/08",
+   "verif": "md5",
+   "auto_modifiable": false,
+   "md5": "6ee6c3dd041337b395a1dbec0779774d",
+   "note": "déclaré manuel 2026-08-19T09:11Z (fix voix Denise + bug whales 19/08) | RE-SCELLÉ 2026-09-03T17:22Z (GO Christophe 03/09)",
+   "maj": "Correctif session 31/08 10h52 — re-scellement post-audit 03/09."
+  },
+  {
+   "nom": "Index_Maison/scripts/thermo_quotidien_free.py",
+   "role": "Thermo quotidien free (live.json + feed)",
+   "origine": "fondation",
+   "verif": "md5",
+   "auto_modifiable": false,
+   "md5": "1ee6346d520bac5a22e283b8f8223e57",
+   "note": "déclaré 2026-08-27T13:46Z — modifs légitimes 25/08 (pipeline unifié GO Christophe : SafeLiveWriter + LMDB + SDI + geopol) non déclarées à l'époque | md5 aligné sur le sceau GEOPOL-C3 (12/09) — doublon historique, veilleuse apaisée 13/09",
+   "maj": "27/08 13:46Z : md5 mis à jour (déclaration légitime)"
+  },
+  {
+   "nom": "Index_Maison/scripts/veilleuse_synapses.py",
+   "role": "Veilleuse (intégrité + pannes + intrusions)",
+   "origine": "chantier 15/08",
+   "verif": "md5",
+   "auto_modifiable": false,
+   "md5": "543aee2356a8178be11492d41a2d433f"
+  },
+  {
+   "nom": "Index_Maison/scripts/pont_onchain.py",
+   "role": "Pont onchain → live.json (baleines + CPFP)",
+   "origine": "chantier 15/08",
+   "verif": "md5",
+   "auto_modifiable": false,
+   "md5": "138281e66f0f5109ab3b80420f02875f",
+   "note": "déclaré manuel 2026-08-28T18:30Z | RE-SCELLÉ 2026-09-03T17:22Z (GO Christophe 03/09)",
+   "maj": "Correctif session 31/08 10h39 — re-scellement post-audit 03/09."
+  },
+  {
+   "nom": "Index_Maison/scripts/veille_outflows_institutionnels.py",
+   "role": "Sonde des 3 signaux institutionnels (sorties CEX / blocs privatisés / déséquilibre poussière) — 3 seuils famille 30/08",
+   "origine": "consultation famille pattern institutions 30/08 (GO Christophe)",
+   "verif": "md5",
+   "auto_modifiable": false,
+   "md5": "961dd1de694e39036fd10aef8cfcbcfc",
+   "note": "déclaré 2026-08-30 — lit cpfp_detect/bloc_privatise/whales_mouvements existants, écrit veille_institutionnelle_etat.json + alertes",
+   "maj": ""
+  },
+  {
+   "nom": "Index_Maison/plists/com.ace777.veille-insti.plist",
+   "role": "Plist sonde 3 signaux institutionnels (15 min)",
+   "origine": "consultation famille pattern institutions 30/08",
+   "verif": "md5",
+   "auto_modifiable": false,
+   "md5": "22a935169f098ca8e94cabffc5a095f4",
+   "note": "déclaré 2026-08-30 — loaded launchctl + copié ~/Library/LaunchAgents"
+  },
+  {
+   "nom": "Index_Maison/scripts/veille_presence_paires.py",
+   "role": "Sonde présence des paires MEXC (détecte les delistings — leçon QAIT 29/08)",
+   "origine": "delisting QAIT 29/08 14:03Z (GO Christophe 30/08)",
+   "verif": "md5",
+   "auto_modifiable": false,
+   "md5": "d717f38f58048a1b74c3d2f4e7d14c14",
+   "note": "déclaré 2026-08-30 — lit defaults.env, vérifie exchangeInfo MEXC, alerte vocale si paire disparue. Run toutes les 6h.",
+   "maj": ""
+  },
+  {
+   "nom": "Index_Maison/plists/com.ace777.presence-paires.plist",
+   "role": "Plist sonde présence paires MEXC (6h)",
+   "origine": "delisting QAIT 29/08 (GO Christophe 30/08)",
+   "verif": "md5",
+   "auto_modifiable": false,
+   "md5": "8bb2ee2b78fa8e828edd6ee6c5bc0200",
+   "note": "déclaré 2026-08-30 — loaded launchctl + copié ~/Library/LaunchAgents",
+   "maj": ""
+  },
+  {
+   "nom": "hulk-mexc/scripts/analyse_cycle_edel.py",
+   "role": "Observateur cycle jour/nuit EDEL (successeur du pattern QAIT — paper, pas de quarantaine)",
+   "origine": "bilan cycles portefeuille 30/08 (GO Christophe)",
+   "verif": "md5",
+   "auto_modifiable": false,
+   "md5": "8e77ce5539daab2be84670f7a3e5d0ad",
+   "note": "déclaré 2026-08-30 — fix pondération horaire (moyenne simple par heure UTC, pas moyenne de moyennes) + fenêtre pic/creux complète. Écrit runs/CYCLE_EDEL_*.md + CYCLE_EDEL_SUIVI.jsonl",
+   "maj": ""
+  },
+  {
+   "nom": "hulk-mexc/config/com.ace777.cycle-edel.plist",
+   "role": "Plist observateur cycle EDEL (6h)",
+   "origine": "bilan cycles portefeuille 30/08",
+   "verif": "md5",
+   "auto_modifiable": false,
+   "md5": "b7ced749f84ef34b0026fcf20ef73599",
+   "note": "déclaré 2026-08-30 — loaded launchctl + copié ~/Library/LaunchAgents",
+   "maj": ""
+  },
+  {
+   "nom": "Index_Maison/scripts/detecter_cpfp.py",
+   "role": "Détecteur CPFP/dust/z-score (observation 7j)",
+   "origine": "chantier 15/08 onchain v2",
+   "verif": "md5",
+   "auto_modifiable": false,
+   "md5": "85ad51e302c0adfb378bce6db7ea3aaa",
+   "note": "déclaré 2026-08-24 (fix poussière/CPFP 24/08)"
+  },
+  {
+   "nom": "Index_Maison/plists/com.ace777.whales.plist",
+   "role": "Plist scan whales (5 min)",
+   "origine": "chantier 15/08",
+   "verif": "md5",
+   "auto_modifiable": false,
+   "md5": "08d0f3f715b7a8e6822569b8f9d435c8"
+  },
+  {
+   "nom": "Index_Maison/plists/com.ace777.pont-onchain.plist",
+   "role": "Plist pont onchain (5 min) — scan baleines → live.json.onchain → Ada + Cortana",
+   "origine": "chantier 16/08 (boucle baleines complétée)",
+   "verif": "md5",
+   "auto_modifiable": false,
+   "md5": "f84d6acfcf839832ec91c31ef341e7fe",
+   "note": "déclaré manuel 2026-08-16T23:XXZ — le pont n'était lancé par aucune plist, boucle coupée · re-scellé 2026-09-19T1150Z (déclaration groupe A : diff XML uniquement)"
+  },
+  {
+   "nom": "Index_Maison/plists/com.ace777.cpfp.plist",
+   "role": "Plist détecteur CPFP (10 min)",
+   "origine": "chantier 15/08 onchain v2",
+   "verif": "md5",
+   "auto_modifiable": false,
+   "md5": "aac1edf22657284d986666ecc295e98c",
+   "note": "re-scellé 2026-09-19T1150Z (déclaration groupe A : diff XML uniquement)"
+  },
+  {
+   "nom": "Index_Maison/plists/com.ace777.discipline-quotidienne.plist",
+   "role": "Plist discipline (07h15)",
+   "origine": "chantier 15/08",
+   "verif": "md5",
+   "auto_modifiable": false,
+   "md5": "836421bec8aebb82b1e1ef11aed8b7e1"
+  },
+  {
+   "nom": "Index_Maison/plists/com.ace777.veilleuse.plist",
+   "role": "Plist veilleuse (10 min)",
+   "origine": "chantier 15/08",
+   "verif": "md5",
+   "auto_modifiable": false,
+   "md5": "63ba1bdbe4f852d89d82adc7ebbaeb6e",
+   "note": "re-scellé 2026-09-19T1150Z (déclaration groupe A : diff XML uniquement)"
+  },
+  {
+   "nom": "hulk-mexc/config/defaults.env",
+   "role": "Config Hulk (BAG_PAIRS, seeds)",
+   "origine": "chantier hulk",
+   "verif": "md5",
+   "auto_modifiable": false,
+   "md5": "6043e8df3b8e4439273bad6998e7fd11",
+   "_rescel_20260918": "NOTIONAL_USDT 20→30 + PLANCHER_GATE_ON=1.",
+   "note": "Re-scellé 2026-09-16T13:10Z (GO C., après audit R3 complet : 73/74 OK, seule dérive = ce fichier). La dérive = 2 GO votés du 15/09 jamais re-déclarés (R3) : ① 06:36Z REENTRY_MAX 1→3 + STOP_COOLDOWN_HOURS 4→1 + VOL_SPIKE_MIN_SMALL 1,5→1,2 + VEILLE_SKIP_RED_ON 1→0 (chantier anti-timing/anti-figage) ; ② 08:45Z SLIP_GATE_ON 0→1 (armement du gate anti-glissement après ses 48 h d'observation prévues le 09/09). Sentinelle indépendante : PnL cohérent (divergence 0,0005 $). Prochain changement de config = re-scellement immédiat.",
+   "maj": "30/08 v3 (GO Christophe 14:15Z) : FINI l'observation — PAPER_OBSERVE_PAIRS vidée. QNT/FLUID/RWA/MNSRY seedées (10$ chacune, structure seed_inventory) + lignes SEED_START au CSV + SELL d'annulation du BUY parasite FLUID (09:54Z) pour rejeu exact. 16 positions, plus aucune paire observe. Tableau cockpit = 20 paires tradées. || RE-SCELLÉ 03/09 : Config modifiée session 31/08 12h18 — re-scellée post-audit 03/09 (GO Christophe).",
+   "date": "2026-09-21T08:03Z",
+   "_rescel_20260921": "Ajout ENTREE_FENETRE_ON=1 (fenêtre d'entrée au creux, GO Christophe 21/09). Réversible en une ligne."
+  },
+  {
+   "nom": "hulk-mexc/strategie/cortana_pilot.json",
+   "role": "Contrat Hulk ↔ Cortana (régénéré chaque jour 07:45 — vérif fraîcheur, pas md5)",
+   "origine": "chantier 15/08",
+   "verif": "vivant",
+   "auto_modifiable": false,
+   "md5": "",
+   "note": "déclaré 2026-08-27T14:39Z — verif=fraicheur, max 25h (régénéré 07:45/jour) : plist morte détectée, pas de fausse INTRUSION | MARQUÉ VIVANT 03/09 : réécrit à chaque cycle, scellement md5 impossible (fausse alerte sinon).",
+   "maj": "27/08 : score réel 0.543 injecté (était 0.44 figé depuis le 15/08)",
+   "fraicheur_max_min": 1500
+  },
+  {
+   "nom": "genesis_manifest.txt",
+   "role": "Manifeste moteur (scellé md5)",
+   "origine": "moteur",
+   "verif": "md5",
+   "auto_modifiable": false,
+   "md5": "14bcf868d46effba010cac577cbb004c",
+   "note": "déclaré manuel 2026-08-21T17:11Z (fix baleines/couleur 21/08)"
+  },
+  {
+   "nom": "Index_Maison/thermo/live.json",
+   "role": "Données live (Cortana + Ada + cockpit)",
+   "origine": "thermo",
+   "verif": "vivant",
+   "auto_modifiable": false,
+   "fraicheur_max_min": 120,
+   "md5": "",
+   "note": "MARQUÉ VIVANT 03/09 : réécrit à chaque cycle, scellement md5 impossible (fausse alerte sinon)."
+  },
+  {
+   "nom": "Index_Maison/data/whales_scan_latest.json",
+   "role": "Dernier scan baleines",
+   "origine": "surveiller_whales",
+   "verif": "vivant",
+   "auto_modifiable": false,
+   "fraicheur_max_min": 360,
+   "md5": "",
+   "note": "MARQUÉ VIVANT 03/09 : réécrit à chaque cycle, scellement md5 impossible (fausse alerte sinon)."
+  },
+  {
+   "nom": "Index_Maison/data/cpfp_detect.json",
+   "role": "Détection CPFP (observation)",
+   "origine": "detecter_cpfp",
+   "verif": "vivant",
+   "auto_modifiable": false,
+   "fraicheur_max_min": 360,
+   "md5": "",
+   "note": "MARQUÉ VIVANT 03/09 : réécrit à chaque cycle, scellement md5 impossible (fausse alerte sinon)."
+  },
+  {
+   "nom": "Index_Maison/scripts/prompts/PROMPT_MASTER_ANALYSTE.md",
+   "role": "PROMPT C1 (17/09, verdict JUGE O4, consultation CORTANA_PRESTIGE) : section CROISEMENT OBLIGATOIRE (règle des 2 sources) — >=2 indices nommés dans MISE EN RELATION, divergence=NEUTRE, CONFIANCE recalculée maison, style préservé",
+   "origine": "chantier graver la pépite",
+   "verif": "md5",
+   "auto_modifiable": false,
+   "md5": "b49ac95c9e66dc0b382bd95000e570bc",
+   "ts": "2026-09-17T11:55:44Z"
+  },
+  {
+   "nom": "Index_Maison/scripts/lecons_auto.py",
+   "role": "Boucle E4 AGORA (leçons HIT/MISS → axiomes FUSIONNÉS multi-indices, GO 17/09)",
+   "origine": "chantier AGORA · fusion axiomes GO Christophe 17/09",
+   "verif": "md5",
+   "auto_modifiable": false,
+   "md5": "a296dce10218e3793ac7beddc40e2b26"
+  },
+  {
+   "nom": "Index_Maison/scripts/sante_index.py",
+   "role": "Pré-vol des index (chaînes complètes → thermo/sante_index.json + cockpit/sante_live.js)",
+   "origine": "chantier 17/08 (demande Christophe : voir les branchements en un coup d'œil)",
+   "verif": "md5",
+   "auto_modifiable": false,
+   "md5": "d7982d04e40a1c48d0c78540f4f1babc",
+   "note": "déclaré 2026-08-27T14:40Z — chaîne HULK étendue : + cortana_analyzer launchd + cortana_pilot.json (fraîcheur 25h) + cortana_analysis.json",
+   "maj": "27/08 13:47Z : md5 mis à jour (déclaration légitime) || RE-SCELLÉ 03/09 : Modifié session 01/09 09h09 (chantier ACE/santé index) — re-scellé post-audit 03/09 (GO Christophe)."
+  },
+  {
+   "nom": "Index_Maison/plists/com.ace777.sante-index.plist",
+   "role": "Plist pré-vol index (5 min)",
+   "origine": "chantier 17/08",
+   "verif": "md5",
+   "auto_modifiable": false,
+   "md5": "4c8905f82b9bb99dd46eb5583c2f479d",
+   "note": "déclaré manuel 2026-08-20T19:06Z",
+   "maj": "27/08 : déclaration plist modifiée 26/08 — fausse INTRUSION (md5 294e109d3bf8… → 4c8905f82b9b…)"
+  },
+  {
+   "nom": "Index_Maison/thermo/regime_couleur.json",
+   "role": "Couleur régime Hulk (sniffer du vrai, OBSERVATION) — 2×/jour via couleur-regime plist",
+   "origine": "19/08 sniffer + couleur régime",
+   "verif": "vivant",
+   "auto_modifiable": false,
+   "fraicheur_max_min": 1500,
+   "md5": "",
+   "note": "MARQUÉ VIVANT 03/09 : réécrit à chaque cycle, scellement md5 impossible (fausse alerte sinon)."
+  },
+  {
+   "nom": "Index_Maison/scripts/sentinel.py",
+   "role": "Sentinelle z-score (12 métriques → sniffer DeepSeek sur anomalie)",
+   "origine": "pipeline unifié 25/08 — ressuscitée 27/08 (plist com.ace777.sentinel + fix variance)",
+   "verif": "md5",
+   "auto_modifiable": false,
+   "md5": "f8948eed95801cac23f4d050637198a7",
+   "note": "déclaré manuel 2026-08-28T18:30Z",
+   "maj": "30/08 : fix crash abs(None) quand live.json contient chg1h:null (clé présente à None) — fail-open durci sur toutes les métriques extract_metrics"
+  },
+  {
+   "nom": "Index_Maison/scripts/silent_drain_index.py",
+   "role": "SDI + IPT + RBF (mouvements silencieux baleines)",
+   "origine": "pipeline unifié 25/08",
+   "verif": "md5",
+   "auto_modifiable": false,
+   "md5": "a8f1525c1d984ad794c9798565d034b7",
+   "note": "déclaré manuel 2026-08-28T18:30Z",
+   "maj": ""
+  },
+  {
+   "nom": "Index_Maison/scripts/pipeline_health.py",
+   "role": "Pipeline Health — score confiance 7 sources (Nominal/Dégradé/Kill)",
+   "origine": "pipeline unifié 25/08",
+   "verif": "md5",
+   "auto_modifiable": false,
+   "md5": "5316720e17380aeff2f572d35dcf5fad",
+   "note": "déclaré manuel 2026-08-28T18:30Z",
+   "maj": "27/08 13:49Z : fix abs(None) sur chg1h (crash 12:12Z observé dans pipeline_health_erreur.log)"
+  },
+  {
+   "nom": "Index_Maison/scripts/atomic_write.py",
+   "role": "Écriture atomique JSON (flock + tmp + fsync + replace)",
+   "origine": "pipeline unifié 25/08",
+   "verif": "md5",
+   "auto_modifiable": false,
+   "md5": "391309b0aa9e695f530d57ebe252b99c",
+   "note": "déclaré 2026-08-27T13:45Z (non déclaré depuis le 25/08)",
+   "maj": ""
+  },
+  {
+   "nom": "Index_Maison/scripts/temporal_store.py",
+   "role": "Store temporel LMDB Hot/Warm/Cold + Dead Man's Switch",
+   "origine": "pipeline unifié 25/08",
+   "verif": "md5",
+   "auto_modifiable": false,
+   "md5": "57573990488458b83271ecd865c27004",
+   "note": "déclaré 2026-08-27T13:45Z (non déclaré depuis le 25/08)",
+   "maj": ""
+  },
+  {
+   "nom": "Index_Maison/indice_app/orchestrator.py",
+   "role": "Indice GEOPOL — 5 modules (pizza/jets/oil/defense/news) + ML",
+   "origine": "indice app 25/08 soir (GO Christophe, consultation famille)",
+   "verif": "md5",
+   "auto_modifiable": false,
+   "md5": "ac9d1e53e08b393e79be98362f6f0d5f",
+   "note": "déclaré 2026-08-27T13:45Z (non déclaré depuis le 25/08 soir)",
+   "maj": ""
+  },
+  {
+   "nom": "hulk-mexc/scripts/circuit_breaker.py",
+   "role": "Circuit breaker Hulk (hystérésis CLOSED→OPEN→HALF-OPEN)",
+   "origine": "pipeline unifié 25/08",
+   "verif": "md5",
+   "auto_modifiable": false,
+   "md5": "3240aa4902cbed25634d14b3689ceee7",
+   "note": "déclaré 2026-08-27T13:45Z (non déclaré depuis le 25/08)",
+   "maj": ""
+  },
+  {
+   "nom": "Index_Maison/scripts/cortana_analyzer.py",
+   "role": "Analyse autonome Cortana (sentinel → signals → fiches → cortana_analysis.json → Hulk)",
+   "origine": "25/08 PIPELINE UNIFIÉ — branché 27/08",
+   "verif": "md5",
+   "auto_modifiable": false,
+   "md5": "9d9b01c621fc084a8269eae449ecaba2",
+   "note": "FIX 27/08 : crash TypeError ts str (sentinelle écrit ts ISO, l'analyzer faisait now - str) → normalisation _to_epoch (les 2 formats). Plist com.ace777.cortana-analyzer (300s). | 13/09: ARBITRAGE LLM-vs-RÈGLE (GO C.) — LLM neutral conf>=60 désamorce le 'dangereux' mécanique (jamais 'critique'); politique mesurée 14 j (critère 27/09: si un vrai danger passe inaperçu → retrait). | 16/09 : fix NoneType prix + mapping sdi_eleve (matin) puis C1/C2/C3 (après-midi). | GO 16/09 6 fiches : trigger z (absolu) lit le ZSCORE (avant : valeur brute → jamais ouvert), source générique live.json → chemin.doté, ",
+   "maj": "16/09 après-midi (GO C. « go » C1+C2+C3) : C1 triggers réellement vérifiés contre la valeur du signal (_evaluer_trigger, alias rbf_score/sdi/global_score/taux_fantome) — le champ trigger n'était DÉCORATIF depuis le 27/08 ; C2 défaut neutre explicite (avant : 1re interprétation = sdi_eleve dangereux / binance_timeout critique) ; C3 health_degrade câblé (questions sources/mode + conditions source == évaluées contre pipeline_health.sources — KILL SWITCH critique UNIQUEMENT si binance <0,5). 8 tests dont négatifs verts. Par Buffy.",
+   "date": "2026-09-16T15:58Z"
+  },
+  {
+   "nom": "hulk-mexc/strategie/universe_profils.json",
+   "role": "Profils comportementaux par paire (murs/spoof/drop/spread/fenêtres) — 27/08 GO Christophe",
+   "origine": "analyse 53 465 mesures ASPIRATION_CALIB 16-24/08",
+   "verif": "md5",
+   "auto_modifiable": false,
+   "md5": "0441f23ab6b0b0591442baaef4ab4fd7",
+   "note": "déclaré manuel 2026-08-28T18:30Z | DÉCLARÉ 2026-09-11 (autopsie V7, GO Christophe « recabler + autopsie v7 ») : modif V4 Option A du 10/09 16h50 (trailing σ filet secondaire sur 8 paires — trail_arm_pct/trail_giveback_pct, source volatilite_paires.json, note in-file « GO Christophe ») committée par auto-sync 15h14Z mais md5 oublié au re-scellement → fausse INTRUSION veilleuse en boucle depuis le 11/09 11h34Z (alerte vocale éteinte manuellement 14h00 par Christophe).",
+   "maj": "27/08 17:30Z : création || RE-SCELLÉ 03/09 : Profils universe modifiés 30/08 18h15 — re-scellés post-audit 03/09 (GO Christophe). || 11/09 : md5 mis à jour 304c781d…→0441f23a… (déclaration légitime V4 Option A, autopsie V7)"
+  },
+  {
+   "nom": "Index_Maison/scripts/alerte_vocale.py",
+   "role": "(ajouté re-scellement 03/09)",
+   "origine": "audit md5 03/09",
+   "verif": "md5",
+   "auto_modifiable": false,
+   "md5": "d99629725a2ee86cd8f19e886ef682a2",
+   "note": "Correctif session 31/08 19h58 — re-scellement post-audit 03/09. | 13/09: AUTO-EXTINCTION (GO C.) — cause guérie (contrat+analyse <60min) 2 contrôles de suite après la 3e répétition → silence propre + statut auto-etinte-cause-guerie."
+  },
+  {
+   "nom": "Index_Maison/scripts/disjoncteur.py",
+   "role": "Disjoncteur C7 — Juge & Risk Guardian (kill switch perte journalière 11,67% / global 25%, Mur de Fer STOP_ALL, réarmement manuel)",
+   "origine": "chantier disjoncteur 16/08 · rebranché 09/09 (GO Christophe)",
+   "verif": "md5",
+   "auto_modifiable": false,
+   "md5": "f86146817c5c2c03b44282620ac0bcaa",
+   "note": "REBRANCHEMENT 09/09 : plist retrouvé dans Index_Maison/plists/ après disparition silencieuse de LaunchAgents. FIX dual STOP_ALL (strategie/ + racine) : les deux conventions de kill-switch jamais raccordées — le Mur de Fer ne couvrait pas HULK. Recalibration 1,5%→11,67%/j, global 8→25% (config.bak-avant-recalibration-20260909). LANCÉ launchd check/60s.",
+   "maj": "Rebranchement + recalibration 2026-09-09 (GO Christophe, 5 tests hors vol OK)"
+  },
+  {
+   "nom": "Index_Maison/scripts/nourrir_disjoncteur.py",
+   "role": "Capteur du disjoncteur : mesure la perte journalière HULK (pnl_total du state live via .hulk_resume_pointer, pivot 00:00 UTC) et déclenche le Mur de Fer au seuil. Le disjoncteur est sourd par design — ce module lui donne des oreilles.",
+   "origine": "créé 09/09 (rebranchement disjoncteur)",
+   "verif": "md5",
+   "auto_modifiable": false,
+   "md5": "165c1c5a52220a55a4760718af9f5b9e",
+   "note": "Fail-safe : HULK muet >180s = MESURE_IMPOSSIBLE, jamais d'invention (C3). Ne crée jamais d'ordre. Pivot du jour persisté atomiquement (disjoncteur_pivot.json). LANCÉ launchd 60s (seconde 30, décalé du disjoncteur).",
+   "maj": "Création 2026-09-09, en vol",
+   "date": "2026-09-21T08:02Z",
+   "_rescel_20260921": "GARDE BOOT : un state neuf (pnl_total=0, positions vides) écrit au démarrage AVANT reprise du --resume n'est plus lu comme une perte (il a produit un faux Mur de Fer 13,93 % le 21/09 pendant un redémarrage). Fail-safe : SANS_MESURE, jamais de coupe."
+  },
+  {
+   "nom": "hulk-mexc/scripts/watchdog_hulk_ghost.sh",
+   "role": "Watchdog paper+veille : relance si mort",
+   "origine": "chantier hulk",
+   "verif": "md5",
+   "auto_modifiable": false,
+   "md5": "87ee46a609ff86342277022c1dba4357",
+   "note": "FIX 09/09 : garde STOP_ALL en tête de script — sans lui, le watchdog relançait en boucle ce que le Mur de Fer coupait (HULK documentait la sémantique mais le watchdog l'ignorait). | FIX 16/09 F1 (GO C.) : pouls à chemin fixe Index_Maison/pouls/hulk-watchdog.json (dialecte ISO dernier_battement) écrit en fin de chaque check — le registre organes est passé en mode pouls_direct, plus jamais de chemin de run daté périmable (avant : PAPER_V1_20260910_145101.csv → fausse alerte 30 h).",
+   "maj": "Fix intégration disjoncteur 2026-09-09",
+   "date": "2026-09-16T12:22Z"
+  },
+  {
+   "nom": "hulk-mexc/scripts/fusibles_paires.py",
+   "role": "Fusibles par paire (budget perte = 1.5×σ mesurée, gel sur données + détarage linéaire, dégel sur rebond prouvé — jamais horloge)",
+   "origine": "chantier fusibles 10/09 GO Christophe",
+   "verif": "md5",
+   "auto_modifiable": false,
+   "md5": "5137aff17f049af9f42390036d20bff8",
+   "note": "fail-open interne, fail-closed dégel (mesures >15 min neutralisées)"
+  },
+  {
+   "nom": "Index_Maison/scripts/rafraichir_fusibles_mesures.py",
+   "role": "Capteur launchd (5 min) : rafraîchit volatilite_paires.json (conditions de dégel vivantes)",
+   "origine": "chantier fusibles 10/09 GO Christophe",
+   "verif": "md5",
+   "auto_modifiable": false,
+   "md5": "944c60063f980586011b50fe62aa37bf",
+   "note": "fail-open : échec → jamais de dégel provoqué"
+  },
+  {
+   "nom": "Index_Maison/scripts/mesurer_volatilite_paires.py",
+   "role": "Outil mesure : σ journalière + ADR + p90 des 20 paires → budgets fusibles (base 45 j daily MEXC)",
+   "origine": "chantier fusibles 10/09 GO Christophe",
+   "verif": "md5",
+   "auto_modifiable": false,
+   "md5": "cae2b37c1b6ad58b1c8341ae6855734d",
+   "note": "ré-rançable à tout moment pour recalibrer les budgets"
+  },
+  {
+   "nom": "Index_Maison/plists/com.ace777.fusibles-mesure.plist",
+   "role": "Agent launchd du capteur fusibles-mesure (300 s, RunAtLoad)",
+   "origine": "chantier fusibles 10/09 GO Christophe",
+   "verif": "md5",
+   "auto_modifiable": false,
+   "md5": "803d378f7be0e287570f0b8c27b84c00",
+   "note": ""
+  },
+  {
+   "nom": "Index_Maison/scripts/collecter_rwa_yields.py",
+   "role": "Collecteur passif RWA (prototype 7 jours, GO Christophe 11/09) — yields.llama.fi/pools -> rwa_yields_hist.jsonl, zéro alarme phase 1",
+   "origine": "chantier RADAR RWA v2 (correctifs C1-C6 validés)",
+   "verif": "md5",
+   "auto_modifiable": false,
+   "md5": "8ebefa61800cd0a37c26f40e6ebc9a6d",
+   "note": "Créé 2026-09-11 (GO prototype 7 jours, critère pré-enregistré >=3 pools top20 >=50bps). Première collecte 13:42Z : 355/17209 pools.",
+   "maj": ""
+  },
+  {
+   "nom": "Index_Maison/scripts/rotation_jsonl.py",
+   "role": "Rotation COPYTRUNCATE + gzip des JSONL à croissance illimitée (appelé superviseur_core 6 h)",
+   "origine": "leçon GitHub 3 jours (croisement_contexte 300 Mo)",
+   "verif": "md5",
+   "auto_modifiable": false,
+   "md5": "ed985a67f93a9fd0e9e3841705f1e572",
+   "note": "Évolution déclarée 19/09 : +journal_radar.log (vigie 3,7 Go), +PAPER/DIGEST_WATCHDOG_STDOUT.log (95 Mo / 26 Mo, écrits en direct par watchdog_hulk_ghost.sh — même cancer, 3e occurrence), ET mode AUDIT DE DÉCOUVERTE (tout fichier > 200 Mo hors rotation est signalé tout seul dans thermo/GROS_FICHIERS.json : une liste ne protège que ce dont on se souvient). Préc. 14/09 18:35 : +x402_agentic_hist [C5].",
+   "maj": "re-scellé 20/09 — FENÊTRE GARDÉE : la rotation ne gardait AUCUN historique récent. Prouvé le 20/09 : rotation de croisement_contexte.jsonl à 13:12:21Z (113,7 Mo) → plus que 5 heures dans le fichier vivant ; or hulk-mexc/scripts/short_btc.py exige ≥ 10 heures distinctes → score null, « historique insuffisant » : le signal short BTC était AVEUGLE ~10 h, sans que le plist (exit 0), le chien (« short-btc vivant ») ni la veilleuse ne le voient. Désormais : GARDER_HEURES (24 h) → on n'archive QUE ce qui sort de la fenêtre, et GARDER_MAX_MO (60) borne le fichier vivant — le plus contraignant des deux gagne (on ne recrée pas le JSONL de 300 Mo qui bloquait le push). Clés ajoutées : GARDER_HEURES, GARDER_MAX_MO, _offset_fenetre(), _decaler_archives() ; rotate_file(..., garder_heures=0) = comportement historique INCHANGÉ pour les logs sans lecteur. 6 cas testés hors vol sur copie (fenêtre / plafond / tout-dans-fenêtre / historique / dry-run / lignes sans ts). Réécriture EN PLACE (même inode : les écrivains gardent leur fd — leçon COPYTRUNCATE)."
+  },
+  {
+   "nom": "Index_Maison/plists/com.ace777.rwa-yields.plist",
+   "role": "Plist collecteur RWA (6 h, RunAtLoad) — prototype 7 jours GO Christophe 11/09",
+   "origine": "chantier RADAR RWA v2",
+   "verif": "md5",
+   "auto_modifiable": false,
+   "md5": "b70a1060a9f225fe7bbe1e455b340c18",
+   "note": "déclaré 2026-09-11 2026-09-11T13:50Z — chargé launchd + copié ~/Library/LaunchAgents",
+   "maj": ""
+  },
+  {
+   "nom": "Index_Maison/scripts/simulateur_plancher_confirme.py",
+   "role": "Simulateur SHADOW plancher confirmé (papier, RIZE+ZBCN, 3 confirmations puis 3 paliers)",
+   "origine": "chantier plancher confirmé — GO direct Christophe 11/09",
+   "verif": "md5",
+   "auto_modifiable": false,
+   "md5": "4917af9846a62a1010ee52311f193a91",
+   "_rescel_20260918": "expose le champ `veto` par paire dans le feed cockpit (badge VETO anti-couteau) — aucun ordre, lecture seule.",
+   "note": "déclaré 2026-09-11T20:42Z — lecture seule du moteur; produit JSONL + feed cockpit; 5 min launchd | évolution 2026-09-15T05:37Z GO direct Christophe (« regarde le plancher pour tout le monde ») : PAIRES 2→12 (toutes les paires couvertes par la sonde L2) + C2 sans profil = garde absolue 100 bps sur le spread live",
+   "maj": "Feed cockpit RÉPARÉ 20/09/2026 : plancher_live.js est chargé en TÊTE de page (avant la carte #plancher-body) → l'IIFE ne trouvait pas l'élément, sortait, et la carte restait À VIE sur « Chargement du shadow plancher… ». Le rendu attend maintenant le DOM (DOMContentLoaded, ou immédiat si déjà prêt) : insensible à l'ordre des balises. Testé hors navigateur (node, DOM simulé) : les deux ordres remplissent le bloc.",
+   "date": "2026-09-20T18:14Z"
+  },
+  {
+   "nom": "Index_Maison/plists/com.ace777.plancher-shadow.plist",
+   "role": "Plist shadow plancher (5 min, RunAtLoad) — PAPIER, aucun ordre",
+   "origine": "chantier plancher confirmé — GO direct Christophe 11/09",
+   "verif": "md5",
+   "auto_modifiable": false,
+   "md5": "41bd889f7e17fb318999faf55411ea77",
+   "note": "déclaré 2026-09-11T20:42Z — chargée launchd + copiée ~/Library/LaunchAgents",
+   "maj": ""
+  },
+  {
+   "nom": "Index_Maison/cockpit/plancher_live.js",
+   "role": "Feed cockpit du shadow plancher confirmé (fenêtre.__PLANCHER__)",
+   "origine": "chantier plancher confirmé — GO direct Christophe 11/09 — PAPIER, aucun ordre",
+   "verif": "fraicheur",
+   "auto_modifiable": false,
+   "md5": "9b9176551d0c594c0eef68e456aa704a",
+   "note": "généré par simulateur_plancher_confirme.py ; carte visible dans index.html | 13/09 : fichier GÉNÉRÉ à chaque cycle shadow (md5 change toujours) → contrôle fraîcheur 180 min au lieu de md5 (erreur de scellement d'origine)",
+   "maj": "scellé 2026-09-11T22:05Z — boucle coupée de Buffy, reprise et vérifiée",
+   "fraicheur_max_min": 180
+  },
+  {
+   "nom": "Index_Maison/scripts/verifier_lecons_analyste.py",
+   "role": "Vérificateur du corpus de leçons analyste (34 fiches, intégrité JSONL)",
+   "origine": "P0 CORTANA_ANALYSTE — GO Christophe 11/09",
+   "verif": "md5",
+   "auto_modifiable": false,
+   "md5": "9a04beb009e3d7acb6e2b46b8e5f472b",
+   "note": "corpus: Index_Maison/data/lecons_analyste.jsonl — état: lecons_analyste_etat.json",
+   "maj": "scellé 2026-09-11T22:4xZ"
+  },
+  {
+   "nom": "Index_Maison/scripts/moteur_paternes_btc.py",
+   "role": "Moteur de paterne BTC P1 (50w×200w, RSIw, MACD filtre, cycle, lunaire-nul)",
+   "origine": "P1 CORTANA_ANALYSTE — GO Christophe 11/09",
+   "verif": "md5",
+   "auto_modifiable": false,
+   "md5": "97c4a2ea1b886e3199ce6a3755875bb0",
+   "note": "produits: paternes_btc_hist.jsonl + paternes_btc_etat.json — zéro alarme [C4]",
+   "maj": "scellé 2026-09-11T23:2xZ"
+  },
+  {
+   "nom": "Index_Maison/plists/com.ace777.paternes-btc.plist",
+   "role": "Plist quotidienne moteur paterne BTC (24h, RunAtLoad)",
+   "origine": "P1 CORTANA_ANALYSTE — GO Christophe 11/09",
+   "verif": "md5",
+   "auto_modifiable": false,
+   "md5": "b17b6de30134cede31fd61f2530efd6e",
+   "note": "chargée launchd + copiée ~/Library/LaunchAgents",
+   "maj": "scellé 2026-09-11T23:3xZ"
+  },
+  {
+   "nom": "Index_Maison/scripts/moteur_croisements_indices.py",
+   "role": "Moteur P2 croisements multi-indices (règle 2 sources, JSONL, avis canal scoreur, zéro alerte)",
+   "origine": "P2 CORTANA_ANALYSTE — GO Christophe 12/09",
+   "verif": "md5",
+   "auto_modifiable": false,
+   "md5": "36d88bce635a9aa1e68d11a8c46c14a8",
+   "note": "C1 régime×levier (LECON-032) · C2 levier×purge (zone morte 31/08) · C3 onchain×prix (biais observable)"
+  },
+  {
+   "nom": "Index_Maison/plists/com.ace777.croisements-indices.plist",
+   "role": "Plist 6h moteur P2 croisements (RunAtLoad)",
+   "origine": "P2 CORTANA_ANALYSTE — GO Christophe 12/09",
+   "verif": "md5",
+   "auto_modifiable": false,
+   "md5": "407fc44910930fb9c6669d32270da411",
+   "note": "chargée launchd, RunAtLoad tiré 06:30:15Z exit 0"
+  },
+  {
+   "nom": "Index_Maison/plists/com.ace777.geopol.plist",
+   "role": "Plist quotidienne indice géopolitique (24h, RunAtLoad)",
+   "origine": "GEOPOL-R1 — GO Christophe 12/09 (réanimation d'un organe éteint depuis le 28/08)",
+   "verif": "md5",
+   "auto_modifiable": false,
+   "md5": "9229d4fdd655726fcc199d00a4645585",
+   "note": "chargée launchd, RunAtLoad tiré — 2e cycle du jour après le test manuel 07:31Z"
+  },
+  {
+   "nom": "Index_Maison/scripts/analyste_cadence.sh",
+   "role": "Script maison",
+   "origine": "GEOPOL-C2 — GO Christophe 12/09",
+   "verif": "md5",
+   "auto_modifiable": false,
+   "md5": "a46c8a39a4fc16cda5c8669df96c3d6b",
+   "note": "GEOPOL-C2 : geopol ajouté à la rotation notée (radar/funding/fearGreed/geopol) — plist 08h30/20h30 inchangée | RÉACTIVATION 19/09 : les 4 cœurs gardent leur cadence ; 2 indices « réactivés » par passage en ROTATION (tick 12 h) → les 13 indices morts sont rafraîchis ≈ tous les 3,2 j (seuil 14 j). +2 appels/passage, aucune capacité retirée, réversible. | R15 « TOUJOURS BRANCHER » 19/09 : +5 indices (rbf, pipeline_health, longShort, etfBtcM, score) → les 15 bulles de l'app Indices sont couvertes. Rotation 3/passage sur 18 réactivés (cycle 3 j), cœurs inchangés.",
+   "date": "2026-09-19T13:21Z"
+  },
+  {
+   "nom": "Index_Maison/scripts/thermo_quotidien_free.py",
+   "role": "Thermo quotidien free (live.json + feed)",
+   "origine": "GEOPOL-C3 — GO Christophe 12/09",
+   "verif": "md5",
+   "auto_modifiable": false,
+   "md5": "1ee6346d520bac5a22e283b8f8223e57",
+   "note": "GEOPOL-C3 : clé scalaire geopolScore ajoutée au backpatch writer (le dict geopol seul était muet pour value_at du scoreur). Backup /tmp avant."
+  },
+  {
+   "nom": "Index_Maison/scripts/v2_replay_hunter.py",
+   "role": "Replay V2-REPLAY profil HUNTER à l'échelle (90 j, zéro ordre, critères figés)",
+   "origine": "V2-REPLAY — GO Christophe 12/09 (GO V2-REPLAY)",
+   "verif": "md5",
+   "auto_modifiable": false,
+   "md5": "277f2a61b74299e223c43ac60a84e8f3",
+   "note": "Run 1 INVALIDÉ (fuite de futur : direction lue sur le close du jour — corrigé, consigné au rapport). Run 2 causal = essai valable : 17 trades, WR 58,8%, net +68,33$, 4/5 critères OK — verdict formel ÉCHEC sur C1 (n<30). Rapport : Index_Maison/RAPPORT_V2_REPLAY_HUNTER_20260912.md"
+  },
+  {
+   "nom": "Index_Maison/scripts/v2_confirmation_replay.py",
+   "role": "Replay V2-CONFIRMATION (essai unique, GO Christophe 12/09) — entrée G+2 confirmations (F1a funding×régime, F1b flux×prix), sorties par mesures (trailing σ, shock-inversion, invalidation), masques R1-R3 pré-enregistrés, verdict mécanique check_edge_criteria",
+   "origine": "Buffy (dossier DOSSIER_DE_VOTE_V2_CONFIRMATION_20260912.md)",
+   "verif": "COMPILE OK + spec figée en docstring, scellé AVANT tout run",
+   "auto_modifiable": false,
+   "md5": "d76c2c179e4ac078be8f3efaf24cb3e2"
+  },
+  {
+   "nom": "Index_Maison/scripts/v2_confirmation_live.py",
+   "role": "Moteur LIVE papier V2-CONFIRMATION (GO Christophe 13/09 : « un vrai run testé, en live ») — spec = scellé replay d76c2c17, boucle 5 min, entrée décision 00h00 UTC, sorties mesurées, zéro ordre, produits v2conf_etat.json / v2conf_log.jsonl / v2conf_trades.jsonl",
+   "origine": "Buffy (dossier DOSSIER_DE_VOTE_V2_CONFIRMATION_20260912.md §3, inchangé)",
+   "verif": "Re-scellé : fix acquisition n°2 (pagination 2×1000 bougies 1d — plafond API) — règles spec d76c2c17 inchangées, 0 trade à ce jour",
+   "auto_modifiable": false,
+   "md5": "5aff1f84bb4aa5066d7f8e9e736b73b1"
+  },
+  {
+   "nom": "Index_Maison/scripts/sniffer_vieux_btc.py",
+   "role": "Correction resolution age inputs (bug vin.txid vs prevout.txid, retries+cache+TOUS inputs, honestite null). Preuve: 121/121 inputs resolus sur tx 7654 BTC du 23/08. md5 avant: 4ef61bdf9a5e9820d5344a28",
+   "origine": "2026-09-13T07:05:26Z",
+   "verif": "md5",
+   "md5": "2c1ef00778bc07e914c0c3683c2984f3",
+   "auto_modifiable": false
+  },
+  {
+   "nom": "Index_Maison/scripts/score_justesse.py",
+   "role": "C2 OMBRE-SCOREUR (17/09, verdict JUGE O3) : juger_v3 stop réel (GLOBAL_STOP/ALPHA=5,625%, env STOP_PCT_ANALYSTE) + build_v3_ombre + fenetre_extremes ; V2 production inchangée, 19/19 tests verts",
+   "origine": "Buffy (P1 du dossier BOUCLE_APPRENTISSAGE_DIAGNOSTIC_ET_PLAN_20260913.md)",
+   "verif": "COMPILE OK + tests --test verts + run réel : directionnel/t_stat_global/par_ere/verdicts écrits",
+   "auto_modifiable": false,
+   "md5": "cab88dd8c04069246c9ffc4a359540a5",
+   "ts": "2026-09-17T11:55:44Z",
+   "date": "2026-09-19T13:14Z",
+   "note": "R14 19/09 : carnet DIRECTIONNEL par indice (dir_hit/dir_n) — LECON-041 appliquée au niveau de l'indice (le hit/n par indice mélangeait NEUTRE et paris directionnels, d'où le faux « geopol CRITIQUE »)."
+  },
+  {
+   "nom": "Index_Maison/scripts/cortana_analyse.py",
+   "role": "C1 (17/09, verdict JUGE O4) : contexte enrichi (regime_couleur + verdict moteur croisements), parser bloquant _valider_croisement (R1 >=2 indices, R2 non-contradiction), retry unique, défaut neutre forcé, méta C1 au journal (croisement_ok/regime/confiance_auto)",
+   "origine": "Buffy (P2 du dossier BOUCLE_APPRENTISSAGE_DIAGNOSTIC_ET_PLAN_20260913.md)",
+   "verif": "COMPILE OK + bloc prouvé dans contexte_systeme() réel (2 lignes avec chiffres honnêtes)",
+   "auto_modifiable": false,
+   "md5": "90d01465ff3c29f3acde8f5e9199da90",
+   "ts": "2026-09-17T11:55:44Z",
+   "date": "2026-09-19T13:07Z",
+   "note": "RÉACTIVATION 19/09 (GO Christophe « réactiver indices ») : ajout de l'indice cœur « btc » au LEXIQUE + branche build_facts (lit live.mark) — il n'était plus analysable depuis le 10/08."
+  },
+  {
+   "nom": "Index_Maison/scripts/kronos_ombre.py",
+   "role": "CAPTEUR OMBRE Kronos (P4, GO Christophe 13/09 « go p4 ») : prédit la direction de la bougie 1h BTC (Kronos-base local 409 Mo, venv isolé, 0 €), noté mécaniquement. SPÉC FIGÉE en docstring AVANT le premier cycle (lookback 400, T=1.0, top_p=0.9, samples=1, pred_len=1) · critère pré-enregistré verdict 27/09 : pct>=55 % ET t>=2.0 sur n>=100 jugées, sinon dossier FERMÉ sans deuxième essai · AUCUN branchement, AUCUNE alerte, 0 ordre",
+   "origine": "Buffy (P4 du dossier BOUCLE_APPRENTISSAGE_DIAGNOSTIC_ET_PLAN_20260913.md §4-D)",
+   "verif": "COMPILE OK · premier cycle réel : prédiction émise (HAUSSE, close prédite 77126 $, inférence 5 s CPU) · fix pointeur open_time (close_time+1 ms) corrigé PRÉ-VERDICT (0 jugée à ce moment, aucune donnée faussée) · bouclage de notation prouvé en mémoire · plist com.ace777.kronos-ombre chargée (venv python), criticité MINEUR, registre organes découvert (90 entrées)",
+   "auto_modifiable": false,
+   "md5": "f8b11e47d3d5ae40563bf08a0d1ad9da",
+   "ts": "2026-09-13T10:39:57Z"
+  },
+  {
+   "nom": "Index_Maison/scripts/collecter_gouvernance_xrpl.py",
+   "role": "RADAR GOUVERNANCE XRPL — collecteur passif (P-XRPL-1, GO Christophe 13/09 : 7 jours, verdict J+8, 0 € + suivi des features désactivées après bug demandé le même jour) : snapshot horaire append-only des amendements xrpScan (110), watchlist institutionnelle 13, mouvements + bascules enabled, CIMETIÈRE (4 paires mort→V1_1 tracées + détection auto des nouveaux remplacements). Spéc figée en docstring AVANT le premier cycle · critère J+8 pré-enregistré (20/09) : ≥5 deltas |Δ|≥2 OU ≥1 activation OU ≥1 mort nouvelle, sinon arrêt sans 2e essai · AUCUNE alerte, 0 ordre",
+   "origine": "Buffy (cahier des charges §6ter du dossier FAITS_RETABLIS_ACE_ET_SETUP_GAGNANT_V2_20260912.md)",
+   "verif": "COMPILE OK (fix compat py3.9 Optional) · premier cycle réel 11:09Z : snapshot #1 (110 amendements, 13 watchlist, 5 déjà ACTIVÉS) · cycle launchd RunAtLoad OK · plist chargée · criticité MINEUR (49 organes) · registre organes 91 entrées",
+   "auto_modifiable": false,
+   "md5": "ed4c5b37f6bfd2131964a3299cd8da0b",
+   "ts": "2026-09-13T11:11:10Z"
+  },
+  {
+   "nom": "Index_Maison/scripts/juste_prix_btc.py",
+   "role": "Phase A boucle Dan1ro0 — capteur du juste prix BTC (prédiction 5m jugée mécaniquement)",
+   "origine": "chantier boucle-dan1ro0 (GO C. 13/09)",
+   "verif": "md5",
+   "auto_modifiable": false,
+   "md5": "62dd5fe6ac0830dc05fab828a79a9c07",
+   "note": "Spec figee AVANT 1er cycle (20:15Z). Poids fixes 0.30/0.20/0.20/0.15/0.15. Verdict 11/10: >=52% sur 200+ bougies. Un seul essai, lecture seule sur la maison."
+  },
+  {
+   "nom": "Index_Maison/PHASE_B_SPEC_EDGE_EXECUTABLE_20260913.md",
+   "role": "Phase B boucle Dan1ro0 — spec de l'edge exécutable, FIGÉE avant son GO (3 critères de verdict pré-enregistrés)",
+   "origine": "GO rédaction C. 13/09/2026",
+   "verif": "md5",
+   "auto_modifiable": false,
+   "md5": "4ee7a87552e7fac0d48dca167fa1d6dc",
+   "note": "Verdict pré-écrit §5 (3 conditions, échec = Phase C jamais exécutée). Déclenchement: verdict A du 11/10 PASSÉ + GO famille. Toute retouche post-GO = essai annulé."
+  },
+  {
+   "nom": "hulk-mexc/scripts/cortana_propose_params.py",
+   "role": "Contrat Cortana quotidien (07h45) — propose des ajustements Hulk, écrit cortana_pilot.json (ADVISORY)",
+   "origine": "chantier contrat-cortana",
+   "verif": "md5",
+   "auto_modifiable": false,
+   "md5": "146bcdafe37a715f89e929c3e026cd2c",
+   "note": "13/09: retry backoff x3 (GO C.) ajouté — les 502 passagers du hub ne tuent plus le contrat du jour."
+  },
+  {
+   "nom": "Index_Maison/TROUPEAU_INV_SPEC_20260913.md",
+   "role": "Spec figée TROUPEAU-INV (R1-R10) — monde ombre retourné en instrument. Scellée avant le premier run.",
+   "origine": "chantier troupeau-inv (GO Christophe 13/09)",
+   "verif": "md5",
+   "auto_modifiable": false,
+   "md5": "f7bd00f6615154276771b9968b9de103",
+   "note": "Re-scellée 2026-09-14T00:29Z avec amendement d'instrumentation (métrique INI v5, calibrée sur paire 0). Avant premier cycle R5."
+  },
+  {
+   "nom": "Index_Maison/scripts/troupeau_inv.py",
+   "role": "TROUPEAU-INV : paires témoin/bousculée (hub local), INI, divergence, jugement T+72h mécanique. Plist Mon/Wed/Fri 06:00.",
+   "origine": "chantier troupeau-inv (GO Christophe 13/09)",
+   "verif": "md5",
+   "auto_modifiable": false,
+   "md5": "2d5554bdad1b5c8d644b754e7e8b471e",
+   "note": "Re-scellé 2026-09-14T00:29Z. INI v5 (suffixes kmb, ±5%, ancres rondes). Calibration paire 0 : INI A = 0.0. Graine stockée en clair. | FIX 16/09 F2 (GO C.) : backoff ×3 (0,10,30) sur les appels hub — un 502 passager ne tue plus le cycle (16/09 : cycle 04:00Z mort sur un 502 unique). État dédié thermo/troupeau_inv_hub_etat.json (ok/echecs_consecutifs) — hors circuit sirène [C4]. Testé en vol : paire-009 créée, tentative 1 OK.",
+   "date": "2026-09-20T18:59Z",
+   "_rescel_20260920": " || 20/09 (Buffy) : le plist ne lance QUE --cycle → `--juger` n'était JAMAIS exécuté, donc AUCUNE paire divergente n'était jugée : paire-008 (graine 14/09 04:00Z) attendait son verdict T+72h du 17/09 depuis 3 jours, sans que rien ne le signale. Le cycle juge désormais ce qui est dû (idempotent). Verdict récupéré : paire-008 = MISS (B disait up, le marché a fait down). md5 a9ec3066 → 2d5554bd."
+  },
+  {
+   "nom": "Index_Maison/scripts/collecter_xrpl_onchain.py",
+   "role": "Collecteur passif onchain XRPL (tx/ledger, burn, offre, frais/réserves, 200 tokens) — 4e radar.",
+   "origine": "GO Christophe 14/09 (trou XRPL onchain)",
+   "verif": "md5",
+   "auto_modifiable": false,
+   "md5": "6cfb612d60cedd27fe22dab9eca137d2",
+   "note": "Réparé 2026-09-14T10:30Z : sceau initial en mauvais dialecte (ts/fichier/md5) crashait la veilleuse (KeyError 'nom'). Rescellé au dialecte maison. Par Buffy."
+  },
+  {
+   "nom": "Index_Maison/scripts/rotation_jsonl.py",
+   "role": "Rotation JSONL maison (50 Mo) — couvre rwa_yields, troupeau_inv, xrpl onchain.",
+   "origine": "GO Christophe 14/09 (rotation +troupeau_inv +xrpl_onchain)",
+   "verif": "md5",
+   "auto_modifiable": false,
+   "md5": "ed985a67f93a9fd0e9e3841705f1e572",
+   "note": "Évolution déclarée 19/09 : +journal_radar.log à la rotation (vigie, leçon 3,7 Go enfin appliquée, seuil 100 Mo). Préc. 14/09 18:35 : +x402_agentic_hist [C5]. · re-scellé 20/09 — FENÊTRE GARDÉE : la rotation ne gardait AUCUN historique récent. Prouvé le 20/09 : rotation de croisement_contexte.jsonl à 13:12:21Z (113,7 Mo) → plus que 5 heures dans le fichier vivant ; or hulk-mexc/scripts/short_btc.py exige ≥ 10 heures distinctes → score null, « historique insuffisant » : le signal short BTC était AVEUGLE ~10 h, sans que le plist (exit 0), le chien (« short-btc vivant ») ni la veilleuse ne le voient. Désormais : GARDER_HEURES (24 h) → on n'archive QUE ce qui sort de la fenêtre, et GARDER_MAX_MO (60) borne le fichier vivant — le plus contraignant des deux gagne (on ne recrée pas le JSONL de 300 Mo qui bloquait le push). Clés ajoutées : GARDER_HEURES, GARDER_MAX_MO, _offset_fenetre(), _decaler_archives() ; rotate_file(..., garder_heures=0) = comportement historique INCHANGÉ pour les logs sans lecteur. 6 cas testés hors vol sur copie (fenêtre / plafond / tout-dans-fenêtre / historique / dry-run / lignes sans ts). Réécriture EN PLACE (même inode : les écrivains gardent leur fd — leçon COPYTRUNCATE)."
+  },
+  {
+   "nom": "Index_Maison/scripts/gen_cockpit_vol.py",
+   "role": "Générateur onglet cockpit « vol » : snapshot santé/gardiens/marché/protocoles/plists → vol_live.js. Lecture seule.",
+   "origine": "GO Christophe 14/09 (onglet cockpit vol)",
+   "verif": "md5",
+   "auto_modifiable": false,
+   "md5": "0e7ff6fd7d03c090865dd856c8200f36",
+   "_rescel_20260918": "panneau « Banc 20 actifs — risque » (net / DD / net-DD, base vs notrend) + contrat de sortie des LaunchAgents (distingue alerte métier d'échec réel).",
+   "note": "Re-scellé 14/09T12:41Z après modification déclarée : suppression de la réécriture de vol.html (cache-buster déplacé côté client) — le générateur n'écrit plus que vol_live.js (non scellé, donnée vivante). Par Buffy. | 19/09 soir : + gardien « Règles d'or » (lit thermo/regles_or.json écrit par verifier_regles_or.py) — les règles d'or sont désormais VISIBLES dans la page vol. Declaré par Buffy.",
+   "maj": "Gardien « Chien de garde » RÉPARÉ 20/09/2026 : il lisait `tail -1 thermo/chien_rapport.txt`, fichier QUE PERSONNE N'ÉCRIT → stdout vide → la page affichait « rapport présent » en VERT quoi qu'il arrive (faux vert permanent sur le gardien le plus important). Il lit désormais thermo/CHIEN_RAPPORT.json : « N vivants · N hors délai · N aveugle(s) » + l'organe et son champ muet, et un rapport figé > 15 min = rouge (le chien lui-même peut mourir). · 2e passe 20/09 : la table CONTRAT_SORTIE (codes de sortie launchd voulus) est désormais LUE dans strategie/contrat_sortie.json — une seule vérité, partagée avec le chien de garde (qui juge les 44 organes sans produit sur leur sortie launchd). Repli local conservé si le fichier manque.",
+   "date": "2026-09-20T18:59Z",
+   "_rescel_20260920": "DÉCLARÉ 20/09/2026 (Buffy, GO Christophe — boucle d'alerte) : CONTRAT_SORTIE += com.ace777.verif-setup exit 1 = « preuve de lecture du coffre à refaire (gatekeeper, par conception) ». Avant, ce garde-fou légitime était affiché comme un ÉCHEC (organe cassé) alors qu'il dit « relis la carte du coffre ». md5 1b854a2b1cb820c87aeb176604634a53 → efcec0aad782deb9e01f77300007290d. Aucune autre logique modifiée. | + gardien « Repo = installation » (lit thermo/installation_repo.json écrit par installer_depuis_repo.sh) : rend visible que le fichier installé est un LIEN vers le repo (dérive impossible par construction). md5 efcec0aad782deb9e01f77300007290d → 0402336d4df5e86434955238f655a028. || 20/09 (Buffy, GO « cri vivant + revue des organes ») : + gardien « Cris en cours » (lit thermo/cris.json écrit par le chien : les cris ACTIFS à l'instant, auto-effacés, avec le fait que la voix a VRAIMENT été lancée — un cri muet est un faux cri) et + gardien « Revue des organes » (lit thermo/revue_organes.json). md5 1b7a6a40 → 1a698b3c. || 20/09 (Buffy, GO « verdicts des protocoles ») : le tableau « Protocoles en test » ne recopie plus le document du 14/09 — il lit thermo/PROTOCOLES_VERDICTS.json (verdicts MESURÉS par scripts/verdicts_protocoles.py, avec le critère pré-enregistré à côté du résultat et une ligne ⚠ quand un verdict ne peut pas être rendu). Le tableau documentaire ne sert que de repli. md5 1a698b3c → 0e7ff6fd."
+  },
+  {
+   "nom": "Index_Maison/cockpit/vol.html",
+   "role": "Page cockpit « vol » — organes en vol sous les yeux, lecture seule.",
+   "origine": "GO Christophe 14/09 (onglet cockpit vol)",
+   "verif": "md5",
+   "auto_modifiable": false,
+   "md5": "e2371d1a49e2dc9190b7925c6ee4df00",
+   "_rescel_20260918": "rendu du panneau banc/risque + badges tri-état (🟢 en vol/ok · 🟠 alerte métier · 🔴 échec réel).",
+   "note": "Re-scellé 14/09T12:40Z : le générateur ne réécrit PLUS ce fichier (cache-buster côté client, Date.now()). Defaut de conception du matin corrigé : on ne scelle pas un fichier qu'on réécrit toutes les 5 min. Par Buffy."
+  },
+  {
+   "nom": "/Users/christophe/prise-ia/hub_prise_ia.py",
+   "role": "Hub LLM Prise-IA (port 11435) — routage multi-providers, filet universel, budget/tempête.",
+   "origine": "GO Christophe 14/09 : transparence substitution de modèle",
+   "verif": "md5",
+   "auto_modifiable": false,
+   "md5": "ce5f8c180c49b839583c3fb68e44332b",
+   "note": "Scellé 14/09T12:45Z après ajout TRANSPARENCE SUBSTITUTION : événement 'substitution' au journal + champs model/model_demande/substitue dans chaque réponse HTTP. Backup /tmp/hub_prise_ia.py.bak-avant-20260914-123457. Par Buffy."
+  },
+  {
+   "nom": "Index_Maison/scripts/collecter_x402_agentic.py",
+   "role": "RADAR AGENTIQUE x402 : capte les paiements machine-a-machine XRPL (SourceTag facilitateur t54 804681468) en double capture (WebSocket live 60s + scan dernier ledger). Spec J+8 figee en docstring.",
+   "origine": "GO Christophe 14/09 (radar agentique, deep dive agentic). Buffy.",
+   "verif": "md5",
+   "auto_modifiable": false,
+   "md5": "d5c1ad846f89e2b893577c012363a50b",
+   "note": "Critere fige AVANT le 1er run : verdict 22/09 (>=50 paiements, >=5 marchands, ledgers avancent)."
+  },
+  {
+   "nom": "Index_Maison/plists/com.ace777.x402-agentic.plist",
+   "role": "Cadence horaire du radar agentique (StartInterval 3600, RunAtLoad).",
+   "origine": "GO Christophe 14/09. Buffy.",
+   "verif": "md5",
+   "auto_modifiable": false,
+   "md5": "c217c741b93f72304726d18d30891493",
+   "note": "Double depot Index_Maison/plists + LaunchAgents. Chien : organe MINEUR x402-agentic."
+  },
+  {
+   "nom": "Index_Maison/scripts/lib_dialectes.py",
+   "role": "Usine anti-R4 : bibliothèque unique des dialectes externes (décimal/hex, s/ms, pagination bougies, fetch retries). Self-test intégré.",
+   "origine": "GO Christophe 15/09 (« industrialiser »). Code rédigé par le codeur hub (Qwen3-Coder), assertion hex corrigée par Buffy, self-test vert dont pagination réelle Binance.",
+   "verif": "md5",
+   "auto_modifiable": false,
+   "md5": "63886f6682ed3e25c1124e7ec3046c06",
+   "date": "2026-09-15T07:37:06Z"
+  },
+  {
+   "nom": "Index_Maison/scripts/sentinelle_independante.py",
+   "role": "SENTINELLE INDÉPENDANTE (organe de vérité du moteur) : réconciliation PnL + positions depuis le CSV brut vs état déclaré (C1 div > 1 $, C2 qty, C3 heartbeat 30 min, C4 plancher -20 $). Test négatif passé : crie sur état falsifié. Écrit thermo/sentinelle_independante_etat.json + écrase alarme.json UNIQUEMENT sur CRITIQUE. kill_switch dans l'état (physique quand des ordres réels existeront).",
+   "origine": "GO Christophe 15/09 (« go » sur le comparatif). Unanime flotille Gemini/DeepSeek/Grok. Buffy.",
+   "verif": "md5",
+   "auto_modifiable": false,
+   "md5": "639b1f9cd16220531b291c823d863385",
+   "date": "2026-09-15T07:59:29Z",
+   "note": " · C2 AMENDÉE 20/09/2026 (Buffy, GO Christophe « trancher la sentinelle ») — la sentinelle criait CRITIQUE à une résolution que la déclaration du moteur n'a pas. Mesuré : CSV exact (seed 80.69722402 − sorties = 19.92722402) vs état déclaré 19.92 (position TRONQUÉE au pas du marché) → écart 0,0072 (0,036 %), sans trou de position. Tolérance C2 = max(1e-4×qty, pas de la valeur DÉCLARÉE, 1e-6) ; sous la tolérance mais non nul = tracé dans « c2_resolution » (explication, jamais alarme). MORDANT VÉRIFIÉ (une sortie retirée du CSV → écart 80,7 vs tolérance 0,01 → CRITIQUE). Aucune touche au moteur (scellé), lecture seule."
+  },
+  {
+   "nom": "Index_Maison/plists/com.ace777.sentinelle-independante.plist",
+   "role": "Cadence horaire de la sentinelle (StartInterval 3600, RunAtLoad). launchctl exit 0. Criticité CRITIQUE au chien (organe = stem plist, 51 vivants, grisaille vide).",
+   "origine": "GO Christophe 15/09. Buffy.",
+   "verif": "md5",
+   "auto_modifiable": false,
+   "md5": "a53719ba33764fc7ba651118921ff59a",
+   "date": "2026-09-15T07:59:29Z"
+  },
+  {
+   "nom": "Index_Maison/data/fiches_analyse/sdi_eleve.json",
+   "role": "Fiche d'analyse dédiée SDI (seuil d'origine 0,7 du 25/08) — drainage confirmé (RBF haut) / drainage froid (frais plancher) / proxy seul",
+   "origine": "GO Christophe 16/09 (« go » protocole SDI après boucle complète). Buffy.",
+   "verif": "md5",
+   "auto_modifiable": false,
+   "md5": "f97e258af8b263b443f5adb861720e78",
+   "note": "Sépare le SDI de la fiche rbf_eleve (0,3 croisé) — le faux 🔴 du 16/09 matin devient impossible. Tests : 0,604→surveiller · 0,75+RBF0,8→dangereux."
+  },
+  {
+   "nom": "Index_Maison/data/fiches_analyse/price_1h.json",
+   "role": "Fiche d'analyse price_1h (sentinel z>2, défaut neutre) — GO Christophe 16/09 (6 fiches manquantes)",
+   "origine": "GO Christophe 16/09 : couverture des métriques sentinel sans fiche",
+   "verif": "md5",
+   "auto_modifiable": false,
+   "md5": "0744a86a68d38a666dfd0a33344975b3",
+   "note": "Trigger z>2 (valeur absolue, deux sens). Questions câblées sur live.json (liq24Usd/liqLongUsd/liqShortUsd/takerRatio/longShort/fearGreed/oi/chg1h/onchain.whaleProxy*). Défaut neutre explicite (C2). | RE-SCELLÉ V1.2 2026-09-17T08:06Z (GO C.) : qids explicites snake_case (contrainte regex [a-z_0-9]+ de l'évaluateur — le camelCase famille aurait cassé le matching) + champ trigger_mode:'absolu' déclaré. Zéro ligne de code, 8/8 tests sémantiques verts (scénarios V1.1/F rejoués identiques). Backups /tmp ×7.",
+   "date": "2026-09-17T08:06Z",
+   "maj": "V1.2 2026-09-17T08:06Z"
+  },
+  {
+   "nom": "Index_Maison/data/fiches_analyse/whale_usd.json",
+   "role": "Fiche d'analyse whale_usd (sentinel z>2, défaut neutre) — GO Christophe 16/09 (6 fiches manquantes)",
+   "origine": "GO Christophe 16/09 : couverture des métriques sentinel sans fiche",
+   "verif": "md5",
+   "auto_modifiable": false,
+   "md5": "f885decc16d734023317c06c6eeb70c8",
+   "note": "Trigger z>2 (valeur absolue, deux sens). Questions câblées sur live.json (liq24Usd/liqLongUsd/liqShortUsd/takerRatio/longShort/fearGreed/oi/chg1h/onchain.whaleProxy*). Défaut neutre explicite (C2). | RE-SCELLÉ 2026-09-16T16:23:50Z : FIX F analogue 16/09 : 'ventes > 0'/'achats > 0' → 'ventes > achats'/'achats > ventes' (flux mixte annonçait toujours distribution) + lectures DOMINANT. | RE-SCELLÉ V1.2 2026-09-17T08:06Z (GO C.) : qids explicites snake_case (contrainte regex [a-z_0-9]+ de l'évaluateur — le camelCase famille aurait cassé le matching) + champ trigger_mode:'absolu' déclaré. Zéro ligne de code, 8/8 tests sémantiques verts (scénarios V1.1/F rejoués identiques). Backups /tmp ×7.",
+   "date": "2026-09-17T08:06Z",
+   "maj": "V1.2 2026-09-17T08:06Z"
+  },
+  {
+   "nom": "Index_Maison/data/fiches_analyse/fear_greed.json",
+   "role": "Fiche d'analyse fear_greed (sentinel z>2, défaut neutre) — GO Christophe 16/09 (6 fiches manquantes)",
+   "origine": "GO Christophe 16/09 : couverture des métriques sentinel sans fiche",
+   "verif": "md5",
+   "auto_modifiable": false,
+   "md5": "0a993a18a84b1109814c257e7d853fae",
+   "note": "Trigger z>2 (valeur absolue, deux sens). Questions câblées sur live.json (liq24Usd/liqLongUsd/liqShortUsd/takerRatio/longShort/fearGreed/oi/chg1h/onchain.whaleProxy*). Défaut neutre explicite (C2). | RE-SCELLÉ V1.2 2026-09-17T08:06Z (GO C.) : qids explicites snake_case (contrainte regex [a-z_0-9]+ de l'évaluateur — le camelCase famille aurait cassé le matching) + champ trigger_mode:'absolu' déclaré. Zéro ligne de code, 8/8 tests sémantiques verts (scénarios V1.1/F rejoués identiques). Backups /tmp ×7.",
+   "date": "2026-09-17T08:06Z",
+   "maj": "V1.2 2026-09-17T08:06Z"
+  },
+  {
+   "nom": "Index_Maison/data/fiches_analyse/long_short.json",
+   "role": "Fiche d'analyse long_short (sentinel z>2, défaut neutre) — GO Christophe 16/09 (6 fiches manquantes)",
+   "origine": "GO Christophe 16/09 : couverture des métriques sentinel sans fiche",
+   "verif": "md5",
+   "auto_modifiable": false,
+   "md5": "05caf3d39e8d06e77e0f0e01e9f503c3",
+   "note": "V1.1 16/09 (GO C., avis famille) : seuil equilibre 1 → 2,0 (le L/S retail est structurellement > 1 — faux positif permanent corrigé) + lectures étiquetées HYPOTHÈSE. Testé : 1,79 → fermée, 2,35 → surveiller, 0,85 → shorts. | RE-SCELLÉ V1.2 2026-09-17T08:06Z (GO C.) : qids explicites snake_case (contrainte regex [a-z_0-9]+ de l'évaluateur — le camelCase famille aurait cassé le matching) + champ trigger_mode:'absolu' déclaré. Zéro ligne de code, 8/8 tests sémantiques verts (scénarios V1.1/F rejoués identiques). Backups /tmp ×7.",
+   "date": "2026-09-17T08:06Z",
+   "maj": "V1.2 2026-09-17T08:06Z"
+  },
+  {
+   "nom": "Index_Maison/data/fiches_analyse/taker_ratio.json",
+   "role": "Fiche d'analyse taker_ratio (sentinel z>2, défaut neutre) — GO Christophe 16/09 (6 fiches manquantes)",
+   "origine": "GO Christophe 16/09 : couverture des métriques sentinel sans fiche",
+   "verif": "md5",
+   "auto_modifiable": false,
+   "md5": "2d9da15ce91824a5c91f2ea96302832e",
+   "note": "Trigger z>2 (valeur absolue, deux sens). Questions câblées sur live.json (liq24Usd/liqLongUsd/liqShortUsd/takerRatio/longShort/fearGreed/oi/chg1h/onchain.whaleProxy*). Défaut neutre explicite (C2). | RE-SCELLÉ V1.2 2026-09-17T08:06Z (GO C.) : qids explicites snake_case (contrainte regex [a-z_0-9]+ de l'évaluateur — le camelCase famille aurait cassé le matching) + champ trigger_mode:'absolu' déclaré. Zéro ligne de code, 8/8 tests sémantiques verts (scénarios V1.1/F rejoués identiques). Backups /tmp ×7.",
+   "date": "2026-09-17T08:06Z",
+   "maj": "V1.2 2026-09-17T08:06Z"
+  },
+  {
+   "nom": "Index_Maison/data/fiches_analyse/liquidations.json",
+   "role": "Fiche d'analyse liquidations (sentinel z>2, défaut neutre) — GO Christophe 16/09 (6 fiches manquantes)",
+   "origine": "GO Christophe 16/09 : couverture des métriques sentinel sans fiche",
+   "verif": "md5",
+   "auto_modifiable": false,
+   "md5": "8bd60a56383e70d677da5d1265d50c8b",
+   "note": "Trigger z>2 (valeur absolue, deux sens). Questions câblées sur live.json (liq24Usd/liqLongUsd/liqShortUsd/takerRatio/longShort/fearGreed/oi/chg1h/onchain.whaleProxy*). Défaut neutre explicite (C2). | RE-SCELLÉ 2026-09-16T16:23:50Z : FIX F revue codeur 16/09 : conditions 'cote > 0'/'shorts > 0' → 'cote > shorts'/'shorts > cote' (preuve : cascade mixte longs 2 M$/shorts 8 M$ annonçait toujours LONGS éteints) + lecture étiquetée HYPOTHÈSE. | RE-SCELLÉ V1.2 2026-09-17T08:06Z (GO C.) : qids explicites snake_case (contrainte regex [a-z_0-9]+ de l'évaluateur — le camelCase famille aurait cassé le matching) + champ trigger_mode:'absolu' déclaré. Zéro ligne de code, 8/8 tests sémantiques verts (scénarios V1.1/F rejoués identiques). Backups /tmp ×7.",
+   "date": "2026-09-17T08:06Z",
+   "maj": "V1.2 2026-09-17T08:06Z"
+  },
+  {
+   "nom": "Index_Maison/data/fiches_analyse/etat_levier.json",
+   "role": "MÉTA-FICHE État du levier (Liquidations × OI × taker) — avis famille 16/09, croisement manquant n°1. DESACTIVÉE : trigger z>999 impossible, métrique 'etat_levier' jamais émise par le sentinel → injoig",
+   "origine": "GO Christophe 16/09 (3 suggestions : V1.1 + méta-fiche + cours)",
+   "verif": "md5",
+   "auto_modifiable": false,
+   "md5": "4a359ee7ed3285080b71218ebfeb29ac",
+   "note": "MÉTA-FICHE État du levier (Liquidations × OI × taker) — avis famille 16/09, croisement manquant n°1. DESACTIVÉE : trigger z>999 impossible, métrique 'etat_levier' jamais émise par le sentinel → injoignable (testé : z 3,5/10/999/5000 → jamais ouverte). Spec figée avant son GO. | ACTIVÉE 16/09 par le chemin méta de run_analysis (GO C.). LIMITE honnête documentée : live.json n'a que l'OI instantané (pas sa variation) — conditions purge/piège approchées par le niveau 100k jusqu'à ce que le sentinel logge la direction d'OI.",
+   "date": "2026-09-16T15:54Z"
+  },
+  {
+   "nom": "Index_Maison/scripts/verifier_regles_or.py",
+   "role": "VÉRIFICATEUR DES RÈGLES D'OR (lecture seule) — 10 règles mesurables (R2,5,6,7,8,10,11,12,13,14) → thermo/REGLES_OR.md + regles_or.json",
+   "origine": "recensement RÈGLE D'OR 19/09",
+   "verif": "md5",
+   "auto_modifiable": false,
+   "md5": "35aaae76475282dc47a965faba4149b0",
+   "date": "2026-09-19T13:21Z",
+   "note": "Scellé 19/09 : l'instrument qui mesure les règles est lui-même scellé (rituel maison). R10 ajouté 19/09 soir : SATURATION DE L'HÔTE (RAM réelle via memory_pressure, swap, disque, charge) — signal SRE, distinct de R2. Appelé par git_push_auto.sh. | v3 19/09 soir : + R11 (fail-safe), R12 (sauvegarde prouvée par restauration), R13 (auto-réparation bornée), R14 (anti cry-wolf), + R7 gère les DÉROGATIONS déclarées (strategie/derogations_regles.json). | R15 19/09 : mesure « ce qui est affiché est analysé ou déclaré » (15 bulles app Indices vs rotation analyste + affichage-seul déclaré). 11 règles mesurables."
+  },
+  {
+   "nom": "Index_Maison/scripts/consulter_famille_hub.py",
+   "role": "Consultation de la FAMILLE via le hub (0 €) sous plusieurs angles — critique, contre, simple, CONTESTE. Un seul outil au lieu de 30 scripts jetables.",
+   "origine": "Buffy 19/09 (remplace les consulter_famille_<sujet>_<date>.py)",
+   "verif": "md5",
+   "auto_modifiable": false,
+   "md5": "59094f52b85145aedecc9a5d189bb552",
+   "date": "2026-09-19T12:43Z",
+   "note": "Scellé 19/09. Ajout de l'angle CONTESTE (19/09) : contester chaque règle + citer une pratique d'ingénierie reconnue + proposer la règle manquante."
+  },
+  {
+   "nom": "Index_Maison/scripts/drill_restauration.py",
+   "role": "DRILL DE RESTAURATION (lecture seule) — rebâtit les agents dans un dossier neuf, valide les plists, vérifie les scellés et les organes hors git → thermo/drill_restauration.json",
+   "origine": "solidité 19/09 (GO Christophe « go 1,2,3 »)",
+   "verif": "md5",
+   "auto_modifiable": false,
+   "md5": "d7307891e8e32b26dbf68519f5a1100c",
+   "date": "2026-09-20T18:45Z",
+   "note": "Scellé 19/09 : le drill (instrument de preuve) est scellé. Verdict READY/TROU affiché dans la page vol par gen_cockpit_vol.py.",
+   "_rescel_20260920": " || 20/09 (Buffy, GO « incassable ») : RÉPARATION D'UN FAUX VERT — le drill calculait `non_suivis_critiques` (fichiers non suivis sous Index_Maison/) mais ne le comptait PAS dans les trous : il pouvait annoncer READY alors que 27 instruments que la boucle EXÉCUTE (le chien de garde, le générateur de la page vol, la sentinelle indépendante, les moteurs croisements/paternes, preuve_lecture, verifier_regles_or, installer_depuis_repo…) n'étaient PAS dans git. Nouvelle étape `etape_instruments()` : tout script invoqué par un agent launchd, par git_push_auto.sh ou importé localement doit être suivi par git, sinon TROU. Piège corrigé au passage : les appels écrits `\"$REPO_DIR/…\"` étaient mal extraits (le $ cassait le motif) → verifier_regles_or.py et installer_depuis_repo.sh passaient au travers du détecteur. md5 145df5b7 → d7307891."
+  },
+  {
+   "nom": "Index_Maison/scripts/sync_plists.sh",
+   "role": "VERSIONNE les agents launchd installés → repo. AJOUTE les manquants, N'ÉCRASE JAMAIS un plist versionné (archive la dérive en preuve plists/_derive/, --declarer pour trancher).",
+   "origine": "solidité 19/09 (GO Christophe « go 1,2,3 »)",
+   "verif": "md5",
+   "auto_modifiable": false,
+   "md5": "237706de40e244f2b55adbfa603a75f4",
+   "date": "2026-09-19T12:43Z",
+   "note": "Scellé 19/09. v2 (19/09) : ne peut plus clobberer un scellé (la v1 avait écrasé 4 fichiers scellés → 4 INTRUSIONS, corrigé le jour même)."
+  },
+  {
+   "nom": "Index_Maison/scripts/derive_memoire.py",
+   "role": "DÉRIVE MÉMOIRE par indice (I1 fréquence · I2 contradiction · I3 âge · I4 calibration) → statut RETIRÉ si source tarie (R14)",
+   "origine": "R14 règles d'or 19/09 (GO Christophe « applique au mieux ces observations »)",
+   "verif": "md5",
+   "auto_modifiable": false,
+   "md5": "0050900b2808199fcdff82a87f5599e6",
+   "date": "2026-09-19T13:14Z",
+   "note": "R14 19/09 (suite) : garde-fou d'échantillon sur la calibration (n >= 10 pour juger CRITIQUE/INSTABLE) — sans lui, réactiver les indices fabriquait 7 faux CRITIQUE (n=2). | R14 19/09 (diagnostic geopol) : la calibration se juge désormais sur les paris DIRECTIONNELS et seulement à partir de n >= n_min_verdict (20, règle du scoreur LECON-042). En dessous : nouveau statut EN OBSERVATION (ni bon ni mauvais). Corrige le faux CRITIQUE de geopol (4 paris directionnels seulement)."
+  },
+  {
+   "nom": "Index_Maison/strategie/derogations_regles.json",
+   "role": "REGISTRE DES DÉROGATIONS DÉCLARÉES aux règles d'or (une dérogation est écrite, datée, motivée et VISIBLE — jamais cachée)",
+   "origine": "GO Christophe 19/09 (« mettre de côté inferx »)",
+   "verif": "md5",
+   "auto_modifiable": false,
+   "md5": "5625a509df3ae88a56740d40c60273eb",
+   "date": "2026-09-19T12:56Z",
+   "note": "Contient la dérogation R7 : provider inferx (payant marqué, utilisé sans facturation) toléré jusqu'à retour gratuit ou facturation."
+  },
+  {
+   "nom": "Index_Maison/strategie/branchements_declares.json",
+   "role": "R15 — déclarations « affichage seul » (ce qu'on affiche mais qu'on n'analyse pas volontairement, avec la raison)",
+   "origine": "GO Christophe 19/09 (règle d'or « toujours brancher »)",
+   "verif": "md5",
+   "auto_modifiable": false,
+   "md5": "e16040f514ef7aad57f53584781396cc",
+   "date": "2026-09-19T13:21Z",
+   "note": "2 cas : justesse (le score lui-même) et ace (statut du bot). Toute nouvelle bulle doit être branchée ou déclarée ici."
+  },
+  {
+   "nom": "Index_Maison/strategie/sens_declares.json",
+   "role": "SENS DÉCLARÉS — pour chaque organe sensible, LE champ qui prouve qu'il peut encore décider (et la fenêtre tolérée). Lu par chien_de_garde.py.",
+   "origine": "Buffy 20/09/2026 (GO Christophe « doit tout être incassable auto-réparant »)",
+   "verif": "md5",
+   "auto_modifiable": false,
+   "md5": "750b2c9948fec548e4fcfdfed9344193",
+   "date": "2026-09-20T18:14Z",
+   "note": "Déclaré 20/09. Découvre la famille de panne « organe VIVANT mais AVEUGLE » : process OK, produit frais, launchd exit 0 — et la décision ne sort plus. Prouvée ce jour par le signal short BTC (score nul ~5 h après la rotation de croisement_contexte.jsonl, sans un cri). 3 sens déclarés, chacun justifié : short-btc (score, jsonl 45 min), verdicteur-micro (pct, exiger_si n_alertes>=1, 120 min), kronos-ombre (derniere.ts_emission, 150 min). Un organe absent d'ici n'est PAS jugé aveugle : on ne devine pas."
+  },
+  {
+   "nom": "Index_Maison/strategie/contrat_sortie.json",
+   "role": "CONTRAT DE SORTIE — codes de sortie launchd non nuls DÉCLARÉS par conception (canal d'alerte). Lu par le chien de garde ET la page vol.",
+   "origine": "Buffy 20/09/2026 (GO Christophe « incassable ») — extrait de gen_cockpit_vol.py en UNE SEULE VÉRITÉ",
+   "verif": "md5",
+   "auto_modifiable": false,
+   "md5": "5d68e1dcf77e7b8c792c1df3cda1551b",
+   "date": "2026-09-20T18:16Z",
+   "note": "Déclaré 20/09 : 3 cas voulus (veilleuse=1 anomalies détectées, discipline-quotidienne=3 alertes de discipline, verif-setup=1 preuve de lecture à refaire). Sert au chien pour ne plus classer 46 organes chargés en « non surveillés » : il lit la dernière sortie launchd et distingue un code VOULU d'un échec réel."
+  },
+  {
+   "nom": "Index_Maison/scripts/revue_organes.py",
+   "role": "Revue des 99 organes : compare ce que le registre DÉCLARE (cadence, produit) à ce que le disque PROUVE (déclencheur réel du plist, résolution du produit, contenu qui avance). Lecture seule sur la maison : n'écrit que thermo/revue_organes.json + REVUE_ORGANES.md.",
+   "origine": "GO Christophe 20/09/2026 « passer les autres organes en revue » (boucle incassable auto-réparante)",
+   "verif": "md5",
+   "auto_modifiable": false,
+   "md5": "301784718b629a9c693b70c4da57fb27",
+   "date": "2026-09-20T18:43Z",
+   "note": "Une seule vérité : la résolution des produits est celle du chien de garde (chien_de_garde.resoudre_chemin_produit) — deux résolutions divergentes jugeraient deux choses différentes. Un écart n'est pas une panne, c'est une déclaration à faire (strategie/revue_declares.json). Lancée par git_push_auto.sh toutes les 3 h."
+  },
+  {
+   "nom": "Index_Maison/scripts/verdicts_protocoles.py",
+   "role": "Rend les verdicts des protocoles en test depuis leurs critères PRÉ-ENREGISTRÉS (troupeau-inv T+72h/≥20 cas, RWA J+8 ≥3 pools ≥50 bps, XRPL J8, arbitrage LLM-vs-règle, geopol 4 semaines, paternes-btc n≥30, MiroFish). Lecture seule sur la maison.",
+   "origine": "GO Christophe 20/09/2026 « me donner les résultats en profondeur des protocoles en test — verdicts »",
+   "verif": "md5",
+   "auto_modifiable": false,
+   "md5": "4fb835ecd3b09a063e6e7a41af1e9973",
+   "date": "2026-09-20T18:59Z",
+   "note": "Un protocole dont le verdict ne peut pas être rendu est signalé (IMPOSSIBLE/⚠), jamais présenté comme « ça suit son cours ». Lancé par git_push_auto.sh toutes les 3 h."
+  },
+  {
+   "nom": "hulk-mexc/scripts/chiffrage_sortie_calibree.py",
+   "role": "Chiffrage en $ de la sortie calibrée sur les MÊMES entrées réelles du journal (0 ordre, recherche pure)",
+   "origine": "créé 21/09 (GO Christophe « 1 »)",
+   "verif": "md5",
+   "auto_modifiable": false,
+   "md5": "6fa5265325ffcfe92753e21c4a194d10",
+   "date": "2026-09-21T08:02Z",
+   "note": "A montré que le levier est l'ENTRÉE, pas la sortie : C entrée-creux+2 % = +30,48 $ vs A +23,14 $ (réalisé) ; B/D sortie au pic perdent ~17 $.",
+   "maj": "Création 2026-09-21, en vol"
+  },
+  {
+   "nom": "hulk-mexc/scripts/carte_paires.py",
+   "role": "Génère la carte datée par paire (fenêtres creux/pic recalculées 7j glissants) lue par le moteur → strategie/carte_fenetres_entree.json",
+   "origine": "créé 21/09 (GO Christophe « 1 »)",
+   "verif": "md5",
+   "auto_modifiable": false,
+   "md5": "de88d75b5aea28db13075f2f44f56af5",
+   "date": "2026-09-21T08:02Z",
+   "note": "Aucune heure figée ; alimente la garde d'entrée du moteur.",
+   "maj": "Création 2026-09-21, en vol"
+  }
+ ]
 }

@@ -105,6 +105,57 @@ def mode_entree(pair: str) -> str:
     + pullback) — jamais en COOLING/WATCH/QUIET. Découverte EDEL : cet actif ne bouge
     que par rafales IMPULSE (m6 70% vs 4%), donc entrer hors rafale = acheter du mort."""
     return str(((_profils().get(pair) or {}).get("calib") or {}).get("mode_entree") or "")
+
+
+# === FENÊTRE D'ENTRÉE AU CREUX (21/09/2026, GO Christophe) ===
+# Mesuré en dollars sur les 111 entrées réelles du journal (`chiffrage_sortie_calibree.py`) :
+# entrer dans la fenêtre de CREUX (recalculée) au lieu des heures réelles vaut +32 % à
+# notionnels identiques, la sortie +2 % INCHANGÉE (variante C). La carte est DATÉE et
+# recalculée (`strategie/carte_fenetres_entree.json`) — jamais un seuil figé.
+# Absente/périmée/paire inconnue → on le DIT et on CONTINUE (fail-open, jamais de refus
+# silencieux). ENTREE_FENETRE_ON=0 la désactive en une ligne.
+_CARTE_ENTREE_CACHE: dict = {}
+_CARTE_ENTREE_TS = 0.0
+_CARTE_ENTREE_TTL = 3600.0        # relecture à chaud au plus 1×/h (finition quotidienne)
+_CARTE_ENTREE_PERIMEE_H = 168.0   # au-delà de 7 j, la carte est déclarée périmée
+
+
+def _carte_entree() -> dict:
+    global _CARTE_ENTREE_CACHE, _CARTE_ENTREE_TS
+    now = time.time()
+    if _CARTE_ENTREE_CACHE and now - _CARTE_ENTREE_TS < _CARTE_ENTREE_TTL:
+        return _CARTE_ENTREE_CACHE
+    p = ROOT / "strategie" / "carte_fenetres_entree.json"
+    try:
+        _CARTE_ENTREE_CACHE = json.loads(p.read_text()) if p.exists() else {}
+    except Exception:
+        _CARTE_ENTREE_CACHE = {}
+    _CARTE_ENTREE_TS = now
+    return _CARTE_ENTREE_CACHE
+
+
+def fenetre_entree_ok(pair: str) -> tuple[bool, str]:
+    """True si l'heure UTC courante ∈ fenêtre de creux de CETTE paire. Fail-open déclaré."""
+    carte = _carte_entree()
+    ent = (carte.get("paires") or {}).get(pair)
+    if not ent:
+        return True, "carte_absente"
+    ts = carte.get("ts")
+    if ts:
+        try:
+            age_h = (datetime.now(timezone.utc) - datetime.strptime(
+                ts, "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=timezone.utc)).total_seconds() / 3600.0
+            if age_h > _CARTE_ENTREE_PERIMEE_H:
+                return True, f"carte_perimee({age_h:.0f}h)"
+        except Exception:
+            pass
+    fen = [str(x) for x in (ent.get("fenetre_entree_utc") or [])]
+    if not fen:
+        return True, "carte_sans_fenetre"
+    h = f"{datetime.now(timezone.utc).hour:02d}"
+    if h in fen:
+        return True, "fenetre_ok"
+    return False, f"hors_fenetre({h}h!=creux{'/'.join(fen)})"
 # Kill-switch global : même sémantique que la veilleuse (touch → tous les bots s'arrêtent)
 STOP_ALL = Path.home() / "ace777-test-day1" / "Index_Maison" / "STOP_ALL"
 
@@ -643,6 +694,11 @@ class PaperBot:
         # d'acheter le couteau ; dès CONFIRME/ACHETE, l'entrée redevient libre.
         # ON par défaut (appliqué) ; PLANCHER_GATE_ON=0 le désactive en 1 ligne.
         self.plancher_gate_on = cfg.get("PLANCHER_GATE_ON", "1").strip() not in ("0", "false", "False")
+        # === FENÊTRE D'ENTRÉE AU CREUX (21/09/2026, GO Christophe) — carte_fenetres_entree.json ===
+        # Mesuré : entrer dans la fenêtre de creux au lieu des heures réelles = +32 % à
+        # notionnels identiques (sortie +2 % inchangée). ON par défaut ; ENTREE_FENETRE_ON=0
+        # la désactive en 1 ligne. Fail-open si la carte est absente/périmée (déclaré).
+        self.entree_fenetre_on = cfg.get("ENTREE_FENETRE_ON", "1").strip() not in ("0", "false", "False")
         self._plancher_hist = (
             Path(__file__).resolve().parents[1].parent
             / "Index_Maison" / "data" / "plancher_confirme_hist.jsonl"
@@ -2476,6 +2532,17 @@ class PaperBot:
                 sc.get("cadence_pct"), f"MODE_REGIME:IMPULSE_ONLY({regime})",
             )
             return
+        # FENÊTRE D'ENTRÉE AU CREUX (21/09/2026, GO Christophe) : n'entrer QUE dans la
+        # fenêtre de creux recalculée de CETTE paire (+32 % mesuré, sortie inchangée).
+        # Fail-open : carte absente/périmée/paire inconnue → on le log et on continue.
+        if self.entree_fenetre_on:
+            _fok, _fwhy = fenetre_entree_ok(pair)
+            if not _fok:
+                self.log(
+                    pair, "SKIP", regime, price, price, 0.0, 0.0,
+                    sc.get("cadence_pct"), f"FENETRE_ENTREE:{_fwhy}",
+                )
+                return
         if pair in self.pos or pair in self.bags:
             return
         # FILTRE MURS (24/08, codeur) : ne PAS acheter si la sonde aspiration a
