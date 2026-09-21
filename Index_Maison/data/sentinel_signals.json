@@ -1,27 +1,6 @@
 {
   "signals": [
     {
-      "metric": "price_1h",
-      "zscore": 4.774137420113118,
-      "value": 0.8990383879919239,
-      "analysis": "{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le prix sur 1 h montre un z‑score de 4.77, indiquant une pression d'achat anormalement forte probablement liée à une accumulation de baleines. L'absence de couverture médiatique suggère que ce mouvement se produit discrètement, renforçant l'hypothèse d'une activité silencieuse haussière plutôt que d'un bruit de marché.\"\n}",
-      "ts": "2026-09-21T08:32:40.121714+00:00"
-    },
-    {
-      "metric": "long_short",
-      "zscore": -2.914328410294626,
-      "value": 0.866,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Le z-score extrêmement bas (-2.91) indique une position vendeuse excessive et une capitulation de la foule (bearish narrative). Historiquement, un tel pessimisme extrême combiné à un ratio L/S de 0.866 signpare un 'short squeeze' imminent orchestré par les baleines.\"\n}\n```",
-      "ts": "2026-09-21T08:37:42.408334+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": 2.375050699200979,
-      "value": 9981187797.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique de volume onchain sans aucun rapport avec les actualités médias, lesquelles traitent de caravanes, de jardinage et d'horlogerie. Bruit de fond ou manipulation technique isolée.\"\n}\n```",
-      "ts": "2026-09-21T08:42:44.590798+00:00"
-    },
-    {
       "metric": "liquidations",
       "zscore": 2.552389930207427,
       "value": 5378322.0,
@@ -349,6 +328,27 @@
       "value": 0.9,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Anomalie statistique (z-score 2.35) causée par une confusion homonymique : les flux 'ipt' détectés n'ont aucun lien avec la crypto mais font référence à l'Institut Pasteur de Tunis (IPT) ou au Tournoi International des Physiciens dans les médias. Bruit de fond, pas de mouvement de baleine.\"\n}\n```",
       "ts": "2026-09-21T20:57:29.165633+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.4911099817535227,
+      "value": 0.96,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (IPT) confondue avec un acronyme académique/institutionnel sans lien avec la crypto. Bruit médiatique sans substance financière.\"\n}\n```",
+      "ts": "2026-09-21T21:32:43.962208+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 2.1542232860364545,
+      "value": 0.016,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Le SDI mentionné dans les médias correspond au Syndicat des Indépendants (TPE en France) et non à un indicateur on-chain ou à une baleine crypto. Anomalie de sémantique, aucune donnée crypto pertinente.\"\n}\n```",
+      "ts": "2026-09-21T21:47:47.299158+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 3.1080696487580153,
+      "value": 1.183,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Anomalie statistique (z-score 3.11) entièrement due à un bruit médiatique sur des homonymes (Institut Pasteur de Tunis, Tournoi International des Physiciens) et non à une activité onchain de baleines crypto sur le ticker IPT.\"\n}\n```",
+      "ts": "2026-09-21T22:07:51.221539+00:00"
     }
   ]
 }
