@@ -498,6 +498,15 @@
       "mode": "produit",
       "chemin_pouls_ou_produit": "/Users/christophe/ace777-test-day1/Index_Maison/thermo/sentinelle_independante_etat.json",
       "commentaire": "Réconciliation PnL/positions depuis CSV brut. CRITIQUE : c'est l'organe de vérité du moteur."
+    },
+    {
+      "organe": "carte-paires",
+      "criticite": "MOYEN",
+      "tolerance_mult": 2.0,
+      "frequence_attendue_sec": 86400,
+      "mode": "produit",
+      "chemin_pouls_ou_produit": "hulk-mexc/strategie/carte_fenetres_entree.json",
+      "commentaire": "carte_paires.py (Calendrier quotidien 04:20) · produit = la carte des fenêtres creux/pic lue par la porte d'entrée du moteur (paper_diprip) · la porte est fail-open au-delà de 7 j, le chien crie dès > 2 j."
     }
   ],
   "updated": "2026-09-20 (boucle d'alerte : gitpush-vault pouls honnête + réinstallation geopol/croisements-indices)"

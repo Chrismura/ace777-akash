@@ -4,7 +4,7 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<meta name="version" content="2610341318">
+<meta name="version" content="2062583039">
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate" />
@@ -13,13 +13,13 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Share+Tech+Mono&family=Caveat:wght@600;700&display=swap" rel="stylesheet" />
-<script src="mission.js?v=1789977842"></script>
+<script src="mission.js?v=1789988664"></script>
 <!-- COSMOS HUB feed -->
-<script src="hub.js?v=1789977842"></script>
-<script src="../thermo/live.js?v=1789977842"></script>
-<script src="../thermo/cortana_feed.js?v=1789977842"></script>
-<script src="sante_live.js?v=1789977842"></script>
-<script src="veille_institutionnelle.js?v=1789977842"></script>
+<script src="hub.js?v=1789988664"></script>
+<script src="../thermo/live.js?v=1789988664"></script>
+<script src="../thermo/cortana_feed.js?v=1789988664"></script>
+<script src="sante_live.js?v=1789988664"></script>
+<script src="veille_institutionnelle.js?v=1789988664"></script>
 <style>
 :root{
   --ink:#050804; --panel:#0a100c; --line:#3a2e14;
@@ -1164,7 +1164,7 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
     50% { opacity: 1; }
 }
 </style>
-<script src="plancher_live.js?v=1789977842"></script>
+<script src="plancher_live.js?v=1789988664"></script>
 </head>
 <body>
 <div class="app">
@@ -2081,7 +2081,12 @@ window.addEventListener('unhandledrejection', function(e) {
             + ` <span class="hsub">· budget ${vsH.nbPaires!=null?vsH.nbPaires:'—'} cryptos × ${usd(vsH.margeParCrypto||20)} marge = ${usd(vsH.budgetTotal)}</span>`
             + ` <span class="hsub">· cash réel ${vsH.cash!=null?usd(vsH.cash):'—'}</span>`
             + ((vsH.cashPaper!=null&&vsH.cash!=null&&Math.abs(vsH.cashPaper-vsH.cash)>0.05)?` <span class="hsub">(paper ${usd(vsH.cashPaper)})</span>`:'')
-            + ((vsH.overBudget&&vsH.overBudget.length>0)?` <span style="color:var(--warn,orange)">⚠ hors budget : ${vsH.overBudget.map(p=>p.replace('USDT','')).join(', ')}</span>`:'')
+            // Le compounding est un LEVIER VOULU (avec l'amplitude) : entre l'enveloppe
+            // de présentation (seed+marge) et le plafond RÉEL du moteur (base×3), c'est du
+            // compounding — on le DÉCLARE. On ne crie ⚠ qu'au-delà du plafond moteur.
+            + ((vsH.overBudget&&vsH.overBudget.length>0)?` <span style="color:var(--warn,orange)">⚠ au-delà du plafond moteur : ${vsH.overBudget.map(p=>p.replace('USDT','')).join(', ')}</span>`:'')
+            + ((vsH.compoundActif&&vsH.compoundActif.length>0)?` <span class="wpos" title="Le PnL réalisé regrossit la taille des prochains trades (levier voulu, borné à ${vsH.compoundMaxMult||3}× la base de ${usd(vsH.baseMoteur||30)}). Ce n'est pas un dérapage de budget.">· compounding actif : ${vsH.compoundActif.map(p=>p.replace('USDT','')).join(', ')}</span>`:'')
+            + (vsH.notionalLive!=null?` <span class="hsub">· mise ${usd(vsH.notionalLive)} / plafond ${usd(vsH.plafondParPaire||0)}</span>`:'')
             + ` <span class="hsub">· brut ${usd(h.pnl)} · frais ${h.fees!=null?('$'+Number(h.fees).toFixed(3)):'—'} · slippage ${h.slippageEstimated!=null?('$'+Number(h.slippageEstimated).toFixed(3)):'—'} · net estimé ${h.pnlNetEstimated!=null?('$'+Number(h.pnlNetEstimated).toFixed(3)):'—'}</span>`;
         } else if(vsNote){
           vsNote.textContent='';
@@ -2101,10 +2106,11 @@ window.addEventListener('unhandledrejection', function(e) {
             const clsE=ec!=null?(ec>0.05?'wpos':(ec<-0.05?'wneg':'wneu')):'wneu';
             const arrowE=ec!=null?(ec>0?'↑':(ec<0?'↓':'')):'';
             const over=!!p.over;
+            const comp=!!p.compound;
             const posCls=(p.pos!=null&&p.seed!=null)?(p.pos>p.seed+0.01?'wpos':(p.pos<p.seed-0.01?'wneg':'wneu')):'wneu';
             const cashCls=(p.cash!=null&&p.cash>0)?'wpos':'wneu';
             return `<tr class="${over?'hrow over':''}">
-              <td class="hc"><span class="hcn">${crypto}</span>${over?' <span class="hsub" style="color:var(--warn,orange)">⚠</span>':''}</td>
+              <td class="hc"><span class="hcn">${crypto}</span>${over?' <span class="hsub" style="color:var(--warn,orange)">⚠</span>':''}${comp?' <span class="hsub wpos" title="compounding actif : la taille a grossi avec le PnL réalisé (levier voulu)">↗</span>':''}</td>
               <td class="hq" title="Bag au début : quantité seedée + valeur en $">${fmtQty(p.seedQty)} <span class="hsub">${p.seed!=null?usd(p.seed):''}</span></td>
               <td class="hs ${posCls}" title="Bag actuel : quantité restante + valeur au cours — vert si le prix monte">${p.posQty!=null&&p.posQty>0?fmtQty(p.posQty):'—'} <span class="hsub">${p.pos!=null?usd(p.pos):''}</span></td>
               <td class="hs ${cashCls}" title="Cash réel de la paire (comment Hulk gère la trésorerie)">${p.cash!=null?usd(p.cash):'—'}</td>
@@ -2139,7 +2145,9 @@ window.addEventListener('unhandledrejection', function(e) {
             <td class="hc" colspan="2"><span class="hcn">AU DÉBUT</span> <span class="hsub">marge ${vsH.margeParCrypto!=null?usd(vsH.margeParCrypto):'20$'} × ${vsH.nbPaires!=null?vsH.nbPaires:'—'} cryptos</span></td>
             <td class="hq" colspan="7"><b>${vsH.budgetTotal!=null?usd(vsH.budgetTotal):'—'}</b> <span class="hsub">= seeds ${usd(totSeed)} + marge ${usd((vsH.margeParCrypto||20)*(vsH.nbPaires||0))}</span></td>
           </tr>`;
-          if(scrNote) scrNote.textContent='· bags '+usd(totPos)+' + cash '+usd(totCash)+' = '+usd(vsH.reel!=null?vsH.reel:0)+' · '+(vsH.overBudget&&vsH.overBudget.length?vsH.overBudget.length+' hors budget':'0 hors budget');
+          if(scrNote) scrNote.textContent='· bags '+usd(totPos)+' + cash '+usd(totCash)+' = '+usd(vsH.reel!=null?vsH.reel:0)
+            +' · '+(vsH.compoundActif&&vsH.compoundActif.length?vsH.compoundActif.length+' compounding actif':'0 compounding')
+            +' · '+(vsH.overBudget&&vsH.overBudget.length?vsH.overBudget.length+' AU-DELÀ du plafond moteur':'0 hors plafond');
           // À RETENIR : la lecture du tableau en 1-2 phrases (calculée en direct).
           const readEl=document.getElementById('h-score-read');
           if(readEl&&vsH.pairs&&vsH.pairs.length){

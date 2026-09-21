@@ -1,15 +1,15 @@
 {
   "version": "v2",
   "n": 346,
-  "total_hit": 85,
-  "total_scored": 205,
-  "pct": 41.5,
+  "total_hit": 86,
+  "total_scored": 209,
+  "pct": 41.1,
   "directionnel": {
-    "hit": 47,
-    "n": 87,
-    "pct": 54.0
+    "hit": 51,
+    "n": 91,
+    "pct": 56.0
   },
-  "t_stat_global": -2.44,
+  "t_stat_global": -2.56,
   "par_ere": {
     "avant_1908": {
       "hit": 34,
@@ -20,8 +20,8 @@
       "n": 31
     },
     "depuis_0309": {
-      "hit": 37,
-      "n": 115
+      "hit": 38,
+      "n": 119
     }
   },
   "seuil_move_pct": 0.3,
@@ -55,21 +55,22 @@
       "n_min_verdict": 20
     },
     "chg24": {
-      "hit": 0,
-      "n": 2,
-      "dir_n": 1,
+      "hit": 1,
+      "n": 3,
+      "dir_n": 2,
+      "dir_hit": 1,
       "neutre": 1,
-      "t_stat": -1.41,
+      "t_stat": -0.58,
       "verdict": null,
       "n_min_verdict": 20
     },
     "croisements": {
-      "hit": 8,
-      "n": 17,
-      "dir_n": 10,
-      "dir_hit": 7,
+      "hit": 9,
+      "n": 18,
+      "dir_n": 11,
+      "dir_hit": 8,
       "neutre": 7,
-      "t_stat": -0.24,
+      "t_stat": 0.0,
       "verdict": null,
       "n_min_verdict": 20
     },
@@ -100,22 +101,22 @@
       "n_min_verdict": 20
     },
     "fearGreed": {
-      "hit": 29,
-      "n": 60,
-      "dir_n": 36,
-      "dir_hit": 20,
+      "hit": 30,
+      "n": 61,
+      "dir_n": 37,
+      "dir_hit": 21,
       "neutre": 24,
-      "t_stat": -0.26,
+      "t_stat": -0.13,
       "verdict": "zone grise",
       "n_min_verdict": 20
     },
     "geopol": {
-      "hit": 4,
+      "hit": 3,
       "n": 18,
       "dir_n": 4,
       "dir_hit": 1,
       "neutre": 14,
-      "t_stat": -2.36,
+      "t_stat": -2.83,
       "verdict": null,
       "n_min_verdict": 20
     },
@@ -173,28 +174,28 @@
       "n_min_verdict": 20
     },
     "pipeline_health": {
-      "hit": 1,
+      "hit": 0,
       "n": 2,
       "neutre": 2,
-      "t_stat": 0.0,
+      "t_stat": -1.41,
       "verdict": null,
       "n_min_verdict": 20
     },
     "radar": {
-      "hit": 24,
-      "n": 54,
-      "dir_n": 21,
-      "dir_hit": 9,
+      "hit": 25,
+      "n": 55,
+      "dir_n": 22,
+      "dir_hit": 10,
       "neutre": 33,
-      "t_stat": -0.82,
-      "verdict": "SOUS LE HASARD <45 %",
+      "t_stat": -0.67,
+      "verdict": "zone grise",
       "n_min_verdict": 20
     },
     "rbf": {
-      "hit": 1,
+      "hit": 0,
       "n": 2,
       "neutre": 2,
-      "t_stat": 0.0,
+      "t_stat": -1.41,
       "verdict": null,
       "n_min_verdict": 20
     },
@@ -233,9 +234,9 @@
     "avis": "NEUTRE",
     "horizon": "24h",
     "confiance": "faible",
-    "statut": "HIT ✅",
-    "detail": "81600 -> 81479 (-0.15%)",
-    "move_pct": -0.15,
+    "statut": "MISS ❌",
+    "detail": "81600 -> 81919 (+0.39%)",
+    "move_pct": 0.39,
     "indice_move_pct": null
   },
   "zone_morte": {
@@ -249,5 +250,5 @@
     "seuil_pct": 60.0,
     "note": "NEUTRE émis alors que le signal existe — si >60% des avis, alarme évitement"
   },
-  "ts": "2026-09-21T07:46:20.492523+00:00"
+  "ts": "2026-09-21T08:16:41.459950+00:00"
 }

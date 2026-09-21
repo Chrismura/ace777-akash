@@ -1,73 +1,7 @@
 {
-  "timestamp": 1789977687,
-  "date": "2026-09-21T08:01:27.663604+00:00",
-  "n_analyses": 2,
-  "analyses": [
-    {
-      "signal": {
-        "metric": "liquidations",
-        "zscore": -2.2983706248430233,
-        "value": 1150460.0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Divergence totale : le z-score des liquidations crypto (-2.30) montre un calme plat absolu sur la blockchain, tandis que le bruit médiatique concerne des faillites d'entreprises traditionnelles et des fonds en Turquie. Les baleines ne subissent aucune pression vendeuse.\"\n}\n```",
-        "ts": 1789976240.452977
-      },
-      "fiche": "liquidations",
-      "questions": {
-        "longs": {
-          "value": 783535.0,
-          "seuil": 0,
-          "depasse": true
-        },
-        "shorts": {
-          "value": 351444.0,
-          "seuil": 0,
-          "depasse": true
-        },
-        "prix": {
-          "value": -0.02,
-          "seuil": 1,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "longs > shorts",
-        "lecture": "Liquidations massives de LONGS — cascade baissière mécanique. Historiquement suit un creux proche quand le volume liq retombe (HYPOTHÈSE, pas une loi : une cascade peut en cacher une autre)",
-        "niveau": "surveiller",
-        "action": "Ne pas vendre dans la cascade ; préparer les paliers plancher si la paire est sur watchlist"
-      },
-      "action": "Ne pas vendre dans la cascade ; préparer les paliers plancher si la paire est sur watchlist",
-      "niveau": "surveiller"
-    },
-    {
-      "signal": {
-        "metric": "long_short",
-        "zscore": -3.265054688167939,
-        "value": 0.873,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Le ratio Long/Short atteint un z-score extrêmement bas (-3.27), signalant un positionnement excessivement vendeur de la foule (retail) et une peur panique médiatique ('les ours prennent le contrôle'). Historiquement, un tel capitulation des shorts par les baleines crée un déséquilibre parfait pour un 'short squeeze' imminent.\"\n}\n```",
-        "ts": 1789976241.909266
-      },
-      "fiche": "long_short",
-      "questions": {
-        "ratio_long_short": {
-          "value": 0.873,
-          "seuil": 2,
-          "depasse": false
-        },
-        "oi": {
-          "value": 109685.301,
-          "seuil": 120000,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "ratio_long_short < 1",
-        "lecture": "HYPOTHÈSE (heuristique) : foule en short sous la norme structurelle — carburant haussier (risque de squeeze à la hausse)",
-        "niveau": "surveiller",
-        "action": "Ne pas vendre les paliers RIP trop tôt si le prix repart"
-      },
-      "action": "Ne pas vendre les paliers RIP trop tôt si le prix repart",
-      "niveau": "surveiller"
-    }
-  ],
-  "resume": "🟡 SURVEILLANCE — des signaux sont à observer"
+  "timestamp": 1789988490,
+  "date": "2026-09-21T11:01:30.990579+00:00",
+  "n_analyses": 0,
+  "analyses": [],
+  "resume": "Aucune analyse en cours"
 }

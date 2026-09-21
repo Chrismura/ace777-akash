@@ -808,11 +808,37 @@ def load_hulk():
                 if cash_par_paire[_pair] < nadir_par_paire[_pair]:
                     nadir_par_paire[_pair] = cash_par_paire[_pair]
     # valeur Hulk + HOLD par paire (même budget, tenu au seed_px)
+    # ——— PLAFOND RÉEL DU MOTEUR (21/09, Christophe : « LE COMPOUNDING EST À LA
+    # BASE DE LA STRATÉGIE AVEC L'AMPLITUDE, nos DEUX leviers principaux ») ———
+    # L'enveloppe de présentation (seed + marge) sert à COMPARER à capital égal ;
+    # elle n'est PAS la limite de risque du moteur. Le vrai plafond est celui que
+    # le moteur applique lui-même : base × COMPOUND_MAX_MULT (le PnL réalisé
+    # regrossit la taille, borné 3×). Donc :
+    #   net > budget            → du COMPOUNDING (comportement voulu, on l'affiche)
+    #   net > plafond moteur    → là seulement, une VRAIE brèche (on crie)
+    # Une alarme qui sonne pour un comportement normal tue la confiance dans
+    # l'alarme (leçon R14). Le compounding ne se plafonne pas : il se déclare.
+    _base_moteur = float(out.get("base") or 0.0) or 30.0
+    _c_on, _c_frac, _c_mult = 1.0, 0.50, 3.0
+    _env = ROOT / "hulk-mexc" / "config" / "defaults.env"
+    try:
+        for _l in _env.read_text(encoding="utf-8", errors="ignore").splitlines():
+            _l = _l.strip()
+            if _l.startswith("COMPOUND_ON="):
+                _c_on = float(_l.split("=", 1)[1])
+            elif _l.startswith("COMPOUND_FRAC="):
+                _c_frac = float(_l.split("=", 1)[1])
+            elif _l.startswith("COMPOUND_MAX_MULT="):
+                _c_mult = float(_l.split("=", 1)[1])
+    except Exception:
+        pass
+    plafond_par_paire = _base_moteur * _c_mult if _c_on else _base_moteur
     reel_par_paire: dict[str, float] = {}
     hold_par_paire: dict[str, float] = {}
     seed_par_paire: dict[str, float] = {}
     pos_par_paire: dict[str, float] = {}
     over_budget: list[str] = []
+    compound_actif: list[str] = []
     for _pair in _all_pairs:
         _qty = float((pos_all.get(_pair) or {}).get("qty") or 0.0)
         _mark = mark_by_pair.get(_pair)
@@ -835,8 +861,11 @@ def load_hulk():
             hold_par_paire[_pair] = (_seed_qty * _mark) + MARGE_PAR_CRYPTO
         else:
             hold_par_paire[_pair] = _budget
-        if net_investi.get(_pair, 0.0) > _budget + 0.01:
-            over_budget.append(_pair)
+        _net = net_investi.get(_pair, 0.0)
+        if _net > plafond_par_paire + 0.01:
+            over_budget.append(_pair)          # vraie brèche : au-delà du plafond moteur
+        elif _net > _budget + 0.01:
+            compound_actif.append(_pair)       # compounding : voulu, borné, déclaré
     reel_w = sum(reel_par_paire.values())
     stat_w = sum(hold_par_paire.values())
     cash_reel = sum(cash_par_paire.values())
@@ -869,6 +898,14 @@ def load_hulk():
         "nbPaires": len(_all_pairs),
         "budgetTotal": round(sum(budget_par_paire.values()), 2),
         "overBudget": over_budget,
+        # compounding déclaré (levier, pas dérive) + le plafond qui va avec
+        "compoundActif": compound_actif,
+        "compoundOn": bool(_c_on),
+        "compoundFrac": _c_frac,
+        "compoundMaxMult": _c_mult,
+        "baseMoteur": round(_base_moteur, 2),
+        "plafondParPaire": round(plafond_par_paire, 2),
+        "notionalLive": out.get("notional"),
         "pairs": sorted(
             [
                 {
@@ -883,7 +920,10 @@ def load_hulk():
                     "reel": round(reel_par_paire.get(_p, 0.0), 2),
                     "hold": round(hold_par_paire.get(_p, 0.0), 2),
                     "ecart": round(reel_par_paire.get(_p, 0.0) - hold_par_paire.get(_p, 0.0), 2),
-                    "over": net_investi.get(_p, 0.0) > budget_par_paire.get(_p, 0.0) + 0.01,
+                    "over": net_investi.get(_p, 0.0) > plafond_par_paire + 0.01,
+                    "compound": (budget_par_paire.get(_p, 0.0) + 0.01
+                                 < net_investi.get(_p, 0.0)
+                                 <= plafond_par_paire + 0.01),
                 }
                 for _p in _all_pairs
             ],

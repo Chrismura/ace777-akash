@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-20 18:40:20 UTC",
+  "generated_at": "2026-09-21 08:15:16 UTC",
   "md5_plists": {
     "com.ace777.veilleuse-chantiers.plist": "262c920e46d03823b9110ea50544b2b9",
     "com.ace777.cockpit-pont.plist": "256a0cef699c414269896e46018f72b6",
@@ -13,6 +13,7 @@
     "com.ace777.pont-onchain.plist": "f84d6acfcf839832ec91c31ef341e7fe",
     "com.ace777.couleur-regime-score.plist": "80f9f449e2a4a29a1ea38ac80f8ec6ab",
     "com.ace777.observatoire.plist": "8fc086180f1e9f02d8b333ba1cb8b33f",
+    "com.ace777.carte-paires.plist": "aefbb85bffa1cc9d56564d63a22a1730",
     "com.ace777.xrpl-onchain.plist": "bb3ab163919fb83b7ba1dd495e450a20",
     "com.ace777.catalogue.plist": "aa1132c09bb5b8cfa2810fb8a4e9c8f0",
     "com.ace777.sniffer-ny.plist": "e1c7ffbc6396aa713610a8dae4ec53f1",
@@ -250,6 +251,19 @@
       "frequence_attendue_sec": 86400,
       "plist": "com.ace777.observatoire.plist",
       "declencheur": "Calendrier quotidien 11:00",
+      "cadence_plist_sec": 86400,
+      "zone_grise": false
+    },
+    {
+      "organe": "carte-paires",
+      "criticite": "MOYEN",
+      "tolerance_mult": 2.0,
+      "frequence_attendue_sec": 86400,
+      "mode": "produit",
+      "chemin_pouls_ou_produit": "hulk-mexc/strategie/carte_fenetres_entree.json",
+      "commentaire": "carte_paires.py (Calendrier quotidien 04:20) \u00b7 produit = la carte des fen\u00eatres creux/pic lue par la porte d'entr\u00e9e du moteur (paper_diprip) \u00b7 la porte est fail-open au-del\u00e0 de 7 j, le chien crie d\u00e8s > 2 j.",
+      "plist": "com.ace777.carte-paires.plist",
+      "declencheur": "Calendrier quotidien 04:20",
       "cadence_plist_sec": 86400,
       "zone_grise": false
     },

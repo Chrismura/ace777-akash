@@ -1,13 +1,14 @@
-# 🩺 DRILL DE RESTAURATION — ✅ **READY**
+# 🩺 DRILL DE RESTAURATION — 🔴 **TROU**
 
-> Testé le **2026-09-21T08:04Z** · mode **lecture seule** (rien installé, rien modifié).
+> Testé le **2026-09-21T11:04Z** · mode **lecture seule** (rien installé, rien modifié).
 > Question posée : *« si le Mac mourait ce soir, ACE777 reviendrait-il ? »*
 
 ## 1. Source — le repo (git) contient-il tout ?
-- Branche `main` · HEAD `0580560307` du 2026-09-21T07:04:07+02:00
-- Fichiers suivis modifiés sur disque : **128**
+- Branche `main` · HEAD `79deb6de99` du 2026-09-21T10:04:18+02:00
+- Fichiers suivis modifiés sur disque : **125**
 - Fichiers suivis **supprimés** (perdus) : **0**
-- Nouveaux fichiers non versionnés : 26503 au total, dont **39 sensibles** (scripts/plists/règles)
+- Nouveaux fichiers non versionnés : 26567 au total, dont **40 sensibles** (scripts/plists/règles)
+  - `Index_Maison/plists/com.ace777.carte-paires.plist`
   - `Index_Maison/scripts/CONSULTATION_FAMILLE_CORTANA_JUGE_CONTRE/AVIS_DEEPSEEK.md`
   - `Index_Maison/scripts/CONSULTATION_FAMILLE_CORTANA_JUGE_CONTRE/AVIS_GEMINI.md`
   - `Index_Maison/scripts/CONSULTATION_FAMILLE_CORTANA_JUGE_CONTRE/AVIS_JUGE.md`
@@ -22,23 +23,23 @@
   - `Index_Maison/scripts/audit_gros_coups_v2.py`
   - `Index_Maison/scripts/audit_pires_trades.py`
   - `Index_Maison/scripts/backtest_regime.py`
-  - `Index_Maison/scripts/carte_organes.py`
 
 ### 1bis. Instruments de la boucle — ce que la boucle EXÉCUTE est-il versionné ?
-- Scripts/exécutables invoqués par un agent ou par `git_push_auto.sh` : **131**
-- ✅ **0 instrument hors git** — tout ce que la boucle exécute revient avec git.
+- Scripts/exécutables invoqués par un agent ou par `git_push_auto.sh` : **132**
+- 🔴 **1 NON versionnés** → un Mac mort les perdrait, et la boucle ne redémarrerait pas :
+  - `hulk-mexc/scripts/carte_paires.py`
 - Hors repo (volet « organes hors repo » ci-dessous) : 2
 
 ## 2. Agents launchd — reconstructibles ?
-- Installés : **99** · versionnés : **99**
+- Installés : **100** · versionnés : **100**
 - ✅ **0 agent hors repo** — tous reconstructibles.
 
 ## 3. Reconstruction dans un dossier neuf
-- Dossier : `/var/folders/y7/571v2gy574z72zvsgqd46wd40000gn/T/drill_restauration_8co3enoi/LaunchAgents`
-- Plists rebâtis + validés (`plutil -lint`) : **99/99**
+- Dossier : `/var/folders/y7/571v2gy574z72zvsgqd46wd40000gn/T/drill_restauration_n_o7bw10/LaunchAgents`
+- Plists rebâtis + validés (`plutil -lint`) : **100/100**
 
 ## 4. Organes invoqués par les agents
-- Chemins **dans le repo** (reviennent avec git) : **97**
+- Chemins **dans le repo** (reviennent avec git) : **98**
 - Chemins **hors repo** (à sauvegarder autrement, git ne les ramène PAS) : **9**
 
   **Organes du projet hors git** (git ne les ramène PAS → il faut une autre source) :
@@ -51,7 +52,7 @@
   | `~/prise-ia` | `prise-ia` | surveille | ✅ miroir de sauvegarde (organes_hors_repo/prise-ia) |
   | `~/prise-ia/routeur_auto.py` | `routeur-auto` | argument | ✅ miroir de sauvegarde (organes_hors_repo/prise-ia) |
 
-  Manifeste des organes hors repo : `thermo/organes_hors_repo.json` (mis à jour 2026-09-21T05:04Z).
+  Manifeste des organes hors repo : `thermo/organes_hors_repo.json` (mis à jour 2026-09-21T08:04Z).
 
   Outillage système hors repo (4) — réinstallable (Homebrew/Xcode CLT), non bloquant : `/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/Resources/Python.app/Contents/MacOS/Python`, `/Library/Developer/CommandLineTools/usr/bin/python3`, `/opt/homebrew/bin/npm`, `/opt/homebrew/bin/uv`
 - ✅ Aucun chemin invoqué introuvable.
@@ -60,7 +61,8 @@
 - Entrées md5 vérifiées : **96** · écarts : **0** · absents : **0**
 
 ## 6. Verdict
-- ✅ **READY** — le prototype est reconstructible depuis le repo.
+- 🔴 **1 trou(s) à combler :**
+  - 1 instrument(s) que la boucle EXÉCUTE et qui ne sont PAS dans git → perdus à la restauration (hulk-mexc/scripts/carte_paires.py)
 
 ---
 *Rapport généré par `scripts/drill_restauration.py` (lecture seule). Relancer après toute modification d'organe : un drill, ça se répète.*
