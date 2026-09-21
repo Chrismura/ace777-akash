@@ -1,65 +1,93 @@
 {
-  "timestamp": 1789943777,
-  "date": "2026-09-20T22:36:17.521027+00:00",
-  "n_analyses": 4,
+  "timestamp": 1789956081,
+  "date": "2026-09-21T02:01:21.214681+00:00",
+  "n_analyses": 3,
   "analyses": [
     {
       "signal": {
-        "metric": "liquidations",
-        "zscore": 2.6281280316883526,
-        "value": 4764278.0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie onchain de liquidations crypto de 4.7M$ totalement éclipsée par un bruit médiatique macroéconomique et judiciaire traditionnel sans rapport avec les marchés crypto.\"\n}\n```",
-        "ts": 1789942062.451065
+        "metric": "fear_greed",
+        "zscore": -3.7626978003610545,
+        "value": 70,
+        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-3.76) malgré une avidité élevée (70) et un vide médiatique total (Google Actualités). Divergence classique de piège à liquidité : le marché retail est complaisant sans couverture narrative, suggérant une distribution silencieuse des baleines.\"\n}\n```",
+        "ts": 1789955138.172534
       },
-      "fiche": "liquidations",
+      "fiche": "fear_greed",
       "questions": {
-        "longs": {
-          "value": 1787098.0,
-          "seuil": 0,
+        "peur": {
+          "value": 70,
+          "seuil": 25,
           "depasse": true
         },
-        "shorts": {
-          "value": 1575005.0,
-          "seuil": 0,
-          "depasse": true
-        },
-        "prix": {
-          "value": 0.29,
-          "seuil": 1,
+        "cupidite": {
+          "value": 70,
+          "seuil": 75,
           "depasse": false
         }
       },
       "interpretation": {
-        "condition": "longs > shorts",
-        "lecture": "Liquidations massives de LONGS — cascade baissière mécanique. Historiquement suit un creux proche quand le volume liq retombe (HYPOTHÈSE, pas une loi : une cascade peut en cacher une autre)",
-        "niveau": "surveiller",
-        "action": "Ne pas vendre dans la cascade ; préparer les paliers plancher si la paire est sur watchlist"
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
       },
-      "action": "Ne pas vendre dans la cascade ; préparer les paliers plancher si la paire est sur watchlist",
-      "niveau": "surveiller"
+      "action": "Observer",
+      "niveau": "neutre"
     },
     {
       "signal": {
-        "metric": "ipt",
-        "zscore": 2.137260737000339,
-        "value": 0.765,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.14) liée à une collision sémantique de l'acronyme 'IPT' (Tournoi de Physique, violences, institut protestant) et non à une baleine crypto. Bruit médiatique sans substance financière.\"\n}\n```",
-        "ts": 1789942665.29604
+        "metric": "price_1h",
+        "zscore": 4.3226948512692775,
+        "value": 0.7938249536887487,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (4.32) indiquant un mouvement de prix anormalement fort en 1h, conjugué à un silence total des médias (Google Actualités vide). C'est la signature classique d'accumulation furtive par des baleines avant toute couverture médiatique.\"\n}\n```",
+        "ts": 1789955741.496351
+      },
+      "fiche": "price_1h",
+      "questions": {
+        "pct_1h": {
+          "value": -0.85,
+          "seuil": -1,
+          "depasse": true
+        },
+        "liq": {
+          "value": 3927510.0,
+          "seuil": 5000000,
+          "depasse": false
+        },
+        "funding": {
+          "value": 6.9e-05,
+          "seuil": 0,
+          "depasse": true
+        }
+      },
+      "interpretation": {
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
+      },
+      "action": "Observer",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "volume",
+        "zscore": 3.7330592116599024,
+        "value": 9600105075.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 3.73) entièrement due à du bruit sémantique hors-sujet dans les médias (caravanes, football, foires-expos). Aucune corrélation avec une activité de baleine crypto.\"\n}\n```",
+        "ts": 1789956043.707355
       },
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": 0.29,
+          "value": -0.85,
           "seuil": 1,
           "depasse": false
         },
         "paires": {
-          "value": 0,
+          "value": null,
           "seuil": 3,
           "depasse": false
         },
         "funding": {
-          "value": 3.8e-05,
+          "value": 6.9e-05,
           "seuil": 0.001,
           "depasse": false
         },
@@ -76,97 +104,7 @@
       },
       "action": "Observer",
       "niveau": "neutre"
-    },
-    {
-      "signal": {
-        "metric": "cpfp",
-        "zscore": 2.0807839185966492,
-        "value": 35.0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Le pic de CPFP (Child-Pays-For-Parent) on-chain est un artéfact technique lié à la congestion du réseau Bitcoin (utilisateurs déboguant des transactions bloquées), et non à une accumulation ou distribution massive de baleines. Le bruit médiatique (éducation, politique locale) n'a aucun lien avec un mouvement macro de smart money.\"\n}\n```",
-        "ts": 1789943569.818085
-      },
-      "fiche": "blocs_privilises",
-      "questions": {
-        "duree": {
-          "value": 0,
-          "seuil": 0,
-          "depasse": false
-        },
-        "volume": {
-          "value": 375,
-          "seuil": 0,
-          "depasse": true
-        },
-        "prix": {
-          "value": 0.29,
-          "seuil": 0,
-          "depasse": true
-        },
-        "sdi": {
-          "value": 0.004,
-          "seuil": 0,
-          "depasse": true
-        },
-        "rbf": {
-          "value": 0.0,
-          "seuil": 0,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "duree < 5min ET volume > 100",
-        "lecture": "Consolidation exchange — probablement un transfert hot→cold",
-        "niveau": "neutre",
-        "action": "Garder les positions"
-      },
-      "action": "Garder les positions",
-      "niveau": "neutre"
-    },
-    {
-      "signal": {
-        "metric": "dust",
-        "zscore": 2.0807839185966492,
-        "value": 35.0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Faux positif absolu. Le z-score élevé est déclenché par une homonymie pure entre la terminologie crypto 'dust' et une entreprise SaaS française homonyme ('Dust') ainsi que des phénomènes météorologiques, sans aucun lien onchain avec des mouvements de baleines.\"\n}\n```",
-        "ts": 1789943571.538865
-      },
-      "fiche": "blocs_privilises",
-      "questions": {
-        "duree": {
-          "value": 0,
-          "seuil": 0,
-          "depasse": false
-        },
-        "volume": {
-          "value": 375,
-          "seuil": 0,
-          "depasse": true
-        },
-        "prix": {
-          "value": 0.29,
-          "seuil": 0,
-          "depasse": true
-        },
-        "sdi": {
-          "value": 0.004,
-          "seuil": 0,
-          "depasse": true
-        },
-        "rbf": {
-          "value": 0.0,
-          "seuil": 0,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "duree < 5min ET volume > 100",
-        "lecture": "Consolidation exchange — probablement un transfert hot→cold",
-        "niveau": "neutre",
-        "action": "Garder les positions"
-      },
-      "action": "Garder les positions",
-      "niveau": "neutre"
     }
   ],
-  "resume": "🟡 SURVEILLANCE — des signaux sont à observer"
+  "resume": "🔵 CALME — pas de signal alarmant"
 }
