@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-21T18:06:55.618174+00:00",
+  "generated_at": "2026-09-21T18:07:25.885187+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 161
+      "calls_24h": 162
     },
     {
       "id": "openrouter-free",
@@ -265,10 +265,18 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 128,
-    "remaining": 496
+    "consumed": 129,
+    "remaining": 495
   },
   "queue": [
+    {
+      "ts": "2026-09-21T18:07:18.525609+00:00",
+      "task": "supervise.decision",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 3.04
+    },
     {
       "ts": "2026-09-21T18:06:50.616515+00:00",
       "task": "analyse.profonde",
@@ -380,17 +388,15 @@
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
       "duration_s": 1.09
-    },
-    {
-      "ts": "2026-09-21T16:04:59.286655+00:00",
-      "task": "analyse.profonde",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 1.2
     }
   ],
   "events": [
+    {
+      "ts": "2026-09-21T18:07:18.524938+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
     {
       "ts": "2026-09-21T18:06:50.615836+00:00",
       "kind": "message",
@@ -444,12 +450,6 @@
       "kind": "failover",
       "title": "Bascule depuis InferX DeepSeek V4 Flash (API gratuite jusqu'au 12/08)",
       "detail": "HTTP Error 429: Too Many Requests"
-    },
-    {
-      "ts": "2026-09-21T18:02:38.304626+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis OpenRouter Juge (nemotron-3-super-120b free) - verificateur independant",
-      "detail": "HTTP Error 400: Bad Request"
     }
   ],
   "tasks_quotas": {
