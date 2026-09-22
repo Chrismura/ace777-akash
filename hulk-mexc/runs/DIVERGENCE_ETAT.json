@@ -1,27 +1,41 @@
 {
-  "ts": "2026-09-22T04:55:48.886486+00:00",
+  "ts": "2026-09-22T10:55:50.876380+00:00",
   "statut": "FRAIS",
-  "age_rapport_h": 0.0,
+  "age_rapport_h": 6.0,
   "bascules": [
     {
       "pair": "HBARUSDT",
+      "avant": "neutre",
+      "maintenant": "LEADER",
+      "corr_avant": 0.104,
+      "corr_maintenant": 0.177
+    },
+    {
+      "pair": "REDUSDT",
       "avant": "LEADER",
       "maintenant": "neutre",
-      "corr_avant": 0.177,
-      "corr_maintenant": 0.104
+      "corr_avant": 0.381,
+      "corr_maintenant": 0.076
     },
     {
       "pair": "WUSDT",
-      "avant": "neutre",
-      "maintenant": "POMPE_PIEGE",
-      "corr_avant": -0.133,
-      "corr_maintenant": -0.181
+      "avant": "POMPE_PIEGE",
+      "maintenant": "neutre",
+      "corr_avant": -0.181,
+      "corr_maintenant": -0.019
+    },
+    {
+      "pair": "ZBCNUSDT",
+      "avant": "POMPE_PIEGE",
+      "maintenant": "neutre",
+      "corr_avant": -0.231,
+      "corr_maintenant": -0.114
     }
   ],
   "principe": "RIEN N'EST STATIQUE — signal suivi tant que les chiffres le confirment, abandonné dès inversion",
   "message": "🟢 Pattern divergence suivi et à jour.",
   "leaders": [
-    "REDUSDT"
+    "HBARUSDT"
   ],
   "pompes_pieges": [
     "BIOUSDT",
@@ -38,31 +52,29 @@
     "RWAINCUSDT",
     "RWAUSDT",
     "TELUSDT",
-    "WUSDT",
-    "XRPUSDT",
-    "ZBCNUSDT"
+    "XRPUSDT"
   ],
   "stabilite": {
-    "BIOUSDT": 6,
-    "BTCUSDT": 6,
-    "CCUSDT": 3,
-    "CHIPUSDT": 6,
+    "BIOUSDT": 7,
+    "BTCUSDT": 7,
+    "CCUSDT": 4,
+    "CHIPUSDT": 7,
     "EDELUSDT": 0,
-    "ETHUSDT": 6,
-    "FLUIDUSDT": 6,
-    "HBARUSDT": 0,
-    "KITEUSDT": 6,
-    "MNSRYUSDT": 3,
-    "PYTHUSDT": 6,
-    "QNTUSDT": 6,
-    "REDUSDT": 6,
-    "RIZEUSDT": 2,
-    "RWAINCUSDT": 6,
-    "RWAUSDT": 6,
-    "TELUSDT": 6,
-    "WUSDT": 1,
-    "XRPUSDT": 6,
-    "ZBCNUSDT": 6
+    "ETHUSDT": 7,
+    "FLUIDUSDT": 7,
+    "HBARUSDT": 1,
+    "KITEUSDT": 7,
+    "MNSRYUSDT": 4,
+    "PYTHUSDT": 7,
+    "QNTUSDT": 7,
+    "REDUSDT": 0,
+    "RIZEUSDT": 3,
+    "RWAINCUSDT": 7,
+    "RWAUSDT": 7,
+    "TELUSDT": 7,
+    "WUSDT": 0,
+    "XRPUSDT": 7,
+    "ZBCNUSDT": 0
   },
   "recommande": "OBSERVER"
 }

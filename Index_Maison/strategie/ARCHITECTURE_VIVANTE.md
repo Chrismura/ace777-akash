@@ -1,4 +1,4 @@
-# ARCHITECTURE VIVANTE — ACE777 (2026-09-22 10:04 UTC)
+# ARCHITECTURE VIVANTE — ACE777 (2026-09-22 11:04 UTC)
 
 > Document GÉNÉRÉ AUTOMATIQUEMENT à l'instant. La famille valide
 > en s'appuyant sur CE contexte, pas sur des documents figés.
@@ -9,7 +9,7 @@
 - ✅ radar
 - ⛔ lecteur signets
 - ⛔ générateur fiches
-- ⛔ feed mission
+- ✅ feed mission
 - ✅ serveur cockpit
 
 ## Routage des tâches de décision
@@ -22,11 +22,11 @@
 
 ## État de la mission (bots + PnL)
 
-- mission.json : 2026-09-22 10:03Z · run `MASTER_BASE_V8_6_FORTRESS_8H20` · alerte `nominal`
+- mission.json : 2026-09-22 11:03Z · run `MASTER_BASE_V8_6_FORTRESS_8H20` · alerte `nominal`
 - PnL combiné : **0.70 $** 📈 (combo 0.7028)
 - ALPHA (sniper (embuscade, ×13, revenge si claque)) : **-1.97 $** · 7 fills · 6973 skips
 - BETA (éclaireur (chatouille le marché, alimente Alpha)) : **+2.67 $** · 34 fills · 604 skips
-- HULK (gestionnaire de portefeuille (bag, escalier, courreur)) : **+33.57 $** · 0 fills
+- HULK (gestionnaire de portefeuille (bag, escalier, courreur)) : **+37.06 $** · 0 fills
 - Saison : CALME 🧊 · 
 
 ## Veille du jour
@@ -66,10 +66,10 @@
 ## Mémoire chaude (journal + résumés)
 
 - Radar (dernières alertes) :
-  · 2026-09-22T10:04:07.827784Z BTCUSDT 86187.6 0.0001 1.9 declenche=non
-  · 2026-09-22T10:04:07.954173Z BTCUSDT 86187.59 0.0001 1.9 declenche=non
-  · 2026-09-22T10:04:09.122182Z BTCUSDT 86187.6 0.0001 2.0 declenche=non
-  · 2026-09-22T10:04:09.363692Z BTCUSDT 86187.6 0.0001 2.1 declenche=non
+  · 2026-09-22T11:04:17.863177Z ETHUSDT 2744.99 0.0002 11.1 declenche=non
+  · 2026-09-22T11:04:17.863331Z ETHUSDT 2744.99 0.0002 11.1 declenche=non
+  · 2026-09-22T11:04:18.155110Z ETHUSDT 2745.0 0.0002 11.1 declenche=non
+  · 2026-09-22T11:04:18.228509Z BTCUSDT 85993.4 0.0000 3.7 declenche=non
 - Intention en cours : BETA a sonde le marche (34 sondes, 25 long / 9 court, conf m | ALPHA attend son signal — aucun tir sur la session en cours.
 - 946 signets X résumés (quota aujourd'hui : 0/50)
 - 127 fiches IA d'offres en cache (quota 8/jour)
