@@ -4927,3 +4927,12 @@ Pas d’ordre — confrontation plus tard.
 ### 2026-09-22T19:41:59Z — ALERT auto
 - RWAINCUSDT: IMPULSE_WAIT — spike en cours, pas chase
 (compléter: confirmé ? risque ?)
+
+### 2026-09-22T20:28:42Z — ALERT auto
+- EDELUSDT: WATCH_PULLBACK — tension haute + reflux
+- TELUSDT: IMPULSE_WAIT — spike en cours, pas chase
+(compléter: confirmé ? risque ?)
+
+### 2026-09-22T20:48:43Z — ALERT auto
+- RIZEUSDT: IMPULSE_WAIT — spike en cours, pas chase
+(compléter: confirmé ? risque ?)
