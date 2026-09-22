@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "sdi",
-      "zscore": 2.0369062052911855,
-      "value": 0.016,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 75,\n  \"reason\": \"Les médias focalisent sur des sujets réglementaires (factures, TPE, transparence salariale) sans lien direct avec l'anomalie onchain (SDI élevé). Divergence suggestive d'une accumulation silencieuse par les baleines pendant que l'attention médiatique est ailleurs.\"\n}\n```",
-      "ts": "2026-09-21T22:33:04.389492+00:00"
-    },
-    {
       "metric": "ipt",
       "zscore": 2.358963381609483,
       "value": 1.008,
@@ -349,6 +342,13 @@
       "value": 0.016,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Faux positif absolu. Le signal onchain 'SDI' est ici pollué par une collision lexicale avec l'actualité politique française (Syndicat des Indépendants) et le matériel vidéo (Blackmagic SDI). Aucune activité de baleine crypto détectée.\"\n}\n```",
       "ts": "2026-09-22T17:00:25.749590+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 2.0965468026816363,
+      "value": 0.016,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 75,\n  \"reason\": \"Divergence notable entre l'alerte onchain (z-score significatif) et des titres médiatiques non corrélés. Les baleines pourraient agir discrètement sur un sujet non couvert par les médias traditionnels.\"\n}\n```",
+      "ts": "2026-09-22T17:35:57.089895+00:00"
     }
   ]
 }

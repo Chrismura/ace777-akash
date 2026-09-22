@@ -1,5 +1,5 @@
 {
-  "ts": "2026-09-22T17:15:21+00:00",
+  "ts": "2026-09-22T18:14:59+00:00",
   "note": "Verdicts MESURÉS à la source (scripts/verdicts_protocoles.py). Chaque protocole porte son critère pré-enregistré : c'est lui qui décide, pas l'impression du moment. Un verdict « IMPOSSIBLE » ou une ligne « alerte » signale un protocole dont le verdict ne peut pas être rendu — c'est une panne de conception, pas une patience.",
   "protocoles": [
     {
@@ -171,7 +171,7 @@
     {
       "protocole": "Radar XRPL gouvernance",
       "critere": "J8 pré-enregistré : (a) ≥ 5 amendements dont le compteur bouge de ≥ 2 votes, OU (b) ≥ 1 activation, OU (c) ≥ 1 amendement mort ; sinon échec",
-      "faits": "204 snapshots · 112 amendements suivis · (a) 5 bougent de ≥ 2 (il en fallait 5) · (b) 0 activation · (c) 0 mort · 2 nouveau(x)",
+      "faits": "205 snapshots · 112 amendements suivis · (a) 5 bougent de ≥ 2 (il en fallait 5) · (b) 0 activation · (c) 0 mort · 2 nouveau(x)",
       "verdict": "SUCCES (critère atteint)",
       "alerte": "",
       "detail": [
@@ -180,15 +180,15 @@
           "delta_votes": 10
         },
         {
-          "amendement": "BatchV1_1",
-          "delta_votes": 4
-        },
-        {
           "amendement": "DynamicMPT",
           "delta_votes": 4
         },
         {
           "amendement": "ConfidentialTransfer",
+          "delta_votes": 4
+        },
+        {
+          "amendement": "BatchV1_1",
           "delta_votes": 4
         },
         {
@@ -200,11 +200,11 @@
           "delta_votes": 1
         },
         {
-          "amendement": "fixBatchInnerSigs",
+          "amendement": "PermissionDelegation",
           "delta_votes": 0
         },
         {
-          "amendement": "Sponsor",
+          "amendement": "fixXChainRewardRounding",
           "delta_votes": 0
         }
       ]
@@ -244,7 +244,7 @@
           "indice": "croisements",
           "directionnels": 13,
           "corect": 10,
-          "n": 21
+          "n": 22
         },
         {
           "indice": "etfBtcM",
@@ -281,7 +281,7 @@
     {
       "protocole": "Geopol (réanimé)",
       "critere": "GEOPOL-C2/C3 : avis geopol noté vs BTC 2×/jour, fenêtre 4 semaines (→ ~10/10), critère P3 ≥ 56 %",
-      "faits": "score actuel 0.2476 « attention » (ML 0.1779) · 20 avis enregistrés dont 4 directionnels (1 correct(s)) · 16 NEUTRE",
+      "faits": "score actuel 0.3477 « calme » (ML 0.1770) · 20 avis enregistrés dont 4 directionnels (1 correct(s)) · 16 NEUTRE",
       "verdict": "EN ATTENTE (fenêtre jusqu'au ~10/10)",
       "alerte": "1 avis correct sur 4 directionnels : à cette cadence le critère ne sera pas tranchable dans la fenêtre",
       "detail": [

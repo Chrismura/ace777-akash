@@ -1,20 +1,20 @@
 {
   "geopol": {
-    "score": 0.2476,
-    "ml_score": 0.1779,
-    "niveau": "attention",
-    "emoji": "🟡",
+    "score": 0.3477,
+    "ml_score": 0.177,
+    "niveau": "calme",
+    "emoji": "🟢",
     "ml": {
-      "label": 1,
-      "label_nom": "attention",
-      "label_emoji": "🟡",
-      "probability": 0.5236,
-      "confidence": 0.5236,
-      "risk_score": 0.1779,
+      "label": 0,
+      "label_nom": "calme",
+      "label_emoji": "🟢",
+      "probability": 0.5156,
+      "confidence": 0.5156,
+      "risk_score": 0.177,
       "probas": {
-        "calme": 0.4714,
-        "attention": 0.5236,
-        "alerte": 0.005,
+        "calme": 0.5156,
+        "attention": 0.4378,
+        "alerte": 0.0467,
         "critique": 0.0
       },
       "feature_importances": {
@@ -54,11 +54,16 @@
         }
       },
       "jets_adsb": {
-        "score": 0.5,
+        "score": 0.0061,
         "categorie": "geopol",
         "source": "OpenSky Network",
-        "interpretation": "Erreur: <urlopen error [Errno 8] nodename nor servname provided, or not known>",
-        "features": {}
+        "interpretation": "🟢 CALME — Trafic normal autour de DC. Rien d'inhabituel.",
+        "features": {
+          "military_surge": 0.0,
+          "military_ratio": 0.0,
+          "altitude_avg": 0.0,
+          "velocity_avg": 0.0613
+        }
       },
       "oil_price": {
         "score": 0.3055,
@@ -73,38 +78,38 @@
         }
       },
       "defense_stocks": {
-        "score": 0.195,
+        "score": 0.3295,
         "categorie": "geopol",
         "source": "Yahoo Finance",
-        "interpretation": "🟢 CALME — Secteur défense stable. Rien d'inhabituel.",
+        "interpretation": "🟡 ATTENTION — Légère hausse du secteur défense. À surveiller.",
         "features": {
-          "sector_avg_change": 0.375,
+          "sector_avg_change": 0.2758,
           "sector_breadth": 0.0,
-          "max_stock_move": 0.0,
-          "sector_correlation": 0.3
+          "max_stock_move": 0.346,
+          "sector_correlation": 1.0
         }
       },
       "news_sentiment": {
-        "score": 0.0,
+        "score": 0.86,
         "categorie": "geopol",
         "source": "Google News RSS",
-        "interpretation": "🟢 CALME — Sentiment neutre ou positif. Rien d'inhabituel.",
+        "interpretation": "🚨 KILL SWITCH — Sentiment extrêmement négatif. 8 mots-clés de crise détectés. Réduire les positions. Ne pas trader.",
         "features": {
-          "negative_ratio": 0.0,
-          "keyword_hits": 0.0,
-          "source_diversity": 0.0,
+          "negative_ratio": 1.0,
+          "keyword_hits": 0.8,
+          "source_diversity": 1.0,
           "abstract_negativity": 0.0,
-          "neg_geo_raw": 0.0,
+          "neg_geo_raw": 0.75,
           "neg_neutre_raw": 0.0
         }
       }
     },
-    "alerte": null,
+    "alerte": "🟢 news_sentiment: 🚨 KILL SWITCH — Sentiment extrêmement négatif. 8 mots-clés de crise détectés. Réduire les positions. Ne pas trader.",
     "nb_modules": 5,
-    "nb_ok": 4,
+    "nb_ok": 5,
     "scores_par_categorie": {
-      "geopol": 0.2476
+      "geopol": 0.3477
     },
-    "ts": "2026-09-21T17:41:07.903576+00:00"
+    "ts": "2026-09-22T17:41:22.941809+00:00"
   }
 }
