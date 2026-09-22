@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-22T23:16:07.805262+00:00",
+  "generated_at": "2026-09-22T23:16:38.069816+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 116
+      "calls_24h": 117
     },
     {
       "id": "openrouter-free",
@@ -265,10 +265,18 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 123,
-    "remaining": 501
+    "consumed": 124,
+    "remaining": 500
   },
   "queue": [
+    {
+      "ts": "2026-09-22T23:16:35.210925+00:00",
+      "task": "supervise.decision",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 0.91
+    },
     {
       "ts": "2026-09-22T23:16:07.746065+00:00",
       "task": "supervise.decision",
@@ -380,17 +388,15 @@
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
       "duration_s": 3.72
-    },
-    {
-      "ts": "2026-09-22T18:32:04.388967+00:00",
-      "task": "cortana.analyse",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 3.1
     }
   ],
   "events": [
+    {
+      "ts": "2026-09-22T23:16:35.210227+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
     {
       "ts": "2026-09-22T23:16:07.745555+00:00",
       "kind": "message",
@@ -441,12 +447,6 @@
     },
     {
       "ts": "2026-09-22T23:09:52.079088+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis NVIDIA DeepSeek-Coder 6.7B (code, via NIM)",
-      "detail": "HTTP Error 404: Not Found"
-    },
-    {
-      "ts": "2026-09-22T23:09:50.727152+00:00",
       "kind": "failover",
       "title": "Bascule depuis NVIDIA DeepSeek-Coder 6.7B (code, via NIM)",
       "detail": "HTTP Error 404: Not Found"
