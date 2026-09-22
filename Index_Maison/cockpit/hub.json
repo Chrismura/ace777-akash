@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-22T23:07:02.485477+00:00",
+  "generated_at": "2026-09-22T23:16:07.805262+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 117
+      "calls_24h": 116
     },
     {
       "id": "openrouter-free",
@@ -265,10 +265,18 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 122,
-    "remaining": 502
+    "consumed": 123,
+    "remaining": 501
   },
   "queue": [
+    {
+      "ts": "2026-09-22T23:16:07.746065+00:00",
+      "task": "supervise.decision",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 0.97
+    },
     {
       "ts": "2026-09-22T22:16:27.476125+00:00",
       "task": "supervise.decision",
@@ -380,76 +388,68 @@
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
       "duration_s": 3.1
-    },
-    {
-      "ts": "2026-09-22T18:31:57.168945+00:00",
-      "task": "cortana.analyse",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 22.67
     }
   ],
   "events": [
     {
-      "ts": "2026-09-22T23:06:13.274940+00:00",
+      "ts": "2026-09-22T23:16:07.745555+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
+    {
+      "ts": "2026-09-22T23:16:06.776433+00:00",
+      "kind": "blacklist",
+      "title": "Fin de pause Google Gemini",
+      "detail": "re-essai automatique"
+    },
+    {
+      "ts": "2026-09-22T23:09:57.243280+00:00",
       "kind": "http",
       "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
       "detail": ""
     },
     {
-      "ts": "2026-09-22T23:06:13.274575+00:00",
+      "ts": "2026-09-22T23:09:57.242642+00:00",
       "kind": "error",
       "title": "Toutes les IA ont echoue",
       "detail": "Google Gemini: HTTP Error 429: Too Many Requests | Groq (LLM ultra-rapide, gratuit): HTTP Error 404: Not Found | HuggingFace (136+ modeles, dont DeepSeek-V4): HTTP Error 400: Bad Request | OrcaRouter (routeur gratuit, modele orcarouter/free): HTTP Error 429: Too Many Requests | OpenRouter Juge (nemotron-3-super-120b free) - verificateur independant: HTTP Error 400: Bad Request | InferX DeepSeek V4 Flash (API gratuite jusqu'au 12/08): HTTP Error 429: Too Many Requests | InferX Qwen3-Coder-Next (c"
     },
     {
-      "ts": "2026-09-22T23:06:13.271610+00:00",
+      "ts": "2026-09-22T23:09:57.240082+00:00",
       "kind": "failover",
       "title": "Bascule depuis InferX Devstral-2-123B (code)",
       "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-09-22T23:06:07.539355+00:00",
+      "ts": "2026-09-22T23:09:56.952654+00:00",
+      "kind": "http",
+      "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
+      "detail": ""
+    },
+    {
+      "ts": "2026-09-22T23:09:56.952075+00:00",
+      "kind": "error",
+      "title": "Toutes les IA ont echoue",
+      "detail": "Google Gemini: blacklist du jour (saute) | Groq (LLM ultra-rapide, gratuit): blacklist du jour (saute) | HuggingFace (136+ modeles, dont DeepSeek-V4): HTTP Error 400: Bad Request | OrcaRouter (routeur gratuit, modele orcarouter/free): HTTP Error 429: Too Many Requests | OpenRouter Juge (nemotron-3-super-120b free) - verificateur independant: HTTP Error 400: Bad Request | InferX DeepSeek V4 Flash (API gratuite jusqu'au 12/08): HTTP Error 429: Too Many Requests | InferX Qwen3-Coder-Next (code, gra"
+    },
+    {
+      "ts": "2026-09-22T23:09:56.949362+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis InferX Devstral-2-123B (code)",
+      "detail": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "ts": "2026-09-22T23:09:52.079088+00:00",
       "kind": "failover",
       "title": "Bascule depuis NVIDIA DeepSeek-Coder 6.7B (code, via NIM)",
       "detail": "HTTP Error 404: Not Found"
     },
     {
-      "ts": "2026-09-22T23:06:05.069048+00:00",
+      "ts": "2026-09-22T23:09:50.727152+00:00",
       "kind": "failover",
-      "title": "Bascule depuis Puter Grok (gratuit)",
-      "detail": "HTTP Error 402: Payment Required"
-    },
-    {
-      "ts": "2026-09-22T23:06:04.296516+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis InferX Qwen3-Coder-Next (code, gratuit jusqu'au 12/08)",
-      "detail": "HTTP Error 429: Too Many Requests"
-    },
-    {
-      "ts": "2026-09-22T23:05:58.130088+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis InferX DeepSeek V4 Flash (API gratuite jusqu'au 12/08)",
-      "detail": "HTTP Error 429: Too Many Requests"
-    },
-    {
-      "ts": "2026-09-22T23:05:56.927582+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis OpenRouter Juge (nemotron-3-super-120b free) - verificateur independant",
-      "detail": "HTTP Error 400: Bad Request"
-    },
-    {
-      "ts": "2026-09-22T23:05:56.046555+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis OrcaRouter (routeur gratuit, modele orcarouter/free)",
-      "detail": "HTTP Error 429: Too Many Requests"
-    },
-    {
-      "ts": "2026-09-22T23:05:54.567138+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis HuggingFace (136+ modeles, dont DeepSeek-V4)",
-      "detail": "HTTP Error 400: Bad Request"
+      "title": "Bascule depuis NVIDIA DeepSeek-Coder 6.7B (code, via NIM)",
+      "detail": "HTTP Error 404: Not Found"
     }
   ],
   "tasks_quotas": {
