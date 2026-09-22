@@ -1,34 +1,6 @@
 {
   "signals": [
     {
-      "metric": "sdi",
-      "zscore": 2.8858558337818545,
-      "value": 0.016,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique parasité par des homonymes (matériel vidéo, syndicats, batteries Samsung SDI). Aucune corrélation on-chain pertinente avec le crypto-actif SDI.\"\n}\n```",
-      "ts": "2026-09-21T12:28:55.723918+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.872869277683069,
-      "value": 1.055,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.87) liée à une confusion de ticker/mots-clés. Le 'narratif médiatique' concerne l'Institut Pasteur de Tunis (IPT) et des tournois de physique, totalement déconnecté de l'écosystème crypto. Bruit de fond, pas de mouvement de baleine.\"\n}\n```",
-      "ts": "2026-09-21T12:28:57.455553+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": 2.960510337711029,
-      "value": 17278866929.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de volume on-chain massive (Z-score 2.96) confirmée par une explosion de près de 80% du prix de NEAR et une adoption record des 'Intents'. Le narratif médiatique est aligné sur l'euphorie, indiquant une entrée massive de capitaux institutionnels et de détail.\"\n}\n```",
-      "ts": "2026-09-21T12:34:12.330001+00:00"
-    },
-    {
-      "metric": "cpfp",
-      "zscore": 2.085805989822272,
-      "value": 40.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Fausse alerte liée à une ambiguïté sémantique. Le pic on-chain de 'CPFP' (Child-Pays-For-Parent) reflète une congestion classique du mempool Bitcoin et des manipulations de frais par des utilisateurs, sans lien avec une accumulation ou distribution institutionnelle significative. Les médias grand public traitent de sujets homonymes (formations, politique locale).\"\n}\n```",
-      "ts": "2026-09-21T12:49:17.893044+00:00"
-    },
-    {
       "metric": "dust",
       "zscore": 2.085805989822272,
       "value": 40.0,
@@ -349,6 +321,34 @@
       "value": 1.035,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.29) due à un bruit lexical. Le ticker 'IPT' dans les données onchain est pollué par des homonymes institutionnels et médiatiques (Tournoi de Physique, biotechnologies, actualités religieuses). Aucune baleine crypto détectée, simple confusion sémantique.\"\n}\n```",
       "ts": "2026-09-22T00:48:46.738390+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 4.7958315233127236,
+      "value": 78,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Euphorie extrême (Fear & Greed à 78, Z-Score 4.80) couplée à un vide médiatique (« Google Actualités » sans relais notable) : asymétrie classique de fin de cycle. Les baleines profitent de la complaisance et de l'absence de bruit public pour distribuer silencieusement aux derniers acheteurs.\"\n}\n```",
+      "ts": "2026-09-22T01:08:51.264398+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 2.5731907196000154,
+      "value": 7564956.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Bruit médiatique parasité par des homonymies juridiques traditionnelles (faillites d'entreprises) et des liquidations macro globalisées (1Md$). Le z-score on-chain modéré (2.57) pour 7.5M$ ne montre pas de mouvement furtif significatif de baleines crypto.\"\n}\n```",
+      "ts": "2026-09-22T01:23:54.428213+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 3.8729833462074166,
+      "value": 78,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Euphorie extrême (Fear & Greed à 78, z-score 3.87) combinée à un vide médiatique (aucun signal fort sur Google Actualités) : signe classique de 'retail FOMO' aveugle. Les baleines profitent de cette liquidité de détail pour distribuer en silence avant un retournement.\"\n}\n```",
+      "ts": "2026-09-22T01:39:06.779773+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 2.370544807353722,
+      "value": 7569798.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 65,\n  \"reason\": \"Bruit médiatique parasité par des homonymies juridiques traditionnelles (faillites d'entreprises) et des liquidations crypto globales massives (1B$). L'anomalie onchain locale (7.5M$, z-score 2.37) montre une surchauffe à court terme mais reste noyée dans le narratif macro, sans preuve claire d'accumulation ou de distribution furtive par des baleines.\"\n}\n```",
+      "ts": "2026-09-22T01:54:10.262548+00:00"
     }
   ]
 }

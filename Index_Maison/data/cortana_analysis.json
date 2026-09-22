@@ -1,15 +1,15 @@
 {
-  "timestamp": 1790039206,
-  "date": "2026-09-22T01:06:46.447394+00:00",
+  "timestamp": 1790042507,
+  "date": "2026-09-22T02:01:47.498786+00:00",
   "n_analyses": 2,
   "analyses": [
     {
       "signal": {
         "metric": "fear_greed",
-        "zscore": 6.8556546004010395,
+        "zscore": 3.8729833462074166,
         "value": 78,
-        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Euphorie extrême (Fear & Greed à 78, z-score anormalement haut de 6.86) couplée à un vide médiatique total (Google Actualités sans relais majeur). Divergence classique de fin de cycle : les baleines distribuent silencieusement aux details dans l'indifférence des masses, créant un piège à liquidité.\"\n}\n```",
-        "ts": 1790037524.107178
+        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Euphorie extrême (Fear & Greed à 78, z-score 3.87) combinée à un vide médiatique (aucun signal fort sur Google Actualités) : signe classique de 'retail FOMO' aveugle. Les baleines profitent de cette liquidité de détail pour distribuer en silence avant un retournement.\"\n}\n```",
+        "ts": 1790041146.779773
       },
       "fiche": "fear_greed",
       "questions": {
@@ -35,43 +35,39 @@
     },
     {
       "signal": {
-        "metric": "ipt",
-        "zscore": 2.286316496337472,
-        "value": 1.035,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.29) due à un bruit lexical. Le ticker 'IPT' dans les données onchain est pollué par des homonymes institutionnels et médiatiques (Tournoi de Physique, biotechnologies, actualités religieuses). Aucune baleine crypto détectée, simple confusion sémantique.\"\n}\n```",
-        "ts": 1790038126.73839
+        "metric": "liquidations",
+        "zscore": 2.370544807353722,
+        "value": 7569798.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 65,\n  \"reason\": \"Bruit médiatique parasité par des homonymies juridiques traditionnelles (faillites d'entreprises) et des liquidations crypto globales massives (1B$). L'anomalie onchain locale (7.5M$, z-score 2.37) montre une surchauffe à court terme mais reste noyée dans le narratif macro, sans preuve claire d'accumulation ou de distribution furtive par des baleines.\"\n}\n```",
+        "ts": 1790042050.262548
       },
-      "fiche": "rbf_eleve",
+      "fiche": "liquidations",
       "questions": {
+        "longs": {
+          "value": 7499083.0,
+          "seuil": 0,
+          "depasse": true
+        },
+        "shorts": {
+          "value": 70715.0,
+          "seuil": 0,
+          "depasse": true
+        },
         "prix": {
-          "value": -0.2,
+          "value": -0.04,
           "seuil": 1,
-          "depasse": false
-        },
-        "paires": {
-          "value": 0,
-          "seuil": 3,
-          "depasse": false
-        },
-        "funding": {
-          "value": 8.1e-05,
-          "seuil": 0.001,
-          "depasse": false
-        },
-        "whales": {
-          "value": 0,
-          "seuil": 5,
           "depasse": false
         }
       },
       "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
+        "condition": "longs > shorts",
+        "lecture": "Liquidations massives de LONGS — cascade baissière mécanique. Historiquement suit un creux proche quand le volume liq retombe (HYPOTHÈSE, pas une loi : une cascade peut en cacher une autre)",
+        "niveau": "surveiller",
+        "action": "Ne pas vendre dans la cascade ; préparer les paliers plancher si la paire est sur watchlist"
       },
-      "action": "Observer",
-      "niveau": "neutre"
+      "action": "Ne pas vendre dans la cascade ; préparer les paliers plancher si la paire est sur watchlist",
+      "niveau": "surveiller"
     }
   ],
-  "resume": "🔵 CALME — pas de signal alarmant"
+  "resume": "🟡 SURVEILLANCE — des signaux sont à observer"
 }
