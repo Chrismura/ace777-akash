@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "dust",
-      "zscore": 2.3979157616563587,
-      "value": 40.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit de fond médiatique sans lien avec la crypto (jeux vidéo, actualités locales, IA). L'anomalie onchain (z-score 2.40) est trop faible pour signaler un mouvement significatif de baleines.\"\n}\n```",
-      "ts": "2026-09-21T22:27:57.942068+00:00"
-    },
-    {
       "metric": "sdi",
       "zscore": 2.0369062052911855,
       "value": 0.016,
@@ -349,6 +342,13 @@
       "value": 16407329062.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit de fond absolu. Les données onchain montrent une anomalie de volume (z-score -2.01) mais les titres médiatiques sont complètement hors sujet (pneus de vélo, e-commerce, reggae, kiwis). Aucune corrélation macro ou crypto, il s'agit d'un bruit de signal sans mouvement notable de baleines.\"\n}\n```",
       "ts": "2026-09-22T15:47:48.525087+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 2.088620217305797,
+      "value": 0.016,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Faux positif absolu. Le signal onchain 'SDI' est ici pollué par une collision lexicale avec l'actualité politique française (Syndicat des Indépendants) et le matériel vidéo (Blackmagic SDI). Aucune activité de baleine crypto détectée.\"\n}\n```",
+      "ts": "2026-09-22T17:00:25.749590+00:00"
     }
   ]
 }
