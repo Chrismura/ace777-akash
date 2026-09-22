@@ -2,20 +2,6 @@
   "signals": [
     {
       "metric": "dust",
-      "zscore": 2.6868627417301547,
-      "value": 45.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie onchain insignifiante (bruit de fond). Les mentions médiatiques font référence à un jeu vidéo, des actualités locales et de l'IA (Dust), totalement déconnectées de la crypto. Aucune activité de baleine détectée.\"\n}\n```",
-      "ts": "2026-09-21T22:58:20.991720+00:00"
-    },
-    {
-      "metric": "cpfp",
-      "zscore": 2.259238342989712,
-      "value": 40.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Faux positif détecté. Le z-score élevé sur le 'CPFP' est un artefact lié à des actualités généralistes sans rapport avec l'onchain (termes administratifs, politiques et tutoriels basiques de mempool), aucune accumulation ou mouvement massif de baleines crypto n'est en cours.\"\n}\n```",
-      "ts": "2026-09-21T23:48:28.914968+00:00"
-    },
-    {
-      "metric": "dust",
       "zscore": 2.259238342989712,
       "value": 40.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit de fond absolu. L'anomalie 'dust' onchain est un artéfact statistique sans lien avec les actualités médiatiques, qui font référence à un jeu vidéo, une série TV et des homonymes tech sans rapport avec la crypto. Aucune accumulation ni mouvement de baleine détecté.\"\n}\n```",
@@ -349,6 +335,20 @@
       "value": 0.02,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Fausse alerte sémantique : Le 'SDI' dans les médias fait référence au 'Syndicat des Indépendants' (TPE/énergie), sans aucun lien avec la métrique on-chain ou la crypto. Aucune activité de baleine détectée.\"\n}\n```",
       "ts": "2026-09-22T19:06:42.335170+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 4.860432219741918,
+      "value": 0.032,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Le 'SDI' mentionné dans les médias fait référence au Syndicat des Indépendants et des TPE en France, et non à un indicateur on-chain de baleines crypto. Il s'agit d'un bruit médiatique macroéconomique sans rapport avec les flux de capitaux crypto.\"\n}\n```",
+      "ts": "2026-09-22T19:36:50.071750+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 3.22293502312827,
+      "value": 2865179.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Activité anormale des baleines (Z-score 3.22) en l'absence totale de couverture médiatique (silence radio sur Google Actualités), typique d'une accumulation furtive pré-bullish.\"\n}\n```",
+      "ts": "2026-09-22T19:46:52.758094+00:00"
     }
   ]
 }
