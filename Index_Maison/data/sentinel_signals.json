@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "dust",
-      "zscore": 2.259238342989712,
-      "value": 40.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit de fond absolu. L'anomalie 'dust' onchain est un artéfact statistique sans lien avec les actualités médiatiques, qui font référence à un jeu vidéo, une série TV et des homonymes tech sans rapport avec la crypto. Aucune accumulation ni mouvement de baleine détecté.\"\n}\n```",
-      "ts": "2026-09-21T23:48:30.670130+00:00"
-    },
-    {
       "metric": "ipt",
       "zscore": 2.074655828733671,
       "value": 0.935,
@@ -349,6 +342,13 @@
       "value": 2865179.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Activité anormale des baleines (Z-score 3.22) en l'absence totale de couverture médiatique (silence radio sur Google Actualités), typique d'une accumulation furtive pré-bullish.\"\n}\n```",
       "ts": "2026-09-22T19:46:52.758094+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 2.125735831240682,
+      "value": 0.02,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.13) totalement faussée par une collision lexicale : le 'SDI' onchain n'a aucun rapport avec le 'Syndicat des Indépendants' (SDI) ou le matériel vidéo SDI mentionnés dans les médias. Bruit pur, pas de mouvement de baleine crypto.\"\n}\n```",
+      "ts": "2026-09-22T20:06:57.904537+00:00"
     }
   ]
 }
