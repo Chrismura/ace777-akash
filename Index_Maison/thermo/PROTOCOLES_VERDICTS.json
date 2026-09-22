@@ -1,5 +1,5 @@
 {
-  "ts": "2026-09-22T06:09:36+00:00",
+  "ts": "2026-09-22T07:09:42+00:00",
   "note": "Verdicts MESURÉS à la source (scripts/verdicts_protocoles.py). Chaque protocole porte son critère pré-enregistré : c'est lui qui décide, pas l'impression du moment. Un verdict « IMPOSSIBLE » ou une ligne « alerte » signale un protocole dont le verdict ne peut pas être rendu — c'est une panne de conception, pas une patience.",
   "protocoles": [
     {
@@ -7,7 +7,7 @@
       "critere": "R4 : juger à T+72h la direction réelle du BTC · R6 : verdict 08/11/2026 si ≥ 55 % de HIT sur ≥ 20 cas",
       "faits": "12 paires enregistrées · 1 divergente(s) · 1 jugée(s) · 0 HIT",
       "verdict": "EN ATTENTE (1 cas jugé(s) sur 20 requis)",
-      "alerte": "le verdict du 08/11 demandera 20 cas ; la cadence mesurée est de 0.8 divergence(s)/semaine → environ 6.7 cas au 08/11",
+      "alerte": "le verdict du 08/11 demandera 20 cas ; la cadence mesurée est de 0.8 divergence(s)/semaine → environ 6.6 cas au 08/11",
       "detail": [
         {
           "paire": "paire-008",
@@ -171,7 +171,7 @@
     {
       "protocole": "Radar XRPL gouvernance",
       "critere": "J8 pré-enregistré : (a) ≥ 5 amendements dont le compteur bouge de ≥ 2 votes, OU (b) ≥ 1 activation, OU (c) ≥ 1 amendement mort ; sinon échec",
-      "faits": "193 snapshots · 112 amendements suivis · (a) 5 bougent de ≥ 2 (il en fallait 5) · (b) 0 activation · (c) 0 mort · 2 nouveau(x)",
+      "faits": "194 snapshots · 112 amendements suivis · (a) 5 bougent de ≥ 2 (il en fallait 5) · (b) 0 activation · (c) 0 mort · 2 nouveau(x)",
       "verdict": "SUCCES (critère atteint)",
       "alerte": "",
       "detail": [
@@ -184,11 +184,11 @@
           "delta_votes": 4
         },
         {
-          "amendement": "DynamicMPT",
+          "amendement": "BatchV1_1",
           "delta_votes": 4
         },
         {
-          "amendement": "BatchV1_1",
+          "amendement": "DynamicMPT",
           "delta_votes": 4
         },
         {
@@ -200,11 +200,11 @@
           "delta_votes": 1
         },
         {
-          "amendement": "PermissionDelegation",
+          "amendement": "Sponsor",
           "delta_votes": 0
         },
         {
-          "amendement": "Sponsor",
+          "amendement": "fixBatchInnerSigs",
           "delta_votes": 0
         }
       ]
@@ -212,7 +212,7 @@
     {
       "protocole": "Arbitrage LLM-vs-règle (Cortana)",
       "critere": "la règle maison : < 60 % de justesse micro → confiance faible + 1 alerte/h max. Verdict annoncé 27/09",
-      "faits": "0 alerte(s) microstructure au journal · 0 notée(s) par le juge indépendant · justesse n/d · avis directionnels de Cortana (toutes matières) : 52/94 = 55.3 %",
+      "faits": "0 alerte(s) microstructure au journal · 0 notée(s) par le juge indépendant · justesse n/d · avis directionnels de Cortana (toutes matières) : 53/95 = 55.8 %",
       "verdict": "IMPOSSIBLE (0 cas à juger)",
       "alerte": "le verdict du 27/09 ne pourra PAS être rendu : 0 alerte(s) en 7 jours → 0 cas. Le producteur d'alertes (module microstructure) n'a rien écrit depuis le 09/09 (data/micro_alerts.jsonl = 0 octet) — il faut trancher : module mort, ou rien à alerter ?",
       "detail": [
@@ -232,7 +232,7 @@
           "indice": "btc",
           "directionnels": 1,
           "corect": null,
-          "n": 9
+          "n": 10
         },
         {
           "indice": "chg24",
@@ -256,13 +256,13 @@
           "indice": "fearGreed",
           "directionnels": 37,
           "corect": 21,
-          "n": 62
+          "n": 63
         },
         {
           "indice": "geopol",
           "directionnels": 4,
           "corect": 1,
-          "n": 19
+          "n": 20
         },
         {
           "indice": "gexPutCall",
@@ -281,17 +281,17 @@
     {
       "protocole": "Geopol (réanimé)",
       "critere": "GEOPOL-C2/C3 : avis geopol noté vs BTC 2×/jour, fenêtre 4 semaines (→ ~10/10), critère P3 ≥ 56 %",
-      "faits": "score actuel 0.2476 « attention » (ML 0.1779) · 19 avis enregistrés dont 4 directionnels (1 correct(s)) · 15 NEUTRE",
+      "faits": "score actuel 0.2476 « attention » (ML 0.1779) · 20 avis enregistrés dont 4 directionnels (1 correct(s)) · 16 NEUTRE",
       "verdict": "EN ATTENTE (fenêtre jusqu'au ~10/10)",
       "alerte": "1 avis correct sur 4 directionnels : à cette cadence le critère ne sera pas tranchable dans la fenêtre",
       "detail": [
         {
           "indice": "geopol",
-          "n": 19,
+          "n": 20,
           "directionnels": 4,
           "corrects": 1,
-          "neutres": 15,
-          "t_stat": -2.98
+          "neutres": 16,
+          "t_stat": -3.13
         }
       ]
     },
