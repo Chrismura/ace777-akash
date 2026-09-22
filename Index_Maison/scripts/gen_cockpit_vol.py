@@ -370,6 +370,65 @@ def gardiens():
     else:
         g.append({"nom": "Revue des organes", "ok": False,
                   "detail": "jamais lancée (git_push_auto.sh la déclenche toutes les 3 h)"})
+
+    # ══ 22/09/2026 — LA 6ᵉ PARTIE DU CYCLE, RENDUE VISIBLE (GO 2) ══════════════════
+    # POURQUOI ICI : ces trois verdicts vivaient dans des fichiers que PERSONNE ne lit
+    # (CRITIQUE_ERREURS_DERNIER.json, SEUILS_FIXES_DERNIER.json, thermo/sortie_mesuree.json).
+    # Un verdict qu'on doit aller chercher n'existe pas (R15). Le cockpit « vol » est la
+    # page qu'on regarde déjà : c'est là que ça doit crier — pas dans un dossier.
+    # LECTURE SEULE : on ne fait que lire des états écrits par les organes eux-mêmes.
+
+    # (a) Le registre des échecs est-il BRANCHÉ, et retombons-nous dans une erreur payée ?
+    cr = jload(IM / "CRITIQUE_ERREURS_DERNIER.json")
+    if cr:
+        nb = len(cr.get("non_branche") or [])
+        nr = len(cr.get("recidives") or {})
+        detail = "%s classes · %s" % (cr.get("classes", "?"),
+                                      ("branché" if nb == 0 else "%d NON BRANCHÉ" % nb))
+        detail += " · récidives %d" % nr
+        if nr:
+            detail += " (" + ", ".join("%s×%s" % (k, v) for k, v in
+                                        (cr.get("recidives") or {}).items()) + ")"
+        detail += " · màj %s" % fmt_age(age_min(IM / "CRITIQUE_ERREURS_DERNIER.json"))
+        g.append({"nom": "Registre des échecs (6ᵉ partie)",
+                  "ok": (nb == 0 and nr == 0), "detail": detail})
+    else:
+        g.append({"nom": "Registre des échecs (6ᵉ partie)", "ok": False,
+                  "detail": "état absent (critique_erreurs.py jamais passé)"})
+
+    # (b) R17 : combien de seuils décident SANS mesure, et y en a-t-il un de non rangé ?
+    sf = jload(IM / "SEUILS_FIXES_DERNIER.json")
+    if sf:
+        nc = sf.get("non_classees") or []
+        detail = "%s seuils décident sans mesure · %s" % (
+            sf.get("decideurs", "?"), "tous rangés" if not nc else "%d NON RANGÉ(s)" % len(nc))
+        if nc:
+            detail += " : " + ", ".join(nc[:3])
+        detail += " · màj %s" % fmt_age(age_min(IM / "SEUILS_FIXES_DERNIER.json"))
+        g.append({"nom": "Seuils sans mesure (R17)", "ok": not nc, "detail": detail})
+    else:
+        g.append({"nom": "Seuils sans mesure (R17)", "ok": False,
+                  "detail": "état absent (inventaire_seuils_fixes.py jamais passé)"})
+
+    # (c) La sortie est-elle bien pilotée par la mesure, EN VOL ? (GO 3)
+    # Le verdict distingue trois états qu'un œil humain ne peut pas distinguer dans un
+    # journal vide : la règle ARMÉE qui attend (normal), la règle ARMÉE qui a tiré, et
+    # la règle ÉTEINTE (= régression silencieuse). Un « rien à signaler » ambigu serait
+    # exactement le silence qu'on a supprimé (règle #6).
+    sm = jload(IM / "thermo" / "sortie_mesuree.json")
+    if sm:
+        arm = bool(sm.get("regle_armee"))
+        nm, na = int(sm.get("n_mesurees") or 0), int(sm.get("n_anomalies") or 0)
+        detail = "règle %s · %d sortie(s) mesurée(s)" % ("armée" if arm else "ÉTEINTE", nm)
+        if na:
+            detail += " · ⚠ %d NON conforme(s)" % na
+        detail += " · %s" % str(sm.get("verdict") or "")[:70]
+        detail += " · màj %s" % fmt_age(age_min(IM / "thermo" / "sortie_mesuree.json"))
+        g.append({"nom": "Sortie pilotée par la mesure",
+                  "ok": (arm and na == 0), "detail": detail})
+    else:
+        g.append({"nom": "Sortie pilotée par la mesure", "ok": False,
+                  "detail": "état absent (suivi_sortie_mesuree.py jamais passé)"})
     return g
 
 

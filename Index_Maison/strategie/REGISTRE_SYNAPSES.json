@@ -1,6 +1,6 @@
 {
  "version": "1.5.0",
- "updated": "2026-09-22T09:07Z",
+ "updated": "2026-09-22T09:17Z",
  "fichier": [
   {
    "nom": "Index_Maison/scripts/v2_duo_replay_4h.py",
@@ -68,9 +68,10 @@
    "origine": "chantier 15/08",
    "verif": "md5",
    "auto_modifiable": false,
-   "md5": "075c3b7d1b770d87b9fa1472c876afea",
+   "md5": "b03faee5b0411d8de0ee8ebf3c1ac3d7",
    "modifié_par": "chantier AGORA (15/08 soir)",
-   "_rescel_20260922_6e_partie": "La 6ᵉ partie du cycle (« Fine-tune ») est BRANCHÉE ICI (R15) : l'organe de discipline quotidienne exécute désormais `critique_erreurs.py` (le registre des échecs est-il lu ? une classe d'erreur récidive-t-elle ?) et `inventaire_seuils_fixes.py` (combien de seuils décident SANS mesure ? un seuil a-t-il été ajouté sans être rangé ?), écrit les deux sections dans le rapport et CRIE en cas d'échec. Pas de 98ᵉ agent : on accroche."
+   "_rescel_20260922_6e_partie": "La 6ᵉ partie du cycle (« Fine-tune ») est BRANCHÉE ICI (R15) : l'organe de discipline quotidienne exécute désormais `critique_erreurs.py` (le registre des échecs est-il lu ? une classe d'erreur récidive-t-elle ?) et `inventaire_seuils_fixes.py` (combien de seuils décident SANS mesure ? un seuil a-t-il été ajouté sans être rangé ?), écrit les deux sections dans le rapport et CRIE en cas d'échec. Pas de 98ᵉ agent : on accroche.",
+   "_rescel_20260922_go123": "GO 3 : exécute aussi suivi_sortie_mesuree.py (la sortie mesurée est-elle armée et conforme ?) et écrit la section SORTIE PILOTÉE PAR LA MESURE ; crie si la règle est éteinte ou si un palier vendu n'est pas conforme."
   },
   {
    "nom": "Index_Maison/scripts/ada_gardienne.py",
@@ -787,12 +788,13 @@
    "origine": "GO Christophe 14/09 (onglet cockpit vol)",
    "verif": "md5",
    "auto_modifiable": false,
-   "md5": "0e7ff6fd7d03c090865dd856c8200f36",
+   "md5": "ff8772c411bf4ce67529c39506b5b588",
    "_rescel_20260918": "panneau « Banc 20 actifs — risque » (net / DD / net-DD, base vs notrend) + contrat de sortie des LaunchAgents (distingue alerte métier d'échec réel).",
    "note": "Re-scellé 14/09T12:41Z après modification déclarée : suppression de la réécriture de vol.html (cache-buster déplacé côté client) — le générateur n'écrit plus que vol_live.js (non scellé, donnée vivante). Par Buffy. | 19/09 soir : + gardien « Règles d'or » (lit thermo/regles_or.json écrit par verifier_regles_or.py) — les règles d'or sont désormais VISIBLES dans la page vol. Declaré par Buffy.",
    "maj": "Gardien « Chien de garde » RÉPARÉ 20/09/2026 : il lisait `tail -1 thermo/chien_rapport.txt`, fichier QUE PERSONNE N'ÉCRIT → stdout vide → la page affichait « rapport présent » en VERT quoi qu'il arrive (faux vert permanent sur le gardien le plus important). Il lit désormais thermo/CHIEN_RAPPORT.json : « N vivants · N hors délai · N aveugle(s) » + l'organe et son champ muet, et un rapport figé > 15 min = rouge (le chien lui-même peut mourir). · 2e passe 20/09 : la table CONTRAT_SORTIE (codes de sortie launchd voulus) est désormais LUE dans strategie/contrat_sortie.json — une seule vérité, partagée avec le chien de garde (qui juge les 44 organes sans produit sur leur sortie launchd). Repli local conservé si le fichier manque.",
    "date": "2026-09-20T18:59Z",
-   "_rescel_20260920": "DÉCLARÉ 20/09/2026 (Buffy, GO Christophe — boucle d'alerte) : CONTRAT_SORTIE += com.ace777.verif-setup exit 1 = « preuve de lecture du coffre à refaire (gatekeeper, par conception) ». Avant, ce garde-fou légitime était affiché comme un ÉCHEC (organe cassé) alors qu'il dit « relis la carte du coffre ». md5 1b854a2b1cb820c87aeb176604634a53 → efcec0aad782deb9e01f77300007290d. Aucune autre logique modifiée. | + gardien « Repo = installation » (lit thermo/installation_repo.json écrit par installer_depuis_repo.sh) : rend visible que le fichier installé est un LIEN vers le repo (dérive impossible par construction). md5 efcec0aad782deb9e01f77300007290d → 0402336d4df5e86434955238f655a028. || 20/09 (Buffy, GO « cri vivant + revue des organes ») : + gardien « Cris en cours » (lit thermo/cris.json écrit par le chien : les cris ACTIFS à l'instant, auto-effacés, avec le fait que la voix a VRAIMENT été lancée — un cri muet est un faux cri) et + gardien « Revue des organes » (lit thermo/revue_organes.json). md5 1b7a6a40 → 1a698b3c. || 20/09 (Buffy, GO « verdicts des protocoles ») : le tableau « Protocoles en test » ne recopie plus le document du 14/09 — il lit thermo/PROTOCOLES_VERDICTS.json (verdicts MESURÉS par scripts/verdicts_protocoles.py, avec le critère pré-enregistré à côté du résultat et une ligne ⚠ quand un verdict ne peut pas être rendu). Le tableau documentaire ne sert que de repli. md5 1a698b3c → 0e7ff6fd."
+   "_rescel_20260920": "DÉCLARÉ 20/09/2026 (Buffy, GO Christophe — boucle d'alerte) : CONTRAT_SORTIE += com.ace777.verif-setup exit 1 = « preuve de lecture du coffre à refaire (gatekeeper, par conception) ». Avant, ce garde-fou légitime était affiché comme un ÉCHEC (organe cassé) alors qu'il dit « relis la carte du coffre ». md5 1b854a2b1cb820c87aeb176604634a53 → efcec0aad782deb9e01f77300007290d. Aucune autre logique modifiée. | + gardien « Repo = installation » (lit thermo/installation_repo.json écrit par installer_depuis_repo.sh) : rend visible que le fichier installé est un LIEN vers le repo (dérive impossible par construction). md5 efcec0aad782deb9e01f77300007290d → 0402336d4df5e86434955238f655a028. || 20/09 (Buffy, GO « cri vivant + revue des organes ») : + gardien « Cris en cours » (lit thermo/cris.json écrit par le chien : les cris ACTIFS à l'instant, auto-effacés, avec le fait que la voix a VRAIMENT été lancée — un cri muet est un faux cri) et + gardien « Revue des organes » (lit thermo/revue_organes.json). md5 1b7a6a40 → 1a698b3c. || 20/09 (Buffy, GO « verdicts des protocoles ») : le tableau « Protocoles en test » ne recopie plus le document du 14/09 — il lit thermo/PROTOCOLES_VERDICTS.json (verdicts MESURÉS par scripts/verdicts_protocoles.py, avec le critère pré-enregistré à côté du résultat et une ligne ⚠ quand un verdict ne peut pas être rendu). Le tableau documentaire ne sert que de repli. md5 1a698b3c → 0e7ff6fd.",
+   "_rescel_20260922_go123": "GO 2 : 3 gardiens ajoutés (registre des échecs branché/récidives · seuils sans mesure R17 · sortie pilotée par la mesure) — lecture seule d'états écrits par les organes."
   },
   {
    "nom": "Index_Maison/cockpit/vol.html",
@@ -1152,6 +1154,24 @@
    "auto_modifiable": false,
    "md5": "920016e76b0d00e7f56f828c9e6f8a6c",
    "note": "Sort en erreur si un seuil numérique n'est pas rangé → impossible d'ajouter une garde inventée sans qu'elle soit vue."
+  },
+  {
+   "nom": "Index_Maison/scripts/suivi_sortie_mesuree.py",
+   "role": "GO 3 — vérifie en vol que le palier de sortie porte bien la MESURE (niv/cad/rel) et que la règle est armée",
+   "origine": "créé et scellé le 22/09/2026",
+   "verif": "md5",
+   "auto_modifiable": false,
+   "md5": "d18a08bd63a4f2ce5545698dd83bb682",
+   "note": "Distingue 3 états qu'un journal vide ne distingue pas : ARMÉE-en-attente / ARMÉE-et-conforme / ÉTEINTE (régression silencieuse). Testé : détecte une sortie non conforme (rc=3)."
+  },
+  {
+   "nom": "hulk-mexc/scripts/chiffrage_regime_mesure.py",
+   "role": "Chiffrage des seuils de RÉGIME (QUIET_RANGE_PCT / SPIKE_15D_PCT) relus dans l'unité de chaque paire",
+   "origine": "créé et scellé le 22/09/2026 (GO 1)",
+   "verif": "md5",
+   "auto_modifiable": false,
+   "md5": "9762e95c963275030abe977c606a7912",
+   "note": "Mesure la déterminance de chaque seuil ET l'avenir du prix après chaque régime. Verdict 22/09 : relecture NON soutenue → rien câblé."
   }
  ]
 }

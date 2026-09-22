@@ -204,6 +204,17 @@ def main() -> int:
     except Exception as e:
         print(f"[ERR] inventaire_seuils_fixes : {e}", file=sys.stderr)
 
+    # 1h) SUIVI DE LA SORTIE MESURÉE (GO 3) — la règle est-elle ARMÉE, et les paliers
+    #     réellement vendus portent-ils bien la mesure ? Sans cette ligne, « aucune sortie »
+    #     serait indiscernable d'une règle éteinte (règle #6). Fail-open.
+    suivi_sortie = {}
+    try:
+        subprocess.run([sys.executable, str(SCRIPTS / "suivi_sortie_mesuree.py")],
+                       check=False, capture_output=True, timeout=60)
+        suivi_sortie = json.load(open(IM / "thermo" / "sortie_mesuree.json", encoding="utf-8"))
+    except Exception as e:
+        print(f"[ERR] suivi_sortie_mesuree : {e}", file=sys.stderr)
+
     # 2) Note Ada
     ada = score_ada(load_history())
     with open(ADA_OUT, "w", encoding="utf-8") as f:
@@ -243,6 +254,12 @@ def main() -> int:
         alerts.append(f"SEUIL NON RANGÉ : {len(seuils['non_classees'])} clé(s) décident sans "
                       "être classées (" + ", ".join(seuils["non_classees"][:6])
                       + ") — R17 : toute garde se mesure ou se déclare")
+    if suivi_sortie and not suivi_sortie.get("regle_armee"):
+        alerts.append("SORTIE MESURÉE ÉTEINTE (RIP_CADENCE_MESURE_ON=0) — les paliers sont "
+                      "revenus à un % universel : régression silencieuse (R17)")
+    if suivi_sortie.get("n_anomalies"):
+        alerts.append(f"SORTIE MESURÉE : {suivi_sortie['n_anomalies']} palier(s) vendu(s) "
+                      "NON conformes à la règle mesurée — voir thermo/sortie_mesuree.md")
 
     tend = ""
     hier = RAPPORT.read_text(encoding="utf-8") if RAPPORT.exists() else ""
@@ -289,6 +306,14 @@ def main() -> int:
         f"**{seuils.get('decideurs', 'n/d')} seuils DÉCIDENT sans mesure** · "
         f"non classés : {len(seuils.get('non_classees') or [])}",
         "- SEUILS_FIXES_DERNIER.md : la liste chiffrée des seuils à passer à la mesure.",
+        "",
+        "## SORTIE PILOTÉE PAR LA MESURE (GO 3 — suivi en vol)",
+        f"- Règle armée : **{'OUI' if suivi_sortie.get('regle_armee') else 'NON'}** "
+        f"(référence {suivi_sortie.get('reference_pct', 'n/d')} %/jour)",
+        f"- Sorties par palier au format MESURÉ : {suivi_sortie.get('n_mesurees', 'n/d')} "
+        f"(anomalies {suivi_sortie.get('n_anomalies', 'n/d')}) · "
+        f"avant câblage : {suivi_sortie.get('n_anciennes', 'n/d')}",
+        f"- {suivi_sortie.get('verdict', 'n/d')}",
         "",
         "## Boucle",
         "- score_justesse.py relancé chaque jour (07:15, launchd) → la note fraîche nourrit la cadence 8h30/20h30.",
