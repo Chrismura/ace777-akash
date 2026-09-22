@@ -1,5 +1,5 @@
 {
-  "ts": "2026-09-22T18:15:50+00:00",
+  "ts": "2026-09-22T19:15:14+00:00",
   "note": "Verdicts MESURÉS à la source (scripts/verdicts_protocoles.py). Chaque protocole porte son critère pré-enregistré : c'est lui qui décide, pas l'impression du moment. Un verdict « IMPOSSIBLE » ou une ligne « alerte » signale un protocole dont le verdict ne peut pas être rendu — c'est une panne de conception, pas une patience.",
   "protocoles": [
     {
@@ -7,7 +7,7 @@
       "critere": "R4 : juger à T+72h la direction réelle du BTC · R6 : verdict 08/11/2026 si ≥ 55 % de HIT sur ≥ 20 cas",
       "faits": "12 paires enregistrées · 1 divergente(s) · 1 jugée(s) · 0 HIT",
       "verdict": "EN ATTENTE (1 cas jugé(s) sur 20 requis)",
-      "alerte": "le verdict du 08/11 demandera 20 cas ; la cadence mesurée est de 0.8 divergence(s)/semaine → environ 6.3 cas au 08/11",
+      "alerte": "le verdict du 08/11 demandera 20 cas ; la cadence mesurée est de 0.8 divergence(s)/semaine → environ 6.2 cas au 08/11",
       "detail": [
         {
           "paire": "paire-008",
@@ -171,7 +171,7 @@
     {
       "protocole": "Radar XRPL gouvernance",
       "critere": "J8 pré-enregistré : (a) ≥ 5 amendements dont le compteur bouge de ≥ 2 votes, OU (b) ≥ 1 activation, OU (c) ≥ 1 amendement mort ; sinon échec",
-      "faits": "205 snapshots · 112 amendements suivis · (a) 5 bougent de ≥ 2 (il en fallait 5) · (b) 0 activation · (c) 0 mort · 2 nouveau(x)",
+      "faits": "206 snapshots · 112 amendements suivis · (a) 5 bougent de ≥ 2 (il en fallait 5) · (b) 0 activation · (c) 0 mort · 2 nouveau(x)",
       "verdict": "SUCCES (critère atteint)",
       "alerte": "",
       "detail": [
@@ -180,7 +180,7 @@
           "delta_votes": 10
         },
         {
-          "amendement": "ConfidentialTransfer",
+          "amendement": "DynamicMPT",
           "delta_votes": 4
         },
         {
@@ -188,7 +188,7 @@
           "delta_votes": 4
         },
         {
-          "amendement": "DynamicMPT",
+          "amendement": "ConfidentialTransfer",
           "delta_votes": 4
         },
         {
@@ -200,11 +200,11 @@
           "delta_votes": 1
         },
         {
-          "amendement": "fixXChainRewardRounding",
+          "amendement": "Sponsor",
           "delta_votes": 0
         },
         {
-          "amendement": "Sponsor",
+          "amendement": "fixBatchInnerSigs",
           "delta_votes": 0
         }
       ]
@@ -256,13 +256,13 @@
           "indice": "fearGreed",
           "directionnels": 37,
           "corect": 21,
-          "n": 63
+          "n": 64
         },
         {
           "indice": "geopol",
           "directionnels": 4,
           "corect": 1,
-          "n": 20
+          "n": 21
         },
         {
           "indice": "gexPutCall",
@@ -274,24 +274,24 @@
           "indice": "indice_onchain",
           "directionnels": 1,
           "corect": null,
-          "n": 3
+          "n": 4
         }
       ]
     },
     {
       "protocole": "Geopol (réanimé)",
       "critere": "GEOPOL-C2/C3 : avis geopol noté vs BTC 2×/jour, fenêtre 4 semaines (→ ~10/10), critère P3 ≥ 56 %",
-      "faits": "score actuel 0.3477 « calme » (ML 0.1770) · 20 avis enregistrés dont 4 directionnels (1 correct(s)) · 16 NEUTRE",
+      "faits": "score actuel 0.3477 « calme » (ML 0.1770) · 21 avis enregistrés dont 4 directionnels (1 correct(s)) · 17 NEUTRE",
       "verdict": "EN ATTENTE (fenêtre jusqu'au ~10/10)",
       "alerte": "1 avis correct sur 4 directionnels : à cette cadence le critère ne sera pas tranchable dans la fenêtre",
       "detail": [
         {
           "indice": "geopol",
-          "n": 20,
+          "n": 21,
           "directionnels": 4,
           "corrects": 1,
-          "neutres": 16,
-          "t_stat": -3.13
+          "neutres": 17,
+          "t_stat": -2.84
         }
       ]
     },
