@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-22T14:06:13.176281+00:00",
+  "generated_at": "2026-09-22T14:12:16.508561+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 146
+      "calls_24h": 144
     },
     {
       "id": "openrouter-free",
@@ -392,64 +392,64 @@
   ],
   "events": [
     {
-      "ts": "2026-09-22T14:05:04.773314+00:00",
+      "ts": "2026-09-22T14:10:57.934984+00:00",
+      "kind": "blacklist",
+      "title": "Fin de pause Google Gemini",
+      "detail": "re-essai automatique"
+    },
+    {
+      "ts": "2026-09-22T14:07:33.488522+00:00",
       "kind": "http",
       "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
       "detail": ""
     },
     {
-      "ts": "2026-09-22T14:05:04.772840+00:00",
+      "ts": "2026-09-22T14:07:33.487692+00:00",
       "kind": "error",
       "title": "Toutes les IA ont echoue",
       "detail": "Google Gemini: HTTP Error 429: Too Many Requests | Groq (LLM ultra-rapide, gratuit): HTTP Error 404: Not Found | HuggingFace (136+ modeles, dont DeepSeek-V4): HTTP Error 400: Bad Request | OrcaRouter (routeur gratuit, modele orcarouter/free): HTTP Error 429: Too Many Requests | OpenRouter Juge (nemotron-3-super-120b free) - verificateur independant: HTTP Error 400: Bad Request | InferX DeepSeek V4 Flash (API gratuite jusqu'au 12/08): HTTP Error 429: Too Many Requests | InferX Qwen3-Coder-Next (c"
     },
     {
-      "ts": "2026-09-22T14:05:04.771008+00:00",
+      "ts": "2026-09-22T14:07:33.483620+00:00",
       "kind": "failover",
       "title": "Bascule depuis InferX Devstral-2-123B (code)",
       "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-09-22T14:05:03.449978+00:00",
+      "ts": "2026-09-22T14:07:28.667475+00:00",
       "kind": "failover",
       "title": "Bascule depuis NVIDIA DeepSeek-Coder 6.7B (code, via NIM)",
       "detail": "HTTP Error 404: Not Found"
     },
     {
-      "ts": "2026-09-22T14:05:00.925314+00:00",
+      "ts": "2026-09-22T14:07:26.263414+00:00",
       "kind": "failover",
       "title": "Bascule depuis Puter Grok (gratuit)",
       "detail": "HTTP Error 402: Payment Required"
     },
     {
-      "ts": "2026-09-22T14:05:00.102660+00:00",
+      "ts": "2026-09-22T14:07:25.461908+00:00",
       "kind": "failover",
       "title": "Bascule depuis InferX Qwen3-Coder-Next (code, gratuit jusqu'au 12/08)",
       "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-09-22T14:04:55.336991+00:00",
+      "ts": "2026-09-22T14:07:20.515662+00:00",
       "kind": "failover",
       "title": "Bascule depuis InferX DeepSeek V4 Flash (API gratuite jusqu'au 12/08)",
       "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-09-22T14:04:50.388995+00:00",
+      "ts": "2026-09-22T14:07:14.825420+00:00",
       "kind": "failover",
       "title": "Bascule depuis OpenRouter Juge (nemotron-3-super-120b free) - verificateur independant",
       "detail": "HTTP Error 400: Bad Request"
     },
     {
-      "ts": "2026-09-22T14:04:49.352375+00:00",
+      "ts": "2026-09-22T14:07:13.900792+00:00",
       "kind": "failover",
       "title": "Bascule depuis OrcaRouter (routeur gratuit, modele orcarouter/free)",
       "detail": "HTTP Error 429: Too Many Requests"
-    },
-    {
-      "ts": "2026-09-22T14:04:47.910929+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis HuggingFace (136+ modeles, dont DeepSeek-V4)",
-      "detail": "HTTP Error 400: Bad Request"
     }
   ],
   "tasks_quotas": {
