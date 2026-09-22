@@ -1,54 +1,15 @@
 {
-  "timestamp": 1790032004,
-  "date": "2026-09-21T23:06:44.183076+00:00",
-  "n_analyses": 3,
+  "timestamp": 1790035605,
+  "date": "2026-09-22T00:06:45.329199+00:00",
+  "n_analyses": 2,
   "analyses": [
     {
       "signal": {
-        "metric": "ipt",
-        "zscore": 2.358963381609483,
-        "value": 1.008,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Bruit de fond : le ticker onchain 'ipt' subit une collision lexicale avec des acronymes institutionnels et académiques (Institut Pasteur de Tunis, Tournoi des Physiciens). Aucune baleine crypto détectée, simple confusion sémantique des flux.\"\n}\n```",
-        "ts": 1790031496.870314
-      },
-      "fiche": "rbf_eleve",
-      "questions": {
-        "prix": {
-          "value": 0.03,
-          "seuil": 1,
-          "depasse": false
-        },
-        "paires": {
-          "value": 0,
-          "seuil": 3,
-          "depasse": false
-        },
-        "funding": {
-          "value": 6.8e-05,
-          "seuil": 0.001,
-          "depasse": false
-        },
-        "whales": {
-          "value": 2,
-          "seuil": 5,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
-      },
-      "action": "Observer",
-      "niveau": "neutre"
-    },
-    {
-      "signal": {
         "metric": "cpfp",
-        "zscore": 2.6868627417301547,
-        "value": 45.0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Faux positif statistique. Le pic de CPFP (Child-Pays-For-Parent) détecté correspond à des articles de presse généralistes et locaux sans rapport avec une accumulation ou un mouvement massif de baleines crypto.\"\n}\n```",
-        "ts": 1790031498.857716
+        "zscore": 2.259238342989712,
+        "value": 40.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Faux positif détecté. Le z-score élevé sur le 'CPFP' est un artefact lié à des actualités généralistes sans rapport avec l'onchain (termes administratifs, politiques et tutoriels basiques de mempool), aucune accumulation ou mouvement massif de baleines crypto n'est en cours.\"\n}\n```",
+        "ts": 1790034508.914968
       },
       "fiche": "blocs_privilises",
       "questions": {
@@ -58,12 +19,12 @@
           "depasse": false
         },
         "volume": {
-          "value": 91,
+          "value": 391,
           "seuil": 0,
           "depasse": true
         },
         "prix": {
-          "value": 0.03,
+          "value": -0.16,
           "seuil": 0,
           "depasse": true
         },
@@ -90,10 +51,10 @@
     {
       "signal": {
         "metric": "dust",
-        "zscore": 2.6868627417301547,
-        "value": 45.0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie onchain insignifiante (bruit de fond). Les mentions médiatiques font référence à un jeu vidéo, des actualités locales et de l'IA (Dust), totalement déconnectées de la crypto. Aucune activité de baleine détectée.\"\n}\n```",
-        "ts": 1790031500.99172
+        "zscore": 2.259238342989712,
+        "value": 40.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit de fond absolu. L'anomalie 'dust' onchain est un artéfact statistique sans lien avec les actualités médiatiques, qui font référence à un jeu vidéo, une série TV et des homonymes tech sans rapport avec la crypto. Aucune accumulation ni mouvement de baleine détecté.\"\n}\n```",
+        "ts": 1790034510.67013
       },
       "fiche": "blocs_privilises",
       "questions": {
@@ -103,12 +64,12 @@
           "depasse": false
         },
         "volume": {
-          "value": 91,
+          "value": 391,
           "seuil": 0,
           "depasse": true
         },
         "prix": {
-          "value": 0.03,
+          "value": -0.16,
           "seuil": 0,
           "depasse": true
         },

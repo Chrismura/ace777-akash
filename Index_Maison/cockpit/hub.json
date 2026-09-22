@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-21T23:08:07.340021+00:00",
+  "generated_at": "2026-09-22T00:08:16.008480+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 156
+      "calls_24h": 158
     },
     {
       "id": "openrouter-free",
@@ -265,10 +265,42 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 164,
-    "remaining": 460
+    "consumed": 0,
+    "remaining": 624
   },
   "queue": [
+    {
+      "ts": "2026-09-21T23:48:30.668572+00:00",
+      "task": "analyse.profonde",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 1.09
+    },
+    {
+      "ts": "2026-09-21T23:48:28.913650+00:00",
+      "task": "analyse.profonde",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 1.25
+    },
+    {
+      "ts": "2026-09-21T23:08:34.084570+00:00",
+      "task": "supervise.decision",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 0.87
+    },
+    {
+      "ts": "2026-09-21T23:08:23.439498+00:00",
+      "task": "supervise.decision",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 0.89
+    },
     {
       "ts": "2026-09-21T22:58:20.990940+00:00",
       "task": "analyse.profonde",
@@ -356,97 +388,65 @@
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
       "duration_s": 1.03
-    },
-    {
-      "ts": "2026-09-21T21:32:43.961388+00:00",
-      "task": "analyse.profonde",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 0.98
-    },
-    {
-      "ts": "2026-09-21T21:08:18.825884+00:00",
-      "task": "supervise.decision",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 1.06
-    },
-    {
-      "ts": "2026-09-21T21:08:06.682501+00:00",
-      "task": "supervise.decision",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 0.79
-    },
-    {
-      "ts": "2026-09-21T20:57:29.164041+00:00",
-      "task": "analyse.profonde",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 1.03
     }
   ],
   "events": [
     {
-      "ts": "2026-09-21T23:06:33.348064+00:00",
+      "ts": "2026-09-22T00:04:54.903891+00:00",
       "kind": "http",
       "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
       "detail": ""
     },
     {
-      "ts": "2026-09-21T23:06:33.347596+00:00",
+      "ts": "2026-09-22T00:04:54.903205+00:00",
       "kind": "error",
       "title": "Toutes les IA ont echoue",
-      "detail": "Google Gemini: HTTP Error 429: Too Many Requests | Groq (LLM ultra-rapide, gratuit): blacklist du jour (saute) | HuggingFace (136+ modeles, dont DeepSeek-V4): HTTP Error 400: Bad Request | OrcaRouter (routeur gratuit, modele orcarouter/free): HTTP Error 429: Too Many Requests | OpenRouter Juge (nemotron-3-super-120b free) - verificateur independant: HTTP Error 400: Bad Request | InferX DeepSeek V4 Flash (API gratuite jusqu'au 12/08): HTTP Error 429: Too Many Requests | InferX Qwen3-Coder-Next (c"
+      "detail": "Google Gemini: HTTP Error 429: Too Many Requests | Groq (LLM ultra-rapide, gratuit): HTTP Error 400: Bad Request | HuggingFace (136+ modeles, dont DeepSeek-V4): HTTP Error 400: Bad Request | OrcaRouter (routeur gratuit, modele orcarouter/free): HTTP Error 400: Bad Request | OpenRouter Juge (nemotron-3-super-120b free) - verificateur independant: HTTP Error 400: Bad Request | InferX DeepSeek V4 Flash (API gratuite jusqu'au 12/08): HTTP Error 429: Too Many Requests | InferX Qwen3-Coder-Next (code,"
     },
     {
-      "ts": "2026-09-21T23:06:33.345684+00:00",
+      "ts": "2026-09-22T00:04:54.897776+00:00",
       "kind": "failover",
       "title": "Bascule depuis InferX Devstral-2-123B (code)",
       "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-09-21T23:06:29.278679+00:00",
+      "ts": "2026-09-22T00:04:50.824984+00:00",
       "kind": "failover",
       "title": "Bascule depuis NVIDIA DeepSeek-Coder 6.7B (code, via NIM)",
       "detail": "HTTP Error 404: Not Found"
     },
     {
-      "ts": "2026-09-21T23:06:28.193838+00:00",
+      "ts": "2026-09-22T00:04:50.098050+00:00",
       "kind": "failover",
       "title": "Bascule depuis Puter Grok (gratuit)",
       "detail": "HTTP Error 402: Payment Required"
     },
     {
-      "ts": "2026-09-21T23:06:27.605142+00:00",
+      "ts": "2026-09-22T00:04:49.558166+00:00",
       "kind": "failover",
       "title": "Bascule depuis InferX Qwen3-Coder-Next (code, gratuit jusqu'au 12/08)",
       "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-09-21T23:06:22.666240+00:00",
+      "ts": "2026-09-22T00:04:46.039172+00:00",
       "kind": "failover",
       "title": "Bascule depuis InferX DeepSeek V4 Flash (API gratuite jusqu'au 12/08)",
       "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-09-21T23:06:18.271480+00:00",
+      "ts": "2026-09-22T00:04:41.510834+00:00",
       "kind": "failover",
       "title": "Bascule depuis OpenRouter Juge (nemotron-3-super-120b free) - verificateur independant",
       "detail": "HTTP Error 400: Bad Request"
     },
     {
-      "ts": "2026-09-21T23:06:17.594454+00:00",
+      "ts": "2026-09-22T00:04:40.892483+00:00",
       "kind": "failover",
       "title": "Bascule depuis OrcaRouter (routeur gratuit, modele orcarouter/free)",
-      "detail": "HTTP Error 429: Too Many Requests"
+      "detail": "HTTP Error 400: Bad Request"
     },
     {
-      "ts": "2026-09-21T23:06:15.881458+00:00",
+      "ts": "2026-09-22T00:04:39.169377+00:00",
       "kind": "failover",
       "title": "Bascule depuis HuggingFace (136+ modeles, dont DeepSeek-V4)",
       "detail": "HTTP Error 400: Bad Request"

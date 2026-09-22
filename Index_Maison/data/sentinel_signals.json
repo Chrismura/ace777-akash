@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "cpfp",
-      "zscore": 2.3002590300414005,
-      "value": 40.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 75,\n  \"reason\": \"Anomalie statistique sur les frais (CPFP z-score 2.30) couplée à un bruit médiatique totalement déconnecté (actualités locales et généralistes sans lien avec la crypto). Cette omerta médiatique combinée à une congestion/priorisation active sur la blockchain indique une accumulation ou restructuration silencieuse de portefeuilles d'envergure.\"\n}\n```",
-      "ts": "2026-09-21T11:18:28.222753+00:00"
-    },
-    {
-      "metric": "dust",
-      "zscore": 2.3002590300414005,
-      "value": 40.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Fausse alerte liée à une homonymie : l'activité on-chain concerne des micro-transactions (« dust »), tandis que les médias traitent de la startup SaaS française d'intelligence artificielle 'Dust' et de météo.\"\n}\n```",
-      "ts": "2026-09-21T11:18:30.531845+00:00"
-    },
-    {
       "metric": "volume",
       "zscore": 3.343098793488677,
       "value": 16251121212.0,
@@ -349,6 +335,20 @@
       "value": 45.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie onchain insignifiante (bruit de fond). Les mentions médiatiques font référence à un jeu vidéo, des actualités locales et de l'IA (Dust), totalement déconnectées de la crypto. Aucune activité de baleine détectée.\"\n}\n```",
       "ts": "2026-09-21T22:58:20.991720+00:00"
+    },
+    {
+      "metric": "cpfp",
+      "zscore": 2.259238342989712,
+      "value": 40.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Faux positif détecté. Le z-score élevé sur le 'CPFP' est un artefact lié à des actualités généralistes sans rapport avec l'onchain (termes administratifs, politiques et tutoriels basiques de mempool), aucune accumulation ou mouvement massif de baleines crypto n'est en cours.\"\n}\n```",
+      "ts": "2026-09-21T23:48:28.914968+00:00"
+    },
+    {
+      "metric": "dust",
+      "zscore": 2.259238342989712,
+      "value": 40.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit de fond absolu. L'anomalie 'dust' onchain est un artéfact statistique sans lien avec les actualités médiatiques, qui font référence à un jeu vidéo, une série TV et des homonymes tech sans rapport avec la crypto. Aucune accumulation ni mouvement de baleine détecté.\"\n}\n```",
+      "ts": "2026-09-21T23:48:30.670130+00:00"
     }
   ]
 }
