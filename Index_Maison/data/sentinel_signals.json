@@ -1,48 +1,6 @@
 {
   "signals": [
     {
-      "metric": "dust",
-      "zscore": 2.342926177090545,
-      "value": 45.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique non pertinent. Les occurrences de 'dust' font référence à des actualités météo (trombes d'air) et à des levées de fonds de startups tech (Dust IA), sans aucun lien avec des mouvements onchain ou du whale tracking.\"\n}\n```",
-      "ts": "2026-09-21T13:50:58.836122+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": 2.6952879490637973,
-      "value": 19197915972.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Le pic de volume on-chain (z-score 2.70) coïncide avec du bruit médiatique sans rapport direct (manga, montres, jardinage) ou des mouvements de marché généralisés (NEAR). Aucune accumulation ou manipulation silencieuse unifiée de baleine détectable derrière ce narratif dispersé.\"\n}\n```",
-      "ts": "2026-09-21T14:07:22.428597+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": 2.7172150614863213,
-      "value": 0.016,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.72) totalement déconnectée des cryptos : les actualités font référence à l'industrie du cinéma (Blackmagic SDI), à la politique française (SDI - Syndicat des Indépendants) et aux batteries (Samsung SDI). Aucun mouvement de baleine crypto détecté.\"\n}\n```",
-      "ts": "2026-09-21T14:17:43.694506+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 3.188080319202087,
-      "value": 1.207,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Anomalie technique (Z-score 3.19) entièrement capturée par un bruit sémantique hors-sujet (Tournoi de physique, biotechnologies, actualité religieuse et académique). Aucun mouvement de baleine crypto détecté, le ticker 'ipt' fait face à une collision de homonymes lexicaux sans lien avec la blockchain.\"\n}\n```",
-      "ts": "2026-09-21T14:17:52.971077+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": 2.6283418781776042,
-      "value": 19944415531.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique parasité par des sujets sans rapport (manga, montres, jardinage). Aucune couverture sérieuse de l'anomalie de volume on-chain (z-score 2.63), indiquant un mouvement purement technique ou du bruit statistique non repris par les médias.\"\n}\n```",
-      "ts": "2026-09-21T14:38:49.557412+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": 2.5706081248590227,
-      "value": 0.016,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique parasité par des homonymes (matériel vidéo, actualité politique et automobile Samsung SDI). Aucune corrélation onchain significative avec une baleine crypto.\"\n}\n```",
-      "ts": "2026-09-21T14:53:54.197502+00:00"
-    },
-    {
       "metric": "ipt",
       "zscore": 2.4481447740737354,
       "value": 1.02,
@@ -349,6 +307,48 @@
       "value": 9218240.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Forte divergence : le bruit médiatique se focalise sur des liquidations d'entreprises traditionnelles ou des vagues macro (Turquie), masquant l'anomalie on-chain des liquidations crypto (z-score 2.84, ~$9.2M) couplée à un BTC à 86k$ et des liquidations globales massives (~1 Md$). Les baleines nettoient le carnet d'ordres par un 'flush' des positions à effet de levier dans l'indifférence du grand public, préparant la prochaine jambe haussière.\"\n}\n```",
       "ts": "2026-09-22T02:59:34.992361+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 2.6457513110645903,
+      "value": 78,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Euphorie extrême (Fear & Greed à 78, z-score 2.65) sans catalyseur médiatique majeur suggère une bulle spéculative de détail. Les baleines profitent traditionnellement de cette surchauffe pour distribuer silencieusement leurs liquidités aux suiveurs.\"\n}\n```",
+      "ts": "2026-09-22T03:09:37.365021+00:00"
+    },
+    {
+      "metric": "cpfp",
+      "zscore": 2.3509405880878624,
+      "value": 45.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique purement onchain liée aux frais de transaction (Child-Pays-For-Parent) sans corrélation avec une accumulation ou distribution de baleines. Le bruit médiatique est non pertinent (mélange de pédagogie crypto et d'actualités locales sans rapport).\"\n}\n```",
+      "ts": "2026-09-22T03:14:41.184323+00:00"
+    },
+    {
+      "metric": "dust",
+      "zscore": 2.3509405880878624,
+      "value": 45.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit de fond médiatique sans rapport avec la crypto (jeux vidéo, programmes TV, actualités tech générales). L'anomalie onchain (z-score 2.35) est trop faible et isolée pour confirmer un mouvement de baleine significatif face au vacarme sémantique du mot 'Dust'.\"\n}\n```",
+      "ts": "2026-09-22T03:14:42.896144+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 2.420153478013915,
+      "value": 78,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Euphorie extrême (Fear & Greed à 78, z-score 2.42) couplée à un vide médiatique (aucun signal fort de Google Actualités) indique une bulle spéculative locale alimentée par du retail isolé. Les baleines profitent de cette surchauffe et du manque de couverture grand public pour distribuer leurs sacs en silence.\"\n}\n```",
+      "ts": "2026-09-22T03:39:47.913912+00:00"
+    },
+    {
+      "metric": "cpfp",
+      "zscore": 2.6166752928189005,
+      "value": 50.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique purement onchain liée aux frais de transaction (Child-Pays-For-Parent) sans corrélation avec l'actualité médiatique, polluée par des homonymes (finances publiques, politique locale). Aucun mouvement significatif de baleines détecté.\"\n}\n```",
+      "ts": "2026-09-22T03:54:52.075099+00:00"
+    },
+    {
+      "metric": "dust",
+      "zscore": 2.6166752928189005,
+      "value": 50.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Le signal 'dust' onchain est un bruit statistique (z-score 2.62 sur un volume insignifiant) et le narratif médiatique fait référence à des homonymes non-crypto (jeux vidéo, programmes TV, IA généraliste). Aucune activité significative de baleines détectée.\"\n}\n```",
+      "ts": "2026-09-22T03:54:54.050140+00:00"
     }
   ]
 }
