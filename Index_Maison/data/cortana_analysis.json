@@ -1,37 +1,97 @@
 {
-  "timestamp": 1790053610,
-  "date": "2026-09-22T05:06:50.914992+00:00",
-  "n_analyses": 1,
+  "timestamp": 1790057212,
+  "date": "2026-09-22T06:06:52.133763+00:00",
+  "n_analyses": 2,
   "analyses": [
     {
       "signal": {
-        "metric": "fear_greed",
-        "zscore": 2.0816659994661326,
-        "value": 78,
-        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Indice de Peur & Avarice à 78 (z-score 2.08) en zone d'euphorie extrême alors que le narratif médiatique est totalement muet ('Google Actualités' vide). Divergence classique de sommet de marché : l'absence de couverture grand public combinée à une cupidité onchain excessive signale une distribution silencieuse par les baleines.\"\n}\n```",
-        "ts": 1790052013.679005
+        "metric": "cpfp",
+        "zscore": 2.033546106233641,
+        "value": 45.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Le pic de CPFP (Child-Pays-For-Parent) on-chain est un artéfact technique lié à la congestion du réseau Bitcoin (utilisateurs bloqués débloquant leurs transactions), totalement déconnecté du bruit médiatique hétéroclite et sans lien avec une accumulation ou distribution institutionnelle.\"\n}\n```",
+        "ts": 1790055943.831998
       },
-      "fiche": "fear_greed",
+      "fiche": "blocs_privilises",
       "questions": {
-        "peur": {
-          "value": 78,
-          "seuil": 25,
+        "duree": {
+          "value": 0,
+          "seuil": 0,
+          "depasse": false
+        },
+        "volume": {
+          "value": 354,
+          "seuil": 0,
           "depasse": true
         },
-        "cupidite": {
-          "value": 78,
-          "seuil": 75,
+        "prix": {
+          "value": 0.01,
+          "seuil": 0,
           "depasse": true
+        },
+        "sdi": {
+          "value": 0.004,
+          "seuil": 0,
+          "depasse": true
+        },
+        "rbf": {
+          "value": 0.0,
+          "seuil": 0,
+          "depasse": false
         }
       },
       "interpretation": {
-        "condition": "cupidite > 75",
-        "lecture": "Cupidité extrême — historiquement zone où les paliers de vente (RIP) font mieux que la détention aveugle",
-        "niveau": "info",
-        "action": "Respecter les paliers RIP, ne pas ajouter sur l'euphorie"
+        "condition": "duree < 5min ET volume > 100",
+        "lecture": "Consolidation exchange — probablement un transfert hot→cold",
+        "niveau": "neutre",
+        "action": "Garder les positions"
       },
-      "action": "Respecter les paliers RIP, ne pas ajouter sur l'euphorie",
-      "niveau": "info"
+      "action": "Garder les positions",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "dust",
+        "zscore": 2.033546106233641,
+        "value": 45.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique sans rapport avec la crypto (jeux vidéo, programmes TV, actualités tech générales). L'anomalie de dust onchain est isolée et non corrélée au narratif.\"\n}\n```",
+        "ts": 1790055948.705823
+      },
+      "fiche": "blocs_privilises",
+      "questions": {
+        "duree": {
+          "value": 0,
+          "seuil": 0,
+          "depasse": false
+        },
+        "volume": {
+          "value": 354,
+          "seuil": 0,
+          "depasse": true
+        },
+        "prix": {
+          "value": 0.01,
+          "seuil": 0,
+          "depasse": true
+        },
+        "sdi": {
+          "value": 0.004,
+          "seuil": 0,
+          "depasse": true
+        },
+        "rbf": {
+          "value": 0.0,
+          "seuil": 0,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "duree < 5min ET volume > 100",
+        "lecture": "Consolidation exchange — probablement un transfert hot→cold",
+        "niveau": "neutre",
+        "action": "Garder les positions"
+      },
+      "action": "Garder les positions",
+      "niveau": "neutre"
     }
   ],
   "resume": "🔵 CALME — pas de signal alarmant"

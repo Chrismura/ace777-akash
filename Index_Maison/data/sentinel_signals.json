@@ -1,27 +1,6 @@
 {
   "signals": [
     {
-      "metric": "dust",
-      "zscore": 2.0376111968970743,
-      "value": 40.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique 'dust' sans rapport avec la crypto (bruit météorologique et actualité tech/IA sur la startup 'Dust'). Aucune baleine détectée.\"\n}\n```",
-      "ts": "2026-09-21T16:04:59.287355+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": 2.4294132100936823,
-      "value": 22183741715.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique sans rapport avec la crypto (manga, montres, bourses traditionnelles). Le volume onchain élevé est pollué par des homonymies ou des bruits de fond, aucune baleine crypto détectée derrière un narratif cohérent.\"\n}\n```",
-      "ts": "2026-09-21T16:10:02.020524+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": 2.507587026365196,
-      "value": 0.016,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.51) sur un acronyme ('SDI') pollué par du bruit sémantique (hardware vidéo, constructeurs automobiles, politique). Aucune corrélation avec une activité de baleines crypto ; le 'bruit médiatique' concerne des actualités industrielles et technologiques sans rapport avec la blockchain.\"\n}\n```",
-      "ts": "2026-09-21T16:30:06.533549+00:00"
-    },
-    {
       "metric": "ipt",
       "zscore": 2.8304208857039397,
       "value": 1.14,
@@ -349,6 +328,27 @@
       "value": 78,
       "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Indice de Peur & Avarice à 78 (z-score 2.08) en zone d'euphorie extrême alors que le narratif médiatique est totalement muet ('Google Actualités' vide). Divergence classique de sommet de marché : l'absence de couverture grand public combinée à une cupidité onchain excessive signale une distribution silencieuse par les baleines.\"\n}\n```",
       "ts": "2026-09-22T04:40:13.679005+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.152166284561919,
+      "value": 1.065,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Fausse alerte liée à une homonymie. L'indice 'ipt' fait référence à l'actualité institutionnelle et académique (Tournoi de Physique, biotechnologies), totalement déconnectée des marchés crypto.\"\n}\n```",
+      "ts": "2026-09-22T05:15:19.852866+00:00"
+    },
+    {
+      "metric": "cpfp",
+      "zscore": 2.033546106233641,
+      "value": 45.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Le pic de CPFP (Child-Pays-For-Parent) on-chain est un artéfact technique lié à la congestion du réseau Bitcoin (utilisateurs bloqués débloquant leurs transactions), totalement déconnecté du bruit médiatique hétéroclite et sans lien avec une accumulation ou distribution institutionnelle.\"\n}\n```",
+      "ts": "2026-09-22T05:45:43.831998+00:00"
+    },
+    {
+      "metric": "dust",
+      "zscore": 2.033546106233641,
+      "value": 45.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique sans rapport avec la crypto (jeux vidéo, programmes TV, actualités tech générales). L'anomalie de dust onchain est isolée et non corrélée au narratif.\"\n}\n```",
+      "ts": "2026-09-22T05:45:48.705823+00:00"
     }
   ]
 }

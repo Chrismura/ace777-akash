@@ -4833,3 +4833,7 @@ Pas d’ordre — confrontation plus tard.
 ### 2026-09-22T02:04:26Z — ALERT auto
 - EDELUSDT: WATCH_PULLBACK — tension haute + reflux
 (compléter: confirmé ? risque ?)
+
+### 2026-09-22T06:03:38Z — ALERT auto
+- RIZEUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
