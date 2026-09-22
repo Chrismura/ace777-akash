@@ -1,34 +1,6 @@
 {
   "signals": [
     {
-      "metric": "ipt",
-      "zscore": 2.4481447740737354,
-      "value": 1.02,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (z-score 2.45) due à une collision lexicale. Les 'baleines' ne bougent pas : 'IPT' fait référence à l'Institut Pasteur de Tunis, au Tournoi International des Physiciens ou à des accords universitaires, sans lien avec l'activité on-chain.\"\n}\n```",
-      "ts": "2026-09-21T14:53:56.575456+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": 2.6260652434200162,
-      "value": 20994024249.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique sans rapport direct (mangas, montres, jardinage, actualité NEAR isolée). Le z-score élevé (2.63) indique une anomalie de volume statistique sur l'actif analysé, mais l'absence totale de couverture ciblée dans les gros titres suggère soit du bruit de fond onchain, soit une accumulation purement silencieuse non captée par les médias grand public, rendant toute conviction directionnelle prématurée.\"\n}\n```",
-      "ts": "2026-09-21T15:09:46.073405+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": 2.5416768198567614,
-      "value": 21696869179.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie de volume statistique (z-score 2.54) noyée dans un bruit médiatique sans rapport direct (manga, montres, jardinage). Seule une mention mineure de NEAR existe, mais insuffisante pour corréler un mouvement silencieux de baleines crypto.\"\n}\n```",
-      "ts": "2026-09-21T15:39:52.809770+00:00"
-    },
-    {
-      "metric": "cpfp",
-      "zscore": 2.0376111968970743,
-      "value": 40.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Faux positif onchain : le pic de CPFP détecté correspond à du bruit sémantique (terme technique Bitcoin partagé avec des homonymes institutionnels et locaux dans l'actualité), sans lien avec un mouvement massif de baleines.\"\n}\n```",
-      "ts": "2026-09-21T16:04:57.388191+00:00"
-    },
-    {
       "metric": "dust",
       "zscore": 2.0376111968970743,
       "value": 40.0,
@@ -349,6 +321,34 @@
       "value": 50.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Le signal 'dust' onchain est un bruit statistique (z-score 2.62 sur un volume insignifiant) et le narratif médiatique fait référence à des homonymes non-crypto (jeux vidéo, programmes TV, IA généraliste). Aucune activité significative de baleines détectée.\"\n}\n```",
       "ts": "2026-09-22T03:54:54.050140+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 2.236067977499791,
+      "value": 78,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Indice de peur et de cupidité à 78 (euphorie extrême, z-score élevé) couplé à un vide médiatique ou un narratif de surface indique une déconnexion totale. Les baleines profitent généralement de cette euphorie de détail pour distribuer leurs sacs en silence aux investisseurs particuliers avant un retournement.\"\n}\n```",
+      "ts": "2026-09-22T04:09:56.951186+00:00"
+    },
+    {
+      "metric": "cpfp",
+      "zscore": 2.1859196264730842,
+      "value": 45.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.19) liée à des homonymes linguistiques (CPFP/Finances Publiques) dans les médias. Aucun mouvement significatif de baleines crypto détecté, simple bruit sémantique.\"\n}\n```",
+      "ts": "2026-09-22T04:25:00.971626+00:00"
+    },
+    {
+      "metric": "dust",
+      "zscore": 2.1859196264730842,
+      "value": 45.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie onchain insignifiante (bruit de fond). Les résultats médiatiques font référence à un jeu vidéo, une série TV et des actualités sans lien avec la crypto. Aucune activité de baleine détectée.\"\n}\n```",
+      "ts": "2026-09-22T04:25:02.544507+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 2.0816659994661326,
+      "value": 78,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Indice de Peur & Avarice à 78 (z-score 2.08) en zone d'euphorie extrême alors que le narratif médiatique est totalement muet ('Google Actualités' vide). Divergence classique de sommet de marché : l'absence de couverture grand public combinée à une cupidité onchain excessive signale une distribution silencieuse par les baleines.\"\n}\n```",
+      "ts": "2026-09-22T04:40:13.679005+00:00"
     }
   ]
 }

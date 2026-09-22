@@ -1,15 +1,15 @@
 {
-  "timestamp": 1790050009,
-  "date": "2026-09-22T04:06:49.778143+00:00",
-  "n_analyses": 3,
+  "timestamp": 1790053310,
+  "date": "2026-09-22T05:01:50.813323+00:00",
+  "n_analyses": 1,
   "analyses": [
     {
       "signal": {
         "metric": "fear_greed",
-        "zscore": 2.420153478013915,
+        "zscore": 2.0816659994661326,
         "value": 78,
-        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Euphorie extrême (Fear & Greed à 78, z-score 2.42) couplée à un vide médiatique (aucun signal fort de Google Actualités) indique une bulle spéculative locale alimentée par du retail isolé. Les baleines profitent de cette surchauffe et du manque de couverture grand public pour distribuer leurs sacs en silence.\"\n}\n```",
-        "ts": 1790048387.913912
+        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Indice de Peur & Avarice à 78 (z-score 2.08) en zone d'euphorie extrême alors que le narratif médiatique est totalement muet ('Google Actualités' vide). Divergence classique de sommet de marché : l'absence de couverture grand public combinée à une cupidité onchain excessive signale une distribution silencieuse par les baleines.\"\n}\n```",
+        "ts": 1790052013.679005
       },
       "fiche": "fear_greed",
       "questions": {
@@ -32,96 +32,6 @@
       },
       "action": "Respecter les paliers RIP, ne pas ajouter sur l'euphorie",
       "niveau": "info"
-    },
-    {
-      "signal": {
-        "metric": "cpfp",
-        "zscore": 2.6166752928189005,
-        "value": 50.0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique purement onchain liée aux frais de transaction (Child-Pays-For-Parent) sans corrélation avec l'actualité médiatique, polluée par des homonymes (finances publiques, politique locale). Aucun mouvement significatif de baleines détecté.\"\n}\n```",
-        "ts": 1790049292.075099
-      },
-      "fiche": "blocs_privilises",
-      "questions": {
-        "duree": {
-          "value": 0,
-          "seuil": 0,
-          "depasse": false
-        },
-        "volume": {
-          "value": 1023,
-          "seuil": 0,
-          "depasse": true
-        },
-        "prix": {
-          "value": -0.03,
-          "seuil": 0,
-          "depasse": true
-        },
-        "sdi": {
-          "value": 0.004,
-          "seuil": 0,
-          "depasse": true
-        },
-        "rbf": {
-          "value": 0.0,
-          "seuil": 0,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "duree < 5min ET volume > 100",
-        "lecture": "Consolidation exchange — probablement un transfert hot→cold",
-        "niveau": "neutre",
-        "action": "Garder les positions"
-      },
-      "action": "Garder les positions",
-      "niveau": "neutre"
-    },
-    {
-      "signal": {
-        "metric": "dust",
-        "zscore": 2.6166752928189005,
-        "value": 50.0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Le signal 'dust' onchain est un bruit statistique (z-score 2.62 sur un volume insignifiant) et le narratif médiatique fait référence à des homonymes non-crypto (jeux vidéo, programmes TV, IA généraliste). Aucune activité significative de baleines détectée.\"\n}\n```",
-        "ts": 1790049294.05014
-      },
-      "fiche": "blocs_privilises",
-      "questions": {
-        "duree": {
-          "value": 0,
-          "seuil": 0,
-          "depasse": false
-        },
-        "volume": {
-          "value": 1023,
-          "seuil": 0,
-          "depasse": true
-        },
-        "prix": {
-          "value": -0.03,
-          "seuil": 0,
-          "depasse": true
-        },
-        "sdi": {
-          "value": 0.004,
-          "seuil": 0,
-          "depasse": true
-        },
-        "rbf": {
-          "value": 0.0,
-          "seuil": 0,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "duree < 5min ET volume > 100",
-        "lecture": "Consolidation exchange — probablement un transfert hot→cold",
-        "niveau": "neutre",
-        "action": "Garder les positions"
-      },
-      "action": "Garder les positions",
-      "niveau": "neutre"
     }
   ],
   "resume": "🔵 CALME — pas de signal alarmant"
