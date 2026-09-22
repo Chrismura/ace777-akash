@@ -2,41 +2,6 @@
   "signals": [
     {
       "metric": "dust",
-      "zscore": 2.085805989822272,
-      "value": 40.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.09) liée à du bruit sémantique et des homonymies médiatiques (météo, actualités tech/IA 'Dust'), et non à un mouvement massif de portefeuilles crypto dormants.\"\n}\n```",
-      "ts": "2026-09-21T12:49:20.269063+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": 2.754917514522899,
-      "value": 17597157605.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.75) couplé à une explosion de +80% du NEAR et des volumes d'intents à 30Mrd$. Le bruit médiatique externe (montres, jardinage) masque une accumulation institutionnelle agressive sur les infrastructures d'Intents.\"\n}\n```",
-      "ts": "2026-09-21T13:04:26.441431+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.5088968925774844,
-      "value": 0.982,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Fausse alerte liée à une collision lexicale : l'indicateur on-chain 'ipt' est pollué par l'acronyme 'IPT' désignant des actualités institutionnelles et académiques sans rapport avec la crypto.\"\n}\n```",
-      "ts": "2026-09-21T13:24:31.624559+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": 2.5746882661104955,
-      "value": 17852826683.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique sans rapport avec la crypto (mangas, montres, jardinage). Seule une brève mention sur NEAR n'explique pas l'anomalie on-chain massive (z-score 2.57). Données insuffisantes pour confirmer une accumulation ou une distribution silencieuse de baleines.\"\n}\n```",
-      "ts": "2026-09-21T13:34:35.731853+00:00"
-    },
-    {
-      "metric": "cpfp",
-      "zscore": 2.342926177090545,
-      "value": 45.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique purement liée au bruit sémantique. Le z-score élevé sur 'cpfp' capte des actualités locales non financières et des tutoriels techniques génériques Bitcoin (RBF/CPFP) plutôt qu'une accumulation ou distribution significative de baleines.\"\n}\n```",
-      "ts": "2026-09-21T13:49:39.115445+00:00"
-    },
-    {
-      "metric": "dust",
       "zscore": 2.342926177090545,
       "value": 45.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique non pertinent. Les occurrences de 'dust' font référence à des actualités météo (trombes d'air) et à des levées de fonds de startups tech (Dust IA), sans aucun lien avec des mouvements onchain ou du whale tracking.\"\n}\n```",
@@ -349,6 +314,41 @@
       "value": 7569798.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 65,\n  \"reason\": \"Bruit médiatique parasité par des homonymies juridiques traditionnelles (faillites d'entreprises) et des liquidations crypto globales massives (1B$). L'anomalie onchain locale (7.5M$, z-score 2.37) montre une surchauffe à court terme mais reste noyée dans le narratif macro, sans preuve claire d'accumulation ou de distribution furtive par des baleines.\"\n}\n```",
       "ts": "2026-09-22T01:54:10.262548+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 3.316624790355397,
+      "value": 78,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Euphorie extrême (Fear & Greed à 78, z-score 3.32) couplée à un vide médiatique (aucun signal fort Google Actualités). Divergence classique de fin de cycle : les baleines accumulent de la liquidité et distribuent aux retards pendant que le bruit médiatique est absent mais que l'indice de cupidité sature.\"\n}\n```",
+      "ts": "2026-09-22T02:09:22.274478+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 2.932575659723039,
+      "value": 78,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Euphorie extrême (Fear & Greed à 78, z-score 2.93) sans couverture médiatique majeure (Google Actualités vide). Divergence classique de fin de cycle : les baleines distribuent en silence aux suiveurs de tendance pendant que le grand public est absent.\"\n}\n```",
+      "ts": "2026-09-22T02:39:26.738594+00:00"
+    },
+    {
+      "metric": "cpfp",
+      "zscore": 2.4150082131190813,
+      "value": 45.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Le pic de l'indicateur CPFP (Child-Pays-For-Parent) on-chain reflète simplement une congestion du réseau Bitcoin et l'utilisation de mécanismes de rattrapage de frais par des utilisateurs, sans aucun rapport avec une accumulation ou une distribution institutionnelle. Le bruit médiatique est totalement hétérogène (faits divers, politique locale, formation en Guinée) et sans lien avec les flux de gros capitaux. Aucune baleine détectée.\"\n}\n```",
+      "ts": "2026-09-22T02:44:28.672579+00:00"
+    },
+    {
+      "metric": "dust",
+      "zscore": 2.4150082131190813,
+      "value": 45.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.42) liée à du bruit onchain sans lien avec les flux institutionnels. Le narratif médiatique mentionne des homonymes non-crypto ('Dust', 'Beyond the Dust'). Aucune accumulation ni mouvement de baleine pertinent détecté.\"\n}\n```",
+      "ts": "2026-09-22T02:44:30.421593+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 2.8363234129427517,
+      "value": 9218240.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Forte divergence : le bruit médiatique se focalise sur des liquidations d'entreprises traditionnelles ou des vagues macro (Turquie), masquant l'anomalie on-chain des liquidations crypto (z-score 2.84, ~$9.2M) couplée à un BTC à 86k$ et des liquidations globales massives (~1 Md$). Les baleines nettoient le carnet d'ordres par un 'flush' des positions à effet de levier dans l'indifférence du grand public, préparant la prochaine jambe haussière.\"\n}\n```",
+      "ts": "2026-09-22T02:59:34.992361+00:00"
     }
   ]
 }

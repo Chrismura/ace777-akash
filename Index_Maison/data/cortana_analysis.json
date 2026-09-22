@@ -1,15 +1,15 @@
 {
-  "timestamp": 1790042807,
-  "date": "2026-09-22T02:06:47.597060+00:00",
-  "n_analyses": 2,
+  "timestamp": 1790046408,
+  "date": "2026-09-22T03:06:48.648632+00:00",
+  "n_analyses": 4,
   "analyses": [
     {
       "signal": {
         "metric": "fear_greed",
-        "zscore": 3.8729833462074166,
+        "zscore": 2.932575659723039,
         "value": 78,
-        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Euphorie extrême (Fear & Greed à 78, z-score 3.87) combinée à un vide médiatique (aucun signal fort sur Google Actualités) : signe classique de 'retail FOMO' aveugle. Les baleines profitent de cette liquidité de détail pour distribuer en silence avant un retournement.\"\n}\n```",
-        "ts": 1790041146.779773
+        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Euphorie extrême (Fear & Greed à 78, z-score 2.93) sans couverture médiatique majeure (Google Actualités vide). Divergence classique de fin de cycle : les baleines distribuent en silence aux suiveurs de tendance pendant que le grand public est absent.\"\n}\n```",
+        "ts": 1790044766.738594
       },
       "fiche": "fear_greed",
       "questions": {
@@ -35,26 +35,116 @@
     },
     {
       "signal": {
-        "metric": "liquidations",
-        "zscore": 2.370544807353722,
-        "value": 7569798.0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 65,\n  \"reason\": \"Bruit médiatique parasité par des homonymies juridiques traditionnelles (faillites d'entreprises) et des liquidations crypto globales massives (1B$). L'anomalie onchain locale (7.5M$, z-score 2.37) montre une surchauffe à court terme mais reste noyée dans le narratif macro, sans preuve claire d'accumulation ou de distribution furtive par des baleines.\"\n}\n```",
-        "ts": 1790042050.262548
+        "metric": "cpfp",
+        "zscore": 2.4150082131190813,
+        "value": 45.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Le pic de l'indicateur CPFP (Child-Pays-For-Parent) on-chain reflète simplement une congestion du réseau Bitcoin et l'utilisation de mécanismes de rattrapage de frais par des utilisateurs, sans aucun rapport avec une accumulation ou une distribution institutionnelle. Le bruit médiatique est totalement hétérogène (faits divers, politique locale, formation en Guinée) et sans lien avec les flux de gros capitaux. Aucune baleine détectée.\"\n}\n```",
+        "ts": 1790045068.672579
       },
-      "fiche": "liquidations",
+      "fiche": "blocs_privilises",
       "questions": {
-        "longs": {
-          "value": 7499083.0,
+        "duree": {
+          "value": 0,
           "seuil": 0,
-          "depasse": true
+          "depasse": false
         },
-        "shorts": {
-          "value": 70715.0,
+        "volume": {
+          "value": 96,
           "seuil": 0,
           "depasse": true
         },
         "prix": {
-          "value": -0.04,
+          "value": -0.0,
+          "seuil": 0,
+          "depasse": false
+        },
+        "sdi": {
+          "value": 0.008,
+          "seuil": 0,
+          "depasse": true
+        },
+        "rbf": {
+          "value": 0.0,
+          "seuil": 0,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "duree < 5min ET volume > 100",
+        "lecture": "Consolidation exchange — probablement un transfert hot→cold",
+        "niveau": "neutre",
+        "action": "Garder les positions"
+      },
+      "action": "Garder les positions",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "dust",
+        "zscore": 2.4150082131190813,
+        "value": 45.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.42) liée à du bruit onchain sans lien avec les flux institutionnels. Le narratif médiatique mentionne des homonymes non-crypto ('Dust', 'Beyond the Dust'). Aucune accumulation ni mouvement de baleine pertinent détecté.\"\n}\n```",
+        "ts": 1790045070.421593
+      },
+      "fiche": "blocs_privilises",
+      "questions": {
+        "duree": {
+          "value": 0,
+          "seuil": 0,
+          "depasse": false
+        },
+        "volume": {
+          "value": 96,
+          "seuil": 0,
+          "depasse": true
+        },
+        "prix": {
+          "value": -0.0,
+          "seuil": 0,
+          "depasse": false
+        },
+        "sdi": {
+          "value": 0.008,
+          "seuil": 0,
+          "depasse": true
+        },
+        "rbf": {
+          "value": 0.0,
+          "seuil": 0,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "duree < 5min ET volume > 100",
+        "lecture": "Consolidation exchange — probablement un transfert hot→cold",
+        "niveau": "neutre",
+        "action": "Garder les positions"
+      },
+      "action": "Garder les positions",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "liquidations",
+        "zscore": 2.8363234129427517,
+        "value": 9218240.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Forte divergence : le bruit médiatique se focalise sur des liquidations d'entreprises traditionnelles ou des vagues macro (Turquie), masquant l'anomalie on-chain des liquidations crypto (z-score 2.84, ~$9.2M) couplée à un BTC à 86k$ et des liquidations globales massives (~1 Md$). Les baleines nettoient le carnet d'ordres par un 'flush' des positions à effet de levier dans l'indifférence du grand public, préparant la prochaine jambe haussière.\"\n}\n```",
+        "ts": 1790045974.992361
+      },
+      "fiche": "liquidations",
+      "questions": {
+        "longs": {
+          "value": 9192218.0,
+          "seuil": 0,
+          "depasse": true
+        },
+        "shorts": {
+          "value": 18596.0,
+          "seuil": 0,
+          "depasse": true
+        },
+        "prix": {
+          "value": -0.0,
           "seuil": 1,
           "depasse": false
         }
