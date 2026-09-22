@@ -4878,3 +4878,16 @@ Pas d’ordre — confrontation plus tard.
 ### 2026-09-22T14:04:49Z — ALERT auto
 - PYTHUSDT: WATCH_PULLBACK — tension haute + reflux
 (compléter: confirmé ? risque ?)
+
+### 2026-09-22T15:44:25Z — ALERT auto
+- PYTHUSDT: WATCH_PULLBACK — tension haute + reflux
+- TELUSDT: IMPULSE_WAIT — spike en cours, pas chase
+(compléter: confirmé ? risque ?)
+
+### 2026-09-22T15:56:01Z — ALERT auto
+- EDELUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
+
+### 2026-09-22T16:07:55Z — ALERT auto
+- QNTUSDT: IMPULSE_WAIT — spike en cours, pas chase
+(compléter: confirmé ? risque ?)

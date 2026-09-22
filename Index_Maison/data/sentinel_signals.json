@@ -1,34 +1,6 @@
 {
   "signals": [
     {
-      "metric": "sdi",
-      "zscore": 2.1542232860364545,
-      "value": 0.016,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Le SDI mentionné dans les médias correspond au Syndicat des Indépendants (TPE en France) et non à un indicateur on-chain ou à une baleine crypto. Anomalie de sémantique, aucune donnée crypto pertinente.\"\n}\n```",
-      "ts": "2026-09-21T21:47:47.299158+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 3.1080696487580153,
-      "value": 1.183,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Anomalie statistique (z-score 3.11) entièrement due à un bruit médiatique sur des homonymes (Institut Pasteur de Tunis, Tournoi International des Physiciens) et non à une activité onchain de baleines crypto sur le ticker IPT.\"\n}\n```",
-      "ts": "2026-09-21T22:07:51.221539+00:00"
-    },
-    {
-      "metric": "whale_usd",
-      "zscore": 2.708074229151782,
-      "value": 3515432.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Activité anormale des baleines (z-score 2.71, +3.5M USD) dans un silence médiatique absolu. Accumulation furtive classique avant une rupture de prix.\"\n}\n```",
-      "ts": "2026-09-21T22:22:53.957260+00:00"
-    },
-    {
-      "metric": "cpfp",
-      "zscore": 2.3979157616563587,
-      "value": 40.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique mineure (Z-score 2.40 sur CPFP) sans corrélation avec les crypto-baleines. Les résultats médiatiques traitent majoritairement de sujets locaux sans rapport avec le marché des cryptomonnaies (établissements scolaires, politique au Congo, finances publiques en Guinée). Bruit on-chain, pas de mouvement majeur.\"\n}\n```",
-      "ts": "2026-09-21T22:27:56.313801+00:00"
-    },
-    {
       "metric": "dust",
       "zscore": 2.3979157616563587,
       "value": 40.0,
@@ -349,6 +321,34 @@
       "value": 0.7232214522572167,
       "analysis": "{\n  \"signal\": \"bullish\",\n  \"confidence\": 82,\n  \"reason\": \"Le prix horaire montre une anomalie forte (z‑score 2.74), indicative d’une pression d’achat significative probablement liée à l’accumulation de baleines. En revanche, les titres médiatiques actuels ne reflètent pas cette dynamique, suggérant un narratif déconnecté ou silencieux. Cette divergence pointe vers un mouvement haussier sous‑jacent non encore capté par les médias.\"\n}",
       "ts": "2026-09-22T14:35:16.699494+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": -2.001424553670089,
+      "value": 16757953894.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Volume onchain significativement élevé (z-score -2.00) sans couverture médiatique correspondante, suggérant une activité silencieuse des baleines. Les titres médiatiques sont totalement déconnectés des mouvements crypto, indiquant un possible décalage entre l'action du marché et l'attention publique.\"\n}\n```",
+      "ts": "2026-09-22T15:15:27.554085+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 2.1032359155377907,
+      "value": 0.016,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Les médias se concentrent sur des sujets institutionnels ou techniques (énergie, équipement vidéo) sans lien avec l'activité onchain. L'anomalie SDI (z-score 2.10) suggère une activité crypto discrète, potentiellement accumulation par les baleines.\"\n}\n```",
+      "ts": "2026-09-22T15:25:55.694964+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.0143245163735606,
+      "value": 1.1,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 75,\n  \"reason\": \"Anomalie onchain significative (z-score 2.01) contrastant avec un narratif médiatique banal (événements académiques, partenariats). Divergence suggérant une activité silencieuse de baleines non reflétée dans l'actualité publique.\"\n}\n```",
+      "ts": "2026-09-22T15:26:14.213301+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": -2.005818726560011,
+      "value": 16407329062.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit de fond absolu. Les données onchain montrent une anomalie de volume (z-score -2.01) mais les titres médiatiques sont complètement hors sujet (pneus de vélo, e-commerce, reggae, kiwis). Aucune corrélation macro ou crypto, il s'agit d'un bruit de signal sans mouvement notable de baleines.\"\n}\n```",
+      "ts": "2026-09-22T15:47:48.525087+00:00"
     }
   ]
 }
