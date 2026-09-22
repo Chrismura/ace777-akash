@@ -46,7 +46,29 @@ PROFILS = os.path.join(BASE_DIR, "strategie", "universe_profils.json")
 DEFAUTS = os.path.join(BASE_DIR, "config", "defaults.env")
 
 # Journaux de la LIGNE COURANTE (même machine d'état, repris par --resume).
-JOURNAUX = ["runs/PAPER_V1_20260918_165523.csv", "runs/PAPER_V1_20260921_075626.csv"]
+#
+# FIX 22/09/2026 — l'instrument lisait une liste de journaux ÉCRITE EN DUR et
+# donc PÉRIMÉE : il ne voyait plus rien depuis le 21/09 13:22Z (les nouvelles
+# gardes, dont FENETRE_ENTREE, étaient invisibles). Leçon « une seule vérité » :
+# le journal canonique est celui du POINTEUR (chaque --resume copie le journal du
+# précédent dans le nouveau → la chaîne est continue et le pointeur contient TOUT,
+# cf. le même choix dans fusibles_paires.py). Repli : le CSV le plus récent.
+def _journaux() -> list[str]:
+    try:
+        with open(os.path.join(RUNS, ".hulk_resume_pointer"), encoding="utf-8") as f:
+            ptr = f.read().strip()
+        if ptr:
+            csv_ = os.path.join(RUNS, os.path.basename(ptr).replace("_state.json", ".csv"))
+            if os.path.exists(csv_):
+                return [csv_]
+    except Exception:
+        pass
+    cands = sorted(glob.glob(os.path.join(RUNS, "PAPER_V1_*.csv")),
+                   key=os.path.getmtime, reverse=True)
+    return cands[:1]
+
+
+JOURNAUX = _journaux()
 
 HORIZON_H = 24.0        # durée d'observation après un refus
 ESPACEMENT_S = 3600     # un épisode = au moins 1 h d'écart (sinon c'est le même refus)

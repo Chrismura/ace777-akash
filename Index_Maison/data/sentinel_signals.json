@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "long_short",
-      "zscore": -2.0928121527907315,
-      "value": 0.851,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Le z-score extrême (-2.09) du ratio long/short indique une capitulation des positions acheteuses par la foule, historiquement synonyme de 'short squeeze' imminent. Les médias grand public relaient la panique ('les ours prennent le contrôle'), créant le désaccord parfait avec l'accumulation silencieuse des baleines.\"\n}\n```",
-      "ts": "2026-09-21T18:06:50.617980+00:00"
-    },
-    {
       "metric": "whale_usd",
       "zscore": 2.8155846727950014,
       "value": 5020769.0,
@@ -349,6 +342,13 @@
       "value": 50.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie onchain insignifiante (bruit de fond / poussière) sans lien avec les actualités médiatiques qui traitent de culture, de jeux vidéo et d'intelligence artificielle. Aucune baleine détectée.\"\n}\n```",
       "ts": "2026-09-22T08:06:33.848915+00:00"
+    },
+    {
+      "metric": "taker_ratio",
+      "zscore": 2.1852565502096986,
+      "value": 1.471,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio à 1.471 (z-score 2.19) indique une forte agression acheteuse sur les carnets d'ordres, signalant une accumulation agressive par les baleines. Le vide médiatique (Google Actualités sans écho majeur) prouve que le mouvement est totalement invisible pour le grand public, confirmant une entrée en position silencieuse avant un potentiel re-pricing.\"\n}\n```",
+      "ts": "2026-09-22T09:07:21.713588+00:00"
     }
   ]
 }

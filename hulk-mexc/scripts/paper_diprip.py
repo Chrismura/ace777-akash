@@ -32,7 +32,11 @@ socket.setdefaulttimeout(30)
 # capteurs F1-like (module local Hulk — pas ACE genesis)
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from ace_sense_mexc import aspiration_sense, book_sense, entry_gate, tension_score  # noqa: E402
-from veille_gates import entry_gate_check, record_stop, veille_stale  # noqa: E402
+from veille_gates import (  # noqa: E402
+    entry_gate_check,
+    record_stop,
+    veille_stale,
+)
 from cortana_contract import process_pilot  # noqa: E402
 from circuit_breaker import TradeCircuitBreaker, CircuitOpenException  # noqa: E402
 import re as _re_mod
@@ -639,6 +643,11 @@ class PaperBot:
         self.skip_dedupe_ttl = float(cfg.get("SKIP_DEDUPE_TTL_SEC", "60"))
         self.skip_dedupe: dict[tuple[str, str, str], tuple[float, int]] = {}
         self.skip_dedupe_counts: dict[str, int] = {}
+        # ANTI-SILENCE (22/09/2026) : un refus de RÉGIME (WATCH/QUIET/IMPULSE_WAIT)
+        # faisait `return` sans écrire — une paire pouvait être immobile des jours
+        # sans trace (CCUSDT : 27 h invisibles). On écrit 1 ligne/h/paire au maximum.
+        self.silence_ttl = float(cfg.get("SILENCE_LOG_TTL_SEC", "3600"))
+        self.silence_last: dict[str, float] = {}
         # v1.4 : plus de bag 15% — pleine mise, puis 2× → moitié bag
         self.double_mult = float(cfg.get("STAKE_DOUBLE_MULT", "2.0"))
         self.stake_sell_frac = float(cfg.get("STAKE_SELL_FRAC", "0.50"))
@@ -729,14 +738,34 @@ class PaperBot:
         self.rip_late_p1 = float(cfg.get("RIP_LATE_P1_PCT", "6.0"))
         self.rip_late_p2 = float(cfg.get("RIP_LATE_P2_PCT", "8.0"))
         self.rip_scaleout_frac = float(cfg.get("RIP_SCALEOUT_FRAC", "0.25"))
+        # === 22/09/2026 (R17) : LE PALIER DE SORTIE EST LU DANS L'UNITÉ DE LA PAIRE ===
+        # Mesuré le 22/09 sur 119 entrées RÉELLES, à 2 horizons (chiffrage_sortie_mesuree.py) :
+        # un palier universel en % traite pareil BTC (2,3 %/jour) et RIZE (19 %/jour).
+        # Relu dans la CADENCE de la paire (grandeur que le moteur mesure déjà) : +2,22 $ sur
+        # la 1re moitié et +1,05 $ sur la 2e (même signe — R17.3), pire trade INCHANGÉ, et les
+        # pertes supplémentaires (+0,69 $) payées 4,7× par le gain supplémentaire (+3,27 $)
+        # → conforme au critère R18 écrit dans le chiffrage.
+        # La forme SYMÉTRIQUE (échelle × r sans plancher) a été MESURÉE PUIS REJETÉE :
+        # signe instable (+2,95 $ / −2,54 $) — elle abaisse le palier des paires calmes.
+        # Donc PLANCHER : max(fixe, mult × cadence) — on n'abaisse JAMAIS le palier actuel.
+        self.rip_cadence_on = int(cfg.get("RIP_CADENCE_MESURE_ON", "0"))
+        self.rip_cadence_ref = float(cfg.get("RIP_CADENCE_REF_PCT", "7.30"))
         # SPEC v2 SELL FULL (29/08) — garde-fou amplitude + verrou 3 (config réversible)
         self.sell_full_amplitude_guard = float(cfg.get("SELL_FULL_AMPLITUDE_GUARD", "12.0"))
         self.sell_full_require_invalidation = int(cfg.get("SELL_FULL_REQUIRE_INVALIDATION", "1"))
         self.sell_full_guard_degraded = int(cfg.get("SELL_FULL_GUARD_DEGRADED", "1"))
         self.dust_sweep_min_notional = float(cfg.get("DUST_SWEEP_MIN_NOTIONAL", "1.0"))
         self.sell_partial_cascade = int(cfg.get("SELL_PARTIAL_CASCADE", "1"))
-        self.reentry_max = max(1, int(float(cfg.get("REENTRY_MAX", "1"))))
-        self.reentry_count: dict[str, int] = {}
+        # === 22/09/2026 : PLUS AUCUNE GARDE DE TEMPS SUR L'ENTRÉE (R17) ===
+        # `REENTRY_MAX` (interdiction À VIE après 3 pertes — CCUSDT gelé 4,5 jours) est
+        # SUPPRIMÉ, et le refroidissement en HEURES que j'avais posé dans la journée est
+        # RETIRÉ : c'était encore un seuil de temps fixe, donc la même faute.
+        # ORDRE Christophe : « on ne donne pas de timing FIXE D'ARRÊT ; ON REGARDE LES
+        # CHIFFRES, ce sont eux qui déterminent l'arrêt ». Le risque par paire est borné
+        # par des grandeurs MESURÉES, déjà en place : le FUSIBLE (fusibles_paires.py :
+        # k × σ_mesuré × mise → budget de perte journalier en dollars ; épuisé = entrées
+        # gelées, sorties libres) + les murs/aspiration/spread/plancher mesurés.
+        # Si une protection manque, elle se MESURE avant d'être posée (règle #8).
         # Bag de départ (test boucle bag dès le 1er jour) — 15/08 Christophe
         self.seed_bags_on = cfg.get("SEED_BAGS_ON", "1").strip() not in ("0", "false", "False")
         self.seed_bags_usdt = float(cfg.get("SEED_BAGS_USDT", "10"))
@@ -2077,14 +2106,20 @@ class PaperBot:
                 sc.get("cadence_pct"), f"SPREAD:{inv_spread:.0f}bps",
             )
             return
-        # famille 16/08 : re-entry borné — max REENTRY_MAX par paire après un stop
-        if self.reentry_count.get(pair, 0) >= self.reentry_max:
-            say("warn", f"[{utc_now()}] REENTRY_MAX {pair} ({self.reentry_count.get(pair, 0)}/{self.reentry_max})")
-            self.log(
-                pair, "SKIP", regime, price, price, 0.0, 0.0,
-                sc.get("cadence_pct"), f"REENTRY_MAX:{self.reentry_count.get(pair, 0)}",
-            )
-            return
+        # R17 (22/09/2026, ORDRE Christophe : « on ne donne pas de timing FIXE D'ARRÊT ;
+        # ON REGARDE LES CHIFFRES, ce sont eux qui déterminent l'arrêt ») :
+        # l'ancien `REENTRY_MAX` interdisait la paire À VIE (CCUSDT gelé 4,5 jours) —
+        # SUPPRIMÉ. Le refroidissement en HEURES que j'avais posé ce matin est RETIRÉ aussi :
+        # c'était encore un compteur de temps fixe, donc la même faute une taille en dessous.
+        #
+        # CE QUI DÉCIDE, MESURÉ (et déjà en place, rien d'inventé) :
+        #   • le FUSIBLE de la paire (plus haut dans buy()) — budget de perte journalier
+        #     = k × σ_mesuré × mise, calculé par fusibles_paires.py ; budget épuisé →
+        #     entrées gelées, sorties libres. C'est le « halt after a sequence of losses »
+        #     de la doctrine desk, exprimé en DOLLARS MESURÉS par paire — pas en heures ;
+        #   • les murs/aspiration/spread/plancher mesurés plus bas dans ce même chemin.
+        # Aucune garde de temps n'est ajoutée : si une protection manque, elle se MESURE
+        # d'abord (règle #8) — on ne la devine pas avec une horloge.
         trade_qty = trade_n / price
         # Filtre lots MEXC (codeur, 27/08) : quantité au stepSize + minNotional
         step, min_not = self.lot_filter(pair)
@@ -2176,12 +2211,12 @@ class PaperBot:
             f"[{utc_now()}] {tag:10} {pair}  px={price:.6f}  "
             f"pnl={pnl:+.4f}$  cash≈{proceeds:.2f}$  total={self.pnl_total:+.4f}$  ({reason})",
         )
-        # famille 16/08 : compteur re-entry — incrémenté à chaque fermeture, reset si gain
-        if event == "SELL":
-            if pnl >= 0:
-                self.reentry_count[pair] = 0
-            else:
-                self.reentry_count[pair] = self.reentry_count.get(pair, 0) + 1
+        # famille 22/09/2026 : le compteur de re-entries EN MÉMOIRE est supprimé. Il n'était
+        # pas persisté dans le state → il repartait à zéro à chaque redémarrage : le MÊME
+        # fait produisait deux comportements selon qu'on avait relancé (contradiction
+        # silencieuse). Il servait à interdire la paire à vie ; cette interdiction est
+        # SUPPRIMÉE (R17). Ce qui borne le risque d'une paire est désormais MESURÉ et
+        # persisté : son fusible (k × σ × mise) et le cache de stops post-stop.
         # v1.5 : cache stop uniquement (pas stake_out / partial)
         if event == "SELL" and str(reason).lower().startswith("stop"):
             record_stop(RUNS, pair, utc_now())
@@ -2471,6 +2506,17 @@ class PaperBot:
             early = pair in self.rip_early_pairs
             palier1 = self.rip_early_p1 if early else self.rip_late_p1
             palier2 = self.rip_early_p2 if early else self.rip_late_p2
+            # 22/09/2026 (R17) — la mesure DÉCIDE, et elle ne peut que PROTÉGER davantage :
+            # palier = palier_fixe × max(1 ; cadence MESURÉE de la paire / cadence de référence).
+            # La paire qui bouge plus que la médiane obtient son échelle ; celle qui bouge
+            # moins garde le palier actuel à l'identique (plancher à 1 : aucune protection
+            # retirée, aucun réglage inventé). La seule grandeur qui décide est la cadence,
+            # mesurée par le moteur et déjà journalisée — la référence n'est qu'une échelle.
+            _cad_pair = float(p.get("cadence") or 0.0)
+            if self.rip_cadence_on and self.rip_cadence_ref > 0 and _cad_pair > 0:
+                _rel = max(1.0, _cad_pair / self.rip_cadence_ref)
+                palier1 *= _rel
+                palier2 *= _rel
             rip_step = int(p.get("rip_step") or 0)  # 0 = rien vendu, 1 = palier 1 vendu
             rip_next = palier1 if rip_step == 0 else (palier2 if rip_step == 1 else None)
             if rip_next is not None and chg >= rip_next:
@@ -2483,10 +2529,15 @@ class PaperBot:
                     qty_init = float(p.get("qty_init") or qty)
                     sell_qty = qty_init * self.rip_scaleout_frac  # 25% de la quantité INITIALE par palier
                     if sell_qty >= qty * 0.001:
+                        # Rien de silencieux (#6) : la raison écrit LE PALIER EFFECTIF et LA MESURE
+                        # qui l'a produit (cadence de la paire + échelle relative) → le journal
+                        # prouve à lui seul que c'est la mesure qui a décidé, pas un % universel.
                         proceeds = self.sell_trade(
                             pair,
                             price,
-                            f"rip_{chg:.1f}pct_palier{rip_step+1}_sell_{self.rip_scaleout_frac*100:.0f}pct",
+                            f"rip_{chg:.1f}pct_palier{rip_step+1}_niv{rip_next:.1f}pct"
+                            f"_cad{_cad_pair:.1f}rel{max(1.0, _cad_pair / self.rip_cadence_ref) if (self.rip_cadence_on and self.rip_cadence_ref > 0 and _cad_pair > 0) else 1.0:.2f}"
+                            f"_sell_{self.rip_scaleout_frac*100:.0f}pct",
                             qty=sell_qty,
                         )
                         self.add_pair_cash(pair, proceeds)
@@ -2543,6 +2594,25 @@ class PaperBot:
             return False, f"vol_{flag}_impulse_block"
         return True, f"vol_ok_vx={vx:.2f}_{flag}"
 
+    def _log_immobilite(self, pair: str, regime: str, price: float, sc: dict):
+        """Rend VISIBLE l'immobilité d'une paire (règle #6 : rien de silencieux).
+
+        Avant le 22/09, un régime WATCH/QUIET faisait `return` SANS écrire : CCUSDT
+        est resté immobile 27 h sans qu'aucun journal ni instrument ne le voie (le
+        tableau des gardes est aveugle à ce qui ne s'écrit pas). On écrit donc une
+        ligne TRÈS espacée (SILENCE_LOG_TTL_SEC, 1 h) : assez pour que la carte des
+        gardes (dédup 1 h) la compte, assez rare pour ne pas noyer le journal.
+        """
+        key = f"{pair}|{regime}"
+        now = time.time()
+        if now - self.silence_last.get(key, 0.0) < self.silence_ttl:
+            return
+        self.silence_last[key] = now
+        self.log(
+            pair, "SKIP", regime, price, price, 0.0, 0.0,
+            sc.get("cadence_pct"), f"ATTENTE:{regime}",
+        )
+
     def maybe_enter(self, pair: str, price: float, sc: dict):
         # FIX 31/08 (Buffy) : `regime` était utilisé dans les chemins de retour
         # (CB ouvert, ligne self.log ci-dessous) AVANT son assignation plus bas
@@ -2580,6 +2650,10 @@ class PaperBot:
         _burst_ok = (_mode == "IMPULSE" and self.impulse_sans_repli_on
                      and regime == "IMPULSE_WAIT")
         if regime in ("QUIET", "WATCH", "IMPULSE_WAIT") and not _burst_ok:
+            # ANTI-SILENCE (22/09/2026) : ce `return` était MUET — CCUSDT est resté
+            # immobile 27 h sans une ligne, invisible pour le journal ET pour la carte
+            # des gardes. On trace désormais 1 fois par heure et par paire (règle #6).
+            self._log_immobilite(pair, regime, price, sc)
             return
         if _mode == "IMPULSE" and regime != "IMPULSE" and not _burst_ok:
             self.log(

@@ -1,6 +1,6 @@
 {
  "version": "1.5.0",
- "updated": "2026-09-22T08:10Z",
+ "updated": "2026-09-22T09:07Z",
  "fichier": [
   {
    "nom": "Index_Maison/scripts/v2_duo_replay_4h.py",
@@ -30,13 +30,17 @@
    "origine": "chantier hulk",
    "verif": "md5",
    "auto_modifiable": false,
-   "md5": "5238c7c85bcebb9b3b6dab7cb517b01b",
+   "md5": "8be2a7fa0996b505aa3b50f3f74c0d70",
    "_rescel_20260918": "gate Plancher PLANCHER_GATE_ON + plancher_veto()/plancher_veto_decision() + mise plafonnée sur le MUR LIVE (aspiration_live.json, repli profil).",
    "note": "FIX 27/08 : circuits breaker + fraîcheur Cortana + FILTRE LOTS MEXC (lot_filter depuis exchangeInfo, baseSizePrecision/quoteAmountPrecision, arrondi stepSize au buy ET au sell, dust close, fail-open)  | RE-SCELLÉ 2026-09-03T17:22Z (GO Christophe 03/09) · 10/09: patch fusibles par paire (gate tête de buy() + détarage sizing, GO Christophe) — md5 mis à jour",
    "maj": "BATCH PRIX Phase 1 (31/08-01/09, famille 7/7 + codeur) : 1 appel GET global + cache au lieu de 21 GET/cycle (~200-270 req/min → sous la limite MEXC). Mode SELLFULL + mode_entree() du 29-31/08. Aucune logique métier touchée.",
-   "date": "2026-09-22T08:10Z",
+   "date": "2026-09-22T09:05Z",
    "_rescel_20260921": "SET-UP IMPULSE 21/09 (GO Christophe « avancer sur le set-up ») : 3 portes corrigées POUR LES SEULES PAIRES mode_entree=IMPULSE (aujourd'hui EDEL), mesurées avant câblage (chiffrage_entree_sortie_replay.py, 90 j × 20 paires) — (1) entrée sur la RAFALE sans attendre le repli (66 % des rafales étaient structurellement inaccessibles), (2) IMPULSE_WAIT n'est plus une sortie anticipée pour ces paires (c'est l'instant du pump), (3) fenêtre de creux levée (une rafale n'a pas d'heure ; les deux portes ensemble = 0 entrée sur 90 j). Sortie INCHANGÉE. Flags IMPULSE_SANS_REPLI_ON / IMPULSE_HORS_FENETRE_ON, réversibles en 1 ligne. Preuve live : EDEL BUY 13:23:28Z régime IMPULSE_WAIT m6=8.0.",
-   "_rescel_20260922": "GARDE POINTEUR 22/09 (défense en profondeur) : save_state() ne fait PLUS pointer .hulk_resume_pointer vers un état que le moteur refuserait lui-même de reprendre — VIDE (0 position, 0 bag, écrit au boot avant le --resume) ou VIERGE (artefact de re-seed : 0 trade, 0 cash de paire, pnl≈0, pas de bags). Le disjoncteur mesure la perte journalière depuis ce pointeur : un tel état lu comme « pnl 0 » a déjà produit un faux Mur de Fer de 13,93 % (21/09). Le pointeur reste sur le dernier état RÉEL. Aucune autre ligne touchée ; confirmation définitive au prochain redémarrage du moteur (pas de relance forcée)."
+   "_rescel_20260922": "GARDE POINTEUR 22/09 (défense en profondeur) : save_state() ne fait PLUS pointer .hulk_resume_pointer vers un état que le moteur refuserait lui-même de reprendre — VIDE (0 position, 0 bag, écrit au boot avant le --resume) ou VIERGE (artefact de re-seed : 0 trade, 0 cash de paire, pnl≈0, pas de bags). Le disjoncteur mesure la perte journalière depuis ce pointeur : un tel état lu comme « pnl 0 » a déjà produit un faux Mur de Fer de 13,93 % (21/09). Le pointeur reste sur le dernier état RÉEL. Aucune autre ligne touchée ; confirmation définitive au prochain redémarrage du moteur (pas de relance forcée).",
+   "_rescel_20260922b": "REFROIDISSEMENT BORNÉ 22/09 (GO Christophe « bloquer un actif est un contre-sens »). REENTRY_MAX n'interdit plus une paire À VIE : nettoyé le compteur en mémoire (non persisté → deux comportements selon le redémarrage) ; le buy() lit désormais un refroidissement GRADUÉ et EXPIRANT adossé au cache de stops persisté (n stops × 6 h, plafond 24 h, expiré après 48 h sans stop) + DÉ-RISQUE ×0,5 après un stop (« rebuilding with smaller size »). Calibré après mesure : à l'horizon 6 h (durée de détention réelle) la garde PROTÈGE (−14,5 $) ; à 24 h elle coûte (+56,3 $) → on garde la protection des premières heures, on supprime le blocage long. ANTI-SILENCE : un refus de régime (WATCH/QUIET) n'est plus muet (1 ligne/h/paire au max) — CCUSDT était invisible 27 h.",
+   "_rescel_20260922c": "R17 APPLIQUÉE (22/09, ORDRE Christophe « on ne donne pas de timing FIXE D'ARRÊT ; ON REGARDE LES CHIFFRES »). RETIRÉ : le blocage à vie `REENTRY_MAX` (CCUSDT gelé 4,5 j) ET le refroidissement en HEURES que j'avais posé dans la journée (6/24/48 h) — c'était encore un seuil de temps fixe, donc la même faute. Aucune garde de temps sur l'entrée n'est remplacée par une autre invention : le risque par paire est borné par le FUSIBLE MESURÉ déjà en place (fusibles_paires.py : k × σ_mesuré × mise → budget de perte journalier en $ ; épuisé = entrées gelées, sorties libres) + murs/aspiration/spread/plancher. Conservé : l'anti-silence (ATTENTE:WATCH/IMPULSE_WAIT, SILENCE_LOG_TTL_SEC=3600) et les deux gardes du pointeur `.hulk_resume_pointer`.",
+   "_rescel_20260922_sortie_mesuree": "SORTIE MESURÉE (22/09, R17) : le palier de sortie est relu dans l'unité de la paire — palier = fixe × max(1 ; cadence mesurée / cadence de référence 7,30 %/j). Mesuré sur 119 entrées RÉELLES à 2 horizons (+2,22 $ / +1,05 $, même signe), pire trade INCHANGÉ, pertes suppl. +0,69 $ payées 4,7× par +3,27 $ (critère R18 écrit). L'échelle SYMÉTRIQUE a été mesurée PUIS REJETÉE (signe instable). PLANCHER à 1 : aucune protection retirée.",
+   "_rescel_20260922_trace_visible": "Rien de silencieux (#6) : la raison de vente d'un palier écrit désormais LE PALIER EFFECTIF et LA MESURE qui l'a produit — `rip_5.6pct_palier1_niv5.5pct_cad20.0rel2.74_sell_25pct` (cadence de la paire + échelle relative). Le journal prouve à lui seul que c'est la mesure qui décide, sans lire le code."
   },
   {
    "nom": "hulk-mexc/scripts/ace_sense_mexc.py",
@@ -64,8 +68,9 @@
    "origine": "chantier 15/08",
    "verif": "md5",
    "auto_modifiable": false,
-   "md5": "6ee99092399646bf4318828c8830112b",
-   "modifié_par": "chantier AGORA (15/08 soir)"
+   "md5": "075c3b7d1b770d87b9fa1472c876afea",
+   "modifié_par": "chantier AGORA (15/08 soir)",
+   "_rescel_20260922_6e_partie": "La 6ᵉ partie du cycle (« Fine-tune ») est BRANCHÉE ICI (R15) : l'organe de discipline quotidienne exécute désormais `critique_erreurs.py` (le registre des échecs est-il lu ? une classe d'erreur récidive-t-elle ?) et `inventaire_seuils_fixes.py` (combien de seuils décident SANS mesure ? un seuil a-t-il été ajouté sans être rangé ?), écrit les deux sections dans le rapport et CRIE en cas d'échec. Pas de 98ᵉ agent : on accroche."
   },
   {
    "nom": "Index_Maison/scripts/ada_gardienne.py",
@@ -222,12 +227,15 @@
    "origine": "chantier hulk",
    "verif": "md5",
    "auto_modifiable": false,
-   "md5": "971a7295c7542a462b08c23d0b65bb38",
+   "md5": "dff18fd5134426ec29f0cace7dcec365",
    "_rescel_20260918": "NOTIONAL_USDT 20→30 + PLANCHER_GATE_ON=1.",
    "note": "Re-scellé 2026-09-16T13:10Z (GO C., après audit R3 complet : 73/74 OK, seule dérive = ce fichier). La dérive = 2 GO votés du 15/09 jamais re-déclarés (R3) : ① 06:36Z REENTRY_MAX 1→3 + STOP_COOLDOWN_HOURS 4→1 + VOL_SPIKE_MIN_SMALL 1,5→1,2 + VEILLE_SKIP_RED_ON 1→0 (chantier anti-timing/anti-figage) ; ② 08:45Z SLIP_GATE_ON 0→1 (armement du gate anti-glissement après ses 48 h d'observation prévues le 09/09). Sentinelle indépendante : PnL cohérent (divergence 0,0005 $). Prochain changement de config = re-scellement immédiat.",
    "maj": "30/08 v3 (GO Christophe 14:15Z) : FINI l'observation — PAPER_OBSERVE_PAIRS vidée. QNT/FLUID/RWA/MNSRY seedées (10$ chacune, structure seed_inventory) + lignes SEED_START au CSV + SELL d'annulation du BUY parasite FLUID (09:54Z) pour rejeu exact. 16 positions, plus aucune paire observe. Tableau cockpit = 20 paires tradées. || RE-SCELLÉ 03/09 : Config modifiée session 31/08 12h18 — re-scellée post-audit 03/09 (GO Christophe).",
-   "date": "2026-09-21T08:03Z",
-   "_rescel_20260921": "21/09 : + IMPULSE_SANS_REPLI_ON et IMPULSE_HORS_FENETRE_ON (set-up IMPULSE, documentés avec leur mesure). (Rappel 21/09 matin : doublon STOP_COOLDOWN_HOURS retiré.)"
+   "date": "2026-09-22T09:05Z",
+   "_rescel_20260921": "21/09 : + IMPULSE_SANS_REPLI_ON et IMPULSE_HORS_FENETRE_ON (set-up IMPULSE, documentés avec leur mesure). (Rappel 21/09 matin : doublon STOP_COOLDOWN_HOURS retiré.)",
+   "_rescel_20260922b": "22/09 : REENTRY_MAX change de sens (nombre de stops avant refroidissement maximal, plus un blocage à vie) ; ajout REENTRY_COOLOFF_STEP_H=6 / REENTRY_COOLOFF_MAX_H=24 / REENTRY_RESET_H=48 / REENTRY_DERISK_MULT=0,5 / SILENCE_LOG_TTL_SEC=3600. Le doublon STOP_COOLDOWN_HOURS reste retiré.",
+   "_rescel_20260922c": "22/09 : REENTRY_MAX et les 4 clés de refroidissement en heures RETIRÉES (R17 : aucun timing fixe). SILENCE_LOG_TTL_SEC=3600 conservée. STOP_COOLDOWN_HOURS=1 conservée telle quelle et DÉCLARÉE (antérieure, à re-mesurer par la règle #8, pas touchée).",
+   "_rescel_20260922_sortie_mesuree": "SORTIE MESURÉE (22/09, R17) : le palier de sortie est relu dans l'unité de la paire — palier = fixe × max(1 ; cadence mesurée / cadence de référence 7,30 %/j). Mesuré sur 119 entrées RÉELLES à 2 horizons (+2,22 $ / +1,05 $, même signe), pire trade INCHANGÉ, pertes suppl. +0,69 $ payées 4,7× par +3,27 $ (critère R18 écrit). L'échelle SYMÉTRIQUE a été mesurée PUIS REJETÉE (signe instable). PLANCHER à 1 : aucune protection retirée."
   },
   {
    "nom": "hulk-mexc/strategie/cortana_pilot.json",
@@ -1097,6 +1105,53 @@
    "md5": "33b8e7ff414f25d50d910722cca411c4",
    "date": "2026-09-21T13:06Z",
    "_rescel_20260921": "21/09 : + variante X4 = LE VRAI ACTUEL des paires à profil trailing (stop + trailing, sans rip 50 % — erreur de fidélité corrigée), + porte fenêtre d'entrée (--fenetre), + statistique des rafales structurellement inaccessibles."
+  },
+  {
+   "nom": "hulk-mexc/scripts/veille_gates.py",
+   "role": "Gardes d'entrée du moteur (cooldown post-stop persisté .hulk_stop_cache.json, veille stale, RED) + clear_stop()",
+   "origine": "scellé le 22/09/2026 (règle #15 : imported par paper_diprip.py, il était hors surveillance)",
+   "verif": "md5",
+   "auto_modifiable": false,
+   "md5": "e9d2b04f0869361c90cdfeeb3aa242f4",
+   "note": "clear_stop() ajouté le 22/09 : le compteur de stops n'est plus éternel — il est effacé sur un gain (« only lift size once equity recovers ») et c'est lui qui pilote le refroidissement borné du moteur.",
+   "date": "2026-09-22T09:05Z",
+   "_rescel_20260922c": "22/09 : la fonction clear_stop() (posée puis rendue inutile par le retrait du compteur) est retirée — pas de code mort. is_cooldown/record_stop inchangés (cooldown post-stop historique)."
+  },
+  {
+   "nom": "hulk-mexc/scripts/chiffrage_sortie_mesuree.py",
+   "role": "Chiffrage de la sortie relue dans l'unité MESURÉE de chaque paire : A fixe vs B symétrique vs C plancher mesuré, sur les entrées RÉELLES, à 2 horizons + bilan de risque R18",
+   "origine": "créé et scellé le 22/09/2026 (R17 — la mesure décide ; l'instrument aussi est tracé)",
+   "verif": "md5",
+   "auto_modifiable": false,
+   "md5": "d988c2f74e06a0a92342788a466e63cf",
+   "note": "Toute mesure de garde s'affiche à ≥ 2 horizons (R17.3) ; le critère de risque R18 est écrit dedans."
+  },
+  {
+   "nom": "hulk-mexc/scripts/test_sortie_mesuree_paliers.py",
+   "role": "Preuve, sur le code RÉEL, que le palier de sortie suit la cadence mesurée avec un plancher",
+   "origine": "créé et scellé le 22/09/2026",
+   "verif": "md5",
+   "auto_modifiable": false,
+   "md5": "c4e51c06bd6b30166bfda888ffeaaa89",
+   "note": "11 vérifications : plancher, élargissement, seuils exacts, ladder LATE, cadence absente."
+  },
+  {
+   "nom": "Index_Maison/scripts/critique_erreurs.py",
+   "role": "La 6ᵉ partie du cycle : le REGISTRE DES ÉCHECS est-il BRANCHÉ (cité par les points d'entrée) et une classe d'erreur RÉCIDIVE-t-elle ? (deux détecteurs : prose = aveu seulement, mécanique = inventaire des seuils)",
+   "origine": "créé et scellé le 22/09/2026 (auto-amélioration : « les résultats négatifs sont l'actif le plus sous-estimé »)",
+   "verif": "md5",
+   "auto_modifiable": false,
+   "md5": "ac2dd026e73ecc978adf08d6a069b36a",
+   "note": "Détecteur de prose = AVEU requis (« j'ai encore… ») : parler d'une erreur n'est pas la commettre (limite déclarée : un aveu tu échappe à ce détecteur, c'est l'inventaire qui ferme ce trou)."
+  },
+  {
+   "nom": "Index_Maison/scripts/inventaire_seuils_fixes.py",
+   "role": "Inventaire mécanique de TOUS les seuils encore fixes (temps/compteurs/pourcentages) : la liste chiffrée à passer à la mesure (R17)",
+   "origine": "créé et scellé le 22/09/2026",
+   "verif": "md5",
+   "auto_modifiable": false,
+   "md5": "920016e76b0d00e7f56f828c9e6f8a6c",
+   "note": "Sort en erreur si un seuil numérique n'est pas rangé → impossible d'ajouter une garde inventée sans qu'elle soit vue."
   }
  ]
 }

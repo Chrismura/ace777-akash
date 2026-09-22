@@ -36,6 +36,14 @@ JUSTESSE_V2 = SCRIPTS / "justesse_v2.json"
 ADA_OUT = SCRIPTS / "justesse_ada_v1.json"
 RAPPORT = THERMO / "DISCIPLINE_QUOTIDIENNE.md"
 ALERTE = THERMO / "DISCIPLINE_ALERT.md"
+# ── LA 6ᵉ PARTIE DU CYCLE (« Fine-tune ») — branchée ICI, sur un organe qui vit déjà ──
+# R15 : un registre que personne ne lit n'existe pas. Plutôt qu'un 98ᵉ agent, la
+# critique des erreurs (R17 : le registre des échecs) et l'inventaire des seuils
+# fixes s'accrochent à la boucle de discipline quotidienne : c'est exactement un
+# acte de discipline, et ça crie chaque matin si une classe d'erreur récidive.
+IM = SCRIPTS.parent
+CRITIQUE_JSON = IM / "CRITIQUE_ERREURS_DERNIER.json"
+SEUILS_JSON = IM / "SEUILS_FIXES_DERNIER.json"
 
 
 def utc_now() -> str:
@@ -176,6 +184,26 @@ def main() -> int:
     except Exception:
         pass
 
+    # 1f) CRITIQUE DES ERREURS (R17.5) — le registre des échecs est-il BRANCHÉ, et
+    #     retombons-nous dans une classe d'erreur déjà payée ? Fail-open, non bloquant.
+    critique = {}
+    try:
+        subprocess.run([sys.executable, str(SCRIPTS / "critique_erreurs.py")],
+                       check=False, capture_output=True, timeout=60)
+        critique = json.load(open(CRITIQUE_JSON, encoding="utf-8"))
+    except Exception as e:
+        print(f"[ERR] critique_erreurs : {e}", file=sys.stderr)
+
+    # 1g) INVENTAIRE DES SEUILS FIXES (R17) — combien de seuils décident SANS mesure,
+    #     et un seuil numérique a-t-il été ajouté sans être rangé ? Fail-open.
+    seuils = {}
+    try:
+        subprocess.run([sys.executable, str(SCRIPTS / "inventaire_seuils_fixes.py")],
+                       check=False, capture_output=True, timeout=60)
+        seuils = json.load(open(SEUILS_JSON, encoding="utf-8"))
+    except Exception as e:
+        print(f"[ERR] inventaire_seuils_fixes : {e}", file=sys.stderr)
+
     # 2) Note Ada
     ada = score_ada(load_history())
     with open(ADA_OUT, "w", encoding="utf-8") as f:
@@ -203,6 +231,18 @@ def main() -> int:
                 pass
     if last_ana and (datetime.now(timezone.utc).timestamp() - last_ana) > 48 * 3600:
         alerts.append("AUCUNE analyse Cortana depuis > 48h — boucle affamée, relancer la cadence")
+    if critique.get("non_branche"):
+        alerts.append("REGISTRE DES ÉCHECS NON BRANCHÉ : "
+                      + ", ".join(critique["non_branche"])
+                      + " — un registre non lu n'existe pas (R15)")
+    if critique.get("recidives"):
+        alerts.append("RÉCIDIVE D'ERREUR : " + ", ".join(
+            f"{k}×{v}" for k, v in critique["recidives"].items())
+            + " — la garde est trop faible, cf. REGISTRE_ECHECS_ET_ERREURS.md")
+    if seuils.get("non_classees"):
+        alerts.append(f"SEUIL NON RANGÉ : {len(seuils['non_classees'])} clé(s) décident sans "
+                      "être classées (" + ", ".join(seuils["non_classees"][:6])
+                      + ") — R17 : toute garde se mesure ou se déclare")
 
     tend = ""
     hier = RAPPORT.read_text(encoding="utf-8") if RAPPORT.exists() else ""
@@ -237,6 +277,18 @@ def main() -> int:
         "## AGORA (leçons apprises, chantier E4)",
         f"- Leçons actives : {n_lecons} (TTL 7j, namespace cortana) — chaque HIT/MISS nourrit la base.",
         "- lecons_auto.py : scan → staging → validation (discipline 07h15, APRÈS la note).",
+        "",
+        "## ERREURS (6ᵉ partie du cycle — post-mortem branché, R15/R17.5)",
+        f"- Registre : {critique.get('classes', 'n/d')} classes d'erreur · "
+        f"non branché : {len(critique.get('non_branche') or [])} · "
+        f"récidives depuis la correction : {len(critique.get('recidives') or {})}",
+        "- REGISTRE_ECHECS_ET_ERREURS.md : consulté AVANT de proposer une garde (sinon on repaie).",
+        "",
+        "## SEUILS FIXES (R17 — la mesure doit décider)",
+        f"- {seuils.get('cles', 'n/d')} clés de config · "
+        f"**{seuils.get('decideurs', 'n/d')} seuils DÉCIDENT sans mesure** · "
+        f"non classés : {len(seuils.get('non_classees') or [])}",
+        "- SEUILS_FIXES_DERNIER.md : la liste chiffrée des seuils à passer à la mesure.",
         "",
         "## Boucle",
         "- score_justesse.py relancé chaque jour (07:15, launchd) → la note fraîche nourrit la cadence 8h30/20h30.",

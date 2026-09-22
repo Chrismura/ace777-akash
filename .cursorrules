@@ -17,3 +17,15 @@
    - `master_qwen_base/models/` = modeles Qwen valides.
    - `master_qwen_plus_value/` = setups Qwen positifs en attente/promotion.
    - Garder pour chaque setup Qwen: description cycle, date/heure, tag, PnL.
+
+6. **R17 — AUCUN SEUIL FIXE (ORDRE, 22/09/2026)** : aucun seuil **fixe** (temps, compteur,
+   pourcentage « en dur ») ne décide d'un arrêt, d'une reprise ou d'un blocage. La décision vient
+   d'une grandeur **MESURÉE** sur l'actif (σ, mur, amplitude, budget de perte en $, spread).
+   Toute mesure de garde s'affiche **au moins à deux horizons** (le sens d'une garde en dépend).
+   Ici on gère des **fonds d'épargne** (R18) : on mesure avant de poser, jamais après.
+
+7. **OBLIGATION — CONSULTER LE REGISTRE DES ÉCHECS** : avant de proposer ou de poser une garde,
+   lire `ace777-test-day1/Index_Maison/REGISTRE_ECHECS_ET_ERREURS.md` (classes d'erreur E1..E9 +
+   résultats négatifs déjà payés). Un registre non consulté n'existe pas (R15). L'organe
+   `Index_Maison/scripts/critique_erreurs.py` vérifie que ce fichier est bien cité ici et crie
+   dès qu'une classe d'erreur récidive après sa correction.
