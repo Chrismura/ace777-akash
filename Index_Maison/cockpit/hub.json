@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-22T14:12:16.508561+00:00",
+  "generated_at": "2026-09-22T14:12:46.778321+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 144
+      "calls_24h": 145
     },
     {
       "id": "openrouter-free",
@@ -265,10 +265,18 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 82,
-    "remaining": 542
+    "consumed": 83,
+    "remaining": 541
   },
   "queue": [
+    {
+      "ts": "2026-09-22T14:12:27.807739+00:00",
+      "task": "supervise.decision",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 89.87
+    },
     {
       "ts": "2026-09-22T13:54:59.430623+00:00",
       "task": "analyse.profonde",
@@ -380,17 +388,15 @@
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
       "duration_s": 0.77
-    },
-    {
-      "ts": "2026-09-22T09:09:54.752122+00:00",
-      "task": "supervise.decision",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 0.92
     }
   ],
   "events": [
+    {
+      "ts": "2026-09-22T14:12:27.807324+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
     {
       "ts": "2026-09-22T14:10:57.934984+00:00",
       "kind": "blacklist",
@@ -444,12 +450,6 @@
       "kind": "failover",
       "title": "Bascule depuis OpenRouter Juge (nemotron-3-super-120b free) - verificateur independant",
       "detail": "HTTP Error 400: Bad Request"
-    },
-    {
-      "ts": "2026-09-22T14:07:13.900792+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis OrcaRouter (routeur gratuit, modele orcarouter/free)",
-      "detail": "HTTP Error 429: Too Many Requests"
     }
   ],
   "tasks_quotas": {
