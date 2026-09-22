@@ -64,6 +64,29 @@ def load_json(path, default=None):
         return default
 
 
+def etat_exploitable(st: dict) -> bool:
+    """False si le state ne permet PAS une mesure de perte fiable (fail-safe).
+
+    Un état « pas encore repris » ne dit pas « pnl = 0 » : il dit « je ne sais pas
+    encore ». Le lire comme une perte nulle a déjà produit un faux Mur de Fer
+    (21/09, 13,93 %). Deux formes, même famille :
+      - VIDE   : écrit au boot par le moteur avant que son --resume ait repris
+                 (pnl 0, aucune position, aucun bag) ;
+      - VIERGE : artefact de re-seed (0 trade, 0 cash de paire, pnl ≈ 0, pas de
+                 bags) — la forme qui avait écrasé les bags le 24/08.
+    Définition alignée sur paper_diprip._est_vierge, mais RE-VÉRIFIÉE ici de façon
+    indépendante (règle d'or #9 : un gardien ne juge pas avec la mesure qu'il garde).
+    """
+    if not (st.get("positions") or {}) and not (st.get("bags") or {}):
+        return False  # état VIDE (boot avant reprise)
+    if (int(st.get("trades") or 0) == 0
+            and abs(float(st.get("pnl_total") or 0.0)) <= 0.01
+            and not any(v > 0 for v in (st.get("pair_cash") or {}).values())
+            and not (st.get("bags") or st.get("bag_dca"))):
+        return False  # re-seed VIERGE
+    return True
+
+
 def lire_state_live():
     """State live HULK via le pointeur canonique ; filet = state le plus récent."""
     nom = ""
@@ -90,13 +113,12 @@ def lire_state_live():
         st = json.loads(chemin.read_text(encoding="utf-8"))
     except Exception:
         return None
-    # GARDE 21/09/2026 (défaut réel, révélé par un redémarrage volontaire) : au boot, le
-    # moteur écrit un state NEUF (nouveau nom de run) avec pnl_total=0 et positions
-    # vides AVANT que son --resume ait repris les positions. Lu tel quel, il donnait
-    # « perte (pivot 20,89 − 0)/150 = 13,93 % » → Mur de Fer → STOP_ALL, pendant que le
-    # moteur redémarrait. Un state non encore repris n'est PAS une mesure : on ne le lit
-    # JAMAIS comme une perte (fail-safe, comme l'âge muet).
-    if float(st.get("pnl_total") or 0.0) == 0.0 and not (st.get("positions") or {}):
+    # GARDE 21/09/2026 (renforcée 22/09/2026) : un state non encore repris n'est PAS une
+    # mesure. La garde du 21/09 ne couvrait que le state VIDE (pnl 0 + 0 position) ; il
+    # restait la VIERGE de re-seed (positions présentes, 0 trade, pnl 0) — lue telle
+    # quelle elle donnerait « perte (pivot 30,04 − 0)/150 = 20 % » → Mur de Fer → STOP_ALL.
+    # Dans le doute on ne décide pas (R11) : SANS_MESURE, jamais de coupe.
+    if not etat_exploitable(st):
         return None
     return {
         "path": chemin.name,

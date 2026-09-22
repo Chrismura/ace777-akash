@@ -1,6 +1,6 @@
 {
  "version": "1.5.0",
- "updated": "2026-09-21T13:25Z",
+ "updated": "2026-09-22T08:10Z",
  "fichier": [
   {
    "nom": "Index_Maison/scripts/v2_duo_replay_4h.py",
@@ -30,12 +30,13 @@
    "origine": "chantier hulk",
    "verif": "md5",
    "auto_modifiable": false,
-   "md5": "52d0dea0788da155cdd4ec2621f12b42",
+   "md5": "5238c7c85bcebb9b3b6dab7cb517b01b",
    "_rescel_20260918": "gate Plancher PLANCHER_GATE_ON + plancher_veto()/plancher_veto_decision() + mise plafonnée sur le MUR LIVE (aspiration_live.json, repli profil).",
    "note": "FIX 27/08 : circuits breaker + fraîcheur Cortana + FILTRE LOTS MEXC (lot_filter depuis exchangeInfo, baseSizePrecision/quoteAmountPrecision, arrondi stepSize au buy ET au sell, dust close, fail-open)  | RE-SCELLÉ 2026-09-03T17:22Z (GO Christophe 03/09) · 10/09: patch fusibles par paire (gate tête de buy() + détarage sizing, GO Christophe) — md5 mis à jour",
    "maj": "BATCH PRIX Phase 1 (31/08-01/09, famille 7/7 + codeur) : 1 appel GET global + cache au lieu de 21 GET/cycle (~200-270 req/min → sous la limite MEXC). Mode SELLFULL + mode_entree() du 29-31/08. Aucune logique métier touchée.",
-   "date": "2026-09-21T08:02Z",
-   "_rescel_20260921": "SET-UP IMPULSE 21/09 (GO Christophe « avancer sur le set-up ») : 3 portes corrigées POUR LES SEULES PAIRES mode_entree=IMPULSE (aujourd'hui EDEL), mesurées avant câblage (chiffrage_entree_sortie_replay.py, 90 j × 20 paires) — (1) entrée sur la RAFALE sans attendre le repli (66 % des rafales étaient structurellement inaccessibles), (2) IMPULSE_WAIT n'est plus une sortie anticipée pour ces paires (c'est l'instant du pump), (3) fenêtre de creux levée (une rafale n'a pas d'heure ; les deux portes ensemble = 0 entrée sur 90 j). Sortie INCHANGÉE. Flags IMPULSE_SANS_REPLI_ON / IMPULSE_HORS_FENETRE_ON, réversibles en 1 ligne. Preuve live : EDEL BUY 13:23:28Z régime IMPULSE_WAIT m6=8.0."
+   "date": "2026-09-22T08:10Z",
+   "_rescel_20260921": "SET-UP IMPULSE 21/09 (GO Christophe « avancer sur le set-up ») : 3 portes corrigées POUR LES SEULES PAIRES mode_entree=IMPULSE (aujourd'hui EDEL), mesurées avant câblage (chiffrage_entree_sortie_replay.py, 90 j × 20 paires) — (1) entrée sur la RAFALE sans attendre le repli (66 % des rafales étaient structurellement inaccessibles), (2) IMPULSE_WAIT n'est plus une sortie anticipée pour ces paires (c'est l'instant du pump), (3) fenêtre de creux levée (une rafale n'a pas d'heure ; les deux portes ensemble = 0 entrée sur 90 j). Sortie INCHANGÉE. Flags IMPULSE_SANS_REPLI_ON / IMPULSE_HORS_FENETRE_ON, réversibles en 1 ligne. Preuve live : EDEL BUY 13:23:28Z régime IMPULSE_WAIT m6=8.0.",
+   "_rescel_20260922": "GARDE POINTEUR 22/09 (défense en profondeur) : save_state() ne fait PLUS pointer .hulk_resume_pointer vers un état que le moteur refuserait lui-même de reprendre — VIDE (0 position, 0 bag, écrit au boot avant le --resume) ou VIERGE (artefact de re-seed : 0 trade, 0 cash de paire, pnl≈0, pas de bags). Le disjoncteur mesure la perte journalière depuis ce pointeur : un tel état lu comme « pnl 0 » a déjà produit un faux Mur de Fer de 13,93 % (21/09). Le pointeur reste sur le dernier état RÉEL. Aucune autre ligne touchée ; confirmation définitive au prochain redémarrage du moteur (pas de relance forcée)."
   },
   {
    "nom": "hulk-mexc/scripts/ace_sense_mexc.py",
@@ -441,11 +442,12 @@
    "origine": "créé 09/09 (rebranchement disjoncteur)",
    "verif": "md5",
    "auto_modifiable": false,
-   "md5": "165c1c5a52220a55a4760718af9f5b9e",
+   "md5": "d3197eedc7204efcf79a059e120b3b85",
    "note": "Fail-safe : HULK muet >180s = MESURE_IMPOSSIBLE, jamais d'invention (C3). Ne crée jamais d'ordre. Pivot du jour persisté atomiquement (disjoncteur_pivot.json). LANCÉ launchd 60s (seconde 30, décalé du disjoncteur).",
    "maj": "Création 2026-09-09, en vol",
-   "date": "2026-09-21T08:02Z",
-   "_rescel_20260921": "GARDE BOOT : un state neuf (pnl_total=0, positions vides) écrit au démarrage AVANT reprise du --resume n'est plus lu comme une perte (il a produit un faux Mur de Fer 13,93 % le 21/09 pendant un redémarrage). Fail-safe : SANS_MESURE, jamais de coupe."
+   "date": "2026-09-22T08:10Z",
+   "_rescel_20260921": "GARDE BOOT : un state neuf (pnl_total=0, positions vides) écrit au démarrage AVANT reprise du --resume n'est plus lu comme une perte (il a produit un faux Mur de Fer 13,93 % le 21/09 pendant un redémarrage). Fail-safe : SANS_MESURE, jamais de coupe.",
+   "_rescel_20260922": "GARDE ÉTAT 22/09 (renforce celle du 21/09) : la garde du 21/09 ne couvrait que l'état VIDE (pnl 0 + 0 position) ; restait la forme VIERGE de re-seed (positions présentes, 0 trade, pnl 0) qui aurait donné « perte (pivot 30,04 − 0)/150 = 20 % » → Mur de Fer. etat_exploitable() refuse désormais les DEUX, re-vérifiées de façon indépendante (R9) et alignées sur paper_diprip._est_vierge. Fail-safe R11 : SANS_MESURE, jamais de coupe. Testé : VIDE → SANS_MESURE · VIERGE → SANS_MESURE · état réel → mesure OK (33,5719 $)."
   },
   {
    "nom": "hulk-mexc/scripts/watchdog_hulk_ghost.sh",

@@ -1673,10 +1673,28 @@ class PaperBot:
             # sauvegardé, quel que soit le nom du run. Résout la collision de nom
             # de run (2 démarrages dans la même seconde → même state_path → le
             # 2e voyait « son propre état » et re-seedait au lieu de reprendre).
+            #
+            # GARDE 22/09/2026 (défense en profondeur) : on ne fait JAMAIS pointer
+            # « le dernier état » vers un état que le moteur lui-même refuserait de
+            # reprendre — VIDE (0 position, 0 bag) ou VIERGE (artefact de re-seed).
+            # Le disjoncteur mesure la perte journalière depuis ce pointeur : un tel
+            # état lu comme « pnl 0 » a déjà produit un faux Mur de Fer de 13,93 %
+            # (21/09). Le pointeur reste donc sur le dernier état RÉEL — le lecteur
+            # (nourrir_disjoncteur.py) refuse en plus ces états de son côté (R11 :
+            # fail-safe, dans le doute on ne décide pas).
             try:
-                (RUNS / ".hulk_resume_pointer").write_text(
-                    self.state_path.name, encoding="utf-8"
-                )
+                _vide = not self.pos and not self.bags
+                _vierge = _est_vierge({
+                    "trades": self.trades,
+                    "pnl_total": self.pnl_total,
+                    "pair_cash": self.pair_cash,
+                    "bags": self.bags,
+                    "bag_dca": self.bag_dca,
+                })
+                if not _vide and not _vierge:
+                    (RUNS / ".hulk_resume_pointer").write_text(
+                        self.state_path.name, encoding="utf-8"
+                    )
             except Exception:
                 pass
         except Exception:
