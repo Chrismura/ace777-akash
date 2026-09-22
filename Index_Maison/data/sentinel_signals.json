@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "ipt",
-      "zscore": 2.4911099817535227,
-      "value": 0.96,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (IPT) confondue avec un acronyme académique/institutionnel sans lien avec la crypto. Bruit médiatique sans substance financière.\"\n}\n```",
-      "ts": "2026-09-21T21:32:43.962208+00:00"
-    },
-    {
       "metric": "sdi",
       "zscore": 2.1542232860364545,
       "value": 0.016,
@@ -349,6 +342,13 @@
       "value": 1.36,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.89) entièrement due à un 'noise' sémantique. Le ticker crypto 'IPT' est parasité dans les flux par des homonymes institutionnels réels (Institut Pasteur de Tunis, Tournoi de Physique, École Polytechnique). Aucune baleine détectée, simple collision de mots-clés dans les actualités.\"\n}\n```",
       "ts": "2026-09-22T13:54:59.432006+00:00"
+    },
+    {
+      "metric": "price_1h",
+      "zscore": 2.7394154700434665,
+      "value": 0.7232214522572167,
+      "analysis": "{\n  \"signal\": \"bullish\",\n  \"confidence\": 82,\n  \"reason\": \"Le prix horaire montre une anomalie forte (z‑score 2.74), indicative d’une pression d’achat significative probablement liée à l’accumulation de baleines. En revanche, les titres médiatiques actuels ne reflètent pas cette dynamique, suggérant un narratif déconnecté ou silencieux. Cette divergence pointe vers un mouvement haussier sous‑jacent non encore capté par les médias.\"\n}",
+      "ts": "2026-09-22T14:35:16.699494+00:00"
     }
   ]
 }
