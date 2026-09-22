@@ -1,96 +1,75 @@
 {
-  "timestamp": 1790035605,
-  "date": "2026-09-22T00:06:45.329199+00:00",
+  "timestamp": 1790039206,
+  "date": "2026-09-22T01:06:46.447394+00:00",
   "n_analyses": 2,
   "analyses": [
     {
       "signal": {
-        "metric": "cpfp",
-        "zscore": 2.259238342989712,
-        "value": 40.0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Faux positif détecté. Le z-score élevé sur le 'CPFP' est un artefact lié à des actualités généralistes sans rapport avec l'onchain (termes administratifs, politiques et tutoriels basiques de mempool), aucune accumulation ou mouvement massif de baleines crypto n'est en cours.\"\n}\n```",
-        "ts": 1790034508.914968
+        "metric": "fear_greed",
+        "zscore": 6.8556546004010395,
+        "value": 78,
+        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Euphorie extrême (Fear & Greed à 78, z-score anormalement haut de 6.86) couplée à un vide médiatique total (Google Actualités sans relais majeur). Divergence classique de fin de cycle : les baleines distribuent silencieusement aux details dans l'indifférence des masses, créant un piège à liquidité.\"\n}\n```",
+        "ts": 1790037524.107178
       },
-      "fiche": "blocs_privilises",
+      "fiche": "fear_greed",
       "questions": {
-        "duree": {
-          "value": 0,
-          "seuil": 0,
-          "depasse": false
-        },
-        "volume": {
-          "value": 391,
-          "seuil": 0,
+        "peur": {
+          "value": 78,
+          "seuil": 25,
           "depasse": true
         },
-        "prix": {
-          "value": -0.16,
-          "seuil": 0,
+        "cupidite": {
+          "value": 78,
+          "seuil": 75,
           "depasse": true
-        },
-        "sdi": {
-          "value": 0.008,
-          "seuil": 0,
-          "depasse": true
-        },
-        "rbf": {
-          "value": 0.0,
-          "seuil": 0,
-          "depasse": false
         }
       },
       "interpretation": {
-        "condition": "duree < 5min ET volume > 100",
-        "lecture": "Consolidation exchange — probablement un transfert hot→cold",
-        "niveau": "neutre",
-        "action": "Garder les positions"
+        "condition": "cupidite > 75",
+        "lecture": "Cupidité extrême — historiquement zone où les paliers de vente (RIP) font mieux que la détention aveugle",
+        "niveau": "info",
+        "action": "Respecter les paliers RIP, ne pas ajouter sur l'euphorie"
       },
-      "action": "Garder les positions",
-      "niveau": "neutre"
+      "action": "Respecter les paliers RIP, ne pas ajouter sur l'euphorie",
+      "niveau": "info"
     },
     {
       "signal": {
-        "metric": "dust",
-        "zscore": 2.259238342989712,
-        "value": 40.0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit de fond absolu. L'anomalie 'dust' onchain est un artéfact statistique sans lien avec les actualités médiatiques, qui font référence à un jeu vidéo, une série TV et des homonymes tech sans rapport avec la crypto. Aucune accumulation ni mouvement de baleine détecté.\"\n}\n```",
-        "ts": 1790034510.67013
+        "metric": "ipt",
+        "zscore": 2.286316496337472,
+        "value": 1.035,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.29) due à un bruit lexical. Le ticker 'IPT' dans les données onchain est pollué par des homonymes institutionnels et médiatiques (Tournoi de Physique, biotechnologies, actualités religieuses). Aucune baleine crypto détectée, simple confusion sémantique.\"\n}\n```",
+        "ts": 1790038126.73839
       },
-      "fiche": "blocs_privilises",
+      "fiche": "rbf_eleve",
       "questions": {
-        "duree": {
-          "value": 0,
-          "seuil": 0,
+        "prix": {
+          "value": -0.2,
+          "seuil": 1,
           "depasse": false
         },
-        "volume": {
-          "value": 391,
-          "seuil": 0,
-          "depasse": true
+        "paires": {
+          "value": 0,
+          "seuil": 3,
+          "depasse": false
         },
-        "prix": {
-          "value": -0.16,
-          "seuil": 0,
-          "depasse": true
+        "funding": {
+          "value": 8.1e-05,
+          "seuil": 0.001,
+          "depasse": false
         },
-        "sdi": {
-          "value": 0.008,
-          "seuil": 0,
-          "depasse": true
-        },
-        "rbf": {
-          "value": 0.0,
-          "seuil": 0,
+        "whales": {
+          "value": 0,
+          "seuil": 5,
           "depasse": false
         }
       },
       "interpretation": {
-        "condition": "duree < 5min ET volume > 100",
-        "lecture": "Consolidation exchange — probablement un transfert hot→cold",
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
         "niveau": "neutre",
-        "action": "Garder les positions"
+        "action": "Observer"
       },
-      "action": "Garder les positions",
+      "action": "Observer",
       "niveau": "neutre"
     }
   ],
