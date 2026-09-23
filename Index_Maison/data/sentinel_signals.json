@@ -1,41 +1,6 @@
 {
   "signals": [
     {
-      "metric": "cpfp",
-      "zscore": 2.3509405880878624,
-      "value": 45.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique purement onchain liée aux frais de transaction (Child-Pays-For-Parent) sans corrélation avec une accumulation ou distribution de baleines. Le bruit médiatique est non pertinent (mélange de pédagogie crypto et d'actualités locales sans rapport).\"\n}\n```",
-      "ts": "2026-09-22T03:14:41.184323+00:00"
-    },
-    {
-      "metric": "dust",
-      "zscore": 2.3509405880878624,
-      "value": 45.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit de fond médiatique sans rapport avec la crypto (jeux vidéo, programmes TV, actualités tech générales). L'anomalie onchain (z-score 2.35) est trop faible et isolée pour confirmer un mouvement de baleine significatif face au vacarme sémantique du mot 'Dust'.\"\n}\n```",
-      "ts": "2026-09-22T03:14:42.896144+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": 2.420153478013915,
-      "value": 78,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Euphorie extrême (Fear & Greed à 78, z-score 2.42) couplée à un vide médiatique (aucun signal fort de Google Actualités) indique une bulle spéculative locale alimentée par du retail isolé. Les baleines profitent de cette surchauffe et du manque de couverture grand public pour distribuer leurs sacs en silence.\"\n}\n```",
-      "ts": "2026-09-22T03:39:47.913912+00:00"
-    },
-    {
-      "metric": "cpfp",
-      "zscore": 2.6166752928189005,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique purement onchain liée aux frais de transaction (Child-Pays-For-Parent) sans corrélation avec l'actualité médiatique, polluée par des homonymes (finances publiques, politique locale). Aucun mouvement significatif de baleines détecté.\"\n}\n```",
-      "ts": "2026-09-22T03:54:52.075099+00:00"
-    },
-    {
-      "metric": "dust",
-      "zscore": 2.6166752928189005,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Le signal 'dust' onchain est un bruit statistique (z-score 2.62 sur un volume insignifiant) et le narratif médiatique fait référence à des homonymes non-crypto (jeux vidéo, programmes TV, IA généraliste). Aucune activité significative de baleines détectée.\"\n}\n```",
-      "ts": "2026-09-22T03:54:54.050140+00:00"
-    },
-    {
       "metric": "fear_greed",
       "zscore": 2.236067977499791,
       "value": 78,
@@ -349,6 +314,41 @@
       "value": 71,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Fear-greed index shows greed (71) with significant z-score (-2.24), indicating strong bullish sentiment divergence vs. media narratives. Whale accumulation likely underway despite neutral media coverage.\"\n}\n```",
       "ts": "2026-09-23T04:09:02.318809+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 3.7594092162707344,
+      "value": 6352450.0,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Fausse alerte liée au bruit médiatique : les liquidations détectées concernent des secteurs macroéconomiques traditionnels (restauration locale, fonds en Turquie) et non les baleines crypto. Le narratif public se focalise à tort sur un faux 'bull market' crypto alors que les données onchain montrent des tensions de liquidité sectorielles.\"\n}\n```",
+      "ts": "2026-09-23T04:29:06.657738+00:00"
+    },
+    {
+      "metric": "price_1h",
+      "zscore": 2.919737992730455,
+      "value": 0.6166897347174238,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (+2.92) détectant une forte impulsion de prix à court terme sans aucune couverture ni écho dans les médias traditionnels (silence absolu de Google Actualités). C'est la signature classique d'une accumulation furtive ou d'un mouvement préparé par des baleines sous le radar public.\"\n}\n```",
+      "ts": "2026-09-23T04:34:10.061693+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.3585032442807825,
+      "value": 1.154,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"L'indice 'ipt' et les titres médiatiques font référence au Tournoi International des Physiciens (IPT) et à des institutions académiques/religieuses, sans aucun rapport avec la crypto-monnaie ou des mouvements de baleines.\"\n}\n```",
+      "ts": "2026-09-23T04:39:12.358311+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -2.0816659994661326,
+      "value": 71,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement négatif (-2.08) malgré un indice de cupidité élevé (71). Le narratif médiatique est absent ou inerte, indiquant une accumulation silencieuse des baleines sous le radar du grand public.\"\n}\n```",
+      "ts": "2026-09-23T04:39:13.730474+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 3.361429851816388,
+      "value": 6316630.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique parasité par des faits divers locaux (restauration à Rennes) et de la macroéconomie traditionnelle sans lien avec les flux on-chain des baleines crypto.\"\n}\n```",
+      "ts": "2026-09-23T04:59:20.106145+00:00"
     }
   ]
 }
