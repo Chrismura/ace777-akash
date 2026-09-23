@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "liquidations",
-      "zscore": 3.0178202155776575,
-      "value": 6230579.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit de fond macro/traditionnel sans lien avec les flux on-chain de baleines crypto (fausse alerte sémantique sur le mot 'liquidation').\"\n}\n```",
-      "ts": "2026-09-23T05:29:36.917237+00:00"
-    },
-    {
       "metric": "price_1h",
       "zscore": 2.5413560729392324,
       "value": 0.6083803134752874,
@@ -349,6 +342,13 @@
       "value": 1.422,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Un taker_ratio à 1.422 (z-score 2.68) indique une domination agressive des acheteurs (Taker Buys) sur les carnets d'ordres, signalant une accumulation agressive par les baleines. L'absence totale de couverture médiatique ('Google Actualités' vide) prouve un mouvement furtif hors radar, classique avant une cassure haussière.\"\n}\n```",
       "ts": "2026-09-23T22:12:16.252875+00:00"
+    },
+    {
+      "metric": "taker_ratio",
+      "zscore": 2.4639948586319407,
+      "value": 1.422,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio élevé (1.422, z-score 2.46) indique une domination agressive des acheteurs (Taker Buy), montrant une accumulation silencieuse des baleines malgré le silence médiatique total (vide informationnel).\"\n}\n```",
+      "ts": "2026-09-23T22:42:20.405087+00:00"
     }
   ]
 }
