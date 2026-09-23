@@ -44,7 +44,16 @@ DECLARATIONS = {
         "colonne retirée, aucun seuil, aucune porte, aucun ordre modifié ; `_PRICE_TS` est "
         "renseigné à la LECTURE du prix (batch + fallback unitaire) et tout est calculé dans un "
         "try/except (un log ne casse jamais une boucle). Le PnL inscrit reste BRUT : le net est "
-        "un calcul de reporting séparé, pour ne pas toucher au disjoncteur."
+        "un calcul de reporting séparé, pour ne pas toucher au disjoncteur. "
+        "-- 3e MODIFICATION DU MÊME JOUR (classe E15, 23/09) : les 5 colonnes NE SUIVAIENT PAS LE "
+        "RESUME, qui recopiait l'ANCIEN fichier (`shutil.copy2`) PAR-DESSUS le nouveau → journal "
+        "vivant à en-tête 11 colonnes et lignes à 16 (mesuré : 76 162 lignes à 11 + 12 à 16). "
+        "CORRIGÉ À LA RACINE : `CSV_SCHEMA` devient la SOURCE UNIQUE du schéma (en-tête né et "
+        "repris du même endroit : une copie divergerait), le resume RÉÉCRIT l'en-tête courant en "
+        "jetant l'ancien, et une garde à l'écriture hurle `SCHEMA_ECART` au lieu d'écrire une "
+        "ligne bancale. ADDITIF : aucune colonne retirée, aucun seuil, aucune porte, aucun ordre. "
+        "Vérifié après relance par le watchdog de la maison : en-tête 16, `verif_schema_journal` "
+        "CONFORME rc=0, état repris à l'identique (pnl 42,1679 $ / 175 trades / 10 positions)."
     ),
     "hulk-mexc/scripts/satellite_aspiration.py": (
         "GO 3 (23/09/2026, GO Christophe après l'audit MEXC × HULK) — COUVERTURE DES 20 PAIRES. "
@@ -70,11 +79,25 @@ DECLARATIONS = {
         "(`thermo/memoire_horodatage.json` : lignes horodatées, heure future interdite, "
         "remontées de temps signalées mais NON re-datées). MODIFIÉ UNE 2e FOIS le 23/09 pour "
         "ce 2e gardien (le scellement est refait ici, après la DERNIÈRE modification — leçon "
-        "E12). LECTURE SEULE, ajout seul : aucun autre gardien touché, aucune donnée modifiée."
+        "E12). **3e modification le 23/09** : un 15ᵉ gardien, « Schéma du journal (E15) » "
+        "(`hulk-mexc/runs/VERIF_SCHEMA_JOURNAL.json`) — largeur de schéma, nombre "
+        "d'incohérences, journal vivant conforme, refus d'être un feu vert si l'état est figé "
+        ">8 h. LECTURE SEULE, ajout seul : aucun autre gardien touché, aucune donnée modifiée."
     ),
     # L'outil se déclare LUI-MÊME : le détecteur de la veilleuse l'a attrapé (modifié après
     # son premier scellement). C'est la preuve que le contrôle fonctionne, y compris sur son
     # propre outillage.
+    "hulk-mexc/scripts/verif_schema_journal.py": (
+        "GARDIEN E15 (23/09/2026) — journal de données écrit en DEUX largeurs (en-tête 11, lignes 16). "
+        "Refinement APRÈS le 1er scellement, et la raison écrite pour qu'elle ne soit pas "
+        "redécidée par oubli : (1) un journal incoherent mais DÉJÀ SUPERSEDED par un journal plus "
+        "récent est **signalé, non bloquant** — une alarme qui ne s'éteint jamais tue la confiance "
+        "dans l'alarme (R14) ; (2) la règle « âge < 1 h = bloquant » a été ESSAYÉE puis REJETÉE "
+        "(elle allumait un rouge sur une faute déjà corrigée et déjà remplacée) ; (3) le schéma est "
+        "lu À LA SOURCE en retirant les commentaires (le 1er essai comptait « asp » et « profil » "
+        "comme des colonnes — 18 au lieu de 16). BLOQUANT = le journal le plus récent seulement. "
+        "LECTURE SEULE : n'écrit dans aucun journal."
+    ),
     "Index_Maison/scripts/declarer_rescel_20260923.py": (
         "Outil d'acte du 23/09 : déclare + re-scelle les fichiers modifiés (backup horodaté + "
         "entrée `_rescel_20260923` qui dit QUOI et POURQUOI). Modifié une 2e fois le même jour "
@@ -164,6 +187,40 @@ NOUVEAUX = {
                 "journal du moteur, mesurée, ou lue dans le profil. LECTURE SEULE, 0 ordre.",
         "origine": "Christophe 23/09 : « c'est ce que je te demande depuis le tout début, faire "
                    "le set-up sur chaque paire »",
+    },
+    "hulk-mexc/scripts/verif_schema_journal.py": {
+        "role": "GARDIEN DE LA CLASSE E15 (journal écrit en DEUX largeurs : en-tête 11, lignes 16) : "
+                "lit le schéma À LA SOURCE (`paper_diprip.CSV_SCHEMA`, jamais recopié), vérifie "
+                "R1/R2 (en-tête = largeur des lignes) sur 20 journaux, R3 (le journal du moteur "
+                "VIVANT doit être au schéma courant), R4 autotest 4/4 (conforme · en-tête court "
+                "reconnu cohérent · ligne large détectée · ligne vide tolérée). LECTURE SEULE. "
+                "rc=0 conforme · rc=1 écart dans le journal courant.",
+        "origine": "Faute trouvée le 23/09 en vérifiant le GO 1 de Christophe (traçabilité du "
+                   "prix) : le resume écrasait l'en-tête neuf par l'ancien — silencieux donc grave",
+    },
+    "hulk-mexc/scripts/chiffrage_pnl_net.py": {
+        "role": "GO 2 (23/09, exigence de la FAMILLE) : calcule le PnL NET à côté du BRUT — "
+                "frais (5 bps/côté, DÉCLARÉS estimés) + spread de sortie mesuré. Le `pnl_total` du "
+                "moteur reste BRUT : ce n'est PAS un changement de décision, c'est un reporting.",
+        "origine": "Audit MEXC × HULK : 39,70 $ brut → 36,19 $ net (−8,8 %) ; la famille a exigé "
+                   "d'arrêter de piloter avec un chiffre brut faux de 8,8 %",
+    },
+    "Index_Maison/scripts/auto_evaluation_buffy.py": {
+        "role": "AUTO-ÉVALUATION de mes 14 jours, chiffrée par instrument : lignes de mémoire "
+                "dont je suis l'auteur, livrables cités nommément, progression du PnL journal par "
+                "journal, classes d'erreurs. Écrit un AVERTISSEMENT D'ATTRIBUTION : les "
+                "compteurs de fichiers créés ne sont PAS mon œuvre (leçon E14). LECTURE SEULE.",
+        "origine": "Ordre Christophe 23/09 « tu vas évaluer ton ouvrage des deux dernières "
+                   "semaines »",
+    },
+    "Index_Maison/scripts/consulter_famille_jugement_buffy_20260923.py": {
+        "role": "CONSULTATION DE JUGEMENT : soumet à la famille mes livrables, MES ERREURS "
+                "(16 classes) et l'évolution de HULK, et exige un verdict fermé + un CRITÈRE "
+                "MESURABLE + le fait qui invaliderait l'avis. Écrit l'en-tête de chaque avis avec "
+                "le modèle QUI A RÉPONDU (+ bandeau SUBSTITUTION et `META_*.json`) — corrigé le "
+                "jour même (classe E16 : le hub avait substitué grok → gemini et je l'ignorais).",
+        "origine": "Ordre Christophe 23/09 « le demander à la famille de t'évaluer… et leur "
+                   "demander si tout ceci est acceptable »",
     },
     "Index_Maison/scripts/consulter_famille_garde_fou_seuil_20260923.py": {
         "role": "Consultation de la FAMILLE (hub local, 4 modèles) sur la faute de méthode et "
@@ -256,6 +313,15 @@ NOUVEAUX = {
                 "horodaté du registre + entrée `_rescel_20260923` qui dit ce qui a changé et "
                 "pourquoi). Règle maison R5/R13 : un scellé ne s'écrase jamais sans le déclarer.",
         "origine": "GO Christophe 23/09 — la veilleuse criait (à raison) sur 2 scellés modifiés",
+    },
+    "Index_Maison/scripts/git_push_auto.sh": {
+        "role": "POINT D'ENTRÉE DES CONTRÔLES (toutes les 3 h) : y sont appelés le garde-fou des "
+                "seuils (E10), le gardien d'horodatage de la mémoire (E13) et — ajouté le "
+                "23/09 — le gardien de schéma du journal (E15, `hulk-mexc/scripts/"
+                "verif_schema_journal.py --json hulk-mexc/runs/VERIF_SCHEMA_JOURNAL.json`). "
+                "C'est ce fichier qui fait que mes contrôles PASSENT au lieu d'exister.",
+        "origine": "Un contrôle qui n'est appelé par personne n'existe pas (R15) — le pont "
+                   "entre le gardien et la veilleuse de la maison",
     },
 }
 

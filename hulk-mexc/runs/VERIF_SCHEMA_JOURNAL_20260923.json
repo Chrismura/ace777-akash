@@ -1,0 +1,44 @@
+{
+  "instrument": "verif_schema_journal.py",
+  "ts_utc": "2026-09-23T11:05:20Z",
+  "schema": [
+    "ts",
+    "pair",
+    "event",
+    "regime",
+    "price",
+    "entry",
+    "qty",
+    "pnl_usdt",
+    "pnl_total",
+    "cadence",
+    "reason",
+    "ts_prix_utc",
+    "age_prix_s",
+    "spread_bps",
+    "spread_source",
+    "cout_estime_usdt"
+  ],
+  "largeur_schema": 16,
+  "journaux_examines": 20,
+  "conformes": 2,
+  "anciens_coherents": 17,
+  "ecarts": [
+    {
+      "fichier": "PAPER_V1_20260923_105249.csv",
+      "en_tete": 11,
+      "largeurs_lignes": {
+        "11": 76162,
+        "16": 12
+      },
+      "n_lignes": 76174,
+      "age_min": 8.0
+    }
+  ],
+  "journal_courant": "PAPER_V1_20260923_110439.csv",
+  "journal_courant_conforme": true,
+  "autotest_fiable": true,
+  "rc": 0,
+  "lecture_seule": true,
+  "ordres": 0
+}

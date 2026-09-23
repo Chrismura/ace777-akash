@@ -54,6 +54,8 @@ C'est **littéralement** ce qui se passe ici : on redécouvre les mêmes erreurs
 | **E11** | **Confondre COHÉRENCE et JUSTESSE (biais de source unique)** | 23/09, nommé par la famille (Grok) : mon invariant valide la formule **du moteur** — si le moteur se trompe, mes instruments le valident et **nous nous trompons ensemble**. La classe « le chiffre est fidèle mais la règle est mauvaise » reste **ouverte** | **AUCUNE GARDE — TROU DÉCLARÉ.** Remède identifié et chiffré : **oracle indépendant** = rejouer la kline brute et comparer au signal enregistré, en court-circuitant la logique interne du moteur. **En attente de GO.** |
 | **E14** | **S'auto-absoudre par la confession** — lister ses erreurs passées puis conclure **plus loin que ses chiffres**, sans garde-fou équivalent pour ses propres déductions | 23/09, nommé par la **FAMILLE** (Nemotron, consultation de l'audit MEXC×HULK) : dans le même rapport où je nommais E10/E12/E13, j'ai tiré « le stop est une vérification périodique, pas un ordre au repos » (**n=32, aucun carnet à l'instant de l'impact**), compté des coûts de frais+spread comme un fait (**ils sont ESTIMÉS**, un paper ne paie rien) et généralisé 2 cas extrêmes (−16,5 % / −39,2 %). Les 4 modèles ont répondu la même chose : **mesure solide, explications en avance sur la mesure** | **Règle d'étiquetage de provenance** : toute conclusion d'un rapport porte **MESURÉ** (lu dans une source/un instrument) · **ESTIMÉ** (modèle, borne) · **EXTRAPOLÉ** (déduction non mesurée), et une cause non mesurée est écrite « OPEN » avec **le test qui la trancherait**. Contrôle externe : le brief de consultation **doit** lister mes erreurs ET soumettre mes conclusions neuves à la même contradiction (4 modèles). *Portée déclarée : pas encore mécanique — la classe est tenue par règle écrite + revue famille, comme E11.* |
 | **E13** | **Écrire une heure de MÉMOIRE au lieu de la lire** — le temps traité comme un seuil : **estimé ≠ vérifié** (même famille qu'E10, appliquée à l'horloge) | 23/09 : 4 lignes écrites **10:40Z / 10:05Z / 09:45Z / 09:15Z** alors que les **artefacts cités par ces lignes mêmes** donnent **0947Z / 0939Z / 0922Z / 0907Z** → inflation jusqu'à **+53 min**, donc des lignes **datées dans le futur** | **`Index_Maison/scripts/verif_memoire_horodatage.py`** (23/09) : **R1** aucune ligne de la date la plus récente dans le futur (> +5 min — aurait attrapé les 4) · **R2** ordre décroissant dans la date · **autotest 5/5** (dont le cas réel rejoué à **heure FIXE** : un test qui passe à 14 h et échoue à 9 h ne prouve rien). **Méthode corrigée** : l'heure d'une ligne = le **`mtime` de l'artefact qu'elle cite**, sinon `date -u` au moment d'écrire. **Limites déclarées** : une heure **sous**-estimée est indétectable ; 25 lignes anciennes hors ordre sont **signalées, jamais re-datées** (cf. §6). |
+| **E15** | **Écrire un fichier de données en DEUX largeurs** (en-tête et lignes désaccordés) — un journal qui devient illisible **en silence** | 23/09, 12:52 : les 5 colonnes ajoutées au journal du moteur (GO Christophe) ne survivaient pas au **RESUME**, qui recopiait l'ANCIEN fichier (`shutil.copy2`) **par-dessus** le nouveau → **en-tête 11 colonnes, lignes à 16**. Mesuré sur le journal vivant : **76 162 lignes à 11 champs + 12 lignes à 16**. Le journal n'était pas faux : il était **ambigu** — tout lecteur qui prend l'en-tête pour la vérité voit **5 colonnes sans nom** et 5 colonnes nommées qui n'existent pas dans les vieilles lignes | **`hulk-mexc/scripts/verif_schema_journal.py`** (23/09) : lit le schéma **à la source** (`paper_diprip.CSV_SCHEMA`, jamais recopié — une copie divergerait), **R1/R2** en-tête = largeur des lignes sur 20 journaux, **R3** le journal du moteur **VIVANT** doit être au schéma courant, **R4 autotest 4/4** (conforme · en-tête court reconnu cohérent · ligne large détectée · ligne vide tolérée). **Corrigé à la racine** : schéma = source unique · le resume **réécrit l'en-tête** et jette l'ancien · garde à l'écriture (`SCHEMA_ECART` hurlé au lieu d'écrire un journal bancal). Branché toutes les **3 h** + **15ᵉ gardien du cockpit** |
+| **E16** | **Publier un avis sous le nom du modèle DEMANDÉ, pas de celui qui a RÉPONDU** | 23/09 : j'ai classé un avis en `AVIS_x-ai_grok-4.3.md` alors que le hub avait **SUBSTITUÉ** le modèle (`x-ai/grok-4.3` → `gemini-flash-lite-latest`, journalisé par le hub). Je ne lisais que `provider`, jamais `model`/`model_demande`/`substitue` que la réponse contient → une consultation « 4 modèles » aurait compté **2 fois Gemini** comme 2 voix indépendantes. Même famille que **E14** (publier au-delà de ce qu'on a vérifié) | **Instrument corrigé** : l'en-tête d'un avis s'écrit « demandé X — **RÉPONDU PAR Y** » + bandeau **SUBSTITUTION** qui déclare que l'avis **ne compte pas comme une voix indépendante** + `META_*.json` (demandé/servi/substitué/attempts). *Limite (R8) : je vérifie la déclaration du hub ; je ne peux pas prouver que le fournisseur amont n'a pas menti.* |
 | **E12** | **Sceller un fichier puis le modifier** (process) | 23/09 : deux modifications **légitimes** (`paper_diprip.py` refus parlant, `chiffrage_entree_sortie_replay.py` terme cadence) ont fait crier R5/R13 à juste titre ; puis **3 fichiers scellés ont été modifiés APRÈS leur scellement** → la veilleuse a signalé « INTRUSION : modification non déclarée » **3 fois** | **Règle de processus écrite** : *on scelle APRÈS la dernière modification* + `Index_Maison/scripts/declarer_rescel_20260923.py` (backup horodaté + entrée `_rescel_*` qui dit **quoi et pourquoi**). Écarts md5 = **0**, Règles d'or 7/11 → **9/11**. |
 
 ---
@@ -154,3 +156,63 @@ petite** ; et elle ne juge que la date la plus récente.
 
 **Méthode corrigée (écrite pour de bon)** : l'heure d'une ligne de mémoire =
 **le `mtime` de l'artefact qu'elle cite** ; sinon `date -u` **au moment d'écrire**. Jamais de tête.
+
+---
+
+## 7. Rapport d'erreur E15 — le journal écrit en deux largeurs (23/09/2026)
+
+**Ce qui s'est passé** : GO Christophe du 23/09 → ajouter au journal du moteur la provenance du
+prix (quand il a été lu, son âge, le spread retenu, sa source, le coût estimé). Les colonnes ont
+été ajoutées **dans le fichier naissant**, mais le **RESUME** recopiait l'ancien journal
+(`shutil.copy2`) **par-dessus le nouveau** : le fichier vivant est reparti avec l'**en-tête de
+l'ancien schéma** et des **lignes à 16 champs**.
+
+**Mesuré (pas déduit)** : `PAPER_V1_20260923_105249.csv` → **en-tête 11 colonnes**, **76 162
+lignes à 11** et **12 lignes à 16** ; 19 autres journaux **cohérents** (11/11 — légitimes, nés
+avant le changement de schéma). Autrement dit : **un seul fichier fautif, mais c'est le seul que
+les autres outils lisaient**.
+
+**Pourquoi c'est grave et pourquoi personne ne le voyait** : c'est **silencieux**. Un fichier de
+données écrit en deux largeurs ne plante rien : il rend une colonne **innommable**. C'est la même
+classe que E10 (chiffre non vérifié) et E13 (heure non vérifiée) — **une donnée non VÉRIFIÉE**,
+ici au niveau du **schéma**.
+
+**Corrigé à la racine, pas au cas** :
+1. `CSV_SCHEMA` = **source unique de vérité** dans `paper_diprip.py` (en-tête né et repris du même endroit) ;
+2. le resume **réécrit l'en-tête courant** et **jette l'ancien** (les vieilles lignes restent, sous le schéma courant) ;
+3. garde **à l'écriture** : `SCHEMA_ECART` est **hurlé** au lieu d'écrire une ligne bancale ;
+4. `verif_schema_journal.py` branché (3 h + cockpit).
+
+**Vérifié** : journal relancé (`PAPER_V1_20260923_110439.csv`) → **en-tête 16**, 76 162 lignes
+historiques + lignes neuves à 16, **CONFORME rc=0**, autotest **4/4**. Moteur relancé par le
+**watchdog de la maison** (`com.ace777.hulk-watchdog`, relance `--resume`), état repris
+**pnl 42,1679 $ / 175 trades / 10 positions** — identique avant/après.
+
+**Limite déclarée (R8)** : ce contrôle attrape un **désaccord de largeur**. Il ne dit **pas**
+qu'une valeur dans une colonne est juste — seulement que la donnée est **lisible et nommée**.
+
+**Ce qui n'est PAS corrigé (et qui est déclaré)** : le journal courant garde **76 162 lignes
+historiques à 11 champs** sous un en-tête à 16 (choix assumé : ne pas réécrire le passé).
+
+---
+
+## 8. Rapport d'erreur E16 — l'avis publié sous le nom d'un autre modèle (23/09/2026)
+
+**Ce qui s'est passé** : la consultation du jour classe ses avis par modèle demandé. Le hub a
+**substitué** un modèle (`x-ai/grok-4.3` → `gemini-flash-lite-latest`) et **je ne l'ai pas vu** :
+je ne lisais que `provider` dans la réponse. J'allais donc présenter **Gemini deux fois** comme
+**deux voix indépendantes** dans un jury de 4 — soit un jury de **3**.
+
+**Preuve** : le hub **journalise** la substitution (`prise-ia/hub_events.jsonl` :
+« MODELE SUBSTITUE : demandé « x-ai/grok-4.3 » → servi « gemini-flash-lite-latest » ») et la
+réponse expose `model` (qui a répondu), `model_demande`, `substitue`, `attempts`.
+
+**Corrigé** : l'en-tête d'un avis porte désormais **« demandé X — RÉPONDU PAR Y »**, un bandeau
+**SUBSTITUTION** déclare que cet avis **ne compte pas comme voix indépendante**, et un `META_*.json`
+conserve les métadonnées. Fichier réécrit en conséquence — le texte est d'origine, **l'étiquette est
+corrigée**.
+
+**Limite déclarée (R8)** : je vérifie **la déclaration du hub**, pas la réalité du fournisseur.
+
+**Conséquence sur le verdict du jour** : le jury n'a **pas 4 voix mais 3** — Gemini (**deux fois** :
+avis direct + avis substitué), Nemotron-120b, DeepSeek-V3. Les comptes sont corrigés partout.

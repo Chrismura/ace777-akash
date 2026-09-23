@@ -384,15 +384,22 @@ def gardiens():
     sj_age = age_min(sj_path)
     if sj:
         largeur = int(sj.get("largeur_schema", 0) or 0)
-        nb_ecarts = len(sj.get("ecarts") or [])
+        bloquants = int(sj.get("ecarts_bloquants", len(sj.get("ecarts") or [])) or 0)
+        historiques = int(sj.get("ecarts_historiques", 0) or 0)
         courant_ok = bool(sj.get("journal_courant_conforme"))
         fiable_sj = bool(sj.get("autotest_fiable"))
-        ok_sj = courant_ok and fiable_sj
-        detail = ("journal courant au schéma (%d colonnes) · %d incohérence(s) · %d ancien(s) cohérent(s)"
-                  % (largeur, nb_ecarts, int(sj.get("anciens_coherents", 0) or 0))
+        # BLOQUANT = le journal le plus récent (celui du moteur vivant). Un journal incoherent
+        # déjà SUPERSEDED est signalé, jamais compté comme rouge : une alarme qui ne s'éteint
+        # jamais tue la confiance dans l'alarme (R14).
+        ok_sj = courant_ok and fiable_sj and bloquants == 0
+        detail = ("journal vivant au schéma (%d colonnes) · %d ancien(s) cohérent(s)"
+                  % (largeur, int(sj.get("anciens_coherents", 0) or 0))
                   if fiable_sj else "AUTOTEST NON FIABLE — le contrôle ne sait pas échouer")
-        if nb_ecarts:
-            detail += " · à corriger : %s" % str((sj.get("ecarts") or [{}])[0].get("fichier", "?"))[:40]
+        if bloquants:
+            detail += " · %d BLOQUANT : %s" % (bloquants, str((sj.get("ecarts") or [{}])[0].get("fichier", "?"))[:40])
+        if historiques:
+            detail += (" · %d incohérence(s) historique(s) superseded, déclarée(s) — le passé "
+                       "n'est pas réécrit" % historiques)
         if sj_age is not None and sj_age > 480:
             detail += " — ÉTAT FIGÉ (>8 h, le contrôle n'est plus passé)"
             ok_sj = False
