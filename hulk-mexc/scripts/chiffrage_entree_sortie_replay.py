@@ -45,6 +45,10 @@ MISE = 30.0           # mise fixe, identique pour toutes les variantes
 IMPULSE_PCT = 8.0     # IMPULSE_PCT de defaults.env : m6 mini pour une rafale
 PULLBACK_FRAC = 0.30  # IMPULSE_PULLBACK_FRAC
 PULLBACK_MIN = 5.0    # IMPULSE_PULLBACK_MIN_PCT
+# CORRECTION 23/09/2026 (classe F) : ce terme était ABSENT des trois calculs de seuil de
+# cet instrument, alors qu'il DOMINE sur les paires vives (EDEL 13,20 % · RIZE 8,44 % de
+# repli exigé, contre 4,2 % au profil). Valeur lue dans config/defaults.env.
+DIP_CADENCE_MULT = 0.50  # DIP_CADENCE_MULT
 SEUIL_SWING = 15.0    # amplitude minimale d'un cycle (comme la fiche par actif)
 
 PAIRES = ["BTCUSDT", "ETHUSDT", "XRPUSDT", "HBARUSDT", "RIZEUSDT", "ZBCNUSDT", "WUSDT",
@@ -146,7 +150,10 @@ def entree(variante, p, cal, pair=None):
         f = _FEN.get(pair) or []
         if f and str(p.get("utc", ""))[11:13] not in f:
             return False
-    seuil_repli = max(float(cal.get("dip_pct") or 5.0), PULLBACK_MIN, m6 * PULLBACK_FRAC)
+    # LE SEUIL RÉEL (corrigé le 23/09 : le terme `0,50 × cadence` manquait)
+    dip = max(float(cal.get("dip_pct") or 5.0),
+              float(p.get("cadence") or 0.0) * DIP_CADENCE_MULT)
+    seuil_repli = max(dip, PULLBACK_MIN, m6 * PULLBACK_FRAC)
     if variante == "E0":                       # ACTUEL
         return dd6 >= seuil_repli
     if variante == "E1":                       # repli léger (2 %)
@@ -255,14 +262,35 @@ def charger_klines():
             continue
         bars = json.load(open(f))
         cl = [float(b[4]) for b in bars]
+        hi = [float(b[2]) for b in bars]
+        lo = [float(b[3]) for b in bars]
         pts = []
         for i, b in enumerate(bars):
             seg = cl[max(0, i - 6):i + 1]
             c = cl[i]
             haut = max(seg)
+            # CADENCE — CORRECTION 23/09/2026 : le seuil d'entrée dépend de
+            # `dip = max(dip_pct ; DIP_CADENCE_MULT × cadence)` (score_pair, l.566) et
+            # cet instrument l'IGNORAIT (il ne lisait que dip_pct → 5 %, au lieu de
+            # 13,20 % sur EDEL). On reproduit la cadence EXACTEMENT comme le moteur :
+            # médiane des ranges de blocs de 24 h sur la fenêtre 15 j glissante.
+            sh, sl = hi[max(0, i - 359):i + 1], lo[max(0, i - 359):i + 1]
+            rng = []
+            for k in range(0, len(sh), 24):
+                ch, clw = sh[k:k + 24], sl[k:k + 24]
+                if ch and clw and min(clw) > 0:
+                    rng.append((max(ch) / min(clw) - 1.0) * 100.0)
+            rng.sort()
+            if rng:
+                cad = rng[len(rng) // 2]
+            elif sh and min(sl) > 0:
+                cad = max(((max(sh) / min(sl) - 1.0) * 100.0) / 5.0, 3.0)
+            else:
+                cad = 3.0
             pts.append({"ts": b[0] // 1000, "utc": iso(b[0]), "px": c,
                         "m6_pct": (c / seg[0] - 1) * 100 if seg[0] > 0 else 0.0,
-                        "dd6": (1 - c / haut) * 100 if haut > 0 else 0.0})
+                        "dd6": (1 - c / haut) * 100 if haut > 0 else 0.0,
+                        "cadence": cad})
         dat[p] = pts
     return dat
 
@@ -292,7 +320,7 @@ def episodes(dd, cal_all):
         cal = cal_all.get(p) or {}
         if not cal:
             continue
-        dip = float(cal.get("dip_pct") or 5.0)
+        dip_plancher = float(cal.get("dip_pct") or 5.0)
         i, n = 0, len(pts)
         while i < n:
             if float(pts[i].get("m6_pct") or 0) < IMPULSE_PCT:
@@ -306,7 +334,9 @@ def episodes(dd, cal_all):
             pic = max(x["px"] for x in seg)
             amp = (pic / p0 - 1) * 100 if p0 else 0.0
             accessible = any(
-                x["dd6"] >= max(dip, PULLBACK_MIN,
+                x["dd6"] >= max(dip_plancher,
+                                float(x.get("cadence") or 0.0) * DIP_CADENCE_MULT,
+                                PULLBACK_MIN,
                                 float(x.get("m6_pct") or 0) * PULLBACK_FRAC)
                 for x in seg
             )
