@@ -1,25 +1,25 @@
 {
-  "timestamp": 1790187751,
-  "date": "2026-09-23T18:22:31.767988+00:00",
+  "timestamp": 1790191352,
+  "date": "2026-09-23T19:22:32.712490+00:00",
   "n_analyses": 2,
   "analyses": [
     {
       "signal": {
         "metric": "long_short",
-        "zscore": 3.044833285180888,
-        "value": 1.091,
-        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 92,\n  \"reason\": \"Le Z-score extrême (3.04) indique un positionnement long surchargé des baleines dans un marché saturé de bruit médiatique institutionnel 'Long/Short', créant un déséquilibre critique propice à une purge imminente des positions acheteuses.\"\n}\n```",
-        "ts": 1790186083.057521
+        "zscore": 2.9461013792101847,
+        "value": 1.132,
+        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Le Z-score élevé (2.95) du ratio long/short indique une surconcentration extrême des positions acheteuses par les baleines. Pendant ce temps, le narratif médiatique grand public banalise et glorifie les stratégies long-short, signalant un excès d'euphorie retail et un risque imminent de purge par les 'smart money'.\"\n}\n```",
+        "ts": 1790189758.071338
       },
       "fiche": "long_short",
       "questions": {
         "ratio_long_short": {
-          "value": 1.132,
+          "value": 1.142,
           "seuil": 2,
           "depasse": false
         },
         "oi": {
-          "value": 99183.395,
+          "value": 99001.536,
           "seuil": 120000,
           "depasse": false
         }
@@ -35,15 +35,15 @@
     {
       "signal": {
         "metric": "volume",
-        "zscore": 2.479228266182975,
-        "value": 18590239993.0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie de volume non corrélée au marché crypto (bruit médiatique centré sur la santé, la finance traditionnelle et l'e-commerce). Aucune baleine détectée.\"\n}\n```",
-        "ts": 1790186395.123653
+        "zscore": 2.0208360201211124,
+        "value": 18202271160.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie de volume non corrélée au marché crypto (bruit médiatique externe, sujets lifestyle et finance traditionnelle).\"\n}\n```",
+        "ts": 1790190060.408427
       },
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.14,
+          "value": -0.02,
           "seuil": 1,
           "depasse": false
         },
@@ -53,12 +53,12 @@
           "depasse": false
         },
         "funding": {
-          "value": -1e-05,
+          "value": -1.2e-05,
           "seuil": 0.001,
           "depasse": false
         },
         "whales": {
-          "value": 1,
+          "value": 0,
           "seuil": 5,
           "depasse": false
         }

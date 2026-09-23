@@ -1,5 +1,5 @@
 {
-  "ts": "2026-09-23T18:24:04+00:00",
+  "ts": "2026-09-23T19:23:54+00:00",
   "note": "Verdicts MESURÉS à la source (scripts/verdicts_protocoles.py). Chaque protocole porte son critère pré-enregistré : c'est lui qui décide, pas l'impression du moment. Un verdict « IMPOSSIBLE » ou une ligne « alerte » signale un protocole dont le verdict ne peut pas être rendu — c'est une panne de conception, pas une patience.",
   "protocoles": [
     {
@@ -171,7 +171,7 @@
     {
       "protocole": "Radar XRPL gouvernance",
       "critere": "J8 pré-enregistré : (a) ≥ 5 amendements dont le compteur bouge de ≥ 2 votes, OU (b) ≥ 1 activation, OU (c) ≥ 1 amendement mort ; sinon échec",
-      "faits": "229 snapshots · 112 amendements suivis · (a) 5 bougent de ≥ 2 (il en fallait 5) · (b) 0 activation · (c) 0 mort · 2 nouveau(x)",
+      "faits": "230 snapshots · 112 amendements suivis · (a) 5 bougent de ≥ 2 (il en fallait 5) · (b) 0 activation · (c) 0 mort · 2 nouveau(x)",
       "verdict": "SUCCES (critère atteint)",
       "alerte": "",
       "detail": [
@@ -180,11 +180,11 @@
           "delta_votes": 9
         },
         {
-          "amendement": "ConfidentialTransfer",
+          "amendement": "BatchV1_1",
           "delta_votes": 3
         },
         {
-          "amendement": "BatchV1_1",
+          "amendement": "ConfidentialTransfer",
           "delta_votes": 3
         },
         {
@@ -204,7 +204,7 @@
           "delta_votes": 1
         },
         {
-          "amendement": "fixBatchInnerSigs",
+          "amendement": "PermissionDelegation",
           "delta_votes": 0
         }
       ]
@@ -262,13 +262,13 @@
           "indice": "geopol",
           "directionnels": 4,
           "corect": 1,
-          "n": 22
+          "n": 23
         },
         {
           "indice": "gexPutCall",
           "directionnels": 1,
           "corect": 1,
-          "n": 3
+          "n": 4
         },
         {
           "indice": "indice_onchain",
@@ -281,17 +281,17 @@
     {
       "protocole": "Geopol (réanimé)",
       "critere": "GEOPOL-C2/C3 : avis geopol noté vs BTC 2×/jour, fenêtre 4 semaines (→ ~10/10), critère P3 ≥ 56 %",
-      "faits": "score actuel 0.3466 « calme » (ML 0.1681) · 22 avis enregistrés dont 4 directionnels (1 correct(s)) · 18 NEUTRE",
+      "faits": "score actuel 0.3466 « calme » (ML 0.1681) · 23 avis enregistrés dont 4 directionnels (1 correct(s)) · 19 NEUTRE",
       "verdict": "EN ATTENTE (fenêtre jusqu'au ~10/10)",
       "alerte": "1 avis correct sur 4 directionnels : à cette cadence le critère ne sera pas tranchable dans la fenêtre",
       "detail": [
         {
           "indice": "geopol",
-          "n": 22,
+          "n": 23,
           "directionnels": 4,
           "corrects": 1,
-          "neutres": 18,
-          "t_stat": -3.41
+          "neutres": 19,
+          "t_stat": -3.13
         }
       ]
     },

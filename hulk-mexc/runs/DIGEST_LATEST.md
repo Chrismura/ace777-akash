@@ -1,6 +1,4 @@
-# Hulk DIGEST — 2026-09-23T18:24:03Z
-
-> ⚠️ **SCAN DÉGRADÉ (réseau)** — données partielles, veille hors délai.
+# Hulk DIGEST — 2026-09-23T19:23:43Z
 
 - **Piste :** VEILLE (séparée du paper Hulk)
 - Source trading : **MEXC spot**
@@ -14,26 +12,26 @@
 
 | pair | hint | tension | move6% | dd6% | chg24% | vol USDT | spread bps | DefiLlama |
 |------|------|---------|--------|------|--------|----------|------------|-----------|
-| XRPUSDT | WATCH_PULLBACK — tension haute + reflux | 2.58 | 6.67 | 5.91 | -0.06 | 120944062.17 | 2.01 | n/a |
-| PYTHUSDT | WATCH_PULLBACK — tension haute + reflux | 3.71 | 11.74 | 7.32 | -0.07 | 1374326.64 | 3.21 | tvl≈140,236,528 |
-| ETHUSDT | IDLE | 1.83 | 3.32 | 2.32 | -0.03 | 504398707.76 | 0.04 | no_map |
-| BTCUSDT | IDLE | 1.59 | 2.87 | 2.07 | -0.03 | 886658496.29 | 0.0 | no_map |
-| HBARUSDT | IDLE | 2.12 | 6.6 | 5.1 | -0.07 | 1493445.23 | 1.11 | empty_tvl |
-| WUSDT | WATCH_PULLBACK — tension haute + reflux | 3.43 | 8.79 | 7.07 | -0.06 | 396342.05 | 11.5 | miss:timeout |
-| CCUSDT | IDLE | 2.92 | 6.58 | 4.97 | -0.05 | 524629.74 | 9.31 | no_map |
-| CHIPUSDT | WATCH_PULLBACK — tension haute + reflux | 3.47 | 10.36 | 8.91 | -0.09 | 219782.73 | 19.07 | no_map |
-| BIOUSDT | WATCH_PULLBACK — tension haute + reflux | 3.83 | 9.69 | 6.58 | -0.04 | 97118.88 | 10.62 | n/a |
-| REDUSDT | WATCH_PULLBACK — tension haute + reflux | 3.41 | 6.14 | 5.25 | -0.04 | 57978.59 | 7.22 | tvl≈2,847,874 |
-| KITEUSDT | IDLE | 2.64 | 4.83 | 3.41 | -0.05 | 172505.84 | 8.3 | no_map |
-| ZBCNUSDT | IDLE | 2.02 | 4.91 | 3.98 | -0.02 | 253743.13 | 24.55 | n/a |
-| RIZEUSDT | IDLE | 1.21 | 14.94 | 11.97 | 0.31 | 73510.58 | 106.44 | no_map |
-| TELUSDT | IDLE | 1.37 | 3.61 | 2.91 | -0.04 | 156652.3 | 82.26 | no_map |
-| RWAINCUSDT | ERR | — | — | — | — | — | — | scan_deadline |
-| EDELUSDT | ERR | — | — | — | — | — | — | scan_deadline |
-| QNTUSDT | ERR | — | — | — | — | — | — | scan_deadline |
-| FLUIDUSDT | ERR | — | — | — | — | — | — | scan_deadline |
-| RWAUSDT | ERR | — | — | — | — | — | — | scan_deadline |
-| MNSRYUSDT | ERR | — | — | — | — | — | — | scan_deadline |
+| BTCUSDT | ERR | — | — | — | — | — | — | circuit-open api.mexc.com (réseau dégrad |
+| ETHUSDT | ERR | — | — | — | — | — | — | circuit-open api.mexc.com (réseau dégrad |
+| XRPUSDT | ERR | — | — | — | — | — | — | circuit-open api.mexc.com (réseau dégrad |
+| HBARUSDT | ERR | — | — | — | — | — | — | circuit-open api.mexc.com (réseau dégrad |
+| RIZEUSDT | ERR | — | — | — | — | — | — | circuit-open api.mexc.com (réseau dégrad |
+| ZBCNUSDT | ERR | — | — | — | — | — | — | circuit-open api.mexc.com (réseau dégrad |
+| WUSDT | ERR | — | — | — | — | — | — | circuit-open api.mexc.com (réseau dégrad |
+| REDUSDT | ERR | — | — | — | — | — | — | circuit-open api.mexc.com (réseau dégrad |
+| CCUSDT | ERR | — | — | — | — | — | — | circuit-open api.mexc.com (réseau dégrad |
+| PYTHUSDT | ERR | — | — | — | — | — | — | circuit-open api.mexc.com (réseau dégrad |
+| BIOUSDT | ERR | — | — | — | — | — | — | circuit-open api.mexc.com (réseau dégrad |
+| KITEUSDT | ERR | — | — | — | — | — | — | circuit-open api.mexc.com (réseau dégrad |
+| TELUSDT | ERR | — | — | — | — | — | — | circuit-open api.mexc.com (réseau dégrad |
+| CHIPUSDT | ERR | — | — | — | — | — | — | circuit-open api.mexc.com (réseau dégrad |
+| RWAINCUSDT | ERR | — | — | — | — | — | — | circuit-open api.mexc.com (réseau dégrad |
+| EDELUSDT | ERR | — | — | — | — | — | — | circuit-open api.mexc.com (réseau dégrad |
+| QNTUSDT | ERR | — | — | — | — | — | — | circuit-open api.mexc.com (réseau dégrad |
+| FLUIDUSDT | ERR | — | — | — | — | — | — | circuit-open api.mexc.com (réseau dégrad |
+| RWAUSDT | ERR | — | — | — | — | — | — | circuit-open api.mexc.com (réseau dégrad |
+| MNSRYUSDT | ERR | — | — | — | — | — | — | circuit-open api.mexc.com (réseau dégrad |
 
 ## Consignes Qwen (manuel — ne pilote pas le paper)
 1. Résumer en 5 lignes : qui spike, qui dump, illiquide (spread/vol).
