@@ -2608,9 +2608,38 @@ class PaperBot:
         if now - self.silence_last.get(key, 0.0) < self.silence_ttl:
             return
         self.silence_last[key] = now
+        # GO Christophe 23/09/2026 — LE REFUS DOIT ÉCRIRE LE CHIFFRE QUI DÉCIDE (R15).
+        # L'ACHAT le fait déjà (`impulse_pullback_dd6=42.8>=36.8 m6=122.7`) ; le REFUS,
+        # lui, était MUET : `ATTENTE:IMPULSE_WAIT` sans un seul nombre. Conséquence
+        # mesurée le 23/09 : impossible de trancher entre « le set-up ne s'arme jamais »
+        # (le moteur) et « le repli offert dépassait le seuil exigé » (la reconstruction)
+        # — deux mesures qui se contredisaient sur RIZE et qu'aucun instrument ne
+        # pouvait départager, faute du chiffre dans le journal.
+        # PORTÉE : on écrit PLUS de nombres dans une ligne qui existait déjà.
+        # AUCUNE décision n'est touchée, aucun seuil, aucune porte, aucun ordre.
+        # Le préfixe `ATTENTE:<régime>` reste INTACT (les instruments existants lisent
+        # `reason.split(":")[0]` — vérifié dans chiffrage_gardes_refus.py::classer).
+        _detail = ""
+        try:
+            if regime == "IMPULSE_WAIT":
+                _dd6 = float(sc.get("dd6_pct") or 0.0)
+                _need = float(sc.get("impulse_entry_pct") or
+                              max(float(sc.get("dip_pct") or 0.0), 5.0))
+                _seuil = _need * 0.85          # le seuil EXACT du basculement de régime
+                _detail = (f" dd6={_dd6:.2f} seuil={_seuil:.2f}"
+                           f" manque={max(0.0, _seuil - _dd6):.2f}pt"
+                           f" m6={float(sc.get('move6_pct') or 0.0):.1f}")
+            elif regime == "QUIET":
+                _detail = (f" range15={float(sc.get('range15_pct') or 0.0):.2f}"
+                           f" move24={float(sc.get('move24_pct') or 0.0):.2f}")
+            elif regime == "WATCH":
+                _detail = (f" dd15={float(sc.get('dd15_pct') or 0.0):.1f}"
+                           f" m6={float(sc.get('move6_pct') or 0.0):.1f}")
+        except Exception:
+            _detail = ""                        # ne jamais casser une boucle pour un log
         self.log(
             pair, "SKIP", regime, price, price, 0.0, 0.0,
-            sc.get("cadence_pct"), f"ATTENTE:{regime}",
+            sc.get("cadence_pct"), f"ATTENTE:{regime}{_detail}",
         )
 
     def maybe_enter(self, pair: str, price: float, sc: dict):

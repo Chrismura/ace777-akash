@@ -1,27 +1,6 @@
 {
   "signals": [
     {
-      "metric": "cpfp",
-      "zscore": 2.033546106233641,
-      "value": 45.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Le pic de CPFP (Child-Pays-For-Parent) on-chain est un artéfact technique lié à la congestion du réseau Bitcoin (utilisateurs bloqués débloquant leurs transactions), totalement déconnecté du bruit médiatique hétéroclite et sans lien avec une accumulation ou distribution institutionnelle.\"\n}\n```",
-      "ts": "2026-09-22T05:45:43.831998+00:00"
-    },
-    {
-      "metric": "dust",
-      "zscore": 2.033546106233641,
-      "value": 45.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique sans rapport avec la crypto (jeux vidéo, programmes TV, actualités tech générales). L'anomalie de dust onchain est isolée et non corrélée au narratif.\"\n}\n```",
-      "ts": "2026-09-22T05:45:48.705823+00:00"
-    },
-    {
-      "metric": "cpfp",
-      "zscore": 2.286155463857495,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Faux positif détecté. Le pic 'cpfp' on-chain (Child-Pays-For-Parent) est un artefact technique lié à la congestion du mempool Bitcoin et aux tutoriels de débat médiatique, sans corrélation avec une accumulation ou distribution significative de baleines.\"\n}\n```",
-      "ts": "2026-09-22T06:15:54.334659+00:00"
-    },
-    {
       "metric": "dust",
       "zscore": 2.286155463857495,
       "value": 50.0,
@@ -349,6 +328,27 @@
       "value": 4313853.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (Z-score 5.03, +4.3M USD) dans le silence médiatique total (Google Actualités vide). Les baleines accumulent sans bruit avant le réveil du narratif public.\"\n}\n```",
       "ts": "2026-09-23T07:41:17.395493+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 4.311223794490644,
+      "value": 3994836.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 4.31, ~4M$ déplacés par une baleine) en totale absence de couverture médiatique (Google Actualités vide). Classique accumulation furtive sous le radar du retail.\"\n}\n```",
+      "ts": "2026-09-23T08:51:29.823627+00:00"
+    },
+    {
+      "metric": "cpfp",
+      "zscore": 2.047387541245298,
+      "value": 50.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique mineure (CPFP/frais de transaction) noyée dans un bruit médiatique sans rapport (actualités locales et politiques). Aucune accumulation ou mouvement significatif de baleines détecté.\"\n}\n```",
+      "ts": "2026-09-23T08:51:31.301328+00:00"
+    },
+    {
+      "metric": "dust",
+      "zscore": 2.047387541245298,
+      "value": 50.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique parasité par des homonymes non-crypto (jeux vidéo, actualités tech/IA sans lien avec la blockchain). L'anomalie de dust onchain est insignifiante.\"\n}\n```",
+      "ts": "2026-09-23T08:51:33.060514+00:00"
     }
   ]
 }
