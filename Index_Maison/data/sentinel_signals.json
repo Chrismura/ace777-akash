@@ -1,27 +1,6 @@
 {
   "signals": [
     {
-      "metric": "liquidations",
-      "zscore": 2.370544807353722,
-      "value": 7569798.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 65,\n  \"reason\": \"Bruit médiatique parasité par des homonymies juridiques traditionnelles (faillites d'entreprises) et des liquidations crypto globales massives (1B$). L'anomalie onchain locale (7.5M$, z-score 2.37) montre une surchauffe à court terme mais reste noyée dans le narratif macro, sans preuve claire d'accumulation ou de distribution furtive par des baleines.\"\n}\n```",
-      "ts": "2026-09-22T01:54:10.262548+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": 3.316624790355397,
-      "value": 78,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Euphorie extrême (Fear & Greed à 78, z-score 3.32) couplée à un vide médiatique (aucun signal fort Google Actualités). Divergence classique de fin de cycle : les baleines accumulent de la liquidité et distribuent aux retards pendant que le bruit médiatique est absent mais que l'indice de cupidité sature.\"\n}\n```",
-      "ts": "2026-09-22T02:09:22.274478+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": 2.932575659723039,
-      "value": 78,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Euphorie extrême (Fear & Greed à 78, z-score 2.93) sans couverture médiatique majeure (Google Actualités vide). Divergence classique de fin de cycle : les baleines distribuent en silence aux suiveurs de tendance pendant que le grand public est absent.\"\n}\n```",
-      "ts": "2026-09-22T02:39:26.738594+00:00"
-    },
-    {
       "metric": "cpfp",
       "zscore": 2.4150082131190813,
       "value": 45.0,
@@ -349,6 +328,27 @@
       "value": 71,
       "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Le score z de -3.32 sur l'indice de peur et de cupidité (71) indique une anomalie statistique de surchauffe émotionnelle, contrastant avec un vide médiatique total (Google Actualités sans relais). Cette divergence signale une euphorie de détail non soutenue par l'adoption publique, souvent caractéristique d'une distribution silencieuse par les baleines avant un retournement.\"\n}\n```",
       "ts": "2026-09-23T02:08:18.470804+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -2.9325756597230344,
+      "value": 71,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Le score Z extrême (-2.93) du Fear & Greed à 71 (avidité) contraste totalement avec le vide médiatique (absence de grands titres Google Actualités). Cette divergence signale un piège à liquidité : le retail entre en aveugle par inertie, tandis que les baleines profitent de cette surchauffe invisible pour distribuer en silence.\"\n}\n```",
+      "ts": "2026-09-23T02:38:24.613261+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 2.5674943742217966,
+      "value": 2250987.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Activité anormale des baleines (z-score 2.57, accumulation de 2.25M$) dans un silence médiatique total (Google Actualités vide). Divergence classique de phase d'accumulation discrète avant le réveil du retail.\"\n}\n```",
+      "ts": "2026-09-23T03:03:29.349822+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -2.6457513110645903,
+      "value": 71,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Le score Z extrêmement bas (-2.65) malgré une avidité élevée (71) révèle un 'silence radio' médiatique et un épuisement de la liquidité de détail. Les baleines profitent de cette euphorie aveugle pour distribuer discrètement.\"\n}\n```",
+      "ts": "2026-09-23T03:08:31.379512+00:00"
     }
   ]
 }
