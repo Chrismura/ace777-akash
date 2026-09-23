@@ -157,6 +157,25 @@ DECLARATIONS = {
         "brief de jury. Corrigé : le multiplicateur est LU à l'exécution (`_cfg()`), plus aucune "
         "constante recopiée, et le JSON porte la source de la valeur."
     ),
+    # HORS REPO mais SCELLÉ au registre des synapses : le hub est un organe de la maison
+    # (127.0.0.1:11435) — le drill l'a signalé à juste titre, donc on le DÉCLARE.
+    "/Users/christophe/prise-ia/hub_prise_ia.py": (
+        "4e vague 23/09 (classe E21) — ajout du mode **`strict_model`** : quand il est demandé, la "
+        "chaîne de providers est limitée à ceux qui servent RÉELLEMENT le modèle, **sans filet "
+        "universel**, et un modèle indisponible **échoue franchement** (« voix INDISPONIBLE, pas de "
+        "substitution silencieuse »). MESURÉ : sans ce mode, au tour 2 « DeepSeek » était répondu par "
+        "Gemini, au tour 3 les TROIS voix par Gemini → jury à UNE voix ; et le filet **masquait une "
+        "voix disponible** (DeepSeek répond parfaitement en direct). Additif et OFF par défaut : "
+        "aucun autre appelant du hub n'est touché. Backup : hub_prise_ia.py.bak-strict-jury-20260923. "
+        "Hub relancé, `status ok, 10 providers`, test du jury après correctif : 3 voix indépendantes."
+    ),
+    "Index_Maison/scripts/session_famille.py": (
+        "4e vague 23/09 (classe E21) — modifié APRÈS son premier scellement : la session envoie "
+        "désormais `strict_model: true` au hub, pour qu'un avis servi par un AUTRE modèle soit un "
+        "ÉCHEC et non une voix. Mesuré : sans ce mode, 3 voix sur 4 étaient servies par un autre "
+        "modèle (le « filet universel » du hub) → jury réduit à UNE voix. Ajouts : `--test-modeles` "
+        "(qui répond réellement, depuis quel fournisseur) et l'envoi strict à chaque tour."
+    ),
     "Index_Maison/scripts/git_push_auto.sh": (
         "3e vague 23/09 — branche DEUX gardiens neufs toutes les 3 h : `verif_delai_lecture.py` "
         "(classe E19 : barre de latence mesurable, mesuré/aveugle séparés, plancher physique) et "
@@ -277,6 +296,16 @@ NOUVEAUX = {
                 "écrit, pas maquillé. Autotest 3/3, branché 3 h, 17e gardien du cockpit.",
         "origine": "Jury permanent, tours 1 et 2 (3 voix) : « la latence de lecture du prix » "
                    "désignée défaut n°1, barre < 1 s."
+    },
+    "hulk-mexc/scripts/sonde_ws_mexc.py": {
+        "role": "SONDE WEBSOCKET (réponse à « pourquoi ne pas faire les deux ? ») — mesure le flux "
+                "public MEXC (`wss://wbs-api.mexc.com/ws`, bookTicker 10/100 ms) : âge du prix "
+                "**médian 14-15 ms, 100 % sous 1 s** contre 1 058 ms / 22,7 % en REST, cadence "
+                "11 ms sur RIZE/TEL. Prouve qu'on peut avoir la fraîcheur ET la frise qui mesure "
+                "la chute — l'arbitrage était un faux dilemme. Déclaré : trames protobuf non "
+                "décodées, la chute n'est PAS mesurée ; le câblage touche le moteur (GO requis).",
+        "origine": "Christophe 23/09 : « soit je lis vite (et je perds la mesure de la chute). "
+                   "Ce choix t'appartient. » → « pourquoi ne pas faire les DEUX ??? »"
     },
     "hulk-mexc/scripts/mesures_jury_tour2.py": {
         "role": "LES 8 MESURES EXIGÉES PAR LE JURY (tour 1 → tour 2), étiquetées MESURÉ / ESTIMÉ / "

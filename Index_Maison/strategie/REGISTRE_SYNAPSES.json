@@ -1,6 +1,6 @@
 {
   "version": "1.5.0",
-  "updated": "2026-09-23T12:32Z",
+  "updated": "2026-09-23T13:12Z",
   "fichier": [
     {
       "nom": "Index_Maison/scripts/v2_duo_replay_4h.py",
@@ -814,8 +814,10 @@
       "origine": "GO Christophe 14/09 : transparence substitution de modèle",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "ce5f8c180c49b839583c3fb68e44332b",
-      "note": "Scellé 14/09T12:45Z après ajout TRANSPARENCE SUBSTITUTION : événement 'substitution' au journal + champs model/model_demande/substitue dans chaque réponse HTTP. Backup /tmp/hub_prise_ia.py.bak-avant-20260914-123457. Par Buffy."
+      "md5": "4f3e782ad6eda2ecb22990d927019612",
+      "note": "Scellé 14/09T12:45Z après ajout TRANSPARENCE SUBSTITUTION : événement 'substitution' au journal + champs model/model_demande/substitue dans chaque réponse HTTP. Backup /tmp/hub_prise_ia.py.bak-avant-20260914-123457. Par Buffy.",
+      "date": "2026-09-23T13:12Z",
+      "_rescel_20260923": "4e vague 23/09 (classe E21) — ajout du mode **`strict_model`** : quand il est demandé, la chaîne de providers est limitée à ceux qui servent RÉELLEMENT le modèle, **sans filet universel**, et un modèle indisponible **échoue franchement** (« voix INDISPONIBLE, pas de substitution silencieuse »). MESURÉ : sans ce mode, au tour 2 « DeepSeek » était répondu par Gemini, au tour 3 les TROIS voix par Gemini → jury à UNE voix ; et le filet **masquait une voix disponible** (DeepSeek répond parfaitement en direct). Additif et OFF par défaut : aucun autre appelant du hub n'est touché. Backup : hub_prise_ia.py.bak-strict-jury-20260923. Hub relancé, `status ok, 10 providers`, test du jury après correctif : 3 voix indépendantes."
     },
     {
       "nom": "Index_Maison/scripts/collecter_x402_agentic.py",
@@ -1225,8 +1227,8 @@
       "origine": "GO Christophe 23/09 — la veilleuse criait (à raison) sur 2 scellés modifiés",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "7618cfcaa3af08166c3fa1faae52d171",
-      "date": "2026-09-23T12:32Z",
+      "md5": "960f2824a82e7cd9f6fd73436e3744e7",
+      "date": "2026-09-23T13:12Z",
       "_ajout_20260923": "Instrument créé le 23/09/2026 (GO Christophe) — ajouté au registre le jour même de sa création pour qu'il soit VU (veilleuse, drill, revue).",
       "_rescel_20260923": "Outil d'acte du 23/09 : déclare + re-scelle les fichiers modifiés (backup horodaté + entrée `_rescel_20260923` qui dit QUOI et POURQUOI). Modifié une 2e fois le même jour pour traiter les 3 fichiers touchés APRÈS leur scellement (batterie d'autotest, `--serie` de la sonde, `REPLAY_SLIP_BPS` du replay) — la veilleuse avait crié trois fois « INTRUSION : modification non déclarée », à juste titre. Leçon de processus : ON SCELLE APRÈS LA DERNIÈRE MODIFICATION."
     },
@@ -1431,9 +1433,10 @@
       "origine": "Ordre Christophe 23/09 : « ouvre un round avec la famille et garde la fenêtre ouverte, qu'elle ait la mémoire du chat »",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "0494407b12fb1138b082e0318408b626",
-      "date": "2026-09-23T11:57Z",
-      "_ajout_20260923": "Instrument créé le 23/09/2026 (GO Christophe) — ajouté au registre le jour même de sa création pour qu'il soit VU (veilleuse, drill, revue)."
+      "md5": "07255b2bedf510602ef317045c977b47",
+      "date": "2026-09-23T13:12Z",
+      "_ajout_20260923": "Instrument créé le 23/09/2026 (GO Christophe) — ajouté au registre le jour même de sa création pour qu'il soit VU (veilleuse, drill, revue).",
+      "_rescel_20260923": "4e vague 23/09 (classe E21) — modifié APRÈS son premier scellement : la session envoie désormais `strict_model: true` au hub, pour qu'un avis servi par un AUTRE modèle soit un ÉCHEC et non une voix. Mesuré : sans ce mode, 3 voix sur 4 étaient servies par un autre modèle (le « filet universel » du hub) → jury réduit à UNE voix. Ajouts : `--test-modeles` (qui répond réellement, depuis quel fournisseur) et l'envoi strict à chaque tour."
     },
     {
       "nom": "Index_Maison/scripts/verif_session_famille.py",
@@ -1463,6 +1466,16 @@
       "auto_modifiable": false,
       "md5": "2b84d0ae52f1d39a3fc7252972281fa2",
       "date": "2026-09-23T12:32Z",
+      "_ajout_20260923": "Instrument créé le 23/09/2026 (GO Christophe) — ajouté au registre le jour même de sa création pour qu'il soit VU (veilleuse, drill, revue)."
+    },
+    {
+      "nom": "hulk-mexc/scripts/sonde_ws_mexc.py",
+      "role": "SONDE WEBSOCKET (réponse à « pourquoi ne pas faire les deux ? ») — mesure le flux public MEXC (`wss://wbs-api.mexc.com/ws`, bookTicker 10/100 ms) : âge du prix **médian 14-15 ms, 100 % sous 1 s** contre 1 058 ms / 22,7 % en REST, cadence 11 ms sur RIZE/TEL. Prouve qu'on peut avoir la fraîcheur ET la frise qui mesure la chute — l'arbitrage était un faux dilemme. Déclaré : trames protobuf non décodées, la chute n'est PAS mesurée ; le câblage touche le moteur (GO requis).",
+      "origine": "Christophe 23/09 : « soit je lis vite (et je perds la mesure de la chute). Ce choix t'appartient. » → « pourquoi ne pas faire les DEUX ??? »",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "d0c5823aeb7d46579108022f1194b610",
+      "date": "2026-09-23T13:12Z",
       "_ajout_20260923": "Instrument créé le 23/09/2026 (GO Christophe) — ajouté au registre le jour même de sa création pour qu'il soit VU (veilleuse, drill, revue)."
     }
   ]
