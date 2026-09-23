@@ -1,6 +1,6 @@
 {
   "version": "1.5.0",
-  "updated": "2026-09-23T15:15Z",
+  "updated": "2026-09-23T15:35:31Z",
   "fichier": [
     {
       "nom": "Index_Maison/scripts/v2_duo_replay_4h.py",
@@ -1185,11 +1185,17 @@
       "origine": "GO Christophe 23/09 (« c'est pas possible de faire encore ce type d'erreurs ») après avoir publié 3 jours un seuil tronqué (5-12,75 % au lieu de 21,70 %)",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "7fd2eaf2450cdf1a5d19038ede32407d",
-      "date": "2026-09-23T15:15Z",
+      "md5": "eb49ba77f1e689a27d04266ea7ef4e68",
+      "date": "2026-09-23T15:22:33Z",
       "_ajout_20260923": "Instrument créé le 23/09/2026 (GO Christophe) — ajouté au registre le jour même de sa création pour qu'il soit VU (veilleuse, drill, revue).",
       "_rescel_20260923": "2e vague 23/09 (réponses de la FAMILLE : « aucune preuve de son taux de faux négatifs ») — l'autotest n'injecte plus UNE erreur mais CINQ troncatures différentes évaluées sur TROIS régimes (cadence dominante / plancher / m6 dominant) : 7/7 erreurs DISCRIMINANTES détectées (100 %), et un cas non discriminant au point testé cesse d'être compté comme un échec. Cet autotest m'a attrapé moi-même (il criait « cassé » à tort). Ajouts : empreintes md5 de `defaults.env` et `universe_profils.json` dans l'état, avec CRI de dérive de config et l'avertissement décisif (moteur non relancé ⇒ un désaccord serait LÉGITIME, ses décisions reposant sur les anciens paramètres).",
-      "_rescel_20260923b": "CORRECTIF E23 (23/09/2026) — CE GARDIEN ACCUSAIT LE MOTEUR À TORT. Il recalculait le seuil d'entrée SANS le terme `impulse_pullback_min_pct` DU PROFIL PAR PAIRE (paper_diprip.score_pair l.649 : `_cal.get(\"impulse_pullback_min_pct\", cfg.get(\"IMPULSE_PULLBACK_MIN_PCT\", \"5\"))`) — il n'utilisait que le plancher GLOBAL (5,0). CONSÉQUENCE MESURÉE : sur BTCUSDT (profil dip_pct 2,0 · impulse_pullback_min_pct 1,5) il annonçait « écrit 1.70 % · recalculé 4.25 % — DÉSACCORD », alors que LE MOTEUR AVAIT RAISON (seuil réel = max(2,0 ; 1,5 ; 0,30×m6) × 0,85 = 1,70 %, exactement ce que le moteur avait écrit). Un gardien qui accuse à tort le moteur est une FAUSSE ALARME (R14), pire qu'aucun gardien. CORRECTIF : lecture du terme PROFIL + autotest enrichi d'un point « BTC réel » ; l'autotest savait aussi injecter un profil SYNTHÉTIQUE (champ `cal`), sinon il ne pouvait PAS prouver la détection. RÉSULTAT MESURÉ APRÈS CORRECTIF : invariant 24/24 conformes (avant 23/24) · autotest 12/12 erreurs discriminantes détectées (avant 8/12 — le gardien se déclarait CASSÉ). Aucune décision moteur touchée : outil de contrôle, lecture seule."
+      "_rescel_20260923b": "CORRECTIF E23 (23/09/2026) — CE GARDIEN ACCUSAIT LE MOTEUR À TORT. Il recalculait le seuil d'entrée SANS le terme `impulse_pullback_min_pct` DU PROFIL PAR PAIRE (paper_diprip.score_pair l.649 : `_cal.get(\"impulse_pullback_min_pct\", cfg.get(\"IMPULSE_PULLBACK_MIN_PCT\", \"5\"))`) — il n'utilisait que le plancher GLOBAL (5,0). CONSÉQUENCE MESURÉE : sur BTCUSDT (profil dip_pct 2,0 · impulse_pullback_min_pct 1,5) il annonçait « écrit 1.70 % · recalculé 4.25 % — DÉSACCORD », alors que LE MOTEUR AVAIT RAISON (seuil réel = max(2,0 ; 1,5 ; 0,30×m6) × 0,85 = 1,70 %, exactement ce que le moteur avait écrit). Un gardien qui accuse à tort le moteur est une FAUSSE ALARME (R14), pire qu'aucun gardien. CORRECTIF : lecture du terme PROFIL + autotest enrichi d'un point « BTC réel » ; l'autotest savait aussi injecter un profil SYNTHÉTIQUE (champ `cal`), sinon il ne pouvait PAS prouver la détection. RÉSULTAT MESURÉ APRÈS CORRECTIF : invariant 24/24 conformes (avant 23/24) · autotest 12/12 erreurs discriminantes détectées (avant 8/12 — le gardien se déclarait CASSÉ). Aucune décision moteur touchée : outil de contrôle, lecture seule.",
+      "_rescel": [
+        {
+          "ts": "2026-09-23T15:22:33Z",
+          "motif": "R20.2 (exigence famille tour 5) : ajout de la section 4 — détecteur qui LIT la formule du moteur (impulse_entry = max(...)) et exige que le gardien lise les mêmes clés du profil, sinon il se DÉSACTIVE ; + exclusion documentée des outils declarer_* (ils citaient la formule en prose = faux positif R14). Invariant 25/25, autotest 12/12."
+        }
+      ]
     },
     {
       "nom": "hulk-mexc/scripts/chiffrage_sortie_paire.py",
@@ -1403,10 +1409,16 @@
       "origine": "Ordre Christophe 23/09 : « reprends toute la boucle des set-ups avec données à la main sur les 10 derniers jours et soumets-la à la famille pour qu'elle valide »",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "6547e358f5943989efc265a972ff28a4",
-      "date": "2026-09-23T12:32Z",
+      "md5": "a5b4794a0e2c1218d698c644ff311498",
+      "date": "2026-09-23T15:34:44Z",
       "_ajout_20260923": "Instrument créé le 23/09/2026 (GO Christophe) — ajouté au registre le jour même de sa création pour qu'il soit VU (veilleuse, drill, revue).",
-      "_rescel_20260923": "3e vague 23/09 (classe E20) — le GARDIEN `verif_seuil_moteur.py` a crié sur cet instrument : il jugeait les entrées contre le PLANCHER du profil (`calib.dip_pct`) et contre un « 2 % » plat, au lieu du seuil réel du moteur `max(plancher ; DIP_CADENCE_MULT × cadence)` puis la porte pullback. Conséquence mesurée : « 28 % d'entrées conformes » publié au jury → le chiffre vrai est 5 % (3/60), et la table par famille passe de 7/26 · 7/14 · 5/7 à 1/26 · 1/14 · 1/7. Corrigé : la formule du moteur est reproduite terme par terme, le terme DOMINANT est publié (`dip_terme_dominant`), la ligne par famille porte le seuil médian de la paire, et la PORTÉE est déclarée (ma chute est mesurée sur les bougies, le moteur écrit son propre `dd6` → lignes indicatives, pas preuve d'infraction)."
+      "_rescel_20260923": "3e vague 23/09 (classe E20) — le GARDIEN `verif_seuil_moteur.py` a crié sur cet instrument : il jugeait les entrées contre le PLANCHER du profil (`calib.dip_pct`) et contre un « 2 % » plat, au lieu du seuil réel du moteur `max(plancher ; DIP_CADENCE_MULT × cadence)` puis la porte pullback. Conséquence mesurée : « 28 % d'entrées conformes » publié au jury → le chiffre vrai est 5 % (3/60), et la table par famille passe de 7/26 · 7/14 · 5/7 à 1/26 · 1/14 · 1/7. Corrigé : la formule du moteur est reproduite terme par terme, le terme DOMINANT est publié (`dip_terme_dominant`), la ligne par famille porte le seuil médian de la paire, et la PORTÉE est déclarée (ma chute est mesurée sur les bougies, le moteur écrit son propre `dd6` → lignes indicatives, pas preuve d'infraction).",
+      "_rescel": [
+        {
+          "ts": "2026-09-23T15:34:44Z",
+          "motif": "E24/E25 : criteres de mesure corriges (stop = 1er prix VU par le moteur ; prix = heure de lecture + tolerance +/-1 min du delai d'ecriture), table des motifs de sortie ajoutee. 0 changement moteur."
+        }
+      ]
     },
     {
       "nom": "hulk-mexc/scripts/chiffrage_stop_serre.py",
@@ -1499,6 +1511,42 @@
       "md5": "e5ca572c97971dedd6eeae2a67c1a00b",
       "date": "2026-09-23T15:15Z",
       "_ajout_20260923b": "Instrument créé le 23/09/2026 (GO Christophe) — ajouté au registre le jour même pour qu'il soit VU (veilleuse, drill)."
+    },
+    {
+      "nom": "Index_Maison/scripts/predemodifier.py",
+      "role": "Gardien R20.1 — pré-déclaration obligatoire avant modification d'un fichier scellé (lecture seule, autotest 3/3)",
+      "origine": "Exigence famille tour 5, 3 voix convergentes (23/09/2026)",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "bf10cd8a4f89d8f5bc9ab7198b897f5a",
+      "date": "2026-09-23T15:35:31Z",
+      "_ajout": [
+        {
+          "ts": "2026-09-23T15:22:33Z",
+          "motif": "inscription au registre (R15 : ce qui n'est pas déclaré n'existe pas)"
+        }
+      ],
+      "_rescel": [
+        {
+          "ts": "2026-09-23T15:35:31Z",
+          "motif": "Correction du predicat des cles (_rescel* / _ajout*) — il etait aveugle a la forme _ajout de resceler.py. Autotest 3/3."
+        }
+      ]
+    },
+    {
+      "nom": "Index_Maison/scripts/resceler.py",
+      "role": "Outil générique de re-scellement (writer) — remplace les outils par vague ; séparé du gardien (R9)",
+      "origine": "Règle d'or #5 renforcée par R20.1 (23/09/2026)",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "b7b3e876ba9cdc4cc4c49dfc455e1ff7",
+      "date": "2026-09-23T15:22:34Z",
+      "_ajout": [
+        {
+          "ts": "2026-09-23T15:22:34Z",
+          "motif": "inscription au registre (R15 : ce qui n'est pas déclaré n'existe pas)"
+        }
+      ]
     }
   ]
 }

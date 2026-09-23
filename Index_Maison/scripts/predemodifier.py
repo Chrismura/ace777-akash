@@ -122,7 +122,7 @@ def verifier(actif_depuis: str, decs: list, auto: dict | None = None) -> list:
         # a) re-scellement / ajout DÉCLARÉ au registre après l'activation de la règle.
         #    UNE violation par (fichier, date d'acte) — pas une par clé de déclaration
         #    (sinon un même acte comptait 4 fois : faux gonflement du compteur).
-        cles = [k for k in it if k.startswith("_rescel_") or k.startswith("_ajout_")]
+        cles = [k for k in it if (k.startswith("_rescel") or k.startswith("_ajout"))]
         if cles:
             date_acte = str(it.get("date") or "")
             if date_acte and date_acte >= actif_depuis[:16]:
@@ -149,7 +149,7 @@ def cmd_verifier() -> int:
     dettes = []
     reg = json.loads(REG.read_text(encoding="utf-8"))
     for it in reg.get("fichier", []):
-        for cle in [k for k in it if k.startswith("_rescel_") or k.startswith("_ajout_")]:
+        for cle in [k for k in it if (k.startswith("_rescel") or k.startswith("_ajout"))]:
             date_acte = str(it.get("date") or "")
             if date_acte and date_acte < actif[:16]:
                 dettes.append(f"{it.get('nom')} (acte {date_acte})")

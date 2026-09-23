@@ -54,6 +54,10 @@ C'est **littéralement** ce qui se passe ici : on redécouvre les mêmes erreurs
 | **E11** | **Confondre COHÉRENCE et JUSTESSE (biais de source unique)** | 23/09, nommé par la famille (Grok) : mon invariant valide la formule **du moteur** — si le moteur se trompe, mes instruments le valident et **nous nous trompons ensemble**. La classe « le chiffre est fidèle mais la règle est mauvaise » reste **ouverte** | **AUCUNE GARDE — TROU DÉCLARÉ.** Remède identifié et chiffré : **oracle indépendant** = rejouer la kline brute et comparer au signal enregistré, en court-circuitant la logique interne du moteur. **En attente de GO.** |
 | **E14** | **S'auto-absoudre par la confession** — lister ses erreurs passées puis conclure **plus loin que ses chiffres**, sans garde-fou équivalent pour ses propres déductions | 23/09, nommé par la **FAMILLE** (Nemotron, consultation de l'audit MEXC×HULK) : dans le même rapport où je nommais E10/E12/E13, j'ai tiré « le stop est une vérification périodique, pas un ordre au repos » (**n=32, aucun carnet à l'instant de l'impact**), compté des coûts de frais+spread comme un fait (**ils sont ESTIMÉS**, un paper ne paie rien) et généralisé 2 cas extrêmes (−16,5 % / −39,2 %). Les 4 modèles ont répondu la même chose : **mesure solide, explications en avance sur la mesure** | **Règle d'étiquetage de provenance** : toute conclusion d'un rapport porte **MESURÉ** (lu dans une source/un instrument) · **ESTIMÉ** (modèle, borne) · **EXTRAPOLÉ** (déduction non mesurée), et une cause non mesurée est écrite « OPEN » avec **le test qui la trancherait**. Contrôle externe : le brief de consultation **doit** lister mes erreurs ET soumettre mes conclusions neuves à la même contradiction (4 modèles). *Portée déclarée : pas encore mécanique — la classe est tenue par règle écrite + revue famille, comme E11.* |
 | **E13** | **Écrire une heure de MÉMOIRE au lieu de la lire** — le temps traité comme un seuil : **estimé ≠ vérifié** (même famille qu'E10, appliquée à l'horloge) | 23/09 : 4 lignes écrites **10:40Z / 10:05Z / 09:45Z / 09:15Z** alors que les **artefacts cités par ces lignes mêmes** donnent **0947Z / 0939Z / 0922Z / 0907Z** → inflation jusqu'à **+53 min**, donc des lignes **datées dans le futur** | **`Index_Maison/scripts/verif_memoire_horodatage.py`** (23/09) : **R1** aucune ligne de la date la plus récente dans le futur (> +5 min — aurait attrapé les 4) · **R2** ordre décroissant dans la date · **autotest 5/5** (dont le cas réel rejoué à **heure FIXE** : un test qui passe à 14 h et échoue à 9 h ne prouve rien). **Méthode corrigée** : l'heure d'une ligne = le **`mtime` de l'artefact qu'elle cite**, sinon `date -u` au moment d'écrire. **Limites déclarées** : une heure **sous**-estimée est indétectable ; 25 lignes anciennes hors ordre sont **signalées, jamais re-datées** (cf. §6). |
+| **E25** | **Juger un prix contre la bougie de l'heure d'ÉCRITURE de la ligne au lieu de l'heure de LECTURE du prix** — et en tirer « donnée corrompue » | 23/09 : la boucle publie « **prix vérifiés dans leur bougie : 84/141 (59,6 %)** » → je parle de **donnée corrompue** et le jury exige de « bloquer l'écriture ». Vérification : sur les **57** prix jugés hors bougie, **57/57 tombent dans un candle VOISIN (±1-2 min)**, **0 prix vraiment hors marché**. Cause : je comparais l'heure d'ÉCRITURE (14:14:23Z) à la bougie, alors que le prix a été **LU** à 14:13:44Z — le journal porte pourtant `ts_prix_utc` (colonne GO 2) | **`boucle_setups_main.py`** : jugement sur l'**heure de lecture** + **tolérance ±1 min** du délai d'écriture, le **strict compté à côté** → **135/141 (95,7 %)** en ±1 min, **100 %** en ±2 min. **Ni blocage d'écriture ni marquage `prix_invalide` : la donnée était SAINE.** 4ᵉ fois le même défaut (E20/E23/E24/E25) : *mon instrument juge le moteur contre un critère que le moteur n'utilise pas* |
+| **E24** | **Juger un STOP contre la MÈCHE d'une bougie alors que le moteur déclenche sur le PRIX PONCTUEL du cycle** | 23/09 : la boucle publie « **4 stops sur 15 non honorés** », avec des retards annoncés de **88 min** (RED) et **303 min** (W) présentés comme des manquements. Vérification : les 4 motifs sont `stop-X%_guard_partial_50` (ventes **partielles**) et le « coût du retard » calculé vaut **0,0055 $** et **0,0082 $** — donc **le moteur avait vendu AU NIVEAU**. Puis lecture du code : la condition réelle est `chg <= -stop` (**`paper_diprip.py:2581`**) évaluée sur **le prix ponctuel du cycle**, pas sur le plus-bas d'un candle | **`boucle_setups_main.py`** : le verdict est rendu sur **le premier prix que le moteur a VU sous le seuil** (lignes du journal), la mesure bougie reste écrite **à côté** (`bougie_retard_min`, `ecart_bougie_visible_min`) → **14/15** (avant 11/15), 1 cas résiduel déclaré. **Ce qui a été ÉVITÉ** : le jury exigeait une « boucle dédiée aux stops à 10 s » — j'aurais modifié la **logique de sécurité d'un moteur en service** sur la foi d'un chiffre faux |
+| **E23** | **Un GARDIEN qui accuse le MOTEUR À TORT** faute de lire un terme de la formule (même famille que E20) | 23/09 : `verif_seuil_moteur.py` annonce `❌ DÉSACCORD … BTCUSDT : écrit 1.70 % · recalculé 4.25 %`. **Le moteur avait RAISON** : seuil = `impulse_entry × 0,85` avec `impulse_entry = max(dip ; impulse_pullback_min_pct ; 0,30×m6)`, profil BTC `dip 2,0` · `impulse_pullback_min_pct 1,5` → **1,70 %**. Mon gardien **omettait le terme `impulse_pullback_min_pct` DU PROFIL** et ne lisait que le plancher GLOBAL (5,0). **Deux défauts dans le MÊME fichier** : la formule, ET l'autotest (**il ne pouvait PAS prouver la détection** : il comparait via la vraie table de profils au lieu du profil injecté) | **Règle R20.2** : `verif_seuil_moteur.py` **section 4** LIT la formule du moteur à la source (`impulse_entry = max(...)`) et **exige** que le gardien lise les mêmes clés du profil — sinon il **se DÉSACTIVE** au lieu d'accuser. Mesuré : invariant **25/25** · autotest **12/12** (avant 8/12 = « GARDIEN CASSÉ ») · autotest enrichi d'un point « BTC réel » et d'une injection de profil synthétique |
+| **E22** | **Modifier un fichier SCELLÉ puis le re-sceller APRÈS coup, sans PRÉ-DÉCLARATION** — la décision reste à l'agent, la déclaration ne fait que constater | 23/09 : `hulk-mexc/scripts/satellite_aspiration.py` a été modifié **après** son scellé et **non déclaré** le jour même → la veilleuse a crié « **INTRUSION — modification non déclarée** », les règles d'or sont tombées à **8/12** (R5/R13 rouges) et le drill en **TROU**. **2ᵉ fois ce mois** (la v1 de `sync_plists.sh` l'avait déjà fait) : la garde de #5 était une **promesse**, pas un mécanisme | **Règle R20.1** (exigence famille, 3 voix) : `Index_Maison/scripts/predemodifier.py` — **PRÉ-DÉCLARATION obligatoire AVANT l'acte** (journal `strategie/PREDECLARATIONS.jsonl` **append-only**, motif obligatoire) ; re-scellement générique par `Index_Maison/scripts/resceler.py` (backup + `_rescel`/`_ajout` écrits, jamais effacés). Mesuré : autotest **3/3** (46 violations détectées sans pré-déclaration, **0** avec) · **0 violation** depuis l'activation · 43 dettes historiques apurées (R14 : pas d'alarme rouge à vie) · **151 scellés · 0 écart · 0 absent** · drill **READY** |
 | **E21** | **Compter comme voix indépendante un avis servi par un AUTRE modèle** — et laisser un « filet » conçu pour ne jamais être à sec **réduire un jury à une seule voix sans rien casser** | 23/09 : le hub local (127.0.0.1:11435) applique un « **filet universel** » — *« plus jamais à sec tant qu'UN provider répond »*. Sur échec/lenteur il **remplace** le modèle demandé et le signale (`substitue: true`). Mesuré : au tour 2 « DeepSeek » a été répondu par **Gemini** ; au tour 3 **les trois voix** ont été répondues par **Gemini** → le jury est tombé à **UNE voix**, sans erreur, sans alarme. Pire, mesuré après correctif : **le filet masquait une voix DISPONIBLE** — sans lui, `deepseek-ai/DeepSeek-V3-0324` répond **très bien** (HuggingFace, 1,2 s) ; avec lui, il était servi par Gemini. **La plomberie fabriquait la panne qu'elle prétendait couvrir.** Aggravant : mes 3 tours de jury ont été rendus avec 1, 2 puis 3 voix **sans que je le sache avant de le mesurer** | **Le HUB est corrigé** (`~/prise-ia/hub_prise_ia.py`, backup `hub_prise_ia.py.bak-strict-jury-20260923`) : mode **`strict_model`** — la chaîne est limitée aux fournisseurs qui servent **réellement** le modèle demandé, **aucun filet**, et un modèle indisponible **échoue franchement** (« voix INDISPONIBLE, pas de substitution silencieuse »). **La session famille envoie `strict_model: true`** et vérifie **avant chaque tour** avec `--test-modeles` (qui répond, depuis quel fournisseur). Test après correctif : **Nemotron ✔ (OpenRouter), DeepSeek ✔ (HuggingFace), nex-agi ✔, Grok → échec 502 (ne vote pas)** = **3 voix indépendantes**. **Règle du milieu appliquée** (ensembles/évaluations multi-fournisseurs) : on épingle le modèle, on vérifie `response.model`, une voix substituée est un **échec d'appel**, jamais un avis. *Déclaré : le trou par redondance n'est pas refermé côté hub (le choix des experts reste manuel) ; le tour 4 n'a eu que **2 voix** (nex-agi a expiré) et c'est écrit dans le fil.* |
 | **E20** | **Juger les entrées contre le PLANCHER du profil au lieu du seuil EFFECTIF du moteur** — et publier le compteur global qui en découle | 23/09 : l'instrument de la boucle des set-ups (celui qui a servi à soumettre la boucle au jury) calculait `dip_exige = calib.dip_pct` (**le plancher**) et jugeait chaque achat contre `max(0,5 ; plancher × 0,5)` ; le tableau par famille comparait à un **« 2 % » plat**. Le seuil réel du moteur est `max(plancher ; DIP_CADENCE_MULT × cadence)` puis `max(… ; IMPULSE_PULLBACK_MIN_PCT ; FRAC × m6)` → pour **EDEL le seuil est 13,20 %**, RIZE 8,44 %, CHIP 6,69 %, QAIT 5,60 %, RED 5,01 % (5 paires sur 21 où la cadence DOMINE ; ailleurs la porte pullback de 5 % gouverne). Publié : **28 % d'entrées conformes** — le chiffre vrai est **5 % (3/60)**, et la table par famille passe de « 7/26 · 7/14 · 5/7 » à « **1/26 · 1/14 · 1/7** ». C'est le **jury du tour 1 qui a validé « les défauts de conception » sur ces chiffres** | **Ce n'est PAS moi qui l'ai trouvée : le gardien l'a criée tout seul** — `hulk-mexc/scripts/verif_seuil_moteur.py` §3 « détecteur d'instruments qui recalculent un seuil SANS le terme cadence » a désigné mon fichier, puis `mesures_jury_tour2.py`. **Corrigé** : `boucle_setups_main.py` reproduit la formule du moteur **terme par terme**, publie `dip_plancher_profil_pct` / `dip_terme_cadence_pct` / `dip_effectif_pct` / `dip_requis_pct` / **`dip_terme_dominant`** (déterminance R15) et la ligne par famille porte le **seuil médian de la paire** ; `mesures_jury_tour2.py` §8 fait l'audit plancher-vs-effectif **paire par paire** (exigence 8 du jury, passée de « insuffisant » à **fait**). Gardien : **✔ CONFORME** (plus aucun instrument ne recalcule un seuil sans la cadence). **Portée déclarée** : ma « chute » est mesurée sur les bougies 1 min, le moteur écrit son propre `dd6` — les lignes `impulsion/pullback` et `re-entrée` sont **indicatives, pas une preuve d'infraction**. |
 | **E19** | **Publier la médiane d'un SOUS-ENSEMBLE en la présentant comme celle du TOUT** — et laisser un mode entier sans mesure | 23/09 : au tour 2 du jury j'annonce « **9 328 lectures live, médiane 1,057 s** » pour répondre à la barre < 1 s. Faux : la colonne `delay_s` du corpus du satellite n'est écrite **que pour les lectures en mode COMPLET** (2 lectures du carnet) ; les lectures en mode LÉGER laissent la colonne **vide**. Mesure réelle : **9 496 complètes** (médiane 1,058 s) contre **1 563 lignes SANS aucun délai** → mon chiffre portait sur **86 %** des lignes. Aggravant : la latence du mode léger **n'est mesurée nulle part** (angle mort de 14 %) → la barre de la famille **ne pouvait pas être prouvée**, quoi qu'on fasse | **`hulk-mexc/scripts/verif_delai_lecture.py`** (23/09) : sépare **mesuré / aveugle**, dit OUI ou NON sur la barre, chiffre le **nombre de lectures sans délai** et mesure le **plancher physique d'un appel MEXC** (médiane 465 ms sur 10 appels réels) → si le plancher dépasse la barre, c'est un **ARBITRAGE** et c'est écrit. Autotest **3/3** · branché **3 h** · **16ᵉ gardien du cockpit** (au ROUGE, et c'est la vérité : barre NON tenue sur les lectures mesurables) |
@@ -419,3 +423,75 @@ l'auto-correction (E20→E23), RECUL sur la rigueur opérationnelle (scellés, q
 **Vérifications du tour 5** : gardien seuil **25/25 + 12/12 + sections 3/4 vertes** ·
 pré-déclaration **autotest 3/3, 0 violation depuis l'activation** · scellés **137 · 0 écart ·
 0 absent** · moteur **intact (0 ordre, 0 €)**.
+
+## 12. Rapports E24 + E25 — LES 4 « INCOHÉRENCES » DE LA BOUCLE : 3 ÉTAIENT MES ERREURS (23/09/2026)
+
+> GO Christophe : « **go sur les 4** » (commit, INC-A prix, INC-B stops, INC-C sorties).
+> Méthode appliquée : **vérifier AVANT de « réparer »** — la leçon E23. Résultat : **le moteur
+> n'a eu besoin d'AUCUNE modification.** Les quatre chantiers se sont résolus en corrigeant
+> **mes instruments**, et en le DISANT.
+
+### 12.1 Classe E24 — « 4 STOPS SUR 15 NON HONORÉS » ÉTAIT FAUX
+
+**Constat initial (mon instrument)** : `stops honorés (≤ 2 min après contact) : 11 / 15`, avec des
+retards de **88 min** (RED) et **303 min** (W) annoncés comme des manquements du moteur.
+
+**Vérification** : les 4 motifs sont `stop-X%_guard_partial_50` (ventes **partielles**), et le
+« coût du retard » calculé était de **0,0055 $** et **0,0082 $** — donc le moteur avait vendu
+**AU NIVEAU**. Puis lecture du code : la condition du moteur est `chg <= -stop`
+(`paper_diprip.py:2581`) évaluée sur **le prix ponctuel du cycle**, PAS sur le plus-bas d'une
+bougie. Mon instrument cherchait la **mèche** d'un candle 1 min → il mesurait un événement que
+le moteur **n'a jamais vu**.
+
+**Corrigé** : le verdict est désormais rendu sur **le premier prix que le moteur a VU sous le
+seuil** (lignes du journal, prix observés à chaque cycle) ; la mesure « bougie » reste écrite
+**à côté** (`bougie_retard_min`, `ecart_bougie_visible_min`).
+**Mesuré après** : **14 / 15** stops honorés (avant 11/15). **1 cas résiduel** déclaré.
+**Ce qui a été ÉVITÉ** : le jury exigeait une « boucle dédiée aux stops à 10 s » — j'aurais
+modifié la **logique de sécurité d'un moteur en service** sur la foi d'un chiffre faux.
+
+### 12.2 Classe E25 — « 40 % DES PRIX NE TOMBENT PAS DANS LEUR BOUGIE » ÉTAIT FAUX
+
+**Constat initial** : `prix vérifiés dans leur bougie : 84 / 141 (59,6 %)` → j'ai parlé de
+« **donnée corrompue** » et le jury a exigé de « bloquer l'écriture ».
+
+**Vérification** : sur les **57** prix jugés hors bougie, **57/57** tombent dans une bougie
+**voisine (±1-2 min)** — **0 prix est vraiment hors marché**. Cause : je comparais l'heure
+**d'ÉCRITURE** de la ligne (ex. 14:14:23Z) à la bougie, alors que le prix a été **LU** à
+14:13:44Z (le journal porte pourtant `ts_prix_utc`, colonne ajoutée par GO 2).
+
+**Corrigé** : jugement sur l'**heure de lecture** + tolérance **±1 min** du délai d'écriture,
+le **strict compté à côté**.
+**Mesuré après** : **135 / 141 (95,7 %)** en ±1 min · **100 %** en ±2 min (vérifié) · 0 hors marché.
+**Ni blocage d'écriture, ni marquage `prix_invalide` : la donnée était SAINE.**
+
+### 12.3 INC-C — « 42 SORTIES INEXPLIQUÉES » : MON MOT ÉTAIT IMPRÉCIS
+
+**Constat initial** : `sorties justifiées par le marché : 20/62 (32 %)` → j'ai écrit « 42 sorties
+**inexpliquées** » et demandé comment les expliquer.
+
+**Vérifié** : **le moteur n'a AUCUNE sortie sans motif** (0 sur 79). Table ajoutée à la boucle
+(exigence `exit_reason` du jury) :
+
+| motif | sorties | PnL brut | justes marché |
+|---|---|---|---|
+| **trailing** | **46** | **+50,57 $** | 15/46 |
+| **stop** | **25** | **−21,87 $** | 3/25 |
+| **dust** | 8 | −1,83 $ | 3/8 |
+| TOTAL | 79 | — | sans motif : **0** |
+
+**Le vrai sujet n'est pas « inexpliquées » mais « quelle qualité »** : les sorties `trailing`
+**gagnent +50,57 $**, les sorties `stop` **perdent −21,87 $** — c'est **là** qu'est le travail, pas
+dans une énigme de motifs manquants.
+
+### 12.4 Ce que ces trois classes disent de moi
+
+Aujourd'hui : **E20, E23, E24, E25** — quatre fois le **même défaut** : *mon instrument juge le
+moteur contre un critère que le moteur n'utilise pas.* Le commit et le re-scellement ne
+suffisent pas ; ce défaut-là est **structurel** et le seul remède mécanique trouvé est R20.2
+(un gardien doit lire la formule du moteur à la source). **Il faut l'étendre à TOUT instrument
+qui porte un jugement sur le moteur** — c'est la proposition n°1 à soumettre au jury.
+
+**Vérifications** : boucle re-exécutée **2 fois** après correction (PnL réconcilié +26,87 $ /
++26,87 $, écart −0,0001) · scellés **151 · 0 écart · 0 absent** · pré-déclaration **0 violation**
+· drill READY · **AUCUNE modification du moteur (0 ordre, 0 €)**.

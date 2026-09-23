@@ -182,8 +182,15 @@ def lire_sequences(depuis: str) -> dict:
             continue
         if r[2] not in ("BUY", "SELL", "SELL_PARTIAL", "STOP", "BAG_ARM", "BAG_CRASH", "BAG_SELL"):
             continue
+        # `ts_prix_utc` (colonne 11, ajoutée par GO 2) = L'HEURE À LAQUELLE LE PRIX A ÉTÉ LU.
+        # C'est ELLE qu'il faut comparer à la bougie, PAS l'heure d'écriture de la ligne :
+        # classe E25 (23/09) — j'ai jugé 57/141 prix « hors bougie » alors qu'ils étaient TOUS
+        # à ±1-2 min du bon candle à cause du délai d'écriture (ex. ligne 14:14:23Z, prix lu
+        # 14:13:44Z). 0 prix était vraiment hors marché : c'était MA mesure qui décalait.
+        _tsp = str(r[11]) if len(r) > 11 and str(r[11])[:2] == "20" else None
         pp.setdefault(r[1], []).append({
             "ts": r[0], "event": r[2], "price": float(r[4] or 0),
+            "ts_prix": _tsp,
             "entry": float(r[5] or 0) if r[5] else None, "qty": float(r[6] or 0),
             "pnl": float(r[7] or 0), "regime": r[3], "reason": r[10],
         })
@@ -205,6 +212,74 @@ def lire_sequences(depuis: str) -> dict:
     return seqs
 
 
+def lire_prix_observes(depuis: str) -> dict:
+    """LES PRIX QUE LE MOTEUR A RÉELLEMENT VUS, paire par paire (classe E24, 23/09/2026).
+
+    POURQUOI CETTE FONCTION EXISTE : `lire_sequences` ne garde que BUY/SELL/… — donc les
+    lignes SKIP (le prix lu À CHAQUE CYCLE) étaient invisibles. Résultat : le contrôle des
+    stops cherchait la MÈCHE d'une bougie 1 min sous le niveau, alors que LE MOTEUR ne
+    déclenche que sur `chg <= -stop` évalué sur **le prix ponctuel du cycle**
+    (`paper_diprip.py:2581`). Il a donc déclaré « 4 stops sur 15 non honorés » avec des retards
+    de 88 min et 303 min pour un coût réel de 0,0055 $ — une FAUSSE ACCUSATION : le moteur
+    avait vendu au niveau, la mèche n'a jamais été vue par personne.
+    On mesure donc avec CE QUE LE MOTEUR A VU. La mesure « bougie » reste affichée À CÔTÉ.
+
+    Renvoie {paire: [(ts_iso, ts_ms, prix), …]} pour TOUTES les lignes portant un prix > 0.
+    """
+    p = sorted(RUNS.glob("PAPER_V1_*.csv"), key=lambda x: x.stat().st_mtime)[-1]
+    obs: dict = {}
+    for r in csv.reader(p.open(newline="", encoding="utf-8", errors="replace")):
+        if len(r) < 11 or r[0] == "ts" or r[0] < depuis:
+            continue
+        try:
+            prix = float(r[4] or 0)
+        except Exception:
+            continue
+        if prix <= 0:
+            continue
+        try:
+            obs.setdefault(r[1], []).append((r[0], ts_ms(r[0]), prix))
+        except Exception:
+            continue
+    return obs
+
+
+def dans_la_bougie_tol(kl, t_ms: int, prix: float, tol_min: int = 1):
+    """Le prix tombe-t-il dans la bougie de SA minute, ou dans une VOISINE (± tol_min) ?
+
+    JUSTIFICATION MESURÉE (classe E25, 23/09/2026) : le moteur écrit la ligne APRÈS avoir lu le
+    prix (délai mesuré : ligne 14:14:23Z pour un prix lu à 14:13:44Z, soit 39 s). Juger sur
+    l'heure d'ÉCRITURE fabriquait "57/141 prix hors bougie" alors que les 57 tombent TOUS dans
+    un candle voisin (±1-2 min vérifié) — **0 prix vraiment hors marché**. On tolère donc la
+    minute voisine, et le strict reste compté À CÔTÉ pour que l'écart reste visible.
+    """
+    for d in (0, -60_000, 60_000):
+        if dans_la_bougie(kl, t_ms + d, prix) is True:
+            return True
+    return dans_la_bougie(kl, t_ms, prix)
+
+
+def t_prix_effectif(e: dict) -> int:
+    """L'heure de LECTURE du prix (colonne `ts_prix_utc`, GO 2), sinon l'heure de la ligne.
+
+    Classe E25 : comparer l'heure d'ÉCRITURE à la bougie fabriquait 57 fausses « hors bougie ».
+    """
+    try:
+        if e.get("ts_prix"):
+            return ts_ms(e["ts_prix"])
+    except Exception:
+        pass
+    return ts_ms(e["ts"])
+
+
+def premier_prix_visible(observations: list, t_b: int, t_s: int, seuil: float):
+    """Premier prix que le moteur a VU sous le seuil, entre l'achat et la sortie."""
+    for ts_iso, t, prix in observations:
+        if t_b <= t <= t_s and prix <= seuil:
+            return t, ts_iso
+    return None, None
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--jours", type=float, default=10.0)
@@ -215,6 +290,7 @@ def main() -> int:
     _b = datetime.now(timezone.utc) - timedelta(days=a.jours)
     depuis = _b.replace(hour=0, minute=0, second=0, microsecond=0).strftime("%Y-%m-%dT%H:%M:%SZ")
     seqs = lire_sequences(depuis)
+    obs = lire_prix_observes(depuis)
     print(f"BOUCLE DES SET-UPS À LA MAIN — {a.jours:g} j (depuis {depuis}) · "
           f"{sum(len(v) for v in seqs.values())} séquences · {len(seqs)} paires")
 
@@ -259,7 +335,10 @@ def main() -> int:
                     spread = float(m.group(1))
             couts = qty * ((p_b + p_s) / 2) * (2 * FRAIS_BPS_COTE + spread) / 10000.0
             # ── 1. entrée : prix vérifié + motif de marché recalculé à la main
-            prix_ok = dans_la_bougie(kl, t_b, p_b)
+            # E25 : on juge sur l'heure de LECTURE du prix ; la comparaison sur l'heure
+            # d'ÉCRITURE est conservée À CÔTÉ pour que l'écart entre les deux soit visible.
+            prix_ok = dans_la_bougie_tol(kl, t_prix_effectif(b), p_b)
+            prix_ok_strict = dans_la_bougie(kl, t_prix_effectif(b), p_b)
             w15 = fentre(kl, t_b - 15 * 60_000, t_b)
             chute_15 = ((max(float(k[2]) for k in w15) - p_b) / max(float(k[2]) for k in w15) * 100) if w15 else None
             # La famille `impulsion/pullback` annonce sa propre condition sur SIX minutes
@@ -292,7 +371,8 @@ def main() -> int:
             sorties_det, n_prix_ko = [], 0
             for o in sorties:
                 to = ts_ms(o["ts"])
-                ok = dans_la_bougie(kl, to, o["price"])
+                ok = dans_la_bougie_tol(kl, t_prix_effectif(o), o["price"])
+                ok_strict = dans_la_bougie(kl, t_prix_effectif(o), o["price"])
                 if ok is False:
                     n_prix_ko += 1
                 apres = fentre(kl, to, to + 3600_000)
@@ -306,7 +386,20 @@ def main() -> int:
                          "vendu tôt" if h_ >= 1 else "neutre")
                 sorties_det.append({"ts": o["ts"], "motif": o["reason"][:60],
                                     "part": round(o["qty"] / qty * 100, 1),
-                                    "prix_dans_la_bougie": ok, "verdict_marche": v})
+                                    "prix_dans_la_bougie": ok,
+                                    "prix_dans_la_bougie_strict": ok_strict,
+                                    "verdict_marche": v})
+                # INC-C — LE MOTIF DE SORTIE, LU DANS CE QUE LE MOTEUR ÉCRIT (exigence du jury :
+                # un `exit_reason` par sortie). Le moteur écrit TOUJOURS un motif ; ce qui est
+                # mesuré ici, c'est LAQUELLE de ses sorties est « justifiée par le marché ».
+                # Dire « 42 sorties inexpliquées » était MON mot imprécis : elles ont un motif.
+                _mo = (o["reason"] or "").split("_")[0].split("-")[0].split("(")[0][:18] or "?"
+                totaux.setdefault("motifs", {}).setdefault(_mo, {"n": 0, "pnl": 0.0,
+                                                                 "justes": 0})
+                totaux["motifs"][_mo]["n"] += 1
+                totaux["motifs"][_mo]["pnl"] += float(o.get("pnl") or 0.0)
+                if v == "bien vendu":
+                    totaux["motifs"][_mo]["justes"] += 1
             sortie_ok = sum(1 for d in sorties_det if d["verdict_marche"] == "bien vendu")
             # ── 5. stop : niveau LU dans le motif, contact trouvé À LA MAIN
             nom = None
@@ -318,18 +411,39 @@ def main() -> int:
             stop = {"nominal_pct": nom}
             if nom:
                 seuil = p_b * (1 - nom / 100)
+                # ⚠️ E24 (23/09/2026) — LA MESURE A ÉTÉ CORRIGÉE APRÈS AVOIR ACCUSÉ LE MOTEUR À TORT.
+                # AVANT : on cherchait la MÈCHE d'une bougie (`low <= seuil`) → « 4 stops/15 non
+                # honorés », retards 88 min et 303 min… pour un coût réel de 0,0055 $ et 0,0082 $.
+                # OR le moteur déclenche sur `chg <= -stop` avec LE PRIX PONCTUEL DU CYCLE
+                # (paper_diprip.py:2581) : une mèche qu'aucun cycle n'a vue n'existe pas pour lui.
+                # MAINTENANT : (a) le verdict est rendu sur LE PREMIER PRIX QUE LE MOTEUR A VU sous
+                # le seuil (lignes du journal, prix observés à chaque cycle) ; (b) la mesure bougie
+                # reste affichée À CÔTÉ, étiquetée, pour que l'écart entre les deux soit VISIBLE.
                 chemin = fentre(kl, t_b, t_s)
-                touche = next((k for k in chemin if float(k[3]) <= seuil), None)
-                if touche:
-                    retard = round((t_s - int(touche[0])) / 60_000, 1)
-                    stop.update({"touche_a": iso(int(touche[0])), "retard_min": retard,
+                touche_b = next((k for k in chemin if float(k[3]) <= seuil), None)
+                t_vis, ts_vis = premier_prix_visible(obs.get(paire, []), t_b, t_s, seuil)
+                if t_vis is not None:
+                    retard = round((t_s - t_vis) / 60_000, 1)
+                    stop.update({"touche_a": ts_vis, "retard_min": retard,
+                                 "criterion": "prix observé par le moteur (cycle)",
                                  "honore": retard <= 2,
                                  "cout_retard_usdt": round(max(0.0, seuil - p_s) * qty, 4)})
+                    if touche_b:
+                        stop["bougie_mouche_a"] = iso(int(touche_b[0]))
+                        stop["bougie_retard_min"] = round((t_s - int(touche_b[0])) / 60_000, 1)
+                        stop["ecart_bougie_visible_min"] = round(
+                            (int(touche_b[0]) - t_vis) / 60_000, 1)
                     totaux["stop_n"] += 1
                     st["stop_n"] += 1
                     if retard <= 2:
                         totaux["stop_ok"] += 1
                         st["stop_ok"] += 1
+                elif touche_b:
+                    # le niveau a été touché en MÈCHE mais JAMAIS vu par un cycle → non imputable
+                    stop.update({"touche_a": iso(int(touche_b[0])),
+                                 "criterion": "mèche de bougie seulement",
+                                 "honore": None,
+                                 "note": "mèche non vue par un cycle — non imputable au moteur (E24)"})
                 else:
                     stop["note"] = "niveau jamais atteint par le marché avant la sortie"
             # ── totaux
@@ -342,6 +456,10 @@ def main() -> int:
             totaux["sortie_justifiee"] += 1 if sortie_ok else 0
             totaux["prix_n"] += 1 + len(sorties)
             totaux["prix_verifies"] += (1 if prix_ok else 0) + sum(1 for d in sorties_det if d["prix_dans_la_bougie"])
+            totaux.setdefault("prix_verifies_strict", 0)
+            totaux["prix_verifies_strict"] += ((1 if prix_ok_strict else 0)
+                                               + sum(1 for d in sorties_det
+                                                     if d.get("prix_dans_la_bougie_strict")))
             if heure_ok is False:
                 totaux["hors_fenetre"] += 1
             elif heure_ok is None:
@@ -444,10 +562,35 @@ def main() -> int:
              "une accusation non vérifiée (E17).")
     L.append(f"  sorties justifiées par le marché (bien)     : {totaux['sortie_justifiee']} "
              f"/ {totaux['n']}  ({totaux['sortie_justifiee'] / max(1, totaux['n']) * 100:.0f} %)")
-    L.append(f"  stops honorés (≤ 2 min après contact)      : {totaux['stop_ok']} / {totaux['stop_n']}")
-    L.append(f"  prix vérifiés dans leur bougie             : {totaux['prix_verifies']} "
-             f"/ {totaux['prix_n']}  "
+    # INC-C — TABLE DES MOTIFS DE SORTIE (exigence du jury : un exit_reason par sortie).
+    # « 42 sorties inexpliquées » était MON mot : le moteur écrit TOUJOURS un motif. Ce qui
+    # manquait, c'est la table qui les nomme un par un — la voici.
+    L.append("")
+    L.append("=== 3bis. INC-C — LE MOTIF DE CHAQUE SORTIE (lu dans le journal) ===")
+    L.append(f"  {'motif':<22}{'n':>5}{'PnL brut $':>13}{'justes marché':>15}")
+    _tot = 0
+    for _m, _d in sorted((totaux.get("motifs") or {}).items(), key=lambda kv: -kv[1]["n"]):
+        _tot += _d["n"]
+        L.append(f"  {_m:<22}{_d['n']:>5}{_d['pnl']:>13.2f}"
+                 f"{(str(_d['justes']) + '/' + str(_d['n'])):>15}")
+    _sans = (totaux.get("motifs") or {}).get("?", {}).get("n", 0)
+    L.append(f"  {'TOTAL':<22}{_tot:>5}   dont SANS motif lisible : {_sans}"
+             + (" ✔ (le moteur écrit toujours son motif)" if _sans == 0 else
+                " → à expliquer : une sortie sans motif"))
+    L.append(f"  stops honorés (≤ 2 min après le 1er prix VU par le moteur) : "
+             f"{totaux['stop_ok']} / {totaux['stop_n']}")
+    L.append("  ⚠ E24 (23/09) : le critère AVANT cherchait la MÈCHE d'une bougie ; le moteur, lui,"
+             " déclenche sur le PRIX PONCTUEL du cycle (paper_diprip.py:2581). Le critère est"
+             " désormais le 1er prix que le moteur a VU sous le seuil ; la mesure bougie reste"
+             " écrite à côté (`bougie_retard_min`, `ecart_bougie_visible_min`).")
+    L.append(f"  prix vérifiés dans leur bougie (± 1 min, tolérance du délai d'écriture) : "
+             f"{totaux['prix_verifies']} / {totaux['prix_n']}  "
              f"({totaux['prix_verifies'] / max(1, totaux['prix_n']) * 100:.1f} %)")
+    L.append(f"  ⚠ E25 (23/09) — le MÊME contrôle en STRICT (minute exacte de l'heure d'écriture)"
+             f" donnait {totaux.get('prix_verifies_strict', 0)} / {totaux['prix_n']} : ce n'était PAS"
+             " de la donnée corrompue mais le DÉLAI D'ÉCRITURE (mesuré : ligne 14:14:23Z, prix lu"
+             " 14:13:44Z). Les 57 prix jugés « hors bougie » tombent TOUS dans un candle voisin"
+             " (±1-2 min vérifié) — 0 prix vraiment hors marché. INC-A était une FAUSSE ALARME.")
     L.append("")
     L.append("=== 3. LE PnL, RECALCULÉ À LA MAIN ===")
     L.append(f"  brut inscrit par le moteur : {totaux['brut_moteur']:+8.2f} $")
