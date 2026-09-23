@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "whale_usd",
-      "zscore": 4.502926881678614,
-      "value": 3690660.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (z-score 4.50) en totale invisibilité médiatique. Accumulation silencieuse des baleines avant le réveil du narratif.\"\n}\n```",
-      "ts": "2026-09-23T05:24:32.339029+00:00"
-    },
-    {
       "metric": "liquidations",
       "zscore": 3.0178202155776575,
       "value": 6230579.0,
@@ -349,6 +342,13 @@
       "value": 1.146,
       "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Le ratio long/short élevé (z-score 2.13) indique une surconcentration excessive des traders particuliers sur l'achat, contredisant le narratif médiatique institutionnel prudent. Situation classique de 'long squeeze' imminent orchestrée par les baleines.\"\n}\n```",
       "ts": "2026-09-23T21:12:05.626524+00:00"
+    },
+    {
+      "metric": "taker_ratio",
+      "zscore": 2.6750642048696283,
+      "value": 1.422,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Un taker_ratio à 1.422 (z-score 2.68) indique une domination agressive des acheteurs (Taker Buys) sur les carnets d'ordres, signalant une accumulation agressive par les baleines. L'absence totale de couverture médiatique ('Google Actualités' vide) prouve un mouvement furtif hors radar, classique avant une cassure haussière.\"\n}\n```",
+      "ts": "2026-09-23T22:12:16.252875+00:00"
     }
   ]
 }

@@ -1,36 +1,37 @@
 {
-  "timestamp": 1790198554,
-  "date": "2026-09-23T21:22:34.746345+00:00",
+  "timestamp": 1790202155,
+  "date": "2026-09-23T22:22:35.827668+00:00",
   "n_analyses": 1,
   "analyses": [
     {
       "signal": {
-        "metric": "long_short",
-        "zscore": 2.1315576300344365,
-        "value": 1.146,
-        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Le ratio long/short élevé (z-score 2.13) indique une surconcentration excessive des traders particuliers sur l'achat, contredisant le narratif médiatique institutionnel prudent. Situation classique de 'long squeeze' imminent orchestrée par les baleines.\"\n}\n```",
-        "ts": 1790197925.626524
+        "metric": "taker_ratio",
+        "zscore": 2.6750642048696283,
+        "value": 1.422,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Un taker_ratio à 1.422 (z-score 2.68) indique une domination agressive des acheteurs (Taker Buys) sur les carnets d'ordres, signalant une accumulation agressive par les baleines. L'absence totale de couverture médiatique ('Google Actualités' vide) prouve un mouvement furtif hors radar, classique avant une cassure haussière.\"\n}\n```",
+        "ts": 1790201536.252875
       },
-      "fiche": "long_short",
+      "fiche": "taker_ratio",
       "questions": {
-        "ratio_long_short": {
-          "value": 1.146,
-          "seuil": 2,
-          "depasse": false
+        "taker": {
+          "value": 1.422,
+          "seuil": 1,
+          "depasse": true
         },
-        "oi": {
-          "value": 98513.979,
-          "seuil": 120000,
+        "prix": {
+          "value": 0.24,
+          "seuil": 1,
           "depasse": false
         }
       },
       "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
+        "condition": "taker > 1",
+        "lecture": "Takers acheteurs agressifs — la demande mange le carnet, à confirmer avec le volume",
+        "niveau": "info",
+        "action": "Observer si le prix suit (vraie demande) ou diverge (absorption)"
       },
-      "action": "Observer",
-      "niveau": "neutre"
+      "action": "Observer si le prix suit (vraie demande) ou diverge (absorption)",
+      "niveau": "info"
     }
   ],
   "resume": "🔵 CALME — pas de signal alarmant"
