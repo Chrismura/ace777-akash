@@ -229,6 +229,48 @@ def detecter_termes_profil():
     return cles, manquants
 
 
+# DETTES DÉCLARÉES (R20.2 ÉTENDU, 23/09) : instruments qui recalculent le seuil du moteur
+# SANS lire le terme `impulse_pullback_min_pct` du profil. Deux sont CORRIGÉS le jour même
+# (boucle_setups_main.py, mesures_jury_tour2.py) ; les autres sont listés AVEC LEUR RAISON.
+# Une dette déclarée reste VISIBLE (règle #6) sans maintenir une alarme rouge à vie (R14).
+DETTES_TERME_PROFIL = {
+    "chiffrage_pump_manque.py": "audit ciblé (pourquoi un pump a été manqué) — à corriger",
+    "chiffrage_entree_sortie_replay.py": "replay d'entrée/sortie — à corriger",
+    "chiffrage_regime_mesure.py": "mesure de régime — à corriger",
+    "cartographie_setups_paires.py": "utilise `seuil_repli()` importé (source à corriger)",
+    "inventaire_seuils_fixes.py": "inventaire de seuils fixes — ne juge pas une conformité",
+    "consulter_famille_garde_fou_seuil_20260923.py": "consultation de famille — ne juge pas",
+}
+
+
+def detecter_terme_profil_absent():
+    """R20.2 ÉTENDU : tout instrument qui RECALCULE le seuil d'entrée du moteur doit lire
+    les MÊMES clés de profil que lui. Marqueur d'un recalcul : `DIP_CADENCE_MULT`.
+
+    Raison : E23 a montré que CE gardien-ci omettait un terme du profil ; la question du
+    milieu n'est pas « l'as-tu corrigé ? » mais « combien d'autres le font ? ». Réponse
+    mesurée le 23/09 : 6 fichiers (dont celui qui a produit les chiffres soumis au jury).
+    """
+    out = []
+    for dossier in SOURCES_AUDIT:
+        if not os.path.isdir(dossier):
+            continue
+        for p in sorted(glob.glob(os.path.join(dossier, "*.py"))):
+            nom = os.path.basename(p)
+            if (nom in EXCLUS or nom.endswith(".bak") or nom.startswith("declarer_")
+                    or nom.startswith("verif_") or "TEST" in nom):
+                continue
+            try:
+                txt = open(p, encoding="utf-8", errors="ignore").read()
+            except Exception:
+                continue
+            if not MOTIF_CADENCE.search(txt):
+                continue
+            if not re.search(r"['\"]impulse_pullback_min_pct['\"]", txt):
+                out.append(os.path.relpath(p, RACINE))
+    return out
+
+
 def autotest(cfg):
     """Preuve que le gardien SAIT échouer — et MESURE son taux de détection.
 
@@ -338,6 +380,16 @@ def main():
             print(f"     {f}")
     else:
         print("  ✔ aucun instrument ne recalcule un seuil d'entrée sans la cadence")
+    absents = detecter_terme_profil_absent()
+    print("\n== 3bis. R20.2 ÉTENDU — instruments qui recalculent le seuil SANS le terme profil ==")
+    if not absents:
+        print("  ✔ aucun")
+    for f in absents:
+        base = os.path.basename(f)
+        dette = DETTES_TERME_PROFIL.get(base)
+        print(f"  {'⚠ DETTE DÉCLARÉE' if dette else '❌ À CORRIGER'} {f}"
+              + (f" — {dette}" if dette else ""))
+    non_declares = [f for f in absents if os.path.basename(f) not in DETTES_TERME_PROFIL]
     cles, manquants = detecter_termes_profil()
     print("\n== 4. DÉTECTEUR DE TERMES DU PROFIL (rend E23 impossible) ==")
     if cles is None:
@@ -348,7 +400,7 @@ def main():
         print("     → gardien DÉSACTIVÉ (il accuserait le moteur sur un terme oublié = classe E23)")
     else:
         print(f"  ✔ termes du profil lus par le moteur ET par le gardien : {sorted(cles)}")
-    conforme = (not ko) and (not flags) and (not manquants)
+    conforme = (not ko) and (not flags) and (not manquants) and (not non_declares)
     # DÉRIVE DE CONFIG (objection de la famille du 23/09 : « le gardien suppose une
     # configuration STATIQUE ; si quelqu'un change DIP_CADENCE_MULT ou un profil entre deux
     # passages, il compare à de nouvelles valeurs et peut tout déclarer conforme »).
@@ -399,7 +451,9 @@ def main():
                                      for p, d in par_paire.items()},
                        "instruments_a_corriger": flags,
                        "termes_profil": sorted(cles) if cles else [],
-                       "termes_profil_manquants": manquants},
+                       "termes_profil_manquants": manquants,
+                       "instruments_sans_terme_profil": absents,
+                       "instruments_sans_terme_profil_non_declares": non_declares},
                       open(a.json, "w"), ensure_ascii=False, indent=2)
             print(f"  (état écrit : {a.json})")
         except Exception as e:

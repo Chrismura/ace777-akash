@@ -1,6 +1,6 @@
 {
   "version": "1.5.0",
-  "updated": "2026-09-23T15:35:31Z",
+  "updated": "2026-09-23T15:41:45Z",
   "fichier": [
     {
       "nom": "Index_Maison/scripts/v2_duo_replay_4h.py",
@@ -956,10 +956,16 @@
       "origine": "recensement RÈGLE D'OR 19/09",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "de0b3ce4bb9b2dc2f14da8187b5e2505",
-      "date": "2026-09-23T12:31Z",
+      "md5": "91d6f76c5b386369199d88799f935406",
+      "date": "2026-09-23T15:41:45Z",
       "note": "Scellé 19/09 : l'instrument qui mesure les règles est lui-même scellé (rituel maison). R10 ajouté 19/09 soir : SATURATION DE L'HÔTE (RAM réelle via memory_pressure, swap, disque, charge) — signal SRE, distinct de R2. Appelé par git_push_auto.sh. | v3 19/09 soir : + R11 (fail-safe), R12 (sauvegarde prouvée par restauration), R13 (auto-réparation bornée), R14 (anti cry-wolf), + R7 gère les DÉROGATIONS déclarées (strategie/derogations_regles.json). | R15 19/09 : mesure « ce qui est affiché est analysé ou déclaré » (15 bulles app Indices vs rotation analyste + affichage-seul déclaré). 11 règles mesurables.",
-      "_rescel_20260923": "R18 AJOUTÉE LE 23/09 (ordre Christophe : « ouvre un round avec la famille et garde la fenêtre ouverte, tu n'es plus digne de diriger seule » · « sinon c'est radiation à vie, règle d'or ») : **R18 — LE JURY PERMANENT**. Elle est MESURÉE, pas promise : il faut une session de famille OUVERTE, consultée dans les 24 h, dont le fil est COHÉRENT (chaque tour posé a ses avis) et avec au moins 3 voix INDÉPENDANTES (une substitution modèle demandé ≠ servi ne compte pas — faute E16). Ajout purement additif : aucune règle existante modifiée, 12 règles mesurées au lieu de 11."
+      "_rescel_20260923": "R18 AJOUTÉE LE 23/09 (ordre Christophe : « ouvre un round avec la famille et garde la fenêtre ouverte, tu n'es plus digne de diriger seule » · « sinon c'est radiation à vie, règle d'or ») : **R18 — LE JURY PERMANENT**. Elle est MESURÉE, pas promise : il faut une session de famille OUVERTE, consultée dans les 24 h, dont le fil est COHÉRENT (chaque tour posé a ses avis) et avec au moins 3 voix INDÉPENDANTES (une substitution modèle demandé ≠ servi ne compte pas — faute E16). Ajout purement additif : aucune règle existante modifiée, 12 règles mesurées au lieu de 11.",
+      "_rescel": [
+        {
+          "ts": "2026-09-23T15:41:45Z",
+          "motif": "R19 alignee sur le gardien famille : le quorum se juge au DERNIER tour (>=3 voix), plus sur les voix distinctes de tout le fil — deux criteres pour une meme regle la faisaient mentir d'un cote"
+        }
+      ]
     },
     {
       "nom": "Index_Maison/scripts/consulter_famille_hub.py",
@@ -1185,8 +1191,8 @@
       "origine": "GO Christophe 23/09 (« c'est pas possible de faire encore ce type d'erreurs ») après avoir publié 3 jours un seuil tronqué (5-12,75 % au lieu de 21,70 %)",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "eb49ba77f1e689a27d04266ea7ef4e68",
-      "date": "2026-09-23T15:22:33Z",
+      "md5": "93f04d0a92e93c357f09ca6790da09d1",
+      "date": "2026-09-23T15:41:19Z",
       "_ajout_20260923": "Instrument créé le 23/09/2026 (GO Christophe) — ajouté au registre le jour même de sa création pour qu'il soit VU (veilleuse, drill, revue).",
       "_rescel_20260923": "2e vague 23/09 (réponses de la FAMILLE : « aucune preuve de son taux de faux négatifs ») — l'autotest n'injecte plus UNE erreur mais CINQ troncatures différentes évaluées sur TROIS régimes (cadence dominante / plancher / m6 dominant) : 7/7 erreurs DISCRIMINANTES détectées (100 %), et un cas non discriminant au point testé cesse d'être compté comme un échec. Cet autotest m'a attrapé moi-même (il criait « cassé » à tort). Ajouts : empreintes md5 de `defaults.env` et `universe_profils.json` dans l'état, avec CRI de dérive de config et l'avertissement décisif (moteur non relancé ⇒ un désaccord serait LÉGITIME, ses décisions reposant sur les anciens paramètres).",
       "_rescel_20260923b": "CORRECTIF E23 (23/09/2026) — CE GARDIEN ACCUSAIT LE MOTEUR À TORT. Il recalculait le seuil d'entrée SANS le terme `impulse_pullback_min_pct` DU PROFIL PAR PAIRE (paper_diprip.score_pair l.649 : `_cal.get(\"impulse_pullback_min_pct\", cfg.get(\"IMPULSE_PULLBACK_MIN_PCT\", \"5\"))`) — il n'utilisait que le plancher GLOBAL (5,0). CONSÉQUENCE MESURÉE : sur BTCUSDT (profil dip_pct 2,0 · impulse_pullback_min_pct 1,5) il annonçait « écrit 1.70 % · recalculé 4.25 % — DÉSACCORD », alors que LE MOTEUR AVAIT RAISON (seuil réel = max(2,0 ; 1,5 ; 0,30×m6) × 0,85 = 1,70 %, exactement ce que le moteur avait écrit). Un gardien qui accuse à tort le moteur est une FAUSSE ALARME (R14), pire qu'aucun gardien. CORRECTIF : lecture du terme PROFIL + autotest enrichi d'un point « BTC réel » ; l'autotest savait aussi injecter un profil SYNTHÉTIQUE (champ `cal`), sinon il ne pouvait PAS prouver la détection. RÉSULTAT MESURÉ APRÈS CORRECTIF : invariant 24/24 conformes (avant 23/24) · autotest 12/12 erreurs discriminantes détectées (avant 8/12 — le gardien se déclarait CASSÉ). Aucune décision moteur touchée : outil de contrôle, lecture seule.",
@@ -1194,6 +1200,10 @@
         {
           "ts": "2026-09-23T15:22:33Z",
           "motif": "R20.2 (exigence famille tour 5) : ajout de la section 4 — détecteur qui LIT la formule du moteur (impulse_entry = max(...)) et exige que le gardien lise les mêmes clés du profil, sinon il se DÉSACTIVE ; + exclusion documentée des outils declarer_* (ils citaient la formule en prose = faux positif R14). Invariant 25/25, autotest 12/12."
+        },
+        {
+          "ts": "2026-09-23T15:41:19Z",
+          "motif": "R20.2 etendu : section 3bis (instruments sans le terme profil, dettes declarees) ; terme pullback du profil lu partout"
         }
       ]
     },
@@ -1409,14 +1419,18 @@
       "origine": "Ordre Christophe 23/09 : « reprends toute la boucle des set-ups avec données à la main sur les 10 derniers jours et soumets-la à la famille pour qu'elle valide »",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "a5b4794a0e2c1218d698c644ff311498",
-      "date": "2026-09-23T15:34:44Z",
+      "md5": "6bd60f3265a2cdcd68146974d244eed8",
+      "date": "2026-09-23T15:41:19Z",
       "_ajout_20260923": "Instrument créé le 23/09/2026 (GO Christophe) — ajouté au registre le jour même de sa création pour qu'il soit VU (veilleuse, drill, revue).",
       "_rescel_20260923": "3e vague 23/09 (classe E20) — le GARDIEN `verif_seuil_moteur.py` a crié sur cet instrument : il jugeait les entrées contre le PLANCHER du profil (`calib.dip_pct`) et contre un « 2 % » plat, au lieu du seuil réel du moteur `max(plancher ; DIP_CADENCE_MULT × cadence)` puis la porte pullback. Conséquence mesurée : « 28 % d'entrées conformes » publié au jury → le chiffre vrai est 5 % (3/60), et la table par famille passe de 7/26 · 7/14 · 5/7 à 1/26 · 1/14 · 1/7. Corrigé : la formule du moteur est reproduite terme par terme, le terme DOMINANT est publié (`dip_terme_dominant`), la ligne par famille porte le seuil médian de la paire, et la PORTÉE est déclarée (ma chute est mesurée sur les bougies, le moteur écrit son propre `dd6` → lignes indicatives, pas preuve d'infraction).",
       "_rescel": [
         {
           "ts": "2026-09-23T15:34:44Z",
           "motif": "E24/E25 : criteres de mesure corriges (stop = 1er prix VU par le moteur ; prix = heure de lecture + tolerance +/-1 min du delai d'ecriture), table des motifs de sortie ajoutee. 0 changement moteur."
+        },
+        {
+          "ts": "2026-09-23T15:41:19Z",
+          "motif": "R20.2 etendu : section 3bis (instruments sans le terme profil, dettes declarees) ; terme pullback du profil lu partout"
         }
       ]
     },
@@ -1478,9 +1492,15 @@
       "origine": "Jury permanent, tour 1 : 8 exigences chiffrées (Gemini, DeepSeek, Nemotron).",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "2b84d0ae52f1d39a3fc7252972281fa2",
-      "date": "2026-09-23T12:32Z",
-      "_ajout_20260923": "Instrument créé le 23/09/2026 (GO Christophe) — ajouté au registre le jour même de sa création pour qu'il soit VU (veilleuse, drill, revue)."
+      "md5": "aef8659c9bfcd680ea44b3e90359cc3b",
+      "date": "2026-09-23T15:41:19Z",
+      "_ajout_20260923": "Instrument créé le 23/09/2026 (GO Christophe) — ajouté au registre le jour même de sa création pour qu'il soit VU (veilleuse, drill, revue).",
+      "_rescel": [
+        {
+          "ts": "2026-09-23T15:41:19Z",
+          "motif": "R20.2 etendu : section 3bis (instruments sans le terme profil, dettes declarees) ; terme pullback du profil lu partout"
+        }
+      ]
     },
     {
       "nom": "hulk-mexc/scripts/sonde_ws_mexc.py",

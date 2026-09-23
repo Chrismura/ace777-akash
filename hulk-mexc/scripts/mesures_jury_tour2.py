@@ -374,9 +374,14 @@ def s8_autres_planchers() -> None:
         cmed = st.median(cad[pair])
         tcad = cmed * mult
         dip = max(plancher, tcad)
-        besoin = max(dip, pull_min)
-        dom = ("cadence (DIP_CADENCE_MULT)" if tcad >= max(plancher, pull_min)
-               else "plancher du profil" if plancher >= pull_min else "plancher pullback")
+        # R20.2 / E23 : le terme pullback du PROFIL prime sur le plancher global (le moteur
+        # lit `_cal.get("impulse_pullback_min_pct", cfg.get(...))`, paper_diprip.py:649).
+        # Sans ça, BTC (profil 1,5 < global 5,0) était audité contre le mauvais seuil.
+        _pp = cal.get("impulse_pullback_min_pct")
+        pull_p = float(_pp if _pp is not None else pull_min)
+        besoin = max(dip, pull_p)
+        dom = ("cadence (DIP_CADENCE_MULT)" if tcad >= max(plancher, pull_p)
+               else "plancher du profil" if plancher >= pull_p else "plancher pullback")
         if dom.startswith("cadence"):
             ecarts += 1
         dire(f"     {pair:<12}{plancher:>9.2f}%{cmed:>8.1f}%{tcad:>8.2f}%{dip:>7.2f}%{besoin:>7.2f}%"

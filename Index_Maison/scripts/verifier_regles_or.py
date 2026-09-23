@@ -358,6 +358,7 @@ def regle_19():
             age_h = None
     # cohérence du fil : chaque tour posé a au moins un avis enregistré
     tours_nous, tours_fam, voix = set(), set(), set()
+    voix_par_tour = {}          # INCOHÉRENCE CORRIGÉE (23/09) : voir le commentaire ci-dessous.
     try:
         for l in (d / "transcript.jsonl").read_text(encoding="utf-8").splitlines():
             if not l.strip():
@@ -369,15 +370,26 @@ def regle_19():
                 tours_fam.add(e["tour"])
                 if e.get("model_servi") and not e.get("substitue"):
                     voix.add(e["model_servi"])
+                    voix_par_tour.setdefault(e["tour"], set()).add(e["model_servi"])
     except Exception as ex:                                   # noqa: BLE001
         return False, f"fil illisible : {ex}"
     sans_avis = sorted(tours_nous - tours_fam)
+    # INCINÉRATION D'UNE INCOHÉRENCE ENTRE DEUX GARDIENS (23/09) : ce contrôle comptait les
+    # voix DISTINCTES SUR TOUT LE FIL (≥3 depuis le tour 1, jamais oubliées) → il disait OK,
+    # pendant que `verif_session_famille.py` disait ROUGE (1 voix au DERNIER tour). Deux
+    # critères pour une même règle = une règle qui ment d'un côté. R19 exige un VERDICT :
+    # c'est le DERNIER tour qui doit avoir ≥ 3 voix indépendantes.
+    dernier = max(tours_fam) if tours_fam else None
+    voix_dernier = voix_par_tour.get(dernier, set())
     ok = (m.get("tours", 0) > 0 and age_h is not None and age_h <= 24.0
-          and not sans_avis and len(voix) >= 3)
+          and not sans_avis and len(voix_dernier) >= 3)
     detail = (f"session « {m.get('session')} » OUVERTE · {m.get('tours', 0)} tour(s) · "
               f"dernier il y a {age_h:.1f} h" if age_h is not None else
               f"session « {m.get('session')} » OUVERTE · {m.get('tours', 0)} tour(s)")
-    detail += f" · {len(voix)} voix indépendantes"
+    detail += (f" · dernier tour ({dernier}) : {len(voix_dernier)} voix indépendante(s)"
+               f" · {len(voix)} distinctes sur tout le fil")
+    if len(voix_dernier) < 3:
+        detail += " → AVIS CONSULTATIF, pas un verdict (R20.3) : rejouer le tour"
     if sans_avis:
         detail += f" · tours SANS avis : {sans_avis}"
     if age_h is None or age_h > 24.0:

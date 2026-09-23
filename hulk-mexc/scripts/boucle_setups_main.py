@@ -163,11 +163,17 @@ def seuil_entree_effectif(calib: dict, cfg: dict, cadence: float | None, m6: flo
     mult = float(cfg.get("DIP_CADENCE_MULT", "0.50"))
     t_cad = (cadence or 0.0) * mult
     dip = max(plancher, t_cad)
-    t_pull = float(cfg.get("IMPULSE_PULLBACK_MIN_PCT", "5"))
+    # R20.2 / E23 — LE TERME PULLBACK DU PROFIL PAR PAIRE, pas le plancher global.
+    # Le moteur lit `_cal.get("impulse_pullback_min_pct", cfg.get("IMPULSE_PULLBACK_MIN_PCT"))`
+    # (paper_diprip.py:649). J'utilisais le global 5,0 partout : pour BTC (profil 1,5) je
+    # surestimais le seuil exigé de 2,55 pt et je sous-comptais les entrées conformes.
+    _pp = calib.get("impulse_pullback_min_pct")
+    t_pull = float(_pp if _pp is not None else cfg.get("IMPULSE_PULLBACK_MIN_PCT", "5"))
     t_m6 = abs(m6 or 0.0) * float(cfg.get("IMPULSE_PULLBACK_FRAC", "0.30"))
     besoin = max(dip, t_pull, t_m6)
     termes = {"plancher_profil": plancher, "DIP_CADENCE_MULT × cadence": t_cad,
-              "IMPULSE_PULLBACK_MIN_PCT": t_pull, "IMPULSE_PULLBACK_FRAC × m6": t_m6}
+              ("pullback profil" if _pp is not None else "IMPULSE_PULLBACK_MIN_PCT"): t_pull,
+              "IMPULSE_PULLBACK_FRAC × m6": t_m6}
     dominant = max(termes.items(), key=lambda kv: kv[1])[0]
     return {"plancher": round(plancher, 2), "terme_cadence": round(t_cad, 2),
             "dip": round(dip, 2), "besoin": round(besoin, 2), "terme_dominant": dominant,
