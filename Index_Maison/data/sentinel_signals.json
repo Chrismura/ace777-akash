@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "ipt",
-      "zscore": 2.152166284561919,
-      "value": 1.065,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Fausse alerte liée à une homonymie. L'indice 'ipt' fait référence à l'actualité institutionnelle et académique (Tournoi de Physique, biotechnologies), totalement déconnectée des marchés crypto.\"\n}\n```",
-      "ts": "2026-09-22T05:15:19.852866+00:00"
-    },
-    {
       "metric": "cpfp",
       "zscore": 2.033546106233641,
       "value": 45.0,
@@ -349,6 +342,13 @@
       "value": 2958409.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 3.32) sans couverture médiatique (silence radio). Accumulation furtive classique de baleines en période de décote.\"\n}\n```",
       "ts": "2026-09-23T06:01:01.128712+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 5.030961776791355,
+      "value": 4313853.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (Z-score 5.03, +4.3M USD) dans le silence médiatique total (Google Actualités vide). Les baleines accumulent sans bruit avant le réveil du narratif public.\"\n}\n```",
+      "ts": "2026-09-23T07:41:17.395493+00:00"
     }
   ]
 }

@@ -1,7 +1,43 @@
 {
-  "timestamp": 1790147839,
-  "date": "2026-09-23T07:17:19.432586+00:00",
-  "n_analyses": 0,
-  "analyses": [],
-  "resume": "Aucune analyse en cours"
+  "timestamp": 1790150840,
+  "date": "2026-09-23T08:07:20.305453+00:00",
+  "n_analyses": 1,
+  "analyses": [
+    {
+      "signal": {
+        "metric": "whale_usd",
+        "zscore": 5.030961776791355,
+        "value": 4313853.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (Z-score 5.03, +4.3M USD) dans le silence médiatique total (Google Actualités vide). Les baleines accumulent sans bruit avant le réveil du narratif public.\"\n}\n```",
+        "ts": 1790149277.395493
+      },
+      "fiche": "whale_usd",
+      "questions": {
+        "ventes": {
+          "value": 2006302.0,
+          "seuil": 0,
+          "depasse": true
+        },
+        "achats": {
+          "value": 1592368.0,
+          "seuil": 0,
+          "depasse": true
+        },
+        "prix": {
+          "value": 0.13,
+          "seuil": 1,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "ventes > achats",
+        "lecture": "Flux baleines VENDEUR dominant — distribution possible vers les exchanges (proxy : bearish aujourd'hui)",
+        "niveau": "surveiller",
+        "action": "Croiser avec le sniffer vieux BTC et l'IPT avant de réduire"
+      },
+      "action": "Croiser avec le sniffer vieux BTC et l'IPT avant de réduire",
+      "niveau": "surveiller"
+    }
+  ],
+  "resume": "🟡 SURVEILLANCE — des signaux sont à observer"
 }

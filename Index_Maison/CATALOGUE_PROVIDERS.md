@@ -1,14 +1,13 @@
 # CATALOGUE DES PROVIDERS — ACE777
 
-*Genere le 2026-09-22 par catalog_providers.py (gagnant A/B codeurs 09/08). Rafraichi a chaque veille du matin.*
+*Genere le 2026-09-23 par catalog_providers.py (gagnant A/B codeurs 09/08). Rafraichi a chaque veille du matin.*
 
-**Actifs : 9 · En observation : 0 · En attente : 18 · De cote (payant) : 2**
+**Actifs : 9 · En observation : 0 · En attente : 19 · De cote (payant) : 2**
 
 ## ACTIFS
 
 | Role | Modele | Statut | Note |
 |------|--------|--------|------|
-| chat interactif | `groq/compound` | groq | ACTIVE 17/08 - cle Groq OK + UA fix Cloudflare - groq/compound repond direct (gpt-oss=reas |
 | - | `nvidia/nemotron-3-super-120b-a12b:free` | openrouter-juge | REACTIVE 13/08 - nemotron-3-super-120b free teste OK. Juge independant (maker!=checker). | |
 | - | `deepseek-v4-flash-0731` | inferx | ACTIVE 09/08 - cle InferX OK (gratuite jusqu'au 12/08) - DeepSeek V4 Flash 284B/13B actifs |
 | - | `Qwen3-Coder-Next-FP8` | inferx-coder | REACTIVE 13/08 - Qwen3-Coder-Next, specialiste CODE (2e codeur). Offre gratuite a surveill |
@@ -17,6 +16,7 @@
 | - | `Devstral-2-123B-Instruct-2512-int4-AutoRound` | inferx-devstral | INTEGRE 16/08 (GO Christophe) - Devstral 123B, 2e codeur (file d'attente). | quota journal |
 | - | `deepseek-ai/DeepSeek-V3-0324` | huggingface | ACTIVE 17/08 - token HF avec permission Inference - DeepSeek-V3 teste reellement OK |
 | - | `orcarouter/free` | orca | INTEGRE 23/08 - cle OK, orcarouter/free teste OK (1.2s). Routeur meta (191 modeles). Signe |
+| - | `nex-agi/nex-n2.5-pro:free` | nex-agi-nex-n2-5-pro-free | ROULEMENT AUTO 2026-09-23 : remplace groq (mort >2j) |
 
 ## EN OBSERVATION (48h avant activation, jamais route)
 
@@ -29,6 +29,7 @@
 | demarrage / analyse profonde / analyste.strategie / audit protocole / RAG coffre / analyse / brief vocal / cortana.yeux / analyse / tri signets / synthese bookmarks / supervise.decision / trading.skills / analyse forte / veille.youtube | `gemini-flash-lite-latest` | gemini | - |
 | - | `z-ai/glm-5.2:free` | openrouter-free | CORRIGE 23/08 - gpt-oss-20b:free supprime d OpenRouter (404). Remplace par z-ai/glm-5.2:fr |
 | missions / JUGE | `qwen-3.8-max-free` | nara | ACTIVE 17/08 - cle NaraRouter OK (Telegram lie) - qwen-3.8-max-free teste reellement OK |
+| chat interactif | `groq/compound` | groq | ACTIVE 17/08 - cle Groq OK + UA fix Cloudflare - groq/compound repond direct (gpt-oss=reas |
 | analyse BTC / elaboration | `deepseek-ai/deepseek-v4-flash-0731` | nvidia | ACTIVE 17/08 - vivant mais LENT (47s a froid, demarrage modele) - reserve analyse profonde |
 | - | `codestral-latest` | mistral | ACTIVE 11/08 - cle Mistral OK (plan experiment 1 Md tokens/mois) - Codestral = modele code |
 | - | `@cf/meta/llama-3.1-8b-instruct` | cloudflare-workers-ai | 10k Neurons/jour gratuits - necessite account_id dans base_url + token |
