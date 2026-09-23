@@ -312,6 +312,39 @@ def gardiens():
         g.append({"nom": "Drill de restauration", "ok": False,
                   "detail": "jamais lancé (git_push_auto.sh le déclenche toutes les 3 h)"})
 
+    # GARDE-FOU DE MÉTHODE SUR LES SEUILS (23/09, Buffy) — état écrit par
+    # hulk-mexc/scripts/verif_seuil_moteur.py, appelé par ce même git_push_auto.sh (3 h).
+    # POURQUOI CETTE LIGNE EXISTE : j'ai publié pendant trois jours un seuil RECALCULÉ de
+    # mémoire (5 à 12,75 %) alors que le moteur en appliquait 21,70 % — il manquait le
+    # terme dominant `dip = max(dip_pct ; 0,50 × cadence)`. Un chiffre recalculé n'est pas
+    # un chiffre vérifié (classe F, 23/09). Ici la page ne dit pas « c'est vérifié » : elle
+    # dit COMBIEN de refus chiffrés ont été CONFRONTÉS, si un instrument recalcule encore
+    # un seuil sans la cadence, et depuis quand. Un état figé n'est pas un feu vert.
+    sm_path = IM / "thermo" / "seuil_moteur.json"
+    sm = jload(sm_path)
+    sm_age = age_min(sm_path)
+    if sm:
+        n, tot = int(sm.get("refus_lus", 0) or 0), int(sm.get("conformes", 0) or 0)
+        instr = sm.get("instruments_a_corriger") or []
+        fige = (sm_age is not None and sm_age > 480)   # 8 h = deux passages manqués
+        if n == 0:
+            detail = "EN ATTENTE (aucun refus chiffré — normal < 1 h après une relance)"
+            ok_sm = True
+        else:
+            detail = "%d/%d refus chiffrés confrontés" % (tot, n)
+            ok_sm = bool(sm.get("conforme")) and not instr
+            if instr:
+                detail += " · %d instrument(s) à corriger : %s" % (len(instr),
+                                                                   str(instr[0])[:60])
+        if fige:
+            detail += " — ÉTAT FIGÉ (>8 h, le contrôle n'est plus passé)"
+            ok_sm = False
+        detail += " · màj %s" % fmt_age(sm_age)
+        g.append({"nom": "Garde-fou seuil moteur", "ok": ok_sm, "detail": detail})
+    else:
+        g.append({"nom": "Garde-fou seuil moteur", "ok": False,
+                  "detail": "état absent (git_push_auto.sh ne l'a jamais produit)"})
+
     # RÈGLES D'OR (19/09) — état écrit par verifier_regles_or.py (lecture seule), lui-même
     # appelé par git_push_auto.sh. Une règle qu'on ne mesure pas se perd : ici on VOIT
     # lesquelles sont tenues et LAQUELLE lâche. Canon : Index_Maison/REGLE_D_OR.md.

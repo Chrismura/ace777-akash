@@ -1,0 +1,117 @@
+# REGISTRE DES ÉCHECS ET DES ERREURS — la pièce qui manquait
+
+> 2026-09-22 · Buffy · créé sur ordre de Christophe : « va voir ce que sont nos erreurs, enfin
+> **tes** erreurs, et comment les corriger une bonne fois pour toute. »
+> **Dernière mise à jour : 2026-09-22T09:30Z** — c'est la borne du détecteur de récidive : toute
+> ligne de mémoire **postérieure** qui retombe dans une classe connue est signalée par
+> `scripts/critique_erreurs.py` (organe branché, cf. R15).
+> **0 €, 0 ordre.** Ce fichier est la première version de la pièce que la recherche désigne comme
+> **la seule qui manque** à une machine de trading auto-améliorante (voir §1).
+
+---
+
+## 1. Pourquoi ce fichier existe (et pourquoi c'est LA pièce manquante)
+
+Source : *« The self-improving AI trading machine is mostly built. One piece left »*
+(grokbot.sh, 2026 ; repris par @antpalkin). Le cycle que tourne tout desk quant a **six parties** :
+
+| Partie | État | Ce qu'ACE777 a déjà |
+|---|---|---|
+| 1. **Research** | résolu | veille + sniffer + hub (10 providers gratuits) |
+| 2. **Code** | résolu | Buffy/Cursor/codeur |
+| 3. **Backtest** | résolu | replay, Monte-Carlo, pré-enregistrement des critères |
+| 4. **Live** | résolu | Hulk paper + kill switch **dans le code** (disjoncteur, STOP_ALL) |
+| 5. **Post-mortem** | résolu | MEMOIRE_COLLAB, journaux, attributions, contrôles de fidélité |
+| 6. **Fine-tune** | ❌ **LA PIÈCE MANQUANTE** | **rien** |
+
+**Ce que l'article dit exactement** : « Right now the lesson from a losing trade lands in a log file
+and stays there. The next strategy the agent writes does not know about it. […] **Negative results
+are the most undervalued asset in quant research, and no system currently keeps them.** »
+→ Sans ce registre, **chaque cycle repart de zéro et re-teste ce qui a déjà échoué.**
+C'est **littéralement** ce qui se passe ici : on redécouvre les mêmes erreurs tous les jours.
+
+**Deux autres règles d'or que l'article valide et que la maison applique déjà (à garder)** :
+- *« write down the expected outcome before the test runs, store it immutably, then compare »*
+  → c'est notre **pré-enregistrement** ; il n'est pas négociable.
+- *« the kill switch lives in code, never in the system prompt »* → notre disjoncteur est du code.
+
+---
+
+## 2. Mes erreurs récurrentes (les miennes, nommées) + la garde qui les tue
+
+| # | Erreur (classe) | Cas réels | Garde mécanique (pas une promesse) |
+|---|---|---|---|
+| **E1** | **Inventer un seuil** au lieu de lire l'actif | refroidissement **6/24/48 h** posé le 22/09 ; « plafonner le compounding » sans chiffre (21/09) | **R17** : aucun seuil fixe ; chaque garde doit **afficher sa provenance mesurée** ; croisement **2 horizons** obligatoire |
+| **E2** | **Conclure sans vérifier à la source** | « positions perdues » ; « veilleuse STABLE » alors que `$?` mesurait `tail` ; « 57 % des refus = volume » ; « 9 paires tier B » | **Contrôle de fidélité obligatoire** (reconstruire et comparer au journal) + lire la source canonique, jamais une copie |
+| **E3** | **Instrument qui pointe la mauvaise source** | `chiffrage_gardes_refus.py` lisait des journaux **écrits en dur** → aveugle depuis 21/09 13:22Z | Tout instrument **déclare sa source et sa fraîcheur** ; interdiction des listes de fichiers en dur (le pointeur est la vérité) |
+| **E4** | **Bloquer / interdire au lieu de mesurer** | `REENTRY_MAX` = paire interdite **à vie** (CCUSDT 4,5 jours) | Aucune interdiction sans **condition de sortie exprimée en grandeur mesurée** |
+| **E5** | **Deux vérités pour un même fait** | compteur `reentry_count` en mémoire **non persisté** (2 comportements selon redémarrage) ; `STOP_COOLDOWN_HOURS` déclaré 2× ; double comptage du journal en `--resume` | **Une seule source persistée par fait** + le **contrôleur de config** + le **contrôle de fidélité** |
+| **E6** | **Silence** : décider sans écrire | régime `WATCH` = `return` muet → CCUSDT **invisible 27 h** | **Anti-silence** (fait le 22/09) : tout refus écrit au moins 1×/h/paire |
+| **E7** | **Corriger un symptôme, pas la cause** | réparer les instruments pendant que le prototype ne produit pas (20/09) | Une correction doit **nommer la classe d'erreur** (ce tableau) et **tuer la classe**, pas le cas |
+| **E8** | **Cacher les limites** | mesures présentées sans leurs bornes (n faible, horizon, borne supérieure) | **Réserves écrites obligatoires** dans chaque livrable |
+| **E9** | **Empiler les corrections le même jour** | 22/09 : poser un refroidissement puis le retirer 2 h plus tard | Une garde ne se pose **qu'après** un chiffrage écrit ; sinon elle attend le GO |
+| **E10** | **Prendre un chiffre RECALCULÉ pour un chiffre VÉRIFIÉ** | 20-23/09 : seuil d'entrée annoncé à **5-12,75 %** pendant trois jours alors que le moteur appliquait **21,70 %** (terme manquant : `dip = max(dip_pct ; 0,50 × cadence)`, cadence ÉCRITE par le moteur colonne 9). Le chiffre faux a servi à publier « RIZE structurellement inattaquable », à chiffrer un levier d'entrée et à orienter un scan → **cause racine d'un second instrument défectueux** (`chiffrage_entree_sortie_replay.py`, 3 calculs) qui avait produit les chiffres du câblage `IMPULSE_SANS_REPLI_ON` sur EDEL | **`hulk-mexc/scripts/verif_seuil_moteur.py`** (23/09) : confronte le seuil RECALCULÉ aux chiffres que le moteur ÉCRIT (refus parlants + cadence), nomme le terme qui décide (R15), **détecte par texte** tout instrument qui recalcule un seuil sans la cadence, et **s'autoteste (7/7 erreurs discriminantes détectées sur 3 régimes)**. Branché toutes les 3 h + **affiché au cockpit** (« Garde-fou seuil moteur »). Re-vérification faite : le gain du levier EDEL était **gonflé de 25 %** (+19,68 → +14,70 $/90 j) — le câblage tient, l'annonce était fausse. |
+| **E11** | **Confondre COHÉRENCE et JUSTESSE (biais de source unique)** | 23/09, nommé par la famille (Grok) : mon invariant valide la formule **du moteur** — si le moteur se trompe, mes instruments le valident et **nous nous trompons ensemble**. La classe « le chiffre est fidèle mais la règle est mauvaise » reste **ouverte** | **AUCUNE GARDE — TROU DÉCLARÉ.** Remède identifié et chiffré : **oracle indépendant** = rejouer la kline brute et comparer au signal enregistré, en court-circuitant la logique interne du moteur. **En attente de GO.** |
+| **E12** | **Sceller un fichier puis le modifier** (process) | 23/09 : deux modifications **légitimes** (`paper_diprip.py` refus parlant, `chiffrage_entree_sortie_replay.py` terme cadence) ont fait crier R5/R13 à juste titre ; puis **3 fichiers scellés ont été modifiés APRÈS leur scellement** → la veilleuse a signalé « INTRUSION : modification non déclarée » **3 fois** | **Règle de processus écrite** : *on scelle APRÈS la dernière modification* + `Index_Maison/scripts/declarer_rescel_20260923.py` (backup horodaté + entrée `_rescel_*` qui dit **quoi et pourquoi**). Écarts md5 = **0**, Règles d'or 7/11 → **9/11**. |
+
+---
+
+## 3. Résultats NÉGATIFS déjà payés (à ne jamais re-tester sans nouvelle raison)
+
+| Date | Chose testée | Verdict mesuré | Où c'est écrit |
+|---|---|---|---|
+| 17-18/09 | Duo ACE sur 4H (V2) | **échec**, net −64,19 $ (6 replays, 6 échecs) | MEMOIRE_COLLAB 17/09 |
+| 18/09 | Set-up V2 base (dip 5 %) sur 20 actifs | **−31,63 $** sur 61 trades | MEMOIRE_COLLAB 18/09 |
+| 18/09 | V2 + filtre tendance | −1,29 $ (34 tr) — insuffisant | idem |
+| 18/09 | filtre poussière / V2 | **efficacité ≈ 0** | idem |
+| 21/09 | Sortie calibrée au pic (S2) | **perd 17 $** sur nos entrées réelles | `chiffrage_sortie_calibree.py` |
+| 21/09 | Levier compounding | **inerte** : −0,12 $ sur 28 j (raboté avant d'agir) | R16 / `chiffrage_compounding.py` |
+| 21/09 | `TIER_B_POSITION_MULT` 0,25→1,0 | +4,29 $/mois mais ratio gains/pertes **1,68:1** → refusé | MEMOIRE 12:25Z |
+| 21/09 | Replay qui « ne voit pas » la porte volume | EDEL : `vol_DRY_impulse_block` | limite déclarée |
+| **22/09** | **Halt piloté par l'edge récent de la paire** | **ÉCHEC : les trades pris en « edge<0 » gagnent quand même +0,29 $/trade** (n=23) → **aucune persistance de l'edge** → on ne peut pas décider sur l'historique récent de la paire | ce document, §4 |
+| **22/09** | **Refroidissement en heures (6/24/48)** | **RETIRÉ le jour même** : viole R17 (seuil de temps fixe) | `_rescel_20260922c` |
+| **22/09** | **Sortie à échelle SYMÉTRIQUE** (palier × cadence_paire/référence, sans plancher) | **ÉCHEC : signe INSTABLE** (+2,95 $ sur la 1re moitié, **−2,54 $** sur la 2e) → elle **abaisse** le palier des paires calmes (BTC r=0,40, ETH 0,45) alors que leur MFE médian est de 5,5 % | `chiffrage_sortie_mesuree.py` |
+| **22/09** | Palier LATE élargi sans plancher (6 %/8 % → mesuré) | +13,04 $ **mais** +7,88 $ de pertes suppl. (ratio 1:1,7) — **moins bien payé** que la variante plancher (1:4,7) | idem |
+| **22/09** | Élargir la sortie via la branche `A2` (+6 %/+8 % **partout**) | +8,66 $ sur l'échantillon mais c'est **un % universel de plus**, pas une mesure → ne répond pas à R17 | idem |
+| **22/09** | **Relecture des seuils de RÉGIME** (`QUIET_RANGE_PCT`, `SPIKE_15D_PCT`) dans l'unité de chaque paire | **REJETÉE** : les 33 barres qu'elle bloquerait ont une **médiane de +74,5 %** de hausse en 24 h (moyenne +56,3 %) → elle bloque **juste avant les plus gros mouvements**. Les 734 barres qu'elle ouvre valent +2,55 % de médiane : ça ne paie pas | `chiffrage_regime_mesure.py` / `REGIME_MESURE_20260922.md` |
+
+---
+
+## 4. La mesure qui a tué mon idée (à garder, c'est une leçon)
+
+Question : **« les chiffres de la paire disent-ils quand s'arrêter ? »**
+Test (aucune horloge — la fenêtre = les 3 derniers trades **fermés de la paire**) :
+
+| État mesuré de la paire | n | P&L moyen par trade |
+|---|---|---|
+| 3 derniers trades **négatifs** | 23 | **+0,2923 $** |
+| 3 derniers trades positifs | 35 | +0,7188 $ |
+
+**Verdict : l'edge récent ne prédit PAS le trade suivant** (les trades pris « après des pertes »
+gagnent quand même) → **réduire la taille sur cette base couperait des trades gagnants.**
+Donc **on ne câble rien** : ce n'est pas la bonne grandeur. La bonne, mesurée et déjà câblée, est le
+**risque en dollars** (fusible : k × σ_mesuré × mise).
+
+---
+
+## 5. Ce qui a été fait pour que « ça ne se reproduise pas » — BRANCHÉ, pas écrit (22/09)
+
+1. **LE REGISTRE EST BRANCHÉ** (fait) : il est cité par **les règles d'or (R17.5)** et par
+   **`.cursorrules`** — les deux points d'entrée d'où part une proposition de garde. Contrôle
+   mécanique : `scripts/critique_erreurs.py` **sort en erreur** si l'un des deux cesse de le citer
+   (un registre non lu n'existe pas, R15).
+2. **LE CRITIQUE TOURNE TOUT SEUL** (fait) : il est **accroché à l'organe de discipline
+   quotidienne** (`discipline_quotidienne.py`, launchd 07:15) — **pas de 98ᵉ agent**. Chaque matin,
+   le rapport écrit la section **ERREURS** et l'alerte crie si une classe **récidive après sa
+   correction**, ou si le registre cesse d'être cité.
+3. **VISIBLE DANS LA PAGE QU'ON REGARDE DÉJÀ** (fait, GO 2) : les trois verdicts (registre branché /
+   récidives · seuils sans mesure R17 · sortie armée et conforme) sont affichés comme **gardiens du
+   cockpit « vol »** — un verdict qu'il faut aller chercher dans un dossier n'existe pas (R15).
+4. **DEUX DÉTECTEURS, parce qu'un seul laisse un trou** (fait) :
+   - **prose (critique_erreurs)** → un **AVEU** est exigé (« j'ai encore… », « récidive… »). Parler
+     d'une erreur n'est pas la commettre — une alarme qui sonne pour un comportement voulu tue la
+     confiance dans l'alarme (R14). ⚠️ **Limite déclarée** : un aveu tu lui échappe.
+   - **mécanique (inventaire_seuils_fixes)** → **toute clé de config qui décide sans être mesurée
+     ni rangée est nommée**, chaque passage. Un seuil inventé **ne peut pas se cacher dans du texte**.
+     Preuve immédiate : il a **crié tout seul** sur le réglage créé ce matin (`RIP_CADENCE_REF_PCT`,
+     1 non classé) avant que je le range — le mécanisme marche sur un cas réel, pas en théorie.

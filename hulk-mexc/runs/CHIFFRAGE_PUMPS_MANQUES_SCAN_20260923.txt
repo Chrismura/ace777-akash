@@ -1,0 +1,62 @@
+SOURCE : log continu du moteur + archives de rotation (chemin de prix par paire)
+FENÊTRE : 2026-09-18T00:54:41Z → 2026-09-23T09:07:09Z · 20 paires
+
+DÉTECTION DÉCLARÉE : jambe ≥ 20 % · zigzag clos à 10 % de réaction (seuil d'AFFICHAGE, pas de décision)
+
+seuil = repli EXIGÉ par la règle RÉELLE de la paire : max(dip_pct, 0,50 × cadence moteur) puis max(…, 5 %, 0,30 × m6)
+paire      sens                        bas → haut  amplitude   durée   cad  seuil  repli entrable   BUY ? PnL réalisé   cause
+EDEL      HAUSSE         09-20T06:56 → 09-21T21:35     +80.2%   38.6h 16.5%   8.2%  10.3%      oui     oui      +0.37 $   —
+RIZE      HAUSSE         09-18T03:04 → 09-18T03:41     +37.0%    0.6h 47.7%  23.9%  16.8%      NON     oui      +0.34 $   —
+RIZE      HAUSSE         09-22T19:31 → 09-22T22:40     +35.7%    3.1h 49.0%  24.5%  10.2%      NON     NON      +0.00 $   ATTENTE (3)
+HBAR      HAUSSE         09-18T01:28 → 09-23T03:45     +35.6%  122.3h  4.0%   5.0%   5.8%      oui     oui      +3.59 $   —
+KITE      HAUSSE         09-18T00:58 → 09-23T02:37     +33.7%  121.6h  6.4%   5.0%   5.3%      oui     oui      +5.49 $   —
+RIZE      HAUSSE         09-22T13:44 → 09-22T18:04     +31.3%    4.3h 49.4%  24.7%  10.5%      NON     NON      +0.00 $   ATTENTE (4)
+FLUID     HAUSSE         09-18T00:54 → 09-23T03:52     +30.8%  123.0h  5.0%   5.0%   6.9%      oui     NON      +0.00 $   (aucun refus écrit) (0)
+PYTH      HAUSSE         09-18T01:19 → 09-22T14:02     +29.5%  108.7h  6.9%   5.0%  10.0%      oui     oui      +1.32 $   —
+TEL       HAUSSE         09-20T07:00 → 09-23T04:10     +29.4%   69.2h  7.2%   5.0%   5.6%      oui     oui      +4.77 $   —
+XRP       HAUSSE         09-18T00:54 → 09-23T04:49     +27.5%  123.9h  4.3%   5.0%   5.8%      oui EN POS.      +1.12 $   position ouverte dès le début
+RIZE      HAUSSE         09-22T22:44 → 09-23T07:22     +27.0%    8.6h 49.0%  24.5%   9.7%      NON     NON      +0.00 $   ATTENTE (9)
+W         HAUSSE         09-18T01:31 → 09-23T03:22     +25.7%  121.8h  6.1%   5.0%   6.5%      oui     oui      +0.97 $   —
+QNT       HAUSSE         09-18T00:56 → 09-23T01:37     +24.5%  120.7h  4.1%   5.0%   4.8%      NON     NON      +0.00 $   (aucun refus écrit) (0)
+CHIP      HAUSSE         09-20T13:23 → 09-21T11:15     +24.5%   21.9h 11.6%   5.8%  10.1%      oui     oui      +0.00 $   —
+CHIP      HAUSSE         09-18T01:01 → 09-19T03:38     +22.5%   26.6h 13.1%   6.5%  10.0%      oui     NON      +0.00 $   VOL (55)
+RWAINC    HAUSSE         09-19T14:17 → 09-22T19:42     +22.3%   77.4h  7.8%   5.0%   6.2%      oui     oui      +4.10 $   —
+RED       HAUSSE         09-18T00:59 → 09-19T00:01     +22.1%   23.0h  8.8%   5.0%  10.7%      oui EN POS.      +4.84 $   position ouverte dès le début
+BIO       HAUSSE         09-18T01:25 → 09-23T06:48     +20.9%  125.4h  6.4%   5.0%   7.7%      oui     NON      +0.00 $   ATTENTE (24)
+
+== CONTEXTE DE MARCHÉ (objection Christophe : « tu calcules sur un marché qui monte ? ») ==
+  BTC : 76,535 $ → 85,950 $ = +12.3 % sur la fenêtre
+  paires en HAUSSE sur la fenêtre : 20/20  → un marché qui monte gonfle mécaniquement le compte des jambes de HAUSSE
+  jambes de HAUSSE : 18  ·  jambes de BAISSE : 0  → le scan est SYMÉTRIQUE : on ne compte pas que les pumps
+
+  ⚠️ LE TRI QUI COMPTE (seuil = repli EXIGÉ par la règle réelle de la paire) :
+     ratés INACCESSIBLES par construction (repli offert < repli exigé) : 4  ← le prix n'a JAMAIS donné le repli que la règle demande
+     ratés ENTRABLES (le repli exigé a été offert, on n'y est pas allé) : 3  ← c'est CEUX-LÀ qui accusent le moteur, pas les autres
+
+== VERDICT SUR LA FENÊTRE ==
+  mouvements ≥ 20 % détectés : 18  ·  RAPIDES (≤ 12 h) : 4  ·  LENTS (> 12 h) : 14
+  INTERVENU (un BUY) : 9  ·  PAS INTERVENU : 7  ·  EN POSITION dès le début : 7
+  RATÉS (à plat, rien acheté) : 7  (193 % d'amplitude laissée sur la table)  ·  dont RAPIDES (le pump) : 3  (94 %)
+  ⚠️ INTERVENIR N'EST PAS CAPTER : PnL réalisé autour des mouvements où on est intervenu = +20.95 $  (indicatif : les fenêtres se recouvrent → NON additif)
+  ✔ LE FAIT BRUT : PnL du moteur sur la fenêtre = 5.85 $ → 42.17 $ = +36.32 $ (colonne pnl_total du run, aucune reconstruction)
+  → sur les mouvements RAPIDES, taux d'intervention : 25 %  ·  PnL réalisé sur ces mouvements = +0.34 $
+
+== POURQUOI (portes qui ont refusé les mouvements RATÉS) ==
+    ATTENTE                               4 mouvement(s)
+    (aucun refus écrit)                   2 mouvement(s)
+    VOL                                   1 mouvement(s)
+  paires concernées : RIZE 3 · FLUID 1 · QNT 1 · CHIP 1 · BIO 1
+
+== LE CHIFFRAGE DES JAMBES RATÉES (chemin dense · sortie réelle de la paire) ==
+paire                          jambe      E0 (actuel)   E2 (repli levé)     écart      cap  trades E0/E2
+RIZE       09-22T19:31 → 09-22T22:40           +0.00 $            +1.20 $    +1.20 $    4.88$  0/1
+RIZE       09-22T13:44 → 09-22T18:04           +0.00 $            +0.82 $    +0.82 $    4.88$  0/2
+RIZE       09-22T22:44 → 09-23T07:22           +0.00 $            +1.10 $    +1.10 $    4.88$  0/3
+CHIP       09-18T01:01 → 09-19T03:38          +79.50 $           +53.03 $   -26.47 $  661.99$  2/3
+BIO        09-18T01:25 → 09-23T06:48           +0.00 $            +4.35 $    +4.35 $   70.49$  0/2
+TOTAL                       7 jambes          +79.50 $           +60.50 $   -19.00 $
+
+  ⚠️ PORTÉE : ce scan dit COMBIEN et PAR QUELLE PORTE — et, pour les jambes RATÉES,
+     ce que la règle ACTUELLE et la porte DU REPLI LEVÉE auraient donné sur le chemin
+     dense. Les autres portes (volume/mur/spread/plancher/fusible) ne sont PAS rejouées :
+     E2 est une BORNE HAUTE, pas une promesse de P&L.

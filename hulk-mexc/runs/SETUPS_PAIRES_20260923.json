@@ -1,0 +1,953 @@
+{
+  "convention_presentation": 0.1,
+  "paires": [
+    {
+      "paire": "BIOUSDT",
+      "archetype": "calme_propre",
+      "mode": "—",
+      "cadence": 6.64,
+      "dip_exige": 4.0,
+      "seuil": 4.25,
+      "dip_profil": 4.0,
+      "m6_med": 2.96,
+      "seuil_reel": 4.25,
+      "jambes": 1,
+      "inaccessibles": 0,
+      "pnl": -0.9661000000000002,
+      "n_sell": 3,
+      "motifs": {
+        "STOP/GUARD": [
+          2,
+          -1.2042000000000002
+        ],
+        "TRAILING": [
+          1,
+          0.2381
+        ]
+      },
+      "stop_annonce": 6.0,
+      "stops_realises": [
+        6.0,
+        6.0
+      ],
+      "stop_med": 6.0,
+      "stop_max": 6.0,
+      "dust": 0,
+      "top_refus": [
+        [
+          "VOL",
+          1951
+        ],
+        [
+          "MUR-CASSE",
+          445
+        ]
+      ],
+      "mur": 3524.27,
+      "cap": 70.4854,
+      "spread_profil": 4.1,
+      "serie": {
+        "n": 4,
+        "med_05": 10347.1,
+        "med_2": 11825.75,
+        "med_spread": 15.100000000000001,
+        "med_cap": 2628.3,
+        "ratio": 22.295
+      },
+      "misable": 1034.71
+    },
+    {
+      "paire": "BTCUSDT",
+      "archetype": "majeure_banc_de_preuve",
+      "mode": "—",
+      "cadence": 2.64,
+      "dip_exige": 2.0,
+      "seuil": 4.25,
+      "dip_profil": 2.0,
+      "m6_med": 1.18,
+      "seuil_reel": 4.25,
+      "jambes": 0,
+      "inaccessibles": 0,
+      "pnl": 2.7056,
+      "n_sell": 4,
+      "motifs": {
+        "TRAILING": [
+          4,
+          2.7056
+        ]
+      },
+      "stop_annonce": 5.0,
+      "stops_realises": [],
+      "stop_med": null,
+      "stop_max": null,
+      "dust": 0,
+      "top_refus": [
+        [
+          "MUR-CASSE",
+          293
+        ],
+        [
+          "ATTENTE",
+          26
+        ]
+      ],
+      "mur": 0.0,
+      "cap": 0.0,
+      "spread_profil": 0.05,
+      "serie": {
+        "n": 4,
+        "med_05": 2756264.4,
+        "med_2": 7801173.05,
+        "med_spread": 0.0,
+        "med_cap": 0.46,
+        "ratio": 0.0
+      },
+      "misable": 275626.44
+    },
+    {
+      "paire": "CCUSDT",
+      "archetype": "calme_mur_dynamique",
+      "mode": "—",
+      "cadence": 6.52,
+      "dip_exige": 4.0,
+      "seuil": 4.25,
+      "dip_profil": 4.0,
+      "m6_med": 3.27,
+      "seuil_reel": 4.25,
+      "jambes": 0,
+      "inaccessibles": 0,
+      "pnl": -1.2470000000000003,
+      "n_sell": 8,
+      "motifs": {
+        "STOP/GUARD": [
+          2,
+          -2.9290000000000003
+        ],
+        "TRAILING": [
+          6,
+          1.682
+        ]
+      },
+      "stop_annonce": 6.0,
+      "stops_realises": [
+        6.0,
+        6.14
+      ],
+      "stop_med": 6.07,
+      "stop_max": 6.14,
+      "dust": 0,
+      "top_refus": [
+        [
+          "MUR-CASSE",
+          367
+        ],
+        [
+          "SENSE",
+          349
+        ]
+      ],
+      "mur": 1545.69,
+      "cap": 30.913800000000002,
+      "spread_profil": 7.75,
+      "serie": null,
+      "misable": null
+    },
+    {
+      "paire": "CHIPUSDT",
+      "archetype": "gros_murs_stables",
+      "mode": "—",
+      "cadence": 13.38,
+      "dip_exige": 6.69,
+      "seuil": 5.6865000000000006,
+      "dip_profil": 4.0,
+      "m6_med": 5.37,
+      "seuil_reel": 5.6865000000000006,
+      "jambes": 2,
+      "inaccessibles": 0,
+      "pnl": 9.4892,
+      "n_sell": 9,
+      "motifs": {
+        "RIP/palier": [
+          2,
+          0.3587
+        ],
+        "TRAILING": [
+          5,
+          10.7616
+        ],
+        "STOP/GUARD": [
+          2,
+          -1.6311
+        ]
+      },
+      "stop_annonce": 7.0,
+      "stops_realises": [
+        10.83,
+        10.83
+      ],
+      "stop_med": 10.83,
+      "stop_max": 10.83,
+      "dust": 0,
+      "top_refus": [
+        [
+          "MUR-CASSE",
+          750
+        ],
+        [
+          "VOL",
+          658
+        ]
+      ],
+      "mur": 33099.56,
+      "cap": 661.9911999999999,
+      "spread_profil": 3.82,
+      "serie": {
+        "n": 4,
+        "med_05": 71757.95,
+        "med_2": 84264.5,
+        "med_spread": 19.6,
+        "med_cap": 13074.65,
+        "ratio": 14.98
+      },
+      "misable": 7175.795
+    },
+    {
+      "paire": "EDELUSDT",
+      "archetype": "illiquide_calme",
+      "mode": "—",
+      "cadence": 26.4,
+      "dip_exige": 13.2,
+      "seuil": 11.219999999999999,
+      "dip_profil": 5.5,
+      "m6_med": 8.21,
+      "seuil_reel": 11.219999999999999,
+      "jambes": 1,
+      "inaccessibles": 0,
+      "pnl": 5.779899999999999,
+      "n_sell": 18,
+      "motifs": {
+        "autre": [
+          2,
+          5.2157
+        ],
+        "TRAILING": [
+          8,
+          2.4199999999999995
+        ],
+        "STOP/GUARD": [
+          4,
+          -0.9759
+        ],
+        "DUST_SWEEP": [
+          4,
+          -0.8799
+        ]
+      },
+      "stop_annonce": 10.3,
+      "stops_realises": [
+        11.95,
+        13.2,
+        13.2,
+        13.8
+      ],
+      "stop_med": 13.2,
+      "stop_max": 13.8,
+      "dust": 4,
+      "top_refus": [
+        [
+          "MODE_REGIME",
+          59
+        ],
+        [
+          "MUR-CASSE",
+          31
+        ]
+      ],
+      "mur": 908.59,
+      "cap": 18.1718,
+      "spread_profil": 26.95,
+      "serie": {
+        "n": 4,
+        "med_05": 50.0,
+        "med_2": 982.7,
+        "med_spread": 16.5,
+        "med_cap": 2001.0,
+        "ratio": 209.875
+      },
+      "misable": 5.0
+    },
+    {
+      "paire": "ETHUSDT",
+      "archetype": "majeure_banc_de_preuve",
+      "mode": "—",
+      "cadence": 3.22,
+      "dip_exige": 2.5,
+      "seuil": 4.25,
+      "dip_profil": 2.5,
+      "m6_med": 1.64,
+      "seuil_reel": 4.25,
+      "jambes": 0,
+      "inaccessibles": 0,
+      "pnl": 2.3267,
+      "n_sell": 7,
+      "motifs": {
+        "TRAILING": [
+          6,
+          3.5635
+        ],
+        "STOP/GUARD": [
+          1,
+          -1.2368
+        ]
+      },
+      "stop_annonce": 6.0,
+      "stops_realises": [
+        6.0
+      ],
+      "stop_med": 6.0,
+      "stop_max": 6.0,
+      "dust": 0,
+      "top_refus": [
+        [
+          "MUR-CASSE",
+          65
+        ],
+        [
+          "ATTENTE",
+          27
+        ]
+      ],
+      "mur": 0.0,
+      "cap": 0.0,
+      "spread_profil": 0.05,
+      "serie": null,
+      "misable": null
+    },
+    {
+      "paire": "HBARUSDT",
+      "archetype": "gros_murs_fondants",
+      "mode": "—",
+      "cadence": 4.99,
+      "dip_exige": 4.0,
+      "seuil": 4.25,
+      "dip_profil": 4.0,
+      "m6_med": 3.49,
+      "seuil_reel": 4.25,
+      "jambes": 1,
+      "inaccessibles": 0,
+      "pnl": 4.279,
+      "n_sell": 5,
+      "motifs": {
+        "RIP/palier": [
+          1,
+          0.0643
+        ],
+        "STOP/GUARD": [
+          1,
+          -0.4997
+        ],
+        "TRAILING": [
+          3,
+          4.7144
+        ]
+      },
+      "stop_annonce": 6.0,
+      "stops_realises": [
+        6.0
+      ],
+      "stop_med": 6.0,
+      "stop_max": 6.0,
+      "dust": 0,
+      "top_refus": [
+        [
+          "ATTENTE",
+          28
+        ],
+        [
+          "MUR-CASSE",
+          14
+        ]
+      ],
+      "mur": 27651.1,
+      "cap": 553.0219999999999,
+      "spread_profil": 1.29,
+      "serie": null,
+      "misable": null
+    },
+    {
+      "paire": "KITEUSDT",
+      "archetype": "gros_murs",
+      "mode": "—",
+      "cadence": 7.35,
+      "dip_exige": 4.0,
+      "seuil": 4.25,
+      "dip_profil": 4.0,
+      "m6_med": 2.75,
+      "seuil_reel": 4.25,
+      "jambes": 1,
+      "inaccessibles": 0,
+      "pnl": 4.2376000000000005,
+      "n_sell": 9,
+      "motifs": {
+        "RIP/palier": [
+          2,
+          0.3567
+        ],
+        "TRAILING": [
+          4,
+          8.6407
+        ],
+        "STOP/GUARD": [
+          3,
+          -4.7598
+        ]
+      },
+      "stop_annonce": 6.0,
+      "stops_realises": [
+        6.0,
+        6.0,
+        6.58
+      ],
+      "stop_med": 6.0,
+      "stop_max": 6.58,
+      "dust": 0,
+      "top_refus": [
+        [
+          "VOL",
+          2294
+        ],
+        [
+          "MUR-FAIBLE",
+          1799
+        ]
+      ],
+      "mur": 29937.28,
+      "cap": 598.7456,
+      "spread_profil": 13.49,
+      "serie": null,
+      "misable": null
+    },
+    {
+      "paire": "PYTHUSDT",
+      "archetype": "gros_murs_fondants",
+      "mode": "—",
+      "cadence": 9.39,
+      "dip_exige": 4.695,
+      "seuil": 4.25,
+      "dip_profil": 4.0,
+      "m6_med": 3.89,
+      "seuil_reel": 4.25,
+      "jambes": 1,
+      "inaccessibles": 0,
+      "pnl": 3.2685000000000004,
+      "n_sell": 9,
+      "motifs": {
+        "RIP/palier": [
+          2,
+          0.3851
+        ],
+        "STOP/GUARD": [
+          2,
+          -2.1135
+        ],
+        "TRAILING": [
+          5,
+          4.9969
+        ]
+      },
+      "stop_annonce": 6.0,
+      "stops_realises": [
+        6.0,
+        6.67
+      ],
+      "stop_med": 6.335,
+      "stop_max": 6.67,
+      "dust": 0,
+      "top_refus": [
+        [
+          "MUR-CASSE",
+          40
+        ],
+        [
+          "SKIP_COOLDOWN",
+          2
+        ]
+      ],
+      "mur": 7039.61,
+      "cap": 140.7922,
+      "spread_profil": 2.07,
+      "serie": null,
+      "misable": null
+    },
+    {
+      "paire": "QAITUSDT",
+      "archetype": "illiquide_spread_large",
+      "mode": "—",
+      "cadence": 11.2,
+      "dip_exige": 5.6,
+      "seuil": 4.76,
+      "dip_profil": 4.0,
+      "m6_med": 0.0,
+      "seuil_reel": 4.76,
+      "jambes": 0,
+      "inaccessibles": 0,
+      "pnl": -0.8523,
+      "n_sell": 1,
+      "motifs": {
+        "STOP/GUARD": [
+          1,
+          -0.8523
+        ]
+      },
+      "stop_annonce": 6.1,
+      "stops_realises": [
+        8.37
+      ],
+      "stop_med": 8.37,
+      "stop_max": 8.37,
+      "dust": 0,
+      "top_refus": [
+        [
+          "SPREAD",
+          33
+        ],
+        [
+          "MUR-CASSE",
+          26
+        ]
+      ],
+      "mur": 1103.26,
+      "cap": 22.0652,
+      "spread_profil": 63.29,
+      "serie": null,
+      "misable": null
+    },
+    {
+      "paire": "REDUSDT",
+      "archetype": "calme_propre",
+      "mode": "—",
+      "cadence": 10.05,
+      "dip_exige": 5.025,
+      "seuil": 4.27125,
+      "dip_profil": 4.0,
+      "m6_med": 2.89,
+      "seuil_reel": 4.27125,
+      "jambes": 1,
+      "inaccessibles": 0,
+      "pnl": 12.2951,
+      "n_sell": 15,
+      "motifs": {
+        "RIP/palier": [
+          2,
+          0.356
+        ],
+        "TRAILING": [
+          8,
+          13.5619
+        ],
+        "STOP/GUARD": [
+          4,
+          -1.5204000000000002
+        ],
+        "DUST_SWEEP": [
+          1,
+          -0.1024
+        ]
+      },
+      "stop_annonce": 6.0,
+      "stops_realises": [
+        6.0,
+        6.0,
+        6.0,
+        6.0
+      ],
+      "stop_med": 6.0,
+      "stop_max": 6.0,
+      "dust": 1,
+      "top_refus": [
+        [
+          "VOL",
+          1124
+        ],
+        [
+          "MUR-CASSE",
+          178
+        ]
+      ],
+      "mur": 5272.53,
+      "cap": 105.4506,
+      "spread_profil": 15.06,
+      "serie": null,
+      "misable": null
+    },
+    {
+      "paire": "RIZEUSDT",
+      "archetype": "manipulee_fragile",
+      "mode": "—",
+      "cadence": 16.88,
+      "dip_exige": 8.44,
+      "seuil": 7.1739999999999995,
+      "dip_profil": 4.2,
+      "m6_med": 8.74,
+      "seuil_reel": 7.1739999999999995,
+      "jambes": 4,
+      "inaccessibles": 4,
+      "pnl": -1.1244,
+      "n_sell": 23,
+      "motifs": {
+        "RIP/palier": [
+          8,
+          2.1832
+        ],
+        "STOP/GUARD": [
+          8,
+          -2.7899
+        ],
+        "DUST_SWEEP": [
+          5,
+          -1.3915000000000002
+        ],
+        "TRAILING": [
+          2,
+          0.8737999999999999
+        ]
+      },
+      "stop_annonce": 8.0,
+      "stops_realises": [
+        9.58,
+        9.58,
+        9.58,
+        13.75,
+        14.58,
+        16.51,
+        16.51,
+        39.23
+      ],
+      "stop_med": 14.165,
+      "stop_max": 39.23,
+      "dust": 5,
+      "top_refus": [
+        [
+          "MUR-CASSE",
+          706
+        ],
+        [
+          "VOL",
+          475
+        ]
+      ],
+      "mur": 243.78,
+      "cap": 4.8756,
+      "spread_profil": 46.99,
+      "serie": {
+        "n": 4,
+        "med_05": 458.4,
+        "med_2": 603.7,
+        "med_spread": 64.6,
+        "med_cap": 15936.25,
+        "ratio": 2641.31
+      },
+      "misable": 45.84
+    },
+    {
+      "paire": "RWAINCUSDT",
+      "archetype": "illiquide_spread_large",
+      "mode": "—",
+      "cadence": 6.52,
+      "dip_exige": 4.0,
+      "seuil": 4.25,
+      "dip_profil": 4.0,
+      "m6_med": 2.18,
+      "seuil_reel": 4.25,
+      "jambes": 1,
+      "inaccessibles": 0,
+      "pnl": -0.8303000000000003,
+      "n_sell": 12,
+      "motifs": {
+        "STOP/GUARD": [
+          6,
+          -7.2957
+        ],
+        "RIP/palier": [
+          2,
+          1.0382
+        ],
+        "TRAILING": [
+          4,
+          5.4272
+        ]
+      },
+      "stop_annonce": 6.5,
+      "stops_realises": [
+        6.28,
+        6.5,
+        6.5,
+        6.93,
+        7.29,
+        7.29
+      ],
+      "stop_med": 6.715,
+      "stop_max": 7.29,
+      "dust": 0,
+      "top_refus": [
+        [
+          "VOL",
+          199
+        ],
+        [
+          "MUR-CASSE",
+          21
+        ]
+      ],
+      "mur": 1386.62,
+      "cap": 27.7324,
+      "spread_profil": 48.02,
+      "serie": {
+        "n": 4,
+        "med_05": 1160.75,
+        "med_2": 4775.200000000001,
+        "med_spread": 5.4,
+        "med_cap": 20020.22,
+        "ratio": 419.255
+      },
+      "misable": 116.075
+    },
+    {
+      "paire": "TELUSDT",
+      "archetype": "illiquide_spread_large",
+      "mode": "—",
+      "cadence": 7.18,
+      "dip_exige": 4.0,
+      "seuil": 4.25,
+      "dip_profil": 4.0,
+      "m6_med": 3.66,
+      "seuil_reel": 4.25,
+      "jambes": 1,
+      "inaccessibles": 0,
+      "pnl": 4.5438,
+      "n_sell": 13,
+      "motifs": {
+        "RIP/palier": [
+          2,
+          0.3843
+        ],
+        "TRAILING": [
+          4,
+          7.6532
+        ],
+        "STOP/GUARD": [
+          6,
+          -3.4065000000000003
+        ],
+        "DUST_SWEEP": [
+          1,
+          -0.0872
+        ]
+      },
+      "stop_annonce": 6.4,
+      "stops_realises": [
+        6.4,
+        6.4,
+        6.4,
+        6.4,
+        6.4,
+        6.4
+      ],
+      "stop_med": 6.4,
+      "stop_max": 6.4,
+      "dust": 1,
+      "top_refus": [
+        [
+          "VOL",
+          95
+        ],
+        [
+          "MUR-CASSE",
+          40
+        ]
+      ],
+      "mur": 1289.57,
+      "cap": 25.7914,
+      "spread_profil": 40.9,
+      "serie": {
+        "n": 4,
+        "med_05": 199.7,
+        "med_2": 3756.9,
+        "med_spread": 38.3,
+        "med_cap": 487088.88,
+        "ratio": 12966.715
+      },
+      "misable": 19.97
+    },
+    {
+      "paire": "WUSDT",
+      "archetype": "calme_propre",
+      "mode": "—",
+      "cadence": 6.96,
+      "dip_exige": 4.0,
+      "seuil": 4.25,
+      "dip_profil": 4.0,
+      "m6_med": 3.72,
+      "seuil_reel": 4.25,
+      "jambes": 1,
+      "inaccessibles": 0,
+      "pnl": 1.2935999999999999,
+      "n_sell": 13,
+      "motifs": {
+        "STOP/GUARD": [
+          4,
+          -1.1382
+        ],
+        "RIP/palier": [
+          2,
+          0.33440000000000003
+        ],
+        "TRAILING": [
+          6,
+          2.1738
+        ],
+        "DUST_SWEEP": [
+          1,
+          -0.0764
+        ]
+      },
+      "stop_annonce": 6.0,
+      "stops_realises": [
+        6.0,
+        6.0,
+        6.0,
+        6.0
+      ],
+      "stop_med": 6.0,
+      "stop_max": 6.0,
+      "dust": 1,
+      "top_refus": [
+        [
+          "VOL",
+          319
+        ],
+        [
+          "MUR-CASSE",
+          29
+        ]
+      ],
+      "mur": 10322.11,
+      "cap": 206.4422,
+      "spread_profil": 12.53,
+      "serie": null,
+      "misable": null
+    },
+    {
+      "paire": "XRPUSDT",
+      "archetype": "majeure_manipulee",
+      "mode": "—",
+      "cadence": 5.67,
+      "dip_exige": 4.0,
+      "seuil": 4.25,
+      "dip_profil": 4.0,
+      "m6_med": 2.87,
+      "seuil_reel": 4.25,
+      "jambes": 1,
+      "inaccessibles": 0,
+      "pnl": 0.8276999999999999,
+      "n_sell": 7,
+      "motifs": {
+        "RIP/palier": [
+          1,
+          0.0505
+        ],
+        "STOP/GUARD": [
+          3,
+          -3.2819000000000003
+        ],
+        "TRAILING": [
+          3,
+          4.0591
+        ]
+      },
+      "stop_annonce": 6.0,
+      "stops_realises": [
+        6.0,
+        6.0,
+        6.0
+      ],
+      "stop_med": 6.0,
+      "stop_max": 6.0,
+      "dust": 0,
+      "top_refus": [
+        [
+          "MUR-CASSE",
+          372
+        ],
+        [
+          "MUR-SPOOF",
+          51
+        ]
+      ],
+      "mur": 84334.38,
+      "cap": 1686.6876000000002,
+      "spread_profil": 2.11,
+      "serie": null,
+      "misable": null
+    },
+    {
+      "paire": "ZBCNUSDT",
+      "archetype": "manipulee_fragile",
+      "mode": "—",
+      "cadence": 7.18,
+      "dip_exige": 4.0,
+      "seuil": 4.25,
+      "dip_profil": 4.0,
+      "m6_med": 3.96,
+      "seuil_reel": 4.25,
+      "jambes": 0,
+      "inaccessibles": 0,
+      "pnl": 0.5024,
+      "n_sell": 10,
+      "motifs": {
+        "RIP/palier": [
+          2,
+          0.3588
+        ],
+        "TRAILING": [
+          6,
+          1.0494999999999999
+        ],
+        "STOP/GUARD": [
+          2,
+          -0.9058999999999999
+        ]
+      },
+      "stop_annonce": 6.0,
+      "stops_realises": [
+        6.0,
+        7.12
+      ],
+      "stop_med": 6.5600000000000005,
+      "stop_max": 7.12,
+      "dust": 0,
+      "top_refus": [
+        [
+          "MUR-CASSE",
+          47
+        ],
+        [
+          "VOL",
+          44
+        ]
+      ],
+      "mur": 340.35,
+      "cap": 6.807,
+      "spread_profil": 18.19,
+      "serie": {
+        "n": 4,
+        "med_05": 1159.35,
+        "med_2": 2447.9,
+        "med_spread": 16.65,
+        "med_cap": 11395604.0,
+        "ratio": 467341.885
+      },
+      "misable": 115.935
+    }
+  ]
+}

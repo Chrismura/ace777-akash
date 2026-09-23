@@ -1,0 +1,70 @@
+SOURCE : klines 1 h (90 j) · 20 paires · du 2026-06-20 10:00Z au 2026-09-18 09:00Z
+(mise fixe 30 $ · frais 5 bps/côté · pas de look-ahead · fenêtre d'entrée : non appliquée)
+
+== GO 1 (ENTRÉE) × GO 2 (SORTIE) — X4 = LE VRAI ACTUEL des paires à profil trailing ==
+entrée  sortie    n(test)   net test  WR test     pire       net 1re moitié (n)
+E0      X0             12      -3.25     42 %    -3.94             +5.45 (  5)  ← actuel
+E0      X4             12      -3.93     42 %    -3.94             +7.39 (  5)
+E0      X1              7     +61.49     57 %   -12.60            +11.93 (  4)
+E0      X2             11     +22.15     73 %   -12.60             -5.14 (  5)
+E0      X3             12      -3.93     42 %    -3.94             +7.39 (  5)
+E1      X0             35     -18.52     43 %    -5.41            +12.30 ( 28)
+E1      X4             35      -7.56     43 %    -5.41            +16.72 ( 28)
+E1      X1             10     +58.26     50 %   -12.80            +43.68 (  9)
+E1      X2             24     +23.15     79 %   -12.60             -1.13 ( 22)
+E1      X3             35      -7.56     43 %    -5.41            +16.72 ( 28)
+E2      X0             78     +30.59     58 %    -5.19             -3.17 ( 57)
+E2      X4             78     +34.70     56 %    -8.56            -14.96 ( 57)
+E2      X1             12     +56.83     58 %   -12.18            +54.39 ( 16)
+E2      X2             43     +59.42     81 %   -12.60            +21.80 ( 35)
+E2      X3             78     +34.70     56 %    -8.56            -14.96 ( 57)
+
+== LECTURE (test hors échantillon) ==
+  E0+X1 : net test +61.49 $ (+65.42 $ vs actuel) · 1re moitié +11.93 $ · ✅ cohérent
+  E0+X2 : net test +22.15 $ (+26.07 $ vs actuel) · 1re moitié -5.14 $ · ⚠️ incohérent
+  E0+X3 : net test -3.93 $ (+0.00 $ vs actuel) · 1re moitié +7.39 $ · ⚠️ incohérent
+  E1+X1 : net test +58.26 $ (+62.18 $ vs actuel) · 1re moitié +43.68 $ · ✅ cohérent
+  E1+X2 : net test +23.15 $ (+27.08 $ vs actuel) · 1re moitié -1.13 $ · ⚠️ incohérent
+  E1+X3 : net test -7.56 $ (-3.63 $ vs actuel) · 1re moitié +16.72 $ · ⚠️ incohérent
+  E2+X1 : net test +56.83 $ (+60.76 $ vs actuel) · 1re moitié +54.39 $ · ✅ cohérent
+  E2+X2 : net test +59.42 $ (+63.35 $ vs actuel) · 1re moitié +21.80 $ · ✅ cohérent
+  E2+X3 : net test +34.70 $ (+38.63 $ vs actuel) · 1re moitié -14.96 $ · ⚠️ incohérent
+
+== GO 1 : LES RAFALES STRUCTURELLEMENT INACCESSIBLES (n = épisodes) ==
+  rafales relevées (m6 ≥ 8 % et amplitude ≥ 5 %) : 38
+  ACCESSIBLES :   6  amplitude moyenne +15.1 %
+  INACCESSIBLES :  32  amplitude moyenne +15.5 %
+     top paires (somme des amplitudes manquées) : RIZE 323 % · EDEL 71 % · CHIP 42 % · RWAINC 20 % · RED 11 % · ETH 9 %
+     PART des rafales inaccessibles : 84 %  ⚠️ la règle de repli ferme la majorité des rafales
+
+== L'ACTUEL RÉEL (X4) vs les variantes — LA comparaison qui compte ==
+entrée  sortie     1re moitié      test  n(test)    top paire (test)
+E0      X4              +7.39     -3.93       12                   —  ← ACTUEL
+E0      X1             +11.93    +61.49        7           EDEL 68 %
+E0      X2              -5.14    +22.15       11           EDEL 72 %
+E1      X4             +16.72     -7.56       35                   —
+E1      X1             +43.68    +58.26       10           EDEL 62 %
+E1      X2              -1.13    +23.15       24           EDEL 53 %
+E2      X4             -14.96    +34.70       78           EDEL 58 %
+E2      X1             +54.39    +56.83       12           RIZE 63 %
+E2      X2             +21.80    +59.42       43           RIZE 42 %
+
+== VARIANTE CONSERVATRICE X3 (stop gardé, rip 50 % retiré) ==
+entrée  sortie     1re moitié      test  n(test)   concentration top paire
+E0      X3              +7.39     -3.93       12                         —
+E1      X3             +16.72     -7.56       35                         —
+E2      X3             -14.96    +34.70       78                 EDEL 58 %
+
+== CONCENTRATION DES GAINS (test) — un gain porté par UNE paire n'est pas un levier ==
+  E0+X0 : net test -3.25 $ · 2/5 paires gagnantes · top3 EDEL +2.33 · CHIP +1.60 · RED -0.86 · 1re paire = 0 %
+  E0+X1 : net test +61.49 $ · 3/4 paires gagnantes · top3 EDEL +41.67 · RED +13.19 · RIZE +11.04 · 1re paire = 68 %
+  E2+X0 : net test +30.59 $ · 10/14 paires gagnantes · top3 EDEL +16.33 · CC +4.73 · KITE +3.71 · 1re paire = 53 %
+  E2+X1 : net test +56.83 $ · 5/8 paires gagnantes · top3 RIZE +35.77 · EDEL +15.60 · ETH +5.97 · 1re paire = 63 %
+  E2+X2 : net test +59.42 $ · 9/13 paires gagnantes · top3 RIZE +24.77 · EDEL +17.46 · KITE +6.37 · 1re paire = 42 %
+
+== EDEL DÉTAILLÉ — TOUTES LES SORTIES, LES DEUX ENTRÉES EXTRÊMES ==
+                    X4          X0          X1          X2
+  E0           +3.88       +2.33      +41.67      +16.04  
+  E1           -3.57       -7.07      +36.22      +12.19  
+  E2          +18.58      +15.89      +32.36      +17.93  
+  (EDEL seul, mise fixe 30 $, frais 5 bps/côté)

@@ -98,6 +98,20 @@ if [ -f "$REPO_DIR/Index_Maison/scripts/verdicts_protocoles.py" ]; then
   python3 "$REPO_DIR/Index_Maison/scripts/verdicts_protocoles.py" >> "$LOG_FILE" 2>&1
 fi
 
+# 1octies) GARDE-FOU DE MÉTHODE SUR LES SEUILS (23/09) — j'ai publié PENDANT TROIS JOURS
+# un seuil RECALCULÉ de mémoire (« le repli exigé vaut max(dip 4,2 % ; 5 % ; 0,30×m6) »)
+# alors que le moteur en appliquait 21,70 % : il manquait LE terme dominant
+# `dip = max(dip_pct ; 0,50 × cadence)`. L'erreur n'était pas un chiffre, c'était une
+# méthode. Ce contrôle CONFRONTE, chaque passage, le seuil recalculé aux chiffres que le
+# moteur ÉCRIT lui-même (refus parlants + sa cadence colonne 9), nomme le terme qui décide
+# (R15) et signale tout instrument qui recalcule un seuil sans la cadence.
+# rc=0 conforme · rc=3 DÉSACCORD (à traiter, ne pas publier de chiffre) · rc=2 pas encore
+# assez de refus chiffrés = EN ATTENTE (normal dans l'heure qui suit une relance).
+if [ -f "$REPO_DIR/hulk-mexc/scripts/verif_seuil_moteur.py" ]; then
+  python3 "$REPO_DIR/hulk-mexc/scripts/verif_seuil_moteur.py" >> "$LOG_FILE" 2>&1 || \
+    echo "[$(date -u +%Y-%m-%dT%H:%MZ)] ALERTE : garde-fou des seuils NON conforme (voir ci-dessus)" >> "$LOG_FILE"
+fi
+
 # 2) Ne committer que les fichiers DÉJÀ SUIVIS (modifiés/supprimés) + les canoniques
 # Garde-fou 05/09 (incident index.lock orphelin du 03/09 : 2,5 jours de push mort
 # en silence, le 2>/dev/null avalait le rc=128 et le script disait « aucun changement ») :

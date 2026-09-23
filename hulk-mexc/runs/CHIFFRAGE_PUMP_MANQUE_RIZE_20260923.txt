@@ -1,0 +1,41 @@
+SOURCE : log continu du moteur — SES PROPRES décisions (prix + régime écrits)
+PAIRE  : RIZEUSDT · 4917 cycles · 2026-09-22T02:00:03Z → 2026-09-23T09:07:09Z
+DÉPART DU CONTRE-FACTUEL : 2026-09-22T02:15:45Z (dernière vente du run = paire À PLAT)
+
+== 1. LE MOUVEMENT ==
+  PLUS BAS  2026-09-22T13:44:54Z  0.001750
+  PLUS HAUT 2026-09-23T07:22:20Z  0.003182
+  AMPLITUDE bas → haut : +81.8 %
+
+== 2. LA PORTE QUI A TENU FERMÉ (régimes écrits PAR LE MOTEUR, après mise à plat) ==
+    IMPULSE_WAIT    4695 cycles ( 96.2 %)
+    IMPULSE          183 cycles (  3.8 %)
+  ⚠️ 183 cycles en IMPULSE (SEULE porte d'entrée ouverte) de 2026-09-22T02:15:45Z à 2026-09-22T03:30:03Z — le moteur A eu le droit d'entrer ; ce sont les AUTRES portes qui ont refusé (journal CSV : VOL sec / MUR-CASSE)
+  cadence ÉCRITE PAR LE MOTEUR (durant les faits, 1 chiffre/h) : 43.6–53.9 % · médiane 49.1 %  → dip = max(4.2 ; 0.5 × 49.1) = 24.55 %  ·  m6 max 42.5 %
+  en IMPULSE_WAIT : 4695 cycles · repli EXIGÉ 21.82–26.93 % · repli OFFERT (reconstruit) jusqu'à 17.45 %
+  → il manquait 7.16 à 26.93 point(s) de repli : la porte n'a JAMAIS pu s'ouvrir pendant que le prix montait
+     ⚠️ dd6 exact non journalisé : la décision du moteur (le régime) est la preuve, pas ma reconstruction (réserve R14 ci-dessous)
+  CONTRÔLE DE COHÉRENCE : cycles restés IMPULSE_WAIT alors que mon dd6 reconstruit ≥ seuil exigé → 0
+  (fidélité du régime recalculé : 95.8 % — réserve R14, la décision reste celle écrite par le moteur)
+
+== 3. CE QUE LA RÈGLE AURAIT DONNÉ (sortie RÉELLE de la paire, séquence complète) ==
+  sortie : trailing (stop 8.0 % · trail arm 11.4 % / giveback 4.55 % · paliers rip : AUCUN) · cooldown post-stop 1 h
+
+  --- E0_ACTUEL : 1 trade(s) · net -2.50 $ (30 $) · -0.41 $ (au plafond du mur 4.88 $) ---
+    2026-09-22T02:15:45Z → 2026-09-22T13:30:16Z  pic   +8.6 %  sortie    -8.2 %  stop-8pct
+
+  --- E2_SANS_REPLI : 5 trade(s) · net +12.94 $ (30 $) · +2.10 $ (au plafond du mur 4.88 $) ---
+    2026-09-22T02:15:45Z → 2026-09-22T13:30:16Z  pic   +8.6 %  sortie    -8.2 %  stop-8pct
+    2026-09-22T14:30:20Z → 2026-09-22T18:04:55Z  pic  +20.4 %  sortie   +10.1 %  trailing_pic20.4_gb4.55
+    2026-09-22T18:05:15Z → 2026-09-22T22:40:35Z  pic  +32.9 %  sortie   +22.1 %  trailing_pic32.9_gb4.55
+    2026-09-22T22:40:55Z → 2026-09-23T05:02:30Z  pic  +21.1 %  sortie   +16.4 %  trailing_pic21.1_gb4.55
+    2026-09-23T05:02:51Z → 2026-09-23T09:07:09Z  pic   +6.4 %  sortie    +3.2 %  OUVERTE
+
+== 4. LE COÛT, EN CLAIR ==
+  Mouvement offert par le prix sur la fenêtre : +63.0 % (depuis la mise à plat 0.001952)
+  RÈGLE ACTUELLE (E0)          : 1 trade(s) → -2.50 $ (30 $) · -0.41 $ (plafond 4.88 $)
+  AVEC LA PORTE DU REPLI LEVÉE (E2) : 5 trade(s) → +12.94 $ (30 $) · +2.10 $ (plafond 4.88 $)
+  → écart mesuré de la porte : +15.44 $ pour 30 $ · +2.51 $ au plafond réel
+  ⚠️ PORTÉE : seule la PORTE DU REPLI est rejouée (les portes volume/mur/spread/plancher ne le sont pas) → ce chiffre mesure LA PORTE, pas le P&L du moteur.
+  ⚠️ Taille réelle : plafond 4.88 $ = 2 % d'un mur médian de 243.78 $ — c'est LA limite.
+  (détail écrit : runs/CHIFFRAGE_PUMP_MANQUE_RIZE_20260923.json)

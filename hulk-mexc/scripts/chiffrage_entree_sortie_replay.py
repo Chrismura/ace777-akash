@@ -40,7 +40,13 @@ from datetime import datetime, timezone
 
 RUNS = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "runs")
 CROIS = os.path.join(RUNS, "croisement_contexte.jsonl")
-FEE = 0.0005          # 5 bps par côté
+# FRAIS + SLIPPAGE — ajout 23/09/2026 après l'objection de la FAMILLE : « vos replays
+# supposent 5 bps/côté et AUCUNE mesure d'impact : sur des micro-caps dont le spread MESURÉ
+# va de 5 à 65 bps, les gains sont mathématiquement surévalués ». Le slippage est donc un
+# PARAMÈTRE (REPLAY_SLIP_BPS), pas une constante cachée : on mesure la sensibilité du
+# résultat au coût réel au lieu de l'espérer.
+import os as _os
+FEE = 0.0005 + float(_os.environ.get("REPLAY_SLIP_BPS", "0")) / 10000.0  # 5 bps + slippage
 MISE = 30.0           # mise fixe, identique pour toutes les variantes
 IMPULSE_PCT = 8.0     # IMPULSE_PCT de defaults.env : m6 mini pour une rafale
 PULLBACK_FRAC = 0.30  # IMPULSE_PULLBACK_FRAC
@@ -362,7 +368,8 @@ def main():
     print(f"SOURCE : {'klines 1 h (90 j)' if KL_MODE else 'log continu du moteur'} · "
           f"{len(dd)} paires · du {datetime.fromtimestamp(t_min, timezone.utc):{f}} "
           f"au {datetime.fromtimestamp(t_max, timezone.utc):{f}}")
-    print(f"(mise fixe {MISE:.0f} $ · frais 5 bps/côté · pas de look-ahead · "
+    print(f"(mise fixe {MISE:.0f} $ · frais {FEE * 10000:.1f} bps/côté (5 + slippage) · pas de "
+          f"look-ahead · "
           f"fenêtre d'entrée : {'APPLIQUÉE' if FENETRE_MODE else 'non appliquée'})\n")
     coupure = t_min + (t_max - t_min) * 0.60
     res = {}
