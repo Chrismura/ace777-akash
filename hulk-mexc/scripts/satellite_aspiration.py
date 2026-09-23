@@ -279,6 +279,48 @@ def run_once() -> int:
     }
     try:
         atomic_write(LIVE, LIVE_DATA)
+        # ── FLUX WEBSOCKET EN OMBRE (GO 1 du 23/09, ordre Christophe « pourquoi pas les deux ? »)
+        # CE QUE ÇA FAIT : on ÉCOUTE le carnet (push, `spot@…bookTicker…@100ms`) au lieu de le
+        # DEMANDER deux fois à 0,5 s d'écart. Mesuré : âge médian 14-15 ms et 100 % sous la barre
+        # de 1 s du jury, contre 1 058 ms / 22,7 % en REST.
+        # POURQUOI EN OMBRE ET PAS EN REMPLACEMENT : le moteur lit `aspiration_live.json`. Tant que
+        # les deux sources n'ont pas été comparées sur des données réelles, on AJOUTE (`ws`) sans
+        # RIEN retirer — le moteur continue sur les valeurs d'aujourd'hui. Rien de silencieux : le
+        # bloc dit lui-même ce qu'il est. Lecture seule, aucun ordre, aucun seuil touché.
+        try:
+            import ws_book                                            # noqa: PLC0415
+            _ws = ws_book.lire_flux(actives, secondes=1.5, pas="100ms")
+            _n_ok = 0
+            for _p, _d in _ws.items():
+                if not _d.get("ok"):
+                    radar.setdefault(_p, {})["ws_ok"] = False
+                    continue
+                _n_ok += 1
+                radar[_p].update({
+                    "ws_ok": True, "ws_prix": _d["prix"], "ws_spread_bps": _d["spread_bps"],
+                    "ws_age_s": _d["age_s"], "ws_n_trames": _d["n"],
+                    "ws_drop_bid_pct_per_s": _d["drop_bid_pct_per_s"],
+                    "ws_wall_bid_usdt": _d["wall_bid_usdt"], "ws_wall_ask_usdt": _d["wall_ask_usdt"],
+                })
+            _ws_ecart = []
+            for _p, _d in _ws.items():
+                _r = radar.get(_p) or {}
+                if _d.get("ok") and _r.get("prix") and _d.get("prix"):
+                    _ws_ecart.append((_d["prix"] / _r["prix"] - 1) * 100)
+            _ws_ecart.sort()
+
+            def _ws_med(v):
+                return round(v[len(v) // 2], 4) if v else None
+
+            LIVE_DATA["ws_ombre"] = {
+                "ok": True, "n_paires": _n_ok, "source": "flux bookTicker 100ms (protobuf décodé)",
+                "ecart_prix_median_pct": _ws_med(_ws_ecart),
+                "ecart_prix_max_abs_pct": (round(max(abs(x) for x in _ws_ecart), 4) if _ws_ecart else None),
+                "note": "AJOUT, pas remplacement : le moteur lit toujours les valeurs REST ci-dessus. "
+                        "Le passage au flux attend la comparaison (et un GO).",
+            }
+        except Exception as _e:                                     # noqa: BLE001
+            LIVE_DATA["ws_ombre"] = {"ok": False, "reason": str(_e)[:120]}
         corpus_write(radar, btc)
         print(f"[sat-asp] ts={LIVE_DATA['ts']} actives={len(actives)} "
               f"écrites->{LIVE.name} btc={btc:.0f}")

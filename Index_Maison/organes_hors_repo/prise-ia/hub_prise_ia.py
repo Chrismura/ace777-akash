@@ -545,6 +545,15 @@ def chat_completions(payload):
     if _tache_en_pause(task):
         raise RuntimeError("Tache %s en pause anti-tempete (5 min) - reessayez plus tard" % task)
     only_model = payload.get("model")
+    # JURY / ENSEMBLE EN MODE STRICT (23/09/2026, ordre Christophe « regarde ce qui se fait dans
+    # le milieu ») — POURQUOI : un avis de famille est censé venir d'un modèle INDÉPENDANT.
+    # Mesuré le 23/09 : sur 4 modèles demandés, 3 ont été servis par un AUTRE modèle (le « filet
+    # universel » : « plus jamais à sec tant qu'UN provider répond »). Le jury est tombé de 3 voix
+    # à UNE, sans rien casser — et un jury de 1 n'est pas un jury.
+    # PRATIQUE DU MILIEU : on épingle le modèle, on vérifie `response.model`, et une voix
+    # substituée est un ÉCHEC DE L'APPEL, jamais un avis. Avec `strict_model: true` : la chaîne
+    # est limitée aux providers qui servent RÉELLEMENT le modèle demandé, sans filet universel.
+    strict_model = bool(payload.get("strict_model"))
 
     # C2 spec anti-fleau : budget temps global demarre AVANT l'injection de contexte
     # (qui peut prendre jusqu'a 20s via subprocess) — le budget couvre TOUTE la requete.
@@ -622,10 +631,12 @@ def chat_completions(payload):
         target_ids = [only_model]
         # Patch local (Ada 08/08) : un modele seul herite du fallback defini dans routing.tasks
         # (ex. model=nvidia -> nvidia puis gemini via la regle de analyse.profonde)
-        for rule in routing.get("tasks", {}).values():
-            if rule.get("provider") == only_model and rule.get("fallback"):
-                if rule["fallback"] not in target_ids:
-                    target_ids.append(rule["fallback"])
+        # strict_model : AUCUN héritage de repli (un repli = une voix qui n'est pas celle demandée).
+        if not strict_model:
+            for rule in routing.get("tasks", {}).values():
+                if rule.get("provider") == only_model and rule.get("fallback"):
+                    if rule["fallback"] not in target_ids:
+                        target_ids.append(rule["fallback"])
 
     chain_ids = set()
     if target_ids:
@@ -638,7 +649,11 @@ def chat_completions(payload):
         # FILE UNIVERSEL (16/08, Regle 1) : la chaine d'abord, PUIS tous les
         # autres providers actifs (tries par order). Plus jamais « a sec »
         # tant qu'UN provider repond.
-        providers = ordered + [p for p in providers if p not in ordered]
+        providers = ordered + ([] if strict_model else [p for p in providers if p not in ordered])
+        if strict_model:
+            # Pas de filet : mieux vaut AUCUNE voix que la voix d'un autre modèle.
+            log_event("routing", "strict_model : filet universel DÉSACTIVÉ pour " + str(only_model),
+                      str(task or ""))
         # FAMILLE (16/08, condition 1) : budget cloud atteint -> le FILET ne
         # pioche QUE les gratuits. La chaine garde sa preference (deja reduite
         # aux gratuits plus haut), le filet ne peut JAMAIS re-injecter un payant
@@ -651,6 +666,10 @@ def chat_completions(payload):
             providers = chaine + filet
             log_event("quota", "Budget atteint -> filet restreint aux gratuits", task or "?")
     if not providers:
+        if strict_model:
+            # On ne substitue pas : on échoue franchement, et l'appelant le voit.
+            raise RuntimeError("strict_model : aucun fournisseur ne sert <%s> — voix INDISPONIBLE "
+                               "(pas de substitution silencieuse)" % only_model)
         raise RuntimeError("Aucun fournisseur branche")
 
     attempts, last_err, tried = [], "", 0

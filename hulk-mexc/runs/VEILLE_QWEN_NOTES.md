@@ -4976,3 +4976,11 @@ Pas d’ordre — confrontation plus tard.
 ### 2026-09-23T11:38:16Z — ALERT auto
 - HBARUSDT: WATCH_PULLBACK — tension haute + reflux
 (compléter: confirmé ? risque ?)
+
+### 2026-09-23T12:44:38Z — ALERT auto
+- HBARUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
+
+### 2026-09-23T12:56:02Z — ALERT auto
+- TELUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
