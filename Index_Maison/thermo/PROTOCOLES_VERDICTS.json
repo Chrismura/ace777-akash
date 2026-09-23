@@ -1,5 +1,5 @@
 {
-  "ts": "2026-09-23T16:21:48+00:00",
+  "ts": "2026-09-23T17:08:49+00:00",
   "note": "Verdicts MESURÉS à la source (scripts/verdicts_protocoles.py). Chaque protocole porte son critère pré-enregistré : c'est lui qui décide, pas l'impression du moment. Un verdict « IMPOSSIBLE » ou une ligne « alerte » signale un protocole dont le verdict ne peut pas être rendu — c'est une panne de conception, pas une patience.",
   "protocoles": [
     {
@@ -22,7 +22,7 @@
     {
       "protocole": "Radar RWA (DefiLlama)",
       "critere": "pré-enregistré J+8 : ≥ 3 pools du top 20 TVL (au 1er relevé du 11/09) bougent de ≥ 50 bps en 7 jours",
-      "faits": "15610 relevés · 376 pools suivis · top 20 TVL : 0 pool(s) ont bougé de ≥ 50 bps",
+      "faits": "15969 relevés · 377 pools suivis · top 20 TVL : 0 pool(s) ont bougé de ≥ 50 bps",
       "verdict": "ECHEC (critère non atteint)",
       "alerte": "critère MAL CIBLÉ : 9 des 20 plus gros pools ont un rendement quasi nul (< 0,5 % — lending Solana : DSOL/JITOSOL/JLP…) → le top 20 TVL n'est PAS la liste des rendements de crédit privé que le prototype visait ; sur les pools qui portent un vrai rendement, 0 bouge(nt) de ≥ 50 bps",
       "detail": [
@@ -171,17 +171,13 @@
     {
       "protocole": "Radar XRPL gouvernance",
       "critere": "J8 pré-enregistré : (a) ≥ 5 amendements dont le compteur bouge de ≥ 2 votes, OU (b) ≥ 1 activation, OU (c) ≥ 1 amendement mort ; sinon échec",
-      "faits": "227 snapshots · 112 amendements suivis · (a) 5 bougent de ≥ 2 (il en fallait 5) · (b) 0 activation · (c) 0 mort · 2 nouveau(x)",
+      "faits": "228 snapshots · 112 amendements suivis · (a) 5 bougent de ≥ 2 (il en fallait 5) · (b) 0 activation · (c) 0 mort · 2 nouveau(x)",
       "verdict": "SUCCES (critère atteint)",
       "alerte": "",
       "detail": [
         {
           "amendement": "PermissionDelegationV1_1",
           "delta_votes": 9
-        },
-        {
-          "amendement": "ConfidentialTransfer",
-          "delta_votes": 3
         },
         {
           "amendement": "BatchV1_1",
@@ -192,19 +188,23 @@
           "delta_votes": 3
         },
         {
-          "amendement": "SingleAssetVault",
-          "delta_votes": 2
+          "amendement": "ConfidentialTransfer",
+          "delta_votes": 3
         },
         {
-          "amendement": "Sponsor",
-          "delta_votes": -1
+          "amendement": "SingleAssetVault",
+          "delta_votes": 2
         },
         {
           "amendement": "LendingProtocol",
           "delta_votes": 1
         },
         {
-          "amendement": "fixXChainRewardRounding",
+          "amendement": "Sponsor",
+          "delta_votes": -1
+        },
+        {
+          "amendement": "XChainBridge",
           "delta_votes": 0
         }
       ]
@@ -298,16 +298,10 @@
     {
       "protocole": "paternes-btc (Kronos)",
       "critere": "mesure en continu des paternes validés (50w×200w + RSI hebdo, MACD daily = filtre, cycle) — verdict à n ≥ 30 cycles",
-      "faits": "11 cycles · régime HAUSSIER (écart 50w/200w 20.0 %, RSI hebdo 71) · MACD histogramme 397 · BTC 76540 → 86607 (+13.2 %)",
-      "verdict": "EN ATTENTE (il manque 19 cycle(s) — cadence quotidienne → ~19 jour(s))",
+      "faits": "12 cycles · régime HAUSSIER (écart 50w/200w 19.9 %, RSI hebdo 71) · MACD histogramme 601 · BTC 76540 → 86184 (+12.6 %)",
+      "verdict": "EN ATTENTE (il manque 18 cycle(s) — cadence quotidienne → ~18 jour(s))",
       "alerte": "",
       "detail": [
-        {
-          "ts": "2026-09-18T08:07:08Z",
-          "prix": 76141.53,
-          "regime": "HAUSSIER",
-          "rsi_w": 63.5
-        },
         {
           "ts": "2026-09-19T16:55:23Z",
           "prix": 80872.23,
@@ -331,6 +325,12 @@
           "prix": 86607.63,
           "regime": "HAUSSIER",
           "rsi_w": 71.3
+        },
+        {
+          "ts": "2026-09-23T16:55:10Z",
+          "prix": 86184.81,
+          "regime": "HAUSSIER",
+          "rsi_w": 71.0
         }
       ]
     },

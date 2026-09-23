@@ -1,34 +1,6 @@
 {
   "signals": [
     {
-      "metric": "sdi",
-      "zscore": 2.125735831240682,
-      "value": 0.02,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.13) totalement faussée par une collision lexicale : le 'SDI' onchain n'a aucun rapport avec le 'Syndicat des Indépendants' (SDI) ou le matériel vidéo SDI mentionnés dans les médias. Bruit pur, pas de mouvement de baleine crypto.\"\n}\n```",
-      "ts": "2026-09-22T20:06:57.904537+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.027708483247671,
-      "value": 1.02,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique due à une confusion lexicale : 'IPT' dans les médias fait référence à des institutions académiques (Tournoi de Physiciens, Institut Protestant de Théologie) et non à un actif crypto. Aucune activité de baleine pertinente.\"\n}\n```",
-      "ts": "2026-09-23T00:07:37.120656+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": -8.5156203223067,
-      "value": 71,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 95,\n  \"reason\": \"Z-score extrêmement bas (-8.52) malgré une avidité élevée (71). Absence totale de couverture médiatique malgré l'anomalie : les baleines distribuent dans l'ombre pendant que le retail ignore le risque imminent de retournement.\"\n}\n```",
-      "ts": "2026-09-23T00:07:38.467192+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": -6.855654600401048,
-      "value": 71,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-6.86) malgré une avidité élevée (71) et un vide médiatique total (Google Actualités). Divergence classique de distribution : les baleines liquident silencieusement dans l'euphorie retail sans couverture médiatique.\"\n}\n```",
-      "ts": "2026-09-23T00:37:44.767328+00:00"
-    },
-    {
       "metric": "ipt",
       "zscore": 2.503981195715656,
       "value": 1.151,
@@ -349,6 +321,34 @@
       "value": 1.061,
       "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 92,\n  \"reason\": \"Le z-score extrême (3.85) sur le ratio long/short signale une surconcentration dangereuse des positions acheteuses par les baleines. Pendant ce temps, le narratif médiatique grand public banalise et encense les stratégies 'Long/Short', agissant comme un signal contrarien classique de bulle spéculative avant un 'long squeeze'.\"\n}\n```",
       "ts": "2026-09-23T16:20:11.418773+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.977581951469077,
+      "value": 18439281437.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique sans rapport avec la crypto (bruit de fond médiatique sur l'hydratation, la mode et le cyclisme). Aucune baleine détectée.\"\n}\n```",
+      "ts": "2026-09-23T16:25:37.295199+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": 3.3090454574698023,
+      "value": 1.061,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Le Z-score extrême (3.31) indique une surconcentration massive et anormale de positions acheteuses (retail/FOMO), totalement déconnectée des discussions médiatiques traditionnelles axées sur la prudence des fonds long/short. Risque imminent de 'long squeeze' par les baleines.\"\n}\n```",
+      "ts": "2026-09-23T16:51:45.587287+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.8657526999298666,
+      "value": 18617119662.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique de volume non pertinente : le bruit médiatique concerne l'agriculture, la santé, le e-commerce et la finance traditionnelle, sans aucun rapport avec les flux on-chain crypto.\"\n}\n```",
+      "ts": "2026-09-23T16:57:26.111235+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.1070975999923203,
+      "value": 1.058,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Anomalie de données non pertinente. Le ticker 'IPT' dans les médias fait référence à des sujets sans rapport (Tournoi de Physique, violences sexistes, MoU universitaire, agriculture) et non à un actif crypto. Aucune baleine détectée.\"\n}\n```",
+      "ts": "2026-09-23T17:07:50.000002+00:00"
     }
   ]
 }

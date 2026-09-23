@@ -1,25 +1,25 @@
 {
-  "timestamp": 1790180249,
-  "date": "2026-09-23T16:17:29.283113+00:00",
-  "n_analyses": 4,
+  "timestamp": 1790183250,
+  "date": "2026-09-23T17:07:30.400409+00:00",
+  "n_analyses": 2,
   "analyses": [
     {
       "signal": {
         "metric": "long_short",
-        "zscore": 5.095181429944429,
-        "value": 1.07,
-        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 92,\n  \"reason\": \"Z-score extrême (5.10) sur le ratio long/short indiquant un positionnement acheteur excessivement surpeuplé par la foule, tandis que le narratif médiatique grand public s'enthousiasme naïvement pour les stratégies long/short. Classique piège à liquidité propice à une purge imminente des baleines.\"\n}\n```",
-        "ts": 1790178458.18224
+        "zscore": 3.3090454574698023,
+        "value": 1.061,
+        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Le Z-score extrême (3.31) indique une surconcentration massive et anormale de positions acheteuses (retail/FOMO), totalement déconnectée des discussions médiatiques traditionnelles axées sur la prudence des fonds long/short. Risque imminent de 'long squeeze' par les baleines.\"\n}\n```",
+        "ts": 1790182305.587287
       },
       "fiche": "long_short",
       "questions": {
         "ratio_long_short": {
-          "value": 1.061,
+          "value": 1.091,
           "seuil": 2,
           "depasse": false
         },
         "oi": {
-          "value": 99416.601,
+          "value": 99155.365,
           "seuil": 120000,
           "depasse": false
         }
@@ -35,15 +35,15 @@
     {
       "signal": {
         "metric": "volume",
-        "zscore": 2.206003182420141,
-        "value": 17233477701.0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie de volume non corrélée au marché crypto (bruit de fond ou données macro hors-sujet). Les gros titres médiatiques traitent de retail, de pneumatiques et de musique, démontrant une absence totale de narratif crypto à analyser. Aucune baleine détectée.\"\n}\n```",
-        "ts": 1790178795.180703
+        "zscore": 2.8657526999298666,
+        "value": 18617119662.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique de volume non pertinente : le bruit médiatique concerne l'agriculture, la santé, le e-commerce et la finance traditionnelle, sans aucun rapport avec les flux on-chain crypto.\"\n}\n```",
+        "ts": 1790182646.111235
       },
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": 0.37,
+          "value": -0.13,
           "seuil": 1,
           "depasse": false
         },
@@ -53,100 +53,24 @@
           "depasse": false
         },
         "funding": {
-          "value": 1.5e-05,
+          "value": 1e-06,
           "seuil": 0.001,
           "depasse": false
         },
         "whales": {
-          "value": 6,
+          "value": 1,
           "seuil": 5,
-          "depasse": true
-        }
-      },
-      "interpretation": {
-        "condition": "whales > 5",
-        "lecture": "Activité institutionnelle intense — les gros bougent en douce",
-        "niveau": "surveiller",
-        "action": "Surveiller les prochaines heures, prêt à réagir"
-      },
-      "action": "Surveiller les prochaines heures, prêt à réagir",
-      "niveau": "surveiller"
-    },
-    {
-      "signal": {
-        "metric": "ipt",
-        "zscore": 2.425969581183142,
-        "value": 1.135,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Le ticker 'ipt' fait référence à des institutions académiques et religieuses (Institut Polytechnique de Toulouse/Paris, Théologique) dans les médias, créant une confusion totale avec un actif crypto. Aucune donnée on-chain pertinente de baleine crypto détectée derrière ce bruit médiatique.\"\n}\n```",
-        "ts": 1790178833.015172
-      },
-      "fiche": "rbf_eleve",
-      "questions": {
-        "prix": {
-          "value": 0.37,
-          "seuil": 1,
-          "depasse": false
-        },
-        "paires": {
-          "value": 0,
-          "seuil": 3,
-          "depasse": false
-        },
-        "funding": {
-          "value": 1.5e-05,
-          "seuil": 0.001,
-          "depasse": false
-        },
-        "whales": {
-          "value": 6,
-          "seuil": 5,
-          "depasse": true
-        }
-      },
-      "interpretation": {
-        "condition": "whales > 5",
-        "lecture": "Activité institutionnelle intense — les gros bougent en douce",
-        "niveau": "surveiller",
-        "action": "Surveiller les prochaines heures, prêt à réagir"
-      },
-      "action": "Surveiller les prochaines heures, prêt à réagir",
-      "niveau": "surveiller"
-    },
-    {
-      "signal": {
-        "metric": "whale_usd",
-        "zscore": 3.7668405000629734,
-        "value": 4765913.0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Activité anormale des baleines (Z-score 3.77, ~4.76M USD) en l'absence totale de couverture médiatique (Google Actualités vide). C'est la définition classique d'une accumulation ou d'un mouvement silencieux avant que le narratif public ne se forme.\"\n}\n```",
-        "ts": 1790180079.284106
-      },
-      "fiche": "whale_usd",
-      "questions": {
-        "ventes": {
-          "value": 1633412.0,
-          "seuil": 0,
-          "depasse": true
-        },
-        "achats": {
-          "value": 3132500.0,
-          "seuil": 0,
-          "depasse": true
-        },
-        "prix": {
-          "value": 0.37,
-          "seuil": 1,
           "depasse": false
         }
       },
       "interpretation": {
-        "condition": "achats > ventes",
-        "lecture": "Flux baleines ACHETEUR dominant — accumulation possible, à confirmer sur plusieurs scans",
-        "niveau": "info",
-        "action": "Observer, ne pas acheter sur un seul signal"
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
       },
-      "action": "Observer, ne pas acheter sur un seul signal",
-      "niveau": "info"
+      "action": "Observer",
+      "niveau": "neutre"
     }
   ],
-  "resume": "🟡 SURVEILLANCE — des signaux sont à observer"
+  "resume": "🔵 CALME — pas de signal alarmant"
 }
