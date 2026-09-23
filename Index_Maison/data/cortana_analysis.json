@@ -1,50 +1,30 @@
 {
-  "timestamp": 1790133134,
-  "date": "2026-09-23T03:12:14.943639+00:00",
+  "timestamp": 1790136735,
+  "date": "2026-09-23T04:12:15.993019+00:00",
   "n_analyses": 2,
   "analyses": [
     {
       "signal": {
-        "metric": "whale_usd",
-        "zscore": 2.5674943742217966,
-        "value": 2250987.0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Activité anormale des baleines (z-score 2.57, accumulation de 2.25M$) dans un silence médiatique total (Google Actualités vide). Divergence classique de phase d'accumulation discrète avant le réveil du retail.\"\n}\n```",
-        "ts": 1790132609.349822
+        "metric": "ipt",
+        "zscore": -2.0279262531877174,
+        "value": 0.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Le ticker 'IPT' dans les médias fait référence à des institutions académiques (Institut Polytechnique de Paris, Tournoi des Physiciens, Institut Protestant de Théologie) et non à un actif crypto. L'anomalie onchain est un bruit statistique sans lien avec la réalité médiatique.\"\n}\n```",
+        "ts": 1790135626.964556
       },
-      "fiche": "whale_usd",
-      "questions": {
-        "ventes": {
-          "value": 625871.0,
-          "seuil": 0,
-          "depasse": true
-        },
-        "achats": {
-          "value": 0.0,
-          "seuil": 0,
-          "depasse": false
-        },
-        "prix": {
-          "value": -0.07,
-          "seuil": 1,
-          "depasse": false
-        }
-      },
+      "fiche": null,
       "interpretation": {
-        "condition": "ventes > achats",
-        "lecture": "Flux baleines VENDEUR dominant — distribution possible vers les exchanges (proxy : bearish aujourd'hui)",
-        "niveau": "surveiller",
-        "action": "Croiser avec le sniffer vieux BTC et l'IPT avant de réduire"
+        "lecture": "Pas de fiche disponible",
+        "niveau": "inconnu"
       },
-      "action": "Croiser avec le sniffer vieux BTC et l'IPT avant de réduire",
-      "niveau": "surveiller"
+      "action": "Observer"
     },
     {
       "signal": {
         "metric": "fear_greed",
-        "zscore": -2.6457513110645903,
+        "zscore": -2.236067977499786,
         "value": 71,
-        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Le score Z extrêmement bas (-2.65) malgré une avidité élevée (71) révèle un 'silence radio' médiatique et un épuisement de la liquidité de détail. Les baleines profitent de cette euphorie aveugle pour distribuer discrètement.\"\n}\n```",
-        "ts": 1790132911.379512
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Fear-greed index shows greed (71) with significant z-score (-2.24), indicating strong bullish sentiment divergence vs. media narratives. Whale accumulation likely underway despite neutral media coverage.\"\n}\n```",
+        "ts": 1790136542.318809
       },
       "fiche": "fear_greed",
       "questions": {
@@ -68,5 +48,5 @@
       "niveau": "neutre"
     }
   ],
-  "resume": "🟡 SURVEILLANCE — des signaux sont à observer"
+  "resume": "🔵 CALME — pas de signal alarmant"
 }
