@@ -1,5 +1,5 @@
 {
-  "ts": "2026-09-23T20:24:09+00:00",
+  "ts": "2026-09-23T21:24:45+00:00",
   "note": "Verdicts MESURÉS à la source (scripts/verdicts_protocoles.py). Chaque protocole porte son critère pré-enregistré : c'est lui qui décide, pas l'impression du moment. Un verdict « IMPOSSIBLE » ou une ligne « alerte » signale un protocole dont le verdict ne peut pas être rendu — c'est une panne de conception, pas une patience.",
   "protocoles": [
     {
@@ -171,7 +171,7 @@
     {
       "protocole": "Radar XRPL gouvernance",
       "critere": "J8 pré-enregistré : (a) ≥ 5 amendements dont le compteur bouge de ≥ 2 votes, OU (b) ≥ 1 activation, OU (c) ≥ 1 amendement mort ; sinon échec",
-      "faits": "231 snapshots · 112 amendements suivis · (a) 5 bougent de ≥ 2 (il en fallait 5) · (b) 0 activation · (c) 0 mort · 2 nouveau(x)",
+      "faits": "232 snapshots · 112 amendements suivis · (a) 5 bougent de ≥ 2 (il en fallait 5) · (b) 0 activation · (c) 0 mort · 2 nouveau(x)",
       "verdict": "SUCCES (critère atteint)",
       "alerte": "",
       "detail": [
@@ -180,7 +180,7 @@
           "delta_votes": 9
         },
         {
-          "amendement": "ConfidentialTransfer",
+          "amendement": "DynamicMPT",
           "delta_votes": 3
         },
         {
@@ -188,7 +188,7 @@
           "delta_votes": 3
         },
         {
-          "amendement": "DynamicMPT",
+          "amendement": "ConfidentialTransfer",
           "delta_votes": 3
         },
         {
@@ -212,7 +212,7 @@
     {
       "protocole": "Arbitrage LLM-vs-règle (Cortana)",
       "critere": "la règle maison : < 60 % de justesse micro → confiance faible + 1 alerte/h max. Verdict annoncé 27/09",
-      "faits": "0 alerte(s) microstructure au journal · 0 notée(s) par le juge indépendant · justesse n/d · avis directionnels de Cortana (toutes matières) : 56/97 = 57.7 %",
+      "faits": "0 alerte(s) microstructure au journal · 0 notée(s) par le juge indépendant · justesse n/d · avis directionnels de Cortana (toutes matières) : 55/96 = 57.3 %",
       "verdict": "IMPOSSIBLE (0 cas à juger)",
       "alerte": "le verdict du 27/09 ne pourra PAS être rendu : 0 alerte(s) en 7 jours → 0 cas. Le producteur d'alertes (module microstructure) n'a rien écrit depuis le 09/09 (data/micro_alerts.jsonl = 0 octet) — il faut trancher : module mort, ou rien à alerter ?",
       "detail": [
@@ -254,9 +254,9 @@
         },
         {
           "indice": "fearGreed",
-          "directionnels": 38,
-          "corect": 22,
-          "n": 66
+          "directionnels": 37,
+          "corect": 21,
+          "n": 65
         },
         {
           "indice": "geopol",
@@ -291,7 +291,7 @@
           "directionnels": 4,
           "corrects": 1,
           "neutres": 19,
-          "t_stat": -3.54
+          "t_stat": -3.13
         }
       ]
     },
