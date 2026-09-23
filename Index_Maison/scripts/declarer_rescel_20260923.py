@@ -48,13 +48,43 @@ DECLARATIONS = {
         "-- 3e MODIFICATION DU MÊME JOUR (classe E15, 23/09) : les 5 colonnes NE SUIVAIENT PAS LE "
         "RESUME, qui recopiait l'ANCIEN fichier (`shutil.copy2`) PAR-DESSUS le nouveau → journal "
         "vivant à en-tête 11 colonnes et lignes à 16 (mesuré : 76 162 lignes à 11 + 12 à 16). "
-        "CORRIGÉ À LA RACINE : `CSV_SCHEMA` devient la SOURCE UNIQUE du schéma (en-tête né et "
-        "repris du même endroit : une copie divergerait), le resume RÉÉCRIT l'en-tête courant en "
-        "jetant l'ancien, et une garde à l'écriture hurle `SCHEMA_ECART` au lieu d'écrire une "
-        "ligne bancale. ADDITIF : aucune colonne retirée, aucun seuil, aucune porte, aucun ordre. "
-        "Vérifié après relance par le watchdog de la maison : en-tête 16, `verif_schema_journal` "
-        "CONFORME rc=0, état repris à l'identique (pnl 42,1679 $ / 175 trades / 10 positions)."
+        "CORRIGÉ À LA RACINE : `CSV_SCHEMA` devient la SOURCE UNIQUE du schéma, le resume "
+        "RÉÉCRIT l'en-tête courant en jetant l'ancien, et une garde à l'écriture hurle "
+        "`SCHEMA_ECART` au lieu d'écrire une ligne bancale. ADDITIF : aucune colonne retirée, "
+        "aucun seuil, aucune porte, aucun ordre. Vérifié après relance par le watchdog de la "
+        "maison : en-tête 16, `verif_schema_journal` CONFORME rc=0, état repris à l'identique "
+        "(pnl 42,1679 $ / 175 trades / 10 positions). "
+        "-- 4e MODIFICATION DU MÊME JOUR (GO 2, ordre Christophe « le stop vérifié à l'instant de "
+        "l'impact ») : le stop se décidait sur le prix du cycle (âge jusqu'à 120 s). Désormais, "
+        "au déclenchement, un GET ciblé frais remplace ce prix AVANT la vente (`last_price_frais`, "
+        "≈ 0,3 s) et l'âge des deux prix est éCRIT dans le motif (`_impact_avNs_apNs`) — le "
+        "déclenchement, les seuils et les portes restent IDENTIQUES, seul le prix utilisé est plus "
+        "récent. Les motifs historiques gardent leur préfixe exact (aucun lecteur cassé) ; le "
+        "motif de balayage de poussière nomme maintenant son niveau (`dust_sweep_stop_guard_PAIRE_stopX%`) "
+        "pour que le niveau de stop soit lisible partout. Échec réseau → prix du cycle conservé et "
+        "tag `_impact_NA` : aucune valeur inventée. Vérifié par `verif_stop_impact.py` (5/5, dont "
+        "4 cas d'échec rejetés). Réversible en 4 lignes. "
+        "-- CORRECTION DE COMPRÉHENSION QUE CETTE MODIF ACCOMPAGNE (classe E17) : j'ai publié "
+        "« stop annoncé 8 % » pour RIZE en lisant `calib.stop_pct` — un PLANCHER ; le stop réel de "
+        "la machine est `max(plancher ; cadence × 0.70)` = 39,23 % (44 % aujourd'hui), écrit dans "
+        "ses propres motifs. Le stop TIENT au point de base ; c'est son NIVEAU qui est énorme."
     ),
+    "Index_Maison/scripts/verifier_regles_or.py": (
+        "R18 AJOUTÉE LE 23/09 (ordre Christophe : « ouvre un round avec la famille et garde la "
+        "fenêtre ouverte, tu n'es plus digne de diriger seule » · « sinon c'est radiation à vie, "
+        "règle d'or ») : **R18 — LE JURY PERMANENT**. Elle est MESURÉE, pas promise : il faut une "
+        "session de famille OUVERTE, consultée dans les 24 h, dont le fil est COHÉRENT (chaque "
+        "tour posé a ses avis) et avec au moins 3 voix INDÉPENDANTES (une substitution modèle "
+        "demandé ≠ servi ne compte pas — faute E16). Ajout purement additif : aucune règle "
+        "existante modifiée, 12 règles mesurées au lieu de 11."
+    ),
+    # Clés factices supprimées le 23/09/2026 : une édition trop rapide avait coupé la
+    # déclaration de paper_diprip.py EN DEUX (clés « _marker_inutile », « _suite »,
+    # « __trou_inchange__ »). Son texte — 3e modification (E15, schéma du journal) incluse —
+    # est remis dans SA déclaration, ci-dessus. Leçon de processus, écrite ici pour qu'elle
+    # serve : après toute édition de CE fichier, relire la déclaration de bout en bout AVANT
+    # de lancer le re-scellement (une déclaration coupée passe le py_compile et scelle les
+    # mauvais md5).
     "hulk-mexc/scripts/satellite_aspiration.py": (
         "GO 3 (23/09/2026, GO Christophe après l'audit MEXC × HULK) — COUVERTURE DES 20 PAIRES. "
         "L'audit a mesuré que 13 paires sur 20 n'avaient AUCUNE vue live : le satellite ne sondait "
@@ -313,6 +343,51 @@ NOUVEAUX = {
                 "horodaté du registre + entrée `_rescel_20260923` qui dit ce qui a changé et "
                 "pourquoi). Règle maison R5/R13 : un scellé ne s'écrase jamais sans le déclarer.",
         "origine": "GO Christophe 23/09 — la veilleuse criait (à raison) sur 2 scellés modifiés",
+    },
+    "hulk-mexc/scripts/oracle_independant.py": {
+        "role": "ORACLE INDÉPENDANT (classe E11, GO 1 du 23/09) : juge CHAQUE trade sur les bougies "
+                "1 min MEXC BRUTES — aucun indicateur du moteur n'est relu. Il dit (A) si la baisse "
+                "était réellement là avant l'achat, (B) le meilleur et le pire point atteints, "
+                "(C) si le stop RÉEL (niveau LU dans le motif de sortie du moteur, jamais deviné) a "
+                "été touché et avec quel retard, (D) ce que le marché a fait après la vente, "
+                "(E) le PnL recalculé (quantité × écart) et net estimé. C'est la seule voix qui "
+                "puisse contredire la machine autrement qu'avec ses propres chiffres.",
+        "origine": "Christophe : « tu n'es plus digne de diriger seule » → GO 1 = fermer E11 par un "
+                   "juge extérieur au moteur",
+    },
+    "hulk-mexc/scripts/boucle_setups_main.py": {
+        "role": "LA BOUCLE DES SET-UPS REFaite À LA MAIN (10 jours, toutes les paires) : reprend les "
+                "faits horodatés du journal (heure, prix, quantité) et recalcule TOUT le reste — "
+                "prix vérifié dans sa bougie, motif d'entrée par FAMILLE (une condition de baisse "
+                "ne s'applique qu'aux familles qui l'annoncent), part de chaque sortie, verdict de "
+                "marché après la vente, niveau et honneur du stop, PnL net à la main.",
+        "origine": "Ordre Christophe 23/09 : « reprends toute la boucle des set-ups avec données à "
+                   "la main sur les 10 derniers jours et soumets-la à la famille pour qu'elle valide »",
+    },
+    "hulk-mexc/scripts/chiffrage_stop_serre.py": {
+        "role": "CONTRE-FACTUEL DU STOP (exigence de la famille, tour 1) : chiffre ce qu'aurait donné "
+                "un PLAFOND de stop (10/15/20/25 %) sur les 10 jours, en cherchant À LA MAIN la "
+                "première minute où le marché touche le niveau. Publie aussi la formule exacte du "
+                "stop : `max(calib.stop_pct ; cadence de la paire × 0.70)`. Limites déclarées : "
+                "aucune ré-entrée simulée, sortie supposée AU niveau (optimiste).",
+        "origine": "Famille (Gemini « justification de la formule RIZE 44 % », DeepSeek « backtest "
+                   "stop ≤ 15 % »)",
+    },
+    "hulk-mexc/scripts/verif_stop_impact.py": {
+        "role": "GARDE-FOU DU GO 2 : prouve que le stop se décide sur un prix FRAIS — R1 lecture "
+                "horodatée (< 2 s), R2 les DEUX âges (celui qui décidait vs celui qui décide), "
+                "R3 échec réseau = aucun prix inventé, R4 compatibilité des motifs historiques, "
+                "R5 AUTOTEST qui sait échouer (4 cas périmés rejetés). LECTURE SEULE.",
+        "origine": "GO 2 Christophe : « le stop vérifié à l'instant de l'impact »",
+    },
+    "Index_Maison/scripts/session_famille.py": {
+        "role": "LA FENÊTRE OUVERTE SUR LA FAMILLE (R18) : session persistante avec MÉMOIRE DU FIL "
+                "— chaque tour est renvoyé au jury AVEC l'historique, la mémoire de session est "
+                "écrite depuis les AVIS BRUTS (je ne réécris pas les verdicts), le transcript est "
+                "append-only, et l'étiquette d'un avis nomme le modèle QUI A RÉPONDU (substitution "
+                "déclarée, non comptée comme voix indépendante — classe E16).",
+        "origine": "Ordre Christophe 23/09 : « ouvre un round avec la famille et garde la fenêtre "
+                   "ouverte, qu'elle ait la mémoire du chat »",
     },
     "Index_Maison/scripts/git_push_auto.sh": {
         "role": "POINT D'ENTRÉE DES CONTRÔLES (toutes les 3 h) : y sont appelés le garde-fou des "

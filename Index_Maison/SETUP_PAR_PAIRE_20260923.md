@@ -1,5 +1,18 @@
 # SET-UP PAIRE PAR PAIRE — 23/09/2026
 
+> ## ⚠️ CORRECTION DU MÊME JOUR (classe E17) — la colonne « stop annoncé » est FAUSSE
+>
+> La colonne « **stop annoncé** » de ce document affiche le **PLANCHER de configuration**
+> (`profil.calib.stop_pct`) — **ce n'est PAS le stop de la machine**. Le vrai :
+> `stop = max(plancher ; cadence de la paire × 0,70)`, écrit par le moteur dans ses motifs de
+> sortie (RIZE **39,23 %**, EDEL **13,20 %**, PYTH 6,67 %, autres 6,00 %).
+> **Là où ce document dit « stop annoncé » : lire « plancher de profil ».** Le détail vérifié et
+> la liste des sorties réelles sont en tête de `AUDIT_MEXC_VS_HULK_20260923.md`.
+>
+> *(Le reste du document — cadence, seuil réel d'entrée, jambes inaccessibles, profondeur mesurée —
+> n'est pas affecté : seuls les chiffres de cette colonne étaient faux.)*
+>
+
 > Demande Christophe, **depuis le premier jour** : « FAIRE LE SET-UP SUR CHAQUE PAIRE ».
 > Instrument : `hulk-mexc/scripts/cartographie_setups_paires.py` · sorties :
 > `hulk-mexc/runs/SETUPS_PAIRES_20260923.{txt,json}` · **lecture seule, 0 ordre, 0 €**.

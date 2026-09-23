@@ -441,6 +441,31 @@ def pick_pairs(cfg: dict, inv: dict[str, dict]) -> list[str]:
     return pairs
 
 
+def last_price_frais(pair: str) -> float:
+    """GO 2 (23/09/2026, ordre Christophe) — LECTURE CIBLÉE, POUR LA DÉCISION DE SORTIE.
+
+    Pourquoi : le stop se décidait sur le prix du cache batch du cycle (âge mesuré jusqu'à
+    120 s, cf. `wall_stale_sec`). Sur un actif qui décroche, 2 minutes valent plusieurs pour
+    cent. Ici : un GET unitaire ciblé (`/ticker/price?symbol=`), le MÊME que le repli
+    existant, mais appelé À LA DEMANDE et il met à jour l'horodatage `_PRICE_TS` — donc le
+    journal écrit l'âge RÉEL du prix qui a servi à décider.
+
+    Sûreté : en cas d'échec réseau, on retombe sur `last_price` (cache puis dernier prix
+    connu) — on ne renvoie JAMAIS un prix inventé, et le retour d'échec est visible par
+    l'âge (-1.0 côté appelant).
+    """
+    try:
+        q = urllib.parse.urlencode({"symbol": pair})
+        j = http_json(f"https://api.mexc.com/api/v3/ticker/price?{q}")
+        p = float(j["price"])
+        _PRICE_CACHE[pair] = p
+        _LAST_KNOWN_PRICE[pair] = p
+        _PRICE_TS[pair] = time.time()
+        return p
+    except Exception:
+        return last_price(pair)
+
+
 def last_price(pair: str) -> float:
     # Régime normal : le prix vient du cache batch du cycle (0 appel réseau).
     p = _PRICE_CACHE.get(pair)
@@ -2475,6 +2500,59 @@ class PaperBot:
         )
         del self.bag_dca[pair]
 
+    def _prix_impact_av(self, pair: str) -> tuple[str, float | None, float]:
+        """GO 2 : rafraîchit le prix AVANT de décider la sortie.
+
+        Retourne (tag_à_écrire_au_motif, prix_frais_ou_None, age_avant_s).
+
+        Ce que ça change : la vente se fait sur une LECTURE FRAÎCHE (`last_price_frais`, un GET
+        ciblé ≈ 0,3 s) au lieu du prix du cycle (âge mesuré jusqu'à 120 s). Aucun seuil n'est
+        touché : le déclenchement reste le même, seul le prix utilisé est plus récent — donc la
+        perte réalisée est celle du marché, pas celle d'un prix périmé.
+        Les anciens motifs (`stop-X%_avant_2x`, `guard_partial_50`, `dust_sweep_stop_guard_PAIRE`)
+        gardent leur préfixe EXACT : tous les lecteurs existants continuent de les reconnaître,
+        le tag est ajouté À LA FIN. Échec réseau → tag `_impact_NA` et prix None : l'appelant
+        garde alors le prix du cycle, et AUCUN âge n'est inventé.
+        """
+        try:
+            _avant = _LAST_KNOWN_PRICE.get(pair) or _PRICE_CACHE.get(pair)
+            p_imp, age_av, age_ap = self.prix_impact(pair)
+            pos = self.pos.get(pair) or {}
+            ent = float(pos.get("entry") or 0) or None
+            imp = self.__dict__.setdefault("_impact_stop", {})
+            imp[pair] = {
+                "prix_avant": _avant, "prix_frais": float(p_imp) if p_imp else None,
+                "age_avant_s": age_av, "age_apres_s": age_ap,
+                "chg_avant_pct": (round((float(_avant) / ent - 1) * 100, 3)
+                                  if (_avant and ent) else None),
+                "chg_frais_pct": (round((float(p_imp) / ent - 1) * 100, 3)
+                                  if (p_imp and ent) else None),
+                "ts": utc_now(),
+            }
+            if p_imp and float(p_imp) > 0:
+                _PRICE_CACHE[pair] = float(p_imp)      # le prix frais devient le prix du cycle
+                return (f"_impact_av{age_av:.0f}s_ap{age_ap:.0f}s" if age_av >= 0
+                        else "_impact_frais"), float(p_imp), age_av
+        except Exception as e:                                    # noqa: BLE001
+            say("err", f"[stop] prix d'impact {pair}: {str(e)[:90]}")
+        return "_impact_NA", None, -1.0
+
+    def prix_impact(self, pair: str):
+        """Prix AU MOMENT DE LA DÉCISION DE SORTIE + les deux âges.
+
+        Retourne (prix, age_avant_s, age_apres_s) :
+          age_avant = âge du prix que le moteur allait utiliser (cache du cycle) — c'est LUI
+                      qui dit combien de temps le stop a décidé « à l'aveugle » ;
+          age_apres = âge du prix frais qui a servi à la vente (≈ 0).
+        -1.0 = inconnu (aucun horodatage) — jamais une valeur inventée.
+        """
+        _av = _PRICE_TS.get(pair)
+        age_avant = max(0.0, time.time() - _av) if _av else -1.0
+        p = last_price_frais(pair)
+        _ap = _PRICE_TS.get(pair)
+        age_apres = max(0.0, time.time() - _ap) if _ap else -1.0
+        return p, age_avant, age_apres
+
     def manage_open(self, pair: str, price: float):
         """Trade : 2× → stake-out ; sinon stop.
 
@@ -2498,6 +2576,11 @@ class PaperBot:
         if t_arm > 0 and t_gb > 0:
             # backstop dur : le stop fixe reste (protection)
             if chg <= -float(p.get("stop") or 6):
+                _tag_imp, _prix_imp, _age_av = self._prix_impact_av(pair)
+                if _prix_imp:
+                    # LA VENTE SE DÉCIDE SUR CE PRIX-LÀ (frais), et le PnL qui suit aussi.
+                    price, chg, value = _prix_imp, (_prix_imp / entry - 1.0) * 100.0, _prix_imp * qty
+                    p["high"] = max(float(p.get("high") or entry), price)
                 # SPEC v2 (29/08) — Verrous 1&2 et Bloc 1/2 : garde-fou SELL full en forte amplitude
                 move24 = float(sc.get("move24_pct") or 0.0)
                 vol_spike = sc.get("vol_spike")
@@ -2512,15 +2595,16 @@ class PaperBot:
                     rem_val = rem_qty * price
                     min_q = step if step else 0.0
                     if rem_qty < min_q or rem_val < self.dust_sweep_min_notional:
-                        proceeds = self.sell_trade(pair, price, f"dust_sweep_stop_guard_{pair}")
+                        proceeds = self.sell_trade(pair, price,
+                                                   f"dust_sweep_stop_guard_{pair}_stop{p['stop']}%{_tag_imp}")
                         guard_tag = "DUST_SWEEP"
                     else:
-                        proceeds = self.sell_trade(pair, price, f"stop-{p['stop']}%_guard_partial_50", qty=part_qty)
+                        proceeds = self.sell_trade(pair, price, f"stop-{p['stop']}%_guard_partial_50{_tag_imp}", qty=part_qty)
                         guard_tag = "SELL_PARTIAL"
                     self.add_pair_cash(pair, proceeds)
                     p["guard_last"] = guard_tag
                 else:
-                    proceeds = self.sell_trade(pair, price, f"stop-{p['stop']}%_avant_2x")
+                    proceeds = self.sell_trade(pair, price, f"stop-{p['stop']}%_avant_2x{_tag_imp}")
                     self.add_pair_cash(pair, proceeds)
                 return
             # trailing : armé quand le pic ≥ arm, sortie si le prix redonne
@@ -2544,6 +2628,11 @@ class PaperBot:
 
         if not (self.is_bag(pair) and self.bag_no_tech_stop):
             if chg <= -float(p.get("stop") or 6):
+                _tag_imp, _prix_imp, _age_av = self._prix_impact_av(pair)
+                if _prix_imp:
+                    # LA VENTE SE DÉCIDE SUR CE PRIX-LÀ (frais), et le PnL qui suit aussi.
+                    price, chg, value = _prix_imp, (_prix_imp / entry - 1.0) * 100.0, _prix_imp * qty
+                    p["high"] = max(float(p.get("high") or entry), price)
                 # SPEC v2 (29/08) — garde-fou SELL full (branche standard, non-trailing)
                 move24 = float(sc.get("move24_pct") or 0.0)
                 vol_spike = sc.get("vol_spike")
@@ -2558,15 +2647,16 @@ class PaperBot:
                     rem_val = rem_qty * price
                     min_q = step if step else 0.0
                     if rem_qty < min_q or rem_val < self.dust_sweep_min_notional:
-                        proceeds = self.sell_trade(pair, price, f"dust_sweep_stop_guard_{pair}")
+                        proceeds = self.sell_trade(pair, price,
+                                                   f"dust_sweep_stop_guard_{pair}_stop{p['stop']}%{_tag_imp}")
                         guard_tag = "DUST_SWEEP"
                     else:
-                        proceeds = self.sell_trade(pair, price, f"stop-{p['stop']}%_guard_partial_50", qty=part_qty)
+                        proceeds = self.sell_trade(pair, price, f"stop-{p['stop']}%_guard_partial_50{_tag_imp}", qty=part_qty)
                         guard_tag = "SELL_PARTIAL"
                     self.add_pair_cash(pair, proceeds)
                     p["guard_last"] = guard_tag
                 else:
-                    proceeds = self.sell_trade(pair, price, f"stop-{p['stop']}%_avant_2x")
+                    proceeds = self.sell_trade(pair, price, f"stop-{p['stop']}%_avant_2x{_tag_imp}")
                     self.add_pair_cash(pair, proceeds)
                 return
 

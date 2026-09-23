@@ -20,6 +20,7 @@ import os
 import subprocess
 import sys
 import time
+from datetime import datetime, timezone
 from pathlib import Path
 
 RACINE = Path(__file__).resolve().parent.parent.parent          # ~/ace777-test-day1
@@ -315,6 +316,75 @@ def regle_15():
     return ok, detail
 
 
+# ── R19 — LE JURY PERMANENT : L'AGENT NE DÉCIDE PLUS SEUL (23/09/2026) ───────
+# (numéro 19 : R16/R17/R18 existent déjà dans le canon REGLE_D_OR.md)
+# Ordre Christophe, mot pour mot : « tu vas ouvrir à partir de maintenant un round avec la
+# famille et garder la fenêtre ouverte, qu'elle ait la mémoire du chat, car tu n'es plus digne
+# de diriger seule » — et « sinon c'est radiation à vie, règle d'or ».
+# MESURABLE, et mesuré ici : il existe une session de famille OUVERTE (fenêtre ouverte), elle a
+# été consultée dans les dernières 24 h, son fil est COHÉRENT (chaque tour posé a ses avis),
+# et au moins 3 voix INDÉPENDANTES ont répondu (une substitution — modèle demandé ≠ modèle
+# servi — ne compte pas : c'est la faute E16 du 23/09).
+SESSIONS_FAMILLE = IM / "scripts" / "SESSIONS_FAMILLE"
+
+
+def regle_19():
+    """Le jury permanent est-il OUVERT, CONSULTÉ récemment et COHÉRENT ? (lecture seule)"""
+    import glob as _glob
+    metas = []
+    for p in _glob.glob(str(SESSIONS_FAMILLE / "*" / "META.json")):
+        try:
+            d = json.loads(open(p, encoding="utf-8").read())
+        except Exception:
+            continue
+        d["_dossier"] = Path(p).parent
+        metas.append(d)
+    if not metas:
+        return False, "aucune session de famille — l'agent décide seul (R19 non tenue)"
+    metas.sort(key=lambda d: d.get("dernier_tour") or "", reverse=True)
+    m = metas[0]
+    ouvertes = [d for d in metas if d.get("etat") == "OUVERTE"]
+    if not ouvertes:
+        return False, f"aucune session OUVERTE (dernière : {m.get('session')}) — la fenêtre est fermée"
+    m = ouvertes[0]
+    d = m["_dossier"]
+    # fraîcheur : consultée dans les 24 h ?
+    age_h, quand = None, m.get("dernier_tour")
+    if quand:
+        try:
+            age_h = (datetime.now(timezone.utc) - datetime.strptime(
+                quand, "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=timezone.utc)).total_seconds() / 3600.0
+        except Exception:
+            age_h = None
+    # cohérence du fil : chaque tour posé a au moins un avis enregistré
+    tours_nous, tours_fam, voix = set(), set(), set()
+    try:
+        for l in (d / "transcript.jsonl").read_text(encoding="utf-8").splitlines():
+            if not l.strip():
+                continue
+            e = json.loads(l)
+            if e.get("role") == "nous" and e.get("tour"):
+                tours_nous.add(e["tour"])
+            if e.get("role") == "famille" and e.get("tour"):
+                tours_fam.add(e["tour"])
+                if e.get("model_servi") and not e.get("substitue"):
+                    voix.add(e["model_servi"])
+    except Exception as ex:                                   # noqa: BLE001
+        return False, f"fil illisible : {ex}"
+    sans_avis = sorted(tours_nous - tours_fam)
+    ok = (m.get("tours", 0) > 0 and age_h is not None and age_h <= 24.0
+          and not sans_avis and len(voix) >= 3)
+    detail = (f"session « {m.get('session')} » OUVERTE · {m.get('tours', 0)} tour(s) · "
+              f"dernier il y a {age_h:.1f} h" if age_h is not None else
+              f"session « {m.get('session')} » OUVERTE · {m.get('tours', 0)} tour(s)")
+    detail += f" · {len(voix)} voix indépendantes"
+    if sans_avis:
+        detail += f" · tours SANS avis : {sans_avis}"
+    if age_h is None or age_h > 24.0:
+        detail += " → CONSULTER LE JURY (dernier tour > 24 h)"
+    return ok, detail
+
+
 REGLES_MESUREES = [
     ("2", "Corps local / Cerveau cloud (RAM = raisonner, pas stocker)", regle_2),
     ("5", "Un scellé ne s'écrase jamais (registre md5 intact)", regle_5),
@@ -327,6 +397,7 @@ REGLES_MESUREES = [
     ("13", "Auto-réparation bornée (jamais un scellé sans déclarer)", regle_13),
     ("14", "Aucune alarme permanente à source tarie (anti-cry-wolf)", regle_14),
     ("15", "Toujours brancher (ce qui est affiché est analysé ou déclaré)", regle_15),
+    ("19", "Le jury permanent (session OUVERTE, consultée ≤ 24 h, fil cohérent, ≥ 3 voix)", regle_19),
 ]
 
 REGLES_HUMAINES = [

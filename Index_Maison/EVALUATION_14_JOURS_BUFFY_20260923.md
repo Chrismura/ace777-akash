@@ -77,6 +77,12 @@ plus graves), **le reste par revue**. Une classe sans garde n'est pas fermée.
 qu'ils ont posés sont en échec mesuré** (classes neuves · conformité prix · écart de stop ·
 récidive E12) — détail et chiffres dans la synthèse du dossier de consultation.
 
+> ⚠️ **CORRECTION DU 23/09 (classe E17)** : la phrase ci-dessus « 2 sorties à −16,5 % et −39,2 %
+> pour un stop annoncé à 8 % » est **fausse** — voir la correction en tête de
+> `AUDIT_MEXC_VS_HULK_20260923.md`. Le stop RÉEL de RIZE était **39,23 %** (lu dans ses propres
+> motifs), **tenu au point de base**. Ce qui est vrai : un stop à 39 % **ne protège rien** —
+> problème de NIVEAU, pas d'exécution.
+
 **Ce que j'accepte sans discuter** : *« fuite en avant quantitative »* (60 instruments pour 4 gardes
 mécaniques), *« tes confessions servent de paravent »* (E14 exactement), *« machine à illusions »*
 sur les stops (2 sorties à −16,5 % et −39,2 % pour un stop annoncé à 8 %).

@@ -1,7 +1,98 @@
 {
-  "timestamp": 1790162243,
-  "date": "2026-09-23T11:17:23.522795+00:00",
-  "n_analyses": 0,
-  "analyses": [],
-  "resume": "Aucune analyse en cours"
+  "timestamp": 1790165844,
+  "date": "2026-09-23T12:17:24.768719+00:00",
+  "n_analyses": 2,
+  "analyses": [
+    {
+      "signal": {
+        "metric": "cpfp",
+        "zscore": 2.0620835495672862,
+        "value": 50.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (CPFP z-score 2.06) indiquant une activité silencieuse des baleines, tandis que le narratif médiatique est totalement déconnecté (actualités locales/formations politiques). Divergence forte entre données techniques et couverture médiatique.\"\n}\n```",
+        "ts": 1790164943.9282
+      },
+      "fiche": "blocs_privilises",
+      "questions": {
+        "duree": {
+          "value": 0,
+          "seuil": 0,
+          "depasse": false
+        },
+        "volume": {
+          "value": 1023,
+          "seuil": 0,
+          "depasse": true
+        },
+        "prix": {
+          "value": -0.16,
+          "seuil": 0,
+          "depasse": true
+        },
+        "sdi": {
+          "value": 0.012,
+          "seuil": 0,
+          "depasse": true
+        },
+        "rbf": {
+          "value": 0.0,
+          "seuil": 0,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "duree < 5min ET volume > 100",
+        "lecture": "Consolidation exchange — probablement un transfert hot→cold",
+        "niveau": "neutre",
+        "action": "Garder les positions"
+      },
+      "action": "Garder les positions",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "dust",
+        "zscore": 2.0620835495672862,
+        "value": 50.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 75,\n  \"reason\": \"Anomalie onchain significative (z-score 2.06) mais narratif médiatique totalement déconnecté (jeux vidéo, IA grand public). Divergence forte suggérant une accumulation silencieuse par les baleines.\"\n}\n```",
+        "ts": 1790164952.597036
+      },
+      "fiche": "blocs_privilises",
+      "questions": {
+        "duree": {
+          "value": 0,
+          "seuil": 0,
+          "depasse": false
+        },
+        "volume": {
+          "value": 1023,
+          "seuil": 0,
+          "depasse": true
+        },
+        "prix": {
+          "value": -0.16,
+          "seuil": 0,
+          "depasse": true
+        },
+        "sdi": {
+          "value": 0.012,
+          "seuil": 0,
+          "depasse": true
+        },
+        "rbf": {
+          "value": 0.0,
+          "seuil": 0,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "duree < 5min ET volume > 100",
+        "lecture": "Consolidation exchange — probablement un transfert hot→cold",
+        "niveau": "neutre",
+        "action": "Garder les positions"
+      },
+      "action": "Garder les positions",
+      "niveau": "neutre"
+    }
+  ],
+  "resume": "🔵 CALME — pas de signal alarmant"
 }

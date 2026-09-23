@@ -1,6 +1,6 @@
 {
   "version": "1.5.0",
-  "updated": "2026-09-23T11:14Z",
+  "updated": "2026-09-23T11:57Z",
   "fichier": [
     {
       "nom": "Index_Maison/scripts/v2_duo_replay_4h.py",
@@ -30,18 +30,18 @@
       "origine": "chantier hulk",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "47bc30c8e742958042f3df7a1638fa99",
+      "md5": "435bb63d8bc69ac31ed1c54934e4d24f",
       "_rescel_20260918": "gate Plancher PLANCHER_GATE_ON + plancher_veto()/plancher_veto_decision() + mise plafonnée sur le MUR LIVE (aspiration_live.json, repli profil).",
       "note": "FIX 27/08 : circuits breaker + fraîcheur Cortana + FILTRE LOTS MEXC (lot_filter depuis exchangeInfo, baseSizePrecision/quoteAmountPrecision, arrondi stepSize au buy ET au sell, dust close, fail-open)  | RE-SCELLÉ 2026-09-03T17:22Z (GO Christophe 03/09) · 10/09: patch fusibles par paire (gate tête de buy() + détarage sizing, GO Christophe) — md5 mis à jour",
       "maj": "BATCH PRIX Phase 1 (31/08-01/09, famille 7/7 + codeur) : 1 appel GET global + cache au lieu de 21 GET/cycle (~200-270 req/min → sous la limite MEXC). Mode SELLFULL + mode_entree() du 29-31/08. Aucune logique métier touchée.",
-      "date": "2026-09-23T11:12Z",
+      "date": "2026-09-23T11:57Z",
       "_rescel_20260921": "SET-UP IMPULSE 21/09 (GO Christophe « avancer sur le set-up ») : 3 portes corrigées POUR LES SEULES PAIRES mode_entree=IMPULSE (aujourd'hui EDEL), mesurées avant câblage (chiffrage_entree_sortie_replay.py, 90 j × 20 paires) — (1) entrée sur la RAFALE sans attendre le repli (66 % des rafales étaient structurellement inaccessibles), (2) IMPULSE_WAIT n'est plus une sortie anticipée pour ces paires (c'est l'instant du pump), (3) fenêtre de creux levée (une rafale n'a pas d'heure ; les deux portes ensemble = 0 entrée sur 90 j). Sortie INCHANGÉE. Flags IMPULSE_SANS_REPLI_ON / IMPULSE_HORS_FENETRE_ON, réversibles en 1 ligne. Preuve live : EDEL BUY 13:23:28Z régime IMPULSE_WAIT m6=8.0.",
       "_rescel_20260922": "GARDE POINTEUR 22/09 (défense en profondeur) : save_state() ne fait PLUS pointer .hulk_resume_pointer vers un état que le moteur refuserait lui-même de reprendre — VIDE (0 position, 0 bag, écrit au boot avant le --resume) ou VIERGE (artefact de re-seed : 0 trade, 0 cash de paire, pnl≈0, pas de bags). Le disjoncteur mesure la perte journalière depuis ce pointeur : un tel état lu comme « pnl 0 » a déjà produit un faux Mur de Fer de 13,93 % (21/09). Le pointeur reste sur le dernier état RÉEL. Aucune autre ligne touchée ; confirmation définitive au prochain redémarrage du moteur (pas de relance forcée).",
       "_rescel_20260922b": "REFROIDISSEMENT BORNÉ 22/09 (GO Christophe « bloquer un actif est un contre-sens »). REENTRY_MAX n'interdit plus une paire À VIE : nettoyé le compteur en mémoire (non persisté → deux comportements selon le redémarrage) ; le buy() lit désormais un refroidissement GRADUÉ et EXPIRANT adossé au cache de stops persisté (n stops × 6 h, plafond 24 h, expiré après 48 h sans stop) + DÉ-RISQUE ×0,5 après un stop (« rebuilding with smaller size »). Calibré après mesure : à l'horizon 6 h (durée de détention réelle) la garde PROTÈGE (−14,5 $) ; à 24 h elle coûte (+56,3 $) → on garde la protection des premières heures, on supprime le blocage long. ANTI-SILENCE : un refus de régime (WATCH/QUIET) n'est plus muet (1 ligne/h/paire au max) — CCUSDT était invisible 27 h.",
       "_rescel_20260922c": "R17 APPLIQUÉE (22/09, ORDRE Christophe « on ne donne pas de timing FIXE D'ARRÊT ; ON REGARDE LES CHIFFRES »). RETIRÉ : le blocage à vie `REENTRY_MAX` (CCUSDT gelé 4,5 j) ET le refroidissement en HEURES que j'avais posé dans la journée (6/24/48 h) — c'était encore un seuil de temps fixe, donc la même faute. Aucune garde de temps sur l'entrée n'est remplacée par une autre invention : le risque par paire est borné par le FUSIBLE MESURÉ déjà en place (fusibles_paires.py : k × σ_mesuré × mise → budget de perte journalier en $ ; épuisé = entrées gelées, sorties libres) + murs/aspiration/spread/plancher. Conservé : l'anti-silence (ATTENTE:WATCH/IMPULSE_WAIT, SILENCE_LOG_TTL_SEC=3600) et les deux gardes du pointeur `.hulk_resume_pointer`.",
       "_rescel_20260922_sortie_mesuree": "SORTIE MESURÉE (22/09, R17) : le palier de sortie est relu dans l'unité de la paire — palier = fixe × max(1 ; cadence mesurée / cadence de référence 7,30 %/j). Mesuré sur 119 entrées RÉELLES à 2 horizons (+2,22 $ / +1,05 $, même signe), pire trade INCHANGÉ, pertes suppl. +0,69 $ payées 4,7× par +3,27 $ (critère R18 écrit). L'échelle SYMÉTRIQUE a été mesurée PUIS REJETÉE (signe instable). PLANCHER à 1 : aucune protection retirée.",
       "_rescel_20260922_trace_visible": "Rien de silencieux (#6) : la raison de vente d'un palier écrit désormais LE PALIER EFFECTIF et LA MESURE qui l'a produit — `rip_5.6pct_palier1_niv5.5pct_cad20.0rel2.74_sell_25pct` (cadence de la paire + échelle relative). Le journal prouve à lui seul que c'est la mesure qui décide, sans lire le code.",
-      "_rescel_20260923": "REFUS PARLANT 23/09 (GO Christophe « pourquoi RIZE a perdu le pump ? ») : le REFUS écrit désormais LE CHIFFRE QUI DÉCIDE — `ATTENTE:IMPULSE_WAIT dd6=2.50 seuil=21.70 manque=19.20pt m6=12.5` (l'achat le faisait déjà, le refus était muet). PORTÉE : 1 ligne de log + 30 lignes de commentaire ; `_detail` est calculé dans un try/except (un log ne casse jamais une boucle) ; le préfixe `ATTENTE:<régime>` reste INTACT (les instruments lisent `reason.split(':')[0]`). AUCUN seuil, AUCUNE porte, AUCUN ordre, AUCUNE décision modifiée. Effet immédiat MESURÉ : le seuil réel de RIZE est 21,70 % (= 0,85 × 0,50 × cadence 51,1 %), pas les 5-12,75 % que mes documents annonçaient — l'erreur était dans MES instruments (classe F), le moteur avait raison. Vérifié : pnl 42,1679 $ / 9 positions / 175 trades identiques avant/après, 0 traceback, veilleuse STABLE. Réversible en 1 ligne. -- 2e MODIFICATION DU MÊME JOUR (GO 1 + GO 2, 23/09, exigence de la FAMILLE) : le journal écrit 5 colonnes de plus — `ts_prix_utc` (quand le PRIX a été lu chez MEXC), `age_prix_s` (son âge à l'écriture : l'audit a trouvé des remplissages à 1-5 min de retard), `spread_bps`, `spread_source` (asp = vue live, profil = repli figé) et `cout_estime_usdt` (frais 5 bps/côté ESTIMÉS + spread). ADDITIF ET SANS EFFET SUR LES DÉCISIONS : aucune colonne retirée, aucun seuil, aucune porte, aucun ordre modifié ; `_PRICE_TS` est renseigné à la LECTURE du prix (batch + fallback unitaire) et tout est calculé dans un try/except (un log ne casse jamais une boucle). Le PnL inscrit reste BRUT : le net est un calcul de reporting séparé, pour ne pas toucher au disjoncteur. -- 3e MODIFICATION DU MÊME JOUR (classe E15, 23/09) : les 5 colonnes NE SUIVAIENT PAS LE RESUME, qui recopiait l'ANCIEN fichier (`shutil.copy2`) PAR-DESSUS le nouveau → journal vivant à en-tête 11 colonnes et lignes à 16 (mesuré : 76 162 lignes à 11 + 12 à 16). CORRIGÉ À LA RACINE : `CSV_SCHEMA` devient la SOURCE UNIQUE du schéma (en-tête né et repris du même endroit : une copie divergerait), le resume RÉÉCRIT l'en-tête courant en jetant l'ancien, et une garde à l'écriture hurle `SCHEMA_ECART` au lieu d'écrire une ligne bancale. ADDITIF : aucune colonne retirée, aucun seuil, aucune porte, aucun ordre. Vérifié après relance par le watchdog de la maison : en-tête 16, `verif_schema_journal` CONFORME rc=0, état repris à l'identique (pnl 42,1679 $ / 175 trades / 10 positions)."
+      "_rescel_20260923": "REFUS PARLANT 23/09 (GO Christophe « pourquoi RIZE a perdu le pump ? ») : le REFUS écrit désormais LE CHIFFRE QUI DÉCIDE — `ATTENTE:IMPULSE_WAIT dd6=2.50 seuil=21.70 manque=19.20pt m6=12.5` (l'achat le faisait déjà, le refus était muet). PORTÉE : 1 ligne de log + 30 lignes de commentaire ; `_detail` est calculé dans un try/except (un log ne casse jamais une boucle) ; le préfixe `ATTENTE:<régime>` reste INTACT (les instruments lisent `reason.split(':')[0]`). AUCUN seuil, AUCUNE porte, AUCUN ordre, AUCUNE décision modifiée. Effet immédiat MESURÉ : le seuil réel de RIZE est 21,70 % (= 0,85 × 0,50 × cadence 51,1 %), pas les 5-12,75 % que mes documents annonçaient — l'erreur était dans MES instruments (classe F), le moteur avait raison. Vérifié : pnl 42,1679 $ / 9 positions / 175 trades identiques avant/après, 0 traceback, veilleuse STABLE. Réversible en 1 ligne. -- 2e MODIFICATION DU MÊME JOUR (GO 1 + GO 2, 23/09, exigence de la FAMILLE) : le journal écrit 5 colonnes de plus — `ts_prix_utc` (quand le PRIX a été lu chez MEXC), `age_prix_s` (son âge à l'écriture : l'audit a trouvé des remplissages à 1-5 min de retard), `spread_bps`, `spread_source` (asp = vue live, profil = repli figé) et `cout_estime_usdt` (frais 5 bps/côté ESTIMÉS + spread). ADDITIF ET SANS EFFET SUR LES DÉCISIONS : aucune colonne retirée, aucun seuil, aucune porte, aucun ordre modifié ; `_PRICE_TS` est renseigné à la LECTURE du prix (batch + fallback unitaire) et tout est calculé dans un try/except (un log ne casse jamais une boucle). Le PnL inscrit reste BRUT : le net est un calcul de reporting séparé, pour ne pas toucher au disjoncteur. -- 3e MODIFICATION DU MÊME JOUR (classe E15, 23/09) : les 5 colonnes NE SUIVAIENT PAS LE RESUME, qui recopiait l'ANCIEN fichier (`shutil.copy2`) PAR-DESSUS le nouveau → journal vivant à en-tête 11 colonnes et lignes à 16 (mesuré : 76 162 lignes à 11 + 12 à 16). CORRIGÉ À LA RACINE : `CSV_SCHEMA` devient la SOURCE UNIQUE du schéma, le resume RÉÉCRIT l'en-tête courant en jetant l'ancien, et une garde à l'écriture hurle `SCHEMA_ECART` au lieu d'écrire une ligne bancale. ADDITIF : aucune colonne retirée, aucun seuil, aucune porte, aucun ordre. Vérifié après relance par le watchdog de la maison : en-tête 16, `verif_schema_journal` CONFORME rc=0, état repris à l'identique (pnl 42,1679 $ / 175 trades / 10 positions). -- 4e MODIFICATION DU MÊME JOUR (GO 2, ordre Christophe « le stop vérifié à l'instant de l'impact ») : le stop se décidait sur le prix du cycle (âge jusqu'à 120 s). Désormais, au déclenchement, un GET ciblé frais remplace ce prix AVANT la vente (`last_price_frais`, ≈ 0,3 s) et l'âge des deux prix est éCRIT dans le motif (`_impact_avNs_apNs`) — le déclenchement, les seuils et les portes restent IDENTIQUES, seul le prix utilisé est plus récent. Les motifs historiques gardent leur préfixe exact (aucun lecteur cassé) ; le motif de balayage de poussière nomme maintenant son niveau (`dust_sweep_stop_guard_PAIRE_stopX%`) pour que le niveau de stop soit lisible partout. Échec réseau → prix du cycle conservé et tag `_impact_NA` : aucune valeur inventée. Vérifié par `verif_stop_impact.py` (5/5, dont 4 cas d'échec rejetés). Réversible en 4 lignes. -- CORRECTION DE COMPRÉHENSION QUE CETTE MODIF ACCOMPAGNE (classe E17) : j'ai publié « stop annoncé 8 % » pour RIZE en lisant `calib.stop_pct` — un PLANCHER ; le stop réel de la machine est `max(plancher ; cadence × 0.70)` = 39,23 % (44 % aujourd'hui), écrit dans ses propres motifs. Le stop TIENT au point de base ; c'est son NIVEAU qui est énorme."
     },
     {
       "nom": "hulk-mexc/scripts/ace_sense_mexc.py",
@@ -954,9 +954,10 @@
       "origine": "recensement RÈGLE D'OR 19/09",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "35aaae76475282dc47a965faba4149b0",
-      "date": "2026-09-19T13:21Z",
-      "note": "Scellé 19/09 : l'instrument qui mesure les règles est lui-même scellé (rituel maison). R10 ajouté 19/09 soir : SATURATION DE L'HÔTE (RAM réelle via memory_pressure, swap, disque, charge) — signal SRE, distinct de R2. Appelé par git_push_auto.sh. | v3 19/09 soir : + R11 (fail-safe), R12 (sauvegarde prouvée par restauration), R13 (auto-réparation bornée), R14 (anti cry-wolf), + R7 gère les DÉROGATIONS déclarées (strategie/derogations_regles.json). | R15 19/09 : mesure « ce qui est affiché est analysé ou déclaré » (15 bulles app Indices vs rotation analyste + affichage-seul déclaré). 11 règles mesurables."
+      "md5": "564ec6dc11c749d7385524978a42dd78",
+      "date": "2026-09-23T11:57Z",
+      "note": "Scellé 19/09 : l'instrument qui mesure les règles est lui-même scellé (rituel maison). R10 ajouté 19/09 soir : SATURATION DE L'HÔTE (RAM réelle via memory_pressure, swap, disque, charge) — signal SRE, distinct de R2. Appelé par git_push_auto.sh. | v3 19/09 soir : + R11 (fail-safe), R12 (sauvegarde prouvée par restauration), R13 (auto-réparation bornée), R14 (anti cry-wolf), + R7 gère les DÉROGATIONS déclarées (strategie/derogations_regles.json). | R15 19/09 : mesure « ce qui est affiché est analysé ou déclaré » (15 bulles app Indices vs rotation analyste + affichage-seul déclaré). 11 règles mesurables.",
+      "_rescel_20260923": "R18 AJOUTÉE LE 23/09 (ordre Christophe : « ouvre un round avec la famille et garde la fenêtre ouverte, tu n'es plus digne de diriger seule » · « sinon c'est radiation à vie, règle d'or ») : **R18 — LE JURY PERMANENT**. Elle est MESURÉE, pas promise : il faut une session de famille OUVERTE, consultée dans les 24 h, dont le fil est COHÉRENT (chaque tour posé a ses avis) et avec au moins 3 voix INDÉPENDANTES (une substitution modèle demandé ≠ servi ne compte pas — faute E16). Ajout purement additif : aucune règle existante modifiée, 12 règles mesurées au lieu de 11."
     },
     {
       "nom": "Index_Maison/scripts/consulter_famille_hub.py",
@@ -1224,8 +1225,8 @@
       "origine": "GO Christophe 23/09 — la veilleuse criait (à raison) sur 2 scellés modifiés",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "60de119e511e4c73cc0f9c0d9389e25f",
-      "date": "2026-09-23T11:14Z",
+      "md5": "7fc05a3dfeffc20fde071d75ac9175c1",
+      "date": "2026-09-23T11:57Z",
       "_ajout_20260923": "Instrument créé le 23/09/2026 (GO Christophe) — ajouté au registre le jour même de sa création pour qu'il soit VU (veilleuse, drill, revue).",
       "_rescel_20260923": "Outil d'acte du 23/09 : déclare + re-scelle les fichiers modifiés (backup horodaté + entrée `_rescel_20260923` qui dit QUOI et POURQUOI). Modifié une 2e fois le même jour pour traiter les 3 fichiers touchés APRÈS leur scellement (batterie d'autotest, `--serie` de la sonde, `REPLAY_SLIP_BPS` du replay) — la veilleuse avait crié trois fois « INTRUSION : modification non déclarée », à juste titre. Leçon de processus : ON SCELLE APRÈS LA DERNIÈRE MODIFICATION."
     },
@@ -1379,6 +1380,56 @@
       "auto_modifiable": false,
       "md5": "a6b0f78e769fde312ab749e869f35291",
       "date": "2026-09-23T11:12Z",
+      "_ajout_20260923": "Instrument créé le 23/09/2026 (GO Christophe) — ajouté au registre le jour même de sa création pour qu'il soit VU (veilleuse, drill, revue)."
+    },
+    {
+      "nom": "hulk-mexc/scripts/oracle_independant.py",
+      "role": "ORACLE INDÉPENDANT (classe E11, GO 1 du 23/09) : juge CHAQUE trade sur les bougies 1 min MEXC BRUTES — aucun indicateur du moteur n'est relu. Il dit (A) si la baisse était réellement là avant l'achat, (B) le meilleur et le pire point atteints, (C) si le stop RÉEL (niveau LU dans le motif de sortie du moteur, jamais deviné) a été touché et avec quel retard, (D) ce que le marché a fait après la vente, (E) le PnL recalculé (quantité × écart) et net estimé. C'est la seule voix qui puisse contredire la machine autrement qu'avec ses propres chiffres.",
+      "origine": "Christophe : « tu n'es plus digne de diriger seule » → GO 1 = fermer E11 par un juge extérieur au moteur",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "0921427a675e461c417265082ec9b452",
+      "date": "2026-09-23T11:57Z",
+      "_ajout_20260923": "Instrument créé le 23/09/2026 (GO Christophe) — ajouté au registre le jour même de sa création pour qu'il soit VU (veilleuse, drill, revue)."
+    },
+    {
+      "nom": "hulk-mexc/scripts/boucle_setups_main.py",
+      "role": "LA BOUCLE DES SET-UPS REFaite À LA MAIN (10 jours, toutes les paires) : reprend les faits horodatés du journal (heure, prix, quantité) et recalcule TOUT le reste — prix vérifié dans sa bougie, motif d'entrée par FAMILLE (une condition de baisse ne s'applique qu'aux familles qui l'annoncent), part de chaque sortie, verdict de marché après la vente, niveau et honneur du stop, PnL net à la main.",
+      "origine": "Ordre Christophe 23/09 : « reprends toute la boucle des set-ups avec données à la main sur les 10 derniers jours et soumets-la à la famille pour qu'elle valide »",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "6c49d45f136d78b7bc890a6823bce5bd",
+      "date": "2026-09-23T11:57Z",
+      "_ajout_20260923": "Instrument créé le 23/09/2026 (GO Christophe) — ajouté au registre le jour même de sa création pour qu'il soit VU (veilleuse, drill, revue)."
+    },
+    {
+      "nom": "hulk-mexc/scripts/chiffrage_stop_serre.py",
+      "role": "CONTRE-FACTUEL DU STOP (exigence de la famille, tour 1) : chiffre ce qu'aurait donné un PLAFOND de stop (10/15/20/25 %) sur les 10 jours, en cherchant À LA MAIN la première minute où le marché touche le niveau. Publie aussi la formule exacte du stop : `max(calib.stop_pct ; cadence de la paire × 0.70)`. Limites déclarées : aucune ré-entrée simulée, sortie supposée AU niveau (optimiste).",
+      "origine": "Famille (Gemini « justification de la formule RIZE 44 % », DeepSeek « backtest stop ≤ 15 % »)",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "88f5e7f4cda76affc00a5e683015828d",
+      "date": "2026-09-23T11:57Z",
+      "_ajout_20260923": "Instrument créé le 23/09/2026 (GO Christophe) — ajouté au registre le jour même de sa création pour qu'il soit VU (veilleuse, drill, revue)."
+    },
+    {
+      "nom": "hulk-mexc/scripts/verif_stop_impact.py",
+      "role": "GARDE-FOU DU GO 2 : prouve que le stop se décide sur un prix FRAIS — R1 lecture horodatée (< 2 s), R2 les DEUX âges (celui qui décidait vs celui qui décide), R3 échec réseau = aucun prix inventé, R4 compatibilité des motifs historiques, R5 AUTOTEST qui sait échouer (4 cas périmés rejetés). LECTURE SEULE.",
+      "origine": "GO 2 Christophe : « le stop vérifié à l'instant de l'impact »",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "77620889ebc539f07a59595b2b8e4068",
+      "date": "2026-09-23T11:57Z",
+      "_ajout_20260923": "Instrument créé le 23/09/2026 (GO Christophe) — ajouté au registre le jour même de sa création pour qu'il soit VU (veilleuse, drill, revue)."
+    },
+    {
+      "nom": "Index_Maison/scripts/session_famille.py",
+      "role": "LA FENÊTRE OUVERTE SUR LA FAMILLE (R18) : session persistante avec MÉMOIRE DU FIL — chaque tour est renvoyé au jury AVEC l'historique, la mémoire de session est écrite depuis les AVIS BRUTS (je ne réécris pas les verdicts), le transcript est append-only, et l'étiquette d'un avis nomme le modèle QUI A RÉPONDU (substitution déclarée, non comptée comme voix indépendante — classe E16).",
+      "origine": "Ordre Christophe 23/09 : « ouvre un round avec la famille et garde la fenêtre ouverte, qu'elle ait la mémoire du chat »",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "0494407b12fb1138b082e0318408b626",
+      "date": "2026-09-23T11:57Z",
       "_ajout_20260923": "Instrument créé le 23/09/2026 (GO Christophe) — ajouté au registre le jour même de sa création pour qu'il soit VU (veilleuse, drill, revue)."
     }
   ]

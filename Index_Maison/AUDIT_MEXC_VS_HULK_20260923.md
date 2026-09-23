@@ -1,3 +1,27 @@
+> # ⚠️ CORRECTION DU 23/09/2026 — À LIRE AVANT CE DOCUMENT (classe E17)
+>
+> **Ce document affirme : « 2 sorties RIZE à −16,5 % et −39,2 % pour un stop annoncé de 8 % ».
+> C'EST FAUX, et c'est moi qui l'ai fabriqué.**
+>
+> - Le « 8 % » venait de `strategie/universe_profils.json → RIZEUSDT.calib.stop_pct = 8.0`,
+>   c'est-à-dire un **PLANCHER de configuration**, pas le seuil de la machine.
+> - Le stop **RÉEL** est `max(plancher ; cadence de la paire × 0,70)` — **RIZE : 16,51 %** (10/09)
+>   puis **39,23 %** (22/09) — et il est **écrit par le moteur dans ses propres motifs de sortie**
+>   (`stop-39.23%_guard_partial_50`). La machine est sortie **exactement à ces niveaux**
+>   (−39,23 % → −39,23 % et −39,38 %).
+> - **Vérifié sur 14 sorties de type stop (13→23/09)** : RED 6,0→−6,01 · XRP 6,0→−6,08 ·
+>   ZBCN 6,0→−6,06 · W 6,0→−6,08 · KITE 6,0→−6,46 · CC 6,0→−6,98 · PYTH 6,67→−6,98 ·
+>   EDEL 13,8→−14,25 et 11,95→−12,06. **Le stop tient, au point de base.**
+> - Ce qui reste vrai, et qui est un problème de **NIVEAU** (pas d'exécution) : **un stop à 39 %
+>   ne protège rien**. Chiffré : plafonner le stop à 15 % aurait donné **+0,87 $ sur 10 jours**
+>   (`hulk-mexc/scripts/chiffrage_stop_serre.py`, chiffre **OPTIMISTE**, sans ré-entrée).
+>
+> **Conséquence** : l'objection n°1 du jury du matin (« le stop ne tient pas », 3 voix sur 4)
+> reposait sur **mon chiffre faux**, pas sur la machine. Le verdict a été re-soumis avec la
+> correction, en **session ouverte** (`scripts/SESSIONS_FAMILLE/SUPERVISION_BUFFY_23_09/`).
+> Classe d'erreur : **E17** — *publier un plancher de configuration comme le seuil réel de la
+> machine, alors que le moteur l'écrit dans son propre journal.*
+
 # AUDIT MEXC × HULK — données, séquences, mémoire, re-injection (23/09/2026)
 
 > **Commande Christophe** : « tu vas prendre les données de MEXC, tu vas les comparer une par une
