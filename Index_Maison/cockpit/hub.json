@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-23T18:23:20.826275+00:00",
+  "generated_at": "2026-09-23T18:24:21.538007+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 164
+      "calls_24h": 166
     },
     {
       "id": "openrouter-free",
@@ -274,10 +274,26 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 187,
-    "remaining": 437
+    "consumed": 189,
+    "remaining": 435
   },
   "queue": [
+    {
+      "ts": "2026-09-23T18:24:01.453546+00:00",
+      "task": "supervise.decision",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 34.85
+    },
+    {
+      "ts": "2026-09-23T18:23:20.971423+00:00",
+      "task": "supervise.decision",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 24.38
+    },
     {
       "ts": "2026-09-23T17:59:55.122364+00:00",
       "task": "analyse.profonde",
@@ -381,25 +397,21 @@
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
       "duration_s": 30.85
-    },
-    {
-      "ts": "2026-09-23T16:14:39.281513+00:00",
-      "task": "analyse.profonde",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 40.81
-    },
-    {
-      "ts": "2026-09-23T15:53:53.011415+00:00",
-      "task": "analyse.profonde",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 36.93
     }
   ],
   "events": [
+    {
+      "ts": "2026-09-23T18:24:01.452045+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
+    {
+      "ts": "2026-09-23T18:23:20.970989+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
     {
       "ts": "2026-09-23T18:22:56.594319+00:00",
       "kind": "blacklist",
@@ -447,18 +459,6 @@
       "kind": "failover",
       "title": "Bascule depuis InferX Qwen3-Coder-Next (code, gratuit jusqu'au 12/08)",
       "detail": "HTTP Error 429: Too Many Requests"
-    },
-    {
-      "ts": "2026-09-23T18:08:05.114021+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis InferX DeepSeek V4 Flash (API gratuite jusqu'au 12/08)",
-      "detail": "HTTP Error 429: Too Many Requests"
-    },
-    {
-      "ts": "2026-09-23T18:08:03.933339+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis OpenRouter Juge (nemotron-3-super-120b free) - verificateur independant",
-      "detail": "HTTP Error 400: Bad Request"
     }
   ],
   "tasks_quotas": {
