@@ -15,7 +15,8 @@
     "2026-09-11": 8,
     "2026-09-16": 8,
     "2026-09-18": 8,
-    "2026-09-20": 8
+    "2026-09-20": 8,
+    "2026-09-23": 8
   },
   "fiches": {
     "32f5f333ea5d": {
@@ -2389,6 +2390,156 @@
       "usage": "codeur",
       "avis_pour": "Une excellente opportunité d'intégrer des modèles de premier plan sans frais pour vos scripts et votre automatisation.",
       "avis_attention": "Gardez un œil sur les quotas de la plateforme pour éviter les interruptions inopinées lors de vos runs."
+    },
+    "a79f675ff09f": {
+      "section": "nvidia",
+      "item": "deepseek-ai/deepseek-v4.1-flash",
+      "generated": "2026-09-23T08:15:30.806181+00:00",
+      "type": "Modèle multimodal ultra-rapide axé sur la logique et le code",
+      "forts": [
+        "Idéal pour la génération et la correction de scripts Python",
+        "Latence très faible adaptée au temps réel",
+        "Bonne gestion du contexte et des instructions complexes"
+      ],
+      "faibles": [
+        "Risque d'hallucination sur des logiques financières très pointues",
+        "Dépendance à l'infrastructure NVIDIA"
+      ],
+      "usage": "codeur",
+      "avis_pour": "Une excellente option gratuite pour booster la vitesse de nos pipelines de code sans impacter le budget cloud.",
+      "avis_attention": "Toujours doubler les décisions critiques par notre juge (Nara) pour éviter les faux pas en production."
+    },
+    "ff04715f2257": {
+      "section": "inferx",
+      "item": "kimi-k3",
+      "generated": "2026-09-23T08:15:32.233886+00:00",
+      "type": "Modèle d'intelligence artificielle généraliste gratuit",
+      "forts": [
+        "Réponses rapides",
+        "Adapté au chat général",
+        "Gratuit"
+      ],
+      "faibles": [
+        "Non testé pour les scripts critiques ACE777",
+        "Manque de recul sur l'analyseur de code",
+        "Fiabilité variable selon la complexité"
+      ],
+      "usage": "chat",
+      "avis_pour": "À essayer pour vos discussions générales et vos requêtes exploratoires légères.",
+      "avis_attention": "Restez prudent et ne l'utilisez pas pour les décisions de trading critiques sans validation préalable."
+    },
+    "803c5f632c8e": {
+      "section": "inferx",
+      "item": "qwen3.8-max",
+      "generated": "2026-09-23T08:15:33.775643+00:00",
+      "type": "Modèle généraliste avancé gratuit pour les tâches d'analyse et de texte",
+      "forts": [
+        "Gratuit et accessible via l'API",
+        "Bonnes capacités multilingues et de raisonnement textuel",
+        "Alternative intéressante pour alléger les requêtes cloud principales"
+      ],
+      "faibles": [
+        "Spécificités techniques non garanties pour l'écriture de scripts Python complexes",
+        "Fiabilité variable selon la charge du fournisseur inferx",
+        "Moins spécialisé pour le rôle de juge par rapport aux cadors du routage"
+      ],
+      "usage": "analyste",
+      "avis_pour": "À tester pour diversifier les sources de l'analyste stratégique sans entamer le budget cloud.",
+      "avis_attention": "Gardez une vérification rigoureuse sur ses outputs, surtout pour l'audit et le code critique."
+    },
+    "217a6e54fc70": {
+      "section": "github awesome lists",
+      "item": "awesome-freellm-apis: | Mistral AI | `https://api.mistral.ai/v1` | Get Key → | No |",
+      "generated": "2026-09-23T08:15:35.110498+00:00",
+      "type": "Fournisseur d'API officiel pour la gamme de modèles Mistral AI",
+      "forts": [
+        "API standardisée et robuste",
+        "Accès direct aux modèles Mistral (Codestral, Large, etc.)",
+        "Idéal pour l'intégration de scripts Python"
+      ],
+      "faibles": [
+        "Nécessite une clé API personnelle",
+        "Les conditions de gratuité exacte dépendent de la politique du compte Mistral"
+      ],
+      "usage": "codeur, analyste ou chat",
+      "avis_pour": "Parfait pour tester la puissance des modèles Mistral natifs dans vos scripts de manière fiable.",
+      "avis_attention": "Vérifiez bien les quotas et conditions de la formule gratuite sur la plateforme Mistral pour éviter les surprises."
+    },
+    "a0696752906c": {
+      "section": "github awesome lists",
+      "item": "awesome-freellm-apis: | Kilo Code | `https://api.kilo.ai/api/gateway` | Get Key → | No |",
+      "generated": "2026-09-23T08:15:36.491070+00:00",
+      "type": "Passerelle API multi-fournisseurs pour accéder à des LLM",
+      "forts": [
+        "Point d'accès unique pour plusieurs modèles",
+        "Utile pour diversifier les sources d'appels cloud",
+        "Intégration simple via une passerelle HTTP standard"
+      ],
+      "faibles": [
+        "Fiabilité et limites gratuites dépendantes du service tiers Kilo Code",
+        "Moins transparent sur les quotas exacts par rapport aux fournisseurs natifs"
+      ],
+      "usage": "codeur",
+      "avis_pour": "À tester comme source alternative pour alimenter nos scripts et varier les backends de code.",
+      "avis_attention": "Attention aux limites cachées et à la stabilité de la passerelle en conditions de production."
+    },
+    "5ed031372a50": {
+      "section": "huggingface récents",
+      "item": "pottokao/Qwen-Image-2.1-Text-Encoder-Heretic-GGUF",
+      "generated": "2026-09-23T08:15:37.871410+00:00",
+      "type": "Modèle d'encodage de texte et vision pour la génération d'images",
+      "forts": [
+        "Basé sur l'architecture robuste Qwen-Image",
+        "Format GGUF optimisé pour l'efficacité",
+        "Gratuit via Hugging Face"
+      ],
+      "faibles": [
+        "Utilité très spécifique (encodage de texte pour image)",
+        "Non adapté directement pour la logique ou le code Python pur",
+        "Variante 'Heretic' non standard pouvant nécessiter des prompts spécifiques"
+      ],
+      "usage": "chat",
+      "avis_pour": "À tester si vous explorez la génération ou l'analyse d'images combinées au texte.",
+      "avis_attention": "Ne convient pas pour remplacer un modèle de décision ou de codage (type analyste ou codeur)."
+    },
+    "568d061c4914": {
+      "section": "huggingface récents",
+      "item": "Marcus0304/Qwen2.5-1.5B-Instruct_SmartCockpit_V2",
+      "generated": "2026-09-23T08:15:39.628822+00:00",
+      "type": "Modèle d'instruction compact et spécialisé pour le pilotage et le code",
+      "forts": [
+        "Taille légère (1.5B) garantissant rapidité et faible empreinte",
+        "Optimisé pour la structure de cockpit et la logique d'agent",
+        "Gratuit et accessible via l'écosystème HuggingFace"
+      ],
+      "faibles": [
+        "Capacités de raisonnement complexes limitées par rapport aux modèles géants",
+        "Risque d'hallucination accru sur les tâches hautement stratégiques",
+        "Contexte restreint pour l'analyse de gros volumes de code"
+      ],
+      "usage": "codeur",
+      "avis_pour": "Idéal pour tester des scripts Python rapides ou assister le cockpit sans consommer de budget cloud.",
+      "avis_attention": "Ne pas l'utiliser pour la stratégie globale ou le jugement critique sans validation par un modèle plus robuste."
+    },
+    "83cbbe141f09": {
+      "section": "huggingface récents",
+      "item": "C1pher/Qwen3.6-35B-A3B-Whitespace-20260922-ckpt188",
+      "generated": "2026-09-23T08:16:07.504305+00:00",
+      "type": "Modèle open-source récent pour tâches avancées de NLP",
+      "forts": [
+        "Version 35B paramètres (puissance élevée)",
+        "Checkpoint récent (2026-09-22)",
+        "Optimisé pour Whitespace (bon pour scripts/analyse)",
+        "Hébergé sur HuggingFace (accès facile)"
+      ],
+      "faibles": [
+        "Taille importante (latence potentielle)",
+        "Peu de retours utilisateurs (nouveauté)",
+        "Spécialisation non documentée"
+      ],
+      "usage": "Analyste stratégique ou juge pour tâches complexes",
+      "avis_pour": "Essayer pour des analyses textuelles profondes là où Gemini échoue.",
+      "avis_attention": "Vérifier la consommation mémoire avant déploiement sur nos instances légères."
     }
   }
 }
