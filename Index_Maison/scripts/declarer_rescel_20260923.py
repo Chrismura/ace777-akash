@@ -35,7 +35,30 @@ DECLARATIONS = {
         "21,70 % (= 0,85 × 0,50 × cadence 51,1 %), pas les 5-12,75 % que mes documents "
         "annonçaient — l'erreur était dans MES instruments (classe F), le moteur avait "
         "raison. Vérifié : pnl 42,1679 $ / 9 positions / 175 trades identiques avant/après, "
-        "0 traceback, veilleuse STABLE. Réversible en 1 ligne."
+        "0 traceback, veilleuse STABLE. Réversible en 1 ligne. "
+        "-- 2e MODIFICATION DU MÊME JOUR (GO 1 + GO 2, 23/09, exigence de la FAMILLE) : le journal "
+        "écrit 5 colonnes de plus — `ts_prix_utc` (quand le PRIX a été lu chez MEXC), `age_prix_s` "
+        "(son âge à l'écriture : l'audit a trouvé des remplissages à 1-5 min de retard), "
+        "`spread_bps`, `spread_source` (asp = vue live, profil = repli figé) et `cout_estime_usdt` "
+        "(frais 5 bps/côté ESTIMÉS + spread). ADDITIF ET SANS EFFET SUR LES DÉCISIONS : aucune "
+        "colonne retirée, aucun seuil, aucune porte, aucun ordre modifié ; `_PRICE_TS` est "
+        "renseigné à la LECTURE du prix (batch + fallback unitaire) et tout est calculé dans un "
+        "try/except (un log ne casse jamais une boucle). Le PnL inscrit reste BRUT : le net est "
+        "un calcul de reporting séparé, pour ne pas toucher au disjoncteur."
+    ),
+    "hulk-mexc/scripts/satellite_aspiration.py": (
+        "GO 3 (23/09/2026, GO Christophe après l'audit MEXC × HULK) — COUVERTURE DES 20 PAIRES. "
+        "L'audit a mesuré que 13 paires sur 20 n'avaient AUCUNE vue live : le satellite ne sondait "
+        "que les paires en régime COOLING/IMPULSE (5 max) + les 6 forcées, soit 7-8 en pratique. "
+        "Pour ces paires, le moteur plafonnait la mise sur le `mur_bid_med` du PROFIL — chiffre figé, "
+        "faux de 8 à 82 % (RIZE : cap 4,88 $ pour un carnet mesuré à 364,74 $). "
+        "CHANGEMENT : la sélection sonde TOUTES les paires du moteur (ordre : forcées → actives → "
+        "autres) et MAX_PAIRS passe à 20, surchargeable par ASPIRATION_MAX_PAIRS. "
+        "COÛT MESURÉ : une passe complète = 35,8 s pour 40 lectures /depth (≈ 80-100 appels/min, "
+        "sous le plafond observé ~200/min) ; launchd StartInterval=20 s ⇒ une passe sur deux est "
+        "sautée (pas de chevauchement) ⇒ âge d'une vue ≈ 40-55 s, sous le `wall_stale_sec` de 120 s. "
+        "ADDITIF : `n_paires_univers`, `couverture_pct`, `max_pairs` sont désormais écrits dans le "
+        "JSON pour que la couverture soit VERIFIABLE au lieu d'être supposée. RÉVERSIBLE en 1 ligne."
     ),
     "Index_Maison/scripts/gen_cockpit_vol.py": (
         "GARDIEN VISIBLE 23/09 (GO 1 — « un verdict qu'il faut aller chercher n'existe pas ») : "
@@ -149,6 +172,71 @@ NOUVEAUX = {
                 "SYNTHESE.md. Un verdict qu'on ne peut pas contredire n'est pas un verdict.",
         "origine": "Christophe 23/09 : « consultation avec la famille (voyons si on peut éviter "
                    "que tu continues de faire des erreurs), prompt spécifique et contexte »",
+    },
+    # Fichier PRÉ-EXISTANT mais ABSENT DU REGISTRE (trou détecté le 23/09 en déclarant sa
+    # modification) : le satellite qui alimente la vue live n'était invisible ni du drill, ni de
+    # la veilleuse, ni de la revue des organes. On le scelle en même temps qu'on le corrige.
+    "hulk-mexc/scripts/satellite_aspiration.py": {
+        "role": "SATELLITE D'OBSERVATION : sonde le carnet MEXC (/depth) par paire et écrit "
+                "`runs/aspiration_live.json` (spread, mur bid/ask, chute du mur, délai) — c'est LA "
+                "source du cap de mise et du gate de murs du moteur. Lancé par launchd "
+                "(com.ace777.satellite-aspiration, StartInterval 20 s, mode --once). "
+                "23/09 (GO 3) : sonde désormais TOUTES les paires du moteur (avant : 5 actives + "
+                "6 forcées ⇒ 13 paires aveugles), écrit sa couverture et son âge dans le JSON, et "
+                "reste sous le plafond de requêtes mesuré (≈ 80-100/min pour ~200/min).",
+        "origine": "Audit MEXC × HULK (23/09) — les 13 paires sans vue live plafonnaient leur mise "
+                   "sur un profil figé faux de 8 à 82 %",
+    },
+    "hulk-mexc/scripts/audit_mexc_vs_hulk.py": {
+        "role": "AUDIT GO 1 (23/09, demande Christophe « compare les données de MEXC une par une "
+                "avec celles de Hulk ») : pour les 20 paires, rejoue les MÊMES endpoints et les "
+                "MÊMES formules que le moteur (ticker/price, depth?limit=20 avec mur = MAX niveau "
+                "unitaire, profondeur cumulée sous −0,5/−1/−2 %) et mesure les écarts prix / spread "
+                "/ mur, l'âge de la vue live, et les trous (paires sans profil, sans vue live). "
+                "LECTURE SEULE, 0 ordre.",
+        "origine": "Demande Christophe 23/09 (audit MEXC × Hulk, GO 1)",
+    },
+    "hulk-mexc/scripts/audit_sequences_trades.py": {
+        "role": "AUDIT GO 2 : reconstruit CHAQUE séquence par conservation des quantités (BUY / "
+                "SELL_PARTIAL / SELL), la confronte aux klines 1 min MEXC (le prix inscrit tombe-t-il "
+                "dans le [low, high] de sa minute ?), mesure la justesse (MFE/MAE 60 min, giveback, "
+                "laissé sur la table) et recalcule le **net de coûts** (le journal inscrit le BRUT : "
+                "`pnl = (price − entry) × sell_qty`). Budget de temps déclaré ; les séquences non "
+                "traitées sont NOMMÉES, jamais comblées. LECTURE SEULE, 0 ordre.",
+        "origine": "Demande Christophe 23/09 (audit séquences, mises, justesse — GO 2)",
+    },
+    "hulk-mexc/scripts/audit_horodatage_prix.py": {
+        "role": "Sous-analyse ciblée : pour chaque prix du journal qui ne tombe PAS dans sa minute, "
+                "cherche dans ±6 min la minute qui le contient → tranche entre « retard d'horodatage » "
+                "(le prix est vrai, l'heure est fausse) et « prix périmé » (on a paper-tradé un prix "
+                "qui n'existait plus). 13/13 → retard d'horodatage, aucun prix fantôme.",
+        "origine": "GO 2 — question « les données sont-elles correctement enregistrées ? »",
+    },
+    "hulk-mexc/scripts/audit_memoire_donnees.py": {
+        "role": "AUDIT GO 3 : couverture (profil / vue live / obs murs / état / journal / set-up par "
+                "paire), complétude colonne par colonne, colonnes MANQUANTES nommées, cohérence "
+                "interne (horodatages, continuité de pnl_total, doublons) et **re-injection des "
+                "set-up** (stop annoncé vs réalisé en $, mise vs cap, mise vs profondeur mesurée) "
+                "avec ses limites déclarées (extrêmes mesurés, cap d'aujourd'hui). LECTURE SEULE.",
+        "origine": "Demande Christophe 23/09 (« vérifie les données qu'on mémorise, si il en manque, "
+                   "ensuite tu rejoues tout ça avec les derniers set-up »)",
+    },
+    "hulk-mexc/scripts/probe_prix_mexc_fraicheur.py": {
+        "role": "LE TEST EXIGÉ PAR LA FAMILLE : l'écart d'horloge (en-tête HTTP `Date` de MEXC vs "
+                "notre horloge), l'ÂGE DU DERNIER TRADE réel par paire et l'écart entre le « dernier "
+                "prix » et le MILIEU DU CARNET. Résultat : horloge à 0,6 s, 16/20 paires ont échangé "
+                "dans la dernière minute (donc le retard de 1-5 min EST notre chaîne pour elles), et "
+                "l'écart ticker/mid atteint −90,9 bps sur RIZE. Verdict rendu PAR PAIRE (l'ancien "
+                "verdict global « H2 dominante » était plus large que la mesure — corrigé le jour même).",
+        "origine": "Réponses de la FAMILLE (Gemini/Grok/Nemotron : « mesure l'écart d'horloge avant "
+                   "de conclure ») — classe E14 (conclusions au-delà de la mesure)",
+    },
+    "Index_Maison/scripts/consulter_famille_audit_mexc_20260923.py": {
+        "role": "Consultation de la FAMILLE sur l'audit : brief construit À PARTIR DES JSON des "
+                "instruments (aucun chiffre retapé), mes erreurs E10/E12/E13 listées, mission de "
+                "CONTREDIRE. 4 avis + SYNTHESE.md (verdict unanime « utile mais incomplet », ordre "
+                "imposé : horodatage d'abord, net de coûts ensuite).",
+        "origine": "Christophe 23/09 : « remets tout ça à la famille, conteste avec tes erreurs »",
     },
     "Index_Maison/scripts/verif_memoire_horodatage.py": {
         "role": "GARDIEN DE LA CLASSE E13 (heure de mémoire ESTIMÉE au lieu d'être LUE) : "

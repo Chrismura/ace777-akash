@@ -312,6 +312,43 @@ def http_json(url: str, timeout: float = 15.0, retries: int = 2):
 # Aucune logique métier n'est touchée (mêmes valeurs de prix, juste la source).
 _PRICE_CACHE: dict[str, float] = {}
 _LAST_KNOWN_PRICE: dict[str, float] = {}
+# PROVENANCE DU PRIX (23/09/2026, GO Christophe après l'audit MEXC × HULK) — la famille
+# l'a exigé : « journalise l'heure de la DONNÉE, pas l'heure d'ÉCRITURE ». Sans ça, un prix
+# de remplissage peut avoir 1 à 5 minutes de retard sans que rien ne le dise (constaté :
+# 13/13 des prix fautifs existaient dans une minute ANTÉRIEURE). Ici on horodate le prix
+# quand il est LU (batch ou fallback unitaire) pour que le journal puisse écrire son ÂGE.
+_PRICE_TS: dict[str, float] = {}
+# Frais DÉCLARÉS par le code (commentaire « mise fixe 30 $, frais 5 bps/côté »).
+# ESTIMÉ, pas mesuré : le papier ne paie rien. Révisable en 1 ligne, et le nom le dit.
+FEE_BPS_COTE_ESTIME = 5.0
+
+# SCHEMA DU JOURNAL — SOURCE UNIQUE DE VÉRITÉ (23/09/2026, classe E15).
+# Défaut corrigé : les 5 colonnes ajoutées à 12:52 n'ont pas suivi le RESUME, qui recopiait
+# l'ANCIEN fichier (11 colonnes) par-dessus le nouveau → journal à en-tête 11 et lignes 16.
+# Un fichier de données ne s'écrit pas en deux largeurs. Le schéma vit ICI, et le resume
+# réécrit TOUJOURS cet en-tête : ancien fichier = anciennes lignes sous l'en-tête courant.
+CSV_SCHEMA = [
+    "ts",
+    "pair",
+    "event",
+    "regime",
+    "price",
+    "entry",
+    "qty",
+    "pnl_usdt",
+    "pnl_total",
+    "cadence",
+    "reason",
+    # Colonnes AJOUTÉES le 23/09/2026 (GO Christophe, exigence de la FAMILLE).
+    # ADDITIF : aucune colonne retirée, aucun ordre inchangé. Un ancien CSV garde
+    # ses 11 colonnes ; les nouveaux fichiers en ont 16.
+    "ts_prix_utc",      # GO 1 : quand le PRIX utilisé a été lu chez MEXC
+    "age_prix_s",       # GO 1 : son âge au moment de l'écriture
+    "spread_bps",       # GO 2 : spread retenu, et sa provenance
+    "spread_source",    #         "asp" = vue live, "profil" = repli figé
+    "cout_estime_usdt", # GO 2 : frais+spread ESTIMÉS du mouvement (le PnL
+                        #         inscrit reste BRUT — on ne le change pas)
+]
 
 
 def fetch_all_prices(pairs) -> dict[str, float]:
@@ -336,8 +373,10 @@ def fetch_all_prices(pairs) -> dict[str, float]:
                 continue
     global _PRICE_CACHE, _LAST_KNOWN_PRICE
     _PRICE_CACHE = out
+    _t = time.time()
     for k, v in out.items():
         _LAST_KNOWN_PRICE[k] = v
+        _PRICE_TS[k] = _t          # horodatage du PRIX (pas de son écriture plus tard)
     return out
 
 
@@ -414,6 +453,7 @@ def last_price(pair: str) -> float:
         p = float(j["price"])
         _PRICE_CACHE[pair] = p
         _LAST_KNOWN_PRICE[pair] = p
+        _PRICE_TS[pair] = time.time()   # idem : on horodate la lecture, pas l'écriture
         return p
     except Exception:
         if pair in _LAST_KNOWN_PRICE:
@@ -935,21 +975,7 @@ class PaperBot:
         self.state_path = RUNS / f"PAPER_V1_{ts}_state.json"
         RUNS.mkdir(parents=True, exist_ok=True)
         with self.csv_path.open("w", newline="") as f:
-            csv.writer(f).writerow(
-                [
-                    "ts",
-                    "pair",
-                    "event",
-                    "regime",
-                    "price",
-                    "entry",
-                    "qty",
-                    "pnl_usdt",
-                    "pnl_total",
-                    "cadence",
-                    "reason",
-                ]
-            )
+            csv.writer(f).writerow(CSV_SCHEMA)
         signal.signal(signal.SIGINT, self._stop)
         signal.signal(signal.SIGTERM, self._stop)
 
@@ -1653,22 +1679,54 @@ class PaperBot:
             # Purge bornée : aucun état de refus ne vit au-delà de 2× le TTL.
             cutoff = now - (self.skip_dedupe_ttl * 2)
             self.skip_dedupe = {k: v for k, v in self.skip_dedupe.items() if v[0] >= cutoff}
+        # ── PROVENANCE DU PRIX + COÛT ESTIMÉ (23/09, GO 1/GO 2) ────────────────────────────
+        # Un log ne casse JAMAIS une boucle : tout est dans un try/except, et en cas d'échec
+        # les 5 colonnes sortent vides (jamais une valeur inventée).
+        ts_prix, age_prix, spread_bps, spread_src, cout_est = "", "", "", "", ""
+        try:
+            _t = _PRICE_TS.get(pair)
+            if _t:
+                ts_prix = datetime.fromtimestamp(_t, timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+                age_prix = f"{max(0.0, time.time() - _t):.1f}"
+            _a = self.aspiration.get(pair) or {}
+            _sp = _a.get("spread_bps")
+            _fresh = bool(_t) and (time.time() - _t) <= getattr(self, "wall_stale_sec", 120)
+            if _sp is not None and _fresh:
+                spread_bps, spread_src = f"{float(_sp):.2f}", "asp"
+            else:
+                _p = (self.profils.get(pair) or {}).get("spread_bps_med")
+                if _p is not None:
+                    spread_bps, spread_src = f"{float(_p):.2f}", "profil"
+            if qty and price and spread_bps:
+                _c = float(qty) * float(price) * (2 * FEE_BPS_COTE_ESTIME + float(spread_bps)) / 10000.0
+                cout_est = f"{_c:.4f}"
+        except Exception:
+            pass
+        _row = [
+            utc_now(),
+            pair,
+            event,
+            regime,
+            f"{price:.8f}",
+            f"{entry:.8f}" if entry else "",
+            f"{qty:.8f}" if qty else "",
+            f"{pnl:.4f}",
+            f"{self.pnl_total:.4f}",
+            f"{cadence:.2f}" if cadence is not None else "",
+            reason,
+            ts_prix,
+            age_prix,
+            spread_bps,
+            spread_src,
+            cout_est,
+        ]
+        # GARDE-FOU DE SCHEMA (E15) : une ligne ne peut pas avoir une autre largeur que
+        # l'en-tête. Si ça arrive, on le DIT (err) au lieu d'écrire un journal bancal.
+        if len(_row) != len(CSV_SCHEMA):
+            say("err", f"[csv] SCHEMA_ECART ligne={len(_row)} schema={len(CSV_SCHEMA)} — "
+                       f"ligne écrite quand même, à corriger (E15)")
         with self.csv_path.open("a", newline="") as f:
-            csv.writer(f).writerow(
-                [
-                    utc_now(),
-                    pair,
-                    event,
-                    regime,
-                    f"{price:.8f}",
-                    f"{entry:.8f}" if entry else "",
-                    f"{qty:.8f}" if qty else "",
-                    f"{pnl:.4f}",
-                    f"{self.pnl_total:.4f}",
-                    f"{cadence:.2f}" if cadence is not None else "",
-                    reason,
-                ]
-            )
+            csv.writer(f).writerow(_row)
 
     def save_state(self):
         # Écriture ATOMIQUE (24/08, codeur) : .tmp puis os.replace — jamais d'état
@@ -1779,10 +1837,22 @@ class PaperBot:
         ancien_csv = RUNS / f.name.replace("_state.json", ".csv")
         if ancien_csv.exists() and ancien_csv != self.csv_path:
             try:
-                import shutil
-                shutil.copy2(str(ancien_csv), str(self.csv_path))
-            except Exception:
-                pass
+                # E15 (23/09/2026) : on recopie les LIGNES, pas l'en-tête. Le fichier
+                # repris garde donc l'en-tête COURANT (16 colonnes) avec les anciennes
+                # lignes dessous. Avant : shutil.copy2 écrasait le nouveau fichier par
+                # l'ancien → en-tête 11 colonnes et lignes à 16 (mesuré sur le journal
+                # de 10:52Z : 76 163 lignes à 11 champs / 12 lignes à 16).
+                _old_lines = ancien_csv.read_text(encoding="utf-8", errors="replace").splitlines()
+                with self.csv_path.open("w", newline="") as f:
+                    w = csv.writer(f)
+                    w.writerow(CSV_SCHEMA)
+                    for _l in _old_lines[1:]:        # [1:] = on jette l'ANCIEN en-tête
+                        if _l.strip():
+                            w.writerow(next(csv.reader([_l]), []))
+                say("hdr", f"RESUME : journal repris ({len(_old_lines) - 1} lignes historiques) "
+                           f"sous l'en-tête courant ({len(CSV_SCHEMA)} colonnes)")
+            except Exception as e:                   # noqa: BLE001
+                say("err", f"[csv] RESUME_COPIE_ERR: {e}")
         say("hdr", f"RESUME depuis {f.name} — {len(self.pos)} pos, "
                    f"{len(self.bags)} bags, cash {sum(self.pair_cash.values()):.2f}$, "
                    f"pnl {self.pnl_total:+.4f}$, trades {self.trades}")

@@ -1,6 +1,6 @@
 {
   "version": "1.5.0",
-  "updated": "2026-09-23T09:58Z",
+  "updated": "2026-09-23T10:50Z",
   "fichier": [
     {
       "nom": "Index_Maison/scripts/v2_duo_replay_4h.py",
@@ -30,18 +30,18 @@
       "origine": "chantier hulk",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "1b0cd9fc330fa8a8c81566f740246c75",
+      "md5": "b3d9c64cac0ada86010729125ad1df51",
       "_rescel_20260918": "gate Plancher PLANCHER_GATE_ON + plancher_veto()/plancher_veto_decision() + mise plafonnée sur le MUR LIVE (aspiration_live.json, repli profil).",
       "note": "FIX 27/08 : circuits breaker + fraîcheur Cortana + FILTRE LOTS MEXC (lot_filter depuis exchangeInfo, baseSizePrecision/quoteAmountPrecision, arrondi stepSize au buy ET au sell, dust close, fail-open)  | RE-SCELLÉ 2026-09-03T17:22Z (GO Christophe 03/09) · 10/09: patch fusibles par paire (gate tête de buy() + détarage sizing, GO Christophe) — md5 mis à jour",
       "maj": "BATCH PRIX Phase 1 (31/08-01/09, famille 7/7 + codeur) : 1 appel GET global + cache au lieu de 21 GET/cycle (~200-270 req/min → sous la limite MEXC). Mode SELLFULL + mode_entree() du 29-31/08. Aucune logique métier touchée.",
-      "date": "2026-09-23T09:33Z",
+      "date": "2026-09-23T10:49Z",
       "_rescel_20260921": "SET-UP IMPULSE 21/09 (GO Christophe « avancer sur le set-up ») : 3 portes corrigées POUR LES SEULES PAIRES mode_entree=IMPULSE (aujourd'hui EDEL), mesurées avant câblage (chiffrage_entree_sortie_replay.py, 90 j × 20 paires) — (1) entrée sur la RAFALE sans attendre le repli (66 % des rafales étaient structurellement inaccessibles), (2) IMPULSE_WAIT n'est plus une sortie anticipée pour ces paires (c'est l'instant du pump), (3) fenêtre de creux levée (une rafale n'a pas d'heure ; les deux portes ensemble = 0 entrée sur 90 j). Sortie INCHANGÉE. Flags IMPULSE_SANS_REPLI_ON / IMPULSE_HORS_FENETRE_ON, réversibles en 1 ligne. Preuve live : EDEL BUY 13:23:28Z régime IMPULSE_WAIT m6=8.0.",
       "_rescel_20260922": "GARDE POINTEUR 22/09 (défense en profondeur) : save_state() ne fait PLUS pointer .hulk_resume_pointer vers un état que le moteur refuserait lui-même de reprendre — VIDE (0 position, 0 bag, écrit au boot avant le --resume) ou VIERGE (artefact de re-seed : 0 trade, 0 cash de paire, pnl≈0, pas de bags). Le disjoncteur mesure la perte journalière depuis ce pointeur : un tel état lu comme « pnl 0 » a déjà produit un faux Mur de Fer de 13,93 % (21/09). Le pointeur reste sur le dernier état RÉEL. Aucune autre ligne touchée ; confirmation définitive au prochain redémarrage du moteur (pas de relance forcée).",
       "_rescel_20260922b": "REFROIDISSEMENT BORNÉ 22/09 (GO Christophe « bloquer un actif est un contre-sens »). REENTRY_MAX n'interdit plus une paire À VIE : nettoyé le compteur en mémoire (non persisté → deux comportements selon le redémarrage) ; le buy() lit désormais un refroidissement GRADUÉ et EXPIRANT adossé au cache de stops persisté (n stops × 6 h, plafond 24 h, expiré après 48 h sans stop) + DÉ-RISQUE ×0,5 après un stop (« rebuilding with smaller size »). Calibré après mesure : à l'horizon 6 h (durée de détention réelle) la garde PROTÈGE (−14,5 $) ; à 24 h elle coûte (+56,3 $) → on garde la protection des premières heures, on supprime le blocage long. ANTI-SILENCE : un refus de régime (WATCH/QUIET) n'est plus muet (1 ligne/h/paire au max) — CCUSDT était invisible 27 h.",
       "_rescel_20260922c": "R17 APPLIQUÉE (22/09, ORDRE Christophe « on ne donne pas de timing FIXE D'ARRÊT ; ON REGARDE LES CHIFFRES »). RETIRÉ : le blocage à vie `REENTRY_MAX` (CCUSDT gelé 4,5 j) ET le refroidissement en HEURES que j'avais posé dans la journée (6/24/48 h) — c'était encore un seuil de temps fixe, donc la même faute. Aucune garde de temps sur l'entrée n'est remplacée par une autre invention : le risque par paire est borné par le FUSIBLE MESURÉ déjà en place (fusibles_paires.py : k × σ_mesuré × mise → budget de perte journalier en $ ; épuisé = entrées gelées, sorties libres) + murs/aspiration/spread/plancher. Conservé : l'anti-silence (ATTENTE:WATCH/IMPULSE_WAIT, SILENCE_LOG_TTL_SEC=3600) et les deux gardes du pointeur `.hulk_resume_pointer`.",
       "_rescel_20260922_sortie_mesuree": "SORTIE MESURÉE (22/09, R17) : le palier de sortie est relu dans l'unité de la paire — palier = fixe × max(1 ; cadence mesurée / cadence de référence 7,30 %/j). Mesuré sur 119 entrées RÉELLES à 2 horizons (+2,22 $ / +1,05 $, même signe), pire trade INCHANGÉ, pertes suppl. +0,69 $ payées 4,7× par +3,27 $ (critère R18 écrit). L'échelle SYMÉTRIQUE a été mesurée PUIS REJETÉE (signe instable). PLANCHER à 1 : aucune protection retirée.",
       "_rescel_20260922_trace_visible": "Rien de silencieux (#6) : la raison de vente d'un palier écrit désormais LE PALIER EFFECTIF et LA MESURE qui l'a produit — `rip_5.6pct_palier1_niv5.5pct_cad20.0rel2.74_sell_25pct` (cadence de la paire + échelle relative). Le journal prouve à lui seul que c'est la mesure qui décide, sans lire le code.",
-      "_rescel_20260923": "REFUS PARLANT 23/09 (GO Christophe « pourquoi RIZE a perdu le pump ? ») : le REFUS écrit désormais LE CHIFFRE QUI DÉCIDE — `ATTENTE:IMPULSE_WAIT dd6=2.50 seuil=21.70 manque=19.20pt m6=12.5` (l'achat le faisait déjà, le refus était muet). PORTÉE : 1 ligne de log + 30 lignes de commentaire ; `_detail` est calculé dans un try/except (un log ne casse jamais une boucle) ; le préfixe `ATTENTE:<régime>` reste INTACT (les instruments lisent `reason.split(':')[0]`). AUCUN seuil, AUCUNE porte, AUCUN ordre, AUCUNE décision modifiée. Effet immédiat MESURÉ : le seuil réel de RIZE est 21,70 % (= 0,85 × 0,50 × cadence 51,1 %), pas les 5-12,75 % que mes documents annonçaient — l'erreur était dans MES instruments (classe F), le moteur avait raison. Vérifié : pnl 42,1679 $ / 9 positions / 175 trades identiques avant/après, 0 traceback, veilleuse STABLE. Réversible en 1 ligne."
+      "_rescel_20260923": "REFUS PARLANT 23/09 (GO Christophe « pourquoi RIZE a perdu le pump ? ») : le REFUS écrit désormais LE CHIFFRE QUI DÉCIDE — `ATTENTE:IMPULSE_WAIT dd6=2.50 seuil=21.70 manque=19.20pt m6=12.5` (l'achat le faisait déjà, le refus était muet). PORTÉE : 1 ligne de log + 30 lignes de commentaire ; `_detail` est calculé dans un try/except (un log ne casse jamais une boucle) ; le préfixe `ATTENTE:<régime>` reste INTACT (les instruments lisent `reason.split(':')[0]`). AUCUN seuil, AUCUNE porte, AUCUN ordre, AUCUNE décision modifiée. Effet immédiat MESURÉ : le seuil réel de RIZE est 21,70 % (= 0,85 × 0,50 × cadence 51,1 %), pas les 5-12,75 % que mes documents annonçaient — l'erreur était dans MES instruments (classe F), le moteur avait raison. Vérifié : pnl 42,1679 $ / 9 positions / 175 trades identiques avant/après, 0 traceback, veilleuse STABLE. Réversible en 1 ligne. -- 2e MODIFICATION DU MÊME JOUR (GO 1 + GO 2, 23/09, exigence de la FAMILLE) : le journal écrit 5 colonnes de plus — `ts_prix_utc` (quand le PRIX a été lu chez MEXC), `age_prix_s` (son âge à l'écriture : l'audit a trouvé des remplissages à 1-5 min de retard), `spread_bps`, `spread_source` (asp = vue live, profil = repli figé) et `cout_estime_usdt` (frais 5 bps/côté ESTIMÉS + spread). ADDITIF ET SANS EFFET SUR LES DÉCISIONS : aucune colonne retirée, aucun seuil, aucune porte, aucun ordre modifié ; `_PRICE_TS` est renseigné à la LECTURE du prix (batch + fallback unitaire) et tout est calculé dans un try/except (un log ne casse jamais une boucle). Le PnL inscrit reste BRUT : le net est un calcul de reporting séparé, pour ne pas toucher au disjoncteur."
     },
     {
       "nom": "hulk-mexc/scripts/ace_sense_mexc.py",
@@ -1224,8 +1224,8 @@
       "origine": "GO Christophe 23/09 — la veilleuse criait (à raison) sur 2 scellés modifiés",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "ffb4ebc6f1826d9ef8b1506da23dfc21",
-      "date": "2026-09-23T09:58Z",
+      "md5": "a2eb1bb0561e6af8b5a8b5eeb8b87105",
+      "date": "2026-09-23T10:50Z",
       "_ajout_20260923": "Instrument créé le 23/09/2026 (GO Christophe) — ajouté au registre le jour même de sa création pour qu'il soit VU (veilleuse, drill, revue).",
       "_rescel_20260923": "Outil d'acte du 23/09 : déclare + re-scelle les fichiers modifiés (backup horodaté + entrée `_rescel_20260923` qui dit QUOI et POURQUOI). Modifié une 2e fois le même jour pour traiter les 3 fichiers touchés APRÈS leur scellement (batterie d'autotest, `--serie` de la sonde, `REPLAY_SLIP_BPS` du replay) — la veilleuse avait crié trois fois « INTRUSION : modification non déclarée », à juste titre. Leçon de processus : ON SCELLE APRÈS LA DERNIÈRE MODIFICATION."
     },
@@ -1257,6 +1257,76 @@
       "auto_modifiable": false,
       "md5": "214eaa3f2fe9aae3289a996b4986b57a",
       "date": "2026-09-23T09:58Z",
+      "_ajout_20260923": "Instrument créé le 23/09/2026 (GO Christophe) — ajouté au registre le jour même de sa création pour qu'il soit VU (veilleuse, drill, revue)."
+    },
+    {
+      "nom": "hulk-mexc/scripts/audit_mexc_vs_hulk.py",
+      "role": "AUDIT GO 1 (23/09, demande Christophe « compare les données de MEXC une par une avec celles de Hulk ») : pour les 20 paires, rejoue les MÊMES endpoints et les MÊMES formules que le moteur (ticker/price, depth?limit=20 avec mur = MAX niveau unitaire, profondeur cumulée sous −0,5/−1/−2 %) et mesure les écarts prix / spread / mur, l'âge de la vue live, et les trous (paires sans profil, sans vue live). LECTURE SEULE, 0 ordre.",
+      "origine": "Demande Christophe 23/09 (audit MEXC × Hulk, GO 1)",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "91b6fc9394c3b655d25e405479966218",
+      "date": "2026-09-23T10:32Z",
+      "_ajout_20260923": "Instrument créé le 23/09/2026 (GO Christophe) — ajouté au registre le jour même de sa création pour qu'il soit VU (veilleuse, drill, revue)."
+    },
+    {
+      "nom": "hulk-mexc/scripts/audit_sequences_trades.py",
+      "role": "AUDIT GO 2 : reconstruit CHAQUE séquence par conservation des quantités (BUY / SELL_PARTIAL / SELL), la confronte aux klines 1 min MEXC (le prix inscrit tombe-t-il dans le [low, high] de sa minute ?), mesure la justesse (MFE/MAE 60 min, giveback, laissé sur la table) et recalcule le **net de coûts** (le journal inscrit le BRUT : `pnl = (price − entry) × sell_qty`). Budget de temps déclaré ; les séquences non traitées sont NOMMÉES, jamais comblées. LECTURE SEULE, 0 ordre.",
+      "origine": "Demande Christophe 23/09 (audit séquences, mises, justesse — GO 2)",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "0b0ae7882b5d06175b9c9c0b4201d7b4",
+      "date": "2026-09-23T10:32Z",
+      "_ajout_20260923": "Instrument créé le 23/09/2026 (GO Christophe) — ajouté au registre le jour même de sa création pour qu'il soit VU (veilleuse, drill, revue)."
+    },
+    {
+      "nom": "hulk-mexc/scripts/audit_horodatage_prix.py",
+      "role": "Sous-analyse ciblée : pour chaque prix du journal qui ne tombe PAS dans sa minute, cherche dans ±6 min la minute qui le contient → tranche entre « retard d'horodatage » (le prix est vrai, l'heure est fausse) et « prix périmé » (on a paper-tradé un prix qui n'existait plus). 13/13 → retard d'horodatage, aucun prix fantôme.",
+      "origine": "GO 2 — question « les données sont-elles correctement enregistrées ? »",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "38486b023cdf909093669f45e931326c",
+      "date": "2026-09-23T10:32Z",
+      "_ajout_20260923": "Instrument créé le 23/09/2026 (GO Christophe) — ajouté au registre le jour même de sa création pour qu'il soit VU (veilleuse, drill, revue)."
+    },
+    {
+      "nom": "hulk-mexc/scripts/audit_memoire_donnees.py",
+      "role": "AUDIT GO 3 : couverture (profil / vue live / obs murs / état / journal / set-up par paire), complétude colonne par colonne, colonnes MANQUANTES nommées, cohérence interne (horodatages, continuité de pnl_total, doublons) et **re-injection des set-up** (stop annoncé vs réalisé en $, mise vs cap, mise vs profondeur mesurée) avec ses limites déclarées (extrêmes mesurés, cap d'aujourd'hui). LECTURE SEULE.",
+      "origine": "Demande Christophe 23/09 (« vérifie les données qu'on mémorise, si il en manque, ensuite tu rejoues tout ça avec les derniers set-up »)",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "6e33d3b63b810a581a40969d67d33fc1",
+      "date": "2026-09-23T10:32Z",
+      "_ajout_20260923": "Instrument créé le 23/09/2026 (GO Christophe) — ajouté au registre le jour même de sa création pour qu'il soit VU (veilleuse, drill, revue)."
+    },
+    {
+      "nom": "hulk-mexc/scripts/probe_prix_mexc_fraicheur.py",
+      "role": "LE TEST EXIGÉ PAR LA FAMILLE : l'écart d'horloge (en-tête HTTP `Date` de MEXC vs notre horloge), l'ÂGE DU DERNIER TRADE réel par paire et l'écart entre le « dernier prix » et le MILIEU DU CARNET. Résultat : horloge à 0,6 s, 16/20 paires ont échangé dans la dernière minute (donc le retard de 1-5 min EST notre chaîne pour elles), et l'écart ticker/mid atteint −90,9 bps sur RIZE. Verdict rendu PAR PAIRE (l'ancien verdict global « H2 dominante » était plus large que la mesure — corrigé le jour même).",
+      "origine": "Réponses de la FAMILLE (Gemini/Grok/Nemotron : « mesure l'écart d'horloge avant de conclure ») — classe E14 (conclusions au-delà de la mesure)",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "794d9298f220750533dc9dbe167d60c6",
+      "date": "2026-09-23T10:32Z",
+      "_ajout_20260923": "Instrument créé le 23/09/2026 (GO Christophe) — ajouté au registre le jour même de sa création pour qu'il soit VU (veilleuse, drill, revue)."
+    },
+    {
+      "nom": "Index_Maison/scripts/consulter_famille_audit_mexc_20260923.py",
+      "role": "Consultation de la FAMILLE sur l'audit : brief construit À PARTIR DES JSON des instruments (aucun chiffre retapé), mes erreurs E10/E12/E13 listées, mission de CONTREDIRE. 4 avis + SYNTHESE.md (verdict unanime « utile mais incomplet », ordre imposé : horodatage d'abord, net de coûts ensuite).",
+      "origine": "Christophe 23/09 : « remets tout ça à la famille, conteste avec tes erreurs »",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "d0fc267ffe3bc4ebf38d1afab1a43659",
+      "date": "2026-09-23T10:32Z",
+      "_ajout_20260923": "Instrument créé le 23/09/2026 (GO Christophe) — ajouté au registre le jour même de sa création pour qu'il soit VU (veilleuse, drill, revue)."
+    },
+    {
+      "nom": "hulk-mexc/scripts/satellite_aspiration.py",
+      "role": "SATELLITE D'OBSERVATION : sonde le carnet MEXC (/depth) par paire et écrit `runs/aspiration_live.json` (spread, mur bid/ask, chute du mur, délai) — c'est LA source du cap de mise et du gate de murs du moteur. Lancé par launchd (com.ace777.satellite-aspiration, StartInterval 20 s, mode --once). 23/09 (GO 3) : sonde désormais TOUTES les paires du moteur (avant : 5 actives + 6 forcées ⇒ 13 paires aveugles), écrit sa couverture et son âge dans le JSON, et reste sous le plafond de requêtes mesuré (≈ 80-100/min pour ~200/min).",
+      "origine": "Audit MEXC × HULK (23/09) — les 13 paires sans vue live plafonnaient leur mise sur un profil figé faux de 8 à 82 %",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "df58af35953d66568e9b153f4d2fc174",
+      "date": "2026-09-23T10:50Z",
       "_ajout_20260923": "Instrument créé le 23/09/2026 (GO Christophe) — ajouté au registre le jour même de sa création pour qu'il soit VU (veilleuse, drill, revue)."
     }
   ]

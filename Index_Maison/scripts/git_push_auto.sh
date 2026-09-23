@@ -124,6 +124,20 @@ if [ -f "$REPO_DIR/Index_Maison/scripts/verif_memoire_horodatage.py" ]; then
     echo "[$(date -u +%Y-%m-%dT%H:%MZ)] ALERTE : horodatage de MEMOIRE_COLLAB NON conforme — classe E13 (voir ci-dessus)" >> "$LOG_FILE"
 fi
 
+# GARDE-FOU DE SCHÉMA DU JOURNAL (classe E15, ajouté le 23/09/2026)
+# Pourquoi : j'ai ajouté 5 colonnes au journal du moteur (traçabilité des prix, GO Christophe)
+# mais le RESUME recopiait l'ANCIEN fichier par-dessus le nouveau → en-tête 11 colonnes et
+# lignes 16 (mesuré : 76 162 lignes à 11 champs + 12 lignes à 16). Un fichier de données ne
+# s'écrit pas en deux largeurs, et personne ne le voit : c'est silencieux, donc c'est grave.
+# Le contrôle lit le schéma À LA SOURCE (paper_diprip.CSV_SCHEMA), vérifie chaque journal
+# (en-tête = lignes), exige que le journal du moteur VIVANT soit au schéma courant, et
+# s'autoteste (4/4) sur des fichiers synthétiques. Lecture seule.
+if [ -f "$REPO_DIR/hulk-mexc/scripts/verif_schema_journal.py" ]; then
+  python3 "$REPO_DIR/hulk-mexc/scripts/verif_schema_journal.py" \
+    --json "$REPO_DIR/hulk-mexc/runs/VERIF_SCHEMA_JOURNAL.json" >> "$LOG_FILE" 2>&1 || \
+    echo "[$(date -u +%Y-%m-%dT%H:%MZ)] ALERTE : schéma du journal NON conforme — classe E15 (voir ci-dessus)" >> "$LOG_FILE"
+fi
+
 # 2) Ne committer que les fichiers DÉJÀ SUIVIS (modifiés/supprimés) + les canoniques
 # Garde-fou 05/09 (incident index.lock orphelin du 03/09 : 2,5 jours de push mort
 # en silence, le 2>/dev/null avalait le rc=128 et le script disait « aucun changement ») :

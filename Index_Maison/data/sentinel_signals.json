@@ -2,20 +2,6 @@
   "signals": [
     {
       "metric": "dust",
-      "zscore": 2.17249871613769,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique sans rapport avec la crypto (émissions TV, jeux vidéo, actualité tech sans lien onchain significatif). L'anomalie statistique (z-score 2.17) sur le 'dust' est un artefact de faible intensité ou un bruit de fond, sans corrélation avec une accumulation ou distribution majeure de baleines.\"\n}\n```",
-      "ts": "2026-09-22T06:56:21.780816+00:00"
-    },
-    {
-      "metric": "cpfp",
-      "zscore": 2.0704245153363896,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique non pertinent (articles sur l'éducation et la politique). L'anomalie CPFP reflète une congestion locale du mempool Bitcoin sans accumulation ni distribution significative par les baleines.\"\n}\n```",
-      "ts": "2026-09-22T08:06:32.092818+00:00"
-    },
-    {
-      "metric": "dust",
       "zscore": 2.0704245153363896,
       "value": 50.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie onchain insignifiante (bruit de fond / poussière) sans lien avec les actualités médiatiques qui traitent de culture, de jeux vidéo et d'intelligence artificielle. Aucune baleine détectée.\"\n}\n```",
@@ -349,6 +335,20 @@
       "value": 50.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique parasité par des homonymes (jeux vidéo et actualités tech). Aucune corrélation avec une accumulation onchain significative de baleines crypto.\"\n}\n```",
       "ts": "2026-09-23T09:41:44.681058+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 3.8297392611943555,
+      "value": 3679359.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Activité anormale des baleines (Z-score 3.83, +3.68M USD) dans un silence médiatique absolu (Google Actualités vide). Accumulation furtive classique avant une rupture de prix.\"\n}\n```",
+      "ts": "2026-09-23T10:26:56.482033+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.2990099475195596,
+      "value": 1.134,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.30) sur le ticker 'ipt' totalement polluée par du bruit sémantique (l'acronyme IPT désignant des tournois de physique, des institutions religieuses et des partenariats universitaires). Aucune corrélation avec une activité de baleine crypto.\"\n}\n```",
+      "ts": "2026-09-23T10:26:58.217828+00:00"
     }
   ]
 }

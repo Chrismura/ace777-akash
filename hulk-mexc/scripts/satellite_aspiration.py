@@ -44,7 +44,29 @@ ROOT = Path(__file__).resolve().parents[1]
 RUNS = ROOT / "runs"
 LIVE = RUNS / "aspiration_live.json"
 LOOP_SEC = 20.0          # cadence d'écriture (le moteur a une boucle 20s aussi)
-MAX_PAIRS = 5            # max paires sondées par passe (rate-limit MEXC)
+# GO 3 du 23/09/2026 (GO Christophe après l'audit MEXC × HULK) — POURQUOI CE CHIFFRE EST PASSÉ
+# DE 5 À 20 :
+#   L'audit a mesuré que **13 paires sur 20 n'avaient AUCUNE vue live** à l'instant du contrôle :
+#   le satellite ne sondait que 5 « actives » (+ les forcées). Pour ces 13 paires, le moteur
+#   calcule le cap de mise sur le `mur_bid_med` du PROFIL — un chiffre figé, faux de 8 à 82 %
+#   (RIZE : cap 4,88 $ pour un carnet mesuré à 364,74 $).
+#   COÛT RÉSEAU, calculé et non supposé : chaque paire = 2 lectures /depth (delay_s=0.5).
+#   20 paires ≈ 40 appels par passe ; launchd StartInterval=20 s ⇒ une passe dure ~22 s et la
+#   suivante est décalée ⇒ **≈ 80-100 appels/min**, sous le plafond observé de ~200/min
+#   (le moteur, lui, fait 1 appel batch de prix par cycle). L'âge d'une vue devient ≤ ~40 s,
+#   donc SOUS le seuil « frais » de 45 s du moteur et TRÈS en dessous du `wall_stale_sec` (120 s).
+#   RÉVERSIBLE en une ligne (ou par ASPIRATION_MAX_PAIRS=5 dans l'environnement).
+MAX_PAIRS = int(os.environ.get("ASPIRATION_MAX_PAIRS", "20"))   # paires sondées par passe
+# ── MESURE QUI A CORRIGÉ LE GO 3 LE JOUR MÊME (23/09) ─────────────────────────────────────
+# Première version : 20 paires × 2 lectures /depth ⇒ passe de 35,8 s ⇒ avec StartInterval=20 s,
+# l'âge de la vue oscillait **4 → 55 s**, donc AU-DESSUS du seuil « frais » de 45 s du moteur →
+# **ASPIRATION_STALE — NO_NEW_ENTRIES** (531 lignes dans le log). Le remède n'est pas de
+# relâcher le seuil du moteur (ce serait régler le contrôle sur le défaut) mais de redevenir
+# rapide : les paires PRIORITAIRES (forcées + actives COOLING/IMPULSE) gardent les 2 lectures
+# (elles ont besoin du signal de CHUTE du mur), les autres passent en **1 lecture** — spread
+# et mur live, ce dont le CAP a besoin. Coût : ≈ 8×2 + 12×1 = 28 lectures/passe (≈ 80/min).
+MAX_PAIRS_PRIO = int(os.environ.get("ASPIRATION_MAX_PAIRS_PRIO", "8"))
+MAX_PAIRS_LIGHT = int(os.environ.get("ASPIRATION_MAX_PAIRS_LIGHT", "12"))
 # GO Christophe 05/09 : calibration des derniers actifs — ces paires n'ont AUCUN
 # corpus (n_mesures=0, profil pré-calibré à la main) → elles sont sondées À CHAQUE
 # passe, priorité sur les actives, jusqu'à constitution du corpus (méthodologie
@@ -54,7 +76,7 @@ STALE_STATE_MAX = 120.0  # un state moteur + vieux que ça = on abandonne la pas
 HTTP_TIMEOUT = 12.0
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from ace_sense_mexc import aspiration_sense  # noqa: E402
+from ace_sense_mexc import aspiration_sense, book_sense  # noqa: E402
 
 
 def http_json(url, timeout=HTTP_TIMEOUT, retries=1):
@@ -187,37 +209,66 @@ def run_once() -> int:
     if not paires:
         # pas de state frais → ne rien écrire (on ne cache pas l'absente)
         return 0
-    actives = [p for p, r in paires.items() if r in ("COOLING", "IMPULSE")][: MAX_PAIRS]
-    # Calibration forcée (GO 05/09) : les paires FORCE_PROBE sont ajoutées en tête,
-    # même si leur régime ne les rend pas « actives ». Rate-limit : ≤5 actives
-    # + ≤5 forcées par passe, launchd ne chevauche pas les passes.
-    force = [p for p in FORCE_PROBE if p in paires and p not in actives]
-    actives = force + actives
+    # ── SÉLECTION (corrigée le 23/09/2026 — GO 3) ───────────────────────────────────────────
+    # AVANT : `actives = [paires COOLING/IMPULSE][:5]` puis + FORCE_PROBE. À l'instant de
+    # l'audit, cela ne produisait que **7-8 paires** couvertes : les 12-13 autres n'avaient
+    # donc AUCUNE vue live, et le moteur calculait leur cap de mise sur le profil figé.
+    # MAINTENANT : quand MAX_PAIRS couvre l'univers, on sonde **TOUTES les paires du moteur**,
+    # en gardant l'ordre de priorité (forcées → actives → les autres). L'information de régime
+    # reste prise dans le state, jamais inventée.
+    actives_reg = [p for p, r in paires.items() if r in ("COOLING", "IMPULSE")]
+    force = [p for p in FORCE_PROBE if p in paires and p not in actives_reg]
+    prio = (force + actives_reg)[: MAX_PAIRS_PRIO]
+    # Les « light » prennent TOUT ce qui reste, dans la limite du budget total : sinon une
+    # paire hors régime actif pouvait être laissée de côté (mesuré : RIZE manquait la 1re fois).
+    autres = [p for p in paires if p not in prio][: max(0, MAX_PAIRS - len(prio))]
+    if not autres:
+        autres = [p for p in paires if p not in prio][: MAX_PAIRS_LIGHT]
+    actives = (prio + autres)[: MAX_PAIRS]
     prix = saisir_prix(list(paires.keys()))
     btc = prix.get("BTCUSDT", 0.0)
     radar = {}
 
-    for pair in actives + []:
-        pass
     for pair in actives:
         radar[pair] = {"regime": paires.get(pair, "?"), "prix": prix.get(pair, 0.0)}
-        try:
-            a = aspiration_sense(pair, http_json, delay_s=0.5,
-                                 min_notional_usdt=500)
-        except Exception as e:
-            radar[pair]["ok"] = False
-            radar[pair]["reason"] = f"probe_err:{e}"
-            continue
-        radar[pair]["ok"] = bool(a.get("ok"))
-        for k in ("aspiration_side", "drop_bid_pct_per_s", "drop_ask_pct_per_s",
-                  "max_drop_pct_per_s", "spread_bps", "spread_delta_bps",
-                  "wall_bid_usdt", "wall_ask_usdt", "notional_drop_ok",
-                  "price_delta_pct", "delay_s"):
-            radar[pair][k] = a.get(k)
+        if pair in prio:
+            # MODE COMPLET (2 lectures) : le signal de chute du mur est mesuré.
+            try:
+                a = aspiration_sense(pair, http_json, delay_s=0.5, min_notional_usdt=500)
+            except Exception as e:
+                radar[pair]["ok"] = False
+                radar[pair]["reason"] = f"probe_err:{e}"
+                continue
+            radar[pair]["ok"] = bool(a.get("ok"))
+            radar[pair]["mode"] = "full"
+            for k in ("aspiration_side", "drop_bid_pct_per_s", "drop_ask_pct_per_s",
+                      "max_drop_pct_per_s", "spread_bps", "spread_delta_bps",
+                      "wall_bid_usdt", "wall_ask_usdt", "notional_drop_ok",
+                      "price_delta_pct", "delay_s"):
+                radar[pair][k] = a.get(k)
+        else:
+            # MODE LÉGER (1 lecture) : spread + mur LIVE, sans signal de chute.
+            # C'est exactement ce dont le CAP DE MISE et le gate de murs ont besoin ; le
+            # champ `mode` dit à quiconque lit le fichier ce qui manque ici.
+            try:
+                b = book_sense(pair, http_json, limit=20)
+            except Exception as e:
+                radar[pair]["ok"] = False
+                radar[pair]["reason"] = f"book_err:{e}"
+                continue
+            radar[pair]["ok"] = bool(b.get("ok"))
+            radar[pair]["mode"] = "light"
+            for k in ("spread_bps", "wall_bid_usdt", "wall_ask_usdt"):
+                radar[pair][k] = b.get(k)
 
     LIVE_DATA = {
         "ts": int(time.time()),
         "ts_utc": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
+        # GO 1 (23/09) : on déclare AUSSI la couverture et l'âge, pour que le moteur et les
+        # instruments puissent juger la fraîcheur de la vue au lieu de la supposer.
+        "n_paires_univers": len(paires),
+        "couverture_pct": round(100.0 * len(actives) / max(1, len(paires)), 1),
+        "max_pairs": MAX_PAIRS,
         "frais": True,
         "btc_price": btc,
         "gex": gex_local(),

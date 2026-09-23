@@ -373,6 +373,60 @@ def gardiens():
         g.append({"nom": "Horodatage mémoire (E13)", "ok": False,
                   "detail": "état absent (git_push_auto.sh ne l'a jamais produit)"})
 
+    # GARDE-FOU DE SCHÉMA DU JOURNAL (classe E15, 23/09, Buffy) — état écrit par
+    # hulk-mexc/scripts/verif_schema_journal.py, appelé par git_push_auto.sh (3 h).
+    # POURQUOI CETTE LIGNE EXISTE : les colonnes ajoutées au journal du moteur ne suivaient pas
+    # le RESUME (en-tête 11 colonnes, lignes à 16 — la donnée devenait illisible sans que rien
+    # ne le dise). La page doit donc dire si le journal du moteur VIVANT a un en-tête et des
+    # lignes de MÊME largeur, et combien de colonnes il porte — pas « tout va bien ».
+    sj_path = BASE / "hulk-mexc" / "runs" / "VERIF_SCHEMA_JOURNAL.json"
+    sj = jload(sj_path)
+    sj_age = age_min(sj_path)
+    if sj:
+        largeur = int(sj.get("largeur_schema", 0) or 0)
+        nb_ecarts = len(sj.get("ecarts") or [])
+        courant_ok = bool(sj.get("journal_courant_conforme"))
+        fiable_sj = bool(sj.get("autotest_fiable"))
+        ok_sj = courant_ok and fiable_sj
+        detail = ("journal courant au schéma (%d colonnes) · %d incohérence(s) · %d ancien(s) cohérent(s)"
+                  % (largeur, nb_ecarts, int(sj.get("anciens_coherents", 0) or 0))
+                  if fiable_sj else "AUTOTEST NON FIABLE — le contrôle ne sait pas échouer")
+        if nb_ecarts:
+            detail += " · à corriger : %s" % str((sj.get("ecarts") or [{}])[0].get("fichier", "?"))[:40]
+        if sj_age is not None and sj_age > 480:
+            detail += " — ÉTAT FIGÉ (>8 h, le contrôle n'est plus passé)"
+            ok_sj = False
+        detail += " · màj %s" % fmt_age(sj_age)
+        g.append({"nom": "Schéma du journal (E15)", "ok": ok_sj, "detail": detail})
+    else:
+        g.append({"nom": "Schéma du journal (E15)", "ok": False,
+                  "detail": "état absent (git_push_auto.sh ne l'a jamais produit)"})
+
+    # PnL NET vs BRUT (GO 2, 23/09, Buffy) — état écrit par hulk-mexc/scripts/chiffrage_pnl_net.py.
+    # POURQUOI CETTE LIGNE EXISTE : le moteur inscrit un PnL **BRUT** (`pnl = (price − entry) × qty`,
+    # ni frais ni spread). L'audit MEXC × HULK a mesuré 39,70 $ brut → 36,19 $ net sur 100 séquences
+    # (−8,8 %), et la FAMILLE (4/4) a exigé « cesser de piloter avec un chiffre brut faux de 8,8 % ».
+    # Ici on n'affiche pas UN chiffre : on affiche les DEUX, avec la part MESURÉE du spread, pour
+    # que personne ne compare plus tard un brut avec un net. Le pnl_total du moteur reste inchangé.
+    pn_path = IM / "thermo" / "pnl_net.json"
+    pn = jload(pn_path)
+    pn_age = age_min(pn_path)
+    if pn:
+        detail = ("brut %s $ → NET %s $ (coûts %s %% : %s $) · %s ventes · spread mesuré %s/%s" % (
+            pn.get("brut"), pn.get("net"), pn.get("couts_pct_du_brut"), pn.get("couts"),
+            pn.get("n_ventes"), pn.get("spread_mesure_ventes"),
+            (int(pn.get("spread_mesure_ventes") or 0) + int(pn.get("spread_repli_ventes") or 0))))
+        ok_pn = bool(pn.get("net") is not None)
+        if pn_age is not None and pn_age > 480:
+            detail += " — ÉTAT FIGÉ (>8 h, le chiffrage n'est plus passé)"
+            ok_pn = False
+        detail += " · frais %s bps/côté ESTIMÉS · màj %s" % (pn.get("frais_bps_cote_estime"),
+                                                              fmt_age(pn_age))
+        g.append({"nom": "PnL net vs brut (GO 2)", "ok": ok_pn, "detail": detail})
+    else:
+        g.append({"nom": "PnL net vs brut (GO 2)", "ok": False,
+                  "detail": "état absent (chiffrage_pnl_net.py n'a jamais tourné)"})
+
     # RÈGLES D'OR (19/09) — état écrit par verifier_regles_or.py (lecture seule), lui-même
     # appelé par git_push_auto.sh. Une règle qu'on ne mesure pas se perd : ici on VOIT
     # lesquelles sont tenues et LAQUELLE lâche. Canon : Index_Maison/REGLE_D_OR.md.
