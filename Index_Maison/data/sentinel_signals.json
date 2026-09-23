@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "ipt",
-      "zscore": 2.3585032442807825,
-      "value": 1.154,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"L'indice 'ipt' et les titres médiatiques font référence au Tournoi International des Physiciens (IPT) et à des institutions académiques/religieuses, sans aucun rapport avec la crypto-monnaie ou des mouvements de baleines.\"\n}\n```",
-      "ts": "2026-09-23T04:39:12.358311+00:00"
-    },
-    {
       "metric": "fear_greed",
       "zscore": -2.0816659994661326,
       "value": 71,
@@ -349,6 +342,13 @@
       "value": 1.142,
       "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Le z-score élevé (2.72) du ratio long/short indique un posicionnement excessif des traders particuliers. Pendant que les médias généralistes et institutionnels font l'éloge des stratégies long/short traditionnelles, la sur-concentration des positions acheteuses sur les dérivés crypto crée un déséquilibre critique, précurseur classique d'un 'long squeeze'.\"\n}\n```",
       "ts": "2026-09-23T19:41:13.424316+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": 2.621275549000649,
+      "value": 1.154,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Le z-score élevé (2.62) et le ratio long/short à 1.154 indiquent un positionnement acheteur excessif de la foule, totalement déconnecté du narratif médiatique généraliste axé sur la prudence et la diversification. Configuration classique de 'crowded trade' propice à un short squeeze baissier orchestré par les baleines.\"\n}\n```",
+      "ts": "2026-09-23T20:11:36.321745+00:00"
     }
   ]
 }
