@@ -4984,3 +4984,27 @@ Pas d’ordre — confrontation plus tard.
 ### 2026-09-23T12:56:02Z — ALERT auto
 - TELUSDT: WATCH_PULLBACK — tension haute + reflux
 (compléter: confirmé ? risque ?)
+
+### 2026-09-23T14:10:49Z — ALERT auto
+- HBARUSDT: WATCH_PULLBACK — tension haute + reflux
+- TELUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
+
+### 2026-09-23T14:11:34Z — ALERT auto
+- PYTHUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
+
+### 2026-09-23T14:12:40Z — ALERT auto
+- WUSDT: WATCH_PULLBACK — tension haute + reflux
+- CHIPUSDT: WATCH_PULLBACK — tension haute + reflux
+- REDUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
+
+### 2026-09-23T14:14:01Z — ALERT auto
+- XRPUSDT: WATCH_PULLBACK — tension haute + reflux
+- CCUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
+
+### 2026-09-23T14:15:33Z — ALERT auto
+- BIOUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)

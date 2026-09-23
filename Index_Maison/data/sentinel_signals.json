@@ -1,27 +1,6 @@
 {
   "signals": [
     {
-      "metric": "sdi",
-      "zscore": 2.1520242067155917,
-      "value": 0.016,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie sémantique : le sigle SDI dans l'actualité fait référence au syndicat professionnel français (SDI - Indépendants) et à du matériel vidéo (Blackmagic), sans aucun rapport avec l'écosystème crypto ou une activité de baleine onchain.\"\n}\n```",
-      "ts": "2026-09-22T13:49:55.228453+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.8913009085244816,
-      "value": 1.36,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.89) entièrement due à un 'noise' sémantique. Le ticker crypto 'IPT' est parasité dans les flux par des homonymes institutionnels réels (Institut Pasteur de Tunis, Tournoi de Physique, École Polytechnique). Aucune baleine détectée, simple collision de mots-clés dans les actualités.\"\n}\n```",
-      "ts": "2026-09-22T13:54:59.432006+00:00"
-    },
-    {
-      "metric": "price_1h",
-      "zscore": 2.7394154700434665,
-      "value": 0.7232214522572167,
-      "analysis": "{\n  \"signal\": \"bullish\",\n  \"confidence\": 82,\n  \"reason\": \"Le prix horaire montre une anomalie forte (z‑score 2.74), indicative d’une pression d’achat significative probablement liée à l’accumulation de baleines. En revanche, les titres médiatiques actuels ne reflètent pas cette dynamique, suggérant un narratif déconnecté ou silencieux. Cette divergence pointe vers un mouvement haussier sous‑jacent non encore capté par les médias.\"\n}",
-      "ts": "2026-09-22T14:35:16.699494+00:00"
-    },
-    {
       "metric": "volume",
       "zscore": -2.001424553670089,
       "value": 16757953894.0,
@@ -349,6 +328,27 @@
       "value": 3182645.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 78,\n  \"reason\": \"Activité anormale des baleines (z-score 2.68) totalement ignorée par les médias traditionnels (silence médiatique). Accumulation discrète en cours avant le réveil du narratif.\"\n}\n```",
       "ts": "2026-09-23T13:44:32.175163+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": 4.378419899608823,
+      "value": 0.975,
+      "analysis": "{\n  \"signal\": \"bullish\",\n  \"confidence\": 78,\n  \"reason\": \"Le ratio long_short de 0,975 avec un z‑score de 4,38 indique une anomalie statistiquement significative favorisant les positions longues, suggérant une accumulation discrète de baleines. Les titres médiatiques, toutefois, restent généraux sur les stratégies long/short sans refléter cette dynamique spécifique, montrant un déconnexion entre le narratif et l'activité on‑chain.\"\n}",
+      "ts": "2026-09-23T14:09:40.942073+00:00"
+    },
+    {
+      "metric": "price_1h",
+      "zscore": 5.967893344436638,
+      "value": 1.0768302302682997,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie statistique extrême (Z-score 5.97) sans aucune couverture médiatique sur Google Actualités. C'est la signature classique d'une accumulation furtive de baleines en amont d'un pump, totalement ignorée par le bruit public.\"\n}\n```",
+      "ts": "2026-09-23T14:15:13.469846+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 4.36737233249518,
+      "value": 4897133.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 4.37, ~4.9M USD) combinée à un silence médiatique absolu. Les baleines accumulent discrètement hors des radars grand public.\"\n}\n```",
+      "ts": "2026-09-23T14:15:41.211114+00:00"
     }
   ]
 }
