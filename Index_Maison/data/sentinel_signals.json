@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "ipt",
-      "zscore": 2.503981195715656,
-      "value": 1.151,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.50) sur l'indice 'ipt' dictée par une collision lexicale. Les médias traitent de tournois de physique, d'accords universitaires et d'agriculture. Aucun mouvement de baleine crypto détecté, le signal est un bruit de fond non pertinent.\"\n}\n```",
-      "ts": "2026-09-23T01:02:49.618777+00:00"
-    },
-    {
       "metric": "fear_greed",
       "zscore": -4.7958315233127164,
       "value": 71,
@@ -349,6 +342,13 @@
       "value": 1.058,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Anomalie de données non pertinente. Le ticker 'IPT' dans les médias fait référence à des sujets sans rapport (Tournoi de Physique, violences sexistes, MoU universitaire, agriculture) et non à un actif crypto. Aucune baleine détectée.\"\n}\n```",
       "ts": "2026-09-23T17:07:50.000002+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 3.0427825907075055,
+      "value": 4019050.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 3.04, ~4M$ de flux baleines) totalement ignorée par Google Actualités (silence médiatique absolu). Classique accumulation furtive avant un mouvement de marché.\"\n}\n```",
+      "ts": "2026-09-23T17:18:10.177062+00:00"
     }
   ]
 }

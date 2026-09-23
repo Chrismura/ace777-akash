@@ -1,37 +1,8 @@
 {
-  "timestamp": 1790183250,
-  "date": "2026-09-23T17:07:30.400409+00:00",
-  "n_analyses": 2,
+  "timestamp": 1790184150,
+  "date": "2026-09-23T17:22:30.679897+00:00",
+  "n_analyses": 3,
   "analyses": [
-    {
-      "signal": {
-        "metric": "long_short",
-        "zscore": 3.3090454574698023,
-        "value": 1.061,
-        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Le Z-score extrême (3.31) indique une surconcentration massive et anormale de positions acheteuses (retail/FOMO), totalement déconnectée des discussions médiatiques traditionnelles axées sur la prudence des fonds long/short. Risque imminent de 'long squeeze' par les baleines.\"\n}\n```",
-        "ts": 1790182305.587287
-      },
-      "fiche": "long_short",
-      "questions": {
-        "ratio_long_short": {
-          "value": 1.091,
-          "seuil": 2,
-          "depasse": false
-        },
-        "oi": {
-          "value": 99155.365,
-          "seuil": 120000,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
-      },
-      "action": "Observer",
-      "niveau": "neutre"
-    },
     {
       "signal": {
         "metric": "volume",
@@ -43,7 +14,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.13,
+          "value": -0.04,
           "seuil": 1,
           "depasse": false
         },
@@ -53,7 +24,7 @@
           "depasse": false
         },
         "funding": {
-          "value": 1e-06,
+          "value": 2e-06,
           "seuil": 0.001,
           "depasse": false
         },
@@ -70,6 +41,80 @@
       },
       "action": "Observer",
       "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "ipt",
+        "zscore": 2.1070975999923203,
+        "value": 1.058,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Anomalie de données non pertinente. Le ticker 'IPT' dans les médias fait référence à des sujets sans rapport (Tournoi de Physique, violences sexistes, MoU universitaire, agriculture) et non à un actif crypto. Aucune baleine détectée.\"\n}\n```",
+        "ts": 1790183270.000002
+      },
+      "fiche": "rbf_eleve",
+      "questions": {
+        "prix": {
+          "value": -0.04,
+          "seuil": 1,
+          "depasse": false
+        },
+        "paires": {
+          "value": 0,
+          "seuil": 3,
+          "depasse": false
+        },
+        "funding": {
+          "value": 2e-06,
+          "seuil": 0.001,
+          "depasse": false
+        },
+        "whales": {
+          "value": 1,
+          "seuil": 5,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
+      },
+      "action": "Observer",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "whale_usd",
+        "zscore": 3.0427825907075055,
+        "value": 4019050.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 3.04, ~4M$ de flux baleines) totalement ignorée par Google Actualités (silence médiatique absolu). Classique accumulation furtive avant un mouvement de marché.\"\n}\n```",
+        "ts": 1790183890.177062
+      },
+      "fiche": "whale_usd",
+      "questions": {
+        "ventes": {
+          "value": 0.0,
+          "seuil": 0,
+          "depasse": false
+        },
+        "achats": {
+          "value": 4019050.0,
+          "seuil": 0,
+          "depasse": true
+        },
+        "prix": {
+          "value": -0.04,
+          "seuil": 1,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "achats > ventes",
+        "lecture": "Flux baleines ACHETEUR dominant — accumulation possible, à confirmer sur plusieurs scans",
+        "niveau": "info",
+        "action": "Observer, ne pas acheter sur un seul signal"
+      },
+      "action": "Observer, ne pas acheter sur un seul signal",
+      "niveau": "info"
     }
   ],
   "resume": "🔵 CALME — pas de signal alarmant"
