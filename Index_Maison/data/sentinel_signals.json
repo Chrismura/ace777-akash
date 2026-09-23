@@ -2,20 +2,6 @@
   "signals": [
     {
       "metric": "dust",
-      "zscore": 2.286155463857495,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie onchain insignifiante (dust bruit de fond) et narratif médiatique saturé de bruit sémantique sans rapport avec la crypto (jeux vidéo, TV, actualité tech générale).\"\n}\n```",
-      "ts": "2026-09-22T06:15:55.958965+00:00"
-    },
-    {
-      "metric": "cpfp",
-      "zscore": 2.17249871613769,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Faux positif détecté. Le pic de 'cpfp' onchain (Child-Pays-For-Parent) est un artefact technique lié à la congestion du réseau Bitcoin ou des tutoriels, sans lien avec une accumulation ou distribution massive de baleines.\"\n}\n```",
-      "ts": "2026-09-22T06:56:19.588896+00:00"
-    },
-    {
-      "metric": "dust",
       "zscore": 2.17249871613769,
       "value": 50.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique sans rapport avec la crypto (émissions TV, jeux vidéo, actualité tech sans lien onchain significatif). L'anomalie statistique (z-score 2.17) sur le 'dust' est un artefact de faible intensité ou un bruit de fond, sans corrélation avec une accumulation ou distribution majeure de baleines.\"\n}\n```",
@@ -349,6 +335,20 @@
       "value": 50.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique parasité par des homonymes non-crypto (jeux vidéo, actualités tech/IA sans lien avec la blockchain). L'anomalie de dust onchain est insignifiante.\"\n}\n```",
       "ts": "2026-09-23T08:51:33.060514+00:00"
+    },
+    {
+      "metric": "cpfp",
+      "zscore": 2.042616144465921,
+      "value": 50.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 78,\n  \"reason\": \"Anomalie statistique forte sur le CPFP (z-score 2.04) indiquant une congestion et une optimisation agressive des frais par les gros porteurs. Le narratif médiatique est totalement déconnecté (bruit généraliste et actualités locales sans rapport), ce qui confirme une accumulation ou des réajustements de portefeuilles institutionnels dans l'ombre.\"\n}\n```",
+      "ts": "2026-09-23T09:41:42.684112+00:00"
+    },
+    {
+      "metric": "dust",
+      "zscore": 2.042616144465921,
+      "value": 50.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique parasité par des homonymes (jeux vidéo et actualités tech). Aucune corrélation avec une accumulation onchain significative de baleines crypto.\"\n}\n```",
+      "ts": "2026-09-23T09:41:44.681058+00:00"
     }
   ]
 }

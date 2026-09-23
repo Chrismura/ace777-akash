@@ -1,5 +1,5 @@
 {
-  "ts": "2026-09-23T09:18:28+00:00",
+  "ts": "2026-09-23T10:18:29+00:00",
   "note": "Verdicts MESURÉS à la source (scripts/verdicts_protocoles.py). Chaque protocole porte son critère pré-enregistré : c'est lui qui décide, pas l'impression du moment. Un verdict « IMPOSSIBLE » ou une ligne « alerte » signale un protocole dont le verdict ne peut pas être rendu — c'est une panne de conception, pas une patience.",
   "protocoles": [
     {
@@ -7,7 +7,7 @@
       "critere": "R4 : juger à T+72h la direction réelle du BTC · R6 : verdict 08/11/2026 si ≥ 55 % de HIT sur ≥ 20 cas",
       "faits": "13 paires enregistrées · 1 divergente(s) · 1 jugée(s) · 0 HIT",
       "verdict": "EN ATTENTE (1 cas jugé(s) sur 20 requis)",
-      "alerte": "le verdict du 08/11 demandera 20 cas ; la cadence mesurée est de 0.7 divergence(s)/semaine → environ 5.9 cas au 08/11",
+      "alerte": "le verdict du 08/11 demandera 20 cas ; la cadence mesurée est de 0.7 divergence(s)/semaine → environ 5.8 cas au 08/11",
       "detail": [
         {
           "paire": "paire-008",
@@ -171,7 +171,7 @@
     {
       "protocole": "Radar XRPL gouvernance",
       "critere": "J8 pré-enregistré : (a) ≥ 5 amendements dont le compteur bouge de ≥ 2 votes, OU (b) ≥ 1 activation, OU (c) ≥ 1 amendement mort ; sinon échec",
-      "faits": "220 snapshots · 112 amendements suivis · (a) 5 bougent de ≥ 2 (il en fallait 5) · (b) 0 activation · (c) 0 mort · 2 nouveau(x)",
+      "faits": "221 snapshots · 112 amendements suivis · (a) 5 bougent de ≥ 2 (il en fallait 5) · (b) 0 activation · (c) 0 mort · 2 nouveau(x)",
       "verdict": "SUCCES (critère atteint)",
       "alerte": "",
       "detail": [
@@ -184,11 +184,11 @@
           "delta_votes": 4
         },
         {
-          "amendement": "BatchV1_1",
+          "amendement": "ConfidentialTransfer",
           "delta_votes": 4
         },
         {
-          "amendement": "ConfidentialTransfer",
+          "amendement": "BatchV1_1",
           "delta_votes": 4
         },
         {
@@ -200,7 +200,7 @@
           "delta_votes": 1
         },
         {
-          "amendement": "fixBatchInnerSigs",
+          "amendement": "Sponsor",
           "delta_votes": 0
         },
         {

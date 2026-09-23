@@ -1,6 +1,6 @@
 {
   "version": "1.5.0",
-  "updated": "2026-09-23T09:48Z",
+  "updated": "2026-09-23T09:58Z",
   "fichier": [
     {
       "nom": "Index_Maison/scripts/v2_duo_replay_4h.py",
@@ -789,14 +789,14 @@
       "origine": "GO Christophe 14/09 (onglet cockpit vol)",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "130e80aed13d8010a3d1a4062b5746e7",
+      "md5": "76e02831791e7f901df50a5ea606d6fb",
       "_rescel_20260918": "panneau « Banc 20 actifs — risque » (net / DD / net-DD, base vs notrend) + contrat de sortie des LaunchAgents (distingue alerte métier d'échec réel).",
       "note": "Re-scellé 14/09T12:41Z après modification déclarée : suppression de la réécriture de vol.html (cache-buster déplacé côté client) — le générateur n'écrit plus que vol_live.js (non scellé, donnée vivante). Par Buffy. | 19/09 soir : + gardien « Règles d'or » (lit thermo/regles_or.json écrit par verifier_regles_or.py) — les règles d'or sont désormais VISIBLES dans la page vol. Declaré par Buffy.",
       "maj": "Gardien « Chien de garde » RÉPARÉ 20/09/2026 : il lisait `tail -1 thermo/chien_rapport.txt`, fichier QUE PERSONNE N'ÉCRIT → stdout vide → la page affichait « rapport présent » en VERT quoi qu'il arrive (faux vert permanent sur le gardien le plus important). Il lit désormais thermo/CHIEN_RAPPORT.json : « N vivants · N hors délai · N aveugle(s) » + l'organe et son champ muet, et un rapport figé > 15 min = rouge (le chien lui-même peut mourir). · 2e passe 20/09 : la table CONTRAT_SORTIE (codes de sortie launchd voulus) est désormais LUE dans strategie/contrat_sortie.json — une seule vérité, partagée avec le chien de garde (qui juge les 44 organes sans produit sur leur sortie launchd). Repli local conservé si le fichier manque.",
-      "date": "2026-09-23T09:33Z",
+      "date": "2026-09-23T09:58Z",
       "_rescel_20260920": "DÉCLARÉ 20/09/2026 (Buffy, GO Christophe — boucle d'alerte) : CONTRAT_SORTIE += com.ace777.verif-setup exit 1 = « preuve de lecture du coffre à refaire (gatekeeper, par conception) ». Avant, ce garde-fou légitime était affiché comme un ÉCHEC (organe cassé) alors qu'il dit « relis la carte du coffre ». md5 1b854a2b1cb820c87aeb176604634a53 → efcec0aad782deb9e01f77300007290d. Aucune autre logique modifiée. | + gardien « Repo = installation » (lit thermo/installation_repo.json écrit par installer_depuis_repo.sh) : rend visible que le fichier installé est un LIEN vers le repo (dérive impossible par construction). md5 efcec0aad782deb9e01f77300007290d → 0402336d4df5e86434955238f655a028. || 20/09 (Buffy, GO « cri vivant + revue des organes ») : + gardien « Cris en cours » (lit thermo/cris.json écrit par le chien : les cris ACTIFS à l'instant, auto-effacés, avec le fait que la voix a VRAIMENT été lancée — un cri muet est un faux cri) et + gardien « Revue des organes » (lit thermo/revue_organes.json). md5 1b7a6a40 → 1a698b3c. || 20/09 (Buffy, GO « verdicts des protocoles ») : le tableau « Protocoles en test » ne recopie plus le document du 14/09 — il lit thermo/PROTOCOLES_VERDICTS.json (verdicts MESURÉS par scripts/verdicts_protocoles.py, avec le critère pré-enregistré à côté du résultat et une ligne ⚠ quand un verdict ne peut pas être rendu). Le tableau documentaire ne sert que de repli. md5 1a698b3c → 0e7ff6fd.",
       "_rescel_20260922_go123": "GO 2 : 3 gardiens ajoutés (registre des échecs branché/récidives · seuils sans mesure R17 · sortie pilotée par la mesure) — lecture seule d'états écrits par les organes.",
-      "_rescel_20260923": "GARDIEN VISIBLE 23/09 (GO 1 — « un verdict qu'il faut aller chercher n'existe pas ») : la page « vol » gagne UN gardien — « Garde-fou seuil moteur » — qui lit `thermo/seuil_moteur.json` (état écrit par hulk-mexc/scripts/verif_seuil_moteur.py, appelé par git_push_auto.sh). Il dit COMBIEN de refus chiffrés ont été CONFRONTÉS au seuil recalculé, signale tout instrument qui recalcule un seuil sans la cadence, et refuse d'être un feu vert si l'état est figé (>8 h) ou si le refus parlant n'a pas encore produit 5 lignes (EN ATTENTE, normal < 1 h après une relance). LECTURE SEULE, ajout seul : aucun autre gardien touché, aucune donnée modifiée."
+      "_rescel_20260923": "GARDIEN VISIBLE 23/09 (GO 1 — « un verdict qu'il faut aller chercher n'existe pas ») : la page « vol » gagne DES gardiens qui lisent des états ÉCRITS par des contrôles appelés par git_push_auto.sh — d'abord « Garde-fou seuil moteur » (`thermo/seuil_moteur.json` : combien de refus chiffrés ont été CONFRONTÉS au seuil recalculé, instrument qui recalcule sans la cadence, refus d'être un feu vert si l'état est figé >8 h) ; puis, même jour, « Horodatage mémoire (E13) » (`thermo/memoire_horodatage.json` : lignes horodatées, heure future interdite, remontées de temps signalées mais NON re-datées). MODIFIÉ UNE 2e FOIS le 23/09 pour ce 2e gardien (le scellement est refait ici, après la DERNIÈRE modification — leçon E12). LECTURE SEULE, ajout seul : aucun autre gardien touché, aucune donnée modifiée."
     },
     {
       "nom": "Index_Maison/cockpit/vol.html",
@@ -1224,8 +1224,8 @@
       "origine": "GO Christophe 23/09 — la veilleuse criait (à raison) sur 2 scellés modifiés",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "7178d433e52ef5da8e3cec8647a6ac20",
-      "date": "2026-09-23T09:48Z",
+      "md5": "ffb4ebc6f1826d9ef8b1506da23dfc21",
+      "date": "2026-09-23T09:58Z",
       "_ajout_20260923": "Instrument créé le 23/09/2026 (GO Christophe) — ajouté au registre le jour même de sa création pour qu'il soit VU (veilleuse, drill, revue).",
       "_rescel_20260923": "Outil d'acte du 23/09 : déclare + re-scelle les fichiers modifiés (backup horodaté + entrée `_rescel_20260923` qui dit QUOI et POURQUOI). Modifié une 2e fois le même jour pour traiter les 3 fichiers touchés APRÈS leur scellement (batterie d'autotest, `--serie` de la sonde, `REPLAY_SLIP_BPS` du replay) — la veilleuse avait crié trois fois « INTRUSION : modification non déclarée », à juste titre. Leçon de processus : ON SCELLE APRÈS LA DERNIÈRE MODIFICATION."
     },
@@ -1247,6 +1247,16 @@
       "auto_modifiable": false,
       "md5": "62119526f65cd545123c029597ebc512",
       "date": "2026-09-23T09:48Z",
+      "_ajout_20260923": "Instrument créé le 23/09/2026 (GO Christophe) — ajouté au registre le jour même de sa création pour qu'il soit VU (veilleuse, drill, revue)."
+    },
+    {
+      "nom": "Index_Maison/scripts/verif_memoire_horodatage.py",
+      "role": "GARDIEN DE LA CLASSE E13 (heure de mémoire ESTIMÉE au lieu d'être LUE) : R1 = aucune ligne de la date la plus récente ne peut être datée dans le FUTUR (> +5 min) — aurait attrapé les 4 lignes du 23/09 écrites de tête (10:40Z pour un artefact de 09:47Z) ; R2 = ordre décroissant dans la date ; autotest 5/5 rejoué à heure FIXE (un test qui passe à 14 h et échoue à 9 h ne prouve rien) ; limites déclarées (heure SOUS-estimée indétectable ; les lignes anciennes hors ordre sont SIGNALÉES, jamais re-datées — on n'invente pas une seconde fois). LECTURE SEULE : n'écrit jamais dans la mémoire, seulement son verdict (runs/ + thermo/ pour le cockpit). rc=0 conforme · rc=1 anomalie.",
+      "origine": "GO Christophe 23/09 (« c'est pas possible de faire encore ce type d'erreurs ») — mes propres horodatages de mémoire étaient faux de +53 min",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "214eaa3f2fe9aae3289a996b4986b57a",
+      "date": "2026-09-23T09:58Z",
       "_ajout_20260923": "Instrument créé le 23/09/2026 (GO Christophe) — ajouté au registre le jour même de sa création pour qu'il soit VU (veilleuse, drill, revue)."
     }
   ]
