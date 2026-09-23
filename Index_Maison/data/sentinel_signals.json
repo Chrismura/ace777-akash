@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "liquidations",
-      "zscore": 2.5731907196000154,
-      "value": 7564956.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Bruit médiatique parasité par des homonymies juridiques traditionnelles (faillites d'entreprises) et des liquidations macro globalisées (1Md$). Le z-score on-chain modéré (2.57) pour 7.5M$ ne montre pas de mouvement furtif significatif de baleines crypto.\"\n}\n```",
-      "ts": "2026-09-22T01:23:54.428213+00:00"
-    },
-    {
       "metric": "fear_greed",
       "zscore": 3.8729833462074166,
       "value": 78,
@@ -349,6 +342,13 @@
       "value": 71,
       "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-4.80) malgré une cupidité élevée (71). Absence de narratif médiatique notable (Google Actualités vide). Divergence classique de distribution silencieuse : le marché retail est complaisant tandis que les baleines vident leurs positions sans éveiller les foules.\"\n}\n```",
       "ts": "2026-09-23T01:07:52.945905+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -3.872983346207417,
+      "value": 71,
+      "analysis": "{\n  \"signal\": \"bearish\",\n  \"confidence\": 78,\n  \"reason\": \"The Fear & Greed index reads 71 (strong greed) but its z‑score of -3.87 flags a rare statistical outlier, indicating the market is far from its normal range. Media headlines show no corresponding narrative, suggesting the extreme on‑chain condition is not being publicly discussed—consistent with silent whale distribution ahead of a potential correction.\"\n}",
+      "ts": "2026-09-23T01:38:13.485167+00:00"
     }
   ]
 }
