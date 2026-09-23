@@ -1,34 +1,6 @@
 {
   "signals": [
     {
-      "metric": "fear_greed",
-      "zscore": -4.7958315233127164,
-      "value": 71,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-4.80) malgré une cupidité élevée (71). Absence de narratif médiatique notable (Google Actualités vide). Divergence classique de distribution silencieuse : le marché retail est complaisant tandis que les baleines vident leurs positions sans éveiller les foules.\"\n}\n```",
-      "ts": "2026-09-23T01:07:52.945905+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": -3.872983346207417,
-      "value": 71,
-      "analysis": "{\n  \"signal\": \"bearish\",\n  \"confidence\": 78,\n  \"reason\": \"The Fear & Greed index reads 71 (strong greed) but its z‑score of -3.87 flags a rare statistical outlier, indicating the market is far from its normal range. Media headlines show no corresponding narrative, suggesting the extreme on‑chain condition is not being publicly discussed—consistent with silent whale distribution ahead of a potential correction.\"\n}",
-      "ts": "2026-09-23T01:38:13.485167+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": -3.316624790355402,
-      "value": 71,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Le score z de -3.32 sur l'indice de peur et de cupidité (71) indique une anomalie statistique de surchauffe émotionnelle, contrastant avec un vide médiatique total (Google Actualités sans relais). Cette divergence signale une euphorie de détail non soutenue par l'adoption publique, souvent caractéristique d'une distribution silencieuse par les baleines avant un retournement.\"\n}\n```",
-      "ts": "2026-09-23T02:08:18.470804+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": -2.9325756597230344,
-      "value": 71,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Le score Z extrême (-2.93) du Fear & Greed à 71 (avidité) contraste totalement avec le vide médiatique (absence de grands titres Google Actualités). Cette divergence signale un piège à liquidité : le retail entre en aveugle par inertie, tandis que les baleines profitent de cette surchauffe invisible pour distribuer en silence.\"\n}\n```",
-      "ts": "2026-09-23T02:38:24.613261+00:00"
-    },
-    {
       "metric": "whale_usd",
       "zscore": 2.5674943742217966,
       "value": 2250987.0,
@@ -349,6 +321,34 @@
       "value": 4019050.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 3.04, ~4M$ de flux baleines) totalement ignorée par Google Actualités (silence médiatique absolu). Classique accumulation furtive avant un mouvement de marché.\"\n}\n```",
       "ts": "2026-09-23T17:18:10.177062+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": 3.4718379562273927,
+      "value": 1.091,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Le Z-score extrêmement élevé (3.47) indique une surconcentration massive des positions acheteuses par les baleines, contredisant le narratif médiatique généraliste qui discute prudemment des stratégies long/short. Historiquement, un déséquilibre aussi prononcé des positions longues précède des chasses aux stops baissières (long squeeze).\"\n}\n```",
+      "ts": "2026-09-23T17:23:51.187819+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.592130327554217,
+      "value": 18507025406.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie de volume non corrélée au marché crypto : les titres médiatiques renvoient à l'agriculture, l'hydratation et la tech traditionnelle (Boursorama/Retail). Bruit de fond, pas de mouvement de baleine détecté.\"\n}\n```",
+      "ts": "2026-09-23T17:29:10.261460+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": 3.044833285180888,
+      "value": 1.091,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 92,\n  \"reason\": \"Le Z-score extrême (3.04) indique un positionnement long surchargé des baleines dans un marché saturé de bruit médiatique institutionnel 'Long/Short', créant un déséquilibre critique propice à une purge imminente des positions acheteuses.\"\n}\n```",
+      "ts": "2026-09-23T17:54:43.057521+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.479228266182975,
+      "value": 18590239993.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie de volume non corrélée au marché crypto (bruit médiatique centré sur la santé, la finance traditionnelle et l'e-commerce). Aucune baleine détectée.\"\n}\n```",
+      "ts": "2026-09-23T17:59:55.123653+00:00"
     }
   ]
 }

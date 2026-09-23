@@ -1,20 +1,20 @@
 {
   "geopol": {
-    "score": 0.3477,
-    "ml_score": 0.177,
+    "score": 0.3466,
+    "ml_score": 0.1681,
     "niveau": "calme",
     "emoji": "🟢",
     "ml": {
       "label": 0,
       "label_nom": "calme",
       "label_emoji": "🟢",
-      "probability": 0.5156,
-      "confidence": 0.5156,
-      "risk_score": 0.177,
+      "probability": 0.5356,
+      "confidence": 0.5356,
+      "risk_score": 0.1681,
       "probas": {
-        "calme": 0.5156,
-        "attention": 0.4378,
-        "alerte": 0.0467,
+        "calme": 0.5356,
+        "attention": 0.4244,
+        "alerte": 0.04,
         "critique": 0.0
       },
       "feature_importances": {
@@ -54,7 +54,7 @@
         }
       },
       "jets_adsb": {
-        "score": 0.0061,
+        "score": 0.0,
         "categorie": "geopol",
         "source": "OpenSky Network",
         "interpretation": "🟢 CALME — Trafic normal autour de DC. Rien d'inhabituel.",
@@ -62,7 +62,7 @@
           "military_surge": 0.0,
           "military_ratio": 0.0,
           "altitude_avg": 0.0,
-          "velocity_avg": 0.0613
+          "velocity_avg": 0.0
         }
       },
       "oil_price": {
@@ -78,14 +78,14 @@
         }
       },
       "defense_stocks": {
-        "score": 0.3295,
+        "score": 0.3298,
         "categorie": "geopol",
         "source": "Yahoo Finance",
         "interpretation": "🟡 ATTENTION — Légère hausse du secteur défense. À surveiller.",
         "features": {
-          "sector_avg_change": 0.2758,
+          "sector_avg_change": 0.3125,
           "sector_breadth": 0.0,
-          "max_stock_move": 0.346,
+          "max_stock_move": 0.274,
           "sector_correlation": 1.0
         }
       },
@@ -100,7 +100,7 @@
           "source_diversity": 1.0,
           "abstract_negativity": 0.0,
           "neg_geo_raw": 0.75,
-          "neg_neutre_raw": 0.0
+          "neg_neutre_raw": 0.031
         }
       }
     },
@@ -108,8 +108,8 @@
     "nb_modules": 5,
     "nb_ok": 5,
     "scores_par_categorie": {
-      "geopol": 0.3477
+      "geopol": 0.3466
     },
-    "ts": "2026-09-22T17:41:22.941809+00:00"
+    "ts": "2026-09-23T17:41:33.541901+00:00"
   }
 }
