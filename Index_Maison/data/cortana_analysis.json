@@ -1,65 +1,26 @@
 {
-  "timestamp": 1790191352,
-  "date": "2026-09-23T19:22:32.712490+00:00",
-  "n_analyses": 2,
+  "timestamp": 1790194053,
+  "date": "2026-09-23T20:07:33.444717+00:00",
+  "n_analyses": 1,
   "analyses": [
     {
       "signal": {
         "metric": "long_short",
-        "zscore": 2.9461013792101847,
-        "value": 1.132,
-        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Le Z-score élevé (2.95) du ratio long/short indique une surconcentration extrême des positions acheteuses par les baleines. Pendant ce temps, le narratif médiatique grand public banalise et glorifie les stratégies long-short, signalant un excès d'euphorie retail et un risque imminent de purge par les 'smart money'.\"\n}\n```",
-        "ts": 1790189758.071338
+        "zscore": 2.715928273605301,
+        "value": 1.142,
+        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Le z-score élevé (2.72) du ratio long/short indique un posicionnement excessif des traders particuliers. Pendant que les médias généralistes et institutionnels font l'éloge des stratégies long/short traditionnelles, la sur-concentration des positions acheteuses sur les dérivés crypto crée un déséquilibre critique, précurseur classique d'un 'long squeeze'.\"\n}\n```",
+        "ts": 1790192473.424316
       },
       "fiche": "long_short",
       "questions": {
         "ratio_long_short": {
-          "value": 1.142,
+          "value": 1.154,
           "seuil": 2,
           "depasse": false
         },
         "oi": {
-          "value": 99001.536,
+          "value": 98835.847,
           "seuil": 120000,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
-      },
-      "action": "Observer",
-      "niveau": "neutre"
-    },
-    {
-      "signal": {
-        "metric": "volume",
-        "zscore": 2.0208360201211124,
-        "value": 18202271160.0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie de volume non corrélée au marché crypto (bruit médiatique externe, sujets lifestyle et finance traditionnelle).\"\n}\n```",
-        "ts": 1790190060.408427
-      },
-      "fiche": "rbf_eleve",
-      "questions": {
-        "prix": {
-          "value": -0.02,
-          "seuil": 1,
-          "depasse": false
-        },
-        "paires": {
-          "value": 0,
-          "seuil": 3,
-          "depasse": false
-        },
-        "funding": {
-          "value": -1.2e-05,
-          "seuil": 0.001,
-          "depasse": false
-        },
-        "whales": {
-          "value": 0,
-          "seuil": 5,
           "depasse": false
         }
       },

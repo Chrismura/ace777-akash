@@ -2,34 +2,6 @@
   "signals": [
     {
       "metric": "ipt",
-      "zscore": -2.0279262531877174,
-      "value": 0.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Le ticker 'IPT' dans les médias fait référence à des institutions académiques (Institut Polytechnique de Paris, Tournoi des Physiciens, Institut Protestant de Théologie) et non à un actif crypto. L'anomalie onchain est un bruit statistique sans lien avec la réalité médiatique.\"\n}\n```",
-      "ts": "2026-09-23T03:53:46.964556+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": -2.236067977499786,
-      "value": 71,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Fear-greed index shows greed (71) with significant z-score (-2.24), indicating strong bullish sentiment divergence vs. media narratives. Whale accumulation likely underway despite neutral media coverage.\"\n}\n```",
-      "ts": "2026-09-23T04:09:02.318809+00:00"
-    },
-    {
-      "metric": "liquidations",
-      "zscore": 3.7594092162707344,
-      "value": 6352450.0,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Fausse alerte liée au bruit médiatique : les liquidations détectées concernent des secteurs macroéconomiques traditionnels (restauration locale, fonds en Turquie) et non les baleines crypto. Le narratif public se focalise à tort sur un faux 'bull market' crypto alors que les données onchain montrent des tensions de liquidité sectorielles.\"\n}\n```",
-      "ts": "2026-09-23T04:29:06.657738+00:00"
-    },
-    {
-      "metric": "price_1h",
-      "zscore": 2.919737992730455,
-      "value": 0.6166897347174238,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (+2.92) détectant une forte impulsion de prix à court terme sans aucune couverture ni écho dans les médias traditionnels (silence absolu de Google Actualités). C'est la signature classique d'une accumulation furtive ou d'un mouvement préparé par des baleines sous le radar public.\"\n}\n```",
-      "ts": "2026-09-23T04:34:10.061693+00:00"
-    },
-    {
-      "metric": "ipt",
       "zscore": 2.3585032442807825,
       "value": 1.154,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"L'indice 'ipt' et les titres médiatiques font référence au Tournoi International des Physiciens (IPT) et à des institutions académiques/religieuses, sans aucun rapport avec la crypto-monnaie ou des mouvements de baleines.\"\n}\n```",
@@ -349,6 +321,34 @@
       "value": 18202271160.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie de volume non corrélée au marché crypto (bruit médiatique externe, sujets lifestyle et finance traditionnelle).\"\n}\n```",
       "ts": "2026-09-23T19:01:00.408427+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": -7.320524289310199,
+      "value": 0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Bruit médiatique parasité par des homonymes (agriculture, actualités financières hors-crypto). Volume onchain à zéro (z-score -7.32) non significatif pour un actif crypto non identifié ou inactif.\"\n}\n```",
+      "ts": "2026-09-23T19:36:06.990264+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": -2.3053491407843616,
+      "value": 0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Divergence massive : les médias généralistes et crypto paniquent sur de prétendues liquidations massives (bruit de fond/confusion avec des faillites d'entreprises locales), alors que le z-score on-chain à -2.31 prouve un 'tsunami silencieux' — absence totale de liquidations de longs. Les baleines absorbent l'offre en sous-marin sous 84k sans déclencher de cascade de ventes.\"\n}\n```",
+      "ts": "2026-09-23T19:36:09.562796+00:00"
+    },
+    {
+      "metric": "taker_ratio",
+      "zscore": -2.27770437812014,
+      "value": 0.5,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio à 0.5 (z-score -2.28) indique une domination massive des acheteurs (Taker Buys) sur les carnets d'ordres, signalant une accumulation agressive et silencieuse par les baleines. Aucun narratif médiatique majeur ne couvre cette pression acheteuse, révélant une déconnexion totale entre le silence des médias et l'absorption réelle de l'offre onchain.\"\n}\n```",
+      "ts": "2026-09-23T19:36:11.321641+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": 2.715928273605301,
+      "value": 1.142,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Le z-score élevé (2.72) du ratio long/short indique un posicionnement excessif des traders particuliers. Pendant que les médias généralistes et institutionnels font l'éloge des stratégies long/short traditionnelles, la sur-concentration des positions acheteuses sur les dérivés crypto crée un déséquilibre critique, précurseur classique d'un 'long squeeze'.\"\n}\n```",
+      "ts": "2026-09-23T19:41:13.424316+00:00"
     }
   ]
 }
