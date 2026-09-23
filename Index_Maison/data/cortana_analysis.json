@@ -1,20 +1,20 @@
 {
-  "timestamp": 1790122331,
-  "date": "2026-09-23T00:12:11.783930+00:00",
+  "timestamp": 1790125932,
+  "date": "2026-09-23T01:12:12.904428+00:00",
   "n_analyses": 2,
   "analyses": [
     {
       "signal": {
         "metric": "ipt",
-        "zscore": 2.027708483247671,
-        "value": 1.02,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique due à une confusion lexicale : 'IPT' dans les médias fait référence à des institutions académiques (Tournoi de Physiciens, Institut Protestant de Théologie) et non à un actif crypto. Aucune activité de baleine pertinente.\"\n}\n```",
-        "ts": 1790122057.120656
+        "zscore": 2.503981195715656,
+        "value": 1.151,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.50) sur l'indice 'ipt' dictée par une collision lexicale. Les médias traitent de tournois de physique, d'accords universitaires et d'agriculture. Aucun mouvement de baleine crypto détecté, le signal est un bruit de fond non pertinent.\"\n}\n```",
+        "ts": 1790125369.618777
       },
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.06,
+          "value": 0.17,
           "seuil": 1,
           "depasse": false
         },
@@ -24,12 +24,12 @@
           "depasse": false
         },
         "funding": {
-          "value": 1.1e-05,
+          "value": 3.4e-05,
           "seuil": 0.001,
           "depasse": false
         },
         "whales": {
-          "value": 0,
+          "value": 1,
           "seuil": 5,
           "depasse": false
         }
@@ -45,10 +45,10 @@
     {
       "signal": {
         "metric": "fear_greed",
-        "zscore": -8.5156203223067,
+        "zscore": -4.7958315233127164,
         "value": 71,
-        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 95,\n  \"reason\": \"Z-score extrêmement bas (-8.52) malgré une avidité élevée (71). Absence totale de couverture médiatique malgré l'anomalie : les baleines distribuent dans l'ombre pendant que le retail ignore le risque imminent de retournement.\"\n}\n```",
-        "ts": 1790122058.467192
+        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-4.80) malgré une cupidité élevée (71). Absence de narratif médiatique notable (Google Actualités vide). Divergence classique de distribution silencieuse : le marché retail est complaisant tandis que les baleines vident leurs positions sans éveiller les foules.\"\n}\n```",
+        "ts": 1790125672.945905
       },
       "fiche": "fear_greed",
       "questions": {
