@@ -1,4 +1,4 @@
-# Hulk DIGEST — 2026-09-23T19:23:43Z
+# Hulk DIGEST — 2026-09-23T19:24:20Z
 
 - **Piste :** VEILLE (séparée du paper Hulk)
 - Source trading : **MEXC spot**
@@ -12,7 +12,7 @@
 
 | pair | hint | tension | move6% | dd6% | chg24% | vol USDT | spread bps | DefiLlama |
 |------|------|---------|--------|------|--------|----------|------------|-----------|
-| BTCUSDT | ERR | — | — | — | — | — | — | circuit-open api.mexc.com (réseau dégrad |
+| BTCUSDT | ERR | — | — | — | — | — | — | <urlopen error [Errno 8] nodename nor se |
 | ETHUSDT | ERR | — | — | — | — | — | — | circuit-open api.mexc.com (réseau dégrad |
 | XRPUSDT | ERR | — | — | — | — | — | — | circuit-open api.mexc.com (réseau dégrad |
 | HBARUSDT | ERR | — | — | — | — | — | — | circuit-open api.mexc.com (réseau dégrad |
