@@ -112,6 +112,18 @@ if [ -f "$REPO_DIR/hulk-mexc/scripts/verif_seuil_moteur.py" ]; then
     echo "[$(date -u +%Y-%m-%dT%H:%MZ)] ALERTE : garde-fou des seuils NON conforme (voir ci-dessus)" >> "$LOG_FILE"
 fi
 
+# GARDIEN DE LA MÉMOIRE — HORODATAGE (classe E13, ajouté le 23/09/2026)
+# Pourquoi : j'ai daté 4 lignes de MEMOIRE_COLLAB de tête (10:40Z pour un artefact de 09:47Z),
+# soit des lignes dans le FUTUR. Même famille que la classe E10 (un chiffre recalculé pris pour
+# un chiffre vérifié), appliquée au temps : une heure ESTIMÉE n'est pas une heure VÉRIFIÉE.
+# Ce contrôle ne relit pas mes heures : il compare les horodatages du fichier à l'heure RÉELLE
+# (rc=1 = anomalie de la classe E13), et il s'autoteste (5/5) à heure fixe pour prouver qu'il
+# SAIT échouer. Lecture seule : il n'écrit jamais dans la mémoire.
+if [ -f "$REPO_DIR/Index_Maison/scripts/verif_memoire_horodatage.py" ]; then
+  python3 "$REPO_DIR/Index_Maison/scripts/verif_memoire_horodatage.py" >> "$LOG_FILE" 2>&1 || \
+    echo "[$(date -u +%Y-%m-%dT%H:%MZ)] ALERTE : horodatage de MEMOIRE_COLLAB NON conforme — classe E13 (voir ci-dessus)" >> "$LOG_FILE"
+fi
+
 # 2) Ne committer que les fichiers DÉJÀ SUIVIS (modifiés/supprimés) + les canoniques
 # Garde-fou 05/09 (incident index.lock orphelin du 03/09 : 2,5 jours de push mort
 # en silence, le 2>/dev/null avalait le rc=128 et le script disait « aucun changement ») :

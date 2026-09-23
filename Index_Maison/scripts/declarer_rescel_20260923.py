@@ -39,13 +39,15 @@ DECLARATIONS = {
     ),
     "Index_Maison/scripts/gen_cockpit_vol.py": (
         "GARDIEN VISIBLE 23/09 (GO 1 — « un verdict qu'il faut aller chercher n'existe pas ») : "
-        "la page « vol » gagne UN gardien — « Garde-fou seuil moteur » — qui lit "
-        "`thermo/seuil_moteur.json` (état écrit par hulk-mexc/scripts/verif_seuil_moteur.py, "
-        "appelé par git_push_auto.sh). Il dit COMBIEN de refus chiffrés ont été CONFRONTÉS au "
-        "seuil recalculé, signale tout instrument qui recalcule un seuil sans la cadence, et "
-        "refuse d'être un feu vert si l'état est figé (>8 h) ou si le refus parlant n'a pas "
-        "encore produit 5 lignes (EN ATTENTE, normal < 1 h après une relance). LECTURE SEULE, "
-        "ajout seul : aucun autre gardien touché, aucune donnée modifiée."
+        "la page « vol » gagne DES gardiens qui lisent des états ÉCRITS par des contrôles "
+        "appelés par git_push_auto.sh — d'abord « Garde-fou seuil moteur » "
+        "(`thermo/seuil_moteur.json` : combien de refus chiffrés ont été CONFRONTÉS au seuil "
+        "recalculé, instrument qui recalcule sans la cadence, refus d'être un feu vert si "
+        "l'état est figé >8 h) ; puis, même jour, « Horodatage mémoire (E13) » "
+        "(`thermo/memoire_horodatage.json` : lignes horodatées, heure future interdite, "
+        "remontées de temps signalées mais NON re-datées). MODIFIÉ UNE 2e FOIS le 23/09 pour "
+        "ce 2e gardien (le scellement est refait ici, après la DERNIÈRE modification — leçon "
+        "E12). LECTURE SEULE, ajout seul : aucun autre gardien touché, aucune donnée modifiée."
     ),
     # L'outil se déclare LUI-MÊME : le détecteur de la veilleuse l'a attrapé (modifié après
     # son premier scellement). C'est la preuve que le contrôle fonctionne, y compris sur son
@@ -147,6 +149,19 @@ NOUVEAUX = {
                 "SYNTHESE.md. Un verdict qu'on ne peut pas contredire n'est pas un verdict.",
         "origine": "Christophe 23/09 : « consultation avec la famille (voyons si on peut éviter "
                    "que tu continues de faire des erreurs), prompt spécifique et contexte »",
+    },
+    "Index_Maison/scripts/verif_memoire_horodatage.py": {
+        "role": "GARDIEN DE LA CLASSE E13 (heure de mémoire ESTIMÉE au lieu d'être LUE) : "
+                "R1 = aucune ligne de la date la plus récente ne peut être datée dans le FUTUR "
+                "(> +5 min) — aurait attrapé les 4 lignes du 23/09 écrites de tête (10:40Z pour "
+                "un artefact de 09:47Z) ; R2 = ordre décroissant dans la date ; autotest 5/5 "
+                "rejoué à heure FIXE (un test qui passe à 14 h et échoue à 9 h ne prouve rien) ; "
+                "limites déclarées (heure SOUS-estimée indétectable ; les lignes anciennes hors "
+                "ordre sont SIGNALÉES, jamais re-datées — on n'invente pas une seconde fois). "
+                "LECTURE SEULE : n'écrit jamais dans la mémoire, seulement son verdict "
+                "(runs/ + thermo/ pour le cockpit). rc=0 conforme · rc=1 anomalie.",
+        "origine": "GO Christophe 23/09 (« c'est pas possible de faire encore ce type "
+                   "d'erreurs ») — mes propres horodatages de mémoire étaient faux de +53 min",
     },
     "Index_Maison/scripts/declarer_rescel_20260923.py": {
         "role": "Outil d'ACTE : déclare et re-scelle les fichiers modifiés du 23/09 (backup "

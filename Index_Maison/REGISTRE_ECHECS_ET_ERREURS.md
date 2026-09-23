@@ -2,7 +2,7 @@
 
 > 2026-09-22 · Buffy · créé sur ordre de Christophe : « va voir ce que sont nos erreurs, enfin
 > **tes** erreurs, et comment les corriger une bonne fois pour toute. »
-> **Dernière mise à jour : 2026-09-22T09:30Z** — c'est la borne du détecteur de récidive : toute
+> **Dernière mise à jour : 2026-09-23T0956Z** — c'est la borne du détecteur de récidive : toute
 > ligne de mémoire **postérieure** qui retombe dans une classe connue est signalée par
 > `scripts/critique_erreurs.py` (organe branché, cf. R15).
 > **0 €, 0 ordre.** Ce fichier est la première version de la pièce que la recherche désigne comme
@@ -52,6 +52,7 @@ C'est **littéralement** ce qui se passe ici : on redécouvre les mêmes erreurs
 | **E9** | **Empiler les corrections le même jour** | 22/09 : poser un refroidissement puis le retirer 2 h plus tard | Une garde ne se pose **qu'après** un chiffrage écrit ; sinon elle attend le GO |
 | **E10** | **Prendre un chiffre RECALCULÉ pour un chiffre VÉRIFIÉ** | 20-23/09 : seuil d'entrée annoncé à **5-12,75 %** pendant trois jours alors que le moteur appliquait **21,70 %** (terme manquant : `dip = max(dip_pct ; 0,50 × cadence)`, cadence ÉCRITE par le moteur colonne 9). Le chiffre faux a servi à publier « RIZE structurellement inattaquable », à chiffrer un levier d'entrée et à orienter un scan → **cause racine d'un second instrument défectueux** (`chiffrage_entree_sortie_replay.py`, 3 calculs) qui avait produit les chiffres du câblage `IMPULSE_SANS_REPLI_ON` sur EDEL | **`hulk-mexc/scripts/verif_seuil_moteur.py`** (23/09) : confronte le seuil RECALCULÉ aux chiffres que le moteur ÉCRIT (refus parlants + cadence), nomme le terme qui décide (R15), **détecte par texte** tout instrument qui recalcule un seuil sans la cadence, et **s'autoteste (7/7 erreurs discriminantes détectées sur 3 régimes)**. Branché toutes les 3 h + **affiché au cockpit** (« Garde-fou seuil moteur »). Re-vérification faite : le gain du levier EDEL était **gonflé de 25 %** (+19,68 → +14,70 $/90 j) — le câblage tient, l'annonce était fausse. |
 | **E11** | **Confondre COHÉRENCE et JUSTESSE (biais de source unique)** | 23/09, nommé par la famille (Grok) : mon invariant valide la formule **du moteur** — si le moteur se trompe, mes instruments le valident et **nous nous trompons ensemble**. La classe « le chiffre est fidèle mais la règle est mauvaise » reste **ouverte** | **AUCUNE GARDE — TROU DÉCLARÉ.** Remède identifié et chiffré : **oracle indépendant** = rejouer la kline brute et comparer au signal enregistré, en court-circuitant la logique interne du moteur. **En attente de GO.** |
+| **E13** | **Écrire une heure de MÉMOIRE au lieu de la lire** — le temps traité comme un seuil : **estimé ≠ vérifié** (même famille qu'E10, appliquée à l'horloge) | 23/09 : 4 lignes écrites **10:40Z / 10:05Z / 09:45Z / 09:15Z** alors que les **artefacts cités par ces lignes mêmes** donnent **0947Z / 0939Z / 0922Z / 0907Z** → inflation jusqu'à **+53 min**, donc des lignes **datées dans le futur** | **`Index_Maison/scripts/verif_memoire_horodatage.py`** (23/09) : **R1** aucune ligne de la date la plus récente dans le futur (> +5 min — aurait attrapé les 4) · **R2** ordre décroissant dans la date · **autotest 5/5** (dont le cas réel rejoué à **heure FIXE** : un test qui passe à 14 h et échoue à 9 h ne prouve rien). **Méthode corrigée** : l'heure d'une ligne = le **`mtime` de l'artefact qu'elle cite**, sinon `date -u` au moment d'écrire. **Limites déclarées** : une heure **sous**-estimée est indétectable ; 25 lignes anciennes hors ordre sont **signalées, jamais re-datées** (cf. §6). |
 | **E12** | **Sceller un fichier puis le modifier** (process) | 23/09 : deux modifications **légitimes** (`paper_diprip.py` refus parlant, `chiffrage_entree_sortie_replay.py` terme cadence) ont fait crier R5/R13 à juste titre ; puis **3 fichiers scellés ont été modifiés APRÈS leur scellement** → la veilleuse a signalé « INTRUSION : modification non déclarée » **3 fois** | **Règle de processus écrite** : *on scelle APRÈS la dernière modification* + `Index_Maison/scripts/declarer_rescel_20260923.py` (backup horodaté + entrée `_rescel_*` qui dit **quoi et pourquoi**). Écarts md5 = **0**, Règles d'or 7/11 → **9/11**. |
 
 ---
@@ -115,3 +116,40 @@ Donc **on ne câble rien** : ce n'est pas la bonne grandeur. La bonne, mesurée 
      ni rangée est nommée**, chaque passage. Un seuil inventé **ne peut pas se cacher dans du texte**.
      Preuve immédiate : il a **crié tout seul** sur le réglage créé ce matin (`RIP_CADENCE_REF_PCT`,
      1 non classé) avant que je le range — le mécanisme marche sur un cas réel, pas en théorie.
+
+---
+
+## 6. Rapport d'erreur E13 — les horodatages écrits de tête (23/09/2026)
+
+**Ce qui s'est passé** : en clôturant trois chantiers, j'ai daté 4 lignes de `MEMOIRE_COLLAB.md`
+**de mémoire**. Les artefacts cités par ces lignes mêmes donnent l'heure réelle :
+
+| ligne (chantier) | heure écrite | heure réelle (mtime de l'artefact cité) | écart |
+|---|---|---|---|
+| set-up paire par paire | 10:40Z | **0947Z** — `hulk-mexc/runs/SETUPS_PAIRES_20260923.{txt,json}` | **+53 min** |
+| gardien au cockpit + famille | 10:05Z | **0939Z** — `…/CONSULTATION_FAMILLE_GARDE_FOU_SEUIL_20260923/SYNTHESE.md` | +26 min |
+| GO 0 + GO 1/2/3 | 09:45Z | **0922Z** — `hulk-mexc/runs/SEUIL_MOTEUR.json` | +23 min |
+| refus parlant + seuil réel | 09:15Z | **0907Z** — `Index_Maison/REFUS_PARLANT_ET_SEUIL_REEL_20260923.md` | +8 min |
+
+**Ce que ça coûte** : rien au moteur (0 €, 0 ordre) — mais `MEMOIRE_COLLAB.md` est la pièce que
+Cursor, Punk, Cortana et Christophe lisent pour savoir **ce qui a bougé quand**. Une heure écrite
+de tête y rend l'ordre des causes invérifiable ; une ligne datée **dans le futur** est
+**impossible** et détruit la confiance dans le fichier entier. C'est la classe **E10** (chiffre
+recalculé pris pour vérifié) appliquée au temps.
+
+**La garde branchée** : `Index_Maison/scripts/verif_memoire_horodatage.py` — **R1** (aucune ligne
+de la date la plus récente dans le futur, +5 min de marge) · **R2** (ordre décroissant dans la date)
+· **autotest 5/5**, rejoué à **heure fixe** (un test qui passe à 14 h et échoue à 9 h ne prouve
+rien). Rejoué sur le fichier réel : **CONFORME** (154 lignes horodatées).
+
+**Ce que la garde a trouvé en plus — signalé, pas corrigé** : **24 remontées de temps** dans des
+dates anciennes (22/09 : 0907Z puis 0925Z · 20/09 · 18/09 · 17/09 · 14/09 · 13/09 · 11/09 · 03/09).
+Elles sont **signalées** et **jamais re-datées** : je refuse d'**inventer une seconde fois** pour
+corriger un chiffre inventé. Méthode à appliquer à la prochaine passe : lire le `mtime` de
+l'artefact cité par la ligne.
+
+**Limites déclarées (R8)** : la garde attrape une heure **trop grande**, jamais une heure **trop
+petite** ; et elle ne juge que la date la plus récente.
+
+**Méthode corrigée (écrite pour de bon)** : l'heure d'une ligne de mémoire =
+**le `mtime` de l'artefact qu'elle cite** ; sinon `date -u` **au moment d'écrire**. Jamais de tête.

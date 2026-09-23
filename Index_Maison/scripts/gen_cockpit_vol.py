@@ -345,6 +345,34 @@ def gardiens():
         g.append({"nom": "Garde-fou seuil moteur", "ok": False,
                   "detail": "état absent (git_push_auto.sh ne l'a jamais produit)"})
 
+    # GARDIEN DE LA MÉMOIRE — HORODATAGE (classe E13, 23/09, Buffy) — état écrit par
+    # Index_Maison/scripts/verif_memoire_horodatage.py, appelé par ce même git_push_auto.sh (3 h).
+    # POURQUOI CETTE LIGNE EXISTE : j'ai daté 4 lignes de MEMOIRE_COLLAB **de tête**
+    # (10:40Z pour un artefact daté 09:47Z) → des lignes dans le FUTUR. Le temps est un
+    # chiffre : ESTIMÉ n'est pas VÉRIFIÉ (même famille que le seuil recalculé, classe E10).
+    # La page ne dit pas « c'est bien » : elle dit combien de lignes sont horodatées, combien de
+    # remontées de temps restent **signalées mais non re-datées**, et depuis quand.
+    mh_path = IM / "thermo" / "memoire_horodatage.json"
+    mh = jload(mh_path)
+    mh_age = age_min(mh_path)
+    if mh:
+        n_lig = int(mh.get("n_lignes_horodatees", 0) or 0)
+        sig = int(mh.get("n_signalements", 0) or 0)
+        fiable_mh = bool((mh.get("autotest") or {}).get("fiable"))
+        ok_mh = bool(mh.get("conforme")) and fiable_mh
+        detail = ("%d lignes horodatées · aucune heure future" % n_lig if fiable_mh
+                  else "AUTOTEST NON FIABLE — le gardien ne garde rien")
+        if sig:
+            detail += " · %d remontée(s) de temps signalée(s), non re-datée(s)" % sig
+        if mh_age is not None and mh_age > 480:      # 8 h = deux passages manqués
+            detail += " — ÉTAT FIGÉ (>8 h, le contrôle n'est plus passé)"
+            ok_mh = False
+        detail += " · màj %s" % fmt_age(mh_age)
+        g.append({"nom": "Horodatage mémoire (E13)", "ok": ok_mh, "detail": detail})
+    else:
+        g.append({"nom": "Horodatage mémoire (E13)", "ok": False,
+                  "detail": "état absent (git_push_auto.sh ne l'a jamais produit)"})
+
     # RÈGLES D'OR (19/09) — état écrit par verifier_regles_or.py (lecture seule), lui-même
     # appelé par git_push_auto.sh. Une règle qu'on ne mesure pas se perd : ici on VOIT
     # lesquelles sont tenues et LAQUELLE lâche. Canon : Index_Maison/REGLE_D_OR.md.
