@@ -409,6 +409,65 @@ def gardiens():
         g.append({"nom": "Schéma du journal (E15)", "ok": False,
                   "detail": "état absent (git_push_auto.sh ne l'a jamais produit)"})
 
+    # FENÊTRE FAMILLE (R19, 23/09, ordre de Christophe) — état écrit par
+    # Index_Maison/scripts/verif_session_famille.py, appelé par git_push_auto.sh (3 h).
+    # POURQUOI CETTE LIGNE EXISTE : Christophe a ouvert un jury permanent et exigé que la fenêtre
+    # RESTE ouverte, avec la mémoire du chat, parce que « Buffy ne dirige plus seule ». La page ne
+    # dit pas « c'est bien » : elle dit combien de sessions sont ouvertes, combien de tours, combien
+    # de VOIX INDÉPENDANTES au dernier tour (une substitution ne compte pas — E16), et depuis quand
+    # le fil n'a pas reçu de nouveau tour (un jury qui dort ne juge plus).
+    sf_path = IM / "thermo" / "session_famille.json"
+    sf = jload(sf_path)
+    sf_age = age_min(sf_path)
+    if sf:
+        sess = sf.get("sessions") or []
+        n_alertes = sum(len(x.get("alertes") or []) for x in sess)
+        ok_sf = bool(sf.get("conforme")) and n_alertes == 0
+        detail = ("%d session(s) OUVERTE(s) · %d tour(s) · %d voix indépendante(s) au dernier tour"
+                  " · %d alerte(s)" % (len(sess), sum(int(x.get("tours") or 0) for x in sess),
+                                       sum(int(x.get("voix_independantes") or 0) for x in sess),
+                                       n_alertes))
+        if n_alertes:
+            detail += " : " + str((sess[0].get("alertes") or ["?"])[0])[:70]
+        if sf_age is not None and sf_age > 480:
+            detail += " — ÉTAT FIGÉ (>8 h, le contrôle n'est plus passé)"
+            ok_sf = False
+        detail += " · màj %s" % fmt_age(sf_age)
+        g.append({"nom": "Fenêtre famille (R19)", "ok": ok_sf, "detail": detail})
+    else:
+        g.append({"nom": "Fenêtre famille (R19)", "ok": False,
+                  "detail": "état absent (git_push_auto.sh ne l'a jamais produit)"})
+
+    # DÉLAI DE LECTURE DU PRIX (E19a/E19b, 23/09) — état écrit par
+    # hulk-mexc/scripts/verif_delai_lecture.py, appelé par git_push_auto.sh (3 h).
+    # POURQUOI CETTE LIGNE EXISTE : la FAMILLE a classé la latence de lecture défaut n°1 (barre
+    # < 1 s). J'avais publié « médiane 1,057 s » sur un sous-ensemble de lignes en le présentant
+    # comme le tout, et la latence du mode léger n'était mesurée nulle part. La page doit donc
+    # dire TROIS choses : la médiane, la part sous la barre, et le % de lectures qui n'ont AUCUN
+    # délai mesuré — plus le plancher physique, pour qu'on ne demande pas l'impossible.
+    dl_path = BASE / "hulk-mexc" / "runs" / "VERIF_DELAI_LECTURE.json"
+    dl = jload(dl_path)
+    dl_age = age_min(dl_path)
+    if dl:
+        n_mes = int(dl.get("lectures_mesurees") or 0)
+        mort = dl.get("angle_mort_pct")
+        ok_dl = bool(dl.get("conforme"))
+        detail = ("médiane %s s (barre %s s) · %s %% sous la barre · %s lecture(s) mesurée(s)" % (
+            dl.get("median_s"), dl.get("barre_s"), dl.get("pct_sous_barre"), n_mes))
+        if mort is not None:
+            detail += " · %s %% SANS délai mesuré (angle mort du mode léger)" % mort
+        ph = ((dl.get("plancher_physique") or {}).get("depth") or {}).get("median_ms")
+        if ph:
+            detail += " · plancher d'un appel /depth %s ms" % ph
+        if dl_age is not None and dl_age > 480:
+            detail += " — ÉTAT FIGÉ (>8 h, le contrôle n'est plus passé)"
+            ok_dl = False
+        detail += " · màj %s" % fmt_age(dl_age)
+        g.append({"nom": "Délai lecture prix (E19)", "ok": ok_dl, "detail": detail})
+    else:
+        g.append({"nom": "Délai lecture prix (E19)", "ok": False,
+                  "detail": "état absent (git_push_auto.sh ne l'a jamais produit)"})
+
     # PnL NET vs BRUT (GO 2, 23/09, Buffy) — état écrit par hulk-mexc/scripts/chiffrage_pnl_net.py.
     # POURQUOI CETTE LIGNE EXISTE : le moteur inscrit un PnL **BRUT** (`pnl = (price − entry) × qty`,
     # ni frais ni spread). L'audit MEXC × HULK a mesuré 39,70 $ brut → 36,19 $ net sur 100 séquences

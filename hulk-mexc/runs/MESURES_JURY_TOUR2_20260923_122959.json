@@ -1,0 +1,79 @@
+{
+  "instrument": "mesures_jury_tour2.py",
+  "ts_utc": "2026-09-23T12:29:57Z",
+  "etiquettes": "MESURÉ / ESTIMÉ / EXTRAPOLÉ / INFORMATION INSUFFISANTE",
+  "s1_delai": {
+    "n": 9536,
+    "median_s": 1.058,
+    "p90_s": 2.021,
+    "max_s": 3.658,
+    "pct_sous_1s": 22.7,
+    "source": "CORPUS_ASP_20260923.csv"
+  },
+  "s2_scrutation": {
+    "poll_sec": "20",
+    "n_ages": 38,
+    "median_age_s": 0.0,
+    "n_sorties_prix_frais": 0
+  },
+  "s4_cooling": {
+    "cooling": {
+      "n": 12,
+      "total": 7.26,
+      "moyenne": 0.605,
+      "mediane": 0.298,
+      "gagnants": "8/12"
+    },
+    "autres": {
+      "n": 48,
+      "total": 25.72,
+      "moyenne": 0.536,
+      "mediane": 0.3,
+      "gagnants": "38/48"
+    }
+  },
+  "s5_source": {
+    "api": "https://api.mexc.com/api/v3/klines",
+    "caches": [
+      {
+        "fichier": "ORACLE_KL_ZBCNUSDT_1789493096_1790162289.json",
+        "sha256_16": "d44d5876c5248cca"
+      },
+      {
+        "fichier": "ORACLE_KL_EDELUSDT_1789289852_1790048151.json",
+        "sha256_16": "b3ccdd4d377df080"
+      },
+      {
+        "fichier": "ORACLE_KL_PYTHUSDT_1789375188_1790107418.json",
+        "sha256_16": "0ed44a73701e2f35"
+      }
+    ],
+    "preuve_live": [
+      {
+        "open": "2026-09-23T12:28:00Z",
+        "close": "0.003121"
+      },
+      {
+        "open": "2026-09-23T12:29:00Z",
+        "close": "0.003116"
+      }
+    ]
+  },
+  "s6_formule": {
+    "plancher": 8.0,
+    "mult": "0.80",
+    "cadence_mediane": 16.88,
+    "stop_median": 13.5
+  },
+  "s7_riz": {
+    "creux_cumule": -1.87,
+    "avec_plafond_15": -0.99,
+    "avec_stop_3923": -1.83,
+    "reduction_pct": 47.0
+  },
+  "s8_planchers": {
+    "mult": 0.5,
+    "n_paires": 21,
+    "paires_ou_cadence_domine": 5
+  }
+}

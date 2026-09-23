@@ -1,0 +1,3 @@
+# Tour 1 — demandé « nvidia/nemotron-3-super-120b-a12b:free » — RÉPONDU PAR « nvidia/nemotron-3-super-120b-a12b:free » (OpenRouter Juge (nemotron-3-super-120b free) - verificateur independant, 25.9s)
+
+**VERDICT** : Méthode recevable, défauts de conception persistants · CE QUE J'EXIGE AVANT LE PROCHAIN TOUR : 1️⃣ Mesure réelle du délai de stop après GO 2 (médiane et 90 %ile) ; 2️⃣ Impact de l’âge du prix sur le déclenchement du stop (corrélation prix‑âge vs slippage) ; 3️⃣ Espérance mathématique du poste `cooling` (gain/loss moyen par trade) · CE QUI ME FERAIT CHANGER D'AVIS : Une médiane de délai de stop ≤ 15 mes (mesurée sur les 10 prochains jours) accompagnée d’un coût de retard ≤ 0,05 $.

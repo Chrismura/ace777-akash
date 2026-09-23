@@ -1,0 +1,92 @@
+MESURES EXIGÉES PAR LE JURY — TOUR 1 → TOUR 2 · 2026-09-23T12:29:57Z
+Étiquettes : MESURÉ / ESTIMÉ / EXTRAPOLÉ / INFORMATION INSUFFISANTE. Lecture seule, 0 ordre.
+
+══ §1 [Gemini] DÉLAI DE LECTURE DU PRIX — barre exigée : < 1 s ══
+  SOURCE : CORPUS_ASP_20260923.csv — 9536 lectures live horodatées · 20 paires · 1293 passes
+  MESURÉ : délai de lecture  médiane 1.058 s · p90 2.021 s · max 3.658 s
+  MESURÉ : part des lectures < 1 s : 2168/9536 = 22.7 %
+  MESURÉ : 3 paires les plus lentes (médiane) — ZBCNUSDT 1.07s · KITEUSDT 1.07s · BTCUSDT 1.06s
+
+══ §2 [DeepSeek/Nemotron] FRÉQUENCE DE SCRUTATION + ÂGE DU PRIX À LA DÉCISION ══
+  MESURÉ (config lue, defaults.env) : POLL_SEC = 20 s → la boucle regarde CHAQUE paire toutes les ~20 s
+  MESURÉ (journal PAPER_V1_20260923_114444.csv) : 76200 lignes · 40974 instants distincts
+  MESURÉ : âge du prix écrit à la décision — n=38 · médiane 0.00 s · p90 0.00 s · max 37.00 s
+  ⚠ PORTÉE : les lignes SKIP sont dédupliquées (même motif). Le journal ne prouve donc PAS l'âge du prix pendant 24 h — seules les lignes écrites portent l'âge.
+  MESURÉ : décisions de sortie passées par le prix frais (tag `_impact_av…`) : 0
+  → n=0 : GO 2 est en vol depuis trop peu de temps pour qu'un stop se soit présenté. Le délai médian/p90 exigé par Nemotron (§1 de son avis) NE PEUT PAS être produit aujourd'hui — INFORMATION INSUFFISANTE, pas « conforme ».
+
+══ §3 [Nemotron] CORRÉLATION ÂGE DU PRIX ↔ GLISSEMENT ══
+  MESURÉ : 53 sorties de type stop au total · 0 portent un âge (la colonne n'existe que depuis GO 1, 23/09)
+  INFORMATION INSUFFISANTE pour la corrélation demandée : il faudrait l'âge AU MOMENT du déclenchement × le glissement réel, et **aucun stop n'a eu lieu depuis GO 2**. Chiffre manquant nommé : `age_avant_s` des 53 stops historiques (colonne créée après). Le tag `_impact_av{N}s_ap{M}s` la produira au premier stop — pas avant. Je ne comble pas avec une estimation.
+
+══ §4 [Nemotron] ESPÉRANCE MATHÉMATIQUE DU POSTE « cooling » ══
+  SOURCE : BOUCLE_SETUPS_MAIN_20260923.json (10.0 j, 60 trades) — net à la main (frais + spread estimés)
+  MESURÉ  poste `cooling` : n=12 · net total +7.26 $ · moyenne +0.605 $ · médiane +0.298 $ · gagnants 8/12 (67 %) · meilleur +4.03 $ · pire -1.70 $
+  MESURÉ  tout le reste : n=48 · net total +25.72 $ · moyenne +0.536 $ · médiane +0.300 $ · gagnants 38/48 (79 %) · meilleur +4.79 $ · pire -2.97 $
+  → Lecture : c'est l'espérance que le jury réclamait. Elle est NETTE, et la famille d'entrée `cooling` est comparée au reste sur la même fenêtre.
+
+══ §5 [DeepSeek] SOURCE DES BOUGIES (preuve vérifiable) ══
+  SOURCE : https://api.mexc.com/api/v3/klines?symbol=<PAIRE>&interval=1m&startTime=<ms>&endTime=<ms>&limit=1000
+  MESURÉ : 16 fichiers de bougies brutes en cache, empreinte SHA-256 des 3 plus gros :
+     ORACLE_KL_ZBCNUSDT_1789493096_1790162289.json  sha256:d44d5876c5248cca…  2026-09-15T17:25:00Z → 2026-09-23T11:18:00Z · 11154 bougies
+     ORACLE_KL_EDELUSDT_1789289852_1790048151.json  sha256:b3ccdd4d377df080…  2026-09-13T08:58:00Z → 2026-09-22T03:35:00Z · 12638 bougies
+     ORACLE_KL_PYTHUSDT_1789375188_1790107418.json  sha256:0ed44a73701e2f35…  2026-09-14T08:40:00Z → 2026-09-22T20:03:00Z · 12204 bougies
+  MESURÉ (re-téléchargement live, 12:29:58Z) : 2 bougies RIZEUSDT reçues de MEXC — 2026-09-23T12:28:00Z close=0.003121 · 2026-09-23T12:29:00Z close=0.003116
+  → la même API que celle utilisée par l'oracle répond, avec l'horodatage des bougies : la source est VÉRIFIABLE, pas déclarative.
+
+══ §6 [Gemini] FORMULE EXACTE QUI FIXE LE STOP DE RIZE ══
+  MESURÉ (code, paper_diprip.py:633) : stop = max( plancher_de_la_paire ; cadence_de_la_paire × 0.80 )
+  MESURÉ (config defaults.env) : STOP_FLOOR_PCT = 6.0 · STOP_CADENCE_MULT = 0.80
+  MESURÉ (strategie/universe_profils.json) : RIZEUSDT.calib.stop_pct = 8.0 → c'est le PLANCHER, pas le stop
+  MESURÉ (journal) : cadence RIZE observée — n=8214 · médiane 16.88 % · max 55.58 % (2026-09-23T11:05:12Z)
+  MESURÉ : stop RIZE = max(8.0 ; cadence × 0.80) → médiane 13.50 % · au pire 44.46 %
+  → le 44 % observé se reproduit : cadence RIZE × 0.80 dépasse très largement le plancher de 8.0 %.
+  ⚠ CORRECTION PUBLIÉE : j'avais écrit « cadence × 0,70 » (le DÉFAUT du code) alors que la config applique 0.80, et « plancher 8 % » pour le global alors que STOP_FLOOR_PCT = 6.0. Deux lectures de défauts pris pour des valeurs effectives — classe E18.
+
+══ §7 [DeepSeek] PLAFOND DE STOP À 15 % : ce que RIZE aurait donné ══
+  SOURCE : 8249 bougies 1 m RIZEUSDT (2026-09-16T14:47:00Z → 2026-09-22T08:15:00Z), même cache que l'oracle indépendant.
+     2026-09-16T15:46:18Z mise 3.22 $ · creux marché -14.59 % · perte au creux -0.47 $ · avec stop 39,23 % -0.47 $ · avec plafond 15 % -0.47 $
+     2026-09-18T03:44:47Z mise 3.46 $ · creux marché -40.56 % · perte au creux -1.40 $ · avec stop 39,23 % -1.36 $ · avec plafond 15 % -0.52 $
+  MESURÉ (2 trades RIZE) : perte au creux cumulée -1.87 $ → avec plafond 15 % -0.99 $ → réduction 47 %
+  MESURÉ : avec le stop réel 39,23 % -1.83 $ (le stop n'a rien amorti).
+  ESTIMÉ : le chiffre suppose la sortie AU niveau du plafond, sans glissement et sans ré-entrée → OPTIMISTE pour le plafond.
+  EXTRAPOLÉ (et je le dis) : « réduction du drawdown > 50 % » au niveau du PORTEFEUILLE n'est PAS démontré par 2 trades sur 16 paires — je ne le signe pas.
+
+══ §8 [DeepSeek] AUDIT DES AUTRES PLANCHERS DE CONFIG vs SEUILS RÉELLEMENT APPLIQUÉS ══
+  MESURÉ (lecture de strategie/universe_profils.json) — planchers de config par paire :
+     paire               stop_pct      dip_pct      rip_pctmise_max_pct_mur
+     CCUSDT                  6.0          4.0          3.0         0.02
+     EDELUSDT               10.3          5.5          5.2         0.02
+     KITEUSDT                6.0          4.0          3.0         0.02
+     PYTHUSDT                6.0          4.0          3.0         0.02
+     REDUSDT                 6.0          4.0          3.0         0.02
+     RIZEUSDT                8.0          4.2          4.0         0.02
+     RWAINCUSDT              6.5          4.0          3.2         0.02
+     TELUSDT                 6.4          4.0          3.2         0.02
+     WUSDT                   6.0          4.0          3.0         0.02
+     XRPUSDT                 6.0          4.0          3.0         0.02
+     ZBCNUSDT                6.0          4.0          3.0         0.02
+  MESURÉ : 11 paires ont des planchers de config nommés (STOP_FLOOR_PCT global = 6.0)
+  MESURÉ (contre-épreuve, journal) : le seuil RÉELLEMENT appliqué est écrit dans les motifs — ex. `stop-39.23%_guard_partial_50`, `impulse_pullback_dd6=5.1>=5.0`. Pour RIZE le motif porte 39,23 % alors que la config porte 8,0 → **le plancher n'est pas le seuil**.
+  → CONCLUSION DE L'AUDIT : les planchers `stop_pct` sont des MINIMUMS, jamais des seuils. Les citer comme « stop annoncé » est la faute E17. `dip_pct`/`rip_pct` suivent la même mécanique dans le code (le motif écrit la valeur retenue, pas la config).
+  MESURÉ, terme par terme — seuil EFFECTIF = max(plancher ; DIP_CADENCE_MULT 0.5 × cadence), puis porte `IMPULSE_PULLBACK_MIN_PCT` 5.0 :
+     paire         plancher  cadence   × mult     dip  besoin   terme dominant
+     EDELUSDT         5.50%    26.4%   13.20%  13.20%  13.20%   cadence (DIP_CADENCE_MULT)
+     RIZEUSDT         4.20%    16.9%    8.44%   8.44%   8.44%   cadence (DIP_CADENCE_MULT)
+     CHIPUSDT         4.00%    13.4%    6.69%   6.69%   6.69%   cadence (DIP_CADENCE_MULT)
+     QAITUSDT         4.00%    11.2%    5.60%   5.60%   5.60%   cadence (DIP_CADENCE_MULT)
+     REDUSDT          4.00%    10.0%    5.01%   5.01%   5.01%   cadence (DIP_CADENCE_MULT)
+     PYTHUSDT         4.00%     9.4%    4.70%   4.70%   5.00%   plancher pullback
+     KITEUSDT         4.00%     7.3%    3.67%   4.00%   5.00%   plancher pullback
+     ZBCNUSDT         4.00%     7.2%    3.59%   4.00%   5.00%   plancher pullback
+     TELUSDT          4.00%     7.2%    3.59%   4.00%   5.00%   plancher pullback
+     WUSDT            4.00%     7.0%    3.48%   4.00%   5.00%   plancher pullback
+     BIOUSDT          4.00%     6.6%    3.32%   4.00%   5.00%   plancher pullback
+     CCUSDT           4.00%     6.5%    3.26%   4.00%   5.00%   plancher pullback
+     RWAINCUSDT       4.00%     6.5%    3.26%   4.00%   5.00%   plancher pullback
+     XRPUSDT          4.00%     5.7%    2.83%   4.00%   5.00%   plancher pullback
+     HBARUSDT         4.00%     5.0%    2.50%   4.00%   5.00%   plancher pullback
+     ETHUSDT          2.50%     3.2%    1.61%   2.50%   5.00%   plancher pullback
+     BTCUSDT          2.00%     2.6%    1.32%   2.00%   5.00%   plancher pullback
+  MESURÉ : sur 21 paires tradées, **5 ont un seuil d'entrée EFFECTIF supérieur à leur plancher** — c'est-à-dire que citer le plancher comme « le seuil » était faux pour elles (classe E17/E18).
+  → AUDIT FAIT (plus « insuffisant ») : le plancher de config n'est JAMAIS le seuil quand le terme cadence le dépasse ; le terme DOMINANT est publié paire par paire ci-dessus. Reste NON fait et déclaré : l'audit des AUTRES familles de défauts de config (`mise_max_pct_mur`, seuils de `defaults.env`) — ceux-là ne sont pas couverts ici.

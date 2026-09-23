@@ -4,7 +4,10 @@
 >
 > La colonne « **stop annoncé** » de ce document affiche le **PLANCHER de configuration**
 > (`profil.calib.stop_pct`) — **ce n'est PAS le stop de la machine**. Le vrai :
-> `stop = max(plancher ; cadence de la paire × 0,70)`, écrit par le moteur dans ses motifs de
+> `stop = max(plancher ; cadence de la paire × 0,80)`, écrit par le moteur dans ses motifs de
+> (⚠ **correction E18, 23/09** : j'avais écrit **0,70** — c'était le **défaut du code**, pas la
+> config. `config/defaults.env` applique **STOP_CADENCE_MULT = 0,80** et **STOP_FLOOR_PCT = 6,0**.
+> La constante n'est plus recopiée : elle est **lue à l'exécution**.)
 > sortie (RIZE **39,23 %**, EDEL **13,20 %**, PYTH 6,67 %, autres 6,00 %).
 > **Là où ce document dit « stop annoncé » : lire « plancher de profil ».** Le détail vérifié et
 > la liste des sorties réelles sont en tête de `AUDIT_MEXC_VS_HULK_20260923.md`.

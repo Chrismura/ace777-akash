@@ -1,6 +1,6 @@
 {
   "version": "1.5.0",
-  "updated": "2026-09-23T11:57Z",
+  "updated": "2026-09-23T12:32Z",
   "fichier": [
     {
       "nom": "Index_Maison/scripts/v2_duo_replay_4h.py",
@@ -789,11 +789,11 @@
       "origine": "GO Christophe 14/09 (onglet cockpit vol)",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "47978376959410fbb57a973bc6a1a335",
+      "md5": "595213e08966c494d2f216230d247019",
       "_rescel_20260918": "panneau « Banc 20 actifs — risque » (net / DD / net-DD, base vs notrend) + contrat de sortie des LaunchAgents (distingue alerte métier d'échec réel).",
       "note": "Re-scellé 14/09T12:41Z après modification déclarée : suppression de la réécriture de vol.html (cache-buster déplacé côté client) — le générateur n'écrit plus que vol_live.js (non scellé, donnée vivante). Par Buffy. | 19/09 soir : + gardien « Règles d'or » (lit thermo/regles_or.json écrit par verifier_regles_or.py) — les règles d'or sont désormais VISIBLES dans la page vol. Declaré par Buffy.",
       "maj": "Gardien « Chien de garde » RÉPARÉ 20/09/2026 : il lisait `tail -1 thermo/chien_rapport.txt`, fichier QUE PERSONNE N'ÉCRIT → stdout vide → la page affichait « rapport présent » en VERT quoi qu'il arrive (faux vert permanent sur le gardien le plus important). Il lit désormais thermo/CHIEN_RAPPORT.json : « N vivants · N hors délai · N aveugle(s) » + l'organe et son champ muet, et un rapport figé > 15 min = rouge (le chien lui-même peut mourir). · 2e passe 20/09 : la table CONTRAT_SORTIE (codes de sortie launchd voulus) est désormais LUE dans strategie/contrat_sortie.json — une seule vérité, partagée avec le chien de garde (qui juge les 44 organes sans produit sur leur sortie launchd). Repli local conservé si le fichier manque.",
-      "date": "2026-09-23T11:14Z",
+      "date": "2026-09-23T12:31Z",
       "_rescel_20260920": "DÉCLARÉ 20/09/2026 (Buffy, GO Christophe — boucle d'alerte) : CONTRAT_SORTIE += com.ace777.verif-setup exit 1 = « preuve de lecture du coffre à refaire (gatekeeper, par conception) ». Avant, ce garde-fou légitime était affiché comme un ÉCHEC (organe cassé) alors qu'il dit « relis la carte du coffre ». md5 1b854a2b1cb820c87aeb176604634a53 → efcec0aad782deb9e01f77300007290d. Aucune autre logique modifiée. | + gardien « Repo = installation » (lit thermo/installation_repo.json écrit par installer_depuis_repo.sh) : rend visible que le fichier installé est un LIEN vers le repo (dérive impossible par construction). md5 efcec0aad782deb9e01f77300007290d → 0402336d4df5e86434955238f655a028. || 20/09 (Buffy, GO « cri vivant + revue des organes ») : + gardien « Cris en cours » (lit thermo/cris.json écrit par le chien : les cris ACTIFS à l'instant, auto-effacés, avec le fait que la voix a VRAIMENT été lancée — un cri muet est un faux cri) et + gardien « Revue des organes » (lit thermo/revue_organes.json). md5 1b7a6a40 → 1a698b3c. || 20/09 (Buffy, GO « verdicts des protocoles ») : le tableau « Protocoles en test » ne recopie plus le document du 14/09 — il lit thermo/PROTOCOLES_VERDICTS.json (verdicts MESURÉS par scripts/verdicts_protocoles.py, avec le critère pré-enregistré à côté du résultat et une ligne ⚠ quand un verdict ne peut pas être rendu). Le tableau documentaire ne sert que de repli. md5 1a698b3c → 0e7ff6fd.",
       "_rescel_20260922_go123": "GO 2 : 3 gardiens ajoutés (registre des échecs branché/récidives · seuils sans mesure R17 · sortie pilotée par la mesure) — lecture seule d'états écrits par les organes.",
       "_rescel_20260923": "GARDIEN VISIBLE 23/09 (GO 1 — « un verdict qu'il faut aller chercher n'existe pas ») : la page « vol » gagne DES gardiens qui lisent des états ÉCRITS par des contrôles appelés par git_push_auto.sh — d'abord « Garde-fou seuil moteur » (`thermo/seuil_moteur.json` : combien de refus chiffrés ont été CONFRONTÉS au seuil recalculé, instrument qui recalcule sans la cadence, refus d'être un feu vert si l'état est figé >8 h) ; puis, même jour, « Horodatage mémoire (E13) » (`thermo/memoire_horodatage.json` : lignes horodatées, heure future interdite, remontées de temps signalées mais NON re-datées). MODIFIÉ UNE 2e FOIS le 23/09 pour ce 2e gardien (le scellement est refait ici, après la DERNIÈRE modification — leçon E12). **3e modification le 23/09** : un 15ᵉ gardien, « Schéma du journal (E15) » (`hulk-mexc/runs/VERIF_SCHEMA_JOURNAL.json`) — largeur de schéma, nombre d'incohérences, journal vivant conforme, refus d'être un feu vert si l'état est figé >8 h. LECTURE SEULE, ajout seul : aucun autre gardien touché, aucune donnée modifiée."
@@ -954,8 +954,8 @@
       "origine": "recensement RÈGLE D'OR 19/09",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "564ec6dc11c749d7385524978a42dd78",
-      "date": "2026-09-23T11:57Z",
+      "md5": "de0b3ce4bb9b2dc2f14da8187b5e2505",
+      "date": "2026-09-23T12:31Z",
       "note": "Scellé 19/09 : l'instrument qui mesure les règles est lui-même scellé (rituel maison). R10 ajouté 19/09 soir : SATURATION DE L'HÔTE (RAM réelle via memory_pressure, swap, disque, charge) — signal SRE, distinct de R2. Appelé par git_push_auto.sh. | v3 19/09 soir : + R11 (fail-safe), R12 (sauvegarde prouvée par restauration), R13 (auto-réparation bornée), R14 (anti cry-wolf), + R7 gère les DÉROGATIONS déclarées (strategie/derogations_regles.json). | R15 19/09 : mesure « ce qui est affiché est analysé ou déclaré » (15 bulles app Indices vs rotation analyste + affichage-seul déclaré). 11 règles mesurables.",
       "_rescel_20260923": "R18 AJOUTÉE LE 23/09 (ordre Christophe : « ouvre un round avec la famille et garde la fenêtre ouverte, tu n'es plus digne de diriger seule » · « sinon c'est radiation à vie, règle d'or ») : **R18 — LE JURY PERMANENT**. Elle est MESURÉE, pas promise : il faut une session de famille OUVERTE, consultée dans les 24 h, dont le fil est COHÉRENT (chaque tour posé a ses avis) et avec au moins 3 voix INDÉPENDANTES (une substitution modèle demandé ≠ servi ne compte pas — faute E16). Ajout purement additif : aucune règle existante modifiée, 12 règles mesurées au lieu de 11."
     },
@@ -1225,8 +1225,8 @@
       "origine": "GO Christophe 23/09 — la veilleuse criait (à raison) sur 2 scellés modifiés",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "7fc05a3dfeffc20fde071d75ac9175c1",
-      "date": "2026-09-23T11:57Z",
+      "md5": "7618cfcaa3af08166c3fa1faae52d171",
+      "date": "2026-09-23T12:32Z",
       "_ajout_20260923": "Instrument créé le 23/09/2026 (GO Christophe) — ajouté au registre le jour même de sa création pour qu'il soit VU (veilleuse, drill, revue).",
       "_rescel_20260923": "Outil d'acte du 23/09 : déclare + re-scelle les fichiers modifiés (backup horodaté + entrée `_rescel_20260923` qui dit QUOI et POURQUOI). Modifié une 2e fois le même jour pour traiter les 3 fichiers touchés APRÈS leur scellement (batterie d'autotest, `--serie` de la sonde, `REPLAY_SLIP_BPS` du replay) — la veilleuse avait crié trois fois « INTRUSION : modification non déclarée », à juste titre. Leçon de processus : ON SCELLE APRÈS LA DERNIÈRE MODIFICATION."
     },
@@ -1378,9 +1378,10 @@
       "origine": "Un contrôle qui n'est appelé par personne n'existe pas (R15) — le pont entre le gardien et la veilleuse de la maison",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "a6b0f78e769fde312ab749e869f35291",
-      "date": "2026-09-23T11:12Z",
-      "_ajout_20260923": "Instrument créé le 23/09/2026 (GO Christophe) — ajouté au registre le jour même de sa création pour qu'il soit VU (veilleuse, drill, revue)."
+      "md5": "64beffce41aedbf6bb99f0ae0b0ceb74",
+      "date": "2026-09-23T12:32Z",
+      "_ajout_20260923": "Instrument créé le 23/09/2026 (GO Christophe) — ajouté au registre le jour même de sa création pour qu'il soit VU (veilleuse, drill, revue).",
+      "_rescel_20260923": "3e vague 23/09 — branche DEUX gardiens neufs toutes les 3 h : `verif_delai_lecture.py` (classe E19 : barre de latence mesurable, mesuré/aveugle séparés, plancher physique) et `verif_session_famille.py` (R19 : la fenêtre du jury permanent ne peut plus se refermer en silence). Ordre de Christophe : « garder la fenêtre ouverte, tu ne diriges plus seule »."
     },
     {
       "nom": "hulk-mexc/scripts/oracle_independant.py",
@@ -1398,9 +1399,10 @@
       "origine": "Ordre Christophe 23/09 : « reprends toute la boucle des set-ups avec données à la main sur les 10 derniers jours et soumets-la à la famille pour qu'elle valide »",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "6c49d45f136d78b7bc890a6823bce5bd",
-      "date": "2026-09-23T11:57Z",
-      "_ajout_20260923": "Instrument créé le 23/09/2026 (GO Christophe) — ajouté au registre le jour même de sa création pour qu'il soit VU (veilleuse, drill, revue)."
+      "md5": "6547e358f5943989efc265a972ff28a4",
+      "date": "2026-09-23T12:32Z",
+      "_ajout_20260923": "Instrument créé le 23/09/2026 (GO Christophe) — ajouté au registre le jour même de sa création pour qu'il soit VU (veilleuse, drill, revue).",
+      "_rescel_20260923": "3e vague 23/09 (classe E20) — le GARDIEN `verif_seuil_moteur.py` a crié sur cet instrument : il jugeait les entrées contre le PLANCHER du profil (`calib.dip_pct`) et contre un « 2 % » plat, au lieu du seuil réel du moteur `max(plancher ; DIP_CADENCE_MULT × cadence)` puis la porte pullback. Conséquence mesurée : « 28 % d'entrées conformes » publié au jury → le chiffre vrai est 5 % (3/60), et la table par famille passe de 7/26 · 7/14 · 5/7 à 1/26 · 1/14 · 1/7. Corrigé : la formule du moteur est reproduite terme par terme, le terme DOMINANT est publié (`dip_terme_dominant`), la ligne par famille porte le seuil médian de la paire, et la PORTÉE est déclarée (ma chute est mesurée sur les bougies, le moteur écrit son propre `dd6` → lignes indicatives, pas preuve d'infraction)."
     },
     {
       "nom": "hulk-mexc/scripts/chiffrage_stop_serre.py",
@@ -1408,9 +1410,10 @@
       "origine": "Famille (Gemini « justification de la formule RIZE 44 % », DeepSeek « backtest stop ≤ 15 % »)",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "88f5e7f4cda76affc00a5e683015828d",
-      "date": "2026-09-23T11:57Z",
-      "_ajout_20260923": "Instrument créé le 23/09/2026 (GO Christophe) — ajouté au registre le jour même de sa création pour qu'il soit VU (veilleuse, drill, revue)."
+      "md5": "9a74a1a134db7e5251ad52f6c1b5e527",
+      "date": "2026-09-23T12:32Z",
+      "_ajout_20260923": "Instrument créé le 23/09/2026 (GO Christophe) — ajouté au registre le jour même de sa création pour qu'il soit VU (veilleuse, drill, revue).",
+      "_rescel_20260923": "3e vague 23/09 (classe E18) — cet instrument ÉCRIVAIT EN DUR « STOP_CADENCE_MULT = 0.70 (config) » : c'était le DÉFAUT du code, pas la config (`config/defaults.env` applique 0,80 et `STOP_FLOOR_PCT` 6,0). Le chiffre avait été repris dans 4 documents et dans un brief de jury. Corrigé : le multiplicateur est LU à l'exécution (`_cfg()`), plus aucune constante recopiée, et le JSON porte la source de la valeur."
     },
     {
       "nom": "hulk-mexc/scripts/verif_stop_impact.py",
@@ -1430,6 +1433,36 @@
       "auto_modifiable": false,
       "md5": "0494407b12fb1138b082e0318408b626",
       "date": "2026-09-23T11:57Z",
+      "_ajout_20260923": "Instrument créé le 23/09/2026 (GO Christophe) — ajouté au registre le jour même de sa création pour qu'il soit VU (veilleuse, drill, revue)."
+    },
+    {
+      "nom": "Index_Maison/scripts/verif_session_famille.py",
+      "role": "GARDIEN R19 (fenêtre du jury permanent) — R1 session OUVERTE (ou fermée avec motif DATÉ) · R2 chaque tour a des avis · R3 voix INDÉPENDANTES ≥ 3 (une substitution ne compte pas, E16) · R4 la mémoire couvre le dernier tour · R5 le fil ne dort pas (> 6 h) · R6 toute substitution étiquetée. AUTOTEST 8/8 (contrôle positif inclus : une garde qui ne sait pas réussir crie à tort — R14). Branché toutes les 3 h + 16e gardien du cockpit. Il a crié TOUT SEUL au tour 3 (1 seule voix indépendante) : la règle fonctionne sur un cas réel, pas en théorie.",
+      "origine": "ORDRE Christophe 23/09 (« garde la fenêtre ouverte ») — la promesse devient une règle mécanique, visible au cockpit.",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "20412bf048cfc2a917e4f376d5f7e009",
+      "date": "2026-09-23T12:32Z",
+      "_ajout_20260923": "Instrument créé le 23/09/2026 (GO Christophe) — ajouté au registre le jour même de sa création pour qu'il soit VU (veilleuse, drill, revue)."
+    },
+    {
+      "nom": "hulk-mexc/scripts/verif_delai_lecture.py",
+      "role": "GARDIEN E19 (délai de lecture du prix, défaut n°1 désigné par le jury) — sépare les lectures MESURÉES des lectures SANS délai (angle mort du mode léger), dit OUI/NON sur la barre < 1 s, et mesure le PLANCHER PHYSIQUE d'un appel MEXC (465 ms médian) : si le plancher dépasse la barre, c'est un ARBITRAGE et c'est écrit, pas maquillé. Autotest 3/3, branché 3 h, 17e gardien du cockpit.",
+      "origine": "Jury permanent, tours 1 et 2 (3 voix) : « la latence de lecture du prix » désignée défaut n°1, barre < 1 s.",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "e003ca8d3984acf04d252280469d4ab9",
+      "date": "2026-09-23T12:32Z",
+      "_ajout_20260923": "Instrument créé le 23/09/2026 (GO Christophe) — ajouté au registre le jour même de sa création pour qu'il soit VU (veilleuse, drill, revue)."
+    },
+    {
+      "nom": "hulk-mexc/scripts/mesures_jury_tour2.py",
+      "role": "LES 8 MESURES EXIGÉES PAR LE JURY (tour 1 → tour 2), étiquetées MESURÉ / ESTIMÉ / EXTRAPOLÉ / INFORMATION INSUFFISANTE — un chiffre absent est déclaré absent, jamais remplacé par une estimation (règle anti-E14). Il a produit la découverte des classes E18 (défaut du code pris pour la config) et E19 (médiane d'un sous-ensemble présentée comme celle du tout) en cherchant à répondre.",
+      "origine": "Jury permanent, tour 1 : 8 exigences chiffrées (Gemini, DeepSeek, Nemotron).",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "2b84d0ae52f1d39a3fc7252972281fa2",
+      "date": "2026-09-23T12:32Z",
       "_ajout_20260923": "Instrument créé le 23/09/2026 (GO Christophe) — ajouté au registre le jour même de sa création pour qu'il soit VU (veilleuse, drill, revue)."
     }
   ]

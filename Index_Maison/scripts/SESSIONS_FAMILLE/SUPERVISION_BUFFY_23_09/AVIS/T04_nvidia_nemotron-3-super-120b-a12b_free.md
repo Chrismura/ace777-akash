@@ -1,0 +1,3 @@
+# Tour 4 — demandé « nvidia/nemotron-3-super-120b-a12b:free » — RÉPONDU PAR « nvidia/nemotron-3-super-120b-a12b:free » (OpenRouter Juge (nemotron-3-super-120b free) - verificateur independant, 42.5s)
+
+VERDICT : Le tour 1 reste valide · CE QUE J'EXIGE AVANT LE PROCHAIN TOUR : 1. [MESURÉ] Le moteur de production utilise désormais le flux WebSocket pour le prix, avec une médiane de lecture ≤ 20 ms et 100 % des lectures sous 1 s (journal sur 1 h). 2. [MESURÉ] Le tableau des entrées conformes mis à jour montre exactement 3/60 trades (5 %) au-dessus du seuil effectif, terme par terme. · CE QUI ME FERAIT CHANGER D'AVIS : Un backtest sur les 10 derniers jours montrant que le plafonnement du stop à 15 % sur RIZE augmente le PnL net de plus de 2 $ (au lieu de +0,87 $ observé).

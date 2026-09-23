@@ -1,0 +1,36 @@
+CHIFFRAGE DU STOP SERRÉ — 60 trades · 16 paires · 10 j
+Formule du stop (LUE dans config/defaults.env) : stop = max(calib.stop_pct ; cadence de la paire × 0.80)
+
+=== 1. LE NIVEAU QUE LA MACHINE SE DONNE (lu dans ses motifs), et ce qu'un PLAFOND aurait donné ===
+paire          n  stop max  net réel $   net si cap 15 %  trades touchés
+RIZEUSDT       2    39.23%       -1.09             -0.22               1
+EDELUSDT      11    13.80%        0.10              0.10               0
+PYTHUSDT       3     6.67%       -0.52             -0.52               0
+RWAINCUSDT     4     6.50%        3.93              3.93               0
+TELUSDT        4     6.40%        4.24              4.24               0
+CCUSDT         7     6.00%        0.48              0.48               0
+KITEUSDT       3     6.00%        3.69              3.69               0
+REDUSDT        5     6.00%        9.06              9.06               0
+WUSDT          5     6.00%        1.07              1.07               0
+XRPUSDT        2     6.00%       -0.45             -0.45               0
+ZBCNUSDT       5     6.00%        0.32              0.32               0
+BIOUSDT        1     0.00%        0.22              0.22               0
+BTCUSDT        2     0.00%        1.73              1.73               0
+CHIPUSDT       1     0.00%        4.03              4.03               0
+ETHUSDT        3     0.00%        2.66              2.66               0
+HBARUSDT       2     0.00%        3.50              3.50               0
+
+=== 2. TOTAL 10 JOURS — le NET selon le plafond de stop ===
+  (sortie au niveau exact du plafond, sans ré-entrée : chiffre OPTIMISTE pour le plafond)
+
+  plafond   10 % : net    33.41 $  (réel    32.97 $) · écart   +0.44 $ · 7 trade(s) sorti(s) plus tôt
+  plafond   15 % : net    33.84 $  (réel    32.97 $) · écart   +0.87 $ · 1 trade(s) sorti(s) plus tôt
+  plafond   20 % : net    33.66 $  (réel    32.97 $) · écart   +0.69 $ · 1 trade(s) sorti(s) plus tôt
+  plafond   25 % : net    33.49 $  (réel    32.97 $) · écart   +0.52 $ · 1 trade(s) sorti(s) plus tôt
+
+=== 3. CE QUE CE CHIFFRE NE DIT PAS (déclaré) ===
+  · aucune ré-entrée simulée : le cash libéré plus tôt n'est pas remployé ;
+  · sortie supposée AU niveau du plafond (pas de glissement) → OPTIMISTE ;
+  · les sorties trailing/rip enregistrées restent la référence hors contact.
+
+Lecture seule · 0 ordre · 0 €.

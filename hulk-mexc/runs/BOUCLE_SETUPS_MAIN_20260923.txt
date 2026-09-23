@@ -1,0 +1,69 @@
+BOUCLE DES SET-UPS, REFaite À LA MAIN — 10 derniers jours · 60 trades · 16 paires
+Source : prix/heures/quantités du journal (faits horodatés) + bougies 1 min MEXC.
+Tout le reste est recalculé à la main (aucune conclusion du moteur reprise).
+
+=== 1. PAR PAIRE (10 jours) ===
+paire          n   brut $  net main $  entrée conf.  sorties justes  stop honoré  prix hors bougie
+REDUSDT        5     9.33        9.06           1/5             2/5          0/1                 3
+TELUSDT        4     4.71        4.24           0/4             1/4          0/1                 5
+RWAINCUSDT     4     4.10        3.93           0/4             0/4          1/1                 1
+CHIPUSDT       1     4.06        4.03           0/1             1/1            —                 1
+KITEUSDT       3     3.84        3.69           0/3             0/3          1/1                 0
+HBARUSDT       2     3.59        3.50           0/2             0/2            —                 0
+ETHUSDT        3     2.74        2.66           0/3             0/3            —                 3
+BTCUSDT        2     1.78        1.73           0/2             0/2            —                 1
+WUSDT          5     1.23        1.07           0/5             2/5          0/1                 2
+CCUSDT         7     0.55        0.48           0/7             2/7          1/1                 1
+ZBCNUSDT       5     0.41        0.32           0/5             2/5          1/1                 3
+BIOUSDT        1     0.24        0.22           0/1             0/1            —                 1
+EDELUSDT      11     0.22        0.10          0/11            3/11          2/3                 6
+XRPUSDT        2    -0.41       -0.45           0/2             2/2          1/1                 0
+PYTHUSDT       3    -0.48       -0.52           1/3             2/3          1/1                 1
+RIZEUSDT       2    -1.04       -1.09           1/2             2/2          1/1                 1
+
+=== 2. TOTAUX 10 JOURS (à la main) ===
+  trades                                    : 60
+  entrées conformes au motif (marché)        : 3 / 60  (5 %)
+
+=== 2bis. LE MOTIF D'ENTRÉE, PAR FAMILLE (une condition de baisse ne s'applique qu'aux familles qui l'annoncent) ===
+famille                              nchute ≥ seuil EFFECTIF de la paire   chute médiane  seuil médian
+remploi de cash                     26                              1/26          1.13 %         5.0 %
+impulsion/pullback                  14                              1/14          2.31 %        13.2 %
+re-entrée après dump                 7                               1/7           4.8 %        8.44 %
+autre: cooling_dd15=7.7>=2.5 wa      1                               0/1          0.12 %         5.0 %
+autre: cooling_dd15=6.8>=2.5 wa      1                               0/1          0.02 %         5.0 %
+autre: cooling_dd15=23.7>=9.2 w      1                               0/1          0.06 %         5.0 %
+autre: cooling_dd15=22.5>=8.8 w      1                               0/1          0.47 %         5.0 %
+autre: cooling_dd15=31.6>=21.1       1                               0/1          0.14 %        6.69 %
+autre: impulse_sans_repli_m6=8.      1                               0/1          0.34 %        13.2 %
+autre: cooling_dd15=9.7>=3.5 wa      1                               0/1          0.12 %         5.0 %
+autre: cooling_dd15=28.9>=12.0       1                               0/1          0.93 %         5.0 %
+autre: cooling_dd15=28.2>=14.2       1                               0/1          0.33 %         5.0 %
+autre: cooling_dd15=8.2>=8.0 wa      1                               0/1          0.53 %         5.0 %
+autre: cooling_dd15=20.1>=8.6 w      1                               0/1           0.0 %         5.0 %
+autre: cooling_dd15=22.0>=8.0 w      1                               0/1          0.88 %         5.0 %
+autre: cooling_dd15=10.9>=8.0 w      1                               0/1          0.34 %         5.0 %
+  ⚠ PORTÉE DE LA COLONNE « chute ≥ seuil » : la chute est mesurée sur les bougies 1 min (plus haut de la fenêtre → prix d'achat). Le moteur, lui, écrit SON PROPRE `dd6` dans le motif (ex. `impulse_pullback_dd6=5.1>=5.0`). Ce ne sont PAS la même grandeur : la ligne `impulsion/pullback` et `re-entrée` sont donc INDICATIVES, pas une preuve d'infraction — la preuve d'un franchissement, c'est le dd6 que le moteur écrit lui-même, et il faudra la lire là (travail NON fait, déclaré).
+  ⚠ E20 (23/09) : la colonne de gauche compare la baisse de la paire au seuil d'entrée EFFECTIF du moteur, calculé (`max(plancher ; DIP_CADENCE_MULT × cadence)` puis porte pullback) — AVANT, elle comparait à un « 2 % » plat, et le compteur global à `plancher × 0,5` : deux chiffres faux (28 % d'entrées « conformes » au lieu de 5 %). Le compteur GLOBAL reste trompeur et est déclaré tel quel : `cash_redeploy` n'a AUCUNE condition de baisse annoncée, la ligne PAR FAMILLE est la seule lecture loyale.
+  ⚠ le contrôle « hors fenêtre de creux » a été RETIRÉ : il comparait les achats à une porte qui ne les gouverne pas (motif impulsion/pullback) — 48/60 aurait été une accusation non vérifiée (E17).
+  sorties justifiées par le marché (bien)     : 19 / 60  (32 %)
+  stops honorés (≤ 2 min après contact)      : 9 / 13
+  prix vérifiés dans leur bougie             : 82 / 137  (59.9 %)
+
+=== 3. LE PnL, RECALCULÉ À LA MAIN ===
+  brut inscrit par le moteur :   +34.88 $
+  brut recalculé à la main   :   +34.88 $ (écart -0.0002 $)
+  coûts ESTIMÉS (frais 5 bps/côté + spread déclaré) : 1.91 $
+  NET à la main              :   +32.97 $
+
+=== 4. LES 10 TRADES LES PLUS COÛTEUX (vus à la main) ===
+  TELUSDT      2026-09-18T23:51:26Z    42.94 $ · sortie     805 min · brut   -2.82 $ · net main   -2.97 $ · chute avant achat 0.981 % (exigé 5.0 % [plancher 4.0 · cadence 3.59 · dominant IMPULSE_PULLBACK_MIN_PCT]) · entrée conforme=False · stop —
+  PYTHUSDT     2026-09-14T09:39:48Z    25.73 $ · sortie    1990 min · brut   -1.80 $ · net main   -1.82 $ · chute avant achat 5.026 % (exigé 5.0 % [plancher 4.0 · cadence 4.7 · dominant IMPULSE_PULLBACK_MIN_PCT]) · entrée conforme=True · stop honoré
+  KITEUSDT     2026-09-15T15:46:11Z    25.63 $ · sortie    1345 min · brut   -1.66 $ · net main   -1.70 $ · chute avant achat 0.931 % (exigé 5.0 % [plancher 4.0 · cadence 3.67 · dominant IMPULSE_PULLBACK_MIN_PCT]) · entrée conforme=False · stop honoré
+  REDUSDT      2026-09-15T04:48:59Z    26.95 $ · sortie     688 min · brut   -1.62 $ · net main   -1.67 $ · chute avant achat 6.006 % (exigé 5.01 % [plancher 4.0 · cadence 5.01 · dominant DIP_CADENCE_MULT × cadence]) · entrée conforme=True · stop —
+  XRPUSDT      2026-09-15T00:21:25Z    25.08 $ · sortie    1100 min · brut   -1.53 $ · net main   -1.55 $ · chute avant achat 0.694 % (exigé 5.0 % [plancher 4.0 · cadence 2.83 · dominant IMPULSE_PULLBACK_MIN_PCT]) · entrée conforme=False · stop honoré
+  RIZEUSDT     2026-09-18T03:44:47Z     3.46 $ · sortie    5671 min · brut   -1.38 $ · net main   -1.40 $ · chute avant achat 21.958 % (exigé 8.44 % [plancher 4.2 · cadence 8.44 · dominant DIP_CADENCE_MULT × cadence]) · entrée conforme=True · stop honoré
+  CCUSDT       2026-09-15T05:52:37Z    16.17 $ · sortie    1987 min · brut   -1.13 $ · net main   -1.15 $ · chute avant achat 0.063 % (exigé 5.0 % [plancher 4.0 · cadence 3.26 · dominant IMPULSE_PULLBACK_MIN_PCT]) · entrée conforme=False · stop honoré
+  RWAINCUSDT   2026-09-16T21:38:23Z    12.91 $ · sortie    3880 min · brut   -0.88 $ · net main   -0.90 $ · chute avant achat 0.0 % (exigé 5.0 % [plancher 4.0 · cadence 3.26 · dominant IMPULSE_PULLBACK_MIN_PCT]) · entrée conforme=False · stop honoré
+  EDELUSDT     2026-09-18T20:11:43Z     5.02 $ · sortie    1682 min · brut   -0.67 $ · net main   -0.68 $ · chute avant achat 2.308 % (exigé 13.2 % [plancher 5.5 · cadence 13.2 · dominant DIP_CADENCE_MULT × cadence]) · entrée conforme=False · stop —
+  WUSDT        2026-09-15T15:53:27Z    10.06 $ · sortie     902 min · brut   -0.61 $ · net main   -0.64 $ · chute avant achat 0.334 % (exigé 5.0 % [plancher 4.0 · cadence 3.48 · dominant IMPULSE_PULLBACK_MIN_PCT]) · entrée conforme=False · stop —

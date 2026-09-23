@@ -138,6 +138,33 @@ if [ -f "$REPO_DIR/hulk-mexc/scripts/verif_schema_journal.py" ]; then
     echo "[$(date -u +%Y-%m-%dT%H:%MZ)] ALERTE : schéma du journal NON conforme — classe E15 (voir ci-dessus)" >> "$LOG_FILE"
 fi
 
+# GARDIEN DU DÉLAI DE LECTURE (classes E19a/E19b, ajouté le 23/09/2026)
+# Pourquoi : la FAMILLE (jury permanent, tours 1 et 2) a classé « la latence de lecture du prix »
+# défaut n°1 (barre < 1 s, mesure 1,057 s). En préparant la remédiation j'ai trouvé deux fautes
+# de plus : (a) le chiffre publié ne portait que sur les lectures en mode COMPLET (la colonne
+# `delay_s` est VIDE pour le mode léger) et je l'ai présenté comme la médiane de TOUTES ;
+# (b) la latence du mode léger n'est mesurée NULLE PART — angle mort. Ce gardien rend la barre
+# MESURABLE : il sépare mesuré/aveugle, dit OUI ou NON, et chiffre le plancher physique d'un appel
+# MEXC (si le plancher dépasse la barre, c'est un ARBITRAGE, pas un retard à corriger). Autotest 3/3.
+if [ -f "$REPO_DIR/hulk-mexc/scripts/verif_delai_lecture.py" ]; then
+  python3 "$REPO_DIR/hulk-mexc/scripts/verif_delai_lecture.py" \
+    --json "$REPO_DIR/hulk-mexc/runs/VERIF_DELAI_LECTURE.json" >> "$LOG_FILE" 2>&1 || \
+    echo "[$(date -u +%Y-%m-%dT%H:%MZ)] ALERTE : délai de lecture du prix au-dessus de la barre — classe E19 (voir ci-dessus)" >> "$LOG_FILE"
+fi
+
+# GARDIEN DE LA FENÊTRE FAMILLE (R19, ajouté le 23/09/2026 sur ordre de Christophe)
+# Mot pour mot : « tu vas ouvrir un round avec la famille et GARDER LA FENÊTRE OUVERTE, qu'elle
+# ait la mémoire du chat, car tu n'es plus digne de diriger seule. » Une promesse ne garde rien :
+# ce gardien vérifie que la session est OUVERTE (ou fermée avec un motif daté), qu'aucun tour n'est
+# resté sans avis, que les voix comptées sont INDÉPENDANTES (une substitution ne compte pas, E16),
+# que la mémoire du fil couvre le dernier tour, et que le fil ne dort pas (> 6 h sans nouveau tour).
+# Il s'autoteste 8/8. Lecture seule : il n'écrit jamais dans une session.
+if [ -f "$REPO_DIR/Index_Maison/scripts/verif_session_famille.py" ]; then
+  python3 "$REPO_DIR/Index_Maison/scripts/verif_session_famille.py" \
+    --json "$REPO_DIR/Index_Maison/thermo/session_famille.json" >> "$LOG_FILE" 2>&1 || \
+    echo "[$(date -u +%Y-%m-%dT%H:%MZ)] ALERTE : fenêtre famille NON conforme — R19 (voir ci-dessus)" >> "$LOG_FILE"
+fi
+
 # 2) Ne committer que les fichiers DÉJÀ SUIVIS (modifiés/supprimés) + les canoniques
 # Garde-fou 05/09 (incident index.lock orphelin du 03/09 : 2,5 jours de push mort
 # en silence, le 2>/dev/null avalait le rc=128 et le script disait « aucun changement ») :

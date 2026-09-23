@@ -5,7 +5,8 @@
 >
 > - Le « 8 % » venait de `strategie/universe_profils.json → RIZEUSDT.calib.stop_pct = 8.0`,
 >   c'est-à-dire un **PLANCHER de configuration**, pas le seuil de la machine.
-> - Le stop **RÉEL** est `max(plancher ; cadence de la paire × 0,70)` — **RIZE : 16,51 %** (10/09)
+> - Le stop **RÉEL** est `max(plancher ; cadence de la paire × 0,80)` — **RIZE : 16,51 %** (10/09)
+>   (⚠ **correction E18, 23/09** : « 0,70 » était le **défaut du code**, la config applique **0,80**)
 >   puis **39,23 %** (22/09) — et il est **écrit par le moteur dans ses propres motifs de sortie**
 >   (`stop-39.23%_guard_partial_50`). La machine est sortie **exactement à ces niveaux**
 >   (−39,23 % → −39,23 % et −39,38 %).

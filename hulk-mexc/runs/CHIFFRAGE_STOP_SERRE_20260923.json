@@ -1,0 +1,2285 @@
+{
+  "instrument": "chiffrage_stop_serre.py",
+  "ts_utc": "2026-09-23T12:21:56Z",
+  "depuis": "2026-09-13T00:00:00Z",
+  "formule_stop": "max(calib.stop_pct ; cadence × STOP_CADENCE_MULT 0.80)",
+  "formule_source": "config/defaults.env (lu à l'exécution — plus jamais un défaut de code, E18)",
+  "totaux": {
+    "net_reel": 32.97,
+    "cap_10": {
+      "net": 33.41,
+      "trades_qui_changent": 7,
+      "delta_vs_reel": 0.44
+    },
+    "cap_15": {
+      "net": 33.84,
+      "trades_qui_changent": 1,
+      "delta_vs_reel": 0.87
+    },
+    "cap_20": {
+      "net": 33.66,
+      "trades_qui_changent": 1,
+      "delta_vs_reel": 0.69
+    },
+    "cap_25": {
+      "net": 33.49,
+      "trades_qui_changent": 1,
+      "delta_vs_reel": 0.52
+    }
+  },
+  "par_paire": {
+    "BIOUSDT": {
+      "n": 1,
+      "net_reel": 0.2224998357,
+      "stop_max_pct": 0.0,
+      "cap15": {
+        "touche": 0,
+        "net": 0.2224998357
+      }
+    },
+    "BTCUSDT": {
+      "n": 2,
+      "net_reel": 1.7311394037299999,
+      "stop_max_pct": 0.0,
+      "cap15": {
+        "touche": 0,
+        "net": 1.7311394037299999
+      }
+    },
+    "CCUSDT": {
+      "n": 7,
+      "net_reel": 0.47998111824399997,
+      "stop_max_pct": 6.0,
+      "cap15": {
+        "touche": 0,
+        "net": 0.47998111824399997
+      }
+    },
+    "CHIPUSDT": {
+      "n": 1,
+      "net_reel": 4.031703719599999,
+      "stop_max_pct": 0.0,
+      "cap15": {
+        "touche": 0,
+        "net": 4.031703719599999
+      }
+    },
+    "EDELUSDT": {
+      "n": 11,
+      "net_reel": 0.10269951633399993,
+      "stop_max_pct": 13.8,
+      "cap15": {
+        "touche": 0,
+        "net": 0.10269951633399993
+      }
+    },
+    "ETHUSDT": {
+      "n": 3,
+      "net_reel": 2.657277611995,
+      "stop_max_pct": 0.0,
+      "cap15": {
+        "touche": 0,
+        "net": 2.657277611995
+      }
+    },
+    "HBARUSDT": {
+      "n": 2,
+      "net_reel": 3.5003820123839997,
+      "stop_max_pct": 0.0,
+      "cap15": {
+        "touche": 0,
+        "net": 3.5003820123839997
+      }
+    },
+    "KITEUSDT": {
+      "n": 3,
+      "net_reel": 3.691860139319,
+      "stop_max_pct": 6.0,
+      "cap15": {
+        "touche": 0,
+        "net": 3.691860139319
+      }
+    },
+    "PYTHUSDT": {
+      "n": 3,
+      "net_reel": -0.5203976388000001,
+      "stop_max_pct": 6.67,
+      "cap15": {
+        "touche": 0,
+        "net": -0.5203976388000001
+      }
+    },
+    "REDUSDT": {
+      "n": 5,
+      "net_reel": 9.056061834745,
+      "stop_max_pct": 6.0,
+      "cap15": {
+        "touche": 0,
+        "net": 9.056061834745
+      }
+    },
+    "RIZEUSDT": {
+      "n": 2,
+      "net_reel": -1.0868603252996,
+      "stop_max_pct": 39.23,
+      "cap15": {
+        "touche": 1,
+        "net": -0.22486263225659997
+      }
+    },
+    "RWAINCUSDT": {
+      "n": 4,
+      "net_reel": 3.9273903263338505,
+      "stop_max_pct": 6.5,
+      "cap15": {
+        "touche": 0,
+        "net": 3.9273903263338505
+      }
+    },
+    "TELUSDT": {
+      "n": 4,
+      "net_reel": 4.238451542308,
+      "stop_max_pct": 6.4,
+      "cap15": {
+        "touche": 0,
+        "net": 4.238451542308
+      }
+    },
+    "WUSDT": {
+      "n": 5,
+      "net_reel": 1.0727066300299,
+      "stop_max_pct": 6.0,
+      "cap15": {
+        "touche": 0,
+        "net": 1.0727066300299
+      }
+    },
+    "XRPUSDT": {
+      "n": 2,
+      "net_reel": -0.44816271360000015,
+      "stop_max_pct": 6.0,
+      "cap15": {
+        "touche": 0,
+        "net": -0.44816271360000015
+      }
+    },
+    "ZBCNUSDT": {
+      "n": 5,
+      "net_reel": 0.316854206419215,
+      "stop_max_pct": 6.0,
+      "cap15": {
+        "touche": 0,
+        "net": 0.316854206419215
+      }
+    }
+  },
+  "trades": [
+    {
+      "paire": "BIOUSDT",
+      "achat": "2026-09-15T18:48:25Z",
+      "mise_usdt": 8.8,
+      "stop_machine_pct": null,
+      "brut_reel": 0.2381,
+      "net_reel": 0.2225,
+      "plafonds": {
+        "cap_10": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.2381,
+          "net": 0.2225,
+          "delta_net": 0.0
+        },
+        "cap_15": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.2381,
+          "net": 0.2225,
+          "delta_net": 0.0
+        },
+        "cap_20": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.2381,
+          "net": 0.2225,
+          "delta_net": 0.0
+        },
+        "cap_25": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.2381,
+          "net": 0.2225,
+          "delta_net": 0.0
+        }
+      }
+    },
+    {
+      "paire": "BTCUSDT",
+      "achat": "2026-09-16T17:06:34Z",
+      "mise_usdt": 25.75,
+      "stop_machine_pct": null,
+      "brut_reel": 0.2018,
+      "net_reel": 0.176,
+      "plafonds": {
+        "cap_10": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.2018,
+          "net": 0.1759,
+          "delta_net": -0.0
+        },
+        "cap_15": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.2018,
+          "net": 0.1759,
+          "delta_net": -0.0
+        },
+        "cap_20": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.2018,
+          "net": 0.1759,
+          "delta_net": -0.0
+        },
+        "cap_25": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.2018,
+          "net": 0.1759,
+          "delta_net": -0.0
+        }
+      }
+    },
+    {
+      "paire": "BTCUSDT",
+      "achat": "2026-09-17T13:49:20Z",
+      "mise_usdt": 26.82,
+      "stop_machine_pct": null,
+      "brut_reel": 1.5828,
+      "net_reel": 1.5552,
+      "plafonds": {
+        "cap_10": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 1.5828,
+          "net": 1.5552,
+          "delta_net": 0.0
+        },
+        "cap_15": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 1.5828,
+          "net": 1.5552,
+          "delta_net": 0.0
+        },
+        "cap_20": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 1.5828,
+          "net": 1.5552,
+          "delta_net": 0.0
+        },
+        "cap_25": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 1.5828,
+          "net": 1.5552,
+          "delta_net": 0.0
+        }
+      }
+    },
+    {
+      "paire": "CCUSDT",
+      "achat": "2026-09-15T05:52:37Z",
+      "mise_usdt": 16.17,
+      "stop_machine_pct": 6.0,
+      "brut_reel": -1.1296,
+      "net_reel": -1.1539,
+      "plafonds": {
+        "cap_10": {
+          "inchange": "stop machine déjà ≤ plafond"
+        },
+        "cap_15": {
+          "inchange": "stop machine déjà ≤ plafond"
+        },
+        "cap_20": {
+          "inchange": "stop machine déjà ≤ plafond"
+        },
+        "cap_25": {
+          "inchange": "stop machine déjà ≤ plafond"
+        }
+      }
+    },
+    {
+      "paire": "CCUSDT",
+      "achat": "2026-09-16T15:59:51Z",
+      "mise_usdt": 2.27,
+      "stop_machine_pct": null,
+      "brut_reel": 0.0959,
+      "net_reel": 0.0923,
+      "plafonds": {
+        "cap_10": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.0959,
+          "net": 0.0923,
+          "delta_net": 0.0
+        },
+        "cap_15": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.0959,
+          "net": 0.0923,
+          "delta_net": 0.0
+        },
+        "cap_20": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.0959,
+          "net": 0.0923,
+          "delta_net": 0.0
+        },
+        "cap_25": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.0959,
+          "net": 0.0923,
+          "delta_net": 0.0
+        }
+      }
+    },
+    {
+      "paire": "CCUSDT",
+      "achat": "2026-09-16T20:01:03Z",
+      "mise_usdt": 1.18,
+      "stop_machine_pct": null,
+      "brut_reel": 0.1005,
+      "net_reel": 0.0986,
+      "plafonds": {
+        "cap_10": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.1005,
+          "net": 0.0986,
+          "delta_net": -0.0
+        },
+        "cap_15": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.1005,
+          "net": 0.0986,
+          "delta_net": -0.0
+        },
+        "cap_20": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.1005,
+          "net": 0.0986,
+          "delta_net": -0.0
+        },
+        "cap_25": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.1005,
+          "net": 0.0986,
+          "delta_net": -0.0
+        }
+      }
+    },
+    {
+      "paire": "CCUSDT",
+      "achat": "2026-09-17T02:09:53Z",
+      "mise_usdt": 12.99,
+      "stop_machine_pct": null,
+      "brut_reel": 0.6135,
+      "net_reel": 0.5928,
+      "plafonds": {
+        "cap_10": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.6135,
+          "net": 0.5928,
+          "delta_net": 0.0
+        },
+        "cap_15": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.6135,
+          "net": 0.5928,
+          "delta_net": 0.0
+        },
+        "cap_20": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.6135,
+          "net": 0.5928,
+          "delta_net": 0.0
+        },
+        "cap_25": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.6135,
+          "net": 0.5928,
+          "delta_net": 0.0
+        }
+      }
+    },
+    {
+      "paire": "CCUSDT",
+      "achat": "2026-09-17T20:03:46Z",
+      "mise_usdt": 7.44,
+      "stop_machine_pct": null,
+      "brut_reel": 0.5882,
+      "net_reel": 0.5761,
+      "plafonds": {
+        "cap_10": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.5882,
+          "net": 0.5762,
+          "delta_net": 0.0
+        },
+        "cap_15": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.5882,
+          "net": 0.5762,
+          "delta_net": 0.0
+        },
+        "cap_20": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.5882,
+          "net": 0.5762,
+          "delta_net": 0.0
+        },
+        "cap_25": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.5882,
+          "net": 0.5762,
+          "delta_net": 0.0
+        }
+      }
+    },
+    {
+      "paire": "CCUSDT",
+      "achat": "2026-09-18T11:10:54Z",
+      "mise_usdt": 4.02,
+      "stop_machine_pct": null,
+      "brut_reel": 0.1411,
+      "net_reel": 0.1347,
+      "plafonds": {
+        "cap_10": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.1411,
+          "net": 0.1347,
+          "delta_net": -0.0
+        },
+        "cap_15": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.1411,
+          "net": 0.1347,
+          "delta_net": -0.0
+        },
+        "cap_20": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.1411,
+          "net": 0.1347,
+          "delta_net": -0.0
+        },
+        "cap_25": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.1411,
+          "net": 0.1347,
+          "delta_net": -0.0
+        }
+      }
+    },
+    {
+      "paire": "CCUSDT",
+      "achat": "2026-09-20T03:01:59Z",
+      "mise_usdt": 2.08,
+      "stop_machine_pct": null,
+      "brut_reel": 0.1428,
+      "net_reel": 0.1394,
+      "plafonds": {
+        "cap_10": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.1428,
+          "net": 0.1395,
+          "delta_net": 0.0
+        },
+        "cap_15": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.1428,
+          "net": 0.1395,
+          "delta_net": 0.0
+        },
+        "cap_20": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.1428,
+          "net": 0.1395,
+          "delta_net": 0.0
+        },
+        "cap_25": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.1428,
+          "net": 0.1395,
+          "delta_net": 0.0
+        }
+      }
+    },
+    {
+      "paire": "CHIPUSDT",
+      "achat": "2026-09-20T21:32:36Z",
+      "mise_usdt": 24.27,
+      "stop_machine_pct": null,
+      "brut_reel": 4.058,
+      "net_reel": 4.0317,
+      "plafonds": {
+        "cap_10": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 4.058,
+          "net": 4.0317,
+          "delta_net": -0.0
+        },
+        "cap_15": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 4.058,
+          "net": 4.0317,
+          "delta_net": -0.0
+        },
+        "cap_20": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 4.058,
+          "net": 4.0317,
+          "delta_net": -0.0
+        },
+        "cap_25": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 4.058,
+          "net": 4.0317,
+          "delta_net": -0.0
+        }
+      }
+    },
+    {
+      "paire": "EDELUSDT",
+      "achat": "2026-09-13T09:57:32Z",
+      "mise_usdt": 3.59,
+      "stop_machine_pct": null,
+      "brut_reel": 0.242,
+      "net_reel": 0.2303,
+      "plafonds": {
+        "cap_10": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.242,
+          "net": 0.2303,
+          "delta_net": 0.0
+        },
+        "cap_15": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.242,
+          "net": 0.2303,
+          "delta_net": 0.0
+        },
+        "cap_20": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.242,
+          "net": 0.2303,
+          "delta_net": 0.0
+        },
+        "cap_25": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.242,
+          "net": 0.2303,
+          "delta_net": 0.0
+        }
+      }
+    },
+    {
+      "paire": "EDELUSDT",
+      "achat": "2026-09-15T02:23:59Z",
+      "mise_usdt": 3.98,
+      "stop_machine_pct": 13.8,
+      "brut_reel": -0.5729,
+      "net_reel": -0.5846,
+      "plafonds": {
+        "cap_10": {
+          "touche": true,
+          "sortie_au_plafond": "2026-09-15T02:34:00Z",
+          "brut": -0.3984,
+          "net": -0.4104,
+          "delta_net": 0.1742
+        },
+        "cap_15": {
+          "inchange": "stop machine déjà ≤ plafond"
+        },
+        "cap_20": {
+          "inchange": "stop machine déjà ≤ plafond"
+        },
+        "cap_25": {
+          "inchange": "stop machine déjà ≤ plafond"
+        }
+      }
+    },
+    {
+      "paire": "EDELUSDT",
+      "achat": "2026-09-15T05:57:10Z",
+      "mise_usdt": 3.38,
+      "stop_machine_pct": null,
+      "brut_reel": 0.5051,
+      "net_reel": 0.4936,
+      "plafonds": {
+        "cap_10": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.5051,
+          "net": 0.4936,
+          "delta_net": 0.0
+        },
+        "cap_15": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.5051,
+          "net": 0.4936,
+          "delta_net": 0.0
+        },
+        "cap_20": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.5051,
+          "net": 0.4936,
+          "delta_net": 0.0
+        },
+        "cap_25": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.5051,
+          "net": 0.4936,
+          "delta_net": 0.0
+        }
+      }
+    },
+    {
+      "paire": "EDELUSDT",
+      "achat": "2026-09-15T14:56:35Z",
+      "mise_usdt": 1.89,
+      "stop_machine_pct": null,
+      "brut_reel": 0.3112,
+      "net_reel": 0.3047,
+      "plafonds": {
+        "cap_10": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.3112,
+          "net": 0.3047,
+          "delta_net": -0.0
+        },
+        "cap_15": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.3112,
+          "net": 0.3047,
+          "delta_net": -0.0
+        },
+        "cap_20": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.3112,
+          "net": 0.3047,
+          "delta_net": -0.0
+        },
+        "cap_25": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.3112,
+          "net": 0.3047,
+          "delta_net": -0.0
+        }
+      }
+    },
+    {
+      "paire": "EDELUSDT",
+      "achat": "2026-09-15T18:41:07Z",
+      "mise_usdt": 3.21,
+      "stop_machine_pct": null,
+      "brut_reel": 0.2602,
+      "net_reel": 0.2496,
+      "plafonds": {
+        "cap_10": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.2602,
+          "net": 0.2497,
+          "delta_net": 0.0
+        },
+        "cap_15": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.2602,
+          "net": 0.2497,
+          "delta_net": 0.0
+        },
+        "cap_20": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.2602,
+          "net": 0.2497,
+          "delta_net": 0.0
+        },
+        "cap_25": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.2602,
+          "net": 0.2497,
+          "delta_net": 0.0
+        }
+      }
+    },
+    {
+      "paire": "EDELUSDT",
+      "achat": "2026-09-16T06:57:38Z",
+      "mise_usdt": 1.77,
+      "stop_machine_pct": null,
+      "brut_reel": -0.2305,
+      "net_reel": -0.2357,
+      "plafonds": {
+        "cap_10": {
+          "touche": true,
+          "sortie_au_plafond": "2026-09-17T06:10:00Z",
+          "brut": -0.1773,
+          "net": -0.1826,
+          "delta_net": 0.0531
+        },
+        "cap_15": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": -0.2305,
+          "net": -0.2358,
+          "delta_net": -0.0
+        },
+        "cap_20": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": -0.2305,
+          "net": -0.2358,
+          "delta_net": -0.0
+        },
+        "cap_25": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": -0.2305,
+          "net": -0.2358,
+          "delta_net": -0.0
+        }
+      }
+    },
+    {
+      "paire": "EDELUSDT",
+      "achat": "2026-09-17T18:09:17Z",
+      "mise_usdt": 3.2,
+      "stop_machine_pct": 11.95,
+      "brut_reel": -0.3854,
+      "net_reel": -0.3949,
+      "plafonds": {
+        "cap_10": {
+          "touche": true,
+          "sortie_au_plafond": "2026-09-17T18:53:00Z",
+          "brut": -0.3196,
+          "net": -0.3292,
+          "delta_net": 0.0656
+        },
+        "cap_15": {
+          "inchange": "stop machine déjà ≤ plafond"
+        },
+        "cap_20": {
+          "inchange": "stop machine déjà ≤ plafond"
+        },
+        "cap_25": {
+          "inchange": "stop machine déjà ≤ plafond"
+        }
+      }
+    },
+    {
+      "paire": "EDELUSDT",
+      "achat": "2026-09-17T18:55:40Z",
+      "mise_usdt": 2.36,
+      "stop_machine_pct": null,
+      "brut_reel": 0.157,
+      "net_reel": 0.1493,
+      "plafonds": {
+        "cap_10": {
+          "touche": true,
+          "sortie_au_plafond": "2026-09-17T19:04:00Z",
+          "brut": -0.2359,
+          "net": -0.243,
+          "delta_net": -0.3923
+        },
+        "cap_15": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.157,
+          "net": 0.1493,
+          "delta_net": -0.0
+        },
+        "cap_20": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.157,
+          "net": 0.1493,
+          "delta_net": -0.0
+        },
+        "cap_25": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.157,
+          "net": 0.1493,
+          "delta_net": -0.0
+        }
+      }
+    },
+    {
+      "paire": "EDELUSDT",
+      "achat": "2026-09-17T22:05:20Z",
+      "mise_usdt": 2.48,
+      "stop_machine_pct": null,
+      "brut_reel": 0.2305,
+      "net_reel": 0.2223,
+      "plafonds": {
+        "cap_10": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.2305,
+          "net": 0.2223,
+          "delta_net": 0.0
+        },
+        "cap_15": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.2305,
+          "net": 0.2223,
+          "delta_net": 0.0
+        },
+        "cap_20": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.2305,
+          "net": 0.2223,
+          "delta_net": 0.0
+        },
+        "cap_25": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.2305,
+          "net": 0.2223,
+          "delta_net": 0.0
+        }
+      }
+    },
+    {
+      "paire": "EDELUSDT",
+      "achat": "2026-09-18T20:11:43Z",
+      "mise_usdt": 5.02,
+      "stop_machine_pct": 13.2,
+      "brut_reel": -0.667,
+      "net_reel": -0.6818,
+      "plafonds": {
+        "cap_10": {
+          "touche": true,
+          "sortie_au_plafond": "2026-09-19T08:49:00Z",
+          "brut": -0.5024,
+          "net": -0.5175,
+          "delta_net": 0.1644
+        },
+        "cap_15": {
+          "inchange": "stop machine déjà ≤ plafond"
+        },
+        "cap_20": {
+          "inchange": "stop machine déjà ≤ plafond"
+        },
+        "cap_25": {
+          "inchange": "stop machine déjà ≤ plafond"
+        }
+      }
+    },
+    {
+      "paire": "EDELUSDT",
+      "achat": "2026-09-21T13:23:28Z",
+      "mise_usdt": 6.41,
+      "stop_machine_pct": null,
+      "brut_reel": 0.3707,
+      "net_reel": 0.3499,
+      "plafonds": {
+        "cap_10": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.3707,
+          "net": 0.3499,
+          "delta_net": 0.0
+        },
+        "cap_15": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.3707,
+          "net": 0.3499,
+          "delta_net": 0.0
+        },
+        "cap_20": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.3707,
+          "net": 0.3499,
+          "delta_net": 0.0
+        },
+        "cap_25": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.3707,
+          "net": 0.3499,
+          "delta_net": 0.0
+        }
+      }
+    },
+    {
+      "paire": "ETHUSDT",
+      "achat": "2026-09-16T13:01:39Z",
+      "mise_usdt": 27.44,
+      "stop_machine_pct": null,
+      "brut_reel": 0.4487,
+      "net_reel": 0.4208,
+      "plafonds": {
+        "cap_10": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.4487,
+          "net": 0.4208,
+          "delta_net": 0.0
+        },
+        "cap_15": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.4487,
+          "net": 0.4208,
+          "delta_net": 0.0
+        },
+        "cap_20": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.4487,
+          "net": 0.4208,
+          "delta_net": 0.0
+        },
+        "cap_25": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.4487,
+          "net": 0.4208,
+          "delta_net": 0.0
+        }
+      }
+    },
+    {
+      "paire": "ETHUSDT",
+      "achat": "2026-09-17T19:02:09Z",
+      "mise_usdt": 27.71,
+      "stop_machine_pct": null,
+      "brut_reel": 1.8167,
+      "net_reel": 1.7878,
+      "plafonds": {
+        "cap_10": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 1.8167,
+          "net": 1.7878,
+          "delta_net": 0.0
+        },
+        "cap_15": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 1.8167,
+          "net": 1.7878,
+          "delta_net": 0.0
+        },
+        "cap_20": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 1.8167,
+          "net": 1.7878,
+          "delta_net": 0.0
+        },
+        "cap_25": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 1.8167,
+          "net": 1.7878,
+          "delta_net": 0.0
+        }
+      }
+    },
+    {
+      "paire": "ETHUSDT",
+      "achat": "2026-09-20T02:58:20Z",
+      "mise_usdt": 29.34,
+      "stop_machine_pct": null,
+      "brut_reel": 0.4786,
+      "net_reel": 0.4487,
+      "plafonds": {
+        "cap_10": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.4786,
+          "net": 0.4487,
+          "delta_net": -0.0
+        },
+        "cap_15": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.4786,
+          "net": 0.4487,
+          "delta_net": -0.0
+        },
+        "cap_20": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.4786,
+          "net": 0.4487,
+          "delta_net": -0.0
+        },
+        "cap_25": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.4786,
+          "net": 0.4487,
+          "delta_net": -0.0
+        }
+      }
+    },
+    {
+      "paire": "HBARUSDT",
+      "achat": "2026-09-16T06:57:37Z",
+      "mise_usdt": 24.72,
+      "stop_machine_pct": null,
+      "brut_reel": 1.9101,
+      "net_reel": 1.8659,
+      "plafonds": {
+        "cap_10": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 1.9101,
+          "net": 1.866,
+          "delta_net": 0.0
+        },
+        "cap_15": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 1.9101,
+          "net": 1.866,
+          "delta_net": 0.0
+        },
+        "cap_20": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 1.9101,
+          "net": 1.866,
+          "delta_net": 0.0
+        },
+        "cap_25": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 1.9101,
+          "net": 1.866,
+          "delta_net": 0.0
+        }
+      }
+    },
+    {
+      "paire": "HBARUSDT",
+      "achat": "2026-09-20T16:31:18Z",
+      "mise_usdt": 26.63,
+      "stop_machine_pct": null,
+      "brut_reel": 1.6817,
+      "net_reel": 1.6344,
+      "plafonds": {
+        "cap_10": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 1.6817,
+          "net": 1.6344,
+          "delta_net": -0.0
+        },
+        "cap_15": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 1.6817,
+          "net": 1.6344,
+          "delta_net": -0.0
+        },
+        "cap_20": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 1.6817,
+          "net": 1.6344,
+          "delta_net": -0.0
+        },
+        "cap_25": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 1.6817,
+          "net": 1.6344,
+          "delta_net": -0.0
+        }
+      }
+    },
+    {
+      "paire": "KITEUSDT",
+      "achat": "2026-09-15T15:46:11Z",
+      "mise_usdt": 25.63,
+      "stop_machine_pct": 6.0,
+      "brut_reel": -1.6566,
+      "net_reel": -1.7047,
+      "plafonds": {
+        "cap_10": {
+          "inchange": "stop machine déjà ≤ plafond"
+        },
+        "cap_15": {
+          "inchange": "stop machine déjà ≤ plafond"
+        },
+        "cap_20": {
+          "inchange": "stop machine déjà ≤ plafond"
+        },
+        "cap_25": {
+          "inchange": "stop machine déjà ≤ plafond"
+        }
+      }
+    },
+    {
+      "paire": "KITEUSDT",
+      "achat": "2026-09-17T16:59:14Z",
+      "mise_usdt": 22.4,
+      "stop_machine_pct": null,
+      "brut_reel": 2.0009,
+      "net_reel": 1.9555,
+      "plafonds": {
+        "cap_10": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 2.0009,
+          "net": 1.9555,
+          "delta_net": 0.0
+        },
+        "cap_15": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 2.0009,
+          "net": 1.9555,
+          "delta_net": 0.0
+        },
+        "cap_20": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 2.0009,
+          "net": 1.9555,
+          "delta_net": 0.0
+        },
+        "cap_25": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 2.0009,
+          "net": 1.9555,
+          "delta_net": 0.0
+        }
+      }
+    },
+    {
+      "paire": "KITEUSDT",
+      "achat": "2026-09-19T12:09:56Z",
+      "mise_usdt": 24.4,
+      "stop_machine_pct": null,
+      "brut_reel": 3.4918,
+      "net_reel": 3.4411,
+      "plafonds": {
+        "cap_10": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 3.4918,
+          "net": 3.4411,
+          "delta_net": 0.0
+        },
+        "cap_15": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 3.4918,
+          "net": 3.4411,
+          "delta_net": 0.0
+        },
+        "cap_20": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 3.4918,
+          "net": 3.4411,
+          "delta_net": 0.0
+        },
+        "cap_25": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 3.4918,
+          "net": 3.4411,
+          "delta_net": 0.0
+        }
+      }
+    },
+    {
+      "paire": "PYTHUSDT",
+      "achat": "2026-09-14T09:39:48Z",
+      "mise_usdt": 25.73,
+      "stop_machine_pct": 6.67,
+      "brut_reel": -1.797,
+      "net_reel": -1.8218,
+      "plafonds": {
+        "cap_10": {
+          "inchange": "stop machine déjà ≤ plafond"
+        },
+        "cap_15": {
+          "inchange": "stop machine déjà ≤ plafond"
+        },
+        "cap_20": {
+          "inchange": "stop machine déjà ≤ plafond"
+        },
+        "cap_25": {
+          "inchange": "stop machine déjà ≤ plafond"
+        }
+      }
+    },
+    {
+      "paire": "PYTHUSDT",
+      "achat": "2026-09-17T15:09:00Z",
+      "mise_usdt": 6.72,
+      "stop_machine_pct": null,
+      "brut_reel": 0.5665,
+      "net_reel": 0.5595,
+      "plafonds": {
+        "cap_10": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.5665,
+          "net": 0.5595,
+          "delta_net": 0.0
+        },
+        "cap_15": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.5665,
+          "net": 0.5595,
+          "delta_net": 0.0
+        },
+        "cap_20": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.5665,
+          "net": 0.5595,
+          "delta_net": 0.0
+        },
+        "cap_25": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.5665,
+          "net": 0.5595,
+          "delta_net": 0.0
+        }
+      }
+    },
+    {
+      "paire": "PYTHUSDT",
+      "achat": "2026-09-21T17:53:33Z",
+      "mise_usdt": 7.29,
+      "stop_machine_pct": null,
+      "brut_reel": 0.7496,
+      "net_reel": 0.7419,
+      "plafonds": {
+        "cap_10": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.7496,
+          "net": 0.7419,
+          "delta_net": -0.0
+        },
+        "cap_15": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.7496,
+          "net": 0.7419,
+          "delta_net": -0.0
+        },
+        "cap_20": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.7496,
+          "net": 0.7419,
+          "delta_net": -0.0
+        },
+        "cap_25": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.7496,
+          "net": 0.7419,
+          "delta_net": -0.0
+        }
+      }
+    },
+    {
+      "paire": "REDUSDT",
+      "achat": "2026-09-14T05:11:11Z",
+      "mise_usdt": 29.46,
+      "stop_machine_pct": null,
+      "brut_reel": 2.3089,
+      "net_reel": 2.2569,
+      "plafonds": {
+        "cap_10": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 2.3089,
+          "net": 2.2569,
+          "delta_net": 0.0
+        },
+        "cap_15": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 2.3089,
+          "net": 2.2569,
+          "delta_net": 0.0
+        },
+        "cap_20": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 2.3089,
+          "net": 2.2569,
+          "delta_net": 0.0
+        },
+        "cap_25": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 2.3089,
+          "net": 2.2569,
+          "delta_net": 0.0
+        }
+      }
+    },
+    {
+      "paire": "REDUSDT",
+      "achat": "2026-09-14T15:05:45Z",
+      "mise_usdt": 31.77,
+      "stop_machine_pct": null,
+      "brut_reel": 1.3564,
+      "net_reel": 1.3012,
+      "plafonds": {
+        "cap_10": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 1.3564,
+          "net": 1.3012,
+          "delta_net": -0.0
+        },
+        "cap_15": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 1.3564,
+          "net": 1.3012,
+          "delta_net": -0.0
+        },
+        "cap_20": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 1.3564,
+          "net": 1.3012,
+          "delta_net": -0.0
+        },
+        "cap_25": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 1.3564,
+          "net": 1.3012,
+          "delta_net": -0.0
+        }
+      }
+    },
+    {
+      "paire": "REDUSDT",
+      "achat": "2026-09-15T04:48:59Z",
+      "mise_usdt": 26.95,
+      "stop_machine_pct": 6.0,
+      "brut_reel": -1.6228,
+      "net_reel": -1.6672,
+      "plafonds": {
+        "cap_10": {
+          "inchange": "stop machine déjà ≤ plafond"
+        },
+        "cap_15": {
+          "inchange": "stop machine déjà ≤ plafond"
+        },
+        "cap_20": {
+          "inchange": "stop machine déjà ≤ plafond"
+        },
+        "cap_25": {
+          "inchange": "stop machine déjà ≤ plafond"
+        }
+      }
+    },
+    {
+      "paire": "REDUSDT",
+      "achat": "2026-09-16T06:57:37Z",
+      "mise_usdt": 25.33,
+      "stop_machine_pct": null,
+      "brut_reel": 4.8402,
+      "net_reel": 4.793,
+      "plafonds": {
+        "cap_10": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 4.8402,
+          "net": 4.793,
+          "delta_net": 0.0
+        },
+        "cap_15": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 4.8402,
+          "net": 4.793,
+          "delta_net": 0.0
+        },
+        "cap_20": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 4.8402,
+          "net": 4.793,
+          "delta_net": 0.0
+        },
+        "cap_25": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 4.8402,
+          "net": 4.793,
+          "delta_net": 0.0
+        }
+      }
+    },
+    {
+      "paire": "REDUSDT",
+      "achat": "2026-09-19T00:46:21Z",
+      "mise_usdt": 45.84,
+      "stop_machine_pct": null,
+      "brut_reel": 2.4522,
+      "net_reel": 2.3722,
+      "plafonds": {
+        "cap_10": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 2.4522,
+          "net": 2.3722,
+          "delta_net": 0.0
+        },
+        "cap_15": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 2.4522,
+          "net": 2.3722,
+          "delta_net": 0.0
+        },
+        "cap_20": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 2.4522,
+          "net": 2.3722,
+          "delta_net": 0.0
+        },
+        "cap_25": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 2.4522,
+          "net": 2.3722,
+          "delta_net": 0.0
+        }
+      }
+    },
+    {
+      "paire": "RIZEUSDT",
+      "achat": "2026-09-16T15:46:18Z",
+      "mise_usdt": 3.22,
+      "stop_machine_pct": null,
+      "brut_reel": 0.3402,
+      "net_reel": 0.3168,
+      "plafonds": {
+        "cap_10": {
+          "touche": true,
+          "sortie_au_plafond": "2026-09-17T11:15:00Z",
+          "brut": -0.3221,
+          "net": -0.3432,
+          "delta_net": -0.66
+        },
+        "cap_15": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.3402,
+          "net": 0.3169,
+          "delta_net": 0.0
+        },
+        "cap_20": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.3402,
+          "net": 0.3169,
+          "delta_net": 0.0
+        },
+        "cap_25": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.3402,
+          "net": 0.3169,
+          "delta_net": 0.0
+        }
+      }
+    },
+    {
+      "paire": "RIZEUSDT",
+      "achat": "2026-09-18T03:44:47Z",
+      "mise_usdt": 3.46,
+      "stop_machine_pct": 39.23,
+      "brut_reel": -1.3846,
+      "net_reel": -1.4037,
+      "plafonds": {
+        "cap_10": {
+          "touche": true,
+          "sortie_au_plafond": "2026-09-18T14:15:00Z",
+          "brut": -0.3464,
+          "net": -0.3691,
+          "delta_net": 1.0346
+        },
+        "cap_15": {
+          "touche": true,
+          "sortie_au_plafond": "2026-09-18T14:16:00Z",
+          "brut": -0.5196,
+          "net": -0.5417,
+          "delta_net": 0.862
+        },
+        "cap_20": {
+          "touche": true,
+          "sortie_au_plafond": "2026-09-18T14:19:00Z",
+          "brut": -0.6928,
+          "net": -0.7143,
+          "delta_net": 0.6894
+        },
+        "cap_25": {
+          "touche": true,
+          "sortie_au_plafond": "2026-09-21T03:26:00Z",
+          "brut": -0.866,
+          "net": -0.8869,
+          "delta_net": 0.5168
+        }
+      }
+    },
+    {
+      "paire": "RWAINCUSDT",
+      "achat": "2026-09-16T21:38:23Z",
+      "mise_usdt": 12.91,
+      "stop_machine_pct": 6.5,
+      "brut_reel": -0.8757,
+      "net_reel": -0.8973,
+      "plafonds": {
+        "cap_10": {
+          "inchange": "stop machine déjà ≤ plafond"
+        },
+        "cap_15": {
+          "inchange": "stop machine déjà ≤ plafond"
+        },
+        "cap_20": {
+          "inchange": "stop machine déjà ≤ plafond"
+        },
+        "cap_25": {
+          "inchange": "stop machine déjà ≤ plafond"
+        }
+      }
+    },
+    {
+      "paire": "RWAINCUSDT",
+      "achat": "2026-09-19T15:18:46Z",
+      "mise_usdt": 27.75,
+      "stop_machine_pct": null,
+      "brut_reel": 0.9794,
+      "net_reel": 0.9305,
+      "plafonds": {
+        "cap_10": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.9794,
+          "net": 0.9305,
+          "delta_net": -0.0
+        },
+        "cap_15": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.9794,
+          "net": 0.9305,
+          "delta_net": -0.0
+        },
+        "cap_20": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.9794,
+          "net": 0.9305,
+          "delta_net": -0.0
+        },
+        "cap_25": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.9794,
+          "net": 0.9305,
+          "delta_net": -0.0
+        }
+      }
+    },
+    {
+      "paire": "RWAINCUSDT",
+      "achat": "2026-09-20T12:03:36Z",
+      "mise_usdt": 28.58,
+      "stop_machine_pct": null,
+      "brut_reel": 2.4645,
+      "net_reel": 2.4129,
+      "plafonds": {
+        "cap_10": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 2.4645,
+          "net": 2.4129,
+          "delta_net": -0.0
+        },
+        "cap_15": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 2.4645,
+          "net": 2.4129,
+          "delta_net": -0.0
+        },
+        "cap_20": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 2.4645,
+          "net": 2.4129,
+          "delta_net": -0.0
+        },
+        "cap_25": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 2.4645,
+          "net": 2.4129,
+          "delta_net": -0.0
+        }
+      }
+    },
+    {
+      "paire": "RWAINCUSDT",
+      "achat": "2026-09-22T10:01:57Z",
+      "mise_usdt": 27.73,
+      "stop_machine_pct": null,
+      "brut_reel": 1.5305,
+      "net_reel": 1.4812,
+      "plafonds": {
+        "cap_10": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 1.5305,
+          "net": 1.4812,
+          "delta_net": -0.0
+        },
+        "cap_15": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 1.5305,
+          "net": 1.4812,
+          "delta_net": -0.0
+        },
+        "cap_20": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 1.5305,
+          "net": 1.4812,
+          "delta_net": -0.0
+        },
+        "cap_25": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 1.5305,
+          "net": 1.4812,
+          "delta_net": -0.0
+        }
+      }
+    },
+    {
+      "paire": "TELUSDT",
+      "achat": "2026-09-16T09:57:29Z",
+      "mise_usdt": 25.79,
+      "stop_machine_pct": null,
+      "brut_reel": 2.7577,
+      "net_reel": 2.6572,
+      "plafonds": {
+        "cap_10": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 2.7577,
+          "net": 2.6572,
+          "delta_net": -0.0
+        },
+        "cap_15": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 2.7577,
+          "net": 2.6572,
+          "delta_net": -0.0
+        },
+        "cap_20": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 2.7577,
+          "net": 2.6572,
+          "delta_net": -0.0
+        },
+        "cap_25": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 2.7577,
+          "net": 2.6572,
+          "delta_net": -0.0
+        }
+      }
+    },
+    {
+      "paire": "TELUSDT",
+      "achat": "2026-09-18T23:51:26Z",
+      "mise_usdt": 42.94,
+      "stop_machine_pct": 6.4,
+      "brut_reel": -2.8163,
+      "net_reel": -2.97,
+      "plafonds": {
+        "cap_10": {
+          "inchange": "stop machine déjà ≤ plafond"
+        },
+        "cap_15": {
+          "inchange": "stop machine déjà ≤ plafond"
+        },
+        "cap_20": {
+          "inchange": "stop machine déjà ≤ plafond"
+        },
+        "cap_25": {
+          "inchange": "stop machine déjà ≤ plafond"
+        }
+      }
+    },
+    {
+      "paire": "TELUSDT",
+      "achat": "2026-09-20T01:57:05Z",
+      "mise_usdt": 27.08,
+      "stop_machine_pct": null,
+      "brut_reel": 2.2567,
+      "net_reel": 2.1523,
+      "plafonds": {
+        "cap_10": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 2.2567,
+          "net": 2.1523,
+          "delta_net": -0.0
+        },
+        "cap_15": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 2.2567,
+          "net": 2.1523,
+          "delta_net": -0.0
+        },
+        "cap_20": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 2.2567,
+          "net": 2.1523,
+          "delta_net": -0.0
+        },
+        "cap_25": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 2.2567,
+          "net": 2.1523,
+          "delta_net": -0.0
+        }
+      }
+    },
+    {
+      "paire": "TELUSDT",
+      "achat": "2026-09-22T13:55:41Z",
+      "mise_usdt": 29.34,
+      "stop_machine_pct": null,
+      "brut_reel": 2.5121,
+      "net_reel": 2.3989,
+      "plafonds": {
+        "cap_10": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 2.5121,
+          "net": 2.3989,
+          "delta_net": -0.0
+        },
+        "cap_15": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 2.5121,
+          "net": 2.3989,
+          "delta_net": -0.0
+        },
+        "cap_20": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 2.5121,
+          "net": 2.3989,
+          "delta_net": -0.0
+        },
+        "cap_25": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 2.5121,
+          "net": 2.3989,
+          "delta_net": -0.0
+        }
+      }
+    },
+    {
+      "paire": "WUSDT",
+      "achat": "2026-09-15T15:53:27Z",
+      "mise_usdt": 10.06,
+      "stop_machine_pct": 6.0,
+      "brut_reel": -0.6118,
+      "net_reel": -0.6366,
+      "plafonds": {
+        "cap_10": {
+          "inchange": "stop machine déjà ≤ plafond"
+        },
+        "cap_15": {
+          "inchange": "stop machine déjà ≤ plafond"
+        },
+        "cap_20": {
+          "inchange": "stop machine déjà ≤ plafond"
+        },
+        "cap_25": {
+          "inchange": "stop machine déjà ≤ plafond"
+        }
+      }
+    },
+    {
+      "paire": "WUSDT",
+      "achat": "2026-09-16T06:55:51Z",
+      "mise_usdt": 5.36,
+      "stop_machine_pct": null,
+      "brut_reel": 0.1592,
+      "net_reel": 0.1454,
+      "plafonds": {
+        "cap_10": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.1592,
+          "net": 0.1454,
+          "delta_net": -0.0
+        },
+        "cap_15": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.1592,
+          "net": 0.1454,
+          "delta_net": -0.0
+        },
+        "cap_20": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.1592,
+          "net": 0.1454,
+          "delta_net": -0.0
+        },
+        "cap_25": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.1592,
+          "net": 0.1454,
+          "delta_net": -0.0
+        }
+      }
+    },
+    {
+      "paire": "WUSDT",
+      "achat": "2026-09-17T01:40:43Z",
+      "mise_usdt": 14.97,
+      "stop_machine_pct": null,
+      "brut_reel": 0.7192,
+      "net_reel": 0.6803,
+      "plafonds": {
+        "cap_10": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.7192,
+          "net": 0.6803,
+          "delta_net": 0.0
+        },
+        "cap_15": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.7192,
+          "net": 0.6803,
+          "delta_net": 0.0
+        },
+        "cap_20": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.7192,
+          "net": 0.6803,
+          "delta_net": 0.0
+        },
+        "cap_25": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.7192,
+          "net": 0.6803,
+          "delta_net": 0.0
+        }
+      }
+    },
+    {
+      "paire": "WUSDT",
+      "achat": "2026-09-18T17:05:59Z",
+      "mise_usdt": 15.69,
+      "stop_machine_pct": null,
+      "brut_reel": 0.6411,
+      "net_reel": 0.6004,
+      "plafonds": {
+        "cap_10": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.6411,
+          "net": 0.6004,
+          "delta_net": -0.0
+        },
+        "cap_15": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.6411,
+          "net": 0.6004,
+          "delta_net": -0.0
+        },
+        "cap_20": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.6411,
+          "net": 0.6004,
+          "delta_net": -0.0
+        },
+        "cap_25": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.6411,
+          "net": 0.6004,
+          "delta_net": -0.0
+        }
+      }
+    },
+    {
+      "paire": "WUSDT",
+      "achat": "2026-09-21T06:00:50Z",
+      "mise_usdt": 16.33,
+      "stop_machine_pct": null,
+      "brut_reel": 0.3251,
+      "net_reel": 0.2832,
+      "plafonds": {
+        "cap_10": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.3251,
+          "net": 0.2832,
+          "delta_net": 0.0
+        },
+        "cap_15": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.3251,
+          "net": 0.2832,
+          "delta_net": 0.0
+        },
+        "cap_20": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.3251,
+          "net": 0.2832,
+          "delta_net": 0.0
+        },
+        "cap_25": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.3251,
+          "net": 0.2832,
+          "delta_net": 0.0
+        }
+      }
+    },
+    {
+      "paire": "XRPUSDT",
+      "achat": "2026-09-15T00:21:25Z",
+      "mise_usdt": 25.08,
+      "stop_machine_pct": 6.0,
+      "brut_reel": -1.5257,
+      "net_reel": -1.5522,
+      "plafonds": {
+        "cap_10": {
+          "inchange": "stop machine déjà ≤ plafond"
+        },
+        "cap_15": {
+          "inchange": "stop machine déjà ≤ plafond"
+        },
+        "cap_20": {
+          "inchange": "stop machine déjà ≤ plafond"
+        },
+        "cap_25": {
+          "inchange": "stop machine déjà ≤ plafond"
+        }
+      }
+    },
+    {
+      "paire": "XRPUSDT",
+      "achat": "2026-09-16T06:54:55Z",
+      "mise_usdt": 11.78,
+      "stop_machine_pct": null,
+      "brut_reel": 1.1175,
+      "net_reel": 1.104,
+      "plafonds": {
+        "cap_10": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 1.1175,
+          "net": 1.104,
+          "delta_net": -0.0
+        },
+        "cap_15": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 1.1175,
+          "net": 1.104,
+          "delta_net": -0.0
+        },
+        "cap_20": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 1.1175,
+          "net": 1.104,
+          "delta_net": -0.0
+        },
+        "cap_25": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 1.1175,
+          "net": 1.104,
+          "delta_net": -0.0
+        }
+      }
+    },
+    {
+      "paire": "ZBCNUSDT",
+      "achat": "2026-09-15T18:24:56Z",
+      "mise_usdt": 6.81,
+      "stop_machine_pct": 6.0,
+      "brut_reel": -0.4123,
+      "net_reel": -0.4349,
+      "plafonds": {
+        "cap_10": {
+          "inchange": "stop machine déjà ≤ plafond"
+        },
+        "cap_15": {
+          "inchange": "stop machine déjà ≤ plafond"
+        },
+        "cap_20": {
+          "inchange": "stop machine déjà ≤ plafond"
+        },
+        "cap_25": {
+          "inchange": "stop machine déjà ≤ plafond"
+        }
+      }
+    },
+    {
+      "paire": "ZBCNUSDT",
+      "achat": "2026-09-16T06:54:15Z",
+      "mise_usdt": 6.81,
+      "stop_machine_pct": null,
+      "brut_reel": 0.1987,
+      "net_reel": 0.175,
+      "plafonds": {
+        "cap_10": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.1987,
+          "net": 0.175,
+          "delta_net": -0.0
+        },
+        "cap_15": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.1987,
+          "net": 0.175,
+          "delta_net": -0.0
+        },
+        "cap_20": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.1987,
+          "net": 0.175,
+          "delta_net": -0.0
+        },
+        "cap_25": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.1987,
+          "net": 0.175,
+          "delta_net": -0.0
+        }
+      }
+    },
+    {
+      "paire": "ZBCNUSDT",
+      "achat": "2026-09-19T17:19:42Z",
+      "mise_usdt": 4.4,
+      "stop_machine_pct": null,
+      "brut_reel": 0.1585,
+      "net_reel": 0.1432,
+      "plafonds": {
+        "cap_10": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.1585,
+          "net": 0.1432,
+          "delta_net": 0.0
+        },
+        "cap_15": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.1585,
+          "net": 0.1432,
+          "delta_net": 0.0
+        },
+        "cap_20": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.1585,
+          "net": 0.1432,
+          "delta_net": 0.0
+        },
+        "cap_25": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.1585,
+          "net": 0.1432,
+          "delta_net": 0.0
+        }
+      }
+    },
+    {
+      "paire": "ZBCNUSDT",
+      "achat": "2026-09-21T15:37:03Z",
+      "mise_usdt": 4.55,
+      "stop_machine_pct": null,
+      "brut_reel": 0.1542,
+      "net_reel": 0.1383,
+      "plafonds": {
+        "cap_10": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.1542,
+          "net": 0.1383,
+          "delta_net": -0.0
+        },
+        "cap_15": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.1542,
+          "net": 0.1383,
+          "delta_net": -0.0
+        },
+        "cap_20": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.1542,
+          "net": 0.1383,
+          "delta_net": -0.0
+        },
+        "cap_25": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.1542,
+          "net": 0.1383,
+          "delta_net": -0.0
+        }
+      }
+    },
+    {
+      "paire": "ZBCNUSDT",
+      "achat": "2026-09-21T19:32:13Z",
+      "mise_usdt": 4.71,
+      "stop_machine_pct": null,
+      "brut_reel": 0.312,
+      "net_reel": 0.2953,
+      "plafonds": {
+        "cap_10": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.312,
+          "net": 0.2953,
+          "delta_net": -0.0
+        },
+        "cap_15": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.312,
+          "net": 0.2953,
+          "delta_net": -0.0
+        },
+        "cap_20": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.312,
+          "net": 0.2953,
+          "delta_net": -0.0
+        },
+        "cap_25": {
+          "touche": false,
+          "sortie_au_plafond": null,
+          "brut": 0.312,
+          "net": 0.2953,
+          "delta_net": -0.0
+        }
+      }
+    }
+  ],
+  "limites_declarees": [
+    "Aucune ré-entrée simulée (le cash libéré plus tôt n'est pas remployé).",
+    "Sortie supposée au niveau exact du plafond → chiffre OPTIMISTE.",
+    "Sorties trailing/rip enregistrées conservées hors contact du plafond."
+  ],
+  "lecture_seule": true,
+  "ordres": 0
+}

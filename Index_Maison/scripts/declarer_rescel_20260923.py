@@ -66,7 +66,8 @@ DECLARATIONS = {
         "4 cas d'échec rejetés). Réversible en 4 lignes. "
         "-- CORRECTION DE COMPRÉHENSION QUE CETTE MODIF ACCOMPAGNE (classe E17) : j'ai publié "
         "« stop annoncé 8 % » pour RIZE en lisant `calib.stop_pct` — un PLANCHER ; le stop réel de "
-        "la machine est `max(plancher ; cadence × 0.70)` = 39,23 % (44 % aujourd'hui), écrit dans "
+        "la machine est `max(plancher ; cadence × 0.80)` [config lue ; 0.70 était le défaut du "
+        "code — classe E18] = 39,23 % (44 % aujourd'hui), écrit dans "
         "ses propres motifs. Le stop TIENT au point de base ; c'est son NIVEAU qui est énorme."
     ),
     "Index_Maison/scripts/verifier_regles_or.py": (
@@ -135,6 +136,32 @@ DECLARATIONS = {
         "`--serie` de la sonde, `REPLAY_SLIP_BPS` du replay) — la veilleuse avait crié trois "
         "fois « INTRUSION : modification non déclarée », à juste titre. Leçon de processus : "
         "ON SCELLE APRÈS LA DERNIÈRE MODIFICATION."
+    ),
+    # --- 3e vague (23/09, après le TOUR 2 du jury permanent et la classe E20) ---------------
+    "hulk-mexc/scripts/boucle_setups_main.py": (
+        "3e vague 23/09 (classe E20) — le GARDIEN `verif_seuil_moteur.py` a crié sur cet "
+        "instrument : il jugeait les entrées contre le PLANCHER du profil (`calib.dip_pct`) et "
+        "contre un « 2 % » plat, au lieu du seuil réel du moteur "
+        "`max(plancher ; DIP_CADENCE_MULT × cadence)` puis la porte pullback. Conséquence "
+        "mesurée : « 28 % d'entrées conformes » publié au jury → le chiffre vrai est 5 % (3/60), "
+        "et la table par famille passe de 7/26 · 7/14 · 5/7 à 1/26 · 1/14 · 1/7. Corrigé : la "
+        "formule du moteur est reproduite terme par terme, le terme DOMINANT est publié "
+        "(`dip_terme_dominant`), la ligne par famille porte le seuil médian de la paire, et la "
+        "PORTÉE est déclarée (ma chute est mesurée sur les bougies, le moteur écrit son propre "
+        "`dd6` → lignes indicatives, pas preuve d'infraction)."
+    ),
+    "hulk-mexc/scripts/chiffrage_stop_serre.py": (
+        "3e vague 23/09 (classe E18) — cet instrument ÉCRIVAIT EN DUR « STOP_CADENCE_MULT = 0.70 "
+        "(config) » : c'était le DÉFAUT du code, pas la config (`config/defaults.env` applique "
+        "0,80 et `STOP_FLOOR_PCT` 6,0). Le chiffre avait été repris dans 4 documents et dans un "
+        "brief de jury. Corrigé : le multiplicateur est LU à l'exécution (`_cfg()`), plus aucune "
+        "constante recopiée, et le JSON porte la source de la valeur."
+    ),
+    "Index_Maison/scripts/git_push_auto.sh": (
+        "3e vague 23/09 — branche DEUX gardiens neufs toutes les 3 h : `verif_delai_lecture.py` "
+        "(classe E19 : barre de latence mesurable, mesuré/aveugle séparés, plancher physique) et "
+        "`verif_session_famille.py` (R19 : la fenêtre du jury permanent ne peut plus se refermer "
+        "en silence). Ordre de Christophe : « garder la fenêtre ouverte, tu ne diriges plus seule »."
     ),
     # --- 2e vague (même jour, après réponses de la FAMILLE) ---------------------------------
     # Leçon de processus, payée comptant : on scelle APRÈS la dernière modification. J'ai
@@ -217,6 +244,47 @@ NOUVEAUX = {
                 "journal du moteur, mesurée, ou lue dans le profil. LECTURE SEULE, 0 ordre.",
         "origine": "Christophe 23/09 : « c'est ce que je te demande depuis le tout début, faire "
                    "le set-up sur chaque paire »",
+    },
+    "Index_Maison/scripts/session_famille.py": {
+        "role": "FENÊTRE FAMILLE OUVERTE (R19, ordre Christophe du 23/09 : « un round avec la "
+                "famille, garde la fenêtre ouverte, qu'elle ait la mémoire du chat ») — une "
+                "SESSION par sujet : `transcript.jsonl` APPEND-ONLY (on ne réécrit pas le passé), "
+                "`MEMOIRE.md` réécrite à chaque tour DEPUIS LES TEXTES BRUTS des avis (je n'ai pas "
+                "le droit de reformuler un verdict — E14), avis étiquetés « demandé X — RÉPONDU "
+                "PAR Y » + bandeau SUBSTITUTION (E16). Chaque tour est renvoyé au jury AVEC le fil, "
+                "pour qu'il puisse vérifier si j'ai fait ce qu'il a exigé. Lecture seule sur le "
+                "moteur, 0 ordre, 0 €.",
+        "origine": "ORDRE Christophe 23/09 : « tu vas ouvrir à partir de maintenant un round avec "
+                   "la famille et GARDER LA FENÊTRE OUVERTE, qu'elle ait la mémoire du chat, car "
+                   "tu n'es plus digne de diriger seule. »"
+    },
+    "Index_Maison/scripts/verif_session_famille.py": {
+        "role": "GARDIEN R19 (fenêtre du jury permanent) — R1 session OUVERTE (ou fermée avec "
+                "motif DATÉ) · R2 chaque tour a des avis · R3 voix INDÉPENDANTES ≥ 3 (une "
+                "substitution ne compte pas, E16) · R4 la mémoire couvre le dernier tour · R5 le "
+                "fil ne dort pas (> 6 h) · R6 toute substitution étiquetée. AUTOTEST 8/8 (contrôle "
+                "positif inclus : une garde qui ne sait pas réussir crie à tort — R14). Branché "
+                "toutes les 3 h + 16e gardien du cockpit. Il a crié TOUT SEUL au tour 3 (1 seule "
+                "voix indépendante) : la règle fonctionne sur un cas réel, pas en théorie.",
+        "origine": "ORDRE Christophe 23/09 (« garde la fenêtre ouverte ») — la promesse devient "
+                   "une règle mécanique, visible au cockpit."
+    },
+    "hulk-mexc/scripts/verif_delai_lecture.py": {
+        "role": "GARDIEN E19 (délai de lecture du prix, défaut n°1 désigné par le jury) — sépare "
+                "les lectures MESURÉES des lectures SANS délai (angle mort du mode léger), dit "
+                "OUI/NON sur la barre < 1 s, et mesure le PLANCHER PHYSIQUE d'un appel MEXC "
+                "(465 ms médian) : si le plancher dépasse la barre, c'est un ARBITRAGE et c'est "
+                "écrit, pas maquillé. Autotest 3/3, branché 3 h, 17e gardien du cockpit.",
+        "origine": "Jury permanent, tours 1 et 2 (3 voix) : « la latence de lecture du prix » "
+                   "désignée défaut n°1, barre < 1 s."
+    },
+    "hulk-mexc/scripts/mesures_jury_tour2.py": {
+        "role": "LES 8 MESURES EXIGÉES PAR LE JURY (tour 1 → tour 2), étiquetées MESURÉ / ESTIMÉ / "
+                "EXTRAPOLÉ / INFORMATION INSUFFISANTE — un chiffre absent est déclaré absent, jamais "
+                "remplacé par une estimation (règle anti-E14). Il a produit la découverte des "
+                "classes E18 (défaut du code pris pour la config) et E19 (médiane d'un "
+                "sous-ensemble présentée comme celle du tout) en cherchant à répondre.",
+        "origine": "Jury permanent, tour 1 : 8 exigences chiffrées (Gemini, DeepSeek, Nemotron)."
     },
     "hulk-mexc/scripts/verif_schema_journal.py": {
         "role": "GARDIEN DE LA CLASSE E15 (journal écrit en DEUX largeurs : en-tête 11, lignes 16) : "
@@ -368,7 +436,8 @@ NOUVEAUX = {
         "role": "CONTRE-FACTUEL DU STOP (exigence de la famille, tour 1) : chiffre ce qu'aurait donné "
                 "un PLAFOND de stop (10/15/20/25 %) sur les 10 jours, en cherchant À LA MAIN la "
                 "première minute où le marché touche le niveau. Publie aussi la formule exacte du "
-                "stop : `max(calib.stop_pct ; cadence de la paire × 0.70)`. Limites déclarées : "
+                "stop : `max(calib.stop_pct ; cadence de la paire × 0.80)` [valeur LUE dans "
+                "config/defaults.env, plus jamais recopiée — classes E18/E19]. Limites déclarées : "
                 "aucune ré-entrée simulée, sortie supposée AU niveau (optimiste).",
         "origine": "Famille (Gemini « justification de la formule RIZE 44 % », DeepSeek « backtest "
                    "stop ≤ 15 % »)",
