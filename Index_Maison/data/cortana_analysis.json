@@ -1,108 +1,37 @@
 {
-  "timestamp": 1790173046,
-  "date": "2026-09-23T14:17:26.844726+00:00",
-  "n_analyses": 3,
+  "timestamp": 1790176648,
+  "date": "2026-09-23T15:17:28.142419+00:00",
+  "n_analyses": 1,
   "analyses": [
     {
       "signal": {
         "metric": "long_short",
-        "zscore": 4.378419899608823,
-        "value": 0.975,
-        "analysis": "{\n  \"signal\": \"bullish\",\n  \"confidence\": 78,\n  \"reason\": \"Le ratio long_short de 0,975 avec un z‑score de 4,38 indique une anomalie statistiquement significative favorisant les positions longues, suggérant une accumulation discrète de baleines. Les titres médiatiques, toutefois, restent généraux sur les stratégies long/short sans refléter cette dynamique spécifique, montrant un déconnexion entre le narratif et l'activité on‑chain.\"\n}",
-        "ts": 1790172580.942073
+        "zscore": 7.564144396245221,
+        "value": 1.07,
+        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 92,\n  \"reason\": \"Z-score extrêmement élevé (7.56) sur le ratio long/short indiquant un positionnement acheteur ultra-hypertrophié et consensuel. La marée médiatique fait l'éloge unanime des stratégies long/short traditionnelles, créant un piège à liquidité classique. Divergence classique de fin de cycle : les baleines s'apprêtent à purger les excès de levier des suiveurs.\"\n}\n```",
+        "ts": 1790176496.275899
       },
       "fiche": "long_short",
       "questions": {
         "ratio_long_short": {
-          "value": 0.975,
+          "value": 1.07,
           "seuil": 2,
           "depasse": false
         },
         "oi": {
-          "value": 105054.228,
+          "value": 101342.377,
           "seuil": 120000,
           "depasse": false
         }
       },
       "interpretation": {
-        "condition": "ratio_long_short < 1",
-        "lecture": "HYPOTHÈSE (heuristique) : foule en short sous la norme structurelle — carburant haussier (risque de squeeze à la hausse)",
-        "niveau": "surveiller",
-        "action": "Ne pas vendre les paliers RIP trop tôt si le prix repart"
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
       },
-      "action": "Ne pas vendre les paliers RIP trop tôt si le prix repart",
-      "niveau": "surveiller"
-    },
-    {
-      "signal": {
-        "metric": "price_1h",
-        "zscore": 5.967893344436638,
-        "value": 1.0768302302682997,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie statistique extrême (Z-score 5.97) sans aucune couverture médiatique sur Google Actualités. C'est la signature classique d'une accumulation furtive de baleines en amont d'un pump, totalement ignorée par le bruit public.\"\n}\n```",
-        "ts": 1790172913.469846
-      },
-      "fiche": "price_1h",
-      "questions": {
-        "pct_1h": {
-          "value": -1.02,
-          "seuil": -1,
-          "depasse": true
-        },
-        "liq": {
-          "value": 4730368.0,
-          "seuil": 5000000,
-          "depasse": false
-        },
-        "funding": {
-          "value": 2.3e-05,
-          "seuil": 0,
-          "depasse": true
-        }
-      },
-      "interpretation": {
-        "condition": "pct_1h < -1",
-        "lecture": "Chute sans liquidations majeures — vraie pression vendeuse spot, pas une cascade de leviers",
-        "niveau": "surveiller",
-        "action": "Croiser avec les murs L2 et le sniffer vieux BTC avant tout achat"
-      },
-      "action": "Croiser avec les murs L2 et le sniffer vieux BTC avant tout achat",
-      "niveau": "surveiller"
-    },
-    {
-      "signal": {
-        "metric": "whale_usd",
-        "zscore": 4.36737233249518,
-        "value": 4897133.0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 4.37, ~4.9M USD) combinée à un silence médiatique absolu. Les baleines accumulent discrètement hors des radars grand public.\"\n}\n```",
-        "ts": 1790172941.211114
-      },
-      "fiche": "whale_usd",
-      "questions": {
-        "ventes": {
-          "value": 3371363.0,
-          "seuil": 0,
-          "depasse": true
-        },
-        "achats": {
-          "value": 1525770.0,
-          "seuil": 0,
-          "depasse": true
-        },
-        "prix": {
-          "value": -1.02,
-          "seuil": 1,
-          "depasse": true
-        }
-      },
-      "interpretation": {
-        "condition": "ventes > achats",
-        "lecture": "Flux baleines VENDEUR dominant — distribution possible vers les exchanges (proxy : bearish aujourd'hui)",
-        "niveau": "surveiller",
-        "action": "Croiser avec le sniffer vieux BTC et l'IPT avant de réduire"
-      },
-      "action": "Croiser avec le sniffer vieux BTC et l'IPT avant de réduire",
-      "niveau": "surveiller"
+      "action": "Observer",
+      "niveau": "neutre"
     }
   ],
-  "resume": "🟡 SURVEILLANCE — des signaux sont à observer"
+  "resume": "🔵 CALME — pas de signal alarmant"
 }

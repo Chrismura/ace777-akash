@@ -323,6 +323,52 @@ chiffres a besoin de pouvoir me contredire AVEC LE FIL** : d'où la session pers
 **consultée ≤ 24 h**, **fil cohérent** (chaque tour posé a ses avis), **≥ 3 voix indépendantes**.
 Tant que ce n'est pas vrai, la règle est violée et la page « vol » le dit.
 
+### R20 — LES 3 AMÉLIORATIONS EXIGÉES PAR LE JURY (tour 5, 23/09/2026)
+> Mot pour mot du jury (3 voix convergentes, tour 5) : « **Preuve que tout fichier scellé
+> modifié passe systématiquement par une PRÉ-DÉCLARATION validée** » · « **exiger un test qui
+> injecte un profil SYNTHÉTIQUE COMPLET et vérifie que TOUS les termes du profil sont lus ;
+> un gardien qui accuse le moteur sans ça est DÉSACTIVÉ** » · « **INTERDIRE tout verdict sous
+> 3 voix** ». Évaluation de l'agent : « **Progrès sur l'auto-correction, RECUL sur la rigueur
+> opérationnelle (scellés, quorum)** ».
+
+**En une phrase** : corriger une faute ne suffit pas — il faut la rendre **impossible**. Trois
+règles, chacune **mécanique** (un contrôle qui sait dire NON, avec autotest) :
+
+**R20.1 — PRÉ-DÉCLARATION (renforce #5 et R13).** Avant de modifier un fichier **scellé**, on
+DÉCLARE (`predemodifier.py --declarer FICHIER --motif "…" [--go "…"]`, journal
+`strategie/PREDECLARATIONS.jsonl` **append-only**). Le re-scellement *a posteriori* n'est
+légitime que s'il existe une pré-déclaration **antérieure** à l'acte. Le contrôle
+`predemodifier.py --verifier` (autotest **3/3** : 44 violations détectées sans pré-déclaration,
+**0** avec) juge tout acte daté ≥ l'activation (`2026-09-23T15:30Z`) et laisse les actes
+antérieurs en **dette historique apurée** (R14 : pas d'alarme rouge à vie).
+**Pourquoi** : la faute E22 — j'ai touché `satellite_aspiration.py` puis re-scellé **après
+coup**, donc la veilleuse ne pouvait que **constater** le dégât. Une règle qui se pose après
+n'est pas une règle, c'est une excuse.
+**Mesure (R20.1)** : 0 modification scellée datée après l'activation sans pré-déclaration
+antérieure.
+
+**R20.2 — LE GARDIEN DOIT AVOIR RAISON (renforce #8 et R14).** Un instrument qui **accuse le
+moteur** doit d'abord **prouver qu'il lit TOUS les termes** de la formule. Réalisation
+mécanique dans `verif_seuil_moteur.py` **section 4** : on LIT la formule du moteur dans son
+source (`impulse_entry = max(...)`), on en extrait chaque clé de profil (`_cal.get("…")`) et on
+**exige** que le gardien lise la même clé ; sinon il se **DÉSACTIVE** au lieu d'accuser.
+**Pourquoi** : la faute E23 — ce gardien omettait `impulse_pullback_min_pct` **du profil par
+paire** et accusait donc le moteur à tort sur BTC (écrit 1,70 % · « recalculé » 4,25 %) alors
+que **le moteur avait raison**. Fausse alarme (R14), pire qu'aucun gardien. Deux corrections
+nécessaires dans le **même** fichier : la formule, et l'autotest (**il ne pouvait PAS prouver
+la détection** : il comparait via la vraie table de profils au lieu du profil injecté).
+**Mesure (R20.2)** : invariant **25/25** conformes · autotest **12/12** (100 %) · section 4 verte.
+
+**R20.3 — QUORUM : PAS DE VERDICT SOUS 3 VOIX (renforce R19).** Un tour servi par **moins de
+3 voix indépendantes réelles** n'est **pas** un verdict : il est étiqueté **AVIS CONSULTATIF**,
+le tour est **rejoué**, et jamais résumé en « la famille a dit ». Une voix **substituée** (modèle
+demandé ≠ modèle servi) **ne compte pas** (E16).
+**Pourquoi** : au tour 4 la session n'avait que **2 voix** (Grok 502) et au tour 5 encore **2
+voix** (nex-agi 502 au moment de l'envoi) — le quorum n'était pas atteint et je l'ai déclaré
+au lieu de l'appeler « verdict ».
+**Mesure (R20.3)** : `verif_session_famille.py` crie dès que le dernier tour a **< 3** voix
+indépendantes ; le statut est écrit au fil et au cockpit.
+
 ### Amélioration de #3 — DOUBLE CONTRÔLE pour toute action irréversible
 > Source externe : **two-person rule / dual control** (https://en.wikipedia.org/wiki/Two-person_rule).
 

@@ -43,6 +43,7 @@ ICI = os.path.dirname(os.path.abspath(__file__))
 HULK = os.path.dirname(ICI)
 RACINE = os.path.dirname(HULK)
 RUNS = os.path.join(HULK, "runs")
+ENGINE = os.path.join(ICI, "paper_diprip.py")     # la FORMULE de référence, lue à la source
 ENV = os.path.join(HULK, "config", "defaults.env")
 PROFILS = os.path.join(HULK, "strategie", "universe_profils.json")
 # ÉTAT lu par le cockpit (même convention que thermo/drill_restauration.json,
@@ -100,11 +101,22 @@ def seuil_attendu(cal, cfg, cadence, m6):
     mult = float(cfg.get("DIP_CADENCE_MULT", "0.45"))
     t_cad = cadence * mult
     dip = max(dip_floor, t_cad)
-    pull_min = float(cfg.get("IMPULSE_PULLBACK_MIN_PCT", "5"))
+    # FAUTE E23 (23/09/2026, ce gardien s'accusait LUI-MÊME) : j'avais omis le terme
+    # `impulse_pullback_min_pct` du PROFIL PAR PAIRE (paper_diprip.score_pair l.649 :
+    # `_cal.get("impulse_pullback_min_pct", cfg.get("IMPULSE_PULLBACK_MIN_PCT", "5"))`).
+    # Résultat : sur BTC (profil 1,5 < global 5,0) le gardien annonçait « écrit 1,70 ·
+    # recalculé 4,25 — DÉSACCORD » alors que LE MOTEUR AVAIT RAISON. Un gardien qui
+    # accuse à tort le moteur est pire qu'aucun gardien (R14 : fausse alarme).
+    if cal.get("impulse_pullback_min_pct") is not None:
+        pull_min = float(cal["impulse_pullback_min_pct"])
+        src_pull = "profil.impulse_pullback_min_pct"
+    else:
+        pull_min = float(cfg.get("IMPULSE_PULLBACK_MIN_PCT", "5"))
+        src_pull = "IMPULSE_PULLBACK_MIN_PCT"
     pull_frac = float(cfg.get("IMPULSE_PULLBACK_FRAC", "0.30"))
     t_m6 = m6 * pull_frac
     terms = {"profil/plancher": (dip_floor, src_floor), "cadence": (t_cad, "0.50 × cadence"),
-             "plancher_pullback": (pull_min, "IMPULSE_PULLBACK_MIN_PCT"),
+             "plancher_pullback": (pull_min, src_pull),
              "m6": (t_m6, "0.30 × m6")}
     need = max(dip, pull_min, t_m6)
     dom = max(terms.items(), key=lambda kv: kv[1][0])[0]
@@ -135,7 +147,10 @@ def invariant(rows, cfg, tol=0.05):
     """LE CŒUR : le seuil écrit par le moteur == le seuil recalculé depuis la config."""
     ok, ko, par_paire = 0, [], {}
     for r in rows:
-        cal = (profil(r["paire"]) or {}).get("calib") or {}
+        # `cal` injecté (AUTOTEST seulement) : permet de prouver le gardien sur un profil
+        # SYNTHÉTIQUE (ex. BTC réel, pull_min profil 1,5 < global 5,0). En production
+        # `lignes_refus` ne pose jamais `cal` → comportement inchangé.
+        cal = r.get("cal") or (profil(r["paire"]) or {}).get("calib") or {}
         need, dom, terms = seuil_attendu(cal, cfg, r["cadence"], r["m6"])
         attendu = need * 0.85                      # seuil de BASCULE de régime
         ecart = r["seuil"] - attendu
@@ -159,7 +174,12 @@ def detecter_instruments():
             continue
         for p in sorted(glob.glob(os.path.join(dossier, "*.py"))):
             nom = os.path.basename(p)
-            if nom in EXCLUS or nom.endswith(".bak"):
+            # FAUX POSITIF CORRIGÉ (23/09, tour 5) : les outils de DÉCLARATION (`declarer_*`)
+            # citent la formule EN PROSE dans leurs textes — le motif les attrapait. Or un
+            # gardien qui crie à tort finit ignoré (R14) : on les exclut NOMMÉMENT (audit de
+            # CALCUL, pas de documentation). Vérifié : le même soir, ce détecteur accusait
+            # `declarer_rescel_20260923b.py` alors qu'il ne recalcule aucun seuil.
+            if nom in EXCLUS or nom.endswith(".bak") or nom.startswith("declarer_"):
                 continue
             try:
                 txt = open(p, encoding="utf-8", errors="ignore").read()
@@ -170,6 +190,43 @@ def detecter_instruments():
             if touche_calcul and not MOTIF_CADENCE.search(txt):
                 flags.append(os.path.relpath(p, RACINE))
     return flags
+
+
+def detecter_termes_profil():
+    """DÉTECTEUR DE TERMES DU PROFIL — rendre la faute E23 IMPOSSIBLE au lieu de la corriger.
+
+    Exigence de la famille (tour 5, 23/09, 3 voix convergentes) : « exiger un test qui
+    injecte un profil SYNTHÉTIQUE COMPLET et vérifie que TOUS les termes du profil sont
+    lus ; un gardien qui accuse le moteur sans ça est DÉSACTIVÉ ».
+
+    Réalisation MÉCANIQUE (pas une promesse) : on LIT la formule du moteur dans son propre
+    source (`impulse_entry = max(...)` de score_pair), on en extrait CHAQUE clé de profil
+    (`_cal.get("X"` / `_cal["X"]`), et on exige que CE gardien lise la même clé. Si une clé
+    est ajoutée à la formule du moteur et non lue ici, le gardien se SIGNALE (donc se
+    désactive) au lieu d'accuser le moteur. La faute devient impossible, pas seulement
+    évitée : c'est la différence entre corriger et empêcher.
+    """
+    try:
+        src = open(ENGINE, encoding="utf-8", errors="ignore").read()
+    except Exception:
+        return None, []
+    m = re.search(r"impulse_entry\s*=\s*max\((.*?)\)\s*\n", src, re.S)
+    if not m:
+        return None, []
+    expr = m.group(1)
+    cles = set(re.findall(r"_cal(?:\.get\(\s*|\[)\s*['\"]([a-z_]+)['\"]", expr))
+    # `dip` est un terme de la formule : sa clé de profil vit dans `dip_floor = float(_cal.get(
+    # "dip_pct"...))`, une ligne au-dessus. On récupère donc aussi la clé qui construit `dip`.
+    m2 = re.search(r"dip_floor\s*=\s*float\(_cal\.get\(\s*['\"]([a-z_]+)['\"]", src)
+    if m2:
+        cles.add(m2.group(1))
+    try:
+        moi = open(__file__, encoding="utf-8", errors="ignore").read()
+    except Exception:
+        return None, []
+    manquants = sorted(k for k in cles
+                       if not re.search(r"cal(?:\.get\(\s*|\[)\s*['\"]" + re.escape(k), moi))
+    return cles, manquants
 
 
 def autotest(cfg):
@@ -188,7 +245,11 @@ def autotest(cfg):
     # cadence domine (RIZE) et celui où le plancher / m6 dominent (paire docile).
     points = [("RIZE (cadence domine)", {"dip_pct": 4.2}, 49.1, 12.5),
               ("paire docile (plancher domine)", {"dip_pct": 2.5}, 2.6, 12.5),
-              ("rafale verticale (m6 domine)", {"dip_pct": 2.5}, 2.6, 60.0)]
+              ("rafale verticale (m6 domine)", {"dip_pct": 2.5}, 2.6, 60.0),
+              # CAS BTC RÉEL (23/09) : profil pull_min 1,5 < global 5,0 — c'est LE point où
+              # l'omission du terme profil faisait accuser le moteur à tort (classe E23).
+              ("profil pull_min bas (BTC réel)", {"dip_pct": 2.0,
+                                              "impulse_pullback_min_pct": 1.5}, 3.03, 1.7)]
     frac = float(cfg.get("IMPULSE_PULLBACK_FRAC", "0.30"))
     mult = float(cfg.get("DIP_CADENCE_MULT", "0.50"))
     minp = float(cfg.get("IMPULSE_PULLBACK_MIN_PCT", "5"))
@@ -204,12 +265,16 @@ def autotest(cfg):
                 max(plancher, cad * 0.30, minp, m6 * frac) * 0.85,
             "sans le plancher IMPULSE_PULLBACK_MIN_PCT":
                 max(plancher, cad * mult, m6 * frac) * 0.85,
+            # MON erreur réelle E23 : recalculer avec le plancher GLOBAL au lieu du terme
+            # `impulse_pullback_min_pct` DU PROFIL (le gardien accusait le moteur).
+            "sans le terme impulse_pullback_min_pct DU PROFIL (mon E23)":
+                max(plancher, cad * mult, minp, m6 * frac) * 0.85,
             "sans le terme 0,30 × m6":
                 max(plancher, cad * mult, minp) * 0.85,
             "sans le facteur 0,85 de la porte de régime": need,
         }
         r = {"utc": "AUTOTEST", "paire": "TEST", "cadence": cad, "dd6": 0.0,
-             "seuil": vrai, "m6": m6}
+             "seuil": vrai, "m6": m6, "cal": cal}
         ok_vrai, _ko, _ = invariant([r], cfg)
         print(f"  AUTOTEST {label} — vrai {vrai} % (terme dominant : {_dom}) ·"
               f" conforme : {ok_vrai == 1}")
@@ -273,7 +338,17 @@ def main():
             print(f"     {f}")
     else:
         print("  ✔ aucun instrument ne recalcule un seuil d'entrée sans la cadence")
-    conforme = (not ko) and (not flags)
+    cles, manquants = detecter_termes_profil()
+    print("\n== 4. DÉTECTEUR DE TERMES DU PROFIL (rend E23 impossible) ==")
+    if cles is None:
+        print("  ⚠️ formule `impulse_entry` introuvable dans le moteur → gardien NON PROUVÉ")
+        manquants = ["formule_introuvable"]
+    elif manquants:
+        print(f"  ❌ le moteur lit {sorted(cles)} mais CE gardien ne lit PAS : {manquants}")
+        print("     → gardien DÉSACTIVÉ (il accuserait le moteur sur un terme oublié = classe E23)")
+    else:
+        print(f"  ✔ termes du profil lus par le moteur ET par le gardien : {sorted(cles)}")
+    conforme = (not ko) and (not flags) and (not manquants)
     # DÉRIVE DE CONFIG (objection de la famille du 23/09 : « le gardien suppose une
     # configuration STATIQUE ; si quelqu'un change DIP_CADENCE_MULT ou un profil entre deux
     # passages, il compare à de nouvelles valeurs et peut tout déclarer conforme »).
@@ -322,7 +397,9 @@ def main():
                        "desaccords": ko,
                        "par_paire": {p: {"cadence": d["cad"], "n": d["n"]}
                                      for p, d in par_paire.items()},
-                       "instruments_a_corriger": flags},
+                       "instruments_a_corriger": flags,
+                       "termes_profil": sorted(cles) if cles else [],
+                       "termes_profil_manquants": manquants},
                       open(a.json, "w"), ensure_ascii=False, indent=2)
             print(f"  (état écrit : {a.json})")
         except Exception as e:

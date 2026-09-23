@@ -2,27 +2,6 @@
   "signals": [
     {
       "metric": "volume",
-      "zscore": -2.001424553670089,
-      "value": 16757953894.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Volume onchain significativement élevé (z-score -2.00) sans couverture médiatique correspondante, suggérant une activité silencieuse des baleines. Les titres médiatiques sont totalement déconnectés des mouvements crypto, indiquant un possible décalage entre l'action du marché et l'attention publique.\"\n}\n```",
-      "ts": "2026-09-22T15:15:27.554085+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": 2.1032359155377907,
-      "value": 0.016,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Les médias se concentrent sur des sujets institutionnels ou techniques (énergie, équipement vidéo) sans lien avec l'activité onchain. L'anomalie SDI (z-score 2.10) suggère une activité crypto discrète, potentiellement accumulation par les baleines.\"\n}\n```",
-      "ts": "2026-09-22T15:25:55.694964+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.0143245163735606,
-      "value": 1.1,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 75,\n  \"reason\": \"Anomalie onchain significative (z-score 2.01) contrastant avec un narratif médiatique banal (événements académiques, partenariats). Divergence suggérant une activité silencieuse de baleines non reflétée dans l'actualité publique.\"\n}\n```",
-      "ts": "2026-09-22T15:26:14.213301+00:00"
-    },
-    {
-      "metric": "volume",
       "zscore": -2.005818726560011,
       "value": 16407329062.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit de fond absolu. Les données onchain montrent une anomalie de volume (z-score -2.01) mais les titres médiatiques sont complètement hors sujet (pneus de vélo, e-commerce, reggae, kiwis). Aucune corrélation macro ou crypto, il s'agit d'un bruit de signal sans mouvement notable de baleines.\"\n}\n```",
@@ -349,6 +328,27 @@
       "value": 4897133.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 4.37, ~4.9M USD) combinée à un silence médiatique absolu. Les baleines accumulent discrètement hors des radars grand public.\"\n}\n```",
       "ts": "2026-09-23T14:15:41.211114+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": 3.8349499713563127,
+      "value": 0.975,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Le z-score extrême (3.83) sur le ratio long/short montre un positionnement excessivement haussier des particuliers, tandis que les médias grand public banalisent les stratégies long/short traditionnelles. Divergence classique de piégeage de liquidité par les baleines.\"\n}\n```",
+      "ts": "2026-09-23T14:41:03.285552+00:00"
+    },
+    {
+      "metric": "price_1h",
+      "zscore": 5.732589299545472,
+      "value": 1.675240189167615,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie statistique majeure (Z-score 5.73) sans aucune couverture médiatique correspondante (silence radio sur Google Actualités). C'est la signature classique d'accumulation furtive par des baleines avant un re-pricing public.\"\n}\n```",
+      "ts": "2026-09-23T14:46:23.127191+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": 7.564144396245221,
+      "value": 1.07,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 92,\n  \"reason\": \"Z-score extrêmement élevé (7.56) sur le ratio long/short indiquant un positionnement acheteur ultra-hypertrophié et consensuel. La marée médiatique fait l'éloge unanime des stratégies long/short traditionnelles, créant un piège à liquidité classique. Divergence classique de fin de cycle : les baleines s'apprêtent à purger les excès de levier des suiveurs.\"\n}\n```",
+      "ts": "2026-09-23T15:14:56.275899+00:00"
     }
   ]
 }
