@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "ipt",
-      "zscore": 2.074655828733671,
-      "value": 0.935,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Anomalie de bruit : le ticker 'ipt' fait référence à l'Institut Protestant de Théologie ou au Tournoi International des Physiciens, sans lien avec un actif crypto ou une baleine.\"\n}\n```",
-      "ts": "2026-09-22T00:08:36.969447+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": 78.6925396049309,
-      "value": 78,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Indice de peur et de avarice à 78 (extrême gourmandise) combiné à un silence médiatique flagrant (Google Actualités vide). C'est le piège classique des baleines : distribution discrète aux 'retail' euphoriques avant une correction brutale.\"\n}\n```",
-      "ts": "2026-09-22T00:08:38.454947+00:00"
-    },
-    {
       "metric": "fear_greed",
       "zscore": 6.8556546004010395,
       "value": 78,
@@ -349,6 +335,20 @@
       "value": 0.02,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.13) totalement faussée par une collision lexicale : le 'SDI' onchain n'a aucun rapport avec le 'Syndicat des Indépendants' (SDI) ou le matériel vidéo SDI mentionnés dans les médias. Bruit pur, pas de mouvement de baleine crypto.\"\n}\n```",
       "ts": "2026-09-22T20:06:57.904537+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.027708483247671,
+      "value": 1.02,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique due à une confusion lexicale : 'IPT' dans les médias fait référence à des institutions académiques (Tournoi de Physiciens, Institut Protestant de Théologie) et non à un actif crypto. Aucune activité de baleine pertinente.\"\n}\n```",
+      "ts": "2026-09-23T00:07:37.120656+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -8.5156203223067,
+      "value": 71,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 95,\n  \"reason\": \"Z-score extrêmement bas (-8.52) malgré une avidité élevée (71). Absence totale de couverture médiatique malgré l'anomalie : les baleines distribuent dans l'ombre pendant que le retail ignore le risque imminent de retournement.\"\n}\n```",
+      "ts": "2026-09-23T00:07:38.467192+00:00"
     }
   ]
 }

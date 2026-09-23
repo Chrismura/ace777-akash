@@ -1,7 +1,76 @@
 {
-  "timestamp": 1790118730,
-  "date": "2026-09-22T23:12:10.734221+00:00",
-  "n_analyses": 0,
-  "analyses": [],
-  "resume": "Aucune analyse en cours"
+  "timestamp": 1790122331,
+  "date": "2026-09-23T00:12:11.783930+00:00",
+  "n_analyses": 2,
+  "analyses": [
+    {
+      "signal": {
+        "metric": "ipt",
+        "zscore": 2.027708483247671,
+        "value": 1.02,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique due à une confusion lexicale : 'IPT' dans les médias fait référence à des institutions académiques (Tournoi de Physiciens, Institut Protestant de Théologie) et non à un actif crypto. Aucune activité de baleine pertinente.\"\n}\n```",
+        "ts": 1790122057.120656
+      },
+      "fiche": "rbf_eleve",
+      "questions": {
+        "prix": {
+          "value": -0.06,
+          "seuil": 1,
+          "depasse": false
+        },
+        "paires": {
+          "value": 0,
+          "seuil": 3,
+          "depasse": false
+        },
+        "funding": {
+          "value": 1.1e-05,
+          "seuil": 0.001,
+          "depasse": false
+        },
+        "whales": {
+          "value": 0,
+          "seuil": 5,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
+      },
+      "action": "Observer",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "fear_greed",
+        "zscore": -8.5156203223067,
+        "value": 71,
+        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 95,\n  \"reason\": \"Z-score extrêmement bas (-8.52) malgré une avidité élevée (71). Absence totale de couverture médiatique malgré l'anomalie : les baleines distribuent dans l'ombre pendant que le retail ignore le risque imminent de retournement.\"\n}\n```",
+        "ts": 1790122058.467192
+      },
+      "fiche": "fear_greed",
+      "questions": {
+        "peur": {
+          "value": 71,
+          "seuil": 25,
+          "depasse": true
+        },
+        "cupidite": {
+          "value": 71,
+          "seuil": 75,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
+      },
+      "action": "Observer",
+      "niveau": "neutre"
+    }
+  ],
+  "resume": "🔵 CALME — pas de signal alarmant"
 }
