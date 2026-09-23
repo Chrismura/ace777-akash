@@ -1,76 +1,8 @@
 {
-  "timestamp": 1790140036,
-  "date": "2026-09-23T05:07:16.937842+00:00",
-  "n_analyses": 3,
+  "timestamp": 1790140637,
+  "date": "2026-09-23T05:17:17.113628+00:00",
+  "n_analyses": 1,
   "analyses": [
-    {
-      "signal": {
-        "metric": "ipt",
-        "zscore": 2.3585032442807825,
-        "value": 1.154,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"L'indice 'ipt' et les titres médiatiques font référence au Tournoi International des Physiciens (IPT) et à des institutions académiques/religieuses, sans aucun rapport avec la crypto-monnaie ou des mouvements de baleines.\"\n}\n```",
-        "ts": 1790138352.358311
-      },
-      "fiche": "rbf_eleve",
-      "questions": {
-        "prix": {
-          "value": -0.23,
-          "seuil": 1,
-          "depasse": false
-        },
-        "paires": {
-          "value": 0,
-          "seuil": 3,
-          "depasse": false
-        },
-        "funding": {
-          "value": 3.4e-05,
-          "seuil": 0.001,
-          "depasse": false
-        },
-        "whales": {
-          "value": 2,
-          "seuil": 5,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
-      },
-      "action": "Observer",
-      "niveau": "neutre"
-    },
-    {
-      "signal": {
-        "metric": "fear_greed",
-        "zscore": -2.0816659994661326,
-        "value": 71,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement négatif (-2.08) malgré un indice de cupidité élevé (71). Le narratif médiatique est absent ou inerte, indiquant une accumulation silencieuse des baleines sous le radar du grand public.\"\n}\n```",
-        "ts": 1790138353.730474
-      },
-      "fiche": "fear_greed",
-      "questions": {
-        "peur": {
-          "value": 71,
-          "seuil": 25,
-          "depasse": true
-        },
-        "cupidite": {
-          "value": 71,
-          "seuil": 75,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
-      },
-      "action": "Observer",
-      "niveau": "neutre"
-    },
     {
       "signal": {
         "metric": "liquidations",
@@ -82,17 +14,17 @@
       "fiche": "liquidations",
       "questions": {
         "longs": {
-          "value": 108929.0,
+          "value": 234531.0,
           "seuil": 0,
           "depasse": true
         },
         "shorts": {
-          "value": 6067426.0,
+          "value": 6014991.0,
           "seuil": 0,
           "depasse": true
         },
         "prix": {
-          "value": -0.23,
+          "value": -0.24,
           "seuil": 1,
           "depasse": false
         }

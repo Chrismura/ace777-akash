@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-23T05:07:01.553461+00:00",
+  "generated_at": "2026-09-23T05:17:07.418229+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 109
+      "calls_24h": 106
     },
     {
       "id": "openrouter-free",
@@ -33,7 +33,7 @@
       "name": "Groq (LLM ultra-rapide, gratuit)",
       "kind": "cloud",
       "model": "groq/compound",
-      "enabled": true,
+      "enabled": false,
       "timeout": 120,
       "calls_24h": 0
     },
@@ -260,6 +260,15 @@
       "model": "nex-agi/nex-n2.5-mini:free",
       "enabled": false,
       "timeout": 30,
+      "calls_24h": 0
+    },
+    {
+      "id": "nex-agi-nex-n2-5-pro-free",
+      "name": "Roulement nex-agi/nex-n2.5-pro:free",
+      "kind": "cloud",
+      "model": "nex-agi/nex-n2.5-pro:free",
+      "enabled": true,
+      "timeout": 60,
       "calls_24h": 0
     }
   ],

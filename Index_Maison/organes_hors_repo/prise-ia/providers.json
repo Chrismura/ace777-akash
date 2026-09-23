@@ -53,9 +53,9 @@
    "order": 3,
    "timeout": 120,
    "note": "ACTIVE 17/08 - cle Groq OK + UA fix Cloudflare - groq/compound repond direct (gpt-oss=reasoning vide)",
-   "enabled": true,
+   "enabled": false,
    "free": true,
-   "status": "actif",
+   "status": "mort-remplace-par-nex-agi-nex-n2-5-pro-free",
    "last_ok_ts": 1789967285.185181,
    "last_err": ""
   },
@@ -116,7 +116,7 @@
    "timeout": 120,
    "note": "REACTIVE 13/08 - nemotron-3-super-120b free teste OK. Juge independant (maker!=checker). | quota journalier épuisé le 17/08 → reset automatique",
    "free": true,
-   "last_ok_ts": 1790053681.774645,
+   "last_ok_ts": 1790140085.5039701,
    "last_err": ""
   },
   {
@@ -315,7 +315,7 @@
    "enabled": true,
    "free": true,
    "status": "actif",
-   "last_ok_ts": 1790053681.774645,
+   "last_ok_ts": 1790140085.5039701,
    "last_err": ""
   },
   {
@@ -372,7 +372,7 @@
    "timeout": 60,
    "free": true,
    "note": "INTEGRE 23/08 - cle OK, orcarouter/free teste OK (1.2s). Routeur meta (191 modeles). Signet X RoundtableSpace.",
-   "last_ok_ts": 1790053681.774645,
+   "last_ok_ts": 1790140085.5039701,
    "last_err": ""
   },
   {
@@ -419,6 +419,23 @@
    "status": "obs-rollback",
    "note": "auto queue_offres | VERDICT FAMILLE 18/08 : observation 48h avant activation | ROLLBACK auto observatoire 2026-09-14 (100% erreurs)",
    "integrated_at": "2026-09-11T05:03:27+00:00"
+  },
+  {
+   "id": "nex-agi-nex-n2-5-pro-free",
+   "name": "Roulement nex-agi/nex-n2.5-pro:free",
+   "kind": "cloud",
+   "base_url": "https://openrouter.ai/api/v1",
+   "model": "nex-agi/nex-n2.5-pro:free",
+   "api_key_env": "OPENROUTER_API_KEY",
+   "role": "gros cerveau",
+   "enabled": true,
+   "status": "actif",
+   "free": true,
+   "integrated_at": "2026-09-23T05:08:16.068013+00:00",
+   "last_ok_ts": 1790140085.5039701,
+   "order": 30,
+   "timeout": 60,
+   "note": "ROULEMENT AUTO 2026-09-23 : remplace groq (mort >2j)"
   }
  ]
 }
