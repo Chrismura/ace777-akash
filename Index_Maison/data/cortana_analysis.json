@@ -1,25 +1,25 @@
 {
-  "timestamp": 1790176648,
-  "date": "2026-09-23T15:17:28.142419+00:00",
-  "n_analyses": 1,
+  "timestamp": 1790180249,
+  "date": "2026-09-23T16:17:29.283113+00:00",
+  "n_analyses": 4,
   "analyses": [
     {
       "signal": {
         "metric": "long_short",
-        "zscore": 7.564144396245221,
+        "zscore": 5.095181429944429,
         "value": 1.07,
-        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 92,\n  \"reason\": \"Z-score extrêmement élevé (7.56) sur le ratio long/short indiquant un positionnement acheteur ultra-hypertrophié et consensuel. La marée médiatique fait l'éloge unanime des stratégies long/short traditionnelles, créant un piège à liquidité classique. Divergence classique de fin de cycle : les baleines s'apprêtent à purger les excès de levier des suiveurs.\"\n}\n```",
-        "ts": 1790176496.275899
+        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 92,\n  \"reason\": \"Z-score extrême (5.10) sur le ratio long/short indiquant un positionnement acheteur excessivement surpeuplé par la foule, tandis que le narratif médiatique grand public s'enthousiasme naïvement pour les stratégies long/short. Classique piège à liquidité propice à une purge imminente des baleines.\"\n}\n```",
+        "ts": 1790178458.18224
       },
       "fiche": "long_short",
       "questions": {
         "ratio_long_short": {
-          "value": 1.07,
+          "value": 1.061,
           "seuil": 2,
           "depasse": false
         },
         "oi": {
-          "value": 101342.377,
+          "value": 99416.601,
           "seuil": 120000,
           "depasse": false
         }
@@ -31,7 +31,122 @@
       },
       "action": "Observer",
       "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "volume",
+        "zscore": 2.206003182420141,
+        "value": 17233477701.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie de volume non corrélée au marché crypto (bruit de fond ou données macro hors-sujet). Les gros titres médiatiques traitent de retail, de pneumatiques et de musique, démontrant une absence totale de narratif crypto à analyser. Aucune baleine détectée.\"\n}\n```",
+        "ts": 1790178795.180703
+      },
+      "fiche": "rbf_eleve",
+      "questions": {
+        "prix": {
+          "value": 0.37,
+          "seuil": 1,
+          "depasse": false
+        },
+        "paires": {
+          "value": 0,
+          "seuil": 3,
+          "depasse": false
+        },
+        "funding": {
+          "value": 1.5e-05,
+          "seuil": 0.001,
+          "depasse": false
+        },
+        "whales": {
+          "value": 6,
+          "seuil": 5,
+          "depasse": true
+        }
+      },
+      "interpretation": {
+        "condition": "whales > 5",
+        "lecture": "Activité institutionnelle intense — les gros bougent en douce",
+        "niveau": "surveiller",
+        "action": "Surveiller les prochaines heures, prêt à réagir"
+      },
+      "action": "Surveiller les prochaines heures, prêt à réagir",
+      "niveau": "surveiller"
+    },
+    {
+      "signal": {
+        "metric": "ipt",
+        "zscore": 2.425969581183142,
+        "value": 1.135,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Le ticker 'ipt' fait référence à des institutions académiques et religieuses (Institut Polytechnique de Toulouse/Paris, Théologique) dans les médias, créant une confusion totale avec un actif crypto. Aucune donnée on-chain pertinente de baleine crypto détectée derrière ce bruit médiatique.\"\n}\n```",
+        "ts": 1790178833.015172
+      },
+      "fiche": "rbf_eleve",
+      "questions": {
+        "prix": {
+          "value": 0.37,
+          "seuil": 1,
+          "depasse": false
+        },
+        "paires": {
+          "value": 0,
+          "seuil": 3,
+          "depasse": false
+        },
+        "funding": {
+          "value": 1.5e-05,
+          "seuil": 0.001,
+          "depasse": false
+        },
+        "whales": {
+          "value": 6,
+          "seuil": 5,
+          "depasse": true
+        }
+      },
+      "interpretation": {
+        "condition": "whales > 5",
+        "lecture": "Activité institutionnelle intense — les gros bougent en douce",
+        "niveau": "surveiller",
+        "action": "Surveiller les prochaines heures, prêt à réagir"
+      },
+      "action": "Surveiller les prochaines heures, prêt à réagir",
+      "niveau": "surveiller"
+    },
+    {
+      "signal": {
+        "metric": "whale_usd",
+        "zscore": 3.7668405000629734,
+        "value": 4765913.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Activité anormale des baleines (Z-score 3.77, ~4.76M USD) en l'absence totale de couverture médiatique (Google Actualités vide). C'est la définition classique d'une accumulation ou d'un mouvement silencieux avant que le narratif public ne se forme.\"\n}\n```",
+        "ts": 1790180079.284106
+      },
+      "fiche": "whale_usd",
+      "questions": {
+        "ventes": {
+          "value": 1633412.0,
+          "seuil": 0,
+          "depasse": true
+        },
+        "achats": {
+          "value": 3132500.0,
+          "seuil": 0,
+          "depasse": true
+        },
+        "prix": {
+          "value": 0.37,
+          "seuil": 1,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "achats > ventes",
+        "lecture": "Flux baleines ACHETEUR dominant — accumulation possible, à confirmer sur plusieurs scans",
+        "niveau": "info",
+        "action": "Observer, ne pas acheter sur un seul signal"
+      },
+      "action": "Observer, ne pas acheter sur un seul signal",
+      "niveau": "info"
     }
   ],
-  "resume": "🔵 CALME — pas de signal alarmant"
+  "resume": "🟡 SURVEILLANCE — des signaux sont à observer"
 }

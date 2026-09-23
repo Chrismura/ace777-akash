@@ -5020,3 +5020,11 @@ Pas d’ordre — confrontation plus tard.
 - CHIPUSDT: WATCH_PULLBACK — tension haute + reflux
 - BIOUSDT: WATCH_PULLBACK — tension haute + reflux
 (compléter: confirmé ? risque ?)
+
+### 2026-09-23T15:32:15Z — ALERT auto
+- XRPUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
+
+### 2026-09-23T15:48:35Z — ALERT auto
+- CCUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
