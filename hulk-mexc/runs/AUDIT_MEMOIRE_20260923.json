@@ -1,0 +1,708 @@
+{
+  "instrument": "audit_memoire_donnees.py",
+  "ts_utc": "2026-09-23T10:26:13Z",
+  "journal": "PAPER_V1_20260923_090125.csv",
+  "n_lignes": 76153,
+  "champs_journal": [
+    "ts",
+    "pair",
+    "event",
+    "regime",
+    "price",
+    "entry",
+    "qty",
+    "pnl_usdt",
+    "pnl_total",
+    "cadence",
+    "reason"
+  ],
+  "couverture": {
+    "BTCUSDT": {
+      "profil": true,
+      "vue_live": true,
+      "obs_murs": true,
+      "en_position": false,
+      "evenements": 8,
+      "set_up": true
+    },
+    "ETHUSDT": {
+      "profil": true,
+      "vue_live": true,
+      "obs_murs": true,
+      "en_position": false,
+      "evenements": 13,
+      "set_up": true
+    },
+    "XRPUSDT": {
+      "profil": true,
+      "vue_live": false,
+      "obs_murs": true,
+      "en_position": false,
+      "evenements": 13,
+      "set_up": true
+    },
+    "HBARUSDT": {
+      "profil": true,
+      "vue_live": false,
+      "obs_murs": true,
+      "en_position": false,
+      "evenements": 9,
+      "set_up": true
+    },
+    "RIZEUSDT": {
+      "profil": true,
+      "vue_live": false,
+      "obs_murs": true,
+      "en_position": false,
+      "evenements": 31,
+      "set_up": true
+    },
+    "ZBCNUSDT": {
+      "profil": true,
+      "vue_live": false,
+      "obs_murs": true,
+      "en_position": false,
+      "evenements": 18,
+      "set_up": true
+    },
+    "WUSDT": {
+      "profil": true,
+      "vue_live": false,
+      "obs_murs": true,
+      "en_position": false,
+      "evenements": 21,
+      "set_up": true
+    },
+    "REDUSDT": {
+      "profil": true,
+      "vue_live": false,
+      "obs_murs": true,
+      "en_position": false,
+      "evenements": 24,
+      "set_up": true
+    },
+    "CCUSDT": {
+      "profil": true,
+      "vue_live": false,
+      "obs_murs": true,
+      "en_position": false,
+      "evenements": 16,
+      "set_up": true
+    },
+    "PYTHUSDT": {
+      "profil": true,
+      "vue_live": false,
+      "obs_murs": true,
+      "en_position": true,
+      "evenements": 17,
+      "set_up": true
+    },
+    "BIOUSDT": {
+      "profil": true,
+      "vue_live": false,
+      "obs_murs": true,
+      "en_position": false,
+      "evenements": 6,
+      "set_up": true
+    },
+    "KITEUSDT": {
+      "profil": true,
+      "vue_live": false,
+      "obs_murs": true,
+      "en_position": true,
+      "evenements": 17,
+      "set_up": true
+    },
+    "TELUSDT": {
+      "profil": true,
+      "vue_live": false,
+      "obs_murs": true,
+      "en_position": false,
+      "evenements": 19,
+      "set_up": true
+    },
+    "CHIPUSDT": {
+      "profil": true,
+      "vue_live": true,
+      "obs_murs": true,
+      "en_position": true,
+      "evenements": 15,
+      "set_up": true
+    },
+    "RWAINCUSDT": {
+      "profil": true,
+      "vue_live": false,
+      "obs_murs": true,
+      "en_position": true,
+      "evenements": 23,
+      "set_up": true
+    },
+    "EDELUSDT": {
+      "profil": true,
+      "vue_live": false,
+      "obs_murs": true,
+      "en_position": true,
+      "evenements": 34,
+      "set_up": true
+    },
+    "QNTUSDT": {
+      "profil": false,
+      "vue_live": true,
+      "obs_murs": true,
+      "en_position": true,
+      "evenements": 3,
+      "set_up": false
+    },
+    "FLUIDUSDT": {
+      "profil": false,
+      "vue_live": true,
+      "obs_murs": false,
+      "en_position": true,
+      "evenements": 9,
+      "set_up": false
+    },
+    "RWAUSDT": {
+      "profil": false,
+      "vue_live": true,
+      "obs_murs": false,
+      "en_position": true,
+      "evenements": 3,
+      "set_up": false
+    },
+    "MNSRYUSDT": {
+      "profil": false,
+      "vue_live": true,
+      "obs_murs": false,
+      "en_position": true,
+      "evenements": 1,
+      "set_up": false
+    }
+  },
+  "trous": [
+    "BIOUSDT : pas de vue live → cap de mise sur le profil figé",
+    "CCUSDT : pas de vue live → cap de mise sur le profil figé",
+    "EDELUSDT : pas de vue live → cap de mise sur le profil figé",
+    "FLUIDUSDT : pas de profil (villages de repli du code)",
+    "FLUIDUSDT : pas d'observation de murs (wall_strength → 0,5 neutre par défaut)",
+    "FLUIDUSDT : pas de set-up chiffré (moins de 20 paires couvertes)",
+    "HBARUSDT : pas de vue live → cap de mise sur le profil figé",
+    "KITEUSDT : pas de vue live → cap de mise sur le profil figé",
+    "MNSRYUSDT : pas de profil (villages de repli du code)",
+    "MNSRYUSDT : pas d'observation de murs (wall_strength → 0,5 neutre par défaut)",
+    "MNSRYUSDT : pas de set-up chiffré (moins de 20 paires couvertes)",
+    "PYTHUSDT : pas de vue live → cap de mise sur le profil figé",
+    "QNTUSDT : pas de profil (villages de repli du code)",
+    "QNTUSDT : pas de set-up chiffré (moins de 20 paires couvertes)",
+    "REDUSDT : pas de vue live → cap de mise sur le profil figé",
+    "RIZEUSDT : pas de vue live → cap de mise sur le profil figé",
+    "RWAINCUSDT : pas de vue live → cap de mise sur le profil figé",
+    "RWAUSDT : pas de profil (villages de repli du code)",
+    "RWAUSDT : pas d'observation de murs (wall_strength → 0,5 neutre par défaut)",
+    "RWAUSDT : pas de set-up chiffré (moins de 20 paires couvertes)",
+    "TELUSDT : pas de vue live → cap de mise sur le profil figé",
+    "WUSDT : pas de vue live → cap de mise sur le profil figé",
+    "XRPUSDT : pas de vue live → cap de mise sur le profil figé",
+    "ZBCNUSDT : pas de vue live → cap de mise sur le profil figé"
+  ],
+  "completude": {
+    "BUY": {
+      "ts": 100.0,
+      "pair": 100.0,
+      "event": 100.0,
+      "regime": 100.0,
+      "price": 100.0,
+      "entry": 100.0,
+      "qty": 100.0,
+      "pnl_usdt": 0.0,
+      "pnl_total": 88.0,
+      "cadence": 100.0,
+      "reason": 100.0
+    },
+    "SELL_PARTIAL": {
+      "ts": 100.0,
+      "pair": 100.0,
+      "event": 100.0,
+      "regime": 100.0,
+      "price": 100.0,
+      "entry": 100.0,
+      "qty": 100.0,
+      "pnl_usdt": 100.0,
+      "pnl_total": 100.0,
+      "cadence": 100.0,
+      "reason": 100.0
+    },
+    "SELL": {
+      "ts": 100.0,
+      "pair": 100.0,
+      "event": 100.0,
+      "regime": 100.0,
+      "price": 100.0,
+      "entry": 100.0,
+      "qty": 100.0,
+      "pnl_usdt": 99.1,
+      "pnl_total": 100.0,
+      "cadence": 100.0,
+      "reason": 100.0
+    },
+    "SKIP": {
+      "ts": 100.0,
+      "pair": 100.0,
+      "event": 100.0,
+      "regime": 100.0,
+      "price": 100.0,
+      "entry": 100.0,
+      "qty": 0.0,
+      "pnl_usdt": 0.0,
+      "pnl_total": 100.0,
+      "cadence": 100.0,
+      "reason": 100.0
+    },
+    "BAG_ARM": {
+      "ts": 100.0,
+      "pair": 100.0,
+      "event": 100.0,
+      "regime": 100.0,
+      "price": 100.0,
+      "entry": 100.0,
+      "qty": 100.0,
+      "pnl_usdt": 0.0,
+      "pnl_total": 100.0,
+      "cadence": 100.0,
+      "reason": 100.0
+    },
+    "BAG_CRASH": {
+      "ts": 100.0,
+      "pair": 100.0,
+      "event": 100.0,
+      "regime": 100.0,
+      "price": 100.0,
+      "entry": 100.0,
+      "qty": 100.0,
+      "pnl_usdt": 100.0,
+      "pnl_total": 100.0,
+      "cadence": 100.0,
+      "reason": 100.0
+    },
+    "BAG_SELL": {
+      "ts": 100.0,
+      "pair": 100.0,
+      "event": 100.0,
+      "regime": 100.0,
+      "price": 100.0,
+      "entry": 100.0,
+      "qty": 100.0,
+      "pnl_usdt": 100.0,
+      "pnl_total": 100.0,
+      "cadence": 100.0,
+      "reason": 100.0
+    }
+  },
+  "spread_dans_le_texte_pct": 99.4,
+  "colonnes_manquantes": [
+    "mise_visee — mise calculée AVANT les plafonds/fusibles",
+    "mur_utilise — valeur du mur (live ou profil) ayant plafonné",
+    "seuil_exige — repli exigé par la paire au moment de l'entrée",
+    "dd6_observe — repli observé (écrit seulement sur les refus depuis le 23/09)",
+    "stop_nominal — niveau de stop annoncé à l'entrée",
+    "spread_paye — spread effectivement traversé"
+  ],
+  "coherence": {
+    "horodatages_non_croissants": 0,
+    "discontinuites_pnl_total": 0,
+    "doublons": 0,
+    "ventes_sans_pnl_usdt": 0,
+    "doublons_skip_bruyants": 559,
+    "exemples_desordre": [],
+    "exemples_sans_pnl": [],
+    "exemples_pnl": []
+  },
+  "re_injection": {
+    "n_stops_analyses": 30,
+    "cout_total_derapage_vs_stop_annonce": -2.68,
+    "detail": [
+      {
+        "pair": "RWAINCUSDT",
+        "fermeture": "2026-08-26T14:29:13Z",
+        "pnl_reel": -0.7721,
+        "stop_annonce_pct": 6.5,
+        "pnl_si_stop_nominal": -0.6006,
+        "cout_du_derapage": -0.1715,
+        "min_tenue_pct": -10.45
+      },
+      {
+        "pair": "RWAINCUSDT",
+        "fermeture": "2026-08-27T20:26:25Z",
+        "pnl_reel": -1.6816,
+        "stop_annonce_pct": 6.5,
+        "pnl_si_stop_nominal": -1.5515,
+        "cout_du_derapage": -0.13,
+        "min_tenue_pct": -7.05
+      },
+      {
+        "pair": "RIZEUSDT",
+        "fermeture": "2026-08-30T02:56:39Z",
+        "pnl_reel": -0.526,
+        "stop_annonce_pct": 8.0,
+        "pnl_si_stop_nominal": -0.3896,
+        "cout_du_derapage": -0.1364,
+        "min_tenue_pct": -13.55
+      },
+      {
+        "pair": "KITEUSDT",
+        "fermeture": "2026-08-30T20:28:47Z",
+        "pnl_reel": -1.4169,
+        "stop_annonce_pct": 6.0,
+        "pnl_si_stop_nominal": -1.416,
+        "cout_du_derapage": -0.0009,
+        "min_tenue_pct": -6.04
+      },
+      {
+        "pair": "RWAINCUSDT",
+        "fermeture": "2026-08-31T10:59:17Z",
+        "pnl_reel": -1.6471,
+        "stop_annonce_pct": 6.5,
+        "pnl_si_stop_nominal": -1.534,
+        "cout_du_derapage": -0.1131,
+        "min_tenue_pct": -6.98
+      },
+      {
+        "pair": "CHIPUSDT",
+        "fermeture": "2026-09-01T21:38:03Z",
+        "pnl_reel": -1.3454,
+        "stop_annonce_pct": 7.0,
+        "pnl_si_stop_nominal": -1.3965,
+        "cout_du_derapage": 0.0511,
+        "min_tenue_pct": -10.98
+      },
+      {
+        "pair": "RIZEUSDT",
+        "fermeture": "2026-09-04T11:08:40Z",
+        "pnl_reel": -0.1205,
+        "stop_annonce_pct": 8.0,
+        "pnl_si_stop_nominal": -0.3904,
+        "cout_du_derapage": 0.2699,
+        "min_tenue_pct": -38.3
+      },
+      {
+        "pair": "KITEUSDT",
+        "fermeture": "2026-09-04T15:36:00Z",
+        "pnl_reel": -1.6863,
+        "stop_annonce_pct": 6.0,
+        "pnl_si_stop_nominal": -1.5132,
+        "cout_du_derapage": -0.1731,
+        "min_tenue_pct": -6.84
+      },
+      {
+        "pair": "BIOUSDT",
+        "fermeture": "2026-09-09T21:36:14Z",
+        "pnl_reel": -0.5786,
+        "stop_annonce_pct": 6.0,
+        "pnl_si_stop_nominal": -0.5622,
+        "cout_du_derapage": -0.0164,
+        "min_tenue_pct": -6.17
+      },
+      {
+        "pair": "RIZEUSDT",
+        "fermeture": "2026-09-10T06:39:42Z",
+        "pnl_reel": 0.2284,
+        "stop_annonce_pct": 8.0,
+        "pnl_si_stop_nominal": -0.3904,
+        "cout_du_derapage": 0.6188,
+        "min_tenue_pct": -26.43
+      },
+      {
+        "pair": "XRPUSDT",
+        "fermeture": "2026-09-10T12:47:23Z",
+        "pnl_reel": -1.3,
+        "stop_annonce_pct": 6.0,
+        "pnl_si_stop_nominal": -1.1964,
+        "cout_du_derapage": -0.1036,
+        "min_tenue_pct": -6.64
+      },
+      {
+        "pair": "RIZEUSDT",
+        "fermeture": "2026-09-10T16:50:23Z",
+        "pnl_reel": -0.831,
+        "stop_annonce_pct": 8.0,
+        "pnl_si_stop_nominal": -0.3904,
+        "cout_du_derapage": -0.4406,
+        "min_tenue_pct": -21.31
+      },
+      {
+        "pair": "TELUSDT",
+        "fermeture": "2026-09-12T18:41:40Z",
+        "pnl_reel": -0.6774,
+        "stop_annonce_pct": 6.4,
+        "pnl_si_stop_nominal": -0.6726,
+        "cout_du_derapage": -0.0048,
+        "min_tenue_pct": -6.78
+      },
+      {
+        "pair": "EDELUSDT",
+        "fermeture": "2026-09-15T02:40:06Z",
+        "pnl_reel": -0.5729,
+        "stop_annonce_pct": 10.3,
+        "pnl_si_stop_nominal": -0.4099,
+        "cout_du_derapage": -0.163,
+        "min_tenue_pct": -15.51
+      },
+      {
+        "pair": "ETHUSDT",
+        "fermeture": "2026-09-15T14:38:39Z",
+        "pnl_reel": -1.2368,
+        "stop_annonce_pct": 6.0,
+        "pnl_si_stop_nominal": -1.2222,
+        "cout_du_derapage": -0.0146,
+        "min_tenue_pct": -6.48
+      },
+      {
+        "pair": "ZBCNUSDT",
+        "fermeture": "2026-09-15T14:55:55Z",
+        "pnl_reel": -0.4936,
+        "stop_annonce_pct": 6.0,
+        "pnl_si_stop_nominal": -0.4086,
+        "cout_du_derapage": -0.085,
+        "min_tenue_pct": -7.25
+      },
+      {
+        "pair": "REDUSDT",
+        "fermeture": "2026-09-15T16:17:02Z",
+        "pnl_reel": -1.6228,
+        "stop_annonce_pct": 6.0,
+        "pnl_si_stop_nominal": -1.617,
+        "cout_du_derapage": -0.0058,
+        "min_tenue_pct": -6.13
+      },
+      {
+        "pair": "XRPUSDT",
+        "fermeture": "2026-09-15T18:41:28Z",
+        "pnl_reel": -1.5257,
+        "stop_annonce_pct": 6.0,
+        "pnl_si_stop_nominal": -1.5048,
+        "cout_du_derapage": -0.0209,
+        "min_tenue_pct": -7.07
+      },
+      {
+        "pair": "PYTHUSDT",
+        "fermeture": "2026-09-15T18:49:26Z",
+        "pnl_reel": -1.797,
+        "stop_annonce_pct": 6.0,
+        "pnl_si_stop_nominal": -1.5438,
+        "cout_du_derapage": -0.2532,
+        "min_tenue_pct": -7.24
+      },
+      {
+        "pair": "ZBCNUSDT",
+        "fermeture": "2026-09-15T19:01:45Z",
+        "pnl_reel": -0.4123,
+        "stop_annonce_pct": 6.0,
+        "pnl_si_stop_nominal": -0.4086,
+        "cout_du_derapage": -0.0037,
+        "min_tenue_pct": -9.75
+      },
+      {
+        "pair": "WUSDT",
+        "fermeture": "2026-09-16T06:55:14Z",
+        "pnl_reel": -0.6118,
+        "stop_annonce_pct": 6.0,
+        "pnl_si_stop_nominal": -0.6036,
+        "cout_du_derapage": -0.0082,
+        "min_tenue_pct": -6.56
+      },
+      {
+        "pair": "RWAINCUSDT",
+        "fermeture": "2026-09-16T09:45:13Z",
+        "pnl_reel": -1.557,
+        "stop_annonce_pct": 6.5,
+        "pnl_si_stop_nominal": -1.5236,
+        "cout_du_derapage": -0.0334,
+        "min_tenue_pct": -6.64
+      },
+      {
+        "pair": "KITEUSDT",
+        "fermeture": "2026-09-16T14:10:54Z",
+        "pnl_reel": -1.6566,
+        "stop_annonce_pct": 6.0,
+        "pnl_si_stop_nominal": -1.5378,
+        "cout_du_derapage": -0.1188,
+        "min_tenue_pct": -6.65
+      },
+      {
+        "pair": "CCUSDT",
+        "fermeture": "2026-09-16T14:59:42Z",
+        "pnl_reel": -1.1296,
+        "stop_annonce_pct": 6.0,
+        "pnl_si_stop_nominal": -0.9702,
+        "cout_du_derapage": -0.1594,
+        "min_tenue_pct": -7.1
+      },
+      {
+        "pair": "EDELUSDT",
+        "fermeture": "2026-09-17T18:08:56Z",
+        "pnl_reel": -0.2305,
+        "stop_annonce_pct": 10.3,
+        "pnl_si_stop_nominal": -0.1823,
+        "cout_du_derapage": -0.0482,
+        "min_tenue_pct": -13.26
+      },
+      {
+        "pair": "EDELUSDT",
+        "fermeture": "2026-09-17T18:55:19Z",
+        "pnl_reel": -0.3854,
+        "stop_annonce_pct": 10.3,
+        "pnl_si_stop_nominal": -0.3296,
+        "cout_du_derapage": -0.0558,
+        "min_tenue_pct": -13.26
+      },
+      {
+        "pair": "TELUSDT",
+        "fermeture": "2026-09-19T13:16:34Z",
+        "pnl_reel": -2.8163,
+        "stop_annonce_pct": 6.4,
+        "pnl_si_stop_nominal": -2.7482,
+        "cout_du_derapage": -0.0681,
+        "min_tenue_pct": -6.63
+      },
+      {
+        "pair": "RWAINCUSDT",
+        "fermeture": "2026-09-19T14:17:51Z",
+        "pnl_reel": -0.8757,
+        "stop_annonce_pct": 6.5,
+        "pnl_si_stop_nominal": -0.8392,
+        "cout_du_derapage": -0.0365,
+        "min_tenue_pct": -6.78
+      },
+      {
+        "pair": "EDELUSDT",
+        "fermeture": "2026-09-20T00:13:28Z",
+        "pnl_reel": -0.667,
+        "stop_annonce_pct": 10.3,
+        "pnl_si_stop_nominal": -0.5171,
+        "cout_du_derapage": -0.1499,
+        "min_tenue_pct": -14.26
+      },
+      {
+        "pair": "RIZEUSDT",
+        "fermeture": "2026-09-22T02:15:45Z",
+        "pnl_reel": -1.3846,
+        "stop_annonce_pct": 8.0,
+        "pnl_si_stop_nominal": -0.2768,
+        "cout_du_derapage": -1.1078,
+        "min_tenue_pct": -43.45
+      }
+    ],
+    "mise_vs_cap": {
+      "BIOUSDT": {
+        "mise_med": 9.37,
+        "cap": 70.4854,
+        "prof_05": 10347.1
+      },
+      "BTCUSDT": {
+        "mise_med": 24.45,
+        "cap": 0.0,
+        "prof_05": 2756264.4
+      },
+      "CCUSDT": {
+        "mise_med": 5.73,
+        "cap": 30.913800000000002,
+        "prof_05": null
+      },
+      "CHIPUSDT": {
+        "mise_med": 20.24,
+        "cap": 661.9911999999999,
+        "prof_05": 71757.95
+      },
+      "EDELUSDT": {
+        "mise_med": 3.38,
+        "cap": 18.1718,
+        "prof_05": 50.0
+      },
+      "ETHUSDT": {
+        "mise_med": 23.91,
+        "cap": 0.0,
+        "prof_05": null
+      },
+      "FLUIDUSDT": {
+        "mise_med": 21.38,
+        "cap": null,
+        "prof_05": null
+      },
+      "HBARUSDT": {
+        "mise_med": 24.16,
+        "cap": 553.0219999999999,
+        "prof_05": null
+      },
+      "KITEUSDT": {
+        "mise_med": 24.0,
+        "cap": 598.7456,
+        "prof_05": null
+      },
+      "MNSRYUSDT": {
+        "mise_med": 10.0,
+        "cap": null,
+        "prof_05": null
+      },
+      "PYTHUSDT": {
+        "mise_med": 21.65,
+        "cap": 140.7922,
+        "prof_05": null
+      },
+      "QAITUSDT": {
+        "mise_med": 10.0,
+        "cap": 22.0652,
+        "prof_05": null
+      },
+      "QNTUSDT": {
+        "mise_med": 10.0,
+        "cap": null,
+        "prof_05": null
+      },
+      "REDUSDT": {
+        "mise_med": 25.33,
+        "cap": 105.4506,
+        "prof_05": null
+      },
+      "RIZEUSDT": {
+        "mise_med": 4.88,
+        "cap": 4.8756,
+        "prof_05": 458.4
+      },
+      "RWAINCUSDT": {
+        "mise_med": 23.6,
+        "cap": 27.7324,
+        "prof_05": 1160.75
+      },
+      "RWAUSDT": {
+        "mise_med": 10.0,
+        "cap": null,
+        "prof_05": null
+      },
+      "TELUSDT": {
+        "mise_med": 26.43,
+        "cap": 25.7914,
+        "prof_05": 199.7
+      },
+      "WUSDT": {
+        "mise_med": 10.03,
+        "cap": 206.4422,
+        "prof_05": null
+      },
+      "XRPUSDT": {
+        "mise_med": 19.33,
+        "cap": 1686.6876000000002,
+        "prof_05": null
+      },
+      "ZBCNUSDT": {
+        "mise_med": 6.81,
+        "cap": 6.807,
+        "prof_05": 1159.35
+      }
+    }
+  },
+  "limites_declarees": [
+    "re-injection sur les EXTRÊMES mesurés de la tenue (borne, pas un chemin tick par tick)",
+    "le mur/cap du set-up est celui d'AUJOURD'HUI, pas celui de l'instant du trade"
+  ],
+  "lecture_seule": true,
+  "ordres": 0
+}

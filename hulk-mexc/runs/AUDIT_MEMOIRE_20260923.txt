@@ -1,0 +1,42 @@
+AUDIT MÉMOIRE — 2026-09-23T10:26:13Z — PAPER_V1_20260923_090125.csv
+lignes 76153 · trous de couverture 24 · doublons 0 · pnl_total discontinu 0
+spread dans le texte des ventes : 99.4 %
+coût du dérapage de stop vs stop annoncé : -2.68 $ sur 30 stops
+
+TROUS :
+  - BIOUSDT : pas de vue live → cap de mise sur le profil figé
+  - CCUSDT : pas de vue live → cap de mise sur le profil figé
+  - EDELUSDT : pas de vue live → cap de mise sur le profil figé
+  - FLUIDUSDT : pas de profil (villages de repli du code)
+  - FLUIDUSDT : pas d'observation de murs (wall_strength → 0,5 neutre par défaut)
+  - FLUIDUSDT : pas de set-up chiffré (moins de 20 paires couvertes)
+  - HBARUSDT : pas de vue live → cap de mise sur le profil figé
+  - KITEUSDT : pas de vue live → cap de mise sur le profil figé
+  - MNSRYUSDT : pas de profil (villages de repli du code)
+  - MNSRYUSDT : pas d'observation de murs (wall_strength → 0,5 neutre par défaut)
+  - MNSRYUSDT : pas de set-up chiffré (moins de 20 paires couvertes)
+  - PYTHUSDT : pas de vue live → cap de mise sur le profil figé
+  - QNTUSDT : pas de profil (villages de repli du code)
+  - QNTUSDT : pas de set-up chiffré (moins de 20 paires couvertes)
+  - REDUSDT : pas de vue live → cap de mise sur le profil figé
+  - RIZEUSDT : pas de vue live → cap de mise sur le profil figé
+  - RWAINCUSDT : pas de vue live → cap de mise sur le profil figé
+  - RWAUSDT : pas de profil (villages de repli du code)
+  - RWAUSDT : pas d'observation de murs (wall_strength → 0,5 neutre par défaut)
+  - RWAUSDT : pas de set-up chiffré (moins de 20 paires couvertes)
+  - TELUSDT : pas de vue live → cap de mise sur le profil figé
+  - WUSDT : pas de vue live → cap de mise sur le profil figé
+  - XRPUSDT : pas de vue live → cap de mise sur le profil figé
+  - ZBCNUSDT : pas de vue live → cap de mise sur le profil figé
+
+COLONNES QUI MANQUENT :
+  - mise_visee — mise calculée AVANT les plafonds/fusibles
+  - mur_utilise — valeur du mur (live ou profil) ayant plafonné
+  - seuil_exige — repli exigé par la paire au moment de l'entrée
+  - dd6_observe — repli observé (écrit seulement sur les refus depuis le 23/09)
+  - stop_nominal — niveau de stop annoncé à l'entrée
+  - spread_paye — spread effectivement traversé
+
+LIMITES DÉCLARÉES :
+  - re-injection sur les EXTRÊMES mesurés de la tenue (borne, pas un chemin tick par tick)
+  - le mur/cap du set-up est celui d'AUJOURD'HUI, pas celui de l'instant du trade
