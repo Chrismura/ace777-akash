@@ -2,13 +2,6 @@
   "signals": [
     {
       "metric": "sdi",
-      "zscore": 2.1767096762373948,
-      "value": 0.016,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.18) entièrement due à un bruit médiatique homonyme ('SDI' pour Syndicat des Indépendants et matériel vidéo). Aucune corrélation avec une activité onchain de baleines crypto.\"\n}\n```",
-      "ts": "2026-09-22T13:04:16.398973+00:00"
-    },
-    {
-      "metric": "sdi",
       "zscore": 2.1520242067155917,
       "value": 0.016,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie sémantique : le sigle SDI dans l'actualité fait référence au syndicat professionnel français (SDI - Indépendants) et à du matériel vidéo (Blackmagic), sans aucun rapport avec l'écosystème crypto ou une activité de baleine onchain.\"\n}\n```",
@@ -349,6 +342,13 @@
       "value": 9942966.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (z-score 11.68, ~9.9M USD) sans couverture médiatique (silence radio sur Google Actualités). Accumulation furtive des baleines en dehors du radar public.\"\n}\n```",
       "ts": "2026-09-23T13:04:00.783419+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 2.680032667206462,
+      "value": 3182645.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 78,\n  \"reason\": \"Activité anormale des baleines (z-score 2.68) totalement ignorée par les médias traditionnels (silence médiatique). Accumulation discrète en cours avant le réveil du narratif.\"\n}\n```",
+      "ts": "2026-09-23T13:44:32.175163+00:00"
     }
   ]
 }

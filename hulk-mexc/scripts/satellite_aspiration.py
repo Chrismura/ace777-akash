@@ -321,6 +321,14 @@ def run_once() -> int:
             }
         except Exception as _e:                                     # noqa: BLE001
             LIVE_DATA["ws_ombre"] = {"ok": False, "reason": str(_e)[:120]}
+        # RÉÉCRITURE NÉCESSAIRE (faute trouvée en vérifiant, 23/09) : `aspiration_live.json` est
+        # écrit AVANT ce bloc, donc mes champs `ws_*` n'apparaissaient JAMAIS dans le fichier lu
+        # par le moteur — la mesure était faite puis jetée. On réécrit avec le MÊME écrivain
+        # atomique, dans un try : une réécriture qui échoue ne casse pas la passe.
+        try:
+            atomic_write(RUNS / "aspiration_live.json", LIVE_DATA)
+        except Exception:
+            pass
         corpus_write(radar, btc)
         print(f"[sat-asp] ts={LIVE_DATA['ts']} actives={len(actives)} "
               f"écrites->{LIVE.name} btc={btc:.0f}")
