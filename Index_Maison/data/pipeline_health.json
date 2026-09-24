@@ -1,5 +1,5 @@
 {
-  "timestamp": 1790264195,
+  "timestamp": 1790267849,
   "global_score": 0.87,
   "mode": "nominal",
   "mode_label": "\u2705 NOMINAL",
@@ -14,8 +14,10 @@
       "issues": []
     },
     "deribit": {
-      "score": 1,
-      "issues": []
+      "score": 0.8,
+      "issues": [
+        "walls=None"
+      ]
     },
     "alternative": {
       "score": 1,
@@ -32,15 +34,13 @@
       ]
     },
     "sdi_ipt": {
-      "score": 0.7,
-      "issues": [
-        "ipt=absent"
-      ]
+      "score": 1,
+      "issues": []
     }
   },
   "all_issues": [
-    "google_news: source non v\u00e9rifiable en direct (aliment\u00e9e par sniffer) \u2192 DOWN",
-    "sdi_ipt: ipt=absent"
+    "deribit: walls=None",
+    "google_news: source non v\u00e9rifiable en direct (aliment\u00e9e par sniffer) \u2192 DOWN"
   ],
   "n_issues": 2
 }

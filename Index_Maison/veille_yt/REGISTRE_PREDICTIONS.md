@@ -1,11 +1,16 @@
 ---
-date: 2026-09-21T1615Z
+date: 2026-09-24T1619Z
 type: registre_predictions
 ---
 
 # 📓 Registre des prédictions — la vérification du banc d'essai
 
 Chaque prédiction est notée avec sa date limite. Le script `verifier_predictions.py` re-vérifie les échues (statut VRAIE/FAUSSE/NON VÉRIFIABLE).
+
+### 2026-09-24T1619Z — Crypto Crew University : BREAKING: 900 DAY BULLISH BREAKOUT
+Lien : https://www.youtube.com/watch?v=6ls57xJDjxI
+
+- ⏳ EN ATTENTE | [date_limite YYYY-MM-DD] <critere mesurable et precis> (source : youtuber / moi)
 
 ### 2026-09-21T1615Z — Crypto Crew University : 3-Min Recap: Golden Cross Always Delivers (It’s Coming) 🚀💰 #shorts
 Lien : https://www.youtube.com/watch?v=ZRIxjVjPH04

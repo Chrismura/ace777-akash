@@ -1,7 +1,37 @@
 {
-  "timestamp": 1790264081,
-  "date": "2026-09-24T15:34:41.227775+00:00",
-  "n_analyses": 0,
-  "analyses": [],
-  "resume": "Aucune analyse en cours"
+  "timestamp": 1790267682,
+  "date": "2026-09-24T16:34:42.534740+00:00",
+  "n_analyses": 1,
+  "analyses": [
+    {
+      "signal": {
+        "metric": "long_short",
+        "zscore": 2.3607513059685394,
+        "value": 1.27,
+        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.36) sur le ratio long/short (1.27) montrant un excès de positions acheteuses par les traders particuliers. Pendant ce temps, les médias grand public et institutionnels (BNP, Blackstone) font la promotion massive des stratégies long/short pour 'marchés agités', créant un piège à liquidité typique avant une purge.\"\n}\n```",
+        "ts": 1790267040.253645
+      },
+      "fiche": "long_short",
+      "questions": {
+        "ratio_long_short": {
+          "value": 1.27,
+          "seuil": 2,
+          "depasse": false
+        },
+        "oi": {
+          "value": 95954.216,
+          "seuil": 120000,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
+      },
+      "action": "Observer",
+      "niveau": "neutre"
+    }
+  ],
+  "resume": "🔵 CALME — pas de signal alarmant"
 }
