@@ -1,15 +1,15 @@
-# ARCHITECTURE VIVANTE — ACE777 (2026-09-23 23:21 UTC)
+# ARCHITECTURE VIVANTE — ACE777 (2026-09-24 15:31 UTC)
 
 > Document GÉNÉRÉ AUTOMATIQUEMENT à l'instant. La famille valide
 > en s'appuyant sur CE contexte, pas sur des documents figés.
 
 ## Qui tourne en ce moment
-- ⛔ hub
+- ✅ hub
 - ✅ pont cockpit
 - ✅ radar
 - ⛔ lecteur signets
 - ⛔ générateur fiches
-- ⛔ feed mission
+- ✅ feed mission
 - ✅ serveur cockpit
 
 ## Routage des tâches de décision
@@ -22,7 +22,7 @@
 
 ## État de la mission (bots + PnL)
 
-- mission.json : 2026-09-23 23:21Z · run `MASTER_BASE_V8_6_FORTRESS_8H20` · alerte `nominal`
+- mission.json : 2026-09-24 00:19Z · run `MASTER_BASE_V8_6_FORTRESS_8H20` · alerte `nominal`
 - PnL combiné : **0.70 $** 📈 (combo 0.7028)
 - ALPHA (sniper (embuscade, ×13, revenge si claque)) : **-1.97 $** · 7 fills · 6973 skips
 - BETA (éclaireur (chatouille le marché, alimente Alpha)) : **+2.67 $** · 34 fills · 604 skips
@@ -31,47 +31,17 @@
 
 ## Veille du jour
 
-- [Santé]
-  · hub : OK (10 providers)
-- [Énergie du jour]
-  · appels : 31 (cloud 31)
-  · budget cloud : 624 max
-  · par provider : gemini=27, huggingface=3, openrouter-juge=1
-- [Nouvelles offres détectées (non intégrées)]
-- [ROLLBACK AUTO 2026-09-23]
-  · obs-1786688184 (cohere/north-mini-code:free) : 100% erreurs > 5% (observatoire)
-- [ROLLBACK AUTO 2026-09-23]
-  · obs-1786774646 (nvidia/nemotron-3-nano-30b-a3b:free) : 100% erreurs > 5% (observatoire)
-- [ROLLBACK AUTO 2026-09-23]
-  · obs-1786774656 (nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free) : 80% erreurs > 5% (ob
-- [ROLLBACK AUTO 2026-09-23]
-  · obs-1786774667 (nvidia/nemotron-3.5-lightning:free) : 100% erreurs > 5% (observatoire)
-- [ROLLBACK AUTO 2026-09-23]
-  · obs-1786795252 (nvidia/nemotron-3.5-content-safety:free) : 100% erreurs > 5% (observatoire
-- [ROLLBACK AUTO 2026-09-23]
-  · obs-1787033767 (google/diffusiongemma-26b-a4b-it) : 100% erreurs > 5% (observatoire)
-- [ROLLBACK AUTO 2026-09-23]
-  · obs-1787206650 (google/gemma-4-26b-a4b-it:free) : 100% erreurs > 5% (observatoire)
-- [ROLLBACK AUTO 2026-09-23]
-  · obs-1787248844 (nvidia/nemotron-nano-9b-v2:free) : 100% erreurs > 5% (observatoire)
-- [ROLLBACK AUTO 2026-09-23]
-  · obs-1787724924 (minimax/minimax-m3:free) : 100% erreurs > 5% (observatoire)
-- [ROLLBACK AUTO 2026-09-23]
-  · obs-1788416175 (deepseek-ai/deepseek-v4-pro-0813) : 100% erreurs > 5% (observatoire)
-  · inclusionai/ling-3.0-flash-vl:free
-  · nex-agi/nex-n2.5-pro:free
-  · inclusionai/ling-3.0-flash-sante:free
-  … 123 offres/pépites détectées ce matin
+- VEILLE du jour : pas encore passée
 
 ## Mémoire chaude (journal + résumés)
 
 - Radar (dernières alertes) :
-  · 2026-09-23T23:21:01.236752Z ETHUSDT 2686.64 0.0002 233.8 declenche=oui
-  · 2026-09-23T23:21:01.307128Z ETHUSDT 2686.64 0.0002 233.8 declenche=oui
-  · 2026-09-23T23:21:01.307237Z ETHUSDT 2686.65 0.0002 233.8 declenche=oui
-  · 2026-09-23T23:21:01.307285Z ETHUSDT 2686.67 0.0002 233.9 declenche=oui
+  · 2026-09-24T00:19:09.612692Z ETHUSDT 2689.97 0.0002 40.8 declenche=non
+  · 2026-09-24T00:19:09.663725Z BTCUSDT 84422.43 0.0001 1.2 declenche=non
+  · 2026-09-24T00:19:09.665519Z BTCUSDT 84422.43 0.0001 1.2 declenche=non
+  · 2026-09-24T00:19:09.690386Z BTCUSDT 84422.43 0.0001 1.2 declenche=non
 - Intention en cours : BETA a sonde le marche (34 sondes, 25 long / 9 court, conf m | ALPHA attend son signal — aucun tir sur la session en cours.
-- 964 signets X résumés (quota aujourd'hui : 18/50)
+- 964 signets X résumés (quota aujourd'hui : 0/50)
 - 135 fiches IA d'offres en cache (quota 8/jour)
 
 ---

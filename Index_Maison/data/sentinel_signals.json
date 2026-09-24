@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "price_1h",
-      "zscore": 2.5413560729392324,
-      "value": 0.6083803134752874,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (+2.54) couplé à un silence médiatique total (Google Actualités vide). C'est la signature classique d'accumulation furtive par des baleines sous le radar du retail.\"\n}\n```",
-      "ts": "2026-09-23T05:50:03.591715+00:00"
-    },
-    {
       "metric": "whale_usd",
       "zscore": 3.315758210239622,
       "value": 2958409.0,
@@ -349,6 +342,13 @@
       "value": 1.422,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio élevé (1.422, z-score 2.46) indique une domination agressive des acheteurs (Taker Buy), montrant une accumulation silencieuse des baleines malgré le silence médiatique total (vide informationnel).\"\n}\n```",
       "ts": "2026-09-23T22:42:20.405087+00:00"
+    },
+    {
+      "metric": "taker_ratio",
+      "zscore": -2.217160090599245,
+      "value": 0.559,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio anormalement bas (z-score -2.22) indique une forte dominance des ordres d'achat passifs (limite) face aux ventes agressives. Ce silence médiatique combiné à une accumulation discrète par les baleines suggère un bas de marché imminent avant une cassure haussière.\"\n}\n```",
+      "ts": "2026-09-24T00:07:56.459060+00:00"
     }
   ]
 }

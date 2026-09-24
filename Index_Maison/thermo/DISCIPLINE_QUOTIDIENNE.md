@@ -1,13 +1,13 @@
-# DISCIPLINE QUOTIDIENNE — 2026-09-23T05:15:17Z
+# DISCIPLINE QUOTIDIENNE — 2026-09-24T15:31:59Z
 
 ## ALERTES
-- 🔴 CORTANA sous 50% (38.6%) — discipline NEUTRE active, à surveiller
+- 🔴 CORTANA sous 50% (38.2%) — discipline NEUTRE active, à surveiller
 - 🔴 DÉRIVE MÉMOIRE : au moins 1 indice INSTABLE — voir DERIVE_MEMOIRE.md
 
 ## CORTANA (justesse, 44% = pile-ou-face)
-- Score global : 38.6%
-- Analyses notées : 90/233
-- Par indice : altSeason 0/3; bassine 3/5; btc 3/10; chg24 1/3; croisements 11/24; etfBtcM 1/2; etfEthM 0/3; etfXrpM 0/3; fearGreed 30/64; geopol 3/21; gexPutCall 1/3; indice_onchain 1/4; liq24Usd 3/5; longShort 1/2; oi 0/4; onchain 1/3; pipeline_health 0/2; radar 26/58; rbf 0/2; score 0/2; sdi 2/4; verre 3/6
+- Score global : 38.2%
+- Analyses notées : 92/241
+- Par indice : altSeason 0/3; bassine 3/6; btc 3/10; chg24 1/3; croisements 11/25; etfBtcM 1/2; etfEthM 0/3; etfXrpM 0/3; fearGreed 30/65; geopol 4/23; gexPutCall 1/4; indice_onchain 1/4; liq24Usd 3/5; longShort 1/2; oi 0/4; onchain 1/3; pipeline_health 0/2; radar 27/60; rbf 0/2; score 0/2; sdi 2/4; verre 3/6
 
 ## ADA (zone/voilure vs BTC 24h, v1)
 - Zone-accuracy : None% (0/0)
@@ -18,11 +18,11 @@
 - Détail : DERIVE_MEMOIRE.md — instables/critiques à revoir (contexte, données, prompt).
 
 ## AGORA (leçons apprises, chantier E4)
-- Leçons actives : 11 (TTL 7j, namespace cortana) — chaque HIT/MISS nourrit la base.
+- Leçons actives : 10 (TTL 7j, namespace cortana) — chaque HIT/MISS nourrit la base.
 - lecons_auto.py : scan → staging → validation (discipline 07h15, APRÈS la note).
 
 ## ERREURS (6ᵉ partie du cycle — post-mortem branché, R15/R17.5)
-- Registre : 9 classes d'erreur · non branché : 0 · récidives depuis la correction : 0
+- Registre : 25 classes d'erreur · non branché : 0 · récidives depuis la correction : 0
 - REGISTRE_ECHECS_ET_ERREURS.md : consulté AVANT de proposer une garde (sinon on repaie).
 
 ## SEUILS FIXES (R17 — la mesure doit décider)
