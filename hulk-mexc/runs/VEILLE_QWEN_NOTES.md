@@ -5101,3 +5101,7 @@ Pas d’ordre — confrontation plus tard.
 - CHIPUSDT: IMPULSE_WAIT — spike en cours, pas chase
 - BIOUSDT: IMPULSE_WAIT — spike en cours, pas chase
 (compléter: confirmé ? risque ?)
+
+### 2026-09-24T17:32:20Z — ALERT auto
+- RWAINCUSDT: IMPULSE_WAIT — spike en cours, pas chase
+(compléter: confirmé ? risque ?)
