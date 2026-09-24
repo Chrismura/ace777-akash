@@ -1,20 +1,35 @@
 {
-  "timestamp": 1790281186,
-  "date": "2026-09-24T20:19:46.349402+00:00",
-  "n_analyses": 1,
+  "timestamp": 1790282386,
+  "date": "2026-09-24T20:39:46.739262+00:00",
+  "n_analyses": 2,
   "analyses": [
     {
       "signal": {
+        "metric": "sdi",
+        "zscore": 2.2543418375752156,
+        "value": 0.016,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 75,\n  \"reason\": \"Divergence entre l'anomalie onchain (z-score élevé) et le narratif médiatique neutre/positif. Les baleines pourraient accumuler silencieusement malgré les titres conventionnels.\"\n}\n```",
+        "ts": 1790281578.265316
+      },
+      "fiche": null,
+      "interpretation": {
+        "lecture": "Pas de fiche disponible",
+        "niveau": "inconnu"
+      },
+      "action": "Observer"
+    },
+    {
+      "signal": {
         "metric": "ipt",
-        "zscore": 2.6303374419086114,
+        "zscore": 2.6274844540454683,
         "value": 1.28,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (z-score 2.63) sur le ticker 'ipt' totalement polluée par du bruit médiatique hétérogène (physique, violences, biotechnologies, agriculture). Aucun signal baleine valide, le 'narratif' est un homonyme sans lien avec la crypto.\"\n}\n```",
-        "ts": 1790280070.94317
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Divergence forte entre l'activité on-chain (z-score élevé) et l'absence totale de couverture médiatique financière. Les titres actuels sont institutionnels/académiques, suggérant une accumulation silencieuse avant un mouvement majeur.\"\n}\n```",
+        "ts": 1790281881.432375
       },
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.05,
+          "value": -0.16,
           "seuil": 1,
           "depasse": false
         },
@@ -24,7 +39,7 @@
           "depasse": false
         },
         "funding": {
-          "value": 4e-06,
+          "value": 3e-06,
           "seuil": 0.001,
           "depasse": false
         },
