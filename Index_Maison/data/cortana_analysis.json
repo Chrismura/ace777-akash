@@ -1,26 +1,65 @@
 {
-  "timestamp": 1790267682,
-  "date": "2026-09-24T16:34:42.534740+00:00",
-  "n_analyses": 1,
+  "timestamp": 1790270383,
+  "date": "2026-09-24T17:19:43.299642+00:00",
+  "n_analyses": 2,
   "analyses": [
     {
       "signal": {
         "metric": "long_short",
-        "zscore": 2.3607513059685394,
+        "zscore": 2.189479767161083,
         "value": 1.27,
-        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.36) sur le ratio long/short (1.27) montrant un excès de positions acheteuses par les traders particuliers. Pendant ce temps, les médias grand public et institutionnels (BNP, Blackstone) font la promotion massive des stratégies long/short pour 'marchés agités', créant un piège à liquidité typique avant une purge.\"\n}\n```",
-        "ts": 1790267040.253645
+        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Le ratio long/short élevé (z-score 2.19) indique un positionnement excessivement haussier des traders de détail, piégés par un narratif médiatique généraliste (fonds long-short, rendement) totalement déconnecté de la dynamique réelle du marché crypto. Configuration classique de 'crowded trade' propice à une purge imminente.\"\n}\n```",
+        "ts": 1790268855.64523
       },
       "fiche": "long_short",
       "questions": {
         "ratio_long_short": {
-          "value": 1.27,
+          "value": 1.231,
           "seuil": 2,
           "depasse": false
         },
         "oi": {
-          "value": 95954.216,
+          "value": 95876.099,
           "seuil": 120000,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
+      },
+      "action": "Observer",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "ipt",
+        "zscore": 2.049527732692307,
+        "value": 1.048,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.05) sans corrélation avec le bruit médiatique. Les titres font référence à l'Institut Polytechnique de Toulouse (IPT), au Tournoi International des Physiciens ou à des actualités agroalimentaires/sociales, totalement déconnectés des mouvements de baleines crypto. Bruit de fond non pertinent.\"\n}\n```",
+        "ts": 1790269767.228542
+      },
+      "fiche": "rbf_eleve",
+      "questions": {
+        "prix": {
+          "value": -0.02,
+          "seuil": 1,
+          "depasse": false
+        },
+        "paires": {
+          "value": 1,
+          "seuil": 3,
+          "depasse": false
+        },
+        "funding": {
+          "value": 5e-06,
+          "seuil": 0.001,
+          "depasse": false
+        },
+        "whales": {
+          "value": 0,
+          "seuil": 5,
           "depasse": false
         }
       },

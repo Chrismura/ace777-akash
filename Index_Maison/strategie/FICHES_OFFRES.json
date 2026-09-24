@@ -16,7 +16,8 @@
     "2026-09-16": 8,
     "2026-09-18": 8,
     "2026-09-20": 8,
-    "2026-09-23": 8
+    "2026-09-23": 8,
+    "2026-09-24": 7
   },
   "fiches": {
     "32f5f333ea5d": {
@@ -2540,6 +2541,127 @@
       "usage": "Analyste stratégique ou juge pour tâches complexes",
       "avis_pour": "Essayer pour des analyses textuelles profondes là où Gemini échoue.",
       "avis_attention": "Vérifier la consommation mémoire avant déploiement sur nos instances légères."
+    },
+    "17e52f4310ff": {
+      "section": "rss (simonwillison/latent/batch)",
+      "item": "obs-1786774656 (nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free) : 100% erreurs > 5% (observatoire)",
+      "generated": "2026-09-24T17:21:57.170057+00:00",
+      "type": "Modèle de raisonnement multimodal NVidia hors service en observatoire",
+      "forts": [
+        "Architecture 30B orientée raisonnement",
+        "Gratuit sur le papier"
+      ],
+      "faibles": [
+        "100% d'erreurs détectées (déclenché en rollback automatique)",
+        "Inutilisable actuellement dans nos scripts et routages"
+      ],
+      "usage": "Aucun (écarté de l'infrastructure ACE777)",
+      "avis_pour": "À surveiller uniquement si l'observatoire valide un correctif de stabilité futur.",
+      "avis_attention": "Offre actuellement instable et rejetée par les protocoles de sécurité ACE777."
+    },
+    "85d0c9d4c034": {
+      "section": "rss (simonwillison/latent/batch)",
+      "item": "feeds.feedburner.com: ERR: rss <urlopen error [Errno 8] nodename nor servname pro",
+      "generated": "2026-09-24T17:22:00.284555+00:00",
+      "type": "Flux RSS technique indisponible ou non fonctionnel",
+      "forts": [
+        "Permet potentiellement de suivre les actualités du développement (Simon Willison)",
+        "Source d'inspiration potentielle pour les flux d'information"
+      ],
+      "faibles": [
+        "Erreur réseau persistante (nodename nor servname provided)",
+        "Inexploitable en l'état pour des scripts ou de l'analyse automatisée"
+      ],
+      "usage": "lecteur signets",
+      "avis_pour": "À surveiller uniquement si le problème de résolution de nom (DNS) est résolu.",
+      "avis_attention": "Attention aux erreurs de connexion répétées qui bloquent l'intégration automatique."
+    },
+    "e5f95920633e": {
+      "section": "rss (simonwillison/latent/batch)",
+      "item": "obs-1786688184 (cohere/north-mini-code:free) : 100% erreurs > 5% (observatoire)",
+      "generated": "2026-09-24T17:22:12.620380+00:00",
+      "type": "Modèle de codage gratuit de Cohere (actuellement en échec dans l'observatoire ACE777)",
+      "forts": [
+        "Spécialisé à l'origine pour le code",
+        "Gratuit sur le papier"
+      ],
+      "faibles": [
+        "Taux d'erreur supérieur à 5% (100% d'erreurs détectées)",
+        "Rollback automatique appliqué dans l'architecture ACE777"
+      ],
+      "usage": "Non recommandé actuellement (écarté par l'observatoire)",
+      "avis_pour": "À surveiller si le fournisseur corrige ses instabilités de connexion",
+      "avis_attention": "Inutilisable en l'état actuel en raison des erreurs de l'observatoire"
+    },
+    "6b6b1a0d7aef": {
+      "section": "rss (simonwillison/latent/batch)",
+      "item": "obs-1787033767 (google/diffusiongemma-26b-a4b-it) : 100% erreurs > 5% (observatoire)",
+      "generated": "2026-09-24T17:22:19.214646+00:00",
+      "type": "Modèle Google expérimental ou multimodal associé aux flux RSS de veille technique",
+      "forts": [
+        "Gratuit via l'observatoire",
+        "Potentiel pour parser des flux ou structurer du contenu brut"
+      ],
+      "faibles": [
+        "Taux d'erreur actuellement de 100% selon l'observatoire ACE777 (rollback automatique actif)",
+        "Nom ou endpoint instable nécessitant une vérification réseau"
+      ],
+      "usage": "Inutilisable en production actuellement en raison des erreurs système",
+      "avis_pour": "À observer de loin si le connecteur RSS ou le fournisseur stabilise son API",
+      "avis_attention": "Attention au blocage total : l'offre subit des échecs répétés et un rollback automatique immédiat"
+    },
+    "6af3c746f282": {
+      "section": "rss (simonwillison/latent/batch)",
+      "item": "obs-1787206650 (google/gemma-4-26b-a4b-it:free) : 100% erreurs > 5% (observatoire)",
+      "generated": "2026-09-24T17:22:31.524682+00:00",
+      "type": "Modèle Google expérimental actuellement instable",
+      "forts": [
+        "Gratuit sur le papier via l'offre observatoire",
+        "Architecture 26B potentiellement adaptée à l'analyse"
+      ],
+      "faibles": [
+        "100% d'erreurs détectées (> 5% de seuil)",
+        "Rollback automatique appliqué par l'architecture ACE777",
+        "Non routable pour nos scripts et tâches de décision actuels"
+      ],
+      "usage": "Indisponible pour le moment (exclu du routage)",
+      "avis_pour": "À surveiller si le fournisseur corrige ses erreurs de connectivité réseau à l'avenir.",
+      "avis_attention": "Attention, cette offre déclenche des erreurs massives et est actuellement désactivée dans l'écosystème."
+    },
+    "0912a4287706": {
+      "section": "rss (simonwillison/latent/batch)",
+      "item": "obs-1787724924 (minimax/minimax-m3:free) : 100% erreurs > 5% (observatoire)",
+      "generated": "2026-09-24T17:22:38.587911+00:00",
+      "type": "Modèle de langage minimax/minimax-m3:free actuellement en échec critique",
+      "forts": [
+        "Nommé dans un lot d'offres rattaché à l'observatoire",
+        "Intégré initialement dans les flux de test de veille"
+      ],
+      "faibles": [
+        "Taux d'erreur de 100% > 5% détecté par l'observatoire",
+        "Rollback automatique appliqué le 2026-09-24",
+        "Inutilisable en production pour le moment"
+      ],
+      "usage": "Aucun pour l'instant (offre suspendue suite aux erreurs de l'observatoire)",
+      "avis_pour": "À observer uniquement si l'infrastructure de test parvient à stabiliser ses points de terminaison",
+      "avis_attention": "Attention aux erreurs bloquantes relevées par l'observatoire, le modèle est actuellement retiré du circuit actif"
+    },
+    "82838a0e8025": {
+      "section": "rss (simonwillison/latent/batch)",
+      "item": "obs-1788416175 (deepseek-ai/deepseek-v4-pro-0813) : 100% erreurs > 5% (observatoire)",
+      "generated": "2026-09-24T17:22:46.372763+00:00",
+      "type": "Modèle DeepSeek en flux RSS (actuellement en échec dans l'observatoire)",
+      "forts": [
+        "Intégration potentielle via flux de test",
+        "Origine DeepSeek orientée performance brute"
+      ],
+      "faibles": [
+        "Taux d'erreur à 100% dans l'observatoire ACE777",
+        "Actuellement sous le coup d'un rollback automatique"
+      ],
+      "usage": "lecteur signets (non recommandé tant que l'erreur persiste)",
+      "avis_pour": "À surveiller si le fournisseur stabilise son accès et lève ses erreurs d'URL.",
+      "avis_attention": "Inutilisable en l'état actuel en raison des erreurs critiques détectées par l'observatoire."
     }
   }
 }

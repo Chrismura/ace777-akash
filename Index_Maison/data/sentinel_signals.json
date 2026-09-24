@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "whale_usd",
-      "zscore": 3.8297392611943555,
-      "value": 3679359.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Activité anormale des baleines (Z-score 3.83, +3.68M USD) dans un silence médiatique absolu (Google Actualités vide). Accumulation furtive classique avant une rupture de prix.\"\n}\n```",
-      "ts": "2026-09-23T10:26:56.482033+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.2990099475195596,
-      "value": 1.134,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.30) sur le ticker 'ipt' totalement polluée par du bruit sémantique (l'acronyme IPT désignant des tournois de physique, des institutions religieuses et des partenariats universitaires). Aucune corrélation avec une activité de baleine crypto.\"\n}\n```",
-      "ts": "2026-09-23T10:26:58.217828+00:00"
-    },
-    {
       "metric": "cpfp",
       "zscore": 2.0620835495672862,
       "value": 50.0,
@@ -349,6 +335,20 @@
       "value": 1.27,
       "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.36) sur le ratio long/short (1.27) montrant un excès de positions acheteuses par les traders particuliers. Pendant ce temps, les médias grand public et institutionnels (BNP, Blackstone) font la promotion massive des stratégies long/short pour 'marchés agités', créant un piège à liquidité typique avant une purge.\"\n}\n```",
       "ts": "2026-09-24T16:24:00.253645+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": 2.189479767161083,
+      "value": 1.27,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Le ratio long/short élevé (z-score 2.19) indique un positionnement excessivement haussier des traders de détail, piégés par un narratif médiatique généraliste (fonds long-short, rendement) totalement déconnecté de la dynamique réelle du marché crypto. Configuration classique de 'crowded trade' propice à une purge imminente.\"\n}\n```",
+      "ts": "2026-09-24T16:54:15.645230+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.049527732692307,
+      "value": 1.048,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.05) sans corrélation avec le bruit médiatique. Les titres font référence à l'Institut Polytechnique de Toulouse (IPT), au Tournoi International des Physiciens ou à des actualités agroalimentaires/sociales, totalement déconnectés des mouvements de baleines crypto. Bruit de fond non pertinent.\"\n}\n```",
+      "ts": "2026-09-24T17:09:27.228542+00:00"
     }
   ]
 }
