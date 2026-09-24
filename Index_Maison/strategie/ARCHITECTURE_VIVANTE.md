@@ -1,4 +1,4 @@
-# ARCHITECTURE VIVANTE — ACE777 (2026-09-24 17:21 UTC)
+# ARCHITECTURE VIVANTE — ACE777 (2026-09-24 18:39 UTC)
 
 > Document GÉNÉRÉ AUTOMATIQUEMENT à l'instant. La famille valide
 > en s'appuyant sur CE contexte, pas sur des documents figés.
@@ -8,7 +8,7 @@
 - ✅ pont cockpit
 - ✅ radar
 - ⛔ lecteur signets
-- ✅ générateur fiches
+- ⛔ générateur fiches
 - ⛔ feed mission
 - ✅ serveur cockpit
 
@@ -22,11 +22,11 @@
 
 ## État de la mission (bots + PnL)
 
-- mission.json : 2026-09-24 17:21Z · run `MASTER_BASE_V8_6_FORTRESS_8H20` · alerte `nominal`
+- mission.json : 2026-09-24 18:38Z · run `MASTER_BASE_V8_6_FORTRESS_8H20` · alerte `nominal`
 - PnL combiné : **0.70 $** 📈 (combo 0.7028)
 - ALPHA (sniper (embuscade, ×13, revenge si claque)) : **-1.97 $** · 7 fills · 6973 skips
 - BETA (éclaireur (chatouille le marché, alimente Alpha)) : **+2.67 $** · 34 fills · 604 skips
-- HULK (gestionnaire de portefeuille (bag, escalier, courreur)) : **+32.69 $** · 0 fills
+- HULK (gestionnaire de portefeuille (bag, escalier, courreur)) : **+32.95 $** · 0 fills
 - Saison : CALME 🧊 · 
 
 ## Veille du jour
@@ -68,13 +68,13 @@
 ## Mémoire chaude (journal + résumés)
 
 - Radar (dernières alertes) :
-  · 2026-09-24T17:21:49.785186Z ETHUSDT 2681.24 0.0002 102.3 declenche=non
-  · 2026-09-24T17:21:50.345559Z ETHUSDT 2681.24 0.0002 102.3 declenche=non
-  · 2026-09-24T17:21:50.357616Z BTCUSDT 84368.02 0.0001 10.1 declenche=non
-  · 2026-09-24T17:21:50.386739Z BTCUSDT 84368.01 0.0001 10.1 declenche=non
+  · 2026-09-24T18:39:07.778700Z ETHUSDT 2691.1 0.0030 477.1 declenche=oui
+  · 2026-09-24T18:39:07.779418Z BTCUSDT 84539.1 0.0023 14.4 declenche=non
+  · 2026-09-24T18:39:07.779840Z ETHUSDT 2691.1 0.0030 477.1 declenche=oui
+  · 2026-09-24T18:39:07.876655Z BTCUSDT 84539.1 0.0023 14.4 declenche=non
 - Intention en cours : BETA a sonde le marche (34 sondes, 25 long / 9 court, conf m | ALPHA attend son signal — aucun tir sur la session en cours.
 - 964 signets X résumés (quota aujourd'hui : 0/50)
-- 135 fiches IA d'offres en cache (quota 8/jour)
+- 143 fiches IA d'offres en cache (quota 8/jour)
 
 ---
 Généré par archi_vivante.py — relancé à chaque validation.
