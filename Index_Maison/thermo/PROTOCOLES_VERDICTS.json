@@ -1,5 +1,5 @@
 {
-  "ts": "2026-09-25T15:45:05+00:00",
+  "ts": "2026-09-25T16:45:20+00:00",
   "note": "Verdicts MESURÉS à la source (scripts/verdicts_protocoles.py). Chaque protocole porte son critère pré-enregistré : c'est lui qui décide, pas l'impression du moment. Un verdict « IMPOSSIBLE » ou une ligne « alerte » signale un protocole dont le verdict ne peut pas être rendu — c'est une panne de conception, pas une patience.",
   "protocoles": [
     {
@@ -179,7 +179,7 @@
     {
       "protocole": "Radar XRPL gouvernance",
       "critere": "J8 pré-enregistré : (a) ≥ 5 amendements dont le compteur bouge de ≥ 2 votes, OU (b) ≥ 1 activation, OU (c) ≥ 1 amendement mort ; sinon échec",
-      "faits": "257 snapshots · 113 amendements suivis · (a) 6 bougent de ≥ 2 (il en fallait 5) · (b) 0 activation · (c) 0 mort · 3 nouveau(x)",
+      "faits": "258 snapshots · 113 amendements suivis · (a) 6 bougent de ≥ 2 (il en fallait 5) · (b) 0 activation · (c) 0 mort · 3 nouveau(x)",
       "verdict": "SUCCES (critère atteint)",
       "alerte": "",
       "detail": [
@@ -192,11 +192,11 @@
           "delta_votes": 4
         },
         {
-          "amendement": "DynamicMPT",
+          "amendement": "ConfidentialTransfer",
           "delta_votes": 4
         },
         {
-          "amendement": "ConfidentialTransfer",
+          "amendement": "DynamicMPT",
           "delta_votes": 4
         },
         {
@@ -299,7 +299,7 @@
           "directionnels": 4,
           "corrects": 1,
           "neutres": 21,
-          "t_stat": -3.4
+          "t_stat": -3.0
         }
       ]
     },

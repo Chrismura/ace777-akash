@@ -2,13 +2,6 @@
   "signals": [
     {
       "metric": "long_short",
-      "zscore": 2.482436560258304,
-      "value": 1.261,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Le z-score élevé (2.48) indique une surconcentration massive de positions acheteuses (longs) par rapport aux shorts, traduisant un optimisme excessif des baleines. Historiquement, un tel déséquilibre précède souvent un 'long squeeze' brutal, alors que le narratif médiatique grand public reste complaisant sur les stratégies Long/Short.\"\n}\n```",
-      "ts": "2026-09-24T15:53:22.167422+00:00"
-    },
-    {
-      "metric": "long_short",
       "zscore": 2.3607513059685394,
       "value": 1.27,
       "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.36) sur le ratio long/short (1.27) montrant un excès de positions acheteuses par les traders particuliers. Pendant ce temps, les médias grand public et institutionnels (BNP, Blackstone) font la promotion massive des stratégies long/short pour 'marchés agités', créant un piège à liquidité typique avant une purge.\"\n}\n```",
@@ -349,6 +342,13 @@
       "value": 1.474,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 2.64) non reflétée dans les médias. Les titres couvrent des sujets institutionnels/partenariats sans lien évident avec l'activité financière. Divergence suggère une accumulation discrète ou préparation à un mouvement non médiatisé.\"\n}\n```",
       "ts": "2026-09-25T15:37:29.717150+00:00"
+    },
+    {
+      "metric": "price_1h",
+      "zscore": 3.1545987646694145,
+      "value": 0.693568801401423,
+      "analysis": "{\n  \"signal\": \"bullish\",\n  \"confidence\": 70,\n  \"reason\": \"The 1‑hour price shows a strong positive deviation (z‑score = 3.15), indicating significant buying pressure likely driven by large holders. Media headlines are generic and lack any bullish narrative, suggesting the move is not yet reflected in public discourse – a classic sign of silent whale accumulation.\"\n}",
+      "ts": "2026-09-25T15:52:35.465248+00:00"
     }
   ]
 }
