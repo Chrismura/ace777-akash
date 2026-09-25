@@ -1,34 +1,6 @@
 {
   "signals": [
     {
-      "metric": "long_short",
-      "zscore": 7.564144396245221,
-      "value": 1.07,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 92,\n  \"reason\": \"Z-score extrêmement élevé (7.56) sur le ratio long/short indiquant un positionnement acheteur ultra-hypertrophié et consensuel. La marée médiatique fait l'éloge unanime des stratégies long/short traditionnelles, créant un piège à liquidité classique. Divergence classique de fin de cycle : les baleines s'apprêtent à purger les excès de levier des suiveurs.\"\n}\n```",
-      "ts": "2026-09-23T15:14:56.275899+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": 2.005311060108579,
-      "value": 16951044826.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique de volume (z-score 2.01) totalement déconnectée des actualités médias grand public qui traitent de mode, de pneus et de musique. Aucun signal crypto pertinent détecté dans le narratif.\"\n}\n```",
-      "ts": "2026-09-23T15:20:52.642228+00:00"
-    },
-    {
-      "metric": "whale_usd",
-      "zscore": 6.308296487788509,
-      "value": 7025107.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (z-score 6.31, ~7M USD) totalement ignorée par les médias (silence radio de Google Actualités). Comportement typique d'accumulation furtive par les baleines avant un mouvement directionnel non anticipé par le retail.\"\n}\n```",
-      "ts": "2026-09-23T15:21:32.959545+00:00"
-    },
-    {
-      "metric": "long_short",
-      "zscore": 5.095181429944429,
-      "value": 1.07,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 92,\n  \"reason\": \"Z-score extrême (5.10) sur le ratio long/short indiquant un positionnement acheteur excessivement surpeuplé par la foule, tandis que le narratif médiatique grand public s'enthousiasme naïvement pour les stratégies long/short. Classique piège à liquidité propice à une purge imminente des baleines.\"\n}\n```",
-      "ts": "2026-09-23T15:47:38.182240+00:00"
-    },
-    {
       "metric": "volume",
       "zscore": 2.206003182420141,
       "value": 17233477701.0,
@@ -349,6 +321,34 @@
       "value": 1.459,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Le z-score élevé (3.01) est un artefact sémantique. Les titres médiatiques font référence à des acronymes homonymes sans rapport avec la crypto (Tournoi International des Physiciens, violences sexistes, biotechnologies, agriculture), et non à une accumulation ou distribution silencieuse de baleines.\"\n}\n```",
       "ts": "2026-09-24T22:11:42.107394+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 2.6215669927378924,
+      "value": 3445348.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Activité anormale des baleines (z-score 2.62, +3.4M USD) totalement ignorée par les médias (silence radio). Accumulation furtive classique avant un mouvement de marché.\"\n}\n```",
+      "ts": "2026-09-25T00:17:05.655655+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.0185538192124928,
+      "value": 1.225,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Fausse alerte liée à l'ambiguïté du ticker 'IPT' (tournoi de physique, violences, partenariats universitaires, agriculture). Aucune baleine crypto active, le z-score élevé capture du bruit sémantique sans rapport avec la blockchain.\"\n}\n```",
+      "ts": "2026-09-25T00:22:08.217467+00:00"
+    },
+    {
+      "metric": "cpfp",
+      "zscore": 2.0497483899206825,
+      "value": 50.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Faux positif sémantique : le pic de CPFP on-chain concerne des congestions de mempool Bitcoin, tandis que le narratif médiatique mélange des actualités techniques mineures avec des homonymes institutionnels non financiers (centre de formation, politique).\"\n}\n```",
+      "ts": "2026-09-25T00:32:11.103645+00:00"
+    },
+    {
+      "metric": "dust",
+      "zscore": 2.0497483899206825,
+      "value": 50.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit de fond sans rapport avec la crypto. Les 'dusts' détectés concernent de la culture pop et du jeu vidéo (Dust till Dawn), aucune baleine active.\"\n}\n```",
+      "ts": "2026-09-25T00:32:12.944521+00:00"
     }
   ]
 }

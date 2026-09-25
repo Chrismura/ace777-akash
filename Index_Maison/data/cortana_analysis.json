@@ -1,7 +1,171 @@
 {
-  "timestamp": 1790293190,
-  "date": "2026-09-24T23:39:50.143615+00:00",
-  "n_analyses": 0,
-  "analyses": [],
-  "resume": "Aucune analyse en cours"
+  "timestamp": 1790296791,
+  "date": "2026-09-25T00:39:51.203202+00:00",
+  "n_analyses": 4,
+  "analyses": [
+    {
+      "signal": {
+        "metric": "whale_usd",
+        "zscore": 2.6215669927378924,
+        "value": 3445348.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Activité anormale des baleines (z-score 2.62, +3.4M USD) totalement ignorée par les médias (silence radio). Accumulation furtive classique avant un mouvement de marché.\"\n}\n```",
+        "ts": 1790295425.655655
+      },
+      "fiche": "whale_usd",
+      "questions": {
+        "ventes": {
+          "value": 0.0,
+          "seuil": 0,
+          "depasse": false
+        },
+        "achats": {
+          "value": 0.0,
+          "seuil": 0,
+          "depasse": false
+        },
+        "prix": {
+          "value": 0.23,
+          "seuil": 1,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
+      },
+      "action": "Observer",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "ipt",
+        "zscore": 2.0185538192124928,
+        "value": 1.225,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Fausse alerte liée à l'ambiguïté du ticker 'IPT' (tournoi de physique, violences, partenariats universitaires, agriculture). Aucune baleine crypto active, le z-score élevé capture du bruit sémantique sans rapport avec la blockchain.\"\n}\n```",
+        "ts": 1790295728.217467
+      },
+      "fiche": "rbf_eleve",
+      "questions": {
+        "prix": {
+          "value": 0.23,
+          "seuil": 1,
+          "depasse": false
+        },
+        "paires": {
+          "value": 0,
+          "seuil": 3,
+          "depasse": false
+        },
+        "funding": {
+          "value": 9e-06,
+          "seuil": 0.001,
+          "depasse": false
+        },
+        "whales": {
+          "value": 0,
+          "seuil": 5,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
+      },
+      "action": "Observer",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "cpfp",
+        "zscore": 2.0497483899206825,
+        "value": 50.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Faux positif sémantique : le pic de CPFP on-chain concerne des congestions de mempool Bitcoin, tandis que le narratif médiatique mélange des actualités techniques mineures avec des homonymes institutionnels non financiers (centre de formation, politique).\"\n}\n```",
+        "ts": 1790296331.103645
+      },
+      "fiche": "blocs_privilises",
+      "questions": {
+        "duree": {
+          "value": 0,
+          "seuil": 0,
+          "depasse": false
+        },
+        "volume": {
+          "value": 1846,
+          "seuil": 0,
+          "depasse": true
+        },
+        "prix": {
+          "value": 0.23,
+          "seuil": 0,
+          "depasse": true
+        },
+        "sdi": {
+          "value": 0.008,
+          "seuil": 0,
+          "depasse": true
+        },
+        "rbf": {
+          "value": 0.0,
+          "seuil": 0,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "duree < 5min ET volume > 100",
+        "lecture": "Consolidation exchange — probablement un transfert hot→cold",
+        "niveau": "neutre",
+        "action": "Garder les positions"
+      },
+      "action": "Garder les positions",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "dust",
+        "zscore": 2.0497483899206825,
+        "value": 50.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit de fond sans rapport avec la crypto. Les 'dusts' détectés concernent de la culture pop et du jeu vidéo (Dust till Dawn), aucune baleine active.\"\n}\n```",
+        "ts": 1790296332.944521
+      },
+      "fiche": "blocs_privilises",
+      "questions": {
+        "duree": {
+          "value": 0,
+          "seuil": 0,
+          "depasse": false
+        },
+        "volume": {
+          "value": 1846,
+          "seuil": 0,
+          "depasse": true
+        },
+        "prix": {
+          "value": 0.23,
+          "seuil": 0,
+          "depasse": true
+        },
+        "sdi": {
+          "value": 0.008,
+          "seuil": 0,
+          "depasse": true
+        },
+        "rbf": {
+          "value": 0.0,
+          "seuil": 0,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "duree < 5min ET volume > 100",
+        "lecture": "Consolidation exchange — probablement un transfert hot→cold",
+        "niveau": "neutre",
+        "action": "Garder les positions"
+      },
+      "action": "Garder les positions",
+      "niveau": "neutre"
+    }
+  ],
+  "resume": "🔵 CALME — pas de signal alarmant"
 }
