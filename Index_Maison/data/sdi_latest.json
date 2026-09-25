@@ -1,58 +1,51 @@
 {
-  "timestamp": 1790335417,
+  "timestamp": 1790336490,
   "sdi": {
-    "sdi": 0.016,
+    "sdi": 0.012,
     "divergence_score": 0,
-    "fee_score": 0.04,
+    "fee_score": 0.03,
     "dormant_pct": 71,
     "dormant_avg_30d": 66.7,
     "dormant_source": "alternative.me (FG proxy — les données dormant sont indisponibles)",
-    "fee_fastest_sat": 4
+    "fee_fastest_sat": 3
   },
   "ipt": {
-    "ipt": 1.095,
-    "micro_tx_ratio": 0.4,
-    "z_fee": 3.0,
-    "entropy": 0.117
+    "ipt": 0.68,
+    "micro_tx_ratio": 0.2,
+    "z_fee": 2.0,
+    "entropy": 0
   },
   "rbf": {
-    "rbf_score": 0.167,
-    "rbf_ratio": 0.167,
-    "rbf_pairs": 1,
+    "rbf_score": 0.0,
+    "rbf_ratio": 0.0,
+    "rbf_pairs": 0,
     "n_txs": 6,
     "rbf_method": "outspends-double-depense",
-    "rbf_detail": [
-      {
-        "tx": "4c63492342121cea",
-        "remplacee_par": "40d9fcd3ff4f612c",
-        "input": "bf78a7538e179a53:0"
-      }
-    ]
+    "rbf_detail": []
   },
   "fee_pressure": {
-    "fastest": 4,
+    "fastest": 3,
     "halfHour": 3,
     "hour": 1,
     "economy": 1,
     "source": "mempool.space"
   },
   "alerts": [
-    "IPT ÉLEVÉ: un seul acteur automatisé détecté",
     "ENTROPIE BASSE: mempool anormalement homogène"
   ],
   "sapi": {
-    "score": 0.65,
+    "score": 0.189,
     "alerte": false,
     "persistance": false,
     "scores_recents": [
-      0.2,
-      0.55,
-      0.65
+      0.189,
+      0.189,
+      0.189
     ],
     "composantes": {
-      "z_fee": 3.0,
-      "taux_fantome": 100.0,
-      "micro_tx_ratio": 0.4,
+      "z_fee": 2.0,
+      "taux_fantome": 0.095,
+      "micro_tx_ratio": 0.2,
       "spot_proxy": 0.0,
       "coef_heure_creuse": 1.0,
       "entropie_tempo": 0.0

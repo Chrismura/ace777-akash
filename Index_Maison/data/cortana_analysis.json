@@ -1,43 +1,8 @@
 {
-  "timestamp": 1790335502,
-  "date": "2026-09-25T11:25:02.511338+00:00",
-  "n_analyses": 5,
+  "timestamp": 1790336402,
+  "date": "2026-09-25T11:40:02.930371+00:00",
+  "n_analyses": 4,
   "analyses": [
-    {
-      "signal": {
-        "metric": "liquidations",
-        "zscore": 2.5676784093362883,
-        "value": 4182514.0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Bruit médiatique parasité par des liquidations d'entreprises traditionnelles hors-crypto. Le z-score élevé (2.57) combiné à la panique retail orchestrée par la presse classique masque une purge saine des positions à effet de levier par les baleines, signalant un point bas local d'accumulation.\"\n}\n```",
-        "ts": 1790334587.5404
-      },
-      "fiche": "liquidations",
-      "questions": {
-        "longs": {
-          "value": 281352.0,
-          "seuil": 0,
-          "depasse": true
-        },
-        "shorts": {
-          "value": 1394552.0,
-          "seuil": 0,
-          "depasse": true
-        },
-        "prix": {
-          "value": 0.34,
-          "seuil": 1,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "shorts > longs",
-        "lecture": "Liquidations massives de SHORTS — squeeze haussier mécanique. Les paliers RIP profitent de ces mouvements",
-        "niveau": "info",
-        "action": "Laisser courir les paliers RIP, ne pas rentrer après la cascade"
-      },
-      "action": "Laisser courir les paliers RIP, ne pas rentrer après la cascade",
-      "niveau": "info"
-    },
     {
       "signal": {
         "metric": "price_1h",
@@ -49,17 +14,17 @@
       "fiche": "price_1h",
       "questions": {
         "pct_1h": {
-          "value": 0.34,
+          "value": 0.25,
           "seuil": -1,
           "depasse": true
         },
         "liq": {
-          "value": 1675904.0,
+          "value": 1629079.0,
           "seuil": 5000000,
           "depasse": false
         },
         "funding": {
-          "value": -3e-06,
+          "value": -5e-06,
           "seuil": 0,
           "depasse": true
         }
@@ -83,29 +48,29 @@
       "fiche": "whale_usd",
       "questions": {
         "ventes": {
-          "value": 5844585.0,
-          "seuil": 0,
-          "depasse": true
-        },
-        "achats": {
           "value": 0.0,
           "seuil": 0,
           "depasse": false
         },
+        "achats": {
+          "value": 508315.0,
+          "seuil": 0,
+          "depasse": true
+        },
         "prix": {
-          "value": 0.34,
+          "value": 0.25,
           "seuil": 1,
           "depasse": false
         }
       },
       "interpretation": {
-        "condition": "ventes > achats",
-        "lecture": "Flux baleines VENDEUR dominant — distribution possible vers les exchanges (proxy : bearish aujourd'hui)",
-        "niveau": "surveiller",
-        "action": "Croiser avec le sniffer vieux BTC et l'IPT avant de réduire"
+        "condition": "achats > ventes",
+        "lecture": "Flux baleines ACHETEUR dominant — accumulation possible, à confirmer sur plusieurs scans",
+        "niveau": "info",
+        "action": "Observer, ne pas acheter sur un seul signal"
       },
-      "action": "Croiser avec le sniffer vieux BTC et l'IPT avant de réduire",
-      "niveau": "surveiller"
+      "action": "Observer, ne pas acheter sur un seul signal",
+      "niveau": "info"
     },
     {
       "signal": {
@@ -133,22 +98,22 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": 0.34,
+          "value": 0.25,
           "seuil": 1,
           "depasse": false
         },
         "paires": {
-          "value": 1,
+          "value": 0,
           "seuil": 3,
           "depasse": false
         },
         "funding": {
-          "value": -3e-06,
+          "value": -5e-06,
           "seuil": 0.001,
           "depasse": false
         },
         "whales": {
-          "value": 2,
+          "value": 1,
           "seuil": 5,
           "depasse": false
         }
@@ -162,5 +127,5 @@
       "niveau": "neutre"
     }
   ],
-  "resume": "🟡 SURVEILLANCE — des signaux sont à observer"
+  "resume": "🔵 CALME — pas de signal alarmant"
 }
