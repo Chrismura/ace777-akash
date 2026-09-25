@@ -1,27 +1,6 @@
 {
   "signals": [
     {
-      "metric": "taker_ratio",
-      "zscore": -2.374226854434524,
-      "value": 0.5,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 75,\n  \"reason\": \"Divergence entre faible activité médiatique (Google Actualités) et anomalie onchain significative (taker_ratio = 0.5, z-score -2.37). Les baleines pourraient accumuler silencieusement malgré l'absence de couverture médiatique, signalant un mouvement haussier sous-jacent.\"\n}\n```",
-      "ts": "2026-09-24T15:46:13.973472+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": 2.5744900683449345,
-      "value": 0.016,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie de faux positif : le 'SDI' détecté par les médias fait référence au Syndicat des Indépendants et PME (économie/politique française), sans aucun rapport avec la crypto ou des mouvements on-chain de baleines.\"\n}\n```",
-      "ts": "2026-09-24T15:52:12.014056+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.002823515208919,
-      "value": 1.06,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 75,\n  \"reason\": \"Anomalie onchain significative (z-score 2.00) non reflétée dans les titres médiatiques, suggérant une activité silencieuse des baleines. Les sujets médiatiques (académiques, partenariats) semblent déconnectés de l'activité financière sous-jacente.\"\n}\n```",
-      "ts": "2026-09-24T15:52:20.860561+00:00"
-    },
-    {
       "metric": "long_short",
       "zscore": 2.482436560258304,
       "value": 1.261,
@@ -349,6 +328,27 @@
       "value": 1.24,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique non pertinent. Le ticker 'ipt' est pollué par des homonymes institutionnels (Tournoi de Physique, violences sexistes, biotechnologies) sans lien avec la crypto. Aucune baleine détectée, simple artefact de mots-clés.\"\n}\n```",
       "ts": "2026-09-25T14:27:02.991409+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 5.926321143243072,
+      "value": 5917110.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie on-chain majeure (z-score 5.93, ~$5.9M) en l'absence totale de couverture médiatique (Google Actualités vide). Classique accumulation silencieuse de baleines loin du bruit de fond de retail.\"\n}\n```",
+      "ts": "2026-09-25T15:32:15.486353+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 2.3704991151750825,
+      "value": 0.02,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 75,\n  \"reason\": \"Les médias se concentrent sur des aspects politiques et opérationnels (aides gouvernementales, résultats attendus), tandis que l'anomalie onchain (z-score élevé) suggère une activité silencieuse significative des gros détenteurs (baleines). Divergence entre narratif superficiel et mouvement sous-jacent.\"\n}\n```",
+      "ts": "2026-09-25T15:37:22.562790+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.644796370191164,
+      "value": 1.474,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 2.64) non reflétée dans les médias. Les titres couvrent des sujets institutionnels/partenariats sans lien évident avec l'activité financière. Divergence suggère une accumulation discrète ou préparation à un mouvement non médiatisé.\"\n}\n```",
+      "ts": "2026-09-25T15:37:29.717150+00:00"
     }
   ]
 }
