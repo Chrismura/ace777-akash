@@ -5207,3 +5207,7 @@ Pas d’ordre — confrontation plus tard.
 ### 2026-09-25T11:50:31Z — ALERT auto
 - ZBCNUSDT: IMPULSE_WAIT — spike en cours, pas chase
 (compléter: confirmé ? risque ?)
+
+### 2026-09-25T13:20:51Z — ALERT auto
+- BIOUSDT: IMPULSE_WAIT — spike en cours, pas chase
+(compléter: confirmé ? risque ?)

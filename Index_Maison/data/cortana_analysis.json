@@ -1,30 +1,30 @@
 {
-  "timestamp": 1790340004,
-  "date": "2026-09-25T12:40:04.237717+00:00",
-  "n_analyses": 2,
+  "timestamp": 1790343605,
+  "date": "2026-09-25T13:40:05.398881+00:00",
+  "n_analyses": 1,
   "analyses": [
     {
       "signal": {
         "metric": "price_1h",
-        "zscore": 2.870182619870216,
-        "value": 0.5509296686962872,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de prix significative (+2.87 z-score) en l'absence totale de couverture médiatique (Google Actualités vide). C'est la signature classique d'une accumulation furtive de baleines loin du radar public.\"\n}\n```",
-        "ts": 1790338565.927941
+        "zscore": 3.328501101157821,
+        "value": 0.6283295440366876,
+        "analysis": "{\"signal\": \"bullish\", \"confidence\": 80, \"reason\": \"Price shows a strong upward anomaly (z‑score 3.33) while media headlines are absent/neutral, indicating potential silent whale accumulation.\"}",
+        "ts": 1790343095.538607
       },
       "fiche": "price_1h",
       "questions": {
         "pct_1h": {
-          "value": -0.1,
+          "value": -0.53,
           "seuil": -1,
           "depasse": true
         },
         "liq": {
-          "value": 4835689.0,
+          "value": 3450419.0,
           "seuil": 5000000,
           "depasse": false
         },
         "funding": {
-          "value": -1.2e-05,
+          "value": -2.3e-05,
           "seuil": 0,
           "depasse": true
         }
@@ -36,42 +36,7 @@
       },
       "action": "Observer",
       "niveau": "neutre"
-    },
-    {
-      "signal": {
-        "metric": "liquidations",
-        "zscore": 3.2195466757344575,
-        "value": 4851387.0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 75,\n  \"reason\": \"Les médias focalisent sur des liquidations d'entreprises traditionnelles (bruit), tandis que l'alerte onchain pointe une liquidation majeure crypto (signal). Divergence classique avant un mouvement haussier : les baleines nettoient les positions faibles pendant que l'attention médiatique est ailleurs.\"\n}\n```",
-        "ts": 1790339774.009595
-      },
-      "fiche": "liquidations",
-      "questions": {
-        "longs": {
-          "value": 2999071.0,
-          "seuil": 0,
-          "depasse": true
-        },
-        "shorts": {
-          "value": 1836618.0,
-          "seuil": 0,
-          "depasse": true
-        },
-        "prix": {
-          "value": -0.1,
-          "seuil": 1,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "longs > shorts",
-        "lecture": "Liquidations massives de LONGS — cascade baissière mécanique. Historiquement suit un creux proche quand le volume liq retombe (HYPOTHÈSE, pas une loi : une cascade peut en cacher une autre)",
-        "niveau": "surveiller",
-        "action": "Ne pas vendre dans la cascade ; préparer les paliers plancher si la paire est sur watchlist"
-      },
-      "action": "Ne pas vendre dans la cascade ; préparer les paliers plancher si la paire est sur watchlist",
-      "niveau": "surveiller"
     }
   ],
-  "resume": "🟡 SURVEILLANCE — des signaux sont à observer"
+  "resume": "🔵 CALME — pas de signal alarmant"
 }
