@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-25T10:43:24.376763+00:00",
+  "generated_at": "2026-09-25T11:25:52.148000+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 89
+      "calls_24h": 94
     },
     {
       "id": "openrouter-free",
@@ -274,10 +274,50 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 51,
-    "remaining": 573
+    "consumed": 56,
+    "remaining": 568
   },
   "queue": [
+    {
+      "ts": "2026-09-25T11:20:51.069415+00:00",
+      "task": "analyse.profonde",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 16.41
+    },
+    {
+      "ts": "2026-09-25T11:20:33.946549+00:00",
+      "task": "analyse.profonde",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 9.5
+    },
+    {
+      "ts": "2026-09-25T11:20:23.612915+00:00",
+      "task": "analyse.profonde",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 32.9
+    },
+    {
+      "ts": "2026-09-25T11:14:49.618887+00:00",
+      "task": "analyse.profonde",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 1.04
+    },
+    {
+      "ts": "2026-09-25T11:09:47.538946+00:00",
+      "task": "analyse.profonde",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 1.36
+    },
     {
       "ts": "2026-09-25T09:29:40.194717+00:00",
       "task": "analyse.profonde",
@@ -357,108 +397,68 @@
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
       "duration_s": 12.18
-    },
-    {
-      "ts": "2026-09-25T06:32:14.006622+00:00",
-      "task": "cortana.analyse",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 2.84
-    },
-    {
-      "ts": "2026-09-25T06:32:10.552518+00:00",
-      "task": "cortana.analyse",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 10.35
-    },
-    {
-      "ts": "2026-09-25T06:31:56.102360+00:00",
-      "task": "cortana.analyse",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 3.3
-    },
-    {
-      "ts": "2026-09-25T06:31:52.140890+00:00",
-      "task": "cortana.analyse",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 9.89
-    },
-    {
-      "ts": "2026-09-25T06:31:38.183814+00:00",
-      "task": "cortana.analyse",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 7.52
     }
   ],
   "events": [
     {
-      "ts": "2026-09-25T10:39:42.827841+00:00",
+      "ts": "2026-09-25T11:20:51.068647+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
+    {
+      "ts": "2026-09-25T11:20:33.946024+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
+    {
+      "ts": "2026-09-25T11:20:23.612530+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
+    {
+      "ts": "2026-09-25T11:14:49.618536+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
+    {
+      "ts": "2026-09-25T11:09:47.538459+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
+    {
+      "ts": "2026-09-25T11:09:46.178416+00:00",
+      "kind": "blacklist",
+      "title": "Fin de pause Google Gemini",
+      "detail": "re-essai automatique"
+    },
+    {
+      "ts": "2026-09-25T11:07:22.685573+00:00",
       "kind": "http",
       "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
       "detail": ""
     },
     {
-      "ts": "2026-09-25T10:39:42.827793+00:00",
+      "ts": "2026-09-25T11:07:22.684843+00:00",
       "kind": "error",
       "title": "Toutes les IA ont echoue",
-      "detail": "Google Gemini: reseau KO [Errno 8] nodename nor servname provided, or not known"
+      "detail": "Google Gemini: HTTP Error 429: Too Many Requests | HuggingFace (136+ modeles, dont DeepSeek-V4): HTTP Error 400: Bad Request | OrcaRouter (routeur gratuit, modele orcarouter/free): HTTP Error 429: Too Many Requests | OpenRouter Juge (nemotron-3-super-120b free) - verificateur independant: HTTP Error 400: Bad Request | InferX DeepSeek V4 Flash (API gratuite jusqu'au 12/08): HTTP Error 429: Too Many Requests | InferX Qwen3-Coder-Next (code, gratuit jusqu'au 12/08): HTTP Error 429: Too Many Request"
     },
     {
-      "ts": "2026-09-25T10:39:42.827748+00:00",
+      "ts": "2026-09-25T11:07:22.679885+00:00",
       "kind": "failover",
-      "title": "Reseau KO (bascule immediate) depuis Google Gemini",
-      "detail": "[Errno 8] nodename nor servname provided, or not known"
+      "title": "Bascule depuis Roulement nex-agi/nex-n2.5-pro:free",
+      "detail": "HTTP Error 400: Bad Request"
     },
     {
-      "ts": "2026-09-25T10:39:42.827674+00:00",
-      "kind": "network",
-      "title": "Reseau indisponible: Google Gemini",
-      "detail": "[Errno 8] nodename nor servname provided, or not known"
-    },
-    {
-      "ts": "2026-09-25T10:39:42.822058+00:00",
-      "kind": "network",
-      "title": "Reseau pas pret — mode degrade (timeout court)",
-      "detail": ""
-    },
-    {
-      "ts": "2026-09-25T10:39:42.816909+00:00",
-      "kind": "http",
-      "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
-      "detail": ""
-    },
-    {
-      "ts": "2026-09-25T10:39:42.816857+00:00",
-      "kind": "error",
-      "title": "Toutes les IA ont echoue",
-      "detail": "Google Gemini: reseau KO [Errno 8] nodename nor servname provided, or not known"
-    },
-    {
-      "ts": "2026-09-25T10:39:42.816815+00:00",
+      "ts": "2026-09-25T11:07:21.745426+00:00",
       "kind": "failover",
-      "title": "Reseau KO (bascule immediate) depuis Google Gemini",
-      "detail": "[Errno 8] nodename nor servname provided, or not known"
-    },
-    {
-      "ts": "2026-09-25T10:39:42.816702+00:00",
-      "kind": "network",
-      "title": "Reseau indisponible: Google Gemini",
-      "detail": "[Errno 8] nodename nor servname provided, or not known"
-    },
-    {
-      "ts": "2026-09-25T10:39:42.810906+00:00",
-      "kind": "network",
-      "title": "Reseau pas pret — mode degrade (timeout court)",
-      "detail": ""
+      "title": "Bascule depuis InferX Devstral-2-123B (code)",
+      "detail": "HTTP Error 429: Too Many Requests"
     }
   ],
   "tasks_quotas": {

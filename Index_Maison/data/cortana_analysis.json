@@ -1,7 +1,166 @@
 {
-  "timestamp": 1790332801,
-  "date": "2026-09-25T10:40:01.802578+00:00",
-  "n_analyses": 0,
-  "analyses": [],
-  "resume": "Aucune analyse en cours"
+  "timestamp": 1790335502,
+  "date": "2026-09-25T11:25:02.511338+00:00",
+  "n_analyses": 5,
+  "analyses": [
+    {
+      "signal": {
+        "metric": "liquidations",
+        "zscore": 2.5676784093362883,
+        "value": 4182514.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Bruit médiatique parasité par des liquidations d'entreprises traditionnelles hors-crypto. Le z-score élevé (2.57) combiné à la panique retail orchestrée par la presse classique masque une purge saine des positions à effet de levier par les baleines, signalant un point bas local d'accumulation.\"\n}\n```",
+        "ts": 1790334587.5404
+      },
+      "fiche": "liquidations",
+      "questions": {
+        "longs": {
+          "value": 281352.0,
+          "seuil": 0,
+          "depasse": true
+        },
+        "shorts": {
+          "value": 1394552.0,
+          "seuil": 0,
+          "depasse": true
+        },
+        "prix": {
+          "value": 0.34,
+          "seuil": 1,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "shorts > longs",
+        "lecture": "Liquidations massives de SHORTS — squeeze haussier mécanique. Les paliers RIP profitent de ces mouvements",
+        "niveau": "info",
+        "action": "Laisser courir les paliers RIP, ne pas rentrer après la cascade"
+      },
+      "action": "Laisser courir les paliers RIP, ne pas rentrer après la cascade",
+      "niveau": "info"
+    },
+    {
+      "signal": {
+        "metric": "price_1h",
+        "zscore": 3.258291939323495,
+        "value": 0.5932769422952289,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain majeure (z-score 3.26) dans un silence médiatique total (Google Actualités vide). C'est la signature classique d'accumulation furtive par des baleines avant la couverture de la presse.\"\n}\n```",
+        "ts": 1790334889.61954
+      },
+      "fiche": "price_1h",
+      "questions": {
+        "pct_1h": {
+          "value": 0.34,
+          "seuil": -1,
+          "depasse": true
+        },
+        "liq": {
+          "value": 1675904.0,
+          "seuil": 5000000,
+          "depasse": false
+        },
+        "funding": {
+          "value": -3e-06,
+          "seuil": 0,
+          "depasse": true
+        }
+      },
+      "interpretation": {
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
+      },
+      "action": "Observer",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "whale_usd",
+        "zscore": 4.347925833555701,
+        "value": 4010701.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (4.35) indiquant un mouvement massif de capitaux (4M USD) totalement ignoré par les médias (silence radio). Divergence classique d'accumulation furtive avant un mouvement de marché.\"\n}\n```",
+        "ts": 1790335223.614995
+      },
+      "fiche": "whale_usd",
+      "questions": {
+        "ventes": {
+          "value": 5844585.0,
+          "seuil": 0,
+          "depasse": true
+        },
+        "achats": {
+          "value": 0.0,
+          "seuil": 0,
+          "depasse": false
+        },
+        "prix": {
+          "value": 0.34,
+          "seuil": 1,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "ventes > achats",
+        "lecture": "Flux baleines VENDEUR dominant — distribution possible vers les exchanges (proxy : bearish aujourd'hui)",
+        "niveau": "surveiller",
+        "action": "Croiser avec le sniffer vieux BTC et l'IPT avant de réduire"
+      },
+      "action": "Croiser avec le sniffer vieux BTC et l'IPT avant de réduire",
+      "niveau": "surveiller"
+    },
+    {
+      "signal": {
+        "metric": "sdi",
+        "zscore": 2.0463660091370546,
+        "value": 0.016,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie SDI non pertinente pour la crypto : les données médiatiques et l'indice font référence à 'SDI Group' (actions traditionnelles) et au 'Syndicat des Indépendants' (politique française), et non à un actif ou une baleine crypto.\"\n}\n```",
+        "ts": 1790335233.947242
+      },
+      "fiche": null,
+      "interpretation": {
+        "lecture": "Pas de fiche disponible",
+        "niveau": "inconnu"
+      },
+      "action": "Observer"
+    },
+    {
+      "signal": {
+        "metric": "ipt",
+        "zscore": 2.3472613986571798,
+        "value": 1.277,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Anomalie technique liée à une collision de ticker (IPT = Tournoi International des Physiciens / biotechnologies / institutions académiques). Aucune activité de baleine crypto détectée, le signal on-chain est du bruit sémantique.\"\n}\n```",
+        "ts": 1790335251.07065
+      },
+      "fiche": "rbf_eleve",
+      "questions": {
+        "prix": {
+          "value": 0.34,
+          "seuil": 1,
+          "depasse": false
+        },
+        "paires": {
+          "value": 1,
+          "seuil": 3,
+          "depasse": false
+        },
+        "funding": {
+          "value": -3e-06,
+          "seuil": 0.001,
+          "depasse": false
+        },
+        "whales": {
+          "value": 2,
+          "seuil": 5,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
+      },
+      "action": "Observer",
+      "niveau": "neutre"
+    }
+  ],
+  "resume": "🟡 SURVEILLANCE — des signaux sont à observer"
 }
