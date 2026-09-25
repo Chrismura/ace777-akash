@@ -1,54 +1,57 @@
 {
-  "timestamp": "2026-09-25T04:40:57Z",
+  "timestamp": "2026-09-25T05:25:06Z",
   "generation_source": "system_state_generator.py v2.1",
   "status": "STALE",
-  "feed_hash": "70bcb850cc3ce4c3de83de301507a952c73c48509cd8b77807a4387d093a495e",
+  "feed_hash": "cdcfb1db52fe975b6cf5f95b24a372e42b58f97930546109611b2388e3ca1081",
   "feeds": {
     "mission": {
       "present": true,
-      "age_seconds": 29,
+      "age_seconds": 28,
       "fresh_limit_s": 120
     },
     "cortana_feed": {
       "present": true,
-      "age_seconds": 53,
+      "age_seconds": 320,
       "fresh_limit_s": 120
     },
     "live": {
       "present": true,
-      "age_seconds": 53,
+      "age_seconds": 110,
       "fresh_limit_s": 15
     },
     "routing": {
       "present": true,
-      "age_seconds": 2739640,
+      "age_seconds": 2742289,
       "fresh_limit_s": 120
     }
   },
   "services": {
     "total": 101,
-    "running": 13,
-    "planned": 88,
+    "running": 15,
+    "planned": 86,
     "running_list": [
-      "com.ace777.bloc-privatise",
       "com.ace777.cockpit-http",
       "com.ace777.cockpit-pont",
+      "com.ace777.gitpush",
       "com.ace777.llm-gate-hub",
       "com.ace777.mirofish",
       "com.ace777.mirofish-front",
       "com.ace777.prise-ia",
-      "com.ace777.satellite-aspiration",
       "com.ace777.state-generator",
       "com.ace777.superviseur-core",
       "com.ace777.superviseur-l2",
       "com.ace777.superviseur-process",
-      "com.ace777.vigie-live"
+      "com.ace777.thermo-quotidien",
+      "com.ace777.vigie-live",
+      "com.ace777.whales",
+      "com.ace777.xrpl-arbitrage"
     ],
     "planned_list": [
       "com.ace777.analyste-cadence",
       "com.ace777.archi-vivante",
       "com.ace777.autopilote",
       "com.ace777.backup-check",
+      "com.ace777.bloc-privatise",
       "com.ace777.carte-paires",
       "com.ace777.catalogue",
       "com.ace777.chien-de-garde",
@@ -75,7 +78,6 @@
       "com.ace777.fusibles-mesure",
       "com.ace777.gen-cockpit-vol",
       "com.ace777.geopol",
-      "com.ace777.gitpush",
       "com.ace777.gitpush-vault",
       "com.ace777.graph-cerveau",
       "com.ace777.heartbeats",
@@ -101,6 +103,7 @@
       "com.ace777.routeur-auto",
       "com.ace777.rwa-yields",
       "com.ace777.sante-index",
+      "com.ace777.satellite-aspiration",
       "com.ace777.scoreur-registre",
       "com.ace777.sentinel",
       "com.ace777.sentinelle-independante",
@@ -113,7 +116,6 @@
       "com.ace777.suivi-setup-red",
       "com.ace777.superviseur",
       "com.ace777.superviseur-auto",
-      "com.ace777.thermo-quotidien",
       "com.ace777.troupeau-inv",
       "com.ace777.veille-degradation",
       "com.ace777.veille-essaim-observation",
@@ -128,9 +130,7 @@
       "com.ace777.verdicteur-micro",
       "com.ace777.verif-setup",
       "com.ace777.watchdog",
-      "com.ace777.whales",
       "com.ace777.x402-agentic",
-      "com.ace777.xrpl-arbitrage",
       "com.ace777.xrpl-gouvernance",
       "com.ace777.xrpl-onchain"
     ]
@@ -172,7 +172,7 @@
       "Assistant_Vocal_HORS_VAULT": 697372,
       "Obsidian_BACKUPS_HORS_VAULT": 14936872
     },
-    "presence_at": "2026-09-25T04:39:41Z",
+    "presence_at": "2026-09-25T05:09:41Z",
     "sizes_at": "2026-09-25T03:39:37Z"
   }
 }

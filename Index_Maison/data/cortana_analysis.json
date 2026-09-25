@@ -1,15 +1,15 @@
 {
-  "timestamp": 1790311195,
-  "date": "2026-09-25T04:39:55.520337+00:00",
+  "timestamp": 1790313896,
+  "date": "2026-09-25T05:24:56.321723+00:00",
   "n_analyses": 2,
   "analyses": [
     {
       "signal": {
         "metric": "cpfp",
-        "zscore": 2.0611030613117296,
+        "zscore": 2.038002770540064,
         "value": 50.0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique mineure (CPFP) noyée dans un bruit médiatique hétérogène sans lien avec une accumulation ou distribution institutionnelle.\"\n}\n```",
-        "ts": 1790310181.722334
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique purement onchain liée aux frais de transaction (CPFP), sans lien avec une accumulation ou distribution de baleines. Le bruit médiatique est un faux positif sémantique (confusion avec actualités locales et politiques sans rapport).\"\n}\n```",
+        "ts": 1790313493.770974
       },
       "fiche": "blocs_privilises",
       "questions": {
@@ -19,12 +19,12 @@
           "depasse": false
         },
         "volume": {
-          "value": 284,
+          "value": 759,
           "seuil": 0,
           "depasse": true
         },
         "prix": {
-          "value": -0.1,
+          "value": -0.01,
           "seuil": 0,
           "depasse": true
         },
@@ -51,10 +51,10 @@
     {
       "signal": {
         "metric": "dust",
-        "zscore": 2.0611030613117296,
+        "zscore": 2.038002770540064,
         "value": 50.0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit de fond absolu. L'anomalie on-chain 'dust' coïncide avec des résultats de recherche pollués par des jeux vidéo ('Dust till Dawn') et de la culture pop. Aucune baleine détectée, simple bruit de résonance lexicale.\"\n}\n```",
-        "ts": 1790310183.566668
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique totalement parasité par des jeux vidéo ('Dust till Dawn') et de la culture pop. Aucune baleine crypto active ; l'anomalie 'dust' on-chain est un faux positif non corrélé aux flux financiers.\"\n}\n```",
+        "ts": 1790313495.679219
       },
       "fiche": "blocs_privilises",
       "questions": {
@@ -64,12 +64,12 @@
           "depasse": false
         },
         "volume": {
-          "value": 284,
+          "value": 759,
           "seuil": 0,
           "depasse": true
         },
         "prix": {
-          "value": -0.1,
+          "value": -0.01,
           "seuil": 0,
           "depasse": true
         },
