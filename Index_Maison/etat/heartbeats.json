@@ -1,33 +1,36 @@
 {
-  "timestamp": 1790357179,
-  "date": "2026-09-25 19:26:19",
+  "timestamp": 1790358322,
+  "date": "2026-09-25 19:45:22",
   "source": "heartbeats (PAA-ACE777 ajout 1, 20/08)",
   "services": {
     "vigie": {
-      "ok": true,
-      "detail": "OK (vie 139s)"
+      "ok": false,
+      "detail": "ZOMBIE FONCTIONNEL : process vivant mais sortie figée (1283s > 300s) — journal_radar.log"
     },
     "veille": {
       "ok": true,
-      "detail": "OK (vie 12s)"
+      "detail": "OK (vie 13s)"
     },
     "dms": {
       "ok": true,
-      "detail": "OK (vie 28s)"
+      "detail": "OK (vie 29s)"
     },
     "sante": {
       "ok": true,
-      "detail": "OK (vie 43s)"
+      "detail": "OK (vie 285s)"
     },
     "superviseur_core": {
       "ok": true,
-      "detail": "OK (vie 527s)"
+      "detail": "OK (vie 506s)"
     },
     "whales": {
-      "ok": true,
-      "detail": "OK (vie 115s)"
+      "ok": false,
+      "detail": "ZOMBIE FONCTIONNEL : process vivant mais sortie figée (1259s > 900s) — whales_scan_latest.json"
     }
   },
-  "zombies_fonctionnels": [],
-  "statut": "SAIN"
+  "zombies_fonctionnels": [
+    "vigie: ZOMBIE FONCTIONNEL : process vivant mais sortie figée (1283s > 300s) — journal_radar.log",
+    "whales: ZOMBIE FONCTIONNEL : process vivant mais sortie figée (1259s > 900s) — whales_scan_latest.json"
+  ],
+  "statut": "ALERTE"
 }
