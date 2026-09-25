@@ -2,13 +2,6 @@
   "signals": [
     {
       "metric": "long_short",
-      "zscore": 2.3607513059685394,
-      "value": 1.27,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.36) sur le ratio long/short (1.27) montrant un excès de positions acheteuses par les traders particuliers. Pendant ce temps, les médias grand public et institutionnels (BNP, Blackstone) font la promotion massive des stratégies long/short pour 'marchés agités', créant un piège à liquidité typique avant une purge.\"\n}\n```",
-      "ts": "2026-09-24T16:24:00.253645+00:00"
-    },
-    {
-      "metric": "long_short",
       "zscore": 2.189479767161083,
       "value": 1.27,
       "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Le ratio long/short élevé (z-score 2.19) indique un positionnement excessivement haussier des traders de détail, piégés par un narratif médiatique généraliste (fonds long-short, rendement) totalement déconnecté de la dynamique réelle du marché crypto. Configuration classique de 'crowded trade' propice à une purge imminente.\"\n}\n```",
@@ -349,6 +342,13 @@
       "value": 0.693568801401423,
       "analysis": "{\n  \"signal\": \"bullish\",\n  \"confidence\": 70,\n  \"reason\": \"The 1‑hour price shows a strong positive deviation (z‑score = 3.15), indicating significant buying pressure likely driven by large holders. Media headlines are generic and lack any bullish narrative, suggesting the move is not yet reflected in public discourse – a classic sign of silent whale accumulation.\"\n}",
       "ts": "2026-09-25T15:52:35.465248+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 2.1823956056286313,
+      "value": 0.02,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Erreur de ciblage sémantique : l'anomalie 'SDI' détectée concerne des actions traditionnelles et des syndicats/groupes (SDI Group, SDI environnement) et non un actif cryptographique. Aucune baleine crypto identifiée.\"\n}\n```",
+      "ts": "2026-09-25T16:52:47.556896+00:00"
     }
   ]
 }
