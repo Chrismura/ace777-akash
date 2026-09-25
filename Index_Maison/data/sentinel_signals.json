@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "ipt",
-      "zscore": 2.049527732692307,
-      "value": 1.048,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.05) sans corrélation avec le bruit médiatique. Les titres font référence à l'Institut Polytechnique de Toulouse (IPT), au Tournoi International des Physiciens ou à des actualités agroalimentaires/sociales, totalement déconnectés des mouvements de baleines crypto. Bruit de fond non pertinent.\"\n}\n```",
-      "ts": "2026-09-24T17:09:27.228542+00:00"
-    },
-    {
       "metric": "whale_usd",
       "zscore": 5.2885589013433725,
       "value": 6545066.0,
@@ -349,6 +342,13 @@
       "value": 2966686.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Activité anormale des baleines (Z-score 2.79) combinée à un silence médiatique total (Google Actualités vide). C'est la signature classique d'accumulation furtive hors radar avant un mouvement de marché impulsif.\"\n}\n```",
       "ts": "2026-09-25T20:43:19.864360+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 2.5751451192074017,
+      "value": 2997362.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Activité anormale des baleines (z-score 2.58, ~3M USD) totalement ignorée par les médias de masse (Google Actualités vide). Accumulation silencieuse classique avant un mouvement de marché.\"\n}\n```",
+      "ts": "2026-09-25T21:23:25.634323+00:00"
     }
   ]
 }
