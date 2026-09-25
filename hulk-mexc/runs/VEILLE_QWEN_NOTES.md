@@ -5190,3 +5190,8 @@ Pas d’ordre — confrontation plus tard.
 ### 2026-09-25T01:00:02Z — ALERT auto
 - RIZEUSDT: IMPULSE_WAIT — spike en cours, pas chase
 (compléter: confirmé ? risque ?)
+
+### 2026-09-25T01:47:05Z — ALERT auto
+- EDELUSDT: WATCH_PULLBACK — tension haute + reflux
+- KITEUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)

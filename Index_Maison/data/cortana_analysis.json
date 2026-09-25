@@ -1,15 +1,15 @@
 {
-  "timestamp": 1790300392,
-  "date": "2026-09-25T01:39:52.306024+00:00",
-  "n_analyses": 2,
+  "timestamp": 1790302792,
+  "date": "2026-09-25T02:19:52.975887+00:00",
+  "n_analyses": 3,
   "analyses": [
     {
       "signal": {
         "metric": "cpfp",
-        "zscore": 2.0694824979952906,
+        "zscore": 2.0548295024237584,
         "value": 50.0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique purement onchain liée aux frais de transaction (Child-Pays-For-Parent). Le bruit médiatique concerne des homonymes (politique, éducation) sans aucun rapport avec les flux de capitaux ou des mouvements de baleines crypto.\"\n}\n```",
-        "ts": 1790299341.524533
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Faux positif détecté. Le pic de 'cpfp' on-chain correspond à un bruit sémantique médiatique (articles sur les transactions Bitcoin bloquées et des acronymes homonymes sans lien avec une accumulation de baleines).\"\n}\n```",
+        "ts": 1790301751.408396
       },
       "fiche": "blocs_privilises",
       "questions": {
@@ -19,17 +19,17 @@
           "depasse": false
         },
         "volume": {
-          "value": 624,
+          "value": 484,
           "seuil": 0,
           "depasse": true
         },
         "prix": {
-          "value": -0.25,
+          "value": 0.3,
           "seuil": 0,
           "depasse": true
         },
         "sdi": {
-          "value": 0.004,
+          "value": 0.008,
           "seuil": 0,
           "depasse": true
         },
@@ -51,10 +51,10 @@
     {
       "signal": {
         "metric": "dust",
-        "zscore": 2.0694824979952906,
+        "zscore": 2.0548295024237584,
         "value": 50.0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit de fond absolu : le z-score élevé est un artefact statistique déclenché par des homonymies absolues dans l'actualité ('Dust Bunny', 'Dust till Dawn') sans aucun rapport avec l'onchain ou le marché des cryptomonnaies. Aucune baleine détectée.\"\n}\n```",
-        "ts": 1790299343.334583
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit de fond onchain insignifiant (dust attack mineure ou bruit statistique). Le narratif médiatique est totalement déconnecté car il concerne des jeux vidéo et de la culture pop, sans aucun lien avec des mouvements de baleines crypto.\"\n}\n```",
+        "ts": 1790301753.219326
       },
       "fiche": "blocs_privilises",
       "questions": {
@@ -64,17 +64,17 @@
           "depasse": false
         },
         "volume": {
-          "value": 624,
+          "value": 484,
           "seuil": 0,
           "depasse": true
         },
         "prix": {
-          "value": -0.25,
+          "value": 0.3,
           "seuil": 0,
           "depasse": true
         },
         "sdi": {
-          "value": 0.004,
+          "value": 0.008,
           "seuil": 0,
           "depasse": true
         },
@@ -92,7 +92,42 @@
       },
       "action": "Garder les positions",
       "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "whale_usd",
+        "zscore": 7.1254500202883575,
+        "value": 8289362.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (z-score 7.13, ~8.3M USD) couplée à un silence médiatique absolu sur Google Actualités. Accumulation furtive classique des baleines loin des radars grand public.\"\n}\n```",
+        "ts": 1790302055.348512
+      },
+      "fiche": "whale_usd",
+      "questions": {
+        "ventes": {
+          "value": 701055.0,
+          "seuil": 0,
+          "depasse": true
+        },
+        "achats": {
+          "value": 0.0,
+          "seuil": 0,
+          "depasse": false
+        },
+        "prix": {
+          "value": 0.3,
+          "seuil": 1,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "ventes > achats",
+        "lecture": "Flux baleines VENDEUR dominant — distribution possible vers les exchanges (proxy : bearish aujourd'hui)",
+        "niveau": "surveiller",
+        "action": "Croiser avec le sniffer vieux BTC et l'IPT avant de réduire"
+      },
+      "action": "Croiser avec le sniffer vieux BTC et l'IPT avant de réduire",
+      "niveau": "surveiller"
     }
   ],
-  "resume": "🔵 CALME — pas de signal alarmant"
+  "resume": "🟡 SURVEILLANCE — des signaux sont à observer"
 }

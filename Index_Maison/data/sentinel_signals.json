@@ -1,27 +1,6 @@
 {
   "signals": [
     {
-      "metric": "whale_usd",
-      "zscore": 3.7668405000629734,
-      "value": 4765913.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Activité anormale des baleines (Z-score 3.77, ~4.76M USD) en l'absence totale de couverture médiatique (Google Actualités vide). C'est la définition classique d'une accumulation ou d'un mouvement silencieux avant que le narratif public ne se forme.\"\n}\n```",
-      "ts": "2026-09-23T16:14:39.284106+00:00"
-    },
-    {
-      "metric": "long_short",
-      "zscore": 3.8513558242425425,
-      "value": 1.061,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 92,\n  \"reason\": \"Le z-score extrême (3.85) sur le ratio long/short signale une surconcentration dangereuse des positions acheteuses par les baleines. Pendant ce temps, le narratif médiatique grand public banalise et encense les stratégies 'Long/Short', agissant comme un signal contrarien classique de bulle spéculative avant un 'long squeeze'.\"\n}\n```",
-      "ts": "2026-09-23T16:20:11.418773+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": 2.977581951469077,
-      "value": 18439281437.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique sans rapport avec la crypto (bruit de fond médiatique sur l'hydratation, la mode et le cyclisme). Aucune baleine détectée.\"\n}\n```",
-      "ts": "2026-09-23T16:25:37.295199+00:00"
-    },
-    {
       "metric": "long_short",
       "zscore": 3.3090454574698023,
       "value": 1.061,
@@ -349,6 +328,27 @@
       "value": 50.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit de fond absolu : le z-score élevé est un artefact statistique déclenché par des homonymies absolues dans l'actualité ('Dust Bunny', 'Dust till Dawn') sans aucun rapport avec l'onchain ou le marché des cryptomonnaies. Aucune baleine détectée.\"\n}\n```",
       "ts": "2026-09-25T01:22:23.334583+00:00"
+    },
+    {
+      "metric": "cpfp",
+      "zscore": 2.0548295024237584,
+      "value": 50.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Faux positif détecté. Le pic de 'cpfp' on-chain correspond à un bruit sémantique médiatique (articles sur les transactions Bitcoin bloquées et des acronymes homonymes sans lien avec une accumulation de baleines).\"\n}\n```",
+      "ts": "2026-09-25T02:02:31.408396+00:00"
+    },
+    {
+      "metric": "dust",
+      "zscore": 2.0548295024237584,
+      "value": 50.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit de fond onchain insignifiant (dust attack mineure ou bruit statistique). Le narratif médiatique est totalement déconnecté car il concerne des jeux vidéo et de la culture pop, sans aucun lien avec des mouvements de baleines crypto.\"\n}\n```",
+      "ts": "2026-09-25T02:02:33.219326+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 7.1254500202883575,
+      "value": 8289362.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (z-score 7.13, ~8.3M USD) couplée à un silence médiatique absolu sur Google Actualités. Accumulation furtive classique des baleines loin des radars grand public.\"\n}\n```",
+      "ts": "2026-09-25T02:07:35.348512+00:00"
     }
   ]
 }
