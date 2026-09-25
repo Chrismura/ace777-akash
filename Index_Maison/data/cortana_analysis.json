@@ -1,7 +1,98 @@
 {
-  "timestamp": 1790307594,
-  "date": "2026-09-25T03:39:54.397970+00:00",
-  "n_analyses": 0,
-  "analyses": [],
-  "resume": "Aucune analyse en cours"
+  "timestamp": 1790311195,
+  "date": "2026-09-25T04:39:55.520337+00:00",
+  "n_analyses": 2,
+  "analyses": [
+    {
+      "signal": {
+        "metric": "cpfp",
+        "zscore": 2.0611030613117296,
+        "value": 50.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique mineure (CPFP) noyée dans un bruit médiatique hétérogène sans lien avec une accumulation ou distribution institutionnelle.\"\n}\n```",
+        "ts": 1790310181.722334
+      },
+      "fiche": "blocs_privilises",
+      "questions": {
+        "duree": {
+          "value": 0,
+          "seuil": 0,
+          "depasse": false
+        },
+        "volume": {
+          "value": 284,
+          "seuil": 0,
+          "depasse": true
+        },
+        "prix": {
+          "value": -0.1,
+          "seuil": 0,
+          "depasse": true
+        },
+        "sdi": {
+          "value": 0.004,
+          "seuil": 0,
+          "depasse": true
+        },
+        "rbf": {
+          "value": 0.0,
+          "seuil": 0,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "duree < 5min ET volume > 100",
+        "lecture": "Consolidation exchange — probablement un transfert hot→cold",
+        "niveau": "neutre",
+        "action": "Garder les positions"
+      },
+      "action": "Garder les positions",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "dust",
+        "zscore": 2.0611030613117296,
+        "value": 50.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit de fond absolu. L'anomalie on-chain 'dust' coïncide avec des résultats de recherche pollués par des jeux vidéo ('Dust till Dawn') et de la culture pop. Aucune baleine détectée, simple bruit de résonance lexicale.\"\n}\n```",
+        "ts": 1790310183.566668
+      },
+      "fiche": "blocs_privilises",
+      "questions": {
+        "duree": {
+          "value": 0,
+          "seuil": 0,
+          "depasse": false
+        },
+        "volume": {
+          "value": 284,
+          "seuil": 0,
+          "depasse": true
+        },
+        "prix": {
+          "value": -0.1,
+          "seuil": 0,
+          "depasse": true
+        },
+        "sdi": {
+          "value": 0.004,
+          "seuil": 0,
+          "depasse": true
+        },
+        "rbf": {
+          "value": 0.0,
+          "seuil": 0,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "duree < 5min ET volume > 100",
+        "lecture": "Consolidation exchange — probablement un transfert hot→cold",
+        "niveau": "neutre",
+        "action": "Garder les positions"
+      },
+      "action": "Garder les positions",
+      "niveau": "neutre"
+    }
+  ],
+  "resume": "🔵 CALME — pas de signal alarmant"
 }

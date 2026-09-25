@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "long_short",
-      "zscore": 3.3090454574698023,
-      "value": 1.061,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Le Z-score extrême (3.31) indique une surconcentration massive et anormale de positions acheteuses (retail/FOMO), totalement déconnectée des discussions médiatiques traditionnelles axées sur la prudence des fonds long/short. Risque imminent de 'long squeeze' par les baleines.\"\n}\n```",
-      "ts": "2026-09-23T16:51:45.587287+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": 2.8657526999298666,
-      "value": 18617119662.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique de volume non pertinente : le bruit médiatique concerne l'agriculture, la santé, le e-commerce et la finance traditionnelle, sans aucun rapport avec les flux on-chain crypto.\"\n}\n```",
-      "ts": "2026-09-23T16:57:26.111235+00:00"
-    },
-    {
       "metric": "ipt",
       "zscore": 2.1070975999923203,
       "value": 1.058,
@@ -349,6 +335,20 @@
       "value": 8289362.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (z-score 7.13, ~8.3M USD) couplée à un silence médiatique absolu sur Google Actualités. Accumulation furtive classique des baleines loin des radars grand public.\"\n}\n```",
       "ts": "2026-09-25T02:07:35.348512+00:00"
+    },
+    {
+      "metric": "cpfp",
+      "zscore": 2.0611030613117296,
+      "value": 50.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique mineure (CPFP) noyée dans un bruit médiatique hétérogène sans lien avec une accumulation ou distribution institutionnelle.\"\n}\n```",
+      "ts": "2026-09-25T04:23:01.722334+00:00"
+    },
+    {
+      "metric": "dust",
+      "zscore": 2.0611030613117296,
+      "value": 50.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit de fond absolu. L'anomalie on-chain 'dust' coïncide avec des résultats de recherche pollués par des jeux vidéo ('Dust till Dawn') et de la culture pop. Aucune baleine détectée, simple bruit de résonance lexicale.\"\n}\n```",
+      "ts": "2026-09-25T04:23:03.566668+00:00"
     }
   ]
 }
