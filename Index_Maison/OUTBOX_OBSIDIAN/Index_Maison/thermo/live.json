@@ -1,6 +1,6 @@
 {
-  "ts": "2026-09-25T09:40Z",
-  "tsUnix": 1790329232,
+  "ts": "2026-09-25T10:40Z",
+  "tsUnix": 1790332852,
   "symbol": "BTCUSDT",
   "mark": 84686.3,
   "oi": 96211.667,
@@ -83,7 +83,7 @@
     "Fear & Greed 71 (Greed).",
     "ACE soft: LIVE=MASTER_BASE_V8_6_FORTRESS_8H20_LIVE_COLOR.log · SKIP=935 · heat=2.7 · PnL sess=0.9024 · RED=0.",
     "C15/C23 = proxies free. D26–D34 = F&G / MC / alt / liq / ETF / GEX / volumes cachés. Soft ops lecture seule.",
-    "Pipeline Health 0.9 (✅ NOMINAL) · 1 issue(s).",
+    "Pipeline Health 0.73 (⚠️ DÉGRADÉ) · 5 issue(s).",
     "GEOPOL 🟡 0.2476 (attention) · 5/5 modules · ML:attention.",
     "Poussière onchain 8.7/100 (FAIBLE — onchain nominal) · blocs privatisés None%."
   ],
@@ -398,9 +398,9 @@
       "label": "="
     },
     "score": {
-      "dir": "up",
-      "delta": 6.0,
-      "label": "↑"
+      "dir": "flat",
+      "delta": 0.0,
+      "label": "="
     },
     "btcDominance": {
       "dir": "flat",
@@ -413,14 +413,14 @@
       "label": "—"
     },
     "whaleUsd": {
-      "dir": "down",
-      "delta": -1519539.0,
-      "label": "↓"
+      "dir": "flat",
+      "delta": 0.0,
+      "label": "="
     },
     "whaleN": {
-      "dir": "down",
-      "delta": -2.0,
-      "label": "↓"
+      "dir": "flat",
+      "delta": 0.0,
+      "label": "="
     },
     "takerRatio": {
       "dir": "flat",
@@ -510,7 +510,7 @@
     "D31": "score",
     "D32": "score"
   },
-  "prevTs": "2026-09-25T09:34Z",
+  "prevTs": "2026-09-25T10:35Z",
   "source": "binance-fapi+coingecko+fng+okx-liq+bitbo-etf+deribit-gex+okx-rubik+ace-readonly",
   "wiredNote": "D26–D34 F&G/MC/alt/liq/ETF/GEX/volumes cachés · free + proxies · ACE lecture seule",
   "degraded": true,
@@ -534,31 +534,31 @@
     "whaleFragBtc": 0,
     "whaleCumul24hBtc": 19898995.93,
     "whaleMoy7jBtc": 13556849.48,
-    "whaleDir": "bullish",
-    "whaleDirLabel": "bullish",
+    "whaleDir": "neutral",
+    "whaleDirLabel": "neutral",
     "whaleDirScan": "neutral",
-    "whaleDirProxy": "bullish",
-    "whaleProxyN": 2,
-    "whaleProxyUsd": 923901.0,
-    "whaleProxyBuyUsd": 923901.0,
-    "whaleProxySellUsd": 595638.0,
+    "whaleDirProxy": "neutral",
+    "whaleProxyN": 0,
+    "whaleProxyUsd": 0.0,
+    "whaleProxyBuyUsd": 0.0,
+    "whaleProxySellUsd": 0.0,
     "whaleSource": "Binance Cold Storage #2, Binance Cold Storage #6, Binance Hot Wallet #2 (bech32), Bitbank Cold Wallet",
     "whaleEcartSeuil": 11568.5,
     "whaleAlerte": true,
     "whaleAlerteTexte": "Activité baleines : 14 gros bloc(s) (116685.45 BTC) + 0 fragmentation(s) (0 BTC). Source : Binance Cold Storage #2, Binance Cold Storage #6, Binance Hot Wallet #2 (bech32), Bitbank Cold Wallet.",
-    "dernierEvtMin": 4,
+    "dernierEvtMin": 64,
     "synthèse": "Direction onchain neutral | 14 gros bloc(s) 116685.45 BTC sur le scan récent, cumul 24h 19898996 BTC, source Binance Cold Storage #2, Binance Cold Storage #6, Binance Hot Wallet #2 (bech32), Bitbank Cold Wallet. Activité baleines : 14 gros bloc(s) (116685.45 BTC) + 0 fragmentation(s) (0 BTC). Source : Binance Cold Storage #2, Binance Cold Storage #6, Binance Hot Wallet #2 (bech32), Bitbank Cold Wallet. | CPFP actif (conf 0/2) · poussière score 0.0/50 | indice onchain 8.7/100 (FAIBLE — onchain nominal)",
     "cpfpSignal": null,
     "cpfpScore": 0.0,
     "cpfpMode": "actif",
     "cpfpConfirmation": 0,
     "cpfpGlobal": false,
-    "cpfpZscore": 43.46,
+    "cpfpZscore": 43.43,
     "cpfpZReel": 2.17,
     "cpfpCarte2": false,
     "cpfpDustScore": 0.0,
     "cpfpDustDeclenche": false,
-    "cpfpDustDetail": "poussière <2.0 sat/vB (normalisé minFee 0×1.5) : 0/0 vues ce run, 704 cumulées 48h (seuil 1000) — max 0.0000 BTC",
+    "cpfpDustDetail": "poussière <2.0 sat/vB (normalisé minFee 0×1.5) : 0/0 vues ce run, 681 cumulées 48h (seuil 1000) — max 0.0000 BTC",
     "blocPrivatiseMode": "actif",
     "blocPrivatiseTauxFantome": null,
     "blocPrivatiseNbCachees": 188,
@@ -567,27 +567,33 @@
     "indiceOnchainComposantes": {
       "blocsPrivatises": 0.0,
       "poussiere": 0.0,
-      "cpfpZscore": 43.46
+      "cpfpZscore": 43.43
     }
   },
   "pipeline_health": {
-    "timestamp": 1790329232,
-    "global_score": 0.9,
-    "mode": "nominal",
-    "mode_label": "✅ NOMINAL",
-    "position_multiplier": 1.0,
+    "timestamp": 1790332852,
+    "global_score": 0.73,
+    "mode": "degrade",
+    "mode_label": "⚠️ DÉGRADÉ",
+    "position_multiplier": 0.5,
     "sources": {
       "binance": {
-        "score": 1,
-        "issues": []
+        "score": 0.8,
+        "issues": [
+          "chg1h=None"
+        ]
       },
       "mempool": {
         "score": 1,
         "issues": []
       },
       "deribit": {
-        "score": 1,
-        "issues": []
+        "score": 0.19999999999999996,
+        "issues": [
+          "gex.ok=False (timeout Deribit)",
+          "putCall=None",
+          "walls=None"
+        ]
       },
       "alternative": {
         "score": 1,
@@ -609,9 +615,13 @@
       }
     },
     "all_issues": [
+      "binance: chg1h=None",
+      "deribit: gex.ok=False (timeout Deribit)",
+      "deribit: putCall=None",
+      "deribit: walls=None",
       "google_news: source non vérifiable en direct (alimentée par sniffer) → DOWN"
     ],
-    "n_issues": 1
+    "n_issues": 5
   },
   "geopol": {
     "score": 0.2476,
@@ -719,6 +729,6 @@
     "scores_par_categorie": {
       "geopol": 0.2476
     },
-    "ts": "2026-09-25T09:40:33.732701+00:00"
+    "ts": "2026-09-25T10:40:53.738562+00:00"
   }
 }

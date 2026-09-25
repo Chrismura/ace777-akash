@@ -1,9 +1,9 @@
 {
-  "ts": "2026-09-25T09:43Z",
+  "ts": "2026-09-25T10:43Z",
   "alert": "nominal",
   "engine": {
     "state": "OFF",
-    "ageSec": 1355032,
+    "ageSec": 1358662,
     "last": "2026-09-09T17:19Z"
   },
   "run": "MASTER_BASE_V8_6_FORTRESS_8H20",
@@ -1647,7 +1647,7 @@
     "stateFile": "PAPER_V1_20260923_114444_state.json",
     "pnl": 35.7628,
     "trades": 185,
-    "notional": 47.88,
+    "notional": 23.94,
     "base": 30.0,
     "cash": 101.26,
     "equity": 65.76,
@@ -7078,7 +7078,7 @@
         "reason": "SEED_START"
       }
     ],
-    "skips": 78989,
+    "skips": 78995,
     "portfolio": [
       {
         "pair": "BTCUSDT",
@@ -7696,7 +7696,7 @@
       "SKIP_COOLDOWN": 918,
       "SPREAD": 643,
       "FUSIBLE": 601,
-      "ATTENTE": 517,
+      "ATTENTE": 523,
       "CB": 324,
       "MUR-SPOOF": 178
     },
@@ -7746,7 +7746,7 @@
       "compoundMaxMult": 3.0,
       "baseMoteur": 30.0,
       "plafondParPaire": 90.0,
-      "notionalLive": 47.88,
+      "notionalLive": 23.94,
       "pairs": [
         {
           "pair": "REDUSDT",
@@ -8049,7 +8049,7 @@
           "compound": false
         }
       ],
-      "ts": "2026-09-25T09:43:08Z"
+      "ts": "2026-09-25T10:43:38Z"
     },
     "conseils": {
       "cortana": {
@@ -8114,9 +8114,9 @@
         "label": "="
       },
       "score": {
-        "dir": "up",
-        "delta": 6.0,
-        "label": "↑"
+        "dir": "flat",
+        "delta": 0.0,
+        "label": "="
       },
       "btcDominance": {
         "dir": "flat",
@@ -8129,14 +8129,14 @@
         "label": "—"
       },
       "whaleUsd": {
-        "dir": "down",
-        "delta": -1519539.0,
-        "label": "↓"
+        "dir": "flat",
+        "delta": 0.0,
+        "label": "="
       },
       "whaleN": {
-        "dir": "down",
-        "delta": -2.0,
-        "label": "↓"
+        "dir": "flat",
+        "delta": 0.0,
+        "label": "="
       },
       "takerRatio": {
         "dir": "flat",
@@ -8215,31 +8215,31 @@
       "whaleFragBtc": 0,
       "whaleCumul24hBtc": 19898995.93,
       "whaleMoy7jBtc": 13556849.48,
-      "whaleDir": "bullish",
-      "whaleDirLabel": "bullish",
+      "whaleDir": "neutral",
+      "whaleDirLabel": "neutral",
       "whaleDirScan": "neutral",
-      "whaleDirProxy": "bullish",
-      "whaleProxyN": 2,
-      "whaleProxyUsd": 923901.0,
-      "whaleProxyBuyUsd": 923901.0,
-      "whaleProxySellUsd": 595638.0,
+      "whaleDirProxy": "neutral",
+      "whaleProxyN": 0,
+      "whaleProxyUsd": 0.0,
+      "whaleProxyBuyUsd": 0.0,
+      "whaleProxySellUsd": 0.0,
       "whaleSource": "Binance Cold Storage #2, Binance Cold Storage #6, Binance Hot Wallet #2 (bech32), Bitbank Cold Wallet",
       "whaleEcartSeuil": 11568.5,
       "whaleAlerte": true,
       "whaleAlerteTexte": "Activité baleines : 14 gros bloc(s) (116685.45 BTC) + 0 fragmentation(s) (0 BTC). Source : Binance Cold Storage #2, Binance Cold Storage #6, Binance Hot Wallet #2 (bech32), Bitbank Cold Wallet.",
-      "dernierEvtMin": 4,
+      "dernierEvtMin": 64,
       "synthèse": "Direction onchain neutral | 14 gros bloc(s) 116685.45 BTC sur le scan récent, cumul 24h 19898996 BTC, source Binance Cold Storage #2, Binance Cold Storage #6, Binance Hot Wallet #2 (bech32), Bitbank Cold Wallet. Activité baleines : 14 gros bloc(s) (116685.45 BTC) + 0 fragmentation(s) (0 BTC). Source : Binance Cold Storage #2, Binance Cold Storage #6, Binance Hot Wallet #2 (bech32), Bitbank Cold Wallet. | CPFP actif (conf 0/2) · poussière score 0.0/50 | indice onchain 8.7/100 (FAIBLE — onchain nominal)",
       "cpfpSignal": null,
       "cpfpScore": 0.0,
       "cpfpMode": "actif",
       "cpfpConfirmation": 0,
       "cpfpGlobal": false,
-      "cpfpZscore": 43.46,
+      "cpfpZscore": 43.43,
       "cpfpZReel": 2.17,
       "cpfpCarte2": false,
       "cpfpDustScore": 0.0,
       "cpfpDustDeclenche": false,
-      "cpfpDustDetail": "poussière <2.0 sat/vB (normalisé minFee 0×1.5) : 0/0 vues ce run, 704 cumulées 48h (seuil 1000) — max 0.0000 BTC",
+      "cpfpDustDetail": "poussière <2.0 sat/vB (normalisé minFee 0×1.5) : 0/0 vues ce run, 681 cumulées 48h (seuil 1000) — max 0.0000 BTC",
       "blocPrivatiseMode": "actif",
       "blocPrivatiseTauxFantome": null,
       "blocPrivatiseNbCachees": 188,
@@ -8248,7 +8248,7 @@
       "indiceOnchainComposantes": {
         "blocsPrivatises": 0.0,
         "poussiere": 0.0,
-        "cpfpZscore": 43.46
+        "cpfpZscore": 43.43
       }
     },
     "indicators": {
@@ -8311,7 +8311,7 @@
     }
   },
   "intention": {
-    "ts": "2026-09-25T09:42:33.231199+00:00",
+    "ts": "2026-09-25T10:43:03.036398+00:00",
     "since": "2026-09-09T00:00:00Z",
     "bots": {
       "alpha": {
@@ -8680,7 +8680,7 @@
     ]
   },
   "saison": {
-    "ts": "2026-09-25T09:43:06.848295+00:00",
+    "ts": "2026-09-25T10:43:36.821334+00:00",
     "saison": "CALME",
     "emoji": "🧊",
     "direction": "long",
@@ -8735,7 +8735,7 @@
     "degraded": false
   },
   "gardienne": {
-    "ts": "2026-09-25T09:43:07Z",
+    "ts": "2026-09-25T10:43:37Z",
     "voilure_pct": 99,
     "zone": "VERT",
     "zone_emoji": "🟢",
@@ -8767,7 +8767,7 @@
     ]
   },
   "coup_doeil": {
-    "ts": "2026-09-25T09:43:07Z",
+    "ts": "2026-09-25T10:43:37Z",
     "saison": "CALME",
     "saison_emoji": "🌿",
     "voilure": "99 %",
