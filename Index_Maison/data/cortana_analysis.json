@@ -1,30 +1,30 @@
 {
-  "timestamp": 1790336402,
-  "date": "2026-09-25T11:40:02.930371+00:00",
-  "n_analyses": 4,
+  "timestamp": 1790340004,
+  "date": "2026-09-25T12:40:04.237717+00:00",
+  "n_analyses": 2,
   "analyses": [
     {
       "signal": {
         "metric": "price_1h",
-        "zscore": 3.258291939323495,
-        "value": 0.5932769422952289,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain majeure (z-score 3.26) dans un silence médiatique total (Google Actualités vide). C'est la signature classique d'accumulation furtive par des baleines avant la couverture de la presse.\"\n}\n```",
-        "ts": 1790334889.61954
+        "zscore": 2.870182619870216,
+        "value": 0.5509296686962872,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de prix significative (+2.87 z-score) en l'absence totale de couverture médiatique (Google Actualités vide). C'est la signature classique d'une accumulation furtive de baleines loin du radar public.\"\n}\n```",
+        "ts": 1790338565.927941
       },
       "fiche": "price_1h",
       "questions": {
         "pct_1h": {
-          "value": 0.25,
+          "value": -0.1,
           "seuil": -1,
           "depasse": true
         },
         "liq": {
-          "value": 1629079.0,
+          "value": 4835689.0,
           "seuil": 5000000,
           "depasse": false
         },
         "funding": {
-          "value": -5e-06,
+          "value": -1.2e-05,
           "seuil": 0,
           "depasse": true
         }
@@ -39,93 +39,39 @@
     },
     {
       "signal": {
-        "metric": "whale_usd",
-        "zscore": 4.347925833555701,
-        "value": 4010701.0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (4.35) indiquant un mouvement massif de capitaux (4M USD) totalement ignoré par les médias (silence radio). Divergence classique d'accumulation furtive avant un mouvement de marché.\"\n}\n```",
-        "ts": 1790335223.614995
+        "metric": "liquidations",
+        "zscore": 3.2195466757344575,
+        "value": 4851387.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 75,\n  \"reason\": \"Les médias focalisent sur des liquidations d'entreprises traditionnelles (bruit), tandis que l'alerte onchain pointe une liquidation majeure crypto (signal). Divergence classique avant un mouvement haussier : les baleines nettoient les positions faibles pendant que l'attention médiatique est ailleurs.\"\n}\n```",
+        "ts": 1790339774.009595
       },
-      "fiche": "whale_usd",
+      "fiche": "liquidations",
       "questions": {
-        "ventes": {
-          "value": 0.0,
+        "longs": {
+          "value": 2999071.0,
           "seuil": 0,
-          "depasse": false
+          "depasse": true
         },
-        "achats": {
-          "value": 508315.0,
+        "shorts": {
+          "value": 1836618.0,
           "seuil": 0,
           "depasse": true
         },
         "prix": {
-          "value": 0.25,
+          "value": -0.1,
           "seuil": 1,
           "depasse": false
         }
       },
       "interpretation": {
-        "condition": "achats > ventes",
-        "lecture": "Flux baleines ACHETEUR dominant — accumulation possible, à confirmer sur plusieurs scans",
-        "niveau": "info",
-        "action": "Observer, ne pas acheter sur un seul signal"
+        "condition": "longs > shorts",
+        "lecture": "Liquidations massives de LONGS — cascade baissière mécanique. Historiquement suit un creux proche quand le volume liq retombe (HYPOTHÈSE, pas une loi : une cascade peut en cacher une autre)",
+        "niveau": "surveiller",
+        "action": "Ne pas vendre dans la cascade ; préparer les paliers plancher si la paire est sur watchlist"
       },
-      "action": "Observer, ne pas acheter sur un seul signal",
-      "niveau": "info"
-    },
-    {
-      "signal": {
-        "metric": "sdi",
-        "zscore": 2.0463660091370546,
-        "value": 0.016,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie SDI non pertinente pour la crypto : les données médiatiques et l'indice font référence à 'SDI Group' (actions traditionnelles) et au 'Syndicat des Indépendants' (politique française), et non à un actif ou une baleine crypto.\"\n}\n```",
-        "ts": 1790335233.947242
-      },
-      "fiche": null,
-      "interpretation": {
-        "lecture": "Pas de fiche disponible",
-        "niveau": "inconnu"
-      },
-      "action": "Observer"
-    },
-    {
-      "signal": {
-        "metric": "ipt",
-        "zscore": 2.3472613986571798,
-        "value": 1.277,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Anomalie technique liée à une collision de ticker (IPT = Tournoi International des Physiciens / biotechnologies / institutions académiques). Aucune activité de baleine crypto détectée, le signal on-chain est du bruit sémantique.\"\n}\n```",
-        "ts": 1790335251.07065
-      },
-      "fiche": "rbf_eleve",
-      "questions": {
-        "prix": {
-          "value": 0.25,
-          "seuil": 1,
-          "depasse": false
-        },
-        "paires": {
-          "value": 0,
-          "seuil": 3,
-          "depasse": false
-        },
-        "funding": {
-          "value": -5e-06,
-          "seuil": 0.001,
-          "depasse": false
-        },
-        "whales": {
-          "value": 1,
-          "seuil": 5,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
-      },
-      "action": "Observer",
-      "niveau": "neutre"
+      "action": "Ne pas vendre dans la cascade ; préparer les paliers plancher si la paire est sur watchlist",
+      "niveau": "surveiller"
     }
   ],
-  "resume": "🔵 CALME — pas de signal alarmant"
+  "resume": "🟡 SURVEILLANCE — des signaux sont à observer"
 }
