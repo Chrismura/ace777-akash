@@ -1,11 +1,55 @@
 {
-  "ts": "2026-09-25T01:21:12Z",
-  "hauteur_tip": 968478,
+  "ts": "2026-09-25T02:35:12Z",
+  "hauteur_tip": 968483,
   "nb_blocs": 8,
   "seuil_btc": 50.0,
   "min_age_ans": 2.0,
-  "nb_grosses_tx": 167,
-  "nb_vieux_mouvements": 0,
-  "vieux_mouvements": [],
+  "nb_grosses_tx": 162,
+  "nb_vieux_mouvements": 1,
+  "vieux_mouvements": [
+    {
+      "txid": "1541cf9c5615649cd0228801f6ae568fba208286ed14ed9c1db18e1c05c1d630",
+      "hauteur_bloc": 968483,
+      "ts_bloc": 1790303404,
+      "btc": 4500.0,
+      "inputs_ages": [
+        {
+          "age_jours": 140.1,
+          "btc": 0.0
+        },
+        {
+          "age_jours": 333.3,
+          "btc": 0.0
+        },
+        {
+          "age_jours": 1617.9,
+          "btc": 4499.9999
+        },
+        {
+          "age_jours": 273.5,
+          "btc": 0.0
+        },
+        {
+          "age_jours": 14.1,
+          "btc": 0.0
+        },
+        {
+          "age_jours": 633.9,
+          "btc": 0.0
+        },
+        {
+          "age_jours": 153.6,
+          "btc": 0.0
+        },
+        {
+          "age_jours": 545.5,
+          "btc": 0.0
+        }
+      ],
+      "age_max_jours": 1617.9,
+      "age_max_ans": 4.4,
+      "inputs_non_resolus": 0
+    }
+  ],
   "note": "age_max = âge du plus vieil input (TOUS inputs, retry+cache, correction 13/09). inputs_ages=null = inputs non résolus — jamais comptés comme 0.0"
 }
