@@ -1,32 +1,52 @@
 {
-  "timestamp": 1790346306,
-  "date": "2026-09-25T14:25:06.191258+00:00",
-  "n_analyses": 1,
+  "timestamp": 1790347206,
+  "date": "2026-09-25T14:40:06.453403+00:00",
+  "n_analyses": 2,
   "analyses": [
     {
       "signal": {
-        "metric": "price_1h",
-        "zscore": 3.498070866992517,
-        "value": 0.7137066100514677,
-        "analysis": "{\n  \"signal\": \"bullish\",\n  \"confidence\": 72,\n  \"reason\": \"Le prix montre une anomalie forte (z‑score = 3,5) indiquant un mouvement significatif à la hausse, tandis que les titres médiatiques sont absents ou génériques, suggérant que cette hausse n’est pas encore relayée publiquement – un signe typique d’accumulation silencieuse de baleines.\"\n}",
-        "ts": 1790345216.188906
+        "metric": "sdi",
+        "zscore": 2.4978464839178374,
+        "value": 0.02,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie SDI (z-score 2.50) totalement non pertinente pour la crypto : les médias parlent du 'SDI Group' (entreprise cotée) et du 'Syndicat des Indépendants' (politique française). Bruit macro/politique sans lien avec les flux de baleines crypto.\"\n}\n```",
+        "ts": 1790346421.29605
       },
-      "fiche": "price_1h",
+      "fiche": null,
+      "interpretation": {
+        "lecture": "Pas de fiche disponible",
+        "niveau": "inconnu"
+      },
+      "action": "Observer"
+    },
+    {
+      "signal": {
+        "metric": "ipt",
+        "zscore": 2.0579167482711473,
+        "value": 1.24,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique non pertinent. Le ticker 'ipt' est pollué par des homonymes institutionnels (Tournoi de Physique, violences sexistes, biotechnologies) sans lien avec la crypto. Aucune baleine détectée, simple artefact de mots-clés.\"\n}\n```",
+        "ts": 1790346422.991409
+      },
+      "fiche": "rbf_eleve",
       "questions": {
-        "pct_1h": {
-          "value": -0.31,
-          "seuil": -1,
-          "depasse": true
+        "prix": {
+          "value": -0.08,
+          "seuil": 1,
+          "depasse": false
         },
-        "liq": {
-          "value": 3629669.0,
-          "seuil": 5000000,
+        "paires": {
+          "value": 0,
+          "seuil": 3,
           "depasse": false
         },
         "funding": {
-          "value": -2.5e-05,
-          "seuil": 0,
-          "depasse": true
+          "value": -2e-05,
+          "seuil": 0.001,
+          "depasse": false
+        },
+        "whales": {
+          "value": 0,
+          "seuil": 5,
+          "depasse": false
         }
       },
       "interpretation": {

@@ -31,23 +31,29 @@ Métriques : maison (mur moy/max + régime ; poussière = indicateur PANIER) + p
 | 24 | 2026-09-22T14:34:33Z | 14h | AUTRE | 0.001907 | IMPULSE_WAIT | 12.3863 | 361.81 | 4200.0 | 1.07e-05 | -0.18 | 0.55 | 0.56 | POMPE_PIEGE (stab 3) | prix 0.001907 · poussière(panier) 12.4% · Amihud 1.07e-05 · delta -0.18 · mur moy 362$ · mur max (run) 4,200$ |
 | 25 | 2026-09-23T14:35:03Z | 14h | AUTRE | 0.003005 | IMPULSE_WAIT | 12.9763 | 361.81 | 4200.0 | 1.34e-05 | 0.21 | -0.28 | -0.17 | POMPE_PIEGE (stab 7) | prix 0.003005 · poussière(panier) 13.0% · Amihud 1.34e-05 · delta +0.21 · mur moy 362$ · mur max (run) 4,200$ |
 | 26 | 2026-09-24T15:31:33Z | 15h | AUTRE | 0.002706 | IMPULSE_WAIT | 8.0866 | 361.81 | 4200.0 | — | — | -0.47 | -0.52 | POMPE_PIEGE (stab 9) | prix 0.002706 · poussière(panier) 8.1% · mur moy 362$ · mur max (run) 4,200$ |
+| 27 | 2026-09-25T14:35:02Z | 14h | AUTRE | 0.004483 | IMPULSE | 2.4403 | 361.81 | 4200.0 | 8.84e-06 | 0.27 | -0.14 | 0.33 | POMPE_PIEGE (stab 13) | prix 0.004483 · poussière(panier) 2.4% · Amihud 8.84e-06 · delta +0.27 · mur moy 362$ · mur max (run) 4,200$ |
 
 ## 🔁 HISTORIQUE DES CYCLES DE L'ACTIF (zigzag ≥ 15 %, log continu du moteur)
 
-_Fenêtre mesurée : du 2026-09-20T13:12:26Z au 2026-09-24T15:31:33Z (12975 points) — archives de rotation incluses._
+_Fenêtre mesurée : du 2026-09-21T19:15:46Z au 2026-09-25T14:35:02Z (12076 points) — archives de rotation incluses._
 
 | # | De | prix | Vers | prix | Amplitude | Durée |
 |---|---|---|---|---|---|---|
-| 1 | pic 2026-09-21T00:41:21Z | 0.00294 | creux 2026-09-22T02:54:41Z | 0.001818 | 🔻 -38.2 % | 26 h (1.1 j) |
+| 1 | pic 2026-09-21T19:58:49Z | 0.002534 | creux 2026-09-22T02:54:41Z | 0.001818 | 🔻 -28.3 % | 7 h (0.3 j) |
 | 2 | creux 2026-09-22T02:54:41Z | 0.001818 | pic 2026-09-22T08:44:35Z | 0.00212 | 🔺 +16.6 % | 6 h (0.2 j) |
 | 3 | pic 2026-09-22T08:44:35Z | 0.00212 | creux 2026-09-22T13:44:54Z | 0.00175 | 🔻 -17.5 % | 5 h (0.2 j) |
 | 4 | creux 2026-09-22T13:44:54Z | 0.00175 | pic 2026-09-23T07:22:20Z | 0.003182 | 🔺 +81.8 % | 18 h (0.7 j) |
+| 5 | pic 2026-09-23T07:22:20Z | 0.003182 | creux 2026-09-23T18:59:08Z | 0.00264 | 🔻 -17.0 % | 12 h (0.5 j) |
+| 6 | creux 2026-09-23T18:59:08Z | 0.00264 | pic 2026-09-25T01:16:35Z | 0.004727 | 🔺 +79.1 % | 30 h (1.3 j) |
+| 7 | pic 2026-09-25T01:16:35Z | 0.004727 | creux 2026-09-25T01:46:45Z | 0.003651 | 🔻 -22.8 % | 1 h (0.0 j) |
+| 8 | creux 2026-09-25T01:46:45Z | 0.003651 | pic 2026-09-25T04:15:38Z | 0.005189 | 🔺 +42.1 % | 2 h (0.1 j) |
+| 9 | pic 2026-09-25T04:15:38Z | 0.005189 | creux 2026-09-25T05:35:20Z | 0.004353 | 🔻 -16.1 % | 1 h (0.1 j) |
 
-**Cycle EN COURS : BAISSE depuis le pic du 2026-09-23T07:22:20Z à 0.003182 → 0.002706 = **-15.0 %**** (extrême courant 0.00264)
+**Cycle EN COURS : HAUSSE depuis le creux du 2026-09-25T05:35:20Z à 0.004353 → 0.004483 = **+3.0 %**** (extrême courant 0.005172)
 
 ## 💰 CE QUE LE MOTEUR A CAPTÉ SUR CET ACTIF
 
-- **Réalisé : -1.12 $** sur 8 entrée(s) / 8 sortie(s) — dernier événement 2026-09-24T15:31:33Z
-- **MFE donné en moyenne : +13.0 pts** par tour (pire tour : +30.7) — le meilleur prix atteint pendant la détention, jamais encaissé
+- **Réalisé : -0.14 $** sur 10 entrée(s) / 9 sortie(s) — dernier événement 2026-09-25T07:16:45Z
+- **MFE donné en moyenne : +11.0 pts** par tour (pire tour : +18.6) — le meilleur prix atteint pendant la détention, jamais encaissé
 
 _Règle : on compare les lignes entre elles (même heure de mesure = comparable). On ne supprime rien._
