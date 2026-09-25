@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "taker_ratio",
-      "zscore": -2.217160090599245,
-      "value": 0.559,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio anormalement bas (z-score -2.22) indique une forte dominance des ordres d'achat passifs (limite) face aux ventes agressives. Ce silence médiatique combiné à une accumulation discrète par les baleines suggère un bas de marché imminent avant une cassure haussière.\"\n}\n```",
-      "ts": "2026-09-24T00:07:56.459060+00:00"
-    },
-    {
       "metric": "volume",
       "zscore": -5.565573116154328,
       "value": 0,
@@ -349,6 +342,13 @@
       "value": 4486645.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Bruit médiatique saturé par les liquidations d'entreprises traditionnelles et de 'retail' paniqué. Le z-score modéré (2.04) sur de faibles liquidations crypto (4.48M$) indique un 'flush' sain des positions à effet de levier excessif, souvent orchestré par les baleines pour accumuler en silence avant un rebond.\"\n}\n```",
       "ts": "2026-09-25T13:41:49.685570+00:00"
+    },
+    {
+      "metric": "price_1h",
+      "zscore": 3.498070866992517,
+      "value": 0.7137066100514677,
+      "analysis": "{\n  \"signal\": \"bullish\",\n  \"confidence\": 72,\n  \"reason\": \"Le prix montre une anomalie forte (z‑score = 3,5) indiquant un mouvement significatif à la hausse, tandis que les titres médiatiques sont absents ou génériques, suggérant que cette hausse n’est pas encore relayée publiquement – un signe typique d’accumulation silencieuse de baleines.\"\n}",
+      "ts": "2026-09-25T14:06:56.188906+00:00"
     }
   ]
 }

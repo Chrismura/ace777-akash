@@ -5211,3 +5211,11 @@ Pas d’ordre — confrontation plus tard.
 ### 2026-09-25T13:20:51Z — ALERT auto
 - BIOUSDT: IMPULSE_WAIT — spike en cours, pas chase
 (compléter: confirmé ? risque ?)
+
+### 2026-09-25T13:48:49Z — ALERT auto
+- ZBCNUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
+
+### 2026-09-25T14:02:37Z — ALERT auto
+- BIOUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
