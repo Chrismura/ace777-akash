@@ -2,34 +2,6 @@
   "signals": [
     {
       "metric": "volume",
-      "zscore": 2.592130327554217,
-      "value": 18507025406.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie de volume non corrélée au marché crypto : les titres médiatiques renvoient à l'agriculture, l'hydratation et la tech traditionnelle (Boursorama/Retail). Bruit de fond, pas de mouvement de baleine détecté.\"\n}\n```",
-      "ts": "2026-09-23T17:29:10.261460+00:00"
-    },
-    {
-      "metric": "long_short",
-      "zscore": 3.044833285180888,
-      "value": 1.091,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 92,\n  \"reason\": \"Le Z-score extrême (3.04) indique un positionnement long surchargé des baleines dans un marché saturé de bruit médiatique institutionnel 'Long/Short', créant un déséquilibre critique propice à une purge imminente des positions acheteuses.\"\n}\n```",
-      "ts": "2026-09-23T17:54:43.057521+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": 2.479228266182975,
-      "value": 18590239993.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie de volume non corrélée au marché crypto (bruit médiatique centré sur la santé, la finance traditionnelle et l'e-commerce). Aucune baleine détectée.\"\n}\n```",
-      "ts": "2026-09-23T17:59:55.123653+00:00"
-    },
-    {
-      "metric": "long_short",
-      "zscore": 3.335060616271839,
-      "value": 1.132,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Z-score élevé (3.34) indiquant une surconcentration extrême des positions acheteuses (Retail FOMO), alors que le narratif médiatique pousse les stratégies Long/Short traditionnelles par prudence face à l'agitation des marchés. Divergence classique de piège à liquidité haussière.\"\n}\n```",
-      "ts": "2026-09-23T18:25:02.731047+00:00"
-    },
-    {
-      "metric": "volume",
       "zscore": 2.2226173483366156,
       "value": 18385783839.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit médiatique non pertinent (actualités généralistes, e-commerce et santé). Aucune corrélation avec une activité crypto ou un mouvement de baleine pertinent.\"\n}\n```",
@@ -349,6 +321,34 @@
       "value": 2852856.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Significant whale activity (z-score 2.73) contrasts with neutral media narrative, suggesting accumulation phase.\"\n}\n```",
       "ts": "2026-09-25T07:43:38.531733+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": -3.3537872600048053,
+      "value": 0,
+      "analysis": "{\n  \"signal\": \"bullish\",\n  \"confidence\": 70,\n  \"reason\": \"On‑chain volume has collapsed to near zero (z‑score -3.35), indicating a lack of public trading activity. Meanwhile, media headlines discuss volume in unrelated contexts (waste grinders, sports, stock volumes) and show no crypto‑specific narrative. This disconnect often reflects whales executing stealth accumulation or large off‑chain moves, which historically precedes a bullish price reaction.\"\n}",
+      "ts": "2026-09-25T09:28:52.401074+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": -2.716741469983008,
+      "value": 0,
+      "analysis": "{\"signal\":\"neutral\",\"confidence\":86,\"reason\":\"Aucune liquidation détectée (z=-2,72), ce qui contredit directement le récit médiatique d'une vague de liquidations. Le narratif paraît donc exagéré, mais l'absence de stress de levier ne prouve pas une accumulation silencieuse des baleines.\"}",
+      "ts": "2026-09-25T09:29:36.340613+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": -3.1134198317085247,
+      "value": 1,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Le Z-score extrêmement bas (-3.11) indique une position vendeuse massive des fonds et un positionnement retail ultra-pessimiste, contredisant le narratif médiatique prudent mais classique sur les stratégies long/short. Les baleines accumulent en silence dans la zone de capitulation contrarienne.\"\n}\n```",
+      "ts": "2026-09-25T09:29:38.274561+00:00"
+    },
+    {
+      "metric": "taker_ratio",
+      "zscore": -2.1112872983879325,
+      "value": 0.5,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Taker ratio extrêmement bas (0.5, z-score -2.11) indique une domination massive des ordres d'achat passifs (limite) par rapport aux ventes agressives (taker sell). Silence médiatique total (Google Actualités vide) : accumulation discrète des baleines sous le radar du retail.\"\n}\n```",
+      "ts": "2026-09-25T09:29:40.195983+00:00"
     }
   ]
 }

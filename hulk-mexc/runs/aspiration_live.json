@@ -1,6 +1,6 @@
 {
- "ts": 1790325781,
- "ts_utc": "2026-09-25T08:43:01Z",
+ "ts": 1790329390,
+ "ts_utc": "2026-09-25T09:43:10Z",
  "n_paires_univers": 20,
  "couverture_pct": 100.0,
  "max_pairs": 20,
@@ -13,7 +13,7 @@
  },
  "n_actives": 20,
  "paires": {
-  "ETHUSDT": {
+  "BTCUSDT": {
    "regime": "WATCH",
    "prix": 0.0,
    "ok": false,
@@ -31,8 +31,8 @@
    "delay_s": null,
    "ws_ok": false
   },
-  "QNTUSDT": {
-   "regime": "IMPULSE_WAIT",
+  "ETHUSDT": {
+   "regime": "WATCH",
    "prix": 0.0,
    "ok": false,
    "mode": "full",
@@ -103,24 +103,6 @@
    "delay_s": null,
    "ws_ok": false
   },
-  "KITEUSDT": {
-   "regime": "COOLING",
-   "prix": 0.0,
-   "ok": false,
-   "mode": "full",
-   "aspiration_side": null,
-   "drop_bid_pct_per_s": null,
-   "drop_ask_pct_per_s": null,
-   "max_drop_pct_per_s": null,
-   "spread_bps": null,
-   "spread_delta_bps": null,
-   "wall_bid_usdt": null,
-   "wall_ask_usdt": null,
-   "notional_drop_ok": null,
-   "price_delta_pct": null,
-   "delay_s": null,
-   "ws_ok": false
-  },
   "TELUSDT": {
    "regime": "COOLING",
    "prix": 0.0,
@@ -139,7 +121,7 @@
    "delay_s": null,
    "ws_ok": false
   },
-  "BTCUSDT": {
+  "HBARUSDT": {
    "regime": "COOLING",
    "prix": 0.0,
    "ok": false,
@@ -157,8 +139,54 @@
    "delay_s": null,
    "ws_ok": false
   },
-  "WUSDT": {
+  "RWAINCUSDT": {
+   "regime": "IMPULSE",
+   "prix": 0.0,
+   "ok": false,
+   "mode": "full",
+   "aspiration_side": null,
+   "drop_bid_pct_per_s": null,
+   "drop_ask_pct_per_s": null,
+   "max_drop_pct_per_s": null,
+   "spread_bps": null,
+   "spread_delta_bps": null,
+   "wall_bid_usdt": null,
+   "wall_ask_usdt": null,
+   "notional_drop_ok": null,
+   "price_delta_pct": null,
+   "delay_s": null,
+   "ws_ok": false
+  },
+  "RIZEUSDT": {
+   "regime": "IMPULSE_WAIT",
+   "prix": 0.0,
+   "ok": false,
+   "reason": "book_err:<urlopen error [Errno 8] nodename nor servname provided, or not known>",
+   "ws_ok": false
+  },
+  "KITEUSDT": {
    "regime": "WATCH",
+   "prix": 0.0,
+   "ok": false,
+   "reason": "book_err:<urlopen error [Errno 8] nodename nor servname provided, or not known>",
+   "ws_ok": false
+  },
+  "EDELUSDT": {
+   "regime": "IMPULSE_WAIT",
+   "prix": 0.0,
+   "ok": false,
+   "reason": "book_err:<urlopen error [Errno 8] nodename nor servname provided, or not known>",
+   "ws_ok": false
+  },
+  "QNTUSDT": {
+   "regime": "IMPULSE",
+   "prix": 0.0,
+   "ok": false,
+   "reason": "book_err:<urlopen error [Errno 8] nodename nor servname provided, or not known>",
+   "ws_ok": false
+  },
+  "CCUSDT": {
+   "regime": "IMPULSE_WAIT",
    "prix": 0.0,
    "ok": false,
    "reason": "book_err:<urlopen error [Errno 8] nodename nor servname provided, or not known>",
@@ -171,14 +199,21 @@
    "reason": "book_err:<urlopen error [Errno 8] nodename nor servname provided, or not known>",
    "ws_ok": false
   },
-  "RIZEUSDT": {
+  "PYTHUSDT": {
    "regime": "IMPULSE_WAIT",
    "prix": 0.0,
    "ok": false,
    "reason": "book_err:<urlopen error [Errno 8] nodename nor servname provided, or not known>",
    "ws_ok": false
   },
-  "RWAINCUSDT": {
+  "WUSDT": {
+   "regime": "WATCH",
+   "prix": 0.0,
+   "ok": false,
+   "reason": "book_err:<urlopen error [Errno 8] nodename nor servname provided, or not known>",
+   "ws_ok": false
+  },
+  "BIOUSDT": {
    "regime": "IMPULSE_WAIT",
    "prix": 0.0,
    "ok": false,
@@ -192,27 +227,6 @@
    "reason": "book_err:<urlopen error [Errno 8] nodename nor servname provided, or not known>",
    "ws_ok": false
   },
-  "EDELUSDT": {
-   "regime": "IMPULSE_WAIT",
-   "prix": 0.0,
-   "ok": false,
-   "reason": "book_err:<urlopen error [Errno 8] nodename nor servname provided, or not known>",
-   "ws_ok": false
-  },
-  "BIOUSDT": {
-   "regime": "IMPULSE_WAIT",
-   "prix": 0.0,
-   "ok": false,
-   "reason": "book_err:<urlopen error [Errno 8] nodename nor servname provided, or not known>",
-   "ws_ok": false
-  },
-  "REDUSDT": {
-   "regime": "IMPULSE_WAIT",
-   "prix": 0.0,
-   "ok": false,
-   "reason": "book_err:<urlopen error [Errno 8] nodename nor servname provided, or not known>",
-   "ws_ok": false
-  },
   "ZBCNUSDT": {
    "regime": "WATCH",
    "prix": 0.0,
@@ -220,22 +234,8 @@
    "reason": "book_err:<urlopen error [Errno 8] nodename nor servname provided, or not known>",
    "ws_ok": false
   },
-  "CCUSDT": {
+  "REDUSDT": {
    "regime": "IMPULSE_WAIT",
-   "prix": 0.0,
-   "ok": false,
-   "reason": "book_err:<urlopen error [Errno 8] nodename nor servname provided, or not known>",
-   "ws_ok": false
-  },
-  "PYTHUSDT": {
-   "regime": "IMPULSE_WAIT",
-   "prix": 0.0,
-   "ok": false,
-   "reason": "book_err:<urlopen error [Errno 8] nodename nor servname provided, or not known>",
-   "ws_ok": false
-  },
-  "HBARUSDT": {
-   "regime": "COOLING",
    "prix": 0.0,
    "ok": false,
    "reason": "book_err:<urlopen error [Errno 8] nodename nor servname provided, or not known>",
