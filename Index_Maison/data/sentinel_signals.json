@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "volume",
-      "zscore": 2.206003182420141,
-      "value": 17233477701.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie de volume non corrélée au marché crypto (bruit de fond ou données macro hors-sujet). Les gros titres médiatiques traitent de retail, de pneumatiques et de musique, démontrant une absence totale de narratif crypto à analyser. Aucune baleine détectée.\"\n}\n```",
-      "ts": "2026-09-23T15:53:15.180703+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.425969581183142,
-      "value": 1.135,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Le ticker 'ipt' fait référence à des institutions académiques et religieuses (Institut Polytechnique de Toulouse/Paris, Théologique) dans les médias, créant une confusion totale avec un actif crypto. Aucune donnée on-chain pertinente de baleine crypto détectée derrière ce bruit médiatique.\"\n}\n```",
-      "ts": "2026-09-23T15:53:53.015172+00:00"
-    },
-    {
       "metric": "whale_usd",
       "zscore": 3.7668405000629734,
       "value": 4765913.0,
@@ -349,6 +335,20 @@
       "value": 50.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit de fond sans rapport avec la crypto. Les 'dusts' détectés concernent de la culture pop et du jeu vidéo (Dust till Dawn), aucune baleine active.\"\n}\n```",
       "ts": "2026-09-25T00:32:12.944521+00:00"
+    },
+    {
+      "metric": "cpfp",
+      "zscore": 2.0694824979952906,
+      "value": 50.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique purement onchain liée aux frais de transaction (Child-Pays-For-Parent). Le bruit médiatique concerne des homonymes (politique, éducation) sans aucun rapport avec les flux de capitaux ou des mouvements de baleines crypto.\"\n}\n```",
+      "ts": "2026-09-25T01:22:21.524533+00:00"
+    },
+    {
+      "metric": "dust",
+      "zscore": 2.0694824979952906,
+      "value": 50.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit de fond absolu : le z-score élevé est un artefact statistique déclenché par des homonymies absolues dans l'actualité ('Dust Bunny', 'Dust till Dawn') sans aucun rapport avec l'onchain ou le marché des cryptomonnaies. Aucune baleine détectée.\"\n}\n```",
+      "ts": "2026-09-25T01:22:23.334583+00:00"
     }
   ]
 }
