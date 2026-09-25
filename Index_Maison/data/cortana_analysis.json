@@ -1,43 +1,58 @@
 {
-  "timestamp": 1790372714,
-  "date": "2026-09-25T21:45:14.366063+00:00",
-  "n_analyses": 1,
+  "timestamp": 1790376315,
+  "date": "2026-09-25T22:45:15.552356+00:00",
+  "n_analyses": 2,
   "analyses": [
     {
       "signal": {
+        "metric": "sdi",
+        "zscore": 2.4699156261620745,
+        "value": 0.024,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie SDI (z-score 2.47) et titres médiatiques font référence à 'SDI Group' (actions traditionnelles / actualité politique française) et non à une baleine crypto. Bruit de fond sans pertinence onchain.\"\n}\n```",
+        "ts": 1790375018.421863
+      },
+      "fiche": null,
+      "interpretation": {
+        "lecture": "Pas de fiche disponible",
+        "niveau": "inconnu"
+      },
+      "action": "Observer"
+    },
+    {
+      "signal": {
         "metric": "whale_usd",
-        "zscore": 2.5751451192074017,
-        "value": 2997362.0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Activité anormale des baleines (z-score 2.58, ~3M USD) totalement ignorée par les médias de masse (Google Actualités vide). Accumulation silencieuse classique avant un mouvement de marché.\"\n}\n```",
-        "ts": 1790371405.634323
+        "zscore": 3.332151624652273,
+        "value": 3872993.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 3.33, ~3.87M USD) dans un silence médiatique absolu (Google Actualités vide).accumulation furtive typique des baleines avant un mouvement de marché non anticipé par le retail.\"\n}\n```",
+        "ts": 1790375921.611453
       },
       "fiche": "whale_usd",
       "questions": {
         "ventes": {
-          "value": 0.0,
+          "value": 945561.0,
           "seuil": 0,
-          "depasse": false
+          "depasse": true
         },
         "achats": {
-          "value": 635749.0,
+          "value": 576081.0,
           "seuil": 0,
           "depasse": true
         },
         "prix": {
-          "value": -0.07,
+          "value": 0.33,
           "seuil": 1,
           "depasse": false
         }
       },
       "interpretation": {
-        "condition": "achats > ventes",
-        "lecture": "Flux baleines ACHETEUR dominant — accumulation possible, à confirmer sur plusieurs scans",
-        "niveau": "info",
-        "action": "Observer, ne pas acheter sur un seul signal"
+        "condition": "ventes > achats",
+        "lecture": "Flux baleines VENDEUR dominant — distribution possible vers les exchanges (proxy : bearish aujourd'hui)",
+        "niveau": "surveiller",
+        "action": "Croiser avec le sniffer vieux BTC et l'IPT avant de réduire"
       },
-      "action": "Observer, ne pas acheter sur un seul signal",
-      "niveau": "info"
+      "action": "Croiser avec le sniffer vieux BTC et l'IPT avant de réduire",
+      "niveau": "surveiller"
     }
   ],
-  "resume": "🔵 CALME — pas de signal alarmant"
+  "resume": "🟡 SURVEILLANCE — des signaux sont à observer"
 }
