@@ -1,15 +1,10 @@
 {
-  "ts": "2026-09-25T18:45+00:00",
-  "updated": "2026-09-25T18:45Z",
+  "ts": "2026-09-25T19:45+00:00",
+  "updated": "2026-09-25T19:45Z",
   "etat": "ALERTE",
-  "chaines_ok": "10/15",
+  "chaines_ok": "14/15",
   "anomalies": [
-    "DÉRIVÉS : générateur ou fichier figé",
-    "HULK : sonde runtime, contrat Cortana ou analyses figés",
-    "GEOPOL : score figé ou modules en erreur",
-    "VIGIE MARCHÉ : radar mort ou journal figé (le trou du 19/08)",
-    "VEILLE DÉGRADATION : rapport ALERTE_DEGRADATION_SILENCIEUSE ou figé — dégradation silencieuse détectée",
-    "VEILLE DÉGRADATION : Dead Man's Switch ALERTE ou figé — la surveillance elle-même est en panne"
+    "HULK : sonde runtime, contrat Cortana ou analyses figés"
   ],
   "degradees": [],
   "chaines": [
@@ -32,12 +27,12 @@
         {
           "nom": "scan file",
           "ok": true,
-          "detail": "âge 10 min"
+          "detail": "âge 3 min"
         },
         {
           "nom": "mouvements (events)",
           "ok": true,
-          "detail": "dernier événement il y a 10 min"
+          "detail": "dernier événement il y a 3 min"
         },
         {
           "nom": "→ live.json.onchain",
@@ -47,12 +42,12 @@
         {
           "nom": "→ Ada gardienne",
           "ok": true,
-          "detail": "voilure 99.8 · zone VERT"
+          "detail": "voilure 91.1 · zone VERT"
         },
         {
           "nom": "→ Cortana feed",
           "ok": true,
-          "detail": "âge 4 min"
+          "detail": "âge 1 min"
         }
       ]
     },
@@ -60,7 +55,7 @@
       "id": "deriv",
       "nom": "DÉRIVÉS",
       "chemin": "gen_deriv_corr.py → deriv_corr.json → cockpit + Cortana",
-      "ok": false,
+      "ok": true,
       "maillons": [
         {
           "nom": "générateur (launchd deriv-corr)",
@@ -69,8 +64,8 @@
         },
         {
           "nom": "deriv_corr.json",
-          "ok": false,
-          "detail": "âge 88 min"
+          "ok": true,
+          "detail": "âge 8 min"
         }
       ]
     },
@@ -87,8 +82,8 @@
         },
         {
           "nom": "aspiration runtime",
-          "ok": false,
-          "detail": "mode fichier · JSON · âge ts 0.5 min · écart mtime/ts 2.5s · 20 paire(s) · btc=INVALIDE · ts=croissant"
+          "ok": true,
+          "detail": "mode fichier · JSON · âge ts 0.5 min · écart mtime/ts 2.7s · 20 paire(s) · btc=OK · ts=croissant"
         },
         {
           "nom": "corrélation BTC",
@@ -103,7 +98,7 @@
         {
           "nom": "cortana_pilot.json",
           "ok": false,
-          "detail": "âge 3661 min"
+          "detail": "âge 3721 min"
         },
         {
           "nom": "cortana_analysis.json",
@@ -185,17 +180,17 @@
       "id": "geopol",
       "nom": "GEOPOL",
       "chemin": "indice_app (5 modules) → live.json.geopol → juge + cockpit",
-      "ok": false,
+      "ok": true,
       "maillons": [
         {
           "nom": "geopol.ts frais",
           "ok": true,
-          "detail": "âge 0.1h"
+          "detail": "âge 0.0h"
         },
         {
           "nom": "modules OK",
-          "ok": false,
-          "detail": "4/5 modules"
+          "ok": true,
+          "detail": "5/5 modules"
         }
       ]
     },
@@ -244,7 +239,7 @@
       "id": "vigie",
       "nom": "VIGIE MARCHÉ",
       "chemin": "vigie_live.py → journal_radar.log → alertes (relance superviseur-process + superviseur-core + vigie-live)",
-      "ok": false,
+      "ok": true,
       "maillons": [
         {
           "nom": "process vigie_live",
@@ -253,8 +248,8 @@
         },
         {
           "nom": "journal_radar.log",
-          "ok": false,
-          "detail": "âge 9 min"
+          "ok": true,
+          "detail": "âge 0 min"
         },
         {
           "nom": "relance (superviseur-process)",
@@ -277,7 +272,7 @@
       "id": "veille_deg",
       "nom": "VEILLE DÉGRADATION",
       "chemin": "veille_degradation.py (plists + heartbeats + indicateurs) → etat.json + DMS externe (dms-veille) → cockpit",
-      "ok": false,
+      "ok": true,
       "maillons": [
         {
           "nom": "process veille_degradation (launchd)",
@@ -286,8 +281,8 @@
         },
         {
           "nom": "rapport veille_degradation_etat.json",
-          "ok": false,
-          "detail": "ALERTE_DEGRADATION_SILENCIEUSE · âge 0 min"
+          "ok": true,
+          "detail": "SAIN · âge 0 min"
         },
         {
           "nom": "Dead Man's Switch (dms-veille)",
@@ -296,8 +291,8 @@
         },
         {
           "nom": "rapport DMS_VEILLE.json",
-          "ok": false,
-          "detail": "ALERTE"
+          "ok": true,
+          "detail": "OK"
         }
       ]
     },
@@ -361,12 +356,12 @@
         {
           "nom": "sdi_latest.json (SAPI dedans)",
           "ok": true,
-          "detail": "âge 9 min"
+          "detail": "âge 1 min"
         },
         {
           "nom": "SAPI calculé",
           "ok": true,
-          "detail": "score 0.4"
+          "detail": "score 0.366"
         },
         {
           "nom": "alerte poussière (≥ 0.75 + volume)",
