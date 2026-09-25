@@ -1,37 +1,40 @@
 {
-  "timestamp": "2026-09-25T19:46:04Z",
+  "timestamp": "2026-09-25T20:26:13Z",
   "generation_source": "system_state_generator.py v2.1",
   "status": "STALE",
-  "feed_hash": "bb9b8de8dc00b70ae07b089f0d651551fa7015eab6a856fef23f1885af4c6f87",
+  "feed_hash": "416c013a0cb6ab3ef77c723fde782f8150cf88786968d6a3b3172085e6a2f7eb",
   "feeds": {
     "mission": {
       "present": true,
-      "age_seconds": 2,
+      "age_seconds": 21,
       "fresh_limit_s": 120
     },
     "cortana_feed": {
       "present": true,
-      "age_seconds": 63,
+      "age_seconds": 94,
       "fresh_limit_s": 120
     },
     "live": {
       "present": true,
-      "age_seconds": 62,
+      "age_seconds": 66,
       "fresh_limit_s": 15
     },
     "routing": {
       "present": true,
-      "age_seconds": 2793947,
+      "age_seconds": 2796356,
       "fresh_limit_s": 120
     }
   },
   "services": {
     "total": 101,
-    "running": 12,
-    "planned": 89,
+    "running": 14,
+    "planned": 87,
     "running_list": [
       "com.ace777.cockpit-http",
       "com.ace777.cockpit-pont",
+      "com.ace777.cortana-feed",
+      "com.ace777.cortana.urgent",
+      "com.ace777.dms-veille",
       "com.ace777.llm-gate-hub",
       "com.ace777.mirofish",
       "com.ace777.mirofish-front",
@@ -40,8 +43,7 @@
       "com.ace777.superviseur-core",
       "com.ace777.superviseur-l2",
       "com.ace777.superviseur-process",
-      "com.ace777.vigie-live",
-      "com.ace777.xrpl-arbitrage"
+      "com.ace777.vigie-live"
     ],
     "planned_list": [
       "com.ace777.analyste-cadence",
@@ -54,9 +56,7 @@
       "com.ace777.chien-de-garde",
       "com.ace777.controle-config",
       "com.ace777.cortana-analyzer",
-      "com.ace777.cortana-feed",
       "com.ace777.cortana-propose-params",
-      "com.ace777.cortana.urgent",
       "com.ace777.couleur-regime",
       "com.ace777.couleur-regime-score",
       "com.ace777.cpfp",
@@ -68,7 +68,6 @@
       "com.ace777.discipline-quotidienne",
       "com.ace777.disjoncteur",
       "com.ace777.divergence",
-      "com.ace777.dms-veille",
       "com.ace777.eval-offres",
       "com.ace777.fees",
       "com.ace777.flux-nets",
@@ -131,6 +130,7 @@
       "com.ace777.watchdog",
       "com.ace777.whales",
       "com.ace777.x402-agentic",
+      "com.ace777.xrpl-arbitrage",
       "com.ace777.xrpl-gouvernance",
       "com.ace777.xrpl-onchain"
     ]
@@ -172,7 +172,7 @@
       "Assistant_Vocal_HORS_VAULT": 697372,
       "Obsidian_BACKUPS_HORS_VAULT": 14936872
     },
-    "presence_at": "2026-09-25T19:39:50Z",
+    "presence_at": "2026-09-25T20:09:50Z",
     "sizes_at": "2026-09-25T15:39:46Z"
   }
 }
