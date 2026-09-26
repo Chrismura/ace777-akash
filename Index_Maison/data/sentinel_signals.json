@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "whale_usd",
-      "zscore": 2.6215669927378924,
-      "value": 3445348.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Activité anormale des baleines (z-score 2.62, +3.4M USD) totalement ignorée par les médias (silence radio). Accumulation furtive classique avant un mouvement de marché.\"\n}\n```",
-      "ts": "2026-09-25T00:17:05.655655+00:00"
-    },
-    {
       "metric": "ipt",
       "zscore": 2.0185538192124928,
       "value": 1.225,
@@ -349,6 +342,13 @@
       "value": 74,
       "analysis": "{\"signal\": \"bullish\", \"confidence\": 65, \"reason\": \"Onchain anomaly (fear/greed=74, z-score 3.24) signals strong market conviction while media narrative is notably absent. This divergence suggests silent whale positioning ahead of public coverage, a historically bullish setup.\"}",
       "ts": "2026-09-26T02:15:01.910744+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 2.879292027677139,
+      "value": 74,
+      "analysis": "{\n  \"signal\": \"bearish\",\n  \"confidence\": 72,\n  \"reason\": \"L'indice Fear & Greed à 74 (z‑score 2.88) indique une euphorie de marché extrême, alors que les titres médiatiques (Google Actualités) ne montrent aucun catalyseur haussier significatif. Cette déconnexion suggère que le sentiment public est surchauffé tandis que les mouvements on‑chain (absence de volume d'achat notable et possibles accumulations silencieuses de baleines) pourraient refléter une distribution discrète, signalant un risque de correction à la baisse.\"\n}",
+      "ts": "2026-09-26T02:45:19.284220+00:00"
     }
   ]
 }
