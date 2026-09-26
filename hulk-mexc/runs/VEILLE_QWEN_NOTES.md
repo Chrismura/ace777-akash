@@ -5247,3 +5247,7 @@ Pas d’ordre — confrontation plus tard.
 ### 2026-09-26T10:48:03Z — ALERT auto
 - QNTUSDT: IMPULSE_WAIT — spike en cours, pas chase
 (compléter: confirmé ? risque ?)
+
+### 2026-09-26T12:34:26Z — ALERT auto
+- RWAINCUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
