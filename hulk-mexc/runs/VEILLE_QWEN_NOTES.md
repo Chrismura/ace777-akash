@@ -5276,3 +5276,7 @@ Pas d’ordre — confrontation plus tard.
 ### 2026-09-26T17:21:18Z — ALERT auto
 - KITEUSDT: IMPULSE_WAIT — spike en cours, pas chase
 (compléter: confirmé ? risque ?)
+
+### 2026-09-26T17:39:34Z — ALERT auto
+- QNTUSDT: IMPULSE_WAIT — spike en cours, pas chase
+(compléter: confirmé ? risque ?)

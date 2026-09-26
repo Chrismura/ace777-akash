@@ -1,44 +1,46 @@
 {
-  "timestamp": "2026-09-26T17:30:43Z",
+  "timestamp": "2026-09-26T18:02:49Z",
   "generation_source": "system_state_generator.py v2.1",
   "status": "STALE",
-  "feed_hash": "d9e1a0e768c49d71e624cd0f4dd8746760e5eae70cb5853f7e5adece6d6bda3e",
+  "feed_hash": "8be8cbaafa6a4cf949b250ca7839887ba1a98fbf240382e61f8104d2faa1fed0",
   "feeds": {
     "mission": {
       "present": true,
-      "age_seconds": 18,
+      "age_seconds": 0,
       "fresh_limit_s": 120
     },
     "cortana_feed": {
       "present": true,
-      "age_seconds": 251,
+      "age_seconds": 135,
       "fresh_limit_s": 120
     },
     "live": {
       "present": true,
-      "age_seconds": 174,
+      "age_seconds": 135,
       "fresh_limit_s": 15
     },
     "routing": {
       "present": true,
-      "age_seconds": 2872226,
+      "age_seconds": 2874152,
       "fresh_limit_s": 120
     }
   },
   "services": {
     "total": 101,
-    "running": 13,
-    "planned": 88,
+    "running": 15,
+    "planned": 86,
     "running_list": [
       "com.ace777.cockpit-http",
       "com.ace777.cockpit-pont",
+      "com.ace777.cortana.urgent",
+      "com.ace777.croisement-externe",
       "com.ace777.llm-gate-hub",
       "com.ace777.mirofish",
       "com.ace777.mirofish-front",
       "com.ace777.prise-ia",
       "com.ace777.satellite-aspiration",
-      "com.ace777.sniffer-vieux-btc",
       "com.ace777.state-generator",
+      "com.ace777.superviseur-auto",
       "com.ace777.superviseur-core",
       "com.ace777.superviseur-l2",
       "com.ace777.superviseur-process",
@@ -57,11 +59,9 @@
       "com.ace777.cortana-analyzer",
       "com.ace777.cortana-feed",
       "com.ace777.cortana-propose-params",
-      "com.ace777.cortana.urgent",
       "com.ace777.couleur-regime",
       "com.ace777.couleur-regime-score",
       "com.ace777.cpfp",
-      "com.ace777.croisement-externe",
       "com.ace777.croisements-indices",
       "com.ace777.cycle-edel",
       "com.ace777.deriv-corr",
@@ -109,10 +109,10 @@
       "com.ace777.signal3-livre-ecorche",
       "com.ace777.sniffer-matin",
       "com.ace777.sniffer-ny",
+      "com.ace777.sniffer-vieux-btc",
       "com.ace777.sonde-volume-panier",
       "com.ace777.suivi-setup-red",
       "com.ace777.superviseur",
-      "com.ace777.superviseur-auto",
       "com.ace777.thermo-quotidien",
       "com.ace777.troupeau-inv",
       "com.ace777.veille-degradation",
@@ -172,7 +172,7 @@
       "Assistant_Vocal_HORS_VAULT": 697372,
       "Obsidian_BACKUPS_HORS_VAULT": 14936872
     },
-    "presence_at": "2026-09-26T17:10:09Z",
+    "presence_at": "2026-09-26T17:40:09Z",
     "sizes_at": "2026-09-26T15:40:05Z"
   }
 }
