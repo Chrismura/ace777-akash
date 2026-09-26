@@ -1,5 +1,5 @@
 {
-  "ts": "2026-09-26T18:02:22+00:00",
+  "ts": "2026-09-26T19:02:59+00:00",
   "note": "Verdicts MESURÉS à la source (scripts/verdicts_protocoles.py). Chaque protocole porte son critère pré-enregistré : c'est lui qui décide, pas l'impression du moment. Un verdict « IMPOSSIBLE » ou une ligne « alerte » signale un protocole dont le verdict ne peut pas être rendu — c'est une panne de conception, pas une patience.",
   "protocoles": [
     {
@@ -179,7 +179,7 @@
     {
       "protocole": "Radar XRPL gouvernance",
       "critere": "J8 pré-enregistré : (a) ≥ 5 amendements dont le compteur bouge de ≥ 2 votes, OU (b) ≥ 1 activation, OU (c) ≥ 1 amendement mort ; sinon échec",
-      "faits": "281 snapshots · 113 amendements suivis · (a) 6 bougent de ≥ 2 (il en fallait 5) · (b) 0 activation · (c) 0 mort · 3 nouveau(x)",
+      "faits": "282 snapshots · 113 amendements suivis · (a) 6 bougent de ≥ 2 (il en fallait 5) · (b) 0 activation · (c) 0 mort · 3 nouveau(x)",
       "verdict": "SUCCES (critère atteint)",
       "alerte": "",
       "detail": [
@@ -188,15 +188,11 @@
           "delta_votes": 10
         },
         {
-          "amendement": "ConfidentialTransfer",
-          "delta_votes": 4
-        },
-        {
-          "amendement": "DynamicMPT",
-          "delta_votes": 4
-        },
-        {
           "amendement": "BatchV1_1",
+          "delta_votes": 4
+        },
+        {
+          "amendement": "ConfidentialTransfer",
           "delta_votes": 4
         },
         {
@@ -204,15 +200,19 @@
           "delta_votes": 4
         },
         {
+          "amendement": "DynamicMPT",
+          "delta_votes": 4
+        },
+        {
           "amendement": "LendingProtocol",
           "delta_votes": 3
         },
         {
-          "amendement": "XChainBridge",
+          "amendement": "fixXChainRewardRounding",
           "delta_votes": 1
         },
         {
-          "amendement": "fixXChainRewardRounding",
+          "amendement": "XChainBridge",
           "delta_votes": 1
         }
       ]
@@ -264,19 +264,19 @@
           "indice": "fearGreed",
           "directionnels": 37,
           "corect": 21,
-          "n": 68
+          "n": 69
         },
         {
           "indice": "geopol",
           "directionnels": 4,
           "corect": 1,
-          "n": 26
+          "n": 27
         },
         {
           "indice": "gexPutCall",
           "directionnels": 1,
           "corect": 1,
-          "n": 4
+          "n": 5
         },
         {
           "indice": "indice_onchain",
@@ -289,17 +289,17 @@
     {
       "protocole": "Geopol (réanimé)",
       "critere": "GEOPOL-C2/C3 : avis geopol noté vs BTC 2×/jour, fenêtre 4 semaines (→ ~10/10), critère P3 ≥ 56 %",
-      "faits": "score actuel 0.3486 « calme » (ML 0.1648) · 26 avis enregistrés dont 4 directionnels (1 correct(s)) · 22 NEUTRE",
+      "faits": "score actuel 0.3486 « calme » (ML 0.1648) · 27 avis enregistrés dont 4 directionnels (1 correct(s)) · 23 NEUTRE",
       "verdict": "EN ATTENTE (fenêtre jusqu'au ~10/10)",
       "alerte": "1 avis correct sur 4 directionnels : à cette cadence le critère ne sera pas tranchable dans la fenêtre",
       "detail": [
         {
           "indice": "geopol",
-          "n": 26,
+          "n": 27,
           "directionnels": 4,
           "corrects": 1,
-          "neutres": 22,
-          "t_stat": -3.14
+          "neutres": 23,
+          "t_stat": -2.89
         }
       ]
     },
