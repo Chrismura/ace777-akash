@@ -1,43 +1,43 @@
 {
- "ts": "2026-09-25T23:40Z",
- "mark": 84041.1,
+ "ts": "2026-09-26T00:41Z",
+ "mark": 83826.7,
  "correlations": {
   "prix_oi": {
-   "r": -0.223,
-   "lecture": "corrélation faible (-0.223) — les deux évoluent en sens opposé",
+   "r": -0.244,
+   "lecture": "corrélation faible (-0.244) — les deux évoluent en sens opposé",
    "label": "Open interest vs prix"
   },
   "prix_funding": {
-   "r": -0.283,
-   "lecture": "corrélation faible (-0.283) — les deux évoluent en sens opposé",
+   "r": -0.306,
+   "lecture": "corrélation faible (-0.306) — les deux évoluent en sens opposé",
    "label": "Funding vs prix"
   },
   "prix_longshort": {
-   "r": -0.64,
-   "lecture": "corrélation modérée (-0.64) — les deux évoluent en sens opposé",
+   "r": -0.634,
+   "lecture": "corrélation modérée (-0.634) — les deux évoluent en sens opposé",
    "label": "Ratio long/short vs prix"
   },
   "prix_taker": {
-   "r": -0.052,
-   "lecture": "corrélation quasi nulle (-0.052) — les deux évoluent en sens opposé",
+   "r": -0.059,
+   "lecture": "corrélation quasi nulle (-0.059) — les deux évoluent en sens opposé",
    "label": "Achats/ventes agressifs vs prix"
   }
  },
  "liquidations": {
   "clusters_2000usd": {
    "82000": {
-    "long": 357767.0,
-    "short": 80576.0
+    "long": 351248.0,
+    "short": 83146.0
    },
    "84000": {
     "long": 0.0,
-    "short": 102348.0
+    "short": 110250.0
    }
   },
-  "longs_below_usd": 357767.0,
-  "longs_above_usd": 0,
-  "shorts_below_usd": 182924.0,
-  "shorts_above_usd": 0,
-  "lecture": "Le gros de la liquidité est EN DESSOUS du prix : 0.4 M$ de LONGS liquidés à 76-78k (contre 0.0 M$ de shorts au-dessus, à 80k) — si le prix casse ces supports, les liquidations long forcées peuvent accélérer la baisse (cascade)."
+  "longs_below_usd": 351248.0,
+  "longs_above_usd": 0.0,
+  "shorts_below_usd": 83146.0,
+  "shorts_above_usd": 110250.0,
+  "lecture": "Le gros de la liquidité est EN DESSOUS du prix : 0.4 M$ de LONGS liquidés à 76-78k (contre 0.1 M$ de shorts au-dessus, à 80k) — si le prix casse ces supports, les liquidations long forcées peuvent accélérer la baisse (cascade)."
  }
 }

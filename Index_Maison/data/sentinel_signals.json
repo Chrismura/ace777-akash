@@ -2,20 +2,6 @@
   "signals": [
     {
       "metric": "ipt",
-      "zscore": 2.6303374419086114,
-      "value": 1.28,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (z-score 2.63) sur le ticker 'ipt' totalement polluée par du bruit médiatique hétérogène (physique, violences, biotechnologies, agriculture). Aucun signal baleine valide, le 'narratif' est un homonyme sans lien avec la crypto.\"\n}\n```",
-      "ts": "2026-09-24T20:01:10.943170+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": 2.2543418375752156,
-      "value": 0.016,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 75,\n  \"reason\": \"Divergence entre l'anomalie onchain (z-score élevé) et le narratif médiatique neutre/positif. Les baleines pourraient accumuler silencieusement malgré les titres conventionnels.\"\n}\n```",
-      "ts": "2026-09-24T20:26:18.265316+00:00"
-    },
-    {
-      "metric": "ipt",
       "zscore": 2.6274844540454683,
       "value": 1.28,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Divergence forte entre l'activité on-chain (z-score élevé) et l'absence totale de couverture médiatique financière. Les titres actuels sont institutionnels/académiques, suggérant une accumulation silencieuse avant un mouvement majeur.\"\n}\n```",
@@ -349,6 +335,20 @@
       "value": 0.028,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie SDI (z-score 3.08) et titres médiatiques font référence à 'SDI' (SDI Group, politique énergétique), qui est une entreprise traditionnelle et un acronyme politique, sans rapport avec la blockchain ou les mouvements de baleines crypto.\"\n}\n```",
       "ts": "2026-09-25T22:53:46.066773+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 16.94107434609739,
+      "value": 74,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrême (16.94) pour un Fear & Greed à 74 combiné à un vide médiatique total (Google Actualités muet) : classic setup de 'Greed sans retail'. Divergence majeure indiquant une distribution silencieuse des baleines profitant de la complaisance avant un retournement.\"\n}\n```",
+      "ts": "2026-09-26T00:14:04.079040+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 6.335839103296185,
+      "value": 74,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Indice Fear & Greed en zone de cupidité extrême (74) avec un z-score très élevé (6.34), combiné à un vide médiatique (« Google Actualités » sans relais haussier fort) : classic setup de piège à liquidité. Divergence typique où les baleines profitent de l'excès de confiance retail pour distribuer silencieusement.\"\n}\n```",
+      "ts": "2026-09-26T00:44:10.940205+00:00"
     }
   ]
 }
