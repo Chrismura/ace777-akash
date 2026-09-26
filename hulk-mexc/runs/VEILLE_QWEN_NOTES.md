@@ -5312,3 +5312,8 @@ Pas d’ordre — confrontation plus tard.
 ### 2026-09-26T20:29:35Z — ALERT auto
 - KITEUSDT: IMPULSE_WAIT — spike en cours, pas chase
 (compléter: confirmé ? risque ?)
+
+### 2026-09-26T21:00:55Z — ALERT auto
+- CCUSDT: WATCH_PULLBACK — tension haute + reflux
+- CHIPUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)

@@ -1,42 +1,43 @@
 {
-  "timestamp": 1790454641,
-  "date": "2026-09-26T20:30:41.332859+00:00",
+  "timestamp": 1790456441,
+  "date": "2026-09-26T21:00:41.868623+00:00",
   "n_analyses": 1,
   "analyses": [
     {
       "signal": {
-        "metric": "whale_usd",
-        "zscore": 4.43132386402725,
-        "value": 9933994.0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (z-score 4.43, ~9.9M USD) dans le silence total des médias (Google Actualités vide). Accumulation furtive classique de baleines loin du bruit de fond retail.\"\n}\n```",
-        "ts": 1790453628.721697
+        "metric": "liquidations",
+        "zscore": 5.555262234913529,
+        "value": 3719011.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit sémantique : le terme 'liquidation' dans les médias fait référence à des faillites d'entreprises traditionnelles locales et non aux produits dérivés crypto.\"\n}\n```",
+        "ts": 1790455435.019326
       },
-      "fiche": "whale_usd",
+      "fiche": "liquidations",
       "questions": {
-        "ventes": {
-          "value": 0.0,
+        "longs": {
+          "value": 3270624.0,
           "seuil": 0,
-          "depasse": false
+          "depasse": true
         },
-        "achats": {
-          "value": 0.0,
+        "shorts": {
+          "value": 571153.0,
           "seuil": 0,
-          "depasse": false
+          "depasse": true
         },
         "prix": {
-          "value": 0.07,
+          "value": -0.02,
           "seuil": 1,
           "depasse": false
         }
       },
       "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
+        "condition": "longs > shorts",
+        "lecture": "Liquidations massives de LONGS — cascade baissière mécanique. Historiquement suit un creux proche quand le volume liq retombe (HYPOTHÈSE, pas une loi : une cascade peut en cacher une autre)",
+        "niveau": "surveiller",
+        "action": "Ne pas vendre dans la cascade ; préparer les paliers plancher si la paire est sur watchlist"
       },
-      "action": "Observer",
-      "niveau": "neutre"
+      "action": "Ne pas vendre dans la cascade ; préparer les paliers plancher si la paire est sur watchlist",
+      "niveau": "surveiller"
     }
   ],
-  "resume": "🔵 CALME — pas de signal alarmant"
+  "resume": "🟡 SURVEILLANCE — des signaux sont à observer"
 }

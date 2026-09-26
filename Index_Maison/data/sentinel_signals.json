@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "taker_ratio",
-      "zscore": -2.1112872983879325,
-      "value": 0.5,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Taker ratio extrêmement bas (0.5, z-score -2.11) indique une domination massive des ordres d'achat passifs (limite) par rapport aux ventes agressives (taker sell). Silence médiatique total (Google Actualités vide) : accumulation discrète des baleines sous le radar du retail.\"\n}\n```",
-      "ts": "2026-09-25T09:29:40.195983+00:00"
-    },
-    {
       "metric": "liquidations",
       "zscore": 2.5676784093362883,
       "value": 4182514.0,
@@ -349,6 +342,13 @@
       "value": 9933994.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (z-score 4.43, ~9.9M USD) dans le silence total des médias (Google Actualités vide). Accumulation furtive classique de baleines loin du bruit de fond retail.\"\n}\n```",
       "ts": "2026-09-26T20:13:48.721697+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 5.555262234913529,
+      "value": 3719011.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit sémantique : le terme 'liquidation' dans les médias fait référence à des faillites d'entreprises traditionnelles locales et non aux produits dérivés crypto.\"\n}\n```",
+      "ts": "2026-09-26T20:43:55.019326+00:00"
     }
   ]
 }
