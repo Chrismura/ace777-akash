@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "whale_usd",
-      "zscore": 4.347925833555701,
-      "value": 4010701.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (4.35) indiquant un mouvement massif de capitaux (4M USD) totalement ignoré par les médias (silence radio). Divergence classique d'accumulation furtive avant un mouvement de marché.\"\n}\n```",
-      "ts": "2026-09-25T11:20:23.614995+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": 2.0463660091370546,
-      "value": 0.016,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie SDI non pertinente pour la crypto : les données médiatiques et l'indice font référence à 'SDI Group' (actions traditionnelles) et au 'Syndicat des Indépendants' (politique française), et non à un actif ou une baleine crypto.\"\n}\n```",
-      "ts": "2026-09-25T11:20:33.947242+00:00"
-    },
-    {
       "metric": "ipt",
       "zscore": 2.3472613986571798,
       "value": 1.277,
@@ -349,6 +335,20 @@
       "value": 2914849.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit médiatique parasité par des homonymes (faillites de commerces locaux traditionnels). Aucune corrélation avec des mouvements de baleines crypto.\"\n}\n```",
       "ts": "2026-09-26T21:49:07.816903+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 2.264897253725013,
+      "value": 2947909.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique parasité par des homonymes (liquidations judiciaires d'entreprises traditionnelles). Aucune divergence onchain significative liée aux baleines crypto.\"\n}\n```",
+      "ts": "2026-09-26T22:19:13.074176+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 2.1672117149842327,
+      "value": 2947909.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 78,\n  \"reason\": \"Le pic de liquidations (z-score 2.17) indique un nettoyage brutal des positions à effet de levier excessif. Pendant ce temps, le narratif médiatique se focalise sur des bruits macro/traditionnels sans rapport avec la dynamique crypto (rachat de Coinglass, faillites d'entreprises locales). Classic flush de positions avant une reprise.\"\n}\n```",
+      "ts": "2026-09-26T22:49:19.190339+00:00"
     }
   ]
 }
