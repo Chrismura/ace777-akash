@@ -1,27 +1,6 @@
 {
   "signals": [
     {
-      "metric": "whale_usd",
-      "zscore": 2.7301570607255323,
-      "value": 2852856.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Significant whale activity (z-score 2.73) contrasts with neutral media narrative, suggesting accumulation phase.\"\n}\n```",
-      "ts": "2026-09-25T07:43:38.531733+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": -3.3537872600048053,
-      "value": 0,
-      "analysis": "{\n  \"signal\": \"bullish\",\n  \"confidence\": 70,\n  \"reason\": \"On‑chain volume has collapsed to near zero (z‑score -3.35), indicating a lack of public trading activity. Meanwhile, media headlines discuss volume in unrelated contexts (waste grinders, sports, stock volumes) and show no crypto‑specific narrative. This disconnect often reflects whales executing stealth accumulation or large off‑chain moves, which historically precedes a bullish price reaction.\"\n}",
-      "ts": "2026-09-25T09:28:52.401074+00:00"
-    },
-    {
-      "metric": "liquidations",
-      "zscore": -2.716741469983008,
-      "value": 0,
-      "analysis": "{\"signal\":\"neutral\",\"confidence\":86,\"reason\":\"Aucune liquidation détectée (z=-2,72), ce qui contredit directement le récit médiatique d'une vague de liquidations. Le narratif paraît donc exagéré, mais l'absence de stress de levier ne prouve pas une accumulation silencieuse des baleines.\"}",
-      "ts": "2026-09-25T09:29:36.340613+00:00"
-    },
-    {
       "metric": "long_short",
       "zscore": -3.1134198317085247,
       "value": 1,
@@ -349,6 +328,27 @@
       "value": 1.104,
       "analysis": "{\n  \"signal\": \"bullish\",\n  \"confidence\": 70,\n  \"reason\": \"L'IPT montre une anomalie on‑chain forte (z‑score 2.43), suggérant une activité de baleine potentiellement haussière, tandis que les titres médiatiques sont entièrement déconnectés de toute actualité crypto ou financière, indiquant un narratif silencieux qui ne reflète pas la réalité du marché.\"\n}",
       "ts": "2026-09-26T18:08:09.313940+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": -2.8548420108974204,
+      "value": 0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit médiatique sans rapport avec la crypto (actualités générales, Tesla, dattes, santé, iOS). Volume onchain à zéro (z-score -2.85) sur un actif non spécifié, mais l'absence totale de signaux pertinents empêche toute confirmation d'accumulation ou de distribution.\"\n}\n```",
+      "ts": "2026-09-26T19:43:33.095747+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": -4.794105071780218,
+      "value": 0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit médiatique non pertinent : les articles traitent de liquidations judiciaires d'entreprises locales traditionnelles et sans rapport avec le marché crypto ou l'activité des baleines.\"\n}\n```",
+      "ts": "2026-09-26T19:43:35.023183+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": -9.581481529540408,
+      "value": 1,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 95,\n  \"reason\": \"Le z-score extrême (-9.58) indique une position vendeuse nette abyssale et anormale de la part des acteurs institutionnels/baleines, tandis que les médias grand public glorifient la stratégie Long/Short. Classic setup de 'short squeeze' imminent.\"\n}\n```",
+      "ts": "2026-09-26T19:43:36.947755+00:00"
     }
   ]
 }
