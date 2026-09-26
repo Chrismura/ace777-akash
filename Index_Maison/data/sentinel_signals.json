@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "dust",
-      "zscore": 2.0611030613117296,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit de fond absolu. L'anomalie on-chain 'dust' coïncide avec des résultats de recherche pollués par des jeux vidéo ('Dust till Dawn') et de la culture pop. Aucune baleine détectée, simple bruit de résonance lexicale.\"\n}\n```",
-      "ts": "2026-09-25T04:23:03.566668+00:00"
-    },
-    {
       "metric": "cpfp",
       "zscore": 2.038002770540064,
       "value": 50.0,
@@ -349,6 +342,13 @@
       "value": 1.73,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio à 1.73 (Z-score 3.40) indique une forte agression acheteuse cachée sur le marché dérivé/spot, alors que les médias traditionnels affichent un vide informationnel (Google Actualités muet). Cette asymétrie signale une accumulation furtive des baleines avant un mouvement de rupture haussier non pricé par la foule.\"\n}\n```",
       "ts": "2026-09-26T08:41:30.007445+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.086043939488921,
+      "value": 1.046,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (IPT) confondue avec des actualités institutionnelles et académiques sans lien avec la crypto (homonymie du ticker).\"\n}\n```",
+      "ts": "2026-09-26T14:52:30.153732+00:00"
     }
   ]
 }
