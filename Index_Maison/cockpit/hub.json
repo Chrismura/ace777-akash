@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-26T04:52:55.562690+00:00",
+  "generated_at": "2026-09-26T05:29:17.234703+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 81
+      "calls_24h": 79
     },
     {
       "id": "openrouter-free",
@@ -401,64 +401,64 @@
   ],
   "events": [
     {
-      "ts": "2026-09-26T04:52:41.194357+00:00",
+      "ts": "2026-09-26T05:28:20.609002+00:00",
       "kind": "http",
       "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
       "detail": ""
     },
     {
-      "ts": "2026-09-26T04:52:41.193717+00:00",
+      "ts": "2026-09-26T05:28:20.608713+00:00",
       "kind": "error",
       "title": "Toutes les IA ont echoue",
-      "detail": "Google Gemini: HTTP Error 429: Too Many Requests | HuggingFace (136+ modeles, dont DeepSeek-V4): HTTP Error 400: Bad Request | OrcaRouter (routeur gratuit, modele orcarouter/free): HTTP Error 400: Bad Request | OpenRouter Juge (nemotron-3-super-120b free) - verificateur independant: HTTP Error 400: Bad Request | InferX DeepSeek V4 Flash (API gratuite jusqu'au 12/08): HTTP Error 429: Too Many Requests | InferX Qwen3-Coder-Next (code, gratuit jusqu'au 12/08): HTTP Error 429: Too Many Requests | Pu"
+      "detail": "Google Gemini: blacklist du jour (saute) | HuggingFace (136+ modeles, dont DeepSeek-V4): HTTP Error 400: Bad Request | OrcaRouter (routeur gratuit, modele orcarouter/free): HTTP Error 429: Too Many Requests | OpenRouter Juge (nemotron-3-super-120b free) - verificateur independant: HTTP Error 400: Bad Request | InferX DeepSeek V4 Flash (API gratuite jusqu'au 12/08): HTTP Error 429: Too Many Requests | InferX Qwen3-Coder-Next (code, gratuit jusqu'au 12/08): HTTP Error 429: Too Many Requests | Pute"
     },
     {
-      "ts": "2026-09-26T04:52:41.191836+00:00",
+      "ts": "2026-09-26T05:28:20.606906+00:00",
       "kind": "failover",
       "title": "Bascule depuis Roulement nex-agi/nex-n2.5-pro:free",
       "detail": "HTTP Error 404: Not Found"
     },
     {
-      "ts": "2026-09-26T04:52:40.755187+00:00",
+      "ts": "2026-09-26T05:28:20.134233+00:00",
       "kind": "failover",
       "title": "Bascule depuis InferX Devstral-2-123B (code)",
       "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-09-26T04:52:36.413445+00:00",
+      "ts": "2026-09-26T05:28:16.220247+00:00",
       "kind": "failover",
       "title": "Bascule depuis NVIDIA DeepSeek-Coder 6.7B (code, via NIM)",
       "detail": "HTTP Error 404: Not Found"
     },
     {
-      "ts": "2026-09-26T04:52:35.700052+00:00",
+      "ts": "2026-09-26T05:28:14.338524+00:00",
       "kind": "failover",
       "title": "Bascule depuis Puter Grok (gratuit)",
       "detail": "HTTP Error 402: Payment Required"
     },
     {
-      "ts": "2026-09-26T04:52:35.121779+00:00",
+      "ts": "2026-09-26T05:28:13.847036+00:00",
       "kind": "failover",
       "title": "Bascule depuis InferX Qwen3-Coder-Next (code, gratuit jusqu'au 12/08)",
       "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-09-26T04:52:30.846213+00:00",
-      "kind": "message",
-      "title": "« OrcaRouter (routeur gratuit, modele orcarouter/free) » a repondu",
-      "detail": "bascule"
-    },
-    {
-      "ts": "2026-09-26T04:52:30.845987+00:00",
+      "ts": "2026-09-26T05:28:09.704896+00:00",
       "kind": "failover",
       "title": "Bascule depuis InferX DeepSeek V4 Flash (API gratuite jusqu'au 12/08)",
       "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-09-26T04:52:30.845582+00:00",
-      "kind": "filet-universel",
-      "title": "[FILET UNIVERSEL] « OrcaRouter (routeur gratuit, modele orcarouter/free) » a repondu hors chaine",
-      "detail": "supervise.decision"
+      "ts": "2026-09-26T05:28:08.497048+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis OpenRouter Juge (nemotron-3-super-120b free) - verificateur independant",
+      "detail": "HTTP Error 400: Bad Request"
+    },
+    {
+      "ts": "2026-09-26T05:28:07.995024+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis OrcaRouter (routeur gratuit, modele orcarouter/free)",
+      "detail": "HTTP Error 429: Too Many Requests"
     }
   ],
   "tasks_quotas": {

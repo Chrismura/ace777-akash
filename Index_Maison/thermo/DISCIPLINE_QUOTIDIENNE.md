@@ -1,13 +1,13 @@
-# DISCIPLINE QUOTIDIENNE — 2026-09-25T05:15:18Z
+# DISCIPLINE QUOTIDIENNE — 2026-09-26T05:15:18Z
 
 ## ALERTES
-- 🔴 CORTANA sous 50% (39.8%) — discipline NEUTRE active, à surveiller
+- 🔴 CORTANA sous 50% (37.5%) — discipline NEUTRE active, à surveiller
 - 🔴 DÉRIVE MÉMOIRE : au moins 1 indice INSTABLE — voir DERIVE_MEMOIRE.md
 
 ## CORTANA (justesse, 44% = pile-ou-face)
-- Score global : 39.8%
-- Analyses notées : 99/249
-- Par indice : altSeason 0/3; bassine 3/6; btc 3/10; chg24 1/3; croisements 14/27; etfBtcM 1/3; etfEthM 0/3; etfXrpM 0/3; fearGreed 31/66; geopol 5/24; gexPutCall 2/4; indice_onchain 1/4; liq24Usd 3/5; longShort 1/3; oi 0/4; onchain 1/3; pipeline_health 0/2; radar 28/61; rbf 0/2; score 0/3; sdi 2/4; verre 3/6
+- Score global : 37.5%
+- Analyses notées : 96/256
+- Par indice : altSeason 0/3; bassine 3/6; btc 3/11; chg24 1/3; croisements 13/28; etfBtcM 1/3; etfEthM 0/3; etfXrpM 0/3; fearGreed 30/67; geopol 4/25; gexPutCall 2/4; indice_onchain 1/4; liq24Usd 3/5; longShort 1/3; oi 0/5; onchain 1/4; pipeline_health 0/2; radar 28/62; rbf 0/2; score 0/3; sdi 2/4; verre 3/6
 
 ## ADA (zone/voilure vs BTC 24h, v1)
 - Zone-accuracy : None% (0/0)
@@ -18,7 +18,7 @@
 - Détail : DERIVE_MEMOIRE.md — instables/critiques à revoir (contexte, données, prompt).
 
 ## AGORA (leçons apprises, chantier E4)
-- Leçons actives : 10 (TTL 7j, namespace cortana) — chaque HIT/MISS nourrit la base.
+- Leçons actives : 9 (TTL 7j, namespace cortana) — chaque HIT/MISS nourrit la base.
 - lecons_auto.py : scan → staging → validation (discipline 07h15, APRÈS la note).
 
 ## ERREURS (6ᵉ partie du cycle — post-mortem branché, R15/R17.5)
@@ -31,8 +31,8 @@
 
 ## SORTIE PILOTÉE PAR LA MESURE (GO 3 — suivi en vol)
 - Règle armée : **OUI** (référence 7.3 %/jour)
-- Sorties par palier au format MESURÉ : 0 (anomalies 0) · avant câblage : 32
-- EN ATTENTE — la règle est armée, aucune sortie par palier depuis le câblage
+- Sorties par palier au format MESURÉ : 1 (anomalies 0) · avant câblage : 32
+- 1 sortie(s) par palier depuis le câblage — toutes conformes
 
 ## Boucle
 - score_justesse.py relancé chaque jour (07:15, launchd) → la note fraîche nourrit la cadence 8h30/20h30.
