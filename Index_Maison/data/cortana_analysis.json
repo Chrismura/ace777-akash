@@ -1,7 +1,38 @@
 {
-  "timestamp": 1790409326,
-  "date": "2026-09-26T07:55:26.783101+00:00",
-  "n_analyses": 0,
-  "analyses": [],
-  "resume": "Aucune analyse en cours"
+  "timestamp": 1790411127,
+  "date": "2026-09-26T08:25:27.301646+00:00",
+  "n_analyses": 1,
+  "analyses": [
+    {
+      "signal": {
+        "metric": "taker_ratio",
+        "zscore": 3.9522998473580753,
+        "value": 1.73,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Le taker_ratio à 1.73 (Z-score 3.95) indique une agression massive à l'achat par les acheteurs (agresseurs), tandis que les médias affichent un silence radio (aucune couverture majeure). Les baleines accumulent agressivement sous le radar médiatique.\"\n}\n```",
+        "ts": 1790410283.759465
+      },
+      "fiche": "taker_ratio",
+      "questions": {
+        "taker": {
+          "value": 1.73,
+          "seuil": 1,
+          "depasse": true
+        },
+        "prix": {
+          "value": -0.09,
+          "seuil": 1,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "taker > 1",
+        "lecture": "Takers acheteurs agressifs — la demande mange le carnet, à confirmer avec le volume",
+        "niveau": "info",
+        "action": "Observer si le prix suit (vraie demande) ou diverge (absorption)"
+      },
+      "action": "Observer si le prix suit (vraie demande) ou diverge (absorption)",
+      "niveau": "info"
+    }
+  ],
+  "resume": "🔵 CALME — pas de signal alarmant"
 }
