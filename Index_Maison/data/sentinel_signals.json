@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "ipt",
-      "zscore": 2.3472613986571798,
-      "value": 1.277,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Anomalie technique liée à une collision de ticker (IPT = Tournoi International des Physiciens / biotechnologies / institutions académiques). Aucune activité de baleine crypto détectée, le signal on-chain est du bruit sémantique.\"\n}\n```",
-      "ts": "2026-09-25T11:20:51.070650+00:00"
-    },
-    {
       "metric": "sdi",
       "zscore": 2.8448559462453686,
       "value": 0.02,
@@ -349,6 +342,13 @@
       "value": 2947909.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 78,\n  \"reason\": \"Le pic de liquidations (z-score 2.17) indique un nettoyage brutal des positions à effet de levier excessif. Pendant ce temps, le narratif médiatique se focalise sur des bruits macro/traditionnels sans rapport avec la dynamique crypto (rachat de Coinglass, faillites d'entreprises locales). Classic flush de positions avant une reprise.\"\n}\n```",
       "ts": "2026-09-26T22:49:19.190339+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 2.0646560305908475,
+      "value": 2938981.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique parasité par des actualités juridiques et économiques généralistes (faillites d'entreprises traditionnelles). Aucune corrélation avec des mouvements de baleines crypto malgré une légère hausse des liquidations on-chain.\"\n}\n```",
+      "ts": "2026-09-26T23:19:27.669834+00:00"
     }
   ]
 }
