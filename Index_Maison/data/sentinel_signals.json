@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "cpfp",
-      "zscore": 2.0548295024237584,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Faux positif détecté. Le pic de 'cpfp' on-chain correspond à un bruit sémantique médiatique (articles sur les transactions Bitcoin bloquées et des acronymes homonymes sans lien avec une accumulation de baleines).\"\n}\n```",
-      "ts": "2026-09-25T02:02:31.408396+00:00"
-    },
-    {
       "metric": "dust",
       "zscore": 2.0548295024237584,
       "value": 50.0,
@@ -349,6 +342,13 @@
       "value": 74,
       "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Euphorie extrême (Fear & Greed à 74, z-score 2.06) couplée à un vide médiatique (aucun relais d'actualité notable). Divergence classique de fin de cycle : les baleines distribuent dans le silence pendant que le retail surchauffe sans couverture médiatique de masse.\"\n}\n```",
       "ts": "2026-09-26T04:45:46.940713+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 7.238384059948106,
+      "value": 7401940.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (z-score 7.24, ~7.4M USD) dans le silence médiatique total (Google Actualités vide). Accumulation furtive classique des baleines loin du radar public.\"\n}\n```",
+      "ts": "2026-09-26T05:50:55.644263+00:00"
     }
   ]
 }
