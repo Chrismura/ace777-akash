@@ -1,33 +1,35 @@
 {
-  "timestamp": 1790442132,
-  "date": "2026-09-26 19:02:12",
+  "timestamp": 1790443876,
+  "date": "2026-09-26 19:31:16",
   "source": "heartbeats (PAA-ACE777 ajout 1, 20/08)",
   "services": {
     "vigie": {
-      "ok": true,
-      "detail": "OK (vie 0s)"
+      "ok": false,
+      "detail": "ZOMBIE FONCTIONNEL : process vivant mais sortie figée (398s > 300s) — journal_radar.log"
     },
     "veille": {
       "ok": true,
-      "detail": "OK (vie 43s)"
+      "detail": "OK (vie 44s)"
     },
     "dms": {
       "ok": true,
-      "detail": "OK (vie 37s)"
+      "detail": "OK (vie 39s)"
     },
     "sante": {
       "ok": true,
-      "detail": "OK (vie 16s)"
+      "detail": "OK (vie 260s)"
     },
     "superviseur_core": {
       "ok": true,
-      "detail": "OK (vie 92s)"
+      "detail": "OK (vie 1s)"
     },
     "whales": {
       "ok": true,
-      "detail": "OK (vie 196s)"
+      "detail": "OK (vie 504s)"
     }
   },
-  "zombies_fonctionnels": [],
-  "statut": "SAIN"
+  "zombies_fonctionnels": [
+    "vigie: ZOMBIE FONCTIONNEL : process vivant mais sortie figée (398s > 300s) — journal_radar.log"
+  ],
+  "statut": "ALERTE"
 }

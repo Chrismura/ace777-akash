@@ -5268,3 +5268,11 @@ Pas d’ordre — confrontation plus tard.
 ### 2026-09-26T16:32:35Z — ALERT auto
 - QNTUSDT: IMPULSE_WAIT — spike en cours, pas chase
 (compléter: confirmé ? risque ?)
+
+### 2026-09-26T17:09:59Z — ALERT auto
+- RWAINCUSDT: IMPULSE_WAIT — spike en cours, pas chase
+(compléter: confirmé ? risque ?)
+
+### 2026-09-26T17:21:18Z — ALERT auto
+- KITEUSDT: IMPULSE_WAIT — spike en cours, pas chase
+(compléter: confirmé ? risque ?)

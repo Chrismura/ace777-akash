@@ -1,9 +1,12 @@
 {
-  "ts": "2026-09-26T17:01+00:00",
-  "updated": "2026-09-26T17:01Z",
-  "etat": "OK",
-  "chaines_ok": "15/15",
-  "anomalies": [],
+  "ts": "2026-09-26T17:26+00:00",
+  "updated": "2026-09-26T17:26Z",
+  "etat": "ALERTE",
+  "chaines_ok": "13/15",
+  "anomalies": [
+    "HULK : sonde runtime, contrat Cortana ou analyses figés",
+    "GEOPOL : score figé ou modules en erreur"
+  ],
   "degradees": [],
   "chaines": [
     {
@@ -25,12 +28,12 @@
         {
           "nom": "scan file",
           "ok": true,
-          "detail": "âge 3 min"
+          "detail": "âge 4 min"
         },
         {
           "nom": "mouvements (events)",
           "ok": true,
-          "detail": "dernier événement il y a 3 min"
+          "detail": "dernier événement il y a 4 min"
         },
         {
           "nom": "→ live.json.onchain",
@@ -40,12 +43,12 @@
         {
           "nom": "→ Ada gardienne",
           "ok": true,
-          "detail": "voilure 91.1 · zone VERT"
+          "detail": "voilure 99.8 · zone VERT"
         },
         {
           "nom": "→ Cortana feed",
           "ok": true,
-          "detail": "âge 4 min"
+          "detail": "âge 0 min"
         }
       ]
     },
@@ -63,7 +66,7 @@
         {
           "nom": "deriv_corr.json",
           "ok": true,
-          "detail": "âge 8 min"
+          "detail": "âge 3 min"
         }
       ]
     },
@@ -71,7 +74,7 @@
       "id": "hulk",
       "nom": "HULK",
       "chemin": "paper_diprip → aspiration selon ASPIRATION_SRC → cortana_analyzer → cortana_analysis.json → pilot (contrat)",
-      "ok": true,
+      "ok": false,
       "maillons": [
         {
           "nom": "process paper_diprip",
@@ -80,8 +83,8 @@
         },
         {
           "nom": "aspiration runtime",
-          "ok": true,
-          "detail": "mode fichier · JSON · âge ts 0.4 min · écart mtime/ts 2.1s · 20 paire(s) · btc=OK · ts=croissant"
+          "ok": false,
+          "detail": "mode fichier · JSON · âge ts 0.3 min · écart mtime/ts 2.6s · 20 paire(s) · btc=INVALIDE · ts=croissant"
         },
         {
           "nom": "corrélation BTC",
@@ -96,7 +99,7 @@
         {
           "nom": "cortana_pilot.json",
           "ok": true,
-          "detail": "âge 677 min"
+          "detail": "âge 702 min"
         },
         {
           "nom": "cortana_analysis.json",
@@ -114,7 +117,7 @@
         {
           "nom": "live.json",
           "ok": true,
-          "detail": "âge 4 min"
+          "detail": "âge 0 min"
         },
         {
           "nom": "mission.json → cockpit",
@@ -142,7 +145,7 @@
         {
           "nom": "cpfp_detect.json",
           "ok": true,
-          "detail": "âge 9 min"
+          "detail": "âge 4 min"
         },
         {
           "nom": "mode",
@@ -178,17 +181,17 @@
       "id": "geopol",
       "nom": "GEOPOL",
       "chemin": "indice_app (5 modules) → live.json.geopol → juge + cockpit",
-      "ok": true,
+      "ok": false,
       "maillons": [
         {
           "nom": "geopol.ts frais",
           "ok": true,
-          "detail": "âge 0.1h"
+          "detail": "âge 0.0h"
         },
         {
           "nom": "modules OK",
-          "ok": true,
-          "detail": "5/5 modules"
+          "ok": false,
+          "detail": "4/5 modules"
         }
       ]
     },
@@ -247,7 +250,7 @@
         {
           "nom": "journal_radar.log",
           "ok": true,
-          "detail": "âge 0 min"
+          "detail": "âge 2 min"
         },
         {
           "nom": "relance (superviseur-process)",
@@ -331,7 +334,7 @@
         {
           "nom": "croisement_externe_etat.json",
           "ok": true,
-          "detail": "âge 29 min"
+          "detail": "âge 24 min"
         },
         {
           "nom": "fails prix (> 5 % vs externe)",
@@ -354,12 +357,12 @@
         {
           "nom": "sdi_latest.json (SAPI dedans)",
           "ok": true,
-          "detail": "âge 4 min"
+          "detail": "âge 6 min"
         },
         {
           "nom": "SAPI calculé",
           "ok": true,
-          "detail": "score 0.5"
+          "detail": "score 0.3"
         },
         {
           "nom": "alerte poussière (≥ 0.75 + volume)",
@@ -377,7 +380,7 @@
         {
           "nom": "essaim_etat.json",
           "ok": true,
-          "detail": "âge 17 min"
+          "detail": "âge 12 min"
         },
         {
           "nom": "veille d'essaim active",
