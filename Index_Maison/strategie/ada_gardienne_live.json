@@ -1,54 +1,58 @@
 {
-  "ts": "2026-09-26T07:53:25Z",
+  "ts": "2026-09-26T07:57:05Z",
   "gardienne": {
-    "ts": "2026-09-26T07:53:25Z",
-    "voilure_pct": 89,
+    "ts": "2026-09-26T07:57:05Z",
+    "voilure_pct": 93,
     "zone": "VERT",
     "zone_emoji": "🟢",
     "pressions": {
       "bleed": 0.0,
-      "storm": 0.501,
+      "storm": 0.4,
       "reversal": 0.0
     },
-    "sirene": false,
-    "declencheurs": [],
+    "sirene": true,
+    "declencheurs": [
+      "bascule de saison"
+    ],
     "seuil_x": 75.0,
     "ancres": {
       "perte_moy": 50.0,
       "gains_peak": 50.0,
       "seuil_x": 75.0
     },
-    "alerte": false,
-    "raison": "",
+    "alerte": true,
+    "raison": "bascule de saison ; zone VERT",
     "pnl_alpha": 0.0,
     "sources": [
       "live.json"
     ],
     "story": [
-      "La voilure tient à 89 % — le bassin est calme, ACE garde sa toile déployée.",
+      "🚨 FEUX DE L'ORAGE : bascule de saison — ADA hurle maintenant, pas après.",
+      "La voilure tient à 93 % — le bassin est calme, ACE garde sa toile déployée.",
       "Rien ne presse : le Sniper reste en embuscade, l'Éclaireur sonde."
     ]
   },
   "coup_doeil": {
-    "ts": "2026-09-26T07:53:25Z",
-    "saison": "ACCUMULATION",
+    "ts": "2026-09-26T07:57:05Z",
+    "saison": "CALME",
     "saison_emoji": "🌿",
-    "voilure": "89 %",
+    "voilure": "93 %",
     "zone": "VERT",
     "zone_emoji": "🟢",
     "verdict_famille": "• GEMINI (analyste) : Aucune action corrective n'est requise : la discipline d'Alpha (0 tir malgré le volume x3) valide la synchronisation m",
     "intention": "Alpha en observation · Beta : 34 sondes · Hulk : pnl +41.50 $ (11 positions)",
-    "ligne": "ACCUMULATION 🌿 · voilure 89 % · VERT 🟢 — La voilure tient à 89 % — le bassin est calme, ACE garde sa toile déployée."
+    "ligne": "CALME 🌿 · voilure 93 % · VERT 🟢 — 🚨 FEUX DE L'ORAGE : bascule de saison — ADA hurle maintenant, pas après."
   },
   "etat": {
     "pnl": 0.0,
-    "ts": "2026-09-26T07:53:25Z"
+    "ts": "2026-09-26T07:57:05Z"
   },
   "zone": "VERT",
-  "voilure": 89.6,
-  "alerte": false,
+  "voilure": 93.1,
+  "alerte": true,
   "story": [
-    "La voilure tient à 89 % — le bassin est calme, ACE garde sa toile déployée.",
+    "🚨 FEUX DE L'ORAGE : bascule de saison — ADA hurle maintenant, pas après.",
+    "La voilure tient à 93 % — le bassin est calme, ACE garde sa toile déployée.",
     "Rien ne presse : le Sniper reste en embuscade, l'Éclaireur sonde."
   ]
 }
