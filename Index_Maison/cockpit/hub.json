@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-26T15:01:37.869405+00:00",
+  "generated_at": "2026-09-26T16:01:19.910182+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 75
+      "calls_24h": 73
     },
     {
       "id": "openrouter-free",
@@ -71,7 +71,7 @@
       "model": "nvidia/nemotron-3-super-120b-a12b:free",
       "enabled": true,
       "timeout": 120,
-      "calls_24h": 4
+      "calls_24h": 3
     },
     {
       "id": "grok",
@@ -197,7 +197,7 @@
       "model": "deepseek-ai/DeepSeek-V3-0324",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 7
+      "calls_24h": 5
     },
     {
       "id": "obs-1787033767",
@@ -274,10 +274,18 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 64,
-    "remaining": 560
+    "consumed": 65,
+    "remaining": 559
   },
   "queue": [
+    {
+      "ts": "2026-09-26T16:01:06.083474+00:00",
+      "task": "supervise.decision",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 0.96
+    },
     {
       "ts": "2026-09-26T15:01:35.974379+00:00",
       "task": "supervise.decision",
@@ -389,75 +397,67 @@
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
       "duration_s": 1.36
-    },
-    {
-      "ts": "2026-09-26T08:57:50.287517+00:00",
-      "task": "supervise.decision",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 0.96
     }
   ],
   "events": [
     {
-      "ts": "2026-09-26T15:01:35.973457+00:00",
+      "ts": "2026-09-26T16:01:06.082835+00:00",
       "kind": "message",
       "title": "« Google Gemini » a repondu",
       "detail": ""
     },
     {
-      "ts": "2026-09-26T15:00:31.549793+00:00",
-      "kind": "message",
-      "title": "« Google Gemini » a repondu",
-      "detail": ""
-    },
-    {
-      "ts": "2026-09-26T15:00:27.305625+00:00",
+      "ts": "2026-09-26T16:01:05.120793+00:00",
       "kind": "blacklist",
       "title": "Fin de pause Google Gemini",
       "detail": "re-essai automatique"
     },
     {
-      "ts": "2026-09-26T14:59:39.858206+00:00",
+      "ts": "2026-09-26T15:59:44.838696+00:00",
       "kind": "http",
       "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
       "detail": ""
     },
     {
-      "ts": "2026-09-26T14:59:39.857693+00:00",
+      "ts": "2026-09-26T15:59:44.838411+00:00",
       "kind": "error",
       "title": "Toutes les IA ont echoue",
       "detail": "Google Gemini: HTTP Error 429: Too Many Requests | HuggingFace (136+ modeles, dont DeepSeek-V4): HTTP Error 400: Bad Request | OrcaRouter (routeur gratuit, modele orcarouter/free): HTTP Error 429: Too Many Requests | OpenRouter Juge (nemotron-3-super-120b free) - verificateur independant: HTTP Error 400: Bad Request | InferX DeepSeek V4 Flash (API gratuite jusqu'au 12/08): HTTP Error 429: Too Many Requests | InferX Qwen3-Coder-Next (code, gratuit jusqu'au 12/08): HTTP Error 429: Too Many Request"
     },
     {
-      "ts": "2026-09-26T14:59:39.855229+00:00",
+      "ts": "2026-09-26T15:59:44.836654+00:00",
       "kind": "failover",
       "title": "Bascule depuis Roulement nex-agi/nex-n2.5-pro:free",
       "detail": "HTTP Error 404: Not Found"
     },
     {
-      "ts": "2026-09-26T14:59:39.097762+00:00",
+      "ts": "2026-09-26T15:59:44.030963+00:00",
       "kind": "failover",
       "title": "Bascule depuis InferX Devstral-2-123B (code)",
       "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-09-26T14:59:34.497023+00:00",
+      "ts": "2026-09-26T15:59:39.814554+00:00",
       "kind": "failover",
       "title": "Bascule depuis NVIDIA DeepSeek-Coder 6.7B (code, via NIM)",
       "detail": "HTTP Error 404: Not Found"
     },
     {
-      "ts": "2026-09-26T14:59:31.654838+00:00",
+      "ts": "2026-09-26T15:59:37.178430+00:00",
       "kind": "failover",
       "title": "Bascule depuis Puter Grok (gratuit)",
       "detail": "HTTP Error 402: Payment Required"
     },
     {
-      "ts": "2026-09-26T14:59:30.666432+00:00",
+      "ts": "2026-09-26T15:59:36.297726+00:00",
       "kind": "failover",
       "title": "Bascule depuis InferX Qwen3-Coder-Next (code, gratuit jusqu'au 12/08)",
+      "detail": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "ts": "2026-09-26T15:59:31.589117+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis InferX DeepSeek V4 Flash (API gratuite jusqu'au 12/08)",
       "detail": "HTTP Error 429: Too Many Requests"
     }
   ],
