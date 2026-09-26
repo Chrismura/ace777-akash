@@ -5243,3 +5243,7 @@ Pas d’ordre — confrontation plus tard.
 ### 2026-09-26T09:45:01Z — ALERT auto
 - QNTUSDT: IMPULSE_WAIT — spike en cours, pas chase
 (compléter: confirmé ? risque ?)
+
+### 2026-09-26T10:48:03Z — ALERT auto
+- QNTUSDT: IMPULSE_WAIT — spike en cours, pas chase
+(compléter: confirmé ? risque ?)
