@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "cpfp",
-      "zscore": 2.0611030613117296,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique mineure (CPFP) noyée dans un bruit médiatique hétérogène sans lien avec une accumulation ou distribution institutionnelle.\"\n}\n```",
-      "ts": "2026-09-25T04:23:01.722334+00:00"
-    },
-    {
       "metric": "dust",
       "zscore": 2.0611030613117296,
       "value": 50.0,
@@ -349,6 +342,13 @@
       "value": 1.73,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Le taker_ratio à 1.73 (Z-score 3.95) indique une agression massive à l'achat par les acheteurs (agresseurs), tandis que les médias affichent un silence radio (aucune couverture majeure). Les baleines accumulent agressivement sous le radar médiatique.\"\n}\n```",
       "ts": "2026-09-26T08:11:23.759465+00:00"
+    },
+    {
+      "metric": "taker_ratio",
+      "zscore": 3.3984993617079735,
+      "value": 1.73,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio à 1.73 (Z-score 3.40) indique une forte agression acheteuse cachée sur le marché dérivé/spot, alors que les médias traditionnels affichent un vide informationnel (Google Actualités muet). Cette asymétrie signale une accumulation furtive des baleines avant un mouvement de rupture haussier non pricé par la foule.\"\n}\n```",
+      "ts": "2026-09-26T08:41:30.007445+00:00"
     }
   ]
 }
