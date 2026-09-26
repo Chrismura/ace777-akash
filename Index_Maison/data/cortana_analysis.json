@@ -1,76 +1,31 @@
 {
-  "timestamp": 1790452840,
-  "date": "2026-09-26T20:00:40.806435+00:00",
-  "n_analyses": 3,
+  "timestamp": 1790454641,
+  "date": "2026-09-26T20:30:41.332859+00:00",
+  "n_analyses": 1,
   "analyses": [
     {
       "signal": {
-        "metric": "volume",
-        "zscore": -2.8548420108974204,
-        "value": 0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit médiatique sans rapport avec la crypto (actualités générales, Tesla, dattes, santé, iOS). Volume onchain à zéro (z-score -2.85) sur un actif non spécifié, mais l'absence totale de signaux pertinents empêche toute confirmation d'accumulation ou de distribution.\"\n}\n```",
-        "ts": 1790451813.095747
+        "metric": "whale_usd",
+        "zscore": 4.43132386402725,
+        "value": 9933994.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (z-score 4.43, ~9.9M USD) dans le silence total des médias (Google Actualités vide). Accumulation furtive classique de baleines loin du bruit de fond retail.\"\n}\n```",
+        "ts": 1790453628.721697
       },
-      "fiche": null,
-      "interpretation": {
-        "lecture": "Pas de fiche disponible",
-        "niveau": "inconnu"
-      },
-      "action": "Observer"
-    },
-    {
-      "signal": {
-        "metric": "liquidations",
-        "zscore": -4.794105071780218,
-        "value": 0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit médiatique non pertinent : les articles traitent de liquidations judiciaires d'entreprises locales traditionnelles et sans rapport avec le marché crypto ou l'activité des baleines.\"\n}\n```",
-        "ts": 1790451815.023183
-      },
-      "fiche": "liquidations",
+      "fiche": "whale_usd",
       "questions": {
-        "longs": {
-          "value": 911621.0,
+        "ventes": {
+          "value": 0.0,
           "seuil": 0,
-          "depasse": true
+          "depasse": false
         },
-        "shorts": {
-          "value": 786529.0,
+        "achats": {
+          "value": 0.0,
           "seuil": 0,
-          "depasse": true
+          "depasse": false
         },
         "prix": {
-          "value": 0.02,
+          "value": 0.07,
           "seuil": 1,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "longs > shorts",
-        "lecture": "Liquidations massives de LONGS — cascade baissière mécanique. Historiquement suit un creux proche quand le volume liq retombe (HYPOTHÈSE, pas une loi : une cascade peut en cacher une autre)",
-        "niveau": "surveiller",
-        "action": "Ne pas vendre dans la cascade ; préparer les paliers plancher si la paire est sur watchlist"
-      },
-      "action": "Ne pas vendre dans la cascade ; préparer les paliers plancher si la paire est sur watchlist",
-      "niveau": "surveiller"
-    },
-    {
-      "signal": {
-        "metric": "long_short",
-        "zscore": -9.581481529540408,
-        "value": 1,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 95,\n  \"reason\": \"Le z-score extrême (-9.58) indique une position vendeuse nette abyssale et anormale de la part des acteurs institutionnels/baleines, tandis que les médias grand public glorifient la stratégie Long/Short. Classic setup de 'short squeeze' imminent.\"\n}\n```",
-        "ts": 1790451816.947755
-      },
-      "fiche": "long_short",
-      "questions": {
-        "ratio_long_short": {
-          "value": 1.292,
-          "seuil": 2,
-          "depasse": false
-        },
-        "oi": {
-          "value": 94507.437,
-          "seuil": 120000,
           "depasse": false
         }
       },
@@ -83,5 +38,5 @@
       "niveau": "neutre"
     }
   ],
-  "resume": "🟡 SURVEILLANCE — des signaux sont à observer"
+  "resume": "🔵 CALME — pas de signal alarmant"
 }
