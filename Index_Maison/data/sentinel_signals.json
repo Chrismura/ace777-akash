@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "cpfp",
-      "zscore": 2.038002770540064,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique purement onchain liée aux frais de transaction (CPFP), sans lien avec une accumulation ou distribution de baleines. Le bruit médiatique est un faux positif sémantique (confusion avec actualités locales et politiques sans rapport).\"\n}\n```",
-      "ts": "2026-09-25T05:18:13.770974+00:00"
-    },
-    {
       "metric": "dust",
       "zscore": 2.038002770540064,
       "value": 50.0,
@@ -349,6 +342,13 @@
       "value": 1.046,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (IPT) confondue avec des actualités institutionnelles et académiques sans lien avec la crypto (homonymie du ticker).\"\n}\n```",
       "ts": "2026-09-26T14:52:30.153732+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.965157523849092,
+      "value": 1.236,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Bruit de fond macro-médiatique sans rapport avec la crypto. Les actualités concernent la recherche médicale (IPT), des tournois de physique (X) et l'agriculture, révélant une absence totale de narratif financier ou d'activité de baleines sur un actif crypto pertinent.\"\n}\n```",
+      "ts": "2026-09-26T16:07:44.192620+00:00"
     }
   ]
 }

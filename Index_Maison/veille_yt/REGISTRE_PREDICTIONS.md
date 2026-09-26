@@ -1,11 +1,16 @@
 ---
-date: 2026-09-24T1619Z
+date: 2026-09-26T1618Z
 type: registre_predictions
 ---
 
 # 📓 Registre des prédictions — la vérification du banc d'essai
 
 Chaque prédiction est notée avec sa date limite. Le script `verifier_predictions.py` re-vérifie les échues (statut VRAIE/FAUSSE/NON VÉRIFIABLE).
+
+### 2026-09-26T1618Z — Crypto Crew University : XRP ABOUT TO EXPLODE: HERE’S PERFECT TIME TO BUY
+Lien : https://www.youtube.com/watch?v=vovWXrA5LnM
+
+- ⏳ EN ATTENTE | [2026-12-31] Le RSI mensuel du XRP effectuera un croisement haussier au-dessus de sa moyenne mobile jaune (source : youtuber)
 
 ### 2026-09-24T1619Z — Crypto Crew University : BREAKING: 900 DAY BULLISH BREAKOUT
 Lien : https://www.youtube.com/watch?v=6ls57xJDjxI
