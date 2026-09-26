@@ -1,5 +1,5 @@
 {
-  "ts": "2026-09-26T01:50:24+00:00",
+  "ts": "2026-09-26T02:28:22+00:00",
   "note": "Verdicts MESURÉS à la source (scripts/verdicts_protocoles.py). Chaque protocole porte son critère pré-enregistré : c'est lui qui décide, pas l'impression du moment. Un verdict « IMPOSSIBLE » ou une ligne « alerte » signale un protocole dont le verdict ne peut pas être rendu — c'est une panne de conception, pas une patience.",
   "protocoles": [
     {
@@ -30,7 +30,7 @@
     {
       "protocole": "Radar RWA (DefiLlama)",
       "critere": "pré-enregistré J+8 : ≥ 3 pools du top 20 TVL (au 1er relevé du 11/09) bougent de ≥ 50 bps en 7 jours",
-      "faits": "18142 relevés · 384 pools suivis · top 20 TVL : 0 pool(s) ont bougé de ≥ 50 bps",
+      "faits": "18509 relevés · 385 pools suivis · top 20 TVL : 0 pool(s) ont bougé de ≥ 50 bps",
       "verdict": "ECHEC (critère non atteint)",
       "alerte": "critère MAL CIBLÉ : 9 des 20 plus gros pools ont un rendement quasi nul (< 0,5 % — lending Solana : DSOL/JITOSOL/JLP…) → le top 20 TVL n'est PAS la liste des rendements de crédit privé que le prototype visait ; sur les pools qui portent un vrai rendement, 0 bouge(nt) de ≥ 50 bps",
       "detail": [
@@ -179,7 +179,7 @@
     {
       "protocole": "Radar XRPL gouvernance",
       "critere": "J8 pré-enregistré : (a) ≥ 5 amendements dont le compteur bouge de ≥ 2 votes, OU (b) ≥ 1 activation, OU (c) ≥ 1 amendement mort ; sinon échec",
-      "faits": "265 snapshots · 113 amendements suivis · (a) 6 bougent de ≥ 2 (il en fallait 5) · (b) 0 activation · (c) 0 mort · 3 nouveau(x)",
+      "faits": "266 snapshots · 113 amendements suivis · (a) 6 bougent de ≥ 2 (il en fallait 5) · (b) 0 activation · (c) 0 mort · 3 nouveau(x)",
       "verdict": "SUCCES (critère atteint)",
       "alerte": "",
       "detail": [
@@ -188,7 +188,7 @@
           "delta_votes": 10
         },
         {
-          "amendement": "BatchV1_1",
+          "amendement": "SingleAssetVault",
           "delta_votes": 4
         },
         {
@@ -196,11 +196,11 @@
           "delta_votes": 4
         },
         {
-          "amendement": "ConfidentialTransfer",
+          "amendement": "BatchV1_1",
           "delta_votes": 4
         },
         {
-          "amendement": "SingleAssetVault",
+          "amendement": "ConfidentialTransfer",
           "delta_votes": 4
         },
         {
@@ -208,11 +208,11 @@
           "delta_votes": 3
         },
         {
-          "amendement": "XChainBridge",
+          "amendement": "fixXChainRewardRounding",
           "delta_votes": 1
         },
         {
-          "amendement": "fixXChainRewardRounding",
+          "amendement": "XChainBridge",
           "delta_votes": 1
         }
       ]

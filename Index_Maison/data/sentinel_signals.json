@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "ipt",
-      "zscore": 3.0065379447264293,
-      "value": 1.459,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Le z-score élevé (3.01) est un artefact sémantique. Les titres médiatiques font référence à des acronymes homonymes sans rapport avec la crypto (Tournoi International des Physiciens, violences sexistes, biotechnologies, agriculture), et non à une accumulation ou distribution silencieuse de baleines.\"\n}\n```",
-      "ts": "2026-09-24T22:11:42.107394+00:00"
-    },
-    {
       "metric": "whale_usd",
       "zscore": 2.6215669927378924,
       "value": 3445348.0,
@@ -349,6 +342,13 @@
       "value": 74,
       "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Euphorie extrême (Fear & Greed à 74 avec un z-score élevé de 3.76) combinée à un vide médiatique (aucun narratif dominant sur Google Actualités). C'est le signal classique d'une distribution silencieuse par les baleines dans un marché suracheté sans soutien de nouveaux investisseurs de détail.\"\n}\n```",
       "ts": "2026-09-26T01:44:51.586328+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 3.2434549480453665,
+      "value": 74,
+      "analysis": "{\"signal\": \"bullish\", \"confidence\": 65, \"reason\": \"Onchain anomaly (fear/greed=74, z-score 3.24) signals strong market conviction while media narrative is notably absent. This divergence suggests silent whale positioning ahead of public coverage, a historically bullish setup.\"}",
+      "ts": "2026-09-26T02:15:01.910744+00:00"
     }
   ]
 }
