@@ -5414,3 +5414,11 @@ Pas d’ordre — confrontation plus tard.
 ### 2026-09-27T13:01:08Z — ALERT auto
 - REDUSDT: WATCH_PULLBACK — tension haute + reflux
 (compléter: confirmé ? risque ?)
+
+### 2026-09-27T14:15:58Z — ALERT auto
+- EDELUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
+
+### 2026-09-27T14:18:23Z — ALERT auto
+- RWAINCUSDT: IMPULSE_WAIT — spike en cours, pas chase
+(compléter: confirmé ? risque ?)

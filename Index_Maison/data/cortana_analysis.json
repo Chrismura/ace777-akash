@@ -1,7 +1,132 @@
 {
-  "timestamp": 1790517964,
-  "date": "2026-09-27T14:06:04.330466+00:00",
-  "n_analyses": 0,
-  "analyses": [],
-  "resume": "Aucune analyse en cours"
+  "timestamp": 1790519765,
+  "date": "2026-09-27T14:36:05.052709+00:00",
+  "n_analyses": 3,
+  "analyses": [
+    {
+      "signal": {
+        "metric": "cpfp",
+        "zscore": 3.0706246971561653,
+        "value": 50.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique purement syntaxique (bruit de fond). Le pic de CPFP on-chain coïncide avec des actualités généralistes sans lien avec une accumulation ou une distribution de baleines crypto.\"\n}\n```",
+        "ts": 1790518722.824337
+      },
+      "fiche": "blocs_privilises",
+      "questions": {
+        "duree": {
+          "value": 0,
+          "seuil": 0,
+          "depasse": false
+        },
+        "volume": {
+          "value": 554,
+          "seuil": 0,
+          "depasse": true
+        },
+        "prix": {
+          "value": -0.33,
+          "seuil": 0,
+          "depasse": true
+        },
+        "sdi": {
+          "value": 0.004,
+          "seuil": 0,
+          "depasse": true
+        },
+        "rbf": {
+          "value": 0.0,
+          "seuil": 0,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "duree < 5min ET volume > 100",
+        "lecture": "Consolidation exchange — probablement un transfert hot→cold",
+        "niveau": "neutre",
+        "action": "Garder les positions"
+      },
+      "action": "Garder les positions",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "dust",
+        "zscore": 3.0706246971561653,
+        "value": 50.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 3.07) sur le token DUST liée à du bruit de fond ou des micro-transactions ('dusting'). Le narratif médiatique fait référence à de l'actualité générale (musique, jeux vidéo, IA homonyme) et non à la crypto. Aucune accumulation ou mouvement significatif de baleines détecté derrière ce signal technique isolé.\"\n}\n```",
+        "ts": 1790518769.655131
+      },
+      "fiche": "blocs_privilises",
+      "questions": {
+        "duree": {
+          "value": 0,
+          "seuil": 0,
+          "depasse": false
+        },
+        "volume": {
+          "value": 554,
+          "seuil": 0,
+          "depasse": true
+        },
+        "prix": {
+          "value": -0.33,
+          "seuil": 0,
+          "depasse": true
+        },
+        "sdi": {
+          "value": 0.004,
+          "seuil": 0,
+          "depasse": true
+        },
+        "rbf": {
+          "value": 0.0,
+          "seuil": 0,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "duree < 5min ET volume > 100",
+        "lecture": "Consolidation exchange — probablement un transfert hot→cold",
+        "niveau": "neutre",
+        "action": "Garder les positions"
+      },
+      "action": "Garder les positions",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "price_1h",
+        "zscore": 4.742460747397743,
+        "value": 0.3751194042875716,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de prix majeure (z-score 4.74) totalement ignorée par les médias (silence radio). C'est le marqueur classique d'accumulation furtive par des baleines avant un réveil brutal du narratif public.\"\n}\n```",
+        "ts": 1790519433.560862
+      },
+      "fiche": "price_1h",
+      "questions": {
+        "pct_1h": {
+          "value": -0.33,
+          "seuil": -1,
+          "depasse": true
+        },
+        "liq": {
+          "value": 1816738.0,
+          "seuil": 5000000,
+          "depasse": false
+        },
+        "funding": {
+          "value": 3.2e-05,
+          "seuil": 0,
+          "depasse": true
+        }
+      },
+      "interpretation": {
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
+      },
+      "action": "Observer",
+      "niveau": "neutre"
+    }
+  ],
+  "resume": "🔵 CALME — pas de signal alarmant"
 }
