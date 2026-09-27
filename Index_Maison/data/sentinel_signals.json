@@ -1,34 +1,6 @@
 {
   "signals": [
     {
-      "metric": "sdi",
-      "zscore": 2.8448559462453686,
-      "value": 0.02,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Faux positif contextuel : Le 'SDI' mentionné dans les médias fait référence à des actualités politiques/macroéconomiques (SDI Group, syndicats ou mesures gouvernementales) et non à une baleine crypto ou un indicateur on-chain. Aucune corrélation avec des mouvements de portefeuilles de baleines.\"\n}\n```",
-      "ts": "2026-09-25T12:01:00.016901+00:00"
-    },
-    {
-      "metric": "whale_usd",
-      "zscore": 3.3067407916497005,
-      "value": 3451959.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Significant whale activity (z-score 3.31) contrasts with neutral media narrative, suggesting accumulation phase.\"\n}\n```",
-      "ts": "2026-09-25T12:06:02.999679+00:00"
-    },
-    {
-      "metric": "price_1h",
-      "zscore": 2.870182619870216,
-      "value": 0.5509296686962872,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de prix significative (+2.87 z-score) en l'absence totale de couverture médiatique (Google Actualités vide). C'est la signature classique d'une accumulation furtive de baleines loin du radar public.\"\n}\n```",
-      "ts": "2026-09-25T12:16:05.927941+00:00"
-    },
-    {
-      "metric": "liquidations",
-      "zscore": 3.2195466757344575,
-      "value": 4851387.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 75,\n  \"reason\": \"Les médias focalisent sur des liquidations d'entreprises traditionnelles (bruit), tandis que l'alerte onchain pointe une liquidation majeure crypto (signal). Divergence classique avant un mouvement haussier : les baleines nettoient les positions faibles pendant que l'attention médiatique est ailleurs.\"\n}\n```",
-      "ts": "2026-09-25T12:36:14.009595+00:00"
-    },
-    {
       "metric": "liquidations",
       "zscore": 4.10789497954929,
       "value": 6160747.0,
@@ -349,6 +321,34 @@
       "value": 2938981.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique parasité par des actualités juridiques et économiques généralistes (faillites d'entreprises traditionnelles). Aucune corrélation avec des mouvements de baleines crypto malgré une légère hausse des liquidations on-chain.\"\n}\n```",
       "ts": "2026-09-26T23:19:27.669834+00:00"
+    },
+    {
+      "metric": "taker_ratio",
+      "zscore": 2.513803113142997,
+      "value": 1.64,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Taker ratio élevé (1.64, z-score 2.51) indique une forte agression acheteuse cachée sur le carnet d'ordres, tandis que le silence absolu des médias traditionnels (Google Actualités) prouve l'absence de FOMO de détail. Accumulation furtive classique par les baleines avant une cassure haussière.\"\n}\n```",
+      "ts": "2026-09-27T00:09:35.025709+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -22.607775172666525,
+      "value": 70,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement négatif (-22.61) malgré une cupidité apparente à 70 : le vide médiatique combiné à cette anomalie statistique suggère une sortie massive et silencieuse des institutionnels pendant que la foule reste aveuglément optimiste.\"\n}\n```",
+      "ts": "2026-09-27T00:09:36.477150+00:00"
+    },
+    {
+      "metric": "taker_ratio",
+      "zscore": 2.3198195404812956,
+      "value": 1.64,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le ratio de taker (1.64, Z-score 2.32) indique une agression massive des acheteurs sur le marché dérivés/spot, ignorée par les médias (absence de couverture Google Actualités). C'est une accumulation furtive typique des baleines avant un re-pricing haussier.\"\n}\n```",
+      "ts": "2026-09-27T00:39:43.248240+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -6.855654600401052,
+      "value": 70,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement négatif (-6.86) malgré un indice de cupidité élevé (70) et un vide médiatique total. Divergence classique de distribution : le marché grand public est aveuglé par l'euphorie tandis que l'absence de couverture et l'anomalie statistique trahissent une sortie silencieuse des baleines.\"\n}\n```",
+      "ts": "2026-09-27T00:39:45.175000+00:00"
     }
   ]
 }

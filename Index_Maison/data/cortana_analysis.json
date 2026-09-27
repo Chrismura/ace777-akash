@@ -1,7 +1,67 @@
 {
-  "timestamp": 1790467244,
-  "date": "2026-09-27T00:00:44.858044+00:00",
-  "n_analyses": 0,
-  "analyses": [],
-  "resume": "Aucune analyse en cours"
+  "timestamp": 1790470846,
+  "date": "2026-09-27T01:00:46.180622+00:00",
+  "n_analyses": 2,
+  "analyses": [
+    {
+      "signal": {
+        "metric": "taker_ratio",
+        "zscore": 2.3198195404812956,
+        "value": 1.64,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le ratio de taker (1.64, Z-score 2.32) indique une agression massive des acheteurs sur le marché dérivés/spot, ignorée par les médias (absence de couverture Google Actualités). C'est une accumulation furtive typique des baleines avant un re-pricing haussier.\"\n}\n```",
+        "ts": 1790469583.24824
+      },
+      "fiche": "taker_ratio",
+      "questions": {
+        "taker": {
+          "value": 1.64,
+          "seuil": 1,
+          "depasse": true
+        },
+        "prix": {
+          "value": -0.16,
+          "seuil": 1,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "taker > 1",
+        "lecture": "Takers acheteurs agressifs — la demande mange le carnet, à confirmer avec le volume",
+        "niveau": "info",
+        "action": "Observer si le prix suit (vraie demande) ou diverge (absorption)"
+      },
+      "action": "Observer si le prix suit (vraie demande) ou diverge (absorption)",
+      "niveau": "info"
+    },
+    {
+      "signal": {
+        "metric": "fear_greed",
+        "zscore": -6.855654600401052,
+        "value": 70,
+        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement négatif (-6.86) malgré un indice de cupidité élevé (70) et un vide médiatique total. Divergence classique de distribution : le marché grand public est aveuglé par l'euphorie tandis que l'absence de couverture et l'anomalie statistique trahissent une sortie silencieuse des baleines.\"\n}\n```",
+        "ts": 1790469585.175
+      },
+      "fiche": "fear_greed",
+      "questions": {
+        "peur": {
+          "value": 70,
+          "seuil": 25,
+          "depasse": true
+        },
+        "cupidite": {
+          "value": 70,
+          "seuil": 75,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
+      },
+      "action": "Observer",
+      "niveau": "neutre"
+    }
+  ],
+  "resume": "🔵 CALME — pas de signal alarmant"
 }
