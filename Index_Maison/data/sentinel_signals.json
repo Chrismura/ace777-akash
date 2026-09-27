@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "whale_usd",
-      "zscore": 4.650850911452407,
-      "value": 4926813.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 4.65, ~4.9M USD) en l'absence totale de couverture médiatique (silence radio sur Google Actualités). C'est la signature classique d'accumulation silencieuse par des baleines avant le réveil du retail.\"\n}\n```",
-      "ts": "2026-09-27T07:56:18.861076+00:00"
-    },
-    {
       "metric": "liquidations",
       "zscore": 2.2490475071646414,
       "value": 4016291.0,
@@ -349,6 +342,13 @@
       "value": 0.012,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie non-pertinente. SDI Group est une société cotée traditionnelle (actions), pas une cryptomonnaie. Le signal 'onchain' et les baleines ne s'appliquent pas ici, il s'agit d'une confusion de données dans le narratif médiatique et financier.\"\n}\n```",
       "ts": "2026-09-27T23:09:35.855620+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.1273242042238927,
+      "value": 0.84,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit de fond médiatique sans rapport avec la crypto (actualités institutionnelles et médicales). L'anomalie 'ipt' détectée est un faux positif lié à de l'homonymie lexicale, aucune baleine crypto ne se cache derrière ces flux.\"\n}\n```",
+      "ts": "2026-09-27T23:19:38.464559+00:00"
     }
   ]
 }
