@@ -2,20 +2,6 @@
   "signals": [
     {
       "metric": "ipt",
-      "zscore": 2.086043939488921,
-      "value": 1.046,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (IPT) confondue avec des actualités institutionnelles et académiques sans lien avec la crypto (homonymie du ticker).\"\n}\n```",
-      "ts": "2026-09-26T14:52:30.153732+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.965157523849092,
-      "value": 1.236,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Bruit de fond macro-médiatique sans rapport avec la crypto. Les actualités concernent la recherche médicale (IPT), des tournois de physique (X) et l'agriculture, révélant une absence totale de narratif financier ou d'activité de baleines sur un actif crypto pertinent.\"\n}\n```",
-      "ts": "2026-09-26T16:07:44.192620+00:00"
-    },
-    {
-      "metric": "ipt",
       "zscore": 2.4264053725232597,
       "value": 1.104,
       "analysis": "{\n  \"signal\": \"bullish\",\n  \"confidence\": 70,\n  \"reason\": \"L'IPT montre une anomalie on‑chain forte (z‑score 2.43), suggérant une activité de baleine potentiellement haussière, tandis que les titres médiatiques sont entièrement déconnectés de toute actualité crypto ou financière, indiquant un narratif silencieux qui ne reflète pas la réalité du marché.\"\n}",
@@ -349,6 +335,20 @@
       "value": 0.828,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit de fond absolu. L'indicateur on-chain réagit à un acronyme homonyme (IPT) totalement étranger à la crypto (recherche médicale, tournoi de physique, agriculture). Aucune baleine crypto détectée, simple collision de mots-clés dans les flux médiatiques.\"\n}\n```",
       "ts": "2026-09-27T16:02:11.801457+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 2.530402670264167,
+      "value": 0.012,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie SDI hors sujet : les données font référence à une entité macroéconomique/politique (SDI Group / Syndicat Indépendant) et non à un protocole crypto ou une baleine on-chain. Bruit médiatique sans lien avec la crypto.\"\n}\n```",
+      "ts": "2026-09-27T16:32:18.022216+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.516277775988456,
+      "value": 0.912,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Bruit de fond sans rapport avec la crypto. L'indice 'IPT' renvoie ici à des actualités institutionnelles et médicales (Institut Pasteur de Tunis, École Polytechnique, agriculture), et non à un actif numérique ou à un mouvement de baleines.\"\n}\n```",
+      "ts": "2026-09-27T16:32:19.823355+00:00"
     }
   ]
 }

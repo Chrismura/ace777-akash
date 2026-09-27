@@ -1,11 +1,16 @@
 ---
-date: 2026-09-26T1618Z
+date: 2026-09-27T1617Z
 type: registre_predictions
 ---
 
 # 📓 Registre des prédictions — la vérification du banc d'essai
 
 Chaque prédiction est notée avec sa date limite. Le script `verifier_predictions.py` re-vérifie les échues (statut VRAIE/FAUSSE/NON VÉRIFIABLE).
+
+### 2026-09-27T1617Z — Crypto Crew University : ⚠️ SOMETHING DOESN’T SMELL RIGHT
+Lien : https://www.youtube.com/watch?v=RxyY3WAntg4
+
+- ⏳ EN ATTENTE | [2026-12-31] Le Bitcoin subit une correction majeure ou un krach similaire à la structure annoncée suite à l'anomalie du RSI stochastique mensuel (source : youtuber)
 
 ### 2026-09-26T1618Z — Crypto Crew University : XRP ABOUT TO EXPLODE: HERE’S PERFECT TIME TO BUY
 Lien : https://www.youtube.com/watch?v=vovWXrA5LnM
