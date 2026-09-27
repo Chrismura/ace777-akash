@@ -1,41 +1,6 @@
 {
   "signals": [
     {
-      "metric": "fear_greed",
-      "zscore": 2.0582428516488585,
-      "value": 74,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Euphorie extrême (Fear & Greed à 74, z-score 2.06) couplée à un vide médiatique (aucun relais d'actualité notable). Divergence classique de fin de cycle : les baleines distribuent dans le silence pendant que le retail surchauffe sans couverture médiatique de masse.\"\n}\n```",
-      "ts": "2026-09-26T04:45:46.940713+00:00"
-    },
-    {
-      "metric": "whale_usd",
-      "zscore": 7.238384059948106,
-      "value": 7401940.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (z-score 7.24, ~7.4M USD) dans le silence médiatique total (Google Actualités vide). Accumulation furtive classique des baleines loin du radar public.\"\n}\n```",
-      "ts": "2026-09-26T05:50:55.644263+00:00"
-    },
-    {
-      "metric": "whale_usd",
-      "zscore": 21.6733351781549,
-      "value": 22922901.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 95,\n  \"reason\": \"Anomalie onchain massive (z-score 21.67, ~22.9M USD) dans le silence total des médias. Accumulation furtive des baleines avant le réveil du narratif public.\"\n}\n```",
-      "ts": "2026-09-26T07:06:13.192604+00:00"
-    },
-    {
-      "metric": "taker_ratio",
-      "zscore": 3.9522998473580753,
-      "value": 1.73,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Le taker_ratio à 1.73 (Z-score 3.95) indique une agression massive à l'achat par les acheteurs (agresseurs), tandis que les médias affichent un silence radio (aucune couverture majeure). Les baleines accumulent agressivement sous le radar médiatique.\"\n}\n```",
-      "ts": "2026-09-26T08:11:23.759465+00:00"
-    },
-    {
-      "metric": "taker_ratio",
-      "zscore": 3.3984993617079735,
-      "value": 1.73,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio à 1.73 (Z-score 3.40) indique une forte agression acheteuse cachée sur le marché dérivé/spot, alors que les médias traditionnels affichent un vide informationnel (Google Actualités muet). Cette asymétrie signale une accumulation furtive des baleines avant un mouvement de rupture haussier non pricé par la foule.\"\n}\n```",
-      "ts": "2026-09-26T08:41:30.007445+00:00"
-    },
-    {
       "metric": "ipt",
       "zscore": 2.086043939488921,
       "value": 1.046,
@@ -349,6 +314,41 @@
       "value": 40.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Forte divergence : le bruit médiatique se focalise sur de l'actualité générale et culturelle (musique, jeux vidéo), masquant une levée de fonds institutionnelle majeure de 40M$ pour le projet 'Dust' et une anomalie onchain significative (z-score 2.35). Accumulation silencieuse des baleines en cours sous le radar du grand public.\"\n}\n```",
       "ts": "2026-09-27T15:01:16.789321+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 3.7546371178241302,
+      "value": 4552916.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (3.75) indiquant une accumulation massive et anormale de baleines, totalement ignorée par les médias (silence radio). Divergence classique d'accumulation furtive avant un mouvement haussier.\"\n}\n```",
+      "ts": "2026-09-27T15:11:19.756652+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 2.4593261242368625,
+      "value": 0.012,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Erreur de ciblage sémantique : les données médiatiques concernent 'SDI Group' (entreprise cotée) et le 'SDI' (Syndicat des Indépendants en France), sans aucun rapport avec les cryptomonnaies ou le mouvement de baleines on-chain.\"\n}\n```",
+      "ts": "2026-09-27T15:21:23.197698+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.342148222333004,
+      "value": 0.885,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.34) entièrement due à un bruit médiatique non-crypto (homonymie de l'acronyme IPT : Institut Pasteur de Tunis / Tournoi International des Physiciens). Aucune activité de baleine détectée.\"\n}\n```",
+      "ts": "2026-09-27T15:21:57.229460+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 2.450215234956981,
+      "value": 0.012,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie SDI non liée aux cryptos (confusion avec SDI Group, entreprise industrielle cotée, et Syndicat des Indépendants). Absence de mouvement de baleines crypto.\"\n}\n```",
+      "ts": "2026-09-27T16:02:09.872833+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.14261873808183,
+      "value": 0.828,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit de fond absolu. L'indicateur on-chain réagit à un acronyme homonyme (IPT) totalement étranger à la crypto (recherche médicale, tournoi de physique, agriculture). Aucune baleine crypto détectée, simple collision de mots-clés dans les flux médiatiques.\"\n}\n```",
+      "ts": "2026-09-27T16:02:11.801457+00:00"
     }
   ]
 }
