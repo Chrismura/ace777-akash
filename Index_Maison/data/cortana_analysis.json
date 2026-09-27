@@ -1,15 +1,15 @@
 {
-  "timestamp": 1790536269,
-  "date": "2026-09-27T19:11:09.932933+00:00",
+  "timestamp": 1790539871,
+  "date": "2026-09-27T20:11:11.012309+00:00",
   "n_analyses": 3,
   "analyses": [
     {
       "signal": {
         "metric": "cpfp",
-        "zscore": 3.1164555734417294,
+        "zscore": 2.827376371686199,
         "value": 50.0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (CPFP z-score 3.12) non reflétée dans les médias. Les titres sont totalement déconnectés du signal technique, suggérant une accumulation discrète par les baleines.\"\n}\n```",
-        "ts": 1790534578.635673
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 75,\n  \"reason\": \"Forte anomalie on-chain sur les transactions CPFP (Child-Pays-For-Parent) avec un z-score de 2.83, indiquant une congestion et une optimisation agressive des frais par les acteurs majeurs. Le narratif médiatique est totalement déconnecté, noyé dans du bruit non pertinent et des tutoriels basiques, révélant une accumulation ou un rééquilibrage silencieux des baleines.\"\n}\n```",
+        "ts": 1790539402.382408
       },
       "fiche": "blocs_privilises",
       "questions": {
@@ -19,12 +19,12 @@
           "depasse": false
         },
         "volume": {
-          "value": 265,
+          "value": 354,
           "seuil": 0,
           "depasse": true
         },
         "prix": {
-          "value": -0.05,
+          "value": 0.05,
           "seuil": 0,
           "depasse": true
         },
@@ -51,10 +51,10 @@
     {
       "signal": {
         "metric": "dust",
-        "zscore": 3.1164555734417294,
+        "zscore": 2.827376371686199,
         "value": 50.0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 3.12) contrastant avec un narratif médiatique axé sur des sujets non-financiers (jeux vidéo, levée de fonds IA). Divergence suggérant une accumulation discrète par les baleines, masquée par un bruit médiatique hors-marché.\"\n}\n```",
-        "ts": 1790534583.729873
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Anomalie onchain isolée (z-score 2.83) noyée dans un bruit médiatique saturé par l'actualité des startups tech et culturelles homonymes ('Dust'). Aucune corrélation institutionnelle ou mouvement significatif de baleines crypto détecté.\"\n}\n```",
+        "ts": 1790539404.204905
       },
       "fiche": "blocs_privilises",
       "questions": {
@@ -64,12 +64,12 @@
           "depasse": false
         },
         "volume": {
-          "value": 265,
+          "value": 354,
           "seuil": 0,
           "depasse": true
         },
         "prix": {
-          "value": -0.05,
+          "value": 0.05,
           "seuil": 0,
           "depasse": true
         },
@@ -95,27 +95,32 @@
     },
     {
       "signal": {
-        "metric": "whale_usd",
-        "zscore": 5.542246867399966,
-        "value": 6561500.0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 5.54) indiquant une activité whale massive, tandis que les médias grand public ne relaient pas cette information. Divergence classique avant un mouvement important.\"\n}\n```",
-        "ts": 1790534888.113927
+        "metric": "ipt",
+        "zscore": 2.098704861158742,
+        "value": 0.752,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Bruit de fond médiatique sans rapport avec la crypto (actualités académiques et médicales). L'anomalie on-chain 'ipt' est un faux positif ou sans lien avec les flux de baleines du token concerné.\"\n}\n```",
+        "ts": 1790539706.715114
       },
-      "fiche": "whale_usd",
+      "fiche": "rbf_eleve",
       "questions": {
-        "ventes": {
-          "value": 0.0,
-          "seuil": 0,
-          "depasse": false
-        },
-        "achats": {
-          "value": 0.0,
-          "seuil": 0,
-          "depasse": false
-        },
         "prix": {
-          "value": -0.05,
+          "value": 0.05,
           "seuil": 1,
+          "depasse": false
+        },
+        "paires": {
+          "value": 0,
+          "seuil": 3,
+          "depasse": false
+        },
+        "funding": {
+          "value": 2.8e-05,
+          "seuil": 0.001,
+          "depasse": false
+        },
+        "whales": {
+          "value": 0,
+          "seuil": 5,
           "depasse": false
         }
       },
