@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "price_1h",
-      "zscore": 2.739082849887903,
-      "value": 0.27105979719324047,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de prix significative (z-score 2.74) en l'absence totale de couverture médiatique (silence radio sur Google Actualités). C'est la signature classique d'accumulation silencieuse par les baleines avant que le narratif public ne rattrape la dynamique onchain.\"\n}\n```",
-      "ts": "2026-09-27T01:55:07.731829+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": -3.316624790355405,
-      "value": 70,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement négatif (-3.32) pour un indice de peur et d'avarice à 70 : le marché affiche une euphorie médiatique creuse (absence de flux organiques réels), trahissant une distribution silencieuse des baleines sous couvert d'un narratif artificiellement optimiste.\"\n}\n```",
-      "ts": "2026-09-27T02:10:10.946746+00:00"
-    },
-    {
       "metric": "taker_ratio",
       "zscore": 2.6795238996383657,
       "value": 1.799,
@@ -349,6 +335,20 @@
       "value": 4233952.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 3.58, ~4.2M USD) en l'absence totale de couverture médiatique (silence radio sur Google Actualités). Accumulation furtive classique des baleines loin du radar public.\"\n}\n```",
       "ts": "2026-09-27T20:53:39.781909+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.1429856155013085,
+      "value": 0.796,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Bruit de fond médiatique sans rapport avec la crypto. L'indice 'ipt' fait référence à des institutions académiques ou médicales (Institut Pasteur de Tunis, etc.) et non à un actif financier ou un token sur la blockchain. Aucune baleine détectée.\"\n}\n```",
+      "ts": "2026-09-27T21:43:47.728282+00:00"
+    },
+    {
+      "metric": "price_1h",
+      "zscore": 3.1708261010580077,
+      "value": 0.35093354558376477,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (+3.17) sur le prix à court terme indiquant une action agressive des baleines, couplé à un silence total des médias (Google Actualités vide). C'est la signature classique d'une accumulation furtive avant un pump narratif.\"\n}\n```",
+      "ts": "2026-09-27T22:09:14.314083+00:00"
     }
   ]
 }
