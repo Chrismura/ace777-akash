@@ -1,20 +1,20 @@
 {
-  "ts": "2026-09-27T09:03+00:00",
-  "updated": "2026-09-27T09:03Z",
+  "ts": "2026-09-27T10:03+00:00",
+  "updated": "2026-09-27T10:03Z",
   "etat": "ALERTE",
-  "chaines_ok": "14/15",
+  "chaines_ok": "12/15",
   "anomalies": [
-    "HULK : sonde runtime, contrat Cortana ou analyses figés"
+    "BALEINES coupée : scan file",
+    "HULK : sonde runtime, contrat Cortana ou analyses figés",
+    "SAPI : sdi_latest.json figé — la pépite poussière institutionnelle ne tourne plus"
   ],
-  "degradees": [
-    "BALEINES"
-  ],
+  "degradees": [],
   "chaines": [
     {
       "id": "baleines",
       "nom": "BALEINES",
       "chemin": "scan → pont → live.json.onchain → Ada + Cortana",
-      "ok": true,
+      "ok": false,
       "maillons": [
         {
           "nom": "scan (launchd whales)",
@@ -28,13 +28,13 @@
         },
         {
           "nom": "scan file",
-          "ok": true,
-          "detail": "DÉGRADÉ : âge 26 min (> 15 min)"
+          "ok": false,
+          "detail": "âge 86 min"
         },
         {
           "nom": "mouvements (events)",
           "ok": true,
-          "detail": "dernier événement il y a 26 min"
+          "detail": "dernier événement il y a 86 min"
         },
         {
           "nom": "→ live.json.onchain",
@@ -49,7 +49,7 @@
         {
           "nom": "→ Cortana feed",
           "ok": true,
-          "detail": "âge 3 min"
+          "detail": "âge 2 min"
         }
       ]
     },
@@ -67,7 +67,7 @@
         {
           "nom": "deriv_corr.json",
           "ok": true,
-          "detail": "âge 1 min"
+          "detail": "âge 10 min"
         }
       ]
     },
@@ -85,7 +85,7 @@
         {
           "nom": "aspiration runtime",
           "ok": true,
-          "detail": "mode fichier · JSON · âge ts 0.9 min · écart mtime/ts 2.8s · 20 paire(s) · btc=OK · ts=croissant"
+          "detail": "mode fichier · JSON · âge ts 0.4 min · écart mtime/ts 2.0s · 20 paire(s) · btc=OK · ts=croissant"
         },
         {
           "nom": "corrélation BTC",
@@ -100,12 +100,12 @@
         {
           "nom": "cortana_pilot.json",
           "ok": false,
-          "detail": "âge 1638 min"
+          "detail": "âge 1698 min"
         },
         {
           "nom": "cortana_analysis.json",
           "ok": true,
-          "detail": "âge 2 min"
+          "detail": "âge 3 min"
         }
       ]
     },
@@ -123,7 +123,7 @@
         {
           "nom": "mission.json → cockpit",
           "ok": true,
-          "detail": "âge 1 min"
+          "detail": "âge 0 min"
         },
         {
           "nom": "hub.json (one-shot)",
@@ -146,7 +146,7 @@
         {
           "nom": "cpfp_detect.json",
           "ok": true,
-          "detail": "âge 1 min"
+          "detail": "âge 4 min"
         },
         {
           "nom": "mode",
@@ -284,7 +284,7 @@
         {
           "nom": "rapport veille_degradation_etat.json",
           "ok": true,
-          "detail": "SAIN · âge 0 min"
+          "detail": "SAIN · âge 1 min"
         },
         {
           "nom": "Dead Man's Switch (dms-veille)",
@@ -312,7 +312,7 @@
         {
           "nom": "macro_tempete.json",
           "ok": true,
-          "detail": "âge 0 min"
+          "detail": "âge 1 min"
         },
         {
           "nom": "état courant",
@@ -335,7 +335,7 @@
         {
           "nom": "croisement_externe_etat.json",
           "ok": true,
-          "detail": "âge 28 min"
+          "detail": "âge 27 min"
         },
         {
           "nom": "fails prix (> 5 % vs externe)",
@@ -345,7 +345,7 @@
         {
           "nom": "warns murs (info)",
           "ok": true,
-          "detail": "1 warn(s) carnet déséquilibré (info)"
+          "detail": "2 warn(s) carnet déséquilibré (info)"
         }
       ]
     },
@@ -353,12 +353,12 @@
       "id": "sapi",
       "nom": "SAPI POUSSIÈRE",
       "chemin": "silent_drain_index.compute_sdi (SAPI) → sdi_latest.json → thermo_quotidien → live.json.sapi → Cortana + cockpit",
-      "ok": true,
+      "ok": false,
       "maillons": [
         {
           "nom": "sdi_latest.json (SAPI dedans)",
-          "ok": true,
-          "detail": "âge 3 min"
+          "ok": false,
+          "detail": "âge 21 min"
         },
         {
           "nom": "SAPI calculé",
