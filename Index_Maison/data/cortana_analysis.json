@@ -1,15 +1,54 @@
 {
-  "timestamp": 1790539871,
-  "date": "2026-09-27T20:11:11.012309+00:00",
+  "timestamp": 1790541371,
+  "date": "2026-09-27T20:36:11.488517+00:00",
   "n_analyses": 3,
   "analyses": [
     {
       "signal": {
+        "metric": "ipt",
+        "zscore": 2.098704861158742,
+        "value": 0.752,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Bruit de fond médiatique sans rapport avec la crypto (actualités académiques et médicales). L'anomalie on-chain 'ipt' est un faux positif ou sans lien avec les flux de baleines du token concerné.\"\n}\n```",
+        "ts": 1790539706.715114
+      },
+      "fiche": "rbf_eleve",
+      "questions": {
+        "prix": {
+          "value": -0.18,
+          "seuil": 1,
+          "depasse": false
+        },
+        "paires": {
+          "value": 0,
+          "seuil": 3,
+          "depasse": false
+        },
+        "funding": {
+          "value": 3e-05,
+          "seuil": 0.001,
+          "depasse": false
+        },
+        "whales": {
+          "value": 1,
+          "seuil": 5,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
+      },
+      "action": "Observer",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
         "metric": "cpfp",
-        "zscore": 2.827376371686199,
+        "zscore": 2.7146709340640918,
         "value": 50.0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 75,\n  \"reason\": \"Forte anomalie on-chain sur les transactions CPFP (Child-Pays-For-Parent) avec un z-score de 2.83, indiquant une congestion et une optimisation agressive des frais par les acteurs majeurs. Le narratif médiatique est totalement déconnecté, noyé dans du bruit non pertinent et des tutoriels basiques, révélant une accumulation ou un rééquilibrage silencieux des baleines.\"\n}\n```",
-        "ts": 1790539402.382408
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Fausse alerte liée à un acronyme polymorphe. Le 'CPFP' onchain (Child-Pays-For-Parent) est noyé dans le bruit médiatique entre actualités locales (Castelnaudary), politique africaine et finances publiques, sans lien avec une accumulation ou distribution massive de baleines.\"\n}\n```",
+        "ts": 1790541211.320109
       },
       "fiche": "blocs_privilises",
       "questions": {
@@ -19,12 +58,12 @@
           "depasse": false
         },
         "volume": {
-          "value": 354,
+          "value": 1032,
           "seuil": 0,
           "depasse": true
         },
         "prix": {
-          "value": 0.05,
+          "value": -0.18,
           "seuil": 0,
           "depasse": true
         },
@@ -51,10 +90,10 @@
     {
       "signal": {
         "metric": "dust",
-        "zscore": 2.827376371686199,
+        "zscore": 2.7146709340640918,
         "value": 50.0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Anomalie onchain isolée (z-score 2.83) noyée dans un bruit médiatique saturé par l'actualité des startups tech et culturelles homonymes ('Dust'). Aucune corrélation institutionnelle ou mouvement significatif de baleines crypto détecté.\"\n}\n```",
-        "ts": 1790539404.204905
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique entièrement dominé par l'actualité des startups tech grand public ('Dust AI') et de l'industrie musicale/gaming sans aucun rapport avec l'actif crypto homonyme. Anomalie onchain insignifiante.\"\n}\n```",
+        "ts": 1790541213.103308
       },
       "fiche": "blocs_privilises",
       "questions": {
@@ -64,12 +103,12 @@
           "depasse": false
         },
         "volume": {
-          "value": 354,
+          "value": 1032,
           "seuil": 0,
           "depasse": true
         },
         "prix": {
-          "value": 0.05,
+          "value": -0.18,
           "seuil": 0,
           "depasse": true
         },
@@ -91,45 +130,6 @@
         "action": "Garder les positions"
       },
       "action": "Garder les positions",
-      "niveau": "neutre"
-    },
-    {
-      "signal": {
-        "metric": "ipt",
-        "zscore": 2.098704861158742,
-        "value": 0.752,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Bruit de fond médiatique sans rapport avec la crypto (actualités académiques et médicales). L'anomalie on-chain 'ipt' est un faux positif ou sans lien avec les flux de baleines du token concerné.\"\n}\n```",
-        "ts": 1790539706.715114
-      },
-      "fiche": "rbf_eleve",
-      "questions": {
-        "prix": {
-          "value": 0.05,
-          "seuil": 1,
-          "depasse": false
-        },
-        "paires": {
-          "value": 0,
-          "seuil": 3,
-          "depasse": false
-        },
-        "funding": {
-          "value": 2.8e-05,
-          "seuil": 0.001,
-          "depasse": false
-        },
-        "whales": {
-          "value": 0,
-          "seuil": 5,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
-      },
-      "action": "Observer",
       "niveau": "neutre"
     }
   ],

@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "taker_ratio",
-      "zscore": 2.3198195404812956,
-      "value": 1.64,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le ratio de taker (1.64, Z-score 2.32) indique une agression massive des acheteurs sur le marché dérivés/spot, ignorée par les médias (absence de couverture Google Actualités). C'est une accumulation furtive typique des baleines avant un re-pricing haussier.\"\n}\n```",
-      "ts": "2026-09-27T00:39:43.248240+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": -6.855654600401052,
-      "value": 70,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement négatif (-6.86) malgré un indice de cupidité élevé (70) et un vide médiatique total. Divergence classique de distribution : le marché grand public est aveuglé par l'euphorie tandis que l'absence de couverture et l'anomalie statistique trahissent une sortie silencieuse des baleines.\"\n}\n```",
-      "ts": "2026-09-27T00:39:45.175000+00:00"
-    },
-    {
       "metric": "fear_greed",
       "zscore": -4.795831523312714,
       "value": 70,
@@ -349,6 +335,20 @@
       "value": 0.752,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Bruit de fond médiatique sans rapport avec la crypto (actualités académiques et médicales). L'anomalie on-chain 'ipt' est un faux positif ou sans lien avec les flux de baleines du token concerné.\"\n}\n```",
       "ts": "2026-09-27T20:08:26.715114+00:00"
+    },
+    {
+      "metric": "cpfp",
+      "zscore": 2.7146709340640918,
+      "value": 50.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Fausse alerte liée à un acronyme polymorphe. Le 'CPFP' onchain (Child-Pays-For-Parent) est noyé dans le bruit médiatique entre actualités locales (Castelnaudary), politique africaine et finances publiques, sans lien avec une accumulation ou distribution massive de baleines.\"\n}\n```",
+      "ts": "2026-09-27T20:33:31.320109+00:00"
+    },
+    {
+      "metric": "dust",
+      "zscore": 2.7146709340640918,
+      "value": 50.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique entièrement dominé par l'actualité des startups tech grand public ('Dust AI') et de l'industrie musicale/gaming sans aucun rapport avec l'actif crypto homonyme. Anomalie onchain insignifiante.\"\n}\n```",
+      "ts": "2026-09-27T20:33:33.103308+00:00"
     }
   ]
 }
