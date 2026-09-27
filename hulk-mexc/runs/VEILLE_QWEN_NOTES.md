@@ -5341,3 +5341,23 @@ Pas d’ordre — confrontation plus tard.
 ### 2026-09-27T00:48:32Z — ALERT auto
 - WUSDT: IMPULSE_WAIT — spike en cours, pas chase
 (compléter: confirmé ? risque ?)
+
+### 2026-09-27T01:26:36Z — ALERT auto
+- QNTUSDT: IMPULSE_WAIT — spike en cours, pas chase
+(compléter: confirmé ? risque ?)
+
+### 2026-09-27T01:27:17Z — ALERT auto
+- PYTHUSDT: IMPULSE_WAIT — spike en cours, pas chase
+(compléter: confirmé ? risque ?)
+
+### 2026-09-27T01:31:43Z — ALERT auto
+- QNTUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
+
+### 2026-09-27T01:48:47Z — ALERT auto
+- EDELUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
+
+### 2026-09-27T02:01:51Z — ALERT auto
+- TELUSDT: IMPULSE_WAIT — spike en cours, pas chase
+(compléter: confirmé ? risque ?)

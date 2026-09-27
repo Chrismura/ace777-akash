@@ -1,27 +1,6 @@
 {
   "signals": [
     {
-      "metric": "liquidations",
-      "zscore": 4.10789497954929,
-      "value": 6160747.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 75,\n  \"reason\": \"Les médias focalisent sur des liquidations d'entreprises traditionnelles, masquant l'anomalie onchain Bitcoin (z-score 4.11). Divergence typique avant un mouvement haussier, les baleines pourraient profiter du narratif négatif pour accumuler.\"\n}\n```",
-      "ts": "2026-09-25T13:06:25.655487+00:00"
-    },
-    {
-      "metric": "price_1h",
-      "zscore": 3.328501101157821,
-      "value": 0.6283295440366876,
-      "analysis": "{\"signal\": \"bullish\", \"confidence\": 80, \"reason\": \"Price shows a strong upward anomaly (z‑score 3.33) while media headlines are absent/neutral, indicating potential silent whale accumulation.\"}",
-      "ts": "2026-09-25T13:31:35.538607+00:00"
-    },
-    {
-      "metric": "liquidations",
-      "zscore": 2.0411785949672603,
-      "value": 4486645.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Bruit médiatique saturé par les liquidations d'entreprises traditionnelles et de 'retail' paniqué. Le z-score modéré (2.04) sur de faibles liquidations crypto (4.48M$) indique un 'flush' sain des positions à effet de levier excessif, souvent orchestré par les baleines pour accumuler en silence avant un rebond.\"\n}\n```",
-      "ts": "2026-09-25T13:41:49.685570+00:00"
-    },
-    {
       "metric": "price_1h",
       "zscore": 3.498070866992517,
       "value": 0.7137066100514677,
@@ -349,6 +328,27 @@
       "value": 70,
       "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement négatif (-6.86) malgré un indice de cupidité élevé (70) et un vide médiatique total. Divergence classique de distribution : le marché grand public est aveuglé par l'euphorie tandis que l'absence de couverture et l'anomalie statistique trahissent une sortie silencieuse des baleines.\"\n}\n```",
       "ts": "2026-09-27T00:39:45.175000+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -4.795831523312714,
+      "value": 70,
+      "analysis": "{\"signal\": \"bearish\", \"confidence\": 72, \"reason\": \"L'indice fear_greed à 70 signale une complaisance médiatique (greed), mais le z-score de -4.80 révèle une anomalie statistique extrême sur la chaîne. Cette divergence indique que des mouvements inhabituels (probables baleines) se produisent silencieusement à contre-courant du récit public, suggérant une possible distribution ou un piège haussier.\"}",
+      "ts": "2026-09-27T01:09:55.428874+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -3.8729833462074166,
+      "value": 70,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-3.87) malgré une cupidité apparente (70). Le silence médiatique (Google Actualités vide/neutre) combiné à une anomalie statistique onchain suggère une distribution silencieuse des baleines profitant d'un optimisme de détail non soutenu par de nouveaux flux.\"\n}\n```",
+      "ts": "2026-09-27T01:40:04.395493+00:00"
+    },
+    {
+      "metric": "price_1h",
+      "zscore": 2.739082849887903,
+      "value": 0.27105979719324047,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de prix significative (z-score 2.74) en l'absence totale de couverture médiatique (silence radio sur Google Actualités). C'est la signature classique d'accumulation silencieuse par les baleines avant que le narratif public ne rattrape la dynamique onchain.\"\n}\n```",
+      "ts": "2026-09-27T01:55:07.731829+00:00"
     }
   ]
 }
