@@ -209,10 +209,13 @@ def main():
             else:
                 cfg['providers'] = [q for q in cfg['providers'] if q.get('id') != pid]
                 changed = True
-            # Dédup 27/09 : on ne signale un rollback QU'UNE FOIS (jamais chaque run/jour).
+            # Le rapport HEBDOMADAIRE (INTEGRATIONS_HEBDO) garde TOUJOURS l'état —
+            # il est fait pour ça. Seul le rapport du JOUR (VEILLE_HUB) est dédupliqué :
+            # on ne ré-écrit pas un rollback déjà signalé (sinon le même obs-* revient
+            # chaque jour, dozens de blocs identiques — mesuré le 26/09).
+            rows_roll.append((pid, model, '%.0f%%' % (100 * fail_rate), 'ROLLBACK auto (désactivé)' if is_obs_active else 'RETIRE (rollback auto)'))
             rp = os.path.join(INDEX, 'VEILLE_HUB_%s.md' % date.today().isoformat())
             if not deja_roll and not _rollback_deja_note(rp, pid):
-                rows_roll.append((pid, model, '%.0f%%' % (100 * fail_rate), 'ROLLBACK auto (désactivé)' if is_obs_active else 'RETIRE (rollback auto)'))
                 notice('OBSERVATOIRE ROLLBACK AUTO : %s (%s) - %d%% erreurs > 5%% sur 24h' % (pid, model, 100 * fail_rate))
                 try:
                     with open(rp, 'a', encoding='utf-8') as f:

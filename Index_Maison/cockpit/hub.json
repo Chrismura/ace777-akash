@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-27T08:33:47.290882+00:00",
+  "generated_at": "2026-09-27T09:06:58.827804+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 75
+      "calls_24h": 73
     },
     {
       "id": "openrouter-free",
@@ -233,7 +233,7 @@
       "model": "orcarouter/free",
       "enabled": true,
       "timeout": 60,
-      "calls_24h": 1
+      "calls_24h": 3
     },
     {
       "id": "obs-1787724924",
@@ -267,17 +267,41 @@
       "name": "Roulement nex-agi/nex-n2.5-pro:free",
       "kind": "cloud",
       "model": "nex-agi/nex-n2.5-pro:free",
-      "enabled": true,
+      "enabled": false,
       "timeout": 60,
       "calls_24h": 0
     }
   ],
   "budget": {
     "daily": 624,
-    "consumed": 26,
-    "remaining": 598
+    "consumed": 29,
+    "remaining": 595
   },
   "queue": [
+    {
+      "ts": "2026-09-27T09:06:52.285428+00:00",
+      "task": "supervise.decision",
+      "provider": "orca",
+      "model": "orcarouter/free",
+      "kind": "cloud",
+      "duration_s": 3.74
+    },
+    {
+      "ts": "2026-09-27T09:06:41.325723+00:00",
+      "task": "supervise.decision",
+      "provider": "orca",
+      "model": "orcarouter/free",
+      "kind": "cloud",
+      "duration_s": 5.37
+    },
+    {
+      "ts": "2026-09-27T08:41:41.424492+00:00",
+      "task": "analyse.profonde",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 1.46
+    },
     {
       "ts": "2026-09-27T08:11:25.164555+00:00",
       "task": "analyse.profonde",
@@ -373,92 +397,68 @@
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
       "duration_s": 1.03
-    },
-    {
-      "ts": "2026-09-27T02:10:10.944962+00:00",
-      "task": "analyse.profonde",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 1.13
-    },
-    {
-      "ts": "2026-09-27T02:05:40.759276+00:00",
-      "task": "supervise.decision",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 16.22
-    },
-    {
-      "ts": "2026-09-27T02:05:29.632927+00:00",
-      "task": "supervise.decision",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 0.83
     }
   ],
   "events": [
     {
-      "ts": "2026-09-27T08:29:39.262743+00:00",
+      "ts": "2026-09-27T09:06:52.285245+00:00",
+      "kind": "message",
+      "title": "« OrcaRouter (routeur gratuit, modele orcarouter/free) » a repondu",
+      "detail": "bascule"
+    },
+    {
+      "ts": "2026-09-27T09:06:52.284201+00:00",
+      "kind": "filet-universel",
+      "title": "[FILET UNIVERSEL] « OrcaRouter (routeur gratuit, modele orcarouter/free) » a repondu hors chaine",
+      "detail": "supervise.decision"
+    },
+    {
+      "ts": "2026-09-27T09:06:49.841408+00:00",
       "kind": "http",
       "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
       "detail": ""
     },
     {
-      "ts": "2026-09-27T08:29:39.259682+00:00",
+      "ts": "2026-09-27T09:06:49.840897+00:00",
       "kind": "error",
       "title": "Toutes les IA ont echoue",
       "detail": "Google Gemini: HTTP Error 429: Too Many Requests | HuggingFace (136+ modeles, dont DeepSeek-V4): HTTP Error 400: Bad Request | OrcaRouter (routeur gratuit, modele orcarouter/free): HTTP Error 400: Bad Request | OpenRouter Juge (nemotron-3-super-120b free) - verificateur independant: HTTP Error 400: Bad Request | InferX DeepSeek V4 Flash (API gratuite jusqu'au 12/08): HTTP Error 429: Too Many Requests | InferX Qwen3-Coder-Next (code, gratuit jusqu'au 12/08): HTTP Error 429: Too Many Requests | Pu"
     },
     {
-      "ts": "2026-09-27T08:29:39.254115+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis Roulement nex-agi/nex-n2.5-pro:free",
-      "detail": "HTTP Error 404: Not Found"
-    },
-    {
-      "ts": "2026-09-27T08:29:38.606832+00:00",
+      "ts": "2026-09-27T09:06:49.834763+00:00",
       "kind": "failover",
       "title": "Bascule depuis InferX Devstral-2-123B (code)",
       "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-09-27T08:29:33.566624+00:00",
+      "ts": "2026-09-27T09:06:48.549088+00:00",
+      "kind": "failover",
+      "title": "Saute (blacklist) depuis Google Gemini",
+      "detail": "0 attente"
+    },
+    {
+      "ts": "2026-09-27T09:06:45.458841+00:00",
       "kind": "failover",
       "title": "Bascule depuis NVIDIA DeepSeek-Coder 6.7B (code, via NIM)",
       "detail": "HTTP Error 404: Not Found"
     },
     {
-      "ts": "2026-09-27T08:29:32.129498+00:00",
+      "ts": "2026-09-27T09:06:43.379591+00:00",
       "kind": "failover",
       "title": "Bascule depuis Puter Grok (gratuit)",
       "detail": "HTTP Error 402: Payment Required"
     },
     {
-      "ts": "2026-09-27T08:29:30.957113+00:00",
+      "ts": "2026-09-27T09:06:42.761596+00:00",
       "kind": "failover",
       "title": "Bascule depuis InferX Qwen3-Coder-Next (code, gratuit jusqu'au 12/08)",
       "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-09-27T08:29:27.308172+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis InferX DeepSeek V4 Flash (API gratuite jusqu'au 12/08)",
-      "detail": "HTTP Error 429: Too Many Requests"
-    },
-    {
-      "ts": "2026-09-27T08:29:22.836083+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis OpenRouter Juge (nemotron-3-super-120b free) - verificateur independant",
-      "detail": "HTTP Error 400: Bad Request"
-    },
-    {
-      "ts": "2026-09-27T08:29:21.941707+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis OrcaRouter (routeur gratuit, modele orcarouter/free)",
-      "detail": "HTTP Error 400: Bad Request"
+      "ts": "2026-09-27T09:06:41.325579+00:00",
+      "kind": "message",
+      "title": "« OrcaRouter (routeur gratuit, modele orcarouter/free) » a repondu",
+      "detail": "bascule"
     }
   ],
   "tasks_quotas": {
@@ -591,7 +591,7 @@
   },
   "health": {
     "status": "ok",
-    "providers": 10,
+    "providers": 9,
     "reseau": true,
     "degrade": false
   }

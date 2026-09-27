@@ -1,50 +1,15 @@
 {
-  "timestamp": 1790497854,
-  "date": "2026-09-27T08:30:54.748523+00:00",
-  "n_analyses": 2,
+  "timestamp": 1790499958,
+  "date": "2026-09-27T09:05:58.784743+00:00",
+  "n_analyses": 1,
   "analyses": [
     {
       "signal": {
-        "metric": "liquidations",
-        "zscore": 2.2490475071646414,
-        "value": 4016291.0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.25) sur les liquidations crypto (4M$) couplé à un bruit médiatique totalement déconnecté (faits divers, droit des affaires et faillites d'entreprises traditionnelles). Les baleines nettoient le carnet d'ordres des mains faibles dans l'indifférence générale des médias mainstream.\"\n}\n```",
-        "ts": 1790496082.613111
-      },
-      "fiche": "liquidations",
-      "questions": {
-        "longs": {
-          "value": 1633.0,
-          "seuil": 0,
-          "depasse": true
-        },
-        "shorts": {
-          "value": 1767519.0,
-          "seuil": 0,
-          "depasse": true
-        },
-        "prix": {
-          "value": 0.03,
-          "seuil": 1,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "shorts > longs",
-        "lecture": "Liquidations massives de SHORTS — squeeze haussier mécanique. Les paliers RIP profitent de ces mouvements",
-        "niveau": "info",
-        "action": "Laisser courir les paliers RIP, ne pas rentrer après la cascade"
-      },
-      "action": "Laisser courir les paliers RIP, ne pas rentrer après la cascade",
-      "niveau": "info"
-    },
-    {
-      "signal": {
         "metric": "taker_ratio",
-        "zscore": 2.2799124511850453,
+        "zscore": 2.215854606885248,
         "value": 1.874,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio à 1.874 (z-score 2.28) indique une domination agressive des acheteurs (Taker Buys) significative, révélant une accumulation agressive des baleines. Face à l'absence totale de couverture médiatique (Google Actualités vide), le narratif public est totalement déconnecté, ce qui caractérise un mouvement de accumulation furtif classique avant une cassure haussière.\"\n}\n```",
-        "ts": 1790496685.168551
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Taker ratio élevé (1.874, z-score 2.22) indique une forte agression acheteuse cachée, totalement ignorée par l'absence de couverture médiatique (silence radio). Accumulation furtive des baleines avant un mouvement de prix.\"\n}\n```",
+        "ts": 1790498501.604054
       },
       "fiche": "taker_ratio",
       "questions": {
@@ -54,7 +19,7 @@
           "depasse": true
         },
         "prix": {
-          "value": 0.03,
+          "value": 0.0,
           "seuil": 1,
           "depasse": false
         }

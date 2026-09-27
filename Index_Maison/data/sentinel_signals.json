@@ -2,13 +2,6 @@
   "signals": [
     {
       "metric": "sdi",
-      "zscore": 2.6356639112512603,
-      "value": 0.024,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 75,\n  \"reason\": \"Anomalie onchain significative (z-score 2.64) contrastant avec des titres médiatiques neutres/techniques. Les baleines pourraient accumuler silencieusement malgré le manque de couverture médiatique bullish.\"\n}\n```",
-      "ts": "2026-09-25T21:53:33.250330+00:00"
-    },
-    {
-      "metric": "sdi",
       "zscore": 2.4699156261620745,
       "value": 0.024,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie SDI (z-score 2.47) et titres médiatiques font référence à 'SDI Group' (actions traditionnelles / actualité politique française) et non à une baleine crypto. Bruit de fond sans pertinence onchain.\"\n}\n```",
@@ -349,6 +342,13 @@
       "value": 1.874,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio à 1.874 (z-score 2.28) indique une domination agressive des acheteurs (Taker Buys) significative, révélant une accumulation agressive des baleines. Face à l'absence totale de couverture médiatique (Google Actualités vide), le narratif public est totalement déconnecté, ce qui caractérise un mouvement de accumulation furtif classique avant une cassure haussière.\"\n}\n```",
       "ts": "2026-09-27T08:11:25.168551+00:00"
+    },
+    {
+      "metric": "taker_ratio",
+      "zscore": 2.215854606885248,
+      "value": 1.874,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Taker ratio élevé (1.874, z-score 2.22) indique une forte agression acheteuse cachée, totalement ignorée par l'absence de couverture médiatique (silence radio). Accumulation furtive des baleines avant un mouvement de prix.\"\n}\n```",
+      "ts": "2026-09-27T08:41:41.604054+00:00"
     }
   ]
 }

@@ -1,5 +1,5 @@
 {
-  "ts": "2026-09-27T08:33:36+00:00",
+  "ts": "2026-09-27T09:06:46+00:00",
   "note": "Verdicts MESURÉS à la source (scripts/verdicts_protocoles.py). Chaque protocole porte son critère pré-enregistré : c'est lui qui décide, pas l'impression du moment. Un verdict « IMPOSSIBLE » ou une ligne « alerte » signale un protocole dont le verdict ne peut pas être rendu — c'est une panne de conception, pas une patience.",
   "protocoles": [
     {
@@ -188,14 +188,6 @@
           "delta_votes": 10
         },
         {
-          "amendement": "DynamicMPT",
-          "delta_votes": 4
-        },
-        {
-          "amendement": "BatchV1_1",
-          "delta_votes": 4
-        },
-        {
           "amendement": "SingleAssetVault",
           "delta_votes": 4
         },
@@ -204,15 +196,23 @@
           "delta_votes": 4
         },
         {
+          "amendement": "DynamicMPT",
+          "delta_votes": 4
+        },
+        {
+          "amendement": "BatchV1_1",
+          "delta_votes": 4
+        },
+        {
           "amendement": "LendingProtocol",
           "delta_votes": 3
         },
         {
-          "amendement": "XChainBridge",
+          "amendement": "fixXChainRewardRounding",
           "delta_votes": 1
         },
         {
-          "amendement": "fixXChainRewardRounding",
+          "amendement": "XChainBridge",
           "delta_votes": 1
         }
       ]
@@ -289,7 +289,7 @@
     {
       "protocole": "Geopol (réanimé)",
       "critere": "GEOPOL-C2/C3 : avis geopol noté vs BTC 2×/jour, fenêtre 4 semaines (→ ~10/10), critère P3 ≥ 56 %",
-      "faits": "score actuel 0.3486 « calme » (ML 0.1648) · 27 avis enregistrés dont 4 directionnels (1 correct(s)) · 23 NEUTRE",
+      "faits": "score actuel 0.3459 « calme » (ML 0.1648) · 27 avis enregistrés dont 4 directionnels (1 correct(s)) · 23 NEUTRE",
       "verdict": "EN ATTENTE (fenêtre jusqu'au ~10/10)",
       "alerte": "1 avis correct sur 4 directionnels : à cette cadence le critère ne sera pas tranchable dans la fenêtre",
       "detail": [
