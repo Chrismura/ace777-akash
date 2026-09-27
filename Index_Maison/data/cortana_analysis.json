@@ -1,43 +1,8 @@
 {
-  "timestamp": 1790496353,
-  "date": "2026-09-27T08:05:53.952881+00:00",
+  "timestamp": 1790497854,
+  "date": "2026-09-27T08:30:54.748523+00:00",
   "n_analyses": 2,
   "analyses": [
-    {
-      "signal": {
-        "metric": "whale_usd",
-        "zscore": 4.650850911452407,
-        "value": 4926813.0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 4.65, ~4.9M USD) en l'absence totale de couverture médiatique (silence radio sur Google Actualités). C'est la signature classique d'accumulation silencieuse par des baleines avant le réveil du retail.\"\n}\n```",
-        "ts": 1790495778.861076
-      },
-      "fiche": "whale_usd",
-      "questions": {
-        "ventes": {
-          "value": 880272.0,
-          "seuil": 0,
-          "depasse": true
-        },
-        "achats": {
-          "value": 2761948.0,
-          "seuil": 0,
-          "depasse": true
-        },
-        "prix": {
-          "value": null,
-          "seuil": 1,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "achats > ventes",
-        "lecture": "Flux baleines ACHETEUR dominant — accumulation possible, à confirmer sur plusieurs scans",
-        "niveau": "info",
-        "action": "Observer, ne pas acheter sur un seul signal"
-      },
-      "action": "Observer, ne pas acheter sur un seul signal",
-      "niveau": "info"
-    },
     {
       "signal": {
         "metric": "liquidations",
@@ -49,28 +14,59 @@
       "fiche": "liquidations",
       "questions": {
         "longs": {
-          "value": null,
+          "value": 1633.0,
           "seuil": 0,
-          "depasse": false
+          "depasse": true
         },
         "shorts": {
-          "value": null,
+          "value": 1767519.0,
           "seuil": 0,
-          "depasse": false
+          "depasse": true
         },
         "prix": {
-          "value": null,
+          "value": 0.03,
           "seuil": 1,
           "depasse": false
         }
       },
       "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
+        "condition": "shorts > longs",
+        "lecture": "Liquidations massives de SHORTS — squeeze haussier mécanique. Les paliers RIP profitent de ces mouvements",
+        "niveau": "info",
+        "action": "Laisser courir les paliers RIP, ne pas rentrer après la cascade"
       },
-      "action": "Observer",
-      "niveau": "neutre"
+      "action": "Laisser courir les paliers RIP, ne pas rentrer après la cascade",
+      "niveau": "info"
+    },
+    {
+      "signal": {
+        "metric": "taker_ratio",
+        "zscore": 2.2799124511850453,
+        "value": 1.874,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio à 1.874 (z-score 2.28) indique une domination agressive des acheteurs (Taker Buys) significative, révélant une accumulation agressive des baleines. Face à l'absence totale de couverture médiatique (Google Actualités vide), le narratif public est totalement déconnecté, ce qui caractérise un mouvement de accumulation furtif classique avant une cassure haussière.\"\n}\n```",
+        "ts": 1790496685.168551
+      },
+      "fiche": "taker_ratio",
+      "questions": {
+        "taker": {
+          "value": 1.874,
+          "seuil": 1,
+          "depasse": true
+        },
+        "prix": {
+          "value": 0.03,
+          "seuil": 1,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "taker > 1",
+        "lecture": "Takers acheteurs agressifs — la demande mange le carnet, à confirmer avec le volume",
+        "niveau": "info",
+        "action": "Observer si le prix suit (vraie demande) ou diverge (absorption)"
+      },
+      "action": "Observer si le prix suit (vraie demande) ou diverge (absorption)",
+      "niveau": "info"
     }
   ],
   "resume": "🔵 CALME — pas de signal alarmant"

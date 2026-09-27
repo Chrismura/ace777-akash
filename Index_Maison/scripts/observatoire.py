@@ -117,6 +117,21 @@ def notice(msg):
         pass
 
 
+def _rollback_deja_note(rp, pid):
+    """Vrai si un bloc ROLLBACK AUTO pour ce provider figure DEJA dans le rapport.
+    Correction 27/09 : le meme provider obs-* re-echouait aux sondes chaque jour, donc
+    le meme bloc etait re-ecrit a l'identique dans VEILLE_HUB au fil des runs (le rapport
+    du 26/09 contenait 11 blocs identiques, et autant la veille). On ne signale un
+    rollback qu'UNE fois ; ensuite l'etat reste porte par providers.json (status obs-rollback).
+    """
+    try:
+        if not os.path.exists(rp):
+            return False
+        return ('- %s (' % pid) in open(rp, encoding='utf-8').read()
+    except Exception:
+        return False
+
+
 def main():
     cfg = load(PROVIDERS)
     providers = cfg.get('providers', [])
@@ -183,23 +198,29 @@ def main():
         if tot >= NB_PROBES and fails >= 2 and fail_rate > ERREUR_MAX:
             # ROLLBACK AUTO : pour un provider 'observation' -> retrait ; pour un obs-*
             # actif -> DESACTIVATION (jamais suppression — loi maison).
+            deja_roll = is_obs_active and str(p.get('status', '')).startswith('obs-rollback')
             if is_obs_active:
-                p['enabled'] = False
+                if p.get('enabled', True):
+                    p['enabled'] = False
+                    changed = True
+                if not deja_roll:
+                    p['note'] = (p.get('note') or '') + ' | ROLLBACK auto observatoire %s (%d%% erreurs)' % (date.today().isoformat(), 100 * fail_rate)
                 p['status'] = 'obs-rollback'
-                p['note'] = (p.get('note') or '') + ' | ROLLBACK auto observatoire %s (%d%% erreurs)' % (date.today().isoformat(), 100 * fail_rate)
             else:
                 cfg['providers'] = [q for q in cfg['providers'] if q.get('id') != pid]
-            changed = True
-            rows_roll.append((pid, model, '%.0f%%' % (100 * fail_rate), 'ROLLBACK auto (désactivé)' if is_obs_active else 'RETIRE (rollback auto)'))
-            notice('OBSERVATOIRE ROLLBACK AUTO : %s (%s) - %d%% erreurs > 5%% sur 24h' % (pid, model, 100 * fail_rate))
+                changed = True
+            # Dédup 27/09 : on ne signale un rollback QU'UNE FOIS (jamais chaque run/jour).
             rp = os.path.join(INDEX, 'VEILLE_HUB_%s.md' % date.today().isoformat())
-            try:
-                with open(rp, 'a', encoding='utf-8') as f:
-                    f.write('\n## ROLLBACK AUTO %s\n- %s (%s) : %d%% erreurs > 5%% (observatoire)\n'
-                            % (date.today().isoformat(), pid, model, 100 * fail_rate))
-            except Exception:
-                pass
-            print('[ROLLBACK] %s (%s) : %.0f%% erreurs -> désactivé' % (pid, model, 100 * fail_rate))
+            if not deja_roll and not _rollback_deja_note(rp, pid):
+                rows_roll.append((pid, model, '%.0f%%' % (100 * fail_rate), 'ROLLBACK auto (désactivé)' if is_obs_active else 'RETIRE (rollback auto)'))
+                notice('OBSERVATOIRE ROLLBACK AUTO : %s (%s) - %d%% erreurs > 5%% sur 24h' % (pid, model, 100 * fail_rate))
+                try:
+                    with open(rp, 'a', encoding='utf-8') as f:
+                        f.write('\n## ROLLBACK AUTO %s\n- %s (%s) : %d%% erreurs > 5%% (observatoire)\n'
+                                % (date.today().isoformat(), pid, model, 100 * fail_rate))
+                except Exception:
+                    pass
+                print('[ROLLBACK] %s (%s) : %.0f%% erreurs -> désactivé' % (pid, model, 100 * fail_rate))
         elif is_obs_active:
             # obs-* sain : on le laisse actif, on note la santé
             rows_act.append((pid, model, '%d/%d' % (okk, tot), 'actif + sain (sondes OK)'))

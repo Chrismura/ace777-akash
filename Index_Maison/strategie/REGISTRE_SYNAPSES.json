@@ -1,6 +1,6 @@
 {
   "version": "1.5.0",
-  "updated": "2026-09-23T15:41:45Z",
+  "updated": "2026-09-27T10:25:00Z",
   "fichier": [
     {
       "nom": "Index_Maison/scripts/v2_duo_replay_4h.py",
@@ -814,10 +814,11 @@
       "origine": "GO Christophe 14/09 : transparence substitution de modèle",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "4f3e782ad6eda2ecb22990d927019612",
+      "md5": "d9bd171f0cc2f22c77540b040ec00979",
       "note": "Scellé 14/09T12:45Z après ajout TRANSPARENCE SUBSTITUTION : événement 'substitution' au journal + champs model/model_demande/substitue dans chaque réponse HTTP. Backup /tmp/hub_prise_ia.py.bak-avant-20260914-123457. Par Buffy.",
-      "date": "2026-09-23T13:12Z",
-      "_rescel_20260923": "4e vague 23/09 (classe E21) — ajout du mode **`strict_model`** : quand il est demandé, la chaîne de providers est limitée à ceux qui servent RÉELLEMENT le modèle, **sans filet universel**, et un modèle indisponible **échoue franchement** (« voix INDISPONIBLE, pas de substitution silencieuse »). MESURÉ : sans ce mode, au tour 2 « DeepSeek » était répondu par Gemini, au tour 3 les TROIS voix par Gemini → jury à UNE voix ; et le filet **masquait une voix disponible** (DeepSeek répond parfaitement en direct). Additif et OFF par défaut : aucun autre appelant du hub n'est touché. Backup : hub_prise_ia.py.bak-strict-jury-20260923. Hub relancé, `status ok, 10 providers`, test du jury après correctif : 3 voix indépendantes."
+      "date": "2026-09-27T10:25Z",
+      "_rescel_20260923": "4e vague 23/09 (classe E21) — ajout du mode **`strict_model`** : quand il est demandé, la chaîne de providers est limitée à ceux qui servent RÉELLEMENT le modèle, **sans filet universel**, et un modèle indisponible **échoue franchement** (« voix INDISPONIBLE, pas de substitution silencieuse »). MESURÉ : sans ce mode, au tour 2 « DeepSeek » était répondu par Gemini, au tour 3 les TROIS voix par Gemini → jury à UNE voix ; et le filet **masquait une voix disponible** (DeepSeek répond parfaitement en direct). Additif et OFF par défaut : aucun autre appelant du hub n'est touché. Backup : hub_prise_ia.py.bak-strict-jury-20260923. Hub relancé, `status ok, 10 providers`, test du jury après correctif : 3 voix indépendantes.",
+      "_rescel_20260927": "RÉSEAU EXPLICITE 27/09 (point d'autonomie, GO Christophe 1/2/3) — `/health` expose désormais `reseau` (sonde DNS `_reseau_disponible()` déjà présente dans le hub) et `degrade` (= NOT reseau), À CÔTÉ de `status: ok` qui reste inchangé. POURQUOI : le hub local répond TOUJOURS, même DNS mort — mesuré des heures de « hub OK » pendant que toutes les sources externes étaient KO (24/09 ~15 h, 27/09 ~4 h) ; les rapports confondaient « hub joignable » et « internet disponible ». ADDITIF : `status`/`providers` inchangés, aucun appelant existant touché. Backup /tmp/hub_prise_ia.py.bak-avant-reseau-20260927. Re-scellé avant relance launchd."
     },
     {
       "nom": "Index_Maison/scripts/collecter_x402_agentic.py",

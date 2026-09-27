@@ -80,6 +80,22 @@ check_heartbeat() {
         hub_ok="true"
     fi
 
+    # RESEAU EXPLICITE (27/09) : « hub joignable » N'EST PAS « internet disponible ».
+    # Le hub local repond TOUJOURS, meme DNS mort (mesure du 24 et du 27/09 : des
+    # heures de « hub OK » pendant que toutes les sources externes etaient KO).
+    # On sonde donc le DNS a part et on l'ecrit dans le heartbeat.
+    local reseau_ok="false"
+    if python3 - <<'PY' >/dev/null 2>&1
+try:
+    import socket
+    socket.getaddrinfo("api.binance.com", 443, socket.AF_INET, socket.SOCK_STREAM)
+except Exception:
+    raise SystemExit(1)
+PY
+    then
+        reseau_ok="true"
+    fi
+
     # RÉPARÉ 20/09/2026 (Buffy, GO Christophe « incassable ») : le python imprimait
     # « RAM_FREE=<n> » (MAJUSCULES) alors que TOUT le script lit $ram_free
     # (minuscules). L'eval posait donc RAM_FREE, et ram_free restait à son 0
@@ -116,15 +132,20 @@ PY
         git -C "$MAISON" status --porcelain >/dev/null 2>&1 && git_status="dirty" || git_status="clean"
     fi
 
-    python3 - "$hub_ok" "$ram_free" "$git_status" <<'PY'
+    python3 - "$hub_ok" "$ram_free" "$git_status" "$reseau_ok" <<'PY'
 import json, sys, os
 from datetime import datetime, timezone
 hub_ok = sys.argv[1] == "true"
 ram_free = int(sys.argv[2])
 git_status = sys.argv[3]
+reseau_ok = sys.argv[4] == "true"
 data = {
     "horodatage": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
     "hub_ok": hub_ok,
+    "reseau_ok": reseau_ok,
+    # etat global : un seul champ a lire qui dit la VERITE combinee
+    # (degrade si le hub local est injoignable OU si internet ne repond pas)
+    "etat": "ok" if (hub_ok and reseau_ok) else "degrade",
     "ram_free_mb": ram_free,
     "git_status": git_status,
     "source": "superviseur_core"
@@ -164,7 +185,7 @@ EOF
     fi
 
     mark_done "heartbeat"
-    core_log "HEARTBEAT: fin (hub_ok=$hub_ok)"
+    core_log "HEARTBEAT: fin (hub_ok=$hub_ok reseau_ok=$reseau_ok)"
     [ "$fail" -eq 0 ] && echo "OK" || echo "NOK"
 }
 

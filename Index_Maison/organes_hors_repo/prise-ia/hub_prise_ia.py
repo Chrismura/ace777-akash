@@ -823,7 +823,17 @@ class Handler(BaseHTTPRequestHandler):
             # C4 - cache 30s (audit famille 6 : load_config relu a chaque appel)
             now = time.time()
             if now - _health_cache["ts"] > 30 or _health_cache["data"] is None:
-                _health_cache["data"] = {"status": "ok", "providers": len(load_config())}
+                # RESEAU EXPLICITE (27/09) : le hub local repond TOUJOURS (status ok)
+                # meme quand le DNS est mort. On expose donc l'etat reseau SEPAREMENT,
+                # pour que les rapports ne confondent plus "hub joignable" et "internet
+                # disponible". Additif : aucun appelant existant n'est modifie.
+                reseau = _reseau_disponible()
+                _health_cache["data"] = {
+                    "status": "ok",
+                    "providers": len(load_config()),
+                    "reseau": reseau,
+                    "degrade": (not reseau),
+                }
                 _health_cache["ts"] = now
             self._json(200, _health_cache["data"])
         elif self.path == "/v1/models":

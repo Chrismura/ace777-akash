@@ -13,7 +13,7 @@ launchd SEPARE, decalees dans le temps pour ne jamais saturer la RAM :
   11:00  observatoire.py          (sondes 48h + rollback auto >5% + validation hebdo)
 Kill switch : si Index_Maison/STOP_HUB existe -> tout s'arrete SAUF le hub lui-meme.
 """
-import json, os, re, urllib.request, datetime
+import json, os, re, socket, urllib.request, datetime
 
 HOME = os.path.expanduser('~')
 PRISE = os.path.join(HOME, 'prise-ia')
@@ -32,6 +32,16 @@ def get_json(url, headers=None, timeout=25):
     return json.loads(urllib.request.urlopen(req, timeout=timeout).read())
 
 
+def reseau_ok():
+    """Le hub local repond meme DNS mort : ce test dit si INTERNET est joignable.
+    Verite reseau (27/09) — pour ne plus afficher « hub OK » quand tout le reste est KO."""
+    try:
+        socket.getaddrinfo('api.binance.com', 443, socket.AF_INET, socket.SOCK_STREAM)
+        return True
+    except Exception:
+        return False
+
+
 def env_key(k):
     try:
         for line in open(os.path.join(PRISE, '.env')):
@@ -43,10 +53,15 @@ def env_key(k):
 
 
 # 1) sante
+reseau_up = reseau_ok()
 try:
     health = get_json(HUB + '/health', timeout=6)
     hub_ok = health.get('status') == 'ok'
     nb = health.get('providers', '?')
+    # si le hub expose lui-meme l'etat reseau (27/09), on prefere SA mesure ;
+    # sinon (hub plus ancien) on garde notre propre sonde DNS.
+    if isinstance(health.get('reseau'), bool):
+        reseau_up = health['reseau']
 except Exception:
     hub_ok, nb = False, '?'
 
@@ -315,8 +330,12 @@ findings['github search (nouveaux lieux)'] = scan_github_search()
 findings['rss (simonwillison/latent/batch)'] = _scan_rss_all()
 
 # 4) rapport
+nb_err = sum(1 for items in findings.values() for it in items if str(it).startswith('ERR'))
 L = ['# VEILLE HUB — ' + today, '',
-     '## Santé', '- hub : ' + ('OK (' + str(nb) + ' providers)' if hub_ok else 'NOK'), '',
+     '## Santé',
+     '- hub : ' + ('OK (' + str(nb) + ' providers)' if hub_ok else 'NOK'),
+     '- réseau (DNS) : ' + ('OK' if reseau_up else 'KO — aucune source externe ne résout (hors-ligne)'),
+     '- sources en erreur : %d' % nb_err, '',
      '## Énergie du jour', '- appels : %d (cloud %d)' % (total_today, cloud_today),
      '- budget cloud : %s max' % (budget if budget else 'illimité'),
      '- par provider : ' + ', '.join('%s=%d' % (k, v) for k, v in sorted(per_provider.items())), '',

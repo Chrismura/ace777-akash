@@ -135,6 +135,7 @@ def main():
     now = time.time()
     morts = []       # échec durable (2 jours) -> candidats à l'éjection
     temporaires = [] # épuisé récent (429/quota) -> on garde, on route ailleurs
+    sains = []       # sonde RÉUSSIE -> la SEULE liste des « ACTIFS OK » (fix 27/09)
 
     # 1) SANTÉ des providers ACTIFS (ceux qui sont réellement routés)
     for p in providers:
@@ -146,6 +147,7 @@ def main():
         if ok:
             p['last_ok_ts'] = now
             p['last_err'] = ''
+            sains.append(p)
             continue
         # échec : classer
         if age_s is not None and age_s >= MORT_APRES_S:
@@ -163,8 +165,17 @@ def main():
     if temporaires:
         log_ligne('🟡 ÉPUISÉS TEMPORAIRES (gardés, 429/quota) : %s'
                   % ', '.join(p.get('id', '?') for p in temporaires))
-    actifs_ok = [p for p in providers if p.get('enabled') and p not in morts]
-    log_ligne('✅ ACTIFS OK : %s' % ', '.join(p.get('id', '?') for p in actifs_ok) or 'aucun')
+    # FIX 27/09 : « ÉPUISÉS » et « ACTIFS OK » se CONTREDISAIENT — un même provider
+    # apparaissait dans les DEUX listes (les temporaires étaient comptés comme actifs),
+    # ex. 27/09 05:08Z : les 9 providers dans les deux listes. Quelle que soit la cause
+    # (provider transitoirement KO), « ACTIFS OK » ne veut dire qu'une chose : la sonde
+    # VIENT DE RÉUSSIR. On liste donc l'INTERSECTION, jamais l'union.
+    sains_ids = {p.get('id') for p in sains}
+    actifs_ok = [p for p in providers
+                 if p.get('enabled') and p.get('id') in sains_ids
+                 and p not in morts and p not in temporaires]
+    log_ligne('✅ ACTIFS OK (sonde réussie) : %s'
+              % (', '.join(p.get('id', '?') for p in actifs_ok) or 'aucun'))
 
     # 3) ÉJECTION + REMPLACEMENT (1 max par run)
     if not morts:

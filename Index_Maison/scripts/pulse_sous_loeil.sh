@@ -23,6 +23,18 @@ alive 'ollama serve' && OLLAMA_ON=1
 MODE="FROID"
 [[ "$ACE_ON" -eq 1 || "$HULK_ON" -eq 1 ]] && MODE="VOL"
 
+# Réseau (DNS) — « hub joignable » N'EST PAS « internet disponible » (27/09) :
+# le hub local répond TOUJOURS, même hors-ligne. On mesure donc le DNS à part.
+NET_OK=0
+if python3 - <<'PY' >/dev/null 2>&1
+try:
+  import socket
+  socket.getaddrinfo("api.binance.com", 443, socket.AF_INET, socket.SOCK_STREAM)
+except Exception:
+  raise SystemExit(1)
+PY
+then NET_OK=1; fi
+
 # RAM
 eval "$(python3 - <<'PY'
 import subprocess
@@ -109,6 +121,11 @@ mark() { # ok|warn|fail | label | detail
 
 mark ok "Mode" "$MODE (auto)"
 mark ok "Horodatage" "$TS_LOC local · $TS_UTC UTC"
+if [[ "$NET_OK" -eq 1 ]]; then
+  mark ok "Réseau (DNS)" "internet OK"
+else
+  mark fail "Réseau (DNS)" "KO — sources externes injoignables (hors-ligne)"
+fi
 [[ "$CHAMP" == OK ]] && mark ok "Champion" "md5 \`${GEN_MD5:0:8}…\`" || mark fail "Champion" "md5=\`$GEN_MD5\`"
 
 if [[ "$MODE" == "VOL" ]]; then
