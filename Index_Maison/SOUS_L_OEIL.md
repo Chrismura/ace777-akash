@@ -1,6 +1,6 @@
 # 👁️ SOUS L'ŒIL — Pulse machine
 
-**Date** : 2026-09-27T18:59:16+0200
+**Date** : 2026-09-27T19:29:51+0200
 **Mode** : VOL
 **Verdict** : OK
 
@@ -14,7 +14,7 @@
 - Champion (genesis_manifest) : OK
 
 ## Fraîcheur
-- Heartbeat : 304s
+- Heartbeat : 2140s
 - LIVE : —
 
 ---
