@@ -1,15 +1,15 @@
 {
-  "timestamp": 1790474747,
-  "date": "2026-09-27T02:05:47.488060+00:00",
+  "timestamp": 1790476247,
+  "date": "2026-09-27T02:30:47.953795+00:00",
   "n_analyses": 2,
   "analyses": [
     {
       "signal": {
         "metric": "fear_greed",
-        "zscore": -3.8729833462074166,
+        "zscore": -3.316624790355405,
         "value": 70,
-        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-3.87) malgré une cupidité apparente (70). Le silence médiatique (Google Actualités vide/neutre) combiné à une anomalie statistique onchain suggère une distribution silencieuse des baleines profitant d'un optimisme de détail non soutenu par de nouveaux flux.\"\n}\n```",
-        "ts": 1790473204.395493
+        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement négatif (-3.32) pour un indice de peur et d'avarice à 70 : le marché affiche une euphorie médiatique creuse (absence de flux organiques réels), trahissant une distribution silencieuse des baleines sous couvert d'un narratif artificiellement optimiste.\"\n}\n```",
+        "ts": 1790475010.946746
       },
       "fiche": "fear_greed",
       "questions": {
@@ -34,37 +34,33 @@
     },
     {
       "signal": {
-        "metric": "price_1h",
-        "zscore": 2.739082849887903,
-        "value": 0.27105979719324047,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de prix significative (z-score 2.74) en l'absence totale de couverture médiatique (silence radio sur Google Actualités). C'est la signature classique d'accumulation silencieuse par les baleines avant que le narratif public ne rattrape la dynamique onchain.\"\n}\n```",
-        "ts": 1790474107.731829
+        "metric": "taker_ratio",
+        "zscore": 2.6795238996383657,
+        "value": 1.799,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio à 1.799 (z-score 2.68) indique une domination agressive des acheteurs (Taker Buy) onchain, révélant une accumulation agressive des baleines. L'absence totale de couverture médiatique (Google Actualités muet) confirme un mouvement furtif 'sous le radar', totalement déconnecté du bruit de fond de détail.\"\n}\n```",
+        "ts": 1790475313.045712
       },
-      "fiche": "price_1h",
+      "fiche": "taker_ratio",
       "questions": {
-        "pct_1h": {
-          "value": -0.02,
-          "seuil": -1,
+        "taker": {
+          "value": 1.799,
+          "seuil": 1,
           "depasse": true
         },
-        "liq": {
-          "value": 2436727.0,
-          "seuil": 5000000,
+        "prix": {
+          "value": 0.01,
+          "seuil": 1,
           "depasse": false
-        },
-        "funding": {
-          "value": 5.6e-05,
-          "seuil": 0,
-          "depasse": true
         }
       },
       "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
+        "condition": "taker > 1",
+        "lecture": "Takers acheteurs agressifs — la demande mange le carnet, à confirmer avec le volume",
+        "niveau": "info",
+        "action": "Observer si le prix suit (vraie demande) ou diverge (absorption)"
       },
-      "action": "Observer",
-      "niveau": "neutre"
+      "action": "Observer si le prix suit (vraie demande) ou diverge (absorption)",
+      "niveau": "info"
     }
   ],
   "resume": "🔵 CALME — pas de signal alarmant"

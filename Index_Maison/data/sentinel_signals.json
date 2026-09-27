@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "price_1h",
-      "zscore": 3.498070866992517,
-      "value": 0.7137066100514677,
-      "analysis": "{\n  \"signal\": \"bullish\",\n  \"confidence\": 72,\n  \"reason\": \"Le prix montre une anomalie forte (z‑score = 3,5) indiquant un mouvement significatif à la hausse, tandis que les titres médiatiques sont absents ou génériques, suggérant que cette hausse n’est pas encore relayée publiquement – un signe typique d’accumulation silencieuse de baleines.\"\n}",
-      "ts": "2026-09-25T14:06:56.188906+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": 2.4978464839178374,
-      "value": 0.02,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie SDI (z-score 2.50) totalement non pertinente pour la crypto : les médias parlent du 'SDI Group' (entreprise cotée) et du 'Syndicat des Indépendants' (politique française). Bruit macro/politique sans lien avec les flux de baleines crypto.\"\n}\n```",
-      "ts": "2026-09-25T14:27:01.296050+00:00"
-    },
-    {
       "metric": "ipt",
       "zscore": 2.0579167482711473,
       "value": 1.24,
@@ -349,6 +335,20 @@
       "value": 0.27105979719324047,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de prix significative (z-score 2.74) en l'absence totale de couverture médiatique (silence radio sur Google Actualités). C'est la signature classique d'accumulation silencieuse par les baleines avant que le narratif public ne rattrape la dynamique onchain.\"\n}\n```",
       "ts": "2026-09-27T01:55:07.731829+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -3.316624790355405,
+      "value": 70,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement négatif (-3.32) pour un indice de peur et d'avarice à 70 : le marché affiche une euphorie médiatique creuse (absence de flux organiques réels), trahissant une distribution silencieuse des baleines sous couvert d'un narratif artificiellement optimiste.\"\n}\n```",
+      "ts": "2026-09-27T02:10:10.946746+00:00"
+    },
+    {
+      "metric": "taker_ratio",
+      "zscore": 2.6795238996383657,
+      "value": 1.799,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio à 1.799 (z-score 2.68) indique une domination agressive des acheteurs (Taker Buy) onchain, révélant une accumulation agressive des baleines. L'absence totale de couverture médiatique (Google Actualités muet) confirme un mouvement furtif 'sous le radar', totalement déconnecté du bruit de fond de détail.\"\n}\n```",
+      "ts": "2026-09-27T02:15:13.045712+00:00"
     }
   ]
 }
