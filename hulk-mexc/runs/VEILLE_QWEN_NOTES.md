@@ -5385,3 +5385,12 @@ Pas d’ordre — confrontation plus tard.
 ### 2026-09-27T03:10:11Z — ALERT auto
 - TELUSDT: IMPULSE_WAIT — spike en cours, pas chase
 (compléter: confirmé ? risque ?)
+
+### 2026-09-27T07:17:13Z — ALERT auto
+- WUSDT: IMPULSE_WAIT — spike en cours, pas chase
+- RIZEUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
+
+### 2026-09-27T08:02:34Z — ALERT auto
+- PYTHUSDT: IMPULSE_WAIT — spike en cours, pas chase
+(compléter: confirmé ? risque ?)

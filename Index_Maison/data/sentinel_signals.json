@@ -1,34 +1,6 @@
 {
   "signals": [
     {
-      "metric": "ipt",
-      "zscore": 2.644796370191164,
-      "value": 1.474,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 2.64) non reflétée dans les médias. Les titres couvrent des sujets institutionnels/partenariats sans lien évident avec l'activité financière. Divergence suggère une accumulation discrète ou préparation à un mouvement non médiatisé.\"\n}\n```",
-      "ts": "2026-09-25T15:37:29.717150+00:00"
-    },
-    {
-      "metric": "price_1h",
-      "zscore": 3.1545987646694145,
-      "value": 0.693568801401423,
-      "analysis": "{\n  \"signal\": \"bullish\",\n  \"confidence\": 70,\n  \"reason\": \"The 1‑hour price shows a strong positive deviation (z‑score = 3.15), indicating significant buying pressure likely driven by large holders. Media headlines are generic and lack any bullish narrative, suggesting the move is not yet reflected in public discourse – a classic sign of silent whale accumulation.\"\n}",
-      "ts": "2026-09-25T15:52:35.465248+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": 2.1823956056286313,
-      "value": 0.02,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Erreur de ciblage sémantique : l'anomalie 'SDI' détectée concerne des actions traditionnelles et des syndicats/groupes (SDI Group, SDI environnement) et non un actif cryptographique. Aucune baleine crypto identifiée.\"\n}\n```",
-      "ts": "2026-09-25T16:52:47.556896+00:00"
-    },
-    {
-      "metric": "whale_usd",
-      "zscore": 2.7892756188125545,
-      "value": 2966686.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Activité anormale des baleines (Z-score 2.79) combinée à un silence médiatique total (Google Actualités vide). C'est la signature classique d'accumulation furtive hors radar avant un mouvement de marché impulsif.\"\n}\n```",
-      "ts": "2026-09-25T20:43:19.864360+00:00"
-    },
-    {
       "metric": "whale_usd",
       "zscore": 2.5751451192074017,
       "value": 2997362.0,
@@ -349,6 +321,34 @@
       "value": 70,
       "analysis": "{\n  \"signal\": \"bullish\",\n  \"confidence\": 78,\n  \"reason\": \"L'indice Fear & Greed à 70 indique un niveau de greed élevé, soutenu par un z‑score de -2.65 qui montre une anomalie statistique forte (sortie de la distribution habituelle). Les titres de Google Actualités ne reflètent pas cette euphorie – ils restent relativement neutres ou même prudents – créant une divergence où le sentiment onchain suggère une accumulation silencieuse de baleines (position haussière) tandis que le narratif médiatique reste déconnecté ou sous‑réagit. Cette incohérence souvent précède des mouvements de prix à la hausse lorsque les acteurs de marché réalisent finalement le déséquilibre.\"\n}",
       "ts": "2026-09-27T03:10:40.276583+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": -2.229826265870123,
+      "value": 1,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Le z-score extrêmement bas (-2.23) indique une capitulation des positions longues et une surabondance de shorts par les particuliers, amplifiée par un narratif médiatique traditionnel focalisé sur la prudence. C'est la configuration classique d'un 'short squeeze' imminent orchestré par les accumulations furtives des baleines.\"\n}\n```",
+      "ts": "2026-09-27T07:15:54.100215+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 2.466823453541897,
+      "value": 4073088.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 65,\n  \"reason\": \"Le pic de liquidations crypto (z-score 2.47) indique un flush technique des positions à effet de levier, mais les actualités médiatiques font une confusion lexicale massive avec des liquidations judiciaires d'entreprises traditionnelles. Absence de mouvement macro-stratégique des baleines : bruit de fond retail.\"\n}\n```",
+      "ts": "2026-09-27T07:30:57.006365+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 4.650850911452407,
+      "value": 4926813.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 4.65, ~4.9M USD) en l'absence totale de couverture médiatique (silence radio sur Google Actualités). C'est la signature classique d'accumulation silencieuse par des baleines avant le réveil du retail.\"\n}\n```",
+      "ts": "2026-09-27T07:56:18.861076+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 2.2490475071646414,
+      "value": 4016291.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.25) sur les liquidations crypto (4M$) couplé à un bruit médiatique totalement déconnecté (faits divers, droit des affaires et faillites d'entreprises traditionnelles). Les baleines nettoient le carnet d'ordres des mains faibles dans l'indifférence générale des médias mainstream.\"\n}\n```",
+      "ts": "2026-09-27T08:01:22.613111+00:00"
     }
   ]
 }

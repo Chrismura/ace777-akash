@@ -1,29 +1,29 @@
 # Thermo dernier — gratuit (Binance public)
 
-> Auto · **sans clé** · sans ordre · 2026-09-27T07:03Z UTC  
+> Auto · **sans clé** · sans ordre · 2026-09-27T08:05Z UTC  
 > Script : `Index_Maison/scripts/thermo_quotidien_free.py`
 
 ## Clin d'œil
-**Climat :** `ok` · **Score :** `92/100`
+**Climat :** `ok` · **Score :** `95/100`
 
 ## Snapshot `BTCUSDT`
 
 | Champ | Valeur | ID |
 |-------|--------|-----|
-| Mark | 84363.2 | prix |
-| OI | 94289.939 | C13 |
-| Funding | 5.3e-05 | C14 |
+| Mark | 84664.2 | prix |
+| OI | 94514.143 | C13 |
+| Funding | 1.3e-05 | C14 |
 | Funding moy. ~30j | None (n=0) | Cortana |
 | Funding mois préc. | None (n=0) | Cortana |
 | L/S 1h | None | crowd |
-| BTC 1h/4h/24h | None / None / 0.52 % | B7 |
+| BTC 1h/4h/24h | None / None / 0.71 % | B7 |
 | Dominance BTC | None% | A3 |
 | Alts ↓ 24h | None% | B9 |
 
 ## Lecture
-- Climat CALME (score 92/100).
-- Funding maintenant 5.3e-05. Moyenne ~30j None (0 pts). Mois précédent None (0 pts).
-- BTC 24h 0.52% · 1h None% · 4h None%.
+- Climat CALME (score 95/100).
+- Funding maintenant 1.3e-05. Moyenne ~30j None (0 pts). Mois précédent None (0 pts).
+- BTC 24h 0.71% · 1h None% · 4h None%.
 - Whales proxy : aucun print ≥500k$ sur les ~500 derniers trades.
 - Fear & Greed 70 (Greed).
 - ACE soft: LIVE=MASTER_BASE_V8_6_FORTRESS_8H20_LIVE_COLOR.log · SKIP=935 · heat=2.7 · PnL sess=0.9024 · RED=0.
