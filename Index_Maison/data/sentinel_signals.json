@@ -2,20 +2,6 @@
   "signals": [
     {
       "metric": "sdi",
-      "zscore": 2.4699156261620745,
-      "value": 0.024,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie SDI (z-score 2.47) et titres médiatiques font référence à 'SDI Group' (actions traditionnelles / actualité politique française) et non à une baleine crypto. Bruit de fond sans pertinence onchain.\"\n}\n```",
-      "ts": "2026-09-25T22:23:38.421863+00:00"
-    },
-    {
-      "metric": "whale_usd",
-      "zscore": 3.332151624652273,
-      "value": 3872993.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 3.33, ~3.87M USD) dans un silence médiatique absolu (Google Actualités vide).accumulation furtive typique des baleines avant un mouvement de marché non anticipé par le retail.\"\n}\n```",
-      "ts": "2026-09-25T22:38:41.611453+00:00"
-    },
-    {
-      "metric": "sdi",
       "zscore": 3.0788404218743017,
       "value": 0.028,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie SDI (z-score 3.08) et titres médiatiques font référence à 'SDI' (SDI Group, politique énergétique), qui est une entreprise traditionnelle et un acronyme politique, sans rapport avec la blockchain ou les mouvements de baleines crypto.\"\n}\n```",
@@ -349,6 +335,20 @@
       "value": 1.874,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Taker ratio élevé (1.874, z-score 2.22) indique une forte agression acheteuse cachée, totalement ignorée par l'absence de couverture médiatique (silence radio). Accumulation furtive des baleines avant un mouvement de prix.\"\n}\n```",
       "ts": "2026-09-27T08:41:41.604054+00:00"
+    },
+    {
+      "metric": "cpfp",
+      "zscore": 3.3670370735715522,
+      "value": 50.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Le pic de l'indicateur CPFP (Child-Pays-For-Parent) reflète simplement une congestion technique du réseau Bitcoin et des tutoriels pour débloquer des transactions, totalement déconnecté des bruits médiatiques locaux hors sujet. Aucune accumulation ou mouvement significatif de baleines détecté.\"\n}\n```",
+      "ts": "2026-09-27T11:12:06.660527+00:00"
+    },
+    {
+      "metric": "dust",
+      "zscore": 3.3670370735715522,
+      "value": 50.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie onchain ('Dust') totalement polluée par le bruit médiatique (homonymie avec un jeu vidéo et une levée de fonds IA homonyme). Aucune baleine crypto significative détectée derrière ce signal.\"\n}\n```",
+      "ts": "2026-09-27T11:12:08.462726+00:00"
     }
   ]
 }
