@@ -5438,3 +5438,8 @@ Pas d’ordre — confrontation plus tard.
 ### 2026-09-27T16:50:37Z — ALERT auto
 - RWAINCUSDT: WATCH_PULLBACK — tension haute + reflux
 (compléter: confirmé ? risque ?)
+
+### 2026-09-27T18:20:13Z — ALERT auto
+- RWAINCUSDT: WATCH_PULLBACK — tension haute + reflux
+- EDELUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)

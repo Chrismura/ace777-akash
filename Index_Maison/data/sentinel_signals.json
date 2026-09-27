@@ -1,34 +1,6 @@
 {
   "signals": [
     {
-      "metric": "whale_usd",
-      "zscore": 4.43132386402725,
-      "value": 9933994.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (z-score 4.43, ~9.9M USD) dans le silence total des médias (Google Actualités vide). Accumulation furtive classique de baleines loin du bruit de fond retail.\"\n}\n```",
-      "ts": "2026-09-26T20:13:48.721697+00:00"
-    },
-    {
-      "metric": "liquidations",
-      "zscore": 5.555262234913529,
-      "value": 3719011.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit sémantique : le terme 'liquidation' dans les médias fait référence à des faillites d'entreprises traditionnelles locales et non aux produits dérivés crypto.\"\n}\n```",
-      "ts": "2026-09-26T20:43:55.019326+00:00"
-    },
-    {
-      "metric": "liquidations",
-      "zscore": 4.444311829439628,
-      "value": 3816984.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Faux positif massif. Le z-score on-chain réagit à des liquidations macro de crypto (3.8M$), mais le narratif médiatique indexe des 'liquidations judiciaires' de commerces locaux traditionnels (restaurants, PME). Bruit sémantique sans rapport avec l'activité des baleines crypto.\"\n}\n```",
-      "ts": "2026-09-26T21:14:00.640835+00:00"
-    },
-    {
-      "metric": "liquidations",
-      "zscore": 2.3059987491801524,
-      "value": 2914849.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit médiatique parasité par des homonymes (faillites de commerces locaux traditionnels). Aucune corrélation avec des mouvements de baleines crypto.\"\n}\n```",
-      "ts": "2026-09-26T21:49:07.816903+00:00"
-    },
-    {
       "metric": "liquidations",
       "zscore": 2.264897253725013,
       "value": 2947909.0,
@@ -349,6 +321,34 @@
       "value": 35.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique parasité par des homonymes (musique, jeux vidéo, startup IA 'Dust'). Aucune corrélation avec une accumulation ou distribution significative de baleines crypto sur le token DUST.\"\n}\n```",
       "ts": "2026-09-27T17:32:38.171985+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 2.4412004136202037,
+      "value": 0.012,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 75,\n  \"reason\": \"Les médias se concentrent sur des aspects opérationnels et politiques (aides gouvernementales, stratégie d'acquisition), tandis que l'anomalie onchain (sdi = 0.012, z-score 2.44) suggère une activité silencieuse inhabituelle. Divergence entre discours neutre/négatif et signal technique positif.\"\n}\n```",
+      "ts": "2026-09-27T18:12:51.038588+00:00"
+    },
+    {
+      "metric": "cpfp",
+      "zscore": 3.1164555734417294,
+      "value": 50.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (CPFP z-score 3.12) non reflétée dans les médias. Les titres sont totalement déconnectés du signal technique, suggérant une accumulation discrète par les baleines.\"\n}\n```",
+      "ts": "2026-09-27T18:42:58.635673+00:00"
+    },
+    {
+      "metric": "dust",
+      "zscore": 3.1164555734417294,
+      "value": 50.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 3.12) contrastant avec un narratif médiatique axé sur des sujets non-financiers (jeux vidéo, levée de fonds IA). Divergence suggérant une accumulation discrète par les baleines, masquée par un bruit médiatique hors-marché.\"\n}\n```",
+      "ts": "2026-09-27T18:43:03.729873+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 5.542246867399966,
+      "value": 6561500.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 5.54) indiquant une activité whale massive, tandis que les médias grand public ne relaient pas cette information. Divergence classique avant un mouvement important.\"\n}\n```",
+      "ts": "2026-09-27T18:48:08.113927+00:00"
     }
   ]
 }
