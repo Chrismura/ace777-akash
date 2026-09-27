@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "fear_greed",
-      "zscore": -4.795831523312714,
-      "value": 70,
-      "analysis": "{\"signal\": \"bearish\", \"confidence\": 72, \"reason\": \"L'indice fear_greed à 70 signale une complaisance médiatique (greed), mais le z-score de -4.80 révèle une anomalie statistique extrême sur la chaîne. Cette divergence indique que des mouvements inhabituels (probables baleines) se produisent silencieusement à contre-courant du récit public, suggérant une possible distribution ou un piège haussier.\"}",
-      "ts": "2026-09-27T01:09:55.428874+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": -3.8729833462074166,
-      "value": 70,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-3.87) malgré une cupidité apparente (70). Le silence médiatique (Google Actualités vide/neutre) combiné à une anomalie statistique onchain suggère une distribution silencieuse des baleines profitant d'un optimisme de détail non soutenu par de nouveaux flux.\"\n}\n```",
-      "ts": "2026-09-27T01:40:04.395493+00:00"
-    },
-    {
       "metric": "price_1h",
       "zscore": 2.739082849887903,
       "value": 0.27105979719324047,
@@ -349,6 +335,20 @@
       "value": 50.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique entièrement dominé par l'actualité des startups tech grand public ('Dust AI') et de l'industrie musicale/gaming sans aucun rapport avec l'actif crypto homonyme. Anomalie onchain insignifiante.\"\n}\n```",
       "ts": "2026-09-27T20:33:33.103308+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.007133153264545,
+      "value": 0.738,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique sans rapport avec la crypto (actualités académiques, médicales et agricoles). L'anomalie 'ipt' détectée est un faux positif lié à l'homonymie du ticker avec des instituts ou termes hors-blockchain. Aucune baleine détectée.\"\n}\n```",
+      "ts": "2026-09-27T20:48:37.645587+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 3.578987145629125,
+      "value": 4233952.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 3.58, ~4.2M USD) en l'absence totale de couverture médiatique (silence radio sur Google Actualités). Accumulation furtive classique des baleines loin du radar public.\"\n}\n```",
+      "ts": "2026-09-27T20:53:39.781909+00:00"
     }
   ]
 }
