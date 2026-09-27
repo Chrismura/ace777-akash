@@ -1,15 +1,15 @@
 {
-  "timestamp": 1790476247,
-  "date": "2026-09-27T02:30:47.953795+00:00",
+  "timestamp": 1790478348,
+  "date": "2026-09-27T03:05:48.536732+00:00",
   "n_analyses": 2,
   "analyses": [
     {
       "signal": {
         "metric": "fear_greed",
-        "zscore": -3.316624790355405,
+        "zscore": -2.9325756597230344,
         "value": 70,
-        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement négatif (-3.32) pour un indice de peur et d'avarice à 70 : le marché affiche une euphorie médiatique creuse (absence de flux organiques réels), trahissant une distribution silencieuse des baleines sous couvert d'un narratif artificiellement optimiste.\"\n}\n```",
-        "ts": 1790475010.946746
+        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement négatif (-2.93) malgré un indice de cupidité élevé (70). Le silence médiatique combiné à une telle anomalie statistique indique une déconnexion totale : le marché retail est complaisant dans l'euphorie tandis que les baleines initient potentiellement une distribution silencieuse.\"\n}\n```",
+        "ts": 1790476817.20843
       },
       "fiche": "fear_greed",
       "questions": {
@@ -35,10 +35,10 @@
     {
       "signal": {
         "metric": "taker_ratio",
-        "zscore": 2.6795238996383657,
+        "zscore": 2.4498947321545446,
         "value": 1.799,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio à 1.799 (z-score 2.68) indique une domination agressive des acheteurs (Taker Buy) onchain, révélant une accumulation agressive des baleines. L'absence totale de couverture médiatique (Google Actualités muet) confirme un mouvement furtif 'sous le radar', totalement déconnecté du bruit de fond de détail.\"\n}\n```",
-        "ts": 1790475313.045712
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio à 1.799 (z-score 2.45) indique une agression massive des acheteurs sur le marché dérivé, montrant une accumulation agressive des baleines. Le vide médiatique total ('Google Actualités' sans relais majeur) prouve que le mouvement est purement silencieux, loin de l'euphorie de détail, ce qui offre une configuration de divergence classique avant une impulsion haussière.\"\n}\n```",
+        "ts": 1790477121.134472
       },
       "fiche": "taker_ratio",
       "questions": {
@@ -48,7 +48,7 @@
           "depasse": true
         },
         "prix": {
-          "value": 0.01,
+          "value": -0.06,
           "seuil": 1,
           "depasse": false
         }

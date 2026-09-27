@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "ipt",
-      "zscore": 2.0579167482711473,
-      "value": 1.24,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique non pertinent. Le ticker 'ipt' est pollué par des homonymes institutionnels (Tournoi de Physique, violences sexistes, biotechnologies) sans lien avec la crypto. Aucune baleine détectée, simple artefact de mots-clés.\"\n}\n```",
-      "ts": "2026-09-25T14:27:02.991409+00:00"
-    },
-    {
-      "metric": "whale_usd",
-      "zscore": 5.926321143243072,
-      "value": 5917110.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie on-chain majeure (z-score 5.93, ~$5.9M) en l'absence totale de couverture médiatique (Google Actualités vide). Classique accumulation silencieuse de baleines loin du bruit de fond de retail.\"\n}\n```",
-      "ts": "2026-09-25T15:32:15.486353+00:00"
-    },
-    {
       "metric": "sdi",
       "zscore": 2.3704991151750825,
       "value": 0.02,
@@ -349,6 +335,20 @@
       "value": 1.799,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio à 1.799 (z-score 2.68) indique une domination agressive des acheteurs (Taker Buy) onchain, révélant une accumulation agressive des baleines. L'absence totale de couverture médiatique (Google Actualités muet) confirme un mouvement furtif 'sous le radar', totalement déconnecté du bruit de fond de détail.\"\n}\n```",
       "ts": "2026-09-27T02:15:13.045712+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -2.9325756597230344,
+      "value": 70,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement négatif (-2.93) malgré un indice de cupidité élevé (70). Le silence médiatique combiné à une telle anomalie statistique indique une déconnexion totale : le marché retail est complaisant dans l'euphorie tandis que les baleines initient potentiellement une distribution silencieuse.\"\n}\n```",
+      "ts": "2026-09-27T02:40:17.208430+00:00"
+    },
+    {
+      "metric": "taker_ratio",
+      "zscore": 2.4498947321545446,
+      "value": 1.799,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio à 1.799 (z-score 2.45) indique une agression massive des acheteurs sur le marché dérivé, montrant une accumulation agressive des baleines. Le vide médiatique total ('Google Actualités' sans relais majeur) prouve que le mouvement est purement silencieux, loin de l'euphorie de détail, ce qui offre une configuration de divergence classique avant une impulsion haussière.\"\n}\n```",
+      "ts": "2026-09-27T02:45:21.134472+00:00"
     }
   ]
 }
