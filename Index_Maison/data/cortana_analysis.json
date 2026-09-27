@@ -1,67 +1,7 @@
 {
-  "timestamp": 1790478348,
-  "date": "2026-09-27T03:05:48.536732+00:00",
-  "n_analyses": 2,
-  "analyses": [
-    {
-      "signal": {
-        "metric": "fear_greed",
-        "zscore": -2.9325756597230344,
-        "value": 70,
-        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement négatif (-2.93) malgré un indice de cupidité élevé (70). Le silence médiatique combiné à une telle anomalie statistique indique une déconnexion totale : le marché retail est complaisant dans l'euphorie tandis que les baleines initient potentiellement une distribution silencieuse.\"\n}\n```",
-        "ts": 1790476817.20843
-      },
-      "fiche": "fear_greed",
-      "questions": {
-        "peur": {
-          "value": 70,
-          "seuil": 25,
-          "depasse": true
-        },
-        "cupidite": {
-          "value": 70,
-          "seuil": 75,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
-      },
-      "action": "Observer",
-      "niveau": "neutre"
-    },
-    {
-      "signal": {
-        "metric": "taker_ratio",
-        "zscore": 2.4498947321545446,
-        "value": 1.799,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio à 1.799 (z-score 2.45) indique une agression massive des acheteurs sur le marché dérivé, montrant une accumulation agressive des baleines. Le vide médiatique total ('Google Actualités' sans relais majeur) prouve que le mouvement est purement silencieux, loin de l'euphorie de détail, ce qui offre une configuration de divergence classique avant une impulsion haussière.\"\n}\n```",
-        "ts": 1790477121.134472
-      },
-      "fiche": "taker_ratio",
-      "questions": {
-        "taker": {
-          "value": 1.799,
-          "seuil": 1,
-          "depasse": true
-        },
-        "prix": {
-          "value": -0.06,
-          "seuil": 1,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "taker > 1",
-        "lecture": "Takers acheteurs agressifs — la demande mange le carnet, à confirmer avec le volume",
-        "niveau": "info",
-        "action": "Observer si le prix suit (vraie demande) ou diverge (absorption)"
-      },
-      "action": "Observer si le prix suit (vraie demande) ou diverge (absorption)",
-      "niveau": "info"
-    }
-  ],
-  "resume": "🔵 CALME — pas de signal alarmant"
+  "timestamp": 1790481949,
+  "date": "2026-09-27T04:05:49.548212+00:00",
+  "n_analyses": 0,
+  "analyses": [],
+  "resume": "Aucune analyse en cours"
 }

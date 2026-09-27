@@ -5381,3 +5381,7 @@ Pas d’ordre — confrontation plus tard.
 ### 2026-09-27T02:51:56Z — ALERT auto
 - KITEUSDT: IMPULSE_WAIT — spike en cours, pas chase
 (compléter: confirmé ? risque ?)
+
+### 2026-09-27T03:10:11Z — ALERT auto
+- TELUSDT: IMPULSE_WAIT — spike en cours, pas chase
+(compléter: confirmé ? risque ?)

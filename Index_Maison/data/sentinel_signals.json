@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "sdi",
-      "zscore": 2.3704991151750825,
-      "value": 0.02,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 75,\n  \"reason\": \"Les médias se concentrent sur des aspects politiques et opérationnels (aides gouvernementales, résultats attendus), tandis que l'anomalie onchain (z-score élevé) suggère une activité silencieuse significative des gros détenteurs (baleines). Divergence entre narratif superficiel et mouvement sous-jacent.\"\n}\n```",
-      "ts": "2026-09-25T15:37:22.562790+00:00"
-    },
-    {
       "metric": "ipt",
       "zscore": 2.644796370191164,
       "value": 1.474,
@@ -349,6 +342,13 @@
       "value": 1.799,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio à 1.799 (z-score 2.45) indique une agression massive des acheteurs sur le marché dérivé, montrant une accumulation agressive des baleines. Le vide médiatique total ('Google Actualités' sans relais majeur) prouve que le mouvement est purement silencieux, loin de l'euphorie de détail, ce qui offre une configuration de divergence classique avant une impulsion haussière.\"\n}\n```",
       "ts": "2026-09-27T02:45:21.134472+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -2.6457513110645903,
+      "value": 70,
+      "analysis": "{\n  \"signal\": \"bullish\",\n  \"confidence\": 78,\n  \"reason\": \"L'indice Fear & Greed à 70 indique un niveau de greed élevé, soutenu par un z‑score de -2.65 qui montre une anomalie statistique forte (sortie de la distribution habituelle). Les titres de Google Actualités ne reflètent pas cette euphorie – ils restent relativement neutres ou même prudents – créant une divergence où le sentiment onchain suggère une accumulation silencieuse de baleines (position haussière) tandis que le narratif médiatique reste déconnecté ou sous‑réagit. Cette incohérence souvent précède des mouvements de prix à la hausse lorsque les acteurs de marché réalisent finalement le déséquilibre.\"\n}",
+      "ts": "2026-09-27T03:10:40.276583+00:00"
     }
   ]
 }
