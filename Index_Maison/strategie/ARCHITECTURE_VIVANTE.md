@@ -1,10 +1,10 @@
-# ARCHITECTURE VIVANTE — ACE777 (2026-09-27 03:29 UTC)
+# ARCHITECTURE VIVANTE — ACE777 (2026-09-27 05:00 UTC)
 
 > Document GÉNÉRÉ AUTOMATIQUEMENT à l'instant. La famille valide
 > en s'appuyant sur CE contexte, pas sur des documents figés.
 
 ## Qui tourne en ce moment
-- ⛔ hub
+- ✅ hub
 - ✅ pont cockpit
 - ✅ radar
 - ⛔ lecteur signets
@@ -22,7 +22,7 @@
 
 ## État de la mission (bots + PnL)
 
-- mission.json : 2026-09-27 03:29Z · run `MASTER_BASE_V8_6_FORTRESS_8H20` · alerte `nominal`
+- mission.json : 2026-09-27 04:59Z · run `MASTER_BASE_V8_6_FORTRESS_8H20` · alerte `nominal`
 - PnL combiné : **0.70 $** 📈 (combo 0.7028)
 - ALPHA (sniper (embuscade, ×13, revenge si claque)) : **-1.97 $** · 7 fills · 6973 skips
 - BETA (éclaireur (chatouille le marché, alimente Alpha)) : **+2.67 $** · 34 fills · 604 skips
@@ -31,15 +31,25 @@
 
 ## Veille du jour
 
-- VEILLE du jour : pas encore passée
+- [Santé]
+  · hub : OK (10 providers)
+- [Énergie du jour]
+  · appels : 20 (cloud 20)
+  · budget cloud : 624 max
+  · par provider : gemini=18, openrouter-juge=1, orca=1
+- [Nouvelles offres détectées (non intégrées)]
+  · ERR: <urlopen error [Errno 8] nodename nor servname provided, or
+  · ERR: <urlopen error [Errno 8] nodename nor servname provided, or
+  · ERR: <urlopen error [Errno 8] nodename nor servname provided, or
+  … 21 offres/pépites détectées ce matin
 
 ## Mémoire chaude (journal + résumés)
 
 - Radar (dernières alertes) :
-  · 2026-09-27T03:29:36.492066Z ETHUSDT 2696.27 0.0001 40.6 declenche=non
-  · 2026-09-27T03:29:36.492143Z ETHUSDT 2696.28 0.0001 40.6 declenche=non
-  · 2026-09-27T03:29:36.492232Z BTCUSDT 84382.03 0.0000 6.5 declenche=oui
-  · 2026-09-27T03:29:36.496971Z BTCUSDT 84382.03 0.0000 6.5 declenche=oui
+  · 2026-09-27T03:31:33.381056Z BTCUSDT 84390.01 0.0000 0.1 declenche=non
+  · 2026-09-27T03:31:33.472555Z BTCUSDT 84390.0 0.0000 0.1 declenche=non
+  · 2026-09-27T03:31:33.473273Z BTCUSDT 84390.0 0.0000 0.1 declenche=non
+  · 2026-09-27T03:31:33.473597Z BTCUSDT 84390.0 0.0000 0.1 declenche=non
 - Intention en cours : BETA a sonde le marche (34 sondes, 25 long / 9 court, conf m | ALPHA attend son signal — aucun tir sur la session en cours.
 - 964 signets X résumés (quota aujourd'hui : 0/50)
 - 143 fiches IA d'offres en cache (quota 8/jour)

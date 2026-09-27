@@ -1,10 +1,11 @@
 {
-  "ts": "2026-09-27T04:02+00:00",
-  "updated": "2026-09-27T04:02Z",
+  "ts": "2026-09-27T05:02+00:00",
+  "updated": "2026-09-27T05:02Z",
   "etat": "ALERTE",
-  "chaines_ok": "9/15",
+  "chaines_ok": "8/15",
   "anomalies": [
     "BALEINES coupée : scan file",
+    "DÉRIVÉS : générateur ou fichier figé",
     "HULK : sonde runtime, contrat Cortana ou analyses figés",
     "GEOPOL : score figé ou modules en erreur",
     "VIGIE MARCHÉ : radar mort ou journal figé (le trou du 19/08)",
@@ -33,12 +34,12 @@
         {
           "nom": "scan file",
           "ok": false,
-          "detail": "âge 506 min"
+          "detail": "âge 566 min"
         },
         {
           "nom": "mouvements (events)",
           "ok": true,
-          "detail": "dernier événement il y a 506 min"
+          "detail": "dernier événement il y a 566 min"
         },
         {
           "nom": "→ live.json.onchain",
@@ -61,7 +62,7 @@
       "id": "deriv",
       "nom": "DÉRIVÉS",
       "chemin": "gen_deriv_corr.py → deriv_corr.json → cockpit + Cortana",
-      "ok": true,
+      "ok": false,
       "maillons": [
         {
           "nom": "générateur (launchd deriv-corr)",
@@ -70,8 +71,8 @@
         },
         {
           "nom": "deriv_corr.json",
-          "ok": true,
-          "detail": "âge 31 min"
+          "ok": false,
+          "detail": "âge 92 min"
         }
       ]
     },
@@ -89,7 +90,7 @@
         {
           "nom": "aspiration runtime",
           "ok": false,
-          "detail": "mode fichier · JSON · âge ts 0.4 min · écart mtime/ts 2.3s · 20 paire(s) · btc=INVALIDE · ts=croissant"
+          "detail": "mode fichier · JSON · âge ts 0.3 min · écart mtime/ts 2.3s · 20 paire(s) · btc=INVALIDE · ts=croissant"
         },
         {
           "nom": "corrélation BTC",
@@ -104,7 +105,7 @@
         {
           "nom": "cortana_pilot.json",
           "ok": true,
-          "detail": "âge 1337 min"
+          "detail": "âge 1397 min"
         },
         {
           "nom": "cortana_analysis.json",
@@ -255,7 +256,7 @@
         {
           "nom": "journal_radar.log",
           "ok": false,
-          "detail": "âge 31 min"
+          "detail": "âge 91 min"
         },
         {
           "nom": "relance (superviseur-process)",
@@ -362,7 +363,7 @@
         {
           "nom": "sdi_latest.json (SAPI dedans)",
           "ok": false,
-          "detail": "âge 35 min"
+          "detail": "âge 95 min"
         },
         {
           "nom": "SAPI calculé",
