@@ -5634,3 +5634,8 @@ Pas d’ordre — confrontation plus tard.
 ### 2026-09-28T11:54:44Z — ALERT auto
 - HBARUSDT: IMPULSE_WAIT — spike en cours, pas chase
 (compléter: confirmé ? risque ?)
+
+### 2026-09-28T13:02:08Z — ALERT auto
+- HBARUSDT: WATCH_PULLBACK — tension haute + reflux
+- CCUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)

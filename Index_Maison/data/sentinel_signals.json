@@ -2,34 +2,6 @@
   "signals": [
     {
       "metric": "price_1h",
-      "zscore": 3.1708261010580077,
-      "value": 0.35093354558376477,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (+3.17) sur le prix à court terme indiquant une action agressive des baleines, couplé à un silence total des médias (Google Actualités vide). C'est la signature classique d'une accumulation furtive avant un pump narratif.\"\n}\n```",
-      "ts": "2026-09-27T22:09:14.314083+00:00"
-    },
-    {
-      "metric": "liquidations",
-      "zscore": 2.2798854452349366,
-      "value": 4523395.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique parasité par des homonymes (liquidations judiciaires d'entreprises traditionnelles). Fausse alerte onchain non pertinente pour LTC.\"\n}\n```",
-      "ts": "2026-09-27T22:14:16.872793+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": 2.700454921340741,
-      "value": 0.012,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie non pertinente. Les données on-chain et le 'SDI' détecté ici font référence à une entreprise traditionnelle (SDI Group PLC) et à un syndicat professionnel (SDI - Syndicat des Indépendants), et non à un actif cryptographique. Aucune baleine crypto impliquée.\"\n}\n```",
-      "ts": "2026-09-27T22:24:20.362121+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.6850139380620837,
-      "value": 0.964,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (IPT z-score 2.69) totalement déconnectée des actualités médias qui font référence à des institutions académiques, de la santé (Alzheimer) ou de l'agriculture. Aucun lien avec un actif crypto ou un mouvement de baleine pertinent.\"\n}\n```",
-      "ts": "2026-09-27T22:24:21.804201+00:00"
-    },
-    {
-      "metric": "price_1h",
       "zscore": 4.646774117717819,
       "value": 0.5051142627201299,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (4.65) détectant un mouvement de prix atypique et soudain, totalement absent du radar des médias traditionnels (silence radio sur Google Actualités). C'est la signature classique d'accumulation ou d'action furtive de baleines avant que la foule ne remarque la tendance.\"\n}\n```",
@@ -349,6 +321,34 @@
       "value": 1.36,
       "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Z-score élevé (2.17) sur le ratio long/short (1.36) indiquant un positionnement excessivement haussier des traders particuliers, alors que le narratif médiatique grand public s'emballe sur les stratégies défensives long/short traditionnelles. Divergence classique de piège à liquidité où les baleines distribuent discrètement face à l'euphorie retail.\"\n}\n```",
       "ts": "2026-09-28T12:12:51.626739+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": 2.0128635137598097,
+      "value": 1.36,
+      "analysis": "{\n  \"signal\": \"bullish\",\n  \"confidence\": 70,\n  \"reason\": \"L'anomalie on‑chain (long/short = 1,36, z‑score 2,01) révèle un déséquilibre significatif en faveur des positions longues, suggérant une accumulation discrète de baleines. Les titres médiatiques évoquent les stratégies long/short de façon générale et positive, mais ne relient pas cet événement spécifique, indiquant un narratif qui ne capture pas pleinement le signal on‑chain actuel.\"\n}",
+      "ts": "2026-09-28T12:50:08.145049+00:00"
+    },
+    {
+      "metric": "price_1h",
+      "zscore": 3.3809418902769206,
+      "value": 0.6206487050315124,
+      "analysis": "{\n  \"signal\": \"bullish\",\n  \"confidence\": 72,\n  \"reason\": \"Le prix montre une anomalie forte (z‑score = 3.38) suggérant un mouvement soudain à la hausse, tandis que les titres médiatiques sont absents ou génériques, indiquant que cette hausse n’est pas encore relayée par le narratif public – typique d’une accumulation silencieuse de baleines.\"\n}",
+      "ts": "2026-09-28T12:55:13.162326+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.31436381681323,
+      "value": 1.071,
+      "analysis": "{\n  \"signal\": \"bullish\",\n  \"confidence\": 70,\n  \"reason\": \"The on‑chain IPT metric shows a strong deviation (z‑score 2.31), indicating atypical whale activity that often precedes price moves. Meanwhile, the media headlines are entirely unrelated to crypto markets, suggesting the current narrative is disconnected from the underlying on‑chain signal.\"\n}",
+      "ts": "2026-09-28T12:55:24.428378+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": 2.2297149014027746,
+      "value": 1.385,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Divergence entre z-score élevé (2.23) et narratif médiatique optimiste mais généraliste. Les baleines pourraient accumuler silencieusement (long_short = 1.385) alors que les médias restent superficiels.\"\n}\n```",
+      "ts": "2026-09-28T13:20:35.369055+00:00"
     }
   ]
 }
