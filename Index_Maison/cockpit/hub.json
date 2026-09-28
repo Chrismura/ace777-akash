@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-28T08:20:50.403021+00:00",
+  "generated_at": "2026-09-28T08:39:34.266990+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 140
+      "calls_24h": 142
     },
     {
       "id": "openrouter-free",
@@ -274,10 +274,26 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 60,
-    "remaining": 564
+    "consumed": 62,
+    "remaining": 562
   },
   "queue": [
+    {
+      "ts": "2026-09-28T08:33:56.724590+00:00",
+      "task": "analyse.profonde",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 5.05
+    },
+    {
+      "ts": "2026-09-28T08:28:50.255142+00:00",
+      "task": "analyse.profonde",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 33.5
+    },
     {
       "ts": "2026-09-28T08:20:23.652617+00:00",
       "task": "supervise.decision",
@@ -381,25 +397,27 @@
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
       "duration_s": 5.6
-    },
-    {
-      "ts": "2026-09-28T06:31:31.577708+00:00",
-      "task": "cortana.analyse",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 5.04
-    },
-    {
-      "ts": "2026-09-28T06:31:25.853225+00:00",
-      "task": "cortana.analyse",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 11.15
     }
   ],
   "events": [
+    {
+      "ts": "2026-09-28T08:33:56.723678+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
+    {
+      "ts": "2026-09-28T08:28:50.254151+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
+    {
+      "ts": "2026-09-28T08:28:16.757773+00:00",
+      "kind": "blacklist",
+      "title": "Fin de pause Google Gemini",
+      "detail": "re-essai automatique"
+    },
     {
       "ts": "2026-09-28T08:20:23.652372+00:00",
       "kind": "message",
@@ -440,24 +458,6 @@
       "ts": "2026-09-28T08:19:57.272328+00:00",
       "kind": "failover",
       "title": "Bascule depuis InferX Devstral-2-123B (code)",
-      "detail": "HTTP Error 429: Too Many Requests"
-    },
-    {
-      "ts": "2026-09-28T08:19:52.870516+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis NVIDIA DeepSeek-Coder 6.7B (code, via NIM)",
-      "detail": "HTTP Error 404: Not Found"
-    },
-    {
-      "ts": "2026-09-28T08:19:50.729631+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis Puter Grok (gratuit)",
-      "detail": "HTTP Error 402: Payment Required"
-    },
-    {
-      "ts": "2026-09-28T08:19:49.997188+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis InferX Qwen3-Coder-Next (code, gratuit jusqu'au 12/08)",
       "detail": "HTTP Error 429: Too Many Requests"
     }
   ],

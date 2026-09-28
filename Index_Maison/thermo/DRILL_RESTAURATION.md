@@ -1,13 +1,13 @@
 # 🩺 DRILL DE RESTAURATION — ✅ **READY**
 
-> Testé le **2026-09-28T08:20Z** · mode **lecture seule** (rien installé, rien modifié).
+> Testé le **2026-09-28T08:39Z** · mode **lecture seule** (rien installé, rien modifié).
 > Question posée : *« si le Mac mourait ce soir, ACE777 reviendrait-il ? »*
 
 ## 1. Source — le repo (git) contient-il tout ?
-- Branche `main` · HEAD `7610c371b8` du 2026-09-28T10:19:21+02:00
-- Fichiers suivis modifiés sur disque : **39**
+- Branche `main` · HEAD `cc808ce4c3` du 2026-09-28T10:21:03+02:00
+- Fichiers suivis modifiés sur disque : **79**
 - Fichiers suivis **supprimés** (perdus) : **0**
-- Nouveaux fichiers non versionnés : 28677 au total, dont **43 sensibles** (scripts/plists/règles)
+- Nouveaux fichiers non versionnés : 28681 au total, dont **43 sensibles** (scripts/plists/règles)
   - `Index_Maison/scripts/CONSULTATION_FAMILLE_CORTANA_JUGE_CONTRE/AVIS_DEEPSEEK.md`
   - `Index_Maison/scripts/CONSULTATION_FAMILLE_CORTANA_JUGE_CONTRE/AVIS_GEMINI.md`
   - `Index_Maison/scripts/CONSULTATION_FAMILLE_CORTANA_JUGE_CONTRE/AVIS_JUGE.md`
@@ -34,7 +34,7 @@
 - ✅ **0 agent hors repo** — tous reconstructibles.
 
 ## 3. Reconstruction dans un dossier neuf
-- Dossier : `/var/folders/y7/571v2gy574z72zvsgqd46wd40000gn/T/drill_restauration_q3n062m7/LaunchAgents`
+- Dossier : `/var/folders/y7/571v2gy574z72zvsgqd46wd40000gn/T/drill_restauration_99wp3lcg/LaunchAgents`
 - Plists rebâtis + validés (`plutil -lint`) : **101/101**
 
 ## 4. Organes invoqués par les agents
@@ -51,7 +51,7 @@
   | `~/prise-ia` | `prise-ia` | surveille | ✅ miroir de sauvegarde (organes_hors_repo/prise-ia) |
   | `~/prise-ia/routeur_auto.py` | `routeur-auto` | argument | ✅ miroir de sauvegarde (organes_hors_repo/prise-ia) |
 
-  Manifeste des organes hors repo : `thermo/organes_hors_repo.json` (mis à jour 2026-09-28T08:19Z).
+  Manifeste des organes hors repo : `thermo/organes_hors_repo.json` (mis à jour 2026-09-28T08:20Z).
 
   Outillage système hors repo (4) — réinstallable (Homebrew/Xcode CLT), non bloquant : `/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/Resources/Python.app/Contents/MacOS/Python`, `/Library/Developer/CommandLineTools/usr/bin/python3`, `/opt/homebrew/bin/npm`, `/opt/homebrew/bin/uv`
 - ✅ Aucun chemin invoqué introuvable.
