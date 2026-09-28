@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-28T13:23:29.287934+00:00",
+  "generated_at": "2026-09-28T13:24:30.000361+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -197,7 +197,7 @@
       "model": "deepseek-ai/DeepSeek-V3-0324",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 15
+      "calls_24h": 16
     },
     {
       "id": "obs-1787033767",
@@ -274,10 +274,18 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 131,
-    "remaining": 493
+    "consumed": 132,
+    "remaining": 492
   },
   "queue": [
+    {
+      "ts": "2026-09-28T13:24:08.704647+00:00",
+      "task": "supervise.decision",
+      "provider": "huggingface",
+      "model": "deepseek-ai/DeepSeek-V3-0324",
+      "kind": "cloud",
+      "duration_s": 3.75
+    },
     {
       "ts": "2026-09-28T13:23:11.891900+00:00",
       "task": "supervise.decision",
@@ -389,17 +397,45 @@
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
       "duration_s": 1.72
-    },
-    {
-      "ts": "2026-09-28T11:21:55.773796+00:00",
-      "task": "supervise.decision",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 73.97
     }
   ],
   "events": [
+    {
+      "ts": "2026-09-28T13:24:08.704343+00:00",
+      "kind": "message",
+      "title": "« HuggingFace (136+ modeles, dont DeepSeek-V4) » a repondu",
+      "detail": "bascule"
+    },
+    {
+      "ts": "2026-09-28T13:24:08.703919+00:00",
+      "kind": "filet-universel",
+      "title": "[FILET UNIVERSEL] « HuggingFace (136+ modeles, dont DeepSeek-V4) » a repondu hors chaine",
+      "detail": "supervise.decision"
+    },
+    {
+      "ts": "2026-09-28T13:24:04.956390+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis OrcaRouter (routeur gratuit, modele orcarouter/free)",
+      "detail": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "ts": "2026-09-28T13:24:04.570460+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis Google Gemini",
+      "detail": "HTTP Error 503: Service Unavailable"
+    },
+    {
+      "ts": "2026-09-28T13:24:04.569762+00:00",
+      "kind": "blacklist",
+      "title": "Pause Google Gemini (3 echecs) 15min",
+      "detail": "backoff x1 -> re-essai auto"
+    },
+    {
+      "ts": "2026-09-28T13:24:00.534807+00:00",
+      "kind": "timeout",
+      "title": "Patience Google Gemini (HTTP 503)",
+      "detail": "HTTP Error 503: Service Unavailable"
+    },
     {
       "ts": "2026-09-28T13:23:11.891597+00:00",
       "kind": "message",
@@ -423,42 +459,6 @@
       "kind": "failover",
       "title": "Bascule depuis Google Gemini",
       "detail": "HTTP Error 503: Service Unavailable"
-    },
-    {
-      "ts": "2026-09-28T13:22:57.763257+00:00",
-      "kind": "timeout",
-      "title": "Patience Google Gemini (HTTP 503)",
-      "detail": "HTTP Error 503: Service Unavailable"
-    },
-    {
-      "ts": "2026-09-28T13:20:35.367819+00:00",
-      "kind": "message",
-      "title": "« HuggingFace (136+ modeles, dont DeepSeek-V4) » a repondu",
-      "detail": "bascule"
-    },
-    {
-      "ts": "2026-09-28T13:20:33.171665+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis Google Gemini",
-      "detail": "HTTP Error 503: Service Unavailable"
-    },
-    {
-      "ts": "2026-09-28T13:20:29.508705+00:00",
-      "kind": "timeout",
-      "title": "Patience Google Gemini (HTTP 503)",
-      "detail": "HTTP Error 503: Service Unavailable"
-    },
-    {
-      "ts": "2026-09-28T13:20:28.972902+00:00",
-      "kind": "blacklist",
-      "title": "Fin de pause Google Gemini",
-      "detail": "re-essai automatique"
-    },
-    {
-      "ts": "2026-09-28T13:19:35.330730+00:00",
-      "kind": "http",
-      "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
-      "detail": ""
     }
   ],
   "tasks_quotas": {
