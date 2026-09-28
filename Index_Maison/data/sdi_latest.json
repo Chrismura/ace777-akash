@@ -1,58 +1,54 @@
 {
-  "timestamp": 1790563041,
+  "timestamp": 1790565091,
   "sdi": {
-    "sdi": 0.008,
+    "sdi": 0.004,
     "divergence_score": 0,
-    "fee_score": 0.02,
+    "fee_score": 0.01,
     "dormant_pct": 74,
     "dormant_avg_30d": 66.9,
     "dormant_source": "alternative.me (FG proxy — les données dormant sont indisponibles)",
-    "fee_fastest_sat": 2
+    "fee_fastest_sat": 1
   },
   "ipt": {
-    "ipt": 0.64,
+    "ipt": 0.219,
     "micro_tx_ratio": 0.4,
-    "z_fee": 1.0,
-    "entropy": 0.599
+    "z_fee": 0.0,
+    "entropy": 0.198
   },
   "rbf": {
-    "rbf_score": 0.2,
-    "rbf_ratio": 0.2,
-    "rbf_pairs": 1,
-    "n_txs": 5,
+    "rbf_score": 0.0,
+    "rbf_ratio": 0.0,
+    "rbf_pairs": 0,
+    "n_txs": 6,
     "rbf_method": "outspends-double-depense",
-    "rbf_detail": [
-      {
-        "tx": "b1e43bf05e6a5d32",
-        "remplacee_par": "7c82d7d92899b721",
-        "input": "2b0c6550ef226d33:0"
-      }
-    ]
+    "rbf_detail": []
   },
   "fee_pressure": {
-    "fastest": 2,
+    "fastest": 1,
     "halfHour": 1,
     "hour": 1,
     "economy": 1,
     "source": "mempool.space"
   },
-  "alerts": [],
+  "alerts": [
+    "ENTROPIE BASSE: mempool anormalement homogène"
+  ],
   "sapi": {
-    "score": 0.373,
+    "score": 0.389,
     "alerte": false,
     "persistance": false,
     "scores_recents": [
-      0.371,
-      0.375,
-      0.373
+      0.397,
+      0.392,
+      0.389
     ],
     "composantes": {
-      "z_fee": 1.0,
-      "taux_fantome": 5.502,
+      "z_fee": 0.0,
+      "taux_fantome": 13.373,
       "micro_tx_ratio": 0.4,
       "spot_proxy": 0.0,
       "coef_heure_creuse": 0.35,
-      "entropie_tempo": 0.73
+      "entropie_tempo": 0.887
     },
     "note": "Score d'Alerte Poussière Institutionnelle (Cortana tour 1, validé 29/08 — corr RBF plat −0.275). Proxy carnet spot = spread_avg_bps normalisé σ1h (FIX famille). FIX 4 : proxy réduit ×0.35 en heures creuses UTC (02-06) + bonus entropie temporelle (rythme robotique du carnet) si base fantôme. Alerte = persistance 3 ticks ≥ 0.75 + volume ≥ 500 BTC."
   }

@@ -5489,3 +5489,7 @@ Pas d’ordre — confrontation plus tard.
 ### 2026-09-28T02:34:29Z — ALERT auto
 - KITEUSDT: WATCH_PULLBACK — tension haute + reflux
 (compléter: confirmé ? risque ?)
+
+### 2026-09-28T02:49:26Z — ALERT auto
+- BIOUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)

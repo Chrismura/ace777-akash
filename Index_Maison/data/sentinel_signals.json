@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "sdi",
-      "zscore": 2.648338843527563,
-      "value": 0.012,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie SDI (z-score 2.65) confondue avec l'entité politique/institutionnelle française SDI (Syndicat des Indépendants) et la société cotée SDI Group dans les médias. Aucune corrélation avec une baleine crypto.\"\n}\n```",
-      "ts": "2026-09-27T14:50:39.943224+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 3.0839616217782035,
-      "value": 1.075,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Anomalie statistique (z-score 3.08) entièrement due à une confusion sémantique. Le ticker 'ipt' fait référence à des sujets sans rapport (recherche médicale, physique, actualité agricole) dans les médias, et non à un actif crypto. Aucune activité de baleine détectée.\"\n}\n```",
-      "ts": "2026-09-27T14:50:41.695729+00:00"
-    },
-    {
       "metric": "cpfp",
       "zscore": 2.34943797963252,
       "value": 40.0,
@@ -349,6 +335,20 @@
       "value": 74,
       "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Euphorie extrême (Fear & Greed à 74 avec un z-score élevé de 2.93) couplée à un vide médiatique total ('Google Actualités' sans relais fort). Historiquement, cette surchauffe du sentiment sans catalyseur public majeur indique une distribution silencieuse des baleines vers les particuliers.\"\n}\n```",
       "ts": "2026-09-28T02:36:48.197488+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 2.4396343642500624,
+      "value": 5324685.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique parasité par des faits divers de liquidations judiciaires d'entreprises traditionnelles. Le volume on-chain de LTC ($5M) est standard et ne montre aucune accumulation anormale de baleines.\"\n}\n```",
+      "ts": "2026-09-28T02:41:50.449641+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 2.6457513110645903,
+      "value": 74,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Euphorie extrême (Fear & Greed à 74, Z-Score 2.65) couplée à un vide médiatique (aucun relais d'actualité fort). Divergence classique de fin de cycle : les baleines distribuent silencieusement aux suiveurs de tendance avant la correction.\"\n}\n```",
+      "ts": "2026-09-28T03:06:57.700623+00:00"
     }
   ]
 }

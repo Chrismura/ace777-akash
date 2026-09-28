@@ -1,30 +1,30 @@
 {
-  "timestamp": 1790562978,
-  "date": "2026-09-28T02:36:18.304660+00:00",
+  "timestamp": 1790565079,
+  "date": "2026-09-28T03:11:19.028884+00:00",
   "n_analyses": 2,
   "analyses": [
     {
       "signal": {
         "metric": "liquidations",
-        "zscore": 2.6404967318602175,
-        "value": 5305395.0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 75,\n  \"reason\": \"Divergence forte entre l'alerte onchain (liquidations crypto significatives) et le narratif médiatique focalisé sur des liquidations d'entreprises traditionnelles. Les baleines pourraient profiter du bruit médiatique pour accumuler silencieusement.\"\n}\n```",
-        "ts": 1790561441.214221
+        "zscore": 2.4396343642500624,
+        "value": 5324685.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique parasité par des faits divers de liquidations judiciaires d'entreprises traditionnelles. Le volume on-chain de LTC ($5M) est standard et ne montre aucune accumulation anormale de baleines.\"\n}\n```",
+        "ts": 1790563310.449641
       },
       "fiche": "liquidations",
       "questions": {
         "longs": {
-          "value": 5289388.0,
+          "value": 3732307.0,
           "seuil": 0,
           "depasse": true
         },
         "shorts": {
-          "value": 27251.0,
+          "value": 18981.0,
           "seuil": 0,
           "depasse": true
         },
         "prix": {
-          "value": -0.14,
+          "value": 0.1,
           "seuil": 1,
           "depasse": false
         }
@@ -40,27 +40,22 @@
     },
     {
       "signal": {
-        "metric": "whale_usd",
-        "zscore": 3.2236963995820473,
-        "value": 3918634.0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 3.22, ~$3.9M) dans un silence médiatique total. Absence de couverture Google Actualités indique une accumulation discrète des baleines loin du bruit de détail.\"\n}\n```",
-        "ts": 1790562687.693541
+        "metric": "fear_greed",
+        "zscore": 2.6457513110645903,
+        "value": 74,
+        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Euphorie extrême (Fear & Greed à 74, Z-Score 2.65) couplée à un vide médiatique (aucun relais d'actualité fort). Divergence classique de fin de cycle : les baleines distribuent silencieusement aux suiveurs de tendance avant la correction.\"\n}\n```",
+        "ts": 1790564817.700623
       },
-      "fiche": "whale_usd",
+      "fiche": "fear_greed",
       "questions": {
-        "ventes": {
-          "value": 0.0,
-          "seuil": 0,
-          "depasse": false
+        "peur": {
+          "value": 74,
+          "seuil": 25,
+          "depasse": true
         },
-        "achats": {
-          "value": 0.0,
-          "seuil": 0,
-          "depasse": false
-        },
-        "prix": {
-          "value": -0.14,
-          "seuil": 1,
+        "cupidite": {
+          "value": 74,
+          "seuil": 75,
           "depasse": false
         }
       },
