@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "price_1h",
-      "zscore": 3.1783625532568487,
-      "value": 0.44941513762961627,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (3.18) sur le prix à court terme sans aucune couverture ni mention médiatique (Google Actualités vide). C'est la signature classique d'accumulation furtive par des baleines sous le radar du retail.\"\n}\n```",
-      "ts": "2026-09-28T00:25:00.063174+00:00"
-    },
-    {
       "metric": "fear_greed",
       "zscore": 6.855654600401052,
       "value": 74,
@@ -349,6 +342,13 @@
       "value": 0.8439990572942535,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 4.74) non reflétée dans les médias, suggérant une accumulation discrète par les baleines.\"\n}\n```",
       "ts": "2026-09-28T14:46:36.216821+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.228606340177864,
+      "value": 1.06,
+      "analysis": "{\n  \"signal\": \"bullish\",\n  \"confidence\": 70,\n  \"reason\": \"L'ipt montre un z‑score de 2.23, indiquant une activité on‑chain inhabituelle souvent associée à une accumulation discrète de baleines. Les titres médiatiques actuels sont totalement déconnectés de cette métrique (concours de physique, santé, égalité, agriculture), suggérant que le narratif public ne reflète pas le mouvement sous‑jacent du marché. Cette divergence pointe vers un potentiel mouvement haussier silencieux.\"\n}",
+      "ts": "2026-09-28T16:02:02.815533+00:00"
     }
   ]
 }
