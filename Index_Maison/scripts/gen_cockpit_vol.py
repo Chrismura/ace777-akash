@@ -432,6 +432,17 @@ def gardiens():
                   % (str(co.get("journal_actif", "?")), co.get("lignes", "?")))
         trous = int(co.get("trous_n") or 0)
         detail += " · %d trou(s) DÉCLARÉ(S) (%s h au total)" % (trous, co.get("trous_total_h"))
+        # LE CHIFFRE HONNÊTE (28/09) : le gardien croise chaque trou au journal du WATCHDOG
+        # (source machine). Un trou n'est pas forcément une perte : 234 trous sur 259 sont un
+        # SILENCE NORMAL (le moteur était VIVANT et n'avait aucun refus nouveau à écrire).
+        # Sans cette ligne, la page annoncerait 276 h de « trous » et on croirait à 276 h de
+        # données perdues — un chiffre qui n'existe pas.
+        vp_h = co.get("vraies_pertes_heures")
+        if vp_h is not None:
+            detail += " · dont VRAIES PERTES %s h (%s trous : machine figée / moteur mort)" \
+                      % (vp_h, co.get("vraies_pertes_n"))
+            cl = co.get("classification") or {}
+            detail += " · silence normal %s h" % ((cl.get("silence_normal") or {}).get("heures"))
         if trous:
             detail += " · pire silence %s s" % co.get("dt_max_s")
         if bloq:
