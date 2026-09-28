@@ -1,27 +1,6 @@
 {
   "signals": [
     {
-      "metric": "ipt",
-      "zscore": 2.007133153264545,
-      "value": 0.738,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique sans rapport avec la crypto (actualités académiques, médicales et agricoles). L'anomalie 'ipt' détectée est un faux positif lié à l'homonymie du ticker avec des instituts ou termes hors-blockchain. Aucune baleine détectée.\"\n}\n```",
-      "ts": "2026-09-27T20:48:37.645587+00:00"
-    },
-    {
-      "metric": "whale_usd",
-      "zscore": 3.578987145629125,
-      "value": 4233952.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 3.58, ~4.2M USD) en l'absence totale de couverture médiatique (silence radio sur Google Actualités). Accumulation furtive classique des baleines loin du radar public.\"\n}\n```",
-      "ts": "2026-09-27T20:53:39.781909+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.1429856155013085,
-      "value": 0.796,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Bruit de fond médiatique sans rapport avec la crypto. L'indice 'ipt' fait référence à des institutions académiques ou médicales (Institut Pasteur de Tunis, etc.) et non à un actif financier ou un token sur la blockchain. Aucune baleine détectée.\"\n}\n```",
-      "ts": "2026-09-27T21:43:47.728282+00:00"
-    },
-    {
       "metric": "price_1h",
       "zscore": 3.1708261010580077,
       "value": 0.35093354558376477,
@@ -349,6 +328,27 @@
       "value": 1.484,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Un taker_ratio de 1.484 (z-score 2.51) indique une forte agression acheteuse sur les carnets d'ordres, totalement ignorée par le vide médiatique actuel. Les baleines accumulent agressivement dans l'ombre avant que le narratif public ne s'aligne.\"\n}\n```",
       "ts": "2026-09-28T11:40:17.432016+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.1684151864597667,
+      "value": 1.001,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.17) sur 'ipt' totalement non pertinente : les actualités font référence à l'Institut Polytechnique de Paris (X), à l'Institut Pasteur de Tunis (IPT) ou à de l'agronomie, sans aucun lien avec la crypto. Bruit de fond médiatique.\"\n}\n```",
+      "ts": "2026-09-28T11:50:22.092117+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 2.628885525179745,
+      "value": 0.016,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Attention : confusion de ticker. Le 'SDI' mentionné dans les médias concerne SDI Group plc (bourse traditionnelle, acquisitions, politique énergétique) et non un actif crypto. Aucune donnée on-chain pertinente détectée.\"\n}\n```",
+      "ts": "2026-09-28T12:00:25.454999+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": 2.167709403165685,
+      "value": 1.36,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Z-score élevé (2.17) sur le ratio long/short (1.36) indiquant un positionnement excessivement haussier des traders particuliers, alors que le narratif médiatique grand public s'emballe sur les stratégies défensives long/short traditionnelles. Divergence classique de piège à liquidité où les baleines distribuent discrètement face à l'euphorie retail.\"\n}\n```",
+      "ts": "2026-09-28T12:12:51.626739+00:00"
     }
   ]
 }
