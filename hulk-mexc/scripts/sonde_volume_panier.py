@@ -44,6 +44,7 @@ import json
 import os
 import sys
 import tempfile
+import time
 import urllib.request
 from collections import defaultdict
 from datetime import datetime, timedelta, timezone
@@ -67,6 +68,10 @@ FENETRE_GLISSANT = 3         # heures du « volume glissant » à exposer
 MIN_POINTS_MM = 6            # < 6 points → pas de MM fiable (pas d'alerte)
 
 API_URL = "https://api.mexc.com/api/v3/ticker/24hr"
+
+# Source externe : 4 essais avec backoff (convention maison du 28/09/2026).
+MAX_ESSAIS = 4
+CODE_SOURCE_INJOIGNABLE = 3     # DÉCLARÉ dans strategie/contrat_sortie.json — pas un bug de l'organe
 
 
 def _ecriture_atomique(path: Path, donnees: Any) -> None:
@@ -149,16 +154,33 @@ def main() -> int:
         return 0
 
     # 1) Un seul appel batch MEXC pour toutes les paires
-    try:
-        batch = http_json(API_URL)
-    except Exception as exc:
-        print(f"[sonde-volume] ERR batch MEXC: {exc}", file=sys.stderr)
+    # RÉPARÉ le 28/09/2026 (ALPAGE, « stopper les bidouilles ») : UN SEUL essai. Un
+    # hoquet DNS de 2 s (tether iPhone endormi — mesuré : `[Errno 8]` dans
+    # /tmp/sonde_volume_panier_launchd.err.log) faisait perdre un demi-créneau de
+    # mesure de volume. Désormais 4 essais avec backoff, PUIS un code DÉCLARÉ.
+    batch = None
+    derniere = None
+    for essai in range(MAX_ESSAIS):
+        try:
+            batch = http_json(API_URL)
+            break
+        except Exception as exc:
+            derniere = exc
+            print(f"[sonde-volume] ERR batch MEXC (essai {essai + 1}/{MAX_ESSAIS}): {exc}",
+                  file=sys.stderr)
+            if essai < MAX_ESSAIS - 1:
+                time.sleep(2 ** (essai + 1))     # 2 s, 4 s, 8 s
+    if batch is None:
         # Écrit un état d'échec (fail-open visible, pas silencieux)
         _ecriture_atomique(ETAT, {
             "ts": ts, "utc": now.isoformat(), "ok": False,
-            "erreur": f"{type(exc).__name__}: {exc}",
+            "erreur": f"{type(derniere).__name__}: {derniere}",
+            "essais": MAX_ESSAIS,
         })
-        return 1
+        print(f"[sonde-volume] SOURCE INJOIGNABLE après {MAX_ESSAIS} essais → code de sortie "
+              f"DÉCLARÉ {CODE_SOURCE_INJOIGNABLE} : aucune mesure ce cycle, aucune donnée "
+              f"inventée (contrat_sortie.json) ; reprise au créneau suivant.", file=sys.stderr)
+        return CODE_SOURCE_INJOIGNABLE
 
     par_symbole = {x.get("symbol"): x for x in batch if isinstance(x, dict) and x.get("symbol")}
 

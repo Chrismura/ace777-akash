@@ -5618,3 +5618,10 @@ Pas d’ordre — confrontation plus tard.
 ### 2026-09-28T09:47:47Z — ALERT auto
 - KITEUSDT: WATCH_PULLBACK — tension haute + reflux
 (compléter: confirmé ? risque ?)
+
+### 2026-09-28T10:49:08Z — ALERT auto
+- HBARUSDT: IMPULSE_WAIT — spike en cours, pas chase
+- CCUSDT: WATCH_PULLBACK — tension haute + reflux
+- KITEUSDT: WATCH_PULLBACK — tension haute + reflux
+- EDELUSDT: IMPULSE_WAIT — spike en cours, pas chase
+(compléter: confirmé ? risque ?)

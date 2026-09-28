@@ -54,6 +54,7 @@ Usage : python3 collecter_gouvernance_xrpl.py           # 1 cycle
 """
 import argparse
 import json
+import sys
 import time
 import urllib.request
 from typing import Optional
@@ -200,8 +201,25 @@ def status() -> None:
         for nom, d in e["mouvements_dernier_cycle"].items():
             print(f"  {nom:30s} {d['de']} → {d['a']} ({d['delta']:+d})")
 
+# RÉPARÉ le 28/09/2026 (ALPAGE, « stopper les bidouilles ») : `fetch_amendments()` fait
+# 4 essais avec backoff puis LÈVE `RuntimeError` — et personne ne l'attrapait, donc
+# l'organe sortait sur un TRACEBACK = code 1 NON DÉCLARÉ (mesuré : 4 × `[Errno 8]` DNS
+# dans /tmp/xrpl_gouv.out.log pendant que le tether iPhone dormait). La page vol
+# peignait « échec réel » un organe intact. Le code 3 est DÉCLARÉ dans
+# strategie/contrat_sortie.json : source injoignable, rien collecté, rien d'inventé.
+CODE_SOURCE_INJOIGNABLE = 3
+
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     ap.add_argument("--status", action="store_true")
     a = ap.parse_args()
-    status() if a.status else cycle()
+    if a.status:
+        status()
+    else:
+        try:
+            cycle()
+        except RuntimeError as e:        # API injoignable après 4 essais
+            log(f"SOURCE INJOIGNABLE — {e}")
+            log(f"code de sortie DÉCLARÉ {CODE_SOURCE_INJOIGNABLE} : rien collecté ce cycle, "
+                f"aucune donnée inventée (contrat_sortie.json) ; reprise au cycle suivant.")
+            sys.exit(CODE_SOURCE_INJOIGNABLE)

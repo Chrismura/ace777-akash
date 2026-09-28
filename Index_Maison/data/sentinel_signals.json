@@ -2,27 +2,6 @@
   "signals": [
     {
       "metric": "dust",
-      "zscore": 2.827376371686199,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Anomalie onchain isolée (z-score 2.83) noyée dans un bruit médiatique saturé par l'actualité des startups tech et culturelles homonymes ('Dust'). Aucune corrélation institutionnelle ou mouvement significatif de baleines crypto détecté.\"\n}\n```",
-      "ts": "2026-09-27T20:03:24.204905+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.098704861158742,
-      "value": 0.752,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Bruit de fond médiatique sans rapport avec la crypto (actualités académiques et médicales). L'anomalie on-chain 'ipt' est un faux positif ou sans lien avec les flux de baleines du token concerné.\"\n}\n```",
-      "ts": "2026-09-27T20:08:26.715114+00:00"
-    },
-    {
-      "metric": "cpfp",
-      "zscore": 2.7146709340640918,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Fausse alerte liée à un acronyme polymorphe. Le 'CPFP' onchain (Child-Pays-For-Parent) est noyé dans le bruit médiatique entre actualités locales (Castelnaudary), politique africaine et finances publiques, sans lien avec une accumulation ou distribution massive de baleines.\"\n}\n```",
-      "ts": "2026-09-27T20:33:31.320109+00:00"
-    },
-    {
-      "metric": "dust",
       "zscore": 2.7146709340640918,
       "value": 50.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique entièrement dominé par l'actualité des startups tech grand public ('Dust AI') et de l'industrie musicale/gaming sans aucun rapport avec l'actif crypto homonyme. Anomalie onchain insignifiante.\"\n}\n```",
@@ -349,6 +328,27 @@
       "value": 0.016,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie SDI non pertinente pour la crypto : les données et le narratif font référence à 'SDI Group' (actions traditionnelles) et au 'Syndicat des Indépendants' (politique/économie réelle), et non à un actif blockchain ou une baleine crypto.\"\n}\n```",
       "ts": "2026-09-28T10:04:20.965191+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 2.7740228285389197,
+      "value": 0.016,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Erreur de contexte : SDI Group est une entreprise traditionnelle cotée (LSE:SDI) et le SDI fait référence au Syndicat des Indépendants (politique française), sans lien avec les cryptomonnaies ou les baleines onchain.\"\n}\n```",
+      "ts": "2026-09-28T11:10:02.956343+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.765546446620346,
+      "value": 1.126,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.77) isolée sur le ticker 'ipt', mais les actualités médiatiques font référence à des homonymes institutionnels (Institut Pasteur de Tunis, École Polytechnique) sans aucun lien avec la crypto. Bruit de fond, pas de mouvement de baleine avéré.\"\n}\n```",
+      "ts": "2026-09-28T11:10:04.931526+00:00"
+    },
+    {
+      "metric": "taker_ratio",
+      "zscore": 2.714777395891595,
+      "value": 1.484,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Un taker_ratio de 1.484 (z-score 2.71) indique une agression massive des acheteurs sur les carnets d'ordres, totalement ignorée par le vide médiatique actuel. C'est la signature classique d'accumulation furtive par les baleines avant un réveil du marché.\"\n}\n```",
+      "ts": "2026-09-28T11:10:06.595091+00:00"
     }
   ]
 }

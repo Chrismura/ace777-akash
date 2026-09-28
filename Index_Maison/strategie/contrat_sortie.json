@@ -1,7 +1,7 @@
 {
-  "version": "1.0.0",
-  "updated": "2026-09-28T10:06Z",
-  "note": "CONTRAT DE SORTIE (une seule vérité, lue par le chien de garde ET par la page vol). Un organe launchd qui sort en NON-ZÉRO n'est pas forcément cassé : certains s'en servent comme CANAL D'ALERTE. Sans cette table on peint en rouge des jobs qui font leur travail (faux positif qu'on apprend à ignorer = R14). Toute nouvelle ligne ici est une déclaration : « ce code est VOULU, et voici ce qu'il dit ». Même esprit que branchements_declares.json (R15) : on déclare, on ne cache pas.",
+  "version": "1.1.0",
+  "updated": "2026-09-28T11:05Z",
+  "note": "CONTRAT DE SORTIE (une seule vérité, lue par le chien de garde ET par la page vol). Un organe launchd qui sort en NON-ZÉRO n'est pas forcément cassé : certains s'en servent comme CANAL D'ALERTE. Sans cette table on peint en rouge des jobs qui font leur travail (faux positif qu'on apprend à ignorer = R14). Toute nouvelle ligne ici est une déclaration : « ce code est VOULU, et voici ce qu'il dit ». Même esprit que branchements_declares.json (R15) : on déclare, on ne cache pas. || CONVENTION 28/09/2026 : le code 3 signifie « SOURCE EXTERNE INJOIGNABLE (réseau / tether iPhone endormi) après 4 essais — RIEN collecté ce cycle, AUCUNE donnée inventée ni estimée ; reprise au cycle suivant ». Ce n'est PAS une panne de l'organe : avant ce jour, ces organes sortaient sur un TRACEBACK (code 1 non déclaré) pour un simple hoquet DNS de 2 s, et la page peignait « échec réel » des organes intacts. Un code 3 reste un ÉTAT VISIBLE et daté (log + fichier d'état), il ne remplace JAMAIS une valeur manquante.",
   "contrat": {
     "com.ace777.veilleuse": {
       "1": "anomalies détectées (par conception, canal d'alerte)"
@@ -14,6 +14,21 @@
     },
     "com.ace777.sniffer-matin": {
       "10": "matière collectée (brut marché + onchain + narratif) ENREGISTRÉE, analyse IA indisponible (hub muet) — la collecte n'est PAS perdue, seule l'interprétation manque et se rejoue depuis le fichier (déclaré 28/09)"
+    },
+    "com.ace777.sante-index": {
+      "1": "anomalies détectées (par conception, canal d'alerte : `return 1 if anomalies else 0` — le détail des chaînes en alerte est dans le rapport ET au cockpit, section santé). Déclaré 28/09/2026 : sans cette ligne la page peignait « échec réel » un organe qui faisait exactement son travail."
+    },
+    "com.ace777.kronos-ombre": {
+      "3": "source externe INJOIGNABLE (Binance / réseau) après 4 essais avec backoff — aucune prédiction émise ce cycle, aucune donnée inventée ni estimée ; la bougie suivante reprend. L'organe n'est pas cassé (déclaré 28/09/2026, cause mesurée : `URLError Errno 8` = tether iPhone endormi)."
+    },
+    "com.ace777.sniffer-vieux-btc": {
+      "3": "source externe INJOIGNABLE (mempool.space / réseau) après 4 essais avec backoff — aucun scan ce cycle, aucune donnée inventée ; reprise au cycle suivant (déclaré 28/09/2026)."
+    },
+    "com.ace777.xrpl-gouvernance": {
+      "3": "source externe INJOIGNABLE (API XRPL / réseau) après 4 essais avec backoff — aucun snapshot ce cycle, aucune donnée inventée ; reprise au cycle suivant (déclaré 28/09/2026)."
+    },
+    "com.ace777.sonde-volume-panier": {
+      "3": "source MEXC INJOIGNABLE après 4 essais avec backoff — aucune mesure de volume ce créneau (état d'échec écrit, `ok:false`), aucune donnée inventée ; reprise au créneau suivant (déclaré 28/09/2026)."
     }
   }
 }

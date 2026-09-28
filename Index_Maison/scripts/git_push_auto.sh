@@ -218,6 +218,20 @@ git add -u 2>/dev/null || { echo "[$TS] ERREUR : git add a échoué (rc=$?)" >> 
 [ -d "$REPO_DIR/Index_Maison/plists" ] && git add Index_Maison/plists 2>/dev/null
 # organes hors repo mirés (nouveaux fichiers → git add -u ne les prend pas)
 [ -d "$REPO_DIR/Index_Maison/organes_hors_repo" ] && git add Index_Maison/organes_hors_repo 2>/dev/null
+# INSTRUMENTS DE LA BOUCLE (28/09/2026, ALPAGE — « stopper les bidouilles ») :
+# `git add -u` ne prend QUE les fichiers DÉJÀ suivis → un instrument NOUVEAU (gardien,
+# oracle, sonde, garde-fou) restait HORS GIT jusqu'à ce qu'un humain pense à le stager.
+# C'est exactement le trou mesuré par le drill de restauration le 28/09 :
+# « gardien_collecte.py, oracle_justesse_collecte.py — 2 instrument(s) que la boucle
+# EXÉCUTE et qui ne sont PAS dans git → perdus à la restauration ». Le commit reste
+# l'acte de l'auto-sync ; ici on ne fait que rendre VISIBLE ce que la boucle exécute.
+# On ne stage QUE du CODE (.py/.sh) à la racine des dossiers d'instruments :
+# jamais de données, jamais de .json (le bruit des 1 600+ fichiers non suivis est exclu).
+for d in Index_Maison/scripts hulk-mexc/scripts; do
+  [ -d "$REPO_DIR/$d" ] || continue
+  find "$REPO_DIR/$d" -maxdepth 1 -type f \( -name '*.py' -o -name '*.sh' \) -print0 2>/dev/null \
+    | xargs -0 -r git add -- 2>/dev/null
+done
 # canoniques OUTBOX (s'ils existent, suivis ou non)
 for f in \
   Index_Maison/OUTBOX_OBSIDIAN/MEMOIRE_COLLAB.md \

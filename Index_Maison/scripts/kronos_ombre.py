@@ -80,11 +80,35 @@ INF_PARAMS = {"T": 1.0, "top_p": 0.9, "sample_count": 1}  # noqa: par défaut
 def log(msg: str) -> None:
     print(f"[{datetime.now(timezone.utc).strftime('%H:%M:%S')}] {msg}", flush=True)
 
+MAX_ESSAIS = 4                  # source externe : 4 essais avec backoff (convention maison)
+CODE_SOURCE_INJOIGNABLE = 3     # DÉCLARÉ dans strategie/contrat_sortie.json — pas un bug de l'organe
+
+
 def fetch_klines(interval: str = "1h", limit: int = 420) -> list:
-    """Bougies 1h BTCUSDT Binance (publique, gratuit). Retourne du plus ancien au plus récent."""
+    """Bougies 1h BTCUSDT Binance (publique, gratuit). Retourne du plus ancien au plus récent.
+
+    RÉPARÉ le 28/09/2026 (ALPAGE, « stopper les bidouilles ») : avant, UN SEUL essai
+    sans aucune garde. Un hoquet DNS de 2 s (tether iPhone endormi — cause MESURÉE,
+    journal /tmp/kronos_ombre.err.log : `URLError Errno 8`) faisait sortir l'organe sur
+    un TRACEBACK, donc un code 1 NON DÉCLARÉ : la page vol peignait « échec réel » un
+    organe qui n'avait rien de cassé, et l'heure de veille était perdue sans que
+    personne ne sache pourquoi. Désormais 4 essais avec backoff (2, 4, 8 s).
+    """
     url = (f"https://api.binance.com/api/v3/klines?symbol=BTCUSDT&interval={interval}&limit={limit}")
-    with urllib.request.urlopen(url, timeout=30) as r:
-        raw = json.loads(r.read())
+    dernier = None
+    for essai in range(MAX_ESSAIS):
+        try:
+            with urllib.request.urlopen(url, timeout=30) as r:
+                raw = json.loads(r.read())
+            break
+        except OSError as e:      # URLError / HTTPError / timeout sont tous des OSError
+            dernier = e
+            log(f"source Binance injoignable (essai {essai + 1}/{MAX_ESSAIS}) : "
+                f"{type(e).__name__}: {str(e)[:100]}")
+            if essai < MAX_ESSAIS - 1:
+                time.sleep(2 ** (essai + 1))        # 2 s, 4 s, 8 s
+    else:
+        raise OSError(f"Binance injoignable après {MAX_ESSAIS} essais : {dernier}")
     # colonnes Binance : 0 open_time, 1 open, 2 high, 3 low, 4 close, 5 volume, 6 close_time ...
     out = []
     for k in raw:
@@ -254,4 +278,13 @@ if __name__ == "__main__":
     if a.status:
         status()
     else:
-        cycle()
+        try:
+            cycle()
+        except OSError as e:
+            # SOURCE EXTERNE INJOIGNABLE — ce n'est PAS l'organe qui est cassé.
+            # Sortie PROPRE avec un code DÉCLARÉ (plus jamais un traceback non déclaré).
+            log(f"SOURCE INJOIGNABLE — {e}")
+            print(f"[kronos-ombre] code de sortie DÉCLARÉ {CODE_SOURCE_INJOIGNABLE} : aucune "
+                  f"prédiction émise ce cycle, aucune donnée inventée ni estimée "
+                  f"(contrat_sortie.json) ; la bougie suivante reprend le cycle.", flush=True)
+            sys.exit(CODE_SOURCE_INJOIGNABLE)

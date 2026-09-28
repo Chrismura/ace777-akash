@@ -33,6 +33,7 @@ MIN_AGE_ANS = 2.0
 MAX_INPUTS = 0          # 0 = TOUS les inputs (correction 13/09 : avant, 12 seulement)
 MAX_ESSAIS = 4          # retries API avec backoff (avant : 0 — toute erreur = âge perdu en silence)
 TS_CACHE_MAX = 4096     # plafond du cache timestamps de blocs
+CODE_SOURCE_INJOIGNABLE = 3     # DÉCLARÉ dans strategie/contrat_sortie.json — pas un bug de l'organe
 
 UA = {"User-Agent": "ACE777-vieuxbtc/1.0"}
 
@@ -110,8 +111,20 @@ def main():
     print(f"[{ts}] sniff vieux BTC — {NB_BLOCS} blocs, seuil {SEUIL_BTC} BTC, âge min {MIN_AGE_ANS} ans", flush=True)
 
     # 1) tip + derniers blocs (hash par hauteur)
-    tip = get_json(f"{MEMPOOL}/blocks/tip/height")
-    blocs_hashes = get_json(f"{MEMPOOL}/blocks")[:NB_BLOCS]  # les plus récents d'abord
+    # RÉPARÉ le 28/09/2026 (ALPAGE) : `get_json` fait ses 4 essais puis RELÈVE — sans
+    # cette garde, la source injoignable (mesuré : `URLError Errno 8`, /tmp/sniffer_vieux_btc.err.log)
+    # faisant sortir l'organe sur un TRACEBACK = code 1 NON DÉCLARÉ = rouge « échec réel »
+    # pour un organe intact. Ces 2 appels sont OBLIGATOIRES (rien ne peut être scanné sans
+    # le tip) : on sort proprement avec le code DÉCLARÉ 3.
+    try:
+        tip = get_json(f"{MEMPOOL}/blocks/tip/height")
+        blocs_hashes = get_json(f"{MEMPOOL}/blocks")[:NB_BLOCS]  # les plus récents d'abord
+    except Exception as e:
+        print(f"[{ts}] SOURCE INJOIGNABLE ({MEMPOOL}) après {MAX_ESSAIS} essais : "
+              f"{type(e).__name__}: {str(e)[:120]}", flush=True)
+        print(f"[{ts}] code de sortie DÉCLARÉ {CODE_SOURCE_INJOIGNABLE} — rien collecté ce cycle, "
+              f"aucune donnée inventée (contrat_sortie.json) ; reprise au cycle suivant.", flush=True)
+        return CODE_SOURCE_INJOIGNABLE
     # mempool /blocks renvoie [{id, height, timestamp, tx_count, ...}]
     blocs = []
     for b in blocs_hashes:
