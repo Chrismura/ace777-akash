@@ -1,34 +1,6 @@
 {
   "signals": [
     {
-      "metric": "cpfp",
-      "zscore": 2.0775643733847104,
-      "value": 35.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique purement onchain liée aux frais de transaction (Child-Pays-For-Parent). Le bruit médiatique concerne des homonymes non pertinents (politique, éducation) sans lien avec une accumulation ou distribution de baleines crypto.\"\n}\n```",
-      "ts": "2026-09-27T17:32:36.036226+00:00"
-    },
-    {
-      "metric": "dust",
-      "zscore": 2.0775643733847104,
-      "value": 35.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique parasité par des homonymes (musique, jeux vidéo, startup IA 'Dust'). Aucune corrélation avec une accumulation ou distribution significative de baleines crypto sur le token DUST.\"\n}\n```",
-      "ts": "2026-09-27T17:32:38.171985+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": 2.4412004136202037,
-      "value": 0.012,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 75,\n  \"reason\": \"Les médias se concentrent sur des aspects opérationnels et politiques (aides gouvernementales, stratégie d'acquisition), tandis que l'anomalie onchain (sdi = 0.012, z-score 2.44) suggère une activité silencieuse inhabituelle. Divergence entre discours neutre/négatif et signal technique positif.\"\n}\n```",
-      "ts": "2026-09-27T18:12:51.038588+00:00"
-    },
-    {
-      "metric": "cpfp",
-      "zscore": 3.1164555734417294,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (CPFP z-score 3.12) non reflétée dans les médias. Les titres sont totalement déconnectés du signal technique, suggérant une accumulation discrète par les baleines.\"\n}\n```",
-      "ts": "2026-09-27T18:42:58.635673+00:00"
-    },
-    {
       "metric": "dust",
       "zscore": 3.1164555734417294,
       "value": 50.0,
@@ -349,6 +321,34 @@
       "value": 0.012,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Erreur de ciblage sémantique. Les 'baleines crypto' et le 'silence on-chain' ne s'appliquent pas ici : les données font référence à SDI Group (finance traditionnelle / LSE:SDI) et au Syndicat des Indépendants (SDI, politique/actualité française), créant un bruit de fond non pertinent pour l'écosystème crypto.\"\n}\n```",
       "ts": "2026-09-28T06:52:49.191768+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.1165903357053946,
+      "value": 9241791877.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie de volume non-pertinente pour la crypto : les actualités détectées concernent le tourisme, la santé, les cosmétiques et l'agriculture, sans aucun lien avec les marchés onchain.\"\n}\n```",
+      "ts": "2026-09-28T07:23:02.164643+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.1137071101316804,
+      "value": 9361528191.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie de volume non pertinente : les données textuelles font référence à des actualités généralistes sans rapport avec la crypto (tourisme, immobilier de santé, cosmétiques, agriculture).\"\n}\n```",
+      "ts": "2026-09-28T07:53:08.066745+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 2.274485369480073,
+      "value": 0.012,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique (z-score 2.27) détectée sur un ticker homonyme ('SDI') sans lien avec l'actif crypto. Confusion de données, aucun mouvement de baleine crypto pertinent.\"\n}\n```",
+      "ts": "2026-09-28T08:03:10.800653+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 3.1657796775884037,
+      "value": 1.182,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 3.17) totalement non corrélée avec le ticker crypto. Les médias parlent d'instituts de recherche (IPT), de physique et d'agriculture. Bruit de fond, aucune accumulation de baleine crypto détectée.\"\n}\n```",
+      "ts": "2026-09-28T08:18:14.914459+00:00"
     }
   ]
 }
