@@ -1,32 +1,37 @@
 {
-  "timestamp": 1790573782,
-  "date": "2026-09-28T05:36:22.704684+00:00",
+  "timestamp": 1790576183,
+  "date": "2026-09-28T06:16:23.424860+00:00",
   "n_analyses": 1,
   "analyses": [
     {
       "signal": {
-        "metric": "price_1h",
-        "zscore": 2.7444518118742933,
-        "value": 0.4466132001993417,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (+2.74) sur 1h combiné à un silence médiatique absolu (Google Actualités vide). C'est la signature classique d'accumulation furtive par des baleines avant une percée des prix.\"\n}\n```",
-        "ts": 1790573248.021039
+        "metric": "volume",
+        "zscore": 2.020252222158311,
+        "value": 8807744002.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique de volume isolée sur des données globales sans corrélation avec l'actif crypto. Les titres médiatiques font référence à des sujets sans rapport (tourisme, santé, agriculture). Bruit de fond, aucune activité de baleine détectée.\"\n}\n```",
+        "ts": 1790574451.977803
       },
-      "fiche": "price_1h",
+      "fiche": "rbf_eleve",
       "questions": {
-        "pct_1h": {
-          "value": -0.56,
-          "seuil": -1,
-          "depasse": true
+        "prix": {
+          "value": null,
+          "seuil": 1,
+          "depasse": false
         },
-        "liq": {
-          "value": 3761462.0,
-          "seuil": 5000000,
+        "paires": {
+          "value": 0,
+          "seuil": 3,
           "depasse": false
         },
         "funding": {
-          "value": -2.9e-05,
-          "seuil": 0,
-          "depasse": true
+          "value": -2.6e-05,
+          "seuil": 0.001,
+          "depasse": false
+        },
+        "whales": {
+          "value": 0,
+          "seuil": 5,
+          "depasse": false
         }
       },
       "interpretation": {

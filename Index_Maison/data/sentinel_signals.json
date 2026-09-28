@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "sdi",
-      "zscore": 2.530402670264167,
-      "value": 0.012,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie SDI hors sujet : les données font référence à une entité macroéconomique/politique (SDI Group / Syndicat Indépendant) et non à un protocole crypto ou une baleine on-chain. Bruit médiatique sans lien avec la crypto.\"\n}\n```",
-      "ts": "2026-09-27T16:32:18.022216+00:00"
-    },
-    {
       "metric": "ipt",
       "zscore": 2.516277775988456,
       "value": 0.912,
@@ -349,6 +342,13 @@
       "value": 0.4466132001993417,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (+2.74) sur 1h combiné à un silence médiatique absolu (Google Actualités vide). C'est la signature classique d'accumulation furtive par des baleines avant une percée des prix.\"\n}\n```",
       "ts": "2026-09-28T05:27:28.021039+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.020252222158311,
+      "value": 8807744002.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique de volume isolée sur des données globales sans corrélation avec l'actif crypto. Les titres médiatiques font référence à des sujets sans rapport (tourisme, santé, agriculture). Bruit de fond, aucune activité de baleine détectée.\"\n}\n```",
+      "ts": "2026-09-28T05:47:31.977803+00:00"
     }
   ]
 }

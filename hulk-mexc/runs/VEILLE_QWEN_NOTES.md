@@ -5538,3 +5538,8 @@ Pas d’ordre — confrontation plus tard.
 - WUSDT: WATCH_PULLBACK — tension haute + reflux
 - PYTHUSDT: WATCH_PULLBACK — tension haute + reflux
 (compléter: confirmé ? risque ?)
+
+### 2026-09-28T05:42:39Z — ALERT auto
+- KITEUSDT: WATCH_PULLBACK — tension haute + reflux
+- FLUIDUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
