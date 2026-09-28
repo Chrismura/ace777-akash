@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "whale_usd",
-      "zscore": 2.8411028432130907,
-      "value": 3673222.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Activité anormale des baleines (z-score 2.84) combinée à un silence médiatique absolu (Google Actualités vide). Accumulation furtive en cours sans bruit de fond retail.\"\n}\n```",
-      "ts": "2026-09-28T00:45:08.021027+00:00"
-    },
-    {
       "metric": "fear_greed",
       "zscore": 4.795831523312714,
       "value": 74,
@@ -349,6 +342,13 @@
       "value": 0.016,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Erreur de ciblage sémantique : l'anomalie détecte un token obscur, mais les actualités font référence au 'SDI Group' (entreprise cotée en bourse) et au 'SDI' (Syndicat des Indépendants en France). Aucune corrélation avec une baleine crypto.\"\n}\n```",
       "ts": "2026-09-28T17:21:40.248232+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 3.3423989273934045,
+      "value": 0.02,
+      "analysis": "{\n  \"signal\": \"bullish\",\n  \"confidence\": 78,\n  \"reason\": \"Le z‑score de 3,34 pour le SDI indique une activité on‑chain anormalement forte, typique d’une accumulation discrète de baleines. En revanche, les titres médiatiques mettent l’accent sur des résultats conformes aux attentes, des pressions gouvernementales et des demandes de baisse de factures, créant un narratif plus neutre voire légèrement négatif. Cette divergence suggère que le mouvement réel du marché (accumulation baleine) n’est pas encore reflété dans le discours public, ce qui soutient un biais haussier à court terme.\"\n}",
+      "ts": "2026-09-28T17:56:52.218073+00:00"
     }
   ]
 }
