@@ -1,4 +1,4 @@
-# DISCIPLINE ALERT — 2026-09-27T05:15:14Z
+# DISCIPLINE ALERT — 2026-09-28T05:15:17Z
 
-- CORTANA sous 50% (36.1%) — discipline NEUTRE active, à surveiller
+- CORTANA sous 50% (35.4%) — discipline NEUTRE active, à surveiller
 - DÉRIVE MÉMOIRE : au moins 1 indice INSTABLE — voir DERIVE_MEMOIRE.md
