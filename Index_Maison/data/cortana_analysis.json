@@ -1,51 +1,26 @@
 {
-  "timestamp": 1790552174,
-  "date": "2026-09-27T23:36:14.840133+00:00",
-  "n_analyses": 2,
+  "timestamp": 1790554275,
+  "date": "2026-09-28T00:11:15.488298+00:00",
+  "n_analyses": 1,
   "analyses": [
     {
       "signal": {
-        "metric": "sdi",
-        "zscore": 2.594611048364866,
-        "value": 0.012,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie non-pertinente. SDI Group est une société cotée traditionnelle (actions), pas une cryptomonnaie. Le signal 'onchain' et les baleines ne s'appliquent pas ici, il s'agit d'une confusion de données dans le narratif médiatique et financier.\"\n}\n```",
-        "ts": 1790550575.85562
+        "metric": "fear_greed",
+        "zscore": 9.74679434480887,
+        "value": 74,
+        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Euphorie extrême (Fear & Greed à 74, z-score 9.75) couplée à un vide médiatique total (Google Actualités silencieux). Divergence classique de fin de cycle : les baleines distribuent dans le silence aux derniers acheteurs de détail pendant que les médias dorment.\"\n}\n```",
+        "ts": 1790553894.64543
       },
-      "fiche": null,
-      "interpretation": {
-        "lecture": "Pas de fiche disponible",
-        "niveau": "inconnu"
-      },
-      "action": "Observer"
-    },
-    {
-      "signal": {
-        "metric": "ipt",
-        "zscore": 2.1273242042238927,
-        "value": 0.84,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit de fond médiatique sans rapport avec la crypto (actualités institutionnelles et médicales). L'anomalie 'ipt' détectée est un faux positif lié à de l'homonymie lexicale, aucune baleine crypto ne se cache derrière ces flux.\"\n}\n```",
-        "ts": 1790551178.464559
-      },
-      "fiche": "rbf_eleve",
+      "fiche": "fear_greed",
       "questions": {
-        "prix": {
-          "value": 0.29,
-          "seuil": 1,
-          "depasse": false
+        "peur": {
+          "value": 74,
+          "seuil": 25,
+          "depasse": true
         },
-        "paires": {
-          "value": 0,
-          "seuil": 3,
-          "depasse": false
-        },
-        "funding": {
-          "value": 2.4e-05,
-          "seuil": 0.001,
-          "depasse": false
-        },
-        "whales": {
-          "value": 0,
-          "seuil": 5,
+        "cupidite": {
+          "value": 74,
+          "seuil": 75,
           "depasse": false
         }
       },

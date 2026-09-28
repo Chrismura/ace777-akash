@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "liquidations",
-      "zscore": 2.2490475071646414,
-      "value": 4016291.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.25) sur les liquidations crypto (4M$) couplé à un bruit médiatique totalement déconnecté (faits divers, droit des affaires et faillites d'entreprises traditionnelles). Les baleines nettoient le carnet d'ordres des mains faibles dans l'indifférence générale des médias mainstream.\"\n}\n```",
-      "ts": "2026-09-27T08:01:22.613111+00:00"
-    },
-    {
       "metric": "taker_ratio",
       "zscore": 2.2799124511850453,
       "value": 1.874,
@@ -349,6 +342,13 @@
       "value": 0.84,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit de fond médiatique sans rapport avec la crypto (actualités institutionnelles et médicales). L'anomalie 'ipt' détectée est un faux positif lié à de l'homonymie lexicale, aucune baleine crypto ne se cache derrière ces flux.\"\n}\n```",
       "ts": "2026-09-27T23:19:38.464559+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 9.74679434480887,
+      "value": 74,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Euphorie extrême (Fear & Greed à 74, z-score 9.75) couplée à un vide médiatique total (Google Actualités silencieux). Divergence classique de fin de cycle : les baleines distribuent dans le silence aux derniers acheteurs de détail pendant que les médias dorment.\"\n}\n```",
+      "ts": "2026-09-28T00:04:54.645430+00:00"
     }
   ]
 }
