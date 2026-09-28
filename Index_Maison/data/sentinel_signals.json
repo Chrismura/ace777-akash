@@ -1,41 +1,6 @@
 {
   "signals": [
     {
-      "metric": "cpfp",
-      "zscore": 2.34943797963252,
-      "value": 40.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique purement onchain (frais de priorité CPFP élevés sur Bitcoin) totalement déconnectée des actualités médias généralistes ou locales (homonymes 'CPFP'). Aucun signal de mouvement de baleine institutionnelle, simple congestion ou optimisation de mempool par des utilisateurs.\"\n}\n```",
-      "ts": "2026-09-27T15:01:14.566747+00:00"
-    },
-    {
-      "metric": "dust",
-      "zscore": 2.34943797963252,
-      "value": 40.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Forte divergence : le bruit médiatique se focalise sur de l'actualité générale et culturelle (musique, jeux vidéo), masquant une levée de fonds institutionnelle majeure de 40M$ pour le projet 'Dust' et une anomalie onchain significative (z-score 2.35). Accumulation silencieuse des baleines en cours sous le radar du grand public.\"\n}\n```",
-      "ts": "2026-09-27T15:01:16.789321+00:00"
-    },
-    {
-      "metric": "whale_usd",
-      "zscore": 3.7546371178241302,
-      "value": 4552916.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (3.75) indiquant une accumulation massive et anormale de baleines, totalement ignorée par les médias (silence radio). Divergence classique d'accumulation furtive avant un mouvement haussier.\"\n}\n```",
-      "ts": "2026-09-27T15:11:19.756652+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": 2.4593261242368625,
-      "value": 0.012,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Erreur de ciblage sémantique : les données médiatiques concernent 'SDI Group' (entreprise cotée) et le 'SDI' (Syndicat des Indépendants en France), sans aucun rapport avec les cryptomonnaies ou le mouvement de baleines on-chain.\"\n}\n```",
-      "ts": "2026-09-27T15:21:23.197698+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.342148222333004,
-      "value": 0.885,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.34) entièrement due à un bruit médiatique non-crypto (homonymie de l'acronyme IPT : Institut Pasteur de Tunis / Tournoi International des Physiciens). Aucune activité de baleine détectée.\"\n}\n```",
-      "ts": "2026-09-27T15:21:57.229460+00:00"
-    },
-    {
       "metric": "sdi",
       "zscore": 2.450215234956981,
       "value": 0.012,
@@ -349,6 +314,41 @@
       "value": 74,
       "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Euphorie extrême (Fear & Greed à 74, Z-Score 2.65) couplée à un vide médiatique (aucun relais d'actualité fort). Divergence classique de fin de cycle : les baleines distribuent silencieusement aux suiveurs de tendance avant la correction.\"\n}\n```",
       "ts": "2026-09-28T03:06:57.700623+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 11.456139376510274,
+      "value": 12630333.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 95,\n  \"reason\": \"Anomalie onchain massive (Z-score 11.46, soit ~12.6M$ déplacés) totalement absente des radars médiatiques (Google Actualités vide). Accumulation ou repositionnement furtif des baleines en dehors du bruit public.\"\n}\n```",
+      "ts": "2026-09-28T03:27:02.365828+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 2.420153478013921,
+      "value": 74,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Indice de peur et d'avidité en zone d'euphorie extrême (74, z-score 2.42) couplé à un vide médiatique total : absence de couverture narrative (Google Actualités vide). C'est le piège classique de liquidité où les baleines distribuent silencieusement aux derniers acheteurs de détail sans que la foule ne réalise la surchauffe du marché.\"\n}\n```",
+      "ts": "2026-09-28T03:37:05.414903+00:00"
+    },
+    {
+      "metric": "cpfp",
+      "zscore": 2.089158894381677,
+      "value": 50.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Le pic de CPFP (Child-Pays-for-Parent) détecté onchain est un artéfact technique lié à la congestion du réseau Bitcoin et au traitement des frais de transaction par les utilisateurs (RBF/CPFP). Les médias grand public et locaux parlent d'homonymes ('CPFP' au Congo ou actualités générales). Aucune corrélation avec une accumulation ou distribution massive de baleines.\"\n}\n```",
+      "ts": "2026-09-28T03:47:07.910734+00:00"
+    },
+    {
+      "metric": "dust",
+      "zscore": 2.089158894381677,
+      "value": 50.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit de fond médiatique parasité par des homonymes (musique, jeux vidéo, start-up IA traditionnelles). Aucune corrélation onchain pertinente avec le token DUST.\"\n}\n```",
+      "ts": "2026-09-28T03:47:09.239469+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 2.2360679774997854,
+      "value": 74,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Euphorie extrême (Fear & Greed à 74 avec un z-score de 2.24) combinée à un vide médiatique total (Google Actualités muet). Ce silence des médias grand public couplé à une surchauffe onchain est le signal classique d'une distribution silencieuse par les baleines avant un piège à liquidité.\"\n}\n```",
+      "ts": "2026-09-28T04:07:14.714868+00:00"
     }
   ]
 }
