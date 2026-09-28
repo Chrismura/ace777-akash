@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "dust",
-      "zscore": 3.0706246971561653,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 3.07) sur le token DUST liée à du bruit de fond ou des micro-transactions ('dusting'). Le narratif médiatique fait référence à de l'actualité générale (musique, jeux vidéo, IA homonyme) et non à la crypto. Aucune accumulation ou mouvement significatif de baleines détecté derrière ce signal technique isolé.\"\n}\n```",
-      "ts": "2026-09-27T14:19:29.655131+00:00"
-    },
-    {
-      "metric": "price_1h",
-      "zscore": 4.742460747397743,
-      "value": 0.3751194042875716,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de prix majeure (z-score 4.74) totalement ignorée par les médias (silence radio). C'est le marqueur classique d'accumulation furtive par des baleines avant un réveil brutal du narratif public.\"\n}\n```",
-      "ts": "2026-09-27T14:30:33.560862+00:00"
-    },
-    {
       "metric": "sdi",
       "zscore": 2.648338843527563,
       "value": 0.012,
@@ -349,6 +335,20 @@
       "value": 5305395.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 75,\n  \"reason\": \"Divergence forte entre l'alerte onchain (liquidations crypto significatives) et le narratif médiatique focalisé sur des liquidations d'entreprises traditionnelles. Les baleines pourraient profiter du bruit médiatique pour accumuler silencieusement.\"\n}\n```",
       "ts": "2026-09-28T02:10:41.214221+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 3.2236963995820473,
+      "value": 3918634.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 3.22, ~$3.9M) dans un silence médiatique total. Absence de couverture Google Actualités indique une accumulation discrète des baleines loin du bruit de détail.\"\n}\n```",
+      "ts": "2026-09-28T02:31:27.693541+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 2.9325756597230344,
+      "value": 74,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Euphorie extrême (Fear & Greed à 74 avec un z-score élevé de 2.93) couplée à un vide médiatique total ('Google Actualités' sans relais fort). Historiquement, cette surchauffe du sentiment sans catalyseur public majeur indique une distribution silencieuse des baleines vers les particuliers.\"\n}\n```",
+      "ts": "2026-09-28T02:36:48.197488+00:00"
     }
   ]
 }
