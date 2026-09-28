@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "price_1h",
-      "zscore": 4.646774117717819,
-      "value": 0.5051142627201299,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (4.65) détectant un mouvement de prix atypique et soudain, totalement absent du radar des médias traditionnels (silence radio sur Google Actualités). C'est la signature classique d'accumulation ou d'action furtive de baleines avant que la foule ne remarque la tendance.\"\n}\n```",
-      "ts": "2026-09-27T22:39:26.082499+00:00"
-    },
-    {
-      "metric": "liquidations",
-      "zscore": 2.449037757261983,
-      "value": 4972992.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 75,\n  \"reason\": \"Le pic de liquidations on-chain (~5M$ sur LTC) coïncide avec une cassure technique majeure à 70$, alors que le bruit médiatique grand public est totalement pollué par des homonymes (liquidations judiciaires d'entreprises). Classique 'shakeout' silencieux des baleines pour piéger les shorts avant une expansion haussière.\"\n}\n```",
-      "ts": "2026-09-27T22:44:29.350926+00:00"
-    },
-    {
       "metric": "sdi",
       "zscore": 2.594611048364866,
       "value": 0.012,
@@ -349,6 +335,20 @@
       "value": 1.385,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Divergence entre z-score élevé (2.23) et narratif médiatique optimiste mais généraliste. Les baleines pourraient accumuler silencieusement (long_short = 1.385) alors que les médias restent superficiels.\"\n}\n```",
       "ts": "2026-09-28T13:20:35.369055+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": 2.0813581962166072,
+      "value": 1.385,
+      "analysis": "{\n  \"signal\": \"bullish\",\n  \"confidence\": 72,\n  \"reason\": \"On‑chain long/short ratio is markedly elevated (1.385, z‑score 2.08), signalling a strong whale‑long bias. Media coverage focuses on the general appeal of long/short strategies in volatile markets but does not highlight this specific long‑skew, creating a mild disconnect between the narrative and the actual on‑chain accumulation.\"\n}",
+      "ts": "2026-09-28T13:50:52.015292+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.5804643238379077,
+      "value": 1.158,
+      "analysis": "{\n  \"signal\": \"bullish\",\n  \"confidence\": 72,\n  \"reason\": \"L'ipt montre un z‑score de 2.58, indiquant une activité on‑chain anormalement forte typique d'une accumulation de baleines. Aucun des titres médiatiques ne mentionne de développements crypto ou de raisons fondamentales justifiant ce mouvement, révélant un déconnexion entre le narratif public et l'activité réelle du marché.\"\n}",
+      "ts": "2026-09-28T13:56:03.448848+00:00"
     }
   ]
 }

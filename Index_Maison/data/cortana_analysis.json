@@ -1,54 +1,20 @@
 {
-  "timestamp": 1790601691,
-  "date": "2026-09-28T13:21:31.434067+00:00",
-  "n_analyses": 3,
+  "timestamp": 1790605292,
+  "date": "2026-09-28T14:21:32.607631+00:00",
+  "n_analyses": 1,
   "analyses": [
     {
       "signal": {
-        "metric": "price_1h",
-        "zscore": 3.3809418902769206,
-        "value": 0.6206487050315124,
-        "analysis": "{\n  \"signal\": \"bullish\",\n  \"confidence\": 72,\n  \"reason\": \"Le prix montre une anomalie forte (z‑score = 3.38) suggérant un mouvement soudain à la hausse, tandis que les titres médiatiques sont absents ou génériques, indiquant que cette hausse n’est pas encore relayée par le narratif public – typique d’une accumulation silencieuse de baleines.\"\n}",
-        "ts": 1790600113.162326
-      },
-      "fiche": "price_1h",
-      "questions": {
-        "pct_1h": {
-          "value": -0.17,
-          "seuil": -1,
-          "depasse": true
-        },
-        "liq": {
-          "value": 3406164.0,
-          "seuil": 5000000,
-          "depasse": false
-        },
-        "funding": {
-          "value": 6.2e-05,
-          "seuil": 0,
-          "depasse": true
-        }
-      },
-      "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
-      },
-      "action": "Observer",
-      "niveau": "neutre"
-    },
-    {
-      "signal": {
         "metric": "ipt",
-        "zscore": 2.31436381681323,
-        "value": 1.071,
-        "analysis": "{\n  \"signal\": \"bullish\",\n  \"confidence\": 70,\n  \"reason\": \"The on‑chain IPT metric shows a strong deviation (z‑score 2.31), indicating atypical whale activity that often precedes price moves. Meanwhile, the media headlines are entirely unrelated to crypto markets, suggesting the current narrative is disconnected from the underlying on‑chain signal.\"\n}",
-        "ts": 1790600124.428378
+        "zscore": 2.5804643238379077,
+        "value": 1.158,
+        "analysis": "{\n  \"signal\": \"bullish\",\n  \"confidence\": 72,\n  \"reason\": \"L'ipt montre un z‑score de 2.58, indiquant une activité on‑chain anormalement forte typique d'une accumulation de baleines. Aucun des titres médiatiques ne mentionne de développements crypto ou de raisons fondamentales justifiant ce mouvement, révélant un déconnexion entre le narratif public et l'activité réelle du marché.\"\n}",
+        "ts": 1790603763.448848
       },
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.17,
+          "value": -0.35,
           "seuil": 1,
           "depasse": false
         },
@@ -58,42 +24,13 @@
           "depasse": false
         },
         "funding": {
-          "value": 6.2e-05,
+          "value": 6.1e-05,
           "seuil": 0.001,
           "depasse": false
         },
         "whales": {
           "value": 0,
           "seuil": 5,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
-      },
-      "action": "Observer",
-      "niveau": "neutre"
-    },
-    {
-      "signal": {
-        "metric": "long_short",
-        "zscore": 2.2297149014027746,
-        "value": 1.385,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Divergence entre z-score élevé (2.23) et narratif médiatique optimiste mais généraliste. Les baleines pourraient accumuler silencieusement (long_short = 1.385) alors que les médias restent superficiels.\"\n}\n```",
-        "ts": 1790601635.369055
-      },
-      "fiche": "long_short",
-      "questions": {
-        "ratio_long_short": {
-          "value": 1.385,
-          "seuil": 2,
-          "depasse": false
-        },
-        "oi": {
-          "value": 95222.94,
-          "seuil": 120000,
           "depasse": false
         }
       },
