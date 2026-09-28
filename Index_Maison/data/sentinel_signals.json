@@ -1,27 +1,6 @@
 {
   "signals": [
     {
-      "metric": "sdi",
-      "zscore": 2.594611048364866,
-      "value": 0.012,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie non-pertinente. SDI Group est une société cotée traditionnelle (actions), pas une cryptomonnaie. Le signal 'onchain' et les baleines ne s'appliquent pas ici, il s'agit d'une confusion de données dans le narratif médiatique et financier.\"\n}\n```",
-      "ts": "2026-09-27T23:09:35.855620+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.1273242042238927,
-      "value": 0.84,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit de fond médiatique sans rapport avec la crypto (actualités institutionnelles et médicales). L'anomalie 'ipt' détectée est un faux positif lié à de l'homonymie lexicale, aucune baleine crypto ne se cache derrière ces flux.\"\n}\n```",
-      "ts": "2026-09-27T23:19:38.464559+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": 9.74679434480887,
-      "value": 74,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Euphorie extrême (Fear & Greed à 74, z-score 9.75) couplée à un vide médiatique total (Google Actualités silencieux). Divergence classique de fin de cycle : les baleines distribuent dans le silence aux derniers acheteurs de détail pendant que les médias dorment.\"\n}\n```",
-      "ts": "2026-09-28T00:04:54.645430+00:00"
-    },
-    {
       "metric": "price_1h",
       "zscore": 3.1783625532568487,
       "value": 0.44941513762961627,
@@ -349,6 +328,27 @@
       "value": 1.158,
       "analysis": "{\n  \"signal\": \"bullish\",\n  \"confidence\": 72,\n  \"reason\": \"L'ipt montre un z‑score de 2.58, indiquant une activité on‑chain anormalement forte typique d'une accumulation de baleines. Aucun des titres médiatiques ne mentionne de développements crypto ou de raisons fondamentales justifiant ce mouvement, révélant un déconnexion entre le narratif public et l'activité réelle du marché.\"\n}",
       "ts": "2026-09-28T13:56:03.448848+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 2.4178254539750976,
+      "value": 0.016,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 75,\n  \"reason\": \"Media focuses on operational news (results, acquisitions, government criticism) while on-chain data (high z-score) suggests unusual whale activity. Divergence implies potential accumulation under neutral/bullish headlines.\"\n}\n```",
+      "ts": "2026-09-28T14:41:21.440191+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.1299162124738378,
+      "value": 1.06,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Divergence forte entre l'anomalie onchain (z-score 2.13) et l'absence de sujets financiers/technologiques dans les médias. Activité silencieuse probable des baleines sur des sujets non médiatisés.\"\n}\n```",
+      "ts": "2026-09-28T14:41:29.312925+00:00"
+    },
+    {
+      "metric": "price_1h",
+      "zscore": 4.7353913813260045,
+      "value": 0.8439990572942535,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 4.74) non reflétée dans les médias, suggérant une accumulation discrète par les baleines.\"\n}\n```",
+      "ts": "2026-09-28T14:46:36.216821+00:00"
     }
   ]
 }
