@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "fear_greed",
-      "zscore": 4.795831523312714,
-      "value": 74,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Euphorie extrême (Fear & Greed à 74 avec un z-score élevé de 4.80) combinée à un vide médiatique total ('Google Actualités' sans relais haussier fort). Divergence classique de sommet : les baleines distribuent dans le silence pendant que le marché retail surchauffe.\"\n}\n```",
-      "ts": "2026-09-28T01:05:11.491555+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": 3.8729833462074166,
-      "value": 74,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Euphorie extrême (Fear & Greed à 74, Z-score élevé de 3.87) combinée à un vide médiatique total (Google Actualités muet). Ce silence des médias grand public couplé à une surchauffe du sentiment indique une bulle spéculative isolée, classique des phases de distribution discrète par les baleines.\"\n}\n```",
-      "ts": "2026-09-28T01:35:16.813088+00:00"
-    },
-    {
       "metric": "price_1h",
       "zscore": 4.310078680411424,
       "value": 0.6014775250480886,
@@ -349,6 +335,20 @@
       "value": 0.02,
       "analysis": "{\n  \"signal\": \"bullish\",\n  \"confidence\": 78,\n  \"reason\": \"Le z‑score de 3,34 pour le SDI indique une activité on‑chain anormalement forte, typique d’une accumulation discrète de baleines. En revanche, les titres médiatiques mettent l’accent sur des résultats conformes aux attentes, des pressions gouvernementales et des demandes de baisse de factures, créant un narratif plus neutre voire légèrement négatif. Cette divergence suggère que le mouvement réel du marché (accumulation baleine) n’est pas encore reflété dans le discours public, ce qui soutient un biais haussier à court terme.\"\n}",
       "ts": "2026-09-28T17:56:52.218073+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 2.15399809196393,
+      "value": 0.016,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Erreur de cible contextuelle : l'indicateur SDI on-chain détecte des mouvements cryptographiques, tandis que le narratif médiatique fait référence à une entité économique traditionnelle (SDI Group / Syndicat des Indépendants). Aucune corrélation pertinente à analyser.\"\n}\n```",
+      "ts": "2026-09-28T18:42:01.672200+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 3.4295420142433293,
+      "value": 1.375,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (z-score 3.43) sur un ticker partagé avec des acronymes institutionnels et médicaux non-crypto (IPT). Bruit médiatique sans rapport avec la blockchain.\"\n}\n```",
+      "ts": "2026-09-28T18:57:06.804199+00:00"
     }
   ]
 }

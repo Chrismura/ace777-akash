@@ -1,14 +1,14 @@
 # Console générale — clin d’œil
 
-Auto-refresh : 2026-09-27 18:53 UTC · jour local **2026-09-27**
+Auto-refresh : 2026-09-28 18:53 UTC · jour local **2026-09-28**
 
 ## Feu tricolore
 
 | Jambe | État | Détail |
 |-------|------|--------|
 | **ACE** | 🔴 STOP | Dernier tag `MASTER_BASE_V8_6_FORTRESS_8H20` · combo ≈ **+0.90 $** |
-| **Hulk paper** | 🟢 RUN | pnl_total ≈ **42.6847** · pos **13** |
-| **Hulk digest** | 🟢 RUN | mtime 2026-09-27T18:52Z |
+| **Hulk paper** | 🟢 RUN | pnl_total ≈ **46.0727** · pos **15** |
+| **Hulk digest** | 🟢 RUN | mtime 2026-09-28T18:52Z |
 | **Punk** | 🔴 STOP | — · idle |
 | **Ollama** | 🟢 RUN | |
 | **Obsidian** | 🟢 | vault `Obsidian_ACE777` |
@@ -72,8 +72,8 @@ Auto-refresh : 2026-09-27 18:53 UTC · jour local **2026-09-27**
 | `TEST_DUO_HARMONIC_5813_30M_V63` | +0.00 (n=0) | -0.42 (n=45) | **-0.42** |
 
 ## Hulk
-- Events : {'BUY': 154, 'SELL_PARTIAL': 76, 'SELL': 140, 'SKIP': 79587, 'BAG_ARM': 1, 'BAG_CRASH': 1, 'BAG_SELL': 1}
-- Pairs ouvertes (state) : QNTUSDT, RWAUSDT, MNSRYUSDT, FLUIDUSDT, EDELUSDT, BTCUSDT, RIZEUSDT, ETHUSDT, BIOUSDT, CHIPUSDT, XRPUSDT, PYTHUSDT, KITEUSDT
+- Events : {'BUY': 167, 'SELL_PARTIAL': 81, 'SELL': 150, 'SKIP': 81074, 'BAG_ARM': 2, 'BAG_CRASH': 1, 'BAG_SELL': 2, 'BAG_DCA': 1}
+- Pairs ouvertes (state) : RWAUSDT, MNSRYUSDT, FLUIDUSDT, EDELUSDT, BTCUSDT, RIZEUSDT, ETHUSDT, XRPUSDT, PYTHUSDT, BIOUSDT, WUSDT, KITEUSDT, CCUSDT, ZBCNUSDT, RWAINCUSDT
 
 ## Liens
-[[PLAN_DE_VOL]] · [[AUTO_PROCESSUS]] · [[AGORA]] · [[Cahier/Journal_2026-09-27]] · [[OSSATURE]]
+[[PLAN_DE_VOL]] · [[AUTO_PROCESSUS]] · [[AGORA]] · [[Cahier/Journal_2026-09-28]] · [[OSSATURE]]

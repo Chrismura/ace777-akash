@@ -5671,3 +5671,11 @@ Pas d’ordre — confrontation plus tard.
 ### 2026-09-28T18:00:14Z — ALERT auto
 - RWAINCUSDT: WATCH_PULLBACK — tension haute + reflux
 (compléter: confirmé ? risque ?)
+
+### 2026-09-28T18:33:58Z — ALERT auto
+- TELUSDT: IMPULSE_WAIT — spike en cours, pas chase
+(compléter: confirmé ? risque ?)
+
+### 2026-09-28T18:52:46Z — ALERT auto
+- RWAINCUSDT: IMPULSE_WAIT — spike en cours, pas chase
+(compléter: confirmé ? risque ?)
