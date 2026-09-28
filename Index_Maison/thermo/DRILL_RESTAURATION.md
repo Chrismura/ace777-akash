@@ -1,13 +1,13 @@
 # 🩺 DRILL DE RESTAURATION — 🔴 **TROU**
 
-> Testé le **2026-09-28T09:21Z** · mode **lecture seule** (rien installé, rien modifié).
+> Testé le **2026-09-28T10:20Z** · mode **lecture seule** (rien installé, rien modifié).
 > Question posée : *« si le Mac mourait ce soir, ACE777 reviendrait-il ? »*
 
 ## 1. Source — le repo (git) contient-il tout ?
-- Branche `main` · HEAD `3699b1983a` du 2026-09-28T11:20:12+02:00
-- Fichiers suivis modifiés sur disque : **37**
+- Branche `main` · HEAD `798a6e4e12` du 2026-09-28T11:21:39+02:00
+- Fichiers suivis modifiés sur disque : **129**
 - Fichiers suivis **supprimés** (perdus) : **0**
-- Nouveaux fichiers non versionnés : 28703 au total, dont **43 sensibles** (scripts/plists/règles)
+- Nouveaux fichiers non versionnés : 28724 au total, dont **43 sensibles** (scripts/plists/règles)
   - `Index_Maison/scripts/CONSULTATION_FAMILLE_CORTANA_JUGE_CONTRE/AVIS_DEEPSEEK.md`
   - `Index_Maison/scripts/CONSULTATION_FAMILLE_CORTANA_JUGE_CONTRE/AVIS_GEMINI.md`
   - `Index_Maison/scripts/CONSULTATION_FAMILLE_CORTANA_JUGE_CONTRE/AVIS_JUGE.md`
@@ -25,9 +25,10 @@
   - `Index_Maison/scripts/backtest_regime.py`
 
 ### 1bis. Instruments de la boucle — ce que la boucle EXÉCUTE est-il versionné ?
-- Scripts/exécutables invoqués par un agent ou par `git_push_auto.sh` : **141**
-- 🔴 **1 NON versionnés** → un Mac mort les perdrait, et la boucle ne redémarrerait pas :
+- Scripts/exécutables invoqués par un agent ou par `git_push_auto.sh` : **142**
+- 🔴 **2 NON versionnés** → un Mac mort les perdrait, et la boucle ne redémarrerait pas :
   - `hulk-mexc/scripts/gardien_collecte.py`
+  - `hulk-mexc/scripts/oracle_justesse_collecte.py`
 - Hors repo (volet « organes hors repo » ci-dessous) : 2
 
 ## 2. Agents launchd — reconstructibles ?
@@ -35,7 +36,7 @@
 - ✅ **0 agent hors repo** — tous reconstructibles.
 
 ## 3. Reconstruction dans un dossier neuf
-- Dossier : `/var/folders/y7/571v2gy574z72zvsgqd46wd40000gn/T/drill_restauration_cb_2qbtz/LaunchAgents`
+- Dossier : `/var/folders/y7/571v2gy574z72zvsgqd46wd40000gn/T/drill_restauration_gebj4fsz/LaunchAgents`
 - Plists rebâtis + validés (`plutil -lint`) : **102/102**
 
 ## 4. Organes invoqués par les agents
@@ -52,20 +53,19 @@
   | `~/prise-ia` | `prise-ia` | surveille | ✅ miroir de sauvegarde (organes_hors_repo/prise-ia) |
   | `~/prise-ia/routeur_auto.py` | `routeur-auto` | argument | ✅ miroir de sauvegarde (organes_hors_repo/prise-ia) |
 
-  Manifeste des organes hors repo : `thermo/organes_hors_repo.json` (mis à jour 2026-09-28T09:19Z).
+  Manifeste des organes hors repo : `thermo/organes_hors_repo.json` (mis à jour 2026-09-28T09:21Z).
 
   Outillage système hors repo (4) — réinstallable (Homebrew/Xcode CLT), non bloquant : `/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/Resources/Python.app/Contents/MacOS/Python`, `/Library/Developer/CommandLineTools/usr/bin/python3`, `/opt/homebrew/bin/npm`, `/opt/homebrew/bin/uv`
 - ✅ Aucun chemin invoqué introuvable.
 
 ## 5. Scellés (registre des synapses ↔ repo)
-- Entrées md5 vérifiées : **140** · écarts : **2** · absents : **0**
-  - ⚠️ md5 différent : `Index_Maison/scripts/gen_cockpit_vol.py`
-  - ⚠️ md5 différent : `hulk-mexc/scripts/gardien_collecte.py`
+- Entrées md5 vérifiées : **141** · écarts : **1** · absents : **0**
+  - ⚠️ md5 différent : `Index_Maison/strategie/contrat_sortie.json`
 
 ## 6. Verdict
 - 🔴 **2 trou(s) à combler :**
-  - 1 instrument(s) que la boucle EXÉCUTE et qui ne sont PAS dans git → perdus à la restauration (hulk-mexc/scripts/gardien_collecte.py)
-  - 2 scellé(s) dont le md5 ne correspond plus
+  - 2 instrument(s) que la boucle EXÉCUTE et qui ne sont PAS dans git → perdus à la restauration (hulk-mexc/scripts/gardien_collecte.py, hulk-mexc/scripts/oracle_justesse_collecte.py)
+  - 1 scellé(s) dont le md5 ne correspond plus
 
 ---
 *Rapport généré par `scripts/drill_restauration.py` (lecture seule). Relancer après toute modification d'organe : un drill, ça se répète.*

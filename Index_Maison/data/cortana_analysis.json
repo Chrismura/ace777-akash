@@ -1,15 +1,54 @@
 {
-  "timestamp": 1790587287,
-  "date": "2026-09-28T09:21:27.061554+00:00",
-  "n_analyses": 1,
+  "timestamp": 1790590588,
+  "date": "2026-09-28T10:16:28.101146+00:00",
+  "n_analyses": 2,
   "analyses": [
     {
       "signal": {
+        "metric": "ipt",
+        "zscore": 3.643967508339109,
+        "value": 1.3,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 3.64) sur le ticker 'ipt' totalement polluée par du bruit sémantique (homonymie avec l'Institut Polytechnique, biologie et actualités agricoles). Aucune convergence avec une activité de baleines crypto.\"\n}\n```",
+        "ts": 1790589249.739462
+      },
+      "fiche": "rbf_eleve",
+      "questions": {
+        "prix": {
+          "value": null,
+          "seuil": 1,
+          "depasse": false
+        },
+        "paires": {
+          "value": 0,
+          "seuil": 3,
+          "depasse": false
+        },
+        "funding": {
+          "value": 4e-06,
+          "seuil": 0.001,
+          "depasse": false
+        },
+        "whales": {
+          "value": 0,
+          "seuil": 5,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
+      },
+      "action": "Observer",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
         "metric": "sdi",
-        "zscore": 3.0443104452332888,
+        "zscore": 2.850350503353561,
         "value": 0.016,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Anomalie non pertinente : le 'SDI' mentionné dans les actualités (SDI Group, Syndicat des Indépendants) concerne la finance traditionnelle ou des syndicats, et non un protocole crypto ou un token suivi par le système de détection.\"\n}\n```",
-        "ts": 1790586542.413935
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie SDI non pertinente pour la crypto : les données et le narratif font référence à 'SDI Group' (actions traditionnelles) et au 'Syndicat des Indépendants' (politique/économie réelle), et non à un actif blockchain ou une baleine crypto.\"\n}\n```",
+        "ts": 1790589860.965191
       },
       "fiche": null,
       "interpretation": {

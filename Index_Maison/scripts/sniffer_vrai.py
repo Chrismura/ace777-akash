@@ -17,6 +17,7 @@ import json
 import os
 import re
 import sys
+import time
 import urllib.parse
 import urllib.request
 from datetime import datetime, timezone
@@ -31,6 +32,13 @@ LIVE = INDEX / "thermo" / "live.json"
 FLUX_NETS = INDEX / "data" / "flux_nets_latest.json"
 DERIV_CORR = INDEX / "data" / "deriv_corr.json"
 HUB = "http://127.0.0.1:11435/v1/chat/completions"
+
+# Code de sortie DÉCLARÉ (strategie/contrat_sortie.json) : le hub a été muet
+# (502/503/timeout côté fournisseur) mais la MATIÈRE COLLECTÉE (brut marché +
+# onchain + narratif) est enregistrée. Ce n'est PAS la même chose qu'un échec de
+# collecte : perdre le fichier du jour pour un hoquet d'API, c'est perdre la
+# collecte ; ne perdre que l'interprétation, c'est un état qui se DÉCLARE (R14).
+CODE_IA_INDISPONIBLE = 10
 
 
 def brut_flux_nets():
@@ -219,8 +227,13 @@ def narratif(q, coin):
     return out
 
 
-def ask_divergence(system, user):
-    # Cerveau FORT sur le rôle sniffer : analyse.profonde -> NVIDIA (DeepSeek V4).
+def ask_divergence(system, user, essais=3):
+    """Cerveau FORT sur le rôle sniffer : analyse.profonde -> NVIDIA (DeepSeek V4).
+
+    Un hoquet du hub (502/503/timeout) ne doit PAS faire perdre la collecte du
+    jour : on RÉESSAIE (le 502 est transitoire — mesuré 27-28/09), et si le modèle
+    reste muet on renvoie (None, raison). C'est main() qui écrit quand même la
+    matière collectée. Un seul essai raté ne doit pas coûter une journée."""
     payload = json.dumps({
         "task": "analyse.profonde",
         "model": "nvidia",
@@ -230,10 +243,20 @@ def ask_divergence(system, user):
         ],
         "max_tokens": 1400, "temperature": 0.3,
     }).encode()
-    req = urllib.request.Request(HUB, data=payload, headers={"Content-Type": "application/json"})
-    with urllib.request.urlopen(req, timeout=200) as r:
-        d = json.loads(r.read().decode())
-    return d["choices"][0]["message"]["content"].strip(), d.get("provider", "?")
+    derniere = None
+    for i in range(max(1, essais)):
+        try:
+            req = urllib.request.Request(HUB, data=payload,
+                                         headers={"Content-Type": "application/json"})
+            with urllib.request.urlopen(req, timeout=200) as r:
+                d = json.loads(r.read().decode())
+            return d["choices"][0]["message"]["content"].strip(), d.get("provider", "?")
+        except Exception as e:
+            derniere = f"{type(e).__name__}: {str(e)[:120]}"
+            print(f"[sniffer] hub muet (essai {i + 1}/{essais}) : {derniere}", flush=True)
+            if i < essais - 1:
+                time.sleep(5 * (i + 1))
+    return None, derniere or "hub muet"
 
 
 def main():
@@ -256,10 +279,18 @@ def main():
 
     print(f"[sniffer] soumission à la famille (divergence)…", flush=True)
     txt, prov = ask_divergence(prompt, user)
+    ia_dispo = txt is not None
+    if not ia_dispo:
+        # La collecte n'est PAS perdue : le brut et le narratif sont déjà là.
+        txt = (f"⚠️ ANALYSE IA INDISPONIBLE — {prov}\n\n"
+               "La matière collectée (BRUT marché + onchain + NARRATIF, ci-dessous) a été "
+               "enregistrée. Seule l'interprétation manque — elle se rejoue à partir de ce "
+               "fichier, sans recoller les données.")
 
     now = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%MZ")
+    entete = f"> provider : {prov}\n" if ia_dispo else f"> analyse IA : INDISPONIBLE ({prov})\n"
     out = (f"# SNIFFER DU VRAI — {q} — {now}\n"
-           f"> provider : {prov}\n\n{txt}\n\n"
+           f"{entete}\n{txt}\n\n"
            f"---\n## BRUT reçu\n```json\n{brut_txt}\n```\n\n"
            f"## NARRATIF reçu\n```json\n{nar_txt}\n```\n")
     print("\n" + "=" * 70 + "\n" + out)
@@ -267,7 +298,11 @@ def main():
     dest = INDEX / f"SNIFF_{q.replace(' ', '_')}_{datetime.now(timezone.utc).strftime('%Y%m%d_%H%M')}.md"
     dest.write_text(out, encoding="utf-8")
     print(f"[sniffer] sauvegardé : {dest}")
-    return 0
+    if ia_dispo:
+        return 0
+    print(f"[sniffer] SORTIE DÉCLARÉE {CODE_IA_INDISPONIBLE} : matière collectée et "
+          f"enregistrée, analyse IA indisponible (contrat_sortie.json)", flush=True)
+    return CODE_IA_INDISPONIBLE
 
 
 if __name__ == "__main__":

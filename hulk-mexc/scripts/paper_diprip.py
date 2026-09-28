@@ -986,6 +986,12 @@ class PaperBot:
         self._lock_fd.write(str(os.getpid()))
         self._lock_fd.flush()
         self.alive = True
+        # CRI DU MOTEUR (28/09/2026, ALPAGE) : instant de la dernière ligne ÉCRITE au
+        # journal. avec l'âge du dernier prix FRAIS, c'est la seconde horloge qui permet
+        # au moteur de distinguer « rien à écrire » (NORMAL : les refus sont dédoublonnés)
+        # de « je ne peux plus lire le marché » (VRAIE panne de collecte). Détail :
+        # _auto_cri_collecte().
+        self._derniere_ligne_mono = time.monotonic()
         self.scores: dict[str, dict] = {}
         self.pos: dict[str, dict] = {}  # trade tant que < 2×
         self.bags: dict[str, dict] = {}  # plus-value après stake-out
@@ -1763,6 +1769,9 @@ class PaperBot:
                 csv.writer(f).writerow(_row)
                 f.flush()
                 os.fsync(f.fileno())
+                # l'horloge du CRI DU MOTEUR (cf. _auto_cri_collecte) : quand ai-je écrit
+                # une ligne pour la dernière fois ?
+                self._derniere_ligne_mono = time.monotonic()
         except Exception as e:                       # noqa: BLE001
             say("err", f"[csv] JOURNAL_WRITE_ERR (fsync) ligne perdue : {e}")
 
@@ -3136,6 +3145,92 @@ class PaperBot:
         elif pending:
             say("heart", f"[{utc_now()}] cortana PILOT ADVISORY → {len(pending)} proposition(s)")
 
+    # ── CRI DU MOTEUR (28/09/2026, ALPAGE) ──────────────────────────────────────────
+    def _auto_cri_collecte(self, n: int) -> None:
+        """Un moteur VIVANT qui ne peut plus COLLECTER crie LUI-MÊME.
+
+        POURQUOI CE BLOC EXISTE (mesuré le 28/09 par `gardien_collecte.py`) : 13 trous du
+        journal (53,8 h) sont des périodes où le watchdog voyait le moteur **VIVANT**
+        (`PAPER: OK pid=…`) pendant que le journal n'écrivait **pas une seule ligne** —
+        dont ~10 h le 25/08. De l'extérieur, les DEUX silences sont identiques :
+          · « je n'ai rien à écrire » — les refus sont dédoublonnés. C'est **NORMAL** :
+            234 des 259 trous du journal sont ce silence-là (mesuré). Crier dessus
+            fabriquerait une alarme toujours allumée, qui tue la confiance (R14).
+          · « je n'arrive plus à lire le marché » (tether iPhone tombé, DNS, API MEXC)
+            — **la VRAIE panne de collecte**.
+        Seul le moteur sait laquelle des deux. Il le dit donc lui-même, avec DEUX signaux
+        SÉPARÉS, jamais confondus :
+          ① SILENCE — cycles sans écrire une ligne : un FAIT. Signalé 1×/h au maximum,
+             jamais en `err`, et seulement si les prix SONT frais (sinon ② parle).
+          ② PRIX MORT — âge du prix le plus frais que je détiens : **c'est la panne**.
+             Le seuil est DÉRIVÉ du poll réel du moteur (R17 : aucun seuil fixe) ;
+             l'alerte S'AUTO-EFFACE dès le retour des prix (R14).
+        Le cri est DURABLE (`runs/HULK_ALERTE_COLLECTE.json`, lu par le cockpit) : un cri
+        qui ne laisse pas de trace n'existe pas (R15).
+        """
+        poll = max(1.0, float(getattr(self, "poll", 20) or 20))
+        seuil_prix = max(15.0 * poll, 300.0)        # 15 cycles de poll, plancher 5 min
+        seuil_silence = max(6.0 * poll, 120.0)      # silence « anormal » : 6 cycles
+        try:
+            dernier_prix = max(_PRICE_TS.values()) if _PRICE_TS else 0.0
+        except Exception:
+            dernier_prix = 0.0
+        age_prix = (time.time() - dernier_prix) if dernier_prix else None
+        t_ligne = getattr(self, "_derniere_ligne_mono", None)
+        silence_s = (time.monotonic() - t_ligne) if t_ligne else None
+        alerte = RUNS / "HULK_ALERTE_COLLECTE.json"
+        en_panne = age_prix is not None and age_prix > seuil_prix
+
+        if en_panne:                                # ② LA PANNE DE COLLECTE
+            if getattr(self, "_cri_depuis", None) is None:
+                self._cri_depuis = utc_now()
+            _sil = f" · silence journal {silence_s:.0f}s ({n} cycles)" if silence_s else ""
+            say("err", f"[{utc_now()}] [CRI COLLECTE] plus AUCUN prix frais depuis "
+                       f"{age_prix:.0f}s (seuil {seuil_prix:.0f}s = 15 cycles de poll "
+                       f"{poll:.0f}s){_sil} — la COLLECTE est interrompue, pas le moteur")
+            # écriture bornée (1×/min) : le cri dure tant que la cause dure, sans marteler le disque
+            if (time.time() - float(getattr(self, "_cri_ecrit_ts", 0.0))) > 60.0:
+                self._cri_ecrit_ts = time.time()
+                try:
+                    alerte.write_text(json.dumps({
+                        "organe": "hulk-cri-collecte",
+                        "ts_utc": utc_now(),
+                        "en_panne": True,
+                        "depuis_utc": self._cri_depuis,
+                        "age_prix_s": round(age_prix, 1),
+                        "seuil_prix_s": round(seuil_prix, 1),
+                        "poll_s": poll,
+                        "cycles": n,
+                        "cycles_sans_ligne": (round(silence_s / poll) if silence_s else None),
+                        "silence_lignes_s": (round(silence_s, 1) if silence_s else None),
+                        "journal": self.csv_path.name,
+                        "note": ("Le moteur tourne mais ne peut plus LIRE le marché : la collecte "
+                                 "est interrompue. Ce fichier S'AUTO-EFFACE au retour des prix "
+                                 "(un cri qui ne s'éteint pas tue la confiance, R14)."),
+                    }, indent=2, ensure_ascii=False), encoding="utf-8")
+                except Exception as e:              # un cri ne casse JAMAIS la boucle
+                    say("err", f"[CRI COLLECTE] écriture de l'alerte impossible : {e}")
+        else:                                       # retour à la normale → on éteint le cri
+            if getattr(self, "_cri_depuis", None) is not None:
+                say("warn", f"[{utc_now()}] [CRI COLLECTE] RETOUR À LA NORMALE — prix frais "
+                            f"âgé de {age_prix:.0f}s (cri depuis {self._cri_depuis})")
+            self._cri_depuis = None
+            self._cri_ecrit_ts = 0.0
+            if alerte.exists():
+                try:
+                    alerte.unlink()
+                except Exception:
+                    pass
+            # ① SILENCE NORMAL : je tourne, je n'écris rien, ET les prix sont frais → ce
+            # n'est pas une panne (refus dédoublonnés). Signalé rarement (1×/h max).
+            _t = float(getattr(self, "_silence_log_ts", 0.0))
+            if silence_s and silence_s > seuil_silence and (time.time() - _t) > 3600.0:
+                self._silence_log_ts = time.time()
+                say("heart", f"[{utc_now()}] [silence] aucune ligne au journal depuis "
+                             f"{silence_s / 60:.1f} min ({n} cycles) MAIS prix frais "
+                             f"(âge {age_prix:.0f}s) : le moteur COLLECTE, il n'a rien à "
+                             f"écrire (refus dédoublonnés). Ce n'est PAS une panne.")
+
     def run(self) -> int:
         say(
             "hdr",
@@ -3223,6 +3318,10 @@ class PaperBot:
             n += 1
             self.eval_metrics["cycles"] = n
             self.eval_metrics["last_cycle_seconds"] = round(time.perf_counter() - cycle_perf, 6)
+            # CRI DU MOTEUR (28/09/2026, ALPAGE) — un moteur VIVANT qui ne peut plus
+            # COLLECTER doit le dire lui-même : l'extérieur ne peut pas distinguer un
+            # silence NORMAL (aucun refus nouveau à écrire) d'une VRAIE panne de lecture.
+            self._auto_cri_collecte(n)
             if n % 3 == 0:
                 open_n = len(self.pos)
                 bags_n = len(self.bags)

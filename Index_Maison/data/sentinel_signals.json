@@ -2,20 +2,6 @@
   "signals": [
     {
       "metric": "dust",
-      "zscore": 3.0370375811207215,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Forte divergence (z-score 3.04) sur le token DUST alors que les médias grand public et tech (Maddyness, Les Echos) s'emballent sur des levées de fonds et actualités sans rapport direct avec la crypto, masquant une accumulation institutionnelle ou un mouvement de baleines sous le radar.\"\n}\n```",
-      "ts": "2026-09-27T19:23:16.000519+00:00"
-    },
-    {
-      "metric": "cpfp",
-      "zscore": 2.827376371686199,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 75,\n  \"reason\": \"Forte anomalie on-chain sur les transactions CPFP (Child-Pays-For-Parent) avec un z-score de 2.83, indiquant une congestion et une optimisation agressive des frais par les acteurs majeurs. Le narratif médiatique est totalement déconnecté, noyé dans du bruit non pertinent et des tutoriels basiques, révélant une accumulation ou un rééquilibrage silencieux des baleines.\"\n}\n```",
-      "ts": "2026-09-27T20:03:22.382408+00:00"
-    },
-    {
-      "metric": "dust",
       "zscore": 2.827376371686199,
       "value": 50.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Anomalie onchain isolée (z-score 2.83) noyée dans un bruit médiatique saturé par l'actualité des startups tech et culturelles homonymes ('Dust'). Aucune corrélation institutionnelle ou mouvement significatif de baleines crypto détecté.\"\n}\n```",
@@ -349,6 +335,20 @@
       "value": 0.016,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Anomalie non pertinente : le 'SDI' mentionné dans les actualités (SDI Group, Syndicat des Indépendants) concerne la finance traditionnelle ou des syndicats, et non un protocole crypto ou un token suivi par le système de détection.\"\n}\n```",
       "ts": "2026-09-28T09:09:02.413935+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 3.643967508339109,
+      "value": 1.3,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 3.64) sur le ticker 'ipt' totalement polluée par du bruit sémantique (homonymie avec l'Institut Polytechnique, biologie et actualités agricoles). Aucune convergence avec une activité de baleines crypto.\"\n}\n```",
+      "ts": "2026-09-28T09:54:09.739462+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 2.850350503353561,
+      "value": 0.016,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie SDI non pertinente pour la crypto : les données et le narratif font référence à 'SDI Group' (actions traditionnelles) et au 'Syndicat des Indépendants' (politique/économie réelle), et non à un actif blockchain ou une baleine crypto.\"\n}\n```",
+      "ts": "2026-09-28T10:04:20.965191+00:00"
     }
   ]
 }

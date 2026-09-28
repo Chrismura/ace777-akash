@@ -157,6 +157,22 @@ if [ -f "$REPO_DIR/hulk-mexc/scripts/gardien_collecte.py" ]; then
     echo "[$(date -u +%Y-%m-%dT%H:%MZ)] ALERTE : défaut de collecte dans le journal courant (voir ci-dessus)" >> "$LOG_FILE"
 fi
 
+# ORACLE DE JUSTESSE DE LA COLLECTE (E11, ajouté le 28/09/2026, ALPAGE).
+# Pourquoi : le gardien de collecte vérifie la FORME de ce qu'on collecte (largeur, doublons,
+# troncature, trous) — il ne dit RIEN sur la VALEUR. Or « un prix écrit par le moteur est cohérent
+# avec le moteur » ne prouve pas qu'il est JUSTE : si la source se trompe, on se trompe avec elle
+# (classe E11, nommée par la FAMILLE le 23/09 — « mon invariant valide la formule DU MOTEUR »).
+# Cet oracle confronte des valeurs DÉJÀ COLLECTÉES (ts_prix_utc + price du journal vivant) à la
+# bougie 1 min d'une place INDÉPENDANTE (Binance = justesse) et de la même place (MEXC = cohérence,
+# étiquetée comme telle). Il distingue une VALEUR FAUSSE d'un RETARD D'HORODATAGE (le prix exact
+# existe dans une minute voisine) et ne compte JAMAIS un « non vérifiable » comme conforme.
+# rc=0 conforme · rc=1 au moins un écart anormal (à instruire).
+if [ -f "$REPO_DIR/hulk-mexc/scripts/oracle_justesse_collecte.py" ]; then
+  python3 "$REPO_DIR/hulk-mexc/scripts/oracle_justesse_collecte.py" \
+    >> "$LOG_FILE" 2>&1 || \
+    echo "[$(date -u +%Y-%m-%dT%H:%MZ)] ALERTE : justesse des valeurs collectées — écart anormal (E11, voir ci-dessus)" >> "$LOG_FILE"
+fi
+
 # GARDIEN DU DÉLAI DE LECTURE (classes E19a/E19b, ajouté le 23/09/2026)
 # Pourquoi : la FAMILLE (jury permanent, tours 1 et 2) a classé « la latence de lecture du prix »
 # défaut n°1 (barre < 1 s, mesure 1,057 s). En préparant la remédiation j'ai trouvé deux fautes

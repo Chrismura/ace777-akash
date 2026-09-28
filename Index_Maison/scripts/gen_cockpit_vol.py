@@ -459,6 +459,73 @@ def gardiens():
         g.append({"nom": "Collecte paper (ALPAGE)", "ok": False,
                   "detail": "état absent (git_push_auto.sh ne l'a jamais produit)"})
 
+    # CRI DU MOTEUR (28/09/2026, ALPAGE) — fichier `hulk-mexc/runs/HULK_ALERTE_COLLECTE.json`
+    # écrit PAR LE MOTEUR lui-même (paper_diprip.py, `_auto_cri_collecte`).
+    # POURQUOI : le gardien de collecte a mesuré 13 trous (53,8 h) où le watchdog voyait le
+    # moteur VIVANT pendant que le journal n'écrivait AUCUNE ligne (dont ~10 h le 25/08).
+    # De l'extérieur, « rien à écrire » (normal, refus dédoublonnés — 234 des 259 trous) et
+    # « je n'arrive plus à lire le marché » (vraie panne) sont INDISTINGUABLES. Seul le
+    # moteur les distingue : il crie quand il n'a plus AUCUN prix frais, et le fichier
+    # S'AUTO-EFFACE au retour des prix. Donc ici, l'ABSENCE est la bonne nouvelle :
+    # un fichier présent = la collecte est interrompue maintenant.
+    hc_path = BASE / "hulk-mexc" / "runs" / "HULK_ALERTE_COLLECTE.json"
+    hc = jload(hc_path)
+    if hc and hc.get("en_panne"):
+        hc_age = age_min(hc_path)
+        fige = (hc_age is not None and hc_age > 15)
+        detail = ("LE MOTEUR TOURNE MAIS NE LIT PLUS LE MARCHÉ — prix le plus frais : %s s "
+                  "(seuil %s s) · %s cycle(s) sans ligne écrite · depuis %s"
+                  % (hc.get("age_prix_s"), hc.get("seuil_prix_s"),
+                     hc.get("cycles_sans_ligne"), hc.get("depuis_utc")))
+        if fige:
+            detail += " — CRI FIGÉ (>15 min : le moteur a crié puis s'est arrêté)"
+        else:
+            detail += " · cri frais il y a %s" % fmt_age(hc_age)
+        g.append({"nom": "Cri du moteur (collecte)", "ok": False, "detail": detail})
+    else:
+        g.append({"nom": "Cri du moteur (collecte)", "ok": True,
+                  "detail": "aucun cri — le moteur lit le marché (le fichier de cri "
+                  "s'auto-efface au retour des prix)"})
+
+    # JUSTESSE DES VALEURS COLLECTÉES (E11, 28/09/2026, ALPAGE) — état écrit par
+    # hulk-mexc/scripts/oracle_justesse_collecte.py, appelé par git_push_auto.sh (3 h).
+    # POURQUOI CETTE LIGNE EXISTE : le gardien de collecte vérifie la FORME (largeur, doublons,
+    # troncature, trous). Il ne dit RIEN sur la VALEUR. « Un prix cohérent avec le moteur » ne prouve
+    # pas qu'il est JUSTE : si la source se trompe, on se trompe avec elle (classe E11, nommée par la
+    # FAMILLE le 23/09). La page dit donc ce que l'oracle a RÉELLEMENT vérifié : combien de valeurs
+    # confrontées à une place INDÉPENDANTE (Binance), l'écart médian en bps, combien d'écarts
+    # anormaux, combien de retards d'horodatage, et combien de valeurs NON VÉRIFIABLES — un « non
+    # vérifiable » n'est jamais compté comme conforme (on ne suppose pas).
+    ju_path = IM / "thermo" / "justesse_collecte.json"
+    ju = jload(ju_path)
+    ju_age = age_min(ju_path)
+    if ju:
+        fiable_ju = bool(ju.get("autotest_fiable"))
+        ok_ju = bool(ju.get("conforme")) and fiable_ju
+        detail = ("%s valeur(s) collectée(s) confrontée(s) à Binance (place INDÉPENDANTE)"
+                  % ju.get("n_echantillon"))
+        if ju.get("ecart_median_bps") is not None:
+            detail += " · écart médian %s bps (barre %s)" % (ju.get("ecart_median_bps"),
+                                                             ju.get("barre_bps"))
+        detail += " · %s conforme(s)" % ju.get("conforme_n")
+        if int(ju.get("ecart_anormal") or 0):
+            detail += " · %s ÉCART(S) ANORMAL(AUX)" % ju.get("ecart_anormal")
+        if int(ju.get("hors_minute") or 0):
+            detail += " · %s retard(s) d'horodatage" % ju.get("hors_minute")
+        if int(ju.get("non_verifiable") or 0):
+            detail += (" · %s NON VÉRIFIABLE(S) (petites capitalisations absentes des places "
+                       "riches — déclaré, jamais compté conforme)" % ju.get("non_verifiable"))
+        if not fiable_ju:
+            detail = "AUTOTEST NON FIABLE — l'oracle ne sait pas échouer"
+        if ju_age is not None and ju_age > 480:
+            detail += " — ÉTAT FIGÉ (>8 h, l'oracle n'est plus passé)"
+            ok_ju = False
+        detail += " · màj %s" % fmt_age(ju_age)
+        g.append({"nom": "Justesse des valeurs (E11)", "ok": ok_ju, "detail": detail})
+    else:
+        g.append({"nom": "Justesse des valeurs (E11)", "ok": False,
+                  "detail": "état absent (git_push_auto.sh ne l'a jamais produit)"})
+
     # FENÊTRE FAMILLE (R19, 23/09, ordre de Christophe) — état écrit par
     # Index_Maison/scripts/verif_session_famille.py, appelé par git_push_auto.sh (3 h).
     # POURQUOI CETTE LIGNE EXISTE : Christophe a ouvert un jury permanent et exigé que la fenêtre
