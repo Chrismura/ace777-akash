@@ -1,48 +1,6 @@
 {
   "signals": [
     {
-      "metric": "taker_ratio",
-      "zscore": 2.2799124511850453,
-      "value": 1.874,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio à 1.874 (z-score 2.28) indique une domination agressive des acheteurs (Taker Buys) significative, révélant une accumulation agressive des baleines. Face à l'absence totale de couverture médiatique (Google Actualités vide), le narratif public est totalement déconnecté, ce qui caractérise un mouvement de accumulation furtif classique avant une cassure haussière.\"\n}\n```",
-      "ts": "2026-09-27T08:11:25.168551+00:00"
-    },
-    {
-      "metric": "taker_ratio",
-      "zscore": 2.215854606885248,
-      "value": 1.874,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Taker ratio élevé (1.874, z-score 2.22) indique une forte agression acheteuse cachée, totalement ignorée par l'absence de couverture médiatique (silence radio). Accumulation furtive des baleines avant un mouvement de prix.\"\n}\n```",
-      "ts": "2026-09-27T08:41:41.604054+00:00"
-    },
-    {
-      "metric": "cpfp",
-      "zscore": 3.3670370735715522,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Le pic de l'indicateur CPFP (Child-Pays-For-Parent) reflète simplement une congestion technique du réseau Bitcoin et des tutoriels pour débloquer des transactions, totalement déconnecté des bruits médiatiques locaux hors sujet. Aucune accumulation ou mouvement significatif de baleines détecté.\"\n}\n```",
-      "ts": "2026-09-27T11:12:06.660527+00:00"
-    },
-    {
-      "metric": "dust",
-      "zscore": 3.3670370735715522,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie onchain ('Dust') totalement polluée par le bruit médiatique (homonymie avec un jeu vidéo et une levée de fonds IA homonyme). Aucune baleine crypto significative détectée derrière ce signal.\"\n}\n```",
-      "ts": "2026-09-27T11:12:08.462726+00:00"
-    },
-    {
-      "metric": "cpfp",
-      "zscore": 2.676106942041628,
-      "value": 45.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Fausse alerte onchain : l'anomalie du 'CPFP' dans les données est un bruit sémantique capté par les flux RSS (terme technique Bitcoin vs actualités locales et administratives sans lien avec l'activité des baleines crypto).\"\n}\n```",
-      "ts": "2026-09-27T11:52:47.694822+00:00"
-    },
-    {
-      "metric": "dust",
-      "zscore": 2.676106942041628,
-      "value": 45.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique parasité par de l'homonymie (musique, jeux vidéo, startup IA 'Dust'). Aucune corrélation avec une accumulation ou distribution de baleines crypto sur le token DUST.\"\n}\n```",
-      "ts": "2026-09-27T11:52:49.799327+00:00"
-    },
-    {
       "metric": "price_1h",
       "zscore": 3.70920609542828,
       "value": 0.3014839292297067,
@@ -349,6 +307,48 @@
       "value": 74,
       "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Euphorie extrême (Fear & Greed à 74, z-score 9.75) couplée à un vide médiatique total (Google Actualités silencieux). Divergence classique de fin de cycle : les baleines distribuent dans le silence aux derniers acheteurs de détail pendant que les médias dorment.\"\n}\n```",
       "ts": "2026-09-28T00:04:54.645430+00:00"
+    },
+    {
+      "metric": "price_1h",
+      "zscore": 3.1783625532568487,
+      "value": 0.44941513762961627,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (3.18) sur le prix à court terme sans aucune couverture ni mention médiatique (Google Actualités vide). C'est la signature classique d'accumulation furtive par des baleines sous le radar du retail.\"\n}\n```",
+      "ts": "2026-09-28T00:25:00.063174+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 6.855654600401052,
+      "value": 74,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrême (6.86) et Fear & Greed à 74 signalent une euphorie de foule insoutenable. L'absence de narratif médiatique majeur suggère une bulle isolée ou une manipulation de marché silencieuse par les baleines, prêtes à distribuer leurs liquidités aux acheteurs tardifs.\"\n}\n```",
+      "ts": "2026-09-28T00:35:02.822932+00:00"
+    },
+    {
+      "metric": "cpfp",
+      "zscore": 2.000676426897919,
+      "value": 45.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique purement onchain liée aux frais de transaction (Child-Pays-For-Parent). Le bruit médiatique concerne des homonymes (politique, éducation, actualité locale). Aucune accumulation cachée ni mouvement de baleine détecté.\"\n}\n```",
+      "ts": "2026-09-28T00:40:04.927806+00:00"
+    },
+    {
+      "metric": "dust",
+      "zscore": 2.000676426897919,
+      "value": 45.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit médiatique parasité par des homonymes (musique, jeux vidéo, start-up IA traditionnelles). Aucune baleine crypto active sur ce ticker, anomalie onchain non significative.\"\n}\n```",
+      "ts": "2026-09-28T00:40:06.335863+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 2.8411028432130907,
+      "value": 3673222.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Activité anormale des baleines (z-score 2.84) combinée à un silence médiatique absolu (Google Actualités vide). Accumulation furtive en cours sans bruit de fond retail.\"\n}\n```",
+      "ts": "2026-09-28T00:45:08.021027+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 4.795831523312714,
+      "value": 74,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Euphorie extrême (Fear & Greed à 74 avec un z-score élevé de 4.80) combinée à un vide médiatique total ('Google Actualités' sans relais haussier fort). Divergence classique de sommet : les baleines distribuent dans le silence pendant que le marché retail surchauffe.\"\n}\n```",
+      "ts": "2026-09-28T01:05:11.491555+00:00"
     }
   ]
 }

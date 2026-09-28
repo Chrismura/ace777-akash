@@ -1,15 +1,50 @@
 {
-  "timestamp": 1790554275,
-  "date": "2026-09-28T00:11:15.488298+00:00",
-  "n_analyses": 1,
+  "timestamp": 1790557876,
+  "date": "2026-09-28T01:11:16.593271+00:00",
+  "n_analyses": 2,
   "analyses": [
     {
       "signal": {
+        "metric": "whale_usd",
+        "zscore": 2.8411028432130907,
+        "value": 3673222.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Activité anormale des baleines (z-score 2.84) combinée à un silence médiatique absolu (Google Actualités vide). Accumulation furtive en cours sans bruit de fond retail.\"\n}\n```",
+        "ts": 1790556308.021027
+      },
+      "fiche": "whale_usd",
+      "questions": {
+        "ventes": {
+          "value": 0.0,
+          "seuil": 0,
+          "depasse": false
+        },
+        "achats": {
+          "value": 808360.0,
+          "seuil": 0,
+          "depasse": true
+        },
+        "prix": {
+          "value": -0.24,
+          "seuil": 1,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "achats > ventes",
+        "lecture": "Flux baleines ACHETEUR dominant — accumulation possible, à confirmer sur plusieurs scans",
+        "niveau": "info",
+        "action": "Observer, ne pas acheter sur un seul signal"
+      },
+      "action": "Observer, ne pas acheter sur un seul signal",
+      "niveau": "info"
+    },
+    {
+      "signal": {
         "metric": "fear_greed",
-        "zscore": 9.74679434480887,
+        "zscore": 4.795831523312714,
         "value": 74,
-        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Euphorie extrême (Fear & Greed à 74, z-score 9.75) couplée à un vide médiatique total (Google Actualités silencieux). Divergence classique de fin de cycle : les baleines distribuent dans le silence aux derniers acheteurs de détail pendant que les médias dorment.\"\n}\n```",
-        "ts": 1790553894.64543
+        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Euphorie extrême (Fear & Greed à 74 avec un z-score élevé de 4.80) combinée à un vide médiatique total ('Google Actualités' sans relais haussier fort). Divergence classique de sommet : les baleines distribuent dans le silence pendant que le marché retail surchauffe.\"\n}\n```",
+        "ts": 1790557511.491555
       },
       "fiche": "fear_greed",
       "questions": {
