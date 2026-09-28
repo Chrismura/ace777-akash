@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<!-- COLLECTE ANTI-VEILLE (28/09/2026, ALPAGE — « le plus important c'est la COLLECTE »).
+	     POURQUOI : le gardien de collecte a déclaré 259 trous (276 h) ; croisé au journal du
+	     watchdog (source machine), 51,6 h sont des trous où MACOS NE TOURNAIT PAS (aucun passage
+	     du watchdog) — dont LA plus grosse panne confirmée par le journal OS : 24/09 02:19
+	     « Entering Sleep state due to 'Low Power Sleep' ... Using Batt (Charge:1%) 54742 secs »,
+	     réveil 24/09 17:31 → 15,2 h de collecte perdue (le trou de 54 779 s).
+	     CE QUE FAIT CET AGENT : `caffeinate -s` empêche la mise en veille du SYSTÈME **sur secteur
+	     uniquement**. Sur batterie, macOS garde sa sécurité (veille/veille prolongée à batterie
+	     critique) — c'est VOULU : empêcher la veille sur batterie ferait tomber la machine à 0 %
+	     en coupure franche (bien pire pour les fichiers qu'une veille propre).
+	     LIMITES DÉCLARÉES : ne couvre NI la batterie critique, NI le capot fermé, NI l'extinction.
+	     Ces cas-là ne se préviennent pas — ils se DÉCLARENT (gardien_collecte.py → thermo/collecte.json).
+	     RÉVERSIBLE : launchctl bootout gui/$(id -u)/com.ace777.collecte-anti-veille && rm ~/Library/LaunchAgents/com.ace777.collecte-anti-veille.plist -->
+	<key>Label</key>
+	<string>com.ace777.collecte-anti-veille</string>
+	<key>ProgramArguments</key>
+	<array>
+		<string>/usr/bin/caffeinate</string>
+		<string>-s</string>
+	</array>
+	<key>RunAtLoad</key>
+	<true/>
+	<key>KeepAlive</key>
+	<true/>
+	<key>StandardErrorPath</key>
+	<string>/tmp/collecte_anti_veille_launchd.err.log</string>
+	<key>StandardOutPath</key>
+	<string>/tmp/collecte_anti_veille_launchd.out.log</string>
+</dict>
+</plist>

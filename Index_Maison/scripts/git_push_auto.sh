@@ -138,6 +138,25 @@ if [ -f "$REPO_DIR/hulk-mexc/scripts/verif_schema_journal.py" ]; then
     echo "[$(date -u +%Y-%m-%dT%H:%MZ)] ALERTE : schéma du journal NON conforme — classe E15 (voir ci-dessus)" >> "$LOG_FILE"
 fi
 
+# GARDIEN DES TROUS DE COLLECTE (ajouté le 28/09/2026, ALPAGE — « le plus important c'est la
+# COLLECTE des données »). Pourquoi : le 27/09, à la source, 95 % du corpus paper (76 162 lignes)
+# avait été collecté SANS les 5 colonnes de provenance, et 263 lignes étaient des doublons —
+# PERSONNE ne l'avait vu, parce que rien ne le mesurait. Le gardien de schéma (E15) ne regarde que
+# la largeur de l'en-tête. Celui-ci mesure, sur chaque journal : la dérive de schéma, la distribution
+# des largeurs, les DOUBLONS stricts, une ligne TRONQUÉE (fichier sans saut de ligne final = écriture
+# coupée en plein vol par une coupure franche : batterie/hibernation, cause mesurée du 24/09) et les
+# TROUS (silence > seuil DÉRIVÉ du journal : max(10 min ; 3 × p99 des écarts)). Un trou n'est PAS une
+# faute — il est DÉCLARÉ (runs/TROUS_DECLARES.json) pour qu'aucune donnée manquante ne soit
+# silencieuse : on n'invente JAMAIS une donnée. La RÉPARATION (pad + dédup + quarantaine) n'a lieu
+# qu'au seul instant sûr — moteur mort : c'est le WATCHDOG qui l'appelle avant sa relance
+# (`--reparer --auto`, bornée 20 s, fail-open). rc=0 conforme (les trous ne bloquent pas) ·
+# rc=1 défaut réparable dans le journal COURANT.
+if [ -f "$REPO_DIR/hulk-mexc/scripts/gardien_collecte.py" ]; then
+  python3 "$REPO_DIR/hulk-mexc/scripts/gardien_collecte.py" \
+    --json "$REPO_DIR/hulk-mexc/runs/GARDIEN_COLLECTE.json" >> "$LOG_FILE" 2>&1 || \
+    echo "[$(date -u +%Y-%m-%dT%H:%MZ)] ALERTE : défaut de collecte dans le journal courant (voir ci-dessus)" >> "$LOG_FILE"
+fi
+
 # GARDIEN DU DÉLAI DE LECTURE (classes E19a/E19b, ajouté le 23/09/2026)
 # Pourquoi : la FAMILLE (jury permanent, tours 1 et 2) a classé « la latence de lecture du prix »
 # défaut n°1 (barre < 1 s, mesure 1,057 s). En préparant la remédiation j'ai trouvé deux fautes

@@ -22,6 +22,7 @@ Garde-fous (hérités d'eval_offres, protocole zéro faute) :
 """
 import json
 import os
+import shutil
 import sys
 import time
 import urllib.request
@@ -64,6 +65,33 @@ def save_atomic(path, data):
     with open(tmp, 'w', encoding='utf-8') as f:
         json.dump(data, f, indent=1, ensure_ascii=False)
     os.replace(tmp, path)
+
+
+# Backup du JOUR, chemin déterministe (le rapport de roulement le cite).
+BAK = os.path.join(PRISE, 'providers.json.bak-roulement-%s' % date.today().isoformat())
+_BACKUP_FAIT = False
+
+
+def sauver_providers(cfg):
+    """Écrit providers.json en ATOMIQUE **et avec backup de l'ORIGINAL** avant la 1re écriture.
+
+    DÉFAUT CORRIGÉ le 28/09/2026 : l'en-tête de ce script PROMET « backup AVANT toute
+    modification (providers.json.bak-<date>) », mais SEULE la branche « remplacement réussi »
+    sauvegardait. Les trois autres branches d'écriture — « aucun mort durable », « pas d'offre
+    testée_pour_le_rôle », « aucun candidat ne répond » — réécrivaient providers.json SANS
+    filet, alors qu'elles le MODIFIENT bel et bien (last_ok_ts, last_err, enabled, status).
+    providers.json est un fichier de VÉRITÉ (les providers réellement routés par le hub) :
+    il ne se réécrit pas sans backup. On sauvegarde la version SUR DISQUE (l'original, pas la
+    version déjà mutée en mémoire) une seule fois par run.
+    """
+    global _BACKUP_FAIT
+    if not _BACKUP_FAIT and os.path.exists(PROVIDERS) and not os.path.exists(BAK):
+        try:
+            shutil.copy2(PROVIDERS, BAK)
+        except Exception as e:                       # noqa: BLE001
+            print('[AVERTISSEMENT] backup impossible (%s) — écriture atomique quand même' % e)
+    _BACKUP_FAIT = True
+    save_atomic(PROVIDERS, cfg)
 
 
 def call_chat(base_url, model, api_key, timeout=25):
@@ -180,7 +208,7 @@ def main():
     # 3) ÉJECTION + REMPLACEMENT (1 max par run)
     if not morts:
         log_ligne('Aucun mort durable -> rien à remplacer (roulement terminé).')
-        save_atomic(PROVIDERS, cfg)
+        sauver_providers(cfg)
         return
 
     mort = morts[0]
@@ -191,7 +219,7 @@ def main():
         # On désactive (le hub ne route plus vers un mort) mais on ne supprime pas
         mort['enabled'] = False
         mort['status'] = 'mort-desactive'
-        save_atomic(PROVIDERS, cfg)
+        sauver_providers(cfg)
         return
 
     # Tester les offres candidates (gratuites, déjà teste_ok) jusqu'à la 1ère qui répond
@@ -211,13 +239,8 @@ def main():
         log_ligne('Aucun candidat ne répond -> mort désactivé, remplacement différé.')
         mort['enabled'] = False
         mort['status'] = 'mort-desactive'
-        save_atomic(PROVIDERS, cfg)
+        sauver_providers(cfg)
         return
-
-    # Backup avant modification (protocole zéro faute)
-    bak = os.path.join(PRISE, 'providers.json.bak-roulement-%s' % date.today().isoformat())
-    if not os.path.exists(bak):
-        save_atomic(bak, cfg)
 
     new_id = re_sub_id(remplacement.get('model', ''))
     if any(p.get('id') == new_id for p in providers):
@@ -249,7 +272,7 @@ def main():
     # Désactiver le mort (on ne le supprime PAS — loi maison : rien ne se supprime)
     mort['enabled'] = False
     mort['status'] = 'mort-remplace-par-%s' % new_id
-    save_atomic(PROVIDERS, cfg)
+    sauver_providers(cfg)
 
     log_ligne('🔁 REMPLACEMENT : %s -> %s (%s)'
               % (mort.get('id'), new_id, remplacement.get('model')))
@@ -258,7 +281,7 @@ def main():
     with open(LOG, 'a', encoding='utf-8') as f:
         f.write('\n## ROULEMENT %s\n- %s remplacé par %s (mort >2j, test réel OK)\n'
                 '- Backup: %s\n' % (date.today().isoformat(), mort.get('id'),
-                                    remplacement.get('model'), os.path.basename(bak)))
+                                    remplacement.get('model'), os.path.basename(BAK)))
     with open(JOURNAL, 'a', encoding='utf-8') as f:
         f.write('\n## %s - ROULEMENT IA : %s -> %s (mort >2j)\n'
                 % (date.today().isoformat(), mort.get('id'), remplacement.get('model')))

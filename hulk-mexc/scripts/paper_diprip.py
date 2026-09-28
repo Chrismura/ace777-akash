@@ -1750,8 +1750,21 @@ class PaperBot:
         if len(_row) != len(CSV_SCHEMA):
             say("err", f"[csv] SCHEMA_ECART ligne={len(_row)} schema={len(CSV_SCHEMA)} — "
                        f"ligne écrite quand même, à corriger (E15)")
-        with self.csv_path.open("a", newline="") as f:
-            csv.writer(f).writerow(_row)
+        # DURABILITÉ DE LA COLLECTE (28/09/2026, mode ALPAGE) : le `with` ferme le fichier,
+        # donc vide le tampon PYTHON — mais la ligne reste dans le tampon de l'OS. Une
+        # coupure FRANCHE (batterie à 1 % → hibernation : la cause MESURÉE des coupures
+        # alpage du 24/09) perdrait les dernières lignes écrites. `fsync` force l'écriture
+        # sur le DISQUE avant que la boucle ne continue : la ligne est garantie avant le
+        # pas suivant. Coût : quelques ms par ligne, négligeable devant un poll de 20 s.
+        # try/except : un journal qui ne peut pas s'écrire ne doit PAS tuer la collecte —
+        # on CRIE (err) et on continue, plutôt que de mourir en silence.
+        try:
+            with self.csv_path.open("a", newline="") as f:
+                csv.writer(f).writerow(_row)
+                f.flush()
+                os.fsync(f.fileno())
+        except Exception as e:                       # noqa: BLE001
+            say("err", f"[csv] JOURNAL_WRITE_ERR (fsync) ligne perdue : {e}")
 
     def save_state(self):
         # Écriture ATOMIQUE (24/08, codeur) : .tmp puis os.replace — jamais d'état

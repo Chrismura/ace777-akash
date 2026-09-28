@@ -516,7 +516,16 @@
       "mode": "produit",
       "chemin_pouls_ou_produit": "hulk-mexc/runs/CONTROLE_CONFIG.json",
       "commentaire": "controle_config.py (StartInterval 3600) · PROUVE la config HULK : doublon de clé (la dernière écrase en silence — bug réel du 21/09 sur STOP_COOLDOWN_HOURS), valeur vide lue sans défaut, flag illisible. Le produit n'est écrit QUE si la config est prouvée conforme → si ce fichier vieillit, la config n'est plus prouvée (et non « le script a planté ») : c'est voulu. Les paramètres que personne ne lit sont listés en avertissement dans le rapport d'alerte, jamais criés (une alarme qui sonne pour un état normal tue la confiance dans l'alarme)."
+    },
+    {
+      "organe": "collecte-paper",
+      "criticite": "CRITIQUE",
+      "tolerance_mult": 2.0,
+      "frequence_attendue_sec": 10800,
+      "mode": "produit",
+      "chemin_pouls_ou_produit": "Index_Maison/thermo/collecte.json",
+      "commentaire": "gardien_collecte.py (ALPAGE 28/09) : verdict de COLLECTE du journal paper — trous DÉCLARÉS (jamais inventés : on n'invente aucune donnée), dérive de schéma, doublons stricts, ligne tronquée par une coupure franche. Produit écrit par git_push_auto.sh (3 h — un contrôle que personne n'appelle n'existe pas, R15) ET par le watchdog AVANT chaque relance (`--reparer --auto`, borné 20 s, fail-open). CRITIQUE : la collecte est LA priorité ALPAGE (« c'est toujours là qu'il y a des problèmes »). Fréquence 3 h, tolerance ×2 → le chien crie au-delà de 6 h sans verdict."
     }
   ],
-  "updated": "2026-09-20 (boucle d'alerte : gitpush-vault pouls honnête + réinstallation geopol/croisements-indices)"
+  "updated": "2026-09-28 (ALPAGE : + organe surveillé collecte-paper — verdict du gardien de collecte, thermo/collecte.json)"
 }

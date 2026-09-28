@@ -5584,3 +5584,24 @@ Pas d’ordre — confrontation plus tard.
 ### 2026-09-28T08:37:49Z — ALERT auto
 - HBARUSDT: IMPULSE_WAIT — spike en cours, pas chase
 (compléter: confirmé ? risque ?)
+
+### 2026-09-28T08:43:55Z — ALERT auto
+- WUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
+
+### 2026-09-28T08:47:33Z — ALERT auto
+- KITEUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
+
+### 2026-09-28T08:53:28Z — ALERT auto
+- CCUSDT: WATCH_PULLBACK — tension haute + reflux
+- FLUIDUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
+
+### 2026-09-28T08:58:20Z — ALERT auto
+- HBARUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
+
+### 2026-09-28T09:16:15Z — ALERT auto
+- TELUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)

@@ -36,6 +36,27 @@ if [ "$paper_ok" = false ]; then
     log "PAPER: mort + STOP_PAPER présent — pas de relance (stop volontaire)"
   else
     log "PAPER: MORT — relance (--resume pour tenir les positions)"
+    # AUTO-RÉPARATION DE LA COLLECTE (28/09/2026, ALPAGE). Le moteur est MORT : c'est le
+    # SEUL instant où le journal peut être réécrit sans perdre une écriture en vol (sinon
+    # le CSV est ouvert en append, et un os.replace pendant un run perdrait les lignes du
+    # moteur). Le gardien pad les lignes à l'ancien schéma, dédoublonne, met en quarantaine
+    # une ligne tronquée par une coupure franche (batterie/hibernation) et DÉCLARE les trous
+    # — atomiquement (backup + os.replace + RE-VÉRIF) ; il REFUSE de réécrire s'il voit une
+    # ligne plus large que l'en-tête (R11 : on ne tronque pas une donnée en silence).
+    # BORNÉ à 20 s et FAIL-OPEN : si le gardien traîne ou échoue, la relance a lieu QUAND
+    # MÊME — on ne retarde JAMAIS le moteur pour un contrôle.
+    if [ -f scripts/gardien_collecte.py ]; then
+      python3 scripts/gardien_collecte.py --reparer --auto >>runs/COLLECTE_REPARATION.log 2>&1 &
+      gpid=$!
+      for _ in $(seq 1 20); do
+        kill -0 "$gpid" 2>/dev/null || break
+        sleep 1
+      done
+      if kill -0 "$gpid" 2>/dev/null; then
+        kill "$gpid" 2>/dev/null
+        log "PAPER: gardien collecte > 20 s — interrompu (la relance n'attend pas)"
+      fi
+    fi
     nohup python3 scripts/paper_diprip.py --resume >>runs/PAPER_WATCHDOG_STDOUT.log 2>&1 &
     sleep 2
     new_pid=$(cat "$LOCK_FILE" 2>/dev/null | tr -d '[:space:]')

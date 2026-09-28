@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "cpfp",
-      "zscore": 3.0370375811207215,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Fausse alerte liée au bruit sémantique. Le pic de CPFP on-chain (terme Bitcoin) coïncide avec des actualités sans rapport (centre de formation politique au Congo, finances publiques en Guinée et articles divers). Aucune accumulation anormale de baleines détectée.\"\n}\n```",
-      "ts": "2026-09-27T19:23:13.968383+00:00"
-    },
-    {
       "metric": "dust",
       "zscore": 3.0370375811207215,
       "value": 50.0,
@@ -349,6 +342,13 @@
       "value": 0.012,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie SDI non pertinente pour la crypto : confusion sémantique entre les données on-chain et le 'SDI Group' (entreprise industrielle traditionnelle) ainsi que le syndicat patronal 'SDI' mentionné dans les actualités.\"\n}\n```",
       "ts": "2026-09-28T08:33:56.726788+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 3.0443104452332888,
+      "value": 0.016,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Anomalie non pertinente : le 'SDI' mentionné dans les actualités (SDI Group, Syndicat des Indépendants) concerne la finance traditionnelle ou des syndicats, et non un protocole crypto ou un token suivi par le système de détection.\"\n}\n```",
+      "ts": "2026-09-28T09:09:02.413935+00:00"
     }
   ]
 }

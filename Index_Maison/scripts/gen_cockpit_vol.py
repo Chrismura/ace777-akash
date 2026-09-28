@@ -409,6 +409,45 @@ def gardiens():
         g.append({"nom": "Schéma du journal (E15)", "ok": False,
                   "detail": "état absent (git_push_auto.sh ne l'a jamais produit)"})
 
+    # COLLECTE PAPER — TROUS ET INTÉGRITÉ (ALPAGE, 28/09/2026, Buffy) — état écrit par
+    # hulk-mexc/scripts/gardien_collecte.py, appelé par git_push_auto.sh (3 h) ET par le
+    # watchdog AVANT chaque relance (`--reparer`, borné 20 s, fail-open).
+    # POURQUOI CETTE LIGNE EXISTE : en ALPAGE « le plus important c'est la COLLECTE des données ».
+    # Le 27/09, à la source, on a mesuré que 95 % du corpus paper (76 162 lignes) avait été
+    # collecté SANS ses 5 colonnes de provenance et que 263 lignes étaient des doublons —
+    # PERSONNE ne l'avait vu, parce que rien ne le mesurait. La page ne dit donc pas « tout va
+    # bien » : elle dit COMBIEN de trous sont DÉCLARÉS (un trou n'est PAS une faute — il est
+    # décidé pour qu'aucune donnée manquante ne soit silencieuse : on n'invente JAMAIS une
+    # donnée), le PIRE silence, s'il reste un défaut RÉPARABLE mesuré dans le journal COURANT,
+    # et si l'autotest du gardien est fiable. Un trou ne rend PAS la ligne rouge (R14 : une
+    # alarme toujours allumée tue la confiance dans l'alarme) — il est CHIFFRÉ et visible.
+    co_path = IM / "thermo" / "collecte.json"
+    co = jload(co_path)
+    co_age = age_min(co_path)
+    if co:
+        bloq = {k: v for k, v in (co.get("defauts_bloquants") or {}).items() if v}
+        fiable_co = bool(co.get("autotest_fiable"))
+        ok_co = bool(co.get("conforme")) and fiable_co
+        detail = ("journal vivant %s · %s lignes"
+                  % (str(co.get("journal_actif", "?")), co.get("lignes", "?")))
+        trous = int(co.get("trous_n") or 0)
+        detail += " · %d trou(s) DÉCLARÉ(S) (%s h au total)" % (trous, co.get("trous_total_h"))
+        if trous:
+            detail += " · pire silence %s s" % co.get("dt_max_s")
+        if bloq:
+            detail += " · DÉFAUT RÉPARABLE : " + ", ".join(
+                "%s=%s" % (k, v) for k, v in sorted(bloq.items()))
+        if not fiable_co:
+            detail = "AUTOTEST NON FIABLE — le gardien ne garde rien"
+        if co_age is not None and co_age > 480:      # 8 h = deux passages manqués
+            detail += " — ÉTAT FIGÉ (>8 h, le contrôle n'est plus passé)"
+            ok_co = False
+        detail += " · màj %s" % fmt_age(co_age)
+        g.append({"nom": "Collecte paper (ALPAGE)", "ok": ok_co, "detail": detail})
+    else:
+        g.append({"nom": "Collecte paper (ALPAGE)", "ok": False,
+                  "detail": "état absent (git_push_auto.sh ne l'a jamais produit)"})
+
     # FENÊTRE FAMILLE (R19, 23/09, ordre de Christophe) — état écrit par
     # Index_Maison/scripts/verif_session_famille.py, appelé par git_push_auto.sh (3 h).
     # POURQUOI CETTE LIGNE EXISTE : Christophe a ouvert un jury permanent et exigé que la fenêtre
