@@ -1,27 +1,6 @@
 {
   "signals": [
     {
-      "metric": "fear_greed",
-      "zscore": 6.855654600401052,
-      "value": 74,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrême (6.86) et Fear & Greed à 74 signalent une euphorie de foule insoutenable. L'absence de narratif médiatique majeur suggère une bulle isolée ou une manipulation de marché silencieuse par les baleines, prêtes à distribuer leurs liquidités aux acheteurs tardifs.\"\n}\n```",
-      "ts": "2026-09-28T00:35:02.822932+00:00"
-    },
-    {
-      "metric": "cpfp",
-      "zscore": 2.000676426897919,
-      "value": 45.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique purement onchain liée aux frais de transaction (Child-Pays-For-Parent). Le bruit médiatique concerne des homonymes (politique, éducation, actualité locale). Aucune accumulation cachée ni mouvement de baleine détecté.\"\n}\n```",
-      "ts": "2026-09-28T00:40:04.927806+00:00"
-    },
-    {
-      "metric": "dust",
-      "zscore": 2.000676426897919,
-      "value": 45.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit médiatique parasité par des homonymes (musique, jeux vidéo, start-up IA traditionnelles). Aucune baleine crypto active sur ce ticker, anomalie onchain non significative.\"\n}\n```",
-      "ts": "2026-09-28T00:40:06.335863+00:00"
-    },
-    {
       "metric": "whale_usd",
       "zscore": 2.8411028432130907,
       "value": 3673222.0,
@@ -349,6 +328,27 @@
       "value": 1.06,
       "analysis": "{\n  \"signal\": \"bullish\",\n  \"confidence\": 70,\n  \"reason\": \"L'ipt montre un z‑score de 2.23, indiquant une activité on‑chain inhabituelle souvent associée à une accumulation discrète de baleines. Les titres médiatiques actuels sont totalement déconnectés de cette métrique (concours de physique, santé, égalité, agriculture), suggérant que le narratif public ne reflète pas le mouvement sous‑jacent du marché. Cette divergence pointe vers un potentiel mouvement haussier silencieux.\"\n}",
       "ts": "2026-09-28T16:02:02.815533+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 3.789310421633234,
+      "value": 5031029.0,
+      "analysis": "{\n  \"signal\": \"bullish\",\n  \"confidence\": 72,\n  \"reason\": \"Unusual on‑chain whale activity (USD 5.03M, z‑score 3.79) is not mirrored by any notable media coverage, suggesting a stealth accumulation move that the market has not yet priced in.\"\n}",
+      "ts": "2026-09-28T16:29:23.918010+00:00"
+    },
+    {
+      "metric": "price_1h",
+      "zscore": 3.1192383750075696,
+      "value": 0.6792361959655047,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 3.12) non reflétée dans les médias, suggérant une accumulation discrète par les baleines.\"\n}\n```",
+      "ts": "2026-09-28T16:34:45.821419+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 2.504396134799766,
+      "value": 0.016,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Erreur de ciblage sémantique : l'anomalie détecte un token obscur, mais les actualités font référence au 'SDI Group' (entreprise cotée en bourse) et au 'SDI' (Syndicat des Indépendants en France). Aucune corrélation avec une baleine crypto.\"\n}\n```",
+      "ts": "2026-09-28T17:21:40.248232+00:00"
     }
   ]
 }
