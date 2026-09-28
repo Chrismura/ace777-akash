@@ -5481,3 +5481,7 @@ Pas d’ordre — confrontation plus tard.
 ### 2026-09-28T01:06:21Z — ALERT auto
 - QNTUSDT: WATCH_PULLBACK — tension haute + reflux
 (compléter: confirmé ? risque ?)
+
+### 2026-09-28T02:08:00Z — ALERT auto
+- QNTUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
