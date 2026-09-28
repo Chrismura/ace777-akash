@@ -1,27 +1,6 @@
 {
   "signals": [
     {
-      "metric": "ipt",
-      "zscore": 2.516277775988456,
-      "value": 0.912,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Bruit de fond sans rapport avec la crypto. L'indice 'IPT' renvoie ici à des actualités institutionnelles et médicales (Institut Pasteur de Tunis, École Polytechnique, agriculture), et non à un actif numérique ou à un mouvement de baleines.\"\n}\n```",
-      "ts": "2026-09-27T16:32:19.823355+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": 2.4685346511823383,
-      "value": 0.012,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie SDI et articles de presse font référence à 'SDI Group' (entreprise traditionnelle/action cotée ou syndicat) et non à un actif crypto. Aucune donnée on-chain pertinente détectée pour une baleine crypto.\"\n}\n```",
-      "ts": "2026-09-27T17:12:28.612869+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.3404760667726556,
-      "value": 0.871,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique sans rapport avec la crypto (actualités académiques et médicales). L'anomalie on-chain 'ipt' est un faux signal ou un actif sans liquidité significative.\"\n}\n```",
-      "ts": "2026-09-27T17:12:30.625727+00:00"
-    },
-    {
       "metric": "cpfp",
       "zscore": 2.0775643733847104,
       "value": 35.0,
@@ -349,6 +328,27 @@
       "value": 8807744002.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique de volume isolée sur des données globales sans corrélation avec l'actif crypto. Les titres médiatiques font référence à des sujets sans rapport (tourisme, santé, agriculture). Bruit de fond, aucune activité de baleine détectée.\"\n}\n```",
       "ts": "2026-09-28T05:47:31.977803+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.1370413932958745,
+      "value": 9079171723.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie de volume on-chain non corrélée : les données textuelles proviennent exclusivement de la presse généraliste (tourisme, cosmétiques, immobilier, agriculture) sans aucun rapport avec l'écosystème crypto.\"\n}\n```",
+      "ts": "2026-09-28T06:22:36.919941+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.1248135560868566,
+      "value": 9172279409.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie de volume on-chain totalement décorrelée d'un bruit médiatique hors-sujet (tourisme, cosmétiques, immobilier, ananas). Aucun signal baleine valide détecté.\"\n}\n```",
+      "ts": "2026-09-28T06:52:47.320296+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 2.325875724981355,
+      "value": 0.012,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Erreur de ciblage sémantique. Les 'baleines crypto' et le 'silence on-chain' ne s'appliquent pas ici : les données font référence à SDI Group (finance traditionnelle / LSE:SDI) et au Syndicat des Indépendants (SDI, politique/actualité française), créant un bruit de fond non pertinent pour l'écosystème crypto.\"\n}\n```",
+      "ts": "2026-09-28T06:52:49.191768+00:00"
     }
   ]
 }

@@ -1,20 +1,20 @@
 {
-  "timestamp": 1790576183,
-  "date": "2026-09-28T06:16:23.424860+00:00",
-  "n_analyses": 1,
+  "timestamp": 1790579784,
+  "date": "2026-09-28T07:16:24.490172+00:00",
+  "n_analyses": 2,
   "analyses": [
     {
       "signal": {
         "metric": "volume",
-        "zscore": 2.020252222158311,
-        "value": 8807744002.0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique de volume isolée sur des données globales sans corrélation avec l'actif crypto. Les titres médiatiques font référence à des sujets sans rapport (tourisme, santé, agriculture). Bruit de fond, aucune activité de baleine détectée.\"\n}\n```",
-        "ts": 1790574451.977803
+        "zscore": 2.1248135560868566,
+        "value": 9172279409.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie de volume on-chain totalement décorrelée d'un bruit médiatique hors-sujet (tourisme, cosmétiques, immobilier, ananas). Aucun signal baleine valide détecté.\"\n}\n```",
+        "ts": 1790578367.320296
       },
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": null,
+          "value": -0.05,
           "seuil": 1,
           "depasse": false
         },
@@ -24,7 +24,7 @@
           "depasse": false
         },
         "funding": {
-          "value": -2.6e-05,
+          "value": -2.3e-05,
           "seuil": 0.001,
           "depasse": false
         },
@@ -41,6 +41,21 @@
       },
       "action": "Observer",
       "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "sdi",
+        "zscore": 2.325875724981355,
+        "value": 0.012,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Erreur de ciblage sémantique. Les 'baleines crypto' et le 'silence on-chain' ne s'appliquent pas ici : les données font référence à SDI Group (finance traditionnelle / LSE:SDI) et au Syndicat des Indépendants (SDI, politique/actualité française), créant un bruit de fond non pertinent pour l'écosystème crypto.\"\n}\n```",
+        "ts": 1790578369.191768
+      },
+      "fiche": null,
+      "interpretation": {
+        "lecture": "Pas de fiche disponible",
+        "niveau": "inconnu"
+      },
+      "action": "Observer"
     }
   ],
   "resume": "🔵 CALME — pas de signal alarmant"

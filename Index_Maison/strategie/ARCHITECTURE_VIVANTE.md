@@ -1,4 +1,4 @@
-# ARCHITECTURE VIVANTE — ACE777 (2026-09-28 05:49 UTC)
+# ARCHITECTURE VIVANTE — ACE777 (2026-09-28 07:14 UTC)
 
 > Document GÉNÉRÉ AUTOMATIQUEMENT à l'instant. La famille valide
 > en s'appuyant sur CE contexte, pas sur des documents figés.
@@ -9,7 +9,7 @@
 - ✅ radar
 - ⛔ lecteur signets
 - ⛔ générateur fiches
-- ✅ feed mission
+- ⛔ feed mission
 - ✅ serveur cockpit
 
 ## Routage des tâches de décision
@@ -22,11 +22,11 @@
 
 ## État de la mission (bots + PnL)
 
-- mission.json : 2026-09-28 05:49Z · run `MASTER_BASE_V8_6_FORTRESS_8H20` · alerte `nominal`
+- mission.json : 2026-09-28 07:13Z · run `MASTER_BASE_V8_6_FORTRESS_8H20` · alerte `nominal`
 - PnL combiné : **0.70 $** 📈 (combo 0.7028)
 - ALPHA (sniper (embuscade, ×13, revenge si claque)) : **-1.97 $** · 7 fills · 6973 skips
 - BETA (éclaireur (chatouille le marché, alimente Alpha)) : **+2.67 $** · 34 fills · 604 skips
-- HULK (gestionnaire de portefeuille (bag, escalier, courreur)) : **+47.14 $** · 0 fills
+- HULK (gestionnaire de portefeuille (bag, escalier, courreur)) : **+48.19 $** · 0 fills
 - Saison : CALME 🧊 · 
 
 ## Veille du jour
@@ -48,10 +48,10 @@
 ## Mémoire chaude (journal + résumés)
 
 - Radar (dernières alertes) :
-  · 2026-09-28T05:49:13.113146Z ETHUSDT 2650.76 0.0005 116.2 declenche=non
-  · 2026-09-28T05:49:13.177728Z BTCUSDT 83129.36 0.0005 18.6 declenche=non
-  · 2026-09-28T05:49:14.720824Z BTCUSDT 83129.37 0.0005 18.6 declenche=non
-  · 2026-09-28T05:49:14.756394Z BTCUSDT 83129.36 0.0005 18.6 declenche=non
+  · 2026-09-28T07:14:26.364526Z ETHUSDT 2647.42 0.0001 24.5 declenche=non
+  · 2026-09-28T07:14:26.396130Z ETHUSDT 2647.42 0.0001 24.5 declenche=non
+  · 2026-09-28T07:14:26.396448Z ETHUSDT 2647.42 0.0001 24.5 declenche=non
+  · 2026-09-28T07:14:26.481018Z ETHUSDT 2647.42 0.0001 24.5 declenche=non
 - Intention en cours : BETA a sonde le marche (34 sondes, 25 long / 9 court, conf m | ALPHA attend son signal — aucun tir sur la session en cours.
 - 964 signets X résumés (quota aujourd'hui : 0/50)
 - 143 fiches IA d'offres en cache (quota 8/jour)
