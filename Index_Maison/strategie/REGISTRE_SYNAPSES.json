@@ -1,6 +1,6 @@
 {
   "version": "1.5.0",
-  "updated": "2026-09-28T11:03:00Z",
+  "updated": "2026-09-29T08:34Z",
   "fichier": [
     {
       "nom": "Index_Maison/scripts/v2_duo_replay_4h.py",
@@ -720,8 +720,10 @@
       "origine": "Buffy (cahier des charges §6ter du dossier FAITS_RETABLIS_ACE_ET_SETUP_GAGNANT_V2_20260912.md)",
       "verif": "COMPILE OK (fix compat py3.9 Optional) · premier cycle réel 11:09Z : snapshot #1 (110 amendements, 13 watchlist, 5 déjà ACTIVÉS) · cycle launchd RunAtLoad OK · plist chargée · criticité MINEUR (49 organes) · registre organes 91 entrées",
       "auto_modifiable": false,
-      "md5": "ed4c5b37f6bfd2131964a3299cd8da0b",
-      "ts": "2026-09-13T11:11:10Z"
+      "md5": "397438eec2d7ef46610edddfce959f96",
+      "ts": "2026-09-13T11:11:10Z",
+      "date": "2026-09-28T10:58Z",
+      "_rescel_20260929": "ÉCART RÉPARÉ (re-scellement oublié le 28/09) : la réparation « stopper les bidouillages » a ajouté au fichier le try/except `RuntimeError` → code 3 DÉCLARÉ (source XRPL injoignable après 4 essais), sans toucher aux seuils ni aux ordres. Le md5 n'avait pas suivi le patch : écart mesuré ce jour, aligné ici. Aucun autre changement."
     },
     {
       "nom": "Index_Maison/scripts/juste_prix_btc.py",
@@ -747,8 +749,10 @@
       "origine": "chantier contrat-cortana",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "146bcdafe37a715f89e929c3e026cd2c",
-      "note": "13/09: retry backoff x3 (GO C.) ajouté — les 502 passagers du hub ne tuent plus le contrat du jour."
+      "md5": "0a9df982bda184a920fabadcd53b822f",
+      "note": "13/09: retry backoff x3 (GO C.) ajouté — les 502 passagers du hub ne tuent plus le contrat du jour.",
+      "date": "2026-09-29T08:34Z",
+      "_rescel_20260929": "RÉPARÉ 29/09/2026 (même classe que les 4 organes du 28/09) : `appeler_hub` fait 3 essais puis `raise last`, personne ne l'attrapait → un 502 PASSAGER du hub faisait sortir l'organe sur un TRACEBACK (code 1 NON déclaré, mesuré 07:45Z) et le contrat `cortana_pilot.json` n'était pas réécrit (chaîne santé « contrat Cortana figé » en ALERTE). Ajout d'un try/except autour de `sys.exit(main())` → code 3 DÉCLARÉ (hub injoignable). PORTÉE : 1 constante + 1 bloc de sortie ; aucun seuil, aucune borne du contrat, aucune proposition modifiée."
     },
     {
       "nom": "Index_Maison/TROUPEAU_INV_SPEC_20260913.md",
@@ -1052,11 +1056,13 @@
       "origine": "Buffy 20/09/2026 (GO Christophe « incassable ») — extrait de gen_cockpit_vol.py en UNE SEULE VÉRITÉ",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "89ce495c2ca44874f00101fc07a9e7b8",
-      "date": "2026-09-28T11:05Z",
+      "md5": "eddc335d90f9cf1dd96b4e3aa199ddc5",
+      "date": "2026-09-29T08:34Z",
       "note": "Déclaré 20/09 : 3 cas voulus (veilleuse=1 anomalies détectées, discipline-quotidienne=3 alertes de discipline, verif-setup=1 preuve de lecture à refaire). Sert au chien pour ne plus classer 46 organes chargés en « non surveillés » : il lit la dernière sortie launchd et distingue un code VOULU d'un échec réel.",
       "_rescel_20260928": "RE-SCELLÉ 28/09 (mode ALPAGE) : une 4e ligne a été DÉCLARÉE dans la table — `com.ace777.sniffer-matin` = 10 « matière COLLECTÉE et enregistrée, analyse IA indisponible (hub muet) ». Même doctrine que la collecte paper : ne pas perdre le fichier du jour pour un hoquet d'API — ce qui est enregistré est enregistré, seule l'interprétation manque et se rejoue depuis le fichier. La constante CODE_IA_INDISPONIBLE existait déjà dans le script (`sniffer_vrai.py`, ligne 302) : la déclaration manquait, donc le chien et la page vol peignaient en rouge un organe qui faisait son travail (faux positif, R14). AUCUN autre changement : 3 lignes d'origine + la ligne déclarée, contenu identique à celui déjà committé par l'auto-sync (mtime mesuré 2026-09-28T10:05:55Z). DÉFAUT RÉEL TROUVÉ PAR LE DRILL le 28/09 12:52 : il annonçait « 1 scellé dont le md5 ne correspond plus » — le fichier avait légitimement changé mais le registre n'avait pas suivi (E12 : sceller APRÈS la dernière modification). Trou comblé par ce re-scellement.",
-      "_rescel_20260928b": "RE-SCELLÉ 28/09 (mode ALPAGE, « répare tout ça une fois pour toute ! faut stopper les bidouillages ») : la table passe de 4 à 9 codes DÉCLARÉS et gagne la CONVENTION DU CODE 3, écrite dans la `note` du fichier. (a) `com.ace777.sante-index` = 1 : son `return 1 if anomalies else 0` EST un canal d'alerte par conception (mesuré 28/09 : 9/15 puis 13/15 chaînes OK), mais il n'était PAS déclaré → la page et le chien peignaient « échec réel » un organe qui faisait exactement son travail (faux positif, R14). (b) `kronos-ombre`, `sniffer-vieux-btc`, `xrpl-gouvernance`, `sonde-volume-panier` = 3 : RÉPARÉS le même jour pour que « source externe injoignable (réseau / tether iPhone endormi, `Errno 8`) » soit un ÉTAT DÉCLARÉ, daté et repérable au lieu d'un TRACEBACK (code 1 NON déclaré). GARDE-FOU DE SENS : le code 3 ne remplace JAMAIS une valeur manquante, il la DÉCLARE (« rien collecté ce cycle, aucune donnée inventée ni estimée, reprise au cycle suivant ») — et l'état d'échec reste écrit sur disque. AVANT/APRÈS MESURÉ : les 4 organes sortaient en 1 (traceback) ; ils sortent en 0 quand la source répond (relance réelle 28/09 11:00Z : kronos-ombre, xrpl-gouvernance, sonde-volume-panier = 0) et en 3 avec un message clair quand elle ne répond pas (harnais `Index_Maison/scripts/harnais_reseau_injoignable.py` → 4/4, aucun traceback)."
+      "_rescel_20260928b": "RE-SCELLÉ 28/09 (mode ALPAGE, « répare tout ça une fois pour toute ! faut stopper les bidouillages ») : la table passe de 4 à 9 codes DÉCLARÉS et gagne la CONVENTION DU CODE 3, écrite dans la `note` du fichier. (a) `com.ace777.sante-index` = 1 : son `return 1 if anomalies else 0` EST un canal d'alerte par conception (mesuré 28/09 : 9/15 puis 13/15 chaînes OK), mais il n'était PAS déclaré → la page et le chien peignaient « échec réel » un organe qui faisait exactement son travail (faux positif, R14). (b) `kronos-ombre`, `sniffer-vieux-btc`, `xrpl-gouvernance`, `sonde-volume-panier` = 3 : RÉPARÉS le même jour pour que « source externe injoignable (réseau / tether iPhone endormi, `Errno 8`) » soit un ÉTAT DÉCLARÉ, daté et repérable au lieu d'un TRACEBACK (code 1 NON déclaré). GARDE-FOU DE SENS : le code 3 ne remplace JAMAIS une valeur manquante, il la DÉCLARE (« rien collecté ce cycle, aucune donnée inventée ni estimée, reprise au cycle suivant ») — et l'état d'échec reste écrit sur disque. AVANT/APRÈS MESURÉ : les 4 organes sortaient en 1 (traceback) ; ils sortent en 0 quand la source répond (relance réelle 28/09 11:00Z : kronos-ombre, xrpl-gouvernance, sonde-volume-panier = 0) et en 3 avec un message clair quand elle ne répond pas (harnais `Index_Maison/scripts/harnais_reseau_injoignable.py` → 4/4, aucun traceback).",
+      "_rescel_20260929": "CONTRAT v1.2.0 : ajout du code 3 de `com.ace777.xrpl-arbitrage` (source externe injoignable après 4 essais = TRACEBACK code 1 NON déclaré mesuré le 29/09 dans /tmp/xrpl_arbitrage.err.log) — même passage que la correction de MESURE de cet organe.",
+      "_rescel_20260929b": "v1.3.0 : ajout du code 3 de `com.ace777.cortana-propose-params` (hub IA injoignable après 3 essais = TRACEBACK code 1 NON déclaré mesuré le 29/09 07:45Z). La table déclare désormais 11 codes sur 10 organes."
     },
     {
       "nom": "Index_Maison/scripts/revue_organes.py",
@@ -1625,6 +1631,17 @@
           "motif": "inscription au registre (R15 : ce qui n'est pas déclaré n'existe pas) — la preuve que les 4 réparations TIENNENT est un INSTRUMENT rejouable en une commande, pas une phrase dans un chat"
         }
       ]
+    },
+    {
+      "nom": "Index_Maison/scripts/tester_arbitrage_xrpl.py",
+      "role": "RADAR ARBITRAGE XRPL/RLUSD ↔ Binance (test papier 24 h) : mesure le carnet DEX des DEUX côtés (acheter/vendre XRP contre RLUSD) et les écarts vs Binance, frictions 0,2 % aller-retour. Critères de survie figés AVANT le run (Cortana ≥5 nettes/jour >0,5 % ; Grok Δ≥1,5 % persistant ≥3 s, ≥10×/jour). 0 ordre, 0 €, lecture seule.",
+      "origine": "consensus famille 14/09 (Cortana : ≥5 opp/jour nettes → GO réel 200 $ ; Grok : delta ≥1,5 % ; DeepSeek : variante market making)",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "2bc7b14db1d786f63dc2062f73e90fc2",
+      "date": "2026-09-29T08:31Z",
+      "note": "INSTRUMENT ENFIN DÉCLARÉ (R15 : ce qui n'est pas déclaré n'existe pas — l'instrument de mesure aussi). Il tournait depuis le 14/09 (plist `com.ace777.xrpl-arbitrage`, toutes les 10 s, RunAtLoad) SANS entrée au registre : le drill de restauration ne le voyait pas.",
+      "_ajout_20260929": "Ajouté au registre le 29/09/2026 en même temps que la CORRECTION DE MESURE (« dis-moi ce que disent les données du xrpledger »). Trois causes traitées : (1) DÉDUP — le carnet bouge lentement, compter chaque cycle gonflait le chiffre (mesuré : 2 323 « opportunités » le 24/09 pour UN SEUL devis figé 16,4 h) → chaque ligne porte `nouvelle_quote`, l'état porte `opportunites_nettes_distinctes`/`_grok_distinctes` ; rejeu de l'historique : 9 913→635 nettes, 5 369→47 grok ; (2) CARNET ABERRANT REJETÉ — un bid/ask à plus de 50 % de Binance est une offre malformée (cas réel 21/09 : ask 1e-9 → net 1,5e11 % compté comme opportunité) ; (3) SOURCE INJOIGNABLE = 4 essais puis code 3 DÉCLARÉ au lieu d'un traceback. Preuve hors-réseau : 11 assertions (dédup, carnet vide, carnet aberrant, code 3) ; preuve live `md5_script 2bc7b14d`."
     }
   ]
 }

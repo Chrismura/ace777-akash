@@ -1,6 +1,6 @@
 {
-  "version": "1.1.0",
-  "updated": "2026-09-28T11:05Z",
+  "version": "1.3.0",
+  "updated": "2026-09-29T08:34Z",
   "note": "CONTRAT DE SORTIE (une seule vérité, lue par le chien de garde ET par la page vol). Un organe launchd qui sort en NON-ZÉRO n'est pas forcément cassé : certains s'en servent comme CANAL D'ALERTE. Sans cette table on peint en rouge des jobs qui font leur travail (faux positif qu'on apprend à ignorer = R14). Toute nouvelle ligne ici est une déclaration : « ce code est VOULU, et voici ce qu'il dit ». Même esprit que branchements_declares.json (R15) : on déclare, on ne cache pas. || CONVENTION 28/09/2026 : le code 3 signifie « SOURCE EXTERNE INJOIGNABLE (réseau / tether iPhone endormi) après 4 essais — RIEN collecté ce cycle, AUCUNE donnée inventée ni estimée ; reprise au cycle suivant ». Ce n'est PAS une panne de l'organe : avant ce jour, ces organes sortaient sur un TRACEBACK (code 1 non déclaré) pour un simple hoquet DNS de 2 s, et la page peignait « échec réel » des organes intacts. Un code 3 reste un ÉTAT VISIBLE et daté (log + fichier d'état), il ne remplace JAMAIS une valeur manquante.",
   "contrat": {
     "com.ace777.veilleuse": {
@@ -29,6 +29,12 @@
     },
     "com.ace777.sonde-volume-panier": {
       "3": "source MEXC INJOIGNABLE après 4 essais avec backoff — aucune mesure de volume ce créneau (état d'échec écrit, `ok:false`), aucune donnée inventée ; reprise au créneau suivant (déclaré 28/09/2026)."
+    },
+    "com.ace777.xrpl-arbitrage": {
+      "3": "source externe INJOIGNABLE (Binance / RPC XRPL / réseau) après 4 essais avec backoff — avant ce jour l'organe sortait sur un TRACEBACK (code 1 NON déclaré, mesuré dans /tmp/xrpl_arbitrage.err.log : `URLError timed out`) pour un simple hoquet réseau ; la page peignait « échec réel » un organe intact. Aucune mesure ce cycle, aucune donnée inventée ; reprise au cycle suivant (déclaré 29/09/2026, même passage que la correction de MESURE : dédup des devis + rejet des carnets aberrants)."
+    },
+    "com.ace777.cortana-propose-params": {
+      "3": "hub IA INJOIGNABLE (502 passager / réseau) après 3 essais avec backoff — avant ce jour l'organe sortait sur un TRACEBACK (code 1 NON déclaré, mesuré le 29/09 07:45Z : 3 × `HTTP Error 502` puis traceback) pour un hub momentanément indisponible ; la page peignait « échec réel » un organe intact et la chaîne santé « contrat Cortana figé » virait à l'ALERTE. Aucun contrat écrit ce cycle, aucune valeur inventée ; reprise au prochain créneau (déclaré 29/09/2026). Le VRAI signal de fond reste la fraîcheur de `cortana_pilot.json`, pas un hub qui tousse."
     }
   }
 }

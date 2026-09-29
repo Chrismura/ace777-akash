@@ -120,5 +120,23 @@ def main() -> int:
     return 0
 
 
+# RÉPARÉ le 29/09/2026 (même classe que les 4 organes du 28/09, « faut stopper les
+# bidouillages ») : `appeler_hub` fait 3 essais puis `raise last` — et personne ne
+# l'attrapait, donc un 502 PASSAGER du hub faisait sortir l'organe sur un TRACEBACK
+# (code 1 NON DÉCLARÉ ; mesuré le 29/09 07:45Z dans
+# /tmp/cortana_propose_params_launchd.err.log : 3 × `HTTP Error 502` puis traceback).
+# Conséquence en cascade : le contrat `cortana_pilot.json` n'est pas réécrit → la chaîne
+# santé « HULK : contrat Cortana figé » passe en ALERTE et la page peint « échec réel »
+# un organe intact (le hub est revenu `status ok, 9 providers` à 08:3xZ). Le code 3 est
+# DÉCLARÉ dans strategie/contrat_sortie.json : rien d'écrit ce cycle, rien d'inventé.
+CODE_HUB_INJOIGNABLE = 3
+
 if __name__ == "__main__":
-    sys.exit(main())
+    try:
+        sys.exit(main())
+    except (OSError, RuntimeError) as e:   # HTTPError ⊂ URLError ⊂ OSError
+        print(f"cortana: HUB INJOIGNABLE — {e}", file=sys.stderr)
+        print(f"cortana: code de sortie DÉCLARÉ {CODE_HUB_INJOIGNABLE} — aucun contrat écrit ce "
+              f"cycle, aucune valeur inventée (contrat_sortie.json) ; reprise au prochain créneau.",
+              file=sys.stderr)
+        sys.exit(CODE_HUB_INJOIGNABLE)

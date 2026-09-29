@@ -1,5 +1,5 @@
 {
-  "ts": "2026-09-29T07:35:07+00:00",
+  "ts": "2026-09-29T08:34:47+00:00",
   "note": "Verdicts MESURÉS à la source (scripts/verdicts_protocoles.py). Chaque protocole porte son critère pré-enregistré : c'est lui qui décide, pas l'impression du moment. Un verdict « IMPOSSIBLE » ou une ligne « alerte » signale un protocole dont le verdict ne peut pas être rendu — c'est une panne de conception, pas une patience.",
   "protocoles": [
     {
@@ -30,7 +30,7 @@
     {
       "protocole": "Radar RWA (DefiLlama)",
       "critere": "pré-enregistré J+8 : ≥ 3 pools du top 20 TVL (au 1er relevé du 11/09) bougent de ≥ 50 bps en 7 jours",
-      "faits": "22203 relevés · 389 pools suivis · top 20 TVL : 0 pool(s) ont bougé de ≥ 50 bps",
+      "faits": "22565 relevés · 390 pools suivis · top 20 TVL : 0 pool(s) ont bougé de ≥ 50 bps",
       "verdict": "ECHEC (critère non atteint)",
       "alerte": "critère MAL CIBLÉ : 9 des 20 plus gros pools ont un rendement quasi nul (< 0,5 % — lending Solana : DSOL/JITOSOL/JLP…) → le top 20 TVL n'est PAS la liste des rendements de crédit privé que le prototype visait ; sur les pools qui portent un vrai rendement, 0 bouge(nt) de ≥ 50 bps",
       "detail": [
@@ -179,7 +179,7 @@
     {
       "protocole": "Radar XRPL gouvernance",
       "critere": "J8 pré-enregistré : (a) ≥ 5 amendements dont le compteur bouge de ≥ 2 votes, OU (b) ≥ 1 activation, OU (c) ≥ 1 amendement mort ; sinon échec",
-      "faits": "331 snapshots · 113 amendements suivis · (a) 6 bougent de ≥ 2 (il en fallait 5) · (b) 0 activation · (c) 0 mort · 3 nouveau(x)",
+      "faits": "332 snapshots · 113 amendements suivis · (a) 6 bougent de ≥ 2 (il en fallait 5) · (b) 0 activation · (c) 0 mort · 3 nouveau(x)",
       "verdict": "SUCCES (critère atteint)",
       "alerte": "",
       "detail": [
@@ -196,11 +196,11 @@
           "delta_votes": 4
         },
         {
-          "amendement": "DynamicMPT",
+          "amendement": "BatchV1_1",
           "delta_votes": 4
         },
         {
-          "amendement": "BatchV1_1",
+          "amendement": "DynamicMPT",
           "delta_votes": 4
         },
         {
@@ -220,7 +220,7 @@
     {
       "protocole": "Arbitrage LLM-vs-règle (Cortana)",
       "critere": "la règle maison : < 60 % de justesse micro → confiance faible + 1 alerte/h max. Verdict annoncé 27/09",
-      "faits": "0 alerte(s) microstructure au journal · 0 notée(s) par le juge indépendant · justesse n/d · avis directionnels de Cortana (toutes matières) : 56/98 = 57.1 %",
+      "faits": "0 alerte(s) microstructure au journal · 0 notée(s) par le juge indépendant · justesse n/d · avis directionnels de Cortana (toutes matières) : 57/99 = 57.6 %",
       "verdict": "IMPOSSIBLE (0 cas à juger)",
       "alerte": "le verdict du 27/09 ne pourra PAS être rendu : 0 alerte(s) en 7 jours → 0 cas. Le producteur d'alertes (module microstructure) n'a rien écrit depuis le 09/09 (data/micro_alerts.jsonl = 0 octet) — il faut trancher : module mort, ou rien à alerter ?",
       "detail": [
@@ -250,9 +250,9 @@
         },
         {
           "indice": "croisements",
-          "directionnels": 14,
-          "corect": 10,
-          "n": 32
+          "directionnels": 15,
+          "corect": 11,
+          "n": 33
         },
         {
           "indice": "etfBtcM",
@@ -299,23 +299,17 @@
           "directionnels": 4,
           "corrects": 1,
           "neutres": 26,
-          "t_stat": -4.02
+          "t_stat": -3.65
         }
       ]
     },
     {
       "protocole": "paternes-btc (Kronos)",
       "critere": "mesure en continu des paternes validés (50w×200w + RSI hebdo, MACD daily = filtre, cycle) — verdict à n ≥ 30 cycles",
-      "faits": "15 cycles · régime HAUSSIER (écart 50w/200w 18.5 %, RSI hebdo 73) · MACD histogramme 308 · BTC 76540 → 84423 (+10.3 %)",
-      "verdict": "EN ATTENTE (il manque 15 cycle(s) — cadence quotidienne → ~15 jour(s))",
+      "faits": "16 cycles · régime HAUSSIER (écart 50w/200w 18.5 %, RSI hebdo 73) · MACD histogramme 221 · BTC 76540 → 84443 (+10.3 %)",
+      "verdict": "EN ATTENTE (il manque 14 cycle(s) — cadence quotidienne → ~14 jour(s))",
       "alerte": "",
       "detail": [
-        {
-          "ts": "2026-09-22T16:55:13Z",
-          "prix": 86607.63,
-          "regime": "HAUSSIER",
-          "rsi_w": 71.3
-        },
         {
           "ts": "2026-09-23T16:55:10Z",
           "prix": 86184.81,
@@ -337,6 +331,12 @@
         {
           "ts": "2026-09-28T08:07:02Z",
           "prix": 84423.31,
+          "regime": "HAUSSIER",
+          "rsi_w": 72.8
+        },
+        {
+          "ts": "2026-09-29T08:06:58Z",
+          "prix": 84443.93,
           "regime": "HAUSSIER",
           "rsi_w": 72.8
         }
