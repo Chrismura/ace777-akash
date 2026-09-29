@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "liquidations",
-      "zscore": 2.4396343642500624,
-      "value": 5324685.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique parasité par des faits divers de liquidations judiciaires d'entreprises traditionnelles. Le volume on-chain de LTC ($5M) est standard et ne montre aucune accumulation anormale de baleines.\"\n}\n```",
-      "ts": "2026-09-28T02:41:50.449641+00:00"
-    },
-    {
       "metric": "fear_greed",
       "zscore": 2.6457513110645903,
       "value": 74,
@@ -349,6 +342,13 @@
       "value": 3364115.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 75,\n  \"reason\": \"Z-score élevé (2.56) indiquant une accumulation inhabituelle de gros volumes on-chain, totalement ignorée par les médias (silence radio). Divergence classique de phase d'accumulation discrète avant un mouvement de marché.\"\n}\n```",
       "ts": "2026-09-28T23:34:55.567379+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -2.017528818929537,
+      "value": 73,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Le score z négatif (-2.02) malgré un indice de cupidité élevé (73) indique un épuisement silencieux de la liquidité par les baleines. Le marché public est complaisant (euphorie médiatique artificielle ou vide), masquant une distribution active des gros portefeuilles.\"\n}\n```",
+      "ts": "2026-09-29T00:05:08.391947+00:00"
     }
   ]
 }

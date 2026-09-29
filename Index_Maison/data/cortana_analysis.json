@@ -1,43 +1,37 @@
 {
-  "timestamp": 1790638902,
-  "date": "2026-09-28T23:41:42.797296+00:00",
+  "timestamp": 1790641903,
+  "date": "2026-09-29T00:31:43.816224+00:00",
   "n_analyses": 1,
   "analyses": [
     {
       "signal": {
-        "metric": "whale_usd",
-        "zscore": 2.556580320849341,
-        "value": 3364115.0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 75,\n  \"reason\": \"Z-score élevé (2.56) indiquant une accumulation inhabituelle de gros volumes on-chain, totalement ignorée par les médias (silence radio). Divergence classique de phase d'accumulation discrète avant un mouvement de marché.\"\n}\n```",
-        "ts": 1790638495.567379
+        "metric": "fear_greed",
+        "zscore": -2.017528818929537,
+        "value": 73,
+        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Le score z négatif (-2.02) malgré un indice de cupidité élevé (73) indique un épuisement silencieux de la liquidité par les baleines. Le marché public est complaisant (euphorie médiatique artificielle ou vide), masquant une distribution active des gros portefeuilles.\"\n}\n```",
+        "ts": 1790640308.391947
       },
-      "fiche": "whale_usd",
+      "fiche": "fear_greed",
       "questions": {
-        "ventes": {
-          "value": 5499021.0,
-          "seuil": 0,
+        "peur": {
+          "value": 73,
+          "seuil": 25,
           "depasse": true
         },
-        "achats": {
-          "value": 0.0,
-          "seuil": 0,
-          "depasse": false
-        },
-        "prix": {
-          "value": 0.05,
-          "seuil": 1,
+        "cupidite": {
+          "value": 73,
+          "seuil": 75,
           "depasse": false
         }
       },
       "interpretation": {
-        "condition": "ventes > achats",
-        "lecture": "Flux baleines VENDEUR dominant — distribution possible vers les exchanges (proxy : bearish aujourd'hui)",
-        "niveau": "surveiller",
-        "action": "Croiser avec le sniffer vieux BTC et l'IPT avant de réduire"
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
       },
-      "action": "Croiser avec le sniffer vieux BTC et l'IPT avant de réduire",
-      "niveau": "surveiller"
+      "action": "Observer",
+      "niveau": "neutre"
     }
   ],
-  "resume": "🟡 SURVEILLANCE — des signaux sont à observer"
+  "resume": "🔵 CALME — pas de signal alarmant"
 }
