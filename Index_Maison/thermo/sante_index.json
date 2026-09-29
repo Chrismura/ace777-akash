@@ -1,14 +1,17 @@
 {
-  "ts": "2026-09-29T01:30+00:00",
-  "updated": "2026-09-29T01:30Z",
+  "ts": "2026-09-29T02:30+00:00",
+  "updated": "2026-09-29T02:30Z",
   "etat": "ALERTE",
-  "chaines_ok": "11/15",
+  "chaines_ok": "8/15",
   "anomalies": [
+    "BALEINES coupée : scan file",
+    "DÉRIVÉS : générateur ou fichier figé",
     "HULK : sonde runtime, contrat Cortana ou analyses figés",
     "GEOPOL : score figé ou modules en erreur",
     "VIGIE MARCHÉ : radar mort ou journal figé (le trou du 19/08)",
     "VEILLE DÉGRADATION : rapport ALERTE_DEGRADATION_SILENCIEUSE ou figé — dégradation silencieuse détectée",
-    "VEILLE DÉGRADATION : Dead Man's Switch ALERTE ou figé — la surveillance elle-même est en panne"
+    "VEILLE DÉGRADATION : Dead Man's Switch ALERTE ou figé — la surveillance elle-même est en panne",
+    "SAPI : sdi_latest.json figé — la pépite poussière institutionnelle ne tourne plus"
   ],
   "degradees": [],
   "chaines": [
@@ -16,7 +19,7 @@
       "id": "baleines",
       "nom": "BALEINES",
       "chemin": "scan → pont → live.json.onchain → Ada + Cortana",
-      "ok": true,
+      "ok": false,
       "maillons": [
         {
           "nom": "scan (launchd whales)",
@@ -30,13 +33,13 @@
         },
         {
           "nom": "scan file",
-          "ok": true,
-          "detail": "âge 14 min"
+          "ok": false,
+          "detail": "âge 74 min"
         },
         {
           "nom": "mouvements (events)",
           "ok": true,
-          "detail": "dernier événement il y a 14 min"
+          "detail": "dernier événement il y a 74 min"
         },
         {
           "nom": "→ live.json.onchain",
@@ -51,7 +54,7 @@
         {
           "nom": "→ Cortana feed",
           "ok": true,
-          "detail": "âge 2 min"
+          "detail": "âge 1 min"
         }
       ]
     },
@@ -59,7 +62,7 @@
       "id": "deriv",
       "nom": "DÉRIVÉS",
       "chemin": "gen_deriv_corr.py → deriv_corr.json → cockpit + Cortana",
-      "ok": true,
+      "ok": false,
       "maillons": [
         {
           "nom": "générateur (launchd deriv-corr)",
@@ -68,8 +71,8 @@
         },
         {
           "nom": "deriv_corr.json",
-          "ok": true,
-          "detail": "âge 20 min"
+          "ok": false,
+          "detail": "âge 80 min"
         }
       ]
     },
@@ -87,7 +90,7 @@
         {
           "nom": "aspiration runtime",
           "ok": false,
-          "detail": "mode fichier · JSON · âge ts 0.4 min · écart mtime/ts 2.6s · 20 paire(s) · btc=INVALIDE · ts=croissant"
+          "detail": "mode fichier · JSON · âge ts 0.4 min · écart mtime/ts 2.5s · 20 paire(s) · btc=INVALIDE · ts=croissant"
         },
         {
           "nom": "corrélation BTC",
@@ -102,7 +105,7 @@
         {
           "nom": "cortana_pilot.json",
           "ok": true,
-          "detail": "âge 1186 min"
+          "detail": "âge 1246 min"
         },
         {
           "nom": "cortana_analysis.json",
@@ -120,7 +123,7 @@
         {
           "nom": "live.json",
           "ok": true,
-          "detail": "âge 2 min"
+          "detail": "âge 1 min"
         },
         {
           "nom": "mission.json → cockpit",
@@ -253,7 +256,7 @@
         {
           "nom": "journal_radar.log",
           "ok": false,
-          "detail": "âge 10 min"
+          "detail": "âge 70 min"
         },
         {
           "nom": "relance (superviseur-process)",
@@ -347,7 +350,7 @@
         {
           "nom": "warns murs (info)",
           "ok": true,
-          "detail": "4 warn(s) carnet déséquilibré (info)"
+          "detail": "aucun"
         }
       ]
     },
@@ -355,12 +358,12 @@
       "id": "sapi",
       "nom": "SAPI POUSSIÈRE",
       "chemin": "silent_drain_index.compute_sdi (SAPI) → sdi_latest.json → thermo_quotidien → live.json.sapi → Cortana + cockpit",
-      "ok": true,
+      "ok": false,
       "maillons": [
         {
           "nom": "sdi_latest.json (SAPI dedans)",
-          "ok": true,
-          "detail": "âge 12 min"
+          "ok": false,
+          "detail": "âge 72 min"
         },
         {
           "nom": "SAPI calculé",
