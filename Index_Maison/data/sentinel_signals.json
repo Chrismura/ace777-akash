@@ -1,55 +1,6 @@
 {
   "signals": [
     {
-      "metric": "price_1h",
-      "zscore": 2.7444518118742933,
-      "value": 0.4466132001993417,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (+2.74) sur 1h combiné à un silence médiatique absolu (Google Actualités vide). C'est la signature classique d'accumulation furtive par des baleines avant une percée des prix.\"\n}\n```",
-      "ts": "2026-09-28T05:27:28.021039+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": 2.020252222158311,
-      "value": 8807744002.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique de volume isolée sur des données globales sans corrélation avec l'actif crypto. Les titres médiatiques font référence à des sujets sans rapport (tourisme, santé, agriculture). Bruit de fond, aucune activité de baleine détectée.\"\n}\n```",
-      "ts": "2026-09-28T05:47:31.977803+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": 2.1370413932958745,
-      "value": 9079171723.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie de volume on-chain non corrélée : les données textuelles proviennent exclusivement de la presse généraliste (tourisme, cosmétiques, immobilier, agriculture) sans aucun rapport avec l'écosystème crypto.\"\n}\n```",
-      "ts": "2026-09-28T06:22:36.919941+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": 2.1248135560868566,
-      "value": 9172279409.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie de volume on-chain totalement décorrelée d'un bruit médiatique hors-sujet (tourisme, cosmétiques, immobilier, ananas). Aucun signal baleine valide détecté.\"\n}\n```",
-      "ts": "2026-09-28T06:52:47.320296+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": 2.325875724981355,
-      "value": 0.012,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Erreur de ciblage sémantique. Les 'baleines crypto' et le 'silence on-chain' ne s'appliquent pas ici : les données font référence à SDI Group (finance traditionnelle / LSE:SDI) et au Syndicat des Indépendants (SDI, politique/actualité française), créant un bruit de fond non pertinent pour l'écosystème crypto.\"\n}\n```",
-      "ts": "2026-09-28T06:52:49.191768+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": 2.1165903357053946,
-      "value": 9241791877.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie de volume non-pertinente pour la crypto : les actualités détectées concernent le tourisme, la santé, les cosmétiques et l'agriculture, sans aucun lien avec les marchés onchain.\"\n}\n```",
-      "ts": "2026-09-28T07:23:02.164643+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": 2.1137071101316804,
-      "value": 9361528191.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie de volume non pertinente : les données textuelles font référence à des actualités généralistes sans rapport avec la crypto (tourisme, immobilier de santé, cosmétiques, agriculture).\"\n}\n```",
-      "ts": "2026-09-28T07:53:08.066745+00:00"
-    },
-    {
       "metric": "sdi",
       "zscore": 2.274485369480073,
       "value": 0.012,
@@ -349,6 +300,55 @@
       "value": 1.365,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Bruit de fond médiatique sans rapport avec la crypto (articles sur l'École Polytechnique, la biologie, la société et l'agriculture). L'anomalie 'ipt' ne correspond à aucun actif crypto majeur identifié ni à un narratif financier exploitable.\"\n}\n```",
       "ts": "2026-09-29T14:02:38.013360+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 2.596405536660887,
+      "value": 2814499.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 75,\n  \"reason\": \"Activité anormale des baleines (z-score 2.60, ~2.8M USD) dans un silence médiatique absolu. Accumulation furtive hors des radars grand public.\"\n}\n```",
+      "ts": "2026-09-29T15:17:51.590222+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 2.0185747421109523,
+      "value": 0.016,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (SDI Group) confondue avec des homonymes institutionnels (Syndicat Des Indépendants). Aucune donnée onchain pertinente pour une cryptomonnaie.\"\n}\n```",
+      "ts": "2026-09-29T15:17:53.758807+00:00"
+    },
+    {
+      "metric": "price_1h",
+      "zscore": 2.760692680794419,
+      "value": 0.603099224417869,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.76) indiquant une anomalie de prix à la hausse (0.60$) en l'absence totale de couverture médiatique (silence radio sur Google Actualités). Comportement typique d'accumulation silencieuse par des baleines avant une percée narrative.\"\n}\n```",
+      "ts": "2026-09-29T15:22:55.954149+00:00"
+    },
+    {
+      "metric": "price_1h",
+      "zscore": 3.6700667196071755,
+      "value": 0.837999298463632,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (3.67) couplé à un silence médiatique total (Google Actualités vide). C'accumulation furtive typique des baleines avant un mouvement de rupture, loin du radar retail.\"\n}\n```",
+      "ts": "2026-09-29T15:53:01.965338+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 3.7846597349614455,
+      "value": 3915867.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 3.78, ~3.9M USD) combinée à un silence médiatique total (Google Actualités vide). Comportement typique d'accumulation furtive par des baleines hors des radars grand public.\"\n}\n```",
+      "ts": "2026-09-29T16:08:18.030794+00:00"
+    },
+    {
+      "metric": "cpfp",
+      "zscore": 2.2174652228840843,
+      "value": 50.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 75,\n  \"reason\": \"Forte anomalie on-chain sur les transactions CPFP (Child-Pays-For-Parent) avec un z-score de 2.22, signalant une congestion ou une urgence de déplacement de fonds par des acteurs majeurs (baleines), alors que le bruit médiatique est totalement déconnecté (actualités locales et généralistes).\"\n}\n```",
+      "ts": "2026-09-29T16:58:26.967932+00:00"
+    },
+    {
+      "metric": "dust",
+      "zscore": 2.2174652228840843,
+      "value": 50.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique lié à des homonymes (IA d'entreprise française, musique, jeux vidéo). Aucune corrélation avec une baleine crypto ou un actif onchain pertinent.\"\n}\n```",
+      "ts": "2026-09-29T16:58:28.745888+00:00"
     }
   ]
 }
