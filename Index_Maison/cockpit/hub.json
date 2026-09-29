@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-29T17:58:37.416609+00:00",
+  "generated_at": "2026-09-29T21:11:25.670511+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 72
+      "calls_24h": 56
     },
     {
       "id": "openrouter-free",
@@ -197,7 +197,7 @@
       "model": "deepseek-ai/DeepSeek-V3-0324",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 4
+      "calls_24h": 0
     },
     {
       "id": "obs-1787033767",
@@ -401,63 +401,63 @@
   ],
   "events": [
     {
-      "ts": "2026-09-29T17:56:07.396965+00:00",
+      "ts": "2026-09-29T21:05:34.904512+00:00",
+      "kind": "blacklist",
+      "title": "Fin de pause Google Gemini",
+      "detail": "re-essai automatique"
+    },
+    {
+      "ts": "2026-09-29T20:20:46.392842+00:00",
       "kind": "http",
       "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
       "detail": ""
     },
     {
-      "ts": "2026-09-29T17:56:07.396566+00:00",
+      "ts": "2026-09-29T20:20:46.392606+00:00",
       "kind": "error",
       "title": "Toutes les IA ont echoue",
-      "detail": "Google Gemini: <urlopen error [Errno 60] Operation timed out> | budget: Budget temps requete depasse"
+      "detail": "Google Gemini: blacklist du jour (saute) | HuggingFace (136+ modeles, dont DeepSeek-V4): <urlopen error [Errno 60] Operation timed out> | budget: Budget temps requete depasse"
     },
     {
-      "ts": "2026-09-29T17:56:07.396227+00:00",
+      "ts": "2026-09-29T20:20:46.392476+00:00",
       "kind": "error",
       "title": "Budget temps requete depasse",
       "detail": ""
     },
     {
-      "ts": "2026-09-29T17:56:07.395489+00:00",
+      "ts": "2026-09-29T20:20:46.392224+00:00",
       "kind": "failover",
-      "title": "Bascule depuis Google Gemini",
+      "title": "Bascule depuis HuggingFace (136+ modeles, dont DeepSeek-V4)",
       "detail": "<urlopen error [Errno 60] Operation timed out>"
     },
     {
-      "ts": "2026-09-29T17:55:36.043118+00:00",
+      "ts": "2026-09-29T20:20:46.385044+00:00",
+      "kind": "blacklist",
+      "title": "Pause HuggingFace (136+ modeles, dont DeepSeek-V4) (3 echecs) 15min",
+      "detail": "backoff x1 -> re-essai auto"
+    },
+    {
+      "ts": "2026-09-29T20:16:07.824072+00:00",
       "kind": "http",
       "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
       "detail": ""
     },
     {
-      "ts": "2026-09-29T17:55:36.042681+00:00",
+      "ts": "2026-09-29T20:16:07.823745+00:00",
       "kind": "error",
       "title": "Toutes les IA ont echoue",
       "detail": "Google Gemini: <urlopen error [Errno 60] Operation timed out> | budget: Budget temps requete depasse"
     },
     {
-      "ts": "2026-09-29T17:55:36.042357+00:00",
+      "ts": "2026-09-29T20:16:07.823457+00:00",
       "kind": "error",
       "title": "Budget temps requete depasse",
       "detail": ""
     },
     {
-      "ts": "2026-09-29T17:55:36.041668+00:00",
+      "ts": "2026-09-29T20:16:07.821323+00:00",
       "kind": "failover",
       "title": "Bascule depuis Google Gemini",
-      "detail": "<urlopen error [Errno 60] Operation timed out>"
-    },
-    {
-      "ts": "2026-09-29T17:46:05.349418+00:00",
-      "kind": "timeout",
-      "title": "Patience Google Gemini (lenteur)",
-      "detail": "<urlopen error [Errno 51] Network is unreachable>"
-    },
-    {
-      "ts": "2026-09-29T17:45:33.944374+00:00",
-      "kind": "timeout",
-      "title": "Patience Google Gemini (lenteur)",
       "detail": "<urlopen error [Errno 60] Operation timed out>"
     }
   ],
