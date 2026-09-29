@@ -15,6 +15,9 @@ CE QU'IL FAIT (100 % LECTURE SEULE sur le système vivant) :
   4. ORGANES  — chaque chemin que l'agent invoque (script, WatchPath, dossier de travail)
                 existe-t-il ENCORE ? dedans / hors du repo (à sauvegarder autrement) / absent ?
   5. SCELLÉS  — les md5 du registre (veilleuse) correspondent-ils au repo ?
+  5bis. PRÉ-DÉCLARATIONS — toute modification d'un scellé a-t-elle été annoncée AVANT l'acte
+                (R20.1, `predemodifier.py --verifier`) ? Le gardien est appelé EN DIRECT :
+                c'est ICI que la règle devient un mécanisme (classe E22, récidive 29/09/2026).
   6. VERDICT  — READY (restaurable) ou TROU (avec la liste exacte de ce qui manque).
 
 GARANTIES : aucun agent installé/déchargé, aucun fichier vivant modifié. Écrit seulement
@@ -399,6 +402,37 @@ def etape_scelles():
     return {"total": total, "ecarts": ecarts, "manquants": manquants}
 
 
+def etape_predeclaration():
+    """R20.1 — toute modification d'un fichier SCELLÉ doit avoir été PRÉ-DÉCLARÉE AVANT l'acte.
+
+    POURQUOI CE CONTRÔLE EST ICI (classe E22, récidive constatée le 29/09/2026) : entre le
+    27/09 10:25Z et le 29/09 09:10Z, **16 re-sellements** ont eu lieu sans pré-déclaration
+    antérieure. Le gardien existait, disait vrai (`predemodifier.py --verifier`) et tournait
+    toutes les 3 h — mais RIEN ne l'interrogeait là où le verdict se rend : le drill
+    annonçait READY sur un état fautif et le tour finissait sur un « tout est vert ».
+    Un gardien qui dit vrai mais que personne ne lit au moment de conclure n'est pas un
+    mécanisme, c'est une conversation — la leçon de E22, appliquée à E22 lui-même.
+
+    On appelle donc le gardien EN DIRECT (jamais un état écrit la veille).
+    """
+    script = IM / "scripts" / "predemodifier.py"
+    etat_path = IM / "thermo" / "predeclaration.json"
+    if not script.exists():
+        return {"dispo": False, "conforme": True, "violations": [], "declarations": None,
+                "dette_radiee": None, "actif_depuis": None,
+                "note": "predemodifier.py absent — contrôle R20.1 non exécutable"}
+    rc, _out, _err = run([sys.executable, str(script), "--verifier"], cwd=RACINE)
+    etat = {}
+    try:
+        etat = json.loads(etat_path.read_text(encoding="utf-8"))
+    except Exception:
+        pass
+    viol = etat.get("violations", [])
+    return {"dispo": True, "conforme": bool(rc == 0 and not viol), "violations": viol,
+            "declarations": etat.get("declarations"), "dette_radiee": etat.get("dette_radiee"),
+            "actif_depuis": etat.get("actif_depuis")}
+
+
 def main():
     sandbox = None
     if "--sandbox" in sys.argv:
@@ -413,6 +447,7 @@ def main():
     org = etape_organes()
     sc = etape_scelles()
     ins = etape_instruments()
+    pre = etape_predeclaration()
 
     trous = []
     absents_graves = [a for a in org["absents"] if a["role"] != "env"]
@@ -437,6 +472,11 @@ def main():
         trous.append(f"{len(sc['ecarts'])} scellé(s) dont le md5 ne correspond plus")
     if sc["manquants"]:
         trous.append(f"{len(sc['manquants'])} fichier(s) scellé(s) ABSENT(s)")
+    if not pre["conforme"]:
+        noms = ", ".join(v["fichier"].split("/")[-1] for v in pre["violations"][:3])
+        trous.append(f"{len(pre['violations'])} modification(s) de fichier SCELLÉ sans pré-déclaration "
+                     f"antérieure (R20.1/R5/R13) : {noms}"
+                     f"{'…' if len(pre['violations']) > 3 else ''}")
 
     verdict = "READY" if not trous else "TROU"
     preuve = PREUVE_OK if verdict == "READY" else PREUVE_TROU
@@ -534,6 +574,21 @@ def main():
     for x in sc["manquants"]:
         L.append(f"  - 🔴 absent : `{x}`")
     L.append("")
+    L.append("## 5bis. Pré-déclarations (R20.1) — un scellé se touche ANNONCÉ")
+    if not pre["dispo"]:
+        L.append(f"- ⚠️ {pre.get('note', 'contrôle indisponible')}")
+    else:
+        L.append(f"- Déclarations au registre : **{pre['declarations']}** · règle active depuis `{pre['actif_depuis']}`")
+        if pre.get("dette_radiee"):
+            L.append(f"- Dette constatée **{pre['dette_radiee']}** (27-29/09, datée et nommée, radiée de "
+                     f"l'alarme — voir `REGISTRE_ECHECS_ET_ERREURS.md` §13)")
+        if pre["violations"]:
+            L.append(f"- 🔴 **{len(pre['violations'])} modification(s) scellée(s) SANS pré-déclaration antérieure** :")
+            for v in pre["violations"]:
+                L.append(f"  - `{v['fichier']}` — {v['raison']}")
+        else:
+            L.append("- ✅ **0 violation** — aucune modification scellée sans pré-déclaration antérieure.")
+    L.append("")
     L.append("## 6. Verdict")
     if verdict == "READY":
         L.append("- ✅ **READY** — le prototype est reconstructible depuis le repo.")
@@ -551,6 +606,7 @@ def main():
     ecrire_atomique(RAPPORT_JSON, json.dumps({
         "ts": started, "verdict": verdict, "trous": trous,
         "source": src, "instruments": ins, "agents": ag, "reconstruction": rc, "organes": org, "scelles": sc,
+        "predeclaration": pre,
     }, ensure_ascii=False, indent=2))
 
     print(rapport)

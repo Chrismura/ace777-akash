@@ -1,6 +1,6 @@
 {
   "version": "1.5.0",
-  "updated": "2026-09-29T08:34Z",
+  "updated": "2026-09-29T09:38:51Z",
   "fichier": [
     {
       "nom": "Index_Maison/scripts/v2_duo_replay_4h.py",
@@ -102,7 +102,18 @@
       "origine": "chantier 15/08",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "543aee2356a8178be11492d41a2d433f"
+      "md5": "cb583eb4b0d0633bd83295cd05437fb1",
+      "date": "2026-09-29T09:34:20Z",
+      "_rescel": [
+        {
+          "ts": "2026-09-29T09:25:44Z",
+          "motif": "CLASSE E22 (recidive 28-29/09) — la veilleuse ignorait les pre-declarations : elle criait INTRUSION sur un acte ANNONCE (mesure 29/09 09:11Z : preuve_lecture.py) -> fausse alarme (R14) + alerte vocale pour un acte declare -> le rituel R20.1 devenait inutilisable. Correctif : une modification couverte par une pre-declaration (md5_avant == md5 scelle) passe en << DECLAREE, re-scellement en attente >>, hors alarme et hors alerte vocale. PREUVE (corrigee le 29/09, classe E10) : ce motif annoncait << 3 modifications DECLAREES >> — le NOMBRE n'est PAS mesurable (le journal n'ecrit que << Verification OK >>, sans compte ; VEILLEUSE.md est ecrase a chaque passage). Preuve REJOUABLE a la place : --autotest 4/4 + rapport du 29/09 09:33:49Z (modification classee DECLAREE, rc=0, aucune alerte vocale)."
+        },
+        {
+          "ts": "2026-09-29T09:34:20Z",
+          "motif": "CORRECTION classe E10 : le docstring de _predeclare() citait une mesure INVENTEE (la veilleuse aurait accuse preuve_lecture.py 'alors que la modification avait ete annoncee' — faux, ce fichier n'a jamais ete pre-declare). Le docstring cite desormais le CODE (git diff) + le HARNAIS. Ajout d'un --autotest (4 cas) : un gardien qui ne peut pas dire NON ne garde rien. Mesure honnete du trou A : rapport veilleuse du 29/09 09:33:49Z classe la modification en DECLAREE, hors alarme et hors alerte vocale (_rescel_20260929)"
+        }
+      ]
     },
     {
       "nom": "Index_Maison/scripts/pont_onchain.py",
@@ -994,10 +1005,16 @@
       "origine": "solidité 19/09 (GO Christophe « go 1,2,3 »)",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "d7307891e8e32b26dbf68519f5a1100c",
-      "date": "2026-09-20T18:45Z",
+      "md5": "6810b347604be7e2b351236e6637f354",
+      "date": "2026-09-29T09:25:44Z",
       "note": "Scellé 19/09 : le drill (instrument de preuve) est scellé. Verdict READY/TROU affiché dans la page vol par gen_cockpit_vol.py.",
-      "_rescel_20260920": " || 20/09 (Buffy, GO « incassable ») : RÉPARATION D'UN FAUX VERT — le drill calculait `non_suivis_critiques` (fichiers non suivis sous Index_Maison/) mais ne le comptait PAS dans les trous : il pouvait annoncer READY alors que 27 instruments que la boucle EXÉCUTE (le chien de garde, le générateur de la page vol, la sentinelle indépendante, les moteurs croisements/paternes, preuve_lecture, verifier_regles_or, installer_depuis_repo…) n'étaient PAS dans git. Nouvelle étape `etape_instruments()` : tout script invoqué par un agent launchd, par git_push_auto.sh ou importé localement doit être suivi par git, sinon TROU. Piège corrigé au passage : les appels écrits `\"$REPO_DIR/…\"` étaient mal extraits (le $ cassait le motif) → verifier_regles_or.py et installer_depuis_repo.sh passaient au travers du détecteur. md5 145df5b7 → d7307891."
+      "_rescel_20260920": " || 20/09 (Buffy, GO « incassable ») : RÉPARATION D'UN FAUX VERT — le drill calculait `non_suivis_critiques` (fichiers non suivis sous Index_Maison/) mais ne le comptait PAS dans les trous : il pouvait annoncer READY alors que 27 instruments que la boucle EXÉCUTE (le chien de garde, le générateur de la page vol, la sentinelle indépendante, les moteurs croisements/paternes, preuve_lecture, verifier_regles_or, installer_depuis_repo…) n'étaient PAS dans git. Nouvelle étape `etape_instruments()` : tout script invoqué par un agent launchd, par git_push_auto.sh ou importé localement doit être suivi par git, sinon TROU. Piège corrigé au passage : les appels écrits `\"$REPO_DIR/…\"` étaient mal extraits (le $ cassait le motif) → verifier_regles_or.py et installer_depuis_repo.sh passaient au travers du détecteur. md5 145df5b7 → d7307891.",
+      "_rescel": [
+        {
+          "ts": "2026-09-29T09:25:44Z",
+          "motif": "CLASSE E22 — le drill est LE verdict de fin de tour (et celui de git_push_auto) : il exige desormais 0 violation de pre-declaration, par appel LIVE a predemodifier.py --verifier (nouveau §5bis du rapport + champ predeclaration du JSON). Motif : 16 re-sellements sans pre-declaration (27->29/09) ont ete decouverts APRES un tour termine sur << tout est vert >>. Un gardien que personne n'interroge au moment ou le verdict se rend n'est pas un mecanisme, c'est une conversation."
+        }
+      ]
     },
     {
       "nom": "Index_Maison/scripts/sync_plists.sh",
@@ -1080,9 +1097,10 @@
       "origine": "GO Christophe 20/09/2026 « me donner les résultats en profondeur des protocoles en test — verdicts »",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "4fb835ecd3b09a063e6e7a41af1e9973",
-      "date": "2026-09-20T18:59Z",
-      "note": "Un protocole dont le verdict ne peut pas être rendu est signalé (IMPOSSIBLE/⚠), jamais présenté comme « ça suit son cours ». Lancé par git_push_auto.sh toutes les 3 h."
+      "md5": "287708bc20312fe30b3df0a986573fd2",
+      "date": "2026-09-29T09:06Z",
+      "note": "Un protocole dont le verdict ne peut pas être rendu est signalé (IMPOSSIBLE/⚠), jamais présenté comme « ça suit son cours ». Lancé par git_push_auto.sh toutes les 3 h.",
+      "_rescel_20260929": "RÉ-TRANCHE RWA (29/09, GO Christophe « ré-ouverture RWA ») : le critère d'ORIGINE (≥3 pools du top 20 TVL bougent ≥50 bps) est CONSERVÉ et son ÉCHEC est affiché — mais il mesurait la mauvaise liste (trustée par du lending Solana à 0 %). Ajout d'un second calcul sur l'univers crédit privé, par RÈGLE MÉCANIQUE (project ∈ crédit ET symbole = devise ; couverture totale ; exclusion des pools apparus à 0 ; dédup par (projet,symbole)) : R1 ≥3 couples bougent ≥50 bps → 4 (SUCCES) ; R2 ≥5 couples ≥3 % APY stable → 10 (SUCCES). Deux avertissements AUTOMATIQUES : R1 porté par 2 projets seulement, et 7 valeurs IDENTIQUES sur toute la fenêtre (à vérifier : taux fixe ou source figée). PORTÉE : la fonction RWA ; les autres protocoles inchangés. La page vol affiche désormais la ré-tranche. · 2ᵉ PASSE 29/09 : correction du test « plat » (le test portait sur la liste des MÉDIANES, donc flaggait tout couple à 1 instance — maple/midas à tort ; il porte désormais sur les VALEURS RÉELLES, seul travessia reste constant) ET extraction de charger_par_pool() / est_pool_credit() / univers_credit_prive() en SOURCE UNIQUE de l'univers RWA, partagée avec scripts/carnet_rwa.py (règle d'or #6). PROUVÉ SANS CHANGEMENT DE SORTIE : verdict RWA identique à l'octet avant/après (seule la gouvernance XRPL a bougé, un snapshot étant arrivé entre les deux runs)."
     },
     {
       "nom": "hulk-mexc/scripts/chiffrage_sortie_calibree.py",
@@ -1556,8 +1574,8 @@
       "origine": "Exigence famille tour 5, 3 voix convergentes (23/09/2026)",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "bf10cd8a4f89d8f5bc9ab7198b897f5a",
-      "date": "2026-09-23T15:35:31Z",
+      "md5": "28453408119f879285ddd6fc213e14b6",
+      "date": "2026-09-29T09:25:44Z",
       "_ajout": [
         {
           "ts": "2026-09-23T15:22:33Z",
@@ -1568,6 +1586,10 @@
         {
           "ts": "2026-09-23T15:35:31Z",
           "motif": "Correction du predicat des cles (_rescel* / _ajout*) — il etait aveugle a la forme _ajout de resceler.py. Autotest 3/3."
+        },
+        {
+          "ts": "2026-09-29T09:25:44Z",
+          "motif": "CLASSE E22 — radiation de l'ALARME des 16 actes constates du 27-29/09 : liste EXPLICITE de couples (fichier, date d'acte), datee et nommee, conservee dans l'etat (thermo/predeclaration.json -> dette_radiee) et au registre §13. Motif R14 : ces actes ne peuvent plus jamais redevenir conformes (une declaration TARDIVE ne satisfait pas ts <= date d'acte, volontairement), leur rouge a vie noierait la 17e violation. Aucun acte futur n'est couvert. Autotest 3/3 conserve."
         }
       ]
     },
@@ -1642,6 +1664,34 @@
       "date": "2026-09-29T08:31Z",
       "note": "INSTRUMENT ENFIN DÉCLARÉ (R15 : ce qui n'est pas déclaré n'existe pas — l'instrument de mesure aussi). Il tournait depuis le 14/09 (plist `com.ace777.xrpl-arbitrage`, toutes les 10 s, RunAtLoad) SANS entrée au registre : le drill de restauration ne le voyait pas.",
       "_ajout_20260929": "Ajouté au registre le 29/09/2026 en même temps que la CORRECTION DE MESURE (« dis-moi ce que disent les données du xrpledger »). Trois causes traitées : (1) DÉDUP — le carnet bouge lentement, compter chaque cycle gonflait le chiffre (mesuré : 2 323 « opportunités » le 24/09 pour UN SEUL devis figé 16,4 h) → chaque ligne porte `nouvelle_quote`, l'état porte `opportunites_nettes_distinctes`/`_grok_distinctes` ; rejeu de l'historique : 9 913→635 nettes, 5 369→47 grok ; (2) CARNET ABERRANT REJETÉ — un bid/ask à plus de 50 % de Binance est une offre malformée (cas réel 21/09 : ask 1e-9 → net 1,5e11 % compté comme opportunité) ; (3) SOURCE INJOIGNABLE = 4 essais puis code 3 DÉCLARÉ au lieu d'un traceback. Preuve hors-réseau : 11 assertions (dédup, carnet vide, carnet aberrant, code 3) ; preuve live `md5_script 2bc7b14d`."
+    },
+    {
+      "nom": "Index_Maison/scripts/carnet_rwa.py",
+      "role": "GÉNÉRATEUR DU CARNET DE RENDEMENTS RWA (maquette de PRODUIT D'INFORMATION) : une ligne par POOL de crédit privé (projet, produit, chaîne, APY médian ET hors-zéro, amplitude, TVL, niveau, risque de DONNÉE, crédit « non évalué », jours suivis, drapeaux) + la liste des écartés AVEC leur raison. Lecture seule sur la maison ; n'écrit que thermo/CARNET_RWA.json et CARNET_RENDEMENTS_RWA.md.",
+      "origine": "GO Christophe 29/09/2026 « go 1,2,3, zéro bidouillage » (point 2/3) : la revue des 12 terrains a montré que le seul chemin de monétisation chiffré est un produit d'information ; il manquait la marchandise.",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "1b62efb5b66c191ff620151c9357cd65",
+      "date": "2026-09-29T09:07Z",
+      "note": "L'univers (est_pool_credit / univers_credit_prive) est IMPORTÉ de verdicts_protocoles.py — jamais recopié (règle d'or #6 : le carnet et le verdict ne peuvent pas diverger). Autotest 17/17 sur les règles (bandes de niveau, drapeaux, bande de risque). Aucune donnée inventée : tout est mesuré sur data/rwa_yields_hist.jsonl.",
+      "_ajout_20260929": "Maquette du carnet vendable (0 ordre, 0 €). Mesuré sur la fenêtre 11/09 13:42Z → 29/09 08:08Z : 22 565 relevés, 390 pools suivis, 69 pools de crédit privé → 50 lignes retenues, 19 écartées (9 fenêtres incomplètes + 10 APPARITIONS à 0) — retenus + écartés = 69, rien n'est caché. CHOIX D'HONNÊTETÉ DÉCLARÉS : (a) l'unité est le POOL, pas le couple projet/symbole — mesuré : centrifuge-protocol/USDC recouvre 18 déploiements de FONDS DIFFÉRENTS (Janus Henderson AAA CLO, Apollo Diversified Credit, JAAA, NYLIM High Yield…) ; (b) un relevé à 0 de la source n'est JAMAIS lu comme « 0 % de rendement » : le niveau passe sur la MÉDIANE HORS ZÉRO et les deux valeurs sont affichées (4 lignes concernées, ex. Anemoy Apollo : médiane 0,00 % / hors-zéro 3,62 %) ; (c) le risque de CRÉDIT n'est pas évalué — la colonne « Crédit » vaut « non évalué » sur CHAQUE ligne et l'angle mort est écrit, pas seulement en note de bas de page ; (d) 14 lignes à VALEUR CONSTANTE sont marquées « à confirmer par une 2ᵉ source » (une seule source, DefiLlama : on ne publie pas un taux garanti sur une seule source) ; (e) les règles (bandes, drapeaux, bande de risque) sont écrites DANS le fichier AVANT le calcul."
+    },
+    {
+      "nom": "Index_Maison/scripts/preuve_lecture.py",
+      "role": "SOURCE UNIQUE de la « preuve de lecture du coffre » (règle 1septies) : dit si la preuve est FRAÎCHE (< 24 h) ou si l'EMPREINTE DE LA CARTE de INVENTAIRE_COMPLET.md n'a pas changé. Appelée par gatekeeper.py (BLOQUANT pour verif-setup). `--tag` grave la preuve (état + ligne à coller dans MEMOIRE_COLLAB.md).",
+      "origine": "réparation du 20/09/2026 (deux organes jugeaient la MÊME preuve avec deux codes — la maison a déjà payé « deux vérités pour un seul fait », règle d'or #6) ; re-scope de l'empreinte le 29/09/2026.",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "fea258c53c1454cb8353686a92275811",
+      "date": "2026-09-29T09:38:51Z",
+      "note": "INSTRUMENT ENFIN DÉCLARÉ (R15 : ce qui n'est pas déclaré n'existe pas — l'instrument de mesure aussi). Il tournait, importé par gatekeeper.py (plist com.ace777.verif-setup), SANS entrée au registre.",
+      "_ajout_20260929": "Verrou tranché le 29/09 (« go 1,2,3 » point 3). MESURE : l'empreinte portait sur TOUTES les lignes de l'inventaire, annexe des fichiers comprise — or le coffre produit des fichiers tous les jours (1 971 → 2 084 fichiers entre la preuve du 20/09 et l'inventaire du 27/09) : la branche « preuve encore valable » ne pouvait JAMAIS se déclencher (preuve périmée 207 h = faux positif R14, un gate qui crie chaque jour sans qu'aucun humain ait rien à relire). L'empreinte porte désormais sur la CARTE (tableau des fichiers clés + SQUELETTE des dossiers sans compteurs + sections SCRIPTS / SERVICES LAUNCHD / PROVIDERS) ; l'annexe « TOUS LES FICHIERS » est exclue. Harnais 4/4 : fichier ajouté → stable · nouveau dossier → change · fichier clé modifié → change · horodatage régénéré → stable. Rituel exécuté : --tag → preuve gravée ; gatekeeper.py rc=0 ; verifier_setup.py rc=0 « TOUT EST VERT ». SECOND DÉFAUT DU MÊME VERROU, trouvé en RE-VÉRIFIANT (29/09 ~09:15Z) : le lecteur d'horodatage exigeait `HH:MM` alors que le journal écrit le plus souvent `HHMM` — le tag que --tag venait de graver était donc INVISIBLE pour ce même fichier (--detail annonçait « preuve de 2026-09-20T17:45Z, 207,4 h » alors que le tag du 29/09 09:00Z était en tête du journal : la branche « fraîche (< 24 h) » ne pouvait JAMAIS se déclencher sur une ligne au format maison). Corrigé : le motif accepte les deux formats (même tolérance que le gardien E13). MESURE APRÈS : --detail lit 0,2 h et sort par la branche « fraîche » ; les 3 formats sont lus (0900Z, 17:45Z, 09:07Z). HARNAIS EMPREINTE 6/6 (fichier ajouté → stable · compteurs de dossier → stable · horodatage régénéré → stable · nouveau dossier → change · fichier clé modifié → change · section SCRIPTS modifiée → change).",
+      "_rescel": [
+        {
+          "ts": "2026-09-29T09:38:51Z",
+          "motif": "CORRECTION classe E10 : chiffre 2084 (total inventaire) -> 2048 fichiers .md (la metrique du fichier lui-meme, cf. compter_fichiers_inventaire). On ne compare que des chiffres pris a la meme mesure (_rescel_20260929)"
+        }
+      ]
     }
   ]
 }

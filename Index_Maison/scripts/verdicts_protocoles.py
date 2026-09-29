@@ -99,14 +99,63 @@ def troupeau_inv():
     }
 
 
-# ── 2. RWA (critère pré-enregistré : ≥ 3 pools du top 20 TVL bougent ≥ 50 bps en 7 j) ─
-def radar_rwa():
+# ── 2. RWA — RÉ-TRANCHE 29/09/2026 (GO Christophe « ré-ouverture RWA ») ─────────
+# CRITÈRE D'ORIGINE (11/09, pré-enregistré) : ≥ 3 pools du TOP 20 TVL bougent de ≥ 50 bps
+# en 7 jours. Rendu ÉCHEC le 19/09 : ce top 20 est trusté par du lending Solana à rendement
+# nul → il ne mesure PAS le crédit privé visé. La ré-tranche garde la QUESTION et corrige
+# l'UNIVERS, par une règle mécanique (aucun réglage sur le résultat — le critère est écrit
+# ici AVANT d'être lu) :
+#   · univers crédit privé = project ∈ CREDIT_PRIVE ET symbole = devise de prêt. Ce qui est
+#     EXCLU n'est pas du crédit : kamino-* / raydium / uniswap / curve / pendle (liquidité).
+#   · pools couvrant TOUTE la fenêtre, et dont le 1er relevé ≠ 0 : un pool qui apparaît à 0
+#     puis démarre est une APPARITION, pas un mouvement de rendement.
+#   · dédupliqué par (projet, symbole) : le même rendement répliqué sur 6 chaînes n'est pas
+#     6 rendements (mesuré : 44 pools bruts → 4 couples réels).
+#     R1 (la question de l'origine, sur le bon univers) : ≥ 3 couples bougent ≥ 50 bps/7 j
+#     R2 (la question PRODUIT, assumée NEUVE) : ≥ 5 couples à ≥ 3 % APY STABLE (amplitude ≤ 50 bps)
+CREDIT_PRIVE = {"maple", "centrifuge-protocol", "pareto-credit", "credix", "travessia-credit",
+                "flock-credit", "hyperwave", "midas-rwa", "lagoon", "native-credit-pool",
+                "apollo-diversified-credit-securitize-fund", "goldfinch", "truefi", "untangled",
+                "figure", "tangible"}
+DEVISES = ("USDC", "USDT", "USDG", "USDS", "AUSD", "EURC", "USDE", "USX", "PYUSD", "USAT", "USCC", "TGBP")
+
+
+def charger_par_pool():
+    """Historique brut RWA -> {pool_id: [(ts, raw), ...]}. SOURCE UNIQUE de lecture,
+    partagée par radar_rwa() (verdict) ET scripts/carnet_rwa.py (produit) — règle d'or #6 :
+    une seule vérité par fait. Extraction du 29/09, PROUVÉE sans changement de sortie."""
     par_pool = {}
     for d in lignes(DATA / "rwa_yields_hist.jsonl"):
         r = d.get("raw") or {}
         t, pid = ts_iso(d.get("ts")), r.get("pool")
         if t and pid:
             par_pool.setdefault(pid, []).append((t, r))
+    return par_pool
+
+
+def est_pool_credit(r0):
+    """Prédicat d'univers DÉCLARÉ (29/09) : pool de crédit privé sur une devise de prêt.
+    SOURCE UNIQUE du critère — partagé par radar_rwa() et scripts/carnet_rwa.py (le carnet
+    doit pouvoir classer AUSSI les pools hors fenêtre, pour ne rien cacher)."""
+    sym = str(r0.get("symbol") or "").upper()
+    return r0.get("project") in CREDIT_PRIVE and sym.startswith(DEVISES)
+
+
+def univers_credit_prive(par_pool):
+    """Pools de CRÉDIT PRIVÉ couvrant TOUTE la fenêtre. Retourne (pools triés, n_cycles).
+    L'exclusion des pools démarrés à 0 se fait à l'usage (une APPARITION n'est pas un
+    mouvement). SOURCE UNIQUE, partagée avec scripts/carnet_rwa.py."""
+    n_cycles = len(set(t for v in par_pool.values() for t, _ in v))
+    couv = {}
+    for pid, v in par_pool.items():
+        v = sorted(v)
+        if len(v) >= n_cycles and est_pool_credit(v[0][1]):
+            couv[pid] = v
+    return couv, n_cycles
+
+
+def radar_rwa():
+    par_pool = charger_par_pool()
     if not par_pool:
         return {"protocole": "Radar RWA (DefiLlama)", "verdict": "IMPOSSIBLE (aucun historique)"}
     tous = [t for v in par_pool.values() for t, _ in v]
@@ -143,17 +192,79 @@ def radar_rwa():
         detail.append({"pool": "%s %s (%s)" % (r0.get("project"), r0.get("symbol"), r0.get("chain")),
                        "tvl_musd": round((tvl or 0) / 1e6), "apy_j0": a0, "apy_j7": a7,
                        "delta_bps": None if delta is None else round(delta)})
-    verdict = "SUCCES (critère atteint)" if bouges >= 3 else "ECHEC (critère non atteint)"
+    verdict_origine = "SUCCES" if bouges >= 3 else "ECHEC (critère non atteint)"
+
+    # ── B. RÉ-TRANCHE 29/09 — univers crédit privé (critère déclaré ci-dessus, AVANT calcul)
+    couv, _ = univers_credit_prive(par_pool)
+    r1_couples, r1_pools, apparitions = {}, 0, 0
+    for pid, v in couv.items():
+        apy = [y[1].get("apy") or 0 for y in v]
+        if apy[0] == 0:                      # pool APPARU en cours de fenêtre ≠ un mouvement
+            apparitions += 1
+            continue
+        mx = 0.0
+        for i in range(len(v)):
+            for j in range(len(v)):
+                if 6.5 <= (v[j][0] - v[i][0]) / 86400.0 <= 7.5:
+                    mx = max(mx, abs(apy[j] - apy[i]))
+        if mx * 100 >= 50:
+            r1_pools += 1
+            k = (v[0][1].get("project"), v[0][1].get("symbol"))
+            r1_couples[k] = max(r1_couples.get(k, 0.0), round(mx * 100))
+    r2_couples = {}
+    for pid, v in couv.items():
+        apy = [y[1].get("apy") or 0 for y in v]
+        med = sorted(apy)[len(apy) // 2]
+        if med >= 3 and (max(apy) - min(apy)) * 100 <= 50:
+            k = (v[0][1].get("project"), v[0][1].get("symbol"))
+            d = r2_couples.setdefault(k, {"med": [], "vals": set()})
+            d["med"].append(round(med, 2))
+            d["vals"].update(round(a, 6) for a in apy)   # valeurs RÉELLES de la fenêtre
+    r1_ok, r2_ok = len(r1_couples) >= 3, len(r2_couples) >= 5
+    if r1_ok and r2_ok:
+        verdict = "SUCCES (R1 + R2) — le terrain RWA n'est PAS mort"
+    elif r1_ok:
+        verdict = "SUCCES PARTIEL (R1 seul — le rendement bouge, rien de stable à vendre)"
+    elif r2_ok:
+        verdict = "SUCCES PARTIEL (R2 seul — rendements stables documentables, mais figés)"
+    else:
+        verdict = "ECHEC (aucun critère de la ré-tranche atteint)"
+
+    alertes = ["critère d'ORIGINE (top 20 TVL) : %s (%d/%d bougent) — mauvaise liste, d'où la ré-ouverture"
+               % (verdict_origine, bouges, len(top20))]
+    projets_r1 = sorted(set(k[0] for k in r1_couples))
+    if len(projets_r1) < 3:
+        alertes.append("R1 porté par seulement %d projet(s) (%s) : %d apparition(s) de pool et les instances "
+                       "multi-chaînes gonflent le compte"
+                       % (len(projets_r1), ", ".join(projets_r1) or "aucun", apparitions))
+    # PLAT = UNE SEULE valeur d'apy sur TOUTE la fenêtre. Le test porte sur les VALEURS RÉELLES
+    # (d["vals"]), PAS sur la liste des médianes : `len(set(med))==1` était vrai pour tout couple
+    # à 1 seule instance → il flaggait maple/midas à tort. Corrigé le 29/09 (vérification demandée) :
+    # maple ×3 = 18 valeurs distinctes, midas = 72, pareto = 5 → ils VARIENT. Seul travessia est plat.
+    plats = sorted("%s %s" % k for k, d in r2_couples.items() if len(d["vals"]) == 1)
+    if plats:
+        alertes.append("R2 : %d couple(s) à valeur CONSTANTE sur toute la fenêtre (test sur les valeurs réelles) — "
+                       "taux FIXE annoncé, à confirmer par une 2ᵉ source AVANT publication : %s"
+                       % (len(plats), ", ".join(plats)))
+
     return {
         "protocole": "Radar RWA (DefiLlama)",
-        "critere": "pré-enregistré J+8 : ≥ 3 pools du top 20 TVL (au 1er relevé du 11/09) bougent de ≥ 50 bps en 7 jours",
-        "faits": "%d relevés · %d pools suivis · top 20 TVL : %d pool(s) ont bougé de ≥ 50 bps" % (
-            sum(len(v) for v in par_pool.values()), len(par_pool), bouges),
+        "critere": ("RÉ-TRANCHE 29/09 — univers crédit privé (project ∈ crédit ET symbole = devise ; pools couvrant "
+                    "TOUTE la fenêtre, sans démarrage à 0 ; dédupliqué par projet/symbole) : R1 ≥ 3 couples bougent "
+                    "≥ 50 bps/7 j · R2 (critère PRODUIT, assumé neuf) ≥ 5 couples à ≥ 3 % APY stable (≤ 50 bps)"),
+        "faits": ("%d relevés · %d pools suivis → univers crédit %d pool(s) · R1 %d pool(s) → %d couple(s) "
+                  "projet-symbole · R2 %d couple(s) · %d apparition(s) écartée(s)" % (
+                      sum(len(v) for v in par_pool.values()), len(par_pool), len(couv),
+                      r1_pools, len(r1_couples), len(r2_couples), apparitions)),
         "verdict": verdict,
-        "alerte": ("critère MAL CIBLÉ : %d des 20 plus gros pools ont un rendement quasi nul (< 0,5 %% — lending "
-                   "Solana : DSOL/JITOSOL/JLP…) → le top 20 TVL n'est PAS la liste des rendements de crédit privé "
-                   "que le prototype visait ; sur les pools qui portent un vrai rendement, %d bouge(nt) de ≥ 50 bps"
-                   % (n_apy0, bouges_apy)) if n_apy0 >= 5 else "",
+        "alerte": " ; ".join(alertes),
+        "retranche": {"R1_couples": {"%s/%s" % k: v for k, v in sorted(r1_couples.items())},
+                      "R2_couples": {"%s/%s" % k: {"n_instances": len(d["med"]),
+                                                   "apy_medianes": sorted(d["med"]),
+                                                   "valeurs_distinctes": len(d["vals"])}
+                                     for k, d in sorted(r2_couples.items())}},
+        "origine": {"critere": "top 20 TVL ≥ 50 bps/7 j (pré-enregistré 11/09)",
+                    "bouges": bouges, "verdict": verdict_origine},
         "detail": detail,
     }
 

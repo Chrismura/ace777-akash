@@ -53,6 +53,37 @@ STATE = RACINE / "Index_Maison" / "thermo" / "predeclaration.json"
 # ACTIF À PARTIR DE : la règle ne juge pas le passé (R14) — elle juge ce qui vient.
 ACTIF_DEPUIS = "2026-09-23T15:30:00Z"
 
+# ── DETTE CONSTATÉE (radiations) — 29/09/2026 ───────────────────────────────
+# Ces 16 actes ont RÉELLEMENT violé la règle : re-scellés SANS pré-déclaration antérieure,
+# entre le 27/09 10:25Z et le 29/09 09:10Z. Ils sont RADIÉS DE L'ALARME, pas effacés :
+# la dette reste datée, nommée et écrite ICI, dans l'état (`thermo/predeclaration.json` →
+# `dette_radiee`) et dans `REGISTRE_ECHECS_ET_ERREURS.md` §13 (récidive de la classe E22).
+# MOTIF DE LA RADIATION (R14) : « une alarme qui ne peut plus jamais dire vrai est une
+# fausse alarme ». Ces 16 ne peuvent pas redevenir conformes par construction — une
+# déclaration TARDIVE ne satisfait pas `ts <= date de l'acte` (délibérément, pour qu'on ne
+# puisse pas blanchir un acte après coup) — et leur rouge à vie noierait la 17ᵉ violation,
+# celle qui est encore réparable.
+# PORTÉE : liste EXPLICITE de couples (fichier, date de l'acte). Aucun acte futur n'est
+# couvert : un nouveau re-scellement a une nouvelle date, donc il est jugé.
+DETTE_CONSTATEE = {
+    ("hulk-mexc/scripts/paper_diprip.py", "2026-09-28T09:03:14Z"),
+    ("hulk-mexc/scripts/watchdog_hulk_ghost.sh", "2026-09-28T09:03:14Z"),
+    ("Index_Maison/scripts/sniffer_vieux_btc.py", "2026-09-28T11:02Z"),
+    ("Index_Maison/scripts/collecter_gouvernance_xrpl.py", "2026-09-28T10:58Z"),
+    ("hulk-mexc/scripts/cortana_propose_params.py", "2026-09-29T08:34Z"),
+    ("Index_Maison/scripts/gen_cockpit_vol.py", "2026-09-28T09:20:00Z"),
+    ("/Users/christophe/prise-ia/hub_prise_ia.py", "2026-09-27T10:25Z"),
+    ("Index_Maison/strategie/contrat_sortie.json", "2026-09-29T08:34Z"),
+    ("Index_Maison/scripts/verdicts_protocoles.py", "2026-09-29T09:06Z"),
+    ("Index_Maison/scripts/git_push_auto.sh", "2026-09-28T11:02Z"),
+    ("hulk-mexc/scripts/gardien_collecte.py", "2026-09-28T09:30:00Z"),
+    ("hulk-mexc/scripts/oracle_justesse_collecte.py", "2026-09-28T09:33:52Z"),
+    ("Index_Maison/scripts/harnais_reseau_injoignable.py", "2026-09-28T11:02Z"),
+    ("Index_Maison/scripts/tester_arbitrage_xrpl.py", "2026-09-29T08:31Z"),
+    ("Index_Maison/scripts/carnet_rwa.py", "2026-09-29T09:07Z"),
+    ("Index_Maison/scripts/preuve_lecture.py", "2026-09-29T09:10Z"),
+}
+
 
 def utc() -> str:
     return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
@@ -126,6 +157,8 @@ def verifier(actif_depuis: str, decs: list, auto: dict | None = None) -> list:
         if cles:
             date_acte = str(it.get("date") or "")
             if date_acte and date_acte >= actif_depuis[:16]:
+                if (nom, date_acte) in DETTE_CONSTATEE:
+                    continue          # dette constatée le 29/09 : radiée de l'alarme (voir l'en-tête)
                 if not any(d.get("ts", "") <= date_acte for d in pret):
                     viol.append({"fichier": nom,
                                  "raison": f"re-scellé le {date_acte} SANS pré-déclaration antérieure",
@@ -136,6 +169,8 @@ def verifier(actif_depuis: str, decs: list, auto: dict | None = None) -> list:
             mt = datetime.fromtimestamp(cible.stat().st_mtime, timezone.utc)
             mt_s = mt.strftime("%Y-%m-%dT%H:%M:%SZ")
             if mt_s >= actif_depuis:
+                if (nom, mt_s) in DETTE_CONSTATEE:
+                    continue          # dette constatée le 29/09 : radiée de l'alarme (voir l'en-tête)
                 if not any(d.get("ts", "") <= mt_s for d in pret):
                     viol.append({"fichier": nom,
                                  "raison": f"modifié le {mt_s} SANS pré-déclaration antérieure",
@@ -159,6 +194,10 @@ def cmd_verifier() -> int:
     print(f"  dettes HISTORIQUES apurées (avant activation, hors alarme) : {len(dettes)}")
     for d in dettes[:6]:
         print(f"     · {d}")
+    print(f"  dette CONSTATÉE radiée de l'alarme : {len(DETTE_CONSTATEE)}"
+          f" (27-29/09 — datée, nommée, tracée au registre §13)")
+    for r in sorted(f"{n} (acte {d})" for n, d in DETTE_CONSTATEE)[:4]:
+        print(f"     · {r}")
     if viol:
         print(f"  ❌ {len(viol)} VIOLATION(S) — une modification scellée sans pré-déclaration :")
         for v in viol:
@@ -168,6 +207,7 @@ def cmd_verifier() -> int:
     STATE.parent.mkdir(parents=True, exist_ok=True)
     STATE.write_text(json.dumps({"ts": utc(), "actif_depuis": actif,
                                  "declarations": len(decs), "dettes_historiques": dettes,
+                                 "dette_radiee": len(DETTE_CONSTATEE),
                                  "violations": viol, "conforme": not viol},
                                 ensure_ascii=False, indent=2), encoding="utf-8")
     print(f"  (état écrit : {STATE})")

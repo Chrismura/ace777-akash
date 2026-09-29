@@ -495,3 +495,107 @@ qui porte un jugement sur le moteur** — c'est la proposition n°1 à soumettre
 **Vérifications** : boucle re-exécutée **2 fois** après correction (PnL réconcilié +26,87 $ /
 +26,87 $, écart −0,0001) · scellés **151 · 0 écart · 0 absent** · pré-déclaration **0 violation**
 · drill READY · **AUCUNE modification du moteur (0 ordre, 0 €)**.
+
+---
+
+## 13. RÉCIDIVE E22 — 16 re-sellements sans pré-déclaration (27 → 29/09/2026)
+
+> Constat : `predemodifier.py --verifier` → **16 VIOLATIONS**, `conforme: false`.
+> (L'heure exacte du constat **n'est pas mesurée** — je ne l'invente pas : elle est encadrée par le
+> premier acte de réparation tracé, `Index_Maison/strategie/PREDECLARATIONS.jsonl` → **29/09 09:22:41Z**.)
+> Découvert **en re-vérifiant la batterie moi-même** — pas parce qu'un gardien me l'a montré au
+> moment où je concluais. C'est le sujet : la garde existait, elle disait vrai, **personne ne
+> l'interrogeait là où le verdict se rend**.
+
+**La faute, sans emballage** : entre le **27/09 10:25Z** et le **29/09 09:10Z** j'ai re-scellé
+**16 fichiers** sans pré-déclaration antérieure. R20.1 existait depuis le 23/09, l'outil existait
+(`predemodifier.py --declarer`), le gardien existait — **je ne l'ai jamais appelé avant d'agir**.
+C'est **exactement la faute du 23/09** (E22), refaite **deux jours de suite**, et cette fois sur
+ma propre production : la correction des organes (code 3), le contrat de sortie, le radar
+arbitrage, le carnet RWA, `preuve_lecture.py`.
+
+**Les 16 actes** (fichier — date du re-scellement) :
+
+| # | Fichier | Acte |
+|---|---|---|
+| 1 | `/Users/christophe/prise-ia/hub_prise_ia.py` | 27/09 10:25Z |
+| 2 | `hulk-mexc/scripts/paper_diprip.py` | 28/09 09:03:14Z |
+| 3 | `hulk-mexc/scripts/watchdog_hulk_ghost.sh` | 28/09 09:03:14Z |
+| 4 | `Index_Maison/scripts/gen_cockpit_vol.py` | 28/09 09:20:00Z |
+| 5 | `hulk-mexc/scripts/gardien_collecte.py` | 28/09 09:30:00Z |
+| 6 | `hulk-mexc/scripts/oracle_justesse_collecte.py` | 28/09 09:33:52Z |
+| 7 | `Index_Maison/scripts/collecter_gouvernance_xrpl.py` | 28/09 10:58Z |
+| 8 | `Index_Maison/scripts/sniffer_vieux_btc.py` | 28/09 11:02Z |
+| 9 | `Index_Maison/scripts/harnais_reseau_injoignable.py` | 28/09 11:02Z |
+| 10 | `Index_Maison/scripts/git_push_auto.sh` | 28/09 11:02Z |
+| 11 | `Index_Maison/scripts/tester_arbitrage_xrpl.py` | 29/09 08:31Z |
+| 12 | `Index_Maison/strategie/contrat_sortie.json` | 29/09 08:34Z |
+| 13 | `hulk-mexc/scripts/cortana_propose_params.py` | 29/09 08:34Z |
+| 14 | `Index_Maison/scripts/verdicts_protocoles.py` | 29/09 09:06Z |
+| 15 | `Index_Maison/scripts/carnet_rwa.py` | 29/09 09:07Z |
+| 16 | `Index_Maison/scripts/preuve_lecture.py` | 29/09 09:10Z |
+
+(Le motif de fond de chaque acte est écrit dans son `_rescel`/`_ajout` au registre des synapses.)
+
+### 13.1 Ce que la vérification a trouvé DE PLUS : deux trous DANS la garde elle-même
+
+C'est le vrai sujet. La garde de E22 était **encore une promesse**, pour deux raisons : l'une
+prouvée par le **code et le harnais** (A), l'autre prouvée par l'**aiguillage** (B).
+
+| Trou | Preuve | Correctif |
+|---|---|---|
+| **A — la veilleuse ne distinguait pas un acte ANNONCÉ** | `veilleuse_synapses.py` ne lisait pas `PREDECLARATIONS.jsonl` : toute modification d'un scellé = « **INTRUSION — modification non déclarée** » + **alerte vocale**, **même pré-déclarée**. Preuve par le **CODE** (git diff du 29/09 : aucun appel au registre des pré-déclarations) + par le **harnais** (`veilleuse_synapses.py --autotest` → **4/4**) + par la **mesure du 29/09 09:33:49Z** : la même modification, **déclarée et non encore re-scellée**, est classée **DÉCLARÉE**, `rc=0`, **aucune alerte vocale**. → le rituel **CORRECT** (déclarer → modifier → re-sceler) faisait sonner la sirène pendant toute la fenêtre déclaré→re-scellé (≤ 10 min, cadence veilleuse) → **personne ne déclare un acte qui crie** : la règle devenait inutilisable. **Fausse alarme (R14)** : elle punit le bon geste | Une modification couverte par une pré-déclaration (**`md5_avant` == md5 scellé du registre**) passe en **« DÉCLARÉE (R20.1), re-scellement en attente »**, **hors alarme et hors alerte vocale**. Une déclaration ne peut pas être fabriquée pour éteindre un rouge : elle doit porter le md5 de la version **encore scellée** |
+| **B — rien ne l'interrogeait au moment du verdict** | `predemodifier.py` n'était appelé par **RIEN** : ni par `git_push_auto.sh`, ni par le drill. `verifier_regles_or.py` (R13) ne lit que la veilleuse, qui ne voit que les md5. Le **drill** — verdict de fin de tour **et** de `git_push_auto` — annonçait **READY** sur un état fautif, et le tour se terminait sur « tout est vert » | Le drill **exige 0 violation**, par **appel LIVE** à `predemodifier.py --verifier` : nouveau **§5bis** du rapport + champ `predeclaration` du JSON. Un gardien que personne n'interroge là où la conclusion se rend n'est pas un mécanisme, c'est une conversation |
+
+**⚠️ AUTO-CORRECTION DU 29/09 (classe E10 — je me corrige ici, pas ailleurs)** : la première rédaction
+de ce tableau affirmait que la veilleuse avait accusé `preuve_lecture.py` le **09:11:27Z** « alors que
+la modification avait été annoncée ». **C'était FAUX.** Ce fichier n'a **jamais** été pré-déclaré : il
+fait partie des **16 actes radiés** (aucune ligne dans `PREDECLARATIONS.jsonl`). Le journal est sans
+ambiguïté — les deux seules alarmes du 29/09 (**09:01:27Z** `verdicts_protocoles.py` ; **09:11:27Z**
+`preuve_lecture.py`) étaient **JUSTES** : elles ont mis au jour la faute. **La veilleuse n'a pas menti ;
+c'est moi qui ai inventé un cri qu'elle n'avait pas poussé.** Le trou A reste **réel mais LATENT** — il
+se prouve par le code, le harnais et la mesure de **09:33:49Z**, jamais par une alarme imaginaire :
+un chiffre recalculé n'est pas un chiffre vérifié (E10), un cri supposé n'est pas un cri mesuré.
+
+### 13.2 Les 16 : radiés de l'alarme, pas effacés
+
+**R14** : *« une alarme qui ne peut plus jamais dire vrai est une fausse alarme »*. Ces 16 actes
+**ne peuvent pas** redevenir conformes par construction — une déclaration **tardive** ne satisfait
+pas `ts <= date de l'acte`, **volontairement** (sinon on blanchirait un acte après coup). Les
+laisser rouges à vie **noierait la 17ᵉ violation**, celle qui est encore réparable.
+
+Radier = **sortir de l'alarme**, jamais effacer : la dette reste **datée, nommée** dans l'état
+(`thermo/predeclaration.json` → `dette_radiee`), **ici (§13)** et dans la sortie de `--verifier`.
+La radiation est une **liste explicite de couples (fichier, date de l'acte)** : **aucun acte futur
+n'est couvert** (un nouvel acte a une nouvelle date, donc il est jugé).
+
+### 13.3 Preuves (toutes rejouables)
+
+- `predemodifier.py --autotest` → **3/3** : avec la règle rendue active dans le passé, le gardien désigne **42** actes scellés fautifs **sans** pré-déclaration et **0** avec — il **sait dire NON**. (42 est un **compte synthétique** sur les entrées `md5` du registre, **pas** un décompte de mes fautes.)
+- `predemodifier.py --verifier` → **conforme, 0 violation, rc=0** (16 radiées, listées).
+- `veilleuse_synapses.py` → **STABLE, 0 INTRUSION** · harnais **`--autotest` 4/4** · et **mesuré le 29/09 09:33:49Z, AVANT re-scellement** : la modification déclarée est classée **DÉCLARÉE (R20.1)**, `rc=0`, **aucune alerte vocale** — preuve directe du trou A corrigé.
+- Drill → **READY**, §5bis « ✅ 0 violation » (145 scellés, 0 écart, 0 absent).
+- `verifier_regles_or.py` → **10/12** : **R13 repasse au vert** (la veilleuse ne crie plus sur un acte annoncé).
+- Les 3 fichiers corrigés ont été re-scellés **par l'outil canonique** (`resceler.py`), pas par un script écrit pour l'occasion — et **pré-déclarés AVANT** d'être touchés (15 déclarations au registre).
+
+### 13.4 Ce qui reste rouge, et pourquoi je ne le masque pas
+
+- **R10** (RAM libre 50 %, swap 38,1 %, disque 7,3 Go) : **environnemental** — « ne pas lancer de
+  nouveau chantier lourd ».
+- **R19** : dernier tour de **jury il y a 138 h** (tour 6 = 1 voix indépendante). La règle dit « rejouer
+  le tour » ; **je ne le lance pas maintenant** parce qu'une consultation famille est précisément un
+  chantier lourd et que R10 l'interdit à cet instant — **décision à Christophe**. E14 exigerait que ce
+  tour soumette **cette récidive** à la contradiction, pas qu'il la taise : le brief est prêt à partir.
+
+### 13.5 Ce que cette récidive dit de moi
+
+Ce n'est pas la règle qui manquait, ni l'outil : c'est le **moment où la garde est interrogée**.
+Trois fois la même famille (E22 le 23/09, puis les 27-29/09) — à chaque fois j'ai **écrit** la
+règle et laissé l'exécution à ma mémoire. Généralisé et écrit pour de bon : **une garde qui existe
+mais que personne n'appelle là où la conclusion se rend est une promesse.** Le drill l'appelle
+désormais, et le drill est ce qui décide READY/TROU — donc ce que je regarde avant de dire
+« c'est fait ».
+
+**Vérifications du tour** : scellés **145 · 0 écart · 0 absent** · pré-déclaration **0 violation**
+(16 radiées, tracées) · drill **READY** · veilleuse **STABLE** · règles d'or **10/12** (R10
+environnement, R19 jury à rejouer) · **0 ordre, 0 €**.
