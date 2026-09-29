@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-29T07:34:13.058314+00:00",
+  "generated_at": "2026-09-29T07:35:13.588001+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -401,64 +401,64 @@
   ],
   "events": [
     {
-      "ts": "2026-09-29T07:29:10.976674+00:00",
+      "ts": "2026-09-29T07:35:04.773740+00:00",
       "kind": "http",
       "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
       "detail": ""
     },
     {
-      "ts": "2026-09-29T07:29:10.976597+00:00",
+      "ts": "2026-09-29T07:35:04.773560+00:00",
       "kind": "error",
       "title": "Toutes les IA ont echoue",
-      "detail": "Google Gemini: HTTP Error 429: Too Many Requests | HuggingFace (136+ modeles, dont DeepSeek-V4): reseau KO [Errno 8] nodename nor servname provided, or not known | OrcaRouter (routeur gratuit, modele orcarouter/free): reseau KO [Errno 8] nodename nor servname provided, or not known | OpenRouter Juge (nemotron-3-super-120b free) - verificateur independant: reseau KO [Errno 8] nodename nor servname provided, or not known | InferX DeepSeek V4 Flash (API gratuite jusqu'au 12/08): reseau KO [Errno 8]"
+      "detail": "Google Gemini: reseau KO [Errno 8] nodename nor servname provided, or not known"
     },
     {
-      "ts": "2026-09-29T07:29:10.976482+00:00",
+      "ts": "2026-09-29T07:35:04.773414+00:00",
       "kind": "failover",
-      "title": "Reseau KO (bascule immediate) depuis InferX Devstral-2-123B (code)",
+      "title": "Reseau KO (bascule immediate) depuis Google Gemini",
       "detail": "[Errno 8] nodename nor servname provided, or not known"
     },
     {
-      "ts": "2026-09-29T07:29:10.970087+00:00",
-      "kind": "failover",
-      "title": "Reseau KO (bascule immediate) depuis NVIDIA DeepSeek-Coder 6.7B (code, via NIM)",
+      "ts": "2026-09-29T07:35:04.773050+00:00",
+      "kind": "network",
+      "title": "Reseau indisponible: Google Gemini",
       "detail": "[Errno 8] nodename nor servname provided, or not known"
     },
     {
-      "ts": "2026-09-29T07:29:10.964346+00:00",
+      "ts": "2026-09-29T07:35:04.753250+00:00",
+      "kind": "network",
+      "title": "Reseau pas pret — mode degrade (timeout court)",
+      "detail": ""
+    },
+    {
+      "ts": "2026-09-29T07:34:25.088194+00:00",
+      "kind": "http",
+      "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
+      "detail": ""
+    },
+    {
+      "ts": "2026-09-29T07:34:25.088019+00:00",
+      "kind": "error",
+      "title": "Toutes les IA ont echoue",
+      "detail": "Google Gemini: reseau KO [Errno 8] nodename nor servname provided, or not known"
+    },
+    {
+      "ts": "2026-09-29T07:34:25.087879+00:00",
       "kind": "failover",
-      "title": "Reseau KO (bascule immediate) depuis Puter Grok (gratuit)",
+      "title": "Reseau KO (bascule immediate) depuis Google Gemini",
       "detail": "[Errno 8] nodename nor servname provided, or not known"
     },
     {
-      "ts": "2026-09-29T07:29:10.958269+00:00",
-      "kind": "failover",
-      "title": "Reseau KO (bascule immediate) depuis InferX Qwen3-Coder-Next (code, gratuit jusqu'au 12/08)",
+      "ts": "2026-09-29T07:34:25.087472+00:00",
+      "kind": "network",
+      "title": "Reseau indisponible: Google Gemini",
       "detail": "[Errno 8] nodename nor servname provided, or not known"
     },
     {
-      "ts": "2026-09-29T07:29:10.951952+00:00",
-      "kind": "failover",
-      "title": "Reseau KO (bascule immediate) depuis InferX DeepSeek V4 Flash (API gratuite jusqu'au 12/08)",
-      "detail": "[Errno 8] nodename nor servname provided, or not known"
-    },
-    {
-      "ts": "2026-09-29T07:29:10.944929+00:00",
-      "kind": "failover",
-      "title": "Reseau KO (bascule immediate) depuis OpenRouter Juge (nemotron-3-super-120b free) - verificateur independant",
-      "detail": "[Errno 8] nodename nor servname provided, or not known"
-    },
-    {
-      "ts": "2026-09-29T07:29:10.937050+00:00",
-      "kind": "failover",
-      "title": "Reseau KO (bascule immediate) depuis OrcaRouter (routeur gratuit, modele orcarouter/free)",
-      "detail": "[Errno 8] nodename nor servname provided, or not known"
-    },
-    {
-      "ts": "2026-09-29T07:29:10.922969+00:00",
-      "kind": "failover",
-      "title": "Reseau KO (bascule immediate) depuis HuggingFace (136+ modeles, dont DeepSeek-V4)",
-      "detail": "[Errno 8] nodename nor servname provided, or not known"
+      "ts": "2026-09-29T07:34:25.076823+00:00",
+      "kind": "blacklist",
+      "title": "Fin de pause Google Gemini",
+      "detail": "re-essai automatique"
     }
   ],
   "tasks_quotas": {
