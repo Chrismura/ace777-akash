@@ -5734,3 +5734,7 @@ Pas d’ordre — confrontation plus tard.
 - WUSDT: IMPULSE_WAIT — spike en cours, pas chase
 - RWAINCUSDT: WATCH_PULLBACK — tension haute + reflux
 (compléter: confirmé ? risque ?)
+
+### 2026-09-29T08:37:40Z — ALERT auto
+- QNTUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
