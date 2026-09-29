@@ -1,15 +1,15 @@
 {
-  "timestamp": 1790641903,
-  "date": "2026-09-29T00:31:43.816224+00:00",
-  "n_analyses": 1,
+  "timestamp": 1790645505,
+  "date": "2026-09-29T01:31:45.061132+00:00",
+  "n_analyses": 2,
   "analyses": [
     {
       "signal": {
         "metric": "fear_greed",
-        "zscore": -2.017528818929537,
+        "zscore": -4.795831523312697,
         "value": 73,
-        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Le score z négatif (-2.02) malgré un indice de cupidité élevé (73) indique un épuisement silencieux de la liquidité par les baleines. Le marché public est complaisant (euphorie médiatique artificielle ou vide), masquant une distribution active des gros portefeuilles.\"\n}\n```",
-        "ts": 1790640308.391947
+        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement négatif (-4.80) malgré une cupidité élevée (73). Divergence critique : le marché retail est aveuglé par l'euphorie médiatique pendant que les baleines vident leurs positions en silence.\"\n}\n```",
+        "ts": 1790643924.631688
       },
       "fiche": "fear_greed",
       "questions": {
@@ -21,6 +21,40 @@
         "cupidite": {
           "value": 73,
           "seuil": 75,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
+      },
+      "action": "Observer",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "whale_usd",
+        "zscore": 4.62129200596842,
+        "value": 5808898.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 4.62) avec un mouvement de ~5.8M$ par une baleine, contrastant avec un vide médiatique total (Google Actualités muet). Accumulation silencieuse classique hors radar public.\"\n}\n```",
+        "ts": 1790644527.214738
+      },
+      "fiche": "whale_usd",
+      "questions": {
+        "ventes": {
+          "value": 0.0,
+          "seuil": 0,
+          "depasse": false
+        },
+        "achats": {
+          "value": 0.0,
+          "seuil": 0,
+          "depasse": false
+        },
+        "prix": {
+          "value": null,
+          "seuil": 1,
           "depasse": false
         }
       },
