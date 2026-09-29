@@ -1,5 +1,5 @@
 {
-  "ts": "2026-09-29T05:44:18+00:00",
+  "ts": "2026-09-29T06:34:11+00:00",
   "note": "Verdicts MESURÉS à la source (scripts/verdicts_protocoles.py). Chaque protocole porte son critère pré-enregistré : c'est lui qui décide, pas l'impression du moment. Un verdict « IMPOSSIBLE » ou une ligne « alerte » signale un protocole dont le verdict ne peut pas être rendu — c'est une panne de conception, pas une patience.",
   "protocoles": [
     {
@@ -188,10 +188,6 @@
           "delta_votes": 10
         },
         {
-          "amendement": "SingleAssetVault",
-          "delta_votes": 4
-        },
-        {
           "amendement": "DynamicMPT",
           "delta_votes": 4
         },
@@ -201,6 +197,10 @@
         },
         {
           "amendement": "BatchV1_1",
+          "delta_votes": 4
+        },
+        {
+          "amendement": "SingleAssetVault",
           "delta_votes": 4
         },
         {
@@ -220,7 +220,7 @@
     {
       "protocole": "Arbitrage LLM-vs-règle (Cortana)",
       "critere": "la règle maison : < 60 % de justesse micro → confiance faible + 1 alerte/h max. Verdict annoncé 27/09",
-      "faits": "0 alerte(s) microstructure au journal · 0 notée(s) par le juge indépendant · justesse n/d · avis directionnels de Cortana (toutes matières) : 18/29 = 62.1 %",
+      "faits": "0 alerte(s) microstructure au journal · 0 notée(s) par le juge indépendant · justesse n/d · avis directionnels de Cortana (toutes matières) : 56/98 = 57.1 %",
       "verdict": "IMPOSSIBLE (0 cas à juger)",
       "alerte": "le verdict du 27/09 ne pourra PAS être rendu : 0 alerte(s) en 7 jours → 0 cas. Le producteur d'alertes (module microstructure) n'a rien écrit depuis le 09/09 (data/micro_alerts.jsonl = 0 octet) — il faut trancher : module mort, ou rien à alerter ?",
       "detail": [
@@ -237,10 +237,40 @@
           "n": 7
         },
         {
+          "indice": "btc",
+          "directionnels": 1,
+          "corect": null,
+          "n": 12
+        },
+        {
+          "indice": "chg24",
+          "directionnels": 2,
+          "corect": 1,
+          "n": 3
+        },
+        {
+          "indice": "croisements",
+          "directionnels": 14,
+          "corect": 10,
+          "n": 32
+        },
+        {
+          "indice": "etfBtcM",
+          "directionnels": 2,
+          "corect": 1,
+          "n": 4
+        },
+        {
           "indice": "fearGreed",
-          "directionnels": 11,
-          "corect": 6,
-          "n": 46
+          "directionnels": 37,
+          "corect": 21,
+          "n": 72
+        },
+        {
+          "indice": "geopol",
+          "directionnels": 4,
+          "corect": 1,
+          "n": 30
         },
         {
           "indice": "gexPutCall",
@@ -249,39 +279,27 @@
           "n": 5
         },
         {
-          "indice": "liq24Usd",
-          "directionnels": 2,
-          "corect": 2,
-          "n": 6
-        },
-        {
-          "indice": "radar",
-          "directionnels": 8,
-          "corect": 4,
-          "n": 52
-        },
-        {
-          "indice": "verre",
-          "directionnels": 3,
-          "corect": 2,
-          "n": 7
+          "indice": "indice_onchain",
+          "directionnels": 1,
+          "corect": null,
+          "n": 5
         }
       ]
     },
     {
       "protocole": "Geopol (réanimé)",
       "critere": "GEOPOL-C2/C3 : avis geopol noté vs BTC 2×/jour, fenêtre 4 semaines (→ ~10/10), critère P3 ≥ 56 %",
-      "faits": "score actuel 0.3406 « calme » (ML 0.1581) · 26 avis enregistrés dont 0 directionnels (0 correct(s)) · 26 NEUTRE",
+      "faits": "score actuel 0.3406 « calme » (ML 0.1581) · 30 avis enregistrés dont 4 directionnels (1 correct(s)) · 26 NEUTRE",
       "verdict": "EN ATTENTE (fenêtre jusqu'au ~10/10)",
-      "alerte": "",
+      "alerte": "1 avis correct sur 4 directionnels : à cette cadence le critère ne sera pas tranchable dans la fenêtre",
       "detail": [
         {
           "indice": "geopol",
-          "n": 26,
-          "directionnels": 0,
-          "corrects": 0,
+          "n": 30,
+          "directionnels": 4,
+          "corrects": 1,
           "neutres": 26,
-          "t_stat": 5.1
+          "t_stat": -4.02
         }
       ]
     },
@@ -338,6 +356,6 @@
     "verdicts_rendus": 2,
     "en_attente": 4,
     "impossibles": 1,
-    "avec_alerte": 4
+    "avec_alerte": 5
   }
 }
