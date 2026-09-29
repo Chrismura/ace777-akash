@@ -1,13 +1,13 @@
 # 🩺 DRILL DE RESTAURATION — ✅ **READY**
 
-> Testé le **2026-09-29T02:33Z** · mode **lecture seule** (rien installé, rien modifié).
+> Testé le **2026-09-29T02:44Z** · mode **lecture seule** (rien installé, rien modifié).
 > Question posée : *« si le Mac mourait ce soir, ACE777 reviendrait-il ? »*
 
 ## 1. Source — le repo (git) contient-il tout ?
-- Branche `main` · HEAD `ead3ab35d0` du 2026-09-29T04:33:18+02:00
-- Fichiers suivis modifiés sur disque : **21**
+- Branche `main` · HEAD `6b25b867b2` du 2026-09-29T04:34:03+02:00
+- Fichiers suivis modifiés sur disque : **59**
 - Fichiers suivis **supprimés** (perdus) : **0**
-- Nouveaux fichiers non versionnés : 28817 au total, dont **8 sensibles** (scripts/plists/règles)
+- Nouveaux fichiers non versionnés : 28819 au total, dont **8 sensibles** (scripts/plists/règles)
   - `Index_Maison/scripts/CONSULTATION_FAMILLE_CORTANA_JUGE_CONTRE/AVIS_DEEPSEEK.md`
   - `Index_Maison/scripts/CONSULTATION_FAMILLE_CORTANA_JUGE_CONTRE/AVIS_GEMINI.md`
   - `Index_Maison/scripts/CONSULTATION_FAMILLE_CORTANA_JUGE_CONTRE/AVIS_JUGE.md`
@@ -27,7 +27,7 @@
 - ✅ **0 agent hors repo** — tous reconstructibles.
 
 ## 3. Reconstruction dans un dossier neuf
-- Dossier : `/var/folders/y7/571v2gy574z72zvsgqd46wd40000gn/T/drill_restauration_ib95nh4l/LaunchAgents`
+- Dossier : `/var/folders/y7/571v2gy574z72zvsgqd46wd40000gn/T/drill_restauration_2cyt2o_q/LaunchAgents`
 - Plists rebâtis + validés (`plutil -lint`) : **102/102**
 
 ## 4. Organes invoqués par les agents

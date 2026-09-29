@@ -1,17 +1,17 @@
 {
-  "timestamp": "2026-09-29T02:33:35Z",
+  "timestamp": "2026-09-29T02:43:37Z",
   "generation_source": "system_state_generator.py v2.1",
   "status": "STALE",
-  "feed_hash": "84d1ee384e758fc40f130ca924af2b7cad5b0efa236f7afb91035c40aeb04819",
+  "feed_hash": "d2cbb1887658d6fc7b655d02c22f0774d2db7012358ae6670513496f58c7432e",
   "feeds": {
     "mission": {
       "present": true,
-      "age_seconds": 2,
+      "age_seconds": 25,
       "fresh_limit_s": 120
     },
     "cortana_feed": {
       "present": true,
-      "age_seconds": 260,
+      "age_seconds": 259,
       "fresh_limit_s": 120
     },
     "live": {
@@ -21,18 +21,19 @@
     },
     "routing": {
       "present": true,
-      "age_seconds": 3077598,
+      "age_seconds": 3078200,
       "fresh_limit_s": 120
     }
   },
   "services": {
     "total": 102,
-    "running": 12,
-    "planned": 90,
+    "running": 14,
+    "planned": 88,
     "running_list": [
       "com.ace777.cockpit-http",
       "com.ace777.cockpit-pont",
       "com.ace777.collecte-anti-veille",
+      "com.ace777.fusibles-mesure",
       "com.ace777.llm-gate-hub",
       "com.ace777.mirofish",
       "com.ace777.mirofish-front",
@@ -41,7 +42,8 @@
       "com.ace777.superviseur-core",
       "com.ace777.superviseur-l2",
       "com.ace777.superviseur-process",
-      "com.ace777.vigie-live"
+      "com.ace777.vigie-live",
+      "com.ace777.xrpl-onchain"
     ],
     "planned_list": [
       "com.ace777.analyste-cadence",
@@ -72,7 +74,6 @@
       "com.ace777.eval-offres",
       "com.ace777.fees",
       "com.ace777.flux-nets",
-      "com.ace777.fusibles-mesure",
       "com.ace777.gen-cockpit-vol",
       "com.ace777.geopol",
       "com.ace777.gitpush",
@@ -132,8 +133,7 @@
       "com.ace777.whales",
       "com.ace777.x402-agentic",
       "com.ace777.xrpl-arbitrage",
-      "com.ace777.xrpl-gouvernance",
-      "com.ace777.xrpl-onchain"
+      "com.ace777.xrpl-gouvernance"
     ]
   },
   "hub": {
