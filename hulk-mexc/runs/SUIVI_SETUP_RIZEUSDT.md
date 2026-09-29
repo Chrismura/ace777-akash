@@ -35,23 +35,21 @@ Métriques : maison (mur moy/max + régime ; poussière = indicateur PANIER) + p
 | 28 | 2026-09-26T14:34:56Z | 14h | AUTRE | 0.004048 | IMPULSE_WAIT | 8.3596 | 361.81 | 4200.0 | 7.88e-06 | 0.10 | -0.45 | 0.07 | POMPE_PIEGE (stab 1) | prix 0.004048 · poussière(panier) 8.4% · Amihud 7.88e-06 · delta +0.10 · mur moy 362$ · mur max (run) 4,200$ |
 | 29 | 2026-09-27T14:35:01Z | 14h | AUTRE | 0.003875 | IMPULSE_WAIT | 8.7811 | 361.81 | 4200.0 | 4.66e-06 | 0.10 | -0.60 | -0.60 | POMPE_PIEGE (stab 5) | prix 0.003875 · poussière(panier) 8.8% · Amihud 4.66e-06 · delta +0.10 · mur moy 362$ · mur max (run) 4,200$ |
 | 30 | 2026-09-28T14:34:54Z | 14h | AUTRE | 0.003319 | IMPULSE_WAIT | 5.717 | 361.81 | 4200.0 | 4.70e-06 | 0.03 | 0.47 | 0.48 | POMPE_PIEGE (stab 2) | prix 0.003319 · poussière(panier) 5.7% · Amihud 4.70e-06 · delta +0.03 · mur moy 362$ · mur max (run) 4,200$ |
+| 31 | 2026-09-29T14:35:07Z | 14h | AUTRE | 0.003553 | IMPULSE_WAIT | 28.2326 | 361.81 | 4200.0 | 9.82e-06 | -0.07 | -0.32 | -0.20 | neutre (stab 0) | prix 0.003553 · poussière(panier) 28.2% · Amihud 9.82e-06 · delta -0.07 · mur moy 362$ · mur max (run) 4,200$ |
 
 ## 🔁 HISTORIQUE DES CYCLES DE L'ACTIF (zigzag ≥ 15 %, log continu du moteur)
 
-_Fenêtre mesurée : du 2026-09-24T15:31:33Z au 2026-09-28T14:34:54Z (15039 points) — archives de rotation incluses._
+_Fenêtre mesurée : du 2026-09-25T15:36:03Z au 2026-09-29T14:35:07Z (14988 points) — archives de rotation incluses._
 
 | # | De | prix | Vers | prix | Amplitude | Durée |
 |---|---|---|---|---|---|---|
-| 1 | pic 2026-09-25T01:16:35Z | 0.004727 | creux 2026-09-25T01:46:45Z | 0.003651 | 🔻 -22.8 % | 1 h (0.0 j) |
-| 2 | creux 2026-09-25T01:46:45Z | 0.003651 | pic 2026-09-25T04:15:38Z | 0.005189 | 🔺 +42.1 % | 2 h (0.1 j) |
-| 3 | pic 2026-09-25T04:15:38Z | 0.005189 | creux 2026-09-25T05:35:20Z | 0.004353 | 🔻 -16.1 % | 1 h (0.1 j) |
-| 4 | creux 2026-09-25T05:35:20Z | 0.004353 | pic 2026-09-25T09:30:48Z | 0.005172 | 🔺 +18.8 % | 4 h (0.2 j) |
+| 1 | pic 2026-09-25T15:41:24Z | 0.004535 | creux 2026-09-27T21:17:49Z | 0.003117 | 🔻 -31.3 % | 54 h (2.2 j) |
 
-**Cycle EN COURS : BAISSE depuis le pic du 2026-09-25T09:30:48Z à 0.005172 → 0.003319 = **-35.8 %**** (extrême courant 0.003117)
+**Cycle EN COURS : HAUSSE depuis le creux du 2026-09-27T21:17:49Z à 0.003117 → 0.003553 = **+14.0 %**** (extrême courant 0.003888)
 
 ## 💰 CE QUE LE MOTEUR A CAPTÉ SUR CET ACTIF
 
 - **Réalisé : -0.14 $** sur 10 entrée(s) / 9 sortie(s) — dernier événement 2026-09-25T07:16:45Z
-- **MFE donné en moyenne : +13.4 pts** par tour (pire tour : +39.4) — le meilleur prix atteint pendant la détention, jamais encaissé
+- **MFE donné en moyenne : +12.5 pts** par tour (pire tour : +39.4) — le meilleur prix atteint pendant la détention, jamais encaissé
 
 _Règle : on compare les lignes entre elles (même heure de mesure = comparable). On ne supprime rien._

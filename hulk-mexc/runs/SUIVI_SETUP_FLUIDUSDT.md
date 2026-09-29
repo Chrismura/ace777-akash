@@ -33,14 +33,15 @@ Métriques : maison (mur moy/max + régime ; poussière = indicateur PANIER) + p
 | 26 | 2026-09-26T14:34:56Z | 14h | AUTRE | 1.4556 | WATCH | 8.3596 | None | None | 4.62e-04 | -0.43 | 0.36 | 0.08 | neutre (stab 0) | prix 1.4556 · poussière(panier) 8.4% · Amihud 4.62e-04 · delta -0.43 |
 | 27 | 2026-09-27T14:35:01Z | 14h | AUTRE | 1.4855 | WATCH | 8.7811 | None | None | 3.89e-04 | -0.35 | 0.66 | 0.67 | neutre (stab 0) | prix 1.4855 · poussière(panier) 8.8% · Amihud 3.89e-04 · delta -0.35 |
 | 28 | 2026-09-28T14:34:54Z | 14h | AUTRE | 1.4007 | IMPULSE_WAIT | 5.717 | None | None | 6.47e-04 | -0.01 | 0.92 | 0.67 | neutre (stab 0) | prix 1.4007 · poussière(panier) 5.7% · Amihud 6.47e-04 · delta -0.01 |
+| 29 | 2026-09-29T14:35:07Z | 14h | AUTRE | 1.4898 | IMPULSE | 28.2326 | None | None | 7.87e-04 | -0.71 | 0.78 | 0.88 | neutre (stab 0) | prix 1.4898 · poussière(panier) 28.2% · Amihud 7.87e-04 · delta -0.71 |
 
 ## 🔁 HISTORIQUE DES CYCLES DE L'ACTIF (zigzag ≥ 15 %, log continu du moteur)
 
-_Fenêtre mesurée : du 2026-09-24T15:31:33Z au 2026-09-28T14:34:54Z (14543 points) — archives de rotation incluses._
+_Fenêtre mesurée : du 2026-09-25T15:36:03Z au 2026-09-29T14:35:07Z (14547 points) — archives de rotation incluses._
 
 _Pas encore deux retournements ≥ 15 % dans l'historique mesuré._
 
-**Cycle en cours : pas encore de retournement ≥ 15 % dans la fenêtre** — du plus bas 2026-09-24T15:31:33Z à 1.3507 → 1.4007 = **+3.7 %**
+**Cycle en cours : pas encore de retournement ≥ 15 % dans la fenêtre** — du plus bas 2026-09-28T15:16:42Z à 1.3777 → 1.4898 = **+8.1 %**
 
 ## 💰 CE QUE LE MOTEUR A CAPTÉ SUR CET ACTIF
 
