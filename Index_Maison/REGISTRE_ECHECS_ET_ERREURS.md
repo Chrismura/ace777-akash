@@ -2,7 +2,7 @@
 
 > 2026-09-22 · Buffy · créé sur ordre de Christophe : « va voir ce que sont nos erreurs, enfin
 > **tes** erreurs, et comment les corriger une bonne fois pour toute. »
-> **Dernière mise à jour : 2026-09-23T0956Z** — c'est la borne du détecteur de récidive : toute
+> **Dernière mise à jour : 2026-09-30T2138Z** — c'est la borne du détecteur de récidive : toute
 > ligne de mémoire **postérieure** qui retombe dans une classe connue est signalée par
 > `scripts/critique_erreurs.py` (organe branché, cf. R15).
 > **0 €, 0 ordre.** Ce fichier est la première version de la pièce que la recherche désigne comme
@@ -54,6 +54,7 @@ C'est **littéralement** ce qui se passe ici : on redécouvre les mêmes erreurs
 | **E11** | **Confondre COHÉRENCE et JUSTESSE (biais de source unique)** | 23/09, nommé par la famille (Grok) : mon invariant valide la formule **du moteur** — si le moteur se trompe, mes instruments le valident et **nous nous trompons ensemble**. La classe « le chiffre est fidèle mais la règle est mauvaise » reste **ouverte** | **AUCUNE GARDE — TROU DÉCLARÉ.** Remède identifié et chiffré : **oracle indépendant** = rejouer la kline brute et comparer au signal enregistré, en court-circuitant la logique interne du moteur. **En attente de GO.** |
 | **E14** | **S'auto-absoudre par la confession** — lister ses erreurs passées puis conclure **plus loin que ses chiffres**, sans garde-fou équivalent pour ses propres déductions | 23/09, nommé par la **FAMILLE** (Nemotron, consultation de l'audit MEXC×HULK) : dans le même rapport où je nommais E10/E12/E13, j'ai tiré « le stop est une vérification périodique, pas un ordre au repos » (**n=32, aucun carnet à l'instant de l'impact**), compté des coûts de frais+spread comme un fait (**ils sont ESTIMÉS**, un paper ne paie rien) et généralisé 2 cas extrêmes (−16,5 % / −39,2 %). Les 4 modèles ont répondu la même chose : **mesure solide, explications en avance sur la mesure** | **Règle d'étiquetage de provenance** : toute conclusion d'un rapport porte **MESURÉ** (lu dans une source/un instrument) · **ESTIMÉ** (modèle, borne) · **EXTRAPOLÉ** (déduction non mesurée), et une cause non mesurée est écrite « OPEN » avec **le test qui la trancherait**. Contrôle externe : le brief de consultation **doit** lister mes erreurs ET soumettre mes conclusions neuves à la même contradiction (4 modèles). *Portée déclarée : pas encore mécanique — la classe est tenue par règle écrite + revue famille, comme E11.* |
 | **E13** | **Écrire une heure de MÉMOIRE au lieu de la lire** — le temps traité comme un seuil : **estimé ≠ vérifié** (même famille qu'E10, appliquée à l'horloge) | 23/09 : 4 lignes écrites **10:40Z / 10:05Z / 09:45Z / 09:15Z** alors que les **artefacts cités par ces lignes mêmes** donnent **0947Z / 0939Z / 0922Z / 0907Z** → inflation jusqu'à **+53 min**, donc des lignes **datées dans le futur** | **`Index_Maison/scripts/verif_memoire_horodatage.py`** (23/09) : **R1** aucune ligne de la date la plus récente dans le futur (> +5 min — aurait attrapé les 4) · **R2** ordre décroissant dans la date · **autotest 5/5** (dont le cas réel rejoué à **heure FIXE** : un test qui passe à 14 h et échoue à 9 h ne prouve rien). **Méthode corrigée** : l'heure d'une ligne = le **`mtime` de l'artefact qu'elle cite**, sinon `date -u` au moment d'écrire. **Limites déclarées** : une heure **sous**-estimée est indétectable ; 25 lignes anciennes hors ordre sont **signalées, jamais re-datées** (cf. §6). |
+| **E26** | **Interpréter une question sur un drapeau comme un ordre d'arrêt** | 30/09 : « stop paper, explique? » demandait la signification de `STOP_PAPER`; Buffy a créé le drapeau et le moteur a sauvegardé/sorti à 21:14:30Z. Drapeau retiré, reprise via watchdog depuis le state. Cause : action sur ambiguïté sans clarification. | Erreur reconnue, inscrite au §14. Pas d'arrêt sans instruction explicite; expliquer le drapeau d'abord. Interruption du CSV mesurée entre 21:13:48 et la reprise 21:18:25 (~4 min 37 s de trou de journal), watchdog confirme le PID ensuite. |
 | **E25** | **Juger un prix contre la bougie de l'heure d'ÉCRITURE de la ligne au lieu de l'heure de LECTURE du prix** — et en tirer « donnée corrompue » | 23/09 : la boucle publie « **prix vérifiés dans leur bougie : 84/141 (59,6 %)** » → je parle de **donnée corrompue** et le jury exige de « bloquer l'écriture ». Vérification : sur les **57** prix jugés hors bougie, **57/57 tombent dans un candle VOISIN (±1-2 min)**, **0 prix vraiment hors marché**. Cause : je comparais l'heure d'ÉCRITURE (14:14:23Z) à la bougie, alors que le prix a été **LU** à 14:13:44Z — le journal porte pourtant `ts_prix_utc` (colonne GO 2) | **`boucle_setups_main.py`** : jugement sur l'**heure de lecture** + **tolérance ±1 min** du délai d'écriture, le **strict compté à côté** → **135/141 (95,7 %)** en ±1 min, **100 %** en ±2 min. **Ni blocage d'écriture ni marquage `prix_invalide` : la donnée était SAINE.** 4ᵉ fois le même défaut (E20/E23/E24/E25) : *mon instrument juge le moteur contre un critère que le moteur n'utilise pas* |
 | **E24** | **Juger un STOP contre la MÈCHE d'une bougie alors que le moteur déclenche sur le PRIX PONCTUEL du cycle** | 23/09 : la boucle publie « **4 stops sur 15 non honorés** », avec des retards annoncés de **88 min** (RED) et **303 min** (W) présentés comme des manquements. Vérification : les 4 motifs sont `stop-X%_guard_partial_50` (ventes **partielles**) et le « coût du retard » calculé vaut **0,0055 $** et **0,0082 $** — donc **le moteur avait vendu AU NIVEAU**. Puis lecture du code : la condition réelle est `chg <= -stop` (**`paper_diprip.py:2581`**) évaluée sur **le prix ponctuel du cycle**, pas sur le plus-bas d'un candle | **`boucle_setups_main.py`** : le verdict est rendu sur **le premier prix que le moteur a VU sous le seuil** (lignes du journal), la mesure bougie reste écrite **à côté** (`bougie_retard_min`, `ecart_bougie_visible_min`) → **14/15** (avant 11/15), 1 cas résiduel déclaré. **Ce qui a été ÉVITÉ** : le jury exigeait une « boucle dédiée aux stops à 10 s » — j'aurais modifié la **logique de sécurité d'un moteur en service** sur la foi d'un chiffre faux |
 | **E23** | **Un GARDIEN qui accuse le MOTEUR À TORT** faute de lire un terme de la formule (même famille que E20) | 23/09 : `verif_seuil_moteur.py` annonce `❌ DÉSACCORD … BTCUSDT : écrit 1.70 % · recalculé 4.25 %`. **Le moteur avait RAISON** : seuil = `impulse_entry × 0,85` avec `impulse_entry = max(dip ; impulse_pullback_min_pct ; 0,30×m6)`, profil BTC `dip 2,0` · `impulse_pullback_min_pct 1,5` → **1,70 %**. Mon gardien **omettait le terme `impulse_pullback_min_pct` DU PROFIL** et ne lisait que le plancher GLOBAL (5,0). **Deux défauts dans le MÊME fichier** : la formule, ET l'autotest (**il ne pouvait PAS prouver la détection** : il comparait via la vraie table de profils au lieu du profil injecté) | **Règle R20.2** : `verif_seuil_moteur.py` **section 4** LIT la formule du moteur à la source (`impulse_entry = max(...)`) et **exige** que le gardien lise les mêmes clés du profil — sinon il **se DÉSACTIVE** au lieu d'accuser. Mesuré : invariant **25/25** · autotest **12/12** (avant 8/12 = « GARDIEN CASSÉ ») · autotest enrichi d'un point « BTC réel » et d'une injection de profil synthétique |
@@ -112,7 +113,8 @@ Donc **on ne câble rien** : ce n'est pas la bonne grandeur. La bonne, mesurée 
 1. **LE REGISTRE EST BRANCHÉ** (fait) : il est cité par **les règles d'or (R17.5)** et par
    **`.cursorrules`** — les deux points d'entrée d'où part une proposition de garde. Contrôle
    mécanique : `scripts/critique_erreurs.py` **sort en erreur** si l'un des deux cesse de le citer
-   (un registre non lu n'existe pas, R15).
+   (un registre non lu n'existe pas, R15). Le complément E26 a été pré-déclaré le 30/09 21:37:08Z
+   dans `strategie/PREDECLARATIONS.jsonl` avant cette modification.
 2. **LE CRITIQUE TOURNE TOUT SEUL** (fait) : il est **accroché à l'organe de discipline
    quotidienne** (`discipline_quotidienne.py`, launchd 07:15) — **pas de 98ᵉ agent**. Chaque matin,
    le rapport écrit la section **ERREURS** et l'alerte crie si une classe **récidive après sa
@@ -599,3 +601,79 @@ désormais, et le drill est ce qui décide READY/TROU — donc ce que je regarde
 **Vérifications du tour** : scellés **145 · 0 écart · 0 absent** · pré-déclaration **0 violation**
 (16 radiées, tracées) · drill **READY** · veilleuse **STABLE** · règles d'or **10/12** (R10
 environnement, R19 jury à rejouer) · **0 ordre, 0 €**.
+
+---
+
+## 14. E26 — Buffy a arrêté le paper après avoir mal compris une question (30/09/2026)
+
+**Demande réelle** : Christophe demandait ce que signifie « STOP_PAPER » (« stop paper, explique? »),
+pas l'arrêt du moteur. J'ai lu cela comme un ordre, sans demander confirmation.
+
+**Séquence vérifiée, sans réécrire le journal** :
+- J'ai créé le drapeau `hulk-mexc/STOP_PAPER`; dans `paper_diprip.py`, le moteur détecte ce drapeau,
+  sort de sa boucle, sauvegarde le state puis écrit `FIN paper`.
+- Le state `PAPER_V1_20260928_093016_state.json` porte `ts=2026-09-30T21:14:30Z`, PnL réalisé
+  `43.3066537312 $`, compteur 256, 14 positions et un bag. Ce state est la preuve de la sauvegarde,
+  pas un événement du CSV.
+- J'ai supprimé **mon propre** drapeau. Le watchdog a repris le moteur depuis ce state; `ps` a
+  confirmé le PID **4397** vivant, drapeau absent, puis les écritures CSV/state ont repris. Le journal
+  montre une ligne à 21:13:48Z puis reprend à 21:18:25Z : trou de collecte CSV d'environ
+  **4 min 37 s**. Le watchdog confirme ensuite `PAPER: OK pid=4397` à 21:23:57Z. Le CSV n'écrit pas
+  d'événement d'arrêt explicite; le point d'arrêt exact vient du state sauvegardé à 21:14:30Z.
+- Aucun ordre réel ni changement de stratégie. Aucune perte d'inventaire/PnL au redémarrage n'est
+  visible dans le state avant/après. Je ne peux pas affirmer que l'intervalle n'a causé aucune
+  observation manquée : le bot était arrêté, donc il n'a pas collecté durant cet intervalle.
+- Effet secondaire établi dans le code : `slip_stats` est conservé uniquement en mémoire et n'est
+  pas persisté/reconstruit au `--resume`. Le gate anti-glissement (`SLIP_GATE_ON=1`) a donc perdu
+  son historique de stops de la session précédente et repart de zéro (seuil minimum 3 stops).
+  Cela prouve une réinitialisation de cet état de garde provoquée par mon arrêt; cela ne prouve pas
+  qu'une vente ou un PnL ait été perdu.
+
+**Rectification compounding/portefeuille — vérifié dans le moteur et le ledger** :
+- La capitalisation est bien active par défaut dans le code (`COMPOUND_ON` défaut 1); la config fixe
+  `NOTIONAL_USDT=30`, fraction de gains `0,50`, plafond `3×`. Formule sur PnL réalisé : si positif,
+  mise annoncée = `30 + 0,50 × pnl_total`, plafonnée à 90 $; si négatif, réduction défensive jusqu'au
+  plancher 15 $. Le state arrêté donne une mise annoncée de **51,6533 $**, exactement cohérente
+  avec `30 + 0,5 × 43,3067`.
+- **Erreur de mon audit précédent** : j'ai dit trop largement « les achats ne sont pas bornés par un
+  budget global » sans séparer l'effet composé, les achats financés par re-déploiement et les achats
+  papier standard. Le composé est réel et mesuré; l'énoncé de PnL +43,31 $ comme simple PnL brut
+  omettait ce contexte. Retrait de cette formulation simpliste.
+- La nuance reste importante : `current_notional()` calcule un **montant de sizing**, pas une trésorerie
+  de portefeuille. `buy()` crée l'allocation standard à cette taille après ses multiplicateurs,
+  sans décrémenter une réserve cash globale. Les achats `cash_redeploy` réutilisent bien le `pair_cash`
+  de la paire. Sur le ledger : **84 achats standard ≈ 1 479,88 $**, **74 redéploiements ≈ 1 438,79 $**,
+  et **20 seeds ≈ 200 $**. Ce sont des notionnels bruts cumulés (le capital peut tourner plusieurs
+  fois), pas du capital initial nécessaire, ni un apport prouvé de 1 479,88 $ en argent frais.
+  Le state suit **198,2854 $** de cash de paires. Le CSV porte **20 seeds `SEED_START` ≈ 200 $**,
+  alors que `defaults.env` courant dit `SEED_USDT=150` et `SEED_MAX_PAIRS=17` : configuration
+  présente et amorçage historique du ledger ne concordent pas; cela ne prouve pas un apport de
+  capital frais au portefeuille de trading. Le state ne fournit pas un grand livre consolidé de cash
+  initial → achats financés → inventaire → retraits/apports; donc on ne peut calculer ni ROI fiable,
+  ni « création de capital » nette à partir de ces colonnes seules.
+- Contrôle de fidélité du chiffrage déjà disponible, relancé en lecture seule sur le journal actif
+  (outil `chiffrage_compounding.py`, méthode FIFO proportionnelle, coût/frais exclus) : PnL réalisé
+  reconstruit **+43,3074 $**, concordant au state **+43,3067 $** à l'arrondi CSV. Contrefactuel
+  taille fixe : **+40,1166 $**, delta attribué au levier composé **+3,1908 $** selon cette méthode.
+  C'est une estimation de sizing à sorties identiques, **pas un replay intégral** : sorties, frais,
+  slippage et chemin de prix seraient différents si les tailles avaient été différentes. Le chiffrage
+  antérieur du 21/09 (+/-0,12 $ sur un autre journal jusqu'au 21/09) ne s'applique pas à cette campagne
+  mise à jour; les deux chiffres répondent à des fenêtres différentes.
+- Bilan de portefeuille seulement indicatif au state `21:35:09Z` : les prix du bloc scores donnent
+  sur 14 positions environ **−2,95 $ latent**, le bag QNT environ **+3,79 $ latent**, réalisé
+  **+43,31 $** et cash par paire **198,29 $**. Les scores ne sont pas des marques synchrones certifiées;
+  ne pas additionner ceci comme un NAV/ROI officiel. L'ancien « latent +1,62 $ » était calculé sur un
+  snapshot satellite antérieur : non comparable à ce state plus récent.
+
+**Autres constats de l'audit précédent corrigés/confirmés** :
+- « GEX/spoof non alimentés en mode fichier » était trop catégorique si présenté comme un fait live
+  démontré. Lecture source : le chemin fichier contourne des fonctions inline, mais les mesures plus
+  larges nécessitent un test à état figé; garder comme **défaut de branchement probable / à valider**,
+  pas comme preuve que chaque protection échoue.
+- Garde de vente pleine : le code calcule `dd15` en drawdown positif et teste `dd15 < -5`, condition
+  apparemment impossible; `vol_spike == 0` ou les données dégradées peuvent toutefois ouvrir d'autres
+  branches. **Défaut logique suspect confirmé par lecture, impact runtime non quantifié**, pas preuve
+  qu'une vente donnée a été incorrecte.
+- Le state vivant actuel rapporte `pnl_total=43.3067`, `trades=256`, 14 positions, 1 bag; le journal
+  actif continue d'écrire après reprise. L'arrêt a donc été temporaire, pas une interruption toujours
+  en cours.

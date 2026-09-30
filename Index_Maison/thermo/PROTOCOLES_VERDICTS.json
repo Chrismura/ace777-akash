@@ -1,5 +1,5 @@
 {
-  "ts": "2026-09-30T19:49:31+00:00",
+  "ts": "2026-09-30T22:50:20+00:00",
   "note": "Verdicts MESURÉS à la source (scripts/verdicts_protocoles.py). Chaque protocole porte son critère pré-enregistré : c'est lui qui décide, pas l'impression du moment. Un verdict « IMPOSSIBLE » ou une ligne « alerte » signale un protocole dont le verdict ne peut pas être rendu — c'est une panne de conception, pas une patience.",
   "protocoles": [
     {
@@ -30,12 +30,12 @@
     {
       "protocole": "Radar RWA (DefiLlama)",
       "critere": "RÉ-TRANCHE 29/09 — univers crédit privé (project ∈ crédit ET symbole = devise ; pools couvrant TOUTE la fenêtre, sans démarrage à 0 ; dédupliqué par projet/symbole) : R1 ≥ 3 couples bougent ≥ 50 bps/7 j · R2 (critère PRODUIT, assumé neuf) ≥ 5 couples à ≥ 3 % APY stable (≤ 50 bps)",
-      "faits": "22927 relevés · 390 pools suivis → univers crédit 60 pool(s) · R1 33 pool(s) → 4 couple(s) projet-symbole · R2 9 couple(s) · 10 apparition(s) écartée(s)",
+      "faits": "23288 relevés · 391 pools suivis → univers crédit 60 pool(s) · R1 33 pool(s) → 4 couple(s) projet-symbole · R2 9 couple(s) · 10 apparition(s) écartée(s)",
       "verdict": "SUCCES (R1 + R2) — le terrain RWA n'est PAS mort",
       "alerte": "critère d'ORIGINE (top 20 TVL) : ECHEC (critère non atteint) (0/20 bougent) — mauvaise liste, d'où la ré-ouverture ; R1 porté par seulement 2 projet(s) (centrifuge-protocol, midas-rwa) : 10 apparition(s) de pool et les instances multi-chaînes gonflent le compte ; R2 : 4 couple(s) à valeur CONSTANTE sur toute la fenêtre (test sur les valeurs réelles) — taux FIXE annoncé, à confirmer par une 2ᵉ source AVANT publication : midas-rwa USDC, travessia-credit AUSD, travessia-credit USDC, travessia-credit USDT",
       "retranche": {
         "R1_couples": {
-          "centrifuge-protocol/USAT": 353,
+          "centrifuge-protocol/USAT": 532,
           "centrifuge-protocol/USDC": 1064,
           "centrifuge-protocol/USDS": 115,
           "midas-rwa/USDC": 731
@@ -46,14 +46,14 @@
             "apy_medianes": [
               5.07
             ],
-            "valeurs_distinctes": 19
+            "valeurs_distinctes": 20
           },
           "maple/USDG": {
             "n_instances": 1,
             "apy_medianes": [
               4.98
             ],
-            "valeurs_distinctes": 19
+            "valeurs_distinctes": 20
           },
           "midas-rwa/USDC": {
             "n_instances": 1,
@@ -263,7 +263,7 @@
     {
       "protocole": "Radar XRPL gouvernance",
       "critere": "J8 pré-enregistré : (a) ≥ 5 amendements dont le compteur bouge de ≥ 2 votes, OU (b) ≥ 1 activation, OU (c) ≥ 1 amendement mort ; sinon échec",
-      "faits": "343 snapshots · 113 amendements suivis · (a) 6 bougent de ≥ 2 (il en fallait 5) · (b) 0 activation · (c) 0 mort · 3 nouveau(x)",
+      "faits": "346 snapshots · 113 amendements suivis · (a) 6 bougent de ≥ 2 (il en fallait 5) · (b) 0 activation · (c) 0 mort · 3 nouveau(x)",
       "verdict": "SUCCES (critère atteint)",
       "alerte": "",
       "detail": [
@@ -272,19 +272,19 @@
           "delta_votes": 10
         },
         {
-          "amendement": "DynamicMPT",
-          "delta_votes": 4
-        },
-        {
-          "amendement": "SingleAssetVault",
-          "delta_votes": 4
-        },
-        {
           "amendement": "BatchV1_1",
           "delta_votes": 4
         },
         {
           "amendement": "ConfidentialTransfer",
+          "delta_votes": 4
+        },
+        {
+          "amendement": "DynamicMPT",
+          "delta_votes": 4
+        },
+        {
+          "amendement": "SingleAssetVault",
           "delta_votes": 4
         },
         {
@@ -304,7 +304,7 @@
     {
       "protocole": "Arbitrage LLM-vs-règle (Cortana)",
       "critere": "la règle maison : < 60 % de justesse micro → confiance faible + 1 alerte/h max. Verdict annoncé 27/09",
-      "faits": "0 alerte(s) microstructure au journal · 0 notée(s) par le juge indépendant · justesse n/d · avis directionnels de Cortana (toutes matières) : 58/101 = 57.4 %",
+      "faits": "0 alerte(s) microstructure au journal · 0 notée(s) par le juge indépendant · justesse n/d · avis directionnels de Cortana (toutes matières) : 57/100 = 57.0 %",
       "verdict": "IMPOSSIBLE (0 cas à juger)",
       "alerte": "le verdict du 27/09 ne pourra PAS être rendu : 0 alerte(s) en 7 jours → 0 cas. Le producteur d'alertes (module microstructure) n'a rien écrit depuis le 09/09 (data/micro_alerts.jsonl = 0 octet) — il faut trancher : module mort, ou rien à alerter ?",
       "detail": [
@@ -352,9 +352,9 @@
         },
         {
           "indice": "geopol",
-          "directionnels": 5,
-          "corect": 2,
-          "n": 31
+          "directionnels": 4,
+          "corect": 1,
+          "n": 30
         },
         {
           "indice": "gexPutCall",
@@ -373,17 +373,17 @@
     {
       "protocole": "Geopol (réanimé)",
       "critere": "GEOPOL-C2/C3 : avis geopol noté vs BTC 2×/jour, fenêtre 4 semaines (→ ~10/10), critère P3 ≥ 56 %",
-      "faits": "score actuel 0.3647 « calme » (ML 0.1939) · 31 avis enregistrés dont 5 directionnels (2 correct(s)) · 26 NEUTRE",
+      "faits": "score actuel 0.3647 « calme » (ML 0.1939) · 30 avis enregistrés dont 4 directionnels (1 correct(s)) · 26 NEUTRE",
       "verdict": "EN ATTENTE (fenêtre jusqu'au ~10/10)",
-      "alerte": "1 avis correct sur 5 directionnels : à cette cadence le critère ne sera pas tranchable dans la fenêtre",
+      "alerte": "1 avis correct sur 4 directionnels : à cette cadence le critère ne sera pas tranchable dans la fenêtre",
       "detail": [
         {
           "indice": "geopol",
-          "n": 31,
-          "directionnels": 5,
-          "corrects": 2,
+          "n": 30,
+          "directionnels": 4,
+          "corrects": 1,
           "neutres": 26,
-          "t_stat": -3.77
+          "t_stat": -4.02
         }
       ]
     },
