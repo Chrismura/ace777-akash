@@ -2,90 +2,6 @@
   "signals": [
     {
       "metric": "sdi",
-      "zscore": 2.274485369480073,
-      "value": 0.012,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique (z-score 2.27) détectée sur un ticker homonyme ('SDI') sans lien avec l'actif crypto. Confusion de données, aucun mouvement de baleine crypto pertinent.\"\n}\n```",
-      "ts": "2026-09-28T08:03:10.800653+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 3.1657796775884037,
-      "value": 1.182,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 3.17) totalement non corrélée avec le ticker crypto. Les médias parlent d'instituts de recherche (IPT), de physique et d'agriculture. Bruit de fond, aucune accumulation de baleine crypto détectée.\"\n}\n```",
-      "ts": "2026-09-28T08:18:14.914459+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": 2.0044665870659824,
-      "value": 9395272481.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit médiatique sans rapport avec la crypto (tourisme, santé, agriculture, vin). Volume onchain anormal (z-score 2.0) sans corrélation narrative pertinente.\"\n}\n```",
-      "ts": "2026-09-28T08:28:50.256219+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": 2.0193779581083935,
-      "value": 0.012,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie SDI non pertinente pour la crypto : confusion sémantique entre les données on-chain et le 'SDI Group' (entreprise industrielle traditionnelle) ainsi que le syndicat patronal 'SDI' mentionné dans les actualités.\"\n}\n```",
-      "ts": "2026-09-28T08:33:56.726788+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": 3.0443104452332888,
-      "value": 0.016,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Anomalie non pertinente : le 'SDI' mentionné dans les actualités (SDI Group, Syndicat des Indépendants) concerne la finance traditionnelle ou des syndicats, et non un protocole crypto ou un token suivi par le système de détection.\"\n}\n```",
-      "ts": "2026-09-28T09:09:02.413935+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 3.643967508339109,
-      "value": 1.3,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 3.64) sur le ticker 'ipt' totalement polluée par du bruit sémantique (homonymie avec l'Institut Polytechnique, biologie et actualités agricoles). Aucune convergence avec une activité de baleines crypto.\"\n}\n```",
-      "ts": "2026-09-28T09:54:09.739462+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": 2.850350503353561,
-      "value": 0.016,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie SDI non pertinente pour la crypto : les données et le narratif font référence à 'SDI Group' (actions traditionnelles) et au 'Syndicat des Indépendants' (politique/économie réelle), et non à un actif blockchain ou une baleine crypto.\"\n}\n```",
-      "ts": "2026-09-28T10:04:20.965191+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": 2.7740228285389197,
-      "value": 0.016,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Erreur de contexte : SDI Group est une entreprise traditionnelle cotée (LSE:SDI) et le SDI fait référence au Syndicat des Indépendants (politique française), sans lien avec les cryptomonnaies ou les baleines onchain.\"\n}\n```",
-      "ts": "2026-09-28T11:10:02.956343+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.765546446620346,
-      "value": 1.126,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.77) isolée sur le ticker 'ipt', mais les actualités médiatiques font référence à des homonymes institutionnels (Institut Pasteur de Tunis, École Polytechnique) sans aucun lien avec la crypto. Bruit de fond, pas de mouvement de baleine avéré.\"\n}\n```",
-      "ts": "2026-09-28T11:10:04.931526+00:00"
-    },
-    {
-      "metric": "taker_ratio",
-      "zscore": 2.714777395891595,
-      "value": 1.484,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Un taker_ratio de 1.484 (z-score 2.71) indique une agression massive des acheteurs sur les carnets d'ordres, totalement ignorée par le vide médiatique actuel. C'est la signature classique d'accumulation furtive par les baleines avant un réveil du marché.\"\n}\n```",
-      "ts": "2026-09-28T11:10:06.595091+00:00"
-    },
-    {
-      "metric": "taker_ratio",
-      "zscore": 2.5080172709196997,
-      "value": 1.484,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Un taker_ratio de 1.484 (z-score 2.51) indique une forte agression acheteuse sur les carnets d'ordres, totalement ignorée par le vide médiatique actuel. Les baleines accumulent agressivement dans l'ombre avant que le narratif public ne s'aligne.\"\n}\n```",
-      "ts": "2026-09-28T11:40:17.432016+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.1684151864597667,
-      "value": 1.001,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.17) sur 'ipt' totalement non pertinente : les actualités font référence à l'Institut Polytechnique de Paris (X), à l'Institut Pasteur de Tunis (IPT) ou à de l'agronomie, sans aucun lien avec la crypto. Bruit de fond médiatique.\"\n}\n```",
-      "ts": "2026-09-28T11:50:22.092117+00:00"
-    },
-    {
-      "metric": "sdi",
       "zscore": 2.628885525179745,
       "value": 0.016,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Attention : confusion de ticker. Le 'SDI' mentionné dans les médias concerne SDI Group plc (bourse traditionnelle, acquisitions, politique énergétique) et non un actif crypto. Aucune donnée on-chain pertinente détectée.\"\n}\n```",
@@ -349,6 +265,90 @@
       "value": 50.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique lié à des homonymes (IA d'entreprise française, musique, jeux vidéo). Aucune corrélation avec une baleine crypto ou un actif onchain pertinent.\"\n}\n```",
       "ts": "2026-09-29T16:58:28.745888+00:00"
+    },
+    {
+      "metric": "price_1h",
+      "zscore": 2.5949031875892987,
+      "value": 0.5060359096625611,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (+2.59) couplé à un silence médiatique total (Google Actualités vide). C'est la signature classique d'accumulation furtive par des baleines loin des radars du retail.\"\n}\n```",
+      "ts": "2026-09-30T15:52:17.908085+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 2.0901990428748563,
+      "value": 0.016,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Attention confusion de tickers : Le 'SDI' mentionné dans les médias concerne SDI Group (actions traditionnelles/politique) et non un protocole crypto ou un token de baleine. Aucune corrélation onchain pertinente détectée.\"\n}\n```",
+      "ts": "2026-09-30T17:59:15.745253+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -7.537783614444112,
+      "value": 71,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 92,\n  \"reason\": \"Anomalie statistique extrême (z-score -7.54) sur le Fear & Greed à 71 malgré un vide médiatique total (Google Actualités). Divergence classique de 'piège à liquidité' : les baleines distribuent dans l'indifférence des médias de masse pendant que les suiveurs s'aveuglent d'optimisme.\"\n}\n```",
+      "ts": "2026-09-30T17:59:17.557687+00:00"
+    },
+    {
+      "metric": "cpfp",
+      "zscore": 2.1653125181887614,
+      "value": 45.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique liée au bruit de fond (faible volume de transactions avec frais accélérés CPFP) sans corrélation avec un mouvement significatif de baleines. Le narratif médiatique est totalement déconnecté car le terme 'CPFP' est un homonyme partagé avec des actualités locales sans rapport.\"\n}\n```",
+      "ts": "2026-09-30T18:29:27.188479+00:00"
+    },
+    {
+      "metric": "dust",
+      "zscore": 2.1653125181887614,
+      "value": 45.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Anomalie onchain (« dust ») et levées de fonds médias font référence à une startup tech/IA homonyme (« Dust »), et non à un actif cryptographique. Faux positif détecté : aucune divergence baleine/marché crypto significative.\"\n}\n```",
+      "ts": "2026-09-30T18:29:29.206195+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -5.2996761376690555,
+      "value": 71,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement négatif (-5.30) malgré une cupidité élevée (71). Absence totale de couverture médiatique (Google Actualités vide), signalant une indifférence de la foule alors que les baleines distribuent ou retiennent leurs liquidités face à un optimisme aveugle.\"\n}\n```",
+      "ts": "2026-09-30T18:29:30.764697+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 3.735118797837745,
+      "value": 0.024,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 3.74) sur un ticker homonyme ('SDI' / SDI Group ou actualités politiques françaises). Aucun rapport avec la crypto ou des mouvements de baleines onchain. Bruit médiatique sans fondement crypto.\"\n}\n```",
+      "ts": "2026-09-30T18:59:44.175161+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 3.662493646351189,
+      "value": 1.62,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 3.66) sur 'ipt' totalement non corrélée au narratif médiatique, lequel fait référence à des sujets académiques, médicaux et agricoles sans lien avec la crypto. Bruit de fond, pas de mouvement de baleine avéré.\"\n}\n```",
+      "ts": "2026-09-30T18:59:53.451662+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -4.30848293603259,
+      "value": 71,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-4.31) malgré une cupidité élevée (71) : le marché grand public est aveuglé par l'euphorie tandis que les flux onchain révèlent un vide de liquidité institutionnelle. Divergence classique de distribution par les baleines.\"\n}\n```",
+      "ts": "2026-09-30T18:59:55.402463+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 9.314066176158736,
+      "value": 8135317.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (z-score 9.31) sans couverture médiatique (silence radio). Les baleines accumulent discrètement loin des radars de la foule.\"\n}\n```",
+      "ts": "2026-09-30T19:19:59.012222+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 2.712841369455383,
+      "value": 0.02,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Divergence nulle : le SDI analysé ici fait référence au 'Syndicat des Indépendants' (actualité politique/française) et à 'SDI Group' (actions traditionnelles), et non à une baleine crypto ou un protocole onchain. Données non pertinentes pour le marché crypto.\"\n}\n```",
+      "ts": "2026-09-30T19:30:02.068168+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -3.718159201326733,
+      "value": 71,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-3.72) malgré une cupidité élevée (71) et un vide médiatique total : déconnexion classique suggérant une distribution silencieuse des baleines avant un piège à liquidité.\"\n}\n```",
+      "ts": "2026-09-30T19:30:03.416172+00:00"
     }
   ]
 }
