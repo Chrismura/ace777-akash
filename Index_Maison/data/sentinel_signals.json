@@ -1,48 +1,6 @@
 {
   "signals": [
     {
-      "metric": "fear_greed",
-      "zscore": -6.855654600401077,
-      "value": 73,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement négatif (-6.86) malgré un indice de cupidité élevé (73) et un vide médiatique total (Google Actualités). Divergence classique de piégeage retail : les baleines distribuent dans l'ombre pendant que le marché est artificiellement euphorique sans couverture médiatique de soutien.\"\n}\n```",
-      "ts": "2026-09-29T00:35:16.344433+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": -4.795831523312697,
-      "value": 73,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement négatif (-4.80) malgré une cupidité élevée (73). Divergence critique : le marché retail est aveuglé par l'euphorie médiatique pendant que les baleines vident leurs positions en silence.\"\n}\n```",
-      "ts": "2026-09-29T01:05:24.631688+00:00"
-    },
-    {
-      "metric": "whale_usd",
-      "zscore": 4.62129200596842,
-      "value": 5808898.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 4.62) avec un mouvement de ~5.8M$ par une baleine, contrastant avec un vide médiatique total (Google Actualités muet). Accumulation silencieuse classique hors radar public.\"\n}\n```",
-      "ts": "2026-09-29T01:15:27.214738+00:00"
-    },
-    {
-      "metric": "whale_usd",
-      "zscore": 2.515922717478653,
-      "value": 2518598.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Activité anormale des baleines (z-score 2.52, ~$2.5M) totalement ignorée par les médias traditionnels. Cette divergence classique de silence médiatique traduit une accumulation discrète avant un mouvement de marché imprévu.\"\n}\n```",
-      "ts": "2026-09-29T08:56:04.815245+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": 2.075237488867925,
-      "value": 0.016,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie sémantique : SDI Group est une entreprise cotée (Londres) et SDI désigne aussi le Syndicat des Indépendants en France. Aucune donnée on-chain ni crypto détectée, confusion médiatique homonyme.\"\n}\n```",
-      "ts": "2026-09-29T13:11:43.986822+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": 2.032231966049806,
-      "value": 0.016,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Fausse alerte liée à une confusion sémantique : le 'SDI' détecté par l'algorithme on-chain correspond ici à un ticker crypto, tandis que les actualités médiatiques font référence au syndicat professionnel français (SDI - Syndicat des Indépendants) et à une entreprise britannique (SDI Group). Aucune baleine crypto active, simple bruit de fond médiatique.\"\n}\n```",
-      "ts": "2026-09-29T14:02:16.371330+00:00"
-    },
-    {
       "metric": "ipt",
       "zscore": 2.9809165672785105,
       "value": 1.365,
@@ -349,6 +307,48 @@
       "value": 50.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit lexical : les médias parlent de 'Dust' (la startup SaaS/IA française cofondée par Gabriel Hubert) et non du token crypto homonyme. Aucune divergence onchain pertinente.\"\n}\n```",
       "ts": "2026-10-01T04:02:03.954248+00:00"
+    },
+    {
+      "metric": "taker_ratio",
+      "zscore": 2.080618324960335,
+      "value": 1.441,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio élevé (z-score 2.08) indique une forte agression acheteuse sur les carnets d'ordres, tandis que le vide médiatique (Google Actualités silencieux) prouve une accumulation discrète des baleines sous le radar du grand public.\"\n}\n```",
+      "ts": "2026-10-01T05:07:14.574519+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 47.976670399800994,
+      "value": 39491852.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 95,\n  \"reason\": \"Anomalie onchain extrême (z-score 47.98, ~39.5M USD) sans aucune couverture médiatique correspondante. C'est la définition parfaite d'une accumulation furtive de baleines en amont d'un mouvement de marché.\"\n}\n```",
+      "ts": "2026-10-01T05:47:24.427739+00:00"
+    },
+    {
+      "metric": "price_1h",
+      "zscore": 3.019928501333374,
+      "value": 0.5810611999926607,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de prix significative (z-score 3.02) en l'absence totale de couverture médiatique (silence radio). Indique une accumulation agressive et discrète de baleines loin du radar retail.\"\n}\n```",
+      "ts": "2026-10-01T07:22:41.936567+00:00"
+    },
+    {
+      "metric": "price_1h",
+      "zscore": 3.098604994016236,
+      "value": 0.6641446765344283,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de prix significative (z-score 3.10) totalement ignorée par les médias (silence radio absolu). Classic accumulation furtive de baleines sans bruit médiatique.\"\n}\n```",
+      "ts": "2026-10-01T07:52:49.494151+00:00"
+    },
+    {
+      "metric": "cpfp",
+      "zscore": 2.0139614890185085,
+      "value": 50.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique liée au bruit sémantique (homonymie de l'acronyme CPFP avec des actualités politiques et éducatives locales), aucune activité anormale de baleines détectée.\"\n}\n```",
+      "ts": "2026-10-01T07:52:50.786647+00:00"
+    },
+    {
+      "metric": "dust",
+      "zscore": 2.0139614890185085,
+      "value": 50.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit de fond médiatique : les mentions de 'Dust' concernent des homonymes (IA B2B, JV, jeux vidéo) sans lien avec l'actif on-chain, malgré une légère agitation technique.\"\n}\n```",
+      "ts": "2026-10-01T07:52:52.660619+00:00"
     }
   ]
 }

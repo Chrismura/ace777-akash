@@ -1,14 +1,13 @@
-# DISCIPLINE QUOTIDIENNE — 2026-09-30T06:12:05Z
+# DISCIPLINE QUOTIDIENNE — 2026-10-01T05:15:21Z
 
 ## ALERTES
-- 🔴 CORTANA sous 50% (33.8%) — discipline NEUTRE active, à surveiller
+- 🔴 CORTANA sous 50% (33.7%) — discipline NEUTRE active, à surveiller
 - 🔴 DÉRIVE MÉMOIRE : au moins 1 indice INSTABLE — voir DERIVE_MEMOIRE.md
-- 🔴 Tendance à la baisse : 88% → 33.8%
 
 ## CORTANA (justesse, 44% = pile-ou-face)
-- Score global : 33.8% (88% → 33.8% : baisse ≥ 5 pts)
-- Analyses notées : 99/293
-- Par indice : altSeason 0/4; bassine 3/7; btc 3/12; chg24 1/3; croisements 13/35; etfBtcM 1/4; etfEthM 0/4; etfXrpM 0/4; fearGreed 30/72; geopol 4/30; gexPutCall 2/5; indice_onchain 1/5; liq24Usd 3/6; longShort 1/4; oi 0/6; onchain 2/5; pipeline_health 0/2; radar 30/67; rbf 0/2; score 0/4; sdi 2/5; verre 3/7
+- Score global : 33.7%
+- Analyses notées : 101/300
+- Par indice : altSeason 0/4; bassine 3/7; btc 3/12; chg24 1/3; croisements 14/36; etfBtcM 1/5; etfEthM 0/4; etfXrpM 0/4; fearGreed 30/73; geopol 4/31; gexPutCall 2/5; indice_onchain 1/5; liq24Usd 3/6; longShort 1/5; oi 0/6; onchain 2/5; pipeline_health 0/2; radar 31/68; rbf 0/2; score 0/5; sdi 2/5; verre 3/7
 
 ## ADA (zone/voilure vs BTC 24h, v1)
 - Zone-accuracy : None% (0/0)
@@ -19,11 +18,11 @@
 - Détail : DERIVE_MEMOIRE.md — instables/critiques à revoir (contexte, données, prompt).
 
 ## AGORA (leçons apprises, chantier E4)
-- Leçons actives : 22 (TTL 7j, namespace cortana) — chaque HIT/MISS nourrit la base.
+- Leçons actives : 25 (TTL 7j, namespace cortana) — chaque HIT/MISS nourrit la base.
 - lecons_auto.py : scan → staging → validation (discipline 07h15, APRÈS la note).
 
 ## ERREURS (6ᵉ partie du cycle — post-mortem branché, R15/R17.5)
-- Registre : 25 classes d'erreur · non branché : 0 · récidives depuis la correction : 0
+- Registre : 26 classes d'erreur · non branché : 0 · récidives depuis la correction : 0
 - REGISTRE_ECHECS_ET_ERREURS.md : consulté AVANT de proposer une garde (sinon on repaie).
 
 ## SEUILS FIXES (R17 — la mesure doit décider)

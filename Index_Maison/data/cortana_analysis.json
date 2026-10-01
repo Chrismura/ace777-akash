@@ -1,7 +1,42 @@
 {
-  "timestamp": 1790830127,
-  "date": "2026-10-01T04:48:47.120495+00:00",
-  "n_analyses": 0,
-  "analyses": [],
-  "resume": "Aucune analyse en cours"
+  "timestamp": 1790840930,
+  "date": "2026-10-01T07:48:50.471964+00:00",
+  "n_analyses": 1,
+  "analyses": [
+    {
+      "signal": {
+        "metric": "price_1h",
+        "zscore": 3.019928501333374,
+        "value": 0.5810611999926607,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de prix significative (z-score 3.02) en l'absence totale de couverture médiatique (silence radio). Indique une accumulation agressive et discrète de baleines loin du radar retail.\"\n}\n```",
+        "ts": 1790839361.936567
+      },
+      "fiche": "price_1h",
+      "questions": {
+        "pct_1h": {
+          "value": -0.69,
+          "seuil": -1,
+          "depasse": true
+        },
+        "liq": {
+          "value": 2607291.0,
+          "seuil": 5000000,
+          "depasse": false
+        },
+        "funding": {
+          "value": 5e-05,
+          "seuil": 0,
+          "depasse": true
+        }
+      },
+      "interpretation": {
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
+      },
+      "action": "Observer",
+      "niveau": "neutre"
+    }
+  ],
+  "resume": "🔵 CALME — pas de signal alarmant"
 }
