@@ -1,26 +1,31 @@
 {
-  "timestamp": 1790808520,
-  "date": "2026-09-30T22:48:40.210103+00:00",
+  "timestamp": 1790819324,
+  "date": "2026-10-01T01:48:44.045887+00:00",
   "n_analyses": 1,
   "analyses": [
     {
       "signal": {
-        "metric": "fear_greed",
-        "zscore": -2.0816659994661326,
-        "value": 71,
-        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-2.08) malgré un indice de cupidité élevé (71). Divergence majeure : le marché de détail est en 'FOMO' médiatique aveugle, tandis que les données quantitatives signalent une anomalie de liquidité et une distribution silencieuse par les baleines.\"\n}\n```",
-        "ts": 1790807461.648212
+        "metric": "whale_usd",
+        "zscore": 4.673519877304482,
+        "value": 4321762.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (z-score 4.67, ~4.3M USD) totalement absente des radars médiatiques. Accumulation silencieuse des baleines avant un réveil du narratif public.\"\n}\n```",
+        "ts": 1790818599.245448
       },
-      "fiche": "fear_greed",
+      "fiche": "whale_usd",
       "questions": {
-        "peur": {
-          "value": 71,
-          "seuil": 25,
-          "depasse": true
+        "ventes": {
+          "value": 0.0,
+          "seuil": 0,
+          "depasse": false
         },
-        "cupidite": {
-          "value": 71,
-          "seuil": 75,
+        "achats": {
+          "value": 0.0,
+          "seuil": 0,
+          "depasse": false
+        },
+        "prix": {
+          "value": 0.07,
+          "seuil": 1,
           "depasse": false
         }
       },
