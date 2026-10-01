@@ -1,34 +1,6 @@
 {
   "signals": [
     {
-      "metric": "sdi",
-      "zscore": 2.0131701095705528,
-      "value": 0.016,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Erreur de contexte : SDI Group (actions traditionnelles / actualité politique française) n'est pas un actif crypto ou une baleine de blockchain. L'indicateur onchain est sans rapport avec les titres médiatiques analysés.\"\n}\n```",
-      "ts": "2026-09-28T21:39:15.248264+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.1218209262322705,
-      "value": 1.081,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique sans rapport avec la crypto (actualités académiques et médicales). L'anomalie onchain (IPT) est probablement un faux positif ou un événement de liquidité totalement découplé de ces faits divers.\"\n}\n```",
-      "ts": "2026-09-28T21:39:35.383852+00:00"
-    },
-    {
-      "metric": "whale_usd",
-      "zscore": 2.556580320849341,
-      "value": 3364115.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 75,\n  \"reason\": \"Z-score élevé (2.56) indiquant une accumulation inhabituelle de gros volumes on-chain, totalement ignorée par les médias (silence radio). Divergence classique de phase d'accumulation discrète avant un mouvement de marché.\"\n}\n```",
-      "ts": "2026-09-28T23:34:55.567379+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": -2.017528818929537,
-      "value": 73,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Le score z négatif (-2.02) malgré un indice de cupidité élevé (73) indique un épuisement silencieux de la liquidité par les baleines. Le marché public est complaisant (euphorie médiatique artificielle ou vide), masquant une distribution active des gros portefeuilles.\"\n}\n```",
-      "ts": "2026-09-29T00:05:08.391947+00:00"
-    },
-    {
       "metric": "fear_greed",
       "zscore": -6.855654600401077,
       "value": 73,
@@ -349,6 +321,34 @@
       "value": 4321762.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (z-score 4.67, ~4.3M USD) totalement absente des radars médiatiques. Accumulation silencieuse des baleines avant un réveil du narratif public.\"\n}\n```",
       "ts": "2026-10-01T01:36:39.245448+00:00"
+    },
+    {
+      "metric": "cpfp",
+      "zscore": 2.201520869952175,
+      "value": 50.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Le pic de CPFP (Child-Pays-For-Parent) on-chain reflète une congestion technique mineure ou des utilisateurs débloquant des transactions Bitcoin bloquées. Les médias grand public font un amalgame sémantique avec des homonymes (politique, éducation). Aucune accumulation ou mouvement significatif de baleines détecté.\"\n}\n```",
+      "ts": "2026-10-01T02:11:44.624201+00:00"
+    },
+    {
+      "metric": "dust",
+      "zscore": 2.201520869952175,
+      "value": 50.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Forte divergence : le narratif médiatique encense les levées de fonds et la croissance de la startup IA 'Dust' (Web2/VC), tandis que l'anomalie on-chain (z-score 2.20) détecte des mouvements de 'dust' (micro-transactions suspectes de baleines), suggérant une accumulation ou une préparation de marché pour le token associé en amont de la hype grand public.\"\n}\n```",
+      "ts": "2026-10-01T02:11:46.616031+00:00"
+    },
+    {
+      "metric": "cpfp",
+      "zscore": 2.0343629105657284,
+      "value": 50.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique liée au faible volume de transactions Bitcoin avec frais bloqués (CPFP), sans rapport avec une accumulation ou une distribution de baleines. Le bruit médiatique est sans corrélation onchain significative.\"\n}\n```",
+      "ts": "2026-10-01T04:02:02.295853+00:00"
+    },
+    {
+      "metric": "dust",
+      "zscore": 2.0343629105657284,
+      "value": 50.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit lexical : les médias parlent de 'Dust' (la startup SaaS/IA française cofondée par Gabriel Hubert) et non du token crypto homonyme. Aucune divergence onchain pertinente.\"\n}\n```",
+      "ts": "2026-10-01T04:02:03.954248+00:00"
     }
   ]
 }
