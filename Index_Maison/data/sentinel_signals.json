@@ -1,55 +1,6 @@
 {
   "signals": [
     {
-      "metric": "fear_greed",
-      "zscore": -3.31662479035539,
-      "value": 71,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie statistique majeure (z-score -3.32) avec une cupidité élevée (71) couplée à un vide médiatique total ('Google Actualités' sans relais). Divergence classique de fin de cycle : le marché retail est complaisant mais aveugle, signalant une distribution silencieuse des baleines.\"\n}\n```",
-      "ts": "2026-09-30T20:00:15.024355+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.0189785967419143,
-      "value": 1.14,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (z-score 2.02) sur le ticker 'ipt' totalement polluée par du bruit médiatique sans rapport avec la crypto (Institut Pasteur de Tunis, École Polytechnique, agriculture). Aucune baleine détectée : le signal onchain est un faux positif lié à l'homonymie.\"\n}\n```",
-      "ts": "2026-09-30T20:05:17.125099+00:00"
-    },
-    {
-      "metric": "cpfp",
-      "zscore": 2.3845480096430887,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique purement onchain liée aux frais de transaction (Child-Pays-For-Parent) sans corrélation avec une accumulation ou une distribution significative de baleines. Le bruit médiatique concerne des homonymes (politique, éducation) sans lien avec la crypto.\"\n}\n```",
-      "ts": "2026-09-30T20:30:23.043388+00:00"
-    },
-    {
-      "metric": "dust",
-      "zscore": 2.3845480096430887,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Forte divergence : z-score onchain élevé (2.38) couplé à un afflux médiatique massif sur les levées de fonds institutionnelles de Dust (IA), traduisant une accumulation silencieuse des baleines avant la pompe de marché.\"\n}\n```",
-      "ts": "2026-09-30T20:30:24.942349+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": -2.9325756597230446,
-      "value": 71,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement négatif (-2.93) malgré une avidité élevée (71). Absence totale de couverture médiatique (silence radio). Divergence classique de distribution : les baleines liquident discrètement sur l'euphorie de détail pendant que les médias ignorent le retournement imminent.\"\n}\n```",
-      "ts": "2026-09-30T20:30:26.424570+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": 2.506159120099052,
-      "value": 0.02,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Attention confusion homonymique : le 'SDI' détecté on-chain n'a aucun rapport avec le SDI Group (technologie/santé) ou le Syndicat des Indépendants (SDI) mentionné dans les médias français. Données non exploitables pour une analyse crypto.\"\n}\n```",
-      "ts": "2026-09-30T20:45:30.640454+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.799275623830335,
-      "value": 1.453,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit de fond absolu. L'anomalie on-chain 'IPT' (z-score 2.80) est un artefact technique sans lien avec les actualités médicales, académiques ou agricoles du sigle homonyme. Aucune baleine crypto identifiée.\"\n}\n```",
-      "ts": "2026-09-30T20:45:32.169843+00:00"
-    },
-    {
       "metric": "whale_usd",
       "zscore": 3.7057116465320474,
       "value": 3566245.0,
@@ -349,6 +300,55 @@
       "value": 6739704.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Bruit médiatique parasité par des liquidations judiciaires locales (Brest, Quimper) qui masquent l'événement majeur : 120M$+ de short squeezes onchain propulsant Bitcoin à 87 000 $. Divergence classique d'accumulation où les médias grand public distraient pendant que les baleines liquident les vendeurs à découvert.\"\n}\n```",
       "ts": "2026-10-02T18:20:36.749786+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 2.561747798140146,
+      "value": 0.024,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Fausse alerte liée à une homonymie : les données textuelles font référence au 'Syndicat des Indépendants (SDI)' et à 'Samsung SDI' et non à un protocole crypto ou à une baleine on-chain.\"\n}\n```",
+      "ts": "2026-10-02T18:45:43.519062+00:00"
+    },
+    {
+      "metric": "price_1h",
+      "zscore": 2.564193771377568,
+      "value": 0.8811324502155271,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de prix haussière significative (z-score 2.56) en totale absence de couverture médiatique (Google Actualités vide). C'est le profil typique d'accumulation silencieuse par des baleines avant un réveil du narratif public.\"\n}\n```",
+      "ts": "2026-10-02T18:50:45.427355+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 4.137122713844036,
+      "value": 0.036,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique lié au syndicat patronal SDI (Syndicat des Indépendants) et à Samsung SDI, sans aucun rapport avec des mouvements de baleines crypto ou des données on-chain.\"\n}\n```",
+      "ts": "2026-10-02T19:15:51.331392+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 2.0645623873205237,
+      "value": 0.024,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Faux positif contextuel : les données textuelles font référence au syndicat professionnel 'SDI' (Syndicat des Indépendants) et à l'entreprise 'Samsung SDI', et non à une métrique de baleines crypto.\"\n}\n```",
+      "ts": "2026-10-02T20:06:05.298951+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 2.787997094858389,
+      "value": 5034579.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Activité anormale des baleines (z-score 2.79, +5M$) combinée à un silence total des médias généralistes (Google Actualités). Accumulation furtive classique hors des radars publics.\"\n}\n```",
+      "ts": "2026-10-02T20:11:07.348641+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 2.5274339181963845,
+      "value": 0.028,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Faux positif contextuel : l'anomalie de données (SDI) capte du bruit sémantique provenant d'homonymes institutionnels et industriels (Syndicat des Indépendants, Samsung SDI) dans l'actualité générale, et non des mouvements de baleines crypto.\"\n}\n```",
+      "ts": "2026-10-02T20:36:12.973163+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 2.4270100729222523,
+      "value": 0.028,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Fausse alerte liée à une homonymie : le 'SDI' des médias fait référence au Syndicat des Indépendants et PME ainsi qu'à Samsung SDI (batteries), sans aucun rapport avec une baleine crypto ou un protocole onchain.\"\n}\n```",
+      "ts": "2026-10-02T21:21:21.929441+00:00"
     }
   ]
 }
