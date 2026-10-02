@@ -1,62 +1,6 @@
 {
   "signals": [
     {
-      "metric": "ipt",
-      "zscore": 3.662493646351189,
-      "value": 1.62,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 3.66) sur 'ipt' totalement non corrélée au narratif médiatique, lequel fait référence à des sujets académiques, médicaux et agricoles sans lien avec la crypto. Bruit de fond, pas de mouvement de baleine avéré.\"\n}\n```",
-      "ts": "2026-09-30T18:59:53.451662+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": -4.30848293603259,
-      "value": 71,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-4.31) malgré une cupidité élevée (71) : le marché grand public est aveuglé par l'euphorie tandis que les flux onchain révèlent un vide de liquidité institutionnelle. Divergence classique de distribution par les baleines.\"\n}\n```",
-      "ts": "2026-09-30T18:59:55.402463+00:00"
-    },
-    {
-      "metric": "whale_usd",
-      "zscore": 9.314066176158736,
-      "value": 8135317.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (z-score 9.31) sans couverture médiatique (silence radio). Les baleines accumulent discrètement loin des radars de la foule.\"\n}\n```",
-      "ts": "2026-09-30T19:19:59.012222+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": 2.712841369455383,
-      "value": 0.02,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Divergence nulle : le SDI analysé ici fait référence au 'Syndicat des Indépendants' (actualité politique/française) et à 'SDI Group' (actions traditionnelles), et non à une baleine crypto ou un protocole onchain. Données non pertinentes pour le marché crypto.\"\n}\n```",
-      "ts": "2026-09-30T19:30:02.068168+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": -3.718159201326733,
-      "value": 71,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-3.72) malgré une cupidité élevée (71) et un vide médiatique total : déconnexion classique suggérant une distribution silencieuse des baleines avant un piège à liquidité.\"\n}\n```",
-      "ts": "2026-09-30T19:30:03.416172+00:00"
-    },
-    {
-      "metric": "price_1h",
-      "zscore": 2.715186734709029,
-      "value": 0.5264997739999111,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de prix significative (z-score 2.72) en l'absence totale de couverture médiatique (silence radio sur Google Actualités). C'est la signature classique d'accumulation en sous-marin par des baleines avant le réveil du narratif public.\"\n}\n```",
-      "ts": "2026-09-30T19:55:07.757299+00:00"
-    },
-    {
-      "metric": "cpfp",
-      "zscore": 2.389263829674795,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit de fond lexical : le pic onchain 'cpfp' (Child-Pays-For-Parent) est un artefact technique lié à la congestion du mempool Bitcoin, tandis que les actualités traitent d'homonymes (centres de formation politique/publique). Aucune baleine détectée.\"\n}\n```",
-      "ts": "2026-09-30T20:00:09.787525+00:00"
-    },
-    {
-      "metric": "dust",
-      "zscore": 2.389263829674795,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Forte divergence : z-score onchain élevé (2.39) couplé à des levées de fonds massives et une couverture médiatique unanime sur l'expansion de Dust (IA/multi-agents). Les mouvements silencieux des baleines précèdent l'euphorie institutionnelle.\"\n}\n```",
-      "ts": "2026-09-30T20:00:11.543031+00:00"
-    },
-    {
       "metric": "fear_greed",
       "zscore": -3.31662479035539,
       "value": 71,
@@ -349,6 +293,62 @@
       "value": 5247957.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Bruit médiatique parasité par des liquidations judiciaires locales (Brest/Quimper), masquant la réalité crypto : un short squeeze massif de 120M$ tirant le Bitcoin à 87 000 $. Les baleines chassent les vendeurs à découvert pendant que la presse grand public confond faillites d'épiceries et mouvements de marché.\"\n}\n```",
       "ts": "2026-10-02T15:39:56.739897+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 2.5636626853954225,
+      "value": 0.02,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (SDI) déclenchée par un homonyme (Syndicat des Indépendants / Samsung SDI) sans rapport avec une cryptomonnaie ou un mouvement de baleines on-chain. Bruit médiatique sans substance crypto.\"\n}\n```",
+      "ts": "2026-10-02T15:55:01.648180+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 2.503384163670514,
+      "value": 0.02,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Faux positif contextuel : les données SDI (Syndicat des Indépendants) et Samsung SDI polluent l'indice on-chain avec de l'actualité macroéconomique et industrielle traditionnelle sans lien avec les flux de baleines crypto.\"\n}\n```",
+      "ts": "2026-10-02T16:30:08.525025+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 2.1015090646655867,
+      "value": 5606139.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Bruit médiatique parasité par des liquidations judiciaires locales (fausses alertes de type homonyme), masquant une purge saine des positions vendeuses (short squeezes) sur les marchés crypto avec un Bitcoin fort à 87 000 $.\"\n}\n```",
+      "ts": "2026-10-02T16:50:12.833406+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 2.279082585415635,
+      "value": 0.02,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie non liée à la crypto. Le 'SDI' mentionné dans les médias fait référence au Syndicat des Indépendants et des TPE ou à Samsung SDI (batteries), sans aucun rapport avec des mouvements on-chain ou des baleines de cryptomonnaies.\"\n}\n```",
+      "ts": "2026-10-02T17:15:19.161767+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 2.9165253591361573,
+      "value": 7104376.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Bruit médiatique parasité par des liquidations judiciaires locales (faillites d'entreprises). En réalité, sur les marchés crypto, ce sont 120M$+ de positions vendeuses (shorts) qui ont été liquidées sur fond de Bitcoin à 87 000 $, signalant un 'short squeeze' massif ignoré par la presse généraliste.\"\n}\n```",
+      "ts": "2026-10-02T17:20:21.982396+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 2.0768805540571895,
+      "value": 0.02,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique externe : les alertes du 'SDI' concernent le Syndicat des Indépendants et des PME ainsi que Samsung SDI (batteries), sans aucun lien avec l'activité on-chain ou les baleines crypto.\"\n}\n```",
+      "ts": "2026-10-02T17:45:27.937809+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 2.5063619509158217,
+      "value": 6734447.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Bruit médiatique parasité par des liquidations judiciaires locales (faillites d'entreprises). Sur le plan crypto, les données onchain montrent des liquidations massives de positions vendeuses (shorts) corrélées à une hausse du Bitcoin vers 87 000 $, signalant un 'short squeeze' orchestré par les baleines.\"\n}\n```",
+      "ts": "2026-10-02T17:50:30.598846+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 2.312976915300279,
+      "value": 6739704.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Bruit médiatique parasité par des liquidations judiciaires locales (Brest, Quimper) qui masquent l'événement majeur : 120M$+ de short squeezes onchain propulsant Bitcoin à 87 000 $. Divergence classique d'accumulation où les médias grand public distraient pendant que les baleines liquident les vendeurs à découvert.\"\n}\n```",
+      "ts": "2026-10-02T18:20:36.749786+00:00"
     }
   ]
 }
