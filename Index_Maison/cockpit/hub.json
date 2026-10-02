@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-02T03:21:24.946871+00:00",
+  "generated_at": "2026-10-02T06:21:50.910866+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 62
+      "calls_24h": 58
     },
     {
       "id": "openrouter-free",
@@ -233,7 +233,7 @@
       "model": "orcarouter/free",
       "enabled": true,
       "timeout": 60,
-      "calls_24h": 1
+      "calls_24h": 2
     },
     {
       "id": "obs-1787724924",
@@ -274,10 +274,82 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 12,
-    "remaining": 612
+    "consumed": 21,
+    "remaining": 603
   },
   "queue": [
+    {
+      "ts": "2026-10-02T04:51:59.688570+00:00",
+      "task": "analyse.profonde",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 35.49
+    },
+    {
+      "ts": "2026-10-02T04:26:19.584480+00:00",
+      "task": "analyse.profonde",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 0.95
+    },
+    {
+      "ts": "2026-10-02T04:22:39.409772+00:00",
+      "task": "supervise.decision",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 0.93
+    },
+    {
+      "ts": "2026-10-02T04:21:17.285095+00:00",
+      "task": "analyse.profonde",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 0.95
+    },
+    {
+      "ts": "2026-10-02T04:21:15.976027+00:00",
+      "task": "analyse.profonde",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 1.19
+    },
+    {
+      "ts": "2026-10-02T04:19:39.845342+00:00",
+      "task": "supervise.decision",
+      "provider": "orca",
+      "model": "orcarouter/free",
+      "kind": "cloud",
+      "duration_s": 8.59
+    },
+    {
+      "ts": "2026-10-02T04:00:08.440926+00:00",
+      "task": "deepseek-ai/DeepSeek-V3-0324",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 6.06
+    },
+    {
+      "ts": "2026-10-02T04:00:02.370063+00:00",
+      "task": "deepseek-ai/DeepSeek-V3-0324",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 2.01
+    },
+    {
+      "ts": "2026-10-02T03:22:38.171814+00:00",
+      "task": "supervise.decision",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 0.97
+    },
     {
       "ts": "2026-10-02T03:21:04.599908+00:00",
       "task": "analyse.profonde",
@@ -325,140 +397,68 @@
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
       "duration_s": 2.18
-    },
-    {
-      "ts": "2026-10-02T01:22:35.718098+00:00",
-      "task": "supervise.decision",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 0.99
-    },
-    {
-      "ts": "2026-10-02T01:19:28.403286+00:00",
-      "task": "supervise.decision",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 0.97
-    },
-    {
-      "ts": "2026-10-02T00:22:34.502627+00:00",
-      "task": "supervise.decision",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 4.38
-    },
-    {
-      "ts": "2026-10-02T00:19:27.332811+00:00",
-      "task": "supervise.decision",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 8.35
-    },
-    {
-      "ts": "2026-10-02T00:15:28.146535+00:00",
-      "task": "analyse.profonde",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 8.79
-    },
-    {
-      "ts": "2026-10-02T00:10:16.674320+00:00",
-      "task": "analyse.profonde",
-      "provider": "orca",
-      "model": "orcarouter/free",
-      "kind": "cloud",
-      "duration_s": 7.72
-    },
-    {
-      "ts": "2026-10-01T23:22:29.942771+00:00",
-      "task": "supervise.decision",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 7.06
-    },
-    {
-      "ts": "2026-10-01T23:19:18.731700+00:00",
-      "task": "supervise.decision",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 23.02
-    },
-    {
-      "ts": "2026-10-01T23:12:24.286300+00:00",
-      "task": "cortana.analyse",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 2.71
     }
   ],
   "events": [
     {
-      "ts": "2026-10-02T03:21:04.598232+00:00",
-      "kind": "message",
-      "title": "« Google Gemini » a repondu",
-      "detail": ""
-    },
-    {
-      "ts": "2026-10-02T03:19:31.065875+00:00",
-      "kind": "message",
-      "title": "« Google Gemini » a repondu",
-      "detail": ""
-    },
-    {
-      "ts": "2026-10-02T03:16:02.330237+00:00",
-      "kind": "message",
-      "title": "« Google Gemini » a repondu",
-      "detail": ""
-    },
-    {
-      "ts": "2026-10-02T03:16:01.204145+00:00",
-      "kind": "blacklist",
-      "title": "Fin de pause Google Gemini",
-      "detail": "re-essai automatique"
-    },
-    {
-      "ts": "2026-10-02T03:14:09.653195+00:00",
+      "ts": "2026-10-02T06:19:40.154252+00:00",
       "kind": "http",
       "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
       "detail": ""
     },
     {
-      "ts": "2026-10-02T03:14:09.652893+00:00",
+      "ts": "2026-10-02T06:19:40.154109+00:00",
       "kind": "error",
       "title": "Toutes les IA ont echoue",
-      "detail": "Google Gemini: HTTP Error 429: Too Many Requests | OrcaRouter (routeur gratuit, modele orcarouter/free): HTTP Error 400: Bad Request | InferX DeepSeek V4 Flash (API gratuite jusqu'au 12/08): HTTP Error 429: Too Many Requests | InferX Qwen3-Coder-Next (code, gratuit jusqu'au 12/08): HTTP Error 429: Too Many Requests | Puter Grok (gratuit): HTTP Error 402: Payment Required | NVIDIA DeepSeek-Coder 6.7B (code, via NIM): HTTP Error 404: Not Found | InferX Devstral-2-123B (code): HTTP Error 429: Too M"
+      "detail": "Google Gemini: reseau KO [Errno 8] nodename nor servname provided, or not known"
     },
     {
-      "ts": "2026-10-02T03:14:09.651036+00:00",
+      "ts": "2026-10-02T06:19:40.153993+00:00",
       "kind": "failover",
-      "title": "Bascule depuis InferX Devstral-2-123B (code)",
-      "detail": "HTTP Error 429: Too Many Requests"
+      "title": "Reseau KO (bascule immediate) depuis Google Gemini",
+      "detail": "[Errno 8] nodename nor servname provided, or not known"
     },
     {
-      "ts": "2026-10-02T03:14:04.755813+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis NVIDIA DeepSeek-Coder 6.7B (code, via NIM)",
-      "detail": "HTTP Error 404: Not Found"
+      "ts": "2026-10-02T06:19:40.153767+00:00",
+      "kind": "network",
+      "title": "Reseau indisponible: Google Gemini",
+      "detail": "[Errno 8] nodename nor servname provided, or not known"
     },
     {
-      "ts": "2026-10-02T03:14:02.287041+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis Puter Grok (gratuit)",
-      "detail": "HTTP Error 402: Payment Required"
+      "ts": "2026-10-02T06:19:40.126542+00:00",
+      "kind": "network",
+      "title": "Reseau pas pret — mode degrade (timeout court)",
+      "detail": ""
     },
     {
-      "ts": "2026-10-02T03:14:01.438730+00:00",
+      "ts": "2026-10-02T06:17:03.260541+00:00",
+      "kind": "http",
+      "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
+      "detail": ""
+    },
+    {
+      "ts": "2026-10-02T06:17:03.260436+00:00",
+      "kind": "error",
+      "title": "Toutes les IA ont echoue",
+      "detail": "Google Gemini: reseau KO [Errno 8] nodename nor servname provided, or not known"
+    },
+    {
+      "ts": "2026-10-02T06:17:03.260342+00:00",
       "kind": "failover",
-      "title": "Bascule depuis InferX Qwen3-Coder-Next (code, gratuit jusqu'au 12/08)",
-      "detail": "HTTP Error 429: Too Many Requests"
+      "title": "Reseau KO (bascule immediate) depuis Google Gemini",
+      "detail": "[Errno 8] nodename nor servname provided, or not known"
+    },
+    {
+      "ts": "2026-10-02T06:17:03.260255+00:00",
+      "kind": "network",
+      "title": "Reseau indisponible: Google Gemini",
+      "detail": "[Errno 8] nodename nor servname provided, or not known"
+    },
+    {
+      "ts": "2026-10-02T06:17:03.253298+00:00",
+      "kind": "network",
+      "title": "Reseau pas pret — mode degrade (timeout court)",
+      "detail": ""
     }
   ],
   "tasks_quotas": {
@@ -592,7 +592,7 @@
   "health": {
     "status": "ok",
     "providers": 7,
-    "reseau": true,
-    "degrade": false
+    "reseau": false,
+    "degrade": true
   }
 }

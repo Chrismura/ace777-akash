@@ -1,38 +1,40 @@
 {
-  "timestamp": "2026-10-02T03:21:06Z",
+  "timestamp": "2026-10-02T06:21:52Z",
   "generation_source": "system_state_generator.py v2.1",
   "status": "STALE",
-  "feed_hash": "61c3e9ff917f73d4f276ec7201b7a871004813fce5178fc29c80fd5f7c0d8fd6",
+  "feed_hash": "890ede7d7a5d759f640310cc04a9391fd3dd6f4737a2c70d88be87f637b2c6be",
   "feeds": {
     "mission": {
       "present": true,
-      "age_seconds": 13,
+      "age_seconds": 23,
       "fresh_limit_s": 120
     },
     "cortana_feed": {
       "present": true,
-      "age_seconds": 196,
+      "age_seconds": 95,
       "fresh_limit_s": 120
     },
     "live": {
       "present": true,
-      "age_seconds": 196,
+      "age_seconds": 95,
       "fresh_limit_s": 15
     },
     "routing": {
       "present": true,
-      "age_seconds": 3339649,
+      "age_seconds": 3350495,
       "fresh_limit_s": 120
     }
   },
   "services": {
     "total": 102,
-    "running": 16,
-    "planned": 86,
+    "running": 17,
+    "planned": 85,
     "running_list": [
+      "com.ace777.bloc-privatise",
       "com.ace777.cockpit-http",
       "com.ace777.cockpit-pont",
       "com.ace777.collecte-anti-veille",
+      "com.ace777.cortana.urgent",
       "com.ace777.gitpush",
       "com.ace777.llm-gate-hub",
       "com.ace777.mirofish",
@@ -44,7 +46,6 @@
       "com.ace777.superviseur-l2",
       "com.ace777.superviseur-process",
       "com.ace777.vigie-live",
-      "com.ace777.whales",
       "com.ace777.xrpl-arbitrage"
     ],
     "planned_list": [
@@ -52,7 +53,6 @@
       "com.ace777.archi-vivante",
       "com.ace777.autopilote",
       "com.ace777.backup-check",
-      "com.ace777.bloc-privatise",
       "com.ace777.carte-paires",
       "com.ace777.catalogue",
       "com.ace777.chien-de-garde",
@@ -60,7 +60,6 @@
       "com.ace777.cortana-analyzer",
       "com.ace777.cortana-feed",
       "com.ace777.cortana-propose-params",
-      "com.ace777.cortana.urgent",
       "com.ace777.couleur-regime",
       "com.ace777.couleur-regime-score",
       "com.ace777.cpfp",
@@ -131,6 +130,7 @@
       "com.ace777.verdicteur-micro",
       "com.ace777.verif-setup",
       "com.ace777.watchdog",
+      "com.ace777.whales",
       "com.ace777.x402-agentic",
       "com.ace777.xrpl-gouvernance",
       "com.ace777.xrpl-onchain"
@@ -139,8 +139,8 @@
   "hub": {
     "status": "ok",
     "providers": 7,
-    "reseau": true,
-    "degrade": false
+    "reseau": false,
+    "degrade": true
   },
   "ram_raw": "The system has 8589934592 (524288 pages with a page size of 16384).",
   "hors_zone": {
@@ -175,7 +175,7 @@
       "Assistant_Vocal_HORS_VAULT": 697372,
       "Obsidian_BACKUPS_HORS_VAULT": 14936872
     },
-    "presence_at": "2026-10-02T03:20:08Z",
-    "sizes_at": "2026-10-01T23:20:03Z"
+    "presence_at": "2026-10-02T06:20:13Z",
+    "sizes_at": "2026-10-02T05:20:09Z"
   }
 }
