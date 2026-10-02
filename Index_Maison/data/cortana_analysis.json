@@ -1,32 +1,37 @@
 {
-  "timestamp": 1790840930,
-  "date": "2026-10-01T07:48:50.471964+00:00",
-  "n_analyses": 1,
+  "timestamp": 1790900422,
+  "date": "2026-10-02T00:20:22.651950+00:00",
+  "n_analyses": 2,
   "analyses": [
     {
       "signal": {
-        "metric": "price_1h",
-        "zscore": 3.019928501333374,
-        "value": 0.5810611999926607,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de prix significative (z-score 3.02) en l'absence totale de couverture médiatique (silence radio). Indique une accumulation agressive et discrète de baleines loin du radar retail.\"\n}\n```",
-        "ts": 1790839361.936567
+        "metric": "ipt",
+        "zscore": 2.180717631647379,
+        "value": 1.24,
+        "analysis": "{\n  \"signal\": \"bullish\",\n  \"confidence\": 65,\n  \"reason\": \"Le z-score élevé de l'IPT (2.18) signale une anomalie onchain significative, tandis que le narratif médiatique est totalement déconnecté (sujets non-crypto). Cette divergence indique un mouvement silencieux de baleines, souvent précurseur d'une hausse des prix.\"\n}",
+        "ts": 1790899816.676062
       },
-      "fiche": "price_1h",
+      "fiche": "rbf_eleve",
       "questions": {
-        "pct_1h": {
-          "value": -0.69,
-          "seuil": -1,
-          "depasse": true
+        "prix": {
+          "value": 0.03,
+          "seuil": 1,
+          "depasse": false
         },
-        "liq": {
-          "value": 2607291.0,
-          "seuil": 5000000,
+        "paires": {
+          "value": 0,
+          "seuil": 3,
           "depasse": false
         },
         "funding": {
-          "value": 5e-05,
-          "seuil": 0,
-          "depasse": true
+          "value": 2.4e-05,
+          "seuil": 0.001,
+          "depasse": false
+        },
+        "whales": {
+          "value": 0,
+          "seuil": 5,
+          "depasse": false
         }
       },
       "interpretation": {
@@ -36,6 +41,21 @@
       },
       "action": "Observer",
       "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "sdi",
+        "zscore": 2.651415571662059,
+        "value": 0.02,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Faux positif sémantique : le signal 'SDI' détecté par les algorithmes on-chain correspond ici à un acronyme institutionnel (Syndicat des Indépendants ou Samsung SDI) dans l'actualité généraliste, et non à un mouvement de baleine crypto.\"\n}\n```",
+        "ts": 1790900128.147917
+      },
+      "fiche": null,
+      "interpretation": {
+        "lecture": "Pas de fiche disponible",
+        "niveau": "inconnu"
+      },
+      "action": "Observer"
     }
   ],
   "resume": "🔵 CALME — pas de signal alarmant"

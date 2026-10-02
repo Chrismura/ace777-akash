@@ -38,18 +38,19 @@ Métriques : maison (mur moy/max + régime ; poussière = indicateur PANIER) + p
 | 31 | 2026-09-28T14:34:54Z | 14h | AUTRE | 0.07987 | IMPULSE_WAIT | 5.717 | 7324.62 | 31475.79 | 1.97e-07 | -0.17 | 0.90 | 0.68 | neutre (stab 0) | prix 0.07987 · poussière(panier) 5.7% · Amihud 1.97e-07 · delta -0.17 · mur moy 7,325$ · mur max (run) 31,476$ |
 | 32 | 2026-09-29T14:35:07Z | 14h | AUTRE | 0.07939 | COOLING | 28.2326 | 7324.62 | 31475.79 | 2.07e-07 | -0.48 | -0.01 | -0.06 | LEADER (stab 4) | prix 0.07939 · poussière(panier) 28.2% · Amihud 2.07e-07 · delta -0.48 · mur moy 7,325$ · mur max (run) 31,476$ |
 | 33 | 2026-09-30T14:08:37Z | 14h | AUTRE | 0.07771 | COOLING | None | 7324.62 | 31475.79 | 2.64e-07 | -0.09 | 0.82 | 0.92 | LEADER (stab 5) | prix 0.07771 · Amihud 2.64e-07 · delta -0.09 · mur moy 7,325$ · mur max (run) 31,476$ |
+| 34 | 2026-10-01T14:12:26Z | 14h | AUTRE | 0.07506 | COOLING | None | 7324.62 | 31475.79 | — | — | 0.48 | 0.39 | neutre (stab 0) | prix 0.07506 · mur moy 7,325$ · mur max (run) 31,476$ |
 
 ## 🔁 HISTORIQUE DES CYCLES DE L'ACTIF (zigzag ≥ 15 %, log continu du moteur)
 
-_Fenêtre mesurée : du 2026-09-25T15:36:03Z au 2026-09-30T14:08:37Z (15923 points) — archives de rotation incluses._
+_Fenêtre mesurée : du 2026-09-26T21:37:34Z au 2026-10-01T14:12:26Z (13744 points) — archives de rotation incluses._
 
 _Pas encore deux retournements ≥ 15 % dans l'historique mesuré._
 
-**Cycle en cours : pas encore de retournement ≥ 15 % dans la fenêtre** — du plus bas 2026-09-25T19:36:05Z à 0.07166 → 0.07771 = **+8.4 %**
+**Cycle EN COURS : BAISSE depuis le pic du 2026-09-27T08:14:11Z à 0.08849 → 0.07506 = **-15.2 %**** (extrême courant 0.07506)
 
 ## 💰 CE QUE LE MOTEUR A CAPTÉ SUR CET ACTIF
 
-- **Réalisé : -2.60 $** sur 9 entrée(s) / 9 sortie(s) — dernier événement 2026-09-29T17:25:06Z
+- **Réalisé : -2.60 $** sur 9 entrée(s) / 9 sortie(s) — dernier événement 2026-10-01T09:37:58Z
 - **MFE donné en moyenne : +3.7 pts** par tour (pire tour : +12.5) — le meilleur prix atteint pendant la détention, jamais encaissé
 
 _Règle : on compare les lignes entre elles (même heure de mesure = comparable). On ne supprime rien._
