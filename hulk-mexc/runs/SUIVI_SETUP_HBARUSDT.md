@@ -39,18 +39,19 @@ Métriques : maison (mur moy/max + régime ; poussière = indicateur PANIER) + p
 | 32 | 2026-09-29T14:35:07Z | 14h | AUTRE | 0.11398 | IMPULSE | 28.2326 | 30739.91 | 63738.72 | 9.52e-08 | 0.55 | -0.07 | -0.30 | POMPE_PIEGE (stab 4) | prix 0.11398 · poussière(panier) 28.2% · Amihud 9.52e-08 · delta +0.55 · mur moy 30,740$ · mur max (run) 63,739$ |
 | 33 | 2026-09-30T14:08:37Z | 14h | AUTRE | 0.10786 | IMPULSE_WAIT | None | 30739.91 | 63738.72 | 1.09e-07 | -0.18 | 0.46 | 0.63 | POMPE_PIEGE (stab 5) | prix 0.10786 · Amihud 1.09e-07 · delta -0.18 · mur moy 30,740$ · mur max (run) 63,739$ |
 | 34 | 2026-10-01T14:12:26Z | 14h | AUTRE | 0.10414 | COOLING | None | 30739.91 | 63738.72 | — | — | 0.41 | -0.26 | POMPE_PIEGE (stab 7) | prix 0.10414 · mur moy 30,740$ · mur max (run) 63,739$ |
+| 35 | 2026-10-02T14:34:40Z | 14h | AUTRE | 0.10492 | COOLING | 30.2908 | 30739.91 | 63738.72 | 2.24e-07 | -0.08 | 0.83 | 0.87 | POMPE_PIEGE (stab 10) | prix 0.10492 · poussière(panier) 30.3% · Amihud 2.24e-07 · delta -0.08 · mur moy 30,740$ · mur max (run) 63,739$ |
 
 ## 🔁 HISTORIQUE DES CYCLES DE L'ACTIF (zigzag ≥ 15 %, log continu du moteur)
 
-_Fenêtre mesurée : du 2026-09-26T21:37:34Z au 2026-10-01T14:12:26Z (13665 points) — archives de rotation incluses._
+_Fenêtre mesurée : du 2026-09-26T21:37:34Z au 2026-10-02T14:34:40Z (16118 points) — archives de rotation incluses._
 
 _Pas encore deux retournements ≥ 15 % dans l'historique mesuré._
 
-**Cycle EN COURS : BAISSE depuis le pic du 2026-09-28T18:06:02Z à 0.13085 → 0.10414 = **-20.4 %**** (extrême courant 0.10353)
+**Cycle EN COURS : BAISSE depuis le pic du 2026-09-28T18:06:02Z à 0.13085 → 0.10492 = **-19.8 %**** (extrême courant 0.10184)
 
 ## 💰 CE QUE LE MOTEUR A CAPTÉ SUR CET ACTIF
 
-- **Réalisé : +4.06 $** sur 8 entrée(s) / 8 sortie(s) — dernier événement 2026-10-01T09:27:26Z
+- **Réalisé : +4.06 $** sur 9 entrée(s) / 8 sortie(s) — dernier événement 2026-10-02T00:36:24Z
 - **MFE donné en moyenne : +3.1 pts** par tour (pire tour : +8.1) — le meilleur prix atteint pendant la détention, jamais encaissé
 
 _Règle : on compare les lignes entre elles (même heure de mesure = comparable). On ne supprime rien._

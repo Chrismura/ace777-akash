@@ -1,34 +1,6 @@
 {
   "signals": [
     {
-      "metric": "cpfp",
-      "zscore": 2.1653125181887614,
-      "value": 45.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique liée au bruit de fond (faible volume de transactions avec frais accélérés CPFP) sans corrélation avec un mouvement significatif de baleines. Le narratif médiatique est totalement déconnecté car le terme 'CPFP' est un homonyme partagé avec des actualités locales sans rapport.\"\n}\n```",
-      "ts": "2026-09-30T18:29:27.188479+00:00"
-    },
-    {
-      "metric": "dust",
-      "zscore": 2.1653125181887614,
-      "value": 45.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Anomalie onchain (« dust ») et levées de fonds médias font référence à une startup tech/IA homonyme (« Dust »), et non à un actif cryptographique. Faux positif détecté : aucune divergence baleine/marché crypto significative.\"\n}\n```",
-      "ts": "2026-09-30T18:29:29.206195+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": -5.2996761376690555,
-      "value": 71,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement négatif (-5.30) malgré une cupidité élevée (71). Absence totale de couverture médiatique (Google Actualités vide), signalant une indifférence de la foule alors que les baleines distribuent ou retiennent leurs liquidités face à un optimisme aveugle.\"\n}\n```",
-      "ts": "2026-09-30T18:29:30.764697+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": 3.735118797837745,
-      "value": 0.024,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 3.74) sur un ticker homonyme ('SDI' / SDI Group ou actualités politiques françaises). Aucun rapport avec la crypto ou des mouvements de baleines onchain. Bruit médiatique sans fondement crypto.\"\n}\n```",
-      "ts": "2026-09-30T18:59:44.175161+00:00"
-    },
-    {
       "metric": "ipt",
       "zscore": 3.662493646351189,
       "value": 1.62,
@@ -349,6 +321,34 @@
       "value": 6091807.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique parasité par des homonymes (faillites d'entreprises locales à Quimper et Châteauroux). Aucune corrélation avec des mouvements significatifs de baleines crypto malgré un z-score statistique élevé.\"\n}\n```",
       "ts": "2026-10-02T09:19:18.712023+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 2.5750939259908443,
+      "value": 5534388.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Forte divergence : les médias grand public se focalisent sur des bruits de fond hors-sujet (faillites locales) ou des liquidations de shorts mineures (120M$) pendant que le z-score on-chain (2.58) et le prix à 87k$ traduisent une purge agressive des vendeurs par de gros acteurs.\"\n}\n```",
+      "ts": "2026-10-02T14:39:41.585003+00:00"
+    },
+    {
+      "metric": "price_1h",
+      "zscore": 2.516331763475432,
+      "value": 0.7612099847593923,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de prix positive (z-score 2.52) totalement ignorée par les médias (silence radio). Comportement typique d'accumulation furtive par les baleines avant un mouvement majeur.\"\n}\n```",
+      "ts": "2026-10-02T14:44:43.767766+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 2.3213799180566133,
+      "value": 5459352.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Bruit médiatique parasité par des faits divers locaux de liquidations judiciaires d'entreprises. Les données on-chain montrent une anomalie de liquidations crypto ciblées (shorts squeezés à 87k$), masquée par un narratif grand public totalement déconnecté.\"\n}\n```",
+      "ts": "2026-10-02T15:09:49.454922+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 2.020022720723502,
+      "value": 5247957.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Bruit médiatique parasité par des liquidations judiciaires locales (Brest/Quimper), masquant la réalité crypto : un short squeeze massif de 120M$ tirant le Bitcoin à 87 000 $. Les baleines chassent les vendeurs à découvert pendant que la presse grand public confond faillites d'épiceries et mouvements de marché.\"\n}\n```",
+      "ts": "2026-10-02T15:39:56.739897+00:00"
     }
   ]
 }
