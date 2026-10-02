@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "sdi",
-      "zscore": 2.0901990428748563,
-      "value": 0.016,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Attention confusion de tickers : Le 'SDI' mentionné dans les médias concerne SDI Group (actions traditionnelles/politique) et non un protocole crypto ou un token de baleine. Aucune corrélation onchain pertinente détectée.\"\n}\n```",
-      "ts": "2026-09-30T17:59:15.745253+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": -7.537783614444112,
-      "value": 71,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 92,\n  \"reason\": \"Anomalie statistique extrême (z-score -7.54) sur le Fear & Greed à 71 malgré un vide médiatique total (Google Actualités). Divergence classique de 'piège à liquidité' : les baleines distribuent dans l'indifférence des médias de masse pendant que les suiveurs s'aveuglent d'optimisme.\"\n}\n```",
-      "ts": "2026-09-30T17:59:17.557687+00:00"
-    },
-    {
       "metric": "cpfp",
       "zscore": 2.1653125181887614,
       "value": 45.0,
@@ -349,6 +335,20 @@
       "value": 1.356678700276559,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Z-score extrême (5.80) détecté sur les mouvements de gros volumes (baleines) avec un silence médiatique total (Google Actualités vide). C'est la signature classique d'accumulation furtive avant une cassure haussière non pricée par le retail.\"\n}\n```",
       "ts": "2026-10-02T04:51:59.689720+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": -2.2286648893620855,
+      "value": 0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie de données non pertinente : les résultats de recherche font référence à des actualités sur la fonte des glaciers suisses et l'industrie automobile, sans aucun rapport avec des mouvements de baleines crypto.\"\n}\n```",
+      "ts": "2026-10-02T09:03:58.482153+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 3.510490979437451,
+      "value": 6091807.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique parasité par des homonymes (faillites d'entreprises locales à Quimper et Châteauroux). Aucune corrélation avec des mouvements significatifs de baleines crypto malgré un z-score statistique élevé.\"\n}\n```",
+      "ts": "2026-10-02T09:19:18.712023+00:00"
     }
   ]
 }

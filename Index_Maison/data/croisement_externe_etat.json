@@ -1,13 +1,44 @@
 {
-  "ts": "2026-10-02T06:03:53Z",
-  "n_verifications": 15,
+  "ts": "2026-10-02T09:03:57Z",
+  "n_verifications": 24,
   "n_fails": 0,
-  "n_fails_pendants": 0,
-  "n_warns": 0,
+  "n_fails_pendants": 2,
+  "n_warns": 1,
   "fails": [],
-  "fails_pendants": [],
-  "warns": [],
+  "fails_pendants": [
+    {
+      "type": "prix",
+      "pair": "FLUIDUSDT",
+      "ecart_pct": 5.3,
+      "notre": 1.5153,
+      "externe": 1.6001,
+      "source": "mexc",
+      "ticks_fail": 1,
+      "age_min": 12.1
+    },
+    {
+      "type": "prix",
+      "pair": "QNTUSDT",
+      "ecart_pct": 6.83,
+      "notre": 252.14,
+      "externe": 236.03,
+      "source": "mexc",
+      "ticks_fail": 1,
+      "age_min": 12.1
+    }
+  ],
+  "warns": [
+    {
+      "type": "murs",
+      "pair": "HBARUSDT",
+      "notre_bid_avg": 30739.91,
+      "ext_bid_5niv": 2766.0,
+      "notre_ask_avg": 26144.54,
+      "ext_ask_5niv": 518.36,
+      "note": "ratio hors [0.05x-20.0x] — carnet déséquilibré ou donnée à surveiller"
+    }
+  ],
   "persistance_ticks": 3,
   "regle": "écart > 5.0% entre notre prix et une source externe = data_quality_fail (bloquant après 3 ticks consécutifs) · murs = warning informatif",
-  "lecture": "✅ toutes les données croisées sont cohérentes"
+  "lecture": "👀 2 prix en écart (surveillance, < 3 ticks)"
 }
