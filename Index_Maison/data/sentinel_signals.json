@@ -1,48 +1,6 @@
 {
   "signals": [
     {
-      "metric": "sdi",
-      "zscore": 2.4770597713733586,
-      "value": 0.02,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Faux positif sémantique. Le 'SDI' détecté fait référence au Syndicat des Indépendants et TPE ou à une entreprise traditionnelle (SDI Group) dans l'actualité financière classique, sans aucun rapport avec la crypto ou des mouvements de baleines on-chain.\"\n}\n```",
-      "ts": "2026-10-02T03:16:02.331871+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.1134078915783836,
-      "value": 1.28,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.11) probablement liée à une confusion lexicale on-chain. Les médias associent 'IPT' à l'Institut Pasteur de Tunis (santé), au Tournoi International des Physiciens ou à des actualités régionales. Aucun signal de baleine crypto avéré, bruit de fond médiatique sans lien avec la DeFi.\"\n}\n```",
-      "ts": "2026-10-02T03:21:04.601359+00:00"
-    },
-    {
-      "metric": "price_1h",
-      "zscore": 6.021760724843554,
-      "value": 0.947402633780503,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrême de 6.02 combiné à un silence médiatique absolu (Google Actualités vide). C'accumulation furtive typique des baleines avant un re-pricing violent.\"\n}\n```",
-      "ts": "2026-10-02T04:21:15.977879+00:00"
-    },
-    {
-      "metric": "whale_usd",
-      "zscore": 2.6903832103953342,
-      "value": 7286992.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 2.69, ~7.3M USD) en absence totale de couverture médiatique (Google Actualités vide). Accumulation furtive classique des baleines loin du radar public.\"\n}\n```",
-      "ts": "2026-10-02T04:21:17.286566+00:00"
-    },
-    {
-      "metric": "liquidations",
-      "zscore": 4.002084594940235,
-      "value": 6196985.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique parasité par des homonymes (liquidations judiciaires d'entreprises locales à Quimper). Aucune divergence onchain exploitable pour les baleines crypto.\"\n}\n```",
-      "ts": "2026-10-02T04:26:19.586185+00:00"
-    },
-    {
-      "metric": "price_1h",
-      "zscore": 5.796277971330086,
-      "value": 1.356678700276559,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Z-score extrême (5.80) détecté sur les mouvements de gros volumes (baleines) avec un silence médiatique total (Google Actualités vide). C'est la signature classique d'accumulation furtive avant une cassure haussière non pricée par le retail.\"\n}\n```",
-      "ts": "2026-10-02T04:51:59.689720+00:00"
-    },
-    {
       "metric": "volume",
       "zscore": -2.2286648893620855,
       "value": 0,
@@ -349,6 +307,48 @@
       "value": 67,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Données incomplètes sur les titres médiatiques. Le Z-score négatif profond (-2.42) malgré un Indice de Peur & Greed à 67 signale une anomalie statistique, mais l'absence de contenu textuel empêche de confirmer une divergence claire avec le narratif.\"\n}\n```",
       "ts": "2026-10-03T03:33:10.555911+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -2.2360679774997907,
+      "value": 67,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Données incomplètes (titres Google Actualités vides). Le z-score négatif (-2.24) indique une anomalie statistique de volatilité ou de sentiment, mais l'absence de narratif médiatique concret empêche de confirmer une divergence exploitable.\"\n}\n```",
+      "ts": "2026-10-03T04:03:15.562876+00:00"
+    },
+    {
+      "metric": "cpfp",
+      "zscore": 2.0924790593650116,
+      "value": 50.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique mineure (frais de transactions/CPFP) noyée dans du bruit médiatique sans rapport avec l'activité des baleines crypto.\"\n}\n```",
+      "ts": "2026-10-03T04:18:18.504819+00:00"
+    },
+    {
+      "metric": "dust",
+      "zscore": 2.0924790593650116,
+      "value": 50.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit de fond onchain insignifiant (z-score modéré) et absence totale de corrélation avec les résultats de recherche (bruit sémantique autour du mot 'dust' sans rapport avec un actif crypto majeur). Aucune baleine détectée.\"\n}\n```",
+      "ts": "2026-10-03T04:18:20.090115+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -2.0816659994661326,
+      "value": 67,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Données incomplètes (titres Google Actualités vides). Le z-score de -2.08 indique une anomalie statistique du sentiment (peur cachée malgré la cupidité apparente à 67), mais l'absence de narratif médiatique concret empêche de confirmer une divergence exploitable.\"\n}\n```",
+      "ts": "2026-10-03T04:33:24.233760+00:00"
+    },
+    {
+      "metric": "cpfp",
+      "zscore": 2.043341413800737,
+      "value": 50.0,
+      "analysis": "{\n  \"signal\": \"neutral\",\n  \"confidence\": 65,\n  \"reason\": \"Le CPFP z-score de 2,04 indique une légère anomalie technique sur la blockchain, mais les titres médiatiques sont déconnectés : ils concernent principalement des homonymes (formation politique, finances publiques) ou un article éducatif générique. Aucun signe de mouvement coordonné de baleines ; le narratif n'est pas aligné avec l'activité onchain.\"\n}",
+      "ts": "2026-10-03T05:18:40.673866+00:00"
+    },
+    {
+      "metric": "dust",
+      "zscore": 2.043341413800737,
+      "value": 50.0,
+      "analysis": "{\"signal\": \"neutral\", \"confidence\": 45, \"reason\": \"Anomalie onchain modérée (dust z-score 2.04) sans narration médiatique associée. Le narratif est totalement déconnecté, indiquant un possible mouvement silencieux de baleines, mais la confiance est limitée par l'absence de direction claire dans les données.\"}",
+      "ts": "2026-10-03T05:18:46.316293+00:00"
     }
   ]
 }
