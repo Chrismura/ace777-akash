@@ -1,111 +1,6 @@
 {
   "signals": [
     {
-      "metric": "ipt",
-      "zscore": 2.7915863843187925,
-      "value": 1.48,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Anomalie statistique (IPT z-score 2.79) entièrement capturée par des homonymes institutionnels et scientifiques (Institut Pasteur de Tunis, Tournoi International des Physiciens). Aucun lien avec un actif crypto ou un mouvement de baleines.\"\n}\n```",
-      "ts": "2026-10-01T00:41:30.546170+00:00"
-    },
-    {
-      "metric": "whale_usd",
-      "zscore": 4.673519877304482,
-      "value": 4321762.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (z-score 4.67, ~4.3M USD) totalement absente des radars médiatiques. Accumulation silencieuse des baleines avant un réveil du narratif public.\"\n}\n```",
-      "ts": "2026-10-01T01:36:39.245448+00:00"
-    },
-    {
-      "metric": "cpfp",
-      "zscore": 2.201520869952175,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Le pic de CPFP (Child-Pays-For-Parent) on-chain reflète une congestion technique mineure ou des utilisateurs débloquant des transactions Bitcoin bloquées. Les médias grand public font un amalgame sémantique avec des homonymes (politique, éducation). Aucune accumulation ou mouvement significatif de baleines détecté.\"\n}\n```",
-      "ts": "2026-10-01T02:11:44.624201+00:00"
-    },
-    {
-      "metric": "dust",
-      "zscore": 2.201520869952175,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Forte divergence : le narratif médiatique encense les levées de fonds et la croissance de la startup IA 'Dust' (Web2/VC), tandis que l'anomalie on-chain (z-score 2.20) détecte des mouvements de 'dust' (micro-transactions suspectes de baleines), suggérant une accumulation ou une préparation de marché pour le token associé en amont de la hype grand public.\"\n}\n```",
-      "ts": "2026-10-01T02:11:46.616031+00:00"
-    },
-    {
-      "metric": "cpfp",
-      "zscore": 2.0343629105657284,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique liée au faible volume de transactions Bitcoin avec frais bloqués (CPFP), sans rapport avec une accumulation ou une distribution de baleines. Le bruit médiatique est sans corrélation onchain significative.\"\n}\n```",
-      "ts": "2026-10-01T04:02:02.295853+00:00"
-    },
-    {
-      "metric": "dust",
-      "zscore": 2.0343629105657284,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit lexical : les médias parlent de 'Dust' (la startup SaaS/IA française cofondée par Gabriel Hubert) et non du token crypto homonyme. Aucune divergence onchain pertinente.\"\n}\n```",
-      "ts": "2026-10-01T04:02:03.954248+00:00"
-    },
-    {
-      "metric": "taker_ratio",
-      "zscore": 2.080618324960335,
-      "value": 1.441,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio élevé (z-score 2.08) indique une forte agression acheteuse sur les carnets d'ordres, tandis que le vide médiatique (Google Actualités silencieux) prouve une accumulation discrète des baleines sous le radar du grand public.\"\n}\n```",
-      "ts": "2026-10-01T05:07:14.574519+00:00"
-    },
-    {
-      "metric": "whale_usd",
-      "zscore": 47.976670399800994,
-      "value": 39491852.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 95,\n  \"reason\": \"Anomalie onchain extrême (z-score 47.98, ~39.5M USD) sans aucune couverture médiatique correspondante. C'est la définition parfaite d'une accumulation furtive de baleines en amont d'un mouvement de marché.\"\n}\n```",
-      "ts": "2026-10-01T05:47:24.427739+00:00"
-    },
-    {
-      "metric": "price_1h",
-      "zscore": 3.019928501333374,
-      "value": 0.5810611999926607,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de prix significative (z-score 3.02) en l'absence totale de couverture médiatique (silence radio). Indique une accumulation agressive et discrète de baleines loin du radar retail.\"\n}\n```",
-      "ts": "2026-10-01T07:22:41.936567+00:00"
-    },
-    {
-      "metric": "price_1h",
-      "zscore": 3.098604994016236,
-      "value": 0.6641446765344283,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de prix significative (z-score 3.10) totalement ignorée par les médias (silence radio absolu). Classic accumulation furtive de baleines sans bruit médiatique.\"\n}\n```",
-      "ts": "2026-10-01T07:52:49.494151+00:00"
-    },
-    {
-      "metric": "cpfp",
-      "zscore": 2.0139614890185085,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique liée au bruit sémantique (homonymie de l'acronyme CPFP avec des actualités politiques et éducatives locales), aucune activité anormale de baleines détectée.\"\n}\n```",
-      "ts": "2026-10-01T07:52:50.786647+00:00"
-    },
-    {
-      "metric": "dust",
-      "zscore": 2.0139614890185085,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit de fond médiatique : les mentions de 'Dust' concernent des homonymes (IA B2B, JV, jeux vidéo) sans lien avec l'actif on-chain, malgré une légère agitation technique.\"\n}\n```",
-      "ts": "2026-10-01T07:52:52.660619+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.180717631647379,
-      "value": 1.24,
-      "analysis": "{\n  \"signal\": \"bullish\",\n  \"confidence\": 65,\n  \"reason\": \"Le z-score élevé de l'IPT (2.18) signale une anomalie onchain significative, tandis que le narratif médiatique est totalement déconnecté (sujets non-crypto). Cette divergence indique un mouvement silencieux de baleines, souvent précurseur d'une hausse des prix.\"\n}",
-      "ts": "2026-10-02T00:10:16.676062+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": 2.651415571662059,
-      "value": 0.02,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Faux positif sémantique : le signal 'SDI' détecté par les algorithmes on-chain correspond ici à un acronyme institutionnel (Syndicat des Indépendants ou Samsung SDI) dans l'actualité généraliste, et non à un mouvement de baleine crypto.\"\n}\n```",
-      "ts": "2026-10-02T00:15:28.147917+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.133310240897265,
-      "value": 1.264,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Fausse alerte due à une confusion de sigles : l'anomalie on-chain concerne le token crypto IPT, tandis que le narratif médiatique fait référence à des institutions réelles sans lien avec la blockchain (Institut Pasteur de Tunis, Tournoi International des Physiciens). Aucune baleine crypto identifiée.\"\n}\n```",
-      "ts": "2026-10-02T02:15:50.869935+00:00"
-    },
-    {
       "metric": "sdi",
       "zscore": 2.4770597713733586,
       "value": 0.02,
@@ -349,6 +244,111 @@
       "value": 1.359,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Bruit de fond médiatique sans rapport avec la crypto (homonymie avec l'Institut Pasteur de Tunis et l'École Polytechnique). L'anomalie on-chain est un faux signal lié à une confusion de ticker.\"\n}\n```",
       "ts": "2026-10-03T00:42:23.309169+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 4.115501244084915,
+      "value": 0.085,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique externe : les gros titres font référence au 'Syndicat des Indépendants' (SDI) et à l'industriel 'Samsung SDI' dans l'actualité politique et macroéconomique, sans aucun rapport avec une métrique onchain ou un mouvement de baleine crypto.\"\n}\n```",
+      "ts": "2026-10-03T01:02:28.491608+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -4.795831523312724,
+      "value": 67,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-4.80) pour un Fear & Greed à 67. Le marché est en zone de cupidité modérée, mais la volatilité statistique suggère une compression anormale. Les baleines accumulent dans l'angle mort médiatique, totalement déconnecté du bruit de fond.\"\n}\n```",
+      "ts": "2026-10-03T01:02:29.770535+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": 2.065218393117128,
+      "value": 1.216,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Le ratio long/short atteint un z-score élevé de 2.07, indiquant un posicionnement acheteur excessif de la foule encouragée par un narratif médiatique mainstream ('marchés agités', 'solution idéale'). Cette euphorie unanime des détailleurs contraste avec la discrétion des smart money et prédispose le marché à un 'long squeeze'.\"\n}\n```",
+      "ts": "2026-10-03T01:07:32.117397+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 3.0305512806792057,
+      "value": 6272345.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 3.03, ~6.27M USD) en l'absence totale de couverture médiatique (Google Actualités vide). Classique accumulation silencieuse de baleine hors des radars grand public.\"\n}\n```",
+      "ts": "2026-10-03T01:22:36.285933+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 3.6290666200774844,
+      "value": 0.089,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Anomalie statistique (SDI) liée à une homonymie médiatique avec le syndicat patronal français SDI et Samsung SDI, sans aucun rapport avec les flux de baleines crypto.\"\n}\n```",
+      "ts": "2026-10-03T01:32:38.981917+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -3.872983346207417,
+      "value": 67,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Anomalie statistique majeure (z-score -3.87) malgré une gourmandise modérée (67). Silence total des médias (Google Actualités vide). Divergence classique de sous-accumulation institutionnelle discrète avant une cassure haussière.\"\n}\n```",
+      "ts": "2026-10-03T01:32:40.344237+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.152865670013954,
+      "value": 1.365,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.15) sur un ticker partagé avec des homonymes non-crypto (Institut Pasteur de Tunis, Tournoi International des Physiciens). Le narratif médiatique est totalement étranger à la blockchain. Bruit de fond, pas de mouvement de baleine avéré.\"\n}\n```",
+      "ts": "2026-10-03T01:52:44.347307+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 3.1210176973471193,
+      "value": 0.089,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique externe : les alertes concernent le 'Syndicat des Indépendants' (SDI) et Samsung SDI (macro/politique), sans rapport avec le volume onchain des baleines crypto.\"\n}\n```",
+      "ts": "2026-10-03T02:02:47.108988+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -3.316624790355397,
+      "value": 67,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 40,\n  \"reason\": \"Données incomplètes (absence de titres médiatiques réels dans le prompt). Le z-score de -3.32 indique une anomalie statistique significative sur l'indice Fear & Greed, mais l'absence de contexte textuel empêche de confirmer une divergence claire avec le narratif.\"\n}\n```",
+      "ts": "2026-10-03T02:02:48.353935+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 2.5011138571960974,
+      "value": 0.081,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Fausse alerte sémantique : l'anomalie détecte le sigle 'SDI' (Syndicat des Indépendants / Samsung SDI) dans l'actualité économique et industrielle traditionnelle, sans aucun lien avec l'activité on-chain de baleines crypto.\"\n}\n```",
+      "ts": "2026-10-03T02:32:54.419846+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -2.9325756597230384,
+      "value": 67,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-2.93) malgré un indice de cupidité à 67. Le marché grand public est tiède, mais l'anomalie statistique indique une accumulation cachée et agressive des baleines sous le radar médiatique.\"\n}\n```",
+      "ts": "2026-10-03T02:32:55.715548+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 2.292738576562351,
+      "value": 0.081,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique parasité par l'homonymie ('SDI' = Syndicat des Indépendants et Samsung SDI). Aucune donnée onchain ou mouvement de baleine crypto détecté.\"\n}\n```",
+      "ts": "2026-10-03T03:03:00.695320+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -2.6457513110645907,
+      "value": 67,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement négatif (-2.65) malgré une métrique de cupidité modérée (67) et l'absence totale de couverture médiatique. Anomalie typique d'accumulation silencieuse par les baleines loin des radars du retail.\"\n}\n```",
+      "ts": "2026-10-03T03:03:02.061512+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 2.124095285558685,
+      "value": 0.081,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie contextuelle nulle : les données font référence au 'Syndicat des Indépendants' (SDI) et à 'Samsung SDI' dans les médias traditionnels, sans rapport avec une baleine crypto ou un mouvement onchain pertinent.\"\n}\n```",
+      "ts": "2026-10-03T03:33:09.251519+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -2.420153478013913,
+      "value": 67,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Données incomplètes sur les titres médiatiques. Le Z-score négatif profond (-2.42) malgré un Indice de Peur & Greed à 67 signale une anomalie statistique, mais l'absence de contenu textuel empêche de confirmer une divergence claire avec le narratif.\"\n}\n```",
+      "ts": "2026-10-03T03:33:10.555911+00:00"
     }
   ]
 }
