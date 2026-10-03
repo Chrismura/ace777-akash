@@ -1,43 +1,39 @@
 {
- "ts": "2026-10-03T15:42Z",
- "mark": 84794.9,
+ "ts": "2026-10-03T23:52Z",
+ "mark": 84719.5,
  "correlations": {
   "prix_oi": {
-   "r": -0.536,
-   "lecture": "corrélation modérée (-0.536) — les deux évoluent en sens opposé",
+   "r": -0.548,
+   "lecture": "corrélation modérée (-0.548) — les deux évoluent en sens opposé",
    "label": "Open interest vs prix"
   },
   "prix_funding": {
-   "r": -0.277,
-   "lecture": "corrélation faible (-0.277) — les deux évoluent en sens opposé",
+   "r": -0.281,
+   "lecture": "corrélation faible (-0.281) — les deux évoluent en sens opposé",
    "label": "Funding vs prix"
   },
   "prix_longshort": {
-   "r": -0.588,
-   "lecture": "corrélation modérée (-0.588) — les deux évoluent en sens opposé",
+   "r": -0.593,
+   "lecture": "corrélation modérée (-0.593) — les deux évoluent en sens opposé",
    "label": "Ratio long/short vs prix"
   },
   "prix_taker": {
-   "r": 0.012,
-   "lecture": "corrélation quasi nulle (+0.012) — les deux évoluent dans le même sens",
+   "r": 0.015,
+   "lecture": "corrélation quasi nulle (+0.015) — les deux évoluent dans le même sens",
    "label": "Achats/ventes agressifs vs prix"
   }
  },
  "liquidations": {
   "clusters_2000usd": {
-   "82000": {
-    "long": 159398.0,
-    "short": 0.0
-   },
    "84000": {
-    "long": 31158.0,
-    "short": 226617.0
+    "long": 33700.0,
+    "short": 93216.0
    }
   },
-  "longs_below_usd": 190556.0,
+  "longs_below_usd": 33700.0,
   "longs_above_usd": 0,
-  "shorts_below_usd": 226617.0,
+  "shorts_below_usd": 93216.0,
   "shorts_above_usd": 0,
-  "lecture": "Le gros de la liquidité est EN DESSOUS du prix : 0.2 M$ de LONGS liquidés à 76-78k (contre 0.0 M$ de shorts au-dessus, à 80k) — si le prix casse ces supports, les liquidations long forcées peuvent accélérer la baisse (cascade)."
+  "lecture": "Le gros de la liquidité est EN DESSOUS du prix : 0.0 M$ de LONGS liquidés à 76-78k (contre 0.0 M$ de shorts au-dessus, à 80k) — si le prix casse ces supports, les liquidations long forcées peuvent accélérer la baisse (cascade)."
  }
 }
