@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "volume",
-      "zscore": -2.2286648893620855,
-      "value": 0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie de données non pertinente : les résultats de recherche font référence à des actualités sur la fonte des glaciers suisses et l'industrie automobile, sans aucun rapport avec des mouvements de baleines crypto.\"\n}\n```",
-      "ts": "2026-10-02T09:03:58.482153+00:00"
-    },
-    {
       "metric": "liquidations",
       "zscore": 3.510490979437451,
       "value": 6091807.0,
@@ -349,6 +342,13 @@
       "value": 50.0,
       "analysis": "{\"signal\": \"neutral\", \"confidence\": 45, \"reason\": \"Anomalie onchain modérée (dust z-score 2.04) sans narration médiatique associée. Le narratif est totalement déconnecté, indiquant un possible mouvement silencieux de baleines, mais la confiance est limitée par l'absence de direction claire dans les données.\"}",
       "ts": "2026-10-03T05:18:46.316293+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.113708963451721,
+      "value": 1.232,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Bruit médiatique non pertinent : les articles font référence à l'Institut Pasteur de Tunis (IPT) et à un tournoi de physique (X), sans aucun lien avec l'actif crypto.\"\n}\n```",
+      "ts": "2026-10-03T08:19:02.568757+00:00"
     }
   ]
 }
