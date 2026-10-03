@@ -1,15 +1,15 @@
 {
-  "timestamp": 1790977513,
-  "date": "2026-10-02T21:45:13.009389+00:00",
-  "n_analyses": 1,
+  "timestamp": 1790988316,
+  "date": "2026-10-03T00:45:16.106782+00:00",
+  "n_analyses": 3,
   "analyses": [
     {
       "signal": {
         "metric": "sdi",
-        "zscore": 2.4270100729222523,
-        "value": 0.028,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Fausse alerte liée à une homonymie : le 'SDI' des médias fait référence au Syndicat des Indépendants et PME ainsi qu'à Samsung SDI (batteries), sans aucun rapport avec une baleine crypto ou un protocole onchain.\"\n}\n```",
-        "ts": 1790976081.929441
+        "zscore": 5.611778377520032,
+        "value": 0.085,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"L'anomalie détectée (SDI z-score 5.61) concerne le 'Syndicat des Indépendants' (politique/TPE) et l'industriel Samsung SDI, et non une baleine crypto. Absence totale de corrélation on-chain.\"\n}\n```",
+        "ts": 1790987537.63951
       },
       "fiche": null,
       "interpretation": {
@@ -17,6 +17,74 @@
         "niveau": "inconnu"
       },
       "action": "Observer"
+    },
+    {
+      "signal": {
+        "metric": "fear_greed",
+        "zscore": -6.764736501438641,
+        "value": 67,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie statistique majeure : z-score de -6.76 sur l'indice Fear & Greed malgré un niveau absolu à 67 (avidité modérée). Cette sous-estimation extrême du sentiment par rapport aux moyennes historiques indique une complaisance médiatique minimale. Les baleines accumulent dans l'angle mort des médias traditionnels.\"\n}\n```",
+        "ts": 1790987539.610389
+      },
+      "fiche": "fear_greed",
+      "questions": {
+        "peur": {
+          "value": 67,
+          "seuil": 25,
+          "depasse": true
+        },
+        "cupidite": {
+          "value": 67,
+          "seuil": 75,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
+      },
+      "action": "Observer",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "ipt",
+        "zscore": 2.179224985235736,
+        "value": 1.359,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Bruit de fond médiatique sans rapport avec la crypto (homonymie avec l'Institut Pasteur de Tunis et l'École Polytechnique). L'anomalie on-chain est un faux signal lié à une confusion de ticker.\"\n}\n```",
+        "ts": 1790988143.309169
+      },
+      "fiche": "rbf_eleve",
+      "questions": {
+        "prix": {
+          "value": 0.12,
+          "seuil": 1,
+          "depasse": false
+        },
+        "paires": {
+          "value": 2,
+          "seuil": 3,
+          "depasse": false
+        },
+        "funding": {
+          "value": 4.5e-05,
+          "seuil": 0.001,
+          "depasse": false
+        },
+        "whales": {
+          "value": 0,
+          "seuil": 5,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
+      },
+      "action": "Observer",
+      "niveau": "neutre"
     }
   ],
   "resume": "🔵 CALME — pas de signal alarmant"
