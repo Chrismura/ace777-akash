@@ -39,18 +39,19 @@ Métriques : maison (mur moy/max + régime ; poussière = indicateur PANIER) + p
 | 32 | 2026-09-30T14:08:37Z | 14h | AUTRE | 0.003396 | IMPULSE_WAIT | None | 361.81 | 4200.0 | 9.56e-06 | 0.19 | 0.61 | 0.72 | neutre (stab 0) | prix 0.003396 · Amihud 9.56e-06 · delta +0.19 · mur moy 362$ · mur max (run) 4,200$ |
 | 33 | 2026-10-01T14:12:26Z | 14h | AUTRE | 0.003551 | COOLING | None | 361.81 | 4200.0 | — | — | 0.09 | -0.13 | neutre (stab 0) | prix 0.003551 · mur moy 362$ · mur max (run) 4,200$ |
 | 34 | 2026-10-02T14:34:40Z | 14h | AUTRE | 0.003291 | IMPULSE_WAIT | 30.2908 | 361.81 | 4200.0 | 6.71e-06 | -0.08 | -0.72 | -0.70 | POMPE_PIEGE (stab 3) | prix 0.003291 · poussière(panier) 30.3% · Amihud 6.71e-06 · delta -0.08 · mur moy 362$ · mur max (run) 4,200$ |
+| 35 | 2026-10-03T14:34:48Z | 14h | AUTRE | 0.003472 | IMPULSE_WAIT | 3.7375 | 361.81 | 4200.0 | 9.67e-06 | -0.17 | -0.66 | -0.65 | POMPE_PIEGE (stab 7) | prix 0.003472 · poussière(panier) 3.7% · Amihud 9.67e-06 · delta -0.17 · mur moy 362$ · mur max (run) 4,200$ |
 
 ## 🔁 HISTORIQUE DES CYCLES DE L'ACTIF (zigzag ≥ 15 %, log continu du moteur)
 
-_Fenêtre mesurée : du 2026-09-26T21:37:34Z au 2026-10-02T14:34:40Z (15957 points) — archives de rotation incluses._
+_Fenêtre mesurée : du 2026-09-28T03:40:33Z au 2026-10-03T14:34:48Z (15113 points) — archives de rotation incluses._
 
 | # | De | prix | Vers | prix | Amplitude | Durée |
 |---|---|---|---|---|---|---|
-| 1 | pic 2026-09-27T01:24:37Z | 0.004214 | creux 2026-09-27T21:17:49Z | 0.003117 | 🔻 -26.0 % | 20 h (0.8 j) |
-| 2 | creux 2026-09-27T21:17:49Z | 0.003117 | pic 2026-09-29T12:27:16Z | 0.003888 | 🔺 +24.7 % | 39 h (1.6 j) |
-| 3 | pic 2026-09-29T12:27:16Z | 0.003888 | creux 2026-09-29T17:09:21Z | 0.003219 | 🔻 -17.2 % | 5 h (0.2 j) |
+| 1 | pic 2026-09-29T12:27:16Z | 0.003888 | creux 2026-09-29T17:09:21Z | 0.003219 | 🔻 -17.2 % | 5 h (0.2 j) |
+| 2 | creux 2026-09-29T17:09:21Z | 0.003219 | pic 2026-10-01T20:05:48Z | 0.003708 | 🔺 +15.2 % | 51 h (2.1 j) |
+| 3 | pic 2026-10-01T20:05:48Z | 0.003708 | creux 2026-10-02T17:35:29Z | 0.003088 | 🔻 -16.7 % | 21 h (0.9 j) |
 
-**Cycle EN COURS : HAUSSE depuis le creux du 2026-09-29T17:09:21Z à 0.003219 → 0.003291 = **+2.2 %**** (extrême courant 0.003708)
+**Cycle EN COURS : HAUSSE depuis le creux du 2026-10-02T17:35:29Z à 0.003088 → 0.003472 = **+12.4 %**** (extrême courant 0.003719)
 
 ## 💰 CE QUE LE MOTEUR A CAPTÉ SUR CET ACTIF
 

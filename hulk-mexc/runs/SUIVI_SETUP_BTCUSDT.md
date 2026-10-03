@@ -39,18 +39,19 @@ Métriques : maison (mur moy/max + régime ; poussière = indicateur PANIER) + p
 | 32 | 2026-09-30T14:08:37Z | 14h | AUTRE | 84356.25 | WATCH | None | 419926.18 | 1924444.32 | 1.28e-10 | -0.12 | 1.00 | 0.94 | POMPE_PIEGE (stab 1) | prix 84356.25 · Amihud 1.28e-10 · delta -0.12 · mur moy 419,926$ · mur max (run) 1,924,444$ |
 | 33 | 2026-10-01T14:12:26Z | 14h | AUTRE | 83860.42 | COOLING | None | 419926.18 | 1924444.32 | — | — | 1.00 | 0.57 | POMPE_PIEGE (stab 3) | prix 83860.42 · mur moy 419,926$ · mur max (run) 1,924,444$ |
 | 34 | 2026-10-02T14:34:40Z | 14h | AUTRE | 85747.34 | IMPULSE_WAIT | 30.2908 | 419926.18 | 1924444.32 | 8.86e-11 | 0.53 | 1.00 | 0.98 | POMPE_PIEGE (stab 6) | prix 85747.34 · poussière(panier) 30.3% · Amihud 8.86e-11 · delta +0.53 · mur moy 419,926$ · mur max (run) 1,924,444$ |
+| 35 | 2026-10-03T14:34:48Z | 14h | AUTRE | 84807.12 | WATCH | 3.7375 | 419926.18 | 1924444.32 | 7.82e-11 | 1.00 | 1.00 | 0.93 | neutre (stab 0) | prix 84807.12 · poussière(panier) 3.7% · Amihud 7.82e-11 · delta +1.00 · mur moy 419,926$ · mur max (run) 1,924,444$ |
 
 ## 🔁 HISTORIQUE DES CYCLES DE L'ACTIF (zigzag ≥ 15 %, log continu du moteur)
 
-_Fenêtre mesurée : du 2026-09-26T21:37:34Z au 2026-10-02T14:34:40Z (16249 points) — archives de rotation incluses._
+_Fenêtre mesurée : du 2026-09-28T03:40:33Z au 2026-10-03T14:34:48Z (15372 points) — archives de rotation incluses._
 
 _Pas encore deux retournements ≥ 15 % dans l'historique mesuré._
 
-**Cycle en cours : pas encore de retournement ≥ 15 % dans la fenêtre** — du plus bas 2026-09-28T09:56:18Z à 82613.77 → 85747.34 = **+3.8 %**
+**Cycle en cours : pas encore de retournement ≥ 15 % dans la fenêtre** — du plus bas 2026-09-28T09:56:18Z à 82613.77 → 84807.12 = **+2.7 %**
 
 ## 💰 CE QUE LE MOTEUR A CAPTÉ SUR CET ACTIF
 
-- **Réalisé : +4.03 $** sur 5 entrée(s) / 5 sortie(s) — dernier événement 2026-10-02T14:17:21Z
+- **Réalisé : +4.03 $** sur 6 entrée(s) / 5 sortie(s) — dernier événement 2026-10-02T15:24:47Z
 - **MFE donné en moyenne : +0.2 pts** par tour (pire tour : +1.1) — le meilleur prix atteint pendant la détention, jamais encaissé
 
 _Règle : on compare les lignes entre elles (même heure de mesure = comparable). On ne supprime rien._

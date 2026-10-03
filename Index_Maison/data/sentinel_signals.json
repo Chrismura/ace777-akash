@@ -2,27 +2,6 @@
   "signals": [
     {
       "metric": "liquidations",
-      "zscore": 2.020022720723502,
-      "value": 5247957.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Bruit médiatique parasité par des liquidations judiciaires locales (Brest/Quimper), masquant la réalité crypto : un short squeeze massif de 120M$ tirant le Bitcoin à 87 000 $. Les baleines chassent les vendeurs à découvert pendant que la presse grand public confond faillites d'épiceries et mouvements de marché.\"\n}\n```",
-      "ts": "2026-10-02T15:39:56.739897+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": 2.5636626853954225,
-      "value": 0.02,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (SDI) déclenchée par un homonyme (Syndicat des Indépendants / Samsung SDI) sans rapport avec une cryptomonnaie ou un mouvement de baleines on-chain. Bruit médiatique sans substance crypto.\"\n}\n```",
-      "ts": "2026-10-02T15:55:01.648180+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": 2.503384163670514,
-      "value": 0.02,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Faux positif contextuel : les données SDI (Syndicat des Indépendants) et Samsung SDI polluent l'indice on-chain avec de l'actualité macroéconomique et industrielle traditionnelle sans lien avec les flux de baleines crypto.\"\n}\n```",
-      "ts": "2026-10-02T16:30:08.525025+00:00"
-    },
-    {
-      "metric": "liquidations",
       "zscore": 2.1015090646655867,
       "value": 5606139.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Bruit médiatique parasité par des liquidations judiciaires locales (fausses alertes de type homonyme), masquant une purge saine des positions vendeuses (short squeezes) sur les marchés crypto avec un Bitcoin fort à 87 000 $.\"\n}\n```",
@@ -349,6 +328,27 @@
       "value": 1.407,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Taker ratio à 1.407 (z-score 2.28) indique une forte agression acheteuse cachée, totalement ignorée par l'absence de couverture médiatique (silence radio). Divergence classique d'accumulation furtive par les baleines avant un mouvement de cassure.\"\n}\n```",
       "ts": "2026-10-03T12:35:05.615507+00:00"
+    },
+    {
+      "metric": "taker_ratio",
+      "zscore": 2.1446431608717376,
+      "value": 1.407,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio à 1.407 (z-score 2.14) indique une domination agressive des acheteurs (Taker Buys) sur les carnets d'ordres, signalant une accumulation agressive par les baleines. En face, le silence total des médias (Google Actualités vide) prouve un blind spot médiatique parfait : les institutionnels ramassent en silence avant le FOMO public.\"\n}\n```",
+      "ts": "2026-10-03T13:05:12.725632+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 3.0553720949607417,
+      "value": 1.536,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Anomalie statistique (z-score 3.06) due à une confusion homonymique totale. Le narratif médiatique traite de l'Institut Pasteur de Tunis (IPT), de physique (X) et d'actualités régionales, sans aucun rapport avec l'actif crypto 'ipt'. Fausse alerte onchain.\"\n}\n```",
+      "ts": "2026-10-03T13:15:15.597211+00:00"
+    },
+    {
+      "metric": "taker_ratio",
+      "zscore": 2.949975913412165,
+      "value": 1.643,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Taker ratio à 1.643 (z-score 2.95) indique une dominance agressive des acheteurs (Taker Buy), contrastant avec le vide médiatique (silence radio). Les baleines accumulent agressivement sans bruit de fond public.\"\n}\n```",
+      "ts": "2026-10-03T13:35:21.309614+00:00"
     }
   ]
 }
