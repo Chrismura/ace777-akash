@@ -2,34 +2,6 @@
   "signals": [
     {
       "metric": "liquidations",
-      "zscore": 3.510490979437451,
-      "value": 6091807.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique parasité par des homonymes (faillites d'entreprises locales à Quimper et Châteauroux). Aucune corrélation avec des mouvements significatifs de baleines crypto malgré un z-score statistique élevé.\"\n}\n```",
-      "ts": "2026-10-02T09:19:18.712023+00:00"
-    },
-    {
-      "metric": "liquidations",
-      "zscore": 2.5750939259908443,
-      "value": 5534388.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Forte divergence : les médias grand public se focalisent sur des bruits de fond hors-sujet (faillites locales) ou des liquidations de shorts mineures (120M$) pendant que le z-score on-chain (2.58) et le prix à 87k$ traduisent une purge agressive des vendeurs par de gros acteurs.\"\n}\n```",
-      "ts": "2026-10-02T14:39:41.585003+00:00"
-    },
-    {
-      "metric": "price_1h",
-      "zscore": 2.516331763475432,
-      "value": 0.7612099847593923,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de prix positive (z-score 2.52) totalement ignorée par les médias (silence radio). Comportement typique d'accumulation furtive par les baleines avant un mouvement majeur.\"\n}\n```",
-      "ts": "2026-10-02T14:44:43.767766+00:00"
-    },
-    {
-      "metric": "liquidations",
-      "zscore": 2.3213799180566133,
-      "value": 5459352.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Bruit médiatique parasité par des faits divers locaux de liquidations judiciaires d'entreprises. Les données on-chain montrent une anomalie de liquidations crypto ciblées (shorts squeezés à 87k$), masquée par un narratif grand public totalement déconnecté.\"\n}\n```",
-      "ts": "2026-10-02T15:09:49.454922+00:00"
-    },
-    {
-      "metric": "liquidations",
       "zscore": 2.020022720723502,
       "value": 5247957.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Bruit médiatique parasité par des liquidations judiciaires locales (Brest/Quimper), masquant la réalité crypto : un short squeeze massif de 120M$ tirant le Bitcoin à 87 000 $. Les baleines chassent les vendeurs à découvert pendant que la presse grand public confond faillites d'épiceries et mouvements de marché.\"\n}\n```",
@@ -349,6 +321,34 @@
       "value": 1.232,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Bruit médiatique non pertinent : les articles font référence à l'Institut Pasteur de Tunis (IPT) et à un tournoi de physique (X), sans aucun lien avec l'actif crypto.\"\n}\n```",
       "ts": "2026-10-03T08:19:02.568757+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 2.6115310996361027,
+      "value": 4696104.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Activité anormale des baleines (z-score 2.61) sans couverture médiatique significative (Google Actualités vide ou silencieux). Accumulation discrète en cours hors du radar retail.\"\n}\n```",
+      "ts": "2026-10-03T11:39:40.836077+00:00"
+    },
+    {
+      "metric": "taker_ratio",
+      "zscore": 2.347728362756712,
+      "value": 1.407,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio à 1.407 (z-score 2.35) indique une forte agression acheteuse de la part des acteurs institutionnels/baleines, tandis que les médias traditionnels affichent un vide informationnel (silence médiatique). Cette asymétrie signale une accumulation furtive avant un mouvement haussier de rupture.\"\n}\n```",
+      "ts": "2026-10-03T12:04:47.447923+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 3.6104407561468714,
+      "value": 6243440.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Activité anormale des baleines (z-score 3.61, ~6.2M USD) totalement ignorée par Google Actualités. Silence médiatique total couplé à une accumulation discrète sur la blockchain, signalant un mouvement furtif avant le réveil du retail.\"\n}\n```",
+      "ts": "2026-10-03T12:15:01.774887+00:00"
+    },
+    {
+      "metric": "taker_ratio",
+      "zscore": 2.279269864185071,
+      "value": 1.407,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Taker ratio à 1.407 (z-score 2.28) indique une forte agression acheteuse cachée, totalement ignorée par l'absence de couverture médiatique (silence radio). Divergence classique d'accumulation furtive par les baleines avant un mouvement de cassure.\"\n}\n```",
+      "ts": "2026-10-03T12:35:05.615507+00:00"
     }
   ]
 }
