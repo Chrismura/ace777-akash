@@ -1,5 +1,5 @@
 {
-  "ts": "2026-10-04T05:59:46+00:00",
+  "ts": "2026-10-04T09:00:44+00:00",
   "note": "Verdicts MESURÉS à la source (scripts/verdicts_protocoles.py). Chaque protocole porte son critère pré-enregistré : c'est lui qui décide, pas l'impression du moment. Un verdict « IMPOSSIBLE » ou une ligne « alerte » signale un protocole dont le verdict ne peut pas être rendu — c'est une panne de conception, pas une patience.",
   "protocoles": [
     {
@@ -272,7 +272,7 @@
     {
       "protocole": "Radar XRPL gouvernance",
       "critere": "J8 pré-enregistré : (a) ≥ 5 amendements dont le compteur bouge de ≥ 2 votes, OU (b) ≥ 1 activation, OU (c) ≥ 1 amendement mort ; sinon échec",
-      "faits": "401 snapshots · 113 amendements suivis · (a) 6 bougent de ≥ 2 (il en fallait 5) · (b) 0 activation · (c) 0 mort · 3 nouveau(x)",
+      "faits": "404 snapshots · 113 amendements suivis · (a) 6 bougent de ≥ 2 (il en fallait 5) · (b) 0 activation · (c) 0 mort · 3 nouveau(x)",
       "verdict": "SUCCES (critère atteint)",
       "alerte": "",
       "detail": [
@@ -333,7 +333,7 @@
           "indice": "btc",
           "directionnels": 1,
           "corect": null,
-          "n": 13
+          "n": 14
         },
         {
           "indice": "chg24",
@@ -357,13 +357,13 @@
           "indice": "fearGreed",
           "directionnels": 37,
           "corect": 21,
-          "n": 76
+          "n": 77
         },
         {
           "indice": "geopol",
           "directionnels": 5,
           "corect": 1,
-          "n": 34
+          "n": 35
         },
         {
           "indice": "gexPutCall",
@@ -382,17 +382,17 @@
     {
       "protocole": "Geopol (réanimé)",
       "critere": "GEOPOL-C2/C3 : avis geopol noté vs BTC 2×/jour, fenêtre 4 semaines (→ ~10/10), critère P3 ≥ 56 %",
-      "faits": "score actuel 0.3470 « calme » (ML 0.1704) · 34 avis enregistrés dont 5 directionnels (1 correct(s)) · 29 NEUTRE",
+      "faits": "score actuel 0.3470 « calme » (ML 0.1704) · 35 avis enregistrés dont 5 directionnels (1 correct(s)) · 30 NEUTRE",
       "verdict": "EN ATTENTE (fenêtre jusqu'au ~10/10)",
       "alerte": "1 avis correct sur 5 directionnels : à cette cadence le critère ne sera pas tranchable dans la fenêtre",
       "detail": [
         {
           "indice": "geopol",
-          "n": 34,
+          "n": 35,
           "directionnels": 5,
           "corrects": 1,
-          "neutres": 29,
-          "t_stat": -4.12
+          "neutres": 30,
+          "t_stat": -3.89
         }
       ]
     },

@@ -2,34 +2,6 @@
   "signals": [
     {
       "metric": "ipt",
-      "zscore": 2.338408582661938,
-      "value": 1.423,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Anomalie statistique (z-score 2.34) due à une confusion homonymique. Les médias traitent de l'Institut Pasteur de Tunis (IPT) et d'un tournoi de physique (X), sans lien avec un actif crypto.\"\n}\n```",
-      "ts": "2026-10-03T00:02:09.058310+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": -16.392010776143678,
-      "value": 67,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement négatif (-16.39) malgré un indice de cupidité élevé (67). Le silence total des médias (Google Actualités vide) combiné à une anomalie statistique onchain révèle une accumulation invisible des baleines loin du radar médiatique.\"\n}\n```",
-      "ts": "2026-10-03T00:02:10.544431+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": 5.611778377520032,
-      "value": 0.085,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"L'anomalie détectée (SDI z-score 5.61) concerne le 'Syndicat des Indépendants' (politique/TPE) et l'industriel Samsung SDI, et non une baleine crypto. Absence totale de corrélation on-chain.\"\n}\n```",
-      "ts": "2026-10-03T00:32:17.639510+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": -6.764736501438641,
-      "value": 67,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie statistique majeure : z-score de -6.76 sur l'indice Fear & Greed malgré un niveau absolu à 67 (avidité modérée). Cette sous-estimation extrême du sentiment par rapport aux moyennes historiques indique une complaisance médiatique minimale. Les baleines accumulent dans l'angle mort des médias traditionnels.\"\n}\n```",
-      "ts": "2026-10-03T00:32:19.610389+00:00"
-    },
-    {
-      "metric": "ipt",
       "zscore": 2.179224985235736,
       "value": 1.359,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Bruit de fond médiatique sans rapport avec la crypto (homonymie avec l'Institut Pasteur de Tunis et l'École Polytechnique). L'anomalie on-chain est un faux signal lié à une confusion de ticker.\"\n}\n```",
@@ -349,6 +321,34 @@
       "value": 0.492,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Fausse alerte sémantique : l'anomalie 'SDI' détectée correspond à des actualités institutionnelles et industrielles (Syndicat des Indépendants, Samsung SDI) et non à un mouvement de baleines crypto.\"\n}\n```",
       "ts": "2026-10-04T04:39:52.150333+00:00"
+    },
+    {
+      "metric": "price_1h",
+      "zscore": 2.8008665732839666,
+      "value": 0.1767620138809045,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Absence totale de données médiatiques pour contraster avec l'anomalie de prix (z-score 2.80). Impossible de mesurer une divergence sans narratif actif.\"\n}\n```",
+      "ts": "2026-10-04T06:55:15.676414+00:00"
+    },
+    {
+      "metric": "taker_ratio",
+      "zscore": 2.9818977154807302,
+      "value": 1.835,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Taker ratio à 1.83 (Z-score 2.98) indique une domination agressive des acheteurs (Taker Buys) non relayée par les médias traditionnels (silence médiatique absolu), révélant une accumulation furtive des baleines loin du bruit de détail.\"\n}\n```",
+      "ts": "2026-10-04T07:10:18.906687+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 4.869934389999854,
+      "value": 5952950.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (z-score 4.87, ~6M USD) sans couverture médiatique significative (Google Actualités muet). Divergence classique de accumulation furtive par les baleines loin du radar retail.\"\n}\n```",
+      "ts": "2026-10-04T07:40:24.916053+00:00"
+    },
+    {
+      "metric": "taker_ratio",
+      "zscore": 2.685982923855901,
+      "value": 1.835,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Un taker_ratio de 1.835 avec un z-score élevé de 2.69 indique une forte agression acheteuse (Taker Buy) sur le marché des dérivés au comptant. Le silence médiatique (absence de couverture Google Actualités) suggère une accumulation discrète des baleines loin du radar de la foule.\"\n}\n```",
+      "ts": "2026-10-04T07:40:26.394591+00:00"
     }
   ]
 }
