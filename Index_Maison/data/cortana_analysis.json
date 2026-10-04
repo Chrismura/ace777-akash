@@ -1,32 +1,72 @@
 {
-  "timestamp": 1791147493,
-  "date": "2026-10-04T20:58:13.141693+00:00",
-  "n_analyses": 2,
+  "timestamp": 1791158296,
+  "date": "2026-10-04T23:58:16.468864+00:00",
+  "n_analyses": 3,
   "analyses": [
     {
       "signal": {
-        "metric": "price_1h",
-        "zscore": 3.4249242353977465,
-        "value": 0.24426018989691656,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (3.42) sur le prix avec un silence total des médias (Google Actualités vide). Divergence classique de accumulation furtive par les baleines avant un réveil médiatique.\"\n}\n```",
-        "ts": 1791146298.639684
+        "metric": "liquidations",
+        "zscore": 2.9813610939706776,
+        "value": 7882693.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Forte divergence : le bruit médiatique se focalise sur des liquidations judiciaires locales sans rapport et des short squeezes mineurs, masquant une accumulation institutionnelle agressive (z-score onchain à 2.98) alors que le Bitcoin dépasse les 87k $.\"\n}\n```",
+        "ts": 1791156549.396275
       },
-      "fiche": "price_1h",
+      "fiche": "liquidations",
       "questions": {
-        "pct_1h": {
-          "value": 0.46,
-          "seuil": -1,
+        "longs": {
+          "value": 228920.0,
+          "seuil": 0,
           "depasse": true
         },
-        "liq": {
-          "value": 3532779.0,
-          "seuil": 5000000,
+        "shorts": {
+          "value": 6559240.0,
+          "seuil": 0,
+          "depasse": true
+        },
+        "prix": {
+          "value": 0.05,
+          "seuil": 1,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "shorts > longs",
+        "lecture": "Liquidations massives de SHORTS — squeeze haussier mécanique. Les paliers RIP profitent de ces mouvements",
+        "niveau": "info",
+        "action": "Laisser courir les paliers RIP, ne pas rentrer après la cascade"
+      },
+      "action": "Laisser courir les paliers RIP, ne pas rentrer après la cascade",
+      "niveau": "info"
+    },
+    {
+      "signal": {
+        "metric": "volume",
+        "zscore": 2.05101493611927,
+        "value": 5800346318.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie de volume purement de bruit. Les titres médiatiques font référence à des bandes dessinées, des friteuses, des caravanes et des glaciers, confirmant l'absence totale de corrélation crypto et de mouvement de baleine pertinent.\"\n}\n```",
+        "ts": 1791157454.523074
+      },
+      "fiche": "rbf_eleve",
+      "questions": {
+        "prix": {
+          "value": 0.05,
+          "seuil": 1,
+          "depasse": false
+        },
+        "paires": {
+          "value": 0,
+          "seuil": 3,
           "depasse": false
         },
         "funding": {
-          "value": 4.4e-05,
-          "seuil": 0,
-          "depasse": true
+          "value": 7.5e-05,
+          "seuil": 0.001,
+          "depasse": false
+        },
+        "whales": {
+          "value": 0,
+          "seuil": 5,
+          "depasse": false
         }
       },
       "interpretation": {
@@ -40,20 +80,20 @@
     {
       "signal": {
         "metric": "long_short",
-        "zscore": -2.0791293008531184,
-        "value": 1.13,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le ratio long/short affiche un z-score fortement négatif (-2.08), indiquant une sous-exposition extrême des investisseurs (capitulation ou pessimisme excessif), tandis que les médias grand public banalisent les stratégies long/short de manière générique. Cette asymétrie signale une accumulation discrète des baleines à contre-courant.\"\n}\n```",
-        "ts": 1791146300.194381
+        "zscore": -2.7385221309097973,
+        "value": 1.05,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Z-score extrêmement bas (-2.74) sur le ratio long/short indiquant un positionnement contrarien massif des institutionnels, totalement ignoré par les médias traditionnels qui se concentrent sur des produits financiers généraux.\"\n}\n```",
+        "ts": 1791157455.844719
       },
       "fiche": "long_short",
       "questions": {
         "ratio_long_short": {
-          "value": 1.13,
+          "value": 1.05,
           "seuil": 2,
           "depasse": false
         },
         "oi": {
-          "value": 98543.802,
+          "value": 97437.537,
           "seuil": 120000,
           "depasse": false
         }
