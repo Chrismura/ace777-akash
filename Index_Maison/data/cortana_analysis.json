@@ -1,37 +1,32 @@
 {
-  "timestamp": 1791125890,
-  "date": "2026-10-04T14:58:10.921292+00:00",
+  "timestamp": 1791147493,
+  "date": "2026-10-04T20:58:13.141693+00:00",
   "n_analyses": 2,
   "analyses": [
     {
       "signal": {
-        "metric": "ipt",
-        "zscore": 2.226914382925913,
-        "value": 1.171,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (IPT z-score 2.23) entraînant un faux positif algorithmique. Le ticker 'IPT' est massivement pollué par des homonymes non-crypto (fondation suisse, campagne médicale anti-rage, tournoi de physique). Aucune baleine détectée, simple bruit médiatique et sémantique.\"\n}\n```",
-        "ts": 1791124310.280191
+        "metric": "price_1h",
+        "zscore": 3.4249242353977465,
+        "value": 0.24426018989691656,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (3.42) sur le prix avec un silence total des médias (Google Actualités vide). Divergence classique de accumulation furtive par les baleines avant un réveil médiatique.\"\n}\n```",
+        "ts": 1791146298.639684
       },
-      "fiche": "rbf_eleve",
+      "fiche": "price_1h",
       "questions": {
-        "prix": {
-          "value": 0.01,
-          "seuil": 1,
-          "depasse": false
+        "pct_1h": {
+          "value": 0.46,
+          "seuil": -1,
+          "depasse": true
         },
-        "paires": {
-          "value": 0,
-          "seuil": 3,
+        "liq": {
+          "value": 3532779.0,
+          "seuil": 5000000,
           "depasse": false
         },
         "funding": {
-          "value": 3e-05,
-          "seuil": 0.001,
-          "depasse": false
-        },
-        "whales": {
-          "value": 0,
-          "seuil": 5,
-          "depasse": false
+          "value": 4.4e-05,
+          "seuil": 0,
+          "depasse": true
         }
       },
       "interpretation": {
@@ -45,20 +40,20 @@
     {
       "signal": {
         "metric": "long_short",
-        "zscore": -2.665511543906895,
-        "value": 1.165,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le z-score extrêmement bas (-2.67) indique une sous-pondération massive des positions long par rapport à la moyenne, contredisant le narratif médiatique généraliste qui redécouvre timidement la stratégie long/short. Les \"baleines\" se positionnent en contrarien silencieux, créant une configuration classique de short squeeze imminent.\"\n}\n```",
-        "ts": 1791124913.187114
+        "zscore": -2.0791293008531184,
+        "value": 1.13,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le ratio long/short affiche un z-score fortement négatif (-2.08), indiquant une sous-exposition extrême des investisseurs (capitulation ou pessimisme excessif), tandis que les médias grand public banalisent les stratégies long/short de manière générique. Cette asymétrie signale une accumulation discrète des baleines à contre-courant.\"\n}\n```",
+        "ts": 1791146300.194381
       },
       "fiche": "long_short",
       "questions": {
         "ratio_long_short": {
-          "value": 1.165,
+          "value": 1.13,
           "seuil": 2,
           "depasse": false
         },
         "oi": {
-          "value": 98863.384,
+          "value": 98543.802,
           "seuil": 120000,
           "depasse": false
         }
