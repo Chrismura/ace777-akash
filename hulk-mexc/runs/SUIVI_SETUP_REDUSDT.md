@@ -41,18 +41,19 @@ Métriques : maison (mur moy/max + régime ; poussière = indicateur PANIER) + p
 | 34 | 2026-10-01T14:12:26Z | 14h | CREUX 14-17h | 0.1813 | IMPULSE_WAIT | None | 5504.5 | 45239.8 | — | — | 0.42 | 0.71 | POMPE_PIEGE (stab 2) | prix 0.1813 · mur moy 5,504$ · mur max (run) 45,240$ |
 | 35 | 2026-10-02T14:34:40Z | 14h | CREUX 14-17h | 0.17606 | IMPULSE | 30.2908 | 5504.5 | 45239.8 | 2.49e-06 | -0.30 | -0.75 | -0.77 | POMPE_PIEGE (stab 5) | prix 0.17606 · poussière(panier) 30.3% · Amihud 2.49e-06 · delta -0.30 · mur moy 5,504$ · mur max (run) 45,240$ |
 | 36 | 2026-10-03T14:34:48Z | 14h | CREUX 14-17h | 0.17613 | COOLING | 3.7375 | 5504.5 | 45239.8 | 2.98e-06 | -0.02 | 0.82 | 0.79 | LEADER (stab 1) | prix 0.17613 · poussière(panier) 3.7% · Amihud 2.98e-06 · delta -0.02 · mur moy 5,504$ · mur max (run) 45,240$ |
+| 37 | 2026-10-04T14:34:56Z | 14h | CREUX 14-17h | 0.17341 | COOLING | 4.9296 | 5504.5 | 45239.8 | 3.09e-06 | -0.21 | -0.87 | -0.53 | LEADER (stab 4) | prix 0.17341 · poussière(panier) 4.9% · Amihud 3.09e-06 · delta -0.21 · mur moy 5,504$ · mur max (run) 45,240$ |
 
 ## 🔁 HISTORIQUE DES CYCLES DE L'ACTIF (zigzag ≥ 15 %, log continu du moteur)
 
-_Fenêtre mesurée : du 2026-09-28T03:40:33Z au 2026-10-03T14:34:48Z (15303 points) — archives de rotation incluses._
+_Fenêtre mesurée : du 2026-09-30T05:45:28Z au 2026-10-04T14:34:56Z (12082 points) — archives de rotation incluses._
 
 _Pas encore deux retournements ≥ 15 % dans l'historique mesuré._
 
-**Cycle EN COURS : BAISSE depuis le pic du 2026-10-02T12:44:47Z à 0.19372 → 0.17613 = **-9.1 %**** (extrême courant 0.16107)
+**Cycle EN COURS : BAISSE depuis le pic du 2026-10-02T12:44:47Z à 0.19372 → 0.17341 = **-10.5 %**** (extrême courant 0.16107)
 
 ## 💰 CE QUE LE MOTEUR A CAPTÉ SUR CET ACTIF
 
-- **Réalisé : +13.47 $** sur 12 entrée(s) / 12 sortie(s) — dernier événement 2026-10-03T14:34:48Z
+- **Réalisé : +13.47 $** sur 13 entrée(s) / 12 sortie(s) — dernier événement 2026-10-04T13:52:56Z
 - **MFE donné en moyenne : +2.2 pts** par tour (pire tour : +7.7) — le meilleur prix atteint pendant la détention, jamais encaissé
 
 _Règle : on compare les lignes entre elles (même heure de mesure = comparable). On ne supprime rien._

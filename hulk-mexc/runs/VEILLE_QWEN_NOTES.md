@@ -6271,3 +6271,12 @@ Pas d’ordre — confrontation plus tard.
 ### 2026-10-04T11:41:14Z — ALERT auto
 - MNSRYUSDT: WATCH_PULLBACK — tension haute + reflux
 (compléter: confirmé ? risque ?)
+
+### 2026-10-04T12:41:51Z — ALERT auto
+- RIZEUSDT: IMPULSE_WAIT — spike en cours, pas chase
+(compléter: confirmé ? risque ?)
+
+### 2026-10-04T14:01:11Z — ALERT auto
+- QNTUSDT: IMPULSE_WAIT — spike en cours, pas chase
+- RIZEUSDT: IMPULSE_WAIT — spike en cours, pas chase
+(compléter: confirmé ? risque ?)
