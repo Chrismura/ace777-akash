@@ -17,7 +17,8 @@
     "2026-09-18": 8,
     "2026-09-20": 8,
     "2026-09-23": 8,
-    "2026-09-24": 8
+    "2026-09-24": 8,
+    "2026-10-04": 8
   },
   "fiches": {
     "32f5f333ea5d": {
@@ -2680,6 +2681,157 @@
       "usage": "chat",
       "avis_pour": "À surveiller de loin si le fournisseur stabilise son point de terminaison réseau.",
       "avis_attention": "Inutilisable en l'état pour ACE777 : rollback automatique activé suite aux échecs répétés."
+    },
+    "a114c2961e30": {
+      "section": "openrouter (:free)",
+      "item": "apodex/apodex-1.1-mini:free",
+      "generated": "2026-10-04T00:29:10.045195+00:00",
+      "type": "Passerelle gratuite vers des modèles IA légers via OpenRouter",
+      "forts": [
+        "Accès entièrement gratuit sans carte bancaire",
+        "Idéal pour prototyper rapidement des scripts simples",
+        "Intégration facile via l'API standardisée OpenRouter"
+      ],
+      "faibles": [
+        "Modèle mini avec des capacités de raisonnement limitées",
+        "Disponibilité et taux de requêtes (rate limits) soumis au trafic de la plateforme",
+        "Risque de réponses incomplètes sur des tâches complexes de code ou d'analyse"
+      ],
+      "usage": "chat",
+      "avis_pour": "Parfait pour tester des flux d'appels API à moindre coût et converser sans consommer de crédits.",
+      "avis_attention": "Ne pas confier à ce modèle le rôle de juge ou de stratégie critique en raison de sa légèreté."
+    },
+    "78bfe0cb3bc5": {
+      "section": "huggingface trending (montée)",
+      "item": "nvidia/Nemotron-3-Diarization",
+      "generated": "2026-10-04T00:29:11.390408+00:00",
+      "type": "Modèle spécialisé dans la diarisation audio (séparation des locuteurs)",
+      "forts": [
+        "Idéal pour identifier qui parle et quand dans un flux audio",
+        "Gratuit et accessible via l'écosystème Hugging Face",
+        "Utile pour structurer des transcriptions de réunions ou de podcasts"
+      ],
+      "faibles": [
+        "Ne produit pas de texte directement (besoin d'un modèle STT en amont)",
+        "Non adapté aux scripts Python, à l'analyse financière ou au jugement de code",
+        "Demande un pipeline audio spécifique (preprocessing)"
+      ],
+      "usage": "chat",
+      "avis_pour": "À tester si vous montez un pipeline de traitement audio avancé nécessitant d'isoler les voix.",
+      "avis_attention": "Inutile pour les tâches textuelles ou de trading d'ACE777 ; se focaliser plutôt sur les LLM généralistes."
+    },
+    "27313cd86634": {
+      "section": "github search (nouveaux lieux)",
+      "item": "enapt/SwarmLLM | Free, open-source app that runs AI chat models on your own computer —",
+      "generated": "2026-10-04T00:29:12.594019+00:00",
+      "type": "Application open-source pour exécuter des modèles d'IA en local",
+      "forts": [
+        "Gratuit et open-source",
+        "Fonctionnement 100% local sur machine",
+        "Respect total de la confidentialité"
+      ],
+      "faibles": [
+        "Dépend des performances de votre matériel",
+        "Modèles locaux parfois limités par rapport aux grands cloud",
+        "Installation et configuration techniques requises"
+      ],
+      "usage": "chat",
+      "avis_pour": "Idéal pour expérimenter l'IA en local sans dépendre d'une connexion ou d'API payantes.",
+      "avis_attention": "Attention aux performances de votre machine qui peuvent fortement impacter la vitesse des réponses."
+    },
+    "237a2d1dbad6": {
+      "section": "omniroute-free-tiers (43 pools)",
+      "item": "bazaarlink/auto:free (recurring-daily, recurrent)",
+      "generated": "2026-10-04T00:29:13.671897+00:00",
+      "type": "Agrégateur multi-pools d'accès gratuit aux modèles IA",
+      "forts": [
+        "43 pools disponibles",
+        "Accès gratuit récurrent (quotidien)",
+        "Diversité de routage"
+      ],
+      "faibles": [
+        "Disponibilité instable des pools gratuits",
+        "Latence variable selon la charge",
+        "Pas de garantie de SLA sur le free-tier"
+      ],
+      "usage": "analyste",
+      "avis_pour": "Idéal pour diversifier les sources d'appel sans coût fixe en environnement de test.",
+      "avis_attention": "Attention aux limitations de débit et aux basculements soudains de pools."
+    },
+    "ac81b197ef47": {
+      "section": "omniroute-free-tiers (43 pools)",
+      "item": "bazaarlink/claude-opus-4.7 (recurring-daily, recurrent)",
+      "generated": "2026-10-04T00:29:15.024139+00:00",
+      "type": "Passerelle multi-fournisseurs avec accès quotidien récurrent à des modèles avancés",
+      "forts": [
+        "Accès gratuit via 43 pools",
+        "Modèle de type Claude Opus adapté aux tâches complexes",
+        "Renouvellement quotidien des quotas (recurring-daily)"
+      ],
+      "faibles": [
+        "Disponibilité des pools parfois fluctuante",
+        "Latence possible selon la charge des routages",
+        "Limites de quotas par récurrence"
+      ],
+      "usage": "analyste.strategie",
+      "avis_pour": "Une excellente opportunité d'exploiter la puissance d'un grand modèle pour l'analyse stratégique sans impacter le budget.",
+      "avis_attention": "Attention au risque de saturation des pools ou de coupure si le quota quotidien est épuisé en plein milieu de mission."
+    },
+    "538433922b8b": {
+      "section": "github awesome lists",
+      "item": "awesome-freellm-apis: | Groq | `https://api.groq.com/openai/v1` | Get Key → | No |",
+      "generated": "2026-10-04T00:29:16.164372+00:00",
+      "type": "Fournisseur d'API LLM ultra-rapide compatible OpenAI",
+      "forts": [
+        "Vitesse d'exécution impressionnante",
+        "Compatible avec les bibliothèques standard OpenAI",
+        "Offre gratuite généreuse pour le prototypage"
+      ],
+      "faibles": [
+        "Limites de taux (rate limits) sur l'offre gratuite",
+        "Dépendance au service tiers"
+      ],
+      "usage": "analyste.strategie (en repli), audit.protocol, ou tout script Python nécessitant des réponses rapides",
+      "avis_pour": "Idéal pour booster la réactivité de vos scripts Python et automatiser l'analyse sans frais.",
+      "avis_attention": "Attention aux quotas de requêtes par minute (RPM) qui peuvent saturer en cas de trafic intense."
+    },
+    "1c50de39c80c": {
+      "section": "huggingface récents",
+      "item": "me-r/dit-hidden-topic-qwen3-4b",
+      "generated": "2026-10-04T00:29:17.597146+00:00",
+      "type": "Modèle de langage open-source affiné pour la manipulation de sujets et textes complexes",
+      "forts": [
+        "Gratuit et accessible via l'écosystème Hugging Face",
+        "Architecture Qwen 3 (4B) offrant un bon compromis vitesse/compétence",
+        "Adapté à la structuration et au traitement de données textuelles fines"
+      ],
+      "faibles": [
+        "Modèle expérimental ou de niche nécessitant des tests de robustesse",
+        "Taille de 4B limitée pour les raisonnements logiques très complexes",
+        "Disponibilité et latence variables selon l'infrastructure d'hébergement"
+      ],
+      "usage": "chat",
+      "avis_pour": "À essayer pour explorer des approches alternatives et légères sur des tâches textuelles simples sans impacter le budget.",
+      "avis_attention": "Attention à sa nature expérimentale et à ses limites de raisonnement pur pour des scripts critiques ou des jugements stricts."
+    },
+    "e99950cfe190": {
+      "section": "huggingface récents",
+      "item": "SH98/wt-nids-e5-llama31-8b",
+      "generated": "2026-10-04T00:29:19.031512+00:00",
+      "type": "Modèle de détection d'anomalies textuelles basé sur Llama-3.1",
+      "forts": [
+        "Architecture Llama-3.1 8B robuste et polyvalente",
+        "Adapté à l'analyse de logs ou de flux textuels",
+        "Hébergement accessible via Hugging Face"
+      ],
+      "faibles": [
+        "Spécialisation pointue (NIDS/sécurité) pouvant limiter la polyvalence",
+        "Dépendance aux quotas de l'API Hugging Face",
+        "Moins taillé pour le pur code Python brut que les modèles spécialisés"
+      ],
+      "usage": "analyste",
+      "avis_pour": "Idéal pour tester l'analyse comportementale de flux ou de rapports de sécurité sans frais.",
+      "avis_attention": "Nécessite un prompt engineering précis pour cadrer ses sorties sur des tâches de décision générales."
     }
   }
 }

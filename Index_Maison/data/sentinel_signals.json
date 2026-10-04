@@ -1,55 +1,6 @@
 {
   "signals": [
     {
-      "metric": "liquidations",
-      "zscore": 2.312976915300279,
-      "value": 6739704.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Bruit médiatique parasité par des liquidations judiciaires locales (Brest, Quimper) qui masquent l'événement majeur : 120M$+ de short squeezes onchain propulsant Bitcoin à 87 000 $. Divergence classique d'accumulation où les médias grand public distraient pendant que les baleines liquident les vendeurs à découvert.\"\n}\n```",
-      "ts": "2026-10-02T18:20:36.749786+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": 2.561747798140146,
-      "value": 0.024,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Fausse alerte liée à une homonymie : les données textuelles font référence au 'Syndicat des Indépendants (SDI)' et à 'Samsung SDI' et non à un protocole crypto ou à une baleine on-chain.\"\n}\n```",
-      "ts": "2026-10-02T18:45:43.519062+00:00"
-    },
-    {
-      "metric": "price_1h",
-      "zscore": 2.564193771377568,
-      "value": 0.8811324502155271,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de prix haussière significative (z-score 2.56) en totale absence de couverture médiatique (Google Actualités vide). C'est le profil typique d'accumulation silencieuse par des baleines avant un réveil du narratif public.\"\n}\n```",
-      "ts": "2026-10-02T18:50:45.427355+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": 4.137122713844036,
-      "value": 0.036,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique lié au syndicat patronal SDI (Syndicat des Indépendants) et à Samsung SDI, sans aucun rapport avec des mouvements de baleines crypto ou des données on-chain.\"\n}\n```",
-      "ts": "2026-10-02T19:15:51.331392+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": 2.0645623873205237,
-      "value": 0.024,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Faux positif contextuel : les données textuelles font référence au syndicat professionnel 'SDI' (Syndicat des Indépendants) et à l'entreprise 'Samsung SDI', et non à une métrique de baleines crypto.\"\n}\n```",
-      "ts": "2026-10-02T20:06:05.298951+00:00"
-    },
-    {
-      "metric": "whale_usd",
-      "zscore": 2.787997094858389,
-      "value": 5034579.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Activité anormale des baleines (z-score 2.79, +5M$) combinée à un silence total des médias généralistes (Google Actualités). Accumulation furtive classique hors des radars publics.\"\n}\n```",
-      "ts": "2026-10-02T20:11:07.348641+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": 2.5274339181963845,
-      "value": 0.028,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Faux positif contextuel : l'anomalie de données (SDI) capte du bruit sémantique provenant d'homonymes institutionnels et industriels (Syndicat des Indépendants, Samsung SDI) dans l'actualité générale, et non des mouvements de baleines crypto.\"\n}\n```",
-      "ts": "2026-10-02T20:36:12.973163+00:00"
-    },
-    {
       "metric": "sdi",
       "zscore": 2.4270100729222523,
       "value": 0.028,
@@ -349,6 +300,55 @@
       "value": 5475337.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 3.24) combinée à un silence médiatique absolu (Google Actualités vide). C'est la signature classique d'accumulation furtive par des baleines loin des radars de la foule.\"\n}\n```",
       "ts": "2026-10-03T22:33:25.162748+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 3.647328121558858,
+      "value": 6131549.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Activité anormale des baleines (z-score 3.65, ~6.1M USD) totalement ignorée par les médias (silence radio sur Google Actualités). Accumulation furtive classique hors des radars grand public.\"\n}\n```",
+      "ts": "2026-10-04T00:03:39.201545+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 12.23925366780372,
+      "value": 0.488,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Anomalie statistique (z-score 12.24) entièrement due à un biais sémantique : le sigle 'SDI' dans les médias fait référence au 'Syndicat des Indépendants' (politique/TPE) et à 'Samsung SDI' (batteries), et non à une entité crypto. Aucune baleine crypto détectée derrière ce bruit médiatique.\"\n}\n```",
+      "ts": "2026-10-04T00:03:41.217655+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 5.942188169635807,
+      "value": 0.488,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 5.94) liée à une confusion lexicale : le 'SDI' médiatique fait référence au 'Syndicat des Indépendants' français et à 'Samsung SDI', sans aucun rapport avec l'écosystème crypto ou des mouvements de baleines.\"\n}\n```",
+      "ts": "2026-10-04T00:33:47.672830+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 4.52475977618398,
+      "value": 0.496,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Fausse alerte due à une confusion de sigles : le 'SDI' médiatique fait référence au syndicat patronal français (Syndicat des Indépendants) et à Samsung SDI (batteries), sans aucun lien avec l'activité on-chain des baleines crypto.\"\n}\n```",
+      "ts": "2026-10-04T01:03:53.803090+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 3.6274884208530045,
+      "value": 0.496,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Fausse alerte liée à une homonymie : le signal détecte le 'Syndicat des Indépendants (SDI)' français et 'Samsung SDI' dans les médias, sans aucun rapport avec les flux de baleines crypto.\"\n}\n```",
+      "ts": "2026-10-04T01:39:15.046325+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 3.1876549764315243,
+      "value": 0.5,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Faux positif sémantique : l'anomalie détecte l'acronyme 'SDI' (Syndicat des Indépendants / Samsung SDI) dans l'actualité macroéconomique et corporate, sans aucun lien avec l'activité on-chain des baleines crypto.\"\n}\n```",
+      "ts": "2026-10-04T02:09:19.985476+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 2.821482194270157,
+      "value": 0.496,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Fausse alerte sémantique : l'indice 'SDI' détecté fait référence au 'Syndicat des Indépendants' français et à 'Samsung SDI' dans l'actualité économique générale, et non à un protocole crypto ou à des mouvements de baleines onchain.\"\n}\n```",
+      "ts": "2026-10-04T02:39:25.525614+00:00"
     }
   ]
 }
