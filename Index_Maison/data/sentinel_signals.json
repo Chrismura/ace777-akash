@@ -1,27 +1,6 @@
 {
   "signals": [
     {
-      "metric": "ipt",
-      "zscore": 2.179224985235736,
-      "value": 1.359,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Bruit de fond médiatique sans rapport avec la crypto (homonymie avec l'Institut Pasteur de Tunis et l'École Polytechnique). L'anomalie on-chain est un faux signal lié à une confusion de ticker.\"\n}\n```",
-      "ts": "2026-10-03T00:42:23.309169+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": 4.115501244084915,
-      "value": 0.085,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique externe : les gros titres font référence au 'Syndicat des Indépendants' (SDI) et à l'industriel 'Samsung SDI' dans l'actualité politique et macroéconomique, sans aucun rapport avec une métrique onchain ou un mouvement de baleine crypto.\"\n}\n```",
-      "ts": "2026-10-03T01:02:28.491608+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": -4.795831523312724,
-      "value": 67,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-4.80) pour un Fear & Greed à 67. Le marché est en zone de cupidité modérée, mais la volatilité statistique suggère une compression anormale. Les baleines accumulent dans l'angle mort médiatique, totalement déconnecté du bruit de fond.\"\n}\n```",
-      "ts": "2026-10-03T01:02:29.770535+00:00"
-    },
-    {
       "metric": "long_short",
       "zscore": 2.065218393117128,
       "value": 1.216,
@@ -349,6 +328,27 @@
       "value": 1.835,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Un taker_ratio de 1.835 avec un z-score élevé de 2.69 indique une forte agression acheteuse (Taker Buy) sur le marché des dérivés au comptant. Le silence médiatique (absence de couverture Google Actualités) suggère une accumulation discrète des baleines loin du radar de la foule.\"\n}\n```",
       "ts": "2026-10-04T07:40:26.394591+00:00"
+    },
+    {
+      "metric": "price_1h",
+      "zscore": 3.0561134858850307,
+      "value": 0.19358110712319743,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de prix significative (z-score 3.06) totalement ignorée par les médias (silence radio). Divergence classique d'accumulation discrète par les baleines avant un mouvement majeur.\"\n}\n```",
+      "ts": "2026-10-04T09:30:49.180383+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 2.0274335130331527,
+      "value": 4474836.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Bruit médiatique parasité par des faits divers locaux de liquidations judiciaires traditionnelles, masquant un short squeeze massif en cours sur le marché crypto (120M$ liquidés).\"\n}\n```",
+      "ts": "2026-10-04T10:10:55.801528+00:00"
+    },
+    {
+      "metric": "price_1h",
+      "zscore": 2.886263126874342,
+      "value": 0.18749224893197525,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.89) couplé à un vide médiatique total (Google Actualités muet). C'est la signature classique d'accumulation furtive par des baleines avant que le bruit public ne déclenche la FOMO.\"\n}\n```",
+      "ts": "2026-10-04T10:25:59.458969+00:00"
     }
   ]
 }
