@@ -1,27 +1,6 @@
 {
   "signals": [
     {
-      "metric": "whale_usd",
-      "zscore": 3.3838624643455444,
-      "value": 4194466.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 3.38) sur les flux baleines sans aucune couverture médiatique correspondante (silence radio). Accumulation furtive classique avant un mouvement de marché.\"\n}\n```",
-      "ts": "2026-10-05T02:06:09.244918+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": -2.7859682029027515,
-      "value": 0.008,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Fausse alerte liée à une homonymie : le 'SDI' des médias fait référence au Syndicat des Indépendants et TPE ou à Samsung SDI (batteries), sans aucun rapport avec les mouvements de baleines crypto ou des données onchain.\"\n}\n```",
-      "ts": "2026-10-05T02:06:10.950688+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": 3.181980515339464,
-      "value": 70,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement élevé (3.18) couplé à une avidité élevée (70) sans couverture médiatique significative (Google Actualités vide). C'est le piège classique des baleines : distribution discrète en haut de cycle pendant que le retail ignore le signal.\"\n}\n```",
-      "ts": "2026-10-05T02:06:12.641222+00:00"
-    },
-    {
       "metric": "volume",
       "zscore": 3.03671013606233,
       "value": 6822724784.0,
@@ -349,6 +328,27 @@
       "value": 1.197,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Forte anomalie on-chain (z-score 2.83) totalement ignorée par les médias traditionnels, concentrés sur la macroéconomie (dette) et des actualités locales sans rapport. Accumulation silencieuse des baleines en cours loin du radar médiatique.\"\n}\n```",
       "ts": "2026-10-05T16:22:32.755142+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.0196401799754393,
+      "value": 14480514906.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique non pertinent (actualités automobiles et tourisme). Le z-score on-chain indique une hausse de volume, mais les titres n'ont aucun rapport avec la crypto ou l'actif, rendant toute analyse de divergence impossible.\"\n}\n```",
+      "ts": "2026-10-05T16:52:42.336467+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 4.186588702903364,
+      "value": 6536927.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score on-chain élevé (4.19) pour un mouvement de 6.5M$ sans couverture médiatique significative. Divergence classique d'accumulation silencieuse par les baleines loin du bruit de détail.\"\n}\n```",
+      "ts": "2026-10-05T17:27:59.012537+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.4192659588311165,
+      "value": 1.12,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Anomalie technique mineure (IPT) noyée dans un bruit médiatique macroéconomique et local sans lien direct avec l'actif.\"\n}\n```",
+      "ts": "2026-10-05T18:43:13.326862+00:00"
     }
   ]
 }

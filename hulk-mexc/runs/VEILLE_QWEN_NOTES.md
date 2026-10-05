@@ -6389,3 +6389,7 @@ Pas d’ordre — confrontation plus tard.
 ### 2026-10-05T16:33:27Z — ALERT auto
 - PYTHUSDT: WATCH_PULLBACK — tension haute + reflux
 (compléter: confirmé ? risque ?)
+
+### 2026-10-05T16:57:11Z — ALERT auto
+- RIZEUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
