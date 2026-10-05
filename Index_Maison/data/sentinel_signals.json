@@ -1,83 +1,6 @@
 {
   "signals": [
     {
-      "metric": "fear_greed",
-      "zscore": 5.114957546028552,
-      "value": 70,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrême (5.11) indiquant une euphorie retail maximale (Greed à 70) couplée à un vide médiatique total, signalant une phase classique de distribution par les baleines (Pi-Cycle top ou piège à liquidité).\"\n}\n```",
-      "ts": "2026-10-05T00:35:07.247744+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": 3.108231711325753,
-      "value": 5966599435.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 3.11) entièrement due à un bruit textuel : les gros titres parlent de bandes dessinées, de friteuses, de caravanes et de glaciers, sans aucun rapport avec l'écosystème crypto. Aucune baleine détectée.\"\n}\n```",
-      "ts": "2026-10-05T00:45:18.375109+00:00"
-    },
-    {
-      "metric": "long_short",
-      "zscore": -2.8491203667433287,
-      "value": 1.015,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-2.85) sur le ratio long/short indiquant un positionnement contrarien massif des institutionnels, totalement ignoré par les médias traditionnels qui ne traitent que des produits financiers grand public.\"\n}\n```",
-      "ts": "2026-10-05T00:45:19.793170+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": -2.980759528064644,
-      "value": 0.008,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Anomalie non pertinente : le 'SDI' mentionné dans les médias fait référence au Syndicat des Indépendants et des TPE ainsi qu'à Samsung SDI (batteries), sans aucun rapport avec les flux on-chain ou l'écosystème crypto.\"\n}\n```",
-      "ts": "2026-10-05T01:05:23.355288+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": 4.162825233426289,
-      "value": 70,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Le Z-score extrême (4.16) indique une euphorie retail maximale (Fear & Greed à 70) couplée à un vide médiatique (« Google Actualités » sans titre majeur). C'est la configuration classique d'une distribution silencieuse par les baleines avant un retournement.\"\n}\n```",
-      "ts": "2026-10-05T01:05:24.579304+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": 3.0208205183097756,
-      "value": 6172039953.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique de volume sans lien crypto : les titres médiatiques parlent de BD, d'électroménager, de caravanes et de glaciers. Bruit de fond non-financier, aucune accumulation de baleine détectée.\"\n}\n```",
-      "ts": "2026-10-05T01:15:47.936916+00:00"
-    },
-    {
-      "metric": "long_short",
-      "zscore": -3.059400964061226,
-      "value": 0.983,
-      "analysis": "{\"signal\": \"bearish\", \"confidence\": 82, \"reason\": \"Le ratio long/short onchain à 0.983 avec un z-score de -3.06 signale un positionnement extrêmement court des baleines, très en dessous de la normale. Pendant ce temps, le narratif médiatique vante les fonds long-short comme solution face aux marchés agités, sans aucune référence à cette anomalie. Cette divergence indique que les baleines réduisent silencieusement leur exposition longue ou augmentent leurs shorts, alors que le discours public reste superficiel et déconnecté du signal onchain.\"}",
-      "ts": "2026-10-05T01:15:55.654837+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": -2.903666334507792,
-      "value": 0.004,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Fausse alerte due à l'ambiguïté du sigle 'SDI'. Les titres médiatiques font référence au Syndicat des Indépendants et TPE ou à Samsung SDI (batteries), tandis que l'anomalie onchain concerne un token sans rapport. Aucune baleine crypto détectée.\"\n}\n```",
-      "ts": "2026-10-05T01:36:00.281024+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": 3.583429063818857,
-      "value": 70,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement élevé (3.58) avec un indice de peur et de cupidité à 70, couplé à un vide médiatique total (absence de signal sur Google Actualités). C'est le piège à liquidité classique : une euphorie retail isolée et artificielle, pendant que les baleines profitent de la complaisance pour distribuer en silence.\"\n}\n```",
-      "ts": "2026-10-05T01:36:01.699109+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": 3.243448355010024,
-      "value": 6664036928.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit de fond : les titres médiatiques parlent de bandes dessinées, d'électroménager, de caravanes et de glaciers. Aucune connexion avec la crypto, anomalie statistique non pertinente.\"\n}\n```",
-      "ts": "2026-10-05T01:46:04.197671+00:00"
-    },
-    {
-      "metric": "long_short",
-      "zscore": -2.7442969865648448,
-      "value": 0.983,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Z-score extrêmement bas (-2.74) sur le ratio long/short indiquant un positionnement massif des baleines en 'short squeeze' potentiel, tandis que les médias grand public banalisent la stratégie long/short de manière générique sans voir l'excès spéculatif en cours sur la crypto.\"\n}\n```",
-      "ts": "2026-10-05T01:46:05.671038+00:00"
-    },
-    {
       "metric": "whale_usd",
       "zscore": 3.3838624643455444,
       "value": 4194466.0,
@@ -349,6 +272,83 @@
       "value": 10599128452.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.03) due à une confusion lexicale massive. Les actualités traitent de caravanes, de tourisme, d'IA et de bandes dessinées (utilisation du mot 'volume'). Aucun mouvement onchain pertinent de baleine crypto détecté.\"\n}\n```",
       "ts": "2026-10-05T10:51:23.984798+00:00"
+    },
+    {
+      "metric": "price_1h",
+      "zscore": 2.877862955575776,
+      "value": 0.5915394939603358,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de prix significative (z-score 2.88) couplée à un silence médiatique absolu. Les baleines accumulent ou provoquent un mouvement brusque sans éveiller l'attention du retail via les médias.\"\n}\n```",
+      "ts": "2026-10-05T13:51:49.706480+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 2.7182428243953134,
+      "value": 4334268.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.72) combiné à un afflux de capitaux de baleines (~4.3M USD) dans un silence médiatique absolu (Google Actualités muet). Divergence classique d'accumulation furtive avant un mouvement de marché.\"\n}\n```",
+      "ts": "2026-10-05T13:56:51.920559+00:00"
+    },
+    {
+      "metric": "price_1h",
+      "zscore": 5.2046530068215535,
+      "value": 0.9815462546961529,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie statistique majeure (z-score 5.20) sur le prix avec un silence médiatique absolu (Google Actualités vide). C'est la signature classique d'accumulation furtive par des baleines avant une percée du narratif public.\"\n}\n```",
+      "ts": "2026-10-05T14:36:59.827010+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": -2.0262330750053006,
+      "value": 2451915.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Bruit médiatique parasité par des fausses alertes sur des liquidations judiciaires locales, alors que les données onchain montrent un z-score de -2.03 (anomalie de baisse des liquidations crypto). Absence de ventes forcées = compression de l'offre par les baleines.\"\n}\n```",
+      "ts": "2026-10-05T14:37:01.811113+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.079054678171492,
+      "value": 12886915066.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie de volume purement de bruit. Les titres médiatiques font référence à du tourisme, des caravanes, des agents IA et des bandes dessinées. Aucune corrélation avec une activité de baleine crypto.\"\n}\n```",
+      "ts": "2026-10-05T14:42:04.164058+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 3.0770377467497205,
+      "value": 4926705.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 3.08, ~4.9M USD) en absence totale de couverture médiatique (silence radio). Accumulation furtive classique des baleines loin du radar retail.\"\n}\n```",
+      "ts": "2026-10-05T14:57:09.328899+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.105408812454981,
+      "value": 13370217700.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique détectée sur le mot-clé 'volume' sans lien avec une baleine crypto. Les titres médiatiques traitent de tourisme, de caravanes, de l'IA Grok et de coiffure. Bruit absolu, aucune baleine identifiée.\"\n}\n```",
+      "ts": "2026-10-05T15:12:12.705906+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.9710641472842534,
+      "value": 1.194,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (IPT z-score 2.97) totalement non corrélée aux actualités médiatiques locales et institutionnelles (fondation IPT, rage). Bruit statistique ou homonymie sans rapport avec un mouvement macro de baleines crypto.\"\n}\n```",
+      "ts": "2026-10-05T15:27:16.148168+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.0731755547241115,
+      "value": 13677868251.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie de volume purement syntaxique liée au mot 'volume' dans des contextes sans rapport (tourisme, camping-cars, IA, coiffure). Aucun lien avec une activité crypto ou un mouvement de baleines.\"\n}\n```",
+      "ts": "2026-10-05T15:42:19.597343+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.0231727382966285,
+      "value": 14005900968.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie de volume non pertinente : le bruit médiatique concerne des sujets sans rapport (caravanes, tourisme, IA, coiffure) et aucun actif crypto n'est cisaillé par les données on-chain fournies.\"\n}\n```",
+      "ts": "2026-10-05T16:17:30.751736+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.8337989774709484,
+      "value": 1.197,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Forte anomalie on-chain (z-score 2.83) totalement ignorée par les médias traditionnels, concentrés sur la macroéconomie (dette) et des actualités locales sans rapport. Accumulation silencieuse des baleines en cours loin du radar médiatique.\"\n}\n```",
+      "ts": "2026-10-05T16:22:32.755142+00:00"
     }
   ]
 }
