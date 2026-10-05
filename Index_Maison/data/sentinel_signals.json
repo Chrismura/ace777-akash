@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "sdi",
-      "zscore": -3.0681731547614235,
-      "value": 0.008,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Anomalie sémantique : le sigle 'SDI' dans les médias désigne un syndicat patronal français (Syndicat des Indépendants) et un fabricant de batteries (Samsung SDI), sans aucun rapport avec des mouvements de baleines crypto ou le Smart Money Index.\"\n}\n```",
-      "ts": "2026-10-05T00:35:05.942875+00:00"
-    },
-    {
       "metric": "fear_greed",
       "zscore": 5.114957546028552,
       "value": 70,
@@ -349,6 +342,13 @@
       "value": 10619233159.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie de volume purement syntaxique liée au mot 'volume' dans des actualités généralistes (caravanes, tourisme, IA, bandes dessinées). Aucun mouvement onchain de baleine détecté.\"\n}\n```",
       "ts": "2026-10-05T10:21:18.796528+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.028376804485729,
+      "value": 10599128452.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.03) due à une confusion lexicale massive. Les actualités traitent de caravanes, de tourisme, d'IA et de bandes dessinées (utilisation du mot 'volume'). Aucun mouvement onchain pertinent de baleine crypto détecté.\"\n}\n```",
+      "ts": "2026-10-05T10:51:23.984798+00:00"
     }
   ]
 }

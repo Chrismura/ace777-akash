@@ -1,14 +1,13 @@
 # 🩺 DRILL DE RESTAURATION — 🔴 **TROU**
 
-> Testé le **2026-10-05T10:34Z** · mode **lecture seule** (rien installé, rien modifié).
+> Testé le **2026-10-05T13:35Z** · mode **lecture seule** (rien installé, rien modifié).
 > Question posée : *« si le Mac mourait ce soir, ACE777 reviendrait-il ? »*
 
 ## 1. Source — le repo (git) contient-il tout ?
-- Branche `main` · HEAD `c54e74d9e3` du 2026-10-05T09:34:38+02:00
-- Fichiers suivis modifiés sur disque : **134**
+- Branche `main` · HEAD `a057cc94fc` du 2026-10-05T12:35:23+02:00
+- Fichiers suivis modifiés sur disque : **111**
 - Fichiers suivis **supprimés** (perdus) : **0**
-- Nouveaux fichiers non versionnés : 30241 au total, dont **9 sensibles** (scripts/plists/règles)
-  - `Index_Maison/plists/com.ace777.fiches-observation.plist`
+- Nouveaux fichiers non versionnés : 30277 au total, dont **8 sensibles** (scripts/plists/règles)
   - `Index_Maison/scripts/CONSULTATION_FAMILLE_CORTANA_JUGE_CONTRE/AVIS_DEEPSEEK.md`
   - `Index_Maison/scripts/CONSULTATION_FAMILLE_CORTANA_JUGE_CONTRE/AVIS_GEMINI.md`
   - `Index_Maison/scripts/CONSULTATION_FAMILLE_CORTANA_JUGE_CONTRE/AVIS_JUGE.md`
@@ -20,8 +19,7 @@
 
 ### 1bis. Instruments de la boucle — ce que la boucle EXÉCUTE est-il versionné ?
 - Scripts/exécutables invoqués par un agent ou par `git_push_auto.sh` : **143**
-- 🔴 **1 NON versionnés** → un Mac mort les perdrait, et la boucle ne redémarrerait pas :
-  - `hulk-mexc/scripts/relancer_fiches_observation.py`
+- ✅ **0 instrument hors git** — tout ce que la boucle exécute revient avec git.
 - Hors repo (volet « organes hors repo » ci-dessous) : 2
 
 ## 2. Agents launchd — reconstructibles ?
@@ -29,7 +27,7 @@
 - ✅ **0 agent hors repo** — tous reconstructibles.
 
 ## 3. Reconstruction dans un dossier neuf
-- Dossier : `/var/folders/y7/571v2gy574z72zvsgqd46wd40000gn/T/drill_restauration_k7p8pbq8/LaunchAgents`
+- Dossier : `/var/folders/y7/571v2gy574z72zvsgqd46wd40000gn/T/drill_restauration_inzhqy5i/LaunchAgents`
 - Plists rebâtis + validés (`plutil -lint`) : **103/103**
 
 ## 4. Organes invoqués par les agents
@@ -46,7 +44,7 @@
   | `~/prise-ia` | `prise-ia` | surveille | ✅ miroir de sauvegarde (organes_hors_repo/prise-ia) |
   | `~/prise-ia/routeur_auto.py` | `routeur-auto` | argument | ✅ miroir de sauvegarde (organes_hors_repo/prise-ia) |
 
-  Manifeste des organes hors repo : `thermo/organes_hors_repo.json` (mis à jour 2026-10-05T07:34Z).
+  Manifeste des organes hors repo : `thermo/organes_hors_repo.json` (mis à jour 2026-10-05T10:34Z).
 
   Outillage système hors repo (4) — réinstallable (Homebrew/Xcode CLT), non bloquant : `/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/Resources/Python.app/Contents/MacOS/Python`, `/Library/Developer/CommandLineTools/usr/bin/python3`, `/opt/homebrew/bin/npm`, `/opt/homebrew/bin/uv`
 - ✅ Aucun chemin invoqué introuvable.
@@ -65,8 +63,7 @@
   - `hulk-mexc/scripts/satellite_aspiration.py` — modifié le 2026-10-05T08:38:37Z SANS pré-déclaration antérieure
 
 ## 6. Verdict
-- 🔴 **3 trou(s) à combler :**
-  - 1 instrument(s) que la boucle EXÉCUTE et qui ne sont PAS dans git → perdus à la restauration (hulk-mexc/scripts/relancer_fiches_observation.py)
+- 🔴 **2 trou(s) à combler :**
   - 3 scellé(s) dont le md5 ne correspond plus
   - 2 modification(s) de fichier SCELLÉ sans pré-déclaration antérieure (R20.1/R5/R13) : defaults.env, satellite_aspiration.py
 
