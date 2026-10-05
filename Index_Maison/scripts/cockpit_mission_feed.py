@@ -601,6 +601,13 @@ def load_hulk():
     _s_all = json.loads(state.read_text(encoding="utf-8")) if state and state.exists() else {}
     sc_all = _s_all.get("scores") or {}
     pos_all = _s_all.get("positions") or {}
+    # FIX 05/10/2026 : un house bag (ex. QNT 0,0445 ≈ 11$) est une VALEUR DÉTENUE :
+    # il est compté comme position dans les totaux (avant : invisible dans le score
+    # par crypto → total Hulk sous-estimé).
+    bags_all = _s_all.get("bags") or {}
+    # 05/10/2026 : idem pour les runners CONSERVATION (palier de conservation du
+    # runner — moitié gardée en trailing amplitude) : valeur détenue, comptée.
+    cons_all = _s_all.get("conservation") or {}
     for pair, p in pos_all.items():
         if pair in seed_qty:
             continue
@@ -799,7 +806,13 @@ def load_hulk():
                     continue
                 _notional = _q * _p
                 _fee = _notional * float(out.get("feeRate") or 0.0)
-                if _ev in ("BUY", "DCA"):
+                # FIX 05/10/2026 (vérification Buffy des chiffres affichés) : BAG_ARM est
+                # un TRANSFERT INTERNE position→bag (aucune vente, aucun cash) et BAG_DCA
+                # est un RACHAT de bag. Le rejeu les créditait tous les deux comme des
+                # ventes → cash gonflé (mesuré : EDEL +10,27$ · QNT +18,38$).
+                if _ev == "BAG_ARM":
+                    continue
+                if _ev in ("BUY", "DCA", "BAG_DCA"):
                     cash_par_paire[_pair] -= _notional + _fee
                     net_investi[_pair] += _notional
                 else:
@@ -840,7 +853,9 @@ def load_hulk():
     over_budget: list[str] = []
     compound_actif: list[str] = []
     for _pair in _all_pairs:
-        _qty = float((pos_all.get(_pair) or {}).get("qty") or 0.0)
+        _qty = float((pos_all.get(_pair) or {}).get("qty") or 0.0) or float(
+            (bags_all.get(_pair) or {}).get("qty") or 0.0
+        ) or float((cons_all.get(_pair) or {}).get("qty") or 0.0)
         _mark = mark_by_pair.get(_pair)
         _pos_val = _qty * _mark if (_qty and _mark) else 0.0
         _sp = seed_px.get(_pair)
@@ -915,7 +930,12 @@ def load_hulk():
                     "budget": round(budget_par_paire.get(_p, 0.0), 2),
                     "net": round(net_investi.get(_p, 0.0), 2),
                     "pos": round(pos_par_paire.get(_p, 0.0), 2),
-                    "posQty": round(float((pos_all.get(_p) or {}).get("qty") or 0.0), 6),
+                    "posQty": round(
+                        float((pos_all.get(_p) or {}).get("qty") or 0.0)
+                        or float((bags_all.get(_p) or {}).get("qty") or 0.0)
+                        or float((cons_all.get(_p) or {}).get("qty") or 0.0),
+                        6,
+                    ),
                     "cash": round(cash_par_paire.get(_p, 0.0), 2),
                     "reel": round(reel_par_paire.get(_p, 0.0), 2),
                     "hold": round(hold_par_paire.get(_p, 0.0), 2),

@@ -56,7 +56,9 @@ LOOP_SEC = 20.0          # cadence d'écriture (le moteur a une boucle 20s aussi
 #   (le moteur, lui, fait 1 appel batch de prix par cycle). L'âge d'une vue devient ≤ ~40 s,
 #   donc SOUS le seuil « frais » de 45 s du moteur et TRÈS en dessous du `wall_stale_sec` (120 s).
 #   RÉVERSIBLE en une ligne (ou par ASPIRATION_MAX_PAIRS=5 dans l'environnement).
-MAX_PAIRS = int(os.environ.get("ASPIRATION_MAX_PAIRS", "20"))   # paires sondées par passe
+# 05/10/2026 : 20→24 — 19 paires tradées + 3 en observation (IOTA/LA/WAXL) :
+# couverture complète en une passe (les « light » coûtent 1 lecture carnet).
+MAX_PAIRS = int(os.environ.get("ASPIRATION_MAX_PAIRS", "24"))   # paires sondées par passe
 # ── MESURE QUI A CORRIGÉ LE GO 3 LE JOUR MÊME (23/09) ─────────────────────────────────────
 # Première version : 20 paires × 2 lectures /depth ⇒ passe de 35,8 s ⇒ avec StartInterval=20 s,
 # l'âge de la vue oscillait **4 → 55 s**, donc AU-DESSUS du seuil « frais » de 45 s du moteur →
@@ -124,7 +126,12 @@ def derniere_paires():
     except Exception:
         return {}
     scores = st.get("scores") or {}
-    pairs_cfg = set(p.strip().upper() for p in (st.get("pairs") or []))
+    # 05/10/2026 (GO Christophe) : l'univers sondé = portefeuille + OBSERVATION.
+    # scores contient les deux (le moteur purge les orphelins au resume) — sans ça,
+    # les paires en cueillette (IOTA/LA/WAXL) n'avaient AUCUNE vue aspiration,
+    # alors que murs/spread/spoof/drops sont exactement ce qu'il faut pour bâtir
+    # leurs fiches setup + étude AVANT intégration au portefeuille.
+    pairs_cfg = set(p.strip().upper() for p in (st.get("pairs") or [])) | set(scores.keys())
     return {p: ((scores.get(p) or {}).get("regime") or "?") for p in pairs_cfg}
 
 

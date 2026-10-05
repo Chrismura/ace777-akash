@@ -49,7 +49,74 @@ NOMS = {
     "QNTUSDT": "Quant",
     "FLUIDUSDT": "Fluid",
     "MNSRYUSDT": "Mansory",
+    # 05/10/2026 (GO Christophe) : paires en OBSERVATION (cueillette avant intégration)
+    "IOTAUSDT": "IOTA",
+    "LAUSDT": "Lagrange",
+    "WAXLUSDT": "Axelar (WAXL, wrapped — AXLUSDT absent de MEXC)",
 }
+
+
+def bloc_stop_amplitude(pair):
+    """Bloc « STOP AMPLITUDE + TRAILING » — valeurs VIVANTES, jamais recopiées.
+
+    Sources (vérifiables) :
+      - amp7/stop_pct : dernier state du moteur (score_pair calcule amp7 = range
+        journalier médian des 7 derniers jours, walk-forward) ;
+      - multiplicateur : config/defaults.env (STOP_AMPLITUDE_ON / STOP_AMPLITUDE_MULT) ;
+      - trailing : strategie/universe_profils.json (calib par paire).
+    Règle GO 1 (05/10/2026) : stop = max(stop profil, 1,5×amp7) — le stop respire
+    avec la volatilité du moment, il ne se resserre JAMAIS.
+    """
+    import glob
+    amp7 = stop_pct = None
+    try:
+        etats = sorted(glob.glob(os.path.join(RUNS, "PAPER_V1_*_state.json")))
+        if etats:
+            sc = (json.load(open(etats[-1], encoding="utf-8")).get("scores") or {})
+            v = sc.get(pair) or {}
+            amp7, stop_pct = v.get("amp7_pct"), v.get("stop_pct")
+    except Exception:
+        pass
+    mult, on = 1.5, "1"
+    try:
+        for l in open(os.path.join(STRAT, "..", "config", "defaults.env"), encoding="utf-8"):
+            l = l.strip()
+            if l.startswith("STOP_AMPLITUDE_ON="):
+                on = l.split("=", 1)[1]
+            elif l.startswith("STOP_AMPLITUDE_MULT="):
+                mult = float(l.split("=", 1)[1])
+    except Exception:
+        pass
+    arm = gb = stop_prof = None
+    try:
+        _profs = json.load(open(os.path.join(STRAT, "universe_profils.json"), encoding="utf-8")) or {}
+        # les paires sont au TOP niveau du fichier (pas de clé "paires") — vérifié à la source
+        _profs = _profs.get("paires") or _profs
+        cal = (_profs.get(pair) or {}).get("calib") or {}
+        arm, gb, stop_prof = cal.get("trail_arm_pct"), cal.get("trail_giveback_pct"), cal.get("stop_pct")
+    except Exception:
+        pass
+    if amp7 is None:
+        return ("### 🛡️ STOP AMPLITUDE + TRAILING (règle active du moteur, 05/10/2026)\n\n"
+                "- amp7 **pas encore mesurée** (paire en cueillette depuis le 05/10) — "
+                "à regénérer quand `suivi_setup_actif.py` aura accumulé les mesures.\n")
+    lignes = [
+        "### 🛡️ STOP AMPLITUDE + TRAILING (règle active du moteur, 05/10/2026)",
+        "",
+        "| Élément | Valeur | Source |",
+        "|---|---|---|",
+        f"| **Amplitude 7j (amp7)** | {amp7}% | scores moteur — range journalier médian 7j, walk-forward |",
+        f"| **Stop actif** | max(stop profil {stop_prof or '—'}%, {mult}×amp7 = {round(amp7*mult,2) if amp7 else '—'}%) → **{stop_pct}%** | `defaults.env` STOP_AMPLITUDE_ON={on} |",
+        f"| **Trailing** | arm {arm or '—'}% / giveback {gb or '—'}% | `universe_profils.json` (calib paire) |",
+        "| **Palier 2×** | vente 50% à ×2, reste en bag maison | moteur `paper_diprip.py` |",
+        "",
+        "GO 1 (05/10/2026) — mesuré AVANT câblage (90 entrées réelles du journal, 45j de klines 1h,",
+        "frais 5 bps/côté) : ancien stop fixe **−2,12 $** (48/90) vs stop amplitude **+18,98 $** (58/90),",
+        "confirmé hors échantillon (+14,25 $ sur la 2e moitié). Le stop ne se resserre jamais :",
+        "il respire avec la volatilité du moment (flag réversible `STOP_AMPLITUDE_ON=0`).",
+        "",
+    ]
+    return "\n".join(lignes)
 
 
 def charger_statuts():
@@ -309,6 +376,7 @@ def render_fiche(p, s, date_str, date_tag, statut, suivi, grille=None, pouss_ts=
 ### Sortie
 - Scaling out vers la fenêtre de pic **{s['sortie_txt']} UTC**, reste derrière le trailing Hulk.
 
+{bloc_stop_amplitude(p['pair'])}
 ### Invalidation / risques
 - **{s['risque']}**.
 - Arrêter si frais réels + slippage > 1% (marge trop fine).

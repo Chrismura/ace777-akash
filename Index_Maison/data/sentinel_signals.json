@@ -1,48 +1,6 @@
 {
   "signals": [
     {
-      "metric": "liquidations",
-      "zscore": 2.161589076913284,
-      "value": 6789091.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Bruit médiatique parasité par des faits divers locaux de liquidations judiciaires traditionnelles, masquant un short squeeze massif en cours sur les crypto-dérivés (120M$ de shorts liquidés, BTC à 87k$).\"\n}\n```",
-      "ts": "2026-10-05T00:04:38.656823+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": -3.2045173716234836,
-      "value": 0.008,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Le signal 'SDI' détecté fait référence au 'Syndicat des Indépendants' (politique/TPE) et à 'Samsung SDI' (batteries/industrie), et non à un protocole crypto ou à une baleine onchain. Bruit médiatique sans lien avec les flux crypto.\"\n}\n```",
-      "ts": "2026-10-05T00:04:48.281563+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": 7.181324987175317,
-      "value": 70,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrême (7.18) sur la cupidité (70) combiné à un vide médiatique total (Google Actualités sans relais) : signal classique d'euphorie retail aveugle exploitée pour une distribution silencieuse par les baleines.\"\n}\n```",
-      "ts": "2026-10-05T00:04:55.813922+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": 2.468352468997647,
-      "value": 5768758840.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Anomalie statistique (z-score 2.47) entièrement due à du bruit sémantique médiatique (homonymie sur le mot 'volume' : bandes dessinées, air fryers et climat). Aucune activité crypto pertinente détectée.\"\n}\n```",
-      "ts": "2026-10-05T00:14:58.496389+00:00"
-    },
-    {
-      "metric": "long_short",
-      "zscore": -3.1211750130631564,
-      "value": 1.015,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Z-score extrêmement bas (-3.12) sur le ratio long/short indiquant un positionnement contrarien massif des institutionnels, tandis que les médias grand public font l'éloge générale des stratégies long/short traditionnelles, créant un décalage classique de capitaux.\"\n}\n```",
-      "ts": "2026-10-05T00:14:59.903315+00:00"
-    },
-    {
-      "metric": "liquidations",
-      "zscore": 2.0433143926636346,
-      "value": 6825163.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Bruit médiatique parasité par des faits divers locaux de faillites d'entreprises traditionnelles, masquant un short squeeze on-chain massif (z-score 2.04) alimenté par la hausse du BTC vers 87k$.\"\n}\n```",
-      "ts": "2026-10-05T00:35:04.462317+00:00"
-    },
-    {
       "metric": "sdi",
       "zscore": -3.0681731547614235,
       "value": 0.008,
@@ -349,6 +307,48 @@
       "value": 9636098188.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 3.07) sur un volume global, mais les gros titres médiatiques concernent de l'actualité générale, automobile, comics et des bruits de marché sans lien direct on-chain. Bruit de fond, pas de mouvement silencieux de baleine crypto détecté.\"\n}\n```",
       "ts": "2026-10-05T07:20:45.468247+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.8723768598082606,
+      "value": 9873395468.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique de volume onchain non corrélée aux actualités crypto (bruit médiatique dominé par l'automobile, les comics et l'IA). Aucun signal clair de mouvement de baleine.\"\n}\n```",
+      "ts": "2026-10-05T07:50:51.646153+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.643659607532287,
+      "value": 9957383150.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit médiatique hors-sujet (caravanes, comics, IA, Cardano) sans rapport avec l'anomalie on-chain détectée sur le volume global.\"\n}\n```",
+      "ts": "2026-10-05T08:20:56.747687+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.4513575789282007,
+      "value": 10019741466.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie de volume non corrélée au marché crypto (bruit lié à des actualités grand public, camping-car Beauer et bandes dessinées).\"\n}\n```",
+      "ts": "2026-10-05T08:51:01.561988+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.3589192063307207,
+      "value": 10241337703.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique parasité par des sujets hors-crypto (caravanes, BD, IA) et absence de corrélation onchain exploitable malgré un z-score élevé.\"\n}\n```",
+      "ts": "2026-10-05T09:21:07.705495+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.314489636739795,
+      "value": 10557530258.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Anomalie de volume on-chain détectée (Z-score 2.31), mais le bruit médiatique est totalement parasité par des sujets sans rapport (caravanes, IA, bandes dessinées). Aucune convergence narrative claire pour valider un mouvement de baleine unifié.\"\n}\n```",
+      "ts": "2026-10-05T09:51:13.921553+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.1774389279901674,
+      "value": 10619233159.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie de volume purement syntaxique liée au mot 'volume' dans des actualités généralistes (caravanes, tourisme, IA, bandes dessinées). Aucun mouvement onchain de baleine détecté.\"\n}\n```",
+      "ts": "2026-10-05T10:21:18.796528+00:00"
     }
   ]
 }

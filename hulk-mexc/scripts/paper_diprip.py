@@ -433,8 +433,9 @@ def pick_pairs(cfg: dict, inv: dict[str, dict]) -> list[str]:
     a = [r for r in rows if r.get("tier") == "A" and r.get("pair")]
     a.sort(key=lambda r: -float(r.get("quote_vol_usdt") or 0))
     pairs = [r["pair"].upper() for r in a[:n]]
-    # spike candidates B utiles (ex. QAIT) si slot
-    extra = cfg.get("PAPER_EXTRA_PAIRS", "QAITUSDT").strip()
+    # spike candidates B utiles si slot (le défaut QAITUSDT est retiré 05/10/2026 :
+    # paire delisted de MEXC — un défaut qui pointe vers un symbole mort est un piège)
+    extra = cfg.get("PAPER_EXTRA_PAIRS", "").strip()
     for p in [x.strip().upper() for x in extra.split(",") if x.strip()]:
         if p not in pairs:
             pairs.append(p)
@@ -604,6 +605,10 @@ def score_pair(pair: str, cfg: dict) -> dict:
         chunk_l = l15[i : i + 24]
         if chunk_h and chunk_l and min(chunk_l) > 0:
             day_ranges.append((max(chunk_h) / min(chunk_l) - 1.0) * 100.0)
+    # GO 1 (05/10/2026) — amplitude 7j = range journalier médian des 7 DERNIERS jours
+    # (chronologique, calculé AVANT le tri = walk-forward, aucune donnée du futur).
+    _amp7_list = sorted(day_ranges[-7:])
+    amp7 = _amp7_list[len(_amp7_list) // 2] if _amp7_list else 0.0
     day_ranges.sort()
     cadence = day_ranges[len(day_ranges) // 2] if day_ranges else max(range15 / 5.0, 3.0)
 
@@ -631,6 +636,15 @@ def score_pair(pair: str, cfg: dict) -> dict:
     dip = max(dip_floor, cadence * float(cfg.get("DIP_CADENCE_MULT", "0.45")))
     rip = max(rip_floor, cadence * float(cfg.get("RIP_CADENCE_MULT", "0.35")))
     stop = max(stop_floor, cadence * float(cfg.get("STOP_CADENCE_MULT", "0.70")))
+    # GO 1 (05/10/2026, Christophe) — STOP CALÉ SUR L'AMPLITUDE.
+    # Mesuré avant câblage (rejeu des 90 entrées réelles du journal, 45j klines 1h,
+    # frais 5 bps/côté, mises réelles = compounding inclus) :
+    #   stop dur fixe + trailing (actuel) ............ −2,12 $ (48/90)
+    #   trailing de profil + stop = 1,5×amp7 ........ +18,98 $ (58/90)  ← appliqué
+    # max() = le stop ne se resserre JAMAIS par rapport à l'ancienne règle : il respire
+    # avec la volatilité du moment. Flag réversible STOP_AMPLITUDE_ON=0 → historique.
+    if cfg.get("STOP_AMPLITUDE_ON", "1").strip() not in ("0", "false", "False") and amp7 > 0:
+        stop = max(stop, amp7 * float(cfg.get("STOP_AMPLITUDE_MULT", "1.5")))
 
     had_spike = range15 >= spike_15 or move24 >= impulse_th
     impulse_now = move6 >= impulse_th or move24 >= impulse_th * 1.2
@@ -683,6 +697,7 @@ def score_pair(pair: str, cfg: dict) -> dict:
         "peak6": peak6,
         "dip_pct": round(dip, 2),
         "rip_pct": round(rip, 2),
+        "amp7_pct": round(amp7, 2),
         "stop_pct": round(stop, 2),
         "cool_entry_pct": round(cool_entry, 2),
         "impulse_entry_pct": round(impulse_entry, 2),
@@ -717,6 +732,21 @@ class PaperBot:
         self.double_mult = float(cfg.get("STAKE_DOUBLE_MULT", "2.0"))
         self.stake_sell_frac = float(cfg.get("STAKE_SELL_FRAC", "0.50"))
         self.bag_crash_dd = float(cfg.get("BAG_CRASH_DD_PCT", "20"))
+        # === PALIER DE CONSERVATION du runner (05/10/2026, GO 2 Christophe) ===
+        # Mesuré AVANT câblage sur les 2 runners réels (klines 1h) : règles bag actuelles
+        # 16,95 $ vs palier conservation 23,98 $ (EDEL 8,14→12,89 · QNT 8,81→11,09 —
+        # il bat aussi le hold sur QNT). Constat source : les règles FIXES du bag
+        # (crash −20%→90% · slow −8%→tout) ont vidé le runner d'EDEL en 1 minute sur
+        # une simple mèche, alors que son amplitude normale était de 27,7 %. Ici : au
+        # palier 2×, le runner est scindé — moitié bag maison (inchangé) + moitié
+        # CONSERVATION en trailing CALÉ SUR L'AMPLITUDE mesurée (amp7, walk-forward).
+        # Flag réversible : RUNNER_CONSERVATION_ON=0 → comportement historique strict.
+        self.conservation_on = cfg.get("RUNNER_CONSERVATION_ON", "1").strip() not in ("0", "false", "False")
+        self.conservation_frac = float(cfg.get("RUNNER_CONSERVATION_FRAC", "0.5"))
+        self.runner_arm_mult = float(cfg.get("RUNNER_TRAIL_ARM_MULT", "1.0"))
+        self.runner_gb_frac = float(cfg.get("RUNNER_GIVEBACK_FRAC", "0.4"))
+        self.runner_stop_mult = float(cfg.get("RUNNER_STOP_MULT", "1.5"))
+        self.conservation: dict[str, dict] = {}
         self.bag_crash_sell_frac = float(cfg.get("BAG_CRASH_SELL_FRAC", "0.90"))
         self.bag_dca_on = cfg.get("BAG_DCA_ON", "1").strip() not in ("0", "false", "False")
         self.bag_slow_dd = float(cfg.get("BAG_SLOW_DD_PCT", "8"))
@@ -848,6 +878,13 @@ class PaperBot:
             for p in (cfg.get("PAPER_OBSERVE_PAIRS") or "").split(",")
             if p.strip()
         }
+        # 05/10/2026 (GO Christophe) : l'univers CAPTURÉ = portefeuille + observation.
+        # Avant, les paires PAPER_OBSERVE_PAIRS n'étaient tickées QUE si elles traînaient
+        # aussi dans PAPER_PAIRS (run() ne bouclait que sur self.pairs) → la capture
+        # observation était morte-née. Ici : scores + tick + log_contexte pour l'observation,
+        # tick_pair sort après log_contexte → jamais de trade. Séparation propre entre
+        # « dans le portefeuille » et « en cueillette de données avant intégration ».
+        self.watch_pairs = list(dict.fromkeys(list(self.pairs) + sorted(self.observe_only)))
         self.cortana_mode = (cfg.get("CORTANA_MODE", "ADVISORY") or "ADVISORY").strip().upper()
         self.cortana_pilot = ROOT / (cfg.get("CORTANA_PILOT_FILE") or "strategie/cortana_pilot.json")
         self.cortana_pending: list = []
@@ -1789,6 +1826,7 @@ class PaperBot:
                 "positions": self.pos,
                 "bags": self.bags,
                 "bag_dca": self.bag_dca,
+                "conservation": self.conservation,
                 "pair_cash": self.pair_cash,
                 "reentry": self.reentry,
                 "scores": self.scores,
@@ -1817,7 +1855,7 @@ class PaperBot:
             # (nourrir_disjoncteur.py) refuse en plus ces états de son côté (R11 :
             # fail-safe, dans le doute on ne décide pas).
             try:
-                _vide = not self.pos and not self.bags
+                _vide = not self.pos and not self.bags and not self.conservation
                 _vierge = _est_vierge({
                     "trades": self.trades,
                     "pnl_total": self.pnl_total,
@@ -1862,17 +1900,31 @@ class PaperBot:
                 say("err", f"RESUME fail lecture {f.name}: {e}")
                 continue
             pos = st.get("positions") or {}
-            if not pos and not (st.get("bags") or {}):
-                continue  # état vide (0 pos, 0 bag) : pas candidat
+            if not pos and not (st.get("bags") or {}) and not (st.get("conservation") or {}):
+                continue  # état vide (0 pos, 0 bag, 0 runner) : pas candidat
             if _est_vierge(st):
                 say("wrn", f"RESUME {f.name} = re-seed vierge (0 trade, 0 cash) — on cherche plus ancien")
                 continue
             self.pos = {k: v for k, v in pos.items()}
             self.bags = st.get("bags") or {}
             self.bag_dca = st.get("bag_dca") or {}
+            self.conservation = st.get("conservation") or {}
             self.pair_cash = st.get("pair_cash") or {}
             self.reentry = st.get("reentry") or {}
             self.scores = st.get("scores") or {}
+            # 05/10/2026 (GO « le faire correctement ») : purge des scores ORPHELINS.
+            # Un score de paire retirée du portefeuille restait dans le state à vie et
+            # continait d'être recopié/capturé (le cas QAITUSDT : delisted depuis 29/08,
+            # toujours présent dans les scores au 05/10). Hors self.pairs → hors state.
+            _orph = [p for p in sorted(self.scores) if p not in set(self.pairs)]
+            for _p in _orph:
+                self.scores.pop(_p, None)
+            if _orph:
+                say(
+                    "hdr",
+                    f"RESUME : scores orphelins purgés ({','.join(_orph)}) — "
+                    f"hors PAPER_PAIRS, plus aucune capture",
+                )
             self.pnl_total = float(st.get("pnl_total") or 0.0)
             self.trades = int(st.get("trades") or 0)
             self.wall_melt_events = st.get("wall_melt_events") or []
@@ -1997,7 +2049,7 @@ class PaperBot:
 
     def refresh_scores(self):
         say("score", f"[{utc_now()}] score régimes…")
-        for pair in self.pairs:
+        for pair in self.watch_pairs:
             try:
                 self.scores[pair] = score_pair(pair, self.cfg)
                 s = self.scores[pair]
@@ -2382,32 +2434,127 @@ class PaperBot:
         )
         self.add_pair_cash(pair, proceeds)
         if keep_qty > 0:
-            self.bags[pair] = {
-                "entry": price,
-                "qty": keep_qty,
-                "ts": utc_now(),
-                "note": "house_after_stake_out",
-                "stake_ref": stake,
-                "high": price,
-            }
+            # PALIER DE CONSERVATION (05/10/2026) : le runner est scindé — moitié bag
+            # maison (règles actuelles) + moitié CONSERVATION (trailing amplitude).
+            cons_qty = 0.0
+            if self.conservation_on and self.conservation_frac > 0:
+                cons_qty = keep_qty * self.conservation_frac
+                keep_qty = keep_qty - cons_qty
+            if keep_qty > 1e-12:
+                self.bags[pair] = {
+                    "entry": price,
+                    "qty": keep_qty,
+                    "ts": utc_now(),
+                    "note": "house_after_stake_out",
+                    "stake_ref": stake,
+                    "high": price,
+                }
+                self.log(
+                    pair,
+                    "BAG_ARM",
+                    regime,
+                    price,
+                    price,
+                    keep_qty,
+                    0.0,
+                    cad,
+                    f"house_half_after_{self.double_mult:.0f}x",
+                )
+                say(
+                    "bag",
+                    f"[{utc_now()}] BAG   ARM   {pair}  px={price:.6f}  "
+                    f"house≈{price*keep_qty:.2f}$  cash_récupéré≈{proceeds:.2f}$  "
+                    f"(mise {stake:.2f}$ sortie)",
+                )
+            if cons_qty > 1e-12:
+                self.conservation[pair] = {
+                    "entry": price,
+                    "qty": cons_qty,
+                    "ts": utc_now(),
+                    "high": price,
+                    "note": "runner_conservation",
+                }
+                self.log(
+                    pair,
+                    "BAG_ARM",
+                    regime,
+                    price,
+                    price,
+                    cons_qty,
+                    0.0,
+                    cad,
+                    f"conservation_half_after_{self.double_mult:.0f}x",
+                )
+                say(
+                    "bag",
+                    f"[{utc_now()}] RUNNER ARM   {pair}  px={price:.6f}  "
+                    f"conservation≈{price*cons_qty:.2f}$ — trailing amplitude "
+                    f"(arm {self.runner_arm_mult}×amp7, gb {self.runner_gb_frac}×arm, "
+                    f"stop pic {self.runner_stop_mult}×amp7)",
+                )
             self.pos.pop(pair, None)
-            self.log(
-                pair,
-                "BAG_ARM",
-                regime,
-                price,
-                price,
-                keep_qty,
-                0.0,
-                cad,
-                f"house_half_after_{self.double_mult:.0f}x",
+
+    def manage_conservation(self, pair: str, price: float, sc: dict):
+        """PALIER DE CONSERVATION (05/10/2026) — la moitié « gardée » d'un runner.
+
+        Elle ne subit PLUS les règles fixes du bag (crash −20%→90% · slow −8%→tout)
+        qui ont vidé le runner d'EDEL en 1 minute sur une simple mèche (son amplitude
+        normale : 27,7 %). Elle court sur un trailing CALÉ SUR L'AMPLITUDE mesurée :
+          · arm = RUNNER_TRAIL_ARM_MULT × amp7 (range journalier médian 7j, walk-forward),
+          · giveback = RUNNER_GIVEBACK_FRAC × arm,
+          · si le pic est armé et que ça retombe de RUNNER_STOP_MULT × amp7 sous le pic → sortie.
+        Sans mesure d'amplitude (amp7 absente) : on NE DÉCIDE PAS (règle #8).
+        Sortie journalisée BAG_SELL (même écriture de ledger que le bag maison)."""
+        c = self.conservation.get(pair)
+        if not c:
+            return
+        entry = float(c.get("entry") or 0.0)
+        qty = float(c.get("qty") or 0.0)
+        if entry <= 0 or qty <= 0:
+            self.conservation.pop(pair, None)
+            return
+        high = max(float(c.get("high") or entry), price)
+        c["high"] = high
+        amp = float((sc or {}).get("amp7_pct") or 0.0) or float((sc or {}).get("cadence_pct") or 0.0)
+        if amp <= 0:
+            return
+        arm = self.runner_arm_mult * amp
+        gb = self.runner_gb_frac * arm
+        g = (price / entry - 1.0) * 100.0
+        gp = (high / entry - 1.0) * 100.0
+        dd_peak = (1.0 - price / high) * 100.0 if high > 0 else 0.0
+        sortie = None
+        if gp >= arm and (gp - g) >= gb:
+            sortie = f"conservation_trail_arm{arm:.1f}_gb{gb:.1f}"
+        elif gp >= arm and dd_peak >= self.runner_stop_mult * amp:
+            sortie = (
+                f"conservation_stop_pic_dd{dd_peak:.1f}"
+                f"_ge{self.runner_stop_mult}xamp{amp:.1f}"
             )
-            say(
-                "bag",
-                f"[{utc_now()}] BAG   ARM   {pair}  px={price:.6f}  "
-                f"house≈{price*keep_qty:.2f}$  cash_récupéré≈{proceeds:.2f}$  "
-                f"(mise {stake:.2f}$ sortie)",
-            )
+        if not sortie:
+            return
+        pnl = (price - entry) * qty
+        proceeds = price * qty
+        self.pnl_total += pnl
+        self.trades += 1
+        self.add_pair_cash(pair, proceeds)
+        self.log(
+            pair,
+            "BAG_SELL",
+            (sc or {}).get("regime", ""),
+            price,
+            entry,
+            qty,
+            pnl,
+            (sc or {}).get("cadence_pct"),
+            sortie,
+        )
+        say(
+            "sell_ok" if pnl >= 0 else "sell_ko",
+            f"[{utc_now()}] RUNNER {pair}  px={price:.6f}  pnl={pnl:+.4f}$  "
+            f"cash+{proceeds:.2f}$  ({sortie})",
+        )
+        self.conservation.pop(pair, None)
 
     def manage_bag(self, pair: str, price: float, sc: dict):
         """Bag maison : crash→90% ; lent→DCA."""
@@ -2996,6 +3143,10 @@ class PaperBot:
             self.manage_bag(pair, price, sc)
         except Exception as e:
             say("err", f"[{utc_now()}] BAG_ERR {pair}: {e}")
+        try:
+            self.manage_conservation(pair, price, sc)
+        except Exception as e:
+            say("err", f"[{utc_now()}] RUNNER_ERR {pair}: {e}")
 
         if pair in self.pos:
             self.manage_open(pair, price)
@@ -3231,6 +3382,78 @@ class PaperBot:
                              f"(âge {age_prix:.0f}s) : le moteur COLLECTE, il n'a rien à "
                              f"écrire (refus dédoublonnés). Ce n'est PAS une panne.")
 
+    def _retirer_paires_hors_portefeuille(self) -> None:
+        """GO « le faire correctement » (05/10/2026, Christophe).
+
+        Une paire RETIRÉE de PAPER_PAIRS ne doit laisser AUCUNE position, palette (bag)
+        ou ordre DCA vivant non géré : on solde au marché paper (SELL journalisé via les
+        chemins normaux) PUIS elle sort du state. Le contraire exact du cas QAITUSDT
+        (delisted 29/08 mais capturé/jugé encore 2 mois après : reliquats jamais purgés).
+        Si aucun prix n'est lisible, on NE RIEN invente : la position reste, signalée."""
+        vivants = set(self.pos) | set(self.bags) | set(self.bag_dca) | set(self.conservation)
+        for pair in sorted(p for p in vivants if p not in set(self.pairs)):
+            try:
+                price = last_price_frais(pair)
+            except Exception:
+                price = 0.0
+            if not price or price <= 0:
+                say(
+                    "err",
+                    f"RETRAIT_PAIRE {pair}: pas de prix lisible — reste dans le state, "
+                    f"à solder manuellement (rien d'inventé)",
+                )
+                continue
+            if pair in self.pos:
+                self.sell_trade(pair, price, "retrait_paire_hors_portefeuille")
+            if pair in self.bags:
+                b = self.bags[pair]
+                entry = float(b["entry"])
+                qty = float(b["qty"])
+                pnl = (price - entry) * qty
+                self.pnl_total += pnl
+                self.trades += 1
+                self.add_pair_cash(pair, price * qty)
+                self.log(
+                    pair,
+                    "BAG_SELL",
+                    "",
+                    price,
+                    entry,
+                    qty,
+                    pnl,
+                    None,
+                    "retrait_paire_hors_portefeuille",
+                )
+                del self.bags[pair]
+            if pair in self.conservation:
+                c = self.conservation[pair]
+                entry = float(c["entry"])
+                qty = float(c["qty"])
+                pnl = (price - entry) * qty
+                self.pnl_total += pnl
+                self.trades += 1
+                self.add_pair_cash(pair, price * qty)
+                self.log(
+                    pair,
+                    "BAG_SELL",
+                    "",
+                    price,
+                    entry,
+                    qty,
+                    pnl,
+                    None,
+                    "retrait_paire_hors_portefeuille_conservation",
+                )
+                del self.conservation[pair]
+            if pair in self.bag_dca:
+                self.add_pair_cash(pair, float(self.bag_dca[pair].get("notional") or 0.0))
+                del self.bag_dca[pair]
+            say(
+                "hdr",
+                f"RETRAIT_PAIRE {pair}: soldée au marché paper (hors PAPER_PAIRS) "
+                f"— plus aucune capture ni décision pour cette paire",
+            )
+
     def run(self) -> int:
         say(
             "hdr",
@@ -3257,8 +3480,6 @@ class PaperBot:
         print(f"stop: Ctrl+C ou touch {STOP_FILE}")
         print("ACE NUAGE genesis non touché.")
         legend()
-        self.refresh_scores()
-        self.refresh_cortana_pilot()
         # RESUME (24/08, Christophe « tenir les positions pendant les coupures ») :
         # si --resume, on reprend le dernier état (pos/bags/cash) au lieu de re-seed.
         # Sans --resume, comportement historique (seed au boot) conservé.
@@ -3270,6 +3491,17 @@ class PaperBot:
         else:
             self.seed_inventory()
             self.seed_bags()
+        # ORDRE CORRIGÉ (05/10/2026) : les scores sont rafraîchis APRÈS le resume — sinon
+        # resume_state écrasait les scores fraîchement calculés par ceux du state (ancien
+        # format, paires retirées, observation absente) et le nouveau setup (amp7/stop
+        # amplitude) ne s'appliquait qu'au prochain refresh, plusieurs cycles plus tard.
+        self.refresh_scores()
+        self.refresh_cortana_pilot()
+        # 05/10/2026 (GO Christophe) : une paire RETIRÉE du portefeuille ne laisse aucune
+        # position/palette vivante non gérée — on la solde au marché paper (journalisé)
+        # avant la boucle. Sans ça, la position resterait figée dans le state à vie
+        # (exactement ce qui est arrivé à QAIT, regardé 2 mois après son retrait).
+        self._retirer_paires_hors_portefeuille()
         n = 0
         while self.alive:
             # Phase 1 (31/08) : cadence anti-drift + UN SEUL appel batch prix par
@@ -3279,7 +3511,7 @@ class PaperBot:
             cycle_perf = time.perf_counter()
             phase_start = cycle_perf
             try:
-                fetch_all_prices(self.pairs)
+                fetch_all_prices(self.watch_pairs)
             except Exception:
                 pass
             self.eval_metrics["phase_seconds"]["fetch_prices"] = self.eval_metrics["phase_seconds"].get("fetch_prices", 0.0) + (time.perf_counter() - phase_start)
@@ -3309,7 +3541,7 @@ class PaperBot:
                 self.check_gex_wall()
             except Exception as e:
                 say("err", f"[murs] check_err: {e}")
-            for pair in self.pairs:
+            for pair in self.watch_pairs:
                 try:
                     self.tick_pair(pair)
                 except Exception as e:

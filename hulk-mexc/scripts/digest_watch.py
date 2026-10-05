@@ -134,26 +134,36 @@ def pairs_from_cfg(cfg: dict) -> list[str]:
     if raw:
         core = [p.strip().upper() for p in raw.split(",") if p.strip()]
     else:
-        core = ["XRPUSDT", "QAITUSDT"]
+        # 05/10/2026 : le défaut QAITUSDT est PURGÉ (paire delisted de MEXC depuis le
+        # 29/08 — un repli de config qui pointe vers un symbole mort continuait de le
+        # faire sonder). BTCUSDT = banc de preuve vivant, toujours listé.
+        core = ["XRPUSDT", "BTCUSDT"]
     watch = [
         p.strip().upper()
         for p in cfg.get("PAPER_WATCH_PAIRS", "").split(",")
         if p.strip()
     ]
-    # digest = core + watch (dédup)
+    # 05/10/2026 (GO Christophe) : l'OBSERVATION (PAPER_OBSERVE_PAIRS) est capturée par
+    # le digest aussi — cueillette de données AVANT intégration au portefeuille.
+    observe = [
+        p.strip().upper()
+        for p in cfg.get("PAPER_OBSERVE_PAIRS", "").split(",")
+        if p.strip()
+    ]
+    # digest = core + watch + observe (dédup)
     out = []
-    for p in core + watch:
+    for p in core + watch + observe:
         if p not in out:
             out.append(p)
     return out
 
 
 def trade_pairs_from_cfg(cfg: dict) -> list[str]:
-    """Paires réellement tradées par paper (sans WATCH-only)."""
+    """Paires réellement tradées par paper (sans WATCH/OBSERVE-only)."""
     raw = cfg.get("PAPER_PAIRS", "").strip()
     if raw:
         return [p.strip().upper() for p in raw.split(",") if p.strip()]
-    return ["XRPUSDT", "QAITUSDT"]
+    return ["XRPUSDT", "BTCUSDT"]
 
 
 def ticker_24h(pair: str) -> dict:
@@ -260,7 +270,6 @@ def priority_score(row: dict) -> float:
         "ZBCNUSDT",
         "WUSDT",
         "REDUSDT",
-        "QAITUSDT",
         "CCUSDT",
         "PYTHUSDT",
         "BIOUSDT",

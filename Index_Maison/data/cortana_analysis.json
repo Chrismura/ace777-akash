@@ -1,20 +1,20 @@
 {
-  "timestamp": 1791185475,
-  "date": "2026-10-05T07:31:15.935387+00:00",
+  "timestamp": 1791196279,
+  "date": "2026-10-05T10:31:19.072249+00:00",
   "n_analyses": 1,
   "analyses": [
     {
       "signal": {
         "metric": "volume",
-        "zscore": 3.0676680384939177,
-        "value": 9636098188.0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 3.07) sur un volume global, mais les gros titres médiatiques concernent de l'actualité générale, automobile, comics et des bruits de marché sans lien direct on-chain. Bruit de fond, pas de mouvement silencieux de baleine crypto détecté.\"\n}\n```",
-        "ts": 1791184845.468247
+        "zscore": 2.1774389279901674,
+        "value": 10619233159.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie de volume purement syntaxique liée au mot 'volume' dans des actualités généralistes (caravanes, tourisme, IA, bandes dessinées). Aucun mouvement onchain de baleine détecté.\"\n}\n```",
+        "ts": 1791195678.796528
       },
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.03,
+          "value": 0.1,
           "seuil": 1,
           "depasse": false
         },
@@ -24,7 +24,7 @@
           "depasse": false
         },
         "funding": {
-          "value": 4.1e-05,
+          "value": 5.4e-05,
           "seuil": 0.001,
           "depasse": false
         },

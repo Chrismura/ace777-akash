@@ -40,6 +40,9 @@ NOMS = {
     "BIOUSDT": "BIO (Bioprotocol)", "KITEUSDT": "KITE", "TELUSDT": "Telos",
     "RWAINCUSDT": "RWA Inc.", "RWAUSDT": "Allo (RWA, ex-Xend)", "QNTUSDT": "Quant",
     "FLUIDUSDT": "Fluid (Instadapp)", "MNSRYUSDT": "Mansory Token",
+    # 05/10/2026 (GO Christophe) : paires en OBSERVATION (cueillette avant intégration)
+    "IOTAUSDT": "IOTA", "LAUSDT": "Lagrange",
+    "WAXLUSDT": "Axelar (WAXL, wrapped — AXLUSDT absent de MEXC)",
 }
 
 CATEGORIE = {
@@ -53,6 +56,9 @@ CATEGORIE = {
     "TELUSDT": "L1 (exclue prudence)", "RWAINCUSDT": "RWA Inc. (exclue prudence)",
     "RWAUSDT": "RWA (Xend rebrand — NON famille)", "QNTUSDT": "Interoperabilité institutionnelle (CBDC/ISO 20022)",
     "FLUIDUSDT": "DeFi (hub unifié Instadapp)", "MNSRYUSDT": "Memecoin (usurpation — NON famille)",
+    "IOTAUSDT": "L1 / IoT (ancien projet réactivé)",
+    "LAUSDT": "Infrastructure crypto (Lagrange — ZK/provisioning)",
+    "WAXLUSDT": "Interop (Axelar wrapped — en observation, liquidité faible)",
 }
 
 # Slugs DefiLlama (repris de digest_watch.py) + CoinGecko ids pour les majeures
@@ -65,6 +71,7 @@ COINGECKO_IDS = {
     "BTC": "bitcoin", "ETH": "ethereum", "XRP": "ripple", "HBAR": "hedera",
     "W": "wormhole", "PYTH": "pyth-network", "QNT": "quant-network", "ZBCN": "zebec-network",
     "RED": "redstone-oracles", "BIO": "bio-protocol", "FLUID": "fluid-2",
+    "IOTA": "iota", "LA": "lagrange", "WAXL": "axelar",
 }
 
 
