@@ -1,7 +1,47 @@
 {
-  "timestamp": 1791228988,
-  "date": "2026-10-05T19:36:28.714738+00:00",
-  "n_analyses": 0,
-  "analyses": [],
-  "resume": "Aucune analyse en cours"
+  "timestamp": 1791239791,
+  "date": "2026-10-05T22:36:31.705536+00:00",
+  "n_analyses": 1,
+  "analyses": [
+    {
+      "signal": {
+        "metric": "ipt",
+        "zscore": 2.7092003865137864,
+        "value": 1.121,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.71) détectée sur le ticker 'ipt', mais le bruit médiatique correspond à des homonymes non-crypto (fondation locale, campagne contre la rage). Aucune baleine détectée ; bruit de fond non pertinent.\"\n}\n```",
+        "ts": 1791239634.896124
+      },
+      "fiche": "rbf_eleve",
+      "questions": {
+        "prix": {
+          "value": -0.0,
+          "seuil": 1,
+          "depasse": false
+        },
+        "paires": {
+          "value": 0,
+          "seuil": 3,
+          "depasse": false
+        },
+        "funding": {
+          "value": -1.4e-05,
+          "seuil": 0.001,
+          "depasse": false
+        },
+        "whales": {
+          "value": 0,
+          "seuil": 5,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
+      },
+      "action": "Observer",
+      "niveau": "neutre"
+    }
+  ],
+  "resume": "🔵 CALME — pas de signal alarmant"
 }

@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "volume",
-      "zscore": 3.03671013606233,
-      "value": 6822724784.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie de volume purement anecdotique : le z-score élevé capture du bruit sémantique (bande dessinée, électroménager, caravanes, glaciers) sans aucun rapport avec l'activité on-chain des baleines crypto.\"\n}\n```",
-      "ts": "2026-10-05T02:16:15.374164+00:00"
-    },
-    {
       "metric": "long_short",
       "zscore": -2.777256458825879,
       "value": 0.962,
@@ -349,6 +342,13 @@
       "value": 1.12,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Anomalie technique mineure (IPT) noyée dans un bruit médiatique macroéconomique et local sans lien direct avec l'actif.\"\n}\n```",
       "ts": "2026-10-05T18:43:13.326862+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.7092003865137864,
+      "value": 1.121,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.71) détectée sur le ticker 'ipt', mais le bruit médiatique correspond à des homonymes non-crypto (fondation locale, campagne contre la rage). Aucune baleine détectée ; bruit de fond non pertinent.\"\n}\n```",
+      "ts": "2026-10-05T22:33:54.896124+00:00"
     }
   ]
 }

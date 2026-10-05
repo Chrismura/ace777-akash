@@ -1,37 +1,46 @@
 {
-  "ts": "2026-10-05T15:07:04.106865+00:00",
+  "ts": "2026-10-05T21:07:07.721763+00:00",
   "statut": "ALERTE",
-  "age_rapport_h": 34.5,
+  "age_rapport_h": 40.5,
   "bascules": [
     {
-      "pair": "BTCUSDT",
-      "avant": "LEADER",
-      "maintenant": "neutre",
-      "corr_avant": 0.163,
-      "corr_maintenant": 0.05
-    },
-    {
       "pair": "FLUIDUSDT",
-      "avant": "POMPE_PIEGE",
-      "maintenant": "neutre",
-      "corr_avant": -0.473,
-      "corr_maintenant": 0.04
+      "avant": "neutre",
+      "maintenant": "LEADER",
+      "corr_avant": 0.04,
+      "corr_maintenant": 0.171
     },
     {
-      "pair": "HBARUSDT",
+      "pair": "IOTAUSDT",
+      "avant": "neutre",
+      "maintenant": "POMPE_PIEGE",
+      "corr_avant": 0.0,
+      "corr_maintenant": -0.19
+    },
+    {
+      "pair": "RWAINCUSDT",
       "avant": "LEADER",
       "maintenant": "neutre",
-      "corr_avant": 0.353,
-      "corr_maintenant": 0.123
+      "corr_avant": 0.288,
+      "corr_maintenant": 0.062
+    },
+    {
+      "pair": "WAXLUSDT",
+      "avant": "neutre",
+      "maintenant": "LEADER",
+      "corr_avant": 0.0,
+      "corr_maintenant": 0.417
     }
   ],
   "principe": "RIEN N'EST STATIQUE — signal suivi tant que les chiffres le confirment, abandonné dès inversion",
-  "message": "⚠️ LE PATTERN DIVERGENCE N'EST PLUS SUIVI depuis 34h — relancer la confrontation (voir docs/PROTOCOLE_DIVERGENCE_20260829.md)",
+  "message": "⚠️ LE PATTERN DIVERGENCE N'EST PLUS SUIVI depuis 40h — relancer la confrontation (voir docs/PROTOCOLE_DIVERGENCE_20260829.md)",
   "leaders": [
-    "RWAINCUSDT"
+    "FLUIDUSDT",
+    "WAXLUSDT"
   ],
   "pompes_pieges": [
     "CCUSDT",
+    "IOTAUSDT",
     "KITEUSDT",
     "MNSRYUSDT",
     "QNTUSDT",
@@ -43,25 +52,25 @@
   "stabilite": {
     "BIOUSDT": 0,
     "BTCUSDT": 0,
-    "CCUSDT": 21,
+    "CCUSDT": 22,
     "CHIPUSDT": 0,
     "EDELUSDT": 0,
     "ETHUSDT": 0,
-    "FLUIDUSDT": 0,
+    "FLUIDUSDT": 1,
     "HBARUSDT": 0,
-    "IOTAUSDT": 0,
-    "KITEUSDT": 18,
+    "IOTAUSDT": 1,
+    "KITEUSDT": 19,
     "LAUSDT": 0,
-    "MNSRYUSDT": 8,
+    "MNSRYUSDT": 9,
     "PYTHUSDT": 0,
-    "QNTUSDT": 26,
-    "REDUSDT": 3,
-    "RIZEUSDT": 4,
-    "RWAINCUSDT": 4,
-    "RWAUSDT": 2,
+    "QNTUSDT": 27,
+    "REDUSDT": 4,
+    "RIZEUSDT": 5,
+    "RWAINCUSDT": 0,
+    "RWAUSDT": 3,
     "TELUSDT": 0,
-    "WAXLUSDT": 0,
-    "WUSDT": 14,
+    "WAXLUSDT": 1,
+    "WUSDT": 15,
     "XRPUSDT": 0,
     "ZBCNUSDT": 0
   },
