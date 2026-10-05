@@ -1,64 +1,20 @@
 {
-  "timestamp": 1791169099,
-  "date": "2026-10-05T02:58:19.655421+00:00",
-  "n_analyses": 4,
+  "timestamp": 1791185475,
+  "date": "2026-10-05T07:31:15.935387+00:00",
+  "n_analyses": 1,
   "analyses": [
     {
       "signal": {
-        "metric": "sdi",
-        "zscore": -2.729484319201157,
-        "value": 0.004,
-        "analysis": "{\"signal\": \"bullish\", \"confidence\": 72, \"reason\": \"Le z-score de -2.73 sur le SDI indique une anomalie statistique forte, suggérant un mouvement de baleines à contre-courant (accumulation discrète). Les titres médiatiques concernent des entités homonymes (syndicat, Samsung SDI), sans lien avec l'indicateur onchain : le narratif dominant est donc déconnecté de la réalité blockchain.\"}",
-        "ts": 1791167784.578795
-      },
-      "fiche": null,
-      "interpretation": {
-        "lecture": "Pas de fiche disponible",
-        "niveau": "inconnu"
-      },
-      "action": "Observer"
-    },
-    {
-      "signal": {
-        "metric": "fear_greed",
-        "zscore": 2.881801102562106,
-        "value": 70,
-        "analysis": "{\"signal\": \"bearish\", \"confidence\": 65, \"reason\": \"Le Fear & Greed à 70 (z-score 2.88) signale une euphorie extrême, souvent un indicateur contrarien. L'absence de narratif médiatique explicite crée une divergence : les baleines pourraient distribuer silencieusement pendant que le marché est complaisant, risquant un retournement.\"}",
-        "ts": 1791167789.819081
-      },
-      "fiche": "fear_greed",
-      "questions": {
-        "peur": {
-          "value": 70,
-          "seuil": 25,
-          "depasse": true
-        },
-        "cupidite": {
-          "value": 70,
-          "seuil": 75,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
-      },
-      "action": "Observer",
-      "niveau": "neutre"
-    },
-    {
-      "signal": {
         "metric": "volume",
-        "zscore": 2.948446856513125,
-        "value": 7069752221.0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Bruit médiatique non pertinent (bande dessinée, électroménager, caravanes, glaciers). Absence de signal crypto exploitable.\"\n}\n```",
-        "ts": 1791168392.419828
+        "zscore": 3.0676680384939177,
+        "value": 9636098188.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 3.07) sur un volume global, mais les gros titres médiatiques concernent de l'actualité générale, automobile, comics et des bruits de marché sans lien direct on-chain. Bruit de fond, pas de mouvement silencieux de baleine crypto détecté.\"\n}\n```",
+        "ts": 1791184845.468247
       },
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.05,
+          "value": -0.03,
           "seuil": 1,
           "depasse": false
         },
@@ -68,12 +24,12 @@
           "depasse": false
         },
         "funding": {
-          "value": 7.4e-05,
+          "value": 4.1e-05,
           "seuil": 0.001,
           "depasse": false
         },
         "whales": {
-          "value": 0,
+          "value": 1,
           "seuil": 5,
           "depasse": false
         }
@@ -85,37 +41,7 @@
       },
       "action": "Observer",
       "niveau": "neutre"
-    },
-    {
-      "signal": {
-        "metric": "long_short",
-        "zscore": -2.527121502488577,
-        "value": 0.962,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Le z-score extrêmement bas (-2.53) indique une sous-pondération massive des positions longues par la foule/retail, tandis que les médias grand public font la promotion générale des stratégies long-short traditionnelles. Cette capitulation des longs et le positionnement excessivement short créent un déséquilibre onchain classique, propice à un 'short squeeze' imminent orchestré par les baleines.\"\n}\n```",
-        "ts": 1791168394.084666
-      },
-      "fiche": "long_short",
-      "questions": {
-        "ratio_long_short": {
-          "value": 0.962,
-          "seuil": 2,
-          "depasse": false
-        },
-        "oi": {
-          "value": 98416.79,
-          "seuil": 120000,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "ratio_long_short < 1",
-        "lecture": "HYPOTHÈSE (heuristique) : foule en short sous la norme structurelle — carburant haussier (risque de squeeze à la hausse)",
-        "niveau": "surveiller",
-        "action": "Ne pas vendre les paliers RIP trop tôt si le prix repart"
-      },
-      "action": "Ne pas vendre les paliers RIP trop tôt si le prix repart",
-      "niveau": "surveiller"
     }
   ],
-  "resume": "🟡 SURVEILLANCE — des signaux sont à observer"
+  "resume": "🔵 CALME — pas de signal alarmant"
 }
