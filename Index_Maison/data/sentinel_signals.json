@@ -1,34 +1,6 @@
 {
   "signals": [
     {
-      "metric": "fear_greed",
-      "zscore": 2.2360679774997907,
-      "value": 70,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Indice de Peur et Greed anormalement haut (70, z-score 2.24) combiné à un vide médiatique total (Google Actualités). Absence de hype publique mais euphorie onchain excessive : signal classique de 'bull trap' orchestré par une distribution silencieuse des baleines.\"\n}\n```",
-      "ts": "2026-10-05T04:07:01.812891+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": 2.676464035511601,
-      "value": 7716683667.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique non pertinent (bande dessinée, électroménager, caravanes et actualité ADA sans rapport avec le volume onchain massif détecté). Absence de signal de baleine crypto exploitable.\"\n}\n```",
-      "ts": "2026-10-05T04:17:04.739043+00:00"
-    },
-    {
-      "metric": "long_short",
-      "zscore": -2.4831538135132964,
-      "value": 0.912,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Z-score extrêmement bas (-2.48) indiquant une survente massive des positions 'long' par la foule, tandis que les médias grand public banalisent les stratégies long/short traditionnelles. Divergence classique de capitulation : accumulation silencieuse des baleines contre le consensus.\"\n}\n```",
-      "ts": "2026-10-05T04:17:06.169024+00:00"
-    },
-    {
-      "metric": "whale_usd",
-      "zscore": 3.7973777860698537,
-      "value": 5709668.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Activité anormale des baleines (z-score 3.80, ~5.7M USD) totalement ignorée par les médias (silence radio sur Google Actualités). Accumulation furtive hors radar médiatique.\"\n}\n```",
-      "ts": "2026-10-05T04:27:08.541768+00:00"
-    },
-    {
       "metric": "price_1h",
       "zscore": 2.5227734510953805,
       "value": 0.4433812165375972,
@@ -349,6 +321,34 @@
       "value": 1.008,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.10) sur un token à faible capitalisation ('IPT') confondue par le bruit médiatique avec des actualités locales sans lien avec la crypto (fondation IPT en Suisse, Institut Pasteur de Tunis). Aucune accumulation de baleine détectée.\"\n}\n```",
       "ts": "2026-10-06T07:06:20.794658+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 2.537761906492573,
+      "value": 3097073.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 2.54, ~3.1M USD) en absence totale de couverture médiatique (Google Actualités vide). Accumulation furtive classique des baleines loin du radar public.\"\n}\n```",
+      "ts": "2026-10-06T08:06:30.719710+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": -2.1848782525988963,
+      "value": 0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Erreur de contexte : Les données fournies concernent le SDI (Syndicat des Indépendants) et les TPE françaises, et non une cryptomonnaie ou des mouvements de baleines on-chain. Aucune analyse crypto n'est applicable.\"\n}\n```",
+      "ts": "2026-10-06T09:06:42.094544+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 2.7517387910167175,
+      "value": 0.016,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie macroéconomique (Syndicat des Indépendants) sans rapport avec la blockchain, les baleines crypto ou des données onchain.\"\n}\n```",
+      "ts": "2026-10-06T10:21:54.535746+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.8013745690156977,
+      "value": 1.187,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"L'anomalie on-chain (IPT = 1.187, z-score 2.80) est un artefact statistique ou un bruit de fond sans lien avec les actualités médiatiques. Les titres font référence à des homonymes (Fondation IPT, Institut Pasteur de Tunis, Tournoi de physique) totalement déconnectés des marchés crypto.\"\n}\n```",
+      "ts": "2026-10-06T10:21:56.406870+00:00"
     }
   ]
 }
