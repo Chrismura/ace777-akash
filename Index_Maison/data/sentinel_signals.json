@@ -1,27 +1,6 @@
 {
   "signals": [
     {
-      "metric": "volume",
-      "zscore": 2.643343428806872,
-      "value": 7361684301.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique parasité par des homonymes (bandes dessinées, cuisine, caravanes et actualités Cardano sans lien direct avec un mouvement de baleine massif). Aucune corrélation on-chain exploitable.\"\n}\n```",
-      "ts": "2026-10-05T03:46:55.334567+00:00"
-    },
-    {
-      "metric": "long_short",
-      "zscore": -2.3575846673299377,
-      "value": 0.941,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Le ratio long/short à 0.941 (z-score -2.36) indique une sous-pondération extrême des positions acheteuses par la foule et les fonds traditionnels, obnubilés par les narratifs médiatiques de prudence. Cette capitulation des shorts et le positionnement contrarien des baleines créent un déséquilibre propice à une violente correction haussière (short squeeze).\"\n}\n```",
-      "ts": "2026-10-05T03:46:57.322075+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": -2.2444384201878242,
-      "value": 0.004,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Bruit médiatique parasité par l'homonymie : les articles parlent du 'Syndicat des Indépendants (SDI)' et de 'Samsung SDI', sans aucun rapport avec des mouvements de baleines crypto ou des données on-chain.\"\n}\n```",
-      "ts": "2026-10-05T04:07:00.633461+00:00"
-    },
-    {
       "metric": "fear_greed",
       "zscore": 2.2360679774997907,
       "value": 70,
@@ -349,6 +328,27 @@
       "value": 73,
       "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Indice de peur et de cupidité à 73 (z-score 2.06) signale une euphorie extrême des particuliers. En l'absence de narratif médiatique dominant (silence radio des médias grand public), cette surchauffe suggère une accumulation de positions à effet de levier par les acteurs avertis, prélude classique à une chasse aux liquidités (washout) orchestrée par les baleines.\"\n}\n```",
       "ts": "2026-10-06T04:40:28.859174+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 3.2453911931218853,
+      "value": 3930683.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 3.25, volume ~3.9M USD) en absence totale de couverture médiatique (Google Actualités vide). Accumulation furtive classique de baleines loin du radar grand public.\"\n}\n```",
+      "ts": "2026-10-06T05:36:03.209233+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 3.16888680029219,
+      "value": 3767621.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 3.17, ~3.76M USD) en totale absence de couverture médiatique (silence radio sur Google Actualités). C'accumulation furtive typique des baleines loin du radar du retail.\"\n}\n```",
+      "ts": "2026-10-06T06:16:10.251161+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.1005373363565845,
+      "value": 1.008,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.10) sur un token à faible capitalisation ('IPT') confondue par le bruit médiatique avec des actualités locales sans lien avec la crypto (fondation IPT en Suisse, Institut Pasteur de Tunis). Aucune accumulation de baleine détectée.\"\n}\n```",
+      "ts": "2026-10-06T07:06:20.794658+00:00"
     }
   ]
 }
