@@ -1,78 +1,136 @@
 {
-  "ts": "2026-10-05T21:07:07.721763+00:00",
-  "statut": "ALERTE",
-  "age_rapport_h": 40.5,
+  "ts": "2026-10-06T03:07:11.873345+00:00",
+  "statut": "FRAIS",
+  "age_rapport_h": 0.0,
   "bascules": [
     {
-      "pair": "FLUIDUSDT",
+      "pair": "BTCUSDT",
       "avant": "neutre",
-      "maintenant": "LEADER",
-      "corr_avant": 0.04,
-      "corr_maintenant": 0.171
+      "maintenant": "POMPE_PIEGE",
+      "corr_avant": -0.118,
+      "corr_maintenant": -0.749
+    },
+    {
+      "pair": "CCUSDT",
+      "avant": "POMPE_PIEGE",
+      "maintenant": "neutre",
+      "corr_avant": -0.205,
+      "corr_maintenant": -0.048
+    },
+    {
+      "pair": "ETHUSDT",
+      "avant": "neutre",
+      "maintenant": "POMPE_PIEGE",
+      "corr_avant": -0.14,
+      "corr_maintenant": -0.636
+    },
+    {
+      "pair": "HBARUSDT",
+      "avant": "neutre",
+      "maintenant": "POMPE_PIEGE",
+      "corr_avant": -0.075,
+      "corr_maintenant": -0.467
     },
     {
       "pair": "IOTAUSDT",
+      "avant": "POMPE_PIEGE",
+      "maintenant": "neutre",
+      "corr_avant": -0.19,
+      "corr_maintenant": -0.115
+    },
+    {
+      "pair": "MNSRYUSDT",
+      "avant": "POMPE_PIEGE",
+      "maintenant": "neutre",
+      "corr_avant": -0.263,
+      "corr_maintenant": -0.007
+    },
+    {
+      "pair": "PYTHUSDT",
       "avant": "neutre",
       "maintenant": "POMPE_PIEGE",
-      "corr_avant": 0.0,
-      "corr_maintenant": -0.19
+      "corr_avant": -0.007,
+      "corr_maintenant": -0.162
+    },
+    {
+      "pair": "QNTUSDT",
+      "avant": "POMPE_PIEGE",
+      "maintenant": "neutre",
+      "corr_avant": -0.365,
+      "corr_maintenant": -0.09
     },
     {
       "pair": "RWAINCUSDT",
-      "avant": "LEADER",
-      "maintenant": "neutre",
-      "corr_avant": 0.288,
-      "corr_maintenant": 0.062
+      "avant": "neutre",
+      "maintenant": "POMPE_PIEGE",
+      "corr_avant": 0.062,
+      "corr_maintenant": -0.22
+    },
+    {
+      "pair": "TELUSDT",
+      "avant": "neutre",
+      "maintenant": "POMPE_PIEGE",
+      "corr_avant": -0.0,
+      "corr_maintenant": -0.602
     },
     {
       "pair": "WAXLUSDT",
+      "avant": "LEADER",
+      "maintenant": "neutre",
+      "corr_avant": 0.417,
+      "corr_maintenant": 0.147
+    },
+    {
+      "pair": "XRPUSDT",
       "avant": "neutre",
-      "maintenant": "LEADER",
-      "corr_avant": 0.0,
-      "corr_maintenant": 0.417
+      "maintenant": "POMPE_PIEGE",
+      "corr_avant": -0.131,
+      "corr_maintenant": -0.705
     }
   ],
   "principe": "RIEN N'EST STATIQUE — signal suivi tant que les chiffres le confirment, abandonné dès inversion",
-  "message": "⚠️ LE PATTERN DIVERGENCE N'EST PLUS SUIVI depuis 40h — relancer la confrontation (voir docs/PROTOCOLE_DIVERGENCE_20260829.md)",
+  "message": "🟢 Pattern divergence suivi et à jour.",
   "leaders": [
-    "FLUIDUSDT",
-    "WAXLUSDT"
+    "FLUIDUSDT"
   ],
   "pompes_pieges": [
-    "CCUSDT",
-    "IOTAUSDT",
+    "BTCUSDT",
+    "ETHUSDT",
+    "HBARUSDT",
     "KITEUSDT",
-    "MNSRYUSDT",
-    "QNTUSDT",
+    "PYTHUSDT",
     "REDUSDT",
     "RIZEUSDT",
+    "RWAINCUSDT",
     "RWAUSDT",
-    "WUSDT"
+    "TELUSDT",
+    "WUSDT",
+    "XRPUSDT"
   ],
   "stabilite": {
     "BIOUSDT": 0,
-    "BTCUSDT": 0,
-    "CCUSDT": 22,
+    "BTCUSDT": 1,
+    "CCUSDT": 0,
     "CHIPUSDT": 0,
     "EDELUSDT": 0,
-    "ETHUSDT": 0,
-    "FLUIDUSDT": 1,
-    "HBARUSDT": 0,
-    "IOTAUSDT": 1,
-    "KITEUSDT": 19,
+    "ETHUSDT": 1,
+    "FLUIDUSDT": 2,
+    "HBARUSDT": 1,
+    "IOTAUSDT": 0,
+    "KITEUSDT": 20,
     "LAUSDT": 0,
-    "MNSRYUSDT": 9,
-    "PYTHUSDT": 0,
-    "QNTUSDT": 27,
-    "REDUSDT": 4,
-    "RIZEUSDT": 5,
-    "RWAINCUSDT": 0,
-    "RWAUSDT": 3,
-    "TELUSDT": 0,
-    "WAXLUSDT": 1,
-    "WUSDT": 15,
-    "XRPUSDT": 0,
+    "MNSRYUSDT": 0,
+    "PYTHUSDT": 1,
+    "QNTUSDT": 0,
+    "REDUSDT": 5,
+    "RIZEUSDT": 6,
+    "RWAINCUSDT": 1,
+    "RWAUSDT": 4,
+    "TELUSDT": 1,
+    "WAXLUSDT": 0,
+    "WUSDT": 16,
+    "XRPUSDT": 1,
     "ZBCNUSDT": 0
   },
-  "recommande": "CONFRONTER AVEC CORTANA/FAMILLE"
+  "recommande": "OBSERVER"
 }
