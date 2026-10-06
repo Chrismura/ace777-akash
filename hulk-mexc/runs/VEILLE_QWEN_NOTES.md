@@ -6436,3 +6436,11 @@ Pas d’ordre — confrontation plus tard.
 ### 2026-10-06T04:10:09Z — ALERT auto
 - FLUIDUSDT: WATCH_PULLBACK — tension haute + reflux
 (compléter: confirmé ? risque ?)
+
+### 2026-10-06T04:42:27Z — ALERT auto
+- RIZEUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
+
+### 2026-10-06T05:01:02Z — ALERT auto
+- EDELUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)

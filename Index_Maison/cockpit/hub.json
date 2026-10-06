@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-06T04:40:19.434468+00:00",
+  "generated_at": "2026-10-06T05:24:49.986799+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 103
+      "calls_24h": 102
     },
     {
       "id": "openrouter-free",
@@ -274,10 +274,34 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 20,
-    "remaining": 604
+    "consumed": 23,
+    "remaining": 601
   },
   "queue": [
+    {
+      "ts": "2026-10-06T05:24:33.439596+00:00",
+      "task": "supervise.decision",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 1.2
+    },
+    {
+      "ts": "2026-10-06T05:17:07.938223+00:00",
+      "task": "supervise.decision",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 1.08
+    },
+    {
+      "ts": "2026-10-06T04:40:28.858179+00:00",
+      "task": "analyse.profonde",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 1.19
+    },
     {
       "ts": "2026-10-06T04:24:31.976859+00:00",
       "task": "supervise.decision",
@@ -373,92 +397,68 @@
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
       "duration_s": 1.31
-    },
-    {
-      "ts": "2026-10-06T01:39:49.205923+00:00",
-      "task": "analyse.profonde",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 1.11
-    },
-    {
-      "ts": "2026-10-06T01:19:52.802887+00:00",
-      "task": "supervise.decision",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 0.91
-    },
-    {
-      "ts": "2026-10-06T01:16:53.189980+00:00",
-      "task": "supervise.decision",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 0.98
     }
   ],
   "events": [
     {
-      "ts": "2026-10-06T04:34:21.090670+00:00",
+      "ts": "2026-10-06T05:24:33.439084+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
+    {
+      "ts": "2026-10-06T05:24:32.238114+00:00",
+      "kind": "blacklist",
+      "title": "Fin de pause Google Gemini",
+      "detail": "re-essai automatique"
+    },
+    {
+      "ts": "2026-10-06T05:22:02.003508+00:00",
       "kind": "http",
       "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
       "detail": ""
     },
     {
-      "ts": "2026-10-06T04:34:21.090199+00:00",
+      "ts": "2026-10-06T05:22:02.003115+00:00",
       "kind": "error",
       "title": "Toutes les IA ont echoue",
       "detail": "Google Gemini: HTTP Error 429: Too Many Requests | OrcaRouter (routeur gratuit, modele orcarouter/free): HTTP Error 400: Bad Request | InferX DeepSeek V4 Flash (API gratuite jusqu'au 12/08): HTTP Error 429: Too Many Requests | InferX Qwen3-Coder-Next (code, gratuit jusqu'au 12/08): HTTP Error 429: Too Many Requests | Puter Grok (gratuit): HTTP Error 402: Payment Required | NVIDIA DeepSeek-Coder 6.7B (code, via NIM): HTTP Error 404: Not Found | InferX Devstral-2-123B (code): HTTP Error 429: Too M"
     },
     {
-      "ts": "2026-10-06T04:34:21.087804+00:00",
+      "ts": "2026-10-06T05:22:01.999552+00:00",
       "kind": "failover",
       "title": "Bascule depuis InferX Devstral-2-123B (code)",
       "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-10-06T04:34:16.587918+00:00",
+      "ts": "2026-10-06T05:21:57.465491+00:00",
       "kind": "failover",
       "title": "Bascule depuis NVIDIA DeepSeek-Coder 6.7B (code, via NIM)",
       "detail": "HTTP Error 404: Not Found"
     },
     {
-      "ts": "2026-10-06T04:34:14.127791+00:00",
+      "ts": "2026-10-06T05:21:55.006551+00:00",
       "kind": "failover",
       "title": "Bascule depuis Puter Grok (gratuit)",
       "detail": "HTTP Error 402: Payment Required"
     },
     {
-      "ts": "2026-10-06T04:34:13.175664+00:00",
+      "ts": "2026-10-06T05:21:54.157548+00:00",
       "kind": "failover",
       "title": "Bascule depuis InferX Qwen3-Coder-Next (code, gratuit jusqu'au 12/08)",
       "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-10-06T04:34:08.513724+00:00",
+      "ts": "2026-10-06T05:21:49.247174+00:00",
       "kind": "failover",
       "title": "Bascule depuis InferX DeepSeek V4 Flash (API gratuite jusqu'au 12/08)",
       "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-10-06T04:34:03.583965+00:00",
+      "ts": "2026-10-06T05:21:43.381329+00:00",
       "kind": "failover",
       "title": "Bascule depuis OrcaRouter (routeur gratuit, modele orcarouter/free)",
       "detail": "HTTP Error 400: Bad Request"
-    },
-    {
-      "ts": "2026-10-06T04:34:01.738186+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis Google Gemini",
-      "detail": "HTTP Error 429: Too Many Requests"
-    },
-    {
-      "ts": "2026-10-06T04:34:01.737737+00:00",
-      "kind": "ratelimit",
-      "title": "429 Google Gemini -> pause 60s + bascule",
-      "detail": ""
     }
   ],
   "tasks_quotas": {

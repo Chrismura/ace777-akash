@@ -1,14 +1,14 @@
-# Kelly ombre — 2026-10-05 08:48:39
+# Kelly ombre — 2026-10-06 07:15:21
 
-- **win_rate** : 53.47% (154/288 wins)
-- **n** : 288 trades clos
-- **avg_win** : 0.9032$
-- **avg_loss** : 0.7062$
-- **b** : 1.2789
-- **kelly_plein** : 0.1709
+- **win_rate** : 54.24% (160/295 wins)
+- **n** : 295 trades clos
+- **avg_win** : 0.9286$
+- **avg_loss** : 0.7056$
+- **b** : 1.3160
+- **kelly_plein** : 0.1946
 - **kelly_1_4** : 0.0200
 - **mise_recommandee** : 0.4$ (sur capital de 20.0$)
-- **justesse_cortana** : 32.7%
+- **justesse_cortana** : 34.2%
 - **motif** : Kelly valide en mode ombre — plafonné à 2% max
 
 ## AVIS
