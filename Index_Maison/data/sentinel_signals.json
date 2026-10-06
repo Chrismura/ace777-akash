@@ -2,13 +2,6 @@
   "signals": [
     {
       "metric": "volume",
-      "zscore": 2.3589192063307207,
-      "value": 10241337703.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique parasité par des sujets hors-crypto (caravanes, BD, IA) et absence de corrélation onchain exploitable malgré un z-score élevé.\"\n}\n```",
-      "ts": "2026-10-05T09:21:07.705495+00:00"
-    },
-    {
-      "metric": "volume",
       "zscore": 2.314489636739795,
       "value": 10557530258.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Anomalie de volume on-chain détectée (Z-score 2.31), mais le bruit médiatique est totalement parasité par des sujets sans rapport (caravanes, IA, bandes dessinées). Aucune convergence narrative claire pour valider un mouvement de baleine unifié.\"\n}\n```",
@@ -349,6 +342,13 @@
       "value": 1.06,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique non pertinent (divergence artificielle due à l'homonymie de l'actif IPT avec des actualités locales, sanitaires et académiques sans lien avec la crypto).\"\n}\n```",
       "ts": "2026-10-06T18:34:17.991842+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 4.095927949421859,
+      "value": 4297405.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain majeure (z-score 4.10) sans aucune couverture médiatique correspondante, indiquant une accumulation silencieuse des baleines loin du radar public.\"\n}\n```",
+      "ts": "2026-10-06T20:59:42.975932+00:00"
     }
   ]
 }
