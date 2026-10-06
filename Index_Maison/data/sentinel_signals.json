@@ -2,34 +2,6 @@
   "signals": [
     {
       "metric": "long_short",
-      "zscore": -2.777256458825879,
-      "value": 0.962,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Le ratio long/short s'effondre (z-score -2.78, extrêmes bas) indiquant un positionnement massivement short des traders de détail, tandis que les médias grand public font la promotion générale des stratégies long/short. Classique piège à shorts : les 'smart money' s'apprêtent à contrer la foule par un short squeeze violent.\"\n}\n```",
-      "ts": "2026-10-05T02:16:17.013248+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": -2.729484319201157,
-      "value": 0.004,
-      "analysis": "{\"signal\": \"bullish\", \"confidence\": 72, \"reason\": \"Le z-score de -2.73 sur le SDI indique une anomalie statistique forte, suggérant un mouvement de baleines à contre-courant (accumulation discrète). Les titres médiatiques concernent des entités homonymes (syndicat, Samsung SDI), sans lien avec l'indicateur onchain : le narratif dominant est donc déconnecté de la réalité blockchain.\"}",
-      "ts": "2026-10-05T02:36:24.578795+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": 2.881801102562106,
-      "value": 70,
-      "analysis": "{\"signal\": \"bearish\", \"confidence\": 65, \"reason\": \"Le Fear & Greed à 70 (z-score 2.88) signale une euphorie extrême, souvent un indicateur contrarien. L'absence de narratif médiatique explicite crée une divergence : les baleines pourraient distribuer silencieusement pendant que le marché est complaisant, risquant un retournement.\"}",
-      "ts": "2026-10-05T02:36:29.819081+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": 2.948446856513125,
-      "value": 7069752221.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Bruit médiatique non pertinent (bande dessinée, électroménager, caravanes, glaciers). Absence de signal crypto exploitable.\"\n}\n```",
-      "ts": "2026-10-05T02:46:32.419828+00:00"
-    },
-    {
-      "metric": "long_short",
       "zscore": -2.527121502488577,
       "value": 0.962,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Le z-score extrêmement bas (-2.53) indique une sous-pondération massive des positions longues par la foule/retail, tandis que les médias grand public font la promotion générale des stratégies long-short traditionnelles. Cette capitulation des longs et le positionnement excessivement short créent un déséquilibre onchain classique, propice à un 'short squeeze' imminent orchestré par les baleines.\"\n}\n```",
@@ -349,6 +321,34 @@
       "value": 1.121,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.71) détectée sur le ticker 'ipt', mais le bruit médiatique correspond à des homonymes non-crypto (fondation locale, campagne contre la rage). Aucune baleine détectée ; bruit de fond non pertinent.\"\n}\n```",
       "ts": "2026-10-05T22:33:54.896124+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.1630937273056206,
+      "value": 1.014,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique (ipt z-score 2.16) sans lien avec les bruits médiatiques locaux ou macroéconomiques. Bruit statistique pur.\"\n}\n```",
+      "ts": "2026-10-05T23:34:05.736707+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 2.642053608223685,
+      "value": 73,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Indice de peur et de cupidité à 73 (z-score 2.64) indique une euphorie retail extrême, tandis que le vide médiatique (absence de grands titres Google Actualités) suggère une distribution silencieuse des baleines hors des feux de la rampe.\"\n}\n```",
+      "ts": "2026-10-06T00:09:31.958800+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 2.740115426649437,
+      "value": 73,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Euphorie extrême (Fear & Greed à 73, Z-Score 2.74) combinée à un vide médiatique total suggère une manipulation de marché par les baleines pour distribuer leurs liquidités aux investisseurs de détail avant un retournement.\"\n}\n```",
+      "ts": "2026-10-06T00:39:37.039568+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 2.965869922267939,
+      "value": 73,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrême (2.97) avec un Fear & Greed à 73 (euphorie de détail) combiné à un vide médiatique total ('Google Actualités' sans relais) : classique piège à liquidité. Les baleines profitent de la complaisance du retail pour distribuer en silence.\"\n}\n```",
+      "ts": "2026-10-06T01:09:43.075977+00:00"
     }
   ]
 }

@@ -1,36 +1,26 @@
 {
-  "timestamp": 1791239791,
-  "date": "2026-10-05T22:36:31.705536+00:00",
+  "timestamp": 1791250595,
+  "date": "2026-10-06T01:36:35.009801+00:00",
   "n_analyses": 1,
   "analyses": [
     {
       "signal": {
-        "metric": "ipt",
-        "zscore": 2.7092003865137864,
-        "value": 1.121,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.71) détectée sur le ticker 'ipt', mais le bruit médiatique correspond à des homonymes non-crypto (fondation locale, campagne contre la rage). Aucune baleine détectée ; bruit de fond non pertinent.\"\n}\n```",
-        "ts": 1791239634.896124
+        "metric": "fear_greed",
+        "zscore": 2.965869922267939,
+        "value": 73,
+        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrême (2.97) avec un Fear & Greed à 73 (euphorie de détail) combiné à un vide médiatique total ('Google Actualités' sans relais) : classique piège à liquidité. Les baleines profitent de la complaisance du retail pour distribuer en silence.\"\n}\n```",
+        "ts": 1791248983.075977
       },
-      "fiche": "rbf_eleve",
+      "fiche": "fear_greed",
       "questions": {
-        "prix": {
-          "value": -0.0,
-          "seuil": 1,
-          "depasse": false
+        "peur": {
+          "value": 73,
+          "seuil": 25,
+          "depasse": true
         },
-        "paires": {
-          "value": 0,
-          "seuil": 3,
-          "depasse": false
-        },
-        "funding": {
-          "value": -1.4e-05,
-          "seuil": 0.001,
-          "depasse": false
-        },
-        "whales": {
-          "value": 0,
-          "seuil": 5,
+        "cupidite": {
+          "value": 73,
+          "seuil": 75,
           "depasse": false
         }
       },
