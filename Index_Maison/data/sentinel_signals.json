@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "price_1h",
-      "zscore": 2.5227734510953805,
-      "value": 0.4433812165375972,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de prix positive (z-score 2.52) totalement ignorée par les médias (silence radio de Google Actualités). C'accumulation furtive typique des baleines avant le réveil du narratif public.\"\n}\n```",
-      "ts": "2026-10-05T04:32:11.172227+00:00"
-    },
-    {
-      "metric": "liquidations",
-      "zscore": 2.073282511138072,
-      "value": 7919154.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Divergence massive : les médias généralistes parlent de liquidations judiciaires locales et de faillites d'entreprises, masquant la réalité on-chain où le marché crypto subit une purge des positions vendeuses (short squeeze) avec un Bitcoin à 87 000 $. Accumulation silencieuse des baleines pendant que le bruit médiatique s'égare.\"\n}\n```",
-      "ts": "2026-10-05T04:37:13.329751+00:00"
-    },
-    {
       "metric": "sdi",
       "zscore": -2.088787087804471,
       "value": 0.004,
@@ -349,6 +335,20 @@
       "value": 1.187,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"L'anomalie on-chain (IPT = 1.187, z-score 2.80) est un artefact statistique ou un bruit de fond sans lien avec les actualités médiatiques. Les titres font référence à des homonymes (Fondation IPT, Institut Pasteur de Tunis, Tournoi de physique) totalement déconnectés des marchés crypto.\"\n}\n```",
       "ts": "2026-10-06T10:21:56.406870+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 2.575435881102253,
+      "value": 0.016,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Erreur de contexte : le signal 'SDI' mentionné ici correspond au Syndicat des Indépendants et TPE ou à Samsung SDI, et non à une métrique de baleine crypto ou on-chain. Aucune donnée blockchain pertinente à analyser.\"\n}\n```",
+      "ts": "2026-10-06T11:57:13.945217+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 5.855783127735551,
+      "value": 6409657.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (z-score 5.86) pour 6.4M$ sans aucune couverture médiatique (silence radio sur Google Actualités). Accumulation furtive classique de baleines loin du radar grand public.\"\n}\n```",
+      "ts": "2026-10-06T12:17:33.533146+00:00"
     }
   ]
 }
