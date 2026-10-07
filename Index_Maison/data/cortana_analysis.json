@@ -1,90 +1,26 @@
 {
-  "timestamp": 1791358633,
-  "date": "2026-10-07T07:37:13.698483+00:00",
-  "n_analyses": 3,
+  "timestamp": 1791367636,
+  "date": "2026-10-07T10:07:16.385054+00:00",
+  "n_analyses": 1,
   "analyses": [
     {
       "signal": {
-        "metric": "liquidations",
-        "zscore": 2.076855806843177,
-        "value": 3660573.0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Divergence massive : les médias généralistes et d'autres secteurs font diversion avec des liquidations traditionnelles ou mineures, tandis que les données onchain montrent un z-score élevé (2.08) et une domination des shorts liquidés ($120M+) alors que BTC touche 87 000 $. Accumulation silencieuse des baleines.\"\n}\n```",
-        "ts": 1791358613.901245
-      },
-      "fiche": "liquidations",
-      "questions": {
-        "longs": {
-          "value": 3560172.0,
-          "seuil": 0,
-          "depasse": true
-        },
-        "shorts": {
-          "value": 100400.0,
-          "seuil": 0,
-          "depasse": true
-        },
-        "prix": {
-          "value": 0.25,
-          "seuil": 1,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "longs > shorts",
-        "lecture": "Liquidations massives de LONGS — cascade baissière mécanique. Historiquement suit un creux proche quand le volume liq retombe (HYPOTHÈSE, pas une loi : une cascade peut en cacher une autre)",
-        "niveau": "surveiller",
-        "action": "Ne pas vendre dans la cascade ; préparer les paliers plancher si la paire est sur watchlist"
-      },
-      "action": "Ne pas vendre dans la cascade ; préparer les paliers plancher si la paire est sur watchlist",
-      "niveau": "surveiller"
-    },
-    {
-      "signal": {
         "metric": "long_short",
-        "zscore": 4.4149918109459625,
-        "value": 1.305,
-        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Z-score extrêmement élevé (4.41) sur le ratio long/short (1.305), indiquant un posicionnement acheteur excessivement surpeuplé par la foule. Le narratif médiatique fait l'apologie des stratégies long/short traditionnelles, masquant une euphorie spéculative retail imminente. Divergence classique de piège à liquidité : les baleines distribuent discrètement pendant que la foule s'empile en 'long'.\"\n}\n```",
-        "ts": 1791358616.401078
+        "zscore": 2.8201835751936035,
+        "value": 1.393,
+        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Le ratio long/short atteint un z-score élevé de 2.82 (1.393), indiquant un positionnement acheteur excessivement surpeuplé par la foule. Pendant ce temps, le narratif médiatique grand public s'emballe sur les stratégies 'long-short' traditionnelles. Divergence classique de piège à liquidité : les baleines se positionnent généralement pour contrer un consensus aussi unanime.\"\n}\n```",
+        "ts": 1791365851.552349
       },
       "fiche": "long_short",
       "questions": {
         "ratio_long_short": {
-          "value": 1.305,
+          "value": 1.418,
           "seuil": 2,
           "depasse": false
         },
         "oi": {
-          "value": 96467.621,
+          "value": 97105.196,
           "seuil": 120000,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
-      },
-      "action": "Observer",
-      "niveau": "neutre"
-    },
-    {
-      "signal": {
-        "metric": "fear_greed",
-        "zscore": -2.6457513110645903,
-        "value": 71,
-        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Le score z négatif extrême (-2.65) pour un indice de Fear & Greed à 71 (avidité élevée) révèle une anomalie statistique : le marché est complaisant alors que la liquidité réelle se contracte. Les gros porteurs profitent de cette euphorie médiatique creuse pour distribuer leurs actifs en silence avant un retournement.\"\n}\n```",
-        "ts": 1791358618.301872
-      },
-      "fiche": "fear_greed",
-      "questions": {
-        "peur": {
-          "value": 71,
-          "seuil": 25,
-          "depasse": true
-        },
-        "cupidite": {
-          "value": 71,
-          "seuil": 75,
           "depasse": false
         }
       },
@@ -97,5 +33,5 @@
       "niveau": "neutre"
     }
   ],
-  "resume": "🟡 SURVEILLANCE — des signaux sont à observer"
+  "resume": "🔵 CALME — pas de signal alarmant"
 }
