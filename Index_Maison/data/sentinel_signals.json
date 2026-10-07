@@ -1,41 +1,6 @@
 {
   "signals": [
     {
-      "metric": "whale_usd",
-      "zscore": 4.095927949421859,
-      "value": 4297405.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain majeure (z-score 4.10) sans aucune couverture médiatique correspondante, indiquant une accumulation silencieuse des baleines loin du radar public.\"\n}\n```",
-      "ts": "2026-10-06T20:59:42.975932+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": -3.279007029889968,
-      "value": 71,
-      "analysis": "{\n  \"signal\": \"bearish\",\n  \"confidence\": 80,\n  \"reason\": \"Fort sentiment de greed (71) suggère un narratif médiatique optimiste, mais le z-score de -3.28 sur les données onchain indique une activité des baleines très en dessous de la moyenne. Cette divergence signale que le mouvement haussier n'est pas soutenu par l'accumulation des grands détenteurs, possible signe de distribution silencieuse ou d'absence de conviction. Narratif déconnecté de la réalité onchain.\"\n}",
-      "ts": "2026-10-07T00:10:24.132830+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": -3.9679605416846973,
-      "value": 71,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie statistique majeure (z-score -3.97) sur un indice de cupidité à 71 alors que les flux médiatiques sont absents (Google Actualités vide). Divergence classique de piège à hausses : l'euphorie retail persiste sans couverture médiatique ni soutien onchain des baleines.\"\n}\n```",
-      "ts": "2026-10-07T00:40:41.947711+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": -4.7958315233127315,
-      "value": 71,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 92,\n  \"reason\": \"Anomalie statistique extrême (Z-score -4.80) malgré une cupidité élevée (71) couplée à un vide médiatique total. Divergence classique de distribution silencieuse par les baleines.\"\n}\n```",
-      "ts": "2026-10-07T01:10:54.521859+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": -3.8729833462074166,
-      "value": 71,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement négatif (-3.87) malgré une cupidité élevée (71) et un vide médiatique total : les baleines distribuent silencieusement en profitant d'un optimisme de détail non relayé.\"\n}\n```",
-      "ts": "2026-10-07T01:41:00.837386+00:00"
-    },
-    {
       "metric": "price_1h",
       "zscore": 2.885502155371415,
       "value": 0.4739454414756539,
@@ -349,6 +314,41 @@
       "value": 0.532890061311253,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie positive des prix (z-score 2.54) totalement ignorée par les médias (silence radio de Google Actualités). C'accumulation furtive typique des baleines avant un déversement narratif.\"\n}\n```",
       "ts": "2026-10-07T15:59:46.197307+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": 2.264656667355173,
+      "value": 1.669,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Le ratio long/short atteint un z-score élevé de 2.26 (1.669), signalant un optimisme excessif des investisseurs particuliers relayé par les médias généralistes. Historiquement, un déséquilibre aussi prononcé des positions acheteuses précède souvent un mouvement de purge (long squeeze) orchestré par les baleines.\"\n}\n```",
+      "ts": "2026-10-07T16:09:49.477976+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": 2.1068791678001633,
+      "value": 1.669,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.11) sur le ratio long/short (1.669) indiquant une surconcentration excessive des positions acheteuses par les traders particuliers, contrastant avec un narratif médiatique généraliste sur les fonds long/short qui masque une vulnérabilité imminente à une purge par les baleines.\"\n}\n```",
+      "ts": "2026-10-07T16:39:57.006626+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 2.950820994548998,
+      "value": 0.016,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie macroéconomique/traditionnelle (SDI - Syndicat des Indépendants) sans rapport avec la blockchain ou les flux de baleines crypto. Confusion de narratif.\"\n}\n```",
+      "ts": "2026-10-07T17:40:06.603128+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.6541747150900177,
+      "value": 1.095,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.65) sur un token à faible capitalisation ('ipt') noyé dans un vacarme médiatique hétérogène (physique, géopolitique, actualité locale). Bruit de fond, pas de mouvement baleine significatif lié à une thèse macroéconomique cohérente.\"\n}\n```",
+      "ts": "2026-10-07T17:40:08.478226+00:00"
+    },
+    {
+      "metric": "taker_ratio",
+      "zscore": 2.9107233618915624,
+      "value": 1.459,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Taker ratio à 1.459 (Z-score 2.91) indique une agression massive des acheteurs (Taker Buy dominant) totalement ignorée par le silence médiatique. Accumulation furtive des baleines sous le radar du public.\"\n}\n```",
+      "ts": "2026-10-07T19:10:27.582941+00:00"
     }
   ]
 }
