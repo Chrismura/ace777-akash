@@ -1,5 +1,5 @@
 {
-  "timestamp": 1791340747,
+  "timestamp": 1791358676,
   "sdi": {
     "sdi": 0.008,
     "divergence_score": 0,
@@ -10,18 +10,24 @@
     "fee_fastest_sat": 2
   },
   "ipt": {
-    "ipt": 0.61,
-    "micro_tx_ratio": 0.5,
+    "ipt": 0.834,
+    "micro_tx_ratio": 0.8,
     "z_fee": 1.0,
-    "entropy": 0.368
+    "entropy": 0.713
   },
   "rbf": {
-    "rbf_score": 0.0,
-    "rbf_ratio": 0.0,
-    "rbf_pairs": 0,
-    "n_txs": 6,
+    "rbf_score": 0.2,
+    "rbf_ratio": 0.2,
+    "rbf_pairs": 1,
+    "n_txs": 5,
     "rbf_method": "outspends-double-depense",
-    "rbf_detail": []
+    "rbf_detail": [
+      {
+        "tx": "bb3e40d1a09860cf",
+        "remplacee_par": "5c96460c4467b649",
+        "input": "190eccf7d4b8aa69:0"
+      }
+    ]
   },
   "fee_pressure": {
     "fastest": 2,
@@ -30,23 +36,25 @@
     "economy": 1,
     "source": "mempool.space"
   },
-  "alerts": [],
+  "alerts": [
+    "IPT ÉLEVÉ: un seul acteur automatisé détecté"
+  ],
   "sapi": {
-    "score": 0.379,
+    "score": 0.2,
     "alerte": false,
     "persistance": false,
     "scores_recents": [
-      0.336,
-      0.547,
-      0.379
+      0.589,
+      0.589,
+      0.2
     ],
     "composantes": {
       "z_fee": 1.0,
-      "taux_fantome": 16.684,
-      "micro_tx_ratio": 0.5,
+      "taux_fantome": 0.0,
+      "micro_tx_ratio": 0.8,
       "spot_proxy": 0.0,
-      "coef_heure_creuse": 0.35,
-      "entropie_tempo": 0.793
+      "coef_heure_creuse": 1.0,
+      "entropie_tempo": 0.688
     },
     "note": "Score d'Alerte Poussière Institutionnelle (Cortana tour 1, validé 29/08 — corr RBF plat −0.275). Proxy carnet spot = spread_avg_bps normalisé σ1h (FIX famille). FIX 4 : proxy réduit ×0.35 en heures creuses UTC (02-06) + bonus entropie temporelle (rythme robotique du carnet) si base fantôme. Alerte = persistance 3 ticks ≥ 0.75 + volume ≥ 500 BTC."
   }

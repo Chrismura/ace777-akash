@@ -1,4 +1,4 @@
-# Hulk DIGEST — 2026-10-07T02:41:01Z
+# Hulk DIGEST — 2026-10-07T07:39:11Z
 
 - **Piste :** VEILLE (séparée du paper Hulk)
 - Source trading : **MEXC spot**
@@ -12,26 +12,26 @@
 
 | pair | hint | tension | move6% | dd6% | chg24% | vol USDT | spread bps | DefiLlama |
 |------|------|---------|--------|------|--------|----------|------------|-----------|
-| QNTUSDT | WATCH_PULLBACK — tension haute + reflux | 3.65 | 6.52 | 5.15 | -0.04 | 2365635.82 | 9.77 | skipped_fast |
-| ETHUSDT | IDLE | 2.35 | 4.24 | 3.06 | -0.03 | 387023649.89 | 0.57 | skipped_fast |
-| XRPUSDT | IDLE | 2.17 | 3.92 | 2.85 | -0.03 | 37255056.98 | 1.37 | skipped_fast |
-| BTCUSDT | IDLE | 1.36 | 2.42 | 2.05 | -0.02 | 582208999.66 | 0.0 | skipped_fast |
-| PYTHUSDT | WATCH_PULLBACK — tension haute + reflux | 3.14 | 9.87 | 6.6 | -0.06 | 1026064.72 | 2.74 | skipped_fast |
-| EDELUSDT | WATCH_PULLBACK — tension haute + reflux | 3.05 | 18.99 | 9.78 | -0.14 | 501108.97 | 68.29 | skipped_fast |
-| BIOUSDT | WATCH_PULLBACK — tension haute + reflux | 4.01 | 15.45 | 9.58 | -0.07 | 89204.2 | 6.88 | skipped_fast |
-| CCUSDT | IDLE | 3.17 | 5.78 | 3.74 | -0.04 | 436200.88 | 6.51 | skipped_fast |
-| WUSDT | IDLE | 2.99 | 5.7 | 1.9 | 0.03 | 465640.81 | 15.84 | skipped_fast |
-| CHIPUSDT | WATCH_PULLBACK — tension haute + reflux | 3.55 | 7.56 | 5.74 | -0.03 | 199308.56 | 15.4 | skipped_fast |
-| HBARUSDT | IDLE | 3.0 | 5.38 | 4.16 | -0.05 | 509121.0 | 8.33 | skipped_fast |
-| TELUSDT | WATCH_PULLBACK — tension haute + reflux | 3.73 | 16.23 | 5.61 | 0.09 | 188248.16 | 43.51 | skipped_fast |
-| REDUSDT | WATCH_PULLBACK — tension haute + reflux | 3.04 | 6.17 | 5.33 | -0.08 | 61678.19 | 15.55 | skipped_fast |
-| ZBCNUSDT | IDLE | 2.42 | 4.26 | 3.91 | -0.02 | 203793.6 | 14.36 | skipped_fast |
-| KITEUSDT | IDLE | 2.28 | 4.29 | 1.78 | -0.0 | 58336.75 | 10.02 | skipped_fast |
-| RWAINCUSDT | IDLE | 2.48 | 6.92 | 1.49 | -0.03 | 32929.96 | 82.23 | skipped_fast |
-| RIZEUSDT | IDLE | 0.88 | 8.39 | 3.8 | 0.2 | 86723.93 | 53.99 | skipped_fast |
-| FLUIDUSDT | IDLE | 1.91 | 5.57 | 3.99 | -0.13 | 62758.2 | 20.92 | skipped_fast |
-| RWAUSDT | IDLE | 1.15 | 2.02 | 1.9 | -0.02 | 52739.76 | 7.46 | skipped_fast |
-| MNSRYUSDT | IDLE | 1.19 | 2.12 | 1.76 | -0.02 | 38094.93 | 63.68 | skipped_fast |
+| QNTUSDT | IDLE | 3.56 | 9.26 | 3.61 | 0.0 | 2683253.71 | 6.65 | skipped_fast |
+| ETHUSDT | IDLE | 1.45 | 2.68 | 1.44 | -0.03 | 469008580.12 | 0.95 | skipped_fast |
+| XRPUSDT | IDLE | 1.11 | 2.17 | 0.28 | -0.02 | 40341371.54 | 2.04 | skipped_fast |
+| BTCUSDT | IDLE | 0.57 | 1.1 | 0.28 | -0.01 | 644320042.26 | 0.0 | skipped_fast |
+| EDELUSDT | WATCH_PULLBACK — tension haute + reflux | 3.61 | 19.72 | 15.67 | -0.18 | 455917.68 | 26.85 | skipped_fast |
+| PYTHUSDT | IDLE | 1.21 | 3.95 | 1.48 | -0.07 | 1136043.73 | 2.75 | skipped_fast |
+| WUSDT | IDLE | 2.6 | 4.89 | 2.13 | 0.01 | 505239.45 | 10.46 | skipped_fast |
+| CCUSDT | IDLE | 2.24 | 4.54 | 3.84 | -0.07 | 469355.98 | 7.52 | skipped_fast |
+| ZBCNUSDT | IDLE | 2.69 | 6.31 | 1.16 | -0.01 | 229498.26 | 10.81 | skipped_fast |
+| HBARUSDT | IDLE | 1.61 | 2.92 | 1.95 | -0.04 | 733161.22 | 5.21 | skipped_fast |
+| CHIPUSDT | IDLE | 2.29 | 5.59 | 3.83 | -0.06 | 218881.7 | 11.89 | skipped_fast |
+| BIOUSDT | IDLE | 2.22 | 8.8 | 3.63 | -0.07 | 86328.96 | 3.43 | skipped_fast |
+| REDUSDT | IDLE | 2.36 | 6.45 | 4.34 | -0.09 | 62451.26 | 15.85 | skipped_fast |
+| RIZEUSDT | IDLE | 1.45 | 10.07 | 7.16 | 0.13 | 82728.18 | 21.52 | skipped_fast |
+| RWAINCUSDT | IDLE | 2.4 | 6.9 | 1.88 | -0.03 | 44890.36 | 78.57 | skipped_fast |
+| KITEUSDT | IDLE | 1.5 | 3.0 | 0.01 | 0.02 | 60224.35 | 9.28 | skipped_fast |
+| TELUSDT | IDLE | 1.4 | 5.96 | 2.67 | 0.1 | 191937.33 | 28.87 | skipped_fast |
+| FLUIDUSDT | IDLE | 1.16 | 3.45 | 2.0 | -0.06 | 54085.13 | 21.38 | skipped_fast |
+| RWAUSDT | IDLE | 0.87 | 1.57 | 1.18 | -0.02 | 51828.67 | 14.95 | skipped_fast |
+| MNSRYUSDT | IDLE | 0.57 | 1.04 | 0.72 | -0.01 | 38892.58 | 18.2 | skipped_fast |
 
 ## Consignes Qwen (manuel — ne pilote pas le paper)
 1. Résumer en 5 lignes : qui spike, qui dump, illiquide (spread/vol).

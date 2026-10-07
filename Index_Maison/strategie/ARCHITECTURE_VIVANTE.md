@@ -1,15 +1,15 @@
-# ARCHITECTURE VIVANTE — ACE777 (2026-10-07 02:15 UTC)
+# ARCHITECTURE VIVANTE — ACE777 (2026-10-07 07:33 UTC)
 
 > Document GÉNÉRÉ AUTOMATIQUEMENT à l'instant. La famille valide
 > en s'appuyant sur CE contexte, pas sur des documents figés.
 
 ## Qui tourne en ce moment
-- ⛔ hub
+- ✅ hub
 - ✅ pont cockpit
 - ✅ radar
 - ⛔ lecteur signets
 - ⛔ générateur fiches
-- ⛔ feed mission
+- ✅ feed mission
 - ✅ serveur cockpit
 
 ## Routage des tâches de décision
@@ -22,7 +22,7 @@
 
 ## État de la mission (bots + PnL)
 
-- mission.json : 2026-10-07 02:14Z · run `MASTER_BASE_V8_6_FORTRESS_8H20` · alerte `nominal`
+- mission.json : 2026-10-07 03:08Z · run `MASTER_BASE_V8_6_FORTRESS_8H20` · alerte `nominal`
 - PnL combiné : **0.70 $** 📈 (combo 0.7028)
 - ALPHA (sniper (embuscade, ×13, revenge si claque)) : **-1.97 $** · 7 fills · 6973 skips
 - BETA (éclaireur (chatouille le marché, alimente Alpha)) : **+2.67 $** · 34 fills · 604 skips
@@ -31,15 +31,27 @@
 
 ## Veille du jour
 
-- VEILLE du jour : pas encore passée
+- [Santé]
+  · hub : OK (7 providers)
+  · réseau (DNS) : KO — aucune source externe ne résout (hors-ligne)
+  · sources en erreur : 8
+- [Énergie du jour]
+  · appels : 21 (cloud 21)
+  · budget cloud : 624 max
+  · par provider : gemini=18, orca=3
+- [Nouvelles offres détectées (non intégrées)]
+  · ERR: <urlopen error [Errno 8] nodename nor servname provided, or
+  · ERR: <urlopen error [Errno 8] nodename nor servname provided, or
+  · ERR: <urlopen error [Errno 8] nodename nor servname provided, or
+  … 21 offres/pépites détectées ce matin
 
 ## Mémoire chaude (journal + résumés)
 
 - Radar (dernières alertes) :
-  · 2026-10-07T02:15:21.002345Z ETHUSDT 2613.59 0.0004 427.7 declenche=non
-  · 2026-10-07T02:15:21.007448Z ETHUSDT 2613.6 0.0004 427.9 declenche=non
-  · 2026-10-07T02:15:21.124962Z BTCUSDT 83930.0 0.0001 15.7 declenche=non
-  · 2026-10-07T02:15:21.240071Z ETHUSDT 2613.61 0.0004 427.9 declenche=non
+  · 2026-10-07T03:08:55.769607Z BTCUSDT 84099.51 0.0000 10.2 declenche=non
+  · 2026-10-07T03:08:55.769867Z BTCUSDT 84099.51 0.0000 10.2 declenche=non
+  · 2026-10-07T03:08:55.770155Z BTCUSDT 84099.51 0.0000 10.2 declenche=non
+  · 2026-10-07T03:08:55.770415Z BTCUSDT 84099.51 0.0000 10.2 declenche=non
 - Intention en cours : BETA a sonde le marche (34 sondes, 25 long / 9 court, conf m | ALPHA attend son signal — aucun tir sur la session en cours.
 - 1015 signets X résumés (quota aujourd'hui : 0/50)
 - 151 fiches IA d'offres en cache (quota 8/jour)

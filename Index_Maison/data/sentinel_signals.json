@@ -2,41 +2,6 @@
   "signals": [
     {
       "metric": "ipt",
-      "zscore": 2.8337989774709484,
-      "value": 1.197,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Forte anomalie on-chain (z-score 2.83) totalement ignorée par les médias traditionnels, concentrés sur la macroéconomie (dette) et des actualités locales sans rapport. Accumulation silencieuse des baleines en cours loin du radar médiatique.\"\n}\n```",
-      "ts": "2026-10-05T16:22:32.755142+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": 2.0196401799754393,
-      "value": 14480514906.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique non pertinent (actualités automobiles et tourisme). Le z-score on-chain indique une hausse de volume, mais les titres n'ont aucun rapport avec la crypto ou l'actif, rendant toute analyse de divergence impossible.\"\n}\n```",
-      "ts": "2026-10-05T16:52:42.336467+00:00"
-    },
-    {
-      "metric": "whale_usd",
-      "zscore": 4.186588702903364,
-      "value": 6536927.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score on-chain élevé (4.19) pour un mouvement de 6.5M$ sans couverture médiatique significative. Divergence classique d'accumulation silencieuse par les baleines loin du bruit de détail.\"\n}\n```",
-      "ts": "2026-10-05T17:27:59.012537+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.4192659588311165,
-      "value": 1.12,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Anomalie technique mineure (IPT) noyée dans un bruit médiatique macroéconomique et local sans lien direct avec l'actif.\"\n}\n```",
-      "ts": "2026-10-05T18:43:13.326862+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.7092003865137864,
-      "value": 1.121,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.71) détectée sur le ticker 'ipt', mais le bruit médiatique correspond à des homonymes non-crypto (fondation locale, campagne contre la rage). Aucune baleine détectée ; bruit de fond non pertinent.\"\n}\n```",
-      "ts": "2026-10-05T22:33:54.896124+00:00"
-    },
-    {
-      "metric": "ipt",
       "zscore": 2.1630937273056206,
       "value": 1.014,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique (ipt z-score 2.16) sans lien avec les bruits médiatiques locaux ou macroéconomiques. Bruit statistique pur.\"\n}\n```",
@@ -349,6 +314,41 @@
       "value": 71,
       "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Indice de peur et de cupidité à 71 (cupidité) avec un z-score extrêmement bas (-2.93), indiquant un épuisement potentiel de la demande et un optimisme retail aveugle déconnecté de la réalité onchain. Divergence classique de piège à hausses (bull trap) orchestré pendant que les baleines distribuent.\"\n}\n```",
       "ts": "2026-10-07T02:42:08.980968+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 2.097459915989343,
+      "value": 3660573.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le bruit médiatique se focalise sur une macro-chute fictive et des liquidations judiciaires locales sans rapport, ignorant le short squeeze massif à 87 000 $ et les liquidations de shorts (>120M$). Divergence classique : les médias sèment la panique pendant que les baleines cassent les résistances.\"\n}\n```",
+      "ts": "2026-10-07T03:07:14.004992+00:00"
+    },
+    {
+      "metric": "taker_ratio",
+      "zscore": -2.008884852771752,
+      "value": 0.507,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio à 0.507 (z-score -2.01) indique une domination massive des acheteurs passifs (limite) face aux vendeurs à découvert agressifs. Le vide médiatique (Google Actualités muet) confirme une accumulation discrète des baleines sous le radar du retail.\"\n}\n```",
+      "ts": "2026-10-07T03:07:15.488983+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 2.076855806843177,
+      "value": 3660573.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Divergence massive : les médias généralistes et d'autres secteurs font diversion avec des liquidations traditionnelles ou mineures, tandis que les données onchain montrent un z-score élevé (2.08) et une domination des shorts liquidés ($120M+) alors que BTC touche 87 000 $. Accumulation silencieuse des baleines.\"\n}\n```",
+      "ts": "2026-10-07T07:36:53.901245+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": 4.4149918109459625,
+      "value": 1.305,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Z-score extrêmement élevé (4.41) sur le ratio long/short (1.305), indiquant un posicionnement acheteur excessivement surpeuplé par la foule. Le narratif médiatique fait l'apologie des stratégies long/short traditionnelles, masquant une euphorie spéculative retail imminente. Divergence classique de piège à liquidité : les baleines distribuent discrètement pendant que la foule s'empile en 'long'.\"\n}\n```",
+      "ts": "2026-10-07T07:36:56.401078+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -2.6457513110645903,
+      "value": 71,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Le score z négatif extrême (-2.65) pour un indice de Fear & Greed à 71 (avidité élevée) révèle une anomalie statistique : le marché est complaisant alors que la liquidité réelle se contracte. Les gros porteurs profitent de cette euphorie médiatique creuse pour distribuer leurs actifs en silence avant un retournement.\"\n}\n```",
+      "ts": "2026-10-07T07:36:58.301872+00:00"
     }
   ]
 }
