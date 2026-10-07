@@ -6631,3 +6631,25 @@ Pas d’ordre — confrontation plus tard.
 ### 2026-10-07T19:00:32Z — ALERT auto
 - RWAINCUSDT: WATCH_PULLBACK — tension haute + reflux
 (compléter: confirmé ? risque ?)
+
+### 2026-10-07T19:14:00Z — ALERT auto
+- RIZEUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
+
+### 2026-10-07T20:01:01Z — ALERT auto
+- RWAINCUSDT: WATCH_PULLBACK — tension haute + reflux
+- FLUIDUSDT: IMPULSE_WAIT — spike en cours, pas chase
+(compléter: confirmé ? risque ?)
+
+### 2026-10-07T20:19:15Z — ALERT auto
+- RIZEUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
+
+### 2026-10-07T22:00:18Z — ALERT auto
+- RIZEUSDT: WATCH_PULLBACK — tension haute + reflux
+- RWAINCUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
+
+### 2026-10-07T22:08:04Z — ALERT auto
+- WUSDT: IMPULSE_WAIT — spike en cours, pas chase
+(compléter: confirmé ? risque ?)

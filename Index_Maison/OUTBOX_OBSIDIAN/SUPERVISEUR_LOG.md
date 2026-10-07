@@ -1,9 +1,3 @@
-| 2026-10-03T02:40Z | SUPERVISEUR | hub=OK ollama=OK jobs_manquants=[] git_sys=D git_vault=P action=none résultat=rien à faire |
-| 2026-10-03T02:42Z | SUPERVISEUR | hub=OK ollama=OK jobs_manquants=[] git_sys=D git_vault=P action=none résultat=rien à faire |
-| 2026-10-03T03:40Z | SUPERVISEUR | hub=OK ollama=OK jobs_manquants=[] git_sys=D git_vault=P action=none résultat=rien à faire |
-| 2026-10-03T03:42Z | SUPERVISEUR | hub=OK ollama=OK jobs_manquants=[] git_sys=D git_vault=P action=none résultat=rien à faire |
-| 2026-10-03T04:40Z | SUPERVISEUR | hub=OK ollama=OK jobs_manquants=[] git_sys=D git_vault=P action=none résultat=rien à faire |
-| 2026-10-03T04:42Z | SUPERVISEUR | hub=OK ollama=OK jobs_manquants=[] git_sys=D git_vault=P action=none résultat=rien à faire |
 | 2026-10-03T05:40Z | SUPERVISEUR | hub=OK ollama=OK jobs_manquants=[] git_sys=D git_vault=P action=none résultat=rien à faire |
 | 2026-10-03T05:42Z | SUPERVISEUR | hub=OK ollama=OK jobs_manquants=[] git_sys=D git_vault=P action=none résultat=rien à faire |
 | 2026-10-03T06:40Z | SUPERVISEUR | hub=OK ollama=OK jobs_manquants=[] git_sys=D git_vault=P action=none résultat=rien à faire |
@@ -198,3 +192,9 @@
 | 2026-10-07T19:47Z | SUPERVISEUR | hub=OK ollama=OK jobs_manquants=[] git_sys=D git_vault=P action=none résultat=rien à faire |
 | 2026-10-07T20:40Z | SUPERVISEUR | hub=OK ollama=OK jobs_manquants=[] git_sys=D git_vault=P action=none résultat=rien à faire |
 | 2026-10-07T20:47Z | SUPERVISEUR | hub=OK ollama=OK jobs_manquants=[] git_sys=D git_vault=P action=none résultat=rien à faire |
+| 2026-10-07T21:40Z | SUPERVISEUR | hub=OK ollama=OK jobs_manquants=[] git_sys=D git_vault=P action=none résultat=rien à faire |
+| 2026-10-07T21:47Z | SUPERVISEUR | hub=OK ollama=OK jobs_manquants=[] git_sys=D git_vault=P action=none résultat=rien à faire |
+| 2026-10-07T22:40Z | SUPERVISEUR | hub=OK ollama=OK jobs_manquants=[] git_sys=D git_vault=P action=none résultat=rien à faire |
+| 2026-10-07T22:47Z | SUPERVISEUR | hub=OK ollama=OK jobs_manquants=[] git_sys=D git_vault=P action=none résultat=rien à faire |
+| 2026-10-07T23:40Z | SUPERVISEUR | hub=OK ollama=OK jobs_manquants=[] git_sys=D git_vault=P action=none résultat=rien à faire |
+| 2026-10-07T23:47Z | SUPERVISEUR | hub=OK ollama=OK jobs_manquants=[] git_sys=D git_vault=P action=none résultat=rien à faire |

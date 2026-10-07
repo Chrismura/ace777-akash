@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "price_1h",
-      "zscore": 2.885502155371415,
-      "value": 0.4739454414756539,
-      "analysis": "{\n  \"signal\": \"bullish\",\n  \"confidence\": 65,\n  \"reason\": \"Anomalie de prix significative (z-score 2.89) non couverte par les médias : mouvement silencieux suggérant une accumulation.\"\n}",
-      "ts": "2026-10-07T02:01:22.117589+00:00"
-    },
-    {
-      "metric": "liquidations",
-      "zscore": 9.212577372474502,
-      "value": 7284526.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Faux signal médiatique : les gros titres confondent les faillites d'entreprises locales (tribunaux de commerce bretons) avec les liquidations massives de shorts sur le Bitcoin à 87 000 $. Les baleines manipulent la tendance haussière en piégeant les vendeurs à découvert, loin du bruit médiatique généraliste.\"\n}\n```",
-      "ts": "2026-10-07T02:06:36.897521+00:00"
-    },
-    {
       "metric": "taker_ratio",
       "zscore": -2.304031002075976,
       "value": 0.507,
@@ -349,6 +335,20 @@
       "value": 1.459,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Taker ratio à 1.459 (Z-score 2.91) indique une agression massive des acheteurs (Taker Buy dominant) totalement ignorée par le silence médiatique. Accumulation furtive des baleines sous le radar du public.\"\n}\n```",
       "ts": "2026-10-07T19:10:27.582941+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.144061008764244,
+      "value": 1.007,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique non pertinent (physique, rage, actualité locale/macro). L'anomalie onchain (ipt = 1.007) est statistiquement faible (z-score 2.14) et ne reflète aucun mouvement significatif de baleines par rapport au bruit ambiant.\"\n}\n```",
+      "ts": "2026-10-07T19:25:31.415788+00:00"
+    },
+    {
+      "metric": "taker_ratio",
+      "zscore": 2.710267125008872,
+      "value": 1.459,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Taker ratio à 1.459 (Z-score 2.71) indique une forte agression acheteuse cachée, totalement ignorée par un silence médiatique absolu (Google Actualités vide). Divergence classique d'accumulation furtive par les baleines.\"\n}\n```",
+      "ts": "2026-10-07T19:40:38.589676+00:00"
     }
   ]
 }
