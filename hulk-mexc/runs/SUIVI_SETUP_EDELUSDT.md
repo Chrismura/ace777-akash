@@ -45,19 +45,20 @@ Métriques : maison (mur moy/max + régime ; poussière = indicateur PANIER) + p
 | 38 | 2026-10-04T14:34:56Z | 14h | AUTRE | 0.04804 | IMPULSE_WAIT | 4.9296 | 1087.52 | 2263.24 | 8.46e-07 | -0.08 | 0.28 | 0.71 | neutre (stab 0) | prix 0.04804 · poussière(panier) 4.9% · Amihud 8.46e-07 · delta -0.08 · mur moy 1,088$ · mur max (run) 2,263$ |
 | 39 | 2026-10-05T14:34:55Z | 14h | AUTRE | 0.04834 | WATCH | 41.2334 | 1087.52 | 2263.24 | 6.29e-07 | 0.18 | 0.57 | 0.47 | neutre (stab 0) | prix 0.04834 · poussière(panier) 41.2% · Amihud 6.29e-07 · delta +0.18 · mur moy 1,088$ · mur max (run) 2,263$ |
 | 40 | 2026-10-06T14:37:24Z | 14h | AUTRE | 0.05009 | IMPULSE_WAIT | 5.0237 | 1087.52 | 2263.24 | — | — | 0.22 | 0.42 | POMPE_PIEGE (stab 1) | prix 0.05009 · poussière(panier) 5.0% · mur moy 1,088$ · mur max (run) 2,263$ |
+| 41 | 2026-10-07T14:34:52Z | 14h | AUTRE | 0.04033 | IMPULSE_WAIT | 2.9009 | 1087.52 | 2263.24 | 7.15e-07 | -0.03 | 0.94 | 0.95 | POMPE_PIEGE (stab 5) | prix 0.04033 · poussière(panier) 2.9% · Amihud 7.15e-07 · delta -0.03 · mur moy 1,088$ · mur max (run) 2,263$ |
 
 ## 🔁 HISTORIQUE DES CYCLES DE L'ACTIF (zigzag ≥ 15 %, log continu du moteur)
 
-_Fenêtre mesurée : du 2026-10-02T06:30:37Z au 2026-10-06T14:37:24Z (15004 points) — archives de rotation incluses._
+_Fenêtre mesurée : du 2026-10-03T09:33:35Z au 2026-10-07T14:34:52Z (13640 points) — archives de rotation incluses._
 
 _Pas encore deux retournements ≥ 15 % dans l'historique mesuré._
 
-**Cycle en cours : pas encore de retournement ≥ 15 % dans la fenêtre** — du plus bas 2026-10-02T15:23:26Z à 0.03174 → 0.05009 = **+57.8 %**
+**Cycle EN COURS : BAISSE depuis le pic du 2026-10-06T00:45:11Z à 0.05282 → 0.04033 = **-23.6 %**** (extrême courant 0.03993)
 
 ## 💰 CE QUE LE MOTEUR A CAPTÉ SUR CET ACTIF
 
 - **Réalisé : +4.40 $** sur 22 entrée(s) / 22 sortie(s) — dernier événement 2026-10-06T03:55:43Z
-- **MFE donné en moyenne : +4.2 pts** par tour (pire tour : +16.6) — le meilleur prix atteint pendant la détention, jamais encaissé
+- **MFE donné en moyenne : +3.7 pts** par tour (pire tour : +16.6) — le meilleur prix atteint pendant la détention, jamais encaissé
 
 ## 🧪 SETUPS DÉCLARÉS (écrits pour CET actif — la fiche les branche)
 

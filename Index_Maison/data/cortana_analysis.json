@@ -1,27 +1,32 @@
 {
-  "timestamp": 1791378439,
-  "date": "2026-10-07T13:07:19.512542+00:00",
-  "n_analyses": 2,
+  "timestamp": 1791389242,
+  "date": "2026-10-07T16:07:22.430129+00:00",
+  "n_analyses": 1,
   "analyses": [
     {
       "signal": {
-        "metric": "long_short",
-        "zscore": 2.2030564265305426,
-        "value": 1.484,
-        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.20) sur le ratio long/short (1.48) couplé à une surchauffe du narratif médiatique grand public sur les stratégies long/short. Signal classique de 'dumb money' trop exposée à l'achat, ouvrant la voie à une chasse aux liquidités baissière par les baleines.\"\n}\n```",
-        "ts": 1791376727.560695
+        "metric": "price_1h",
+        "zscore": 2.54160607237513,
+        "value": 0.532890061311253,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie positive des prix (z-score 2.54) totalement ignorée par les médias (silence radio de Google Actualités). C'accumulation furtive typique des baleines avant un déversement narratif.\"\n}\n```",
+        "ts": 1791388786.197307
       },
-      "fiche": "long_short",
+      "fiche": "price_1h",
       "questions": {
-        "ratio_long_short": {
-          "value": 1.484,
-          "seuil": 2,
+        "pct_1h": {
+          "value": 0.07,
+          "seuil": -1,
+          "depasse": true
+        },
+        "liq": {
+          "value": 1626789.0,
+          "seuil": 5000000,
           "depasse": false
         },
-        "oi": {
-          "value": 96842.885,
-          "seuil": 120000,
-          "depasse": false
+        "funding": {
+          "value": 1.2e-05,
+          "seuil": 0,
+          "depasse": true
         }
       },
       "interpretation": {
@@ -31,41 +36,6 @@
       },
       "action": "Observer",
       "niveau": "neutre"
-    },
-    {
-      "signal": {
-        "metric": "whale_usd",
-        "zscore": 2.637719179531615,
-        "value": 8866837.0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 2.64, ~8.8M USD) sans couverture médiatique correspondante (Google Actualités vide). Accumulation silencieuse typique des baleines avant un mouvement de marché déconnecté du bruit médiatique.\"\n}\n```",
-        "ts": 1791378235.021492
-      },
-      "fiche": "whale_usd",
-      "questions": {
-        "ventes": {
-          "value": 833076.0,
-          "seuil": 0,
-          "depasse": true
-        },
-        "achats": {
-          "value": 8033761.0,
-          "seuil": 0,
-          "depasse": true
-        },
-        "prix": {
-          "value": -0.06,
-          "seuil": 1,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "achats > ventes",
-        "lecture": "Flux baleines ACHETEUR dominant — accumulation possible, à confirmer sur plusieurs scans",
-        "niveau": "info",
-        "action": "Observer, ne pas acheter sur un seul signal"
-      },
-      "action": "Observer, ne pas acheter sur un seul signal",
-      "niveau": "info"
     }
   ],
   "resume": "🔵 CALME — pas de signal alarmant"

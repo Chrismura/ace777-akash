@@ -44,18 +44,19 @@ Métriques : maison (mur moy/max + régime ; poussière = indicateur PANIER) + p
 | 37 | 2026-10-04T14:34:56Z | 14h | AUTRE | 256.47 | IMPULSE_WAIT | 4.9296 | 2682.63 | 220993.92 | 1.17e-07 | -0.21 | -0.27 | 0.32 | POMPE_PIEGE (stab 22) | prix 256.47 · poussière(panier) 4.9% · Amihud 1.17e-07 · delta -0.21 · mur moy 2,683$ · mur max (run) 220,994$ |
 | 38 | 2026-10-05T14:34:55Z | 14h | AUTRE | 255.73 | IMPULSE_WAIT | 41.2334 | 3260.58 | 220993.92 | 9.81e-08 | -0.14 | -0.50 | -0.42 | POMPE_PIEGE (stab 25) | prix 255.73 · poussière(panier) 41.2% · Amihud 9.81e-08 · delta -0.14 · mur moy 3,261$ · mur max (run) 220,994$ |
 | 39 | 2026-10-06T14:37:24Z | 14h | AUTRE | 253.72 | COOLING | 5.0237 | 3260.58 | 220993.92 | — | — | -0.19 | -0.10 | neutre (stab 0) | prix 253.72 · poussière(panier) 5.0% · mur moy 3,261$ · mur max (run) 220,994$ |
+| 40 | 2026-10-07T14:34:52Z | 14h | AUTRE | 241.57 | IMPULSE_WAIT | 2.9009 | 3260.58 | 220993.92 | 1.01e-07 | -0.48 | 0.84 | 0.90 | neutre (stab 0) | prix 241.57 · poussière(panier) 2.9% · Amihud 1.01e-07 · delta -0.48 · mur moy 3,261$ · mur max (run) 220,994$ |
 
 ## 🔁 HISTORIQUE DES CYCLES DE L'ACTIF (zigzag ≥ 15 %, log continu du moteur)
 
-_Fenêtre mesurée : du 2026-10-02T06:30:37Z au 2026-10-06T14:37:24Z (15028 points) — archives de rotation incluses._
+_Fenêtre mesurée : du 2026-10-03T09:33:35Z au 2026-10-07T14:34:52Z (13672 points) — archives de rotation incluses._
 
 _Pas encore deux retournements ≥ 15 % dans l'historique mesuré._
 
-**Cycle en cours : pas encore de retournement ≥ 15 % dans la fenêtre** — du plus bas 2026-10-02T21:44:55Z à 224.6 → 253.72 = **+13.0 %**
+**Cycle EN COURS : BAISSE depuis le pic du 2026-10-04T02:19:58Z à 278.46 → 241.57 = **-13.2 %**** (extrême courant 236.12)
 
 ## 💰 CE QUE LE MOTEUR A CAPTÉ SUR CET ACTIF
 
-- **Réalisé : +5.53 $** sur 2 entrée(s) / 2 sortie(s) — dernier événement 2026-10-06T14:37:24Z
+- **Réalisé : +5.53 $** sur 2 entrée(s) / 2 sortie(s) — dernier événement 2026-10-07T13:39:33Z
 - **MFE donné en moyenne : +5.5 pts** par tour (pire tour : +10.9) — le meilleur prix atteint pendant la détention, jamais encaissé
 
 _Règle : on compare les lignes entre elles (même heure de mesure = comparable). On ne supprime rien._
