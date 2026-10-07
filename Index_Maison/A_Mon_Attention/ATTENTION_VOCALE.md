@@ -1,11 +1,11 @@
 # Attention vocale — Cortana
 
 ## Dernier résumé
-> Info Nouveau à ton attention. Nouvelle note : VERIF SETUP 2026-10-07. Peut servir au prototype — à lire dans Attention.. Provenance cortana_watch_attention.
+> Info Changement de tendance. Structure hausse, signe une heure +.. Provenance cortana_watch_trend.
 
 ## Meta
-- statut: IDLE
-- ts: 20261007T1000Z
+- statut: READY
+- ts: 20261007T1308Z
 - pertinence: SOFT
 - sentiment: INFO
 - compte: thermo-free

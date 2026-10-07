@@ -1,25 +1,25 @@
 {
-  "timestamp": 1791367636,
-  "date": "2026-10-07T10:07:16.385054+00:00",
-  "n_analyses": 1,
+  "timestamp": 1791378439,
+  "date": "2026-10-07T13:07:19.512542+00:00",
+  "n_analyses": 2,
   "analyses": [
     {
       "signal": {
         "metric": "long_short",
-        "zscore": 2.8201835751936035,
-        "value": 1.393,
-        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Le ratio long/short atteint un z-score élevé de 2.82 (1.393), indiquant un positionnement acheteur excessivement surpeuplé par la foule. Pendant ce temps, le narratif médiatique grand public s'emballe sur les stratégies 'long-short' traditionnelles. Divergence classique de piège à liquidité : les baleines se positionnent généralement pour contrer un consensus aussi unanime.\"\n}\n```",
-        "ts": 1791365851.552349
+        "zscore": 2.2030564265305426,
+        "value": 1.484,
+        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.20) sur le ratio long/short (1.48) couplé à une surchauffe du narratif médiatique grand public sur les stratégies long/short. Signal classique de 'dumb money' trop exposée à l'achat, ouvrant la voie à une chasse aux liquidités baissière par les baleines.\"\n}\n```",
+        "ts": 1791376727.560695
       },
       "fiche": "long_short",
       "questions": {
         "ratio_long_short": {
-          "value": 1.418,
+          "value": 1.484,
           "seuil": 2,
           "depasse": false
         },
         "oi": {
-          "value": 97105.196,
+          "value": 96842.885,
           "seuil": 120000,
           "depasse": false
         }
@@ -31,6 +31,41 @@
       },
       "action": "Observer",
       "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "whale_usd",
+        "zscore": 2.637719179531615,
+        "value": 8866837.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 2.64, ~8.8M USD) sans couverture médiatique correspondante (Google Actualités vide). Accumulation silencieuse typique des baleines avant un mouvement de marché déconnecté du bruit médiatique.\"\n}\n```",
+        "ts": 1791378235.021492
+      },
+      "fiche": "whale_usd",
+      "questions": {
+        "ventes": {
+          "value": 833076.0,
+          "seuil": 0,
+          "depasse": true
+        },
+        "achats": {
+          "value": 8033761.0,
+          "seuil": 0,
+          "depasse": true
+        },
+        "prix": {
+          "value": -0.06,
+          "seuil": 1,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "achats > ventes",
+        "lecture": "Flux baleines ACHETEUR dominant — accumulation possible, à confirmer sur plusieurs scans",
+        "niveau": "info",
+        "action": "Observer, ne pas acheter sur un seul signal"
+      },
+      "action": "Observer, ne pas acheter sur un seul signal",
+      "niveau": "info"
     }
   ],
   "resume": "🔵 CALME — pas de signal alarmant"
