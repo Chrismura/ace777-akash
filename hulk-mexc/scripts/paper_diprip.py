@@ -646,6 +646,19 @@ def score_pair(pair: str, cfg: dict) -> dict:
     if cfg.get("STOP_AMPLITUDE_ON", "1").strip() not in ("0", "false", "False") and amp7 > 0:
         stop = max(stop, amp7 * float(cfg.get("STOP_AMPLITUDE_MULT", "1.5")))
 
+    # === TREND (08/10/2026, GO Christophe) — walk-forward sur les clôtures 1h déjà chargées.
+    # Sert au BAG PILOTÉ PAR LE TREND (chiffrage_bag_trend.py : mesuré AVANT câblage,
+    # 199 entrées réelles, Δ +43,28 $ au seuil amp7>=7 %, même signe sur les 2 moitiés).
+    # Aucune donnée du futur : SMA sur les bougies présentes uniquement.
+    _sma72 = sum(c15[-72:]) / 72 if len(c15) >= 72 else (sum(c15) / len(c15) if c15 else 0.0)
+    _sma72_prev = (sum(c15[-96:-24]) / 72) if len(c15) >= 96 else _sma72
+    if price > _sma72 and _sma72 > _sma72_prev:
+        trend_label = "haussier"
+    elif price < _sma72 and _sma72 < _sma72_prev:
+        trend_label = "baissier"
+    else:
+        trend_label = "neutre"
+
     had_spike = range15 >= spike_15 or move24 >= impulse_th
     impulse_now = move6 >= impulse_th or move24 >= impulse_th * 1.2
     # COOLING strict : vrai spike 15j + drawdown significatif (pas un micro -2%)
@@ -699,6 +712,8 @@ def score_pair(pair: str, cfg: dict) -> dict:
         "rip_pct": round(rip, 2),
         "amp7_pct": round(amp7, 2),
         "stop_pct": round(stop, 2),
+        "trend_label": trend_label,
+        "sma72": round(_sma72, 8),
         "cool_entry_pct": round(cool_entry, 2),
         "impulse_entry_pct": round(impulse_entry, 2),
         **vol,
@@ -747,6 +762,35 @@ class PaperBot:
         self.runner_gb_frac = float(cfg.get("RUNNER_GIVEBACK_FRAC", "0.4"))
         self.runner_stop_mult = float(cfg.get("RUNNER_STOP_MULT", "1.5"))
         self.conservation: dict[str, dict] = {}
+        # === BAG PILOTÉ PAR LE TREND (08/10/2026, GO Christophe) ===
+        # Mesuré AVANT câblage (chiffrage_bag_trend.py, 199 entrées réelles, klines 45 j) :
+        # 3 tranches calées sur amp7 + souche intouchable = Δ +43,28 $ au seuil amp7>=7 %
+        # (bag conservé ×0,60 vs ×0,12 pour la mécanique actuelle), MÊME SIGNE sur les 2
+        # moitiés de l'échantillon et sur les 3 régimes de trend. Le trend est la vraie
+        # source du gain (le simple élargissement des % n'apportait que +5 $).
+        # GATE amp7 >= BAG_TREND_AMP_MIN : sous le seuil (BTC/ETH/HBAR), la logique
+        # PERDAIT (mesuré -2 à -3 $/paire) → on garde les règles actuelles.
+        # Réversible en 1 ligne : BAG_TREND_ON=0 → comportement historique strict.
+        self.bag_trend_on = cfg.get("BAG_TREND_ON", "1").strip() not in ("0", "false", "False")
+        self.bag_trend_amp_min = float(cfg.get("BAG_TREND_AMP_MIN", "7.0"))
+        self.bt_stop_mult = float(cfg.get("BAG_TREND_STOP_AMP", "1.5"))
+        self.bt_up_p1 = float(cfg.get("BAG_UP_P1_AMP", "0.6"))
+        self.bt_up_p2 = float(cfg.get("BAG_UP_P2_AMP", "1.2"))
+        self.bt_up_frac = float(cfg.get("BAG_UP_SELL_FRAC", "0.15"))
+        self.bt_up_gb = float(cfg.get("BAG_UP_GIVEBACK_AMP", "0.6"))
+        self.bt_up_core = float(cfg.get("BAG_UP_CORE_FRAC", "0.30"))
+        self.bt_up_add = float(cfg.get("BAG_UP_ADD_AMP", "0.5"))
+        self.bt_dn_p1 = float(cfg.get("BAG_DOWN_P1_AMP", "0.4"))
+        self.bt_dn_p2 = float(cfg.get("BAG_DOWN_P2_AMP", "0.8"))
+        self.bt_dn_frac = float(cfg.get("BAG_DOWN_SELL_FRAC", "0.25"))
+        self.bt_dn_gb = float(cfg.get("BAG_DOWN_GIVEBACK_AMP", "0.4"))
+        self.bt_dn_core = float(cfg.get("BAG_DOWN_CORE_FRAC", "0.15"))
+        self.bt_dn_rebuy = float(cfg.get("BAG_DOWN_REBUY_AMP", "1.0"))
+        self.bt_neu_p1 = float(cfg.get("BAG_NEU_P1_AMP", "0.5"))
+        self.bt_neu_p2 = float(cfg.get("BAG_NEU_P2_AMP", "1.0"))
+        self.bt_neu_frac = float(cfg.get("BAG_NEU_SELL_FRAC", "0.20"))
+        self.bt_neu_gb = float(cfg.get("BAG_NEU_GIVEBACK_AMP", "0.4"))
+        self.bt_neu_core = float(cfg.get("BAG_NEU_CORE_FRAC", "0.20"))
         self.bag_crash_sell_frac = float(cfg.get("BAG_CRASH_SELL_FRAC", "0.90"))
         self.bag_dca_on = cfg.get("BAG_DCA_ON", "1").strip() not in ("0", "false", "False")
         self.bag_slow_dd = float(cfg.get("BAG_SLOW_DD_PCT", "8"))
@@ -2324,6 +2368,34 @@ class PaperBot:
             "tension": sc.get("tension"),
             "sense_spread": (sc.get("sense") or {}).get("spread_bps"),
         }
+        # === BAG PILOTÉ PAR LE TREND (08/10/2026, GO Christophe) ===
+        # La SOUCHE (core) est parquée dans self.bags (kind="core") que manage_bag
+        # ignore : elle n'est JAMAIS vendue par une règle → « on ne perd plus le bag ».
+        # Le reste (tradable) suit les paliers/trailing calés sur amp7 (manage_open).
+        _amp_now = float(sc.get("amp7_pct") or 0.0)
+        if self.bag_trend_on and _amp_now >= self.bag_trend_amp_min:
+            _tr = sc.get("trend_label") or "neutre"
+            if _tr == "haussier":
+                _core_frac = self.bt_up_core
+            elif _tr == "baissier":
+                _core_frac = self.bt_dn_core
+            else:
+                _core_frac = self.bt_neu_core
+            _core_qty = trade_qty * _core_frac
+            if _core_qty * price >= 0.5 and (trade_qty - _core_qty) > 0:
+                self.bags[pair] = {
+                    "entry": price, "qty": _core_qty, "ts": utc_now(),
+                    "note": "core_trend", "kind": "core", "high": price,
+                }
+                self.pos[pair]["qty"] = trade_qty - _core_qty
+                self.pos[pair]["qty_init"] = trade_qty - _core_qty
+                self.log(pair, "BAG_ARM", regime, price, price, _core_qty, 0.0,
+                         sc["cadence_pct"], f"core_trend_{_tr}_amp{_amp_now:.0f}")
+                say("bag", f"[{utc_now()}] CORE  {pair} tr={_tr} amp={_amp_now:.0f}%  "
+                            f"souche={_core_frac*100:.0f}% jamais vendue ({_core_qty*price:.2f}$)")
+            self.pos[pair]["trend_mode"] = 1
+            self.pos[pair]["trend_label"] = _tr
+            self.pos[pair]["amp7_at_entry"] = _amp_now
         self.log(
             pair, "BUY", regime, price, price, trade_qty, 0.0, sc["cadence_pct"], reason
         )
@@ -2562,6 +2634,11 @@ class PaperBot:
 
         if pair in self.bags:
             b = self.bags[pair]
+            # SOUCHE TREND (08/10/2026, GO Christophe) : jamais vendue par une règle.
+            # On ne fait que suivre son plus-haut ; aucune vente crash/slow/DCA.
+            if b.get("kind") == "core":
+                b["high"] = max(float(b.get("high") or price), price)
+                return
             entry = float(b["entry"])
             if entry <= 0:
                 return
@@ -2722,6 +2799,75 @@ class PaperBot:
         age_apres = max(0.0, time.time() - _ap) if _ap else -1.0
         return p, age_avant, age_apres
 
+    def _manage_trend_open(self, pair: str, price: float, sc: dict):
+        """Position TREND-BAG (08/10/2026, GO Christophe) — mesurée avant câblage.
+
+        La SOUCHE (core) est dans self.bags, kind="core" : jamais vendue ici.
+        Le reste suit des paliers + un trailing CALÉS sur amp7, en 2 régimes :
+          · HAUSSIER : paliers larges, trailing large, on AJOUTE au creux (le bag grossit) ;
+          · BAISSIER : on vend dans le rebond, on RACHÈTE plus bas (le bag grossit en jetons) ;
+          · NEUTRE   : 3 tranches amplitude.
+        Sans amp7 (mesure absente) : on ne décide pas (règle #8).
+        """
+        p = self.pos[pair]
+        entry = float(p["entry"])
+        qty = float(p["qty"])
+        if qty <= 0:
+            return
+        amp = float((sc or {}).get("amp7_pct") or 0.0) or float((sc or {}).get("cadence_pct") or 0.0)
+        if amp <= 0:
+            return
+        tr = (sc or {}).get("trend_label") or p.get("trend_label") or "neutre"
+        p["high"] = max(float(p.get("high") or entry), price)
+        peak = float(p["high"])
+        chg = (price / entry - 1.0) * 100.0
+        # --- stop AMPLITUDE (le core n'est jamais touché) ---
+        if price <= entry * (1.0 - self.bt_stop_mult * amp / 100.0):
+            proceeds = self.sell_trade(pair, price,
+                f"trend_stop_{self.bt_stop_mult:.1f}xamp{amp:.1f}")
+            self.add_pair_cash(pair, proceeds)
+            return
+        # --- paramètres par trend ---
+        if tr == "haussier":
+            p1, p2, frac, gb, add_amp = self.bt_up_p1, self.bt_up_p2, self.bt_up_frac, self.bt_up_gb, self.bt_up_add
+        elif tr == "baissier":
+            p1, p2, frac, gb, add_amp = self.bt_dn_p1, self.bt_dn_p2, self.bt_dn_frac, self.bt_dn_gb, self.bt_dn_rebuy
+        else:
+            p1, p2, frac, gb, add_amp = self.bt_neu_p1, self.bt_neu_p2, self.bt_neu_frac, self.bt_neu_gb, 0.0
+        # --- paliers calés sur amp7 ---
+        rip_step = int(p.get("rip_step") or 0)
+        next_lvl = p1 if rip_step == 0 else (p2 if rip_step == 1 else None)
+        if next_lvl is not None and chg >= next_lvl * amp:
+            p["rip_step"] = rip_step + 1
+            qty_init = float(p.get("qty_init") or qty)
+            sell_qty = qty_init * frac
+            if sell_qty >= qty * 0.001:
+                proceeds = self.sell_trade(pair, price,
+                    f"trend_palier{rip_step+1}_amp{next_lvl:.1f}x{amp:.1f}", qty=sell_qty)
+                self.add_pair_cash(pair, proceeds)
+            return
+        # --- trailing amplitude (armé quand le pic ≥ 1,0×amp) ---
+        if (peak / entry - 1.0) * 100.0 >= amp:
+            floor = peak * (1.0 - gb * amp / 100.0)
+            if price <= floor:
+                proceeds = self.sell_trade(pair, price, f"trend_trail_gb{gb:.1f}xamp{amp:.1f}")
+                self.add_pair_cash(pair, proceeds)
+                return
+        # --- action sur le bag (haussier = ajouter ; baissier = racheter plus bas) ---
+        cash = float(self.pair_cash.get(pair, 0.0))
+        if cash >= 2.0 and add_amp > 0:
+            seuil = entry * (1.0 - add_amp * amp / 100.0)
+            if price <= seuil:
+                taken = self.take_pair_cash(pair)
+                qty_add = taken / price
+                p["qty"] = qty + qty_add
+                p["qty_init"] = float(p.get("qty_init") or qty) + qty_add
+                _motif = "trend_add" if tr == "haussier" else "trend_rebuy"
+                self.log(pair, "BAG_DCA", (sc or {}).get("regime", ""), price, price, qty_add, 0.0,
+                         (sc or {}).get("cadence_pct"), f"{_motif}_amp{add_amp:.1f}_cash{taken:.2f}")
+                say("bag", f"[{utc_now()}] TREND {'ADD ' if tr=='haussier' else 'REBUY'} {pair} "
+                            f"px={price:.6f} +{qty_add:.6f} (cash {taken:.2f}$) — bag renforcé")
+
     def manage_open(self, pair: str, price: float):
         """Trade : 2× → stake-out ; sinon stop.
 
@@ -2732,6 +2878,9 @@ class PaperBot:
         paliers (ils contrediraient le « laisser courir »)."""
         p = self.pos[pair]
         sc = self.scores.get(pair) or {}  # SPEC v2 (29/08) : contexte amplitude pour la garde SELL full
+        # Position en mode TREND-BAG → logique dédiée calée sur amp7 (08/10, GO Christophe)
+        if p.get("trend_mode"):
+            return self._manage_trend_open(pair, price, sc)
         entry = float(p["entry"])
         qty = float(p["qty"])
         stake = float(p.get("stake") or entry * qty)
