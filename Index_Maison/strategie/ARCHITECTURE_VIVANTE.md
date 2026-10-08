@@ -1,4 +1,4 @@
-# ARCHITECTURE VIVANTE — ACE777 (2026-10-08 03:36 UTC)
+# ARCHITECTURE VIVANTE — ACE777 (2026-10-08 07:06 UTC)
 
 > Document GÉNÉRÉ AUTOMATIQUEMENT à l'instant. La famille valide
 > en s'appuyant sur CE contexte, pas sur des documents figés.
@@ -22,7 +22,7 @@
 
 ## État de la mission (bots + PnL)
 
-- mission.json : 2026-10-08 03:35Z · run `MASTER_BASE_V8_6_FORTRESS_8H20` · alerte `nominal`
+- mission.json : 2026-10-08 07:06Z · run `MASTER_BASE_V8_6_FORTRESS_8H20` · alerte `nominal`
 - PnL combiné : **0.70 $** 📈 (combo 0.7028)
 - ALPHA (sniper (embuscade, ×13, revenge si claque)) : **-1.97 $** · 7 fills · 6973 skips
 - BETA (éclaireur (chatouille le marché, alimente Alpha)) : **+2.67 $** · 34 fills · 604 skips
@@ -31,15 +31,27 @@
 
 ## Veille du jour
 
-- VEILLE du jour : pas encore passée
+- [Santé]
+  · hub : OK (7 providers)
+  · réseau (DNS) : KO — aucune source externe ne résout (hors-ligne)
+  · sources en erreur : 8
+- [Énergie du jour]
+  · appels : 22 (cloud 22)
+  · budget cloud : 624 max
+  · par provider : gemini=22
+- [Nouvelles offres détectées (non intégrées)]
+  · ERR: <urlopen error [Errno 8] nodename nor servname provided, or
+  · ERR: <urlopen error [Errno 8] nodename nor servname provided, or
+  · ERR: <urlopen error [Errno 8] nodename nor servname provided, or
+  … 21 offres/pépites détectées ce matin
 
 ## Mémoire chaude (journal + résumés)
 
 - Radar (dernières alertes) :
-  · 2026-10-08T03:36:06.042853Z ETHUSDT 2568.17 0.0003 109.9 declenche=non
-  · 2026-10-08T03:36:06.043100Z ETHUSDT 2568.16 0.0003 110.0 declenche=non
-  · 2026-10-08T03:36:06.043340Z ETHUSDT 2568.15 0.0003 110.0 declenche=non
-  · 2026-10-08T03:36:06.414761Z BTCUSDT 82862.8 0.0000 0.3 declenche=non
+  · 2026-10-08T07:06:59.439168Z ETHUSDT 2567.04 0.0018 111.4 declenche=non
+  · 2026-10-08T07:06:59.668166Z ETHUSDT 2567.04 0.0018 112.2 declenche=non
+  · 2026-10-08T07:06:59.668568Z ETHUSDT 2567.04 0.0018 113.4 declenche=non
+  · 2026-10-08T07:06:59.728949Z ETHUSDT 2567.05 0.0018 113.4 declenche=non
 - Intention en cours : BETA a sonde le marche (34 sondes, 25 long / 9 court, conf m | ALPHA attend son signal — aucun tir sur la session en cours.
 - 1015 signets X résumés (quota aujourd'hui : 0/50)
 - 151 fiches IA d'offres en cache (quota 8/jour)
