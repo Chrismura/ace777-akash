@@ -6663,3 +6663,24 @@ Pas d’ordre — confrontation plus tard.
 - RIZEUSDT: WATCH_PULLBACK — tension haute + reflux
 - TELUSDT: WATCH_PULLBACK — tension haute + reflux
 (compléter: confirmé ? risque ?)
+
+### 2026-10-08T01:21:23Z — ALERT auto
+- WUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
+
+### 2026-10-08T01:51:56Z — ALERT auto
+- WUSDT: IMPULSE_WAIT — spike en cours, pas chase
+(compléter: confirmé ? risque ?)
+
+### 2026-10-08T02:00:19Z — ALERT auto
+- EDELUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
+
+### 2026-10-08T02:52:54Z — ALERT auto
+- WUSDT: IMPULSE_WAIT — spike en cours, pas chase
+- CHIPUSDT: IMPULSE_WAIT — spike en cours, pas chase
+(compléter: confirmé ? risque ?)
+
+### 2026-10-08T03:01:02Z — ALERT auto
+- EDELUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)

@@ -1,49 +1,48 @@
 {
-  "timestamp": "2026-10-08T01:11:07Z",
+  "timestamp": "2026-10-08T04:11:54Z",
   "generation_source": "system_state_generator.py v2.1",
   "status": "STALE",
-  "feed_hash": "ae165c9d1af79b508b4871cbcd8ccb0d0621b36bcd70dd4b12eca49f700ea102",
+  "feed_hash": "8f7d85a3e2623e7edcca5dc5463317c2cf5b9cf93af1e512d7d98c0c4643b85f",
   "feeds": {
     "mission": {
       "present": true,
-      "age_seconds": 5,
+      "age_seconds": 36,
       "fresh_limit_s": 120
     },
     "cortana_feed": {
       "present": true,
-      "age_seconds": 122,
+      "age_seconds": 255,
       "fresh_limit_s": 120
     },
     "live": {
       "present": true,
-      "age_seconds": 122,
+      "age_seconds": 255,
       "fresh_limit_s": 15
     },
     "routing": {
       "present": true,
-      "age_seconds": 3850250,
+      "age_seconds": 3861097,
       "fresh_limit_s": 120
     }
   },
   "services": {
     "total": 103,
-    "running": 14,
-    "planned": 89,
+    "running": 13,
+    "planned": 90,
     "running_list": [
       "com.ace777.cockpit-http",
       "com.ace777.cockpit-pont",
       "com.ace777.collecte-anti-veille",
+      "com.ace777.cortana.urgent",
       "com.ace777.llm-gate-hub",
       "com.ace777.mirofish",
       "com.ace777.mirofish-front",
       "com.ace777.prise-ia",
-      "com.ace777.satellite-aspiration",
       "com.ace777.state-generator",
       "com.ace777.superviseur-core",
       "com.ace777.superviseur-l2",
       "com.ace777.superviseur-process",
-      "com.ace777.vigie-live",
-      "com.ace777.xrpl-arbitrage"
+      "com.ace777.vigie-live"
     ],
     "planned_list": [
       "com.ace777.analyste-cadence",
@@ -58,7 +57,6 @@
       "com.ace777.cortana-analyzer",
       "com.ace777.cortana-feed",
       "com.ace777.cortana-propose-params",
-      "com.ace777.cortana.urgent",
       "com.ace777.couleur-regime",
       "com.ace777.couleur-regime-score",
       "com.ace777.cpfp",
@@ -104,6 +102,7 @@
       "com.ace777.routeur-auto",
       "com.ace777.rwa-yields",
       "com.ace777.sante-index",
+      "com.ace777.satellite-aspiration",
       "com.ace777.scoreur-registre",
       "com.ace777.sentinel",
       "com.ace777.sentinelle-independante",
@@ -133,6 +132,7 @@
       "com.ace777.watchdog",
       "com.ace777.whales",
       "com.ace777.x402-agentic",
+      "com.ace777.xrpl-arbitrage",
       "com.ace777.xrpl-gouvernance",
       "com.ace777.xrpl-onchain"
     ]
@@ -140,8 +140,8 @@
   "hub": {
     "status": "ok",
     "providers": 7,
-    "reseau": true,
-    "degrade": false
+    "reseau": false,
+    "degrade": true
   },
   "ram_raw": "The system has 8589934592 (524288 pages with a page size of 16384).",
   "hors_zone": {
@@ -176,7 +176,7 @@
       "Assistant_Vocal_HORS_VAULT": 697372,
       "Obsidian_BACKUPS_HORS_VAULT": 14936872
     },
-    "presence_at": "2026-10-08T01:06:40Z",
-    "sizes_at": "2026-10-07T19:36:35Z"
+    "presence_at": "2026-10-08T04:06:45Z",
+    "sizes_at": "2026-10-08T01:36:40Z"
   }
 }
