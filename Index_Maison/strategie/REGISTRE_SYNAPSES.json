@@ -1,6 +1,6 @@
 {
   "version": "1.5.0",
-  "updated": "2026-10-08T09:38:36Z",
+  "updated": "2026-10-08T10:53:31Z",
   "fichier": [
     {
       "nom": "Index_Maison/scripts/v2_duo_replay_4h.py",
@@ -832,11 +832,11 @@
       "origine": "GO Christophe 14/09 (onglet cockpit vol)",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "4804b5d02a08753c18efa41b04f1b0c4",
+      "md5": "bba760a277967508b30f13a6eb30247f",
       "_rescel_20260918": "panneau « Banc 20 actifs — risque » (net / DD / net-DD, base vs notrend) + contrat de sortie des LaunchAgents (distingue alerte métier d'échec réel).",
       "note": "Re-scellé 14/09T12:41Z après modification déclarée : suppression de la réécriture de vol.html (cache-buster déplacé côté client) — le générateur n'écrit plus que vol_live.js (non scellé, donnée vivante). Par Buffy. | 19/09 soir : + gardien « Règles d'or » (lit thermo/regles_or.json écrit par verifier_regles_or.py) — les règles d'or sont désormais VISIBLES dans la page vol. Declaré par Buffy.",
       "maj": "Gardien « Chien de garde » RÉPARÉ 20/09/2026 : il lisait `tail -1 thermo/chien_rapport.txt`, fichier QUE PERSONNE N'ÉCRIT → stdout vide → la page affichait « rapport présent » en VERT quoi qu'il arrive (faux vert permanent sur le gardien le plus important). Il lit désormais thermo/CHIEN_RAPPORT.json : « N vivants · N hors délai · N aveugle(s) » + l'organe et son champ muet, et un rapport figé > 15 min = rouge (le chien lui-même peut mourir). · 2e passe 20/09 : la table CONTRAT_SORTIE (codes de sortie launchd voulus) est désormais LUE dans strategie/contrat_sortie.json — une seule vérité, partagée avec le chien de garde (qui juge les 44 organes sans produit sur leur sortie launchd). Repli local conservé si le fichier manque.",
-      "date": "2026-10-08T09:14:57Z",
+      "date": "2026-10-08T10:39:12Z",
       "_rescel_20260920": "DÉCLARÉ 20/09/2026 (Buffy, GO Christophe — boucle d'alerte) : CONTRAT_SORTIE += com.ace777.verif-setup exit 1 = « preuve de lecture du coffre à refaire (gatekeeper, par conception) ». Avant, ce garde-fou légitime était affiché comme un ÉCHEC (organe cassé) alors qu'il dit « relis la carte du coffre ». md5 1b854a2b1cb820c87aeb176604634a53 → efcec0aad782deb9e01f77300007290d. Aucune autre logique modifiée. | + gardien « Repo = installation » (lit thermo/installation_repo.json écrit par installer_depuis_repo.sh) : rend visible que le fichier installé est un LIEN vers le repo (dérive impossible par construction). md5 efcec0aad782deb9e01f77300007290d → 0402336d4df5e86434955238f655a028. || 20/09 (Buffy, GO « cri vivant + revue des organes ») : + gardien « Cris en cours » (lit thermo/cris.json écrit par le chien : les cris ACTIFS à l'instant, auto-effacés, avec le fait que la voix a VRAIMENT été lancée — un cri muet est un faux cri) et + gardien « Revue des organes » (lit thermo/revue_organes.json). md5 1b7a6a40 → 1a698b3c. || 20/09 (Buffy, GO « verdicts des protocoles ») : le tableau « Protocoles en test » ne recopie plus le document du 14/09 — il lit thermo/PROTOCOLES_VERDICTS.json (verdicts MESURÉS par scripts/verdicts_protocoles.py, avec le critère pré-enregistré à côté du résultat et une ligne ⚠ quand un verdict ne peut pas être rendu). Le tableau documentaire ne sert que de repli. md5 1a698b3c → 0e7ff6fd.",
       "_rescel_20260922_go123": "GO 2 : 3 gardiens ajoutés (registre des échecs branché/récidives · seuils sans mesure R17 · sortie pilotée par la mesure) — lecture seule d'états écrits par les organes.",
       "_rescel_20260923": "GARDIEN VISIBLE 23/09 (GO 1 — « un verdict qu'il faut aller chercher n'existe pas ») : la page « vol » gagne DES gardiens qui lisent des états ÉCRITS par des contrôles appelés par git_push_auto.sh — d'abord « Garde-fou seuil moteur » (`thermo/seuil_moteur.json` : combien de refus chiffrés ont été CONFRONTÉS au seuil recalculé, instrument qui recalcule sans la cadence, refus d'être un feu vert si l'état est figé >8 h) ; puis, même jour, « Horodatage mémoire (E13) » (`thermo/memoire_horodatage.json` : lignes horodatées, heure future interdite, remontées de temps signalées mais NON re-datées). MODIFIÉ UNE 2e FOIS le 23/09 pour ce 2e gardien (le scellement est refait ici, après la DERNIÈRE modification — leçon E12). **3e modification le 23/09** : un 15ᵉ gardien, « Schéma du journal (E15) » (`hulk-mexc/runs/VERIF_SCHEMA_JOURNAL.json`) — largeur de schéma, nombre d'incohérences, journal vivant conforme, refus d'être un feu vert si l'état est figé >8 h. LECTURE SEULE, ajout seul : aucun autre gardien touché, aucune donnée modifiée.",
@@ -845,6 +845,10 @@
         {
           "ts": "2026-10-08T09:14:57Z",
           "motif": "CARTE SANTE (08/10/2026, go Christophe) — re-scellement apres la derniere modification. lire_sante() lisait thermo/sante_index_live.json, fichier ABSENT du disque (aucun producteur n'ecrit ce nom : verifie, ce script etait le seul a le citer) -> la carte SANTE tombait TOUJOURS sur le repli 'derniere ligne de data/alertes/sante_index.log' (juste par coincidence, mais figee en silence des que le log cesse d'etre alimente). Corrige : lecture de thermo/sante_index.json (source declaree, ecrite toutes les 5 min par com.ace777.sante-index), repli log CONSERVE. PORTEE : 1 fonction, ~6 lignes utiles + commentaire ; aucune autre carte, aucun seuil, aucun ordre. Reversible en 1 hunk."
+        },
+        {
+          "ts": "2026-10-08T10:39:12Z",
+          "motif": "GO2 : gardien 'Couverture des classes d'erreur' (lit thermo/couverture_erreurs.json)"
         }
       ]
     },
@@ -1007,14 +1011,18 @@
       "origine": "recensement RÈGLE D'OR 19/09",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "91d6f76c5b386369199d88799f935406",
-      "date": "2026-09-23T15:41:45Z",
+      "md5": "4d87e8d44727bbfb5f3cf280249fae4a",
+      "date": "2026-10-08T10:39:12Z",
       "note": "Scellé 19/09 : l'instrument qui mesure les règles est lui-même scellé (rituel maison). R10 ajouté 19/09 soir : SATURATION DE L'HÔTE (RAM réelle via memory_pressure, swap, disque, charge) — signal SRE, distinct de R2. Appelé par git_push_auto.sh. | v3 19/09 soir : + R11 (fail-safe), R12 (sauvegarde prouvée par restauration), R13 (auto-réparation bornée), R14 (anti cry-wolf), + R7 gère les DÉROGATIONS déclarées (strategie/derogations_regles.json). | R15 19/09 : mesure « ce qui est affiché est analysé ou déclaré » (15 bulles app Indices vs rotation analyste + affichage-seul déclaré). 11 règles mesurables.",
       "_rescel_20260923": "R18 AJOUTÉE LE 23/09 (ordre Christophe : « ouvre un round avec la famille et garde la fenêtre ouverte, tu n'es plus digne de diriger seule » · « sinon c'est radiation à vie, règle d'or ») : **R18 — LE JURY PERMANENT**. Elle est MESURÉE, pas promise : il faut une session de famille OUVERTE, consultée dans les 24 h, dont le fil est COHÉRENT (chaque tour posé a ses avis) et avec au moins 3 voix INDÉPENDANTES (une substitution modèle demandé ≠ servi ne compte pas — faute E16). Ajout purement additif : aucune règle existante modifiée, 12 règles mesurées au lieu de 11.",
       "_rescel": [
         {
           "ts": "2026-09-23T15:41:45Z",
           "motif": "R19 alignee sur le gardien famille : le quorum se juge au DERNIER tour (>=3 voix), plus sur les voix distinctes de tout le fil — deux criteres pour une meme regle la faisaient mentir d'un cote"
+        },
+        {
+          "ts": "2026-10-08T10:39:12Z",
+          "motif": "GO3 : regle mesuree R22 (0 trou de couverture)"
         }
       ]
     },
@@ -1034,14 +1042,18 @@
       "origine": "solidité 19/09 (GO Christophe « go 1,2,3 »)",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "6810b347604be7e2b351236e6637f354",
-      "date": "2026-09-29T09:25:44Z",
+      "md5": "f114f85a8487e1c6d8a39e47748ee383",
+      "date": "2026-10-08T10:15:47Z",
       "note": "Scellé 19/09 : le drill (instrument de preuve) est scellé. Verdict READY/TROU affiché dans la page vol par gen_cockpit_vol.py.",
       "_rescel_20260920": " || 20/09 (Buffy, GO « incassable ») : RÉPARATION D'UN FAUX VERT — le drill calculait `non_suivis_critiques` (fichiers non suivis sous Index_Maison/) mais ne le comptait PAS dans les trous : il pouvait annoncer READY alors que 27 instruments que la boucle EXÉCUTE (le chien de garde, le générateur de la page vol, la sentinelle indépendante, les moteurs croisements/paternes, preuve_lecture, verifier_regles_or, installer_depuis_repo…) n'étaient PAS dans git. Nouvelle étape `etape_instruments()` : tout script invoqué par un agent launchd, par git_push_auto.sh ou importé localement doit être suivi par git, sinon TROU. Piège corrigé au passage : les appels écrits `\"$REPO_DIR/…\"` étaient mal extraits (le $ cassait le motif) → verifier_regles_or.py et installer_depuis_repo.sh passaient au travers du détecteur. md5 145df5b7 → d7307891.",
       "_rescel": [
         {
           "ts": "2026-09-29T09:25:44Z",
           "motif": "CLASSE E22 — le drill est LE verdict de fin de tour (et celui de git_push_auto) : il exige desormais 0 violation de pre-declaration, par appel LIVE a predemodifier.py --verifier (nouveau §5bis du rapport + champ predeclaration du JSON). Motif : 16 re-sellements sans pre-declaration (27->29/09) ont ete decouverts APRES un tour termine sur << tout est vert >>. Un gardien que personne n'interroge au moment ou le verdict se rend n'est pas un mecanisme, c'est une conversation."
+        },
+        {
+          "ts": "2026-10-08T10:15:47Z",
+          "motif": "Ajout section 6 : couverture des classes d'erreur appelee EN DIRECT (lecon 13.1 trou B) — demande Christophe 08/10"
         }
       ]
     },
@@ -1466,8 +1478,8 @@
       "origine": "Un contrôle qui n'est appelé par personne n'existe pas (R15) — le pont entre le gardien et la veilleuse de la maison",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "d9bd940e310e6a1308865baa479f873d",
-      "date": "2026-10-08T09:14:57Z",
+      "md5": "428e271c2410ca216f7b54c21f5d9be0",
+      "date": "2026-10-08T10:52:27Z",
       "_ajout_20260923": "Instrument créé le 23/09/2026 (GO Christophe) — ajouté au registre le jour même de sa création pour qu'il soit VU (veilleuse, drill, revue).",
       "_rescel_20260923": "3e vague 23/09 — branche DEUX gardiens neufs toutes les 3 h : `verif_delai_lecture.py` (classe E19 : barre de latence mesurable, mesuré/aveugle séparés, plancher physique) et `verif_session_famille.py` (R19 : la fenêtre du jury permanent ne peut plus se refermer en silence). Ordre de Christophe : « garder la fenêtre ouverte, tu ne diriges plus seule ».",
       "_rescel_20260928": "BRANCHE LE GARDIEN DES TROUS DE COLLECTE (ALPAGE, 28/09) : `hulk-mexc/scripts/gardien_collecte.py` est appelé toutes les 3 h, juste après le gardien de schéma (E15). Le gardien de schéma ne voit que la largeur de l'en-tête ; celui-ci mesure la dérive de largeur, les DOUBLONS stricts, la ligne TRONQUÉE (fichier sans saut de ligne final) et les TROUS (silence > seuil dérivé du journal) — et il les DÉCLARE au lieu de les réparer (on n'invente aucune donnée). La réparation n'a lieu qu'au seul instant sûr (moteur mort) et c'est le WATCHDOG qui l'appelle. Étape 3 de la méthodologie : un gardien que personne n'appelle n'existe pas (R15).",
@@ -1477,6 +1489,14 @@
         {
           "ts": "2026-10-08T09:14:57Z",
           "motif": "BRANCHE LE CHIFFRAGE PnL NET (GO 2, 08/10/2026) — re-scellement apres la derniere modification. hulk-mexc/scripts/chiffrage_pnl_net.py (GO 2 du 23/09) n'etait appele par PERSONNE : aucun plist, aucun cron, ni ce tour ni le watchdog -> la ligne 'PnL net vs brut (GO 2)' du cockpit etait rouge et figee depuis 358 h. Ajoute au meme rythme que gardien_collecte/oracle_justesse (3 h, best-effort). PREUVE : lance a la main le 08/10 -> rc=0, thermo/pnl_net.json regenere (brut 45,67 -> NET 32,17 $). REPORTING SEUL : aucune decision, aucun seuil, le moteur garde son pnl_total BRUT. bash -n OK."
+        },
+        {
+          "ts": "2026-10-08T10:39:12Z",
+          "motif": "GO1+GO4 : cadence 3h appelle chiffrage_stop_serre.py (E17/E18) et verif_avis_modele.py (E16)"
+        },
+        {
+          "ts": "2026-10-08T10:52:27Z",
+          "motif": "GO2+GO3 : cadence 3h appelle oracle_independant.py (E11), verif_fidelite_pnl.py (E2), verif_sources_instruments.py (E3), verif_arret_instruit.py (E26)"
         }
       ]
     },
@@ -1615,8 +1635,8 @@
       "origine": "Exigence famille tour 5, 3 voix convergentes (23/09/2026)",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "bcc79c571fe9494b1dd0374b0abdd062",
-      "date": "2026-10-08T09:38:04Z",
+      "md5": "690781bbe442c13f44c6dc0212870205",
+      "date": "2026-10-08T10:52:27Z",
       "_ajout": [
         {
           "ts": "2026-09-23T15:22:33Z",
@@ -1635,6 +1655,10 @@
         {
           "ts": "2026-10-08T09:38:04Z",
           "motif": "LE GARDIEN ETAIT AVEUGLE SUR 16 FICHIERS (08/10/2026, go Christophe 'corriger l'aveuglement'). DEFAUT MESURE : la radiation d'un ACTE PASSE (DETTE_CONSTATEE) sortait de la boucle par continue, donc sautait AUSSI la clause (b) -> un fichier dont un acte ancien a ete radie devenait invisible A VIE pour toute divergence future, exactement l'inverse de la promesse ecrite dans l'en-tete ('aucun acte futur n'est couvert'). PREUVE du defaut : 3 fichiers divergent sur le disque, le gardien n'en rapportait que 2 ; le manquant etait le seul de la liste radiee (paper_diprip.py, modifie ~08:13Z sans pre-declaration). CORRIGE : la radiation ne vaut QUE pour la clause (a) ; une divergence PRESENTE crie meme sur un fichier radie. PREUVE QUE LE CONTROLE SAIT ENCORE DIRE NON : autotest porte de 3 a 4 cas, le 4e etant precisement ce defaut (il RENDAIT 0 violation avant le correctif) -> 4/4 OK, 'acte passe radie + divergence PRESENTE -> jugee'. PORTEE : 1 condition + 1 cas d'autotest ; lecture seule, aucun seuil de trading, aucun ordre."
+        },
+        {
+          "ts": "2026-10-08T10:52:27Z",
+          "motif": "GO1 : radiation en dette constatee de ma violation R20.1 du 08/10 (sante_index.py)"
         }
       ]
     },
@@ -1744,12 +1768,26 @@
       "origine": "Créé 2026-09-22 sur ordre de Christophe; ajout au registre de synapses après consignation E26, pré-déclaré 2026-09-30T21:37:08Z.",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "f595a7190b16f6fbe567e722dc1ce609",
-      "date": "2026-09-30T21:40:50Z",
+      "md5": "27955195e0597a27c43a878558cb7a77",
+      "date": "2026-10-08T10:53:31Z",
       "_ajout": [
         {
           "ts": "2026-09-30T21:40:50Z",
           "motif": "inscription au registre (R15 : ce qui n'est pas déclaré n'existe pas)"
+        }
+      ],
+      "_rescel": [
+        {
+          "ts": "2026-10-08T10:15:48Z",
+          "motif": "Ajout section 15 : rapport de couverture des 26 classes (15 mecaniques / 10 promesses / 1 ouverture / 2 trous E17-E18)"
+        },
+        {
+          "ts": "2026-10-08T10:39:12Z",
+          "motif": "§15.1 : GO 1,2,3,4 — 2 trous fermes, E16 mecanique, GO2/GO3"
+        },
+        {
+          "ts": "2026-10-08T10:53:31Z",
+          "motif": "§15.3 : GO1 dette radiee, GO2 E11 cablee, GO3 E2/E3/E26 mecanises, E9 promesse declaree"
         }
       ]
     },
@@ -1839,6 +1877,112 @@
       "_ajout": [
         {
           "ts": "2026-10-08T09:15:29Z",
+          "motif": "inscription au registre (R15 : ce qui n'est pas déclaré n'existe pas)"
+        }
+      ]
+    },
+    {
+      "nom": "Index_Maison/scripts/couverture_erreurs.py",
+      "role": "Couverture des classes d'erreur : chaque Exx du registre doit avoir une garde existante+branchee, ou etre declaree promesse/ouverture",
+      "origine": "demande Christophe 08/10/2026 (IA qui anticipe les erreurs)",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "4906b37c676b0676118908464b5f63d7",
+      "date": "2026-10-08T10:16:36Z",
+      "_ajout": [
+        {
+          "ts": "2026-10-08T10:15:48Z",
+          "motif": "inscription au registre (R15 : ce qui n'est pas déclaré n'existe pas)"
+        }
+      ],
+      "_rescel": [
+        {
+          "ts": "2026-10-08T10:16:36Z",
+          "motif": "Robustesse de l'index de citations : zones + plists launchd hors repo, retrait des doc/registres comme appelants (anti faux vert E23)"
+        }
+      ]
+    },
+    {
+      "nom": "Index_Maison/strategie/gardes_erreurs.json",
+      "role": "Carte DECLAREE classe d'erreur vers garde (source unique = REGISTRE_ECHECS_ET_ERREURS.md)",
+      "origine": "demande Christophe 08/10/2026",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "5af7fbf292953f53cac6114be911b782",
+      "date": "2026-10-08T10:52:27Z",
+      "_ajout": [
+        {
+          "ts": "2026-10-08T10:15:48Z",
+          "motif": "inscription au registre (R15 : ce qui n'est pas déclaré n'existe pas)"
+        }
+      ],
+      "_rescel": [
+        {
+          "ts": "2026-10-08T10:39:12Z",
+          "motif": "E16 passe de promesse a mecanique (verif_avis_modele.py)"
+        },
+        {
+          "ts": "2026-10-08T10:52:27Z",
+          "motif": "E11/E2/E3/E26 passent en mecanique ; E9 reste promesse (mesure)"
+        }
+      ]
+    },
+    {
+      "nom": "Index_Maison/scripts/verif_avis_modele.py",
+      "role": "Garde mecanique de E16 : un avis doit etre publie sous le nom du modele qui a REPONDU (en-tete + nom de fichier + bandeau SUBSTITUTION)",
+      "origine": "proposition du HUB (--ia) cablee apres mesure, GO4 Christophe 08/10/2026",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "782029a7231849b3bb347bed5939b0b4",
+      "date": "2026-10-08T10:39:12Z",
+      "_ajout": [
+        {
+          "ts": "2026-10-08T10:39:12Z",
+          "motif": "inscription au registre (R15 : ce qui n'est pas déclaré n'existe pas)"
+        }
+      ]
+    },
+    {
+      "nom": "Index_Maison/scripts/verif_fidelite_pnl.py",
+      "role": "Garde mecanique (GO3, 08/10/2026)",
+      "origine": "proposition du HUB cablee apres mesure",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "6998827deab858229322091d1a2989dd",
+      "date": "2026-10-08T10:52:27Z",
+      "_ajout": [
+        {
+          "ts": "2026-10-08T10:52:27Z",
+          "motif": "inscription au registre (R15 : ce qui n'est pas déclaré n'existe pas)"
+        }
+      ]
+    },
+    {
+      "nom": "Index_Maison/scripts/verif_sources_instruments.py",
+      "role": "Garde mecanique (GO3, 08/10/2026)",
+      "origine": "proposition du HUB cablee apres mesure",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "26bf14dc81bc33296a0a454d5d0f595f",
+      "date": "2026-10-08T10:52:27Z",
+      "_ajout": [
+        {
+          "ts": "2026-10-08T10:52:27Z",
+          "motif": "inscription au registre (R15 : ce qui n'est pas déclaré n'existe pas)"
+        }
+      ]
+    },
+    {
+      "nom": "Index_Maison/scripts/verif_arret_instruit.py",
+      "role": "Garde mecanique (GO3, 08/10/2026)",
+      "origine": "proposition du HUB cablee apres mesure",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "e00c18ebfb91a199775eb30a773df080",
+      "date": "2026-10-08T10:52:27Z",
+      "_ajout": [
+        {
+          "ts": "2026-10-08T10:52:27Z",
           "motif": "inscription au registre (R15 : ce qui n'est pas déclaré n'existe pas)"
         }
       ]

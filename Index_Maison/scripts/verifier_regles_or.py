@@ -397,6 +397,28 @@ def regle_19():
     return ok, detail
 
 
+# ── R22 — COUVERTURE DES CLASSES D'ERREUR : aucune erreur connue sans garde debout ─────
+# (08/10/2026, demande Christophe : « clean et cohérent, sinon pas de plus-value ni de réel ».)
+# Lit l'état écrit par `couverture_erreurs.py` (appelé EN DIRECT par le drill §6, lui-même appelé
+# par git_push_auto.sh AVANT ce vérificateur). Une classe d'erreur connue dont la garde déclarée
+# est absente ou non branchée est un TROU : le réel ne s'ouvre pas sur une défense manquante.
+# Le seuil est ZÉRO trou (aucun seuil inventé) ; rapport absent → on ne verdit pas (R14).
+def regle_22():
+    d = lire_json(IM / "thermo" / "couverture_erreurs.json", {}) or {}
+    if not d:
+        return False, "état de couverture absent (couverture_erreurs.py jamais passé)"
+    n = int(d.get("n_classes") or 0)
+    nt = int(d.get("n_trous") or 0)
+    trous = [str(t.get("classe")) for t in (d.get("trous") or [])]
+    ok = (n >= 1 and nt == 0)
+    detail = (f"{n} classes · {d.get('n_mecaniques', '?')} mécaniques · "
+              f"{d.get('n_promesses', '?')} promesses · {d.get('n_ouvertures', '?')} ouverture(s) · "
+              f"{nt} trou(s)")
+    if trous:
+        detail += " : " + ", ".join(trous[:4])
+    return ok, detail
+
+
 REGLES_MESUREES = [
     ("2", "Corps local / Cerveau cloud (RAM = raisonner, pas stocker)", regle_2),
     ("5", "Un scellé ne s'écrase jamais (registre md5 intact)", regle_5),
@@ -410,6 +432,7 @@ REGLES_MESUREES = [
     ("14", "Aucune alarme permanente à source tarie (anti-cry-wolf)", regle_14),
     ("15", "Toujours brancher (ce qui est affiché est analysé ou déclaré)", regle_15),
     ("19", "Le jury permanent (session OUVERTE, consultée ≤ 24 h, fil cohérent, ≥ 3 voix)", regle_19),
+    ("22", "Aucune erreur connue sans garde debout (couverture des classes d'erreur)", regle_22),
 ]
 
 REGLES_HUMAINES = [

@@ -77,7 +77,10 @@ HUB_MODEL = os.environ.get("HUB_MODEL", "deepseek-ai/DeepSeek-V3-0324")
 # citer un garde dans un doc de veille n'est pas le brancher (R15 : ce qui n'est pas dans la
 # boucle n'existe pas). Restreindre rend aussi la mesure rapide et stable.
 ZONES = ["Index_Maison/scripts", "Index_Maison/plists", "Index_Maison/cockpit",
-         "Index_Maison/strategie", "Index_Maison/system", "hulk-mexc"]
+         "Index_Maison/strategie", "Index_Maison/system", "hulk-mexc",
+         # les agents launchd vivent HORS repo : un gardien peut n'etre branche que la.
+         # Les oublier produirait un faux « non branche » — pire qu'aucun gardien (R14).
+         "~/Library/LaunchAgents"]
 # Seuls les types qui INV OQUENT (un doc .md qui cite un garde ne le branche pas, une config
 # .json qui le declare non plus — sinon on se donne un faux vert, classe E23).
 INCLUDES = ["--include=*.py", "--include=*.sh", "--include=*.plist", "--include=*.command",
@@ -120,7 +123,9 @@ def indexer_citations(noms: list[str], racine: Path = RACINE) -> dict | None:
     noms = sorted({Path(n).name for n in noms if n})
     if not noms:
         return {}
-    zones = [str(racine / z) for z in ZONES if (racine / z).exists()]
+    zones = [str((Path(z).expanduser() if z.startswith(("~", "/")) else racine / z))
+             for z in ZONES]
+    zones = [z for z in zones if Path(z).exists()]
     if not zones:
         zones = [str(racine)]
     cmd = ["grep", "-rH", "-o", "-F", "--exclude-dir=.git"] + INCLUDES

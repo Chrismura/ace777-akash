@@ -369,6 +369,31 @@ au lieu de l'appeler « verdict ».
 **Mesure (R20.3)** : `verif_session_famille.py` crie dès que le dernier tour a **< 3** voix
 indépendantes ; le statut est écrit au fil et au cockpit.
 
+### R22 — AUCUNE ERREUR CONNUE SANS GARDE DEBOUT (ORDRE Christophe, 08/10/2026)
+> Mot pour mot : « c'est possible d'avoir une IA qui **améliore et anticipe** les erreurs ?
+> je veux que tout soit **clean et cohérent**, sinon pas de plus-value ni de réel. »
+
+**En une phrase** : le registre des échecs (`REGISTRE_ECHECS_ET_ERREURS.md`) nomme les classes
+`E1…E26` ; **chacune doit avoir une garde qui EXISTE et qui est BRANCHÉE** — sinon c'est une
+**promesse**, et une promesse ne protège rien (§13.1 trou B : *une garde que personne n'appelle là
+*où la conclusion se rend est une promesse*).
+
+**Mécanique** : `scripts/couverture_erreurs.py` lit le **dénominateur au registre** (jamais
+recopié), croise chaque classe avec la carte **déclarée** `strategie/gardes_erreurs.json`
+(`mecanique` | `promesse` | `ouverture`), et vérifie qu'une garde `mecanique` **existe** et est
+**citée par un fichier qui invoque** (`.py/.sh/.plist/.command/.env` ; les registres, rapports et
+utilitaires de scellement **ne comptent pas** — sinon faux vert, classe E23).
+**Branché EN DIRECT dans `drill_restauration.py` §6** et affiché en gardien du cockpit « vol ».
+
+**Anticipation** : une **nouvelle** classe écrite au registre sans garde déclarée devient un
+**TROU** — le contrôle crie **avant** que la classe morde.
+**Ce qui est déclaré n'est pas caché** : les `promesse` et `ouverture` sont **comptées et
+NOMMÉES**, jamais vertes en silence (E11 reste une ouverture déclarée : oracle indépendant, en
+attente de GO).
+
+**Mesure (R22)** : **0 trou** de couverture. Autotest `couverture_erreurs.py --autotest` = **7/7**
+(il SAIT dire NON : classe non déclarée, organe absent, organe jamais cité, rapport manquant).
+
 ### Amélioration de #3 — DOUBLE CONTRÔLE pour toute action irréversible
 > Source externe : **two-person rule / dual control** (https://en.wikipedia.org/wiki/Two-person_rule).
 

@@ -1,0 +1,43 @@
+{
+  "_meta": {
+    "role": "Couverture des classes d'erreur — carte DECLAREE, pas deduite",
+    "source_unique": "Index_Maison/REGISTRE_ECHECS_ET_ERREURS.md",
+    "regle": "Toute classe Exx PRESENTE au registre et ABSENTE d'ici est un TROU : une erreur connue sans garde declaree. Le compte des classes n'est jamais recopie (lecon des '24 paires') : le denominateur est LU au registre.",
+    "types": {
+      "mecanique": "un organe existe, il doit etre CITE quelque part (R15 : ce qui n'est pas dans la boucle n'existe pas) — sinon il est signale NON BRANCHE",
+      "promesse": "tenu par regle ecrite + revue humaine ; aucune garde mecanique. Declare NOMMEMENT : jamais vert en silence (R14)",
+      "ouverture": "trou connu, remede identifie, en attente de GO — declare OPEN (E8 : pas de limite cachee)"
+    },
+    "maj": "2026-10-08",
+    "par": "Buffy — demande Christophe 08/10/2026 : « clean et coherent, sinon pas de plus-value ni de reel »",
+    "limite_declaree": "Cette carte est une DECLARATION. Le controle verifie l'existence et le branchement de l'organe, il ne prouve pas que l'organe dit vrai (sa sante est portee par son propre rapport, cité dans 'rapports')."
+  },
+  "classes": {
+    "E1": {"type": "mecanique", "garde": "inventaire_seuils_fixes.py", "organe": "Index_Maison/scripts/inventaire_seuils_fixes.py", "provenance": "R17 — toute cle qui decide sans etre mesuree ni rangee est nommee a chaque passage"},
+    "E2": {"type": "mecanique", "garde": "verif_fidelite_pnl.py", "organe": "Index_Maison/scripts/verif_fidelite_pnl.py", "provenance": "reconstruit le PnL depuis le journal (methode FIFO de chiffrage_compounding.py) et le compare a l'etat ECRIT. Mesure 08/10 : 42,12 vs 42,12, ecart 0,0004. La somme NAIVE de la colonne pnl donnait 46,59 (mauvaise methode) — mesure AVANT cablage.", "rapports": ["Index_Maison/thermo/fidelite_pnl.json"]},
+    "E3": {"type": "mecanique", "garde": "verif_sources_instruments.py", "organe": "Index_Maison/scripts/verif_sources_instruments.py", "provenance": "detecte une reference datee PAPER_V1_<date> ecrite en dur dans une ligne de code ; TROU si l'instrument est INVOQUE par la boucle, sinon DETTE declaree. Mesure 08/10 : 5 dettes, 0 invoque.", "rapports": ["Index_Maison/thermo/sources_instruments.json"]},
+    "E4": {"type": "promesse", "garde": "—", "note": "regle ecrite : aucune interdiction sans condition de sortie exprimee en grandeur mesuree"},
+    "E5": {"type": "mecanique", "garde": "controle_config.py", "organe": "Index_Maison/scripts/controle_config.py", "provenance": "une seule source persistee par fait — le controleur de config detecte les cles declarees deux fois"},
+    "E6": {"type": "mecanique", "garde": "refus parlants dans le moteur", "organe": "hulk-mexc/scripts/paper_diprip.py", "provenance": "anti-silence (fait le 22/09) : tout refus est ecrit au moins 1x/h/paire"},
+    "E7": {"type": "promesse", "garde": "—", "note": "regle ecrite : une correction doit nommer sa classe d'erreur et tuer la classe, pas le cas"},
+    "E8": {"type": "promesse", "garde": "—", "note": "regle ecrite : reserves ecrites obligatoires dans chaque livrable (borne, n, horizon)"},
+    "E9": {"type": "promesse", "garde": "—", "note": "regle ecrite : une garde ne se pose qu'apres un chiffrage ecrit. NON MECANISEE A DESSEIN (mesure 08/10) : un compteur « meme fichier, meme jour » crierait sur du travail LEGITIME (4 fichiers modifies le meme jour ici meme) et sa forme mecanique se confond avec R17/inventaire_seuils_fixes (garde de E1). Mieux vaut une promesse declaree qu'un gardien qui accuse a tort (R14/E23)."},
+    "E10": {"type": "mecanique", "garde": "verif_seuil_moteur.py", "organe": "hulk-mexc/scripts/verif_seuil_moteur.py", "provenance": "confronte le seuil RECALCULE aux chiffres que le moteur ECRIT ; detecte tout instrument qui recalcule un seuil sans la cadence"},
+    "E11": {"type": "mecanique", "garde": "oracle_independant.py", "organe": "hulk-mexc/scripts/oracle_independant.py", "provenance": "rejoue les bougies 1 min MEXC BRUTES sans relire un seul indicateur du moteur (coherence != justesse, biais de source unique). L'oracle EXISTAIT depuis le 23/09 (GO Christophe) mais n'etait appele par RIEN — cable dans git_push_auto.sh le 08/10 (GO 2), <1 s via cache klines.", "rapports": ["Index_Maison/thermo/oracle_independant.json"]},
+    "E12": {"type": "mecanique", "garde": "resceler.py + predemodifier.py", "organe": "Index_Maison/scripts/resceler.py", "provenance": "on scelle APRES la derniere modification ; re-scellement trace, jamais efface"},
+    "E13": {"type": "mecanique", "garde": "verif_memoire_horodatage.py", "organe": "Index_Maison/scripts/verif_memoire_horodatage.py", "provenance": "R1 aucune ligne recente dans le futur ; R2 ordre decroissant — autotest rejoue a heure fixe"},
+    "E14": {"type": "promesse", "garde": "—", "note": "regle d'etiquetage MESURE / ESTIME / EXTRAPOLE + revue famille ; portee declaree : pas encore mecanique"},
+    "E15": {"type": "mecanique", "garde": "verif_schema_journal.py", "organe": "hulk-mexc/scripts/verif_schema_journal.py", "provenance": "lit le schema a la source (paper_diprip.CSV_SCHEMA) ; le journal VIVANT doit etre au schema courant"},
+    "E16": {"type": "mecanique", "garde": "verif_avis_modele.py", "organe": "Index_Maison/scripts/verif_avis_modele.py", "provenance": "lit chaque AVIS : en-tete « demande … REPONDU PAR … », nom de fichier = modele DEMANDE, bandeau SUBSTITUTION si le servi differe ; publie les voix independantes par tour (R19/R20.3). Proposition IA cablee APRES mesure (autotest 6/6)."},
+    "E17": {"type": "mecanique", "garde": "chiffrage_stop_serre.py", "organe": "hulk-mexc/scripts/chiffrage_stop_serre.py", "provenance": "publie la formule exacte du stop LUE a l'execution dans config/defaults.env (plus aucune constante recopiee)"},
+    "E18": {"type": "mecanique", "garde": "chiffrage_stop_serre.py", "organe": "hulk-mexc/scripts/chiffrage_stop_serre.py", "provenance": "la valeur de repli n'est jamais prise pour la valeur effective : la config est LUE au moment de l'execution"},
+    "E19": {"type": "mecanique", "garde": "verif_delai_lecture.py", "organe": "hulk-mexc/scripts/verif_delai_lecture.py", "provenance": "separe mesure / aveugle, dit OUI ou NON sur la barre, chiffre les lectures sans delai"},
+    "E20": {"type": "mecanique", "garde": "verif_seuil_moteur.py (§3)", "organe": "hulk-mexc/scripts/verif_seuil_moteur.py", "provenance": "detecteur d'instruments qui recalculent un seuil SANS le terme cadence"},
+    "E21": {"type": "promesse", "garde": "—", "note": "hub en mode strict_model (echec franc, aucune substitution silencieuse) — corrige hors repo (~/prise-ia) ; le choix des experts reste manuel : declare"},
+    "E22": {"type": "mecanique", "garde": "predemodifier.py", "organe": "Index_Maison/scripts/predemodifier.py", "provenance": "pre-declaration OBLIGATOIRE avant l'acte (append-only) ; le drill l'appelle EN DIRECT (0 violation exige)"},
+    "E23": {"type": "mecanique", "garde": "verif_seuil_moteur.py (§4)", "organe": "hulk-mexc/scripts/verif_seuil_moteur.py", "provenance": "un gardien qui n'omet aucun terme du profil — sinon il se DESACTIVE au lieu d'accuser le moteur"},
+    "E24": {"type": "mecanique", "garde": "boucle_setups_main.py", "organe": "hulk-mexc/scripts/boucle_setups_main.py", "provenance": "verdict rendu sur le premier prix que le moteur a VU sous le seuil (prix ponctuel du cycle), pas sur la meche d'une bougie"},
+    "E25": {"type": "mecanique", "garde": "boucle_setups_main.py", "organe": "hulk-mexc/scripts/boucle_setups_main.py", "provenance": "jugement sur l'heure de LECTURE du prix (ts_prix_utc) + tolerance du delai d'ecriture, le strict compte a cote"},
+    "E26": {"type": "mecanique", "garde": "verif_arret_instruit.py", "organe": "Index_Maison/scripts/verif_arret_instruit.py", "provenance": "un drapeau d'arret (STOP_PAPER / STOP / STOP_ALL) exige une trace d'ordre EXPLICITE anterieure (strategie/ORDRE_ARRET.json) ; sans drapeau → conforme (aucun faux reproche, R14). Proposition du HUB cablee apres lecture des drapeaux reels.", "rapports": ["Index_Maison/thermo/arret_instruit.json"]}
+  }
+}

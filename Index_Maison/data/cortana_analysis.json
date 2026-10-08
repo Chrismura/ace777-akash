@@ -1,7 +1,43 @@
 {
-  "timestamp": 1791454362,
-  "date": "2026-10-08T10:12:42.070972+00:00",
-  "n_analyses": 0,
-  "analyses": [],
-  "resume": "Aucune analyse en cours"
+  "timestamp": 1791465165,
+  "date": "2026-10-08T13:12:45.277355+00:00",
+  "n_analyses": 1,
+  "analyses": [
+    {
+      "signal": {
+        "metric": "liquidations",
+        "zscore": 3.5575262564761045,
+        "value": 11114476.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Panique médiatique extrême ('550M$ liquidés', 'chute sous 84k$') alors que le z-score on-chain (3.56) montre des liquidations modérées (11.1M$ sur l'échantillon sentinelle). Cette surmédiatisation d'un flush classique indique un 'shakeout' de détail orchestré. Les baleines absorbent la liquidité dans l'ombre pendant que la foule cède à la peur.\"\n}\n```",
+        "ts": 1791463483.585328
+      },
+      "fiche": "liquidations",
+      "questions": {
+        "longs": {
+          "value": 1955324.0,
+          "seuil": 0,
+          "depasse": true
+        },
+        "shorts": {
+          "value": 17146.0,
+          "seuil": 0,
+          "depasse": true
+        },
+        "prix": {
+          "value": 0.11,
+          "seuil": 1,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "longs > shorts",
+        "lecture": "Liquidations massives de LONGS — cascade baissière mécanique. Historiquement suit un creux proche quand le volume liq retombe (HYPOTHÈSE, pas une loi : une cascade peut en cacher une autre)",
+        "niveau": "surveiller",
+        "action": "Ne pas vendre dans la cascade ; préparer les paliers plancher si la paire est sur watchlist"
+      },
+      "action": "Ne pas vendre dans la cascade ; préparer les paliers plancher si la paire est sur watchlist",
+      "niveau": "surveiller"
+    }
+  ],
+  "resume": "🟡 SURVEILLANCE — des signaux sont à observer"
 }

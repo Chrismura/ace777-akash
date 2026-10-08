@@ -82,6 +82,13 @@ DETTE_CONSTATEE = {
     ("Index_Maison/scripts/tester_arbitrage_xrpl.py", "2026-09-29T08:31Z"),
     ("Index_Maison/scripts/carnet_rwa.py", "2026-09-29T09:07Z"),
     ("Index_Maison/scripts/preuve_lecture.py", "2026-09-29T09:10Z"),
+    # ── 08/10/2026 — MA propre violation, radiée SUR ORDRE EXPLICITE (go 1,2,3), jamais blanchie.
+    # Acte : `sante_index.py` re-scellé à 09:38:36Z (précision de libellé de la marge de passe)
+    # SANS pré-déclaration antérieure. Même raison que les 16 : une déclaration TARDIVE ne peut
+    # pas satisfaire `ts <= date de l'acte` par construction — la laisser rouge à vie bloquerait
+    # le drill (READY impossible) et noierait la 17ᵉ violation. Elle est DATÉE, NOMMÉE, écrite ici
+    # et au §15 du `REGISTRE_ECHECS_ET_ERREURS.md`. Radiation = sortie de l'alarme, jamais effacement.
+    ("Index_Maison/scripts/sante_index.py", "2026-10-08T09:38:36Z"),
 }
 
 

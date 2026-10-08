@@ -675,5 +675,109 @@ pas l'arrêt du moteur. J'ai lu cela comme un ordre, sans demander confirmation.
   branches. **Défaut logique suspect confirmé par lecture, impact runtime non quantifié**, pas preuve
   qu'une vente donnée a été incorrecte.
 - Le state vivant actuel rapporte `pnl_total=43.3067`, `trades=256`, 14 positions, 1 bag; le journal
-  actif continue d'écrire après reprise. L'arrêt a donc été temporaire, pas une interruption toujours
-  en cours.
+  actif continue d'écrire après reprise.L'arrêt a donc été temporaire, pas une interruption toujours en cours.
+
+---
+
+## 15. Couverture des classes d'erreur — l'organe qui répond « la garde est-elle encore debout ? » (08/10/2026)
+
+> Demande Christophe, mot pour mot : « c'est possible d'avoir une IA qui **améliore et anticipe**
+> les erreurs ? je veux que tout soit **clean et cohérent**, sinon pas de plus-value ni de réel. »
+> Le manque n'était ni le registre ni les gardes : personne ne répondait, classe par classe, à
+> « la garde déclarée **existe-t-elle** et est-elle **BRANCHÉE** ? » — le **§13.1 trou B généralisé**.
+
+**Organe** : `Index_Maison/scripts/couverture_erreurs.py` (lecture seule, stdlib, 0 €, 0 ordre).
+
+- **Dénominateur LU au registre** (ce fichier), jamais recopié — leçon des « 24 paires ».
+- **Carte déclarée** : `strategie/gardes_erreurs.json` (`mecanique` | `promesse` | `ouverture`).
+- Une garde `mecanique` doit **exister** ET être **citée par un fichier qui INVOQUE**
+  (`.py/.sh/.plist/.command/.env`). Registres, rapports et utilitaires de scellement **ne comptent
+  pas** : sans cette exclusion, tout scellé semblait « branché » par le seul fait d'être listé —
+  un **faux vert de la classe E23** (mesuré, corrigé avant livraison).
+- `promesse` et `ouverture` sont **comptées et NOMMÉES**, jamais vertes en silence (R14).
+- **Branché EN DIRECT dans `drill_restauration.py` §6**, là où `READY/TROU` se rend : une erreur
+  connue dont la garde n'est pas debout compte comme un **trou** (même logique que le §2bis
+  « instruments non versionnés » : un Mac amputé d'une garde n'est pas revenu entier).
+
+**Premier passage (MESURÉ)** : `26 classes · 15 mécaniques · 10 promesses · 1 ouverture · 2 trous`.
+
+**Les 2 trous, nommés — E17 / E18** : `hulk-mexc/scripts/chiffrage_stop_serre.py` **existe mais
+n'est appelé par RIEN** (mesuré : seul un utilitaire de re-scellement le citait, ce qui n'est pas un
+appelant). Le §2 et le §9 le présentent comme « la garde branchée » : **le contrôle a mesuré l'écart
+entre la déclaration et le réel**. Remède **au choix de Christophe** — **(a)** le câbler dans une
+cadence existante, ou **(b)** le déclarer `promesse` (instrument lancé à la main). **Je ne tranche
+pas seul** (règle #3) : tant que ce n'est pas tranché, le trou reste **visible**.
+
+**Anticipation** : une **nouvelle** classe `Exx` écrite au registre sans garde déclarée devient un
+**TROU immédiat** — le contrôle crie **avant** que la classe morde.
+
+**Autotest : 7/7** (sait dire NON : classe non déclarée · organe absent · organe jamais cité ·
+rapport manquant ; et **ne crie pas à tort** sur une promesse déclarée ou un organe cité ailleurs).
+
+**Limite déclarée (R8)** : vérifie l'**EXISTENCE** et le **BRANCHEMENT**, pas la **justesse** d'une
+garde — sa santé est portée par son propre rapport.
+
+### 15.1 Mise à jour 08/10/2026 — GO 1,2,3,4 (Christophe) : les 2 trous sont FERMÉS
+
+> Ordre : « go 1,2,3,4 ». Le passé de cette section **n'est pas réécrit** : le premier passage
+> disait `2 trous`, il reste écrit ci-dessus. Ce qui suit est ce qui a changé **après**.
+
+- **GO 1 — E17/E18 FERMÉS.** `chiffrage_stop_serre.py` est **câblé dans `git_push_auto.sh`**
+  (tour des 3 h, best-effort, lecture seule) et écrit `thermo/stop_serre.json` +
+  `STOP_SERRE.txt`. **Coût mesuré : 176 s** — lourd, mais sur une cadence de 3 h et à côté des
+  autres instruments (**déclaré, pas caché**). La couverture repasse de `2 trous` à **`0 trou`**.
+- **GO 4 — E16 PASSÉE DE « promesse » À « mécanique ».** Nouvelle garde
+  **`scripts/verif_avis_modele.py`** — **première proposition du HUB (`--ia`) câblée APRÈS
+  mesure** (autotest **6/6**). Elle exige sur chaque AVIS : en-tête « demandé … RÉPONDU PAR … »,
+  **nom de fichier = modèle DEMANDÉ**, **bandeau SUBSTITUTION** dès que le servi diffère ; elle
+  publie les **voix indépendantes par tour** (le chiffre dont R19/R20.3 dépendent). Mesuré sur la
+  session réelle : **CONFORME**, T3 = **1** voix, T6 = **1** voix — le défaut de quorum est rendu
+  **visible**, pas inventé.
+- **GO 2 — VISIBLE LÀ OÙ ON REGARDE.** Le cockpit « vol » porte un nouveau gardien
+  **« Couverture des classes d'erreur »** (lu dans `thermo/couverture_erreurs.json`) ; il est
+  **vert** (0 trou).
+- **GO 3 — RÈGLE D'OR MESURÉE.** **R22 — AUCUNE ERREUR CONNUE SANS GARDE DEBOUT** (canon
+  `REGLE_D_OR.md` + `verifier_regles_or.py` ; seuil **0 trou**, aucun seuil inventé ; rapport
+  absent → on **ne verdit pas**, R14).
+- **CE QUI N'EST PAS BLANCHI** : ma violation **R20.1 du 08/10 09:38:36Z** (`sante_index.py`,
+  re-scellé sans pré-déclaration) **reste rouge** — **je ne radie pas mon propre acte tout seul** ;
+  c'est une décision (le mécanisme de « dette constatée » existe déjà, cf. §13).
+- **État après coup** : `26 classes · 16 mécaniques · 9 promesses · 1 ouverture · 0 trou`.
+  Règles d'or mesurables : **9/13** (R6/R12 lisent le drill, encore TROU **à cause de la
+  violation R20.1 ci-dessus** — pas à cause d'un trou de couverture).
+
+### 15.3 Mise à jour 08/10/2026 (suite) — GO 1,2,3 : dette radiée, E11 câblée, 3 propositions IA mécanisées
+
+> Même ordre : « go 1,2,3 ». Le passé **reste écrit** (§15.1 disait « reste rouge ») ; voici ce qui
+> a changé **après**. Étape charnière : **je n'ai pas écrit de nouveaux gardiens avant d'avoir
+> MESURÉ** — et la mesure a sauvé un faux accusateur.
+
+- **GO 1 — MA VIOLATION RADIÉE, SUR ORDRE EXPLICITE.** `predemodifier.py` → `DETTE_CONSTATEE`
+  (+ une entrée datée et commentée) : l'acte `sante_index.py` du **08/10 09:38:36Z** est **radié de
+  l'alarme, jamais effacé** — daté, nommé ici et dans l'état. Mesuré :
+  `predemodifier.py --verifier` → **✔ 0 violation** ; **drill → READY**.
+- **GO 2 — E11 CÂBLÉE, ET L'ORACLE EXISTAIT DÉJÀ.** `hulk-mexc/scripts/oracle_independant.py` est
+  écrit depuis le **23/09 (GO Christophe)** et **n'était appelé par RIEN** : E11 restait une
+  « ouverture » alors que le remède était sur le disque. Il est maintenant dans `git_push_auto.sh`
+  (3 h, **<1 s** via le cache klines). Il rejoue les bougies **1 min MEXC brutes** sans relire un
+  seul indicateur du moteur — donc il peut dire « le moteur a acheté malgré le marché », ce que les
+  contrôles qui comparent le moteur à lui-même ne peuvent pas dire. **E11 : ouverture → mécanique.**
+- **GO 3 — 3 PROPOSITIONS DU HUB MÉCANISÉES (mesurées AVANT câblage)** :
+  - **E2** → `verif_fidelite_pnl.py` : reconstruit le PnL depuis le journal (FIFO) et le compare à
+    l'état écrit. **La somme naïve de la colonne `pnl` donnait 46,59 $ — c'était la MAUVAISE
+    méthode ; la FIFO rend 42,12 $ = état (écart 0,0004 $).** Mesurer avant de câbler a évité un
+    **faux accusateur** (famille E23). Autotest **5/5**.
+  - **E3** → `verif_sources_instruments.py` : détecte un journal pointé **EN DUR**. Mesure du jour :
+    **5 cas, AUCUN invoqué par la boucle** → **dette déclarée** (nommée, non fatale), pas de rouge à
+    vie (R14). Autotest **5/5**.
+  - **E26** → `verif_arret_instruit.py` : un drapeau d'arrêt exige une **instruction explicite
+    ANTÉRIEURE** (`strategie/ORDRE_ARRET.json`) — une trace écrite après coup n'autorise rien
+    (leçon R20.1 appliquée à l'arrêt). Autotest **4/4**.
+  - **E9 reste une promesse DÉCLARÉE, à dessein** : un compteur « même fichier, même jour »
+    crierait sur du travail **légitime** (**4 fichiers modifiés le même jour, ici même**) et sa
+    forme mécanique se confond avec R17/E1. **Mieux vaut une promesse dite qu'un gardien qui
+    accuse à tort** (R14/E23).
+- **ÉTAT FINAL MESURÉ** : `26 classes · 20 mécaniques · 6 promesses · 0 ouverture · 0 trou` ·
+  **170 scellés · 0 écart · 0 absent** · **drill ✅ READY** · règles d'or **11/13** — les deux
+  seules rouges sont **R10** (saturation de l'hôte) et **R19** (jury à rejouer), **aucune** n'est un
+  trou de couverture.

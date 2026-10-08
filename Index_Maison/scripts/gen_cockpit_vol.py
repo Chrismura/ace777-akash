@@ -736,6 +736,27 @@ def gardiens():
     else:
         g.append({"nom": "Sortie pilotée par la mesure", "ok": False,
                   "detail": "état absent (suivi_sortie_mesuree.py jamais passé)"})
+
+    # (d) COUVERTURE DES CLASSES D'ERREUR (08/10/2026 — demande Christophe « clean et cohérent,
+    # sinon pas de plus-value ni de réel »). Lit thermo/couverture_erreurs.json (écrit par
+    # couverture_erreurs.py, appelé EN DIRECT par le drill §6). ok seulement si 0 trou : une
+    # classe d'erreur CONNUE dont la garde déclarée est absente ou non branchée est une défense
+    # manquante. Les promesses/ouvertures DÉCLARÉES ne rougissent PAS la ligne — elles sont
+    # dites (R14 : ni vert en silence, ni rouge sur ce qui est déclaré).
+    cov = jload(IM / "thermo" / "couverture_erreurs.json")
+    if cov:
+        nt = int(cov.get("n_trous") or 0)
+        detail = "%s classes · %s mécaniques · %s promesses · %s ouverture(s)" % (
+            cov.get("n_classes", "?"), cov.get("n_mecaniques", "?"),
+            cov.get("n_promesses", "?"), cov.get("n_ouvertures", "?"))
+        if nt:
+            detail += " · %d TROU(s) : %s" % (nt, ", ".join(
+                str(t.get("classe")) for t in (cov.get("trous") or [])[:3]))
+        detail += " · màj %s" % fmt_age(age_min(IM / "thermo" / "couverture_erreurs.json"))
+        g.append({"nom": "Couverture des classes d'erreur", "ok": (nt == 0), "detail": detail})
+    else:
+        g.append({"nom": "Couverture des classes d'erreur", "ok": False,
+                  "detail": "état absent (couverture_erreurs.py jamais passé)"})
     return g
 
 

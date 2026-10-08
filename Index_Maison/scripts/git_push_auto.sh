@@ -214,6 +214,65 @@ if [ -f "$REPO_DIR/Index_Maison/scripts/verif_session_famille.py" ]; then
     echo "[$(date -u +%Y-%m-%dT%H:%MZ)] ALERTE : fenêtre famille NON conforme — R19 (voir ci-dessus)" >> "$LOG_FILE"
 fi
 
+# GARDIEN DU STOP SERRÉ (classes E17/E18, ajouté le 08/10/2026 — GO 1)
+# Pourquoi : le registre présentait `chiffrage_stop_serre.py` comme « la garde branchée », mais
+# MESURÉ il n'était appelé par RIEN (`couverture_erreurs.py` §6 : 2 trous). Un chiffrage que
+# personne n'appelle n'existe pas (R15). Branché ici, au rythme des autres instruments (3 h,
+# best-effort). LECTURE SEULE : il lit la config et le journal, n'écrit QUE ses rapports.
+if [ -f "$REPO_DIR/hulk-mexc/scripts/chiffrage_stop_serre.py" ]; then
+  python3 "$REPO_DIR/hulk-mexc/scripts/chiffrage_stop_serre.py" \
+    --json "$REPO_DIR/Index_Maison/thermo/stop_serre.json" \
+    --txt "$REPO_DIR/Index_Maison/thermo/STOP_SERRE.txt" >> "$LOG_FILE" 2>&1 || \
+    echo "[$(date -u +%Y-%m-%dT%H:%MZ)] ALERTE : chiffrage du stop serré non passé — classes E17/E18 (voir ci-dessus)" >> "$LOG_FILE"
+fi
+
+# GARDIEN DE L'ÉTIQUETTE DES AVIS (classe E16, ajouté le 08/10/2026 — GO 4)
+# Pourquoi : publier un avis sous le nom du modèle DEMANDÉ alors qu'un AUTRE a répondu ferait
+# compter le même modèle deux fois comme deux voix indépendantes (R19/R20.3). C'est la première
+# proposition du HUB (`--ia`) câblée APRÈS mesure (autotest 6/6). Lecture seule.
+if [ -f "$REPO_DIR/Index_Maison/scripts/verif_avis_modele.py" ]; then
+  python3 "$REPO_DIR/Index_Maison/scripts/verif_avis_modele.py" \
+    --json "$REPO_DIR/Index_Maison/thermo/avis_modele.json" >> "$LOG_FILE" 2>&1 || \
+    echo "[$(date -u +%Y-%m-%dT%H:%MZ)] ALERTE : avis publié sans traçabilité demande/réponse — classe E16 (voir ci-dessus)" >> "$LOG_FILE"
+fi
+
+# ORACLE INDÉPENDANT (classe E11, GO 2 — câblé le 08/10/2026)
+# L'oracle EXISTAIT depuis le 23/09 (GO Christophe) mais n'était appelé par RIEN : E11 restait une
+# « ouverture ». Il rejoue les bougies 1 min MEXC brutes, sans relire un seul indicateur du moteur
+# → il peut dire « le moteur a acheté malgré le marché » et « le stop n'a pas tenu », ce que les
+# contrôles qui comparent le moteur à lui-même ne peuvent pas dire (E11 : cohérence ≠ justesse).
+# Lecture seule, <1 s (cache klines).
+if [ -f "$REPO_DIR/hulk-mexc/scripts/oracle_independant.py" ]; then
+  python3 "$REPO_DIR/hulk-mexc/scripts/oracle_independant.py" \
+    --json "$REPO_DIR/Index_Maison/thermo/oracle_independant.json" \
+    --txt "$REPO_DIR/Index_Maison/thermo/ORACLE_INDEPENDANT.txt" >> "$LOG_FILE" 2>&1 || \
+    echo "[$(date -u +%Y-%m-%dT%H:%MZ)] ALERTE : oracle indépendant non passé — classe E11 (voir ci-dessus)" >> "$LOG_FILE"
+fi
+
+# FIDÉLITÉ DU PnL (classe E2, GO 3 — câblé le 08/10/2026)
+# « conclure sans vérifier à la source » : on RECONSTRUIT le PnL depuis le journal (FIFO, outil
+# existant) et on le compare à l'état ÉCRIT. Mesuré le 08/10 : 42,12 $ vs 42,12 $ (écart 0,0004).
+if [ -f "$REPO_DIR/Index_Maison/scripts/verif_fidelite_pnl.py" ]; then
+  python3 "$REPO_DIR/Index_Maison/scripts/verif_fidelite_pnl.py" >> "$LOG_FILE" 2>&1 || \
+    echo "[$(date -u +%Y-%m-%dT%H:%MZ)] ALERTE : PnL reconstruit ≠ état — classe E2 (voir ci-dessus)" >> "$LOG_FILE"
+fi
+
+# SOURCES DES INSTRUMENTS (classe E3, GO 3 — câblé le 08/10/2026)
+# Un instrument qui pointe un journal ÉCRIT EN DUR devient aveugle en silence (cas mesuré 21/09).
+# Fatal seulement si l'instrument est INVOQUÉ par la boucle ; sinon dette déclarée (R14).
+if [ -f "$REPO_DIR/Index_Maison/scripts/verif_sources_instruments.py" ]; then
+  python3 "$REPO_DIR/Index_Maison/scripts/verif_sources_instruments.py" >> "$LOG_FILE" 2>&1 || \
+    echo "[$(date -u +%Y-%m-%dT%H:%MZ)] ALERTE : un instrument invoqué pointe un journal mort — classe E3 (voir ci-dessus)" >> "$LOG_FILE"
+fi
+
+# ARRÊT INSTRUIT (classe E26, GO 3 — câblé le 08/10/2026)
+# Aucune interruption sans instruction EXPLICITE tracée (leçon 30/09 : j'ai lu une question comme
+# un ordre). Un drapeau d'arrêt sans `strategie/ORDRE_ARRET.json` antérieur crie.
+if [ -f "$REPO_DIR/Index_Maison/scripts/verif_arret_instruit.py" ]; then
+  python3 "$REPO_DIR/Index_Maison/scripts/verif_arret_instruit.py" >> "$LOG_FILE" 2>&1 || \
+    echo "[$(date -u +%Y-%m-%dT%H:%MZ)] ALERTE : drapeau d'arrêt sans instruction explicite — classe E26 (voir ci-dessus)" >> "$LOG_FILE"
+fi
+
 # 2) Ne committer que les fichiers DÉJÀ SUIVIS (modifiés/supprimés) + les canoniques
 # Garde-fou 05/09 (incident index.lock orphelin du 03/09 : 2,5 jours de push mort
 # en silence, le 2>/dev/null avalait le rc=128 et le script disait « aucun changement ») :
