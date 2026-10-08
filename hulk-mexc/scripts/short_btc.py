@@ -65,6 +65,7 @@ from __future__ import annotations
 
 import csv
 import json
+import os
 import sys
 import time
 from datetime import datetime, timezone
@@ -83,6 +84,16 @@ NOTIONAL_USDT = 5.0        # taille d'un short (1/4 de la base 20$)
 CAPITAL0 = 100.0           # capital virtuel de la ligne short (lisibilité %)
 SCORE_ENTREE = 5           # score minimal pour ouvrir un short
 SCORE_SORTIE = 2           # score sous lequel on coupe (signal éteint)
+# === SIGNAL CORRIGÉ (08/10/2026, GO Christophe — MESURÉ AVANT CÂBLAGE) ===
+# Mesure longue (chiffrage_short_btc_signal_long.py, 38 j de signaux réels) : le score
+# ACTUEL n'a AUCUN edge (espérance −0,034 %, signe instable) car ses composants
+# `surchauffe` et `btc m6` prédisent à l'envers. Seul `corr_dir_btc` tient : entrer
+# quand corr_dir ≤ −0,50 donne +0,319 % d'espérance, 58 % de réussite, MÊME SIGNE sur
+# les 2 moitiés. On câble donc ce seuil, SANS levier (le levier attend une preuve
+# d'edge positive confirmée). Réversible : SHORT_BTC_SIGNAL=score (ancien comportement).
+SIGNAL_MODE = os.environ.get("SHORT_BTC_SIGNAL", "corr").strip().lower()
+CORR_ENTREE = float(os.environ.get("SHORT_BTC_CORR_ENTREE", "-0.50"))
+CORR_SORTIE = float(os.environ.get("SHORT_BTC_CORR_SORTIE", "-0.10"))
 TP_PCT = 2.0               # take profit : BTC -2% depuis l'entrée
 SL_PCT = 1.5               # stop loss : BTC +1.5% contre nous
 TTL_H = 24.0               # time-out d'une position (heures)
@@ -298,6 +309,7 @@ def gerer(sig: dict, st: dict) -> None:
     prix = sig.get("prix_btc")
     frais = sig.get("frais", False)
     score = sig.get("score", 0)
+    corr = sig.get("corr_dir_btc")
 
     if pos:
         # ---- SORTIE ----
@@ -318,7 +330,8 @@ def gerer(sig: dict, st: dict) -> None:
                 raison = "TP"
             elif prix >= entree * (1 + SL_PCT / 100):
                 raison = "SL"
-            elif score is not None and score < SCORE_SORTIE:
+            elif (SIGNAL_MODE == "corr" and corr is not None and corr > CORR_SORTIE) \
+                    or (SIGNAL_MODE != "corr" and score is not None and score < SCORE_SORTIE):
                 raison = "SIGNAL_ETEINT"
             elif (time.time() - ts0) / 3600 >= TTL_H:
                 raison = "TIME_OUT"
@@ -347,13 +360,20 @@ def gerer(sig: dict, st: dict) -> None:
     # FIX 11/09 : entrée EXIGE un prix exploitable + signal complet (ok=True,
     # sinon score incomplet après rotation). score>=5 avec ok=False est impossible
     # (score=None) mais le garde reste explicite.
-    if prix is not None and sig.get("ok") and score >= SCORE_ENTREE and frais and sig.get("session_ok"):
+    if SIGNAL_MODE == "corr":
+        entree_ok = (corr is not None and corr <= CORR_ENTREE)
+        motif = f"corr_dir {corr} ≤ {CORR_ENTREE}"
+    else:
+        entree_ok = (score is not None and score >= SCORE_ENTREE)
+        motif = f"score {score} ≥ {SCORE_ENTREE}"
+    if prix is not None and sig.get("ok") and entree_ok and frais and sig.get("session_ok"):
         st["position"] = {
             "ts_entree": utc(), "ts_entree_epoch": time.time(),
             "prix_entree": prix, "notional": NOTIONAL_USDT,
-            "score_entree": score, "detail_signal": sig.get("detail"),
+            "score_entree": score, "corr_entree": corr,
+            "detail_signal": sig.get("detail"),
         }
-        print(f"[SHORT-BTC] ENTRÉE short @ {prix} (score {score}) — {sig.get('detail')}")
+        print(f"[SHORT-BTC] ENTRÉE short @ {prix} ({motif}) — {sig.get('detail')}")
 
 
 def ecrire_live(sig: dict, st: dict) -> None:
