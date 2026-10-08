@@ -173,6 +173,20 @@ if [ -f "$REPO_DIR/hulk-mexc/scripts/oracle_justesse_collecte.py" ]; then
     echo "[$(date -u +%Y-%m-%dT%H:%MZ)] ALERTE : justesse des valeurs collectées — écart anormal (E11, voir ci-dessus)" >> "$LOG_FILE"
 fi
 
+# CHIFFRAGE DU PnL NET vs BRUT (GO 2, branché le 08/10/2026 — « brancher le chiffrage en 3 h »).
+# Pourquoi : `hulk-mexc/scripts/chiffrage_pnl_net.py` existe depuis le 23/09 (exigence de la FAMILLE :
+# « cesser de piloter avec un chiffre brut faux de 8,8 % ») et il n'était appelé par PERSONNE — aucun
+# plist, aucun cron, ni ce tour ni le watchdog (vérifié par grep le 08/10). Résultat mesuré : la ligne
+# « PnL net vs brut (GO 2) » du cockpit était ROUGE et FIGÉE depuis 358 h (thermo/pnl_net.json du
+# 23/09 : brut 45,73 $ → net 40,86 $). Un chiffrage que personne n'appelle n'existe pas (R15) : il est
+# branché ici au rythme des autres instruments de collecte (3 h, best-effort). REPORTING SEUL — il ne
+# touche pas au `pnl_total` du moteur et ne déplace aucune décision (le disjoncteur garde le brut).
+if [ -f "$REPO_DIR/hulk-mexc/scripts/chiffrage_pnl_net.py" ]; then
+  python3 "$REPO_DIR/hulk-mexc/scripts/chiffrage_pnl_net.py" \
+    >> "$LOG_FILE" 2>&1 || \
+    echo "[$(date -u +%Y-%m-%dT%H:%MZ)] ALERTE : chiffrage PnL net non passé (GO 2, voir ci-dessus)" >> "$LOG_FILE"
+fi
+
 # GARDIEN DU DÉLAI DE LECTURE (classes E19a/E19b, ajouté le 23/09/2026)
 # Pourquoi : la FAMILLE (jury permanent, tours 1 et 2) a classé « la latence de lecture du prix »
 # défaut n°1 (barre < 1 s, mesure 1,057 s). En préparant la remédiation j'ai trouvé deux fautes

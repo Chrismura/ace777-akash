@@ -58,7 +58,26 @@ LOOP_SEC = 20.0          # cadence d'écriture (le moteur a une boucle 20s aussi
 #   RÉVERSIBLE en une ligne (ou par ASPIRATION_MAX_PAIRS=5 dans l'environnement).
 # 05/10/2026 : 20→24 — 19 paires tradées + 3 en observation (IOTA/LA/WAXL) :
 # couverture complète en une passe (les « light » coûtent 1 lecture carnet).
-MAX_PAIRS = int(os.environ.get("ASPIRATION_MAX_PAIRS", "24"))   # paires sondées par passe
+#
+# 08/10/2026 (Buffy, go Christophe « corriger une fois pour toute sur toute la ligne ») — CE CHIFFRE
+# N'EST PLUS UN CHIFFRE. « 24 » était recopié À LA MAIN : le 05/10, TELUSDT est sorti du
+# portefeuille et 3 paires sont passées en observation → 19 + 3 = 22, d'où un 24 avec 2 de marge.
+# Mesuré le 08/10 à la source : univers 22, max_pairs 24, couverture 100 %. MAIS le prochain
+# ajout/retrait de paire rend ce nombre faux EN SILENCE, et le prix est réel : une paire non sondée
+# n'a AUCUNE vue live, donc le moteur calcule son cap de mise sur le PROFIL figé — chiffre faux de
+# 8 à 82 % (mesure de l'audit du 23/09 : RIZE, cap 4,88 $ pour un carnet mesuré à 364,74 $). Un
+# réglage qu'un humain doit retoucher à chaque changement d'univers est un défaut en attente (R17).
+# DÉSORMAIS DÉRIVÉ : 0 (défaut) = « toute la liste du moteur, en une passe » ; une valeur > 0 reste
+# un plafond EXPLICITE (le levier historique ASPIRATION_MAX_PAIRS=5 est conservé).
+MAX_PAIRS = int(os.environ.get("ASPIRATION_MAX_PAIRS", "0"))   # 0 = DÉRIVÉ de l'univers du moteur
+# ── LE VRAI PLAFOND N'EST PAS LE NOMBRE DE PAIRES, C'EST LE TEMPS ────────────────────────────
+# Une passe réelle a été CHRONOMÉTRÉE le 08/10 : 24,9 s pour 22 paires (8 « full » = 2 lectures,
+# 14 « light » = 1). Le plist relance toutes les 20 s et l'âge de la vue oscille 1 → ~40 s, donc
+# SOUS le seuil de fraîcheur du moteur (45 s dans paper_diprip, mode fichier) — mais avec ~5 s de
+# marge seulement. Ces deux constantes servent à le DIRE dans le fichier (duree_s, marge_s,
+# risque_stale) au lieu de l'espérer ; ce sont des déclarations, pas des seuils de décision.
+CADENCE_PLIST_SEC = 20.0      # StartInterval du plist com.ace777.satellite-aspiration
+FRAICHEUR_BUDGET_SEC = 45.0   # seuil du moteur : la vue n'est lue que si age <= 45 s
 # ── MESURE QUI A CORRIGÉ LE GO 3 LE JOUR MÊME (23/09) ─────────────────────────────────────
 # Première version : 20 paires × 2 lectures /depth ⇒ passe de 35,8 s ⇒ avec StartInterval=20 s,
 # l'âge de la vue oscillait **4 → 55 s**, donc AU-DESSUS du seuil « frais » de 45 s du moteur →
@@ -212,10 +231,14 @@ def saisir_prix(pairs):
 
 
 def run_once() -> int:
+    t_debut = time.time()
     paires = derniere_paires()
     if not paires:
         # pas de state frais → ne rien écrire (on ne cache pas l'absente)
         return 0
+    # 08/10/2026 : le budget de paires est DÉRIVÉ de l'univers réel (une paire ajoutée au moteur est
+    # sondée le cycle suivant, sans retoucher le code) ; MAX_PAIRS > 0 ne sert plus qu'à PLAFONNER.
+    budget = MAX_PAIRS if MAX_PAIRS > 0 else len(paires)
     # ── SÉLECTION (corrigée le 23/09/2026 — GO 3) ───────────────────────────────────────────
     # AVANT : `actives = [paires COOLING/IMPULSE][:5]` puis + FORCE_PROBE. À l'instant de
     # l'audit, cela ne produisait que **7-8 paires** couvertes : les 12-13 autres n'avaient
@@ -228,10 +251,10 @@ def run_once() -> int:
     prio = (force + actives_reg)[: MAX_PAIRS_PRIO]
     # Les « light » prennent TOUT ce qui reste, dans la limite du budget total : sinon une
     # paire hors régime actif pouvait être laissée de côté (mesuré : RIZE manquait la 1re fois).
-    autres = [p for p in paires if p not in prio][: max(0, MAX_PAIRS - len(prio))]
+    autres = [p for p in paires if p not in prio][: max(0, budget - len(prio))]
     if not autres:
         autres = [p for p in paires if p not in prio][: MAX_PAIRS_LIGHT]
-    actives = (prio + autres)[: MAX_PAIRS]
+    actives = (prio + autres)[: budget]
     prix = saisir_prix(list(paires.keys()))
     btc = prix.get("BTCUSDT", 0.0)
     radar = {}
@@ -275,7 +298,18 @@ def run_once() -> int:
         # instruments puissent juger la fraîcheur de la vue au lieu de la supposer.
         "n_paires_univers": len(paires),
         "couverture_pct": round(100.0 * len(actives) / max(1, len(paires)), 1),
-        "max_pairs": MAX_PAIRS,
+        "max_pairs": budget,
+        # 08/10/2026 : le budget DÉRIVÉ est publié à côté du plafond EXPLICITE demandé, pour qu'une
+        # couverture incomplète soit un FAIT écrit et non un silence (leçon R14/R15).
+        "max_pairs_derive": MAX_PAIRS if MAX_PAIRS > 0 else 0,
+        "couverture_complete": len(actives) >= len(paires),
+        "paires_non_couvertes": sorted(set(paires) - set(actives)),
+        # Temps de passe MESURÉ + ce que ça laisse comme marge sous le seuil de fraîcheur du moteur.
+        "duree_s": round(time.time() - t_debut, 1),
+        "cadence_s": CADENCE_PLIST_SEC,
+        "fraicheur_budget_s": FRAICHEUR_BUDGET_SEC,
+        "marge_s": round(FRAICHEUR_BUDGET_SEC - (time.time() - t_debut), 1),
+        "risque_stale": bool((time.time() - t_debut) + CADENCE_PLIST_SEC > FRAICHEUR_BUDGET_SEC),
         "frais": True,
         "btc_price": btc,
         "gex": gex_local(),

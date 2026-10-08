@@ -45,8 +45,17 @@ def badge(ok):
 
 
 # ── 1. Santé globale ────────────────────────────────────────────────
+# 08/10/2026 (Buffy, go Christophe « corriger la carte SANTÉ ») — LA SOURCE LUE N'EXISTAIT PAS.
+# `lire_sante()` ouvrait `thermo/sante_index_live.json` : ce fichier est ABSENT du disque et AUCUN
+# producteur n'écrit ce nom (vérifié : seul ce script le mentionne). La carte tombait donc TOUJOURS
+# sur son repli « dernière ligne de data/alertes/sante_index.log ». Le chiffre affiché était juste
+# par coïncidence (sante_index.py append la même ligne), mais la page dépendait d'un log d'ALERTES :
+# le jour où le log cesse d'être alimenté, la carte se fige en SILENCE — un contrôle muet qui garde
+# l'air vivant (leçon R14 : une alarme qui ne peut plus dire vrai est une fausse alarme). On lit
+# désormais la source DÉCLARÉE (`thermo/sante_index.json`, écrite toutes les 5 min par
+# com.ace777.sante-index) et le repli log est CONSERVÉ en 2e position.
 def lire_sante():
-    s = jload(IM / "thermo" / "sante_index_live.json")
+    s = jload(IM / "thermo" / "sante_index.json")
     if not s:
         try:
             last = (IM / "data" / "alertes" / "sante_index.log").read_text(

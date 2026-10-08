@@ -18,7 +18,12 @@ CE QU'IL FAIT (100 % LECTURE SEULE sur le système vivant) :
   5bis. PRÉ-DÉCLARATIONS — toute modification d'un scellé a-t-elle été annoncée AVANT l'acte
                 (R20.1, `predemodifier.py --verifier`) ? Le gardien est appelé EN DIRECT :
                 c'est ICI que la règle devient un mécanisme (classe E22, récidive 29/09/2026).
-  6. VERDICT  — READY (restaurable) ou TROU (avec la liste exacte de ce qui manque).
+  6. COUVERTURE DES CLASSES D'ERREUR (08/10/2026) — pour CHAQUE classe connue du registre
+                (`REGISTRE_ECHECS_ET_ERREURS.md`) : la garde déclarée existe-t-elle et est-elle
+                BRANCHÉE ? Appel EN DIRECT de `couverture_erreurs.py` : une garde que personne
+                n'appelle là où la conclusion se rend est une promesse (§13.1 trou B).
+                Un machine amputée d'une défense n'est pas « revenue entière ».
+  7. VERDICT  — READY (restaurable ET couvert) ou TROU (avec la liste exacte de ce qui manque).
 
 GARANTIES : aucun agent installé/déchargé, aucun fichier vivant modifié. Écrit seulement
 un rapport (thermo/DRILL_RESTAURATION.md + .json). Stdlib uniquement.
@@ -433,6 +438,24 @@ def etape_predeclaration():
             "actif_depuis": etat.get("actif_depuis")}
 
 
+def etape_couverture_erreurs():
+    """§6 : pour chaque classe d'erreur connue, la garde existe-t-elle et est-elle BRANCHEE ?
+    Appele EN DIRECT — c'est ici que la couverture cesse d'etre une promesse (§13.1 trou B),
+    exactement comme 5bis pour la pre-declaration (R20.1). Lecture seule."""
+    script = IM / "scripts" / "couverture_erreurs.py"
+    if not script.exists():
+        return {"dispo": False, "note": "couverture_erreurs.py ABSENT — la couverture n'est pas jugee"}
+    code, out, err = run([sys.executable, str(script), "--json"])
+    if code not in (0, 1):
+        return {"dispo": False, "note": f"controle en echec rc={code} : {err[:200]}"}
+    try:
+        d = json.loads(out.strip().splitlines()[-1])
+        d["dispo"] = True
+        return d
+    except Exception as e:                                  # noqa: BLE001
+        return {"dispo": False, "note": f"sortie illisible : {e}"}
+
+
 def main():
     sandbox = None
     if "--sandbox" in sys.argv:
@@ -448,6 +471,7 @@ def main():
     sc = etape_scelles()
     ins = etape_instruments()
     pre = etape_predeclaration()
+    cov = etape_couverture_erreurs()
 
     trous = []
     absents_graves = [a for a in org["absents"] if a["role"] != "env"]
@@ -477,6 +501,11 @@ def main():
         trous.append(f"{len(pre['violations'])} modification(s) de fichier SCELLÉ sans pré-déclaration "
                      f"antérieure (R20.1/R5/R13) : {noms}"
                      f"{'…' if len(pre['violations']) > 3 else ''}")
+    if cov.get("dispo") and cov.get("n_trous"):
+        noms = ", ".join(t["classe"] for t in cov["trous"][:6])
+        trous.append(f"{cov['n_trous']} classe(s) d'erreur CONNUE(S) dont la garde déclarée est absente "
+                     f"ou NON BRANCHÉE (R15 : hors de la boucle = n'existe pas) : {noms}"
+                     f"{'…' if cov['n_trous'] > 6 else ''}")
 
     verdict = "READY" if not trous else "TROU"
     preuve = PREUVE_OK if verdict == "READY" else PREUVE_TROU
@@ -589,7 +618,25 @@ def main():
         else:
             L.append("- ✅ **0 violation** — aucune modification scellée sans pré-déclaration antérieure.")
     L.append("")
-    L.append("## 6. Verdict")
+    L.append("## 6. Couverture des classes d'erreur — anticiper l'erreur SUIVANTE")
+    if not cov.get("dispo"):
+        L.append(f"- ⚠️ {cov.get('note', 'contrôle indisponible')}")
+    else:
+        L.append(f"- Dénominateur **lu au registre** : **{cov['n_classes']} classes** "
+                 f"({', '.join(cov['classes_registre'])})")
+        L.append(f"- Gardes **mécaniques** (existent + branchées) : **{cov['n_mecaniques']}** · "
+                 f"**promesses déclarées** : {cov['n_promesses']} · **ouverture(s)** : {cov['n_ouvertures']}")
+        if cov["trous"]:
+            L.append(f"- 🔴 **{cov['n_trous']} trou(s)** — une classe connue dont la garde n'est pas debout :")
+            for t in cov["trous"]:
+                L.append(f"  - **{t['classe']}** — {t['raison']}")
+        else:
+            L.append("- ✅ **0 trou** : chaque classe connue a une garde déclarée et branchée, "
+                     "ou est déclarée promesse/ouverture (jamais verte en silence).")
+        for o in cov["ouvertures"]:
+            L.append(f"- ⚠️ ouverture déclarée **{o['classe']}** : {o['note'][:180]}")
+    L.append("")
+    L.append("## 7. Verdict")
     if verdict == "READY":
         L.append("- ✅ **READY** — le prototype est reconstructible depuis le repo.")
     else:
@@ -606,7 +653,7 @@ def main():
     ecrire_atomique(RAPPORT_JSON, json.dumps({
         "ts": started, "verdict": verdict, "trous": trous,
         "source": src, "instruments": ins, "agents": ag, "reconstruction": rc, "organes": org, "scelles": sc,
-        "predeclaration": pre,
+        "predeclaration": pre, "couverture_erreurs": cov,
     }, ensure_ascii=False, indent=2))
 
     print(rapport)

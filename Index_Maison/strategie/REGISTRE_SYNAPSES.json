@@ -1,6 +1,6 @@
 {
   "version": "1.5.0",
-  "updated": "2026-09-30T21:40:50Z",
+  "updated": "2026-10-08T09:38:36Z",
   "fichier": [
     {
       "nom": "Index_Maison/scripts/v2_duo_replay_4h.py",
@@ -30,11 +30,11 @@
       "origine": "chantier hulk",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "018391a4223c2f98c2e84c87194057fa",
+      "md5": "17efdb50176fb9a8adb5acde15713dc3",
       "_rescel_20260918": "gate Plancher PLANCHER_GATE_ON + plancher_veto()/plancher_veto_decision() + mise plafonnée sur le MUR LIVE (aspiration_live.json, repli profil).",
       "note": "FIX 27/08 : circuits breaker + fraîcheur Cortana + FILTRE LOTS MEXC (lot_filter depuis exchangeInfo, baseSizePrecision/quoteAmountPrecision, arrondi stepSize au buy ET au sell, dust close, fail-open)  | RE-SCELLÉ 2026-09-03T17:22Z (GO Christophe 03/09) · 10/09: patch fusibles par paire (gate tête de buy() + détarage sizing, GO Christophe) — md5 mis à jour",
       "maj": "BATCH PRIX Phase 1 (31/08-01/09, famille 7/7 + codeur) : 1 appel GET global + cache au lieu de 21 GET/cycle (~200-270 req/min → sous la limite MEXC). Mode SELLFULL + mode_entree() du 29-31/08. Aucune logique métier touchée.",
-      "date": "2026-09-28T09:03:14Z",
+      "date": "2026-10-08T09:14:57Z",
       "_rescel_20260921": "SET-UP IMPULSE 21/09 (GO Christophe « avancer sur le set-up ») : 3 portes corrigées POUR LES SEULES PAIRES mode_entree=IMPULSE (aujourd'hui EDEL), mesurées avant câblage (chiffrage_entree_sortie_replay.py, 90 j × 20 paires) — (1) entrée sur la RAFALE sans attendre le repli (66 % des rafales étaient structurellement inaccessibles), (2) IMPULSE_WAIT n'est plus une sortie anticipée pour ces paires (c'est l'instant du pump), (3) fenêtre de creux levée (une rafale n'a pas d'heure ; les deux portes ensemble = 0 entrée sur 90 j). Sortie INCHANGÉE. Flags IMPULSE_SANS_REPLI_ON / IMPULSE_HORS_FENETRE_ON, réversibles en 1 ligne. Preuve live : EDEL BUY 13:23:28Z régime IMPULSE_WAIT m6=8.0.",
       "_rescel_20260922": "GARDE POINTEUR 22/09 (défense en profondeur) : save_state() ne fait PLUS pointer .hulk_resume_pointer vers un état que le moteur refuserait lui-même de reprendre — VIDE (0 position, 0 bag, écrit au boot avant le --resume) ou VIERGE (artefact de re-seed : 0 trade, 0 cash de paire, pnl≈0, pas de bags). Le disjoncteur mesure la perte journalière depuis ce pointeur : un tel état lu comme « pnl 0 » a déjà produit un faux Mur de Fer de 13,93 % (21/09). Le pointeur reste sur le dernier état RÉEL. Aucune autre ligne touchée ; confirmation définitive au prochain redémarrage du moteur (pas de relance forcée).",
       "_rescel_20260922b": "REFROIDISSEMENT BORNÉ 22/09 (GO Christophe « bloquer un actif est un contre-sens »). REENTRY_MAX n'interdit plus une paire À VIE : nettoyé le compteur en mémoire (non persisté → deux comportements selon le redémarrage) ; le buy() lit désormais un refroidissement GRADUÉ et EXPIRANT adossé au cache de stops persisté (n stops × 6 h, plafond 24 h, expiré après 48 h sans stop) + DÉ-RISQUE ×0,5 après un stop (« rebuilding with smaller size »). Calibré après mesure : à l'horizon 6 h (durée de détention réelle) la garde PROTÈGE (−14,5 $) ; à 24 h elle coûte (+56,3 $) → on garde la protection des premières heures, on supprime le blocage long. ANTI-SILENCE : un refus de régime (WATCH/QUIET) n'est plus muet (1 ligne/h/paire au max) — CCUSDT était invisible 27 h.",
@@ -43,7 +43,13 @@
       "_rescel_20260922_trace_visible": "Rien de silencieux (#6) : la raison de vente d'un palier écrit désormais LE PALIER EFFECTIF et LA MESURE qui l'a produit — `rip_5.6pct_palier1_niv5.5pct_cad20.0rel2.74_sell_25pct` (cadence de la paire + échelle relative). Le journal prouve à lui seul que c'est la mesure qui décide, sans lire le code.",
       "_rescel_20260923": "REFUS PARLANT 23/09 (GO Christophe « pourquoi RIZE a perdu le pump ? ») : le REFUS écrit désormais LE CHIFFRE QUI DÉCIDE — `ATTENTE:IMPULSE_WAIT dd6=2.50 seuil=21.70 manque=19.20pt m6=12.5` (l'achat le faisait déjà, le refus était muet). PORTÉE : 1 ligne de log + 30 lignes de commentaire ; `_detail` est calculé dans un try/except (un log ne casse jamais une boucle) ; le préfixe `ATTENTE:<régime>` reste INTACT (les instruments lisent `reason.split(':')[0]`). AUCUN seuil, AUCUNE porte, AUCUN ordre, AUCUNE décision modifiée. Effet immédiat MESURÉ : le seuil réel de RIZE est 21,70 % (= 0,85 × 0,50 × cadence 51,1 %), pas les 5-12,75 % que mes documents annonçaient — l'erreur était dans MES instruments (classe F), le moteur avait raison. Vérifié : pnl 42,1679 $ / 9 positions / 175 trades identiques avant/après, 0 traceback, veilleuse STABLE. Réversible en 1 ligne. -- 2e MODIFICATION DU MÊME JOUR (GO 1 + GO 2, 23/09, exigence de la FAMILLE) : le journal écrit 5 colonnes de plus — `ts_prix_utc` (quand le PRIX a été lu chez MEXC), `age_prix_s` (son âge à l'écriture : l'audit a trouvé des remplissages à 1-5 min de retard), `spread_bps`, `spread_source` (asp = vue live, profil = repli figé) et `cout_estime_usdt` (frais 5 bps/côté ESTIMÉS + spread). ADDITIF ET SANS EFFET SUR LES DÉCISIONS : aucune colonne retirée, aucun seuil, aucune porte, aucun ordre modifié ; `_PRICE_TS` est renseigné à la LECTURE du prix (batch + fallback unitaire) et tout est calculé dans un try/except (un log ne casse jamais une boucle). Le PnL inscrit reste BRUT : le net est un calcul de reporting séparé, pour ne pas toucher au disjoncteur. -- 3e MODIFICATION DU MÊME JOUR (classe E15, 23/09) : les 5 colonnes NE SUIVAIENT PAS LE RESUME, qui recopiait l'ANCIEN fichier (`shutil.copy2`) PAR-DESSUS le nouveau → journal vivant à en-tête 11 colonnes et lignes à 16 (mesuré : 76 162 lignes à 11 + 12 à 16). CORRIGÉ À LA RACINE : `CSV_SCHEMA` devient la SOURCE UNIQUE du schéma, le resume RÉÉCRIT l'en-tête courant en jetant l'ancien, et une garde à l'écriture hurle `SCHEMA_ECART` au lieu d'écrire une ligne bancale. ADDITIF : aucune colonne retirée, aucun seuil, aucune porte, aucun ordre. Vérifié après relance par le watchdog de la maison : en-tête 16, `verif_schema_journal` CONFORME rc=0, état repris à l'identique (pnl 42,1679 $ / 175 trades / 10 positions). -- 4e MODIFICATION DU MÊME JOUR (GO 2, ordre Christophe « le stop vérifié à l'instant de l'impact ») : le stop se décidait sur le prix du cycle (âge jusqu'à 120 s). Désormais, au déclenchement, un GET ciblé frais remplace ce prix AVANT la vente (`last_price_frais`, ≈ 0,3 s) et l'âge des deux prix est éCRIT dans le motif (`_impact_avNs_apNs`) — le déclenchement, les seuils et les portes restent IDENTIQUES, seul le prix utilisé est plus récent. Les motifs historiques gardent leur préfixe exact (aucun lecteur cassé) ; le motif de balayage de poussière nomme maintenant son niveau (`dust_sweep_stop_guard_PAIRE_stopX%`) pour que le niveau de stop soit lisible partout. Échec réseau → prix du cycle conservé et tag `_impact_NA` : aucune valeur inventée. Vérifié par `verif_stop_impact.py` (5/5, dont 4 cas d'échec rejetés). Réversible en 4 lignes. -- CORRECTION DE COMPRÉHENSION QUE CETTE MODIF ACCOMPAGNE (classe E17) : j'ai publié « stop annoncé 8 % » pour RIZE en lisant `calib.stop_pct` — un PLANCHER ; le stop réel de la machine est `max(plancher ; cadence × 0.70)` = 39,23 % (44 % aujourd'hui), écrit dans ses propres motifs. Le stop TIENT au point de base ; c'est son NIVEAU qui est énorme.",
       "_rescel_20260928": "DURABILITÉ DE LA COLLECTE — fsync PAR LIGNE (28/09/2026, mode ALPAGE, « le but du prototype c'est la collecte »). Le `with open(append)` vidait le tampon PYTHON mais laissait la ligne dans le tampon de l'OS : une coupure FRANCHE — batterie à 1 % → hibernation, la cause MESURÉE des coupures alpage du 24/09 — perdait les dernières lignes écrites. Le writer fait désormais `flush() + os.fsync(fileno())` APRÈS chaque ligne du journal, dans un try/except qui CRIE (`JOURNAL_WRITE_ERR (fsync)`) sans tuer la collecte. PORTÉE : 1 bloc de 12 lignes (l'écriture du journal), aucune porte, aucun seuil, aucun ordre, aucune décision modifiée ; le reste du moteur est INCHANGÉ. Chemins déjà durables et NON touchés : `save_state()` atomique (tempfile.mkstemp + os.replace) et le RESUME qui réécrit l'en-tête courant (E15). Coût mesuré : quelques ms/ligne, négligeable devant un poll de 20 s. PROCÉDURE MAISON RESPECTÉE : backup `/tmp/paper_diprip.py.bak-avant-fsync-20260928`, arrêt PROPRE (`touch STOP_PAPER` → FIN paper trades=227 pnl=+45,7419$ bags=1 cash=279,85$ à 08:57:50Z), patch, py_compile OK, relance par le WATCHDOG de la maison, ÉTAT REPRIS À L'IDENTIQUE (trades 227 / pnl +45,7419 $ / 12 positions). Preuve du chemin fsync : harnais instrumenté, `os.fsync` appelé 3 fois pour 3 lignes. Réversible en 1 hunk.",
-      "_rescel_20260928b": "CRI DU MOTEUR — COLLECTE (28/09/2026, ALPAGE). Le gardien de collection a mesuré 13 trous du journal (53,8 h) où le watchdog voyait le moteur VIVANT (`PAPER: OK pid=…`) pendant qu'aucune ligne n'était écrite — dont ~10 h le 25/08 : de l'extérieur, « rien à écrire » (les refus sont dédoublonnés — c'est le cas NORMAL : 234 des 259 trous) et « je n'arrive plus à lire le marché » (VRAIE panne) sont INDISTINGUABLES. Seul le moteur le sait : il le dit lui-même (`_auto_cri_collecte`, appelé à chaque cycle). DEUX SIGNAUX SÉPARÉS, jamais confondus : ① SILENCE (cycles sans écrire une ligne) = un FAIT, signalé 1×/h au maximum, JAMAIS en `err`, et seulement si les prix sont frais (sinon ② parle) — crier sur ce silence fabriquerait une alarme toujours allumée (R14) ; ② PRIX MORT (âge du prix le plus frais détenu, `_PRICE_TS`) = **la panne de collecte** : cri `err` + alerte DURABLE `runs/HULK_ALERTE_COLLECTE.json` (lue par le cockpit : « Cri du moteur (collecte) »), écriture bornée à 1×/min, **AUTO-EFFACÉE au retour des prix** (R14). Seuil DÉRIVÉ du poll réel du moteur (`max(15 × poll, 300 s)`) — aucun seuil fixe (R17). PORTÉE : +1 méthode (~70 lignes), 3 lignes dans `__init__`/boucle, 1 ligne d'horloge dans l'écriture du journal ; AUCUNE porte, AUCUN seuil de décision, AUCUN ordre, AUCUNE logique de trading touchée. Un cri ne casse JAMAIS la boucle (try/except autour de l'écriture de l'alerte). Preuves : py_compile OK ; harnais instrumenté — prix frais + silence long → AUCUN cri (signal ①) ; prix mort 900 s > seuil 300 s → cri + fichier avec les chiffres ; retour des prix → fichier AUTO-EFFACÉ ; seuils dérivés vérifiés (poll 10 s → 300 s ; poll 60 s → 900 s) ; relance par le watchdog, état repris À L'IDENTIQUE."
+      "_rescel_20260928b": "CRI DU MOTEUR — COLLECTE (28/09/2026, ALPAGE). Le gardien de collection a mesuré 13 trous du journal (53,8 h) où le watchdog voyait le moteur VIVANT (`PAPER: OK pid=…`) pendant qu'aucune ligne n'était écrite — dont ~10 h le 25/08 : de l'extérieur, « rien à écrire » (les refus sont dédoublonnés — c'est le cas NORMAL : 234 des 259 trous) et « je n'arrive plus à lire le marché » (VRAIE panne) sont INDISTINGUABLES. Seul le moteur le sait : il le dit lui-même (`_auto_cri_collecte`, appelé à chaque cycle). DEUX SIGNAUX SÉPARÉS, jamais confondus : ① SILENCE (cycles sans écrire une ligne) = un FAIT, signalé 1×/h au maximum, JAMAIS en `err`, et seulement si les prix sont frais (sinon ② parle) — crier sur ce silence fabriquerait une alarme toujours allumée (R14) ; ② PRIX MORT (âge du prix le plus frais détenu, `_PRICE_TS`) = **la panne de collecte** : cri `err` + alerte DURABLE `runs/HULK_ALERTE_COLLECTE.json` (lue par le cockpit : « Cri du moteur (collecte) »), écriture bornée à 1×/min, **AUTO-EFFACÉE au retour des prix** (R14). Seuil DÉRIVÉ du poll réel du moteur (`max(15 × poll, 300 s)`) — aucun seuil fixe (R17). PORTÉE : +1 méthode (~70 lignes), 3 lignes dans `__init__`/boucle, 1 ligne d'horloge dans l'écriture du journal ; AUCUNE porte, AUCUN seuil de décision, AUCUN ordre, AUCUNE logique de trading touchée. Un cri ne casse JAMAIS la boucle (try/except autour de l'écriture de l'alerte). Preuves : py_compile OK ; harnais instrumenté — prix frais + silence long → AUCUN cri (signal ①) ; prix mort 900 s > seuil 300 s → cri + fichier avec les chiffres ; retour des prix → fichier AUTO-EFFACÉ ; seuils dérivés vérifiés (poll 10 s → 300 s ; poll 60 s → 900 s) ; relance par le watchdog, état repris À L'IDENTIQUE.",
+      "_rescel": [
+        {
+          "ts": "2026-10-08T09:14:57Z",
+          "motif": "BAG PILOTE PAR LE TREND (08/10/2026) — re-scellement APRES la derniere modification (E12). ACTE ANTERIEUR A SA PRE-DECLARATION, NON BLANCHI : modification ~08:13Z, pre-declaration enregistree a 09:1xZ -> R20.1 n'est PAS satisfaite pour cet acte ; le fait reste consigne dans les rapports de 09:0xZ (drill section 5 'md5 different' + predemodifier) et ici meme. CONTENU : (a) score_pair calcule trend_label (SMA72 walk-forward) + sma72 ; (b) __init__ lit les BAG_* ; (c) buy() parque une SOUCHE core (kind='core', jamais vendue) ; (d) manage_bag ignore core ; (e) manage_open route trend_mode -> _manage_trend_open (stop d'amplitude, paliers amp7, trailing amp7, add haussier / rebuy baissier). MESURE (chiffrage_bag_trend.py, 199 entrees reelles) : bag conserve x0,551 vs x0,262 ; au seuil amp7>=7% : +43,28 $ (+2,01%), meme signe sur 2 moities et 3 regimes ; sur paires calmes (amp<6%) le trend-bag PERD. Accumulation de souche REJETEE par la mesure (-7,56 $) -> NON cablee. TESTS : test_bag_trend 6/6, test_seellfull_guard 4/4, test_seellfull_resume 13/13, py_compile OK. Aucune porte, aucun seuil de decision, aucun ordre reel ; reversible BAG_TREND_ON=0."
+        }
+      ]
     },
     {
       "nom": "hulk-mexc/scripts/ace_sense_mexc.py",
@@ -242,15 +248,21 @@
       "origine": "chantier hulk",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "dff18fd5134426ec29f0cace7dcec365",
+      "md5": "61063ff485fb0d0b7c17503f2b12149d",
       "_rescel_20260918": "NOTIONAL_USDT 20→30 + PLANCHER_GATE_ON=1.",
       "note": "Re-scellé 2026-09-16T13:10Z (GO C., après audit R3 complet : 73/74 OK, seule dérive = ce fichier). La dérive = 2 GO votés du 15/09 jamais re-déclarés (R3) : ① 06:36Z REENTRY_MAX 1→3 + STOP_COOLDOWN_HOURS 4→1 + VOL_SPIKE_MIN_SMALL 1,5→1,2 + VEILLE_SKIP_RED_ON 1→0 (chantier anti-timing/anti-figage) ; ② 08:45Z SLIP_GATE_ON 0→1 (armement du gate anti-glissement après ses 48 h d'observation prévues le 09/09). Sentinelle indépendante : PnL cohérent (divergence 0,0005 $). Prochain changement de config = re-scellement immédiat.",
       "maj": "30/08 v3 (GO Christophe 14:15Z) : FINI l'observation — PAPER_OBSERVE_PAIRS vidée. QNT/FLUID/RWA/MNSRY seedées (10$ chacune, structure seed_inventory) + lignes SEED_START au CSV + SELL d'annulation du BUY parasite FLUID (09:54Z) pour rejeu exact. 16 positions, plus aucune paire observe. Tableau cockpit = 20 paires tradées. || RE-SCELLÉ 03/09 : Config modifiée session 31/08 12h18 — re-scellée post-audit 03/09 (GO Christophe).",
-      "date": "2026-09-22T09:05Z",
+      "date": "2026-10-08T09:14:57Z",
       "_rescel_20260921": "21/09 : + IMPULSE_SANS_REPLI_ON et IMPULSE_HORS_FENETRE_ON (set-up IMPULSE, documentés avec leur mesure). (Rappel 21/09 matin : doublon STOP_COOLDOWN_HOURS retiré.)",
       "_rescel_20260922b": "22/09 : REENTRY_MAX change de sens (nombre de stops avant refroidissement maximal, plus un blocage à vie) ; ajout REENTRY_COOLOFF_STEP_H=6 / REENTRY_COOLOFF_MAX_H=24 / REENTRY_RESET_H=48 / REENTRY_DERISK_MULT=0,5 / SILENCE_LOG_TTL_SEC=3600. Le doublon STOP_COOLDOWN_HOURS reste retiré.",
       "_rescel_20260922c": "22/09 : REENTRY_MAX et les 4 clés de refroidissement en heures RETIRÉES (R17 : aucun timing fixe). SILENCE_LOG_TTL_SEC=3600 conservée. STOP_COOLDOWN_HOURS=1 conservée telle quelle et DÉCLARÉE (antérieure, à re-mesurer par la règle #8, pas touchée).",
-      "_rescel_20260922_sortie_mesuree": "SORTIE MESURÉE (22/09, R17) : le palier de sortie est relu dans l'unité de la paire — palier = fixe × max(1 ; cadence mesurée / cadence de référence 7,30 %/j). Mesuré sur 119 entrées RÉELLES à 2 horizons (+2,22 $ / +1,05 $, même signe), pire trade INCHANGÉ, pertes suppl. +0,69 $ payées 4,7× par +3,27 $ (critère R18 écrit). L'échelle SYMÉTRIQUE a été mesurée PUIS REJETÉE (signe instable). PLANCHER à 1 : aucune protection retirée."
+      "_rescel_20260922_sortie_mesuree": "SORTIE MESURÉE (22/09, R17) : le palier de sortie est relu dans l'unité de la paire — palier = fixe × max(1 ; cadence mesurée / cadence de référence 7,30 %/j). Mesuré sur 119 entrées RÉELLES à 2 horizons (+2,22 $ / +1,05 $, même signe), pire trade INCHANGÉ, pertes suppl. +0,69 $ payées 4,7× par +3,27 $ (critère R18 écrit). L'échelle SYMÉTRIQUE a été mesurée PUIS REJETÉE (signe instable). PLANCHER à 1 : aucune protection retirée.",
+      "_rescel": [
+        {
+          "ts": "2026-10-08T09:14:57Z",
+          "motif": "BLOC BAG_TREND_* (08/10/2026) — re-scellement APRES la derniere modification (E12). ACTE ANTERIEUR A SA PRE-DECLARATION, NON BLANCHI : mtime 08:13:25Z, declaration 09:1xZ (deja rouge dans le rapport predemodifier de 09:0xZ). AJOUT SEUL : BAG_TREND_ON=1, AMP_MIN=7.0, STOP_AMP=1.5, BAG_UP_P1_AMP=0.6/P2=1.2/SELL_FRAC=0.15/GIVEBACK=0.6/CORE_FRAC=0.30/ADD_AMP=0.5, BAG_DOWN_P1=0.4/P2=0.8/SELL_FRAC=0.25/GIVEBACK=0.4/CORE_FRAC=0.15/REBUY_AMP=1.0, BAG_NEU_*. AUCUNE cle retiree, AUCUNE autre cle modifiee. HONNETETE R17 : seul BAG_TREND_AMP_MIN=7.0 est MESURE (199 entrees) ; les autres bornes sont des bornes de gestion NON mesurees -> la dette 'seuils sans mesure' augmente, je le declare. Reversible BAG_TREND_ON=0."
+        }
+      ]
     },
     {
       "nom": "hulk-mexc/strategie/cortana_pilot.json",
@@ -325,9 +337,20 @@
       "origine": "chantier 17/08 (demande Christophe : voir les branchements en un coup d'œil)",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "d7982d04e40a1c48d0c78540f4f1babc",
+      "md5": "bb5bd007ca7b55a5cf7ac84d1d0dad4f",
       "note": "déclaré 2026-08-27T14:40Z — chaîne HULK étendue : + cortana_analyzer launchd + cortana_pilot.json (fraîcheur 25h) + cortana_analysis.json",
-      "maj": "27/08 13:47Z : md5 mis à jour (déclaration légitime) || RE-SCELLÉ 03/09 : Modifié session 01/09 09h09 (chantier ACE/santé index) — re-scellé post-audit 03/09 (GO Christophe)."
+      "maj": "27/08 13:47Z : md5 mis à jour (déclaration légitime) || RE-SCELLÉ 03/09 : Modifié session 01/09 09h09 (chantier ACE/santé index) — re-scellé post-audit 03/09 (GO Christophe).",
+      "date": "2026-10-08T09:38:36Z",
+      "_rescel": [
+        {
+          "ts": "2026-10-08T09:38:05Z",
+          "motif": "LA COURSE CONTRE LA PEREMPTION DE LA VUE, RENDUE LISIBLE (08/10/2026, go Christophe). La chaine HULK affiche desormais la DUREE DE PASSE mesuree du satellite et sa marge sous le budget de fraicheur du MOTEUR (paper_diprip n'accepte la vue que si age <= 45 s, sinon ASPIRATION_STALE + NO_NEW_ENTRIES : entrees bloquees). Mesure du jour : 24,9 s puis 47,7 s pour 22 paires -> marge NEGATIVE, desormais affichee avec un ⚠ RISQUE STALE. TROU SIGNALE ET NON CORRIGE ICI : ce controle tolere 75 s (marge x2 du 09/09, adoptee pour tuer les fausses alertes) alors que le moteur coupe a 45 s -> entre 45 et 75 s la chaine dit OK pendant que Hulk refuse toute entree ; deux seuils = deux verites, l'alignement peut rallumer des alertes donc il se decide (pas touche sans GO). PORTEE : 1 chaine d'affichage (detail), aucune valeur de controle modifiee, aucun seuil de sante change, rc/verdict inchanges (15/15 OK apres modification)."
+        },
+        {
+          "ts": "2026-10-08T09:38:36Z",
+          "motif": "PRECISION DU LIBELLE (08/10/2026, meme jour, E12 : sceller APRES la derniere modification) : le premier jet affichait 'marge 12s' ET '⚠ RISQUE STALE' cote a cote, ce qui se contredit a la lecture. Les deux faits sont desormais SEPARES : (1) la marge propre de la passe sous le budget moteur 45 s ; (2) le PIRE CAS (passe + cadence plist 20 s), qui est un MAJORANT declare comme tel — mesure du jour : cycle reel ~40 s pour une passe de 25-33 s, donc la vue n'est pas perimee en pratique (marge reelle ~5 s). Aucune valeur de controle changee, verdict 15/15 OK inchange."
+        }
+      ]
     },
     {
       "nom": "Index_Maison/plists/com.ace777.sante-index.plist",
@@ -809,15 +832,21 @@
       "origine": "GO Christophe 14/09 (onglet cockpit vol)",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "56acaf98d942b0a57b281b52ce9f6500",
+      "md5": "4804b5d02a08753c18efa41b04f1b0c4",
       "_rescel_20260918": "panneau « Banc 20 actifs — risque » (net / DD / net-DD, base vs notrend) + contrat de sortie des LaunchAgents (distingue alerte métier d'échec réel).",
       "note": "Re-scellé 14/09T12:41Z après modification déclarée : suppression de la réécriture de vol.html (cache-buster déplacé côté client) — le générateur n'écrit plus que vol_live.js (non scellé, donnée vivante). Par Buffy. | 19/09 soir : + gardien « Règles d'or » (lit thermo/regles_or.json écrit par verifier_regles_or.py) — les règles d'or sont désormais VISIBLES dans la page vol. Declaré par Buffy.",
       "maj": "Gardien « Chien de garde » RÉPARÉ 20/09/2026 : il lisait `tail -1 thermo/chien_rapport.txt`, fichier QUE PERSONNE N'ÉCRIT → stdout vide → la page affichait « rapport présent » en VERT quoi qu'il arrive (faux vert permanent sur le gardien le plus important). Il lit désormais thermo/CHIEN_RAPPORT.json : « N vivants · N hors délai · N aveugle(s) » + l'organe et son champ muet, et un rapport figé > 15 min = rouge (le chien lui-même peut mourir). · 2e passe 20/09 : la table CONTRAT_SORTIE (codes de sortie launchd voulus) est désormais LUE dans strategie/contrat_sortie.json — une seule vérité, partagée avec le chien de garde (qui juge les 44 organes sans produit sur leur sortie launchd). Repli local conservé si le fichier manque.",
-      "date": "2026-09-28T09:20:00Z",
+      "date": "2026-10-08T09:14:57Z",
       "_rescel_20260920": "DÉCLARÉ 20/09/2026 (Buffy, GO Christophe — boucle d'alerte) : CONTRAT_SORTIE += com.ace777.verif-setup exit 1 = « preuve de lecture du coffre à refaire (gatekeeper, par conception) ». Avant, ce garde-fou légitime était affiché comme un ÉCHEC (organe cassé) alors qu'il dit « relis la carte du coffre ». md5 1b854a2b1cb820c87aeb176604634a53 → efcec0aad782deb9e01f77300007290d. Aucune autre logique modifiée. | + gardien « Repo = installation » (lit thermo/installation_repo.json écrit par installer_depuis_repo.sh) : rend visible que le fichier installé est un LIEN vers le repo (dérive impossible par construction). md5 efcec0aad782deb9e01f77300007290d → 0402336d4df5e86434955238f655a028. || 20/09 (Buffy, GO « cri vivant + revue des organes ») : + gardien « Cris en cours » (lit thermo/cris.json écrit par le chien : les cris ACTIFS à l'instant, auto-effacés, avec le fait que la voix a VRAIMENT été lancée — un cri muet est un faux cri) et + gardien « Revue des organes » (lit thermo/revue_organes.json). md5 1b7a6a40 → 1a698b3c. || 20/09 (Buffy, GO « verdicts des protocoles ») : le tableau « Protocoles en test » ne recopie plus le document du 14/09 — il lit thermo/PROTOCOLES_VERDICTS.json (verdicts MESURÉS par scripts/verdicts_protocoles.py, avec le critère pré-enregistré à côté du résultat et une ligne ⚠ quand un verdict ne peut pas être rendu). Le tableau documentaire ne sert que de repli. md5 1a698b3c → 0e7ff6fd.",
       "_rescel_20260922_go123": "GO 2 : 3 gardiens ajoutés (registre des échecs branché/récidives · seuils sans mesure R17 · sortie pilotée par la mesure) — lecture seule d'états écrits par les organes.",
       "_rescel_20260923": "GARDIEN VISIBLE 23/09 (GO 1 — « un verdict qu'il faut aller chercher n'existe pas ») : la page « vol » gagne DES gardiens qui lisent des états ÉCRITS par des contrôles appelés par git_push_auto.sh — d'abord « Garde-fou seuil moteur » (`thermo/seuil_moteur.json` : combien de refus chiffrés ont été CONFRONTÉS au seuil recalculé, instrument qui recalcule sans la cadence, refus d'être un feu vert si l'état est figé >8 h) ; puis, même jour, « Horodatage mémoire (E13) » (`thermo/memoire_horodatage.json` : lignes horodatées, heure future interdite, remontées de temps signalées mais NON re-datées). MODIFIÉ UNE 2e FOIS le 23/09 pour ce 2e gardien (le scellement est refait ici, après la DERNIÈRE modification — leçon E12). **3e modification le 23/09** : un 15ᵉ gardien, « Schéma du journal (E15) » (`hulk-mexc/runs/VERIF_SCHEMA_JOURNAL.json`) — largeur de schéma, nombre d'incohérences, journal vivant conforme, refus d'être un feu vert si l'état est figé >8 h. LECTURE SEULE, ajout seul : aucun autre gardien touché, aucune donnée modifiée.",
-      "_rescel_20260928": "GARDIEN DE LA COLLECTE VISIBLE (ALPAGE, 28/09/2026) : un gardien de plus, « Collecte paper (ALPAGE) », lit `Index_Maison/thermo/collecte.json` (état écrit par `hulk-mexc/scripts/gardien_collecte.py`, appelé par git_push_auto.sh 3 h ET par le watchdog avant chaque relance). La page dit : journal vivant + nombre de lignes, COMBIEN de trous sont DÉCLARÉS (et les heures totales + le pire silence), s'il reste un DÉFAUT RÉPARABLE mesuré dans le journal COURANT, si l'autotest du gardien est fiable, et un état figé >8 h. Un trou ne rend PAS la ligne rouge (R14 : une alarme toujours allumée tue la confiance dans l'alarme) — il est CHIFFRÉ et visible : « 259 trou(s) DÉCLARÉ(S) (276.11 h au total) · pire silence 54779 s ». LECTURE SEULE, ajout seul : aucun autre gardien touché. || **2e modification le 28/09 (ALPAGE, go 1/2/3)** : la ligne « Collecte paper (ALPAGE) » affiche désormais le chiffre HONNÊTE — le gardien croise chaque trou au journal du WATCHDOG et écrit dans `thermo/collecte.json` le détail `classification` (silence_normal / moteur_mort / machine_figee) + `vraies_pertes_heures`. La page dit donc « 259 trou(s) DÉCLARÉ(S) (276,11 h au total) · dont VRAIES PERTES 105,38 h (25 trous) · silence normal 170,73 h » au lieu de laisser croire à 276 h de pertes. (Scellé APRÈS la dernière modification — leçon E12.)"
+      "_rescel_20260928": "GARDIEN DE LA COLLECTE VISIBLE (ALPAGE, 28/09/2026) : un gardien de plus, « Collecte paper (ALPAGE) », lit `Index_Maison/thermo/collecte.json` (état écrit par `hulk-mexc/scripts/gardien_collecte.py`, appelé par git_push_auto.sh 3 h ET par le watchdog avant chaque relance). La page dit : journal vivant + nombre de lignes, COMBIEN de trous sont DÉCLARÉS (et les heures totales + le pire silence), s'il reste un DÉFAUT RÉPARABLE mesuré dans le journal COURANT, si l'autotest du gardien est fiable, et un état figé >8 h. Un trou ne rend PAS la ligne rouge (R14 : une alarme toujours allumée tue la confiance dans l'alarme) — il est CHIFFRÉ et visible : « 259 trou(s) DÉCLARÉ(S) (276.11 h au total) · pire silence 54779 s ». LECTURE SEULE, ajout seul : aucun autre gardien touché. || **2e modification le 28/09 (ALPAGE, go 1/2/3)** : la ligne « Collecte paper (ALPAGE) » affiche désormais le chiffre HONNÊTE — le gardien croise chaque trou au journal du WATCHDOG et écrit dans `thermo/collecte.json` le détail `classification` (silence_normal / moteur_mort / machine_figee) + `vraies_pertes_heures`. La page dit donc « 259 trou(s) DÉCLARÉ(S) (276,11 h au total) · dont VRAIES PERTES 105,38 h (25 trous) · silence normal 170,73 h » au lieu de laisser croire à 276 h de pertes. (Scellé APRÈS la dernière modification — leçon E12.)",
+      "_rescel": [
+        {
+          "ts": "2026-10-08T09:14:57Z",
+          "motif": "CARTE SANTE (08/10/2026, go Christophe) — re-scellement apres la derniere modification. lire_sante() lisait thermo/sante_index_live.json, fichier ABSENT du disque (aucun producteur n'ecrit ce nom : verifie, ce script etait le seul a le citer) -> la carte SANTE tombait TOUJOURS sur le repli 'derniere ligne de data/alertes/sante_index.log' (juste par coincidence, mais figee en silence des que le log cesse d'etre alimente). Corrige : lecture de thermo/sante_index.json (source declaree, ecrite toutes les 5 min par com.ace777.sante-index), repli log CONSERVE. PORTEE : 1 fonction, ~6 lignes utiles + commentaire ; aucune autre carte, aucun seuil, aucun ordre. Reversible en 1 hunk."
+        }
+      ]
     },
     {
       "nom": "Index_Maison/cockpit/vol.html",
@@ -1378,11 +1407,17 @@
       "origine": "Audit MEXC × HULK (23/09) — les 13 paires sans vue live plafonnaient leur mise sur un profil figé faux de 8 à 82 %",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "a0581e1b0c1d939700b301d034f64c36",
-      "date": "2026-09-23T15:15Z",
+      "md5": "ce31d5f76709ba0516dcfa7006887d60",
+      "date": "2026-10-08T09:38:04Z",
       "_ajout_20260923": "Instrument créé le 23/09/2026 (GO Christophe) — ajouté au registre le jour même de sa création pour qu'il soit VU (veilleuse, drill, revue).",
       "_rescel_20260923": "GO 3 (23/09/2026, GO Christophe après l'audit MEXC × HULK) — COUVERTURE DES 20 PAIRES. L'audit a mesuré que 13 paires sur 20 n'avaient AUCUNE vue live : le satellite ne sondait que les paires en régime COOLING/IMPULSE (5 max) + les 6 forcées, soit 7-8 en pratique. Pour ces paires, le moteur plafonnait la mise sur le `mur_bid_med` du PROFIL — chiffre figé, faux de 8 à 82 % (RIZE : cap 4,88 $ pour un carnet mesuré à 364,74 $). CHANGEMENT : la sélection sonde TOUTES les paires du moteur (ordre : forcées → actives → autres) et MAX_PAIRS passe à 20, surchargeable par ASPIRATION_MAX_PAIRS. COÛT MESURÉ : une passe complète = 35,8 s pour 40 lectures /depth (≈ 80-100 appels/min, sous le plafond observé ~200/min) ; launchd StartInterval=20 s ⇒ une passe sur deux est sautée (pas de chevauchement) ⇒ âge d'une vue ≈ 40-55 s, sous le `wall_stale_sec` de 120 s. ADDITIF : `n_paires_univers`, `couverture_pct`, `max_pairs` sont désormais écrits dans le JSON pour que la couverture soit VERIFIABLE au lieu d'être supposée. RÉVERSIBLE en 1 ligne.",
-      "_rescel_20260923b": "GO 1 (23/09/2026, ordre Christophe « pourquoi pas les deux ? ») : le satellite SONDE désormais le flux WebSocket public MEXC EN OMBRE pour les 20 paires et écrit des champs `ws_*` À CÔTÉ des valeurs REST (ws_prix, ws_age_ms, ws_spread_bps, ws_chute_pct_s, ws_ombre). LE MOTEUR N'EST PAS TOUCHÉ : il lit toujours le REST ; le mode ombre MESURE l'écart REST vs flux avant toute bascule. MESURÉ : ws_ombre 20/20 paires · écart médian REST vs flux 0,1456 % (≈ 15 bps, soit un spread de retard) · âge du flux 0,35 s. FAUTE RÉVÉLÉE ET CORRIGÉE PAR CETTE MODIF (classe E22) : `aspiration_live.json` était écrit AVANT le bloc → la mesure était faite puis JETÉE (le champ n'apparaissait jamais) ; corrigé par une réécriture atomique APRÈS le bloc. LECTURE SEULE sur le moteur : aucune décision, aucun seuil, aucune porte, aucun ordre modifié. Réversible en retirant le bloc `ws_*`. -- DÉFAUT DE PROCESSUS DÉCLARÉ (E22) : cette modification a été faite APRÈS le scellé et N'A PAS ÉTÉ DÉCLARÉE le jour même → veilleuse INTRUSION + drill TROU (R5 + R13 violées). C'est la faute que ce re-scellement répare et que le registre E22 consigne."
+      "_rescel_20260923b": "GO 1 (23/09/2026, ordre Christophe « pourquoi pas les deux ? ») : le satellite SONDE désormais le flux WebSocket public MEXC EN OMBRE pour les 20 paires et écrit des champs `ws_*` À CÔTÉ des valeurs REST (ws_prix, ws_age_ms, ws_spread_bps, ws_chute_pct_s, ws_ombre). LE MOTEUR N'EST PAS TOUCHÉ : il lit toujours le REST ; le mode ombre MESURE l'écart REST vs flux avant toute bascule. MESURÉ : ws_ombre 20/20 paires · écart médian REST vs flux 0,1456 % (≈ 15 bps, soit un spread de retard) · âge du flux 0,35 s. FAUTE RÉVÉLÉE ET CORRIGÉE PAR CETTE MODIF (classe E22) : `aspiration_live.json` était écrit AVANT le bloc → la mesure était faite puis JETÉE (le champ n'apparaissait jamais) ; corrigé par une réécriture atomique APRÈS le bloc. LECTURE SEULE sur le moteur : aucune décision, aucun seuil, aucune porte, aucun ordre modifié. Réversible en retirant le bloc `ws_*`. -- DÉFAUT DE PROCESSUS DÉCLARÉ (E22) : cette modification a été faite APRÈS le scellé et N'A PAS ÉTÉ DÉCLARÉE le jour même → veilleuse INTRUSION + drill TROU (R5 + R13 violées). C'est la faute que ce re-scellement répare et que le registre E22 consigne.",
+      "_rescel": [
+        {
+          "ts": "2026-10-08T09:38:04Z",
+          "motif": "LE CHIFFRE 24 N'EST PLUS UN CHIFFRE (08/10/2026, go Christophe 'corriger une fois pour toute sur toute la ligne'). REPONSE A TA QUESTION, VERIFIEE A LA SOURCE : le 05/10 UN SEUL retrait a eu lieu (TELUSDT sorti du portefeuille) + 3 paires passees en OBSERVATION (IOTA/LA/WAXL) -> 19 + 3 = 22 ; le code a recopie 24 A LA MAIN (22 + 2 de marge). Mesure du 08/10 : univers 22, max_pairs 24, couverture 100 %. LE DEFAUT (classe R17) : nombre a retoucher par un humain a chaque changement d'univers ; la prochaine paire ajoutee n'aurait AUCUNE vue live et le moteur calculerait son cap de mise sur le PROFIL figé (faux de 8 a 82 %, mesure de l'audit du 23/09 : RIZE cap 4,88 $ pour un carnet a 364,74 $). CORRIGE : MAX_PAIRS defaut 0 = DERIVE de l'univers reel du moteur (le plafond explicite >0 reste) + la passe publie duree_s MESUREE, cadence, budget de fraicheur du moteur, marge, risque_stale, couverture_complete et paires_non_couvertes -> un trou de couverture ou une passe trop lente est DECLARE, jamais silencieux. PORTEE : selection des paires + champs ajoutes ; AUCUN seuil de decision, AUCUN ordre. MESURES : passe reelle 24,9 s (couverture 100 %, 8 full + 14 light) puis 47,7 s -> marge NEGATIVE (risque_stale=true), lue desormais par la chaine HULK de sante_index. L'acte du 05/10 n'avait PAS ete pre-declare : declare ici en le corrigeant, non radie. Reversible par ASPIRATION_MAX_PAIRS=24."
+        }
+      ]
     },
     {
       "nom": "hulk-mexc/scripts/verif_schema_journal.py",
@@ -1431,13 +1466,19 @@
       "origine": "Un contrôle qui n'est appelé par personne n'existe pas (R15) — le pont entre le gardien et la veilleuse de la maison",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "d2550db0033963f2db9351f2389370da",
-      "date": "2026-09-28T11:02Z",
+      "md5": "d9bd940e310e6a1308865baa479f873d",
+      "date": "2026-10-08T09:14:57Z",
       "_ajout_20260923": "Instrument créé le 23/09/2026 (GO Christophe) — ajouté au registre le jour même de sa création pour qu'il soit VU (veilleuse, drill, revue).",
       "_rescel_20260923": "3e vague 23/09 — branche DEUX gardiens neufs toutes les 3 h : `verif_delai_lecture.py` (classe E19 : barre de latence mesurable, mesuré/aveugle séparés, plancher physique) et `verif_session_famille.py` (R19 : la fenêtre du jury permanent ne peut plus se refermer en silence). Ordre de Christophe : « garder la fenêtre ouverte, tu ne diriges plus seule ».",
       "_rescel_20260928": "BRANCHE LE GARDIEN DES TROUS DE COLLECTE (ALPAGE, 28/09) : `hulk-mexc/scripts/gardien_collecte.py` est appelé toutes les 3 h, juste après le gardien de schéma (E15). Le gardien de schéma ne voit que la largeur de l'en-tête ; celui-ci mesure la dérive de largeur, les DOUBLONS stricts, la ligne TRONQUÉE (fichier sans saut de ligne final) et les TROUS (silence > seuil dérivé du journal) — et il les DÉCLARE au lieu de les réparer (on n'invente aucune donnée). La réparation n'a lieu qu'au seul instant sûr (moteur mort) et c'est le WATCHDOG qui l'appelle. Étape 3 de la méthodologie : un gardien que personne n'appelle n'existe pas (R15).",
       "_rescel_20260928b": "BRANCHE L'ORACLE DE JUSTESSE (E11, 28/09, ALPAGE) : `hulk-mexc/scripts/oracle_justesse_collecte.py` est appelé toutes les 3 h, juste après le gardien de collecte. Le gardien de collecte vérifie la FORME ; l'oracle vérifie la VALEUR : il confronte des valeurs DÉJÀ COLLECTÉES (`ts_prix_utc` + `price` du journal vivant) à la bougie 1 min d'une place INDÉPENDANTE (Binance = justesse) et de la même place (MEXC = cohérence, étiquetée comme telle). Il distingue une VALEUR FAUSSE d'un RETARD D'HORODATAGE et ne compte JAMAIS un « non vérifiable » comme conforme. rc=0 conforme · rc=1 au moins un écart anormal (à instruire). Ce branchement ferme le trou déclaré de la classe E11 (« aucune garde, remède = oracle indépendant, à GO » — le GO est arrivé le 28/09).",
-      "_rescel_20260928c": "RE-SCELLÉ 28/09 (ALPAGE, « faut stopper les bidouillages ») : le tour versionne désormais les INSTRUMENTS DE LA BOUCLE. `git add -u` ne prend QUE les fichiers déjà suivis → un instrument NOUVEAU (gardien, oracle, sonde, garde-fou) restait HORS GIT jusqu'à ce qu'un humain pense à le stager. C'est exactement le trou que le drill de restauration a mesuré le 28/09 : `gardien_collecte.py` + `oracle_justesse_collecte.py` = « 2 instrument(s) que la boucle EXÉCUTE et qui ne sont PAS dans git → perdus à la restauration » (un Mac mort rendait un ACE777 amputé). AJOUT : 1 boucle `for d in Index_Maison/scripts hulk-mexc/scripts` qui `find -maxdepth 1 -name '*.py' -o -name '*.sh'` puis `xargs -0 -r git add --`. On ne stage QUE du CODE à la racine des deux dossiers d'instruments — JAMAIS de données, jamais de .json (le bruit des 1 600+ fichiers non suivis reste exclu), et le COMMIT reste l'acte de l'auto-sync (aucun commit automatique de plus). Portée : +11 lignes commentées, aucune autre ligne du script modifiée, `bash -n` OK."
+      "_rescel_20260928c": "RE-SCELLÉ 28/09 (ALPAGE, « faut stopper les bidouillages ») : le tour versionne désormais les INSTRUMENTS DE LA BOUCLE. `git add -u` ne prend QUE les fichiers déjà suivis → un instrument NOUVEAU (gardien, oracle, sonde, garde-fou) restait HORS GIT jusqu'à ce qu'un humain pense à le stager. C'est exactement le trou que le drill de restauration a mesuré le 28/09 : `gardien_collecte.py` + `oracle_justesse_collecte.py` = « 2 instrument(s) que la boucle EXÉCUTE et qui ne sont PAS dans git → perdus à la restauration » (un Mac mort rendait un ACE777 amputé). AJOUT : 1 boucle `for d in Index_Maison/scripts hulk-mexc/scripts` qui `find -maxdepth 1 -name '*.py' -o -name '*.sh'` puis `xargs -0 -r git add --`. On ne stage QUE du CODE à la racine des deux dossiers d'instruments — JAMAIS de données, jamais de .json (le bruit des 1 600+ fichiers non suivis reste exclu), et le COMMIT reste l'acte de l'auto-sync (aucun commit automatique de plus). Portée : +11 lignes commentées, aucune autre ligne du script modifiée, `bash -n` OK.",
+      "_rescel": [
+        {
+          "ts": "2026-10-08T09:14:57Z",
+          "motif": "BRANCHE LE CHIFFRAGE PnL NET (GO 2, 08/10/2026) — re-scellement apres la derniere modification. hulk-mexc/scripts/chiffrage_pnl_net.py (GO 2 du 23/09) n'etait appele par PERSONNE : aucun plist, aucun cron, ni ce tour ni le watchdog -> la ligne 'PnL net vs brut (GO 2)' du cockpit etait rouge et figee depuis 358 h. Ajoute au meme rythme que gardien_collecte/oracle_justesse (3 h, best-effort). PREUVE : lance a la main le 08/10 -> rc=0, thermo/pnl_net.json regenere (brut 45,67 -> NET 32,17 $). REPORTING SEUL : aucune decision, aucun seuil, le moteur garde son pnl_total BRUT. bash -n OK."
+        }
+      ]
     },
     {
       "nom": "hulk-mexc/scripts/oracle_independant.py",
@@ -1574,8 +1615,8 @@
       "origine": "Exigence famille tour 5, 3 voix convergentes (23/09/2026)",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "28453408119f879285ddd6fc213e14b6",
-      "date": "2026-09-29T09:25:44Z",
+      "md5": "bcc79c571fe9494b1dd0374b0abdd062",
+      "date": "2026-10-08T09:38:04Z",
       "_ajout": [
         {
           "ts": "2026-09-23T15:22:33Z",
@@ -1590,6 +1631,10 @@
         {
           "ts": "2026-09-29T09:25:44Z",
           "motif": "CLASSE E22 — radiation de l'ALARME des 16 actes constates du 27-29/09 : liste EXPLICITE de couples (fichier, date d'acte), datee et nommee, conservee dans l'etat (thermo/predeclaration.json -> dette_radiee) et au registre §13. Motif R14 : ces actes ne peuvent plus jamais redevenir conformes (une declaration TARDIVE ne satisfait pas ts <= date d'acte, volontairement), leur rouge a vie noierait la 17e violation. Aucun acte futur n'est couvert. Autotest 3/3 conserve."
+        },
+        {
+          "ts": "2026-10-08T09:38:04Z",
+          "motif": "LE GARDIEN ETAIT AVEUGLE SUR 16 FICHIERS (08/10/2026, go Christophe 'corriger l'aveuglement'). DEFAUT MESURE : la radiation d'un ACTE PASSE (DETTE_CONSTATEE) sortait de la boucle par continue, donc sautait AUSSI la clause (b) -> un fichier dont un acte ancien a ete radie devenait invisible A VIE pour toute divergence future, exactement l'inverse de la promesse ecrite dans l'en-tete ('aucun acte futur n'est couvert'). PREUVE du defaut : 3 fichiers divergent sur le disque, le gardien n'en rapportait que 2 ; le manquant etait le seul de la liste radiee (paper_diprip.py, modifie ~08:13Z sans pre-declaration). CORRIGE : la radiation ne vaut QUE pour la clause (a) ; une divergence PRESENTE crie meme sur un fichier radie. PREUVE QUE LE CONTROLE SAIT ENCORE DIRE NON : autotest porte de 3 a 4 cas, le 4e etant precisement ce defaut (il RENDAIT 0 violation avant le correctif) -> 4/4 OK, 'acte passe radie + divergence PRESENTE -> jugee'. PORTEE : 1 condition + 1 cas d'autotest ; lecture seule, aucun seuil de trading, aucun ordre."
         }
       ]
     },
@@ -1704,6 +1749,96 @@
       "_ajout": [
         {
           "ts": "2026-09-30T21:40:50Z",
+          "motif": "inscription au registre (R15 : ce qui n'est pas déclaré n'existe pas)"
+        }
+      ]
+    },
+    {
+      "nom": "hulk-mexc/scripts/short_btc.py",
+      "role": "PAPER SHORT BTC (prototype, 0 ordre réel) — détection + suivi d'une position SHORT BTC sur croisement d'indices. Lancé en production toutes les 300 s par com.ace777.short-btc (--once). Signal : SHORT_BTC_SIGNAL=corr (corr_dir <= -0,50 à l'entrée, sortie si corr > -0,10) ou 'score'. TP 2 % / SL 1,5 % / TTL 24 h / session 08-17 UTC / notional 5 $. LEVIER NON CÂBLÉ (mesuré -2,10 $ sur le score actuel : le score prédit à l'envers).",
+      "origine": "Créé avant le 08/10/2026 mais JAMAIS inscrit au registre (trou R15 trouvé par le rituel des scellés du 08/10 : un organe qui tourne en production et que personne ne surveille). Inscrit le 08/10/2026 (go Christophe) en même temps que le signal corrigé (pre-déclaration enregistrée avant l'acte).",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "70574cd708e1aa04350642dc1d836143",
+      "date": "2026-10-08T09:15:29Z",
+      "_ajout": [
+        {
+          "ts": "2026-10-08T09:15:29Z",
+          "motif": "inscription au registre (R15 : ce qui n'est pas déclaré n'existe pas)"
+        }
+      ]
+    },
+    {
+      "nom": "hulk-mexc/scripts/chiffrage_bag_trend.py",
+      "role": "MESURE (A/B/C) du bag piloté par le trend — 199 entrées réelles : bag conservé x0,551 vs x0,262 ; gate amp7>=7% : +43,28 $ (+2,01%), stable sur 2 moitiés et 3 régimes ; sur paires calmes le trend-bag perd. Lecture seule.",
+      "origine": "Créé le 08/10/2026 (go Christophe, audit Hulk du bag) — inscrit le jour même.",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "660892546369070e5c4c0b5b1f0dd6e4",
+      "date": "2026-10-08T09:15:29Z",
+      "_ajout": [
+        {
+          "ts": "2026-10-08T09:15:29Z",
+          "motif": "inscription au registre (R15 : ce qui n'est pas déclaré n'existe pas)"
+        }
+      ]
+    },
+    {
+      "nom": "hulk-mexc/scripts/chiffrage_bag_accumulation.py",
+      "role": "MESURE de l'accumulation de souche — VERDICT : REJETÉE (delta D-C = -7,56 $, signe instable entre moitiés, cycles moyens 1,03) -> fonction NON câblée. Lecture seule ; sert de preuve qu'une idée a été testée puis écartée.",
+      "origine": "Créé le 08/10/2026 (go Christophe, audit Hulk du bag) — inscrit le jour même.",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "6ab0de4bcdf50040cb742b67e57e5820",
+      "date": "2026-10-08T09:15:29Z",
+      "_ajout": [
+        {
+          "ts": "2026-10-08T09:15:29Z",
+          "motif": "inscription au registre (R15 : ce qui n'est pas déclaré n'existe pas)"
+        }
+      ]
+    },
+    {
+      "nom": "hulk-mexc/scripts/test_bag_trend.py",
+      "role": "AUTOTEST du bag trend (6/6) : la souche core n'est jamais vendue, palier, trailing, rachat baissier (10 -> 15,6 jetons), stop, et « sans amp7 -> ne décide pas ».",
+      "origine": "Créé le 08/10/2026 (go Christophe) — inscrit le jour même.",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "b58a5c4ef86a14f2d7f2d71c0c57cfa0",
+      "date": "2026-10-08T09:15:29Z",
+      "_ajout": [
+        {
+          "ts": "2026-10-08T09:15:29Z",
+          "motif": "inscription au registre (R15 : ce qui n'est pas déclaré n'existe pas)"
+        }
+      ]
+    },
+    {
+      "nom": "hulk-mexc/scripts/chiffrage_short_btc_levier.py",
+      "role": "MESURE du levier conviction sur le SHORT BTC — levier sur le score ACTUEL = -2,10 $ (score 7 -> -0,67 %, score 8 -> -0,31 % : le score prédit à l'envers) -> LEVIER NON CÂBLÉ. Lecture seule.",
+      "origine": "Créé le 08/10/2026 (go Christophe) — inscrit le jour même.",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "8df8bd60e775ccf24b503d4afefab2c6",
+      "date": "2026-10-08T09:15:29Z",
+      "_ajout": [
+        {
+          "ts": "2026-10-08T09:15:29Z",
+          "motif": "inscription au registre (R15 : ce qui n'est pas déclaré n'existe pas)"
+        }
+      ]
+    },
+    {
+      "nom": "hulk-mexc/scripts/chiffrage_short_btc_signal_long.py",
+      "role": "BACKTEST 38 j / 9 566 signaux du signal SHORT BTC — reproduit EXACTEMENT les 35 trades réels (validation du moteur de backtest) ; ACTUEL (score>=5) -0,034 % signe instable ; CORRIGÉ (corr<=-0,50) +0,319 %, taux 58 %, stable sur les 2 moitiés (n=12 trades, mince).",
+      "origine": "Créé le 08/10/2026 (go Christophe) — inscrit le jour même.",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "238844c3df06e22955f964f4a941ad76",
+      "date": "2026-10-08T09:15:29Z",
+      "_ajout": [
+        {
+          "ts": "2026-10-08T09:15:29Z",
           "motif": "inscription au registre (R15 : ce qui n'est pas déclaré n'existe pas)"
         }
       ]

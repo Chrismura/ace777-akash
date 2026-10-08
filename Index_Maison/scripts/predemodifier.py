@@ -156,9 +156,16 @@ def verifier(actif_depuis: str, decs: list, auto: dict | None = None) -> list:
         cles = [k for k in it if (k.startswith("_rescel") or k.startswith("_ajout"))]
         if cles:
             date_acte = str(it.get("date") or "")
-            if date_acte and date_acte >= actif_depuis[:16]:
-                if (nom, date_acte) in DETTE_CONSTATEE:
-                    continue          # dette constatée le 29/09 : radiée de l'alarme (voir l'en-tête)
+            # 08/10/2026 (Buffy, go Christophe « corriger une fois pour toute ») — DÉFAUT MESURÉ ICI :
+            # la radiation d'un ACTE PASSÉ (DETTE_CONSTATEE) sortait de la boucle par `continue`,
+            # ce qui sautait AUSSI la clause (b) : le fichier devenait invisible À VIE pour toute
+            # divergence future, exactement l'inverse de la promesse écrite plus haut (« aucun acte
+            # futur n'est couvert »). Preuve du défaut : le 08/10, 3 fichiers divergent sur le disque
+            # et le gardien n'en a rapporté que 2 — le manquant était le seul de la liste radiée
+            # (`paper_diprip.py`, modifié ~08:13Z sans pré-déclaration). Désormais la radiation ne
+            # vaut QUE pour la clause (a) : un acte passé est pardonné, une divergence PRÉSENTE crie.
+            if (date_acte and date_acte >= actif_depuis[:16]
+                    and (nom, date_acte) not in DETTE_CONSTATEE):
                 if not any(d.get("ts", "") <= date_acte for d in pret):
                     viol.append({"fichier": nom,
                                  "raison": f"re-scellé le {date_acte} SANS pré-déclaration antérieure",
@@ -215,16 +222,49 @@ def cmd_verifier() -> int:
 
 
 def cmd_autotest() -> int:
-    """Preuve que le contrôle SAIT échouer (un gardien qui ne peut pas dire NON ne prouve rien)."""
+    """Preuve que le contrôle SAIT échouer (un gardien qui ne peut pas dire NON ne prouve rien).
+
+    08/10/2026 : 4e cas ajouté — la preuve que le défaut de l'aveuglement ÉTAIT bien là. Un acte
+    PASSÉ radié (DETTE_CONSTATEE) ne doit PAS rendre le fichier invisible à une divergence PRÉSENTE.
+    Sans le correctif ci-dessus, ce cas rendait 0 violation (le gardien ne voyait rien) — le
+    harnais ci-dessous le rend VÉRIFIABLE de nouveau.
+    """
     actif = "2020-01-01T00:00:00Z"          # on rend la règle active dans le passé → TOUT acte
     reg = json.loads(REG.read_text(encoding="utf-8"))   # postérieur est jugé
     # pré-déclaration datée AVANT l'acte → doit être jugée CONFORME (ts < date d'acte)
     avec = verifier(actif, [{"fichier": str(i.get("nom")), "ts": "2000-01-01T00:00:00Z",
                              "ts_epoch": 1} for i in reg.get("fichier", [])])
     sans = verifier(actif, [])
+    # ── 4e CAS (08/10/2026) : acte passé RADIÉ + divergence PRÉSENTE → doit crier quand même ─────
+    import tempfile
+    aveugle_avant = None
+    try:
+        with tempfile.TemporaryDirectory() as td:
+            faux_reg = Path(td) / "registre.json"
+            cible = Path(td) / "moteur_factice.py"
+            cible.write_text("x = 1\n", encoding="utf-8")
+            faux_reg.write_text(json.dumps({"fichier": [{
+                "nom": str(cible), "verif": "md5", "md5": "0" * 32,
+                "date": "2026-09-28T09:03:14Z", "_rescel_20260928": "acte passé"}]}),
+                encoding="utf-8")
+            _reg_sauv, _dette_sauv = REG, DETTE_CONSTATEE
+            try:
+                # verifier() lit le registre et la liste radiée au niveau du MODULE : on les
+                # remplace le temps du cas, puis on restaure (aucun effet sur le disque).
+                globals()["REG"] = faux_reg
+                globals()["DETTE_CONSTATEE"] = {(str(cible), "2026-09-28T09:03:14Z")}
+                trouve = verifier("2020-01-01T00:00:00Z", [])
+            finally:
+                globals()["REG"] = _reg_sauv
+                globals()["DETTE_CONSTATEE"] = _dette_sauv
+            aveugle_avant = any(v.get("fichier") == str(cible) for v in trouve)
+    except Exception:
+        aveugle_avant = None
     cas = [("actes re-scellés SANS pré-déclaration détectés", len(sans) >= 1),
            ("actes re-scellés AVEC pré-déclaration jugés conformes", len(avec) == 0),
-           ("aucun faux positif quand il n'y a rien à juger", True)]
+           ("aucun faux positif quand il n'y a rien à juger", True),
+           ("acte passé radié + divergence PRÉSENTE → jugée (défaut du 08/10 corrigé)",
+            aveugle_avant is True)]
     for nom, ok in cas:
         print(f"  {'[OK ]' if ok else '[KO ]'} {nom}")
     bon = all(ok for _, ok in cas)

@@ -139,6 +139,27 @@ def verifier_aspiration_runtime() -> tuple[bool, str]:
               f"{len(paires) if isinstance(paires, dict) else 0} paire(s) · "
               f"btc={'OK' if prix_ok else 'INVALIDE'} · "
               f"ts={'croissant' if monotone_ok else 'figé'}")
+    # 08/10/2026 (Buffy, go Christophe « corriger une fois pour toute sur toute la ligne ») — LA
+    # COURSE CONTRE LA PÉREMPTION DE LA VUE, RENDUE LISIBLE. Le satellite écrit depuis ce jour sa DURÉE DE
+    # PASSE mesurée et la marge restante sous le budget de fraîcheur du MOTEUR (paper_diprip
+    # n'accepte la vue que si âge ≤ 45 s ; au-delà : ASPIRATION_STALE + NO_NEW_ENTRIES, les entrées
+    # sont bloquées). Mesuré ce jour sur 2 passes réelles : 24,9 s puis 47,7 s pour 22 paires → la
+    # marge est passée NÉGATIVE (`risque_stale`). On le DIT au lieu de le supposer.
+    # TROU SIGNALÉ, NON CORRIGÉ ICI (deux seuils = deux vérités) : ce contrôle tolère 75 s
+    # (1,25 min, marge ×2 adoptée le 09/09 pour tuer les fausses alertes) alors que le moteur coupe
+    # à 45 s — entre 45 s et 75 s la chaîne dit OK pendant que Hulk refuse TOUTE nouvelle entrée.
+    # Aligner les deux seuils se décide (ça peut rallumer des alertes) : pas touché sans GO.
+    _dur, _marge, _risque = data.get("duree_s"), data.get("marge_s"), data.get("risque_stale")
+    if _dur is not None:
+        # DEUX FAITS DISTINCTS, jamais mélangés : (1) la marge de la passe elle-même sous le budget
+        # du moteur ; (2) le PIRE CAS — si la prochaine passe ne part qu'à la fin de la cadence du
+        # plist (20 s), l'âge de la vue peut atteindre passe + cadence, donc dépasser 45 s et faire
+        # couper les entrées. Le chiffre 2 est un MAJORANT (mesuré le 08/10 : cycle réel ~40 s pour
+        # une passe de 25-30 s), il ne dit pas que la vue EST périmée.
+        _age_max = round((_dur or 0) + 20.0, 1)
+        detail += (f" · passe {_dur}s · marge {_marge}s sous le budget 45s du moteur"
+                   + (f" · ⚠ PIRE CAS age {_age_max}s > 45s (la prochaine passe part au plus tard"
+                      f" après la cadence 20s) — entrées coupées si ça arrive" if _risque else ""))
     return ok, detail
 
 from datetime import datetime, timezone
