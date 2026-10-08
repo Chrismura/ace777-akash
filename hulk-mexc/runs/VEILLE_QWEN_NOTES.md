@@ -6712,3 +6712,60 @@ Pas d’ordre — confrontation plus tard.
 ### 2026-10-08T13:01:07Z — ALERT auto
 - TELUSDT: WATCH_PULLBACK — tension haute + reflux
 (compléter: confirmé ? risque ?)
+
+### 2026-10-08T13:46:59Z — ALERT auto
+- ZBCNUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
+
+### 2026-10-08T14:17:09Z — ALERT auto
+- PYTHUSDT: IMPULSE_WAIT — spike en cours, pas chase
+(compléter: confirmé ? risque ?)
+
+### 2026-10-08T14:25:51Z — ALERT auto
+- PYTHUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
+
+### 2026-10-08T15:16:30Z — ALERT auto
+- QNTUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
+
+### 2026-10-08T15:18:07Z — ALERT auto
+- FLUIDUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
+
+### 2026-10-08T15:19:02Z — ALERT auto
+- HBARUSDT: WATCH_PULLBACK — tension haute + reflux
+- REDUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
+
+### 2026-10-08T15:19:49Z — ALERT auto
+- BIOUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
+
+### 2026-10-08T15:25:07Z — ALERT auto
+- ZBCNUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
+
+### 2026-10-08T15:37:18Z — ALERT auto
+- PYTHUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
+
+### 2026-10-08T15:38:44Z — ALERT auto
+- CCUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
+
+### 2026-10-08T15:56:15Z — ALERT auto
+- ETHUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
+
+### 2026-10-08T15:57:57Z — ALERT auto
+- XRPUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
+
+### 2026-10-08T16:01:57Z — ALERT auto
+- KITEUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
+
+### 2026-10-08T16:17:31Z — ALERT auto
+- QNTUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)

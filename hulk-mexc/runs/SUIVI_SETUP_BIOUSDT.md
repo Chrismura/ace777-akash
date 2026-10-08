@@ -45,18 +45,19 @@ Métriques : maison (mur moy/max + régime ; poussière = indicateur PANIER) + p
 | 38 | 2026-10-05T14:34:55Z | 14h | AUTRE | 0.03119 | COOLING | 41.2334 | 3944.0 | 49947.14 | 1.89e-06 | -0.02 | 0.34 | 0.39 | neutre (stab 0) | prix 0.03119 · poussière(panier) 41.2% · Amihud 1.89e-06 · delta -0.02 · mur moy 3,944$ · mur max (run) 49,947$ |
 | 39 | 2026-10-06T14:37:24Z | 14h | AUTRE | 0.0317 | IMPULSE_WAIT | 5.0237 | 3944.0 | 49947.14 | — | — | 0.30 | 0.52 | neutre (stab 0) | prix 0.0317 · poussière(panier) 5.0% · mur moy 3,944$ · mur max (run) 49,947$ |
 | 40 | 2026-10-07T14:34:52Z | 14h | AUTRE | 0.02852 | IMPULSE_WAIT | 2.9009 | 3944.0 | 49947.14 | 2.31e-06 | 0.00 | 0.97 | 0.98 | POMPE_PIEGE (stab 2) | prix 0.02852 · poussière(panier) 2.9% · Amihud 2.31e-06 · delta +0.00 · mur moy 3,944$ · mur max (run) 49,947$ |
+| 41 | 2026-10-08T14:33:58Z | 14h | AUTRE | 0.02924 | COOLING | 13.4484 | 3944.0 | 49947.14 | 2.65e-06 | 0.08 | 0.25 | 0.56 | POMPE_PIEGE (stab 6) | prix 0.02924 · poussière(panier) 13.4% · Amihud 2.65e-06 · delta +0.08 · mur moy 3,944$ · mur max (run) 49,947$ |
 
 ## 🔁 HISTORIQUE DES CYCLES DE L'ACTIF (zigzag ≥ 15 %, log continu du moteur)
 
-_Fenêtre mesurée : du 2026-10-03T09:33:35Z au 2026-10-07T14:34:52Z (13610 points) — archives de rotation incluses._
+_Fenêtre mesurée : du 2026-10-04T21:35:53Z au 2026-10-08T14:33:58Z (12871 points) — archives de rotation incluses._
 
 _Pas encore deux retournements ≥ 15 % dans l'historique mesuré._
 
-**Cycle EN COURS : BAISSE depuis le pic du 2026-10-05T20:43:06Z à 0.0338 → 0.02852 = **-15.6 %**** (extrême courant 0.0282)
+**Cycle EN COURS : BAISSE depuis le pic du 2026-10-05T20:43:06Z à 0.0338 → 0.02924 = **-13.5 %**** (extrême courant 0.0282)
 
 ## 💰 CE QUE LE MOTEUR A CAPTÉ SUR CET ACTIF
 
-- **Réalisé : -0.45 $** sur 8 entrée(s) / 8 sortie(s) — dernier événement 2026-10-07T13:39:33Z
+- **Réalisé : -0.45 $** sur 8 entrée(s) / 8 sortie(s) — dernier événement 2026-10-08T14:33:17Z
 - **MFE donné en moyenne : +3.9 pts** par tour (pire tour : +11.1) — le meilleur prix atteint pendant la détention, jamais encaissé
 
 _Règle : on compare les lignes entre elles (même heure de mesure = comparable). On ne supprime rien._

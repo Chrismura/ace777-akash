@@ -1,34 +1,34 @@
 {
-  "ts": "2026-10-08T08:27:32.797956+00:00",
+  "ts": "2026-10-08T14:27:34.680062+00:00",
   "statut": "ALERTE",
-  "age_rapport_h": 34.4,
+  "age_rapport_h": 40.4,
   "bascules": [
     {
       "pair": "CHIPUSDT",
-      "avant": "POMPE_PIEGE",
-      "maintenant": "neutre",
-      "corr_avant": -0.343,
-      "corr_maintenant": 0.145
+      "avant": "neutre",
+      "maintenant": "LEADER",
+      "corr_avant": 0.145,
+      "corr_maintenant": 0.195
     },
     {
-      "pair": "QNTUSDT",
+      "pair": "KITEUSDT",
       "avant": "neutre",
       "maintenant": "POMPE_PIEGE",
-      "corr_avant": -0.086,
-      "corr_maintenant": -0.16
+      "corr_avant": -0.114,
+      "corr_maintenant": -0.179
     },
     {
       "pair": "WUSDT",
-      "avant": "POMPE_PIEGE",
-      "maintenant": "LEADER",
-      "corr_avant": -0.256,
-      "corr_maintenant": 0.165
+      "avant": "LEADER",
+      "maintenant": "neutre",
+      "corr_avant": 0.165,
+      "corr_maintenant": 0.149
     }
   ],
   "principe": "RIEN N'EST STATIQUE — signal suivi tant que les chiffres le confirment, abandonné dès inversion",
-  "message": "⚠️ LE PATTERN DIVERGENCE N'EST PLUS SUIVI depuis 34h — relancer la confrontation (voir docs/PROTOCOLE_DIVERGENCE_20260829.md)",
+  "message": "⚠️ LE PATTERN DIVERGENCE N'EST PLUS SUIVI depuis 40h — relancer la confrontation (voir docs/PROTOCOLE_DIVERGENCE_20260829.md)",
   "leaders": [
-    "WUSDT",
+    "CHIPUSDT",
     "ZBCNUSDT"
   ],
   "pompes_pieges": [
@@ -39,6 +39,7 @@
     "FLUIDUSDT",
     "HBARUSDT",
     "IOTAUSDT",
+    "KITEUSDT",
     "LAUSDT",
     "MNSRYUSDT",
     "PYTHUSDT",
@@ -51,28 +52,28 @@
     "XRPUSDT"
   ],
   "stabilite": {
-    "BIOUSDT": 5,
+    "BIOUSDT": 6,
     "BTCUSDT": 0,
-    "CCUSDT": 2,
-    "CHIPUSDT": 0,
-    "EDELUSDT": 8,
-    "ETHUSDT": 9,
-    "FLUIDUSDT": 6,
-    "HBARUSDT": 9,
-    "IOTAUSDT": 8,
-    "KITEUSDT": 0,
-    "LAUSDT": 8,
-    "MNSRYUSDT": 2,
-    "PYTHUSDT": 5,
-    "QNTUSDT": 1,
-    "REDUSDT": 13,
-    "RIZEUSDT": 14,
-    "RWAINCUSDT": 2,
-    "RWAUSDT": 5,
-    "WAXLUSDT": 8,
-    "WUSDT": 1,
-    "XRPUSDT": 9,
-    "ZBCNUSDT": 2
+    "CCUSDT": 3,
+    "CHIPUSDT": 1,
+    "EDELUSDT": 9,
+    "ETHUSDT": 10,
+    "FLUIDUSDT": 7,
+    "HBARUSDT": 10,
+    "IOTAUSDT": 9,
+    "KITEUSDT": 1,
+    "LAUSDT": 9,
+    "MNSRYUSDT": 3,
+    "PYTHUSDT": 6,
+    "QNTUSDT": 2,
+    "REDUSDT": 14,
+    "RIZEUSDT": 15,
+    "RWAINCUSDT": 3,
+    "RWAUSDT": 6,
+    "WAXLUSDT": 9,
+    "WUSDT": 0,
+    "XRPUSDT": 10,
+    "ZBCNUSDT": 3
   },
   "recommande": "CONFRONTER AVEC CORTANA/FAMILLE"
 }
