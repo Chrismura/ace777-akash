@@ -1,14 +1,14 @@
-# DISCIPLINE QUOTIDIENNE — 2026-10-08T05:15:18Z
+# DISCIPLINE QUOTIDIENNE — 2026-10-09T05:15:24Z
 
 ## ALERTES
-- 🔴 CORTANA sous 50% (32.5%) — discipline NEUTRE active, à surveiller
+- 🔴 CORTANA sous 50% (31.3%) — discipline NEUTRE active, à surveiller
 - 🔴 DÉRIVE MÉMOIRE : au moins 1 indice INSTABLE — voir DERIVE_MEMOIRE.md
-- 🔴 SEUIL NON RANGÉ : 5 clé(s) décident sans être classées (STOP_AMPLITUDE_MULT, RUNNER_CONSERVATION_FRAC, RUNNER_TRAIL_ARM_MULT, RUNNER_GIVEBACK_FRAC, RUNNER_STOP_MULT) — R17 : toute garde se mesure ou se déclare
+- 🔴 SEUIL NON RANGÉ : 24 clé(s) décident sans être classées (STOP_AMPLITUDE_MULT, RUNNER_CONSERVATION_FRAC, RUNNER_TRAIL_ARM_MULT, RUNNER_GIVEBACK_FRAC, RUNNER_STOP_MULT, BAG_TREND_AMP_MIN) — R17 : toute garde se mesure ou se déclare
 
 ## CORTANA (justesse, 44% = pile-ou-face)
-- Score global : 32.5%
-- Analyses notées : 119/366
-- Par indice : altSeason 1/5; bassine 4/8; btc 3/14; chg24 1/4; croisements 17/50; etfBtcM 1/6; etfEthM 2/6; etfXrpM 2/6; fearGreed 32/81; geopol 7/40; gexPutCall 4/7; indice_onchain 1/7; liq24Usd 3/6; longShort 1/6; oi 0/9; onchain 2/8; pipeline_health 0/3; radar 33/75; rbf 0/3; score 0/6; sdi 2/7; verre 3/9
+- Score global : 31.3%
+- Analyses notées : 117/374
+- Par indice : altSeason 1/5; bassine 4/8; btc 3/14; chg24 1/4; croisements 15/53; etfBtcM 1/6; etfEthM 2/7; etfXrpM 2/7; fearGreed 32/82; geopol 7/41; gexPutCall 4/8; indice_onchain 1/7; liq24Usd 3/6; longShort 1/6; oi 0/9; onchain 2/8; pipeline_health 0/3; radar 33/75; rbf 0/3; score 0/6; sdi 2/7; verre 3/9
 
 ## ADA (zone/voilure vs BTC 24h, v1)
 - Zone-accuracy : None% (0/0)
@@ -27,7 +27,7 @@
 - REGISTRE_ECHECS_ET_ERREURS.md : consulté AVANT de proposer une garde (sinon on repaie).
 
 ## SEUILS FIXES (R17 — la mesure doit décider)
-- 128 clés de config · **29 seuils DÉCIDENT sans mesure** · non classés : 5
+- 148 clés de config · **29 seuils DÉCIDENT sans mesure** · non classés : 24
 - SEUILS_FIXES_DERNIER.md : la liste chiffrée des seuils à passer à la mesure.
 
 ## SORTIE PILOTÉE PAR LA MESURE (GO 3 — suivi en vol)

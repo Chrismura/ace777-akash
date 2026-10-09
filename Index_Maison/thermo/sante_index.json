@@ -1,6 +1,6 @@
 {
-  "ts": "2026-10-09T04:23+00:00",
-  "updated": "2026-10-09T04:23Z",
+  "ts": "2026-10-09T07:23+00:00",
+  "updated": "2026-10-09T07:23Z",
   "etat": "ALERTE",
   "chaines_ok": "8/15",
   "anomalies": [
@@ -13,9 +13,7 @@
     "VEILLE DÉGRADATION : Dead Man's Switch ALERTE ou figé — la surveillance elle-même est en panne",
     "SAPI : sdi_latest.json figé — la pépite poussière institutionnelle ne tourne plus"
   ],
-  "degradees": [
-    "DÉRIVÉS"
-  ],
+  "degradees": [],
   "chaines": [
     {
       "id": "baleines",
@@ -36,12 +34,12 @@
         {
           "nom": "scan file",
           "ok": false,
-          "detail": "âge 79 min"
+          "detail": "âge 260 min"
         },
         {
           "nom": "mouvements (events)",
           "ok": true,
-          "detail": "dernier événement il y a 79 min"
+          "detail": "dernier événement il y a 260 min"
         },
         {
           "nom": "→ live.json.onchain",
@@ -56,7 +54,7 @@
         {
           "nom": "→ Cortana feed",
           "ok": true,
-          "detail": "âge 3 min"
+          "detail": "âge 2 min"
         }
       ]
     },
@@ -73,8 +71,8 @@
         },
         {
           "nom": "deriv_corr.json",
-          "ok": true,
-          "detail": "DÉGRADÉ : âge 80 min (> 40 min)"
+          "ok": false,
+          "detail": "âge 260 min"
         }
       ]
     },
@@ -92,7 +90,7 @@
         {
           "nom": "aspiration runtime",
           "ok": false,
-          "detail": "mode fichier · JSON · âge ts 0.4 min · écart mtime/ts 2.2s · 22 paire(s) · btc=INVALIDE · ts=croissant · passe 9.3s · marge 35.7s sous le budget 45s du moteur"
+          "detail": "mode fichier · JSON · âge ts 0.4 min · écart mtime/ts 1.9s · 22 paire(s) · btc=INVALIDE · ts=croissant · passe 9.4s · marge 35.6s sous le budget 45s du moteur"
         },
         {
           "nom": "corrélation BTC",
@@ -107,7 +105,7 @@
         {
           "nom": "cortana_pilot.json",
           "ok": true,
-          "detail": "âge 1165 min"
+          "detail": "âge 1345 min"
         },
         {
           "nom": "cortana_analysis.json",
@@ -194,7 +192,7 @@
         {
           "nom": "geopol.ts frais",
           "ok": true,
-          "detail": "âge 0.1h"
+          "detail": "âge 0.0h"
         },
         {
           "nom": "modules OK",
@@ -258,7 +256,7 @@
         {
           "nom": "journal_radar.log",
           "ok": false,
-          "detail": "âge 77 min"
+          "detail": "âge 257 min"
         },
         {
           "nom": "relance (superviseur-process)",
@@ -365,7 +363,7 @@
         {
           "nom": "sdi_latest.json (SAPI dedans)",
           "ok": false,
-          "detail": "âge 79 min"
+          "detail": "âge 259 min"
         },
         {
           "nom": "SAPI calculé",
