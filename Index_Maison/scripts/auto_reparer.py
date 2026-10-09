@@ -178,23 +178,6 @@ def _alerter(message: str, ident: str):
         pass
 
 
-def _scelle_rituel():
-    """Rituel de scellement (R20.1) — chargé PAR CHEMIN, tolérant si absent.
-
-    POURQUOI : MEMOIRE_COLLAB.md peut être scellé md5 ; la veilleuse honore les
-    pré-déclarations mais PAS le drill → une écriture non re-scellée laisserait le drill
-    en TROU. Le rituel est NON BLOQUANT : la trace a toujours lieu.
-    """
-    try:
-        ici = str(Path(__file__).resolve().parent)
-        if ici not in sys.path:
-            sys.path.insert(0, ici)
-        import scelle_rituel
-        return scelle_rituel
-    except Exception:
-        return None
-
-
 def _trace_agora(quoi: str):
     """1 ligne append-only dans la mémoire collab (canon + miroir).
     NON-BLOQUANT (réserve GEMINI) : exécuté dans un thread daemon — une écriture
@@ -220,25 +203,15 @@ def _trace_agora(quoi: str):
                 if ins is None:
                     continue
                 lignes.insert(ins, ligne)
-
-                def _ecrire():
-                    fd, tmp = tempfile.mkstemp(dir=str(cible.parent), suffix=".tmp")
-                    try:
-                        with os.fdopen(fd, "w", encoding="utf-8") as f:
-                            f.write("\n".join(lignes) + "\n")
-                        os.replace(tmp, str(cible))
-                    except Exception:
-                        if os.path.exists(tmp):
-                            os.remove(tmp)
-                        raise
-
-                _sr = _scelle_rituel()
-                if _sr is None:
-                    _ecrire()
-                else:
-                    _sr.ecrire_sous_scelle(
-                        "Index_Maison/MEMOIRE_COLLAB.md", _ecrire,
-                        motif=f"auto_reparer — trace : {str(quoi)[:70]}")
+                fd, tmp = tempfile.mkstemp(dir=str(cible.parent), suffix=".tmp")
+                try:
+                    with os.fdopen(fd, "w", encoding="utf-8") as f:
+                        f.write("\n".join(lignes) + "\n")
+                    os.replace(tmp, str(cible))
+                except Exception:
+                    if os.path.exists(tmp):
+                        os.remove(tmp)
+                    raise
             except Exception:
                 pass
     threading.Thread(target=_travail, daemon=True).start()

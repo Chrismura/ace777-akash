@@ -223,48 +223,16 @@ Snapshot auto (`journal_auto.py`). Bots : ACE={'ON' if procs.get('ace') else 'OF
 """
 
 
-def _scelle_rituel():
-    """Rituel de scellement (R20.1) — chargé PAR CHEMIN, tolérant si absent.
-
-    Le CANON (`Index_Maison/MEMOIRE_COLLAB.md`) est scellé md5 : toute écriture doit être
-    pré-déclarée AVANT puis re-scellée APRÈS, sinon le drill reste en TROU (il ne lit pas les
-    pré-déclarations). Les 2 miroirs du coffre ne sont pas scellés → écriture nue.
-    """
-    try:
-        ici = str(Path(__file__).resolve().parent)
-        if ici not in sys.path:
-            sys.path.insert(0, ici)
-        import scelle_rituel
-        return scelle_rituel
-    except Exception:
-        return None
-
-
-def append_memoire(vault: Path, line: str) -> None:
-    canon = (WS / "MEMOIRE_COLLAB.md").resolve()
-    for mem in [
-        vault / "Swarm_Bus" / "09_MEMOIRE_COLLAB.md",
-        vault / "Index_Maison" / "MEMOIRE_COLLAB.md",
-        WS / "MEMOIRE_COLLAB.md",
-    ]:
-        try:
-            if not mem.exists():
-                continue
-            t = mem.read_text(encoding="utf-8")
-            m = "|----|-----|--------|-----|------|"
-            if m in t and line not in t:
-                def _ecrire(_mem=mem, _t=t):
-                    _mem.write_text(_t.replace(m, m + "\n" + line, 1), encoding="utf-8")
-                if mem.resolve() == canon:
-                    sr = _scelle_rituel()
-                    if sr is not None:
-                        sr.ecrire_sous_scelle(
-                            "Index_Maison/MEMOIRE_COLLAB.md", _ecrire,
-                            motif="journal_auto — snapshot soir (append_memoire)")
-                        continue
-                _ecrire()
-        except OSError as e:
-            print(f"memoire skip {mem.name}: {e}")
+# 09/10/2026 — DÉCISION « redondance du soir » (GO Christophe « go 1,2,3 ») :
+# `journal_auto` N'ÉCRIT PLUS LA MÉMOIRE. Le canon `Index_Maison/MEMOIRE_COLLAB.md` a
+# UN SEUL écrivain : `memoire_log.py` — l'outil dédié, qui écrit le canon ET ses 3 miroirs,
+# appelé JUSTE APRÈS dans le même wrapper (`journal_soir_launchd.sh`). Les deux écrivaient
+# → 2 lignes pour le même évènement (constaté après réparation du marqueur ci-dessous).
+# Le marqueur de table legacy `|----|-----|--------|-----|------|` qui rendait cette écriture
+# muette était un DÉFAUT RÉEL (ce séparateur n'existe pas dans le canon), mais le bon
+# correctif était de RETIRER l'écriture redondante, pas de la réparer — sinon on ajoute du
+# bruit dans un journal déjà long. Rôle de `journal_auto` : écrire `CONSOLE_GENERALE.md` +
+# `Journal_<jour>.md` et synchroniser le coffre. La mémoire n'est pas son métier.
 
 
 def sync_vault(day: str) -> None:
@@ -351,11 +319,8 @@ def main() -> int:
 
     if args.sync:
         sync_vault(day)
-        ts = utc_now().strftime("%Y-%m-%dT%H%MZ")
-        append_memoire(
-            VAULT,
-            f"| {ts} | journal_auto | ★ | CONSOLE+Journal_{day} | Snapshot auto hygiène soir |",
-        )
+        # 09/10/2026 : PLUS d'écriture mémoire ici — `memoire_log.py` est le SEUL écrivain du
+        # canon (appelé par `journal_soir_launchd.sh` juste après). Voir la note en tête.
         # patch AUTO_PROCESSUS line
         auto = WS / "AUTO_PROCESSUS.md"
         if auto.exists():

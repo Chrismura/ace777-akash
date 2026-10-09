@@ -1,34 +1,6 @@
 {
   "signals": [
     {
-      "metric": "taker_ratio",
-      "zscore": 3.6510201275321257,
-      "value": 1.859,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 90,\n  \"reason\": \"Taker ratio à 1.86 (Z-score 3.65) indique une forte agression acheteuse en silence, totalement absente du radar médiatique (silence radio de Google Actualités). Divergence classique d'accumulation invisible par les baleines.\"\n}\n```",
-      "ts": "2026-10-07T23:41:23.425470+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": 186.87228986844787,
-      "value": 0.604,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Le z-score extrême (186.87) du SDI couplé à un narratif médiatique unanime sur le pessimisme des TPE et l'urgence gouvernementale révèle une détresse macroéconomique profonde. Les 'baleines' institutionnelles fuient le risque lié à cette instabilité (impact politique RN, coût de l'énergie), créant une divergence baissière massive face aux marchés euphoriques.\"\n}\n```",
-      "ts": "2026-10-08T00:01:36.279982+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": -9.334770004369775,
-      "value": 64,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie statistique majeure (z-score -9.33) avec un Indice de Peur et de Greffe à 64 dans une zone neutre-positive, totalement ignorée par les médias traditionnels (silence radio de Google Actualités). C'accumulation invisible classique des baleines loin des projecteurs.\"\n}\n```",
-      "ts": "2026-10-08T00:01:40.818426+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": 6.8195430574670075,
-      "value": 0.6,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Incohérence contextuelle : les données fournies concernent le SDI (Syndicat des Indépendants) et le pessimisme des TPE françaises, sans aucun rapport avec les marchés crypto ou l'activité on-chain des baleines.\"\n}\n```",
-      "ts": "2026-10-08T00:31:55.635373+00:00"
-    },
-    {
       "metric": "fear_greed",
       "zscore": -5.5647431412426425,
       "value": 64,
@@ -349,6 +321,34 @@
       "value": 1,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le Z-score fortement négatif (-2.07) indique une position net-short extrême des acteurs institutionnels/baleines sur les dérivés, tandis que le bruit médiatique se focalise sur des ETF traditionnels hors crypto. Historiquement, un désengagement aussi asymétrique des masses ou une sur-concentration des shorts précède un 'short squeeze' violent orchestré par les mouvements silencieux des grands portefeuilles.\"\n}\n```",
       "ts": "2026-10-09T07:43:28.592620+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": -2.0368887025534903,
+      "value": 1,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-2.04) sur le ratio long/short indiquant un positionnement massif des baleines en position 'short' contrarienne ou une purge extrême du levier, totalement ignorée par les médias traditionnels qui ne parlent que de produits financiers traditionnels sans rapport avec la dynamique réelle onchain.\"\n}\n```",
+      "ts": "2026-10-09T11:03:55.869301+00:00"
+    },
+    {
+      "metric": "price_1h",
+      "zscore": 2.677812777351546,
+      "value": 0.9700075966931232,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie statistique haussière (z-score 2.68) totalement ignorée par les médias (silence radio). Comportement typique d'accumulation discrète par les baleines avant une cassure de prix.\"\n}\n```",
+      "ts": "2026-10-09T11:49:19.220322+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 5.478681827234225,
+      "value": 4889467.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (z-score 5.48, ~4.89M USD) combinée à un silence médiatique absolu (Google Actualités vide). Les baleines accumulent dans l'ombre sans éveiller le retail.\"\n}\n```",
+      "ts": "2026-10-09T11:49:29.161410+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 2.4320671133833582,
+      "value": 5025435.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Panique médiatique surévaluée : les médias grand public amplifient des liquidations massives (1,1 Md$) et des transferts d'exchange, alors que l'anomalie on-chain montre des volumes réels de liquidation modérés (5 M$). Divergence classique de capitulation retail masquant une accumulation silencieuse par les baleines.\"\n}\n```",
+      "ts": "2026-10-09T13:04:42.013717+00:00"
     }
   ]
 }

@@ -287,6 +287,13 @@ def main() -> int:
 
     resultats, agregats = [], {"entrees": {}, "stops": {}, "sorties": {}, "pnl": {}}
     for paire in sorted(seqs):
+        # CORRECTION 09/10/2026 (pré-déclarée) : une paire peut avoir des BUY SANS aucune
+        # sortie complète (position encore ouverte) → la liste des séquences est VIDE →
+        # min(ts) plantait (ValueError) et l'oracle ne pouvait pas juger le moteur vivant.
+        # On IGNORE ces paires : on ne fabrique jamais un jugement sans trade fermé (E2/E14).
+        if not seqs[paire]:
+            print(f"  {paire:12} aucune séquence FERMÉE sur la fenêtre — ignorée (pas de jugement)")
+            continue
         # fenêtre de klines : 60 min avant le 1er achat → 6 h après la dernière sortie
         ts = [ts_ms(s["buy"]["ts"]) for s in seqs[paire]] + \
              [ts_ms(o["ts"]) for s in seqs[paire] for o in s["sorties"]]

@@ -110,6 +110,28 @@ DETTE_CONSTATEE = {
     ("Index_Maison/scripts/auto_reparer.py", "2026-10-09T10:22:49Z"),
     ("Index_Maison/scripts/journal_auto.py", "2026-10-09T10:22:49Z"),
     ("Index_Maison/scripts/sync_console_journal.py", "2026-10-09T10:22:49Z"),
+    # ── 09/10/2026 (suite) — ERREUR DE CLÉ de pré-déclaration, 2 actes, décision Christophe (GO « go1 »).
+    # Acte : re-scellement de `journal_auto.py` et `sync_console_journal.py` à 10:35:40Z (correctif du
+    # marqueur legacy). La pré-déclaration a RÉELLEMENT été faite AVANT (10:34:50Z, traces dans le store),
+    # mais sous la MAUVAISE CLÉ : `scripts/journal_auto.py` au lieu de `Index_Maison/scripts/journal_auto.py`
+    # (outil lancé depuis Index_Maison avec un chemin relatif). Le gardien cherche la clé EXACTE → les 2
+    # actes apparaissent NON DÉCLARÉS. Le fond était bon (fichiers NEUFS au registre, aucun scellé
+    # antérieur altéré), la FORME était fausse. Je n'ai pas re-daté la déclaration — ce serait blanchir.
+    # Radié de l'alarme, JAMAIS effacé (daté, nommé ici et au §15.6). Même mécanisme que les 23 précédents.
+    ("Index_Maison/scripts/journal_auto.py", "2026-10-09T10:35:40Z"),
+    ("Index_Maison/scripts/sync_console_journal.py", "2026-10-09T10:35:40Z"),
+    # ── 09/10/2026 (suite) — MÊME DÉFAUT D'ORDRE, 2 ACTES, décision Christophe.
+    # Acte : inscription au registre de 2 fichiers NEUFS (le backtest `backtest_edel_amplitude.py`
+    # et le livrable `STRATEGIE_AMPLITUDE_EDEL_20261009.md`) à 11:31:51Z SANS pré-déclaration
+    # antérieure. Circonstance aggravante : j'avais pré-déclaré le registre à 11:31:13Z — 38 s plus
+    # tôt, DANS la même minute — et j'ai oublié de le faire pour ces deux inscriptions. La règle est
+    # appliquée à l'ÉDITION d'un scellé existant, pas à l'INSCRIPTION d'un fichier neuf : c'est le
+    # même angle mort qu'à 09:11Z et 10:22Z (3ᵉ récidive de la journée, même classe E22).
+    # Aucun scellé existant n'a été altéré : les 2 fichiers sont NEUFS (aucun état antérieur à
+    # protéger) — défaut de PROCÉDURE, pas une manipulation. Radié de l'alarme, JAMAIS effacé
+    # (daté, nommé ici et au §15.9). Même mécanisme que les 25 actes précédents.
+    ("hulk-mexc/scripts/backtest_edel_amplitude.py", "2026-10-09T11:31:51Z"),
+    ("Index_Maison/STRATEGIE_AMPLITUDE_EDEL_20261009.md", "2026-10-09T11:31:51Z"),
 }
 
 

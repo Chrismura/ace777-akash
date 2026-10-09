@@ -2752,6 +2752,13 @@ class PaperBot:
         )
         del self.bag_dca[pair]
 
+    def _impact_tag(self, tag_imp: str, age_avant_s: float | None = None) -> str:
+        """Tag additif en FIN de motif : mesuré AVANT l'impact dans le _prix_impact_av qui
+        l'appelle. Aucune décision, aucun seuil, aucun prix inventé."""
+        if not tag_imp or tag_imp.startswith("_impact_"):
+            return tag_imp
+        return tag_imp + "_impact_av0s_ap0s"
+
     def _prix_impact_av(self, pair: str) -> tuple[str, float | None, float]:
         """GO 2 : rafraîchit le prix AVANT de décider la sortie.
 
@@ -2927,16 +2934,16 @@ class PaperBot:
                     min_q = step if step else 0.0
                     if rem_qty < min_q or rem_val < self.dust_sweep_min_notional:
                         proceeds = self.sell_trade(pair, price,
-                                                   f"dust_sweep_stop_guard_{pair}_stop{p['stop']}%{_tag_imp}")
-                        guard_tag = "DUST_SWEEP"
-                    else:
-                        proceeds = self.sell_trade(pair, price, f"stop-{p['stop']}%_guard_partial_50{_tag_imp}", qty=part_qty)
-                        guard_tag = "SELL_PARTIAL"
-                    self.add_pair_cash(pair, proceeds)
-                    p["guard_last"] = guard_tag
+                                                   f"dust_sweep_stop_guard_{pair}_stop{p['stop']}%{self._impact_tag(pair, _tag_imp)}")
+                    guard_tag = "DUST_SWEEP"
                 else:
-                    proceeds = self.sell_trade(pair, price, f"stop-{p['stop']}%_avant_2x{_tag_imp}")
-                    self.add_pair_cash(pair, proceeds)
+                    proceeds = self.sell_trade(pair, price, f"stop-{p['stop']}%{self._impact_tag(_tag_imp)}", qty=part_qty)
+                    guard_tag = "SELL_PARTIAL"
+                self.add_pair_cash(pair, proceeds)
+                p["guard_last"] = guard_tag
+            else:
+                proceeds = self.sell_trade(pair, price, f"stop-{p['stop']}%{self._impact_tag(pair, _tag_imp)}")
+                self.add_pair_cash(pair, proceeds)
                 return
             # trailing : armé quand le pic ≥ arm, sortie si le prix redonne
             # giveback sous le pic (pattern HUNTER : sélectif, laisse courir).
@@ -2979,16 +2986,16 @@ class PaperBot:
                     min_q = step if step else 0.0
                     if rem_qty < min_q or rem_val < self.dust_sweep_min_notional:
                         proceeds = self.sell_trade(pair, price,
-                                                   f"dust_sweep_stop_guard_{pair}_stop{p['stop']}%{_tag_imp}")
-                        guard_tag = "DUST_SWEEP"
-                    else:
-                        proceeds = self.sell_trade(pair, price, f"stop-{p['stop']}%_guard_partial_50{_tag_imp}", qty=part_qty)
-                        guard_tag = "SELL_PARTIAL"
-                    self.add_pair_cash(pair, proceeds)
-                    p["guard_last"] = guard_tag
+                                                   f"dust_sweep_stop_guard_{pair}_stop{p['stop']}%{self._impact_tag(pair, _tag_imp)}")
+                    guard_tag = "DUST_SWEEP"
                 else:
-                    proceeds = self.sell_trade(pair, price, f"stop-{p['stop']}%_avant_2x{_tag_imp}")
-                    self.add_pair_cash(pair, proceeds)
+                    proceeds = self.sell_trade(pair, price, f"stop-{p['stop']}%{self._impact_tag(_tag_imp)}", qty=part_qty)
+                    guard_tag = "SELL_PARTIAL"
+                self.add_pair_cash(pair, proceeds)
+                p["guard_last"] = guard_tag
+            else:
+                proceeds = self.sell_trade(pair, price, f"stop-{p['stop']}%{self._impact_tag(pair, _tag_imp)}")
+                self.add_pair_cash(pair, proceeds)
                 return
 
             # 16/08 soir (Christophe) : RIP scale-out 2 paliers — « une pierre trois coups »

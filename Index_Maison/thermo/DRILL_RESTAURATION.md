@@ -1,13 +1,13 @@
-# 🩺 DRILL DE RESTAURATION — ✅ **READY**
+# 🩺 DRILL DE RESTAURATION — 🔴 **TROU**
 
-> Testé le **2026-10-09T10:28Z** · mode **lecture seule** (rien installé, rien modifié).
+> Testé le **2026-10-09T13:30Z** · mode **lecture seule** (rien installé, rien modifié).
 > Question posée : *« si le Mac mourait ce soir, ACE777 reviendrait-il ? »*
 
 ## 1. Source — le repo (git) contient-il tout ?
-- Branche `main` · HEAD `5b6c1943b8` du 2026-10-09T09:27:13+02:00
-- Fichiers suivis modifiés sur disque : **155**
+- Branche `main` · HEAD `270151e7fd` du 2026-10-09T12:29:42+02:00
+- Fichiers suivis modifiés sur disque : **127**
 - Fichiers suivis **supprimés** (perdus) : **0**
-- Nouveaux fichiers non versionnés : 31634 au total, dont **9 sensibles** (scripts/plists/règles)
+- Nouveaux fichiers non versionnés : 31711 au total, dont **8 sensibles** (scripts/plists/règles)
   - `Index_Maison/scripts/CONSULTATION_FAMILLE_CORTANA_JUGE_CONTRE/AVIS_DEEPSEEK.md`
   - `Index_Maison/scripts/CONSULTATION_FAMILLE_CORTANA_JUGE_CONTRE/AVIS_GEMINI.md`
   - `Index_Maison/scripts/CONSULTATION_FAMILLE_CORTANA_JUGE_CONTRE/AVIS_JUGE.md`
@@ -16,7 +16,6 @@
   - `Index_Maison/scripts/CONSULTATION_FAMILLE_VEILLEUSE_20260815/AVIS_openrouter-ultra.md`
   - `Index_Maison/scripts/_archives_tronques_20260911/LISEZ_MOI.md`
   - `Index_Maison/scripts/_archives_tronques_20260911/PROD_SUPERVISEUR_GEMINI.py`
-  - `Index_Maison/scripts/scelle_rituel.py`
 
 ### 1bis. Instruments de la boucle — ce que la boucle EXÉCUTE est-il versionné ?
 - Scripts/exécutables invoqués par un agent ou par `git_push_auto.sh` : **152**
@@ -28,7 +27,7 @@
 - ✅ **0 agent hors repo** — tous reconstructibles.
 
 ## 3. Reconstruction dans un dossier neuf
-- Dossier : `/var/folders/y7/571v2gy574z72zvsgqd46wd40000gn/T/drill_restauration_8qzq1kwt/LaunchAgents`
+- Dossier : `/var/folders/y7/571v2gy574z72zvsgqd46wd40000gn/T/drill_restauration_m7ia5mv3/LaunchAgents`
 - Plists rebâtis + validés (`plutil -lint`) : **103/103**
 
 ## 4. Organes invoqués par les agents
@@ -51,11 +50,12 @@
 - ✅ Aucun chemin invoqué introuvable.
 
 ## 5. Scellés (registre des synapses ↔ repo)
-- Entrées md5 vérifiées : **168** · écarts : **0** · absents : **0**
+- Entrées md5 vérifiées : **168** · écarts : **1** · absents : **0**
+  - ⚠️ md5 différent : `hulk-mexc/scripts/paper_diprip.py`
 
 ## 5bis. Pré-déclarations (R20.1) — un scellé se touche ANNONCÉ
-- Déclarations au registre : **84** · règle active depuis `2026-09-23T15:30:00Z`
-- Dette constatée **23** (27-29/09, datée et nommée, radiée de l'alarme — voir `REGISTRE_ECHECS_ET_ERREURS.md` §13)
+- Déclarations au registre : **107** · règle active depuis `2026-09-23T15:30:00Z`
+- Dette constatée **27** (27-29/09, datée et nommée, radiée de l'alarme — voir `REGISTRE_ECHECS_ET_ERREURS.md` §13)
 - ✅ **0 violation** — aucune modification scellée sans pré-déclaration antérieure.
 
 ## 6. Couverture des classes d'erreur — anticiper l'erreur SUIVANTE
@@ -64,7 +64,8 @@
 - ✅ **0 trou** : chaque classe connue a une garde déclarée et branchée, ou est déclarée promesse/ouverture (jamais verte en silence).
 
 ## 7. Verdict
-- ✅ **READY** — le prototype est reconstructible depuis le repo.
+- 🔴 **1 trou(s) à combler :**
+  - 1 scellé(s) dont le md5 ne correspond plus
 
 ---
 *Rapport généré par `scripts/drill_restauration.py` (lecture seule). Relancer après toute modification d'organe : un drill, ça se répète.*

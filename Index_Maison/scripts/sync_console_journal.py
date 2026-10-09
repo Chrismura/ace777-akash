@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 """Sync console/journal/hygiene notes into Obsidian vault (md only)."""
-import sys
 from pathlib import Path
 from datetime import datetime, timezone
 from shutil import copy2
@@ -52,16 +51,30 @@ if agora.exists():
 # Swarm_Bus/09_MEMOIRE_COLLAB.md (supprimé) est retiré.
 ts = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H%MZ")
 line = f"| {ts} | Cursor | ★ | CONSOLE+journal | Journal 28 + console + plan vol + auto_processus |"
-def _scelle_rituel():
-    """Rituel de scellement (R20.1) — chargé PAR CHEMIN, tolérant si absent."""
-    try:
-        ici = str(Path(__file__).resolve().parent)
-        if ici not in sys.path:
-            sys.path.insert(0, ici)
-        import scelle_rituel
-        return scelle_rituel
-    except Exception:
+# CORRECTIF 09/10/2026 (GO « go1 ») — même défaut que `journal_auto.py` : l'ancien code
+# exigeait le séparateur legacy `|----|-----|--------|-----|------|`, ABSENT du canon →
+# no-op silencieux. On insère sous l'en-tête (ou sous le séparateur s'il existe).
+_HEADER_JOURNAL = "| ts | Qui | Action | Où | Quoi |"
+
+
+def _inserer_dans_journal(texte: str, ligne: str):
+    """Retourne le texte avec `ligne` en tête du Journal, ou None si impossible/déjà là."""
+    if ligne in texte:
         return None
+    i = texte.find(_HEADER_JOURNAL)
+    if i < 0:
+        return None
+    fin_entete = texte.find("\n", i)
+    if fin_entete < 0:
+        return None
+    j = fin_entete + 1
+    fin_suivante = texte.find("\n", j)
+    if fin_suivante < 0:
+        fin_suivante = len(texte)
+    suivante = texte[j:fin_suivante]
+    est_sep = bool(suivante.strip()) and set(suivante.strip()) <= set("|-: ")
+    insert_at = (fin_suivante + 1) if est_sep else j
+    return texte[:insert_at] + ligne + "\n" + texte[insert_at:]
 
 
 for mem in [WS / "MEMOIRE_COLLAB.md"]:
@@ -70,14 +83,9 @@ for mem in [WS / "MEMOIRE_COLLAB.md"]:
     t = mem.read_text(encoding="utf-8")
     if "CONSOLE+journal" in t:
         continue
-    m = "|----|-----|--------|-----|------|"
-    if m in t:
-        def _ecrire(_mem=mem, _t=t):
-            _mem.write_text(_t.replace(m, m + "\n" + line, 1), encoding="utf-8")
-        sr = _scelle_rituel()
-        if sr is not None:
-            sr.ecrire_sous_scelle("Index_Maison/MEMOIRE_COLLAB.md", _ecrire,
-                                  motif="sync_console_journal — entrée CONSOLE+journal")
-        else:
-            _ecrire()
+    nouveau = _inserer_dans_journal(t, line)
+    if nouveau is not None:
+        def _ecrire(_mem=mem, _texte=nouveau):
+            _mem.write_text(_texte, encoding="utf-8")
+        _ecrire()
 print("DONE_SYNC")

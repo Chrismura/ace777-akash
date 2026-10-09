@@ -1,6 +1,6 @@
 {
   "version": "1.5.0",
-  "updated": "2026-10-09T10:28:27Z",
+  "updated": "2026-10-09T12:13:21Z",
   "fichier": [
     {
       "nom": "Index_Maison/scripts/v2_duo_replay_4h.py",
@@ -467,14 +467,18 @@
       "origine": "analyse 53 465 mesures ASPIRATION_CALIB 16-24/08",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "862a970e8c06d1b4009a36bfd1ec4e86",
+      "md5": "0441f23ab6b0b0591442baaef4ab4fd7",
       "note": "déclaré manuel 2026-08-28T18:30Z | DÉCLARÉ 2026-09-11 (autopsie V7, GO Christophe « recabler + autopsie v7 ») : modif V4 Option A du 10/09 16h50 (trailing σ filet secondaire sur 8 paires — trail_arm_pct/trail_giveback_pct, source volatilite_paires.json, note in-file « GO Christophe ») committée par auto-sync 15h14Z mais md5 oublié au re-scellement → fausse INTRUSION veilleuse en boucle depuis le 11/09 11h34Z (alerte vocale éteinte manuellement 14h00 par Christophe).",
       "maj": "27/08 17:30Z : création || RE-SCELLÉ 03/09 : Profils universe modifiés 30/08 18h15 — re-scellés post-audit 03/09 (GO Christophe). || 11/09 : md5 mis à jour 304c781d…→0441f23a… (déclaration légitime V4 Option A, autopsie V7)",
-      "date": "2026-10-09T09:56:29Z",
+      "date": "2026-10-09T10:46:16Z",
       "_rescel": [
         {
           "ts": "2026-10-09T09:56:29Z",
           "motif": "GO 2 : trail_giveback_pct recalibre sur amp7 (max(carnet, 0,5xamp7)), 13 paires. Pre-declare AVANT (predemodifier). Reversible git."
+        },
+        {
+          "ts": "2026-10-09T10:46:16Z",
+          "motif": "REVERT de mon recalibrage redondant (flag couvre deja la regle). Pre-declare AVANT."
         }
       ]
     },
@@ -1525,9 +1529,15 @@
       "origine": "Christophe : « tu n'es plus digne de diriger seule » → GO 1 = fermer E11 par un juge extérieur au moteur",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "0921427a675e461c417265082ec9b452",
-      "date": "2026-09-23T11:57Z",
-      "_ajout_20260923": "Instrument créé le 23/09/2026 (GO Christophe) — ajouté au registre le jour même de sa création pour qu'il soit VU (veilleuse, drill, revue)."
+      "md5": "c82aed25908b3c81713ee700cff82f05",
+      "date": "2026-10-09T12:13:21Z",
+      "_ajout_20260923": "Instrument créé le 23/09/2026 (GO Christophe) — ajouté au registre le jour même de sa création pour qu'il soit VU (veilleuse, drill, revue).",
+      "_rescel": [
+        {
+          "ts": "2026-10-09T12:13:21Z",
+          "motif": "CORRECTIF pre-declare 09/10/2026 : garde contre la liste de sequences vide (min() plantait -> E11 muette). Fichier re-scele apres la derniere ecriture."
+        }
+      ]
     },
     {
       "nom": "hulk-mexc/scripts/boucle_setups_main.py",
@@ -1654,8 +1664,8 @@
       "origine": "Exigence famille tour 5, 3 voix convergentes (23/09/2026)",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "909aa0189d39be1803f6836f50f05827",
-      "date": "2026-10-09T10:27:40Z",
+      "md5": "8109589b08f8a05795146a51be24afa5",
+      "date": "2026-10-09T11:39:45Z",
       "_ajout": [
         {
           "ts": "2026-09-23T15:22:33Z",
@@ -1686,6 +1696,14 @@
         {
           "ts": "2026-10-09T10:27:40Z",
           "motif": "09/10/2026 : DETTE_CONSTATEE +5 (mes 5 inscriptions d'ecrivains hors ordre). Pre-declare AVANT."
+        },
+        {
+          "ts": "2026-10-09T10:40:18Z",
+          "motif": "09/10/2026 : DETTE_CONSTATEE +2 (mes 2 pre-declarations sous mauvaise cle). Pre-declare AVANT, cle verifiee."
+        },
+        {
+          "ts": "2026-10-09T11:39:45Z",
+          "motif": "09/10/2026 : DETTE_CONSTATEE +2 actes radies (defaut d'ORDRE 11:31:51Z, decision Christophe) — jamais blanchi."
         }
       ]
     },
@@ -1795,8 +1813,8 @@
       "origine": "Créé 2026-09-22 sur ordre de Christophe; ajout au registre de synapses après consignation E26, pré-déclaré 2026-09-30T21:37:08Z.",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "56669625faadc9c07fadde7203f49711",
-      "date": "2026-10-09T10:28:27Z",
+      "md5": "c7d3f7f310a11a37694f36f5bf703e83",
+      "date": "2026-10-09T11:39:45Z",
       "_ajout": [
         {
           "ts": "2026-09-30T21:40:50Z",
@@ -1835,6 +1853,26 @@
         {
           "ts": "2026-10-09T10:28:27Z",
           "motif": "09/10/2026 : §15.6 — durcissement md5 du canon, GO2 (13 vivants), radiation des 5 inscriptions hors ordre."
+        },
+        {
+          "ts": "2026-10-09T10:41:20Z",
+          "motif": "09/10/2026 : §15.6 suite — correctif no-op + radiation des 2 actes (mauvaise cle)."
+        },
+        {
+          "ts": "2026-10-09T10:50:40Z",
+          "motif": "09/10/2026 : §15.7 — reevaluation + reverts. Pre-declare AVANT (bon chemin)."
+        },
+        {
+          "ts": "2026-10-09T11:14:15Z",
+          "motif": "09/10/2026 : §15.8 — GO 1,2,3 (redondance tranchee, Hulk redemarre, revue du jour). Pre-declare AVANT."
+        },
+        {
+          "ts": "2026-10-09T11:31:45Z",
+          "motif": "09/10/2026 : §15.9 — strategie d'amplitude EDEL mesuree (9,4% -> 40,5% de capture ; 48,9% avec filtre tendance) ; edge CIBLE EDEL+QNT."
+        },
+        {
+          "ts": "2026-10-09T11:39:45Z",
+          "motif": "09/10/2026 : §15.9 — ajout du defaut d'ORDRE 11:31:51Z radie en dette constatee (decision Christophe)."
         }
       ]
     },
@@ -2108,19 +2146,19 @@
       "nom": "Index_Maison/MEMOIRE_COLLAB.md",
       "role": "MEMOIRE COLLABORATIVE — fil des actes (1 ligne par ajout/modif/decision) ; fichier VIVANT : append par les traces Buffy + auto_reparer.py + journal_soir. Verif = existence, pas md5.",
       "origine": "GO Christophe 09/10/2026 — followup « sceller MEMOIRE_COLLAB.md au registre »",
-      "verif": "md5",
+      "verif": "vivant",
       "auto_modifiable": false,
-      "md5": "d1ccbccd2db052b359d5009cddd42910",
-      "date": "2026-10-09T10:28:27Z",
+      "md5": "",
+      "date": "2026-10-09T10:40:52Z",
       "_ajout": [
         {
           "ts": "2026-10-09T10:11:17Z",
           "motif": "inscription au registre (R15 : ce qui n'est pas déclaré n'existe pas)"
         }
       ],
-      "note": "DURCI EN md5 le 09/10/2026 (GO Christophe « go 1,2 »). Il est écrit automatiquement (memoire_log.py, auto_reparer.py) : chaque écriture passe désormais par le RITUEL scelle_rituel.py (pré-déclarer → écrire → re-scellér). Mesure qui l'impose : la veilleuse honore les pré-déclarations, le drill NON (etape_scelles ne les lit pas) → sans re-scellement le drill resterait en TROU. Gravé APRÈS le mode vivant (4 h de recul).",
+      "note": "REVERT 09/10/2026 (réévaluation demandée par Christophe) : retour à « vivant », son état D'ORIGINE avant mes modifications. Le durcissement md5 EXIGEAIT un module neuf + 4 écrivains patchés + un re-scellement du registre À CHAQUE ligne de mémoire (backup de ~200 Ko par trace) — pour un journal, la valeur de détection est NULLE. Il a produit 7 violations de forme en un tour. Mode « vivant » = le mode MAISON pour les fichiers vivants (5 précédents). L'existence reste vérifiée (PANNE si le fichier disparaît).",
       "previous_verif": "vivant (09/10/2026 matin, 4 h)",
-      "maj": "09/10/2026 : verif vivant → md5 (rituel programmable en place, autotest 5/5).",
+      "maj": "09/10/2026 : md5 → vivant (retour à l’origine).",
       "_rescel": [
         {
           "ts": "2026-10-09T10:19:57Z",
@@ -2141,21 +2179,18 @@
         {
           "ts": "2026-10-09T10:28:27Z",
           "motif": "trace GO 1,2 — durcissement md5 du canon + 13 vivants + radiation"
-        }
-      ]
-    },
-    {
-      "nom": "Index_Maison/scripts/scelle_rituel.py",
-      "role": "écrivain/rituel du canon MEMOIRE_COLLAB.md (scellé md5)",
-      "origine": "GO Christophe 09/10/2026 « go 1,2 »",
-      "verif": "md5",
-      "auto_modifiable": false,
-      "md5": "29bec11bc3a757d45455f96f16a4980d",
-      "date": "2026-10-09T10:22:49Z",
-      "_ajout": [
+        },
         {
-          "ts": "2026-10-09T10:22:49Z",
-          "motif": "inscription au registre (R15 : ce qui n'est pas déclaré n'existe pas)"
+          "ts": "2026-10-09T10:35:40Z",
+          "motif": "journal_auto — snapshot soir (append_memoire)"
+        },
+        {
+          "ts": "2026-10-09T10:40:34Z",
+          "motif": "nettoyage des lignes d'EPREUVE (dogfood)"
+        },
+        {
+          "ts": "2026-10-09T10:40:52Z",
+          "motif": "trace « Buffy » — écriture automatique du canon MEMOIRE_COLLAB.md"
         }
       ]
     },
@@ -2165,12 +2200,18 @@
       "origine": "GO Christophe 09/10/2026 « go 1,2 »",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "489ef9b133140fc119493a62df4363b5",
-      "date": "2026-10-09T10:22:49Z",
+      "md5": "b39323e5dc719f1ad1b28b108f07e7c4",
+      "date": "2026-10-09T10:47:34Z",
       "_ajout": [
         {
           "ts": "2026-10-09T10:22:49Z",
           "motif": "inscription au registre (R15 : ce qui n'est pas déclaré n'existe pas)"
+        }
+      ],
+      "_rescel": [
+        {
+          "ts": "2026-10-09T10:47:34Z",
+          "motif": "REVERT : retrait du rituel de scellement (inutile — canon revenu en vivant). Ecriture d'origine restauree. Pre-declare AVANT."
         }
       ]
     },
@@ -2180,12 +2221,18 @@
       "origine": "GO Christophe 09/10/2026 « go 1,2 »",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "5450df114abfbd45b933256c06765139",
-      "date": "2026-10-09T10:22:49Z",
+      "md5": "fa27eb8dd68b72cb4d58663487724c5e",
+      "date": "2026-10-09T10:47:34Z",
       "_ajout": [
         {
           "ts": "2026-10-09T10:22:49Z",
           "motif": "inscription au registre (R15 : ce qui n'est pas déclaré n'existe pas)"
+        }
+      ],
+      "_rescel": [
+        {
+          "ts": "2026-10-09T10:47:34Z",
+          "motif": "REVERT : retrait du rituel de scellement (inutile — canon revenu en vivant). Ecriture d'origine restauree. Pre-declare AVANT."
         }
       ]
     },
@@ -2195,12 +2242,26 @@
       "origine": "GO Christophe 09/10/2026 « go 1,2 »",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "53d48f2cb51f98a519079ef951b4334a",
-      "date": "2026-10-09T10:22:49Z",
+      "md5": "42d6535d42c22dcceb1703f9b7337e45",
+      "date": "2026-10-09T11:06:48Z",
       "_ajout": [
         {
           "ts": "2026-10-09T10:22:49Z",
           "motif": "inscription au registre (R15 : ce qui n'est pas déclaré n'existe pas)"
+        }
+      ],
+      "_rescel": [
+        {
+          "ts": "2026-10-09T10:35:40Z",
+          "motif": "GO 1 : correctif marqueur legacy (no-op silencieux) — pre-declare AVANT."
+        },
+        {
+          "ts": "2026-10-09T10:47:34Z",
+          "motif": "REVERT : retrait du rituel de scellement (inutile — canon revenu en vivant). Ecriture d'origine restauree. Pre-declare AVANT."
+        },
+        {
+          "ts": "2026-10-09T11:06:48Z",
+          "motif": "GO1 : suppression de l'ecriture memoire redondante (memoire_log = seul ecrivain du canon). Pre-declare AVANT."
         }
       ]
     },
@@ -2210,12 +2271,22 @@
       "origine": "GO Christophe 09/10/2026 « go 1,2 »",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "ee19d93a8b5a5563ed1db83579b6e7e9",
-      "date": "2026-10-09T10:22:49Z",
+      "md5": "786a5714d18f1650337cb75ad9a02561",
+      "date": "2026-10-09T10:47:34Z",
       "_ajout": [
         {
           "ts": "2026-10-09T10:22:49Z",
           "motif": "inscription au registre (R15 : ce qui n'est pas déclaré n'existe pas)"
+        }
+      ],
+      "_rescel": [
+        {
+          "ts": "2026-10-09T10:35:40Z",
+          "motif": "GO 1 : correctif marqueur legacy (no-op silencieux) — pre-declare AVANT."
+        },
+        {
+          "ts": "2026-10-09T10:47:34Z",
+          "motif": "REVERT : retrait du rituel de scellement (inutile — canon revenu en vivant). Ecriture d'origine restauree. Pre-declare AVANT."
         }
       ]
     },
@@ -2426,6 +2497,48 @@
         }
       ],
       "note": "verif=vivant : rapport RÉÉCRIT sur cadence (md5 crierait à chaque refresh). L'EXISTENCE est vérifiée (PANNE si absent). Décision Christophe 09/10/2026 (GO 2)."
+    },
+    {
+      "nom": "hulk-mexc/scripts/backtest_edel_amplitude.py",
+      "role": "Backtest rejouable de la strategie d'amplitude EDEL (lecture seule, multi-paires, frais 53,9 bps/cote)",
+      "origine": "demande Christophe 09/10/2026 - reprise de la fiche EDEL",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "5234266a36587578a8efb837c5bfc8ce",
+      "date": "2026-10-09T11:47:12Z",
+      "_ajout": [
+        {
+          "ts": "2026-10-09T11:31:51Z",
+          "motif": "inscription au registre (R15 : ce qui n'est pas déclaré n'existe pas)"
+        }
+      ],
+      "_rescel": [
+        {
+          "ts": "2026-10-09T11:47:12Z",
+          "motif": "09/10/2026 : +exit_sma_n — mesure qui repond a Christophe : la SORTIE est le probleme. 'ne jamais sortir' = +256 $ sur 20 paires vs +66 $ moteur (x4)."
+        }
+      ]
+    },
+    {
+      "nom": "Index_Maison/STRATEGIE_AMPLITUDE_EDEL_20261009.md",
+      "role": "Livrable : strategie de recolte d'amplitude EDEL mesuree (spec G + filtre tendance), non cablee",
+      "origine": "demande Christophe 09/10/2026",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "0f0559a4a5895f3bb5bb08bc0a3c0873",
+      "date": "2026-10-09T11:48:47Z",
+      "_ajout": [
+        {
+          "ts": "2026-10-09T11:31:51Z",
+          "motif": "inscription au registre (R15 : ce qui n'est pas déclaré n'existe pas)"
+        }
+      ],
+      "_rescel": [
+        {
+          "ts": "2026-10-09T11:48:47Z",
+          "motif": "09/10/2026 : §5 LE VRAI VERDICT — c'est la SORTIE qui detruit la valeur (ne jamais sortir +256 $ vs moteur +66 $ sur 20 paires)."
+        }
+      ]
     }
   ]
 }
