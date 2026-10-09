@@ -781,3 +781,136 @@ garde — sa santé est portée par son propre rapport.
   **170 scellés · 0 écart · 0 absent** · **drill ✅ READY** · règles d'or **11/13** — les deux
   seules rouges sont **R10** (saturation de l'hôte) et **R19** (jury à rejouer), **aucune** n'est un
   trou de couverture.
+
+### 15.4 Mise à jour 09/10/2026 — GO 2,3 : E9 MÉCANISÉE SANS FAUX POSITIF · R19 MESURÉ INJOIGNABLE · R10 NON VERDIE
+
+> Ordre : « go 1,2,3 ». Le **GO ① (committer)** était **déjà satisfait** : l'auto-sync des 3 h a mis
+> en git l'organe de couverture et sa carte (`8bf520ba5e` 08/10 10:13Z, `2779ea6620` 13:15Z) —
+> vérifié (`git ls-files` : suivis, aucun diff en attente). Rien à committer à la main.
+
+- **GO ② — E9 : promesse → mécanique, et le faux positif annoncé ÉCARTÉ PAR CONSTRUCTION.**
+  L'instrument `scripts/verif_empilement_jour.py` (autotest **6/6**) ne compte **pas** les actes du
+  jour : il ne crie que sur un **RENONCEMENT le même jour sans ordre écrit**. Preuves qu'il
+  distingue les deux : `paper_diprip.py` porte **5 actes le 22/09** (additifs) → **silence** ;
+  `_rescel_20260922c` (« R17 APPLIQUÉE …, RETIRÉ … ») → **silence parce que l'ORDRE est écrit** ;
+  le cas fondateur (poser un refroidissement puis le retirer 2 h plus tard, seul) → **crie**.
+  R14 : la règle ne juge pas le passé — **143 actes antérieurs constatés, 0 reproché**.
+  Câblé dans `git_push_auto.sh` (3 h, lecture seule). Couverture : `20 → 21 mécaniques`, `6 → 5
+  promesses`, `0 trou`. **Câbler une garde ne prouve rien : l'autotest 6/6 prouve qu'elle sait dire
+  NON et qu'elle ne crie pas sur le légitime** (leçon E23).
+- **GO ③a — R19 : rejoué, MESURÉ INJOIGNABLE, NON FABRIQUÉ.** `session_famille.py --test-modeles` :
+  les **4 voix du jury renvoient HTTP 502** (hub joignable, fournisseurs en panne) → **0 voix
+  indépendantes < seuil 3**. R20.3 : un tour sous quorum est un **avis consultatif, pas un
+  verdict** — je n'écris donc **pas** de tour 7 (aucun avis inventé). **R19 reste rouge, et le
+  rouge est VRAI.** Le remède est hors de mon périmètre : il faut que les fournisseurs reviennent.
+- **GO ③b — R10 : NON VERDIE (refus de verdir par invention).** Mesure : RAM libre 41 % ✅ ·
+  swap 52,7 % ✅ · charge 3,03/8 ✅ · **disque 6,7 Go libre < seuil 10 Go** ❌ — **seul** critère
+  rouge. Rabaisser ce seuil pour passer au vert serait exactement l'erreur **E1** (verdir par
+  invention). Libérer ~3,3 Go implique de supprimer des caches **hors dépôt** (`~/Library/Caches`
+  4,9 Go, `~/.cache` 1,4 Go, `~/Downloads` 955 Mo) — action destructive hors périmètre, **en attente
+  de GO explicite**. **R10 reste rouge, mesuré.**
+- **DÉFAUT D'ORDRE RÉGULARISÉ, PAS MASQUÉ (R20.1).** J'ai inscrit le nouvel organe au registre
+  (`resceler --ajouter`) à **09:11:00Z AVANT** sa pré-déclaration — or la maison pré-déclare **même
+  un ajout** (fait le 08/10 pour `couverture_erreurs.py`). Le contrôle l'a attrapé tout seul :
+  **1 violation**, drill **TROU** → règles d'or **11/13 → 9/13** (R6/R12 lisent le drill). Je **n'ai
+  PAS re-scellé pour blanchir** (la règle l'interdit par construction) : sur décision de Christophe,
+  l'acte est **radié en « dette constatée »** (**18ᵉ**), **daté et nommé**, jamais effacé
+  (`predemodifier.py` → `DETTE_CONSTATEE`). Reste, pour le futur : un ajout se **pré-déclare** avant
+  de s'inscrire au registre.
+- **ÉTAT MESURÉ APRÈS COUP** : `26 classes · 21 mécaniques · 5 promesses · 0 ouverture · 0 trou` ·
+  **171 entrées au registre** · **drill ✅ READY** · règles d'or **11/13** — **R10** et **R19**
+  restent les deux seules rouges, **aucune** n'est un trou de couverture. **0 ordre, 0 €.**
+
+### 15.5 Mise à jour 09/10/2026 — GO 1,2,3 : giveback RECALIBRÉ sur l'amplitude · churn CHIFFRÉ (majorant étiqueté) · Hulk REDÉMARRÉ
+
+> Ordre : « go 1,2,3 ». Étape charnière : **le chiffrage a contredit ma propre annonce** — j'ai
+> livré le chiffre tel qu'il est, et j'ai étiqueté un total que je refusais de présenter comme une perte.
+
+- **GO 1 — HULK REDÉMARRÉ (protocole maison).** `touch STOP_PAPER` → **sortie propre en 2 s**
+  (état sauvegardé) → `rm STOP_PAPER` → relance par le **watchdog** (`--resume`) en **~85 s**.
+  **Nouveau run `PAPER_V1_20261009_095921`**, pid **57904** : **18 positions reprises**, **22/22
+  scores avec `trend_label`**, **0 Traceback**, état qui **avance** (10:00:36Z → 10:01:17Z, cycle
+  41 s). Flags **ACTIFS** : `GIVEBACK_AMP_COUPLE_ON=1` (frac 0,5), `BAG_TREND_ON=1`. **0 ordre, 0 €.**
+- **GO 2 — `trail_giveback_pct` RECALIBRÉ SUR L'AMPLITUDE MULTI-JOURS (pas sur l'heure).**
+  `universe_profils.json` : `giveback = max(carnet, 0,5 × amp7)` → **13 paires élargies**
+  (EDEL 4,0→11,98 · WU 1,33→5,45 · PYTH 2,7→4,32 · RIZE 4,55→13,65 · HBAR 2,7→3,05 · … ;
+  BTC/ETH quasi inchangés). Le défaut était d'**échelle de temps** : le giveback était calibré sur
+  l'**heure/le carnet**, la position court sur des **jours** → il récoltait le bruit horaire et
+  abandonnait le trend. Câblage **réversible** (`GIVEBACK_AMP_COUPLE_ON=0` = historique strict).
+  **Pré-déclaré AVANT** (`predemodifier.py`), **re-scellé APRÈS** — l'ordre est respecté cette fois.
+- **GO 3 — LE COÛT DU CHURN, CHIFFRÉ ET HONNÊTEMENT ÉTIQUETÉ.** Nouvel organe re-jouable
+  `hulk-mexc/scripts/chiffrage_churn_total.py` (lecture seule) → `thermo/churn_total.json`.
+  202 sorties : réalisé cumulé **+58,97 $**. **Deux chiffres, deux statuts** :
+  - **majorant** `gap_sorties = qty×(mark_jour − price)` = **+287 $** — il **double-compte** les
+    ré-entrées ; je le publie **étiqueté MAJORANT**, jamais comme une perte ;
+  - **écart RÉEL Hulk-vs-HOLD (cockpit, non double-compté)** = **−65,75 $** sur 19 paires, lu par
+    le script pour recoupement. **Concentration** : EDEL −23,64 · WU −16,96 · QNT −15,06 ·
+    PYTH −11,88 (= −67,54 à eux seuls ; les 15 autres = **+1,79 $**). Les deux classes de sortie
+    (trailing 129, stop 71) contribuent **à peu près également** au majorant.
+  - **Ce que ça corrige** : le giveback n'était PAS le principal coupable (le 2× et le BAG_CRASH,
+    déjà retirés/protégés, l'étaient) ; mais les 4 paires qui creusent le trou sont **exactement**
+    celles au giveback minuscule sur un trend fort → le recalibrage GO 2 vise la bonne cible.
+- **ÉTAT MESURÉ APRÈS COUP** : `26 classes · 21 mécaniques · 5 promesses · 0 ouverture · 0 trou` ·
+  **drill ✅ READY** · **0 violation R20.1** · règles d'or **11/13** (R10 disque, R19 jury en panne —
+  **aucune** n'est un trou de couverture). Chiffrages sous scellés + git ; `thermo/` **hors git**
+  (convention : sorties runtime scellées par md5, pas versionnées). **0 ordre, 0 €.**
+- **SUITE — LE FIL DES ACTES ENTRE AU REGISTRE, EN MODE « vivant ».** `MEMOIRE_COLLAB.md` n'était
+  **pas** scellé ; il est maintenant inscrit (`Index_Maison/strategie/REGISTRE_SYNAPSES.json`,
+  **175 entrées**). **Refus du md5, motivé** : le fichier est **écrit automatiquement par 3 organes**
+  (`auto_reparer.py` → `_trace_agora`, `install_memoire_auto.sh`, `journal_soir_launchd.sh`) **sans
+  pré-déclaration** → un md5 crierait **INTRUSION à chaque trace** = **faux positif** (E23/R14).
+  Le drapeau `auto_modifiable` **n'est lu par aucun contrôleur** (0 entrée `true`) : il n'aurait rien
+  exempté (constat, pas reproche). Retenu : `verif: "vivant"` (précédent `cortana_pilot.json`) →
+  **inventorié**, **absence = PANNE** (`cible.exists()` est vérifié pour TOUTES les entrées),
+  **aucune alarme sur une écriture légitime** — et **vérifié** : appuyer sur le fichier ne déclenche
+  **aucune** violation R20.1 (`--verifier` ✔). Si l'intégrité **octet-près** devient souhaitée, il
+  faudra d'abord apprendre aux 3 écrivains à **pré-déclarer** : changement de code, **GO séparé**.
+
+### 15.6 Mise à jour 09/10/2026 — GO 1,2 : LE CANON DURCI EN md5 (rituel) · 13 FICHIERS VIVANTS SCELLÉS · MES 5 INSCRIPTIONS HORS ORDRE RADIÉES
+
+> Ordre : « go 1,2 ». **Ce que la MESURE a changé par rapport à ma propre annonce** : j'avais décrit
+> le durcissement comme « apprendre aux écrivains à pré-déclarer ». Faux — et c'est le code qui l'a dit.
+
+- **GO 1 — LE CANON `MEMOIRE_COLLAB.md` PASSE DE `vivant` À `md5`.** Deux faits lus dans le code :
+  `veilleuse_synapses.py` **honore** les pré-déclarations (`_predeclare`) → une modif annoncée reste
+  **hors alarme** ; `drill_restauration.py` **ne les honore pas** (`etape_scelles` compare le md5 sans
+  les lire) → une écriture non re-scellée = **écart → TROU → R6/R12 rouges**. **Conséquence corrigée :
+  pré-déclarer NE SUFFIT PAS**, il faut **pré-déclarer → écrire → re-scellér** à chaque écriture.
+  D'où un organe neuf : **`Index_Maison/scripts/scelle_rituel.py`** (autotest **5/5**) qui fait ce trio
+  en un appel, **idempotent** (aucune cérémonie si le fichier n'est pas scellé md5), **non bloquant**
+  (la trace a toujours lieu — une trace perdue serait pire qu'un rouge), **sérialisé** (verrou `flock`,
+  car deux écrivains peuvent se croiser sur le registre).
+- **LES ÉCRIVAINS DU CANON : 4, PAS 3 (correction de mon §15.5).** Un audit au **code** (grep par
+  variable, pas par littéral) a trouvé : `memoire_log.py`, `auto_reparer.py`, `journal_auto.py`
+  (`append_memoire`), `sync_console_journal.py`. Les 3 derniers n'étaient **pas** dans ma liste initiale.
+  Les 4 sont patchés (rituel) — sinon le scellé aurait crié dès la première trace automatique.
+- **DEUX BUGS PRÉEXISTANTS, TROUVÉS EN CHEMIN (non réparés : hors mandat, signalés).** (1)
+  `journal_auto.py::append_memoire` et `sync_console_journal.py` cherchent le marqueur de table
+  **legacy** `|----|-----|--------|-----|------|` qui **n'existe plus** dans le canon → ils **n'écrivent
+  RIEN** (no-op silencieux ; le soir, c'est `memoire_log.py` qui écrit vraiment). (2)
+  `auto_reparer.py` insère après **le premier** `|---`, c.-à-d. sous la table d'explication en tête —
+  placement discutable, **préexistant**, laissé tel quel (il suit la convention dominante des traces).
+- **ÉPREUVES (le rituel est prouvé, pas affirmé).** Autotest hermétique **5/5** (tmpdir, registre réel
+  jamais touché). Puis **append réel** via `memoire_log.py` : déclaration écrite (`md5_avant` = scellé
+  précédent), **registre qui SUIT le fichier**, **drill ✅ READY**, **veilleuse ✅ STABLE**. Idem via
+  `auto_reparer._trace_agora`. Nettoyage des lignes d'épreuve **via le rituel lui-même** (dogfood).
+- **GO 2 — 13 FICHIERS VIVANTS SCELLÉS EN MODE `vivant`.** Critère **déclaré** : chemin **fixe**,
+  **réécrit automatiquement sur cadence**, lu par le swarm → un md5 crierait à chaque refresh.
+  Retenus : `THERMO_DERNIER.md/.json`, `SOUS_L_OEIL.md`, `CRITIQUE_ERREURS_DERNIER.md`,
+  `SEUILS_FIXES_DERNIER.md/.json`, `CONSOLE_GENERALE.md`, `AUTO_PROCESSUS.md`,
+  `VEILLE_CONFRONTATION_ACE_HULK.md`, `VEILLE_SIZING_MONTE_CARLO.md` + 4 miroirs `OUTBOX_OBSIDIAN/`.
+  Mode **déjà établi** (5 précédents : `cortana_pilot.json`, `thermo/live.json`, `whales_scan_latest.json`,
+  `cpfp_detect.json`, `regime_couleur.json`) → **18 entrées `vivant`** au total. **Exclus et pourquoi** :
+  les **archives datées** (`Journal_AAAA-MM-JJ.md`, `SNIFF_*`, `ROULEMENT_IA_*`, `VEILLE_HUB_*`) — un
+  fichier neuf par jour ferait **croître le registre sans borne** (aucune règle de motif n'existe).
+  Pré-déclarés **AVANT** chaque inscription → **0 nouvelle violation**.
+- **MON DÉFAUT D'ORDRE, RADIÉ SUR DÉCISION (R20.1).** J'ai inscrit les **5 écrivains** au registre
+  (`resceler --ajouter`) **sans pré-déclaration antérieure** — alors que je venais de le faire
+  correctement pour les 13 fichiers du GO 2, deux minutes plus tôt. **5 violations**, drill **TROU**.
+  Je n'ai **pas** blanchî (effacer/refaire = interdit) : sur décision de Christophe, les 5 actes sont
+  **radiés en « dette constatée »** (**19ᵉ à 23ᵉ**), **datés** (10:22:49Z), **nommés** dans
+  `predemodifier.py`, ici et dans l'état. Motif identique au précédent : les 5 fichiers étaient **NEUFS**
+  au registre (aucun état antérieur à protéger) — **défaut de PROCÉDURE, pas une manipulation**.
+- **ÉTAT MESURÉ APRÈS COUP** : `predemodifier --verifier` → **✔ 0 violation** (23 radiations datées) ·
+  **drill ✅ READY** (168 md5 · 0 écart · 0 absent) · **veilleuse ✅ STABLE** · registre **193 entrées**
+  (168 md5 · 18 vivant · 5 fraîcheur/descriptif · 2 autres). **0 ordre, 0 €.**

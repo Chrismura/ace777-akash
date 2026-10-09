@@ -1,17 +1,10 @@
 {
-  "ts": "2026-10-09T07:23+00:00",
-  "updated": "2026-10-09T07:23Z",
+  "ts": "2026-10-09T10:29+00:00",
+  "updated": "2026-10-09T10:29Z",
   "etat": "ALERTE",
-  "chaines_ok": "8/15",
+  "chaines_ok": "14/15",
   "anomalies": [
-    "BALEINES coupée : scan file",
-    "DÉRIVÉS : générateur ou fichier figé",
-    "HULK : sonde runtime, contrat Cortana ou analyses figés",
-    "GEOPOL : score figé ou modules en erreur",
-    "VIGIE MARCHÉ : radar mort ou journal figé (le trou du 19/08)",
-    "VEILLE DÉGRADATION : rapport ALERTE_DEGRADATION_SILENCIEUSE ou figé — dégradation silencieuse détectée",
-    "VEILLE DÉGRADATION : Dead Man's Switch ALERTE ou figé — la surveillance elle-même est en panne",
-    "SAPI : sdi_latest.json figé — la pépite poussière institutionnelle ne tourne plus"
+    "HULK : sonde runtime, contrat Cortana ou analyses figés"
   ],
   "degradees": [],
   "chaines": [
@@ -19,7 +12,7 @@
       "id": "baleines",
       "nom": "BALEINES",
       "chemin": "scan → pont → live.json.onchain → Ada + Cortana",
-      "ok": false,
+      "ok": true,
       "maillons": [
         {
           "nom": "scan (launchd whales)",
@@ -33,13 +26,13 @@
         },
         {
           "nom": "scan file",
-          "ok": false,
-          "detail": "âge 260 min"
+          "ok": true,
+          "detail": "âge 4 min"
         },
         {
           "nom": "mouvements (events)",
           "ok": true,
-          "detail": "dernier événement il y a 260 min"
+          "detail": "dernier événement il y a 4 min"
         },
         {
           "nom": "→ live.json.onchain",
@@ -49,7 +42,7 @@
         {
           "nom": "→ Ada gardienne",
           "ok": true,
-          "detail": "voilure 99.8 · zone VERT"
+          "detail": "voilure 91.6 · zone VERT"
         },
         {
           "nom": "→ Cortana feed",
@@ -62,7 +55,7 @@
       "id": "deriv",
       "nom": "DÉRIVÉS",
       "chemin": "gen_deriv_corr.py → deriv_corr.json → cockpit + Cortana",
-      "ok": false,
+      "ok": true,
       "maillons": [
         {
           "nom": "générateur (launchd deriv-corr)",
@@ -71,8 +64,8 @@
         },
         {
           "nom": "deriv_corr.json",
-          "ok": false,
-          "detail": "âge 260 min"
+          "ok": true,
+          "detail": "âge 2 min"
         }
       ]
     },
@@ -89,8 +82,8 @@
         },
         {
           "nom": "aspiration runtime",
-          "ok": false,
-          "detail": "mode fichier · JSON · âge ts 0.4 min · écart mtime/ts 1.9s · 22 paire(s) · btc=INVALIDE · ts=croissant · passe 9.4s · marge 35.6s sous le budget 45s du moteur"
+          "ok": true,
+          "detail": "mode fichier · JSON · âge ts 0.8 min · écart mtime/ts 2.1s · 22 paire(s) · btc=OK · ts=croissant · passe 33.3s · marge 11.7s sous le budget 45s du moteur · ⚠ PIRE CAS age 53.3s > 45s (la prochaine passe part au plus tard après la cadence 20s) — entrées coupées si ça arrive"
         },
         {
           "nom": "corrélation BTC",
@@ -104,8 +97,8 @@
         },
         {
           "nom": "cortana_pilot.json",
-          "ok": true,
-          "detail": "âge 1345 min"
+          "ok": false,
+          "detail": "âge 1531 min"
         },
         {
           "nom": "cortana_analysis.json",
@@ -123,12 +116,12 @@
         {
           "nom": "live.json",
           "ok": true,
-          "detail": "âge 2 min"
+          "detail": "âge 1 min"
         },
         {
           "nom": "mission.json → cockpit",
           "ok": true,
-          "detail": "âge 0 min"
+          "detail": "âge 1 min"
         },
         {
           "nom": "hub.json (one-shot)",
@@ -151,7 +144,7 @@
         {
           "nom": "cpfp_detect.json",
           "ok": true,
-          "detail": "âge 4 min"
+          "detail": "âge 9 min"
         },
         {
           "nom": "mode",
@@ -187,7 +180,7 @@
       "id": "geopol",
       "nom": "GEOPOL",
       "chemin": "indice_app (5 modules) → live.json.geopol → juge + cockpit",
-      "ok": false,
+      "ok": true,
       "maillons": [
         {
           "nom": "geopol.ts frais",
@@ -196,8 +189,8 @@
         },
         {
           "nom": "modules OK",
-          "ok": false,
-          "detail": "4/5 modules"
+          "ok": true,
+          "detail": "5/5 modules"
         }
       ]
     },
@@ -246,7 +239,7 @@
       "id": "vigie",
       "nom": "VIGIE MARCHÉ",
       "chemin": "vigie_live.py → journal_radar.log → alertes (relance superviseur-process + superviseur-core + vigie-live)",
-      "ok": false,
+      "ok": true,
       "maillons": [
         {
           "nom": "process vigie_live",
@@ -255,8 +248,8 @@
         },
         {
           "nom": "journal_radar.log",
-          "ok": false,
-          "detail": "âge 257 min"
+          "ok": true,
+          "detail": "âge 0 min"
         },
         {
           "nom": "relance (superviseur-process)",
@@ -279,7 +272,7 @@
       "id": "veille_deg",
       "nom": "VEILLE DÉGRADATION",
       "chemin": "veille_degradation.py (plists + heartbeats + indicateurs) → etat.json + DMS externe (dms-veille) → cockpit",
-      "ok": false,
+      "ok": true,
       "maillons": [
         {
           "nom": "process veille_degradation (launchd)",
@@ -288,8 +281,8 @@
         },
         {
           "nom": "rapport veille_degradation_etat.json",
-          "ok": false,
-          "detail": "ALERTE_DEGRADATION_SILENCIEUSE · âge 1 min"
+          "ok": true,
+          "detail": "SAIN · âge 0 min"
         },
         {
           "nom": "Dead Man's Switch (dms-veille)",
@@ -298,8 +291,8 @@
         },
         {
           "nom": "rapport DMS_VEILLE.json",
-          "ok": false,
-          "detail": "ALERTE"
+          "ok": true,
+          "detail": "OK"
         }
       ]
     },
@@ -317,7 +310,7 @@
         {
           "nom": "macro_tempete.json",
           "ok": true,
-          "detail": "âge 1 min"
+          "detail": "âge 0 min"
         },
         {
           "nom": "état courant",
@@ -340,7 +333,7 @@
         {
           "nom": "croisement_externe_etat.json",
           "ok": true,
-          "detail": "âge 20 min"
+          "detail": "âge 24 min"
         },
         {
           "nom": "fails prix (> 5 % vs externe)",
@@ -350,7 +343,7 @@
         {
           "nom": "warns murs (info)",
           "ok": true,
-          "detail": "aucun"
+          "detail": "1 warn(s) carnet déséquilibré (info)"
         }
       ]
     },
@@ -358,17 +351,17 @@
       "id": "sapi",
       "nom": "SAPI POUSSIÈRE",
       "chemin": "silent_drain_index.compute_sdi (SAPI) → sdi_latest.json → thermo_quotidien → live.json.sapi → Cortana + cockpit",
-      "ok": false,
+      "ok": true,
       "maillons": [
         {
           "nom": "sdi_latest.json (SAPI dedans)",
-          "ok": false,
-          "detail": "âge 259 min"
+          "ok": true,
+          "detail": "âge 2 min"
         },
         {
           "nom": "SAPI calculé",
           "ok": true,
-          "detail": "score 0.391"
+          "detail": "score 0.376"
         },
         {
           "nom": "alerte poussière (≥ 0.75 + volume)",
@@ -386,7 +379,7 @@
         {
           "nom": "essaim_etat.json",
           "ok": true,
-          "detail": "âge 9 min"
+          "detail": "âge 14 min"
         },
         {
           "nom": "veille d'essaim active",

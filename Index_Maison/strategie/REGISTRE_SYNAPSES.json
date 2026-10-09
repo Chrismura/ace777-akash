@@ -1,6 +1,6 @@
 {
   "version": "1.5.0",
-  "updated": "2026-10-08T10:53:31Z",
+  "updated": "2026-10-09T10:28:27Z",
   "fichier": [
     {
       "nom": "Index_Maison/scripts/v2_duo_replay_4h.py",
@@ -30,11 +30,11 @@
       "origine": "chantier hulk",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "17efdb50176fb9a8adb5acde15713dc3",
+      "md5": "0714d19e77b054bb65ee5a91435d4f7f",
       "_rescel_20260918": "gate Plancher PLANCHER_GATE_ON + plancher_veto()/plancher_veto_decision() + mise plafonnée sur le MUR LIVE (aspiration_live.json, repli profil).",
       "note": "FIX 27/08 : circuits breaker + fraîcheur Cortana + FILTRE LOTS MEXC (lot_filter depuis exchangeInfo, baseSizePrecision/quoteAmountPrecision, arrondi stepSize au buy ET au sell, dust close, fail-open)  | RE-SCELLÉ 2026-09-03T17:22Z (GO Christophe 03/09) · 10/09: patch fusibles par paire (gate tête de buy() + détarage sizing, GO Christophe) — md5 mis à jour",
       "maj": "BATCH PRIX Phase 1 (31/08-01/09, famille 7/7 + codeur) : 1 appel GET global + cache au lieu de 21 GET/cycle (~200-270 req/min → sous la limite MEXC). Mode SELLFULL + mode_entree() du 29-31/08. Aucune logique métier touchée.",
-      "date": "2026-10-08T09:14:57Z",
+      "date": "2026-10-09T09:47:39Z",
       "_rescel_20260921": "SET-UP IMPULSE 21/09 (GO Christophe « avancer sur le set-up ») : 3 portes corrigées POUR LES SEULES PAIRES mode_entree=IMPULSE (aujourd'hui EDEL), mesurées avant câblage (chiffrage_entree_sortie_replay.py, 90 j × 20 paires) — (1) entrée sur la RAFALE sans attendre le repli (66 % des rafales étaient structurellement inaccessibles), (2) IMPULSE_WAIT n'est plus une sortie anticipée pour ces paires (c'est l'instant du pump), (3) fenêtre de creux levée (une rafale n'a pas d'heure ; les deux portes ensemble = 0 entrée sur 90 j). Sortie INCHANGÉE. Flags IMPULSE_SANS_REPLI_ON / IMPULSE_HORS_FENETRE_ON, réversibles en 1 ligne. Preuve live : EDEL BUY 13:23:28Z régime IMPULSE_WAIT m6=8.0.",
       "_rescel_20260922": "GARDE POINTEUR 22/09 (défense en profondeur) : save_state() ne fait PLUS pointer .hulk_resume_pointer vers un état que le moteur refuserait lui-même de reprendre — VIDE (0 position, 0 bag, écrit au boot avant le --resume) ou VIERGE (artefact de re-seed : 0 trade, 0 cash de paire, pnl≈0, pas de bags). Le disjoncteur mesure la perte journalière depuis ce pointeur : un tel état lu comme « pnl 0 » a déjà produit un faux Mur de Fer de 13,93 % (21/09). Le pointeur reste sur le dernier état RÉEL. Aucune autre ligne touchée ; confirmation définitive au prochain redémarrage du moteur (pas de relance forcée).",
       "_rescel_20260922b": "REFROIDISSEMENT BORNÉ 22/09 (GO Christophe « bloquer un actif est un contre-sens »). REENTRY_MAX n'interdit plus une paire À VIE : nettoyé le compteur en mémoire (non persisté → deux comportements selon le redémarrage) ; le buy() lit désormais un refroidissement GRADUÉ et EXPIRANT adossé au cache de stops persisté (n stops × 6 h, plafond 24 h, expiré après 48 h sans stop) + DÉ-RISQUE ×0,5 après un stop (« rebuilding with smaller size »). Calibré après mesure : à l'horizon 6 h (durée de détention réelle) la garde PROTÈGE (−14,5 $) ; à 24 h elle coûte (+56,3 $) → on garde la protection des premières heures, on supprime le blocage long. ANTI-SILENCE : un refus de régime (WATCH/QUIET) n'est plus muet (1 ligne/h/paire au max) — CCUSDT était invisible 27 h.",
@@ -48,6 +48,10 @@
         {
           "ts": "2026-10-08T09:14:57Z",
           "motif": "BAG PILOTE PAR LE TREND (08/10/2026) — re-scellement APRES la derniere modification (E12). ACTE ANTERIEUR A SA PRE-DECLARATION, NON BLANCHI : modification ~08:13Z, pre-declaration enregistree a 09:1xZ -> R20.1 n'est PAS satisfaite pour cet acte ; le fait reste consigne dans les rapports de 09:0xZ (drill section 5 'md5 different' + predemodifier) et ici meme. CONTENU : (a) score_pair calcule trend_label (SMA72 walk-forward) + sma72 ; (b) __init__ lit les BAG_* ; (c) buy() parque une SOUCHE core (kind='core', jamais vendue) ; (d) manage_bag ignore core ; (e) manage_open route trend_mode -> _manage_trend_open (stop d'amplitude, paliers amp7, trailing amp7, add haussier / rebuy baissier). MESURE (chiffrage_bag_trend.py, 199 entrees reelles) : bag conserve x0,551 vs x0,262 ; au seuil amp7>=7% : +43,28 $ (+2,01%), meme signe sur 2 moities et 3 regimes ; sur paires calmes (amp<6%) le trend-bag PERD. Accumulation de souche REJETEE par la mesure (-7,56 $) -> NON cablee. TESTS : test_bag_trend 6/6, test_seellfull_guard 4/4, test_seellfull_resume 13/13, py_compile OK. Aucune porte, aucun seuil de decision, aucun ordre reel ; reversible BAG_TREND_ON=0."
+        },
+        {
+          "ts": "2026-10-09T09:47:39Z",
+          "motif": "GO 3 : giveback = max(gb_carnet, FRAC x amp7) dans manage_open, reversible, GO « go 1,2,3 »."
         }
       ]
     },
@@ -248,11 +252,11 @@
       "origine": "chantier hulk",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "61063ff485fb0d0b7c17503f2b12149d",
+      "md5": "a1791ece4441965576a3af2b73f7bd88",
       "_rescel_20260918": "NOTIONAL_USDT 20→30 + PLANCHER_GATE_ON=1.",
       "note": "Re-scellé 2026-09-16T13:10Z (GO C., après audit R3 complet : 73/74 OK, seule dérive = ce fichier). La dérive = 2 GO votés du 15/09 jamais re-déclarés (R3) : ① 06:36Z REENTRY_MAX 1→3 + STOP_COOLDOWN_HOURS 4→1 + VOL_SPIKE_MIN_SMALL 1,5→1,2 + VEILLE_SKIP_RED_ON 1→0 (chantier anti-timing/anti-figage) ; ② 08:45Z SLIP_GATE_ON 0→1 (armement du gate anti-glissement après ses 48 h d'observation prévues le 09/09). Sentinelle indépendante : PnL cohérent (divergence 0,0005 $). Prochain changement de config = re-scellement immédiat.",
       "maj": "30/08 v3 (GO Christophe 14:15Z) : FINI l'observation — PAPER_OBSERVE_PAIRS vidée. QNT/FLUID/RWA/MNSRY seedées (10$ chacune, structure seed_inventory) + lignes SEED_START au CSV + SELL d'annulation du BUY parasite FLUID (09:54Z) pour rejeu exact. 16 positions, plus aucune paire observe. Tableau cockpit = 20 paires tradées. || RE-SCELLÉ 03/09 : Config modifiée session 31/08 12h18 — re-scellée post-audit 03/09 (GO Christophe).",
-      "date": "2026-10-08T09:14:57Z",
+      "date": "2026-10-09T09:47:39Z",
       "_rescel_20260921": "21/09 : + IMPULSE_SANS_REPLI_ON et IMPULSE_HORS_FENETRE_ON (set-up IMPULSE, documentés avec leur mesure). (Rappel 21/09 matin : doublon STOP_COOLDOWN_HOURS retiré.)",
       "_rescel_20260922b": "22/09 : REENTRY_MAX change de sens (nombre de stops avant refroidissement maximal, plus un blocage à vie) ; ajout REENTRY_COOLOFF_STEP_H=6 / REENTRY_COOLOFF_MAX_H=24 / REENTRY_RESET_H=48 / REENTRY_DERISK_MULT=0,5 / SILENCE_LOG_TTL_SEC=3600. Le doublon STOP_COOLDOWN_HOURS reste retiré.",
       "_rescel_20260922c": "22/09 : REENTRY_MAX et les 4 clés de refroidissement en heures RETIRÉES (R17 : aucun timing fixe). SILENCE_LOG_TTL_SEC=3600 conservée. STOP_COOLDOWN_HOURS=1 conservée telle quelle et DÉCLARÉE (antérieure, à re-mesurer par la règle #8, pas touchée).",
@@ -261,6 +265,10 @@
         {
           "ts": "2026-10-08T09:14:57Z",
           "motif": "BLOC BAG_TREND_* (08/10/2026) — re-scellement APRES la derniere modification (E12). ACTE ANTERIEUR A SA PRE-DECLARATION, NON BLANCHI : mtime 08:13:25Z, declaration 09:1xZ (deja rouge dans le rapport predemodifier de 09:0xZ). AJOUT SEUL : BAG_TREND_ON=1, AMP_MIN=7.0, STOP_AMP=1.5, BAG_UP_P1_AMP=0.6/P2=1.2/SELL_FRAC=0.15/GIVEBACK=0.6/CORE_FRAC=0.30/ADD_AMP=0.5, BAG_DOWN_P1=0.4/P2=0.8/SELL_FRAC=0.25/GIVEBACK=0.4/CORE_FRAC=0.15/REBUY_AMP=1.0, BAG_NEU_*. AUCUNE cle retiree, AUCUNE autre cle modifiee. HONNETETE R17 : seul BAG_TREND_AMP_MIN=7.0 est MESURE (199 entrees) ; les autres bornes sont des bornes de gestion NON mesurees -> la dette 'seuils sans mesure' augmente, je le declare. Reversible BAG_TREND_ON=0."
+        },
+        {
+          "ts": "2026-10-09T09:47:39Z",
+          "motif": "GO 3 : flags GIVEBACK_AMP_COUPLE_ON/FRAC (reversible), GO « go 1,2,3 »."
         }
       ]
     },
@@ -459,9 +467,16 @@
       "origine": "analyse 53 465 mesures ASPIRATION_CALIB 16-24/08",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "0441f23ab6b0b0591442baaef4ab4fd7",
+      "md5": "862a970e8c06d1b4009a36bfd1ec4e86",
       "note": "déclaré manuel 2026-08-28T18:30Z | DÉCLARÉ 2026-09-11 (autopsie V7, GO Christophe « recabler + autopsie v7 ») : modif V4 Option A du 10/09 16h50 (trailing σ filet secondaire sur 8 paires — trail_arm_pct/trail_giveback_pct, source volatilite_paires.json, note in-file « GO Christophe ») committée par auto-sync 15h14Z mais md5 oublié au re-scellement → fausse INTRUSION veilleuse en boucle depuis le 11/09 11h34Z (alerte vocale éteinte manuellement 14h00 par Christophe).",
-      "maj": "27/08 17:30Z : création || RE-SCELLÉ 03/09 : Profils universe modifiés 30/08 18h15 — re-scellés post-audit 03/09 (GO Christophe). || 11/09 : md5 mis à jour 304c781d…→0441f23a… (déclaration légitime V4 Option A, autopsie V7)"
+      "maj": "27/08 17:30Z : création || RE-SCELLÉ 03/09 : Profils universe modifiés 30/08 18h15 — re-scellés post-audit 03/09 (GO Christophe). || 11/09 : md5 mis à jour 304c781d…→0441f23a… (déclaration légitime V4 Option A, autopsie V7)",
+      "date": "2026-10-09T09:56:29Z",
+      "_rescel": [
+        {
+          "ts": "2026-10-09T09:56:29Z",
+          "motif": "GO 2 : trail_giveback_pct recalibre sur amp7 (max(carnet, 0,5xamp7)), 13 paires. Pre-declare AVANT (predemodifier). Reversible git."
+        }
+      ]
     },
     {
       "nom": "Index_Maison/scripts/alerte_vocale.py",
@@ -1478,8 +1493,8 @@
       "origine": "Un contrôle qui n'est appelé par personne n'existe pas (R15) — le pont entre le gardien et la veilleuse de la maison",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "428e271c2410ca216f7b54c21f5d9be0",
-      "date": "2026-10-08T10:52:27Z",
+      "md5": "1b32ca0b8ded40ff870ed67e751cba22",
+      "date": "2026-10-09T09:11:00Z",
       "_ajout_20260923": "Instrument créé le 23/09/2026 (GO Christophe) — ajouté au registre le jour même de sa création pour qu'il soit VU (veilleuse, drill, revue).",
       "_rescel_20260923": "3e vague 23/09 — branche DEUX gardiens neufs toutes les 3 h : `verif_delai_lecture.py` (classe E19 : barre de latence mesurable, mesuré/aveugle séparés, plancher physique) et `verif_session_famille.py` (R19 : la fenêtre du jury permanent ne peut plus se refermer en silence). Ordre de Christophe : « garder la fenêtre ouverte, tu ne diriges plus seule ».",
       "_rescel_20260928": "BRANCHE LE GARDIEN DES TROUS DE COLLECTE (ALPAGE, 28/09) : `hulk-mexc/scripts/gardien_collecte.py` est appelé toutes les 3 h, juste après le gardien de schéma (E15). Le gardien de schéma ne voit que la largeur de l'en-tête ; celui-ci mesure la dérive de largeur, les DOUBLONS stricts, la ligne TRONQUÉE (fichier sans saut de ligne final) et les TROUS (silence > seuil dérivé du journal) — et il les DÉCLARE au lieu de les réparer (on n'invente aucune donnée). La réparation n'a lieu qu'au seul instant sûr (moteur mort) et c'est le WATCHDOG qui l'appelle. Étape 3 de la méthodologie : un gardien que personne n'appelle n'existe pas (R15).",
@@ -1497,6 +1512,10 @@
         {
           "ts": "2026-10-08T10:52:27Z",
           "motif": "GO2+GO3 : cadence 3h appelle oracle_independant.py (E11), verif_fidelite_pnl.py (E2), verif_sources_instruments.py (E3), verif_arret_instruit.py (E26)"
+        },
+        {
+          "ts": "2026-10-09T09:11:00Z",
+          "motif": "CABLAGE E9 (09/10/2026, GO Christophe « go 1,2,3 ») : branchement de verif_empilement_jour.py (lecture seule, best-effort)."
         }
       ]
     },
@@ -1635,8 +1654,8 @@
       "origine": "Exigence famille tour 5, 3 voix convergentes (23/09/2026)",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "690781bbe442c13f44c6dc0212870205",
-      "date": "2026-10-08T10:52:27Z",
+      "md5": "909aa0189d39be1803f6836f50f05827",
+      "date": "2026-10-09T10:27:40Z",
       "_ajout": [
         {
           "ts": "2026-09-23T15:22:33Z",
@@ -1659,6 +1678,14 @@
         {
           "ts": "2026-10-08T10:52:27Z",
           "motif": "GO1 : radiation en dette constatee de ma violation R20.1 du 08/10 (sante_index.py)"
+        },
+        {
+          "ts": "2026-10-09T09:16:59Z",
+          "motif": "DETTE_CONSTATEE : radiation de l'acte d'ajout E9 (defaut d'ORDRE), decision Christophe, GO « go 1,2,3 »."
+        },
+        {
+          "ts": "2026-10-09T10:27:40Z",
+          "motif": "09/10/2026 : DETTE_CONSTATEE +5 (mes 5 inscriptions d'ecrivains hors ordre). Pre-declare AVANT."
         }
       ]
     },
@@ -1768,8 +1795,8 @@
       "origine": "Créé 2026-09-22 sur ordre de Christophe; ajout au registre de synapses après consignation E26, pré-déclaré 2026-09-30T21:37:08Z.",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "27955195e0597a27c43a878558cb7a77",
-      "date": "2026-10-08T10:53:31Z",
+      "md5": "56669625faadc9c07fadde7203f49711",
+      "date": "2026-10-09T10:28:27Z",
       "_ajout": [
         {
           "ts": "2026-09-30T21:40:50Z",
@@ -1788,6 +1815,26 @@
         {
           "ts": "2026-10-08T10:53:31Z",
           "motif": "§15.3 : GO1 dette radiee, GO2 E11 cablee, GO3 E2/E3/E26 mecanises, E9 promesse declaree"
+        },
+        {
+          "ts": "2026-10-09T09:11:36Z",
+          "motif": "Tracabilite E9 mecanisee + GO 2,3 (section 15.4), 09/10/2026, GO Christophe « go 1,2,3 »."
+        },
+        {
+          "ts": "2026-10-09T09:18:06Z",
+          "motif": "Section 15.4 : defaut d'ORDRE + radiation en dette constatee (E9), GO « go 1,2,3 »."
+        },
+        {
+          "ts": "2026-10-09T10:04:27Z",
+          "motif": "GO 1,2,3 (09/10/2026) : §15.5 trace giveback amp7 + chiffrage churn + redemarrage Hulk. Pre-declare AVANT."
+        },
+        {
+          "ts": "2026-10-09T10:12:02Z",
+          "motif": "09/10/2026 : §15.5 suite — inscription de MEMOIRE_COLLAB.md au registre (mode vivant)."
+        },
+        {
+          "ts": "2026-10-09T10:28:27Z",
+          "motif": "09/10/2026 : §15.6 — durcissement md5 du canon, GO2 (13 vivants), radiation des 5 inscriptions hors ordre."
         }
       ]
     },
@@ -1908,8 +1955,8 @@
       "origine": "demande Christophe 08/10/2026",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "5af7fbf292953f53cac6114be911b782",
-      "date": "2026-10-08T10:52:27Z",
+      "md5": "3379c27995430857daa9131b978a5dfe",
+      "date": "2026-10-09T09:11:00Z",
       "_ajout": [
         {
           "ts": "2026-10-08T10:15:48Z",
@@ -1924,6 +1971,10 @@
         {
           "ts": "2026-10-08T10:52:27Z",
           "motif": "E11/E2/E3/E26 passent en mecanique ; E9 reste promesse (mesure)"
+        },
+        {
+          "ts": "2026-10-09T09:11:00Z",
+          "motif": "E9 : promesse -> mecanique (organe verif_empilement_jour.py), 09/10/2026, GO Christophe « go 1,2,3 »."
         }
       ]
     },
@@ -1986,6 +2037,395 @@
           "motif": "inscription au registre (R15 : ce qui n'est pas déclaré n'existe pas)"
         }
       ]
+    },
+    {
+      "nom": "Index_Maison/scripts/verif_empilement_jour.py",
+      "role": "Garde mecanique E9 — renoncement le meme jour sans ordre ecrit",
+      "origine": "GO Christophe go 1,2,3, 09/10/2026",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "136d76cb35cb57211a85e34a970cbf76",
+      "date": "2026-10-09T09:11:00Z",
+      "_ajout": [
+        {
+          "ts": "2026-10-09T09:11:00Z",
+          "motif": "inscription au registre (R15 : ce qui n'est pas déclaré n'existe pas)"
+        }
+      ]
+    },
+    {
+      "nom": "hulk-mexc/scripts/chiffrage_giveback_relatif.py",
+      "role": "Chiffrage giveback fixe vs relatif a l'amplitude",
+      "origine": "GO Christophe go 1,2,3, 09/10/2026",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "ae7769d103126d75ddf323e973780bd9",
+      "date": "2026-10-09T09:47:39Z",
+      "_ajout": [
+        {
+          "ts": "2026-10-09T09:37:47Z",
+          "motif": "inscription au registre (R15 : ce qui n'est pas déclaré n'existe pas)"
+        }
+      ],
+      "_rescel": [
+        {
+          "ts": "2026-10-09T09:47:39Z",
+          "motif": "GO 1 : + rejeu giveback toutes paires (GO « go 1,2,3 »)."
+        }
+      ]
+    },
+    {
+      "nom": "hulk-mexc/scripts/test_giveback_couple.py",
+      "role": "Test isole giveback couple amplitude",
+      "origine": "GO Christophe go 1,2,3, 09/10/2026",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "c45a7baa0053fb946c33798cd8e1148e",
+      "date": "2026-10-09T09:47:39Z",
+      "_ajout": [
+        {
+          "ts": "2026-10-09T09:47:39Z",
+          "motif": "inscription au registre (R15 : ce qui n'est pas déclaré n'existe pas)"
+        }
+      ]
+    },
+    {
+      "nom": "hulk-mexc/scripts/chiffrage_churn_total.py",
+      "role": "chiffrage (lecture seule)",
+      "origine": "GO 3 09/10/2026",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "fe853dc097c8132da002da8e728e8293",
+      "date": "2026-10-09T09:57:51Z",
+      "_ajout": [
+        {
+          "ts": "2026-10-09T09:57:51Z",
+          "motif": "inscription au registre (R15 : ce qui n'est pas déclaré n'existe pas)"
+        }
+      ]
+    },
+    {
+      "nom": "Index_Maison/MEMOIRE_COLLAB.md",
+      "role": "MEMOIRE COLLABORATIVE — fil des actes (1 ligne par ajout/modif/decision) ; fichier VIVANT : append par les traces Buffy + auto_reparer.py + journal_soir. Verif = existence, pas md5.",
+      "origine": "GO Christophe 09/10/2026 — followup « sceller MEMOIRE_COLLAB.md au registre »",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "d1ccbccd2db052b359d5009cddd42910",
+      "date": "2026-10-09T10:28:27Z",
+      "_ajout": [
+        {
+          "ts": "2026-10-09T10:11:17Z",
+          "motif": "inscription au registre (R15 : ce qui n'est pas déclaré n'existe pas)"
+        }
+      ],
+      "note": "DURCI EN md5 le 09/10/2026 (GO Christophe « go 1,2 »). Il est écrit automatiquement (memoire_log.py, auto_reparer.py) : chaque écriture passe désormais par le RITUEL scelle_rituel.py (pré-déclarer → écrire → re-scellér). Mesure qui l'impose : la veilleuse honore les pré-déclarations, le drill NON (etape_scelles ne les lit pas) → sans re-scellement le drill resterait en TROU. Gravé APRÈS le mode vivant (4 h de recul).",
+      "previous_verif": "vivant (09/10/2026 matin, 4 h)",
+      "maj": "09/10/2026 : verif vivant → md5 (rituel programmable en place, autotest 5/5).",
+      "_rescel": [
+        {
+          "ts": "2026-10-09T10:19:57Z",
+          "motif": "trace « Buffy » — écriture automatique du canon MEMOIRE_COLLAB.md"
+        },
+        {
+          "ts": "2026-10-09T10:20:09Z",
+          "motif": "auto_reparer — trace : EPREUVE rituel via auto_reparer._trace_agora"
+        },
+        {
+          "ts": "2026-10-09T10:22:49Z",
+          "motif": "nettoyage des lignes d'EPREUVE (dogfood du rituel)"
+        },
+        {
+          "ts": "2026-10-09T10:27:55Z",
+          "motif": "trace « Buffy » — écriture automatique du canon MEMOIRE_COLLAB.md"
+        },
+        {
+          "ts": "2026-10-09T10:28:27Z",
+          "motif": "trace GO 1,2 — durcissement md5 du canon + 13 vivants + radiation"
+        }
+      ]
+    },
+    {
+      "nom": "Index_Maison/scripts/scelle_rituel.py",
+      "role": "écrivain/rituel du canon MEMOIRE_COLLAB.md (scellé md5)",
+      "origine": "GO Christophe 09/10/2026 « go 1,2 »",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "29bec11bc3a757d45455f96f16a4980d",
+      "date": "2026-10-09T10:22:49Z",
+      "_ajout": [
+        {
+          "ts": "2026-10-09T10:22:49Z",
+          "motif": "inscription au registre (R15 : ce qui n'est pas déclaré n'existe pas)"
+        }
+      ]
+    },
+    {
+      "nom": "Index_Maison/scripts/memoire_log.py",
+      "role": "écrivain/rituel du canon MEMOIRE_COLLAB.md (scellé md5)",
+      "origine": "GO Christophe 09/10/2026 « go 1,2 »",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "489ef9b133140fc119493a62df4363b5",
+      "date": "2026-10-09T10:22:49Z",
+      "_ajout": [
+        {
+          "ts": "2026-10-09T10:22:49Z",
+          "motif": "inscription au registre (R15 : ce qui n'est pas déclaré n'existe pas)"
+        }
+      ]
+    },
+    {
+      "nom": "Index_Maison/scripts/auto_reparer.py",
+      "role": "écrivain/rituel du canon MEMOIRE_COLLAB.md (scellé md5)",
+      "origine": "GO Christophe 09/10/2026 « go 1,2 »",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "5450df114abfbd45b933256c06765139",
+      "date": "2026-10-09T10:22:49Z",
+      "_ajout": [
+        {
+          "ts": "2026-10-09T10:22:49Z",
+          "motif": "inscription au registre (R15 : ce qui n'est pas déclaré n'existe pas)"
+        }
+      ]
+    },
+    {
+      "nom": "Index_Maison/scripts/journal_auto.py",
+      "role": "écrivain/rituel du canon MEMOIRE_COLLAB.md (scellé md5)",
+      "origine": "GO Christophe 09/10/2026 « go 1,2 »",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "53d48f2cb51f98a519079ef951b4334a",
+      "date": "2026-10-09T10:22:49Z",
+      "_ajout": [
+        {
+          "ts": "2026-10-09T10:22:49Z",
+          "motif": "inscription au registre (R15 : ce qui n'est pas déclaré n'existe pas)"
+        }
+      ]
+    },
+    {
+      "nom": "Index_Maison/scripts/sync_console_journal.py",
+      "role": "écrivain/rituel du canon MEMOIRE_COLLAB.md (scellé md5)",
+      "origine": "GO Christophe 09/10/2026 « go 1,2 »",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "ee19d93a8b5a5563ed1db83579b6e7e9",
+      "date": "2026-10-09T10:22:49Z",
+      "_ajout": [
+        {
+          "ts": "2026-10-09T10:22:49Z",
+          "motif": "inscription au registre (R15 : ce qui n'est pas déclaré n'existe pas)"
+        }
+      ]
+    },
+    {
+      "nom": "Index_Maison/THERMO_DERNIER.md",
+      "role": "rapport vivant (reecrit sur cadence) — verif existence",
+      "origine": "GO 2 09/10/2026",
+      "verif": "vivant",
+      "auto_modifiable": false,
+      "md5": "",
+      "date": "2026-10-09T10:23:44Z",
+      "_ajout": [
+        {
+          "ts": "2026-10-09T10:23:44Z",
+          "motif": "inscription au registre (R15 : ce qui n'est pas déclaré n'existe pas)"
+        }
+      ],
+      "note": "verif=vivant : rapport RÉÉCRIT sur cadence (md5 crierait à chaque refresh). L'EXISTENCE est vérifiée (PANNE si absent). Décision Christophe 09/10/2026 (GO 2)."
+    },
+    {
+      "nom": "Index_Maison/SOUS_L_OEIL.md",
+      "role": "rapport vivant (reecrit sur cadence) — verif existence",
+      "origine": "GO 2 09/10/2026",
+      "verif": "vivant",
+      "auto_modifiable": false,
+      "md5": "",
+      "date": "2026-10-09T10:23:44Z",
+      "_ajout": [
+        {
+          "ts": "2026-10-09T10:23:44Z",
+          "motif": "inscription au registre (R15 : ce qui n'est pas déclaré n'existe pas)"
+        }
+      ],
+      "note": "verif=vivant : rapport RÉÉCRIT sur cadence (md5 crierait à chaque refresh). L'EXISTENCE est vérifiée (PANNE si absent). Décision Christophe 09/10/2026 (GO 2)."
+    },
+    {
+      "nom": "Index_Maison/CRITIQUE_ERREURS_DERNIER.md",
+      "role": "rapport vivant (reecrit sur cadence) — verif existence",
+      "origine": "GO 2 09/10/2026",
+      "verif": "vivant",
+      "auto_modifiable": false,
+      "md5": "",
+      "date": "2026-10-09T10:23:44Z",
+      "_ajout": [
+        {
+          "ts": "2026-10-09T10:23:44Z",
+          "motif": "inscription au registre (R15 : ce qui n'est pas déclaré n'existe pas)"
+        }
+      ],
+      "note": "verif=vivant : rapport RÉÉCRIT sur cadence (md5 crierait à chaque refresh). L'EXISTENCE est vérifiée (PANNE si absent). Décision Christophe 09/10/2026 (GO 2)."
+    },
+    {
+      "nom": "Index_Maison/SEUILS_FIXES_DERNIER.md",
+      "role": "rapport vivant (reecrit sur cadence) — verif existence",
+      "origine": "GO 2 09/10/2026",
+      "verif": "vivant",
+      "auto_modifiable": false,
+      "md5": "",
+      "date": "2026-10-09T10:23:44Z",
+      "_ajout": [
+        {
+          "ts": "2026-10-09T10:23:44Z",
+          "motif": "inscription au registre (R15 : ce qui n'est pas déclaré n'existe pas)"
+        }
+      ],
+      "note": "verif=vivant : rapport RÉÉCRIT sur cadence (md5 crierait à chaque refresh). L'EXISTENCE est vérifiée (PANNE si absent). Décision Christophe 09/10/2026 (GO 2)."
+    },
+    {
+      "nom": "Index_Maison/SEUILS_FIXES_DERNIER.json",
+      "role": "rapport vivant (reecrit sur cadence) — verif existence",
+      "origine": "GO 2 09/10/2026",
+      "verif": "vivant",
+      "auto_modifiable": false,
+      "md5": "",
+      "date": "2026-10-09T10:23:44Z",
+      "_ajout": [
+        {
+          "ts": "2026-10-09T10:23:44Z",
+          "motif": "inscription au registre (R15 : ce qui n'est pas déclaré n'existe pas)"
+        }
+      ],
+      "note": "verif=vivant : rapport RÉÉCRIT sur cadence (md5 crierait à chaque refresh). L'EXISTENCE est vérifiée (PANNE si absent). Décision Christophe 09/10/2026 (GO 2)."
+    },
+    {
+      "nom": "Index_Maison/CONSOLE_GENERALE.md",
+      "role": "rapport vivant (reecrit sur cadence) — verif existence",
+      "origine": "GO 2 09/10/2026",
+      "verif": "vivant",
+      "auto_modifiable": false,
+      "md5": "",
+      "date": "2026-10-09T10:23:44Z",
+      "_ajout": [
+        {
+          "ts": "2026-10-09T10:23:44Z",
+          "motif": "inscription au registre (R15 : ce qui n'est pas déclaré n'existe pas)"
+        }
+      ],
+      "note": "verif=vivant : rapport RÉÉCRIT sur cadence (md5 crierait à chaque refresh). L'EXISTENCE est vérifiée (PANNE si absent). Décision Christophe 09/10/2026 (GO 2)."
+    },
+    {
+      "nom": "Index_Maison/AUTO_PROCESSUS.md",
+      "role": "rapport vivant (reecrit sur cadence) — verif existence",
+      "origine": "GO 2 09/10/2026",
+      "verif": "vivant",
+      "auto_modifiable": false,
+      "md5": "",
+      "date": "2026-10-09T10:23:44Z",
+      "_ajout": [
+        {
+          "ts": "2026-10-09T10:23:44Z",
+          "motif": "inscription au registre (R15 : ce qui n'est pas déclaré n'existe pas)"
+        }
+      ],
+      "note": "verif=vivant : rapport RÉÉCRIT sur cadence (md5 crierait à chaque refresh). L'EXISTENCE est vérifiée (PANNE si absent). Décision Christophe 09/10/2026 (GO 2)."
+    },
+    {
+      "nom": "Index_Maison/VEILLE_CONFRONTATION_ACE_HULK.md",
+      "role": "rapport vivant (reecrit sur cadence) — verif existence",
+      "origine": "GO 2 09/10/2026",
+      "verif": "vivant",
+      "auto_modifiable": false,
+      "md5": "",
+      "date": "2026-10-09T10:23:44Z",
+      "_ajout": [
+        {
+          "ts": "2026-10-09T10:23:44Z",
+          "motif": "inscription au registre (R15 : ce qui n'est pas déclaré n'existe pas)"
+        }
+      ],
+      "note": "verif=vivant : rapport RÉÉCRIT sur cadence (md5 crierait à chaque refresh). L'EXISTENCE est vérifiée (PANNE si absent). Décision Christophe 09/10/2026 (GO 2)."
+    },
+    {
+      "nom": "Index_Maison/VEILLE_SIZING_MONTE_CARLO.md",
+      "role": "rapport vivant (reecrit sur cadence) — verif existence",
+      "origine": "GO 2 09/10/2026",
+      "verif": "vivant",
+      "auto_modifiable": false,
+      "md5": "",
+      "date": "2026-10-09T10:23:44Z",
+      "_ajout": [
+        {
+          "ts": "2026-10-09T10:23:44Z",
+          "motif": "inscription au registre (R15 : ce qui n'est pas déclaré n'existe pas)"
+        }
+      ],
+      "note": "verif=vivant : rapport RÉÉCRIT sur cadence (md5 crierait à chaque refresh). L'EXISTENCE est vérifiée (PANNE si absent). Décision Christophe 09/10/2026 (GO 2)."
+    },
+    {
+      "nom": "Index_Maison/OUTBOX_OBSIDIAN/MEMOIRE_COLLAB.md",
+      "role": "rapport vivant (reecrit sur cadence) — verif existence",
+      "origine": "GO 2 09/10/2026",
+      "verif": "vivant",
+      "auto_modifiable": false,
+      "md5": "",
+      "date": "2026-10-09T10:23:44Z",
+      "_ajout": [
+        {
+          "ts": "2026-10-09T10:23:44Z",
+          "motif": "inscription au registre (R15 : ce qui n'est pas déclaré n'existe pas)"
+        }
+      ],
+      "note": "verif=vivant : rapport RÉÉCRIT sur cadence (md5 crierait à chaque refresh). L'EXISTENCE est vérifiée (PANNE si absent). Décision Christophe 09/10/2026 (GO 2)."
+    },
+    {
+      "nom": "Index_Maison/OUTBOX_OBSIDIAN/SOUS_L_OEIL.md",
+      "role": "rapport vivant (reecrit sur cadence) — verif existence",
+      "origine": "GO 2 09/10/2026",
+      "verif": "vivant",
+      "auto_modifiable": false,
+      "md5": "",
+      "date": "2026-10-09T10:23:44Z",
+      "_ajout": [
+        {
+          "ts": "2026-10-09T10:23:44Z",
+          "motif": "inscription au registre (R15 : ce qui n'est pas déclaré n'existe pas)"
+        }
+      ],
+      "note": "verif=vivant : rapport RÉÉCRIT sur cadence (md5 crierait à chaque refresh). L'EXISTENCE est vérifiée (PANNE si absent). Décision Christophe 09/10/2026 (GO 2)."
+    },
+    {
+      "nom": "Index_Maison/OUTBOX_OBSIDIAN/THERMO_DERNIER.md",
+      "role": "rapport vivant (reecrit sur cadence) — verif existence",
+      "origine": "GO 2 09/10/2026",
+      "verif": "vivant",
+      "auto_modifiable": false,
+      "md5": "",
+      "date": "2026-10-09T10:23:44Z",
+      "_ajout": [
+        {
+          "ts": "2026-10-09T10:23:44Z",
+          "motif": "inscription au registre (R15 : ce qui n'est pas déclaré n'existe pas)"
+        }
+      ],
+      "note": "verif=vivant : rapport RÉÉCRIT sur cadence (md5 crierait à chaque refresh). L'EXISTENCE est vérifiée (PANNE si absent). Décision Christophe 09/10/2026 (GO 2)."
+    },
+    {
+      "nom": "Index_Maison/OUTBOX_OBSIDIAN/SUPERVISEUR_LOG.md",
+      "role": "rapport vivant (reecrit sur cadence) — verif existence",
+      "origine": "GO 2 09/10/2026",
+      "verif": "vivant",
+      "auto_modifiable": false,
+      "md5": "",
+      "date": "2026-10-09T10:23:44Z",
+      "_ajout": [
+        {
+          "ts": "2026-10-09T10:23:44Z",
+          "motif": "inscription au registre (R15 : ce qui n'est pas déclaré n'existe pas)"
+        }
+      ],
+      "note": "verif=vivant : rapport RÉÉCRIT sur cadence (md5 crierait à chaque refresh). L'EXISTENCE est vérifiée (PANNE si absent). Décision Christophe 09/10/2026 (GO 2)."
     }
   ]
 }

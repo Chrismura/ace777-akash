@@ -747,6 +747,12 @@ class PaperBot:
         self.double_mult = float(cfg.get("STAKE_DOUBLE_MULT", "2.0"))
         self.stake_sell_frac = float(cfg.get("STAKE_SELL_FRAC", "0.50"))
         self.bag_crash_dd = float(cfg.get("BAG_CRASH_DD_PCT", "20"))
+        # === GIVEBACK COUPLE A L'AMPLITUDE (09/10/2026, GO « go 1,2,3 ») ===
+        # Le giveback du profil est calibré sur l'heure/le carnet ; la position court sur
+        # des JOURS. On le porte au maximum de (profil, frac × amp7) pour arrêter de récolter
+        # le bruit horaire. Réversible en 1 ligne : GIVEBACK_AMP_COUPLE_ON=0.
+        self.gb_couple_on = float(cfg.get("GIVEBACK_AMP_COUPLE_ON", "0") or 0)
+        self.gb_couple_frac = float(cfg.get("GIVEBACK_AMP_COUPLE_FRAC", "0.5") or 0.5)
         # === PALIER DE CONSERVATION du runner (05/10/2026, GO 2 Christophe) ===
         # Mesuré AVANT câblage sur les 2 runners réels (klines 1h) : règles bag actuelles
         # 16,95 $ vs palier conservation 23,98 $ (EDEL 8,14→12,89 · QNT 8,81→11,09 —
@@ -2891,6 +2897,13 @@ class PaperBot:
         _cal = (_profils().get(pair) or {}).get("calib") or {}
         t_arm = float(_cal.get("trail_arm_pct") or 0)
         t_gb = float(_cal.get("trail_giveback_pct") or 0)
+        # COUPLE A L'AMPLITUDE MESURÉE (09/10/2026) : si activé, le giveback ne descend PAS
+        # sous frac × amp7 — sinon une paire calme à l'heure mais en trend sur 7 j (WUSDT,
+        # EDEL) sort sur du bruit et abandonne le mouvement. RÉVERSIBLE : flag à 0 = historique.
+        if self.gb_couple_on:
+            _a7 = float(sc.get("amp7_pct") or 0.0)
+            if _a7 > 0.0:
+                t_gb = max(t_gb, self.gb_couple_frac * _a7)
         if t_arm > 0 and t_gb > 0:
             # backstop dur : le stop fixe reste (protection)
             if chg <= -float(p.get("stop") or 6):

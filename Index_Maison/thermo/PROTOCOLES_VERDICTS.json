@@ -1,5 +1,5 @@
 {
-  "ts": "2026-10-09T07:26:57+00:00",
+  "ts": "2026-10-09T10:27:20+00:00",
   "note": "Verdicts MESURÉS à la source (scripts/verdicts_protocoles.py). Chaque protocole porte son critère pré-enregistré : c'est lui qui décide, pas l'impression du moment. Un verdict « IMPOSSIBLE » ou une ligne « alerte » signale un protocole dont le verdict ne peut pas être rendu — c'est une panne de conception, pas une patience.",
   "protocoles": [
     {
@@ -38,7 +38,7 @@
     {
       "protocole": "Radar RWA (DefiLlama)",
       "critere": "RÉ-TRANCHE 29/09 — univers crédit privé (project ∈ crédit ET symbole = devise ; pools couvrant TOUTE la fenêtre, sans démarrage à 0 ; dédupliqué par projet/symbole) : R1 ≥ 3 couples bougent ≥ 50 bps/7 j · R2 (critère PRODUIT, assumé neuf) ≥ 5 couples à ≥ 3 % APY stable (≤ 50 bps)",
-      "faits": "33087 relevés · 398 pools suivis → univers crédit 60 pool(s) · R1 34 pool(s) → 5 couple(s) projet-symbole · R2 9 couple(s) · 10 apparition(s) écartée(s)",
+      "faits": "33442 relevés · 398 pools suivis → univers crédit 60 pool(s) · R1 34 pool(s) → 5 couple(s) projet-symbole · R2 9 couple(s) · 10 apparition(s) écartée(s)",
       "verdict": "SUCCES (R1 + R2) — le terrain RWA n'est PAS mort",
       "alerte": "critère d'ORIGINE (top 20 TVL) : ECHEC (critère non atteint) (0/20 bougent) — mauvaise liste, d'où la ré-ouverture ; R2 : 4 couple(s) à valeur CONSTANTE sur toute la fenêtre (test sur les valeurs réelles) — taux FIXE annoncé, à confirmer par une 2ᵉ source AVANT publication : midas-rwa USDC, travessia-credit AUSD, travessia-credit USDC, travessia-credit USDT",
       "retranche": {
@@ -55,14 +55,14 @@
             "apy_medianes": [
               5.12
             ],
-            "valeurs_distinctes": 28
+            "valeurs_distinctes": 29
           },
           "maple/USDG": {
             "n_instances": 1,
             "apy_medianes": [
               5.0
             ],
-            "valeurs_distinctes": 28
+            "valeurs_distinctes": 29
           },
           "midas-rwa/USDC": {
             "n_instances": 1,
@@ -272,7 +272,7 @@
     {
       "protocole": "Radar XRPL gouvernance",
       "critere": "J8 pré-enregistré : (a) ≥ 5 amendements dont le compteur bouge de ≥ 2 votes, OU (b) ≥ 1 activation, OU (c) ≥ 1 amendement mort ; sinon échec",
-      "faits": "503 snapshots · 113 amendements suivis · (a) 4 bougent de ≥ 2 (il en fallait 5) · (b) 1 activation · (c) 0 mort · 3 nouveau(x)",
+      "faits": "506 snapshots · 113 amendements suivis · (a) 4 bougent de ≥ 2 (il en fallait 5) · (b) 1 activation · (c) 0 mort · 3 nouveau(x)",
       "verdict": "SUCCES (critère atteint)",
       "alerte": "",
       "detail": [
@@ -281,11 +281,11 @@
           "delta_votes": 6
         },
         {
-          "amendement": "LendingProtocol",
+          "amendement": "SingleAssetVault",
           "delta_votes": 4
         },
         {
-          "amendement": "SingleAssetVault",
+          "amendement": "LendingProtocol",
           "delta_votes": 4
         },
         {
@@ -301,11 +301,11 @@
           "delta_votes": -1
         },
         {
-          "amendement": "fixBatchInnerSigs",
+          "amendement": "Batch",
           "delta_votes": 0
         },
         {
-          "amendement": "Sponsor",
+          "amendement": "fixXChainRewardRounding",
           "delta_votes": 0
         }
       ]
@@ -313,7 +313,7 @@
     {
       "protocole": "Arbitrage LLM-vs-règle (Cortana)",
       "critere": "la règle maison : < 60 % de justesse micro → confiance faible + 1 alerte/h max. Verdict annoncé 27/09",
-      "faits": "0 alerte(s) microstructure au journal · 0 notée(s) par le juge indépendant · justesse n/d · avis directionnels de Cortana (toutes matières) : 58/105 = 55.2 %",
+      "faits": "0 alerte(s) microstructure au journal · 0 notée(s) par le juge indépendant · justesse n/d · avis directionnels de Cortana (toutes matières) : 60/106 = 56.6 %",
       "verdict": "IMPOSSIBLE (0 cas à juger)",
       "alerte": "le verdict du 27/09 ne pourra PAS être rendu : 0 alerte(s) en 7 jours → 0 cas. Le producteur d'alertes (module microstructure) n'a rien écrit depuis le 09/09 (data/micro_alerts.jsonl = 0 octet) — il faut trancher : module mort, ou rien à alerter ?",
       "detail": [
@@ -343,9 +343,9 @@
         },
         {
           "indice": "croisements",
-          "directionnels": 20,
-          "corect": 12,
-          "n": 53
+          "directionnels": 21,
+          "corect": 14,
+          "n": 54
         },
         {
           "indice": "etfBtcM",
@@ -382,7 +382,7 @@
     {
       "protocole": "Geopol (réanimé)",
       "critere": "GEOPOL-C2/C3 : avis geopol noté vs BTC 2×/jour, fenêtre 4 semaines (→ ~10/10), critère P3 ≥ 56 %",
-      "faits": "score actuel 0.3490 « calme » (ML 0.1677) · 41 avis enregistrés dont 5 directionnels (1 correct(s)) · 36 NEUTRE",
+      "faits": "score actuel 0.3438 « calme » (ML 0.1522) · 41 avis enregistrés dont 5 directionnels (1 correct(s)) · 36 NEUTRE",
       "verdict": "EN ATTENTE (fenêtre jusqu'au ~10/10)",
       "alerte": "1 avis correct sur 5 directionnels : à cette cadence le critère ne sera pas tranchable dans la fenêtre",
       "detail": [
@@ -399,16 +399,10 @@
     {
       "protocole": "paternes-btc (Kronos)",
       "critere": "mesure en continu des paternes validés (50w×200w + RSI hebdo, MACD daily = filtre, cycle) — verdict à n ≥ 30 cycles",
-      "faits": "23 cycles · régime HAUSSIER (écart 50w/200w 17.1 %, RSI hebdo 79) · MACD histogramme -101 · BTC 76540 → 85549 (+11.8 %)",
-      "verdict": "EN ATTENTE (il manque 7 cycle(s) — cadence quotidienne → ~7 jour(s))",
+      "faits": "24 cycles · régime HAUSSIER (écart 50w/200w 15.7 %, RSI hebdo 73) · MACD histogramme -278 · BTC 76540 → 83285 (+8.8 %)",
+      "verdict": "EN ATTENTE (il manque 6 cycle(s) — cadence quotidienne → ~6 jour(s))",
       "alerte": "",
       "detail": [
-        {
-          "ts": "2026-10-03T22:36:31Z",
-          "prix": 84502.85,
-          "regime": "HAUSSIER",
-          "rsi_w": 78.7
-        },
         {
           "ts": "2026-10-05T01:31:27Z",
           "prix": 84743.72,
@@ -432,6 +426,12 @@
           "prix": 85549.02,
           "regime": "HAUSSIER",
           "rsi_w": 79.2
+        },
+        {
+          "ts": "2026-10-09T08:24:13Z",
+          "prix": 83285.33,
+          "regime": "HAUSSIER",
+          "rsi_w": 72.8
         }
       ]
     },

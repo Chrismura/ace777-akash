@@ -89,6 +89,27 @@ DETTE_CONSTATEE = {
     # le drill (READY impossible) et noierait la 17ᵉ violation. Elle est DATÉE, NOMMÉE, écrite ici
     # et au §15 du `REGISTRE_ECHECS_ET_ERREURS.md`. Radiation = sortie de l'alarme, jamais effacement.
     ("Index_Maison/scripts/sante_index.py", "2026-10-08T09:38:36Z"),
+    # ── 09/10/2026 — défaut d'ORDRE (ajout AVANT pré-déclaration), décision Christophe (GO « go 1,2,3 »).
+    # Acte : inscription du NOUVEL organe E9 `verif_empilement_jour.py` au registre à 09:11:00Z SANS
+    # pré-déclaration antérieure. La règle exige de pré-déclarer AVANT (même un ajout) ; l'ordre n'a
+    # pas été respecté. Radié de l'alarme, JAMAIS effacé (daté, nommé ici et au §15.4). Aucun scellé
+    # existant n'a été altéré : le fichier est NEUF (aucun état antérieur à protéger) — c'est un défaut
+    # de PROCÉDURE, pas une manipulation. Même mécanisme que les 17 actes précédents.
+    ("Index_Maison/scripts/verif_empilement_jour.py", "2026-10-09T09:11:00Z"),
+    # ── 09/10/2026 (suite) — MÊME DÉFAUT D'ORDRE, 5 ACTES, décision Christophe (GO « go 1,2 »).
+    # Acte : inscription au registre de 5 scripts (scelle_rituel.py, memoire_log.py, auto_reparer.py,
+    # journal_auto.py, sync_console_journal.py) à 10:22:49Z SANS pré-déclaration antérieure — alors que
+    # la maison pré-déclare MÊME un ajout (leçon déjà apprise 2 h plus tôt, non appliquée : j'ai patiemment
+    # pré-déclaré pour les 13 fichiers vivants du GO 2 et oublié pour ces 5-là). Aucun scellé existant
+    # n'a été altéré : les 5 fichiers étaient NEUFS au registre (aucun état antérieur à protéger).
+    # Défaut de PROCÉDURE, pas une manipulation. Radié de l'alarme, JAMAIS effacé (daté, nommé ici et
+    # au §15.5) ; le drill repasse READY et la 24ᵉ violation restera visible. Même mécanisme que les 18
+    # actes précédents.
+    ("Index_Maison/scripts/scelle_rituel.py", "2026-10-09T10:22:49Z"),
+    ("Index_Maison/scripts/memoire_log.py", "2026-10-09T10:22:49Z"),
+    ("Index_Maison/scripts/auto_reparer.py", "2026-10-09T10:22:49Z"),
+    ("Index_Maison/scripts/journal_auto.py", "2026-10-09T10:22:49Z"),
+    ("Index_Maison/scripts/sync_console_journal.py", "2026-10-09T10:22:49Z"),
 }
 
 

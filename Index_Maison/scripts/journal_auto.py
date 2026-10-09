@@ -16,6 +16,7 @@ import csv
 import json
 import os
 import subprocess
+import sys
 from collections import Counter
 from datetime import datetime, timezone
 from pathlib import Path
@@ -222,7 +223,25 @@ Snapshot auto (`journal_auto.py`). Bots : ACE={'ON' if procs.get('ace') else 'OF
 """
 
 
+def _scelle_rituel():
+    """Rituel de scellement (R20.1) — chargé PAR CHEMIN, tolérant si absent.
+
+    Le CANON (`Index_Maison/MEMOIRE_COLLAB.md`) est scellé md5 : toute écriture doit être
+    pré-déclarée AVANT puis re-scellée APRÈS, sinon le drill reste en TROU (il ne lit pas les
+    pré-déclarations). Les 2 miroirs du coffre ne sont pas scellés → écriture nue.
+    """
+    try:
+        ici = str(Path(__file__).resolve().parent)
+        if ici not in sys.path:
+            sys.path.insert(0, ici)
+        import scelle_rituel
+        return scelle_rituel
+    except Exception:
+        return None
+
+
 def append_memoire(vault: Path, line: str) -> None:
+    canon = (WS / "MEMOIRE_COLLAB.md").resolve()
     for mem in [
         vault / "Swarm_Bus" / "09_MEMOIRE_COLLAB.md",
         vault / "Index_Maison" / "MEMOIRE_COLLAB.md",
@@ -234,7 +253,16 @@ def append_memoire(vault: Path, line: str) -> None:
             t = mem.read_text(encoding="utf-8")
             m = "|----|-----|--------|-----|------|"
             if m in t and line not in t:
-                mem.write_text(t.replace(m, m + "\n" + line, 1), encoding="utf-8")
+                def _ecrire(_mem=mem, _t=t):
+                    _mem.write_text(_t.replace(m, m + "\n" + line, 1), encoding="utf-8")
+                if mem.resolve() == canon:
+                    sr = _scelle_rituel()
+                    if sr is not None:
+                        sr.ecrire_sous_scelle(
+                            "Index_Maison/MEMOIRE_COLLAB.md", _ecrire,
+                            motif="journal_auto — snapshot soir (append_memoire)")
+                        continue
+                _ecrire()
         except OSError as e:
             print(f"memoire skip {mem.name}: {e}")
 

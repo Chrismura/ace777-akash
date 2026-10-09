@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Sync console/journal/hygiene notes into Obsidian vault (md only)."""
+import sys
 from pathlib import Path
 from datetime import datetime, timezone
 from shutil import copy2
@@ -51,6 +52,18 @@ if agora.exists():
 # Swarm_Bus/09_MEMOIRE_COLLAB.md (supprimé) est retiré.
 ts = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H%MZ")
 line = f"| {ts} | Cursor | ★ | CONSOLE+journal | Journal 28 + console + plan vol + auto_processus |"
+def _scelle_rituel():
+    """Rituel de scellement (R20.1) — chargé PAR CHEMIN, tolérant si absent."""
+    try:
+        ici = str(Path(__file__).resolve().parent)
+        if ici not in sys.path:
+            sys.path.insert(0, ici)
+        import scelle_rituel
+        return scelle_rituel
+    except Exception:
+        return None
+
+
 for mem in [WS / "MEMOIRE_COLLAB.md"]:
     if not mem.exists():
         continue
@@ -59,5 +72,12 @@ for mem in [WS / "MEMOIRE_COLLAB.md"]:
         continue
     m = "|----|-----|--------|-----|------|"
     if m in t:
-        mem.write_text(t.replace(m, m + "\n" + line, 1), encoding="utf-8")
+        def _ecrire(_mem=mem, _t=t):
+            _mem.write_text(_t.replace(m, m + "\n" + line, 1), encoding="utf-8")
+        sr = _scelle_rituel()
+        if sr is not None:
+            sr.ecrire_sous_scelle("Index_Maison/MEMOIRE_COLLAB.md", _ecrire,
+                                  motif="sync_console_journal — entrée CONSOLE+journal")
+        else:
+            _ecrire()
 print("DONE_SYNC")

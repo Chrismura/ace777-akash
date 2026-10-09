@@ -67,14 +67,47 @@ def _append(path: Path, row: str) -> None:
     path.write_text(text[:insert_at] + row + "\n" + text[insert_at:], encoding="utf-8")
 
 
+# ── Rituel de scellement (R20.1) — chargé PAR CHEMIN, tolérant si absent ───────
+# POURQUOI : quand MEMOIRE_COLLAB.md est scellé md5, la veilleuse honore les
+# pré-déclarations mais PAS le drill (`etape_scelles` ne les lit pas) → toute écriture
+# non re-scellée laisse le drill en TROU. Le rituel (pré-déclarer → écrire → re-scellér)
+# est NON BLOQUANT : la trace a toujours lieu, même si la cérémonie échoue.
+MEM_REL = "Index_Maison/MEMOIRE_COLLAB.md"
+
+
+def _rituel():
+    try:
+        ici = str(Path(__file__).resolve().parent)
+        if ici not in sys.path:
+            sys.path.insert(0, ici)
+        import scelle_rituel
+        return scelle_rituel
+    except Exception:
+        return None
+
+
+def _append_canon(row: str, qui: str) -> None:
+    """Écrit la ligne dans le canon. Si le fichier est scellé md5, passe par le rituel."""
+    sr = _rituel()
+    if sr is None:
+        _append(MEM, row)
+        return
+    rap = sr.ecrire_sous_scelle(
+        MEM_REL,
+        lambda: _append(MEM, row),
+        motif=f"trace « {qui} » — écriture automatique du canon MEMOIRE_COLLAB.md")
+    if rap.get("scelle_md5") and rap.get("rescel") not in (0,):
+        print(f"[memoire_log] rituel de scellé incomplet : {rap}", file=sys.stderr)
+
+
 def log_touch(qui: str, action: str, ou: str, quoi: str) -> str:
     action = (action or "★").strip()
     if len(action) > 3:
         action = "★"
     row = f"| {_ts()} | {qui} | {action} | {ou} | {quoi} |"
-    # 1) la vérité = le workspace (canon, append-only)
+    # 1) la vérité = le workspace (canon, append-only) — sous scellé, via le RITUEL.
     try:
-        _append(MEM, row)
+        _append_canon(row, qui)
     except OSError as e:
         print(f"[memoire_log] {MEM.name}: {e}", file=sys.stderr)
     # 2) miroirs = COPIE INTÉGRALE (v2 19/09) : OUTBOX racine (poussé par

@@ -273,6 +273,18 @@ if [ -f "$REPO_DIR/Index_Maison/scripts/verif_arret_instruit.py" ]; then
     echo "[$(date -u +%Y-%m-%dT%H:%MZ)] ALERTE : drapeau d'arrêt sans instruction explicite — classe E26 (voir ci-dessus)" >> "$LOG_FILE"
 fi
 
+# EMPILEMENT DU JOUR — RENONCEMENT LE MÊME JOUR SANS ORDRE (classe E9, mécanisée le 09/10/2026, GO « go 1,2,3 »)
+# E9 n'interdit PAS de toucher un fichier deux fois le même jour : elle interdit de POSER puis
+# RENONCER le même jour SANS ordre écrit. Le gardien est donc SILENCIEUX sur le travail légitime
+# empilé (mesuré : 5 actes sur `paper_diprip.py` le 22/09) et sur un renoncement ORDONNÉ ; il ne
+# crie que sur le reniement seul. R14 : il ne juge pas le passé (actes antérieurs = constatés).
+# Lecture seule ; écrit son rapport `thermo/empilement_jour.json`.
+if [ -f "$REPO_DIR/Index_Maison/scripts/verif_empilement_jour.py" ]; then
+  python3 "$REPO_DIR/Index_Maison/scripts/verif_empilement_jour.py" \
+    --json "$REPO_DIR/Index_Maison/thermo/empilement_jour.json" >> "$LOG_FILE" 2>&1 || \
+    echo "[$(date -u +%Y-%m-%dT%H:%MZ)] ALERTE : renoncement le même jour sans ordre écrit — classe E9 (voir ci-dessus)" >> "$LOG_FILE"
+fi
+
 # 2) Ne committer que les fichiers DÉJÀ SUIVIS (modifiés/supprimés) + les canoniques
 # Garde-fou 05/09 (incident index.lock orphelin du 03/09 : 2,5 jours de push mort
 # en silence, le 2>/dev/null avalait le rc=128 et le script disait « aucun changement ») :
