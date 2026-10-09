@@ -1,27 +1,6 @@
 {
   "signals": [
     {
-      "metric": "fear_greed",
-      "zscore": -5.5647431412426425,
-      "value": 64,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-5.56) malgré une avidité modérée (64). Le silence absolu des médias grand public combiné à cette anomalie statistique indique une accumulation furtive des baleines loin du radar médiatique.\"\n}\n```",
-      "ts": "2026-10-08T00:32:07.916196+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": 4.78010731995837,
-      "value": 0.6,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie statistique majeure (Z-score 4.78) sur le SDI combinée à un consensus médiatique ultra-pessimiste concernant l'économie réelle (TPE). Les baleines absorbent la liquidité en profitant de la panique macroéconomique et du narratif de crise, créant un décalage classique entre la détresse systémique et l'accumulation furtive.\"\n}\n```",
-      "ts": "2026-10-08T01:02:19.997247+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": -4.306497873307839,
-      "value": 64,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement négatif (-4.31) malgré un sentiment modéré (64). Les baleines accumulent dans l'angle mort médiatique, ignorant le bruit de fond.\"\n}\n```",
-      "ts": "2026-10-08T01:02:21.271866+00:00"
-    },
-    {
       "metric": "sdi",
       "zscore": 3.8812728078180334,
       "value": 0.604,
@@ -349,6 +328,27 @@
       "value": 5025435.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Panique médiatique surévaluée : les médias grand public amplifient des liquidations massives (1,1 Md$) et des transferts d'exchange, alors que l'anomalie on-chain montre des volumes réels de liquidation modérés (5 M$). Divergence classique de capitulation retail masquant une accumulation silencieuse par les baleines.\"\n}\n```",
       "ts": "2026-10-09T13:04:42.013717+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 2.247574139876077,
+      "value": 5024258.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Panique médiatique sur-amplifiée (chiffres fantômes de 1,1 Md$ vs 5M$ réels on-chain). Les gros porteurs absorbent les liquidations des traders paniqués dans le silence.\"\n}\n```",
+      "ts": "2026-10-09T13:34:48.959202+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 12.761477168369137,
+      "value": 12899997.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Z-score extrême (12.76) sur les flux de baleines (12.9M USD) combiné à un silence médiatique absolu (Google Actualités vide). Accumulation furtive classique avant une rupture de prix.\"\n}\n```",
+      "ts": "2026-10-09T15:05:04.422096+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.699333027075526,
+      "value": 1.17,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit médiatique non lié à la crypto (collision de mots-clés homonymes comme 'IPT' pour École polytechnique). Aucune baleine détectée, anomalie statistique due à un biais textuel.\"\n}\n```",
+      "ts": "2026-10-09T15:05:06.243971+00:00"
     }
   ]
 }

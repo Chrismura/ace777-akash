@@ -1,13 +1,13 @@
-# 🩺 DRILL DE RESTAURATION — 🔴 **TROU**
+# 🩺 DRILL DE RESTAURATION — ✅ **READY**
 
-> Testé le **2026-10-09T13:30Z** · mode **lecture seule** (rien installé, rien modifié).
+> Testé le **2026-10-09T16:31Z** · mode **lecture seule** (rien installé, rien modifié).
 > Question posée : *« si le Mac mourait ce soir, ACE777 reviendrait-il ? »*
 
 ## 1. Source — le repo (git) contient-il tout ?
-- Branche `main` · HEAD `270151e7fd` du 2026-10-09T12:29:42+02:00
-- Fichiers suivis modifiés sur disque : **127**
+- Branche `main` · HEAD `7517e44d44` du 2026-10-09T15:31:10+02:00
+- Fichiers suivis modifiés sur disque : **166**
 - Fichiers suivis **supprimés** (perdus) : **0**
-- Nouveaux fichiers non versionnés : 31711 au total, dont **8 sensibles** (scripts/plists/règles)
+- Nouveaux fichiers non versionnés : 31767 au total, dont **8 sensibles** (scripts/plists/règles)
   - `Index_Maison/scripts/CONSULTATION_FAMILLE_CORTANA_JUGE_CONTRE/AVIS_DEEPSEEK.md`
   - `Index_Maison/scripts/CONSULTATION_FAMILLE_CORTANA_JUGE_CONTRE/AVIS_GEMINI.md`
   - `Index_Maison/scripts/CONSULTATION_FAMILLE_CORTANA_JUGE_CONTRE/AVIS_JUGE.md`
@@ -27,7 +27,7 @@
 - ✅ **0 agent hors repo** — tous reconstructibles.
 
 ## 3. Reconstruction dans un dossier neuf
-- Dossier : `/var/folders/y7/571v2gy574z72zvsgqd46wd40000gn/T/drill_restauration_m7ia5mv3/LaunchAgents`
+- Dossier : `/var/folders/y7/571v2gy574z72zvsgqd46wd40000gn/T/drill_restauration_cs8q761v/LaunchAgents`
 - Plists rebâtis + validés (`plutil -lint`) : **103/103**
 
 ## 4. Organes invoqués par les agents
@@ -44,14 +44,13 @@
   | `~/prise-ia` | `prise-ia` | surveille | ✅ miroir de sauvegarde (organes_hors_repo/prise-ia) |
   | `~/prise-ia/routeur_auto.py` | `routeur-auto` | argument | ✅ miroir de sauvegarde (organes_hors_repo/prise-ia) |
 
-  Manifeste des organes hors repo : `thermo/organes_hors_repo.json` (mis à jour 2026-10-09T10:27Z).
+  Manifeste des organes hors repo : `thermo/organes_hors_repo.json` (mis à jour 2026-10-09T13:30Z).
 
   Outillage système hors repo (4) — réinstallable (Homebrew/Xcode CLT), non bloquant : `/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/Resources/Python.app/Contents/MacOS/Python`, `/Library/Developer/CommandLineTools/usr/bin/python3`, `/opt/homebrew/bin/npm`, `/opt/homebrew/bin/uv`
 - ✅ Aucun chemin invoqué introuvable.
 
 ## 5. Scellés (registre des synapses ↔ repo)
-- Entrées md5 vérifiées : **168** · écarts : **1** · absents : **0**
-  - ⚠️ md5 différent : `hulk-mexc/scripts/paper_diprip.py`
+- Entrées md5 vérifiées : **168** · écarts : **0** · absents : **0**
 
 ## 5bis. Pré-déclarations (R20.1) — un scellé se touche ANNONCÉ
 - Déclarations au registre : **107** · règle active depuis `2026-09-23T15:30:00Z`
@@ -64,8 +63,7 @@
 - ✅ **0 trou** : chaque classe connue a une garde déclarée et branchée, ou est déclarée promesse/ouverture (jamais verte en silence).
 
 ## 7. Verdict
-- 🔴 **1 trou(s) à combler :**
-  - 1 scellé(s) dont le md5 ne correspond plus
+- ✅ **READY** — le prototype est reconstructible depuis le repo.
 
 ---
 *Rapport généré par `scripts/drill_restauration.py` (lecture seule). Relancer après toute modification d'organe : un drill, ça se répète.*
