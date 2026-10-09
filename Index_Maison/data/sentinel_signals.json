@@ -1,48 +1,6 @@
 {
   "signals": [
     {
-      "metric": "long_short",
-      "zscore": 2.1289739599171766,
-      "value": 1.587,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.13) sur le ratio long/short (1.587) indiquant un positionnement acheteur excessif de la foule. Les médias grand public et traditionnels font l'éloge des stratégies 'long-short', signalant une euphorie retail classique. Les baleines profitent de cette liquidité unilatérale pour distribuer discrètement.\"\n}\n```",
-      "ts": "2026-10-07T15:09:26.944464+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": 2.7689896340973372,
-      "value": 0.016,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Incohérence contextuelle : Le signal SDI (Indice de Sentiment des Dirigeants / TPE) et les titres médiatiques concernent l'économie réelle française et le Syndicat des Indépendants, et non pas la blockchain ou le mouvement de baleines crypto.\"\n}\n```",
-      "ts": "2026-10-07T15:34:33.684284+00:00"
-    },
-    {
-      "metric": "price_1h",
-      "zscore": 2.54160607237513,
-      "value": 0.532890061311253,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie positive des prix (z-score 2.54) totalement ignorée par les médias (silence radio de Google Actualités). C'accumulation furtive typique des baleines avant un déversement narratif.\"\n}\n```",
-      "ts": "2026-10-07T15:59:46.197307+00:00"
-    },
-    {
-      "metric": "long_short",
-      "zscore": 2.264656667355173,
-      "value": 1.669,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Le ratio long/short atteint un z-score élevé de 2.26 (1.669), signalant un optimisme excessif des investisseurs particuliers relayé par les médias généralistes. Historiquement, un déséquilibre aussi prononcé des positions acheteuses précède souvent un mouvement de purge (long squeeze) orchestré par les baleines.\"\n}\n```",
-      "ts": "2026-10-07T16:09:49.477976+00:00"
-    },
-    {
-      "metric": "long_short",
-      "zscore": 2.1068791678001633,
-      "value": 1.669,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.11) sur le ratio long/short (1.669) indiquant une surconcentration excessive des positions acheteuses par les traders particuliers, contrastant avec un narratif médiatique généraliste sur les fonds long/short qui masque une vulnérabilité imminente à une purge par les baleines.\"\n}\n```",
-      "ts": "2026-10-07T16:39:57.006626+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": 2.950820994548998,
-      "value": 0.016,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie macroéconomique/traditionnelle (SDI - Syndicat des Indépendants) sans rapport avec la blockchain ou les flux de baleines crypto. Confusion de narratif.\"\n}\n```",
-      "ts": "2026-10-07T17:40:06.603128+00:00"
-    },
-    {
       "metric": "ipt",
       "zscore": 2.6541747150900177,
       "value": 1.095,
@@ -349,6 +307,48 @@
       "value": 1.166,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (z-score 2.52) due à une collision de mots-clés homonymes (IPT = Tournoi de Physique, fondation locale, violences) dans les médias, sans lien avec la crypto.\"\n}\n```",
       "ts": "2026-10-08T21:41:55.755505+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.6608054945416457,
+      "value": 1.244,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.66) causée par une confusion homonyme dans les médias (Tournoi de Physique, violences sexistes, fondation locale) sans lien avec l'actif crypto.\"\n}\n```",
+      "ts": "2026-10-08T22:37:09.078845+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 3.686283153458266,
+      "value": 1.645,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (IPT) totalement non liée à la crypto. Bruit médiatique dominé par l'actualité institutionnelle et académique (École Polytechnique, violences sexuelles, fondation). Aucune trace d'accumulation ou de mouvement de baleine onchain pertinent.\"\n}\n```",
+      "ts": "2026-10-08T23:42:21.545960+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 3.5283833048417907,
+      "value": 4644239.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 3.53, volume $>4.6M USD$) en totale absence de couverture médiatique. Les baleines accumulent ou positionnent des fonds en silence, ignorant le bruit de fond de Google Actualités.\"\n}\n```",
+      "ts": "2026-10-08T23:52:36.909695+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -16.941074346097405,
+      "value": 59,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Anomalie statistique majeure (Z-score -16.94) sans couverture médiatique notable. Indique un détachement temporaire du marché ou un bruit algorithmique, insuffisant pour confirmer une accumulation ou une distribution silencieuse de baleines.\"\n}\n```",
+      "ts": "2026-10-09T00:12:40.982897+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -6.335839103296195,
+      "value": 59,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 40,\n  \"reason\": \"Indice de peur/gueule de bois modéré (59) mais absence totale de signal médiatique (Google Actualités vide). Anomalie statistique (z-score -6.34) traduisant un calme plat ou une rupture de flux, pas de mouvement furtif de baleines détectable.\"\n}\n```",
+      "ts": "2026-10-09T00:42:47.661644+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -4.599331055039001,
+      "value": 59,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-4.60) malgré un indice de peur et de cupidité neutre/gourmand (59) et un vide médiatique total (Google Actualités). Anomalie classique de 'silence radio' précurseur d'accumulation institutionnelle masquée.\"\n}\n```",
+      "ts": "2026-10-09T01:12:53.655730+00:00"
     }
   ]
 }
