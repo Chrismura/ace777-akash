@@ -2,48 +2,6 @@
   "signals": [
     {
       "metric": "sdi",
-      "zscore": 3.8812728078180334,
-      "value": 0.604,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Indicateur SDI macroéconomique et actualités sur les TPE françaises (Indépendant des marchés crypto et des mouvements de baleines).\"\n}\n```",
-      "ts": "2026-10-08T01:32:29.765267+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": -3.6179092819523198,
-      "value": 64,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-3.62) malgré un indice de cupidité modéré (64) et un vide médiatique total. Les baleines accumulent dans l'angle mort des médias avant un mouvement de rupture.\"\n}\n```",
-      "ts": "2026-10-08T01:32:36.229880+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": 3.3028231767156346,
-      "value": 0.6,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie statistique (z-score 3.30) couplée à un narratif médiatique unanime sur le pessimisme macroéconomique des TPE. Les flux de capitaux traditionnels signalent une contraction de l'économie réelle que les marchés crypto ignorent encore, créant un risque élevé de correction par contagion.\"\n}\n```",
-      "ts": "2026-10-08T02:02:42.566801+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": -3.165910056975355,
-      "value": 64,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrême (-3.17) malgré une cupidité modérée (64) et un vide médiatique total (Google Actualités vide). C'est le profil typique d'accumulation silencieuse par les baleines loin du bruit de fond de détail.\"\n}\n```",
-      "ts": "2026-10-08T02:02:44.038563+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": 2.9438573725523796,
-      "value": 0.604,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Divergence extrême : le z-score élevé (2.94) indique un signal de stress macroéconomique fort, validé par un narratif médiatique unanime sur le 'pessimisme' et l'urgence des TPE. Contrairement aux marchés crypto où les baleines contredisent souvent les médias, ici le signal institutionnel/macro (SDI) confirme la détresse réelle, validant un consensus baissier pour l'économie réelle et les actifs associés.\"\n}\n```",
-      "ts": "2026-10-08T02:32:51.397090+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": -2.8388819787838453,
-      "value": 64,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-2.84) pour un indice de peur/grégarité à 64 indique un désintérêt médiatique total malgré une dynamique de marché saine. Classic 'Wall of Worry' : accumulation silencieuse des baleines sous le radar du retail.\"\n}\n```",
-      "ts": "2026-10-08T02:32:53.376136+00:00"
-    },
-    {
-      "metric": "sdi",
       "zscore": 2.6555679198002826,
       "value": 0.604,
       "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Divergence majeure : les médias et le SDI signalent un pessimisme macroéconomique extrême et une détresse des TPE (z-score 2.66), tandis que le silence ou l'absence de signaux d'accumulation on-chain/marché suggère que les « smart money » ignorent ce narratif de panique pour se positionner en retrait, anticipant une contraction du crédit.\"\n}\n```",
@@ -349,6 +307,48 @@
       "value": 1.17,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit médiatique non lié à la crypto (collision de mots-clés homonymes comme 'IPT' pour École polytechnique). Aucune baleine détectée, anomalie statistique due à un biais textuel.\"\n}\n```",
       "ts": "2026-10-09T15:05:06.243971+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.1944716360989522,
+      "value": 1.02,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit sémantique pur. L'acronyme 'IPT' dans les médias fait référence à des tournois de physique, des institutions ou des fondations, totalement déconnecté de la crypto. Aucune baleine détectée, simple artefact de surtension textuelle.\"\n}\n```",
+      "ts": "2026-10-09T16:45:20.802523+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 2.7005179454571016,
+      "value": 3787884.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Activité anormale des baleines (z-score 2.70, ~3.8M USD) dans un silence médiatique absolu (Google Actualités vide). Classique accumulation furtive avant un mouvement de marché haussier non pricé par le retail.\"\n}\n```",
+      "ts": "2026-10-09T17:25:30.930801+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.5237204243617968,
+      "value": 1.14,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (IPT) confondue avec des homonymes institutionnels et universitaires sans lien avec la crypto. Bruit médiatique sans substance onchain.\"\n}\n```",
+      "ts": "2026-10-09T17:45:38.357903+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 2.931667941040717,
+      "value": 4047223.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 2.93, ~4M$ de flux baleines) couplée à un silence médiatique absolu (Google Actualités vide). Accumulation furtive classique hors des radars grand public.\"\n}\n```",
+      "ts": "2026-10-09T18:30:47.087545+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.5044502063755885,
+      "value": 1.158,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Fausse alerte liée à une collision de termes. L'indice IPT détecté correspond à de l'homonymie pure (Tournoi International des Physiciens, lutte contre les VSS, fondation locale) et non à une crypto-baleine. Aucune donnée onchain pertinente.\"\n}\n```",
+      "ts": "2026-10-09T18:45:50.509917+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.5834187157843895,
+      "value": 1.206,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.58) sur le ticker IPT due à une confusion homonyme massive dans les médias (Tournoi International des Physiciens, Institut Pasteur de Tunis). Aucun mouvement de baleine crypto réel détecté.\"\n}\n```",
+      "ts": "2026-10-09T19:31:02.583400+00:00"
     }
   ]
 }
