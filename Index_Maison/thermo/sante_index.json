@@ -1,10 +1,12 @@
 {
-  "ts": "2026-10-10T17:50+00:00",
-  "updated": "2026-10-10T17:50Z",
-  "etat": "OK",
+  "ts": "2026-10-10T18:00+00:00",
+  "updated": "2026-10-10T18:00Z",
+  "etat": "DÉGRADÉ",
   "chaines_ok": "15/15",
   "anomalies": [],
-  "degradees": [],
+  "degradees": [
+    "BALEINES"
+  ],
   "chaines": [
     {
       "id": "baleines",
@@ -25,12 +27,12 @@
         {
           "nom": "scan file",
           "ok": true,
-          "detail": "âge 10 min"
+          "detail": "DÉGRADÉ : âge 20 min (> 15 min)"
         },
         {
           "nom": "mouvements (events)",
           "ok": true,
-          "detail": "dernier événement il y a 10 min"
+          "detail": "dernier événement il y a 20 min"
         },
         {
           "nom": "→ live.json.onchain",
@@ -45,7 +47,7 @@
         {
           "nom": "→ Cortana feed",
           "ok": true,
-          "detail": "âge 8 min"
+          "detail": "âge 3 min"
         }
       ]
     },
@@ -81,7 +83,7 @@
         {
           "nom": "aspiration runtime",
           "ok": true,
-          "detail": "mode fichier · JSON · âge ts 0.0 min · écart mtime/ts 0.7s · 22 paire(s) · btc=OK · ts=croissant · passe 22.2s · marge 22.8s sous le budget 45s du moteur"
+          "detail": "mode fichier · JSON · âge ts 0.0 min · écart mtime/ts 2.0s · 22 paire(s) · btc=OK · ts=croissant · passe 23.1s · marge 21.9s sous le budget 45s du moteur"
         },
         {
           "nom": "corrélation BTC",
@@ -96,7 +98,7 @@
         {
           "nom": "cortana_pilot.json",
           "ok": true,
-          "detail": "âge 726 min"
+          "detail": "âge 736 min"
         },
         {
           "nom": "cortana_analysis.json",
@@ -183,7 +185,7 @@
         {
           "nom": "geopol.ts frais",
           "ok": true,
-          "detail": "âge 0.1h"
+          "detail": "âge 0.0h"
         },
         {
           "nom": "modules OK",
@@ -331,7 +333,7 @@
         {
           "nom": "croisement_externe_etat.json",
           "ok": true,
-          "detail": "âge 7 min"
+          "detail": "âge 17 min"
         },
         {
           "nom": "fails prix (> 5 % vs externe)",
@@ -354,12 +356,12 @@
         {
           "nom": "sdi_latest.json (SAPI dedans)",
           "ok": true,
-          "detail": "âge 8 min"
+          "detail": "âge 3 min"
         },
         {
           "nom": "SAPI calculé",
           "ok": true,
-          "detail": "score 0.355"
+          "detail": "score 0.356"
         },
         {
           "nom": "alerte poussière (≥ 0.75 + volume)",
@@ -377,7 +379,7 @@
         {
           "nom": "essaim_etat.json",
           "ok": true,
-          "detail": "âge 4 min"
+          "detail": "âge 14 min"
         },
         {
           "nom": "veille d'essaim active",
