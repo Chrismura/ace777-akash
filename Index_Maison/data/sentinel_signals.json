@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "ipt",
-      "zscore": 3.686283153458266,
-      "value": 1.645,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (IPT) totalement non liée à la crypto. Bruit médiatique dominé par l'actualité institutionnelle et académique (École Polytechnique, violences sexuelles, fondation). Aucune trace d'accumulation ou de mouvement de baleine onchain pertinent.\"\n}\n```",
-      "ts": "2026-10-08T23:42:21.545960+00:00"
-    },
-    {
-      "metric": "whale_usd",
-      "zscore": 3.5283833048417907,
-      "value": 4644239.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 3.53, volume $>4.6M USD$) en totale absence de couverture médiatique. Les baleines accumulent ou positionnent des fonds en silence, ignorant le bruit de fond de Google Actualités.\"\n}\n```",
-      "ts": "2026-10-08T23:52:36.909695+00:00"
-    },
-    {
       "metric": "fear_greed",
       "zscore": -16.941074346097405,
       "value": 59,
@@ -349,6 +335,20 @@
       "value": 1.142,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"L'indice IPT (z-score 2.48) détecte une activité anormale, mais les résultats Google Actualités renvoient vers des homonymes institutionnels et universitaires sans aucun rapport avec la crypto (Tournoi de Physique, lutte contre les VSS, fondation locale). Bruit médiatique pur, aucune baleine crypto détectée.\"\n}\n```",
       "ts": "2026-10-10T11:54:31.186066+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.1020135998655793,
+      "value": 1.063,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique (ipt = 1.063) due à une confusion sémantique. Les titres médiatiques font référence à des tournois de physique (IPT 2026), des luttes associatives et de la santé publique, totalement déconnectés des marchés crypto.\"\n}\n```",
+      "ts": "2026-10-10T14:40:00.600478+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 6.037751342063151,
+      "value": 3626453.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrême (6.04) sur les liquidations longues (94% sur DOGE/ETH) combiné à un narratif médiatique saturé de panique et de bruits hors-sujet (tribunaux de commerce). Classic 'flushout' de détaillés orchestré par les baleines pour accumuler à bas prix.\"\n}\n```",
+      "ts": "2026-10-10T14:50:03.556836+00:00"
     }
   ]
 }

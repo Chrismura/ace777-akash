@@ -1,7 +1,47 @@
 {
-  "timestamp": 1791640418,
-  "date": "2026-10-10T13:53:38.998098+00:00",
-  "n_analyses": 0,
-  "analyses": [],
-  "resume": "Aucune analyse en cours"
+  "timestamp": 1791643719,
+  "date": "2026-10-10T14:48:39.985114+00:00",
+  "n_analyses": 1,
+  "analyses": [
+    {
+      "signal": {
+        "metric": "ipt",
+        "zscore": 2.1020135998655793,
+        "value": 1.063,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique (ipt = 1.063) due à une confusion sémantique. Les titres médiatiques font référence à des tournois de physique (IPT 2026), des luttes associatives et de la santé publique, totalement déconnectés des marchés crypto.\"\n}\n```",
+        "ts": 1791643200.600478
+      },
+      "fiche": "rbf_eleve",
+      "questions": {
+        "prix": {
+          "value": 0.07,
+          "seuil": 1,
+          "depasse": false
+        },
+        "paires": {
+          "value": 0,
+          "seuil": 3,
+          "depasse": false
+        },
+        "funding": {
+          "value": -8e-06,
+          "seuil": 0.001,
+          "depasse": false
+        },
+        "whales": {
+          "value": 1,
+          "seuil": 5,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
+      },
+      "action": "Observer",
+      "niveau": "neutre"
+    }
+  ],
+  "resume": "🔵 CALME — pas de signal alarmant"
 }

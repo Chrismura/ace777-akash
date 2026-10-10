@@ -47,18 +47,19 @@ Métriques : maison (mur moy/max + régime ; poussière = indicateur PANIER) + p
 | 40 | 2026-10-07T14:34:52Z | 14h | AUTRE | 0.09304 | COOLING | 2.9009 | 30739.91 | 63738.72 | 2.32e-07 | 0.32 | 0.98 | 0.99 | POMPE_PIEGE (stab 6) | prix 0.09304 · poussière(panier) 2.9% · Amihud 2.32e-07 · delta +0.32 · mur moy 30,740$ · mur max (run) 63,739$ |
 | 41 | 2026-10-08T14:33:58Z | 14h | AUTRE | 0.09418 | COOLING | 13.4484 | 30739.91 | 63738.72 | 2.58e-07 | -0.10 | -0.62 | -0.48 | POMPE_PIEGE (stab 10) | prix 0.09418 · poussière(panier) 13.4% · Amihud 2.58e-07 · delta -0.10 · mur moy 30,740$ · mur max (run) 63,739$ |
 | 42 | 2026-10-09T14:35:04Z | 14h | AUTRE | 0.09145 | COOLING | 1.5945 | 30739.91 | 63738.72 | 2.79e-07 | 0.17 | 0.71 | 0.76 | POMPE_PIEGE (stab 3) | prix 0.09145 · poussière(panier) 1.6% · Amihud 2.79e-07 · delta +0.17 · mur moy 30,740$ · mur max (run) 63,739$ |
+| 43 | 2026-10-10T14:34:52Z | 14h | AUTRE | 0.09329 | COOLING | 0.1145 | 30739.91 | 63738.72 | 3.42e-07 | 0.18 | 0.43 | 0.88 | POMPE_PIEGE (stab 7) | prix 0.09329 · poussière(panier) 0.1% · Amihud 3.42e-07 · delta +0.18 · mur moy 30,740$ · mur max (run) 63,739$ |
 
 ## 🔁 HISTORIQUE DES CYCLES DE L'ACTIF (zigzag ≥ 15 %, log continu du moteur)
 
-_Fenêtre mesurée : du 2026-10-05T21:37:51Z au 2026-10-09T14:35:04Z (13102 points) — archives de rotation incluses._
+_Fenêtre mesurée : du 2026-10-07T01:35:34Z au 2026-10-10T14:34:52Z (12780 points) — archives de rotation incluses._
 
 _Pas encore deux retournements ≥ 15 % dans l'historique mesuré._
 
-**Cycle en cours : pas encore de retournement ≥ 15 % dans la fenêtre** — du plus bas 2026-10-08T15:36:31Z à 0.08808 → 0.09145 = **+3.8 %**
+**Cycle en cours : pas encore de retournement ≥ 15 % dans la fenêtre** — du plus bas 2026-10-08T15:36:31Z à 0.08808 → 0.09329 = **+5.9 %**
 
 ## 💰 CE QUE LE MOTEUR A CAPTÉ SUR CET ACTIF
 
 - **Réalisé : +0.96 $** sur 10 entrée(s) / 9 sortie(s) — dernier événement 2026-10-08T00:00:44Z
-- **MFE donné en moyenne : +3.0 pts** par tour (pire tour : +7.1) — le meilleur prix atteint pendant la détention, jamais encaissé
+- **MFE donné en moyenne : +2.6 pts** par tour (pire tour : +7.1) — le meilleur prix atteint pendant la détention, jamais encaissé
 
 _Règle : on compare les lignes entre elles (même heure de mesure = comparable). On ne supprime rien._
