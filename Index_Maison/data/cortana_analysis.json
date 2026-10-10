@@ -1,38 +1,77 @@
 {
-  "timestamp": 1791614911,
-  "date": "2026-10-10T06:48:31.542288+00:00",
-  "n_analyses": 1,
+  "timestamp": 1791617612,
+  "date": "2026-10-10T07:33:32.302100+00:00",
+  "n_analyses": 2,
   "analyses": [
     {
       "signal": {
         "metric": "taker_ratio",
-        "zscore": 2.2558238267956883,
+        "zscore": 2.1362701445380217,
         "value": 1.702,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio à 1.702 (z-score 2.26) indique une forte agression acheteuse onchain de la part des acteurs majeurs. Le silence médiatique (absence de FOMO public) confirme une accumulation furtive des baleines loin des radars du grand public.\"\n}\n```",
-        "ts": 1791614310.538685
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio élevé (1.702, z-score 2.14) indique une domination agressive des acheteurs (Taker Buys) sur les carnets d'ordres, signalant une accumulation agressive par les baleines. Cette forte pression acheteuse contrasterait avec un silence médiatique ou un narratif apathique (Google Actualités vide), confirmant une divergence classique d'accumulation furtive avant une cassure haussière.\"\n}\n```",
+        "ts": 1791616115.723092
       },
       "fiche": "taker_ratio",
       "questions": {
         "taker": {
-          "value": 1.702,
+          "value": 0.849,
           "seuil": 1,
-          "depasse": true
+          "depasse": false
         },
         "prix": {
-          "value": -0.01,
+          "value": -0.12,
           "seuil": 1,
           "depasse": false
         }
       },
       "interpretation": {
-        "condition": "taker > 1",
-        "lecture": "Takers acheteurs agressifs — la demande mange le carnet, à confirmer avec le volume",
-        "niveau": "info",
-        "action": "Observer si le prix suit (vraie demande) ou diverge (absorption)"
+        "condition": "taker < 1",
+        "lecture": "Takers vendeurs agressifs — la vente se fait AU MARCHE (pression réelle), pas passive",
+        "niveau": "surveiller",
+        "action": "Resserrer les stops des positions tier A corrélées, attendre l'apaisement pour entrer"
       },
-      "action": "Observer si le prix suit (vraie demande) ou diverge (absorption)",
-      "niveau": "info"
+      "action": "Resserrer les stops des positions tier A corrélées, attendre l'apaisement pour entrer",
+      "niveau": "surveiller"
+    },
+    {
+      "signal": {
+        "metric": "ipt",
+        "zscore": 2.1017197914574357,
+        "value": 1.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique due à une collision lexicale : le ticker 'IPT' confondu par l'algorithme avec le Tournoi International des Physiciens et l'Institut Pasteur de Tunis (actualités médicales et régionales). Aucun mouvement de baleine crypto réel détecté.\"\n}\n```",
+        "ts": 1791617320.645991
+      },
+      "fiche": "rbf_eleve",
+      "questions": {
+        "prix": {
+          "value": -0.12,
+          "seuil": 1,
+          "depasse": false
+        },
+        "paires": {
+          "value": 0,
+          "seuil": 3,
+          "depasse": false
+        },
+        "funding": {
+          "value": 9e-06,
+          "seuil": 0.001,
+          "depasse": false
+        },
+        "whales": {
+          "value": 1,
+          "seuil": 5,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
+      },
+      "action": "Observer",
+      "niveau": "neutre"
     }
   ],
-  "resume": "🔵 CALME — pas de signal alarmant"
+  "resume": "🟡 SURVEILLANCE — des signaux sont à observer"
 }

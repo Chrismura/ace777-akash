@@ -132,6 +132,16 @@ DETTE_CONSTATEE = {
     # (daté, nommé ici et au §15.9). Même mécanisme que les 25 actes précédents.
     ("hulk-mexc/scripts/backtest_edel_amplitude.py", "2026-10-09T11:31:51Z"),
     ("Index_Maison/STRATEGIE_AMPLITUDE_EDEL_20261009.md", "2026-10-09T11:31:51Z"),
+    # ── 10/10/2026 — ERREUR DE CLÉ de pré-déclaration (même famille que 10:35:40Z), 1 acte,
+    # IA=Buffy (MiMo 2.6 Pro, Freebuff), radiation au rituel « dette constatée ».
+    # Acte : inscription au registre du NOUVEL instrument `chiffrage_bag_amplitude.py` à 07:07:46Z.
+    # La pré-déclaration a RÉELLEMENT été faite AVANT l'acte (07:07:2xZ, traces au store) — mais
+    # sous la clé du REGISTRE (`Index_Maison/strategie/REGISTRE_SYNAPSES.json`) au lieu du FICHIER
+    # scellé (`hulk-mexc/scripts/chiffrage_bag_amplitude.py`) : le gardien cherche la clé EXACTE.
+    # Fond : fichier NEUF au registre (aucun scellé antérieur altéré) ; forme fausse. RÉCIDIVE de
+    # la classe E22 (la règle est appliquée à l'ÉDITION, pas à l'INSCRIPTION — 09:11Z, 10:22Z,
+    # 11:31:51Z le 09/10, puis 10:35:40Z par la clé) : daté, nommé, jamais effacé.
+    ("hulk-mexc/scripts/chiffrage_bag_amplitude.py", "2026-10-10T07:07:46Z"),
 }
 
 

@@ -2,20 +2,6 @@
   "signals": [
     {
       "metric": "price_1h",
-      "zscore": 5.4477109992091,
-      "value": 1.5005336114764178,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie statistique majeure (z-score 5.45) sur le prix à court terme sans aucune couverture médiatique (Google Actualités vide). Cette asymétrie d'information indique une accumulation agressive et silencieuse par des baleines loin des radars du grand public.\"\n}\n```",
-      "ts": "2026-10-08T15:50:32.052343+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.8439111263960073,
-      "value": 1.32,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Bruit médiatique non pertinent (articles sur l'École polytechnique, la dette ou des associations) sans lien avec l'actif crypto IPT. Anomalie onchain non corroborée par un narratif spécifique.\"\n}\n```",
-      "ts": "2026-10-08T16:30:38.888227+00:00"
-    },
-    {
-      "metric": "price_1h",
       "zscore": 2.8451703365498036,
       "value": 0.9948794535705963,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie statistique (Z-score 2.85) sur un prix stable/sous-évalué sans couverture médiatique (silence radio de Google Actualités). Comportement typique d'accumulation furtive par des baleines avant un rebond.\"\n}\n```",
@@ -349,6 +335,20 @@
       "value": 1.702,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio à 1.702 (z-score 2.26) indique une forte agression acheteuse onchain de la part des acteurs majeurs. Le silence médiatique (absence de FOMO public) confirme une accumulation furtive des baleines loin des radars du grand public.\"\n}\n```",
       "ts": "2026-10-10T06:38:30.538685+00:00"
+    },
+    {
+      "metric": "taker_ratio",
+      "zscore": 2.1362701445380217,
+      "value": 1.702,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio élevé (1.702, z-score 2.14) indique une domination agressive des acheteurs (Taker Buys) sur les carnets d'ordres, signalant une accumulation agressive par les baleines. Cette forte pression acheteuse contrasterait avec un silence médiatique ou un narratif apathique (Google Actualités vide), confirmant une divergence classique d'accumulation furtive avant une cassure haussière.\"\n}\n```",
+      "ts": "2026-10-10T07:08:35.723092+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.1017197914574357,
+      "value": 1.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique due à une collision lexicale : le ticker 'IPT' confondu par l'algorithme avec le Tournoi International des Physiciens et l'Institut Pasteur de Tunis (actualités médicales et régionales). Aucun mouvement de baleine crypto réel détecté.\"\n}\n```",
+      "ts": "2026-10-10T07:28:40.645991+00:00"
     }
   ]
 }

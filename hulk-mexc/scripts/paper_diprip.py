@@ -779,6 +779,18 @@ class PaperBot:
         # Réversible en 1 ligne : BAG_TREND_ON=0 → comportement historique strict.
         self.bag_trend_on = cfg.get("BAG_TREND_ON", "1").strip() not in ("0", "false", "False")
         self.bag_trend_amp_min = float(cfg.get("BAG_TREND_AMP_MIN", "7.0"))
+        # === GBAG (10/10/2026, GO Christophe) : mode par paire « spec G + souche » ===
+        # Mesuré AVANT câblage (chiffrage_bag_amplitude.py, 10/10) : EDEL GBAG = 115 %
+        # des jetons du hold et +78,60 $ vs +64,23 $ ; univers NON filtré (24 paires) :
+        # +141,18 $ vs +125,83 $. RÉVERSIBLE : GBAG_ON=0 → comportement historique strict.
+        self.gbag_on = cfg.get("GBAG_ON", "0").strip() not in ("0", "false", "False")
+        self.gbag_pairs = {p.strip().upper() for p in
+                           cfg.get("GBAG_PAIRS", "").split(",") if p.strip()}
+        self.gbag_rebuy_frac = float(cfg.get("GBAG_REBUY_FRAC", "0.5"))
+        self.gbag_add_step = float(cfg.get("GBAG_ADD_STEP", "0.08"))
+        self.gbag_sma_e = int(float(cfg.get("GBAG_SMA_EXIT", "24")))
+        self.gbag_sma_gate = int(float(cfg.get("GBAG_SMA_GATE", "240")))
+        self.gbag_check_sec = float(cfg.get("GBAG_CHECK_SEC", "300"))
         self.bt_stop_mult = float(cfg.get("BAG_TREND_STOP_AMP", "1.5"))
         self.bt_up_p1 = float(cfg.get("BAG_UP_P1_AMP", "0.6"))
         self.bt_up_p2 = float(cfg.get("BAG_UP_P2_AMP", "1.2"))
@@ -1083,6 +1095,8 @@ class PaperBot:
         self.pos: dict[str, dict] = {}  # trade tant que < 2×
         self.bags: dict[str, dict] = {}  # plus-value après stake-out
         self.bag_dca: dict[str, dict] = {}  # attente rachat plus bas
+        self.gbag_pending: dict[str, float] = {}  # ordres de rachat de souche armés (GBAG)
+        self.gbag_histo: dict[str, dict] = {}     # horodatage des évaluations GBAG
         self.pair_cash: dict[str, float] = {}  # USDT libre par paire (mise récupérée)
         self.tier_logged: set[str] = set()  # log une fois des exclusions tier B (boot)
         self.reentry: dict[str, dict] = {}
@@ -1876,6 +1890,8 @@ class PaperBot:
                 "positions": self.pos,
                 "bags": self.bags,
                 "bag_dca": self.bag_dca,
+                "gbag_pending": self.gbag_pending,
+                "gbag_histo": self.gbag_histo,
                 "conservation": self.conservation,
                 "pair_cash": self.pair_cash,
                 "reentry": self.reentry,
@@ -1958,6 +1974,8 @@ class PaperBot:
             self.pos = {k: v for k, v in pos.items()}
             self.bags = st.get("bags") or {}
             self.bag_dca = st.get("bag_dca") or {}
+            self.gbag_pending = st.get("gbag_pending") or {}
+            self.gbag_histo = st.get("gbag_histo") or {}
             self.conservation = st.get("conservation") or {}
             self.pair_cash = st.get("pair_cash") or {}
             self.reentry = st.get("reentry") or {}
@@ -2169,7 +2187,11 @@ class PaperBot:
                 sc.get("cadence_pct"), f"{self.aspiration_degraded_reason}:NO_NEW_ENTRIES",
             )
             return
-        if pair in self.pos or pair in self.bags:
+        # GBAG (10/10/2026) : un BAG hérité (ex. dca_rebuy QNT) ne bloque pas l'ENTRÉE
+        # tradable du mode GBAG — souche et tradable sont deux poches distinctes
+        # (sell_trade ne touche JAMAIS le bag). Partout ailleurs : strict historique.
+        _gbag_paire = self.gbag_on and pair in self.gbag_pairs
+        if pair in self.pos or (pair in self.bags and not _gbag_paire):
             return
         regime = sc.get("regime", "")
         # Kill-switch global : veille muette → pas de nouvel achat (l'existant est géré)
@@ -2379,7 +2401,7 @@ class PaperBot:
         # ignore : elle n'est JAMAIS vendue par une règle → « on ne perd plus le bag ».
         # Le reste (tradable) suit les paliers/trailing calés sur amp7 (manage_open).
         _amp_now = float(sc.get("amp7_pct") or 0.0)
-        if self.bag_trend_on and _amp_now >= self.bag_trend_amp_min:
+        if (not _gbag_paire) and self.bag_trend_on and _amp_now >= self.bag_trend_amp_min:
             _tr = sc.get("trend_label") or "neutre"
             if _tr == "haussier":
                 _core_frac = self.bt_up_core
@@ -2752,13 +2774,6 @@ class PaperBot:
         )
         del self.bag_dca[pair]
 
-    def _impact_tag(self, tag_imp: str, age_avant_s: float | None = None) -> str:
-        """Tag additif en FIN de motif : mesuré AVANT l'impact dans le _prix_impact_av qui
-        l'appelle. Aucune décision, aucun seuil, aucun prix inventé."""
-        if not tag_imp or tag_imp.startswith("_impact_"):
-            return tag_imp
-        return tag_imp + "_impact_av0s_ap0s"
-
     def _prix_impact_av(self, pair: str) -> tuple[str, float | None, float]:
         """GO 2 : rafraîchit le prix AVANT de décider la sortie.
 
@@ -2811,6 +2826,134 @@ class PaperBot:
         _ap = _PRICE_TS.get(pair)
         age_apres = max(0.0, time.time() - _ap) if _ap else -1.0
         return p, age_avant, age_apres
+
+    # === GBAG (10/10/2026, GO Christophe) : mode par paire « spec G + souche » ===
+    # SPÉC FIGÉE, mesurée AVANT câblage (chiffrage_bag_amplitude.py) :
+    #   décisions sur les CLÔTURES 1 h uniquement ;
+    #   entrée si close > SMA24 ET > plus-haut des 24 clôtures ET > SMA240 ;
+    #   pyramide : +1 tranche (même taille que la 1re) à chaque +8 % au-dessus du
+    #   dernier ajout, 3 tranches max ;
+    #   sortie totale du TRADABLE dès une clôture < SMA24 → ordre de rachat posé à
+    #   0,5×amp7 sous le prix de sortie ;
+    #   rachat : une clôture ≤ niveau → TOUT le cash de la paire est converti en
+    #   SOUCHE (kind=core) JAMAIS vendue ; sinon l'ordre RESTE armé (mesuré).
+    # Écarts DÉCLARÉS : décision à la clôture mais exécution au prix courant ;
+    # amp7 = range journalier médian des 7 derniers jours UTC complets (la mesure
+    # groupait par blocs de 24 bougies) ; plancher poussière 1 $ (lot filter MEXC).
+    def _gbag_amp7(self, kl_fermes: list):
+        """amp7 = range journalier (maxH−minL)/minL MÉDIAN des 7 derniers jours UTC
+        COMPLETS (walk-forward : aucun jour postérieur à la bougie d'action).
+        < 7 jours mesurés → None → on ne décide pas (règle #8)."""
+        if not kl_fermes:
+            return None
+        jours: dict[int, list[float]] = {}
+        for b in kl_fermes:
+            j = int(b[0]) // 86_400_000
+            hi, lo = float(b[2]), float(b[3])
+            d = jours.setdefault(j, [hi, lo])
+            d[0] = max(d[0], hi)
+            d[1] = min(d[1], lo)
+        jour_act = int(kl_fermes[-1][0]) // 86_400_000
+        cles = sorted(k for k in jours if k < jour_act)
+        if len(cles) < 7:
+            return None
+        ranges = sorted((jours[k][0] - jours[k][1]) / jours[k][1] * 100.0
+                        for k in cles[-7:])
+        return ranges[len(ranges) // 2]  # médiane (7 valeurs → la 4e)
+
+    def _gbag_souche(self, pair: str, q: float, price: float):
+        """Parque q jetons en SOUCHE (kind=core) — JAMAIS vendue par aucune règle."""
+        if q <= 0:
+            return
+        b = self.bags.get(pair)
+        if b:
+            anc = float(b.get("qty") or 0)
+            ent = float(b.get("entry") or price)
+            b["qty"] = anc + q
+            b["entry"] = ((ent * anc) + price * q) / (anc + q) if (anc + q) > 0 else price
+            b["kind"] = "core"
+            b["note"] = f"{b.get('note') or ''}+gbag_souche"
+        else:
+            self.bags[pair] = {"entry": price, "qty": q, "ts": utc_now(),
+                               "note": "gbag_souche", "kind": "core", "high": price}
+        self.log(pair, "GBAG_SOUCHE", "", price, price, q, 0.0, None,
+                 "gbag_souche_jamais_vendue")
+
+    def _gbag_cycle(self, pair: str, price: float, sc: dict):
+        """Un passage GBAG par clôture 1 h FERMÉE (évalué au plus toutes les
+        gbag_check_sec s, latence ≤ 5 min après la clôture — déclarée)."""
+        h = self.gbag_histo.setdefault(pair, {})
+        now = time.time()
+        if now < float(h.get("next_check") or 0):
+            return
+        h["next_check"] = now + self.gbag_check_sec
+        kl = klines(pair, "60m", 320)
+        if not kl or len(kl) < self.gbag_sma_gate + 30:
+            return  # mesure insuffisante → on ne décide pas (règle #8)
+        if h.get("last_bar") == int(kl[-1][0]):
+            return  # aucune nouvelle clôture depuis le dernier passage
+        h["last_bar"] = int(kl[-1][0])
+        fermes = kl[:-1]                       # la dernière bougie est EN COURS
+        _o, _H, _L, C = _ohlc(fermes)
+        if len(C) < self.gbag_sma_gate + 25:
+            return
+        c = C[-1]                              # la DÉCISION = la clôture
+        n_e, n_g = self.gbag_sma_e, self.gbag_sma_gate
+        s_e = sum(C[-n_e:]) / n_e
+        s_g = sum(C[-n_g:]) / n_g
+        hh24 = max(C[-25:-1])
+        amp7 = self._gbag_amp7(fermes)
+        regime = (sc or {}).get("regime", "")
+        cad = (sc or {}).get("cadence_pct")
+        p = self.pos.get(pair)
+        if p is not None:
+            # PYRAMIDE : +1 tranche à chaque +gag_add_step du dernier ajout (3 max)
+            tr = int(p.get("gbag_tranches") or 1)
+            last_add = float(p.get("gbag_last_add") or 0)
+            if tr < 3 and last_add > 0 and c >= last_add * (1.0 + self.gbag_add_step):
+                step, _mn = self.lot_filter(pair)
+                q = self._floor_step(
+                    float(p.get("gbag_tranche_usdt") or 0) / price, step)
+                if q * price >= 1.0:
+                    p["qty"] = float(p["qty"]) + q
+                    p["qty_init"] = float(p.get("qty_init") or 0) + q
+                    p["gbag_tranches"] = tr + 1
+                    p["gbag_last_add"] = c
+                    self.log(pair, "GBAG_PYRAMIDE", regime, price, price, q, 0.0, cad,
+                             f"gbag_tranche{tr + 1}_add{self.gbag_add_step:g}")
+            # SORTIE TOTALE du tradable dès une clôture < SMA24
+            if c < s_e:
+                proceeds = self.sell_trade(pair, price, "gbag_sortie_sma24")
+                self.add_pair_cash(pair, proceeds)
+                if amp7:
+                    self.gbag_pending[pair] = c * (1.0 - self.gbag_rebuy_frac * amp7 / 100.0)
+                say("gbag", f"[{utc_now()}] GBAG SORTIE {pair} clôture {c:.6g} < SMA{n_e}"
+                           f" → cash {proceeds:.2f} $" +
+                           (f" · rachat armé à {self.gbag_pending[pair]:.6g}"
+                            f" ({self.gbag_rebuy_frac:g}×amp7={amp7:.1f} %)" if amp7 else
+                            " · pas de rachat (amp7 non mesurée, règle #8)"))
+        else:
+            # ENTRÉE : cassure (close > SMA24 ET > plus-haut 24 clôt. ET > SMA240)
+            if c > s_e and c > hh24 and c > s_g:
+                prise = self.current_notional() / 3.0   # 1re tranche = mise/3 (spec)
+                self.buy(pair, price, sc, "gbag_entree_sgn", notion=prise)
+                p = self.pos.get(pair)
+                if p is not None:
+                    p["gbag_tranches"] = 1
+                    p["gbag_last_add"] = c
+                    p["gbag_tranche_usdt"] = float(p.get("stake") or prise)
+        # RACHAT SOUCHE : creux touché → TOUT le cash de la paire converti
+        pend = self.gbag_pending.get(pair)
+        if pend is not None and c <= pend:
+            pris = self.take_pair_cash(pair)
+            if pris >= 1.0:
+                step, _mn = self.lot_filter(pair)
+                q = self._floor_step(pris / price, step)
+                self._gbag_souche(pair, q, price)
+                self.gbag_pending.pop(pair, None)
+                say("gbag", f"[{utc_now()}] GBAG SOUCHE {pair} +{q:.6g} jetons @ {price:.6g}"
+                           f" ({pris:.2f} $ ≤ {pend:.6g}) — JAMAIS vendue")
+            # cash insuffisant → l'ordre RESTE armé (comportement mesuré)
 
     def _manage_trend_open(self, pair: str, price: float, sc: dict):
         """Position TREND-BAG (08/10/2026, GO Christophe) — mesurée avant câblage.
@@ -2934,16 +3077,16 @@ class PaperBot:
                     min_q = step if step else 0.0
                     if rem_qty < min_q or rem_val < self.dust_sweep_min_notional:
                         proceeds = self.sell_trade(pair, price,
-                                                   f"dust_sweep_stop_guard_{pair}_stop{p['stop']}%{self._impact_tag(pair, _tag_imp)}")
-                    guard_tag = "DUST_SWEEP"
+                                                   f"dust_sweep_stop_guard_{pair}_stop{p['stop']}%{_tag_imp}")
+                        guard_tag = "DUST_SWEEP"
+                    else:
+                        proceeds = self.sell_trade(pair, price, f"stop-{p['stop']}%_guard_partial_50{_tag_imp}", qty=part_qty)
+                        guard_tag = "SELL_PARTIAL"
+                    self.add_pair_cash(pair, proceeds)
+                    p["guard_last"] = guard_tag
                 else:
-                    proceeds = self.sell_trade(pair, price, f"stop-{p['stop']}%{self._impact_tag(_tag_imp)}", qty=part_qty)
-                    guard_tag = "SELL_PARTIAL"
-                self.add_pair_cash(pair, proceeds)
-                p["guard_last"] = guard_tag
-            else:
-                proceeds = self.sell_trade(pair, price, f"stop-{p['stop']}%{self._impact_tag(pair, _tag_imp)}")
-                self.add_pair_cash(pair, proceeds)
+                    proceeds = self.sell_trade(pair, price, f"stop-{p['stop']}%_avant_2x{_tag_imp}")
+                    self.add_pair_cash(pair, proceeds)
                 return
             # trailing : armé quand le pic ≥ arm, sortie si le prix redonne
             # giveback sous le pic (pattern HUNTER : sélectif, laisse courir).
@@ -2986,16 +3129,16 @@ class PaperBot:
                     min_q = step if step else 0.0
                     if rem_qty < min_q or rem_val < self.dust_sweep_min_notional:
                         proceeds = self.sell_trade(pair, price,
-                                                   f"dust_sweep_stop_guard_{pair}_stop{p['stop']}%{self._impact_tag(pair, _tag_imp)}")
-                    guard_tag = "DUST_SWEEP"
+                                                   f"dust_sweep_stop_guard_{pair}_stop{p['stop']}%{_tag_imp}")
+                        guard_tag = "DUST_SWEEP"
+                    else:
+                        proceeds = self.sell_trade(pair, price, f"stop-{p['stop']}%_guard_partial_50{_tag_imp}", qty=part_qty)
+                        guard_tag = "SELL_PARTIAL"
+                    self.add_pair_cash(pair, proceeds)
+                    p["guard_last"] = guard_tag
                 else:
-                    proceeds = self.sell_trade(pair, price, f"stop-{p['stop']}%{self._impact_tag(_tag_imp)}", qty=part_qty)
-                    guard_tag = "SELL_PARTIAL"
-                self.add_pair_cash(pair, proceeds)
-                p["guard_last"] = guard_tag
-            else:
-                proceeds = self.sell_trade(pair, price, f"stop-{p['stop']}%{self._impact_tag(pair, _tag_imp)}")
-                self.add_pair_cash(pair, proceeds)
+                    proceeds = self.sell_trade(pair, price, f"stop-{p['stop']}%_avant_2x{_tag_imp}")
+                    self.add_pair_cash(pair, proceeds)
                 return
 
             # 16/08 soir (Christophe) : RIP scale-out 2 paliers — « une pierre trois coups »
@@ -3300,6 +3443,15 @@ class PaperBot:
         # Bloque toute entrée/ré-entry/bag/seed (l'erreur corrigée : elles étaient
         # devenues tradées via PAPER_PAIRS). Les données de contexte sont bien capturées.
         if pair in self.observe_only:
+            return
+        # GBAG (10/10/2026, GO Christophe) : mode par paire « spec G + souche » —
+        # il REMPLACE entrée/gestion sur ses paires déclarées ; ailleurs, strict
+        # comportement historique. Réversible : GBAG_ON=0.
+        if self.gbag_on and pair in self.gbag_pairs:
+            try:
+                self._gbag_cycle(pair, price, sc)
+            except Exception as e:
+                say("err", f"[{utc_now()}] GBAG_ERR {pair}: {e}")
             return
         if sc.get("peak6"):
             sc["dd6_pct"] = round((1.0 - price / sc["peak6"]) * 100.0, 2)
