@@ -394,6 +394,37 @@ attente de GO).
 **Mesure (R22)** : **0 trou** de couverture. Autotest `couverture_erreurs.py --autotest` = **7/7**
 (il SAIT dire NON : classe non déclarée, organe absent, organe jamais cité, rapport manquant).
 
+### R23 — TOUTE IA QUI ŒUVRE SE DÉCLARE (ORDRE Christophe, 10/10/2026 — rétablissement)
+> Mot pour mot : « retablir la regle de declarer quel ia va oeuvrer. »
+
+**En une phrase** : avant sa première écriture de la session, l'IA qui va travailler **DÉCLARE
+son identité réelle** (persona + modèle + client), son **périmètre**, et le **GO** reçu — dans
+`strategie/DECLARATIONS_IA.jsonl` (append-only) **et** sur la ligne MEMOIRE_COLLAB de ses actes.
+
+**Pourquoi (le cas qui la fait rétablir)** : le 09/10/2026 l'après-midi (actes 12:12Z → 13:32Z,
+travaux faits avec DeepSeek) : `oracle_independant.py` et `paper_diprip.py` modifiés, registre
+re-scellé — mais **aucune déclaration d'IA, aucune ligne MEMOIRE_COLLAB** pour ces actes, et la
+signature « Buffy » du matin masquait **qui** avait réellement œuvré. Quand les erreurs sont
+remontées (« plein d'erreurs »), impossible de savoir quelle IA avait fait quoi : le registre
+sait *ce qui* a échoué, plus *qui* doit apprendre de l'erreur. C'est exactement ce que la colonne
+« qui » de la mémoire était censée porter.
+
+**Mécanique** :
+1. **1ʳêre écriture de la session = la déclaration** : `{ts, ia, modele, client, perimetre, go}`
+   dans `strategie/DECLARATIONS_IA.jsonl` (**append-only**, jamais réécrit).
+2. **Chaque ligne MEMOIRE_COLLAB nomme l'IA réelle** : la colonne « qui » porte l'identité
+   déclarée (persona + modèle), pas un nom collectif interchangeable.
+3. **Chaque motif de pré-déclaration (R20.1) porte `IA=<identité>`** — on ne devine pas l'auteur
+   d'un acte à partir du fichier touché.
+4. Un acte écrit **sans** déclaration est un **défaut d'ordre** : nommé, daté, radié en dette
+   constatée (comme les autres) — jamais effacé, jamais couvert après coup.
+
+**Mesure (R23)** : toute écriture postérieure au 10/10/2026 dont l'identité n'apparaît ni dans
+`DECLARATIONS_IA.jsonl` ni dans la ligne MEMOIRE_COLLAB correspondante = **déclaration manquante**
+(comptée, pas supposée). **Limite déclarée (R8)** : c'est une trace **volontaire** — elle prouve
+qui s'est déclaré, pas qui a physiquement tapé ; la garde mécanique (contrôleur branché sur la
+cadence) est un **chantier à GO** séparé.
+
 ### Amélioration de #3 — DOUBLE CONTRÔLE pour toute action irréversible
 > Source externe : **two-person rule / dual control** (https://en.wikipedia.org/wiki/Two-person_rule).
 

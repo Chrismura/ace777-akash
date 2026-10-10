@@ -1,5 +1,5 @@
 {
-  "ts": "2026-10-10T06:42:51+00:00",
+  "ts": "2026-10-10T06:49:55+00:00",
   "note": "Verdicts MESURÉS à la source (scripts/verdicts_protocoles.py). Chaque protocole porte son critère pré-enregistré : c'est lui qui décide, pas l'impression du moment. Un verdict « IMPOSSIBLE » ou une ligne « alerte » signale un protocole dont le verdict ne peut pas être rendu — c'est une panne de conception, pas une patience.",
   "protocoles": [
     {
@@ -265,7 +265,7 @@
     {
       "protocole": "Radar XRPL gouvernance",
       "critere": "J8 pré-enregistré : (a) ≥ 5 amendements dont le compteur bouge de ≥ 2 votes, OU (b) ≥ 1 activation, OU (c) ≥ 1 amendement mort ; sinon échec",
-      "faits": "526 snapshots · 113 amendements suivis · (a) 4 bougent de ≥ 2 (il en fallait 5) · (b) 3 activation · (c) 0 mort · 3 nouveau(x)",
+      "faits": "527 snapshots · 113 amendements suivis · (a) 4 bougent de ≥ 2 (il en fallait 5) · (b) 3 activation · (c) 0 mort · 3 nouveau(x)",
       "verdict": "SUCCES (critère atteint)",
       "alerte": "",
       "detail": [
@@ -290,15 +290,15 @@
           "delta_votes": -1
         },
         {
+          "amendement": "Batch",
+          "delta_votes": 0
+        },
+        {
+          "amendement": "fixBatchInnerSigs",
+          "delta_votes": 0
+        },
+        {
           "amendement": "Sponsor",
-          "delta_votes": 0
-        },
-        {
-          "amendement": "fixXChainRewardRounding",
-          "delta_votes": 0
-        },
-        {
-          "amendement": "PermissionDelegation",
           "delta_votes": 0
         }
       ]
@@ -306,7 +306,7 @@
     {
       "protocole": "Arbitrage LLM-vs-règle (Cortana)",
       "critere": "la règle maison : < 60 % de justesse micro → confiance faible + 1 alerte/h max. Verdict annoncé 27/09",
-      "faits": "0 alerte(s) microstructure au journal · 0 notée(s) par le juge indépendant · justesse n/d · avis directionnels de Cortana (toutes matières) : 60/106 = 56.6 %",
+      "faits": "0 alerte(s) microstructure au journal · 0 notée(s) par le juge indépendant · justesse n/d · avis directionnels de Cortana (toutes matières) : 62/108 = 57.4 %",
       "verdict": "IMPOSSIBLE (0 cas à juger)",
       "alerte": "le verdict du 27/09 ne pourra PAS être rendu : 0 alerte(s) en 7 jours → 0 cas. Le producteur d'alertes (module microstructure) n'a rien écrit depuis le 09/09 (data/micro_alerts.jsonl = 0 octet) — il faut trancher : module mort, ou rien à alerter ?",
       "detail": [
@@ -326,7 +326,7 @@
           "indice": "btc",
           "directionnels": 1,
           "corect": null,
-          "n": 14
+          "n": 15
         },
         {
           "indice": "chg24",
@@ -336,9 +336,9 @@
         },
         {
           "indice": "croisements",
-          "directionnels": 21,
-          "corect": 14,
-          "n": 55
+          "directionnels": 23,
+          "corect": 16,
+          "n": 57
         },
         {
           "indice": "etfBtcM",
@@ -350,13 +350,13 @@
           "indice": "fearGreed",
           "directionnels": 37,
           "corect": 21,
-          "n": 83
+          "n": 84
         },
         {
           "indice": "geopol",
           "directionnels": 5,
           "corect": 1,
-          "n": 42
+          "n": 43
         },
         {
           "indice": "gexPutCall",
@@ -375,17 +375,17 @@
     {
       "protocole": "Geopol (réanimé)",
       "critere": "GEOPOL-C2/C3 : avis geopol noté vs BTC 2×/jour, fenêtre 4 semaines (→ ~10/10), critère P3 ≥ 56 %",
-      "faits": "score actuel 0.3438 « calme » (ML 0.1522) · 42 avis enregistrés dont 5 directionnels (1 correct(s)) · 37 NEUTRE",
+      "faits": "score actuel 0.3438 « calme » (ML 0.1522) · 43 avis enregistrés dont 5 directionnels (1 correct(s)) · 38 NEUTRE",
       "verdict": "EN ATTENTE (fenêtre jusqu'au ~10/10)",
       "alerte": "1 avis correct sur 5 directionnels : à cette cadence le critère ne sera pas tranchable dans la fenêtre",
       "detail": [
         {
           "indice": "geopol",
-          "n": 42,
+          "n": 43,
           "directionnels": 5,
           "corrects": 1,
-          "neutres": 37,
-          "t_stat": -4.01
+          "neutres": 38,
+          "t_stat": -4.12
         }
       ]
     },
