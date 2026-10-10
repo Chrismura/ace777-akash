@@ -147,6 +147,7 @@ Intégration cockpit (2 lignes dans index.html) · passage au réel · cumul des
 
 | ts | Qui | Action | Où | Quoi |
 | 2026-10-09T1341Z | Buffy | ⚠ | Index_Maison/scripts | DEFAUT D'ORDRE (classe E22, 3e recidive du jour) : 2 fichiers NEUFS inscrits au registre a 11:31:51Z SANS pre-declaration anterieure (38 s apres avoir pourtant pre-declare le registre). Aucun scelle altere, fichiers neufs. RADIE en dette constatee sur decision Christophe (predemodifier.py::DETTE_CONSTATEE + §15.9), jamais efface. Drill repasse READY. 0 ordre, 0 EUR |
+| 2026-10-10T1901Z | journal_soir | ★ | journal | snapshot soir auto |
 | 2026-10-09T1853Z | journal_soir | ★ | journal | snapshot soir auto |
 | 2026-10-09T1340Z | Buffy | ★ | hulk-mexc/scripts/paper_diprip.py | GO1-4 COMPLET (oracle OUBLIE la cible de l'impact AVANT lever le stop). Tag _impact_avNN... presente dans TOUS les motifs de sortie (dust_sweep/guard_partial/avant_2x). Oracle sur 10j : brut +0,75$ = brut recalculé (ecart 0,0000$, journal fidele) -> NET -1,33$ apres frais estimes 2,09$. 31/43 trades (72%) toujours SANS niveau stop ecrit (trailing/dust-sweep non journalises) -> oracle ne peut pas juger ces stops. --verifier OK. |
 | 2026-10-09T1336Z | Buffy | ★ | hulk-mexc | Garde relance testée : STOP_PAPER→sortie 10s→rm→watchdog 120s→relance. pid 77364 resté (pas de nouveau run). /runs/PAPER_V1_*.csv disparu (dossier vide). Conséquence directe : l'oracle ne peut pas tourner sur un nouveau run hors cache. Ordre : relancer proprement, puis exécuter l'oracle sur le run courant (110933). |
