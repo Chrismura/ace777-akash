@@ -1,27 +1,6 @@
 {
   "signals": [
     {
-      "metric": "ipt",
-      "zscore": 2.057605873974617,
-      "value": 1.06,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.06) due au bruit lexical (sigle 'IPT' partagé avec des actualités académiques et institutionnelles). Aucune baleine crypto détectée, le narratif médiatique est totalement déconnecté du secteur Web3.\"\n}\n```",
-      "ts": "2026-10-08T14:30:10.397485+00:00"
-    },
-    {
-      "metric": "price_1h",
-      "zscore": 3.3269653243300272,
-      "value": 0.6027443930364917,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de prix significative (z-score 3.33) en l'absence totale de couverture médiatique. Les baleines accumulent dans le silence, loin du bruit de détail.\"\n}\n```",
-      "ts": "2026-10-08T14:50:15.271567+00:00"
-    },
-    {
-      "metric": "price_1h",
-      "zscore": 4.966429397273105,
-      "value": 0.8684836666515539,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement élevé (4.97) pour une variation sur 1h, combiné à un silence médiatique absolu (Google Actualités vide). C'est la signature classique d'une accumulation furtive de baleines avant une cassure de prix.\"\n}\n```",
-      "ts": "2026-10-08T15:20:19.588601+00:00"
-    },
-    {
       "metric": "price_1h",
       "zscore": 5.4477109992091,
       "value": 1.5005336114764178,
@@ -349,6 +328,27 @@
       "value": 64,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le score Z élevé (2.21) couplé à un indice de cupidité modéré (64) et à un vide médiatique total ('Google Actualités' sans relais) indique une accumulation silencieuse des baleines loin du bruit de détail, créant un déséquilibre pré-explosif.\"\n}\n```",
       "ts": "2026-10-10T04:12:59.092164+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 2.0582428516488607,
+      "value": 64,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Indice de peur et de cupidité à 64 (optimisme modéré) sans signal médiatique flagrant. Pas de divergence anormale détectée pour affirmer un mouvement silencieux des baleines.\"\n}\n```",
+      "ts": "2026-10-10T04:43:06.124617+00:00"
+    },
+    {
+      "metric": "taker_ratio",
+      "zscore": 2.397646445400997,
+      "value": 1.702,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Taker ratio à 1.702 (z-score 2.40) indique une forte agression acheteuse par les gros porteurs, contrastant totalement avec le silence médiatique (absence de FOMO public). Accumulation invisible en cours.\"\n}\n```",
+      "ts": "2026-10-10T06:08:23.725915+00:00"
+    },
+    {
+      "metric": "taker_ratio",
+      "zscore": 2.2558238267956883,
+      "value": 1.702,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio à 1.702 (z-score 2.26) indique une forte agression acheteuse onchain de la part des acteurs majeurs. Le silence médiatique (absence de FOMO public) confirme une accumulation furtive des baleines loin des radars du grand public.\"\n}\n```",
+      "ts": "2026-10-10T06:38:30.538685+00:00"
     }
   ]
 }
