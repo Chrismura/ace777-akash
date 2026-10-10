@@ -7031,3 +7031,11 @@ Pas d’ordre — confrontation plus tard.
 ### 2026-10-10T17:44:57Z — ALERT auto
 - QNTUSDT: WATCH_PULLBACK — tension haute + reflux
 (compléter: confirmé ? risque ?)
+
+### 2026-10-10T18:23:03Z — ALERT auto
+- WUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
+
+### 2026-10-10T18:52:22Z — ALERT auto
+- QNTUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)

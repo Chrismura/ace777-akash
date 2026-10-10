@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "liquidations",
-      "zscore": 2.4320671133833582,
-      "value": 5025435.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Panique médiatique surévaluée : les médias grand public amplifient des liquidations massives (1,1 Md$) et des transferts d'exchange, alors que l'anomalie on-chain montre des volumes réels de liquidation modérés (5 M$). Divergence classique de capitulation retail masquant une accumulation silencieuse par les baleines.\"\n}\n```",
-      "ts": "2026-10-09T13:04:42.013717+00:00"
-    },
-    {
-      "metric": "liquidations",
-      "zscore": 2.247574139876077,
-      "value": 5024258.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Panique médiatique sur-amplifiée (chiffres fantômes de 1,1 Md$ vs 5M$ réels on-chain). Les gros porteurs absorbent les liquidations des traders paniqués dans le silence.\"\n}\n```",
-      "ts": "2026-10-09T13:34:48.959202+00:00"
-    },
-    {
       "metric": "whale_usd",
       "zscore": 12.761477168369137,
       "value": 12899997.0,
@@ -349,6 +335,20 @@
       "value": 3715156868.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique de volume (z-score -2.05) sans corrélation avec les titres médiatiques (bruit sémantique lié au mot 'volume' dans d'autres contextes). Aucune baleine détectée.\"\n}\n```",
       "ts": "2026-10-10T17:41:07.515933+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 2.2888727652141325,
+      "value": 3568203.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le bruit médiatique se focalise sur des liquidations traditionnelles locales et du FUD rétrospectif sur le Bitcoin, tandis que le z-score on-chain (2.29) révèle un flush-out ciblé des positions longues sur les altcoins. C'est un classique 'bear trap' institutionnel : les baleines nettoient le levier excessif des 'retail' dans l'indifférence générale avant une reprise.\"\n}\n```",
+      "ts": "2026-10-10T18:01:11.526827+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 2.1233126069116457,
+      "value": 3566316.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 78,\n  \"reason\": \"Le z-score des liquidations (2.12) signale un flush des positions à effet de levier excessif, tandis que le narratif médiatique grand public se focalise sur la peur du passé et des faillites d'entreprises locales hors-sujet. Classique purge de détail pour accumulation institutionnelle silencieuse.\"\n}\n```",
+      "ts": "2026-10-10T18:31:17.948455+00:00"
     }
   ]
 }
