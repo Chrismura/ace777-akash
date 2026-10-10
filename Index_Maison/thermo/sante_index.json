@@ -1,18 +1,16 @@
 {
-  "ts": "2026-10-10T12:55+00:00",
-  "updated": "2026-10-10T12:55Z",
-  "etat": "ALERTE",
-  "chaines_ok": "14/15",
-  "anomalies": [
-    "BALEINES coupée : scan file"
-  ],
+  "ts": "2026-10-10T13:40+00:00",
+  "updated": "2026-10-10T13:40Z",
+  "etat": "OK",
+  "chaines_ok": "15/15",
+  "anomalies": [],
   "degradees": [],
   "chaines": [
     {
       "id": "baleines",
       "nom": "BALEINES",
       "chemin": "scan → pont → live.json.onchain → Ada + Cortana",
-      "ok": false,
+      "ok": true,
       "maillons": [
         {
           "nom": "scan (launchd whales)",
@@ -26,13 +24,13 @@
         },
         {
           "nom": "scan file",
-          "ok": false,
-          "detail": "âge 36 min"
+          "ok": true,
+          "detail": "âge 1 min"
         },
         {
           "nom": "mouvements (events)",
           "ok": true,
-          "detail": "dernier événement il y a 36 min"
+          "detail": "dernier événement il y a 1 min"
         },
         {
           "nom": "→ live.json.onchain",
@@ -42,12 +40,12 @@
         {
           "nom": "→ Ada gardienne",
           "ok": true,
-          "detail": "voilure 89.2 · zone VERT"
+          "detail": "voilure 89.8 · zone VERT"
         },
         {
           "nom": "→ Cortana feed",
           "ok": true,
-          "detail": "âge 2 min"
+          "detail": "âge 12 min"
         }
       ]
     },
@@ -65,7 +63,7 @@
         {
           "nom": "deriv_corr.json",
           "ok": true,
-          "detail": "âge 3 min"
+          "detail": "âge 8 min"
         }
       ]
     },
@@ -83,7 +81,7 @@
         {
           "nom": "aspiration runtime",
           "ok": true,
-          "detail": "mode fichier · JSON · âge ts 0.2 min · écart mtime/ts 2.3s · 22 paire(s) · btc=OK · ts=croissant · passe 25.0s · marge 20.0s sous le budget 45s du moteur"
+          "detail": "mode fichier · JSON · âge ts 0.4 min · écart mtime/ts 2.2s · 22 paire(s) · btc=OK · ts=croissant · passe 21.5s · marge 23.5s sous le budget 45s du moteur"
         },
         {
           "nom": "corrélation BTC",
@@ -98,7 +96,7 @@
         {
           "nom": "cortana_pilot.json",
           "ok": true,
-          "detail": "âge 430 min"
+          "detail": "âge 475 min"
         },
         {
           "nom": "cortana_analysis.json",
@@ -144,7 +142,7 @@
         {
           "nom": "cpfp_detect.json",
           "ok": true,
-          "detail": "âge 7 min"
+          "detail": "âge 8 min"
         },
         {
           "nom": "mode",
@@ -185,7 +183,7 @@
         {
           "nom": "geopol.ts frais",
           "ok": true,
-          "detail": "âge 0.0h"
+          "detail": "âge 0.2h"
         },
         {
           "nom": "modules OK",
@@ -282,7 +280,7 @@
         {
           "nom": "rapport veille_degradation_etat.json",
           "ok": true,
-          "detail": "SAIN · âge 0 min"
+          "detail": "SAIN · âge 1 min"
         },
         {
           "nom": "Dead Man's Switch (dms-veille)",
@@ -333,7 +331,7 @@
         {
           "nom": "croisement_externe_etat.json",
           "ok": true,
-          "detail": "âge 13 min"
+          "detail": "âge 28 min"
         },
         {
           "nom": "fails prix (> 5 % vs externe)",
@@ -343,7 +341,7 @@
         {
           "nom": "warns murs (info)",
           "ok": true,
-          "detail": "1 warn(s) carnet déséquilibré (info)"
+          "detail": "2 warn(s) carnet déséquilibré (info)"
         }
       ]
     },
@@ -356,12 +354,12 @@
         {
           "nom": "sdi_latest.json (SAPI dedans)",
           "ok": true,
-          "detail": "âge 2 min"
+          "detail": "âge 12 min"
         },
         {
           "nom": "SAPI calculé",
           "ok": true,
-          "detail": "score 0.519"
+          "detail": "score 0.332"
         },
         {
           "nom": "alerte poussière (≥ 0.75 + volume)",
@@ -379,7 +377,7 @@
         {
           "nom": "essaim_etat.json",
           "ok": true,
-          "detail": "âge 9 min"
+          "detail": "âge 24 min"
         },
         {
           "nom": "veille d'essaim active",
