@@ -1,62 +1,6 @@
 {
   "signals": [
     {
-      "metric": "liquidations",
-      "zscore": 7.718561600320724,
-      "value": 11270287.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Panique médiatique excessive ('550M$ liquidés') alors que l'anomalie on-chain montre des liquidations réelles faibles (11,2M$, z-score 7.72 trompeur par effet de seuil). Les baleines nettoient le leverage excessif des petits porteurs pour accumuler en sous-marin.\"\n}\n```",
-      "ts": "2026-10-08T11:14:13.130330+00:00"
-    },
-    {
-      "metric": "cpfp",
-      "zscore": 2.0789369671107836,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Anomalie technique pure (frais de transaction/CPFP élevé sur Bitcoin) sans corrélation avec les actualités médias, principalement polluées par des homonymes géographiques et politiques.\"\n}\n```",
-      "ts": "2026-10-08T11:19:15.927901+00:00"
-    },
-    {
-      "metric": "dust",
-      "zscore": 2.0789369671107836,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique mineure (z-score 2.08) entièrement noyée dans du bruit sémantique non lié à la crypto (cinéma, événements culturels). Aucune activité significative de baleines détectée.\"\n}\n```",
-      "ts": "2026-10-08T11:19:17.563183+00:00"
-    },
-    {
-      "metric": "liquidations",
-      "zscore": 5.388782831521625,
-      "value": 11267316.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Panique médiatique excessive (550M$ de liquidations globales) sur-amplifiée par des bruits de fond judiciaires hors-crypto, alors que le z-score on-chain modéré (5.39) pour 11.2M$ montre un flush technique sain des positions à effet de levier. Les baleines absorbent la liquidité en sous-marin.\"\n}\n```",
-      "ts": "2026-10-08T11:44:26.356781+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.3995854792049722,
-      "value": 1.14,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (IPT) totalement non-pertinente pour la crypto. Les 'actualités' concernent l'École polytechnique, des sujets sociétaux et de la macro-économie, sans lien avec un actif numérique. Bruit de fond médiatique, aucune baleine crypto détectée.\"\n}\n```",
-      "ts": "2026-10-08T12:09:35.687614+00:00"
-    },
-    {
-      "metric": "liquidations",
-      "zscore": 4.340425259352084,
-      "value": 11410509.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Panique médiatique excessive (547M$ liquidés, gros titres alarmistes) alors que le z-score on-chain modéré (4.34) et le volume réel de liquidations ciblées (11.4M$) révèlent un flush des positions acheteuses surendettées par les baleines, créant un point d'entrée optimal masqué par le bruit médiatique.\"\n}\n```",
-      "ts": "2026-10-08T12:14:38.139244+00:00"
-    },
-    {
-      "metric": "liquidations",
-      "zscore": 3.5575262564761045,
-      "value": 11114476.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Panique médiatique extrême ('550M$ liquidés', 'chute sous 84k$') alors que le z-score on-chain (3.56) montre des liquidations modérées (11.1M$ sur l'échantillon sentinelle). Cette surmédiatisation d'un flush classique indique un 'shakeout' de détail orchestré. Les baleines absorbent la liquidité dans l'ombre pendant que la foule cède à la peur.\"\n}\n```",
-      "ts": "2026-10-08T12:44:43.585328+00:00"
-    },
-    {
-      "metric": "price_1h",
-      "zscore": 2.574988701065093,
-      "value": 0.4625862756012955,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.57) combiné à un silence médiatique absolu (Google Actualités vide). C'est la signature classique d'accumulation furtive par des baleines sous le radar du retail.\"\n}\n```",
-      "ts": "2026-10-08T14:20:04.313461+00:00"
-    },
-    {
       "metric": "ipt",
       "zscore": 2.057605873974617,
       "value": 1.06,
@@ -349,6 +293,62 @@
       "value": 64,
       "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement élevé (4.80) pour un Fear & Greed à 64 sans aucun relais médiatique majeur (Google Actualités vide). C'est le piège classique des baleines qui distribuent du liquidity aux 'retail' dans l'euphorie silencieuse avant un retournement.\"\n}\n```",
       "ts": "2026-10-10T01:07:18.867947+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 3.872983346207417,
+      "value": 64,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Données incomplètes (titres médiatiques vides). Le z-score élevé (3.87) indique une euphorie anormale du Fear & Greed, mais l'absence de données textuelles empêche de confirmer une divergence claire avec le narratif public.\"\n}\n```",
+      "ts": "2026-10-10T01:37:24.780391+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 3.316624790355402,
+      "value": 64,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Indice de peur et d'avarice élevé (64) sans signal de divergence onchain significatif détecté par les baleines. Le narratif médiatique est en phase avec le sentiment de marché modérément haussier, sans mouvement furtif majeur.\"\n}\n```",
+      "ts": "2026-10-10T02:07:31.901533+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 2.879292027677145,
+      "value": 64,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.88) indiquant une euphorie de détail (Greed 64) en l'absence totale de couverture médiatique de masse (Google Actualités vide). Divergence classique de distribution : les baleines liquident silencieusement sur la liquidité des suiveurs de tendance.\"\n}\n```",
+      "ts": "2026-10-10T02:42:40.241985+00:00"
+    },
+    {
+      "metric": "cpfp",
+      "zscore": 2.0340151894704106,
+      "value": 50.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit de fond médiatique sans rapport avec l'activité des baleines crypto (homonymie avec finances publiques et actualités locales).\"\n}\n```",
+      "ts": "2026-10-10T02:47:42.199975+00:00"
+    },
+    {
+      "metric": "dust",
+      "zscore": 2.0340151894704106,
+      "value": 50.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique non lié à la crypto (cinéma, musique, événements équestres et culturels). Aucune baleine détectée, simple bruit de fond sémantique sans pertinence onchain.\"\n}\n```",
+      "ts": "2026-10-10T02:47:43.863494+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 2.6045697886184147,
+      "value": 64,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Indice de peur et d'avarice modérément élevé (64) sans signal contradictoire fort dans le narratif médiatique vide. Données insuffisantes pour confirmer une accumulation ou une distribution silencieuse des baleines.\"\n}\n```",
+      "ts": "2026-10-10T03:12:48.058844+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 2.3869801881466572,
+      "value": 64,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Données médiatiques insuffisantes pour établir une divergence claire, malgré une avidité modérée (Fear & Greed à 64).\"\n}\n```",
+      "ts": "2026-10-10T03:42:54.090032+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 2.2085178333914737,
+      "value": 64,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le score Z élevé (2.21) couplé à un indice de cupidité modéré (64) et à un vide médiatique total ('Google Actualités' sans relais) indique une accumulation silencieuse des baleines loin du bruit de détail, créant un déséquilibre pré-explosif.\"\n}\n```",
+      "ts": "2026-10-10T04:12:59.092164+00:00"
     }
   ]
 }
