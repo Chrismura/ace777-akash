@@ -1,13 +1,13 @@
-# 🩺 DRILL DE RESTAURATION — ✅ **READY**
+# 🩺 DRILL DE RESTAURATION — 🔴 **TROU**
 
-> Testé le **2026-10-10T07:50Z** · mode **lecture seule** (rien installé, rien modifié).
+> Testé le **2026-10-10T08:44Z** · mode **lecture seule** (rien installé, rien modifié).
 > Question posée : *« si le Mac mourait ce soir, ACE777 reviendrait-il ? »*
 
 ## 1. Source — le repo (git) contient-il tout ?
-- Branche `main` · HEAD `51d9b74a3d` du 2026-10-10T09:44:42+02:00
-- Fichiers suivis modifiés sur disque : **76**
+- Branche `main` · HEAD `6461338236` du 2026-10-10T09:51:31+02:00
+- Fichiers suivis modifiés sur disque : **110**
 - Fichiers suivis **supprimés** (perdus) : **0**
-- Nouveaux fichiers non versionnés : 32038 au total, dont **9 sensibles** (scripts/plists/règles)
+- Nouveaux fichiers non versionnés : 32048 au total, dont **8 sensibles** (scripts/plists/règles)
   - `Index_Maison/scripts/CONSULTATION_FAMILLE_CORTANA_JUGE_CONTRE/AVIS_DEEPSEEK.md`
   - `Index_Maison/scripts/CONSULTATION_FAMILLE_CORTANA_JUGE_CONTRE/AVIS_GEMINI.md`
   - `Index_Maison/scripts/CONSULTATION_FAMILLE_CORTANA_JUGE_CONTRE/AVIS_JUGE.md`
@@ -16,10 +16,9 @@
   - `Index_Maison/scripts/CONSULTATION_FAMILLE_VEILLEUSE_20260815/AVIS_openrouter-ultra.md`
   - `Index_Maison/scripts/_archives_tronques_20260911/LISEZ_MOI.md`
   - `Index_Maison/scripts/_archives_tronques_20260911/PROD_SUPERVISEUR_GEMINI.py`
-  - `Index_Maison/scripts/gardien_declaration_ia.py`
 
 ### 1bis. Instruments de la boucle — ce que la boucle EXÉCUTE est-il versionné ?
-- Scripts/exécutables invoqués par un agent ou par `git_push_auto.sh` : **152**
+- Scripts/exécutables invoqués par un agent ou par `git_push_auto.sh` : **153**
 - ✅ **0 instrument hors git** — tout ce que la boucle exécute revient avec git.
 - Hors repo (volet « organes hors repo » ci-dessous) : 2
 
@@ -28,7 +27,7 @@
 - ✅ **0 agent hors repo** — tous reconstructibles.
 
 ## 3. Reconstruction dans un dossier neuf
-- Dossier : `/var/folders/y7/571v2gy574z72zvsgqd46wd40000gn/T/drill_restauration_rbk54jot/LaunchAgents`
+- Dossier : `/var/folders/y7/571v2gy574z72zvsgqd46wd40000gn/T/drill_restauration_29sanjw7/LaunchAgents`
 - Plists rebâtis + validés (`plutil -lint`) : **103/103**
 
 ## 4. Organes invoqués par les agents
@@ -45,13 +44,14 @@
   | `~/prise-ia` | `prise-ia` | surveille | ✅ miroir de sauvegarde (organes_hors_repo/prise-ia) |
   | `~/prise-ia/routeur_auto.py` | `routeur-auto` | argument | ✅ miroir de sauvegarde (organes_hors_repo/prise-ia) |
 
-  Manifeste des organes hors repo : `thermo/organes_hors_repo.json` (mis à jour 2026-10-10T07:43Z).
+  Manifeste des organes hors repo : `thermo/organes_hors_repo.json` (mis à jour 2026-10-10T07:50Z).
 
   Outillage système hors repo (4) — réinstallable (Homebrew/Xcode CLT), non bloquant : `/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/Resources/Python.app/Contents/MacOS/Python`, `/Library/Developer/CommandLineTools/usr/bin/python3`, `/opt/homebrew/bin/npm`, `/opt/homebrew/bin/uv`
 - ✅ Aucun chemin invoqué introuvable.
 
 ## 5. Scellés (registre des synapses ↔ repo)
-- Entrées md5 vérifiées : **170** · écarts : **0** · absents : **0**
+- Entrées md5 vérifiées : **170** · écarts : **1** · absents : **0**
+  - ⚠️ md5 différent : `Index_Maison/scripts/git_push_auto.sh`
 
 ## 5bis. Pré-déclarations (R20.1) — un scellé se touche ANNONCÉ
 - Déclarations au registre : **113** · règle active depuis `2026-09-23T15:30:00Z`
@@ -64,7 +64,8 @@
 - ✅ **0 trou** : chaque classe connue a une garde déclarée et branchée, ou est déclarée promesse/ouverture (jamais verte en silence).
 
 ## 7. Verdict
-- ✅ **READY** — le prototype est reconstructible depuis le repo.
+- 🔴 **1 trou(s) à combler :**
+  - 1 scellé(s) dont le md5 ne correspond plus
 
 ---
 *Rapport généré par `scripts/drill_restauration.py` (lecture seule). Relancer après toute modification d'organe : un drill, ça se répète.*

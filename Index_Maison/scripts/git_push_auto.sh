@@ -285,6 +285,17 @@ if [ -f "$REPO_DIR/Index_Maison/scripts/verif_empilement_jour.py" ]; then
     echo "[$(date -u +%Y-%m-%dT%H:%MZ)] ALERTE : renoncement le même jour sans ordre écrit — classe E9 (voir ci-dessus)" >> "$LOG_FILE"
 fi
 
+# DÉCLARATION DES IA (R23, GO 3 — câblé le 10/10/2026)
+# R23 : « toute IA qui œuvre se déclare ». Le gardien compare les NOS DES SIGNATAIRES des actes
+# du jour (git) à `strategie/DECLARATIONS_IA.jsonl` : toute écriture signée par un nom absent du
+# fichier crie. Les organes logiciels (journal_auto, memoire_log, watchdog…) ne sont pas des IA :
+# leur liste est déclarée dans le gardien (R14). Lecture seule ; rapport `thermo/garde_declaration_ia.json`.
+if [ -f "$REPO_DIR/Index_Maison/scripts/gardien_declaration_ia.py" ]; then
+  python3 "$REPO_DIR/Index_Maison/scripts/gardien_declaration_ia.py" \
+    --json "$REPO_DIR/Index_Maison/thermo/garde_declaration_ia.json" >> "$LOG_FILE" 2>&1 || \
+    echo "[$(date -u +%Y-%m-%dT%H:%MZ)] ALERTE : écriture IA non déclarée (R23) — voir garde_declaration_ia.json" >> "$LOG_FILE"
+fi
+
 # 2) Ne committer que les fichiers DÉJÀ SUIVIS (modifiés/supprimés) + les canoniques
 # Garde-fou 05/09 (incident index.lock orphelin du 03/09 : 2,5 jours de push mort
 # en silence, le 2>/dev/null avalait le rc=128 et le script disait « aucun changement ») :
