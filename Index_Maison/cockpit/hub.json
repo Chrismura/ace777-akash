@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-10T19:01:40.082380+00:00",
+  "generated_at": "2026-10-10T19:42:11.125882+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 112
+      "calls_24h": 111
     },
     {
       "id": "openrouter-free",
@@ -401,64 +401,64 @@
   ],
   "events": [
     {
-      "ts": "2026-10-10T19:01:12.855269+00:00",
-      "kind": "message",
-      "title": "« Google Gemini » a repondu",
-      "detail": ""
-    },
-    {
-      "ts": "2026-10-10T19:01:11.875872+00:00",
-      "kind": "blacklist",
-      "title": "Fin de pause Google Gemini",
-      "detail": "re-essai automatique"
-    },
-    {
-      "ts": "2026-10-10T18:55:28.791820+00:00",
+      "ts": "2026-10-10T19:41:00.210620+00:00",
       "kind": "http",
       "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
       "detail": ""
     },
     {
-      "ts": "2026-10-10T18:55:28.791111+00:00",
+      "ts": "2026-10-10T19:41:00.210093+00:00",
       "kind": "error",
       "title": "Toutes les IA ont echoue",
-      "detail": "Google Gemini: blacklist du jour (saute) | InferX DeepSeek V4 Flash (API gratuite jusqu'au 12/08): HTTP Error 429: Too Many Requests | InferX Qwen3-Coder-Next (code, gratuit jusqu'au 12/08): HTTP Error 429: Too Many Requests | Puter Grok (gratuit): HTTP Error 402: Payment Required | NVIDIA DeepSeek-Coder 6.7B (code, via NIM): HTTP Error 404: Not Found | InferX Devstral-2-123B (code): HTTP Error 429: Too Many Requests"
+      "detail": "Google Gemini: HTTP Error 429: Too Many Requests | InferX DeepSeek V4 Flash (API gratuite jusqu'au 12/08): HTTP Error 429: Too Many Requests | InferX Qwen3-Coder-Next (code, gratuit jusqu'au 12/08): HTTP Error 429: Too Many Requests | Puter Grok (gratuit): HTTP Error 402: Payment Required | NVIDIA DeepSeek-Coder 6.7B (code, via NIM): HTTP Error 404: Not Found | InferX Devstral-2-123B (code): HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-10-10T18:55:28.787828+00:00",
+      "ts": "2026-10-10T19:41:00.207022+00:00",
       "kind": "failover",
       "title": "Bascule depuis InferX Devstral-2-123B (code)",
       "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-10-10T18:55:28.197584+00:00",
+      "ts": "2026-10-10T19:40:55.082422+00:00",
       "kind": "failover",
       "title": "Bascule depuis NVIDIA DeepSeek-Coder 6.7B (code, via NIM)",
       "detail": "HTTP Error 404: Not Found"
     },
     {
-      "ts": "2026-10-10T18:55:27.783980+00:00",
+      "ts": "2026-10-10T19:40:52.555074+00:00",
       "kind": "failover",
       "title": "Bascule depuis Puter Grok (gratuit)",
       "detail": "HTTP Error 402: Payment Required"
     },
     {
-      "ts": "2026-10-10T18:55:27.561791+00:00",
+      "ts": "2026-10-10T19:40:51.678799+00:00",
       "kind": "failover",
       "title": "Bascule depuis InferX Qwen3-Coder-Next (code, gratuit jusqu'au 12/08)",
       "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-10-10T18:55:27.002724+00:00",
+      "ts": "2026-10-10T19:40:46.319046+00:00",
       "kind": "failover",
       "title": "Bascule depuis InferX DeepSeek V4 Flash (API gratuite jusqu'au 12/08)",
       "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-10-10T18:55:26.373361+00:00",
+      "ts": "2026-10-10T19:40:41.155170+00:00",
       "kind": "failover",
-      "title": "Saute (blacklist) depuis Google Gemini",
-      "detail": "0 attente"
+      "title": "Bascule depuis Google Gemini",
+      "detail": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "ts": "2026-10-10T19:40:41.154371+00:00",
+      "kind": "ratelimit",
+      "title": "429 Google Gemini -> pause 60s + bascule",
+      "detail": ""
+    },
+    {
+      "ts": "2026-10-10T19:40:40.161724+00:00",
+      "kind": "blacklist",
+      "title": "Fin de pause Google Gemini",
+      "detail": "re-essai automatique"
     }
   ],
   "tasks_quotas": {
