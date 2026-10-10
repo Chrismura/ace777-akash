@@ -1,37 +1,36 @@
 {
-  "timestamp": 1791585202,
-  "date": "2026-10-09T22:33:22.447770+00:00",
+  "timestamp": 1791596005,
+  "date": "2026-10-10T01:33:25.717528+00:00",
   "n_analyses": 1,
   "analyses": [
     {
       "signal": {
-        "metric": "taker_ratio",
-        "zscore": 2.101288407484733,
-        "value": 1.567,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio à 1.567 (z-score 2.10) indique une forte agression acheteuse cachée sur le marché dérivé/spot, totalement ignorée par un silence médiatique absolu (Google Actualités vide). Classique accumulation silencieuse de baleines avant un re-pricing.\"\n}\n```",
-        "ts": 1791584203.99997
+        "metric": "fear_greed",
+        "zscore": 4.795831523312717,
+        "value": 64,
+        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement élevé (4.80) pour un Fear & Greed à 64 sans aucun relais médiatique majeur (Google Actualités vide). C'est le piège classique des baleines qui distribuent du liquidity aux 'retail' dans l'euphorie silencieuse avant un retournement.\"\n}\n```",
+        "ts": 1791594438.867947
       },
-      "fiche": "taker_ratio",
+      "fiche": "fear_greed",
       "questions": {
-        "taker": {
-          "value": 1.567,
-          "seuil": 1,
+        "peur": {
+          "value": 64,
+          "seuil": 25,
           "depasse": true
         },
-        "prix": {
-          "value": 0.03,
-          "seuil": 1,
+        "cupidite": {
+          "value": 64,
+          "seuil": 75,
           "depasse": false
         }
       },
       "interpretation": {
-        "condition": "taker > 1",
-        "lecture": "Takers acheteurs agressifs — la demande mange le carnet, à confirmer avec le volume",
-        "niveau": "info",
-        "action": "Observer si le prix suit (vraie demande) ou diverge (absorption)"
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
       },
-      "action": "Observer si le prix suit (vraie demande) ou diverge (absorption)",
-      "niveau": "info"
+      "action": "Observer",
+      "niveau": "neutre"
     }
   ],
   "resume": "🔵 CALME — pas de signal alarmant"
