@@ -125,7 +125,8 @@ def test_pyramide_max_3():
     p = bot.pos["TESTUSDT"]
     assert p["gbag_tranches"] == 3, f"3 tranches max, obtenu {p['gbag_tranches']}"
     # 1 tranche achetée via buy() + 2 ajouts directs (patron trend_add)
-    q_attendu = 30.0 / 110.0 + 30.0 / 119.0 + 30.0 / 128.6
+    # tranche = current_notional()/3 = 30/3 = 10 $ (spec mesurée : budget 30 $ → 3×10 $)
+    q_attendu = 10.0 / 110.0 + 10.0 / 119.0 + 10.0 / 128.6
     assert abs(p["qty"] - q_attendu) / q_attendu < 0.01, f"qty {p['qty']} != {q_attendu}"
 
 

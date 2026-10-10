@@ -1,38 +1,8 @@
 {
-  "timestamp": 1791617612,
-  "date": "2026-10-10T07:33:32.302100+00:00",
-  "n_analyses": 2,
+  "timestamp": 1791618212,
+  "date": "2026-10-10T07:43:32.464701+00:00",
+  "n_analyses": 1,
   "analyses": [
-    {
-      "signal": {
-        "metric": "taker_ratio",
-        "zscore": 2.1362701445380217,
-        "value": 1.702,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio élevé (1.702, z-score 2.14) indique une domination agressive des acheteurs (Taker Buys) sur les carnets d'ordres, signalant une accumulation agressive par les baleines. Cette forte pression acheteuse contrasterait avec un silence médiatique ou un narratif apathique (Google Actualités vide), confirmant une divergence classique d'accumulation furtive avant une cassure haussière.\"\n}\n```",
-        "ts": 1791616115.723092
-      },
-      "fiche": "taker_ratio",
-      "questions": {
-        "taker": {
-          "value": 0.849,
-          "seuil": 1,
-          "depasse": false
-        },
-        "prix": {
-          "value": -0.12,
-          "seuil": 1,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "taker < 1",
-        "lecture": "Takers vendeurs agressifs — la vente se fait AU MARCHE (pression réelle), pas passive",
-        "niveau": "surveiller",
-        "action": "Resserrer les stops des positions tier A corrélées, attendre l'apaisement pour entrer"
-      },
-      "action": "Resserrer les stops des positions tier A corrélées, attendre l'apaisement pour entrer",
-      "niveau": "surveiller"
-    },
     {
       "signal": {
         "metric": "ipt",
@@ -44,7 +14,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.12,
+          "value": 0.01,
           "seuil": 1,
           "depasse": false
         },
@@ -54,12 +24,12 @@
           "depasse": false
         },
         "funding": {
-          "value": 9e-06,
+          "value": 5e-06,
           "seuil": 0.001,
           "depasse": false
         },
         "whales": {
-          "value": 1,
+          "value": 0,
           "seuil": 5,
           "depasse": false
         }
@@ -73,5 +43,5 @@
       "niveau": "neutre"
     }
   ],
-  "resume": "🟡 SURVEILLANCE — des signaux sont à observer"
+  "resume": "🔵 CALME — pas de signal alarmant"
 }
