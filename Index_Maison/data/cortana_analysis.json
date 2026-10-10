@@ -1,20 +1,55 @@
 {
-  "timestamp": 1791644020,
-  "date": "2026-10-10T14:53:40.081286+00:00",
+  "timestamp": 1791647321,
+  "date": "2026-10-10T15:48:41.162726+00:00",
   "n_analyses": 2,
   "analyses": [
     {
       "signal": {
-        "metric": "ipt",
-        "zscore": 2.1020135998655793,
-        "value": 1.063,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique (ipt = 1.063) due à une confusion sémantique. Les titres médiatiques font référence à des tournois de physique (IPT 2026), des luttes associatives et de la santé publique, totalement déconnectés des marchés crypto.\"\n}\n```",
-        "ts": 1791643200.600478
+        "metric": "liquidations",
+        "zscore": 4.301418996251793,
+        "value": 3579914.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (4.30) sur un volume de liquidations modéré (~3.5M$) combiné à une capitulation massive des longs sur Dogecoin (94%) et Ethereum. Le narratif public se focalise sur la panique et la purge du levier excessif, créant un classique 'washout' institutionnel où les baleines accumulent discrètement sur la faiblesse.\"\n}\n```",
+        "ts": 1791645920.402293
+      },
+      "fiche": "liquidations",
+      "questions": {
+        "longs": {
+          "value": 240805.0,
+          "seuil": 0,
+          "depasse": true
+        },
+        "shorts": {
+          "value": 3342107.0,
+          "seuil": 0,
+          "depasse": true
+        },
+        "prix": {
+          "value": 0.04,
+          "seuil": 1,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "shorts > longs",
+        "lecture": "Liquidations massives de SHORTS — squeeze haussier mécanique. Les paliers RIP profitent de ces mouvements",
+        "niveau": "info",
+        "action": "Laisser courir les paliers RIP, ne pas rentrer après la cascade"
+      },
+      "action": "Laisser courir les paliers RIP, ne pas rentrer après la cascade",
+      "niveau": "info"
+    },
+    {
+      "signal": {
+        "metric": "volume",
+        "zscore": -2.183704911209445,
+        "value": 4018942333.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique due à un bruit de fond non pertinent (les actualités parlent de voitures, de ports et de faits divers). Aucun signal de baleine crypto détecté, le volume on-chain est simplement déconnecté du bruit médiatique grand public.\"\n}\n```",
+        "ts": 1791646524.432122
       },
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": 0.23,
+          "value": 0.04,
           "seuil": 1,
           "depasse": false
         },
@@ -24,7 +59,7 @@
           "depasse": false
         },
         "funding": {
-          "value": -3e-06,
+          "value": -0.0,
           "seuil": 0.001,
           "depasse": false
         },
@@ -41,41 +76,6 @@
       },
       "action": "Observer",
       "niveau": "neutre"
-    },
-    {
-      "signal": {
-        "metric": "liquidations",
-        "zscore": 6.037751342063151,
-        "value": 3626453.0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrême (6.04) sur les liquidations longues (94% sur DOGE/ETH) combiné à un narratif médiatique saturé de panique et de bruits hors-sujet (tribunaux de commerce). Classic 'flushout' de détaillés orchestré par les baleines pour accumuler à bas prix.\"\n}\n```",
-        "ts": 1791643803.556836
-      },
-      "fiche": "liquidations",
-      "questions": {
-        "longs": {
-          "value": 374323.0,
-          "seuil": 0,
-          "depasse": true
-        },
-        "shorts": {
-          "value": 3252130.0,
-          "seuil": 0,
-          "depasse": true
-        },
-        "prix": {
-          "value": 0.23,
-          "seuil": 1,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "shorts > longs",
-        "lecture": "Liquidations massives de SHORTS — squeeze haussier mécanique. Les paliers RIP profitent de ces mouvements",
-        "niveau": "info",
-        "action": "Laisser courir les paliers RIP, ne pas rentrer après la cascade"
-      },
-      "action": "Laisser courir les paliers RIP, ne pas rentrer après la cascade",
-      "niveau": "info"
     }
   ],
   "resume": "🔵 CALME — pas de signal alarmant"
