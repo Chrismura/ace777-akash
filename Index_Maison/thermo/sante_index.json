@@ -1,18 +1,16 @@
 {
-  "ts": "2026-10-10T16:55+00:00",
-  "updated": "2026-10-10T16:55Z",
-  "etat": "ALERTE",
-  "chaines_ok": "14/15",
-  "anomalies": [
-    "BALEINES coupée : scan file"
-  ],
+  "ts": "2026-10-10T17:50+00:00",
+  "updated": "2026-10-10T17:50Z",
+  "etat": "OK",
+  "chaines_ok": "15/15",
+  "anomalies": [],
   "degradees": [],
   "chaines": [
     {
       "id": "baleines",
       "nom": "BALEINES",
       "chemin": "scan → pont → live.json.onchain → Ada + Cortana",
-      "ok": false,
+      "ok": true,
       "maillons": [
         {
           "nom": "scan (launchd whales)",
@@ -26,13 +24,13 @@
         },
         {
           "nom": "scan file",
-          "ok": false,
-          "detail": "âge 37 min"
+          "ok": true,
+          "detail": "âge 10 min"
         },
         {
           "nom": "mouvements (events)",
           "ok": true,
-          "detail": "dernier événement il y a 37 min"
+          "detail": "dernier événement il y a 10 min"
         },
         {
           "nom": "→ live.json.onchain",
@@ -47,7 +45,7 @@
         {
           "nom": "→ Cortana feed",
           "ok": true,
-          "detail": "âge 7 min"
+          "detail": "âge 8 min"
         }
       ]
     },
@@ -65,7 +63,7 @@
         {
           "nom": "deriv_corr.json",
           "ok": true,
-          "detail": "âge 1 min"
+          "detail": "âge 5 min"
         }
       ]
     },
@@ -83,7 +81,7 @@
         {
           "nom": "aspiration runtime",
           "ok": true,
-          "detail": "mode fichier · JSON · âge ts 0.3 min · écart mtime/ts 2.7s · 22 paire(s) · btc=OK · ts=croissant · passe 23.2s · marge 21.8s sous le budget 45s du moteur"
+          "detail": "mode fichier · JSON · âge ts 0.0 min · écart mtime/ts 0.7s · 22 paire(s) · btc=OK · ts=croissant · passe 22.2s · marge 22.8s sous le budget 45s du moteur"
         },
         {
           "nom": "corrélation BTC",
@@ -98,7 +96,7 @@
         {
           "nom": "cortana_pilot.json",
           "ok": true,
-          "detail": "âge 670 min"
+          "detail": "âge 726 min"
         },
         {
           "nom": "cortana_analysis.json",
@@ -333,7 +331,7 @@
         {
           "nom": "croisement_externe_etat.json",
           "ok": true,
-          "detail": "âge 12 min"
+          "detail": "âge 7 min"
         },
         {
           "nom": "fails prix (> 5 % vs externe)",
@@ -356,12 +354,12 @@
         {
           "nom": "sdi_latest.json (SAPI dedans)",
           "ok": true,
-          "detail": "âge 7 min"
+          "detail": "âge 8 min"
         },
         {
           "nom": "SAPI calculé",
           "ok": true,
-          "detail": "score 0.372"
+          "detail": "score 0.355"
         },
         {
           "nom": "alerte poussière (≥ 0.75 + volume)",
@@ -379,7 +377,7 @@
         {
           "nom": "essaim_etat.json",
           "ok": true,
-          "detail": "âge 9 min"
+          "detail": "âge 4 min"
         },
         {
           "nom": "veille d'essaim active",

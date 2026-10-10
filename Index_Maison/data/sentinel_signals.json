@@ -1,34 +1,6 @@
 {
   "signals": [
     {
-      "metric": "long_short",
-      "zscore": -2.0692156568096123,
-      "value": 1,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le Z-score fortement négatif (-2.07) indique une position net-short extrême des acteurs institutionnels/baleines sur les dérivés, tandis que le bruit médiatique se focalise sur des ETF traditionnels hors crypto. Historiquement, un désengagement aussi asymétrique des masses ou une sur-concentration des shorts précède un 'short squeeze' violent orchestré par les mouvements silencieux des grands portefeuilles.\"\n}\n```",
-      "ts": "2026-10-09T07:43:28.592620+00:00"
-    },
-    {
-      "metric": "long_short",
-      "zscore": -2.0368887025534903,
-      "value": 1,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-2.04) sur le ratio long/short indiquant un positionnement massif des baleines en position 'short' contrarienne ou une purge extrême du levier, totalement ignorée par les médias traditionnels qui ne parlent que de produits financiers traditionnels sans rapport avec la dynamique réelle onchain.\"\n}\n```",
-      "ts": "2026-10-09T11:03:55.869301+00:00"
-    },
-    {
-      "metric": "price_1h",
-      "zscore": 2.677812777351546,
-      "value": 0.9700075966931232,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie statistique haussière (z-score 2.68) totalement ignorée par les médias (silence radio). Comportement typique d'accumulation discrète par les baleines avant une cassure de prix.\"\n}\n```",
-      "ts": "2026-10-09T11:49:19.220322+00:00"
-    },
-    {
-      "metric": "whale_usd",
-      "zscore": 5.478681827234225,
-      "value": 4889467.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (z-score 5.48, ~4.89M USD) combinée à un silence médiatique absolu (Google Actualités vide). Les baleines accumulent dans l'ombre sans éveiller le retail.\"\n}\n```",
-      "ts": "2026-10-09T11:49:29.161410+00:00"
-    },
-    {
       "metric": "liquidations",
       "zscore": 2.4320671133833582,
       "value": 5025435.0,
@@ -349,6 +321,34 @@
       "value": 3892402873.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique de volume (z-score -2.15) non corrélée à l'actif crypto : les actualités font référence à de l'homonymie (automobile, éducation, actualité générale) sans aucun signal de mouvement de baleine.\"\n}\n```",
       "ts": "2026-10-10T16:40:51.280838+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 2.827566813185121,
+      "value": 3606540.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le z-score élevé (2.83) indique un flush massif des positions longues sur Dogecoin et Ethereum. Le narratif public pleure les liquidations en cascade, ce qui constitue un classique 'capitulation event'. Les baleines nettoient le levier excessif pour accumuler en silence à bas prix avant la prochaine impulsion.\"\n}\n```",
+      "ts": "2026-10-10T17:00:55.363329+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": -2.102665336526218,
+      "value": 3806673221.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique de volume (z-score -2.10) totalement non corroborée : les titres médiatiques sont du bruit sémantique sans rapport avec la crypto (homonymie sur le mot 'volume'). Pas de mouvement baleine avéré.\"\n}\n```",
+      "ts": "2026-10-10T17:10:58.114122+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 2.5791866603805302,
+      "value": 3611925.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Panique médiatique sur des milliards de liquidations fictives ou macro, alors que le z-score on-chain (2.58) montre un flush technique modéré mais ciblé. Classic 'shakeout' de détail : les baleines nettoient le levier excessif avant la prochaine impulsion haussière.\"\n}\n```",
+      "ts": "2026-10-10T17:31:04.605208+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": -2.04665947590323,
+      "value": 3715156868.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique de volume (z-score -2.05) sans corrélation avec les titres médiatiques (bruit sémantique lié au mot 'volume' dans d'autres contextes). Aucune baleine détectée.\"\n}\n```",
+      "ts": "2026-10-10T17:41:07.515933+00:00"
     }
   ]
 }
