@@ -1,10 +1,12 @@
 {
-  "ts": "2026-10-10T13:50+00:00",
-  "updated": "2026-10-10T13:50Z",
-  "etat": "OK",
+  "ts": "2026-10-10T13:55+00:00",
+  "updated": "2026-10-10T13:55Z",
+  "etat": "DÉGRADÉ",
   "chaines_ok": "15/15",
   "anomalies": [],
-  "degradees": [],
+  "degradees": [
+    "BALEINES"
+  ],
   "chaines": [
     {
       "id": "baleines",
@@ -25,12 +27,12 @@
         {
           "nom": "scan file",
           "ok": true,
-          "detail": "âge 11 min"
+          "detail": "DÉGRADÉ : âge 16 min (> 15 min)"
         },
         {
           "nom": "mouvements (events)",
           "ok": true,
-          "detail": "dernier événement il y a 11 min"
+          "detail": "dernier événement il y a 16 min"
         },
         {
           "nom": "→ live.json.onchain",
@@ -45,7 +47,7 @@
         {
           "nom": "→ Cortana feed",
           "ok": true,
-          "detail": "âge 9 min"
+          "detail": "âge 14 min"
         }
       ]
     },
@@ -63,7 +65,7 @@
         {
           "nom": "deriv_corr.json",
           "ok": true,
-          "detail": "âge 7 min"
+          "detail": "âge 2 min"
         }
       ]
     },
@@ -81,7 +83,7 @@
         {
           "nom": "aspiration runtime",
           "ok": true,
-          "detail": "mode fichier · JSON · âge ts 0.1 min · écart mtime/ts 2.2s · 22 paire(s) · btc=OK · ts=croissant · passe 26.2s · marge 18.8s sous le budget 45s du moteur · ⚠ PIRE CAS age 46.2s > 45s (la prochaine passe part au plus tard après la cadence 20s) — entrées coupées si ça arrive"
+          "detail": "mode fichier · JSON · âge ts 0.4 min · écart mtime/ts 2.9s · 22 paire(s) · btc=OK · ts=croissant · passe 24.7s · marge 20.3s sous le budget 45s du moteur"
         },
         {
           "nom": "corrélation BTC",
@@ -96,7 +98,7 @@
         {
           "nom": "cortana_pilot.json",
           "ok": true,
-          "detail": "âge 485 min"
+          "detail": "âge 490 min"
         },
         {
           "nom": "cortana_analysis.json",
@@ -142,7 +144,7 @@
         {
           "nom": "cpfp_detect.json",
           "ok": true,
-          "detail": "âge 7 min"
+          "detail": "âge 1 min"
         },
         {
           "nom": "mode",
@@ -331,7 +333,7 @@
         {
           "nom": "croisement_externe_etat.json",
           "ok": true,
-          "detail": "âge 8 min"
+          "detail": "âge 13 min"
         },
         {
           "nom": "fails prix (> 5 % vs externe)",
@@ -354,12 +356,12 @@
         {
           "nom": "sdi_latest.json (SAPI dedans)",
           "ok": true,
-          "detail": "âge 9 min"
+          "detail": "âge 0 min"
         },
         {
           "nom": "SAPI calculé",
           "ok": true,
-          "detail": "score 0.343"
+          "detail": "score 0.354"
         },
         {
           "nom": "alerte poussière (≥ 0.75 + volume)",
@@ -377,7 +379,7 @@
         {
           "nom": "essaim_etat.json",
           "ok": true,
-          "detail": "âge 4 min"
+          "detail": "âge 9 min"
         },
         {
           "nom": "veille d'essaim active",
