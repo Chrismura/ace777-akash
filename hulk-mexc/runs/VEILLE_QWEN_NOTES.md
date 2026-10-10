@@ -7003,3 +7003,19 @@ Pas d’ordre — confrontation plus tard.
 ### 2026-10-10T14:52:08Z — ALERT auto
 - WUSDT: IMPULSE_WAIT — spike en cours, pas chase
 (compléter: confirmé ? risque ?)
+
+### 2026-10-10T15:59:53Z — ALERT auto
+- WUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
+
+### 2026-10-10T16:21:10Z — ALERT auto
+- QNTUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
+
+### 2026-10-10T16:32:00Z — ALERT auto
+- CHIPUSDT: IMPULSE_WAIT — spike en cours, pas chase
+(compléter: confirmé ? risque ?)
+
+### 2026-10-10T16:37:00Z — ALERT auto
+- EDELUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
