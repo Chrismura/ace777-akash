@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "whale_usd",
-      "zscore": 12.761477168369137,
-      "value": 12899997.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Z-score extrême (12.76) sur les flux de baleines (12.9M USD) combiné à un silence médiatique absolu (Google Actualités vide). Accumulation furtive classique avant une rupture de prix.\"\n}\n```",
-      "ts": "2026-10-09T15:05:04.422096+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.699333027075526,
-      "value": 1.17,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit médiatique non lié à la crypto (collision de mots-clés homonymes comme 'IPT' pour École polytechnique). Aucune baleine détectée, anomalie statistique due à un biais textuel.\"\n}\n```",
-      "ts": "2026-10-09T15:05:06.243971+00:00"
-    },
-    {
       "metric": "ipt",
       "zscore": 2.1944716360989522,
       "value": 1.02,
@@ -349,6 +335,20 @@
       "value": 3566316.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 78,\n  \"reason\": \"Le z-score des liquidations (2.12) signale un flush des positions à effet de levier excessif, tandis que le narratif médiatique grand public se focalise sur la peur du passé et des faillites d'entreprises locales hors-sujet. Classique purge de détail pour accumulation institutionnelle silencieuse.\"\n}\n```",
       "ts": "2026-10-10T18:31:17.948455+00:00"
+    },
+    {
+      "metric": "taker_ratio",
+      "zscore": -2.351557859053788,
+      "value": 0.392,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Taker ratio extrêmement bas (0.392, z-score -2.35) indique une domination massive des ordres limit acheteurs (accumulation agressive de détail/baleines en mode passif) couplée à un silence médiatique total. Divergence classique de creux de marché : accumulation furtive avant un squeeze.\"\n}\n```",
+      "ts": "2026-10-10T21:16:44.145468+00:00"
+    },
+    {
+      "metric": "taker_ratio",
+      "zscore": -2.2338548878768885,
+      "value": 0.392,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Taker ratio extrêmement bas (0.392, z-score -2.23) couplé à un silence médiatique absolu. Les baleines accumulent passivement en silence via des ordres limites, évitant le FOMO avant une cassure haussière.\"\n}\n```",
+      "ts": "2026-10-10T21:46:49.146397+00:00"
     }
   ]
 }

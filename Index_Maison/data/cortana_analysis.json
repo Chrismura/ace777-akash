@@ -1,7 +1,38 @@
 {
-  "timestamp": 1791665927,
-  "date": "2026-10-10T20:58:47.393219+00:00",
-  "n_analyses": 0,
-  "analyses": [],
-  "resume": "Aucune analyse en cours"
+  "timestamp": 1791669528,
+  "date": "2026-10-10T21:58:48.524247+00:00",
+  "n_analyses": 1,
+  "analyses": [
+    {
+      "signal": {
+        "metric": "taker_ratio",
+        "zscore": -2.2338548878768885,
+        "value": 0.392,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Taker ratio extrêmement bas (0.392, z-score -2.23) couplé à un silence médiatique absolu. Les baleines accumulent passivement en silence via des ordres limites, évitant le FOMO avant une cassure haussière.\"\n}\n```",
+        "ts": 1791668809.146397
+      },
+      "fiche": "taker_ratio",
+      "questions": {
+        "taker": {
+          "value": 0.392,
+          "seuil": 1,
+          "depasse": false
+        },
+        "prix": {
+          "value": 0.07,
+          "seuil": 1,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "taker < 1",
+        "lecture": "Takers vendeurs agressifs — la vente se fait AU MARCHE (pression réelle), pas passive",
+        "niveau": "surveiller",
+        "action": "Resserrer les stops des positions tier A corrélées, attendre l'apaisement pour entrer"
+      },
+      "action": "Resserrer les stops des positions tier A corrélées, attendre l'apaisement pour entrer",
+      "niveau": "surveiller"
+    }
+  ],
+  "resume": "🟡 SURVEILLANCE — des signaux sont à observer"
 }
