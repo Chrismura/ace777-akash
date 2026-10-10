@@ -2,13 +2,6 @@
   "signals": [
     {
       "metric": "ipt",
-      "zscore": 2.6608054945416457,
-      "value": 1.244,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.66) causée par une confusion homonyme dans les médias (Tournoi de Physique, violences sexistes, fondation locale) sans lien avec l'actif crypto.\"\n}\n```",
-      "ts": "2026-10-08T22:37:09.078845+00:00"
-    },
-    {
-      "metric": "ipt",
       "zscore": 3.686283153458266,
       "value": 1.645,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (IPT) totalement non liée à la crypto. Bruit médiatique dominé par l'actualité institutionnelle et académique (École Polytechnique, violences sexuelles, fondation). Aucune trace d'accumulation ou de mouvement de baleine onchain pertinent.\"\n}\n```",
@@ -349,6 +342,13 @@
       "value": 1.128,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit lexical : L'anomalie 'ipt' (z-score 2.54) capturée par les capteurs on-chain correspond à de l'homonymie pure avec des actualités institutionnelles et sanitaires (Institut Pasteur de Tunis, Tournoi de Physique). Aucune activité de baleine crypto détectée.\"\n}\n```",
       "ts": "2026-10-10T09:59:09.212440+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.483742080560221,
+      "value": 1.142,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"L'indice IPT (z-score 2.48) détecte une activité anormale, mais les résultats Google Actualités renvoient vers des homonymes institutionnels et universitaires sans aucun rapport avec la crypto (Tournoi de Physique, lutte contre les VSS, fondation locale). Bruit médiatique pur, aucune baleine crypto détectée.\"\n}\n```",
+      "ts": "2026-10-10T11:54:31.186066+00:00"
     }
   ]
 }
