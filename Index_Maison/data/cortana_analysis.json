@@ -1,15 +1,15 @@
 {
-  "timestamp": 1791688134,
-  "date": "2026-10-11T03:08:54.266647+00:00",
-  "n_analyses": 3,
+  "timestamp": 1791707498,
+  "date": "2026-10-11T08:31:38.477561+00:00",
+  "n_analyses": 4,
   "analyses": [
     {
       "signal": {
         "metric": "sdi",
-        "zscore": 2.940943611230212,
-        "value": 0.608,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie technique trompeuse : le 'SDI' détecté correspond au Syndicat des Indépendants et TPE (actualité politique/macro française) et à une micro-cap boursière (SDI Corp), et non à un token crypto ou une baleine on-chain. Fausse alerte due à une collision de terminologie.\"\n}\n```",
-        "ts": 1791686882.926469
+        "zscore": 2.214695298134788,
+        "value": 0.604,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Erreur de ciblage sémantique : l'anomalie détecte le 'SDI' (indice ou ticker financier traditionnel), tandis que les médias parlent du 'Syndicat des Indépendants et TPE' (SDI) et d'une entreprise homonyme (SDI Corp). Aucune donnée onchain ou mouvement de baleine crypto pertinent n'est lié à cet acronyme.\"\n}\n```",
+        "ts": 1791707171.582092
       },
       "fiche": null,
       "interpretation": {
@@ -20,22 +20,22 @@
     },
     {
       "signal": {
-        "metric": "long_short",
-        "zscore": -2.0806138698681216,
-        "value": 1.475,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Le ratio long/short est à 1.475 avec un z-score de -2.08 (forte anomalie statistique, les positions vendeuses dominent anormalement). Les médias grand public banalisent les stratégies long/short traditionnelles sans voir l'excès de pessimisme des positions sur le marché crypto. Situation classique de 'short squeeze' imminent.\"\n}\n```",
-        "ts": 1791686884.653514
+        "metric": "fear_greed",
+        "zscore": -2.354878881270654,
+        "value": 61,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie statistique majeure : un Z-score de -2.35 sur le Fear & Greed (niveau neutre-avide à 61) couplé à un vide médiatique absolu ('Google Actualités' sans relais) indique une accumulation discrète des baleines loin du bruit de fond de retail.\"\n}\n```",
+        "ts": 1791707173.048832
       },
-      "fiche": "long_short",
+      "fiche": "fear_greed",
       "questions": {
-        "ratio_long_short": {
-          "value": 1.475,
-          "seuil": 2,
-          "depasse": false
+        "peur": {
+          "value": 61,
+          "seuil": 25,
+          "depasse": true
         },
-        "oi": {
-          "value": 92606.665,
-          "seuil": 120000,
+        "cupidite": {
+          "value": 61,
+          "seuil": 75,
           "depasse": false
         }
       },
@@ -49,22 +49,57 @@
     },
     {
       "signal": {
-        "metric": "fear_greed",
-        "zscore": -2.879292027677147,
-        "value": 61,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-2.88) malgré un indice de cupidité modéré (61) et un vide médiatique total (Google Actualités). Asymétrie classique : accumulation silencieuse des baleines hors radar grand public.\"\n}\n```",
-        "ts": 1791687187.142871
+        "metric": "liquidations",
+        "zscore": 2.0428387551554184,
+        "value": 4359494.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Panique médiatique excessive (titres alarmistes sur des milliards liquidés) contredite par une anomalie on-chain mineure (4.3M$, z-score 2.04). Classique 'flush' des positions à effet de levier excessif par les baleines pour piéger les ours avant une continuation haussière.\"\n}\n```",
+        "ts": 1791707475.334258
       },
-      "fiche": "fear_greed",
+      "fiche": "liquidations",
       "questions": {
-        "peur": {
-          "value": 61,
-          "seuil": 25,
+        "longs": {
+          "value": 984169.0,
+          "seuil": 0,
           "depasse": true
         },
-        "cupidite": {
-          "value": 61,
-          "seuil": 75,
+        "shorts": {
+          "value": 3375325.0,
+          "seuil": 0,
+          "depasse": true
+        },
+        "prix": {
+          "value": 0.05,
+          "seuil": 1,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "shorts > longs",
+        "lecture": "Liquidations massives de SHORTS — squeeze haussier mécanique. Les paliers RIP profitent de ces mouvements",
+        "niveau": "info",
+        "action": "Laisser courir les paliers RIP, ne pas rentrer après la cascade"
+      },
+      "action": "Laisser courir les paliers RIP, ne pas rentrer après la cascade",
+      "niveau": "info"
+    },
+    {
+      "signal": {
+        "metric": "long_short",
+        "zscore": -3.206752881383665,
+        "value": 1.448,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le z-score extrêmement bas (-3.21) indique une sous-pondération historique des positions longues par la foule/retail, tandis que les médias grand public banalisent la stratégie Long/Short sans vision directionnelle crypto. Cette capitulation du ratio signale un positionnement contrarien massif des baleines en prévision d'un short squeeze.\"\n}\n```",
+        "ts": 1791707477.158643
+      },
+      "fiche": "long_short",
+      "questions": {
+        "ratio_long_short": {
+          "value": 1.448,
+          "seuil": 2,
+          "depasse": false
+        },
+        "oi": {
+          "value": 92940.284,
+          "seuil": 120000,
           "depasse": false
         }
       },
