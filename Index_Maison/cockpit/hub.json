@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-11T02:04:05.680561+00:00",
+  "generated_at": "2026-10-11T02:08:38.939289+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 114
+      "calls_24h": 113
     },
     {
       "id": "openrouter-free",
@@ -401,63 +401,63 @@
   ],
   "events": [
     {
-      "ts": "2026-10-11T02:03:52.804396+00:00",
-      "kind": "message",
-      "title": "« Google Gemini » a repondu",
-      "detail": ""
-    },
-    {
-      "ts": "2026-10-11T02:03:51.441792+00:00",
-      "kind": "blacklist",
-      "title": "Fin de pause Google Gemini",
-      "detail": "re-essai automatique"
-    },
-    {
-      "ts": "2026-10-11T01:58:41.238132+00:00",
+      "ts": "2026-10-11T02:08:02.394356+00:00",
       "kind": "http",
       "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
       "detail": ""
     },
     {
-      "ts": "2026-10-11T01:58:41.237431+00:00",
+      "ts": "2026-10-11T02:08:02.393756+00:00",
       "kind": "error",
       "title": "Toutes les IA ont echoue",
       "detail": "Google Gemini: HTTP Error 429: Too Many Requests | InferX DeepSeek V4 Flash (API gratuite jusqu'au 12/08): HTTP Error 429: Too Many Requests | InferX Qwen3-Coder-Next (code, gratuit jusqu'au 12/08): HTTP Error 429: Too Many Requests | Puter Grok (gratuit): HTTP Error 402: Payment Required | NVIDIA DeepSeek-Coder 6.7B (code, via NIM): HTTP Error 404: Not Found | InferX Devstral-2-123B (code): HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-10-11T01:58:41.234757+00:00",
+      "ts": "2026-10-11T02:08:02.390652+00:00",
       "kind": "failover",
       "title": "Bascule depuis InferX Devstral-2-123B (code)",
       "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-10-11T01:58:36.892830+00:00",
+      "ts": "2026-10-11T02:08:00.296205+00:00",
+      "kind": "http",
+      "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
+      "detail": ""
+    },
+    {
+      "ts": "2026-10-11T02:08:00.295655+00:00",
+      "kind": "error",
+      "title": "Toutes les IA ont echoue",
+      "detail": "Google Gemini: blacklist du jour (saute) | InferX DeepSeek V4 Flash (API gratuite jusqu'au 12/08): HTTP Error 429: Too Many Requests | InferX Qwen3-Coder-Next (code, gratuit jusqu'au 12/08): HTTP Error 429: Too Many Requests | Puter Grok (gratuit): HTTP Error 402: Payment Required | NVIDIA DeepSeek-Coder 6.7B (code, via NIM): HTTP Error 404: Not Found | InferX Devstral-2-123B (code): HTTP Error 429: Too Many Requests"
+    },
+    {
+      "ts": "2026-10-11T02:08:00.292860+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis InferX Devstral-2-123B (code)",
+      "detail": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "ts": "2026-10-11T02:07:59.694813+00:00",
       "kind": "failover",
       "title": "Bascule depuis NVIDIA DeepSeek-Coder 6.7B (code, via NIM)",
       "detail": "HTTP Error 404: Not Found"
     },
     {
-      "ts": "2026-10-11T01:58:34.268401+00:00",
+      "ts": "2026-10-11T02:07:59.210160+00:00",
       "kind": "failover",
       "title": "Bascule depuis Puter Grok (gratuit)",
       "detail": "HTTP Error 402: Payment Required"
     },
     {
-      "ts": "2026-10-11T01:58:33.451211+00:00",
+      "ts": "2026-10-11T02:07:58.948071+00:00",
       "kind": "failover",
       "title": "Bascule depuis InferX Qwen3-Coder-Next (code, gratuit jusqu'au 12/08)",
       "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-10-11T01:58:28.651844+00:00",
+      "ts": "2026-10-11T02:07:58.390791+00:00",
       "kind": "failover",
       "title": "Bascule depuis InferX DeepSeek V4 Flash (API gratuite jusqu'au 12/08)",
-      "detail": "HTTP Error 429: Too Many Requests"
-    },
-    {
-      "ts": "2026-10-11T01:58:24.556707+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis Google Gemini",
       "detail": "HTTP Error 429: Too Many Requests"
     }
   ],
