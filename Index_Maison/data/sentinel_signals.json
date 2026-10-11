@@ -1,27 +1,6 @@
 {
   "signals": [
     {
-      "metric": "sdi",
-      "zscore": 2.940943611230212,
-      "value": 0.608,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie technique trompeuse : le 'SDI' détecté correspond au Syndicat des Indépendants et TPE (actualité politique/macro française) et à une micro-cap boursière (SDI Corp), et non à un token crypto ou une baleine on-chain. Fausse alerte due à une collision de terminologie.\"\n}\n```",
-      "ts": "2026-10-11T02:48:02.926469+00:00"
-    },
-    {
-      "metric": "long_short",
-      "zscore": -2.0806138698681216,
-      "value": 1.475,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Le ratio long/short est à 1.475 avec un z-score de -2.08 (forte anomalie statistique, les positions vendeuses dominent anormalement). Les médias grand public banalisent les stratégies long/short traditionnelles sans voir l'excès de pessimisme des positions sur le marché crypto. Situation classique de 'short squeeze' imminent.\"\n}\n```",
-      "ts": "2026-10-11T02:48:04.653514+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": -2.879292027677147,
-      "value": 61,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-2.88) malgré un indice de cupidité modéré (61) et un vide médiatique total (Google Actualités). Asymétrie classique : accumulation silencieuse des baleines hors radar grand public.\"\n}\n```",
-      "ts": "2026-10-11T02:53:07.142871+00:00"
-    },
-    {
       "metric": "price_1h",
       "zscore": 2.6479255871931136,
       "value": 0.16179557102524722,
@@ -349,6 +328,27 @@
       "value": 0.944,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique (IPT) entièrement due à une confusion sémantique du scraper avec le Tournoi International des Physiciens (IPT) et des actualités institutionnelles. Aucune activité de baleine crypto détectée.\"\n}\n```",
       "ts": "2026-10-11T20:54:57.189726+00:00"
+    },
+    {
+      "metric": "price_1h",
+      "zscore": 3.287560451631317,
+      "value": 0.3348938769774157,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de prix significative (z-score 3.29) en l'absence totale de couverture médiatique (silence radio). C'est la signature classique d'accumulation furtive par des baleines avant le réveil du narratif public.\"\n}\n```",
+      "ts": "2026-10-11T21:20:11.132263+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.01667372997181,
+      "value": 5052689078.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit de fond : les titres médiatiques parlent d'actions traditionnelles (Hims & Hers), de voitures et d'actualités institutionnelles, totalement déconnectés des données crypto on-chain.\"\n}\n```",
+      "ts": "2026-10-11T21:20:12.812306+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 2.0233784577239575,
+      "value": 4982530.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 78,\n  \"reason\": \"Le z-score des liquidations (2.02) combiné à une purge massive des positions longues sur les altcoins (DOGE) et des transferts de baleines (17k+ BTC) indique un nettoyage par le vide des positions à effet de levier. Les médias grand public se focalisent sur la panique et le bruit juridique, masquant une capitulation retail idéale pour l'accumulation institutionnelle silencieuse.\"\n}\n```",
+      "ts": "2026-10-11T21:25:16.327008+00:00"
     }
   ]
 }
