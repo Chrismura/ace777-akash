@@ -1,117 +1,25 @@
 {
-  "timestamp": 1791721048,
-  "date": "2026-10-11T12:17:28.097908+00:00",
-  "n_analyses": 4,
+  "timestamp": 1791724349,
+  "date": "2026-10-11T13:12:29.049359+00:00",
+  "n_analyses": 2,
   "analyses": [
     {
       "signal": {
-        "metric": "long_short",
-        "zscore": -3.032036498559838,
-        "value": 1.442,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Z-score extrêmement bas (-3.03) sur le ratio long/short indiquant un positionnement de détail massivement vendeux, contrastant fortement avec le narratif médiatique traditionnel sur les fonds long/short. Classique piège à liquidité propice à un 'short squeeze' imminent orchestré par les baleines.\"\n}\n```",
-        "ts": 1791719546.551846
-      },
-      "fiche": "long_short",
-      "questions": {
-        "ratio_long_short": {
-          "value": 1.44,
-          "seuil": 2,
-          "depasse": false
-        },
-        "oi": {
-          "value": 93158.643,
-          "seuil": 120000,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
-      },
-      "action": "Observer",
-      "niveau": "neutre"
-    },
-    {
-      "signal": {
-        "metric": "fear_greed",
-        "zscore": -2.1056975718632835,
-        "value": 61,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score négatif profond (-2.11) malgré un sentiment de cupidité modérée (61) et un vide médiatique total (Google Actualités). Divergence classique de sous-radar : les baleines accumulent en silence pendant l'indifférence des médias avant le prochain choc haussier.\"\n}\n```",
-        "ts": 1791719547.948985
-      },
-      "fiche": "fear_greed",
-      "questions": {
-        "peur": {
-          "value": 61,
-          "seuil": 25,
-          "depasse": true
-        },
-        "cupidite": {
-          "value": 61,
-          "seuil": 75,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
-      },
-      "action": "Observer",
-      "niveau": "neutre"
-    },
-    {
-      "signal": {
-        "metric": "price_1h",
-        "zscore": 3.003761888620168,
-        "value": 0.19838542597150344,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de prix significative (z-score 3.00) en l'absence totale de couverture médiatique (Google Actualités vide). C'est la signature classique d'accumulation furtive par des baleines sous le radar du retail.\"\n}\n```",
-        "ts": 1791719850.06404
-      },
-      "fiche": "price_1h",
-      "questions": {
-        "pct_1h": {
-          "value": 0.12,
-          "seuil": -1,
-          "depasse": true
-        },
-        "liq": {
-          "value": 4564210.0,
-          "seuil": 5000000,
-          "depasse": false
-        },
-        "funding": {
-          "value": -2e-06,
-          "seuil": 0,
-          "depasse": true
-        }
-      },
-      "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
-      },
-      "action": "Observer",
-      "niveau": "neutre"
-    },
-    {
-      "signal": {
         "metric": "taker_ratio",
-        "zscore": 4.07398509622539,
+        "zscore": 3.4719473588914886,
         "value": 2.195,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Z-score extrême (4.07) sur le taker_ratio (2.195) indiquant une domination massive des acheteurs agissants (takers), couplé à un silence médiatique absolu (Google Actualités vide). Classique accumulation furtive de baleines loin du radar retail.\"\n}\n```",
-        "ts": 1791720756.897006
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Le taker_ratio à 2.195 (z-score 3.47) indique une agression massive des acheteurs (Taker Buy) totalement ignorée par les médias (silence médiatique). Cette divergence classique montre une accumulation silencieuse des baleines avant un mouvement de cassure haussier.\"\n}\n```",
+        "ts": 1791722576.107185
       },
       "fiche": "taker_ratio",
       "questions": {
         "taker": {
-          "value": 2.195,
+          "value": 1.25,
           "seuil": 1,
           "depasse": true
         },
         "prix": {
-          "value": 0.12,
+          "value": -0.04,
           "seuil": 1,
           "depasse": false
         }
@@ -124,6 +32,35 @@
       },
       "action": "Observer si le prix suit (vraie demande) ou diverge (absorption)",
       "niveau": "info"
+    },
+    {
+      "signal": {
+        "metric": "long_short",
+        "zscore": -2.5430285708999913,
+        "value": 1.44,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le z-score extrêmement bas (-2.54) indique un positionnement court massif des suiveurs de tendance, alors que les médias grand public banalisent et discutent encore abstraitement des stratégies long/short. Les baleines prennent une position contrariante agressive, préparant un potentiel short squeeze violent.\"\n}\n```",
+        "ts": 1791723180.136529
+      },
+      "fiche": "long_short",
+      "questions": {
+        "ratio_long_short": {
+          "value": 1.438,
+          "seuil": 2,
+          "depasse": false
+        },
+        "oi": {
+          "value": 93307.084,
+          "seuil": 120000,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
+      },
+      "action": "Observer",
+      "niveau": "neutre"
     }
   ],
   "resume": "🔵 CALME — pas de signal alarmant"
