@@ -1,38 +1,8 @@
 {
-  "timestamp": 1791724349,
-  "date": "2026-10-11T13:12:29.049359+00:00",
-  "n_analyses": 2,
+  "timestamp": 1791724649,
+  "date": "2026-10-11T13:17:29.150881+00:00",
+  "n_analyses": 1,
   "analyses": [
-    {
-      "signal": {
-        "metric": "taker_ratio",
-        "zscore": 3.4719473588914886,
-        "value": 2.195,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Le taker_ratio à 2.195 (z-score 3.47) indique une agression massive des acheteurs (Taker Buy) totalement ignorée par les médias (silence médiatique). Cette divergence classique montre une accumulation silencieuse des baleines avant un mouvement de cassure haussier.\"\n}\n```",
-        "ts": 1791722576.107185
-      },
-      "fiche": "taker_ratio",
-      "questions": {
-        "taker": {
-          "value": 1.25,
-          "seuil": 1,
-          "depasse": true
-        },
-        "prix": {
-          "value": -0.04,
-          "seuil": 1,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "taker > 1",
-        "lecture": "Takers acheteurs agressifs — la demande mange le carnet, à confirmer avec le volume",
-        "niveau": "info",
-        "action": "Observer si le prix suit (vraie demande) ou diverge (absorption)"
-      },
-      "action": "Observer si le prix suit (vraie demande) ou diverge (absorption)",
-      "niveau": "info"
-    },
     {
       "signal": {
         "metric": "long_short",
@@ -49,7 +19,7 @@
           "depasse": false
         },
         "oi": {
-          "value": 93307.084,
+          "value": 93325.658,
           "seuil": 120000,
           "depasse": false
         }
