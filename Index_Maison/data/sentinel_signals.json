@@ -2,27 +2,6 @@
   "signals": [
     {
       "metric": "long_short",
-      "zscore": -2.0366644354184618,
-      "value": 1.481,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le ratio long/short est anormalement bas (z-score -2.04), indiquant une sous-exposition extrême des positions longues ou une surpopulation de vendeurs à découvert. Pendant que les médias grand public banalisent la stratégie long/short traditionnelle, les données on-chain révèlent un positionnement contrarien propice à un 'short squeeze' massif orchestré par les baleines.\"\n}\n```",
-      "ts": "2026-10-11T00:17:18.878325+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": -16.94107434609743,
-      "value": 61,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement négatif (-16.94) malgré un indice de cupidité modéré (61) et un vide médiatique total (Google Actualités). Anomalie classique de survente ou d'accumulation silencieuse par les baleines loin du radar des médias de masse.\"\n}\n```",
-      "ts": "2026-10-11T00:22:20.998776+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": 6.184286130366228,
-      "value": 0.604,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Anomalie statistique (z-score 6.18) entièrement due à une collision homonymique : le 'SDI' on-chain est confondu par les flux médiatiques avec le Syndicat des Indépendants et TPE (SDI) et l'entreprise SDI Corp. Aucune baleine crypto active ici, simple bruit sémantique.\"\n}\n```",
-      "ts": "2026-10-11T00:47:26.562738+00:00"
-    },
-    {
-      "metric": "long_short",
       "zscore": -2.01741982117188,
       "value": 1.481,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Le ratio Long/Short affiche un Z-score de -2.02 (extrêmement bas), indiquant un positionnement massif à la short. Les médias grand public et traditionnels, quant à eux, ne parlent que de stratégies 'long/short' traditionnelles sans urgence directionnelle, totalement aveugles à la compression de short imminente qui se prépare on-chain.\"\n}\n```",
@@ -349,6 +328,27 @@
       "value": 1.784,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Taker ratio à 1.784 (z-score 2.25) indique une forte agression acheteuse cachée, tandis que le vide médiatique (silence de Google Actualités) prouve l'absence de FOMO de détail. Accumulation furtive des baleines loin des radars.\"\n}\n```",
       "ts": "2026-10-11T16:08:49.480985+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 3.7635803557458107,
+      "value": 3995751.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (3.76) indiquant une accumulation massive de ~4M$ par une baleine dans l'indifférence médiatique totale (silence radio dans l'actualité). Classique divergence d'accumulation silencieuse avant un mouvement haussier.\"\n}\n```",
+      "ts": "2026-10-11T16:38:57.344815+00:00"
+    },
+    {
+      "metric": "taker_ratio",
+      "zscore": 2.097405715727771,
+      "value": 1.784,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio élevé (z-score 2.10) indique une forte agression acheteuse sur les carnets d'ordres, signalant une accumulation agressive par les baleines. Le silence médiatique total (Google Actualités vide) confirme l'absence de FOMO public : c'est la phase classique d'accumulation furtive avant la percée des prix.\"\n}\n```",
+      "ts": "2026-10-11T16:38:58.908035+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": -2.0121069392669493,
+      "value": 1.428,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Le z-score du Long/Short ratio à -2.01 indique une capitulation extrême des positions longues ou une surconcentration agressive des shorts par la foule. Historiquement, un tel désespoir contrarien signale un 'short squeeze' imminent, totalement ignoré par les médias traditionnels qui se focalisent sur des généralités macro et des fonds traditionnels.\"\n}\n```",
+      "ts": "2026-10-11T17:09:05.285741+00:00"
     }
   ]
 }
