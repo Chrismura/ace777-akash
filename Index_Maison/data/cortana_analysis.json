@@ -1,36 +1,72 @@
 {
-  "timestamp": 1791732151,
-  "date": "2026-10-11T15:22:31.294410+00:00",
-  "n_analyses": 1,
+  "timestamp": 1791735452,
+  "date": "2026-10-11T16:17:32.356494+00:00",
+  "n_analyses": 2,
   "analyses": [
     {
       "signal": {
-        "metric": "long_short",
-        "zscore": -2.0593459619832446,
-        "value": 1.434,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le z-score du Long/Short ratio à -2.06 indique une sous-exposition extrême des positions longues par les institutionnels, traduisant un pessimisme capitulant. En contraste, les médias grand public banalisent la stratégie long/short sans urgence directionnelle. Cette asymétrie signale un positionnement contrarien classique de baleines en accumulation silencieuse sur la faiblesse.\"\n}\n```",
-        "ts": 1791730712.593366
+        "metric": "liquidations",
+        "zscore": 2.7980458602127043,
+        "value": 5567399.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Panique médiatique sur-amplifiée (confusion entre 5.5M$ réels et des chiffres de 2.4B$ global/altcoins) alors que le z-score de 2.8 indique un flush-out sain des positions longues sur-levier. Les baleines en profitent pour ramasser en silence pendant que la foule cède à la peur.\"\n}\n```",
+        "ts": 1791733724.517932
       },
-      "fiche": "long_short",
+      "fiche": "liquidations",
       "questions": {
-        "ratio_long_short": {
-          "value": 1.439,
-          "seuil": 2,
-          "depasse": false
+        "longs": {
+          "value": 21685.0,
+          "seuil": 0,
+          "depasse": true
         },
-        "oi": {
-          "value": 93340.392,
-          "seuil": 120000,
+        "shorts": {
+          "value": 3969691.0,
+          "seuil": 0,
+          "depasse": true
+        },
+        "prix": {
+          "value": -0.08,
+          "seuil": 1,
           "depasse": false
         }
       },
       "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
+        "condition": "shorts > longs",
+        "lecture": "Liquidations massives de SHORTS — squeeze haussier mécanique. Les paliers RIP profitent de ces mouvements",
+        "niveau": "info",
+        "action": "Laisser courir les paliers RIP, ne pas rentrer après la cascade"
       },
-      "action": "Observer",
-      "niveau": "neutre"
+      "action": "Laisser courir les paliers RIP, ne pas rentrer après la cascade",
+      "niveau": "info"
+    },
+    {
+      "signal": {
+        "metric": "taker_ratio",
+        "zscore": 2.253110434678032,
+        "value": 1.784,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Taker ratio à 1.784 (z-score 2.25) indique une forte agression acheteuse cachée, tandis que le vide médiatique (silence de Google Actualités) prouve l'absence de FOMO de détail. Accumulation furtive des baleines loin des radars.\"\n}\n```",
+        "ts": 1791734929.480985
+      },
+      "fiche": "taker_ratio",
+      "questions": {
+        "taker": {
+          "value": 1.784,
+          "seuil": 1,
+          "depasse": true
+        },
+        "prix": {
+          "value": -0.08,
+          "seuil": 1,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "taker > 1",
+        "lecture": "Takers acheteurs agressifs — la demande mange le carnet, à confirmer avec le volume",
+        "niveau": "info",
+        "action": "Observer si le prix suit (vraie demande) ou diverge (absorption)"
+      },
+      "action": "Observer si le prix suit (vraie demande) ou diverge (absorption)",
+      "niveau": "info"
     }
   ],
   "resume": "🔵 CALME — pas de signal alarmant"
