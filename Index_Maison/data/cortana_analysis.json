@@ -1,47 +1,8 @@
 {
-  "timestamp": 1791753757,
-  "date": "2026-10-11T21:22:37.918418+00:00",
+  "timestamp": 1791754058,
+  "date": "2026-10-11T21:27:38.042381+00:00",
   "n_analyses": 3,
   "analyses": [
-    {
-      "signal": {
-        "metric": "ipt",
-        "zscore": 2.247353492776462,
-        "value": 0.944,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique (IPT) entièrement due à une confusion sémantique du scraper avec le Tournoi International des Physiciens (IPT) et des actualités institutionnelles. Aucune activité de baleine crypto détectée.\"\n}\n```",
-        "ts": 1791752097.189726
-      },
-      "fiche": "rbf_eleve",
-      "questions": {
-        "prix": {
-          "value": -0.32,
-          "seuil": 1,
-          "depasse": false
-        },
-        "paires": {
-          "value": 0,
-          "seuil": 3,
-          "depasse": false
-        },
-        "funding": {
-          "value": 1.7e-05,
-          "seuil": 0.001,
-          "depasse": false
-        },
-        "whales": {
-          "value": 0,
-          "seuil": 5,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
-      },
-      "action": "Observer",
-      "niveau": "neutre"
-    },
     {
       "signal": {
         "metric": "price_1h",
@@ -114,7 +75,42 @@
       },
       "action": "Observer",
       "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "liquidations",
+        "zscore": 2.0233784577239575,
+        "value": 4982530.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 78,\n  \"reason\": \"Le z-score des liquidations (2.02) combiné à une purge massive des positions longues sur les altcoins (DOGE) et des transferts de baleines (17k+ BTC) indique un nettoyage par le vide des positions à effet de levier. Les médias grand public se focalisent sur la panique et le bruit juridique, masquant une capitulation retail idéale pour l'accumulation institutionnelle silencieuse.\"\n}\n```",
+        "ts": 1791753916.327008
+      },
+      "fiche": "liquidations",
+      "questions": {
+        "longs": {
+          "value": 4898201.0,
+          "seuil": 0,
+          "depasse": true
+        },
+        "shorts": {
+          "value": 84329.0,
+          "seuil": 0,
+          "depasse": true
+        },
+        "prix": {
+          "value": -0.32,
+          "seuil": 1,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "longs > shorts",
+        "lecture": "Liquidations massives de LONGS — cascade baissière mécanique. Historiquement suit un creux proche quand le volume liq retombe (HYPOTHÈSE, pas une loi : une cascade peut en cacher une autre)",
+        "niveau": "surveiller",
+        "action": "Ne pas vendre dans la cascade ; préparer les paliers plancher si la paire est sur watchlist"
+      },
+      "action": "Ne pas vendre dans la cascade ; préparer les paliers plancher si la paire est sur watchlist",
+      "niveau": "surveiller"
     }
   ],
-  "resume": "🔵 CALME — pas de signal alarmant"
+  "resume": "🟡 SURVEILLANCE — des signaux sont à observer"
 }

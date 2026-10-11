@@ -1,6 +1,6 @@
 # Thermo dernier — gratuit (Binance public)
 
-> Auto · **sans clé** · sans ordre · 2026-10-11T21:21Z UTC  
+> Auto · **sans clé** · sans ordre · 2026-10-11T21:27Z UTC  
 > Script : `Index_Maison/scripts/thermo_quotidien_free.py`
 
 ## Clin d'œil
@@ -10,30 +10,30 @@
 
 | Champ | Valeur | ID |
 |-------|--------|-----|
-| Mark | 83370.67 | prix |
-| OI | 92284.368 | C13 |
-| Funding | 1.7e-05 | C14 |
+| Mark | 83343.83 | prix |
+| OI | 92268.656 | C13 |
+| Funding | 1.8e-05 | C14 |
 | Funding moy. ~30j | 3.821e-05 (n=90) | Cortana |
 | Funding mois préc. | 5e-05 (n=90) | Cortana |
 | L/S 1h | 1.389 | crowd |
-| BTC 1h/4h/24h | -0.32 / -0.5 / 0.41 % | B7 |
+| BTC 1h/4h/24h | -0.35 / -0.52 / 0.4 % | B7 |
 | Dominance BTC | 59.61% | A3 |
-| Alts ↓ 24h | 25.0% | B9 |
+| Alts ↓ 24h | 35.0% | B9 |
 
 ## Lecture
 - Climat CALME (score 88/100).
-- Funding maintenant 1.7e-05. Moyenne ~30j 3.821e-05 (90 pts). Mois précédent 5e-05 (90 pts).
+- Funding maintenant 1.8e-05. Moyenne ~30j 3.821e-05 (90 pts). Mois précédent 5e-05 (90 pts).
 - Long/Short 1.389.
-- BTC 24h 0.41% · 1h -0.32% · 4h -0.5%.
-- Panier alts : 25.0% en baisse (5/20).
+- BTC 24h 0.4% · 1h -0.35% · 4h -0.52%.
+- Panier alts : 35.0% en baisse (7/20).
 - Whales proxy : aucun print ≥500k$ sur les ~500 derniers trades.
-- Dark/OTC proxy : taker buy/sell 0.779 · OI 92284.368 (pas de dark pool free temps réel).
+- Dark/OTC proxy : taker buy/sell 0.779 · OI 92268.656 (pas de dark pool free temps réel).
 - Top traders L/S 1.454.
 - Fear & Greed 61 (Greed).
 - Market cap crypto ≈ 2.80 T$.
 - Alt season proxy : Bitcoin season (BTC.D 59.61%).
 - Liquidations 24h proxy ≈ 0.00 B$.
-- ETF net inflow : BTC -32.05 M$ (bitbo-public (moy 7j), BTC only).
+- ETF net inflow : BTC -32.04 M$ (bitbo-public (moy 7j), BTC only).
 - GEX proxy (Deribit) : P/C 0.564 · murC 95000 (+14.0%) · murP 80000 (-4.0%).
 - Volumes cachés proxy : taker buy 0.476 · vol perp/spot 16.08×.
 - ACE soft: LIVE=MASTER_BASE_V8_6_FORTRESS_8H20_LIVE_COLOR.log · SKIP=935 · heat=2.7 · PnL sess=0.9024 · RED=0.
