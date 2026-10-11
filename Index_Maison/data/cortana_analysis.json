@@ -1,7 +1,72 @@
 {
-  "timestamp": 1791741154,
-  "date": "2026-10-11T17:52:34.094866+00:00",
-  "n_analyses": 0,
-  "analyses": [],
-  "resume": "Aucune analyse en cours"
+  "timestamp": 1791742654,
+  "date": "2026-10-11T18:17:34.560126+00:00",
+  "n_analyses": 2,
+  "analyses": [
+    {
+      "signal": {
+        "metric": "whale_usd",
+        "zscore": 6.954148123704813,
+        "value": 6727984.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (z-score 6.95, ~6.7M USD) en l'absence totale de couverture médiatique (Google Actualités muet). Accumulation furtive classique de baleines sous le radar du retail.\"\n}\n```",
+        "ts": 1791741252.797967
+      },
+      "fiche": "whale_usd",
+      "questions": {
+        "ventes": {
+          "value": 0.0,
+          "seuil": 0,
+          "depasse": false
+        },
+        "achats": {
+          "value": 672671.0,
+          "seuil": 0,
+          "depasse": true
+        },
+        "prix": {
+          "value": 0.02,
+          "seuil": 1,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "achats > ventes",
+        "lecture": "Flux baleines ACHETEUR dominant — accumulation possible, à confirmer sur plusieurs scans",
+        "niveau": "info",
+        "action": "Observer, ne pas acheter sur un seul signal"
+      },
+      "action": "Observer, ne pas acheter sur un seul signal",
+      "niveau": "info"
+    },
+    {
+      "signal": {
+        "metric": "long_short",
+        "zscore": -2.411936181170881,
+        "value": 1.409,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Le Z-score extrêmement bas (-2.41) indique une capitulation des positions vendeuses et un positionnement contrarien massif des baleines (short squeeze imminent). Le narratif médiatique est totalement déconnecté, focalisé sur des produits financiers traditionnels et des généralités macro sans voir l'accumulation furtive.\"\n}\n```",
+        "ts": 1791741855.787896
+      },
+      "fiche": "long_short",
+      "questions": {
+        "ratio_long_short": {
+          "value": 1.409,
+          "seuil": 2,
+          "depasse": false
+        },
+        "oi": {
+          "value": 92814.853,
+          "seuil": 120000,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
+      },
+      "action": "Observer",
+      "niveau": "neutre"
+    }
+  ],
+  "resume": "🔵 CALME — pas de signal alarmant"
 }
