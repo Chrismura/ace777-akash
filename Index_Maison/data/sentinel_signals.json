@@ -1,55 +1,6 @@
 {
   "signals": [
     {
-      "metric": "cpfp",
-      "zscore": 2.003322150693951,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique liée au bruit sémantique des médias (confusion entre le protocole Bitcoin CPFP et des acronymes institutionnels/politiques sans rapport). Aucun mouvement de baleine avéré.\"\n}\n```",
-      "ts": "2026-10-09T23:52:02.156199+00:00"
-    },
-    {
-      "metric": "dust",
-      "zscore": 2.003322150693951,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie onchain insignifiante (dust technique) noyée dans du bruit sémantique culturel sans aucun rapport avec la crypto.\"\n}\n```",
-      "ts": "2026-10-09T23:52:04.147563+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": 16.941074346097384,
-      "value": 64,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrême (16.94) pour un Fear & Greed modéré à 64. Le vide médiatique total combiné à une accumulation on-chain agressive indique une phase de 'stealth accumulation' par les baleines loin du radar du grand public.\"\n}\n```",
-      "ts": "2026-10-10T00:07:07.587618+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": 6.8556546004010475,
-      "value": 64,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Données Google Actualités vides ou non significatives pour mesurer le narratif. Le z-score élevé (6.86) indique une euphorie anormale du Fear & Greed, mais l'absence de données textuelles empêche de confirmer une divergence claire avec les médias.\"\n}\n```",
-      "ts": "2026-10-10T00:37:12.833001+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": 4.795831523312717,
-      "value": 64,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement élevé (4.80) pour un Fear & Greed à 64 sans aucun relais médiatique majeur (Google Actualités vide). C'est le piège classique des baleines qui distribuent du liquidity aux 'retail' dans l'euphorie silencieuse avant un retournement.\"\n}\n```",
-      "ts": "2026-10-10T01:07:18.867947+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": 3.872983346207417,
-      "value": 64,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Données incomplètes (titres médiatiques vides). Le z-score élevé (3.87) indique une euphorie anormale du Fear & Greed, mais l'absence de données textuelles empêche de confirmer une divergence claire avec le narratif public.\"\n}\n```",
-      "ts": "2026-10-10T01:37:24.780391+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": 3.316624790355402,
-      "value": 64,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Indice de peur et d'avarice élevé (64) sans signal de divergence onchain significatif détecté par les baleines. Le narratif médiatique est en phase avec le sentiment de marché modérément haussier, sans mouvement furtif majeur.\"\n}\n```",
-      "ts": "2026-10-10T02:07:31.901533+00:00"
-    },
-    {
       "metric": "fear_greed",
       "zscore": 2.879292027677145,
       "value": 64,
@@ -349,6 +300,55 @@
       "value": 61,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-3.76) malgré une neutralité/avidité modérée (61) et un vide médiatique total. Les baleines accumulent dans l'angle mort des médias avant un mouvement de rupture.\"\n}\n```",
       "ts": "2026-10-11T01:52:46.814980+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 3.3382339645467036,
+      "value": 0.608,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Fausse alerte sémantique : l'indice SDI détecté correspond au 'Syndicat des Indépendants' (TPE/actualité politique française), sans aucun rapport avec la blockchain ou des mouvements de baleines crypto.\"\n}\n```",
+      "ts": "2026-10-11T02:17:51.726218+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": -2.2239523056759407,
+      "value": 1.475,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Le z-score extrêmement bas (-2.22) couplé à un ratio Long/Short de 1.475 indique un positionnement contrarien massif des institutionnels/baleines en position vendeuse (ou capitulation des longs de détail), tandis que les médias grand public font la promotion générale des stratégies long-short traditionnelles. Cette forte divergence signale une accumulation silencieuse imminente avant un 'short squeeze'.\"\n}\n```",
+      "ts": "2026-10-11T02:17:53.530737+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -3.2434549480453736,
+      "value": 61,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Z-score extrêmement bas (-3.24) malgré un indice de cupidité modéré (61) et un vide médiatique total sur Google Actualités. C'est la signature classique d'accumulation silencieuse par les baleines loin du radar public avant une cassure haussière.\"\n}\n```",
+      "ts": "2026-10-11T02:22:55.437812+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.2963694570405004,
+      "value": 0.983,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Fausse alerte. Le ticker 'ipt' fait référence à l'Institut Pasteur de Tunis et au Tournoi International des Physiciens dans les médias, sans aucun lien avec un actif crypto ou un mouvement de baleine on-chain.\"\n}\n```",
+      "ts": "2026-10-11T02:27:57.563966+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 2.940943611230212,
+      "value": 0.608,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie technique trompeuse : le 'SDI' détecté correspond au Syndicat des Indépendants et TPE (actualité politique/macro française) et à une micro-cap boursière (SDI Corp), et non à un token crypto ou une baleine on-chain. Fausse alerte due à une collision de terminologie.\"\n}\n```",
+      "ts": "2026-10-11T02:48:02.926469+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": -2.0806138698681216,
+      "value": 1.475,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Le ratio long/short est à 1.475 avec un z-score de -2.08 (forte anomalie statistique, les positions vendeuses dominent anormalement). Les médias grand public banalisent les stratégies long/short traditionnelles sans voir l'excès de pessimisme des positions sur le marché crypto. Situation classique de 'short squeeze' imminent.\"\n}\n```",
+      "ts": "2026-10-11T02:48:04.653514+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -2.879292027677147,
+      "value": 61,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-2.88) malgré un indice de cupidité modéré (61) et un vide médiatique total (Google Actualités). Asymétrie classique : accumulation silencieuse des baleines hors radar grand public.\"\n}\n```",
+      "ts": "2026-10-11T02:53:07.142871+00:00"
     }
   ]
 }
