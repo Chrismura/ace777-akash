@@ -1,27 +1,6 @@
 {
   "signals": [
     {
-      "metric": "taker_ratio",
-      "zscore": 2.101288407484733,
-      "value": 1.567,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio à 1.567 (z-score 2.10) indique une forte agression acheteuse cachée sur le marché dérivé/spot, totalement ignorée par un silence médiatique absolu (Google Actualités vide). Classique accumulation silencieuse de baleines avant un re-pricing.\"\n}\n```",
-      "ts": "2026-10-09T22:16:43.999970+00:00"
-    },
-    {
-      "metric": "whale_usd",
-      "zscore": 6.4118034068670475,
-      "value": 8538145.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (Z-score 6.41, 8.5M USD) sans couverture médiatique significative. Accumulation furtive des baleines sous le radar du retail.\"\n}\n```",
-      "ts": "2026-10-09T23:01:52.489017+00:00"
-    },
-    {
-      "metric": "whale_usd",
-      "zscore": 2.5433530429012285,
-      "value": 4003381.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Activité anormale des baleines (z-score 2.54, ~4M$) en l'absence totale de couverture médiatique (silence radio). Accumulation discrète typique avant une cassure haussière.\"\n}\n```",
-      "ts": "2026-10-09T23:31:58.059808+00:00"
-    },
-    {
       "metric": "cpfp",
       "zscore": 2.003322150693951,
       "value": 50.0,
@@ -349,6 +328,27 @@
       "value": 61,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement négatif (-4.60) malgré un sentiment de marché modéré (61). Indique une accumulation cachée des baleines en l'absence de bruit médiatique.\"\n}\n```",
       "ts": "2026-10-11T01:22:38.374766+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 3.5785942513115327,
+      "value": 0.604,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie de données due à une confusion homonyme : le 'SDI' analysé par l'algorithme onchain n'a aucun lien avec le Syndicat des Indépendants (SDI) ou l'entreprise SDI Corp mentionnés dans les médias. Fausse alerte liée à un bruit médiatique macroéconomique/politique sans rapport avec la crypto.\"\n}\n```",
+      "ts": "2026-10-11T01:47:43.216927+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": -2.5938008538281485,
+      "value": 1.47,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Le z-score extrêmement bas (-2.59) indique une capitulation des positions acheteuses par le retail et un pessimisme extrême, tandis que le narratif médiatique grand public discute abstraitement des stratégies long/short traditionnelles. Historiquement, un désengagement massif du retail (ratio LS bas) est le terreau idéal pour un 'short squeeze' orchestré par les baleines.\"\n}\n```",
+      "ts": "2026-10-11T01:47:44.754126+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -3.7626978003610825,
+      "value": 61,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-3.76) malgré une neutralité/avidité modérée (61) et un vide médiatique total. Les baleines accumulent dans l'angle mort des médias avant un mouvement de rupture.\"\n}\n```",
+      "ts": "2026-10-11T01:52:46.814980+00:00"
     }
   ]
 }
