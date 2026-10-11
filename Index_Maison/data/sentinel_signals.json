@@ -1,27 +1,6 @@
 {
   "signals": [
     {
-      "metric": "volume",
-      "zscore": -2.1480155520094057,
-      "value": 3892402873.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique de volume (z-score -2.15) non corrélée à l'actif crypto : les actualités font référence à de l'homonymie (automobile, éducation, actualité générale) sans aucun signal de mouvement de baleine.\"\n}\n```",
-      "ts": "2026-10-10T16:40:51.280838+00:00"
-    },
-    {
-      "metric": "liquidations",
-      "zscore": 2.827566813185121,
-      "value": 3606540.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le z-score élevé (2.83) indique un flush massif des positions longues sur Dogecoin et Ethereum. Le narratif public pleure les liquidations en cascade, ce qui constitue un classique 'capitulation event'. Les baleines nettoient le levier excessif pour accumuler en silence à bas prix avant la prochaine impulsion.\"\n}\n```",
-      "ts": "2026-10-10T17:00:55.363329+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": -2.102665336526218,
-      "value": 3806673221.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique de volume (z-score -2.10) totalement non corroborée : les titres médiatiques sont du bruit sémantique sans rapport avec la crypto (homonymie sur le mot 'volume'). Pas de mouvement baleine avéré.\"\n}\n```",
-      "ts": "2026-10-10T17:10:58.114122+00:00"
-    },
-    {
       "metric": "liquidations",
       "zscore": 2.5791866603805302,
       "value": 3611925.0,
@@ -349,6 +328,27 @@
       "value": 1.44,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le z-score extrêmement bas (-2.54) indique un positionnement court massif des suiveurs de tendance, alors que les médias grand public banalisent et discutent encore abstraitement des stratégies long/short. Les baleines prennent une position contrariante agressive, préparant un potentiel short squeeze violent.\"\n}\n```",
       "ts": "2026-10-11T12:53:00.136529+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": -2.4051930603978753,
+      "value": 1.438,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Le ratio Long/Short à 1.438 avec un z-score de -2.41 indique une position vendeuse extrême et anormale de la foule, alors que les médias grand public banalisent les stratégies long/short traditionnelles. Cette survente massive des 'retail' crée un déséquilibre parfait pour un 'short squeeze' violent orchestré par les baleines.\"\n}\n```",
+      "ts": "2026-10-11T13:23:05.285164+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 4.310406113383016,
+      "value": 3610095.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain majeure (z-score 4.31, ~3.6M USD) dans un silence médiatique absolu (Google Actualités vide). Classique accumulation furtive de baleines loin du radar public.\"\n}\n```",
+      "ts": "2026-10-11T13:33:09.110589+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": -2.2078315632751133,
+      "value": 1.438,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Z-score extrêmement bas (-2.21) sur le ratio long/short indiquant un positionnement baissier extrême de la foule, totalement déconnecté des médias traditionnels qui banalisent les stratégies long/short. Classique configuration de capitulation des 'retail' propice à un short squeeze orchestré par les baleines.\"\n}\n```",
+      "ts": "2026-10-11T13:58:19.431571+00:00"
     }
   ]
 }
