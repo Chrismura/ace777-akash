@@ -1,34 +1,6 @@
 {
   "signals": [
     {
-      "metric": "price_1h",
-      "zscore": 2.7538116234248444,
-      "value": 0.17956961776413038,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de prix positive (z-score 2.75) totalement ignorée par les médias traditionnels (Google Actualités). Silence médiatique typique d'une accumulation furtive par les baleines avant une cassure haussière.\"\n}\n```",
-      "ts": "2026-10-11T03:48:22.309123+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": 2.270935328791684,
-      "value": 0.604,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie de faux positif due à une confusion sémantique : le 'SDI' dans les données fait référence à un indicateur onchain/crypto, tandis que le narratif médiatique traite du Syndicat des Indépendants et TPE en France et d'une entreprise financière (SDI Corp.). Aucune corrélation pertinente avec l'activité des baleines crypto.\"\n}\n```",
-      "ts": "2026-10-11T03:48:24.090143+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": -2.386980188146659,
-      "value": 61,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-2.39) malgré un indice de cupidité modéré (61) et un vide total dans les médias. Dislocation classique : accumulation silencieuse des baleines sous le radar public.\"\n}\n```",
-      "ts": "2026-10-11T03:53:26.028025+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": 2.214695298134788,
-      "value": 0.604,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Erreur de ciblage sémantique : l'anomalie détecte le 'SDI' (indice ou ticker financier traditionnel), tandis que les médias parlent du 'Syndicat des Indépendants et TPE' (SDI) et d'une entreprise homonyme (SDI Corp). Aucune donnée onchain ou mouvement de baleine crypto pertinent n'est lié à cet acronyme.\"\n}\n```",
-      "ts": "2026-10-11T08:26:11.582092+00:00"
-    },
-    {
       "metric": "fear_greed",
       "zscore": -2.354878881270654,
       "value": 61,
@@ -349,6 +321,34 @@
       "value": 5432865.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 78,\n  \"reason\": \"Le z-score des liquidations (2.37) combiné au massacre des positions longues sur les altcoins (DOGE) indique un nettoyage classique du levier par les institutionnels. Les médias généralistes font diversion avec des bruits macro et judiciaires non pertinents, masquant l'accumulation silencieuse des baleines sur le support du BTC.\"\n}\n```",
       "ts": "2026-10-11T22:20:31.160196+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 2.210683207264133,
+      "value": 5438377.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Panique médiatique orchestrée autour d'une purge massive des positions longues (liquidations de masse à 2.4B$ et z-score élevé), masquant un flush sain du levier excessif. Les baleines absorbent discrètement la liquidité pendant que la foule cède à la psychose.\"\n}\n```",
+      "ts": "2026-10-11T22:50:38.773569+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 3.389364434491117,
+      "value": 5099864.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 3.39, ~5.1M USD) sans couverture médiatique (silence radio sur Google Actualités). Les baleines accumulent ou positionnent des fonds discrètement avant que le narratif public ne se forme.\"\n}\n```",
+      "ts": "2026-10-11T23:05:43.089983+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 2.0280248329466666,
+      "value": 5398685.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 78,\n  \"reason\": \"Le bruit médiatique se focalise sur des liquidations massives (859M$ globaux) et des faits divers, masquant une liquidation on-chain ciblée et modérée (Z-score 2.03) qui élimine les derniers 'longs' fragiles. Cette purge silencieuse des positions à levier excessif prépare un rebond technique loin de la panique médiatique.\"\n}\n```",
+      "ts": "2026-10-11T23:20:46.618612+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 4.34295357182411,
+      "value": 1.381,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Anomalie de données non pertinente. Le ticker 'ipt' fait référence à des actualités institutionnelles, religieuses ou sanitaires (Institut Pasteur de Tunis, Tournoi de Physique), sans aucun lien avec un actif crypto ou une baleine onchain.\"\n}\n```",
+      "ts": "2026-10-11T23:25:48.919495+00:00"
     }
   ]
 }
