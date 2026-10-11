@@ -2,20 +2,6 @@
   "signals": [
     {
       "metric": "volume",
-      "zscore": -2.0304361233209627,
-      "value": 4194718958.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique de volume (z-score -2.03) mais les titres médiatiques sont complètement hors sujet (actualité automobile, locale et institutionnelle sans lien avec la crypto). Bruit de fond, pas de signal baleine avéré.\"\n}\n```",
-      "ts": "2026-10-10T15:05:10.792866+00:00"
-    },
-    {
-      "metric": "liquidations",
-      "zscore": 4.301418996251793,
-      "value": 3579914.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (4.30) sur un volume de liquidations modéré (~3.5M$) combiné à une capitulation massive des longs sur Dogecoin (94%) et Ethereum. Le narratif public se focalise sur la panique et la purge du levier excessif, créant un classique 'washout' institutionnel où les baleines accumulent discrètement sur la faiblesse.\"\n}\n```",
-      "ts": "2026-10-10T15:25:20.402293+00:00"
-    },
-    {
-      "metric": "volume",
       "zscore": -2.183704911209445,
       "value": 4018942333.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique due à un bruit de fond non pertinent (les actualités parlent de voitures, de ports et de faits divers). Aucun signal de baleine crypto détecté, le volume on-chain est simplement déconnecté du bruit médiatique grand public.\"\n}\n```",
@@ -349,6 +335,20 @@
       "value": 61,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score négatif profond (-2.11) malgré un sentiment de cupidité modérée (61) et un vide médiatique total (Google Actualités). Divergence classique de sous-radar : les baleines accumulent en silence pendant l'indifférence des médias avant le prochain choc haussier.\"\n}\n```",
       "ts": "2026-10-11T11:52:27.948985+00:00"
+    },
+    {
+      "metric": "price_1h",
+      "zscore": 3.003761888620168,
+      "value": 0.19838542597150344,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de prix significative (z-score 3.00) en l'absence totale de couverture médiatique (Google Actualités vide). C'est la signature classique d'accumulation furtive par des baleines sous le radar du retail.\"\n}\n```",
+      "ts": "2026-10-11T11:57:30.064040+00:00"
+    },
+    {
+      "metric": "taker_ratio",
+      "zscore": 4.07398509622539,
+      "value": 2.195,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Z-score extrême (4.07) sur le taker_ratio (2.195) indiquant une domination massive des acheteurs agissants (takers), couplé à un silence médiatique absolu (Google Actualités vide). Classique accumulation furtive de baleines loin du radar retail.\"\n}\n```",
+      "ts": "2026-10-11T12:12:36.897006+00:00"
     }
   ]
 }

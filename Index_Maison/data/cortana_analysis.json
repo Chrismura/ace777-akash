@@ -1,7 +1,100 @@
 {
-  "timestamp": 1791719547,
-  "date": "2026-10-11T11:52:27.608326+00:00",
-  "n_analyses": 0,
-  "analyses": [],
-  "resume": "Aucune analyse en cours"
+  "timestamp": 1791720747,
+  "date": "2026-10-11T12:12:27.995053+00:00",
+  "n_analyses": 3,
+  "analyses": [
+    {
+      "signal": {
+        "metric": "long_short",
+        "zscore": -3.032036498559838,
+        "value": 1.442,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Z-score extrêmement bas (-3.03) sur le ratio long/short indiquant un positionnement de détail massivement vendeux, contrastant fortement avec le narratif médiatique traditionnel sur les fonds long/short. Classique piège à liquidité propice à un 'short squeeze' imminent orchestré par les baleines.\"\n}\n```",
+        "ts": 1791719546.551846
+      },
+      "fiche": "long_short",
+      "questions": {
+        "ratio_long_short": {
+          "value": 1.44,
+          "seuil": 2,
+          "depasse": false
+        },
+        "oi": {
+          "value": 93195.35,
+          "seuil": 120000,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
+      },
+      "action": "Observer",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "fear_greed",
+        "zscore": -2.1056975718632835,
+        "value": 61,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score négatif profond (-2.11) malgré un sentiment de cupidité modérée (61) et un vide médiatique total (Google Actualités). Divergence classique de sous-radar : les baleines accumulent en silence pendant l'indifférence des médias avant le prochain choc haussier.\"\n}\n```",
+        "ts": 1791719547.948985
+      },
+      "fiche": "fear_greed",
+      "questions": {
+        "peur": {
+          "value": 61,
+          "seuil": 25,
+          "depasse": true
+        },
+        "cupidite": {
+          "value": 61,
+          "seuil": 75,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
+      },
+      "action": "Observer",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "price_1h",
+        "zscore": 3.003761888620168,
+        "value": 0.19838542597150344,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de prix significative (z-score 3.00) en l'absence totale de couverture médiatique (Google Actualités vide). C'est la signature classique d'accumulation furtive par des baleines sous le radar du retail.\"\n}\n```",
+        "ts": 1791719850.06404
+      },
+      "fiche": "price_1h",
+      "questions": {
+        "pct_1h": {
+          "value": 0.03,
+          "seuil": -1,
+          "depasse": true
+        },
+        "liq": {
+          "value": 4362723.0,
+          "seuil": 5000000,
+          "depasse": false
+        },
+        "funding": {
+          "value": -3e-06,
+          "seuil": 0,
+          "depasse": true
+        }
+      },
+      "interpretation": {
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
+      },
+      "action": "Observer",
+      "niveau": "neutre"
+    }
+  ],
+  "resume": "🔵 CALME — pas de signal alarmant"
 }
