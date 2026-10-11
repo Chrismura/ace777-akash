@@ -2,27 +2,6 @@
   "signals": [
     {
       "metric": "price_1h",
-      "zscore": 2.6479255871931136,
-      "value": 0.16179557102524722,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.65) sur 1h sans couverture médiatique (Google Actualités vide). Divergence classique : accumulation silencieuse des baleines à l'abri du bruit de fond retail.\"\n}\n```",
-      "ts": "2026-10-11T03:13:11.162375+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": 2.481586209862405,
-      "value": 0.604,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Fausse alerte liée à une homonymie : le 'SDI' (Syndicat des Indépendants) dans les médias fait référence à l'actualité économique et politique française des PME, sans aucun rapport avec un actif crypto ou le mouvement de baleines onchain.\"\n}\n```",
-      "ts": "2026-10-11T03:18:13.660621+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": -2.604569788618419,
-      "value": 61,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 40,\n  \"reason\": \"Données incomplètes (absence de flux de gros portefeuilles et de gros titres média exploitables). Le z-score négatif indique une anomalie de volatilité dans l'indice de peur/greed, mais sans confirmation on-chain des mouvements de baleines, aucune divergence exploitable ne peut être validée.\"\n}\n```",
-      "ts": "2026-10-11T03:23:16.835941+00:00"
-    },
-    {
-      "metric": "price_1h",
       "zscore": 2.7538116234248444,
       "value": 0.17956961776413038,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de prix positive (z-score 2.75) totalement ignorée par les médias traditionnels (Google Actualités). Silence médiatique typique d'une accumulation furtive par les baleines avant une cassure haussière.\"\n}\n```",
@@ -349,6 +328,27 @@
       "value": 4982530.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 78,\n  \"reason\": \"Le z-score des liquidations (2.02) combiné à une purge massive des positions longues sur les altcoins (DOGE) et des transferts de baleines (17k+ BTC) indique un nettoyage par le vide des positions à effet de levier. Les médias grand public se focalisent sur la panique et le bruit juridique, masquant une capitulation retail idéale pour l'accumulation institutionnelle silencieuse.\"\n}\n```",
       "ts": "2026-10-11T21:25:16.327008+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.090888919076627,
+      "value": 5159320607.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie de volume non pertinente : le bruit médiatique concerne des actions traditionnelles (Hims & Hers), des actualités politiques et automobiles sans lien avec la crypto. Aucune baleine crypto détectée, données polluées par des homonymes.\"\n}\n```",
+      "ts": "2026-10-11T21:50:23.132443+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.080465794261217,
+      "value": 5227867443.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit de fond médiatique sans rapport avec la crypto (actions Hims & Hers, actualités diverses). Anomalie de volume on-chain non corrélée à un actif crypto identifiable dans les flux d'actualité.\"\n}\n```",
+      "ts": "2026-10-11T22:20:29.304017+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 2.373306610030126,
+      "value": 5432865.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 78,\n  \"reason\": \"Le z-score des liquidations (2.37) combiné au massacre des positions longues sur les altcoins (DOGE) indique un nettoyage classique du levier par les institutionnels. Les médias généralistes font diversion avec des bruits macro et judiciaires non pertinents, masquant l'accumulation silencieuse des baleines sur le support du BTC.\"\n}\n```",
+      "ts": "2026-10-11T22:20:31.160196+00:00"
     }
   ]
 }
