@@ -7117,3 +7117,7 @@ Pas d’ordre — confrontation plus tard.
 ### 2026-10-11T17:11:05Z — ALERT auto
 - WUSDT: IMPULSE_WAIT — spike en cours, pas chase
 (compléter: confirmé ? risque ?)
+
+### 2026-10-11T17:31:28Z — ALERT auto
+- TELUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
