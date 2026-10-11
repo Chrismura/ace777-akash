@@ -1,7 +1,81 @@
 {
-  "timestamp": 1791677030,
-  "date": "2026-10-11T00:03:50.926437+00:00",
-  "n_analyses": 0,
-  "analyses": [],
-  "resume": "Aucune analyse en cours"
+  "timestamp": 1791680332,
+  "date": "2026-10-11T00:58:52.010028+00:00",
+  "n_analyses": 3,
+  "analyses": [
+    {
+      "signal": {
+        "metric": "sdi",
+        "zscore": 6.184286130366228,
+        "value": 0.604,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Anomalie statistique (z-score 6.18) entièrement due à une collision homonymique : le 'SDI' on-chain est confondu par les flux médiatiques avec le Syndicat des Indépendants et TPE (SDI) et l'entreprise SDI Corp. Aucune baleine crypto active ici, simple bruit sémantique.\"\n}\n```",
+        "ts": 1791679646.562738
+      },
+      "fiche": null,
+      "interpretation": {
+        "lecture": "Pas de fiche disponible",
+        "niveau": "inconnu"
+      },
+      "action": "Observer"
+    },
+    {
+      "signal": {
+        "metric": "long_short",
+        "zscore": -2.01741982117188,
+        "value": 1.481,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Le ratio Long/Short affiche un Z-score de -2.02 (extrêmement bas), indiquant un positionnement massif à la short. Les médias grand public et traditionnels, quant à eux, ne parlent que de stratégies 'long/short' traditionnelles sans urgence directionnelle, totalement aveugles à la compression de short imminente qui se prépare on-chain.\"\n}\n```",
+        "ts": 1791679648.214094
+      },
+      "fiche": "long_short",
+      "questions": {
+        "ratio_long_short": {
+          "value": 1.481,
+          "seuil": 2,
+          "depasse": false
+        },
+        "oi": {
+          "value": 92631.681,
+          "seuil": 120000,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
+      },
+      "action": "Observer",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "fear_greed",
+        "zscore": -6.335839103296201,
+        "value": 61,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-6.34) pour un Fear & Greed à 61 : les médias traditionnels ignorent totalement le marché (silence radio), tandis que le positionnement on-chain indique une accumulation discrète des baleines sous le radar public.\"\n}\n```",
+        "ts": 1791679950.230478
+      },
+      "fiche": "fear_greed",
+      "questions": {
+        "peur": {
+          "value": 61,
+          "seuil": 25,
+          "depasse": true
+        },
+        "cupidite": {
+          "value": 61,
+          "seuil": 75,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
+      },
+      "action": "Observer",
+      "niveau": "neutre"
+    }
+  ],
+  "resume": "🔵 CALME — pas de signal alarmant"
 }
