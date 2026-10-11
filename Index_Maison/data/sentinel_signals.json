@@ -1,48 +1,6 @@
 {
   "signals": [
     {
-      "metric": "ipt",
-      "zscore": 2.1017197914574357,
-      "value": 1.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique due à une collision lexicale : le ticker 'IPT' confondu par l'algorithme avec le Tournoi International des Physiciens et l'Institut Pasteur de Tunis (actualités médicales et régionales). Aucun mouvement de baleine crypto réel détecté.\"\n}\n```",
-      "ts": "2026-10-10T07:28:40.645991+00:00"
-    },
-    {
-      "metric": "whale_usd",
-      "zscore": 3.6298205018185823,
-      "value": 5483977.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Activité anormale des baleines (z-score 3.63, ~5.48M USD) dans un silence médiatique absolu (Google Actualités vide). Accumulation furtive typique hors radar retail.\"\n}\n```",
-      "ts": "2026-10-10T09:34:03.034332+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.5420444926311045,
-      "value": 1.128,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit lexical : L'anomalie 'ipt' (z-score 2.54) capturée par les capteurs on-chain correspond à de l'homonymie pure avec des actualités institutionnelles et sanitaires (Institut Pasteur de Tunis, Tournoi de Physique). Aucune activité de baleine crypto détectée.\"\n}\n```",
-      "ts": "2026-10-10T09:59:09.212440+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.483742080560221,
-      "value": 1.142,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"L'indice IPT (z-score 2.48) détecte une activité anormale, mais les résultats Google Actualités renvoient vers des homonymes institutionnels et universitaires sans aucun rapport avec la crypto (Tournoi de Physique, lutte contre les VSS, fondation locale). Bruit médiatique pur, aucune baleine crypto détectée.\"\n}\n```",
-      "ts": "2026-10-10T11:54:31.186066+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.1020135998655793,
-      "value": 1.063,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique (ipt = 1.063) due à une confusion sémantique. Les titres médiatiques font référence à des tournois de physique (IPT 2026), des luttes associatives et de la santé publique, totalement déconnectés des marchés crypto.\"\n}\n```",
-      "ts": "2026-10-10T14:40:00.600478+00:00"
-    },
-    {
-      "metric": "liquidations",
-      "zscore": 6.037751342063151,
-      "value": 3626453.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrême (6.04) sur les liquidations longues (94% sur DOGE/ETH) combiné à un narratif médiatique saturé de panique et de bruits hors-sujet (tribunaux de commerce). Classic 'flushout' de détaillés orchestré par les baleines pour accumuler à bas prix.\"\n}\n```",
-      "ts": "2026-10-10T14:50:03.556836+00:00"
-    },
-    {
       "metric": "volume",
       "zscore": -2.0304361233209627,
       "value": 4194718958.0,
@@ -349,6 +307,48 @@
       "value": 1.448,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le z-score extrêmement bas (-3.21) indique une sous-pondération historique des positions longues par la foule/retail, tandis que les médias grand public banalisent la stratégie Long/Short sans vision directionnelle crypto. Cette capitulation du ratio signale un positionnement contrarien massif des baleines en prévision d'un short squeeze.\"\n}\n```",
       "ts": "2026-10-11T08:31:17.158643+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 2.057285932894228,
+      "value": 0.604,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie de faux positif due au bruit sémantique. Le 'SDI' détecté par les flux fait référence au Syndicat des Indépendants et PME ou à une micro-capitalisation boursière (SDI Corp.), et non à un protocole crypto ou à une baleine onchain.\"\n}\n```",
+      "ts": "2026-10-11T08:56:21.972762+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -2.181742422927142,
+      "value": 61,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement négatif (-2.18) malgré un indice de cupidité modéré (61) et un vide médiatique total (Google Actualités sans écho). C'est la signature classique d'une accumulation furtive de baleines loin des radars du retail.\"\n}\n```",
+      "ts": "2026-10-11T08:56:23.381291+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": -2.8547307338676124,
+      "value": 1.448,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Z-score extrêmement bas (-2.85) sur le ratio long/short indiquant un positionnement baissier maximal de la foule, tandis que le narratif médiatique est totalement déconnecté (bruit de fond institutionnel sur des ETF/fonds traditionnels). Classification classique de capitulation des suiveurs : configuration idéale pour un 'short squeeze' imminent provoqué par les baleines.\"\n}\n```",
+      "ts": "2026-10-11T09:01:26.114944+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 2.01223986946089,
+      "value": 0.604,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie non pertinente : le 'SDI' médiatique fait référence au Syndicat des Indépendants et PME ou à une micro-cap boursière (SDI Corp.), et non à un indicateur onchain crypto de baleines. Bruit médiatique sans lien avec le mouvement des cryptomonnaies.\"\n}\n```",
+      "ts": "2026-10-11T11:14:37.646285+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": -3.032036498559838,
+      "value": 1.442,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Z-score extrêmement bas (-3.03) sur le ratio long/short indiquant un positionnement de détail massivement vendeux, contrastant fortement avec le narratif médiatique traditionnel sur les fonds long/short. Classique piège à liquidité propice à un 'short squeeze' imminent orchestré par les baleines.\"\n}\n```",
+      "ts": "2026-10-11T11:52:26.551846+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -2.1056975718632835,
+      "value": 61,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score négatif profond (-2.11) malgré un sentiment de cupidité modérée (61) et un vide médiatique total (Google Actualités). Divergence classique de sous-radar : les baleines accumulent en silence pendant l'indifférence des médias avant le prochain choc haussier.\"\n}\n```",
+      "ts": "2026-10-11T11:52:27.948985+00:00"
     }
   ]
 }
