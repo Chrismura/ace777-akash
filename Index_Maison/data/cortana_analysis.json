@@ -1,15 +1,15 @@
 {
-  "timestamp": 1791742954,
-  "date": "2026-10-11T18:22:34.645971+00:00",
+  "timestamp": 1791746555,
+  "date": "2026-10-11T19:22:35.684004+00:00",
   "n_analyses": 2,
   "analyses": [
     {
       "signal": {
         "metric": "whale_usd",
-        "zscore": 6.954148123704813,
-        "value": 6727984.0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (z-score 6.95, ~6.7M USD) en l'absence totale de couverture médiatique (Google Actualités muet). Accumulation furtive classique de baleines sous le radar du retail.\"\n}\n```",
-        "ts": 1791741252.797967
+        "zscore": 13.441549838840615,
+        "value": 13613498.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Anomalie onchain massive (z-score 13.44, ~13.6M USD) sans couverture médiatique significative (Google Actualités muet). Classic accumulation furtive de baleine sous le radar des médias.\"\n}\n```",
+        "ts": 1791745168.254876
       },
       "fiche": "whale_usd",
       "questions": {
@@ -24,7 +24,7 @@
           "depasse": false
         },
         "prix": {
-          "value": 0.06,
+          "value": 0.04,
           "seuil": 1,
           "depasse": false
         }
@@ -40,20 +40,20 @@
     {
       "signal": {
         "metric": "long_short",
-        "zscore": -2.411936181170881,
+        "zscore": -2.1074570924698164,
         "value": 1.409,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Le Z-score extrêmement bas (-2.41) indique une capitulation des positions vendeuses et un positionnement contrarien massif des baleines (short squeeze imminent). Le narratif médiatique est totalement déconnecté, focalisé sur des produits financiers traditionnels et des généralités macro sans voir l'accumulation furtive.\"\n}\n```",
-        "ts": 1791741855.787896
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Le Z-score fortement négatif (-2.11) indique une capitulation des positions acheteuses chez les traders particuliers, tandis que le narratif médiatique se focalise abstraitement sur les stratégies long/short traditionnelles. Historiquement, un désengagement aussi brutal de la foule couplé à une indifférence des médias grand public sur l'actif signale une accumulation silencieuse des baleines en zone de sous-évaluation.\"\n}\n```",
+        "ts": 1791745471.678184
       },
       "fiche": "long_short",
       "questions": {
         "ratio_long_short": {
-          "value": 1.409,
+          "value": 1.391,
           "seuil": 2,
           "depasse": false
         },
         "oi": {
-          "value": 92816.523,
+          "value": 92628.552,
           "seuil": 120000,
           "depasse": false
         }

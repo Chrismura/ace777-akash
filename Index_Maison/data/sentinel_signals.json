@@ -1,41 +1,6 @@
 {
   "signals": [
     {
-      "metric": "sdi",
-      "zscore": 4.806924357707193,
-      "value": 0.608,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Le SDI (Syndicat des Indépendants et TPE) et les titres médiatiques font référence à l'actualité macroéconomique et politique française ainsi qu'à des micro-caps boursières traditionnelles (SDI Corp), sans aucun rapport avec les flux onchain ou le marché des cryptomonnaies. Il s'agit d'un bruit sémantique (homonymie) et non d'une divergence de baleines crypto.\"\n}\n```",
-      "ts": "2026-10-11T01:17:34.716865+00:00"
-    },
-    {
-      "metric": "long_short",
-      "zscore": -2.684901605747295,
-      "value": 1.47,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Le z-score extrêmement bas (-2.68) indique une sous-exposition massive des traders particuliers et un pessimisme excessif, tandis que les médias grand public s'attardent sur des stratégies traditionnelles long/short. C'est un signal contrarien classique de capitulation des suiveurs, souvent précurseur d'une accumulation silencieuse par les baleines.\"\n}\n```",
-      "ts": "2026-10-11T01:17:36.250645+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": -4.599331055039003,
-      "value": 61,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement négatif (-4.60) malgré un sentiment de marché modéré (61). Indique une accumulation cachée des baleines en l'absence de bruit médiatique.\"\n}\n```",
-      "ts": "2026-10-11T01:22:38.374766+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": 3.5785942513115327,
-      "value": 0.604,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie de données due à une confusion homonyme : le 'SDI' analysé par l'algorithme onchain n'a aucun lien avec le Syndicat des Indépendants (SDI) ou l'entreprise SDI Corp mentionnés dans les médias. Fausse alerte liée à un bruit médiatique macroéconomique/politique sans rapport avec la crypto.\"\n}\n```",
-      "ts": "2026-10-11T01:47:43.216927+00:00"
-    },
-    {
-      "metric": "long_short",
-      "zscore": -2.5938008538281485,
-      "value": 1.47,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Le z-score extrêmement bas (-2.59) indique une capitulation des positions acheteuses par le retail et un pessimisme extrême, tandis que le narratif médiatique grand public discute abstraitement des stratégies long/short traditionnelles. Historiquement, un désengagement massif du retail (ratio LS bas) est le terreau idéal pour un 'short squeeze' orchestré par les baleines.\"\n}\n```",
-      "ts": "2026-10-11T01:47:44.754126+00:00"
-    },
-    {
       "metric": "fear_greed",
       "zscore": -3.7626978003610825,
       "value": 61,
@@ -349,6 +314,41 @@
       "value": 1.409,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Le Z-score extrêmement bas (-2.41) indique une capitulation des positions vendeuses et un positionnement contrarien massif des baleines (short squeeze imminent). Le narratif médiatique est totalement déconnecté, focalisé sur des produits financiers traditionnels et des généralités macro sans voir l'accumulation furtive.\"\n}\n```",
       "ts": "2026-10-11T18:04:15.787896+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": -2.249534508875686,
+      "value": 1.409,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Le z-score extrêmement bas (-2.25) indique une sous-pondération massive des positions longues par la foule/retail, tandis que les médias grand public banalisent la stratégie long/short. C'est un signal contrarien classique d'accumulation silencieuse par les baleines avant un short squeeze.\"\n}\n```",
+      "ts": "2026-10-11T18:34:20.615486+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.0344078670133623,
+      "value": 0.919,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (IPT) déclenchée par un bruit sémantique (confusion avec l'acronyme institutionnel et des actualités sans rapport avec la crypto). Aucune baleine détectée.\"\n}\n```",
+      "ts": "2026-10-11T18:44:23.551199+00:00"
+    },
+    {
+      "metric": "price_1h",
+      "zscore": 2.5449129045605448,
+      "value": 0.2646905839011948,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (+2.54) sur 1h indiquant une accumulation agressive des baleines, totalement ignorée par les médias (silence radio). Divergence classique deមុน un mouvement haussier organique initié en sous-marin.\"\n}\n```",
+      "ts": "2026-10-11T18:49:25.631910+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 13.441549838840615,
+      "value": 13613498.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Anomalie onchain massive (z-score 13.44, ~13.6M USD) sans couverture médiatique significative (Google Actualités muet). Classic accumulation furtive de baleine sous le radar des médias.\"\n}\n```",
+      "ts": "2026-10-11T18:59:28.254876+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": -2.1074570924698164,
+      "value": 1.409,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Le Z-score fortement négatif (-2.11) indique une capitulation des positions acheteuses chez les traders particuliers, tandis que le narratif médiatique se focalise abstraitement sur les stratégies long/short traditionnelles. Historiquement, un désengagement aussi brutal de la foule couplé à une indifférence des médias grand public sur l'actif signale une accumulation silencieuse des baleines en zone de sous-évaluation.\"\n}\n```",
+      "ts": "2026-10-11T19:04:31.678184+00:00"
     }
   ]
 }
