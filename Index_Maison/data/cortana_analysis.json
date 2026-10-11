@@ -1,31 +1,26 @@
 {
-  "timestamp": 1791746555,
-  "date": "2026-10-11T19:22:35.684004+00:00",
+  "timestamp": 1791750156,
+  "date": "2026-10-11T20:22:36.823433+00:00",
   "n_analyses": 2,
   "analyses": [
     {
       "signal": {
-        "metric": "whale_usd",
-        "zscore": 13.441549838840615,
-        "value": 13613498.0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Anomalie onchain massive (z-score 13.44, ~13.6M USD) sans couverture médiatique significative (Google Actualités muet). Classic accumulation furtive de baleine sous le radar des médias.\"\n}\n```",
-        "ts": 1791745168.254876
+        "metric": "long_short",
+        "zscore": -2.2690075493334065,
+        "value": 1.391,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Le z-score extrêmement bas (-2.27) indique une sous-pondération massive des positions longs par la foule, tandis que les médias grand public banalisent la stratégie 'Long/Short' traditionnelle. C'est un signal contrarien classique : les smart money accumulent discrètement en position basse avant un retournement de tendance.\"\n}\n```",
+        "ts": 1791749084.537715
       },
-      "fiche": "whale_usd",
+      "fiche": "long_short",
       "questions": {
-        "ventes": {
-          "value": 0.0,
-          "seuil": 0,
+        "ratio_long_short": {
+          "value": 1.391,
+          "seuil": 2,
           "depasse": false
         },
-        "achats": {
-          "value": 0.0,
-          "seuil": 0,
-          "depasse": false
-        },
-        "prix": {
-          "value": 0.04,
-          "seuil": 1,
+        "oi": {
+          "value": 92649.766,
+          "seuil": 120000,
           "depasse": false
         }
       },
@@ -39,32 +34,18 @@
     },
     {
       "signal": {
-        "metric": "long_short",
-        "zscore": -2.1074570924698164,
-        "value": 1.409,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Le Z-score fortement négatif (-2.11) indique une capitulation des positions acheteuses chez les traders particuliers, tandis que le narratif médiatique se focalise abstraitement sur les stratégies long/short traditionnelles. Historiquement, un désengagement aussi brutal de la foule couplé à une indifférence des médias grand public sur l'actif signale une accumulation silencieuse des baleines en zone de sous-évaluation.\"\n}\n```",
-        "ts": 1791745471.678184
+        "metric": "ipt",
+        "zscore": -2.162111609968304,
+        "value": 0.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Anomalie technique due à une confusion lexicale : le signal onchain 'ipt' est comparé à des actualités institutionnelles et académiques (Tournoi International des Physiciens, lutte contre les violences, théologie). Aucune donnée crypto pertinente détectée.\"\n}\n```",
+        "ts": 1791749988.436225
       },
-      "fiche": "long_short",
-      "questions": {
-        "ratio_long_short": {
-          "value": 1.391,
-          "seuil": 2,
-          "depasse": false
-        },
-        "oi": {
-          "value": 92628.552,
-          "seuil": 120000,
-          "depasse": false
-        }
-      },
+      "fiche": null,
       "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
+        "lecture": "Pas de fiche disponible",
+        "niveau": "inconnu"
       },
-      "action": "Observer",
-      "niveau": "neutre"
+      "action": "Observer"
     }
   ],
   "resume": "🔵 CALME — pas de signal alarmant"

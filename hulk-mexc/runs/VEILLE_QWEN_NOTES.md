@@ -7142,3 +7142,12 @@ Pas d’ordre — confrontation plus tard.
 ### 2026-10-11T19:17:47Z — ALERT auto
 - RIZEUSDT: WATCH_PULLBACK — tension haute + reflux
 (compléter: confirmé ? risque ?)
+
+### 2026-10-11T19:37:49Z — ALERT auto
+- WUSDT: IMPULSE_WAIT — spike en cours, pas chase
+- TELUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
+
+### 2026-10-11T20:18:22Z — ALERT auto
+- RIZEUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
