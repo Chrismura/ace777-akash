@@ -1,15 +1,15 @@
 {
-  "timestamp": 1791680632,
-  "date": "2026-10-11T01:03:52.105494+00:00",
+  "timestamp": 1791683032,
+  "date": "2026-10-11T01:43:52.738194+00:00",
   "n_analyses": 3,
   "analyses": [
     {
       "signal": {
         "metric": "sdi",
-        "zscore": 6.184286130366228,
-        "value": 0.604,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Anomalie statistique (z-score 6.18) entièrement due à une collision homonymique : le 'SDI' on-chain est confondu par les flux médiatiques avec le Syndicat des Indépendants et TPE (SDI) et l'entreprise SDI Corp. Aucune baleine crypto active ici, simple bruit sémantique.\"\n}\n```",
-        "ts": 1791679646.562738
+        "zscore": 4.806924357707193,
+        "value": 0.608,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Le SDI (Syndicat des Indépendants et TPE) et les titres médiatiques font référence à l'actualité macroéconomique et politique française ainsi qu'à des micro-caps boursières traditionnelles (SDI Corp), sans aucun rapport avec les flux onchain ou le marché des cryptomonnaies. Il s'agit d'un bruit sémantique (homonymie) et non d'une divergence de baleines crypto.\"\n}\n```",
+        "ts": 1791681454.716865
       },
       "fiche": null,
       "interpretation": {
@@ -21,20 +21,20 @@
     {
       "signal": {
         "metric": "long_short",
-        "zscore": -2.01741982117188,
-        "value": 1.481,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Le ratio Long/Short affiche un Z-score de -2.02 (extrêmement bas), indiquant un positionnement massif à la short. Les médias grand public et traditionnels, quant à eux, ne parlent que de stratégies 'long/short' traditionnelles sans urgence directionnelle, totalement aveugles à la compression de short imminente qui se prépare on-chain.\"\n}\n```",
-        "ts": 1791679648.214094
+        "zscore": -2.684901605747295,
+        "value": 1.47,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Le z-score extrêmement bas (-2.68) indique une sous-exposition massive des traders particuliers et un pessimisme excessif, tandis que les médias grand public s'attardent sur des stratégies traditionnelles long/short. C'est un signal contrarien classique de capitulation des suiveurs, souvent précurseur d'une accumulation silencieuse par les baleines.\"\n}\n```",
+        "ts": 1791681456.250645
       },
       "fiche": "long_short",
       "questions": {
         "ratio_long_short": {
-          "value": 1.481,
+          "value": 1.47,
           "seuil": 2,
           "depasse": false
         },
         "oi": {
-          "value": 92631.681,
+          "value": 92602.434,
           "seuil": 120000,
           "depasse": false
         }
@@ -50,10 +50,10 @@
     {
       "signal": {
         "metric": "fear_greed",
-        "zscore": -6.335839103296201,
+        "zscore": -4.599331055039003,
         "value": 61,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-6.34) pour un Fear & Greed à 61 : les médias traditionnels ignorent totalement le marché (silence radio), tandis que le positionnement on-chain indique une accumulation discrète des baleines sous le radar public.\"\n}\n```",
-        "ts": 1791679950.230478
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement négatif (-4.60) malgré un sentiment de marché modéré (61). Indique une accumulation cachée des baleines en l'absence de bruit médiatique.\"\n}\n```",
+        "ts": 1791681758.374766
       },
       "fiche": "fear_greed",
       "questions": {
