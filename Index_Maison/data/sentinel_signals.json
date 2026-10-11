@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "volume",
-      "zscore": -2.183704911209445,
-      "value": 4018942333.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique due à un bruit de fond non pertinent (les actualités parlent de voitures, de ports et de faits divers). Aucun signal de baleine crypto détecté, le volume on-chain est simplement déconnecté du bruit médiatique grand public.\"\n}\n```",
-      "ts": "2026-10-10T15:35:24.432122+00:00"
-    },
-    {
       "metric": "liquidations",
       "zscore": 3.5423598445250213,
       "value": 3582912.0,
@@ -349,6 +342,13 @@
       "value": 2.195,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Z-score extrême (4.07) sur le taker_ratio (2.195) indiquant une domination massive des acheteurs agissants (takers), couplé à un silence médiatique absolu (Google Actualités vide). Classique accumulation furtive de baleines loin du radar retail.\"\n}\n```",
       "ts": "2026-10-11T12:12:36.897006+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 2.0377498763802966,
+      "value": 4564210.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Panique médiatique extrême et surestimation des liquidations globales ($2.4B à $19B) alors que l'anomalie on-chain montre des liquidations réelles modérées ($4.5M, z-score 2.04). Classic flush des positions longues par les baleines pour piéger les suiveurs avant rebond.\"\n}\n```",
+      "ts": "2026-10-11T12:17:43.512709+00:00"
     }
   ]
 }

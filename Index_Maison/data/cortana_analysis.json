@@ -1,7 +1,7 @@
 {
-  "timestamp": 1791720747,
-  "date": "2026-10-11T12:12:27.995053+00:00",
-  "n_analyses": 3,
+  "timestamp": 1791721048,
+  "date": "2026-10-11T12:17:28.097908+00:00",
+  "n_analyses": 4,
   "analyses": [
     {
       "signal": {
@@ -19,7 +19,7 @@
           "depasse": false
         },
         "oi": {
-          "value": 93195.35,
+          "value": 93158.643,
           "seuil": 120000,
           "depasse": false
         }
@@ -72,17 +72,17 @@
       "fiche": "price_1h",
       "questions": {
         "pct_1h": {
-          "value": 0.03,
+          "value": 0.12,
           "seuil": -1,
           "depasse": true
         },
         "liq": {
-          "value": 4362723.0,
+          "value": 4564210.0,
           "seuil": 5000000,
           "depasse": false
         },
         "funding": {
-          "value": -3e-06,
+          "value": -2e-06,
           "seuil": 0,
           "depasse": true
         }
@@ -94,6 +94,36 @@
       },
       "action": "Observer",
       "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "taker_ratio",
+        "zscore": 4.07398509622539,
+        "value": 2.195,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Z-score extrême (4.07) sur le taker_ratio (2.195) indiquant une domination massive des acheteurs agissants (takers), couplé à un silence médiatique absolu (Google Actualités vide). Classique accumulation furtive de baleines loin du radar retail.\"\n}\n```",
+        "ts": 1791720756.897006
+      },
+      "fiche": "taker_ratio",
+      "questions": {
+        "taker": {
+          "value": 2.195,
+          "seuil": 1,
+          "depasse": true
+        },
+        "prix": {
+          "value": 0.12,
+          "seuil": 1,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "taker > 1",
+        "lecture": "Takers acheteurs agressifs — la demande mange le carnet, à confirmer avec le volume",
+        "niveau": "info",
+        "action": "Observer si le prix suit (vraie demande) ou diverge (absorption)"
+      },
+      "action": "Observer si le prix suit (vraie demande) ou diverge (absorption)",
+      "niveau": "info"
     }
   ],
   "resume": "🔵 CALME — pas de signal alarmant"
