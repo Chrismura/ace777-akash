@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "fear_greed",
-      "zscore": -3.2434549480453736,
-      "value": 61,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Z-score extrêmement bas (-3.24) malgré un indice de cupidité modéré (61) et un vide médiatique total sur Google Actualités. C'est la signature classique d'accumulation silencieuse par les baleines loin du radar public avant une cassure haussière.\"\n}\n```",
-      "ts": "2026-10-11T02:22:55.437812+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.2963694570405004,
-      "value": 0.983,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Fausse alerte. Le ticker 'ipt' fait référence à l'Institut Pasteur de Tunis et au Tournoi International des Physiciens dans les médias, sans aucun lien avec un actif crypto ou un mouvement de baleine on-chain.\"\n}\n```",
-      "ts": "2026-10-11T02:27:57.563966+00:00"
-    },
-    {
       "metric": "sdi",
       "zscore": 2.940943611230212,
       "value": 0.608,
@@ -349,6 +335,20 @@
       "value": 0.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Anomalie technique due à une confusion lexicale : le signal onchain 'ipt' est comparé à des actualités institutionnelles et académiques (Tournoi International des Physiciens, lutte contre les violences, théologie). Aucune donnée crypto pertinente détectée.\"\n}\n```",
       "ts": "2026-10-11T20:19:48.436225+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": -2.124066410335459,
+      "value": 1.391,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Le ratio long/short est bas (z-score -2.12), indiquant une sous-exposition extrême des investisseurs particuliers ou un positionnement massivement short. Pendant que les médias traditionnels font la promotion générale des stratégies long/short, le marché subit un déséquilibre contrarien. C'est un signal classique de 'short squeeze' potentiel orchestré par les 'smart money'.\"\n}\n```",
+      "ts": "2026-10-11T20:34:53.191550+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.247353492776462,
+      "value": 0.944,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique (IPT) entièrement due à une confusion sémantique du scraper avec le Tournoi International des Physiciens (IPT) et des actualités institutionnelles. Aucune activité de baleine crypto détectée.\"\n}\n```",
+      "ts": "2026-10-11T20:54:57.189726+00:00"
     }
   ]
 }

@@ -1,15 +1,15 @@
 {
-  "timestamp": 1791750456,
-  "date": "2026-10-11T20:27:36.927286+00:00",
-  "n_analyses": 2,
+  "timestamp": 1791751957,
+  "date": "2026-10-11T20:52:37.359335+00:00",
+  "n_analyses": 1,
   "analyses": [
     {
       "signal": {
         "metric": "long_short",
-        "zscore": -2.2690075493334065,
+        "zscore": -2.124066410335459,
         "value": 1.391,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Le z-score extrêmement bas (-2.27) indique une sous-pondération massive des positions longs par la foule, tandis que les médias grand public banalisent la stratégie 'Long/Short' traditionnelle. C'est un signal contrarien classique : les smart money accumulent discrètement en position basse avant un retournement de tendance.\"\n}\n```",
-        "ts": 1791749084.537715
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Le ratio long/short est bas (z-score -2.12), indiquant une sous-exposition extrême des investisseurs particuliers ou un positionnement massivement short. Pendant que les médias traditionnels font la promotion générale des stratégies long/short, le marché subit un déséquilibre contrarien. C'est un signal classique de 'short squeeze' potentiel orchestré par les 'smart money'.\"\n}\n```",
+        "ts": 1791750893.19155
       },
       "fiche": "long_short",
       "questions": {
@@ -19,7 +19,7 @@
           "depasse": false
         },
         "oi": {
-          "value": 92652.776,
+          "value": 92617.711,
           "seuil": 120000,
           "depasse": false
         }
@@ -31,21 +31,6 @@
       },
       "action": "Observer",
       "niveau": "neutre"
-    },
-    {
-      "signal": {
-        "metric": "ipt",
-        "zscore": -2.162111609968304,
-        "value": 0.0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Anomalie technique due à une confusion lexicale : le signal onchain 'ipt' est comparé à des actualités institutionnelles et académiques (Tournoi International des Physiciens, lutte contre les violences, théologie). Aucune donnée crypto pertinente détectée.\"\n}\n```",
-        "ts": 1791749988.436225
-      },
-      "fiche": null,
-      "interpretation": {
-        "lecture": "Pas de fiche disponible",
-        "niveau": "inconnu"
-      },
-      "action": "Observer"
     }
   ],
   "resume": "🔵 CALME — pas de signal alarmant"
