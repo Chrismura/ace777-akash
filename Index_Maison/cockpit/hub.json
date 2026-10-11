@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-11T03:05:22.164280+00:00",
+  "generated_at": "2026-10-11T03:09:25.279237+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 116
+      "calls_24h": 117
     },
     {
       "id": "openrouter-free",
@@ -274,10 +274,18 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 25,
-    "remaining": 599
+    "consumed": 26,
+    "remaining": 598
   },
   "queue": [
+    {
+      "ts": "2026-10-11T03:08:44.829100+00:00",
+      "task": "supervise.decision",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 1.01
+    },
     {
       "ts": "2026-10-11T03:04:39.878766+00:00",
       "task": "supervise.decision",
@@ -389,17 +397,21 @@
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
       "duration_s": 1.12
-    },
-    {
-      "ts": "2026-10-11T01:17:34.715505+00:00",
-      "task": "analyse.profonde",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 1.03
     }
   ],
   "events": [
+    {
+      "ts": "2026-10-11T03:08:44.828195+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
+    {
+      "ts": "2026-10-11T03:08:43.820557+00:00",
+      "kind": "blacklist",
+      "title": "Fin de pause Google Gemini",
+      "detail": "re-essai automatique"
+    },
     {
       "ts": "2026-10-11T03:05:15.173443+00:00",
       "kind": "http",
@@ -447,18 +459,6 @@
       "kind": "failover",
       "title": "Bascule depuis Google Gemini",
       "detail": "HTTP Error 429: Too Many Requests"
-    },
-    {
-      "ts": "2026-10-11T03:04:59.947169+00:00",
-      "kind": "ratelimit",
-      "title": "429 Google Gemini -> pause 60s + bascule",
-      "detail": ""
-    },
-    {
-      "ts": "2026-10-11T03:04:39.877737+00:00",
-      "kind": "message",
-      "title": "« Google Gemini » a repondu",
-      "detail": ""
     }
   ],
   "tasks_quotas": {
