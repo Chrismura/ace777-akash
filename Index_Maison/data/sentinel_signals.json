@@ -2,20 +2,6 @@
   "signals": [
     {
       "metric": "long_short",
-      "zscore": -2.2078315632751133,
-      "value": 1.438,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Z-score extrêmement bas (-2.21) sur le ratio long/short indiquant un positionnement baissier extrême de la foule, totalement déconnecté des médias traditionnels qui banalisent les stratégies long/short. Classique configuration de capitulation des 'retail' propice à un short squeeze orchestré par les baleines.\"\n}\n```",
-      "ts": "2026-10-11T13:58:19.431571+00:00"
-    },
-    {
-      "metric": "whale_usd",
-      "zscore": 10.791783994649656,
-      "value": 8535599.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Z-score extrême (10.79) sur les flux baleines avec un silence médiatique total (Google Actualités vide). Accumulation silencieuse typique avant une rupture de prix.\"\n}\n```",
-      "ts": "2026-10-11T14:28:24.497342+00:00"
-    },
-    {
-      "metric": "long_short",
       "zscore": -2.189111371327966,
       "value": 1.434,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Le ratio long/short affiche un z-score fortement négatif (-2.19), indiquant une sous-représentation extrême des positions longues par les acteurs de marché. Pendant ce temps, le narratif médiatique grand public se focalise sur des produits financiers traditionnels (ETF OPCVM long/short), totalement aveugle au positionnement contrarien actuel des baleines crypto. Cette capitulation du retail combinée à une pression vendeuse excessive prépare un violent short squeeze.\"\n}\n```",
@@ -349,6 +335,20 @@
       "value": 6368557.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Panique médiatique sur-amplifiée par des bruits de liquidations macro/tradfi sans rapport direct avec la crypto (redressements judiciaires immobiliers). Le z-score modéré (2.02) des liquidations on-chain (~6.3M$) montre un 'flush' sain des positions longues sur effet de levier, typique d'un piège à ours tendu par les baleines avant une reprise.\"\n}\n```",
       "ts": "2026-10-12T02:56:56.441272+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": -2.589761107702423,
+      "value": 0.004,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Anomalie sémantique/technologique : le 'SDI' médiatique fait référence au Syndicat des Indépendants en France (TPE/fiscalité), sans aucun rapport avec la crypto ou le mouvement de baleines. Faux positif absolu.\"\n}\n```",
+      "ts": "2026-10-12T03:12:00.889112+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 2.366468342973817,
+      "value": 69,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.37) combiné à une cupidité excessive (69) sans couverture médiatique majeure suggère une bulle de détail alimentée en silence. Les baleines profitent de cette eudémonie artificielle pour distribuer leurs sacs aux suiveurs.\"\n}\n```",
+      "ts": "2026-10-12T03:12:02.388644+00:00"
     }
   ]
 }

@@ -1,50 +1,15 @@
 {
-  "timestamp": 1791773864,
-  "date": "2026-10-12T02:57:44.148796+00:00",
-  "n_analyses": 4,
+  "timestamp": 1791775664,
+  "date": "2026-10-12T03:27:44.772788+00:00",
+  "n_analyses": 2,
   "analyses": [
     {
       "signal": {
-        "metric": "price_1h",
-        "zscore": 2.5045550104372665,
-        "value": 0.3257010532606186,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (+2.50) sur le prix à court terme avec un vide médiatique total (Google Actualités muet). C'est la signature classique d'accumulation furtive par des baleines avant une percée narrative.\"\n}\n```",
-        "ts": 1791772307.552795
-      },
-      "fiche": "price_1h",
-      "questions": {
-        "pct_1h": {
-          "value": 0.2,
-          "seuil": -1,
-          "depasse": true
-        },
-        "liq": {
-          "value": 6368557.0,
-          "seuil": 5000000,
-          "depasse": true
-        },
-        "funding": {
-          "value": -1e-06,
-          "seuil": 0,
-          "depasse": true
-        }
-      },
-      "interpretation": {
-        "condition": "liq > 5000000",
-        "lecture": "Chute avec liquidations massives — éjection de leviers en chaîne. Souvent un creux mécanique, pas une tendance",
-        "niveau": "surveiller",
-        "action": "Ne pas vendre dans la panique, attendre la fin des cascades (liq qui retombe)"
-      },
-      "action": "Ne pas vendre dans la panique, attendre la fin des cascades (liq qui retombe)",
-      "niveau": "surveiller"
-    },
-    {
-      "signal": {
         "metric": "sdi",
-        "zscore": -2.834265144495618,
-        "value": 0.008,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Anomalie sémantique totale : le 'SDI' des médias fait référence au Syndicat des Indépendants en France (actualité PME/politique), tandis que la métrique onchain cible un actif crypto homonyme. Aucune baleine crypto active, simple collision de mots-clés.\"\n}\n```",
-        "ts": 1791772910.351965
+        "zscore": -2.589761107702423,
+        "value": 0.004,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Anomalie sémantique/technologique : le 'SDI' médiatique fait référence au Syndicat des Indépendants en France (TPE/fiscalité), sans aucun rapport avec la crypto ou le mouvement de baleines. Faux positif absolu.\"\n}\n```",
+        "ts": 1791774720.889112
       },
       "fiche": null,
       "interpretation": {
@@ -56,10 +21,10 @@
     {
       "signal": {
         "metric": "fear_greed",
-        "zscore": 2.5524798331916334,
+        "zscore": 2.366468342973817,
         "value": 69,
-        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Euphorie médiatique excessive (Fear & Greed à 69, z-score 2.55) couplée à un vide informationnel de Google Actualités, signalant un piège à liquidité de détail typique avant une distribution discrète des baleines.\"\n}\n```",
-        "ts": 1791772911.882324
+        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.37) combiné à une cupidité excessive (69) sans couverture médiatique majeure suggère une bulle de détail alimentée en silence. Les baleines profitent de cette eudémonie artificielle pour distribuer leurs sacs aux suiveurs.\"\n}\n```",
+        "ts": 1791774722.388644
       },
       "fiche": "fear_greed",
       "questions": {
@@ -81,42 +46,7 @@
       },
       "action": "Observer",
       "niveau": "neutre"
-    },
-    {
-      "signal": {
-        "metric": "liquidations",
-        "zscore": 2.016424874269383,
-        "value": 6368557.0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Panique médiatique sur-amplifiée par des bruits de liquidations macro/tradfi sans rapport direct avec la crypto (redressements judiciaires immobiliers). Le z-score modéré (2.02) des liquidations on-chain (~6.3M$) montre un 'flush' sain des positions longues sur effet de levier, typique d'un piège à ours tendu par les baleines avant une reprise.\"\n}\n```",
-        "ts": 1791773816.441272
-      },
-      "fiche": "liquidations",
-      "questions": {
-        "longs": {
-          "value": 3193214.0,
-          "seuil": 0,
-          "depasse": true
-        },
-        "shorts": {
-          "value": 3175342.0,
-          "seuil": 0,
-          "depasse": true
-        },
-        "prix": {
-          "value": 0.2,
-          "seuil": 1,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "longs > shorts",
-        "lecture": "Liquidations massives de LONGS — cascade baissière mécanique. Historiquement suit un creux proche quand le volume liq retombe (HYPOTHÈSE, pas une loi : une cascade peut en cacher une autre)",
-        "niveau": "surveiller",
-        "action": "Ne pas vendre dans la cascade ; préparer les paliers plancher si la paire est sur watchlist"
-      },
-      "action": "Ne pas vendre dans la cascade ; préparer les paliers plancher si la paire est sur watchlist",
-      "niveau": "surveiller"
     }
   ],
-  "resume": "🟡 SURVEILLANCE — des signaux sont à observer"
+  "resume": "🔵 CALME — pas de signal alarmant"
 }
