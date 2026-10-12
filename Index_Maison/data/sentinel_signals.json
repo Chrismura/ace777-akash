@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "volume",
-      "zscore": 2.01667372997181,
-      "value": 5052689078.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit de fond : les titres médiatiques parlent d'actions traditionnelles (Hims & Hers), de voitures et d'actualités institutionnelles, totalement déconnectés des données crypto on-chain.\"\n}\n```",
-      "ts": "2026-10-11T21:20:12.812306+00:00"
-    },
-    {
       "metric": "liquidations",
       "zscore": 2.0233784577239575,
       "value": 4982530.0,
@@ -349,6 +342,13 @@
       "value": 8462945164.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit de fond médiatique sans rapport avec la crypto (automobile, fret, politique). L'anomalie on-chain (z-score 2.14) reflète un mouvement technique isolé ou du bruit statistique, totalement ignoré par les médias.\"\n}\n```",
       "ts": "2026-10-12T11:01:01.713151+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.0578185991865596,
+      "value": 8546116128.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique total sans rapport avec la crypto (articles sur des voitures, du fret et des actualités sociétales). Anomalie on-chain non corrélée à un narratif exploitable.\"\n}\n```",
+      "ts": "2026-10-12T11:31:11.593932+00:00"
     }
   ]
 }
