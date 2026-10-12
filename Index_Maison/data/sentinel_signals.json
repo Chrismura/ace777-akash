@@ -1,34 +1,6 @@
 {
   "signals": [
     {
-      "metric": "long_short",
-      "zscore": -2.189111371327966,
-      "value": 1.434,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Le ratio long/short affiche un z-score fortement négatif (-2.19), indiquant une sous-représentation extrême des positions longues par les acteurs de marché. Pendant ce temps, le narratif médiatique grand public se focalise sur des produits financiers traditionnels (ETF OPCVM long/short), totalement aveugle au positionnement contrarien actuel des baleines crypto. Cette capitulation du retail combinée à une pression vendeuse excessive prépare un violent short squeeze.\"\n}\n```",
-      "ts": "2026-10-11T14:28:26.462432+00:00"
-    },
-    {
-      "metric": "long_short",
-      "zscore": -2.0593459619832446,
-      "value": 1.434,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le z-score du Long/Short ratio à -2.06 indique une sous-exposition extrême des positions longues par les institutionnels, traduisant un pessimisme capitulant. En contraste, les médias grand public banalisent la stratégie long/short sans urgence directionnelle. Cette asymétrie signale un positionnement contrarien classique de baleines en accumulation silencieuse sur la faiblesse.\"\n}\n```",
-      "ts": "2026-10-11T14:58:32.593366+00:00"
-    },
-    {
-      "metric": "price_1h",
-      "zscore": 2.8928577471641788,
-      "value": 0.188152943818376,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de prix significative (z-score 2.89) en l'absence totale de couverture médiatique (silence radio sur Google Actualités), typique d'une accumulation furtive par des baleines loin du radar de retail.\"\n}\n```",
-      "ts": "2026-10-11T15:33:39.190335+00:00"
-    },
-    {
-      "metric": "whale_usd",
-      "zscore": 2.9430753446278644,
-      "value": 3073317.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Activité anormale des baleines (Z-score 2.94) sans couverture médiatique significative (Google Actualités vide). Divergence classique traduisant une accumulation silencieuse hors radar retail.\"\n}\n```",
-      "ts": "2026-10-11T15:38:41.192448+00:00"
-    },
-    {
       "metric": "liquidations",
       "zscore": 2.7980458602127043,
       "value": 5567399.0,
@@ -349,6 +321,34 @@
       "value": 69,
       "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.37) combiné à une cupidité excessive (69) sans couverture médiatique majeure suggère une bulle de détail alimentée en silence. Les baleines profitent de cette eudémonie artificielle pour distribuer leurs sacs aux suiveurs.\"\n}\n```",
       "ts": "2026-10-12T03:12:02.388644+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": -2.376566345379101,
+      "value": 0.004,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Bruit médiatique hors crypto : le 'SDI' mentionné désigne le Syndicat des Indépendants et des TPE françaises, sans aucun rapport avec les données onchain ou une baleine crypto.\"\n}\n```",
+      "ts": "2026-10-12T03:42:07.616848+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 2.2103383316011067,
+      "value": 69,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Indice de Peur & Avarice à 69 (z-score 2.21) en zone d'avarice extrême sans couverture médiatique majeure (absence de signaux Google Actualités). Divergence classique de fin de cycle : accumulation discrète des baleines pour une distribution imminente aux suiveurs de tendance.\"\n}\n```",
+      "ts": "2026-10-12T03:42:09.091585+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": -2.20120238853726,
+      "value": 0.004,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Anomalie non pertinente : le 'SDI' mentionné dans les flux médiatiques fait référence au Syndicat des Indépendants et des TPE françaises, et non à une métrique onchain ou à un crypto-actif lié aux mouvements de baleines.\"\n}\n```",
+      "ts": "2026-10-12T04:12:14.231788+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 2.0765680230156374,
+      "value": 69,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 82,\n  \"reason\": \"Euphorie médiatique excessive (Fear & Greed à 69, z-score 2.08) totalement déconnectée d'un flux d'actualités vide ('Google Actualités' sans catalyseur). Classique piège à liquidité institutionnel : distribution silencieuse des baleines sur le optimisme de détail.\"\n}\n```",
+      "ts": "2026-10-12T04:12:15.645444+00:00"
     }
   ]
 }

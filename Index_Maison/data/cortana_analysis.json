@@ -1,15 +1,15 @@
 {
-  "timestamp": 1791775664,
-  "date": "2026-10-12T03:27:44.772788+00:00",
+  "timestamp": 1791779565,
+  "date": "2026-10-12T04:32:45.816838+00:00",
   "n_analyses": 2,
   "analyses": [
     {
       "signal": {
         "metric": "sdi",
-        "zscore": -2.589761107702423,
+        "zscore": -2.20120238853726,
         "value": 0.004,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Anomalie sémantique/technologique : le 'SDI' médiatique fait référence au Syndicat des Indépendants en France (TPE/fiscalité), sans aucun rapport avec la crypto ou le mouvement de baleines. Faux positif absolu.\"\n}\n```",
-        "ts": 1791774720.889112
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Anomalie non pertinente : le 'SDI' mentionné dans les flux médiatiques fait référence au Syndicat des Indépendants et des TPE françaises, et non à une métrique onchain ou à un crypto-actif lié aux mouvements de baleines.\"\n}\n```",
+        "ts": 1791778334.231788
       },
       "fiche": null,
       "interpretation": {
@@ -21,10 +21,10 @@
     {
       "signal": {
         "metric": "fear_greed",
-        "zscore": 2.366468342973817,
+        "zscore": 2.0765680230156374,
         "value": 69,
-        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.37) combiné à une cupidité excessive (69) sans couverture médiatique majeure suggère une bulle de détail alimentée en silence. Les baleines profitent de cette eudémonie artificielle pour distribuer leurs sacs aux suiveurs.\"\n}\n```",
-        "ts": 1791774722.388644
+        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 82,\n  \"reason\": \"Euphorie médiatique excessive (Fear & Greed à 69, z-score 2.08) totalement déconnectée d'un flux d'actualités vide ('Google Actualités' sans catalyseur). Classique piège à liquidité institutionnel : distribution silencieuse des baleines sur le optimisme de détail.\"\n}\n```",
+        "ts": 1791778335.645444
       },
       "fiche": "fear_greed",
       "questions": {
