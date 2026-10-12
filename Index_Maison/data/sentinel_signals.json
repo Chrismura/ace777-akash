@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "sdi",
-      "zscore": -3.677128976641532,
-      "value": 0.008,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Anomalie sémantique et contextuelle : le 'SDI' mentionné dans les actualités fait référence au Syndicat des Indépendants et PME ou à une micro-capitalisation boursière (SDI Corp.), et non à une métrique onchain ou à un protocole crypto. Aucune divergence de baleine crypto détectée, simple bruit médiatique sans rapport avec la blockchain.\"\n}\n```",
-      "ts": "2026-10-12T01:41:33.693620+00:00"
-    },
-    {
       "metric": "fear_greed",
       "zscore": 3.068255948613975,
       "value": 69,
@@ -349,6 +342,13 @@
       "value": 1.478,
       "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.12) sur le ratio long/short (1.478) indiquant un positionnement acheteur excessif de la foule, stimulé par un narratif médiatique grand public superficiel sur les stratégies long/short. Classique piège à liquidité avant une purge baissière.\"\n}\n```",
       "ts": "2026-10-12T21:34:18.644650+00:00"
+    },
+    {
+      "metric": "price_1h",
+      "zscore": 3.209584448781101,
+      "value": 0.6128369243122656,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de prix significative (z-score 3.21) sans aucune couverture médiatique (Google Actualités vide). C'est la signature classique d'accumulation silencieuse par les baleines avant que le narratif public ne se forme.\"\n}\n```",
+      "ts": "2026-10-12T21:49:21.683912+00:00"
     }
   ]
 }
