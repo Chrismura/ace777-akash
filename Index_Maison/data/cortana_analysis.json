@@ -1,30 +1,99 @@
 {
-  "timestamp": 1791838002,
-  "date": "2026-10-12T20:46:42.287416+00:00",
-  "n_analyses": 3,
+  "timestamp": 1791841604,
+  "date": "2026-10-12T21:46:44.043854+00:00",
+  "n_analyses": 4,
   "analyses": [
     {
       "signal": {
+        "metric": "taker_ratio",
+        "zscore": 2.0211703462195327,
+        "value": 1.768,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Un taker_ratio de 1.768 avec un z-score de 2.02 indique une forte pression acheteuse agressive de la part des acteurs institutionnels/baleines. Le vide médiatique total (Google Actualités muet) prouve une accumulation furtive en 'mode furtif' (silent accumulation) avant toute FOMO publique.\"\n}\n```",
+        "ts": 1791840252.449143
+      },
+      "fiche": "taker_ratio",
+      "questions": {
+        "taker": {
+          "value": 1.768,
+          "seuil": 1,
+          "depasse": true
+        },
+        "prix": {
+          "value": -0.22,
+          "seuil": 1,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "taker > 1",
+        "lecture": "Takers acheteurs agressifs — la demande mange le carnet, à confirmer avec le volume",
+        "niveau": "info",
+        "action": "Observer si le prix suit (vraie demande) ou diverge (absorption)"
+      },
+      "action": "Observer si le prix suit (vraie demande) ou diverge (absorption)",
+      "niveau": "info"
+    },
+    {
+      "signal": {
         "metric": "volume",
-        "zscore": 2.3313058290697426,
-        "value": 10440864869.0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.33) sans corrélation crypto pertinente dans les titres (bruit médiatique dominé par la macro, l'automobile et la tech traditionnelle). Pas de mouvement de baleine identifiable.\"\n}\n```",
-        "ts": 1791837234.602883
+        "zscore": 2.0284197177613654,
+        "value": 10379114916.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique de volume (z-score 2.03) détectée onchain mais les titres médiatiques sont totalement non pertinents (bruit macro, automobile et marketing sans rapport avec la crypto).\"\n}\n```",
+        "ts": 1791840855.379794
       },
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": 0.32,
+          "value": -0.22,
           "seuil": 1,
           "depasse": false
         },
         "paires": {
-          "value": 1,
+          "value": 0,
           "seuil": 3,
           "depasse": false
         },
         "funding": {
-          "value": 4.8e-05,
+          "value": 7.6e-05,
+          "seuil": 0.001,
+          "depasse": false
+        },
+        "whales": {
+          "value": 0,
+          "seuil": 5,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
+      },
+      "action": "Observer",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "ipt",
+        "zscore": 2.302185749263588,
+        "value": 1.06,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie technique (ipt) sans rapport avec la crypto. Bruit médiatique dominé par des actualités académiques et sociétales (École polytechnique, lutte contre les VSS). Aucune baleine détectée, simple collision de mots-clés.\"\n}\n```",
+        "ts": 1791840857.14946
+      },
+      "fiche": "rbf_eleve",
+      "questions": {
+        "prix": {
+          "value": -0.22,
+          "seuil": 1,
+          "depasse": false
+        },
+        "paires": {
+          "value": 0,
+          "seuil": 3,
+          "depasse": false
+        },
+        "funding": {
+          "value": 7.6e-05,
           "seuil": 0.001,
           "depasse": false
         },
@@ -45,20 +114,20 @@
     {
       "signal": {
         "metric": "long_short",
-        "zscore": 2.6465521108845866,
-        "value": 1.487,
-        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Z-score élevé (2.65) sur le ratio long/short (1.487) indiquant un positionnement acheteur excessif de la foule, totalement déconnecté des actualités financières traditionnelles hors-sujet (ETF, fonds SIF). Piège à liquidité classique des baleines pour un 'long squeeze'.\"\n}\n```",
-        "ts": 1791837236.727669
+        "zscore": 2.1233903471581166,
+        "value": 1.478,
+        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.12) sur le ratio long/short (1.478) indiquant un positionnement acheteur excessif de la foule, stimulé par un narratif médiatique grand public superficiel sur les stratégies long/short. Classique piège à liquidité avant une purge baissière.\"\n}\n```",
+        "ts": 1791840858.64465
       },
       "fiche": "long_short",
       "questions": {
         "ratio_long_short": {
-          "value": 1.487,
+          "value": 1.478,
           "seuil": 2,
           "depasse": false
         },
         "oi": {
-          "value": 93748.474,
+          "value": 93512.987,
           "seuil": 120000,
           "depasse": false
         }
@@ -70,36 +139,6 @@
       },
       "action": "Observer",
       "niveau": "neutre"
-    },
-    {
-      "signal": {
-        "metric": "taker_ratio",
-        "zscore": 2.1938227796353935,
-        "value": 1.907,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Taker ratio à 1.907 (z-score 2.19) indique une domination agressive des acheteurs (Taker Buy), contredisant l'absence totale de couverture médiatique (silence radio). Accumulation silencieuse des baleines avant un mouvement de cassure.\"\n}\n```",
-        "ts": 1791837238.05115
-      },
-      "fiche": "taker_ratio",
-      "questions": {
-        "taker": {
-          "value": 1.907,
-          "seuil": 1,
-          "depasse": true
-        },
-        "prix": {
-          "value": 0.32,
-          "seuil": 1,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "taker > 1",
-        "lecture": "Takers acheteurs agressifs — la demande mange le carnet, à confirmer avec le volume",
-        "niveau": "info",
-        "action": "Observer si le prix suit (vraie demande) ou diverge (absorption)"
-      },
-      "action": "Observer si le prix suit (vraie demande) ou diverge (absorption)",
-      "niveau": "info"
     }
   ],
   "resume": "🔵 CALME — pas de signal alarmant"
