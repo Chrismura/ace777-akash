@@ -2,34 +2,6 @@
   "signals": [
     {
       "metric": "liquidations",
-      "zscore": 2.0280248329466666,
-      "value": 5398685.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 78,\n  \"reason\": \"Le bruit médiatique se focalise sur des liquidations massives (859M$ globaux) et des faits divers, masquant une liquidation on-chain ciblée et modérée (Z-score 2.03) qui élimine les derniers 'longs' fragiles. Cette purge silencieuse des positions à levier excessif prépare un rebond technique loin de la panique médiatique.\"\n}\n```",
-      "ts": "2026-10-11T23:20:46.618612+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 4.34295357182411,
-      "value": 1.381,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Anomalie de données non pertinente. Le ticker 'ipt' fait référence à des actualités institutionnelles, religieuses ou sanitaires (Institut Pasteur de Tunis, Tournoi de Physique), sans aucun lien avec un actif crypto ou une baleine onchain.\"\n}\n```",
-      "ts": "2026-10-11T23:25:48.919495+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": -19.896486500492017,
-      "value": 0.004,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Anomalie non pertinente : le 'SDI' mentionné dans les actualités fait référence au Syndicat des Indépendants et PME ou à une micro-capitalisation boursière (SDI Corp), et non à une métrique de baleine crypto ou on-chain. Absence de lien avec la blockchain.\"\n}\n```",
-      "ts": "2026-10-12T00:05:57.390601+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": 5.102091380754429,
-      "value": 69,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrême (5.10) couplé à une avidité élevée (69) sans narratif médiatique de soutien : classique piège à liquidité de détail (bull trap). Distribution silencieuse des baleines en cours.\"\n}\n```",
-      "ts": "2026-10-12T00:05:58.778326+00:00"
-    },
-    {
-      "metric": "liquidations",
       "zscore": 2.3409710791942095,
       "value": 5981676.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Panique médiatique sur-amplifiée (titres alarmistes sur des liquidations massives de longs et chutes de prix) alors que l'anomalie on-chain montre un volume de liquidations modéré (5,9M$, z-score 2.34). Classique 'shakeout' de détail orchestré par les baleines pour purger l'excès de levier avant une reprise.\"\n}\n```",
@@ -349,6 +321,34 @@
       "value": 10198663972.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit médiatique sans rapport avec la crypto (automobile, tourisme, RH, hardware). Anomalie statistique de volume isolée sans confirmation on-chain pertinente.\"\n}\n```",
       "ts": "2026-10-12T13:41:48.249766+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 4.3190830592806675,
+      "value": 1.516,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Anomalie non pertinente : 'ipt' fait référence à des actualités académiques et institutionnelles (Tournoi International des Physiciens, lutte contre les VSS), et non à un actif crypto ou à des mouvements de baleines.\"\n}\n```",
+      "ts": "2026-10-12T13:56:51.918460+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.3313058290697426,
+      "value": 10440864869.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.33) sans corrélation crypto pertinente dans les titres (bruit médiatique dominé par la macro, l'automobile et la tech traditionnelle). Pas de mouvement de baleine identifiable.\"\n}\n```",
+      "ts": "2026-10-12T20:33:54.602883+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": 2.6465521108845866,
+      "value": 1.487,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Z-score élevé (2.65) sur le ratio long/short (1.487) indiquant un positionnement acheteur excessif de la foule, totalement déconnecté des actualités financières traditionnelles hors-sujet (ETF, fonds SIF). Piège à liquidité classique des baleines pour un 'long squeeze'.\"\n}\n```",
+      "ts": "2026-10-12T20:33:56.727669+00:00"
+    },
+    {
+      "metric": "taker_ratio",
+      "zscore": 2.1938227796353935,
+      "value": 1.907,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Taker ratio à 1.907 (z-score 2.19) indique une domination agressive des acheteurs (Taker Buy), contredisant l'absence totale de couverture médiatique (silence radio). Accumulation silencieuse des baleines avant un mouvement de cassure.\"\n}\n```",
+      "ts": "2026-10-12T20:33:58.051150+00:00"
     }
   ]
 }

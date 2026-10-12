@@ -46,16 +46,15 @@ Métriques : maison (mur moy/max + régime ; poussière = indicateur PANIER) + p
 | 39 | 2026-10-09T14:35:04Z | 14h | AUTRE | 0.04871 | IMPULSE_WAIT | 1.5945 | 30766.68 | 61779.48 | 3.19e-06 | -0.12 | 0.68 | 0.89 | neutre (stab 0) | prix 0.04871 · poussière(panier) 1.6% · Amihud 3.19e-06 · delta -0.12 · mur moy 30,767$ · mur max (run) 61,779$ |
 | 40 | 2026-10-10T14:34:52Z | 14h | AUTRE | 0.05187 | IMPULSE_WAIT | 0.1145 | 30766.68 | 61779.48 | 2.82e-06 | 0.08 | -0.05 | 0.57 | POMPE_PIEGE (stab 4) | prix 0.05187 · poussière(panier) 0.1% · Amihud 2.82e-06 · delta +0.08 · mur moy 30,767$ · mur max (run) 61,779$ |
 | 41 | 2026-10-11T14:34:57Z | 14h | AUTRE | 0.0691 | IMPULSE_WAIT | 14.7368 | 30766.68 | 61779.48 | 2.21e-06 | 0.43 | 0.18 | -0.24 | POMPE_PIEGE (stab 6) | prix 0.0691 · poussière(panier) 14.7% · Amihud 2.21e-06 · delta +0.43 · mur moy 30,767$ · mur max (run) 61,779$ |
+| 42 | 2026-10-12T14:21:17Z | 14h | AUTRE | 0.06169 | IMPULSE | 9.0752 | 30766.68 | 61779.48 | 2.31e-06 | -0.61 | 0.29 | -0.53 | POMPE_PIEGE (stab 1) | prix 0.06169 · poussière(panier) 9.1% · Amihud 2.31e-06 · delta -0.61 · mur moy 30,767$ · mur max (run) 61,779$ |
 
 ## 🔁 HISTORIQUE DES CYCLES DE L'ACTIF (zigzag ≥ 15 %, log continu du moteur)
 
-_Fenêtre mesurée : du 2026-10-08T01:37:43Z au 2026-10-11T14:34:57Z (12366 points) — archives de rotation incluses._
+_Fenêtre mesurée : du 2026-10-09T01:40:05Z au 2026-10-12T14:21:17Z (12145 points) — archives de rotation incluses._
 
-| # | De | prix | Vers | prix | Amplitude | Durée |
-|---|---|---|---|---|---|---|
-| 1 | pic 2026-10-08T03:39:27Z | 0.05591 | creux 2026-10-08T17:26:43Z | 0.04612 | 🔻 -17.5 % | 14 h (0.6 j) |
+_Pas encore deux retournements ≥ 15 % dans l'historique mesuré._
 
-**Cycle EN COURS : HAUSSE depuis le creux du 2026-10-08T17:26:43Z à 0.04612 → 0.0691 = **+49.8 %**** (extrême courant 0.0714)
+**Cycle en cours : pas encore de retournement ≥ 15 % dans la fenêtre** — du plus bas 2026-10-09T13:24:25Z à 0.04731 → 0.06169 = **+30.4 %**
 
 ## 💰 CE QUE LE MOTEUR A CAPTÉ SUR CET ACTIF
 

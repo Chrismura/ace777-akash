@@ -1,54 +1,58 @@
 {
-  "timestamp": 1791813127,
+  "timestamp": 1791837867,
   "sdi": {
-    "sdi": 0.02,
+    "sdi": 0.008,
     "divergence_score": 0,
-    "fee_score": 0.05,
+    "fee_score": 0.02,
     "dormant_pct": 69,
     "dormant_avg_30d": 67.27,
     "dormant_source": "alternative.me (FG proxy — les données dormant sont indisponibles)",
-    "fee_fastest_sat": 5
+    "fee_fastest_sat": 2
   },
   "ipt": {
-    "ipt": 1.516,
+    "ipt": 0.565,
     "micro_tx_ratio": 0.3,
-    "z_fee": 4.0,
-    "entropy": 0.652
+    "z_fee": 1.0,
+    "entropy": 0.484
   },
   "rbf": {
-    "rbf_score": 0.0,
-    "rbf_ratio": 0.0,
-    "rbf_pairs": 0,
+    "rbf_score": 0.167,
+    "rbf_ratio": 0.167,
+    "rbf_pairs": 1,
     "n_txs": 6,
     "rbf_method": "outspends-double-depense",
-    "rbf_detail": []
+    "rbf_detail": [
+      {
+        "tx": "f5de11069c3010dc",
+        "remplacee_par": "c5eb77cc38ae02a8",
+        "input": "0e4d7ce582b374f6:0"
+      }
+    ]
   },
   "fee_pressure": {
-    "fastest": 5,
-    "halfHour": 4,
+    "fastest": 2,
+    "halfHour": 1,
     "hour": 1,
     "economy": 1,
     "source": "mempool.space"
   },
-  "alerts": [
-    "IPT ÉLEVÉ: un seul acteur automatisé détecté"
-  ],
+  "alerts": [],
   "sapi": {
-    "score": 0.719,
+    "score": 0.323,
     "alerte": false,
     "persistance": false,
     "scores_recents": [
-      0.37,
-      0.72,
-      0.719
+      0.0,
+      0.536,
+      0.323
     ],
     "composantes": {
-      "z_fee": 4.0,
-      "taux_fantome": 9.075,
+      "z_fee": 1.0,
+      "taux_fantome": 18.282,
       "micro_tx_ratio": 0.3,
       "spot_proxy": 0.0,
       "coef_heure_creuse": 1.0,
-      "entropie_tempo": 0.695
+      "entropie_tempo": 0.232
     },
     "note": "Score d'Alerte Poussière Institutionnelle (Cortana tour 1, validé 29/08 — corr RBF plat −0.275). Proxy carnet spot = spread_avg_bps normalisé σ1h (FIX famille). FIX 4 : proxy réduit ×0.35 en heures creuses UTC (02-06) + bonus entropie temporelle (rythme robotique du carnet) si base fantôme. Alerte = persistance 3 ticks ≥ 0.75 + volume ≥ 500 BTC."
   }

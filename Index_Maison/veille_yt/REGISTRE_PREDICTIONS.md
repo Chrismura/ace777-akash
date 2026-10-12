@@ -1,11 +1,16 @@
 ---
-date: 2026-10-07T1616Z
+date: 2026-10-12T1718Z
 type: registre_predictions
 ---
 
 # 📓 Registre des prédictions — la vérification du banc d'essai
 
 Chaque prédiction est notée avec sa date limite. Le script `verifier_predictions.py` re-vérifie les échues (statut VRAIE/FAUSSE/NON VÉRIFIABLE).
+
+### 2026-10-12T1718Z — Crypto Crew University : 3-Min Recap: This Golden Cross Could Start the Next Bull Run 👀🐂#shorts
+Lien : https://www.youtube.com/watch?v=UCsLKOG-55E
+
+- ⏳ EN ATTENTE | [2026-12-31] Le Bitcoin entre dans une phase de mouvement parabolique suite à la validation de sa configuration de moyenne mobile (source : youtuber)
 
 ### 2026-10-07T1616Z — Crypto Crew University : BREAKING: BITCOIN GOLDEN CROSS QUICKLY APPROACHES
 Lien : https://www.youtube.com/watch?v=-Tu4DJsnOQs
