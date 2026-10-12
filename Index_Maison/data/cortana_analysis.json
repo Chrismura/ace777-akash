@@ -1,20 +1,20 @@
 {
-  "timestamp": 1791802197,
-  "date": "2026-10-12T10:49:57.614740+00:00",
+  "timestamp": 1791804298,
+  "date": "2026-10-12T11:24:58.178184+00:00",
   "n_analyses": 1,
   "analyses": [
     {
       "signal": {
         "metric": "volume",
-        "zscore": 2.2256570685499537,
-        "value": 8369969113.0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.23) probablement due à du bruit ou à une confusion sémantique, le narratif médiatique étant totalement hors-sujet (voitures, imprimantes 3D, actualité générale) et ne reflétant aucune dynamique crypto pertinente.\"\n}\n```",
-        "ts": 1791801053.369883
+        "zscore": 2.1373321383005854,
+        "value": 8462945164.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit de fond médiatique sans rapport avec la crypto (automobile, fret, politique). L'anomalie on-chain (z-score 2.14) reflète un mouvement technique isolé ou du bruit statistique, totalement ignoré par les médias.\"\n}\n```",
+        "ts": 1791802861.713151
       },
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": 0.04,
+          "value": -0.15,
           "seuil": 1,
           "depasse": false
         },
@@ -24,7 +24,7 @@
           "depasse": false
         },
         "funding": {
-          "value": 5.2e-05,
+          "value": 5.5e-05,
           "seuil": 0.001,
           "depasse": false
         },

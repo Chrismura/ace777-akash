@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "price_1h",
-      "zscore": 3.287560451631317,
-      "value": 0.3348938769774157,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de prix significative (z-score 3.29) en l'absence totale de couverture médiatique (silence radio). C'est la signature classique d'accumulation furtive par des baleines avant le réveil du narratif public.\"\n}\n```",
-      "ts": "2026-10-11T21:20:11.132263+00:00"
-    },
-    {
       "metric": "volume",
       "zscore": 2.01667372997181,
       "value": 5052689078.0,
@@ -349,6 +342,13 @@
       "value": 8369969113.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.23) probablement due à du bruit ou à une confusion sémantique, le narratif médiatique étant totalement hors-sujet (voitures, imprimantes 3D, actualité générale) et ne reflétant aucune dynamique crypto pertinente.\"\n}\n```",
       "ts": "2026-10-12T10:30:53.369883+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.1373321383005854,
+      "value": 8462945164.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit de fond médiatique sans rapport avec la crypto (automobile, fret, politique). L'anomalie on-chain (z-score 2.14) reflète un mouvement technique isolé ou du bruit statistique, totalement ignoré par les médias.\"\n}\n```",
+      "ts": "2026-10-12T11:01:01.713151+00:00"
     }
   ]
 }
