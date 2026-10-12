@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "ipt",
-      "zscore": 2.247353492776462,
-      "value": 0.944,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique (IPT) entièrement due à une confusion sémantique du scraper avec le Tournoi International des Physiciens (IPT) et des actualités institutionnelles. Aucune activité de baleine crypto détectée.\"\n}\n```",
-      "ts": "2026-10-11T20:54:57.189726+00:00"
-    },
-    {
       "metric": "price_1h",
       "zscore": 3.287560451631317,
       "value": 0.3348938769774157,
@@ -349,6 +342,13 @@
       "value": 8309406914.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique détectée sur le volume global (z-score 2.35), mais les titres médiatiques n'ont aucun rapport avec la crypto (bruit de fond, automobiles, imprimantes 3D). Aucune corrélation exploitable pour détecter un mouvement de baleine.\"\n}\n```",
       "ts": "2026-10-12T10:00:47.904754+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.2256570685499537,
+      "value": 8369969113.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.23) probablement due à du bruit ou à une confusion sémantique, le narratif médiatique étant totalement hors-sujet (voitures, imprimantes 3D, actualité générale) et ne reflétant aucune dynamique crypto pertinente.\"\n}\n```",
+      "ts": "2026-10-12T10:30:53.369883+00:00"
     }
   ]
 }
