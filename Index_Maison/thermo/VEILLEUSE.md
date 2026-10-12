@@ -1,4 +1,4 @@
-# Rapport Veilleuse — 2026-10-11T23:52:45.460793+00:00
+# Rapport Veilleuse — 2026-10-12T01:22:47.252593+00:00
 
 ## État : ⚠️ ANOMALIES DÉTECTÉES
 - **INTRUSION** : Modification non déclarée : Index_Maison/scripts/git_push_auto.sh (md5 diffère du registre)
