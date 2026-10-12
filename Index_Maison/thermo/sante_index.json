@@ -1,13 +1,9 @@
 {
-  "ts": "2026-10-12T07:13+00:00",
-  "updated": "2026-10-12T07:13Z",
-  "etat": "ALERTE",
-  "chaines_ok": "12/15",
-  "anomalies": [
-    "GEOPOL : score figé ou modules en erreur",
-    "CROISEMENT EXTERNE : croisement_externe_etat.json figé — la valideuse des données est morte",
-    "ESSAIM : essaim_etat.json figé — la veille de coordination inter-paires ne tourne plus"
-  ],
+  "ts": "2026-10-12T07:48+00:00",
+  "updated": "2026-10-12T07:48Z",
+  "etat": "OK",
+  "chaines_ok": "15/15",
+  "anomalies": [],
   "degradees": [],
   "chaines": [
     {
@@ -29,12 +25,12 @@
         {
           "nom": "scan file",
           "ok": true,
-          "detail": "âge 3 min"
+          "detail": "âge 1 min"
         },
         {
           "nom": "mouvements (events)",
           "ok": true,
-          "detail": "dernier événement il y a 3 min"
+          "detail": "dernier événement il y a 1 min"
         },
         {
           "nom": "→ live.json.onchain",
@@ -49,7 +45,7 @@
         {
           "nom": "→ Cortana feed",
           "ok": true,
-          "detail": "âge 1 min"
+          "detail": "âge 2 min"
         }
       ]
     },
@@ -67,7 +63,7 @@
         {
           "nom": "deriv_corr.json",
           "ok": true,
-          "detail": "âge 4 min"
+          "detail": "âge 8 min"
         }
       ]
     },
@@ -85,7 +81,7 @@
         {
           "nom": "aspiration runtime",
           "ok": true,
-          "detail": "mode fichier · JSON · âge ts 0.5 min · écart mtime/ts 1.9s · 22 paire(s) · btc=OK · ts=croissant · passe 22.0s · marge 23.0s sous le budget 45s du moteur"
+          "detail": "mode fichier · JSON · âge ts 0.2 min · écart mtime/ts 2.8s · 22 paire(s) · btc=OK · ts=croissant · passe 32.2s · marge 12.8s sous le budget 45s du moteur · ⚠ PIRE CAS age 52.2s > 45s (la prochaine passe part au plus tard après la cadence 20s) — entrées coupées si ça arrive"
         },
         {
           "nom": "corrélation BTC",
@@ -100,7 +96,7 @@
         {
           "nom": "cortana_pilot.json",
           "ok": true,
-          "detail": "âge 22 min"
+          "detail": "âge 57 min"
         },
         {
           "nom": "cortana_analysis.json",
@@ -118,7 +114,7 @@
         {
           "nom": "live.json",
           "ok": true,
-          "detail": "âge 1 min"
+          "detail": "âge 2 min"
         },
         {
           "nom": "mission.json → cockpit",
@@ -146,7 +142,7 @@
         {
           "nom": "cpfp_detect.json",
           "ok": true,
-          "detail": "âge 8 min"
+          "detail": "âge 3 min"
         },
         {
           "nom": "mode",
@@ -169,7 +165,7 @@
         {
           "nom": "sentinel_history.json",
           "ok": true,
-          "detail": "âge 3 min"
+          "detail": "âge 2 min"
         },
         {
           "nom": "signaux",
@@ -182,7 +178,7 @@
       "id": "geopol",
       "nom": "GEOPOL",
       "chemin": "indice_app (5 modules) → live.json.geopol → juge + cockpit",
-      "ok": false,
+      "ok": true,
       "maillons": [
         {
           "nom": "geopol.ts frais",
@@ -191,8 +187,8 @@
         },
         {
           "nom": "modules OK",
-          "ok": false,
-          "detail": "4/5 modules"
+          "ok": true,
+          "detail": "5/5 modules"
         }
       ]
     },
@@ -325,7 +321,7 @@
       "id": "croisement_externe",
       "nom": "CROISEMENT EXTERNE",
       "chemin": "croiser_donnees_externes.py (launchd 30 min) → nos prix vs MEXC/Binance → data_quality_fail si écart > 5 % (on ne décide pas)",
-      "ok": false,
+      "ok": true,
       "maillons": [
         {
           "nom": "process croisement (launchd)",
@@ -334,8 +330,8 @@
         },
         {
           "nom": "croisement_externe_etat.json",
-          "ok": false,
-          "detail": "âge 102 min"
+          "ok": true,
+          "detail": "âge 29 min"
         },
         {
           "nom": "fails prix (> 5 % vs externe)",
@@ -358,12 +354,12 @@
         {
           "nom": "sdi_latest.json (SAPI dedans)",
           "ok": true,
-          "detail": "âge 1 min"
+          "detail": "âge 2 min"
         },
         {
           "nom": "SAPI calculé",
           "ok": true,
-          "detail": "score 0.5"
+          "detail": "score 0.65"
         },
         {
           "nom": "alerte poussière (≥ 0.75 + volume)",
@@ -376,12 +372,12 @@
       "id": "essaim",
       "nom": "ESSAIM (OBS)",
       "chemin": "veille_essaim_observation.py (launchd 30 min) → CV spread par paire → paires régulières simultanées (observation 48h, aucune décision)",
-      "ok": false,
+      "ok": true,
       "maillons": [
         {
           "nom": "essaim_etat.json",
-          "ok": false,
-          "detail": "âge 107 min"
+          "ok": true,
+          "detail": "âge 4 min"
         },
         {
           "nom": "veille d'essaim active",

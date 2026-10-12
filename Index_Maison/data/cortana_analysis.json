@@ -1,20 +1,20 @@
 {
-  "timestamp": 1791789353,
-  "date": "2026-10-12T07:15:53.148172+00:00",
+  "timestamp": 1791791453,
+  "date": "2026-10-12T07:50:53.715312+00:00",
   "n_analyses": 2,
   "analyses": [
     {
       "signal": {
         "metric": "volume",
-        "zscore": 2.1570732111529383,
-        "value": 6883230962.0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique parasité par des sujets hors-sujet (automobile, actions tradfi, éducation). Aucune corrélation on-chain exploitable avec les mouvements de baleines crypto.\"\n}\n```",
-        "ts": 1791788445.539766
+        "zscore": 2.2347521564166866,
+        "value": 7180414293.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.23) probablement déclenchée par du bruit de fond ou des métriques sans rapport. Les titres médiatiques sont totalement déconnectés (aucun lien avec une baleine crypto majeure), indiquant une absence totale de narratif exploitable.\"\n}\n```",
+        "ts": 1791790264.1789
       },
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.05,
+          "value": -0.27,
           "seuil": 1,
           "depasse": false
         },
@@ -24,12 +24,12 @@
           "depasse": false
         },
         "funding": {
-          "value": -0.0,
+          "value": 9e-06,
           "seuil": 0.001,
           "depasse": false
         },
         "whales": {
-          "value": 2,
+          "value": 1,
           "seuil": 5,
           "depasse": false
         }
@@ -45,10 +45,10 @@
     {
       "signal": {
         "metric": "long_short",
-        "zscore": -2.192794751794304,
-        "value": 1.346,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 89,\n  \"reason\": \"Le Z-score de -2.19 indique un positionnement court anormalement bas des institutionnels (capitulation des suiveurs de tendance), tandis que les médias s'enflamment sur les stratégies long/short traditionnelles. Contre-signal classique : accumulation agressive et silencieuse des baleines sur le creux de la correction.\"\n}\n```",
-        "ts": 1791788458.591475
+        "zscore": -2.436575355544848,
+        "value": 1.331,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le Z-score fortement négatif (-2.44) indique une sous-pondération extrême des positions longues par la foule/retail, tandis que les médias grand public banalisent la stratégie long/short. Cette capitulation des positions acheteuses en profondeur suggère une accumulation silencieuse des baleines avant un retournement haussier (short squeeze potentiel).\"\n}\n```",
+        "ts": 1791790265.819395
       },
       "fiche": "long_short",
       "questions": {
@@ -58,7 +58,7 @@
           "depasse": false
         },
         "oi": {
-          "value": 93705.98,
+          "value": 93890.137,
           "seuil": 120000,
           "depasse": false
         }
