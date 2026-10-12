@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "price_1h",
-      "zscore": 2.8834408611507,
-      "value": 0.32842267436050676,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (+2.88) sur 1h sans couverture médiatique (silence total sur Google Actualités). Comportement typique d'accumulation furtive par des baleines avant un mouvement de marché.\"\n}\n```",
-      "ts": "2026-10-12T01:46:38.081113+00:00"
-    },
-    {
       "metric": "sdi",
       "zscore": -3.207808940213688,
       "value": 0.004,
@@ -349,6 +342,13 @@
       "value": 1.478,
       "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Z-score élevé (2.03) sur le ratio long/short (1.478) indiquant un excès d'optimisme spéculatif des traders particuliers, tandis que le narratif médiatique grand public banalise les stratégies long/short sans urgence directionnelle. Classique piège à liquidité haussière avant purge des longs.\"\n}\n```",
       "ts": "2026-10-12T22:04:26.016083+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.110963090904912,
+      "value": 11252318453.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique de volume (z-score 2.11) non corroborée par des données crypto contextuelles. Les titres médiatiques sont du bruit sans rapport avec la blockchain (publicité, automobile, éducation). Aucune preuve d'accumulation ou de distribution de baleines.\"\n}\n```",
+      "ts": "2026-10-12T23:09:36.943978+00:00"
     }
   ]
 }
