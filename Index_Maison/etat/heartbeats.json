@@ -1,40 +1,36 @@
 {
-  "timestamp": 1791787852,
-  "date": "2026-10-12 08:50:52",
+  "timestamp": 1791787972,
+  "date": "2026-10-12 08:52:53",
   "source": "heartbeats (PAA-ACE777 ajout 1, 20/08)",
   "services": {
     "vigie": {
-      "ok": false,
-      "detail": "ZOMBIE FONCTIONNEL : process vivant mais sortie figée (4695s > 300s) — journal_radar.log"
+      "ok": true,
+      "detail": "OK (vie 0s)"
     },
     "veille": {
-      "ok": false,
-      "detail": "ZOMBIE FONCTIONNEL : process vivant mais sortie figée (4706s > 300s) — veille_degradation_etat.json"
+      "ok": true,
+      "detail": "OK (vie 37s)"
     },
     "dms": {
-      "ok": false,
-      "detail": "ZOMBIE FONCTIONNEL : process vivant mais sortie figée (4694s > 300s) — DMS_VEILLE.json"
+      "ok": true,
+      "detail": "OK (vie 25s)"
     },
     "sante": {
       "ok": false,
-      "detail": "ZOMBIE FONCTIONNEL : process vivant mais sortie figée (4813s > 600s) — sante_index.json"
+      "detail": "ZOMBIE FONCTIONNEL : process vivant mais sortie figée (4933s > 600s) — sante_index.json"
     },
     "superviseur_core": {
-      "ok": false,
-      "detail": "ZOMBIE FONCTIONNEL : process vivant mais sortie figée (5067s > 1800s) — superviseur-core.log"
+      "ok": true,
+      "detail": "OK (vie 81s)"
     },
     "whales": {
       "ok": false,
-      "detail": "ZOMBIE FONCTIONNEL : process vivant mais sortie figée (4897s > 900s) — whales_scan_latest.json"
+      "detail": "ZOMBIE FONCTIONNEL : process vivant mais sortie figée (5018s > 900s) — whales_scan_latest.json"
     }
   },
   "zombies_fonctionnels": [
-    "vigie: ZOMBIE FONCTIONNEL : process vivant mais sortie figée (4695s > 300s) — journal_radar.log",
-    "veille: ZOMBIE FONCTIONNEL : process vivant mais sortie figée (4706s > 300s) — veille_degradation_etat.json",
-    "dms: ZOMBIE FONCTIONNEL : process vivant mais sortie figée (4694s > 300s) — DMS_VEILLE.json",
-    "sante: ZOMBIE FONCTIONNEL : process vivant mais sortie figée (4813s > 600s) — sante_index.json",
-    "superviseur_core: ZOMBIE FONCTIONNEL : process vivant mais sortie figée (5067s > 1800s) — superviseur-core.log",
-    "whales: ZOMBIE FONCTIONNEL : process vivant mais sortie figée (4897s > 900s) — whales_scan_latest.json"
+    "sante: ZOMBIE FONCTIONNEL : process vivant mais sortie figée (4933s > 600s) — sante_index.json",
+    "whales: ZOMBIE FONCTIONNEL : process vivant mais sortie figée (5018s > 900s) — whales_scan_latest.json"
   ],
   "statut": "ALERTE"
 }
