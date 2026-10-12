@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "sdi",
-      "zscore": -3.207808940213688,
-      "value": 0.004,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Bruit médiatique non pertinent : le 'SDI' mentionné dans les actualités fait référence au Syndicat des Indépendants en France (fiscalité, TPE), tandis que l'anomalie onchain concerne des métriques crypto homonymes sans lien avec le mouvement des baleines.\"\n}\n```",
-      "ts": "2026-10-12T02:11:42.526491+00:00"
-    },
-    {
       "metric": "fear_greed",
       "zscore": 2.780009626702197,
       "value": 69,
@@ -349,6 +342,13 @@
       "value": 11252318453.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique de volume (z-score 2.11) non corroborée par des données crypto contextuelles. Les titres médiatiques sont du bruit sans rapport avec la blockchain (publicité, automobile, éducation). Aucune preuve d'accumulation ou de distribution de baleines.\"\n}\n```",
       "ts": "2026-10-12T23:09:36.943978+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.1527674013167646,
+      "value": 11605042062.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie de volume technique (z-score 2.15) mais le bruit médiatique ne concerne que des sujets hors crypto (L'Oréal, ETF S&P 500, Audi, éducation). Aucune corrélation onchain exploitable.\"\n}\n```",
+      "ts": "2026-10-12T23:39:49.624114+00:00"
     }
   ]
 }
