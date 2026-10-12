@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "whale_usd",
-      "zscore": 3.389364434491117,
-      "value": 5099864.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 3.39, ~5.1M USD) sans couverture médiatique (silence radio sur Google Actualités). Les baleines accumulent ou positionnent des fonds discrètement avant que le narratif public ne se forme.\"\n}\n```",
-      "ts": "2026-10-11T23:05:43.089983+00:00"
-    },
-    {
       "metric": "liquidations",
       "zscore": 2.0280248329466666,
       "value": 5398685.0,
@@ -349,6 +342,13 @@
       "value": 1.113,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.92) liée à un bruit médiatique homonyme ('IPT' désignant l'Institut de Physique de Téhéran, le Tournoi de Physique ou la lutte contre les violences), totalement déconnecté de l'activité on-chain des baleines crypto.\"\n}\n```",
       "ts": "2026-10-12T13:26:44.861262+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.4045489565339904,
+      "value": 10198663972.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit médiatique sans rapport avec la crypto (automobile, tourisme, RH, hardware). Anomalie statistique de volume isolée sans confirmation on-chain pertinente.\"\n}\n```",
+      "ts": "2026-10-12T13:41:48.249766+00:00"
     }
   ]
 }

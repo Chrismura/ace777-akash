@@ -1,47 +1,31 @@
 {
-  "timestamp": 1791811747,
+  "timestamp": 1791813127,
   "sdi": {
-    "sdi": 0.012,
+    "sdi": 0.02,
     "divergence_score": 0,
-    "fee_score": 0.03,
+    "fee_score": 0.05,
     "dormant_pct": 69,
     "dormant_avg_30d": 67.27,
     "dormant_source": "alternative.me (FG proxy — les données dormant sont indisponibles)",
-    "fee_fastest_sat": 3
+    "fee_fastest_sat": 5
   },
   "ipt": {
-    "ipt": 0.872,
-    "micro_tx_ratio": 0.2,
-    "z_fee": 2.0,
-    "entropy": 0.64
+    "ipt": 1.516,
+    "micro_tx_ratio": 0.3,
+    "z_fee": 4.0,
+    "entropy": 0.652
   },
   "rbf": {
-    "rbf_score": 0.6,
-    "rbf_ratio": 0.6,
-    "rbf_pairs": 3,
-    "n_txs": 5,
+    "rbf_score": 0.0,
+    "rbf_ratio": 0.0,
+    "rbf_pairs": 0,
+    "n_txs": 6,
     "rbf_method": "outspends-double-depense",
-    "rbf_detail": [
-      {
-        "tx": "b43a03b26a9917b6",
-        "remplacee_par": "36d8d3455ceefd0d",
-        "input": "08d98254fa11c189:0"
-      },
-      {
-        "tx": "19ca250bf6b3a70e",
-        "remplacee_par": "91064d8f06bbbb5a",
-        "input": "5b593ee0568df112:0"
-      },
-      {
-        "tx": "efc98db689eea90b",
-        "remplacee_par": "38e120fc6e667931",
-        "input": "59c665e7852e7876:0"
-      }
-    ]
+    "rbf_detail": []
   },
   "fee_pressure": {
-    "fastest": 3,
-    "halfHour": 3,
+    "fastest": 5,
+    "halfHour": 4,
     "hour": 1,
     "economy": 1,
     "source": "mempool.space"
@@ -50,21 +34,21 @@
     "IPT ÉLEVÉ: un seul acteur automatisé détecté"
   ],
   "sapi": {
-    "score": 0.369,
+    "score": 0.719,
     "alerte": false,
     "persistance": false,
     "scores_recents": [
-      0.379,
-      0.719,
-      0.369
+      0.37,
+      0.72,
+      0.719
     ],
     "composantes": {
-      "z_fee": 2.0,
-      "taux_fantome": 7.977,
-      "micro_tx_ratio": 0.2,
+      "z_fee": 4.0,
+      "taux_fantome": 9.075,
+      "micro_tx_ratio": 0.3,
       "spot_proxy": 0.0,
       "coef_heure_creuse": 1.0,
-      "entropie_tempo": 0.698
+      "entropie_tempo": 0.695
     },
     "note": "Score d'Alerte Poussière Institutionnelle (Cortana tour 1, validé 29/08 — corr RBF plat −0.275). Proxy carnet spot = spread_avg_bps normalisé σ1h (FIX famille). FIX 4 : proxy réduit ×0.35 en heures creuses UTC (02-06) + bonus entropie temporelle (rythme robotique du carnet) si base fantôme. Alerte = persistance 3 ticks ≥ 0.75 + volume ≥ 500 BTC."
   }
