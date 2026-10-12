@@ -1,50 +1,15 @@
 {
-  "timestamp": 1791768462,
-  "date": "2026-10-12T01:27:42.682471+00:00",
-  "n_analyses": 3,
+  "timestamp": 1791772063,
+  "date": "2026-10-12T02:27:43.686174+00:00",
+  "n_analyses": 2,
   "analyses": [
     {
       "signal": {
-        "metric": "liquidations",
-        "zscore": 2.7703573421573267,
-        "value": 6706468.0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le z-score élevé (2.77) combiné à des liquidations massives principalement sur les longs (ex: DOGE) indique un 'flush' brutal du levier spéculatif de détail. Les médias grand public banalisent l'événement en le noyant dans des faits divers juridiques ou des généralités, masquant l'absorption silencieuse de cette liquidité par les baleines pour préparer un rebond.\"\n}\n```",
-        "ts": 1791766874.155083
-      },
-      "fiche": "liquidations",
-      "questions": {
-        "longs": {
-          "value": 3571095.0,
-          "seuil": 0,
-          "depasse": true
-        },
-        "shorts": {
-          "value": 2306705.0,
-          "seuil": 0,
-          "depasse": true
-        },
-        "prix": {
-          "value": -0.12,
-          "seuil": 1,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "longs > shorts",
-        "lecture": "Liquidations massives de LONGS — cascade baissière mécanique. Historiquement suit un creux proche quand le volume liq retombe (HYPOTHÈSE, pas une loi : une cascade peut en cacher une autre)",
-        "niveau": "surveiller",
-        "action": "Ne pas vendre dans la cascade ; préparer les paliers plancher si la paire est sur watchlist"
-      },
-      "action": "Ne pas vendre dans la cascade ; préparer les paliers plancher si la paire est sur watchlist",
-      "niveau": "surveiller"
-    },
-    {
-      "signal": {
         "metric": "sdi",
-        "zscore": -4.490848859684468,
+        "zscore": -3.207808940213688,
         "value": 0.004,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Anomalie de type 'bruit textuel' : l'indicateur SDI (Smart Money/Data Index) mesure ici le Syndicat des Indépendants et PME (SDI) ou SDI Corp dans la presse financière, et non une baleine crypto onchain. Divergence nulle, confusion de sémantique médiatique.\"\n}\n```",
-        "ts": 1791767483.833809
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Bruit médiatique non pertinent : le 'SDI' mentionné dans les actualités fait référence au Syndicat des Indépendants en France (fiscalité, TPE), tandis que l'anomalie onchain concerne des métriques crypto homonymes sans lien avec le mouvement des baleines.\"\n}\n```",
+        "ts": 1791771102.526491
       },
       "fiche": null,
       "interpretation": {
@@ -56,10 +21,10 @@
     {
       "signal": {
         "metric": "fear_greed",
-        "zscore": 3.4517750104945515,
+        "zscore": 2.780009626702197,
         "value": 69,
-        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement élevé (3.45) pour un Fear & Greed à 69 (Avidité), couplé à un vide médiatique total (Google Actualités muet). Classic setup de 'distribution silencieuse' : le retail dort ou est complaisamment haussier tandis que les baleines s'allègent sans éveiller les foules.\"\n}\n```",
-        "ts": 1791767485.524496
+        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.78) couplé à une avarice extrême (69) sans couverture médiatique majeure : classique 'bull trap' de détail. Les baleines profitent de cette euphorie silencieuse pour distribuer.\"\n}\n```",
+        "ts": 1791771103.852307
       },
       "fiche": "fear_greed",
       "questions": {
@@ -83,5 +48,5 @@
       "niveau": "neutre"
     }
   ],
-  "resume": "🟡 SURVEILLANCE — des signaux sont à observer"
+  "resume": "🔵 CALME — pas de signal alarmant"
 }
