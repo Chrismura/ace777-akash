@@ -1,20 +1,20 @@
 {
-  "timestamp": 1791791453,
-  "date": "2026-10-12T07:50:53.715312+00:00",
+  "timestamp": 1791797095,
+  "date": "2026-10-12T09:24:55.966732+00:00",
   "n_analyses": 2,
   "analyses": [
     {
       "signal": {
         "metric": "volume",
-        "zscore": 2.2347521564166866,
-        "value": 7180414293.0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.23) probablement déclenchée par du bruit de fond ou des métriques sans rapport. Les titres médiatiques sont totalement déconnectés (aucun lien avec une baleine crypto majeure), indiquant une absence totale de narratif exploitable.\"\n}\n```",
-        "ts": 1791790264.1789
+        "zscore": 2.47130552031937,
+        "value": 7941178327.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique sans rapport avec la crypto (automobile, éducation, actions). L'anomalie on-chain (z-score 2.47) indique une activité de volume brut, mais l'absence totale de corrélation contextuelle suggère du bruit statistique ou des transferts internes mineurs plutôt qu'une accumulation/distribution silencieuse majeure.\"\n}\n```",
+        "ts": 1791795631.908052
       },
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.27,
+          "value": -0.0,
           "seuil": 1,
           "depasse": false
         },
@@ -24,12 +24,12 @@
           "depasse": false
         },
         "funding": {
-          "value": 9e-06,
+          "value": 3.2e-05,
           "seuil": 0.001,
           "depasse": false
         },
         "whales": {
-          "value": 1,
+          "value": 0,
           "seuil": 5,
           "depasse": false
         }
@@ -45,20 +45,20 @@
     {
       "signal": {
         "metric": "long_short",
-        "zscore": -2.436575355544848,
-        "value": 1.331,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le Z-score fortement négatif (-2.44) indique une sous-pondération extrême des positions longues par la foule/retail, tandis que les médias grand public banalisent la stratégie long/short. Cette capitulation des positions acheteuses en profondeur suggère une accumulation silencieuse des baleines avant un retournement haussier (short squeeze potentiel).\"\n}\n```",
-        "ts": 1791790265.819395
+        "zscore": -2.3744539903238597,
+        "value": 1.322,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Le z-score extrêmement bas (-2.37) indique un posicionnement massivement vendeur des 'retail' ou une capitulation des positions longues, tandis que les médias grand public banalisent les stratégies Long/Short traditionnelles sans voir le positionnement contrarien extrême des baleines crypto. Divergence classique de capitulation prête à un short squeeze.\"\n}\n```",
+        "ts": 1791795633.670666
       },
       "fiche": "long_short",
       "questions": {
         "ratio_long_short": {
-          "value": 1.331,
+          "value": 1.367,
           "seuil": 2,
           "depasse": false
         },
         "oi": {
-          "value": 93890.137,
+          "value": 94234.652,
           "seuil": 120000,
           "depasse": false
         }
