@@ -1,53 +1,17 @@
 {
-  "ts": "2026-10-12T06:52:42+00:00",
-  "nb": 5,
-  "nb_critique": 5,
+  "ts": "2026-10-12T07:17:43+00:00",
+  "nb": 1,
+  "nb_critique": 1,
   "note": "CRIS ACTIFS à l'instant du cycle : ce fichier s'auto-efface quand la cause disparaît. Un cri sans voix tracée serait un faux cri.",
   "cris": [
     {
-      "organe": "short-btc",
+      "organe": "controle-config",
       "gravite": "CRITIQUE",
-      "message": "Age réel 4920s dépasse le seuil 600.0s",
-      "depuis": "2026-10-12T06:52:42+00:00",
+      "message": "Age réel 7849s dépasse le seuil 7200.0s",
+      "depuis": "2026-10-12T07:07:42+00:00",
       "nb_cris": 1,
-      "voix": "lancée",
-      "voix_le": "2026-10-12T06:52:42+00:00"
-    },
-    {
-      "organe": "sentinelle-independante",
-      "gravite": "CRITIQUE",
-      "message": "Age réel 7027s dépasse le seuil 5400.0s",
-      "depuis": "2026-10-12T06:52:42+00:00",
-      "nb_cris": 1,
-      "voix": "lancée",
-      "voix_le": "2026-10-12T06:52:42+00:00"
-    },
-    {
-      "organe": "backup-check",
-      "gravite": "CRITIQUE",
-      "message": "Age réel 5772s dépasse le seuil 3600.0s",
-      "depuis": "2026-10-12T06:52:42+00:00",
-      "nb_cris": 1,
-      "voix": "lancée",
-      "voix_le": "2026-10-12T06:52:42+00:00"
-    },
-    {
-      "organe": "observer-murs",
-      "gravite": "CRITIQUE",
-      "message": "Age réel 5938s dépasse le seuil 3600.0s",
-      "depuis": "2026-10-12T06:52:42+00:00",
-      "nb_cris": 1,
-      "voix": "lancée",
-      "voix_le": "2026-10-12T06:52:42+00:00"
-    },
-    {
-      "organe": "short-btc-aveugle",
-      "gravite": "CRITIQUE",
-      "message": "VIVANT MAIS AVEUGLE — la décision (score) ne sort plus depuis 82 min (fenêtre tolérée 45 min). Le process tourne et le produit est frais, mais il ne peut plus décider : score nul = le signal ne peut plus calculer (il exige ≥ 10 heures distinctes dans croisement_contexte.jsonl ; la rotation détruisait l'historique récent → aveugle ~10 h, et aucune entrée possible pendant ce temps).",
-      "depuis": "2026-10-12T06:52:42+00:00",
-      "nb_cris": 1,
-      "voix": "lancée",
-      "voix_le": "2026-10-12T06:52:42+00:00"
+      "voix": "anti-tempête (voix il y a < 1 h)",
+      "voix_le": "2026-10-12T07:07:42+00:00"
     }
   ]
 }

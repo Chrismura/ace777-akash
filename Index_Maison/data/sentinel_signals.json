@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "whale_usd",
-      "zscore": 3.7635803557458107,
-      "value": 3995751.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (3.76) indiquant une accumulation massive de ~4M$ par une baleine dans l'indifférence médiatique totale (silence radio dans l'actualité). Classique divergence d'accumulation silencieuse avant un mouvement haussier.\"\n}\n```",
-      "ts": "2026-10-11T16:38:57.344815+00:00"
-    },
-    {
-      "metric": "taker_ratio",
-      "zscore": 2.097405715727771,
-      "value": 1.784,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio élevé (z-score 2.10) indique une forte agression acheteuse sur les carnets d'ordres, signalant une accumulation agressive par les baleines. Le silence médiatique total (Google Actualités vide) confirme l'absence de FOMO public : c'est la phase classique d'accumulation furtive avant la percée des prix.\"\n}\n```",
-      "ts": "2026-10-11T16:38:58.908035+00:00"
-    },
-    {
       "metric": "long_short",
       "zscore": -2.0121069392669493,
       "value": 1.428,
@@ -349,6 +335,20 @@
       "value": 0.004,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Anomalie non pertinente : le 'SDI' mentionné dans les actualités fait référence au 'Syndicat des indépendants' (politique/fiscalité française) et non à une métrique onchain ou à un actif crypto lié aux mouvements de baleines.\"\n}\n```",
       "ts": "2026-10-12T04:42:23.015327+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.1570732111529383,
+      "value": 6883230962.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique parasité par des sujets hors-sujet (automobile, actions tradfi, éducation). Aucune corrélation on-chain exploitable avec les mouvements de baleines crypto.\"\n}\n```",
+      "ts": "2026-10-12T07:00:45.539766+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": -2.192794751794304,
+      "value": 1.346,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 89,\n  \"reason\": \"Le Z-score de -2.19 indique un positionnement court anormalement bas des institutionnels (capitulation des suiveurs de tendance), tandis que les médias s'enflamment sur les stratégies long/short traditionnelles. Contre-signal classique : accumulation agressive et silencieuse des baleines sur le creux de la correction.\"\n}\n```",
+      "ts": "2026-10-12T07:00:58.591475+00:00"
     }
   ]
 }
