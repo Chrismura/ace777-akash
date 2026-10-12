@@ -1,7 +1,86 @@
 {
-  "timestamp": 1791808199,
-  "date": "2026-10-12T12:29:59.349991+00:00",
-  "n_analyses": 0,
-  "analyses": [],
-  "resume": "Aucune analyse en cours"
+  "timestamp": 1791811800,
+  "date": "2026-10-12T13:30:00.177636+00:00",
+  "n_analyses": 2,
+  "analyses": [
+    {
+      "signal": {
+        "metric": "volume",
+        "zscore": 2.2942128793759027,
+        "value": 9694239823.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.29) probablement due à du bruit ou un artefact de scraping. Le narratif médiatique est totalement hétérogène et sans rapport avec la crypto (automobile, tourisme, emploi, hardware 3D). Aucune baleine détectée : bruit pur.\"\n}\n```",
+        "ts": 1791810700.200359
+      },
+      "fiche": "rbf_eleve",
+      "questions": {
+        "prix": {
+          "value": -0.23,
+          "seuil": 1,
+          "depasse": false
+        },
+        "paires": {
+          "value": 3,
+          "seuil": 3,
+          "depasse": false
+        },
+        "funding": {
+          "value": 7.4e-05,
+          "seuil": 0.001,
+          "depasse": false
+        },
+        "whales": {
+          "value": 0,
+          "seuil": 5,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
+      },
+      "action": "Observer",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "ipt",
+        "zscore": 2.9193170625385836,
+        "value": 1.113,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.92) liée à un bruit médiatique homonyme ('IPT' désignant l'Institut de Physique de Téhéran, le Tournoi de Physique ou la lutte contre les violences), totalement déconnecté de l'activité on-chain des baleines crypto.\"\n}\n```",
+        "ts": 1791811604.861262
+      },
+      "fiche": "rbf_eleve",
+      "questions": {
+        "prix": {
+          "value": -0.23,
+          "seuil": 1,
+          "depasse": false
+        },
+        "paires": {
+          "value": 3,
+          "seuil": 3,
+          "depasse": false
+        },
+        "funding": {
+          "value": 7.4e-05,
+          "seuil": 0.001,
+          "depasse": false
+        },
+        "whales": {
+          "value": 0,
+          "seuil": 5,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
+      },
+      "action": "Observer",
+      "niveau": "neutre"
+    }
+  ],
+  "resume": "🔵 CALME — pas de signal alarmant"
 }

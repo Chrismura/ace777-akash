@@ -7252,3 +7252,12 @@ Pas d’ordre — confrontation plus tard.
 - PYTHUSDT: WATCH_PULLBACK — tension haute + reflux
 - RWAINCUSDT: WATCH_PULLBACK — tension haute + reflux
 (compléter: confirmé ? risque ?)
+
+### 2026-10-12T12:33:21Z — ALERT auto
+- QNTUSDT: WATCH_PULLBACK — tension haute + reflux
+- REDUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
+
+### 2026-10-12T13:12:19Z — ALERT auto
+- PYTHUSDT: IMPULSE_WAIT — spike en cours, pas chase
+(compléter: confirmé ? risque ?)
