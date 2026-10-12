@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "liquidations",
-      "zscore": 2.7980458602127043,
-      "value": 5567399.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Panique médiatique sur-amplifiée (confusion entre 5.5M$ réels et des chiffres de 2.4B$ global/altcoins) alors que le z-score de 2.8 indique un flush-out sain des positions longues sur-levier. Les baleines en profitent pour ramasser en silence pendant que la foule cède à la peur.\"\n}\n```",
-      "ts": "2026-10-11T15:48:44.517932+00:00"
-    },
-    {
-      "metric": "taker_ratio",
-      "zscore": 2.253110434678032,
-      "value": 1.784,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Taker ratio à 1.784 (z-score 2.25) indique une forte agression acheteuse cachée, tandis que le vide médiatique (silence de Google Actualités) prouve l'absence de FOMO de détail. Accumulation furtive des baleines loin des radars.\"\n}\n```",
-      "ts": "2026-10-11T16:08:49.480985+00:00"
-    },
-    {
       "metric": "whale_usd",
       "zscore": 3.7635803557458107,
       "value": 3995751.0,
@@ -349,6 +335,20 @@
       "value": 69,
       "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 82,\n  \"reason\": \"Euphorie médiatique excessive (Fear & Greed à 69, z-score 2.08) totalement déconnectée d'un flux d'actualités vide ('Google Actualités' sans catalyseur). Classique piège à liquidité institutionnel : distribution silencieuse des baleines sur le optimisme de détail.\"\n}\n```",
       "ts": "2026-10-12T04:12:15.645444+00:00"
+    },
+    {
+      "metric": "price_1h",
+      "zscore": 3.644937031508371,
+      "value": 0.47563350028942963,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de prix significative (z-score 3.64) totalement ignorée par les médias (silence radio de Google Actualités). C'est la signature classique d'accumulation furtive par des baleines avant un réveil du narratif.\"\n}\n```",
+      "ts": "2026-10-12T04:42:21.432667+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": -2.053161580867087,
+      "value": 0.004,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Anomalie non pertinente : le 'SDI' mentionné dans les actualités fait référence au 'Syndicat des indépendants' (politique/fiscalité française) et non à une métrique onchain ou à un actif crypto lié aux mouvements de baleines.\"\n}\n```",
+      "ts": "2026-10-12T04:42:23.015327+00:00"
     }
   ]
 }

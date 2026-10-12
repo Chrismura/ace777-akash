@@ -1,14 +1,14 @@
-# DISCIPLINE QUOTIDIENNE — 2026-10-11T08:26:01Z
+# DISCIPLINE QUOTIDIENNE — 2026-10-12T05:15:28Z
 
 ## ALERTES
-- 🔴 CORTANA sous 50% (34.3%) — discipline NEUTRE active, à surveiller
+- 🔴 CORTANA sous 50% (30.4%) — discipline NEUTRE active, à surveiller
 - 🔴 DÉRIVE MÉMOIRE : au moins 1 indice INSTABLE — voir DERIVE_MEMOIRE.md
 - 🔴 SEUIL NON RANGÉ : 30 clé(s) décident sans être classées (STOP_AMPLITUDE_MULT, RUNNER_CONSERVATION_FRAC, RUNNER_TRAIL_ARM_MULT, RUNNER_GIVEBACK_FRAC, RUNNER_STOP_MULT, GIVEBACK_AMP_COUPLE_FRAC) — R17 : toute garde se mesure ou se déclare
 
 ## CORTANA (justesse, 44% = pile-ou-face)
-- Score global : 34.3%
-- Analyses notées : 137/399
-- Par indice : altSeason 1/5; bassine 4/8; btc 4/15; chg24 1/4; croisements 22/60; etfBtcM 1/7; etfEthM 2/7; etfXrpM 2/7; fearGreed 34/85; geopol 9/44; gexPutCall 4/8; indice_onchain 2/8; liq24Usd 3/6; longShort 1/7; oi 1/10; onchain 3/9; pipeline_health 0/3; radar 36/78; rbf 0/3; score 0/7; sdi 3/8; verre 4/10
+- Score global : 30.4%
+- Analyses notées : 125/411
+- Par indice : altSeason 1/6; bassine 4/9; btc 3/15; chg24 1/4; croisements 19/61; etfBtcM 1/7; etfEthM 2/8; etfXrpM 2/8; fearGreed 32/87; geopol 7/46; gexPutCall 4/9; indice_onchain 1/8; liq24Usd 3/7; longShort 1/7; oi 0/10; onchain 2/9; pipeline_health 0/3; radar 37/79; rbf 0/3; score 0/7; sdi 2/8; verre 3/10
 
 ## ADA (zone/voilure vs BTC 24h, v1)
 - Zone-accuracy : None% (0/0)
