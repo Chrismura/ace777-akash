@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "volume",
-      "zscore": 2.2942128793759027,
-      "value": 9694239823.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.29) probablement due à du bruit ou un artefact de scraping. Le narratif médiatique est totalement hétérogène et sans rapport avec la crypto (automobile, tourisme, emploi, hardware 3D). Aucune baleine détectée : bruit pur.\"\n}\n```",
-      "ts": "2026-10-12T13:11:40.200359+00:00"
-    },
-    {
       "metric": "ipt",
       "zscore": 2.9193170625385836,
       "value": 1.113,
@@ -349,6 +342,13 @@
       "value": 1.176,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Le z-score extrêmement bas (-2.41) indique une sous-pondération massive des positions long par les traders particuliers ou un excès de shorts. Les médias traditionnels parlent de fonds long/short macro sans saisir le positionnement contrarien extrême sur la crypto. C'est un signal classique de 'short squeeze' imminent.\"\n}\n```",
       "ts": "2026-10-13T11:13:12.109127+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": -2.2329132290760203,
+      "value": 1.176,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Le z-score extrêmement bas (-2.23) indique une sous-exposition massive au long des acteurs de marché, contredisant le bruit médiatique généraliste sur les stratégies long/short. Les baleines accumulent discrètement en position contrariante, préparant un potentiel short squeeze.\"\n}\n```",
+      "ts": "2026-10-13T11:43:18.497203+00:00"
     }
   ]
 }
