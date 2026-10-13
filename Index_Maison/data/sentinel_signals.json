@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "price_1h",
-      "zscore": 2.757481885434854,
-      "value": 0.44852062016101923,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (+2.76) sur 1h combiné à un silence médiatique total (Google Actualités vide). C'est la signature classique d'accumulation furtive par des baleines avant le réveil des médias.\"\n}\n```",
-      "ts": "2026-10-12T08:45:26.728533+00:00"
-    },
-    {
-      "metric": "whale_usd",
-      "zscore": 5.86866495799497,
-      "value": 8720907.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (z-score 5.87, volume de 8.7M$) totalement ignorée par les médias (silence radio de Google Actualités). Accumulation furtive classique de baleines loin du radar grand public.\"\n}\n```",
-      "ts": "2026-10-12T08:45:28.123223+00:00"
-    },
-    {
       "metric": "volume",
       "zscore": 2.47130552031937,
       "value": 7941178327.0,
@@ -349,6 +335,20 @@
       "value": 1.56,
       "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Z-score élevé (2.68) indiquant un positionnement acheteur excessif de la foule/retail, tandis que les médias traditionnels banalisent les stratégies long/short sans voir le piège de liquidité imminent.\"\n}\n```",
       "ts": "2026-10-13T02:41:00.258587+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.065405959249858,
+      "value": 13820013131.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.07) non corrélée aux marchés crypto : les titres médiatiques parlent de marketing, d'automobiles et d'administration publique. Bruit de fond, pas de mouvement de baleine.\"\n}\n```",
+      "ts": "2026-10-13T03:11:07.654909+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.105448033230967,
+      "value": 14293260796.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie de volume statistique sans rapport avec la crypto (bruit médiatique centré sur la macro, l'automobile et l'IA traditionnelle). Aucune trace d'accumulation ou de distribution de baleines on-chain pertinente.\"\n}\n```",
+      "ts": "2026-10-13T03:41:13.846045+00:00"
     }
   ]
 }
