@@ -1,14 +1,14 @@
 # Console générale — clin d’œil
 
-Auto-refresh : 2026-10-12 18:56 UTC · jour local **2026-10-12**
+Auto-refresh : 2026-10-13 18:53 UTC · jour local **2026-10-13**
 
 ## Feu tricolore
 
 | Jambe | État | Détail |
 |-------|------|--------|
 | **ACE** | 🔴 STOP | Dernier tag `MASTER_BASE_V8_6_FORTRESS_8H20` · combo ≈ **+0.90 $** |
-| **Hulk paper** | 🟢 RUN | pnl_total ≈ **63.5723** · pos **10** |
-| **Hulk digest** | 🟢 RUN | mtime 2026-10-12T18:25Z |
+| **Hulk paper** | 🟢 RUN | pnl_total ≈ **60.1494** · pos **11** |
+| **Hulk digest** | 🟢 RUN | mtime 2026-10-13T18:52Z |
 | **Punk** | 🔴 STOP | — · idle |
 | **Ollama** | 🟢 RUN | |
 | **Obsidian** | 🟢 | vault `Obsidian_ACE777` |
@@ -72,8 +72,8 @@ Auto-refresh : 2026-10-12 18:56 UTC · jour local **2026-10-12**
 | `TEST_DUO_HARMONIC_5813_30M_V63` | +0.00 (n=0) | -0.42 (n=45) | **-0.42** |
 
 ## Hulk
-- Events : {'BUY': 225, 'SELL_PARTIAL': 115, 'SELL': 213, 'SKIP': 105574, 'BAG_ARM': 8, 'BAG_CRASH': 1, 'BAG_SELL': 2, 'BAG_DCA': 2, 'GBAG_SOUCHE': 1}
-- Pairs ouvertes (state) : RWAUSDT, MNSRYUSDT, FLUIDUSDT, RIZEUSDT, ZBCNUSDT, BTCUSDT, HBARUSDT, RWAINCUSDT, CHIPUSDT, CCUSDT
+- Events : {'BUY': 229, 'SELL_PARTIAL': 115, 'SELL': 216, 'SKIP': 107350, 'BAG_ARM': 8, 'BAG_CRASH': 1, 'BAG_SELL': 2, 'BAG_DCA': 2, 'GBAG_SOUCHE': 1}
+- Pairs ouvertes (state) : RWAUSDT, MNSRYUSDT, FLUIDUSDT, RIZEUSDT, ZBCNUSDT, BTCUSDT, RWAINCUSDT, CHIPUSDT, ETHUSDT, XRPUSDT, HBARUSDT
 
 ## Liens
-[[PLAN_DE_VOL]] · [[AUTO_PROCESSUS]] · [[AGORA]] · [[Cahier/Journal_2026-10-12]] · [[OSSATURE]]
+[[PLAN_DE_VOL]] · [[AUTO_PROCESSUS]] · [[AGORA]] · [[Cahier/Journal_2026-10-13]] · [[OSSATURE]]
