@@ -750,9 +750,18 @@ def load_hulk():
     # tradée, écart 0 → ne fausse pas le score) et QAIT disparaît (plus dans
     # l'univers → plus compté, cohérent avec son delisting).
     if state and state.exists():
-        _all_pairs = set(universe)
+        # FIX 13/10/2026 (mandat Christophe : « bien regarder que toutes les données
+        # sont bien sondées et complètes 16 ou 20+ aux totaux ») : l'univers moteur
+        # (state.pairs = 19) ne couvrait pas les paires SONDÉES par le score (IOTA,
+        # LA, WAXL — candidats en observation, mesurés amp7/cadence/régime mais pas
+        # encore admis) → leurs mesures existaient et les totaux les ignoraient.
+        # On construit l'univers du tableau = univers moteur ∪ paires sondées ; les
+        # candidats tombent en ligne NEUTRE par la règle observe (budget = marge 20$,
+        # cash 20$, écart 0 → ne fausse pas le score) et les totaux couvrent tout ce
+        # qui est mesuré (22 paires).
+        _all_pairs = set(universe) | set(sc_all.keys())
     else:
-        _all_pairs = set(seed_qty.keys()) | set(pos_all.keys())
+        _all_pairs = set(seed_qty.keys()) | set(pos_all.keys()) | set(sc_all.keys())
     # Paires OBSERVE-ONLY (ni seed ni position) : le CSV peut contenir des
     # LIGNES RÉSIDUELLES (ex : FLUID a un BUY parasite du moteur v1 du 30/08
     # 09:54Z, annulé à 0 PnL ensuite). Rejouer ces lignes débiterait le cash

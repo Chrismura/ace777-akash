@@ -1,41 +1,41 @@
 # Thermo dernier — gratuit (Binance public)
 
-> Auto · **sans clé** · sans ordre · 2026-10-13T13:01Z UTC  
+> Auto · **sans clé** · sans ordre · 2026-10-13T13:58Z UTC  
 > Script : `Index_Maison/scripts/thermo_quotidien_free.py`
 
 ## Clin d'œil
-**Climat :** `ok` · **Score :** `85/100`
+**Climat :** `ok` · **Score :** `87/100`
 
 ## Snapshot `BTCUSDT`
 
 | Champ | Valeur | ID |
 |-------|--------|-----|
-| Mark | 83242.8 | prix |
-| OI | 94426.83 | C13 |
-| Funding | 7e-05 | C14 |
+| Mark | 83176.9 | prix |
+| OI | 94055.755 | C13 |
+| Funding | 6.2e-05 | C14 |
 | Funding moy. ~30j | 3.751e-05 (n=90) | Cortana |
 | Funding mois préc. | 4.965e-05 (n=90) | Cortana |
-| L/S 1h | 1.199 | crowd |
-| BTC 1h/4h/24h | -0.1 / -0.42 / 0.66 % | B7 |
-| Dominance BTC | 59.3% | A3 |
+| L/S 1h | 1.221 | crowd |
+| BTC 1h/4h/24h | -0.18 / -0.5 / 0.36 % | B7 |
+| Dominance BTC | 59.26% | A3 |
 | Alts ↓ 24h | 90.0% | B9 |
 
 ## Lecture
-- Climat CALME (score 85/100).
-- Funding maintenant 7e-05. Moyenne ~30j 3.751e-05 (90 pts). Mois précédent 4.965e-05 (90 pts).
-- Long/Short 1.199.
-- BTC 24h 0.66% · 1h -0.1% · 4h -0.42%.
+- Climat CALME (score 87/100).
+- Funding maintenant 6.2e-05. Moyenne ~30j 3.751e-05 (90 pts). Mois précédent 4.965e-05 (90 pts).
+- Long/Short 1.221.
+- BTC 24h 0.36% · 1h -0.18% · 4h -0.5%.
 - Panier alts : 90.0% en baisse (18/20).
-- Whales proxy : aucun print ≥500k$ sur les ~500 derniers trades.
-- Dark/OTC proxy : taker buy/sell 1.195 · OI 94426.83 (pas de dark pool free temps réel).
+- Whales proxy : 2 gros print(s) ≥500k$ (max 940433$) — source aggTrades Binance.
+- Dark/OTC proxy : taker buy/sell 0.879 · OI 94055.755 (pas de dark pool free temps réel).
 - Top traders L/S 1.285.
 - Fear & Greed 57 (Greed).
-- Market cap crypto ≈ 2.82 T$.
-- Alt season proxy : Bitcoin season (BTC.D 59.3%).
+- Market cap crypto ≈ 2.81 T$.
+- Alt season proxy : Bitcoin season (BTC.D 59.26%).
 - Liquidations 24h proxy ≈ 0.00 B$.
-- ETF net inflow : BTC -98.47 M$ (bitbo-public (moy 7j), BTC only).
-- GEX proxy (Deribit) : P/C 0.581 · murC 95000 (+14.2%) · murP 78000 (-6.2%).
-- Volumes cachés proxy : taker buy 0.504 · vol perp/spot 12.47×.
+- ETF net inflow : BTC -102.51 M$ (bitbo-public (moy 7j), BTC only).
+- GEX proxy (Deribit) : P/C 0.581 · murC 95000 (+14.3%) · murP 80000 (-3.8%).
+- Volumes cachés proxy : taker buy 0.504 · vol perp/spot 12.59×.
 - ACE soft: LIVE=MASTER_BASE_V8_6_FORTRESS_8H20_LIVE_COLOR.log · SKIP=935 · heat=2.7 · PnL sess=0.9024 · RED=0.
 - C15/C23 = proxies free. D26–D34 = F&G / MC / alt / liq / ETF / GEX / volumes cachés. Soft ops lecture seule.
 
