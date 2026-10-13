@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "volume",
-      "zscore": 2.3313058290697426,
-      "value": 10440864869.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.33) sans corrélation crypto pertinente dans les titres (bruit médiatique dominé par la macro, l'automobile et la tech traditionnelle). Pas de mouvement de baleine identifiable.\"\n}\n```",
-      "ts": "2026-10-12T20:33:54.602883+00:00"
-    },
-    {
-      "metric": "long_short",
-      "zscore": 2.6465521108845866,
-      "value": 1.487,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Z-score élevé (2.65) sur le ratio long/short (1.487) indiquant un positionnement acheteur excessif de la foule, totalement déconnecté des actualités financières traditionnelles hors-sujet (ETF, fonds SIF). Piège à liquidité classique des baleines pour un 'long squeeze'.\"\n}\n```",
-      "ts": "2026-10-12T20:33:56.727669+00:00"
-    },
-    {
       "metric": "taker_ratio",
       "zscore": 2.1938227796353935,
       "value": 1.907,
@@ -349,6 +335,20 @@
       "value": 12276795.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (z-score 7.21, flux de 12.2M$) en quasi-silence médiatique. Les baleines accumulent hors des radars grand public, créant une divergence classique de sous-évaluation avant un mouvement haussier.\"\n}\n```",
       "ts": "2026-10-13T17:13:50.776982+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 3.195201434649332,
+      "value": 1.285,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 3.20) sur le ticker 'ipt' totalement polluée par du bruit médiatique sans rapport avec la crypto (Tournoi de Physique de l'X, violences sexistes, théologie). Aucun signal baleine valide, le 'narratif' est juste un homonyme institutionnel.\"\n}\n```",
+      "ts": "2026-10-13T17:19:05.919720+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.940610788596406,
+      "value": 1.249,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.94) sur le ticker 'ipt' totalement polluée par du bruit sémantique (Tournoi International des Physiciens, lutte contre les VSS). Aucun mouvement de baleine crypto avéré, le narratif médiatique fait référence à des institutions académiques et associatives.\"\n}\n```",
+      "ts": "2026-10-13T18:05:36.349562+00:00"
     }
   ]
 }
