@@ -42,6 +42,11 @@ def faire_bot(cadence, on, ref=7.30, early=True):
     b.inv, b.lot_cache = {}, {}
     b.pnl_total, b.trades, b.double_mult = 0.0, 0, 2.0
     b.bag_no_tech_stop = True
+    # Réparation 13/10/2026 (Buffy) : le moteur a gagné gb_couple_on/gb_couple_frac
+    # le 09/10 (giveback couple) et manage_open les lit — le harnais de ce test
+    # (22/09) ne les connaissait pas → AttributeError. gb_couple_on = 0 garde le
+    # comportement d'avant À L'IDENTIQUE (le but du test est le ladder RIP).
+    b.gb_couple_on, b.gb_couple_frac = 0.0, 0.5
     b.rip_early_pairs = {"TESTUSDT"} if early else set()
     b.rip_early_p1, b.rip_early_p2 = 2.0, 6.0
     b.rip_late_p1, b.rip_late_p2 = 6.0, 8.0

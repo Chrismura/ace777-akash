@@ -771,7 +771,7 @@ def load_hulk():
             for row in csv.DictReader(f):
                 _p2 = row.get("pair") or ""
                 _e2 = (row.get("event") or "").upper()
-                if (_e2 in ("BUY", "DCA")) or _e2.startswith(("SELL", "STOP", "BAG")):
+                if (_e2 in ("BUY", "DCA")) or _e2.startswith(("SELL", "STOP", "BAG", "GBAG")):
                     _pairs_with_ops.add(_p2)
     _observe_pairs = _all_pairs - set(seed_qty.keys()) - set(pos_all.keys()) - _pairs_with_ops
     # rejeu par paire : cash initial = budget (seed + marge)
@@ -779,6 +779,7 @@ def load_hulk():
     nadir_par_paire: dict[str, float] = {}
     net_investi: dict[str, float] = {}
     budget_par_paire: dict[str, float] = {}
+    _gbag_pairs: set[str] = set()  # paires touchées par un événement GBAG (13/10)
     for _pair in _all_pairs:
         _sp = seed_px.get(_pair)
         if _sp is None:
@@ -795,8 +796,11 @@ def load_hulk():
                 if _pair not in cash_par_paire or _pair in _observe_pairs:
                     continue
                 _ev = (row.get("event") or "").upper()
-                if _ev not in ("BUY", "DCA") and not _ev.startswith(("SELL", "STOP", "BAG")):
+                if (_ev not in ("BUY", "DCA", "GBAG_SOUCHE", "GBAG_PYRAMIDE")
+                        and not _ev.startswith(("SELL", "STOP", "BAG"))):
                     continue
+                if _ev.startswith("GBAG"):
+                    _gbag_pairs.add(_pair)
                 try:
                     _q = float(row.get("qty") or 0.0)
                     _p = float(row.get("price") or 0.0)
@@ -812,7 +816,23 @@ def load_hulk():
                 # ventes → cash gonflé (mesuré : EDEL +10,27$ · QNT +18,38$).
                 if _ev == "BAG_ARM":
                     continue
-                if _ev in ("BUY", "DCA", "BAG_DCA"):
+                # FIX 13/10/2026 (Buffy, mandat Christophe « corriger les tableaux ») :
+                # GBAG_SOUCHE = le moteur convertit TOUT le cash de la paire en souche
+                # (take_pair_cash SANS montant → il prend tout, verrou à 0,01 près) et
+                # GBAG_PYRAMIDE = +1 tranche achetée (≤ 3). Le rejeu ne connaissait pas
+                # ces événements (filtre BUY/DCA/SELL/BAG) → cash fantôme : EDEL
+                # affichait 37,45 $ alors que le moteur est à 0 (les 70 $ de la souche
+                # comptaient DEUX fois : dans les jetons ET dans le cash). Le coût réel
+                # (qty×px) part dans net_investi → la souche se déclare en compounding
+                # (≈ 2,3× le budget 30 $ d'EDEL, sous le plafond moteur 90 $).
+                if _ev == "GBAG_SOUCHE":
+                    _pris = max(0.0, cash_par_paire[_pair])
+                    cash_par_paire[_pair] -= _pris
+                    net_investi[_pair] += _notional
+                elif _ev == "GBAG_PYRAMIDE":
+                    cash_par_paire[_pair] -= _notional + _fee
+                    net_investi[_pair] += _notional
+                elif _ev in ("BUY", "DCA", "BAG_DCA"):
                     cash_par_paire[_pair] -= _notional + _fee
                     net_investi[_pair] += _notional
                 else:
@@ -937,6 +957,8 @@ def load_hulk():
                         6,
                     ),
                     "cash": round(cash_par_paire.get(_p, 0.0), 2),
+                    "cashMoteur": round(float((_s_all.get("pair_cash") or {}).get(_p) or 0.0), 2),
+                    "gbag": _p in _gbag_pairs,
                     "reel": round(reel_par_paire.get(_p, 0.0), 2),
                     "hold": round(hold_par_paire.get(_p, 0.0), 2),
                     "ecart": round(reel_par_paire.get(_p, 0.0) - hold_par_paire.get(_p, 0.0), 2),

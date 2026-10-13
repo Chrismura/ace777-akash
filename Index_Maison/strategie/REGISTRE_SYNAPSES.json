@@ -1,6 +1,6 @@
 {
   "version": "1.5.0",
-  "updated": "2026-10-10T07:41:44Z",
+  "updated": "2026-10-13T12:45:37Z",
   "fichier": [
     {
       "nom": "Index_Maison/scripts/v2_duo_replay_4h.py",
@@ -1255,8 +1255,15 @@
       "origine": "créé et scellé le 22/09/2026",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "c4e51c06bd6b30166bfda888ffeaaa89",
-      "note": "11 vérifications : plancher, élargissement, seuils exacts, ladder LATE, cadence absente."
+      "md5": "c7a9290bb6648b5a11f0f5f9bdd1b29f",
+      "note": "11 vérifications : plancher, élargissement, seuils exacts, ladder LATE, cadence absente.",
+      "date": "2026-10-13T12:40:27Z",
+      "_rescel": [
+        {
+          "ts": "2026-10-13T12:40:27Z",
+          "motif": "Harnais repare (gb_couple_on/gb_couple_frac) - GO mandat utilisateur 13/10/2026"
+        }
+      ]
     },
     {
       "nom": "Index_Maison/scripts/critique_erreurs.py",
@@ -1513,8 +1520,8 @@
       "origine": "Un contrôle qui n'est appelé par personne n'existe pas (R15) — le pont entre le gardien et la veilleuse de la maison",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "1b32ca0b8ded40ff870ed67e751cba22",
-      "date": "2026-10-09T09:11:00Z",
+      "md5": "40ee84ebff9105b0e7ab69cb1ef12641",
+      "date": "2026-10-13T12:45:37Z",
       "_ajout_20260923": "Instrument créé le 23/09/2026 (GO Christophe) — ajouté au registre le jour même de sa création pour qu'il soit VU (veilleuse, drill, revue).",
       "_rescel_20260923": "3e vague 23/09 — branche DEUX gardiens neufs toutes les 3 h : `verif_delai_lecture.py` (classe E19 : barre de latence mesurable, mesuré/aveugle séparés, plancher physique) et `verif_session_famille.py` (R19 : la fenêtre du jury permanent ne peut plus se refermer en silence). Ordre de Christophe : « garder la fenêtre ouverte, tu ne diriges plus seule ».",
       "_rescel_20260928": "BRANCHE LE GARDIEN DES TROUS DE COLLECTE (ALPAGE, 28/09) : `hulk-mexc/scripts/gardien_collecte.py` est appelé toutes les 3 h, juste après le gardien de schéma (E15). Le gardien de schéma ne voit que la largeur de l'en-tête ; celui-ci mesure la dérive de largeur, les DOUBLONS stricts, la ligne TRONQUÉE (fichier sans saut de ligne final) et les TROUS (silence > seuil dérivé du journal) — et il les DÉCLARE au lieu de les réparer (on n'invente aucune donnée). La réparation n'a lieu qu'au seul instant sûr (moteur mort) et c'est le WATCHDOG qui l'appelle. Étape 3 de la méthodologie : un gardien que personne n'appelle n'existe pas (R15).",
@@ -1536,6 +1543,10 @@
         {
           "ts": "2026-10-09T09:11:00Z",
           "motif": "CABLAGE E9 (09/10/2026, GO Christophe « go 1,2,3 ») : branchement de verif_empilement_jour.py (lecture seule, best-effort)."
+        },
+        {
+          "ts": "2026-10-13T12:45:37Z",
+          "motif": "Rattrapage scelle apres verification du contenu (gardien R23 du 10/10) - alarme INTRUSION clos - GO mandat 13/10/2026"
         }
       ]
     },

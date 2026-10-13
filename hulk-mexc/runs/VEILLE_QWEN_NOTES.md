@@ -7341,3 +7341,12 @@ Pas d’ordre — confrontation plus tard.
 ### 2026-10-13T10:32:57Z — ALERT auto
 - QNTUSDT: WATCH_PULLBACK — tension haute + reflux
 (compléter: confirmé ? risque ?)
+
+### 2026-10-13T12:13:08Z — ALERT auto
+- QNTUSDT: WATCH_PULLBACK — tension haute + reflux
+- CCUSDT: IMPULSE_WAIT — spike en cours, pas chase
+(compléter: confirmé ? risque ?)
+
+### 2026-10-13T12:23:02Z — ALERT auto
+- CCUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)

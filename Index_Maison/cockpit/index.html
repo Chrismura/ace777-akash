@@ -4,7 +4,7 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<meta name="version" content="2062583039">
+<meta name="version" content="4226489988">
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate" />
@@ -13,13 +13,13 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Share+Tech+Mono&family=Caveat:wght@600;700&display=swap" rel="stylesheet" />
-<script src="mission.js?v=1791892819"></script>
+<script src="mission.js?v=1791896515"></script>
 <!-- COSMOS HUB feed -->
-<script src="hub.js?v=1791892819"></script>
-<script src="../thermo/live.js?v=1791892819"></script>
-<script src="../thermo/cortana_feed.js?v=1791892819"></script>
-<script src="sante_live.js?v=1791892819"></script>
-<script src="veille_institutionnelle.js?v=1791892819"></script>
+<script src="hub.js?v=1791896515"></script>
+<script src="../thermo/live.js?v=1791896515"></script>
+<script src="../thermo/cortana_feed.js?v=1791896515"></script>
+<script src="sante_live.js?v=1791896515"></script>
+<script src="veille_institutionnelle.js?v=1791896515"></script>
 <style>
 :root{
   --ink:#050804; --panel:#0a100c; --line:#3a2e14;
@@ -1164,7 +1164,7 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
     50% { opacity: 1; }
 }
 </style>
-<script src="plancher_live.js?v=1791892819"></script>
+<script src="plancher_live.js?v=1791896515"></script>
 </head>
 <body>
 <div class="app">
@@ -2078,7 +2078,7 @@ window.addEventListener('unhandledrejection', function(e) {
           const verdict=(vsH.verdict||'').replace('HULK ','').replace('HOLD','HOLD');
           vsNote.innerHTML = `<span class="hsub">SCORE HULK vs HOLD :</span> <span class="${clsV}"><b>${arrowV} ${ec!=null?((ec>0?'+':'')+usd(ec)):'—'}</b></span>`
             + (pct!=null?` <span class="hsub">(${pct>0?'+':''}${fmt(pct,1)}% vs buy&hold)</span>`:'')
-            + ` <span class="hsub">· budget ${vsH.nbPaires!=null?vsH.nbPaires:'—'} cryptos × ${usd(vsH.margeParCrypto||20)} marge = ${usd(vsH.budgetTotal)}</span>`
+            + ` <span class="hsub">· budget ${vsH.nbPaires!=null?vsH.nbPaires:'—'} cryptos (seed + ${usd(vsH.margeParCrypto||20)} de marge) = ${usd(vsH.budgetTotal)}</span>`
             + ` <span class="hsub">· cash réel ${vsH.cash!=null?usd(vsH.cash):'—'}</span>`
             + ((vsH.cashPaper!=null&&vsH.cash!=null&&Math.abs(vsH.cashPaper-vsH.cash)>0.05)?` <span class="hsub">(paper ${usd(vsH.cashPaper)})</span>`:'')
             // Le compounding est un LEVIER VOULU (avec l'amplitude) : entre l'enveloppe
@@ -2113,7 +2113,7 @@ window.addEventListener('unhandledrejection', function(e) {
               <td class="hc"><span class="hcn">${crypto}</span>${over?' <span class="hsub" style="color:var(--warn,orange)">⚠</span>':''}${comp?' <span class="hsub wpos" title="compounding actif : la taille a grossi avec le PnL réalisé (levier voulu)">↗</span>':''}</td>
               <td class="hq" title="Bag au début : quantité seedée + valeur en $">${fmtQty(p.seedQty)} <span class="hsub">${p.seed!=null?usd(p.seed):''}</span></td>
               <td class="hs ${posCls}" title="Bag actuel : quantité restante + valeur au cours — vert si le prix monte">${p.posQty!=null&&p.posQty>0?fmtQty(p.posQty):'—'} <span class="hsub">${p.pos!=null?usd(p.pos):''}</span></td>
-              <td class="hs ${cashCls}" title="Cash réel de la paire (comment Hulk gère la trésorerie)">${p.cash!=null?usd(p.cash):'—'}</td>
+              <td class="hs ${cashCls}" title="Cash réel de la paire (comment Hulk gère la trésorerie)">${p.cash!=null?usd(p.cash):'—'}${p.gbag&&p.cashMoteur!=null?` <span class="hsub" title="Cash dans la poche du moteur (state) — contrôle croisé des deux livres de comptes">(${usd(p.cashMoteur)} moteur)</span>`:''}</td>
               <td class="hs" title="Total Hulk = bag actuel (valeur $) + cash"><b>${p.reel!=null?usd(p.reel):'—'}</b></td>
               <td class="hq" title="Budget = bag début + marge pour opérer">${budget!=null?usd(budget):'—'}</td>
               <td class="hs" title="Même budget tenu depuis le seed (rien faire)">${p.hold!=null?usd(p.hold):'—'}</td>
