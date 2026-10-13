@@ -2,13 +2,6 @@
   "signals": [
     {
       "metric": "volume",
-      "zscore": 2.123251313994777,
-      "value": 9120549151.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (z-score 2.12) sans corrélation crypto : les flux on-chain détectés ne correspondent à aucun narratif pertinent, pollués par du bruit médiatique non financier (automobile, tourisme, hardware).\"\n}\n```",
-      "ts": "2026-10-12T12:41:28.321750+00:00"
-    },
-    {
-      "metric": "volume",
       "zscore": 2.2942128793759027,
       "value": 9694239823.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.29) probablement due à du bruit ou un artefact de scraping. Le narratif médiatique est totalement hétérogène et sans rapport avec la crypto (automobile, tourisme, emploi, hardware 3D). Aucune baleine détectée : bruit pur.\"\n}\n```",
@@ -349,6 +342,13 @@
       "value": 1.195,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le Z-score extrêmement bas (-2.38) indique un désengagement massif des positions short ou une capitulation des particuliers, historiquement propice à un 'short squeeze'. Les médias grand public banalisent les stratégies long/short de manière générique sans voir l'accumulation silencieuse sous-jacente.\"\n}\n```",
       "ts": "2026-10-13T10:43:01.725682+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": -2.4078092520591734,
+      "value": 1.176,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Le z-score extrêmement bas (-2.41) indique une sous-pondération massive des positions long par les traders particuliers ou un excès de shorts. Les médias traditionnels parlent de fonds long/short macro sans saisir le positionnement contrarien extrême sur la crypto. C'est un signal classique de 'short squeeze' imminent.\"\n}\n```",
+      "ts": "2026-10-13T11:13:12.109127+00:00"
     }
   ]
 }
