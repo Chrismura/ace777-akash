@@ -7329,3 +7329,11 @@ Pas d’ordre — confrontation plus tard.
 ### 2026-10-13T05:23:51Z — ALERT auto
 - PYTHUSDT: IMPULSE_WAIT — spike en cours, pas chase
 (compléter: confirmé ? risque ?)
+
+### 2026-10-13T06:49:05Z — ALERT auto
+- FLUIDUSDT: IMPULSE_WAIT — spike en cours, pas chase
+(compléter: confirmé ? risque ?)
+
+### 2026-10-13T06:49:45Z — ALERT auto
+- PYTHUSDT: IMPULSE_WAIT — spike en cours, pas chase
+(compléter: confirmé ? risque ?)
