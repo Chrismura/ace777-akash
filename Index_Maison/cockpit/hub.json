@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-13T16:04:15.468830+00:00",
+  "generated_at": "2026-10-13T16:05:16.796185+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 113
+      "calls_24h": 114
     },
     {
       "id": "openrouter-free",
@@ -274,10 +274,18 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 73,
-    "remaining": 551
+    "consumed": 74,
+    "remaining": 550
   },
   "queue": [
+    {
+      "ts": "2026-10-13T16:04:55.338174+00:00",
+      "task": "supervise.decision",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 79.83
+    },
     {
       "ts": "2026-10-13T15:48:08.293551+00:00",
       "task": "analyse.profonde",
@@ -389,17 +397,15 @@
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
       "duration_s": 0.97
-    },
-    {
-      "ts": "2026-10-13T10:43:01.724320+00:00",
-      "task": "analyse.profonde",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 1.16
     }
   ],
   "events": [
+    {
+      "ts": "2026-10-13T16:04:55.335189+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
     {
       "ts": "2026-10-13T16:03:33.447003+00:00",
       "kind": "http",
@@ -453,12 +459,6 @@
       "kind": "timeout",
       "title": "Patience Google Gemini (HTTP 503)",
       "detail": "HTTP Error 503: Service Unavailable"
-    },
-    {
-      "ts": "2026-10-13T16:03:23.278419+00:00",
-      "kind": "blacklist",
-      "title": "Fin de pause Google Gemini",
-      "detail": "re-essai automatique"
     }
   ],
   "tasks_quotas": {
