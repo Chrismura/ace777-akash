@@ -7405,3 +7405,11 @@ Pas d’ordre — confrontation plus tard.
 - QNTUSDT: IMPULSE_WAIT — spike en cours, pas chase
 - RIZEUSDT: WATCH_PULLBACK — tension haute + reflux
 (compléter: confirmé ? risque ?)
+
+### 2026-10-13T19:50:12Z — ALERT auto
+- QNTUSDT: IMPULSE_WAIT — spike en cours, pas chase
+(compléter: confirmé ? risque ?)
+
+### 2026-10-13T19:50:56Z — ALERT auto
+- RIZEUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
