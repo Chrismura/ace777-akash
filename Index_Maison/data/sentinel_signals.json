@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "ipt",
-      "zscore": 4.3190830592806675,
-      "value": 1.516,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Anomalie non pertinente : 'ipt' fait référence à des actualités académiques et institutionnelles (Tournoi International des Physiciens, lutte contre les VSS), et non à un actif crypto ou à des mouvements de baleines.\"\n}\n```",
-      "ts": "2026-10-12T13:56:51.918460+00:00"
-    },
-    {
       "metric": "volume",
       "zscore": 2.3313058290697426,
       "value": 10440864869.0,
@@ -349,6 +342,13 @@
       "value": 0.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique due à une confusion lexicale : l'indicateur on-chain analyse le token IPT, tandis que le narratif médiatique fait référence à l'Institut Polytechnique de Paris (IPT), au Tournoi International des Physiciens ou à des fondations suisses. Bruit médiatique sans lien avec l'actif crypto.\"\n}\n```",
       "ts": "2026-10-13T16:13:26.651658+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 7.2100685958406725,
+      "value": 12276795.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (z-score 7.21, flux de 12.2M$) en quasi-silence médiatique. Les baleines accumulent hors des radars grand public, créant une divergence classique de sous-évaluation avant un mouvement haussier.\"\n}\n```",
+      "ts": "2026-10-13T17:13:50.776982+00:00"
     }
   ]
 }
