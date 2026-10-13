@@ -1,17 +1,17 @@
 {
-  "timestamp": "2026-10-13T04:53:25Z",
+  "timestamp": "2026-10-13T05:11:29Z",
   "generation_source": "system_state_generator.py v2.1",
   "status": "STALE",
-  "feed_hash": "c0ef91495cafd8e8f68731cc1dd024282645f6ed6cc902517426f1117b5b46d5",
+  "feed_hash": "104bb854a2fb5bf80fb7807dc19237d8bea1a8aa28a119fda61c7191f0296a13",
   "feeds": {
     "mission": {
       "present": true,
-      "age_seconds": 20,
+      "age_seconds": 2,
       "fresh_limit_s": 120
     },
     "cortana_feed": {
       "present": true,
-      "age_seconds": 31,
+      "age_seconds": 90,
       "fresh_limit_s": 120
     },
     "live": {
@@ -21,23 +21,24 @@
     },
     "routing": {
       "present": true,
-      "age_seconds": 4295588,
+      "age_seconds": 4296672,
       "fresh_limit_s": 120
     }
   },
   "services": {
     "total": 103,
-    "running": 13,
-    "planned": 90,
+    "running": 14,
+    "planned": 89,
     "running_list": [
       "com.ace777.cockpit-http",
       "com.ace777.cockpit-pont",
       "com.ace777.collecte-anti-veille",
+      "com.ace777.cortana.urgent",
       "com.ace777.llm-gate-hub",
       "com.ace777.mirofish",
       "com.ace777.mirofish-front",
       "com.ace777.prise-ia",
-      "com.ace777.satellite-aspiration",
+      "com.ace777.sentinel",
       "com.ace777.state-generator",
       "com.ace777.superviseur-core",
       "com.ace777.superviseur-l2",
@@ -57,7 +58,6 @@
       "com.ace777.cortana-analyzer",
       "com.ace777.cortana-feed",
       "com.ace777.cortana-propose-params",
-      "com.ace777.cortana.urgent",
       "com.ace777.couleur-regime",
       "com.ace777.couleur-regime-score",
       "com.ace777.cpfp",
@@ -103,8 +103,8 @@
       "com.ace777.routeur-auto",
       "com.ace777.rwa-yields",
       "com.ace777.sante-index",
+      "com.ace777.satellite-aspiration",
       "com.ace777.scoreur-registre",
-      "com.ace777.sentinel",
       "com.ace777.sentinelle-independante",
       "com.ace777.short-btc",
       "com.ace777.signal3-livre-ecorche",
@@ -176,7 +176,7 @@
       "Assistant_Vocal_HORS_VAULT": 697372,
       "Obsidian_BACKUPS_HORS_VAULT": 14936872
     },
-    "presence_at": "2026-10-13T04:25:15Z",
+    "presence_at": "2026-10-13T04:55:15Z",
     "sizes_at": "2026-10-12T23:55:11Z"
   }
 }

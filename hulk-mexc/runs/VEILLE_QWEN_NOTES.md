@@ -7321,3 +7321,7 @@ Pas d’ordre — confrontation plus tard.
 ### 2026-10-13T04:14:17Z — ALERT auto
 - PYTHUSDT: IMPULSE_WAIT — spike en cours, pas chase
 (compléter: confirmé ? risque ?)
+
+### 2026-10-13T05:09:54Z — ALERT auto
+- BIOUSDT: IMPULSE_WAIT — spike en cours, pas chase
+(compléter: confirmé ? risque ?)
