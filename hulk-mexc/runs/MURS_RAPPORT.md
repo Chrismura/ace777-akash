@@ -1,25 +1,25 @@
 # OBSERVATOIRE DES MURS DE LIQUIDITÉ
-> 2026-10-13T05:04Z — 88611 mesures sur 27 paires · CSVs ASPIRATION_CALIB + OBSERVATION_MURS · sonde observation OBSERVATION_MURS_20261013_050415.csv
+> 2026-10-13T05:35Z — 88620 mesures sur 27 paires · CSVs ASPIRATION_CALIB + OBSERVATION_MURS · sonde observation OBSERVATION_MURS_20261013_053440.csv
 
 ## Les VRAIS murs (top 12 par mur bid moyen)
 
 | Paire | Mesures | Mur BID moy ($) | Mur BID max ($) | Mur ASK moy ($) | Spoof | Drop ≥15%/s |
 |---|---|---|---|---|---|---|
-| SOLUSDT | 1886 | 473325.75 | 2078362.86 | 458044.05 | 0 (0.0%) | 73 |
+| SOLUSDT | 1887 | 473301.81 | 2078362.86 | 458061.2 | 0 (0.0%) | 73 |
 | BTCUSDT | 1481 | 419926.18 | 1924444.32 | 488181.06 | 49 (3.31%) | 124 |
 | ETHUSDT | 1264 | 177592.18 | 1966688.05 | 173455.49 | 14 (1.11%) | 63 |
 | ADAUSDT | 36 | 102875.08 | 154143.34 | 92656.51 | 0 (0.0%) | 1 |
 | XRPUSDT | 8737 | 91589.68 | 606419.6 | 94098.68 | 376 (4.3%) | 1137 |
-| XLMUSDT | 1878 | 85306.72 | 312328.07 | 72309.53 | 0 (0.0%) | 68 |
-| ALGOUSDT | 1879 | 49283.97 | 180103.2 | 45559.46 | 0 (0.0%) | 58 |
+| XLMUSDT | 1879 | 85300.53 | 312328.07 | 72307.38 | 0 (0.0%) | 68 |
+| ALGOUSDT | 1880 | 49276.92 | 180103.2 | 45551.81 | 0 (0.0%) | 58 |
 | CHIPUSDT | 828 | 30766.68 | 61779.48 | 27298.12 | 32 (3.86%) | 53 |
 | HBARUSDT | 7426 | 30739.91 | 63738.72 | 26144.54 | 268 (3.61%) | 682 |
-| GOLD(PAXG)USDT | 1880 | 29800.37 | 191387.78 | 29171.62 | 0 (0.0%) | 146 |
+| GOLD(PAXG)USDT | 1881 | 29797.45 | 191387.78 | 29184.01 | 0 (0.0%) | 146 |
 | KITEUSDT | 391 | 28494.55 | 49707.9 | 26254.61 | 10 (2.56%) | 17 |
-| JASMYUSDT | 1878 | 16336.54 | 239378.61 | 11810.73 | 0 (0.0%) | 14 |
+| JASMYUSDT | 1879 | 16332.12 | 239378.61 | 11808.57 | 0 (0.0%) | 14 |
 
 ## Synthèse
-- **Total mesures** : 88611 (16-24/08, sonde aspiration)
+- **Total mesures** : 88620 (16-24/08, sonde aspiration)
 - **Spoofs détectés** : 1845 (2.1% des mesures) — murs de façade (fond puis se reconstruit)
 - **Chutes brutales de mur** (≥ 15%/s) : 4519 — le signal ACE « le mur s'effondre »
 

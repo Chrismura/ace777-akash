@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "volume",
-      "zscore": 2.4094898825128244,
-      "value": 8129518112.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.41) causée par du bruit lexical et des homonymies dans le scraping des actualités (automobiles, imprimantes 3D, éducation). Aucun mouvement de baleine crypto avéré, le narratif médiatique est totalement déconnecté du secteur.\"\n}\n```",
-      "ts": "2026-10-12T09:30:40.095126+00:00"
-    },
-    {
       "metric": "ipt",
       "zscore": -2.07585057159889,
       "value": 0.0,
@@ -349,6 +342,13 @@
       "value": 14452303146.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique non pertinent (articles sur L'Oréal, les ETF traditionnels et l'automobile). Aucune corrélation avec une activité de baleine crypto malgré le z-score on-chain.\"\n}\n```",
       "ts": "2026-10-13T04:11:20.311976+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 5.7903691489598215,
+      "value": 7133765.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (Z-score 5.79, +7.1M USD) totalement ignorée par les médias (silence radio de Google Actualités). Accumulation furtive classique de baleines loin du radar médiatique.\"\n}\n```",
+      "ts": "2026-10-13T05:26:33.872286+00:00"
     }
   ]
 }
