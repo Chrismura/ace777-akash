@@ -1,20 +1,20 @@
 {
-  "timestamp": 1791849106,
-  "date": "2026-10-12T23:51:46.171639+00:00",
-  "n_analyses": 1,
+  "timestamp": 1791859909,
+  "date": "2026-10-13T02:51:49.643883+00:00",
+  "n_analyses": 2,
   "analyses": [
     {
       "signal": {
         "metric": "volume",
-        "zscore": 2.1527674013167646,
-        "value": 11605042062.0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie de volume technique (z-score 2.15) mais le bruit médiatique ne concerne que des sujets hors crypto (L'Oréal, ETF S&P 500, Audi, éducation). Aucune corrélation onchain exploitable.\"\n}\n```",
-        "ts": 1791848389.624114
+        "zscore": 2.1229730618691574,
+        "value": 13613988936.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.12) non corroborée par le contexte : les titres médiatiques sont totalement hors sujet (bruit sémantique externe lié au mot 'volume'). Aucune preuve de mouvement de baleine crypto.\"\n}\n```",
+        "ts": 1791859258.79545
       },
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.42,
+          "value": 0.5,
           "seuil": 1,
           "depasse": false
         },
@@ -24,13 +24,42 @@
           "depasse": false
         },
         "funding": {
-          "value": 7.3e-05,
+          "value": 2.3e-05,
           "seuil": 0.001,
           "depasse": false
         },
         "whales": {
-          "value": 2,
+          "value": 0,
           "seuil": 5,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
+      },
+      "action": "Observer",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "long_short",
+        "zscore": 2.6765340508682693,
+        "value": 1.56,
+        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Z-score élevé (2.68) indiquant un positionnement acheteur excessif de la foule/retail, tandis que les médias traditionnels banalisent les stratégies long/short sans voir le piège de liquidité imminent.\"\n}\n```",
+        "ts": 1791859260.258587
+      },
+      "fiche": "long_short",
+      "questions": {
+        "ratio_long_short": {
+          "value": 1.56,
+          "seuil": 2,
+          "depasse": false
+        },
+        "oi": {
+          "value": 93090.527,
+          "seuil": 120000,
           "depasse": false
         }
       },

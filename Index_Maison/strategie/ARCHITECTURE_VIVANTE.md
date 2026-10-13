@@ -1,4 +1,4 @@
-# ARCHITECTURE VIVANTE — ACE777 (2026-10-12 23:40 UTC)
+# ARCHITECTURE VIVANTE — ACE777 (2026-10-13 02:52 UTC)
 
 > Document GÉNÉRÉ AUTOMATIQUEMENT à l'instant. La famille valide
 > en s'appuyant sur CE contexte, pas sur des documents figés.
@@ -9,7 +9,7 @@
 - ✅ radar
 - ⛔ lecteur signets
 - ⛔ générateur fiches
-- ✅ feed mission
+- ⛔ feed mission
 - ✅ serveur cockpit
 
 ## Routage des tâches de décision
@@ -22,38 +22,26 @@
 
 ## État de la mission (bots + PnL)
 
-- mission.json : 2026-10-12 23:39Z · run `MASTER_BASE_V8_6_FORTRESS_8H20` · alerte `nominal`
+- mission.json : 2026-10-13 02:52Z · run `MASTER_BASE_V8_6_FORTRESS_8H20` · alerte `nominal`
 - PnL combiné : **0.70 $** 📈 (combo 0.7028)
 - ALPHA (sniper (embuscade, ×13, revenge si claque)) : **-1.97 $** · 7 fills · 6973 skips
 - BETA (éclaireur (chatouille le marché, alimente Alpha)) : **+2.67 $** · 34 fills · 604 skips
-- HULK (gestionnaire de portefeuille (bag, escalier, courreur)) : **+63.57 $** · 0 fills
+- HULK (gestionnaire de portefeuille (bag, escalier, courreur)) : **+60.04 $** · 0 fills
 - Saison : CALME 🧊 · 
 
 ## Veille du jour
 
-- [Santé]
-  · hub : OK (6 providers)
-  · réseau (DNS) : OK
-  · sources en erreur : 0
-- [Énergie du jour]
-  · appels : 37 (cloud 37)
-  · budget cloud : 624 max
-  · par provider : gemini=37
-- [Nouvelles offres détectées (non intégrées)]
-  · apodex/apodex-1.1-mini:free
-  · dots-studio/dots-3-note-preview:free
-  · liquid/lfm-2.5-2.6b:free
-  … 110 offres/pépites détectées ce matin
+- VEILLE du jour : pas encore passée
 
 ## Mémoire chaude (journal + résumés)
 
 - Radar (dernières alertes) :
-  · 2026-10-12T23:40:33.302290Z ETHUSDT 2444.34 0.0024 1021.9 declenche=oui
-  · 2026-10-12T23:40:33.303268Z ETHUSDT 2444.33 0.0024 1021.9 declenche=oui
-  · 2026-10-12T23:40:33.323277Z ETHUSDT 2444.33 0.0024 1022.0 declenche=oui
-  · 2026-10-12T23:40:33.352654Z ETHUSDT 2444.33 0.0024 1022.1 declenche=oui
+  · 2026-10-13T02:52:30.699254Z BTCUSDT 82830.83 0.0000 11.5 declenche=oui
+  · 2026-10-13T02:52:30.699317Z BTCUSDT 82830.83 0.0000 11.5 declenche=oui
+  · 2026-10-13T02:52:30.740451Z BTCUSDT 82830.83 0.0000 11.5 declenche=oui
+  · 2026-10-13T02:52:30.902994Z BTCUSDT 82830.83 0.0000 11.9 declenche=oui
 - Intention en cours : BETA a sonde le marche (34 sondes, 25 long / 9 court, conf m | ALPHA attend son signal — aucun tir sur la session en cours.
-- 1025 signets X résumés (quota aujourd'hui : 1/50)
+- 1025 signets X résumés (quota aujourd'hui : 0/50)
 - 151 fiches IA d'offres en cache (quota 8/jour)
 
 ---
