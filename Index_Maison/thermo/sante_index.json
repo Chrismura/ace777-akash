@@ -1,12 +1,14 @@
 {
-  "ts": "2026-10-14T15:21+00:00",
-  "updated": "2026-10-14T15:21Z",
+  "ts": "2026-10-14T16:16+00:00",
+  "updated": "2026-10-14T16:16Z",
   "etat": "ALERTE",
   "chaines_ok": "14/15",
   "anomalies": [
     "HULK : sonde runtime, contrat Cortana ou analyses figés"
   ],
-  "degradees": [],
+  "degradees": [
+    "BALEINES"
+  ],
   "chaines": [
     {
       "id": "baleines",
@@ -27,12 +29,12 @@
         {
           "nom": "scan file",
           "ok": true,
-          "detail": "âge 1 min"
+          "detail": "DÉGRADÉ : âge 16 min (> 15 min)"
         },
         {
           "nom": "mouvements (events)",
           "ok": true,
-          "detail": "dernier événement il y a 1 min"
+          "detail": "dernier événement il y a 16 min"
         },
         {
           "nom": "→ live.json.onchain",
@@ -47,7 +49,7 @@
         {
           "nom": "→ Cortana feed",
           "ok": true,
-          "detail": "âge 3 min"
+          "detail": "âge 5 min"
         }
       ]
     },
@@ -65,7 +67,7 @@
         {
           "nom": "deriv_corr.json",
           "ok": true,
-          "detail": "âge 3 min"
+          "detail": "âge 8 min"
         }
       ]
     },
@@ -83,7 +85,7 @@
         {
           "nom": "aspiration runtime",
           "ok": true,
-          "detail": "mode fichier · JSON · âge ts 0.6 min · écart mtime/ts 1.9s · 22 paire(s) · btc=OK · ts=croissant · passe 19.4s · marge 25.6s sous le budget 45s du moteur"
+          "detail": "mode fichier · JSON · âge ts 0.5 min · écart mtime/ts 2.4s · 22 paire(s) · btc=OK · ts=croissant · passe 55.5s · marge -10.5s sous le budget 45s du moteur · ⚠ PIRE CAS age 75.5s > 45s (la prochaine passe part au plus tard après la cadence 20s) — entrées coupées si ça arrive"
         },
         {
           "nom": "corrélation BTC",
@@ -98,7 +100,7 @@
         {
           "nom": "cortana_pilot.json",
           "ok": false,
-          "detail": "âge 2017 min"
+          "detail": "âge 2072 min"
         },
         {
           "nom": "cortana_analysis.json",
@@ -116,12 +118,12 @@
         {
           "nom": "live.json",
           "ok": true,
-          "detail": "âge 3 min"
+          "detail": "âge 4 min"
         },
         {
           "nom": "mission.json → cockpit",
           "ok": true,
-          "detail": "âge 1 min"
+          "detail": "âge 0 min"
         },
         {
           "nom": "hub.json (one-shot)",
@@ -144,7 +146,7 @@
         {
           "nom": "cpfp_detect.json",
           "ok": true,
-          "detail": "âge 1 min"
+          "detail": "âge 11 min"
         },
         {
           "nom": "mode",
@@ -185,7 +187,7 @@
         {
           "nom": "geopol.ts frais",
           "ok": true,
-          "detail": "âge 0.0h"
+          "detail": "âge 0.1h"
         },
         {
           "nom": "modules OK",
@@ -333,7 +335,7 @@
         {
           "nom": "croisement_externe_etat.json",
           "ok": true,
-          "detail": "âge 29 min"
+          "detail": "âge 23 min"
         },
         {
           "nom": "fails prix (> 5 % vs externe)",
@@ -356,12 +358,12 @@
         {
           "nom": "sdi_latest.json (SAPI dedans)",
           "ok": true,
-          "detail": "âge 3 min"
+          "detail": "âge 5 min"
         },
         {
           "nom": "SAPI calculé",
           "ok": true,
-          "detail": "score 0.583"
+          "detail": "score 0.554"
         },
         {
           "nom": "alerte poussière (≥ 0.75 + volume)",
@@ -379,7 +381,7 @@
         {
           "nom": "essaim_etat.json",
           "ok": true,
-          "detail": "âge 14 min"
+          "detail": "âge 9 min"
         },
         {
           "nom": "veille d'essaim active",

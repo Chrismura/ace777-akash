@@ -1,52 +1,53 @@
 {
-  "timestamp": "2026-10-14T15:20:37Z",
+  "timestamp": "2026-10-14T16:20:50Z",
   "generation_source": "system_state_generator.py v2.1",
   "status": "STALE",
-  "feed_hash": "4db2455eb3b90762bd5d60d2b678ba2bb2dbc679e8b9ca8670a8510a2b8ddb23",
+  "feed_hash": "3b76dcc3ee4edebe0470593c9a08e9fbb2069c4174ff2222ffc28d83f959ec45",
   "feeds": {
     "mission": {
       "present": true,
-      "age_seconds": 3,
+      "age_seconds": 5,
       "fresh_limit_s": 120
     },
     "cortana_feed": {
       "present": true,
-      "age_seconds": 107,
+      "age_seconds": 530,
       "fresh_limit_s": 120
     },
     "live": {
       "present": true,
-      "age_seconds": 107,
+      "age_seconds": 169,
       "fresh_limit_s": 15
     },
     "routing": {
       "present": true,
-      "age_seconds": 4419620,
+      "age_seconds": 4423233,
       "fresh_limit_s": 120
     }
   },
   "services": {
     "total": 103,
-    "running": 17,
-    "planned": 86,
+    "running": 18,
+    "planned": 85,
     "running_list": [
       "com.ace777.bloc-privatise",
       "com.ace777.cockpit-http",
       "com.ace777.cockpit-pont",
       "com.ace777.collecte-anti-veille",
-      "com.ace777.cortana.urgent",
-      "com.ace777.cpfp",
       "com.ace777.llm-gate-hub",
       "com.ace777.mirofish",
       "com.ace777.mirofish-front",
       "com.ace777.prise-ia",
       "com.ace777.sniffer-vieux-btc",
       "com.ace777.state-generator",
+      "com.ace777.superviseur-auto",
       "com.ace777.superviseur-core",
       "com.ace777.superviseur-l2",
       "com.ace777.superviseur-process",
+      "com.ace777.thermo-quotidien",
       "com.ace777.vigie-live",
-      "com.ace777.whales"
+      "com.ace777.whales",
+      "com.ace777.xrpl-arbitrage"
     ],
     "planned_list": [
       "com.ace777.analyste-cadence",
@@ -60,8 +61,10 @@
       "com.ace777.cortana-analyzer",
       "com.ace777.cortana-feed",
       "com.ace777.cortana-propose-params",
+      "com.ace777.cortana.urgent",
       "com.ace777.couleur-regime",
       "com.ace777.couleur-regime-score",
+      "com.ace777.cpfp",
       "com.ace777.croisement-externe",
       "com.ace777.croisements-indices",
       "com.ace777.cycle-edel",
@@ -115,8 +118,6 @@
       "com.ace777.sonde-volume-panier",
       "com.ace777.suivi-setup-red",
       "com.ace777.superviseur",
-      "com.ace777.superviseur-auto",
-      "com.ace777.thermo-quotidien",
       "com.ace777.troupeau-inv",
       "com.ace777.veille-degradation",
       "com.ace777.veille-essaim-observation",
@@ -132,7 +133,6 @@
       "com.ace777.verif-setup",
       "com.ace777.watchdog",
       "com.ace777.x402-agentic",
-      "com.ace777.xrpl-arbitrage",
       "com.ace777.xrpl-gouvernance",
       "com.ace777.xrpl-onchain"
     ]
@@ -176,7 +176,7 @@
       "Assistant_Vocal_HORS_VAULT": 697372,
       "Obsidian_BACKUPS_HORS_VAULT": 14936872
     },
-    "presence_at": "2026-10-14T14:55:43Z",
+    "presence_at": "2026-10-14T15:55:43Z",
     "sizes_at": "2026-10-14T11:55:38Z"
   }
 }

@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "long_short",
-      "zscore": 2.6765340508682693,
-      "value": 1.56,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Z-score élevé (2.68) indiquant un positionnement acheteur excessif de la foule/retail, tandis que les médias traditionnels banalisent les stratégies long/short sans voir le piège de liquidité imminent.\"\n}\n```",
-      "ts": "2026-10-13T02:41:00.258587+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": 2.065405959249858,
-      "value": 13820013131.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.07) non corrélée aux marchés crypto : les titres médiatiques parlent de marketing, d'automobiles et d'administration publique. Bruit de fond, pas de mouvement de baleine.\"\n}\n```",
-      "ts": "2026-10-13T03:11:07.654909+00:00"
-    },
-    {
       "metric": "volume",
       "zscore": 2.105448033230967,
       "value": 14293260796.0,
@@ -349,6 +335,20 @@
       "value": 0.932,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.02) détectée sur le ticker 'ipt', mais le bruit médiatique concerne principalement une mini-cap minière (IMPACT Silver) et des homonymes institutionnels non-crypto. Absence totale de signal baleine pertinent ou de corrélation onchain exploitable.\"\n}\n```",
       "ts": "2026-10-14T14:52:48.210109+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": 2.297406469831385,
+      "value": 1.516,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Le ratio long/short atteint un z-score élevé de 2.30 (1.516), indicating une surconcentration massive de positions acheteuses par les particuliers/retail. Pendant ce temps, le narratif médiatique discute abstraitement des stratégies long/short traditionnelles sans voir l'excès de levier spéculatif actuel. Dette technique et risque de liquidation en cascade imminents.\"\n}\n```",
+      "ts": "2026-10-14T15:22:53.172741+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": 2.1392931098592793,
+      "value": 1.516,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Le ratio long/short atteint un z-score élevé de 2.14, indiquant un positionnement acheteur excessif de la foule. Pendant ce temps, le narratif médiatique grand public glorifie les stratégies long/short et la recherche de rendement, signalant un piège à liquidité classique. Les baleines accumulent des shorts en silence face à cette exubérance retail non soutenue.\"\n}\n```",
+      "ts": "2026-10-14T15:52:59.723571+00:00"
     }
   ]
 }
