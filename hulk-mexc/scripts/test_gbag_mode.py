@@ -66,7 +66,7 @@ def make_bot():
     bot.gbag_check_sec = 0.0
     bot.gbag_pending = {}
     bot.gbag_histo = {}
-    bot.current_notional = lambda: 30.0
+    bot.current_notional = lambda pair=None: 30.0  # signature réelle : pair optionnel (compounding par actif, 14/10)
     bot.lot_filter = lambda pair: (0.0001, 1.0)
 
     def fake_buy(pair, price, sc, reason, notion=None):
@@ -128,6 +128,14 @@ def test_pyramide_max_3():
     # tranche = current_notional()/3 = 30/3 = 10 $ (spec mesurée : budget 30 $ → 3×10 $)
     q_attendu = 10.0 / 110.0 + 10.0 / 119.0 + 10.0 / 128.6
     assert abs(p["qty"] - q_attendu) / q_attendu < 0.01, f"qty {p['qty']} != {q_attendu}"
+    # 14/10 (GO « si oui branche » — mesuré +39,68 $ vs plat, 44 paires/45 j) : la
+    # tranche s'ACHÈTE → base de coût honnête (blend) et stake = coût RÉEL payé
+    # (le lot-filter floor donne 29,988 ≤ 30 — c'est l'achat honnête, pas 30 pile).
+    # AVANT : les 2 ajouts étaient GRATUITS (qty += q, entry figée) → PnL surévalué.
+    assert 29.9 < p["stake"] <= 30.01, f"stake payé {p['stake']} hors tranche — tranche gratuite ?"
+    assert abs(p["entry"] * p["qty"] - p["stake"]) < 0.01, \
+        f"base de coût entry*qty={p['entry'] * p['qty']} != stake payé {p['stake']}"
+    assert p["entry"] > 110.0, f"l'entrée doit monter (blend 119/128.6), obtenu {p['entry']}"
 
 
 def test_sortie_sma24_arme_rachat():

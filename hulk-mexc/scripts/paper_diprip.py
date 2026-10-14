@@ -786,6 +786,15 @@ class PaperBot:
         self.gbag_on = cfg.get("GBAG_ON", "0").strip() not in ("0", "false", "False")
         self.gbag_pairs = {p.strip().upper() for p in
                            cfg.get("GBAG_PAIRS", "").split(",") if p.strip()}
+        # PÉRIMÈTRE (14/10/2026, GO « règle d'or : faire tout pour améliorer hulk ») :
+        # GBAG_PAIRS=ALL (ou * / TOUS) = spec G + souche sur TOUS les actifs. Mesuré
+        # AVANT élargissement (A/B chiffrage_bag_amplitude, 44 paires, 45 j) : GBAG
+        # +418,12 $ vs G +44,00 $ vs HOLD +383,36 $, pyramide +39,68 $ vs à plat.
+        # ATTENTION (lu dans tick_pair, mesuré) : sur ses paires GBAG REMPLACE la
+        # gestion (entrée/sorties/bag) — ce n'est pas une couche ajoutée. R8 : rien
+        # d'acquis hors échantillon. Réversible en 1 ligne : GBAG_PAIRS=EDELUSDT,
+        # QNTUSDT (périmètre du GO du 10/10) ou GBAG_ON=0 (historique strict).
+        self.gbag_pairs_all = bool(self.gbag_pairs & {"ALL", "*", "TOUS"})
         self.gbag_rebuy_frac = float(cfg.get("GBAG_REBUY_FRAC", "0.5"))
         self.gbag_add_step = float(cfg.get("GBAG_ADD_STEP", "0.08"))
         self.gbag_sma_e = int(float(cfg.get("GBAG_SMA_EXIT", "24")))
@@ -1101,6 +1110,11 @@ class PaperBot:
         self.tier_logged: set[str] = set()  # log une fois des exclusions tier B (boot)
         self.reentry: dict[str, dict] = {}
         self.pnl_total = 0.0
+        # COMPOUNDING PAR ACTIF (14/10/2026, GO « oui à la première question ») :
+        # PnL réalisé PAR PAIRE — chaque actif grossit sa mise avec SON PnL
+        # (persisté au state, repris au resume : jamais de compteur qui repart à
+        # zéro en silence — leçon du compteur de re-entries R17).
+        self.pair_pnl: dict[str, float] = {}
         self.trades = 0
         ts = datetime.now(timezone.utc).strftime("%Y%m%d_%H%M%S")
         self.csv_path = RUNS / f"PAPER_V1_{ts}.csv"
@@ -1150,20 +1164,41 @@ class PaperBot:
             pass
         return {"niveau": "inconnu", "action": "Observer", "lecture": "", "resume": ""}
 
-    def current_notional(self) -> float:
-        """Taille trade : base + fraction du PnL réalisé (compound), plafonnée, × health."""
+    def current_notional(self, pair: Optional[str] = None) -> float:
+        """Taille trade : base + fraction du PnL réalisé (compound), plafonnée, × health.
+
+        COMPOUNDING PAR ACTIF (14/10/2026, GO « oui à la première question ») : avec
+        `pair`, la mise grossit avec LE PNL DE CETTE PAIRE (pair_pnl) — les 22 actifs
+        compounding, chacun avec le sien. Sans `pair` : comportement historique exact
+        (PnL global) — compatibilité tests et headline `notional_live` inchangée.
+        """
+        ref = self.pnl_total if pair is None else float(self.pair_pnl.get(pair) or 0.0)
         if not self.compound_on:
             self.notional = self.base_notional
         else:
-            grown = self.base_notional + max(0.0, self.pnl_total) * self.compound_frac
-            if self.pnl_total < 0:
-                grown = max(self.base_notional * 0.5, self.base_notional + self.pnl_total * 0.25)
+            grown = self.base_notional + max(0.0, ref) * self.compound_frac
+            if ref < 0:
+                grown = max(self.base_notional * 0.5, self.base_notional + ref * 0.25)
             cap = self.base_notional * self.compound_max_mult
             self.notional = min(max(grown, self.base_notional * 0.5), cap)
         # Appliquer le multiplicateur pipeline health
         health_mult = self.get_pipeline_health_mult()
         self.notional *= health_mult
         return self.notional
+
+    def _book_pnl(self, pair: str, pnl: float):
+        """Comptabilise un PnL réalisé : global (pnl_total) ET par actif (pair_pnl).
+
+        UNIQUE point de comptabilisation — les 6 sources de PnL (sell_trade, runner,
+        bag crash, bag slow, retrait paire ×2) passent ici : les deux livres ne
+        peuvent pas diverger (incassable par construction).
+        """
+        self.pnl_total += pnl
+        self.pair_pnl[pair] = float(self.pair_pnl.get(pair, 0.0)) + pnl
+
+    def _is_gbag(self, pair: str) -> bool:
+        """Mode GBAG pour cette paire : liste explicite OU périmètre TOTAL (GBAG_PAIRS=ALL)."""
+        return bool(self.gbag_on) and (self.gbag_pairs_all or pair in self.gbag_pairs)
 
     def add_pair_cash(self, pair: str, usdt: float):
         if usdt <= 0:
@@ -1880,11 +1915,21 @@ class PaperBot:
         # Écriture ATOMIQUE (24/08, codeur) : .tmp puis os.replace — jamais d'état
         # à moitié écrit si le Mac coupe en plein save (corruption JSON au resume).
         import tempfile
+        # COMPOUNDING PAR ACTIF (14/10) : le state expose POUR CHAQUE ACTIF sa mise
+        # réelle (base + PnL de la paire, plafond 3×) et son PnL réalisé. Le cockpit
+        # affiche la vérité par actif — plus un seul levier global qui ment sur 22.
+        _notionals = {
+            p: round(float(self.current_notional(p)), 2)
+            for p in sorted(set(self.pairs) | set(self.pos) | set(self.bags) | set(self.pair_pnl))
+        }
+        _nl = self.current_notional()  # headline global (compat) — self.notional restauré
         data = json.dumps(
             {
                 "ts": utc_now(),
                 "pnl_total": self.pnl_total,
-                "notional_live": self.current_notional(),
+                "pair_pnl": self.pair_pnl,
+                "notionals_par_paire": _notionals,
+                "notional_live": _nl,
                 "base_notional": self.base_notional,
                 "trades": self.trades,
                 "positions": self.pos,
@@ -1994,6 +2039,7 @@ class PaperBot:
                     f"hors PAPER_PAIRS, plus aucune capture",
                 )
             self.pnl_total = float(st.get("pnl_total") or 0.0)
+            self.pair_pnl = {str(k): float(v) for k, v in (st.get("pair_pnl") or {}).items()}
             self.trades = int(st.get("trades") or 0)
             self.wall_melt_events = st.get("wall_melt_events") or []
             # mémorise la source (pour log/audit) — sans toucher au state courant
@@ -2190,7 +2236,7 @@ class PaperBot:
         # GBAG (10/10/2026) : un BAG hérité (ex. dca_rebuy QNT) ne bloque pas l'ENTRÉE
         # tradable du mode GBAG — souche et tradable sont deux poches distinctes
         # (sell_trade ne touche JAMAIS le bag). Partout ailleurs : strict historique.
-        _gbag_paire = self.gbag_on and pair in self.gbag_pairs
+        _gbag_paire = self._is_gbag(pair)
         if pair in self.pos or (pair in self.bags and not _gbag_paire):
             return
         regime = sc.get("regime", "")
@@ -2265,7 +2311,7 @@ class PaperBot:
                     sc.get("cadence_pct"), f"BAG_MAX:{bag_open}",
                 )
                 return
-        trade_n = float(notion) if notion is not None else self.current_notional()
+        trade_n = float(notion) if notion is not None else self.current_notional(pair)
         if self.is_bag(pair):
             trade_n = trade_n * self.bag_position_mult
         if self.tier(pair) == "B":
@@ -2458,7 +2504,7 @@ class PaperBot:
             return 0.0
         proceeds = price * sell_qty
         pnl = (price - entry) * sell_qty
-        self.pnl_total += pnl
+        self._book_pnl(pair, pnl)
         self.trades += 1
         event = "SELL" if sell_qty >= full_qty * 0.999 else "SELL_PARTIAL"
         inv_spread = float((self.inv.get(pair) or {}).get("spread_bps") or 0.0)
@@ -2635,7 +2681,7 @@ class PaperBot:
             return
         pnl = (price - entry) * qty
         proceeds = price * qty
-        self.pnl_total += pnl
+        self._book_pnl(pair, pnl)
         self.trades += 1
         self.add_pair_cash(pair, proceeds)
         self.log(
@@ -2679,7 +2725,7 @@ class PaperBot:
                 keep_qty = qty - sell_qty
                 pnl = (price - entry) * sell_qty
                 proceeds = price * sell_qty
-                self.pnl_total += pnl
+                self._book_pnl(pair, pnl)
                 self.trades += 1
                 self.add_pair_cash(pair, proceeds)
                 self.log(
@@ -2709,7 +2755,7 @@ class PaperBot:
             if self.bag_dca_on and dd >= self.bag_slow_dd:
                 pnl = (price - entry) * qty
                 proceeds = price * qty
-                self.pnl_total += pnl
+                self._book_pnl(pair, pnl)
                 self.trades += 1
                 self.log(
                     pair,
@@ -2915,8 +2961,23 @@ class PaperBot:
                 q = self._floor_step(
                     float(p.get("gbag_tranche_usdt") or 0) / price, step)
                 if q * price >= 1.0:
-                    p["qty"] = float(p["qty"]) + q
+                    # BASE DE COÛT HONNÊTE (14/10/2026, GO « si oui branche » — mesuré
+                    # +39,68 $ vs déploiement à plat sur 44 paires / 45 j, même
+                    # chiffrage que le GO du 10/10) : la tranche s'ACHÈTE au prix du
+                    # marché et entre dans la base de coût (blend, mêmes conventions
+                    # que _gbag_souche et Book.acheter du chiffrage). AVANT : qty += q
+                    # en gardant l'entrée d'origine → la tranche était GRATUITE dans
+                    # le livre du moteur (PnL final surévalué de (px − entrée) × q) ;
+                    # le cockpit, lui, la débitait déjà → les deux livres divergeaient.
+                    _qty_av = float(p.get("qty") or 0.0)
+                    _ent_av = float(p.get("entry") or price)
+                    _cout = q * price
+                    p["qty"] = _qty_av + q
                     p["qty_init"] = float(p.get("qty_init") or 0) + q
+                    p["entry"] = ((_ent_av * _qty_av) + _cout) / (_qty_av + q) \
+                        if (_qty_av + q) > 0 else price
+                    p["stake"] = float(p.get("stake") or 0.0) + _cout
+                    p["notional"] = float(p.get("notional") or 0.0) + _cout
                     p["gbag_tranches"] = tr + 1
                     p["gbag_last_add"] = c
                     self.log(pair, "GBAG_PYRAMIDE", regime, price, price, q, 0.0, cad,
@@ -2935,7 +2996,7 @@ class PaperBot:
         else:
             # ENTRÉE : cassure (close > SMA24 ET > plus-haut 24 clôt. ET > SMA240)
             if c > s_e and c > hh24 and c > s_g:
-                prise = self.current_notional() / 3.0   # 1re tranche = mise/3 (spec)
+                prise = self.current_notional(pair) / 3.0   # 1re tranche = mise/3 (spec)
                 self.buy(pair, price, sc, "gbag_entree_sgn", notion=prise)
                 p = self.pos.get(pair)
                 if p is not None:
@@ -3447,7 +3508,7 @@ class PaperBot:
         # GBAG (10/10/2026, GO Christophe) : mode par paire « spec G + souche » —
         # il REMPLACE entrée/gestion sur ses paires déclarées ; ailleurs, strict
         # comportement historique. Réversible : GBAG_ON=0.
-        if self.gbag_on and pair in self.gbag_pairs:
+        if self._is_gbag(pair):
             try:
                 self._gbag_cycle(pair, price, sc)
             except Exception as e:
@@ -3731,7 +3792,7 @@ class PaperBot:
                 entry = float(b["entry"])
                 qty = float(b["qty"])
                 pnl = (price - entry) * qty
-                self.pnl_total += pnl
+                self._book_pnl(pair, pnl)
                 self.trades += 1
                 self.add_pair_cash(pair, price * qty)
                 self.log(
@@ -3751,7 +3812,7 @@ class PaperBot:
                 entry = float(c["entry"])
                 qty = float(c["qty"])
                 pnl = (price - entry) * qty
-                self.pnl_total += pnl
+                self._book_pnl(pair, pnl)
                 self.trades += 1
                 self.add_pair_cash(pair, price * qty)
                 self.log(

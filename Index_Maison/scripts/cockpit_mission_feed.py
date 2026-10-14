@@ -601,6 +601,9 @@ def load_hulk():
     _s_all = json.loads(state.read_text(encoding="utf-8")) if state and state.exists() else {}
     sc_all = _s_all.get("scores") or {}
     pos_all = _s_all.get("positions") or {}
+    # COMPOUNDING PAR ACTIF (14/10) : PnL réalisé par paire + mise réelle par paire
+    pair_pnl_all = _s_all.get("pair_pnl") or {}
+    mise_all = _s_all.get("notionals_par_paire") or {}
     # FIX 05/10/2026 : un house bag (ex. QNT 0,0445 ≈ 11$) est une VALEUR DÉTENUE :
     # il est compté comme position dans les totaux (avant : invisible dans le score
     # par crypto → total Hulk sous-estimé).
@@ -882,9 +885,15 @@ def load_hulk():
     over_budget: list[str] = []
     compound_actif: list[str] = []
     for _pair in _all_pairs:
-        _qty = float((pos_all.get(_pair) or {}).get("qty") or 0.0) or float(
-            (bags_all.get(_pair) or {}).get("qty") or 0.0
-        ) or float((cons_all.get(_pair) or {}).get("qty") or 0.0)
+        # FIX 14/10/2026 (GO « erreurs cachées — très important ») : SOMME pos+bags+cons.
+        # AVANT : `or` prenait la PREMIÈRE poche non nulle → quand une paire avait pos ET
+        # souche, la souche disparaissait de la position affichée (CHIP 155,69 jetons et
+        # RWAINC 720,2 jetons oubliés ; l'audit FIFO retrouve 3 781,07 jetons RWAINC =
+        # pos 3 060,87 + souche 720,20 → preuve indépendante). Les 3 poches sont
+        # disjointes par construction (BAG_ARM/conservation SORTENT les jetons de pos).
+        _qty = (float((pos_all.get(_pair) or {}).get("qty") or 0.0)
+                + float((bags_all.get(_pair) or {}).get("qty") or 0.0)
+                + float((cons_all.get(_pair) or {}).get("qty") or 0.0))
         _mark = mark_by_pair.get(_pair)
         _pos_val = _qty * _mark if (_qty and _mark) else 0.0
         _sp = seed_px.get(_pair)
@@ -979,10 +988,14 @@ def load_hulk():
                     "pos": round(pos_par_paire.get(_p, 0.0), 2),
                     "posQty": round(
                         float((pos_all.get(_p) or {}).get("qty") or 0.0)
-                        or float((bags_all.get(_p) or {}).get("qty") or 0.0)
-                        or float((cons_all.get(_p) or {}).get("qty") or 0.0),
+                        + float((bags_all.get(_p) or {}).get("qty") or 0.0)
+                        + float((cons_all.get(_p) or {}).get("qty") or 0.0),
                         6,
                     ),
+                    # COMPOUNDING PAR ACTIF (14/10) : PnL réalisé de CET actif et la
+                    # mise réelle que le moteur lui applique (base + PnL paire, 3× max).
+                    "pnlActif": round(float(pair_pnl_all.get(_p) or 0.0), 2),
+                    "mise": round(float(mise_all.get(_p) or 0.0), 2),
                     "cash": round(cash_par_paire.get(_p, 0.0), 2),
                     "cashMoteur": round(float((_s_all.get("pair_cash") or {}).get(_p) or 0.0), 2),
                     "gbag": _p in _gbag_pairs,
