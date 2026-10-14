@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "price_1h",
-      "zscore": 3.00793545228415,
-      "value": 0.6249168489931178,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (3.01) couplé à un silence médiatique total (Google Actualités vide). C'est la signature classique d'accumulation furtive par des baleines avant la pompe de détail.\"\n}\n```",
-      "ts": "2026-10-13T00:45:20.005087+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": 2.2707407046290675,
-      "value": 12830577561.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.27) sans corrélation avec les crypto-actifs. Les titres médiatiques sont du bruit hors-sujet (marketing, automobile, éducation). Aucune baleine crypto détectée, données non pertinentes.\"\n}\n```",
-      "ts": "2026-10-13T01:10:26.658288+00:00"
-    },
-    {
       "metric": "long_short",
       "zscore": 2.7971937759346015,
       "value": 1.53,
@@ -349,6 +335,20 @@
       "value": 62,
       "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (3.17) combiné à un indice de cupidité à 62 sans couverture médiatique majeure : signal classique de 'bull trap' et de distribution silencieuse par les baleines avant un retournement.\"\n}\n```",
       "ts": "2026-10-14T02:19:32.825317+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": -2.066685008742619,
+      "value": 0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Bruit médiatique sans rapport avec la crypto (actualité automobile, énergie et météo).\"\n}\n```",
+      "ts": "2026-10-14T07:20:46.546926+00:00"
+    },
+    {
+      "metric": "price_1h",
+      "zscore": 3.7541762715842286,
+      "value": 0.6170177685897782,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de prix majeure (z-score 3.75) en l'absence totale de couverture médiatique (silence radio). C'est la signature classique d'une accumulation furtive par des baleines avant le réveil du narratif public.\"\n}\n```",
+      "ts": "2026-10-14T08:10:53.596619+00:00"
     }
   ]
 }

@@ -1,34 +1,34 @@
 {
-  "timestamp": "2026-10-14T07:12:59Z",
+  "timestamp": "2026-10-14T08:13:11Z",
   "generation_source": "system_state_generator.py v2.1",
   "status": "STALE",
-  "feed_hash": "ff08145433baa3864e5db7db8eec5678251d8d2595fc2a9dd60f497a183c717d",
+  "feed_hash": "c218a30b87d9c827cbed3a67e605e1c19a1df3939f90376420ab44e7e0fa655f",
   "feeds": {
     "mission": {
       "present": true,
-      "age_seconds": 4,
+      "age_seconds": 35,
       "fresh_limit_s": 120
     },
     "cortana_feed": {
       "present": true,
-      "age_seconds": 112,
+      "age_seconds": 228,
       "fresh_limit_s": 120
     },
     "live": {
       "present": true,
-      "age_seconds": 17,
+      "age_seconds": 27,
       "fresh_limit_s": 15
     },
     "routing": {
       "present": true,
-      "age_seconds": 4390362,
+      "age_seconds": 4393974,
       "fresh_limit_s": 120
     }
   },
   "services": {
     "total": 103,
-    "running": 13,
-    "planned": 90,
+    "running": 15,
+    "planned": 88,
     "running_list": [
       "com.ace777.cockpit-http",
       "com.ace777.cockpit-pont",
@@ -37,11 +37,13 @@
       "com.ace777.mirofish",
       "com.ace777.mirofish-front",
       "com.ace777.prise-ia",
+      "com.ace777.sniffer-vieux-btc",
       "com.ace777.state-generator",
       "com.ace777.superviseur-core",
       "com.ace777.superviseur-l2",
       "com.ace777.superviseur-process",
       "com.ace777.vigie-live",
+      "com.ace777.whales",
       "com.ace777.xrpl-arbitrage"
     ],
     "planned_list": [
@@ -111,7 +113,6 @@
       "com.ace777.signal3-livre-ecorche",
       "com.ace777.sniffer-matin",
       "com.ace777.sniffer-ny",
-      "com.ace777.sniffer-vieux-btc",
       "com.ace777.sonde-volume-panier",
       "com.ace777.suivi-setup-red",
       "com.ace777.superviseur",
@@ -131,7 +132,6 @@
       "com.ace777.verdicteur-micro",
       "com.ace777.verif-setup",
       "com.ace777.watchdog",
-      "com.ace777.whales",
       "com.ace777.x402-agentic",
       "com.ace777.xrpl-gouvernance",
       "com.ace777.xrpl-onchain"
@@ -140,8 +140,8 @@
   "hub": {
     "status": "ok",
     "providers": 6,
-    "reseau": false,
-    "degrade": true
+    "reseau": true,
+    "degrade": false
   },
   "ram_raw": "The system has 8589934592 (524288 pages with a page size of 16384).",
   "hors_zone": {
@@ -176,7 +176,7 @@
       "Assistant_Vocal_HORS_VAULT": 697372,
       "Obsidian_BACKUPS_HORS_VAULT": 14936872
     },
-    "presence_at": "2026-10-14T06:55:37Z",
+    "presence_at": "2026-10-14T07:55:38Z",
     "sizes_at": "2026-10-14T05:55:34Z"
   }
 }
