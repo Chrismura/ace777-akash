@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "volume",
-      "zscore": 2.02970209811736,
-      "value": 14452303146.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique non pertinent (articles sur L'Oréal, les ETF traditionnels et l'automobile). Aucune corrélation avec une activité de baleine crypto malgré le z-score on-chain.\"\n}\n```",
-      "ts": "2026-10-13T04:11:20.311976+00:00"
-    },
-    {
       "metric": "whale_usd",
       "zscore": 5.7903691489598215,
       "value": 7133765.0,
@@ -349,6 +342,13 @@
       "value": 1.624,
       "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Le ratio long/short atteint un z-score critique de 2.52 (1.624), indiquant une surconcentration massive des positions acheteuses par les baleines. Pendant ce temps, le narratif médiatique grand public banalise les stratégies long/short comme simple outil de couverture, créant une cécité collective face au risque imminent de liquidation en cascade.\"\n}\n```",
       "ts": "2026-10-14T16:53:11.554418+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": 2.718871354541196,
+      "value": 1.687,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Le ratio long/short atteint un z-score extrême de 2.72 (1.687), indiquant une surconcentration massive et dangereuse de positions acheteuses par les particuliers. Pendant ce temps, les médias grand public et institutionnels banalisent et romanticisent les stratégies 'Long/Short', créant un narratif de conformité qui piégé les investisseurs inexpérimentés avant une purge imminente des baleines.\"\n}\n```",
+      "ts": "2026-10-14T17:23:17.327488+00:00"
     }
   ]
 }
