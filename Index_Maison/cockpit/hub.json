@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-14T08:14:22.811587+00:00",
+  "generated_at": "2026-10-14T08:19:26.333620+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -401,6 +401,24 @@
   ],
   "events": [
     {
+      "ts": "2026-10-14T08:19:26.286103+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis InferX DeepSeek V4 Flash (API gratuite jusqu'au 12/08)",
+      "detail": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "ts": "2026-10-14T08:19:22.500349+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis Google Gemini",
+      "detail": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "ts": "2026-10-14T08:19:22.499570+00:00",
+      "kind": "ratelimit",
+      "title": "429 Google Gemini -> pause 60s + bascule",
+      "detail": ""
+    },
+    {
       "ts": "2026-10-14T08:13:50.413565+00:00",
       "kind": "message",
       "title": "« Google Gemini » a repondu",
@@ -440,24 +458,6 @@
       "ts": "2026-10-14T08:07:51.491300+00:00",
       "kind": "failover",
       "title": "Bascule depuis InferX Devstral-2-123B (code)",
-      "detail": "HTTP Error 429: Too Many Requests"
-    },
-    {
-      "ts": "2026-10-14T08:07:47.402669+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis NVIDIA DeepSeek-Coder 6.7B (code, via NIM)",
-      "detail": "HTTP Error 404: Not Found"
-    },
-    {
-      "ts": "2026-10-14T08:07:45.249460+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis Puter Grok (gratuit)",
-      "detail": "HTTP Error 402: Payment Required"
-    },
-    {
-      "ts": "2026-10-14T08:07:44.618620+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis InferX Qwen3-Coder-Next (code, gratuit jusqu'au 12/08)",
       "detail": "HTTP Error 429: Too Many Requests"
     }
   ],
