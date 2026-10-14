@@ -1,12 +1,14 @@
 {
-  "ts": "2026-10-14T19:22+00:00",
-  "updated": "2026-10-14T19:22Z",
+  "ts": "2026-10-14T20:22+00:00",
+  "updated": "2026-10-14T20:22Z",
   "etat": "ALERTE",
   "chaines_ok": "14/15",
   "anomalies": [
     "HULK : sonde runtime, contrat Cortana ou analyses figés"
   ],
-  "degradees": [],
+  "degradees": [
+    "BALEINES"
+  ],
   "chaines": [
     {
       "id": "baleines",
@@ -27,12 +29,12 @@
         {
           "nom": "scan file",
           "ok": true,
-          "detail": "âge 3 min"
+          "detail": "DÉGRADÉ : âge 22 min (> 15 min)"
         },
         {
           "nom": "mouvements (events)",
           "ok": true,
-          "detail": "dernier événement il y a 3 min"
+          "detail": "dernier événement il y a 22 min"
         },
         {
           "nom": "→ live.json.onchain",
@@ -47,7 +49,7 @@
         {
           "nom": "→ Cortana feed",
           "ok": true,
-          "detail": "âge 11 min"
+          "detail": "âge 3 min"
         }
       ]
     },
@@ -65,7 +67,7 @@
         {
           "nom": "deriv_corr.json",
           "ok": true,
-          "detail": "âge 1 min"
+          "detail": "âge 10 min"
         }
       ]
     },
@@ -83,7 +85,7 @@
         {
           "nom": "aspiration runtime",
           "ok": true,
-          "detail": "mode fichier · JSON · âge ts 0.6 min · écart mtime/ts 2.9s · 22 paire(s) · btc=OK · ts=croissant · passe 47.3s · marge -2.3s sous le budget 45s du moteur · ⚠ PIRE CAS age 67.3s > 45s (la prochaine passe part au plus tard après la cadence 20s) — entrées coupées si ça arrive"
+          "detail": "mode fichier · JSON · âge ts 0.8 min · écart mtime/ts 2.2s · 22 paire(s) · btc=OK · ts=croissant · passe 31.5s · marge 13.5s sous le budget 45s du moteur · ⚠ PIRE CAS age 51.5s > 45s (la prochaine passe part au plus tard après la cadence 20s) — entrées coupées si ça arrive"
         },
         {
           "nom": "corrélation BTC",
@@ -98,12 +100,12 @@
         {
           "nom": "cortana_pilot.json",
           "ok": false,
-          "detail": "âge 2257 min"
+          "detail": "âge 2317 min"
         },
         {
           "nom": "cortana_analysis.json",
           "ok": true,
-          "detail": "âge 4 min"
+          "detail": "âge 5 min"
         }
       ]
     },
@@ -116,7 +118,7 @@
         {
           "nom": "live.json",
           "ok": true,
-          "detail": "âge 4 min"
+          "detail": "âge 3 min"
         },
         {
           "nom": "mission.json → cockpit",
@@ -144,7 +146,7 @@
         {
           "nom": "cpfp_detect.json",
           "ok": true,
-          "detail": "âge 4 min"
+          "detail": "âge 7 min"
         },
         {
           "nom": "mode",
@@ -185,7 +187,7 @@
         {
           "nom": "geopol.ts frais",
           "ok": true,
-          "detail": "âge 0.2h"
+          "detail": "âge 0.1h"
         },
         {
           "nom": "modules OK",
@@ -356,12 +358,12 @@
         {
           "nom": "sdi_latest.json (SAPI dedans)",
           "ok": true,
-          "detail": "âge 11 min"
+          "detail": "âge 3 min"
         },
         {
           "nom": "SAPI calculé",
           "ok": true,
-          "detail": "score 0.2"
+          "detail": "score 0.35"
         },
         {
           "nom": "alerte poussière (≥ 0.75 + volume)",

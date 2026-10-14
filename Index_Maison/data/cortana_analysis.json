@@ -1,26 +1,80 @@
 {
-  "timestamp": 1792005754,
-  "date": "2026-10-14T19:22:34.310565+00:00",
-  "n_analyses": 1,
+  "timestamp": 1792009355,
+  "date": "2026-10-14T20:22:35.460326+00:00",
+  "n_analyses": 3,
   "analyses": [
     {
       "signal": {
         "metric": "long_short",
-        "zscore": 2.16138172579281,
-        "value": 1.695,
-        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Le ratio long/short atteint un z-score élevé de 2.16 (1.695), indiquant un positionnement acheteur excessivement surpeuplé par la foule. Pendant ce temps, le narratif médiatique généraliste banalise les stratégies long/short sans urgence directionnelle crypto. Classique piège à liquidité : les baleines accumulent des positions contrariennes en silence avant une purge imminente des 'longs'.\"\n}\n```",
-        "ts": 1792004023.37412
+        "zscore": 2.038020340858869,
+        "value": 1.727,
+        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.04) sur le ratio long/short (1.727) indiquant un positionnement acheteur excessif de la foule. Les médias grand public banalisent et romanticent les stratégies long/short sans voir le piège de liquidité, signal classique d'excès de confiance avant un flush des positions longues.\"\n}\n```",
+        "ts": 1792007637.55454
       },
       "fiche": "long_short",
       "questions": {
         "ratio_long_short": {
-          "value": 1.695,
+          "value": 1.74,
           "seuil": 2,
           "depasse": false
         },
         "oi": {
-          "value": 92711.676,
+          "value": 92933.784,
           "seuil": 120000,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
+      },
+      "action": "Observer",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "sdi",
+        "zscore": 2.9004185878914264,
+        "value": 0.616,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit médiatique parasité par des homonymes (Syndicat des Indépendants, matériel vidéo SDI, cinéma). Aucune relation avec la crypto ou des mouvements de baleines.\"\n}\n```",
+        "ts": 1792009161.430163
+      },
+      "fiche": null,
+      "interpretation": {
+        "lecture": "Pas de fiche disponible",
+        "niveau": "inconnu"
+      },
+      "action": "Observer"
+    },
+    {
+      "signal": {
+        "metric": "ipt",
+        "zscore": 2.527681249746893,
+        "value": 1.06,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (IPT) confondue avec l'action minière IMPACT Silver Corp ou des acronymes institutionnels sans lien avec la crypto.\"\n}\n```",
+        "ts": 1792009164.586513
+      },
+      "fiche": "rbf_eleve",
+      "questions": {
+        "prix": {
+          "value": 0.08,
+          "seuil": 1,
+          "depasse": false
+        },
+        "paires": {
+          "value": 0,
+          "seuil": 3,
+          "depasse": false
+        },
+        "funding": {
+          "value": -1.7e-05,
+          "seuil": 0.001,
+          "depasse": false
+        },
+        "whales": {
+          "value": 1,
+          "seuil": 5,
           "depasse": false
         }
       },
