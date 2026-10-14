@@ -4,7 +4,7 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<meta name="version" content="4226489988">
+<meta name="version" content="3521884734">
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate" />
@@ -13,13 +13,13 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Share+Tech+Mono&family=Caveat:wght@600;700&display=swap" rel="stylesheet" />
-<script src="mission.js?v=1791972999"></script>
+<script src="mission.js?v=1791976594"></script>
 <!-- COSMOS HUB feed -->
-<script src="hub.js?v=1791972999"></script>
-<script src="../thermo/live.js?v=1791972999"></script>
-<script src="../thermo/cortana_feed.js?v=1791972999"></script>
-<script src="sante_live.js?v=1791972999"></script>
-<script src="veille_institutionnelle.js?v=1791972999"></script>
+<script src="hub.js?v=1791976594"></script>
+<script src="../thermo/live.js?v=1791976594"></script>
+<script src="../thermo/cortana_feed.js?v=1791976594"></script>
+<script src="sante_live.js?v=1791976594"></script>
+<script src="veille_institutionnelle.js?v=1791976594"></script>
 <style>
 :root{
   --ink:#050804; --panel:#0a100c; --line:#3a2e14;
@@ -1164,7 +1164,7 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
     50% { opacity: 1; }
 }
 </style>
-<script src="plancher_live.js?v=1791972999"></script>
+<script src="plancher_live.js?v=1791976594"></script>
 </head>
 <body>
 <div class="app">
@@ -2085,7 +2085,8 @@ window.addEventListener('unhandledrejection', function(e) {
             // de présentation (seed+marge) et le plafond RÉEL du moteur (base×3), c'est du
             // compounding — on le DÉCLARE. On ne crie ⚠ qu'au-delà du plafond moteur.
             + ((vsH.overBudget&&vsH.overBudget.length>0)?` <span style="color:var(--warn,orange)">⚠ au-delà du plafond moteur : ${vsH.overBudget.map(p=>p.replace('USDT','')).join(', ')}</span>`:'')
-            + ((vsH.compoundActif&&vsH.compoundActif.length>0)?` <span class="wpos" title="Le PnL réalisé regrossit la taille des prochains trades (levier voulu, borné à ${vsH.compoundMaxMult||3}× la base de ${usd(vsH.baseMoteur||30)}). Ce n'est pas un dérapage de budget.">· compounding actif : ${vsH.compoundActif.map(p=>p.replace('USDT','')).join(', ')}</span>`:'')
+            + (vsH.compoundLevier&&vsH.compoundLevier>1.01?` <span class="wpos" title="LEVIER COMPOUNDING GLOBAL : le PnL réalisé regrossit la taille de TOUS les prochains trades (mise courante ${vsH.compoundLevier}× la base de ${usd(vsH.baseMoteur||30)}, bornée à ${vsH.compoundMaxMult||3}×). Ce levier s'applique à tous les actifs, pas seulement à ceux listés.">· levier compounding ×${vsH.compoundLevier} (tous actifs)</span>`:'')
+            + ((vsH.compoundActif&&vsH.compoundActif.length>0)?` <span class="wpos" title="RÉINVESTISSEMENT NET : ces actifs ont racheté au-delà de leur enveloppe budgétaire (= leurs profits réalisés ont été remis dans la position, sous le plafond moteur). Distinct du levier global ci-dessus.">· réinvestis : ${vsH.compoundActif.map(p=>p.replace('USDT','')).join(', ')}</span>`:'')
             + (vsH.notionalLive!=null?` <span class="hsub">· mise ${usd(vsH.notionalLive)} / plafond ${usd(vsH.plafondParPaire||0)}</span>`:'')
             + ` <span class="hsub">· brut ${usd(h.pnl)} · frais ${h.fees!=null?('$'+Number(h.fees).toFixed(3)):'—'} · slippage ${h.slippageEstimated!=null?('$'+Number(h.slippageEstimated).toFixed(3)):'—'} · net estimé ${h.pnlNetEstimated!=null?('$'+Number(h.pnlNetEstimated).toFixed(3)):'—'}</span>`;
         } else if(vsNote){
@@ -2110,7 +2111,7 @@ window.addEventListener('unhandledrejection', function(e) {
             const posCls=(p.pos!=null&&p.seed!=null)?(p.pos>p.seed+0.01?'wpos':(p.pos<p.seed-0.01?'wneg':'wneu')):'wneu';
             const cashCls=(p.cash!=null&&p.cash>0)?'wpos':'wneu';
             return `<tr class="${over?'hrow over':''}">
-              <td class="hc"><span class="hcn">${crypto}</span>${over?' <span class="hsub" style="color:var(--warn,orange)">⚠</span>':''}${comp?' <span class="hsub wpos" title="compounding actif : la taille a grossi avec le PnL réalisé (levier voulu)">↗</span>':''}</td>
+              <td class="hc"><span class="hcn">${crypto}</span>${over?' <span class="hsub" style="color:var(--warn,orange)">⚠</span>':''}${comp?' <span class="hsub wpos" title="réinvesti : cette paire a racheté au-delà de son enveloppe budgétaire (profits réalisés remis dans la position)">↗</span>':''}</td>
               <td class="hq" title="Bag au début : quantité seedée + valeur en $">${fmtQty(p.seedQty)} <span class="hsub">${p.seed!=null?usd(p.seed):''}</span></td>
               <td class="hs ${posCls}" title="Bag actuel : quantité restante + valeur au cours — vert si le prix monte">${p.posQty!=null&&p.posQty>0?fmtQty(p.posQty):'—'} <span class="hsub">${p.pos!=null?usd(p.pos):''}</span></td>
               <td class="hs ${cashCls}" title="Cash réel de la paire (comment Hulk gère la trésorerie)">${p.cash!=null?usd(p.cash):'—'}${p.gbag&&p.cashMoteur!=null?` <span class="hsub" title="Cash dans la poche du moteur (state) — contrôle croisé des deux livres de comptes">(${usd(p.cashMoteur)} moteur)</span>`:''}</td>
@@ -2146,7 +2147,7 @@ window.addEventListener('unhandledrejection', function(e) {
             <td class="hq" colspan="7"><b>${vsH.budgetTotal!=null?usd(vsH.budgetTotal):'—'}</b> <span class="hsub">= seeds ${usd(totSeed)} + marge ${usd((vsH.margeParCrypto||20)*(vsH.nbPaires||0))}</span></td>
           </tr>`;
           if(scrNote) scrNote.textContent='· bags '+usd(totPos)+' + cash '+usd(totCash)+' = '+usd(vsH.reel!=null?vsH.reel:0)
-            +' · '+(vsH.compoundActif&&vsH.compoundActif.length?vsH.compoundActif.length+' compounding actif':'0 compounding')
+            +' · levier ×'+(vsH.compoundLevier||1)+' · '+(vsH.compoundActif&&vsH.compoundActif.length?vsH.compoundActif.length+' réinvestis':'0 réinvesti')
             +' · '+(vsH.overBudget&&vsH.overBudget.length?vsH.overBudget.length+' AU-DELÀ du plafond moteur':'0 hors plafond');
           // À RETENIR : la lecture du tableau en 1-2 phrases (calculée en direct).
           const readEl=document.getElementById('h-score-read');
@@ -2239,7 +2240,7 @@ window.addEventListener('unhandledrejection', function(e) {
     if(list){
       // TOUS les trades exécutés (le feed fournit history complet, on n'en coupe plus)
       const hist=(h.history&&h.history.length? h.history : h.last||[]);
-      if(hn) hn.textContent='('+hist.length+' trades)';
+      if(hn) hn.textContent='('+hist.length+' opérations · '+(h.tradesClosed||0)+' trades clôturés)';
       list.innerHTML=hist.map(r=>{
         const ev=(r.event||'').toUpperCase();
         const crypto=r.crypto||r.pair||'';
@@ -2248,7 +2249,7 @@ window.addEventListener('unhandledrejection', function(e) {
         const kind=isSeed?'seed':(isBuy?'buy':'sell');
         const price=r.price!=null?fmtP(r.price,6):null;
         const entry=r.entry!=null?fmtP(r.entry,6):null;
-        const qty=(r.qty!=null&&!isNaN(r.qty))?Number(r.qty).toPrecision(4):null;
+        const qty=(r.qty!=null&&!isNaN(r.qty))?Number(r.qty).toLocaleString('en-US',{maximumSignificantDigits:6,useGrouping:false}):null;
         const pct=r.pnlPct;
         let hulkDate='', hulkTime='';
         if(r.ts){
@@ -2265,10 +2266,10 @@ window.addEventListener('unhandledrejection', function(e) {
           qty!=null?('qté '+qty):null,
           (entry!=null&&!isSeed&&entry!==price)?('entrée '+entry):null,
           (pct!=null&&!isSeed)?(fmt(pct,1)+'%'):null,
-          (r.pnl!=null&&!isSeed&&r.pnl!==0)?('PnL '+(r.pnl>0?'+':'')+fmt(r.pnl,2)+'$'):null,
+          (r.pnl!=null&&!isSeed&&r.pnl!==0)?('PnL '+fmt(r.pnl,2)+'$'):null,
           (r.total!=null&&r.total!==0)?('total '+fmt(r.total,2)+'$'):null,
         ].filter(Boolean).join(' · ');
-        const pnlShow=isSeed?'départ':(isBuy?'ouv. '+fmt(r.pnl||0,2)+'$':(r.pnl!=null?((r.pnl>0?'+':'')+fmt(r.pnl,2)+'$'):'—'));
+        const pnlShow=isSeed?'départ':(isBuy?'ouv. '+fmt(r.pnl||0,2)+'$':(r.pnl!=null?(fmt(r.pnl,2)+'$'):'—'));
         return `<div class="trade ${kind}" title="${r.reason||''}${r.dir?(' · '+r.dir):''}">
           <span class="t-when">${hulkDate?hulkDate+' '+hulkTime:''}</span>
           <span class="t-ev">${isSeed?'DÉPART':ev.replace(/_/g,' ').slice(0,12)}</span>

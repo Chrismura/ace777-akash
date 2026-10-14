@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "long_short",
-      "zscore": 2.7971937759346015,
-      "value": 1.53,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.80) sur le ratio long/short (1.53) indiquant un posicionnement excessivement haussier des particuliers, totalement ignoré par les médias traditionnels qui se concentrent sur des sujets institutionnels et boursiers généraux. Divergence classique de piégeage des 'retail' par les baleines.\"\n}\n```",
-      "ts": "2026-10-13T01:10:28.506256+00:00"
-    },
-    {
       "metric": "fear_greed",
       "zscore": -2.198179767161382,
       "value": 57,
@@ -349,6 +342,13 @@
       "value": 0.6170177685897782,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de prix majeure (z-score 3.75) en l'absence totale de couverture médiatique (silence radio). C'est la signature classique d'une accumulation furtive par des baleines avant le réveil du narratif public.\"\n}\n```",
       "ts": "2026-10-14T08:10:53.596619+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.0070254943312427,
+      "value": 0.852,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie technique faussée par l'homonymie : l'indicateur on-chain analyse l'actif crypto ou le token associé, tandis que les actualités médiatiques concernent IMPACT Silver Corp (action traditionnelle IPT) et des sujets institutionnels sans rapport.\"\n}\n```",
+      "ts": "2026-10-14T11:01:24.521785+00:00"
     }
   ]
 }

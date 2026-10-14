@@ -913,6 +913,17 @@ def load_hulk():
     reel_w = sum(reel_par_paire.values())
     stat_w = sum(hold_par_paire.values())
     cash_reel = sum(cash_par_paire.values())
+    # AUTO-CONTRÔLE DES IDENTITÉS (14/10, mandat « auto-réparable et incassable ») :
+    # chaque ligne doit vérifier reel = cash + pos. Le feed COMPTE les violations et
+    # les expose (identitesOK) : si un jour le calcul casse, le cockpit le montre
+    # immédiatement au lieu d'afficher des chiffres faux en silence.
+    _identites_ok = 0
+    for _pair in _all_pairs:
+        _r = reel_par_paire.get(_pair, 0.0)
+        _c = cash_par_paire.get(_pair, 0.0)
+        _pz = pos_par_paire.get(_pair, 0.0)
+        if abs(_r - (_c + _pz)) <= 0.01:
+            _identites_ok += 1
     cash_nadir = min(nadir_par_paire.values()) if nadir_par_paire else 0.0
     ecart_w = round(reel_w - stat_w, 2)
     base_pct = stat_w if stat_w != 0 else 1.0
@@ -950,6 +961,13 @@ def load_hulk():
         "baseMoteur": round(_base_moteur, 2),
         "plafondParPaire": round(plafond_par_paire, 2),
         "notionalLive": out.get("notional"),
+        # LEVIER COMPOUNDING GLOBAL (14/10) : la mise de TOUS les trades grossit
+        # avec le PnL total (base + frac×pnl, plafond 3×). distinct de compoundActif
+        # qui liste les paires ayant RÉINVESTI au-delà de leur budget.
+        "compoundLevier": round(
+            (out.get("notional") or 0.0) / _base_moteur, 2
+        ) if _base_moteur else 1.0,
+        "identitesOK": f"{_identites_ok}/{len(_all_pairs)}",
         "pairs": sorted(
             [
                 {
@@ -1181,8 +1199,15 @@ def main() -> int:
     payload["disjoncteur"] = load_ada_block("disjoncteur_state.json") or {
         "declenche": False, "raison": "Normal", "ts": ""}
 
-    (OUT / "mission.json").write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    (OUT / "mission.js").write_text("window.__MISSION__ = " + json.dumps(payload, ensure_ascii=False) + ";\n", encoding="utf-8")
+    # ÉCRITURE ATOMIQUE (14/10, « incassable ») : tmp + remplace — une coupure en
+    # cours d'écriture ne peut plus laisser mission.json/js tronqués (avant : une
+    # coupure = cockpit vide ou JS cassé, auto-éjection du cache-buster compris).
+    _mj = json.dumps(payload, ensure_ascii=False, indent=2) + "\n"
+    _mjs = "window.__MISSION__ = " + json.dumps(payload, ensure_ascii=False) + ";\n"
+    for _name, _data in (("mission.json", _mj), ("mission.js", _mjs)):
+        _tmp = OUT / (_name + ".tmp")
+        _tmp.write_text(_data, encoding="utf-8")
+        _tmp.replace(OUT / _name)  # atomique même sur coupure
     # Cache-buster AUTO (27/08) : le ?v= des scripts était FIGÉ → un navigateur
     # qui cache mission.js par URL servait une copie périmée (symptôme Christophe :
     # journal rempli mais tableau départ + bulles vides). À chaque écriture du feed,
