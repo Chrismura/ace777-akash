@@ -1,20 +1,20 @@
 {
-  "timestamp": 1791936432,
-  "date": "2026-10-14T00:07:12.027692+00:00",
-  "n_analyses": 3,
+  "timestamp": 1791940033,
+  "date": "2026-10-14T01:07:13.138034+00:00",
+  "n_analyses": 1,
   "analyses": [
     {
       "signal": {
         "metric": "volume",
-        "zscore": -2.087139785496465,
-        "value": 12311974620.0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit de fond absolu. Les titres médiatiques n'ont aucun rapport avec la crypto (voitures, eau, espace, imprimantes 3D) et le z-score négatif indique juste un creux de volume sans signal baleine pertinent.\"\n}\n```",
-        "ts": 1791935196.660506
+        "zscore": -2.8973130648173084,
+        "value": 11768572720.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Bruit médiatique sans rapport avec la crypto (automobile, météo, espace, marketing). Anomalie on-chain non pertinente.\"\n}\n```",
+        "ts": 1791938818.375218
       },
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": 0.06,
+          "value": -0.04,
           "seuil": 1,
           "depasse": false
         },
@@ -24,7 +24,7 @@
           "depasse": false
         },
         "funding": {
-          "value": -9e-06,
+          "value": -2.3e-05,
           "seuil": 0.001,
           "depasse": false
         },
@@ -41,66 +41,7 @@
       },
       "action": "Observer",
       "niveau": "neutre"
-    },
-    {
-      "signal": {
-        "metric": "taker_ratio",
-        "zscore": -2.072747767019307,
-        "value": 0.546,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio anormalement bas (0.546, z-score -2.07) indique une domination massive des acheteurs passifs (limites) tandis que les médias traditionnels affichent un silence radio. C'est la signature classique d'accumulation silencieuse par les baleines loin du bruit médiatique.\"\n}\n```",
-        "ts": 1791936400.079255
-      },
-      "fiche": "taker_ratio",
-      "questions": {
-        "taker": {
-          "value": 0.546,
-          "seuil": 1,
-          "depasse": false
-        },
-        "prix": {
-          "value": 0.06,
-          "seuil": 1,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "taker < 1",
-        "lecture": "Takers vendeurs agressifs — la vente se fait AU MARCHE (pression réelle), pas passive",
-        "niveau": "surveiller",
-        "action": "Resserrer les stops des positions tier A corrélées, attendre l'apaisement pour entrer"
-      },
-      "action": "Resserrer les stops des positions tier A corrélées, attendre l'apaisement pour entrer",
-      "niveau": "surveiller"
-    },
-    {
-      "signal": {
-        "metric": "fear_greed",
-        "zscore": 4.933827859041803,
-        "value": 62,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Données incomplètes (absence des flux onchain spécifiques des portefeuilles baleines). Le z-score élevé (4.93) du Fear & Greed indique une surchauffe émotionnelle du retail, mais sans données de volume d'échange ou de transferts de gros portefeuilles, la divergence avec les médias (Google Actualités) ne peut être confirmée.\"\n}\n```",
-        "ts": 1791936401.454059
-      },
-      "fiche": "fear_greed",
-      "questions": {
-        "peur": {
-          "value": 62,
-          "seuil": 25,
-          "depasse": true
-        },
-        "cupidite": {
-          "value": 62,
-          "seuil": 75,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
-      },
-      "action": "Observer",
-      "niveau": "neutre"
     }
   ],
-  "resume": "🟡 SURVEILLANCE — des signaux sont à observer"
+  "resume": "🔵 CALME — pas de signal alarmant"
 }
