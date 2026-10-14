@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-14T21:25:50.970662+00:00",
+  "generated_at": "2026-10-14T21:27:52.501922+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -401,6 +401,36 @@
   ],
   "events": [
     {
+      "ts": "2026-10-14T21:27:44.215293+00:00",
+      "kind": "http",
+      "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
+      "detail": ""
+    },
+    {
+      "ts": "2026-10-14T21:27:44.215126+00:00",
+      "kind": "error",
+      "title": "Toutes les IA ont echoue",
+      "detail": "Google Gemini: reseau KO [Errno 8] nodename nor servname provided, or not known"
+    },
+    {
+      "ts": "2026-10-14T21:27:44.214983+00:00",
+      "kind": "failover",
+      "title": "Reseau KO (bascule immediate) depuis Google Gemini",
+      "detail": "[Errno 8] nodename nor servname provided, or not known"
+    },
+    {
+      "ts": "2026-10-14T21:27:44.214695+00:00",
+      "kind": "network",
+      "title": "Reseau indisponible: Google Gemini",
+      "detail": "[Errno 8] nodename nor servname provided, or not known"
+    },
+    {
+      "ts": "2026-10-14T21:27:44.177513+00:00",
+      "kind": "network",
+      "title": "Reseau pas pret — mode degrade (timeout court)",
+      "detail": ""
+    },
+    {
       "ts": "2026-10-14T21:25:36.576553+00:00",
       "kind": "http",
       "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
@@ -429,36 +459,6 @@
       "kind": "network",
       "title": "Reseau pas pret — mode degrade (timeout court)",
       "detail": ""
-    },
-    {
-      "ts": "2026-10-14T20:32:01.463791+00:00",
-      "kind": "http",
-      "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
-      "detail": ""
-    },
-    {
-      "ts": "2026-10-14T20:32:01.463679+00:00",
-      "kind": "error",
-      "title": "Toutes les IA ont echoue",
-      "detail": "Google Gemini: reseau KO [Errno 32] Broken pipe | InferX DeepSeek V4 Flash (API gratuite jusqu'au 12/08): reseau KO [Errno 8] nodename nor servname provided, or not known | InferX Qwen3-Coder-Next (code, gratuit jusqu'au 12/08): reseau KO [Errno 8] nodename nor servname provided, or not known | Puter Grok (gratuit): reseau KO [Errno 8] nodename nor servname provided, or not known | NVIDIA DeepSeek-Coder 6.7B (code, via NIM): reseau KO [Errno 8] nodename nor servname provided, or not known | Infe"
-    },
-    {
-      "ts": "2026-10-14T20:32:01.463581+00:00",
-      "kind": "failover",
-      "title": "Reseau KO (bascule immediate) depuis InferX Devstral-2-123B (code)",
-      "detail": "[Errno 8] nodename nor servname provided, or not known"
-    },
-    {
-      "ts": "2026-10-14T20:32:01.453270+00:00",
-      "kind": "failover",
-      "title": "Reseau KO (bascule immediate) depuis NVIDIA DeepSeek-Coder 6.7B (code, via NIM)",
-      "detail": "[Errno 8] nodename nor servname provided, or not known"
-    },
-    {
-      "ts": "2026-10-14T20:32:01.442176+00:00",
-      "kind": "failover",
-      "title": "Reseau KO (bascule immediate) depuis Puter Grok (gratuit)",
-      "detail": "[Errno 8] nodename nor servname provided, or not known"
     }
   ],
   "tasks_quotas": {
