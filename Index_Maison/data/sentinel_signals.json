@@ -1,27 +1,6 @@
 {
   "signals": [
     {
-      "metric": "taker_ratio",
-      "zscore": 2.0211703462195327,
-      "value": 1.768,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Un taker_ratio de 1.768 avec un z-score de 2.02 indique une forte pression acheteuse agressive de la part des acteurs institutionnels/baleines. Le vide médiatique total (Google Actualités muet) prouve une accumulation furtive en 'mode furtif' (silent accumulation) avant toute FOMO publique.\"\n}\n```",
-      "ts": "2026-10-12T21:24:12.449143+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": 2.0284197177613654,
-      "value": 10379114916.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique de volume (z-score 2.03) détectée onchain mais les titres médiatiques sont totalement non pertinents (bruit macro, automobile et marketing sans rapport avec la crypto).\"\n}\n```",
-      "ts": "2026-10-12T21:34:15.379794+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.302185749263588,
-      "value": 1.06,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie technique (ipt) sans rapport avec la crypto. Bruit médiatique dominé par des actualités académiques et sociétales (École polytechnique, lutte contre les VSS). Aucune baleine détectée, simple collision de mots-clés.\"\n}\n```",
-      "ts": "2026-10-12T21:34:17.149460+00:00"
-    },
-    {
       "metric": "long_short",
       "zscore": 2.1233903471581166,
       "value": 1.478,
@@ -349,6 +328,27 @@
       "value": 1.541,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le ratio de taker agressif à 1.541 (z-score 2.37) indique une forte domination des acheteurs sur le marché dérivé, traduisant une accumulation agressive des baleines. Le vide médiatique ('Google Actualités' sans relais majeur) confirme une entrée en position silencieuse, loin de la bulle de détail.\"\n}\n```",
       "ts": "2026-10-13T22:41:27.634111+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": -2.087139785496465,
+      "value": 12311974620.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit de fond absolu. Les titres médiatiques n'ont aucun rapport avec la crypto (voitures, eau, espace, imprimantes 3D) et le z-score négatif indique juste un creux de volume sans signal baleine pertinent.\"\n}\n```",
+      "ts": "2026-10-13T23:46:36.660506+00:00"
+    },
+    {
+      "metric": "taker_ratio",
+      "zscore": -2.072747767019307,
+      "value": 0.546,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio anormalement bas (0.546, z-score -2.07) indique une domination massive des acheteurs passifs (limites) tandis que les médias traditionnels affichent un silence radio. C'est la signature classique d'accumulation silencieuse par les baleines loin du bruit médiatique.\"\n}\n```",
+      "ts": "2026-10-14T00:06:40.079255+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 4.933827859041803,
+      "value": 62,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Données incomplètes (absence des flux onchain spécifiques des portefeuilles baleines). Le z-score élevé (4.93) du Fear & Greed indique une surchauffe émotionnelle du retail, mais sans données de volume d'échange ou de transferts de gros portefeuilles, la divergence avec les médias (Google Actualités) ne peut être confirmée.\"\n}\n```",
+      "ts": "2026-10-14T00:06:41.454059+00:00"
     }
   ]
 }
