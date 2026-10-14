@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-14T20:27:34.888353+00:00",
+  "generated_at": "2026-10-14T21:25:50.970662+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 90
+      "calls_24h": 88
     },
     {
       "id": "openrouter-free",
@@ -401,64 +401,64 @@
   ],
   "events": [
     {
-      "ts": "2026-10-14T20:26:45.614434+00:00",
-      "kind": "message",
-      "title": "« Google Gemini » a repondu",
-      "detail": ""
-    },
-    {
-      "ts": "2026-10-14T20:24:41.741421+00:00",
-      "kind": "message",
-      "title": "« Google Gemini » a repondu",
-      "detail": ""
-    },
-    {
-      "ts": "2026-10-14T20:24:34.890089+00:00",
-      "kind": "blacklist",
-      "title": "Fin de pause Google Gemini",
-      "detail": "re-essai automatique"
-    },
-    {
-      "ts": "2026-10-14T20:20:34.792020+00:00",
+      "ts": "2026-10-14T21:25:36.576553+00:00",
       "kind": "http",
       "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
       "detail": ""
     },
     {
-      "ts": "2026-10-14T20:20:34.791590+00:00",
+      "ts": "2026-10-14T21:25:36.576395+00:00",
       "kind": "error",
       "title": "Toutes les IA ont echoue",
-      "detail": "Google Gemini: HTTP Error 429: Too Many Requests | InferX DeepSeek V4 Flash (API gratuite jusqu'au 12/08): HTTP Error 429: Too Many Requests | InferX Qwen3-Coder-Next (code, gratuit jusqu'au 12/08): HTTP Error 429: Too Many Requests | Puter Grok (gratuit): HTTP Error 402: Payment Required | NVIDIA DeepSeek-Coder 6.7B (code, via NIM): HTTP Error 404: Not Found | InferX Devstral-2-123B (code): HTTP Error 429: Too Many Requests"
+      "detail": "Google Gemini: reseau KO [Errno 8] nodename nor servname provided, or not known"
     },
     {
-      "ts": "2026-10-14T20:20:34.789247+00:00",
+      "ts": "2026-10-14T21:25:36.576260+00:00",
       "kind": "failover",
-      "title": "Bascule depuis InferX Devstral-2-123B (code)",
-      "detail": "HTTP Error 429: Too Many Requests"
+      "title": "Reseau KO (bascule immediate) depuis Google Gemini",
+      "detail": "[Errno 8] nodename nor servname provided, or not known"
     },
     {
-      "ts": "2026-10-14T20:20:30.359434+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis NVIDIA DeepSeek-Coder 6.7B (code, via NIM)",
-      "detail": "HTTP Error 404: Not Found"
+      "ts": "2026-10-14T21:25:36.575965+00:00",
+      "kind": "network",
+      "title": "Reseau indisponible: Google Gemini",
+      "detail": "[Errno 8] nodename nor servname provided, or not known"
     },
     {
-      "ts": "2026-10-14T20:20:28.409374+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis Puter Grok (gratuit)",
-      "detail": "HTTP Error 402: Payment Required"
+      "ts": "2026-10-14T21:25:36.537326+00:00",
+      "kind": "network",
+      "title": "Reseau pas pret — mode degrade (timeout court)",
+      "detail": ""
     },
     {
-      "ts": "2026-10-14T20:20:27.771690+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis InferX Qwen3-Coder-Next (code, gratuit jusqu'au 12/08)",
-      "detail": "HTTP Error 429: Too Many Requests"
+      "ts": "2026-10-14T20:32:01.463791+00:00",
+      "kind": "http",
+      "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
+      "detail": ""
     },
     {
-      "ts": "2026-10-14T20:20:23.482954+00:00",
+      "ts": "2026-10-14T20:32:01.463679+00:00",
+      "kind": "error",
+      "title": "Toutes les IA ont echoue",
+      "detail": "Google Gemini: reseau KO [Errno 32] Broken pipe | InferX DeepSeek V4 Flash (API gratuite jusqu'au 12/08): reseau KO [Errno 8] nodename nor servname provided, or not known | InferX Qwen3-Coder-Next (code, gratuit jusqu'au 12/08): reseau KO [Errno 8] nodename nor servname provided, or not known | Puter Grok (gratuit): reseau KO [Errno 8] nodename nor servname provided, or not known | NVIDIA DeepSeek-Coder 6.7B (code, via NIM): reseau KO [Errno 8] nodename nor servname provided, or not known | Infe"
+    },
+    {
+      "ts": "2026-10-14T20:32:01.463581+00:00",
       "kind": "failover",
-      "title": "Bascule depuis InferX DeepSeek V4 Flash (API gratuite jusqu'au 12/08)",
-      "detail": "HTTP Error 429: Too Many Requests"
+      "title": "Reseau KO (bascule immediate) depuis InferX Devstral-2-123B (code)",
+      "detail": "[Errno 8] nodename nor servname provided, or not known"
+    },
+    {
+      "ts": "2026-10-14T20:32:01.453270+00:00",
+      "kind": "failover",
+      "title": "Reseau KO (bascule immediate) depuis NVIDIA DeepSeek-Coder 6.7B (code, via NIM)",
+      "detail": "[Errno 8] nodename nor servname provided, or not known"
+    },
+    {
+      "ts": "2026-10-14T20:32:01.442176+00:00",
+      "kind": "failover",
+      "title": "Reseau KO (bascule immediate) depuis Puter Grok (gratuit)",
+      "detail": "[Errno 8] nodename nor servname provided, or not known"
     }
   ],
   "tasks_quotas": {
@@ -592,7 +592,7 @@
   "health": {
     "status": "ok",
     "providers": 6,
-    "reseau": true,
-    "degrade": false
+    "reseau": false,
+    "degrade": true
   }
 }
