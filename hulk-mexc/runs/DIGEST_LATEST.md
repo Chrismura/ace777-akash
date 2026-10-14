@@ -1,4 +1,4 @@
-# Hulk DIGEST — 2026-10-14T16:22:57Z
+# Hulk DIGEST — 2026-10-14T17:21:09Z
 
 - **Piste :** VEILLE (séparée du paper Hulk)
 - Source trading : **MEXC spot**
@@ -12,26 +12,26 @@
 
 | pair | hint | tension | move6% | dd6% | chg24% | vol USDT | spread bps | DefiLlama |
 |------|------|---------|--------|------|--------|----------|------------|-----------|
-| PYTHUSDT | WATCH_PULLBACK — tension haute + reflux | 3.93 | 8.7 | 7.84 | -0.0 | 2081595.52 | 3.81 | skipped_fast |
-| WUSDT | IDLE | 1.94 | 8.09 | 6.68 | -0.12 | 3186863.69 | 15.25 | skipped_fast |
-| XRPUSDT | IDLE | 2.48 | 4.34 | 4.11 | -0.04 | 42214275.45 | 0.75 | skipped_fast |
-| ETHUSDT | IDLE | 2.38 | 4.22 | 3.63 | -0.04 | 187287044.51 | 0.45 | skipped_fast |
-| BTCUSDT | IDLE | 1.61 | 2.82 | 2.72 | -0.02 | 417932258.71 | 0.0 | skipped_fast |
-| QNTUSDT | IDLE | 1.97 | 4.8 | 2.56 | 0.0 | 1474772.05 | 6.78 | skipped_fast |
-| RIZEUSDT | WATCH_PULLBACK — tension haute + reflux | 4.18 | 22.88 | 17.83 | 0.02 | 62747.66 | 59.57 | skipped_fast |
-| ZBCNUSDT | IDLE | 3.92 | 7.17 | 4.49 | -0.03 | 188258.83 | 15.73 | skipped_fast |
-| CHIPUSDT | WATCH_PULLBACK — tension haute + reflux | 3.32 | 9.7 | 7.29 | -0.07 | 109884.72 | 7.54 | skipped_fast |
-| CCUSDT | IDLE | 1.5 | 3.9 | 2.62 | -0.09 | 448630.76 | 8.45 | skipped_fast |
-| KITEUSDT | WATCH_PULLBACK — tension haute + reflux | 2.62 | 7.31 | 5.7 | 0.01 | 86669.87 | 10.85 | skipped_fast |
-| FLUIDUSDT | WATCH_PULLBACK — tension haute + reflux | 3.84 | 13.1 | 8.75 | 0.06 | 17833.62 | 21.33 | skipped_fast |
-| HBARUSDT | IDLE | 2.32 | 4.11 | 3.47 | -0.04 | 464219.36 | 5.94 | skipped_fast |
-| BIOUSDT | IDLE | 2.64 | 4.67 | 4.1 | -0.04 | 68549.0 | 3.78 | skipped_fast |
-| EDELUSDT | IDLE | 1.95 | 3.55 | 2.32 | -0.01 | 163516.66 | 29.66 | skipped_fast |
-| REDUSDT | IDLE | 2.15 | 3.88 | 2.84 | -0.01 | 61045.67 | 15.81 | skipped_fast |
-| RWAINCUSDT | IDLE | 1.54 | 4.94 | 4.45 | -0.1 | 31311.15 | 16.23 | skipped_fast |
-| TELUSDT | IDLE | 2.28 | 4.39 | 1.16 | 0.01 | 114492.69 | 11.2 | skipped_fast |
-| RWAUSDT | IDLE | 1.31 | 2.31 | 2.1 | -0.03 | 56354.95 | 7.94 | skipped_fast |
-| MNSRYUSDT | IDLE | 0.62 | 1.13 | 0.67 | -0.01 | 38875.15 | 40.75 | skipped_fast |
+| PYTHUSDT | IDLE | 3.8 | 8.84 | 4.59 | 0.02 | 2102871.78 | 1.23 | skipped_fast |
+| WUSDT | IDLE | 1.64 | 7.15 | 3.61 | -0.06 | 3034036.05 | 1.3 | skipped_fast |
+| XRPUSDT | IDLE | 2.41 | 4.34 | 3.26 | -0.02 | 42724505.85 | 2.24 | skipped_fast |
+| ETHUSDT | IDLE | 2.33 | 4.22 | 2.94 | -0.02 | 191043095.78 | 0.41 | skipped_fast |
+| BTCUSDT | IDLE | 1.58 | 2.82 | 2.3 | -0.01 | 423291507.08 | 0.0 | skipped_fast |
+| QNTUSDT | IDLE | 2.05 | 4.8 | 2.05 | 0.03 | 1452333.06 | 2.41 | skipped_fast |
+| RIZEUSDT | WATCH_PULLBACK — tension haute + reflux | 4.18 | 22.88 | 17.62 | 0.02 | 49689.31 | 61.51 | skipped_fast |
+| ZBCNUSDT | IDLE | 3.92 | 7.17 | 4.45 | -0.03 | 187162.63 | 20.2 | skipped_fast |
+| CHIPUSDT | WATCH_PULLBACK — tension haute + reflux | 3.3 | 9.7 | 6.85 | -0.07 | 109918.33 | 9.37 | skipped_fast |
+| CCUSDT | IDLE | 1.68 | 3.9 | 1.81 | -0.07 | 452729.92 | 6.7 | skipped_fast |
+| KITEUSDT | IDLE | 2.55 | 7.14 | 4.79 | 0.03 | 87214.6 | 10.02 | skipped_fast |
+| FLUIDUSDT | WATCH_PULLBACK — tension haute + reflux | 3.82 | 13.1 | 8.21 | 0.05 | 17743.71 | 21.4 | skipped_fast |
+| HBARUSDT | IDLE | 2.25 | 4.11 | 2.56 | -0.03 | 489271.68 | 8.25 | skipped_fast |
+| BIOUSDT | IDLE | 2.57 | 4.67 | 3.08 | -0.03 | 69038.46 | 3.74 | skipped_fast |
+| REDUSDT | IDLE | 2.52 | 4.95 | 0.57 | 0.02 | 62312.02 | 15.29 | skipped_fast |
+| EDELUSDT | IDLE | 1.92 | 3.55 | 1.89 | -0.0 | 170100.0 | 32.44 | skipped_fast |
+| RWAINCUSDT | IDLE | 1.63 | 5.27 | 4.08 | -0.11 | 31529.39 | 5.39 | skipped_fast |
+| TELUSDT | IDLE | 2.22 | 4.39 | 0.28 | 0.03 | 114186.91 | 22.2 | skipped_fast |
+| RWAUSDT | IDLE | 1.27 | 2.23 | 2.1 | -0.03 | 56427.76 | 7.95 | skipped_fast |
+| MNSRYUSDT | IDLE | 0.55 | 0.99 | 0.68 | -0.01 | 38274.36 | 39.35 | skipped_fast |
 
 ## Consignes Qwen (manuel — ne pilote pas le paper)
 1. Résumer en 5 lignes : qui spike, qui dump, illiquide (spread/vol).
