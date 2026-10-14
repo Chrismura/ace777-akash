@@ -7524,3 +7524,9 @@ Pas d’ordre — confrontation plus tard.
 - PYTHUSDT: IMPULSE_WAIT — spike en cours, pas chase
 - FLUIDUSDT: WATCH_PULLBACK — tension haute + reflux
 (compléter: confirmé ? risque ?)
+
+### 2026-10-14T21:32:06Z — ALERT auto
+- PYTHUSDT: IMPULSE_WAIT — spike en cours, pas chase
+- RWAINCUSDT: IMPULSE_WAIT — spike en cours, pas chase
+- FLUIDUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)

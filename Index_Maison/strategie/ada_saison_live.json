@@ -1,52 +1,52 @@
 {
-  "ts": "2026-10-14T21:28:04.255409+00:00",
-  "saison": "CALME",
-  "emoji": "🧊",
-  "direction": "short",
+  "ts": "2026-10-14T22:26:52.587332+00:00",
+  "saison": "CHAUFFE",
+  "emoji": "🌡️",
+  "direction": "long",
   "bascule": false,
   "bascule_raison": "",
   "alignement": {
-    "nb_long": 0,
+    "nb_long": 2,
     "nb_short": 1,
-    "score": 1.0,
-    "direction": "short"
+    "score": 0.33,
+    "direction": "long"
   },
   "indices": {
     "temperature": {
       "direction": "neutre",
-      "force": 0,
-      "brut": "ok"
+      "force": 1,
+      "brut": "warn"
     },
     "pouls": {
       "direction": "neutre",
       "force": 0,
-      "brut": -2.1e-05
+      "brut": -4.7e-05
     },
     "bassin": {
-      "direction": "neutre",
-      "force": 0,
-      "brut": "flat"
+      "direction": "long",
+      "force": 1,
+      "brut": "up"
     },
     "vortex": {
       "direction": "short",
       "force": 2,
-      "brut": -1.52
+      "brut": -2.15
     },
     "essaim": {
-      "direction": "neutre",
-      "force": 0,
-      "brut": 1.0
+      "direction": "long",
+      "force": 2,
+      "brut": 1.761
     },
     "baleines": {
       "direction": "neutre",
       "force": 0,
-      "brut": 0
+      "brut": 2
     }
   },
   "story": [
-    "SAISON : CALME 🧊 — hiver, ADA dort.",
-    "Alignement : 0 haussiers / 1 baissiers.",
-    "Le vortex tourne fort (-1.52 % sur 24h) — le mouvement est là."
+    "SAISON : CHAUFFE 🌡️ — température warn, bassin long.",
+    "Alignement : 2 haussiers / 1 baissiers.",
+    "Le vortex tourne fort (-2.15 % sur 24h) — le mouvement est là."
   ],
   "sources": [
     "live.json"
