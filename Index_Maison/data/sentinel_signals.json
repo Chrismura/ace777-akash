@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "volume",
-      "zscore": 2.2721922015276577,
-      "value": 12136221286.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique sur le volume global sans rapport avec la crypto (bruit médiatique centré sur l'actualité générale, l'automobile et le marketing). Aucune accumulation ou distribution spécifique de baleine détectée.\"\n}\n```",
-      "ts": "2026-10-13T00:10:04.026632+00:00"
-    },
-    {
       "metric": "long_short",
       "zscore": 2.313371914455876,
       "value": 1.501,
@@ -349,6 +342,13 @@
       "value": 11768572720.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Bruit médiatique sans rapport avec la crypto (automobile, météo, espace, marketing). Anomalie on-chain non pertinente.\"\n}\n```",
       "ts": "2026-10-14T00:46:58.375218+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 4.599331055039001,
+      "value": 62,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement élevé (4.60) pour un Fear & Greed à 62, combiné à un vide médiatique total (Google Actualités muet). C'est la signature classique d'une accumulation furtive par les baleines avant que le grand public ne s'en aperçoive.\"\n}\n```",
+      "ts": "2026-10-14T01:12:05.235345+00:00"
     }
   ]
 }
