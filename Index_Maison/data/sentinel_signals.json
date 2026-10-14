@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "price_1h",
-      "zscore": 4.850441161780428,
-      "value": 1.1397223449689076,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement élevé (4.85) sur le prix à court terme combiné à un silence médiatique absolu (Google Actualités vide). C'est la signature classique d'une accumulation furtive de baleines en amont d'un mouvement de marché non relayé par la foule.\"\n}\n```",
-      "ts": "2026-10-13T01:50:43.947038+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": 2.1933244925576227,
-      "value": 13416546129.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit de fond : les gros titres médiatiques ne concernent pas la crypto mais l'actualité générale, l'automobile et la finance traditionnelles. Aucune corrélation avec une activité de baleine onchain.\"\n}\n```",
-      "ts": "2026-10-13T02:10:48.931734+00:00"
-    },
-    {
       "metric": "long_short",
       "zscore": 2.96534249704175,
       "value": 1.56,
@@ -349,6 +335,20 @@
       "value": 7741064.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 3.40, +7.7M USD) totalement ignorée par les médias (silence radio de Google Actualités). Accumulation furtive classique de baleines hors des radars grand public.\"\n}\n```",
       "ts": "2026-10-14T13:02:05.465282+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 2.9474950196188208,
+      "value": 0.616,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie de données sans rapport avec la crypto : le 'SDI' mentionné dans les médias désigne le Syndicat des Indépendants (entreprises françaises), et non un indicateur onchain. Aucune donnée de baleine crypto détectée.\"\n}\n```",
+      "ts": "2026-10-14T13:42:12.166113+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 3.3310582161540934,
+      "value": 1.188,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit de données : IPT (IMPACT Silver Corp.) est une action traditionnelle (TSX-V) et non une cryptomonnaie. L'anomalie 'onchain' détectée est un faux positif causé par une confusion de ticker ou un test de flux sans pertinence cryptographique.\"\n}\n```",
+      "ts": "2026-10-14T13:42:13.842557+00:00"
     }
   ]
 }
