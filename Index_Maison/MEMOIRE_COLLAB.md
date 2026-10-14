@@ -149,6 +149,7 @@ Intégration cockpit (2 lignes dans index.html) · passage au réel · cumul des
 
 | ts | Qui | Action | Où | Quoi |
 | 2026-10-09T1341Z | Buffy | ⚠ | Index_Maison/scripts | DEFAUT D'ORDRE (classe E22, 3e recidive du jour) : 2 fichiers NEUFS inscrits au registre a 11:31:51Z SANS pre-declaration anterieure (38 s apres avoir pourtant pre-declare le registre). Aucun scelle altere, fichiers neufs. RADIE en dette constatee sur decision Christophe (predemodifier.py::DETTE_CONSTATEE + §15.9), jamais efface. Drill repasse READY. 0 ordre, 0 EUR |
+| 2026-10-14T1901Z | journal_soir | ★ | journal | snapshot soir auto |
 | 2026-10-13T1853Z | journal_soir | ★ | journal | snapshot soir auto |
 | 2026-10-12T1937Z | journal_soir | ★ | journal | snapshot soir auto |
 | 2026-10-11T1853Z | journal_soir | ★ | journal | snapshot soir auto |

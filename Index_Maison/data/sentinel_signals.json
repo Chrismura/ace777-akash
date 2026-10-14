@@ -2,34 +2,6 @@
   "signals": [
     {
       "metric": "long_short",
-      "zscore": -2.0141375063778715,
-      "value": 1.288,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le ratio long/short est bas (z-score -2.01), indiquant un positionnement excessivement vendeur ou un 'short squeeze' imminent. Pendant ce temps, les médias grand public se focalisent sur des actualités financières traditionnelles hors crypto, ignorant totalement la pression vendeuse anormale des 'retail' et le piège tendu par les baleines.\"\n}\n```",
-      "ts": "2026-10-13T08:37:19.110454+00:00"
-    },
-    {
-      "metric": "whale_usd",
-      "zscore": 2.840437490812093,
-      "value": 4030067.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 2.84, ~4M$ déplacés par une baleine) dans un contexte de silence médiatique absolu (Google Actualités vide). Divergence classique traduisant une accumulation furtive hors radar grand public.\"\n}\n```",
-      "ts": "2026-10-13T08:42:21.295671+00:00"
-    },
-    {
-      "metric": "long_short",
-      "zscore": -3.279501731864289,
-      "value": 1.195,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Le z-score extrêmement bas (-3.28) indique un positionnement court anormalement saturé par le 'retail', tandis que les médias grand public se focalisent distraitement sur des produits financiers traditionnels. C'est la configuration classique d'une compression de shorts imminente (short squeeze) orchestrée par les baleines.\"\n}\n```",
-      "ts": "2026-10-13T09:07:26.342091+00:00"
-    },
-    {
-      "metric": "long_short",
-      "zscore": -2.90734805615811,
-      "value": 1.195,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Le Z-score extrêmement bas (-2.91) indique une sous-représentation historique des positions long par rapport aux shorts, frôlant la capitulation de la foule. Les médias traditionnels parlent de fonds long/short macroéconomiques sans saisir le positionnement contrarien extrême sur les cryptos. C'est un signal classique d'accumulation silencieuse des baleines avant un short squeeze.\"\n}\n```",
-      "ts": "2026-10-13T09:37:39.089951+00:00"
-    },
-    {
-      "metric": "long_short",
       "zscore": -2.586291794449586,
       "value": 1.195,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Le z-score extrêmement bas (-2.59) indique une sous-pondération massive des positions longues par la foule/retail, tandis que les médias parlent abstraitement de fonds long-short traditionnels. C'est un signal contrarien classique de capitulation des positions acheteuses, souvent précurseur d'un 'short squeeze' orchestré par les baleines.\"\n}\n```",
@@ -349,6 +321,34 @@
       "value": 1.695,
       "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Z-score élevé (2.33) sur le ratio long/short (1.695) indiquant un excès flagrant d'optimisme retail. Pendant ce temps, le narratif médiatique brasse des concepts traditionnels de fonds long/short sans lien avec la dynamique spéculative en cours, signalant une divergence classique de sommet et un piège à acheteurs imminent.\"\n}\n```",
       "ts": "2026-10-14T18:23:37.190978+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": 2.16138172579281,
+      "value": 1.695,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Le ratio long/short atteint un z-score élevé de 2.16 (1.695), indiquant un positionnement acheteur excessivement surpeuplé par la foule. Pendant ce temps, le narratif médiatique généraliste banalise les stratégies long/short sans urgence directionnelle crypto. Classique piège à liquidité : les baleines accumulent des positions contrariennes en silence avant une purge imminente des 'longs'.\"\n}\n```",
+      "ts": "2026-10-14T18:53:43.374120+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 3.219795790430142,
+      "value": 0.616,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique parasité par des homonymes (Syndicat des Indépendants, matériel vidéo SDI). Aucune corrélation avec une baleine crypto ou un mouvement onchain pertinent.\"\n}\n```",
+      "ts": "2026-10-14T19:23:48.178853+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.747481244595742,
+      "value": 1.06,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.75) sur un ticker boursier traditionnel (IPT / IMPACT Silver Corp.) polluée par du bruit médiatique sans rapport (physique, théologie, sociologie). Aucune activité de baleine crypto détectée ; confusion de l'oranger onchain avec une action minière.\"\n}\n```",
+      "ts": "2026-10-14T19:23:49.917324+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": 2.183549958798684,
+      "value": 1.727,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.18) et ratio long/short excessif (1.727) indiquant un positionnement acheteur surendetté de la foule, alors que les médias grand public banalisent les stratégies long/short sans urgence crypto, préparant le terrain classique pour une chasse aux liquidités (long squeeze).\"\n}\n```",
+      "ts": "2026-10-14T19:23:51.431424+00:00"
     }
   ]
 }
