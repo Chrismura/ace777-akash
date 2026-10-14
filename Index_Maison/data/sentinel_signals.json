@@ -2,27 +2,6 @@
   "signals": [
     {
       "metric": "long_short",
-      "zscore": 2.313371914455876,
-      "value": 1.501,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.31) et ratio Long/Short à 1.50 tendant vers une surconcentration d'acheteurs. Le narratif médiatique grand public s'emballe sur les stratégies 'Long/Short', signalant un optimisme de détail tardif. Divergence classique de piégeage des liquidités par les baleines.\"\n}\n```",
-      "ts": "2026-10-13T00:10:06.395032+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": -2.414003820453051,
-      "value": 57,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 40,\n  \"reason\": \"Données incomplètes (absence de flux de gros portefeuilles/ordres institutionnels). Le sentiment neutre (Fear & Greed 57) avec un z-score bas indique une indécision du marché, mais l'absence de titres médiatiques concrets empêche de confirmer une divergence majeure.\"\n}\n```",
-      "ts": "2026-10-13T00:10:07.750302+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": 2.239944990008241,
-      "value": 12395795355.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit de fond : les titres médiatiques sont sans rapport avec la crypto (actualités génériques sur le marketing, l'automobile et la finance traditionnelles) et le z-score modéré (2.24) ne confirme pas une accumulation ou distribution massive de baleines.\"\n}\n```",
-      "ts": "2026-10-13T00:40:15.240654+00:00"
-    },
-    {
-      "metric": "long_short",
       "zscore": 2.2159088825873883,
       "value": 1.501,
       "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Le ratio long/short élevé (z-score 2.22) indique un posicionnement excessivement haussier des traders de détail, créant un risque élevé de 'long squeeze'. Le narratif médiatique est totalement déconnecté, focalisé sur des produits financiers traditionnels (ETF, OPCVM) au lieu de refléter l'excès de levier spéculatif sur les marchés crypto.\"\n}\n```",
@@ -349,6 +328,27 @@
       "value": 62,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement élevé (4.60) pour un Fear & Greed à 62, combiné à un vide médiatique total (Google Actualités muet). C'est la signature classique d'une accumulation furtive par les baleines avant que le grand public ne s'en aperçoive.\"\n}\n```",
       "ts": "2026-10-14T01:12:05.235345+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": -3.293844578074818,
+      "value": 11318443932.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Bruit de fond médiatique sans rapport avec la crypto (actualités automobiles, météo, espace et marketing). Le z-score négatif indique un assèchement temporaire du volume sans signal directionnel pertinent de baleines.\"\n}\n```",
+      "ts": "2026-10-14T01:17:07.752655+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 3.7626978003610767,
+      "value": 62,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Z-score élevé (3.76) sur l'indice Greed (62) mais absence totale de narratif médiatique exploitable. Données insuffisantes pour confirmer une accumulation ou distribution silencieuse des baleines.\"\n}\n```",
+      "ts": "2026-10-14T01:43:01.206784+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": -3.4892493899322075,
+      "value": 10838982807.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Bruit médiatique non pertinent (automobile, météo, espace, marketing). Faux positif absolu sans lien avec la crypto.\"\n}\n```",
+      "ts": "2026-10-14T01:48:36.315946+00:00"
     }
   ]
 }
