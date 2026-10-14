@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-14T10:15:22.787574+00:00",
+  "generated_at": "2026-10-14T10:16:23.463264+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 67
+      "calls_24h": 68
     },
     {
       "id": "openrouter-free",
@@ -274,10 +274,18 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 28,
-    "remaining": 596
+    "consumed": 29,
+    "remaining": 595
   },
   "queue": [
+    {
+      "ts": "2026-10-14T10:16:07.153973+00:00",
+      "task": "supervise.decision",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 6.37
+    },
     {
       "ts": "2026-10-14T10:14:59.703118+00:00",
       "task": "supervise.decision",
@@ -389,17 +397,21 @@
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
       "duration_s": 33.84
-    },
-    {
-      "ts": "2026-10-14T01:43:01.203249+00:00",
-      "task": "analyse.profonde",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 50.22
     }
   ],
   "events": [
+    {
+      "ts": "2026-10-14T10:16:07.153104+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
+    {
+      "ts": "2026-10-14T10:16:01.907811+00:00",
+      "kind": "timeout",
+      "title": "Patience Google Gemini (HTTP 503)",
+      "detail": "HTTP Error 503: Service Unavailable"
+    },
     {
       "ts": "2026-10-14T10:14:59.702753+00:00",
       "kind": "message",
@@ -447,18 +459,6 @@
       "kind": "failover",
       "title": "Bascule depuis InferX Devstral-2-123B (code)",
       "detail": "HTTP Error 429: Too Many Requests"
-    },
-    {
-      "ts": "2026-10-14T10:04:41.459067+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis NVIDIA DeepSeek-Coder 6.7B (code, via NIM)",
-      "detail": "HTTP Error 404: Not Found"
-    },
-    {
-      "ts": "2026-10-14T10:04:40.636661+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis NVIDIA DeepSeek-Coder 6.7B (code, via NIM)",
-      "detail": "HTTP Error 404: Not Found"
     }
   ],
   "tasks_quotas": {
