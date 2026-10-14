@@ -1,5 +1,5 @@
 {
-  "ts": "2026-10-14T11:19:49+00:00",
+  "ts": "2026-10-14T12:16:59+00:00",
   "note": "Verdicts MESURÉS à la source (scripts/verdicts_protocoles.py). Chaque protocole porte son critère pré-enregistré : c'est lui qui décide, pas l'impression du moment. Un verdict « IMPOSSIBLE » ou une ligne « alerte » signale un protocole dont le verdict ne peut pas être rendu — c'est une panne de conception, pas une patience.",
   "protocoles": [
     {
@@ -46,7 +46,7 @@
     {
       "protocole": "Radar RWA (DefiLlama)",
       "critere": "RÉ-TRANCHE 29/09 — univers crédit privé (project ∈ crédit ET symbole = devise ; pools couvrant TOUTE la fenêtre, sans démarrage à 0 ; dédupliqué par projet/symbole) : R1 ≥ 3 couples bougent ≥ 50 bps/7 j · R2 (critère PRODUIT, assumé neuf) ≥ 5 couples à ≥ 3 % APY stable (≤ 50 bps)",
-      "faits": "39099 relevés · 402 pools suivis → univers crédit 60 pool(s) · R1 38 pool(s) → 7 couple(s) projet-symbole · R2 7 couple(s) · 10 apparition(s) écartée(s)",
+      "faits": "39448 relevés · 402 pools suivis → univers crédit 60 pool(s) · R1 38 pool(s) → 7 couple(s) projet-symbole · R2 7 couple(s) · 10 apparition(s) écartée(s)",
       "verdict": "SUCCES (R1 + R2) — le terrain RWA n'est PAS mort",
       "alerte": "critère d'ORIGINE (top 20 TVL) : ECHEC (critère non atteint) (0/20 bougent) — mauvaise liste, d'où la ré-ouverture ; R2 : 4 couple(s) à valeur CONSTANTE sur toute la fenêtre (test sur les valeurs réelles) — taux FIXE annoncé, à confirmer par une 2ᵉ source AVANT publication : midas-rwa USDC, travessia-credit AUSD, travessia-credit USDC, travessia-credit USDT",
       "retranche": {
@@ -65,14 +65,14 @@
             "apy_medianes": [
               5.15
             ],
-            "valeurs_distinctes": 33
+            "valeurs_distinctes": 34
           },
           "maple/USDG": {
             "n_instances": 1,
             "apy_medianes": [
               5.0
             ],
-            "valeurs_distinctes": 33
+            "valeurs_distinctes": 34
           },
           "midas-rwa/USDC": {
             "n_instances": 1,
@@ -266,7 +266,7 @@
     {
       "protocole": "Radar XRPL gouvernance",
       "critere": "J8 pré-enregistré : (a) ≥ 5 amendements dont le compteur bouge de ≥ 2 votes, OU (b) ≥ 1 activation, OU (c) ≥ 1 amendement mort ; sinon échec",
-      "faits": "607 snapshots · 113 amendements suivis · (a) 5 bougent de ≥ 2 (il en fallait 5) · (b) 3 activation · (c) 0 mort · 3 nouveau(x)",
+      "faits": "608 snapshots · 113 amendements suivis · (a) 5 bougent de ≥ 2 (il en fallait 5) · (b) 3 activation · (c) 0 mort · 3 nouveau(x)",
       "verdict": "SUCCES (critère atteint)",
       "alerte": "",
       "detail": [
@@ -275,11 +275,11 @@
           "delta_votes": 9
         },
         {
-          "amendement": "LendingProtocol",
+          "amendement": "DynamicMPT",
           "delta_votes": 5
         },
         {
-          "amendement": "DynamicMPT",
+          "amendement": "LendingProtocol",
           "delta_votes": 5
         },
         {
@@ -299,7 +299,7 @@
           "delta_votes": 0
         },
         {
-          "amendement": "fixXChainRewardRounding",
+          "amendement": "PermissionDelegation",
           "delta_votes": 0
         }
       ]

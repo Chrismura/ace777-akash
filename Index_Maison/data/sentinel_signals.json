@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "fear_greed",
-      "zscore": -2.198179767161382,
-      "value": 57,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 40,\n  \"reason\": \"Données médiatiques insuffisantes pour établir une divergence claire, malgré une anomalie statistique du Z-score (-2.20) dans un marché neutre-avide (57).\"\n}\n```",
-      "ts": "2026-10-13T01:10:29.709672+00:00"
-    },
-    {
-      "metric": "price_1h",
-      "zscore": 3.801055993067543,
-      "value": 0.7880541377939032,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (+3.80) couplé à un silence médiatique absolu (Google Actualités vide). C'est la signature classique d'accumulation furtive par des baleines avant toute couverture médiatique de détail.\"\n}\n```",
-      "ts": "2026-10-13T01:20:32.276293+00:00"
-    },
-    {
       "metric": "volume",
       "zscore": 2.2754211471719983,
       "value": 13232673285.0,
@@ -349,6 +335,20 @@
       "value": 0.852,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie technique faussée par l'homonymie : l'indicateur on-chain analyse l'actif crypto ou le token associé, tandis que les actualités médiatiques concernent IMPACT Silver Corp (action traditionnelle IPT) et des sujets institutionnels sans rapport.\"\n}\n```",
       "ts": "2026-10-14T11:01:24.521785+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 3.1787034186334635,
+      "value": 0.616,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Le SDI (Syndicat des Indépendants et TPE) et les actualités analysées concernent l'économie réelle française et des sujets de PME/politique, sans aucun rapport avec les mouvements de baleines crypto ou des données on-chain.\"\n}\n```",
+      "ts": "2026-10-14T11:41:32.940589+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.853180462671344,
+      "value": 1.035,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie technique faussée par une confusion homonyme : les données 'onchain' captent un bruit sans rapport avec la minière IMPACT Silver Corp (IPT), dont le narratif médiatique est purement opérationnel (Capire Restart).\"\n}\n```",
+      "ts": "2026-10-14T11:41:34.438605+00:00"
     }
   ]
 }
