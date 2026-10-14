@@ -7461,3 +7461,13 @@ Pas d’ordre — confrontation plus tard.
 ### 2026-10-14T13:19:36Z — ALERT auto
 - QNTUSDT: WATCH_PULLBACK — tension haute + reflux
 (compléter: confirmé ? risque ?)
+
+### 2026-10-14T14:36:33Z — ALERT auto
+- RIZEUSDT: WATCH_PULLBACK — tension haute + reflux
+- ZBCNUSDT: WATCH_PULLBACK — tension haute + reflux
+- CHIPUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
+
+### 2026-10-14T14:45:16Z — ALERT auto
+- FLUIDUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)

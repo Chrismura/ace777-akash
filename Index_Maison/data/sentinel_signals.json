@@ -2,27 +2,6 @@
   "signals": [
     {
       "metric": "long_short",
-      "zscore": 2.96534249704175,
-      "value": 1.56,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 92,\n  \"reason\": \"Z-score élevé (2.97) sur le ratio long/short (1.56) indiquant une surconcentration excessive des positions acheteuses par les baleines. Le narratif médiatique est totalement déconnecté, focalisé sur des produits financiers traditionnels (ETF, OPCVM), créant un piège à liquidité parfait pour une purge imminente.\"\n}\n```",
-      "ts": "2026-10-13T02:10:50.350214+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": -2.0237945979783514,
-      "value": 57,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 40,\n  \"reason\": \"Données incomplètes (absence de titres Google Actualités significatifs et de flux on-chain précis) malgré un z-score de sentiment modéré. Aucune divergence avérée détectée.\"\n}\n```",
-      "ts": "2026-10-13T02:10:51.608381+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": 2.1229730618691574,
-      "value": 13613988936.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.12) non corroborée par le contexte : les titres médiatiques sont totalement hors sujet (bruit sémantique externe lié au mot 'volume'). Aucune preuve de mouvement de baleine crypto.\"\n}\n```",
-      "ts": "2026-10-13T02:40:58.795450+00:00"
-    },
-    {
-      "metric": "long_short",
       "zscore": 2.6765340508682693,
       "value": 1.56,
       "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Z-score élevé (2.68) indiquant un positionnement acheteur excessif de la foule/retail, tandis que les médias traditionnels banalisent les stratégies long/short sans voir le piège de liquidité imminent.\"\n}\n```",
@@ -349,6 +328,27 @@
       "value": 1.188,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit de données : IPT (IMPACT Silver Corp.) est une action traditionnelle (TSX-V) et non une cryptomonnaie. L'anomalie 'onchain' détectée est un faux positif causé par une confusion de ticker ou un test de flux sans pertinence cryptographique.\"\n}\n```",
       "ts": "2026-10-14T13:42:13.842557+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 2.211545396209581,
+      "value": 3968741.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Faux positif complet : les données onchain et les titres médiatiques font référence à des liquidations judiciaires d'entreprises traditionnelles (France) et non à des liquidations de positions crypto par les baleines. Aucune détection de mouvement suspect.\"\n}\n```",
+      "ts": "2026-10-14T14:47:27.948816+00:00"
+    },
+    {
+      "metric": "price_1h",
+      "zscore": 3.1927885221064507,
+      "value": 0.6434488782149361,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (+3.19) sur une bougie horaire sans aucune couverture médiatique (0 articles Google Actualités). C'est la signature classique d'une accumulation ou d'un mouvement de baleines sous le radar médiatique.\"\n}\n```",
+      "ts": "2026-10-14T14:52:30.831648+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.019608126148948,
+      "value": 0.932,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.02) détectée sur le ticker 'ipt', mais le bruit médiatique concerne principalement une mini-cap minière (IMPACT Silver) et des homonymes institutionnels non-crypto. Absence totale de signal baleine pertinent ou de corrélation onchain exploitable.\"\n}\n```",
+      "ts": "2026-10-14T14:52:48.210109+00:00"
     }
   ]
 }
