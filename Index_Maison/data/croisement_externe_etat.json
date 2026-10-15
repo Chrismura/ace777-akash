@@ -1,23 +1,32 @@
 {
-  "ts": "2026-10-15T18:07:21Z",
+  "ts": "2026-10-15T18:37:30Z",
   "n_verifications": 25,
   "n_fails": 0,
   "n_fails_pendants": 0,
-  "n_warns": 1,
+  "n_warns": 2,
   "fails": [],
   "fails_pendants": [],
   "warns": [
     {
       "type": "murs",
-      "pair": "HBARUSDT",
-      "notre_bid_avg": 30739.91,
-      "ext_bid_5niv": 212.63,
-      "notre_ask_avg": 26144.54,
-      "ext_ask_5niv": 6552.64,
+      "pair": "BTCUSDT",
+      "notre_bid_avg": 419926.18,
+      "ext_bid_5niv": 528765.94,
+      "notre_ask_avg": 488181.06,
+      "ext_ask_5niv": 4517.78,
+      "note": "ratio hors [0.05x-20.0x] — carnet déséquilibré ou donnée à surveiller"
+    },
+    {
+      "type": "murs",
+      "pair": "ETHUSDT",
+      "notre_bid_avg": 177592.18,
+      "ext_bid_5niv": 288454.77,
+      "notre_ask_avg": 173455.49,
+      "ext_ask_5niv": 7483.54,
       "note": "ratio hors [0.05x-20.0x] — carnet déséquilibré ou donnée à surveiller"
     }
   ],
   "persistance_ticks": 3,
   "regle": "écart > 5.0% entre notre prix et une source externe = data_quality_fail (bloquant après 3 ticks consécutifs) · murs = warning informatif",
-  "lecture": "⚠️ 1 warning(s) murs (carnet déséquilibré) — prix OK"
+  "lecture": "⚠️ 2 warning(s) murs (carnet déséquilibré) — prix OK"
 }

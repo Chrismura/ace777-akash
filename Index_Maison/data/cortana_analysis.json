@@ -1,69 +1,15 @@
 {
-  "timestamp": 1792087992,
-  "date": "2026-10-15T18:13:12.367851+00:00",
-  "n_analyses": 3,
+  "timestamp": 1792090993,
+  "date": "2026-10-15T19:03:13.215303+00:00",
+  "n_analyses": 1,
   "analyses": [
     {
       "signal": {
-        "metric": "sdi",
-        "zscore": 2.656133851867876,
-        "value": 0.62,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique non pertinente : les données médiatiques font référence à des homonymes (SDI Corporation, syndicats, cinéma) et non à un actif crypto. Aucune baleine crypto détectée.\"\n}\n```",
-        "ts": 1792087543.816441
-      },
-      "fiche": null,
-      "interpretation": {
-        "lecture": "Pas de fiche disponible",
-        "niveau": "inconnu"
-      },
-      "action": "Observer"
-    },
-    {
-      "signal": {
-        "metric": "ipt",
-        "zscore": 2.975389294058581,
-        "value": 1.419,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Forte anomalie statistique (z-score 2.98) sur l'IPT alors que le bruit médiatique grand public est totalement déconnecté (focus sur des sujets sans rapport comme l'École polytechnique ou des actualités religieuses/sociales). Seul un écho mineur concerne le redémarrage minier (Capire Restart). Accumulation institutionnelle ou de baleines en amont d'un catalyseur fondamental ignoré par les médias.\"\n}\n```",
-        "ts": 1792087545.795184
-      },
-      "fiche": "rbf_eleve",
-      "questions": {
-        "prix": {
-          "value": -0.11,
-          "seuil": 1,
-          "depasse": false
-        },
-        "paires": {
-          "value": 0,
-          "seuil": 3,
-          "depasse": false
-        },
-        "funding": {
-          "value": 5.2e-05,
-          "seuil": 0.001,
-          "depasse": false
-        },
-        "whales": {
-          "value": 0,
-          "seuil": 5,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
-      },
-      "action": "Observer",
-      "niveau": "neutre"
-    },
-    {
-      "signal": {
         "metric": "taker_ratio",
-        "zscore": 4.767219164469728,
+        "zscore": 3.866423396991699,
         "value": 1.859,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Z-score extrême (4.77) du taker_ratio acheteur dans un silence médiatique absolu (Google Actualités vide). Les baleines accumulent agressivement sans attirer la foule, préfigurant un mouvement de rupture imminent.\"\n}\n```",
-        "ts": 1792087852.777389
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Z-score extrême (3.87) et taker ratio acheteur (1.85) signalent une accumulation agressive et silencieuse des baleines, totalement ignorée par le silence médiatique actuel.\"\n}\n```",
+        "ts": 1792089658.314952
       },
       "fiche": "taker_ratio",
       "questions": {
@@ -73,7 +19,7 @@
           "depasse": true
         },
         "prix": {
-          "value": -0.11,
+          "value": -0.02,
           "seuil": 1,
           "depasse": false
         }
