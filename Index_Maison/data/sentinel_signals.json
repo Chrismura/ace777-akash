@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "ipt",
-      "zscore": 2.019608126148948,
-      "value": 0.932,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.02) détectée sur le ticker 'ipt', mais le bruit médiatique concerne principalement une mini-cap minière (IMPACT Silver) et des homonymes institutionnels non-crypto. Absence totale de signal baleine pertinent ou de corrélation onchain exploitable.\"\n}\n```",
-      "ts": "2026-10-14T14:52:48.210109+00:00"
-    },
-    {
       "metric": "long_short",
       "zscore": 2.297406469831385,
       "value": 1.516,
@@ -349,6 +342,13 @@
       "value": 1.47,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Taker ratio à 1.47 (z-score 3.33) indique une agression massive des acheteurs (Taker Buy) totalement ignorée par le vide médiatique actuel. Accumulation furtive des baleines sous le radar.\"\n}\n```",
       "ts": "2026-10-15T15:09:41.615335+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 2.1473672052148043,
+      "value": 0.616,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Fausse alerte due à une confusion homonyme : les données 'onchain' captent un bruit de marché sans rapport avec le syndicat français SDI (Syndicat des Indépendants) mentionné dans les médias.\"\n}\n```",
+      "ts": "2026-10-15T15:14:44.287153+00:00"
     }
   ]
 }

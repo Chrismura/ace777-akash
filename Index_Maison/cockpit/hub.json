@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-15T15:13:45.662655+00:00",
+  "generated_at": "2026-10-15T15:14:46.428569+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 44
+      "calls_24h": 46
     },
     {
       "id": "openrouter-free",
@@ -274,10 +274,26 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 44,
-    "remaining": 580
+    "consumed": 46,
+    "remaining": 578
   },
   "queue": [
+    {
+      "ts": "2026-10-15T15:14:44.286056+00:00",
+      "task": "analyse.profonde",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 1.1
+    },
+    {
+      "ts": "2026-10-15T15:14:15.009214+00:00",
+      "task": "supervise.decision",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 2.0
+    },
     {
       "ts": "2026-10-15T15:13:18.104413+00:00",
       "task": "supervise.decision",
@@ -381,25 +397,21 @@
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
       "duration_s": 4.49
-    },
-    {
-      "ts": "2026-10-15T07:35:40.899550+00:00",
-      "task": "supervise.decision",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 3.95
-    },
-    {
-      "ts": "2026-10-15T07:28:24.779171+00:00",
-      "task": "analyse.profonde",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 4.5
     }
   ],
   "events": [
+    {
+      "ts": "2026-10-15T15:14:44.285411+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
+    {
+      "ts": "2026-10-15T15:14:15.007516+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
     {
       "ts": "2026-10-15T15:13:18.103629+00:00",
       "kind": "message",
@@ -447,18 +459,6 @@
       "kind": "failover",
       "title": "Bascule depuis Puter Grok (gratuit)",
       "detail": "HTTP Error 402: Payment Required"
-    },
-    {
-      "ts": "2026-10-15T15:03:46.250989+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis InferX Qwen3-Coder-Next (code, gratuit jusqu'au 12/08)",
-      "detail": "HTTP Error 429: Too Many Requests"
-    },
-    {
-      "ts": "2026-10-15T15:03:41.376901+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis InferX DeepSeek V4 Flash (API gratuite jusqu'au 12/08)",
-      "detail": "HTTP Error 429: Too Many Requests"
     }
   ],
   "tasks_quotas": {
