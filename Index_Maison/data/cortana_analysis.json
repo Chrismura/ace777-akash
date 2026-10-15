@@ -1,7 +1,125 @@
 {
-  "timestamp": 1792020459,
-  "date": "2026-10-14T23:27:39.582301+00:00",
-  "n_analyses": 0,
-  "analyses": [],
-  "resume": "Aucune analyse en cours"
+  "timestamp": 1792024060,
+  "date": "2026-10-15T00:27:40.882121+00:00",
+  "n_analyses": 4,
+  "analyses": [
+    {
+      "signal": {
+        "metric": "sdi",
+        "zscore": 2.7195297379948964,
+        "value": 0.616,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie de faux positif due à une homonymie lexicale. Le 'SDI' détecté par l'indicateur on-chain (ou métrique macro) est complètement noyé dans le bruit médiatique par le Syndicat des Indépendants (SDI) français et du matériel vidéo (Serial Digital Interface). Aucune baleine crypto identifiée derrière ce flux.\"\n}\n```",
+        "ts": 1792023018.954871
+      },
+      "fiche": null,
+      "interpretation": {
+        "lecture": "Pas de fiche disponible",
+        "niveau": "inconnu"
+      },
+      "action": "Observer"
+    },
+    {
+      "signal": {
+        "metric": "ipt",
+        "zscore": 3.1001611160235427,
+        "value": 1.247,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 3.10) provoquée par une confusion homonymique : les flux concernent des entités sans rapport (IPT Silver Corp, École polytechnique, articles de presse) et non des mouvements de baleines crypto sur un actif numérique pertinent.\"\n}\n```",
+        "ts": 1792023020.828521
+      },
+      "fiche": "rbf_eleve",
+      "questions": {
+        "prix": {
+          "value": 0.15,
+          "seuil": 1,
+          "depasse": false
+        },
+        "paires": {
+          "value": 0,
+          "seuil": 3,
+          "depasse": false
+        },
+        "funding": {
+          "value": -3.1e-05,
+          "seuil": 0.001,
+          "depasse": false
+        },
+        "whales": {
+          "value": 2,
+          "seuil": 5,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
+      },
+      "action": "Observer",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "fear_greed",
+        "zscore": -30.541156329863373,
+        "value": 53,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie statistique extrême (z-score -30.54) avec un indice de peur/avidité neutre (53) et un vide médiatique total. Les baleines accumulent dans l'indifférence des médias avant le prochain mouvement directionnel.\"\n}\n```",
+        "ts": 1792023025.490465
+      },
+      "fiche": "fear_greed",
+      "questions": {
+        "peur": {
+          "value": 53,
+          "seuil": 25,
+          "depasse": true
+        },
+        "cupidite": {
+          "value": 53,
+          "seuil": 75,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
+      },
+      "action": "Observer",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "whale_usd",
+        "zscore": 3.3810982360316397,
+        "value": 6227053.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de volume on-chain significative (z-score 3.38, +6.2M USD) totalement ignorée par les flux médiatiques traditionnels (Google Actualités vide). C'accumulation furtive classique avant un mouvement de marché.\"\n}\n```",
+        "ts": 1792023327.703406
+      },
+      "fiche": "whale_usd",
+      "questions": {
+        "ventes": {
+          "value": 0.0,
+          "seuil": 0,
+          "depasse": false
+        },
+        "achats": {
+          "value": 0.0,
+          "seuil": 0,
+          "depasse": false
+        },
+        "prix": {
+          "value": 0.15,
+          "seuil": 1,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
+      },
+      "action": "Observer",
+      "niveau": "neutre"
+    }
+  ],
+  "resume": "🔵 CALME — pas de signal alarmant"
 }

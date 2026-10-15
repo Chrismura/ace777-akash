@@ -1,105 +1,114 @@
 {
-  "ts": "2026-10-14T17:45:26.324274+00:00",
-  "statut": "STALE",
-  "age_rapport_h": 12.0,
+  "ts": "2026-10-14T23:45:29.797846+00:00",
+  "statut": "FRAIS",
+  "age_rapport_h": 0.0,
   "bascules": [
     {
       "pair": "BTCUSDT",
-      "avant": "neutre",
-      "maintenant": "LEADER",
-      "corr_avant": -0.099,
-      "corr_maintenant": 0.423
+      "avant": "LEADER",
+      "maintenant": "POMPE_PIEGE",
+      "corr_avant": 0.423,
+      "corr_maintenant": -0.334
     },
     {
       "pair": "CHIPUSDT",
-      "avant": "POMPE_PIEGE",
-      "maintenant": "LEADER",
-      "corr_avant": -0.248,
-      "corr_maintenant": 0.261
+      "avant": "LEADER",
+      "maintenant": "POMPE_PIEGE",
+      "corr_avant": 0.261,
+      "corr_maintenant": -0.377
     },
     {
       "pair": "ETHUSDT",
-      "avant": "POMPE_PIEGE",
-      "maintenant": "LEADER",
-      "corr_avant": -0.318,
-      "corr_maintenant": 0.288
+      "avant": "LEADER",
+      "maintenant": "POMPE_PIEGE",
+      "corr_avant": 0.288,
+      "corr_maintenant": -0.375
+    },
+    {
+      "pair": "FLUIDUSDT",
+      "avant": "LEADER",
+      "maintenant": "POMPE_PIEGE",
+      "corr_avant": 0.823,
+      "corr_maintenant": -0.302
     },
     {
       "pair": "IOTAUSDT",
-      "avant": "POMPE_PIEGE",
+      "avant": "neutre",
+      "maintenant": "POMPE_PIEGE",
+      "corr_avant": 0.017,
+      "corr_maintenant": -0.273
+    },
+    {
+      "pair": "RWAUSDT",
+      "avant": "neutre",
+      "maintenant": "POMPE_PIEGE",
+      "corr_avant": 0.007,
+      "corr_maintenant": -0.329
+    },
+    {
+      "pair": "WAXLUSDT",
+      "avant": "LEADER",
       "maintenant": "neutre",
-      "corr_avant": -0.19,
-      "corr_maintenant": 0.017
-    },
-    {
-      "pair": "MNSRYUSDT",
-      "avant": "neutre",
-      "maintenant": "POMPE_PIEGE",
-      "corr_avant": -0.077,
-      "corr_maintenant": -0.236
-    },
-    {
-      "pair": "RWAINCUSDT",
-      "avant": "neutre",
-      "maintenant": "POMPE_PIEGE",
-      "corr_avant": 0.111,
-      "corr_maintenant": -0.561
+      "corr_avant": 0.746,
+      "corr_maintenant": -0.088
     },
     {
       "pair": "XRPUSDT",
-      "avant": "POMPE_PIEGE",
-      "maintenant": "neutre",
-      "corr_avant": -0.4,
-      "corr_maintenant": 0.063
+      "avant": "neutre",
+      "maintenant": "POMPE_PIEGE",
+      "corr_avant": 0.063,
+      "corr_maintenant": -0.452
     }
   ],
   "principe": "RIEN N'EST STATIQUE — signal suivi tant que les chiffres le confirment, abandonné dès inversion",
-  "message": "🟡 Pattern suivi mais rapport vieux de 12h — vérifier le moteur (croisement_contexte.jsonl)",
+  "message": "🟢 Pattern divergence suivi et à jour.",
   "leaders": [
-    "BTCUSDT",
-    "CHIPUSDT",
-    "ETHUSDT",
-    "FLUIDUSDT",
-    "KITEUSDT",
-    "WAXLUSDT"
+    "KITEUSDT"
   ],
   "pompes_pieges": [
     "BIOUSDT",
+    "BTCUSDT",
     "CCUSDT",
+    "CHIPUSDT",
     "EDELUSDT",
+    "ETHUSDT",
+    "FLUIDUSDT",
     "HBARUSDT",
+    "IOTAUSDT",
     "MNSRYUSDT",
     "PYTHUSDT",
     "QNTUSDT",
     "REDUSDT",
     "RIZEUSDT",
     "RWAINCUSDT",
+    "RWAUSDT",
     "WUSDT",
+    "XRPUSDT",
     "ZBCNUSDT"
   ],
   "stabilite": {
-    "BIOUSDT": 6,
+    "BIOUSDT": 7,
     "BTCUSDT": 1,
-    "CCUSDT": 6,
+    "CCUSDT": 7,
     "CHIPUSDT": 1,
-    "EDELUSDT": 5,
+    "EDELUSDT": 6,
     "ETHUSDT": 1,
-    "FLUIDUSDT": 2,
-    "HBARUSDT": 6,
-    "IOTAUSDT": 0,
-    "KITEUSDT": 2,
+    "FLUIDUSDT": 1,
+    "HBARUSDT": 7,
+    "IOTAUSDT": 1,
+    "KITEUSDT": 3,
     "LAUSDT": 0,
-    "MNSRYUSDT": 1,
-    "PYTHUSDT": 6,
-    "QNTUSDT": 6,
-    "REDUSDT": 2,
-    "RIZEUSDT": 2,
-    "RWAINCUSDT": 1,
-    "RWAUSDT": 0,
-    "WAXLUSDT": 4,
-    "WUSDT": 2,
-    "XRPUSDT": 0,
-    "ZBCNUSDT": 10
+    "MNSRYUSDT": 2,
+    "PYTHUSDT": 7,
+    "QNTUSDT": 7,
+    "REDUSDT": 3,
+    "RIZEUSDT": 3,
+    "RWAINCUSDT": 2,
+    "RWAUSDT": 1,
+    "WAXLUSDT": 0,
+    "WUSDT": 3,
+    "XRPUSDT": 1,
+    "ZBCNUSDT": 11
   },
-  "recommande": "CONFRONTER AVEC CORTANA/FAMILLE"
+  "recommande": "OBSERVER"
 }

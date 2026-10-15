@@ -1,34 +1,6 @@
 {
   "signals": [
     {
-      "metric": "ipt",
-      "zscore": 3.195201434649332,
-      "value": 1.285,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 3.20) sur le ticker 'ipt' totalement polluée par du bruit médiatique sans rapport avec la crypto (Tournoi de Physique de l'X, violences sexistes, théologie). Aucun signal baleine valide, le 'narratif' est juste un homonyme institutionnel.\"\n}\n```",
-      "ts": "2026-10-13T17:19:05.919720+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.940610788596406,
-      "value": 1.249,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.94) sur le ticker 'ipt' totalement polluée par du bruit sémantique (Tournoi International des Physiciens, lutte contre les VSS). Aucun mouvement de baleine crypto avéré, le narratif médiatique fait référence à des institutions académiques et associatives.\"\n}\n```",
-      "ts": "2026-10-13T18:05:36.349562+00:00"
-    },
-    {
-      "metric": "taker_ratio",
-      "zscore": 2.4488091776980494,
-      "value": 1.541,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio élevé (z-score 2.45) indique une forte agression acheteuse sur le marché dérivé, non reflétée par les médias (silence radio). Divergence classique d'accumulation furtive par les baleines avant une cassure haussière.\"\n}\n```",
-      "ts": "2026-10-13T22:11:12.148949+00:00"
-    },
-    {
-      "metric": "whale_usd",
-      "zscore": 5.704957427997076,
-      "value": 10304710.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (z-score 5.70, +10.3M USD) couplée à un silence médiatique absolu (Google Actualités vide). Accumulation furtive des baleines hors des radars de la foule.\"\n}\n```",
-      "ts": "2026-10-13T22:31:18.105689+00:00"
-    },
-    {
       "metric": "taker_ratio",
       "zscore": 2.3727191767746154,
       "value": 1.541,
@@ -349,6 +321,34 @@
       "value": 1.266,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (z-score 3.30) sur 'IPT' due à un bruit médiatique non-crypto (IMPACT Silver, École Polytechnique, actualités généralistes). Aucune baleine crypto détectée, 'IPT' ne correspond à aucun actif numérique majeur ou mouvement onchain pertinent.\"\n}\n```",
       "ts": "2026-10-14T22:09:51.752027+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 2.7195297379948964,
+      "value": 0.616,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie de faux positif due à une homonymie lexicale. Le 'SDI' détecté par l'indicateur on-chain (ou métrique macro) est complètement noyé dans le bruit médiatique par le Syndicat des Indépendants (SDI) français et du matériel vidéo (Serial Digital Interface). Aucune baleine crypto identifiée derrière ce flux.\"\n}\n```",
+      "ts": "2026-10-15T00:10:18.954871+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 3.1001611160235427,
+      "value": 1.247,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 3.10) provoquée par une confusion homonymique : les flux concernent des entités sans rapport (IPT Silver Corp, École polytechnique, articles de presse) et non des mouvements de baleines crypto sur un actif numérique pertinent.\"\n}\n```",
+      "ts": "2026-10-15T00:10:20.828521+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -30.541156329863373,
+      "value": 53,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie statistique extrême (z-score -30.54) avec un indice de peur/avidité neutre (53) et un vide médiatique total. Les baleines accumulent dans l'indifférence des médias avant le prochain mouvement directionnel.\"\n}\n```",
+      "ts": "2026-10-15T00:10:25.490465+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 3.3810982360316397,
+      "value": 6227053.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de volume on-chain significative (z-score 3.38, +6.2M USD) totalement ignorée par les flux médiatiques traditionnels (Google Actualités vide). C'accumulation furtive classique avant un mouvement de marché.\"\n}\n```",
+      "ts": "2026-10-15T00:15:27.703406+00:00"
     }
   ]
 }

@@ -1,5 +1,5 @@
 {
-  "ts": "2026-10-14T23:29:28+00:00",
+  "ts": "2026-10-15T00:29:20+00:00",
   "note": "Verdicts MESURÉS à la source (scripts/verdicts_protocoles.py). Chaque protocole porte son critère pré-enregistré : c'est lui qui décide, pas l'impression du moment. Un verdict « IMPOSSIBLE » ou une ligne « alerte » signale un protocole dont le verdict ne peut pas être rendu — c'est une panne de conception, pas une patience.",
   "protocoles": [
     {
@@ -46,7 +46,7 @@
     {
       "protocole": "Radar RWA (DefiLlama)",
       "critere": "RÉ-TRANCHE 29/09 — univers crédit privé (project ∈ crédit ET symbole = devise ; pools couvrant TOUTE la fenêtre, sans démarrage à 0 ; dédupliqué par projet/symbole) : R1 ≥ 3 couples bougent ≥ 50 bps/7 j · R2 (critère PRODUIT, assumé neuf) ≥ 5 couples à ≥ 3 % APY stable (≤ 50 bps)",
-      "faits": "39793 relevés · 402 pools suivis → univers crédit 60 pool(s) · R1 38 pool(s) → 7 couple(s) projet-symbole · R2 7 couple(s) · 10 apparition(s) écartée(s)",
+      "faits": "40139 relevés · 402 pools suivis → univers crédit 60 pool(s) · R1 38 pool(s) → 7 couple(s) projet-symbole · R2 7 couple(s) · 10 apparition(s) écartée(s)",
       "verdict": "SUCCES (R1 + R2) — le terrain RWA n'est PAS mort",
       "alerte": "critère d'ORIGINE (top 20 TVL) : ECHEC (critère non atteint) (0/20 bougent) — mauvaise liste, d'où la ré-ouverture ; R2 : 4 couple(s) à valeur CONSTANTE sur toute la fenêtre (test sur les valeurs réelles) — taux FIXE annoncé, à confirmer par une 2ᵉ source AVANT publication : midas-rwa USDC, travessia-credit AUSD, travessia-credit USDC, travessia-credit USDT",
       "retranche": {
@@ -63,7 +63,7 @@
           "maple/USDC": {
             "n_instances": 1,
             "apy_medianes": [
-              5.15
+              5.16
             ],
             "valeurs_distinctes": 34
           },
@@ -266,7 +266,7 @@
     {
       "protocole": "Radar XRPL gouvernance",
       "critere": "J8 pré-enregistré : (a) ≥ 5 amendements dont le compteur bouge de ≥ 2 votes, OU (b) ≥ 1 activation, OU (c) ≥ 1 amendement mort ; sinon échec",
-      "faits": "618 snapshots · 113 amendements suivis · (a) 5 bougent de ≥ 2 (il en fallait 5) · (b) 3 activation · (c) 0 mort · 3 nouveau(x)",
+      "faits": "619 snapshots · 113 amendements suivis · (a) 5 bougent de ≥ 2 (il en fallait 5) · (b) 3 activation · (c) 0 mort · 3 nouveau(x)",
       "verdict": "SUCCES (critère atteint)",
       "alerte": "",
       "detail": [
@@ -295,11 +295,11 @@
           "delta_votes": -1
         },
         {
-          "amendement": "PermissionDelegation",
+          "amendement": "Batch",
           "delta_votes": 0
         },
         {
-          "amendement": "Batch",
+          "amendement": "PermissionDelegation",
           "delta_votes": 0
         }
       ]
@@ -393,16 +393,10 @@
     {
       "protocole": "paternes-btc (Kronos)",
       "critere": "mesure en continu des paternes validés (50w×200w + RSI hebdo, MACD daily = filtre, cycle) — verdict à n ≥ 30 cycles",
-      "faits": "28 cycles · régime HAUSSIER (écart 50w/200w 15.6 %, RSI hebdo 70) · MACD histogramme -586 · BTC 76540 → 81751 (+6.8 %)",
-      "verdict": "EN ATTENTE (il manque 2 cycle(s) — cadence quotidienne → ~2 jour(s))",
+      "faits": "29 cycles · régime HAUSSIER (écart 50w/200w 15.7 %, RSI hebdo 72) · MACD histogramme -526 · BTC 76540 → 83093 (+8.6 %)",
+      "verdict": "EN ATTENTE (il manque 1 cycle(s) — cadence quotidienne → ~1 jour(s))",
       "alerte": "",
       "detail": [
-        {
-          "ts": "2026-10-09T08:24:13Z",
-          "prix": 83285.33,
-          "regime": "HAUSSIER",
-          "rsi_w": 72.8
-        },
         {
           "ts": "2026-10-10T08:24:10Z",
           "prix": 81672.9,
@@ -426,6 +420,12 @@
           "prix": 81751.9,
           "regime": "HAUSSIER",
           "rsi_w": 70.4
+        },
+        {
+          "ts": "2026-10-14T23:41:02Z",
+          "prix": 83093.75,
+          "regime": "HAUSSIER",
+          "rsi_w": 72.5
         }
       ]
     },
