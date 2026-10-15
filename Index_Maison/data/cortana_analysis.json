@@ -1,30 +1,30 @@
 {
-  "timestamp": 1792045968,
-  "date": "2026-10-15T06:32:48.173257+00:00",
+  "timestamp": 1792049569,
+  "date": "2026-10-15T07:32:49.291312+00:00",
   "n_analyses": 1,
   "analyses": [
     {
       "signal": {
         "metric": "liquidations",
-        "zscore": 2.9020059439359738,
-        "value": 5816758.0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Fausse alerte liée à une confusion sémantique. Les données onchain analysent les liquidations de positions crypto, tandis que le narratif médiatique traite exclusivement de liquidations judiciaires d'entreprises traditionnelles. Aucune baleine crypto détectée.\"\n}\n```",
-        "ts": 1792045686.245029
+        "zscore": 2.091781178137751,
+        "value": 5217424.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique parasité par des homonymes (faillites d'entreprises traditionnelles et viticulture). Aucune corrélation onchain avec un mouvement de baleines crypto.\"\n}\n```",
+        "ts": 1792049304.781539
       },
       "fiche": "liquidations",
       "questions": {
         "longs": {
-          "value": 5136589.0,
+          "value": 2212836.0,
           "seuil": 0,
           "depasse": true
         },
         "shorts": {
-          "value": 680169.0,
+          "value": 602287.0,
           "seuil": 0,
           "depasse": true
         },
         "prix": {
-          "value": 0.41,
+          "value": 0.34,
           "seuil": 1,
           "depasse": false
         }

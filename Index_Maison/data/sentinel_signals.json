@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "ipt",
-      "zscore": 2.853180462671344,
-      "value": 1.035,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie technique faussée par une confusion homonyme : les données 'onchain' captent un bruit sans rapport avec la minière IMPACT Silver Corp (IPT), dont le narratif médiatique est purement opérationnel (Capire Restart).\"\n}\n```",
-      "ts": "2026-10-14T11:41:34.438605+00:00"
-    },
-    {
-      "metric": "price_1h",
-      "zscore": 2.882334966709498,
-      "value": 0.5096682141768838,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (+2.88) couplé à un silence médiatique total (Google Actualités vide). C'est la signature classique d'accumulation furtive par des baleines avant un réveil brutal du marché.\"\n}\n```",
-      "ts": "2026-10-14T12:31:42.492228+00:00"
-    },
-    {
       "metric": "liquidations",
       "zscore": 2.041180322997059,
       "value": 3671823.0,
@@ -349,6 +335,20 @@
       "value": 5816758.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Fausse alerte liée à une confusion sémantique. Les données onchain analysent les liquidations de positions crypto, tandis que le narratif médiatique traite exclusivement de liquidations judiciaires d'entreprises traditionnelles. Aucune baleine crypto détectée.\"\n}\n```",
       "ts": "2026-10-15T06:28:06.245029+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 2.447508137453,
+      "value": 5503291.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit de fond macroéconomique et judiciaire traditionnel (faillites d'entreprises locales). Aucune corrélation avec des mouvements de baleines crypto ou des liquidations on-chain pertinentes.\"\n}\n```",
+      "ts": "2026-10-15T06:58:14.802849+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 2.091781178137751,
+      "value": 5217424.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique parasité par des homonymes (faillites d'entreprises traditionnelles et viticulture). Aucune corrélation onchain avec un mouvement de baleines crypto.\"\n}\n```",
+      "ts": "2026-10-15T07:28:24.781539+00:00"
     }
   ]
 }
