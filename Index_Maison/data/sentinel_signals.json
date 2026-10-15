@@ -2,20 +2,6 @@
   "signals": [
     {
       "metric": "volume",
-      "zscore": -3.404157332936744,
-      "value": 10512302481.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Bruit de fond médiatique sans rapport avec la crypto (automobile, météo, santé, marketing). Anomalie on-chain non contextuelle.\"\n}\n```",
-      "ts": "2026-10-14T02:19:09.570589+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": 3.1744169664559028,
-      "value": 62,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (3.17) combiné à un indice de cupidité à 62 sans couverture médiatique majeure : signal classique de 'bull trap' et de distribution silencieuse par les baleines avant un retournement.\"\n}\n```",
-      "ts": "2026-10-14T02:19:32.825317+00:00"
-    },
-    {
-      "metric": "volume",
       "zscore": -2.066685008742619,
       "value": 0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Bruit médiatique sans rapport avec la crypto (actualité automobile, énergie et météo).\"\n}\n```",
@@ -349,6 +335,20 @@
       "value": 53,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Indice de peur et d'avidité neutre (53) avec un z-score fortement négatif (-2.24) indiquant une volatilité cachée, mais l'absence de titres médiatiques significatifs montre un vide informationnel. Pas de mouvement de baleine détectable sans données de flux net des exchanges.\"\n}\n```",
       "ts": "2026-10-15T04:12:20.693700+00:00"
+    },
+    {
+      "metric": "price_1h",
+      "zscore": 3.169560072592392,
+      "value": 0.7981260100124121,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de prix significative (z-score 3.17) totalement absente du radar médiatique (Google Actualités vide). C'est la signature classique d'une accumulation furtive de baleines avant l'emballement du narratif public.\"\n}\n```",
+      "ts": "2026-10-15T04:37:34.766726+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -2.0816659994661326,
+      "value": 53,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 40,\n  \"reason\": \"Données incomplètes (absence de flux de gros portefeuilles et de titres médiatiques concrets malgré un z-score de -2.08 indiquant une sous-évaluation du sentiment par rapport aux prix).\"\n}\n```",
+      "ts": "2026-10-15T04:42:37.849360+00:00"
     }
   ]
 }

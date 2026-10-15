@@ -7569,3 +7569,7 @@ Pas d’ordre — confrontation plus tard.
 - QNTUSDT: WATCH_PULLBACK — tension haute + reflux
 - BIOUSDT: WATCH_PULLBACK — tension haute + reflux
 (compléter: confirmé ? risque ?)
+
+### 2026-10-15T04:50:05Z — ALERT auto
+- RIZEUSDT: IMPULSE_WAIT — spike en cours, pas chase
+(compléter: confirmé ? risque ?)
