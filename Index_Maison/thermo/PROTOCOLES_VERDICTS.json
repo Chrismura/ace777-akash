@@ -1,5 +1,5 @@
 {
-  "ts": "2026-10-15T22:05:05+00:00",
+  "ts": "2026-10-15T22:17:42+00:00",
   "note": "Verdicts MESURÉS à la source (scripts/verdicts_protocoles.py). Chaque protocole porte son critère pré-enregistré : c'est lui qui décide, pas l'impression du moment. Un verdict « IMPOSSIBLE » ou une ligne « alerte » signale un protocole dont le verdict ne peut pas être rendu — c'est une panne de conception, pas une patience.",
   "protocoles": [
     {
@@ -295,7 +295,7 @@
           "delta_votes": -1
         },
         {
-          "amendement": "Batch",
+          "amendement": "fixBatchInnerSigs",
           "delta_votes": 0
         },
         {
@@ -307,7 +307,7 @@
     {
       "protocole": "Arbitrage LLM-vs-règle (Cortana)",
       "critere": "la règle maison : < 60 % de justesse micro → confiance faible + 1 alerte/h max. Verdict annoncé 27/09",
-      "faits": "0 alerte(s) microstructure au journal · 0 notée(s) par le juge indépendant · justesse n/d · avis directionnels de Cortana (toutes matières) : 68/118 = 57.6 %",
+      "faits": "0 alerte(s) microstructure au journal · 0 notée(s) par le juge indépendant · justesse n/d · avis directionnels de Cortana (toutes matières) : 69/120 = 57.5 %",
       "verdict": "IMPOSSIBLE (0 cas à juger)",
       "alerte": "le verdict du 27/09 ne pourra PAS être rendu : 0 alerte(s) en 7 jours → 0 cas. Le producteur d'alertes (module microstructure) n'a rien écrit depuis le 09/09 (data/micro_alerts.jsonl = 0 octet) — il faut trancher : module mort, ou rien à alerter ?",
       "detail": [
@@ -343,9 +343,9 @@
         },
         {
           "indice": "etfBtcM",
-          "directionnels": 2,
+          "directionnels": 3,
           "corect": 1,
-          "n": 8
+          "n": 9
         },
         {
           "indice": "fearGreed",
@@ -386,7 +386,7 @@
           "directionnels": 6,
           "corrects": 2,
           "neutres": 45,
-          "t_stat": -4.62
+          "t_stat": -4.9
         }
       ]
     },
