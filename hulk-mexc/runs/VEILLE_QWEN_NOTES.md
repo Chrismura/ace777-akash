@@ -7634,3 +7634,7 @@ Pas d’ordre — confrontation plus tard.
 ### 2026-10-15T15:26:45Z — ALERT auto
 - REDUSDT: IMPULSE_WAIT — spike en cours, pas chase
 (compléter: confirmé ? risque ?)
+
+### 2026-10-15T16:12:26Z — ALERT auto
+- QNTUSDT: IMPULSE_WAIT — spike en cours, pas chase
+(compléter: confirmé ? risque ?)
