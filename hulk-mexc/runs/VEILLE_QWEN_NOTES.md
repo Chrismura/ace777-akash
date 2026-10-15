@@ -7602,3 +7602,7 @@ Pas d’ordre — confrontation plus tard.
 ### 2026-10-15T06:41:31Z — ALERT auto
 - BIOUSDT: WATCH_PULLBACK — tension haute + reflux
 (compléter: confirmé ? risque ?)
+
+### 2026-10-15T07:55:35Z — ALERT auto
+- PYTHUSDT: IMPULSE_WAIT — spike en cours, pas chase
+(compléter: confirmé ? risque ?)
