@@ -1,27 +1,6 @@
 {
   "signals": [
     {
-      "metric": "taker_ratio",
-      "zscore": 2.3727191767746154,
-      "value": 1.541,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le ratio de taker agressif à 1.541 (z-score 2.37) indique une forte domination des acheteurs sur le marché dérivé, traduisant une accumulation agressive des baleines. Le vide médiatique ('Google Actualités' sans relais majeur) confirme une entrée en position silencieuse, loin de la bulle de détail.\"\n}\n```",
-      "ts": "2026-10-13T22:41:27.634111+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": -2.087139785496465,
-      "value": 12311974620.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit de fond absolu. Les titres médiatiques n'ont aucun rapport avec la crypto (voitures, eau, espace, imprimantes 3D) et le z-score négatif indique juste un creux de volume sans signal baleine pertinent.\"\n}\n```",
-      "ts": "2026-10-13T23:46:36.660506+00:00"
-    },
-    {
-      "metric": "taker_ratio",
-      "zscore": -2.072747767019307,
-      "value": 0.546,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio anormalement bas (0.546, z-score -2.07) indique une domination massive des acheteurs passifs (limites) tandis que les médias traditionnels affichent un silence radio. C'est la signature classique d'accumulation silencieuse par les baleines loin du bruit médiatique.\"\n}\n```",
-      "ts": "2026-10-14T00:06:40.079255+00:00"
-    },
-    {
       "metric": "fear_greed",
       "zscore": 4.933827859041803,
       "value": 62,
@@ -349,6 +328,27 @@
       "value": 6227053.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de volume on-chain significative (z-score 3.38, +6.2M USD) totalement ignorée par les flux médiatiques traditionnels (Google Actualités vide). C'accumulation furtive classique avant un mouvement de marché.\"\n}\n```",
       "ts": "2026-10-15T00:15:27.703406+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -6.855654600401044,
+      "value": 53,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Z-score extrême (-6.86) sur un Fear & Greed neutre (53) avec un silence médiatique total (Google Actualités vide). Divergence classique de purge de détail : accumulation silencieuse des baleines sous le radar.\"\n}\n```",
+      "ts": "2026-10-15T00:40:40.624222+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.0267018364976295,
+      "value": 1.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit de fond / confusion de tickers. L'anomalie 'ipt' (IPT) concerne ici une action minière traditionnelle (IMPACT Silver Corp.) ou du bruit sémantique sans lien avec l'écosystème crypto. Aucune baleine crypto détectée, le narratif médiatique est totalement déconnecté car il s'agit d'un télescopage de mots-clés.\"\n}\n```",
+      "ts": "2026-10-15T00:50:50.224267+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -4.795831523312719,
+      "value": 53,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Données insuffisantes. Le z-score extrême (-4.80) indique une anomalie statistique du sentiment, mais l'absence de titres médiatiques et de flux onchain spécifiques ne permet pas de confirmer une accumulation ou une distribution cachée par les baleines.\"\n}\n```",
+      "ts": "2026-10-15T01:10:57.769202+00:00"
     }
   ]
 }
