@@ -1,37 +1,46 @@
 {
-  "timestamp": 1792090993,
-  "date": "2026-10-15T19:03:13.215303+00:00",
+  "timestamp": 1792091593,
+  "date": "2026-10-15T19:13:13.429413+00:00",
   "n_analyses": 1,
   "analyses": [
     {
       "signal": {
-        "metric": "taker_ratio",
-        "zscore": 3.866423396991699,
-        "value": 1.859,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Z-score extrême (3.87) et taker ratio acheteur (1.85) signalent une accumulation agressive et silencieuse des baleines, totalement ignorée par le silence médiatique actuel.\"\n}\n```",
-        "ts": 1792089658.314952
+        "metric": "ipt",
+        "zscore": 2.248385876140906,
+        "value": 1.206,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Fausse alerte liée à l'ambiguïté du ticker 'IPT' (IMPACT Silver Corp. vs autres sujets d'actualité). Aucune activité on-chain de baleine crypto détectée, le z-score élevé reflète du bruit médiatique non financier.\"\n}\n```",
+        "ts": 1792091165.691774
       },
-      "fiche": "taker_ratio",
+      "fiche": "rbf_eleve",
       "questions": {
-        "taker": {
-          "value": 1.859,
-          "seuil": 1,
-          "depasse": true
-        },
         "prix": {
-          "value": -0.02,
+          "value": 0.03,
           "seuil": 1,
+          "depasse": false
+        },
+        "paires": {
+          "value": 0,
+          "seuil": 3,
+          "depasse": false
+        },
+        "funding": {
+          "value": 7.6e-05,
+          "seuil": 0.001,
+          "depasse": false
+        },
+        "whales": {
+          "value": 1,
+          "seuil": 5,
           "depasse": false
         }
       },
       "interpretation": {
-        "condition": "taker > 1",
-        "lecture": "Takers acheteurs agressifs — la demande mange le carnet, à confirmer avec le volume",
-        "niveau": "info",
-        "action": "Observer si le prix suit (vraie demande) ou diverge (absorption)"
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
       },
-      "action": "Observer si le prix suit (vraie demande) ou diverge (absorption)",
-      "niveau": "info"
+      "action": "Observer",
+      "niveau": "neutre"
     }
   ],
   "resume": "🔵 CALME — pas de signal alarmant"
