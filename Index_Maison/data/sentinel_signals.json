@@ -1,34 +1,6 @@
 {
   "signals": [
     {
-      "metric": "volume",
-      "zscore": -2.066685008742619,
-      "value": 0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Bruit médiatique sans rapport avec la crypto (actualité automobile, énergie et météo).\"\n}\n```",
-      "ts": "2026-10-14T07:20:46.546926+00:00"
-    },
-    {
-      "metric": "price_1h",
-      "zscore": 3.7541762715842286,
-      "value": 0.6170177685897782,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de prix majeure (z-score 3.75) en l'absence totale de couverture médiatique (silence radio). C'est la signature classique d'une accumulation furtive par des baleines avant le réveil du narratif public.\"\n}\n```",
-      "ts": "2026-10-14T08:10:53.596619+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.0070254943312427,
-      "value": 0.852,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie technique faussée par l'homonymie : l'indicateur on-chain analyse l'actif crypto ou le token associé, tandis que les actualités médiatiques concernent IMPACT Silver Corp (action traditionnelle IPT) et des sujets institutionnels sans rapport.\"\n}\n```",
-      "ts": "2026-10-14T11:01:24.521785+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": 3.1787034186334635,
-      "value": 0.616,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Le SDI (Syndicat des Indépendants et TPE) et les actualités analysées concernent l'économie réelle française et des sujets de PME/politique, sans aucun rapport avec les mouvements de baleines crypto ou des données on-chain.\"\n}\n```",
-      "ts": "2026-10-14T11:41:32.940589+00:00"
-    },
-    {
       "metric": "ipt",
       "zscore": 2.853180462671344,
       "value": 1.035,
@@ -349,6 +321,34 @@
       "value": 53,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 40,\n  \"reason\": \"Données incomplètes (absence de flux de gros portefeuilles et de titres médiatiques concrets malgré un z-score de -2.08 indiquant une sous-évaluation du sentiment par rapport aux prix).\"\n}\n```",
       "ts": "2026-10-15T04:42:37.849360+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 3.25175182410032,
+      "value": 5176809.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 3.25, accumulation de ~5.17M USD) totalement ignorée par les médias (silence radio). Cette divergence classique indique une accumulation furtive des baleines loin du bruit de fond de détail.\"\n}\n```",
+      "ts": "2026-10-15T05:37:48.469104+00:00"
+    },
+    {
+      "metric": "price_1h",
+      "zscore": 2.9881029591183044,
+      "value": 0.8579725901696422,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.99) combiné à un silence médiatique absolu : les baleines accumulent ou positionnent discrètement sans éveiller de FOMO public.\"\n}\n```",
+      "ts": "2026-10-15T05:47:54.075616+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 3.330479014965675,
+      "value": 5953544.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Fausse alerte liée à une confusion sémantique. Le z-score élevé capte des termes de 'liquidations' dans l'actualité, mais il s'agit exclusivement de faillites d'entreprises traditionnelles (viticulture, commerces français) et non de liquidations de positions crypto par des baleines. Aucune donnée onchain pertinente.\"\n}\n```",
+      "ts": "2026-10-15T05:57:59.055732+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 2.9020059439359738,
+      "value": 5816758.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Fausse alerte liée à une confusion sémantique. Les données onchain analysent les liquidations de positions crypto, tandis que le narratif médiatique traite exclusivement de liquidations judiciaires d'entreprises traditionnelles. Aucune baleine crypto détectée.\"\n}\n```",
+      "ts": "2026-10-15T06:28:06.245029+00:00"
     }
   ]
 }
