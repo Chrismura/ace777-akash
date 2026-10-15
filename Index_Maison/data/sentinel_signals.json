@@ -2,27 +2,6 @@
   "signals": [
     {
       "metric": "volume",
-      "zscore": -3.293844578074818,
-      "value": 11318443932.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Bruit de fond médiatique sans rapport avec la crypto (actualités automobiles, météo, espace et marketing). Le z-score négatif indique un assèchement temporaire du volume sans signal directionnel pertinent de baleines.\"\n}\n```",
-      "ts": "2026-10-14T01:17:07.752655+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": 3.7626978003610767,
-      "value": 62,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Z-score élevé (3.76) sur l'indice Greed (62) mais absence totale de narratif médiatique exploitable. Données insuffisantes pour confirmer une accumulation ou distribution silencieuse des baleines.\"\n}\n```",
-      "ts": "2026-10-14T01:43:01.206784+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": -3.4892493899322075,
-      "value": 10838982807.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Bruit médiatique non pertinent (automobile, météo, espace, marketing). Faux positif absolu sans lien avec la crypto.\"\n}\n```",
-      "ts": "2026-10-14T01:48:36.315946+00:00"
-    },
-    {
-      "metric": "volume",
       "zscore": -3.404157332936744,
       "value": 10512302481.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Bruit de fond médiatique sans rapport avec la crypto (automobile, météo, santé, marketing). Anomalie on-chain non contextuelle.\"\n}\n```",
@@ -349,6 +328,27 @@
       "value": 53,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Indifférence médiatique totale (Google Actualités vide) couplée à un Z-score de -2.65 sur le Fear & Greed (peur excessive injustifiée). Claque classique d'accumulation silencieuse par les baleines avant un retournement de tendance.\"\n}\n```",
       "ts": "2026-10-15T03:11:55.519129+00:00"
+    },
+    {
+      "metric": "price_1h",
+      "zscore": 3.3944618013081977,
+      "value": 0.7600757868403196,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (+3.39) couplé à un silence médiatique total (Google Actualités vide). C'est la signature classique d'accumulation furtive par des baleines loin des radars du retail.\"\n}\n```",
+      "ts": "2026-10-15T03:37:09.486751+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -2.4201534780139164,
+      "value": 53,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 40,\n  \"reason\": \"Données incomplètes (absence d'actualités Google) empêchant de confirmer une divergence claire avec le z-score on-chain.\"\n}\n```",
+      "ts": "2026-10-15T03:42:12.200113+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -2.23606797749979,
+      "value": 53,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Indice de peur et d'avidité neutre (53) avec un z-score fortement négatif (-2.24) indiquant une volatilité cachée, mais l'absence de titres médiatiques significatifs montre un vide informationnel. Pas de mouvement de baleine détectable sans données de flux net des exchanges.\"\n}\n```",
+      "ts": "2026-10-15T04:12:20.693700+00:00"
     }
   ]
 }
