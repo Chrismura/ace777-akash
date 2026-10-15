@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "long_short",
-      "zscore": 2.038020340858869,
-      "value": 1.727,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.04) sur le ratio long/short (1.727) indiquant un positionnement acheteur excessif de la foule. Les médias grand public banalisent et romanticent les stratégies long/short sans voir le piège de liquidité, signal classique d'excès de confiance avant un flush des positions longues.\"\n}\n```",
-      "ts": "2026-10-14T19:53:57.554540+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": 2.9004185878914264,
-      "value": 0.616,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit médiatique parasité par des homonymes (Syndicat des Indépendants, matériel vidéo SDI, cinéma). Aucune relation avec la crypto ou des mouvements de baleines.\"\n}\n```",
-      "ts": "2026-10-14T20:19:21.430163+00:00"
-    },
-    {
       "metric": "ipt",
       "zscore": 2.527681249746893,
       "value": 1.06,
@@ -349,6 +335,20 @@
       "value": 1.173,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (z-score 2.11) sur un ticker boursier traditionnel (IPT - IMPACT Silver Corp.) noyé dans du bruit sémantique non-crypto (actualités académiques et religieuses). Aucune baleine crypto détectée ; le signal onchain est un artefact de données sans lien avec la blockchain.\"\n}\n```",
       "ts": "2026-10-15T19:51:13.102671+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.0465492437758983,
+      "value": 1.174,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.05) détectée sur le ticker IPT, mais les résultats Google Actualités renvoient majoritairement vers IMPACT Silver Corp. (matières premières/mines) et des homonymes institutionnels sans rapport avec l'écosystème crypto. Bruit de fond médiatique sans corrélation onchain exploitable.\"\n}\n```",
+      "ts": "2026-10-15T20:36:23.723482+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 2.576126904538241,
+      "value": 0.62,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Le signal 'SDI' détecté correspond à de l'homonymie pure (Syndicat des Indépendants, société industrielle taïwanaise, festival de cinéma) sans aucun rapport avec la crypto-sphère ou une baleine onchain.\"\n}\n```",
+      "ts": "2026-10-15T20:46:28.051910+00:00"
     }
   ]
 }
