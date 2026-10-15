@@ -1,34 +1,6 @@
 {
   "signals": [
     {
-      "metric": "taker_ratio",
-      "zscore": -2.006379121751992,
-      "value": 0.546,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio très bas (0.546, z-score -2.01) indique une domination massive des ordres d'achat passifs (limites) par rapport aux ventes agressives (market). En l'absence de couverture médiatique notable (silence radio), cela traduit une accumulation silencieuse des baleines en arrière-plan, ignorant le bruit de fond pour absorber l'offre.\"\n}\n```",
-      "ts": "2026-10-14T00:36:54.218515+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": 6.8556546004010475,
-      "value": 62,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 40,\n  \"reason\": \"Indice de peur et d'avidité à 62 (avidité modérée) avec un z-score élevé, mais absence de titres médiatiques significatifs pour contraster. Données insuffisantes pour confirmer une accumulation ou une distribution silencieuse des baleines.\"\n}\n```",
-      "ts": "2026-10-14T00:36:55.520412+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": -2.8973130648173084,
-      "value": 11768572720.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Bruit médiatique sans rapport avec la crypto (automobile, météo, espace, marketing). Anomalie on-chain non pertinente.\"\n}\n```",
-      "ts": "2026-10-14T00:46:58.375218+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": 4.599331055039001,
-      "value": 62,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement élevé (4.60) pour un Fear & Greed à 62, combiné à un vide médiatique total (Google Actualités muet). C'est la signature classique d'une accumulation furtive par les baleines avant que le grand public ne s'en aperçoive.\"\n}\n```",
-      "ts": "2026-10-14T01:12:05.235345+00:00"
-    },
-    {
       "metric": "volume",
       "zscore": -3.293844578074818,
       "value": 11318443932.0,
@@ -349,6 +321,34 @@
       "value": 0.906745572189771,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrême de 5.08 combiné à un silence médiatique absolu (Google Actualités vide). C'accumulation furtive typique de baleines avant une rupture de prix.\"\n}\n```",
       "ts": "2026-10-15T02:26:26.472457+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -2.9325756597230357,
+      "value": 53,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 40,\n  \"reason\": \"Données incomplètes (absence de flux on-chain massifs ou de titres médiatiques significatifs). Le z-score négatif du Fear & Greed indique une sous-évaluation relative, mais sans mouvement de baleine détectable pour confirmer une divergence exploitable.\"\n}\n```",
+      "ts": "2026-10-15T02:41:30.960109+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 2.590353583356471,
+      "value": 0.616,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Bruit médiatique non pertinent : les résultats font référence au 'Syndicat des Indépendants' (SDI) et à du matériel vidéo professionnel (Blackmagic SDI), sans aucun lien avec des données on-chain ou des mouvements de baleines crypto.\"\n}\n```",
+      "ts": "2026-10-15T03:01:41.786813+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.430042477555478,
+      "value": 1.115,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.43) sur 'ipt' sans rapport avec des mouvements de baleines crypto. Les actualités font référence à l'action traditionnelle IMPACT Silver Corp (IPT) et à des homonymes (École polytechnique), suggérant un bruit de fond ou une confusion de ticker plutôt qu'une accumulation cachée.\"\n}\n```",
+      "ts": "2026-10-15T03:01:50.834971+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -2.6457513110645907,
+      "value": 53,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Indifférence médiatique totale (Google Actualités vide) couplée à un Z-score de -2.65 sur le Fear & Greed (peur excessive injustifiée). Claque classique d'accumulation silencieuse par les baleines avant un retournement de tendance.\"\n}\n```",
+      "ts": "2026-10-15T03:11:55.519129+00:00"
     }
   ]
 }
