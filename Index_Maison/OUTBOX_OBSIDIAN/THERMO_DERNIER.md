@@ -1,6 +1,6 @@
 # Thermo dernier — gratuit (Binance public)
 
-> Auto · **sans clé** · sans ordre · 2026-10-15T23:13Z UTC  
+> Auto · **sans clé** · sans ordre · 2026-10-15T23:18Z UTC  
 > Script : `Index_Maison/scripts/thermo_quotidien_free.py`
 
 ## Clin d'œil
@@ -10,32 +10,32 @@
 
 | Champ | Valeur | ID |
 |-------|--------|-----|
-| Mark | 82189.14 | prix |
-| OI | 94237.913 | C13 |
-| Funding | 5.5e-05 | C14 |
+| Mark | 82157.8 | prix |
+| OI | 94229.453 | C13 |
+| Funding | 5.3e-05 | C14 |
 | Funding moy. ~30j | 3.318e-05 (n=90) | Cortana |
 | Funding mois préc. | 5e-05 (n=90) | Cortana |
 | L/S 1h | 1.503 | crowd |
-| BTC 1h/4h/24h | -0.28 / -0.21 / 0.77 % | B7 |
+| BTC 1h/4h/24h | -0.3 / -0.23 / 0.76 % | B7 |
 | Dominance BTC | 59.3% | A3 |
 | Alts ↓ 24h | 35.0% | B9 |
 
 ## Lecture
 - Climat CALME (score 80/100).
-- Funding maintenant 5.5e-05. Moyenne ~30j 3.318e-05 (90 pts). Mois précédent 5e-05 (90 pts).
+- Funding maintenant 5.3e-05. Moyenne ~30j 3.318e-05 (90 pts). Mois précédent 5e-05 (90 pts).
 - Long/Short 1.503.
-- BTC 24h 0.77% · 1h -0.28% · 4h -0.21%.
+- BTC 24h 0.76% · 1h -0.3% · 4h -0.23%.
 - Panier alts : 35.0% en baisse (7/20).
-- Whales proxy : 1 gros print(s) ≥500k$ (max 844730$) — source aggTrades Binance.
-- Dark/OTC proxy : taker buy/sell 1.25 · OI 94237.913 (pas de dark pool free temps réel).
+- Whales proxy : aucun print ≥500k$ sur les ~500 derniers trades.
+- Dark/OTC proxy : taker buy/sell 1.25 · OI 94229.453 (pas de dark pool free temps réel).
 - Top traders L/S 1.583.
 - Fear & Greed 53 (Neutral).
 - Market cap crypto ≈ 2.78 T$.
 - Alt season proxy : Bitcoin season (BTC.D 59.3%).
 - Liquidations 24h proxy ≈ 0.00 B$.
-- ETF net inflow : BTC -265.86 M$ (bitbo-public (moy 7j), BTC only).
+- ETF net inflow : BTC -265.76 M$ (bitbo-public (moy 7j), BTC only).
 - GEX proxy (Deribit) : P/C 0.615 · murC 95000 (+15.7%) · murP 78000 (-5.0%).
-- Volumes cachés proxy : taker buy 0.555 · vol perp/spot 13.3×.
+- Volumes cachés proxy : taker buy 0.555 · vol perp/spot 13.33×.
 - ACE soft: LIVE=MASTER_BASE_V8_6_FORTRESS_8H20_LIVE_COLOR.log · SKIP=935 · heat=2.7 · PnL sess=0.9024 · RED=0.
 - C15/C23 = proxies free. D26–D34 = F&G / MC / alt / liq / ETF / GEX / volumes cachés. Soft ops lecture seule.
 
