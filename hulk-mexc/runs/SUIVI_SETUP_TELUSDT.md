@@ -52,6 +52,7 @@ Métriques : maison (mur moy/max + régime ; poussière = indicateur PANIER) + p
 | 45 | ? | -1h | AUTRE | None | None | None | None | None | 1.52e-06 | 0.05 | — | — | neutre (stab None) | prix ? · Amihud 1.52e-06 · delta +0.05 |
 | 46 | ? | -1h | AUTRE | None | None | None | None | None | 1.47e-06 | -0.00 | — | — | neutre (stab None) | prix ? · Amihud 1.47e-06 · delta -0.00 |
 | 47 | ? | -1h | AUTRE | None | None | None | None | None | 1.36e-06 | -0.52 | — | — | neutre (stab None) | prix ? · Amihud 1.36e-06 · delta -0.52 |
+| 48 | ? | -1h | AUTRE | None | None | None | None | None | 1.92e-06 | -0.12 | — | — | neutre (stab None) | prix ? · Amihud 1.92e-06 · delta -0.12 |
 
 ## 🔁 HISTORIQUE DES CYCLES DE L'ACTIF (zigzag ≥ 15 %, log continu du moteur)
 

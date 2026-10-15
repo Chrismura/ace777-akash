@@ -1,41 +1,6 @@
 {
   "signals": [
     {
-      "metric": "whale_usd",
-      "zscore": 3.4033139998749813,
-      "value": 7741064.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 3.40, +7.7M USD) totalement ignorée par les médias (silence radio de Google Actualités). Accumulation furtive classique de baleines hors des radars grand public.\"\n}\n```",
-      "ts": "2026-10-14T13:02:05.465282+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": 2.9474950196188208,
-      "value": 0.616,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie de données sans rapport avec la crypto : le 'SDI' mentionné dans les médias désigne le Syndicat des Indépendants (entreprises françaises), et non un indicateur onchain. Aucune donnée de baleine crypto détectée.\"\n}\n```",
-      "ts": "2026-10-14T13:42:12.166113+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 3.3310582161540934,
-      "value": 1.188,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit de données : IPT (IMPACT Silver Corp.) est une action traditionnelle (TSX-V) et non une cryptomonnaie. L'anomalie 'onchain' détectée est un faux positif causé par une confusion de ticker ou un test de flux sans pertinence cryptographique.\"\n}\n```",
-      "ts": "2026-10-14T13:42:13.842557+00:00"
-    },
-    {
-      "metric": "liquidations",
-      "zscore": 2.211545396209581,
-      "value": 3968741.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Faux positif complet : les données onchain et les titres médiatiques font référence à des liquidations judiciaires d'entreprises traditionnelles (France) et non à des liquidations de positions crypto par les baleines. Aucune détection de mouvement suspect.\"\n}\n```",
-      "ts": "2026-10-14T14:47:27.948816+00:00"
-    },
-    {
-      "metric": "price_1h",
-      "zscore": 3.1927885221064507,
-      "value": 0.6434488782149361,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (+3.19) sur une bougie horaire sans aucune couverture médiatique (0 articles Google Actualités). C'est la signature classique d'une accumulation ou d'un mouvement de baleines sous le radar médiatique.\"\n}\n```",
-      "ts": "2026-10-14T14:52:30.831648+00:00"
-    },
-    {
       "metric": "ipt",
       "zscore": 2.019608126148948,
       "value": 0.932,
@@ -349,6 +314,41 @@
       "value": 1.25,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio à 1.25 (z-score 2.10) indique une domination agressive des acheteurs (Taker Buy), signalant une accumulation agressive par les baleines. Le silence médiatique (Google Actualités vide ou neutre) prouve l'absence de FOMO retail, créant une divergence classique de bas de cycle ou d'accumulation discrète avant une cassure haussière.\"\n}\n```",
       "ts": "2026-10-15T08:08:33.662968+00:00"
+    },
+    {
+      "metric": "price_1h",
+      "zscore": 4.656949654459585,
+      "value": 1.3556879520061127,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement élevé (4.66) détectant une accumulation anormale, totalement ignorée par les médias (silence radio). Divergence classique de mouvement de baleine en sous-marin.\"\n}\n```",
+      "ts": "2026-10-15T14:24:16.451279+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 2.462687352138326,
+      "value": 0.616,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.46) entièrement imputable à un bruit homonyme : le 'SDI' médiatique fait référence à un syndicat patronal français et à des actualités cinématographiques/boursières sans lien avec la crypto.\"\n}\n```",
+      "ts": "2026-10-15T14:44:20.874680+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.1896932302088437,
+      "value": 1.104,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique parasité par des homonymies (IPT = IMPACT Silver, École Polytechnique, etc.). Aucune baleine crypto détectée, le ticker IPT n'a pas de poids onchain pertinent ici.\"\n}\n```",
+      "ts": "2026-10-15T14:44:27.739424+00:00"
+    },
+    {
+      "metric": "price_1h",
+      "zscore": 5.8418149802138215,
+      "value": 2.039672553188421,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Z-score extrême de 5.84 sur 1h sans couverture médiatique (Google Actualités vide). C'est la signature classique d'accumulation agressive par des baleines en mode 'dark mode' avant que le grand public ne réalise la cassure.\"\n}\n```",
+      "ts": "2026-10-15T14:54:34.866366+00:00"
+    },
+    {
+      "metric": "taker_ratio",
+      "zscore": 3.331516128277713,
+      "value": 1.47,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Taker ratio à 1.47 (z-score 3.33) indique une agression massive des acheteurs (Taker Buy) totalement ignorée par le vide médiatique actuel. Accumulation furtive des baleines sous le radar.\"\n}\n```",
+      "ts": "2026-10-15T15:09:41.615335+00:00"
     }
   ]
 }
