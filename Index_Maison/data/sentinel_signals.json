@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "whale_usd",
-      "zscore": 9.450428987215096,
-      "value": 17666590.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (z-score 9.45, soit ~17.6M USD) en l'absence totale de couverture médiatique (Google Actualités muet). Déconnexion classique traduisant une accumulation furtive hors des radars grand public.\"\n}\n```",
-      "ts": "2026-10-14T00:21:48.357831+00:00"
-    },
-    {
       "metric": "taker_ratio",
       "zscore": -2.006379121751992,
       "value": 0.546,
@@ -349,6 +342,13 @@
       "value": 53,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-3.32) malgré un sentiment neutre (53) et un vide médiatique total. C'est la signature classique d'accumulation silencieuse par les baleines loin du bruit public.\"\n}\n```",
       "ts": "2026-10-15T02:11:20.209330+00:00"
+    },
+    {
+      "metric": "price_1h",
+      "zscore": 5.080094632424013,
+      "value": 0.906745572189771,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrême de 5.08 combiné à un silence médiatique absolu (Google Actualités vide). C'accumulation furtive typique de baleines avant une rupture de prix.\"\n}\n```",
+      "ts": "2026-10-15T02:26:26.472457+00:00"
     }
   ]
 }

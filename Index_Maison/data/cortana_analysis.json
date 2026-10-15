@@ -1,7 +1,7 @@
 {
-  "timestamp": 1792030963,
-  "date": "2026-10-15T02:22:43.163716+00:00",
-  "n_analyses": 1,
+  "timestamp": 1792031563,
+  "date": "2026-10-15T02:32:43.402736+00:00",
+  "n_analyses": 2,
   "analyses": [
     {
       "signal": {
@@ -22,6 +22,40 @@
           "value": 53,
           "seuil": 75,
           "depasse": false
+        }
+      },
+      "interpretation": {
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
+      },
+      "action": "Observer",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "price_1h",
+        "zscore": 5.080094632424013,
+        "value": 0.906745572189771,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrême de 5.08 combiné à un silence médiatique absolu (Google Actualités vide). C'accumulation furtive typique de baleines avant une rupture de prix.\"\n}\n```",
+        "ts": 1792031186.472457
+      },
+      "fiche": "price_1h",
+      "questions": {
+        "pct_1h": {
+          "value": -0.93,
+          "seuil": -1,
+          "depasse": true
+        },
+        "liq": {
+          "value": 3633241.0,
+          "seuil": 5000000,
+          "depasse": false
+        },
+        "funding": {
+          "value": -2.4e-05,
+          "seuil": 0,
+          "depasse": true
         }
       },
       "interpretation": {
