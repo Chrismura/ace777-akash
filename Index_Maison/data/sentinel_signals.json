@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "ipt",
-      "zscore": 2.527681249746893,
-      "value": 1.06,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (IPT) confondue avec l'action minière IMPACT Silver Corp ou des acronymes institutionnels sans lien avec la crypto.\"\n}\n```",
-      "ts": "2026-10-14T20:19:24.586513+00:00"
-    },
-    {
-      "metric": "liquidations",
-      "zscore": 2.2792539424034866,
-      "value": 4426121.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique parasité par des homonymies (faillites d'entreprises traditionnelles). Aucune pertinence onchain ou crypto.\"\n}\n```",
-      "ts": "2026-10-14T21:34:38.259001+00:00"
-    },
-    {
       "metric": "liquidations",
       "zscore": 2.2081403959424275,
       "value": 4528015.0,
@@ -349,6 +335,20 @@
       "value": 0.62,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Le signal 'SDI' détecté correspond à de l'homonymie pure (Syndicat des Indépendants, société industrielle taïwanaise, festival de cinéma) sans aucun rapport avec la crypto-sphère ou une baleine onchain.\"\n}\n```",
       "ts": "2026-10-15T20:46:28.051910+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.4065592630453456,
+      "value": 1.334,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.41) sur un ticker boursier traditionnel (IPT / IMPACT Silver) polluée par du bruit médiatique sans rapport (École polytechnique, théologie). Absence de mouvements on-chain pertinents.\"\n}\n```",
+      "ts": "2026-10-15T22:41:48.622814+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 5.57852881042568,
+      "value": 6357222.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (z-score 5.58, >$6.3M) en l'absence totale de couverture médiatique (Google Actualités muet). Accumulation furtive classique de baleines loin du radar grand public.\"\n}\n```",
+      "ts": "2026-10-15T22:46:50.656823+00:00"
     }
   ]
 }
