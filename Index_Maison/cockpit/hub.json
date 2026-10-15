@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-15T08:27:08.421268+00:00",
+  "generated_at": "2026-10-15T08:36:15.280874+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 33
+      "calls_24h": 34
     },
     {
       "id": "openrouter-free",
@@ -274,10 +274,18 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 33,
-    "remaining": 591
+    "consumed": 34,
+    "remaining": 590
   },
   "queue": [
+    {
+      "ts": "2026-10-15T08:35:48.332507+00:00",
+      "task": "supervise.decision",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 3.42
+    },
     {
       "ts": "2026-10-15T08:08:33.661643+00:00",
       "task": "analyse.profonde",
@@ -389,76 +397,68 @@
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
       "duration_s": 4.56
-    },
-    {
-      "ts": "2026-10-15T06:30:33.969832+00:00",
-      "task": "cortana.analyse",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 5.51
     }
   ],
   "events": [
     {
-      "ts": "2026-10-15T08:25:03.814179+00:00",
+      "ts": "2026-10-15T08:35:48.331946+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
+    {
+      "ts": "2026-10-15T08:35:44.916306+00:00",
+      "kind": "blacklist",
+      "title": "Fin de pause Google Gemini",
+      "detail": "re-essai automatique"
+    },
+    {
+      "ts": "2026-10-15T08:32:56.734840+00:00",
       "kind": "http",
       "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
       "detail": ""
     },
     {
-      "ts": "2026-10-15T08:25:03.813834+00:00",
+      "ts": "2026-10-15T08:32:56.733685+00:00",
       "kind": "error",
       "title": "Toutes les IA ont echoue",
       "detail": "Google Gemini: HTTP Error 429: Too Many Requests | InferX DeepSeek V4 Flash (API gratuite jusqu'au 12/08): HTTP Error 429: Too Many Requests | InferX Qwen3-Coder-Next (code, gratuit jusqu'au 12/08): HTTP Error 429: Too Many Requests | Puter Grok (gratuit): HTTP Error 402: Payment Required | NVIDIA DeepSeek-Coder 6.7B (code, via NIM): HTTP Error 404: Not Found | InferX Devstral-2-123B (code): HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-10-15T08:25:03.812098+00:00",
+      "ts": "2026-10-15T08:32:56.730858+00:00",
       "kind": "failover",
       "title": "Bascule depuis InferX Devstral-2-123B (code)",
       "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-10-15T08:24:58.302573+00:00",
+      "ts": "2026-10-15T08:32:55.275260+00:00",
       "kind": "failover",
       "title": "Bascule depuis NVIDIA DeepSeek-Coder 6.7B (code, via NIM)",
       "detail": "HTTP Error 404: Not Found"
     },
     {
-      "ts": "2026-10-15T08:24:55.113673+00:00",
+      "ts": "2026-10-15T08:32:52.000985+00:00",
       "kind": "failover",
       "title": "Bascule depuis Puter Grok (gratuit)",
       "detail": "HTTP Error 402: Payment Required"
     },
     {
-      "ts": "2026-10-15T08:24:51.818557+00:00",
+      "ts": "2026-10-15T08:32:49.487538+00:00",
       "kind": "failover",
       "title": "Bascule depuis InferX Qwen3-Coder-Next (code, gratuit jusqu'au 12/08)",
       "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-10-15T08:24:50.200579+00:00",
+      "ts": "2026-10-15T08:32:44.418223+00:00",
       "kind": "failover",
       "title": "Bascule depuis InferX DeepSeek V4 Flash (API gratuite jusqu'au 12/08)",
       "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-10-15T08:24:44.932129+00:00",
+      "ts": "2026-10-15T08:32:39.244293+00:00",
       "kind": "failover",
       "title": "Bascule depuis Google Gemini",
       "detail": "HTTP Error 429: Too Many Requests"
-    },
-    {
-      "ts": "2026-10-15T08:24:44.931600+00:00",
-      "kind": "ratelimit",
-      "title": "429 Google Gemini -> pause 60s + bascule",
-      "detail": ""
-    },
-    {
-      "ts": "2026-10-15T08:08:33.661181+00:00",
-      "kind": "message",
-      "title": "« Google Gemini » a repondu",
-      "detail": ""
     }
   ],
   "tasks_quotas": {
