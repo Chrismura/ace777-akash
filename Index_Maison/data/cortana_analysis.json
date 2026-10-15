@@ -1,103 +1,15 @@
 {
-  "timestamp": 1792077189,
-  "date": "2026-10-15T15:13:09.269193+00:00",
-  "n_analyses": 4,
+  "timestamp": 1792080190,
+  "date": "2026-10-15T16:03:10.076136+00:00",
+  "n_analyses": 1,
   "analyses": [
     {
       "signal": {
-        "metric": "sdi",
-        "zscore": 2.462687352138326,
-        "value": 0.616,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.46) entièrement imputable à un bruit homonyme : le 'SDI' médiatique fait référence à un syndicat patronal français et à des actualités cinématographiques/boursières sans lien avec la crypto.\"\n}\n```",
-        "ts": 1792075460.87468
-      },
-      "fiche": null,
-      "interpretation": {
-        "lecture": "Pas de fiche disponible",
-        "niveau": "inconnu"
-      },
-      "action": "Observer"
-    },
-    {
-      "signal": {
-        "metric": "ipt",
-        "zscore": 2.1896932302088437,
-        "value": 1.104,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique parasité par des homonymies (IPT = IMPACT Silver, École Polytechnique, etc.). Aucune baleine crypto détectée, le ticker IPT n'a pas de poids onchain pertinent ici.\"\n}\n```",
-        "ts": 1792075467.739424
-      },
-      "fiche": "rbf_eleve",
-      "questions": {
-        "prix": {
-          "value": 0.42,
-          "seuil": 1,
-          "depasse": false
-        },
-        "paires": {
-          "value": 0,
-          "seuil": 3,
-          "depasse": false
-        },
-        "funding": {
-          "value": 2e-06,
-          "seuil": 0.001,
-          "depasse": false
-        },
-        "whales": {
-          "value": 1,
-          "seuil": 5,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
-      },
-      "action": "Observer",
-      "niveau": "neutre"
-    },
-    {
-      "signal": {
-        "metric": "price_1h",
-        "zscore": 5.8418149802138215,
-        "value": 2.039672553188421,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Z-score extrême de 5.84 sur 1h sans couverture médiatique (Google Actualités vide). C'est la signature classique d'accumulation agressive par des baleines en mode 'dark mode' avant que le grand public ne réalise la cassure.\"\n}\n```",
-        "ts": 1792076074.866366
-      },
-      "fiche": "price_1h",
-      "questions": {
-        "pct_1h": {
-          "value": 0.42,
-          "seuil": -1,
-          "depasse": true
-        },
-        "liq": {
-          "value": 2908417.0,
-          "seuil": 5000000,
-          "depasse": false
-        },
-        "funding": {
-          "value": 2e-06,
-          "seuil": 0,
-          "depasse": true
-        }
-      },
-      "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
-      },
-      "action": "Observer",
-      "niveau": "neutre"
-    },
-    {
-      "signal": {
         "metric": "taker_ratio",
-        "zscore": 3.331516128277713,
+        "zscore": 2.959419138654951,
         "value": 1.47,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Taker ratio à 1.47 (z-score 3.33) indique une agression massive des acheteurs (Taker Buy) totalement ignorée par le vide médiatique actuel. Accumulation furtive des baleines sous le radar.\"\n}\n```",
-        "ts": 1792076981.615335
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Taker ratio à 1.47 (z-score 2.96) indique une forte agression acheteuse en silence, totalement ignorée par les médias traditionnels (vide médiatique).\"\n}\n```",
+        "ts": 1792078791.48111
       },
       "fiche": "taker_ratio",
       "questions": {
@@ -107,7 +19,7 @@
           "depasse": true
         },
         "prix": {
-          "value": 0.42,
+          "value": 0.02,
           "seuil": 1,
           "depasse": false
         }
