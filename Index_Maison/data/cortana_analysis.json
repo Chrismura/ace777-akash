@@ -1,20 +1,20 @@
 {
-  "timestamp": 1792091593,
-  "date": "2026-10-15T19:13:13.429413+00:00",
+  "timestamp": 1792095194,
+  "date": "2026-10-15T20:13:14.550094+00:00",
   "n_analyses": 1,
   "analyses": [
     {
       "signal": {
         "metric": "ipt",
-        "zscore": 2.248385876140906,
-        "value": 1.206,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Fausse alerte liée à l'ambiguïté du ticker 'IPT' (IMPACT Silver Corp. vs autres sujets d'actualité). Aucune activité on-chain de baleine crypto détectée, le z-score élevé reflète du bruit médiatique non financier.\"\n}\n```",
-        "ts": 1792091165.691774
+        "zscore": 2.1106606983813454,
+        "value": 1.173,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (z-score 2.11) sur un ticker boursier traditionnel (IPT - IMPACT Silver Corp.) noyé dans du bruit sémantique non-crypto (actualités académiques et religieuses). Aucune baleine crypto détectée ; le signal onchain est un artefact de données sans lien avec la blockchain.\"\n}\n```",
+        "ts": 1792093873.102671
       },
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": 0.03,
+          "value": -0.02,
           "seuil": 1,
           "depasse": false
         },
@@ -24,7 +24,7 @@
           "depasse": false
         },
         "funding": {
-          "value": 7.6e-05,
+          "value": 8.3e-05,
           "seuil": 0.001,
           "depasse": false
         },

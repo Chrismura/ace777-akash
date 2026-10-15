@@ -2,13 +2,6 @@
   "signals": [
     {
       "metric": "long_short",
-      "zscore": 2.183549958798684,
-      "value": 1.727,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.18) et ratio long/short excessif (1.727) indiquant un positionnement acheteur surendetté de la foule, alors que les médias grand public banalisent les stratégies long/short sans urgence crypto, préparant le terrain classique pour une chasse aux liquidités (long squeeze).\"\n}\n```",
-      "ts": "2026-10-14T19:23:51.431424+00:00"
-    },
-    {
-      "metric": "long_short",
       "zscore": 2.038020340858869,
       "value": 1.727,
       "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.04) sur le ratio long/short (1.727) indiquant un positionnement acheteur excessif de la foule. Les médias grand public banalisent et romanticent les stratégies long/short sans voir le piège de liquidité, signal classique d'excès de confiance avant un flush des positions longues.\"\n}\n```",
@@ -349,6 +342,13 @@
       "value": 1.206,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Fausse alerte liée à l'ambiguïté du ticker 'IPT' (IMPACT Silver Corp. vs autres sujets d'actualité). Aucune activité on-chain de baleine crypto détectée, le z-score élevé reflète du bruit médiatique non financier.\"\n}\n```",
       "ts": "2026-10-15T19:06:05.691774+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.1106606983813454,
+      "value": 1.173,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (z-score 2.11) sur un ticker boursier traditionnel (IPT - IMPACT Silver Corp.) noyé dans du bruit sémantique non-crypto (actualités académiques et religieuses). Aucune baleine crypto détectée ; le signal onchain est un artefact de données sans lien avec la blockchain.\"\n}\n```",
+      "ts": "2026-10-15T19:51:13.102671+00:00"
     }
   ]
 }
