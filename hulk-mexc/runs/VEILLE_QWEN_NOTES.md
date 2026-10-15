@@ -7535,3 +7535,11 @@ Pas d’ordre — confrontation plus tard.
 - PYTHUSDT: IMPULSE_WAIT — spike en cours, pas chase
 - RWAINCUSDT: IMPULSE_WAIT — spike en cours, pas chase
 (compléter: confirmé ? risque ?)
+
+### 2026-10-15T02:23:06Z — ALERT auto
+- QNTUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
+
+### 2026-10-15T02:23:49Z — ALERT auto
+- BIOUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)

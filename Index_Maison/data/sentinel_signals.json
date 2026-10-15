@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "fear_greed",
-      "zscore": 4.933827859041803,
-      "value": 62,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Données incomplètes (absence des flux onchain spécifiques des portefeuilles baleines). Le z-score élevé (4.93) du Fear & Greed indique une surchauffe émotionnelle du retail, mais sans données de volume d'échange ou de transferts de gros portefeuilles, la divergence avec les médias (Google Actualités) ne peut être confirmée.\"\n}\n```",
-      "ts": "2026-10-14T00:06:41.454059+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": -2.8127525212526545,
-      "value": 11884576201.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit médiatique non pertinent (automobile, météo, espace, hardware) sans lien avec la crypto. Anomalie de volume on-chain non corrélée à une activité baleine avérée.\"\n}\n```",
-      "ts": "2026-10-14T00:16:46.433756+00:00"
-    },
-    {
       "metric": "whale_usd",
       "zscore": 9.450428987215096,
       "value": 17666590.0,
@@ -349,6 +335,20 @@
       "value": 53,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Données insuffisantes. Le z-score extrême (-4.80) indique une anomalie statistique du sentiment, mais l'absence de titres médiatiques et de flux onchain spécifiques ne permet pas de confirmer une accumulation ou une distribution cachée par les baleines.\"\n}\n```",
       "ts": "2026-10-15T01:10:57.769202+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -3.872983346207417,
+      "value": 53,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-3.87) pour un indice de peur/grégarité neutre (53) avec un silence médiatique total (Google Actualités vide). C'est la signature classique d'accumulation invisible par les baleines loin des radars du retail.\"\n}\n```",
+      "ts": "2026-10-15T01:41:12.935786+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -3.3166247903554,
+      "value": 53,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-3.32) malgré un sentiment neutre (53) et un vide médiatique total. C'est la signature classique d'accumulation silencieuse par les baleines loin du bruit public.\"\n}\n```",
+      "ts": "2026-10-15T02:11:20.209330+00:00"
     }
   ]
 }
