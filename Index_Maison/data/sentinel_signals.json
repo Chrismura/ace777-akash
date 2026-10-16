@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "fear_greed",
-      "zscore": -2.23606797749979,
-      "value": 53,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Indice de peur et d'avidité neutre (53) avec un z-score fortement négatif (-2.24) indiquant une volatilité cachée, mais l'absence de titres médiatiques significatifs montre un vide informationnel. Pas de mouvement de baleine détectable sans données de flux net des exchanges.\"\n}\n```",
-      "ts": "2026-10-15T04:12:20.693700+00:00"
-    },
-    {
       "metric": "price_1h",
       "zscore": 3.169560072592392,
       "value": 0.7981260100124121,
@@ -349,6 +342,13 @@
       "value": 8935869.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Anomalie onchain massive (z-score 8.77, ~8.9M USD) sans AUCUNE couverture médiatique (Google Actualités vide). C'est la définition parfaite d'une accumulation silencieuse de baleine hors des radars du retail.\"\n}\n```",
       "ts": "2026-10-16T10:34:57.066977+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 2.9825985581830934,
+      "value": 3808949.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 2.98, ~3.8M USD) dans un silence médiatique absolu (Google Actualités vide). Classique accumulation furtive de baleines loin du radar public.\"\n}\n```",
+      "ts": "2026-10-16T11:25:16.601073+00:00"
     }
   ]
 }
