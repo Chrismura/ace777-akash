@@ -1,7 +1,42 @@
 {
-  "timestamp": 1792177331,
-  "date": "2026-10-16T19:02:11.495245+00:00",
-  "n_analyses": 0,
-  "analyses": [],
-  "resume": "Aucune analyse en cours"
+  "timestamp": 1792180932,
+  "date": "2026-10-16T20:02:12.539966+00:00",
+  "n_analyses": 1,
+  "analyses": [
+    {
+      "signal": {
+        "metric": "price_1h",
+        "zscore": 2.5686490468097785,
+        "value": 0.6066106923098724,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Forte anomalie de prix à la hausse (z-score 2.57) couplée à un silence total des médias généralistes (Google Actualités vide). C'est la signature classique d'accumulation furtive par des baleines loin des radars de la foule.\"\n}\n```",
+        "ts": 1792180703.956654
+      },
+      "fiche": "price_1h",
+      "questions": {
+        "pct_1h": {
+          "value": -0.0,
+          "seuil": -1,
+          "depasse": true
+        },
+        "liq": {
+          "value": 2443371.0,
+          "seuil": 5000000,
+          "depasse": false
+        },
+        "funding": {
+          "value": 0.0001,
+          "seuil": 0,
+          "depasse": true
+        }
+      },
+      "interpretation": {
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
+      },
+      "action": "Observer",
+      "niveau": "neutre"
+    }
+  ],
+  "resume": "🔵 CALME — pas de signal alarmant"
 }

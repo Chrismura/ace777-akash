@@ -1,27 +1,6 @@
 {
   "signals": [
     {
-      "metric": "liquidations",
-      "zscore": 2.9020059439359738,
-      "value": 5816758.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Fausse alerte liée à une confusion sémantique. Les données onchain analysent les liquidations de positions crypto, tandis que le narratif médiatique traite exclusivement de liquidations judiciaires d'entreprises traditionnelles. Aucune baleine crypto détectée.\"\n}\n```",
-      "ts": "2026-10-15T06:28:06.245029+00:00"
-    },
-    {
-      "metric": "liquidations",
-      "zscore": 2.447508137453,
-      "value": 5503291.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit de fond macroéconomique et judiciaire traditionnel (faillites d'entreprises locales). Aucune corrélation avec des mouvements de baleines crypto ou des liquidations on-chain pertinentes.\"\n}\n```",
-      "ts": "2026-10-15T06:58:14.802849+00:00"
-    },
-    {
-      "metric": "liquidations",
-      "zscore": 2.091781178137751,
-      "value": 5217424.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique parasité par des homonymes (faillites d'entreprises traditionnelles et viticulture). Aucune corrélation onchain avec un mouvement de baleines crypto.\"\n}\n```",
-      "ts": "2026-10-15T07:28:24.781539+00:00"
-    },
-    {
       "metric": "taker_ratio",
       "zscore": 2.102622189455347,
       "value": 1.25,
@@ -349,6 +328,27 @@
       "value": 9964058.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (z-score 8.12) sans couverture médiatique significative (Google Actualités muet). Divergence typique d'accumulation silencieuse de baleines loin du radar public.\"\n}\n```",
       "ts": "2026-10-16T19:02:50.850718+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": 2.107554214181741,
+      "value": 1.747,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Le ratio long/short atteint un z-score élevé de 2.11 (1.747), indiquant une surconcentration massive des positions acheteuses par la foule. Pendant ce temps, le narratif médiatique grand public glorifie les stratégies long/short comme solution miracle, créant un piège à liquidité classique. Les 'smart money' et baleines se positionnent généralement en contre de cette euromanie retail avant un 'long squeeze'.\"\n}\n```",
+      "ts": "2026-10-16T19:07:55.885990+00:00"
+    },
+    {
+      "metric": "price_1h",
+      "zscore": 2.7567781719362197,
+      "value": 0.6289659285988014,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 78,\n  \"reason\": \"Anomalie statistique haussière (z-score 2.76) en silence total dans les médias mainstream (Google Actualités vide). Classique accumulation furtive de baleines avant éveil du narratif.\"\n}\n```",
+      "ts": "2026-10-16T19:28:08.981819+00:00"
+    },
+    {
+      "metric": "price_1h",
+      "zscore": 2.5686490468097785,
+      "value": 0.6066106923098724,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Forte anomalie de prix à la hausse (z-score 2.57) couplée à un silence total des médias généralistes (Google Actualités vide). C'est la signature classique d'accumulation furtive par des baleines loin des radars de la foule.\"\n}\n```",
+      "ts": "2026-10-16T19:58:23.956654+00:00"
     }
   ]
 }
