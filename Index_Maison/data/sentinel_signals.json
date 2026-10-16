@@ -2,13 +2,6 @@
   "signals": [
     {
       "metric": "fear_greed",
-      "zscore": -3.872983346207417,
-      "value": 53,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-3.87) pour un indice de peur/grégarité neutre (53) avec un silence médiatique total (Google Actualités vide). C'est la signature classique d'accumulation invisible par les baleines loin des radars du retail.\"\n}\n```",
-      "ts": "2026-10-15T01:41:12.935786+00:00"
-    },
-    {
-      "metric": "fear_greed",
       "zscore": -3.3166247903554,
       "value": 53,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-3.32) malgré un sentiment neutre (53) et un vide médiatique total. C'est la signature classique d'accumulation silencieuse par les baleines loin du bruit public.\"\n}\n```",
@@ -349,6 +342,13 @@
       "value": 63,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Données médiatiques insuffisantes pour établir une divergence significative, malgré un z-score élevé de l'indice de peur et de cupidité.\"\n}\n```",
       "ts": "2026-10-16T04:08:01.385399+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 2.025758327207005,
+      "value": 63,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 50,\n  \"reason\": \"Données incomplètes (absence de titres médiatiques effectifs pour contraster avec le z-score de 2.03).\"\n}\n```",
+      "ts": "2026-10-16T04:38:08.836568+00:00"
     }
   ]
 }
