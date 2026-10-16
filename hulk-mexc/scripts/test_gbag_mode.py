@@ -66,6 +66,13 @@ def make_bot():
     bot.gbag_check_sec = 0.0
     bot.gbag_pending = {}
     bot.gbag_histo = {}
+    # P2/P3 (16/10/2026, GO P1-P4) : défauts prod — porte OFF, cap OFF. Les tests
+    # porte/cap les activent explicitement. (Sans ces attributs : AttributeError, la
+    # même dérive harnais/moteur que P1 a fermée sur test_seellfull_resume.)
+    bot.gbag_gate_amp_on = False
+    bot.gbag_min_amp7 = 2.0
+    bot.compound_global_cap = 0.0
+    bot.deployed_total = lambda: round(sum(float((v or {}).get("stake") or 0.0) for v in bot.pos.values()), 2)
     bot.current_notional = lambda pair=None: 30.0  # signature réelle : pair optionnel (compounding par actif, 14/10)
     bot.lot_filter = lambda pair: (0.0001, 1.0)
 
@@ -96,9 +103,9 @@ def make_bot():
 
 
 def appel(bot, kl, prix):
-    """Un passage GBAG (klines mockées sur kl)."""
+    """Un passage GBAG (klines mockées sur kl). Rend True si GBAG garde la paire."""
     P.klines = lambda pair, interval, limit: kl
-    bot._gbag_cycle("TESTUSDT", prix, bot.scores["TESTUSDT"])
+    return bot._gbag_cycle("TESTUSDT", prix, bot.scores["TESTUSDT"])
 
 
 # 300 bougies à 100 : SMA24=SMA240=hh24=100 ; amp7 = range (101−99)/99 ≈ 2,02 %
@@ -190,6 +197,55 @@ def test_aucune_decision_sans_nouvelle_cloture():
     bot.gbag_histo["TESTUSDT"]["next_check"] = 0.0   # force le re-passage
     appel(bot, kl, 110.0)                            # même clôture
     assert len(bot.achats) == n, "pas de décision sans NOUVELLE clôture 1 h"
+
+
+def test_gate_refuse_chop():
+    # P2 : porte ON + amp7 0,5 % (< 2,0) → pas d'entrée, main rendue (False).
+    kl = bougies(BASE + [110.0, 105.0])
+    bot = make_bot()
+    bot.gbag_gate_amp_on = True
+    bot._gbag_amp7 = lambda kl_fermes: 0.5
+    r = appel(bot, kl, 110.0)
+    assert r is False, "chop : GBAG doit rendre la main à la gestion historique"
+    assert "TESTUSDT" not in bot.pos, "chop : aucune entrée GBAG"
+
+
+def test_gate_accepte_trend():
+    # P2 : porte ON + amp7 5 % → l'entrée cassure a lieu, GBAG garde (True).
+    kl = bougies(BASE + [110.0, 105.0])
+    bot = make_bot()
+    bot.gbag_gate_amp_on = True
+    bot._gbag_amp7 = lambda kl_fermes: 5.0
+    r = appel(bot, kl, 110.0)
+    assert r is True, "trend : GBAG doit garder la paire"
+    assert bot.pos["TESTUSDT"]["gbag_tranches"] == 1
+
+
+def test_gate_laisse_historique():
+    # P2 : position SANS marque (ouverte par la gestion historique) + porte ON →
+    # rendue intacte (False), jamais hijackée par GBAG.
+    kl = bougies(BASE + [110.0, 105.0])
+    bot = make_bot()
+    bot.gbag_gate_amp_on = True
+    bot.pos["TESTUSDT"] = {"entry": 100.0, "qty": 1.0, "stake": 100.0}
+    r = appel(bot, kl, 110.0)
+    assert r is False, "position historique : rendre la main"
+    assert "gbag_tranches" not in bot.pos["TESTUSDT"], "pas de hijack"
+    assert bot.pos["TESTUSDT"]["qty"] == 1.0
+
+
+def test_global_cap_pyramide():
+    # P3 : cap dépassé → la tranche est refusée (loggée), position intacte.
+    kl = bougies(BASE + [110.0, 119.0])
+    bot = make_bot()
+    bot.compound_global_cap = 5.0   # stake d'entrée = 10 $ > cap
+    appel(bot, kl, 110.0)           # entrée (fake buy, stake 10)
+    assert bot.deployed_total() == 10.0
+    pousser(kl, 128.6)
+    appel(bot, kl, 119.0)           # +8,06 % ≥ +8 % → palier pyramide...
+    p = bot.pos["TESTUSDT"]
+    assert p["gbag_tranches"] == 1, "cap : tranche refusée"
+    assert abs(p["qty"] - 10.0 / 110.0) < 1e-9, "cap : qty intacte"
 
 
 if __name__ == "__main__":

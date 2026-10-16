@@ -864,7 +864,7 @@ def load_hulk():
     # Une alarme qui sonne pour un comportement normal tue la confiance dans
     # l'alarme (leçon R14). Le compounding ne se plafonne pas : il se déclare.
     _base_moteur = float(out.get("base") or 0.0) or 30.0
-    _c_on, _c_frac, _c_mult = 1.0, 0.50, 3.0
+    _c_on, _c_frac, _c_mult, _c_cap = 1.0, 0.50, 3.0, 600.0
     _env = ROOT / "hulk-mexc" / "config" / "defaults.env"
     try:
         for _l in _env.read_text(encoding="utf-8", errors="ignore").splitlines():
@@ -875,6 +875,8 @@ def load_hulk():
                 _c_frac = float(_l.split("=", 1)[1])
             elif _l.startswith("COMPOUND_MAX_MULT="):
                 _c_mult = float(_l.split("=", 1)[1])
+            elif _l.startswith("COMPOUND_GLOBAL_CAP="):
+                _c_cap = float(_l.split("=", 1)[1])
     except Exception:
         pass
     plafond_par_paire = _base_moteur * _c_mult if _c_on else _base_moteur
@@ -969,6 +971,8 @@ def load_hulk():
         "compoundMaxMult": _c_mult,
         "baseMoteur": round(_base_moteur, 2),
         "plafondParPaire": round(plafond_par_paire, 2),
+        # P3 : plafond global organisme lu dans defaults (0 = OFF).
+        "plafondGlobal": round(_c_cap, 2),
         "notionalLive": out.get("notional"),
         # LEVIER COMPOUNDING GLOBAL (14/10) : la mise de TOUS les trades grossit
         # avec le PnL total (base + frac×pnl, plafond 3×). distinct de compoundActif
@@ -998,6 +1002,8 @@ def load_hulk():
                     "mise": round(float(mise_all.get(_p) or 0.0), 2),
                     "cash": round(cash_par_paire.get(_p, 0.0), 2),
                     "cashMoteur": round(float((_s_all.get("pair_cash") or {}).get(_p) or 0.0), 2),
+                    # P4 : écart des 2 livres affiché par paire (jamais caché, jamais crié).
+                    "ecartCash": round(cash_par_paire.get(_p, 0.0) - float((_s_all.get("pair_cash") or {}).get(_p) or 0.0), 2),
                     "gbag": _p in _gbag_pairs,
                     "reel": round(reel_par_paire.get(_p, 0.0), 2),
                     "hold": round(hold_par_paire.get(_p, 0.0), 2),
@@ -1015,6 +1021,24 @@ def load_hulk():
         "ts": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
     }
 
+    # RÉCONCILIATION 2 LIVRES (P4, 16/10/2026, GO P1-P4) : cash REJOUÉ du CSV (débit
+    # des achats) vs POCHE moteur (pair_cash, alimentée par les ventes seules — les
+    # achats ordinaires ne la débitent pas, choix de modèle signalé le 13/10, moteur
+    # intouché). Écart STRUCTUREL ≠ anomalie : on l'AFFICHE (par paire + total), on
+    # ne le cache pas et on ne crie pas dessus (R14). Une dérive SE verrait ici.
+    _rec_pairs = sorted(
+        ({"pair": _r["pair"], "ecart": _r["ecartCash"]}
+         for _r in out["hulkVsHold"]["pairs"]),
+        key=lambda x: abs(x["ecart"]), reverse=True,
+    )
+    _rec_mot = round(sum(_r.get("cashMoteur") or 0.0 for _r in out["hulkVsHold"]["pairs"]), 2)
+    out["hulkVsHold"]["reconciliation"] = {
+        "totalRejeu": out["hulkVsHold"]["cash"],
+        "totalMoteur": _rec_mot,
+        "ecartTotal": round(out["hulkVsHold"]["cash"] - _rec_mot, 2),
+        "pires": _rec_pairs[:5],
+        "note": "Ecart structurel connu (13/10) : le rejeu debite les achats, la poche moteur non. Ecart != anomalie.",
+    }
     out["conseils"] = load_hulk_conseils()
     return out
 

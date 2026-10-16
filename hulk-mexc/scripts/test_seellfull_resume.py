@@ -9,7 +9,9 @@ SELL full ne crash pas sur des positions RESTAURÉES réelles (anciennes, sans
 la clé guard_last → exactement le cas du --resume après déploiement).
 """
 import importlib
+import inspect
 import json
+import re
 import shutil
 import sys
 from pathlib import Path
@@ -46,6 +48,10 @@ bot.reentry_count = {}
 bot.pnl_total = 0.0
 bot.trades = 0
 bot.double_mult = 2.0
+# P1 (16/10/2026, GO P1-P4) : le chemin SELL-full lit self.stake_sell_frac (moteur
+# l.2571, défaut cfg STAKE_SELL_FRAC=0.50, moteur l.748). Le harnais factice ne le
+# posait pas → AttributeError sur RWAINC (même famille que gb_couple_on, 13/10).
+bot.stake_sell_frac = 0.50
 bot.bag_no_tech_stop = False
 bot.inv = {}
 bot.lot_cache = {}
@@ -69,6 +75,26 @@ for pair in list(pos.keys()):
     try:
         bot.manage_open(pair, price)
         checked += 1
+    except AttributeError as e:
+        # GARDE ANTI-DÉRIVE harnais/moteur (P1, GO 16/10) : le harnais est construit
+        # à la main (object.__new__) ; quand le moteur gagne un attribut lu par
+        # manage_open, le harnais pourrit. On ÉCHOUE FORT (pas d'auto-remplissage :
+        # il masquerait un vrai bug du chemin --resume en production), mais le message
+        # dit EXACTEMENT quoi ajouter — la dérive devient une consigne, pas une énigme.
+        crashes += 1
+        _m = re.search(r"'(\w+)'", str(e))
+        _attr = _m.group(1) if _m else "?"
+        _dans_moteur = False
+        try:
+            _dans_moteur = f"self.{_attr} =" in inspect.getsource(PaperBot.__init__)
+        except Exception:
+            pass
+        if _dans_moteur:
+            print(f"[DÉRIVE-HARNAIS] {pair}: ajouter « bot.{_attr} = <défaut moteur> » "
+                  f"(self.{_attr} existe dans PaperBot.__init__ mais pas dans le harnais)")
+        else:
+            print(f"[FAIL] {pair}: AttributeError: {e} (attribut inconnu du moteur — "
+                  f"vrai bug du chemin resume ?)")
     except Exception as e:
         crashes += 1
         print(f"[FAIL] {pair}: {type(e).__name__}: {e}")

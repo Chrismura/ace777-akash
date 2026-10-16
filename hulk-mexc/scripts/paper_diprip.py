@@ -800,6 +800,12 @@ class PaperBot:
         self.gbag_sma_e = int(float(cfg.get("GBAG_SMA_EXIT", "24")))
         self.gbag_sma_gate = int(float(cfg.get("GBAG_SMA_GATE", "240")))
         self.gbag_check_sec = float(cfg.get("GBAG_CHECK_SEC", "300"))
+        # PORTE AMPLITUDE (P2, 16/10/2026, GO P1-P4) : entrée cassure exigée seulement
+        # si amp7 >= seuil. Mesuré AVANT câblage (chiffrage_gbag_regime, 44 paires,
+        # 45 j) : gate 2,0 % = +419,76 $ vs ALL +418,12 $ (+1,64, h2 identique),
+        # gate 3 % pire, sélection par paire non généralisable → ALL RESTE, porte OFF.
+        self.gbag_gate_amp_on = cfg.get("GBAG_GATE_AMP_ON", "0").strip() not in ("0", "false", "False")
+        self.gbag_min_amp7 = float(cfg.get("GBAG_MIN_AMP7", "2.0"))
         self.bt_stop_mult = float(cfg.get("BAG_TREND_STOP_AMP", "1.5"))
         self.bt_up_p1 = float(cfg.get("BAG_UP_P1_AMP", "0.6"))
         self.bt_up_p2 = float(cfg.get("BAG_UP_P2_AMP", "1.2"))
@@ -833,6 +839,11 @@ class PaperBot:
         self.compound_on = cfg.get("COMPOUND_ON", "1").strip() not in ("0", "false", "False")
         self.compound_frac = float(cfg.get("COMPOUND_FRAC", "0.50"))
         self.compound_max_mult = float(cfg.get("COMPOUND_MAX_MULT", "3.0"))
+        # PLAFOND GLOBAL ORGANISME (P3, 16/10/2026, GO P1-P4) : les 22 actifs puisent
+        # dans la MÊME poche. Mesuré sur l'état brut le 16/10 : 11 positions =
+        # 281,72 $ déployés (théorique 22×90 = 1 980 $). Cap 600 $ ≈ 2× le mesuré.
+        # 0 = OFF (historique). Dépassement → SKIP GBAG_GATE/GLOBAL_CAP, jamais muet.
+        self.compound_global_cap = float(cfg.get("COMPOUND_GLOBAL_CAP", "0"))
         self.reentry_on = cfg.get("REENTRY_ON", "1").strip() not in ("0", "false", "False")
         self.reentry_dd = float(cfg.get("REENTRY_DD_PCT", "6"))
         self.reentry_ttl = float(cfg.get("REENTRY_TTL_SEC", "7200"))
@@ -2219,6 +2230,13 @@ class PaperBot:
             return qty
         return float(int(qty / step + 1e-9) * step)
 
+    def deployed_total(self) -> float:
+        """Capital déployé (P3) : somme des stakes des positions ouvertes — brut, pas de modèle."""
+        try:
+            return round(sum(float((v or {}).get("stake") or 0.0) for v in (self.pos or {}).values()), 2)
+        except Exception:
+            return 0.0
+
     def buy(self, pair: str, price: float, sc: dict, reason: str, notion: Optional[float] = None):
         """Pleine mise (100%). Pas de bag 15% à l'entrée.
 
@@ -2427,6 +2445,17 @@ class PaperBot:
                 sc.get("cadence_pct"), f"QTY:{trade_qty}",
             )
             return
+        # PLAFOND GLOBAL ORGANISME (P3) : toute entrée (standard, GBAG, re-entry)
+        # est refusée si la poche commune dépasse le cap — SKIP loggé, jamais muet.
+        if self.compound_global_cap > 0:
+            _dep = self.deployed_total()
+            if _dep + trade_n > self.compound_global_cap:
+                say("warn", f"[{utc_now()}] GLOBAL_CAP skip {pair} déployé {_dep:.2f}$ + {trade_n:.2f}$ > cap {self.compound_global_cap:.2f}$")
+                self.log(
+                    pair, "SKIP", regime, price, price, 0.0, 0.0,
+                    sc.get("cadence_pct"), f"GLOBAL_CAP:{_dep:.0f}+{trade_n:.0f}>{self.compound_global_cap:.0f}",
+                )
+                return
         self.pos[pair] = {
             "entry": price,
             "qty": trade_qty,
@@ -2927,22 +2956,24 @@ class PaperBot:
 
     def _gbag_cycle(self, pair: str, price: float, sc: dict):
         """Un passage GBAG par clôture 1 h FERMÉE (évalué au plus toutes les
-        gbag_check_sec s, latence ≤ 5 min après la clôture — déclarée)."""
+        gbag_check_sec s, latence ≤ 5 min après la clôture — déclarée).
+        Retourne True si GBAG garde la paire, False si la porte (chop / position
+        historique, gate ON) rend la main à la gestion historique (P2, 16/10)."""
         h = self.gbag_histo.setdefault(pair, {})
         now = time.time()
         if now < float(h.get("next_check") or 0):
-            return
+            return True
         h["next_check"] = now + self.gbag_check_sec
         kl = klines(pair, "60m", 320)
         if not kl or len(kl) < self.gbag_sma_gate + 30:
-            return  # mesure insuffisante → on ne décide pas (règle #8)
+            return True  # mesure insuffisante → on ne décide pas (règle #8)
         if h.get("last_bar") == int(kl[-1][0]):
-            return  # aucune nouvelle clôture depuis le dernier passage
+            return True  # aucune nouvelle clôture depuis le dernier passage
         h["last_bar"] = int(kl[-1][0])
         fermes = kl[:-1]                       # la dernière bougie est EN COURS
         _o, _H, _L, C = _ohlc(fermes)
         if len(C) < self.gbag_sma_gate + 25:
-            return
+            return True
         c = C[-1]                              # la DÉCISION = la clôture
         n_e, n_g = self.gbag_sma_e, self.gbag_sma_gate
         s_e = sum(C[-n_e:]) / n_e
@@ -2952,7 +2983,11 @@ class PaperBot:
         regime = (sc or {}).get("regime", "")
         cad = (sc or {}).get("cadence_pct")
         p = self.pos.get(pair)
-        if p is not None:
+        # MARQUE (P2) : seules les positions ouvertes par GBAG (gbag_tranches posé à
+        # l'entrée) sont gérées par GBAG quand la porte est ON. Gate OFF (défaut) =
+        # comportement historique exact (toute position ouverte = gérée GBAG).
+        _marque = (p is not None) and ("gbag_tranches" in p)
+        if p is not None and (not self.gbag_gate_amp_on or _marque):
             # PYRAMIDE : +1 tranche à chaque +gag_add_step du dernier ajout (3 max)
             tr = int(p.get("gbag_tranches") or 1)
             last_add = float(p.get("gbag_last_add") or 0)
@@ -2972,16 +3007,21 @@ class PaperBot:
                     _qty_av = float(p.get("qty") or 0.0)
                     _ent_av = float(p.get("entry") or price)
                     _cout = q * price
-                    p["qty"] = _qty_av + q
-                    p["qty_init"] = float(p.get("qty_init") or 0) + q
-                    p["entry"] = ((_ent_av * _qty_av) + _cout) / (_qty_av + q) \
-                        if (_qty_av + q) > 0 else price
-                    p["stake"] = float(p.get("stake") or 0.0) + _cout
-                    p["notional"] = float(p.get("notional") or 0.0) + _cout
-                    p["gbag_tranches"] = tr + 1
-                    p["gbag_last_add"] = c
-                    self.log(pair, "GBAG_PYRAMIDE", regime, price, price, q, 0.0, cad,
-                             f"gbag_tranche{tr + 1}_add{self.gbag_add_step:g}")
+                    if self.compound_global_cap > 0 and self.deployed_total() + _cout > self.compound_global_cap:
+                        # P3 : la tranche attend (réessayée à chaque clôture, loggée).
+                        self.log(pair, "GBAG_PYRAMIDE_SKIP", regime, price, price, q, 0.0, cad,
+                                 f"tranche{tr + 1}_refusee_GLOBAL_CAP:{_cout:.0f}$")
+                    else:
+                        p["qty"] = _qty_av + q
+                        p["qty_init"] = float(p.get("qty_init") or 0) + q
+                        p["entry"] = ((_ent_av * _qty_av) + _cout) / (_qty_av + q) \
+                            if (_qty_av + q) > 0 else price
+                        p["stake"] = float(p.get("stake") or 0.0) + _cout
+                        p["notional"] = float(p.get("notional") or 0.0) + _cout
+                        p["gbag_tranches"] = tr + 1
+                        p["gbag_last_add"] = c
+                        self.log(pair, "GBAG_PYRAMIDE", regime, price, price, q, 0.0, cad,
+                                 f"gbag_tranche{tr + 1}_add{self.gbag_add_step:g}")
             # SORTIE TOTALE du tradable dès une clôture < SMA24
             if c < s_e:
                 proceeds = self.sell_trade(pair, price, "gbag_sortie_sma24")
@@ -2993,7 +3033,18 @@ class PaperBot:
                            (f" · rachat armé à {self.gbag_pending[pair]:.6g}"
                             f" ({self.gbag_rebuy_frac:g}×amp7={amp7:.1f} %)" if amp7 else
                             " · pas de rachat (amp7 non mesurée, règle #8)"))
-        else:
+        elif p is not None:
+            # PORTE (gate ON) : position ouverte par la gestion historique → on la
+            # laisse à son propriétaire, JAMAIS de hijack. tick_pair reprend la main.
+            return False
+        elif (self.gbag_gate_amp_on and self.gbag_pending.get(pair) is None
+                and (amp7 is None or amp7 < self.gbag_min_amp7)):
+            # PORTE : chop (amp7 faible ou non mesurée) → pas d'entrée GBAG.
+            # Loggée (jamais muette), réévaluée à chaque clôture.
+            self.log(pair, "GBAG_GATE_SKIP", regime, price, price, 0.0, 0.0, cad,
+                     f"amp7={(amp7 if amp7 else -1):.2f}<{self.gbag_min_amp7:g}")
+            return False
+        elif p is None:
             # ENTRÉE : cassure (close > SMA24 ET > plus-haut 24 clôt. ET > SMA240)
             if c > s_e and c > hh24 and c > s_g:
                 prise = self.current_notional(pair) / 3.0   # 1re tranche = mise/3 (spec)
@@ -3015,6 +3066,7 @@ class PaperBot:
                 say("gbag", f"[{utc_now()}] GBAG SOUCHE {pair} +{q:.6g} jetons @ {price:.6g}"
                            f" ({pris:.2f} $ ≤ {pend:.6g}) — JAMAIS vendue")
             # cash insuffisant → l'ordre RESTE armé (comportement mesuré)
+        return True
 
     def _manage_trend_open(self, pair: str, price: float, sc: dict):
         """Position TREND-BAG (08/10/2026, GO Christophe) — mesurée avant câblage.
@@ -3510,10 +3562,14 @@ class PaperBot:
         # comportement historique. Réversible : GBAG_ON=0.
         if self._is_gbag(pair):
             try:
-                self._gbag_cycle(pair, price, sc)
+                if self._gbag_cycle(pair, price, sc):
+                    return
             except Exception as e:
                 say("err", f"[{utc_now()}] GBAG_ERR {pair}: {e}")
-            return
+                return
+            # PORTE (P2) : _gbag_cycle a rendu la main (chop ou position historique,
+            # gate ON) → la gestion historique reprend (entrée/sorties/bags). Gate
+            # OFF (défaut) : _gbag_cycle rend toujours True → identique à avant.
         if sc.get("peak6"):
             sc["dd6_pct"] = round((1.0 - price / sc["peak6"]) * 100.0, 2)
         if sc.get("peak24"):
