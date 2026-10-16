@@ -2,13 +2,6 @@
   "signals": [
     {
       "metric": "fear_greed",
-      "zscore": -4.795831523312719,
-      "value": 53,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Données insuffisantes. Le z-score extrême (-4.80) indique une anomalie statistique du sentiment, mais l'absence de titres médiatiques et de flux onchain spécifiques ne permet pas de confirmer une accumulation ou une distribution cachée par les baleines.\"\n}\n```",
-      "ts": "2026-10-15T01:10:57.769202+00:00"
-    },
-    {
-      "metric": "fear_greed",
       "zscore": -3.872983346207417,
       "value": 53,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-3.87) pour un indice de peur/grégarité neutre (53) avec un silence médiatique total (Google Actualités vide). C'est la signature classique d'accumulation invisible par les baleines loin des radars du retail.\"\n}\n```",
@@ -349,6 +342,13 @@
       "value": 63,
       "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Indice de Peur & Greed anormalement élevé (z-score 2.08) combiné à un vide médiatique total ('Google Actualités' sans relais majeur). Divergence classique de piégeage : retail en surconfiance silencieuse alors que les baleines initient une distribution.\"\n}\n```",
       "ts": "2026-10-16T03:37:55.838309+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 2.0516252159716126,
+      "value": 63,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Données médiatiques insuffisantes pour établir une divergence significative, malgré un z-score élevé de l'indice de peur et de cupidité.\"\n}\n```",
+      "ts": "2026-10-16T04:08:01.385399+00:00"
     }
   ]
 }
