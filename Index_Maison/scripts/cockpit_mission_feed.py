@@ -791,6 +791,8 @@ def load_hulk():
     nadir_par_paire: dict[str, float] = {}
     net_investi: dict[str, float] = {}
     budget_par_paire: dict[str, float] = {}
+    _spread_par_paire: dict[str, list] = {}
+    _cout_par_paire: dict[str, float] = {}
     _gbag_pairs: set[str] = set()  # paires touchées par un événement GBAG (13/10)
     for _pair in _all_pairs:
         _sp = seed_px.get(_pair)
@@ -799,6 +801,12 @@ def load_hulk():
         _seed_val = float(seed_qty.get(_pair) or 0.0) * float(_sp or 0.0)
         budget_par_paire[_pair] = _seed_val + MARGE_PAR_CRYPTO
         cash_par_paire[_pair] = budget_par_paire[_pair]
+        # SLIPPAGE PAR PAIRE (16/10/2026, GO Christophe) : spread mesuré + coûts
+        # cumulés lus du journal (display only — le moteur les écrit déjà, le feed
+        # les agrège et les montre ; slip_stats des stops, lui, est en mémoire vive
+        # moteur seule → affiché « n/a » tant qu'il n'est pas persisté au state).
+        _spread_par_paire[_pair] = []
+        _cout_par_paire[_pair] = 0.0
         nadir_par_paire[_pair] = budget_par_paire[_pair]
         net_investi[_pair] = 0.0
     if csv_p and csv_p.exists():
@@ -808,6 +816,13 @@ def load_hulk():
                 if _pair not in cash_par_paire or _pair in _observe_pairs:
                     continue
                 _ev = (row.get("event") or "").upper()
+                try:
+                    _sp = float(row.get("spread_bps") or 0.0)
+                    if _sp > 0:
+                        _spread_par_paire[_pair].append(_sp)
+                    _cout_par_paire[_pair] += float(row.get("cout_estime_usdt") or 0.0)
+                except Exception:
+                    pass
                 if (_ev not in ("BUY", "DCA", "GBAG_SOUCHE", "GBAG_PYRAMIDE")
                         and not _ev.startswith(("SELL", "STOP", "BAG"))):
                     continue
@@ -1004,6 +1019,9 @@ def load_hulk():
                     "cashMoteur": round(float((_s_all.get("pair_cash") or {}).get(_p) or 0.0), 2),
                     # P4 : écart des 2 livres affiché par paire (jamais caché, jamais crié).
                     "ecartCash": round(cash_par_paire.get(_p, 0.0) - float((_s_all.get("pair_cash") or {}).get(_p) or 0.0), 2),
+                    # SLIPPAGE (16/10, GO) : spread médian mesuré + coûts cumulés du journal.
+                    "spreadMed": round((lambda _v: sorted(_v)[len(_v) // 2] if _v else 0.0)(_spread_par_paire.get(_p) or []), 1),
+                    "coutCumule": round(_cout_par_paire.get(_p, 0.0), 2),
                     "gbag": _p in _gbag_pairs,
                     "reel": round(reel_par_paire.get(_p, 0.0), 2),
                     "hold": round(hold_par_paire.get(_p, 0.0), 2),
@@ -1038,6 +1056,19 @@ def load_hulk():
         "ecartTotal": round(out["hulkVsHold"]["cash"] - _rec_mot, 2),
         "pires": _rec_pairs[:5],
         "note": "Ecart structurel connu (13/10) : le rejeu debite les achats, la poche moteur non. Ecart != anomalie.",
+    }
+    # SLIPPAGE TOP-LEVEL (16/10, GO) : totaux + pires spreads + alerte >50 bps.
+    # Le slip des stops (slip_stats) vit en mémoire moteur seule → n/a ici ; sa
+    # persistance au state + le rallumage du SLIP_GATE (OFF depuis le 09/09) = GO séparé.
+    _slip_med = {}
+    for _pp, _vv in _spread_par_paire.items():
+        _slip_med[_pp] = round(sorted(_vv)[len(_vv) // 2], 1) if _vv else 0.0
+    _slip_pires = sorted(((_pp, _mm) for _pp, _mm in _slip_med.items() if _mm > 0), key=lambda x: -x[1])[:5]
+    out["hulkVsHold"]["slippage"] = {
+        "coutTotal": round(sum(_cout_par_paire.values()), 2),
+        "piresSpreads": [{"pair": _pp, "medBps": _mm} for _pp, _mm in _slip_pires],
+        "alerte": [_pp for _pp, _mm in _slip_pires if _mm >= 50.0],
+        "note": "Spreads medians MESURES au journal (live). Slip des stops : memoire moteur seule (persistance = GO separe). SLIP_GATE OFF depuis le 09/09.",
     }
     out["conseils"] = load_hulk_conseils()
     return out

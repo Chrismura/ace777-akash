@@ -96,6 +96,18 @@ CORR_ENTREE = float(os.environ.get("SHORT_BTC_CORR_ENTREE", "-0.50"))
 CORR_SORTIE = float(os.environ.get("SHORT_BTC_CORR_SORTIE", "-0.10"))
 TP_PCT = 2.0               # take profit : BTC -2% depuis l'entrée
 SL_PCT = 1.5               # stop loss : BTC +1.5% contre nous
+# === SL ADAPTATIF (16/10/2026, GO short — MESURÉ AVANT CÂBLAGE) ===
+# Mesure (chiffrage_short_sl_adapt, 39 trades rejoués, mêmes entrées) : SL fixe
+# 1,5 % = -0,096 $ · SL 0,5×amp7 = -0,082 (neutre, NON câblé) · SL 0,5×range24h =
+# +0,064, MÊME SIGNE sur les 2 moitiés (h1 +0,205 vs +0,185 · h2 -0,141 vs -0,282).
+# Le range 24 h est à l'horizon du trade (TTL 24 h) et se calcule du flux existant
+# (croisement_contexte, ~30 h de points bruts — aucune nouvelle dépendance).
+# Ne s'applique qu'aux NOUVELLES positions (sl_pct stocké à l'entrée ; l'ouverte
+# garde son fixe). Filtre creux 24 h REJETÉ (-0,22, tue les TP) ; creux 7 j non
+# calculable en live (flux 30 h) — non câblé ; dormeurs TIME_OUT +0,18 (gardés).
+# Réversible : SHORT_BTC_SL_ADAPT=0 (fixe 1,5 % strict).
+SL_ADAPT_ON = os.environ.get("SHORT_BTC_SL_ADAPT", "1").strip() not in ("0", "false", "False")
+SL_ADAPT_FRAC = float(os.environ.get("SHORT_BTC_SL_ADAPT_FRAC", "0.5"))
 TTL_H = 24.0               # time-out d'une position (heures)
 SESSION_START_UTC, SESSION_END_UTC = 8, 17   # gating temporel (08-17h UTC)
 FRAIS_MAX_AGE_MIN = 15.0   # données plus vieilles → pas de décision
@@ -158,6 +170,29 @@ def dernier_point(rows, pair: str):
             if best is None or ts > best[0]:
                 best = (ts, r.get("price"), r.get("m6_pct"))
     return best
+
+
+def range24_btc(rows):
+    """Range % BTC sur les dernières 24 h de points bruts + couverture (heures).
+    (None, span) si <12 h de données → l'appelant dégrade vers le SL fixe (règle #8)."""
+    now = time.time()
+    px, t0 = [], None
+    for r in rows:
+        if r.get("pair") != "BTCUSDT":
+            continue
+        try:
+            ts, px_ = float(r.get("ts") or 0), float(r.get("price"))
+        except (TypeError, ValueError):
+            continue
+        if now - ts <= 24 * 3600:
+            px.append(px_)
+            t0 = ts if t0 is None or ts < t0 else t0
+    if not px or min(px) <= 0:
+        return None, 0.0
+    span_h = (now - t0) / 3600
+    if span_h < 12:
+        return None, round(span_h, 1)
+    return round((max(px) - min(px)) / min(px) * 100.0, 3), round(span_h, 1)
 
 
 def calculer_signal(rows) -> dict:
@@ -249,6 +284,8 @@ def calculer_signal(rows) -> dict:
         move24 = 100.0 * (prix_now / best_old[1] - 1)
     score_d = 2 if move24 >= 3.0 else (1 if move24 >= 1.5 else 0)
 
+    _r24, _r24_span = range24_btc(rows)
+
     score = score_a + score_b + score_c + score_d
     hr = datetime.now(timezone.utc).hour
     session_ok = SESSION_START_UTC <= hr < SESSION_END_UTC
@@ -261,6 +298,7 @@ def calculer_signal(rows) -> dict:
         "pct_pompe": round(pct_pompe, 1),
         "m6_btc": round(m6_btc or 0, 2),
         "move24_btc": round(move24, 2),
+        "range24_btc": _r24,
         "session_ok": session_ok,
         "session_utc": hr,
         "prix_btc": prix_now,
@@ -315,6 +353,10 @@ def gerer(sig: dict, st: dict) -> None:
         # ---- SORTIE ----
         entree = pos["prix_entree"]
         ts0 = pos["ts_entree_epoch"]
+        # SL porté par la position (nouvelles) ; les anciennes (sans clé) gardent le
+        # fixe 1,5 % — jamais de changement de règle en vol (organisme : on n'opère
+        # pas un trade ouvert).
+        _sl_use = float(pos.get("sl_pct", SL_PCT))
         raison = None
         # FIX 11/09 (crash-loop None<=float, défense en profondeur) : prix None
         # (aucun point BTC du tout) → aucune décision basée prix. Le TIME_OUT
@@ -328,7 +370,7 @@ def gerer(sig: dict, st: dict) -> None:
         elif frais:
             if prix <= entree * (1 - TP_PCT / 100):
                 raison = "TP"
-            elif prix >= entree * (1 + SL_PCT / 100):
+            elif prix >= entree * (1 + _sl_use / 100):
                 raison = "SL"
             elif (SIGNAL_MODE == "corr" and corr is not None and corr > CORR_SORTIE) \
                     or (SIGNAL_MODE != "corr" and score is not None and score < SCORE_SORTIE):
@@ -367,13 +409,21 @@ def gerer(sig: dict, st: dict) -> None:
         entree_ok = (score is not None and score >= SCORE_ENTREE)
         motif = f"score {score} ≥ {SCORE_ENTREE}"
     if prix is not None and sig.get("ok") and entree_ok and frais and sig.get("session_ok"):
+        _r24e = sig.get("range24_btc")
+        if SL_ADAPT_ON and isinstance(_r24e, (int, float)):
+            _sl_entry = round(SL_ADAPT_FRAC * _r24e, 3)
+            _sl_src = f"adaptatif 0,5×range24 {_r24e:.2f} %"
+        else:
+            _sl_entry = SL_PCT
+            _sl_src = "fixe 1,5 % (range24 indisponible ou OFF)"
         st["position"] = {
             "ts_entree": utc(), "ts_entree_epoch": time.time(),
             "prix_entree": prix, "notional": NOTIONAL_USDT,
             "score_entree": score, "corr_entree": corr,
+            "sl_pct": _sl_entry,
             "detail_signal": sig.get("detail"),
         }
-        print(f"[SHORT-BTC] ENTRÉE short @ {prix} ({motif}) — {sig.get('detail')}")
+        print(f"[SHORT-BTC] ENTRÉE short @ {prix} ({motif}, SL {_sl_src} = {_sl_entry} %) — {sig.get('detail')}")
 
 
 def ecrire_live(sig: dict, st: dict) -> None:
@@ -384,7 +434,7 @@ def ecrire_live(sig: dict, st: dict) -> None:
         "frais": sig.get("frais", False),
         "signal": {k: sig.get(k) for k in (
             "score", "corr_dir_btc", "pct_pompe", "m6_btc", "move24_btc",
-            "session_ok", "session_utc", "prix_btc", "detail")},
+            "session_ok", "session_utc", "prix_btc", "range24_btc", "detail")},
         "position": pos,
         "pnl_total": st.get("pnl_total", 0.0),
         "capital": st.get("capital", CAPITAL0),

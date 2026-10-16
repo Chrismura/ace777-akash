@@ -1,10 +1,8 @@
 {
-  "ts": "2026-10-16T20:56:52.758402+00:00",
-  "updated": "2026-10-16T20:56Z",
-  "signaux_actifs": [
-    3
-  ],
-  "verdict": "ALERTE",
+  "ts": "2026-10-16T21:56:54.264694+00:00",
+  "updated": "2026-10-16T21:56Z",
+  "signaux_actifs": [],
+  "verdict": "SURVEILLANCE",
   "signaux": {
     "1_sorties_cex": {
       "declenche": false,
@@ -15,31 +13,31 @@
     },
     "2_blocs_privatises": {
       "declenche": false,
-      "dernier_taux": 11.5,
-      "n_au_dessus": 296,
+      "dernier_taux": 15.7,
+      "n_au_dessus": 288,
       "n_total": 1323,
-      "detail": "dernier taux 11.5% (seuil 12.0%) · 296/1323 blocs > seuil sur 72h (proxi 48h)",
+      "detail": "dernier taux 15.7% (seuil 12.0%) · 288/1323 blocs > seuil sur 72h (proxi 48h)",
       "declenche_effectif": false
     },
     "3_poussiere": {
-      "declenche": true,
-      "score_poussiere": 40.0,
+      "declenche": false,
+      "score_poussiere": 25.0,
       "moyenne_dust": 4.5,
-      "detail": "score poussière 40/50 (proxy ≥40 = ratio côté ≥80%) · moyenne dust_vus/run 48h 4.5",
-      "declenche_effectif": true
+      "detail": "score poussière 25/50 (proxy ≥40 = ratio côté ≥80%) · moyenne dust_vus/run 48h 4.5",
+      "declenche_effectif": false
     }
   },
   "fraicheur_sources": {
     "cpfp": {
-      "age_min": 4.7,
+      "age_min": 4.5,
       "frais": true
     },
     "blocs_privatises": {
-      "age_min": 1.1,
+      "age_min": 0.3,
       "frais": true
     },
     "whales_mouvements": {
-      "age_min": 4.6,
+      "age_min": 4.4,
       "frais": true
     }
   }
