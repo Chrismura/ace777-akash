@@ -52,17 +52,18 @@ Métriques : maison (mur moy/max + régime ; poussière = indicateur PANIER) + p
 | 45 | 2026-10-13T14:34:52Z | 14h | AUTRE | 0.00488 | IMPULSE_WAIT | 2.2684 | 361.81 | 4200.0 | 7.51e-06 | 0.10 | -0.06 | 0.46 | LEADER (stab 1) | prix 0.00488 · poussière(panier) 2.3% · Amihud 7.51e-06 · delta +0.10 · mur moy 362$ · mur max (run) 4,200$ |
 | 46 | 2026-10-14T14:34:14Z | 14h | AUTRE | 0.004829 | IMPULSE | 10.5276 | 361.81 | 4200.0 | 6.66e-06 | -0.25 | -0.04 | -0.26 | POMPE_PIEGE (stab 1) | prix 0.004829 · poussière(panier) 10.5% · Amihud 6.66e-06 · delta -0.25 · mur moy 362$ · mur max (run) 4,200$ |
 | 47 | 2026-10-15T14:35:00Z | 14h | AUTRE | 0.004714 | IMPULSE_WAIT | 100.0 | 361.81 | 4200.0 | 6.32e-06 | 0.08 | -0.07 | -0.08 | POMPE_PIEGE (stab 4) | prix 0.004714 · poussière(panier) 100.0% · Amihud 6.32e-06 · delta +0.08 · mur moy 362$ · mur max (run) 4,200$ |
+| 48 | 2026-10-16T14:34:55Z | 14h | AUTRE | 0.004921 | IMPULSE_WAIT | 6.3967 | 361.81 | 4200.0 | 5.22e-06 | 0.59 | 0.02 | 0.09 | POMPE_PIEGE (stab 8) | prix 0.004921 · poussière(panier) 6.4% · Amihud 5.22e-06 · delta +0.59 · mur moy 362$ · mur max (run) 4,200$ |
 
 ## 🔁 HISTORIQUE DES CYCLES DE L'ACTIF (zigzag ≥ 15 %, log continu du moteur)
 
-_Fenêtre mesurée : du 2026-10-12T10:26:51Z au 2026-10-15T14:35:00Z (10260 points) — archives de rotation incluses._
+_Fenêtre mesurée : du 2026-10-12T10:26:51Z au 2026-10-16T14:34:55Z (13834 points) — archives de rotation incluses._
 
 | # | De | prix | Vers | prix | Amplitude | Durée |
 |---|---|---|---|---|---|---|
 | 1 | pic 2026-10-12T12:48:06Z | 0.005656 | creux 2026-10-13T16:23:50Z | 0.004529 | 🔻 -19.9 % | 28 h (1.1 j) |
 | 2 | creux 2026-10-13T16:23:50Z | 0.004529 | pic 2026-10-14T13:05:49Z | 0.005645 | 🔺 +24.6 % | 21 h (0.9 j) |
 
-**Cycle EN COURS : BAISSE depuis le pic du 2026-10-14T13:05:49Z à 0.005645 → 0.004714 = **-16.5 %**** (extrême courant 0.004444)
+**Cycle EN COURS : BAISSE depuis le pic du 2026-10-14T13:05:49Z à 0.005645 → 0.004921 = **-12.8 %**** (extrême courant 0.004444)
 
 ## 💰 CE QUE LE MOTEUR A CAPTÉ SUR CET ACTIF
 
