@@ -1,7 +1,43 @@
 {
-  "timestamp": 1792166528,
-  "date": "2026-10-16T16:02:08.427767+00:00",
-  "n_analyses": 0,
-  "analyses": [],
-  "resume": "Aucune analyse en cours"
+  "timestamp": 1792170129,
+  "date": "2026-10-16T17:02:09.491697+00:00",
+  "n_analyses": 1,
+  "analyses": [
+    {
+      "signal": {
+        "metric": "whale_usd",
+        "zscore": 3.9378875018462685,
+        "value": 4890313.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Activité anormale des baleines (z-score 3.94, ~4.9M USD) dans un silence médiatique absolu (Google Actualités vide). Accumulation furtive classique hors des radars grand public.\"\n}\n```",
+        "ts": 1792168582.000814
+      },
+      "fiche": "whale_usd",
+      "questions": {
+        "ventes": {
+          "value": 764077.0,
+          "seuil": 0,
+          "depasse": true
+        },
+        "achats": {
+          "value": 1377138.0,
+          "seuil": 0,
+          "depasse": true
+        },
+        "prix": {
+          "value": -0.05,
+          "seuil": 1,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "achats > ventes",
+        "lecture": "Flux baleines ACHETEUR dominant — accumulation possible, à confirmer sur plusieurs scans",
+        "niveau": "info",
+        "action": "Observer, ne pas acheter sur un seul signal"
+      },
+      "action": "Observer, ne pas acheter sur un seul signal",
+      "niveau": "info"
+    }
+  ],
+  "resume": "🔵 CALME — pas de signal alarmant"
 }
