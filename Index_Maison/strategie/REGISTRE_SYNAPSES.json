@@ -1,6 +1,6 @@
 {
   "version": "1.5.0",
-  "updated": "2026-10-16T22:03:54Z",
+  "updated": "2026-10-16T22:58:30Z",
   "fichier": [
     {
       "nom": "Index_Maison/scripts/v2_duo_replay_4h.py",
@@ -30,11 +30,11 @@
       "origine": "chantier hulk",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "67b2fb668aa6a92915a36209b1278cba",
+      "md5": "8834d796b14ce7c52bb459a846bcb2b3",
       "_rescel_20260918": "gate Plancher PLANCHER_GATE_ON + plancher_veto()/plancher_veto_decision() + mise plafonnée sur le MUR LIVE (aspiration_live.json, repli profil).",
       "note": "FIX 27/08 : circuits breaker + fraîcheur Cortana + FILTRE LOTS MEXC (lot_filter depuis exchangeInfo, baseSizePrecision/quoteAmountPrecision, arrondi stepSize au buy ET au sell, dust close, fail-open)  | RE-SCELLÉ 2026-09-03T17:22Z (GO Christophe 03/09) · 10/09: patch fusibles par paire (gate tête de buy() + détarage sizing, GO Christophe) — md5 mis à jour",
       "maj": "BATCH PRIX Phase 1 (31/08-01/09, famille 7/7 + codeur) : 1 appel GET global + cache au lieu de 21 GET/cycle (~200-270 req/min → sous la limite MEXC). Mode SELLFULL + mode_entree() du 29-31/08. Aucune logique métier touchée.",
-      "date": "2026-10-16T20:55:23Z",
+      "date": "2026-10-16T22:15:20Z",
       "_rescel_20260921": "SET-UP IMPULSE 21/09 (GO Christophe « avancer sur le set-up ») : 3 portes corrigées POUR LES SEULES PAIRES mode_entree=IMPULSE (aujourd'hui EDEL), mesurées avant câblage (chiffrage_entree_sortie_replay.py, 90 j × 20 paires) — (1) entrée sur la RAFALE sans attendre le repli (66 % des rafales étaient structurellement inaccessibles), (2) IMPULSE_WAIT n'est plus une sortie anticipée pour ces paires (c'est l'instant du pump), (3) fenêtre de creux levée (une rafale n'a pas d'heure ; les deux portes ensemble = 0 entrée sur 90 j). Sortie INCHANGÉE. Flags IMPULSE_SANS_REPLI_ON / IMPULSE_HORS_FENETRE_ON, réversibles en 1 ligne. Preuve live : EDEL BUY 13:23:28Z régime IMPULSE_WAIT m6=8.0.",
       "_rescel_20260922": "GARDE POINTEUR 22/09 (défense en profondeur) : save_state() ne fait PLUS pointer .hulk_resume_pointer vers un état que le moteur refuserait lui-même de reprendre — VIDE (0 position, 0 bag, écrit au boot avant le --resume) ou VIERGE (artefact de re-seed : 0 trade, 0 cash de paire, pnl≈0, pas de bags). Le disjoncteur mesure la perte journalière depuis ce pointeur : un tel état lu comme « pnl 0 » a déjà produit un faux Mur de Fer de 13,93 % (21/09). Le pointeur reste sur le dernier état RÉEL. Aucune autre ligne touchée ; confirmation définitive au prochain redémarrage du moteur (pas de relance forcée).",
       "_rescel_20260922b": "REFROIDISSEMENT BORNÉ 22/09 (GO Christophe « bloquer un actif est un contre-sens »). REENTRY_MAX n'interdit plus une paire À VIE : nettoyé le compteur en mémoire (non persisté → deux comportements selon le redémarrage) ; le buy() lit désormais un refroidissement GRADUÉ et EXPIRANT adossé au cache de stops persisté (n stops × 6 h, plafond 24 h, expiré après 48 h sans stop) + DÉ-RISQUE ×0,5 après un stop (« rebuilding with smaller size »). Calibré après mesure : à l'horizon 6 h (durée de détention réelle) la garde PROTÈGE (−14,5 $) ; à 24 h elle coûte (+56,3 $) → on garde la protection des premières heures, on supprime le blocage long. ANTI-SILENCE : un refus de régime (WATCH/QUIET) n'est plus muet (1 ligne/h/paire au max) — CCUSDT était invisible 27 h.",
@@ -72,6 +72,10 @@
         {
           "ts": "2026-10-16T20:55:23Z",
           "motif": "GO P1-P4 16/10 (Buffy Muse Spark 1.3) : P2 porte amplitude GBAG (bool+marque, OFF) + P3 plafond global (buy+pyramide) — suite 7/7, compile OK"
+        },
+        {
+          "ts": "2026-10-16T22:15:20Z",
+          "motif": "re-scellement post slip_stats persiste (GO 13/10), pre-declare avant"
         }
       ]
     },
@@ -272,11 +276,11 @@
       "origine": "chantier hulk",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "5bd128cf31c2bb3ce33683ba6c8e3212",
+      "md5": "f25100db608d9b7ccd3df99e77d6c594",
       "_rescel_20260918": "NOTIONAL_USDT 20→30 + PLANCHER_GATE_ON=1.",
       "note": "Re-scellé 2026-09-16T13:10Z (GO C., après audit R3 complet : 73/74 OK, seule dérive = ce fichier). La dérive = 2 GO votés du 15/09 jamais re-déclarés (R3) : ① 06:36Z REENTRY_MAX 1→3 + STOP_COOLDOWN_HOURS 4→1 + VOL_SPIKE_MIN_SMALL 1,5→1,2 + VEILLE_SKIP_RED_ON 1→0 (chantier anti-timing/anti-figage) ; ② 08:45Z SLIP_GATE_ON 0→1 (armement du gate anti-glissement après ses 48 h d'observation prévues le 09/09). Sentinelle indépendante : PnL cohérent (divergence 0,0005 $). Prochain changement de config = re-scellement immédiat.",
       "maj": "30/08 v3 (GO Christophe 14:15Z) : FINI l'observation — PAPER_OBSERVE_PAIRS vidée. QNT/FLUID/RWA/MNSRY seedées (10$ chacune, structure seed_inventory) + lignes SEED_START au CSV + SELL d'annulation du BUY parasite FLUID (09:54Z) pour rejeu exact. 16 positions, plus aucune paire observe. Tableau cockpit = 20 paires tradées. || RE-SCELLÉ 03/09 : Config modifiée session 31/08 12h18 — re-scellée post-audit 03/09 (GO Christophe).",
-      "date": "2026-10-16T20:55:23Z",
+      "date": "2026-10-16T22:15:23Z",
       "_rescel_20260921": "21/09 : + IMPULSE_SANS_REPLI_ON et IMPULSE_HORS_FENETRE_ON (set-up IMPULSE, documentés avec leur mesure). (Rappel 21/09 matin : doublon STOP_COOLDOWN_HOURS retiré.)",
       "_rescel_20260922b": "22/09 : REENTRY_MAX change de sens (nombre de stops avant refroidissement maximal, plus un blocage à vie) ; ajout REENTRY_COOLOFF_STEP_H=6 / REENTRY_COOLOFF_MAX_H=24 / REENTRY_RESET_H=48 / REENTRY_DERISK_MULT=0,5 / SILENCE_LOG_TTL_SEC=3600. Le doublon STOP_COOLDOWN_HOURS reste retiré.",
       "_rescel_20260922c": "22/09 : REENTRY_MAX et les 4 clés de refroidissement en heures RETIRÉES (R17 : aucun timing fixe). SILENCE_LOG_TTL_SEC=3600 conservée. STOP_COOLDOWN_HOURS=1 conservée telle quelle et DÉCLARÉE (antérieure, à re-mesurer par la règle #8, pas touchée).",
@@ -301,6 +305,10 @@
         {
           "ts": "2026-10-16T20:55:23Z",
           "motif": "GO P1-P4 16/10 (Buffy Muse Spark 1.3) : flags GBAG_GATE_AMP_ON=0/MIN_AMP7=2.0 + COMPOUND_GLOBAL_CAP=600 + commentaires mesures 16/10"
+        },
+        {
+          "ts": "2026-10-16T22:15:23Z",
+          "motif": "re-scellement post commentaire SLIP_GATE corrige (valeurs inchangees), pre-declare avant"
         }
       ]
     },
@@ -499,10 +507,10 @@
       "origine": "analyse 53 465 mesures ASPIRATION_CALIB 16-24/08",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "f49caa1ae57847cfe53a805aa650cca8",
+      "md5": "718bc61a9ef5ab955c7457a164a5e469",
       "note": "déclaré manuel 2026-08-28T18:30Z | DÉCLARÉ 2026-09-11 (autopsie V7, GO Christophe « recabler + autopsie v7 ») : modif V4 Option A du 10/09 16h50 (trailing σ filet secondaire sur 8 paires — trail_arm_pct/trail_giveback_pct, source volatilite_paires.json, note in-file « GO Christophe ») committée par auto-sync 15h14Z mais md5 oublié au re-scellement → fausse INTRUSION veilleuse en boucle depuis le 11/09 11h34Z (alerte vocale éteinte manuellement 14h00 par Christophe).",
       "maj": "27/08 17:30Z : création || RE-SCELLÉ 03/09 : Profils universe modifiés 30/08 18h15 — re-scellés post-audit 03/09 (GO Christophe). || 11/09 : md5 mis à jour 304c781d…→0441f23a… (déclaration légitime V4 Option A, autopsie V7)",
-      "date": "2026-10-13T13:05:08Z",
+      "date": "2026-10-16T22:27:49Z",
       "_rescel": [
         {
           "ts": "2026-10-09T09:56:29Z",
@@ -515,6 +523,10 @@
         {
           "ts": "2026-10-13T13:05:08Z",
           "motif": "Setups propres FLUID/MNSRY/QNT/RWA (familles sigma mesurees + filet trailing V4 etendu) - GO mandat Christophe 13/10/2026"
+        },
+        {
+          "ts": "2026-10-16T22:27:49Z",
+          "motif": "re-scellement post recalibration spread_cout_bps sur medianes live (GO post-it 16/10), pre-declare avant"
         }
       ]
     },
@@ -1864,8 +1876,8 @@
       "origine": "Créé 2026-09-22 sur ordre de Christophe; ajout au registre de synapses après consignation E26, pré-déclaré 2026-09-30T21:37:08Z.",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "c7d3f7f310a11a37694f36f5bf703e83",
-      "date": "2026-10-09T11:39:45Z",
+      "md5": "1acfc5bd1619b31b6b49a69fff542936",
+      "date": "2026-10-16T22:58:30Z",
       "_ajout": [
         {
           "ts": "2026-09-30T21:40:50Z",
@@ -1924,6 +1936,10 @@
         {
           "ts": "2026-10-09T11:39:45Z",
           "motif": "09/10/2026 : §15.9 — ajout du defaut d'ORDRE 11:31:51Z radie en dette constatee (decision Christophe)."
+        },
+        {
+          "ts": "2026-10-16T22:58:30Z",
+          "motif": "re-scellement post §16 (E2 recidive) — acte SANS pre-declaration anterieure : violation R20.1 declaree au §16 lui-meme"
         }
       ]
     },
@@ -2704,12 +2720,18 @@
       "origine": "",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "5d7e8d64254ab231e9ffdd9b91e403e6",
-      "date": "2026-10-16T22:03:54Z",
+      "md5": "6af06cee748b3c1dfee9e7376c7b70a1",
+      "date": "2026-10-16T22:15:23Z",
       "_ajout": [
         {
           "ts": "2026-10-16T22:03:54Z",
           "motif": "inscription au registre (R15 : ce qui n'est pas déclaré n'existe pas)"
+        }
+      ],
+      "_rescel": [
+        {
+          "ts": "2026-10-16T22:15:23Z",
+          "motif": "re-scellement post slip affiche (slipN/slipMoy/bride), pre-declare avant"
         }
       ]
     }

@@ -802,9 +802,8 @@ def load_hulk():
         budget_par_paire[_pair] = _seed_val + MARGE_PAR_CRYPTO
         cash_par_paire[_pair] = budget_par_paire[_pair]
         # SLIPPAGE PAR PAIRE (16/10/2026, GO Christophe) : spread mesuré + coûts
-        # cumulés lus du journal (display only — le moteur les écrit déjà, le feed
-        # les agrège et les montre ; slip_stats des stops, lui, est en mémoire vive
-        # moteur seule → affiché « n/a » tant qu'il n'est pas persisté au state).
+        # cumulés lus du journal (display only) ; slip_stats des stops LU DU STATE
+        # (persisté par le moteur depuis le 16/10, GO 13/10 — vieux states → 0/0).
         _spread_par_paire[_pair] = []
         _cout_par_paire[_pair] = 0.0
         nadir_par_paire[_pair] = budget_par_paire[_pair]
@@ -880,6 +879,8 @@ def load_hulk():
     # l'alarme (leçon R14). Le compounding ne se plafonne pas : il se déclare.
     _base_moteur = float(out.get("base") or 0.0) or 30.0
     _c_on, _c_frac, _c_mult, _c_cap = 1.0, 0.50, 3.0, 600.0
+    # Seuils SLIP_GATE LUS au config (E18 : jamais de miroir en dur du .env).
+    _slip_on, _slip_min, _slip_seuil, _slip_mult = False, 3, 1.0, 0.5
     _env = ROOT / "hulk-mexc" / "config" / "defaults.env"
     try:
         for _l in _env.read_text(encoding="utf-8", errors="ignore").splitlines():
@@ -892,6 +893,14 @@ def load_hulk():
                 _c_mult = float(_l.split("=", 1)[1])
             elif _l.startswith("COMPOUND_GLOBAL_CAP="):
                 _c_cap = float(_l.split("=", 1)[1])
+            elif _l.startswith("SLIP_GATE_ON="):
+                _slip_on = _l.split("=", 1)[1].strip() not in ("0", "false", "False")
+            elif _l.startswith("SLIP_GATE_MIN_STOPS="):
+                _slip_min = max(1, int(float(_l.split("=", 1)[1])))
+            elif _l.startswith("SLIP_GATE_SLIP_PP="):
+                _slip_seuil = float(_l.split("=", 1)[1])
+            elif _l.startswith("SLIP_GATE_MULT="):
+                _slip_mult = float(_l.split("=", 1)[1])
     except Exception:
         pass
     plafond_par_paire = _base_moteur * _c_mult if _c_on else _base_moteur
@@ -960,6 +969,20 @@ def load_hulk():
         vs_verdict = "HULK < HOLD"
     else:
         vs_verdict = "ÉGAL"
+    # SLIP STOPS AFFICHÉ (16/10) : repris du state persisté ; seuils lus au config ;
+    # vieux states sans la clé → 0/0 (fail-open, jamais de crash sur state bizarre).
+    _slip_par_paire = _s_all.get("slip_stats") or {}
+    _slip_aff = {}
+    for _pp in _all_pairs:
+        _sn, _ss = 0, 0.0
+        try:
+            _vv = _slip_par_paire.get(_pp) or [0, 0]
+            _sn, _ss = int(float(_vv[0])), float(_vv[1])
+        except Exception:
+            pass
+        _moy = round(_ss / _sn, 1) if _sn > 0 else 0.0
+        _slip_aff[_pp] = {"n": _sn, "moy": _moy,
+                          "bride": bool(_slip_on and _sn >= _slip_min and _moy > _slip_seuil)}
     out["cashReel"] = round(cash_reel, 2)
     out["cashNadir"] = round(cash_nadir, 2)
     out["walletReelVrai"] = round(reel_w, 2)
@@ -1022,6 +1045,10 @@ def load_hulk():
                     # SLIPPAGE (16/10, GO) : spread médian mesuré + coûts cumulés du journal.
                     "spreadMed": round((lambda _v: sorted(_v)[len(_v) // 2] if _v else 0.0)(_spread_par_paire.get(_p) or []), 1),
                     "coutCumule": round(_cout_par_paire.get(_p, 0.0), 2),
+                    # SLIP STOPS (16/10) : n stops + glissement moyen repris du state.
+                    "slipN": _slip_aff.get(_p, {}).get("n", 0),
+                    "slipMoy": _slip_aff.get(_p, {}).get("moy", 0.0),
+                    "bride": _slip_aff.get(_p, {}).get("bride", False),
                     "gbag": _p in _gbag_pairs,
                     "reel": round(reel_par_paire.get(_p, 0.0), 2),
                     "hold": round(hold_par_paire.get(_p, 0.0), 2),
@@ -1068,7 +1095,9 @@ def load_hulk():
         "coutTotal": round(sum(_cout_par_paire.values()), 2),
         "piresSpreads": [{"pair": _pp, "medBps": _mm} for _pp, _mm in _slip_pires],
         "alerte": [_pp for _pp, _mm in _slip_pires if _mm >= 50.0],
-        "note": "Spreads medians MESURES au journal (live). Slip des stops : memoire moteur seule (persistance = GO separe). SLIP_GATE OFF depuis le 09/09.",
+        "brides": sorted([_pp for _pp in _all_pairs if _slip_aff.get(_pp, {}).get("bride")]),
+        "gateOn": bool(_slip_on),
+        "note": "Spreads medians MESURES au journal (live). Slip des stops PERSISTE au state depuis le 16/10 (GO 13/10). SLIP_GATE ON au config (l'ancien commentaire OFF etait perime, corrige 16/10).",
     }
     out["conseils"] = load_hulk_conseils()
     return out

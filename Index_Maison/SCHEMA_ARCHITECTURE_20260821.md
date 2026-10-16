@@ -181,6 +181,8 @@ thermo_quotidien_free.py  →  thermo/live.json  →  couleur_regime.py
 | `thermo/cortana_alerts_*.json` | `cortana_thermo.py` | `cortana_thermo` (historique), cockpit |
 | `cockpit/alerts_day.json` | `cortana_thermo.py` | cockpit |
 | `thermo/sante_index.json` | `sante_index.py` | `auto_reparer`, `veille_degradation` |
+| `runs/PAPER_V1_*_state.json` champ `slip_stats` (16/10) | `paper_diprip.py` (`save_state`) | `paper_diprip.py` (`resume_state` : la gate ne réapprend pas) — vieux states sans la clé → `{}` |
+| `hulk.hulkVsHold.slippage` + `slipN/slipMoy/bride` par ligne (16/10, mission.js seul) | `cockpit_mission_feed.py` (seuils SLIP_GATE lus au `defaults.env`) | cockpit (affichage) — seuils jamais en dur (E18) |
 
 ---
 

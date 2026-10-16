@@ -1,13 +1,13 @@
 # 🩺 DRILL DE RESTAURATION — ✅ **READY**
 
-> Testé le **2026-10-16T22:06Z** · mode **lecture seule** (rien installé, rien modifié).
+> Testé le **2026-10-16T23:06Z** · mode **lecture seule** (rien installé, rien modifié).
 > Question posée : *« si le Mac mourait ce soir, ACE777 reviendrait-il ? »*
 
 ## 1. Source — le repo (git) contient-il tout ?
-- Branche `main` · HEAD `141d63306e` du 2026-10-16T23:05:53+02:00
-- Fichiers suivis modifiés sur disque : **108**
+- Branche `main` · HEAD `9ed96bf4d6` du 2026-10-17T00:06:59+02:00
+- Fichiers suivis modifiés sur disque : **110**
 - Fichiers suivis **supprimés** (perdus) : **0**
-- Nouveaux fichiers non versionnés : 34139 au total, dont **8 sensibles** (scripts/plists/règles)
+- Nouveaux fichiers non versionnés : 34148 au total, dont **8 sensibles** (scripts/plists/règles)
   - `Index_Maison/scripts/CONSULTATION_FAMILLE_CORTANA_JUGE_CONTRE/AVIS_DEEPSEEK.md`
   - `Index_Maison/scripts/CONSULTATION_FAMILLE_CORTANA_JUGE_CONTRE/AVIS_GEMINI.md`
   - `Index_Maison/scripts/CONSULTATION_FAMILLE_CORTANA_JUGE_CONTRE/AVIS_JUGE.md`
@@ -27,7 +27,7 @@
 - ✅ **0 agent hors repo** — tous reconstructibles.
 
 ## 3. Reconstruction dans un dossier neuf
-- Dossier : `/var/folders/y7/571v2gy574z72zvsgqd46wd40000gn/T/drill_restauration_bbzllf6r/LaunchAgents`
+- Dossier : `/var/folders/y7/571v2gy574z72zvsgqd46wd40000gn/T/drill_restauration_d18t5n7t/LaunchAgents`
 - Plists rebâtis + validés (`plutil -lint`) : **103/103**
 
 ## 4. Organes invoqués par les agents
@@ -44,7 +44,7 @@
   | `~/prise-ia` | `prise-ia` | surveille | ✅ miroir de sauvegarde (organes_hors_repo/prise-ia) |
   | `~/prise-ia/routeur_auto.py` | `routeur-auto` | argument | ✅ miroir de sauvegarde (organes_hors_repo/prise-ia) |
 
-  Manifeste des organes hors repo : `thermo/organes_hors_repo.json` (mis à jour 2026-10-16T21:05Z).
+  Manifeste des organes hors repo : `thermo/organes_hors_repo.json` (mis à jour 2026-10-16T22:06Z).
 
   Outillage système hors repo (4) — réinstallable (Homebrew/Xcode CLT), non bloquant : `/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/Resources/Python.app/Contents/MacOS/Python`, `/Library/Developer/CommandLineTools/usr/bin/python3`, `/opt/homebrew/bin/npm`, `/opt/homebrew/bin/uv`
 - ✅ Aucun chemin invoqué introuvable.
@@ -53,7 +53,7 @@
 - Entrées md5 vérifiées : **174** · écarts : **0** · absents : **0**
 
 ## 5bis. Pré-déclarations (R20.1) — un scellé se touche ANNONCÉ
-- Déclarations au registre : **142** · règle active depuis `2026-09-23T15:30:00Z`
+- Déclarations au registre : **151** · règle active depuis `2026-09-23T15:30:00Z`
 - Dette constatée **28** (27-29/09, datée et nommée, radiée de l'alarme — voir `REGISTRE_ECHECS_ET_ERREURS.md` §13)
 - ✅ **0 violation** — aucune modification scellée sans pré-déclaration antérieure.
 

@@ -864,7 +864,8 @@ class PaperBot:
         self.slip_gate_min_stops = max(1, int(float(cfg.get("SLIP_GATE_MIN_STOPS", "3"))))
         self.slip_gate_slip_pp = float(cfg.get("SLIP_GATE_SLIP_PP", "1.0"))
         self.slip_gate_mult = float(cfg.get("SLIP_GATE_MULT", "0.5"))
-        # pair -> [n_stops, somme_glissement_pp] (mémoire de vie du process ; resume re-mèse seul)
+        # pair -> [n_stops, somme_glissement_pp] (persisté au state 16/10, GO 13/10 ;
+        # le resume le reprend — sans state, re-mèse seul, fail-open).
         self.slip_stats: dict[str, list[float]] = {}
         self.veille_skip_red = cfg.get("VEILLE_SKIP_RED_ON", "1").strip() not in (
             "0",
@@ -1955,6 +1956,10 @@ class PaperBot:
                 "pairs": self.pairs,
                 "wall_melt_events": self.wall_melt_events[-50:],  # garder les 50 derniers
                 "eval_metrics": self.eval_metrics,
+                # SLIP PERSISTÉ (16/10, GO Christophe 13/10) : la gate était ON au
+                # config mais AMNESIQUE à chaque restart (mémoire process seule) →
+                # protection aveugle jusqu'à 3 nouveaux stops. Le state porte la mémoire.
+                "slip_stats": self.slip_stats,
             },
             indent=2,
         )
@@ -2051,6 +2056,21 @@ class PaperBot:
                 )
             self.pnl_total = float(st.get("pnl_total") or 0.0)
             self.pair_pnl = {str(k): float(v) for k, v in (st.get("pair_pnl") or {}).items()}
+            # SLIP REPRIS (16/10) : remplace (pas fusion — le state est la vérité).
+            # États anciens sans la clé → {} (re-mèse, fail-open). Entrées malformées
+            # ignorées UNE PAR UNE (R11 : un state bizarre ne doit jamais tuer le resume).
+            _slip = st.get("slip_stats") or {}
+            _slip_ok = {}
+            for _k, _v in _slip.items():
+                try:
+                    _n, _s = float(_v[0]), float(_v[1])
+                    if _n >= 0:
+                        _slip_ok[str(_k)] = [_n, _s]
+                except Exception:
+                    continue
+            self.slip_stats = _slip_ok
+            if _slip_ok:
+                say("hdr", f"RESUME : slip_stats repris ({len(_slip_ok)} paires) — la gate ne réapprend pas")
             self.trades = int(st.get("trades") or 0)
             self.wall_melt_events = st.get("wall_melt_events") or []
             # mémorise la source (pour log/audit) — sans toucher au state courant

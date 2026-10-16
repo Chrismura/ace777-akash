@@ -75,8 +75,8 @@ flowchart TB
 
 | Jambe | Rôle | Où | Maturité |
 |-------|------|-----|----------|
-| **ACE777** | Futures microstructure · duo swarm interne | `ace777-test-day1` · `GO_USINE_NUAGE.sh` | Lab prod · champion sacré |
-| **Hulk** | Paper dip/rip MEXC | `hulk-mexc/` | Paper actif |
+| **ACE777** | Futures microstructure · duo swarm interne | `ace777-test-day1` · `GO_USINE_NUAGE.sh` | Lab prod · champion sacré · **moteur OFF depuis le 09/09 (non qualifié, 16/10)** |
+| **Hulk** | Paper dip/rip MEXC | `hulk-mexc/` | Paper actif · **+46,34 $, 337 trades au 16/10** · slip persisté, gate ON, slippage affiché |
 | **Cortana** | Voix / marché | `crypto-voice-assistant-core` | App OK · **pas** encore chef |
 | **Punk** | Veille / sniff intérêts | `veille-punk/` + [[BRIEF_IA_SNIFF]] | Manuel / semi-auto |
 | **Index + Obsidian** | Décisions, console, plans, mémoire | `Index_Maison` → vault | Bus humain |

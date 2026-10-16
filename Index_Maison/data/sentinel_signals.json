@@ -1,27 +1,6 @@
 {
   "signals": [
     {
-      "metric": "sdi",
-      "zscore": 2.462687352138326,
-      "value": 0.616,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.46) entièrement imputable à un bruit homonyme : le 'SDI' médiatique fait référence à un syndicat patronal français et à des actualités cinématographiques/boursières sans lien avec la crypto.\"\n}\n```",
-      "ts": "2026-10-15T14:44:20.874680+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.1896932302088437,
-      "value": 1.104,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique parasité par des homonymies (IPT = IMPACT Silver, École Polytechnique, etc.). Aucune baleine crypto détectée, le ticker IPT n'a pas de poids onchain pertinent ici.\"\n}\n```",
-      "ts": "2026-10-15T14:44:27.739424+00:00"
-    },
-    {
-      "metric": "price_1h",
-      "zscore": 5.8418149802138215,
-      "value": 2.039672553188421,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Z-score extrême de 5.84 sur 1h sans couverture médiatique (Google Actualités vide). C'est la signature classique d'accumulation agressive par des baleines en mode 'dark mode' avant que le grand public ne réalise la cassure.\"\n}\n```",
-      "ts": "2026-10-15T14:54:34.866366+00:00"
-    },
-    {
       "metric": "taker_ratio",
       "zscore": 3.331516128277713,
       "value": 1.47,
@@ -349,6 +328,27 @@
       "value": 1.605,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio à 1.605 (z-score 2.51) indique une forte dominance agressive des acheteurs (Taker Buy) sur les carnets d'ordres, signalant une accumulation agressive par les baleines. Aucun narratif médiatique notable ne reflète cette pression d'achat, prouvant une divergence totale et un mouvement de « smart money » totalement silencieux avant un potentiel squeeze.\"\n}\n```",
       "ts": "2026-10-16T20:38:50.570716+00:00"
+    },
+    {
+      "metric": "cpfp",
+      "zscore": 2.174368120581475,
+      "value": 50.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique purement liée au vocabulaire (homonymie du sigle CPFP avec des actualités locales et de formation). Aucune baleine crypto en mouvement, simple bruit sémantique sans pertinence onchain.\"\n}\n```",
+      "ts": "2026-10-16T22:29:11.692635+00:00"
+    },
+    {
+      "metric": "dust",
+      "zscore": 2.174368120581475,
+      "value": 50.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (z-score 2.17) liée à du bruit de fond on-chain ('dust') sans lien avec le token ou l'actif, coïncidant avec un vacarme médiatique purement sémantique sans substance financière.\"\n}\n```",
+      "ts": "2026-10-16T22:29:13.533968+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 2.7222157929496182,
+      "value": 4126387.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Activité anormale des baleines (z-score 2.72) combinée à un silence total des médias traditionnels (Google Actualités vide). C'est la signature classique d'accumulation furtive hors radar.\"\n}\n```",
+      "ts": "2026-10-16T23:04:21.399632+00:00"
     }
   ]
 }
