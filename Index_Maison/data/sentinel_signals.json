@@ -2,13 +2,6 @@
   "signals": [
     {
       "metric": "liquidations",
-      "zscore": 3.330479014965675,
-      "value": 5953544.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Fausse alerte liée à une confusion sémantique. Le z-score élevé capte des termes de 'liquidations' dans l'actualité, mais il s'agit exclusivement de faillites d'entreprises traditionnelles (viticulture, commerces français) et non de liquidations de positions crypto par des baleines. Aucune donnée onchain pertinente.\"\n}\n```",
-      "ts": "2026-10-15T05:57:59.055732+00:00"
-    },
-    {
-      "metric": "liquidations",
       "zscore": 2.9020059439359738,
       "value": 5816758.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Fausse alerte liée à une confusion sémantique. Les données onchain analysent les liquidations de positions crypto, tandis que le narratif médiatique traite exclusivement de liquidations judiciaires d'entreprises traditionnelles. Aucune baleine crypto détectée.\"\n}\n```",
@@ -349,6 +342,13 @@
       "value": 5626818.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Fausse alerte liée à un biais sémantique. Le z-score élevé et les données on-chain détectent des liquidations de marchés crypto, mais le narratif médiatique analyse des liquidations judiciaires d'entreprises traditionnelles françaises (Fonderie de Bretagne, viticulture). Aucune divergence cachée de baleines, simple bruit de mots-clés.\"\n}\n```",
       "ts": "2026-10-16T17:26:58.442265+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 8.122233887912058,
+      "value": 9964058.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (z-score 8.12) sans couverture médiatique significative (Google Actualités muet). Divergence typique d'accumulation silencieuse de baleines loin du radar public.\"\n}\n```",
+      "ts": "2026-10-16T19:02:50.850718+00:00"
     }
   ]
 }
