@@ -1,54 +1,15 @@
 {
-  "timestamp": 1792113499,
-  "date": "2026-10-16T01:18:19.717117+00:00",
-  "n_analyses": 2,
+  "timestamp": 1792117100,
+  "date": "2026-10-16T02:18:20.691014+00:00",
+  "n_analyses": 1,
   "analyses": [
     {
       "signal": {
-        "metric": "ipt",
-        "zscore": 2.053490018733663,
-        "value": 1.231,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.05) due à une confusion de ticker (IPT = IMPACT Silver Corp. sur les marchés traditionnels). Aucun mouvement crypto significatif détecté, le bruit médiatique concerne l'actualité générale et minière.\"\n}\n```",
-        "ts": 1792112241.189852
-      },
-      "fiche": "rbf_eleve",
-      "questions": {
-        "prix": {
-          "value": -0.04,
-          "seuil": 1,
-          "depasse": false
-        },
-        "paires": {
-          "value": 0,
-          "seuil": 3,
-          "depasse": false
-        },
-        "funding": {
-          "value": 4.1e-05,
-          "seuil": 0.001,
-          "depasse": false
-        },
-        "whales": {
-          "value": 0,
-          "seuil": 5,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
-      },
-      "action": "Observer",
-      "niveau": "neutre"
-    },
-    {
-      "signal": {
         "metric": "fear_greed",
-        "zscore": 2.2255291384630116,
+        "zscore": 2.1636507459484418,
         "value": 63,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Indice de peur et de cupidité modéré (63) sans données de flux on-chain ou de titres médiatiques significatifs pour détecter une divergence de baleines.\"\n}\n```",
-        "ts": 1792112844.759164
+        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 75,\n  \"reason\": \"Z-score élevé (2.16) couplé à une cupidité modérée (63) dans un vide médiatique total suggère un piège à liquidité. Les baleines profitent du silence des médias pour distribuer discrètement aux suiveurs de tendance.\"\n}\n```",
+        "ts": 1792116456.120682
       },
       "fiche": "fear_greed",
       "questions": {

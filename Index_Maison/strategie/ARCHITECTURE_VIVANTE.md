@@ -1,4 +1,4 @@
-# ARCHITECTURE VIVANTE — ACE777 (2026-10-16 01:13 UTC)
+# ARCHITECTURE VIVANTE — ACE777 (2026-10-16 02:03 UTC)
 
 > Document GÉNÉRÉ AUTOMATIQUEMENT à l'instant. La famille valide
 > en s'appuyant sur CE contexte, pas sur des documents figés.
@@ -22,7 +22,7 @@
 
 ## État de la mission (bots + PnL)
 
-- mission.json : 2026-10-16 01:13Z · run `MASTER_BASE_V8_6_FORTRESS_8H20` · alerte `nominal`
+- mission.json : 2026-10-16 02:03Z · run `MASTER_BASE_V8_6_FORTRESS_8H20` · alerte `nominal`
 - PnL combiné : **0.70 $** 📈 (combo 0.7028)
 - ALPHA (sniper (embuscade, ×13, revenge si claque)) : **-1.97 $** · 7 fills · 6973 skips
 - BETA (éclaireur (chatouille le marché, alimente Alpha)) : **+2.67 $** · 34 fills · 604 skips
@@ -36,10 +36,10 @@
 ## Mémoire chaude (journal + résumés)
 
 - Radar (dernières alertes) :
-  · 2026-10-16T01:13:14.332773Z BTCUSDT 82339.99 0.0003 35.5 declenche=oui
-  · 2026-10-16T01:13:14.335980Z BTCUSDT 82339.99 0.0003 35.5 declenche=oui
-  · 2026-10-16T01:13:14.336027Z BTCUSDT 82339.99 0.0003 35.6 declenche=oui
-  · 2026-10-16T01:13:14.336071Z BTCUSDT 82339.99 0.0003 35.7 declenche=oui
+  · 2026-10-16T02:03:59.112736Z ETHUSDT 2433.27 0.0001 143.2 declenche=non
+  · 2026-10-16T02:03:59.112888Z ETHUSDT 2433.31 0.0002 143.2 declenche=non
+  · 2026-10-16T02:03:59.112967Z ETHUSDT 2433.32 0.0002 143.3 declenche=non
+  · 2026-10-16T02:03:59.268106Z BTCUSDT 82102.3 0.0002 40.5 declenche=oui
 - Intention en cours : BETA a sonde le marche (34 sondes, 25 long / 9 court, conf m | ALPHA attend son signal — aucun tir sur la session en cours.
 - 1029 signets X résumés (quota aujourd'hui : 0/50)
 - 151 fiches IA d'offres en cache (quota 8/jour)

@@ -1,11 +1,71 @@
 {
-  "ts": "2026-10-16T00:30:09Z",
-  "hauteur_tip": 971639,
+  "ts": "2026-10-16T01:43:27Z",
+  "hauteur_tip": 971644,
   "nb_blocs": 8,
   "seuil_btc": 50.0,
   "min_age_ans": 2.0,
-  "nb_grosses_tx": 131,
-  "nb_vieux_mouvements": 0,
-  "vieux_mouvements": [],
+  "nb_grosses_tx": 141,
+  "nb_vieux_mouvements": 1,
+  "vieux_mouvements": [
+    {
+      "txid": "3b41e4d8755c087d7a2e7e434a0cf4e94cba38c4e1f621604576128f41ab34b8",
+      "hauteur_bloc": 971640,
+      "ts_bloc": 1792112429,
+      "btc": 111.11,
+      "inputs_ages": [
+        {
+          "age_jours": 0.3,
+          "btc": 111.11
+        },
+        {
+          "age_jours": 586.8,
+          "btc": 0.0003
+        },
+        {
+          "age_jours": 522.6,
+          "btc": 0.0003
+        },
+        {
+          "age_jours": 994.9,
+          "btc": 0.0003
+        },
+        {
+          "age_jours": 323.4,
+          "btc": 0.0003
+        },
+        {
+          "age_jours": 412.3,
+          "btc": 0.0003
+        },
+        {
+          "age_jours": 428.9,
+          "btc": 0.0003
+        },
+        {
+          "age_jours": 581.5,
+          "btc": 0.0003
+        },
+        {
+          "age_jours": 875.3,
+          "btc": 0.0003
+        },
+        {
+          "age_jours": 586.4,
+          "btc": 0.0003
+        },
+        {
+          "age_jours": 522.0,
+          "btc": 0.0003
+        },
+        {
+          "age_jours": 561.4,
+          "btc": 0.0003
+        }
+      ],
+      "age_max_jours": 994.9,
+      "age_max_ans": 2.7,
+      "inputs_non_resolus": 0
+    }
+  ],
   "note": "age_max = âge du plus vieil input (TOUS inputs, retry+cache, correction 13/09). inputs_ages=null = inputs non résolus — jamais comptés comme 0.0"
 }

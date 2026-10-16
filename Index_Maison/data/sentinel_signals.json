@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "ipt",
-      "zscore": 3.1001611160235427,
-      "value": 1.247,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 3.10) provoquée par une confusion homonymique : les flux concernent des entités sans rapport (IPT Silver Corp, École polytechnique, articles de presse) et non des mouvements de baleines crypto sur un actif numérique pertinent.\"\n}\n```",
-      "ts": "2026-10-15T00:10:20.828521+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": -30.541156329863373,
-      "value": 53,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie statistique extrême (z-score -30.54) avec un indice de peur/avidité neutre (53) et un vide médiatique total. Les baleines accumulent dans l'indifférence des médias avant le prochain mouvement directionnel.\"\n}\n```",
-      "ts": "2026-10-15T00:10:25.490465+00:00"
-    },
-    {
       "metric": "whale_usd",
       "zscore": 3.3810982360316397,
       "value": 6227053.0,
@@ -349,6 +335,20 @@
       "value": 63,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Indice de peur et de cupidité modéré (63) sans données de flux on-chain ou de titres médiatiques significatifs pour détecter une divergence de baleines.\"\n}\n```",
       "ts": "2026-10-16T01:07:24.759164+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 2.194052128947948,
+      "value": 63,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Indice de peur et de cupidité élevé (63, z-score 2.19) sans titres médiatiques alarmistes majeurs. Absence de divergence claire signalant une accumulation ou une distribution cachée par les baleines à ce stade.\"\n}\n```",
+      "ts": "2026-10-16T01:37:30.644847+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 2.1636507459484418,
+      "value": 63,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 75,\n  \"reason\": \"Z-score élevé (2.16) couplé à une cupidité modérée (63) dans un vide médiatique total suggère un piège à liquidité. Les baleines profitent du silence des médias pour distribuer discrètement aux suiveurs de tendance.\"\n}\n```",
+      "ts": "2026-10-16T02:07:36.120682+00:00"
     }
   ]
 }
