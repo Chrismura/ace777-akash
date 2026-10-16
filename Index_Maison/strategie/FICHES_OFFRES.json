@@ -18,7 +18,8 @@
     "2026-09-20": 8,
     "2026-09-23": 8,
     "2026-09-24": 8,
-    "2026-10-04": 8
+    "2026-10-04": 8,
+    "2026-10-16": 8
   },
   "fiches": {
     "32f5f333ea5d": {
@@ -2832,6 +2833,153 @@
       "usage": "analyste",
       "avis_pour": "Idéal pour tester l'analyse comportementale de flux ou de rapports de sécurité sans frais.",
       "avis_attention": "Nécessite un prompt engineering précis pour cadrer ses sorties sur des tâches de décision générales."
+    },
+    "c17546e2a636": {
+      "section": "openrouter (:free)",
+      "item": "nvidia/nemotron-3.5-super-vl:free",
+      "generated": "2026-10-16T20:26:04.243649+00:00",
+      "type": "Modèle multimodal de vision et de traitement rapide pour l'écosystème openrouter",
+      "forts": [
+        "Gratuit via OpenRouter",
+        "Capacités multimodales (vision/texte)",
+        "Bonne réactivité sur les petits formats"
+      ],
+      "faibles": [
+        "Stabilité dépendante de l'infrastructure OpenRouter free",
+        "Moins spécialisé sur la logique pure que les cadors du genre Gemini"
+      ],
+      "usage": "analyste",
+      "avis_pour": "Idéal pour tester l'analyse visuelle ou textuelle sans impacter le budget cloud.",
+      "avis_attention": "Attention aux quotas variables et aux limites inhérentes aux modèles gratuits partagés."
+    },
+    "149051788595": {
+      "section": "inferx",
+      "item": "glm-5.3",
+      "generated": "2026-10-16T20:26:12.371109+00:00",
+      "type": "Modèle généraliste ou expérimental proposé gratuitement sur une plateforme d'inférence",
+      "forts": [
+        "Gratuit et accessible pour des tests rapides",
+        "Peut servir de solution d'appoint ou de secours léger"
+      ],
+      "faibles": [
+        "Performances et robustesse non garanties pour des tâches critiques",
+        "Risque de latence ou de disponibilité variable sur les offres gratuites d'inférence tierces"
+      ],
+      "usage": "chat",
+      "avis_pour": "À essayer pour diversifier les sources sans impacter le budget cloud.",
+      "avis_attention": "Ne pas l'utiliser pour des décisions financières ou du code critique sans validation stricte."
+    },
+    "fc6e677bc78f": {
+      "section": "github search (nouveaux lieux)",
+      "item": "amountnothing/hermes-free-model-pools | Free LLM pool picker groups for Hermes Agent (NVIDIA NIM / OpenCode Go",
+      "generated": "2026-10-16T20:26:18.349887+00:00",
+      "type": "Pool de modèles LLM gratuits et sélecteur pour agents IA",
+      "forts": [
+        "Permet d'accéder à plusieurs fournisseurs gratuits dont NVIDIA NIM",
+        "Utile pour diversifier les sources d'appels API",
+        "Intégration prévue pour des agents type Hermes / OpenCode"
+      ],
+      "faibles": [
+        "Projet communautaire récent, stabilité variable",
+        "Nécessite une configuration et des clés d'accès multiples",
+        "Pas encore intégré nativement dans nos routages ACE777"
+      ],
+      "usage": "chat",
+      "avis_pour": "À explorer en veille pour récupérer des pools de secours et élargir nos sources gratuites.",
+      "avis_attention": "Attention à la maintenance de ces listes communautaires qui peuvent expirer ou saturer rapidement."
+    },
+    "e7309f525366": {
+      "section": "huggingface récents",
+      "item": "aucune nouvelle",
+      "generated": "2026-10-16T20:26:24.397320+00:00",
+      "type": "Fournisseur de modèles open-source récents et variés",
+      "forts": [
+        "Large catalogue de modèles communautaires récents",
+        "Accès gratuit via API pour expérimenter",
+        "Idéal pour tester de nouvelles architectures légères"
+      ],
+      "faibles": [
+        "Disponibilité parfois instable des points de terminaison",
+        "Variabilité de qualité selon le modèle choisi",
+        "Absence de garantie de support sur les variantes gratuites"
+      ],
+      "usage": "analyste",
+      "avis_pour": "À essayer pour découvrir en avant-première les dernières pépites open-source et diversifier les sources d'analyse.",
+      "avis_attention": "Attention aux performances inconstantes et au manque de robustesse pour les tâches critiques en production."
+    },
+    "b8751eeca018": {
+      "section": "huggingface trending (montée)",
+      "item": "google/embeddinggemma-2",
+      "generated": "2026-10-16T20:26:35.872840+00:00",
+      "type": "Modèle d'embedding textuel spécialisé pour la recherche et la représentation sémantique",
+      "forts": [
+        "Excellente capture du sens des textes et du code",
+        "Idéal pour alimenter les bases vectorielles et le RAG",
+        "Léger et rapide pour structurer la mémoire"
+      ],
+      "faibles": [
+        "Ne génère pas de texte conversationnel direct",
+        "Moins adapté aux tâches de raisonnement pur"
+      ],
+      "usage": "lecteur signets et analyseur de contexte",
+      "avis_pour": "Parfait pour indexer et retrouver rapidement nos 1029 signets X ou nos fiches techniques sans consommer de gros modèles.",
+      "avis_attention": "Ne lui demandez pas de rédiger du code ou de tenir une conversation, c'est un outil de représentation de données."
+    },
+    "26ca5962c18b": {
+      "section": "huggingface trending (montée)",
+      "item": "jialinyyzz/humanizer",
+      "generated": "2026-10-16T20:26:38.545503+00:00",
+      "type": "Modèle de traitement de texte et de reformulation open source",
+      "forts": [
+        "Idéal pour lisser ou humaniser du contenu textuel",
+        "Gratuit et accessible via la communauté Hugging Face",
+        "Léger et rapide à intégrer dans des pipelines de scripts Python"
+      ],
+      "faibles": [
+        "Non spécialisé pour l'analyse financière ou le trading quantitatif",
+        "Fiabilité variable selon la complexité des prompts techniques",
+        "Absence de garanties de disponibilité industrielle"
+      ],
+      "usage": "chat",
+      "avis_pour": "À essayer pour tester des capacités de reformulation fluide et de génération de texte naturel sans frais.",
+      "avis_attention": "Ne pas l'utiliser pour des prises de décision critiques ou des calculs de trading en raison de son orientation textuelle."
+    },
+    "6c1fab067fed": {
+      "section": "huggingface trending (montée)",
+      "item": "Qwen/Qwen-Image-2.1-Turbo",
+      "generated": "2026-10-16T20:26:47.081732+00:00",
+      "type": "Modèle de génération d'images et multimédia multimodal",
+      "forts": [
+        "Tendance forte sur Hugging Face",
+        "Capacités de génération visuelle avancées",
+        "Accès gratuit pour tests"
+      ],
+      "faibles": [
+        "Inadapté aux scripts Python et au code",
+        "Pas de rôle direct dans l'analyse de signaux ou le jugement"
+      ],
+      "usage": "chat",
+      "avis_pour": "À essayer pour enrichir les interfaces du cockpit avec du contenu visuel généré à la volée.",
+      "avis_attention": "Ne convient pas pour le routage des tâches logiques (analyste, juge) ni pour la génération de code."
+    },
+    "4de6243acd57": {
+      "section": "huggingface trending (montée)",
+      "item": "openbmb/MiniCPM-V-4.7-35B-A3B",
+      "generated": "2026-10-16T20:26:53.527514+00:00",
+      "type": "Modèle multimodal géant open source haut de gamme",
+      "forts": [
+        "Vision et texte de pointe",
+        "Architecture ouverte 35B performante",
+        "Idéal pour l'analyse visuelle complexe"
+      ],
+      "faibles": [
+        "Lourd à déployer localement",
+        "Consommation en ressources importante",
+        "Latence potentielle sur petits serveurs"
+      ],
+      "usage": "analyste",
+      "avis_pour": "À essayer pour bénéficier d'une IA multimodale puissante et gratuite sur les tendances actuelles.",
+      "avis_attention": "Attention aux performances et au temps de réponse en raison de la grande taille du modèle."
     }
   }
 }

@@ -1,41 +1,37 @@
 {
-  "timestamp": 1792180932,
-  "date": "2026-10-16T20:02:12.539966+00:00",
+  "timestamp": 1792183333,
+  "date": "2026-10-16T20:42:13.253716+00:00",
   "n_analyses": 1,
   "analyses": [
     {
       "signal": {
-        "metric": "price_1h",
-        "zscore": 2.5686490468097785,
-        "value": 0.6066106923098724,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Forte anomalie de prix à la hausse (z-score 2.57) couplée à un silence total des médias généralistes (Google Actualités vide). C'est la signature classique d'accumulation furtive par des baleines loin des radars de la foule.\"\n}\n```",
-        "ts": 1792180703.956654
+        "metric": "taker_ratio",
+        "zscore": 2.510159868722295,
+        "value": 1.605,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio à 1.605 (z-score 2.51) indique une forte dominance agressive des acheteurs (Taker Buy) sur les carnets d'ordres, signalant une accumulation agressive par les baleines. Aucun narratif médiatique notable ne reflète cette pression d'achat, prouvant une divergence totale et un mouvement de « smart money » totalement silencieux avant un potentiel squeeze.\"\n}\n```",
+        "ts": 1792183130.570716
       },
-      "fiche": "price_1h",
+      "fiche": "taker_ratio",
       "questions": {
-        "pct_1h": {
-          "value": -0.0,
-          "seuil": -1,
+        "taker": {
+          "value": 1.605,
+          "seuil": 1,
           "depasse": true
         },
-        "liq": {
-          "value": 2443371.0,
-          "seuil": 5000000,
+        "prix": {
+          "value": 0.11,
+          "seuil": 1,
           "depasse": false
-        },
-        "funding": {
-          "value": 0.0001,
-          "seuil": 0,
-          "depasse": true
         }
       },
       "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
+        "condition": "taker > 1",
+        "lecture": "Takers acheteurs agressifs — la demande mange le carnet, à confirmer avec le volume",
+        "niveau": "info",
+        "action": "Observer si le prix suit (vraie demande) ou diverge (absorption)"
       },
-      "action": "Observer",
-      "niveau": "neutre"
+      "action": "Observer si le prix suit (vraie demande) ou diverge (absorption)",
+      "niveau": "info"
     }
   ],
   "resume": "🔵 CALME — pas de signal alarmant"

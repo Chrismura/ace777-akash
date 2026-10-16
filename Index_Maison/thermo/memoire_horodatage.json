@@ -38,9 +38,11 @@
       }
     ]
   },
-  "n_lignes_horodatees": 220,
-  "maintenant_utc": "2026-10-16T20:05Z",
-  "anomalies": [],
+  "n_lignes_horodatees": 221,
+  "maintenant_utc": "2026-10-16T20:46Z",
+  "anomalies": [
+    "R2 lignes 152→619 : 1853Z puis 2037Z — le tableau se lit du plus récent au plus ancien, cette remontée de temps est une anomalie"
+  ],
   "signalements": [
     "lignes 45→46 (2026-09-22) : 0907Z puis 0925Z — hors ordre, NON re-daté (on n'invente pas une seconde fois : lire le mtime de l'artefact cité)",
     "lignes 62→63 (2026-09-20) : 1745Z puis 1752Z — hors ordre, NON re-daté (on n'invente pas une seconde fois : lire le mtime de l'artefact cité)",
@@ -68,8 +70,8 @@
     "lignes 458→463 (2026-09-14) : 1150Z puis 1505Z — hors ordre, NON re-daté (on n'invente pas une seconde fois : lire le mtime de l'artefact cité)",
     "lignes 488→489 (2026-09-17) : 0819Z puis 0825Z — hors ordre, NON re-daté (on n'invente pas une seconde fois : lire le mtime de l'artefact cité)"
   ],
-  "verdict": "CONFORME — 220 lignes horodatées, date la plus récente sans heure future ni remontée de temps",
+  "verdict": "ANOMALIE — 1 horodatage(s) incohérent(s) de la classe E13",
   "n_signalements": 25,
-  "ts": "2026-10-16T20:05:14Z",
-  "conforme": true
+  "ts": "2026-10-16T20:46:14Z",
+  "conforme": false
 }
