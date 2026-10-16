@@ -38,10 +38,16 @@
       }
     ]
   },
-  "n_lignes_horodatees": 230,
-  "maintenant_utc": "2026-10-16T23:06Z",
+  "n_lignes_horodatees": 233,
+  "maintenant_utc": "2026-10-16T23:47Z",
   "anomalies": [
-    "R1 ligne 628 : 0015Z est DANS LE FUTUR (+63 min vs l'heure réelle 2306Z) — heure estimée, pas lue"
+    "R1 ligne 628 : 0015Z est DANS LE FUTUR (+22 min vs l'heure réelle 2347Z) — heure estimée, pas lue",
+    "R1 ligne 629 : 0040Z est DANS LE FUTUR (+47 min vs l'heure réelle 2347Z) — heure estimée, pas lue",
+    "R1 ligne 630 : 0100Z est DANS LE FUTUR (+67 min vs l'heure réelle 2347Z) — heure estimée, pas lue",
+    "R1 ligne 631 : 0130Z est DANS LE FUTUR (+97 min vs l'heure réelle 2347Z) — heure estimée, pas lue",
+    "R2 lignes 628→629 : 0015Z puis 0040Z — le tableau se lit du plus récent au plus ancien, cette remontée de temps est une anomalie",
+    "R2 lignes 629→630 : 0040Z puis 0100Z — le tableau se lit du plus récent au plus ancien, cette remontée de temps est une anomalie",
+    "R2 lignes 630→631 : 0100Z puis 0130Z — le tableau se lit du plus récent au plus ancien, cette remontée de temps est une anomalie"
   ],
   "signalements": [
     "lignes 45→46 (2026-09-22) : 0907Z puis 0925Z — hors ordre, NON re-daté (on n'invente pas une seconde fois : lire le mtime de l'artefact cité)",
@@ -78,8 +84,8 @@
     "lignes 625→626 (2026-10-16) : 2305Z puis 2330Z — hors ordre, NON re-daté (on n'invente pas une seconde fois : lire le mtime de l'artefact cité)",
     "lignes 626→627 (2026-10-16) : 2330Z puis 2345Z — hors ordre, NON re-daté (on n'invente pas une seconde fois : lire le mtime de l'artefact cité)"
   ],
-  "verdict": "ANOMALIE — 1 horodatage(s) incohérent(s) de la classe E13",
+  "verdict": "ANOMALIE — 7 horodatage(s) incohérent(s) de la classe E13",
   "n_signalements": 33,
-  "ts": "2026-10-16T23:06:17Z",
+  "ts": "2026-10-16T23:47:10Z",
   "conforme": false
 }

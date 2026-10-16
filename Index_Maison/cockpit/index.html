@@ -4,7 +4,7 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<meta name="version" content="3521884734">
+<meta name="version" content="3927513899">
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate" />
@@ -13,13 +13,13 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Share+Tech+Mono&family=Caveat:wght@600;700&display=swap" rel="stylesheet" />
-<script src="mission.js?v=1792192021"></script>
+<script src="mission.js?v=1792194445"></script>
 <!-- COSMOS HUB feed -->
-<script src="hub.js?v=1792192021"></script>
-<script src="../thermo/live.js?v=1792192021"></script>
-<script src="../thermo/cortana_feed.js?v=1792192021"></script>
-<script src="sante_live.js?v=1792192021"></script>
-<script src="veille_institutionnelle.js?v=1792192021"></script>
+<script src="hub.js?v=1792194445"></script>
+<script src="../thermo/live.js?v=1792194445"></script>
+<script src="../thermo/cortana_feed.js?v=1792194445"></script>
+<script src="sante_live.js?v=1792194445"></script>
+<script src="veille_institutionnelle.js?v=1792194445"></script>
 <style>
 :root{
   --ink:#050804; --panel:#0a100c; --line:#3a2e14;
@@ -1164,7 +1164,7 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
     50% { opacity: 1; }
 }
 </style>
-<script src="plancher_live.js?v=1792192021"></script>
+<script src="plancher_live.js?v=1792194445"></script>
 </head>
 <body>
 <div class="app">
@@ -1487,6 +1487,7 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
           <th title="Même budget tenu depuis le prix du seed (rien faire)">SI RIEN FAIT $</th>
           <th title="Hulk − si rien fait : ce que la gestion apporte sur CETTE crypto">ÉCART $</th>
           <th title="Écart en % du budget">ÉCART %</th>
+          <th title="Glissement mesuré : spread médian + coûts cumulés (journal) + stops glissés — 🔒 = gate bride la paire (mises ×0.5)">SLIP</th>
         </tr></thead>
         <tbody id="h-score-tbody"></tbody>
         <tfoot id="h-score-tfoot"></tfoot>
@@ -2088,7 +2089,8 @@ window.addEventListener('unhandledrejection', function(e) {
             + (vsH.compoundLevier&&vsH.compoundLevier>1.01?` <span class="wpos" title="LEVIER COMPOUNDING GLOBAL : le PnL réalisé regrossit la taille de TOUS les prochains trades (mise courante ${vsH.compoundLevier}× la base de ${usd(vsH.baseMoteur||30)}, bornée à ${vsH.compoundMaxMult||3}×). Ce levier s'applique à tous les actifs, pas seulement à ceux listés.">· levier compounding ×${vsH.compoundLevier} (tous actifs)</span>`:'')
             + ((vsH.compoundActif&&vsH.compoundActif.length>0)?` <span class="wpos" title="RÉINVESTISSEMENT NET : ces actifs ont racheté au-delà de leur enveloppe budgétaire (= leurs profits réalisés ont été remis dans la position, sous le plafond moteur). Distinct du levier global ci-dessus.">· réinvestis : ${vsH.compoundActif.map(p=>p.replace('USDT','')).join(', ')}</span>`:'')
             + (vsH.notionalLive!=null?` <span class="hsub">· mise ${usd(vsH.notionalLive)} / plafond ${usd(vsH.plafondParPaire||0)}</span>`:'')
-            + ` <span class="hsub">· brut ${usd(h.pnl)} · frais ${h.fees!=null?('$'+Number(h.fees).toFixed(3)):'—'} · slippage ${h.slippageEstimated!=null?('$'+Number(h.slippageEstimated).toFixed(3)):'—'} · net estimé ${h.pnlNetEstimated!=null?('$'+Number(h.pnlNetEstimated).toFixed(3)):'—'}</span>`;
+            + ` <span class="hsub">· brut ${usd(h.pnl)} · frais ${h.fees!=null?('$'+Number(h.fees).toFixed(3)):'—'} · slippage ${h.slippageEstimated!=null?('$'+Number(h.slippageEstimated).toFixed(3)):'—'} · net estimé ${h.pnlNetEstimated!=null?('$'+Number(h.pnlNetEstimated).toFixed(3)):'—'}</span>`
+            + ((vsH.slippage)?` <span class="hsub" title="Glissement mesuré : spreads médians au journal + slip des stops persisté au state (16/10)">· slip total ${vsH.slippage.coutTotal!=null?usd(vsH.slippage.coutTotal):'—'} · gate ${vsH.slippage.gateOn?'ON 🟢':'OFF 🔴'}${vsH.slippage.brides&&vsH.slippage.brides.length?` · bridées 🔒 ${vsH.slippage.brides.map(p=>p.replace('USDT','')).join(', ')}`:''}</span>`:'');
         } else if(vsNote){
           vsNote.textContent='';
         }
@@ -2120,6 +2122,7 @@ window.addEventListener('unhandledrejection', function(e) {
               <td class="hs" title="Même budget tenu depuis le seed (rien faire)">${p.hold!=null?usd(p.hold):'—'}</td>
               <td class="hr ${clsE}" title="Hulk − si rien fait"><b>${arrowE} ${ec!=null?((ec>0?'+':'')+usd(ec)):'—'}</b></td>
               <td class="hr ${clsE}">${ecPct!=null?((ecPct>0?'+':'')+fmt(ecPct,1)+'%'):'—'}</td>
+              <td class="hq" title="Spread médian mesuré (journal) + coûts cumulés + stops glissés n/moyenne (state persisté) — 🔒 = gate anti-glissement : ré-entrées ×0.5">${p.spreadMed!=null?fmt(p.spreadMed,1)+'bps':'—'} <span class="hsub">${p.coutCumule!=null?usd(p.coutCumule):''}</span>${p.slipN?` <span class="hsub">· ${p.slipN} stops ${p.slipMoy}pp</span>`:''}${p.bride?' <span style="color:var(--warn,orange)" title="Gate anti-glissement : cette paire glisse, ses ré-entrées sont bridées ×0.5">🔒</span>':''}</td>
             </tr>`;
           }).join('');
           scrTb.innerHTML=rowsScore;
@@ -2141,10 +2144,11 @@ window.addEventListener('unhandledrejection', function(e) {
             <td class="hs" title="Total si rien fait"><b>${vsH.hold!=null?usd(vsH.hold):'—'}</b></td>
             <td class="hr ${sumCls}"><b>${sumEc!=null?((sumEc>0?'+':'')+usd(sumEc)):'—'}</b></td>
             <td class="hr ${sumCls}">${vsH.ecart_pct!=null?((vsH.ecart_pct>0?'+':'')+fmt(vsH.ecart_pct,1)+'%'):'—'}</td>
+            <td class="hq" title="Coûts cumulés mesurés sur toutes les paires (journal)"><b>${vsH.slippage&&vsH.slippage.coutTotal!=null?usd(vsH.slippage.coutTotal):'—'}</b></td>
           </tr>
           <tr class="hrow flat">
             <td class="hc" colspan="2"><span class="hcn">AU DÉBUT</span> <span class="hsub">marge ${vsH.margeParCrypto!=null?usd(vsH.margeParCrypto):'20$'} × ${vsH.nbPaires!=null?vsH.nbPaires:'—'} cryptos</span></td>
-            <td class="hq" colspan="7"><b>${vsH.budgetTotal!=null?usd(vsH.budgetTotal):'—'}</b> <span class="hsub">= seeds ${usd(totSeed)} + marge ${usd((vsH.margeParCrypto||20)*(vsH.nbPaires||0))}</span></td>
+            <td class="hq" colspan="8"><b>${vsH.budgetTotal!=null?usd(vsH.budgetTotal):'—'}</b> <span class="hsub">= seeds ${usd(totSeed)} + marge ${usd((vsH.margeParCrypto||20)*(vsH.nbPaires||0))}</span></td>
           </tr>`;
           if(scrNote) scrNote.textContent='· bags '+usd(totPos)+' + cash '+usd(totCash)+' = '+usd(vsH.reel!=null?vsH.reel:0)
             +' · levier ×'+(vsH.compoundLevier||1)+' · '+(vsH.compoundActif&&vsH.compoundActif.length?vsH.compoundActif.length+' réinvestis':'0 réinvesti')
