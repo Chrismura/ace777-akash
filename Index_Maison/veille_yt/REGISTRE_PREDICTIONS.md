@@ -1,11 +1,16 @@
 ---
-date: 2026-10-12T1718Z
+date: 2026-10-16T0718Z
 type: registre_predictions
 ---
 
 # 📓 Registre des prédictions — la vérification du banc d'essai
 
 Chaque prédiction est notée avec sa date limite. Le script `verifier_predictions.py` re-vérifie les échues (statut VRAIE/FAUSSE/NON VÉRIFIABLE).
+
+### 2026-10-16T0716Z — Crypto Crew University : BREAKING: WAVE TREND WARNING SIGNS
+Lien : https://www.youtube.com/watch?v=OGAIlXwmV1Q
+
+- ⏳ EN ATTENTE | [2024-10-23] Publication de la vidéo bonus VIP sur cryptocrewuniversity.com (source : youtuber)
 
 ### 2026-10-12T1718Z — Crypto Crew University : 3-Min Recap: This Golden Cross Could Start the Next Bull Run 👀🐂#shorts
 Lien : https://www.youtube.com/watch?v=UCsLKOG-55E
