@@ -1,26 +1,36 @@
 {
-  "timestamp": 1792112599,
-  "date": "2026-10-16T01:03:19.545904+00:00",
+  "timestamp": 1792113499,
+  "date": "2026-10-16T01:18:19.717117+00:00",
   "n_analyses": 2,
   "analyses": [
     {
       "signal": {
-        "metric": "fear_greed",
-        "zscore": 2.258149706686327,
-        "value": 63,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Indice de peur et de cupidité à 63 (cupidité modérée, z-score élevé de 2.26) mais absence totale de titres médiatiques dans le flux Google Actualités. Cette absence de couverture malgré un sentiment de marché élevé indique une phase de transition silencieuse ou un manque d'attention publique, ne permettant pas de valider une divergence claire de accumulation/distribution par les baleines.\"\n}\n```",
-        "ts": 1792111035.157045
+        "metric": "ipt",
+        "zscore": 2.053490018733663,
+        "value": 1.231,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.05) due à une confusion de ticker (IPT = IMPACT Silver Corp. sur les marchés traditionnels). Aucun mouvement crypto significatif détecté, le bruit médiatique concerne l'actualité générale et minière.\"\n}\n```",
+        "ts": 1792112241.189852
       },
-      "fiche": "fear_greed",
+      "fiche": "rbf_eleve",
       "questions": {
-        "peur": {
-          "value": 63,
-          "seuil": 25,
-          "depasse": true
+        "prix": {
+          "value": -0.04,
+          "seuil": 1,
+          "depasse": false
         },
-        "cupidite": {
-          "value": 63,
-          "seuil": 75,
+        "paires": {
+          "value": 0,
+          "seuil": 3,
+          "depasse": false
+        },
+        "funding": {
+          "value": 4.1e-05,
+          "seuil": 0.001,
+          "depasse": false
+        },
+        "whales": {
+          "value": 0,
+          "seuil": 5,
           "depasse": false
         }
       },
@@ -34,32 +44,22 @@
     },
     {
       "signal": {
-        "metric": "ipt",
-        "zscore": 2.053490018733663,
-        "value": 1.231,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.05) due à une confusion de ticker (IPT = IMPACT Silver Corp. sur les marchés traditionnels). Aucun mouvement crypto significatif détecté, le bruit médiatique concerne l'actualité générale et minière.\"\n}\n```",
-        "ts": 1792112241.189852
+        "metric": "fear_greed",
+        "zscore": 2.2255291384630116,
+        "value": 63,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Indice de peur et de cupidité modéré (63) sans données de flux on-chain ou de titres médiatiques significatifs pour détecter une divergence de baleines.\"\n}\n```",
+        "ts": 1792112844.759164
       },
-      "fiche": "rbf_eleve",
+      "fiche": "fear_greed",
       "questions": {
-        "prix": {
-          "value": 0.02,
-          "seuil": 1,
-          "depasse": false
+        "peur": {
+          "value": 63,
+          "seuil": 25,
+          "depasse": true
         },
-        "paires": {
-          "value": 0,
-          "seuil": 3,
-          "depasse": false
-        },
-        "funding": {
-          "value": 4.5e-05,
-          "seuil": 0.001,
-          "depasse": false
-        },
-        "whales": {
-          "value": 0,
-          "seuil": 5,
+        "cupidite": {
+          "value": 63,
+          "seuil": 75,
           "depasse": false
         }
       },
