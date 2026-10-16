@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "price_1h",
-      "zscore": 5.080094632424013,
-      "value": 0.906745572189771,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrême de 5.08 combiné à un silence médiatique absolu (Google Actualités vide). C'accumulation furtive typique de baleines avant une rupture de prix.\"\n}\n```",
-      "ts": "2026-10-15T02:26:26.472457+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": -2.9325756597230357,
-      "value": 53,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 40,\n  \"reason\": \"Données incomplètes (absence de flux on-chain massifs ou de titres médiatiques significatifs). Le z-score négatif du Fear & Greed indique une sous-évaluation relative, mais sans mouvement de baleine détectable pour confirmer une divergence exploitable.\"\n}\n```",
-      "ts": "2026-10-15T02:41:30.960109+00:00"
-    },
-    {
       "metric": "sdi",
       "zscore": 2.590353583356471,
       "value": 0.616,
@@ -349,6 +335,20 @@
       "value": 14276484837.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit de fond absolu : les titres médiatiques parlent d'éducation, de maïs, de pétrole et de Renault, sans aucun rapport avec la crypto ou le volume onchain observé.\"\n}\n```",
       "ts": "2026-10-16T05:58:21.642370+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": -2.4985220500526113,
+      "value": 13870602213.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie technique due à un faux positif sémantique. Les titres médiatiques traitent de sujets macroéconomiques, automobiles et agricoles sans rapport avec la crypto. Aucune baleine détectée.\"\n}\n```",
+      "ts": "2026-10-16T06:28:51.729293+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": -2.6197413719042064,
+      "value": 13747897899.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Faux positif évident : les titres médiatiques parlent d'éducation, d'agriculture, de pétrole et d'automobiles. Aucune donnée crypto pertinente dans le flux.\"\n}\n```",
+      "ts": "2026-10-16T06:58:58.220705+00:00"
     }
   ]
 }
