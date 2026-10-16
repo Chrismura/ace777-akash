@@ -1,46 +1,72 @@
 {
-  "timestamp": 1792135405,
-  "date": "2026-10-16T07:23:25.826705+00:00",
-  "n_analyses": 1,
+  "timestamp": 1792144622,
+  "date": "2026-10-16T09:57:02.322944+00:00",
+  "n_analyses": 3,
   "analyses": [
     {
       "signal": {
         "metric": "volume",
-        "zscore": -2.6197413719042064,
-        "value": 13747897899.0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Faux positif évident : les titres médiatiques parlent d'éducation, d'agriculture, de pétrole et d'automobiles. Aucune donnée crypto pertinente dans le flux.\"\n}\n```",
-        "ts": 1792133938.220705
+        "zscore": -9.134617995569974,
+        "value": 0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Bruit médiatique hors-sujet (éducation, électroménager, agriculture, énergie) sans lien avec la crypto. L'anomalie onchain (volume à zéro absolu) reflète une inactivité totale des baleines, probablement due à un bug de l'oracle, un week-end de purge ou un token mort, et non à une accumulation cachée.\"\n}\n```",
+        "ts": 1792142866.12322
       },
-      "fiche": "rbf_eleve",
+      "fiche": null,
+      "interpretation": {
+        "lecture": "Pas de fiche disponible",
+        "niveau": "inconnu"
+      },
+      "action": "Observer"
+    },
+    {
+      "signal": {
+        "metric": "liquidations",
+        "zscore": -2.1674084568108216,
+        "value": 0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Divergence absurde due à une confusion sémantique : l'anomalie onchain concerne des liquidations de positions crypto (dérivés), tandis que le narratif médiatique traite de faillites d'entreprises traditionnelles (fonderie, viticulture). Aucune baleine crypto détectée derrière ces actualités macroéconomiques locales.\"\n}\n```",
+        "ts": 1792142870.259915
+      },
+      "fiche": "liquidations",
       "questions": {
+        "longs": {
+          "value": 212758.0,
+          "seuil": 0,
+          "depasse": true
+        },
+        "shorts": {
+          "value": 918000.0,
+          "seuil": 0,
+          "depasse": true
+        },
         "prix": {
-          "value": 0.09,
+          "value": -0.17,
           "seuil": 1,
-          "depasse": false
-        },
-        "paires": {
-          "value": 0,
-          "seuil": 3,
-          "depasse": false
-        },
-        "funding": {
-          "value": 7.4e-05,
-          "seuil": 0.001,
-          "depasse": false
-        },
-        "whales": {
-          "value": 0,
-          "seuil": 5,
           "depasse": false
         }
       },
       "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
+        "condition": "shorts > longs",
+        "lecture": "Liquidations massives de SHORTS — squeeze haussier mécanique. Les paliers RIP profitent de ces mouvements",
+        "niveau": "info",
+        "action": "Laisser courir les paliers RIP, ne pas rentrer après la cascade"
       },
-      "action": "Observer",
-      "niveau": "neutre"
+      "action": "Laisser courir les paliers RIP, ne pas rentrer après la cascade",
+      "niveau": "info"
+    },
+    {
+      "signal": {
+        "metric": "sdi",
+        "zscore": -11.904846156516381,
+        "value": 0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Fausse alerte liée à une ambiguïté sémantique. Le ticker 'SDI' (SDI Corporation / Blackmagic SDI) est confondu par les algorithmes avec un token crypto inexistant ou non pertinent. Aucune baleine crypto active.\"\n}\n```",
+        "ts": 1792142973.250793
+      },
+      "fiche": null,
+      "interpretation": {
+        "lecture": "Pas de fiche disponible",
+        "niveau": "inconnu"
+      },
+      "action": "Observer"
     }
   ],
   "resume": "🔵 CALME — pas de signal alarmant"
