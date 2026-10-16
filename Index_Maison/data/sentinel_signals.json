@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "ipt",
-      "zscore": 2.0267018364976295,
-      "value": 1.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit de fond / confusion de tickers. L'anomalie 'ipt' (IPT) concerne ici une action minière traditionnelle (IMPACT Silver Corp.) ou du bruit sémantique sans lien avec l'écosystème crypto. Aucune baleine crypto détectée, le narratif médiatique est totalement déconnecté car il s'agit d'un télescopage de mots-clés.\"\n}\n```",
-      "ts": "2026-10-15T00:50:50.224267+00:00"
-    },
-    {
       "metric": "fear_greed",
       "zscore": -4.795831523312719,
       "value": 53,
@@ -349,6 +342,13 @@
       "value": 63,
       "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 82,\n  \"reason\": \"Z-score élevé (2.11) combiné à une absence totale de couverture médiatique (silence radio). Divergence classique de distribution par les baleines : le marché de détail est hors-jeu pendant que les smart money liquident discrètement dans l'indifférence générale.\"\n}\n```",
       "ts": "2026-10-16T03:07:47.108810+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 2.0783007665986606,
+      "value": 63,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Indice de Peur & Greed anormalement élevé (z-score 2.08) combiné à un vide médiatique total ('Google Actualités' sans relais majeur). Divergence classique de piégeage : retail en surconfiance silencieuse alors que les baleines initient une distribution.\"\n}\n```",
+      "ts": "2026-10-16T03:37:55.838309+00:00"
     }
   ]
 }
