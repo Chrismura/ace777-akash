@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "fear_greed",
-      "zscore": -3.3166247903554,
-      "value": 53,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-3.32) malgré un sentiment neutre (53) et un vide médiatique total. C'est la signature classique d'accumulation silencieuse par les baleines loin du bruit public.\"\n}\n```",
-      "ts": "2026-10-15T02:11:20.209330+00:00"
-    },
-    {
       "metric": "price_1h",
       "zscore": 5.080094632424013,
       "value": 0.906745572189771,
@@ -349,6 +342,13 @@
       "value": 63,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 50,\n  \"reason\": \"Données incomplètes (absence de titres médiatiques effectifs pour contraster avec le z-score de 2.03).\"\n}\n```",
       "ts": "2026-10-16T04:38:08.836568+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": -2.094306402454872,
+      "value": 14276484837.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit de fond absolu : les titres médiatiques parlent d'éducation, de maïs, de pétrole et de Renault, sans aucun rapport avec la crypto ou le volume onchain observé.\"\n}\n```",
+      "ts": "2026-10-16T05:58:21.642370+00:00"
     }
   ]
 }
