@@ -2,13 +2,6 @@
   "signals": [
     {
       "metric": "fear_greed",
-      "zscore": -2.4201534780139164,
-      "value": 53,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 40,\n  \"reason\": \"Données incomplètes (absence d'actualités Google) empêchant de confirmer une divergence claire avec le z-score on-chain.\"\n}\n```",
-      "ts": "2026-10-15T03:42:12.200113+00:00"
-    },
-    {
-      "metric": "fear_greed",
       "zscore": -2.23606797749979,
       "value": 53,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Indice de peur et d'avidité neutre (53) avec un z-score fortement négatif (-2.24) indiquant une volatilité cachée, mais l'absence de titres médiatiques significatifs montre un vide informationnel. Pas de mouvement de baleine détectable sans données de flux net des exchanges.\"\n}\n```",
@@ -349,6 +342,13 @@
       "value": 0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Fausse alerte liée à une ambiguïté sémantique. Le ticker 'SDI' (SDI Corporation / Blackmagic SDI) est confondu par les algorithmes avec un token crypto inexistant ou non pertinent. Aucune baleine crypto active.\"\n}\n```",
       "ts": "2026-10-16T09:29:33.250793+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 8.765042647659081,
+      "value": 8935869.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Anomalie onchain massive (z-score 8.77, ~8.9M USD) sans AUCUNE couverture médiatique (Google Actualités vide). C'est la définition parfaite d'une accumulation silencieuse de baleine hors des radars du retail.\"\n}\n```",
+      "ts": "2026-10-16T10:34:57.066977+00:00"
     }
   ]
 }
