@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "whale_usd",
-      "zscore": 3.25175182410032,
-      "value": 5176809.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 3.25, accumulation de ~5.17M USD) totalement ignorée par les médias (silence radio). Cette divergence classique indique une accumulation furtive des baleines loin du bruit de fond de détail.\"\n}\n```",
-      "ts": "2026-10-15T05:37:48.469104+00:00"
-    },
-    {
-      "metric": "price_1h",
-      "zscore": 2.9881029591183044,
-      "value": 0.8579725901696422,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.99) combiné à un silence médiatique absolu : les baleines accumulent ou positionnent discrètement sans éveiller de FOMO public.\"\n}\n```",
-      "ts": "2026-10-15T05:47:54.075616+00:00"
-    },
-    {
       "metric": "liquidations",
       "zscore": 3.330479014965675,
       "value": 5953544.0,
@@ -349,6 +335,20 @@
       "value": 4890313.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Activité anormale des baleines (z-score 3.94, ~4.9M USD) dans un silence médiatique absolu (Google Actualités vide). Accumulation furtive classique hors des radars grand public.\"\n}\n```",
       "ts": "2026-10-16T16:36:22.000814+00:00"
+    },
+    {
+      "metric": "price_1h",
+      "zscore": 3.2619167729861145,
+      "value": 0.740818327293602,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie statistique haussière majeure (z-score 3.26) sur une heure, totalement ignorée par les médias (silence radio). C'est la signature classique d'accumulation furtive par des baleines avant le réveil du narratif public.\"\n}\n```",
+      "ts": "2026-10-16T17:26:53.899157+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 3.5573284041802613,
+      "value": 5626818.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Fausse alerte liée à un biais sémantique. Le z-score élevé et les données on-chain détectent des liquidations de marchés crypto, mais le narratif médiatique analyse des liquidations judiciaires d'entreprises traditionnelles françaises (Fonderie de Bretagne, viticulture). Aucune divergence cachée de baleines, simple bruit de mots-clés.\"\n}\n```",
+      "ts": "2026-10-16T17:26:58.442265+00:00"
     }
   ]
 }

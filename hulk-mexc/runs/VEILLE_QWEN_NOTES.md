@@ -7773,3 +7773,16 @@ Pas d’ordre — confrontation plus tard.
 ### 2026-10-16T16:52:10Z — ALERT auto
 - QNTUSDT: WATCH_PULLBACK — tension haute + reflux
 (compléter: confirmé ? risque ?)
+
+### 2026-10-16T17:05:25Z — ALERT auto
+- WUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
+
+### 2026-10-16T17:07:14Z — ALERT auto
+- PYTHUSDT: WATCH_PULLBACK — tension haute + reflux
+- REDUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
+
+### 2026-10-16T17:28:29Z — ALERT auto
+- HBARUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
