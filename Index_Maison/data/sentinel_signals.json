@@ -2,13 +2,6 @@
   "signals": [
     {
       "metric": "fear_greed",
-      "zscore": 2.194052128947948,
-      "value": 63,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Indice de peur et de cupidité élevé (63, z-score 2.19) sans titres médiatiques alarmistes majeurs. Absence de divergence claire signalant une accumulation ou une distribution cachée par les baleines à ce stade.\"\n}\n```",
-      "ts": "2026-10-16T01:37:30.644847+00:00"
-    },
-    {
-      "metric": "fear_greed",
       "zscore": 2.1636507459484418,
       "value": 63,
       "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 75,\n  \"reason\": \"Z-score élevé (2.16) couplé à une cupidité modérée (63) dans un vide médiatique total suggère un piège à liquidité. Les baleines profitent du silence des médias pour distribuer discrètement aux suiveurs de tendance.\"\n}\n```",
@@ -349,6 +342,13 @@
       "value": 1.235,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.78) liée à l'actif traditionnel IMPACT Silver Corp (IPT) ou à du bruit sémantique, sans lien avec une baleine crypto (faos/bruit médiatique intersectoriel).\"\n}\n```",
       "ts": "2026-10-17T08:02:07.536316+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.136504123769353,
+      "value": 1.089,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique non pertinent (baisse d'actifs miniers d'IMPACT Silver, actualités académiques et religieuses sans lien avec la crypto). L'anomalie 'ipt' est un faux positif ou non corrélé aux flux de baleines crypto.\"\n}\n```",
+      "ts": "2026-10-17T09:22:24.524059+00:00"
     }
   ]
 }

@@ -877,7 +877,17 @@ def _speak_texte(texte: str) -> None:
                 "--text", texte, "--write-media", path,
             ]
             p = subprocess.run(cmd, capture_output=True, text=True, timeout=120)
-            if p.returncode == 0 and os.path.getsize(path) > 100:
+            # REPLI SAY 17/10 (GO Christophe + Juge) : edge_tts meurt parfois
+            # (403 handshake Microsoft, prouvé 17/10, mp3 0 octet). Repli local
+            # hors-ligne `say -v Amélie`, même piste afplay/barge-in/verrou.
+            if not (p.returncode == 0 and os.path.exists(path) and os.path.getsize(path) > 100):
+                aiff = path + '.aiff'
+                ps = subprocess.run(['say', '-v', 'Amélie', '-o', aiff, texte],
+                                    capture_output=True, text=True, timeout=120)
+                if ps.returncode == 0 and os.path.exists(aiff) and os.path.getsize(aiff) > 100:
+                    print('[voix] edge_tts KO -> repli say local', flush=True)
+                    path = aiff
+            if os.path.exists(path) and os.path.getsize(path) > 100:
                 proc = subprocess.Popen(["afplay", path])
                 with _VOICE_LOCK:
                     _VOICE_PROC = proc
