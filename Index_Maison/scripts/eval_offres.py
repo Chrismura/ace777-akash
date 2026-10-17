@@ -91,7 +91,14 @@ def call_chat(base_url, model, api_key, timeout=35):
                                      data=payload, headers=headers)
         with urllib.request.urlopen(req, timeout=timeout) as resp:
             d = json.loads(resp.read().decode('utf-8'))
-        text = d['choices'][0]['message']['content'].strip()
+        # FIX 17/10 (GO Christophe) : les modeles reasoning-first renvoient
+        # content=null + reasoning plein. Le .strip() sur None crachait
+        # ('NoneType' has no attribute 'strip') et marquait INACCESSIBLE des
+        # candidats VIVANTS (2/4 le 17/10). Le reasoning prouve la vie aussi.
+        msg = (d.get('choices') or [{}])[0].get('message', {}) or {}
+        text = msg.get('content') or msg.get('reasoning') or ''
+        if isinstance(text, str):
+            text = text.strip()
         if not text:
             return False, '', 'reponse vide'
         return True, text, ''
@@ -169,6 +176,8 @@ MODELES_PAYANTS_CONNUS = {
     'Devstral-2-123B-Instruct-2512-int4-AutoRound', 'Ornith-1.0-35B-FP8',
     'Qwen3.6-35B-A3B-FP8', 'Qwen3.6-35B-A3B-fp8-no-thinking', 'Qwen3.8-27B-FP8',
     'muse-glimmer', 'nemotron-35-lightning',
+    # AJOUT 17/10 (même pattern) : 403 constaté le 17/10, à re-tester si l'offre bouge.
+    'thinkingmachines/inkling-small:free',
 }
 
 

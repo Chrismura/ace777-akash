@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key><string>com.ace777.repare-ids</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/usr/bin/python3</string>
+    <string>/Users/christophe/ace777-test-day1/Index_Maison/scripts/repare_ids.py</string>
+  </array>
+  <key>WorkingDirectory</key><string>/Users/christophe/ace777-test-day1</string>
+  <!-- 6h55 : AVANT veille 7h00 -> les IDs sont frais quand eval 7h05 teste.
+       GO Christophe 17/10 : les offres CHANGENT (pas de deces), ce job repare
+       les model IDs morts (404/410) vers leurs successeurs testes OK.
+       Ne touche JAMAIS a `enabled` (territoire du roulement 7h08). -->
+  <key>StartCalendarInterval</key>
+  <dict>
+    <key>Hour</key><integer>6</integer>
+    <key>Minute</key><integer>55</integer>
+  </dict>
+  <key>RunAtLoad</key><false/>
+  <key>StandardOutPath</key><string>/tmp/repare_ids.log</string>
+  <key>StandardErrorPath</key><string>/tmp/repare_ids.err.log</string>
+</dict>
+</plist>

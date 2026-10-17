@@ -1,13 +1,14 @@
-# 🩺 DRILL DE RESTAURATION — ✅ **READY**
+# 🩺 DRILL DE RESTAURATION — 🔴 **TROU**
 
-> Testé le **2026-10-17T08:15Z** · mode **lecture seule** (rien installé, rien modifié).
+> Testé le **2026-10-17T08:56Z** · mode **lecture seule** (rien installé, rien modifié).
 > Question posée : *« si le Mac mourait ce soir, ACE777 reviendrait-il ? »*
 
 ## 1. Source — le repo (git) contient-il tout ?
-- Branche `main` · HEAD `012a556a96` du 2026-10-17T09:15:36+02:00
-- Fichiers suivis modifiés sur disque : **104**
+- Branche `main` · HEAD `9b0585cd03` du 2026-10-17T10:16:25+02:00
+- Fichiers suivis modifiés sur disque : **94**
 - Fichiers suivis **supprimés** (perdus) : **0**
-- Nouveaux fichiers non versionnés : 34215 au total, dont **8 sensibles** (scripts/plists/règles)
+- Nouveaux fichiers non versionnés : 34221 au total, dont **10 sensibles** (scripts/plists/règles)
+  - `Index_Maison/plists/com.ace777.repare-ids.plist`
   - `Index_Maison/scripts/CONSULTATION_FAMILLE_CORTANA_JUGE_CONTRE/AVIS_DEEPSEEK.md`
   - `Index_Maison/scripts/CONSULTATION_FAMILLE_CORTANA_JUGE_CONTRE/AVIS_GEMINI.md`
   - `Index_Maison/scripts/CONSULTATION_FAMILLE_CORTANA_JUGE_CONTRE/AVIS_JUGE.md`
@@ -16,22 +17,24 @@
   - `Index_Maison/scripts/CONSULTATION_FAMILLE_VEILLEUSE_20260815/AVIS_openrouter-ultra.md`
   - `Index_Maison/scripts/_archives_tronques_20260911/LISEZ_MOI.md`
   - `Index_Maison/scripts/_archives_tronques_20260911/PROD_SUPERVISEUR_GEMINI.py`
+  - `Index_Maison/scripts/repare_ids.py`
 
 ### 1bis. Instruments de la boucle — ce que la boucle EXÉCUTE est-il versionné ?
-- Scripts/exécutables invoqués par un agent ou par `git_push_auto.sh` : **153**
-- ✅ **0 instrument hors git** — tout ce que la boucle exécute revient avec git.
+- Scripts/exécutables invoqués par un agent ou par `git_push_auto.sh` : **154**
+- 🔴 **1 NON versionnés** → un Mac mort les perdrait, et la boucle ne redémarrerait pas :
+  - `Index_Maison/scripts/repare_ids.py`
 - Hors repo (volet « organes hors repo » ci-dessous) : 2
 
 ## 2. Agents launchd — reconstructibles ?
-- Installés : **103** · versionnés : **103**
+- Installés : **104** · versionnés : **104**
 - ✅ **0 agent hors repo** — tous reconstructibles.
 
 ## 3. Reconstruction dans un dossier neuf
-- Dossier : `/var/folders/y7/571v2gy574z72zvsgqd46wd40000gn/T/drill_restauration_lzgi0m_u/LaunchAgents`
-- Plists rebâtis + validés (`plutil -lint`) : **103/103**
+- Dossier : `/var/folders/y7/571v2gy574z72zvsgqd46wd40000gn/T/drill_restauration_ve0wm3td/LaunchAgents`
+- Plists rebâtis + validés (`plutil -lint`) : **104/104**
 
 ## 4. Organes invoqués par les agents
-- Chemins **dans le repo** (reviennent avec git) : **100**
+- Chemins **dans le repo** (reviennent avec git) : **101**
 - Chemins **hors repo** (à sauvegarder autrement, git ne les ramène PAS) : **9**
 
   **Organes du projet hors git** (git ne les ramène PAS → il faut une autre source) :
@@ -44,7 +47,7 @@
   | `~/prise-ia` | `prise-ia` | surveille | ✅ miroir de sauvegarde (organes_hors_repo/prise-ia) |
   | `~/prise-ia/routeur_auto.py` | `routeur-auto` | argument | ✅ miroir de sauvegarde (organes_hors_repo/prise-ia) |
 
-  Manifeste des organes hors repo : `thermo/organes_hors_repo.json` (mis à jour 2026-10-17T07:14Z).
+  Manifeste des organes hors repo : `thermo/organes_hors_repo.json` (mis à jour 2026-10-17T08:15Z).
 
   Outillage système hors repo (4) — réinstallable (Homebrew/Xcode CLT), non bloquant : `/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/Resources/Python.app/Contents/MacOS/Python`, `/Library/Developer/CommandLineTools/usr/bin/python3`, `/opt/homebrew/bin/npm`, `/opt/homebrew/bin/uv`
 - ✅ Aucun chemin invoqué introuvable.
@@ -63,7 +66,8 @@
 - ✅ **0 trou** : chaque classe connue a une garde déclarée et branchée, ou est déclarée promesse/ouverture (jamais verte en silence).
 
 ## 7. Verdict
-- ✅ **READY** — le prototype est reconstructible depuis le repo.
+- 🔴 **1 trou(s) à combler :**
+  - 1 instrument(s) que la boucle EXÉCUTE et qui ne sont PAS dans git → perdus à la restauration (Index_Maison/scripts/repare_ids.py)
 
 ---
 *Rapport généré par `scripts/drill_restauration.py` (lecture seule). Relancer après toute modification d'organe : un drill, ça se répète.*
