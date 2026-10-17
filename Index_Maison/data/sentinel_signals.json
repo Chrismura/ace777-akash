@@ -1,41 +1,6 @@
 {
   "signals": [
     {
-      "metric": "cpfp",
-      "zscore": 2.080829487813484,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 30,\n  \"reason\": \"Bruit médiatique parasité par des homonymes (formation politique, pharmacie, école). Hausse du CPFP on-chain liée à la congestion standard du réseau Bitcoin et non à une accumulation ou manipulation cachée de baleines.\"\n}\n```",
-      "ts": "2026-10-17T03:40:59.922428+00:00"
-    },
-    {
-      "metric": "dust",
-      "zscore": 2.080829487813484,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit de fond onchain sans rapport avec la crypto (homonymie avec des termes industriels, culturels ou financiers traditionnels). Aucune baleine détectée.\"\n}\n```",
-      "ts": "2026-10-17T03:41:01.594334+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": -2.3869801881466577,
-      "value": 55,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Indice de peur et d'avarice neutre (55) avec un z-score très négatif (-2.39) signalant une anomalie statistique de volatilité ou de liquidité, mais absence de données contextuelles claires dans le narratif médiatique pour confirmer une accumulation ou une distribution cachée des baleines.\"\n}\n```",
-      "ts": "2026-10-17T03:41:03.135388+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": -2.208517833391471,
-      "value": 55,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 40,\n  \"reason\": \"Données médiatiques vides ou indisponibles, empêchant toute mesure fiable de divergence malgré un z-score on-chain significatif.\"\n}\n```",
-      "ts": "2026-10-17T04:11:08.600581+00:00"
-    },
-    {
-      "metric": "cpfp",
-      "zscore": 2.0578241924561214,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique sans rapport avec l'activité on-chain des baleines. Le pic de CPFP (Child-Pays-For-Parent) reflète une congestion technique mineure ou un nettoyage de mempool par des utilisateurs particuliers, et non une accumulation ou distribution institutionnelle.\"\n}\n```",
-      "ts": "2026-10-17T04:36:13.799586+00:00"
-    },
-    {
       "metric": "dust",
       "zscore": 2.0578241924561214,
       "value": 50.0,
@@ -349,6 +314,41 @@
       "value": 1.738,
       "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.10) et ratio long/short à 1.738 indiquant une surconcentration excessive des positions acheteuses par les baleines. Le narratif médiatique grand public s'enthousiasme pour les stratégies long/short, créant un piège à liquidité classique (euphorie retail/institutionnelle tardive) présageant d'un \"long squeeze\" imminent.\"\n}\n```",
       "ts": "2026-10-17T22:05:42.374617+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 4.4030229399847185,
+      "value": 5574690.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie on-chain significative (z-score 4.40) sur les liquidations crypto, totalement masquée par un bruit médiatique parasité par des faits divers locaux et traditionnels sans rapport avec la blockchain.\"\n}\n```",
+      "ts": "2026-10-17T22:35:48.683970+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": 2.030274784176857,
+      "value": 1.738,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Le ratio long/short atteint un z-score élevé de 2.03 (1.738), indicating an extreme surconcentration d'optimisme acheteur. Pendant ce temps, le narratif médiatique grand public discute abstraitement des fonds long/short traditionnels sans voir l'accumulation excessive de levier haussier sur les dérivés crypto. Configuration classique de 'long squeeze' imminent par les baleines.\"\n}\n```",
+      "ts": "2026-10-17T22:35:50.489881+00:00"
+    },
+    {
+      "metric": "price_1h",
+      "zscore": 2.7573810041688653,
+      "value": 0.3632551148138985,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de prix positive (z-score 2.76) en l'absence totale de couverture médiatique (Google Actualités vide). C'est la signature classique d'accumulation silencieuse par des baleines loin des radars du retail.\"\n}\n```",
+      "ts": "2026-10-17T22:50:53.414284+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 3.646369082379411,
+      "value": 5563928.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (Z-score 3.65, ~5.5M$ de liquidations) totalement diluée dans les médias par du bruit lexical non pertinent (faillites d'entreprises locales et viticulture). Déconnexion totale : les baleines nettoient le carnet d'ordres (flush des positions) dans l'indifférence médiatique générale.\"\n}\n```",
+      "ts": "2026-10-17T23:05:57.098625+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": 2.359835826920523,
+      "value": 1.744,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Z-score élevé (2.36) sur le ratio long/short (1.744) indiquant un posicionnement acheteur excessif de la foule, tandis que les médias grand public banalisent et romanticent les stratégies long/short. Piège de liquidité classique : les baleines accumulent des shorts dans l'ombre pendant que les détails de l'excès de levier retail s'affichent.\"\n}\n```",
+      "ts": "2026-10-17T23:10:59.296499+00:00"
     }
   ]
 }
