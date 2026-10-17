@@ -1,30 +1,65 @@
 {
-  "timestamp": 1792271877,
-  "date": "2026-10-17T21:17:57.408232+00:00",
-  "n_analyses": 2,
+  "timestamp": 1792275778,
+  "date": "2026-10-17T22:22:58.867633+00:00",
+  "n_analyses": 3,
   "analyses": [
     {
       "signal": {
+        "metric": "price_1h",
+        "zscore": 6.899356792430863,
+        "value": 0.7151648152479706,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de prix extrême (z-score 6.90) complètement ignorée par les médias (silence radio total). Classique accumulation silencieuse de baleines sous le radar médiatique.\"\n}\n```",
+        "ts": 1792274138.059403
+      },
+      "fiche": "price_1h",
+      "questions": {
+        "pct_1h": {
+          "value": 0.1,
+          "seuil": -1,
+          "depasse": true
+        },
+        "liq": {
+          "value": 5577395.0,
+          "seuil": 5000000,
+          "depasse": true
+        },
+        "funding": {
+          "value": 3.3e-05,
+          "seuil": 0,
+          "depasse": true
+        }
+      },
+      "interpretation": {
+        "condition": "liq > 5000000",
+        "lecture": "Chute avec liquidations massives — éjection de leviers en chaîne. Souvent un creux mécanique, pas une tendance",
+        "niveau": "surveiller",
+        "action": "Ne pas vendre dans la panique, attendre la fin des cascades (liq qui retombe)"
+      },
+      "action": "Ne pas vendre dans la panique, attendre la fin des cascades (liq qui retombe)",
+      "niveau": "surveiller"
+    },
+    {
+      "signal": {
         "metric": "liquidations",
-        "zscore": -2.585582503597943,
-        "value": 971324.0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie on-chain avec un Z-score très bas (-2.59) couplé à une absence totale de panique réelle dans les médias crypto (bruit médiatique parasité par des faits divers et de la macroéconomie traditionnelle). Divergence classique de purge des positions vendeuses : accumulation silencieuse des baleines.\"\n}\n```",
-        "ts": 1792270513.486647
+        "zscore": 5.851572923569694,
+        "value": 5582009.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie massive de liquidations onchain (z-score 5.85) sur fond de bruit médiatique totalement déconnecté (faits divers locaux et agriculture). Panique feinte ou purge ciblée des positions fragiles permettant aux baleines d'accumuler dans le silence médiatique global.\"\n}\n```",
+        "ts": 1792274740.828126
       },
       "fiche": "liquidations",
       "questions": {
         "longs": {
-          "value": 639898.0,
+          "value": 5412323.0,
           "seuil": 0,
           "depasse": true
         },
         "shorts": {
-          "value": 510919.0,
+          "value": 165072.0,
           "seuil": 0,
           "depasse": true
         },
         "prix": {
-          "value": 0.0,
+          "value": 0.1,
           "seuil": 1,
           "depasse": false
         }
@@ -40,32 +75,22 @@
     },
     {
       "signal": {
-        "metric": "volume",
-        "zscore": -2.0906068455704503,
-        "value": 3077863921.0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Bruit de fond macroéconomique et actualités généralistes sans rapport avec la crypto. Aucune donnée on-chain pertinente détectée.\"\n}\n```",
-        "ts": 1792271718.553583
+        "metric": "long_short",
+        "zscore": 2.0971236831284354,
+        "value": 1.738,
+        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.10) et ratio long/short à 1.738 indiquant une surconcentration excessive des positions acheteuses par les baleines. Le narratif médiatique grand public s'enthousiasme pour les stratégies long/short, créant un piège à liquidité classique (euphorie retail/institutionnelle tardive) présageant d'un \"long squeeze\" imminent.\"\n}\n```",
+        "ts": 1792274742.374617
       },
-      "fiche": "rbf_eleve",
+      "fiche": "long_short",
       "questions": {
-        "prix": {
-          "value": 0.0,
-          "seuil": 1,
+        "ratio_long_short": {
+          "value": 1.738,
+          "seuil": 2,
           "depasse": false
         },
-        "paires": {
-          "value": 0,
-          "seuil": 3,
-          "depasse": false
-        },
-        "funding": {
-          "value": 4.7e-05,
-          "seuil": 0.001,
-          "depasse": false
-        },
-        "whales": {
-          "value": 1,
-          "seuil": 5,
+        "oi": {
+          "value": 94461.854,
+          "seuil": 120000,
           "depasse": false
         }
       },
