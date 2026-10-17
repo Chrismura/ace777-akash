@@ -1,110 +1,20 @@
 {
-  "timestamp": 1792257472,
-  "date": "2026-10-17T17:17:52.679242+00:00",
-  "n_analyses": 3,
+  "timestamp": 1792259873,
+  "date": "2026-10-17T17:57:53.478565+00:00",
+  "n_analyses": 1,
   "analyses": [
     {
       "signal": {
-        "metric": "cpfp",
-        "zscore": 2.0242515931416283,
-        "value": 50.0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique purement onchain (frais de minage/mempool, CPFP). Les occurrences médiatiques font référence à des homonymes administratifs et éducatifs sans lien avec le marché crypto.\"\n}\n```",
-        "ts": 1792256347.764593
-      },
-      "fiche": "blocs_privilises",
-      "questions": {
-        "duree": {
-          "value": 0,
-          "seuil": 0,
-          "depasse": false
-        },
-        "volume": {
-          "value": 673,
-          "seuil": 0,
-          "depasse": true
-        },
-        "prix": {
-          "value": -0.01,
-          "seuil": 0,
-          "depasse": true
-        },
-        "sdi": {
-          "value": 0.604,
-          "seuil": 0,
-          "depasse": true
-        },
-        "rbf": {
-          "value": 0.0,
-          "seuil": 0,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "duree < 5min ET volume > 100",
-        "lecture": "Consolidation exchange — probablement un transfert hot→cold",
-        "niveau": "neutre",
-        "action": "Garder les positions"
-      },
-      "action": "Garder les positions",
-      "niveau": "neutre"
-    },
-    {
-      "signal": {
-        "metric": "dust",
-        "zscore": 2.0242515931416283,
-        "value": 50.0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit de fond absolu. L'anomalie onchain sur le token 'DUST' (z-score 2.02) coïncide avec des résultats de recherche Google totalement hors-sujet (cinéma, expositions, culture). Aucune corrélation avec une accumulation ou distribution significative de baleines crypto.\"\n}\n```",
-        "ts": 1792256349.617914
-      },
-      "fiche": "blocs_privilises",
-      "questions": {
-        "duree": {
-          "value": 0,
-          "seuil": 0,
-          "depasse": false
-        },
-        "volume": {
-          "value": 673,
-          "seuil": 0,
-          "depasse": true
-        },
-        "prix": {
-          "value": -0.01,
-          "seuil": 0,
-          "depasse": true
-        },
-        "sdi": {
-          "value": 0.604,
-          "seuil": 0,
-          "depasse": true
-        },
-        "rbf": {
-          "value": 0.0,
-          "seuil": 0,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "duree < 5min ET volume > 100",
-        "lecture": "Consolidation exchange — probablement un transfert hot→cold",
-        "niveau": "neutre",
-        "action": "Garder les positions"
-      },
-      "action": "Garder les positions",
-      "niveau": "neutre"
-    },
-    {
-      "signal": {
         "metric": "volume",
-        "zscore": -2.540585789366621,
-        "value": 5672090004.0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"L'anomalie onchain indique un volume anormalement élevé, suggérant une activité de trading importante. Les titres médiatiques ne mentionnent pas de contexte spécifique lié à cette activité, ce qui pourrait indiquer une divergence entre les données brutes et le narratif médiatique. Les baleines pourraient être en train de bouger silencieusement, avec un potentiel d'opportunités de trading.\"\n}\n```",
-        "ts": 1792257255.295712
+        "zscore": -2.974159689370504,
+        "value": 4468633863.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit de fond absolu : les titres médiatiques parlent d'éducation, de voitures et de fruits, sans aucun rapport avec la crypto. Le z-score négatif (-2.97) indique une absence totale d'activité onchain pertinente.\"\n}\n```",
+        "ts": 1792259061.711428
       },
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.01,
+          "value": 0.14,
           "seuil": 1,
           "depasse": false
         },
@@ -114,12 +24,12 @@
           "depasse": false
         },
         "funding": {
-          "value": 3e-05,
+          "value": 2.4e-05,
           "seuil": 0.001,
           "depasse": false
         },
         "whales": {
-          "value": 0,
+          "value": 2,
           "seuil": 5,
           "depasse": false
         }

@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "price_1h",
-      "zscore": 3.2619167729861145,
-      "value": 0.740818327293602,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie statistique haussière majeure (z-score 3.26) sur une heure, totalement ignorée par les médias (silence radio). C'est la signature classique d'accumulation furtive par des baleines avant le réveil du narratif public.\"\n}\n```",
-      "ts": "2026-10-16T17:26:53.899157+00:00"
-    },
-    {
       "metric": "liquidations",
       "zscore": 3.5573284041802613,
       "value": 5626818.0,
@@ -349,6 +342,13 @@
       "value": 5672090004.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"L'anomalie onchain indique un volume anormalement élevé, suggérant une activité de trading importante. Les titres médiatiques ne mentionnent pas de contexte spécifique lié à cette activité, ce qui pourrait indiquer une divergence entre les données brutes et le narratif médiatique. Les baleines pourraient être en train de bouger silencieusement, avec un potentiel d'opportunités de trading.\"\n}\n```",
       "ts": "2026-10-17T17:14:15.295712+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": -2.974159689370504,
+      "value": 4468633863.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit de fond absolu : les titres médiatiques parlent d'éducation, de voitures et de fruits, sans aucun rapport avec la crypto. Le z-score négatif (-2.97) indique une absence totale d'activité onchain pertinente.\"\n}\n```",
+      "ts": "2026-10-17T17:44:21.711428+00:00"
     }
   ]
 }
