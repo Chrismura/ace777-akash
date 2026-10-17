@@ -1,27 +1,6 @@
 {
   "signals": [
     {
-      "metric": "dust",
-      "zscore": 2.174368120581475,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (z-score 2.17) liée à du bruit de fond on-chain ('dust') sans lien avec le token ou l'actif, coïncidant avec un vacarme médiatique purement sémantique sans substance financière.\"\n}\n```",
-      "ts": "2026-10-16T22:29:13.533968+00:00"
-    },
-    {
-      "metric": "whale_usd",
-      "zscore": 2.7222157929496182,
-      "value": 4126387.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Activité anormale des baleines (z-score 2.72) combinée à un silence total des médias traditionnels (Google Actualités vide). C'est la signature classique d'accumulation furtive hors radar.\"\n}\n```",
-      "ts": "2026-10-16T23:04:21.399632+00:00"
-    },
-    {
-      "metric": "whale_usd",
-      "zscore": 2.818712832835237,
-      "value": 5151214.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Activité anormale des baleines (z-score 2.82, accumulation de ~5.15M USD) en l'absence totale de couverture médiatique (silence radio sur Google Actualités). C'est le profil classique d'une accumulation furtive avant un mouvement de marché inattendu.\"\n}\n```",
-      "ts": "2026-10-16T23:39:27.733996+00:00"
-    },
-    {
       "metric": "fear_greed",
       "zscore": -2.796477949950354,
       "value": 55,
@@ -349,6 +328,27 @@
       "value": 1.14,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Forte anomalie statistique (z-score 2.35) sur IPT alors que les médias généralistes et boursiers (TradingView) ne rapportent que des nouvelles de routine ou négatives (dépréciation d'actifs), ignorant totalement l'accumulation ou le mouvement de gros porteurs en coulisses.\"\n}\n```",
       "ts": "2026-10-17T19:19:48.128492+00:00"
+    },
+    {
+      "metric": "taker_ratio",
+      "zscore": 2.041310294221346,
+      "value": 1.453,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Taker ratio à 1.453 (z-score 2.04) indique une forte agression acheteuse cachée, totalement absente du radar médiatique (silence radio). Divergence classique d'accumulation furtive par les baleines avant un re-pricing haussier.\"\n}\n```",
+      "ts": "2026-10-17T19:39:54.925690+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": -2.5169860634472774,
+      "value": 3253174482.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie technique de volume sur un actif non identifié (bruit de fond), couplée à des titres médiatiques totalement hors sujet (actualité générale, automobile, agriculture). Aucune corrélation avec une activité de baleine crypto.\"\n}\n```",
+      "ts": "2026-10-17T19:44:57.622693+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": -2.339656554687166,
+      "value": 3218342348.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Bruit de fond total : les titres médiatiques parlent d'éducation, de voitures, de pétrole et de groseilles, sans aucun rapport avec la crypto ou l'anomalie de volume détectée.\"\n}\n```",
+      "ts": "2026-10-17T20:15:04.318673+00:00"
     }
   ]
 }
