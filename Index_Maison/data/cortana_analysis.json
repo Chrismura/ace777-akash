@@ -1,20 +1,50 @@
 {
-  "timestamp": 1792261073,
-  "date": "2026-10-17T18:17:53.887037+00:00",
-  "n_analyses": 1,
+  "timestamp": 1792264674,
+  "date": "2026-10-17T19:17:54.992113+00:00",
+  "n_analyses": 2,
   "analyses": [
     {
       "signal": {
+        "metric": "taker_ratio",
+        "zscore": 2.142168316037373,
+        "value": 1.453,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio élevé (z-score 2.14) indique une agression massive des acheteurs sur le carnet d'ordres, totalement ignorée par le vide médiatique actuel. Cette accumulation furtive signale une sortie de position imminente des institutionnels avant le réveil du narratif public.\"\n}\n```",
+        "ts": 1792264181.896594
+      },
+      "fiche": "taker_ratio",
+      "questions": {
+        "taker": {
+          "value": 1.453,
+          "seuil": 1,
+          "depasse": true
+        },
+        "prix": {
+          "value": 0.05,
+          "seuil": 1,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "taker > 1",
+        "lecture": "Takers acheteurs agressifs — la demande mange le carnet, à confirmer avec le volume",
+        "niveau": "info",
+        "action": "Observer si le prix suit (vraie demande) ou diverge (absorption)"
+      },
+      "action": "Observer si le prix suit (vraie demande) ou diverge (absorption)",
+      "niveau": "info"
+    },
+    {
+      "signal": {
         "metric": "volume",
-        "zscore": -2.8053659199368983,
-        "value": 4188252208.0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique sans rapport avec la crypto (actualités générales, agriculture, électroménager) et volume on-chain statistiquement faible (z-score -2.81). Aucune baleine détectée, simple interférence sémantique du mot 'volume'.\"\n}\n```",
-        "ts": 1792260867.085541
+        "zscore": -2.562122495881054,
+        "value": 3651926887.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit médiatique hors-sujet (actualité générale, automobile, énergie, agriculture). Absence totale de corrélation avec la crypto malgré un z-score onchain négatif.\"\n}\n```",
+        "ts": 1792264484.285489
       },
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": 0.16,
+          "value": 0.05,
           "seuil": 1,
           "depasse": false
         },
@@ -24,7 +54,7 @@
           "depasse": false
         },
         "funding": {
-          "value": 2.6e-05,
+          "value": 2.9e-05,
           "seuil": 0.001,
           "depasse": false
         },
