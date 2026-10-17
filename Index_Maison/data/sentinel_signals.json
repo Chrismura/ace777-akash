@@ -1,48 +1,6 @@
 {
   "signals": [
     {
-      "metric": "liquidations",
-      "zscore": -2.1674084568108216,
-      "value": 0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Divergence absurde due à une confusion sémantique : l'anomalie onchain concerne des liquidations de positions crypto (dérivés), tandis que le narratif médiatique traite de faillites d'entreprises traditionnelles (fonderie, viticulture). Aucune baleine crypto détectée derrière ces actualités macroéconomiques locales.\"\n}\n```",
-      "ts": "2026-10-16T09:27:50.259915+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": -11.904846156516381,
-      "value": 0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Fausse alerte liée à une ambiguïté sémantique. Le ticker 'SDI' (SDI Corporation / Blackmagic SDI) est confondu par les algorithmes avec un token crypto inexistant ou non pertinent. Aucune baleine crypto active.\"\n}\n```",
-      "ts": "2026-10-16T09:29:33.250793+00:00"
-    },
-    {
-      "metric": "whale_usd",
-      "zscore": 8.765042647659081,
-      "value": 8935869.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Anomalie onchain massive (z-score 8.77, ~8.9M USD) sans AUCUNE couverture médiatique (Google Actualités vide). C'est la définition parfaite d'une accumulation silencieuse de baleine hors des radars du retail.\"\n}\n```",
-      "ts": "2026-10-16T10:34:57.066977+00:00"
-    },
-    {
-      "metric": "whale_usd",
-      "zscore": 2.9825985581830934,
-      "value": 3808949.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 2.98, ~3.8M USD) dans un silence médiatique absolu (Google Actualités vide). Classique accumulation furtive de baleines loin du radar public.\"\n}\n```",
-      "ts": "2026-10-16T11:25:16.601073+00:00"
-    },
-    {
-      "metric": "whale_usd",
-      "zscore": 3.2086782009064803,
-      "value": 4104382.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 3.21, ~4.1M USD) en absence totale de couverture médiatique (Google Actualités vide). Classique accumulation silencieuse de baleine loin du radar grand public.\"\n}\n```",
-      "ts": "2026-10-16T13:55:50.160606+00:00"
-    },
-    {
-      "metric": "whale_usd",
-      "zscore": 3.9378875018462685,
-      "value": 4890313.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Activité anormale des baleines (z-score 3.94, ~4.9M USD) dans un silence médiatique absolu (Google Actualités vide). Accumulation furtive classique hors des radars grand public.\"\n}\n```",
-      "ts": "2026-10-16T16:36:22.000814+00:00"
-    },
-    {
       "metric": "price_1h",
       "zscore": 3.2619167729861145,
       "value": 0.740818327293602,
@@ -349,6 +307,48 @@
       "value": 6030892916.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Bruit de fond hors-sujet. Les titres médiatiques concernent l'éducation, l'automobile, le pétrole et l'agriculture, sans aucun rapport avec les cryptomonnaies ou une activité de baleine onchain.\"\n}\n```",
       "ts": "2026-10-17T16:13:54.768647+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 2.7649011368375915,
+      "value": 0.616,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit sémantique : l'indicateur onchain capture des métriques crypto, tandis que les titres médiatiques font référence à une entreprise traditionnelle (SDI Corporation) et à des acronymes homonymes (Syndicat des Indépendants).\"\n}\n```",
+      "ts": "2026-10-17T16:38:59.287706+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": -2.665111654458641,
+      "value": 5847754735.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit de fond macroéconomique et médiatique sans rapport avec la crypto. Le z-score négatif indique une baisse d'activité on-chain, mais les actualités listées relèvent d'un bruit sémantique (homonymie sur le mot 'volume'). Aucune corrélation avec un mouvement de baleine.\"\n}\n```",
+      "ts": "2026-10-17T16:44:02.299827+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.8155993135426773,
+      "value": 1.227,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Le signal IPT détecté fait référence à IMPACT Silver Corp. (actif traditionnel/equity) et non à une baleine crypto. Les données on-chain ne s'appliquent pas ici, le 'z-score' est un bruit statistique sans lien avec un mouvement de crypto-actifs.\"\n}\n```",
+      "ts": "2026-10-17T16:44:04.378703+00:00"
+    },
+    {
+      "metric": "cpfp",
+      "zscore": 2.0242515931416283,
+      "value": 50.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique purement onchain (frais de minage/mempool, CPFP). Les occurrences médiatiques font référence à des homonymes administratifs et éducatifs sans lien avec le marché crypto.\"\n}\n```",
+      "ts": "2026-10-17T16:59:07.764593+00:00"
+    },
+    {
+      "metric": "dust",
+      "zscore": 2.0242515931416283,
+      "value": 50.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit de fond absolu. L'anomalie onchain sur le token 'DUST' (z-score 2.02) coïncide avec des résultats de recherche Google totalement hors-sujet (cinéma, expositions, culture). Aucune corrélation avec une accumulation ou distribution significative de baleines crypto.\"\n}\n```",
+      "ts": "2026-10-17T16:59:09.617914+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": -2.540585789366621,
+      "value": 5672090004.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"L'anomalie onchain indique un volume anormalement élevé, suggérant une activité de trading importante. Les titres médiatiques ne mentionnent pas de contexte spécifique lié à cette activité, ce qui pourrait indiquer une divergence entre les données brutes et le narratif médiatique. Les baleines pourraient être en train de bouger silencieusement, avec un potentiel d'opportunités de trading.\"\n}\n```",
+      "ts": "2026-10-17T17:14:15.295712+00:00"
     }
   ]
 }

@@ -1,74 +1,110 @@
 {
-  "timestamp": 1792253871,
-  "date": "2026-10-17T16:17:51.652355+00:00",
+  "timestamp": 1792257472,
+  "date": "2026-10-17T17:17:52.679242+00:00",
   "n_analyses": 3,
   "analyses": [
     {
       "signal": {
-        "metric": "sdi",
-        "zscore": 2.7790691096018274,
-        "value": 0.616,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Erreur de cible : l'indicateur on-chain analyse des flux crypto, tandis que les titres médiatiques font référence à 'SDI Corporation' (action traditionnelle TWSE:2351) et au syndicat patronal français SDI. Aucune corrélation crypto détectée.\"\n}\n```",
-        "ts": 1792252729.304321
+        "metric": "cpfp",
+        "zscore": 2.0242515931416283,
+        "value": 50.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique purement onchain (frais de minage/mempool, CPFP). Les occurrences médiatiques font référence à des homonymes administratifs et éducatifs sans lien avec le marché crypto.\"\n}\n```",
+        "ts": 1792256347.764593
       },
-      "fiche": null,
-      "interpretation": {
-        "lecture": "Pas de fiche disponible",
-        "niveau": "inconnu"
-      },
-      "action": "Observer"
-    },
-    {
-      "signal": {
-        "metric": "ipt",
-        "zscore": 2.1610014804530566,
-        "value": 1.06,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.16) sur le ticker IPT capturée par un filtre crypto, mais les titres médiatiques font référence à une société minière (IMPACT Silver) et à des homonymes institutionnels sans lien avec la blockchain. Bruit de fond, pas de mouvement de baleine crypto.\"\n}\n```",
-        "ts": 1792252731.020529
-      },
-      "fiche": "rbf_eleve",
+      "fiche": "blocs_privilises",
       "questions": {
+        "duree": {
+          "value": 0,
+          "seuil": 0,
+          "depasse": false
+        },
+        "volume": {
+          "value": 673,
+          "seuil": 0,
+          "depasse": true
+        },
         "prix": {
-          "value": 0.08,
-          "seuil": 1,
-          "depasse": false
+          "value": -0.01,
+          "seuil": 0,
+          "depasse": true
         },
-        "paires": {
-          "value": 0,
-          "seuil": 3,
-          "depasse": false
+        "sdi": {
+          "value": 0.604,
+          "seuil": 0,
+          "depasse": true
         },
-        "funding": {
-          "value": 3.7e-05,
-          "seuil": 0.001,
-          "depasse": false
-        },
-        "whales": {
-          "value": 0,
-          "seuil": 5,
+        "rbf": {
+          "value": 0.0,
+          "seuil": 0,
           "depasse": false
         }
       },
       "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "condition": "duree < 5min ET volume > 100",
+        "lecture": "Consolidation exchange — probablement un transfert hot→cold",
         "niveau": "neutre",
-        "action": "Observer"
+        "action": "Garder les positions"
       },
-      "action": "Observer",
+      "action": "Garder les positions",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "dust",
+        "zscore": 2.0242515931416283,
+        "value": 50.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit de fond absolu. L'anomalie onchain sur le token 'DUST' (z-score 2.02) coïncide avec des résultats de recherche Google totalement hors-sujet (cinéma, expositions, culture). Aucune corrélation avec une accumulation ou distribution significative de baleines crypto.\"\n}\n```",
+        "ts": 1792256349.617914
+      },
+      "fiche": "blocs_privilises",
+      "questions": {
+        "duree": {
+          "value": 0,
+          "seuil": 0,
+          "depasse": false
+        },
+        "volume": {
+          "value": 673,
+          "seuil": 0,
+          "depasse": true
+        },
+        "prix": {
+          "value": -0.01,
+          "seuil": 0,
+          "depasse": true
+        },
+        "sdi": {
+          "value": 0.604,
+          "seuil": 0,
+          "depasse": true
+        },
+        "rbf": {
+          "value": 0.0,
+          "seuil": 0,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "duree < 5min ET volume > 100",
+        "lecture": "Consolidation exchange — probablement un transfert hot→cold",
+        "niveau": "neutre",
+        "action": "Garder les positions"
+      },
+      "action": "Garder les positions",
       "niveau": "neutre"
     },
     {
       "signal": {
         "metric": "volume",
-        "zscore": -2.824364008863333,
-        "value": 6030892916.0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Bruit de fond hors-sujet. Les titres médiatiques concernent l'éducation, l'automobile, le pétrole et l'agriculture, sans aucun rapport avec les cryptomonnaies ou une activité de baleine onchain.\"\n}\n```",
-        "ts": 1792253634.768647
+        "zscore": -2.540585789366621,
+        "value": 5672090004.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"L'anomalie onchain indique un volume anormalement élevé, suggérant une activité de trading importante. Les titres médiatiques ne mentionnent pas de contexte spécifique lié à cette activité, ce qui pourrait indiquer une divergence entre les données brutes et le narratif médiatique. Les baleines pourraient être en train de bouger silencieusement, avec un potentiel d'opportunités de trading.\"\n}\n```",
+        "ts": 1792257255.295712
       },
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": 0.08,
+          "value": -0.01,
           "seuil": 1,
           "depasse": false
         },
@@ -78,7 +114,7 @@
           "depasse": false
         },
         "funding": {
-          "value": 3.7e-05,
+          "value": 3e-05,
           "seuil": 0.001,
           "depasse": false
         },
