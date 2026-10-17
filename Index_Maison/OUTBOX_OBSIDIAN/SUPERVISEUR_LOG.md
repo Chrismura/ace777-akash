@@ -1,7 +1,3 @@
-| 2026-10-12T14:29Z | SUPERVISEUR | hub=OK ollama=OK jobs_manquants=[] git_sys=D git_vault=P action=none résultat=rien à faire | rappel lecture déjà écrit aujourd'hui (2026-10-12) |
-| 2026-10-12T14:30Z | SUPERVISEUR | hub=OK ollama=OK jobs_manquants=[] git_sys=D git_vault=P action=none résultat=rien à faire | rappel lecture déjà écrit aujourd'hui (2026-10-12) |
-| 2026-10-12T15:30Z | SUPERVISEUR | hub=OK ollama=OK jobs_manquants=[] git_sys=D git_vault=P action=none résultat=rien à faire | rappel lecture déjà écrit aujourd'hui (2026-10-12) |
-| 2026-10-12T15:31Z | SUPERVISEUR | hub=OK ollama=OK jobs_manquants=[] git_sys=D git_vault=P action=none résultat=rien à faire | rappel lecture déjà écrit aujourd'hui (2026-10-12) |
 | 2026-10-12T22:47Z | SUPERVISEUR | hub=OK ollama=OK jobs_manquants=[] git_sys=D git_vault=P action=none résultat=rien à faire | rappel lecture déjà écrit aujourd'hui (2026-10-12) |
 | 2026-10-12T22:48Z | SUPERVISEUR | hub=OK ollama=OK jobs_manquants=[] git_sys=D git_vault=P action=none résultat=rien à faire | rappel lecture déjà écrit aujourd'hui (2026-10-12) |
 | 2026-10-12T23:48Z | SUPERVISEUR | hub=OK ollama=OK jobs_manquants=[] git_sys=D git_vault=P action=none résultat=rien à faire | rappel lecture déjà écrit aujourd'hui (2026-10-12) |
@@ -198,3 +194,7 @@
 | 2026-10-17T06:11Z | SUPERVISEUR | hub=OK ollama=OK jobs_manquants=[] git_sys=D git_vault=P action=none résultat=rien à faire | rappel lecture déjà écrit aujourd'hui (2026-10-17) |
 | 2026-10-17T07:11Z | SUPERVISEUR | hub=OK ollama=OK jobs_manquants=[] git_sys=D git_vault=P action=none résultat=rien à faire | rappel lecture déjà écrit aujourd'hui (2026-10-17) |
 | 2026-10-17T07:13Z | SUPERVISEUR | hub=OK ollama=OK jobs_manquants=[] git_sys=D git_vault=P action=none résultat=rien à faire | rappel lecture déjà écrit aujourd'hui (2026-10-17) |
+| 2026-10-17T08:13Z | SUPERVISEUR | hub=OK ollama=OK jobs_manquants=[] git_sys=D git_vault=P action=none résultat=rien à faire | rappel lecture déjà écrit aujourd'hui (2026-10-17) |
+| 2026-10-17T08:13Z | SUPERVISEUR | hub=OK ollama=OK jobs_manquants=[] git_sys=D git_vault=P action=none résultat=rien à faire | rappel lecture déjà écrit aujourd'hui (2026-10-17) |
+| 2026-10-17T09:13Z | SUPERVISEUR | hub=OK ollama=OK jobs_manquants=[] git_sys=D git_vault=P action=none résultat=rien à faire | rappel lecture déjà écrit aujourd'hui (2026-10-17) |
+| 2026-10-17T09:15Z | SUPERVISEUR | hub=OK ollama=OK jobs_manquants=[] git_sys=D git_vault=P action=none résultat=rien à faire | rappel lecture déjà écrit aujourd'hui (2026-10-17) |
