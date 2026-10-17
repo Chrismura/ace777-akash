@@ -13,19 +13,19 @@
   },
   {
    "id": "openrouter-free",
-   "name": "OpenRouter (modeles gratuits)",
+   "name": "OpenRouter (gemma-4-31b gratuit)",
    "kind": "cloud",
    "base_url": "https://openrouter.ai/api/v1",
-   "model": "z-ai/glm-5.2:free",
+   "model": "google/gemma-4-31b-it:free",
    "api_key_env": "OPENROUTER_API_KEY",
-   "enabled": false,
+   "enabled": true,
    "order": 2,
    "timeout": 60,
-   "note": "CORRIGE 23/08 - gpt-oss-20b:free supprime d OpenRouter (404). Remplace par z-ai/glm-5.2:free (vivant).",
+   "note": "CORRIGE 23/08 - gpt-oss-20b:free supprime d OpenRouter (404). Remplace par z-ai/glm-5.2:free (vivant). | 17/10 REPARÉ+ACTIVÉ : z-ai/glm-5.2:free retiré d OR (GLM 5.x devenus payants 1.40-4.40$/M), gemma-4-31b-it:free testé live OK contenu réel 262K ctx. Quota 50 req/j.",
    "free": true,
    "last_ok_ts": 1788584885.360938,
    "last_err": "",
-   "status": "mort-desactive"
+   "status": "actif-reteste-20261017"
   },
   {
    "id": "nara",
@@ -36,7 +36,7 @@
    "api_key_env": "NARA_API_KEY",
    "order": 2,
    "timeout": 180,
-   "note": "ACTIVE 17/08 - cle NaraRouter OK (Telegram lie) - qwen-3.8-max-free teste reellement OK",
+   "note": "ACTIVE 17/08 - cle NaraRouter OK (Telegram lie) - qwen-3.8-max-free teste reellement OK | 17/10 : 404, mort confirmé.",
    "enabled": false,
    "free": true,
    "status": "mort-desactive",
@@ -45,17 +45,17 @@
   },
   {
    "id": "groq",
-   "name": "Groq (LLM ultra-rapide, gratuit)",
+   "name": "Groq (Qwen 3.8 27B, gratuit)",
    "kind": "cloud",
    "base_url": "https://api.groq.com/openai/v1",
-   "model": "groq/compound",
+   "model": "qwen/qwen3.8-27b",
    "api_key_env": "GROQ_API_KEY",
    "order": 3,
    "timeout": 120,
-   "note": "ACTIVE 17/08 - cle Groq OK + UA fix Cloudflare - groq/compound repond direct (gpt-oss=reasoning vide)",
-   "enabled": false,
+   "note": "ACTIVE 17/08 - cle Groq OK + UA fix Cloudflare - groq/compound repond direct (gpt-oss=reasoning vide) | 17/10 REPARÉ+ACTIVÉ : groq/compound n existe plus, qwen/qwen3.8-27b testé live OK (contenu réel). Free forever sans carte.",
+   "enabled": true,
    "free": true,
-   "status": "mort-remplace-par-nex-agi-nex-n2-5-pro-free",
+   "status": "actif-reteste-20261017",
    "last_ok_ts": 1789967285.185181,
    "last_err": ""
   },
@@ -68,7 +68,7 @@
    "api_key_env": "NVIDIA_NIM_API_KEY",
    "order": 4,
    "timeout": 300,
-   "note": "ACTIVE 17/08 - vivant mais LENT (47s a froid, demarrage modele) - reserve analyse profonde",
+   "note": "ACTIVE 17/08 - vivant mais LENT (47s a froid, demarrage modele) - reserve analyse profonde | 17/10 : v4-flash-0731 ET v4-pro-0813 = 410 Gone, kimi-k3 = 410, v4.1-flash = timeout cold-start. Reste désactivé.",
    "enabled": false,
    "free": true,
    "last_ok_ts": 1787634485.5228841,
@@ -84,12 +84,12 @@
    "api_key_env": "MISTRAL_API_KEY",
    "order": 5,
    "timeout": 180,
-   "note": "ACTIVE 11/08 - cle Mistral OK (plan experiment 1 Md tokens/mois) - Codestral = modele code",
-   "enabled": false,
+   "note": "ACTIVE 11/08 - cle Mistral OK (plan experiment 1 Md tokens/mois) - Codestral = modele code | 17/10 REACTIVÉ : codestral-latest testé live OK contenu réel (trial experiment toujours vivant).",
+   "enabled": true,
    "free": false,
    "last_ok_ts": 1787634485.5228841,
    "last_err": "",
-   "status": "mort-desactive"
+   "status": "actif-reteste-20261017"
   },
   {
    "id": "cloudflare-workers-ai",
@@ -160,7 +160,7 @@
    "enabled": true,
    "order": 10,
    "timeout": 600,
-   "note": "ACTIVE 09/08 - cle InferX OK (gratuite jusqu'au 12/08) - DeepSeek V4 Flash 284B/13B actifs | quota journalier épuisé le 17/08 → reset automatique",
+   "note": "ACTIVE 09/08 - cle InferX OK (gratuite jusqu'au 12/08) - DeepSeek V4 Flash 284B/13B actifs | quota journalier épuisé le 17/08 → reset automatique | 17/10 : 429 quota (temporaire, gardé).",
    "free": false
   },
   {
@@ -173,7 +173,7 @@
    "enabled": true,
    "order": 11,
    "timeout": 180,
-   "note": "REACTIVE 13/08 - Qwen3-Coder-Next, specialiste CODE (2e codeur). Offre gratuite a surveiller. | quota journalier épuisé le 17/08 → reset automatique",
+   "note": "REACTIVE 13/08 - Qwen3-Coder-Next, specialiste CODE (2e codeur). Offre gratuite a surveiller. | quota journalier épuisé le 17/08 → reset automatique | 17/10 : 429 quota (temporaire, gardé).",
    "free": true
   },
   {
@@ -183,12 +183,12 @@
    "base_url": "https://api.puter.com/puterai/openai/v1",
    "model": "x-ai/grok-4.3",
    "api_key_env": "PUTER_API_KEY",
-   "enabled": true,
-   "status": "actif",
+   "enabled": false,
+   "status": "mis-de-cote-402-20261017",
    "integrated_at": "2026-08-09T11:18:20.052570+00:00",
    "order": 12,
    "timeout": 300,
-   "note": "PUTER 2026-08-09 - en observation (A/B + GO hebdo avant activation) | ACTIVE 09/08 (GO Christophe, A/B EGAL vs deepseek) | quota journalier épuisé le 17/08 → reset automatique",
+   "note": "PUTER 2026-08-09 - en observation (A/B + GO hebdo avant activation) | ACTIVE 09/08 (GO Christophe, A/B EGAL vs deepseek) | quota journalier épuisé le 17/08 → reset automatique | 17/10 MIS DE CÔTÉ : 402 Payment Required durable (précédent grok 09/08). Réactiver si promo revient.",
    "free": true
   },
   {
@@ -200,9 +200,10 @@
    "api_key_env": "NVIDIA_NIM_API_KEY",
    "order": 12,
    "timeout": 300,
-   "note": "INTEGRE 16/08 (GO Christophe) - DeepSeek-Coder 6.7B, codeur specialise (file d'attente). | quota journalier épuisé le 17/08 → reset automatique",
-   "enabled": true,
-   "free": true
+   "note": "INTEGRE 16/08 (GO Christophe) - DeepSeek-Coder 6.7B, codeur specialise (file d'attente). | quota journalier épuisé le 17/08 → reset automatique | 17/10 DÉSACTIVÉ : deepseek-coder-6.7b = 404 au completion malgré listing (clé OK, 81 modèles listés).",
+   "enabled": false,
+   "free": true,
+   "status": "desactive-404-20261017"
   },
   {
    "id": "qwen-local",
@@ -225,7 +226,7 @@
    "api_key_env": "INFERX_API_KEY",
    "order": 13,
    "timeout": 180,
-   "note": "INTEGRE 16/08 (GO Christophe) - Devstral 123B, 2e codeur (file d'attente). | quota journalier épuisé le 17/08 → reset automatique",
+   "note": "INTEGRE 16/08 (GO Christophe) - Devstral 123B, 2e codeur (file d'attente). | quota journalier épuisé le 17/08 → reset automatique | 17/10 : 429 quota (temporaire, gardé).",
    "enabled": true,
    "free": true
   },
@@ -312,7 +313,7 @@
    "api_key_env": "HF_API_KEY",
    "order": 4,
    "timeout": 180,
-   "note": "ACTIVE 17/08 - token HF avec permission Inference - DeepSeek-V3 teste reellement OK",
+   "note": "ACTIVE 17/08 - token HF avec permission Inference - DeepSeek-V3 teste reellement OK | 17/10 : 402 paiement requis, mort confirmé.",
    "enabled": false,
    "free": true,
    "status": "mort-desactive",
@@ -372,7 +373,7 @@
    "order": 1,
    "timeout": 60,
    "free": true,
-   "note": "INTEGRE 23/08 - cle OK, orcarouter/free teste OK (1.2s). Routeur meta (191 modeles). Signet X RoundtableSpace.",
+   "note": "INTEGRE 23/08 - cle OK, orcarouter/free teste OK (1.2s). Routeur meta (191 modeles). Signet X RoundtableSpace. | 17/10 : 402, mort confirmé.",
    "last_ok_ts": 1791263285.260167,
    "last_err": "",
    "status": "mort-desactive"

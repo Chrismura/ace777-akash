@@ -2,13 +2,6 @@
   "signals": [
     {
       "metric": "fear_greed",
-      "zscore": 2.2255291384630116,
-      "value": 63,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Indice de peur et de cupidité modéré (63) sans données de flux on-chain ou de titres médiatiques significatifs pour détecter une divergence de baleines.\"\n}\n```",
-      "ts": "2026-10-16T01:07:24.759164+00:00"
-    },
-    {
-      "metric": "fear_greed",
       "zscore": 2.194052128947948,
       "value": 63,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Indice de peur et de cupidité élevé (63, z-score 2.19) sans titres médiatiques alarmistes majeurs. Absence de divergence claire signalant une accumulation ou une distribution cachée par les baleines à ce stade.\"\n}\n```",
@@ -349,6 +342,13 @@
       "value": 50.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit de fond onchain sans rapport avec la crypto. Les titres médiatiques font référence à du cinéma, de la musique, de la finance traditionnelle (Dust SA) ou de l'industrie automobile (émissions de poussière). Faux positif absolu.\"\n}\n```",
       "ts": "2026-10-17T05:51:40.005296+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.779173135316406,
+      "value": 1.235,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.78) liée à l'actif traditionnel IMPACT Silver Corp (IPT) ou à du bruit sémantique, sans lien avec une baleine crypto (faos/bruit médiatique intersectoriel).\"\n}\n```",
+      "ts": "2026-10-17T08:02:07.536316+00:00"
     }
   ]
 }
