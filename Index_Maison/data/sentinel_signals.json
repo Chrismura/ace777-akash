@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "fear_greed",
-      "zscore": 2.0516252159716126,
-      "value": 63,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Données médiatiques insuffisantes pour établir une divergence significative, malgré un z-score élevé de l'indice de peur et de cupidité.\"\n}\n```",
-      "ts": "2026-10-16T04:08:01.385399+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": 2.025758327207005,
-      "value": 63,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 50,\n  \"reason\": \"Données incomplètes (absence de titres médiatiques effectifs pour contraster avec le z-score de 2.03).\"\n}\n```",
-      "ts": "2026-10-16T04:38:08.836568+00:00"
-    },
-    {
       "metric": "volume",
       "zscore": -2.094306402454872,
       "value": 14276484837.0,
@@ -349,6 +335,20 @@
       "value": 50.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie onchain insignifiante (bruit statistique z-score 2.09). Le 'narratif médiatique' ne concerne pas la crypto mais des homonymes culturels et financiers traditionnels (art, actions, options). Aucune baleine crypto détectée.\"\n}\n```",
       "ts": "2026-10-17T13:18:11.786482+00:00"
+    },
+    {
+      "metric": "taker_ratio",
+      "zscore": 2.7497779179003605,
+      "value": 1.571,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Taker ratio élevé (1.571, Z-score 2.75) indique une forte agression acheteuse cachée, totalement ignorée par le vide médiatique actuel. Accumulation silencieuse des baleines.\"\n}\n```",
+      "ts": "2026-10-17T15:08:29.056135+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": -2.103927280504826,
+      "value": 6552238668.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique due à un bruit de fond sans rapport avec la crypto (bruit médiatique totalement hors-sujet sur les groseilles, les lycées et le pétrole). Aucune baleine détectée.\"\n}\n```",
+      "ts": "2026-10-17T15:13:32.420605+00:00"
     }
   ]
 }
