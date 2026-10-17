@@ -82,6 +82,11 @@ def call_chat(base_url, model, api_key, timeout=35):
         headers = {'Content-Type': 'application/json'}
         if api_key:
             headers['Authorization'] = 'Bearer ' + api_key
+        # FIX 17/10 (même fix maison que hub 17/08) : UA navigateur, sinon
+        # Cloudflare (Groq, error 1010) bloque Python-urllib sur gros payloads.
+        headers['User-Agent'] = ('Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) '
+                                 'AppleWebKit/537.36 (KHTML, like Gecko) '
+                                 'Chrome/126.0 Safari/537.36')
         payload = json.dumps({
             'model': model,
             'messages': [{'role': 'user', 'content': QUESTION}],

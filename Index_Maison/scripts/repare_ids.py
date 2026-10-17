@@ -125,6 +125,13 @@ def test_model(base_url, model, key, timeout=TIMEOUT):
         headers = {'Content-Type': 'application/json'}
         if key:
             headers['Authorization'] = 'Bearer ' + key
+        # FIX 17/10 (même fix maison que hub 17/08) : Groq est derrière
+        # Cloudflare anti-bot (error 1010) qui bloque Python-urllib. Sans UA
+        # navigateur, les gros payloads prennent 403 et le test déclare MORT
+        # un provider vivant (3 faux 403 Groq le 17/10, prouvé au body 1010).
+        headers['User-Agent'] = ('Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) '
+                                 'AppleWebKit/537.36 (KHTML, like Gecko) '
+                                 'Chrome/126.0 Safari/537.36')
         req = urllib.request.Request(base_url.rstrip('/') + '/chat/completions',
                                      data=body, headers=headers)
         with urllib.request.urlopen(req, timeout=timeout) as r:
