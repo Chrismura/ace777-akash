@@ -1,27 +1,6 @@
 {
   "signals": [
     {
-      "metric": "ipt",
-      "zscore": 2.4065592630453456,
-      "value": 1.334,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.41) sur un ticker boursier traditionnel (IPT / IMPACT Silver) polluée par du bruit médiatique sans rapport (École polytechnique, théologie). Absence de mouvements on-chain pertinents.\"\n}\n```",
-      "ts": "2026-10-15T22:41:48.622814+00:00"
-    },
-    {
-      "metric": "whale_usd",
-      "zscore": 5.57852881042568,
-      "value": 6357222.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (z-score 5.58, >$6.3M) en l'absence totale de couverture médiatique (Google Actualités muet). Accumulation furtive classique de baleines loin du radar grand public.\"\n}\n```",
-      "ts": "2026-10-15T22:46:50.656823+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": 2.2919879536168093,
-      "value": 63,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Données incomplètes (absence de flux on-chain bruts et de titres Google Actualités concrets) pour confirmer une divergence exploitable entre l'euphorie modérée et le narratif.\"\n}\n```",
-      "ts": "2026-10-16T00:07:05.585551+00:00"
-    },
-    {
       "metric": "fear_greed",
       "zscore": 2.258149706686327,
       "value": 63,
@@ -349,6 +328,27 @@
       "value": 55,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 40,\n  \"reason\": \"Données médiatiques vides ou indisponibles, empêchant toute mesure fiable de divergence malgré un z-score on-chain significatif.\"\n}\n```",
       "ts": "2026-10-17T04:11:08.600581+00:00"
+    },
+    {
+      "metric": "cpfp",
+      "zscore": 2.0578241924561214,
+      "value": 50.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique sans rapport avec l'activité on-chain des baleines. Le pic de CPFP (Child-Pays-For-Parent) reflète une congestion technique mineure ou un nettoyage de mempool par des utilisateurs particuliers, et non une accumulation ou distribution institutionnelle.\"\n}\n```",
+      "ts": "2026-10-17T04:36:13.799586+00:00"
+    },
+    {
+      "metric": "dust",
+      "zscore": 2.0578241924561214,
+      "value": 50.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Bruit de fond absolu. Les données on-chain ('dust = 50.0') et les titres médiatiques concernent des homonymes lexicaux sans rapport avec la crypto (cinéma, musique, finances traditionnelles, industrie automobile).\"\n}\n```",
+      "ts": "2026-10-17T04:36:15.554086+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -2.0582428516488602,
+      "value": 55,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le sentiment est neutre (55) avec un z-score fortement négatif (-2.06) et un vide médiatique total. Cette indifférence publique combinée à une anomalie statistique indique une accumulation silencieuse des baleines loin des radars.\"\n}\n```",
+      "ts": "2026-10-17T04:41:18.762273+00:00"
     }
   ]
 }
