@@ -7841,3 +7841,8 @@ Pas d’ordre — confrontation plus tard.
 ### 2026-10-17T13:07:48Z — ALERT auto
 - WUSDT: WATCH_PULLBACK — tension haute + reflux
 (compléter: confirmé ? risque ?)
+
+### 2026-10-17T13:44:52Z — ALERT auto
+- RWAINCUSDT: WATCH_PULLBACK — tension haute + reflux
+- CHIPUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)

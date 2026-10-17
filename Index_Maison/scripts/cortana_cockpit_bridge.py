@@ -348,6 +348,103 @@ def _contexte_bots() -> str:
     return "\n".join(lignes)
 
 
+_HULK_UNIVERSE_CACHE = {"mtime": 0, "data": {}}
+# Symboles sûrs cités nus (« edel », « btc ») ; ambigus exigent le suffixe
+# USDT (« tel », « red », « w » sont des mots français courants).
+_HULK_NUS = ("BIO", "CHIP", "EDEL", "HBAR", "KITE", "PYTH", "QAIT",
+              "RIZE", "ZBCN", "XRP", "BTC", "ETH", "FLUID", "MNSRY")
+
+
+def _hulk_universe() -> dict:
+    """Fiches actifs Hulk (universe_profils.json), cache sur mtime."""
+    try:
+        p = ROOT / "hulk-mexc" / "strategie" / "universe_profils.json"
+        mt = p.stat().st_mtime
+        if mt != _HULK_UNIVERSE_CACHE["mtime"]:
+            d = json.loads(p.read_text(encoding="utf-8"))
+            _HULK_UNIVERSE_CACHE.update(mtime=mt, data=d if isinstance(d, dict) else {})
+        return _HULK_UNIVERSE_CACHE["data"]
+    except Exception:
+        return {}
+
+
+def _contexte_hulk_actifs(msg: str) -> str:
+    """Fiches actifs Hulk pour le chat : roster compact TOUJOURS + fiche
+    complète si un actif est cité. Fail-open : jamais de crash du chat."""
+    import re as _re
+    try:
+        u = _hulk_universe()
+        if not u:
+            return ""
+        acts = [k for k in u if isinstance(k, str) and k.endswith("USDT")
+                and isinstance(u[k], dict)]
+        if not acts:
+            return ""
+        low = (msg or "").lower()
+        demandes = []
+        for a in acts:
+            base = a[:-4]
+            if base in _HULK_NUS:
+                if _re.search(r"\b" + base.lower() + r"(usdt)?\b", low):
+                    demandes.append(a)
+            elif a.lower() in low:
+                demandes.append(a)
+        lignes = []
+        for a in sorted(acts):
+            s = u[a]
+            c = s.get("calib") or {}
+            lignes.append(
+                "%s: %s · dip %s%%/rip %s%%/stop %s%%" % (
+                    a[:-4], s.get("archetype") or "?",
+                    c.get("dip_pct") if c.get("dip_pct") is not None else "?",
+                    c.get("rip_pct") if c.get("rip_pct") is not None else "?",
+                    c.get("stop_pct") if c.get("stop_pct") is not None else "?"))
+        out = ["ROSTER HULK (%d actifs, profils du %s) :" % (
+            len(acts), str(u.get("updated") or "?")[:10])]
+        out.extend("- " + l for l in lignes)
+        for a in demandes[:3]:
+            s = u[a]
+            c = s.get("calib") or {}
+            ffort = s.get("fenetres_fortes_utc") or []
+            ffaible = s.get("fenetres_faibles_utc") or []
+            out.append("FICHE %s (caractère %s, %s mesures, prix %s) :" % (
+                a, s.get("archetype") or "?",
+                s.get("n_mesures") or "?", s.get("prix") or "?"))
+            out.append("  Setup: dip %s%% / rip %s%% / stop %s%% / trailing arm %s%% giveback %s%%" % (
+                c.get("dip_pct", "?"), c.get("rip_pct", "?"),
+                c.get("stop_pct", "?"), c.get("trail_arm_pct", "?"),
+                c.get("trail_giveback_pct", "?")))
+            out.append("  Micro: spread méd %sbps (σ %s) · spoof %s%% · drops15 %s%% · fenêtres fortes UTC %s · faibles %s" % (
+                c.get("spread_cout_bps", s.get("spread_bps_med", "?")) if isinstance(c, dict) else "?",
+                s.get("spread_bps_sigma", "?"), s.get("spoof_pct", "?"),
+                s.get("drops15_pct", "?"), ffort or "—", ffaible or "—"))
+            lecture = str(s.get("lecture") or "").strip()
+            if lecture:
+                out.append("  Note: " + lecture[:400])
+            pos = _hulk_position_live(a)
+            if pos:
+                out.append("  Position live: " + pos)
+        return "\n".join(out)
+    except Exception:
+        return ""
+
+
+def _hulk_position_live(pair: str) -> str:
+    """Position live d'une paire depuis mission.json (fail-open)."""
+    try:
+        m = json.loads(MISSION_JSON.read_text(encoding="utf-8"))
+        for p in ((m.get("hulk") or {}).get("positions") or []):
+            if isinstance(p, dict) and str(p.get("pair") or "") == pair:
+                return ("%s %s @%s, uPnl %s$ (%s%%)" % (
+                    p.get("dir") or "?", p.get("qty") or "?",
+                    p.get("entry") or "?",
+                    round(float(p.get("uPnl") or 0), 2),
+                    p.get("pnlPct") or "?"))
+    except Exception:
+        pass
+    return ""
+
+
 def do_recherche(query: str) -> dict:
     """Recherche web à la demande : CoinGecko (crypto) + DuckDuckGo (web), puis
     synthèse par le hub (task cortana.analyse). Lecture seule, jamais d'ordre."""
@@ -815,6 +912,13 @@ def do_chat(message: str) -> dict:
             "\n\nLeçons apprises (ta mémoire AGORA, à appliquer en répondant) :\n"
             + "\n".join("- " + a for a in lecons)
         )
+    ctx_hulk = _contexte_hulk_actifs(msg)
+    if ctx_hulk:
+        sys_ctx += (
+            "\n\nFiches actifs HULK (ton propre book : lis la fiche avant "
+            "tout avis sur un actif cité, cite son setup et sa note) :\n"
+            + ctx_hulk
+        )
     payload = {
         "task": "mission",  # deepseek-v4-flash via NVIDIA + rotation hub (fallback)
         "messages": [
@@ -848,7 +952,86 @@ def do_chat(message: str) -> dict:
         "reponse": content,
         "provider": provider,
     })
+    # GO 17/10 : TOUTE réponse passe au jugement (pair immédiat + marché à horizon)
+    _chat_avis_notable(msg, content, provider)
+    _chat_jugement_lancer(msg, content, provider)
     return {"ok": True, "texte": content, "provider": provider}
+
+
+def _chat_avis_notable(msg: str, content: str, provider: str) -> None:
+    """Boucle justesse (GO Christophe 17/10) : toute réponse avec AVIS STRICT
+    + HORIZON rejoint thermo/analyses/chat-AAAA-MM-JJ.jsonl → notée par
+    score_justesse à horizon, contre le marché réel (indice « chat »).
+    Fail-open : jamais de crash du chat."""
+    import re as _re
+    try:
+        if not _re.search(r"AVIS\s*STRICT\s*:\s*\w+", content):
+            return
+        if not _re.search(r"HORIZON\s*:", content):
+            return
+        jour = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+        ana_dir = ROOT / "Index_Maison" / "thermo" / "analyses"
+        ana_dir.mkdir(parents=True, exist_ok=True)
+        iso = datetime.now(timezone.utc).isoformat()
+        entree = {
+            "ts": iso,
+            "indice": "chat",
+            "provider": "chat:" + str(provider),
+            "question": (msg or "")[:500],
+            "analyse": "Q: %s\nR: %s" % ((msg or "")[:500], content),
+            "faits_bruts": {"ts": iso},
+        }
+        with (ana_dir / ("chat-%s.jsonl" % jour)).open("a", encoding="utf-8") as f:
+            f.write(json.dumps(entree, ensure_ascii=False) + "\n")
+    except Exception:
+        pass
+
+
+def _chat_jugement_lancer(msg: str, content: str, provider: str) -> None:
+    """Juge IMMÉDIAT de chaque réponse du chat (GO Christophe 17/10) : un pair
+    indépendant (tâche signets.juge) note la réponse en arrière-plan, verdict
+    archivé (type=jugement, visible onglet VOL). Fail-open : le chat ne
+    ralentit jamais."""
+    def _run():
+        try:
+            import urllib.request as _ur
+            prompt = (
+                "Tu es le JUGE de la maison ACE777. Relis cette réponse de Cortana "
+                "à la question de Christophe.\n\nQUESTION : %s\n\nRÉPONSE : %s\n\n" % (msg[:800], content[:2500])
+                + "Vérifie : 1) structure FAITS/LECTURE/AVIS STRICT/HORIZON/CONFIANCE présente ? "
+                "2) si un actif est cité, son setup Hulk est-il utilisé (pas de généralités) ? "
+                "3) avis tranché ou neutre stérile ? "
+                "Réponds en 2 lignes max : VERDICT: GO / SOUS CONDITION / NON + 1 phrase de motif."
+            )
+            payload = {
+                "task": "signets.juge",
+                "messages": [{"role": "user", "content": prompt}],
+                "max_tokens": 200,
+                "temperature": 0.2,
+            }
+            req = _ur.Request(
+                "http://127.0.0.1:11435/v1/chat/completions",
+                data=json.dumps(payload).encode("utf-8"),
+                headers={"Content-Type": "application/json"},
+            )
+            with _ur.urlopen(req, timeout=120) as resp:
+                data = json.load(resp)
+            verdict = data["choices"][0]["message"]["content"].strip()
+            juge = data.get("provider", "?")
+        except Exception as e:
+            verdict = "(juge injoignable: %s)" % str(e)[:100]
+            juge = "?"
+        _chat_archive_append({
+            "ts": time.time(),
+            "ts_iso": datetime.now(timezone.utc).isoformat(),
+            "type": "jugement",
+            "question": (msg or "")[:300],
+            "verdict": verdict,
+            "provider": str(provider),
+            "juge": str(juge),
+        })
+
+    threading.Thread(target=_run, daemon=True).start()
 
 
 def _speak_texte(texte: str) -> None:

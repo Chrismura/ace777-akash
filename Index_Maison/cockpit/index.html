@@ -4,7 +4,7 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<meta name="version" content="902414668">
+<meta name="version" content="1705903903">
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate" />
@@ -13,13 +13,13 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Share+Tech+Mono&family=Caveat:wght@600;700&display=swap" rel="stylesheet" />
-<script src="mission.js?v=1792243121"></script>
+<script src="mission.js?v=1792246742"></script>
 <!-- COSMOS HUB feed -->
-<script src="hub.js?v=1792243121"></script>
-<script src="../thermo/live.js?v=1792243121"></script>
-<script src="../thermo/cortana_feed.js?v=1792243121"></script>
-<script src="sante_live.js?v=1792243121"></script>
-<script src="veille_institutionnelle.js?v=1792243121"></script>
+<script src="hub.js?v=1792246742"></script>
+<script src="../thermo/live.js?v=1792246742"></script>
+<script src="../thermo/cortana_feed.js?v=1792246742"></script>
+<script src="sante_live.js?v=1792246742"></script>
+<script src="veille_institutionnelle.js?v=1792246742"></script>
 <style>
 :root{
   --ink:#050804; --panel:#0a100c; --line:#3a2e14;
@@ -1188,7 +1188,7 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
     50% { opacity: 1; }
 }
 </style>
-<script src="plancher_live.js?v=1792243121"></script>
+<script src="plancher_live.js?v=1792246742"></script>
 </head>
 <body>
 <div class="app">
@@ -4097,30 +4097,49 @@ window.addEventListener('unhandledrejection', function(e) {
     let modeCerebral=false;
     cereb?.addEventListener('click', ()=>{ modeCerebral=!modeCerebral; cereb.classList.toggle('on',modeCerebral); });
     clear?.addEventListener('click', ()=>{ fil=[]; sauve(); hist.innerHTML=''; });
+    // GO 17/10 : relance auto + vrai libellé (pont vs hub). Le trou hub de 15:21 a prouvé que « Pont éteint » mentait.
+    async function postChatVrai(url, body, note){
+      const attentes=[0,5000,20000];
+      let vuHub='';
+      for(let i=0;i<attentes.length;i++){
+        if(attentes[i]){ try{ if(note) note('hub saturé · nouvel essai…'); }catch(e){} await new Promise(function(r){ setTimeout(r,attentes[i]); }); }
+        let r=null, j=null;
+        try{ r=await fetch(url,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body),cache:'no-store'}); }
+        catch(e){ continue; }
+        try{ j=await r.json(); }catch(e){ continue; }
+        if(!j) continue;
+        const txt=j.texte||(j.choices&&j.choices[0]&&j.choices[0].message&&j.choices[0].message.content)||'';
+        if(txt) return {classe:'ok',j:j,txt:txt};
+        const err=String(j.error||'réponse vide');
+        if(/hub|429|50[23]|injoignable|vide|timeout|dépassé|depasse|echoue|failover|bascule/i.test(err)){ vuHub=err; continue; }
+        return {classe:'autre',err:err};
+      }
+      if(vuHub) return {classe:'hub',err:vuHub};
+      return {classe:'pont'};
+    }
     async function envoie(){
       const q=(inp?inp.value:'').trim(); if(!q) return; if(inp) inp.value='';
       ligne('toi',q,'toi · '+heure(),null); fil.push({qui:'toi',txt:q,meta:'toi · '+heure(),cls:null}); sauve();
       const att=ligne('cortana','…','…',null); if(stat) stat.textContent='hub · écrit…';
       const t0=Date.now();
-      try{
-        const url = modeCerebral ? 'http://127.0.0.1:11435/v1/chat/completions' : PONT+'/chat';
-        const body = modeCerebral
-          ? {task:'analyse.profonde', messages:[{role:'user',content:q}], max_tokens:900, temperature:0.2}
-          : {message:q};
-        const r=await fetch(url,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body),cache:'no-store'});
-        const j=await r.json();
-        const txt = j.texte || (j.choices&&j.choices[0]&&j.choices[0].message&&j.choices[0].message.content) || '';
-        const dt=((Date.now()-t0)/1000).toFixed(1)+' s';
-        att.remove();
-        if(txt){
-          const prov=j.provider||j.model||(modeCerebral?'analyse.profonde':'?');
-          const meta='cortana · '+prov+' · '+heure()+' · '+dt;
-          ligne('cortana',txt,meta,null); fil.push({qui:'cortana',txt:txt,meta:meta,cls:null}); sauve();
-          if(stat) stat.textContent='hub · '+prov;
-          if(hint) hint.textContent='dernier '+dt;
-          try{ const b=document.getElementById('cortana-bubble'); if(b) b.textContent=txt; }catch(e){}
-        } else { ligne('cortana','✘ '+(j.error||'réponse vide'),'système · '+heure(),'err'); if(stat) stat.textContent='hub · erreur'; }
-      }catch(e){ att.remove(); ligne('cortana','✘ Pont éteint — chat indisponible','système · '+heure(),'err'); if(stat) stat.textContent='bridge OFF'; }
+      const url = modeCerebral ? 'http://127.0.0.1:11435/v1/chat/completions' : PONT+'/chat';
+      const body = modeCerebral
+        ? {task:'analyse.profonde', messages:[{role:'user',content:q}], max_tokens:900, temperature:0.2}
+        : {message:q};
+      const res=await postChatVrai(url, body, function(t){ try{ att.firstChild.textContent='… '+t; }catch(e){} });
+      const dt=((Date.now()-t0)/1000).toFixed(1)+' s';
+      att.remove();
+      if(res.classe==='ok'){
+        const j=res.j;
+        const prov=j.provider||j.model||(modeCerebral?'analyse.profonde':'?');
+        const meta='cortana · '+prov+' · '+heure()+' · '+dt;
+        ligne('cortana',res.txt,meta,null); fil.push({qui:'cortana',txt:res.txt,meta:meta,cls:null}); sauve();
+        if(stat) stat.textContent='hub · '+prov;
+        if(hint) hint.textContent='dernier '+dt;
+        try{ const b=document.getElementById('cortana-bubble'); if(b) b.textContent=res.txt; }catch(e){}
+      } else if(res.classe==='hub'){ ligne('cortana','✘ Hub saturé — réessaie dans 1 min ('+String(res.err).slice(0,90)+')','système · '+heure(),'err'); if(stat) stat.textContent='hub · saturé'; }
+      else if(res.classe==='pont'){ ligne('cortana','✘ Pont injoignable — vérifie que le pont :17777 tourne','système · '+heure(),'err'); if(stat) stat.textContent='bridge OFF'; }
+      else { ligne('cortana','✘ '+res.err,'système · '+heure(),'err'); if(stat) stat.textContent='hub · erreur'; }
     }
     send?.addEventListener('click', envoie);
     inp?.addEventListener('keydown', e=>{ if(e.key==='Enter') envoie(); });
@@ -5383,19 +5402,35 @@ window.addEventListener('unhandledrejection', function(e) {
       var m=document.createElement('div'); m.className='meta'; m.textContent=meta||''; d.appendChild(m);
       hist.appendChild(d); hist.scrollTop=hist.scrollHeight; return d;
     }
-    async function envoie(){
-      try{
-        var q=(inp.value||'').trim(); if(!q) return; inp.value='';
-        bulle('toi',q,'toi',false);
-        var att=bulle('cortana','…','…',false);
-        if(stat) stat.textContent='hub · écrit…';
-        var r=await fetch(PONT+'/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:q}),cache:'no-store'});
-        var j=await r.json();
+    async function postChatSecours(url, body, note){
+      var attentes=[0,5000,20000], vuHub='', i;
+      for(i=0;i<attentes.length;i++){
+        if(attentes[i]){ try{ if(note) note('hub saturé · nouvel essai…'); }catch(e){} await new Promise(function(r){ setTimeout(r,attentes[i]); }); }
+        var r=null, j=null;
+        try{ r=await fetch(url,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body),cache:'no-store'}); }
+        catch(e){ continue; }
+        try{ j=await r.json(); }catch(e){ continue; }
+        if(!j) continue;
         var txt=j.texte||'';
-        att.remove();
-        if(txt){ bulle('cortana',txt,'cortana · '+new Date().toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit'}),false); if(stat) stat.textContent='hub · OK'; }
-        else bulle('cortana','✘ '+(j.error||'réponse vide'),'système',true);
-      }catch(e){ try{bulle('cortana','✘ Pont éteint — '+(e&&e.message||e),'système',true);}catch(_){} if(stat) stat.textContent='bridge OFF'; }
+        if(txt) return {classe:'ok',j:j,txt:txt};
+        var err=String(j.error||'réponse vide');
+        if(/hub|429|50[23]|injoignable|vide|timeout|dépassé|depasse|echoue|failover|bascule/i.test(err)){ vuHub=err; continue; }
+        return {classe:'autre',err:err};
+      }
+      if(vuHub) return {classe:'hub',err:vuHub};
+      return {classe:'pont'};
+    }
+    async function envoie(){
+      var q=(inp.value||'').trim(); if(!q) return; inp.value='';
+      bulle('toi',q,'toi',false);
+      var att=bulle('cortana','…','…',false);
+      if(stat) stat.textContent='hub · écrit…';
+      var res=await postChatSecours(PONT+'/chat',{message:q},function(t){ try{ att.firstChild.textContent='… '+t; }catch(e){} });
+      try{ att.remove(); }catch(e){}
+      if(res.classe==='ok'){ bulle('cortana',res.txt,'cortana · '+new Date().toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit'}),false); if(stat) stat.textContent='hub · OK'; }
+      else if(res.classe==='hub'){ bulle('cortana','✘ Hub saturé — réessaie dans 1 min ('+String(res.err).slice(0,90)+')','système',true); if(stat) stat.textContent='hub · saturé'; }
+      else if(res.classe==='pont'){ bulle('cortana','✘ Pont injoignable — vérifie que le pont :17777 tourne','système',true); if(stat) stat.textContent='bridge OFF'; }
+      else { bulle('cortana','✘ '+res.err,'système',true); if(stat) stat.textContent='hub · erreur'; }
     }
     send.addEventListener('click',function(ev){ ev.preventDefault(); envoie(); });
     inp.addEventListener('keydown',function(e){ if(e.key==='Enter'){ e.preventDefault(); envoie(); } });
