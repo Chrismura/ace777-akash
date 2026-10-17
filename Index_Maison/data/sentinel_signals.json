@@ -2,20 +2,6 @@
   "signals": [
     {
       "metric": "fear_greed",
-      "zscore": -2.796477949950354,
-      "value": 55,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-2.80) malgré un sentiment neutre (55) et un vide médiatique total : les baleines accumulent en silence loin du radar public.\"\n}\n```",
-      "ts": "2026-10-17T00:04:35.253316+00:00"
-    },
-    {
-      "metric": "whale_usd",
-      "zscore": 12.183333104009348,
-      "value": 20235371.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 95,\n  \"reason\": \"Z-score massif de 12.18 (flux >20M$) couplé à un vide absolu dans les gros titres médiatiques. C'est l'indice text book d'accumulation furtive par des institutionnels hors des radars grand public.\"\n}\n```",
-      "ts": "2026-10-17T00:19:38.930078+00:00"
-    },
-    {
-      "metric": "fear_greed",
       "zscore": -2.9682941601166526,
       "value": 55,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-2.97) pour un indice de peur/avidité neutre (55) indique un vide médiatique total. Les baleines accumulent dans l'indifférence générale des médias, préfigurant un mouvement haussier furtif.\"\n}\n```",
@@ -349,6 +335,20 @@
       "value": 3218342348.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Bruit de fond total : les titres médiatiques parlent d'éducation, de voitures, de pétrole et de groseilles, sans aucun rapport avec la crypto ou l'anomalie de volume détectée.\"\n}\n```",
       "ts": "2026-10-17T20:15:04.318673+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": -2.2136820486316777,
+      "value": 3128221127.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Bruit de fond macro/divers sans lien avec la crypto. Les titres médiatiques concernent l'éducation, le pétrole, l'automobile et l'agriculture. Aucune corrélation onchain exploitable.\"\n}\n```",
+      "ts": "2026-10-17T20:45:10.520582+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": -2.585582503597943,
+      "value": 971324.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie on-chain avec un Z-score très bas (-2.59) couplé à une absence totale de panique réelle dans les médias crypto (bruit médiatique parasité par des faits divers et de la macroéconomie traditionnelle). Divergence classique de purge des positions vendeuses : accumulation silencieuse des baleines.\"\n}\n```",
+      "ts": "2026-10-17T20:55:13.486647+00:00"
     }
   ]
 }
