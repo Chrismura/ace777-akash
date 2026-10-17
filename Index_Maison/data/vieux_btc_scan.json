@@ -1,11 +1,27 @@
 {
-  "ts": "2026-10-16T23:15:43Z",
-  "hauteur_tip": 971779,
+  "ts": "2026-10-17T01:38:12Z",
+  "hauteur_tip": 971790,
   "nb_blocs": 8,
   "seuil_btc": 50.0,
   "min_age_ans": 2.0,
-  "nb_grosses_tx": 73,
-  "nb_vieux_mouvements": 0,
-  "vieux_mouvements": [],
+  "nb_grosses_tx": 108,
+  "nb_vieux_mouvements": 1,
+  "vieux_mouvements": [
+    {
+      "txid": "824d003958e93fa6869540ddf3b9dd5f44f0ecb3de1519b813f0ea308c752c2d",
+      "hauteur_bloc": 971787,
+      "ts_bloc": 1792200323,
+      "btc": 50.55,
+      "inputs_ages": [
+        {
+          "age_jours": 2855.9,
+          "btc": 50.5455
+        }
+      ],
+      "age_max_jours": 2855.9,
+      "age_max_ans": 7.8,
+      "inputs_non_resolus": 0
+    }
+  ],
   "note": "age_max = âge du plus vieil input (TOUS inputs, retry+cache, correction 13/09). inputs_ages=null = inputs non résolus — jamais comptés comme 0.0"
 }

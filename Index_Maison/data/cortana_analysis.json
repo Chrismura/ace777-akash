@@ -1,42 +1,36 @@
 {
-  "timestamp": 1792194437,
-  "date": "2026-10-16T23:47:17.506514+00:00",
+  "timestamp": 1792205546,
+  "date": "2026-10-17T02:52:26.465743+00:00",
   "n_analyses": 1,
   "analyses": [
     {
       "signal": {
-        "metric": "whale_usd",
-        "zscore": 2.818712832835237,
-        "value": 5151214.0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Activité anormale des baleines (z-score 2.82, accumulation de ~5.15M USD) en l'absence totale de couverture médiatique (silence radio sur Google Actualités). C'est le profil classique d'une accumulation furtive avant un mouvement de marché inattendu.\"\n}\n```",
-        "ts": 1792193967.733996
+        "metric": "fear_greed",
+        "zscore": -2.879292027677144,
+        "value": 55,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement négatif (-2.88) malgré un indice neutre (55) et un silence médiatique total. Absence de bruit de fond : accumulation invisible des baleines en zone de sous-radar.\"\n}\n```",
+        "ts": 1792204835.133442
       },
-      "fiche": "whale_usd",
+      "fiche": "fear_greed",
       "questions": {
-        "ventes": {
-          "value": 0.0,
-          "seuil": 0,
-          "depasse": false
-        },
-        "achats": {
-          "value": 2311766.0,
-          "seuil": 0,
+        "peur": {
+          "value": 55,
+          "seuil": 25,
           "depasse": true
         },
-        "prix": {
-          "value": -0.2,
-          "seuil": 1,
+        "cupidite": {
+          "value": 55,
+          "seuil": 75,
           "depasse": false
         }
       },
       "interpretation": {
-        "condition": "achats > ventes",
-        "lecture": "Flux baleines ACHETEUR dominant — accumulation possible, à confirmer sur plusieurs scans",
-        "niveau": "info",
-        "action": "Observer, ne pas acheter sur un seul signal"
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
       },
-      "action": "Observer, ne pas acheter sur un seul signal",
-      "niveau": "info"
+      "action": "Observer",
+      "niveau": "neutre"
     }
   ],
   "resume": "🔵 CALME — pas de signal alarmant"
