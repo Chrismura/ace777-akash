@@ -2,20 +2,6 @@
   "signals": [
     {
       "metric": "fear_greed",
-      "zscore": 2.258149706686327,
-      "value": 63,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Indice de peur et de cupidité à 63 (cupidité modérée, z-score élevé de 2.26) mais absence totale de titres médiatiques dans le flux Google Actualités. Cette absence de couverture malgré un sentiment de marché élevé indique une phase de transition silencieuse ou un manque d'attention publique, ne permettant pas de valider une divergence claire de accumulation/distribution par les baleines.\"\n}\n```",
-      "ts": "2026-10-16T00:37:15.157045+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.053490018733663,
-      "value": 1.231,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.05) due à une confusion de ticker (IPT = IMPACT Silver Corp. sur les marchés traditionnels). Aucun mouvement crypto significatif détecté, le bruit médiatique concerne l'actualité générale et minière.\"\n}\n```",
-      "ts": "2026-10-16T00:57:21.189852+00:00"
-    },
-    {
-      "metric": "fear_greed",
       "zscore": 2.2255291384630116,
       "value": 63,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Indice de peur et de cupidité modéré (63) sans données de flux on-chain ou de titres médiatiques significatifs pour détecter une divergence de baleines.\"\n}\n```",
@@ -349,6 +335,20 @@
       "value": 55,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le sentiment est neutre (55) avec un z-score fortement négatif (-2.06) et un vide médiatique total. Cette indifférence publique combinée à une anomalie statistique indique une accumulation silencieuse des baleines loin des radars.\"\n}\n```",
       "ts": "2026-10-17T04:41:18.762273+00:00"
+    },
+    {
+      "metric": "cpfp",
+      "zscore": 2.047964608060483,
+      "value": 50.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Le pic de CPFP (z-score 2.05) détecté onchain correspond à du bruit médiatique sans rapport avec une accumulation ou distribution de baleines, les résultats renvoyant à des tutoriels techniques Bitcoin génériques et des actualités locales sans lien financier.\"\n}\n```",
+      "ts": "2026-10-17T05:51:38.219789+00:00"
+    },
+    {
+      "metric": "dust",
+      "zscore": 2.047964608060483,
+      "value": 50.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit de fond onchain sans rapport avec la crypto. Les titres médiatiques font référence à du cinéma, de la musique, de la finance traditionnelle (Dust SA) ou de l'industrie automobile (émissions de poussière). Faux positif absolu.\"\n}\n```",
+      "ts": "2026-10-17T05:51:40.005296+00:00"
     }
   ]
 }

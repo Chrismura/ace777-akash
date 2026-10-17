@@ -1,14 +1,14 @@
-# DISCIPLINE QUOTIDIENNE — 2026-10-16T05:15:29Z
+# DISCIPLINE QUOTIDIENNE — 2026-10-17T05:17:53Z
 
 ## ALERTES
-- 🔴 CORTANA sous 50% (30.1%) — discipline NEUTRE active, à surveiller
+- 🔴 CORTANA sous 50% (28.9%) — discipline NEUTRE active, à surveiller
 - 🔴 DÉRIVE MÉMOIRE : au moins 1 indice INSTABLE — voir DERIVE_MEMOIRE.md
-- 🔴 SEUIL NON RANGÉ : 30 clé(s) décident sans être classées (STOP_AMPLITUDE_MULT, RUNNER_CONSERVATION_FRAC, RUNNER_TRAIL_ARM_MULT, RUNNER_GIVEBACK_FRAC, RUNNER_STOP_MULT, GIVEBACK_AMP_COUPLE_FRAC) — R17 : toute garde se mesure ou se déclare
+- 🔴 SEUIL NON RANGÉ : 32 clé(s) décident sans être classées (STOP_AMPLITUDE_MULT, RUNNER_CONSERVATION_FRAC, RUNNER_TRAIL_ARM_MULT, RUNNER_GIVEBACK_FRAC, RUNNER_STOP_MULT, GIVEBACK_AMP_COUPLE_FRAC) — R17 : toute garde se mesure ou se déclare
 
 ## CORTANA (justesse, 44% = pile-ou-face)
-- Score global : 30.1%
-- Analyses notées : 135/448
-- Par indice : altSeason 1/6; bassine 4/9; btc 3/15; chg24 2/5; croisements 23/71; etfBtcM 1/8; etfEthM 2/9; etfXrpM 2/9; fearGreed 33/92; geopol 9/51; gexPutCall 4/10; indice_onchain 1/8; liq24Usd 3/7; longShort 2/9; oi 0/10; onchain 2/9; pipeline_health 1/4; radar 37/84; rbf 0/4; score 0/8; sdi 2/8; verre 3/12
+- Score global : 28.9%
+- Analyses notées : 133/461
+- Par indice : altSeason 1/6; bassine 4/9; btc 3/16; chg24 2/5; croisements 22/73; etfBtcM 2/9; etfEthM 2/9; etfXrpM 2/9; fearGreed 32/94; geopol 8/51; gexPutCall 4/10; indice_onchain 1/9; liq24Usd 3/7; longShort 1/9; oi 0/11; onchain 2/10; pipeline_health 1/4; radar 38/85; rbf 0/4; score 0/9; sdi 2/9; verre 3/13
 
 ## ADA (zone/voilure vs BTC 24h, v1)
 - Zone-accuracy : None% (0/0)
@@ -27,7 +27,7 @@
 - REGISTRE_ECHECS_ET_ERREURS.md : consulté AVANT de proposer une garde (sinon on repaie).
 
 ## SEUILS FIXES (R17 — la mesure doit décider)
-- 157 clés de config · **29 seuils DÉCIDENT sans mesure** · non classés : 30
+- 160 clés de config · **29 seuils DÉCIDENT sans mesure** · non classés : 32
 - SEUILS_FIXES_DERNIER.md : la liste chiffrée des seuils à passer à la mesure.
 
 ## SORTIE PILOTÉE PAR LA MESURE (GO 3 — suivi en vol)
