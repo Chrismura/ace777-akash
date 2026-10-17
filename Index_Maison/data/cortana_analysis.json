@@ -1,20 +1,20 @@
 {
-  "timestamp": 1792259873,
-  "date": "2026-10-17T17:57:53.478565+00:00",
+  "timestamp": 1792261073,
+  "date": "2026-10-17T18:17:53.887037+00:00",
   "n_analyses": 1,
   "analyses": [
     {
       "signal": {
         "metric": "volume",
-        "zscore": -2.974159689370504,
-        "value": 4468633863.0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit de fond absolu : les titres médiatiques parlent d'éducation, de voitures et de fruits, sans aucun rapport avec la crypto. Le z-score négatif (-2.97) indique une absence totale d'activité onchain pertinente.\"\n}\n```",
-        "ts": 1792259061.711428
+        "zscore": -2.8053659199368983,
+        "value": 4188252208.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique sans rapport avec la crypto (actualités générales, agriculture, électroménager) et volume on-chain statistiquement faible (z-score -2.81). Aucune baleine détectée, simple interférence sémantique du mot 'volume'.\"\n}\n```",
+        "ts": 1792260867.085541
       },
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": 0.14,
+          "value": 0.16,
           "seuil": 1,
           "depasse": false
         },
@@ -24,12 +24,12 @@
           "depasse": false
         },
         "funding": {
-          "value": 2.4e-05,
+          "value": 2.6e-05,
           "seuil": 0.001,
           "depasse": false
         },
         "whales": {
-          "value": 2,
+          "value": 0,
           "seuil": 5,
           "depasse": false
         }

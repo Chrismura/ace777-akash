@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "liquidations",
-      "zscore": 3.5573284041802613,
-      "value": 5626818.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Fausse alerte liée à un biais sémantique. Le z-score élevé et les données on-chain détectent des liquidations de marchés crypto, mais le narratif médiatique analyse des liquidations judiciaires d'entreprises traditionnelles françaises (Fonderie de Bretagne, viticulture). Aucune divergence cachée de baleines, simple bruit de mots-clés.\"\n}\n```",
-      "ts": "2026-10-16T17:26:58.442265+00:00"
-    },
-    {
       "metric": "whale_usd",
       "zscore": 8.122233887912058,
       "value": 9964058.0,
@@ -349,6 +342,13 @@
       "value": 4468633863.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit de fond absolu : les titres médiatiques parlent d'éducation, de voitures et de fruits, sans aucun rapport avec la crypto. Le z-score négatif (-2.97) indique une absence totale d'activité onchain pertinente.\"\n}\n```",
       "ts": "2026-10-17T17:44:21.711428+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": -2.8053659199368983,
+      "value": 4188252208.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique sans rapport avec la crypto (actualités générales, agriculture, électroménager) et volume on-chain statistiquement faible (z-score -2.81). Aucune baleine détectée, simple interférence sémantique du mot 'volume'.\"\n}\n```",
+      "ts": "2026-10-17T18:14:27.085541+00:00"
     }
   ]
 }
