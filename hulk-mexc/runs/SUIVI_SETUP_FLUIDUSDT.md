@@ -51,18 +51,19 @@ Métriques : maison (mur moy/max + régime ; poussière = indicateur PANIER) + p
 | 44 | 2026-10-14T14:34:14Z | 14h | AUTRE | 2.3308 | IMPULSE_WAIT | 10.5276 | None | None | 1.93e-04 | 0.20 | 0.03 | -0.25 | LEADER (stab 1) | prix 2.3308 · poussière(panier) 10.5% · Amihud 1.93e-04 · delta +0.20 |
 | 45 | 2026-10-15T14:35:00Z | 14h | AUTRE | 2.2849 | IMPULSE_WAIT | 100.0 | None | None | 1.46e-04 | -0.13 | 0.57 | 0.59 | POMPE_PIEGE (stab 2) | prix 2.2849 · poussière(panier) 100.0% · Amihud 1.46e-04 · delta -0.13 |
 | 46 | 2026-10-16T14:34:55Z | 14h | AUTRE | 2.272 | COOLING | 6.3967 | None | None | 5.07e-04 | -0.30 | 0.22 | -0.29 | POMPE_PIEGE (stab 6) | prix 2.272 · poussière(panier) 6.4% · Amihud 5.07e-04 · delta -0.30 |
+| 47 | 2026-10-17T14:34:52Z | 14h | AUTRE | 2.2934 | COOLING | 6.4794 | None | None | 6.12e-04 | -0.47 | 0.15 | 0.07 | POMPE_PIEGE (stab 10) | prix 2.2934 · poussière(panier) 6.5% · Amihud 6.12e-04 · delta -0.47 |
 
 ## 🔁 HISTORIQUE DES CYCLES DE L'ACTIF (zigzag ≥ 15 %, log continu du moteur)
 
-_Fenêtre mesurée : du 2026-10-12T10:26:51Z au 2026-10-16T14:34:55Z (13393 points) — archives de rotation incluses._
+_Fenêtre mesurée : du 2026-10-13T10:28:47Z au 2026-10-17T14:34:52Z (14331 points) — archives de rotation incluses._
 
 _Pas encore deux retournements ≥ 15 % dans l'historique mesuré._
 
-**Cycle en cours : pas encore de retournement ≥ 15 % dans la fenêtre** — du plus bas 2026-10-13T00:52:28Z à 2.1324 → 2.272 = **+6.5 %**
+**Cycle en cours : pas encore de retournement ≥ 15 % dans la fenêtre** — du plus bas 2026-10-13T15:50:38Z à 2.2137 → 2.2934 = **+3.6 %**
 
 ## 💰 CE QUE LE MOTEUR A CAPTÉ SUR CET ACTIF
 
-- **Réalisé : -1.53 $** sur 4 entrée(s) / 3 sortie(s) — dernier événement 2026-09-13T03:28:24Z
-- **MFE donné en moyenne : +4.6 pts** par tour (pire tour : +7.1) — le meilleur prix atteint pendant la détention, jamais encaissé
+- **Réalisé : +10.84 $** sur 4 entrée(s) / 4 sortie(s) — dernier événement 2026-10-17T14:01:16Z
+- **MFE donné en moyenne : +9.7 pts** par tour (pire tour : +25.0) — le meilleur prix atteint pendant la détention, jamais encaissé
 
 _Règle : on compare les lignes entre elles (même heure de mesure = comparable). On ne supprime rien._

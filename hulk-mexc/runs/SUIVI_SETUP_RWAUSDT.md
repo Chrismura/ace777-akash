@@ -54,17 +54,19 @@ Métriques : maison (mur moy/max + régime ; poussière = indicateur PANIER) + p
 | 47 | 2026-10-14T14:34:14Z | 14h | AUTRE | 0.001267 | COOLING | 10.5276 | None | None | 7.14e-07 | -0.11 | 0.73 | 0.87 | neutre (stab 0) | prix 0.001267 · poussière(panier) 10.5% · Amihud 7.14e-07 · delta -0.11 |
 | 48 | 2026-10-15T14:35:00Z | 14h | AUTRE | 0.001247 | WATCH | 100.0 | None | None | 7.23e-07 | 0.06 | 0.88 | 0.92 | POMPE_PIEGE (stab 2) | prix 0.001247 · poussière(panier) 100.0% · Amihud 7.23e-07 · delta +0.06 |
 | 49 | 2026-10-16T14:34:55Z | 14h | AUTRE | 0.001267 | WATCH | 6.3967 | None | None | 6.54e-07 | 0.04 | 0.23 | 0.82 | POMPE_PIEGE (stab 6) | prix 0.001267 · poussière(panier) 6.4% · Amihud 6.54e-07 · delta +0.04 |
+| 50 | 2026-10-17T14:34:52Z | 14h | AUTRE | 0.001256 | WATCH | 6.4794 | None | None | 5.20e-07 | 0.10 | 0.21 | 0.42 | POMPE_PIEGE (stab 10) | prix 0.001256 · poussière(panier) 6.5% · Amihud 5.20e-07 · delta +0.10 |
 
 ## 🔁 HISTORIQUE DES CYCLES DE L'ACTIF (zigzag ≥ 15 %, log continu du moteur)
 
-_Fenêtre mesurée : du 2026-10-12T10:26:51Z au 2026-10-16T14:34:55Z (13580 points) — archives de rotation incluses._
+_Fenêtre mesurée : du 2026-10-13T10:28:47Z au 2026-10-17T14:34:52Z (14512 points) — archives de rotation incluses._
 
 _Pas encore deux retournements ≥ 15 % dans l'historique mesuré._
 
-**Cycle en cours : pas encore de retournement ≥ 15 % dans la fenêtre** — du plus bas 2026-10-15T09:18:19Z à 0.001237 → 0.001267 = **+2.4 %**
+**Cycle en cours : pas encore de retournement ≥ 15 % dans la fenêtre** — du plus bas 2026-10-15T09:18:19Z à 0.001237 → 0.001256 = **+1.5 %**
 
 ## 💰 CE QUE LE MOTEUR A CAPTÉ SUR CET ACTIF
 
-- **Réalisé : +0.36 $** sur 1 entrée(s) / 0 sortie(s) — dernier événement 2026-08-31T17:23:24Z
+- **Réalisé : +0.48 $** sur 1 entrée(s) / 1 sortie(s) — dernier événement 2026-10-16T23:55:12Z
+- **MFE donné en moyenne : +3.5 pts** par tour (pire tour : +3.5) — le meilleur prix atteint pendant la détention, jamais encaissé
 
 _Règle : on compare les lignes entre elles (même heure de mesure = comparable). On ne supprime rien._
