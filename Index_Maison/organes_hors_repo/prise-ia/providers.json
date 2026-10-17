@@ -455,6 +455,21 @@
    "note": "17/10 GO3 : teste live OK via cle maison (reponse OK). Integre EN OBSERVATION (hub ne route pas enabled:false). Quota OR 50 req/j partage.",
    "free": true,
    "last_ok_ts": 1792234816.458527
+  },
+  {
+   "id": "tokenrouter-kimi",
+   "name": "TokenRouter (Kimi K3 free)",
+   "kind": "cloud",
+   "base_url": "https://api.tokenrouter.com/v1",
+   "model": "moonshotai/kimi-k3-free",
+   "api_key_env": "TOKENROUTER_API_KEY",
+   "enabled": false,
+   "status": "observation",
+   "order": 32,
+   "timeout": 90,
+   "note": "17/10 GO : cle maison rentree (.env), compte vivant 162 modeles, MAIS kimi-k3-free 503 x2 (surcharge) au test. Observation.",
+   "free": true,
+   "last_ok_ts": 1792236877.132981
   }
  ]
 }

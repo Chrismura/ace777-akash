@@ -2,20 +2,6 @@
   "signals": [
     {
       "metric": "fear_greed",
-      "zscore": 2.1636507459484418,
-      "value": 63,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 75,\n  \"reason\": \"Z-score élevé (2.16) couplé à une cupidité modérée (63) dans un vide médiatique total suggère un piège à liquidité. Les baleines profitent du silence des médias pour distribuer discrètement aux suiveurs de tendance.\"\n}\n```",
-      "ts": "2026-10-16T02:07:36.120682+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": 2.1342625953882988,
-      "value": 63,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.13) combiné à un vide médiatique total (absence de signal sur Google Actualités) : les baleines accumulent ou distribuent en silence dans l'indifférence publique, prélude classique à un piège à liquidité.\"\n}\n```",
-      "ts": "2026-10-16T02:37:41.200368+00:00"
-    },
-    {
-      "metric": "fear_greed",
       "zscore": 2.105830253146511,
       "value": 63,
       "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 82,\n  \"reason\": \"Z-score élevé (2.11) combiné à une absence totale de couverture médiatique (silence radio). Divergence classique de distribution par les baleines : le marché de détail est hors-jeu pendant que les smart money liquident discrètement dans l'indifférence générale.\"\n}\n```",
@@ -349,6 +335,20 @@
       "value": 1.089,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique non pertinent (baisse d'actifs miniers d'IMPACT Silver, actualités académiques et religieuses sans lien avec la crypto). L'anomalie 'ipt' est un faux positif ou non corrélé aux flux de baleines crypto.\"\n}\n```",
       "ts": "2026-10-17T09:22:24.524059+00:00"
+    },
+    {
+      "metric": "cpfp",
+      "zscore": 2.1290304120527392,
+      "value": 50.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique absolu. Le z-score élevé sur le 'cpfp' (Child-Pays-For-Parent) reflète une congestion technique mineure du réseau Bitcoin ou un homonyme (centre de formation), sans lien avec une accumulation ou une distribution massive par des baleines.\"\n}\n```",
+      "ts": "2026-10-17T11:37:51.214834+00:00"
+    },
+    {
+      "metric": "dust",
+      "zscore": 2.1290304120527392,
+      "value": 50.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique total sans rapport avec la crypto (art, cinéma, finance traditionnelle). L'anomalie onchain (z-score 2.13) sur le token 'Dust' reflète une micro-activité isolée sans validation narrative.\"\n}\n```",
+      "ts": "2026-10-17T11:37:53.030522+00:00"
     }
   ]
 }
