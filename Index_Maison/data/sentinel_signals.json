@@ -1,41 +1,6 @@
 {
   "signals": [
     {
-      "metric": "volume",
-      "zscore": -2.094306402454872,
-      "value": 14276484837.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit de fond absolu : les titres médiatiques parlent d'éducation, de maïs, de pétrole et de Renault, sans aucun rapport avec la crypto ou le volume onchain observé.\"\n}\n```",
-      "ts": "2026-10-16T05:58:21.642370+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": -2.4985220500526113,
-      "value": 13870602213.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie technique due à un faux positif sémantique. Les titres médiatiques traitent de sujets macroéconomiques, automobiles et agricoles sans rapport avec la crypto. Aucune baleine détectée.\"\n}\n```",
-      "ts": "2026-10-16T06:28:51.729293+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": -2.6197413719042064,
-      "value": 13747897899.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Faux positif évident : les titres médiatiques parlent d'éducation, d'agriculture, de pétrole et d'automobiles. Aucune donnée crypto pertinente dans le flux.\"\n}\n```",
-      "ts": "2026-10-16T06:58:58.220705+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": -2.6371201635322277,
-      "value": 13621692020.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit médiatique non pertinent (éducation, météo, pétrole, automobile) sans lien avec la crypto. Le z-score négatif indique une anomalie statistique de volume, mais les données textuelles fournies ne permettent aucune corrélation avec une accumulation ou distribution de baleines.\"\n}\n```",
-      "ts": "2026-10-16T07:29:05.009849+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": -9.134617995569974,
-      "value": 0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Bruit médiatique hors-sujet (éducation, électroménager, agriculture, énergie) sans lien avec la crypto. L'anomalie onchain (volume à zéro absolu) reflète une inactivité totale des baleines, probablement due à un bug de l'oracle, un week-end de purge ou un token mort, et non à une accumulation cachée.\"\n}\n```",
-      "ts": "2026-10-16T09:27:46.123220+00:00"
-    },
-    {
       "metric": "liquidations",
       "zscore": -2.1674084568108216,
       "value": 0,
@@ -349,6 +314,41 @@
       "value": 6552238668.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique due à un bruit de fond sans rapport avec la crypto (bruit médiatique totalement hors-sujet sur les groseilles, les lycées et le pétrole). Aucune baleine détectée.\"\n}\n```",
       "ts": "2026-10-17T15:13:32.420605+00:00"
+    },
+    {
+      "metric": "taker_ratio",
+      "zscore": 2.542331757806733,
+      "value": 1.571,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Un taker_ratio de 1.571 (z-score 2.54) indique une agression massive à l'achat sur les carnets d'ordres par les acheteurs agressifs (smart money/baleines). L'absence totale de couverture médiatique (Google Actualités muet) confirme une accumulation furtive hors du radar retail, typique d'un creux de marché ou d'une cassure imminente.\"\n}\n```",
+      "ts": "2026-10-17T15:38:37.924848+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": -2.9499853331352166,
+      "value": 6280109349.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie technique de volume sur un token non identifié (z-score -2.95) combinée à un bruit médiatique totalement hors sujet (actualité générale, automobile, agriculture). Aucune donnée crypto exploitable.\"\n}\n```",
+      "ts": "2026-10-17T15:43:41.541869+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 2.7790691096018274,
+      "value": 0.616,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Erreur de cible : l'indicateur on-chain analyse des flux crypto, tandis que les titres médiatiques font référence à 'SDI Corporation' (action traditionnelle TWSE:2351) et au syndicat patronal français SDI. Aucune corrélation crypto détectée.\"\n}\n```",
+      "ts": "2026-10-17T15:58:49.304321+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.1610014804530566,
+      "value": 1.06,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.16) sur le ticker IPT capturée par un filtre crypto, mais les titres médiatiques font référence à une société minière (IMPACT Silver) et à des homonymes institutionnels sans lien avec la blockchain. Bruit de fond, pas de mouvement de baleine crypto.\"\n}\n```",
+      "ts": "2026-10-17T15:58:51.020529+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": -2.824364008863333,
+      "value": 6030892916.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Bruit de fond hors-sujet. Les titres médiatiques concernent l'éducation, l'automobile, le pétrole et l'agriculture, sans aucun rapport avec les cryptomonnaies ou une activité de baleine onchain.\"\n}\n```",
+      "ts": "2026-10-17T16:13:54.768647+00:00"
     }
   ]
 }
