@@ -7887,3 +7887,8 @@ Pas d’ordre — confrontation plus tard.
 ### 2026-10-17T22:19:36Z — ALERT auto
 - PYTHUSDT: WATCH_PULLBACK — tension haute + reflux
 (compléter: confirmé ? risque ?)
+
+### 2026-10-18T00:16:01Z — ALERT auto
+- PYTHUSDT: WATCH_PULLBACK — tension haute + reflux
+- EDELUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)

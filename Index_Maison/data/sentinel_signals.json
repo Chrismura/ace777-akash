@@ -1,41 +1,6 @@
 {
   "signals": [
     {
-      "metric": "cpfp",
-      "zscore": 2.047964608060483,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Le pic de CPFP (z-score 2.05) détecté onchain correspond à du bruit médiatique sans rapport avec une accumulation ou distribution de baleines, les résultats renvoyant à des tutoriels techniques Bitcoin génériques et des actualités locales sans lien financier.\"\n}\n```",
-      "ts": "2026-10-17T05:51:38.219789+00:00"
-    },
-    {
-      "metric": "dust",
-      "zscore": 2.047964608060483,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit de fond onchain sans rapport avec la crypto. Les titres médiatiques font référence à du cinéma, de la musique, de la finance traditionnelle (Dust SA) ou de l'industrie automobile (émissions de poussière). Faux positif absolu.\"\n}\n```",
-      "ts": "2026-10-17T05:51:40.005296+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.779173135316406,
-      "value": 1.235,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.78) liée à l'actif traditionnel IMPACT Silver Corp (IPT) ou à du bruit sémantique, sans lien avec une baleine crypto (faos/bruit médiatique intersectoriel).\"\n}\n```",
-      "ts": "2026-10-17T08:02:07.536316+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.136504123769353,
-      "value": 1.089,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique non pertinent (baisse d'actifs miniers d'IMPACT Silver, actualités académiques et religieuses sans lien avec la crypto). L'anomalie 'ipt' est un faux positif ou non corrélé aux flux de baleines crypto.\"\n}\n```",
-      "ts": "2026-10-17T09:22:24.524059+00:00"
-    },
-    {
-      "metric": "cpfp",
-      "zscore": 2.1290304120527392,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique absolu. Le z-score élevé sur le 'cpfp' (Child-Pays-For-Parent) reflète une congestion technique mineure du réseau Bitcoin ou un homonyme (centre de formation), sans lien avec une accumulation ou une distribution massive par des baleines.\"\n}\n```",
-      "ts": "2026-10-17T11:37:51.214834+00:00"
-    },
-    {
       "metric": "dust",
       "zscore": 2.1290304120527392,
       "value": 50.0,
@@ -349,6 +314,41 @@
       "value": 1.744,
       "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Le z-score élevé (2.24) du ratio Long/Short indique une surconcentration extrême des positions acheteuses par les traders particuliers/baleines, typique d'un piège à liquidité. Pendant ce temps, le narratif médiatique grand public fait l'éloge des stratégies long/short et des ETF traditionnels, montrant un décalage classique où le marché est excessivement optimiste juste avant une purge imminente.\"\n}\n```",
       "ts": "2026-10-17T23:41:10.682911+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 4.261662178280689,
+      "value": 6809112.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (Z-score 4.26, ~6.8M USD) sans couverture médiatique significative. Divergence classique de accumulation furtive par les baleines loin du bruit de détail.\"\n}\n```",
+      "ts": "2026-10-18T00:06:14.852011+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 2.711945215557232,
+      "value": 5424442.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 82,\n  \"reason\": \"Anomalie onchain sur SHIB (sorties massives de 32.76B et liquidations ciblées) ignorée par les médias généralistes, qui confondent l'alerte crypto avec des faillites d'entreprises locales traditionnelles. Bruit médiatique total, accumulation silencieuse des baleines.\"\n}\n```",
+      "ts": "2026-10-18T00:06:16.435122+00:00"
+    },
+    {
+      "metric": "taker_ratio",
+      "zscore": 2.0464884248879556,
+      "value": 1.399,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio élevé (z-score 2.05) indique une forte agression acheteuse sur les carnets d'ordres, tandis que les médias traditionnels affichent un vide informationnel (silence radio). Cette divergence classique montre une accumulation discrète des baleines loin du bruit médiatique de masse.\"\n}\n```",
+      "ts": "2026-10-18T00:06:17.738019+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -4.30905375353697,
+      "value": 53,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Anomalie statistique majeure (z-score -4.31) avec un sentiment neutre (53) et un silence médiatique absolu (Google Actualités vide). Indique une accumulation furtive des baleines loin du radar public.\"\n}\n```",
+      "ts": "2026-10-18T00:06:18.941062+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": 2.3929022772380266,
+      "value": 1.748,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.39) et ratio long/short à 1.748 indiquent un posicionnement massivement acheteur de la foule. Les médias grand public banalisent et encouragent les stratégies long/short sans voir le piège de liquidité. Classique configuration de 'crowded trade' propice à un short squeeze inversé (chasse aux longs par les baleines).\"\n}\n```",
+      "ts": "2026-10-18T00:11:20.992104+00:00"
     }
   ]
 }
