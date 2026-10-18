@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-18T17:04:51.329278+00:00",
+  "generated_at": "2026-10-18T17:05:51.943222+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 138
+      "calls_24h": 139
     },
     {
       "id": "openrouter-free",
@@ -319,10 +319,18 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 100,
-    "remaining": 524
+    "consumed": 101,
+    "remaining": 523
   },
   "queue": [
+    {
+      "ts": "2026-10-18T17:05:23.763857+00:00",
+      "task": "supervise.decision",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 1.48
+    },
     {
       "ts": "2026-10-18T17:03:51.997144+00:00",
       "task": "supervise.decision",
@@ -434,17 +442,15 @@
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
       "duration_s": 1.15
-    },
-    {
-      "ts": "2026-10-18T13:31:13.281815+00:00",
-      "task": "analyse.profonde",
-      "provider": "groq",
-      "model": "qwen/qwen3.8-27b",
-      "kind": "cloud",
-      "duration_s": 0.69
     }
   ],
   "events": [
+    {
+      "ts": "2026-10-18T17:05:23.763054+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
     {
       "ts": "2026-10-18T17:03:51.996175+00:00",
       "kind": "message",
@@ -497,12 +503,6 @@
       "ts": "2026-10-18T17:01:40.111517+00:00",
       "kind": "failover",
       "title": "Bascule depuis Mistral La Plateforme (essai gratuit)",
-      "detail": "HTTP Error 400: Bad Request"
-    },
-    {
-      "ts": "2026-10-18T17:01:38.900307+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis Groq (Qwen 3.8 27B, gratuit)",
       "detail": "HTTP Error 400: Bad Request"
     }
   ],
