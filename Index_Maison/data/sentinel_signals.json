@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "volume",
-      "zscore": -2.665111654458641,
-      "value": 5847754735.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit de fond macroéconomique et médiatique sans rapport avec la crypto. Le z-score négatif indique une baisse d'activité on-chain, mais les actualités listées relèvent d'un bruit sémantique (homonymie sur le mot 'volume'). Aucune corrélation avec un mouvement de baleine.\"\n}\n```",
-      "ts": "2026-10-17T16:44:02.299827+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.8155993135426773,
-      "value": 1.227,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Le signal IPT détecté fait référence à IMPACT Silver Corp. (actif traditionnel/equity) et non à une baleine crypto. Les données on-chain ne s'appliquent pas ici, le 'z-score' est un bruit statistique sans lien avec un mouvement de crypto-actifs.\"\n}\n```",
-      "ts": "2026-10-17T16:44:04.378703+00:00"
-    },
-    {
       "metric": "cpfp",
       "zscore": 2.0242515931416283,
       "value": 50.0,
@@ -349,6 +335,20 @@
       "value": 53,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-3.32) malgré un sentiment neutre (53) et un vide médiatique total (Google Actualités muet). Le silence des médias combiné à une anomalie statistique onchain indique une accumulation furtive des baleines loin du radar public.\"\n}\n```",
       "ts": "2026-10-18T02:06:54.607096+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 4.285123488467454,
+      "value": 4570845.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Activité anormale des baleines (Z-score 4.29, ~4.57M USD) dans le silence médiatique total (Google Actualités vide). Classique accumulation furtive hors des radars grand public avant un mouvement de marché.\"\n}\n```",
+      "ts": "2026-10-18T02:37:00.256470+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -2.9325756597230344,
+      "value": 53,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 40,\n  \"reason\": \"Indice de peur et d'avarice neutre (53) avec un z-score fortement négatif (-2.93) indiquant une anomalie statistique de volatilité, mais absence totale de signal médiatique exploitable (flux Google Actualités vide). Données insuffisantes pour confirmer une accumulation ou une distribution silencieuse des baleines.\"\n}\n```",
+      "ts": "2026-10-18T02:37:01.740302+00:00"
     }
   ]
 }
