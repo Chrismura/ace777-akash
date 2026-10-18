@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "ipt",
-      "zscore": 2.7707883908484665,
-      "value": 1.238,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.77) sur 'ipt' alimentée par du bruit médiatique hétérogène (actions minières, actualités académiques, religion). Absence totale de mouvement de baleine crypto pertinent ; 'IPT' est ici un acronyme générique et un ticker boursier traditionnel sans lien avec une baleine Web3.\"\n}\n```",
-      "ts": "2026-10-17T18:39:34.178298+00:00"
-    },
-    {
       "metric": "volume",
       "zscore": -2.597342387979492,
       "value": 4083831283.0,
@@ -349,6 +342,13 @@
       "value": 53,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Indifférence médiatique totale (vide informationnel) couplée à un z-score de peur extrême (-2.08) malgré un marché neutre (53). Comportement classique d'accumulation silencieuse des baleines avant un retournement de tendance.\"\n}\n```",
       "ts": "2026-10-18T04:37:46.462225+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": -2.0745585938731246,
+      "value": 0.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie technique ('ipt = 0.0') non pertinente pour la crypto : confusion avec des titres boursiers traditionnels (IMPACT Silver Corp) et des actualités institutionnelles. Absence de mouvement de baleine crypto avéré.\"\n}\n```",
+      "ts": "2026-10-18T05:28:07.600664+00:00"
     }
   ]
 }
