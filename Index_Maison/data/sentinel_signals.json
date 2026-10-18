@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "sdi",
-      "zscore": 2.561678218278811,
-      "value": 0.616,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (z-score 2.56) sans lien avec la crypto. Les 'baleines' mentionnées concernent des homonymes industriels et médiatiques (SDI Corporation, syndicat SDI), rendant toute analyse onchain non pertinente.\"\n}\n```",
-      "ts": "2026-10-17T18:39:32.273314+00:00"
-    },
-    {
       "metric": "ipt",
       "zscore": 2.7707883908484665,
       "value": 1.238,
@@ -349,6 +342,13 @@
       "value": 53,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Indice de peur et d'avidité neutre (53) combiné à un z-score fortement négatif (-2.24) signalant une volatilité anormale ou un manque de données significatives dans les flux médiatiques. Absence de mouvement directionnel clair des baleines.\"\n}\n```",
       "ts": "2026-10-18T04:07:39.822225+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -2.0816659994661326,
+      "value": 53,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Indifférence médiatique totale (vide informationnel) couplée à un z-score de peur extrême (-2.08) malgré un marché neutre (53). Comportement classique d'accumulation silencieuse des baleines avant un retournement de tendance.\"\n}\n```",
+      "ts": "2026-10-18T04:37:46.462225+00:00"
     }
   ]
 }
