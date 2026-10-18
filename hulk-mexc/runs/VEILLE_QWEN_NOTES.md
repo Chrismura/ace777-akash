@@ -7910,3 +7910,8 @@ Pas d’ordre — confrontation plus tard.
 - WAXLUSDT: WATCH_PULLBACK — tension haute + reflux
 - EDELUSDT: WATCH_PULLBACK — tension haute + reflux
 (compléter: confirmé ? risque ?)
+
+### 2026-10-18T13:15:05Z — ALERT auto
+- WAXLUSDT: WATCH_PULLBACK — tension haute + reflux
+- RWAINCUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
