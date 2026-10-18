@@ -1,5 +1,5 @@
 {
-  "ts": "2026-10-18T11:00:58+00:00",
+  "ts": "2026-10-18T12:00:59+00:00",
   "note": "Verdicts MESURÉS à la source (scripts/verdicts_protocoles.py). Chaque protocole porte son critère pré-enregistré : c'est lui qui décide, pas l'impression du moment. Un verdict « IMPOSSIBLE » ou une ligne « alerte » signale un protocole dont le verdict ne peut pas être rendu — c'est une panne de conception, pas une patience.",
   "protocoles": [
     {
@@ -266,7 +266,7 @@
     {
       "protocole": "Radar XRPL gouvernance",
       "critere": "J8 pré-enregistré : (a) ≥ 5 amendements dont le compteur bouge de ≥ 2 votes, OU (b) ≥ 1 activation, OU (c) ≥ 1 amendement mort ; sinon échec",
-      "faits": "692 snapshots · 113 amendements suivis · (a) 5 bougent de ≥ 2 (il en fallait 5) · (b) 3 activation · (c) 0 mort · 3 nouveau(x)",
+      "faits": "693 snapshots · 113 amendements suivis · (a) 5 bougent de ≥ 2 (il en fallait 5) · (b) 3 activation · (c) 0 mort · 3 nouveau(x)",
       "verdict": "SUCCES (critère atteint)",
       "alerte": "",
       "detail": [
@@ -275,11 +275,11 @@
           "delta_votes": 9
         },
         {
-          "amendement": "DynamicMPT",
+          "amendement": "LendingProtocol",
           "delta_votes": 5
         },
         {
-          "amendement": "LendingProtocol",
+          "amendement": "DynamicMPT",
           "delta_votes": 5
         },
         {
@@ -295,11 +295,11 @@
           "delta_votes": -1
         },
         {
-          "amendement": "fixXChainRewardRounding",
+          "amendement": "fixBatchInnerSigs",
           "delta_votes": 0
         },
         {
-          "amendement": "PermissionDelegation",
+          "amendement": "fixXChainRewardRounding",
           "delta_votes": 0
         }
       ]
@@ -307,7 +307,7 @@
     {
       "protocole": "Arbitrage LLM-vs-règle (Cortana)",
       "critere": "la règle maison : < 60 % de justesse micro → confiance faible + 1 alerte/h max. Verdict annoncé 27/09",
-      "faits": "0 alerte(s) microstructure au journal · 0 notée(s) par le juge indépendant · justesse n/d · avis directionnels de Cortana (toutes matières) : 70/124 = 56.5 %",
+      "faits": "0 alerte(s) microstructure au journal · 0 notée(s) par le juge indépendant · justesse n/d · avis directionnels de Cortana (toutes matières) : 77/132 = 58.3 %",
       "verdict": "IMPOSSIBLE (0 cas à juger)",
       "alerte": "le verdict du 27/09 ne pourra PAS être rendu : 0 alerte(s) en 7 jours → 0 cas. Le producteur d'alertes (module microstructure) n'a rien écrit depuis le 09/09 (data/micro_alerts.jsonl = 0 octet) — il faut trancher : module mort, ou rien à alerter ?",
       "detail": [
@@ -330,6 +330,12 @@
           "n": 16
         },
         {
+          "indice": "chat",
+          "directionnels": 5,
+          "corect": 4,
+          "n": 8
+        },
+        {
           "indice": "chg24",
           "directionnels": 3,
           "corect": 2,
@@ -337,9 +343,9 @@
         },
         {
           "indice": "croisements",
-          "directionnels": 33,
-          "corect": 20,
-          "n": 74
+          "directionnels": 36,
+          "corect": 23,
+          "n": 77
         },
         {
           "indice": "etfBtcM",
@@ -364,12 +370,6 @@
           "directionnels": 1,
           "corect": 1,
           "n": 11
-        },
-        {
-          "indice": "indice_onchain",
-          "directionnels": 1,
-          "corect": null,
-          "n": 9
         }
       ]
     },
@@ -386,7 +386,7 @@
           "directionnels": 6,
           "corrects": 2,
           "neutres": 47,
-          "t_stat": -4.53
+          "t_stat": -5.08
         }
       ]
     },

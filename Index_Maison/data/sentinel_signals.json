@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "volume",
-      "zscore": -2.339656554687166,
-      "value": 3218342348.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Bruit de fond total : les titres médiatiques parlent d'éducation, de voitures, de pétrole et de groseilles, sans aucun rapport avec la crypto ou l'anomalie de volume détectée.\"\n}\n```",
-      "ts": "2026-10-17T20:15:04.318673+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": -2.2136820486316777,
-      "value": 3128221127.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Bruit de fond macro/divers sans lien avec la crypto. Les titres médiatiques concernent l'éducation, le pétrole, l'automobile et l'agriculture. Aucune corrélation onchain exploitable.\"\n}\n```",
-      "ts": "2026-10-17T20:45:10.520582+00:00"
-    },
-    {
       "metric": "liquidations",
       "zscore": -2.585582503597943,
       "value": 971324.0,
@@ -349,6 +335,20 @@
       "value": 1.667,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le z-score extrêmement bas (-2.02) indique une capitulation des positions acheteuses de détail ou une sous-exposition massive, contredisant le narratif médiatique classique sur les fonds long/short traditionnels. Historiquement, un tel désengagement des suiveurs de tendance précède un retournement haussier impulsé par l'accumulation silencieuse des baleines.\"\n}\n```",
       "ts": "2026-10-18T10:10:33.001351+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": -3.2327613518790854,
+      "value": 1.633,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Z-score extrêmement bas (-3.23) couplé à un ratio L/S de 1.633 indiquant une capitulation massive des suiveurs de tendance. Les médias grand public banalisent la stratégie long/short traditionnelle pendant que les baleines accumulent dans l'ombre au plus bas de la volatilité.\"\n}\n```",
+      "ts": "2026-10-18T11:05:42.815273+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": -2.8716113549238145,
+      "value": 1.633,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-2.87) sur le ratio long/short indiquant un capitulation de détail ou une position vendeuse extrême. Le narratif médiatique grand public discute abstraitement des stratégies long/short macro, totalement déconnecté du positionnement agressif des baleines qui accumulent en silence dans la zone de survente.\"\n}\n```",
+      "ts": "2026-10-18T11:35:48.090872+00:00"
     }
   ]
 }

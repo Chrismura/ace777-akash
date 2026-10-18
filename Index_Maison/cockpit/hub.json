@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-18T11:01:09.171909+00:00",
+  "generated_at": "2026-10-18T12:01:23.649176+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 175
+      "calls_24h": 180
     },
     {
       "id": "openrouter-free",
@@ -319,10 +319,90 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 68,
-    "remaining": 556
+    "consumed": 78,
+    "remaining": 546
   },
   "queue": [
+    {
+      "ts": "2026-10-18T12:00:54.870282+00:00",
+      "task": "supervise.decision",
+      "provider": "groq",
+      "model": "qwen/qwen3.8-27b",
+      "kind": "cloud",
+      "duration_s": 0.62
+    },
+    {
+      "ts": "2026-10-18T11:42:54.886135+00:00",
+      "task": "signets.juge",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 1.04
+    },
+    {
+      "ts": "2026-10-18T11:42:53.405161+00:00",
+      "task": "mission",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 3.34
+    },
+    {
+      "ts": "2026-10-18T11:38:21.963540+00:00",
+      "task": "signets.juge",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 2.19
+    },
+    {
+      "ts": "2026-10-18T11:38:19.260359+00:00",
+      "task": "mission",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 2.77
+    },
+    {
+      "ts": "2026-10-18T11:35:48.089926+00:00",
+      "task": "analyse.profonde",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 1.27
+    },
+    {
+      "ts": "2026-10-18T11:33:30.123428+00:00",
+      "task": "analyste.strategie",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 11.57
+    },
+    {
+      "ts": "2026-10-18T11:33:18.490071+00:00",
+      "task": "analyste.strategie",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 7.17
+    },
+    {
+      "ts": "2026-10-18T11:33:11.292909+00:00",
+      "task": "analyste.strategie",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 8.03
+    },
+    {
+      "ts": "2026-10-18T11:05:42.813699+00:00",
+      "task": "analyse.profonde",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 1.23
+    },
     {
       "ts": "2026-10-18T11:00:53.805838+00:00",
       "task": "supervise.decision",
@@ -362,148 +442,68 @@
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
       "duration_s": 1.7
-    },
-    {
-      "ts": "2026-10-18T10:00:51.549768+00:00",
-      "task": "supervise.decision",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 1.69
-    },
-    {
-      "ts": "2026-10-18T08:14:21.148061+00:00",
-      "task": "analyse.profonde",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 3.14
-    },
-    {
-      "ts": "2026-10-18T07:33:46.920334+00:00",
-      "task": "analyse.profonde",
-      "provider": "mistral",
-      "model": "codestral-latest",
-      "kind": "cloud",
-      "duration_s": 3.49
-    },
-    {
-      "ts": "2026-10-18T07:29:39.867182+00:00",
-      "task": "supervise.decision",
-      "provider": "mistral",
-      "model": "codestral-latest",
-      "kind": "cloud",
-      "duration_s": 0.96
-    },
-    {
-      "ts": "2026-10-18T07:28:47.190803+00:00",
-      "task": "supervise.decision",
-      "provider": "groq",
-      "model": "qwen/qwen3.8-27b",
-      "kind": "cloud",
-      "duration_s": 0.66
-    },
-    {
-      "ts": "2026-10-18T06:58:35.871330+00:00",
-      "task": "analyse.profonde",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 1.0
-    },
-    {
-      "ts": "2026-10-18T06:33:28.651401+00:00",
-      "task": "analyse.profonde",
-      "provider": "groq",
-      "model": "qwen/qwen3.8-27b",
-      "kind": "cloud",
-      "duration_s": 0.48
-    },
-    {
-      "ts": "2026-10-18T06:31:16.922967+00:00",
-      "task": "cortana.analyse",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 2.18
-    },
-    {
-      "ts": "2026-10-18T06:31:13.449382+00:00",
-      "task": "cortana.analyse",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 2.33
-    },
-    {
-      "ts": "2026-10-18T06:31:06.244727+00:00",
-      "task": "cortana.analyse",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 1.98
     }
   ],
   "events": [
     {
-      "ts": "2026-10-18T11:01:09.043597+00:00",
+      "ts": "2026-10-18T12:01:16.715884+00:00",
+      "kind": "http",
+      "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
+      "detail": ""
+    },
+    {
+      "ts": "2026-10-18T12:01:16.715365+00:00",
+      "kind": "error",
+      "title": "Toutes les IA ont echoue",
+      "detail": "Google Gemini: HTTP Error 429: Too Many Requests | Groq (Qwen 3.8 27B, gratuit): HTTP Error 400: Bad Request | Mistral La Plateforme (essai gratuit): HTTP Error 400: Bad Request | InferX DeepSeek V4 Flash (API gratuite jusqu'au 12/08): HTTP Error 429: Too Many Requests | InferX Qwen3-Coder-Next (code, gratuit jusqu'au 12/08): HTTP Error 429: Too Many Requests | InferX Devstral-2-123B (code): HTTP Error 429: Too Many Requests | Roulement xingchen-agi/xing4.0-29b-a4b:free: Reponse vide"
+    },
+    {
+      "ts": "2026-10-18T12:01:16.714941+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis Roulement xingchen-agi/xing4.0-29b-a4b:free",
+      "detail": "Reponse vide"
+    },
+    {
+      "ts": "2026-10-18T12:01:15.511927+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis InferX Devstral-2-123B (code)",
+      "detail": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "ts": "2026-10-18T12:01:10.053970+00:00",
       "kind": "failover",
       "title": "Bascule depuis InferX Qwen3-Coder-Next (code, gratuit jusqu'au 12/08)",
       "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-10-18T11:01:04.265641+00:00",
+      "ts": "2026-10-18T12:01:04.973290+00:00",
       "kind": "failover",
       "title": "Bascule depuis InferX DeepSeek V4 Flash (API gratuite jusqu'au 12/08)",
       "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-10-18T11:00:59.352836+00:00",
+      "ts": "2026-10-18T12:01:03.707097+00:00",
       "kind": "failover",
       "title": "Bascule depuis Mistral La Plateforme (essai gratuit)",
       "detail": "HTTP Error 400: Bad Request"
     },
     {
-      "ts": "2026-10-18T11:00:57.893320+00:00",
+      "ts": "2026-10-18T12:01:02.174703+00:00",
       "kind": "failover",
       "title": "Bascule depuis Groq (Qwen 3.8 27B, gratuit)",
       "detail": "HTTP Error 400: Bad Request"
     },
     {
-      "ts": "2026-10-18T11:00:53.805569+00:00",
-      "kind": "message",
-      "title": "« Google Gemini » a repondu",
-      "detail": ""
-    },
-    {
-      "ts": "2026-10-18T11:00:53.752553+00:00",
-      "kind": "timeout",
-      "title": "Patience Groq (Qwen 3.8 27B, gratuit) (HTTP 400)",
-      "detail": "HTTP Error 400: Bad Request"
-    },
-    {
-      "ts": "2026-10-18T11:00:53.631912+00:00",
-      "kind": "message",
-      "title": "« Google Gemini » a repondu",
-      "detail": ""
-    },
-    {
-      "ts": "2026-10-18T11:00:52.668828+00:00",
+      "ts": "2026-10-18T12:01:01.374533+00:00",
       "kind": "failover",
-      "title": "Bascule depuis Google Gemini",
+      "title": "Bascule depuis InferX Devstral-2-123B (code)",
       "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-10-18T11:00:52.667905+00:00",
-      "kind": "ratelimit",
-      "title": "429 Google Gemini -> pause 60s + bascule",
-      "detail": ""
-    },
-    {
-      "ts": "2026-10-18T11:00:51.453502+00:00",
-      "kind": "blacklist",
-      "title": "Fin de pause Google Gemini",
-      "detail": "re-essai automatique"
+      "ts": "2026-10-18T12:00:58.063093+00:00",
+      "kind": "timeout",
+      "title": "Patience Groq (Qwen 3.8 27B, gratuit) (HTTP 400)",
+      "detail": "HTTP Error 400: Bad Request"
     }
   ],
   "tasks_quotas": {
