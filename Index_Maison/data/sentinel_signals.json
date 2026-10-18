@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "taker_ratio",
-      "zscore": 2.041310294221346,
-      "value": 1.453,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Taker ratio à 1.453 (z-score 2.04) indique une forte agression acheteuse cachée, totalement absente du radar médiatique (silence radio). Divergence classique d'accumulation furtive par les baleines avant un re-pricing haussier.\"\n}\n```",
-      "ts": "2026-10-17T19:39:54.925690+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": -2.5169860634472774,
-      "value": 3253174482.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie technique de volume sur un actif non identifié (bruit de fond), couplée à des titres médiatiques totalement hors sujet (actualité générale, automobile, agriculture). Aucune corrélation avec une activité de baleine crypto.\"\n}\n```",
-      "ts": "2026-10-17T19:44:57.622693+00:00"
-    },
-    {
       "metric": "volume",
       "zscore": -2.339656554687166,
       "value": 3218342348.0,
@@ -349,6 +335,20 @@
       "value": 1.763,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio à 1.763 (z-score 2.51) indique une forte dominance des acheteurs agressifs (Taker Buy), signalant une accumulation agressive par les baleines. L'absence totale de couverture médiatique (silence radio sur Google Actualités) prouve que ce mouvement se fait sous le radar, loin du FOMO public. C'est un classique 'smart money accumulation'.\"\n}\n```",
       "ts": "2026-10-18T08:14:21.380936+00:00"
+    },
+    {
+      "metric": "taker_ratio",
+      "zscore": 4.1341397347114945,
+      "value": 2.242,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Taker ratio à 2.242 (Z-score 4.13) indique une agression massive des acheteurs sur le carnet d'ordres, totalement ignorée par les médias (silence radio). Accumulation furtive des baleines sous le radar.\"\n}\n```",
+      "ts": "2026-10-18T10:05:29.993724+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": -2.0152038195402726,
+      "value": 1.667,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le z-score extrêmement bas (-2.02) indique une capitulation des positions acheteuses de détail ou une sous-exposition massive, contredisant le narratif médiatique classique sur les fonds long/short traditionnels. Historiquement, un tel désengagement des suiveurs de tendance précède un retournement haussier impulsé par l'accumulation silencieuse des baleines.\"\n}\n```",
+      "ts": "2026-10-18T10:10:33.001351+00:00"
     }
   ]
 }

@@ -1,10 +1,10 @@
 {
-  "ts": "2026-10-18T10:03:25.399042+00:00",
+  "ts": "2026-10-18T11:00:55.340365+00:00",
   "saison": "MOUVEMENT",
   "emoji": "🌀",
   "direction": "long",
-  "bascule": false,
-  "bascule_raison": "",
+  "bascule": true,
+  "bascule_raison": "CALME → MOUVEMENT",
   "alignement": {
     "nb_long": 3,
     "nb_short": 0,
@@ -20,7 +20,7 @@
     "pouls": {
       "direction": "neutre",
       "force": 0,
-      "brut": 9.3e-05
+      "brut": 0.0001
     },
     "bassin": {
       "direction": "long",
@@ -30,23 +30,24 @@
     "vortex": {
       "direction": "long",
       "force": 1,
-      "brut": 0.64
+      "brut": 0.55
     },
     "essaim": {
       "direction": "long",
       "force": 2,
-      "brut": 1.684
+      "brut": 1.667
     },
     "baleines": {
       "direction": "neutre",
       "force": 0,
-      "brut": 0
+      "brut": 1
     }
   },
   "story": [
     "SAISON : MOUVEMENT 🌀 — vortex long, alignement 100%.",
     "Alignement : 3 haussiers / 0 baissiers.",
-    "Le vent se lève (+0.64 % sur 24h) — pas encore un vortex."
+    "Le vent se lève (+0.55 % sur 24h) — pas encore un vortex.",
+    "⚡ BASCULE : CALME → MOUVEMENT — le ciel change, prépare-toi."
   ],
   "sources": [
     "live.json"
